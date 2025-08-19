@@ -1446,7 +1446,7 @@ define ptr @l_Lake_Name_eraseHead(ptr noundef %0) local_unnamed_addr #0 {
 lean_obj_tag.exit:                                ; preds = %4, %7
   %.0.i = phi i32 [ %6, %4 ], [ %9, %7 ]
   switch i32 %.0.i, label %55 [
-    i32 0, label %common.ret68
+    i32 0, label %common.ret74
     i32 1, label %10
   ]
 
@@ -1493,7 +1493,7 @@ lean_obj_tag.exit45:                              ; preds = %lean_inc.exit29, %2
   br i1 %26, label %27, label %35
 
 27:                                               ; preds = %lean_obj_tag.exit45
-  br i1 %.not.i39, label %28, label %common.ret68
+  br i1 %.not.i39, label %28, label %common.ret74
 
 28:                                               ; preds = %27
   %29 = load i32, ptr %0, align 4, !tbaa !4
@@ -1503,15 +1503,15 @@ lean_obj_tag.exit45:                              ; preds = %lean_inc.exit29, %2
 31:                                               ; preds = %28
   %32 = add nsw i32 %29, -1
   store i32 %32, ptr %0, align 4, !tbaa !4
-  br label %common.ret68
+  br label %common.ret74
 
 33:                                               ; preds = %28
   %.not.i = icmp eq i32 %29, 0
-  br i1 %.not.i, label %common.ret68, label %34
+  br i1 %.not.i, label %common.ret74, label %34
 
 34:                                               ; preds = %33
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
-  br label %common.ret68
+  br label %common.ret74
 
 35:                                               ; preds = %lean_obj_tag.exit45
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1560,14 +1560,14 @@ lean_inc.exit28:                                  ; preds = %45, %44, %42, %35
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit31
 
-common.ret68:                                     ; preds = %72, %76, %78, %79, %27, %31, %33, %34, %lean_obj_tag.exit, %lean_dec.exit, %lean_dec.exit31
-  %common.ret68.op = phi ptr [ %54, %lean_dec.exit31 ], [ %99, %lean_dec.exit ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ], [ inttoptr (i64 1 to ptr), %34 ], [ inttoptr (i64 1 to ptr), %33 ], [ inttoptr (i64 1 to ptr), %31 ], [ inttoptr (i64 1 to ptr), %27 ], [ inttoptr (i64 1 to ptr), %79 ], [ inttoptr (i64 1 to ptr), %78 ], [ inttoptr (i64 1 to ptr), %76 ], [ inttoptr (i64 1 to ptr), %72 ]
-  ret ptr %common.ret68.op
+common.ret74:                                     ; preds = %72, %76, %78, %79, %27, %31, %33, %34, %lean_obj_tag.exit, %lean_dec.exit, %lean_dec.exit31
+  %common.ret74.op = phi ptr [ %54, %lean_dec.exit31 ], [ %99, %lean_dec.exit ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ], [ inttoptr (i64 1 to ptr), %34 ], [ inttoptr (i64 1 to ptr), %33 ], [ inttoptr (i64 1 to ptr), %31 ], [ inttoptr (i64 1 to ptr), %27 ], [ inttoptr (i64 1 to ptr), %79 ], [ inttoptr (i64 1 to ptr), %78 ], [ inttoptr (i64 1 to ptr), %76 ], [ inttoptr (i64 1 to ptr), %72 ]
+  ret ptr %common.ret74.op
 
 lean_dec.exit31:                                  ; preds = %52, %51, %49, %lean_inc.exit28
   %53 = tail call ptr @l_Lake_Name_eraseHead(ptr noundef %12)
   %54 = tail call ptr @l_Lean_Name_str___override(ptr noundef %53, ptr noundef %37) #5
-  br label %common.ret68
+  br label %common.ret74
 
 55:                                               ; preds = %lean_obj_tag.exit
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1612,7 +1612,7 @@ lean_obj_tag.exit55:                              ; preds = %lean_inc.exit27, %6
   br i1 %71, label %72, label %80
 
 72:                                               ; preds = %lean_obj_tag.exit55
-  br i1 %.not.i39, label %73, label %common.ret68
+  br i1 %.not.i39, label %73, label %common.ret74
 
 73:                                               ; preds = %72
   %74 = load i32, ptr %0, align 4, !tbaa !4
@@ -1622,15 +1622,15 @@ lean_obj_tag.exit55:                              ; preds = %lean_inc.exit27, %6
 76:                                               ; preds = %73
   %77 = add nsw i32 %74, -1
   store i32 %77, ptr %0, align 4, !tbaa !4
-  br label %common.ret68
+  br label %common.ret74
 
 78:                                               ; preds = %73
   %.not.i35 = icmp eq i32 %74, 0
-  br i1 %.not.i35, label %common.ret68, label %79
+  br i1 %.not.i35, label %common.ret74, label %79
 
 79:                                               ; preds = %78
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
-  br label %common.ret68
+  br label %common.ret74
 
 80:                                               ; preds = %lean_obj_tag.exit55
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1682,7 +1682,7 @@ lean_inc.exit:                                    ; preds = %90, %89, %87, %80
 lean_dec.exit:                                    ; preds = %97, %96, %94, %lean_inc.exit
   %98 = tail call ptr @l_Lake_Name_eraseHead(ptr noundef %57)
   %99 = tail call ptr @l_Lean_Name_num___override(ptr noundef %98, ptr noundef %82) #5
-  br label %common.ret68
+  br label %common.ret74
 }
 
 declare ptr @l_Lean_Name_num___override(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1870,13 +1870,13 @@ l___private_Lake_Util_Name_0__Lean_Name_isAnonymous_match__1_splitter___rarg.exi
   br i1 %32, label %l___private_Lake_Util_Name_0__Lean_Name_isAnonymous_match__1_splitter___rarg.exit.threadthread-pre-split, label %lean_dec.exit
 
 l___private_Lake_Util_Name_0__Lean_Name_isAnonymous_match__1_splitter___rarg.exit.threadthread-pre-split: ; preds = %l___private_Lake_Util_Name_0__Lean_Name_isAnonymous_match__1_splitter___rarg.exit, %30
-  %.0.i11.ph = phi ptr [ %1, %30 ], [ %31, %l___private_Lake_Util_Name_0__Lean_Name_isAnonymous_match__1_splitter___rarg.exit ]
+  %.0.i14.ph = phi ptr [ %1, %30 ], [ %31, %l___private_Lake_Util_Name_0__Lean_Name_isAnonymous_match__1_splitter___rarg.exit ]
   %.pr = load i32, ptr %1, align 4, !tbaa !4
   br label %l___private_Lake_Util_Name_0__Lean_Name_isAnonymous_match__1_splitter___rarg.exit.thread
 
 l___private_Lake_Util_Name_0__Lean_Name_isAnonymous_match__1_splitter___rarg.exit.thread: ; preds = %l___private_Lake_Util_Name_0__Lean_Name_isAnonymous_match__1_splitter___rarg.exit.threadthread-pre-split, %27
   %33 = phi i32 [ %.pr, %l___private_Lake_Util_Name_0__Lean_Name_isAnonymous_match__1_splitter___rarg.exit.threadthread-pre-split ], [ %28, %27 ]
-  %.0.i11 = phi ptr [ %.0.i11.ph, %l___private_Lake_Util_Name_0__Lean_Name_isAnonymous_match__1_splitter___rarg.exit.threadthread-pre-split ], [ %1, %27 ]
+  %.0.i14 = phi ptr [ %.0.i14.ph, %l___private_Lake_Util_Name_0__Lean_Name_isAnonymous_match__1_splitter___rarg.exit.threadthread-pre-split ], [ %1, %27 ]
   %34 = icmp sgt i32 %33, 1
   br i1 %34, label %35, label %37, !prof !14
 
@@ -1894,8 +1894,8 @@ l___private_Lake_Util_Name_0__Lean_Name_isAnonymous_match__1_splitter___rarg.exi
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %29, %lean_dec.exit.i, %38, %37, %35, %l___private_Lake_Util_Name_0__Lean_Name_isAnonymous_match__1_splitter___rarg.exit
-  %.0.i10 = phi ptr [ %.0.i11, %38 ], [ %.0.i11, %37 ], [ %.0.i11, %35 ], [ %31, %l___private_Lake_Util_Name_0__Lean_Name_isAnonymous_match__1_splitter___rarg.exit ], [ %1, %lean_dec.exit.i ], [ %1, %29 ]
-  ret ptr %.0.i10
+  %.0.i13 = phi ptr [ %.0.i14, %38 ], [ %.0.i14, %37 ], [ %.0.i14, %35 ], [ %31, %l___private_Lake_Util_Name_0__Lean_Name_isAnonymous_match__1_splitter___rarg.exit ], [ %1, %lean_dec.exit.i ], [ %1, %29 ]
+  ret ptr %.0.i13
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4158,13 +4158,13 @@ l___private_Lake_Util_Name_0__Lean_Name_cmp_match__1_splitter___rarg.exit: ; pre
   br i1 %36, label %l___private_Lake_Util_Name_0__Lean_Name_cmp_match__1_splitter___rarg.exit.threadthread-pre-split, label %lean_dec.exit
 
 l___private_Lake_Util_Name_0__Lean_Name_cmp_match__1_splitter___rarg.exit.threadthread-pre-split: ; preds = %l___private_Lake_Util_Name_0__Lean_Name_cmp_match__1_splitter___rarg.exit, %32
-  %.0.i16.ph = phi ptr [ %1, %32 ], [ %35, %l___private_Lake_Util_Name_0__Lean_Name_cmp_match__1_splitter___rarg.exit ]
+  %.0.i22.ph = phi ptr [ %1, %32 ], [ %35, %l___private_Lake_Util_Name_0__Lean_Name_cmp_match__1_splitter___rarg.exit ]
   %.pr = load i32, ptr %1, align 4, !tbaa !4
   br label %l___private_Lake_Util_Name_0__Lean_Name_cmp_match__1_splitter___rarg.exit.thread
 
 l___private_Lake_Util_Name_0__Lean_Name_cmp_match__1_splitter___rarg.exit.thread: ; preds = %l___private_Lake_Util_Name_0__Lean_Name_cmp_match__1_splitter___rarg.exit.threadthread-pre-split, %29
   %37 = phi i32 [ %.pr, %l___private_Lake_Util_Name_0__Lean_Name_cmp_match__1_splitter___rarg.exit.threadthread-pre-split ], [ %30, %29 ]
-  %.0.i16 = phi ptr [ %.0.i16.ph, %l___private_Lake_Util_Name_0__Lean_Name_cmp_match__1_splitter___rarg.exit.threadthread-pre-split ], [ %1, %29 ]
+  %.0.i22 = phi ptr [ %.0.i22.ph, %l___private_Lake_Util_Name_0__Lean_Name_cmp_match__1_splitter___rarg.exit.threadthread-pre-split ], [ %1, %29 ]
   %38 = icmp sgt i32 %37, 1
   br i1 %38, label %39, label %41, !prof !15
 
@@ -4182,8 +4182,8 @@ l___private_Lake_Util_Name_0__Lean_Name_cmp_match__1_splitter___rarg.exit.thread
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %31, %lean_dec.exit10.i, %42, %41, %39, %l___private_Lake_Util_Name_0__Lean_Name_cmp_match__1_splitter___rarg.exit
-  %.0.i15 = phi ptr [ %.0.i16, %42 ], [ %.0.i16, %41 ], [ %.0.i16, %39 ], [ %35, %l___private_Lake_Util_Name_0__Lean_Name_cmp_match__1_splitter___rarg.exit ], [ %1, %lean_dec.exit10.i ], [ %1, %31 ]
-  ret ptr %.0.i15
+  %.0.i21 = phi ptr [ %.0.i22, %42 ], [ %.0.i22, %41 ], [ %.0.i22, %39 ], [ %35, %l___private_Lake_Util_Name_0__Lean_Name_cmp_match__1_splitter___rarg.exit ], [ %1, %lean_dec.exit10.i ], [ %1, %31 ]
+  ret ptr %.0.i21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4679,18 +4679,18 @@ _init_l_Lake_OrdNameMap_empty___closed__1.exit:   ; preds = %_init_l_Lake_instCo
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_OrdNameMap_empty___closed__1.exit, %3
-  %.sink33 = phi ptr [ %4, %3 ], [ %75, %_init_l_Lake_OrdNameMap_empty___closed__1.exit ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
-  store i32 1, ptr %.sink33, align 4, !tbaa !4
+  %.sink44 = phi ptr [ %4, %3 ], [ %75, %_init_l_Lake_OrdNameMap_empty___closed__1.exit ]
+  %78 = getelementptr inbounds nuw i8, ptr %.sink44, i64 4
+  store i32 1, ptr %.sink44, align 4, !tbaa !4
   store i32 131096, ptr %78, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.sink44, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %79, align 8, !tbaa !10
-  %80 = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %.sink44, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %80, align 8, !tbaa !10
   br label %81
 
 81:                                               ; preds = %.sink.split, %lean_dec_ref.exit20, %lean_dec_ref.exit18, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit18 ], [ %38, %lean_dec_ref.exit20 ], [ %.sink33, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit18 ], [ %38, %lean_dec_ref.exit20 ], [ %.sink44, %.sink.split ]
   ret ptr %.0
 }
 

@@ -1026,10 +1026,10 @@ define ptr @PKCS7_encrypt_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
   br i1 %.not24, label %25, label %26
 
 .sink.split:                                      ; preds = %.lr.ph, %12
-  %.sink27 = phi i32 [ 445, %12 ], [ 452, %.lr.ph ]
+  %.sink29 = phi i32 [ 445, %12 ], [ 452, %.lr.ph ]
   %.sink = phi i32 [ 121, %12 ], [ 120, %.lr.ph ]
   tail call void @ERR_new() #3
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink27, ptr noundef nonnull @__func__.PKCS7_encrypt_ex) #3
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink29, ptr noundef nonnull @__func__.PKCS7_encrypt_ex) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef %.sink, ptr noundef null) #3
   br label %25
 

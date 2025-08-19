@@ -3102,12 +3102,12 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16BytesChunkBuffer5print17h20328a7
   br i1 %31, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88aa7160074d713E.exit.thread", label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88aa7160074d713E.exit.thread16"
 
 "_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88aa7160074d713E.exit.thread16": ; preds = %28, %30
-  %.sink6.i24 = phi ptr [ %.sroa.10.0, %30 ], [ %.sroa.09.0, %28 ]
+  %.sink9.i24 = phi ptr [ %.sroa.10.0, %30 ], [ %.sroa.09.0, %28 ]
   %.sroa.13.123 = phi ptr [ %.sroa.09.0, %30 ], [ %.sroa.13.0, %28 ]
   %.sroa.10.122 = phi ptr [ %.sroa.09.0, %30 ], [ %.sroa.10.0, %28 ]
   %.sroa.710.121 = phi ptr [ %.sroa.13.0, %30 ], [ %.sroa.710.0, %28 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.sink6.i24, i64 8
-  %33 = load ptr, ptr %.sink6.i24, align 8, !nonnull !9, !align !10, !noundef !9
+  %32 = getelementptr inbounds nuw i8, ptr %.sink9.i24, i64 8
+  %33 = load ptr, ptr %.sink9.i24, align 8, !nonnull !9, !align !10, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !355)
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8192
   %35 = load i64, ptr %34, align 8, !alias.scope !355, !noundef !9
@@ -3232,12 +3232,12 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16BytesChunkBuffer5print17hb525581
   br i1 %33, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88aa7160074d713E.exit.thread", label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88aa7160074d713E.exit.thread19"
 
 "_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88aa7160074d713E.exit.thread19": ; preds = %30, %32
-  %.sink6.i27 = phi ptr [ %.sroa.10.0, %32 ], [ %.sroa.012.0, %30 ]
+  %.sink9.i27 = phi ptr [ %.sroa.10.0, %32 ], [ %.sroa.012.0, %30 ]
   %.sroa.13.126 = phi ptr [ %.sroa.012.0, %32 ], [ %.sroa.13.0, %30 ]
   %.sroa.10.125 = phi ptr [ %.sroa.012.0, %32 ], [ %.sroa.10.0, %30 ]
   %.sroa.713.124 = phi ptr [ %.sroa.13.0, %32 ], [ %.sroa.713.0, %30 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.sink6.i27, i64 8
-  %35 = load ptr, ptr %.sink6.i27, align 8, !nonnull !9, !align !10, !noundef !9
+  %34 = getelementptr inbounds nuw i8, ptr %.sink9.i27, i64 8
+  %35 = load ptr, ptr %.sink9.i27, align 8, !nonnull !9, !align !10, !noundef !9
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8192
   %37 = load i64, ptr %36, align 8, !alias.scope !383, !noundef !9
   %38 = icmp ugt i64 %37, 8192
@@ -4514,12 +4514,12 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16LinesChunkBuffer5print17hf22b216
   br i1 %31, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h232936ee18c22e60E.exit.thread", label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h232936ee18c22e60E.exit.thread18"
 
 "_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h232936ee18c22e60E.exit.thread18": ; preds = %28, %30
-  %.sink6.i26 = phi ptr [ %.sroa.10.0, %30 ], [ %.sroa.011.0, %28 ]
+  %.sink9.i26 = phi ptr [ %.sroa.10.0, %30 ], [ %.sroa.011.0, %28 ]
   %.sroa.13.125 = phi ptr [ %.sroa.011.0, %30 ], [ %.sroa.13.0, %28 ]
   %.sroa.10.124 = phi ptr [ %.sroa.011.0, %30 ], [ %.sroa.10.0, %28 ]
   %.sroa.712.123 = phi ptr [ %.sroa.13.0, %30 ], [ %.sroa.712.0, %28 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.sink6.i26, i64 8
-  %33 = load ptr, ptr %.sink6.i26, align 8, !nonnull !9, !align !10, !noundef !9
+  %32 = getelementptr inbounds nuw i8, ptr %.sink9.i26, i64 8
+  %33 = load ptr, ptr %.sink9.i26, align 8, !nonnull !9, !align !10, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !651)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !654)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !657)

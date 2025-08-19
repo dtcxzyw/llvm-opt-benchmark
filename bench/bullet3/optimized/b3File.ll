@@ -4084,7 +4084,7 @@ define dso_local void @_ZN6bParse5bFile23resolvePointersMismatchEv(ptr noundef n
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %.sroa.0.4..sroa_idx141 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
+  %.sroa.0.4..sroa_idx157 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
   br label %72
 
 34:                                               ; preds = %.lr.ph, %_ZN6bParse5bFile14findLibPointerEPv.exit.thread
@@ -4408,7 +4408,7 @@ _ZN6bParse5bFile14findLibPointerEPv.exit60:       ; preds = %_ZN9b3HashMapI9b3Ha
 
 197:                                              ; preds = %192
   store i32 %193, ptr %.sroa.0, align 8, !tbaa !4
-  store i32 0, ptr %.sroa.0.4..sroa_idx141, align 4, !tbaa !4
+  store i32 0, ptr %.sroa.0.4..sroa_idx157, align 4, !tbaa !4
   br label %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit
 
 198:                                              ; preds = %192
@@ -5225,9 +5225,9 @@ _Z12getCleanNamePKcPc.exit210:                    ; preds = %248, %.critedge
 
 ._crit_edge256:                                   ; preds = %.lr.ph255, %_Z12getCleanNamePKcPc.exit210
   %254 = icmp eq i32 %51, 1
-  br i1 %254, label %.thread314, label %256
+  br i1 %254, label %.thread328, label %256
 
-.thread314:                                       ; preds = %._crit_edge256
+.thread328:                                       ; preds = %._crit_edge256
   %255 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef nonnull %8, ptr noundef nonnull %38)
   br label %.lr.ph259.preheader
 
@@ -5236,7 +5236,7 @@ _Z12getCleanNamePKcPc.exit210:                    ; preds = %248, %.critedge
   %258 = icmp sgt i32 %51, 0
   br i1 %258, label %.lr.ph259.preheader, label %._crit_edge260
 
-.lr.ph259.preheader:                              ; preds = %.thread314, %256
+.lr.ph259.preheader:                              ; preds = %.thread328, %256
   %wide.trip.count299 = zext nneg i32 %51 to i64
   br label %.lr.ph259
 
@@ -5305,9 +5305,9 @@ _Z12getCleanNamePKcPc.exit220:                    ; preds = %272, %._crit_edge24
   %275 = getelementptr inbounds i8, ptr %10, i64 %274
   store i8 0, ptr %275, align 1, !tbaa !4
   %276 = icmp eq i32 %51, 1
-  br i1 %276, label %.thread315, label %278
+  br i1 %276, label %.thread329, label %278
 
-.thread315:                                       ; preds = %_Z12getCleanNamePKcPc.exit220
+.thread329:                                       ; preds = %_Z12getCleanNamePKcPc.exit220
   %277 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef nonnull %42, ptr noundef nonnull %38)
   br label %.lr.ph252.preheader
 
@@ -5316,7 +5316,7 @@ _Z12getCleanNamePKcPc.exit220:                    ; preds = %272, %._crit_edge24
   %280 = icmp sgt i32 %51, 0
   br i1 %280, label %.lr.ph252.preheader, label %._crit_edge253
 
-.lr.ph252.preheader:                              ; preds = %.thread315, %278
+.lr.ph252.preheader:                              ; preds = %.thread329, %278
   %wide.trip.count = zext nneg i32 %51 to i64
   br label %.lr.ph252
 

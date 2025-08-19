@@ -4773,23 +4773,23 @@ indentation.exit:                                 ; preds = %47, %48
   br label %86
 
 86:                                               ; preds = %.thread, %._crit_edge156, %.loopexit
-  %.098189 = phi i64 [ -1, %.thread ], [ %11, %._crit_edge156 ], [ %11, %.loopexit ]
-  %.0100182 = phi ptr [ null, %.thread ], [ %27, %._crit_edge156 ], [ %27, %.loopexit ]
-  %.not120 = icmp eq ptr %.0100182, null
+  %.098197 = phi i64 [ -1, %.thread ], [ %11, %._crit_edge156 ], [ %11, %.loopexit ]
+  %.0100190 = phi ptr [ null, %.thread ], [ %27, %._crit_edge156 ], [ %27, %.loopexit ]
+  %.not120 = icmp eq ptr %.0100190, null
   br i1 %.not120, label %88, label %87
 
 87:                                               ; preds = %86
-  call void @free(ptr noundef nonnull %.0100182) #20
+  call void @free(ptr noundef nonnull %.0100190) #20
   br label %88
 
 88:                                               ; preds = %87, %86
-  %89 = icmp sgt i64 %.098189, -1
+  %89 = icmp sgt i64 %.098197, -1
   br i1 %89, label %.thread141.sink.split, label %.thread141
 
 .thread141.sink.split:                            ; preds = %88, %._crit_edge153
-  %.098189.sink = phi i64 [ %11, %._crit_edge153 ], [ %.098189, %88 ]
+  %.098197.sink = phi i64 [ %11, %._crit_edge153 ], [ %.098197, %88 ]
   %.094.ph = phi ptr [ %71, %._crit_edge153 ], [ null, %88 ]
-  %90 = call i32 @H5Tclose(i64 noundef %.098189.sink) #20
+  %90 = call i32 @H5Tclose(i64 noundef %.098197.sink) #20
   br label %.thread141
 
 .thread141:                                       ; preds = %.thread141.sink.split, %.loopexit.thread, %10, %88

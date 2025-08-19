@@ -892,18 +892,18 @@ _init_l_Lake_instDivFilePath__lake___closed__1.exit: ; preds = %lean_dec_ref.exi
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_instDivFilePath__lake___closed__1.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %31, %_init_l_Lake_instDivFilePath__lake___closed__1.exit ]
-  %34 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !8
+  %.sink13 = phi ptr [ %4, %3 ], [ %31, %_init_l_Lake_instDivFilePath__lake___closed__1.exit ]
+  %34 = getelementptr inbounds nuw i8, ptr %.sink13, i64 4
+  store i32 1, ptr %.sink13, align 4, !tbaa !8
   store i32 131096, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.sink13, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %35, align 8, !tbaa !13
-  %36 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.sink13, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %36, align 8, !tbaa !13
   br label %37
 
 37:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink13, %.sink.split ]
   ret ptr %.0
 }
 

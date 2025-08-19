@@ -201,7 +201,7 @@ define void @_ZN6icu_7721FieldPositionIterator7setDataEPNS_9UVector32ER10UErrorC
 
 .preheader:                                       ; preds = %11
   %13 = icmp sgt i32 %9, 2
-  br i1 %13, label %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph, label %.loopexit.thread34
+  br i1 %13, label %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph, label %.loopexit.thread38
 
 _ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph:   ; preds = %.preheader
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -243,7 +243,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit25:       ; preds = %_ZNK6icu_779UVector
 
 .loopexit:                                        ; preds = %17, %3
   %29 = icmp sgt i32 %4, 0
-  br i1 %29, label %.loopexit.thread, label %.loopexit.thread34
+  br i1 %29, label %.loopexit.thread, label %.loopexit.thread38
 
 .thread:                                          ; preds = %7
   %30 = load ptr, ptr %1, align 8, !tbaa !3
@@ -252,7 +252,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit25:       ; preds = %_ZNK6icu_779UVector
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(32) %1) #8
   %33 = load i32, ptr %2, align 4, !tbaa !14
   %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %.thread30, label %.loopexit.thread34
+  br i1 %34, label %.thread30, label %.loopexit.thread38
 
 .loopexit.thread:                                 ; preds = %28, %.loopexit
   %35 = icmp eq ptr %1, null
@@ -265,21 +265,21 @@ _ZNK6icu_779UVector3210elementAtiEi.exit25:       ; preds = %_ZNK6icu_779UVector
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(32) %1) #8
   br label %.thread30
 
-.loopexit.thread34:                               ; preds = %.preheader, %.thread, %.loopexit
+.loopexit.thread38:                               ; preds = %.preheader, %.thread, %.loopexit
   %.01928 = phi ptr [ null, %.thread ], [ %1, %.loopexit ], [ %1, %.preheader ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !6
   %42 = icmp eq ptr %41, null
   br i1 %42, label %47, label %43
 
-43:                                               ; preds = %.loopexit.thread34
+43:                                               ; preds = %.loopexit.thread38
   %44 = load ptr, ptr %41, align 8, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(32) %41) #8
   br label %47
 
-47:                                               ; preds = %43, %.loopexit.thread34
+47:                                               ; preds = %43, %.loopexit.thread38
   store ptr %.01928, ptr %40, align 8, !tbaa !6
   %48 = icmp eq ptr %.01928, null
   %49 = sext i1 %48 to i32

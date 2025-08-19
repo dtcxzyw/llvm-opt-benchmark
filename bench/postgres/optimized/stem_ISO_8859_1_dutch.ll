@@ -59,7 +59,7 @@ target triple = "x86_64-pc-linux-gnu"
 @a_1 = internal constant [3 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 0, [4 x i8] zeroinitializer, ptr null, i32 -1, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_1_1, i32 0, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_1_2, i32 0, i32 1, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dutch_ISO_8859_1_stem(ptr noundef initializes((20, 24)) %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @dutch_ISO_8859_1_stem(ptr noundef initializes((20, 24)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -192,7 +192,7 @@ split.i:                                          ; preds = %39, %._crit_edge218
   br label %.preheader.i.outer
 
 .preheader.i.outer:                               ; preds = %.preheader.i.preheader, %85
-  %.ph109 = phi i32 [ %.ph, %.preheader.i.preheader ], [ %86, %85 ]
+  %.ph158 = phi i32 [ %.ph, %.preheader.i.preheader ], [ %86, %85 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.outer, %select.unfold171.i
@@ -256,16 +256,16 @@ split.i:                                          ; preds = %39, %._crit_edge218
 
 83:                                               ; preds = %74, %71, %.preheader.i
   %84 = phi i32 [ %72, %74 ], [ %58, %71 ], [ %.pre223.i, %.preheader.i ]
-  %.not152.i = icmp slt i32 %.ph109, %84
+  %.not152.i = icmp slt i32 %.ph158, %84
   br i1 %.not152.i, label %85, label %87
 
 85:                                               ; preds = %83
-  %86 = add nsw i32 %.ph109, 1
+  %86 = add nsw i32 %.ph158, 1
   store i32 %86, ptr %2, align 8
   br label %.preheader.i.outer
 
 select.unfold171.i:                               ; preds = %79, %68
-  store i32 %.ph109, ptr %2, align 8
+  store i32 %.ph158, ptr %2, align 8
   br label %.preheader.i
 
 87:                                               ; preds = %83

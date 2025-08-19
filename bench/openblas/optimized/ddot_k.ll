@@ -187,8 +187,8 @@ ddot_kernel_8.exit:                               ; preds = %.lr.ph88.i, %._crit
 
 86:                                               ; preds = %ddot_kernel_8.exit, %10
   %.081 = phi double [ 0.000000e+00, %10 ], [ %85, %ddot_kernel_8.exit ]
-  %.not144 = icmp eq i64 %11, %0
-  br i1 %.not144, label %.loopexit, label %.lr.ph108
+  %.not147 = icmp eq i64 %11, %0
+  br i1 %.not147, label %.loopexit, label %.lr.ph108
 
 .lr.ph108:                                        ; preds = %86, %.lr.ph108
   %.067106 = phi i64 [ %92, %.lr.ph108 ], [ %11, %86 ]

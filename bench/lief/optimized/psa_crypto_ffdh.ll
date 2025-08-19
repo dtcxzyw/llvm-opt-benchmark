@@ -62,22 +62,22 @@ define hidden i32 @mbedtls_psa_ffdh_export_public_key(ptr noundef readonly captu
   %switch.maskindex = trunc i64 %26 to i8
   %switch.shifted = lshr i8 87, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond53 = select i1 %27, i1 %switch.lobit, i1 false
-  br i1 %or.cond53, label %switch.lookup, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread46
+  %or.cond61 = select i1 %27, i1 %switch.lobit, i1 false
+  br i1 %or.cond61, label %switch.lookup, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread46
 
 switch.lookup:                                    ; preds = %19
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.mbedtls_psa_ffdh_key_agreement, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep49 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.mbedtls_psa_ffdh_key_agreement.5, i64 0, i64 %26
-  %switch.load50 = load ptr, ptr %switch.gep49, align 8
-  %switch.gep51 = getelementptr inbounds nuw [7 x i64], ptr @switch.table.mbedtls_psa_ffdh_key_agreement.6, i64 0, i64 %26
-  %switch.load52 = load i64, ptr %switch.gep51, align 8
-  %28 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %10, ptr noundef nonnull %switch.load, i64 noundef %switch.load52) #7
+  %switch.gep57 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.mbedtls_psa_ffdh_key_agreement.5, i64 0, i64 %26
+  %switch.load58 = load ptr, ptr %switch.gep57, align 8
+  %switch.gep59 = getelementptr inbounds nuw [7 x i64], ptr @switch.table.mbedtls_psa_ffdh_key_agreement.6, i64 0, i64 %26
+  %switch.load60 = load i64, ptr %switch.gep59, align 8
+  %28 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %10, ptr noundef nonnull %switch.load, i64 noundef %switch.load60) #7
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %mbedtls_psa_ffdh_set_prime_generator.exit
 
 30:                                               ; preds = %switch.lookup
-  %31 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %8, ptr noundef nonnull %switch.load50, i64 noundef 1) #7
+  %31 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %8, ptr noundef nonnull %switch.load58, i64 noundef 1) #7
   %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread, label %mbedtls_psa_ffdh_set_prime_generator.exit
 
@@ -163,15 +163,15 @@ define hidden i32 @mbedtls_psa_ffdh_generate_key(ptr noundef readnone captures(n
   %switch.maskindex = trunc i64 %8 to i8
   %switch.shifted = lshr i8 87, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond29 = select i1 %9, i1 %switch.lobit, i1 false
-  br i1 %or.cond29, label %switch.lookup, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread24
+  %or.cond34 = select i1 %9, i1 %switch.lobit, i1 false
+  br i1 %or.cond34, label %switch.lookup, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread24
 
 switch.lookup:                                    ; preds = %4
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.mbedtls_psa_ffdh_key_agreement, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep27 = getelementptr inbounds nuw [7 x i64], ptr @switch.table.mbedtls_psa_ffdh_key_agreement.6, i64 0, i64 %8
-  %switch.load28 = load i64, ptr %switch.gep27, align 8
-  %10 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %6, ptr noundef nonnull %switch.load, i64 noundef %switch.load28) #7
+  %switch.gep32 = getelementptr inbounds nuw [7 x i64], ptr @switch.table.mbedtls_psa_ffdh_key_agreement.6, i64 0, i64 %8
+  %switch.load33 = load i64, ptr %switch.gep32, align 8
+  %10 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %6, ptr noundef nonnull %switch.load, i64 noundef %switch.load33) #7
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread, label %mbedtls_psa_ffdh_set_prime_generator.exit
 
@@ -283,22 +283,22 @@ define hidden i32 @mbedtls_psa_ffdh_key_agreement(ptr noundef readonly captures(
   %switch.maskindex = trunc i64 %25 to i8
   %switch.shifted = lshr i8 87, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond51 = select i1 %26, i1 %switch.lobit, i1 false
-  br i1 %or.cond51, label %switch.lookup, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread44
+  %or.cond59 = select i1 %26, i1 %switch.lobit, i1 false
+  br i1 %or.cond59, label %switch.lookup, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread44
 
 switch.lookup:                                    ; preds = %18
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.mbedtls_psa_ffdh_key_agreement, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep47 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.mbedtls_psa_ffdh_key_agreement.5, i64 0, i64 %25
-  %switch.load48 = load ptr, ptr %switch.gep47, align 8
-  %switch.gep49 = getelementptr inbounds nuw [7 x i64], ptr @switch.table.mbedtls_psa_ffdh_key_agreement.6, i64 0, i64 %25
-  %switch.load50 = load i64, ptr %switch.gep49, align 8
-  %27 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %9, ptr noundef nonnull %switch.load, i64 noundef %switch.load50) #7
+  %switch.gep55 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.mbedtls_psa_ffdh_key_agreement.5, i64 0, i64 %25
+  %switch.load56 = load ptr, ptr %switch.gep55, align 8
+  %switch.gep57 = getelementptr inbounds nuw [7 x i64], ptr @switch.table.mbedtls_psa_ffdh_key_agreement.6, i64 0, i64 %25
+  %switch.load58 = load i64, ptr %switch.gep57, align 8
+  %27 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %9, ptr noundef nonnull %switch.load, i64 noundef %switch.load58) #7
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %mbedtls_psa_ffdh_set_prime_generator.exit
 
 29:                                               ; preds = %switch.lookup
-  %30 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %10, ptr noundef nonnull %switch.load48, i64 noundef 1) #7
+  %30 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %10, ptr noundef nonnull %switch.load56, i64 noundef 1) #7
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread, label %mbedtls_psa_ffdh_set_prime_generator.exit
 

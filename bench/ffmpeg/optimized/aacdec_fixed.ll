@@ -1630,9 +1630,9 @@ av_add_sf.exit:                                   ; preds = %140, %av_normalize_
   br label %predict.exit.sink.split
 
 predict.exit.sink.split:                          ; preds = %222, %217
-  %.sink785 = phi i32 [ %221, %217 ], [ %223, %222 ]
+  %.sink795 = phi i32 [ %221, %217 ], [ %223, %222 ]
   %224 = load i32, ptr %48, align 4, !tbaa !64
-  %225 = add i32 %224, %.sink785
+  %225 = add i32 %224, %.sink795
   store i32 %225, ptr %48, align 4, !tbaa !64
   br label %predict.exit
 
@@ -3623,8 +3623,8 @@ define internal void @imdct_and_windowing_eld_fixed(ptr noundef %0, ptr noundef 
   %61 = sub nuw nsw i32 %60, %33
   %wide.trip.count = zext nneg i32 %61 to i64
   %invariant.gep = getelementptr inbounds nuw i32, ptr %31, i64 %57
-  %invariant.gep202 = getelementptr i32, ptr %34, i64 %55
-  %invariant.gep204 = getelementptr inbounds nuw i32, ptr %31, i64 %58
+  %invariant.gep206 = getelementptr i32, ptr %34, i64 %55
+  %invariant.gep208 = getelementptr inbounds nuw i32, ptr %31, i64 %58
   br label %74
 
 62:                                               ; preds = %45, %62
@@ -3645,9 +3645,9 @@ define internal void @imdct_and_windowing_eld_fixed(ptr noundef %0, ptr noundef 
   %70 = zext nneg i32 %8 to i64
   %71 = zext nneg i32 %52 to i64
   %72 = getelementptr i32, ptr %31, i64 %70
-  %invariant.gep206 = getelementptr inbounds nuw i32, ptr %31, i64 %70
+  %invariant.gep210 = getelementptr inbounds nuw i32, ptr %31, i64 %70
   %73 = getelementptr i32, ptr %31, i64 %71
-  %invariant.gep208 = getelementptr inbounds nuw i32, ptr %5, i64 %56
+  %invariant.gep212 = getelementptr inbounds nuw i32, ptr %5, i64 %56
   br label %137
 
 74:                                               ; preds = %.lr.ph, %74
@@ -3670,8 +3670,8 @@ define internal void @imdct_and_windowing_eld_fixed(ptr noundef %0, ptr noundef 
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv175
   %90 = load i32, ptr %gep, align 4, !tbaa !64
   %91 = sext i32 %90 to i64
-  %gep203 = getelementptr i32, ptr %invariant.gep202, i64 %indvars.iv175
-  %92 = load i32, ptr %gep203, align 4, !tbaa !64
+  %gep207 = getelementptr i32, ptr %invariant.gep206, i64 %indvars.iv175
+  %92 = load i32, ptr %gep207, align 4, !tbaa !64
   %93 = sext i32 %92 to i64
   %94 = mul nsw i64 %93, %91
   %95 = add nsw i64 %94, 1073741824
@@ -3694,8 +3694,8 @@ define internal void @imdct_and_windowing_eld_fixed(ptr noundef %0, ptr noundef 
   %112 = lshr i64 %111, 31
   %113 = trunc i64 %112 to i32
   %114 = add nsw i32 %98, %113
-  %gep205 = getelementptr inbounds nuw i32, ptr %invariant.gep204, i64 %indvars.iv175
-  %115 = load i32, ptr %gep205, align 4, !tbaa !64
+  %gep209 = getelementptr inbounds nuw i32, ptr %invariant.gep208, i64 %indvars.iv175
+  %115 = load i32, ptr %gep209, align 4, !tbaa !64
   %116 = sub nsw i32 0, %115
   %117 = sext i32 %116 to i64
   %118 = add i32 %53, %75
@@ -3723,13 +3723,13 @@ define internal void @imdct_and_windowing_eld_fixed(ptr noundef %0, ptr noundef 
   %134 = zext nneg i32 %129 to i64
   %135 = zext nneg i32 %130 to i64
   %wide.trip.count186 = zext nneg i32 %33 to i64
-  %invariant.gep210 = getelementptr inbounds nuw i32, ptr %32, i64 %57
-  %invariant.gep212 = getelementptr inbounds nuw i32, ptr %34, i64 %133
+  %invariant.gep214 = getelementptr inbounds nuw i32, ptr %32, i64 %57
+  %invariant.gep216 = getelementptr inbounds nuw i32, ptr %34, i64 %133
   %136 = getelementptr i32, ptr %31, i64 %57
-  %invariant.gep214 = getelementptr inbounds nuw i32, ptr %34, i64 %132
-  %invariant.gep216 = getelementptr inbounds nuw i32, ptr %31, i64 %134
-  %invariant.gep218 = getelementptr inbounds nuw i32, ptr %34, i64 %131
-  %invariant.gep220 = getelementptr inbounds nuw i32, ptr %5, i64 %135
+  %invariant.gep218 = getelementptr inbounds nuw i32, ptr %34, i64 %132
+  %invariant.gep220 = getelementptr inbounds nuw i32, ptr %31, i64 %134
+  %invariant.gep222 = getelementptr inbounds nuw i32, ptr %34, i64 %131
+  %invariant.gep224 = getelementptr inbounds nuw i32, ptr %5, i64 %135
   br label %193
 
 137:                                              ; preds = %.preheader164, %137
@@ -3762,8 +3762,8 @@ define internal void @imdct_and_windowing_eld_fixed(ptr noundef %0, ptr noundef 
   %163 = lshr i64 %162, 31
   %164 = trunc i64 %163 to i32
   %165 = add nsw i32 %164, %149
-  %gep207 = getelementptr inbounds nuw i32, ptr %invariant.gep206, i64 %indvars.iv177
-  %166 = load i32, ptr %gep207, align 4, !tbaa !64
+  %gep211 = getelementptr inbounds nuw i32, ptr %invariant.gep210, i64 %indvars.iv177
+  %166 = load i32, ptr %gep211, align 4, !tbaa !64
   %167 = sub nsw i32 0, %166
   %168 = sext i32 %167 to i64
   %169 = trunc nuw nsw i64 %141 to i32
@@ -3790,19 +3790,19 @@ define internal void @imdct_and_windowing_eld_fixed(ptr noundef %0, ptr noundef 
   %190 = lshr i64 %189, 31
   %191 = trunc i64 %190 to i32
   %192 = add nsw i32 %179, %191
-  %gep209 = getelementptr inbounds nuw i32, ptr %invariant.gep208, i64 %indvars.iv177
-  store i32 %192, ptr %gep209, align 4, !tbaa !64
+  %gep213 = getelementptr inbounds nuw i32, ptr %invariant.gep212, i64 %indvars.iv177
+  store i32 %192, ptr %gep213, align 4, !tbaa !64
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next178, %11
   br i1 %exitcond181.not, label %.preheader, label %137, !llvm.loop !162
 
 193:                                              ; preds = %.preheader, %193
   %indvars.iv182 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next183, %193 ]
-  %gep211 = getelementptr inbounds nuw i32, ptr %invariant.gep210, i64 %indvars.iv182
-  %194 = load i32, ptr %gep211, align 4, !tbaa !64
+  %gep215 = getelementptr inbounds nuw i32, ptr %invariant.gep214, i64 %indvars.iv182
+  %194 = load i32, ptr %gep215, align 4, !tbaa !64
   %195 = sext i32 %194 to i64
-  %gep213 = getelementptr inbounds nuw i32, ptr %invariant.gep212, i64 %indvars.iv182
-  %196 = load i32, ptr %gep213, align 4, !tbaa !64
+  %gep217 = getelementptr inbounds nuw i32, ptr %invariant.gep216, i64 %indvars.iv182
+  %196 = load i32, ptr %gep217, align 4, !tbaa !64
   %197 = sext i32 %196 to i64
   %198 = mul nsw i64 %197, %195
   %199 = add nsw i64 %198, 1073741824
@@ -3813,28 +3813,28 @@ define internal void @imdct_and_windowing_eld_fixed(ptr noundef %0, ptr noundef 
   %204 = load i32, ptr %203, align 4, !tbaa !64
   %205 = sub nsw i32 0, %204
   %206 = sext i32 %205 to i64
-  %gep215 = getelementptr inbounds nuw i32, ptr %invariant.gep214, i64 %indvars.iv182
-  %207 = load i32, ptr %gep215, align 4, !tbaa !64
+  %gep219 = getelementptr inbounds nuw i32, ptr %invariant.gep218, i64 %indvars.iv182
+  %207 = load i32, ptr %gep219, align 4, !tbaa !64
   %208 = sext i32 %207 to i64
   %209 = mul nsw i64 %208, %206
   %210 = add nsw i64 %209, 1073741824
   %211 = lshr i64 %210, 31
   %212 = trunc i64 %211 to i32
   %213 = add nsw i32 %212, %201
-  %gep217 = getelementptr inbounds nuw i32, ptr %invariant.gep216, i64 %indvars.iv182
-  %214 = load i32, ptr %gep217, align 4, !tbaa !64
+  %gep221 = getelementptr inbounds nuw i32, ptr %invariant.gep220, i64 %indvars.iv182
+  %214 = load i32, ptr %gep221, align 4, !tbaa !64
   %215 = sub nsw i32 0, %214
   %216 = sext i32 %215 to i64
-  %gep219 = getelementptr inbounds nuw i32, ptr %invariant.gep218, i64 %indvars.iv182
-  %217 = load i32, ptr %gep219, align 4, !tbaa !64
+  %gep223 = getelementptr inbounds nuw i32, ptr %invariant.gep222, i64 %indvars.iv182
+  %217 = load i32, ptr %gep223, align 4, !tbaa !64
   %218 = sext i32 %217 to i64
   %219 = mul nsw i64 %218, %216
   %220 = add nsw i64 %219, 1073741824
   %221 = lshr i64 %220, 31
   %222 = trunc i64 %221 to i32
   %223 = add nsw i32 %213, %222
-  %gep221 = getelementptr inbounds nuw i32, ptr %invariant.gep220, i64 %indvars.iv182
-  store i32 %223, ptr %gep221, align 4, !tbaa !64
+  %gep225 = getelementptr inbounds nuw i32, ptr %invariant.gep224, i64 %indvars.iv182
+  store i32 %223, ptr %gep225, align 4, !tbaa !64
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count186
   br i1 %exitcond187.not, label %224, label %193, !llvm.loop !163
@@ -5263,8 +5263,8 @@ noise_scale.exit:                                 ; preds = %203, %194, %174, %.
   br i1 %.not543, label %611, label %607, !llvm.loop !208
 
 611:                                              ; preds = %607
-  %sext770 = shl i64 %indvars.iv747, 32
-  %612 = ashr exact i64 %sext770, 32
+  %sext794 = shl i64 %indvars.iv747, 32
+  %612 = ashr exact i64 %sext794, 32
   %613 = getelementptr inbounds i32, ptr %12, i64 %612
   %614 = load i32, ptr %613, align 4, !tbaa !64
   %.not544 = icmp eq i32 %614, 13

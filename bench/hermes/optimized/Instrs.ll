@@ -487,19 +487,19 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %for.cond
 if.end.i:                                         ; preds = %_ZN4llvh9StringRefC2EPKc.exit
   %bcmp = tail call i32 @bcmp(ptr %op.coerce0, ptr nonnull %3, i64 %op.coerce1.fr)
   %4 = icmp eq i32 %bcmp, 0
-  br i1 %4, label %if.then.loopexit21, label %for.inc
+  br i1 %4, label %if.then.loopexit23, label %for.inc
 
 if.then.loopexit:                                 ; preds = %for.inc.us, %_ZN4llvh9StringRefC2EPKc.exit.us
   %.us-phi.ph.ph.in = phi i64 [ %indvars.iv.next19, %for.inc.us ], [ %indvars.iv18, %_ZN4llvh9StringRefC2EPKc.exit.us ]
   %.us-phi.ph.ph = trunc nsw i64 %.us-phi.ph.ph.in to i32
   br label %if.then
 
-if.then.loopexit21:                               ; preds = %if.end.i
+if.then.loopexit23:                               ; preds = %if.end.i
   %5 = trunc nuw nsw i64 %indvars.iv to i32
   br label %if.then
 
-if.then:                                          ; preds = %if.then.loopexit21, %if.then.loopexit, %entry.split.us
-  %.us-phi = phi i32 [ 0, %entry.split.us ], [ %.us-phi.ph.ph, %if.then.loopexit ], [ %5, %if.then.loopexit21 ]
+if.then:                                          ; preds = %if.then.loopexit23, %if.then.loopexit, %entry.split.us
+  %.us-phi = phi i32 [ 0, %entry.split.us ], [ %.us-phi.ph.ph, %if.then.loopexit ], [ %5, %if.then.loopexit23 ]
   ret i32 %.us-phi
 
 for.inc:                                          ; preds = %for.cond, %if.end.i, %_ZN4llvh9StringRefC2EPKc.exit
@@ -586,14 +586,14 @@ _ZN4llvh9StringRefC2EPKc.exit.i:                  ; preds = %for.cond.i
 if.end.i.i:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit.i
   %bcmp.i = tail call i32 @bcmp(ptr readonly %op.coerce0, ptr nonnull %3, i64 %op.coerce1.fr.i)
   %4 = icmp eq i32 %bcmp.i, 0
-  br i1 %4, label %if.then.loopexit21.i, label %for.inc.i
+  br i1 %4, label %if.then.loopexit23.i, label %for.inc.i
 
 if.then.loopexit.i:                               ; preds = %for.inc.us.i, %_ZN4llvh9StringRefC2EPKc.exit.us.i
   %.us-phi.ph.ph.in.i = phi i64 [ %indvars.iv.next19.i, %for.inc.us.i ], [ %indvars.iv18.i, %_ZN4llvh9StringRefC2EPKc.exit.us.i ]
   %.us-phi.ph.ph.i = trunc nsw i64 %.us-phi.ph.ph.in.i to i32
   br label %_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit
 
-if.then.loopexit21.i:                             ; preds = %if.end.i.i
+if.then.loopexit23.i:                             ; preds = %if.end.i.i
   %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit
 
@@ -601,8 +601,8 @@ for.inc.i:                                        ; preds = %if.end.i.i, %_ZN4ll
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %for.cond.i, !llvm.loop !6
 
-_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit: ; preds = %entry.split.us.i, %if.then.loopexit.i, %if.then.loopexit21.i
-  %.us-phi.i = phi i32 [ 0, %entry.split.us.i ], [ %.us-phi.ph.ph.i, %if.then.loopexit.i ], [ %5, %if.then.loopexit21.i ]
+_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit: ; preds = %entry.split.us.i, %if.then.loopexit.i, %if.then.loopexit23.i
+  %.us-phi.i = phi i32 [ 0, %entry.split.us.i ], [ %.us-phi.ph.ph.i, %if.then.loopexit.i ], [ %5, %if.then.loopexit23.i ]
   ret i32 %.us-phi.i
 }
 
@@ -651,14 +651,14 @@ _ZN4llvh9StringRefC2EPKc.exit.i:                  ; preds = %for.cond.i
 if.end.i.i:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit.i
   %bcmp.i = tail call i32 @bcmp(ptr readonly %op.coerce0, ptr nonnull %3, i64 %op.coerce1.fr.i)
   %4 = icmp eq i32 %bcmp.i, 0
-  br i1 %4, label %if.then.loopexit21.i, label %for.inc.i
+  br i1 %4, label %if.then.loopexit23.i, label %for.inc.i
 
 if.then.loopexit.i:                               ; preds = %for.inc.us.i, %_ZN4llvh9StringRefC2EPKc.exit.us.i
   %.us-phi.ph.ph.in.i = phi i64 [ %indvars.iv.next19.i, %for.inc.us.i ], [ %indvars.iv18.i, %_ZN4llvh9StringRefC2EPKc.exit.us.i ]
   %.us-phi.ph.ph.i = trunc nsw i64 %.us-phi.ph.ph.in.i to i32
   br label %_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit
 
-if.then.loopexit21.i:                             ; preds = %if.end.i.i
+if.then.loopexit23.i:                             ; preds = %if.end.i.i
   %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit
 
@@ -666,8 +666,8 @@ for.inc.i:                                        ; preds = %if.end.i.i, %_ZN4ll
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %for.cond.i, !llvm.loop !6
 
-_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit: ; preds = %entry.split.us.i, %if.then.loopexit.i, %if.then.loopexit21.i
-  %.us-phi.i = phi i32 [ 0, %entry.split.us.i ], [ %.us-phi.ph.ph.i, %if.then.loopexit.i ], [ %5, %if.then.loopexit21.i ]
+_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit: ; preds = %entry.split.us.i, %if.then.loopexit.i, %if.then.loopexit23.i
+  %.us-phi.i = phi i32 [ 0, %entry.split.us.i ], [ %.us-phi.ph.ph.i, %if.then.loopexit.i ], [ %5, %if.then.loopexit23.i ]
   ret i32 %.us-phi.i
 }
 

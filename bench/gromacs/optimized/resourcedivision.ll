@@ -1318,11 +1318,11 @@ define void @_Z34check_resource_division_efficiencyPK13gmx_hw_info_tbP9t_commrec
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i32, ptr %14, align 8, !tbaa !280
   %28 = icmp sgt i32 %.pre, 1
-  %or.cond.not42 = and i1 %27, %28
+  %or.cond.not51 = and i1 %27, %28
   %29 = add i32 %24, -9
   %or.cond3 = icmp ult i32 %29, -8
-  %or.cond40 = select i1 %or.cond.not42, i1 %or.cond3, i1 false
-  br i1 %or.cond40, label %30, label %.thread
+  %or.cond49 = select i1 %or.cond.not51, i1 %or.cond3, i1 false
+  br i1 %or.cond49, label %30, label %.thread
 
 30:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1977,8 +1977,8 @@ _ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread: ; preds = %._
   %97 = load i32, ptr %96, align 4, !tbaa !302
   %98 = icmp slt i32 %97, 1
   %99 = icmp sgt i32 %95, 0
-  %or.cond70 = select i1 %98, i1 %99, i1 false
-  br i1 %or.cond70, label %100, label %101
+  %or.cond82 = select i1 %98, i1 %99, i1 false
+  br i1 %or.cond82, label %100, label %101
 
 100:                                              ; preds = %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
   store i32 %95, ptr %96, align 4, !tbaa !302

@@ -510,13 +510,13 @@ define linkonce_odr void @_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedO
   %52 = icmp slt i32 %spec.select, 0
   %53 = tail call i32 @llvm.abs.i32(i32 %.sroa.5.021, i1 true)
   %54 = sub nsw i32 %50, %53
-  %spec.select27 = select i1 %52, i32 %53, i32 %54
+  %spec.select28 = select i1 %52, i32 %53, i32 %54
   br label %55
 
 55:                                               ; preds = %47, %44
   %.pre.i.i = phi i32 [ %.pre.i.i.pre, %44 ], [ %50, %47 ]
   %.013.i = phi i32 [ %45, %44 ], [ %.1.i, %47 ]
-  %.0.i = phi i32 [ %46, %44 ], [ %spec.select27, %47 ]
+  %.0.i = phi i32 [ %46, %44 ], [ %spec.select28, %47 ]
   %56 = icmp eq i32 %.013.i, 0
   %57 = icmp eq i32 %.0.i, 0
   %58 = or i32 %.0.i, %.013.i

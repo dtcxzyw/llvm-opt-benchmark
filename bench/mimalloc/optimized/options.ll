@@ -388,8 +388,8 @@ thread-pre-split:                                 ; preds = %39, %46, %49, %43
   br i1 %62, label %.thread41.sink.split, label %.thread41
 
 .thread41.sink.split:                             ; preds = %56, %59
-  %.sink45 = phi i64 [ 2, %59 ], [ 1, %56 ]
-  %63 = getelementptr inbounds nuw i8, ptr %58, i64 %.sink45
+  %.sink46 = phi i64 [ 2, %59 ], [ 1, %56 ]
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 %.sink46
   store ptr %63, ptr %4, align 8, !tbaa !21
   br label %.thread41
 

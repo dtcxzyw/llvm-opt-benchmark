@@ -1508,8 +1508,8 @@ invoke.cont159:                                   ; preds = %call4.i171.noexc
 
 for.end164:                                       ; preds = %invoke.cont159, %invoke.cont5.thread, %invoke.cont5, %for.cond118.preheader
   %99 = phi ptr [ %78, %for.cond118.preheader ], [ null, %invoke.cont5.thread ], [ %call5.i.i.i.i2.i.i47, %invoke.cont5 ], [ %78, %invoke.cont159 ]
-  %is_conflict.sroa.0.0222230305318 = phi ptr [ %call5.i.i.i.i1.i.i, %for.cond118.preheader ], [ null, %invoke.cont5.thread ], [ %call5.i.i.i.i1.i.i, %invoke.cont5 ], [ %call5.i.i.i.i1.i.i, %invoke.cont159 ]
-  %is_conflict.sroa.29.0225228309317 = phi ptr [ %add.ptr.i.i.i, %for.cond118.preheader ], [ null, %invoke.cont5.thread ], [ %add.ptr.i.i.i, %invoke.cont5 ], [ %add.ptr.i.i.i, %invoke.cont159 ]
+  %is_conflict.sroa.0.0222230312325 = phi ptr [ %call5.i.i.i.i1.i.i, %for.cond118.preheader ], [ null, %invoke.cont5.thread ], [ %call5.i.i.i.i1.i.i, %invoke.cont5 ], [ %call5.i.i.i.i1.i.i, %invoke.cont159 ]
+  %is_conflict.sroa.29.0225228316324 = phi ptr [ %add.ptr.i.i.i, %for.cond118.preheader ], [ null, %invoke.cont5.thread ], [ %add.ptr.i.i.i, %invoke.cont5 ], [ %add.ptr.i.i.i, %invoke.cont159 ]
   %_M_finish.i178 = getelementptr inbounds nuw i8, ptr %conflict_reason, i64 8
   %100 = load ptr, ptr %_M_finish.i178, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %99, %100
@@ -1536,16 +1536,16 @@ if.then.i.i.i181:                                 ; preds = %invoke.cont.i
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i181
-  %tobool.not.i.i.i182 = icmp eq ptr %is_conflict.sroa.0.0222230305318, null
+  %tobool.not.i.i.i182 = icmp eq ptr %is_conflict.sroa.0.0222230312325, null
   br i1 %tobool.not.i.i.i182, label %_ZNSt6vectorIbSaIbEED2Ev.exit, label %if.then.i.i.i183
 
 if.then.i.i.i183:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %is_conflict.sroa.29.0225228309317 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %is_conflict.sroa.0.0222230305318 to i64
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %is_conflict.sroa.29.0225228316324 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %is_conflict.sroa.0.0222230312325 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i184 = getelementptr inbounds i64, ptr %is_conflict.sroa.29.0225228309317, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i184 = getelementptr inbounds i64, ptr %is_conflict.sroa.29.0225228316324, i64 %idx.neg.i.i.i
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i184) #25
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
 

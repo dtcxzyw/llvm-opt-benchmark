@@ -310,16 +310,16 @@ _ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit: ;
   %.not12 = icmp eq i64 %.011.add, 40
   br i1 %.not12, label %.sink.split, label %thread-pre-split
 
-thread-pre-split46:                               ; preds = %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit23
-  %.pr47 = load i64, ptr %3, align 8, !tbaa !3
+thread-pre-split60:                               ; preds = %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit23
+  %.pr61 = load i64, ptr %3, align 8, !tbaa !3
   br label %54
 
-54:                                               ; preds = %thread-pre-split46, %.preheader33
-  %55 = phi i64 [ %.pr47, %thread-pre-split46 ], [ 1879048187, %.preheader33 ]
-  %56 = phi ptr [ %94, %thread-pre-split46 ], [ null, %.preheader33 ]
-  %57 = phi ptr [ %95, %thread-pre-split46 ], [ null, %.preheader33 ]
-  %.010.idx36 = phi i64 [ %.010.add, %thread-pre-split46 ], [ 0, %.preheader33 ]
-  %58 = phi ptr [ %96, %thread-pre-split46 ], [ null, %.preheader33 ]
+54:                                               ; preds = %thread-pre-split60, %.preheader33
+  %55 = phi i64 [ %.pr61, %thread-pre-split60 ], [ 1879048187, %.preheader33 ]
+  %56 = phi ptr [ %94, %thread-pre-split60 ], [ null, %.preheader33 ]
+  %57 = phi ptr [ %95, %thread-pre-split60 ], [ null, %.preheader33 ]
+  %.010.idx36 = phi i64 [ %.010.add, %thread-pre-split60 ], [ 0, %.preheader33 ]
+  %58 = phi ptr [ %96, %thread-pre-split60 ], [ null, %.preheader33 ]
   %.010.ptr = getelementptr inbounds nuw i8, ptr @_ZGRN4LIEF3ELFL10DF_FLAGS_1E_, i64 %.010.idx36
   %59 = load i64, ptr %.010.ptr, align 8, !tbaa !11
   %60 = icmp eq i64 %55, 30
@@ -411,11 +411,11 @@ _ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit23:
   %96 = phi ptr [ %58, %66 ], [ %58, %61 ], [ %87, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i22 ], [ %58, %73 ], [ %58, %63 ], [ %58, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit15 ]
   %.010.add = add nuw nsw i64 %.010.idx36, 8
   %.not = icmp eq i64 %.010.add, 240
-  br i1 %.not, label %.sink.split, label %thread-pre-split46
+  br i1 %.not, label %.sink.split, label %thread-pre-split60
 
 .sink.split:                                      ; preds = %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit23, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit
-  %.lcssa52.sink = phi ptr [ %53, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit ], [ %96, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit23 ]
-  store ptr %.lcssa52.sink, ptr %0, align 8
+  %.lcssa66.sink = phi ptr [ %53, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit ], [ %96, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit23 ]
+  store ptr %.lcssa66.sink, ptr %0, align 8
   br label %97
 
 97:                                               ; preds = %.sink.split, %2
@@ -444,10 +444,10 @@ define void @_ZN4LIEF3ELF17DynamicEntryFlags3addENS1_4FLAGE(ptr noundef nonnull 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %11
-  %.sink9 = phi i64 [ %12, %11 ], [ %1, %6 ]
+  %.sink10 = phi i64 [ %12, %11 ], [ %1, %6 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !10
-  %15 = or i64 %14, %.sink9
+  %15 = or i64 %14, %.sink10
   store i64 %15, ptr %13, align 8, !tbaa !10
   br label %16
 
@@ -679,16 +679,16 @@ define noundef ptr @_ZN4LIEF3ELF9to_stringENS0_17DynamicEntryFlags4FLAGE(i64 nou
 
 _ZNK6frozen3mapIN4LIEF3ELF17DynamicEntryFlags4FLAGEPKcLm35ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i: ; preds = %1, %2
   %.sink.in.i.i.i.i.i.i = phi ptr [ %6, %2 ], [ getelementptr inbounds nuw (i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_17DynamicEntryFlags4FLAGE.enums2str, i64 536), %1 ]
-  %.sink12.i.i.i.i.idx.i.i = phi i64 [ %.add14.i.i, %2 ], [ 520, %1 ]
+  %.sink13.i.i.i.i.idx.i.i = phi i64 [ %.add14.i.i, %2 ], [ 520, %1 ]
   %.sink.i.i.i.i.i.i = load i64, ptr %.sink.in.i.i.i.i.i.i, align 8, !tbaa !11
   %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %.sink.i.i.i.i.i.i, %0
   %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 32, i64 0
-  %.sink12.i.i.i.i.add.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i.i, %.sink12.i.i.i.i.idx.i.i
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_17DynamicEntryFlags4FLAGE.enums2str, i64 %.sink12.i.i.i.i.add.i.i
+  %.sink13.i.i.i.i.add.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i.i, %.sink13.i.i.i.i.idx.i.i
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_17DynamicEntryFlags4FLAGE.enums2str, i64 %.sink13.i.i.i.i.add.i.i
   %7 = load i64, ptr %.ptr.i.i, align 8, !tbaa !11
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %7, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %.add.i.i = add nuw nsw i64 %.sink12.i.i.i.i.add.i.i, %.idx.i.i.i.i.i.i.i.i.i.i.i
+  %.add.i.i = add nuw nsw i64 %.sink13.i.i.i.i.add.i.i, %.idx.i.i.i.i.i.i.i.i.i.i.i
   %.not.i.i = icmp eq i64 %.add.i.i, 568
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF17DynamicEntryFlags4FLAGEPKcLm35ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %8
 
@@ -1158,16 +1158,16 @@ define linkonce_odr hidden ptr @_ZNK3fmt3v109formatterIN4LIEF3ELF17DynamicEntryF
 
 _ZNK6frozen3mapIN4LIEF3ELF17DynamicEntryFlags4FLAGEPKcLm35ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i: ; preds = %6, %3
   %.sink.in.i.i.i.i.i.i.i = phi ptr [ %10, %6 ], [ getelementptr inbounds nuw (i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_17DynamicEntryFlags4FLAGE.enums2str, i64 536), %3 ]
-  %.sink12.i.i.i.i.idx.i.i.i = phi i64 [ %.add14.i.i.i, %6 ], [ 520, %3 ]
+  %.sink13.i.i.i.i.idx.i.i.i = phi i64 [ %.add14.i.i.i, %6 ], [ 520, %3 ]
   %.sink.i.i.i.i.i.i.i = load i64, ptr %.sink.in.i.i.i.i.i.i.i, align 8, !tbaa !11
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %.sink.i.i.i.i.i.i.i, %5
   %.idx.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i, i64 32, i64 0
-  %.sink12.i.i.i.i.add.i.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i.i.i, %.sink12.i.i.i.i.idx.i.i.i
-  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_17DynamicEntryFlags4FLAGE.enums2str, i64 %.sink12.i.i.i.i.add.i.i.i
+  %.sink13.i.i.i.i.add.i.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i.i.i, %.sink13.i.i.i.i.idx.i.i.i
+  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_17DynamicEntryFlags4FLAGE.enums2str, i64 %.sink13.i.i.i.i.add.i.i.i
   %11 = load i64, ptr %.ptr.i.i.i, align 8, !tbaa !11
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %11, %5
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %.add.i.i.i = add nuw nsw i64 %.sink12.i.i.i.i.add.i.i.i, %.idx.i.i.i.i.i.i.i.i.i.i.i.i
+  %.add.i.i.i = add nuw nsw i64 %.sink13.i.i.i.i.add.i.i.i, %.idx.i.i.i.i.i.i.i.i.i.i.i.i
   %.not.i.i.i = icmp eq i64 %.add.i.i.i, 568
   br i1 %.not.i.i.i, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %12
 

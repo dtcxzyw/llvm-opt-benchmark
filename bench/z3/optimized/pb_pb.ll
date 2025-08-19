@@ -215,8 +215,8 @@ define hidden void @_ZN2pb3pbc14update_max_sumEv(ptr noundef nonnull align 8 cap
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %wide.trip.count = zext i32 %6 to i64
   %10 = load i32, ptr %9, align 4, !tbaa !9
-  %.sroa.speculated25 = tail call i32 @llvm.umin.i32(i32 %10, i32 %8)
-  store i32 %.sroa.speculated25, ptr %9, align 4, !tbaa !32
+  %.sroa.speculated29 = tail call i32 @llvm.umin.i32(i32 %10, i32 %8)
+  store i32 %.sroa.speculated29, ptr %9, align 4, !tbaa !32
   br label %44
 
 ._crit_edge.loopexit:                             ; preds = %44
@@ -318,9 +318,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   resume { ptr, i32 } %.pn18
 
 44:                                               ; preds = %.lr.ph, %11
-  %45 = phi i32 [ %.sroa.speculated25, %.lr.ph ], [ %14, %11 ]
-  %indvars.iv26 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv26, 1
+  %45 = phi i32 [ %.sroa.speculated29, %.lr.ph ], [ %14, %11 ]
+  %indvars.iv30 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv30, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %11, !llvm.loop !36
 
@@ -788,8 +788,8 @@ define hidden noundef zeroext i1 @_ZN2pb3pbc10init_watchERNS_16solver_interfaceE
   br label %33
 
 ._crit_edge:                                      ; preds = %54
-  %.not167 = icmp ult i32 %.2, %27
-  br i1 %.not167, label %55, label %.preheader105
+  %.not169 = icmp ult i32 %.2, %27
+  br i1 %.not169, label %55, label %.preheader105
 
 ._crit_edge.thread:                               ; preds = %.critedge93
   %29 = icmp eq i32 %27, 0
@@ -864,9 +864,9 @@ define hidden noundef zeroext i1 @_ZN2pb3pbc10init_watchERNS_16solver_interfaceE
   br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !64
 
 55:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.084.lcssa148 = phi i32 [ 0, %._crit_edge.thread ], [ %.185, %._crit_edge ]
+  %.084.lcssa150 = phi i32 [ 0, %._crit_edge.thread ], [ %.185, %._crit_edge ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %57 = zext i32 %.084.lcssa148 to i64
+  %57 = zext i32 %.084.lcssa150 to i64
   %.idx = shl nuw nsw i64 %57, 3
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
@@ -884,7 +884,7 @@ define hidden noundef zeroext i1 @_ZN2pb3pbc10init_watchERNS_16solver_interfaceE
   br label %66
 
 66:                                               ; preds = %65, %55
-  %.086115 = add i32 %.084.lcssa148, 1
+  %.086115 = add i32 %.084.lcssa150, 1
   %67 = icmp ult i32 %.086115, %25
   br i1 %67, label %.lr.ph119.preheader, label %._crit_edge120
 
@@ -930,11 +930,11 @@ define hidden noundef zeroext i1 @_ZN2pb3pbc10init_watchERNS_16solver_interfaceE
   br i1 %exitcond133.not, label %._crit_edge120, label %.lr.ph119, !llvm.loop !65
 
 ._crit_edge124:                                   ; preds = %91, %.preheader105
-  %.081.lcssa150160 = phi i32 [ 0, %.preheader105 ], [ %.283, %91 ]
+  %.081.lcssa152162 = phi i32 [ 0, %.preheader105 ], [ %.283, %91 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.2, ptr %85, align 8, !tbaa !28
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %.081.lcssa150160, ptr %86, align 4, !tbaa !30
+  store i32 %.081.lcssa152162, ptr %86, align 4, !tbaa !30
   %87 = add i32 %.2, %.280
   %88 = icmp eq i32 %87, %27
   %89 = icmp ne i32 %.185, 0

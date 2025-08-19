@@ -1044,18 +1044,18 @@ argv_push_force.exit.i:                           ; preds = %.lr.ph.i40.i, %250
 305:                                              ; preds = %303, %301
   %306 = load i32, ptr @opt_show_forced_updates, align 4, !tbaa !39
   %307 = icmp sgt i32 %306, 0
-  br i1 %307, label %.sink.split41.i, label %308
+  br i1 %307, label %.sink.split60.i, label %308
 
 308:                                              ; preds = %305
   %309 = icmp eq i32 %306, 0
-  br i1 %309, label %.sink.split41.i, label %311
+  br i1 %309, label %.sink.split60.i, label %311
 
-.sink.split41.i:                                  ; preds = %308, %305
+.sink.split60.i:                                  ; preds = %308, %305
   %.str.148.sink.i = phi ptr [ @.str.147, %305 ], [ @.str.148, %308 ]
   %310 = call ptr @strvec_push(ptr noundef nonnull %12, ptr noundef nonnull %.str.148.sink.i) #17
   br label %311
 
-311:                                              ; preds = %.sink.split41.i, %308
+311:                                              ; preds = %.sink.split60.i, %308
   %312 = load ptr, ptr @set_upstream, align 8, !tbaa !14
   %.not36.i = icmp eq ptr %312, null
   br i1 %.not36.i, label %315, label %313
@@ -1853,15 +1853,15 @@ _.exit60:                                         ; preds = %69, %72
   %76 = load ptr, ptr @stderr, align 8, !tbaa !78
   %77 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !39
   %.not4.i64 = icmp eq i32 %77, 0
-  %.str.161..str.16095 = select i1 %.not23, ptr @.str.161, ptr @.str.160
+  %.str.161..str.16097 = select i1 %.not23, ptr @.str.161, ptr @.str.160
   br i1 %.not4.i64, label %_.exit63, label %_.exit63.sink.split
 
 _.exit63.sink.split:                              ; preds = %_.exit60
-  %78 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.161..str.16095, i32 noundef 5) #17
+  %78 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.161..str.16097, i32 noundef 5) #17
   br label %_.exit63
 
 _.exit63:                                         ; preds = %_.exit60, %_.exit63.sink.split
-  %.0.i65.sink = phi ptr [ %78, %_.exit63.sink.split ], [ %.str.161..str.16095, %_.exit60 ]
+  %.0.i65.sink = phi ptr [ %78, %_.exit63.sink.split ], [ %.str.161..str.16097, %_.exit60 ]
   %79 = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %76, ptr noundef %.0.i65.sink) #17
   %80 = load ptr, ptr @stderr, align 8, !tbaa !78
   %81 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !39
@@ -2285,19 +2285,19 @@ argv_push_verbosity.exit:                         ; preds = %.lr.ph8.i, %._crit_
 31:                                               ; preds = %29, %27
   %32 = load i32, ptr @opt_autostash, align 4, !tbaa !39
   switch i32 %32, label %35 [
-    i32 0, label %.sink.split11
+    i32 0, label %.sink.split16
     i32 1, label %33
   ]
 
 33:                                               ; preds = %31
-  br label %.sink.split11
+  br label %.sink.split16
 
-.sink.split11:                                    ; preds = %31, %33
+.sink.split16:                                    ; preds = %31, %33
   %.str.177.sink = phi ptr [ @.str.177, %33 ], [ @.str.176, %31 ]
   %34 = call ptr @strvec_push(ptr noundef nonnull %3, ptr noundef nonnull %.str.177.sink) #17
   br label %35
 
-35:                                               ; preds = %.sink.split11, %31
+35:                                               ; preds = %.sink.split16, %31
   %36 = load ptr, ptr @opt_verify_signatures, align 8, !tbaa !14
   %.not9 = icmp eq ptr %36, null
   br i1 %.not9, label %43, label %37

@@ -226,7 +226,7 @@ msxml_read_cb_new_window.exit94:                  ; preds = %48
 69:                                               ; preds = %66
   %70 = add i8 %67, -48
   %or.cond = icmp ult i8 %70, 10
-  %.165 = select i1 %or.cond, i32 4, i32 0
+  %.177 = select i1 %or.cond, i32 4, i32 0
   br label %.thread101.sink.split
 
 71:                                               ; preds = %.lr.ph
@@ -287,7 +287,7 @@ switch.early.test:                                ; preds = %71
   br i1 %.not85, label %.thread101, label %._crit_edge
 
 .thread101.sink.split:                            ; preds = %69, %66, %63, %60
-  %.sink = phi i32 [ 1, %60 ], [ %., %63 ], [ 3, %66 ], [ %.165, %69 ]
+  %.sink = phi i32 [ 1, %60 ], [ %., %63 ], [ 3, %66 ], [ %.177, %69 ]
   store i32 %.sink, ptr %0, align 4, !tbaa !21
   br label %.thread101
 

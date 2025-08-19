@@ -2478,7 +2478,7 @@ _mi_page_ptr_unalign.exit:                        ; preds = %3
   br i1 %16, label %17, label %20, !prof !43
 
 17:                                               ; preds = %_mi_page_ptr_unalign.exit.thread, %_mi_page_ptr_unalign.exit
-  %.0.i.i10 = phi i64 [ %10, %_mi_page_ptr_unalign.exit.thread ], [ %15, %_mi_page_ptr_unalign.exit ]
+  %.0.i.i11 = phi i64 [ %10, %_mi_page_ptr_unalign.exit.thread ], [ %15, %_mi_page_ptr_unalign.exit ]
   %18 = phi i32 [ %8, %_mi_page_ptr_unalign.exit.thread ], [ %.pre, %_mi_page_ptr_unalign.exit ]
   %19 = zext nneg i32 %18 to i64
   br label %mi_page_usable_size_of.exit
@@ -2494,12 +2494,12 @@ _mi_page_ptr_unalign.exit:                        ; preds = %3
   br label %mi_page_usable_size_of.exit
 
 mi_page_usable_size_of.exit:                      ; preds = %17, %20
-  %.0.i.i9 = phi i64 [ %.0.i.i10, %17 ], [ %15, %20 ]
+  %.0.i.i10 = phi i64 [ %.0.i.i11, %17 ], [ %15, %20 ]
   %.0.i.i.i = phi i64 [ %19, %17 ], [ %25, %20 ]
   %26 = ptrtoint ptr %2 to i64
   %27 = ptrtoint ptr %6 to i64
   %28 = sub i64 %26, %27
-  %29 = urem i64 %28, %.0.i.i9
+  %29 = urem i64 %28, %.0.i.i10
   %30 = sub i64 %.0.i.i.i, %29
   ret i64 %30
 }

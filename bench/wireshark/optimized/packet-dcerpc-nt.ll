@@ -1087,10 +1087,10 @@ find_pol_handle.exit.thread:                      ; preds = %23, %12, %.preheade
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %57, %.critedge.i, %.preheader.i35
-  %.020.lcssa41.sink.i = phi ptr [ %16, %.preheader.i35 ], [ %spec.select.i, %.critedge.i ], [ %.026.i45, %57 ]
-  %.0.lcssa36.i = phi ptr [ null, %.preheader.i35 ], [ %.026.i.lcssa, %.critedge.i ], [ null, %57 ]
-  store ptr %39, ptr %.020.lcssa41.sink.i, align 8
-  store ptr %.0.lcssa36.i, ptr %39, align 8
+  %.020.lcssa42.sink.i = phi ptr [ %16, %.preheader.i35 ], [ %spec.select.i, %.critedge.i ], [ %.026.i45, %57 ]
+  %.0.lcssa37.i = phi ptr [ null, %.preheader.i35 ], [ %.026.i.lcssa, %.critedge.i ], [ null, %57 ]
+  store ptr %39, ptr %.020.lcssa42.sink.i, align 8
+  store ptr %.0.lcssa37.i, ptr %39, align 8
   br label %add_pol_handle.exit
 
 add_pol_handle.exit:                              ; preds = %26, %.critedge.thread.i, %50, %33, %34, %10, %3
@@ -1235,10 +1235,10 @@ define hidden void @dcerpc_store_polhnd_name(ptr noundef readonly captures(none)
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %49, %.critedge.i, %.preheader.i26
-  %.020.lcssa41.sink.i = phi ptr [ %16, %.preheader.i26 ], [ %spec.select.i, %.critedge.i ], [ %.026.i36, %49 ]
-  %.0.lcssa36.i = phi ptr [ null, %.preheader.i26 ], [ %.026.i.lcssa, %.critedge.i ], [ null, %49 ]
-  store ptr %29, ptr %.020.lcssa41.sink.i, align 8
-  store ptr %.0.lcssa36.i, ptr %29, align 8
+  %.020.lcssa42.sink.i = phi ptr [ %16, %.preheader.i26 ], [ %spec.select.i, %.critedge.i ], [ %.026.i36, %49 ]
+  %.0.lcssa37.i = phi ptr [ null, %.preheader.i26 ], [ %.026.i.lcssa, %.critedge.i ], [ null, %49 ]
+  store ptr %29, ptr %.020.lcssa42.sink.i, align 8
+  store ptr %.0.lcssa37.i, ptr %29, align 8
   br label %add_pol_handle.exit
 
 add_pol_handle.exit:                              ; preds = %.critedge.thread.i, %42, %10, %3, %24

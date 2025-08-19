@@ -4946,8 +4946,8 @@ proto_item_set_generated.exit323:                 ; preds = %proto_item_set_gene
   br i1 %.not5.i328, label %proto_item_set_generated.exit326, label %proto_item_set_generated.exit326.sink.split
 
 proto_item_set_generated.exit326.sink.split:      ; preds = %85, %79
-  %.sink359 = phi ptr [ %81, %79 ], [ %87, %85 ]
-  %88 = getelementptr inbounds nuw i8, ptr %.sink359, i64 28
+  %.sink395 = phi ptr [ %81, %79 ], [ %87, %85 ]
+  %88 = getelementptr inbounds nuw i8, ptr %.sink395, i64 28
   %89 = load i32, ptr %88, align 4
   %90 = or i32 %89, 2
   store i32 %90, ptr %88, align 4
@@ -4981,8 +4981,8 @@ proto_item_set_generated.exit326:                 ; preds = %proto_item_set_gene
   br i1 %.not5.i334, label %proto_item_set_generated.exit332, label %proto_item_set_generated.exit332.sink.split
 
 proto_item_set_generated.exit332.sink.split:      ; preds = %100, %94
-  %.sink362 = phi ptr [ %96, %94 ], [ %102, %100 ]
-  %103 = getelementptr inbounds nuw i8, ptr %.sink362, i64 28
+  %.sink398 = phi ptr [ %96, %94 ], [ %102, %100 ]
+  %103 = getelementptr inbounds nuw i8, ptr %.sink398, i64 28
   %104 = load i32, ptr %103, align 4
   %105 = or i32 %104, 2
   store i32 %105, ptr %103, align 4
@@ -5059,16 +5059,16 @@ alloc_address_wmem.exit:                          ; preds = %proto_item_set_gene
   br i1 %144, label %alloc_address_wmem.exit339, label %alloc_address_wmem.exit339.sink.split
 
 alloc_address_wmem.exit339.sink.split:            ; preds = %138, %131
-  %.sink370 = phi i32 [ %136, %131 ], [ %143, %138 ]
-  %.sink368 = phi ptr [ %133, %131 ], [ %140, %138 ]
-  %145 = sext i32 %.sink370 to i64
-  %146 = call ptr @wmem_memdup(ptr noundef %.sink368, ptr noundef nonnull %6, i64 noundef %145) #12
+  %.sink406 = phi i32 [ %136, %131 ], [ %143, %138 ]
+  %.sink404 = phi ptr [ %133, %131 ], [ %140, %138 ]
+  %145 = sext i32 %.sink406 to i64
+  %146 = call ptr @wmem_memdup(ptr noundef %.sink404, ptr noundef nonnull %6, i64 noundef %145) #12
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr %146, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %146, ptr %148, align 8
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 236
-  store i32 %.sink370, ptr %149, align 4
+  store i32 %.sink406, ptr %149, align 4
   br label %alloc_address_wmem.exit339
 
 alloc_address_wmem.exit339:                       ; preds = %alloc_address_wmem.exit339.sink.split, %138, %131

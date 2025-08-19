@@ -159,8 +159,8 @@ define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node_r
   br label %17
 
 17:                                               ; preds = %.sink.split, %16, %15
-  %.not.not.not21 = phi i1 [ false, %16 ], [ true, %15 ], [ %.not.not.not.not.not.not, %.sink.split ]
-  ret i1 %.not.not.not21
+  %.not.not.not22 = phi i1 [ false, %16 ], [ true, %15 ], [ %.not.not.not.not.not.not, %.sink.split ]
+  ret i1 %.not.not.not22
 }
 
 ; Function Attrs: nounwind uwtable

@@ -153,8 +153,8 @@ if.then3:                                         ; preds = %if.then
 
 _ZN5boost10shared_ptrIN8QuantLib13CommodityType4DataEEC2ERKS4_.exit.i.i.i.thread: ; preds = %if.then3
   store ptr %0, ptr %periodQuantity, align 8, !tbaa !10
-  %pn3.i2.i.i.i217 = getelementptr inbounds nuw i8, ptr %periodQuantity, i64 8
-  store ptr %1, ptr %pn3.i2.i.i.i217, align 8, !tbaa !9
+  %pn3.i2.i.i.i249 = getelementptr inbounds nuw i8, ptr %periodQuantity, i64 8
+  store ptr %1, ptr %pn3.i2.i.i.i249, align 8, !tbaa !9
   br label %_ZN8QuantLib13CommodityTypeaSERKS0_.exit.i
 
 _ZN5boost10shared_ptrIN8QuantLib13CommodityType4DataEEC2ERKS4_.exit.i.i.i: ; preds = %if.then3
@@ -202,7 +202,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib13CommodityTypeaSERKS0_.exit.i:       ; preds = %_ZN5boost10shared_ptrIN8QuantLib13CommodityType4DataEEC2ERKS4_.exit.i.i.i.thread, %if.then.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i, %if.then.i.i5.i.i.i, %_ZN5boost10shared_ptrIN8QuantLib13CommodityType4DataEEC2ERKS4_.exit.i.i.i
-  %pn3.i2.i.i.i219 = phi ptr [ %pn3.i2.i.i.i217, %_ZN5boost10shared_ptrIN8QuantLib13CommodityType4DataEEC2ERKS4_.exit.i.i.i.thread ], [ %pn3.i2.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %pn3.i2.i.i.i, %.noexc.i.i.i.i.i ], [ %pn3.i2.i.i.i, %if.then.i.i5.i.i.i ], [ %pn3.i2.i.i.i, %_ZN5boost10shared_ptrIN8QuantLib13CommodityType4DataEEC2ERKS4_.exit.i.i.i ]
+  %pn3.i2.i.i.i251 = phi ptr [ %pn3.i2.i.i.i249, %_ZN5boost10shared_ptrIN8QuantLib13CommodityType4DataEEC2ERKS4_.exit.i.i.i.thread ], [ %pn3.i2.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %pn3.i2.i.i.i, %.noexc.i.i.i.i.i ], [ %pn3.i2.i.i.i, %if.then.i.i5.i.i.i ], [ %pn3.i2.i.i.i, %_ZN5boost10shared_ptrIN8QuantLib13CommodityType4DataEEC2ERKS4_.exit.i.i.i ]
   %unitOfMeasure_.i = getelementptr inbounds nuw i8, ptr %periodQuantity, i64 16
   %unitOfMeasure_3.i = getelementptr inbounds nuw i8, ptr %quantity, i64 16
   %9 = load ptr, ptr %unitOfMeasure_3.i, align 8, !tbaa !13
@@ -481,7 +481,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib13UnitOfMeasureD2Ev.exit.i:           ; preds = %if.then.i.i.i.i.i.i46, %.noexc.i.i.i.i, %if.then.i.i.i.i, %for.cond.cleanup
-  %49 = load ptr, ptr %pn3.i2.i.i.i219, align 8, !tbaa !9
+  %49 = load ptr, ptr %pn3.i2.i.i.i251, align 8, !tbaa !9
   %cmp.not.i.i.i2.i = icmp eq ptr %49, null
   br i1 %cmp.not.i.i.i2.i, label %_ZN8QuantLib8QuantityD2Ev.exit, label %if.then.i.i.i3.i
 

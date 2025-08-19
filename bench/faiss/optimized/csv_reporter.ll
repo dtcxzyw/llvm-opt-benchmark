@@ -556,13 +556,13 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %42, label %._crit_edge.thread.i, label %47
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %30
-  %.028.lcssa37.i = phi ptr [ %.02933.i, %._crit_edge.i ], [ %14, %30 ]
+  %.028.lcssa39.i = phi ptr [ %.02933.i, %._crit_edge.i ], [ %14, %30 ]
   %43 = load ptr, ptr %15, align 8, !tbaa !45
-  %44 = icmp eq ptr %.028.lcssa37.i, %43
+  %44 = icmp eq ptr %.028.lcssa39.i, %43
   br i1 %44, label %select.unfold, label %45
 
 45:                                               ; preds = %._crit_edge.thread.i
-  %46 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37.i) #24
+  %46 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39.i) #24
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %46, i64 40
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !15
   %.phi.trans.insert118 = getelementptr inbounds nuw i8, ptr %.sroa.056.087, i64 40
@@ -574,7 +574,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.sroa.speculated.i.i.i5.i.pre-phi = phi i64 [ %.pre121, %45 ], [ %.sroa.speculated.i.i.i.i, %._crit_edge.i ]
   %48 = phi i64 [ %.pre119, %45 ], [ %32, %._crit_edge.i ]
   %49 = phi i64 [ %.pre, %45 ], [ %36, %._crit_edge.i ]
-  %.028.lcssa38.i = phi ptr [ %.028.lcssa37.i, %45 ], [ %.02933.i, %._crit_edge.i ]
+  %.028.lcssa38.i = phi ptr [ %.028.lcssa39.i, %45 ], [ %.02933.i, %._crit_edge.i ]
   %.sroa.014.0.i = phi ptr [ %46, %45 ], [ %.02933.i, %._crit_edge.i ]
   %50 = icmp eq i64 %.sroa.speculated.i.i.i5.i.pre-phi, 0
   br i1 %50, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i9.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i6.i
@@ -600,7 +600,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %56, label %select.unfold, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_.exit
 
 select.unfold:                                    ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13.i, %._crit_edge.thread.i
-  %.sroa.4.0.i.ph = phi ptr [ %.028.lcssa37.i, %._crit_edge.thread.i ], [ %.028.lcssa38.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13.i ]
+  %.sroa.4.0.i.ph = phi ptr [ %.028.lcssa39.i, %._crit_edge.thread.i ], [ %.028.lcssa38.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13.i ]
   %57 = icmp eq ptr %.sroa.4.0.i.ph, %14
   br i1 %57, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i, label %58
 
@@ -1173,8 +1173,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107: ; preds = %_Z
   br label %154
 
 154:                                              ; preds = %147, %142
-  %.sink248 = phi double [ %153, %147 ], [ %146, %142 ]
-  %155 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %19, double noundef %.sink248)
+  %.sink292 = phi double [ %153, %147 ], [ %146, %142 ]
+  %155 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %19, double noundef %.sink292)
   %156 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %155, ptr noundef nonnull @.str.13, i64 noundef 1)
   %157 = load i8, ptr %125, align 8, !tbaa !82, !range !40, !noundef !41
   %158 = trunc nuw i8 %157 to i1

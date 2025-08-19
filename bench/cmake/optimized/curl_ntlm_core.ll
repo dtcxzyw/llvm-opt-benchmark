@@ -284,8 +284,8 @@ define dso_local i32 @Curl_ntlm_core_mk_nt_hash(ptr noundef readonly captures(no
   %9 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !7
   %10 = shl nuw i64 %3, 1
   %11 = tail call ptr %9(i64 noundef %10) #8
-  %.not1719 = icmp eq ptr %11, null
-  br i1 %.not1719, label %25, label %.lr.ph.i
+  %.not1721 = icmp eq ptr %11, null
+  br i1 %.not1721, label %25, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread, %.lr.ph.i
   %.08.i = phi i64 [ %17, %.lr.ph.i ], [ 0, %.thread ]

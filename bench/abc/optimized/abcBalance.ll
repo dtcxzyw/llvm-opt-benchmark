@@ -76,9 +76,9 @@ Abc_NtkMarkCriticalNodes.exit:                    ; preds = %26, %.split22
   br label %.split
 
 .split:                                           ; preds = %4, %Abc_NtkMarkCriticalNodes.exit
-  %.sink27 = phi i32 [ %2, %Abc_NtkMarkCriticalNodes.exit ], [ 0, %4 ]
+  %.sink30 = phi i32 [ %2, %Abc_NtkMarkCriticalNodes.exit ], [ 0, %4 ]
   %37 = tail call ptr @Abc_NtkStartFrom(ptr noundef %0, i32 noundef 3, i32 noundef 3) #13
-  tail call fastcc void @Abc_NtkBalancePerform(ptr noundef %0, ptr noundef %37, i32 noundef %1, i32 noundef %.sink27, i32 noundef %3)
+  tail call fastcc void @Abc_NtkBalancePerform(ptr noundef %0, ptr noundef %37, i32 noundef %1, i32 noundef %.sink30, i32 noundef %3)
   tail call void @Abc_NtkFinalize(ptr noundef %0, ptr noundef %37) #13
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 256
   %39 = load ptr, ptr %38, align 8, !tbaa !31
@@ -536,7 +536,7 @@ define range(i32 0, 2) i32 @Abc_NodeBalanceConeExor_rec(ptr noundef %0, ptr noun
   %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = icmp eq ptr %12, %0
-  br i1 %13, label %common.ret39, label %9
+  br i1 %13, label %common.ret41, label %9
 
 ._crit_edge:                                      ; preds = %9, %3
   %.not = icmp eq i32 %2, 0
@@ -614,11 +614,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %46 = sext i32 %44 to i64
   %47 = getelementptr inbounds ptr, ptr %43, i64 %46
   store ptr %0, ptr %47, align 8, !tbaa !27
-  br label %common.ret39
+  br label %common.ret41
 
-common.ret39:                                     ; preds = %Vec_PtrPush.exit, %10, %48
-  %common.ret39.op = phi i32 [ %78, %48 ], [ 0, %Vec_PtrPush.exit ], [ 1, %10 ]
-  ret i32 %common.ret39.op
+common.ret41:                                     ; preds = %Vec_PtrPush.exit, %10, %48
+  %common.ret41.op = phi i32 [ %78, %48 ], [ 0, %Vec_PtrPush.exit ], [ 1, %10 ]
+  ret i32 %common.ret41.op
 
 48:                                               ; preds = %14, %._crit_edge
   %.val = load ptr, ptr %0, align 8, !tbaa !45
@@ -671,7 +671,7 @@ common.ret39:                                     ; preds = %Vec_PtrPush.exit, %
   %76 = icmp ne i32 %74, 0
   %77 = select i1 %75, i1 true, i1 %76
   %78 = zext i1 %77 to i32
-  br label %common.ret39
+  br label %common.ret41
 }
 
 ; Function Attrs: nounwind uwtable
@@ -776,9 +776,9 @@ Vec_PtrPush.exit.i40:                             ; preds = %28
 .critedge:                                        ; preds = %.lr.ph, %36
   %.val5563 = phi i32 [ %.val3253, %36 ], [ %.val32, %.lr.ph ]
   %49 = icmp eq i32 %37, -1
-  br i1 %49, label %Vec_PtrPushUnique.exit50.thread68, label %Vec_PtrPushUnique.exit50
+  br i1 %49, label %Vec_PtrPushUnique.exit50.thread74, label %Vec_PtrPushUnique.exit50
 
-Vec_PtrPushUnique.exit50.thread68:                ; preds = %.critedge
+Vec_PtrPushUnique.exit50.thread74:                ; preds = %.critedge
   store i32 0, ptr %8, align 4, !tbaa !24
   br label %.critedge2
 
@@ -817,8 +817,8 @@ Vec_PtrPushUnique.exit50:                         ; preds = %.critedge
   %62 = icmp slt i64 %indvars.iv.next60, %61
   br i1 %62, label %.lr.ph57, label %.critedge2, !llvm.loop !60
 
-.critedge2:                                       ; preds = %60, %Vec_PtrPushUnique.exit50.thread68, %Vec_PtrPushUnique.exit50, %1, %1
-  %.029 = phi ptr [ null, %1 ], [ null, %1 ], [ %7, %Vec_PtrPushUnique.exit50 ], [ %7, %Vec_PtrPushUnique.exit50.thread68 ], [ %7, %60 ]
+.critedge2:                                       ; preds = %60, %Vec_PtrPushUnique.exit50.thread74, %Vec_PtrPushUnique.exit50, %1, %1
+  %.029 = phi ptr [ null, %1 ], [ null, %1 ], [ %7, %Vec_PtrPushUnique.exit50 ], [ %7, %Vec_PtrPushUnique.exit50.thread74 ], [ %7, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.029
@@ -1629,8 +1629,8 @@ Abc_NodeBalanceFindLeft.exit:                     ; preds = %149, %._crit_edge.s
   %158 = getelementptr ptr, ptr %.val30.i, i64 %157
   %159 = getelementptr i8, ptr %158, i64 -8
   %160 = load ptr, ptr %159, align 8, !tbaa !27
-  %161 = sext i32 %154 to i64
-  %162 = getelementptr inbounds ptr, ptr %.val30.i, i64 %161
+  %161 = zext nneg i32 %154 to i64
+  %162 = getelementptr inbounds nuw ptr, ptr %.val30.i, i64 %161
   %163 = load ptr, ptr %162, align 8, !tbaa !27
   %.not34.i = icmp slt i32 %154, %153
   br i1 %.not34.i, label %Abc_NodeBalancePermute.exit, label %.lr.ph.i57
@@ -1664,7 +1664,7 @@ Abc_NodeBalanceFindLeft.exit:                     ; preds = %149, %._crit_edge.s
   %175 = getelementptr inbounds ptr, ptr %.val31.i, i64 %indvars.iv.i58
   store ptr %163, ptr %175, align 8, !tbaa !27
   %.val32.i = load ptr, ptr %126, align 8, !tbaa !26
-  %176 = getelementptr inbounds ptr, ptr %.val32.i, i64 %161
+  %176 = getelementptr inbounds nuw ptr, ptr %.val32.i, i64 %161
   store ptr %169, ptr %176, align 8, !tbaa !27
   br label %Abc_NodeBalancePermute.exit
 

@@ -1850,8 +1850,8 @@ lookup_power_well.exit:                           ; preds = %.loopexit1.i, %33
 .preheader.i2.preheader:                          ; preds = %.preheader.i, %lookup_power_well.exit
   %38 = phi ptr [ %36, %lookup_power_well.exit ], [ %9, %.preheader.i ]
   %39 = phi ptr [ %36, %lookup_power_well.exit ], [ %3, %.preheader.i ]
-  %.pre-phi16 = phi i64 [ %.pre10, %lookup_power_well.exit ], [ %4, %.preheader.i ]
-  %.pre-phi1215 = phi i64 [ %.pre11, %lookup_power_well.exit ], [ %7, %.preheader.i ]
+  %.pre-phi19 = phi i64 [ %.pre10, %lookup_power_well.exit ], [ %4, %.preheader.i ]
+  %.pre-phi1218 = phi i64 [ %.pre11, %lookup_power_well.exit ], [ %7, %.preheader.i ]
   br label %.preheader.i2
 
 .preheader.i2:                                    ; preds = %.preheader.i2.preheader, %51
@@ -1871,9 +1871,9 @@ lookup_power_well.exit:                           ; preds = %.loopexit1.i, %33
 51:                                               ; preds = %.preheader.i2
   %52 = getelementptr i8, ptr %40, i64 32
   %53 = ptrtoint ptr %52 to i64
-  %54 = sub i64 %53, %.pre-phi16
+  %54 = sub i64 %53, %.pre-phi19
   %55 = ashr exact i64 %54, 5
-  %56 = icmp slt i64 %55, %.pre-phi1215
+  %56 = icmp slt i64 %55, %.pre-phi1218
   br i1 %56, label %.preheader.i2, label %.loopexit1.i1, !llvm.loop !5
 
 .loopexit1.i1:                                    ; preds = %51, %lookup_power_well.exit

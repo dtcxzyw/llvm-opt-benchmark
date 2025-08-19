@@ -257,15 +257,15 @@ define internal fastcc void @RC2_cbc_encrypt(ptr noundef readonly captures(none)
   br i1 %.not257, label %170, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %12, %._crit_edge
-  %.0.lcssa305 = phi i64 [ %.0, %._crit_edge ], [ %.1269, %12 ]
-  %.0.in.lcssa304 = phi i64 [ %.0263, %._crit_edge ], [ %2, %12 ]
-  %.0229.lcssa303 = phi i32 [ %23, %._crit_edge ], [ %10, %12 ]
-  %.0231.lcssa302 = phi i32 [ %21, %._crit_edge ], [ %8, %12 ]
-  %.0239.lcssa301 = phi ptr [ %18, %._crit_edge ], [ %0, %12 ]
-  %.0247.lcssa300 = phi ptr [ %24, %._crit_edge ], [ %1, %12 ]
-  %26 = getelementptr i8, ptr %.0239.lcssa301, i64 %.0.lcssa305
-  %27 = getelementptr i8, ptr %.0239.lcssa301, i64 %.0.in.lcssa304
-  switch i64 %.0.in.lcssa304, label %default.unreachable [
+  %.0.lcssa308 = phi i64 [ %.0, %._crit_edge ], [ %.1269, %12 ]
+  %.0.in.lcssa307 = phi i64 [ %.0263, %._crit_edge ], [ %2, %12 ]
+  %.0229.lcssa306 = phi i32 [ %23, %._crit_edge ], [ %10, %12 ]
+  %.0231.lcssa305 = phi i32 [ %21, %._crit_edge ], [ %8, %12 ]
+  %.0239.lcssa304 = phi ptr [ %18, %._crit_edge ], [ %0, %12 ]
+  %.0247.lcssa303 = phi ptr [ %24, %._crit_edge ], [ %1, %12 ]
+  %26 = getelementptr i8, ptr %.0239.lcssa304, i64 %.0.lcssa308
+  %27 = getelementptr i8, ptr %.0239.lcssa304, i64 %.0.in.lcssa307
+  switch i64 %.0.in.lcssa307, label %default.unreachable295 [
     i64 1, label %63
     i64 7, label %28
     i64 6, label %33
@@ -333,7 +333,7 @@ define internal fastcc void @RC2_cbc_encrypt(ptr noundef readonly captures(none)
   %62 = or i32 %61, %.2237
   br label %63
 
-default.unreachable:                              ; preds = %._crit_edge277.thread, %._crit_edge.thread
+default.unreachable295:                           ; preds = %._crit_edge277.thread, %._crit_edge.thread
   unreachable
 
 63:                                               ; preds = %57, %._crit_edge.thread
@@ -344,15 +344,15 @@ default.unreachable:                              ; preds = %._crit_edge277.thre
   %65 = load i8, ptr %64, align 1, !tbaa !16
   %66 = zext i8 %65 to i32
   %67 = or i32 %.3238, %66
-  %68 = xor i32 %67, %.0231.lcssa302
-  %69 = xor i32 %.7, %.0229.lcssa303
+  %68 = xor i32 %67, %.0231.lcssa305
+  %69 = xor i32 %.7, %.0229.lcssa306
   store i32 %68, ptr %7, align 4, !tbaa !26
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %69, ptr %70, align 4, !tbaa !26
   call fastcc void @RC2_encrypt(ptr noundef %7, ptr noundef %3)
   %71 = load i32, ptr %7, align 4, !tbaa !26
-  store i32 %71, ptr %.0247.lcssa300, align 1
-  %72 = getelementptr inbounds nuw i8, ptr %.0247.lcssa300, i64 4
+  store i32 %71, ptr %.0247.lcssa303, align 1
+  %72 = getelementptr inbounds nuw i8, ptr %.0247.lcssa303, i64 4
   %73 = load i32, ptr %70, align 4, !tbaa !26
   store i32 %73, ptr %72, align 1
   br label %170
@@ -416,21 +416,21 @@ default.unreachable:                              ; preds = %._crit_edge277.thre
   br i1 %.not256, label %170, label %._crit_edge277.thread
 
 ._crit_edge277.thread:                            ; preds = %74, %._crit_edge277
-  %.1.lcssa318 = phi i64 [ %.1, %._crit_edge277 ], [ %.1269, %74 ]
-  %.1.in.lcssa317 = phi i64 [ %.1274, %._crit_edge277 ], [ %2, %74 ]
-  %.0225.lcssa316 = phi i32 [ %102, %._crit_edge277 ], [ %10, %74 ]
-  %.0227.lcssa315 = phi i32 [ %89, %._crit_edge277 ], [ %8, %74 ]
-  %.8.lcssa314 = phi ptr [ %98, %._crit_edge277 ], [ %0, %74 ]
-  %.1248.lcssa313 = phi ptr [ %108, %._crit_edge277 ], [ %1, %74 ]
-  %110 = load i16, ptr %.8.lcssa314, align 1
+  %.1.lcssa321 = phi i64 [ %.1, %._crit_edge277 ], [ %.1269, %74 ]
+  %.1.in.lcssa320 = phi i64 [ %.1274, %._crit_edge277 ], [ %2, %74 ]
+  %.0225.lcssa319 = phi i32 [ %102, %._crit_edge277 ], [ %10, %74 ]
+  %.0227.lcssa318 = phi i32 [ %89, %._crit_edge277 ], [ %8, %74 ]
+  %.8.lcssa317 = phi ptr [ %98, %._crit_edge277 ], [ %0, %74 ]
+  %.1248.lcssa316 = phi ptr [ %108, %._crit_edge277 ], [ %1, %74 ]
+  %110 = load i16, ptr %.8.lcssa317, align 1
   %111 = zext i16 %110 to i32
-  %112 = getelementptr inbounds nuw i8, ptr %.8.lcssa314, i64 2
-  %113 = getelementptr inbounds nuw i8, ptr %.8.lcssa314, i64 3
+  %112 = getelementptr inbounds nuw i8, ptr %.8.lcssa317, i64 2
+  %113 = getelementptr inbounds nuw i8, ptr %.8.lcssa317, i64 3
   %114 = load i8, ptr %112, align 1, !tbaa !16
   %115 = zext i8 %114 to i32
   %116 = shl nuw nsw i32 %115, 16
   %117 = or disjoint i32 %116, %111
-  %118 = getelementptr inbounds nuw i8, ptr %.8.lcssa314, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %.8.lcssa317, i64 4
   %119 = load i8, ptr %113, align 1, !tbaa !16
   %120 = zext i8 %119 to i32
   %121 = shl nuw i32 %120, 24
@@ -438,8 +438,8 @@ default.unreachable:                              ; preds = %._crit_edge277.thre
   store i32 %122, ptr %7, align 4, !tbaa !26
   %123 = load i16, ptr %118, align 1
   %124 = zext i16 %123 to i32
-  %125 = getelementptr inbounds nuw i8, ptr %.8.lcssa314, i64 6
-  %126 = getelementptr inbounds nuw i8, ptr %.8.lcssa314, i64 7
+  %125 = getelementptr inbounds nuw i8, ptr %.8.lcssa317, i64 6
+  %126 = getelementptr inbounds nuw i8, ptr %.8.lcssa317, i64 7
   %127 = load i8, ptr %125, align 1, !tbaa !16
   %128 = zext i8 %127 to i32
   %129 = shl nuw nsw i32 %128, 16
@@ -452,12 +452,12 @@ default.unreachable:                              ; preds = %._crit_edge277.thre
   store i32 %134, ptr %135, align 4, !tbaa !26
   call fastcc void @RC2_decrypt(ptr noundef %7, ptr noundef %3)
   %136 = load i32, ptr %7, align 4, !tbaa !26
-  %137 = xor i32 %136, %.0227.lcssa315
+  %137 = xor i32 %136, %.0227.lcssa318
   %138 = load i32, ptr %135, align 4, !tbaa !26
-  %139 = xor i32 %138, %.0225.lcssa316
-  %140 = getelementptr i8, ptr %.1248.lcssa313, i64 %.1.lcssa318
-  %141 = getelementptr i8, ptr %.1248.lcssa313, i64 %.1.in.lcssa317
-  switch i64 %.1.in.lcssa317, label %default.unreachable [
+  %139 = xor i32 %138, %.0225.lcssa319
+  %140 = getelementptr i8, ptr %.1248.lcssa316, i64 %.1.lcssa321
+  %141 = getelementptr i8, ptr %.1248.lcssa316, i64 %.1.in.lcssa320
+  switch i64 %.1.in.lcssa320, label %default.unreachable295 [
     i64 1, label %167
     i64 7, label %142
     i64 6, label %146
@@ -774,9 +774,9 @@ define internal fastcc void @RC2_decrypt(ptr noundef nonnull captures(none) %0, 
   %87 = load i16, ptr %86, align 2, !tbaa !21
   %88 = zext i16 %87 to i32
   %89 = sub i32 %60, %88
-  %.tr99 = trunc i32 %48 to i16
-  %.narrow100 = sub i16 %.tr99, %83
-  %.pre = zext i16 %.narrow100 to i32
+  %.tr101 = trunc i32 %48 to i16
+  %.narrow102 = sub i16 %.tr101, %83
+  %.pre = zext i16 %.narrow102 to i32
   br label %.outer
 
 90:                                               ; preds = %63

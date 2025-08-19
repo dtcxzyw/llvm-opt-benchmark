@@ -413,8 +413,8 @@ define internal fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr noundef ca
 .lr.ph:                                           ; preds = %49, %63
   %.05972 = phi i32 [ %.1, %63 ], [ %6, %49 ]
   %.06071 = phi i32 [ %.161, %63 ], [ 0, %49 ]
-  %51 = add nsw i32 %.05972, %.06071
-  %52 = sdiv i32 %51, 2
+  %51 = add nuw nsw i32 %.05972, %.06071
+  %52 = lshr i32 %51, 1
   %53 = mul nsw i32 %52, %4
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds i32, ptr %9, i64 %54
@@ -560,8 +560,8 @@ define i32 @upvec_getValue_77(ptr noundef captures(none) %0, i32 noundef %1, i32
 .lr.ph.i:                                         ; preds = %58, %72
   %.05972.i = phi i32 [ %.1.i, %72 ], [ %15, %58 ]
   %.06071.i = phi i32 [ %.161.i, %72 ], [ 0, %58 ]
-  %60 = add nsw i32 %.06071.i, %.05972.i
-  %61 = sdiv i32 %60, 2
+  %60 = add nuw nsw i32 %.06071.i, %.05972.i
+  %61 = lshr i32 %60, 1
   %62 = mul nsw i32 %61, %11
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i32, ptr %18, i64 %63

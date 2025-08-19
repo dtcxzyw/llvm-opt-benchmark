@@ -764,8 +764,8 @@ define linkonce_odr void @_ZN5Yosys5RTLIL6Module16rewrite_sigspecsIFvRNS0_7SigSp
   br i1 %.not5561, label %._crit_edge65, label %.lr.ph64.preheader
 
 .lr.ph64.preheader:                               ; preds = %._crit_edge
-  %sext75 = shl i64 %20, 32
-  %22 = ashr exact i64 %sext75, 32
+  %sext85 = shl i64 %20, 32
+  %22 = ashr exact i64 %sext85, 32
   br label %.lr.ph64
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5Yosys5RTLIL4Cell16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_.exit

@@ -1474,9 +1474,9 @@ define dso_local noundef range(i32 -22, 1) i32 @qi_submit_sync(ptr noundef %0, p
   %39 = or disjoint i32 %38, 4
   %.pre = shl nuw nsw i32 16, %38
   %.pre33 = zext nneg i32 %.pre to i64
-  br i1 %14, label %.loopexit12, label %.preheader48
+  br i1 %14, label %.loopexit12, label %.preheader53
 
-.preheader48:                                     ; preds = %.loopexit14, %79
+.preheader53:                                     ; preds = %.loopexit14, %79
   %40 = phi i32 [ %80, %79 ], [ 0, %.loopexit14 ]
   %41 = add i32 %40, %32
   %42 = srem i32 %41, 256
@@ -1501,7 +1501,7 @@ define dso_local noundef range(i32 -22, 1) i32 @qi_submit_sync(ptr noundef %0, p
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_qi_submit, i64 8), i32 2) #20
           to label %79 [label %59], !srcloc !34
 
-59:                                               ; preds = %.preheader48
+59:                                               ; preds = %.preheader53
   %60 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !35
   %61 = zext i32 %60 to i64
   %62 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %61) #20, !srcloc !36
@@ -1537,10 +1537,10 @@ define dso_local noundef range(i32 -22, 1) i32 @qi_submit_sync(ptr noundef %0, p
   tail call void @llvm.write_register.i64(metadata !0, i64 %78)
   br label %79
 
-79:                                               ; preds = %76, %72, %59, %.preheader48
+79:                                               ; preds = %76, %72, %59, %.preheader53
   %80 = add nuw i32 %40, 1
   %81 = icmp eq i32 %80, %2
-  br i1 %81, label %.loopexit12, label %.preheader48, !llvm.loop !42
+  br i1 %81, label %.loopexit12, label %.preheader53, !llvm.loop !42
 
 .loopexit12:                                      ; preds = %79, %.loopexit14
   %82 = load ptr, ptr %16, align 8
@@ -3387,7 +3387,7 @@ dmar_walk_dsm_resource.exit21.thread:             ; preds = %133
 135:                                              ; preds = %133
   %136 = call ptr @acpi_evaluate_dsm(ptr noundef %28, ptr noundef nonnull @dmar_hp_guid, i64 noundef 0, i64 noundef 1, ptr noundef null) #20
   %137 = icmp eq ptr %136, null
-  br i1 %137, label %.sink.split50, label %138
+  br i1 %137, label %.sink.split65, label %138
 
 138:                                              ; preds = %135
   %139 = load i32, ptr %136, align 8
@@ -3396,7 +3396,7 @@ dmar_walk_dsm_resource.exit21.thread:             ; preds = %133
 
 dmar_walk_dsm_resource.exit21.thread41:           ; preds = %138
   call void @kfree(ptr noundef nonnull %136) #20
-  br label %.sink.split50
+  br label %.sink.split65
 
 dmar_walk_dsm_resource.exit21:                    ; preds = %138
   %141 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3473,7 +3473,7 @@ dmar_walk_dsm_resource.exit27.thread:             ; preds = %166
 168:                                              ; preds = %166
   %169 = call ptr @acpi_evaluate_dsm(ptr noundef %28, ptr noundef nonnull @dmar_hp_guid, i64 noundef 0, i64 noundef 1, ptr noundef null) #20
   %170 = icmp eq ptr %169, null
-  br i1 %170, label %.sink.split49, label %171
+  br i1 %170, label %.sink.split64, label %171
 
 171:                                              ; preds = %168
   %172 = load i32, ptr %169, align 8
@@ -3482,7 +3482,7 @@ dmar_walk_dsm_resource.exit27.thread:             ; preds = %166
 
 dmar_walk_dsm_resource.exit27.thread47:           ; preds = %171
   call void @kfree(ptr noundef nonnull %169) #20
-  br label %.sink.split49
+  br label %.sink.split64
 
 dmar_walk_dsm_resource.exit27:                    ; preds = %171
   %174 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3499,22 +3499,22 @@ dmar_walk_dsm_resource.exit27:                    ; preds = %171
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %200, label %182, !prof !68
 
-.sink.split49:                                    ; preds = %168, %dmar_walk_dsm_resource.exit27.thread47
+.sink.split64:                                    ; preds = %168, %dmar_walk_dsm_resource.exit27.thread47
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %182
 
-182:                                              ; preds = %.sink.split49, %dmar_walk_dsm_resource.exit27
+182:                                              ; preds = %.sink.split64, %dmar_walk_dsm_resource.exit27
   call void asm sideeffect "514: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 514b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 514) #20, !srcloc !72
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 2370, i32 2305, i64 12) #20, !srcloc !73
   call void asm sideeffect "515: nop\0A\09.pushsection .discard.instr_end\0A\09.long 515b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 515) #20, !srcloc !74
   br label %200
 
-.sink.split50:                                    ; preds = %135, %dmar_walk_dsm_resource.exit21.thread41
+.sink.split65:                                    ; preds = %135, %dmar_walk_dsm_resource.exit21.thread41
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %183
 
-183:                                              ; preds = %.sink.split50, %dmar_walk_dsm_resource.exit21
-  %184 = phi i32 [ %147, %dmar_walk_dsm_resource.exit21 ], [ -19, %.sink.split50 ]
+183:                                              ; preds = %.sink.split65, %dmar_walk_dsm_resource.exit21
+  %184 = phi i32 [ %147, %dmar_walk_dsm_resource.exit21 ], [ -19, %.sink.split65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %185 = call zeroext i1 @acpi_check_dsm(ptr noundef %28, ptr noundef nonnull @dmar_hp_guid, i64 noundef 0, i64 noundef 2) #20
   br i1 %185, label %186, label %dmar_walk_dsm_resource.exit30

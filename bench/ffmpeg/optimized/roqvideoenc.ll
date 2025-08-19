@@ -2797,17 +2797,17 @@ mid_pred.exit:                                    ; preds = %325, %327, %328, %3
 
 331:                                              ; preds = %mid_pred.exit
   %.sroa.0.0..sroa.0.0. = load i32, ptr %.sroa.0, align 8
-  %.sroa.5.0..sroa.5.0.579 = load i32, ptr %.sroa.5, align 4
+  %.sroa.5.0..sroa.5.0.613 = load i32, ptr %.sroa.5, align 4
   %332 = add i32 %.sroa.0.0..sroa.0.0., -8
   %or.cond.i334 = icmp ult i32 %332, -15
-  %333 = add i32 %.sroa.5.0..sroa.5.0.579, -8
+  %333 = add i32 %.sroa.5.0..sroa.5.0.613, -8
   %or.cond3.i335 = icmp ult i32 %333, -15
   %or.cond29.i336 = select i1 %or.cond.i334, i1 true, i1 %or.cond3.i335
   br i1 %or.cond29.i336, label %eval_motion_dist.exit358, label %334
 
 334:                                              ; preds = %331
   %335 = add nsw i32 %.pre-phi, %.sroa.0.0..sroa.0.0.
-  %336 = add nsw i32 %.sroa.5.0..sroa.5.0.579, %23
+  %336 = add nsw i32 %.sroa.5.0..sroa.5.0.613, %23
   %337 = icmp ugt i32 %335, %29
   br i1 %337, label %eval_motion_dist.exit358, label %338
 
@@ -2890,7 +2890,7 @@ eval_motion_dist.exit358:                         ; preds = %379, %331, %334, %3
   %.0.i357 = phi i32 [ 2147483647, %331 ], [ 2147483647, %338 ], [ 2147483647, %334 ], [ %378, %379 ]
   %380 = icmp slt i32 %.0.i357, %.3
   %.sroa.090.4 = select i1 %380, i32 %.sroa.0.0..sroa.0.0., i32 %.sroa.090.3
-  %.sroa.15.4 = select i1 %380, i32 %.sroa.5.0..sroa.5.0.579, i32 %.sroa.15.3
+  %.sroa.15.4 = select i1 %380, i32 %.sroa.5.0..sroa.5.0.613, i32 %.sroa.15.3
   %.4 = tail call i32 @llvm.smin.i32(i32 %.0.i357, i32 %.3)
   br label %381
 
@@ -3667,7 +3667,8 @@ index_mb.exit:                                    ; preds = %squared_diff_macrob
   br label %.preheader.i88
 
 .preheader.i88:                                   ; preds = %220, %206
-  %indvars.iv28.i89 = phi i64 [ 0, %206 ], [ %indvars.iv.next29.i95, %220 ]
+  %exitcond32.not.i96 = phi i1 [ false, %206 ], [ true, %220 ]
+  %indvars.iv28.i89 = phi i64 [ 0, %206 ], [ 1, %220 ]
   %.124.i90 = phi ptr [ %.026.i87, %206 ], [ %219, %220 ]
   %211 = add nsw i64 %indvars.iv28.i89, %204
   %212 = mul nsw i64 %211, %210
@@ -3688,8 +3689,6 @@ index_mb.exit:                                    ; preds = %squared_diff_macrob
   br i1 %exitcond.not.i94, label %220, label %213, !llvm.loop !102
 
 220:                                              ; preds = %213
-  %indvars.iv.next29.i95 = add nuw nsw i64 %indvars.iv28.i89, 1
-  %exitcond32.not.i96 = icmp eq i64 %indvars.iv.next29.i95, 2
   br i1 %exitcond32.not.i96, label %221, label %.preheader.i88, !llvm.loop !103
 
 221:                                              ; preds = %220

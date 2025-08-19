@@ -2224,8 +2224,8 @@ define void @pmix_invoke_local_event_hdlr(ptr noundef %0) local_unnamed_addr #0 
 .preheader16.i:                                   ; preds = %83
   %.not.i = icmp eq i64 %91, 0
   %.not20.i = icmp eq i64 %87, 0
-  %or.cond25.i = or i1 %.not20.i, %.not.i
-  br i1 %or.cond25.i, label %pmix_notify_check_affected.exit, label %.preheader.us.i
+  %or.cond30.i = or i1 %.not20.i, %.not.i
+  br i1 %or.cond30.i, label %pmix_notify_check_affected.exit, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.preheader16.i, %._crit_edge.us.i
   %.019.us.i = phi i64 [ %100, %._crit_edge.us.i ], [ 0, %.preheader16.i ]
@@ -2428,8 +2428,8 @@ pmix_notify_check_affected.exit:                  ; preds = %pmix_notify_check_a
 .preheader16.i189:                                ; preds = %180
   %.not.i190 = icmp eq i64 %186, 0
   %.not20.i191 = icmp eq i64 %184, 0
-  %or.cond25.i192 = or i1 %.not20.i191, %.not.i190
-  br i1 %or.cond25.i192, label %pmix_notify_check_affected.exit200, label %.preheader.us.i193
+  %or.cond30.i192 = or i1 %.not20.i191, %.not.i190
+  br i1 %or.cond30.i192, label %pmix_notify_check_affected.exit200, label %.preheader.us.i193
 
 .preheader.us.i193:                               ; preds = %.preheader16.i189, %._crit_edge.us.i197
   %.019.us.i194 = phi i64 [ %195, %._crit_edge.us.i197 ], [ 0, %.preheader16.i189 ]
@@ -2517,8 +2517,8 @@ pmix_notify_check_affected.exit200:               ; preds = %._crit_edge.us.i197
 .preheader16.i202:                                ; preds = %220
   %.not.i203 = icmp eq i64 %224, 0
   %.not20.i204 = icmp eq i64 %222, 0
-  %or.cond25.i205 = or i1 %.not20.i204, %.not.i203
-  br i1 %or.cond25.i205, label %pmix_notify_check_affected.exit213, label %.preheader.us.i206
+  %or.cond30.i205 = or i1 %.not20.i204, %.not.i203
+  br i1 %or.cond30.i205, label %pmix_notify_check_affected.exit213, label %.preheader.us.i206
 
 .preheader.us.i206:                               ; preds = %.preheader16.i202, %._crit_edge.us.i210
   %.019.us.i207 = phi i64 [ %233, %._crit_edge.us.i210 ], [ 0, %.preheader16.i202 ]
@@ -2627,8 +2627,8 @@ pmix_notify_check_affected.exit213:               ; preds = %._crit_edge.us.i210
 .preheader16.i215:                                ; preds = %265
   %.not.i216 = icmp eq i64 %271, 0
   %.not20.i217 = icmp eq i64 %269, 0
-  %or.cond25.i218 = or i1 %.not20.i217, %.not.i216
-  br i1 %or.cond25.i218, label %pmix_notify_check_affected.exit226, label %.preheader.us.i219
+  %or.cond30.i218 = or i1 %.not20.i217, %.not.i216
+  br i1 %or.cond30.i218, label %pmix_notify_check_affected.exit226, label %.preheader.us.i219
 
 .preheader.us.i219:                               ; preds = %.preheader16.i215, %._crit_edge.us.i223
   %.019.us.i220 = phi i64 [ %280, %._crit_edge.us.i223 ], [ 0, %.preheader16.i215 ]
@@ -3098,8 +3098,8 @@ define noundef zeroext i1 @pmix_notify_check_affected(ptr noundef %0, i64 nounde
 .preheader16:                                     ; preds = %4
   %.not = icmp eq i64 %3, 0
   %.not20 = icmp eq i64 %1, 0
-  %or.cond25 = or i1 %.not, %.not20
-  br i1 %or.cond25, label %.loopexit, label %.preheader.us
+  %or.cond30 = or i1 %.not, %.not20
+  br i1 %or.cond30, label %.loopexit, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader16, %._crit_edge.us
   %.019.us = phi i64 [ %13, %._crit_edge.us ], [ 0, %.preheader16 ]
@@ -3351,15 +3351,15 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %65, %6
   br i1 %.not424, label %110, label %108
 
 108:                                              ; preds = %102
-  br i1 %107, label %.thread664, label %109
+  br i1 %107, label %.thread736, label %109
 
 109:                                              ; preds = %108
   tail call void @free(ptr noundef nonnull %.pre659) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.phi.trans.insert, i8 0, i64 16, i1 false)
   %.pre = load i8, ptr %96, align 1, !tbaa !113, !range !14
-  br label %.thread664
+  br label %.thread736
 
-.thread664:                                       ; preds = %108, %109
+.thread736:                                       ; preds = %108, %109
   %.ph = phi i8 [ %.pre, %109 ], [ %97, %108 ]
   store i8 %.ph, ptr %98, align 8, !tbaa !114
   br label %147
@@ -3442,7 +3442,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %65, %6
   store i64 %.1381, ptr %146, align 8, !tbaa !200
   br label %147
 
-147:                                              ; preds = %.thread664, %.thread591, %110
+147:                                              ; preds = %.thread736, %.thread591, %110
   %148 = getelementptr inbounds nuw i8, ptr %61, i64 568
   %149 = load ptr, ptr %148, align 8, !tbaa !120
   %.not428 = icmp eq ptr %149, null
@@ -3901,8 +3901,8 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i511, %279
 .preheader16.i:                                   ; preds = %.critedge
   %.not.i514 = icmp eq i64 %366, 0
   %.not20.i = icmp eq i64 %362, 0
-  %or.cond25.i = or i1 %.not20.i, %.not.i514
-  br i1 %or.cond25.i, label %pmix_notify_check_affected.exit, label %.preheader.us.i
+  %or.cond30.i = or i1 %.not20.i, %.not.i514
+  br i1 %or.cond30.i, label %pmix_notify_check_affected.exit, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.preheader16.i, %._crit_edge.us.i
   %.019.us.i = phi i64 [ %375, %._crit_edge.us.i ], [ 0, %.preheader16.i ]
@@ -6168,12 +6168,12 @@ define internal void @cycle_events(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br label %59
 
 59:                                               ; preds = %57, %59
-  %.0910.i339443 = phi ptr [ @.str.1, %57 ], [ %61, %59 ]
-  %.0811.i338442 = phi ptr [ %58, %57 ], [ %62, %59 ]
-  %.012.i337441 = phi i64 [ 0, %57 ], [ %60, %59 ]
-  %60 = add nuw nsw i64 %.012.i337441, 1
-  %61 = getelementptr inbounds nuw i8, ptr %.0910.i339443, i64 1
-  %62 = getelementptr inbounds nuw i8, ptr %.0811.i338442, i64 1
+  %.0910.i339490 = phi ptr [ @.str.1, %57 ], [ %61, %59 ]
+  %.0811.i338489 = phi ptr [ %58, %57 ], [ %62, %59 ]
+  %.012.i337488 = phi i64 [ 0, %57 ], [ %60, %59 ]
+  %60 = add nuw nsw i64 %.012.i337488, 1
+  %61 = getelementptr inbounds nuw i8, ptr %.0910.i339490, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.0811.i338489, i64 1
   %63 = load i8, ptr %61, align 1, !tbaa !85
   store i8 %63, ptr %62, align 1, !tbaa !85
   %exitcond410 = icmp eq i64 %60, 7
@@ -6328,7 +6328,7 @@ pmix_strncpy.exit:                                ; preds = %53, %50, %59
   %141 = load ptr, ptr %43, align 8, !tbaa !167
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %141, i64 160
   %.pre413 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !230
-  br label %.preheader430
+  br label %.preheader477
 
 .thread359:                                       ; preds = %137, %138
   %142 = phi ptr [ %140, %138 ], [ null, %137 ]
@@ -6359,8 +6359,8 @@ pmix_strncpy.exit:                                ; preds = %53, %50, %59
 .preheader16.i:                                   ; preds = %151
   %.not.i = icmp eq i64 %157, 0
   %.not20.i = icmp eq i64 %155, 0
-  %or.cond25.i = or i1 %.not20.i, %.not.i
-  br i1 %or.cond25.i, label %pmix_notify_check_affected.exit, label %.preheader.us.i
+  %or.cond30.i = or i1 %.not20.i, %.not.i
+  br i1 %or.cond30.i, label %pmix_notify_check_affected.exit, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.preheader16.i, %._crit_edge.us.i
   %.019.us.i = phi i64 [ %166, %._crit_edge.us.i ], [ 0, %.preheader16.i ]
@@ -6443,23 +6443,23 @@ pmix_notify_check_affected.exit:                  ; preds = %._crit_edge.us.i, %
   %202 = getelementptr inbounds nuw i8, ptr %112, i64 496
   %203 = load ptr, ptr %202, align 8, !tbaa !162
   %.not370 = icmp eq ptr %203, null
-  br i1 %.not370, label %.loopexit373, label %.preheader430
+  br i1 %.not370, label %.loopexit373, label %.preheader477
 
-.preheader430:                                    ; preds = %.thread362, %201
+.preheader477:                                    ; preds = %.thread362, %201
   %204 = phi i8 [ %.pre413, %.thread362 ], [ %114, %201 ]
   %spec.select335 = phi ptr [ getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 1208), %.thread362 ], [ %112, %201 ]
   %205 = icmp eq i8 %204, 64
   %206 = getelementptr inbounds nuw i8, ptr %2, i64 284
   %207 = getelementptr inbounds nuw i8, ptr %2, i64 568
   %208 = getelementptr inbounds nuw i8, ptr %2, i64 576
-  %spec.select435 = select i1 %205, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 1208), ptr %spec.select335
+  %spec.select482 = select i1 %205, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 1208), ptr %spec.select335
   br label %209
 
 ..loopexit372_crit_edge:                          ; preds = %237
   br label %.backedge, !llvm.loop !250
 
-209:                                              ; preds = %.preheader430, %.backedge
-  %.5 = phi ptr [ %213, %.backedge ], [ %spec.select435, %.preheader430 ]
+209:                                              ; preds = %.preheader477, %.backedge
+  %.5 = phi ptr [ %213, %.backedge ], [ %spec.select482, %.preheader477 ]
   %.not312 = icmp eq ptr %.5, null
   br i1 %.not312, label %.thread366, label %210
 
@@ -6490,8 +6490,8 @@ pmix_notify_check_affected.exit:                  ; preds = %._crit_edge.us.i, %
 .preheader16.i345:                                ; preds = %216
   %.not.i346 = icmp eq i64 %222, 0
   %.not20.i347 = icmp eq i64 %220, 0
-  %or.cond25.i348 = or i1 %.not20.i347, %.not.i346
-  br i1 %or.cond25.i348, label %.backedge, label %.preheader.us.i349
+  %or.cond30.i348 = or i1 %.not20.i347, %.not.i346
+  br i1 %or.cond30.i348, label %.backedge, label %.preheader.us.i349
 
 .preheader.us.i349:                               ; preds = %.preheader16.i345, %._crit_edge.us.i353
   %.019.us.i350 = phi i64 [ %231, %._crit_edge.us.i353 ], [ 0, %.preheader16.i345 ]

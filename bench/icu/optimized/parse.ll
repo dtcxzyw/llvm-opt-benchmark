@@ -849,7 +849,7 @@ _ZL13initLookaheadP10ParseStateP8UCHARBUFP10UErrorCode.exit: ; preds = %22, %31
   store i32 %99, ptr %94, align 8, !tbaa !24
   %100 = load i32, ptr %7, align 4, !tbaa !14
   %101 = icmp slt i32 %100, 1
-  br i1 %101, label %102, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread73
+  br i1 %101, label %102, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread79
 
 102:                                              ; preds = %82
   %.not15.i = icmp eq i32 %86, 1
@@ -876,7 +876,7 @@ _ZL13initLookaheadP10ParseStateP8UCHARBUFP10UErrorCode.exit: ; preds = %22, %31
 
 _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread.thread: ; preds = %58
   store i32 0, ptr %7, align 4, !tbaa !14
-  %.pre78 = load ptr, ptr %52, align 8, !tbaa !37
+  %.pre84 = load ptr, ptr %52, align 8, !tbaa !37
   br label %120
 
 111:                                              ; preds = %58
@@ -890,22 +890,22 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   %.039.ph = phi i32 [ %79, %103 ], [ %79, %109 ], [ 0, %111 ]
   %.pr = load i32, ptr %7, align 4, !tbaa !14
   %113 = icmp slt i32 %.pr, 1
-  br i1 %113, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread73
+  br i1 %113, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread79
 
-_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread73: ; preds = %82, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit
+_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread79: ; preds = %82, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit
   %114 = load ptr, ptr %52, align 8, !tbaa !37
   %115 = icmp eq ptr %114, null
   br i1 %115, label %160, label %116
 
-116:                                              ; preds = %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread73
+116:                                              ; preds = %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread79
   call void @_ZN7SRBRootD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %114) #21
   call void @_ZdlPvm(ptr noundef nonnull %114, i64 noundef 176) #26
   br label %160
 
 _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread: ; preds = %108, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit
-  %.03972 = phi i32 [ %.039.ph, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit ], [ %79, %108 ]
-  %.06371 = phi i32 [ %.063.ph, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit ], [ %88, %108 ]
-  %117 = icmp eq i32 %.03972, 4
+  %.03978 = phi i32 [ %.039.ph, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit ], [ %79, %108 ]
+  %.06377 = phi i32 [ %.063.ph, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit ], [ %88, %108 ]
+  %117 = icmp eq i32 %.03978, 4
   %.pre = load ptr, ptr %52, align 8, !tbaa !37
   br i1 %117, label %118, label %120
 
@@ -915,10 +915,10 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread: ; p
   br label %120
 
 120:                                              ; preds = %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread.thread, %118, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread
-  %.pre80 = phi ptr [ %.pre78, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread.thread ], [ %.pre, %118 ], [ %.pre, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread ]
-  %.0637179 = phi i32 [ %66, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread.thread ], [ %.06371, %118 ], [ %.06371, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread ]
-  %121 = load ptr, ptr %.pre80, align 8, !tbaa !51
-  %122 = call fastcc noundef ptr @_ZL14realParseTableP10ParseStateP13TableResourcePcjP10UErrorCode(ptr noundef nonnull %11, ptr noundef %121, ptr noundef null, i32 noundef %.0637179, ptr noundef nonnull %7)
+  %.pre86 = phi ptr [ %.pre84, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread.thread ], [ %.pre, %118 ], [ %.pre, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread ]
+  %.0637785 = phi i32 [ %66, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread.thread ], [ %.06377, %118 ], [ %.06377, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread ]
+  %121 = load ptr, ptr %.pre86, align 8, !tbaa !51
+  %122 = call fastcc noundef ptr @_ZL14realParseTableP10ParseStateP13TableResourcePcjP10UErrorCode(ptr noundef nonnull %11, ptr noundef %121, ptr noundef null, i32 noundef %.0637785, ptr noundef nonnull %7)
   %123 = load ptr, ptr @_ZL15dependencyArray, align 8, !tbaa !52
   %.not52 = icmp eq ptr %123, null
   br i1 %.not52, label %125, label %124
@@ -1003,8 +1003,8 @@ _ZL16cleanupLookaheadP10ParseState.exit:          ; preds = %155
   %159 = load ptr, ptr %52, align 8, !tbaa !37
   br label %160
 
-160:                                              ; preds = %132, %154, %_ZL16cleanupLookaheadP10ParseState.exit, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread73, %116, %55
-  %.0 = phi ptr [ null, %55 ], [ null, %116 ], [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread73 ], [ null, %132 ], [ null, %154 ], [ %159, %_ZL16cleanupLookaheadP10ParseState.exit ]
+160:                                              ; preds = %132, %154, %_ZL16cleanupLookaheadP10ParseState.exit, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread79, %116, %55
+  %.0 = phi ptr [ null, %55 ], [ null, %116 ], [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread79 ], [ null, %132 ], [ null, %154 ], [ %159, %_ZL16cleanupLookaheadP10ParseState.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1218,7 +1218,7 @@ define internal fastcc noundef ptr @_ZL14realParseTableP10ParseStateP13TableReso
           cleanup
   br label %16
 
-.loopexit.split-lp:                               ; preds = %.invoke113, %.invoke, %5, %43, %46, %71, %79, %85
+.loopexit.split-lp:                               ; preds = %.invoke117, %.invoke, %5, %43, %46, %71, %79, %85
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %16
@@ -1313,9 +1313,9 @@ define internal fastcc noundef ptr @_ZL14realParseTableP10ParseStateP13TableReso
   %52 = zext i32 %25 to i64
   %53 = getelementptr inbounds nuw [7 x ptr], ptr @tokenNames, i64 0, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !42
-  br label %.invoke113
+  br label %.invoke117
 
-.invoke113:                                       ; preds = %85, %79, %71, %51
+.invoke117:                                       ; preds = %85, %79, %71, %51
   %55 = phi ptr [ @.str.135, %51 ], [ @.str.137, %71 ], [ @.str.138, %79 ], [ @.str.139, %85 ]
   %56 = phi ptr [ %54, %51 ], [ %72, %71 ], [ %80, %79 ], [ %86, %85 ]
   invoke void (i32, ptr, ...) @error(i32 noundef %28, ptr noundef nonnull %55, ptr noundef %56)
@@ -1353,7 +1353,7 @@ define internal fastcc noundef ptr @_ZL14realParseTableP10ParseStateP13TableReso
 
 71:                                               ; preds = %68
   %72 = invoke ptr @u_errorName_77(i32 noundef %69)
-          to label %.invoke113 unwind label %.loopexit.split-lp
+          to label %.invoke117 unwind label %.loopexit.split-lp
 
 73:                                               ; preds = %68
   %74 = load ptr, ptr %7, align 8, !tbaa !4
@@ -1369,7 +1369,7 @@ define internal fastcc noundef ptr @_ZL14realParseTableP10ParseStateP13TableReso
 
 79:                                               ; preds = %76
   %80 = invoke ptr @u_errorName_77(i32 noundef %.pre)
-          to label %.invoke113 unwind label %.loopexit.split-lp
+          to label %.invoke117 unwind label %.loopexit.split-lp
 
 81:                                               ; preds = %76
   invoke void @_ZN13TableResource3addEP9SResourceiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull %75, i32 noundef %28, ptr noundef nonnull align 4 dereferenceable(4) %4)
@@ -1382,14 +1382,14 @@ define internal fastcc noundef ptr @_ZL14realParseTableP10ParseStateP13TableReso
 
 85:                                               ; preds = %82
   %86 = invoke ptr @u_errorName_77(i32 noundef %83)
-          to label %.invoke113 unwind label %.loopexit.split-lp
+          to label %.invoke117 unwind label %.loopexit.split-lp
 
 87:                                               ; preds = %82
   invoke void @ustr_deinit(ptr noundef nonnull %6)
           to label %20 unwind label %.loopexit, !llvm.loop !61
 
-88:                                               ; preds = %.invoke113, %.invoke, %42, %45, %46
-  %.0 = phi ptr [ %1, %46 ], [ %1, %45 ], [ %1, %42 ], [ null, %.invoke ], [ null, %.invoke113 ]
+88:                                               ; preds = %.invoke117, %.invoke, %42, %45, %46
+  %.0 = phi ptr [ %1, %46 ], [ %1, %45 ], [ %1, %42 ], [ null, %.invoke ], [ null, %.invoke117 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1461,9 +1461,9 @@ define internal noundef ptr @_ZL11parseStringP10ParseStatePcjPK7UStringP10UError
 
 34:                                               ; preds = %11
   %.not15.i = icmp eq i32 %16, 0
-  br i1 %.not15.i, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread25, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit
+  br i1 %.not15.i, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread29, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit
 
-_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread25: ; preds = %34
+_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread29: ; preds = %34
   store i32 0, ptr %4, align 4, !tbaa !14
   br label %40
 
@@ -1478,7 +1478,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   %39 = icmp sgt i32 %.pre, 0
   br i1 %39, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread, label %40
 
-40:                                               ; preds = %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread25, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit
+40:                                               ; preds = %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread29, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %42 = load ptr, ptr %41, align 8, !tbaa !37
   %43 = load ptr, ptr %17, align 8, !tbaa !40
@@ -1515,7 +1515,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   store i32 %67, ptr %62, align 8, !tbaa !24
   %68 = load i32, ptr %4, align 4, !tbaa !14
   %69 = icmp slt i32 %68, 1
-  br i1 %69, label %70, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23.thread26
+  br i1 %69, label %70, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23.thread30
 
 70:                                               ; preds = %50
   %.not15.i22 = icmp eq i32 %54, 2
@@ -1534,14 +1534,14 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23: ; preds 
   tail call void (i32, ptr, ...) @error(i32 noundef %56, ptr noundef nonnull @.str.10, ptr noundef %71, ptr noundef %74)
   %.pre24 = load i32, ptr %4, align 4, !tbaa !14
   %75 = icmp slt i32 %.pre24, 1
-  br i1 %75, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23.thread26
+  br i1 %75, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23.thread30
 
-_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23.thread26: ; preds = %50, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23
+_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23.thread30: ; preds = %50, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23
   tail call void @res_close(ptr noundef nonnull %46)
   br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread
 
-_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread: ; preds = %11, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23.thread, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23, %40, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23.thread26
-  %.018 = phi ptr [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23.thread26 ], [ %46, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23 ], [ %46, %40 ], [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit ], [ %46, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23.thread ], [ null, %11 ]
+_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread: ; preds = %11, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23.thread, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23, %40, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23.thread30
+  %.018 = phi ptr [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23.thread30 ], [ %46, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23 ], [ %46, %40 ], [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit ], [ %46, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23.thread ], [ null, %11 ]
   ret ptr %.018
 }
 
@@ -1681,8 +1681,8 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   br label %65
 
 65:                                               ; preds = %.lr.ph, %.backedge
-  %.04095 = phi i32 [ 0, %.lr.ph ], [ %.141108, %.backedge ]
-  %.04294 = phi i32 [ 0, %.lr.ph ], [ %.244106, %.backedge ]
+  %.04095 = phi i32 [ 0, %.lr.ph ], [ %.141115, %.backedge ]
+  %.04294 = phi i32 [ 0, %.lr.ph ], [ %.244114, %.backedge ]
   %66 = add nsw i32 %.04095, 1
   %67 = sext i32 %.04095 to i64
   %68 = getelementptr inbounds i8, ptr %10, i64 %67
@@ -1741,17 +1741,17 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   br label %.backedge
 
 .backedge:                                        ; preds = %65, %91
-  %.141108 = phi i32 [ %93, %91 ], [ %66, %65 ]
-  %.244106 = phi i32 [ %92, %91 ], [ %.04294, %65 ]
-  %.not61 = icmp slt i32 %.141108, %53
+  %.141115 = phi i32 [ %93, %91 ], [ %66, %65 ]
+  %.244114 = phi i32 [ %92, %91 ], [ %.04294, %65 ]
+  %.not61 = icmp slt i32 %.141115, %53
   br i1 %.not61, label %65, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.backedge
-  %94 = icmp eq i32 %.244106, 0
+  %94 = icmp eq i32 %.244114, 0
   br i1 %94, label %95, label %102
 
 95:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.sroa.0.0100113 = phi ptr [ null, %._crit_edge.thread ], [ %57, %._crit_edge ]
+  %.sroa.0.0108120 = phi ptr [ null, %._crit_edge.thread ], [ %57, %._crit_edge ]
   invoke void (i32, ptr, ...) @warning(i32 noundef %2, ptr noundef nonnull @.str.34)
           to label %96 unwind label %100
 
@@ -1762,7 +1762,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
           to label %.thread88 unwind label %100
 
 100:                                              ; preds = %102, %96, %95
-  %.sroa.0.0100114 = phi ptr [ %57, %102 ], [ %.sroa.0.0100113, %96 ], [ %.sroa.0.0100113, %95 ]
+  %.sroa.0.0108121 = phi ptr [ %57, %102 ], [ %.sroa.0.0108120, %96 ], [ %.sroa.0.0108120, %95 ]
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %106
@@ -1770,7 +1770,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
 102:                                              ; preds = %._crit_edge
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %104 = load ptr, ptr %103, align 8, !tbaa !37
-  %105 = invoke ptr @bin_open(ptr noundef %104, ptr noundef %1, i32 noundef %.244106, ptr noundef nonnull %57, ptr noundef null, ptr noundef %3, ptr noundef nonnull %4)
+  %105 = invoke ptr @bin_open(ptr noundef %104, ptr noundef %1, i32 noundef %.244114, ptr noundef nonnull %57, ptr noundef null, ptr noundef %3, ptr noundef nonnull %4)
           to label %.thread88 unwind label %100
 
 .thread88.loopexit:                               ; preds = %88
@@ -1778,19 +1778,19 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   br label %.thread88
 
 .thread88:                                        ; preds = %.thread88.loopexit, %75, %102, %96
-  %.sroa.0.099 = phi ptr [ %.sroa.0.0100113, %96 ], [ %57, %102 ], [ %57, %75 ], [ %57, %.thread88.loopexit ]
+  %.sroa.0.0107 = phi ptr [ %.sroa.0.0108120, %96 ], [ %57, %102 ], [ %57, %75 ], [ %57, %.thread88.loopexit ]
   %.6 = phi ptr [ %99, %96 ], [ %105, %102 ], [ null, %75 ], [ null, %.thread88.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %107
 
 106:                                              ; preds = %71, %89, %100
-  %.sroa.0.0102 = phi ptr [ %.sroa.0.0100114, %100 ], [ %57, %71 ], [ %57, %89 ]
+  %.sroa.0.0110 = phi ptr [ %.sroa.0.0108121, %100 ], [ %57, %71 ], [ %57, %89 ]
   %.pn62 = phi { ptr, i32 } [ %101, %100 ], [ %72, %71 ], [ %90, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %111
 
 107:                                              ; preds = %.thread88, %59
-  %.sroa.0.1 = phi ptr [ null, %59 ], [ %.sroa.0.099, %.thread88 ]
+  %.sroa.0.1 = phi ptr [ null, %59 ], [ %.sroa.0.0107, %.thread88 ]
   %.1 = phi ptr [ null, %59 ], [ %.6, %.thread88 ]
   invoke void @uprv_free_77(ptr noundef %.sroa.0.1)
           to label %_ZN6icu_7711LocalMemoryIhED2Ev.exit unwind label %108
@@ -1803,7 +1803,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   unreachable
 
 111:                                              ; preds = %106, %60
-  %.sroa.0.2 = phi ptr [ %.sroa.0.0102, %106 ], [ null, %60 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0110, %106 ], [ null, %60 ]
   %.pn62.pn = phi { ptr, i32 } [ %.pn62, %106 ], [ %61, %60 ]
   invoke void @uprv_free_77(ptr noundef %.sroa.0.2)
           to label %_ZN6icu_7711LocalMemoryIhED2Ev.exit72 unwind label %112
@@ -2294,7 +2294,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   store i32 %66, ptr %61, align 8, !tbaa !24
   %67 = load i32, ptr %4, align 4, !tbaa !14
   %68 = icmp slt i32 %67, 1
-  br i1 %68, label %69, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19.thread20
+  br i1 %68, label %69, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19.thread22
 
 69:                                               ; preds = %43
   %.not15.i18 = icmp eq i32 %53, 2
@@ -2313,14 +2313,14 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19: ; preds 
   tail call void (i32, ptr, ...) @error(i32 noundef %55, ptr noundef nonnull @.str.10, ptr noundef %70, ptr noundef %73)
   %.pre = load i32, ptr %4, align 4, !tbaa !14
   %74 = icmp slt i32 %.pre, 1
-  br i1 %74, label %75, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19.thread20
+  br i1 %74, label %75, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19.thread22
 
-_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19.thread20: ; preds = %43, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19
+_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19.thread22: ; preds = %43, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19
   tail call void @res_close(ptr noundef %49)
   br label %75
 
-75:                                               ; preds = %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19.thread, %40, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19.thread20
-  %.015 = phi ptr [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19.thread20 ], [ %49, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19 ], [ null, %40 ], [ %49, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19.thread ]
+75:                                               ; preds = %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19.thread, %40, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19.thread22
+  %.015 = phi ptr [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19.thread22 ], [ %49, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19 ], [ null, %40 ], [ %49, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19.thread ]
   ret ptr %.015
 }
 
@@ -2497,7 +2497,7 @@ define internal noundef ptr @_ZL11parseImportP10ParseStatePcjPK7UStringP10UError
   %11 = call fastcc noundef ptr @_ZL18getInvariantStringP10ParseStatePjP7UStringRiP10UErrorCode(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %4)
   %12 = load i32, ptr %4, align 4, !tbaa !14
   %13 = icmp slt i32 %12, 1
-  br i1 %13, label %14, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread73
+  br i1 %13, label %14, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread79
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -2534,7 +2534,7 @@ define internal noundef ptr @_ZL11parseImportP10ParseStatePcjPK7UStringP10UError
   store i32 %33, ptr %27, align 8, !tbaa !24
   %34 = load i32, ptr %4, align 4, !tbaa !14
   %35 = icmp slt i32 %34, 1
-  br i1 %35, label %36, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread73
+  br i1 %35, label %36, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread79
 
 36:                                               ; preds = %.noexc54
   %.not15.i = icmp eq i32 %19, 2
@@ -2556,7 +2556,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread: ; p
 _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = %37
   %.pre = load i32, ptr %4, align 4, !tbaa !14
   %42 = icmp slt i32 %.pre, 1
-  br i1 %42, label %45, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread73
+  br i1 %42, label %45, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread79
 
 43:                                               ; preds = %37, %.noexc53, %.noexc, %14, %45
   %44 = landingpad { ptr, i32 }
@@ -2729,7 +2729,7 @@ _ZN6icu_7711LocalMemoryIhED2Ev.exit60:            ; preds = %109, %83, %73
   %.1 = phi ptr [ null, %73 ], [ null, %83 ], [ %.3, %109 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %8) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread73
+  br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread79
 
 _ZN6icu_7711LocalMemoryIhED2Ev.exit:              ; preds = %97, %84, %95, %66
   %.pn48.pn = phi { ptr, i32 } [ %67, %66 ], [ %85, %84 ], [ %96, %95 ], [ %98, %97 ]
@@ -2741,19 +2741,19 @@ _ZN6icu_7711LocalMemoryIhED2Ev.exit:              ; preds = %97, %84, %95, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %117
 
-_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread73: ; preds = %.noexc54, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit, %5, %_ZN6icu_7711LocalMemoryIhED2Ev.exit60
+_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread79: ; preds = %.noexc54, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit, %5, %_ZN6icu_7711LocalMemoryIhED2Ev.exit60
   %.0 = phi ptr [ %.1, %_ZN6icu_7711LocalMemoryIhED2Ev.exit60 ], [ null, %5 ], [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit ], [ null, %.noexc54 ]
   invoke void @uprv_free_77(ptr noundef %11)
           to label %_ZN6icu_7711LocalMemoryIcED2Ev.exit unwind label %114
 
-114:                                              ; preds = %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread73
+114:                                              ; preds = %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread79
   %115 = landingpad { ptr, i32 }
           catch ptr null
   %116 = extractvalue { ptr, i32 } %115, 0
   call void @__clang_call_terminate(ptr %116) #23
   unreachable
 
-_ZN6icu_7711LocalMemoryIcED2Ev.exit:              ; preds = %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread73
+_ZN6icu_7711LocalMemoryIcED2Ev.exit:              ; preds = %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread79
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
@@ -2819,7 +2819,7 @@ define internal noundef ptr @_ZL12parseIncludeP10ParseStatePcjPK7UStringP10UErro
   store i32 %32, ptr %26, align 8, !tbaa !24
   %33 = load i32, ptr %4, align 4, !tbaa !14
   %34 = icmp slt i32 %33, 1
-  br i1 %34, label %35, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread54
+  br i1 %34, label %35, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread58
 
 35:                                               ; preds = %13
   %.not15.i = icmp eq i32 %18, 2
@@ -2838,9 +2838,9 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   call void (i32, ptr, ...) @error(i32 noundef %20, ptr noundef nonnull @.str.10, ptr noundef %36, ptr noundef %39)
   %.pre = load i32, ptr %4, align 4, !tbaa !14
   %40 = icmp slt i32 %.pre, 1
-  br i1 %40, label %41, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread54
+  br i1 %40, label %41, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread58
 
-_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread54: ; preds = %13, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit
+_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread58: ; preds = %13, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit
   call void @uprv_free_77(ptr noundef %10)
   br label %91
 
@@ -2930,8 +2930,8 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread54: ;
   call void @uprv_free_77(ptr noundef nonnull %54)
   br label %91
 
-91:                                               ; preds = %5, %85, %83, %56, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread54
-  %.0 = phi ptr [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread54 ], [ null, %56 ], [ null, %83 ], [ %90, %85 ], [ null, %5 ]
+91:                                               ; preds = %5, %85, %83, %56, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread58
+  %.0 = phi ptr [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread58 ], [ null, %56 ], [ null, %83 ], [ %90, %85 ], [ null, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3009,7 +3009,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
 43:                                               ; preds = %39, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit
   %44 = load i32, ptr %4, align 4, !tbaa !14
   %45 = icmp slt i32 %44, 1
-  br i1 %45, label %46, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111.thread168
+  br i1 %45, label %46, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111.thread174
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -3062,7 +3062,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   store i32 %78, ptr %73, align 8, !tbaa !24
   %79 = load i32, ptr %4, align 4, !tbaa !14
   %80 = icmp slt i32 %79, 1
-  br i1 %80, label %81, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111.thread168
+  br i1 %80, label %81, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111.thread174
 
 81:                                               ; preds = %58
   %.not15.i110 = icmp eq i32 %65, 2
@@ -3081,7 +3081,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111: ; preds
   call void (i32, ptr, ...) @error(i32 noundef %67, ptr noundef nonnull @.str.10, ptr noundef %82, ptr noundef %85)
   %.pre = load i32, ptr %4, align 4, !tbaa !14
   %86 = icmp slt i32 %.pre, 1
-  br i1 %86, label %87, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111.thread168
+  br i1 %86, label %87, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111.thread174
 
 87:                                               ; preds = %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111.thread, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111
   %88 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %7) #21
@@ -3092,7 +3092,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111: ; preds
 
 91:                                               ; preds = %87
   %92 = call ptr @res_none()
-  br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111.thread168
+  br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111.thread174
 
 93:                                               ; preds = %87
   %94 = call signext i8 @getShowWarning()
@@ -3103,7 +3103,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111: ; preds
 
 98:                                               ; preds = %93
   call void (i32, ptr, ...) @error(i32 noundef %16, ptr noundef nonnull @.str.125, ptr noundef nonnull %6)
-  br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111.thread168
+  br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111.thread174
 
 99:                                               ; preds = %93
   %100 = call i32 @ucbuf_size(ptr noundef %95)
@@ -3201,9 +3201,9 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111: ; preds
   br label %139
 
 139:                                              ; preds = %131, %129
-  %.sink174 = phi i64 [ 4, %131 ], [ 2, %129 ]
+  %.sink180 = phi i64 [ 4, %131 ], [ 2, %129 ]
   %.sink = phi i16 [ %134, %131 ], [ %130, %129 ]
-  %140 = getelementptr inbounds nuw i8, ptr %.2153, i64 %.sink174
+  %140 = getelementptr inbounds nuw i8, ptr %.2153, i64 %.sink180
   store i16 %.sink, ptr %.2153, align 2, !tbaa !66
   %141 = call i32 @ucbuf_getc(ptr noundef %95, ptr noundef nonnull %4)
   %.not108 = icmp eq i32 %141, 93
@@ -3217,7 +3217,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111: ; preds
 144:                                              ; preds = %.split.us
   call void @uprv_free_77(ptr noundef %104)
   call void @T_FileStream_close(ptr noundef null)
-  br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111.thread168
+  br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111.thread174
 
 .loopexit124:                                     ; preds = %121, %120, %.split.us
   %.191 = phi i32 [ %142, %.split.us ], [ %114, %120 ], [ %114, %121 ]
@@ -3277,9 +3277,9 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111: ; preds
   call void @ucbuf_close(ptr noundef %95)
   call void @uprv_free_77(ptr noundef %104)
   call void @T_FileStream_close(ptr noundef null)
-  br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111.thread168
+  br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111.thread174
 
-_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111.thread168: ; preds = %58, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111, %43, %161, %144, %98, %91
+_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111.thread174: ; preds = %58, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111, %43, %161, %144, %98, %91
   %.095 = phi ptr [ %92, %91 ], [ null, %98 ], [ null, %144 ], [ %169, %161 ], [ null, %43 ], [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111 ], [ null, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3360,7 +3360,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
 44:                                               ; preds = %40, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit
   %45 = load i32, ptr %4, align 4, !tbaa !14
   %46 = icmp slt i32 %45, 1
-  br i1 %46, label %47, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36.thread37
+  br i1 %46, label %47, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36.thread41
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -3413,7 +3413,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   store i32 %79, ptr %74, align 8, !tbaa !24
   %80 = load i32, ptr %4, align 4, !tbaa !14
   %81 = icmp slt i32 %80, 1
-  br i1 %81, label %82, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36.thread37
+  br i1 %81, label %82, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36.thread41
 
 82:                                               ; preds = %59
   %.not15.i35 = icmp eq i32 %66, 2
@@ -3432,7 +3432,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36: ; preds 
   call void (i32, ptr, ...) @error(i32 noundef %68, ptr noundef nonnull @.str.10, ptr noundef %83, ptr noundef %86)
   %.pre = load i32, ptr %4, align 4, !tbaa !14
   %87 = icmp slt i32 %.pre, 1
-  br i1 %87, label %88, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36.thread37
+  br i1 %87, label %88, label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36.thread41
 
 88:                                               ; preds = %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36.thread, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36
   %89 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %7) #21
@@ -3444,7 +3444,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36: ; preds 
 
 94:                                               ; preds = %88
   call void (i32, ptr, ...) @error(i32 noundef %17, ptr noundef nonnull @.str.125, ptr noundef nonnull %6)
-  br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36.thread37
+  br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36.thread41
 
 95:                                               ; preds = %88
   %96 = call ptr @ucbuf_getBuffer(ptr noundef %91, ptr noundef nonnull %9, ptr noundef nonnull %4)
@@ -3465,9 +3465,9 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36: ; preds 
   call void @ucbuf_close(ptr noundef %91)
   call void @uprv_free_77(ptr noundef %101)
   call void @T_FileStream_close(ptr noundef null)
-  br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36.thread37
+  br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36.thread41
 
-_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36.thread37: ; preds = %59, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36, %44, %95, %94
+_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36.thread41: ; preds = %59, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36, %44, %95, %94
   %.0 = phi ptr [ null, %94 ], [ %108, %95 ], [ null, %44 ], [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36 ], [ null, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3833,7 +3833,7 @@ define internal fastcc noundef ptr @_ZL22parseCollationElementsP10ParseStatePcja
           cleanup
   br label %153
 
-.loopexit.split-lp:                               ; preds = %.invoke171, %.invoke170, %11, %24, %32, %56, %59, %60
+.loopexit.split-lp:                               ; preds = %.invoke173, %.invoke172, %11, %24, %32, %56, %59, %60
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %153
@@ -3945,9 +3945,9 @@ define internal fastcc noundef ptr @_ZL22parseCollationElementsP10ParseStatePcja
 70:                                               ; preds = %68
   %71 = load i32, ptr %4, align 4, !tbaa !14
   %72 = icmp slt i32 %71, 1
-  br i1 %72, label %73, label %.invoke170
+  br i1 %72, label %73, label %.invoke172
 
-.invoke170:                                       ; preds = %150, %147, %137, %79, %70
+.invoke172:                                       ; preds = %150, %147, %137, %79, %70
   invoke void @res_close(ptr noundef nonnull %16)
           to label %.loopexit112 unwind label %.loopexit.split-lp
 
@@ -3964,7 +3964,7 @@ define internal fastcc noundef ptr @_ZL22parseCollationElementsP10ParseStatePcja
 79:                                               ; preds = %77
   %80 = load i32, ptr %4, align 4, !tbaa !14
   %81 = icmp slt i32 %80, 1
-  br i1 %81, label %.invoke, label %.invoke170
+  br i1 %81, label %.invoke, label %.invoke172
 
 .invoke:                                          ; preds = %147, %79
   %82 = phi ptr [ %78, %79 ], [ %146, %147 ]
@@ -3986,7 +3986,7 @@ define internal fastcc noundef ptr @_ZL22parseCollationElementsP10ParseStatePcja
 _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit: ; preds = %84
   %92 = getelementptr inbounds nuw [4 x %struct.Lookahead], ptr %0, i64 0, i64 %87
   %93 = load i32, ptr %92, align 8, !tbaa !24
-  switch i32 %93, label %.invoke171 [
+  switch i32 %93, label %.invoke173 [
     i32 1, label %94
     i32 4, label %120
   ]
@@ -4082,13 +4082,13 @@ _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit102: ; preds = %123,
 137:                                              ; preds = %135
   %138 = load i32, ptr %4, align 4, !tbaa !14
   %139 = icmp slt i32 %138, 1
-  br i1 %139, label %140, label %.invoke170
+  br i1 %139, label %140, label %.invoke172
 
 140:                                              ; preds = %137
   %141 = load ptr, ptr %8, align 8, !tbaa !4
   %142 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %141, ptr noundef nonnull dereferenceable(6) @.str.18) #24
   %143 = icmp eq i32 %142, 0
-  br i1 %143, label %144, label %.invoke171
+  br i1 %143, label %144, label %.invoke173
 
 144:                                              ; preds = %140
   %145 = load ptr, ptr %7, align 8, !tbaa !4
@@ -4098,23 +4098,23 @@ _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit102: ; preds = %123,
 147:                                              ; preds = %144
   %148 = load i32, ptr %4, align 4, !tbaa !14
   %149 = icmp slt i32 %148, 1
-  br i1 %149, label %.invoke, label %.invoke170
+  br i1 %149, label %.invoke, label %.invoke172
 
-.invoke171:                                       ; preds = %_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit, %140
+.invoke173:                                       ; preds = %_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit, %140
   invoke void @res_close(ptr noundef nonnull %16)
           to label %.loopexit112.sink.split unwind label %.loopexit.split-lp
 
 150:                                              ; preds = %.invoke, %118, %119
   %151 = load i32, ptr %4, align 4, !tbaa !14
   %152 = icmp slt i32 %151, 1
-  br i1 %152, label %34, label %.invoke170, !llvm.loop !72
+  br i1 %152, label %34, label %.invoke172, !llvm.loop !72
 
-.loopexit112.sink.split:                          ; preds = %.invoke171
+.loopexit112.sink.split:                          ; preds = %.invoke173
   store i32 3, ptr %4, align 4, !tbaa !14
   br label %.loopexit112
 
-.loopexit112:                                     ; preds = %55, %.loopexit112.sink.split, %.invoke170, %59, %60, %32, %17, %19
-  %.073 = phi ptr [ null, %19 ], [ null, %17 ], [ %33, %32 ], [ null, %60 ], [ null, %59 ], [ null, %.invoke170 ], [ null, %.loopexit112.sink.split ], [ %16, %55 ]
+.loopexit112:                                     ; preds = %55, %.loopexit112.sink.split, %.invoke172, %59, %60, %32, %17, %19
+  %.073 = phi ptr [ null, %19 ], [ null, %17 ], [ %33, %32 ], [ null, %60 ], [ null, %59 ], [ null, %.invoke172 ], [ null, %.loopexit112.sink.split ], [ %16, %55 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %8) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %7) #21
@@ -4675,9 +4675,9 @@ define internal fastcc noundef ptr @_ZL12addCollationP10ParseStateP13TableResour
   %248 = sext i32 %238 to i64
   %249 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %247, ptr noundef nonnull @.str.55, i64 noundef %248) #27
   store i32 7, ptr %4, align 4, !tbaa !14
-  br label %.invoke275
+  br label %.invoke286
 
-250:                                              ; preds = %.invoke275, %274, %266, %263, %258, %252, %242, %235
+250:                                              ; preds = %.invoke286, %274, %266, %263, %258, %252, %242, %235
   %251 = landingpad { ptr, i32 }
           cleanup
   br label %296
@@ -4705,9 +4705,9 @@ define internal fastcc noundef ptr @_ZL12addCollationP10ParseStateP13TableResour
 
 261:                                              ; preds = %258
   %262 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %259, ptr noundef nonnull @.str.56, ptr noundef %260) #27
-  br label %.invoke275
+  br label %.invoke286
 
-.invoke275:                                       ; preds = %246, %261
+.invoke286:                                       ; preds = %246, %261
   invoke void @res_close(ptr noundef %1)
           to label %295 unwind label %250
 
@@ -4770,8 +4770,8 @@ define internal fastcc noundef ptr @_ZL12addCollationP10ParseStateP13TableResour
           cleanup
   br label %296
 
-295:                                              ; preds = %.invoke275, %292, %289
-  %.7 = phi ptr [ null, %292 ], [ %1, %289 ], [ null, %.invoke275 ]
+295:                                              ; preds = %.invoke286, %292, %289
+  %.7 = phi ptr [ null, %292 ], [ %1, %289 ], [ null, %.invoke286 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %297
 
@@ -5009,7 +5009,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   br i1 %61, label %.thread.thread, label %_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit
 
 .thread.thread:                                   ; preds = %60, %.thread
-  %.0606373 = phi i32 [ %11, %.thread ], [ %39, %60 ]
+  %.0606376 = phi i32 [ %11, %.thread ], [ %39, %60 ]
   %62 = load i32, ptr %5, align 8, !tbaa !18
   %63 = and i32 %62, 3
   %64 = zext nneg i32 %63 to i64
@@ -5061,7 +5061,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   br label %_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit
 
 82:                                               ; preds = %60, %67, %.thread.thread, %.thread.thread, %.thread.thread, %73, %74
-  %.06064 = phi i32 [ %.0606373, %73 ], [ %.0606373, %74 ], [ %.0606373, %.thread.thread ], [ %.0606373, %.thread.thread ], [ %.0606373, %.thread.thread ], [ %.0606373, %67 ], [ %39, %60 ]
+  %.06064 = phi i32 [ %.0606376, %73 ], [ %.0606376, %74 ], [ %.0606376, %.thread.thread ], [ %.0606376, %.thread.thread ], [ %.0606376, %.thread.thread ], [ %.0606376, %67 ], [ %39, %60 ]
   %.1 = phi i32 [ 3, %73 ], [ 1, %74 ], [ 6, %.thread.thread ], [ 6, %.thread.thread ], [ 6, %.thread.thread ], [ 6, %67 ], [ %33, %60 ]
   %83 = zext i32 %.1 to i64
   %84 = getelementptr inbounds nuw [16 x %struct.anon.1], ptr @_ZL14gResourceTypes, i64 0, i64 %83
@@ -5570,7 +5570,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit73.i:    ; preds = %207, %197
   br label %258
 
 216:                                              ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit73.i, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread.i, %_ZNK6icu_7713CollationData7getCE32Ei.exit.i139, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %217 = add i32 %.05678.i, 1
+  %217 = add nsw i32 %.05678.i, 1
   %exitcond.not.i138 = icmp eq i32 %217, 847
   br i1 %exitcond.not.i138, label %.preheader.i, label %.lr.ph.i, !llvm.loop !151
 

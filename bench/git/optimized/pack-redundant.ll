@@ -1363,8 +1363,8 @@ llist_sorted_difference_inplace.exit.i176:        ; preds = %llist_sorted_remove
 
 ._crit_edge218.i:                                 ; preds = %llist_sorted_difference_inplace.exit.i176, %._crit_edge.i156, %._crit_edge.thread.i
   %450 = phi ptr [ %407, %._crit_edge.thread.i ], [ %414, %._crit_edge.i156 ], [ %414, %llist_sorted_difference_inplace.exit.i176 ]
-  %.0162.lcssa268.i = phi ptr [ null, %._crit_edge.thread.i ], [ %..0162211.i, %._crit_edge.i156 ], [ %..0162211.i, %llist_sorted_difference_inplace.exit.i176 ]
-  %.0164.lcssa267.i = phi ptr [ null, %._crit_edge.thread.i ], [ null, %._crit_edge.i156 ], [ %.0164210..i, %llist_sorted_difference_inplace.exit.i176 ]
+  %.0162.lcssa286.i = phi ptr [ null, %._crit_edge.thread.i ], [ %..0162211.i, %._crit_edge.i156 ], [ %..0162211.i, %llist_sorted_difference_inplace.exit.i176 ]
+  %.0164.lcssa285.i = phi ptr [ null, %._crit_edge.thread.i ], [ null, %._crit_edge.i156 ], [ %.0164210..i, %llist_sorted_difference_inplace.exit.i176 ]
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 16
   %452 = load i64, ptr %451, align 8, !tbaa !60
   %453 = icmp eq i64 %452, 0
@@ -1390,11 +1390,11 @@ llist_sorted_difference_inplace.exit.i176:        ; preds = %llist_sorted_remove
 
 llist_free.exit.i:                                ; preds = %.lr.ph.i34.i, %454
   call void @free(ptr noundef nonnull %450) #14
-  %.not4.i.i = icmp eq ptr %.0162.lcssa268.i, null
+  %.not4.i.i = icmp eq ptr %.0162.lcssa286.i, null
   br i1 %.not4.i.i, label %minimize.exit, label %.lr.ph.i36.i
 
 .lr.ph.i36.i:                                     ; preds = %llist_free.exit.i, %.lr.ph.i36.i
-  %.05.i.i = phi ptr [ %458, %.lr.ph.i36.i ], [ %.0162.lcssa268.i, %llist_free.exit.i ]
+  %.05.i.i = phi ptr [ %458, %.lr.ph.i36.i ], [ %.0162.lcssa286.i, %llist_free.exit.i ]
   %458 = load ptr, ptr %.05.i.i, align 8, !tbaa !30
   call void @free(ptr noundef nonnull %.05.i.i) #14
   %.not.i37.i = icmp eq ptr %458, null
@@ -1501,7 +1501,7 @@ llist_sorted_remove.exit.i53.i:                   ; preds = %469, %491, %475, %4
   br i1 %.not.i56.i, label %llist_sorted_difference_inplace.exit66.i, label %464, !llvm.loop !61
 
 llist_sorted_difference_inplace.exit66.i:         ; preds = %llist_sorted_remove.exit.i53.i, %459
-  %cond.i = icmp eq ptr %.0162.lcssa268.i, null
+  %cond.i = icmp eq ptr %.0162.lcssa286.i, null
   br i1 %cond.i, label %pack_list_free.exit135.i, label %.lr.ph221.i
 
 .lr.ph221.i:                                      ; preds = %llist_sorted_difference_inplace.exit66.i
@@ -1515,7 +1515,7 @@ llist_sorted_difference_inplace.exit66.i:         ; preds = %llist_sorted_remove
 
 .lr.ph221.split.i:                                ; preds = %.lr.ph221.i, %.lr.ph221.splitthread-pre-split.i
   %.022.i67.i = phi ptr [ %.022.i67.pr.i, %.lr.ph221.splitthread-pre-split.i ], [ %494, %.lr.ph221.i ]
-  %.2.in.sroa.speculated220.i = phi ptr [ %.2.in.sroa.speculate.load.llist_sorted_difference_inplace.exit95.i, %.lr.ph221.splitthread-pre-split.i ], [ %.0162.lcssa268.i, %.lr.ph221.i ]
+  %.2.in.sroa.speculated220.i = phi ptr [ %.2.in.sroa.speculate.load.llist_sorted_difference_inplace.exit95.i, %.lr.ph221.splitthread-pre-split.i ], [ %.0162.lcssa286.i, %.lr.ph221.i ]
   %496 = getelementptr inbounds nuw i8, ptr %.2.in.sroa.speculated220.i, i64 24
   %497 = load ptr, ptr %496, align 8, !tbaa !24
   %.not23.i68.i = icmp eq ptr %.022.i67.i, null
@@ -1623,8 +1623,8 @@ llist_sorted_difference_inplace.exit95.i:         ; preds = %llist_sorted_remove
   br label %.preheader.i177
 
 .preheader.i177:                                  ; preds = %.preheader.i177.preheader, %._crit_edge228.i
-  %.0239 = phi ptr [ %551, %._crit_edge228.i ], [ %.0164.lcssa267.i, %.preheader.i177.preheader ]
-  %.2.i = phi ptr [ %.3223.i, %._crit_edge228.i ], [ %.0162.lcssa268.i, %.preheader.i177.preheader ]
+  %.0239 = phi ptr [ %551, %._crit_edge228.i ], [ %.0164.lcssa285.i, %.preheader.i177.preheader ]
+  %.2.i = phi ptr [ %.3223.i, %._crit_edge228.i ], [ %.0162.lcssa286.i, %.preheader.i177.preheader ]
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.preheader.i177
@@ -1837,7 +1837,7 @@ llist_sorted_difference_inplace.exit129.i:        ; preds = %llist_sorted_remove
   br i1 %.not.i133.i, label %pack_list_free.exit135.i, label %.lr.ph.i131.i, !llvm.loop !82
 
 pack_list_free.exit135.i:                         ; preds = %.lr.ph.i131.i, %._crit_edge228.thread.i, %llist_sorted_difference_inplace.exit66.i
-  %.1240 = phi ptr [ %.0164.lcssa267.i, %llist_sorted_difference_inplace.exit66.i ], [ %551, %._crit_edge228.thread.i ], [ %.0239, %.lr.ph.i131.i ]
+  %.1240 = phi ptr [ %.0164.lcssa285.i, %llist_sorted_difference_inplace.exit66.i ], [ %551, %._crit_edge228.thread.i ], [ %.0239, %.lr.ph.i131.i ]
   %591 = load ptr, ptr %461, align 8, !tbaa !32
   %.not6.i136.i = icmp eq ptr %591, null
   br i1 %.not6.i136.i, label %llist_free.exit143.i, label %.lr.ph.preheader.i137.i
@@ -1879,7 +1879,7 @@ llist_free.exit151.i:                             ; preds = %.lr.ph.i147.i, %lli
   br label %minimize.exit
 
 minimize.exit:                                    ; preds = %.lr.ph.i36.i, %llist_free.exit.i, %llist_free.exit151.i
-  %.2241 = phi ptr [ %.0164.lcssa267.i, %llist_free.exit.i ], [ %.1240, %llist_free.exit151.i ], [ %.0164.lcssa267.i, %.lr.ph.i36.i ]
+  %.2241 = phi ptr [ %.0164.lcssa285.i, %llist_free.exit.i ], [ %.1240, %llist_free.exit151.i ], [ %.0164.lcssa285.i, %.lr.ph.i36.i ]
   %.b41 = load i1, ptr @verbose, align 4
   br i1 %.b41, label %597, label %686
 
@@ -2080,8 +2080,8 @@ pack_set_bytecount.exit:                          ; preds = %._crit_edge378.thre
   br i1 %.b40, label %699, label %714
 
 ._crit_edge383.thread:                            ; preds = %.lr.ph382
-  %.b40502 = load i1, ptr @verbose, align 4
-  br i1 %.b40502, label %.lr.ph.i210.preheader, label %.lr.ph.i218.preheader
+  %.b40564 = load i1, ptr @verbose, align 4
+  br i1 %.b40564, label %.lr.ph.i210.preheader, label %.lr.ph.i218.preheader
 
 699:                                              ; preds = %._crit_edge383
   %700 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -2226,16 +2226,16 @@ define internal fastcc ptr @llist_insert_sorted_unique(ptr noundef captures(none
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %8, ptr noundef nonnull readonly dereferenceable(32) %1, i64 noundef 32) #15
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph68
+  br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph78
 
 .lr.ph:                                           ; preds = %55
   %11 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %12 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %11, ptr noundef nonnull readonly dereferenceable(32) %1, i64 noundef 32) #15
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph._crit_edge, label %.lr.ph68, !llvm.loop !94
+  br i1 %13, label %.lr.ph._crit_edge, label %.lr.ph78, !llvm.loop !94
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
-  %.02040.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0184167, %.lr.ph ]
+  %.02040.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0184177, %.lr.ph ]
   %14 = load ptr, ptr @free_nodes, align 8, !tbaa !27
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %17, label %15
@@ -2271,19 +2271,19 @@ llist_item_get.exit.i:                            ; preds = %19, %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %22, ptr nonnull readonly align 1 %1, i64 %27, i1 false)
   %28 = load i64, ptr %26, align 8, !tbaa !53
   %29 = icmp ult i64 %28, 32
-  br i1 %29, label %30, label %.preheader70
+  br i1 %29, label %30, label %.preheader80
 
 30:                                               ; preds = %llist_item_get.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 %28
   %32 = sub nuw nsw i64 32, %28
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %31, i8 0, i64 %32, i1 false)
-  br label %.preheader70
+  br label %.preheader80
 
-.preheader70:                                     ; preds = %30, %llist_item_get.exit.i
+.preheader80:                                     ; preds = %30, %llist_item_get.exit.i
   br label %33
 
-33:                                               ; preds = %.preheader70, %35
-  %.0811.i.i.i = phi i64 [ %36, %35 ], [ 0, %.preheader70 ]
+33:                                               ; preds = %.preheader80, %35
+  %.0811.i.i.i = phi i64 [ %36, %35 ], [ 0, %.preheader80 ]
   %34 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %25, %34
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %35
@@ -2338,14 +2338,14 @@ oidread.exit.i:                                   ; preds = %35, %.split.loop.ex
   store ptr %.04.i.i, ptr %0, align 8, !tbaa !32
   br label %.thread.sink.split
 
-.lr.ph68:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph78:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %54 = phi i32 [ %12, %.lr.ph ], [ %9, %.lr.ph.preheader ]
-  %.0184167 = phi ptr [ %56, %.lr.ph ], [ %7, %.lr.ph.preheader ]
+  %.0184177 = phi ptr [ %56, %.lr.ph ], [ %7, %.lr.ph.preheader ]
   %.not24 = icmp eq i32 %54, 0
   br i1 %.not24, label %.thread, label %55
 
-55:                                               ; preds = %.lr.ph68
-  %56 = load ptr, ptr %.0184167, align 8, !tbaa !56
+55:                                               ; preds = %.lr.ph78
+  %56 = load ptr, ptr %.0184177, align 8, !tbaa !56
   %.not = icmp eq ptr %56, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
 
@@ -2460,8 +2460,8 @@ oidread.exit.i.i:                                 ; preds = %80, %.split.loop.ex
   store i64 %99, ptr %97, align 8, !tbaa !60
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph68, %.thread.sink.split
-  %.2 = phi ptr [ %.2.ph, %.thread.sink.split ], [ %.0184167, %.lr.ph68 ]
+.thread:                                          ; preds = %.lr.ph78, %.thread.sink.split
+  %.2 = phi ptr [ %.2.ph, %.thread.sink.split ], [ %.0184177, %.lr.ph78 ]
   ret ptr %.2
 }
 
@@ -2471,7 +2471,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @pack_list_difference(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %.not23 = icmp eq ptr %0, null
-  br i1 %.not23, label %common.ret30, label %.preheader.lr.ph
+  br i1 %.not23, label %common.ret33, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %2
   %.not1720 = icmp eq ptr %1, null
@@ -2493,16 +2493,16 @@ define internal fastcc noundef ptr @pack_list_difference(ptr noundef readonly ca
 tailrecurse:                                      ; preds = %5
   %9 = load ptr, ptr %.tr24, align 8, !tbaa !30
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %common.ret30, label %.preheader
+  br i1 %.not, label %common.ret33, label %.preheader
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %.021, align 8, !tbaa !30
   %.not17 = icmp eq ptr %11, null
   br i1 %.not17, label %.preheader._crit_edge, label %5, !llvm.loop !97
 
-common.ret30:                                     ; preds = %2, %tailrecurse, %.preheader._crit_edge
-  %common.ret30.op = phi ptr [ %12, %.preheader._crit_edge ], [ null, %tailrecurse ], [ null, %2 ]
-  ret ptr %common.ret30.op
+common.ret33:                                     ; preds = %2, %tailrecurse, %.preheader._crit_edge
+  %common.ret33.op = phi ptr [ %12, %.preheader._crit_edge ], [ null, %tailrecurse ], [ null, %2 ]
+  ret ptr %common.ret33.op
 
 .preheader._crit_edge:                            ; preds = %10, %.preheader.lr.ph
   %.tr.lcssa19 = phi ptr [ %0, %.preheader.lr.ph ], [ %.tr24, %10 ]
@@ -2511,7 +2511,7 @@ common.ret30:                                     ; preds = %2, %tailrecurse, %.
   %13 = load ptr, ptr %.tr.lcssa19, align 8, !tbaa !30
   %14 = tail call fastcc ptr @pack_list_difference(ptr noundef %13, ptr noundef %1)
   store ptr %14, ptr %12, align 8, !tbaa !30
-  br label %common.ret30
+  br label %common.ret33
 }
 
 ; Function Attrs: nofree nounwind

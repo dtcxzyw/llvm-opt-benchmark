@@ -429,8 +429,8 @@ stmt_reset.exit215:                               ; preds = %101, %105
   %.val143.i = phi ptr [ %.val143.pre.i, %146 ], [ %.val141.i, %135 ]
   %.not182.i = icmp eq ptr %.val143.i, @PyTuple_Type
   %.not183.i = icmp eq ptr %.val143.i, @PyList_Type
-  %or.cond231.i = or i1 %.not182.i, %.not183.i
-  br i1 %or.cond231.i, label %.sink.split.i, label %149
+  %or.cond247.i = or i1 %.not182.i, %.not183.i
+  br i1 %or.cond247.i, label %.sink.split.i, label %149
 
 149:                                              ; preds = %148
   %150 = call i64 @PySequence_Size(ptr noundef nonnull %136) #7
@@ -512,14 +512,14 @@ _Py_NewRef.exit.i:                                ; preds = %177
   br i1 %.not125.i, label %bind_parameters.exit, label %_Py_NewRef.exit.thread.i
 
 _Py_NewRef.exit.thread.sink.split.i:              ; preds = %180, %172
-  %.sink230.i = phi i32 [ %175, %172 ], [ %181, %180 ]
-  %.sink229.i = phi ptr [ %174, %172 ], [ %179, %180 ]
-  %184 = add nuw i32 %.sink230.i, 1
-  store i32 %184, ptr %.sink229.i, align 8, !tbaa !13
+  %.sink246.i = phi i32 [ %175, %172 ], [ %181, %180 ]
+  %.sink245.i = phi ptr [ %174, %172 ], [ %179, %180 ]
+  %184 = add nuw i32 %.sink246.i, 1
+  store i32 %184, ptr %.sink245.i, align 8, !tbaa !13
   br label %_Py_NewRef.exit.thread.i
 
 _Py_NewRef.exit.thread.i:                         ; preds = %_Py_NewRef.exit.thread.sink.split.i, %_Py_NewRef.exit.i, %180, %172
-  %.0167.i = phi ptr [ %183, %_Py_NewRef.exit.i ], [ %179, %180 ], [ %174, %172 ], [ %.sink229.i, %_Py_NewRef.exit.thread.sink.split.i ]
+  %.0167.i = phi ptr [ %183, %_Py_NewRef.exit.i ], [ %179, %180 ], [ %174, %172 ], [ %.sink245.i, %_Py_NewRef.exit.thread.sink.split.i ]
   %.val151.i = load i32, ptr %131, align 8, !tbaa !43
   %.not.i153.i = icmp eq i32 %.val151.i, 0
   br i1 %.not.i153.i, label %185, label %need_adapt.exit.thread173.i
@@ -2172,8 +2172,8 @@ _Py_NewRef.exit120.i:                             ; preds = %.thread130.i, %147,
   br i1 %.not113.i, label %Py_DECREF.exit115.i, label %_Py_NewRef.exit120.thread.i
 
 _Py_NewRef.exit120.thread.sink.split.i:           ; preds = %76, %53
-  %.sink165.i = phi i32 [ %54, %53 ], [ %77, %76 ]
-  %166 = add nuw i32 %.sink165.i, 1
+  %.sink180.i = phi i32 [ %54, %53 ], [ %77, %76 ]
+  %166 = add nuw i32 %.sink180.i, 1
   store i32 %166, ptr @_Py_NoneStruct, align 8, !tbaa !13
   br label %_Py_NewRef.exit120.thread.i
 

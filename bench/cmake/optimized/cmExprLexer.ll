@@ -339,9 +339,9 @@ _Z23cmExpr_yy_create_bufferP8_IO_FILEiPv.exit:    ; preds = %55
     i32 3, label %206
     i32 4, label %.loopexit228
     i32 5, label %.loopexit333
-    i32 6, label %.loopexit432
-    i32 7, label %.loopexit509
-    i32 8, label %.loopexit589
+    i32 6, label %.loopexit469
+    i32 7, label %.loopexit546
+    i32 8, label %.loopexit626
     i32 9, label %602
     i32 10, label %257
     i32 11, label %258
@@ -876,8 +876,8 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i183, %349
   %368 = shl nuw i64 1, %.lcssa.i186
   %369 = and i64 %368, 72057542498320384
   %.not18.i = icmp ne i64 %369, 0
-  %.not154507 = icmp eq i64 %.lcssa.i186, 0
-  %.not154 = or i1 %.not18.i, %.not154507
+  %.not154544 = icmp eq i64 %.lcssa.i186, 0
+  %.not154 = or i1 %.not18.i, %.not154544
   br i1 %.not154, label %.preheader.outer.backedge, label %370
 
 370:                                              ; preds = %_ZL16yy_try_NUL_transiPv.exit
@@ -1131,7 +1131,7 @@ _ZL18yy_get_next_bufferPv.exit:                   ; preds = %._crit_edge141.i, %
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 8
   %494 = load ptr, ptr %493, align 8, !tbaa !27
   store ptr %494, ptr %83, align 8, !tbaa !33
-  switch i32 %.0103.i, label %default.unreachable413 [
+  switch i32 %.0103.i, label %default.unreachable450 [
     i32 1, label %_ZL21yy_get_previous_statePv.exit206
     i32 0, label %495
     i32 2, label %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread225_crit_edge
@@ -1148,8 +1148,8 @@ _ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread225_crit_edg
   %498 = sub i64 %496, %497
   %499 = trunc i64 %498 to i32
   %500 = shl i64 %498, 32
-  %sext508 = add i64 %500, -4294967296
-  %501 = ashr exact i64 %sext508, 32
+  %sext545 = add i64 %500, -4294967296
+  %501 = ashr exact i64 %sext545, 32
   %502 = getelementptr inbounds i8, ptr %494, i64 %501
   store ptr %502, ptr %78, align 8, !tbaa !32
   %503 = load i32, ptr %80, align 4, !tbaa !16
@@ -1326,7 +1326,7 @@ _ZL18yy_get_next_bufferPv.exit.thread225:         ; preds = %386, %_ZL18yy_get_n
   %exitcond.not.i221 = icmp eq ptr %595, %550
   br i1 %exitcond.not.i221, label %.preheader.outer.backedge, label %.lr.ph33.i208, !llvm.loop !59
 
-default.unreachable413:                           ; preds = %_ZL18yy_get_next_bufferPv.exit
+default.unreachable450:                           ; preds = %_ZL18yy_get_next_bufferPv.exit
   unreachable
 
 _ZL21yy_get_previous_statePv.exit206:             ; preds = %_ZL18yy_get_next_bufferPv.exit, %386
@@ -1349,17 +1349,17 @@ _ZL21yy_get_previous_statePv.exit206:             ; preds = %_ZL18yy_get_next_bu
 .loopexit333:                                     ; preds = %150
   br label %602
 
-.loopexit432:                                     ; preds = %150
+.loopexit469:                                     ; preds = %150
   br label %602
 
-.loopexit509:                                     ; preds = %150
+.loopexit546:                                     ; preds = %150
   br label %602
 
-.loopexit589:                                     ; preds = %150
+.loopexit626:                                     ; preds = %150
   br label %602
 
-602:                                              ; preds = %150, %.loopexit589, %.loopexit509, %.loopexit432, %.loopexit333, %.loopexit228, %268, %263, %262, %261, %260, %259, %258, %257, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.0 = phi i32 [ 271, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 271, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178 ], [ 268, %257 ], [ 269, %258 ], [ 270, %259 ], [ 263, %260 ], [ 264, %261 ], [ 265, %262 ], [ 266, %263 ], [ 0, %268 ], [ 258, %.loopexit228 ], [ 259, %.loopexit333 ], [ 260, %.loopexit432 ], [ 261, %.loopexit509 ], [ 262, %.loopexit589 ], [ 267, %150 ]
+602:                                              ; preds = %150, %.loopexit626, %.loopexit546, %.loopexit469, %.loopexit333, %.loopexit228, %268, %263, %262, %261, %260, %259, %258, %257, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.0 = phi i32 [ 271, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 271, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178 ], [ 268, %257 ], [ 269, %258 ], [ 270, %259 ], [ 263, %260 ], [ 264, %261 ], [ 265, %262 ], [ 266, %263 ], [ 0, %268 ], [ 258, %.loopexit228 ], [ 259, %.loopexit333 ], [ 260, %.loopexit469 ], [ 261, %.loopexit546 ], [ 262, %.loopexit626 ], [ 267, %150 ]
   ret i32 %.0
 
 603:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165
@@ -1558,9 +1558,9 @@ define internal fastcc void @_ZL21cmExpr_yy_init_bufferP15yy_buffer_stateP8_IO_F
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !20
   %.not15.i = icmp eq ptr %17, null
-  br i1 %.not15.i, label %_Z22cmExpr_yy_flush_bufferP15yy_buffer_statePv.exit.thread20, label %19
+  br i1 %.not15.i, label %_Z22cmExpr_yy_flush_bufferP15yy_buffer_statePv.exit.thread24, label %19
 
-_Z22cmExpr_yy_flush_bufferP15yy_buffer_statePv.exit.thread20: ; preds = %6
+_Z22cmExpr_yy_flush_bufferP15yy_buffer_statePv.exit.thread24: ; preds = %6
   store ptr %1, ptr %0, align 8, !tbaa !34
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %18, align 4, !tbaa !61
@@ -1617,7 +1617,7 @@ _Z22cmExpr_yy_flush_bufferP15yy_buffer_statePv.exit: ; preds = %3
   %45 = icmp eq ptr %0, %44
   br i1 %45, label %48, label %.critedge
 
-.critedge:                                        ; preds = %_Z22cmExpr_yy_flush_bufferP15yy_buffer_statePv.exit.thread20, %_Z22cmExpr_yy_flush_bufferP15yy_buffer_statePv.exit, %39
+.critedge:                                        ; preds = %_Z22cmExpr_yy_flush_bufferP15yy_buffer_statePv.exit.thread24, %_Z22cmExpr_yy_flush_bufferP15yy_buffer_statePv.exit, %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 1, ptr %46, align 4, !tbaa !66
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1958,9 +1958,9 @@ _ZL28cmExpr_yyensure_buffer_stackPv.exit:         ; preds = %10, %13, %24
   br label %.critedge29
 
 .critedge29:                                      ; preds = %_ZL28cmExpr_yyensure_buffer_stackPv.exit, %32
-  %.pr33 = phi ptr [ %39, %32 ], [ %28, %_ZL28cmExpr_yyensure_buffer_stackPv.exit ]
+  %.pr37 = phi ptr [ %39, %32 ], [ %28, %_ZL28cmExpr_yyensure_buffer_stackPv.exit ]
   %48 = phi i64 [ %47, %32 ], [ %27, %_ZL28cmExpr_yyensure_buffer_stackPv.exit ]
-  %49 = getelementptr inbounds nuw ptr, ptr %.pr33, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr %.pr37, i64 %48
   store ptr %0, ptr %49, align 8, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %51 = load i32, ptr %50, align 4, !tbaa !29

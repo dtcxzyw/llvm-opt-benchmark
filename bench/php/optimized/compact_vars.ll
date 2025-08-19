@@ -184,7 +184,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   br i1 %exitcond.not, label %.preheader243, label %36
 
 .preheader242:                                    ; preds = %.lr.ph250, %.preheader243
-  %.0219.lcssa = phi i32 [ 0, %.preheader243 ], [ %spec.select292, %.lr.ph250 ]
+  %.0219.lcssa = phi i32 [ 0, %.preheader243 ], [ %spec.select300, %.lr.ph250 ]
   %114 = load i32, ptr %4, align 8, !tbaa !23
   %115 = add i32 %114, %34
   %116 = icmp ult i32 %34, %115
@@ -196,7 +196,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
 
 .lr.ph250:                                        ; preds = %.lr.ph250.preheader, %.lr.ph250
   %indvars.iv270 = phi i64 [ 0, %.lr.ph250.preheader ], [ %indvars.iv.next271, %.lr.ph250 ]
-  %.0219248 = phi i32 [ 0, %.lr.ph250.preheader ], [ %spec.select292, %.lr.ph250 ]
+  %.0219248 = phi i32 [ 0, %.lr.ph250.preheader ], [ %spec.select300, %.lr.ph250 ]
   %118 = lshr i64 %indvars.iv270, 6
   %119 = getelementptr inbounds nuw i64, ptr %17, i64 %118
   %120 = load i64, ptr %119, align 8, !tbaa !30
@@ -206,7 +206,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %.not241 = icmp ne i64 %123, 0
   %spec.select = select i1 %.not241, i32 %.0219248, i32 -1
   %124 = zext i1 %.not241 to i32
-  %spec.select292 = add i32 %.0219248, %124
+  %spec.select300 = add i32 %.0219248, %124
   %125 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv270
   store i32 %spec.select, ptr %125, align 4, !tbaa !36
   %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
@@ -450,11 +450,11 @@ zend_string_release_ex.exit239:                   ; preds = %230, %238, %243
   br i1 %246, label %230, label %._crit_edge263
 
 ._crit_edge263:                                   ; preds = %zend_string_release_ex.exit, %zend_string_release_ex.exit239, %.preheader, %201
-  %.sink293 = phi ptr [ %203, %201 ], [ null, %.preheader ], [ null, %zend_string_release_ex.exit239 ], [ %203, %zend_string_release_ex.exit ]
+  %.sink301 = phi ptr [ %203, %201 ], [ null, %.preheader ], [ null, %zend_string_release_ex.exit239 ], [ %203, %zend_string_release_ex.exit ]
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %248 = load ptr, ptr %247, align 8, !tbaa !37
   call void @_efree(ptr noundef %248) #6
-  store ptr %.sink293, ptr %247, align 8, !tbaa !37
+  store ptr %.sink301, ptr %247, align 8, !tbaa !37
   store i32 %.0219.lcssa, ptr %2, align 4, !tbaa !4
   br label %249
 

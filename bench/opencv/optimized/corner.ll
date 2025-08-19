@@ -666,8 +666,8 @@ select.unfold.i124:                               ; preds = %221, %220
   br i1 %225, label %.lr.ph.i, label %_ZN2cvL15calcMinEigenValERKNS_3MatERS0_.exit
 
 .lr.ph.i:                                         ; preds = %select.unfold.i124, %221
-  %.sroa.6.020.i = phi i32 [ %140, %select.unfold.i124 ], [ 1, %221 ]
-  %.sroa.0.019.i = phi i32 [ %.sroa.0.0.i125, %select.unfold.i124 ], [ %spec.select.i119, %221 ]
+  %.sroa.6.021.i = phi i32 [ %140, %select.unfold.i124 ], [ 1, %221 ]
+  %.sroa.0.020.i = phi i32 [ %.sroa.0.0.i125, %select.unfold.i124 ], [ %spec.select.i119, %221 ]
   %226 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %227 = load ptr, ptr %226, align 8, !tbaa !38
   %228 = getelementptr inbounds nuw i8, ptr %20, i64 72
@@ -678,12 +678,12 @@ select.unfold.i124:                               ; preds = %221, %220
   %233 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %234 = load ptr, ptr %233, align 8, !tbaa !39
   %235 = load i64, ptr %234, align 8, !tbaa !40
-  %236 = icmp sgt i32 %.sroa.0.019.i, 0
-  %wide.trip.count.i.i = zext nneg i32 %.sroa.0.019.i to i64
+  %236 = icmp sgt i32 %.sroa.0.020.i, 0
+  %wide.trip.count.i.i = zext nneg i32 %.sroa.0.020.i to i64
   br i1 %236, label %.lr.ph.preheader.i.us.preheader.i, label %_ZN2cvL15calcMinEigenValERKNS_3MatERS0_.exit
 
 .lr.ph.preheader.i.us.preheader.i:                ; preds = %.lr.ph.i
-  %wide.trip.count.i120 = zext nneg i32 %.sroa.6.020.i to i64
+  %wide.trip.count.i120 = zext nneg i32 %.sroa.6.021.i to i64
   br label %.lr.ph.preheader.i.us.i
 
 .lr.ph.preheader.i.us.i:                          ; preds = %_ZN2cvL8eigen2x2EPKfPfi.exit.loopexit.us.i, %.lr.ph.preheader.i.us.preheader.i
@@ -745,8 +745,8 @@ select.unfold.i124:                               ; preds = %221, %220
   %sqrt.i.us.i = call double @llvm.sqrt.f64(double %277)
   %278 = fdiv double 1.000000e+00, %sqrt.i.us.i
   %279 = fptrunc double %257 to float
-  %.idx94.i.us.i = mul nuw nsw i64 %indvars.iv.i.us.i, 24
-  %280 = getelementptr inbounds nuw i8, ptr %240, i64 %.idx94.i.us.i
+  %.idx97.i.us.i = mul nuw nsw i64 %indvars.iv.i.us.i, 24
+  %280 = getelementptr inbounds nuw i8, ptr %240, i64 %.idx97.i.us.i
   store float %279, ptr %280, align 4, !tbaa !41
   %281 = fmul double %.086.i.us.i, %278
   %282 = fptrunc double %281 to float

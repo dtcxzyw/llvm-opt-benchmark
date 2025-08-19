@@ -130,7 +130,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Osd12CpuEvaluator12EvalStencil
 declare void @_ZN10OpenSubdiv6v3_6_03Osd15CpuEvalStencilsEPKfRKNS1_16BufferDescriptorEPfS6_S7_S6_S7_S6_S7_S6_S7_S6_S7_S6_PKiS9_S9_S3_S3_S3_S3_S3_S3_ii(ptr noundef, ptr noundef nonnull align 4 dereferenceable(12), ptr noundef, ptr noundef nonnull align 4 dereferenceable(12), ptr noundef, ptr noundef nonnull align 4 dereferenceable(12), ptr noundef, ptr noundef nonnull align 4 dereferenceable(12), ptr noundef, ptr noundef nonnull align 4 dereferenceable(12), ptr noundef, ptr noundef nonnull align 4 dereferenceable(12), ptr noundef, ptr noundef nonnull align 4 dereferenceable(12), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Osd12CpuEvaluator11EvalPatchesEPKfRKNS1_16BufferDescriptorEPfS7_iPKNS1_10PatchCoordEPKNS1_10PatchArrayEPKiPKNS1_10PatchParamE(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1, ptr noundef captures(address) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Osd12CpuEvaluator11EvalPatchesEPKfRKNS1_16BufferDescriptorEPfS7_iPKNS1_10PatchCoordEPKNS1_10PatchArrayEPKiPKNS1_10PatchParamE(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 align 2 {
   %10 = alloca [20 x float], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %11
@@ -171,7 +171,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Osd12CpuEvaluator11EvalPatches
 
 33:                                               ; preds = %.lr.ph76, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit
   %indvars.iv81 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next82, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit ]
-  %.sroa.0.074 = phi ptr [ %28, %.lr.ph76 ], [ %.sroa.0.1, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit ]
+  %.sroa.0.074 = phi ptr [ %28, %.lr.ph76 ], [ %74, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit ]
   %34 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Osd::PatchCoord", ptr %5, i64 %indvars.iv81
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
@@ -202,20 +202,14 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Osd12CpuEvaluator11EvalPatches
   %59 = add nsw i32 %58, %52
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds i32, ptr %7, i64 %60
-  br i1 %29, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE5ClearEv.exit, label %.lr.ph.i.preheader
+  br i1 %29, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE5ClearEv.exit.thread
 
-.lr.ph.i.preheader:                               ; preds = %33
+_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE5ClearEv.exit.thread: ; preds = %33
   call void @llvm.memset.p0.i64(ptr align 4 %.sroa.0.074, i8 0, i64 %32, i1 false)
-  br label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE5ClearEv.exit
+  %.not7790 = icmp eq i32 %50, 0
+  br i1 %.not7790, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit, label %.lr.ph.i60.preheader.preheader
 
-_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE5ClearEv.exit: ; preds = %.lr.ph.i.preheader, %33
-  %.not77 = icmp eq i32 %50, 0
-  %.not.i = icmp eq ptr %.sroa.0.074, null
-  %brmerge = or i1 %29, %.not.i
-  %or.cond = select i1 %.not77, i1 true, i1 %brmerge
-  br i1 %or.cond, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit, label %.lr.ph.i60.preheader.preheader
-
-.lr.ph.i60.preheader.preheader:                   ; preds = %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE5ClearEv.exit
+.lr.ph.i60.preheader.preheader:                   ; preds = %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE5ClearEv.exit.thread
   %wide.trip.count = zext nneg i32 %50 to i64
   br label %.lr.ph.i60.preheader
 
@@ -247,10 +241,8 @@ _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit.loopexit: 
   %exitcond80.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond80.not, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit, label %.lr.ph.i60.preheader, !llvm.loop !7
 
-_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit: ; preds = %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit.loopexit, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE5ClearEv.exit
-  %.not.i63 = icmp eq ptr %.sroa.0.074, null
+_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit: ; preds = %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit.loopexit, %33, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE5ClearEv.exit.thread
   %74 = getelementptr inbounds float, ptr %.sroa.0.074, i64 %31
-  %.sroa.0.1 = select i1 %.not.i63, ptr null, ptr %74
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
   br i1 %exitcond85.not, label %.loopexit, label %33, !llvm.loop !8

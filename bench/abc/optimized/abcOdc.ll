@@ -729,8 +729,8 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %13, %._crit_edge.i.
   %60 = getelementptr i8, ptr %0, i64 44
   %.val21 = load i32, ptr %60, align 4, !tbaa !94
   %61 = add i32 %.val21, -1
-  %or.cond28 = icmp ult i32 %61, 100
-  br i1 %or.cond28, label %.lr.ph, label %.critedge
+  %or.cond35 = icmp ult i32 %61, 100
+  br i1 %or.cond35, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Abc_NodeSetTravIdCurrent.exit
   %62 = getelementptr i8, ptr %0, i64 48
@@ -1900,7 +1900,7 @@ define ptr @Abc_NtkDontCareTransfer_rec(ptr noundef %0, ptr noundef captures(add
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = load ptr, ptr %6, align 8, !tbaa !110
-  br label %common.ret40
+  br label %common.ret46
 
 8:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8, !tbaa !78
@@ -2010,11 +2010,11 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
 56:                                               ; preds = %Abc_NodeSetTravIdCurrent.exit
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr inttoptr (i64 1 to ptr), ptr %57, align 8, !tbaa !110
-  br label %common.ret40
+  br label %common.ret46
 
-common.ret40:                                     ; preds = %56, %5, %58
-  %common.ret40.op = phi ptr [ %103, %58 ], [ %7, %5 ], [ inttoptr (i64 1 to ptr), %56 ]
-  ret ptr %common.ret40.op
+common.ret46:                                     ; preds = %56, %5, %58
+  %common.ret46.op = phi ptr [ %103, %58 ], [ %7, %5 ], [ inttoptr (i64 1 to ptr), %56 ]
+  ret ptr %common.ret46.op
 
 58:                                               ; preds = %Abc_NodeSetTravIdCurrent.exit
   %.val32 = load ptr, ptr %1, align 8, !tbaa !78
@@ -2076,7 +2076,7 @@ common.ret40:                                     ; preds = %56, %5, %58
   %103 = inttoptr i64 %102 to ptr
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %103, ptr %104, align 8, !tbaa !110
-  br label %common.ret40
+  br label %common.ret46
 }
 
 ; Function Attrs: inlinehint nounwind uwtable

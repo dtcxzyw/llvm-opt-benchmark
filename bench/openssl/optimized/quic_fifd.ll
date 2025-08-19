@@ -221,7 +221,7 @@ fifd_get_qlog.exit:                               ; preds = %1, %9
 
 41:                                               ; preds = %37
   %.not101 = icmp eq i64 %.pre117.pre122.pre124, -1
-  br i1 %.not101, label %.thread132, label %42
+  br i1 %.not101, label %.thread140, label %42
 
 42:                                               ; preds = %41
   %43 = tail call i32 @ossl_quic_sstream_mark_lost_fin(ptr noundef nonnull %28) #5
@@ -235,11 +235,11 @@ fifd_get_qlog.exit:                               ; preds = %1, %9
   %.1 = phi i32 [ 1, %42 ], [ %.0, %37 ]
   %46 = and i8 %45, 2
   %.not102 = icmp eq i8 %46, 0
-  br i1 %.not102, label %.thread132, label %47
+  br i1 %.not102, label %.thread140, label %47
 
 47:                                               ; preds = %44
   %.not103 = icmp eq i64 %.pre117.pre122, -1
-  br i1 %.not103, label %.thread132, label %48
+  br i1 %.not103, label %.thread140, label %48
 
 48:                                               ; preds = %47
   %49 = load ptr, ptr %16, align 8, !tbaa !15
@@ -247,17 +247,17 @@ fifd_get_qlog.exit:                               ; preds = %1, %9
   tail call void %49(i64 noundef 5, i64 noundef %.pre117.pre122, ptr noundef nonnull %0, ptr noundef %50) #5
   %.pre115 = load i8, ptr %38, align 8
   %.pre117.pre = load i64, ptr %22, align 8, !tbaa !40
-  br label %.thread132
+  br label %.thread140
 
-.thread132:                                       ; preds = %41, %48, %47, %44
-  %.1131 = phi i32 [ %.1, %48 ], [ %.1, %47 ], [ %.1, %44 ], [ %.0, %41 ]
+.thread140:                                       ; preds = %41, %48, %47, %44
+  %.1139 = phi i32 [ %.1, %48 ], [ %.1, %47 ], [ %.1, %44 ], [ %.0, %41 ]
   %.pre117 = phi i64 [ %.pre117.pre, %48 ], [ -1, %47 ], [ %.pre117.pre122, %44 ], [ -1, %41 ]
   %51 = phi i8 [ %.pre115, %48 ], [ %45, %47 ], [ %45, %44 ], [ %39, %41 ]
   %52 = and i8 %51, 4
   %.not104 = icmp eq i8 %52, 0
   br i1 %.not104, label %57, label %53
 
-53:                                               ; preds = %.thread132
+53:                                               ; preds = %.thread140
   %.not105 = icmp eq i64 %.pre117, -1
   br i1 %.not105, label %57, label %54
 
@@ -268,12 +268,12 @@ fifd_get_qlog.exit:                               ; preds = %1, %9
   %.pre116 = load i64, ptr %22, align 8, !tbaa !40
   br label %57
 
-57:                                               ; preds = %54, %53, %.thread132
-  %58 = phi i64 [ %.pre116, %54 ], [ -1, %53 ], [ %.pre117, %.thread132 ]
+57:                                               ; preds = %54, %53, %.thread140
+  %58 = phi i64 [ %.pre116, %54 ], [ -1, %53 ], [ %.pre117, %.thread140 ]
   %59 = load ptr, ptr %16, align 8, !tbaa !15
   %60 = load ptr, ptr %17, align 8, !tbaa !16
   tail call void %59(i64 noundef 17, i64 noundef %58, ptr noundef nonnull %0, ptr noundef %60) #5
-  %.not106 = icmp eq i32 %.1131, 0
+  %.not106 = icmp eq i32 %.1139, 0
   br i1 %.not106, label %66, label %61
 
 61:                                               ; preds = %57

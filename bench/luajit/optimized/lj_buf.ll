@@ -505,14 +505,14 @@ lj_buf_more.exit:                                 ; preds = %2
 .lr.ph.preheader:                                 ; preds = %lj_buf_more.exit.thread, %lj_buf_more.exit
   %18 = phi ptr [ %15, %lj_buf_more.exit.thread ], [ %17, %lj_buf_more.exit ]
   %19 = phi i64 [ %14, %lj_buf_more.exit.thread ], [ %16, %lj_buf_more.exit ]
-  %.0.i18 = phi ptr [ %13, %lj_buf_more.exit.thread ], [ %7, %lj_buf_more.exit ]
+  %.0.i20 = phi ptr [ %13, %lj_buf_more.exit.thread ], [ %7, %lj_buf_more.exit ]
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %19
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.pn15 = phi ptr [ %.0, %.lr.ph ], [ %21, %.lr.ph.preheader ]
-  %.01314 = phi ptr [ %23, %.lr.ph ], [ %.0.i18, %.lr.ph.preheader ]
+  %.01314 = phi ptr [ %23, %.lr.ph ], [ %.0.i20, %.lr.ph.preheader ]
   %.0 = getelementptr inbounds i8, ptr %.pn15, i64 -1
   %22 = load i8, ptr %.0, align 1, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %.01314, i64 1
@@ -554,13 +554,13 @@ lj_buf_more.exit:                                 ; preds = %2
 
 .lr.ph.preheader:                                 ; preds = %lj_buf_more.exit.thread, %lj_buf_more.exit
   %18 = phi ptr [ %15, %lj_buf_more.exit.thread ], [ %17, %lj_buf_more.exit ]
-  %.0.i26 = phi ptr [ %13, %lj_buf_more.exit.thread ], [ %7, %lj_buf_more.exit ]
+  %.0.i27 = phi ptr [ %13, %lj_buf_more.exit.thread ], [ %7, %lj_buf_more.exit ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.01923 = phi ptr [ %24, %.lr.ph ], [ %19, %.lr.ph.preheader ]
-  %.02022 = phi ptr [ %23, %.lr.ph ], [ %.0.i26, %.lr.ph.preheader ]
+  %.02022 = phi ptr [ %23, %.lr.ph ], [ %.0.i27, %.lr.ph.preheader ]
   %20 = load i8, ptr %.01923, align 1, !tbaa !18
   %21 = add i8 %20, -65
   %or.cond = icmp ult i8 %21, 26
@@ -606,13 +606,13 @@ lj_buf_more.exit:                                 ; preds = %2
 
 .lr.ph.preheader:                                 ; preds = %lj_buf_more.exit.thread, %lj_buf_more.exit
   %18 = phi ptr [ %15, %lj_buf_more.exit.thread ], [ %17, %lj_buf_more.exit ]
-  %.0.i26 = phi ptr [ %13, %lj_buf_more.exit.thread ], [ %7, %lj_buf_more.exit ]
+  %.0.i27 = phi ptr [ %13, %lj_buf_more.exit.thread ], [ %7, %lj_buf_more.exit ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.01923 = phi ptr [ %24, %.lr.ph ], [ %19, %.lr.ph.preheader ]
-  %.02022 = phi ptr [ %23, %.lr.ph ], [ %.0.i26, %.lr.ph.preheader ]
+  %.02022 = phi ptr [ %23, %.lr.ph ], [ %.0.i27, %.lr.ph.preheader ]
   %20 = load i8, ptr %.01923, align 1, !tbaa !18
   %21 = add i8 %20, -97
   %or.cond = icmp ult i8 %21, 26
@@ -765,8 +765,8 @@ define hidden noundef ptr @lj_buf_puttab(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not47, label %.thread, label %31
 
 .thread:                                          ; preds = %27, %54
-  %sext62 = shl i64 %indvars.iv, 32
-  %29 = ashr exact i64 %sext62, 32
+  %sext69 = shl i64 %indvars.iv, 32
+  %29 = ashr exact i64 %sext69, 32
   %30 = inttoptr i64 %29 to ptr
   br label %.sink.split
 

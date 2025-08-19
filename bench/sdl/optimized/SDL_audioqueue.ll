@@ -182,18 +182,16 @@ define hidden noundef ptr @SDL_CreateAudioQueue(i64 noundef %0) local_unnamed_ad
 11:                                               ; preds = %15, %3
   %12 = phi i64 [ 0, %3 ], [ %16, %15 ]
   %13 = phi ptr [ null, %3 ], [ %14, %15 ]
-  %.01114.i = phi i64 [ 2, %3 ], [ %17, %15 ]
+  %.not.i = phi i1 [ false, %3 ], [ true, %15 ]
   %14 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 120) #10
-  %.not16.not.i.not = icmp eq ptr %14, null
-  br i1 %.not16.not.i.not, label %ReserveMemoryPoolBlocks.exit, label %15
+  %.not17.not.i.not = icmp eq ptr %14, null
+  br i1 %.not17.not.i.not, label %ReserveMemoryPoolBlocks.exit, label %15
 
 15:                                               ; preds = %11
   store ptr %13, ptr %14, align 8
   store ptr %14, ptr %4, align 8
   %16 = add i64 %12, 1
   store i64 %16, ptr %10, align 8
-  %17 = add nsw i64 %.01114.i, -1
-  %.not.i = icmp eq i64 %17, 0
   br i1 %.not.i, label %ReserveMemoryPoolBlocks.exit.thread, label %11, !llvm.loop !6
 
 ReserveMemoryPoolBlocks.exit:                     ; preds = %11

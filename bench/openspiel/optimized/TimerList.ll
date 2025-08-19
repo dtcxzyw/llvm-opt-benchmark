@@ -1609,7 +1609,7 @@ define linkonce_odr void @_ZNSt6vectorI10TimerGroupSaIS0_EE17_M_default_appendEm
           to label %_ZSt10_ConstructI10TimerGroupJEEvPT_DpOT0_.exit.i.i.i unwind label %21
 
 _ZSt10_ConstructI10TimerGroupJEEvPT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %19 = add i64 %.01013.i.i.i, -1
+  %19 = add nsw i64 %.01013.i.i.i, -1
   %20 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 56
   %.not.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIP10TimerGroupmS0_ET_S2_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !16
@@ -1681,7 +1681,7 @@ _ZNKSt6vectorI10TimerGroupSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %32
           to label %_ZSt10_ConstructI10TimerGroupJEEvPT_DpOT0_.exit.i.i.i48 unwind label %42
 
 _ZSt10_ConstructI10TimerGroupJEEvPT_DpOT0_.exit.i.i.i48: ; preds = %.lr.ph.i.i.i40
-  %40 = add i64 %.01013.i.i.i42, -1
+  %40 = add nsw i64 %.01013.i.i.i42, -1
   %41 = getelementptr inbounds nuw i8, ptr %.014.i.i.i41, i64 56
   %.not.i.i.i49 = icmp eq i64 %40, 0
   br i1 %.not.i.i.i49, label %_ZSt27__uninitialized_default_n_aIP10TimerGroupmS0_ET_S2_T0_RSaIT1_E.exit51, label %.lr.ph.i.i.i40, !llvm.loop !16
@@ -1735,8 +1735,8 @@ _ZSt27__uninitialized_default_n_aIP10TimerGroupmS0_ET_S2_T0_RSaIT1_E.exit51: ; p
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
   %58 = tail call ptr @__cxa_begin_catch(ptr %57) #15
-  %.idx = mul nsw i64 %1, 56
-  %59 = getelementptr inbounds i8, ptr %39, i64 %.idx
+  %.idx = mul nuw nsw i64 %1, 56
+  %59 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
   br label %.lr.ph.i.i.i52
 
 .lr.ph.i.i.i52:                                   ; preds = %.body, %.lr.ph.i.i.i52
@@ -1781,7 +1781,7 @@ _ZSt8_DestroyIP10TimerGroupS0_EvT_S2_RSaIT0_E.exit59: ; preds = %.lr.ph.i.i.i56,
 
 _ZNSt12_Vector_baseI10TimerGroupSaIS0_EE13_M_deallocateEPS0_m.exit61: ; preds = %_ZSt8_DestroyIP10TimerGroupS0_EvT_S2_RSaIT0_E.exit59, %64
   store ptr %38, ptr %0, align 8
-  %68 = getelementptr inbounds %class.TimerGroup, ptr %39, i64 %1
+  %68 = getelementptr inbounds nuw %class.TimerGroup, ptr %39, i64 %1
   store ptr %68, ptr %4, align 8
   %69 = getelementptr inbounds nuw %class.TimerGroup, ptr %38, i64 %36
   store ptr %69, ptr %11, align 8

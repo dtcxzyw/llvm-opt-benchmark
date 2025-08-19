@@ -1729,7 +1729,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %8, %23
 
 .preheader249.lr.ph:                              ; preds = %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
   %34 = icmp sgt i32 %2, 0
-  br i1 %34, label %.preheader249.us.preheader, label %.preheader248.thread374
+  br i1 %34, label %.preheader249.us.preheader, label %.preheader248.thread394
 
 .preheader249.us.preheader:                       ; preds = %.preheader249.lr.ph
   %35 = zext nneg i32 %2 to i64
@@ -1761,12 +1761,12 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %8, %23
   %41 = icmp sgt i32 %13, 0
   br i1 %41, label %.preheader247.us.preheader, label %.lr.ph299
 
-.preheader248.thread374:                          ; preds = %.preheader249.lr.ph
+.preheader248.thread394:                          ; preds = %.preheader249.lr.ph
   %42 = icmp sgt i32 %13, 0
   br i1 %42, label %.preheader247.us.preheader, label %.lr.ph299
 
-.preheader247.us.preheader:                       ; preds = %.preheader248, %.preheader248.thread374
-  %.not233252377 = icmp slt i32 %11, 4
+.preheader247.us.preheader:                       ; preds = %.preheader248, %.preheader248.thread394
+  %.not233252397 = icmp slt i32 %11, 4
   %43 = add i32 %2, -2
   %44 = add i32 %11, -4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -1801,7 +1801,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %8, %23
   %61 = load i64, ptr %.pre372.pre, align 8, !tbaa !70
   %62 = mul i64 %61, %60
   %63 = getelementptr inbounds nuw i8, ptr %.pre371.pre, i64 %62
-  br i1 %.not233252377, label %.preheader246.us, label %.lr.ph.us
+  br i1 %.not233252397, label %.preheader246.us, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %56, %.lr.ph.us
   %indvars.iv315 = phi i64 [ %indvars.iv.next316, %.lr.ph.us ], [ 0, %56 ]
@@ -1927,7 +1927,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %8, %23
   %exitcond335.not = icmp eq i64 %indvars.iv.next332, %wide.trip.count334
   br i1 %exitcond335.not, label %.lr.ph299, label %.preheader247.us, !llvm.loop !122
 
-.lr.ph299:                                        ; preds = %._crit_edge274.us, %.preheader248, %.preheader248.thread374
+.lr.ph299:                                        ; preds = %._crit_edge274.us, %.preheader248, %.preheader248.thread394
   %.pn = sitofp i32 %2 to float
   %124 = fdiv float 1.000000e+00, %.pn
   %.not227 = icmp eq ptr %5, null
@@ -2011,13 +2011,13 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %8, %23
   %170 = trunc i64 %indvars.iv365 to i32
   %171 = mul i32 %2, %170
   %172 = zext i32 %171 to i64
-  %invariant.gep386 = getelementptr inbounds nuw float, ptr %28, i64 %172
+  %invariant.gep406 = getelementptr inbounds nuw float, ptr %28, i64 %172
   br label %173
 
 173:                                              ; preds = %.lr.ph282, %173
   %indvars.iv346 = phi i64 [ 0, %.lr.ph282 ], [ %indvars.iv.next347, %173 ]
-  %gep387 = getelementptr inbounds nuw float, ptr %invariant.gep386, i64 %indvars.iv346
-  %174 = load float, ptr %gep387, align 4, !tbaa !71
+  %gep407 = getelementptr inbounds nuw float, ptr %invariant.gep406, i64 %indvars.iv346
+  %174 = load float, ptr %gep407, align 4, !tbaa !71
   %175 = getelementptr inbounds nuw float, ptr %169, i64 %indvars.iv346
   store float %174, ptr %175, align 4, !tbaa !71
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
@@ -2047,14 +2047,14 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %8, %23
   %184 = trunc i64 %indvars.iv365 to i32
   %185 = mul i32 %2, %184
   %186 = zext i32 %185 to i64
-  %invariant.gep388 = getelementptr inbounds nuw float, ptr %30, i64 %186
+  %invariant.gep408 = getelementptr inbounds nuw float, ptr %30, i64 %186
   br label %187
 
 187:                                              ; preds = %.lr.ph288, %187
   %indvars.iv355 = phi i64 [ 0, %.lr.ph288 ], [ %indvars.iv.next356, %187 ]
   %.0199287 = phi float [ 0.000000e+00, %.lr.ph288 ], [ %189, %187 ]
-  %gep389 = getelementptr inbounds nuw float, ptr %invariant.gep388, i64 %indvars.iv355
-  %188 = load float, ptr %gep389, align 4, !tbaa !71
+  %gep409 = getelementptr inbounds nuw float, ptr %invariant.gep408, i64 %indvars.iv355
+  %188 = load float, ptr %gep409, align 4, !tbaa !71
   %189 = fadd float %.0199287, %188
   %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   %exitcond359.not = icmp eq i64 %indvars.iv.next356, %141
@@ -2226,8 +2226,8 @@ _ZSt4sortIPfEvT_S1_.exit:                         ; preds = %_ZSt25__unguarded_l
   %250 = load ptr, ptr %9, align 8, !tbaa !110
   %.not.i.i239 = icmp eq ptr %250, %21
   %251 = icmp eq ptr %250, null
-  %or.cond390 = or i1 %.not.i.i239, %251
-  br i1 %or.cond390, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit240, label %301
+  %or.cond410 = or i1 %.not.i.i239, %251
+  br i1 %or.cond410, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit240, label %301
 
 252:                                              ; preds = %240, %244, %234
   %.3211 = phi float [ %.1209291, %234 ], [ %247, %244 ], [ %.1209291, %240 ]
@@ -2584,7 +2584,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPfN9__gnu_cxx5__ops15_Iter_le
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds float, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw float, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw float, ptr %0, i64 %16
   br label %.split
 
@@ -2622,20 +2622,20 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPfN9__gnu_cxx5__ops15_Iter_le
   %.01317.i.i.us = phi i64 [ %.018.i.i.us, %40 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.018.in.i.i.us = add nsw i64 %.01317.i.i.us, -1
   %.018.i.i.us = sdiv i64 %.018.in.i.i.us, 2
-  %37 = getelementptr inbounds float, ptr %0, i64 %.018.i.i.us
+  %37 = getelementptr inbounds nuw float, ptr %0, i64 %.018.i.i.us
   %38 = load float, ptr %37, align 4, !tbaa !71
   %39 = fcmp olt float %38, %21
   br i1 %39, label %40, label %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us
 
 40:                                               ; preds = %.lr.ph.i.i.us
-  %41 = getelementptr inbounds float, ptr %0, i64 %.01317.i.i.us
+  %41 = getelementptr inbounds nuw float, ptr %0, i64 %.01317.i.i.us
   store float %38, ptr %41, align 4, !tbaa !71
   %42 = icmp sgt i64 %.018.i.i.us, %.013.us
   br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, !llvm.loop !135
 
 _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %40, %.split.us, %._crit_edge.i.us
   %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.018.i.i.us, %40 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
-  %43 = getelementptr inbounds float, ptr %0, i64 %.013.lcssa.i.i.us
+  %43 = getelementptr inbounds nuw float, ptr %0, i64 %.013.lcssa.i.i.us
   store float %21, ptr %43, align 4, !tbaa !71
   %.not.us = icmp eq i64 %.013.us, 0
   %44 = add nsw i64 %.013.us, -1
@@ -2686,20 +2686,20 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %.01317.i.i = phi i64 [ %.018.i.i, %69 ], [ %.128.i, %64 ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %66 = getelementptr inbounds float, ptr %0, i64 %.018.i.i
+  %66 = getelementptr inbounds nuw float, ptr %0, i64 %.018.i.i
   %67 = load float, ptr %66, align 4, !tbaa !71
   %68 = fcmp olt float %67, %46
   br i1 %68, label %69, label %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 
 69:                                               ; preds = %.lr.ph.i.i
-  %70 = getelementptr inbounds float, ptr %0, i64 %.01317.i.i
+  %70 = getelementptr inbounds nuw float, ptr %0, i64 %.01317.i.i
   store float %67, ptr %70, align 4, !tbaa !71
   %71 = icmp sgt i64 %.018.i.i, %.013
   br i1 %71, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit, !llvm.loop !135
 
 _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit: ; preds = %.lr.ph.i.i, %69, %64
   %.013.lcssa.i.i = phi i64 [ %.128.i, %64 ], [ %.018.i.i, %69 ], [ %.01317.i.i, %.lr.ph.i.i ]
-  %72 = getelementptr inbounds float, ptr %0, i64 %.013.lcssa.i.i
+  %72 = getelementptr inbounds nuw float, ptr %0, i64 %.013.lcssa.i.i
   store float %46, ptr %72, align 4, !tbaa !71
   %.not = icmp eq i64 %.013, 0
   %73 = add nsw i64 %.013, -1

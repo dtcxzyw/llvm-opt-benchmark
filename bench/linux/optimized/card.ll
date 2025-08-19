@@ -139,14 +139,14 @@ define dso_local noundef ptr @pnp_alloc_card(ptr noundef %0, i32 noundef %1, ptr
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
-  br i1 %77, label %.split.loop.exit4.split.loop.exit7, label %71, !llvm.loop !5
+  br i1 %77, label %.split.loop.exit4.split.loop.exit10, label %71, !llvm.loop !5
 
-.split.loop.exit4.split.loop.exit7:               ; preds = %74
+.split.loop.exit4.split.loop.exit10:              ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 8
   br label %.split.loop.exit4
 
-.split.loop.exit4:                                ; preds = %71, %.split.loop.exit4.split.loop.exit7
-  %79 = phi ptr [ %78, %.split.loop.exit4.split.loop.exit7 ], [ %69, %71 ]
+.split.loop.exit4:                                ; preds = %71, %.split.loop.exit4.split.loop.exit10
+  %79 = phi ptr [ %78, %.split.loop.exit4.split.loop.exit10 ], [ %69, %71 ]
   store ptr %21, ptr %79, align 8
   br label %81
 

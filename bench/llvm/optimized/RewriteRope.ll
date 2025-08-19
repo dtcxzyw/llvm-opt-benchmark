@@ -1008,9 +1008,9 @@ _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35.thread: ; pred
   %40 = add i32 %39, -1
   store i32 %40, ptr %37, align 4, !tbaa !35
   %.not.i.i.i.i34 = icmp eq i32 %40, 0
-  br i1 %.not.i.i.i.i34, label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35, label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35.thread50
+  br i1 %.not.i.i.i.i34, label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35, label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35.thread52
 
-_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35.thread50: ; preds = %38
+_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35.thread52: ; preds = %38
   store i32 %8, ptr %9, align 8, !tbaa !52
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35._crit_edge
 
@@ -1021,25 +1021,25 @@ _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35: ; preds = %38
   %.not.i.i36 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i36, label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit, label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35._crit_edge
 
-_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35._crit_edge: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35.thread50, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35
-  %.pr53 = phi ptr [ %33, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35.thread50 ], [ %.pr.pre, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35 ]
-  %.pre = load i32, ptr %.pr53, align 4, !tbaa !35
+_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35._crit_edge: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35.thread52, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35
+  %.pr55 = phi ptr [ %33, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35.thread52 ], [ %.pr.pre, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35 ]
+  %.pre = load i32, ptr %.pr55, align 4, !tbaa !35
   %41 = add i32 %.pre, 1
   br label %42
 
 42:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35._crit_edge, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35.thread
   %43 = phi i32 [ 2, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35.thread ], [ %41, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35._crit_edge ]
-  %44 = phi ptr [ %33, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35.thread ], [ %.pr53, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35._crit_edge ]
+  %44 = phi ptr [ %33, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35.thread ], [ %.pr55, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35._crit_edge ]
   store i32 %43, ptr %44, align 4, !tbaa !35
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit
 
 _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35, %42, %13, %23, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit31
-  %.sink57 = phi ptr [ %30, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit31 ], [ %22, %23 ], [ %22, %13 ], [ null, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35 ], [ %44, %42 ]
-  %.sink55 = phi i32 [ 0, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit31 ], [ %20, %23 ], [ %20, %13 ], [ 0, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35 ], [ 0, %42 ]
+  %.sink59 = phi ptr [ %30, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit31 ], [ %22, %23 ], [ %22, %13 ], [ null, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35 ], [ %44, %42 ]
+  %.sink57 = phi i32 [ 0, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit31 ], [ %20, %23 ], [ %20, %13 ], [ 0, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35 ], [ 0, %42 ]
   %.sink = phi i32 [ %8, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit31 ], [ %21, %23 ], [ %21, %13 ], [ %8, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35 ], [ %8, %42 ]
-  store ptr %.sink57, ptr %0, align 8, !tbaa !32
+  store ptr %.sink59, ptr %0, align 8, !tbaa !32
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink55, ptr %45, align 8, !tbaa !43
+  store i32 %.sink57, ptr %45, align 8, !tbaa !43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sink, ptr %46, align 4, !tbaa !41
   ret void
@@ -1154,9 +1154,9 @@ _ZN4llvm9RopePieceaSERKS0_.exit:                  ; preds = %_ZN4llvm18Intrusive
   br i1 %.not, label %._crit_edge, label %22, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %_ZN4llvm9RopePieceaSERKS0_.exit, %tailrecurse.outer._crit_edge, %.loopexit
-  %.029121 = phi i32 [ %.029, %.loopexit ], [ %7, %tailrecurse.outer._crit_edge ], [ %.029, %_ZN4llvm9RopePieceaSERKS0_.exit ]
+  %.029132 = phi i32 [ %.029, %.loopexit ], [ %7, %tailrecurse.outer._crit_edge ], [ %.029, %_ZN4llvm9RopePieceaSERKS0_.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %.tr.ph.lcssa, i64 8
-  %41 = zext i32 %.029121 to i64
+  %41 = zext i32 %.029132 to i64
   %42 = getelementptr inbounds nuw [16 x %"struct.llvm::RopePiece"], ptr %40, i64 0, i64 %41
   %43 = load ptr, ptr %2, align 8, !tbaa !32
   %.not.i.i.i37 = icmp eq ptr %43, null

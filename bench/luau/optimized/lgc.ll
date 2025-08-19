@@ -1303,15 +1303,15 @@ define hidden noundef i64 @_Z19luaC_allocationrateP9lua_State(ptr noundef readon
   br i1 %19, label %28, label %.sink.split
 
 .sink.split:                                      ; preds = %13, %7
-  %.sink19 = phi i64 [ 72, %7 ], [ 6632, %13 ]
-  %.sink16 = phi double [ %11, %7 ], [ %18, %13 ]
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink19
+  %.sink20 = phi i64 [ 72, %7 ], [ 6632, %13 ]
+  %.sink17 = phi double [ %11, %7 ], [ %18, %13 ]
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink20
   %21 = load i64, ptr %20, align 8, !tbaa !108
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 6640
   %23 = load i64, ptr %22, align 8, !tbaa !45
   %24 = sub i64 %21, %23
   %25 = uitofp i64 %24 to double
-  %26 = fdiv double %25, %.sink16
+  %26 = fdiv double %25, %.sink17
   %27 = fptosi double %26 to i64
   br label %28
 
@@ -1441,8 +1441,8 @@ define internal fastcc noundef range(i64 -133143986000, 133143986291) i64 @_ZL13
   br i1 %18, label %.thread69.i, label %.thread.i
 
 .thread.i:                                        ; preds = %17, %13
-  %.val.pr99.i = phi ptr [ %.val.pr.pre.i, %17 ], [ %12, %13 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.val.pr99.i, i64 3
+  %.val.pr104.i = phi ptr [ %.val.pr.pre.i, %17 ], [ %12, %13 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.val.pr104.i, i64 3
   %20 = load i8, ptr %19, align 1, !tbaa !76
   %21 = and i8 %20, 4
   %.not.i.i = icmp eq i8 %21, 0
@@ -1451,7 +1451,7 @@ define internal fastcc noundef range(i64 -133143986000, 133143986291) i64 @_ZL13
 22:                                               ; preds = %.thread.i
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 3048
   %24 = load ptr, ptr %23, align 8, !tbaa !77
-  %25 = tail call noundef ptr @_Z10luaT_gettmP8LuaTable3TMSP7TString(ptr noundef nonnull %.val.pr99.i, i32 noundef 2, ptr noundef %24)
+  %25 = tail call noundef ptr @_Z10luaT_gettmP8LuaTable3TMSP7TString(ptr noundef nonnull %.val.pr104.i, i32 noundef 2, ptr noundef %24)
   %.not10.i.i = icmp eq ptr %25, null
   br i1 %.not10.i.i, label %.thread69.i, label %26
 
@@ -1535,8 +1535,8 @@ define internal fastcc noundef range(i64 -133143986000, 133143986291) i64 @_ZL13
   %65 = load i8, ptr %64, align 2, !tbaa !67
   %66 = zext nneg i8 %65 to i32
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %notmask105.i = shl nsw i32 -1, %66
-  %68 = xor i32 %notmask105.i, -1
+  %notmask110.i = shl nsw i32 -1, %66
+  %68 = xor i32 %notmask110.i, -1
   %69 = zext nneg i32 %68 to i64
   br i1 %34, label %.split.us.split.us.i, label %.split.split.us.i
 
@@ -1715,9 +1715,9 @@ _ZL11removeentryP7LuaNode.exit.i:                 ; preds = %157, %152, %149, %1
   br i1 %158, label %_ZL13traversetableP12global_StateP8LuaTable.exit, label %.split.split.i, !llvm.loop !110
 
 _ZL13traversetableP12global_StateP8LuaTable.exit: ; preds = %_ZL11removeentryP7LuaNode.exit.us79.i, %_ZL11removeentryP7LuaNode.exit.us.us.i, %_ZL11removeentryP7LuaNode.exit.i, %_ZL11removeentryP7LuaNode.exit.us.i
-  %.049.shrunk6873109.i = phi i32 [ 0, %_ZL11removeentryP7LuaNode.exit.us.i ], [ 0, %_ZL11removeentryP7LuaNode.exit.i ], [ 1, %_ZL11removeentryP7LuaNode.exit.us.us.i ], [ 1, %_ZL11removeentryP7LuaNode.exit.us79.i ]
-  %.050.shrunk6775106.i = phi i32 [ 1, %_ZL11removeentryP7LuaNode.exit.us.i ], [ 0, %_ZL11removeentryP7LuaNode.exit.i ], [ 1, %_ZL11removeentryP7LuaNode.exit.us.us.i ], [ 0, %_ZL11removeentryP7LuaNode.exit.us79.i ]
-  %159 = or i32 %.050.shrunk6775106.i, %.049.shrunk6873109.i
+  %.049.shrunk6873114.i = phi i32 [ 0, %_ZL11removeentryP7LuaNode.exit.us.i ], [ 0, %_ZL11removeentryP7LuaNode.exit.i ], [ 1, %_ZL11removeentryP7LuaNode.exit.us.us.i ], [ 1, %_ZL11removeentryP7LuaNode.exit.us79.i ]
+  %.050.shrunk6775111.i = phi i32 [ 1, %_ZL11removeentryP7LuaNode.exit.us.i ], [ 0, %_ZL11removeentryP7LuaNode.exit.i ], [ 1, %_ZL11removeentryP7LuaNode.exit.us.us.i ], [ 0, %_ZL11removeentryP7LuaNode.exit.us79.i ]
+  %159 = or i32 %.050.shrunk6775111.i, %.049.shrunk6873114.i
   %.not52 = icmp eq i32 %159, 0
   br i1 %.not52, label %162, label %_ZL13traversetableP12global_StateP8LuaTable.exit.thread
 

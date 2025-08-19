@@ -3663,8 +3663,8 @@ source_name.exit:                                 ; preds = %source_name.exit.si
   %or.cond268 = and i1 %.not165, %193
   %194 = load i8, ptr @pmix_mca_base_var_initialized, align 1, !range !36
   %195 = trunc nuw i8 %194 to i1
-  %or.cond284 = select i1 %or.cond268, i1 %195, i1 false
-  br i1 %or.cond284, label %.lr.ph266.split.preheader, label %.loopexit
+  %or.cond304 = select i1 %or.cond268, i1 %195, i1 false
+  br i1 %or.cond304, label %.lr.ph266.split.preheader, label %.loopexit
 
 .lr.ph266.split.preheader:                        ; preds = %192
   %wide.trip.count276 = and i64 %.val, 2147483647
@@ -3795,8 +3795,8 @@ var_get.exit180.thread:                           ; preds = %pmix_pointer_array_
   %262 = icmp sgt i32 %54, 0
   %263 = load i8, ptr @pmix_mca_base_var_initialized, align 1, !range !36
   %264 = trunc nuw i8 %263 to i1
-  %or.cond286 = select i1 %262, i1 %264, i1 false
-  br i1 %or.cond286, label %.lr.ph.split.preheader, label %.loopexit257
+  %or.cond306 = select i1 %262, i1 %264, i1 false
+  br i1 %or.cond306, label %.lr.ph.split.preheader, label %.loopexit257
 
 .lr.ph.split.preheader:                           ; preds = %.preheader256
   %265 = and i64 %.val, 2147483647

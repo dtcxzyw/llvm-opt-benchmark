@@ -271,7 +271,7 @@ define dso_local range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef readonly
   %86 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, double noundef %.0403708714725)
   %87 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %.0402716723)
   %88 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, double noundef %.0404726)
-  switch i32 %27, label %default.unreachable [
+  switch i32 %27, label %default.unreachable960 [
     i32 0, label %89
     i32 1, label %90
     i32 2, label %91
@@ -379,7 +379,7 @@ define dso_local range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef readonly
   %137 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, double noundef %136, double noundef 0x3D06849B86A12B9B)
   br label %138
 
-default.unreachable:                              ; preds = %check_retval.exit581.thread, %check_retval.exit527.thread, %138, %79
+default.unreachable960:                           ; preds = %check_retval.exit581.thread, %check_retval.exit527.thread, %138, %79
   unreachable
 
 138:                                              ; preds = %131, %125, %120, %113, %107, %101, %96, %95, %94, %93, %92, %91, %90, %89
@@ -392,7 +392,7 @@ default.unreachable:                              ; preds = %check_retval.exit58
   %143 = phi i1 [ false, %89 ], [ true, %90 ], [ true, %91 ], [ true, %92 ], [ true, %93 ], [ true, %94 ], [ true, %95 ], [ false, %96 ], [ false, %101 ], [ false, %107 ], [ false, %113 ], [ false, %120 ], [ false, %125 ], [ false, %131 ]
   %144 = phi i1 [ true, %89 ], [ false, %90 ], [ false, %91 ], [ false, %92 ], [ false, %93 ], [ false, %94 ], [ false, %95 ], [ false, %96 ], [ false, %101 ], [ false, %107 ], [ false, %113 ], [ false, %120 ], [ false, %125 ], [ false, %131 ]
   %.not470 = phi i1 [ false, %89 ], [ true, %90 ], [ true, %91 ], [ true, %92 ], [ true, %93 ], [ true, %94 ], [ true, %95 ], [ true, %96 ], [ true, %101 ], [ true, %107 ], [ true, %113 ], [ true, %120 ], [ true, %125 ], [ true, %131 ]
-  switch i32 %31, label %default.unreachable [
+  switch i32 %31, label %default.unreachable960 [
     i32 0, label %145
     i32 1, label %146
     i32 2, label %152
@@ -625,7 +625,7 @@ check_retval.exit543:                             ; preds = %246
 
 check_retval.exit527.thread:                      ; preds = %246, %229, %211, %204, %197, %234
   %251 = phi ptr [ %237, %246 ], [ %220, %229 ], [ %213, %211 ], [ %206, %204 ], [ %199, %197 ], [ null, %234 ]
-  switch i32 %31, label %default.unreachable [
+  switch i32 %31, label %default.unreachable960 [
     i32 0, label %252
     i32 1, label %281
     i32 2, label %308
@@ -1105,7 +1105,7 @@ check_retval.exit603:                             ; preds = %491
 
 check_retval.exit581.thread:                      ; preds = %491, %473, %455, %435, %427, %419, %478
   %496 = phi ptr [ %482, %491 ], [ %464, %473 ], [ %446, %455 ], [ %438, %435 ], [ %430, %427 ], [ %422, %419 ], [ null, %478 ]
-  switch i32 %27, label %default.unreachable [
+  switch i32 %27, label %default.unreachable960 [
     i32 0, label %497
     i32 1, label %518
     i32 2, label %523

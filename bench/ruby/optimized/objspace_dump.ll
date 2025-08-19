@@ -551,8 +551,8 @@ dump_append_ref.exit:                             ; preds = %.lr.ph.i.i
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.4, i64 noundef 10)
   %73 = load i64, ptr %38, align 8, !tbaa !17
   %74 = and i64 %73, 30
-  %.not382 = icmp eq i64 %74, 30
-  br i1 %.not382, label %obj_type.exit232, label %switch.lookup
+  %.not395 = icmp eq i64 %74, 30
+  br i1 %.not395, label %obj_type.exit232, label %switch.lookup
 
 switch.lookup:                                    ; preds = %dump_append_ref.exit
   %75 = and i64 %73, 31

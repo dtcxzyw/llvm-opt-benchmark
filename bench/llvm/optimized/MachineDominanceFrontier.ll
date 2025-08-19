@@ -1325,9 +1325,9 @@ _ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_17MachineBasicBlockEEESaIS3_EE9pu
   br label %18
 
 18:                                               ; preds = %371, %_ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_17MachineBasicBlockEEESaIS3_EE9push_backEOS3_.exit
-  %.sroa.21.0 = phi ptr [ %13, %_ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_17MachineBasicBlockEEESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.21.1.lcssa273, %371 ]
+  %.sroa.21.0 = phi ptr [ %13, %_ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_17MachineBasicBlockEEESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.21.1.lcssa308, %371 ]
   %.sroa.9.0 = phi ptr [ %13, %_ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_17MachineBasicBlockEEESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.9.3.ph, %371 ]
-  %.sroa.0151.0 = phi ptr [ %12, %_ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_17MachineBasicBlockEEESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.0151.1.lcssa277, %371 ]
+  %.sroa.0151.0 = phi ptr [ %12, %_ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_17MachineBasicBlockEEESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.0151.1.lcssa312, %371 ]
   %19 = getelementptr inbounds i8, ptr %.sroa.9.0, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = load ptr, ptr %19, align 8, !tbaa !112
@@ -1728,9 +1728,9 @@ _ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_17MachineBasicBlockEEESaIS3_EE9pu
   br i1 %.not48, label %._crit_edge, label %.lr.ph233, !llvm.loop !140
 
 ._crit_edge.thread:                               ; preds = %.loopexit, %._crit_edge
-  %.sroa.0151.1.lcssa276 = phi ptr [ %.sroa.0151.2, %._crit_edge ], [ %.sroa.0151.0, %.loopexit ]
-  %.sroa.9.1.lcssa275 = phi ptr [ %.sroa.9.2, %._crit_edge ], [ %.sroa.9.0, %.loopexit ]
-  %.sroa.21.1.lcssa272 = phi ptr [ %.sroa.21.2, %._crit_edge ], [ %.sroa.21.0, %.loopexit ]
+  %.sroa.0151.1.lcssa311 = phi ptr [ %.sroa.0151.2, %._crit_edge ], [ %.sroa.0151.0, %.loopexit ]
+  %.sroa.9.1.lcssa310 = phi ptr [ %.sroa.9.2, %._crit_edge ], [ %.sroa.9.0, %.loopexit ]
+  %.sroa.21.1.lcssa307 = phi ptr [ %.sroa.21.2, %._crit_edge ], [ %.sroa.21.0, %.loopexit ]
   %204 = load ptr, ptr %5, align 8, !tbaa !9
   %.not49 = icmp eq ptr %204, null
   br i1 %.not49, label %370, label %205
@@ -2042,7 +2042,7 @@ _ZN4llvm9SetVectorIPNS_17MachineBasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSe
   br i1 %.not50, label %._crit_edge243, label %225, !llvm.loop !161
 
 ._crit_edge243:                                   ; preds = %_ZN4llvm9SetVectorIPNS_17MachineBasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE6insertERKS2_.exit79, %205
-  %369 = getelementptr inbounds i8, ptr %.sroa.9.1.lcssa275, i64 -32
+  %369 = getelementptr inbounds i8, ptr %.sroa.9.1.lcssa310, i64 -32
   br label %371
 
 370:                                              ; preds = %._crit_edge.thread
@@ -2051,17 +2051,17 @@ _ZN4llvm9SetVectorIPNS_17MachineBasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSe
   br label %.loopexit198
 
 371:                                              ; preds = %._crit_edge243, %._crit_edge
-  %.sroa.0151.1.lcssa277 = phi ptr [ %.sroa.0151.1.lcssa276, %._crit_edge243 ], [ %.sroa.0151.2, %._crit_edge ]
-  %.sroa.21.1.lcssa273 = phi ptr [ %.sroa.21.1.lcssa272, %._crit_edge243 ], [ %.sroa.21.2, %._crit_edge ]
+  %.sroa.0151.1.lcssa312 = phi ptr [ %.sroa.0151.1.lcssa311, %._crit_edge243 ], [ %.sroa.0151.2, %._crit_edge ]
+  %.sroa.21.1.lcssa308 = phi ptr [ %.sroa.21.1.lcssa307, %._crit_edge243 ], [ %.sroa.21.2, %._crit_edge ]
   %.sroa.9.3.ph = phi ptr [ %369, %._crit_edge243 ], [ %.sroa.9.2, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %372 = icmp eq ptr %.sroa.0151.1.lcssa277, %.sroa.9.3.ph
+  %372 = icmp eq ptr %.sroa.0151.1.lcssa312, %.sroa.9.3.ph
   br i1 %372, label %.loopexit198, label %18, !llvm.loop !162
 
 .loopexit198:                                     ; preds = %371, %370
-  %.sroa.0151.1.lcssa278 = phi ptr [ %.sroa.0151.1.lcssa276, %370 ], [ %.sroa.0151.1.lcssa277, %371 ]
-  %.sroa.21.1.lcssa274 = phi ptr [ %.sroa.21.1.lcssa272, %370 ], [ %.sroa.21.1.lcssa273, %371 ]
+  %.sroa.0151.1.lcssa313 = phi ptr [ %.sroa.0151.1.lcssa311, %370 ], [ %.sroa.0151.1.lcssa312, %371 ]
+  %.sroa.21.1.lcssa309 = phi ptr [ %.sroa.21.1.lcssa307, %370 ], [ %.sroa.21.1.lcssa308, %371 ]
   %.1193 = phi ptr [ %27, %370 ], [ null, %371 ]
   %373 = load i8, ptr %11, align 4, !tbaa !111, !range !117, !noundef !121
   %374 = trunc nuw i8 %373 to i1
@@ -2074,10 +2074,10 @@ _ZN4llvm9SetVectorIPNS_17MachineBasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSe
 
 _ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_17MachineBasicBlockEEESaIS3_EED2Ev.exit: ; preds = %.loopexit198, %375
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %377 = ptrtoint ptr %.sroa.21.1.lcssa274 to i64
-  %378 = ptrtoint ptr %.sroa.0151.1.lcssa278 to i64
+  %377 = ptrtoint ptr %.sroa.21.1.lcssa309 to i64
+  %378 = ptrtoint ptr %.sroa.0151.1.lcssa313 to i64
   %379 = sub i64 %377, %378
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0151.1.lcssa278, i64 noundef %379) #17
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0151.1.lcssa313, i64 noundef %379) #17
   ret ptr %.1193
 }
 

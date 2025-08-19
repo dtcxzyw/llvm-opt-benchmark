@@ -135,7 +135,7 @@ define hidden void @_ZN12aho_corasick11ahocorasick18AhoCorasickBuilder5build17h0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   br i1 %14, label %19, label %16
 
-default.unreachable100:                           ; preds = %16
+default.unreachable105:                           ; preds = %16
   unreachable
 
 16:                                               ; preds = %3
@@ -149,7 +149,7 @@ default.unreachable100:                           ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 73
   %18 = load i8, ptr %17, align 1, !range !8, !noundef !5
-  switch i8 %18, label %default.unreachable100 [
+  switch i8 %18, label %default.unreachable105 [
     i8 3, label %21
     i8 0, label %29
     i8 1, label %40
@@ -362,19 +362,19 @@ default.unreachable100:                           ; preds = %16
   br label %81
 
 81:                                               ; preds = %61, %80
-  %.ph101 = phi ptr [ @anon.e316c324bdc0d28376b7586f951427b3.10, %80 ], [ @anon.e316c324bdc0d28376b7586f951427b3.7, %61 ]
-  %.ph102 = phi ptr [ %72, %80 ], [ %53, %61 ]
+  %.ph106 = phi ptr [ @anon.e316c324bdc0d28376b7586f951427b3.10, %80 ], [ @anon.e316c324bdc0d28376b7586f951427b3.7, %61 ]
+  %.ph107 = phi ptr [ %72, %80 ], [ %53, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %83 = load i8, ptr %82, align 8, !range !4, !noundef !5
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.ph102, ptr %84, align 8
-  %.sroa.427.0..sroa_idx104 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.ph101, ptr %.sroa.427.0..sroa_idx104, align 8
-  %.sroa.528.0..sroa_idx105 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %18, ptr %.sroa.528.0..sroa_idx105, align 8
-  %.sroa.6.0..sroa_idx106 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  store i8 %83, ptr %.sroa.6.0..sroa_idx106, align 1
+  store ptr %.ph107, ptr %84, align 8
+  %.sroa.427.0..sroa_idx109 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.ph106, ptr %.sroa.427.0..sroa_idx109, align 8
+  %.sroa.528.0..sroa_idx110 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 %18, ptr %.sroa.528.0..sroa_idx110, align 8
+  %.sroa.6.0..sroa_idx111 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  store i8 %83, ptr %.sroa.6.0..sroa_idx111, align 1
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr58drop_in_place$LT$aho_corasick..nfa..noncontiguous..NFA$GT$17hd1472471dbb97252E"(ptr noalias noundef nonnull align 8 dereferenceable(440) %12)
   br label %85

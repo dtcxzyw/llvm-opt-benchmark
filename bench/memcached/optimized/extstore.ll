@@ -434,18 +434,18 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
   br label %173
 
 ._crit_edge.thread:                               ; preds = %29, %._crit_edge
-  %.0148.lcssa206 = phi i64 [ %51, %._crit_edge ], [ 0, %29 ]
-  %57 = trunc nuw nsw i64 %.0148.lcssa206 to i32
+  %.0148.lcssa215 = phi i64 [ %51, %._crit_edge ], [ 0, %29 ]
+  %57 = trunc nuw nsw i64 %.0148.lcssa215 to i32
   %58 = getelementptr inbounds nuw i8, ptr %26, i64 116
   store i32 %57, ptr %58, align 4, !tbaa !19
-  %59 = call noalias ptr @calloc(i64 noundef %.0148.lcssa206, i64 noundef 120) #14
+  %59 = call noalias ptr @calloc(i64 noundef %.0148.lcssa215, i64 noundef 120) #14
   %60 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store ptr %59, ptr %60, align 8, !tbaa !33
   %61 = icmp eq ptr %59, null
   br i1 %61, label %62, label %.preheader160
 
 .preheader160:                                    ; preds = %._crit_edge.thread
-  %.not189 = icmp eq i64 %.0148.lcssa206, 0
+  %.not189 = icmp eq i64 %.0148.lcssa215, 0
   br i1 %.not189, label %._crit_edge171, label %.preheader
 
 62:                                               ; preds = %._crit_edge.thread
@@ -501,7 +501,7 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
   %87 = add i64 %84, %30
   store i64 %87, ptr %83, align 8, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %88 = icmp samesign ult i64 %indvars.iv.next, %.0148.lcssa206
+  %88 = icmp samesign ult i64 %indvars.iv.next, %.0148.lcssa215
   br i1 %88, label %.preheader, label %._crit_edge171, !llvm.loop !87
 
 ._crit_edge171:                                   ; preds = %71, %.preheader160
@@ -515,11 +515,11 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
   store i32 %89, ptr %93, align 8, !tbaa !88
   %94 = getelementptr inbounds nuw i8, ptr %26, i64 120
   store i32 %.lcssa162, ptr %94, align 8, !tbaa !4
-  %.1141173 = add i32 %.lcssa162, -1
-  %95 = icmp sgt i32 %.1141173, -1
+  %95 = icmp sgt i32 %.lcssa162, 0
   br i1 %95, label %.lr.ph176, label %._crit_edge177
 
 .lr.ph176:                                        ; preds = %._crit_edge171
+  %.1141173 = add nsw i32 %.lcssa162, -1
   %96 = zext nneg i32 %.1141173 to i64
   br label %97
 
@@ -535,13 +535,13 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
   store ptr %103, ptr %104, align 8, !tbaa !62
   store ptr %98, ptr %102, align 8, !tbaa !60
   %indvars.iv.next200 = add nsw i64 %indvars.iv199, -1
-  %.not212 = icmp eq i64 %indvars.iv199, 0
-  br i1 %.not212, label %._crit_edge177, label %97, !llvm.loop !89
+  %.not221 = icmp eq i64 %indvars.iv199, 0
+  br i1 %.not221, label %._crit_edge177, label %97, !llvm.loop !89
 
 ._crit_edge177:                                   ; preds = %97, %._crit_edge171
   %105 = getelementptr inbounds nuw i8, ptr %26, i64 104
   store i32 1, ptr %105, align 8, !tbaa !90
-  %106 = zext i32 %.lcssa162 to i64
+  %106 = zext nneg i32 %.lcssa162 to i64
   %107 = call noalias ptr @calloc(i64 noundef %106, i64 noundef 32) #14
   %108 = getelementptr inbounds nuw i8, ptr %26, i64 312
   store ptr %107, ptr %108, align 8, !tbaa !91
@@ -715,20 +715,20 @@ define internal noalias noundef nonnull ptr @extstore_io_thread(ptr noundef %0) 
   %17 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %5, ptr noundef nonnull %0) #13
   %.pr = load ptr, ptr %4, align 8, !tbaa !114
   %.not = icmp eq ptr %.pr, null
-  br i1 %.not, label %.thread111, label %.preheader
+  br i1 %.not, label %.thread118, label %.preheader
 
-.thread111:                                       ; preds = %16
+.thread118:                                       ; preds = %16
   %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #13
   br label %.loopexit.backedge
 
-.loopexit.backedge:                               ; preds = %180, %.thread111
+.loopexit.backedge:                               ; preds = %180, %.thread118
   br label %.loopexit
 
 .preheader:                                       ; preds = %.loopexit, %16
   %19 = phi ptr [ %.pr, %16 ], [ %14, %.loopexit ]
   %20 = load i32, ptr %6, align 4, !tbaa !108
   %21 = icmp ugt i32 %20, 1
-  br i1 %21, label %.lr.ph, label %.loopexit113
+  br i1 %21, label %.lr.ph, label %.loopexit120
 
 .lr.ph:                                           ; preds = %.preheader, %24
   %.07595 = phi i32 [ %25, %24 ], [ 1, %.preheader ]
@@ -741,13 +741,13 @@ define internal noalias noundef nonnull ptr @extstore_io_thread(ptr noundef %0) 
 24:                                               ; preds = %.lr.ph
   %25 = add nuw i32 %.07595, 1
   %exitcond.not = icmp eq i32 %25, %20
-  br i1 %exitcond.not, label %.loopexit113, label %.lr.ph, !llvm.loop !115
+  br i1 %exitcond.not, label %.loopexit120, label %.lr.ph, !llvm.loop !115
 
 26:                                               ; preds = %.lr.ph
   store ptr null, ptr %7, align 8, !tbaa !116
-  br label %.loopexit113
+  br label %.loopexit120
 
-.loopexit113:                                     ; preds = %24, %26, %.preheader
+.loopexit120:                                     ; preds = %24, %26, %.preheader
   %.07793 = phi ptr [ %.07794, %26 ], [ %19, %.preheader ], [ %23, %24 ]
   %.07591 = phi i32 [ %.07595, %26 ], [ 1, %.preheader ], [ %20, %24 ]
   %27 = load i32, ptr %8, align 8, !tbaa !27
@@ -760,8 +760,8 @@ define internal noalias noundef nonnull ptr @extstore_io_thread(ptr noundef %0) 
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #13
   br label %.lr.ph102
 
-.lr.ph102:                                        ; preds = %.loopexit113, %180
-  %.07698 = phi ptr [ %33, %180 ], [ %19, %.loopexit113 ]
+.lr.ph102:                                        ; preds = %.loopexit120, %180
+  %.07698 = phi ptr [ %33, %180 ], [ %19, %.loopexit120 ]
   %32 = getelementptr inbounds nuw i8, ptr %.07698, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !101
   %34 = load ptr, ptr %9, align 8, !tbaa !33
@@ -1314,20 +1314,20 @@ _evict_page.exit96:                               ; preds = %144, %134, %._crit_
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %168 = load i64, ptr %167, align 8, !tbaa !23
   %169 = icmp ugt i64 %168, %166
-  br i1 %169, label %170, label %.thread116
+  br i1 %169, label %170, label %.thread127
 
 170:                                              ; preds = %163
   tail call fastcc void @_allocate_wbuf(ptr noundef nonnull %0, ptr noundef %.056.ph)
   %.pr108.pre = load ptr, ptr %79, align 8, !tbaa !121
   %.not68 = icmp eq ptr %.pr108.pre, null
-  br i1 %.not68, label %.thread116, label %.thread109
+  br i1 %.not68, label %.thread127, label %.thread109
 
 .thread109:                                       ; preds = %.thread102, %.thread.thread, %.thread111, %170
   %171 = phi ptr [ %.pr108.pre, %170 ], [ %161, %.thread111 ], [ %80, %.thread.thread ], [ %80, %.thread102 ]
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 36
   %173 = load i8, ptr %172, align 4, !tbaa !137, !range !46, !noundef !47
   %174 = trunc nuw i8 %173 to i1
-  br i1 %174, label %.thread116, label %175
+  br i1 %174, label %.thread127, label %175
 
 175:                                              ; preds = %.thread109
   %176 = getelementptr inbounds nuw i8, ptr %171, i64 24
@@ -1335,7 +1335,7 @@ _evict_page.exit96:                               ; preds = %144, %134, %._crit_
   %178 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %179 = load i32, ptr %178, align 8, !tbaa !125
   %.not69 = icmp ult i32 %177, %179
-  br i1 %.not69, label %.thread116, label %180
+  br i1 %.not69, label %.thread127, label %180
 
 180:                                              ; preds = %175
   %181 = getelementptr inbounds nuw i8, ptr %171, i64 16
@@ -1348,12 +1348,12 @@ _evict_page.exit96:                               ; preds = %144, %134, %._crit_
   store i16 %185, ptr %186, align 8, !tbaa !117
   br label %188
 
-.thread116:                                       ; preds = %163, %175, %.thread109, %170
+.thread127:                                       ; preds = %163, %175, %.thread109, %170
   %187 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.056.ph) #13
   br label %188
 
-188:                                              ; preds = %_allocate_page.exit76, %_evict_page.exit96, %4, %.thread116, %180, %_evict_page.exit
-  %.0 = phi i32 [ -1, %.thread116 ], [ 0, %180 ], [ -1, %_evict_page.exit ], [ -1, %4 ], [ -1, %_evict_page.exit96 ], [ -1, %_allocate_page.exit76 ]
+188:                                              ; preds = %_allocate_page.exit76, %_evict_page.exit96, %4, %.thread127, %180, %_evict_page.exit
+  %.0 = phi i32 [ -1, %.thread127 ], [ 0, %180 ], [ -1, %_evict_page.exit ], [ -1, %4 ], [ -1, %_evict_page.exit96 ], [ -1, %_allocate_page.exit76 ]
   ret i32 %.0
 }
 

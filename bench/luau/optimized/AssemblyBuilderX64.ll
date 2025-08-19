@@ -506,7 +506,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef no
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !13
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 
@@ -4350,7 +4350,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643nopEj(ptr nounde
   %9 = sub i32 %.016, %8
   %10 = load i8, ptr %3, align 8, !tbaa !14, !range !61, !noundef !62
   %11 = trunc nuw i8 %10 to i1
-  switch i32 %8, label %default.unreachable [
+  switch i32 %8, label %default.unreachable18 [
     i32 1, label %12
     i32 2, label %14
     i32 3, label %19
@@ -4593,7 +4593,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643nopEj(ptr nounde
   store i8 0, ptr %108, align 1, !tbaa !13
   br label %110
 
-default.unreachable:                              ; preds = %7
+default.unreachable18:                            ; preds = %7
   unreachable
 
 110:                                              ; preds = %12, %13, %93, %76, %61, %48, %37, %28, %21, %16
@@ -7342,22 +7342,22 @@ _ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEES
 
 .lr.ph.preheader:                                 ; preds = %21
   %25 = icmp eq i64 %23, %18
-  br i1 %25, label %_ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEESt4hashImESt8equal_toImEE13insert_unsafeERS4_.exit, label %.lr.ph46
+  br i1 %25, label %_ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEESt4hashImESt8equal_toImEE13insert_unsafeERS4_.exit, label %.lr.ph51
 
-._crit_edge:                                      ; preds = %.lr.ph46, %21
-  %.lcssa = phi ptr [ %22, %21 ], [ %29, %.lr.ph46 ]
+._crit_edge:                                      ; preds = %.lr.ph51, %21
+  %.lcssa = phi ptr [ %22, %21 ], [ %29, %.lr.ph51 ]
   store i64 %18, ptr %.lcssa, align 8, !tbaa !93
   br label %_ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEESt4hashImESt8equal_toImEE13insert_unsafeERS4_.exit
 
-.lr.ph:                                           ; preds = %.lr.ph46
+.lr.ph:                                           ; preds = %.lr.ph51
   %26 = icmp eq i64 %30, %18
-  br i1 %26, label %_ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEESt4hashImESt8equal_toImEE13insert_unsafeERS4_.exit, label %.lr.ph46
+  br i1 %26, label %_ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEESt4hashImESt8equal_toImEE13insert_unsafeERS4_.exit, label %.lr.ph51
 
-.lr.ph46:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02230.i2645 = phi i64 [ %27, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.02331.i2744 = phi i64 [ %.02331.i, %.lr.ph ], [ %.02331.i25, %.lr.ph.preheader ]
-  %27 = add i64 %.02230.i2645, 1
-  %28 = add i64 %27, %.02331.i2744
+.lr.ph51:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.02230.i2650 = phi i64 [ %27, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.02331.i2749 = phi i64 [ %.02331.i, %.lr.ph ], [ %.02331.i25, %.lr.ph.preheader ]
+  %27 = add i64 %.02230.i2650, 1
+  %28 = add i64 %27, %.02331.i2749
   %.not.i12 = icmp ule i64 %27, %14
   tail call void @llvm.assume(i1 %.not.i12)
   %.02331.i = and i64 %28, %14

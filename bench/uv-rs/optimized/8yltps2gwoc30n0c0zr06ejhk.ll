@@ -11727,13 +11727,13 @@ define hidden void @"_ZN75_$LT$$u5b$T$u5d$$u20$as$u20$alloc..slice..SpecCloneInt
   unreachable
 
 "_ZN4core3ptr98drop_in_place$LT$$u5b$indexmap..Bucket$LT$toml_edit..key..Key$C$toml_edit..item..Item$GT$$u5d$$GT$17h0fc4c3fc4cb7e7faE.llvm.15999240481245598038.exit.thread": ; preds = %"_ZN4core3ptr88drop_in_place$LT$indexmap..Bucket$LT$toml_edit..key..Key$C$toml_edit..item..Item$GT$$GT$17h32e813a68cbc049eE.exit.i", %3
-  %.sink13 = phi i64 [ %5, %3 ], [ %1, %"_ZN4core3ptr88drop_in_place$LT$indexmap..Bucket$LT$toml_edit..key..Key$C$toml_edit..item..Item$GT$$GT$17h32e813a68cbc049eE.exit.i" ]
-  %32 = icmp ult i64 %.sink13, 28120036697727976
+  %.sink17 = phi i64 [ %5, %3 ], [ %1, %"_ZN4core3ptr88drop_in_place$LT$indexmap..Bucket$LT$toml_edit..key..Key$C$toml_edit..item..Item$GT$$GT$17h32e813a68cbc049eE.exit.i" ]
+  %32 = icmp ult i64 %.sink17, 28120036697727976
   tail call void @llvm.assume(i1 %32)
-  %33 = getelementptr inbounds nuw { { i64, [21 x i64] }, { { { { { { i64, ptr, {} }, {} }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] } } }, i64 }, ptr %0, i64 %.sink13
+  %33 = getelementptr inbounds nuw { { i64, [21 x i64] }, { { { { { { i64, ptr, {} }, {} }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] } } }, i64 }, ptr %0, i64 %.sink17
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
-  tail call void @"_ZN67_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..CloneFromSpec$LT$T$GT$$GT$15spec_clone_from17h9fede30d44bb5c4eE.llvm.15999240481245598038"(ptr noalias noundef nonnull align 8 %35, i64 noundef %.sink13, ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %.sink13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f688a1986d38d7ea69e4d70c14cc4ac.64.llvm.15999240481245598038)
+  tail call void @"_ZN67_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..CloneFromSpec$LT$T$GT$$GT$15spec_clone_from17h9fede30d44bb5c4eE.llvm.15999240481245598038"(ptr noalias noundef nonnull align 8 %35, i64 noundef %.sink17, ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %.sink17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f688a1986d38d7ea69e4d70c14cc4ac.64.llvm.15999240481245598038)
   %36 = getelementptr inbounds { { i64, [21 x i64] }, { { { { { { i64, ptr, {} }, {} }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] } } }, i64 }, ptr %0, i64 %1
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h5139db77c871dad1E.llvm.8376879624527094985"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %33, ptr noundef nonnull %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7f688a1986d38d7ea69e4d70c14cc4ac.65.llvm.15999240481245598038)
   ret void

@@ -48,24 +48,24 @@ switch.lookup:                                    ; preds = %8
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.unaspack, i64 0, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep431 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.unaspack.1, i64 0, i64 %15
-  %switch.load432 = load i64, ptr %switch.gep431, align 8
+  %switch.gep457 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.unaspack.1, i64 0, i64 %15
+  %switch.load458 = load i64, ptr %switch.gep457, align 8
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep433 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.unaspack.2, i64 0, i64 %16
-  %switch.load434 = load i32, ptr %switch.gep433, align 4
+  %switch.gep459 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.unaspack.2, i64 0, i64 %16
+  %switch.load460 = load i32, ptr %switch.gep459, align 4
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep435 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.unaspack.3, i64 0, i64 %17
-  %switch.load436 = load i32, ptr %switch.gep435, align 4
+  %switch.gep461 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.unaspack.3, i64 0, i64 %17
+  %switch.load462 = load i32, ptr %switch.gep461, align 4
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep437 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.unaspack.4, i64 0, i64 %18
-  %switch.load438 = load i32, ptr %switch.gep437, align 4
+  %switch.gep463 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.unaspack.4, i64 0, i64 %18
+  %switch.load464 = load i32, ptr %switch.gep463, align 4
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep439 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.unaspack.5, i64 0, i64 %19
-  %switch.load440 = load i64, ptr %switch.gep439, align 8
+  %switch.gep465 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.unaspack.5, i64 0, i64 %19
+  %switch.load466 = load i64, ptr %switch.gep465, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %switch.load) #11
   %20 = zext i32 %4 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 %20
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %switch.load432
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %switch.load458
   %23 = tail call noalias dereferenceable_or_null(6144) ptr @calloc(i64 noundef 6144, i64 noundef 1) #12
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %24, label %25
@@ -112,7 +112,7 @@ switch.lookup:                                    ; preds = %8
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 65536, ptr %47, align 4, !tbaa !15
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %49 = add i32 %switch.load434, %4
+  %49 = add i32 %switch.load460, %4
   br label %50
 
 50:                                               ; preds = %25, %62
@@ -152,23 +152,23 @@ switch.lookup:                                    ; preds = %8
   %68 = add i64 %65, %67
   %69 = getelementptr inbounds nuw i8, ptr %11, i64 336
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 344
-  %71 = add i32 %switch.load436, %4
+  %71 = add i32 %switch.load462, %4
   %72 = zext i32 %71 to i64
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %11, i64 360
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 1128
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %78 = add i32 %switch.load438, %4
+  %78 = add i32 %switch.load464, %4
   %79 = zext i32 %78 to i64
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 %79
   %81 = icmp eq i32 %7, 1
   br label %82
 
 82:                                               ; preds = %.lr.ph297, %.loopexit
-  %.0172295425 = phi ptr [ %22, %.lr.ph297 ], [ %.1173, %.loopexit ]
-  %.1296424 = phi i32 [ 0, %.lr.ph297 ], [ %.2, %.loopexit ]
-  %83 = ptrtoint ptr %.0172295425 to i64
+  %.0172295451 = phi ptr [ %22, %.lr.ph297 ], [ %.1173, %.loopexit ]
+  %.1296450 = phi i32 [ 0, %.lr.ph297 ], [ %.2, %.loopexit ]
+  %83 = ptrtoint ptr %.0172295451 to i64
   %84 = add i64 %83, 8
   %.not195 = icmp ule i64 %84, %68
   %85 = icmp ugt i64 %84, %67
@@ -178,12 +178,12 @@ switch.lookup:                                    ; preds = %8
   br i1 %or.cond208, label %87, label %.critedge211
 
 87:                                               ; preds = %82
-  %88 = load i32, ptr %.0172295425, align 1, !tbaa !17
+  %88 = load i32, ptr %.0172295451, align 1, !tbaa !17
   %.not196 = icmp eq i32 %88, 0
   br i1 %.not196, label %.critedge, label %89
 
 89:                                               ; preds = %87
-  %90 = getelementptr inbounds nuw i8, ptr %.0172295425, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.0172295451, i64 4
   %91 = load i32, ptr %90, align 1, !tbaa !17
   %.not197 = icmp eq i32 %91, 0
   br i1 %.not197, label %.critedge211, label %92
@@ -552,7 +552,7 @@ decomp_block.exit.thread:                         ; preds = %106, %decomp_block.
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.8) #11
   tail call void @free(ptr noundef %104) #11
-  %254 = icmp eq i32 %.1296424, 0
+  %254 = icmp eq i32 %.1296450, 0
   %255 = icmp ugt i32 %91, 7
   %or.cond7 = and i1 %254, %255
   br i1 %or.cond7, label %.lr.ph293.preheader, label %.loopexit220
@@ -595,19 +595,19 @@ decomp_block.exit.thread:                         ; preds = %106, %decomp_block.
   br i1 %276, label %.lr.ph293, label %.loopexit220
 
 .loopexit220:                                     ; preds = %274, %253
-  %.2 = phi i32 [ %.1296424, %253 ], [ %275, %274 ]
+  %.2 = phi i32 [ %.1296450, %253 ], [ %275, %274 ]
   br i1 %81, label %277, label %279
 
 277:                                              ; preds = %.loopexit220
-  %278 = getelementptr inbounds nuw i8, ptr %.0172295425, i64 8
+  %278 = getelementptr inbounds nuw i8, ptr %.0172295451, i64 8
   br label %.loopexit
 
 279:                                              ; preds = %.loopexit220
-  %280 = getelementptr inbounds nuw i8, ptr %.0172295425, i64 16
+  %280 = getelementptr inbounds nuw i8, ptr %.0172295451, i64 16
   br label %281
 
 281:                                              ; preds = %281, %279
-  %.0172.pn = phi ptr [ %.0172295425, %279 ], [ %.2174, %281 ]
+  %.0172.pn = phi ptr [ %.0172295451, %279 ], [ %.2174, %281 ]
   %.0169.in = phi ptr [ %280, %279 ], [ %282, %281 ]
   %.2174 = getelementptr inbounds nuw i8, ptr %.0172.pn, i64 12
   %.0169 = load i32, ptr %.0169.in, align 1, !tbaa !17
@@ -691,7 +691,7 @@ decomp_block.exit.thread:                         ; preds = %106, %decomp_block.
   br i1 %exitcond353.not, label %._crit_edge, label %.lr.ph304
 
 ._crit_edge:                                      ; preds = %.lr.ph304, %305
-  %313 = getelementptr inbounds nuw i8, ptr %21, i64 %switch.load440
+  %313 = getelementptr inbounds nuw i8, ptr %21, i64 %switch.load466
   %314 = load i32, ptr %313, align 1, !tbaa !17
   %315 = tail call i32 @cli_rebuildpe(ptr noundef %0, ptr noundef nonnull %302, i32 noundef %306, i32 noundef %5, i32 noundef %314, i32 noundef 0, i32 noundef 0, i32 noundef %6) #11
   %.not206 = icmp eq i32 %315, 0
@@ -788,9 +788,9 @@ getbits.exit:                                     ; preds = %11, %.getbits.exit_
   %24 = shl nuw i32 8388608, %22
   %25 = and i32 %24, %21
   %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %.thread161, label %.preheader115.split.us.preheader
+  br i1 %.not, label %.thread179, label %.preheader115.split.us.preheader
 
-.thread161:                                       ; preds = %getbits.exit
+.thread179:                                       ; preds = %getbits.exit
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %27 = load ptr, ptr %26, align 8, !tbaa !13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(757) %27, i8 0, i64 757, i1 false)
@@ -802,7 +802,7 @@ getbits.exit:                                     ; preds = %11, %.getbits.exit_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(757) %30, i8 0, i64 757, i1 false)
   br label %.loopexit114
 
-.preheader115.split.us.preheader:                 ; preds = %getbits.exit, %.thread161
+.preheader115.split.us.preheader:                 ; preds = %getbits.exit, %.thread179
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1890

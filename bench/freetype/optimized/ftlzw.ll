@@ -635,7 +635,7 @@ ft_lzwstate_stack_grow.exit:                      ; preds = %93, %95
   br i1 %103, label %.lr.ph210, label %.loopexit189
 
 .lr.ph210:                                        ; preds = %.thread184, %96
-  %.1246 = phi i32 [ %.5119207, %96 ], [ %57, %.thread184 ]
+  %.1270 = phi i32 [ %.5119207, %96 ], [ %57, %.thread184 ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -648,7 +648,7 @@ ft_lzwstate_stack_grow.exit:                      ; preds = %93, %95
 
 111:                                              ; preds = %.lr.ph210, %133
   %112 = phi ptr [ %.pre232, %.lr.ph210 ], [ %143, %133 ]
-  %.2209 = phi i32 [ %.1246, %.lr.ph210 ], [ %146, %133 ]
+  %.2209 = phi i32 [ %.1270, %.lr.ph210 ], [ %146, %133 ]
   %.not148 = icmp eq ptr %112, null
   br i1 %.not148, label %.loopexit190, label %113
 

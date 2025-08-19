@@ -1125,43 +1125,30 @@ declare ptr @je_hpdata_age_heap_first(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden ptr @je_psset_pick_purge(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 5304
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 5312
-  %.141.i4.i = load i64, ptr %3, align 8, !tbaa !38
-  %4 = icmp eq i64 %.141.i4.i, 0
-  br i1 %4, label %.lr.ph.i, label %fb_fls.exit.thread8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 5312
+  %.141.i4.i = load i64, ptr %2, align 8, !tbaa !38
+  %3 = icmp eq i64 %.141.i4.i, 0
+  br i1 %3, label %.lr.ph.i, label %fb_fls.exit
 
-.lr.ph.i:                                         ; preds = %1, %6
-  %.039.i5.i = phi i64 [ %7, %6 ], [ 1, %1 ]
-  %5 = icmp eq i64 %.039.i5.i, 0
-  br i1 %5, label %fb_fls.exit.thread, label %6
+.lr.ph.i:                                         ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 5304
+  %.141.i.i = load i64, ptr %4, align 8, !tbaa !38
+  %5 = icmp eq i64 %.141.i.i, 0
+  br i1 %5, label %fb_fls.exit.thread, label %fb_fls.exit, !llvm.loop !47
 
-6:                                                ; preds = %.lr.ph.i
-  %7 = add nsw i64 %.039.i5.i, -1
-  %8 = getelementptr inbounds i64, ptr %2, i64 %7
-  %.141.i.i = load i64, ptr %8, align 8, !tbaa !38
-  %9 = icmp eq i64 %.141.i.i, 0
-  br i1 %9, label %.lr.ph.i, label %fb_fls.exit, !llvm.loop !47
-
-fb_fls.exit:                                      ; preds = %6
-  %10 = shl i64 %7, 6
-  %11 = icmp slt i64 %10, 0
-  br i1 %11, label %fb_fls.exit.thread, label %fb_fls.exit.thread8
-
-fb_fls.exit.thread8:                              ; preds = %1, %fb_fls.exit
-  %.141.i.lcssa.i12 = phi i64 [ %.141.i.i, %fb_fls.exit ], [ %.141.i4.i, %1 ]
-  %.039.i.lcssa.i11 = phi i64 [ %10, %fb_fls.exit ], [ 64, %1 ]
-  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.141.i.lcssa.i12, i1 true)
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4280
-  %.039.i.lcssa.i.masked = and i64 %.039.i.lcssa.i11, 4294967232
-  %14 = or disjoint i64 %12, %.039.i.lcssa.i.masked
-  %15 = xor i64 %14, 63
-  %16 = getelementptr inbounds nuw [128 x %struct.hpdata_purge_list_t], ptr %13, i64 0, i64 %15
-  %.val = load ptr, ptr %16, align 8, !tbaa !34
+fb_fls.exit:                                      ; preds = %.lr.ph.i, %1
+  %.039.i.lcssa.i = phi i64 [ 64, %1 ], [ 0, %.lr.ph.i ]
+  %.141.i.lcssa.i = phi i64 [ %.141.i4.i, %1 ], [ %.141.i.i, %.lr.ph.i ]
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.141.i.lcssa.i, i1 true)
+  %7 = or disjoint i64 %6, %.039.i.lcssa.i
+  %8 = xor i64 %7, 63
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4280
+  %10 = getelementptr inbounds nuw [128 x %struct.hpdata_purge_list_t], ptr %9, i64 0, i64 %8
+  %.val = load ptr, ptr %10, align 8, !tbaa !34
   br label %fb_fls.exit.thread
 
-fb_fls.exit.thread:                               ; preds = %.lr.ph.i, %fb_fls.exit, %fb_fls.exit.thread8
-  %.0 = phi ptr [ %.val, %fb_fls.exit.thread8 ], [ null, %fb_fls.exit ], [ null, %.lr.ph.i ]
+fb_fls.exit.thread:                               ; preds = %.lr.ph.i, %fb_fls.exit
+  %.0 = phi ptr [ %.val, %fb_fls.exit ], [ null, %.lr.ph.i ]
   ret ptr %.0
 }
 

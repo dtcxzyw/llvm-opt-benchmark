@@ -72,9 +72,9 @@ define { i64, i64 } @_RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTReBQ
   br i1 %44, label %53, label %45
 
 45:                                               ; preds = %37, %.thread.i
-  %.sroa.4.0.i.ph14.i = phi i64 [ %..i.i, %.thread.i ], [ %43, %37 ]
-  %46 = shl nuw i64 %.sroa.4.0.i.ph14.i, 5
-  %47 = add nuw nsw i64 %.sroa.4.0.i.ph14.i, 16
+  %.sroa.4.0.i.ph16.i = phi i64 [ %..i.i, %.thread.i ], [ %43, %37 ]
+  %46 = shl nuw i64 %.sroa.4.0.i.ph16.i, 5
+  %47 = add nuw nsw i64 %.sroa.4.0.i.ph16.i, 16
   %48 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %46, i64 %47)
   %49 = extractvalue { i64, i1 } %48, 1
   br i1 %49, label %53, label %50
@@ -112,9 +112,9 @@ _RINvMsa_NtCs7oQ2vmvFkJi_9hashbrown3rawNtB6_13RawTableInner17new_uninitializedNt
   br label %common.resume
 
 62:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17ha99d1879f26c35e4E.exit.i.i"
-  %63 = icmp samesign ult i64 %.sroa.4.0.i.ph14.i, 9
-  %64 = add nsw i64 %.sroa.4.0.i.ph14.i, -1
-  %65 = lshr i64 %.sroa.4.0.i.ph14.i, 3
+  %63 = icmp samesign ult i64 %.sroa.4.0.i.ph16.i, 9
+  %64 = add nsw i64 %.sroa.4.0.i.ph16.i, -1
+  %65 = lshr i64 %.sroa.4.0.i.ph16.i, 3
   %66 = mul nuw nsw i64 %65, 7
   %.sroa.02.0.i.i = select i1 %63, i64 %64, i64 %66
   %67 = getelementptr inbounds nuw i8, ptr %56, i64 %46
@@ -404,9 +404,9 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hf9aaf4adba93ecd7E.exit.threa
 
 ._crit_edge.i.i:                                  ; preds = %198
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %23, i64 16)
-  %spec.select28.i = tail call i64 @llvm.umin.i64(i64 %23, i64 16)
+  %spec.select31.i = tail call i64 @llvm.umin.i64(i64 %23, i64 16)
   %184 = getelementptr inbounds i8, ptr %.val10.i, i64 %spec.select.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %184, ptr nonnull align 1 %.val10.i, i64 %spec.select28.i, i1 false), !noalias !98
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %184, ptr nonnull align 1 %.val10.i, i64 %spec.select31.i, i1 false), !noalias !98
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !98
   %185 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %185, align 8, !noalias !98

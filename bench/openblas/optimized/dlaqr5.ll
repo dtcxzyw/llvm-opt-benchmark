@@ -307,7 +307,7 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %198 = sext i32 %196 to i64
   %199 = sext i32 %187 to i64
   %invariant.gep = getelementptr double, ptr %38, i64 %197
-  %invariant.gep1681 = getelementptr double, ptr %38, i64 %198
+  %invariant.gep1714 = getelementptr double, ptr %38, i64 %198
   br label %200
 
 200:                                              ; preds = %.lr.ph1510, %200
@@ -316,17 +316,17 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv1594
   %202 = load double, ptr %gep, align 8, !tbaa !7
   %203 = load double, ptr %194, align 8, !tbaa !7
-  %gep1682 = getelementptr double, ptr %invariant.gep1681, i64 %indvars.iv1594
-  %204 = load double, ptr %gep1682, align 8, !tbaa !7
+  %gep1715 = getelementptr double, ptr %invariant.gep1714, i64 %indvars.iv1594
+  %204 = load double, ptr %gep1715, align 8, !tbaa !7
   %205 = call double @llvm.fmuladd.f64(double %203, double %204, double %202)
   %206 = fmul double %201, %205
   %207 = fsub double %202, %206
   store double %207, ptr %gep, align 8, !tbaa !7
   %208 = load double, ptr %194, align 8, !tbaa !7
-  %209 = load double, ptr %gep1682, align 8, !tbaa !7
+  %209 = load double, ptr %gep1715, align 8, !tbaa !7
   %210 = fneg double %206
   %211 = call double @llvm.fmuladd.f64(double %210, double %208, double %209)
-  store double %211, ptr %gep1682, align 8, !tbaa !7
+  store double %211, ptr %gep1715, align 8, !tbaa !7
   %indvars.iv.next1595 = add nsw i64 %indvars.iv1594, 1
   %.not1440.not = icmp slt i64 %indvars.iv1594, %199
   br i1 %.not1440.not, label %200, label %._crit_edge1511, !llvm.loop !11
@@ -363,25 +363,25 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %225 = sext i32 %224 to i64
   %226 = sext i32 %218 to i64
   %227 = sext i32 %.01387 to i64
-  %invariant.gep1683 = getelementptr double, ptr %38, i64 %226
+  %invariant.gep1716 = getelementptr double, ptr %38, i64 %226
   %228 = sext i32 %144 to i64
-  %invariant.gep1685 = getelementptr double, ptr %38, i64 %228
+  %invariant.gep1718 = getelementptr double, ptr %38, i64 %228
   br label %229
 
 229:                                              ; preds = %.lr.ph1515, %229
   %indvars.iv1601 = phi i64 [ %225, %.lr.ph1515 ], [ %indvars.iv.next1602, %229 ]
   %230 = load double, ptr %222, align 8, !tbaa !7
   %231 = mul nsw i64 %indvars.iv1601, %103
-  %gep1684 = getelementptr double, ptr %invariant.gep1683, i64 %231
-  %232 = load double, ptr %gep1684, align 8, !tbaa !7
+  %gep1717 = getelementptr double, ptr %invariant.gep1716, i64 %231
+  %232 = load double, ptr %gep1717, align 8, !tbaa !7
   %233 = load double, ptr %223, align 8, !tbaa !7
-  %gep1686 = getelementptr double, ptr %invariant.gep1685, i64 %231
-  %234 = getelementptr i8, ptr %gep1686, i64 16
+  %gep1719 = getelementptr double, ptr %invariant.gep1718, i64 %231
+  %234 = getelementptr i8, ptr %gep1719, i64 16
   %235 = load double, ptr %234, align 8, !tbaa !7
   %236 = call double @llvm.fmuladd.f64(double %233, double %235, double %232)
   %237 = fmul double %230, %236
   %238 = fsub double %232, %237
-  store double %238, ptr %gep1684, align 8, !tbaa !7
+  store double %238, ptr %gep1717, align 8, !tbaa !7
   %239 = load double, ptr %223, align 8, !tbaa !7
   %240 = fneg double %237
   %241 = call double @llvm.fmuladd.f64(double %240, double %239, double %235)
@@ -609,27 +609,27 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %398 = sext i32 %392 to i64
   %399 = sext i32 %395 to i64
   %400 = zext nneg i32 %384 to i64
-  %invariant.gep1691 = getelementptr double, ptr %47, i64 %398
-  %invariant.gep1693 = getelementptr double, ptr %47, i64 %399
+  %invariant.gep1724 = getelementptr double, ptr %47, i64 %398
+  %invariant.gep1726 = getelementptr double, ptr %47, i64 %399
   br label %401
 
 401:                                              ; preds = %.lr.ph1524, %401
   %indvars.iv1609 = phi i64 [ %397, %.lr.ph1524 ], [ %indvars.iv.next1610, %401 ]
   %402 = load double, ptr %390, align 8, !tbaa !7
-  %gep1692 = getelementptr double, ptr %invariant.gep1691, i64 %indvars.iv1609
-  %403 = load double, ptr %gep1692, align 8, !tbaa !7
+  %gep1725 = getelementptr double, ptr %invariant.gep1724, i64 %indvars.iv1609
+  %403 = load double, ptr %gep1725, align 8, !tbaa !7
   %404 = load double, ptr %393, align 8, !tbaa !7
-  %gep1694 = getelementptr double, ptr %invariant.gep1693, i64 %indvars.iv1609
-  %405 = load double, ptr %gep1694, align 8, !tbaa !7
+  %gep1727 = getelementptr double, ptr %invariant.gep1726, i64 %indvars.iv1609
+  %405 = load double, ptr %gep1727, align 8, !tbaa !7
   %406 = call double @llvm.fmuladd.f64(double %404, double %405, double %403)
   %407 = fmul double %402, %406
   %408 = fsub double %403, %407
-  store double %408, ptr %gep1692, align 8, !tbaa !7
+  store double %408, ptr %gep1725, align 8, !tbaa !7
   %409 = load double, ptr %393, align 8, !tbaa !7
-  %410 = load double, ptr %gep1694, align 8, !tbaa !7
+  %410 = load double, ptr %gep1727, align 8, !tbaa !7
   %411 = fneg double %407
   %412 = call double @llvm.fmuladd.f64(double %411, double %409, double %410)
-  store double %412, ptr %gep1694, align 8, !tbaa !7
+  store double %412, ptr %gep1727, align 8, !tbaa !7
   %indvars.iv.next1610 = add nuw nsw i64 %indvars.iv1609, 1
   %.not1454.not = icmp samesign ult i64 %indvars.iv1609, %400
   br i1 %.not1454.not, label %401, label %.loopexit1501, !llvm.loop !13
@@ -658,27 +658,27 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %427 = sext i32 %422 to i64
   %428 = sext i32 %425 to i64
   %429 = add i32 %416, 1
-  %invariant.gep1687 = getelementptr double, ptr %41, i64 %427
-  %invariant.gep1689 = getelementptr double, ptr %41, i64 %428
+  %invariant.gep1720 = getelementptr double, ptr %41, i64 %427
+  %invariant.gep1722 = getelementptr double, ptr %41, i64 %428
   br label %430
 
 430:                                              ; preds = %.lr.ph1520, %430
   %indvars.iv1604 = phi i64 [ %426, %.lr.ph1520 ], [ %indvars.iv.next1605, %430 ]
   %431 = load double, ptr %421, align 8, !tbaa !7
-  %gep1688 = getelementptr double, ptr %invariant.gep1687, i64 %indvars.iv1604
-  %432 = load double, ptr %gep1688, align 8, !tbaa !7
+  %gep1721 = getelementptr double, ptr %invariant.gep1720, i64 %indvars.iv1604
+  %432 = load double, ptr %gep1721, align 8, !tbaa !7
   %433 = load double, ptr %423, align 8, !tbaa !7
-  %gep1690 = getelementptr double, ptr %invariant.gep1689, i64 %indvars.iv1604
-  %434 = load double, ptr %gep1690, align 8, !tbaa !7
+  %gep1723 = getelementptr double, ptr %invariant.gep1722, i64 %indvars.iv1604
+  %434 = load double, ptr %gep1723, align 8, !tbaa !7
   %435 = call double @llvm.fmuladd.f64(double %433, double %434, double %432)
   %436 = fmul double %431, %435
   %437 = fsub double %432, %436
-  store double %437, ptr %gep1688, align 8, !tbaa !7
+  store double %437, ptr %gep1721, align 8, !tbaa !7
   %438 = load double, ptr %423, align 8, !tbaa !7
-  %439 = load double, ptr %gep1690, align 8, !tbaa !7
+  %439 = load double, ptr %gep1723, align 8, !tbaa !7
   %440 = fneg double %436
   %441 = call double @llvm.fmuladd.f64(double %440, double %438, double %439)
-  store double %441, ptr %gep1690, align 8, !tbaa !7
+  store double %441, ptr %gep1723, align 8, !tbaa !7
   %indvars.iv.next1605 = add nsw i64 %indvars.iv1604, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1605 to i32
   %exitcond.not = icmp eq i32 %429, %lftr.wideiv
@@ -903,36 +903,36 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %593 = sext i32 %589 to i64
   %594 = sext i32 %591 to i64
   %595 = sext i32 %582 to i64
-  %invariant.gep1695 = getelementptr double, ptr %38, i64 %592
-  %invariant.gep1697 = getelementptr double, ptr %38, i64 %593
-  %invariant.gep1699 = getelementptr double, ptr %38, i64 %594
+  %invariant.gep1728 = getelementptr double, ptr %38, i64 %592
+  %invariant.gep1730 = getelementptr double, ptr %38, i64 %593
+  %invariant.gep1732 = getelementptr double, ptr %38, i64 %594
   br label %596
 
 596:                                              ; preds = %.lr.ph1528, %596
   %indvars.iv1612 = phi i64 [ %125, %.lr.ph1528 ], [ %indvars.iv.next1613, %596 ]
   %597 = load double, ptr %584, align 8, !tbaa !7
-  %gep1696 = getelementptr double, ptr %invariant.gep1695, i64 %indvars.iv1612
-  %598 = load double, ptr %gep1696, align 8, !tbaa !7
+  %gep1729 = getelementptr double, ptr %invariant.gep1728, i64 %indvars.iv1612
+  %598 = load double, ptr %gep1729, align 8, !tbaa !7
   %599 = load double, ptr %587, align 8, !tbaa !7
-  %gep1698 = getelementptr double, ptr %invariant.gep1697, i64 %indvars.iv1612
-  %600 = load double, ptr %gep1698, align 8, !tbaa !7
+  %gep1731 = getelementptr double, ptr %invariant.gep1730, i64 %indvars.iv1612
+  %600 = load double, ptr %gep1731, align 8, !tbaa !7
   %601 = call double @llvm.fmuladd.f64(double %599, double %600, double %598)
   %602 = load double, ptr %590, align 8, !tbaa !7
-  %gep1700 = getelementptr double, ptr %invariant.gep1699, i64 %indvars.iv1612
-  %603 = load double, ptr %gep1700, align 8, !tbaa !7
+  %gep1733 = getelementptr double, ptr %invariant.gep1732, i64 %indvars.iv1612
+  %603 = load double, ptr %gep1733, align 8, !tbaa !7
   %604 = call double @llvm.fmuladd.f64(double %602, double %603, double %601)
   %605 = fmul double %597, %604
   %606 = fsub double %598, %605
-  store double %606, ptr %gep1696, align 8, !tbaa !7
+  store double %606, ptr %gep1729, align 8, !tbaa !7
   %607 = load double, ptr %587, align 8, !tbaa !7
-  %608 = load double, ptr %gep1698, align 8, !tbaa !7
+  %608 = load double, ptr %gep1731, align 8, !tbaa !7
   %609 = fneg double %605
   %610 = call double @llvm.fmuladd.f64(double %609, double %607, double %608)
-  store double %610, ptr %gep1698, align 8, !tbaa !7
+  store double %610, ptr %gep1731, align 8, !tbaa !7
   %611 = load double, ptr %590, align 8, !tbaa !7
-  %612 = load double, ptr %gep1700, align 8, !tbaa !7
+  %612 = load double, ptr %gep1733, align 8, !tbaa !7
   %613 = call double @llvm.fmuladd.f64(double %609, double %611, double %612)
-  store double %613, ptr %gep1700, align 8, !tbaa !7
+  store double %613, ptr %gep1733, align 8, !tbaa !7
   %indvars.iv.next1613 = add nsw i64 %indvars.iv1612, 1
   %.not1470.not = icmp slt i64 %indvars.iv1612, %595
   br i1 %.not1470.not, label %596, label %._crit_edge1529, !llvm.loop !15
@@ -1153,7 +1153,7 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not1455.not, label %451, label %._crit_edge1534, !llvm.loop !16
 
 ._crit_edge1534:                                  ; preds = %770
-  br i1 %switch, label %.thread1673, label %771
+  br i1 %switch, label %.thread1706, label %771
 
 ._crit_edge1534.thread:                           ; preds = %.loopexit1501
   br i1 %switch, label %.loopexit, label %771
@@ -1178,19 +1178,19 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.11388 = phi i32 [ %780, %779 ], [ %774, %771 ]
   br i1 %.not14551530, label %.loopexit, label %.lr.ph1543
 
-.thread1673:                                      ; preds = %._crit_edge1534
+.thread1706:                                      ; preds = %._crit_edge1534
   %.1477 = call i32 @llvm.smin.i32(i32 %117, i32 %581)
   br label %.lr.ph1543
 
-.lr.ph1543:                                       ; preds = %.thread1673, %781
-  %783 = phi i32 [ %581, %.thread1673 ], [ %775, %781 ]
-  %784 = phi i32 [ %644, %.thread1673 ], [ %776, %781 ]
-  %785 = phi i32 [ %644, %.thread1673 ], [ %777, %781 ]
-  %.113881675 = phi i32 [ %.1477, %.thread1673 ], [ %.11388, %781 ]
-  %786 = phi i32 [ %581, %.thread1673 ], [ %782, %781 ]
-  %787 = phi i32 [ %581, %.thread1673 ], [ %774, %781 ]
+.lr.ph1543:                                       ; preds = %.thread1706, %781
+  %783 = phi i32 [ %581, %.thread1706 ], [ %775, %781 ]
+  %784 = phi i32 [ %644, %.thread1706 ], [ %776, %781 ]
+  %785 = phi i32 [ %644, %.thread1706 ], [ %777, %781 ]
+  %.113881708 = phi i32 [ %.1477, %.thread1706 ], [ %.11388, %781 ]
+  %786 = phi i32 [ %581, %.thread1706 ], [ %782, %781 ]
+  %787 = phi i32 [ %581, %.thread1706 ], [ %774, %781 ]
   %788 = add i32 %.013681562, -2
-  %789 = sext i32 %.113881675 to i64
+  %789 = sext i32 %.113881708 to i64
   %790 = sext i32 %139 to i64
   %smin1622 = call i64 @llvm.smin.i64(i64 %105, i64 %790)
   %791 = sext i32 %136 to i64
@@ -1203,7 +1203,7 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %794 = shl i32 %793, 1
   %795 = add i32 %794, %.013681562
   %796 = call i32 @llvm.smax.i32(i32 %784, i32 %795)
-  %.not14681535 = icmp sgt i32 %796, %.113881675
+  %.not14681535 = icmp sgt i32 %796, %.113881708
   br i1 %.not14681535, label %._crit_edge1539, label %.lr.ph1538
 
 .lr.ph1538:                                       ; preds = %792
@@ -1217,36 +1217,36 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %803 = getelementptr i8, ptr %800, i64 24
   %804 = sext i32 %795 to i64
   %805 = sext i32 %798 to i64
-  %invariant.gep1701 = getelementptr double, ptr %38, i64 %805
-  %invariant.gep1703 = getelementptr double, ptr %38, i64 %804
+  %invariant.gep1734 = getelementptr double, ptr %38, i64 %805
+  %invariant.gep1736 = getelementptr double, ptr %38, i64 %804
   %806 = sext i32 %798 to i64
-  %invariant.gep1705 = getelementptr double, ptr %38, i64 %806
+  %invariant.gep1738 = getelementptr double, ptr %38, i64 %806
   br label %807
 
 807:                                              ; preds = %.lr.ph1538, %807
   %indvars.iv1620 = phi i64 [ %smax1619, %.lr.ph1538 ], [ %indvars.iv.next1621, %807 ]
   %808 = load double, ptr %801, align 8, !tbaa !7
   %809 = mul nsw i64 %indvars.iv1620, %103
-  %gep1702 = getelementptr double, ptr %invariant.gep1701, i64 %809
-  %810 = getelementptr i8, ptr %gep1702, i64 8
+  %gep1735 = getelementptr double, ptr %invariant.gep1734, i64 %809
+  %810 = getelementptr i8, ptr %gep1735, i64 8
   %811 = load double, ptr %810, align 8, !tbaa !7
   %812 = load double, ptr %802, align 8, !tbaa !7
-  %gep1704 = getelementptr double, ptr %invariant.gep1703, i64 %809
-  %813 = load double, ptr %gep1704, align 8, !tbaa !7
+  %gep1737 = getelementptr double, ptr %invariant.gep1736, i64 %809
+  %813 = load double, ptr %gep1737, align 8, !tbaa !7
   %814 = call double @llvm.fmuladd.f64(double %812, double %813, double %811)
   %815 = load double, ptr %803, align 8, !tbaa !7
-  %gep1706 = getelementptr double, ptr %invariant.gep1705, i64 %809
-  %816 = getelementptr i8, ptr %gep1706, i64 24
+  %gep1739 = getelementptr double, ptr %invariant.gep1738, i64 %809
+  %816 = getelementptr i8, ptr %gep1739, i64 24
   %817 = load double, ptr %816, align 8, !tbaa !7
   %818 = call double @llvm.fmuladd.f64(double %815, double %817, double %814)
   %819 = fmul double %808, %818
   %820 = fsub double %811, %819
   store double %820, ptr %810, align 8, !tbaa !7
   %821 = load double, ptr %802, align 8, !tbaa !7
-  %822 = load double, ptr %gep1704, align 8, !tbaa !7
+  %822 = load double, ptr %gep1737, align 8, !tbaa !7
   %823 = fneg double %819
   %824 = call double @llvm.fmuladd.f64(double %823, double %821, double %822)
-  store double %824, ptr %gep1704, align 8, !tbaa !7
+  store double %824, ptr %gep1737, align 8, !tbaa !7
   %825 = load double, ptr %803, align 8, !tbaa !7
   %826 = load double, ptr %816, align 8, !tbaa !7
   %827 = call double @llvm.fmuladd.f64(double %823, double %825, double %826)
@@ -1311,36 +1311,36 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %856 = sext i32 %849 to i64
   %857 = sext i32 %852 to i64
   %858 = sext i32 %855 to i64
-  %invariant.gep1713 = getelementptr double, ptr %47, i64 %856
-  %invariant.gep1715 = getelementptr double, ptr %47, i64 %857
-  %invariant.gep1717 = getelementptr double, ptr %47, i64 %858
+  %invariant.gep1746 = getelementptr double, ptr %47, i64 %856
+  %invariant.gep1748 = getelementptr double, ptr %47, i64 %857
+  %invariant.gep1750 = getelementptr double, ptr %47, i64 %858
   br label %859
 
 859:                                              ; preds = %.lr.ph1556, %859
   %indvars.iv1637 = phi i64 [ %843, %.lr.ph1556 ], [ %indvars.iv.next1638, %859 ]
   %860 = load double, ptr %847, align 8, !tbaa !7
-  %gep1714 = getelementptr double, ptr %invariant.gep1713, i64 %indvars.iv1637
-  %861 = load double, ptr %gep1714, align 8, !tbaa !7
+  %gep1747 = getelementptr double, ptr %invariant.gep1746, i64 %indvars.iv1637
+  %861 = load double, ptr %gep1747, align 8, !tbaa !7
   %862 = load double, ptr %850, align 8, !tbaa !7
-  %gep1716 = getelementptr double, ptr %invariant.gep1715, i64 %indvars.iv1637
-  %863 = load double, ptr %gep1716, align 8, !tbaa !7
+  %gep1749 = getelementptr double, ptr %invariant.gep1748, i64 %indvars.iv1637
+  %863 = load double, ptr %gep1749, align 8, !tbaa !7
   %864 = call double @llvm.fmuladd.f64(double %862, double %863, double %861)
   %865 = load double, ptr %853, align 8, !tbaa !7
-  %gep1718 = getelementptr double, ptr %invariant.gep1717, i64 %indvars.iv1637
-  %866 = load double, ptr %gep1718, align 8, !tbaa !7
+  %gep1751 = getelementptr double, ptr %invariant.gep1750, i64 %indvars.iv1637
+  %866 = load double, ptr %gep1751, align 8, !tbaa !7
   %867 = call double @llvm.fmuladd.f64(double %865, double %866, double %864)
   %868 = fmul double %860, %867
   %869 = fsub double %861, %868
-  store double %869, ptr %gep1714, align 8, !tbaa !7
+  store double %869, ptr %gep1747, align 8, !tbaa !7
   %870 = load double, ptr %850, align 8, !tbaa !7
-  %871 = load double, ptr %gep1716, align 8, !tbaa !7
+  %871 = load double, ptr %gep1749, align 8, !tbaa !7
   %872 = fneg double %868
   %873 = call double @llvm.fmuladd.f64(double %872, double %870, double %871)
-  store double %873, ptr %gep1716, align 8, !tbaa !7
+  store double %873, ptr %gep1749, align 8, !tbaa !7
   %874 = load double, ptr %853, align 8, !tbaa !7
-  %875 = load double, ptr %gep1718, align 8, !tbaa !7
+  %875 = load double, ptr %gep1751, align 8, !tbaa !7
   %876 = call double @llvm.fmuladd.f64(double %872, double %874, double %875)
-  store double %876, ptr %gep1718, align 8, !tbaa !7
+  store double %876, ptr %gep1751, align 8, !tbaa !7
   %indvars.iv.next1638 = add nuw nsw i64 %indvars.iv1637, 1
   %.not1466.not = icmp slt i64 %indvars.iv1637, %834
   br i1 %.not1466.not, label %859, label %._crit_edge1557, !llvm.loop !19
@@ -1391,36 +1391,36 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %900 = sext i32 %893 to i64
   %901 = sext i32 %896 to i64
   %902 = sext i32 %899 to i64
-  %invariant.gep1707 = getelementptr double, ptr %41, i64 %900
-  %invariant.gep1709 = getelementptr double, ptr %41, i64 %901
-  %invariant.gep1711 = getelementptr double, ptr %41, i64 %902
+  %invariant.gep1740 = getelementptr double, ptr %41, i64 %900
+  %invariant.gep1742 = getelementptr double, ptr %41, i64 %901
+  %invariant.gep1744 = getelementptr double, ptr %41, i64 %902
   br label %903
 
 903:                                              ; preds = %.lr.ph1548, %903
   %indvars.iv1625 = phi i64 [ %882, %.lr.ph1548 ], [ %indvars.iv.next1626, %903 ]
   %904 = load double, ptr %891, align 8, !tbaa !7
-  %gep1708 = getelementptr double, ptr %invariant.gep1707, i64 %indvars.iv1625
-  %905 = load double, ptr %gep1708, align 8, !tbaa !7
+  %gep1741 = getelementptr double, ptr %invariant.gep1740, i64 %indvars.iv1625
+  %905 = load double, ptr %gep1741, align 8, !tbaa !7
   %906 = load double, ptr %894, align 8, !tbaa !7
-  %gep1710 = getelementptr double, ptr %invariant.gep1709, i64 %indvars.iv1625
-  %907 = load double, ptr %gep1710, align 8, !tbaa !7
+  %gep1743 = getelementptr double, ptr %invariant.gep1742, i64 %indvars.iv1625
+  %907 = load double, ptr %gep1743, align 8, !tbaa !7
   %908 = call double @llvm.fmuladd.f64(double %906, double %907, double %905)
   %909 = load double, ptr %897, align 8, !tbaa !7
-  %gep1712 = getelementptr double, ptr %invariant.gep1711, i64 %indvars.iv1625
-  %910 = load double, ptr %gep1712, align 8, !tbaa !7
+  %gep1745 = getelementptr double, ptr %invariant.gep1744, i64 %indvars.iv1625
+  %910 = load double, ptr %gep1745, align 8, !tbaa !7
   %911 = call double @llvm.fmuladd.f64(double %909, double %910, double %908)
   %912 = fmul double %904, %911
   %913 = fsub double %905, %912
-  store double %913, ptr %gep1708, align 8, !tbaa !7
+  store double %913, ptr %gep1741, align 8, !tbaa !7
   %914 = load double, ptr %894, align 8, !tbaa !7
-  %915 = load double, ptr %gep1710, align 8, !tbaa !7
+  %915 = load double, ptr %gep1743, align 8, !tbaa !7
   %916 = fneg double %912
   %917 = call double @llvm.fmuladd.f64(double %916, double %914, double %915)
-  store double %917, ptr %gep1710, align 8, !tbaa !7
+  store double %917, ptr %gep1743, align 8, !tbaa !7
   %918 = load double, ptr %897, align 8, !tbaa !7
-  %919 = load double, ptr %gep1712, align 8, !tbaa !7
+  %919 = load double, ptr %gep1745, align 8, !tbaa !7
   %920 = call double @llvm.fmuladd.f64(double %916, double %918, double %919)
-  store double %920, ptr %gep1712, align 8, !tbaa !7
+  store double %920, ptr %gep1745, align 8, !tbaa !7
   %indvars.iv.next1626 = add nsw i64 %indvars.iv1625, 1
   %lftr.wideiv1628 = trunc i64 %indvars.iv.next1626 to i32
   %exitcond1629.not = icmp eq i32 %883, %lftr.wideiv1628
@@ -1452,7 +1452,7 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.not1427 = icmp eq i32 %929, 0
   %.pre1657 = load i32, ptr %4, align 4, !tbaa !3
   %spec.select = select i1 %.not1427, ptr %5, ptr %3
-  %spec.select1725 = select i1 %.not1427, i32 %.pre1657, i32 1
+  %spec.select1758 = select i1 %.not1427, i32 %.pre1657, i32 1
   %.21389 = load i32, ptr %spec.select, align 4, !tbaa !3
   %930 = sub nsw i32 %.pre1657, %.013691584
   %931 = call i32 @llvm.smax.i32(i32 %930, i32 1)
@@ -1482,7 +1482,7 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %949 = sext i32 %938 to i64
   %950 = sext i32 %.21389 to i64
   %951 = sext i32 %947 to i64
-  %invariant.gep1719 = getelementptr double, ptr %38, i64 %951
+  %invariant.gep1752 = getelementptr double, ptr %38, i64 %951
   br label %952
 
 952:                                              ; preds = %.lr.ph1571, %952
@@ -1493,9 +1493,9 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %956 = call i32 @llvm.smin.i32(i32 %953, i32 %955)
   store i32 %956, ptr %27, align 4, !tbaa !3
   %957 = mul nsw i64 %indvars.iv1648, %103
-  %gep1720 = getelementptr double, ptr %invariant.gep1719, i64 %957
-  call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %29, ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef nonnull @c_b8, ptr noundef %946, ptr noundef nonnull %18, ptr noundef %gep1720, ptr noundef nonnull %10, ptr noundef nonnull @c_b7, ptr noundef %23, ptr noundef %24) #5
-  call void @dlacpy_(ptr noundef nonnull @.str.2, ptr noundef nonnull %29, ptr noundef nonnull %27, ptr noundef %23, ptr noundef %24, ptr noundef %gep1720, ptr noundef nonnull %10) #5
+  %gep1753 = getelementptr double, ptr %invariant.gep1752, i64 %957
+  call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %29, ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef nonnull @c_b8, ptr noundef %946, ptr noundef nonnull %18, ptr noundef %gep1753, ptr noundef nonnull %10, ptr noundef nonnull @c_b7, ptr noundef %23, ptr noundef %24) #5
+  call void @dlacpy_(ptr noundef nonnull @.str.2, ptr noundef nonnull %29, ptr noundef nonnull %27, ptr noundef %23, ptr noundef %24, ptr noundef %gep1753, ptr noundef nonnull %10) #5
   %indvars.iv.next1649 = add nsw i64 %indvars.iv1648, %949
   %958 = icmp sge i64 %indvars.iv.next1649, %950
   %959 = icmp sle i64 %indvars.iv.next1649, %950
@@ -1512,8 +1512,8 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %961 = add nsw i32 %.01369.1479, -1
   %962 = load i32, ptr %19, align 4, !tbaa !3
   %963 = icmp slt i32 %962, 0
-  %964 = icmp sge i32 %spec.select1725, %961
-  %965 = icmp slt i32 %spec.select1725, %.01369.1479
+  %964 = icmp sge i32 %spec.select1758, %961
+  %965 = icmp slt i32 %spec.select1758, %.01369.1479
   %.in14311573 = select i1 %963, i1 %964, i1 %965
   br i1 %.in14311573, label %.lr.ph1576, label %._crit_edge1577
 
@@ -1523,12 +1523,12 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %968 = mul i32 %931, %101
   %969 = sext i32 %968 to i64
   %970 = getelementptr inbounds double, ptr %47, i64 %969
-  %971 = sext i32 %spec.select1725 to i64
+  %971 = sext i32 %spec.select1758 to i64
   %972 = sext i32 %962 to i64
   %973 = sext i32 %.01369.1479 to i64
   %974 = sext i32 %961 to i64
   %975 = sext i32 %967 to i64
-  %invariant.gep1721 = getelementptr double, ptr %38, i64 %975
+  %invariant.gep1754 = getelementptr double, ptr %38, i64 %975
   br label %976
 
 976:                                              ; preds = %.lr.ph1576, %976
@@ -1540,9 +1540,9 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %980 = sub nsw i32 %.01369.1480, %979
   %981 = call i32 @llvm.smin.i32(i32 %977, i32 %980)
   store i32 %981, ptr %27, align 4, !tbaa !3
-  %gep1722 = getelementptr double, ptr %invariant.gep1721, i64 %indvars.iv1651
-  call void @dgemm_(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.4, ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef nonnull %29, ptr noundef nonnull @c_b8, ptr noundef %gep1722, ptr noundef nonnull %10, ptr noundef %970, ptr noundef nonnull %18, ptr noundef nonnull @c_b7, ptr noundef %20, ptr noundef %21) #5
-  call void @dlacpy_(ptr noundef nonnull @.str.2, ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef %20, ptr noundef %21, ptr noundef %gep1722, ptr noundef nonnull %10) #5
+  %gep1755 = getelementptr double, ptr %invariant.gep1754, i64 %indvars.iv1651
+  call void @dgemm_(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.4, ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef nonnull %29, ptr noundef nonnull @c_b8, ptr noundef %gep1755, ptr noundef nonnull %10, ptr noundef %970, ptr noundef nonnull %18, ptr noundef nonnull @c_b7, ptr noundef %20, ptr noundef %21) #5
+  call void @dlacpy_(ptr noundef nonnull @.str.2, ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef %20, ptr noundef %21, ptr noundef %gep1755, ptr noundef nonnull %10) #5
   %indvars.iv.next1652 = add nsw i64 %indvars.iv1651, %972
   %982 = icmp sge i64 %indvars.iv.next1652, %974
   %983 = icmp slt i64 %indvars.iv.next1652, %973
@@ -1574,7 +1574,7 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %998 = sext i32 %987 to i64
   %999 = sext i32 %986 to i64
   %1000 = sext i32 %993 to i64
-  %invariant.gep1723 = getelementptr double, ptr %41, i64 %1000
+  %invariant.gep1756 = getelementptr double, ptr %41, i64 %1000
   br label %1001
 
 1001:                                             ; preds = %.lr.ph1581, %1001
@@ -1586,9 +1586,9 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %1005 = add i32 %reass.sub1589, 1
   %1006 = call i32 @llvm.smin.i32(i32 %1002, i32 %1005)
   store i32 %1006, ptr %27, align 4, !tbaa !3
-  %gep1724 = getelementptr double, ptr %invariant.gep1723, i64 %indvars.iv1654
-  call void @dgemm_(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.4, ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef nonnull %29, ptr noundef nonnull @c_b8, ptr noundef %gep1724, ptr noundef nonnull %14, ptr noundef %996, ptr noundef nonnull %18, ptr noundef nonnull @c_b7, ptr noundef %20, ptr noundef nonnull %21) #5
-  call void @dlacpy_(ptr noundef nonnull @.str.2, ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef %20, ptr noundef nonnull %21, ptr noundef %gep1724, ptr noundef nonnull %14) #5
+  %gep1757 = getelementptr double, ptr %invariant.gep1756, i64 %indvars.iv1654
+  call void @dgemm_(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.4, ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef nonnull %29, ptr noundef nonnull @c_b8, ptr noundef %gep1757, ptr noundef nonnull %14, ptr noundef %996, ptr noundef nonnull %18, ptr noundef nonnull @c_b7, ptr noundef %20, ptr noundef nonnull %21) #5
+  call void @dlacpy_(ptr noundef nonnull @.str.2, ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef %20, ptr noundef nonnull %21, ptr noundef %gep1757, ptr noundef nonnull %14) #5
   %indvars.iv.next1655 = add nsw i64 %indvars.iv1654, %998
   %1007 = icmp sge i64 %indvars.iv.next1655, %999
   %1008 = icmp sle i64 %indvars.iv.next1655, %999

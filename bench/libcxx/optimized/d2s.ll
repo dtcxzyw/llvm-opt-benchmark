@@ -419,17 +419,17 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit204: ; preds = %.preheader292
   br i1 %208, label %.preheader290, label %263
 
 .preheader290:                                    ; preds = %.thread, %207
-  %.0127367 = phi i64 [ %196, %.thread ], [ %.0127, %207 ]
-  %.0128366 = phi i32 [ %128, %.thread ], [ %.0128, %207 ]
-  %.2131.shrunk364 = phi i1 [ %spec.select287, %.thread ], [ %.2131.shrunk, %207 ]
-  %.2137.shrunk363 = phi i1 [ true, %.thread ], [ %.2137.shrunk, %207 ]
-  %.0233362 = phi i64 [ %179, %.thread ], [ %.0233, %207 ]
-  %.0242361 = phi i64 [ %spec.select, %.thread ], [ %.0242, %207 ]
-  %209 = zext i64 %.0242361 to i128
+  %.0127375 = phi i64 [ %196, %.thread ], [ %.0127, %207 ]
+  %.0128374 = phi i32 [ %128, %.thread ], [ %.0128, %207 ]
+  %.2131.shrunk372 = phi i1 [ %spec.select287, %.thread ], [ %.2131.shrunk, %207 ]
+  %.2137.shrunk371 = phi i1 [ true, %.thread ], [ %.2137.shrunk, %207 ]
+  %.0233370 = phi i64 [ %179, %.thread ], [ %.0233, %207 ]
+  %.0242369 = phi i64 [ %spec.select, %.thread ], [ %.0242, %207 ]
+  %209 = zext i64 %.0242369 to i128
   %210 = mul nuw i128 %209, 14757395258967641293
   %sum.shift.i208293 = lshr i128 %210, 67
   %211 = trunc nuw nsw i128 %sum.shift.i208293 to i64
-  %212 = zext i64 %.0233362 to i128
+  %212 = zext i64 %.0233370 to i128
   %213 = mul nuw i128 %212, 14757395258967641293
   %sum.shift.i209294 = lshr i128 %213, 67
   %214 = trunc nuw nsw i128 %sum.shift.i209294 to i64
@@ -444,12 +444,12 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit204: ; preds = %.preheader292
   %215 = phi i64 [ %235, %.lr.ph ], [ %214, %.lr.ph.preheader ]
   %sum.shift.i209302.off0 = phi i32 [ %extract.t, %.lr.ph ], [ %extract.t339, %.lr.ph.preheader ]
   %216 = phi i64 [ %232, %.lr.ph ], [ %211, %.lr.ph.preheader ]
-  %.1301 = phi i64 [ %220, %.lr.ph ], [ %.0127367, %.lr.ph.preheader ]
-  %.4133300 = phi i1 [ %226, %.lr.ph ], [ %.2131.shrunk364, %.lr.ph.preheader ]
-  %.4139299 = phi i1 [ %228, %.lr.ph ], [ %.2137.shrunk363, %.lr.ph.preheader ]
+  %.1301 = phi i64 [ %220, %.lr.ph ], [ %.0127375, %.lr.ph.preheader ]
+  %.4133300 = phi i1 [ %226, %.lr.ph ], [ %.2131.shrunk372, %.lr.ph.preheader ]
+  %.4139299 = phi i1 [ %228, %.lr.ph ], [ %.2137.shrunk371, %.lr.ph.preheader ]
   %.0144298 = phi i32 [ %229, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.0153297 = phi i8 [ %223, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.1234296 = phi i64 [ %215, %.lr.ph ], [ %.0233362, %.lr.ph.preheader ]
+  %.1234296 = phi i64 [ %215, %.lr.ph ], [ %.0233370, %.lr.ph.preheader ]
   %217 = trunc i64 %.1234296 to i32
   %.neg182 = mul i32 %sum.shift.i209302.off0, -10
   %218 = zext i64 %.1301 to i128
@@ -479,12 +479,12 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit204: ; preds = %.preheader292
   br i1 %.not181, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader290
-  %.1234.lcssa = phi i64 [ %.0233362, %.preheader290 ], [ %215, %.lr.ph ]
+  %.1234.lcssa = phi i64 [ %.0233370, %.preheader290 ], [ %215, %.lr.ph ]
   %.0153.lcssa = phi i8 [ 0, %.preheader290 ], [ %223, %.lr.ph ]
   %.0144.lcssa = phi i32 [ 0, %.preheader290 ], [ %229, %.lr.ph ]
-  %.4139.lcssa.in = phi i1 [ %.2137.shrunk363, %.preheader290 ], [ %228, %.lr.ph ]
-  %.4133.lcssa = phi i1 [ %.2131.shrunk364, %.preheader290 ], [ %226, %.lr.ph ]
-  %.1.lcssa = phi i64 [ %.0127367, %.preheader290 ], [ %220, %.lr.ph ]
+  %.4139.lcssa.in = phi i1 [ %.2137.shrunk371, %.preheader290 ], [ %228, %.lr.ph ]
+  %.4133.lcssa = phi i1 [ %.2131.shrunk372, %.preheader290 ], [ %226, %.lr.ph ]
+  %.1.lcssa = phi i64 [ %.0127375, %.preheader290 ], [ %220, %.lr.ph ]
   br i1 %.4133.lcssa, label %.preheader, label %.thread266
 
 .preheader:                                       ; preds = %._crit_edge
@@ -639,10 +639,10 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit204: ; preds = %.preheader292
   br label %311
 
 311:                                              ; preds = %307, %.thread266
-  %.0128365 = phi i32 [ %.0128366, %.thread266 ], [ %.0128, %307 ]
+  %.0128373 = phi i32 [ %.0128374, %.thread266 ], [ %.0128, %307 ]
   %.0159 = phi i64 [ %262, %.thread266 ], [ %310, %307 ]
   %.5149 = phi i32 [ %.2146, %.thread266 ], [ %.7151.lcssa, %307 ]
-  %312 = add nsw i32 %.5149, %.0128365
+  %312 = add nsw i32 %.5149, %.0128373
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.0159, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %312, 1
   ret { i64, i32 } %.fca.1.insert

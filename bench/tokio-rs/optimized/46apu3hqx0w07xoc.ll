@@ -5747,9 +5747,9 @@ define hidden void @_ZN5tokio7runtime8blocking4pool12BlockingPool8shutdown17hbed
 45:                                               ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokio..runtime..blocking..shutdown..Sender$GT$$GT$17h1242f9384ca26bc8E.exit"
   %.0.i.i = inttoptr i64 %43 to ptr
   %46 = invoke noundef i64 @_ZN11parking_lot7condvar7Condvar15notify_all_slow17hc06ce43dc6177c1eE(ptr noundef nonnull align 8 %42, ptr noundef nonnull %.0.i.i)
-          to label %_ZN11parking_lot7condvar7Condvar10notify_all17h4281c1b5e82a9165E.llvm.18090272232049510573.exit unwind label %.thread153
+          to label %_ZN11parking_lot7condvar7Condvar10notify_all17h4281c1b5e82a9165E.llvm.18090272232049510573.exit unwind label %.thread162
 
-.thread153:                                       ; preds = %45
+.thread162:                                       ; preds = %45
   %47 = landingpad { ptr, i32 }
           cleanup
   br label %178
@@ -6170,8 +6170,8 @@ _ZN5tokio7runtime8blocking8shutdown8Receiver4wait17h101aeaf89099d561E.exit.threa
   %.pn3894 = phi { ptr, i32 } [ %.pn3895, %178 ], [ %.pn36103, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$$GT$17h278b170c401aacb7E.exit71" ], [ %117, %116 ], [ %173, %172 ], [ %eh.lpad-body69, %.body68 ], [ %eh.lpad-body117, %.thread118 ]
   resume { ptr, i32 } %.pn3894
 
-178:                                              ; preds = %.thread153, %.thread, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$$GT$17h278b170c401aacb7E.exit71"
-  %.pn3895 = phi { ptr, i32 } [ %40, %.thread ], [ %.pn36103, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$$GT$17h278b170c401aacb7E.exit71" ], [ %47, %.thread153 ]
+178:                                              ; preds = %.thread162, %.thread, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$$GT$17h278b170c401aacb7E.exit71"
+  %.pn3895 = phi { ptr, i32 } [ %40, %.thread ], [ %.pn36103, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$$GT$17h278b170c401aacb7E.exit71" ], [ %47, %.thread162 ]
   invoke void @"_ZN4core3ptr108drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..blocking..pool..Shared$GT$$GT$17he6e9b2e8eebdfe70E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18) #38
           to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$$GT$17h278b170c401aacb7E.exit71.thread" unwind label %170
 }
@@ -6306,7 +6306,7 @@ define { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17h201ef
   invoke void @"_ZN4core3ptr108drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..blocking..pool..Shared$GT$$GT$17he6e9b2e8eebdfe70E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17) #38
           to label %.thread unwind label %158
 
-56:                                               ; preds = %184, %.noexc.i, %"_ZN5tokio7runtime4task20UnownedTask$LT$S$GT$9into_task17h5a79c96f58d5b176E.llvm.13045902235258919337.exit.i", %.thread49, %85
+56:                                               ; preds = %184, %.noexc.i, %"_ZN5tokio7runtime4task20UnownedTask$LT$S$GT$9into_task17h5a79c96f58d5b176E.llvm.13045902235258919337.exit.i", %.thread53, %85
   %57 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -6546,7 +6546,7 @@ define { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17h201ef
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.pre = load ptr, ptr %16, align 8
   %157 = icmp eq ptr %.pre, null
-  br i1 %157, label %.thread49, label %170
+  br i1 %157, label %.thread53, label %170
 
 158:                                              ; preds = %188, %169, %.body
   %159 = landingpad { ptr, i32 }
@@ -6557,13 +6557,13 @@ define { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17h201ef
 160:                                              ; preds = %139
   %161 = load atomic i64, ptr %71 monotonic, align 8
   %.not14 = icmp eq i64 %161, 0
-  br i1 %.not14, label %162, label %.thread49
+  br i1 %.not14, label %162, label %.thread53
 
 162:                                              ; preds = %160, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %"_ZN5tokio7runtime4task20UnownedTask$LT$S$GT$8shutdown17h9fd508e6e1e39ca8E.exit"
 
-.thread49:                                        ; preds = %160, %156
+.thread53:                                        ; preds = %160, %156
   %163 = phi ptr [ %147, %156 ], [ %140, %160 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %163)
           to label %170 unwind label %56
@@ -6585,7 +6585,7 @@ define { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17h201ef
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %147) #38
           to label %.body unwind label %158
 
-170:                                              ; preds = %.thread49, %156
+170:                                              ; preds = %.thread53, %156
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZN11parking_lot7condvar7Condvar10notify_one17h8fc86de93def754cE.llvm.18090272232049510573.exit
 

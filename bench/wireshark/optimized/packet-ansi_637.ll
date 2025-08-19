@@ -2400,20 +2400,20 @@ define internal void @tele_param_srvc_cat_prog_data(ptr noundef %0, ptr noundef 
   br i1 %.not, label %97, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %21, %._crit_edge
-  %.lcssa102 = phi i32 [ %68, %._crit_edge ], [ %24, %21 ]
-  %.084.lcssa101 = phi i32 [ %.185, %._crit_edge ], [ %23, %21 ]
+  %.lcssa107 = phi i32 [ %68, %._crit_edge ], [ %24, %21 ]
+  %.084.lcssa106 = phi i32 [ %.185, %._crit_edge ], [ %23, %21 ]
   br i1 %cond, label %70, label %91
 
 70:                                               ; preds = %._crit_edge.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %71 = icmp samesign ugt i32 %.lcssa102, 3
+  %71 = icmp samesign ugt i32 %.lcssa107, 3
   %72 = add i32 %4, %3
   %73 = shl i32 %72, 3
   br i1 %71, label %74, label %80
 
 74:                                               ; preds = %70
   %75 = add i32 %73, -11
-  %76 = trunc i32 %.084.lcssa101 to i8
+  %76 = trunc i32 %.084.lcssa106 to i8
   %77 = add i8 %76, -3
   %78 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i8 %77, ptr %78, align 4
@@ -2447,8 +2447,8 @@ define internal void @tele_param_srvc_cat_prog_data(ptr noundef %0, ptr noundef 
   %92 = load i32, ptr @hf_ansi_637_reserved_bits_8_generic, align 4
   %93 = add i32 %4, %3
   %94 = shl i32 %93, 3
-  %95 = sub i32 %94, %.lcssa102
-  %96 = call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %92, ptr noundef %0, i32 noundef %95, i32 noundef %.lcssa102, i32 noundef 0)
+  %95 = sub i32 %94, %.lcssa107
+  %96 = call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %92, ptr noundef %0, i32 noundef %95, i32 noundef %.lcssa107, i32 noundef 0)
   br label %97
 
 97:                                               ; preds = %._crit_edge, %91, %82, %11
@@ -2519,7 +2519,7 @@ define internal void @tele_param_msg_status(ptr noundef %0, ptr noundef %1, ptr 
   %15 = zext i8 %14 to i32
   %16 = and i8 %14, 63
   %17 = lshr i32 %15, 6
-  switch i32 %17, label %default.unreachable25 [
+  switch i32 %17, label %default.unreachable26 [
     i32 0, label %18
     i32 2, label %20
     i32 3, label %24
@@ -2586,7 +2586,7 @@ define internal void @tele_param_msg_status(ptr noundef %0, ptr noundef %1, ptr 
 33:                                               ; preds = %24
   br label %35
 
-default.unreachable25:                            ; preds = %9
+default.unreachable26:                            ; preds = %9
   unreachable
 
 switch.lookup:                                    ; preds = %18

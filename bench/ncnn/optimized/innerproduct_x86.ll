@@ -1767,8 +1767,8 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %61
   %.pre116 = load i32, ptr %39, align 4, !tbaa !43
   %74 = load i32, ptr %5, align 4
   %75 = icmp eq i32 %.pre116, %74
-  %or.cond125 = select i1 %73, i1 %75, i1 false
-  br i1 %or.cond125, label %76, label %178
+  %or.cond147 = select i1 %73, i1 %75, i1 false
+  br i1 %or.cond147, label %76, label %178
 
 76:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1853,7 +1853,7 @@ _ZNK4ncnn3Mat5emptyEv.exit107:                    ; preds = %109
   store i32 1, ptr %11, align 4, !tbaa !60
   %122 = load i8, ptr %97, align 1, !tbaa !42, !range !38, !noundef !39
   %123 = trunc nuw i8 %122 to i1
-  br i1 %123, label %124, label %.thread120
+  br i1 %123, label %124, label %.thread142
 
 124:                                              ; preds = %121
   %125 = load i32, ptr %18, align 8, !tbaa !41
@@ -1862,7 +1862,7 @@ _ZNK4ncnn3Mat5emptyEv.exit107:                    ; preds = %109
   %128 = select i1 %127, i32 8, i32 1
   store i32 %128, ptr %11, align 4, !tbaa !60
   %or.cond = and i1 %102, %127
-  br i1 %or.cond, label %129, label %.thread120
+  br i1 %or.cond, label %129, label %.thread142
 
 129:                                              ; preds = %124
   %130 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1870,15 +1870,15 @@ _ZNK4ncnn3Mat5emptyEv.exit107:                    ; preds = %109
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %15, i32 %131)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 6, ptr nonnull @_ZNK4ncnn16InnerProduct_x8616forward_int8_x86ERKNS_3MatERS1_RKNS_6OptionE.omp_outlined, ptr nonnull %10, ptr nonnull %2, ptr nonnull %0, ptr nonnull %11, ptr nonnull %8, ptr nonnull %5)
   %.pre119 = load i32, ptr %11, align 4, !tbaa !60
-  br label %.thread120
+  br label %.thread142
 
-.thread120:                                       ; preds = %121, %129, %124
+.thread142:                                       ; preds = %121, %129, %124
   %132 = phi i32 [ %.pre119, %129 ], [ %128, %124 ], [ 1, %121 ]
   %133 = icmp eq i32 %132, 1
   %or.cond4 = and i1 %102, %133
   br i1 %or.cond4, label %.sink.split, label %134
 
-134:                                              ; preds = %.thread120
+134:                                              ; preds = %.thread142
   %135 = icmp ne i32 %132, 8
   %or.cond6.not = or i1 %102, %135
   br i1 %or.cond6.not, label %139, label %136
@@ -1896,8 +1896,8 @@ _ZNK4ncnn3Mat5emptyEv.exit107:                    ; preds = %109
   %or.cond8.not = or i1 %141, %102
   br i1 %or.cond8.not, label %144, label %.sink.split
 
-.sink.split:                                      ; preds = %139, %.thread120
-  %_ZNK4ncnn16InnerProduct_x8616forward_int8_x86ERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.3.sink = phi ptr [ @_ZNK4ncnn16InnerProduct_x8616forward_int8_x86ERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.3, %.thread120 ], [ @_ZNK4ncnn16InnerProduct_x8616forward_int8_x86ERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.5, %139 ]
+.sink.split:                                      ; preds = %139, %.thread142
+  %_ZNK4ncnn16InnerProduct_x8616forward_int8_x86ERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.3.sink = phi ptr [ @_ZNK4ncnn16InnerProduct_x8616forward_int8_x86ERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.3, %.thread142 ], [ @_ZNK4ncnn16InnerProduct_x8616forward_int8_x86ERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.5, %139 ]
   %142 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %143 = load i32, ptr %142, align 4, !tbaa !63
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %15, i32 %143)
@@ -3208,8 +3208,8 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit191:   ; preds = %._crit_edge, %_ZL14
   br i1 %.not162, label %751, label %748
 
 748:                                              ; preds = %.lr.ph1096
-  %.idx1189 = shl nsw i64 %indvars.iv1169, 4
-  %749 = getelementptr inbounds nuw i8, ptr %747, i64 %.idx1189
+  %.idx1204 = shl nsw i64 %indvars.iv1169, 4
+  %749 = getelementptr inbounds nuw i8, ptr %747, i64 %.idx1204
   %750 = load <4 x float>, ptr %749, align 1, !tbaa !50
   br label %751
 
@@ -4384,8 +4384,8 @@ define internal void @_ZN4ncnnL16innerproduct_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %.noexc52, %.noexc51, %.noexc50, %103, %.noexc, %93, %._crit_edge
   %.0.i = phi nsz <4 x float> [ %94, %93 ], [ %102, %.noexc ], [ %113, %103 ], [ %146, %.noexc50 ], [ %247, %.noexc51 ], [ %260, %.noexc52 ], [ %91, %._crit_edge ]
   %261 = load ptr, ptr %9, align 8, !tbaa !16
-  %.idx222 = shl nsw i64 %indvars.iv, 4
-  %262 = getelementptr inbounds i8, ptr %261, i64 %.idx222
+  %.idx226 = shl nsw i64 %indvars.iv, 4
+  %262 = getelementptr inbounds i8, ptr %261, i64 %.idx226
   store <4 x float> %.0.i, ptr %262, align 1, !tbaa !50
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32

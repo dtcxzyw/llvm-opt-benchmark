@@ -1114,11 +1114,11 @@ define noundef ptr @_ZN6icu_7723ICULanguageBreakFactory13loadEngineForEiPKc(ptr 
   resume { ptr, i32 } %.pn
 
 .thread65.sink.split:                             ; preds = %66, %60, %54, %48, %42, %36, %30, %29
-  %.143.sink71 = phi ptr [ %28, %29 ], [ %28, %30 ], [ %28, %36 ], [ %28, %42 ], [ %28, %48 ], [ %28, %54 ], [ %28, %60 ], [ %.143, %66 ]
-  %70 = load ptr, ptr %.143.sink71, align 8, !tbaa !15
+  %.143.sink79 = phi ptr [ %28, %29 ], [ %28, %30 ], [ %28, %36 ], [ %28, %42 ], [ %28, %48 ], [ %28, %54 ], [ %28, %60 ], [ %.143, %66 ]
+  %70 = load ptr, ptr %.143.sink79, align 8, !tbaa !15
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
-  call void %72(ptr noundef nonnull align 8 dereferenceable(8) %.143.sink71) #17
+  call void %72(ptr noundef nonnull align 8 dereferenceable(8) %.143.sink79) #17
   br label %.thread65
 
 .thread65:                                        ; preds = %.thread65.sink.split, %66, %13, %3, %24
@@ -1652,17 +1652,17 @@ define noundef i32 @_ZNK6icu_7718BreakEngineWrapper10findBreaksEP5UTextiiRNS_9UV
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef %14)
-  br i1 %23, label %.lr.ph48, label %.critedge
+  br i1 %23, label %.lr.ph52, label %.critedge
 
-24:                                               ; preds = %.lr.ph48
+24:                                               ; preds = %.lr.ph52
   %25 = load ptr, ptr %18, align 8, !tbaa !49
   %26 = load ptr, ptr %25, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(8) %25, i32 noundef %31)
-  br i1 %29, label %.lr.ph48, label %.critedge, !llvm.loop !52
+  br i1 %29, label %.lr.ph52, label %.critedge, !llvm.loop !52
 
-.lr.ph48:                                         ; preds = %.lr.ph, %24
+.lr.ph52:                                         ; preds = %.lr.ph, %24
   %30 = tail call i32 @utext_next32_77(ptr noundef %1)
   %31 = tail call i32 @utext_current32_77(ptr noundef %1)
   %32 = tail call i64 @utext_getNativeIndex_77(ptr noundef %1)
@@ -1670,7 +1670,7 @@ define noundef i32 @_ZNK6icu_7718BreakEngineWrapper10findBreaksEP5UTextiiRNS_9UV
   %34 = icmp sgt i32 %3, %33
   br i1 %34, label %24, label %..critedge.loopexit_crit_edge, !llvm.loop !52
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph48
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph52
   br label %.critedge, !llvm.loop !52
 
 .critedge:                                        ; preds = %24, %.lr.ph, %..critedge.loopexit_crit_edge, %10

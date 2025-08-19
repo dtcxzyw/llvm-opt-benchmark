@@ -1065,9 +1065,9 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22clone_from_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   %18 = icmp eq i64 %7, 0
-  br i1 %18, label %.thread58, label %64
+  br i1 %18, label %.thread74, label %64
 
-.thread58:                                        ; preds = %17
+.thread74:                                        ; preds = %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.5a6437c17f319babc76d228869b1cce2.8, i64 32, i1 false), !noalias !126
   br label %"_ZN83_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17hb2014a00c31594dbE.exit"
 
@@ -1161,7 +1161,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22clone_from_
 .noexc1.i:                                        ; preds = %62
   unreachable
 
-.thread60:                                        ; preds = %101, %107
+.thread76:                                        ; preds = %101, %107
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
   %63 = load ptr, ptr %1, align 8, !alias.scope !145, !noalias !146, !nonnull !7, !noundef !7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %102, ptr nonnull align 1 %63, i64 %48, i1 false), !noalias !148
@@ -1180,10 +1180,10 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22clone_from_
   %66 = icmp eq i64 %.pre, 0
   br i1 %66, label %.loopexit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.thread60, %64
-  %67 = phi ptr [ %63, %.thread60 ], [ %65, %64 ]
-  %68 = phi ptr [ %102, %.thread60 ], [ %.pre.i, %64 ]
-  %69 = phi i64 [ %16, %.thread60 ], [ %.pre, %64 ]
+.lr.ph.i.i:                                       ; preds = %.thread76, %64
+  %67 = phi ptr [ %63, %.thread76 ], [ %65, %64 ]
+  %68 = phi ptr [ %102, %.thread76 ], [ %.pre.i, %64 ]
+  %69 = phi i64 [ %16, %.thread76 ], [ %.pre, %64 ]
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %71 = load <16 x i8>, ptr %67, align 16, !noalias !162
   %72 = icmp slt <16 x i8> %71, zeroinitializer
@@ -1252,7 +1252,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22clone_from_
   %.sroa.412.0..0.3.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.412.0..0.3.sroa_idx.i, align 8, !alias.scope !123, !noalias !126
   %106 = icmp eq i64 %7, 0
-  br i1 %106, label %.thread60, label %107
+  br i1 %106, label %.thread76, label %107
 
 107:                                              ; preds = %101
   %108 = shl i64 %7, 3
@@ -1267,7 +1267,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22clone_from_
   %115 = sub nsw i64 0, %110
   %116 = getelementptr inbounds i8, ptr %.sroa.07.0.copyload.i, i64 %115
   tail call void @__rust_dealloc(ptr noundef nonnull %116, i64 noundef %112, i64 noundef 16) #22, !noalias !173
-  br label %.thread60
+  br label %.thread76
 
 .loopexit.i:                                      ; preds = %84, %64
   %117 = phi i64 [ 0, %64 ], [ %69, %84 ]
@@ -1314,7 +1314,7 @@ common.resume:                                    ; preds = %166, %122
   store i64 %.0, ptr %134, align 8, !alias.scope !182
   br label %135
 
-"_ZN83_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17hb2014a00c31594dbE.exit": ; preds = %.thread58, %.loopexit.i, %22, %20, %.thread33
+"_ZN83_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17hb2014a00c31594dbE.exit": ; preds = %.thread74, %.loopexit.i, %22, %20, %.thread33
   ret void
 
 135:                                              ; preds = %"_ZN4core3ptr201drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTable$LT$usize$GT$$C$hashbrown..raw..inner..RawTable$LT$usize$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h655dbf27920fdafcE.exit3.i", %125

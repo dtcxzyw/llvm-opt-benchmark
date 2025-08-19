@@ -465,8 +465,8 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   %.not149 = icmp eq i16 %119, 0
   %120 = call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef %114, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq ptr %120, null
-  %or.cond165 = select i1 %.not149, i1 %.not.i, i1 false
-  br i1 %or.cond165, label %121, label %process_rdma_lists.exit
+  %or.cond169 = select i1 %.not149, i1 %.not.i, i1 false
+  br i1 %or.cond169, label %121, label %process_rdma_lists.exit
 
 121:                                              ; preds = %113
   %122 = load ptr, ptr %6, align 8
@@ -755,7 +755,7 @@ find_segment_info.exit.i63:                       ; preds = %70
 95:                                               ; preds = %5, %5
   %96 = tail call fastcc ptr @add_ib_fragment(ptr noundef %0, ptr noundef %6, i1 noundef zeroext false, ptr noundef %1, ptr noundef %2)
   %.not71 = icmp eq ptr %96, null
-  br i1 %.not71, label %97, label %.thread72
+  br i1 %.not71, label %97, label %.thread80
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -773,12 +773,12 @@ find_segment_info.exit.i63:                       ; preds = %70
 105:                                              ; preds = %.thread, %100
   %.051 = phi ptr [ %104, %100 ], [ %94, %.thread ]
   %.not56 = icmp eq ptr %.051, null
-  br i1 %.not56, label %add_request_info.exit64, label %.thread72
+  br i1 %.not56, label %add_request_info.exit64, label %.thread80
 
-.thread72:                                        ; preds = %95, %105
-  %.05175 = phi ptr [ %.051, %105 ], [ %96, %95 ]
+.thread80:                                        ; preds = %95, %105
+  %.05183 = phi ptr [ %.051, %105 ], [ %96, %95 ]
   %106 = load ptr, ptr @rpc_handler, align 8
-  %107 = tail call i32 @call_dissector(ptr noundef %106, ptr noundef nonnull %.05175, ptr noundef %1, ptr noundef %2)
+  %107 = tail call i32 @call_dissector(ptr noundef %106, ptr noundef nonnull %.05183, ptr noundef %1, ptr noundef %2)
   %108 = icmp ne i32 %107, 0
   br label %add_request_info.exit64
 
@@ -791,8 +791,8 @@ find_segment_info.exit.i63:                       ; preds = %70
   %112 = tail call i32 @dissect_rpcrdma(ptr noundef %.052, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %add_request_info.exit64
 
-add_request_info.exit64:                          ; preds = %97, %find_segment_info.exit.i63, %70, %67, %61, %57, %109, %5, %105, %4, %111, %.thread72, %add_request_info.exit, %14, %10
-  %.0 = phi i1 [ true, %111 ], [ false, %10 ], [ false, %14 ], [ false, %add_request_info.exit ], [ %108, %.thread72 ], [ false, %4 ], [ false, %105 ], [ false, %5 ], [ false, %109 ], [ false, %57 ], [ false, %61 ], [ false, %67 ], [ false, %70 ], [ false, %find_segment_info.exit.i63 ], [ false, %97 ]
+add_request_info.exit64:                          ; preds = %97, %find_segment_info.exit.i63, %70, %67, %61, %57, %109, %5, %105, %4, %111, %.thread80, %add_request_info.exit, %14, %10
+  %.0 = phi i1 [ true, %111 ], [ false, %10 ], [ false, %14 ], [ false, %add_request_info.exit ], [ %108, %.thread80 ], [ false, %4 ], [ false, %105 ], [ false, %5 ], [ false, %109 ], [ false, %57 ], [ false, %61 ], [ false, %67 ], [ false, %70 ], [ false, %find_segment_info.exit.i63 ], [ false, %97 ]
   ret i1 %.0
 }
 

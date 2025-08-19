@@ -77,18 +77,18 @@ define void @unregister_reboot_notifier(ptr noundef readonly captures(address) %
 
 .lr.ph.preheader:                                 ; preds = %1
   %5 = icmp eq ptr %4, %0
-  br i1 %5, label %.lr.ph._crit_edge, label %.lr.ph16
+  br i1 %5, label %.lr.ph._crit_edge, label %.lr.ph19
 
-.lr.ph16:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph19:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %6 = phi ptr [ %8, %.lr.ph ], [ %4, %.lr.ph.preheader ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
-.lr.ph:                                           ; preds = %.lr.ph16
+.lr.ph:                                           ; preds = %.lr.ph19
   %9 = icmp eq ptr %8, %0
-  br i1 %9, label %.lr.ph._crit_edge.loopexit, label %.lr.ph16, !llvm.loop !11
+  br i1 %9, label %.lr.ph._crit_edge.loopexit, label %.lr.ph19, !llvm.loop !11
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -101,7 +101,7 @@ define void @unregister_reboot_notifier(ptr noundef readonly captures(address) %
   store ptr %12, ptr %.012.lcssa, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph16, %1, %.lr.ph._crit_edge
+.loopexit:                                        ; preds = %.lr.ph19, %1, %.lr.ph._crit_edge
   %13 = and i64 %3, 512
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %up_irq_restore.exit, label %14

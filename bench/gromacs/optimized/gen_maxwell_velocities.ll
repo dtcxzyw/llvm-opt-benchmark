@@ -433,7 +433,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit12:               ; preds = %_ZNKSt7__cxx1112bas
   br i1 %243, label %245, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %240
-  %244 = add i32 %.sroa.10.264.i, -14
+  %244 = add nsw i32 %.sroa.10.264.i, -14
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i
 
 245:                                              ; preds = %240
@@ -827,12 +827,12 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #22
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.019, label %.sink.split62, label %37
+  br i1 %.019, label %.sink.split63, label %37
 
 .sink.split:                                      ; preds = %.thread, %.thread51
   %.pn39.pn50.ph = phi { ptr, i32 } [ %17, %.thread51 ], [ %16, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.sink.split62
+  br label %.sink.split63
 
 20:                                               ; preds = %2
   %21 = shl nuw i64 %1, 57
@@ -873,13 +873,13 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
 .thread54:                                        ; preds = %26
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split61
+  br label %.sink.split62
 
 .thread58:                                        ; preds = %28
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #22
-  br label %.sink.split61
+  br label %.sink.split62
 
 34:                                               ; preds = %29, %31
   %.0 = phi i1 [ false, %31 ], [ true, %29 ]
@@ -890,24 +890,24 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #22
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.0, label %.sink.split62, label %37
+  br i1 %.0, label %.sink.split63, label %37
 
-.sink.split61:                                    ; preds = %.thread54, %.thread58
+.sink.split62:                                    ; preds = %.thread54, %.thread58
   %.pn.pn57.ph = phi { ptr, i32 } [ %33, %.thread58 ], [ %32, %.thread54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split62
+  br label %.sink.split63
 
 36:                                               ; preds = %20
   ret void
 
-.sink.split62:                                    ; preds = %34, %.sink.split61, %18, %.sink.split
-  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %27, %.sink.split61 ], [ %27, %34 ]
-  %.pn39.pn.pn.ph = phi { ptr, i32 } [ %.pn39.pn50.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn57.ph, %.sink.split61 ], [ %35, %34 ]
+.sink.split63:                                    ; preds = %34, %.sink.split62, %18, %.sink.split
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %27, %.sink.split62 ], [ %27, %34 ]
+  %.pn39.pn.pn.ph = phi { ptr, i32 } [ %.pn39.pn50.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn57.ph, %.sink.split62 ], [ %35, %34 ]
   call void @__cxa_free_exception(ptr %.sink) #22
   br label %37
 
-37:                                               ; preds = %.sink.split62, %34, %18
-  %.pn39.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %35, %34 ], [ %.pn39.pn.pn.ph, %.sink.split62 ]
+37:                                               ; preds = %.sink.split63, %34, %18
+  %.pn39.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %35, %34 ], [ %.pn39.pn.pn.ph, %.sink.split63 ]
   resume { ptr, i32 } %.pn39.pn.pn
 
 38:                                               ; preds = %31, %15

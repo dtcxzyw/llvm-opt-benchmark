@@ -224,16 +224,16 @@ define internal fastcc i32 @do_gmbus_xfer(ptr noundef %0, ptr noundef readonly c
   br i1 %15, label %.sink.split, label %23
 
 .sink.split:                                      ; preds = %11, %4
-  %.sink59 = phi i32 [ 288060, %4 ], [ 794656, %11 ]
-  %.sink57 = phi i32 [ 16384, %4 ], [ -2147483648, %11 ]
+  %.sink89 = phi i32 [ 288060, %4 ], [ 794656, %11 ]
+  %.sink87 = phi i32 [ 16384, %4 ], [ -2147483648, %11 ]
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 7368
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 7512
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 %18(ptr noundef nonnull %16, i32 %.sink59, i1 noundef zeroext true) #12
-  %20 = or i32 %19, %.sink57
+  %19 = tail call i32 %18(ptr noundef nonnull %16, i32 %.sink89, i1 noundef zeroext true) #12
+  %20 = or i32 %19, %.sink87
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 7544
   %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull %16, i32 %.sink59, i32 noundef %20, i1 noundef zeroext true) #12
+  tail call void %22(ptr noundef nonnull %16, i32 %.sink89, i32 noundef %20, i1 noundef zeroext true) #12
   br label %23
 
 23:                                               ; preds = %.sink.split, %11
@@ -2119,9 +2119,9 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_wait(ptr noundef %0, i32 no
 
 .outer:                                           ; preds = %112, %50
   %.ph = phi i64 [ %115, %112 ], [ %58, %50 ]
-  %.ph36 = phi i32 [ %114, %112 ], [ 2000, %50 ]
-  %.ph37 = phi i32 [ %110, %112 ], [ %57, %50 ]
-  %60 = sext i32 %.ph36 to i64
+  %.ph49 = phi i32 [ %114, %112 ], [ 2000, %50 ]
+  %.ph50 = phi i32 [ %110, %112 ], [ %57, %50 ]
+  %60 = sext i32 %.ph49 to i64
   br label %61
 
 61:                                               ; preds = %.outer, %109
@@ -2212,12 +2212,12 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_wait(ptr noundef %0, i32 no
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !10
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !44
   %110 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !45
-  %111 = icmp eq i32 %.ph37, %110
+  %111 = icmp eq i32 %.ph50, %110
   br i1 %111, label %61, label %112, !prof !14
 
 112:                                              ; preds = %109
   %113 = trunc i64 %107 to i32
-  %114 = sub i32 %.ph36, %113
+  %114 = sub i32 %.ph49, %113
   %115 = call i64 @local_clock() #12
   br label %.outer
 

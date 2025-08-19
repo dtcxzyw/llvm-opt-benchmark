@@ -1057,9 +1057,9 @@ _ZNK4llvm9StringRef5splitES0_.exit:               ; preds = %74, %75
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %83, %85, %86
-  %.sink130 = phi i8 [ 4, %85 ], [ %.014.i.i, %86 ], [ %84, %83 ]
+  %.sink142 = phi i8 [ 4, %85 ], [ %.014.i.i, %86 ], [ %84, %83 ]
   %.sink = phi i8 [ 1, %85 ], [ 4, %86 ], [ 1, %83 ]
-  store i8 %.sink130, ptr %55, align 8, !tbaa !78
+  store i8 %.sink142, ptr %55, align 8, !tbaa !78
   store i8 %.sink, ptr %56, align 1, !tbaa !78
   call void @_ZN4llvm6TripleC1ERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(34) %13) #14
   %89 = load ptr, ptr %15, align 8, !tbaa !79

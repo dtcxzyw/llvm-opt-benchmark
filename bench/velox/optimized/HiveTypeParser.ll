@@ -1595,7 +1595,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp8.not.i, label %if.else.i, label %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN8facebook5velox4type6fbhive13TokenMetadataESt14default_deleteIS5_EEmS8_ET_SA_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN8facebook5velox4type6fbhive13TokenMetadataESt14default_deleteIS5_EEmS8_ET_SA_T0_RSaIT1_E.exit.i: ; preds = %if.then
-  %3 = shl nuw i64 %sub, 3
+  %3 = shl nuw nsw i64 %sub, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %3, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %0, i64 %3
   store ptr %scevgep.i.i.i.i, ptr %_M_finish.i, align 8
@@ -1644,7 +1644,7 @@ if.then.i28.i:                                    ; preds = %_ZNSt6vectorISt10un
 
 _ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox4type6fbhive13TokenMetadataESt14default_deleteIS5_EESaIS8_EE13_M_deallocateEPS8_m.exit29.i: ; preds = %if.then.i28.i, %_ZNSt6vectorISt10unique_ptrIN8facebook5velox4type6fbhive13TokenMetadataESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr37.i = getelementptr inbounds %"class.std::unique_ptr", ptr %add.ptr.i, i64 %sub
+  %add.ptr37.i = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %_M_finish.i, align 8
   %add.ptr40.i = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8
@@ -7296,15 +7296,15 @@ if.end48:                                         ; preds = %while.end43
 return:                                           ; preds = %for.inc.i.i, %_ZNK8facebook5velox4type6fbhive14HiveTypeParser17makeExtendedTokenEPNS2_13TokenMetadataEN5folly5RangeIPKcEEm.exit48, %if.then
   %.sink.in = phi ptr [ %add.ptr.i.i37, %_ZNK8facebook5velox4type6fbhive14HiveTypeParser17makeExtendedTokenEPNS2_13TokenMetadataEN5folly5RangeIPKcEEm.exit48 ], [ %add.ptr.i.i, %if.then ], [ %__begin4.sroa.0.083, %for.inc.i.i ]
   %sp.sroa.0.079.lcssa.sink = phi ptr [ %sp.sroa.0.079, %_ZNK8facebook5velox4type6fbhive14HiveTypeParser17makeExtendedTokenEPNS2_13TokenMetadataEN5folly5RangeIPKcEEm.exit48 ], [ %sp.sroa.0.0.lcssa, %if.then ], [ %sp.sroa.0.079, %for.inc.i.i ]
-  %add.ptr.i42.sink107 = phi ptr [ %add.ptr.i42, %_ZNK8facebook5velox4type6fbhive14HiveTypeParser17makeExtendedTokenEPNS2_13TokenMetadataEN5folly5RangeIPKcEEm.exit48 ], [ %sp.sroa.0.0.lcssa, %if.then ], [ %add.ptr.i.i.i, %for.inc.i.i ]
+  %add.ptr.i42.sink115 = phi ptr [ %add.ptr.i42, %_ZNK8facebook5velox4type6fbhive14HiveTypeParser17makeExtendedTokenEPNS2_13TokenMetadataEN5folly5RangeIPKcEEm.exit48 ], [ %sp.sroa.0.0.lcssa, %if.then ], [ %add.ptr.i.i.i, %for.inc.i.i ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %value.i.i.i43 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %.sink, ptr %agg.result, align 8
   store ptr %sp.sroa.0.079.lcssa.sink, ptr %value.i.i.i43, align 8
   %spmatch.sroa.2.0.value.sroa_idx.i44 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr %add.ptr.i42.sink107, ptr %spmatch.sroa.2.0.value.sroa_idx.i44, align 8
+  store ptr %add.ptr.i42.sink115, ptr %spmatch.sroa.2.0.value.sroa_idx.i44, align 8
   %remaining.i45 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
-  store ptr %add.ptr.i42.sink107, ptr %remaining.i45, align 8
+  store ptr %add.ptr.i42.sink115, ptr %remaining.i45, align 8
   %sp.sroa.6.0.remaining.sroa_idx.i46 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %sp.coerce1, ptr %sp.sroa.6.0.remaining.sroa_idx.i46, align 8
   ret void

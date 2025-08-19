@@ -6169,8 +6169,8 @@ thread-pre-split2610:                             ; preds = %1136
   %1171 = add i32 %1170, %.152670
   %1172 = add nuw nsw i32 %.024352669, 1
   %exitcond.not = icmp eq i32 %1172, %1162
-  %or.cond2726 = select i1 %.not2523, i1 true, i1 %exitcond.not
-  br i1 %or.cond2726, label %thread-pre-split2612, label %.lr.ph, !llvm.loop !14
+  %or.cond2769 = select i1 %.not2523, i1 true, i1 %exitcond.not
+  br i1 %or.cond2769, label %thread-pre-split2612, label %.lr.ph, !llvm.loop !14
 
 thread-pre-split2612:                             ; preds = %.lr.ph, %400, %907, %190, %349, %390, %620, %1133, %1157, %1153, %1110, %1107, %899, %361, %344, %318, %401, %542, %404, %978, %934, %1155, %1160
   %.22386.ph = phi ptr [ %1116, %1160 ], [ %1116, %1155 ], [ %944, %978 ], [ %917, %934 ], [ %.12385, %401 ], [ %.12385, %404 ], [ %.62390, %542 ], [ %.12385, %318 ], [ %331, %344 ], [ %.12385, %1107 ], [ %.12385, %1110 ], [ %1116, %1157 ], [ %.102394, %1153 ], [ %1116, %1133 ], [ %833, %899 ], [ %559, %620 ], [ %.42388, %390 ], [ %363, %361 ], [ %351, %349 ], [ %195, %190 ], [ %.12385, %907 ], [ %.12385, %400 ], [ %1116, %.lr.ph ]
@@ -7438,18 +7438,18 @@ thread-pre-split2648:                             ; preds = %1506, %1516
   %2025 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.26)
   %2026 = load ptr, ptr @mq_heur_subdissector_list, align 8
   %2027 = call zeroext i1 @dissector_try_heuristic(ptr noundef %2026, ptr noundef %2025, ptr noundef %1, ptr noundef %.02409, ptr noundef nonnull %5, ptr noundef %8)
-  br i1 %2027, label %2031, label %.sink.split2727
+  br i1 %2027, label %2031, label %.sink.split2770
 
 2028:                                             ; preds = %.thread2654
   %2029 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.26)
-  br label %.sink.split2727
+  br label %.sink.split2770
 
-.sink.split2727:                                  ; preds = %2008, %2028
-  %.sink2728 = phi ptr [ %2029, %2028 ], [ %2025, %2008 ]
-  %2030 = call i32 @call_data_dissector(ptr noundef %.sink2728, ptr noundef %1, ptr noundef %.02409)
+.sink.split2770:                                  ; preds = %2008, %2028
+  %.sink2771 = phi ptr [ %2029, %2028 ], [ %2025, %2008 ]
+  %2030 = call i32 @call_data_dissector(ptr noundef %.sink2771, ptr noundef %1, ptr noundef %.02409)
   br label %2031
 
-2031:                                             ; preds = %.sink.split2727, %2008, %1345, %1344
+2031:                                             ; preds = %.sink.split2770, %2008, %1345, %1344
   %2032 = call i32 @tvb_reported_length(ptr noundef %0)
   br label %2033
 

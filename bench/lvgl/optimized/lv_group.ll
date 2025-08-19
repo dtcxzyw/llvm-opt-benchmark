@@ -473,18 +473,18 @@ define void @lv_group_swap_obj(ptr noundef %0, ptr noundef %1) local_unnamed_add
 lv_group_get_focused.exit:                        ; preds = %._crit_edge, %17
   %.0.i = phi ptr [ %18, %17 ], [ null, %._crit_edge ]
   %19 = icmp eq ptr %.0.i, %0
-  br i1 %19, label %.sink.split31, label %20
+  br i1 %19, label %.sink.split36, label %20
 
 20:                                               ; preds = %lv_group_get_focused.exit
   %21 = icmp eq ptr %.0.i, %1
-  br i1 %21, label %.sink.split31, label %22
+  br i1 %21, label %.sink.split36, label %22
 
-.sink.split31:                                    ; preds = %20, %lv_group_get_focused.exit
-  %.sink32 = phi ptr [ %1, %lv_group_get_focused.exit ], [ %0, %20 ]
-  tail call void @lv_group_focus_obj(ptr noundef %.sink32)
+.sink.split36:                                    ; preds = %20, %lv_group_get_focused.exit
+  %.sink37 = phi ptr [ %1, %lv_group_get_focused.exit ], [ %0, %20 ]
+  tail call void @lv_group_focus_obj(ptr noundef %.sink37)
   br label %22
 
-22:                                               ; preds = %.sink.split31, %20, %2
+22:                                               ; preds = %.sink.split36, %20, %2
   ret void
 }
 

@@ -368,20 +368,20 @@ timelib_posix_str_dtor.exit54:                    ; preds = %112, %115
 121:                                              ; preds = %118
   %122 = load ptr, ptr %3, align 8, !tbaa !4
   %.not.i55 = icmp eq ptr %122, null
-  br i1 %.not.i55, label %.thread86, label %123
+  br i1 %.not.i55, label %.thread111, label %123
 
 123:                                              ; preds = %121
   tail call void @_efree(ptr noundef nonnull %122) #8
   %.pre82 = load ptr, ptr %103, align 8, !tbaa !13
   %.not12.i56 = icmp eq ptr %.pre82, null
-  br i1 %.not12.i56, label %125, label %.thread86
+  br i1 %.not12.i56, label %125, label %.thread111
 
-.thread86:                                        ; preds = %121, %123
+.thread111:                                       ; preds = %121, %123
   %124 = phi ptr [ %.pre82, %123 ], [ %.0.i45, %121 ]
   tail call void @_efree(ptr noundef nonnull %124) #8
   br label %125
 
-125:                                              ; preds = %.thread86, %123
+125:                                              ; preds = %.thread111, %123
   %126 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %127 = load ptr, ptr %126, align 8, !tbaa !14
   %.not13.i57 = icmp eq ptr %127, null
@@ -414,20 +414,20 @@ timelib_posix_str_dtor.exit59:                    ; preds = %129, %132
 136:                                              ; preds = %133
   %137 = load ptr, ptr %3, align 8, !tbaa !4
   %.not.i60 = icmp eq ptr %137, null
-  br i1 %.not.i60, label %.thread88, label %138
+  br i1 %.not.i60, label %.thread113, label %138
 
 138:                                              ; preds = %136
   tail call void @_efree(ptr noundef nonnull %137) #8
   %.pre81 = load ptr, ptr %103, align 8, !tbaa !13
   %.not12.i61 = icmp eq ptr %.pre81, null
-  br i1 %.not12.i61, label %140, label %.thread88
+  br i1 %.not12.i61, label %140, label %.thread113
 
-.thread88:                                        ; preds = %136, %138
+.thread113:                                       ; preds = %136, %138
   %139 = phi ptr [ %.pre81, %138 ], [ %.0.i45, %136 ]
   tail call void @_efree(ptr noundef nonnull %139) #8
   br label %140
 
-140:                                              ; preds = %.thread88, %138
+140:                                              ; preds = %.thread113, %138
   %141 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %142 = load ptr, ptr %141, align 8, !tbaa !14
   %.not13.i62 = icmp eq ptr %142, null
@@ -701,7 +701,7 @@ read_number.exit57:                               ; preds = %.preheader.i45, %.c
   br i1 %69, label %74, label %.thread
 
 .thread:                                          ; preds = %29, %read_number.exit57, %50
-  %.02187 = phi i64 [ %.012.i37, %read_number.exit57 ], [ %.012.i37, %50 ], [ 0, %29 ]
+  %.02196 = phi i64 [ %.012.i37, %read_number.exit57 ], [ %.012.i37, %50 ], [ 0, %29 ]
   %70 = phi ptr [ %67, %read_number.exit57 ], [ %47, %50 ], [ %25, %29 ]
   %.0 = phi i64 [ %.012.i50, %read_number.exit57 ], [ 0, %50 ], [ 0, %29 ]
   %71 = icmp eq ptr %7, %70
@@ -709,7 +709,7 @@ read_number.exit57:                               ; preds = %.preheader.i45, %.c
 
 72:                                               ; preds = %.thread
   %.neg = mul nsw i64 %.0.lcssa.i, 4294963696
-  %.neg28 = mul nsw i64 %.02187, 4294967236
+  %.neg28 = mul nsw i64 %.02196, 4294967236
   %.neg29 = add i64 %.neg28, %.neg
   %.neg30 = sub i64 %.neg29, %.0
   %sext = mul i64 %.0.i, %.neg30
@@ -1098,20 +1098,20 @@ define hidden void @timelib_get_transitions_for_year(ptr noundef readonly captur
   br label %47
 
 47:                                               ; preds = %44, %41
-  %.sink52 = phi i64 [ %40, %44 ], [ %43, %41 ]
-  %.sink50 = phi i64 [ %45, %44 ], [ %40, %41 ]
+  %.sink54 = phi i64 [ %40, %44 ], [ %43, %41 ]
+  %.sink52 = phi i64 [ %45, %44 ], [ %40, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 52
-  %51 = getelementptr inbounds nuw [6 x i64], ptr %39, i64 0, i64 %.sink52
+  %51 = getelementptr inbounds nuw [6 x i64], ptr %39, i64 0, i64 %.sink54
   store i64 %37, ptr %51, align 8, !tbaa !36
   %52 = load i32, ptr %50, align 4, !tbaa !37
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds nuw [6 x i64], ptr %49, i64 0, i64 %.sink50
+  %54 = getelementptr inbounds nuw [6 x i64], ptr %49, i64 0, i64 %.sink52
   store i64 %53, ptr %54, align 8, !tbaa !36
   %55 = load i32, ptr %48, align 8, !tbaa !38
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds nuw [6 x i64], ptr %49, i64 0, i64 %.sink52
+  %57 = getelementptr inbounds nuw [6 x i64], ptr %49, i64 0, i64 %.sink54
   store i64 %56, ptr %57, align 8, !tbaa !36
   %58 = add i64 %40, 2
   store i64 %58, ptr %2, align 8, !tbaa !34
@@ -1353,20 +1353,20 @@ define hidden ptr @timelib_fetch_posix_timezone_offset(ptr noundef readonly capt
   br label %timelib_get_transitions_for_year.exit
 
 timelib_get_transitions_for_year.exit:            ; preds = %65, %66
-  %.sink52.i = phi i64 [ 0, %66 ], [ 1, %65 ]
-  %.sink50.i = phi i64 [ 1, %66 ], [ 0, %65 ]
+  %.sink54.i = phi i64 [ 0, %66 ], [ 1, %65 ]
+  %.sink52.i = phi i64 [ 1, %66 ], [ 0, %65 ]
   %68 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %70 = getelementptr inbounds nuw i8, ptr %40, i64 52
-  %71 = getelementptr inbounds nuw [6 x i64], ptr %64, i64 0, i64 %.sink52.i
+  %71 = getelementptr inbounds nuw [6 x i64], ptr %64, i64 0, i64 %.sink54.i
   store i64 %62, ptr %71, align 8, !tbaa !36
   %72 = load i32, ptr %70, align 4, !tbaa !37
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [6 x i64], ptr %69, i64 0, i64 %.sink50.i
+  %74 = getelementptr inbounds nuw [6 x i64], ptr %69, i64 0, i64 %.sink52.i
   store i64 %73, ptr %74, align 8, !tbaa !36
   %75 = load i32, ptr %68, align 8, !tbaa !38
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds nuw [6 x i64], ptr %69, i64 0, i64 %.sink52.i
+  %77 = getelementptr inbounds nuw [6 x i64], ptr %69, i64 0, i64 %.sink54.i
   store i64 %76, ptr %77, align 8, !tbaa !36
   %78 = sdiv i64 %29, 4
   %.neg.i.i.i27 = sdiv i64 %29, -100
@@ -1390,15 +1390,15 @@ timelib_get_transitions_for_year.exit:            ; preds = %65, %66
   %..sroa.sel.v = select i1 %95, i64 24, i64 32
   %..sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %..sroa.sel.v
   store i64 %90, ptr %..sroa.sel, align 8, !tbaa !36
-  %.42.sroa.sel.v = select i1 %95, i64 32, i64 24
-  %.42.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.42.sroa.sel.v
-  store i64 %94, ptr %.42.sroa.sel, align 8, !tbaa !36
-  %.43.sroa.sel.v = select i1 %95, i64 72, i64 80
-  %.43.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.43.sroa.sel.v
-  store i64 %73, ptr %.43.sroa.sel, align 8, !tbaa !36
-  %.42.sroa.sel51.v = select i1 %95, i64 80, i64 72
-  %.42.sroa.sel51 = getelementptr inbounds nuw i8, ptr %5, i64 %.42.sroa.sel51.v
-  store i64 %76, ptr %.42.sroa.sel51, align 8, !tbaa !36
+  %.49.sroa.sel.v = select i1 %95, i64 32, i64 24
+  %.49.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.49.sroa.sel.v
+  store i64 %94, ptr %.49.sroa.sel, align 8, !tbaa !36
+  %.50.sroa.sel.v = select i1 %95, i64 72, i64 80
+  %.50.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.50.sroa.sel.v
+  store i64 %73, ptr %.50.sroa.sel, align 8, !tbaa !36
+  %.49.sroa.sel58.v = select i1 %95, i64 80, i64 72
+  %.49.sroa.sel58 = getelementptr inbounds nuw i8, ptr %5, i64 %.49.sroa.sel58.v
+  store i64 %76, ptr %.49.sroa.sel58, align 8, !tbaa !36
   %96 = add i64 %28, 1
   %97 = sdiv i64 %28, 4
   %.neg.i.i.i31 = sdiv i64 %28, -100
@@ -1418,18 +1418,18 @@ timelib_get_transitions_for_year.exit:            ; preds = %65, %66
   %111 = sub i64 %110, %61
   %112 = add i64 %111, %109
   %113 = icmp slt i64 %108, %112
-  %.sink41.sroa.sel.v = select i1 %113, i64 40, i64 48
-  %.sink41.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sink41.sroa.sel.v
-  store i64 %108, ptr %.sink41.sroa.sel, align 8, !tbaa !36
-  %.sink52.i32.sroa.sel.v = select i1 %113, i64 48, i64 40
-  %.sink52.i32.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sink52.i32.sroa.sel.v
-  store i64 %112, ptr %.sink52.i32.sroa.sel, align 8, !tbaa !36
-  %.sink50.i33.sroa.sel.v = select i1 %113, i64 88, i64 96
-  %.sink50.i33.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sink50.i33.sroa.sel.v
-  store i64 %73, ptr %.sink50.i33.sroa.sel, align 8, !tbaa !36
-  %.sink52.i32.sroa.sel56.v = select i1 %113, i64 96, i64 88
-  %.sink52.i32.sroa.sel56 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink52.i32.sroa.sel56.v
-  store i64 %76, ptr %.sink52.i32.sroa.sel56, align 8, !tbaa !36
+  %.sink48.sroa.sel.v = select i1 %113, i64 40, i64 48
+  %.sink48.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sink48.sroa.sel.v
+  store i64 %108, ptr %.sink48.sroa.sel, align 8, !tbaa !36
+  %.sink54.i32.sroa.sel.v = select i1 %113, i64 48, i64 40
+  %.sink54.i32.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sink54.i32.sroa.sel.v
+  store i64 %112, ptr %.sink54.i32.sroa.sel, align 8, !tbaa !36
+  %.sink52.i33.sroa.sel.v = select i1 %113, i64 88, i64 96
+  %.sink52.i33.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sink52.i33.sroa.sel.v
+  store i64 %73, ptr %.sink52.i33.sroa.sel, align 8, !tbaa !36
+  %.sink54.i32.sroa.sel63.v = select i1 %113, i64 96, i64 88
+  %.sink54.i32.sroa.sel63 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink54.i32.sroa.sel63.v
+  store i64 %76, ptr %.sink54.i32.sroa.sel63, align 8, !tbaa !36
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %timelib_get_transitions_for_year.exit, %126

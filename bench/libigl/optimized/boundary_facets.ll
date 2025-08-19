@@ -254,8 +254,8 @@ _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IliEERKT_RKT0_.exit: ; preds = %.si
   %68 = getelementptr i32, ptr %65, i64 %indvars.iv191
   %69 = getelementptr i32, ptr %68, i64 %15
   %70 = load i32, ptr %69, align 4, !tbaa !18
-  %.idx207 = shl i64 %indvars.iv191, 4
-  %71 = getelementptr i8, ptr %59, i64 %.idx207
+  %.idx215 = shl i64 %indvars.iv191, 4
+  %71 = getelementptr i8, ptr %59, i64 %.idx215
   %72 = getelementptr i32, ptr %71, i64 %66
   store i32 %70, ptr %72, align 4, !tbaa !18
   %73 = getelementptr i8, ptr %68, i64 %.idx175
@@ -301,8 +301,8 @@ _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IliEERKT_RKT0_.exit: ; preds = %.si
   %97 = getelementptr i32, ptr %62, i64 %indvars.iv
   %98 = getelementptr i32, ptr %97, i64 %15
   %99 = load i32, ptr %98, align 4, !tbaa !18
-  %.idx206 = mul i64 %indvars.iv, 12
-  %100 = getelementptr i8, ptr %59, i64 %.idx206
+  %.idx214 = mul i64 %indvars.iv, 12
+  %100 = getelementptr i8, ptr %59, i64 %.idx214
   store i32 %99, ptr %100, align 4, !tbaa !18
   %101 = getelementptr i8, ptr %97, i64 %.idx
   %102 = load i32, ptr %101, align 4, !tbaa !18
@@ -1165,8 +1165,8 @@ _ZN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEC2IliEERKT_RKT0_.exit: ; preds = %30
   %53 = getelementptr i32, ptr %47, i64 %indvars.iv183
   %54 = getelementptr i32, ptr %53, i64 %44
   %55 = load i32, ptr %54, align 4, !tbaa !18
-  %.idx194 = shl i64 %indvars.iv183, 4
-  %56 = getelementptr i8, ptr %48, i64 %.idx194
+  %.idx198 = shl i64 %indvars.iv183, 4
+  %56 = getelementptr i8, ptr %48, i64 %.idx198
   %57 = getelementptr i32, ptr %56, i64 %51
   store i32 %55, ptr %57, align 4, !tbaa !18
   %58 = getelementptr i8, ptr %53, i64 %.idx170
@@ -1212,8 +1212,8 @@ _ZN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEC2IliEERKT_RKT0_.exit: ; preds = %30
   %82 = getelementptr i32, ptr %40, i64 %indvars.iv
   %83 = getelementptr i32, ptr %82, i64 %37
   %84 = load i32, ptr %83, align 4, !tbaa !18
-  %.idx193 = mul i64 %indvars.iv, 12
-  %85 = getelementptr i8, ptr %41, i64 %.idx193
+  %.idx197 = mul i64 %indvars.iv, 12
+  %85 = getelementptr i8, ptr %41, i64 %.idx197
   store i32 %84, ptr %85, align 4, !tbaa !18
   %86 = getelementptr i8, ptr %82, i64 %.idx
   %87 = load i32, ptr %86, align 4, !tbaa !18

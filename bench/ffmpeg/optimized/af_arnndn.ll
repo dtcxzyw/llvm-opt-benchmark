@@ -539,30 +539,30 @@ define internal i32 @config_input(ptr noundef readonly captures(none) %0) #1 {
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 20472
   %53 = load ptr, ptr %52, align 8, !tbaa !75
   %.not63 = icmp eq ptr %53, null
-  br i1 %.not63, label %54, label %.thread95
+  br i1 %.not63, label %54, label %.thread97
 
 54:                                               ; preds = %.lr.ph86
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 20488
   %56 = call i32 @av_tx_init(ptr noundef nonnull %52, ptr noundef nonnull %55, i32 noundef 0, i32 noundef 0, i32 noundef 960, ptr noundef nonnull %2, i64 noundef 0) #11
   %57 = icmp slt i32 %56, 0
-  br i1 %57, label %.thread, label %.thread95
+  br i1 %57, label %.thread, label %.thread97
 
 .thread:                                          ; preds = %54
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
-.thread95:                                        ; preds = %.lr.ph86, %54
-  %.25097 = phi i32 [ %56, %54 ], [ %.04883, %.lr.ph86 ]
+.thread97:                                        ; preds = %.lr.ph86, %54
+  %.25099 = phi i32 [ %56, %54 ], [ %.04883, %.lr.ph86 ]
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 20480
   %59 = load ptr, ptr %58, align 16, !tbaa !78
   %.not64 = icmp eq ptr %59, null
   br i1 %.not64, label %60, label %.thread71
 
-.thread71:                                        ; preds = %.thread95
+.thread71:                                        ; preds = %.thread97
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.critedge67
 
-60:                                               ; preds = %.thread95
+60:                                               ; preds = %.thread97
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 20496
   %62 = call i32 @av_tx_init(ptr noundef nonnull %58, ptr noundef nonnull %61, i32 noundef 0, i32 noundef 1, i32 noundef 960, ptr noundef nonnull %2, i64 noundef 0) #11
   %63 = icmp sgt i32 %62, -1
@@ -570,7 +570,7 @@ define internal i32 @config_input(ptr noundef readonly captures(none) %0) #1 {
   br i1 %63, label %.critedge67, label %.loopexit
 
 .critedge67:                                      ; preds = %.thread71, %60
-  %.45275 = phi i32 [ %.25097, %.thread71 ], [ %62, %60 ]
+  %.45275 = phi i32 [ %.25099, %.thread71 ], [ %62, %60 ]
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %64 = load i32, ptr %9, align 4, !tbaa !32
   %65 = sext i32 %64 to i64
@@ -735,9 +735,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   %63 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %switch.selectcmp.i = icmp eq i32 %60, 2
   %switch.select.i = select i1 %switch.selectcmp.i, i32 2, i32 0
-  %switch.selectcmp1091.i = icmp eq i32 %60, 1
-  %switch.select1092.i = select i1 %switch.selectcmp1091.i, i32 1, i32 %switch.select.i
-  store i32 %switch.select1092.i, ptr %63, align 8, !tbaa !91
+  %switch.selectcmp1181.i = icmp eq i32 %60, 1
+  %switch.select1182.i = select i1 %switch.selectcmp1181.i, i32 1, i32 %switch.select.i
+  store i32 %switch.select1182.i, ptr %63, align 8, !tbaa !91
   br label %64
 
 64:                                               ; preds = %64, %62
@@ -894,11 +894,11 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 121:                                              ; preds = %114
   %122 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %switch.selectcmp1093.i = icmp eq i32 %119, 2
-  %switch.select1094.i = select i1 %switch.selectcmp1093.i, i32 2, i32 0
-  %switch.selectcmp1095.i = icmp eq i32 %119, 1
-  %switch.select1096.i = select i1 %switch.selectcmp1095.i, i32 1, i32 %switch.select1094.i
-  store i32 %switch.select1096.i, ptr %122, align 8, !tbaa !99
+  %switch.selectcmp1183.i = icmp eq i32 %119, 2
+  %switch.select1184.i = select i1 %switch.selectcmp1183.i, i32 2, i32 0
+  %switch.selectcmp1185.i = icmp eq i32 %119, 1
+  %switch.select1186.i = select i1 %switch.selectcmp1185.i, i32 1, i32 %switch.select1184.i
+  store i32 %switch.select1186.i, ptr %122, align 8, !tbaa !99
   br label %123
 
 123:                                              ; preds = %123, %121
@@ -1184,11 +1184,11 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 241:                                              ; preds = %234
   %242 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %switch.selectcmp1097.i = icmp eq i32 %239, 2
-  %switch.select1098.i = select i1 %switch.selectcmp1097.i, i32 2, i32 0
-  %switch.selectcmp1099.i = icmp eq i32 %239, 1
-  %switch.select1100.i = select i1 %switch.selectcmp1099.i, i32 1, i32 %switch.select1098.i
-  store i32 %switch.select1100.i, ptr %242, align 8, !tbaa !99
+  %switch.selectcmp1187.i = icmp eq i32 %239, 2
+  %switch.select1188.i = select i1 %switch.selectcmp1187.i, i32 2, i32 0
+  %switch.selectcmp1189.i = icmp eq i32 %239, 1
+  %switch.select1190.i = select i1 %switch.selectcmp1189.i, i32 1, i32 %switch.select1188.i
+  store i32 %switch.select1190.i, ptr %242, align 8, !tbaa !99
   br label %243
 
 243:                                              ; preds = %243, %241
@@ -1474,11 +1474,11 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 361:                                              ; preds = %354
   %362 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %switch.selectcmp1101.i = icmp eq i32 %359, 2
-  %switch.select1102.i = select i1 %switch.selectcmp1101.i, i32 2, i32 0
-  %switch.selectcmp1103.i = icmp eq i32 %359, 1
-  %switch.select1104.i = select i1 %switch.selectcmp1103.i, i32 1, i32 %switch.select1102.i
-  store i32 %switch.select1104.i, ptr %362, align 8, !tbaa !99
+  %switch.selectcmp1191.i = icmp eq i32 %359, 2
+  %switch.select1192.i = select i1 %switch.selectcmp1191.i, i32 2, i32 0
+  %switch.selectcmp1193.i = icmp eq i32 %359, 1
+  %switch.select1194.i = select i1 %switch.selectcmp1193.i, i32 1, i32 %switch.select1192.i
+  store i32 %switch.select1194.i, ptr %362, align 8, !tbaa !99
   br label %363
 
 363:                                              ; preds = %363, %361
@@ -1764,11 +1764,11 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 481:                                              ; preds = %474
   %482 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %switch.selectcmp1105.i = icmp eq i32 %479, 2
-  %switch.select1106.i = select i1 %switch.selectcmp1105.i, i32 2, i32 0
-  %switch.selectcmp1107.i = icmp eq i32 %479, 1
-  %switch.select1108.i = select i1 %switch.selectcmp1107.i, i32 1, i32 %switch.select1106.i
-  store i32 %switch.select1108.i, ptr %482, align 8, !tbaa !91
+  %switch.selectcmp1195.i = icmp eq i32 %479, 2
+  %switch.select1196.i = select i1 %switch.selectcmp1195.i, i32 2, i32 0
+  %switch.selectcmp1197.i = icmp eq i32 %479, 1
+  %switch.select1198.i = select i1 %switch.selectcmp1197.i, i32 1, i32 %switch.select1196.i
+  store i32 %switch.select1198.i, ptr %482, align 8, !tbaa !91
   br label %483
 
 483:                                              ; preds = %483, %481
@@ -1925,11 +1925,11 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 540:                                              ; preds = %533
   %541 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %switch.selectcmp1109.i = icmp eq i32 %538, 2
-  %switch.select1110.i = select i1 %switch.selectcmp1109.i, i32 2, i32 0
-  %switch.selectcmp1111.i = icmp eq i32 %538, 1
-  %switch.select1112.i = select i1 %switch.selectcmp1111.i, i32 1, i32 %switch.select1110.i
-  store i32 %switch.select1112.i, ptr %541, align 8, !tbaa !91
+  %switch.selectcmp1199.i = icmp eq i32 %538, 2
+  %switch.select1200.i = select i1 %switch.selectcmp1199.i, i32 2, i32 0
+  %switch.selectcmp1201.i = icmp eq i32 %538, 1
+  %switch.select1202.i = select i1 %switch.selectcmp1201.i, i32 1, i32 %switch.select1200.i
+  store i32 %switch.select1202.i, ptr %541, align 8, !tbaa !91
   br label %542
 
 542:                                              ; preds = %542, %540
@@ -2666,7 +2666,7 @@ celt_lpc.exit.i.i.i.preheader:                    ; preds = %._crit_edge60.i.i.i
   br label %.preheader54.i.i.i.i
 
 .preheader54.i.i.i.i:                             ; preds = %._crit_edge60.i.i.i.i, %.preheader54.i.preheader.i.i.i
-  %indvars.iv66.i.i.i.i = phi i64 [ %indvars.iv.next6772.i.i.i.i, %._crit_edge60.i.i.i.i ], [ 0, %.preheader54.i.preheader.i.i.i ]
+  %indvars.iv66.i.i.i.i = phi i64 [ %indvars.iv.next6773.i.i.i.i, %._crit_edge60.i.i.i.i ], [ 0, %.preheader54.i.preheader.i.i.i ]
   %.0.i.i.i.i = phi nsz float [ %260, %._crit_edge60.i.i.i.i ], [ %225, %.preheader54.i.preheader.i.i.i ]
   switch i64 %indvars.iv66.i.i.i.i, label %.lr.ph.i54.i.i.i [
     i64 4, label %celt_lpc.exit.i.i.i.preheader
@@ -2707,7 +2707,7 @@ celt_lpc.exit.i.i.i.preheader:                    ; preds = %._crit_edge60.i.i.i
 
 ._crit_edge60.i.i.i.i:                            ; preds = %.lr.ph59.i.i.i.i, %._crit_edge.thread.i.i.i.i
   %257 = phi float [ %242, %._crit_edge.thread.i.i.i.i ], [ %247, %.lr.ph59.i.i.i.i ]
-  %indvars.iv.next6772.i.i.i.i = phi i64 [ 1, %._crit_edge.thread.i.i.i.i ], [ %indvars.iv.next67.i.i.i.i, %.lr.ph59.i.i.i.i ]
+  %indvars.iv.next6773.i.i.i.i = phi i64 [ 1, %._crit_edge.thread.i.i.i.i ], [ %indvars.iv.next67.i.i.i.i, %.lr.ph59.i.i.i.i ]
   %258 = fneg nsz float %257
   %259 = fmul nsz float %257, %258
   %260 = call nsz float @llvm.fmuladd.f32(float %259, float %.0.i.i.i.i, float %.0.i.i.i.i)
@@ -2977,8 +2977,8 @@ find_best_pitch.exit.preheader.i.i.i:             ; preds = %381
 
 .preheader91.i.i.i:                               ; preds = %300, %.preheader91.i.i.i
   %indvars.iv110.i.i.i = phi i64 [ %indvars.iv.next111.i.i.i, %.preheader91.i.i.i ], [ 0, %300 ]
-  %.idx118.i.i.i = shl nuw nsw i64 %indvars.iv110.i.i.i, 3
-  %394 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx118.i.i.i
+  %.idx120.i.i.i = shl nuw nsw i64 %indvars.iv110.i.i.i, 3
+  %394 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx120.i.i.i
   %395 = load float, ptr %394, align 8, !tbaa !25
   %396 = getelementptr inbounds nuw [960 x float], ptr %23, i64 0, i64 %indvars.iv110.i.i.i
   store float %395, ptr %396, align 4, !tbaa !25
@@ -3319,7 +3319,7 @@ dual_inner_prod.exit172.i.i.i:                    ; preds = %530
   %.0140.lcssa.i.i.i = phi float [ %.0140200.i.i.i, %506 ], [ %.2142.ph.i.i.i, %576 ]
   %.0133.lcssa.i.i.i = phi float [ %.0133201.i.i.i, %506 ], [ %.2135.ph.i.i.i, %576 ]
   %.0132.lcssa.i.i.i = phi float [ %.0132202.i.i.i, %506 ], [ %.2.ph.i.i.i, %576 ]
-  %578 = add i32 %.0144.lcssa.i.i.i, -1
+  %578 = add nsw i32 %.0144.lcssa.i.i.i, -1
   br label %579
 
 579:                                              ; preds = %celt_inner_prod.exit.i224.i.i, %577

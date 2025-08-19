@@ -2484,7 +2484,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI14InterfaceEntr
   br i1 %.not, label %_ZN13GrowableArrayI14InterfaceEntryE10deallocateEPS0_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 1
@@ -2496,8 +2496,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI14InterfaceEntr
   br label %_ZN13GrowableArrayI14InterfaceEntryE10deallocateEPS0_.exit
 
 _ZN13GrowableArrayI14InterfaceEntryE10deallocateEPS0_.exit: ; preds = %30, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %30 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %30 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %31
 
 31:                                               ; preds = %1, %_ZN13GrowableArrayI14InterfaceEntryE10deallocateEPS0_.exit

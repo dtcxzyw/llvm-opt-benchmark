@@ -1452,7 +1452,7 @@ thread-pre-split:                                 ; preds = %59
   br label %150
 
 150:                                              ; preds = %146, %139
-  switch i32 %144, label %.thread23 [
+  switch i32 %144, label %.thread37 [
     i32 30, label %153
     i32 36, label %151
     i32 48, label %152
@@ -1472,7 +1472,7 @@ thread-pre-split:                                 ; preds = %59
   %158 = add nuw nsw i32 %154, 65535
   %159 = and i32 %158, %157
   %160 = icmp eq i32 %159, 0
-  br i1 %160, label %161, label %.thread23
+  br i1 %160, label %161, label %.thread37
 
 161:                                              ; preds = %153
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 650
@@ -1480,7 +1480,7 @@ thread-pre-split:                                 ; preds = %59
   %164 = zext i16 %163 to i32
   %165 = and i32 %158, %164
   %166 = icmp eq i32 %165, 0
-  br i1 %166, label %167, label %.thread23
+  br i1 %166, label %167, label %.thread37
 
 167:                                              ; preds = %161
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 642
@@ -1488,7 +1488,7 @@ thread-pre-split:                                 ; preds = %59
   %170 = zext i16 %169 to i32
   %171 = and i32 %158, %170
   %172 = icmp eq i32 %171, 0
-  br i1 %172, label %173, label %.thread23
+  br i1 %172, label %173, label %.thread37
 
 173:                                              ; preds = %167
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 644
@@ -1496,7 +1496,7 @@ thread-pre-split:                                 ; preds = %59
   %176 = zext i16 %175 to i32
   %177 = and i32 %158, %176
   %178 = icmp eq i32 %177, 0
-  br i1 %178, label %179, label %.thread23
+  br i1 %178, label %179, label %.thread37
 
 179:                                              ; preds = %173
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 646
@@ -1504,7 +1504,7 @@ thread-pre-split:                                 ; preds = %59
   %182 = zext i16 %181 to i32
   %183 = and i32 %158, %182
   %184 = icmp eq i32 %183, 0
-  br i1 %184, label %185, label %.thread23
+  br i1 %184, label %185, label %.thread37
 
 185:                                              ; preds = %179
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 648
@@ -1512,7 +1512,7 @@ thread-pre-split:                                 ; preds = %59
   %188 = zext i16 %187 to i32
   %189 = and i32 %158, %188
   %190 = icmp eq i32 %189, 0
-  br i1 %190, label %191, label %.thread23
+  br i1 %190, label %191, label %.thread37
 
 191:                                              ; preds = %185
   %192 = load i32, ptr %6, align 8
@@ -1525,19 +1525,19 @@ thread-pre-split:                                 ; preds = %59
   %197 = add nsw i32 %154, -1
   %198 = and i32 %196, %197
   %199 = icmp eq i32 %198, 0
-  br i1 %199, label %200, label %.thread23
+  br i1 %199, label %200, label %.thread37
 
 200:                                              ; preds = %195, %191
   %201 = getelementptr inbounds nuw i8, ptr %1, i64 4344
   %202 = load i32, ptr %201, align 4
   %203 = or i32 %202, 2
   store i32 %203, ptr %201, align 4
-  br label %.thread23
+  br label %.thread37
 
 204:                                              ; preds = %129
-  br i1 %137, label %.thread21, label %.thread23
+  br i1 %137, label %.thread21, label %.thread37
 
-.thread23:                                        ; preds = %150, %153, %161, %167, %173, %179, %185, %195, %200, %204
+.thread37:                                        ; preds = %150, %153, %161, %167, %173, %179, %185, %195, %200, %204
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 4348
   %206 = load ptr, ptr %2, align 8
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 861
@@ -1549,7 +1549,7 @@ thread-pre-split:                                 ; preds = %59
   %212 = icmp eq i32 %211, 0
   br i1 %212, label %213, label %266
 
-213:                                              ; preds = %.thread23
+213:                                              ; preds = %.thread37
   %214 = load i32, ptr %18, align 8
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 4356
   %216 = icmp eq i32 %214, 2
@@ -1650,7 +1650,7 @@ thread-pre-split:                                 ; preds = %59
   tail call void asm sideeffect "960: nop\0A\09.pushsection .discard.instr_end\0A\09.long 960b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 960) #15, !srcloc !53
   br label %266
 
-266:                                              ; preds = %264, %.thread23
+266:                                              ; preds = %264, %.thread37
   %267 = icmp eq ptr %4, null
   br i1 %267, label %271, label %268
 

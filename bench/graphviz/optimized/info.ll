@@ -207,7 +207,7 @@ select.unfold:                                    ; preds = %select.unfold29, %7
 94:                                               ; preds = %.thread, %89
   %95 = phi i64 [ 16, %.thread ], [ %91, %89 ]
   %96 = phi i64 [ 0, %.thread ], [ %90, %89 ]
-  %.025.lcssa177180 = phi i64 [ 0, %.thread ], [ %.025.lcssa, %89 ]
+  %.025.lcssa198201 = phi i64 [ 0, %.thread ], [ %.025.lcssa, %89 ]
   %97 = phi ptr [ %10, %.thread ], [ %83, %89 ]
   %98 = tail call ptr @realloc(ptr noundef %.pre, i64 noundef range(i64 0, -15) %95) #11
   %99 = icmp eq ptr %98, null
@@ -229,14 +229,14 @@ select.unfold:                                    ; preds = %select.unfold29, %7
   br label %gv_recalloc.exit
 
 gv_recalloc.exit:                                 ; preds = %93, %103, %105
-  %.025.lcssa177179 = phi i64 [ %.025.lcssa, %93 ], [ %.025.lcssa177180, %105 ], [ %.025.lcssa177180, %103 ]
+  %.025.lcssa198200 = phi i64 [ %.025.lcssa, %93 ], [ %.025.lcssa198201, %105 ], [ %.025.lcssa198201, %103 ]
   %107 = phi ptr [ %83, %93 ], [ %97, %105 ], [ %97, %103 ]
   %.0.i.i = phi ptr [ null, %93 ], [ %98, %105 ], [ %98, %103 ]
   store ptr %.0.i.i, ptr %107, align 8, !tbaa !20
-  %108 = getelementptr %struct.pointf_s, ptr %.0.i.i, i64 %.025.lcssa177179
+  %108 = getelementptr %struct.pointf_s, ptr %.0.i.i, i64 %.025.lcssa198200
   %109 = getelementptr i8, ptr %108, i64 16
   %110 = load i64, ptr %8, align 8, !tbaa !14
-  %111 = sub i64 %110, %.025.lcssa177179
+  %111 = sub i64 %110, %.025.lcssa198200
   %112 = shl i64 %111, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %109, ptr align 8 %108, i64 %112, i1 false)
   store double %1, ptr %108, align 8, !tbaa !3

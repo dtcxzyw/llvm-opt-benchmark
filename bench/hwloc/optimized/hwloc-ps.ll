@@ -230,13 +230,13 @@ sub_1146:                                         ; preds = %.tail, %sub_1
 
 .tail144.thread.thread:                           ; preds = %sub_0
   %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(10) @.str.26) #17
-  %.not113299 = icmp eq i32 %32, 0
-  br i1 %.not113299, label %34, label %.tail149.thread
+  %.not113307 = icmp eq i32 %32, 0
+  br i1 %.not113307, label %34, label %.tail149.thread
 
 .thread:                                          ; preds = %.tail144
   %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(10) @.str.26) #17
-  %.not113285 = icmp eq i32 %33, 0
-  br i1 %.not113285, label %34, label %sub_1151
+  %.not113293 = icmp eq i32 %33, 0
+  br i1 %.not113293, label %34, label %sub_1151
 
 34:                                               ; preds = %.tail144.thread.thread, %.thread, %.tail144.thread, %.tail144
   store i1 false, ptr @logical, align 4
@@ -252,7 +252,7 @@ sub_1151:                                         ; preds = %.tail144.thread, %.
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 0
-  br i1 %39, label %43, label %.thread287
+  br i1 %39, label %43, label %.thread295
 
 .tail149.thread:                                  ; preds = %.tail144.thread.thread
   %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(11) @.str.28) #17
@@ -261,19 +261,19 @@ sub_1151:                                         ; preds = %.tail144.thread, %.
 
 .tail149.thread.thread:                           ; preds = %sub_1151
   %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(11) @.str.28) #17
-  %.not115301 = icmp eq i32 %41, 0
-  br i1 %.not115301, label %43, label %sub_1156
+  %.not115309 = icmp eq i32 %41, 0
+  br i1 %.not115309, label %43, label %sub_1156
 
-.thread287:                                       ; preds = %.tail149
+.thread295:                                       ; preds = %.tail149
   %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(11) @.str.28) #17
-  %.not115288 = icmp eq i32 %42, 0
-  br i1 %.not115288, label %43, label %sub_1156
+  %.not115296 = icmp eq i32 %42, 0
+  br i1 %.not115296, label %43, label %sub_1156
 
-43:                                               ; preds = %.tail149.thread.thread, %.thread287, %.tail149.thread, %.tail149
+43:                                               ; preds = %.tail149.thread.thread, %.thread295, %.tail149.thread, %.tail149
   store i1 true, ptr @logical, align 4
   br label %hwloc_utils_check_api_version.exit
 
-sub_1156:                                         ; preds = %.tail149.thread.thread, %.thread287
+sub_1156:                                         ; preds = %.tail149.thread.thread, %.thread295
   %44 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %45 = load i8, ptr %44, align 1
   %.not250 = icmp eq i8 %45, 99
@@ -283,7 +283,7 @@ sub_1156:                                         ; preds = %.tail149.thread.thr
   %46 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 0
-  br i1 %48, label %52, label %.thread290
+  br i1 %48, label %52, label %.thread298
 
 .tail154.thread:                                  ; preds = %sub_1156
   %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(9) @.str.30) #17
@@ -292,19 +292,19 @@ sub_1156:                                         ; preds = %.tail149.thread.thr
 
 .tail154.thread.thread:                           ; preds = %.tail149.thread
   %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(9) @.str.30) #17
-  %.not117303 = icmp eq i32 %50, 0
-  br i1 %.not117303, label %52, label %.tail159.thread
+  %.not117311 = icmp eq i32 %50, 0
+  br i1 %.not117311, label %52, label %.tail159.thread
 
-.thread290:                                       ; preds = %.tail154
+.thread298:                                       ; preds = %.tail154
   %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(9) @.str.30) #17
-  %.not117291 = icmp eq i32 %51, 0
-  br i1 %.not117291, label %52, label %sub_1161
+  %.not117299 = icmp eq i32 %51, 0
+  br i1 %.not117299, label %52, label %sub_1161
 
-52:                                               ; preds = %.tail154.thread.thread, %.thread290, %.tail154.thread, %.tail154
+52:                                               ; preds = %.tail154.thread.thread, %.thread298, %.tail154.thread, %.tail154
   store i1 true, ptr @show_cpuset, align 4
   br label %hwloc_utils_check_api_version.exit
 
-sub_1161:                                         ; preds = %.tail154.thread, %.thread290
+sub_1161:                                         ; preds = %.tail154.thread, %.thread298
   %53 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %54 = load i8, ptr %53, align 1
   %.not252 = icmp eq i8 %54, 101
@@ -314,7 +314,7 @@ sub_1161:                                         ; preds = %.tail154.thread, %.
   %55 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, 0
-  br i1 %57, label %hwloc_utils_check_api_version.exit, label %.thread293
+  br i1 %57, label %hwloc_utils_check_api_version.exit, label %.thread301
 
 .tail159.thread:                                  ; preds = %.tail154.thread.thread
   %58 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(24) @.str.32, i64 noundef 10) #17
@@ -323,18 +323,18 @@ sub_1161:                                         ; preds = %.tail154.thread, %.
 
 .tail159.thread.thread:                           ; preds = %sub_1161
   %59 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(24) @.str.32, i64 noundef 10) #17
-  %.not119305 = icmp eq i32 %59, 0
-  br i1 %.not119305, label %hwloc_utils_check_api_version.exit, label %sub_1166
+  %.not119313 = icmp eq i32 %59, 0
+  br i1 %.not119313, label %hwloc_utils_check_api_version.exit, label %sub_1166
 
-.thread293:                                       ; preds = %.tail159
+.thread301:                                       ; preds = %.tail159
   %60 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(24) @.str.32, i64 noundef 10) #17
-  %.not119294 = icmp eq i32 %60, 0
-  br i1 %.not119294, label %hwloc_utils_check_api_version.exit, label %sub_1166
+  %.not119302 = icmp eq i32 %60, 0
+  br i1 %.not119302, label %hwloc_utils_check_api_version.exit, label %sub_1166
 
 sub_0165:                                         ; preds = %.tail159.thread
   br i1 %.not243, label %sub_1166, label %.tail164.thread
 
-sub_1166:                                         ; preds = %.tail159.thread.thread, %.thread293, %sub_0165
+sub_1166:                                         ; preds = %.tail159.thread.thread, %.thread301, %sub_0165
   %61 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %62 = load i8, ptr %61, align 1
   %.not254 = icmp eq i8 %62, 116
@@ -656,12 +656,12 @@ sub_1180:                                         ; preds = %sub_0179
   tail call void @exit(i32 noundef 1) #19
   unreachable
 
-hwloc_utils_check_api_version.exit:               ; preds = %.tail159.thread.thread, %.thread293, %142, %114, %116, %.tail159, %.tail159.thread, %34, %52, %67, %77, %97, %160, %176, %171, %153, %124, %113, %87, %70, %43, %25
-  %.193 = phi i64 [ %.092236, %176 ], [ %.092236, %171 ], [ %.092236, %160 ], [ %.092236, %153 ], [ %.092236, %124 ], [ %.092236, %113 ], [ %.092236, %97 ], [ %.092236, %87 ], [ %.092236, %77 ], [ %.092236, %70 ], [ %.092236, %67 ], [ %.092236, %52 ], [ %.092236, %43 ], [ %.092236, %34 ], [ %.092236, %25 ], [ %.092236, %.tail159.thread ], [ %.092236, %.tail159 ], [ 1, %116 ], [ 1, %114 ], [ %.092236, %142 ], [ %.092236, %.thread293 ], [ %.092236, %.tail159.thread.thread ]
-  %.191 = phi i64 [ %177, %176 ], [ %.090237, %171 ], [ %.090237, %160 ], [ %.090237, %153 ], [ %.090237, %124 ], [ %.090237, %113 ], [ %.090237, %97 ], [ %.090237, %87 ], [ %.090237, %77 ], [ %.090237, %70 ], [ %.090237, %67 ], [ %.090237, %52 ], [ %.090237, %43 ], [ %.090237, %34 ], [ %.090237, %25 ], [ %.090237, %.tail159.thread ], [ %.090237, %.tail159 ], [ %.090237, %116 ], [ %.090237, %114 ], [ %.090237, %142 ], [ %.090237, %.thread293 ], [ %.090237, %.tail159.thread.thread ]
-  %.189 = phi i32 [ %.088238, %176 ], [ %.088238, %171 ], [ %.088238, %160 ], [ %.088238, %153 ], [ %.088238, %124 ], [ %.088238, %113 ], [ %.088238, %97 ], [ %.088238, %87 ], [ %.088238, %77 ], [ %.088238, %70 ], [ %.088238, %67 ], [ %.088238, %52 ], [ %.088238, %43 ], [ %.088238, %34 ], [ %.088238, %25 ], [ 1, %.tail159.thread ], [ 1, %.tail159 ], [ %.088238, %116 ], [ %.088238, %114 ], [ %.088238, %142 ], [ 1, %.thread293 ], [ 1, %.tail159.thread.thread ]
-  %.187 = phi ptr [ %.086239, %176 ], [ %.086239, %171 ], [ %.086239, %160 ], [ %.086239, %153 ], [ %126, %124 ], [ %.086239, %113 ], [ %.086239, %97 ], [ %.086239, %87 ], [ %.086239, %77 ], [ %.086239, %70 ], [ %.086239, %67 ], [ %.086239, %52 ], [ %.086239, %43 ], [ %.086239, %34 ], [ %.086239, %25 ], [ %.086239, %.tail159.thread ], [ %.086239, %.tail159 ], [ %.086239, %116 ], [ %.086239, %114 ], [ %.086239, %142 ], [ %.086239, %.thread293 ], [ %.086239, %.tail159.thread.thread ]
-  %.0 = phi i32 [ 1, %176 ], [ 1, %171 ], [ 2, %160 ], [ 1, %153 ], [ 2, %124 ], [ 2, %113 ], [ 2, %97 ], [ 2, %87 ], [ 2, %77 ], [ 1, %70 ], [ 1, %67 ], [ 1, %52 ], [ 1, %43 ], [ 1, %34 ], [ 1, %25 ], [ 1, %.tail159.thread ], [ 1, %.tail159 ], [ 1, %116 ], [ 1, %114 ], [ 2, %142 ], [ 1, %.thread293 ], [ 1, %.tail159.thread.thread ]
+hwloc_utils_check_api_version.exit:               ; preds = %.tail159.thread.thread, %.thread301, %142, %114, %116, %.tail159, %.tail159.thread, %34, %52, %67, %77, %97, %160, %176, %171, %153, %124, %113, %87, %70, %43, %25
+  %.193 = phi i64 [ %.092236, %176 ], [ %.092236, %171 ], [ %.092236, %160 ], [ %.092236, %153 ], [ %.092236, %124 ], [ %.092236, %113 ], [ %.092236, %97 ], [ %.092236, %87 ], [ %.092236, %77 ], [ %.092236, %70 ], [ %.092236, %67 ], [ %.092236, %52 ], [ %.092236, %43 ], [ %.092236, %34 ], [ %.092236, %25 ], [ %.092236, %.tail159.thread ], [ %.092236, %.tail159 ], [ 1, %116 ], [ 1, %114 ], [ %.092236, %142 ], [ %.092236, %.thread301 ], [ %.092236, %.tail159.thread.thread ]
+  %.191 = phi i64 [ %177, %176 ], [ %.090237, %171 ], [ %.090237, %160 ], [ %.090237, %153 ], [ %.090237, %124 ], [ %.090237, %113 ], [ %.090237, %97 ], [ %.090237, %87 ], [ %.090237, %77 ], [ %.090237, %70 ], [ %.090237, %67 ], [ %.090237, %52 ], [ %.090237, %43 ], [ %.090237, %34 ], [ %.090237, %25 ], [ %.090237, %.tail159.thread ], [ %.090237, %.tail159 ], [ %.090237, %116 ], [ %.090237, %114 ], [ %.090237, %142 ], [ %.090237, %.thread301 ], [ %.090237, %.tail159.thread.thread ]
+  %.189 = phi i32 [ %.088238, %176 ], [ %.088238, %171 ], [ %.088238, %160 ], [ %.088238, %153 ], [ %.088238, %124 ], [ %.088238, %113 ], [ %.088238, %97 ], [ %.088238, %87 ], [ %.088238, %77 ], [ %.088238, %70 ], [ %.088238, %67 ], [ %.088238, %52 ], [ %.088238, %43 ], [ %.088238, %34 ], [ %.088238, %25 ], [ 1, %.tail159.thread ], [ 1, %.tail159 ], [ %.088238, %116 ], [ %.088238, %114 ], [ %.088238, %142 ], [ 1, %.thread301 ], [ 1, %.tail159.thread.thread ]
+  %.187 = phi ptr [ %.086239, %176 ], [ %.086239, %171 ], [ %.086239, %160 ], [ %.086239, %153 ], [ %126, %124 ], [ %.086239, %113 ], [ %.086239, %97 ], [ %.086239, %87 ], [ %.086239, %77 ], [ %.086239, %70 ], [ %.086239, %67 ], [ %.086239, %52 ], [ %.086239, %43 ], [ %.086239, %34 ], [ %.086239, %25 ], [ %.086239, %.tail159.thread ], [ %.086239, %.tail159 ], [ %.086239, %116 ], [ %.086239, %114 ], [ %.086239, %142 ], [ %.086239, %.thread301 ], [ %.086239, %.tail159.thread.thread ]
+  %.0 = phi i32 [ 1, %176 ], [ 1, %171 ], [ 2, %160 ], [ 1, %153 ], [ 2, %124 ], [ 2, %113 ], [ 2, %97 ], [ 2, %87 ], [ 2, %77 ], [ 1, %70 ], [ 1, %67 ], [ 1, %52 ], [ 1, %43 ], [ 1, %34 ], [ 1, %25 ], [ 1, %.tail159.thread ], [ 1, %.tail159 ], [ 1, %116 ], [ 1, %114 ], [ 2, %142 ], [ 1, %.thread301 ], [ 1, %.tail159.thread.thread ]
   %194 = sub nsw i32 %.094234, %.0
   %195 = zext nneg i32 %.0 to i64
   %196 = getelementptr inbounds nuw ptr, ptr %.095232, i64 %195
@@ -856,9 +856,9 @@ hwloc_utils_check_api_version.exit._crit_edge:    ; preds = %hwloc_utils_check_a
   br label %.outer.split.split.split.split.split.split.split.split.i
 
 .outer.backedge.i:                                ; preds = %.outer.split.split.i, %.outer.split.i
-  %.sink85.i = phi i64 [ 2, %.outer.split.i ], [ 1, %.outer.split.split.i ]
+  %.sink89.i = phi i64 [ 2, %.outer.split.i ], [ 1, %.outer.split.split.i ]
   %.sink.i = phi i64 [ 16, %.outer.split.i ], [ 8, %.outer.split.split.i ]
-  %270 = or i64 %.sink85.i, %.0.ph77.i
+  %270 = or i64 %.sink89.i, %.0.ph77.i
   %271 = getelementptr inbounds nuw i8, ptr %.040.ph76.i, i64 %.sink.i
   %272 = load i8, ptr %271, align 1, !tbaa !34
   %.not49.i = icmp eq i8 %272, 0
@@ -887,9 +887,9 @@ hwloc_utils_check_api_version.exit._crit_edge:    ; preds = %hwloc_utils_check_a
   br label %.loopexit.sink.split.i
 
 .loopexit.sink.split.i:                           ; preds = %282, %278, %273, %.outer.split.split.split.split.i, %.outer.split.split.split.i
-  %.sink86.i = phi i1 [ true, %273 ], [ true, %278 ], [ true, %282 ], [ true, %.outer.split.split.split.i ], [ false, %.outer.split.split.split.split.i ]
+  %.sink90.i = phi i1 [ true, %273 ], [ true, %278 ], [ true, %282 ], [ true, %.outer.split.split.split.i ], [ false, %.outer.split.split.split.split.i ]
   %.1.ph.i = phi i64 [ %277, %273 ], [ %.0.ph77.i, %278 ], [ %.0.ph77.i, %282 ], [ %.0.ph77.i, %.outer.split.split.split.i ], [ %.0.ph77.i, %.outer.split.split.split.split.i ]
-  store i1 %.sink86.i, ptr @show_all, align 4
+  store i1 %.sink90.i, ptr @show_all, align 4
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.outer.backedge.i, %.loopexit.sink.split.i, %261

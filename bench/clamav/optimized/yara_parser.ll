@@ -333,19 +333,19 @@ define range(i32 -2147483648, 2147483647) i32 @yr_parser_lookup_loop_variable(pt
 11:                                               ; preds = %8
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %10) #7
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %._crit_edge.loopexit.split.loop.exit16, label %14
+  br i1 %13, label %._crit_edge.loopexit.split.loop.exit17, label %14
 
 14:                                               ; preds = %8, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %8
 
-._crit_edge.loopexit.split.loop.exit16:           ; preds = %11
+._crit_edge.loopexit.split.loop.exit17:           ; preds = %11
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %14, %._crit_edge.loopexit.split.loop.exit16, %2
-  %.010 = phi i32 [ -1, %2 ], [ %15, %._crit_edge.loopexit.split.loop.exit16 ], [ -1, %14 ]
+._crit_edge:                                      ; preds = %14, %._crit_edge.loopexit.split.loop.exit17, %2
+  %.010 = phi i32 [ -1, %2 ], [ %15, %._crit_edge.loopexit.split.loop.exit17 ], [ -1, %14 ]
   ret i32 %.010
 }
 
@@ -414,11 +414,11 @@ sub_0:
   %.fr = freeze i8 %12
   %13 = icmp eq i8 %.fr, 0
   %14 = or i32 %spec.select, 256
-  %spec.select36 = select i1 %13, i32 %14, i32 %spec.select
+  %spec.select39 = select i1 %13, i32 %14, i32 %spec.select
   br label %.tail.thread
 
 .tail.thread:                                     ; preds = %.tail, %sub_0
-  %15 = phi i32 [ %spec.select, %sub_0 ], [ %spec.select36, %.tail ]
+  %15 = phi i32 [ %spec.select, %sub_0 ], [ %spec.select39, %.tail ]
   %16 = lshr i32 %15, 1
   %17 = and i32 %16, 8
   %18 = xor i32 %17, 8

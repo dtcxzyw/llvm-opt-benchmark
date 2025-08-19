@@ -3839,8 +3839,8 @@ define internal ptr @_multibytecodec_MultibyteIncrementalDecoder_decode(ptr noun
   %.pre11.i = load ptr, ptr %5, align 8, !tbaa !56
   %.pre13.i = load ptr, ptr %54, align 8, !tbaa !57
   %78 = icmp ult ptr %.pre11.i, %.pre13.i
-  %or.cond14.i = select i1 %.not49.i, i1 %78, i1 false
-  br i1 %or.cond14.i, label %79, label %85
+  %or.cond28.i = select i1 %.not49.i, i1 %78, i1 false
+  br i1 %or.cond28.i, label %79, label %85
 
 79:                                               ; preds = %77
   %80 = load ptr, ptr %58, align 8, !tbaa !83
@@ -4818,8 +4818,8 @@ decoder_feed_buffer.exit.thread:                  ; preds = %decoder_feed_buffer
   %.pre153 = phi ptr [ %.pre153.pre, %decoder_feed_buffer.exit.thread.loopexit ], [ %65, %64 ]
   %or.cond = or i1 %21, %40
   %85 = icmp ult ptr %.pre153, %.pre155
-  %or.cond172 = select i1 %or.cond, i1 %85, i1 false
-  br i1 %or.cond172, label %86, label %90
+  %or.cond190 = select i1 %or.cond, i1 %85, i1 false
+  br i1 %or.cond190, label %86, label %90
 
 86:                                               ; preds = %decoder_feed_buffer.exit.thread
   %87 = load ptr, ptr %17, align 8, !tbaa !91

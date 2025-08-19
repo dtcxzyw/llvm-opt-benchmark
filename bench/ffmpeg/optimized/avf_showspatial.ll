@@ -752,7 +752,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
 
 .lr.ph411.i:                                      ; preds = %.preheader377.i
   %79 = add nsw i32 %55, -1
-  %.neg552558.i = lshr i32 %79, 1
+  %.neg560566.i = lshr i32 %79, 1
   %80 = uitofp nneg i32 %79 to double
   %81 = fmul nsz double %80, 4.000000e-01
   %82 = fmul nsz double %81, 5.000000e-01
@@ -1159,7 +1159,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
 305:                                              ; preds = %305, %.lr.ph411.i
   %indvars.iv481.i = phi i64 [ 0, %.lr.ph411.i ], [ %indvars.iv.next482.i, %305 ]
   %306 = trunc nuw nsw i64 %indvars.iv481.i to i32
-  %307 = sub i32 %306, %.neg552558.i
+  %307 = sub i32 %306, %.neg560566.i
   %308 = sitofp i32 %307 to double
   %309 = fdiv nsz double %308, %82
   %310 = fmul nsz double %309, %309
@@ -1364,9 +1364,9 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   br label %436
 
 436:                                              ; preds = %429, %426, %418, %410, %402
-  %.sink553.i = phi float [ %414, %410 ], [ %435, %429 ], [ %425, %418 ], [ %406, %402 ], [ 0.000000e+00, %426 ]
+  %.sink561.i = phi float [ %414, %410 ], [ %435, %429 ], [ %425, %418 ], [ %406, %402 ], [ 0.000000e+00, %426 ]
   %437 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv463.i
-  store float %.sink553.i, ptr %437, align 4, !tbaa !74
+  store float %.sink561.i, ptr %437, align 4, !tbaa !74
   %indvars.iv.next464.i = add nuw nsw i64 %indvars.iv463.i, 1
   %exitcond467.not.i = icmp eq i64 %indvars.iv.next464.i, %wide.trip.count466.i
   br i1 %exitcond467.not.i, label %generate_window_func.exit, label %394, !llvm.loop !96
@@ -1402,9 +1402,9 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   br label %457
 
 457:                                              ; preds = %453, %450, %446
-  %.sink555.i = phi float [ %456, %453 ], [ %449, %446 ], [ 0.000000e+00, %450 ]
+  %.sink563.i = phi float [ %456, %453 ], [ %449, %446 ], [ 0.000000e+00, %450 ]
   %458 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv458.i
-  store float %.sink555.i, ptr %458, align 4, !tbaa !74
+  store float %.sink563.i, ptr %458, align 4, !tbaa !74
   %indvars.iv.next459.i = add nuw nsw i64 %indvars.iv458.i, 1
   %exitcond462.not.i = icmp eq i64 %indvars.iv.next459.i, %wide.trip.count461.i
   br i1 %exitcond462.not.i, label %generate_window_func.exit, label %438, !llvm.loop !97

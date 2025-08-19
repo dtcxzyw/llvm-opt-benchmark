@@ -334,7 +334,7 @@ define hidden void @_ZN4nori10ImageBlockD2Ev(ptr noundef nonnull align 8 derefer
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK4nori10ImageBlock8toBitmapEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZNK4nori10ImageBlock8toBitmapEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %calloc = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %2 = icmp eq ptr %calloc, null
   br i1 %2, label %3, label %_ZN5Eigen15PlainObjectBaseINS_5ArrayIN4nori7Color3fELin1ELin1ELi1ELin1ELin1EEEEnwEm.exit
@@ -2018,10 +2018,10 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
     i8 106, label %.critedge
     i8 122, label %.critedge
     i8 116, label %.critedge
-    i8 117, label %.loopexit192
-    i8 100, label %.loopexit192
-    i8 105, label %.loopexit192
-    i8 111, label %.loopexit217
+    i8 117, label %.loopexit198
+    i8 100, label %.loopexit198
+    i8 105, label %.loopexit198
+    i8 111, label %.loopexit223
     i8 88, label %193
     i8 120, label %.loopexit
     i8 112, label %.loopexit
@@ -2162,14 +2162,14 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
   store i32 %279, ptr %277, align 8
   br label %.thread105
 
-.loopexit192:                                     ; preds = %190, %190, %190
+.loopexit198:                                     ; preds = %190, %190, %190
   br label %.loopexit
 
-.loopexit217:                                     ; preds = %190
+.loopexit223:                                     ; preds = %190
   br label %.loopexit
 
-.loopexit:                                        ; preds = %193, %190, %190, %.loopexit217, %.loopexit192
-  %.sink188 = phi i32 [ 2, %.loopexit192 ], [ 64, %.loopexit217 ], [ 8, %190 ], [ 8, %190 ], [ 8, %193 ]
+.loopexit:                                        ; preds = %193, %190, %190, %.loopexit223, %.loopexit198
+  %.sink194 = phi i32 [ 2, %.loopexit198 ], [ 64, %.loopexit223 ], [ 8, %190 ], [ 8, %190 ], [ 8, %193 ]
   %280 = load ptr, ptr %0, align 8
   %281 = getelementptr i8, ptr %280, i64 -24
   %282 = load i64, ptr %281, align 8
@@ -2177,7 +2177,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 24
   %285 = load i32, ptr %284, align 8
   %286 = and i32 %285, -75
-  %287 = or disjoint i32 %286, %.sink188
+  %287 = or disjoint i32 %286, %.sink194
   store i32 %287, ptr %284, align 8
   %or.cond3 = or i1 %.167, %147
   br i1 %or.cond3, label %.thread105, label %288

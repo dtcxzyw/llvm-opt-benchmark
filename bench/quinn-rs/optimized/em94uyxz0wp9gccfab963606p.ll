@@ -3220,7 +3220,7 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h2d567d06a327ed79E.exit
   br i1 %.not.i.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h0ed5e85839899b0fE.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h400e0ce75db89d08E.exit.thread.i.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h400e0ce75db89d08E.exit.i.i"
-  %.sroa.08.026.i.i = phi i64 [ %.sroa.08.0.i.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h400e0ce75db89d08E.exit.thread.i.i" ], [ -1, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h400e0ce75db89d08E.exit.i.i" ]
+  %.sroa.08.028.i.i = phi i64 [ %.sroa.08.0.i.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h400e0ce75db89d08E.exit.thread.i.i" ], [ -1, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h400e0ce75db89d08E.exit.i.i" ]
   %61 = phi i1 [ true, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h400e0ce75db89d08E.exit.thread.i.i" ], [ false, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h400e0ce75db89d08E.exit.i.i" ]
   br label %.lr.ph.i.i
 
@@ -3271,7 +3271,7 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h2d567d06a327ed79E.exit
 
 "_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h53655c1405490f5cE.exit.i.i": ; preds = %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c672684bdbc718eE.exit.i.i"
   store i32 %79, ptr %.sroa.0.0.i.i.i.i, align 1, !alias.scope !356, !noalias !357
-  %exitcond.not.i.i = icmp eq i64 %62, %.sroa.08.026.i.i
+  %exitcond.not.i.i = icmp eq i64 %62, %.sroa.08.028.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h0ed5e85839899b0fE.exit": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h400e0ce75db89d08E.exit.thread.i.i", %._crit_edge.i.i
@@ -3720,9 +3720,9 @@ define void @"_ZN93_$LT$quinn_proto..range_set..array_range_set..ArrayRangeSet$u
   %12 = icmp ult i64 %11, 576460752303423488
   tail call void @llvm.assume(i1 %12)
   %13 = icmp samesign ugt i64 %11, 2
-  br i1 %13, label %25, label %"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$7reserve17h1058fc80d52610d7E.exit.thread1.i"
+  br i1 %13, label %25, label %"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$7reserve17h1058fc80d52610d7E.exit.thread4.i"
 
-"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$7reserve17h1058fc80d52610d7E.exit.thread1.i": ; preds = %9
+"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$7reserve17h1058fc80d52610d7E.exit.thread4.i": ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 0, ptr %14, align 8
   %.sroa.46.sroa.3.0..sroa.46.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -3733,8 +3733,8 @@ define void @"_ZN93_$LT$quinn_proto..range_set..array_range_set..ArrayRangeSet$u
   %17 = icmp eq i64 %11, 0
   br i1 %17, label %"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$17extend_from_slice17h9ec7607b2de9c4e7E.exit", label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb30a6265ef15fdb4E.exit.i.i.i"
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb30a6265ef15fdb4E.exit.i.i.i": ; preds = %"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$7reserve17h1058fc80d52610d7E.exit.thread1.i", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb30a6265ef15fdb4E.exit.i.i.i"
-  %.sroa.0.01.i.i.i = phi i64 [ %18, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb30a6265ef15fdb4E.exit.i.i.i" ], [ 0, %"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$7reserve17h1058fc80d52610d7E.exit.thread1.i" ]
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb30a6265ef15fdb4E.exit.i.i.i": ; preds = %"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$7reserve17h1058fc80d52610d7E.exit.thread4.i", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb30a6265ef15fdb4E.exit.i.i.i"
+  %.sroa.0.01.i.i.i = phi i64 [ %18, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb30a6265ef15fdb4E.exit.i.i.i" ], [ 0, %"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$7reserve17h1058fc80d52610d7E.exit.thread4.i" ]
   %18 = add nuw nsw i64 %.sroa.0.01.i.i.i, 1
   %19 = getelementptr inbounds nuw { i64, i64 }, ptr %.sroa.46.sroa.3.0..sroa.46.0..sroa_idx.sroa_idx, i64 %.sroa.0.01.i.i.i
   %20 = getelementptr inbounds nuw { i64, i64 }, ptr %16, i64 %.sroa.0.01.i.i.i
@@ -3752,7 +3752,7 @@ define void @"_ZN93_$LT$quinn_proto..range_set..array_range_set..ArrayRangeSet$u
   store i16 %23, ptr %14, align 8
   br label %"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$17extend_from_slice17h9ec7607b2de9c4e7E.exit"
 
-"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$17extend_from_slice17h9ec7607b2de9c4e7E.exit": ; preds = %"_ZN7tinyvec8arrayvec17ArrayVec$LT$A$GT$7set_len17h9aee4d533d511385E.exit.i.i", %"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$7reserve17h1058fc80d52610d7E.exit.thread1.i"
+"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$17extend_from_slice17h9ec7607b2de9c4e7E.exit": ; preds = %"_ZN7tinyvec8arrayvec17ArrayVec$LT$A$GT$7set_len17h9aee4d533d511385E.exit.i.i", %"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$7reserve17h1058fc80d52610d7E.exit.thread4.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
   br label %24
 
@@ -4250,8 +4250,8 @@ define noundef zeroext i1 @_ZN11quinn_proto9range_set15array_range_set13ArrayRan
   br i1 %75, label %81, label %76
 
 76:                                               ; preds = %"_ZN87_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc5053c89cea360c0E.exit26.thread", %"_ZN87_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc5053c89cea360c0E.exit26"
-  %.pn47154 = phi i64 [ %69, %"_ZN87_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc5053c89cea360c0E.exit26.thread" ], [ %66, %"_ZN87_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc5053c89cea360c0E.exit26" ]
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %.sroa.03.0, i64 noundef %.pn47154, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dc71d0a5682d3db708e0e7797e95149f.160) #22, !noalias !547
+  %.pn47166 = phi i64 [ %69, %"_ZN87_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc5053c89cea360c0E.exit26.thread" ], [ %66, %"_ZN87_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc5053c89cea360c0E.exit26" ]
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %.sroa.03.0, i64 noundef %.pn47166, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dc71d0a5682d3db708e0e7797e95149f.160) #22, !noalias !547
   unreachable
 
 77:                                               ; preds = %"_ZN87_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc5053c89cea360c0E.exit26"
@@ -4271,10 +4271,10 @@ define noundef zeroext i1 @_ZN11quinn_proto9range_set15array_range_set13ArrayRan
   unreachable
 
 "_ZN87_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc5053c89cea360c0E.exit": ; preds = %81, %77
-  %.val32157.in = phi ptr [ %79, %77 ], [ %61, %81 ]
+  %.val32169.in = phi ptr [ %79, %77 ], [ %61, %81 ]
   %.pn52 = phi ptr [ %78, %77 ], [ %7, %81 ]
   %.pn50 = phi i64 [ %80, %77 ], [ %83, %81 ]
-  %.val32157 = load i64, ptr %.val32157.in, align 8, !alias.scope !510, !noundef !3
+  %.val32169 = load i64, ptr %.val32169.in, align 8, !alias.scope !510, !noundef !3
   %86 = icmp ult i64 %58, %.pn50
   br i1 %86, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h05b403b6c4741911E.exit33", label %87
 
@@ -4285,13 +4285,13 @@ define noundef zeroext i1 @_ZN11quinn_proto9range_set15array_range_set13ArrayRan
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h05b403b6c4741911E.exit33": ; preds = %"_ZN87_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc5053c89cea360c0E.exit"
   %88 = getelementptr inbounds nuw { i64, i64 }, ptr %.pn52, i64 %58
   %.val = load i64, ptr %88, align 8, !alias.scope !507, !noundef !3
-  %.not23 = icmp ult i64 %.val32157, %.val
+  %.not23 = icmp ult i64 %.val32169, %.val
   br i1 %.not23, label %"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$4push17h8a8b9b22489ca452E.exit", label %89
 
 89:                                               ; preds = %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h05b403b6c4741911E.exit33"
   %90 = getelementptr i8, ptr %88, i64 8
   %.val30 = load i64, ptr %90, align 8, !alias.scope !510, !noundef !3
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %.val32157, i64 %.val30)
+  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %.val32169, i64 %.val30)
   br i1 %64, label %91, label %94
 
 91:                                               ; preds = %89
@@ -4490,7 +4490,7 @@ define noundef zeroext i1 @_ZN11quinn_proto9range_set15array_range_set13ArrayRan
 27:                                               ; preds = %.split95.us
   %brmerge = select i1 %9, i1 true, i1 %12
   %.mux = select i1 %9, ptr %14, ptr %6
-  %.mux268 = select i1 %9, i64 %13, i64 %11
+  %.mux276 = select i1 %9, i64 %13, i64 %11
   br i1 %.not23, label %29, label %36
 
 28:                                               ; preds = %.split95.us
@@ -4504,11 +4504,11 @@ define noundef zeroext i1 @_ZN11quinn_proto9range_set15array_range_set13ArrayRan
   unreachable
 
 "_ZN90_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7732e039d6f7b4acE.exit29": ; preds = %29
-  %31 = icmp ult i64 %.us-phi98, %.mux268
+  %31 = icmp ult i64 %.us-phi98, %.mux276
   br i1 %31, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd3aa1c250e3a7311E.exit", label %32
 
 32:                                               ; preds = %"_ZN90_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7732e039d6f7b4acE.exit29"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %.us-phi98, i64 noundef %.mux268, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dc71d0a5682d3db708e0e7797e95149f.165) #22, !noalias !601
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %.us-phi98, i64 noundef %.mux276, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dc71d0a5682d3db708e0e7797e95149f.165) #22, !noalias !601
   unreachable
 
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd3aa1c250e3a7311E.exit": ; preds = %"_ZN90_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7732e039d6f7b4acE.exit29"
@@ -4528,11 +4528,11 @@ define noundef zeroext i1 @_ZN11quinn_proto9range_set15array_range_set13ArrayRan
   unreachable
 
 "_ZN90_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7732e039d6f7b4acE.exit27": ; preds = %36
-  %38 = icmp ult i64 %.us-phi98, %.mux268
+  %38 = icmp ult i64 %.us-phi98, %.mux276
   br i1 %38, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd3aa1c250e3a7311E.exit32", label %39
 
 39:                                               ; preds = %"_ZN90_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7732e039d6f7b4acE.exit27"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %.us-phi98, i64 noundef %.mux268, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dc71d0a5682d3db708e0e7797e95149f.166) #22, !noalias !609
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %.us-phi98, i64 noundef %.mux276, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dc71d0a5682d3db708e0e7797e95149f.166) #22, !noalias !609
   unreachable
 
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd3aa1c250e3a7311E.exit32": ; preds = %"_ZN90_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7732e039d6f7b4acE.exit27"
@@ -4544,25 +4544,25 @@ define noundef zeroext i1 @_ZN11quinn_proto9range_set15array_range_set13ArrayRan
   br label %.outer.backedge
 
 43:                                               ; preds = %28
-  %brmerge274 = select i1 %9, i1 true, i1 %12
-  %.mux275 = select i1 %9, ptr %14, ptr %6, !prof !612
-  br i1 %brmerge274, label %"_ZN90_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7732e039d6f7b4acE.exit", label %44, !prof !595
+  %brmerge282 = select i1 %9, i1 true, i1 %12
+  %.mux283 = select i1 %9, ptr %14, ptr %6, !prof !612
+  br i1 %brmerge282, label %"_ZN90_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7732e039d6f7b4acE.exit", label %44, !prof !595
 
 44:                                               ; preds = %43
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %11, i64 noundef 2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dc71d0a5682d3db708e0e7797e95149f.101) #22, !noalias !613
   unreachable
 
 "_ZN90_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7732e039d6f7b4acE.exit": ; preds = %43
-  %.mux276 = select i1 %9, i64 %13, i64 %11, !prof !612
-  %45 = icmp ult i64 %.us-phi98, %.mux276
+  %.mux284 = select i1 %9, i64 %13, i64 %11, !prof !612
+  %45 = icmp ult i64 %.us-phi98, %.mux284
   br i1 %45, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd3aa1c250e3a7311E.exit34", label %46
 
 46:                                               ; preds = %"_ZN90_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7732e039d6f7b4acE.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %.us-phi98, i64 noundef %.mux276, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dc71d0a5682d3db708e0e7797e95149f.167) #22, !noalias !618
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %.us-phi98, i64 noundef %.mux284, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dc71d0a5682d3db708e0e7797e95149f.167) #22, !noalias !618
   unreachable
 
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd3aa1c250e3a7311E.exit34": ; preds = %"_ZN90_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7732e039d6f7b4acE.exit"
-  %47 = getelementptr inbounds nuw { i64, i64 }, ptr %.mux275, i64 %.us-phi98
+  %47 = getelementptr inbounds nuw { i64, i64 }, ptr %.mux283, i64 %.us-phi98
   store i64 %2, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 %.us-phi97, ptr %48, align 8

@@ -1045,8 +1045,8 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i209, %389
   %408 = shl nuw i64 1, %.lcssa.i212
   %409 = and i64 %408, 17471926960128
   %.not18.i = icmp ne i64 %409, 0
-  %.not169612 = icmp eq i64 %.lcssa.i212, 0
-  %.not169 = or i1 %.not18.i, %.not169612
+  %.not169654 = icmp eq i64 %.lcssa.i212, 0
+  %.not169 = or i1 %.not18.i, %.not169654
   br i1 %.not169, label %.preheader.outer.backedge, label %410
 
 410:                                              ; preds = %_ZL16yy_try_NUL_transiPv.exit
@@ -1235,11 +1235,11 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i209, %389
 .critedge.i:                                      ; preds = %479, %.critedge.split.loop.exit.i
   %.0128.lcssa.i = phi i32 [ %489, %.critedge.split.loop.exit.i ], [ %472, %479 ]
   switch i32 %478, label %.loopexit.i [
-    i32 10, label %.loopexit.thread198.i
+    i32 10, label %.loopexit.thread205.i
     i32 -1, label %505
   ]
 
-.loopexit.thread198.i:                            ; preds = %.critedge.i
+.loopexit.thread205.i:                            ; preds = %.critedge.i
   %490 = load ptr, ptr %86, align 8, !tbaa !20
   %491 = load i64, ptr %87, align 8, !tbaa !21
   %492 = getelementptr inbounds nuw ptr, ptr %490, i64 %491
@@ -1290,9 +1290,9 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i209, %389
   %520 = load ptr, ptr %89, align 8, !tbaa !17
   %521 = call i32 @ferror(ptr noundef %520) #37
   %.not142.i = icmp eq i32 %521, 0
-  br i1 %.not142.i, label %.loopexit.thread196.i, label %526
+  br i1 %.not142.i, label %.loopexit.thread203.i, label %526
 
-.loopexit.thread196.i:                            ; preds = %.lr.ph174.i
+.loopexit.thread203.i:                            ; preds = %.lr.ph174.i
   %522 = load ptr, ptr %86, align 8, !tbaa !20
   %523 = load i64, ptr %87, align 8, !tbaa !21
   %524 = getelementptr inbounds nuw ptr, ptr %522, i64 %523
@@ -1346,14 +1346,14 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i209, %389
   %551 = icmp eq i32 %.0128.lcssa.i, 0
   br i1 %551, label %553, label %560
 
-.sink.split.i:                                    ; preds = %.loopexit.thread196.i, %.thread157.i
-  %.sink209.i = phi ptr [ %525, %.loopexit.thread196.i ], [ %439, %.thread157.i ]
-  %552 = getelementptr inbounds nuw i8, ptr %.sink209.i, i64 28
+.sink.split.i:                                    ; preds = %.loopexit.thread203.i, %.thread157.i
+  %.sink216.i = phi ptr [ %525, %.loopexit.thread203.i ], [ %439, %.thread157.i ]
+  %552 = getelementptr inbounds nuw i8, ptr %.sink216.i, i64 28
   store i32 0, ptr %552, align 4, !tbaa !29
   br label %553
 
 553:                                              ; preds = %.sink.split.i, %.loopexit.i
-  %554 = phi ptr [ %549, %.loopexit.i ], [ %.sink209.i, %.sink.split.i ]
+  %554 = phi ptr [ %549, %.loopexit.i ], [ %.sink216.i, %.sink.split.i ]
   %555 = icmp eq i32 %432, 0
   br i1 %555, label %556, label %558
 
@@ -1372,10 +1372,10 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i209, %389
   store i32 2, ptr %559, align 8, !tbaa !55
   br label %560
 
-560:                                              ; preds = %558, %556, %.loopexit.i, %.loopexit.thread.i, %.loopexit.thread198.i
-  %561 = phi ptr [ %.pre189.i, %556 ], [ %554, %558 ], [ %549, %.loopexit.i ], [ %544, %.loopexit.thread.i ], [ %503, %.loopexit.thread198.i ]
-  %562 = phi i32 [ %.pre185.i, %556 ], [ 0, %558 ], [ %.0128.lcssa.i, %.loopexit.i ], [ %.pr.ph.i, %.loopexit.thread.i ], [ %497, %.loopexit.thread198.i ]
-  %.0135.i = phi i32 [ 1, %556 ], [ 2, %558 ], [ 0, %.loopexit.i ], [ 0, %.loopexit.thread.i ], [ 0, %.loopexit.thread198.i ]
+560:                                              ; preds = %558, %556, %.loopexit.i, %.loopexit.thread.i, %.loopexit.thread205.i
+  %561 = phi ptr [ %.pre189.i, %556 ], [ %554, %558 ], [ %549, %.loopexit.i ], [ %544, %.loopexit.thread.i ], [ %503, %.loopexit.thread205.i ]
+  %562 = phi i32 [ %.pre185.i, %556 ], [ 0, %558 ], [ %.0128.lcssa.i, %.loopexit.i ], [ %.pr.ph.i, %.loopexit.thread.i ], [ %497, %.loopexit.thread205.i ]
+  %.0135.i = phi i32 [ 1, %556 ], [ 2, %558 ], [ 0, %.loopexit.i ], [ 0, %.loopexit.thread.i ], [ 0, %.loopexit.thread205.i ]
   %563 = add nsw i32 %562, %432
   %564 = getelementptr inbounds nuw i8, ptr %561, i64 24
   %565 = load i32, ptr %564, align 8, !tbaa !25
@@ -1440,7 +1440,7 @@ _ZL18yy_get_next_bufferPv.exit:                   ; preds = %._crit_edge191.i, %
   %600 = getelementptr inbounds nuw i8, ptr %599, i64 8
   %601 = load ptr, ptr %600, align 8, !tbaa !27
   store ptr %601, ptr %84, align 8, !tbaa !33
-  switch i32 %.0135.i, label %default.unreachable493 [
+  switch i32 %.0135.i, label %default.unreachable535 [
     i32 1, label %_ZL21yy_get_previous_statePv.exit232
     i32 0, label %602
     i32 2, label %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread252_crit_edge
@@ -1457,8 +1457,8 @@ _ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread252_crit_edg
   %605 = sub i64 %603, %604
   %606 = trunc i64 %605 to i32
   %607 = shl i64 %605, 32
-  %sext613 = add i64 %607, -4294967296
-  %608 = ashr exact i64 %sext613, 32
+  %sext655 = add i64 %607, -4294967296
+  %608 = ashr exact i64 %sext655, 32
   %609 = getelementptr inbounds i8, ptr %601, i64 %608
   store ptr %609, ptr %79, align 8, !tbaa !32
   %610 = load i32, ptr %81, align 4, !tbaa !16
@@ -1639,7 +1639,7 @@ _ZL18yy_get_next_bufferPv.exit.thread252:         ; preds = %426, %_ZL18yy_get_n
   %exitcond.not.i247 = icmp eq ptr %700, %656
   br i1 %exitcond.not.i247, label %.preheader.outer.backedge, label %.lr.ph33.i234, !llvm.loop !57
 
-default.unreachable493:                           ; preds = %_ZL18yy_get_next_bufferPv.exit
+default.unreachable535:                           ; preds = %_ZL18yy_get_next_bufferPv.exit
   unreachable
 
 _ZL21yy_get_previous_statePv.exit232:             ; preds = %_ZL18yy_get_next_bufferPv.exit, %426
@@ -1867,9 +1867,9 @@ define internal fastcc void @_ZL36cmCTestResourceGroups_yy_init_bufferP15yy_buff
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !20
   %.not15.i = icmp eq ptr %17, null
-  br i1 %.not15.i, label %_Z37cmCTestResourceGroups_yy_flush_bufferP15yy_buffer_statePv.exit.thread20, label %19
+  br i1 %.not15.i, label %_Z37cmCTestResourceGroups_yy_flush_bufferP15yy_buffer_statePv.exit.thread24, label %19
 
-_Z37cmCTestResourceGroups_yy_flush_bufferP15yy_buffer_statePv.exit.thread20: ; preds = %6
+_Z37cmCTestResourceGroups_yy_flush_bufferP15yy_buffer_statePv.exit.thread24: ; preds = %6
   store ptr %1, ptr %0, align 8, !tbaa !34
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %18, align 4, !tbaa !59
@@ -1926,7 +1926,7 @@ _Z37cmCTestResourceGroups_yy_flush_bufferP15yy_buffer_statePv.exit: ; preds = %3
   %45 = icmp eq ptr %0, %44
   br i1 %45, label %48, label %.critedge
 
-.critedge:                                        ; preds = %_Z37cmCTestResourceGroups_yy_flush_bufferP15yy_buffer_statePv.exit.thread20, %_Z37cmCTestResourceGroups_yy_flush_bufferP15yy_buffer_statePv.exit, %39
+.critedge:                                        ; preds = %_Z37cmCTestResourceGroups_yy_flush_bufferP15yy_buffer_statePv.exit.thread24, %_Z37cmCTestResourceGroups_yy_flush_bufferP15yy_buffer_statePv.exit, %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 1, ptr %46, align 4, !tbaa !67
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2267,9 +2267,9 @@ _ZL43cmCTestResourceGroups_yyensure_buffer_stackPv.exit: ; preds = %10, %13, %24
   br label %.critedge29
 
 .critedge29:                                      ; preds = %_ZL43cmCTestResourceGroups_yyensure_buffer_stackPv.exit, %32
-  %.pr33 = phi ptr [ %39, %32 ], [ %28, %_ZL43cmCTestResourceGroups_yyensure_buffer_stackPv.exit ]
+  %.pr37 = phi ptr [ %39, %32 ], [ %28, %_ZL43cmCTestResourceGroups_yyensure_buffer_stackPv.exit ]
   %48 = phi i64 [ %47, %32 ], [ %27, %_ZL43cmCTestResourceGroups_yyensure_buffer_stackPv.exit ]
-  %49 = getelementptr inbounds nuw ptr, ptr %.pr33, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr %.pr37, i64 %48
   store ptr %0, ptr %49, align 8, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %51 = load i32, ptr %50, align 4, !tbaa !29

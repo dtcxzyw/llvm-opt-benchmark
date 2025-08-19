@@ -2599,9 +2599,9 @@ _ZN4llvm12StringSwitchINS_11SectionKindES1_E9CaseLowerENS_13StringLiteralES1_.ex
   %spec.select.i130129.i = icmp eq i32 %322, 2
   %spec.select.i130.i = select i1 %321, i1 %spec.select.i130129.i, i1 false
   %..i = select i1 %spec.select.i130.i, i32 1610612736, i32 -1073741824
-  %.251.i = select i1 %spec.select.i130.i, i32 32, i32 64
+  %.263.i = select i1 %spec.select.i130.i, i32 32, i32 64
   %323 = select i1 %.056.lcssa.i, i32 %..i, i32 0
-  %spec.select77.i = or i32 %.251.i, %.061.lcssa.i
+  %spec.select77.i = or i32 %.263.i, %.061.lcssa.i
   %324 = or i32 %spec.select77.i, %323
   %325 = and i32 %324, 2147483647
   %spec.select78.i = select i1 %.068.lcssa.i, i32 %325, i32 %324

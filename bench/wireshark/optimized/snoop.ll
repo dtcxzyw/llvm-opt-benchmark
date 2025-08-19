@@ -844,8 +844,8 @@ define internal zeroext i1 @snoop_dump(ptr noundef %0, ptr noundef readonly capt
   br label %.sink.split
 
 .sink.split:                                      ; preds = %58, %51, %62, %61
-  %.sink91 = phi i8 [ 2, %61 ], [ 5, %62 ], [ %57, %51 ], [ 1, %58 ]
-  %63 = or disjoint i8 %55, %.sink91
+  %.sink93 = phi i8 [ 2, %61 ], [ 5, %62 ], [ %57, %51 ], [ 1, %58 ]
+  %63 = or disjoint i8 %55, %.sink93
   store i8 %63, ptr %7, align 2
   br label %64
 

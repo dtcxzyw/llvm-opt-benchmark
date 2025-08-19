@@ -538,14 +538,14 @@ bxt_calc_cdclk.exit7:                             ; preds = %174, %._crit_edge
 
 244:                                              ; preds = %232, %228, %214, %188
   %245 = icmp eq ptr %0, null
-  br i1 %245, label %.thread13, label %246
+  br i1 %245, label %.thread26, label %246
 
 246:                                              ; preds = %244
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %248 = load ptr, ptr %247, align 8
-  br label %.thread13
+  br label %.thread26
 
-.thread13:                                        ; preds = %244, %246
+.thread26:                                        ; preds = %244, %246
   %249 = phi ptr [ %248, %246 ], [ null, %244 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %249, i32 noundef 2, ptr noundef nonnull @.str.19) #15
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 2160
@@ -575,7 +575,7 @@ bxt_calc_cdclk.exit7:                             ; preds = %174, %._crit_edge
   tail call void @intel_update_max_cdclk(ptr noundef %0)
   br label %273
 
-263:                                              ; preds = %.thread13, %254, %252
+263:                                              ; preds = %.thread26, %254, %252
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 2160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(20) %264, i64 20, i1 false)
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 8072
@@ -1510,7 +1510,7 @@ define dso_local range(i32 0, -2147483648) i32 @intel_crtc_compute_min_cdclk(ptr
   br i1 %59, label %79, label %61
 
 61:                                               ; preds = %54
-  br i1 %60, label %.thread4, label %62
+  br i1 %60, label %.thread8, label %62
 
 62:                                               ; preds = %61
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 1448
@@ -1546,7 +1546,7 @@ define dso_local range(i32 0, -2147483648) i32 @intel_crtc_compute_min_cdclk(ptr
   br label %.threadthread-pre-split
 
 79:                                               ; preds = %54
-  br i1 %60, label %.thread4, label %.threadthread-pre-split
+  br i1 %60, label %.thread8, label %.threadthread-pre-split
 
 .threadthread-pre-split:                          ; preds = %79, %77, %66, %62
   %.ph = phi i32 [ %78, %77 ], [ %55, %66 ], [ %55, %62 ], [ %55, %79 ]
@@ -1557,14 +1557,14 @@ define dso_local range(i32 0, -2147483648) i32 @intel_crtc_compute_min_cdclk(ptr
   %80 = phi i16 [ %.pr, %.threadthread-pre-split ], [ %71, %73 ]
   %81 = phi i32 [ %.ph, %.threadthread-pre-split ], [ %55, %73 ]
   %82 = icmp ugt i16 %80, 8
-  br i1 %82, label %83, label %.thread4
+  br i1 %82, label %83, label %.thread8
 
 83:                                               ; preds = %.thread.thread, %.thread
   %84 = phi i32 [ %72, %.thread.thread ], [ %81, %.thread ]
   %85 = tail call i32 @llvm.smax.i32(i32 %84, i32 192000)
-  br label %.thread4
+  br label %.thread8
 
-.thread4:                                         ; preds = %61, %83, %.thread, %79
+.thread8:                                         ; preds = %61, %83, %.thread, %79
   %86 = phi i1 [ false, %83 ], [ false, %.thread ], [ true, %79 ], [ true, %61 ]
   %87 = phi i32 [ %85, %83 ], [ %81, %.thread ], [ %55, %79 ], [ %55, %61 ]
   %88 = load i32, ptr %44, align 4
@@ -1577,14 +1577,14 @@ define dso_local range(i32 0, -2147483648) i32 @intel_crtc_compute_min_cdclk(ptr
   %95 = or i1 %94, %59
   br i1 %95, label %100, label %96
 
-96:                                               ; preds = %.thread4
+96:                                               ; preds = %.thread8
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %98 = load i32, ptr %97, align 8
   %99 = tail call i32 @llvm.smax.i32(i32 %98, i32 %87)
   br label %100
 
-100:                                              ; preds = %96, %.thread4
-  %101 = phi i32 [ %99, %96 ], [ %87, %.thread4 ]
+100:                                              ; preds = %96, %.thread8
+  %101 = phi i32 [ %99, %96 ], [ %87, %.thread8 ]
   %102 = and i32 %57, 512
   %103 = icmp ne i32 %102, 0
   %104 = and i1 %103, %91
@@ -3518,7 +3518,7 @@ define internal void @bxt_set_cdclk(ptr noundef %0, ptr noundef readonly capture
   %126 = load i32, ptr %125, align 4
   %127 = and i32 %126, 2048
   %128 = icmp eq i32 %127, 0
-  br i1 %128, label %129, label %.thread15
+  br i1 %128, label %129, label %.thread25
 
 129:                                              ; preds = %124
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 7368
@@ -3546,7 +3546,7 @@ thread-pre-split:                                 ; preds = %129, %119
 144:                                              ; preds = %138, %thread-pre-split
   %145 = phi i32 [ %143, %138 ], [ %136, %thread-pre-split ]
   %146 = icmp eq i32 %145, 0
-  br i1 %146, label %.thread15, label %147
+  br i1 %146, label %.thread25, label %147
 
 147:                                              ; preds = %144
   %148 = icmp eq ptr %0, null
@@ -3562,7 +3562,7 @@ thread-pre-split:                                 ; preds = %129, %119
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %153, ptr noundef nonnull @.str.25, i32 noundef %145, i32 noundef %4) #17
   br label %175
 
-.thread15:                                        ; preds = %124, %144
+.thread25:                                        ; preds = %124, %144
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %155 = load ptr, ptr %154, align 8
   %156 = load ptr, ptr %155, align 8
@@ -3573,7 +3573,7 @@ thread-pre-split:                                 ; preds = %129, %119
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %168, label %161
 
-161:                                              ; preds = %.thread15
+161:                                              ; preds = %.thread25
   %162 = load i32, ptr %30, align 8
   %163 = add i32 %162, 999
   %164 = udiv i32 %163, 1000
@@ -3583,7 +3583,7 @@ thread-pre-split:                                 ; preds = %129, %119
   tail call void %167(ptr noundef nonnull %165, i32 1598736, i32 noundef %164, i1 noundef zeroext true) #15
   br label %168
 
-168:                                              ; preds = %161, %.thread15
+168:                                              ; preds = %161, %.thread25
   %169 = load i16, ptr %5, align 8
   %170 = icmp ugt i16 %169, 10
   br i1 %170, label %171, label %175
@@ -4702,7 +4702,7 @@ define internal void @bxt_get_cdclk(ptr noundef %0, ptr noundef captures(none) i
   %61 = tail call i32 %60(ptr noundef nonnull %24, i32 286720, i1 noundef zeroext true) #15
   %62 = lshr i32 %61, 22
   %63 = and i32 %62, 3
-  switch i32 %63, label %default.unreachable3 [
+  switch i32 %63, label %default.unreachable5 [
     i32 0, label %67
     i32 1, label %64
     i32 2, label %65
@@ -4718,7 +4718,7 @@ define internal void @bxt_get_cdclk(ptr noundef %0, ptr noundef captures(none) i
 66:                                               ; preds = %59
   br label %67
 
-default.unreachable3:                             ; preds = %59
+default.unreachable5:                             ; preds = %59
   unreachable
 
 67:                                               ; preds = %66, %65, %64, %59
@@ -4755,9 +4755,9 @@ default.unreachable3:                             ; preds = %59
 
 .sink.split:                                      ; preds = %78, %.thread
   %.sink = phi i32 [ %68, %.thread ], [ %88, %78 ]
-  %.sink5 = phi i32 [ %89, %.thread ], [ %87, %78 ]
+  %.sink7 = phi i32 [ %89, %.thread ], [ %87, %78 ]
   %90 = lshr i32 %.sink, 1
-  %91 = add i32 %.sink5, %90
+  %91 = add i32 %.sink7, %90
   %92 = udiv i32 %91, %.sink
   br label %93
 
@@ -5312,7 +5312,7 @@ define internal zeroext i8 @ehl_calc_voltage_level(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i8 @icl_calc_voltage_level(i32 noundef %0) #0 align 16 {
+define internal zeroext range(i8 0, 3) i8 @icl_calc_voltage_level(i32 noundef %0) #0 align 16 {
   br label %2
 
 2:                                                ; preds = %9, %1
@@ -5479,7 +5479,7 @@ define internal void @skl_get_cdclk(ptr noundef %0, ptr noundef captures(none) i
   br i1 %57, label %60, label %64
 
 60:                                               ; preds = %53
-  switch i32 %59, label %default.unreachable4 [
+  switch i32 %59, label %default.unreachable7 [
     i32 0, label %68
     i32 2, label %61
     i32 1, label %62
@@ -5495,11 +5495,11 @@ define internal void @skl_get_cdclk(ptr noundef %0, ptr noundef captures(none) i
 63:                                               ; preds = %60
   br label %68
 
-default.unreachable4:                             ; preds = %64, %60
+default.unreachable7:                             ; preds = %64, %60
   unreachable
 
 64:                                               ; preds = %53
-  switch i32 %59, label %default.unreachable4 [
+  switch i32 %59, label %default.unreachable7 [
     i32 0, label %68
     i32 2, label %65
     i32 1, label %66
@@ -5945,10 +5945,10 @@ define internal void @bdw_set_cdclk(ptr noundef %0, ptr noundef readonly capture
   br label %.sink.split
 
 .sink.split:                                      ; preds = %69, %102
-  %.ph11 = phi i32 [ %104, %102 ], [ 1000, %69 ]
-  %.ph12 = phi i32 [ %100, %102 ], [ %80, %69 ]
+  %.ph16 = phi i32 [ %104, %102 ], [ 1000, %69 ]
+  %.ph17 = phi i32 [ %100, %102 ], [ %80, %69 ]
   %81 = tail call i64 @local_clock() #15
-  %82 = sext i32 %.ph11 to i64
+  %82 = sext i32 %.ph16 to i64
   br label %83
 
 83:                                               ; preds = %.sink.split, %99
@@ -5984,12 +5984,12 @@ define internal void @bdw_set_cdclk(ptr noundef %0, ptr noundef readonly capture
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !177
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !185
   %100 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !186
-  %101 = icmp eq i32 %.ph12, %100
+  %101 = icmp eq i32 %.ph17, %100
   br i1 %101, label %83, label %102, !prof !26
 
 102:                                              ; preds = %99
   %103 = trunc i64 %97 to i32
-  %104 = sub i32 %.ph11, %103
+  %104 = sub i32 %.ph16, %103
   br label %.sink.split
 
 105:                                              ; preds = %96

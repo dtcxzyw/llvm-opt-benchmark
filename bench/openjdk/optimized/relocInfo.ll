@@ -247,12 +247,12 @@ define hidden void @_ZN9relocInfo10initializeEP11CodeSectionP10Relocation(ptr no
   %21 = icmp ult i16 %20, 1024
   %22 = or disjoint i16 %20, 30720
   %spec.select.i = select i1 %21, i16 %22, i16 31745
-  %spec.select12.i = select i1 %21, ptr %4, ptr %8
+  %spec.select13.i = select i1 %21, ptr %4, ptr %8
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %19, %.split.i
   %phi.call.sink.i = phi i16 [ %18, %.split.i ], [ %spec.select.i, %19 ]
-  %.0.ph.i = phi ptr [ %8, %.split.i ], [ %spec.select12.i, %19 ]
+  %.0.ph.i = phi ptr [ %8, %.split.i ], [ %spec.select13.i, %19 ]
   store i16 %phi.call.sink.i, ptr %0, align 2
   br label %_ZN9relocInfo13finish_prefixEPs.exit
 
@@ -294,12 +294,12 @@ define hidden noundef ptr @_ZN9relocInfo13finish_prefixEPs(ptr noundef nonnull a
   %14 = icmp ult i16 %13, 1024
   %15 = or disjoint i16 %13, 30720
   %spec.select = select i1 %14, i16 %15, i16 31745
-  %spec.select12 = select i1 %14, ptr %3, ptr %1
+  %spec.select13 = select i1 %14, ptr %3, ptr %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %.split
   %phi.call.sink = phi i16 [ %11, %.split ], [ %spec.select, %12 ]
-  %.0.ph = phi ptr [ %1, %.split ], [ %spec.select12, %12 ]
+  %.0.ph = phi ptr [ %1, %.split ], [ %spec.select13, %12 ]
   store i16 %phi.call.sink, ptr %0, align 2
   br label %16
 

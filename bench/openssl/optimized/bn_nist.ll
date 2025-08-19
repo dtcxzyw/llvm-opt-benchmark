@@ -137,8 +137,8 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
   br i1 %43, label %.lr.ph125.preheader, label %._crit_edge
 
 .lr.ph125.preheader:                              ; preds = %nist_cp_bn.exit, %.preheader
-  %.0106.lcssa129 = phi i32 [ %42, %.preheader ], [ 0, %nist_cp_bn.exit ]
-  %44 = shl nuw nsw i32 %.0106.lcssa129, 3
+  %.0106.lcssa134 = phi i32 [ %42, %.preheader ], [ 0, %nist_cp_bn.exit ]
+  %44 = shl nuw nsw i32 %.0106.lcssa134, 3
   %45 = zext nneg i32 %44 to i64
   %scevgep = getelementptr i8, ptr %5, i64 %45
   %smax = tail call i32 @llvm.smax.i32(i32 %8, i32 3)
@@ -360,11 +360,11 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
   br i1 %40, label %.lr.ph101.preheader, label %._crit_edge
 
 .lr.ph101.preheader:                              ; preds = %nist_cp_bn.exit, %.preheader
-  %.082.lcssa107 = phi i32 [ %38, %.preheader ], [ 0, %nist_cp_bn.exit ]
-  %41 = shl nuw nsw i32 %.082.lcssa107, 3
+  %.082.lcssa110 = phi i32 [ %38, %.preheader ], [ 0, %nist_cp_bn.exit ]
+  %41 = shl nuw nsw i32 %.082.lcssa110, 3
   %42 = zext nneg i32 %41 to i64
   %scevgep = getelementptr i8, ptr %5, i64 %42
-  %43 = shl nuw nsw i32 %.082.lcssa107, 3
+  %43 = shl nuw nsw i32 %.082.lcssa110, 3
   %narrow = sub nuw nsw i32 32, %43
   %44 = zext nneg i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %44, i1 false), !tbaa !11
@@ -575,8 +575,8 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
   br i1 %43, label %.lr.ph252.preheader, label %._crit_edge
 
 .lr.ph252.preheader:                              ; preds = %nist_cp_bn.exit, %.preheader
-  %.0204.lcssa256 = phi i32 [ %42, %.preheader ], [ 0, %nist_cp_bn.exit ]
-  %44 = shl nuw nsw i32 %.0204.lcssa256, 3
+  %.0204.lcssa260 = phi i32 [ %42, %.preheader ], [ 0, %nist_cp_bn.exit ]
+  %44 = shl nuw nsw i32 %.0204.lcssa260, 3
   %45 = zext nneg i32 %44 to i64
   %scevgep = getelementptr i8, ptr %5, i64 %45
   %smax = tail call i32 @llvm.smax.i32(i32 %8, i32 4)
@@ -847,8 +847,8 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
   br i1 %43, label %.lr.ph292.preheader, label %._crit_edge
 
 .lr.ph292.preheader:                              ; preds = %nist_cp_bn.exit, %.preheader
-  %.0246.lcssa296 = phi i32 [ %42, %.preheader ], [ 0, %nist_cp_bn.exit ]
-  %44 = shl nuw nsw i32 %.0246.lcssa296, 3
+  %.0246.lcssa300 = phi i32 [ %42, %.preheader ], [ 0, %nist_cp_bn.exit ]
+  %44 = shl nuw nsw i32 %.0246.lcssa300, 3
   %45 = zext nneg i32 %44 to i64
   %scevgep = getelementptr i8, ptr %5, i64 %45
   %smax = tail call i32 @llvm.smax.i32(i32 %8, i32 6)
@@ -1176,11 +1176,11 @@ nist_cp_bn.exit:                                  ; preds = %32, %27
   br i1 %39, label %.lr.ph69.preheader, label %._crit_edge
 
 .lr.ph69.preheader:                               ; preds = %nist_cp_bn.exit, %.preheader
-  %.052.lcssa83 = phi i32 [ %37, %.preheader ], [ 0, %nist_cp_bn.exit ]
-  %40 = shl nuw nsw i32 %.052.lcssa83, 3
+  %.052.lcssa86 = phi i32 [ %37, %.preheader ], [ 0, %nist_cp_bn.exit ]
+  %40 = shl nuw nsw i32 %.052.lcssa86, 3
   %41 = zext nneg i32 %40 to i64
   %scevgep = getelementptr i8, ptr %5, i64 %41
-  %42 = shl nuw nsw i32 %.052.lcssa83, 3
+  %42 = shl nuw nsw i32 %.052.lcssa86, 3
   %narrow = sub nsw i32 72, %42
   %43 = zext i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %43, i1 false), !tbaa !11

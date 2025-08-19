@@ -2433,7 +2433,7 @@ define hidden ptr @_mi_heap_realloc_zero(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %10, label %_mi_usable_size.exit.thread, label %11, !prof !17
 
 _mi_usable_size.exit.thread:                      ; preds = %4
-  %.not45 = icmp ne i64 %2, 0
+  %.not50 = icmp ne i64 %2, 0
   br label %.critedge
 
 11:                                               ; preds = %4
@@ -2470,8 +2470,8 @@ _mi_usable_size.exit:                             ; preds = %21, %23
   br i1 %or.cond39.not, label %.critedge, label %mi_free.exit, !prof !37
 
 .critedge:                                        ; preds = %_mi_usable_size.exit.thread, %_mi_usable_size.exit
-  %.not49 = phi i1 [ %.not45, %_mi_usable_size.exit.thread ], [ %.not, %_mi_usable_size.exit ]
-  %.0.i48 = phi i64 [ 0, %_mi_usable_size.exit.thread ], [ %.0.i, %_mi_usable_size.exit ]
+  %.not54 = phi i1 [ %.not50, %_mi_usable_size.exit.thread ], [ %.not, %_mi_usable_size.exit ]
+  %.0.i53 = phi i64 [ 0, %_mi_usable_size.exit.thread ], [ %.0.i, %_mi_usable_size.exit ]
   %28 = icmp ult i64 %2, 1025
   br i1 %28, label %29, label %mi_heap_malloc.exit, !prof !8
 
@@ -2503,11 +2503,11 @@ mi_heap_malloc.exit:                              ; preds = %.critedge, %29
 
 43:                                               ; preds = %mi_heap_malloc.exit.thread, %mi_heap_malloc.exit
   %.0.i.i.i42 = phi ptr [ %36, %mi_heap_malloc.exit.thread ], [ %42, %mi_heap_malloc.exit ]
-  %or.cond38 = and i1 %3, %.not49
+  %or.cond38 = and i1 %3, %.not54
   br i1 %or.cond38, label %44, label %48
 
 44:                                               ; preds = %43
-  %45 = tail call i64 @llvm.usub.sat.i64(i64 %.0.i48, i64 8)
+  %45 = tail call i64 @llvm.usub.sat.i64(i64 %.0.i53, i64 8)
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i42, i64 %45
   %47 = sub i64 %2, %45
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %46, i8 0, i64 %47, i1 false)
@@ -2526,7 +2526,7 @@ mi_heap_malloc.exit:                              ; preds = %.critedge, %29
   br i1 %.not37, label %mi_free.exit, label %52, !prof !17
 
 52:                                               ; preds = %51
-  %53 = tail call i64 @llvm.umin.i64(i64 %2, i64 %.0.i48)
+  %53 = tail call i64 @llvm.umin.i64(i64 %2, i64 %.0.i53)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i42, ptr nonnull readonly align 1 %1, i64 %53, i1 false)
   %54 = inttoptr i64 %7 to ptr
   br i1 %10, label %mi_free.exit, label %55, !prof !17

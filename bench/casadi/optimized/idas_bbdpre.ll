@@ -455,7 +455,7 @@ define internal range(i32 -1, 2) i32 @IDABBDPrecSetup(double noundef %0, ptr nou
 158:                                              ; preds = %154, %.lr.ph215.i
   %159 = phi double [ %157, %154 ], [ %152, %.lr.ph215.i ]
   %160 = fcmp ogt double %148, %159
-  br i1 %160, label %.sink.split229.i, label %161
+  br i1 %160, label %.sink.split246.i, label %161
 
 161:                                              ; preds = %158
   %162 = load double, ptr %58, align 8, !tbaa !49
@@ -467,15 +467,15 @@ define internal range(i32 -1, 2) i32 @IDABBDPrecSetup(double noundef %0, ptr nou
 166:                                              ; preds = %161
   %167 = load double, ptr %58, align 8, !tbaa !49
   %168 = fmul double %143, %167
-  br label %.sink.split229.i
+  br label %.sink.split246.i
 
-.sink.split229.i:                                 ; preds = %166, %158
-  %.sink230.i = phi double [ %168, %166 ], [ %140, %158 ]
-  %169 = tail call double @SUNRabs(double noundef %.sink230.i) #7
+.sink.split246.i:                                 ; preds = %166, %158
+  %.sink247.i = phi double [ %168, %166 ], [ %140, %158 ]
+  %169 = tail call double @SUNRabs(double noundef %.sink247.i) #7
   br label %170
 
-170:                                              ; preds = %.sink.split229.i, %161
-  %171 = phi double [ %152, %161 ], [ %169, %.sink.split229.i ]
+170:                                              ; preds = %.sink.split246.i, %161
+  %171 = phi double [ %152, %161 ], [ %169, %.sink.split246.i ]
   %172 = fmul double %147, %171
   %173 = load double, ptr %58, align 8, !tbaa !49
   %174 = fmul double %143, %173

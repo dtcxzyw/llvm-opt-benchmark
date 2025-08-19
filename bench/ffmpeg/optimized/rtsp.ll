@@ -483,7 +483,7 @@ define noundef i32 @ff_sdp_parse(ptr noundef %0, ptr noundef readonly captures(n
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %47 = load i8, ptr %46, align 1, !tbaa !9
   %.not = icmp eq i8 %47, 61
-  br i1 %.not, label %48, label %.preheader270
+  br i1 %.not, label %48, label %.preheader342
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 2
@@ -2408,14 +2408,14 @@ sdp_parse_line.exit:                              ; preds = %677, %735, %.lr.ph.
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.preheader270
+  br label %.preheader342
 
-.preheader270:                                    ; preds = %42, %sdp_parse_line.exit
+.preheader342:                                    ; preds = %42, %sdp_parse_line.exit
   %.3.ph = phi ptr [ %.2, %sdp_parse_line.exit ], [ %46, %42 ]
   br label %925
 
-925:                                              ; preds = %.preheader270, %927
-  %.3 = phi ptr [ %928, %927 ], [ %.3.ph, %.preheader270 ]
+925:                                              ; preds = %.preheader342, %927
+  %.3 = phi ptr [ %928, %927 ], [ %.3.ph, %.preheader342 ]
   %926 = load i8, ptr %.3, align 1, !tbaa !9
   switch i8 %926, label %927 [
     i8 10, label %.critedge2
@@ -3446,10 +3446,10 @@ get_word_sep.exit120.i:                           ; preds = %199, %185
   br label %205
 
 205:                                              ; preds = %get_word_sep.exit120.i, %get_word_sep.exit107.i, %get_word_sep.exit94.i, %get_word_sep.exit81.i, %get_word_sep.exit68.i
-  %.sink305.i = phi i32 [ 1, %get_word_sep.exit94.i ], [ 0, %get_word_sep.exit81.i ], [ 0, %get_word_sep.exit68.i ], [ 2, %get_word_sep.exit120.i ], [ 2, %get_word_sep.exit107.i ]
+  %.sink325.i = phi i32 [ 1, %get_word_sep.exit94.i ], [ 0, %get_word_sep.exit81.i ], [ 0, %get_word_sep.exit68.i ], [ 2, %get_word_sep.exit120.i ], [ 2, %get_word_sep.exit107.i ]
   %.2.i = phi ptr [ %.016.lcssa.i.i92.i, %get_word_sep.exit94.i ], [ %.016.lcssa.i.i79.i, %get_word_sep.exit81.i ], [ %.016.lcssa.i.i66.i, %get_word_sep.exit68.i ], [ %.016.lcssa.i.i118.i, %get_word_sep.exit120.i ], [ %.016.lcssa.i.i105.i, %get_word_sep.exit107.i ]
   %206 = getelementptr inbounds nuw i8, ptr %77, i64 216
-  store i32 %.sink305.i, ptr %206, align 8, !tbaa !163
+  store i32 %.sink325.i, ptr %206, align 8, !tbaa !163
   %207 = call i32 @av_strcasecmp(ptr noundef nonnull %14, ptr noundef nonnull @.str.19) #15
   %.not31.i = icmp eq i32 %207, 0
   %.sink.i = zext i1 %.not31.i to i32
@@ -4834,9 +4834,9 @@ define i32 @ff_rtsp_read_reply(ptr noundef %0, ptr noundef initializes((0, 6960)
   br i1 %.not21.i, label %51, label %ff_rtsp_skip_packet.exit.thread
 
 ff_rtsp_skip_packet.exit.thread:                  ; preds = %42, %.lr.ph.i
-  %.lcssa.sink253 = phi i32 [ %55, %.lr.ph.i ], [ %46, %42 ]
-  %56 = icmp slt i32 %.lcssa.sink253, 0
-  %spec.select158 = select i1 %56, i32 %.lcssa.sink253, i32 -5
+  %.lcssa.sink275 = phi i32 [ %55, %.lr.ph.i ], [ %46, %42 ]
+  %56 = icmp slt i32 %.lcssa.sink275, 0
+  %spec.select158 = select i1 %56, i32 %.lcssa.sink275, i32 -5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
@@ -6506,23 +6506,23 @@ define i32 @ff_rtsp_connect(ptr noundef %0) local_unnamed_addr #2 {
 165:                                              ; preds = %162, %160
   %166 = load i32, ptr %48, align 8, !tbaa !85
   %.not164 = icmp eq i32 %166, 3
-  br i1 %.not164, label %.preheader213, label %.sink.split
+  br i1 %.not164, label %.preheader231, label %.sink.split
 
 .sink.split:                                      ; preds = %165
   store i32 0, ptr %48, align 8, !tbaa !85
-  br label %.preheader213
+  br label %.preheader231
 
-.critedge212:                                     ; preds = %173
+.critedge230:                                     ; preds = %173
   store i32 1, ptr %48, align 8, !tbaa !85
   store i8 0, ptr %6, align 16, !tbaa !9
   %167 = call i64 @av_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.143, i64 noundef 4096) #15
   br label %168
 
-.preheader213:                                    ; preds = %165, %.sink.split
+.preheader231:                                    ; preds = %165, %.sink.split
   store i8 0, ptr %6, align 16, !tbaa !9
   br label %168
 
-168:                                              ; preds = %.preheader213, %.critedge212
+168:                                              ; preds = %.preheader231, %.critedge230
   %169 = call range(i32 -2147483648, 1) i32 @ff_rtsp_send_cmd_with_content(ptr noundef %0, ptr noundef nonnull @.str.87, ptr noundef nonnull %51, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, i32 noundef 0)
   %170 = load i32, ptr %59, align 4, !tbaa !178
   %.not165 = icmp eq i32 %170, 200
@@ -6538,7 +6538,7 @@ define i32 @ff_rtsp_connect(ptr noundef %0) local_unnamed_addr #2 {
   %175 = load i8, ptr %60, align 4
   %.not167 = icmp eq i8 %175, 0
   %or.cond177 = select i1 %.not166, i1 true, i1 %.not167
-  br i1 %or.cond177, label %176, label %.critedge212
+  br i1 %or.cond177, label %176, label %.critedge230
 
 176:                                              ; preds = %173
   %177 = call i32 @av_strncasecmp(ptr noundef nonnull %61, ptr noundef nonnull @.str.144, i64 noundef 9) #15

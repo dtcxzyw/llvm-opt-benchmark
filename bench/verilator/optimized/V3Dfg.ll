@@ -1064,8 +1064,8 @@ define dso_local void @_ZN8DfgGraph8addGraphERS_(ptr noundef nonnull align 8 der
 
 ._crit_edge.thread:                               ; preds = %.lr.ph
   %10 = load ptr, ptr %0, align 8, !tbaa !28
-  %.not.i.i64 = icmp eq ptr %10, null
-  br i1 %.not.i.i64, label %11, label %16
+  %.not.i.i68 = icmp eq ptr %10, null
+  br i1 %.not.i.i68, label %11, label %16
 
 11:                                               ; preds = %._crit_edge.thread, %._crit_edge
   store ptr %8, ptr %0, align 8, !tbaa !34
@@ -1119,8 +1119,8 @@ _ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE6spliceENS2_19SimpleIter
 ._crit_edge59.thread:                             ; preds = %.lr.ph58
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !31
-  %.not.i.i2565 = icmp eq ptr %33, null
-  br i1 %.not.i.i2565, label %34, label %40
+  %.not.i.i2569 = icmp eq ptr %33, null
+  br i1 %.not.i.i2569, label %34, label %40
 
 34:                                               ; preds = %._crit_edge59.thread, %._crit_edge59
   %35 = phi ptr [ %32, %._crit_edge59.thread ], [ %30, %._crit_edge59 ]
@@ -1175,8 +1175,8 @@ _ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE6spliceENS2_19SimpleItertator
 ._crit_edge63.thread:                             ; preds = %.lr.ph62
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %57 = load ptr, ptr %56, align 8, !tbaa !32
-  %.not.i.i2767 = icmp eq ptr %57, null
-  br i1 %.not.i.i2767, label %58, label %64
+  %.not.i.i2771 = icmp eq ptr %57, null
+  br i1 %.not.i.i2771, label %58, label %64
 
 58:                                               ; preds = %._crit_edge63.thread, %._crit_edge63
   %59 = phi ptr [ %56, %._crit_edge63.thread ], [ %54, %._crit_edge63 ]

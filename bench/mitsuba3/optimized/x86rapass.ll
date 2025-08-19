@@ -2362,11 +2362,11 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStac
           to label %196 unwind label %198
 
 122:                                              ; preds = %62, %64
-  %.sink8 = phi i32 [ 16777241, %64 ], [ 33554473, %62 ]
+  %.sink13 = phi i32 [ 16777241, %64 ], [ 33554473, %62 ]
   %123 = and i8 %37, -3
   %124 = icmp eq i8 %123, 36
   %125 = icmp eq i8 %39, %63
-  store i32 %.sink8, ptr %8, align 16, !tbaa !85
+  store i32 %.sink13, ptr %8, align 16, !tbaa !85
   store i32 %26, ptr %22, align 4, !tbaa !44
   %126 = and i1 %124, %125
   %127 = select i1 %126, i32 453, i32 457

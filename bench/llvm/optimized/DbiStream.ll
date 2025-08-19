@@ -2398,9 +2398,9 @@ _ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIt
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18: ; preds = %68, %65
   %70 = phi ptr [ %58, %65 ], [ %.pr.pre.i.i.i.i.i.i24, %68 ]
   %.not8.i.i.i.i.i.i19 = icmp eq ptr %70, null
-  br i1 %.not8.i.i.i.i.i.i19, label %_ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEaSERKS6_.exit25.thread55, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18.thread
+  br i1 %.not8.i.i.i.i.i.i19, label %_ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEaSERKS6_.exit25.thread62, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18.thread
 
-_ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEaSERKS6_.exit25.thread55: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18
+_ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEaSERKS6_.exit25.thread62: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18
   store ptr %42, ptr %57, align 8, !tbaa !72
   br label %.sink.split
 
@@ -2456,8 +2456,8 @@ _ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIt
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
   br i1 %.not.i.i.i.i.i11, label %_ZN4llvm5ErrorD2Ev.exit32, label %95
 
-.sink.split:                                      ; preds = %_ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEC2ENS_15BinaryStreamRefE.exit, %_ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEaSERKS6_.exit25.thread55
-  %.sroa.7.sink = phi ptr [ %.sroa.7, %_ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEaSERKS6_.exit25.thread55 ], [ %.sroa.5, %_ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEC2ENS_15BinaryStreamRefE.exit ]
+.sink.split:                                      ; preds = %_ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEC2ENS_15BinaryStreamRefE.exit, %_ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEaSERKS6_.exit25.thread62
+  %.sroa.7.sink = phi ptr [ %.sroa.7, %_ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEaSERKS6_.exit25.thread62 ], [ %.sroa.5, %_ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEC2ENS_15BinaryStreamRefE.exit ]
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.sink, i64 32, i1 false)
   br label %95
@@ -5214,9 +5214,9 @@ _ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEEaSERKS3_.exit25.thread: ; p
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18: ; preds = %68, %65
   %70 = phi ptr [ %58, %65 ], [ %.pr.pre.i.i.i.i.i.i24, %68 ]
   %.not8.i.i.i.i.i.i19 = icmp eq ptr %70, null
-  br i1 %.not8.i.i.i.i.i.i19, label %_ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEEaSERKS3_.exit25.thread55, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18.thread
+  br i1 %.not8.i.i.i.i.i.i19, label %_ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEEaSERKS3_.exit25.thread62, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18.thread
 
-_ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEEaSERKS3_.exit25.thread55: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18
+_ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEEaSERKS3_.exit25.thread62: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18
   store ptr %42, ptr %57, align 8, !tbaa !72
   br label %.sink.split
 
@@ -5272,8 +5272,8 @@ _ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEEaSERKS3_.exit25: ; preds = 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
   br i1 %.not.i.i.i.i.i11, label %_ZN4llvm5ErrorD2Ev.exit32, label %95
 
-.sink.split:                                      ; preds = %_ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEEC2ENS_15BinaryStreamRefE.exit, %_ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEEaSERKS3_.exit25.thread55
-  %.sroa.7.sink = phi ptr [ %.sroa.7, %_ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEEaSERKS3_.exit25.thread55 ], [ %.sroa.5, %_ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEEC2ENS_15BinaryStreamRefE.exit ]
+.sink.split:                                      ; preds = %_ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEEC2ENS_15BinaryStreamRefE.exit, %_ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEEaSERKS3_.exit25.thread62
+  %.sroa.7.sink = phi ptr [ %.sroa.7, %_ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEEaSERKS3_.exit25.thread62 ], [ %.sroa.5, %_ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEEC2ENS_15BinaryStreamRefE.exit ]
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.sink, i64 32, i1 false)
   br label %95
@@ -5614,9 +5614,9 @@ _ZN4llvm16FixedStreamArrayINS_6object7FpoDataEEaSERKS3_.exit25.thread: ; preds =
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18: ; preds = %68, %65
   %70 = phi ptr [ %58, %65 ], [ %.pr.pre.i.i.i.i.i.i24, %68 ]
   %.not8.i.i.i.i.i.i19 = icmp eq ptr %70, null
-  br i1 %.not8.i.i.i.i.i.i19, label %_ZN4llvm16FixedStreamArrayINS_6object7FpoDataEEaSERKS3_.exit25.thread55, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18.thread
+  br i1 %.not8.i.i.i.i.i.i19, label %_ZN4llvm16FixedStreamArrayINS_6object7FpoDataEEaSERKS3_.exit25.thread62, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18.thread
 
-_ZN4llvm16FixedStreamArrayINS_6object7FpoDataEEaSERKS3_.exit25.thread55: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18
+_ZN4llvm16FixedStreamArrayINS_6object7FpoDataEEaSERKS3_.exit25.thread62: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18
   store ptr %42, ptr %57, align 8, !tbaa !72
   br label %.sink.split
 
@@ -5672,8 +5672,8 @@ _ZN4llvm16FixedStreamArrayINS_6object7FpoDataEEaSERKS3_.exit25: ; preds = %77, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
   br i1 %.not.i.i.i.i.i11, label %_ZN4llvm5ErrorD2Ev.exit32, label %95
 
-.sink.split:                                      ; preds = %_ZN4llvm16FixedStreamArrayINS_6object7FpoDataEEC2ENS_15BinaryStreamRefE.exit, %_ZN4llvm16FixedStreamArrayINS_6object7FpoDataEEaSERKS3_.exit25.thread55
-  %.sroa.7.sink = phi ptr [ %.sroa.7, %_ZN4llvm16FixedStreamArrayINS_6object7FpoDataEEaSERKS3_.exit25.thread55 ], [ %.sroa.5, %_ZN4llvm16FixedStreamArrayINS_6object7FpoDataEEC2ENS_15BinaryStreamRefE.exit ]
+.sink.split:                                      ; preds = %_ZN4llvm16FixedStreamArrayINS_6object7FpoDataEEC2ENS_15BinaryStreamRefE.exit, %_ZN4llvm16FixedStreamArrayINS_6object7FpoDataEEaSERKS3_.exit25.thread62
+  %.sroa.7.sink = phi ptr [ %.sroa.7, %_ZN4llvm16FixedStreamArrayINS_6object7FpoDataEEaSERKS3_.exit25.thread62 ], [ %.sroa.5, %_ZN4llvm16FixedStreamArrayINS_6object7FpoDataEEC2ENS_15BinaryStreamRefE.exit ]
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.sink, i64 32, i1 false)
   br label %95
@@ -6357,9 +6357,9 @@ _ZN4llvm16FixedStreamArrayINS_3pdb11SecMapEntryEEaSERKS3_.exit25.thread: ; preds
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18: ; preds = %68, %65
   %70 = phi ptr [ %58, %65 ], [ %.pr.pre.i.i.i.i.i.i24, %68 ]
   %.not8.i.i.i.i.i.i19 = icmp eq ptr %70, null
-  br i1 %.not8.i.i.i.i.i.i19, label %_ZN4llvm16FixedStreamArrayINS_3pdb11SecMapEntryEEaSERKS3_.exit25.thread55, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18.thread
+  br i1 %.not8.i.i.i.i.i.i19, label %_ZN4llvm16FixedStreamArrayINS_3pdb11SecMapEntryEEaSERKS3_.exit25.thread62, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18.thread
 
-_ZN4llvm16FixedStreamArrayINS_3pdb11SecMapEntryEEaSERKS3_.exit25.thread55: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18
+_ZN4llvm16FixedStreamArrayINS_3pdb11SecMapEntryEEaSERKS3_.exit25.thread62: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18
   store ptr %42, ptr %57, align 8, !tbaa !72
   br label %.sink.split
 
@@ -6415,8 +6415,8 @@ _ZN4llvm16FixedStreamArrayINS_3pdb11SecMapEntryEEaSERKS3_.exit25: ; preds = %77,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
   br i1 %.not.i.i.i.i.i11, label %_ZN4llvm5ErrorD2Ev.exit32, label %95
 
-.sink.split:                                      ; preds = %_ZN4llvm16FixedStreamArrayINS_3pdb11SecMapEntryEEC2ENS_15BinaryStreamRefE.exit, %_ZN4llvm16FixedStreamArrayINS_3pdb11SecMapEntryEEaSERKS3_.exit25.thread55
-  %.sroa.7.sink = phi ptr [ %.sroa.7, %_ZN4llvm16FixedStreamArrayINS_3pdb11SecMapEntryEEaSERKS3_.exit25.thread55 ], [ %.sroa.5, %_ZN4llvm16FixedStreamArrayINS_3pdb11SecMapEntryEEC2ENS_15BinaryStreamRefE.exit ]
+.sink.split:                                      ; preds = %_ZN4llvm16FixedStreamArrayINS_3pdb11SecMapEntryEEC2ENS_15BinaryStreamRefE.exit, %_ZN4llvm16FixedStreamArrayINS_3pdb11SecMapEntryEEaSERKS3_.exit25.thread62
+  %.sroa.7.sink = phi ptr [ %.sroa.7, %_ZN4llvm16FixedStreamArrayINS_3pdb11SecMapEntryEEaSERKS3_.exit25.thread62 ], [ %.sroa.5, %_ZN4llvm16FixedStreamArrayINS_3pdb11SecMapEntryEEC2ENS_15BinaryStreamRefE.exit ]
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.sink, i64 32, i1 false)
   br label %95
@@ -7742,9 +7742,9 @@ _ZN4llvm16FixedStreamArrayINS_3pdb14SectionContribEEaSERKS3_.exit25.thread: ; pr
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18: ; preds = %68, %65
   %70 = phi ptr [ %58, %65 ], [ %.pr.pre.i.i.i.i.i.i24, %68 ]
   %.not8.i.i.i.i.i.i19 = icmp eq ptr %70, null
-  br i1 %.not8.i.i.i.i.i.i19, label %_ZN4llvm16FixedStreamArrayINS_3pdb14SectionContribEEaSERKS3_.exit25.thread55, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18.thread
+  br i1 %.not8.i.i.i.i.i.i19, label %_ZN4llvm16FixedStreamArrayINS_3pdb14SectionContribEEaSERKS3_.exit25.thread62, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18.thread
 
-_ZN4llvm16FixedStreamArrayINS_3pdb14SectionContribEEaSERKS3_.exit25.thread55: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18
+_ZN4llvm16FixedStreamArrayINS_3pdb14SectionContribEEaSERKS3_.exit25.thread62: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18
   store ptr %42, ptr %57, align 8, !tbaa !72
   br label %.sink.split
 
@@ -7800,8 +7800,8 @@ _ZN4llvm16FixedStreamArrayINS_3pdb14SectionContribEEaSERKS3_.exit25: ; preds = %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
   br i1 %.not.i.i.i.i.i11, label %_ZN4llvm5ErrorD2Ev.exit32, label %95
 
-.sink.split:                                      ; preds = %_ZN4llvm16FixedStreamArrayINS_3pdb14SectionContribEEC2ENS_15BinaryStreamRefE.exit, %_ZN4llvm16FixedStreamArrayINS_3pdb14SectionContribEEaSERKS3_.exit25.thread55
-  %.sroa.7.sink = phi ptr [ %.sroa.7, %_ZN4llvm16FixedStreamArrayINS_3pdb14SectionContribEEaSERKS3_.exit25.thread55 ], [ %.sroa.5, %_ZN4llvm16FixedStreamArrayINS_3pdb14SectionContribEEC2ENS_15BinaryStreamRefE.exit ]
+.sink.split:                                      ; preds = %_ZN4llvm16FixedStreamArrayINS_3pdb14SectionContribEEC2ENS_15BinaryStreamRefE.exit, %_ZN4llvm16FixedStreamArrayINS_3pdb14SectionContribEEaSERKS3_.exit25.thread62
+  %.sroa.7.sink = phi ptr [ %.sroa.7, %_ZN4llvm16FixedStreamArrayINS_3pdb14SectionContribEEaSERKS3_.exit25.thread62 ], [ %.sroa.5, %_ZN4llvm16FixedStreamArrayINS_3pdb14SectionContribEEC2ENS_15BinaryStreamRefE.exit ]
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.sink, i64 32, i1 false)
   br label %95
@@ -8142,9 +8142,9 @@ _ZN4llvm16FixedStreamArrayINS_3pdb15SectionContrib2EEaSERKS3_.exit25.thread: ; p
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18: ; preds = %68, %65
   %70 = phi ptr [ %58, %65 ], [ %.pr.pre.i.i.i.i.i.i24, %68 ]
   %.not8.i.i.i.i.i.i19 = icmp eq ptr %70, null
-  br i1 %.not8.i.i.i.i.i.i19, label %_ZN4llvm16FixedStreamArrayINS_3pdb15SectionContrib2EEaSERKS3_.exit25.thread55, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18.thread
+  br i1 %.not8.i.i.i.i.i.i19, label %_ZN4llvm16FixedStreamArrayINS_3pdb15SectionContrib2EEaSERKS3_.exit25.thread62, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18.thread
 
-_ZN4llvm16FixedStreamArrayINS_3pdb15SectionContrib2EEaSERKS3_.exit25.thread55: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18
+_ZN4llvm16FixedStreamArrayINS_3pdb15SectionContrib2EEaSERKS3_.exit25.thread62: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18
   store ptr %42, ptr %57, align 8, !tbaa !72
   br label %.sink.split
 
@@ -8200,8 +8200,8 @@ _ZN4llvm16FixedStreamArrayINS_3pdb15SectionContrib2EEaSERKS3_.exit25: ; preds = 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
   br i1 %.not.i.i.i.i.i11, label %_ZN4llvm5ErrorD2Ev.exit32, label %95
 
-.sink.split:                                      ; preds = %_ZN4llvm16FixedStreamArrayINS_3pdb15SectionContrib2EEC2ENS_15BinaryStreamRefE.exit, %_ZN4llvm16FixedStreamArrayINS_3pdb15SectionContrib2EEaSERKS3_.exit25.thread55
-  %.sroa.7.sink = phi ptr [ %.sroa.7, %_ZN4llvm16FixedStreamArrayINS_3pdb15SectionContrib2EEaSERKS3_.exit25.thread55 ], [ %.sroa.5, %_ZN4llvm16FixedStreamArrayINS_3pdb15SectionContrib2EEC2ENS_15BinaryStreamRefE.exit ]
+.sink.split:                                      ; preds = %_ZN4llvm16FixedStreamArrayINS_3pdb15SectionContrib2EEC2ENS_15BinaryStreamRefE.exit, %_ZN4llvm16FixedStreamArrayINS_3pdb15SectionContrib2EEaSERKS3_.exit25.thread62
+  %.sroa.7.sink = phi ptr [ %.sroa.7, %_ZN4llvm16FixedStreamArrayINS_3pdb15SectionContrib2EEaSERKS3_.exit25.thread62 ], [ %.sroa.5, %_ZN4llvm16FixedStreamArrayINS_3pdb15SectionContrib2EEC2ENS_15BinaryStreamRefE.exit ]
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.sink, i64 32, i1 false)
   br label %95

@@ -206,13 +206,13 @@ define noundef i32 @_Z16many_auto_correlPSt6vectorIS_IfSaIfEESaIS1_EE(ptr nounde
 .thread46:                                        ; preds = %41
   %47 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split62
+  br label %.sink.split76
 
 .thread51:                                        ; preds = %43
   %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #13
-  br label %.sink.split62
+  br label %.sink.split76
 
 49:                                               ; preds = %44, %46
   %.017 = phi i1 [ false, %46 ], [ true, %44 ]
@@ -225,13 +225,13 @@ define noundef i32 @_Z16many_auto_correlPSt6vectorIS_IfSaIfEESaIS1_EE(ptr nounde
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.017, label %51, label %52
 
-.sink.split62:                                    ; preds = %.thread46, %.thread51
+.sink.split76:                                    ; preds = %.thread46, %.thread51
   %.pn.pn50.ph = phi { ptr, i32 } [ %48, %.thread51 ], [ %47, %.thread46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %51
 
-51:                                               ; preds = %.sink.split62, %49
-  %.pn.pn50 = phi { ptr, i32 } [ %50, %49 ], [ %.pn.pn50.ph, %.sink.split62 ]
+51:                                               ; preds = %.sink.split76, %49
+  %.pn.pn50 = phi { ptr, i32 } [ %50, %49 ], [ %.pn.pn50.ph, %.sink.split76 ]
   call void @__cxa_free_exception(ptr %42) #13
   br label %52
 
@@ -715,8 +715,8 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit46:          ; preds = %62, %60, %58, %56
 .preheader55.preheader:                           ; preds = %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit46
   %sext = shl i64 %20, 32
   %64 = ashr exact i64 %sext, 32
-  %sext74 = shl i64 %.sroa.speculated, 32
-  %65 = ashr exact i64 %sext74, 32
+  %sext90 = shl i64 %.sroa.speculated, 32
+  %65 = ashr exact i64 %sext90, 32
   br label %.preheader55
 
 .preheader55:                                     ; preds = %.preheader55.preheader, %._crit_edge62
@@ -791,8 +791,8 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit46:          ; preds = %62, %60, %58, %56
   %.03656 = phi i64 [ 0, %.lr.ph ], [ %92, %87 ]
   %88 = getelementptr inbounds nuw float, ptr %70, i64 %.03656
   %89 = load float, ptr %88, align 4, !tbaa !26
-  %.idx75 = shl i64 %.03656, 3
-  %90 = getelementptr inbounds nuw i8, ptr %.pre70, i64 %.idx75
+  %.idx91 = shl i64 %.03656, 3
+  %90 = getelementptr inbounds nuw i8, ptr %.pre70, i64 %.idx91
   store float %89, ptr %90, align 4, !tbaa !26
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store float 0.000000e+00, ptr %91, align 4, !tbaa !26
@@ -1282,13 +1282,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !26
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !26
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

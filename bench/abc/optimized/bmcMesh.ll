@@ -768,8 +768,8 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   store i32 %334, ptr %20, align 16, !tbaa !3
   store i32 %330, ptr %208, align 4, !tbaa !3
   %293 = trunc i64 %indvars.iv830 to i32
-  %.tr898 = add i32 %223, %293
-  %294 = shl i32 %.tr898, 1
+  %.tr930 = add i32 %223, %293
+  %294 = shl i32 %.tr930, 1
   %295 = or disjoint i32 %294, 1
   store i32 %295, ptr %210, align 8, !tbaa !3
   %296 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %indvars.iv830
@@ -797,8 +797,8 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   %indvars.iv.next827 = add nuw nsw i64 %indvars.iv826, 1
   %308 = getelementptr inbounds nuw [100 x i32], ptr %20, i64 0, i64 %indvars.iv.next827
   %309 = trunc i64 %indvars.iv826 to i32
-  %.tr897 = add i32 %223, %309
-  %310 = shl i32 %.tr897, 1
+  %.tr929 = add i32 %223, %309
+  %310 = shl i32 %.tr929, 1
   store i32 %310, ptr %308, align 4, !tbaa !3
   %exitcond829.not = icmp eq i64 %indvars.iv.next827, 16
   br i1 %exitcond829.not, label %240, label %307, !llvm.loop !58
@@ -834,8 +834,8 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   %320 = getelementptr inbounds [102 x [2 x i32]], ptr %18, i64 0, i64 %indvars.iv841
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 4
   %322 = trunc i64 %indvars.iv841 to i32
-  %.tr899 = add i32 %222, %322
-  %323 = shl i32 %.tr899, 1
+  %.tr931 = add i32 %222, %322
+  %323 = shl i32 %.tr931, 1
   %324 = or disjoint i32 %323, 1
   br label %246
 
@@ -889,7 +889,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   br i1 %exitcond856.not, label %._crit_edge671, label %.preheader574.us, !llvm.loop !61
 
 ._crit_edge671:                                   ; preds = %._crit_edge667.us, %110, %.preheader574.lr.ph, %.preheader575
-  %.not918 = phi i1 [ true, %.preheader575 ], [ false, %.preheader574.lr.ph ], [ true, %110 ], [ false, %._crit_edge667.us ]
+  %.not950 = phi i1 [ true, %.preheader575 ], [ false, %.preheader574.lr.ph ], [ true, %110 ], [ false, %._crit_edge667.us ]
   %.0427.lcssa = phi i32 [ 0, %.preheader575 ], [ 0, %.preheader574.lr.ph ], [ 0, %110 ], [ %.3430.lcssa.us, %._crit_edge667.us ]
   %338 = getelementptr inbounds nuw i8, ptr %17, i64 412
   %339 = load i32, ptr %338, align 4, !tbaa !3
@@ -1363,8 +1363,8 @@ Abc_Clock.exit554:                                ; preds = %493, %497
 
 .preheader565:                                    ; preds = %Abc_Clock.exit554
   %507 = icmp slt i32 %2, 3
-  %brmerge919 = or i1 %507, %.not918
-  br i1 %brmerge919, label %._crit_edge701, label %.preheader564.us
+  %brmerge951 = or i1 %507, %.not950
+  br i1 %brmerge951, label %._crit_edge701, label %.preheader564.us
 
 .preheader564.us:                                 ; preds = %.preheader565, %._crit_edge695.us
   %indvars.iv874 = phi i64 [ %indvars.iv.next875, %._crit_edge695.us ], [ 1, %.preheader565 ]
@@ -1528,8 +1528,8 @@ Abc_Clock.exit554:                                ; preds = %493, %497
   %552 = icmp eq i32 %.6726, 0
   %553 = icmp eq i32 %.6726, %112
   %or.cond742 = or i1 %552, %553
-  %.str.17..str.18921 = select i1 %or.cond742, ptr @.str.17, ptr @.str.18
-  %554 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.17..str.18921)
+  %.str.17..str.18953 = select i1 %or.cond742, ptr @.str.17, ptr @.str.18
+  %554 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.17..str.18953)
   %555 = add nuw nsw i32 %.6726, 1
   %exitcond880.not = icmp eq i32 %555, %1
   br i1 %exitcond880.not, label %._crit_edge730, label %.lr.ph729.split.split, !llvm.loop !69

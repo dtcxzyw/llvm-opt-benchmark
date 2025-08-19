@@ -3205,11 +3205,11 @@ define internal range(i32 -1, -2147483648) i32 @H5L__move_dest_cb(ptr noundef re
   br i1 %123, label %.thread90, label %127
 
 .thread90:                                        ; preds = %111, %108
-  %H5E_CANTSET_g.sink146 = phi ptr [ @H5E_CANTSET_g, %108 ], [ @H5E_CANTRESTORE_g, %111 ]
-  %.sink143 = phi i32 [ 1407, %108 ], [ 1412, %111 ]
+  %H5E_CANTSET_g.sink151 = phi ptr [ @H5E_CANTSET_g, %108 ], [ @H5E_CANTRESTORE_g, %111 ]
+  %.sink148 = phi i32 [ 1407, %108 ], [ 1412, %111 ]
   %124 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
-  %125 = load i64, ptr %H5E_CANTSET_g.sink146, align 8, !tbaa !10
-  %126 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5L__move_dest_cb, i32 noundef %.sink143, i64 noundef %124, i64 noundef %125, ptr noundef nonnull @.str.44) #11
+  %125 = load i64, ptr %H5E_CANTSET_g.sink151, align 8, !tbaa !10
+  %126 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5L__move_dest_cb, i32 noundef %.sink148, i64 noundef %124, i64 noundef %125, ptr noundef nonnull @.str.44) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %133
 

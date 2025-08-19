@@ -979,8 +979,8 @@ define internal noundef i32 @deband_16_c(ptr noundef readonly captures(none) %0,
   %56 = mul nsw i64 %indvars.iv185, %53
   %57 = mul nsw i64 %indvars.iv185, %54
   %58 = trunc nsw i64 %indvars.iv185 to i32
-  %invariant.gep198 = getelementptr i16, ptr %24, i64 %56
-  %invariant.gep200 = getelementptr i16, ptr %26, i64 %57
+  %invariant.gep202 = getelementptr i16, ptr %24, i64 %56
+  %invariant.gep204 = getelementptr i16, ptr %26, i64 %57
   br label %59
 
 59:                                               ; preds = %119, %.lr.ph.us.us
@@ -1029,8 +1029,8 @@ define internal noundef i32 @deband_16_c(ptr noundef readonly captures(none) %0,
   %93 = getelementptr inbounds i16, ptr %24, i64 %92
   %94 = load i16, ptr %93, align 2, !tbaa !66
   %95 = zext i16 %94 to i32
-  %gep199 = getelementptr i16, ptr %invariant.gep198, i64 %indvars.iv180
-  %96 = load i16, ptr %gep199, align 2, !tbaa !66
+  %gep203 = getelementptr i16, ptr %invariant.gep202, i64 %indvars.iv180
+  %96 = load i16, ptr %gep203, align 2, !tbaa !66
   %97 = zext i16 %96 to i32
   %98 = sub nsw i32 %97, %75
   %99 = tail call i32 @llvm.abs.i32(i32 %98, i1 true)
@@ -1065,8 +1065,8 @@ define internal noundef i32 @deband_16_c(ptr noundef readonly captures(none) %0,
 
 119:                                              ; preds = %113, %109, %105, %101, %59
   %120 = phi i16 [ %118, %113 ], [ %96, %109 ], [ %96, %105 ], [ %96, %101 ], [ %96, %59 ]
-  %gep201 = getelementptr i16, ptr %invariant.gep200, i64 %indvars.iv180
-  store i16 %120, ptr %gep201, align 2, !tbaa !66
+  %gep205 = getelementptr i16, ptr %invariant.gep204, i64 %indvars.iv180
+  store i16 %120, ptr %gep205, align 2, !tbaa !66
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
   br i1 %exitcond184.not, label %._crit_edge.split.us.us.us, label %59, !llvm.loop !81
@@ -1083,7 +1083,7 @@ define internal noundef i32 @deband_16_c(ptr noundef readonly captures(none) %0,
   %123 = mul nsw i64 %indvars.iv175, %54
   %124 = trunc nsw i64 %indvars.iv175 to i32
   %invariant.gep = getelementptr i16, ptr %24, i64 %122
-  %invariant.gep196 = getelementptr i16, ptr %26, i64 %123
+  %invariant.gep200 = getelementptr i16, ptr %26, i64 %123
   br label %125
 
 125:                                              ; preds = %.lr.ph.us, %125
@@ -1144,8 +1144,8 @@ define internal noundef i32 @deband_16_c(ptr noundef readonly captures(none) %0,
   %170 = icmp slt i32 %169, %31
   %171 = trunc nuw i32 %167 to i16
   %172 = select i1 %170, i16 %171, i16 %162
-  %gep197 = getelementptr i16, ptr %invariant.gep196, i64 %indvars.iv
-  store i16 %172, ptr %gep197, align 2, !tbaa !66
+  %gep201 = getelementptr i16, ptr %invariant.gep200, i64 %indvars.iv
+  store i16 %172, ptr %gep201, align 2, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count183
   br i1 %exitcond.not, label %._crit_edge.split.us169, label %125, !llvm.loop !81
@@ -1237,7 +1237,7 @@ define internal noundef i32 @deband_8_c(ptr noundef readonly captures(none) %0, 
   %55 = mul nsw i64 %indvars.iv165, %48
   %56 = trunc nsw i64 %indvars.iv165 to i32
   %invariant.gep = getelementptr i8, ptr %25, i64 %54
-  %invariant.gep173.sink = getelementptr i8, ptr %27, i64 %55
+  %invariant.gep178.sink = getelementptr i8, ptr %27, i64 %55
   br label %57
 
 57:                                               ; preds = %.lr.ph, %131
@@ -1341,8 +1341,8 @@ define internal noundef i32 @deband_8_c(ptr noundef readonly captures(none) %0, 
 
 131:                                              ; preds = %125, %121, %117, %113, %109, %99
   %.sink = phi i8 [ %108, %99 ], [ %130, %125 ], [ %96, %121 ], [ %96, %117 ], [ %96, %113 ], [ %96, %109 ]
-  %gep174 = getelementptr i8, ptr %invariant.gep173.sink, i64 %indvars.iv
-  store i8 %.sink, ptr %gep174, align 1, !tbaa !74
+  %gep179 = getelementptr i8, ptr %invariant.gep178.sink, i64 %indvars.iv
+  store i8 %.sink, ptr %gep179, align 1, !tbaa !74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %132 = load i32, ptr %38, align 4, !tbaa !45
   %133 = sext i32 %132 to i64

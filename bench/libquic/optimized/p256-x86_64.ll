@@ -339,10 +339,10 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   br i1 %40, label %.lr.ph136.preheader, label %._crit_edge
 
 .lr.ph136.preheader:                              ; preds = %31, %.preheader
-  %.079.lcssa147 = phi i32 [ %39, %.preheader ], [ 0, %31 ]
-  %41 = zext nneg i32 %.079.lcssa147 to i64
+  %.079.lcssa159 = phi i32 [ %39, %.preheader ], [ 0, %31 ]
+  %41 = zext nneg i32 %.079.lcssa159 to i64
   %scevgep = getelementptr i8, ptr %13, i64 %41
-  %narrow = sub nuw nsw i32 33, %.079.lcssa147
+  %narrow = sub nuw nsw i32 33, %.079.lcssa159
   %42 = zext nneg i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %42, i1 false), !tbaa !23
   br label %._crit_edge
@@ -609,10 +609,10 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   br i1 %210, label %.lr.ph178.preheader.i, label %._crit_edge.i
 
 .lr.ph178.preheader.i:                            ; preds = %.preheader.i, %202
-  %.0125.lcssa185.i = phi i32 [ %209, %.preheader.i ], [ 0, %202 ]
-  %211 = zext nneg i32 %.0125.lcssa185.i to i64
+  %.0125.lcssa191.i = phi i32 [ %209, %.preheader.i ], [ 0, %202 ]
+  %211 = zext nneg i32 %.0125.lcssa191.i to i64
   %scevgep.i = getelementptr i8, ptr %8, i64 %211
-  %narrow.i = sub nuw nsw i32 33, %.0125.lcssa185.i
+  %narrow.i = sub nuw nsw i32 33, %.0125.lcssa191.i
   %212 = zext nneg i32 %narrow.i to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %212, i1 false), !tbaa !23
   br label %._crit_edge.i

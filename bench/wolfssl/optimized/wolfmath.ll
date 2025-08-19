@@ -166,8 +166,8 @@ get_digit.exit44:                                 ; preds = %34, %33
   br label %.thread
 
 .thread:                                          ; preds = %3, %._crit_edge, %8
-  %.13369 = phi i32 [ %12, %._crit_edge ], [ %12, %8 ], [ -173, %3 ]
-  ret i32 %.13369
+  %.13371 = phi i32 [ %12, %._crit_edge ], [ %12, %8 ], [ -173, %3 ]
+  ret i32 %.13371
 }
 
 declare i32 @sp_grow(ptr noundef, i32 noundef) local_unnamed_addr #3

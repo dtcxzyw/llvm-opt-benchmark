@@ -216,7 +216,7 @@ _ZNSt5arrayIfLm4EE4fillERKf.exit:
 
 ._crit_edge:                                      ; preds = %._crit_edge189, %_ZNSt5arrayIfLm4EE4fillERKf.exit
   %.0.lcssa = phi i32 [ 0, %_ZNSt5arrayIfLm4EE4fillERKf.exit ], [ %.2, %._crit_edge189 ]
-  %.ptr231.ptr.ptr = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %.ptr238.ptr.ptr = getelementptr inbounds nuw i8, ptr %0, i64 100
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %50 = load i8, ptr %49, align 8, !tbaa !78, !range !104, !noundef !99
@@ -228,7 +228,7 @@ _ZNSt5arrayIfLm4EE4fillERKf.exit:
   br label %_ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_OS6_.exit
 
 _ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_OS6_.exit: ; preds = %._crit_edge, %52
-  store ptr %.ptr231.ptr.ptr, ptr %48, align 8, !tbaa !105
+  store ptr %.ptr238.ptr.ptr, ptr %48, align 8, !tbaa !105
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 4, ptr %53, align 8, !tbaa !106
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -297,7 +297,7 @@ _ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_O
   %82 = fadd float %77, %81
   store float %82, ptr %80, align 4, !tbaa !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %83 = trunc nuw i64 %indvars.iv.next to i32
+  %83 = trunc nuw nsw i64 %indvars.iv.next to i32
   %84 = icmp sgt i32 %32, %83
   br i1 %84, label %74, label %._crit_edge.us, !llvm.loop !108
 
@@ -363,7 +363,7 @@ _ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_O
 
 ._crit_edge.us193:                                ; preds = %98
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
-  %109 = trunc nuw i64 %indvars.iv.next225 to i32
+  %109 = trunc nuw nsw i64 %indvars.iv.next225 to i32
   %110 = icmp sgt i32 %38, %109
   br i1 %110, label %.preheader181.us, label %._crit_edge189, !llvm.loop !112
 
@@ -406,7 +406,7 @@ _ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_O
   %125 = fmul float %124, 6.553500e+04
   %126 = fdiv float %125, %117
   %127 = fptosi float %126 to i32
-  %128 = getelementptr inbounds nuw i32, ptr %.ptr231.ptr.ptr, i64 %indvars.iv227
+  %128 = getelementptr inbounds nuw i32, ptr %.ptr238.ptr.ptr, i64 %indvars.iv227
   store i32 %127, ptr %128, align 4, !tbaa !106
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next228, 4
@@ -804,7 +804,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
 
 ._crit_edge.us:                                   ; preds = %103
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %116 = trunc nuw i64 %indvars.iv.next70 to i32
+  %116 = trunc nuw nsw i64 %indvars.iv.next70 to i32
   %117 = icmp sgt i32 %2, %116
   br i1 %117, label %.preheader.us, label %._crit_edge62, !llvm.loop !143
 

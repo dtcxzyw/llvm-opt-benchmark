@@ -4082,7 +4082,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %22 = icmp eq i64 %21, 0
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %23 = or disjoint i64 %17, 1
-  %24 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %23
   %25 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %18
   br label %26
 
@@ -4132,19 +4132,19 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.019.i.i.i.i = phi i64 [ %.01020.i.i.i.i, %44 ], [ %.1.i.i.i, %40 ]
   %.01020.in.i.i.i.i = add nsw i64 %.019.i.i.i.i, -1
   %.01020.i.i.i.i = sdiv i64 %.01020.in.i.i.i.i, 2
-  %42 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.01020.i.i.i.i
+  %42 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %.01020.i.i.i.i
   %43 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(12) %42, ptr noundef nonnull align 4 dereferenceable(12) %5)
   br i1 %43, label %44, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i
 
 44:                                               ; preds = %.lr.ph.i.i.i.i
-  %45 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.019.i.i.i.i
+  %45 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %.019.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %45, ptr noundef nonnull align 4 dereferenceable(12) %42, i64 12, i1 false), !tbaa.struct !13
   %46 = icmp sgt i64 %.01020.i.i.i.i, %.012.i.i
   br i1 %46, label %.lr.ph.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i, !llvm.loop !35
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i: ; preds = %44, %.lr.ph.i.i.i.i, %40
   %.0.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %40 ], [ %.01020.i.i.i.i, %44 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %47 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %47 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %.0.lcssa.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %47, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 12, i1 false), !tbaa.struct !13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i.i = icmp eq i64 %.012.i.i, 0
@@ -4595,27 +4595,27 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 .lr.ph:                                           ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = icmp eq i64 %2, 0
-  br i1 %13, label %._crit_edge, label %.lr.ph39
+  br i1 %13, label %._crit_edge, label %.lr.ph41
 
 14:                                               ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit
   %15 = icmp eq i64 %63, 0
-  br i1 %15, label %._crit_edge, label %.lr.ph39, !llvm.loop !44
+  br i1 %15, label %._crit_edge, label %.lr.ph41, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %14, %.lr.ph
-  %.lcssa35 = phi i64 [ %10, %.lr.ph ], [ %66, %14 ]
-  %.lcssa33 = phi i64 [ %9, %.lr.ph ], [ %65, %14 ]
+  %.lcssa37 = phi i64 [ %10, %.lr.ph ], [ %66, %14 ]
+  %.lcssa35 = phi i64 [ %9, %.lr.ph ], [ %65, %14 ]
   %storemerge20.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.012.1.i.i, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
-  %16 = add nsw i64 %.lcssa35, -2
+  %16 = add nsw i64 %.lcssa37, -2
   %17 = lshr i64 %16, 1
-  %18 = add nsw i64 %.lcssa35, -1
+  %18 = add nsw i64 %.lcssa37, -1
   %19 = lshr i64 %18, 1
-  %20 = and i64 %.lcssa33, 16
+  %20 = and i64 %.lcssa35, 16
   %21 = icmp eq i64 %20, 0
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %23 = or disjoint i64 %16, 1
-  %24 = getelementptr inbounds %"struct.std::array.159", ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw %"struct.std::array.159", ptr %0, i64 %23
   %25 = getelementptr inbounds nuw %"struct.std::array.159", ptr %0, i64 %17
   br label %26
 
@@ -4665,19 +4665,19 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.018.i.i.i.i = phi i64 [ %.0919.i.i.i.i, %44 ], [ %.1.i.i.i, %40 ]
   %.0919.in.i.i.i.i = add nsw i64 %.018.i.i.i.i, -1
   %.0919.i.i.i.i = sdiv i64 %.0919.in.i.i.i.i, 2
-  %42 = getelementptr inbounds %"struct.std::array.159", ptr %0, i64 %.0919.i.i.i.i
+  %42 = getelementptr inbounds nuw %"struct.std::array.159", ptr %0, i64 %.0919.i.i.i.i
   %43 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(16) %42, ptr noundef nonnull align 4 dereferenceable(16) %5)
   br i1 %43, label %44, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i
 
 44:                                               ; preds = %.lr.ph.i.i.i.i
-  %45 = getelementptr inbounds %"struct.std::array.159", ptr %0, i64 %.018.i.i.i.i
+  %45 = getelementptr inbounds nuw %"struct.std::array.159", ptr %0, i64 %.018.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %45, ptr noundef nonnull align 4 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !19
   %46 = icmp sgt i64 %.0919.i.i.i.i, %.010.i.i
   br i1 %46, label %.lr.ph.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i, !llvm.loop !46
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i: ; preds = %44, %.lr.ph.i.i.i.i, %40
   %.0.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %40 ], [ %.0919.i.i.i.i, %44 ], [ %.018.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %47 = getelementptr inbounds %"struct.std::array.159", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %47 = getelementptr inbounds nuw %"struct.std::array.159", ptr %0, i64 %.0.lcssa.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i.i = icmp eq i64 %.010.i.i, 0
@@ -4689,19 +4689,19 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-.lr.ph39:                                         ; preds = %.lr.ph, %14
-  %storemerge2038 = phi ptr [ %.sroa.012.1.i.i, %14 ], [ %1, %.lr.ph ]
-  %.02137 = phi i64 [ %63, %14 ], [ %2, %.lr.ph ]
+.lr.ph41:                                         ; preds = %.lr.ph, %14
+  %storemerge2040 = phi ptr [ %.sroa.012.1.i.i, %14 ], [ %1, %.lr.ph ]
+  %.02139 = phi i64 [ %63, %14 ], [ %2, %.lr.ph ]
   %49 = phi i64 [ %66, %14 ], [ %10, %.lr.ph ]
   %50 = lshr i64 %49, 1
   %51 = getelementptr inbounds nuw %"struct.std::array.159", ptr %0, i64 %50
-  %52 = getelementptr inbounds i8, ptr %storemerge2038, i64 -16
+  %52 = getelementptr inbounds i8, ptr %storemerge2040, i64 -16
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_(ptr %0, ptr nonnull %12, ptr %51, ptr nonnull %52, ptr %3)
   br label %53
 
-53:                                               ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i, %.lr.ph39
-  %.sroa.09.0.i.i = phi ptr [ %storemerge2038, %.lr.ph39 ], [ %.sroa.09.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i ]
-  %.sroa.012.0.i.i = phi ptr [ %12, %.lr.ph39 ], [ %56, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i ]
+53:                                               ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i, %.lr.ph41
+  %.sroa.09.0.i.i = phi ptr [ %storemerge2040, %.lr.ph41 ], [ %.sroa.09.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i ]
+  %.sroa.012.0.i.i = phi ptr [ %12, %.lr.ph41 ], [ %56, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i ]
   br label %54
 
 54:                                               ; preds = %54, %53
@@ -4737,8 +4737,8 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3
   br label %53, !llvm.loop !50
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit: ; preds = %58
-  %63 = add nsw i64 %.02137, -1
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge2038, i64 noundef %63, ptr %3)
+  %63 = add nsw i64 %.02139, -1
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge2040, i64 noundef %63, ptr %3)
   %64 = ptrtoint ptr %.sroa.012.1.i.i to i64
   %65 = sub i64 %64, %7
   %66 = ashr exact i64 %65, 4
@@ -5058,7 +5058,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %21 = and i64 %16, 1
   %22 = icmp eq i64 %21, 0
   %23 = or disjoint i64 %17, 1
-  %24 = getelementptr inbounds %"struct.std::array.164", ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw %"struct.std::array.164", ptr %0, i64 %23
   %25 = getelementptr inbounds nuw %"struct.std::array.164", ptr %0, i64 %18
   br label %26
 
@@ -5106,19 +5106,19 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.018.i.i.i.i = phi i64 [ %.0919.i.i.i.i, %44 ], [ %.1.i.i.i, %40 ]
   %.0919.in.i.i.i.i = add nsw i64 %.018.i.i.i.i, -1
   %.0919.i.i.i.i = sdiv i64 %.0919.in.i.i.i.i, 2
-  %42 = getelementptr inbounds %"struct.std::array.164", ptr %0, i64 %.0919.i.i.i.i
+  %42 = getelementptr inbounds nuw %"struct.std::array.164", ptr %0, i64 %.0919.i.i.i.i
   %43 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(20) %42, ptr noundef nonnull align 8 dereferenceable(20) %5)
   br i1 %43, label %44, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i
 
 44:                                               ; preds = %.lr.ph.i.i.i.i15
-  %45 = getelementptr inbounds %"struct.std::array.164", ptr %0, i64 %.018.i.i.i.i
+  %45 = getelementptr inbounds nuw %"struct.std::array.164", ptr %0, i64 %.018.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %45, ptr noundef nonnull align 4 dereferenceable(20) %42, i64 20, i1 false), !tbaa.struct !25
   %46 = icmp sgt i64 %.0919.i.i.i.i, %.09.i.i
   br i1 %46, label %.lr.ph.i.i.i.i15, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i, !llvm.loop !53
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i: ; preds = %44, %.lr.ph.i.i.i.i15, %40
   %.0.lcssa.i.i.i.i14 = phi i64 [ %.1.i.i.i, %40 ], [ %.0919.i.i.i.i, %44 ], [ %.018.i.i.i.i, %.lr.ph.i.i.i.i15 ]
-  %47 = getelementptr inbounds %"struct.std::array.164", ptr %0, i64 %.0.lcssa.i.i.i.i14
+  %47 = getelementptr inbounds nuw %"struct.std::array.164", ptr %0, i64 %.0.lcssa.i.i.i.i14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %47, ptr noundef nonnull align 8 dereferenceable(20) %5, i64 20, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.016.i.i)
@@ -5445,7 +5445,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %21 = and i64 %16, 1
   %22 = icmp eq i64 %21, 0
   %23 = or disjoint i64 %17, 1
-  %24 = getelementptr inbounds %"struct.std::array.169", ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw %"struct.std::array.169", ptr %0, i64 %23
   %25 = getelementptr inbounds nuw %"struct.std::array.169", ptr %0, i64 %18
   br label %26
 
@@ -5493,19 +5493,19 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.018.i.i.i.i = phi i64 [ %.0919.i.i.i.i, %44 ], [ %.1.i.i.i, %40 ]
   %.0919.in.i.i.i.i = add nsw i64 %.018.i.i.i.i, -1
   %.0919.i.i.i.i = sdiv i64 %.0919.in.i.i.i.i, 2
-  %42 = getelementptr inbounds %"struct.std::array.169", ptr %0, i64 %.0919.i.i.i.i
+  %42 = getelementptr inbounds nuw %"struct.std::array.169", ptr %0, i64 %.0919.i.i.i.i
   %43 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %5)
   br i1 %43, label %44, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i
 
 44:                                               ; preds = %.lr.ph.i.i.i.i15
-  %45 = getelementptr inbounds %"struct.std::array.169", ptr %0, i64 %.018.i.i.i.i
+  %45 = getelementptr inbounds nuw %"struct.std::array.169", ptr %0, i64 %.018.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %45, ptr noundef nonnull align 4 dereferenceable(24) %42, i64 24, i1 false), !tbaa.struct !31
   %46 = icmp sgt i64 %.0919.i.i.i.i, %.09.i.i
   br i1 %46, label %.lr.ph.i.i.i.i15, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i, !llvm.loop !61
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i: ; preds = %44, %.lr.ph.i.i.i.i15, %40
   %.0.lcssa.i.i.i.i14 = phi i64 [ %.1.i.i.i, %40 ], [ %.0919.i.i.i.i, %44 ], [ %.018.i.i.i.i, %.lr.ph.i.i.i.i15 ]
-  %47 = getelementptr inbounds %"struct.std::array.169", ptr %0, i64 %.0.lcssa.i.i.i.i14
+  %47 = getelementptr inbounds nuw %"struct.std::array.169", ptr %0, i64 %.0.lcssa.i.i.i.i14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.016.i.i)

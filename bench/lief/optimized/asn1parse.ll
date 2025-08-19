@@ -340,19 +340,19 @@ mbedtls_asn1_get_tag.exit:                        ; preds = %.loopexit.i.i
 
 .preheader.preheader:                             ; preds = %40
   %42 = icmp eq i8 %41, 0
-  br i1 %42, label %.lr.ph53, label %.critedge
+  br i1 %42, label %.lr.ph57, label %.critedge
 
-thread-pre-split:                                 ; preds = %.lr.ph53
+thread-pre-split:                                 ; preds = %.lr.ph57
   %.pr = load i8, ptr %45, align 1, !tbaa !8
   %43 = icmp eq i8 %.pr, 0
-  br i1 %43, label %.lr.ph53, label %.preheader..critedge_crit_edge
+  br i1 %43, label %.lr.ph57, label %.preheader..critedge_crit_edge
 
-.lr.ph53:                                         ; preds = %.preheader.preheader, %thread-pre-split
+.lr.ph57:                                         ; preds = %.preheader.preheader, %thread-pre-split
   %44 = phi ptr [ %45, %thread-pre-split ], [ %.promoted, %.preheader.preheader ]
-  %.0232952 = phi i64 [ %46, %thread-pre-split ], [ %.2, %.preheader.preheader ]
+  %.0232956 = phi i64 [ %46, %thread-pre-split ], [ %.2, %.preheader.preheader ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store ptr %45, ptr %0, align 8, !tbaa !3
-  %46 = add i64 %.0232952, -1
+  %46 = add i64 %.0232956, -1
   %.not16 = icmp eq i64 %46, 0
   br i1 %.not16, label %.thread, label %thread-pre-split, !llvm.loop !15
 
@@ -361,16 +361,16 @@ thread-pre-split:                                 ; preds = %.lr.ph53
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader..critedge_crit_edge, %.preheader.preheader
-  %.lcssa49 = phi i1 [ %47, %.preheader..critedge_crit_edge ], [ true, %.preheader.preheader ]
+  %.lcssa53 = phi i1 [ %47, %.preheader..critedge_crit_edge ], [ true, %.preheader.preheader ]
   %.02329.lcssa = phi i64 [ %46, %.preheader..critedge_crit_edge ], [ %.2, %.preheader.preheader ]
   %.lcssa = phi ptr [ %45, %.preheader..critedge_crit_edge ], [ %.promoted, %.preheader.preheader ]
   %48 = icmp ult i64 %.02329.lcssa, 5
   %49 = icmp ne i64 %.02329.lcssa, 4
-  %or.cond = or i1 %49, %.lcssa49
-  %or.cond56 = and i1 %48, %or.cond
-  br i1 %or.cond56, label %.lr.ph, label %mbedtls_asn1_get_tag.exit.thread
+  %or.cond = or i1 %49, %.lcssa53
+  %or.cond60 = and i1 %48, %or.cond
+  br i1 %or.cond60, label %.lr.ph, label %mbedtls_asn1_get_tag.exit.thread
 
-.thread:                                          ; preds = %.lr.ph53
+.thread:                                          ; preds = %.lr.ph57
   store i32 0, ptr %3, align 4, !tbaa !13
   br label %mbedtls_asn1_get_tag.exit.thread
 

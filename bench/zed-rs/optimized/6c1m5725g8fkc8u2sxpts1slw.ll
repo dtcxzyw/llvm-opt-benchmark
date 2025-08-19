@@ -1790,13 +1790,13 @@ define hidden { i64, i64 } @_ZN4core5slice5index5range17h53ca61de1c6fca86E(ptr n
   %.val = load i64, ptr %0, align 8, !range !42, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val21 = load ptr, ptr %4, align 8
-  switch i64 %.val, label %default.unreachable24 [
+  switch i64 %.val, label %default.unreachable26 [
     i64 0, label %5
     i64 1, label %8
     i64 2, label %12
   ]
 
-default.unreachable24:                            ; preds = %12, %3
+default.unreachable26:                            ; preds = %12, %3
   unreachable
 
 5:                                                ; preds = %3
@@ -1818,7 +1818,7 @@ default.unreachable24:                            ; preds = %12, %3
   %.val22 = load i64, ptr %13, align 8, !range !42, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val23 = load ptr, ptr %14, align 8
-  switch i64 %.val22, label %default.unreachable24 [
+  switch i64 %.val22, label %default.unreachable26 [
     i64 0, label %18
     i64 1, label %22
     i64 2, label %28
@@ -6357,7 +6357,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   br i1 %.sroa.044.384, label %187, label %186
 
 .thread:                                          ; preds = %41, %50, %2
-  %lpad.thr_comm115 = landingpad { ptr, i32 }
+  %lpad.thr_comm120 = landingpad { ptr, i32 }
           cleanup
   br label %187
 
@@ -6788,11 +6788,11 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   br label %178
 
 186:                                              ; preds = %187, %40
-  %.pn60113 = phi { ptr, i32 } [ %.pn60114, %187 ], [ %.pn85, %40 ]
-  resume { ptr, i32 } %.pn60113
+  %.pn60118 = phi { ptr, i32 } [ %.pn60119, %187 ], [ %.pn85, %40 ]
+  resume { ptr, i32 } %.pn60118
 
 187:                                              ; preds = %.thread, %40
-  %.pn60114 = phi { ptr, i32 } [ %.pn85, %40 ], [ %lpad.thr_comm115, %.thread ]
+  %.pn60119 = phi { ptr, i32 } [ %.pn85, %40 ], [ %lpad.thr_comm120, %.thread ]
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke fastcc void @"_ZN4core3ptr344drop_in_place$LT$gpui..window..WindowContext..defer$LT$gpui..window..ViewContext$LT$workspace..modal_layer..ModalLayer$GT$..defer$LT$workspace..modal_layer..ModalLayer..show_modal$LT$theme_selector..ThemeSelector$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc36ac58a606e0762E"(ptr noalias noundef align 8 dereferenceable(64) %188) #35
           to label %186 unwind label %181
@@ -18577,7 +18577,7 @@ common.resume:                                    ; preds = %35, %253, %46, %50
   br i1 %.sroa.044.384.i.i, label %213, label %.body
 
 .thread.i.i:                                      ; preds = %93, %84, %58
-  %lpad.thr_comm114.i.i = landingpad { ptr, i32 }
+  %lpad.thr_comm119.i.i = landingpad { ptr, i32 }
           cleanup
   br label %213
 
@@ -18970,7 +18970,7 @@ common.resume:                                    ; preds = %35, %253, %46, %50
   br label %"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT$13update_window28_$u7b$$u7b$closure$u7d$$u7d$17hccff3b2d9969ecd1E.exit.i"
 
 213:                                              ; preds = %.thread.i.i, %83
-  %.pn60113.i.i = phi { ptr, i32 } [ %.pn85.i.i, %83 ], [ %lpad.thr_comm114.i.i, %.thread.i.i ]
+  %.pn60118.i.i = phi { ptr, i32 } [ %.pn85.i.i, %83 ], [ %lpad.thr_comm119.i.i, %.thread.i.i ]
   invoke fastcc void @"_ZN4core3ptr409drop_in_place$LT$$LT$gpui..app..async_context..AsyncWindowContext$u20$as$u20$gpui..VisualContext$GT$..update_view$LT$picker..Picker$LT$theme_selector..ThemeSelectorDelegate$GT$$C$$LP$$RP$$C$$LT$theme_selector..ThemeSelectorDelegate$u20$as$u20$picker..PickerDelegate$GT$..update_matches..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc8acb887421322a4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %22) #35
           to label %.body unwind label %195
 
@@ -19017,7 +19017,7 @@ common.resume:                                    ; preds = %35, %253, %46, %50
   br label %.body
 
 .body:                                            ; preds = %83, %203, %207, %213, %221, %224, %228
-  %eh.lpad-body = phi { ptr, i32 } [ %229, %228 ], [ %204, %207 ], [ %204, %203 ], [ %.pn60113.i.i, %213 ], [ %.pn85.i.i, %83 ], [ %222, %221 ], [ %222, %224 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %229, %228 ], [ %204, %207 ], [ %204, %203 ], [ %.pn60118.i.i, %213 ], [ %.pn85.i.i, %83 ], [ %222, %221 ], [ %222, %224 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$gpui..app..AppRefMut$GT$17hc137cf84765f8e03E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #35
           to label %.body17 unwind label %251
 
@@ -20148,7 +20148,7 @@ define hidden void @"_ZN84_$LT$gpui..app..async_context..AsyncWindowContext$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(1056) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h080217e7a83a29d6E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
+define hidden noundef nonnull align 8 dereferenceable(1056) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h080217e7a83a29d6E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -20181,7 +20181,7 @@ define hidden noundef align 8 dereferenceable(1056) ptr @"_ZN84_$LT$gpui..app..e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(1576) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h1c761d05e372af55E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
+define hidden noundef nonnull align 8 dereferenceable(1576) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h1c761d05e372af55E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -20214,7 +20214,7 @@ define hidden noundef align 8 dereferenceable(1576) ptr @"_ZN84_$LT$gpui..app..e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(32) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h8690818a302b2596E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h8690818a302b2596E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -20247,7 +20247,7 @@ define hidden noundef align 8 dereferenceable(32) ptr @"_ZN84_$LT$gpui..app..ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(240) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hbae7471815ececc8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
+define hidden noundef nonnull align 8 dereferenceable(240) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hbae7471815ececc8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -20280,7 +20280,7 @@ define hidden noundef align 8 dereferenceable(240) ptr @"_ZN84_$LT$gpui..app..en
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(5472) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hc5f34433344a28b6E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
+define hidden noundef nonnull align 8 dereferenceable(5472) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hc5f34433344a28b6E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -20313,7 +20313,7 @@ define hidden noundef align 8 dereferenceable(5472) ptr @"_ZN84_$LT$gpui..app..e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(16) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17he7f886030ca47b90E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17he7f886030ca47b90E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -20346,7 +20346,7 @@ define hidden noundef align 8 dereferenceable(16) ptr @"_ZN84_$LT$gpui..app..ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(88) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hee46954910c2a0fbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
+define hidden noundef nonnull align 8 dereferenceable(88) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hee46954910c2a0fbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null

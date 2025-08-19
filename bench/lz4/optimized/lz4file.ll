@@ -108,8 +108,8 @@ LZ4F_freeAndNullReadFile.exit37:                  ; preds = %39, %42
   %switch.maskindex = trunc i32 %48 to i8
   %switch.shifted = lshr i8 -15, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond42 = select i1 %49, i1 %switch.lobit, i1 false
-  br i1 %or.cond42, label %switch.lookup, label %50
+  %or.cond49 = select i1 %49, i1 %switch.lobit, i1 false
+  br i1 %or.cond49, label %switch.lookup, label %50
 
 50:                                               ; preds = %47
   call fastcc void @LZ4F_freeAndNullReadFile(ptr noundef %0)
@@ -322,8 +322,8 @@ define noundef i64 @LZ4F_writeOpen(ptr noundef captures(address_is_null) %0, ptr
   %switch.maskindex = trunc i32 %12 to i8
   %switch.shifted = lshr i8 -15, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond47 = select i1 %13, i1 %switch.lobit, i1 false
-  br i1 %or.cond47, label %switch.lookup, label %LZ4F_freeAndNullWriteFile.exit
+  %or.cond53 = select i1 %13, i1 %switch.lobit, i1 false
+  br i1 %or.cond53, label %switch.lookup, label %LZ4F_freeAndNullWriteFile.exit
 
 LZ4F_freeAndNullWriteFile.exit:                   ; preds = %11
   %14 = tail call i64 @LZ4F_freeCompressionContext(ptr noundef null) #10

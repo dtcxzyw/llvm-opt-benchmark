@@ -225,9 +225,9 @@ define internal fastcc range(i32 0, 2) i32 @sct_ctx_update(ptr noundef nonnull %
   br i1 %.not63, label %82, label %55
 
 55:                                               ; preds = %49, %46
-  %.sink69 = phi i64 [ 40, %46 ], [ 56, %49 ]
+  %.sink70 = phi i64 [ 40, %46 ], [ 56, %49 ]
   %.sink = phi i64 [ 48, %46 ], [ 64, %49 ]
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink69
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink70
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %.0 = load i64, ptr %57, align 8, !tbaa !29
   %.059 = load ptr, ptr %56, align 8, !tbaa !30

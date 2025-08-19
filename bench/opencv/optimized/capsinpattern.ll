@@ -9907,7 +9907,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit1548: ; preds = %327
   %3280 = getelementptr inbounds nuw i8, ptr %3279, i64 240
   %3281 = load ptr, ptr %3280, align 8, !tbaa !7
   %.not.i.i.i1692 = icmp eq ptr %3281, null
-  br i1 %.not.i.i.i1692, label %.invoke3338, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i1693
+  br i1 %.not.i.i.i1692, label %.invoke3753, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i1693
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i1693: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit1548
   %3282 = getelementptr inbounds nuw i8, ptr %3281, i64 56
@@ -9952,13 +9952,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit1552: ; preds = %_ZN
   %3299 = getelementptr inbounds nuw i8, ptr %3298, i64 240
   %3300 = load ptr, ptr %3299, align 8, !tbaa !7
   %.not.i.i.i1703 = icmp eq ptr %3300, null
-  br i1 %.not.i.i.i1703, label %.invoke3338, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i1704
+  br i1 %.not.i.i.i1703, label %.invoke3753, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i1704
 
-.invoke3338:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit1552, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit1548
+.invoke3753:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit1552, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit1548
   invoke void @_ZSt16__throw_bad_castv() #20
-          to label %.cont3339 unwind label %3336
+          to label %.cont3754 unwind label %3336
 
-.cont3339:                                        ; preds = %.invoke3338
+.cont3754:                                        ; preds = %.invoke3753
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i1704: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit1552
@@ -10024,7 +10024,7 @@ _ZNSolsEPFRSoS_E.exit1554:                        ; preds = %.noexc1711
   %3335 = getelementptr inbounds nuw i8, ptr %176, i64 112
   br label %3338
 
-3336:                                             ; preds = %.invoke3338, %.noexc1711, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i1706, %.noexc1709, %3306, %.noexc1700, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i1695, %.noexc1698, %3287, %_ZNSolsEPFRSoS_E.exit1550, %3274
+3336:                                             ; preds = %.invoke3753, %.noexc1711, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i1706, %.noexc1709, %3306, %.noexc1700, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i1695, %.noexc1698, %3287, %_ZNSolsEPFRSoS_E.exit1550, %3274
   %3337 = landingpad { ptr, i32 }
           cleanup
   br label %3448

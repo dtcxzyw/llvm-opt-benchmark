@@ -420,8 +420,8 @@ bytestream2_get_le32.exit185.i:                   ; preds = %125, %bytestream2_g
 141:                                              ; preds = %138, %133
   %142 = phi i32 [ %134, %133 ], [ %spec.select250.i, %138 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %.not269.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not269.i, label %143, label %133, !llvm.loop !48
+  %.not273.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not273.i, label %143, label %133, !llvm.loop !48
 
 143:                                              ; preds = %141
   %144 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv252.i
@@ -1152,7 +1152,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @parse_bintree(ptr noundef 
   %87 = add i32 %78, 2
   %88 = tail call i32 @llvm.umin.i32(i32 %.pre171, i32 %87)
   store i32 %88, ptr %53, align 8, !tbaa !74
-  switch i32 %86, label %default.unreachable198 [
+  switch i32 %86, label %default.unreachable204 [
     i32 0, label %89
     i32 1, label %89
     i32 2, label %91
@@ -1404,7 +1404,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @parse_bintree(ptr noundef 
   store ptr %208, ptr %61, align 8, !tbaa !91
   br label %.critedge
 
-default.unreachable198:                           ; preds = %76
+default.unreachable204:                           ; preds = %76
   unreachable
 
 209:                                              ; preds = %._crit_edge183, %162, %93
@@ -2310,9 +2310,9 @@ copy_block4.exit:                                 ; preds = %.preheader56, %.pre
   %.5305 = phi i32 [ 1, %256 ], [ %.330329, %255 ], [ %.330329, %255 ], [ %.330329, %255 ]
   %.0299 = phi i32 [ 253, %256 ], [ %87, %255 ], [ %87, %255 ], [ %87, %255 ]
   %.5 = phi i32 [ 0, %256 ], [ %.333, %255 ], [ %.333, %255 ], [ %.333, %255 ]
-  %258 = add nsw i32 %.030828, %.0299
-  %259 = sub i32 257, %258
-  %260 = icmp slt i32 %259, 1
+  %258 = add nuw nsw i32 %.030828, %.0299
+  %259 = sub nsw i32 257, %258
+  %260 = icmp sgt i32 %258, 256
   br i1 %260, label %.loopexit18, label %261
 
 261:                                              ; preds = %257

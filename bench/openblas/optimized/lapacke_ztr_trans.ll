@@ -51,11 +51,11 @@ define void @LAPACKE_ztr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %28 = tail call i32 @llvm.smin.i32(i32 %3, i32 %5)
   %29 = zext i1 %.not76 to i64
   %30 = sext i32 %7 to i64
-  %.neg118 = sext i1 %.not76 to i64
+  %.neg121 = sext i1 %.not76 to i64
   %31 = sext i32 %28 to i64
   %32 = sext i32 %5 to i64
   %wide.trip.count97 = zext nneg i32 %26 to i64
-  %invariant.op = add nsw i64 %.neg118, %31
+  %invariant.op = add nsw i64 %.neg121, %31
   %wide.trip.count = zext i32 %28 to i64
   br label %48
 
@@ -91,20 +91,20 @@ define void @LAPACKE_ztr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %smin = tail call i32 @llvm.smin.i32(i32 %5, i32 %indvars.iv102)
   %41 = mul nsw i64 %indvars.iv106, %37
   %wide.trip.count104 = zext i32 %smin to i64
-  %invariant.gep114 = getelementptr { double, double }, ptr %4, i64 %41
-  %invariant.gep116 = getelementptr { double, double }, ptr %6, i64 %indvars.iv106
+  %invariant.gep117 = getelementptr { double, double }, ptr %4, i64 %41
+  %invariant.gep119 = getelementptr { double, double }, ptr %6, i64 %indvars.iv106
   br label %42
 
 42:                                               ; preds = %.lr.ph88, %42
   %indvars.iv99 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next100, %42 ]
-  %gep115 = getelementptr { double, double }, ptr %invariant.gep114, i64 %indvars.iv99
-  %43 = load double, ptr %gep115, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %gep115, i64 8
+  %gep118 = getelementptr { double, double }, ptr %invariant.gep117, i64 %indvars.iv99
+  %43 = load double, ptr %gep118, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %gep118, i64 8
   %45 = load double, ptr %44, align 8
   %46 = mul nsw i64 %indvars.iv99, %35
-  %gep117 = getelementptr { double, double }, ptr %invariant.gep116, i64 %46
-  %47 = getelementptr inbounds nuw i8, ptr %gep117, i64 8
-  store double %43, ptr %gep117, align 8
+  %gep120 = getelementptr { double, double }, ptr %invariant.gep119, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %gep120, i64 8
+  store double %43, ptr %gep120, align 8
   store double %45, ptr %47, align 8
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count104
@@ -119,7 +119,7 @@ define void @LAPACKE_ztr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
 .lr.ph:                                           ; preds = %48
   %50 = mul nsw i64 %indvars.iv94, %32
   %invariant.gep = getelementptr { double, double }, ptr %4, i64 %50
-  %invariant.gep112 = getelementptr { double, double }, ptr %6, i64 %indvars.iv94
+  %invariant.gep115 = getelementptr { double, double }, ptr %6, i64 %indvars.iv94
   br label %51
 
 51:                                               ; preds = %.lr.ph, %51
@@ -129,9 +129,9 @@ define void @LAPACKE_ztr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %53 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %54 = load double, ptr %53, align 8
   %55 = mul nsw i64 %indvars.iv91, %30
-  %gep113 = getelementptr { double, double }, ptr %invariant.gep112, i64 %55
-  %56 = getelementptr inbounds nuw i8, ptr %gep113, i64 8
-  store double %52, ptr %gep113, align 8
+  %gep116 = getelementptr { double, double }, ptr %invariant.gep115, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %gep116, i64 8
+  store double %52, ptr %gep116, align 8
   store double %54, ptr %56, align 8
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count

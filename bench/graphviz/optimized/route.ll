@@ -481,8 +481,8 @@ dist_n.exit41.i:                                  ; preds = %dist_n.exit41.loope
 
 233:                                              ; preds = %228
   %234 = icmp sgt i32 %230, 0
-  %or.cond88.i.i = and i1 %232, %234
-  br i1 %or.cond88.i.i, label %.lr.ph174.preheader.i.i.i, label %.loopexit.sink.split.i.i
+  %or.cond100.i.i = and i1 %232, %234
+  br i1 %or.cond100.i.i, label %.lr.ph174.preheader.i.i.i, label %.loopexit.sink.split.i.i
 
 .lr.ph174.preheader.i.i.i:                        ; preds = %233
   %wide.trip.count206.i.i.i = zext nneg i32 %230 to i64
@@ -517,8 +517,8 @@ addroot.exit.i.i.i:                               ; preds = %239, %.lr.ph174.i.i
 
 .preheader144.i.i.i:                              ; preds = %243
   %245 = icmp sgt i32 %230, 0
-  %or.cond212.i.i.i = select i1 %244, i1 %245, i1 false
-  br i1 %or.cond212.i.i.i, label %.preheader143.us.preheader.i.i.i, label %.loopexit.sink.split.i.i
+  %or.cond222.i.i.i = select i1 %244, i1 %245, i1 false
+  br i1 %or.cond222.i.i.i, label %.preheader143.us.preheader.i.i.i, label %.loopexit.sink.split.i.i
 
 .preheader143.us.preheader.i.i.i:                 ; preds = %.preheader144.i.i.i
   %wide.trip.count196.i.i.i = zext nneg i32 %227 to i64
@@ -596,8 +596,8 @@ addroot.exit123.i.i.i:                            ; preds = %261, %.lr.ph170.i.i
 265:                                              ; preds = %224
   %266 = icmp ne i32 %227, 4
   %267 = icmp sgt i32 %227, 0
-  %or.cond89.i.i = and i1 %266, %267
-  br i1 %or.cond89.i.i, label %.lr.ph154.i.i.i, label %.loopexit.sink.split.i.i
+  %or.cond101.i.i = and i1 %266, %267
+  br i1 %or.cond101.i.i, label %.lr.ph154.i.i.i, label %.loopexit.sink.split.i.i
 
 .lr.ph154.i.i.i:                                  ; preds = %265
   %wide.trip.count186.i.i.i = zext nneg i32 %227 to i64
@@ -662,8 +662,8 @@ addroot.exit127.i.i.i:                            ; preds = %273
   %303 = call i32 @solve3(ptr noundef nonnull %9, ptr noundef nonnull %10) #9
   %304 = icmp ne i32 %303, 4
   %305 = icmp sgt i32 %303, 0
-  %or.cond90.i.i = and i1 %304, %305
-  br i1 %or.cond90.i.i, label %.lr.ph.preheader.i.i.i, label %.loopexit.sink.split.i.i
+  %or.cond102.i.i = and i1 %304, %305
+  br i1 %or.cond102.i.i, label %.lr.ph.preheader.i.i.i, label %.loopexit.sink.split.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %285
   %wide.trip.count.i.i.i = zext nneg i32 %303 to i64
@@ -870,8 +870,8 @@ growops.exit51.i:                                 ; preds = %387, %380
   br label %162
 
 splinefits.exit:                                  ; preds = %389, %368
-  %.lcssa90.sink.i = phi i64 [ %375, %368 ], [ %396, %389 ]
-  store i64 %.lcssa90.sink.i, ptr @opl, align 8, !tbaa !7
+  %.lcssa106.sink.i = phi i64 [ %375, %368 ], [ %396, %389 ]
+  store i64 %.lcssa106.sink.i, ptr @opl, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge
 

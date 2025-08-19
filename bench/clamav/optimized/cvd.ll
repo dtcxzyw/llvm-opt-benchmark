@@ -545,13 +545,13 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %60, label %.sink.split, label %61
 
 .sink.split:                                      ; preds = %58, %55
-  %.str.27.sink105 = phi ptr [ @.str.24, %55 ], [ @.str.27, %58 ]
+  %.str.27.sink119 = phi ptr [ @.str.24, %55 ], [ @.str.27, %58 ]
   %.str.28.sink = phi ptr [ @.str.25, %55 ], [ @.str.28, %58 ]
   %.str.29.sink = phi ptr [ @.str.26, %55 ], [ @.str.29, %58 ]
-  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull %.str.27.sink105) #19
+  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull %.str.27.sink119) #19
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull %.str.28.sink) #19
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull %.str.29.sink) #19
-  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull %.str.27.sink105) #19
+  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull %.str.27.sink119) #19
   br label %61
 
 61:                                               ; preds = %.sink.split, %58, %55

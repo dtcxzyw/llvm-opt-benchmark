@@ -1197,9 +1197,9 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
 
 322:                                              ; preds = %315
   %323 = icmp eq i64 %318, %317
-  br i1 %323, label %.thread94, label %326
+  br i1 %323, label %.thread162, label %326
 
-.thread94:                                        ; preds = %322
+.thread162:                                       ; preds = %322
   %324 = shl i64 %310, 1
   %325 = getelementptr i8, ptr %301, i64 %317
   store i8 0, ptr %292, align 4
@@ -1242,16 +1242,16 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
   %351 = icmp sgt i64 %349, -1
   br i1 %351, label %352, label %.thread64
 
-352:                                              ; preds = %.thread94, %344
-  %353 = phi i64 [ %324, %.thread94 ], [ %350, %344 ]
-  %354 = phi i64 [ 7500, %.thread94 ], [ %349, %344 ]
-  %355 = phi ptr [ %325, %.thread94 ], [ %348, %344 ]
-  %356 = phi ptr [ %284, %.thread94 ], [ %347, %344 ]
-  %357 = phi i8 [ 1, %.thread94 ], [ %346, %344 ]
-  %358 = phi i8 [ 1, %.thread94 ], [ 0, %344 ]
-  %359 = phi i1 [ false, %.thread94 ], [ true, %344 ]
-  %360 = phi i1 [ true, %.thread94 ], [ false, %344 ]
-  %361 = phi i64 [ 15000, %.thread94 ], [ %345, %344 ]
+352:                                              ; preds = %.thread162, %344
+  %353 = phi i64 [ %324, %.thread162 ], [ %350, %344 ]
+  %354 = phi i64 [ 7500, %.thread162 ], [ %349, %344 ]
+  %355 = phi ptr [ %325, %.thread162 ], [ %348, %344 ]
+  %356 = phi ptr [ %284, %.thread162 ], [ %347, %344 ]
+  %357 = phi i8 [ 1, %.thread162 ], [ %346, %344 ]
+  %358 = phi i8 [ 1, %.thread162 ], [ 0, %344 ]
+  %359 = phi i1 [ false, %.thread162 ], [ true, %344 ]
+  %360 = phi i1 [ true, %.thread162 ], [ false, %344 ]
+  %361 = phi i64 [ 15000, %.thread162 ], [ %345, %344 ]
   %362 = icmp ult i64 %304, 104
   br i1 %362, label %363, label %366
 
@@ -1586,14 +1586,14 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
   br label %audit_log_pid_context.exit.thread.sink.split
 
 audit_log_pid_context.exit.thread.sink.split:     ; preds = %549, %544, %.critedge
-  %.ph102 = phi i32 [ 1, %.critedge ], [ %530, %544 ], [ %530, %549 ]
+  %.ph170 = phi i32 [ 1, %.critedge ], [ %530, %544 ], [ %530, %549 ]
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %542, ptr noundef nonnull @.str.74) #12
   call void @audit_log_untrustedstring(ptr noundef nonnull %542, ptr noundef %539) #12
   call void @audit_log_end(ptr noundef nonnull %542) #12
   br label %audit_log_pid_context.exit.thread
 
 audit_log_pid_context.exit.thread:                ; preds = %audit_log_pid_context.exit.thread.sink.split, %528
-  %553 = phi i32 [ %530, %528 ], [ %.ph102, %audit_log_pid_context.exit.thread.sink.split ]
+  %553 = phi i32 [ %530, %528 ], [ %.ph170, %audit_log_pid_context.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %554 = add nuw nsw i64 %529, 1
@@ -3094,14 +3094,14 @@ define dso_local void @__audit_inode(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %12, label %66, label %65
 
 65:                                               ; preds = %62
-  switch i8 %64, label %.thread40 [
+  switch i8 %64, label %.thread63 [
     i8 2, label %.thread21
     i8 0, label %.thread21
   ]
 
 66:                                               ; preds = %62
   %67 = icmp eq i8 %64, 2
-  br i1 %67, label %.thread42, label %.thread
+  br i1 %67, label %.thread65, label %.thread
 
 68:                                               ; preds = %58
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 672
@@ -3110,26 +3110,26 @@ define dso_local void @__audit_inode(ptr noundef %0, ptr noundef %1, i32 noundef
   %72 = icmp eq ptr %71, %69
   br i1 %72, label %.loopexit29, label %85
 
-.thread42:                                        ; preds = %66
+.thread65:                                        ; preds = %66
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 672
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 680
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, %73
-  br i1 %76, label %.loopexit29, label %.thread43
+  br i1 %76, label %.loopexit29, label %.thread66
 
-.thread43:                                        ; preds = %.thread42
+.thread66:                                        ; preds = %.thread65
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %78 = getelementptr inbounds nuw i8, ptr %10, i64 40
   br label %.split.us.preheader
 
-.thread40:                                        ; preds = %65
+.thread63:                                        ; preds = %65
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 672
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 680
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, %79
-  br i1 %82, label %.loopexit29, label %.thread41
+  br i1 %82, label %.loopexit29, label %.thread64
 
-.thread41:                                        ; preds = %.thread40
+.thread64:                                        ; preds = %.thread63
   %83 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %84 = getelementptr inbounds nuw i8, ptr %10, i64 40
   br label %.split.preheader
@@ -3139,18 +3139,18 @@ define dso_local void @__audit_inode(ptr noundef %0, ptr noundef %1, i32 noundef
   %87 = getelementptr inbounds nuw i8, ptr %10, i64 40
   br i1 %12, label %.split.us.preheader, label %.split.preheader
 
-.split.preheader:                                 ; preds = %.thread41, %85
-  %88 = phi ptr [ %84, %.thread41 ], [ %87, %85 ]
-  %89 = phi ptr [ %83, %.thread41 ], [ %86, %85 ]
-  %90 = phi ptr [ %79, %.thread41 ], [ %69, %85 ]
-  %91 = phi ptr [ %81, %.thread41 ], [ %71, %85 ]
+.split.preheader:                                 ; preds = %.thread64, %85
+  %88 = phi ptr [ %84, %.thread64 ], [ %87, %85 ]
+  %89 = phi ptr [ %83, %.thread64 ], [ %86, %85 ]
+  %90 = phi ptr [ %79, %.thread64 ], [ %69, %85 ]
+  %91 = phi ptr [ %81, %.thread64 ], [ %71, %85 ]
   br label %.split
 
-.split.us.preheader:                              ; preds = %.thread43, %85
-  %92 = phi ptr [ %78, %.thread43 ], [ %87, %85 ]
-  %93 = phi ptr [ %77, %.thread43 ], [ %86, %85 ]
-  %94 = phi ptr [ %73, %.thread43 ], [ %69, %85 ]
-  %95 = phi ptr [ %75, %.thread43 ], [ %71, %85 ]
+.split.us.preheader:                              ; preds = %.thread66, %85
+  %92 = phi ptr [ %78, %.thread66 ], [ %87, %85 ]
+  %93 = phi ptr [ %77, %.thread66 ], [ %86, %85 ]
+  %94 = phi ptr [ %73, %.thread66 ], [ %69, %85 ]
+  %95 = phi ptr [ %75, %.thread66 ], [ %71, %85 ]
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %123
@@ -3247,7 +3247,7 @@ define dso_local void @__audit_inode(ptr noundef %0, ptr noundef %1, i32 noundef
   %156 = icmp eq ptr %155, %90
   br i1 %156, label %.loopexit29, label %.split, !llvm.loop !51
 
-.loopexit29:                                      ; preds = %153, %123, %.thread42, %.thread40, %68, %.loopexit31
+.loopexit29:                                      ; preds = %153, %123, %.thread65, %.thread63, %68, %.loopexit31
   %157 = getelementptr inbounds nuw i8, ptr %8, i64 664
   %158 = load i32, ptr %157, align 8
   %159 = icmp slt i32 %158, 5

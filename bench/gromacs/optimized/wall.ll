@@ -247,8 +247,8 @@ _ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit.us: ; preds = 
   %.idx = mul nuw nsw i64 %indvars.iv74, 48
   %100 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %.idx86 = shl nsw i64 %indvars.iv74, 5
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %103, i64 %.idx86
+  %.idx102 = shl nsw i64 %indvars.iv74, 5
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %103, i64 %.idx102
   br label %97
 
 .preheader.lr.ph.us:                              ; preds = %_ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit.us
@@ -448,7 +448,7 @@ define linkonce_odr void @_ZNSt6vectorIS_ISt10unique_ptrI12t_forcetableSt14defau
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt6vectorISt10unique_ptrI12t_forcetableSt14default_deleteIS2_EESaIS5_EEmS7_ET_S9_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorISt10unique_ptrI12t_forcetableSt14default_deleteIS2_EESaIS5_EEmS7_ET_S9_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !238
@@ -559,7 +559,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrI12t_forcetableSt14default_
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrI12t_forcetableSt14default_deleteIS1_EEmS4_ET_S6_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt10unique_ptrI12t_forcetableSt14default_deleteIS1_EEmS4_ET_S6_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 3
+  %19 = shl nuw nsw i64 %1, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false), !tbaa !248
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !108

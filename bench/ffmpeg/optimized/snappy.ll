@@ -172,7 +172,7 @@ bytestream2_get_byte.exit:                        ; preds = %41
   %45 = zext i8 %44 to i32
   %46 = lshr i32 %45, 2
   %47 = and i32 %45, 3
-  switch i32 %47, label %default.unreachable75 [
+  switch i32 %47, label %default.unreachable78 [
     i32 0, label %48
     i32 1, label %100
     i32 2, label %127
@@ -416,7 +416,7 @@ bytestream2_get_le32.exit.i56:                    ; preds = %156, %155
   %exitcond.not.i.i62 = icmp eq i64 %indvars.iv.next.i.i61, %wide.trip.count.i.i59
   br i1 %exitcond.not.i.i62, label %snappy_literal.exit, label %167, !llvm.loop !18
 
-default.unreachable75:                            ; preds = %bytestream2_get_byte.exit
+default.unreachable78:                            ; preds = %bytestream2_get_byte.exit
   unreachable
 
 snappy_literal.exit:                              ; preds = %167, %145, %123, %92

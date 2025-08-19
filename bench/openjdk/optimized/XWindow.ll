@@ -52,19 +52,19 @@ define hidden i64 @awt_getX11KeySym(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.preheader:                                 ; preds = %5
   %7 = icmp eq i32 %6, %0
-  br i1 %7, label %.lr.ph._crit_edge, label %.lr.ph18
+  br i1 %7, label %.lr.ph._crit_edge, label %.lr.ph19
 
-.lr.ph18:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv17 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv17, 1
+.lr.ph19:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv18 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv18, 1
   %8 = getelementptr inbounds nuw [264 x %struct.KEYMAP_ENTRY], ptr @keymapTable, i64 0, i64 %indvars.iv.next
   %9 = load i32, ptr %8, align 8
   %.not9 = icmp eq i32 %9, 0
   br i1 %.not9, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
-.lr.ph:                                           ; preds = %.lr.ph18
+.lr.ph:                                           ; preds = %.lr.ph19
   %10 = icmp eq i32 %9, %0
-  br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph18, !llvm.loop !6
+  br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph19, !llvm.loop !6
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ @keymapTable, %.lr.ph.preheader ], [ %8, %.lr.ph ]
@@ -72,8 +72,8 @@ define hidden i64 @awt_getX11KeySym(i32 noundef %0) local_unnamed_addr #0 {
   %12 = load i64, ptr %11, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph18, %5, %3, %.lr.ph._crit_edge
-  %.07 = phi i64 [ %12, %.lr.ph._crit_edge ], [ 65406, %3 ], [ 0, %5 ], [ 0, %.lr.ph18 ]
+.loopexit:                                        ; preds = %.lr.ph19, %5, %3, %.lr.ph._crit_edge
+  %.07 = phi i64 [ %12, %.lr.ph._crit_edge ], [ 65406, %3 ], [ 0, %5 ], [ 0, %.lr.ph19 ]
   ret i64 %.07
 }
 

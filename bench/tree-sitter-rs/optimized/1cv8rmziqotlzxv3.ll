@@ -374,15 +374,15 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
 
 .outer.split:                                     ; preds = %.outer, %72
   %57 = phi ptr [ %.pre, %72 ], [ %47, %.outer ]
-  %.sroa.12.1 = phi i64 [ %.sroa.12.3279, %72 ], [ %.sroa.12.1.ph, %.outer ]
-  %.sroa.11.1 = phi i64 [ %.sroa.11.3280, %72 ], [ %.sroa.11.1.ph, %.outer ]
-  %.sroa.10.1 = phi i64 [ %.sroa.10.3281, %72 ], [ %.sroa.10.1.ph, %.outer ]
-  %.sroa.970.1 = phi i64 [ %.sroa.970.3282, %72 ], [ %.sroa.970.1.ph, %.outer ]
-  %.sroa.13.1 = phi i64 [ %.sroa.13.3283, %72 ], [ %.sroa.13.1.ph, %.outer ]
-  %.sroa.14.1 = phi i64 [ %.sroa.14.3284, %72 ], [ %.sroa.14.1.ph, %.outer ]
-  %.0 = phi i64 [ %.sroa.14.3284, %72 ], [ %.0.ph, %.outer ]
-  %.sroa.036.0 = phi i64 [ %.sroa.11.3280, %72 ], [ %.sroa.036.0.ph, %.outer ]
-  %.sroa.337.0 = phi i64 [ %.sroa.12.3279, %72 ], [ %.sroa.337.0.ph, %.outer ]
+  %.sroa.12.1 = phi i64 [ %.sroa.12.3294, %72 ], [ %.sroa.12.1.ph, %.outer ]
+  %.sroa.11.1 = phi i64 [ %.sroa.11.3295, %72 ], [ %.sroa.11.1.ph, %.outer ]
+  %.sroa.10.1 = phi i64 [ %.sroa.10.3296, %72 ], [ %.sroa.10.1.ph, %.outer ]
+  %.sroa.970.1 = phi i64 [ %.sroa.970.3297, %72 ], [ %.sroa.970.1.ph, %.outer ]
+  %.sroa.13.1 = phi i64 [ %.sroa.13.3298, %72 ], [ %.sroa.13.1.ph, %.outer ]
+  %.sroa.14.1 = phi i64 [ %.sroa.14.3299, %72 ], [ %.sroa.14.1.ph, %.outer ]
+  %.0 = phi i64 [ %.sroa.14.3299, %72 ], [ %.0.ph, %.outer ]
+  %.sroa.036.0 = phi i64 [ %.sroa.11.3295, %72 ], [ %.sroa.036.0.ph, %.outer ]
+  %.sroa.337.0 = phi i64 [ %.sroa.12.3294, %72 ], [ %.sroa.337.0.ph, %.outer ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.068)
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %58 = icmp eq ptr %57, null
@@ -459,24 +459,24 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   br i1 %67, label %._crit_edge, label %26
 
 68:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread", %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit"
-  %.sroa.14.3284 = phi i64 [ %.sroa.6.i.sroa.8.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.14.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
-  %.sroa.13.3283 = phi i64 [ %.sroa.6.i.sroa.7.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.13.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
-  %.sroa.970.3282 = phi i64 [ %.sroa.6.i.sroa.0.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.970.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
-  %.sroa.10.3281 = phi i64 [ %.sroa.6.i.sroa.4.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.10.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
-  %.sroa.11.3280 = phi i64 [ %.sroa.6.i.sroa.5.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.11.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
-  %.sroa.12.3279 = phi i64 [ %.sroa.6.i.sroa.6.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.12.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
+  %.sroa.14.3299 = phi i64 [ %.sroa.6.i.sroa.8.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.14.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
+  %.sroa.13.3298 = phi i64 [ %.sroa.6.i.sroa.7.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.13.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
+  %.sroa.970.3297 = phi i64 [ %.sroa.6.i.sroa.0.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.970.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
+  %.sroa.10.3296 = phi i64 [ %.sroa.6.i.sroa.4.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.10.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
+  %.sroa.11.3295 = phi i64 [ %.sroa.6.i.sroa.5.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.11.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
+  %.sroa.12.3294 = phi i64 [ %.sroa.6.i.sroa.6.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.12.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
   %69 = load i64, ptr %46, align 8, !noundef !4
-  %70 = icmp ult i64 %.sroa.13.3283, %69
+  %70 = icmp ult i64 %.sroa.13.3298, %69
   br i1 %70, label %72, label %.preheader
 
 .preheader:                                       ; preds = %68, %53
   %71 = phi i64 [ %54, %53 ], [ %69, %68 ]
-  %.us-phi199 = phi i64 [ %.sroa.12.2.us, %53 ], [ %.sroa.12.3279, %68 ]
-  %.us-phi200 = phi i64 [ %.sroa.11.2.us, %53 ], [ %.sroa.11.3280, %68 ]
-  %.us-phi201 = phi i64 [ %.sroa.10.2.us, %53 ], [ %.sroa.10.3281, %68 ]
-  %.us-phi202 = phi i64 [ %.sroa.970.2.us, %53 ], [ %.sroa.970.3282, %68 ]
-  %.us-phi203 = phi i64 [ %.sroa.13.2.us, %53 ], [ %.sroa.13.3283, %68 ]
-  %.us-phi204 = phi i64 [ %.sroa.14.2.us, %53 ], [ %.sroa.14.3284, %68 ]
+  %.us-phi199 = phi i64 [ %.sroa.12.2.us, %53 ], [ %.sroa.12.3294, %68 ]
+  %.us-phi200 = phi i64 [ %.sroa.11.2.us, %53 ], [ %.sroa.11.3295, %68 ]
+  %.us-phi201 = phi i64 [ %.sroa.10.2.us, %53 ], [ %.sroa.10.3296, %68 ]
+  %.us-phi202 = phi i64 [ %.sroa.970.2.us, %53 ], [ %.sroa.970.3297, %68 ]
+  %.us-phi203 = phi i64 [ %.sroa.13.2.us, %53 ], [ %.sroa.13.3298, %68 ]
+  %.us-phi204 = phi i64 [ %.sroa.14.2.us, %53 ], [ %.sroa.14.3299, %68 ]
   %.us-phi205 = phi i64 [ %.0.us, %53 ], [ %.0, %68 ]
   %.us-phi206 = phi i64 [ %.sroa.036.0.us, %53 ], [ %.sroa.036.0, %68 ]
   %.us-phi207 = phi i64 [ %.sroa.337.0.us, %53 ], [ %.sroa.337.0, %68 ]
@@ -679,7 +679,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
   %17 = icmp ult i64 %14, %16
-  br i1 %17, label %.thread44, label %25, !prof !69
+  br i1 %17, label %.thread48, label %25, !prof !69
 
 18:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit"
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -687,13 +687,13 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
   %.not.not = icmp eq i64 %20, 0
   br i1 %.not.not, label %.thread39, label %26
 
-.thread44:                                        ; preds = %12
+.thread48:                                        ; preds = %12
   %21 = getelementptr inbounds [0 x { { { [4 x i32], ptr, ptr }, {} }, i32, [1 x i32] }], ptr %11, i64 0, i64 %14
   %22 = tail call noundef i64 @_ZN11tree_sitter4Node10start_byte17h7b19fd76ffed13b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %21)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %24 = load i64, ptr %23, align 8, !noundef !4
-  %.not.not46 = icmp eq i64 %24, 0
-  br i1 %.not.not46, label %.thread41, label %34
+  %.not.not50 = icmp eq i64 %24, 0
+  br i1 %.not.not50, label %.thread41, label %34
 
 25:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %14, i64 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7846843607c3237cb579c64a79ba54af.16) #15
@@ -720,7 +720,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
 33:                                               ; preds = %41, %42, %.thread41, %.thread39, %26
   ret void
 
-.thread41:                                        ; preds = %.thread44
+.thread41:                                        ; preds = %.thread48
   store i64 %22, ptr %0, align 8
   %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %.sroa.416.0..sroa_idx, align 8
@@ -728,7 +728,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
   store i64 %5, ptr %.sroa.518.0..sroa_idx, align 8
   br label %33
 
-34:                                               ; preds = %.thread44
+34:                                               ; preds = %.thread48
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %36 = load ptr, ptr %35, align 8, !nonnull !4
   %37 = add i64 %24, -1

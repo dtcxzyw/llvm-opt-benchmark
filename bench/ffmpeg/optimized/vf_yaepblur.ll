@@ -451,8 +451,8 @@ define internal noundef i32 @pre_calculate_row_byte(ptr noundef readonly capture
   %41 = mul i64 %40, %indvar
   %42 = add i64 %39, %41
   %scevgep = getelementptr i8, ptr %24, i64 %42
-  %scevgep60 = getelementptr i8, ptr %30, i64 %42
-  %bound0 = icmp ult ptr %.05052.us, %scevgep60
+  %scevgep63 = getelementptr i8, ptr %30, i64 %42
+  %bound0 = icmp ult ptr %.05052.us, %scevgep63
   %bound1 = icmp ult ptr %.04953.us, %scevgep
   %found.conflict = and i1 %bound0, %bound1
   br i1 %found.conflict, label %.ph.lver.orig, label %.ph
@@ -481,11 +481,11 @@ define internal noundef i32 @pre_calculate_row_byte(ptr noundef readonly capture
 
 .ph:                                              ; preds = %.lver.check
   %load_initial = load i64, ptr %.05052.us, align 8
-  %load_initial62 = load i64, ptr %.04953.us, align 8
+  %load_initial65 = load i64, ptr %.04953.us, align 8
   br label %57
 
 57:                                               ; preds = %.ph, %57
-  %store_forwarded63 = phi i64 [ %load_initial62, %.ph ], [ %66, %57 ]
+  %store_forwarded66 = phi i64 [ %load_initial65, %.ph ], [ %66, %57 ]
   %store_forwarded = phi i64 [ %load_initial, %.ph ], [ %61, %57 ]
   %indvars.iv = phi i64 [ 0, %.ph ], [ %indvars.iv.next, %57 ]
   %58 = getelementptr inbounds nuw i8, ptr %.04854.us, i64 %indvars.iv
@@ -498,7 +498,7 @@ define internal noundef i32 @pre_calculate_row_byte(ptr noundef readonly capture
   %63 = load i8, ptr %58, align 1, !tbaa !68
   %64 = zext i8 %63 to i64
   %65 = mul nuw nsw i64 %64, %64
-  %66 = add i64 %65, %store_forwarded63
+  %66 = add i64 %65, %store_forwarded66
   %67 = getelementptr inbounds nuw i64, ptr %.04953.us, i64 %indvars.iv.next
   store i64 %66, ptr %67, align 8, !tbaa !65
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -582,7 +582,7 @@ define internal noundef i32 @filter_slice_byte(ptr noundef readonly captures(non
   %52 = mul nsw i64 %indvars.iv122, %40
   %53 = mul nsw i64 %indvars.iv122, %41
   %invariant.gep = getelementptr i8, ptr %23, i64 %52
-  %invariant.gep127 = getelementptr i8, ptr %25, i64 %53
+  %invariant.gep129 = getelementptr i8, ptr %25, i64 %53
   br label %54
 
 54:                                               ; preds = %.lr.ph.us, %54
@@ -642,8 +642,8 @@ define internal noundef i32 @filter_slice_byte(ptr noundef readonly captures(non
   %105 = add i64 %99, %35
   %106 = udiv i64 %104, %105
   %107 = trunc i64 %106 to i8
-  %gep128 = getelementptr i8, ptr %invariant.gep127, i64 %indvars.iv
-  store i8 %107, ptr %gep128, align 1, !tbaa !68
+  %gep130 = getelementptr i8, ptr %invariant.gep129, i64 %indvars.iv
+  store i8 %107, ptr %gep130, align 1, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !72
@@ -714,8 +714,8 @@ define internal noundef i32 @pre_calculate_row_word(ptr noundef readonly capture
   %42 = mul i64 %41, %indvar
   %43 = add i64 %40, %42
   %scevgep = getelementptr i8, ptr %25, i64 %43
-  %scevgep60 = getelementptr i8, ptr %31, i64 %43
-  %bound0 = icmp ult ptr %.05052.us, %scevgep60
+  %scevgep63 = getelementptr i8, ptr %31, i64 %43
+  %bound0 = icmp ult ptr %.05052.us, %scevgep63
   %bound1 = icmp ult ptr %.04953.us, %scevgep
   %found.conflict = and i1 %bound0, %bound1
   br i1 %found.conflict, label %.ph.lver.orig, label %.ph
@@ -742,11 +742,11 @@ define internal noundef i32 @pre_calculate_row_word(ptr noundef readonly capture
 
 .ph:                                              ; preds = %.lver.check
   %load_initial = load i64, ptr %.05052.us, align 8
-  %load_initial62 = load i64, ptr %.04953.us, align 8
+  %load_initial65 = load i64, ptr %.04953.us, align 8
   br label %56
 
 56:                                               ; preds = %.ph, %56
-  %store_forwarded63 = phi i64 [ %load_initial62, %.ph ], [ %63, %56 ]
+  %store_forwarded66 = phi i64 [ %load_initial65, %.ph ], [ %63, %56 ]
   %store_forwarded = phi i64 [ %load_initial, %.ph ], [ %60, %56 ]
   %indvars.iv = phi i64 [ 0, %.ph ], [ %indvars.iv.next, %56 ]
   %57 = getelementptr inbounds nuw i16, ptr %.04854.us, i64 %indvars.iv
@@ -757,7 +757,7 @@ define internal noundef i32 @pre_calculate_row_word(ptr noundef readonly capture
   %61 = getelementptr inbounds nuw i64, ptr %.05052.us, i64 %indvars.iv.next
   store i64 %60, ptr %61, align 8, !tbaa !65
   %62 = mul nuw nsw i64 %59, %59
-  %63 = add i64 %store_forwarded63, %62
+  %63 = add i64 %store_forwarded66, %62
   %64 = getelementptr inbounds nuw i64, ptr %.04953.us, i64 %indvars.iv.next
   store i64 %63, ptr %64, align 8, !tbaa !65
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -843,7 +843,7 @@ define internal noundef i32 @filter_slice_word(ptr noundef readonly captures(non
   %54 = mul nsw i64 %indvars.iv122, %42
   %55 = mul nsw i64 %indvars.iv122, %43
   %invariant.gep = getelementptr i16, ptr %25, i64 %54
-  %invariant.gep127 = getelementptr i16, ptr %27, i64 %55
+  %invariant.gep129 = getelementptr i16, ptr %27, i64 %55
   br label %56
 
 56:                                               ; preds = %.lr.ph.us, %56
@@ -903,8 +903,8 @@ define internal noundef i32 @filter_slice_word(ptr noundef readonly captures(non
   %107 = add i64 %101, %37
   %108 = udiv i64 %106, %107
   %109 = trunc i64 %108 to i16
-  %gep128 = getelementptr i16, ptr %invariant.gep127, i64 %indvars.iv
-  store i16 %109, ptr %gep128, align 2, !tbaa !74
+  %gep130 = getelementptr i16, ptr %invariant.gep129, i64 %indvars.iv
+  store i16 %109, ptr %gep130, align 2, !tbaa !74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %56, !llvm.loop !78

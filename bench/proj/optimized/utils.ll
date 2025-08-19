@@ -194,7 +194,7 @@ define hidden void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef cap
   %.0 = phi ptr [ %10, %9 ], [ %6, %5 ]
   %13 = add i8 %12, -48
   %or.cond = icmp ult i8 %13, 10
-  br i1 %or.cond, label %14, label %161
+  br i1 %or.cond, label %14, label %158
 
 14:                                               ; preds = %11
   %15 = icmp eq i8 %12, 48
@@ -204,11 +204,11 @@ define hidden void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef cap
   %16 = phi i8 [ %24, %22 ], [ %12, %14 ]
   %.011.i = phi i32 [ %20, %22 ], [ 0, %14 ]
   %17 = phi ptr [ %23, %22 ], [ %.0, %14 ]
-  %18 = mul nsw i32 %.011.i, 10
+  %18 = mul nuw nsw i32 %.011.i, 10
   %narrow.i = add nsw i8 %16, -48
   %19 = zext nneg i8 %narrow.i to i32
-  %20 = add nsw i32 %18, %19
-  %21 = icmp sgt i32 %20, 1000
+  %20 = add nuw nsw i32 %18, %19
+  %21 = icmp samesign ugt i32 %20, 1000
   br i1 %21, label %.critedge386.sink.split, label %22
 
 22:                                               ; preds = %.lr.ph.i
@@ -219,678 +219,670 @@ define hidden void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef cap
   br i1 %or.cond.i, label %.lr.ph.i, label %_ZL8parseIntRPKc.exit, !llvm.loop !9
 
 _ZL8parseIntRPKc.exit:                            ; preds = %22
-  %26 = icmp slt i32 %20, 0
-  br i1 %26, label %.critedge386.sink.split, label %27
-
-27:                                               ; preds = %_ZL8parseIntRPKc.exit
-  switch i8 %24, label %122 [
+  switch i8 %24, label %119 [
     i8 0, label %.critedge386.sink.split
-    i8 46, label %28
+    i8 46, label %26
   ]
 
-28:                                               ; preds = %27
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 2
-  %30 = load i8, ptr %29, align 1, !tbaa !4
-  %31 = add i8 %30, -48
-  %or.cond385 = icmp ult i8 %31, 10
-  br i1 %or.cond385, label %.lr.ph.i393, label %83
+26:                                               ; preds = %_ZL8parseIntRPKc.exit
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 2
+  %28 = load i8, ptr %27, align 1, !tbaa !4
+  %29 = add i8 %28, -48
+  %or.cond385 = icmp ult i8 %29, 10
+  br i1 %or.cond385, label %.lr.ph.i393, label %80
 
-.lr.ph.i393:                                      ; preds = %28, %38
-  %32 = phi i8 [ %40, %38 ], [ %30, %28 ]
-  %.011.i394 = phi i32 [ %36, %38 ], [ 0, %28 ]
-  %33 = phi ptr [ %39, %38 ], [ %29, %28 ]
-  %34 = mul nsw i32 %.011.i394, 10
-  %narrow.i395 = add nsw i8 %32, -48
-  %35 = zext nneg i8 %narrow.i395 to i32
-  %36 = add nsw i32 %34, %35
-  %37 = icmp sgt i32 %36, 1000
-  br i1 %37, label %.critedge386.sink.split, label %38
+.lr.ph.i393:                                      ; preds = %26, %36
+  %30 = phi i8 [ %38, %36 ], [ %28, %26 ]
+  %.011.i394 = phi i32 [ %34, %36 ], [ 0, %26 ]
+  %31 = phi ptr [ %37, %36 ], [ %27, %26 ]
+  %32 = mul nuw nsw i32 %.011.i394, 10
+  %narrow.i395 = add nsw i8 %30, -48
+  %33 = zext nneg i8 %narrow.i395 to i32
+  %34 = add nuw nsw i32 %32, %33
+  %35 = icmp samesign ugt i32 %34, 1000
+  br i1 %35, label %.critedge386.sink.split, label %36
 
-38:                                               ; preds = %.lr.ph.i393
-  %39 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  %40 = load i8, ptr %39, align 1, !tbaa !4
-  %41 = add i8 %40, -48
-  %or.cond.i396 = icmp ult i8 %41, 10
+36:                                               ; preds = %.lr.ph.i393
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  %38 = load i8, ptr %37, align 1, !tbaa !4
+  %39 = add i8 %38, -48
+  %or.cond.i396 = icmp ult i8 %39, 10
   br i1 %or.cond.i396, label %.lr.ph.i393, label %_ZL8parseIntRPKc.exit397, !llvm.loop !9
 
-_ZL8parseIntRPKc.exit397:                         ; preds = %38
-  %42 = icmp slt i32 %36, 0
-  %43 = icmp eq i8 %40, 0
-  %or.cond475 = or i1 %42, %43
-  br i1 %or.cond475, label %.critedge386.sink.split, label %44
+_ZL8parseIntRPKc.exit397:                         ; preds = %36
+  %40 = icmp eq i8 %38, 0
+  br i1 %40, label %.critedge386.sink.split, label %41
 
-44:                                               ; preds = %_ZL8parseIntRPKc.exit397
-  br i1 %15, label %45, label %64
+41:                                               ; preds = %_ZL8parseIntRPKc.exit397
+  br i1 %15, label %42, label %61
 
-45:                                               ; preds = %44
-  br i1 %8, label %46, label %55
+42:                                               ; preds = %41
+  br i1 %8, label %43, label %52
 
-46:                                               ; preds = %45
-  switch i8 %40, label %.critedge386.sink.split [
-    i8 101, label %52
-    i8 69, label %47
-    i8 102, label %48
-    i8 70, label %49
-    i8 103, label %50
-    i8 71, label %51
+43:                                               ; preds = %42
+  switch i8 %38, label %.critedge386.sink.split [
+    i8 101, label %49
+    i8 69, label %44
+    i8 102, label %45
+    i8 70, label %46
+    i8 103, label %47
+    i8 71, label %48
   ]
 
-47:                                               ; preds = %46
-  br label %52
+44:                                               ; preds = %43
+  br label %49
 
-48:                                               ; preds = %46
-  br label %52
+45:                                               ; preds = %43
+  br label %49
 
-49:                                               ; preds = %46
-  br label %52
+46:                                               ; preds = %43
+  br label %49
 
-50:                                               ; preds = %46
-  br label %52
+47:                                               ; preds = %43
+  br label %49
 
-51:                                               ; preds = %46
-  br label %52
+48:                                               ; preds = %43
+  br label %49
 
-52:                                               ; preds = %46, %47, %49, %51, %50, %48
-  %.str.2.sink = phi ptr [ @.str.2, %47 ], [ @.str.4, %49 ], [ @.str.6, %51 ], [ @.str.5, %50 ], [ @.str.3, %48 ], [ @.str.1, %46 ]
-  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.2.sink, i32 noundef %20, i32 noundef %36, double noundef %2) #5
-  %54 = getelementptr inbounds nuw i8, ptr %33, i64 2
+49:                                               ; preds = %43, %44, %46, %48, %47, %45
+  %.str.2.sink = phi ptr [ @.str.2, %44 ], [ @.str.4, %46 ], [ @.str.6, %48 ], [ @.str.5, %47 ], [ @.str.3, %45 ], [ @.str.1, %43 ]
+  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.2.sink, i32 noundef %20, i32 noundef %34, double noundef %2) #5
+  %51 = getelementptr inbounds nuw i8, ptr %31, i64 2
   br label %.critedge
 
-55:                                               ; preds = %45
-  switch i8 %40, label %.critedge386.sink.split [
-    i8 101, label %61
-    i8 69, label %56
-    i8 102, label %57
-    i8 70, label %58
-    i8 103, label %59
-    i8 71, label %60
+52:                                               ; preds = %42
+  switch i8 %38, label %.critedge386.sink.split [
+    i8 101, label %58
+    i8 69, label %53
+    i8 102, label %54
+    i8 70, label %55
+    i8 103, label %56
+    i8 71, label %57
   ]
 
-56:                                               ; preds = %55
-  br label %61
+53:                                               ; preds = %52
+  br label %58
 
-57:                                               ; preds = %55
-  br label %61
+54:                                               ; preds = %52
+  br label %58
 
-58:                                               ; preds = %55
-  br label %61
+55:                                               ; preds = %52
+  br label %58
 
-59:                                               ; preds = %55
-  br label %61
+56:                                               ; preds = %52
+  br label %58
 
-60:                                               ; preds = %55
-  br label %61
+57:                                               ; preds = %52
+  br label %58
 
-61:                                               ; preds = %55, %56, %58, %60, %59, %57
-  %.str.8.sink = phi ptr [ @.str.8, %56 ], [ @.str.10, %58 ], [ @.str.12, %60 ], [ @.str.11, %59 ], [ @.str.9, %57 ], [ @.str.7, %55 ]
-  %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.8.sink, i32 noundef %20, i32 noundef %36, double noundef %2) #5
-  %63 = getelementptr inbounds nuw i8, ptr %33, i64 2
+58:                                               ; preds = %52, %53, %55, %57, %56, %54
+  %.str.8.sink = phi ptr [ @.str.8, %53 ], [ @.str.10, %55 ], [ @.str.12, %57 ], [ @.str.11, %56 ], [ @.str.9, %54 ], [ @.str.7, %52 ]
+  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.8.sink, i32 noundef %20, i32 noundef %34, double noundef %2) #5
+  %60 = getelementptr inbounds nuw i8, ptr %31, i64 2
   br label %.critedge
 
-64:                                               ; preds = %44
-  br i1 %8, label %65, label %74
+61:                                               ; preds = %41
+  br i1 %8, label %62, label %71
 
-65:                                               ; preds = %64
-  switch i8 %40, label %.critedge386.sink.split [
-    i8 101, label %71
-    i8 69, label %66
-    i8 102, label %67
-    i8 70, label %68
-    i8 103, label %69
-    i8 71, label %70
+62:                                               ; preds = %61
+  switch i8 %38, label %.critedge386.sink.split [
+    i8 101, label %68
+    i8 69, label %63
+    i8 102, label %64
+    i8 70, label %65
+    i8 103, label %66
+    i8 71, label %67
   ]
 
-66:                                               ; preds = %65
-  br label %71
+63:                                               ; preds = %62
+  br label %68
 
-67:                                               ; preds = %65
-  br label %71
+64:                                               ; preds = %62
+  br label %68
 
-68:                                               ; preds = %65
-  br label %71
+65:                                               ; preds = %62
+  br label %68
 
-69:                                               ; preds = %65
-  br label %71
+66:                                               ; preds = %62
+  br label %68
 
-70:                                               ; preds = %65
-  br label %71
+67:                                               ; preds = %62
+  br label %68
 
-71:                                               ; preds = %65, %66, %68, %70, %69, %67
-  %.str.14.sink = phi ptr [ @.str.14, %66 ], [ @.str.16, %68 ], [ @.str.18, %70 ], [ @.str.17, %69 ], [ @.str.15, %67 ], [ @.str.13, %65 ]
-  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.14.sink, i32 noundef %20, i32 noundef %36, double noundef %2) #5
-  %73 = getelementptr inbounds nuw i8, ptr %33, i64 2
+68:                                               ; preds = %62, %63, %65, %67, %66, %64
+  %.str.14.sink = phi ptr [ @.str.14, %63 ], [ @.str.16, %65 ], [ @.str.18, %67 ], [ @.str.17, %66 ], [ @.str.15, %64 ], [ @.str.13, %62 ]
+  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.14.sink, i32 noundef %20, i32 noundef %34, double noundef %2) #5
+  %70 = getelementptr inbounds nuw i8, ptr %31, i64 2
   br label %.critedge
 
-74:                                               ; preds = %64
-  switch i8 %40, label %.critedge386.sink.split [
-    i8 101, label %80
-    i8 69, label %75
-    i8 102, label %76
-    i8 70, label %77
-    i8 103, label %78
-    i8 71, label %79
+71:                                               ; preds = %61
+  switch i8 %38, label %.critedge386.sink.split [
+    i8 101, label %77
+    i8 69, label %72
+    i8 102, label %73
+    i8 70, label %74
+    i8 103, label %75
+    i8 71, label %76
   ]
 
-75:                                               ; preds = %74
-  br label %80
+72:                                               ; preds = %71
+  br label %77
 
-76:                                               ; preds = %74
-  br label %80
+73:                                               ; preds = %71
+  br label %77
 
-77:                                               ; preds = %74
-  br label %80
+74:                                               ; preds = %71
+  br label %77
 
-78:                                               ; preds = %74
-  br label %80
+75:                                               ; preds = %71
+  br label %77
 
-79:                                               ; preds = %74
-  br label %80
+76:                                               ; preds = %71
+  br label %77
 
-80:                                               ; preds = %74, %75, %77, %79, %78, %76
-  %.str.20.sink = phi ptr [ @.str.20, %75 ], [ @.str.22, %77 ], [ @.str.24, %79 ], [ @.str.23, %78 ], [ @.str.21, %76 ], [ @.str.19, %74 ]
-  %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.20.sink, i32 noundef %20, i32 noundef %36, double noundef %2) #5
-  %82 = getelementptr inbounds nuw i8, ptr %33, i64 2
+77:                                               ; preds = %71, %72, %74, %76, %75, %73
+  %.str.20.sink = phi ptr [ @.str.20, %72 ], [ @.str.22, %74 ], [ @.str.24, %76 ], [ @.str.23, %75 ], [ @.str.21, %73 ], [ @.str.19, %71 ]
+  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.20.sink, i32 noundef %20, i32 noundef %34, double noundef %2) #5
+  %79 = getelementptr inbounds nuw i8, ptr %31, i64 2
   br label %.critedge
 
-83:                                               ; preds = %28
-  br i1 %15, label %84, label %103
+80:                                               ; preds = %26
+  br i1 %15, label %81, label %100
 
-84:                                               ; preds = %83
-  br i1 %8, label %85, label %94
+81:                                               ; preds = %80
+  br i1 %8, label %82, label %91
 
-85:                                               ; preds = %84
-  switch i8 %30, label %.critedge386.sink.split [
-    i8 101, label %91
-    i8 69, label %86
-    i8 102, label %87
-    i8 70, label %88
-    i8 103, label %89
-    i8 71, label %90
+82:                                               ; preds = %81
+  switch i8 %28, label %.critedge386.sink.split [
+    i8 101, label %88
+    i8 69, label %83
+    i8 102, label %84
+    i8 70, label %85
+    i8 103, label %86
+    i8 71, label %87
   ]
 
-86:                                               ; preds = %85
-  br label %91
+83:                                               ; preds = %82
+  br label %88
 
-87:                                               ; preds = %85
-  br label %91
+84:                                               ; preds = %82
+  br label %88
 
-88:                                               ; preds = %85
-  br label %91
+85:                                               ; preds = %82
+  br label %88
 
-89:                                               ; preds = %85
-  br label %91
+86:                                               ; preds = %82
+  br label %88
 
-90:                                               ; preds = %85
-  br label %91
+87:                                               ; preds = %82
+  br label %88
 
-91:                                               ; preds = %85, %86, %88, %90, %89, %87
-  %.str.26.sink = phi ptr [ @.str.26, %86 ], [ @.str.28, %88 ], [ @.str.30, %90 ], [ @.str.29, %89 ], [ @.str.27, %87 ], [ @.str.25, %85 ]
-  %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.26.sink, i32 noundef %20, double noundef %2) #5
-  %93 = getelementptr inbounds nuw i8, ptr %17, i64 3
+88:                                               ; preds = %82, %83, %85, %87, %86, %84
+  %.str.26.sink = phi ptr [ @.str.26, %83 ], [ @.str.28, %85 ], [ @.str.30, %87 ], [ @.str.29, %86 ], [ @.str.27, %84 ], [ @.str.25, %82 ]
+  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.26.sink, i32 noundef %20, double noundef %2) #5
+  %90 = getelementptr inbounds nuw i8, ptr %17, i64 3
   br label %.critedge
 
-94:                                               ; preds = %84
-  switch i8 %30, label %.critedge386.sink.split [
-    i8 101, label %100
-    i8 69, label %95
-    i8 102, label %96
-    i8 70, label %97
-    i8 103, label %98
-    i8 71, label %99
+91:                                               ; preds = %81
+  switch i8 %28, label %.critedge386.sink.split [
+    i8 101, label %97
+    i8 69, label %92
+    i8 102, label %93
+    i8 70, label %94
+    i8 103, label %95
+    i8 71, label %96
   ]
 
-95:                                               ; preds = %94
-  br label %100
+92:                                               ; preds = %91
+  br label %97
 
-96:                                               ; preds = %94
-  br label %100
+93:                                               ; preds = %91
+  br label %97
 
-97:                                               ; preds = %94
-  br label %100
+94:                                               ; preds = %91
+  br label %97
 
-98:                                               ; preds = %94
-  br label %100
+95:                                               ; preds = %91
+  br label %97
 
-99:                                               ; preds = %94
-  br label %100
+96:                                               ; preds = %91
+  br label %97
 
-100:                                              ; preds = %94, %95, %97, %99, %98, %96
-  %.str.32.sink = phi ptr [ @.str.32, %95 ], [ @.str.34, %97 ], [ @.str.36, %99 ], [ @.str.35, %98 ], [ @.str.33, %96 ], [ @.str.31, %94 ]
-  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.32.sink, i32 noundef %20, double noundef %2) #5
-  %102 = getelementptr inbounds nuw i8, ptr %17, i64 3
+97:                                               ; preds = %91, %92, %94, %96, %95, %93
+  %.str.32.sink = phi ptr [ @.str.32, %92 ], [ @.str.34, %94 ], [ @.str.36, %96 ], [ @.str.35, %95 ], [ @.str.33, %93 ], [ @.str.31, %91 ]
+  %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.32.sink, i32 noundef %20, double noundef %2) #5
+  %99 = getelementptr inbounds nuw i8, ptr %17, i64 3
   br label %.critedge
 
-103:                                              ; preds = %83
-  br i1 %8, label %104, label %113
+100:                                              ; preds = %80
+  br i1 %8, label %101, label %110
 
-104:                                              ; preds = %103
-  switch i8 %30, label %.critedge386.sink.split [
-    i8 101, label %110
-    i8 69, label %105
-    i8 102, label %106
-    i8 70, label %107
-    i8 103, label %108
-    i8 71, label %109
+101:                                              ; preds = %100
+  switch i8 %28, label %.critedge386.sink.split [
+    i8 101, label %107
+    i8 69, label %102
+    i8 102, label %103
+    i8 70, label %104
+    i8 103, label %105
+    i8 71, label %106
   ]
 
-105:                                              ; preds = %104
-  br label %110
+102:                                              ; preds = %101
+  br label %107
 
-106:                                              ; preds = %104
-  br label %110
+103:                                              ; preds = %101
+  br label %107
 
-107:                                              ; preds = %104
-  br label %110
+104:                                              ; preds = %101
+  br label %107
 
-108:                                              ; preds = %104
-  br label %110
+105:                                              ; preds = %101
+  br label %107
 
-109:                                              ; preds = %104
-  br label %110
+106:                                              ; preds = %101
+  br label %107
 
-110:                                              ; preds = %104, %105, %107, %109, %108, %106
-  %.str.38.sink = phi ptr [ @.str.38, %105 ], [ @.str.40, %107 ], [ @.str.42, %109 ], [ @.str.41, %108 ], [ @.str.39, %106 ], [ @.str.37, %104 ]
-  %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.38.sink, i32 noundef %20, double noundef %2) #5
-  %112 = getelementptr inbounds nuw i8, ptr %17, i64 3
+107:                                              ; preds = %101, %102, %104, %106, %105, %103
+  %.str.38.sink = phi ptr [ @.str.38, %102 ], [ @.str.40, %104 ], [ @.str.42, %106 ], [ @.str.41, %105 ], [ @.str.39, %103 ], [ @.str.37, %101 ]
+  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.38.sink, i32 noundef %20, double noundef %2) #5
+  %109 = getelementptr inbounds nuw i8, ptr %17, i64 3
   br label %.critedge
 
-113:                                              ; preds = %103
-  switch i8 %30, label %.critedge386.sink.split [
-    i8 101, label %119
-    i8 69, label %114
-    i8 102, label %115
-    i8 70, label %116
-    i8 103, label %117
-    i8 71, label %118
+110:                                              ; preds = %100
+  switch i8 %28, label %.critedge386.sink.split [
+    i8 101, label %116
+    i8 69, label %111
+    i8 102, label %112
+    i8 70, label %113
+    i8 103, label %114
+    i8 71, label %115
   ]
 
-114:                                              ; preds = %113
-  br label %119
+111:                                              ; preds = %110
+  br label %116
 
-115:                                              ; preds = %113
-  br label %119
+112:                                              ; preds = %110
+  br label %116
 
-116:                                              ; preds = %113
-  br label %119
+113:                                              ; preds = %110
+  br label %116
 
-117:                                              ; preds = %113
-  br label %119
+114:                                              ; preds = %110
+  br label %116
 
-118:                                              ; preds = %113
-  br label %119
+115:                                              ; preds = %110
+  br label %116
 
-119:                                              ; preds = %113, %114, %116, %118, %117, %115
-  %.str.44.sink = phi ptr [ @.str.44, %114 ], [ @.str.46, %116 ], [ @.str.48, %118 ], [ @.str.47, %117 ], [ @.str.45, %115 ], [ @.str.43, %113 ]
-  %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.44.sink, i32 noundef %20, double noundef %2) #5
-  %121 = getelementptr inbounds nuw i8, ptr %17, i64 3
+116:                                              ; preds = %110, %111, %113, %115, %114, %112
+  %.str.44.sink = phi ptr [ @.str.44, %111 ], [ @.str.46, %113 ], [ @.str.48, %115 ], [ @.str.47, %114 ], [ @.str.45, %112 ], [ @.str.43, %110 ]
+  %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.44.sink, i32 noundef %20, double noundef %2) #5
+  %118 = getelementptr inbounds nuw i8, ptr %17, i64 3
   br label %.critedge
 
-122:                                              ; preds = %27
-  br i1 %15, label %123, label %142
+119:                                              ; preds = %_ZL8parseIntRPKc.exit
+  br i1 %15, label %120, label %139
 
-123:                                              ; preds = %122
-  br i1 %8, label %124, label %133
+120:                                              ; preds = %119
+  br i1 %8, label %121, label %130
 
-124:                                              ; preds = %123
+121:                                              ; preds = %120
   switch i8 %24, label %.critedge386.sink.split [
-    i8 101, label %130
-    i8 69, label %125
-    i8 102, label %126
-    i8 70, label %127
-    i8 103, label %128
-    i8 71, label %129
+    i8 101, label %127
+    i8 69, label %122
+    i8 102, label %123
+    i8 70, label %124
+    i8 103, label %125
+    i8 71, label %126
   ]
 
-125:                                              ; preds = %124
-  br label %130
+122:                                              ; preds = %121
+  br label %127
 
-126:                                              ; preds = %124
-  br label %130
+123:                                              ; preds = %121
+  br label %127
 
-127:                                              ; preds = %124
-  br label %130
+124:                                              ; preds = %121
+  br label %127
 
-128:                                              ; preds = %124
-  br label %130
+125:                                              ; preds = %121
+  br label %127
 
-129:                                              ; preds = %124
-  br label %130
+126:                                              ; preds = %121
+  br label %127
 
-130:                                              ; preds = %124, %125, %127, %129, %128, %126
-  %.str.50.sink = phi ptr [ @.str.50, %125 ], [ @.str.52, %127 ], [ @.str.54, %129 ], [ @.str.53, %128 ], [ @.str.51, %126 ], [ @.str.49, %124 ]
-  %131 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.50.sink, i32 noundef %20, double noundef %2) #5
-  %132 = getelementptr inbounds nuw i8, ptr %17, i64 2
+127:                                              ; preds = %121, %122, %124, %126, %125, %123
+  %.str.50.sink = phi ptr [ @.str.50, %122 ], [ @.str.52, %124 ], [ @.str.54, %126 ], [ @.str.53, %125 ], [ @.str.51, %123 ], [ @.str.49, %121 ]
+  %128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.50.sink, i32 noundef %20, double noundef %2) #5
+  %129 = getelementptr inbounds nuw i8, ptr %17, i64 2
   br label %.critedge
 
-133:                                              ; preds = %123
+130:                                              ; preds = %120
   switch i8 %24, label %.critedge386.sink.split [
-    i8 101, label %139
-    i8 69, label %134
-    i8 102, label %135
-    i8 70, label %136
-    i8 103, label %137
-    i8 71, label %138
+    i8 101, label %136
+    i8 69, label %131
+    i8 102, label %132
+    i8 70, label %133
+    i8 103, label %134
+    i8 71, label %135
   ]
 
-134:                                              ; preds = %133
-  br label %139
+131:                                              ; preds = %130
+  br label %136
 
-135:                                              ; preds = %133
-  br label %139
+132:                                              ; preds = %130
+  br label %136
 
-136:                                              ; preds = %133
-  br label %139
+133:                                              ; preds = %130
+  br label %136
 
-137:                                              ; preds = %133
-  br label %139
+134:                                              ; preds = %130
+  br label %136
 
-138:                                              ; preds = %133
-  br label %139
+135:                                              ; preds = %130
+  br label %136
 
-139:                                              ; preds = %133, %134, %136, %138, %137, %135
-  %.str.56.sink = phi ptr [ @.str.56, %134 ], [ @.str.58, %136 ], [ @.str.60, %138 ], [ @.str.59, %137 ], [ @.str.57, %135 ], [ @.str.55, %133 ]
-  %140 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.56.sink, i32 noundef %20, double noundef %2) #5
-  %141 = getelementptr inbounds nuw i8, ptr %17, i64 2
+136:                                              ; preds = %130, %131, %133, %135, %134, %132
+  %.str.56.sink = phi ptr [ @.str.56, %131 ], [ @.str.58, %133 ], [ @.str.60, %135 ], [ @.str.59, %134 ], [ @.str.57, %132 ], [ @.str.55, %130 ]
+  %137 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.56.sink, i32 noundef %20, double noundef %2) #5
+  %138 = getelementptr inbounds nuw i8, ptr %17, i64 2
   br label %.critedge
 
-142:                                              ; preds = %122
-  br i1 %8, label %143, label %152
+139:                                              ; preds = %119
+  br i1 %8, label %140, label %149
 
-143:                                              ; preds = %142
+140:                                              ; preds = %139
   switch i8 %24, label %.critedge386.sink.split [
-    i8 101, label %149
-    i8 69, label %144
-    i8 102, label %145
-    i8 70, label %146
-    i8 103, label %147
-    i8 71, label %148
+    i8 101, label %146
+    i8 69, label %141
+    i8 102, label %142
+    i8 70, label %143
+    i8 103, label %144
+    i8 71, label %145
   ]
 
-144:                                              ; preds = %143
-  br label %149
+141:                                              ; preds = %140
+  br label %146
 
-145:                                              ; preds = %143
-  br label %149
+142:                                              ; preds = %140
+  br label %146
 
-146:                                              ; preds = %143
-  br label %149
+143:                                              ; preds = %140
+  br label %146
 
-147:                                              ; preds = %143
-  br label %149
+144:                                              ; preds = %140
+  br label %146
 
-148:                                              ; preds = %143
-  br label %149
+145:                                              ; preds = %140
+  br label %146
 
-149:                                              ; preds = %143, %144, %146, %148, %147, %145
-  %.str.62.sink = phi ptr [ @.str.62, %144 ], [ @.str.64, %146 ], [ @.str.66, %148 ], [ @.str.65, %147 ], [ @.str.63, %145 ], [ @.str.61, %143 ]
-  %150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.62.sink, i32 noundef %20, double noundef %2) #5
-  %151 = getelementptr inbounds nuw i8, ptr %17, i64 2
+146:                                              ; preds = %140, %141, %143, %145, %144, %142
+  %.str.62.sink = phi ptr [ @.str.62, %141 ], [ @.str.64, %143 ], [ @.str.66, %145 ], [ @.str.65, %144 ], [ @.str.63, %142 ], [ @.str.61, %140 ]
+  %147 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.62.sink, i32 noundef %20, double noundef %2) #5
+  %148 = getelementptr inbounds nuw i8, ptr %17, i64 2
   br label %.critedge
 
-152:                                              ; preds = %142
+149:                                              ; preds = %139
   switch i8 %24, label %.critedge386.sink.split [
-    i8 101, label %158
-    i8 69, label %153
-    i8 102, label %154
-    i8 70, label %155
-    i8 103, label %156
-    i8 71, label %157
+    i8 101, label %155
+    i8 69, label %150
+    i8 102, label %151
+    i8 70, label %152
+    i8 103, label %153
+    i8 71, label %154
   ]
 
-153:                                              ; preds = %152
-  br label %158
+150:                                              ; preds = %149
+  br label %155
 
-154:                                              ; preds = %152
-  br label %158
+151:                                              ; preds = %149
+  br label %155
 
-155:                                              ; preds = %152
-  br label %158
+152:                                              ; preds = %149
+  br label %155
 
-156:                                              ; preds = %152
-  br label %158
+153:                                              ; preds = %149
+  br label %155
 
-157:                                              ; preds = %152
-  br label %158
+154:                                              ; preds = %149
+  br label %155
 
-158:                                              ; preds = %152, %153, %155, %157, %156, %154
-  %.str.68.sink = phi ptr [ @.str.68, %153 ], [ @.str.70, %155 ], [ @.str.72, %157 ], [ @.str.71, %156 ], [ @.str.69, %154 ], [ @.str.67, %152 ]
-  %159 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.68.sink, i32 noundef %20, double noundef %2) #5
-  %160 = getelementptr inbounds nuw i8, ptr %17, i64 2
+155:                                              ; preds = %149, %150, %152, %154, %153, %151
+  %.str.68.sink = phi ptr [ @.str.68, %150 ], [ @.str.70, %152 ], [ @.str.72, %154 ], [ @.str.71, %153 ], [ @.str.69, %151 ], [ @.str.67, %149 ]
+  %156 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.68.sink, i32 noundef %20, double noundef %2) #5
+  %157 = getelementptr inbounds nuw i8, ptr %17, i64 2
   br label %.critedge
 
-161:                                              ; preds = %11
-  %162 = icmp eq i8 %12, 46
-  br i1 %162, label %163, label %213
+158:                                              ; preds = %11
+  %159 = icmp eq i8 %12, 46
+  br i1 %159, label %160, label %209
 
-163:                                              ; preds = %161
-  %164 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  %165 = load i8, ptr %164, align 1, !tbaa !4
-  %166 = add i8 %165, -48
-  %or.cond387 = icmp ult i8 %166, 10
-  br i1 %or.cond387, label %.lr.ph.i401, label %194
+160:                                              ; preds = %158
+  %161 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  %162 = load i8, ptr %161, align 1, !tbaa !4
+  %163 = add i8 %162, -48
+  %or.cond387 = icmp ult i8 %163, 10
+  br i1 %or.cond387, label %.lr.ph.i401, label %190
 
-.lr.ph.i401:                                      ; preds = %163, %173
-  %167 = phi i8 [ %175, %173 ], [ %165, %163 ]
-  %.011.i402 = phi i32 [ %171, %173 ], [ 0, %163 ]
-  %168 = phi ptr [ %174, %173 ], [ %164, %163 ]
-  %169 = mul nsw i32 %.011.i402, 10
-  %narrow.i403 = add nsw i8 %167, -48
-  %170 = zext nneg i8 %narrow.i403 to i32
-  %171 = add nsw i32 %169, %170
-  %172 = icmp sgt i32 %171, 1000
-  br i1 %172, label %.critedge386.sink.split, label %173
+.lr.ph.i401:                                      ; preds = %160, %170
+  %164 = phi i8 [ %172, %170 ], [ %162, %160 ]
+  %.011.i402 = phi i32 [ %168, %170 ], [ 0, %160 ]
+  %165 = phi ptr [ %171, %170 ], [ %161, %160 ]
+  %166 = mul nuw nsw i32 %.011.i402, 10
+  %narrow.i403 = add nsw i8 %164, -48
+  %167 = zext nneg i8 %narrow.i403 to i32
+  %168 = add nuw nsw i32 %166, %167
+  %169 = icmp samesign ugt i32 %168, 1000
+  br i1 %169, label %.critedge386.sink.split, label %170
 
-173:                                              ; preds = %.lr.ph.i401
-  %174 = getelementptr inbounds nuw i8, ptr %168, i64 1
-  %175 = load i8, ptr %174, align 1, !tbaa !4
-  %176 = add i8 %175, -48
-  %or.cond.i404 = icmp ult i8 %176, 10
+170:                                              ; preds = %.lr.ph.i401
+  %171 = getelementptr inbounds nuw i8, ptr %165, i64 1
+  %172 = load i8, ptr %171, align 1, !tbaa !4
+  %173 = add i8 %172, -48
+  %or.cond.i404 = icmp ult i8 %173, 10
   br i1 %or.cond.i404, label %.lr.ph.i401, label %_ZL8parseIntRPKc.exit405, !llvm.loop !9
 
-_ZL8parseIntRPKc.exit405:                         ; preds = %173
-  %177 = icmp slt i32 %171, 0
-  %178 = icmp eq i8 %175, 0
-  %or.cond476 = or i1 %177, %178
-  br i1 %or.cond476, label %.critedge386.sink.split, label %179
+_ZL8parseIntRPKc.exit405:                         ; preds = %170
+  %174 = icmp eq i8 %172, 0
+  br i1 %174, label %.critedge386.sink.split, label %175
 
-179:                                              ; preds = %_ZL8parseIntRPKc.exit405
-  br i1 %8, label %180, label %186
+175:                                              ; preds = %_ZL8parseIntRPKc.exit405
+  br i1 %8, label %176, label %182
 
-180:                                              ; preds = %179
-  switch i8 %175, label %.critedge386.sink.split [
-    i8 101, label %192
-    i8 69, label %181
-    i8 102, label %182
-    i8 70, label %183
-    i8 103, label %184
-    i8 71, label %185
+176:                                              ; preds = %175
+  switch i8 %172, label %.critedge386.sink.split [
+    i8 101, label %188
+    i8 69, label %177
+    i8 102, label %178
+    i8 70, label %179
+    i8 103, label %180
+    i8 71, label %181
   ]
 
-181:                                              ; preds = %180
-  br label %192
+177:                                              ; preds = %176
+  br label %188
 
-182:                                              ; preds = %180
-  br label %192
+178:                                              ; preds = %176
+  br label %188
 
-183:                                              ; preds = %180
-  br label %192
+179:                                              ; preds = %176
+  br label %188
 
-184:                                              ; preds = %180
-  br label %192
+180:                                              ; preds = %176
+  br label %188
 
-185:                                              ; preds = %180
-  br label %192
+181:                                              ; preds = %176
+  br label %188
 
-186:                                              ; preds = %179
-  switch i8 %175, label %.critedge386.sink.split [
-    i8 101, label %192
-    i8 69, label %187
-    i8 102, label %188
-    i8 70, label %189
-    i8 103, label %190
-    i8 71, label %191
+182:                                              ; preds = %175
+  switch i8 %172, label %.critedge386.sink.split [
+    i8 101, label %188
+    i8 69, label %183
+    i8 102, label %184
+    i8 70, label %185
+    i8 103, label %186
+    i8 71, label %187
   ]
 
-187:                                              ; preds = %186
-  br label %192
+183:                                              ; preds = %182
+  br label %188
 
-188:                                              ; preds = %186
-  br label %192
+184:                                              ; preds = %182
+  br label %188
 
-189:                                              ; preds = %186
-  br label %192
+185:                                              ; preds = %182
+  br label %188
 
-190:                                              ; preds = %186
-  br label %192
+186:                                              ; preds = %182
+  br label %188
 
-191:                                              ; preds = %186
-  br label %192
+187:                                              ; preds = %182
+  br label %188
 
-192:                                              ; preds = %186, %180, %188, %190, %191, %189, %187, %182, %184, %185, %183, %181
-  %.str.79.sink = phi ptr [ @.str.81, %188 ], [ @.str.83, %190 ], [ @.str.84, %191 ], [ @.str.82, %189 ], [ @.str.80, %187 ], [ @.str.75, %182 ], [ @.str.77, %184 ], [ @.str.78, %185 ], [ @.str.76, %183 ], [ @.str.74, %181 ], [ @.str.73, %180 ], [ @.str.79, %186 ]
-  %193 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.79.sink, i32 noundef %171, double noundef %2) #5
-  %storemerge = getelementptr inbounds nuw i8, ptr %168, i64 2
+188:                                              ; preds = %182, %176, %184, %186, %187, %185, %183, %178, %180, %181, %179, %177
+  %.str.79.sink = phi ptr [ @.str.81, %184 ], [ @.str.83, %186 ], [ @.str.84, %187 ], [ @.str.82, %185 ], [ @.str.80, %183 ], [ @.str.75, %178 ], [ @.str.77, %180 ], [ @.str.78, %181 ], [ @.str.76, %179 ], [ @.str.74, %177 ], [ @.str.73, %176 ], [ @.str.79, %182 ]
+  %189 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.79.sink, i32 noundef %168, double noundef %2) #5
+  %storemerge = getelementptr inbounds nuw i8, ptr %165, i64 2
   br label %.critedge
 
-194:                                              ; preds = %163
-  br i1 %8, label %195, label %204
+190:                                              ; preds = %160
+  br i1 %8, label %191, label %200
 
-195:                                              ; preds = %194
-  switch i8 %165, label %.critedge386.sink.split [
-    i8 101, label %201
-    i8 69, label %196
-    i8 102, label %197
-    i8 70, label %198
-    i8 103, label %199
-    i8 71, label %200
+191:                                              ; preds = %190
+  switch i8 %162, label %.critedge386.sink.split [
+    i8 101, label %197
+    i8 69, label %192
+    i8 102, label %193
+    i8 70, label %194
+    i8 103, label %195
+    i8 71, label %196
   ]
 
-196:                                              ; preds = %195
-  br label %201
+192:                                              ; preds = %191
+  br label %197
 
-197:                                              ; preds = %195
-  br label %201
+193:                                              ; preds = %191
+  br label %197
 
-198:                                              ; preds = %195
-  br label %201
+194:                                              ; preds = %191
+  br label %197
 
-199:                                              ; preds = %195
-  br label %201
+195:                                              ; preds = %191
+  br label %197
 
-200:                                              ; preds = %195
-  br label %201
+196:                                              ; preds = %191
+  br label %197
 
-201:                                              ; preds = %195, %196, %198, %200, %199, %197
-  %.str.86.sink = phi ptr [ @.str.86, %196 ], [ @.str.88, %198 ], [ @.str.90, %200 ], [ @.str.89, %199 ], [ @.str.87, %197 ], [ @.str.85, %195 ]
-  %202 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.86.sink, double noundef %2) #5
-  %203 = getelementptr inbounds nuw i8, ptr %.0, i64 2
+197:                                              ; preds = %191, %192, %194, %196, %195, %193
+  %.str.86.sink = phi ptr [ @.str.86, %192 ], [ @.str.88, %194 ], [ @.str.90, %196 ], [ @.str.89, %195 ], [ @.str.87, %193 ], [ @.str.85, %191 ]
+  %198 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.86.sink, double noundef %2) #5
+  %199 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   br label %.critedge
 
-204:                                              ; preds = %194
-  switch i8 %165, label %.critedge386.sink.split [
-    i8 101, label %210
-    i8 69, label %205
-    i8 102, label %206
-    i8 70, label %207
-    i8 103, label %208
-    i8 71, label %209
+200:                                              ; preds = %190
+  switch i8 %162, label %.critedge386.sink.split [
+    i8 101, label %206
+    i8 69, label %201
+    i8 102, label %202
+    i8 70, label %203
+    i8 103, label %204
+    i8 71, label %205
   ]
 
-205:                                              ; preds = %204
-  br label %210
+201:                                              ; preds = %200
+  br label %206
 
-206:                                              ; preds = %204
-  br label %210
+202:                                              ; preds = %200
+  br label %206
 
-207:                                              ; preds = %204
-  br label %210
+203:                                              ; preds = %200
+  br label %206
 
-208:                                              ; preds = %204
-  br label %210
+204:                                              ; preds = %200
+  br label %206
 
-209:                                              ; preds = %204
-  br label %210
+205:                                              ; preds = %200
+  br label %206
 
-210:                                              ; preds = %204, %205, %207, %209, %208, %206
-  %.str.92.sink = phi ptr [ @.str.92, %205 ], [ @.str.94, %207 ], [ @.str.96, %209 ], [ @.str.95, %208 ], [ @.str.93, %206 ], [ @.str.91, %204 ]
-  %211 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.92.sink, double noundef %2) #5
-  %212 = getelementptr inbounds nuw i8, ptr %.0, i64 2
+206:                                              ; preds = %200, %201, %203, %205, %204, %202
+  %.str.92.sink = phi ptr [ @.str.92, %201 ], [ @.str.94, %203 ], [ @.str.96, %205 ], [ @.str.95, %204 ], [ @.str.93, %202 ], [ @.str.91, %200 ]
+  %207 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.92.sink, double noundef %2) #5
+  %208 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   br label %.critedge
 
-213:                                              ; preds = %161
-  br i1 %8, label %214, label %223
+209:                                              ; preds = %158
+  br i1 %8, label %210, label %219
 
-214:                                              ; preds = %213
+210:                                              ; preds = %209
   switch i8 %12, label %.critedge386.sink.split [
-    i8 101, label %220
-    i8 69, label %215
-    i8 102, label %216
-    i8 70, label %217
-    i8 103, label %218
-    i8 71, label %219
+    i8 101, label %216
+    i8 69, label %211
+    i8 102, label %212
+    i8 70, label %213
+    i8 103, label %214
+    i8 71, label %215
   ]
 
-215:                                              ; preds = %214
-  br label %220
+211:                                              ; preds = %210
+  br label %216
 
-216:                                              ; preds = %214
-  br label %220
+212:                                              ; preds = %210
+  br label %216
 
-217:                                              ; preds = %214
-  br label %220
+213:                                              ; preds = %210
+  br label %216
 
-218:                                              ; preds = %214
-  br label %220
+214:                                              ; preds = %210
+  br label %216
 
-219:                                              ; preds = %214
-  br label %220
+215:                                              ; preds = %210
+  br label %216
 
-220:                                              ; preds = %214, %215, %217, %219, %218, %216
-  %.str.98.sink = phi ptr [ @.str.98, %215 ], [ @.str.100, %217 ], [ @.str.102, %219 ], [ @.str.101, %218 ], [ @.str.99, %216 ], [ @.str.97, %214 ]
-  %221 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.98.sink, double noundef %2) #5
-  %222 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+216:                                              ; preds = %210, %211, %213, %215, %214, %212
+  %.str.98.sink = phi ptr [ @.str.98, %211 ], [ @.str.100, %213 ], [ @.str.102, %215 ], [ @.str.101, %214 ], [ @.str.99, %212 ], [ @.str.97, %210 ]
+  %217 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.98.sink, double noundef %2) #5
+  %218 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %.critedge
 
-223:                                              ; preds = %213
+219:                                              ; preds = %209
   switch i8 %12, label %.critedge386.sink.split [
-    i8 101, label %229
-    i8 69, label %224
-    i8 102, label %225
-    i8 70, label %226
-    i8 103, label %227
-    i8 71, label %228
+    i8 101, label %225
+    i8 69, label %220
+    i8 102, label %221
+    i8 70, label %222
+    i8 103, label %223
+    i8 71, label %224
   ]
 
-224:                                              ; preds = %223
-  br label %229
+220:                                              ; preds = %219
+  br label %225
 
-225:                                              ; preds = %223
-  br label %229
+221:                                              ; preds = %219
+  br label %225
 
-226:                                              ; preds = %223
-  br label %229
+222:                                              ; preds = %219
+  br label %225
 
-227:                                              ; preds = %223
-  br label %229
+223:                                              ; preds = %219
+  br label %225
 
-228:                                              ; preds = %223
-  br label %229
+224:                                              ; preds = %219
+  br label %225
 
-229:                                              ; preds = %223, %224, %226, %228, %227, %225
-  %.str.104.sink = phi ptr [ @.str.104, %224 ], [ @.str.106, %226 ], [ @.str.108, %228 ], [ @.str.107, %227 ], [ @.str.105, %225 ], [ @.str.103, %223 ]
-  %230 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.104.sink, double noundef %2) #5
-  %231 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+225:                                              ; preds = %219, %220, %222, %224, %223, %221
+  %.str.104.sink = phi ptr [ @.str.104, %220 ], [ @.str.106, %222 ], [ @.str.108, %224 ], [ @.str.107, %223 ], [ @.str.105, %221 ], [ @.str.103, %219 ]
+  %226 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.104.sink, double noundef %2) #5
+  %227 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %.critedge
 
-.critedge:                                        ; preds = %192, %71, %80, %52, %61, %139, %130, %158, %149, %110, %119, %91, %100, %201, %210, %229, %220
-  %.1 = phi ptr [ %132, %130 ], [ %141, %139 ], [ %151, %149 ], [ %160, %158 ], [ %54, %52 ], [ %63, %61 ], [ %73, %71 ], [ %82, %80 ], [ %93, %91 ], [ %102, %100 ], [ %112, %110 ], [ %121, %119 ], [ %storemerge, %192 ], [ %203, %201 ], [ %212, %210 ], [ %222, %220 ], [ %231, %229 ]
-  %232 = load i8, ptr %.1, align 1, !tbaa !4
-  %.not384 = icmp eq i8 %232, 0
+.critedge:                                        ; preds = %188, %68, %77, %49, %58, %136, %127, %155, %146, %107, %116, %88, %97, %197, %206, %225, %216
+  %.1 = phi ptr [ %129, %127 ], [ %138, %136 ], [ %148, %146 ], [ %157, %155 ], [ %51, %49 ], [ %60, %58 ], [ %70, %68 ], [ %79, %77 ], [ %90, %88 ], [ %99, %97 ], [ %109, %107 ], [ %118, %116 ], [ %storemerge, %188 ], [ %199, %197 ], [ %208, %206 ], [ %218, %216 ], [ %227, %225 ]
+  %228 = load i8, ptr %.1, align 1, !tbaa !4
+  %.not384 = icmp eq i8 %228, 0
   br i1 %.not384, label %.critedge386, label %.critedge386.sink.split
 
-.critedge386.sink.split:                          ; preds = %.lr.ph.i401, %.lr.ph.i, %.lr.ph.i393, %.critedge, %223, %214, %204, %195, %186, %180, %_ZL8parseIntRPKc.exit405, %152, %143, %133, %124, %113, %104, %94, %85, %74, %65, %55, %46, %_ZL8parseIntRPKc.exit397, %_ZL8parseIntRPKc.exit, %27, %3
-  %233 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %234 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %233, ptr noundef nonnull @.str, ptr noundef nonnull %1) #6
+.critedge386.sink.split:                          ; preds = %.lr.ph.i401, %.lr.ph.i, %.lr.ph.i393, %.critedge, %219, %210, %200, %191, %182, %176, %_ZL8parseIntRPKc.exit405, %149, %140, %130, %121, %110, %101, %91, %82, %71, %62, %52, %43, %_ZL8parseIntRPKc.exit397, %_ZL8parseIntRPKc.exit, %3
+  %229 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %230 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %229, ptr noundef nonnull @.str, ptr noundef nonnull %1) #6
   br label %.critedge386
 
 .critedge386:                                     ; preds = %.critedge386.sink.split, %.critedge

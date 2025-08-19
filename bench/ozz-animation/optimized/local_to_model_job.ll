@@ -147,19 +147,19 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   br i1 %158, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %64
-  %65 = sext i32 %.02761.ph to i64
-  %66 = sext i32 %157 to i64
+  %65 = zext nneg i32 %.02761.ph to i64
+  %66 = zext nneg i32 %157 to i64
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %225
-  %67 = trunc nsw i64 %indvars.iv.next to i32
+  %67 = trunc nuw nsw i64 %indvars.iv.next to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %230, label %.outer, label %._crit_edge64, !llvm.loop !35
 
 .outer:                                           ; preds = %._crit_edge.loopexit, %.lr.ph63
   %.02761.ph = phi i32 [ %67, %._crit_edge.loopexit ], [ %37, %.lr.ph63 ]
-  %68 = sdiv i32 %.02761.ph, 4
-  %69 = sext i32 %68 to i64
+  %68 = lshr i32 %.02761.ph, 2
+  %69 = zext nneg i32 %68 to i64
   %70 = load ptr, ptr %46, align 8, !tbaa !37
   %71 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %70, i64 %69
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
@@ -247,7 +247,7 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   %154 = shufflevector <4 x float> %152, <4 x float> %153, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %155 = shufflevector <4 x float> %152, <4 x float> %153, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %156 = and i32 %.02761.ph, -4
-  %157 = add nsw i32 %156, 4
+  %157 = add nuw nsw i32 %156, 4
   %158 = icmp slt i32 %.02761.ph, %157
   br label %64
 
@@ -335,8 +335,8 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   store <4 x float> %209, ptr %.sroa.5.0..sroa_idx, align 16
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %223, i64 48
   store <4 x float> %222, ptr %.sroa.6.0..sroa_idx, align 16, !tbaa !23
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %224 = icmp slt i64 %indvars.iv.next, %63
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %224 = icmp samesign ult i64 %indvars.iv.next, %63
   br i1 %224, label %225, label %._crit_edge.loopexit.thread
 
 ._crit_edge.loopexit.thread:                      ; preds = %.lr.ph
@@ -349,7 +349,7 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   %228 = sext i16 %227 to i32
   %229 = load i32, ptr %31, align 8, !tbaa !29
   %230 = icmp sle i32 %229, %228
-  %231 = icmp slt i64 %indvars.iv.next, %66
+  %231 = icmp samesign ult i64 %indvars.iv.next, %66
   %232 = select i1 %231, i1 %230, i1 false
   br i1 %232, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !44
 

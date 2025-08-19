@@ -1563,13 +1563,13 @@ define hidden void @"_ZN137_$LT$futures_util..stream..futures_ordered..FuturesOr
 define hidden void @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17h12fe1b046b1d6e97E"(ptr dead_on_unwind noalias noundef writable sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 128 %1) unnamed_addr #0 {
   %3 = alloca [40 x i8], align 8
   %4 = load i64, ptr %1, align 128, !range !236, !noundef !4
-  switch i64 %4, label %default.unreachable3 [
+  switch i64 %4, label %default.unreachable4 [
     i64 0, label %5
     i64 1, label %32
     i64 2, label %34
   ]
 
-default.unreachable3:                             ; preds = %2
+default.unreachable4:                             ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -1650,13 +1650,13 @@ default.unreachable3:                             ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17ha72f558ae6a960ceE"(ptr dead_on_unwind noalias noundef writable sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 128 %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 128, !range !236, !noundef !4
-  switch i64 %3, label %default.unreachable3 [
+  switch i64 %3, label %default.unreachable4 [
     i64 0, label %4
     i64 1, label %35
     i64 2, label %37
   ]
 
-default.unreachable3:                             ; preds = %2
+default.unreachable4:                             ; preds = %2
   unreachable
 
 4:                                                ; preds = %2
@@ -1737,13 +1737,13 @@ default.unreachable3:                             ; preds = %2
 define hidden void @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17hae3c3f7b600bcf33E"(ptr dead_on_unwind noalias noundef writable sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 128 %1) unnamed_addr #0 {
   %3 = alloca [48 x i8], align 8
   %4 = load i64, ptr %1, align 128, !range !236, !noundef !4
-  switch i64 %4, label %default.unreachable3 [
+  switch i64 %4, label %default.unreachable4 [
     i64 0, label %5
     i64 1, label %32
     i64 2, label %34
   ]
 
-default.unreachable3:                             ; preds = %2
+default.unreachable4:                             ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -1825,13 +1825,13 @@ default.unreachable3:                             ; preds = %2
 define hidden void @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17hbf72c9c602608c45E"(ptr dead_on_unwind noalias noundef writable sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull align 128 %1) unnamed_addr #0 {
   %3 = alloca [96 x i8], align 8
   %4 = load i64, ptr %1, align 128, !range !236, !noundef !4
-  switch i64 %4, label %default.unreachable3 [
+  switch i64 %4, label %default.unreachable4 [
     i64 0, label %5
     i64 1, label %32
     i64 2, label %34
   ]
 
-default.unreachable3:                             ; preds = %2
+default.unreachable4:                             ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -3959,9 +3959,9 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact1
   br i1 %23, label %25, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.thread"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.thread": ; preds = %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i"
-  %.sroa.06.0.i.i.pn.i38 = phi ptr [ %.sroa.06.0.i.i.pn.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i" ], [ inttoptr (i64 8 to ptr), %18 ]
+  %.sroa.06.0.i.i.pn.i39 = phi ptr [ %.sroa.06.0.i.i.pn.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i" ], [ inttoptr (i64 8 to ptr), %18 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.06.0.i.i.pn.i38, ptr %24, align 8
+  store ptr %.sroa.06.0.i.i.pn.i39, ptr %24, align 8
   store i64 %7, ptr %0, align 8
   br label %25
 

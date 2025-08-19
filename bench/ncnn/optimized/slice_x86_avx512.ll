@@ -1030,14 +1030,14 @@ _ZN4ncnn3MatD2Ev.exit1368:                        ; preds = %252, %249, %258, %2
   br i1 %277, label %.loopexit2575..thread2522.thread_crit_edge, label %.loopexit2573
 
 .loopexit2575..thread2522.thread_crit_edge:       ; preds = %.lr.ph2618.split.preheader, %.preheader2576, %.loopexit2575
-  %.511003067 = phi ptr [ %.51100, %.loopexit2575 ], [ %.11096, %.preheader2576 ], [ %scevgep2926, %.lr.ph2618.split.preheader ]
+  %.511003168 = phi ptr [ %.51100, %.loopexit2575 ], [ %.11096, %.preheader2576 ], [ %scevgep2926, %.lr.ph2618.split.preheader ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %309, i64 24
   %.pre3020 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !24
   br label %.thread2522.thread
 
 .thread2522.thread:                               ; preds = %.loopexit2575..thread2522.thread_crit_edge, %381
   %539 = phi i32 [ %.pre3020, %.loopexit2575..thread2522.thread_crit_edge ], [ %383, %381 ]
-  %.511002524 = phi ptr [ %.511003067, %.loopexit2575..thread2522.thread_crit_edge ], [ %.11096, %381 ]
+  %.511002524 = phi ptr [ %.511003168, %.loopexit2575..thread2522.thread_crit_edge ], [ %.11096, %381 ]
   %540 = phi i1 [ %282, %.loopexit2575..thread2522.thread_crit_edge ], [ false, %381 ]
   %541 = icmp eq i32 %539, 8
   br i1 %541, label %.preheader2572, label %.loopexit2573
@@ -1123,13 +1123,13 @@ _ZN4ncnn3MatD2Ev.exit1368:                        ; preds = %252, %249, %258, %2
   br i1 %580, label %.loopexit2573.thread, label %.loopexit2573..thread2528_crit_edge
 
 .loopexit2573..thread2528_crit_edge:              ; preds = %.lr.ph2605.split.preheader, %.preheader2578, %.loopexit2573
-  %.711023072 = phi ptr [ %.71102, %.loopexit2573 ], [ %.010952698, %.preheader2578 ], [ %scevgep, %.lr.ph2605.split.preheader ]
+  %.711023173 = phi ptr [ %.71102, %.loopexit2573 ], [ %.010952698, %.preheader2578 ], [ %scevgep, %.lr.ph2605.split.preheader ]
   %.phi.trans.insert3021 = getelementptr inbounds nuw i8, ptr %309, i64 24
   %.pre3022 = load i32, ptr %.phi.trans.insert3021, align 8, !tbaa !24
   br label %.thread2528
 
 .loopexit2573.thread:                             ; preds = %.lr.ph2646.split.preheader, %.preheader2574, %454, %.loopexit2573
-  %.711023053 = phi ptr [ %.71102, %.loopexit2573 ], [ %scevgep2933, %.lr.ph2646.split.preheader ], [ %.31098, %.preheader2574 ], [ %.31098, %454 ]
+  %.711023154 = phi ptr [ %.71102, %.loopexit2573 ], [ %scevgep2933, %.lr.ph2646.split.preheader ], [ %.31098, %.preheader2574 ], [ %.31098, %454 ]
   %581 = getelementptr inbounds nuw i8, ptr %309, i64 24
   %582 = load i32, ptr %581, align 8, !tbaa !24
   %583 = icmp eq i32 %582, 8
@@ -1154,7 +1154,7 @@ _ZN4ncnn3MatD2Ev.exit1368:                        ; preds = %252, %249, %258, %2
 
 593:                                              ; preds = %.lr.ph2678, %._crit_edge2675
   %indvars.iv2947 = phi i64 [ 0, %.lr.ph2678 ], [ %indvars.iv.next2948, %._crit_edge2675 ]
-  %.1011052677 = phi ptr [ %.711023053, %.lr.ph2678 ], [ %602, %._crit_edge2675 ]
+  %.1011052677 = phi ptr [ %.711023154, %.lr.ph2678 ], [ %602, %._crit_edge2675 ]
   br i1 %274, label %.lr.ph2674.preheader, label %._crit_edge2675
 
 .lr.ph2674.preheader:                             ; preds = %593
@@ -1223,7 +1223,7 @@ _ZN4ncnn3MatD2Ev.exit1368:                        ; preds = %252, %249, %258, %2
   br i1 %exitcond2946.not, label %._crit_edge2675, label %.lr.ph2674, !llvm.loop !65
 
 .thread2525:                                      ; preds = %._crit_edge2675, %.loopexit2573.thread
-  %.911042527 = phi ptr [ %.711023053, %.loopexit2573.thread ], [ %602, %._crit_edge2675 ]
+  %.911042527 = phi ptr [ %.711023154, %.loopexit2573.thread ], [ %602, %._crit_edge2675 ]
   %628 = icmp eq i32 %582, 4
   br i1 %628, label %.preheader, label %.thread2528
 
@@ -1292,7 +1292,7 @@ _ZN4ncnn3MatD2Ev.exit1368:                        ; preds = %252, %249, %258, %2
 
 .thread2528:                                      ; preds = %._crit_edge2690, %.preheader2571, %.loopexit2573..thread2528_crit_edge, %.preheader, %310, %.thread2525
   %657 = phi i32 [ %582, %.thread2525 ], [ %.pre3022, %.loopexit2573..thread2528_crit_edge ], [ %312, %310 ], [ 4, %.preheader ], [ 8, %.preheader2571 ], [ 4, %._crit_edge2690 ]
-  %.111106 = phi ptr [ %.911042527, %.thread2525 ], [ %.711023072, %.loopexit2573..thread2528_crit_edge ], [ %.010952698, %310 ], [ %.911042527, %.preheader ], [ %.711023053, %.preheader2571 ], [ %643, %._crit_edge2690 ]
+  %.111106 = phi ptr [ %.911042527, %.thread2525 ], [ %.711023173, %.loopexit2573..thread2528_crit_edge ], [ %.010952698, %310 ], [ %.911042527, %.preheader ], [ %.711023154, %.preheader2571 ], [ %643, %._crit_edge2690 ]
   %658 = icmp eq i32 %.02516.lcssa, %657
   br i1 %658, label %659, label %673
 
@@ -2209,14 +2209,14 @@ _ZNK4ncnn3Mat5emptyEv.exit1362:                   ; preds = %894
   br i1 %909, label %.loopexit2568..thread2541.thread_crit_edge, label %.loopexit
 
 .loopexit2568..thread2541.thread_crit_edge:       ; preds = %999, %.loopexit2568
-  %.511803075 = phi i32 [ %.51180, %.loopexit2568 ], [ %.11176, %999 ]
+  %.511803176 = phi i32 [ %.51180, %.loopexit2568 ], [ %.11176, %999 ]
   %.phi.trans.insert3025 = getelementptr inbounds nuw i8, ptr %914, i64 24
   %.pre3026 = load i32, ptr %.phi.trans.insert3025, align 8, !tbaa !24
   br label %.thread2541.thread
 
 .thread2541.thread:                               ; preds = %.loopexit2568..thread2541.thread_crit_edge, %995
   %1187 = phi i32 [ %.pre3026, %.loopexit2568..thread2541.thread_crit_edge ], [ %997, %995 ]
-  %.511802543 = phi i32 [ %.511803075, %.loopexit2568..thread2541.thread_crit_edge ], [ %.11176, %995 ]
+  %.511802543 = phi i32 [ %.511803176, %.loopexit2568..thread2541.thread_crit_edge ], [ %.11176, %995 ]
   %1188 = phi i1 [ %910, %.loopexit2568..thread2541.thread_crit_edge ], [ false, %995 ]
   %1189 = icmp eq i32 %1187, 8
   br i1 %1189, label %1190, label %.loopexit
@@ -2323,13 +2323,13 @@ _ZNK4ncnn3Mat5emptyEv.exit1362:                   ; preds = %894
   br i1 %1242, label %.loopexit.thread, label %.loopexit..thread2547_crit_edge
 
 .loopexit..thread2547_crit_edge:                  ; preds = %919, %.loopexit.loopexit, %.loopexit
-  %.711823062 = phi i32 [ %1241, %.loopexit.loopexit ], [ %.71182, %.loopexit ], [ %.011752880, %919 ]
+  %.711823163 = phi i32 [ %1241, %.loopexit.loopexit ], [ %.71182, %.loopexit ], [ %.011752880, %919 ]
   %.phi.trans.insert3027 = getelementptr inbounds nuw i8, ptr %914, i64 24
   %.pre3028 = load i32, ptr %.phi.trans.insert3027, align 8, !tbaa !24
   br label %.thread2547
 
 .loopexit.thread:                                 ; preds = %1083, %1079, %.loopexit.loopexit, %.loopexit
-  %.711823061 = phi i32 [ %.71182, %.loopexit ], [ %1241, %.loopexit.loopexit ], [ %.31178, %1079 ], [ %.31178, %1083 ]
+  %.711823162 = phi i32 [ %.71182, %.loopexit ], [ %1241, %.loopexit.loopexit ], [ %.31178, %1079 ], [ %.31178, %1083 ]
   %1243 = getelementptr inbounds nuw i8, ptr %914, i64 24
   %1244 = load i32, ptr %1243, align 8, !tbaa !24
   %1245 = icmp eq i32 %1244, 8
@@ -2361,7 +2361,7 @@ _ZNK4ncnn3Mat5emptyEv.exit1362:                   ; preds = %894
   %1265 = load i64, ptr %1264, align 8, !tbaa !22, !noalias !108
   %factor.op.mul2857 = mul i64 %1263, %1265
   %1266 = icmp sgt i32 %1254, 0
-  %1267 = sext i32 %.711823061 to i64
+  %1267 = sext i32 %.711823162 to i64
   %wide.trip.count3008 = zext nneg i32 %1256 to i64
   br label %.noexc1468
 
@@ -2456,7 +2456,7 @@ _ZNK4ncnn3Mat5emptyEv.exit1362:                   ; preds = %894
   br label %.thread2544
 
 .thread2544:                                      ; preds = %.thread2544.loopexit, %.loopexit.thread
-  %.911842546 = phi i32 [ %.711823061, %.loopexit.thread ], [ %1309, %.thread2544.loopexit ]
+  %.911842546 = phi i32 [ %.711823162, %.loopexit.thread ], [ %1309, %.thread2544.loopexit ]
   %1310 = icmp eq i32 %1244, 4
   br i1 %1310, label %1311, label %.thread2547
 
@@ -2550,7 +2550,7 @@ _ZNK4ncnn3Mat5emptyEv.exit1362:                   ; preds = %894
 
 .thread2547:                                      ; preds = %1246, %.loopexit..thread2547_crit_edge, %.thread2547.loopexit, %1311, %915, %.thread2544
   %1355 = phi i32 [ %1244, %.thread2544 ], [ %.pre3028, %.loopexit..thread2547_crit_edge ], [ %917, %915 ], [ 4, %1311 ], [ 4, %.thread2547.loopexit ], [ 8, %1246 ]
-  %.111186 = phi i32 [ %.911842546, %.thread2544 ], [ %.711823062, %.loopexit..thread2547_crit_edge ], [ %.011752880, %915 ], [ %.911842546, %1311 ], [ %1354, %.thread2547.loopexit ], [ %.711823061, %1246 ]
+  %.111186 = phi i32 [ %.911842546, %.thread2544 ], [ %.711823163, %.loopexit..thread2547_crit_edge ], [ %.011752880, %915 ], [ %.911842546, %1311 ], [ %1354, %.thread2547.loopexit ], [ %.711823162, %1246 ]
   %1356 = icmp eq i32 %.02518.lcssa, %1355
   br i1 %1356, label %.noexc1496, label %1377
 

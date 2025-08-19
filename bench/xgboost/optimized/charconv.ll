@@ -185,21 +185,21 @@ _ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit: ; preds = %5, %tailrecurse.
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 %7
   %9 = zext nneg i32 %.0.i to i64
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
-  %.not85 = icmp ult i32 %.sroa.0.0.extract.trunc, 10000
-  br i1 %.not85, label %._crit_edge, label %tailrecurse.i71.preheader
+  %.not86 = icmp ult i32 %.sroa.0.0.extract.trunc, 10000
+  br i1 %.not86, label %._crit_edge, label %tailrecurse.i71.preheader
 
 tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit, %tailrecurse.i71.preheader
-  %.06487 = phi i32 [ %12, %tailrecurse.i71.preheader ], [ %.sroa.0.0.extract.trunc, %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit ]
-  %.06686 = phi i32 [ %28, %tailrecurse.i71.preheader ], [ 0, %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit ]
-  %11 = urem i32 %.06487, 10000
-  %12 = udiv i32 %.06487, 10000
-  %.lhs.trunc81 = trunc nuw nsw i32 %11 to i16
-  %13 = urem i16 %.lhs.trunc81, 100
+  %.06488 = phi i32 [ %12, %tailrecurse.i71.preheader ], [ %.sroa.0.0.extract.trunc, %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit ]
+  %.06687 = phi i32 [ %28, %tailrecurse.i71.preheader ], [ 0, %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit ]
+  %11 = urem i32 %.06488, 10000
+  %12 = udiv i32 %.06488, 10000
+  %.lhs.trunc82 = trunc nuw nsw i32 %11 to i16
+  %13 = urem i16 %.lhs.trunc82, 100
   %14 = shl nuw nsw i16 %13, 1
-  %.lhs.trunc83 = trunc nuw nsw i32 %11 to i16
-  %15 = udiv i16 %.lhs.trunc83, 100
+  %.lhs.trunc84 = trunc nuw nsw i32 %11 to i16
+  %15 = udiv i16 %.lhs.trunc84, 100
   %16 = shl nuw nsw i16 %15, 1
-  %17 = zext i32 %.06686 to i64
+  %17 = zext i32 %.06687 to i64
   %18 = sub nsw i64 0, %17
   %19 = getelementptr inbounds i8, ptr %10, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 -1
@@ -212,8 +212,8 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
   %26 = getelementptr inbounds nuw i8, ptr @_ZN7xgboost6detailL8kItoaLutE, i64 %25
   %27 = load i16, ptr %26, align 2
   store i16 %27, ptr %24, align 1
-  %28 = add i32 %.06686, 4
-  %.not = icmp ult i32 %.06487, 100000000
+  %28 = add i32 %.06687, 4
+  %.not = icmp ult i32 %.06488, 100000000
   br i1 %.not, label %._crit_edge, label %tailrecurse.i71.preheader, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %tailrecurse.i71.preheader, %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit
@@ -226,9 +226,9 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
   %.lhs.trunc = trunc nuw i32 %.064.lcssa to i16
   %31 = urem i16 %.lhs.trunc, 100
   %32 = shl nuw nsw i16 %31, 1
-  %.lhs.trunc79 = trunc nuw i32 %.064.lcssa to i16
-  %33 = udiv i16 %.lhs.trunc79, 100
-  %.zext80 = zext nneg i16 %33 to i32
+  %.lhs.trunc80 = trunc nuw i32 %.064.lcssa to i16
+  %33 = udiv i16 %.lhs.trunc80, 100
+  %.zext81 = zext nneg i16 %33 to i32
   %34 = zext i32 %.066.lcssa to i64
   %35 = sub nsw i64 0, %34
   %36 = getelementptr inbounds i8, ptr %10, i64 %35
@@ -242,7 +242,7 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
 
 42:                                               ; preds = %30, %._crit_edge
   %.167 = phi i32 [ %41, %30 ], [ %.066.lcssa, %._crit_edge ]
-  %.165 = phi i32 [ %.zext80, %30 ], [ %.064.lcssa, %._crit_edge ]
+  %.165 = phi i32 [ %.zext81, %30 ], [ %.064.lcssa, %._crit_edge ]
   %43 = icmp samesign ugt i32 %.165, 9
   br i1 %43, label %44, label %57
 
@@ -526,7 +526,7 @@ define { ptr, i32 } @_ZN7xgboost6detail17FromCharFloatImplEPKciPf(ptr noundef %0
 13:                                               ; preds = %.lr.ph
   %.not196 = icmp eq i32 %.0160274, %1
   %14 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %.not196, label %select.unfold, label %.thread.loopexit333
+  br i1 %.not196, label %select.unfold, label %.thread.loopexit343
 
 15:                                               ; preds = %.lr.ph
   %16 = add i8 %11, -58
@@ -535,7 +535,7 @@ define { ptr, i32 } @_ZN7xgboost6detail17FromCharFloatImplEPKciPf(ptr noundef %0
 
 17:                                               ; preds = %15
   %18 = icmp sgt i32 %.0275, 8
-  br i1 %18, label %.thread.loopexit333, label %19
+  br i1 %18, label %.thread.loopexit343, label %19
 
 19:                                               ; preds = %17
   %20 = mul i32 %.0169273, 10
@@ -637,28 +637,28 @@ select.unfold:                                    ; preds = %13, %19
   br label %.thread
 
 .loopexit.thread:                                 ; preds = %47, %.loopexit
-  %.0166322 = phi i32 [ %.0166, %.loopexit ], [ %25, %47 ]
-  %.0176321 = phi i1 [ %.0176, %.loopexit ], [ %.1177, %47 ]
-  %.0179320 = phi i32 [ 0, %.loopexit ], [ %50, %47 ]
-  %.0260319 = phi i32 [ %.0260, %.loopexit ], [ %.0275, %47 ]
-  %.0160263318 = phi i32 [ %.0160263, %.loopexit ], [ %.0160274, %47 ]
-  %.0169266317 = phi i32 [ %.0169266, %.loopexit ], [ %.0169273, %47 ]
-  %56 = sub nsw i32 0, %.0179320
-  %spec.select350 = select i1 %.0176321, i32 %56, i32 %.0179320
+  %.0166332 = phi i32 [ %.0166, %.loopexit ], [ %25, %47 ]
+  %.0176331 = phi i1 [ %.0176, %.loopexit ], [ %.1177, %47 ]
+  %.0179330 = phi i32 [ 0, %.loopexit ], [ %50, %47 ]
+  %.0260329 = phi i32 [ %.0260, %.loopexit ], [ %.0275, %47 ]
+  %.0160263328 = phi i32 [ %.0160263, %.loopexit ], [ %.0160274, %47 ]
+  %.0169266327 = phi i32 [ %.0169266, %.loopexit ], [ %.0169273, %47 ]
+  %56 = sub nsw i32 0, %.0179330
+  %spec.select360 = select i1 %.0176331, i32 %56, i32 %.0179330
   br label %.loopexit.thread.thread
 
 .loopexit.thread.thread:                          ; preds = %select.unfold, %.loopexit.thread
-  %.0169266317332 = phi i32 [ %.0169266317, %.loopexit.thread ], [ %.2171.ph, %select.unfold ]
-  %.0160263318331 = phi i32 [ %.0160263318, %.loopexit.thread ], [ %.2162.ph, %select.unfold ]
-  %.0260319330 = phi i32 [ %.0260319, %.loopexit.thread ], [ %.2.ph, %select.unfold ]
-  %.0166322329 = phi i32 [ %.0166322, %.loopexit.thread ], [ %1, %select.unfold ]
-  %57 = phi i32 [ %spec.select350, %.loopexit.thread ], [ 0, %select.unfold ]
-  %58 = icmp slt i32 %.0160263318331, %.0166322329
-  %59 = xor i32 %.0160263318331, -1
-  %60 = add i32 %.0166322329, %59
+  %.0169266327342 = phi i32 [ %.0169266327, %.loopexit.thread ], [ %.2171.ph, %select.unfold ]
+  %.0160263328341 = phi i32 [ %.0160263328, %.loopexit.thread ], [ %.2162.ph, %select.unfold ]
+  %.0260329340 = phi i32 [ %.0260329, %.loopexit.thread ], [ %.2.ph, %select.unfold ]
+  %.0166332339 = phi i32 [ %.0166332, %.loopexit.thread ], [ %1, %select.unfold ]
+  %57 = phi i32 [ %spec.select360, %.loopexit.thread ], [ 0, %select.unfold ]
+  %58 = icmp slt i32 %.0160263328341, %.0166332339
+  %59 = xor i32 %.0160263328341, -1
+  %60 = add i32 %.0166332339, %59
   %61 = select i1 %58, i32 %60, i32 0
   %62 = sub nsw i32 %57, %61
-  %63 = icmp eq i32 %.0169266317332, 0
+  %63 = icmp eq i32 %.0169266327342, 0
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %.loopexit.thread.thread
@@ -667,7 +667,7 @@ select.unfold:                                    ; preds = %13, %19
   br label %.thread
 
 66:                                               ; preds = %.loopexit.thread.thread
-  %67 = add nsw i32 %62, %.0260319330
+  %67 = add nsw i32 %62, %.0260329340
   %68 = icmp slt i32 %67, -45
   br i1 %68, label %69, label %71
 
@@ -687,7 +687,7 @@ select.unfold:                                    ; preds = %13, %19
 
 75:                                               ; preds = %71
   %76 = icmp sgt i32 %62, -1
-  %77 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0169266317332, i1 true)
+  %77 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0169266327342, i1 true)
   br i1 %76, label %78, label %103
 
 78:                                               ; preds = %75
@@ -701,7 +701,7 @@ select.unfold:                                    ; preds = %13, %19
   %85 = getelementptr inbounds nuw [47 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils15kFloatPow5SplitE, i64 0, i64 %84
   %86 = load i64, ptr %85, align 8, !tbaa !18
   %87 = lshr i64 %86, 32
-  %88 = zext i32 %.0169266317332 to i64
+  %88 = zext i32 %.0169266327342 to i64
   %89 = and i64 %86, 4294967295
   %90 = mul nuw i64 %89, %88
   %91 = mul nuw i64 %87, %88
@@ -719,7 +719,7 @@ select.unfold:                                    ; preds = %13, %19
   br i1 %99, label %100, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
 
 100:                                              ; preds = %98
-  %101 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.0169266317332, i1 true)
+  %101 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.0169266327342, i1 true)
   %102 = icmp uge i32 %101, %83
   br label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
 
@@ -736,7 +736,7 @@ select.unfold:                                    ; preds = %13, %19
   %111 = getelementptr inbounds nuw [55 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils18kFloatPow5InvSplitE, i64 0, i64 %110
   %112 = load i64, ptr %111, align 8, !tbaa !18
   %113 = lshr i64 %112, 32
-  %114 = zext i32 %.0169266317332 to i64
+  %114 = zext i32 %.0169266327342 to i64
   %115 = and i64 %112, 4294967295
   %116 = mul nuw i64 %115, %114
   %117 = mul nuw i64 %113, %114
@@ -751,16 +751,16 @@ select.unfold:                                    ; preds = %13, %19
 
 125:                                              ; preds = %103
   %126 = icmp slt i32 %109, 32
-  %127 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.0169266317332, i1 true)
+  %127 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.0169266327342, i1 true)
   %128 = icmp uge i32 %127, %109
   %or.cond250 = select i1 %126, i1 %128, i1 false
-  %129 = urem i32 %.0169266317332, 5
+  %129 = urem i32 %.0169266327342, 5
   %.not15.i.i = icmp eq i32 %129, 0
-  %or.cond351 = and i1 %or.cond250, %.not15.i.i
-  br i1 %or.cond351, label %.lr.ph.i.i.preheader, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
+  %or.cond361 = and i1 %or.cond250, %.not15.i.i
+  br i1 %or.cond361, label %.lr.ph.i.i.preheader, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
 
 130:                                              ; preds = %103
-  %.old = urem i32 %.0169266317332, 5
+  %.old = urem i32 %.0169266327342, 5
   %.not15.i.i.old = icmp eq i32 %.old, 0
   br i1 %.not15.i.i.old, label %.lr.ph.i.i.preheader, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
 
@@ -768,7 +768,7 @@ select.unfold:                                    ; preds = %13, %19
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %.0717.i.i = phi i32 [ %131, %.lr.ph.i.i ], [ %.0169266317332, %.lr.ph.i.i.preheader ]
+  %.0717.i.i = phi i32 [ %131, %.lr.ph.i.i ], [ %.0169266327342, %.lr.ph.i.i.preheader ]
   %.0816.i.i = phi i32 [ %132, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %131 = udiv i32 %.0717.i.i, 5
   %132 = add i32 %.0816.i.i, 1
@@ -844,14 +844,14 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit: ; preds = %130, 
   %170 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv306
   br label %.thread
 
-.thread.loopexit333:                              ; preds = %13, %17
-  %.sroa.12.0.ph334 = phi i32 [ 34, %17 ], [ 22, %13 ]
+.thread.loopexit343:                              ; preds = %13, %17
+  %.sroa.12.0.ph344 = phi i32 [ 34, %17 ], [ 22, %13 ]
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   br label %.thread
 
-.thread:                                          ; preds = %.thread.loopexit333, %.thread.loopexit, %53, %64, %69, %73, %158, %140, %3
-  %.sroa.0.0 = phi ptr [ %0, %3 ], [ %55, %53 ], [ null, %64 ], [ null, %69 ], [ null, %73 ], [ null, %158 ], [ null, %140 ], [ %170, %.thread.loopexit ], [ %171, %.thread.loopexit333 ]
-  %.sroa.12.0 = phi i32 [ 22, %3 ], [ 22, %53 ], [ 0, %64 ], [ 0, %69 ], [ 0, %73 ], [ 0, %158 ], [ 0, %140 ], [ %.sroa.12.0.ph, %.thread.loopexit ], [ %.sroa.12.0.ph334, %.thread.loopexit333 ]
+.thread:                                          ; preds = %.thread.loopexit343, %.thread.loopexit, %53, %64, %69, %73, %158, %140, %3
+  %.sroa.0.0 = phi ptr [ %0, %3 ], [ %55, %53 ], [ null, %64 ], [ null, %69 ], [ null, %73 ], [ null, %158 ], [ null, %140 ], [ %170, %.thread.loopexit ], [ %171, %.thread.loopexit343 ]
+  %.sroa.12.0 = phi i32 [ 22, %3 ], [ 22, %53 ], [ 0, %64 ], [ 0, %69 ], [ 0, %73 ], [ 0, %158 ], [ 0, %140 ], [ %.sroa.12.0.ph, %.thread.loopexit ], [ %.sroa.12.0.ph344, %.thread.loopexit343 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.12.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -1251,10 +1251,10 @@ define linkonce_odr i64 @_ZN7xgboost6detail17PowerBaseComputer22ShortestRepresen
   br label %54
 
 54:                                               ; preds = %50, %.loopexit
-  %.sink127 = phi i1 [ %53, %50 ], [ %narrow, %.loopexit ]
+  %.sink131 = phi i1 [ %53, %50 ], [ %narrow, %.loopexit ]
   %.sroa.14.3.lcssa.sink = phi i32 [ %.sroa.14.3.lcssa, %50 ], [ %.sroa.14.1, %.loopexit ]
   %.3 = phi i32 [ %.4.lcssa, %50 ], [ %.1, %.loopexit ]
-  %55 = zext i1 %.sink127 to i32
+  %55 = zext i1 %.sink131 to i32
   %56 = add i32 %.sroa.14.3.lcssa.sink, %55
   %.sroa.0.0.extract.trunc = trunc i64 %4 to i32
   %57 = add nsw i32 %.3, %.sroa.0.0.extract.trunc

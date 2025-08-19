@@ -1239,8 +1239,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc188
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %341, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc188, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
-  %.sroa.0219.2500 = phi ptr [ %346, %.noexc188 ], [ %346, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %346, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ null, %341 ]
-  %.sroa.12225.2497 = phi i64 [ %350, %.noexc188 ], [ %350, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %350, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ 0, %341 ]
+  %.sroa.0219.2546 = phi ptr [ %346, %.noexc188 ], [ %346, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %346, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ null, %341 ]
+  %.sroa.12225.2543 = phi i64 [ %350, %.noexc188 ], [ %350, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %350, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ 0, %341 ]
   %.sroa.0208.2 = phi ptr [ %354, %.noexc188 ], [ %354, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ null, %341 ]
   %.sroa.12.2 = phi ptr [ %355, %.noexc188 ], [ %355, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ null, %341 ]
   %359 = getelementptr inbounds nuw i8, ptr %84, i64 96
@@ -1292,7 +1292,7 @@ _ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeVal
 
 .lr.ph435:                                        ; preds = %.lr.ph435.preheader, %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph435.preheader ], [ %indvars.iv.next, %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit ]
-  %370 = getelementptr inbounds nuw i32, ptr %.sroa.0219.2500, i64 %indvars.iv
+  %370 = getelementptr inbounds nuw i32, ptr %.sroa.0219.2546, i64 %indvars.iv
   %371 = load i32, ptr %370, align 4, !tbaa !52
   %372 = getelementptr inbounds nuw i32, ptr %.sroa.0208.2, i64 %indvars.iv
   %373 = load i32, ptr %372, align 4, !tbaa !52
@@ -1320,13 +1320,13 @@ _ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeVal
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge440, %376
-  %.not.i.i.i191 = icmp eq ptr %.sroa.0219.2500, null
+  %.not.i.i.i191 = icmp eq ptr %.sroa.0219.2546, null
   br i1 %.not.i.i.i191, label %_ZNSt6vectorIiSaIiEED2Ev.exit192, label %380
 
 380:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %381 = ptrtoint ptr %.sroa.0219.2500 to i64
-  %382 = sub i64 %.sroa.12225.2497, %381
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0219.2500, i64 noundef %382) #22
+  %381 = ptrtoint ptr %.sroa.0219.2546 to i64
+  %382 = sub i64 %.sroa.12225.2543, %381
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0219.2546, i64 noundef %382) #22
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit192
 
 .lr.ph439:                                        ; preds = %.lr.ph439.preheader, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
@@ -1334,7 +1334,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge440, %37
   %384 = phi ptr [ %.pre492, %.lr.ph439.preheader ], [ %412, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %385 = phi ptr [ %.pre491, %.lr.ph439.preheader ], [ %413, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %indvars.iv486 = phi i64 [ 0, %.lr.ph439.preheader ], [ %indvars.iv.next487, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %386 = getelementptr inbounds nuw i32, ptr %.sroa.0219.2500, i64 %indvars.iv486
+  %386 = getelementptr inbounds nuw i32, ptr %.sroa.0219.2546, i64 %indvars.iv486
   %.not.i193 = icmp eq ptr %385, %384
   br i1 %.not.i193, label %390, label %387
 
@@ -1435,16 +1435,16 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZNSt6vectorIiSaIiEED2Ev.exit198:                 ; preds = %417, %416
   %.pn.pn = phi { ptr, i32 } [ %lpad.phi, %416 ], [ %.pn258, %417 ]
-  %.not.i.i.i199 = icmp eq ptr %.sroa.0219.2500, null
+  %.not.i.i.i199 = icmp eq ptr %.sroa.0219.2546, null
   br i1 %.not.i.i.i199, label %_ZNSt6vectorIiSaIiEED2Ev.exit200, label %421
 
 421:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit198.thread, %_ZNSt6vectorIiSaIiEED2Ev.exit198
-  %.pn.pn509 = phi { ptr, i32 } [ %362, %_ZNSt6vectorIiSaIiEED2Ev.exit198.thread ], [ %.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit198 ]
-  %.sroa.12225.2498508 = phi i64 [ %350, %_ZNSt6vectorIiSaIiEED2Ev.exit198.thread ], [ %.sroa.12225.2497, %_ZNSt6vectorIiSaIiEED2Ev.exit198 ]
-  %.sroa.0219.2501507 = phi ptr [ %346, %_ZNSt6vectorIiSaIiEED2Ev.exit198.thread ], [ %.sroa.0219.2500, %_ZNSt6vectorIiSaIiEED2Ev.exit198 ]
-  %422 = ptrtoint ptr %.sroa.0219.2501507 to i64
-  %423 = sub i64 %.sroa.12225.2498508, %422
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0219.2501507, i64 noundef %423) #22
+  %.pn.pn555 = phi { ptr, i32 } [ %362, %_ZNSt6vectorIiSaIiEED2Ev.exit198.thread ], [ %.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit198 ]
+  %.sroa.12225.2544554 = phi i64 [ %350, %_ZNSt6vectorIiSaIiEED2Ev.exit198.thread ], [ %.sroa.12225.2543, %_ZNSt6vectorIiSaIiEED2Ev.exit198 ]
+  %.sroa.0219.2547553 = phi ptr [ %346, %_ZNSt6vectorIiSaIiEED2Ev.exit198.thread ], [ %.sroa.0219.2546, %_ZNSt6vectorIiSaIiEED2Ev.exit198 ]
+  %422 = ptrtoint ptr %.sroa.0219.2547553 to i64
+  %423 = sub i64 %.sroa.12225.2544554, %422
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0219.2547553, i64 noundef %423) #22
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit200
 
 _ZNSt6vectorIiSaIiEED2Ev.exit192:                 ; preds = %72, %380, %_ZNSt6vectorIiSaIiEED2Ev.exit, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit
@@ -1461,7 +1461,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit192:                 ; preds = %72, %380, %_ZNSt6ve
   br i1 %.not.not, label %72, label %.critedge120, !llvm.loop !130
 
 _ZNSt6vectorIiSaIiEED2Ev.exit200:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit198, %421, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit181
-  %.pn108.pn.pn.pn = phi { ptr, i32 } [ %.pn108.pn.pn, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit181 ], [ %.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit198 ], [ %.pn.pn509, %421 ]
+  %.pn108.pn.pn.pn = phi { ptr, i32 } [ %.pn108.pn.pn, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit181 ], [ %.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit198 ], [ %.pn.pn555, %421 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn108.pn.pn.pn
 
@@ -2388,8 +2388,8 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc200
   br label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %146, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc200, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %.sroa.0255.2345 = phi ptr [ %152, %.noexc200 ], [ %152, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %152, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ null, %146 ]
-  %.sroa.11260.2343 = phi ptr [ %153, %.noexc200 ], [ %153, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %153, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ null, %146 ]
+  %.sroa.0255.2355 = phi ptr [ %152, %.noexc200 ], [ %152, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %152, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ null, %146 ]
+  %.sroa.11260.2353 = phi ptr [ %153, %.noexc200 ], [ %153, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %153, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ null, %146 ]
   %.sroa.0244.2 = phi ptr [ %160, %.noexc200 ], [ %160, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ null, %146 ]
   %.sroa.11249.2 = phi ptr [ %161, %.noexc200 ], [ %161, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ null, %146 ]
   br i1 %.not307, label %._crit_edge, label %.lr.ph289
@@ -2416,7 +2416,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %146, %_ZSt6fill_nIP
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %._crit_edge, %172
-  %.not.i.i.i201 = icmp eq ptr %.sroa.0255.2345, null
+  %.not.i.i.i201 = icmp eq ptr %.sroa.0255.2355, null
   br i1 %.not.i.i.i201, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %_ZNSt6vectorIiSaIiEED2Ev.exit.sink.split
 
 176:                                              ; preds = %150
@@ -2440,7 +2440,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %._crit_edge, %172
 _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit203: ; preds = %182, %178
   %.sroa.02.0.i202 = phi i32 [ %185, %182 ], [ %181, %178 ]
   %186 = load i8, ptr %147, align 8, !tbaa !55
-  %187 = invoke noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEaPT_(ptr noundef nonnull align 8 dereferenceable(64) %.0159276, i32 %.sroa.02.0.i202, i8 noundef signext %186, ptr noundef nonnull %.sroa.0255.2345)
+  %187 = invoke noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEaPT_(ptr noundef nonnull align 8 dereferenceable(64) %.0159276, i32 %.sroa.02.0.i202, i8 noundef signext %186, ptr noundef nonnull %.sroa.0255.2355)
           to label %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit.preheader unwind label %198
 
 _ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit.preheader: ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit203
@@ -2483,7 +2483,7 @@ _ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeVal
 
 _ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit: ; preds = %.lr.ph, %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit ]
-  %204 = getelementptr inbounds nuw i32, ptr %.sroa.0255.2345, i64 %indvars.iv
+  %204 = getelementptr inbounds nuw i32, ptr %.sroa.0255.2355, i64 %indvars.iv
   %205 = load i32, ptr %204, align 4, !tbaa !52
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
   %206 = load i32, ptr %gep, align 4, !tbaa !52
@@ -2500,13 +2500,13 @@ _ZNSt6vectorIjSaIjEED2Ev.exit206:                 ; preds = %158
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit206.thread
 
 _ZNSt6vectorIjSaIjEED2Ev.exit206.thread:          ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit206, %198, %200
-  %.sroa.0255.2346 = phi ptr [ %152, %_ZNSt6vectorIjSaIjEED2Ev.exit206 ], [ %.sroa.0255.2345, %200 ], [ %.sroa.0255.2345, %198 ]
-  %.sroa.11260.2344 = phi ptr [ %153, %_ZNSt6vectorIjSaIjEED2Ev.exit206 ], [ %.sroa.11260.2343, %200 ], [ %.sroa.11260.2343, %198 ]
+  %.sroa.0255.2356 = phi ptr [ %152, %_ZNSt6vectorIjSaIjEED2Ev.exit206 ], [ %.sroa.0255.2355, %200 ], [ %.sroa.0255.2355, %198 ]
+  %.sroa.11260.2354 = phi ptr [ %153, %_ZNSt6vectorIjSaIjEED2Ev.exit206 ], [ %.sroa.11260.2353, %200 ], [ %.sroa.11260.2353, %198 ]
   %.pn163280 = phi { ptr, i32 } [ %209, %_ZNSt6vectorIjSaIjEED2Ev.exit206 ], [ %199, %200 ], [ %199, %198 ]
-  %210 = ptrtoint ptr %.sroa.11260.2344 to i64
-  %211 = ptrtoint ptr %.sroa.0255.2346 to i64
+  %210 = ptrtoint ptr %.sroa.11260.2354 to i64
+  %211 = ptrtoint ptr %.sroa.0255.2356 to i64
   %212 = sub i64 %210, %211
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0255.2346, i64 noundef %212) #22
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0255.2356, i64 noundef %212) #22
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit208
 
 213:                                              ; preds = %.thread
@@ -2540,8 +2540,8 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215.thread:     ; preds = %213
   br i1 %.not307, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph293
 
 .lr.ph293:                                        ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215.thread, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215
-  %.sroa.11.2354 = phi ptr [ null, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215.thread ], [ %220, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215 ]
-  %.sroa.0230.2350 = phi ptr [ null, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215.thread ], [ %219, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215 ]
+  %.sroa.11.2364 = phi ptr [ null, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215.thread ], [ %220, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215 ]
+  %.sroa.0230.2360 = phi ptr [ null, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215.thread ], [ %219, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215 ]
   %224 = getelementptr inbounds nuw i8, ptr %.0159276, i64 100
   %225 = getelementptr inbounds nuw i8, ptr %.0159276, i64 72
   %226 = zext nneg i32 %.0104299 to i64
@@ -2568,7 +2568,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215.thread:     ; preds = %213
 _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit219: ; preds = %233, %229
   %.sroa.02.0.i218 = phi i32 [ %236, %233 ], [ %232, %229 ]
   %237 = load i8, ptr %214, align 8, !tbaa !55
-  %238 = invoke noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertValueIjEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEaPT_(ptr noundef nonnull align 8 dereferenceable(64) %.0159276, i32 %.sroa.02.0.i218, i8 noundef signext %237, ptr noundef nonnull %.sroa.0230.2350)
+  %238 = invoke noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertValueIjEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEaPT_(ptr noundef nonnull align 8 dereferenceable(64) %.0159276, i32 %.sroa.02.0.i218, i8 noundef signext %237, ptr noundef nonnull %.sroa.0230.2360)
           to label %_ZNK5draco17GeometryAttribute12ConvertValueIjEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit unwind label %_ZNSt6vectorIjSaIjEED2Ev.exit222
 
 _ZNK5draco17GeometryAttribute12ConvertValueIjEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit: ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit219
@@ -2581,7 +2581,7 @@ _ZNK5draco17GeometryAttribute12ConvertValueIjEEbNS_9IndexTypeIjNS_29AttributeVal
   %245 = zext i32 %244 to i64
   %246 = getelementptr inbounds nuw i32, ptr %242, i64 %245
   %247 = getelementptr inbounds nuw i32, ptr %246, i64 %226
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %247, ptr nonnull align 1 %.sroa.0230.2350, i64 %241, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %247, ptr nonnull align 1 %.sroa.0230.2360, i64 %241, i1 false)
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %exitcond330.not = icmp eq i64 %indvars.iv.next327, %wide.trip.count329
   br i1 %exitcond330.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit.sink.split, label %229, !llvm.loop !180
@@ -2589,20 +2589,20 @@ _ZNK5draco17GeometryAttribute12ConvertValueIjEEbNS_9IndexTypeIjNS_29AttributeVal
 _ZNSt6vectorIjSaIjEED2Ev.exit222:                 ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit219
   %248 = landingpad { ptr, i32 }
           cleanup
-  %249 = ptrtoint ptr %.sroa.11.2354 to i64
-  %250 = ptrtoint ptr %.sroa.0230.2350 to i64
+  %249 = ptrtoint ptr %.sroa.11.2364 to i64
+  %250 = ptrtoint ptr %.sroa.0230.2360 to i64
   %251 = sub i64 %249, %250
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0230.2350, i64 noundef %251) #22
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0230.2360, i64 noundef %251) #22
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit208
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.sink.split:         ; preds = %_ZNK5draco17GeometryAttribute12ConvertValueIjEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215, %_ZNSt6vectorIjSaIjEED2Ev.exit
-  %.sroa.11.2353.sink = phi ptr [ %.sroa.11260.2343, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ %220, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215 ], [ %.sroa.11.2354, %_ZNK5draco17GeometryAttribute12ConvertValueIjEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit ]
-  %.sroa.0230.2351.sink363 = phi ptr [ %.sroa.0255.2345, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ %219, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215 ], [ %.sroa.0230.2350, %_ZNK5draco17GeometryAttribute12ConvertValueIjEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit ]
+  %.sroa.11.2363.sink = phi ptr [ %.sroa.11260.2353, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ %220, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215 ], [ %.sroa.11.2364, %_ZNK5draco17GeometryAttribute12ConvertValueIjEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit ]
+  %.sroa.0230.2362.sink373 = phi ptr [ %.sroa.0255.2355, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ %219, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215 ], [ %.sroa.0230.2360, %_ZNK5draco17GeometryAttribute12ConvertValueIjEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit ]
   %.2114.ph = phi i32 [ %171, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ %.0112297, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215 ], [ %.0112297, %_ZNK5draco17GeometryAttribute12ConvertValueIjEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit ]
-  %252 = ptrtoint ptr %.sroa.11.2353.sink to i64
-  %253 = ptrtoint ptr %.sroa.0230.2351.sink363 to i64
+  %252 = ptrtoint ptr %.sroa.11.2363.sink to i64
+  %253 = ptrtoint ptr %.sroa.0230.2362.sink373 to i64
   %254 = sub i64 %252, %253
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0230.2351.sink363, i64 noundef %254) #22
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0230.2362.sink373, i64 noundef %254) #22
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %128, %_ZNSt6vectorIiSaIiEED2Ev.exit.sink.split, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215.thread, %.preheader, %_ZNSt6vectorIjSaIjEED2Ev.exit
@@ -9024,7 +9024,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0
   br label %82
 
 82:                                               ; preds = %.lr.ph232, %.loopexit
-  %83 = phi ptr [ %58, %.lr.ph232 ], [ %288, %.loopexit ]
+  %83 = phi ptr [ %58, %.lr.ph232 ], [ %284, %.loopexit ]
   %84 = load ptr, ptr %62, align 8, !tbaa !342, !noalias !343
   %85 = icmp eq ptr %83, %84
   br i1 %85, label %89, label %86
@@ -9046,13 +9046,13 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0
   %91 = getelementptr inbounds i8, ptr %90, i64 -8
   %92 = load ptr, ptr %91, align 8, !tbaa !347
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 448
-  %.sroa.0142.0.copyload266 = load i64, ptr %93, align 8, !tbaa !78
-  %.sroa.5144.0..sroa_idx267 = getelementptr inbounds nuw i8, ptr %92, i64 472
-  %.sroa.5144.0.copyload268 = load i64, ptr %.sroa.5144.0..sroa_idx267, align 8, !tbaa !78
-  %.sroa.6146.0..sroa_idx269 = getelementptr inbounds nuw i8, ptr %92, i64 496
-  %.sroa.6146.0.copyload270 = load i32, ptr %.sroa.6146.0..sroa_idx269, align 8, !tbaa !52
-  %.sroa.7148.0..sroa_idx271 = getelementptr inbounds nuw i8, ptr %92, i64 504
-  %.sroa.7148.0.copyload272 = load i32, ptr %.sroa.7148.0..sroa_idx271, align 8, !tbaa !52
+  %.sroa.0142.0.copyload299 = load i64, ptr %93, align 8, !tbaa !78
+  %.sroa.5144.0..sroa_idx300 = getelementptr inbounds nuw i8, ptr %92, i64 472
+  %.sroa.5144.0.copyload301 = load i64, ptr %.sroa.5144.0..sroa_idx300, align 8, !tbaa !78
+  %.sroa.6146.0..sroa_idx302 = getelementptr inbounds nuw i8, ptr %92, i64 496
+  %.sroa.6146.0.copyload303 = load i32, ptr %.sroa.6146.0..sroa_idx302, align 8, !tbaa !52
+  %.sroa.7148.0..sroa_idx304 = getelementptr inbounds nuw i8, ptr %92, i64 504
+  %.sroa.7148.0.copyload305 = load i32, ptr %.sroa.7148.0..sroa_idx304, align 8, !tbaa !52
   call void @_ZdlPvm(ptr noundef %84, i64 noundef 512) #22
   %94 = load ptr, ptr %63, align 8, !tbaa !348
   %95 = getelementptr inbounds i8, ptr %94, i64 -8
@@ -9065,20 +9065,20 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0
   br label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit
 
 _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit: ; preds = %86, %89
-  %.sroa.7148.0.copyload279 = phi i32 [ %.sroa.7148.0.copyload, %86 ], [ %.sroa.7148.0.copyload272, %89 ]
-  %.sroa.6146.0.copyload277 = phi i32 [ %.sroa.6146.0.copyload, %86 ], [ %.sroa.6146.0.copyload270, %89 ]
-  %.sroa.5144.0.copyload275 = phi i64 [ %.sroa.5144.0.copyload, %86 ], [ %.sroa.5144.0.copyload268, %89 ]
-  %.sroa.0142.0.copyload273 = phi i64 [ %.sroa.0142.0.copyload, %86 ], [ %.sroa.0142.0.copyload266, %89 ]
+  %.sroa.7148.0.copyload312 = phi i32 [ %.sroa.7148.0.copyload, %86 ], [ %.sroa.7148.0.copyload305, %89 ]
+  %.sroa.6146.0.copyload310 = phi i32 [ %.sroa.6146.0.copyload, %86 ], [ %.sroa.6146.0.copyload303, %89 ]
+  %.sroa.5144.0.copyload308 = phi i64 [ %.sroa.5144.0.copyload, %86 ], [ %.sroa.5144.0.copyload301, %89 ]
+  %.sroa.0142.0.copyload306 = phi i64 [ %.sroa.0142.0.copyload, %86 ], [ %.sroa.0142.0.copyload299, %89 ]
   %storemerge.i.i = phi ptr [ %88, %86 ], [ %98, %89 ]
   store ptr %storemerge.i.i, ptr %49, align 8, !tbaa !333
-  store i64 %.sroa.0142.0.copyload273, ptr %1, align 8, !tbaa !186
-  store i64 %.sroa.5144.0.copyload275, ptr %2, align 8, !tbaa !186
-  %99 = zext i32 %.sroa.7148.0.copyload279 to i64
+  store i64 %.sroa.0142.0.copyload306, ptr %1, align 8, !tbaa !186
+  store i64 %.sroa.5144.0.copyload308, ptr %2, align 8, !tbaa !186
+  %99 = zext i32 %.sroa.7148.0.copyload312 to i64
   %100 = load ptr, ptr %15, align 8, !tbaa !249
   %101 = getelementptr inbounds nuw %"class.std::vector.78", ptr %100, i64 %99
   %102 = load ptr, ptr %31, align 8, !tbaa !249
   %103 = getelementptr inbounds nuw %"class.std::vector.78", ptr %102, i64 %99
-  %104 = invoke noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE16GetAndEncodeAxisINS_12PointDVectorIjE20PointDVectorIteratorEEEjT_S6_RKSt6vectorIjSaIjEESB_j(ptr noundef nonnull align 8 dereferenceable(2080) %0, ptr noundef nonnull byval(%"class.draco::PointDVector<unsigned int>::PointDVectorIterator") align 8 %1, ptr noundef nonnull byval(%"class.draco::PointDVector<unsigned int>::PointDVectorIterator") align 8 %2, ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(24) %103, i32 noundef %.sroa.6146.0.copyload277)
+  %104 = invoke noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE16GetAndEncodeAxisINS_12PointDVectorIjE20PointDVectorIteratorEEEjT_S6_RKSt6vectorIjSaIjEESB_j(ptr noundef nonnull align 8 dereferenceable(2080) %0, ptr noundef nonnull byval(%"class.draco::PointDVector<unsigned int>::PointDVectorIterator") align 8 %1, ptr noundef nonnull byval(%"class.draco::PointDVector<unsigned int>::PointDVectorIterator") align 8 %2, ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(24) %103, i32 noundef %.sroa.6146.0.copyload310)
           to label %105 unwind label %116
 
 105:                                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit
@@ -9086,7 +9086,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0
   %107 = load ptr, ptr %103, align 8, !tbaa !164
   %108 = getelementptr inbounds nuw i32, ptr %107, i64 %106
   %109 = load i32, ptr %108, align 4, !tbaa !52
-  %110 = sub i64 %.sroa.5144.0.copyload275, %.sroa.0142.0.copyload273
+  %110 = sub i64 %.sroa.5144.0.copyload308, %.sroa.0142.0.copyload306
   %111 = trunc i64 %110 to i32
   %112 = load i32, ptr %0, align 8, !tbaa !230
   %113 = icmp eq i32 %112, %109
@@ -9142,7 +9142,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0
   %135 = phi i32 [ %124, %.lr.ph231 ], [ %143, %._crit_edge ]
   %136 = phi i32 [ %124, %.lr.ph231 ], [ %144, %._crit_edge ]
   %indvars.iv260 = phi i64 [ 0, %.lr.ph231 ], [ %indvars.iv.next261, %._crit_edge ]
-  %137 = add i64 %.sroa.0142.0.copyload273, %indvars.iv260
+  %137 = add i64 %.sroa.0142.0.copyload306, %indvars.iv260
   %138 = load i32, ptr %76, align 4, !tbaa !162, !noalias !352
   %139 = load ptr, ptr %77, align 8, !tbaa !167, !noalias !355
   %140 = zext i32 %138 to i64
@@ -9196,7 +9196,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0
   br i1 %163, label %.lr.ph229, label %._crit_edge, !llvm.loop !359
 
 164:                                              ; preds = %118
-  %165 = add i32 %.sroa.7148.0.copyload279, 1
+  %165 = add i32 %.sroa.7148.0.copyload312, 1
   %166 = zext i32 %165 to i64
   %167 = load ptr, ptr %15, align 8, !tbaa !249
   %168 = getelementptr inbounds nuw %"class.std::vector.78", ptr %167, i64 %166
@@ -9214,7 +9214,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0
   %178 = load i32, ptr %177, align 4, !tbaa !52
   %179 = add i32 %178, %173
   store i32 %179, ptr %177, align 4, !tbaa !52
-  %180 = icmp eq i64 %.sroa.0142.0.copyload273, %.sroa.5144.0.copyload275
+  %180 = icmp eq i64 %.sroa.0142.0.copyload306, %.sroa.5144.0.copyload308
   br i1 %180, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi6EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.lr.ph.i.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %170
@@ -9226,8 +9226,8 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0
   br label %.lr.ph.us.i.i
 
 .lr.ph.us.i.i:                                    ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %.lr.ph.us.preheader.i.i
-  %storemerge.lcssa323441.us.i.i = phi i64 [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.5144.0.copyload275, %.lr.ph.us.preheader.i.i ]
-  %.lcssa293840.us.i.i = phi i64 [ %195, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.0142.0.copyload273, %.lr.ph.us.preheader.i.i ]
+  %storemerge.lcssa323441.us.i.i = phi i64 [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.5144.0.copyload308, %.lr.ph.us.preheader.i.i ]
+  %.lcssa293840.us.i.i = phi i64 [ %195, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.0142.0.copyload306, %.lr.ph.us.preheader.i.i ]
   br label %182
 
 182:                                              ; preds = %197, %.lr.ph.us.i.i
@@ -9264,8 +9264,8 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us
   br i1 %199, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi6EE8SplitterEET_S7_S7_T0_.exit, label %182, !llvm.loop !373
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.lr.ph.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i
-  %storemerge.lcssa323441.i.i = phi i64 [ %storemerge.i.i103, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.5144.0.copyload275, %.lr.ph.lr.ph.i.i ]
-  %.lcssa293840.i.i = phi i64 [ %222, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.0142.0.copyload273, %.lr.ph.lr.ph.i.i ]
+  %storemerge.lcssa323441.i.i = phi i64 [ %storemerge.i.i103, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.5144.0.copyload308, %.lr.ph.lr.ph.i.i ]
+  %.lcssa293840.i.i = phi i64 [ %222, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.0142.0.copyload306, %.lr.ph.lr.ph.i.i ]
   br label %200
 
 200:                                              ; preds = %207, %.lr.ph.i.i
@@ -9315,12 +9315,12 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.lo
   br i1 %223, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi6EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.i.i, !llvm.loop !372
 
 _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi6EE8SplitterEET_S7_S7_T0_.exit: ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %207, %.preheader.i.i, %197, %.preheader.us.i.i, %170
-  %.us-phi.sink.i.i = phi i64 [ %.sroa.0142.0.copyload273, %170 ], [ %183, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %197 ], [ %201, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %207 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i103, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
+  %.us-phi.sink.i.i = phi i64 [ %.sroa.0142.0.copyload306, %170 ], [ %183, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %197 ], [ %201, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %207 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i103, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
   %224 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %111, i1 true)
   %225 = xor i32 %224, 31
-  %226 = sub i64 %.us-phi.sink.i.i, %.sroa.0142.0.copyload273
+  %226 = sub i64 %.us-phi.sink.i.i, %.sroa.0142.0.copyload306
   %227 = trunc i64 %226 to i32
-  %228 = sub i64 %.sroa.5144.0.copyload275, %.us-phi.sink.i.i
+  %228 = sub i64 %.sroa.5144.0.copyload308, %.us-phi.sink.i.i
   %229 = trunc i64 %228 to i32
   %230 = icmp ult i32 %227, %229
   %.not = icmp eq i32 %227, %229
@@ -9352,76 +9352,66 @@ _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicInteg
 
 234:                                              ; preds = %231, %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi6EE8SplitterEET_S7_S7_T0_.exit
   %235 = lshr i32 %111, 1
-  %.not200 = icmp eq i32 %224, 31
-  br i1 %230, label %236, label %244
-
-236:                                              ; preds = %234
-  %237 = sub i32 %235, %227
-  br i1 %.not200, label %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE12EncodeNumberEij.exit, label %.lr.ph.preheader.i.i
-
-.lr.ph.preheader.i.i:                             ; preds = %236
-  %238 = sub nuw nsw i32 30, %224
-  %239 = shl nuw nsw i32 1, %238
+  %236 = sub nuw nsw i32 30, %224
+  %237 = shl nuw nsw i32 1, %236
   %wide.trip.count.i.i = zext nneg i32 %225 to i64
+  br i1 %230, label %.lr.ph.preheader.i.i, label %.lr.ph.preheader.i.i106
+
+.lr.ph.preheader.i.i:                             ; preds = %234
+  %238 = sub i32 %235, %227
   br label %.lr.ph.i.i104
 
 .lr.ph.i.i104:                                    ; preds = %.noexc105, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.noexc105 ]
-  %.011.i.i = phi i32 [ %239, %.lr.ph.preheader.i.i ], [ %243, %.noexc105 ]
-  %240 = and i32 %.011.i.i, %237
-  %241 = icmp ne i32 %240, 0
-  %242 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %65, i64 0, i64 %indvars.iv.i.i
-  invoke void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %242, i1 noundef zeroext %241)
+  %.011.i.i = phi i32 [ %237, %.lr.ph.preheader.i.i ], [ %242, %.noexc105 ]
+  %239 = and i32 %.011.i.i, %238
+  %240 = icmp ne i32 %239, 0
+  %241 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %65, i64 0, i64 %indvars.iv.i.i
+  invoke void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %241, i1 noundef zeroext %240)
           to label %.noexc105 unwind label %.loopexit206
 
 .noexc105:                                        ; preds = %.lr.ph.i.i104
-  %243 = lshr i32 %.011.i.i, 1
+  %242 = lshr i32 %.011.i.i, 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE12EncodeNumberEij.exit, label %.lr.ph.i.i104, !llvm.loop !375
 
-244:                                              ; preds = %234
-  %245 = sub i32 %235, %229
-  br i1 %.not200, label %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE12EncodeNumberEij.exit, label %.lr.ph.preheader.i.i106
-
-.lr.ph.preheader.i.i106:                          ; preds = %244
-  %246 = sub nuw nsw i32 30, %224
-  %247 = shl nuw nsw i32 1, %246
-  %wide.trip.count.i.i107 = zext nneg i32 %225 to i64
+.lr.ph.preheader.i.i106:                          ; preds = %234
+  %243 = sub i32 %235, %229
   br label %.lr.ph.i.i108
 
 .lr.ph.i.i108:                                    ; preds = %.noexc113, %.lr.ph.preheader.i.i106
   %indvars.iv.i.i109 = phi i64 [ 0, %.lr.ph.preheader.i.i106 ], [ %indvars.iv.next.i.i111, %.noexc113 ]
-  %.011.i.i110 = phi i32 [ %247, %.lr.ph.preheader.i.i106 ], [ %251, %.noexc113 ]
-  %248 = and i32 %.011.i.i110, %245
-  %249 = icmp ne i32 %248, 0
-  %250 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %65, i64 0, i64 %indvars.iv.i.i109
-  invoke void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %250, i1 noundef zeroext %249)
+  %.011.i.i110 = phi i32 [ %237, %.lr.ph.preheader.i.i106 ], [ %247, %.noexc113 ]
+  %244 = and i32 %.011.i.i110, %243
+  %245 = icmp ne i32 %244, 0
+  %246 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %65, i64 0, i64 %indvars.iv.i.i109
+  invoke void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %246, i1 noundef zeroext %245)
           to label %.noexc113 unwind label %.loopexit.split-lp.loopexit
 
 .noexc113:                                        ; preds = %.lr.ph.i.i108
-  %251 = lshr i32 %.011.i.i110, 1
+  %247 = lshr i32 %.011.i.i110, 1
   %indvars.iv.next.i.i111 = add nuw nsw i64 %indvars.iv.i.i109, 1
-  %exitcond.not.i.i112 = icmp eq i64 %indvars.iv.next.i.i111, %wide.trip.count.i.i107
+  %exitcond.not.i.i112 = icmp eq i64 %indvars.iv.next.i.i111, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i112, label %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE12EncodeNumberEij.exit, label %.lr.ph.i.i108, !llvm.loop !375
 
-_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE12EncodeNumberEij.exit: ; preds = %.noexc113, %.noexc105, %244, %236
-  %252 = load ptr, ptr %31, align 8, !tbaa !249
-  %253 = getelementptr inbounds nuw %"class.std::vector.78", ptr %252, i64 %99
-  %254 = load ptr, ptr %253, align 8, !tbaa !164
-  %255 = getelementptr inbounds nuw i32, ptr %254, i64 %106
-  %256 = load i32, ptr %255, align 4, !tbaa !52
-  %257 = add i32 %256, 1
-  store i32 %257, ptr %255, align 4, !tbaa !52
-  %258 = getelementptr inbounds nuw %"class.std::vector.78", ptr %252, i64 %166
-  %259 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %258, ptr noundef nonnull align 8 dereferenceable(24) %253)
-          to label %260 unwind label %.loopexit.split-lp.loopexit.split-lp
+_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE12EncodeNumberEij.exit: ; preds = %.noexc113, %.noexc105
+  %248 = load ptr, ptr %31, align 8, !tbaa !249
+  %249 = getelementptr inbounds nuw %"class.std::vector.78", ptr %248, i64 %99
+  %250 = load ptr, ptr %249, align 8, !tbaa !164
+  %251 = getelementptr inbounds nuw i32, ptr %250, i64 %106
+  %252 = load i32, ptr %251, align 4, !tbaa !52
+  %253 = add i32 %252, 1
+  store i32 %253, ptr %251, align 4, !tbaa !52
+  %254 = getelementptr inbounds nuw %"class.std::vector.78", ptr %248, i64 %166
+  %255 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %254, ptr noundef nonnull align 8 dereferenceable(24) %249)
+          to label %256 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-260:                                              ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE12EncodeNumberEij.exit
-  %.not201 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.0142.0.copyload273
-  br i1 %.not201, label %274, label %261
+256:                                              ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE12EncodeNumberEij.exit
+  %.not201 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.0142.0.copyload306
+  br i1 %.not201, label %270, label %257
 
-261:                                              ; preds = %260
+257:                                              ; preds = %256
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store i64 %.us-phi.sink.i.i, ptr %66, align 8, !tbaa !78
@@ -9429,43 +9419,43 @@ _ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE12EncodeNumberEij.exit: ; pred
   store i32 %.fr.i.i, ptr %.sroa.5193.0..sroa_idx, align 8, !tbaa !52
   store i32 %.sroa.4182.0.copyload, ptr %.sroa.6194.0..sroa_idx, align 4
   store i32 %104, ptr %67, align 8, !tbaa !329
-  store i32 %.sroa.7148.0.copyload279, ptr %68, align 8, !tbaa !331
-  %262 = load i64, ptr %6, align 8, !tbaa !186
-  %263 = sub i64 %.us-phi.sink.i.i, %262
-  %264 = trunc i64 %263 to i32
-  store i32 %264, ptr %69, align 4, !tbaa !332
-  %265 = load ptr, ptr %49, align 8, !tbaa !333
-  %266 = load ptr, ptr %51, align 8, !tbaa !338
-  %267 = getelementptr inbounds i8, ptr %266, i64 -64
-  %.not.i.i.i115 = icmp eq ptr %265, %267
-  br i1 %.not.i.i.i115, label %271, label %268
+  store i32 %.sroa.7148.0.copyload312, ptr %68, align 8, !tbaa !331
+  %258 = load i64, ptr %6, align 8, !tbaa !186
+  %259 = sub i64 %.us-phi.sink.i.i, %258
+  %260 = trunc i64 %259 to i32
+  store i32 %260, ptr %69, align 4, !tbaa !332
+  %261 = load ptr, ptr %49, align 8, !tbaa !333
+  %262 = load ptr, ptr %51, align 8, !tbaa !338
+  %263 = getelementptr inbounds i8, ptr %262, i64 -64
+  %.not.i.i.i115 = icmp eq ptr %261, %263
+  br i1 %.not.i.i.i115, label %267, label %264
 
-268:                                              ; preds = %261
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %265, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !339
-  %269 = load ptr, ptr %49, align 8, !tbaa !333
-  %270 = getelementptr inbounds nuw i8, ptr %269, i64 64
-  store ptr %270, ptr %49, align 8, !tbaa !333
+264:                                              ; preds = %257
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %261, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !339
+  %265 = load ptr, ptr %49, align 8, !tbaa !333
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 64
+  store ptr %266, ptr %49, align 8, !tbaa !333
   br label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit
 
-271:                                              ; preds = %261
+267:                                              ; preds = %257
   invoke void @_ZNSt5dequeIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_push_back_auxIJS7_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(60) %6)
-          to label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit unwind label %272
+          to label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit unwind label %268
 
-_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit: ; preds = %268, %271
+_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit: ; preds = %264, %267
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %274
+  br label %270
 
-272:                                              ; preds = %271
-  %273 = landingpad { ptr, i32 }
+268:                                              ; preds = %267
+  %269 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit.split-lp
 
-274:                                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit, %260
-  %.not202 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.5144.0.copyload275
-  br i1 %.not202, label %.loopexit, label %275
+270:                                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit, %256
+  %.not202 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.5144.0.copyload308
+  br i1 %.not202, label %.loopexit, label %271
 
-275:                                              ; preds = %274
+271:                                              ; preds = %270
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   store i64 %.us-phi.sink.i.i, ptr %7, align 8, !tbaa !78
@@ -9474,33 +9464,33 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0
   store i32 %.sroa.4182.0.copyload, ptr %.sroa.6198.0..sroa_idx, align 4
   store i32 %104, ptr %71, align 8, !tbaa !329
   store i32 %165, ptr %72, align 8, !tbaa !331
-  %276 = load i64, ptr %70, align 8, !tbaa !186
-  %277 = sub i64 %276, %.us-phi.sink.i.i
-  %278 = trunc i64 %277 to i32
-  store i32 %278, ptr %73, align 4, !tbaa !332
-  %279 = load ptr, ptr %49, align 8, !tbaa !333
-  %280 = load ptr, ptr %51, align 8, !tbaa !338
-  %281 = getelementptr inbounds i8, ptr %280, i64 -64
-  %.not.i.i.i117 = icmp eq ptr %279, %281
-  br i1 %.not.i.i.i117, label %285, label %282
+  %272 = load i64, ptr %70, align 8, !tbaa !186
+  %273 = sub i64 %272, %.us-phi.sink.i.i
+  %274 = trunc i64 %273 to i32
+  store i32 %274, ptr %73, align 4, !tbaa !332
+  %275 = load ptr, ptr %49, align 8, !tbaa !333
+  %276 = load ptr, ptr %51, align 8, !tbaa !338
+  %277 = getelementptr inbounds i8, ptr %276, i64 -64
+  %.not.i.i.i117 = icmp eq ptr %275, %277
+  br i1 %.not.i.i.i117, label %281, label %278
 
-282:                                              ; preds = %275
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %279, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false), !tbaa.struct !339
-  %283 = load ptr, ptr %49, align 8, !tbaa !333
-  %284 = getelementptr inbounds nuw i8, ptr %283, i64 64
-  store ptr %284, ptr %49, align 8, !tbaa !333
+278:                                              ; preds = %271
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %275, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false), !tbaa.struct !339
+  %279 = load ptr, ptr %49, align 8, !tbaa !333
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 64
+  store ptr %280, ptr %49, align 8, !tbaa !333
   br label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit119
 
-285:                                              ; preds = %275
+281:                                              ; preds = %271
   invoke void @_ZNSt5dequeIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_push_back_auxIJS7_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(60) %7)
-          to label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit119 unwind label %286
+          to label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit119 unwind label %282
 
-_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit119: ; preds = %282, %285
+_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit119: ; preds = %278, %281
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
-286:                                              ; preds = %285
-  %287 = landingpad { ptr, i32 }
+282:                                              ; preds = %281
+  %283 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit.split-lp
@@ -9508,44 +9498,44 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0
 ..loopexit_crit_edge:                             ; preds = %._crit_edge
   br label %.loopexit, !llvm.loop !350
 
-.loopexit:                                        ; preds = %.preheader, %..loopexit_crit_edge, %274, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit119, %105
-  %288 = load ptr, ptr %49, align 8, !tbaa !341
-  %289 = load ptr, ptr %59, align 8, !tbaa !341
-  %290 = icmp eq ptr %288, %289
-  br i1 %290, label %._crit_edge233, label %82
+.loopexit:                                        ; preds = %.preheader, %..loopexit_crit_edge, %270, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit119, %105
+  %284 = load ptr, ptr %49, align 8, !tbaa !341
+  %285 = load ptr, ptr %59, align 8, !tbaa !341
+  %286 = icmp eq ptr %284, %285
+  br i1 %286, label %._crit_edge233, label %82
 
 ._crit_edge233:                                   ; preds = %.loopexit, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushERKS7_.exit
-  %291 = load ptr, ptr %5, align 8, !tbaa !376
-  %.not.i.i.i120 = icmp eq ptr %291, null
-  br i1 %.not.i.i.i120, label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEED2Ev.exit, label %292
+  %287 = load ptr, ptr %5, align 8, !tbaa !376
+  %.not.i.i.i120 = icmp eq ptr %287, null
+  br i1 %.not.i.i.i120, label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEED2Ev.exit, label %288
 
-292:                                              ; preds = %._crit_edge233
-  %293 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %294 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %295 = load ptr, ptr %294, align 8, !tbaa !377
-  %296 = load ptr, ptr %293, align 8, !tbaa !348
-  %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
-  %298 = icmp ult ptr %295, %297
-  br i1 %298, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i.i.i
+288:                                              ; preds = %._crit_edge233
+  %289 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %290 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %291 = load ptr, ptr %290, align 8, !tbaa !377
+  %292 = load ptr, ptr %289, align 8, !tbaa !348
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 8
+  %294 = icmp ult ptr %291, %293
+  br i1 %294, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %292, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %300, %.lr.ph.i.i.i.i ], [ %295, %292 ]
-  %299 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !347
-  call void @_ZdlPvm(ptr noundef %299, i64 noundef 512) #22
-  %300 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
-  %301 = icmp ult ptr %.06.i.i.i.i, %296
-  br i1 %301, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i, !llvm.loop !378
+.lr.ph.i.i.i.i:                                   ; preds = %288, %.lr.ph.i.i.i.i
+  %.06.i.i.i.i = phi ptr [ %296, %.lr.ph.i.i.i.i ], [ %291, %288 ]
+  %295 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !347
+  call void @_ZdlPvm(ptr noundef %295, i64 noundef 512) #22
+  %296 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
+  %297 = icmp ult ptr %.06.i.i.i.i, %292
+  br i1 %297, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i, !llvm.loop !378
 
 _ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %5, align 8, !tbaa !376
   br label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i.i.i
 
-_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i, %292
-  %302 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i ], [ %291, %292 ]
-  %303 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %304 = load i64, ptr %303, align 8, !tbaa !379
-  %305 = shl i64 %304, 3
-  call void @_ZdlPvm(ptr noundef %302, i64 noundef %305) #22
+_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i, %288
+  %298 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i ], [ %287, %288 ]
+  %299 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %300 = load i64, ptr %299, align 8, !tbaa !379
+  %301 = shl i64 %300, 3
+  call void @_ZdlPvm(ptr noundef %298, i64 noundef %301) #22
   br label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEED2Ev.exit
 
 _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEED2Ev.exit: ; preds = %._crit_edge233, %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i.i.i
@@ -9553,8 +9543,8 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-.loopexit.split-lp:                               ; preds = %.loopexit206, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %116, %232, %158, %272, %286, %114
-  %.pn82.pn.pn.pn = phi { ptr, i32 } [ %115, %114 ], [ %117, %116 ], [ %159, %158 ], [ %233, %232 ], [ %287, %286 ], [ %273, %272 ], [ %lpad.loopexit, %.loopexit206 ], [ %lpad.loopexit207, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp208, %.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit206, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %116, %232, %158, %268, %282, %114
+  %.pn82.pn.pn.pn = phi { ptr, i32 } [ %115, %114 ], [ %117, %116 ], [ %159, %158 ], [ %233, %232 ], [ %283, %282 ], [ %269, %268 ], [ %lpad.loopexit, %.loopexit206 ], [ %lpad.loopexit207, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp208, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -10741,7 +10731,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0
   br label %81
 
 81:                                               ; preds = %.lr.ph230, %.loopexit
-  %82 = phi ptr [ %58, %.lr.ph230 ], [ %287, %.loopexit ]
+  %82 = phi ptr [ %58, %.lr.ph230 ], [ %283, %.loopexit ]
   %83 = load ptr, ptr %62, align 8, !tbaa !402, !noalias !403
   %84 = icmp eq ptr %82, %83
   br i1 %84, label %88, label %85
@@ -10763,13 +10753,13 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0
   %90 = getelementptr inbounds i8, ptr %89, i64 -8
   %91 = load ptr, ptr %90, align 8, !tbaa !407
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 448
-  %.sroa.0140.0.copyload264 = load i64, ptr %92, align 8, !tbaa !78
-  %.sroa.5142.0..sroa_idx265 = getelementptr inbounds nuw i8, ptr %91, i64 472
-  %.sroa.5142.0.copyload266 = load i64, ptr %.sroa.5142.0..sroa_idx265, align 8, !tbaa !78
-  %.sroa.6144.0..sroa_idx267 = getelementptr inbounds nuw i8, ptr %91, i64 496
-  %.sroa.6144.0.copyload268 = load i32, ptr %.sroa.6144.0..sroa_idx267, align 8, !tbaa !52
-  %.sroa.7146.0..sroa_idx269 = getelementptr inbounds nuw i8, ptr %91, i64 504
-  %.sroa.7146.0.copyload270 = load i32, ptr %.sroa.7146.0..sroa_idx269, align 8, !tbaa !52
+  %.sroa.0140.0.copyload297 = load i64, ptr %92, align 8, !tbaa !78
+  %.sroa.5142.0..sroa_idx298 = getelementptr inbounds nuw i8, ptr %91, i64 472
+  %.sroa.5142.0.copyload299 = load i64, ptr %.sroa.5142.0..sroa_idx298, align 8, !tbaa !78
+  %.sroa.6144.0..sroa_idx300 = getelementptr inbounds nuw i8, ptr %91, i64 496
+  %.sroa.6144.0.copyload301 = load i32, ptr %.sroa.6144.0..sroa_idx300, align 8, !tbaa !52
+  %.sroa.7146.0..sroa_idx302 = getelementptr inbounds nuw i8, ptr %91, i64 504
+  %.sroa.7146.0.copyload303 = load i32, ptr %.sroa.7146.0..sroa_idx302, align 8, !tbaa !52
   call void @_ZdlPvm(ptr noundef %83, i64 noundef 512) #22
   %93 = load ptr, ptr %63, align 8, !tbaa !408
   %94 = getelementptr inbounds i8, ptr %93, i64 -8
@@ -10782,29 +10772,29 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0
   br label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit
 
 _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit: ; preds = %85, %88
-  %.sroa.7146.0.copyload277 = phi i32 [ %.sroa.7146.0.copyload, %85 ], [ %.sroa.7146.0.copyload270, %88 ]
-  %.sroa.6144.0.copyload275 = phi i32 [ %.sroa.6144.0.copyload, %85 ], [ %.sroa.6144.0.copyload268, %88 ]
-  %.sroa.5142.0.copyload273 = phi i64 [ %.sroa.5142.0.copyload, %85 ], [ %.sroa.5142.0.copyload266, %88 ]
-  %.sroa.0140.0.copyload271 = phi i64 [ %.sroa.0140.0.copyload, %85 ], [ %.sroa.0140.0.copyload264, %88 ]
+  %.sroa.7146.0.copyload310 = phi i32 [ %.sroa.7146.0.copyload, %85 ], [ %.sroa.7146.0.copyload303, %88 ]
+  %.sroa.6144.0.copyload308 = phi i32 [ %.sroa.6144.0.copyload, %85 ], [ %.sroa.6144.0.copyload301, %88 ]
+  %.sroa.5142.0.copyload306 = phi i64 [ %.sroa.5142.0.copyload, %85 ], [ %.sroa.5142.0.copyload299, %88 ]
+  %.sroa.0140.0.copyload304 = phi i64 [ %.sroa.0140.0.copyload, %85 ], [ %.sroa.0140.0.copyload297, %88 ]
   %storemerge.i.i = phi ptr [ %87, %85 ], [ %97, %88 ]
   store ptr %storemerge.i.i, ptr %49, align 8, !tbaa !395
-  store i64 %.sroa.0140.0.copyload271, ptr %1, align 8, !tbaa !186
-  store i64 %.sroa.5142.0.copyload273, ptr %2, align 8, !tbaa !186
-  %98 = zext i32 %.sroa.7146.0.copyload277 to i64
+  store i64 %.sroa.0140.0.copyload304, ptr %1, align 8, !tbaa !186
+  store i64 %.sroa.5142.0.copyload306, ptr %2, align 8, !tbaa !186
+  %98 = zext i32 %.sroa.7146.0.copyload310 to i64
   %99 = load ptr, ptr %15, align 8, !tbaa !249
   %100 = getelementptr inbounds nuw %"class.std::vector.78", ptr %99, i64 %98
   %101 = load ptr, ptr %31, align 8, !tbaa !249
   %102 = getelementptr inbounds nuw %"class.std::vector.78", ptr %101, i64 %98
   %103 = load i32, ptr %8, align 8, !tbaa !255
   %104 = add i32 %103, -1
-  %105 = icmp eq i32 %.sroa.6144.0.copyload275, %104
-  %106 = add i32 %.sroa.6144.0.copyload275, 1
+  %105 = icmp eq i32 %.sroa.6144.0.copyload308, %104
+  %106 = add i32 %.sroa.6144.0.copyload308, 1
   %107 = select i1 %105, i32 0, i32 %106
   %108 = zext i32 %107 to i64
   %109 = load ptr, ptr %102, align 8, !tbaa !164
   %110 = getelementptr inbounds nuw i32, ptr %109, i64 %108
   %111 = load i32, ptr %110, align 4, !tbaa !52
-  %112 = sub i64 %.sroa.5142.0.copyload273, %.sroa.0140.0.copyload271
+  %112 = sub i64 %.sroa.5142.0.copyload306, %.sroa.0140.0.copyload304
   %113 = trunc i64 %112 to i32
   %114 = load i32, ptr %0, align 8, !tbaa !253
   %115 = icmp eq i32 %114, %111
@@ -10855,7 +10845,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0
   %135 = phi i32 [ %124, %.lr.ph229 ], [ %143, %._crit_edge ]
   %136 = phi i32 [ %124, %.lr.ph229 ], [ %144, %._crit_edge ]
   %indvars.iv258 = phi i64 [ 0, %.lr.ph229 ], [ %indvars.iv.next259, %._crit_edge ]
-  %137 = add i64 %.sroa.0140.0.copyload271, %indvars.iv258
+  %137 = add i64 %.sroa.0140.0.copyload304, %indvars.iv258
   %138 = load i32, ptr %79, align 4, !tbaa !162, !noalias !412
   %139 = load ptr, ptr %64, align 8, !tbaa !167, !noalias !415
   %140 = zext i32 %138 to i64
@@ -10909,7 +10899,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0
   br i1 %163, label %.lr.ph227, label %._crit_edge, !llvm.loop !419
 
 164:                                              ; preds = %118
-  %165 = add i32 %.sroa.7146.0.copyload277, 1
+  %165 = add i32 %.sroa.7146.0.copyload310, 1
   %166 = zext i32 %165 to i64
   %167 = getelementptr inbounds nuw %"class.std::vector.78", ptr %99, i64 %166
   %168 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef nonnull align 8 dereferenceable(24) %100)
@@ -10926,7 +10916,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0
   %177 = load i32, ptr %176, align 4, !tbaa !52
   %178 = add i32 %177, %172
   store i32 %178, ptr %176, align 4, !tbaa !52
-  %179 = icmp eq i64 %.sroa.0140.0.copyload271, %.sroa.5142.0.copyload273
+  %179 = icmp eq i64 %.sroa.0140.0.copyload304, %.sroa.5142.0.copyload306
   br i1 %179, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi5EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.lr.ph.i.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %169
@@ -10938,8 +10928,8 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0
   br label %.lr.ph.us.i.i
 
 .lr.ph.us.i.i:                                    ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %.lr.ph.us.preheader.i.i
-  %storemerge.lcssa323441.us.i.i = phi i64 [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.5142.0.copyload273, %.lr.ph.us.preheader.i.i ]
-  %.lcssa293840.us.i.i = phi i64 [ %194, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.0140.0.copyload271, %.lr.ph.us.preheader.i.i ]
+  %storemerge.lcssa323441.us.i.i = phi i64 [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.5142.0.copyload306, %.lr.ph.us.preheader.i.i ]
+  %.lcssa293840.us.i.i = phi i64 [ %194, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.0140.0.copyload304, %.lr.ph.us.preheader.i.i ]
   br label %181
 
 181:                                              ; preds = %196, %.lr.ph.us.i.i
@@ -10976,8 +10966,8 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us
   br i1 %198, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi5EE8SplitterEET_S7_S7_T0_.exit, label %181, !llvm.loop !433
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.lr.ph.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i
-  %storemerge.lcssa323441.i.i = phi i64 [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.5142.0.copyload273, %.lr.ph.lr.ph.i.i ]
-  %.lcssa293840.i.i = phi i64 [ %221, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.0140.0.copyload271, %.lr.ph.lr.ph.i.i ]
+  %storemerge.lcssa323441.i.i = phi i64 [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.5142.0.copyload306, %.lr.ph.lr.ph.i.i ]
+  %.lcssa293840.i.i = phi i64 [ %221, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.0140.0.copyload304, %.lr.ph.lr.ph.i.i ]
   br label %199
 
 199:                                              ; preds = %206, %.lr.ph.i.i
@@ -11027,12 +11017,12 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.lo
   br i1 %222, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi5EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.i.i, !llvm.loop !432
 
 _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi5EE8SplitterEET_S7_S7_T0_.exit: ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %206, %.preheader.i.i, %196, %.preheader.us.i.i, %169
-  %.us-phi.sink.i.i = phi i64 [ %.sroa.0140.0.copyload271, %169 ], [ %182, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %200, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
+  %.us-phi.sink.i.i = phi i64 [ %.sroa.0140.0.copyload304, %169 ], [ %182, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %200, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
   %223 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %113, i1 true)
   %224 = xor i32 %223, 31
-  %225 = sub i64 %.us-phi.sink.i.i, %.sroa.0140.0.copyload271
+  %225 = sub i64 %.us-phi.sink.i.i, %.sroa.0140.0.copyload304
   %226 = trunc i64 %225 to i32
-  %227 = sub i64 %.sroa.5142.0.copyload273, %.us-phi.sink.i.i
+  %227 = sub i64 %.sroa.5142.0.copyload306, %.us-phi.sink.i.i
   %228 = trunc i64 %227 to i32
   %229 = icmp ult i32 %226, %228
   %.not = icmp eq i32 %226, %228
@@ -11064,76 +11054,66 @@ _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicInteg
 
 233:                                              ; preds = %230, %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi5EE8SplitterEET_S7_S7_T0_.exit
   %234 = lshr i32 %113, 1
-  %.not198 = icmp eq i32 %223, 31
-  br i1 %229, label %235, label %243
-
-235:                                              ; preds = %233
-  %236 = sub i32 %234, %226
-  br i1 %.not198, label %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE12EncodeNumberEij.exit, label %.lr.ph.preheader.i.i
-
-.lr.ph.preheader.i.i:                             ; preds = %235
-  %237 = sub nuw nsw i32 30, %223
-  %238 = shl nuw nsw i32 1, %237
+  %235 = sub nuw nsw i32 30, %223
+  %236 = shl nuw nsw i32 1, %235
   %wide.trip.count.i.i = zext nneg i32 %224 to i64
+  br i1 %229, label %.lr.ph.preheader.i.i, label %.lr.ph.preheader.i.i104
+
+.lr.ph.preheader.i.i:                             ; preds = %233
+  %237 = sub i32 %234, %226
   br label %.lr.ph.i.i102
 
 .lr.ph.i.i102:                                    ; preds = %.noexc103, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.noexc103 ]
-  %.011.i.i = phi i32 [ %238, %.lr.ph.preheader.i.i ], [ %242, %.noexc103 ]
-  %239 = and i32 %.011.i.i, %236
-  %240 = icmp ne i32 %239, 0
-  %241 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %69, i64 0, i64 %indvars.iv.i.i
-  invoke void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %241, i1 noundef zeroext %240)
+  %.011.i.i = phi i32 [ %236, %.lr.ph.preheader.i.i ], [ %241, %.noexc103 ]
+  %238 = and i32 %.011.i.i, %237
+  %239 = icmp ne i32 %238, 0
+  %240 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %69, i64 0, i64 %indvars.iv.i.i
+  invoke void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %240, i1 noundef zeroext %239)
           to label %.noexc103 unwind label %.loopexit204
 
 .noexc103:                                        ; preds = %.lr.ph.i.i102
-  %242 = lshr i32 %.011.i.i, 1
+  %241 = lshr i32 %.011.i.i, 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE12EncodeNumberEij.exit, label %.lr.ph.i.i102, !llvm.loop !375
 
-243:                                              ; preds = %233
-  %244 = sub i32 %234, %228
-  br i1 %.not198, label %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE12EncodeNumberEij.exit, label %.lr.ph.preheader.i.i104
-
-.lr.ph.preheader.i.i104:                          ; preds = %243
-  %245 = sub nuw nsw i32 30, %223
-  %246 = shl nuw nsw i32 1, %245
-  %wide.trip.count.i.i105 = zext nneg i32 %224 to i64
+.lr.ph.preheader.i.i104:                          ; preds = %233
+  %242 = sub i32 %234, %228
   br label %.lr.ph.i.i106
 
 .lr.ph.i.i106:                                    ; preds = %.noexc111, %.lr.ph.preheader.i.i104
   %indvars.iv.i.i107 = phi i64 [ 0, %.lr.ph.preheader.i.i104 ], [ %indvars.iv.next.i.i109, %.noexc111 ]
-  %.011.i.i108 = phi i32 [ %246, %.lr.ph.preheader.i.i104 ], [ %250, %.noexc111 ]
-  %247 = and i32 %.011.i.i108, %244
-  %248 = icmp ne i32 %247, 0
-  %249 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %69, i64 0, i64 %indvars.iv.i.i107
-  invoke void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %249, i1 noundef zeroext %248)
+  %.011.i.i108 = phi i32 [ %236, %.lr.ph.preheader.i.i104 ], [ %246, %.noexc111 ]
+  %243 = and i32 %.011.i.i108, %242
+  %244 = icmp ne i32 %243, 0
+  %245 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %69, i64 0, i64 %indvars.iv.i.i107
+  invoke void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %245, i1 noundef zeroext %244)
           to label %.noexc111 unwind label %.loopexit.split-lp.loopexit
 
 .noexc111:                                        ; preds = %.lr.ph.i.i106
-  %250 = lshr i32 %.011.i.i108, 1
+  %246 = lshr i32 %.011.i.i108, 1
   %indvars.iv.next.i.i109 = add nuw nsw i64 %indvars.iv.i.i107, 1
-  %exitcond.not.i.i110 = icmp eq i64 %indvars.iv.next.i.i109, %wide.trip.count.i.i105
+  %exitcond.not.i.i110 = icmp eq i64 %indvars.iv.next.i.i109, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i110, label %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE12EncodeNumberEij.exit, label %.lr.ph.i.i106, !llvm.loop !375
 
-_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE12EncodeNumberEij.exit: ; preds = %.noexc111, %.noexc103, %243, %235
-  %251 = load ptr, ptr %31, align 8, !tbaa !249
-  %252 = getelementptr inbounds nuw %"class.std::vector.78", ptr %251, i64 %98
-  %253 = load ptr, ptr %252, align 8, !tbaa !164
-  %254 = getelementptr inbounds nuw i32, ptr %253, i64 %108
-  %255 = load i32, ptr %254, align 4, !tbaa !52
-  %256 = add i32 %255, 1
-  store i32 %256, ptr %254, align 4, !tbaa !52
-  %257 = getelementptr inbounds nuw %"class.std::vector.78", ptr %251, i64 %166
-  %258 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %257, ptr noundef nonnull align 8 dereferenceable(24) %252)
-          to label %259 unwind label %.loopexit.split-lp.loopexit.split-lp
+_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE12EncodeNumberEij.exit: ; preds = %.noexc111, %.noexc103
+  %247 = load ptr, ptr %31, align 8, !tbaa !249
+  %248 = getelementptr inbounds nuw %"class.std::vector.78", ptr %247, i64 %98
+  %249 = load ptr, ptr %248, align 8, !tbaa !164
+  %250 = getelementptr inbounds nuw i32, ptr %249, i64 %108
+  %251 = load i32, ptr %250, align 4, !tbaa !52
+  %252 = add i32 %251, 1
+  store i32 %252, ptr %250, align 4, !tbaa !52
+  %253 = getelementptr inbounds nuw %"class.std::vector.78", ptr %247, i64 %166
+  %254 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %253, ptr noundef nonnull align 8 dereferenceable(24) %248)
+          to label %255 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-259:                                              ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE12EncodeNumberEij.exit
-  %.not199 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.0140.0.copyload271
-  br i1 %.not199, label %273, label %260
+255:                                              ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE12EncodeNumberEij.exit
+  %.not199 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.0140.0.copyload304
+  br i1 %.not199, label %269, label %256
 
-260:                                              ; preds = %259
+256:                                              ; preds = %255
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store i64 %.us-phi.sink.i.i, ptr %70, align 8, !tbaa !78
@@ -11141,43 +11121,43 @@ _ZN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE12EncodeNumberEij.exit: ; pred
   store i32 %.fr.i.i, ptr %.sroa.5191.0..sroa_idx, align 8, !tbaa !52
   store i32 %.sroa.4180.0.copyload, ptr %.sroa.6192.0..sroa_idx, align 4
   store i32 %107, ptr %71, align 8, !tbaa !391
-  store i32 %.sroa.7146.0.copyload277, ptr %72, align 8, !tbaa !393
-  %261 = load i64, ptr %6, align 8, !tbaa !186
-  %262 = sub i64 %.us-phi.sink.i.i, %261
-  %263 = trunc i64 %262 to i32
-  store i32 %263, ptr %73, align 4, !tbaa !394
-  %264 = load ptr, ptr %49, align 8, !tbaa !395
-  %265 = load ptr, ptr %51, align 8, !tbaa !400
-  %266 = getelementptr inbounds i8, ptr %265, i64 -64
-  %.not.i.i.i113 = icmp eq ptr %264, %266
-  br i1 %.not.i.i.i113, label %270, label %267
+  store i32 %.sroa.7146.0.copyload310, ptr %72, align 8, !tbaa !393
+  %257 = load i64, ptr %6, align 8, !tbaa !186
+  %258 = sub i64 %.us-phi.sink.i.i, %257
+  %259 = trunc i64 %258 to i32
+  store i32 %259, ptr %73, align 4, !tbaa !394
+  %260 = load ptr, ptr %49, align 8, !tbaa !395
+  %261 = load ptr, ptr %51, align 8, !tbaa !400
+  %262 = getelementptr inbounds i8, ptr %261, i64 -64
+  %.not.i.i.i113 = icmp eq ptr %260, %262
+  br i1 %.not.i.i.i113, label %266, label %263
 
-267:                                              ; preds = %260
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %264, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !339
-  %268 = load ptr, ptr %49, align 8, !tbaa !395
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 64
-  store ptr %269, ptr %49, align 8, !tbaa !395
+263:                                              ; preds = %256
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %260, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !339
+  %264 = load ptr, ptr %49, align 8, !tbaa !395
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 64
+  store ptr %265, ptr %49, align 8, !tbaa !395
   br label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit
 
-270:                                              ; preds = %260
+266:                                              ; preds = %256
   invoke void @_ZNSt5dequeIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_push_back_auxIJS7_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(60) %6)
-          to label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit unwind label %271
+          to label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit unwind label %267
 
-_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit: ; preds = %267, %270
+_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit: ; preds = %263, %266
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %273
+  br label %269
 
-271:                                              ; preds = %270
-  %272 = landingpad { ptr, i32 }
+267:                                              ; preds = %266
+  %268 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit.split-lp
 
-273:                                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit, %259
-  %.not200 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.5142.0.copyload273
-  br i1 %.not200, label %.loopexit, label %274
+269:                                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit, %255
+  %.not200 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.5142.0.copyload306
+  br i1 %.not200, label %.loopexit, label %270
 
-274:                                              ; preds = %273
+270:                                              ; preds = %269
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   store i64 %.us-phi.sink.i.i, ptr %7, align 8, !tbaa !78
@@ -11186,33 +11166,33 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0
   store i32 %.sroa.4180.0.copyload, ptr %.sroa.6196.0..sroa_idx, align 4
   store i32 %107, ptr %75, align 8, !tbaa !391
   store i32 %165, ptr %76, align 8, !tbaa !393
-  %275 = load i64, ptr %74, align 8, !tbaa !186
-  %276 = sub i64 %275, %.us-phi.sink.i.i
-  %277 = trunc i64 %276 to i32
-  store i32 %277, ptr %77, align 4, !tbaa !394
-  %278 = load ptr, ptr %49, align 8, !tbaa !395
-  %279 = load ptr, ptr %51, align 8, !tbaa !400
-  %280 = getelementptr inbounds i8, ptr %279, i64 -64
-  %.not.i.i.i115 = icmp eq ptr %278, %280
-  br i1 %.not.i.i.i115, label %284, label %281
+  %271 = load i64, ptr %74, align 8, !tbaa !186
+  %272 = sub i64 %271, %.us-phi.sink.i.i
+  %273 = trunc i64 %272 to i32
+  store i32 %273, ptr %77, align 4, !tbaa !394
+  %274 = load ptr, ptr %49, align 8, !tbaa !395
+  %275 = load ptr, ptr %51, align 8, !tbaa !400
+  %276 = getelementptr inbounds i8, ptr %275, i64 -64
+  %.not.i.i.i115 = icmp eq ptr %274, %276
+  br i1 %.not.i.i.i115, label %280, label %277
 
-281:                                              ; preds = %274
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %278, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false), !tbaa.struct !339
-  %282 = load ptr, ptr %49, align 8, !tbaa !395
-  %283 = getelementptr inbounds nuw i8, ptr %282, i64 64
-  store ptr %283, ptr %49, align 8, !tbaa !395
+277:                                              ; preds = %270
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %274, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false), !tbaa.struct !339
+  %278 = load ptr, ptr %49, align 8, !tbaa !395
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 64
+  store ptr %279, ptr %49, align 8, !tbaa !395
   br label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit117
 
-284:                                              ; preds = %274
+280:                                              ; preds = %270
   invoke void @_ZNSt5dequeIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_push_back_auxIJS7_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(60) %7)
-          to label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit117 unwind label %285
+          to label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit117 unwind label %281
 
-_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit117: ; preds = %281, %284
+_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit117: ; preds = %277, %280
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
-285:                                              ; preds = %284
-  %286 = landingpad { ptr, i32 }
+281:                                              ; preds = %280
+  %282 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit.split-lp
@@ -11220,44 +11200,44 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0
 ..loopexit_crit_edge:                             ; preds = %._crit_edge
   br label %.loopexit, !llvm.loop !410
 
-.loopexit:                                        ; preds = %.preheader, %..loopexit_crit_edge, %273, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit117, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit
-  %287 = load ptr, ptr %49, align 8, !tbaa !401
-  %288 = load ptr, ptr %59, align 8, !tbaa !401
-  %289 = icmp eq ptr %287, %288
-  br i1 %289, label %._crit_edge231, label %81
+.loopexit:                                        ; preds = %.preheader, %..loopexit_crit_edge, %269, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit117, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit
+  %283 = load ptr, ptr %49, align 8, !tbaa !401
+  %284 = load ptr, ptr %59, align 8, !tbaa !401
+  %285 = icmp eq ptr %283, %284
+  br i1 %285, label %._crit_edge231, label %81
 
 ._crit_edge231:                                   ; preds = %.loopexit, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushERKS7_.exit
-  %290 = load ptr, ptr %5, align 8, !tbaa !434
-  %.not.i.i.i118 = icmp eq ptr %290, null
-  br i1 %.not.i.i.i118, label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEED2Ev.exit, label %291
+  %286 = load ptr, ptr %5, align 8, !tbaa !434
+  %.not.i.i.i118 = icmp eq ptr %286, null
+  br i1 %.not.i.i.i118, label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEED2Ev.exit, label %287
 
-291:                                              ; preds = %._crit_edge231
-  %292 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %293 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %294 = load ptr, ptr %293, align 8, !tbaa !435
-  %295 = load ptr, ptr %292, align 8, !tbaa !408
-  %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
-  %297 = icmp ult ptr %294, %296
-  br i1 %297, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i.i.i
+287:                                              ; preds = %._crit_edge231
+  %288 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %289 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %290 = load ptr, ptr %289, align 8, !tbaa !435
+  %291 = load ptr, ptr %288, align 8, !tbaa !408
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
+  %293 = icmp ult ptr %290, %292
+  br i1 %293, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %291, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %299, %.lr.ph.i.i.i.i ], [ %294, %291 ]
-  %298 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !407
-  call void @_ZdlPvm(ptr noundef %298, i64 noundef 512) #22
-  %299 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
-  %300 = icmp ult ptr %.06.i.i.i.i, %295
-  br i1 %300, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i, !llvm.loop !436
+.lr.ph.i.i.i.i:                                   ; preds = %287, %.lr.ph.i.i.i.i
+  %.06.i.i.i.i = phi ptr [ %295, %.lr.ph.i.i.i.i ], [ %290, %287 ]
+  %294 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !407
+  call void @_ZdlPvm(ptr noundef %294, i64 noundef 512) #22
+  %295 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
+  %296 = icmp ult ptr %.06.i.i.i.i, %291
+  br i1 %296, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i, !llvm.loop !436
 
 _ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %5, align 8, !tbaa !434
   br label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i.i.i
 
-_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i, %291
-  %301 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i ], [ %290, %291 ]
-  %302 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %303 = load i64, ptr %302, align 8, !tbaa !437
-  %304 = shl i64 %303, 3
-  call void @_ZdlPvm(ptr noundef %301, i64 noundef %304) #22
+_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i, %287
+  %297 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i ], [ %286, %287 ]
+  %298 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %299 = load i64, ptr %298, align 8, !tbaa !437
+  %300 = shl i64 %299, 3
+  call void @_ZdlPvm(ptr noundef %297, i64 noundef %300) #22
   br label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEED2Ev.exit
 
 _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEED2Ev.exit: ; preds = %._crit_edge231, %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i.i.i
@@ -11265,8 +11245,8 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-.loopexit.split-lp:                               ; preds = %.loopexit204, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %158, %231, %271, %285, %116
-  %.pn81.pn.pn = phi { ptr, i32 } [ %117, %116 ], [ %159, %158 ], [ %232, %231 ], [ %286, %285 ], [ %272, %271 ], [ %lpad.loopexit, %.loopexit204 ], [ %lpad.loopexit205, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp206, %.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit204, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %158, %231, %267, %281, %116
+  %.pn81.pn.pn = phi { ptr, i32 } [ %117, %116 ], [ %159, %158 ], [ %232, %231 ], [ %282, %281 ], [ %268, %267 ], [ %lpad.loopexit, %.loopexit204 ], [ %lpad.loopexit205, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp206, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -11886,7 +11866,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0
   br label %81
 
 81:                                               ; preds = %.lr.ph230, %.loopexit
-  %82 = phi ptr [ %58, %.lr.ph230 ], [ %287, %.loopexit ]
+  %82 = phi ptr [ %58, %.lr.ph230 ], [ %283, %.loopexit ]
   %83 = load ptr, ptr %62, align 8, !tbaa !452, !noalias !453
   %84 = icmp eq ptr %82, %83
   br i1 %84, label %88, label %85
@@ -11908,13 +11888,13 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0
   %90 = getelementptr inbounds i8, ptr %89, i64 -8
   %91 = load ptr, ptr %90, align 8, !tbaa !457
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 448
-  %.sroa.0140.0.copyload264 = load i64, ptr %92, align 8, !tbaa !78
-  %.sroa.5142.0..sroa_idx265 = getelementptr inbounds nuw i8, ptr %91, i64 472
-  %.sroa.5142.0.copyload266 = load i64, ptr %.sroa.5142.0..sroa_idx265, align 8, !tbaa !78
-  %.sroa.6144.0..sroa_idx267 = getelementptr inbounds nuw i8, ptr %91, i64 496
-  %.sroa.6144.0.copyload268 = load i32, ptr %.sroa.6144.0..sroa_idx267, align 8, !tbaa !52
-  %.sroa.7146.0..sroa_idx269 = getelementptr inbounds nuw i8, ptr %91, i64 504
-  %.sroa.7146.0.copyload270 = load i32, ptr %.sroa.7146.0..sroa_idx269, align 8, !tbaa !52
+  %.sroa.0140.0.copyload297 = load i64, ptr %92, align 8, !tbaa !78
+  %.sroa.5142.0..sroa_idx298 = getelementptr inbounds nuw i8, ptr %91, i64 472
+  %.sroa.5142.0.copyload299 = load i64, ptr %.sroa.5142.0..sroa_idx298, align 8, !tbaa !78
+  %.sroa.6144.0..sroa_idx300 = getelementptr inbounds nuw i8, ptr %91, i64 496
+  %.sroa.6144.0.copyload301 = load i32, ptr %.sroa.6144.0..sroa_idx300, align 8, !tbaa !52
+  %.sroa.7146.0..sroa_idx302 = getelementptr inbounds nuw i8, ptr %91, i64 504
+  %.sroa.7146.0.copyload303 = load i32, ptr %.sroa.7146.0..sroa_idx302, align 8, !tbaa !52
   call void @_ZdlPvm(ptr noundef %83, i64 noundef 512) #22
   %93 = load ptr, ptr %63, align 8, !tbaa !458
   %94 = getelementptr inbounds i8, ptr %93, i64 -8
@@ -11927,29 +11907,29 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0
   br label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit
 
 _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit: ; preds = %85, %88
-  %.sroa.7146.0.copyload277 = phi i32 [ %.sroa.7146.0.copyload, %85 ], [ %.sroa.7146.0.copyload270, %88 ]
-  %.sroa.6144.0.copyload275 = phi i32 [ %.sroa.6144.0.copyload, %85 ], [ %.sroa.6144.0.copyload268, %88 ]
-  %.sroa.5142.0.copyload273 = phi i64 [ %.sroa.5142.0.copyload, %85 ], [ %.sroa.5142.0.copyload266, %88 ]
-  %.sroa.0140.0.copyload271 = phi i64 [ %.sroa.0140.0.copyload, %85 ], [ %.sroa.0140.0.copyload264, %88 ]
+  %.sroa.7146.0.copyload310 = phi i32 [ %.sroa.7146.0.copyload, %85 ], [ %.sroa.7146.0.copyload303, %88 ]
+  %.sroa.6144.0.copyload308 = phi i32 [ %.sroa.6144.0.copyload, %85 ], [ %.sroa.6144.0.copyload301, %88 ]
+  %.sroa.5142.0.copyload306 = phi i64 [ %.sroa.5142.0.copyload, %85 ], [ %.sroa.5142.0.copyload299, %88 ]
+  %.sroa.0140.0.copyload304 = phi i64 [ %.sroa.0140.0.copyload, %85 ], [ %.sroa.0140.0.copyload297, %88 ]
   %storemerge.i.i = phi ptr [ %87, %85 ], [ %97, %88 ]
   store ptr %storemerge.i.i, ptr %49, align 8, !tbaa !445
-  store i64 %.sroa.0140.0.copyload271, ptr %1, align 8, !tbaa !186
-  store i64 %.sroa.5142.0.copyload273, ptr %2, align 8, !tbaa !186
-  %98 = zext i32 %.sroa.7146.0.copyload277 to i64
+  store i64 %.sroa.0140.0.copyload304, ptr %1, align 8, !tbaa !186
+  store i64 %.sroa.5142.0.copyload306, ptr %2, align 8, !tbaa !186
+  %98 = zext i32 %.sroa.7146.0.copyload310 to i64
   %99 = load ptr, ptr %15, align 8, !tbaa !249
   %100 = getelementptr inbounds nuw %"class.std::vector.78", ptr %99, i64 %98
   %101 = load ptr, ptr %31, align 8, !tbaa !249
   %102 = getelementptr inbounds nuw %"class.std::vector.78", ptr %101, i64 %98
   %103 = load i32, ptr %8, align 8, !tbaa !440
   %104 = add i32 %103, -1
-  %105 = icmp eq i32 %.sroa.6144.0.copyload275, %104
-  %106 = add i32 %.sroa.6144.0.copyload275, 1
+  %105 = icmp eq i32 %.sroa.6144.0.copyload308, %104
+  %106 = add i32 %.sroa.6144.0.copyload308, 1
   %107 = select i1 %105, i32 0, i32 %106
   %108 = zext i32 %107 to i64
   %109 = load ptr, ptr %102, align 8, !tbaa !164
   %110 = getelementptr inbounds nuw i32, ptr %109, i64 %108
   %111 = load i32, ptr %110, align 4, !tbaa !52
-  %112 = sub i64 %.sroa.5142.0.copyload273, %.sroa.0140.0.copyload271
+  %112 = sub i64 %.sroa.5142.0.copyload306, %.sroa.0140.0.copyload304
   %113 = trunc i64 %112 to i32
   %114 = load i32, ptr %0, align 8, !tbaa !257
   %115 = icmp eq i32 %114, %111
@@ -12000,7 +11980,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0
   %135 = phi i32 [ %124, %.lr.ph229 ], [ %143, %._crit_edge ]
   %136 = phi i32 [ %124, %.lr.ph229 ], [ %144, %._crit_edge ]
   %indvars.iv258 = phi i64 [ 0, %.lr.ph229 ], [ %indvars.iv.next259, %._crit_edge ]
-  %137 = add i64 %.sroa.0140.0.copyload271, %indvars.iv258
+  %137 = add i64 %.sroa.0140.0.copyload304, %indvars.iv258
   %138 = load i32, ptr %79, align 4, !tbaa !162, !noalias !462
   %139 = load ptr, ptr %64, align 8, !tbaa !167, !noalias !465
   %140 = zext i32 %138 to i64
@@ -12054,7 +12034,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0
   br i1 %163, label %.lr.ph227, label %._crit_edge, !llvm.loop !469
 
 164:                                              ; preds = %118
-  %165 = add i32 %.sroa.7146.0.copyload277, 1
+  %165 = add i32 %.sroa.7146.0.copyload310, 1
   %166 = zext i32 %165 to i64
   %167 = getelementptr inbounds nuw %"class.std::vector.78", ptr %99, i64 %166
   %168 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef nonnull align 8 dereferenceable(24) %100)
@@ -12071,7 +12051,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0
   %177 = load i32, ptr %176, align 4, !tbaa !52
   %178 = add i32 %177, %172
   store i32 %178, ptr %176, align 4, !tbaa !52
-  %179 = icmp eq i64 %.sroa.0140.0.copyload271, %.sroa.5142.0.copyload273
+  %179 = icmp eq i64 %.sroa.0140.0.copyload304, %.sroa.5142.0.copyload306
   br i1 %179, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi4EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.lr.ph.i.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %169
@@ -12083,8 +12063,8 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0
   br label %.lr.ph.us.i.i
 
 .lr.ph.us.i.i:                                    ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %.lr.ph.us.preheader.i.i
-  %storemerge.lcssa323441.us.i.i = phi i64 [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.5142.0.copyload273, %.lr.ph.us.preheader.i.i ]
-  %.lcssa293840.us.i.i = phi i64 [ %194, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.0140.0.copyload271, %.lr.ph.us.preheader.i.i ]
+  %storemerge.lcssa323441.us.i.i = phi i64 [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.5142.0.copyload306, %.lr.ph.us.preheader.i.i ]
+  %.lcssa293840.us.i.i = phi i64 [ %194, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.0140.0.copyload304, %.lr.ph.us.preheader.i.i ]
   br label %181
 
 181:                                              ; preds = %196, %.lr.ph.us.i.i
@@ -12121,8 +12101,8 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us
   br i1 %198, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi4EE8SplitterEET_S7_S7_T0_.exit, label %181, !llvm.loop !483
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.lr.ph.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i
-  %storemerge.lcssa323441.i.i = phi i64 [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.5142.0.copyload273, %.lr.ph.lr.ph.i.i ]
-  %.lcssa293840.i.i = phi i64 [ %221, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.0140.0.copyload271, %.lr.ph.lr.ph.i.i ]
+  %storemerge.lcssa323441.i.i = phi i64 [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.5142.0.copyload306, %.lr.ph.lr.ph.i.i ]
+  %.lcssa293840.i.i = phi i64 [ %221, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.0140.0.copyload304, %.lr.ph.lr.ph.i.i ]
   br label %199
 
 199:                                              ; preds = %206, %.lr.ph.i.i
@@ -12172,12 +12152,12 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.lo
   br i1 %222, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi4EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.i.i, !llvm.loop !482
 
 _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi4EE8SplitterEET_S7_S7_T0_.exit: ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %206, %.preheader.i.i, %196, %.preheader.us.i.i, %169
-  %.us-phi.sink.i.i = phi i64 [ %.sroa.0140.0.copyload271, %169 ], [ %182, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %200, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
+  %.us-phi.sink.i.i = phi i64 [ %.sroa.0140.0.copyload304, %169 ], [ %182, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %200, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
   %223 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %113, i1 true)
   %224 = xor i32 %223, 31
-  %225 = sub i64 %.us-phi.sink.i.i, %.sroa.0140.0.copyload271
+  %225 = sub i64 %.us-phi.sink.i.i, %.sroa.0140.0.copyload304
   %226 = trunc i64 %225 to i32
-  %227 = sub i64 %.sroa.5142.0.copyload273, %.us-phi.sink.i.i
+  %227 = sub i64 %.sroa.5142.0.copyload306, %.us-phi.sink.i.i
   %228 = trunc i64 %227 to i32
   %229 = icmp ult i32 %226, %228
   %.not = icmp eq i32 %226, %228
@@ -12209,76 +12189,66 @@ _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicInteg
 
 233:                                              ; preds = %230, %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi4EE8SplitterEET_S7_S7_T0_.exit
   %234 = lshr i32 %113, 1
-  %.not198 = icmp eq i32 %223, 31
-  br i1 %229, label %235, label %243
-
-235:                                              ; preds = %233
-  %236 = sub i32 %234, %226
-  br i1 %.not198, label %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE12EncodeNumberEij.exit, label %.lr.ph.preheader.i.i
-
-.lr.ph.preheader.i.i:                             ; preds = %235
-  %237 = sub nuw nsw i32 30, %223
-  %238 = shl nuw nsw i32 1, %237
+  %235 = sub nuw nsw i32 30, %223
+  %236 = shl nuw nsw i32 1, %235
   %wide.trip.count.i.i = zext nneg i32 %224 to i64
+  br i1 %229, label %.lr.ph.preheader.i.i, label %.lr.ph.preheader.i.i104
+
+.lr.ph.preheader.i.i:                             ; preds = %233
+  %237 = sub i32 %234, %226
   br label %.lr.ph.i.i102
 
 .lr.ph.i.i102:                                    ; preds = %.noexc103, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.noexc103 ]
-  %.011.i.i = phi i32 [ %238, %.lr.ph.preheader.i.i ], [ %242, %.noexc103 ]
-  %239 = and i32 %.011.i.i, %236
-  %240 = icmp ne i32 %239, 0
-  %241 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %69, i64 0, i64 %indvars.iv.i.i
-  invoke void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %241, i1 noundef zeroext %240)
+  %.011.i.i = phi i32 [ %236, %.lr.ph.preheader.i.i ], [ %241, %.noexc103 ]
+  %238 = and i32 %.011.i.i, %237
+  %239 = icmp ne i32 %238, 0
+  %240 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %69, i64 0, i64 %indvars.iv.i.i
+  invoke void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %240, i1 noundef zeroext %239)
           to label %.noexc103 unwind label %.loopexit204
 
 .noexc103:                                        ; preds = %.lr.ph.i.i102
-  %242 = lshr i32 %.011.i.i, 1
+  %241 = lshr i32 %.011.i.i, 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE12EncodeNumberEij.exit, label %.lr.ph.i.i102, !llvm.loop !375
 
-243:                                              ; preds = %233
-  %244 = sub i32 %234, %228
-  br i1 %.not198, label %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE12EncodeNumberEij.exit, label %.lr.ph.preheader.i.i104
-
-.lr.ph.preheader.i.i104:                          ; preds = %243
-  %245 = sub nuw nsw i32 30, %223
-  %246 = shl nuw nsw i32 1, %245
-  %wide.trip.count.i.i105 = zext nneg i32 %224 to i64
+.lr.ph.preheader.i.i104:                          ; preds = %233
+  %242 = sub i32 %234, %228
   br label %.lr.ph.i.i106
 
 .lr.ph.i.i106:                                    ; preds = %.noexc111, %.lr.ph.preheader.i.i104
   %indvars.iv.i.i107 = phi i64 [ 0, %.lr.ph.preheader.i.i104 ], [ %indvars.iv.next.i.i109, %.noexc111 ]
-  %.011.i.i108 = phi i32 [ %246, %.lr.ph.preheader.i.i104 ], [ %250, %.noexc111 ]
-  %247 = and i32 %.011.i.i108, %244
-  %248 = icmp ne i32 %247, 0
-  %249 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %69, i64 0, i64 %indvars.iv.i.i107
-  invoke void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %249, i1 noundef zeroext %248)
+  %.011.i.i108 = phi i32 [ %236, %.lr.ph.preheader.i.i104 ], [ %246, %.noexc111 ]
+  %243 = and i32 %.011.i.i108, %242
+  %244 = icmp ne i32 %243, 0
+  %245 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %69, i64 0, i64 %indvars.iv.i.i107
+  invoke void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %245, i1 noundef zeroext %244)
           to label %.noexc111 unwind label %.loopexit.split-lp.loopexit
 
 .noexc111:                                        ; preds = %.lr.ph.i.i106
-  %250 = lshr i32 %.011.i.i108, 1
+  %246 = lshr i32 %.011.i.i108, 1
   %indvars.iv.next.i.i109 = add nuw nsw i64 %indvars.iv.i.i107, 1
-  %exitcond.not.i.i110 = icmp eq i64 %indvars.iv.next.i.i109, %wide.trip.count.i.i105
+  %exitcond.not.i.i110 = icmp eq i64 %indvars.iv.next.i.i109, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i110, label %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE12EncodeNumberEij.exit, label %.lr.ph.i.i106, !llvm.loop !375
 
-_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE12EncodeNumberEij.exit: ; preds = %.noexc111, %.noexc103, %243, %235
-  %251 = load ptr, ptr %31, align 8, !tbaa !249
-  %252 = getelementptr inbounds nuw %"class.std::vector.78", ptr %251, i64 %98
-  %253 = load ptr, ptr %252, align 8, !tbaa !164
-  %254 = getelementptr inbounds nuw i32, ptr %253, i64 %108
-  %255 = load i32, ptr %254, align 4, !tbaa !52
-  %256 = add i32 %255, 1
-  store i32 %256, ptr %254, align 4, !tbaa !52
-  %257 = getelementptr inbounds nuw %"class.std::vector.78", ptr %251, i64 %166
-  %258 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %257, ptr noundef nonnull align 8 dereferenceable(24) %252)
-          to label %259 unwind label %.loopexit.split-lp.loopexit.split-lp
+_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE12EncodeNumberEij.exit: ; preds = %.noexc111, %.noexc103
+  %247 = load ptr, ptr %31, align 8, !tbaa !249
+  %248 = getelementptr inbounds nuw %"class.std::vector.78", ptr %247, i64 %98
+  %249 = load ptr, ptr %248, align 8, !tbaa !164
+  %250 = getelementptr inbounds nuw i32, ptr %249, i64 %108
+  %251 = load i32, ptr %250, align 4, !tbaa !52
+  %252 = add i32 %251, 1
+  store i32 %252, ptr %250, align 4, !tbaa !52
+  %253 = getelementptr inbounds nuw %"class.std::vector.78", ptr %247, i64 %166
+  %254 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %253, ptr noundef nonnull align 8 dereferenceable(24) %248)
+          to label %255 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-259:                                              ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE12EncodeNumberEij.exit
-  %.not199 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.0140.0.copyload271
-  br i1 %.not199, label %273, label %260
+255:                                              ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE12EncodeNumberEij.exit
+  %.not199 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.0140.0.copyload304
+  br i1 %.not199, label %269, label %256
 
-260:                                              ; preds = %259
+256:                                              ; preds = %255
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store i64 %.us-phi.sink.i.i, ptr %70, align 8, !tbaa !78
@@ -12286,43 +12256,43 @@ _ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE12EncodeNumberEij.exit: ; pred
   store i32 %.fr.i.i, ptr %.sroa.5191.0..sroa_idx, align 8, !tbaa !52
   store i32 %.sroa.4180.0.copyload, ptr %.sroa.6192.0..sroa_idx, align 4
   store i32 %107, ptr %71, align 8, !tbaa !441
-  store i32 %.sroa.7146.0.copyload277, ptr %72, align 8, !tbaa !443
-  %261 = load i64, ptr %6, align 8, !tbaa !186
-  %262 = sub i64 %.us-phi.sink.i.i, %261
-  %263 = trunc i64 %262 to i32
-  store i32 %263, ptr %73, align 4, !tbaa !444
-  %264 = load ptr, ptr %49, align 8, !tbaa !445
-  %265 = load ptr, ptr %51, align 8, !tbaa !450
-  %266 = getelementptr inbounds i8, ptr %265, i64 -64
-  %.not.i.i.i113 = icmp eq ptr %264, %266
-  br i1 %.not.i.i.i113, label %270, label %267
+  store i32 %.sroa.7146.0.copyload310, ptr %72, align 8, !tbaa !443
+  %257 = load i64, ptr %6, align 8, !tbaa !186
+  %258 = sub i64 %.us-phi.sink.i.i, %257
+  %259 = trunc i64 %258 to i32
+  store i32 %259, ptr %73, align 4, !tbaa !444
+  %260 = load ptr, ptr %49, align 8, !tbaa !445
+  %261 = load ptr, ptr %51, align 8, !tbaa !450
+  %262 = getelementptr inbounds i8, ptr %261, i64 -64
+  %.not.i.i.i113 = icmp eq ptr %260, %262
+  br i1 %.not.i.i.i113, label %266, label %263
 
-267:                                              ; preds = %260
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %264, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !339
-  %268 = load ptr, ptr %49, align 8, !tbaa !445
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 64
-  store ptr %269, ptr %49, align 8, !tbaa !445
+263:                                              ; preds = %256
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %260, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !339
+  %264 = load ptr, ptr %49, align 8, !tbaa !445
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 64
+  store ptr %265, ptr %49, align 8, !tbaa !445
   br label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit
 
-270:                                              ; preds = %260
+266:                                              ; preds = %256
   invoke void @_ZNSt5dequeIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_push_back_auxIJS7_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(60) %6)
-          to label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit unwind label %271
+          to label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit unwind label %267
 
-_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit: ; preds = %267, %270
+_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit: ; preds = %263, %266
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %273
+  br label %269
 
-271:                                              ; preds = %270
-  %272 = landingpad { ptr, i32 }
+267:                                              ; preds = %266
+  %268 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit.split-lp
 
-273:                                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit, %259
-  %.not200 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.5142.0.copyload273
-  br i1 %.not200, label %.loopexit, label %274
+269:                                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit, %255
+  %.not200 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.5142.0.copyload306
+  br i1 %.not200, label %.loopexit, label %270
 
-274:                                              ; preds = %273
+270:                                              ; preds = %269
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   store i64 %.us-phi.sink.i.i, ptr %7, align 8, !tbaa !78
@@ -12331,33 +12301,33 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0
   store i32 %.sroa.4180.0.copyload, ptr %.sroa.6196.0..sroa_idx, align 4
   store i32 %107, ptr %75, align 8, !tbaa !441
   store i32 %165, ptr %76, align 8, !tbaa !443
-  %275 = load i64, ptr %74, align 8, !tbaa !186
-  %276 = sub i64 %275, %.us-phi.sink.i.i
-  %277 = trunc i64 %276 to i32
-  store i32 %277, ptr %77, align 4, !tbaa !444
-  %278 = load ptr, ptr %49, align 8, !tbaa !445
-  %279 = load ptr, ptr %51, align 8, !tbaa !450
-  %280 = getelementptr inbounds i8, ptr %279, i64 -64
-  %.not.i.i.i115 = icmp eq ptr %278, %280
-  br i1 %.not.i.i.i115, label %284, label %281
+  %271 = load i64, ptr %74, align 8, !tbaa !186
+  %272 = sub i64 %271, %.us-phi.sink.i.i
+  %273 = trunc i64 %272 to i32
+  store i32 %273, ptr %77, align 4, !tbaa !444
+  %274 = load ptr, ptr %49, align 8, !tbaa !445
+  %275 = load ptr, ptr %51, align 8, !tbaa !450
+  %276 = getelementptr inbounds i8, ptr %275, i64 -64
+  %.not.i.i.i115 = icmp eq ptr %274, %276
+  br i1 %.not.i.i.i115, label %280, label %277
 
-281:                                              ; preds = %274
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %278, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false), !tbaa.struct !339
-  %282 = load ptr, ptr %49, align 8, !tbaa !445
-  %283 = getelementptr inbounds nuw i8, ptr %282, i64 64
-  store ptr %283, ptr %49, align 8, !tbaa !445
+277:                                              ; preds = %270
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %274, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false), !tbaa.struct !339
+  %278 = load ptr, ptr %49, align 8, !tbaa !445
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 64
+  store ptr %279, ptr %49, align 8, !tbaa !445
   br label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit117
 
-284:                                              ; preds = %274
+280:                                              ; preds = %270
   invoke void @_ZNSt5dequeIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_push_back_auxIJS7_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(60) %7)
-          to label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit117 unwind label %285
+          to label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit117 unwind label %281
 
-_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit117: ; preds = %281, %284
+_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit117: ; preds = %277, %280
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
-285:                                              ; preds = %284
-  %286 = landingpad { ptr, i32 }
+281:                                              ; preds = %280
+  %282 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit.split-lp
@@ -12365,44 +12335,44 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0
 ..loopexit_crit_edge:                             ; preds = %._crit_edge
   br label %.loopexit, !llvm.loop !460
 
-.loopexit:                                        ; preds = %.preheader, %..loopexit_crit_edge, %273, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit117, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit
-  %287 = load ptr, ptr %49, align 8, !tbaa !451
-  %288 = load ptr, ptr %59, align 8, !tbaa !451
-  %289 = icmp eq ptr %287, %288
-  br i1 %289, label %._crit_edge231, label %81
+.loopexit:                                        ; preds = %.preheader, %..loopexit_crit_edge, %269, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit117, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit
+  %283 = load ptr, ptr %49, align 8, !tbaa !451
+  %284 = load ptr, ptr %59, align 8, !tbaa !451
+  %285 = icmp eq ptr %283, %284
+  br i1 %285, label %._crit_edge231, label %81
 
 ._crit_edge231:                                   ; preds = %.loopexit, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushERKS7_.exit
-  %290 = load ptr, ptr %5, align 8, !tbaa !484
-  %.not.i.i.i118 = icmp eq ptr %290, null
-  br i1 %.not.i.i.i118, label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEED2Ev.exit, label %291
+  %286 = load ptr, ptr %5, align 8, !tbaa !484
+  %.not.i.i.i118 = icmp eq ptr %286, null
+  br i1 %.not.i.i.i118, label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEED2Ev.exit, label %287
 
-291:                                              ; preds = %._crit_edge231
-  %292 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %293 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %294 = load ptr, ptr %293, align 8, !tbaa !485
-  %295 = load ptr, ptr %292, align 8, !tbaa !458
-  %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
-  %297 = icmp ult ptr %294, %296
-  br i1 %297, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i.i.i
+287:                                              ; preds = %._crit_edge231
+  %288 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %289 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %290 = load ptr, ptr %289, align 8, !tbaa !485
+  %291 = load ptr, ptr %288, align 8, !tbaa !458
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
+  %293 = icmp ult ptr %290, %292
+  br i1 %293, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %291, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %299, %.lr.ph.i.i.i.i ], [ %294, %291 ]
-  %298 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !457
-  call void @_ZdlPvm(ptr noundef %298, i64 noundef 512) #22
-  %299 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
-  %300 = icmp ult ptr %.06.i.i.i.i, %295
-  br i1 %300, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i, !llvm.loop !486
+.lr.ph.i.i.i.i:                                   ; preds = %287, %.lr.ph.i.i.i.i
+  %.06.i.i.i.i = phi ptr [ %295, %.lr.ph.i.i.i.i ], [ %290, %287 ]
+  %294 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !457
+  call void @_ZdlPvm(ptr noundef %294, i64 noundef 512) #22
+  %295 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
+  %296 = icmp ult ptr %.06.i.i.i.i, %291
+  br i1 %296, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i, !llvm.loop !486
 
 _ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %5, align 8, !tbaa !484
   br label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i.i.i
 
-_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i, %291
-  %301 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i ], [ %290, %291 ]
-  %302 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %303 = load i64, ptr %302, align 8, !tbaa !487
-  %304 = shl i64 %303, 3
-  call void @_ZdlPvm(ptr noundef %301, i64 noundef %304) #22
+_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i, %287
+  %297 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i.i.i ], [ %286, %287 ]
+  %298 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %299 = load i64, ptr %298, align 8, !tbaa !487
+  %300 = shl i64 %299, 3
+  call void @_ZdlPvm(ptr noundef %297, i64 noundef %300) #22
   br label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEED2Ev.exit
 
 _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEED2Ev.exit: ; preds = %._crit_edge231, %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i.i.i
@@ -12410,8 +12380,8 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-.loopexit.split-lp:                               ; preds = %.loopexit204, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %158, %231, %271, %285, %116
-  %.pn81.pn.pn = phi { ptr, i32 } [ %117, %116 ], [ %159, %158 ], [ %232, %231 ], [ %286, %285 ], [ %272, %271 ], [ %lpad.loopexit, %.loopexit204 ], [ %lpad.loopexit205, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp206, %.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit204, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %158, %231, %267, %281, %116
+  %.pn81.pn.pn = phi { ptr, i32 } [ %117, %116 ], [ %159, %158 ], [ %232, %231 ], [ %282, %281 ], [ %268, %267 ], [ %lpad.loopexit, %.loopexit204 ], [ %lpad.loopexit205, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp206, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -13053,13 +13023,13 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE14EncodingStatusINS0
   %90 = getelementptr inbounds i8, ptr %89, i64 -8
   %91 = load ptr, ptr %90, align 8, !tbaa !506
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 448
-  %.sroa.0132.0.copyload250 = load i64, ptr %92, align 8, !tbaa !78
-  %.sroa.5134.0..sroa_idx251 = getelementptr inbounds nuw i8, ptr %91, i64 472
-  %.sroa.5134.0.copyload252 = load i64, ptr %.sroa.5134.0..sroa_idx251, align 8, !tbaa !78
-  %.sroa.6136.0..sroa_idx253 = getelementptr inbounds nuw i8, ptr %91, i64 496
-  %.sroa.6136.0.copyload254 = load i32, ptr %.sroa.6136.0..sroa_idx253, align 8, !tbaa !52
-  %.sroa.7138.0..sroa_idx255 = getelementptr inbounds nuw i8, ptr %91, i64 504
-  %.sroa.7138.0.copyload256 = load i32, ptr %.sroa.7138.0..sroa_idx255, align 8, !tbaa !52
+  %.sroa.0132.0.copyload282 = load i64, ptr %92, align 8, !tbaa !78
+  %.sroa.5134.0..sroa_idx283 = getelementptr inbounds nuw i8, ptr %91, i64 472
+  %.sroa.5134.0.copyload284 = load i64, ptr %.sroa.5134.0..sroa_idx283, align 8, !tbaa !78
+  %.sroa.6136.0..sroa_idx285 = getelementptr inbounds nuw i8, ptr %91, i64 496
+  %.sroa.6136.0.copyload286 = load i32, ptr %.sroa.6136.0..sroa_idx285, align 8, !tbaa !52
+  %.sroa.7138.0..sroa_idx287 = getelementptr inbounds nuw i8, ptr %91, i64 504
+  %.sroa.7138.0.copyload288 = load i32, ptr %.sroa.7138.0..sroa_idx287, align 8, !tbaa !52
   call void @_ZdlPvm(ptr noundef %83, i64 noundef 512) #22
   %93 = load ptr, ptr %63, align 8, !tbaa !507
   %94 = getelementptr inbounds i8, ptr %93, i64 -8
@@ -13072,29 +13042,29 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE14EncodingStatusINS0
   br label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit
 
 _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit: ; preds = %85, %88
-  %.sroa.7138.0.copyload263 = phi i32 [ %.sroa.7138.0.copyload, %85 ], [ %.sroa.7138.0.copyload256, %88 ]
-  %.sroa.6136.0.copyload261 = phi i32 [ %.sroa.6136.0.copyload, %85 ], [ %.sroa.6136.0.copyload254, %88 ]
-  %.sroa.5134.0.copyload259 = phi i64 [ %.sroa.5134.0.copyload, %85 ], [ %.sroa.5134.0.copyload252, %88 ]
-  %.sroa.0132.0.copyload257 = phi i64 [ %.sroa.0132.0.copyload, %85 ], [ %.sroa.0132.0.copyload250, %88 ]
+  %.sroa.7138.0.copyload295 = phi i32 [ %.sroa.7138.0.copyload, %85 ], [ %.sroa.7138.0.copyload288, %88 ]
+  %.sroa.6136.0.copyload293 = phi i32 [ %.sroa.6136.0.copyload, %85 ], [ %.sroa.6136.0.copyload286, %88 ]
+  %.sroa.5134.0.copyload291 = phi i64 [ %.sroa.5134.0.copyload, %85 ], [ %.sroa.5134.0.copyload284, %88 ]
+  %.sroa.0132.0.copyload289 = phi i64 [ %.sroa.0132.0.copyload, %85 ], [ %.sroa.0132.0.copyload282, %88 ]
   %storemerge.i.i = phi ptr [ %87, %85 ], [ %97, %88 ]
   store ptr %storemerge.i.i, ptr %49, align 8, !tbaa !494
-  store i64 %.sroa.0132.0.copyload257, ptr %1, align 8, !tbaa !186
-  store i64 %.sroa.5134.0.copyload259, ptr %2, align 8, !tbaa !186
-  %98 = zext i32 %.sroa.7138.0.copyload263 to i64
+  store i64 %.sroa.0132.0.copyload289, ptr %1, align 8, !tbaa !186
+  store i64 %.sroa.5134.0.copyload291, ptr %2, align 8, !tbaa !186
+  %98 = zext i32 %.sroa.7138.0.copyload295 to i64
   %99 = load ptr, ptr %15, align 8, !tbaa !249
   %100 = getelementptr inbounds nuw %"class.std::vector.78", ptr %99, i64 %98
   %101 = load ptr, ptr %31, align 8, !tbaa !249
   %102 = getelementptr inbounds nuw %"class.std::vector.78", ptr %101, i64 %98
   %103 = load i32, ptr %8, align 8, !tbaa !262
   %104 = add i32 %103, -1
-  %105 = icmp eq i32 %.sroa.6136.0.copyload261, %104
-  %106 = add i32 %.sroa.6136.0.copyload261, 1
+  %105 = icmp eq i32 %.sroa.6136.0.copyload293, %104
+  %106 = add i32 %.sroa.6136.0.copyload293, 1
   %107 = select i1 %105, i32 0, i32 %106
   %108 = zext i32 %107 to i64
   %109 = load ptr, ptr %102, align 8, !tbaa !164
   %110 = getelementptr inbounds nuw i32, ptr %109, i64 %108
   %111 = load i32, ptr %110, align 4, !tbaa !52
-  %112 = sub i64 %.sroa.5134.0.copyload259, %.sroa.0132.0.copyload257
+  %112 = sub i64 %.sroa.5134.0.copyload291, %.sroa.0132.0.copyload289
   %113 = trunc i64 %112 to i32
   %114 = load i32, ptr %0, align 8, !tbaa !260
   %115 = icmp eq i32 %114, %111
@@ -13149,7 +13119,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE14EncodingStatusINS0
   %135 = phi i32 [ %124, %.lr.ph214.split ], [ %143, %._crit_edge ]
   %136 = phi i32 [ 1, %.lr.ph214.split ], [ %144, %._crit_edge ]
   %indvars.iv244 = phi i64 [ 0, %.lr.ph214.split ], [ %indvars.iv.next245, %._crit_edge ]
-  %137 = add i64 %.sroa.0132.0.copyload257, %indvars.iv244
+  %137 = add i64 %.sroa.0132.0.copyload289, %indvars.iv244
   %138 = load i32, ptr %79, align 4, !tbaa !162, !noalias !511
   %139 = load ptr, ptr %64, align 8, !tbaa !167, !noalias !514
   %140 = zext i32 %138 to i64
@@ -13203,7 +13173,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE14EncodingStatusINS0
   br i1 %163, label %.lr.ph212, label %._crit_edge, !llvm.loop !519
 
 164:                                              ; preds = %118
-  %165 = add i32 %.sroa.7138.0.copyload263, 1
+  %165 = add i32 %.sroa.7138.0.copyload295, 1
   %166 = zext i32 %165 to i64
   %167 = getelementptr inbounds nuw %"class.std::vector.78", ptr %99, i64 %166
   %168 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef nonnull align 8 dereferenceable(24) %100)
@@ -13220,7 +13190,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE14EncodingStatusINS0
   %177 = load i32, ptr %176, align 4, !tbaa !52
   %178 = add i32 %177, %172
   store i32 %178, ptr %176, align 4, !tbaa !52
-  %179 = icmp eq i64 %.sroa.0132.0.copyload257, %.sroa.5134.0.copyload259
+  %179 = icmp eq i64 %.sroa.0132.0.copyload289, %.sroa.5134.0.copyload291
   br i1 %179, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi3EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.lr.ph.i.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %169
@@ -13232,8 +13202,8 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE14EncodingStatusINS0
   br label %.lr.ph.us.i.i
 
 .lr.ph.us.i.i:                                    ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %.lr.ph.us.preheader.i.i
-  %storemerge.lcssa323441.us.i.i = phi i64 [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.5134.0.copyload259, %.lr.ph.us.preheader.i.i ]
-  %.lcssa293840.us.i.i = phi i64 [ %194, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.0132.0.copyload257, %.lr.ph.us.preheader.i.i ]
+  %storemerge.lcssa323441.us.i.i = phi i64 [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.5134.0.copyload291, %.lr.ph.us.preheader.i.i ]
+  %.lcssa293840.us.i.i = phi i64 [ %194, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.0132.0.copyload289, %.lr.ph.us.preheader.i.i ]
   br label %181
 
 181:                                              ; preds = %196, %.lr.ph.us.i.i
@@ -13270,8 +13240,8 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us
   br i1 %198, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi3EE8SplitterEET_S7_S7_T0_.exit, label %181, !llvm.loop !533
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.lr.ph.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i
-  %storemerge.lcssa323441.i.i = phi i64 [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.5134.0.copyload259, %.lr.ph.lr.ph.i.i ]
-  %.lcssa293840.i.i = phi i64 [ %221, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.0132.0.copyload257, %.lr.ph.lr.ph.i.i ]
+  %storemerge.lcssa323441.i.i = phi i64 [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.5134.0.copyload291, %.lr.ph.lr.ph.i.i ]
+  %.lcssa293840.i.i = phi i64 [ %221, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.0132.0.copyload289, %.lr.ph.lr.ph.i.i ]
   br label %199
 
 199:                                              ; preds = %206, %.lr.ph.i.i
@@ -13321,12 +13291,12 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.lo
   br i1 %222, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi3EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.i.i, !llvm.loop !532
 
 _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi3EE8SplitterEET_S7_S7_T0_.exit: ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %206, %.preheader.i.i, %196, %.preheader.us.i.i, %169
-  %.us-phi.sink.i.i = phi i64 [ %.sroa.0132.0.copyload257, %169 ], [ %182, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %200, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
+  %.us-phi.sink.i.i = phi i64 [ %.sroa.0132.0.copyload289, %169 ], [ %182, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %200, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
   %223 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %113, i1 true)
   %224 = xor i32 %223, 31
-  %225 = sub i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload257
+  %225 = sub i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload289
   %226 = trunc i64 %225 to i32
-  %227 = sub i64 %.sroa.5134.0.copyload259, %.us-phi.sink.i.i
+  %227 = sub i64 %.sroa.5134.0.copyload291, %.us-phi.sink.i.i
   %228 = trunc i64 %227 to i32
   %.not = icmp eq i32 %226, %228
   br i1 %.not, label %.invoke, label %229
@@ -13366,7 +13336,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE12EncodeNumberEij.exit: ; pred
           to label %245 unwind label %233
 
 245:                                              ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE12EncodeNumberEij.exit
-  %.not189 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload257
+  %.not189 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload289
   br i1 %.not189, label %259, label %246
 
 246:                                              ; preds = %245
@@ -13377,7 +13347,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE12EncodeNumberEij.exit: ; pred
   store i32 %.fr.i.i, ptr %.sroa.5183.0..sroa_idx, align 8, !tbaa !52
   store i32 %.sroa.4172.0.copyload, ptr %.sroa.6184.0..sroa_idx, align 4
   store i32 %107, ptr %71, align 8, !tbaa !490
-  store i32 %.sroa.7138.0.copyload263, ptr %72, align 8, !tbaa !492
+  store i32 %.sroa.7138.0.copyload295, ptr %72, align 8, !tbaa !492
   %247 = load i64, ptr %6, align 8, !tbaa !186
   %248 = sub i64 %.us-phi.sink.i.i, %247
   %249 = trunc i64 %248 to i32
@@ -13410,7 +13380,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE14EncodingStatusINS0
   br label %291
 
 259:                                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit, %245
-  %.not190 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.5134.0.copyload259
+  %.not190 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.5134.0.copyload291
   br i1 %.not190, label %.loopexit, label %260
 
 260:                                              ; preds = %259
@@ -14146,13 +14116,13 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE14EncodingStatusINS0
   %90 = getelementptr inbounds i8, ptr %89, i64 -8
   %91 = load ptr, ptr %90, align 8, !tbaa !557
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 448
-  %.sroa.0132.0.copyload250 = load i64, ptr %92, align 8, !tbaa !78
-  %.sroa.5134.0..sroa_idx251 = getelementptr inbounds nuw i8, ptr %91, i64 472
-  %.sroa.5134.0.copyload252 = load i64, ptr %.sroa.5134.0..sroa_idx251, align 8, !tbaa !78
-  %.sroa.6136.0..sroa_idx253 = getelementptr inbounds nuw i8, ptr %91, i64 496
-  %.sroa.6136.0.copyload254 = load i32, ptr %.sroa.6136.0..sroa_idx253, align 8, !tbaa !52
-  %.sroa.7138.0..sroa_idx255 = getelementptr inbounds nuw i8, ptr %91, i64 504
-  %.sroa.7138.0.copyload256 = load i32, ptr %.sroa.7138.0..sroa_idx255, align 8, !tbaa !52
+  %.sroa.0132.0.copyload282 = load i64, ptr %92, align 8, !tbaa !78
+  %.sroa.5134.0..sroa_idx283 = getelementptr inbounds nuw i8, ptr %91, i64 472
+  %.sroa.5134.0.copyload284 = load i64, ptr %.sroa.5134.0..sroa_idx283, align 8, !tbaa !78
+  %.sroa.6136.0..sroa_idx285 = getelementptr inbounds nuw i8, ptr %91, i64 496
+  %.sroa.6136.0.copyload286 = load i32, ptr %.sroa.6136.0..sroa_idx285, align 8, !tbaa !52
+  %.sroa.7138.0..sroa_idx287 = getelementptr inbounds nuw i8, ptr %91, i64 504
+  %.sroa.7138.0.copyload288 = load i32, ptr %.sroa.7138.0..sroa_idx287, align 8, !tbaa !52
   call void @_ZdlPvm(ptr noundef %83, i64 noundef 512) #22
   %93 = load ptr, ptr %63, align 8, !tbaa !558
   %94 = getelementptr inbounds i8, ptr %93, i64 -8
@@ -14165,29 +14135,29 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE14EncodingStatusINS0
   br label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit
 
 _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit: ; preds = %85, %88
-  %.sroa.7138.0.copyload263 = phi i32 [ %.sroa.7138.0.copyload, %85 ], [ %.sroa.7138.0.copyload256, %88 ]
-  %.sroa.6136.0.copyload261 = phi i32 [ %.sroa.6136.0.copyload, %85 ], [ %.sroa.6136.0.copyload254, %88 ]
-  %.sroa.5134.0.copyload259 = phi i64 [ %.sroa.5134.0.copyload, %85 ], [ %.sroa.5134.0.copyload252, %88 ]
-  %.sroa.0132.0.copyload257 = phi i64 [ %.sroa.0132.0.copyload, %85 ], [ %.sroa.0132.0.copyload250, %88 ]
+  %.sroa.7138.0.copyload295 = phi i32 [ %.sroa.7138.0.copyload, %85 ], [ %.sroa.7138.0.copyload288, %88 ]
+  %.sroa.6136.0.copyload293 = phi i32 [ %.sroa.6136.0.copyload, %85 ], [ %.sroa.6136.0.copyload286, %88 ]
+  %.sroa.5134.0.copyload291 = phi i64 [ %.sroa.5134.0.copyload, %85 ], [ %.sroa.5134.0.copyload284, %88 ]
+  %.sroa.0132.0.copyload289 = phi i64 [ %.sroa.0132.0.copyload, %85 ], [ %.sroa.0132.0.copyload282, %88 ]
   %storemerge.i.i = phi ptr [ %87, %85 ], [ %97, %88 ]
   store ptr %storemerge.i.i, ptr %49, align 8, !tbaa !545
-  store i64 %.sroa.0132.0.copyload257, ptr %1, align 8, !tbaa !186
-  store i64 %.sroa.5134.0.copyload259, ptr %2, align 8, !tbaa !186
-  %98 = zext i32 %.sroa.7138.0.copyload263 to i64
+  store i64 %.sroa.0132.0.copyload289, ptr %1, align 8, !tbaa !186
+  store i64 %.sroa.5134.0.copyload291, ptr %2, align 8, !tbaa !186
+  %98 = zext i32 %.sroa.7138.0.copyload295 to i64
   %99 = load ptr, ptr %15, align 8, !tbaa !249
   %100 = getelementptr inbounds nuw %"class.std::vector.78", ptr %99, i64 %98
   %101 = load ptr, ptr %31, align 8, !tbaa !249
   %102 = getelementptr inbounds nuw %"class.std::vector.78", ptr %101, i64 %98
   %103 = load i32, ptr %8, align 8, !tbaa !540
   %104 = add i32 %103, -1
-  %105 = icmp eq i32 %.sroa.6136.0.copyload261, %104
-  %106 = add i32 %.sroa.6136.0.copyload261, 1
+  %105 = icmp eq i32 %.sroa.6136.0.copyload293, %104
+  %106 = add i32 %.sroa.6136.0.copyload293, 1
   %107 = select i1 %105, i32 0, i32 %106
   %108 = zext i32 %107 to i64
   %109 = load ptr, ptr %102, align 8, !tbaa !164
   %110 = getelementptr inbounds nuw i32, ptr %109, i64 %108
   %111 = load i32, ptr %110, align 4, !tbaa !52
-  %112 = sub i64 %.sroa.5134.0.copyload259, %.sroa.0132.0.copyload257
+  %112 = sub i64 %.sroa.5134.0.copyload291, %.sroa.0132.0.copyload289
   %113 = trunc i64 %112 to i32
   %114 = load i32, ptr %0, align 8, !tbaa !264
   %115 = icmp eq i32 %114, %111
@@ -14242,7 +14212,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE14EncodingStatusINS0
   %135 = phi i32 [ %124, %.lr.ph214.split ], [ %143, %._crit_edge ]
   %136 = phi i32 [ 1, %.lr.ph214.split ], [ %144, %._crit_edge ]
   %indvars.iv244 = phi i64 [ 0, %.lr.ph214.split ], [ %indvars.iv.next245, %._crit_edge ]
-  %137 = add i64 %.sroa.0132.0.copyload257, %indvars.iv244
+  %137 = add i64 %.sroa.0132.0.copyload289, %indvars.iv244
   %138 = load i32, ptr %79, align 4, !tbaa !162, !noalias !562
   %139 = load ptr, ptr %64, align 8, !tbaa !167, !noalias !565
   %140 = zext i32 %138 to i64
@@ -14296,7 +14266,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE14EncodingStatusINS0
   br i1 %163, label %.lr.ph212, label %._crit_edge, !llvm.loop !569
 
 164:                                              ; preds = %118
-  %165 = add i32 %.sroa.7138.0.copyload263, 1
+  %165 = add i32 %.sroa.7138.0.copyload295, 1
   %166 = zext i32 %165 to i64
   %167 = getelementptr inbounds nuw %"class.std::vector.78", ptr %99, i64 %166
   %168 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef nonnull align 8 dereferenceable(24) %100)
@@ -14313,7 +14283,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE14EncodingStatusINS0
   %177 = load i32, ptr %176, align 4, !tbaa !52
   %178 = add i32 %177, %172
   store i32 %178, ptr %176, align 4, !tbaa !52
-  %179 = icmp eq i64 %.sroa.0132.0.copyload257, %.sroa.5134.0.copyload259
+  %179 = icmp eq i64 %.sroa.0132.0.copyload289, %.sroa.5134.0.copyload291
   br i1 %179, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi2EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.lr.ph.i.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %169
@@ -14325,8 +14295,8 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE14EncodingStatusINS0
   br label %.lr.ph.us.i.i
 
 .lr.ph.us.i.i:                                    ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %.lr.ph.us.preheader.i.i
-  %storemerge.lcssa323441.us.i.i = phi i64 [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.5134.0.copyload259, %.lr.ph.us.preheader.i.i ]
-  %.lcssa293840.us.i.i = phi i64 [ %194, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.0132.0.copyload257, %.lr.ph.us.preheader.i.i ]
+  %storemerge.lcssa323441.us.i.i = phi i64 [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.5134.0.copyload291, %.lr.ph.us.preheader.i.i ]
+  %.lcssa293840.us.i.i = phi i64 [ %194, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.0132.0.copyload289, %.lr.ph.us.preheader.i.i ]
   br label %181
 
 181:                                              ; preds = %196, %.lr.ph.us.i.i
@@ -14363,8 +14333,8 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us
   br i1 %198, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi2EE8SplitterEET_S7_S7_T0_.exit, label %181, !llvm.loop !583
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.lr.ph.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i
-  %storemerge.lcssa323441.i.i = phi i64 [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.5134.0.copyload259, %.lr.ph.lr.ph.i.i ]
-  %.lcssa293840.i.i = phi i64 [ %221, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.0132.0.copyload257, %.lr.ph.lr.ph.i.i ]
+  %storemerge.lcssa323441.i.i = phi i64 [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.5134.0.copyload291, %.lr.ph.lr.ph.i.i ]
+  %.lcssa293840.i.i = phi i64 [ %221, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.0132.0.copyload289, %.lr.ph.lr.ph.i.i ]
   br label %199
 
 199:                                              ; preds = %206, %.lr.ph.i.i
@@ -14414,12 +14384,12 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.lo
   br i1 %222, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi2EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.i.i, !llvm.loop !582
 
 _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi2EE8SplitterEET_S7_S7_T0_.exit: ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %206, %.preheader.i.i, %196, %.preheader.us.i.i, %169
-  %.us-phi.sink.i.i = phi i64 [ %.sroa.0132.0.copyload257, %169 ], [ %182, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %200, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
+  %.us-phi.sink.i.i = phi i64 [ %.sroa.0132.0.copyload289, %169 ], [ %182, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %200, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
   %223 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %113, i1 true)
   %224 = xor i32 %223, 31
-  %225 = sub i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload257
+  %225 = sub i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload289
   %226 = trunc i64 %225 to i32
-  %227 = sub i64 %.sroa.5134.0.copyload259, %.us-phi.sink.i.i
+  %227 = sub i64 %.sroa.5134.0.copyload291, %.us-phi.sink.i.i
   %228 = trunc i64 %227 to i32
   %.not = icmp eq i32 %226, %228
   br i1 %.not, label %.invoke, label %229
@@ -14459,7 +14429,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE12EncodeNumberEij.exit: ; pred
           to label %245 unwind label %233
 
 245:                                              ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE12EncodeNumberEij.exit
-  %.not189 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload257
+  %.not189 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload289
   br i1 %.not189, label %259, label %246
 
 246:                                              ; preds = %245
@@ -14470,7 +14440,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE12EncodeNumberEij.exit: ; pred
   store i32 %.fr.i.i, ptr %.sroa.5183.0..sroa_idx, align 8, !tbaa !52
   store i32 %.sroa.4172.0.copyload, ptr %.sroa.6184.0..sroa_idx, align 4
   store i32 %107, ptr %71, align 8, !tbaa !541
-  store i32 %.sroa.7138.0.copyload263, ptr %72, align 8, !tbaa !543
+  store i32 %.sroa.7138.0.copyload295, ptr %72, align 8, !tbaa !543
   %247 = load i64, ptr %6, align 8, !tbaa !186
   %248 = sub i64 %.us-phi.sink.i.i, %247
   %249 = trunc i64 %248 to i32
@@ -14503,7 +14473,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE14EncodingStatusINS0
   br label %291
 
 259:                                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit, %245
-  %.not190 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.5134.0.copyload259
+  %.not190 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.5134.0.copyload291
   br i1 %.not190, label %.loopexit, label %260
 
 260:                                              ; preds = %259
@@ -15237,13 +15207,13 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE14EncodingStatusINS0
   %90 = getelementptr inbounds i8, ptr %89, i64 -8
   %91 = load ptr, ptr %90, align 8, !tbaa !606
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 448
-  %.sroa.0132.0.copyload250 = load i64, ptr %92, align 8, !tbaa !78
-  %.sroa.5134.0..sroa_idx251 = getelementptr inbounds nuw i8, ptr %91, i64 472
-  %.sroa.5134.0.copyload252 = load i64, ptr %.sroa.5134.0..sroa_idx251, align 8, !tbaa !78
-  %.sroa.6136.0..sroa_idx253 = getelementptr inbounds nuw i8, ptr %91, i64 496
-  %.sroa.6136.0.copyload254 = load i32, ptr %.sroa.6136.0..sroa_idx253, align 8, !tbaa !52
-  %.sroa.7138.0..sroa_idx255 = getelementptr inbounds nuw i8, ptr %91, i64 504
-  %.sroa.7138.0.copyload256 = load i32, ptr %.sroa.7138.0..sroa_idx255, align 8, !tbaa !52
+  %.sroa.0132.0.copyload282 = load i64, ptr %92, align 8, !tbaa !78
+  %.sroa.5134.0..sroa_idx283 = getelementptr inbounds nuw i8, ptr %91, i64 472
+  %.sroa.5134.0.copyload284 = load i64, ptr %.sroa.5134.0..sroa_idx283, align 8, !tbaa !78
+  %.sroa.6136.0..sroa_idx285 = getelementptr inbounds nuw i8, ptr %91, i64 496
+  %.sroa.6136.0.copyload286 = load i32, ptr %.sroa.6136.0..sroa_idx285, align 8, !tbaa !52
+  %.sroa.7138.0..sroa_idx287 = getelementptr inbounds nuw i8, ptr %91, i64 504
+  %.sroa.7138.0.copyload288 = load i32, ptr %.sroa.7138.0..sroa_idx287, align 8, !tbaa !52
   call void @_ZdlPvm(ptr noundef %83, i64 noundef 512) #22
   %93 = load ptr, ptr %63, align 8, !tbaa !607
   %94 = getelementptr inbounds i8, ptr %93, i64 -8
@@ -15256,29 +15226,29 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE14EncodingStatusINS0
   br label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit
 
 _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit: ; preds = %85, %88
-  %.sroa.7138.0.copyload263 = phi i32 [ %.sroa.7138.0.copyload, %85 ], [ %.sroa.7138.0.copyload256, %88 ]
-  %.sroa.6136.0.copyload261 = phi i32 [ %.sroa.6136.0.copyload, %85 ], [ %.sroa.6136.0.copyload254, %88 ]
-  %.sroa.5134.0.copyload259 = phi i64 [ %.sroa.5134.0.copyload, %85 ], [ %.sroa.5134.0.copyload252, %88 ]
-  %.sroa.0132.0.copyload257 = phi i64 [ %.sroa.0132.0.copyload, %85 ], [ %.sroa.0132.0.copyload250, %88 ]
+  %.sroa.7138.0.copyload295 = phi i32 [ %.sroa.7138.0.copyload, %85 ], [ %.sroa.7138.0.copyload288, %88 ]
+  %.sroa.6136.0.copyload293 = phi i32 [ %.sroa.6136.0.copyload, %85 ], [ %.sroa.6136.0.copyload286, %88 ]
+  %.sroa.5134.0.copyload291 = phi i64 [ %.sroa.5134.0.copyload, %85 ], [ %.sroa.5134.0.copyload284, %88 ]
+  %.sroa.0132.0.copyload289 = phi i64 [ %.sroa.0132.0.copyload, %85 ], [ %.sroa.0132.0.copyload282, %88 ]
   %storemerge.i.i = phi ptr [ %87, %85 ], [ %97, %88 ]
   store ptr %storemerge.i.i, ptr %49, align 8, !tbaa !594
-  store i64 %.sroa.0132.0.copyload257, ptr %1, align 8, !tbaa !186
-  store i64 %.sroa.5134.0.copyload259, ptr %2, align 8, !tbaa !186
-  %98 = zext i32 %.sroa.7138.0.copyload263 to i64
+  store i64 %.sroa.0132.0.copyload289, ptr %1, align 8, !tbaa !186
+  store i64 %.sroa.5134.0.copyload291, ptr %2, align 8, !tbaa !186
+  %98 = zext i32 %.sroa.7138.0.copyload295 to i64
   %99 = load ptr, ptr %15, align 8, !tbaa !249
   %100 = getelementptr inbounds nuw %"class.std::vector.78", ptr %99, i64 %98
   %101 = load ptr, ptr %31, align 8, !tbaa !249
   %102 = getelementptr inbounds nuw %"class.std::vector.78", ptr %101, i64 %98
   %103 = load i32, ptr %8, align 8, !tbaa !269
   %104 = add i32 %103, -1
-  %105 = icmp eq i32 %.sroa.6136.0.copyload261, %104
-  %106 = add i32 %.sroa.6136.0.copyload261, 1
+  %105 = icmp eq i32 %.sroa.6136.0.copyload293, %104
+  %106 = add i32 %.sroa.6136.0.copyload293, 1
   %107 = select i1 %105, i32 0, i32 %106
   %108 = zext i32 %107 to i64
   %109 = load ptr, ptr %102, align 8, !tbaa !164
   %110 = getelementptr inbounds nuw i32, ptr %109, i64 %108
   %111 = load i32, ptr %110, align 4, !tbaa !52
-  %112 = sub i64 %.sroa.5134.0.copyload259, %.sroa.0132.0.copyload257
+  %112 = sub i64 %.sroa.5134.0.copyload291, %.sroa.0132.0.copyload289
   %113 = trunc i64 %112 to i32
   %114 = load i32, ptr %0, align 8, !tbaa !267
   %115 = icmp eq i32 %114, %111
@@ -15333,7 +15303,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE14EncodingStatusINS0
   %135 = phi i32 [ %124, %.lr.ph214.split ], [ %143, %._crit_edge ]
   %136 = phi i32 [ 1, %.lr.ph214.split ], [ %144, %._crit_edge ]
   %indvars.iv244 = phi i64 [ 0, %.lr.ph214.split ], [ %indvars.iv.next245, %._crit_edge ]
-  %137 = add i64 %.sroa.0132.0.copyload257, %indvars.iv244
+  %137 = add i64 %.sroa.0132.0.copyload289, %indvars.iv244
   %138 = load i32, ptr %79, align 4, !tbaa !162, !noalias !611
   %139 = load ptr, ptr %64, align 8, !tbaa !167, !noalias !614
   %140 = zext i32 %138 to i64
@@ -15387,7 +15357,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE14EncodingStatusINS0
   br i1 %163, label %.lr.ph212, label %._crit_edge, !llvm.loop !618
 
 164:                                              ; preds = %118
-  %165 = add i32 %.sroa.7138.0.copyload263, 1
+  %165 = add i32 %.sroa.7138.0.copyload295, 1
   %166 = zext i32 %165 to i64
   %167 = getelementptr inbounds nuw %"class.std::vector.78", ptr %99, i64 %166
   %168 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef nonnull align 8 dereferenceable(24) %100)
@@ -15404,7 +15374,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE14EncodingStatusINS0
   %177 = load i32, ptr %176, align 4, !tbaa !52
   %178 = add i32 %177, %172
   store i32 %178, ptr %176, align 4, !tbaa !52
-  %179 = icmp eq i64 %.sroa.0132.0.copyload257, %.sroa.5134.0.copyload259
+  %179 = icmp eq i64 %.sroa.0132.0.copyload289, %.sroa.5134.0.copyload291
   br i1 %179, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi1EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.lr.ph.i.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %169
@@ -15416,8 +15386,8 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE14EncodingStatusINS0
   br label %.lr.ph.us.i.i
 
 .lr.ph.us.i.i:                                    ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %.lr.ph.us.preheader.i.i
-  %storemerge.lcssa323441.us.i.i = phi i64 [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.5134.0.copyload259, %.lr.ph.us.preheader.i.i ]
-  %.lcssa293840.us.i.i = phi i64 [ %194, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.0132.0.copyload257, %.lr.ph.us.preheader.i.i ]
+  %storemerge.lcssa323441.us.i.i = phi i64 [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.5134.0.copyload291, %.lr.ph.us.preheader.i.i ]
+  %.lcssa293840.us.i.i = phi i64 [ %194, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.0132.0.copyload289, %.lr.ph.us.preheader.i.i ]
   br label %181
 
 181:                                              ; preds = %196, %.lr.ph.us.i.i
@@ -15454,8 +15424,8 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us
   br i1 %198, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi1EE8SplitterEET_S7_S7_T0_.exit, label %181, !llvm.loop !632
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.lr.ph.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i
-  %storemerge.lcssa323441.i.i = phi i64 [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.5134.0.copyload259, %.lr.ph.lr.ph.i.i ]
-  %.lcssa293840.i.i = phi i64 [ %221, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.0132.0.copyload257, %.lr.ph.lr.ph.i.i ]
+  %storemerge.lcssa323441.i.i = phi i64 [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.5134.0.copyload291, %.lr.ph.lr.ph.i.i ]
+  %.lcssa293840.i.i = phi i64 [ %221, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.0132.0.copyload289, %.lr.ph.lr.ph.i.i ]
   br label %199
 
 199:                                              ; preds = %206, %.lr.ph.i.i
@@ -15505,12 +15475,12 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.lo
   br i1 %222, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi1EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.i.i, !llvm.loop !631
 
 _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi1EE8SplitterEET_S7_S7_T0_.exit: ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %206, %.preheader.i.i, %196, %.preheader.us.i.i, %169
-  %.us-phi.sink.i.i = phi i64 [ %.sroa.0132.0.copyload257, %169 ], [ %182, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %200, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
+  %.us-phi.sink.i.i = phi i64 [ %.sroa.0132.0.copyload289, %169 ], [ %182, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %200, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
   %223 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %113, i1 true)
   %224 = xor i32 %223, 31
-  %225 = sub i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload257
+  %225 = sub i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload289
   %226 = trunc i64 %225 to i32
-  %227 = sub i64 %.sroa.5134.0.copyload259, %.us-phi.sink.i.i
+  %227 = sub i64 %.sroa.5134.0.copyload291, %.us-phi.sink.i.i
   %228 = trunc i64 %227 to i32
   %.not = icmp eq i32 %226, %228
   br i1 %.not, label %.invoke, label %229
@@ -15550,7 +15520,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE12EncodeNumberEij.exit: ; pred
           to label %245 unwind label %233
 
 245:                                              ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE12EncodeNumberEij.exit
-  %.not189 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload257
+  %.not189 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload289
   br i1 %.not189, label %259, label %246
 
 246:                                              ; preds = %245
@@ -15561,7 +15531,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE12EncodeNumberEij.exit: ; pred
   store i32 %.fr.i.i, ptr %.sroa.5183.0..sroa_idx, align 8, !tbaa !52
   store i32 %.sroa.4172.0.copyload, ptr %.sroa.6184.0..sroa_idx, align 4
   store i32 %107, ptr %71, align 8, !tbaa !590
-  store i32 %.sroa.7138.0.copyload263, ptr %72, align 8, !tbaa !592
+  store i32 %.sroa.7138.0.copyload295, ptr %72, align 8, !tbaa !592
   %247 = load i64, ptr %6, align 8, !tbaa !186
   %248 = sub i64 %.us-phi.sink.i.i, %247
   %249 = trunc i64 %248 to i32
@@ -15594,7 +15564,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE14EncodingStatusINS0
   br label %291
 
 259:                                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit, %245
-  %.not190 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.5134.0.copyload259
+  %.not190 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.5134.0.copyload291
   br i1 %.not190, label %.loopexit, label %260
 
 260:                                              ; preds = %259
@@ -16328,13 +16298,13 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE14EncodingStatusINS0
   %90 = getelementptr inbounds i8, ptr %89, i64 -8
   %91 = load ptr, ptr %90, align 8, !tbaa !656
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 448
-  %.sroa.0132.0.copyload250 = load i64, ptr %92, align 8, !tbaa !78
-  %.sroa.5134.0..sroa_idx251 = getelementptr inbounds nuw i8, ptr %91, i64 472
-  %.sroa.5134.0.copyload252 = load i64, ptr %.sroa.5134.0..sroa_idx251, align 8, !tbaa !78
-  %.sroa.6136.0..sroa_idx253 = getelementptr inbounds nuw i8, ptr %91, i64 496
-  %.sroa.6136.0.copyload254 = load i32, ptr %.sroa.6136.0..sroa_idx253, align 8, !tbaa !52
-  %.sroa.7138.0..sroa_idx255 = getelementptr inbounds nuw i8, ptr %91, i64 504
-  %.sroa.7138.0.copyload256 = load i32, ptr %.sroa.7138.0..sroa_idx255, align 8, !tbaa !52
+  %.sroa.0132.0.copyload282 = load i64, ptr %92, align 8, !tbaa !78
+  %.sroa.5134.0..sroa_idx283 = getelementptr inbounds nuw i8, ptr %91, i64 472
+  %.sroa.5134.0.copyload284 = load i64, ptr %.sroa.5134.0..sroa_idx283, align 8, !tbaa !78
+  %.sroa.6136.0..sroa_idx285 = getelementptr inbounds nuw i8, ptr %91, i64 496
+  %.sroa.6136.0.copyload286 = load i32, ptr %.sroa.6136.0..sroa_idx285, align 8, !tbaa !52
+  %.sroa.7138.0..sroa_idx287 = getelementptr inbounds nuw i8, ptr %91, i64 504
+  %.sroa.7138.0.copyload288 = load i32, ptr %.sroa.7138.0..sroa_idx287, align 8, !tbaa !52
   call void @_ZdlPvm(ptr noundef %83, i64 noundef 512) #22
   %93 = load ptr, ptr %63, align 8, !tbaa !657
   %94 = getelementptr inbounds i8, ptr %93, i64 -8
@@ -16347,29 +16317,29 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE14EncodingStatusINS0
   br label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit
 
 _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE3popEv.exit: ; preds = %85, %88
-  %.sroa.7138.0.copyload263 = phi i32 [ %.sroa.7138.0.copyload, %85 ], [ %.sroa.7138.0.copyload256, %88 ]
-  %.sroa.6136.0.copyload261 = phi i32 [ %.sroa.6136.0.copyload, %85 ], [ %.sroa.6136.0.copyload254, %88 ]
-  %.sroa.5134.0.copyload259 = phi i64 [ %.sroa.5134.0.copyload, %85 ], [ %.sroa.5134.0.copyload252, %88 ]
-  %.sroa.0132.0.copyload257 = phi i64 [ %.sroa.0132.0.copyload, %85 ], [ %.sroa.0132.0.copyload250, %88 ]
+  %.sroa.7138.0.copyload295 = phi i32 [ %.sroa.7138.0.copyload, %85 ], [ %.sroa.7138.0.copyload288, %88 ]
+  %.sroa.6136.0.copyload293 = phi i32 [ %.sroa.6136.0.copyload, %85 ], [ %.sroa.6136.0.copyload286, %88 ]
+  %.sroa.5134.0.copyload291 = phi i64 [ %.sroa.5134.0.copyload, %85 ], [ %.sroa.5134.0.copyload284, %88 ]
+  %.sroa.0132.0.copyload289 = phi i64 [ %.sroa.0132.0.copyload, %85 ], [ %.sroa.0132.0.copyload282, %88 ]
   %storemerge.i.i = phi ptr [ %87, %85 ], [ %97, %88 ]
   store ptr %storemerge.i.i, ptr %49, align 8, !tbaa !644
-  store i64 %.sroa.0132.0.copyload257, ptr %1, align 8, !tbaa !186
-  store i64 %.sroa.5134.0.copyload259, ptr %2, align 8, !tbaa !186
-  %98 = zext i32 %.sroa.7138.0.copyload263 to i64
+  store i64 %.sroa.0132.0.copyload289, ptr %1, align 8, !tbaa !186
+  store i64 %.sroa.5134.0.copyload291, ptr %2, align 8, !tbaa !186
+  %98 = zext i32 %.sroa.7138.0.copyload295 to i64
   %99 = load ptr, ptr %15, align 8, !tbaa !249
   %100 = getelementptr inbounds nuw %"class.std::vector.78", ptr %99, i64 %98
   %101 = load ptr, ptr %31, align 8, !tbaa !249
   %102 = getelementptr inbounds nuw %"class.std::vector.78", ptr %101, i64 %98
   %103 = load i32, ptr %8, align 8, !tbaa !639
   %104 = add i32 %103, -1
-  %105 = icmp eq i32 %.sroa.6136.0.copyload261, %104
-  %106 = add i32 %.sroa.6136.0.copyload261, 1
+  %105 = icmp eq i32 %.sroa.6136.0.copyload293, %104
+  %106 = add i32 %.sroa.6136.0.copyload293, 1
   %107 = select i1 %105, i32 0, i32 %106
   %108 = zext i32 %107 to i64
   %109 = load ptr, ptr %102, align 8, !tbaa !164
   %110 = getelementptr inbounds nuw i32, ptr %109, i64 %108
   %111 = load i32, ptr %110, align 4, !tbaa !52
-  %112 = sub i64 %.sroa.5134.0.copyload259, %.sroa.0132.0.copyload257
+  %112 = sub i64 %.sroa.5134.0.copyload291, %.sroa.0132.0.copyload289
   %113 = trunc i64 %112 to i32
   %114 = load i32, ptr %0, align 8, !tbaa !271
   %115 = icmp eq i32 %114, %111
@@ -16424,7 +16394,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE14EncodingStatusINS0
   %135 = phi i32 [ %124, %.lr.ph214.split ], [ %143, %._crit_edge ]
   %136 = phi i32 [ 1, %.lr.ph214.split ], [ %144, %._crit_edge ]
   %indvars.iv244 = phi i64 [ 0, %.lr.ph214.split ], [ %indvars.iv.next245, %._crit_edge ]
-  %137 = add i64 %.sroa.0132.0.copyload257, %indvars.iv244
+  %137 = add i64 %.sroa.0132.0.copyload289, %indvars.iv244
   %138 = load i32, ptr %79, align 4, !tbaa !162, !noalias !661
   %139 = load ptr, ptr %64, align 8, !tbaa !167, !noalias !664
   %140 = zext i32 %138 to i64
@@ -16478,7 +16448,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE14EncodingStatusINS0
   br i1 %163, label %.lr.ph212, label %._crit_edge, !llvm.loop !668
 
 164:                                              ; preds = %118
-  %165 = add i32 %.sroa.7138.0.copyload263, 1
+  %165 = add i32 %.sroa.7138.0.copyload295, 1
   %166 = zext i32 %165 to i64
   %167 = getelementptr inbounds nuw %"class.std::vector.78", ptr %99, i64 %166
   %168 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef nonnull align 8 dereferenceable(24) %100)
@@ -16495,7 +16465,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE14EncodingStatusINS0
   %177 = load i32, ptr %176, align 4, !tbaa !52
   %178 = add i32 %177, %172
   store i32 %178, ptr %176, align 4, !tbaa !52
-  %179 = icmp eq i64 %.sroa.0132.0.copyload257, %.sroa.5134.0.copyload259
+  %179 = icmp eq i64 %.sroa.0132.0.copyload289, %.sroa.5134.0.copyload291
   br i1 %179, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi0EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.lr.ph.i.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %169
@@ -16507,8 +16477,8 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE14EncodingStatusINS0
   br label %.lr.ph.us.i.i
 
 .lr.ph.us.i.i:                                    ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %.lr.ph.us.preheader.i.i
-  %storemerge.lcssa323441.us.i.i = phi i64 [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.5134.0.copyload259, %.lr.ph.us.preheader.i.i ]
-  %.lcssa293840.us.i.i = phi i64 [ %194, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.0132.0.copyload257, %.lr.ph.us.preheader.i.i ]
+  %storemerge.lcssa323441.us.i.i = phi i64 [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.5134.0.copyload291, %.lr.ph.us.preheader.i.i ]
+  %.lcssa293840.us.i.i = phi i64 [ %194, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %.sroa.0132.0.copyload289, %.lr.ph.us.preheader.i.i ]
   br label %181
 
 181:                                              ; preds = %196, %.lr.ph.us.i.i
@@ -16545,8 +16515,8 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us
   br i1 %198, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi0EE8SplitterEET_S7_S7_T0_.exit, label %181, !llvm.loop !682
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.lr.ph.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i
-  %storemerge.lcssa323441.i.i = phi i64 [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.5134.0.copyload259, %.lr.ph.lr.ph.i.i ]
-  %.lcssa293840.i.i = phi i64 [ %221, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.0132.0.copyload257, %.lr.ph.lr.ph.i.i ]
+  %storemerge.lcssa323441.i.i = phi i64 [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.5134.0.copyload291, %.lr.ph.lr.ph.i.i ]
+  %.lcssa293840.i.i = phi i64 [ %221, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ], [ %.sroa.0132.0.copyload289, %.lr.ph.lr.ph.i.i ]
   br label %199
 
 199:                                              ; preds = %206, %.lr.ph.i.i
@@ -16596,12 +16566,12 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.lo
   br i1 %222, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi0EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.i.i, !llvm.loop !681
 
 _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi0EE8SplitterEET_S7_S7_T0_.exit: ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %206, %.preheader.i.i, %196, %.preheader.us.i.i, %169
-  %.us-phi.sink.i.i = phi i64 [ %.sroa.0132.0.copyload257, %169 ], [ %182, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %200, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
+  %.us-phi.sink.i.i = phi i64 [ %.sroa.0132.0.copyload289, %169 ], [ %182, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %200, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
   %223 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %113, i1 true)
   %224 = xor i32 %223, 31
-  %225 = sub i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload257
+  %225 = sub i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload289
   %226 = trunc i64 %225 to i32
-  %227 = sub i64 %.sroa.5134.0.copyload259, %.us-phi.sink.i.i
+  %227 = sub i64 %.sroa.5134.0.copyload291, %.us-phi.sink.i.i
   %228 = trunc i64 %227 to i32
   %.not = icmp eq i32 %226, %228
   br i1 %.not, label %.invoke, label %229
@@ -16641,7 +16611,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE12EncodeNumberEij.exit: ; pred
           to label %245 unwind label %233
 
 245:                                              ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE12EncodeNumberEij.exit
-  %.not189 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload257
+  %.not189 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload289
   br i1 %.not189, label %259, label %246
 
 246:                                              ; preds = %245
@@ -16652,7 +16622,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE12EncodeNumberEij.exit: ; pred
   store i32 %.fr.i.i, ptr %.sroa.5183.0..sroa_idx, align 8, !tbaa !52
   store i32 %.sroa.4172.0.copyload, ptr %.sroa.6184.0..sroa_idx, align 4
   store i32 %107, ptr %71, align 8, !tbaa !640
-  store i32 %.sroa.7138.0.copyload263, ptr %72, align 8, !tbaa !642
+  store i32 %.sroa.7138.0.copyload295, ptr %72, align 8, !tbaa !642
   %247 = load i64, ptr %6, align 8, !tbaa !186
   %248 = sub i64 %.us-phi.sink.i.i, %247
   %249 = trunc i64 %248 to i32
@@ -16685,7 +16655,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE14EncodingStatusINS0
   br label %291
 
 259:                                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE14EncodingStatusINS0_12PointDVectorIjE20PointDVectorIteratorEEESt5dequeIS7_SaIS7_EEE4pushEOS7_.exit, %245
-  %.not190 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.5134.0.copyload259
+  %.not190 = icmp eq i64 %.us-phi.sink.i.i, %.sroa.5134.0.copyload291
   br i1 %.not190, label %.loopexit, label %260
 
 260:                                              ; preds = %259

@@ -140,8 +140,8 @@ define hidden void @_ZN4ncnn18resize_bilinear_c1EPKhiiiPhiii(ptr noundef readonl
   %87 = select fast i1 %86, float 5.000000e-01, float -5.000000e-01
   %88 = fadd fast float %87, %85
   %89 = tail call i16 @llvm.fptosi.sat.i16.f32(float %88)
-  %.idx352 = shl nuw nsw i64 %indvars.iv335, 2
-  %90 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx352
+  %.idx366 = shl nuw nsw i64 %indvars.iv335, 2
+  %90 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx366
   store i16 %89, ptr %90, align 2, !tbaa !8
   %91 = fcmp fast oge float %84, 0.000000e+00
   %92 = select fast i1 %91, float 5.000000e-01, float -5.000000e-01
@@ -850,8 +850,8 @@ define hidden void @_ZN4ncnn18resize_bilinear_c2EPKhiiiPhiii(ptr noundef readonl
   %90 = select fast i1 %89, float 5.000000e-01, float -5.000000e-01
   %91 = fadd fast float %90, %88
   %92 = tail call i16 @llvm.fptosi.sat.i16.f32(float %91)
-  %.idx373 = shl nuw nsw i64 %indvars.iv356, 2
-  %93 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx373
+  %.idx390 = shl nuw nsw i64 %indvars.iv356, 2
+  %93 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx390
   store i16 %92, ptr %93, align 2, !tbaa !8
   %94 = fcmp fast oge float %87, 0.000000e+00
   %95 = select fast i1 %94, float 5.000000e-01, float -5.000000e-01
@@ -1602,8 +1602,8 @@ define hidden void @_ZN4ncnn18resize_bilinear_c3EPKhiiiPhiii(ptr noundef readonl
   %90 = select fast i1 %89, float 5.000000e-01, float -5.000000e-01
   %91 = fadd fast float %90, %88
   %92 = tail call i16 @llvm.fptosi.sat.i16.f32(float %91)
-  %.idx388 = shl nuw nsw i64 %indvars.iv371, 2
-  %93 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx388
+  %.idx405 = shl nuw nsw i64 %indvars.iv371, 2
+  %93 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx405
   store i16 %92, ptr %93, align 2, !tbaa !8
   %94 = fcmp fast oge float %87, 0.000000e+00
   %95 = select fast i1 %94, float 5.000000e-01, float -5.000000e-01
@@ -2392,8 +2392,8 @@ define hidden void @_ZN4ncnn18resize_bilinear_c4EPKhiiiPhiii(ptr noundef readonl
   %89 = select fast i1 %88, float 5.000000e-01, float -5.000000e-01
   %90 = fadd fast float %89, %87
   %91 = tail call i16 @llvm.fptosi.sat.i16.f32(float %90)
-  %.idx403 = shl nuw nsw i64 %indvars.iv386, 2
-  %92 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx403
+  %.idx420 = shl nuw nsw i64 %indvars.iv386, 2
+  %92 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx420
   store i16 %91, ptr %92, align 2, !tbaa !8
   %93 = fcmp fast oge float %86, 0.000000e+00
   %94 = select fast i1 %93, float 5.000000e-01, float -5.000000e-01

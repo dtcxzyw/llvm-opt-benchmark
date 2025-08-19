@@ -151,8 +151,8 @@ define internal noundef zeroext i1 @busmaster_read(ptr noundef captures(none) %0
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %11 = load ptr, ptr %0, align 8
   %12 = tail call i32 @file_eof(ptr noundef %11)
-  %.not95 = icmp eq i32 %12, 0
-  br i1 %.not95, label %.lr.ph, label %._crit_edge
+  %.not103 = icmp eq i32 %12, 0
+  br i1 %.not103, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %83, %5
   store i32 0, ptr %2, align 4

@@ -983,7 +983,7 @@ define dso_local noundef i32 @crypto_hash_sha256_final(ptr noundef nonnull %0, p
   %scevgep32.i = getelementptr i8, ptr %17, i64 40
   %narrow.i = sub nuw nsw i32 56, %8
   %18 = zext nneg i32 %narrow.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep32.i, ptr noundef nonnull align 16 dereferenceable(1) @PAD, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep32.i, ptr nonnull align 16 @PAD, i64 %18, i1 false)
   br label %SHA256_Pad.exit
 
 SHA256_Pad.exit:                                  ; preds = %.preheader28.i, %.lr.ph.i

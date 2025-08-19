@@ -409,7 +409,7 @@ bytestream2_get_byte.exit264:                     ; preds = %86, %87
   %181 = load ptr, ptr %180, align 8, !tbaa !33
   %182 = zext nneg i32 %.0218 to i64
   %183 = getelementptr inbounds nuw i32, ptr %181, i64 %182
-  switch i32 %.0235, label %default.unreachable359 [
+  switch i32 %.0235, label %default.unreachable367 [
     i32 4, label %.preheader282
     i32 3, label %.preheader284
     i32 2, label %.preheader286
@@ -474,7 +474,7 @@ bytestream2_get_byte.exit264:                     ; preds = %86, %87
   %exitcond.not = icmp eq i32 %218, %.0219
   br i1 %exitcond.not, label %.loopexit283, label %.preheader286, !llvm.loop !46
 
-default.unreachable359:                           ; preds = %179
+default.unreachable367:                           ; preds = %179
   unreachable
 
 .loopexit283:                                     ; preds = %.preheader286, %.preheader284, %.preheader282, %174, %149
@@ -879,8 +879,8 @@ advance_line.exit.thread:                         ; preds = %advance_line.exit, 
   br i1 %.not, label %._crit_edge, label %16, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %advance_line.exit.thread, %52
-  %.274129 = phi i32 [ %42, %52 ], [ %.274, %advance_line.exit.thread ]
-  %95 = icmp eq i32 %.274129, 0
+  %.274142 = phi i32 [ %42, %52 ], [ %.274, %advance_line.exit.thread ]
+  %95 = icmp eq i32 %.274142, 0
   br i1 %95, label %._crit_edge.thread, label %._crit_edge.thread.sink.split
 
 ._crit_edge.thread.sink.split:                    ; preds = %16, %._crit_edge

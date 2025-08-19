@@ -617,7 +617,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %_ZN
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread: ; preds = %146
   %153 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split142
+  br label %.sink.split176
 
 154:                                              ; preds = %150, %149
   %.0 = phi i1 [ false, %150 ], [ true, %149 ]
@@ -659,14 +659,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread139: ; pr
   %171 = load i64, ptr %169, align 8
   %172 = add i64 %171, 1
   call void @_ZdlPvm(ptr noundef %168, i64 noundef %172) #20
-  br label %.sink.split142
+  br label %.sink.split176
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78.thread: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.thread
   %173 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %174 = load i64, ptr %173, align 8
   %175 = icmp ult i64 %174, 16
   call void @llvm.assume(i1 %175)
-  br label %.sink.split142
+  br label %.sink.split176
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76
   %176 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -687,15 +687,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %.0, label %181, label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit95
 
-.sink.split142:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread139
+.sink.split176:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread139
   %.pn38.pn113.ph = phi { ptr, i32 } [ %167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread139 ], [ %167, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78.thread ], [ %153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %181
 
-181:                                              ; preds = %.sink.split142, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79
-  %.pn38.pn113 = phi { ptr, i32 } [ %155, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79 ], [ %155, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78 ], [ %.pn38.pn113.ph, %.sink.split142 ]
+181:                                              ; preds = %.sink.split176, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79
+  %.pn38.pn113 = phi { ptr, i32 } [ %155, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79 ], [ %155, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78 ], [ %.pn38.pn113.ph, %.sink.split176 ]
   call void @__cxa_free_exception(ptr %147) #19
   br label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit95
 
@@ -3594,8 +3594,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %_Z
   %124 = add i32 %123, -1
   %125 = zext i32 %124 to i64
   %126 = icmp samesign ult i64 %.093117, %125
-  %.str.77..str.84165 = select i1 %126, ptr @.str.77, ptr @.str.84
-  %127 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %.str.77..str.84165, i64 noundef 1)
+  %.str.77..str.84180 = select i1 %126, ptr @.str.77, ptr @.str.84
+  %127 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %.str.77..str.84180, i64 noundef 1)
   %128 = load ptr, ptr %19, align 8
   %129 = load i64, ptr %21, align 8
   %130 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %128, i64 noundef %129)
@@ -3616,8 +3616,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %_Z
   %142 = add i32 %141, -1
   %143 = zext i32 %142 to i64
   %144 = icmp samesign ult i64 %.097113, %143
-  %.str.77..str.84166 = select i1 %144, ptr @.str.77, ptr @.str.84
-  %145 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %.str.77..str.84166, i64 noundef 1)
+  %.str.77..str.84181 = select i1 %144, ptr @.str.77, ptr @.str.84
+  %145 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %.str.77..str.84181, i64 noundef 1)
   %146 = add nuw nsw i64 %.097113, 1
   %147 = load i32, ptr %113, align 8
   %148 = zext i32 %147 to i64
@@ -3889,8 +3889,8 @@ _ZN6Assimp13XFileExporter6PopTagEv.exit107:       ; preds = %_ZN6Assimp13XFileEx
   %348 = add i32 %347, -1
   %349 = zext i32 %348 to i64
   %350 = icmp samesign ult i64 %.098124, %349
-  %.str.77..str.84167 = select i1 %350, ptr @.str.77, ptr @.str.84
-  %351 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %.str.77..str.84167, i64 noundef 1)
+  %.str.77..str.84182 = select i1 %350, ptr @.str.77, ptr @.str.84
+  %351 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %.str.77..str.84182, i64 noundef 1)
   %352 = load ptr, ptr %19, align 8
   %353 = load i64, ptr %21, align 8
   %354 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %352, i64 noundef %353)
@@ -3935,8 +3935,8 @@ _ZN6Assimp13XFileExporter6PopTagEv.exit107:       ; preds = %_ZN6Assimp13XFileEx
   %379 = add i32 %378, -1
   %380 = zext i32 %379 to i64
   %381 = icmp samesign ult i64 %.096132, %380
-  %.str.77..str.84168 = select i1 %381, ptr @.str.77, ptr @.str.84
-  %382 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %.str.77..str.84168, i64 noundef 1)
+  %.str.77..str.84183 = select i1 %381, ptr @.str.77, ptr @.str.84
+  %382 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %.str.77..str.84183, i64 noundef 1)
   %383 = load ptr, ptr %19, align 8
   %384 = load i64, ptr %21, align 8
   %385 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %383, i64 noundef %384)
@@ -3957,8 +3957,8 @@ _ZN6Assimp13XFileExporter6PopTagEv.exit107:       ; preds = %_ZN6Assimp13XFileEx
   %397 = add i32 %396, -1
   %398 = zext i32 %397 to i64
   %399 = icmp samesign ult i64 %.095128, %398
-  %.str.77..str.84169 = select i1 %399, ptr @.str.77, ptr @.str.84
-  %400 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %.str.77..str.84169, i64 noundef 1)
+  %.str.77..str.84184 = select i1 %399, ptr @.str.77, ptr @.str.84
+  %400 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %.str.77..str.84184, i64 noundef 1)
   %401 = add nuw nsw i64 %.095128, 1
   %402 = load i32, ptr %368, align 8
   %403 = zext i32 %402 to i64
@@ -4115,8 +4115,8 @@ _ZN6Assimp13XFileExporter6PopTagEv.exit107:       ; preds = %_ZN6Assimp13XFileEx
   %526 = add i32 %525, -1
   %527 = zext i32 %526 to i64
   %528 = icmp samesign ult i64 %.092140, %527
-  %.str.77..str.84170 = select i1 %528, ptr @.str.77, ptr @.str.84
-  %529 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %.str.77..str.84170, i64 noundef 1)
+  %.str.77..str.84185 = select i1 %528, ptr @.str.77, ptr @.str.84
+  %529 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %.str.77..str.84185, i64 noundef 1)
   %530 = load ptr, ptr %19, align 8
   %531 = load i64, ptr %21, align 8
   %532 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %530, i64 noundef %531)

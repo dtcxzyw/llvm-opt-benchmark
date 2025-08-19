@@ -1139,7 +1139,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
 .loopexit70:                                      ; preds = %139, %.preheader69.split.us, %.preheader69.split, %147
   %174 = phi ptr [ %115, %147 ], [ %167, %.preheader69.split ], [ %159, %.preheader69.split.us ], [ %135, %139 ]
   %175 = icmp eq ptr %174, null
-  br i1 %175, label %.thread51, label %.thread135
+  br i1 %175, label %.thread51, label %.thread198
 
 .thread51:                                        ; preds = %144, %164, %171, %153, %126, %.loopexit70
   %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
@@ -1288,23 +1288,23 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   store volatile ptr %244, ptr %245, align 8
   %.pre132 = load i32, ptr %116, align 8
   %246 = icmp eq i32 %.pre132, 0
-  br i1 %246, label %.thread53, label %.thread135
+  br i1 %246, label %.thread53, label %.thread198
 
-.thread135:                                       ; preds = %.loopexit70, %215
+.thread198:                                       ; preds = %.loopexit70, %215
   %247 = phi ptr [ %177, %215 ], [ %174, %.loopexit70 ]
   %248 = getelementptr inbounds nuw i8, ptr %114, i64 64
   br label %251
 
 249:                                              ; preds = %.loopexit66
   %250 = icmp eq i32 %296, 0
-  br i1 %250, label %.thread53, label %.preheader168
+  br i1 %250, label %.thread53, label %.preheader231
 
-251:                                              ; preds = %.loopexit66, %.thread135
-  %252 = phi i32 [ 0, %.thread135 ], [ %294, %.loopexit66 ]
-  %253 = phi i32 [ -1, %.thread135 ], [ %293, %.loopexit66 ]
-  %254 = phi i32 [ -1, %.thread135 ], [ %292, %.loopexit66 ]
-  %255 = phi i32 [ 0, %.thread135 ], [ %291, %.loopexit66 ]
-  %256 = phi i32 [ 0, %.thread135 ], [ %295, %.loopexit66 ]
+251:                                              ; preds = %.loopexit66, %.thread198
+  %252 = phi i32 [ 0, %.thread198 ], [ %294, %.loopexit66 ]
+  %253 = phi i32 [ -1, %.thread198 ], [ %293, %.loopexit66 ]
+  %254 = phi i32 [ -1, %.thread198 ], [ %292, %.loopexit66 ]
+  %255 = phi i32 [ 0, %.thread198 ], [ %291, %.loopexit66 ]
+  %256 = phi i32 [ 0, %.thread198 ], [ %295, %.loopexit66 ]
   %257 = sext i32 %256 to i64
   %258 = getelementptr [256 x ptr], ptr %248, i64 0, i64 %257
   %259 = load ptr, ptr %258, align 8
@@ -1367,7 +1367,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   %297 = icmp ult i32 %295, %296
   br i1 %297, label %251, label %249, !llvm.loop !29
 
-.preheader168:                                    ; preds = %249, %.loopexit64
+.preheader231:                                    ; preds = %249, %.loopexit64
   %298 = phi i32 [ %317, %.loopexit64 ], [ %296, %249 ]
   %299 = phi i32 [ %318, %.loopexit64 ], [ 0, %249 ]
   %300 = sext i32 %299 to i64
@@ -1378,9 +1378,9 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   %305 = icmp eq i32 %304, 0
   br i1 %305, label %.loopexit64, label %.preheader63
 
-.preheader63:                                     ; preds = %.preheader168, %.preheader63
-  %306 = phi ptr [ %313, %.preheader63 ], [ %302, %.preheader168 ]
-  %307 = phi i32 [ %312, %.preheader63 ], [ 0, %.preheader168 ]
+.preheader63:                                     ; preds = %.preheader231, %.preheader63
+  %306 = phi ptr [ %313, %.preheader63 ], [ %302, %.preheader231 ]
+  %307 = phi i32 [ %312, %.preheader63 ], [ 0, %.preheader231 ]
   %308 = getelementptr inbounds nuw i8, ptr %306, i64 16
   %309 = load ptr, ptr %308, align 8
   %310 = sext i32 %307 to i64
@@ -1397,11 +1397,11 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   %.pre133 = load i32, ptr %116, align 8
   br label %.loopexit64
 
-.loopexit64:                                      ; preds = %.loopexit64.loopexit, %.preheader168
-  %317 = phi i32 [ %.pre133, %.loopexit64.loopexit ], [ %298, %.preheader168 ]
+.loopexit64:                                      ; preds = %.loopexit64.loopexit, %.preheader231
+  %317 = phi i32 [ %.pre133, %.loopexit64.loopexit ], [ %298, %.preheader231 ]
   %318 = add nuw i32 %299, 1
   %319 = icmp ult i32 %318, %317
-  br i1 %319, label %.preheader168, label %.thread53, !llvm.loop !31
+  br i1 %319, label %.preheader231, label %.thread53, !llvm.loop !31
 
 .thread53:                                        ; preds = %.loopexit64, %215, %249
   %320 = phi ptr [ %177, %215 ], [ %247, %249 ], [ %247, %.loopexit64 ]
@@ -1519,7 +1519,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   br label %390
 
 390:                                              ; preds = %388, %383, %376, %374
-  %391 = phi i8 [ %366, %374 ], [ 0, %376 ], [ 1, %383 ], [ 1, %388 ]
+  %391 = phi i8 [ 1, %374 ], [ 0, %376 ], [ 1, %383 ], [ 1, %388 ]
   %392 = load ptr, ptr %353, align 8
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 48
   %394 = load ptr, ptr %393, align 8
@@ -1566,9 +1566,9 @@ __hidinput_change_resolution_multipliers.exit:    ; preds = %379
 411:                                              ; preds = %408
   %412 = load i32, ptr %342, align 8
   %413 = icmp eq i32 %412, 0
-  br i1 %413, label %__hidinput_change_resolution_multipliers.exit48, label %.preheader165
+  br i1 %413, label %__hidinput_change_resolution_multipliers.exit48, label %.preheader228
 
-.preheader165:                                    ; preds = %411, %.loopexit.i41
+.preheader228:                                    ; preds = %411, %.loopexit.i41
   %414 = phi i32 [ %467, %.loopexit.i41 ], [ %412, %411 ]
   %415 = phi i32 [ %468, %.loopexit.i41 ], [ 0, %411 ]
   %416 = phi i8 [ %.ph3.i43, %.loopexit.i41 ], [ 0, %411 ]
@@ -1582,7 +1582,7 @@ __hidinput_change_resolution_multipliers.exit:    ; preds = %379
   %424 = icmp eq i32 %423, 1
   br i1 %424, label %425, label %.loopexit.i41
 
-425:                                              ; preds = %.preheader165
+425:                                              ; preds = %.preheader228
   %426 = getelementptr inbounds nuw i8, ptr %419, i64 24
   %427 = load i32, ptr %426, align 8
   %428 = icmp eq i32 %427, 0
@@ -1628,7 +1628,7 @@ __hidinput_change_resolution_multipliers.exit:    ; preds = %379
   br label %454
 
 454:                                              ; preds = %452, %447, %440, %438
-  %455 = phi i8 [ %431, %438 ], [ 0, %440 ], [ 1, %447 ], [ 1, %452 ]
+  %455 = phi i8 [ 1, %438 ], [ 0, %440 ], [ 1, %447 ], [ 1, %452 ]
   %456 = load ptr, ptr %418, align 8
   %457 = getelementptr inbounds nuw i8, ptr %456, i64 48
   %458 = load ptr, ptr %457, align 8
@@ -1650,12 +1650,12 @@ __hidinput_change_resolution_multipliers.exit:    ; preds = %379
   %.pre11.i46 = load i32, ptr %342, align 8
   br label %.loopexit.i41
 
-.loopexit.i41:                                    ; preds = %.loopexit.loopexit.i45, %425, %.preheader165
-  %467 = phi i32 [ %414, %425 ], [ %414, %.preheader165 ], [ %.pre11.i46, %.loopexit.loopexit.i45 ]
-  %.ph3.i43 = phi i8 [ %416, %425 ], [ %416, %.preheader165 ], [ %462, %.loopexit.loopexit.i45 ]
+.loopexit.i41:                                    ; preds = %.loopexit.loopexit.i45, %425, %.preheader228
+  %467 = phi i32 [ %414, %425 ], [ %414, %.preheader228 ], [ %.pre11.i46, %.loopexit.loopexit.i45 ]
+  %.ph3.i43 = phi i8 [ %416, %425 ], [ %416, %.preheader228 ], [ %462, %.loopexit.loopexit.i45 ]
   %468 = add nuw i32 %415, 1
   %469 = icmp ult i32 %468, %467
-  br i1 %469, label %.preheader165, label %__hidinput_change_resolution_multipliers.exit48, !llvm.loop !35
+  br i1 %469, label %.preheader228, label %__hidinput_change_resolution_multipliers.exit48, !llvm.loop !35
 
 __hidinput_change_resolution_multipliers.exit.thread: ; preds = %340, %407, %408, %__hidinput_change_resolution_multipliers.exit
   %470 = load ptr, ptr %341, align 8
@@ -2935,7 +2935,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
 
 168:                                              ; preds = %165
   %169 = and i32 %72, 15
-  switch i32 %169, label %default.unreachable308 [
+  switch i32 %169, label %default.unreachable320 [
     i32 1, label %170
     i32 2, label %174
     i32 3, label %178
@@ -6416,7 +6416,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1302, i64 303) #11, !srcloc !47
   br label %1331
 
-default.unreachable308:                           ; preds = %168
+default.unreachable320:                           ; preds = %168
   unreachable
 
 1305:                                             ; preds = %168, %1213, %1209, %378, %316, %266, %250, %71
@@ -6475,9 +6475,9 @@ default.unreachable308:                           ; preds = %168
   br i1 %1332, label %thread-pre-split285.thread, label %.thread277
 
 .thread277.sink.split:                            ; preds = %1329, %1327, %1319, %1317, %1132, %464, %415, %402, %398, %366, %362, %358, %354, %350, %346, %342, %338, %334, %330, %326, %296, %285, %280, %262, %161, %157, %153, %149, %145, %86
-  %.sink317 = phi i32 [ 767, %86 ], [ 63, %145 ], [ 63, %149 ], [ 63, %153 ], [ 63, %157 ], [ 63, %161 ], [ 63, %262 ], [ 15, %280 ], [ 63, %285 ], [ 63, %296 ], [ 15, %326 ], [ 15, %330 ], [ 15, %334 ], [ 15, %338 ], [ 15, %342 ], [ 15, %346 ], [ 15, %350 ], [ 15, %354 ], [ 15, %358 ], [ 15, %362 ], [ 15, %366 ], [ 767, %398 ], [ 767, %402 ], [ 767, %415 ], [ 7, %464 ], [ 15, %1132 ], [ 15, %1317 ], [ 767, %1319 ], [ 15, %1327 ], [ 63, %1329 ]
+  %.sink329 = phi i32 [ 767, %86 ], [ 63, %145 ], [ 63, %149 ], [ 63, %153 ], [ 63, %157 ], [ 63, %161 ], [ 63, %262 ], [ 15, %280 ], [ 63, %285 ], [ 63, %296 ], [ 15, %326 ], [ 15, %330 ], [ 15, %334 ], [ 15, %338 ], [ 15, %342 ], [ 15, %346 ], [ 15, %350 ], [ 15, %354 ], [ 15, %358 ], [ 15, %362 ], [ 15, %366 ], [ 767, %398 ], [ 767, %402 ], [ 767, %415 ], [ 7, %464 ], [ 15, %1132 ], [ 15, %1317 ], [ 767, %1319 ], [ 15, %1327 ], [ 63, %1329 ]
   %.sink = phi ptr [ %87, %86 ], [ %146, %145 ], [ %150, %149 ], [ %154, %153 ], [ %158, %157 ], [ %162, %161 ], [ %263, %262 ], [ %282, %280 ], [ %286, %285 ], [ %305, %296 ], [ %327, %326 ], [ %331, %330 ], [ %335, %334 ], [ %339, %338 ], [ %343, %342 ], [ %347, %346 ], [ %351, %350 ], [ %355, %354 ], [ %359, %358 ], [ %363, %362 ], [ %367, %366 ], [ %399, %398 ], [ %403, %402 ], [ %416, %415 ], [ %465, %464 ], [ %1134, %1132 ], [ %1318, %1317 ], [ %1320, %1319 ], [ %1328, %1327 ], [ %1330, %1329 ]
-  store i32 %.sink317, ptr %5, align 4
+  store i32 %.sink329, ptr %5, align 4
   store ptr %.sink, ptr %6, align 8
   br label %.thread277
 
@@ -6755,7 +6755,7 @@ thread-pre-split285.thread:                       ; preds = %1471, %1467, %65, %
 define internal fastcc void @hid_map_usage_clear(ptr %.24.val, ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, i8 noundef zeroext range(i8 1, 4) %3, i16 noundef zeroext %4) unnamed_addr #8 align 16 {
   %6 = zext i16 %4 to i32
   %7 = zext nneg i8 %3 to i32
-  switch i8 %3, label %default.unreachable1 [
+  switch i8 %3, label %default.unreachable2 [
     i8 3, label %10
     i8 2, label %8
     i8 1, label %9
@@ -6767,7 +6767,7 @@ define internal fastcc void @hid_map_usage_clear(ptr %.24.val, ptr noundef captu
 9:                                                ; preds = %5
   br label %10
 
-default.unreachable1:                             ; preds = %5
+default.unreachable2:                             ; preds = %5
   unreachable
 
 10:                                               ; preds = %5, %9, %8

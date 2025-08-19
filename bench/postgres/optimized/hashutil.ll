@@ -648,7 +648,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
   br label %.outer
 
 .outer:                                           ; preds = %.loopexit.thread, %.lr.ph61
-  %indvars.iv.ph = phi i64 [ %indvars.iv.next64, %.loopexit.thread ], [ 0, %.lr.ph61 ]
+  %indvars.iv.ph = phi i64 [ %indvars.iv.next67, %.loopexit.thread ], [ 0, %.lr.ph61 ]
   %.04659.ph = phi i1 [ true, %.loopexit.thread ], [ false, %.lr.ph61 ]
   br label %44
 
@@ -691,9 +691,9 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %62 = load i32, ptr %61, align 4
   %63 = or i32 %62, 98304
   store i32 %63, ptr %61, align 4
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not65 = icmp eq i64 %indvars.iv.next64, %wide.trip.count
-  br i1 %exitcond.not65, label %._crit_edge.thread, label %.outer, !llvm.loop !9
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not68 = icmp eq i64 %indvars.iv.next67, %wide.trip.count
+  br i1 %exitcond.not68, label %._crit_edge.thread, label %.outer, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit
   br i1 %.04659.ph, label %._crit_edge.thread, label %.critedge

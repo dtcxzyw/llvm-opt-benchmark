@@ -367,14 +367,14 @@ define internal range(i32 -2147483648, 1) i32 @h265_metadata_update_fragment(ptr
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %134, %131, %121, %._crit_edge.i, %67
-  %.0.lcssa97.i = phi ptr [ %.1.i, %121 ], [ %.1.i, %134 ], [ %.1.i, %131 ], [ %.1.i, %._crit_edge.i ], [ null, %67 ]
-  %.047.lcssa96.i = phi i32 [ %.148.i, %121 ], [ %.148.i, %134 ], [ %.148.i, %131 ], [ %.148.i, %._crit_edge.i ], [ 0, %67 ]
-  %.050.lcssa95.i = phi i32 [ %.151.i, %121 ], [ %.151.i, %134 ], [ %.151.i, %131 ], [ %.151.i, %._crit_edge.i ], [ 0, %67 ]
-  %.052.lcssa94.i = phi i32 [ %.153.i, %121 ], [ %.153.i, %134 ], [ %.153.i, %131 ], [ %.153.i, %._crit_edge.i ], [ 0, %67 ]
-  %.055.lcssa93.i = phi i32 [ %.156.i, %121 ], [ %.156.i, %134 ], [ %.156.i, %131 ], [ %.156.i, %._crit_edge.i ], [ 0, %67 ]
-  %.058.lcssa92.i = phi i32 [ %.159.i, %121 ], [ %.159.i, %134 ], [ %.159.i, %131 ], [ %.159.i, %._crit_edge.i ], [ 0, %67 ]
+  %.0.lcssa98.i = phi ptr [ %.1.i, %121 ], [ %.1.i, %134 ], [ %.1.i, %131 ], [ %.1.i, %._crit_edge.i ], [ null, %67 ]
+  %.047.lcssa97.i = phi i32 [ %.148.i, %121 ], [ %.148.i, %134 ], [ %.148.i, %131 ], [ %.148.i, %._crit_edge.i ], [ 0, %67 ]
+  %.050.lcssa96.i = phi i32 [ %.151.i, %121 ], [ %.151.i, %134 ], [ %.151.i, %131 ], [ %.151.i, %._crit_edge.i ], [ 0, %67 ]
+  %.052.lcssa95.i = phi i32 [ %.153.i, %121 ], [ %.153.i, %134 ], [ %.153.i, %131 ], [ %.153.i, %._crit_edge.i ], [ 0, %67 ]
+  %.055.lcssa94.i = phi i32 [ %.156.i, %121 ], [ %.156.i, %134 ], [ %.156.i, %131 ], [ %.156.i, %._crit_edge.i ], [ 0, %67 ]
+  %.058.lcssa93.i = phi i32 [ %.159.i, %121 ], [ %.159.i, %134 ], [ %.159.i, %131 ], [ %.159.i, %._crit_edge.i ], [ 0, %67 ]
   %.046.i = phi i64 [ %130, %121 ], [ %145, %134 ], [ 0, %131 ], [ 0, %._crit_edge.i ], [ 0, %67 ]
-  %146 = tail call ptr @ff_h265_guess_level(ptr noundef %.0.lcssa97.i, i64 noundef %.046.i, i32 noundef %.047.lcssa96.i, i32 noundef %.058.lcssa92.i, i32 noundef 0, i32 noundef %.052.lcssa94.i, i32 noundef %.055.lcssa93.i, i32 noundef %.050.lcssa95.i) #4
+  %146 = tail call ptr @ff_h265_guess_level(ptr noundef %.0.lcssa98.i, i64 noundef %.046.i, i32 noundef %.047.lcssa97.i, i32 noundef %.058.lcssa93.i, i32 noundef 0, i32 noundef %.052.lcssa95.i, i32 noundef %.055.lcssa94.i, i32 noundef %.050.lcssa96.i) #4
   %.not64.i = icmp eq ptr %146, null
   br i1 %.not64.i, label %h265_metadata_guess_level.exit, label %147
 
@@ -689,21 +689,21 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
 
 302:                                              ; preds = %299
   %303 = trunc i32 %300 to i8
-  br label %.sink.split170.i
+  br label %.sink.split195.i
 
 304:                                              ; preds = %299
   %305 = getelementptr inbounds nuw i8, ptr %210, i64 10967
   %306 = load i8, ptr %305, align 1, !tbaa !93
   %.not129.i = icmp eq i8 %306, 0
-  br i1 %.not129.i, label %.sink.split170.i, label %308
+  br i1 %.not129.i, label %.sink.split195.i, label %308
 
-.sink.split170.i:                                 ; preds = %304, %302
-  %.sink171.i = phi i8 [ %303, %302 ], [ 2, %304 ]
+.sink.split195.i:                                 ; preds = %304, %302
+  %.sink196.i = phi i8 [ %303, %302 ], [ 2, %304 ]
   %307 = getelementptr inbounds nuw i8, ptr %210, i64 10969
-  store i8 %.sink171.i, ptr %307, align 1, !tbaa !94
+  store i8 %.sink196.i, ptr %307, align 1, !tbaa !94
   br label %308
 
-308:                                              ; preds = %.sink.split170.i, %304
+308:                                              ; preds = %.sink.split195.i, %304
   %309 = getelementptr inbounds nuw i8, ptr %211, i64 112
   %310 = load i32, ptr %309, align 8, !tbaa !88
   %311 = icmp sgt i32 %310, -1
@@ -711,21 +711,21 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
 
 312:                                              ; preds = %308
   %313 = trunc i32 %310 to i8
-  br label %.sink.split173.i
+  br label %.sink.split198.i
 
 314:                                              ; preds = %308
   %315 = getelementptr inbounds nuw i8, ptr %210, i64 10967
   %316 = load i8, ptr %315, align 1, !tbaa !93
   %.not130.i = icmp eq i8 %316, 0
-  br i1 %.not130.i, label %.sink.split173.i, label %318
+  br i1 %.not130.i, label %.sink.split198.i, label %318
 
-.sink.split173.i:                                 ; preds = %314, %312
-  %.sink174.i = phi i8 [ %313, %312 ], [ 2, %314 ]
+.sink.split198.i:                                 ; preds = %314, %312
+  %.sink199.i = phi i8 [ %313, %312 ], [ 2, %314 ]
   %317 = getelementptr inbounds nuw i8, ptr %210, i64 10970
-  store i8 %.sink174.i, ptr %317, align 2, !tbaa !95
+  store i8 %.sink199.i, ptr %317, align 2, !tbaa !95
   br label %318
 
-318:                                              ; preds = %.sink.split173.i, %314
+318:                                              ; preds = %.sink.split198.i, %314
   %319 = getelementptr inbounds nuw i8, ptr %210, i64 10967
   store i8 1, ptr %319, align 1, !tbaa !93
   br label %320
@@ -788,19 +788,19 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
   %350 = add nsw i32 %347, -1
   %351 = getelementptr inbounds nuw i8, ptr %210, i64 11000
   store i32 %350, ptr %351, align 4, !tbaa !103
-  br label %.sink.split176.i
+  br label %.sink.split201.i
 
 352:                                              ; preds = %337
   %353 = icmp eq i32 %347, 0
-  br i1 %353, label %.sink.split176.i, label %355
+  br i1 %353, label %.sink.split201.i, label %355
 
-.sink.split176.i:                                 ; preds = %352, %349
-  %.sink177.i = phi i8 [ 1, %349 ], [ 0, %352 ]
+.sink.split201.i:                                 ; preds = %352, %349
+  %.sink202.i = phi i8 [ 1, %349 ], [ 0, %352 ]
   %354 = getelementptr inbounds nuw i8, ptr %210, i64 10996
-  store i8 %.sink177.i, ptr %354, align 4, !tbaa !104
+  store i8 %.sink202.i, ptr %354, align 4, !tbaa !104
   br label %355
 
-355:                                              ; preds = %.sink.split176.i, %352
+355:                                              ; preds = %.sink.split201.i, %352
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %356

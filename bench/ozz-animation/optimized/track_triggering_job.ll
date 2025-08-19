@@ -194,8 +194,8 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animat
   br i1 %or.cond44.i, label %83, label %49
 
 49:                                               ; preds = %46, %36
-  %storemerge81 = phi i8 [ 1, %36 ], [ 0, %46 ]
-  store i8 %storemerge81, ptr %28, align 4, !tbaa !33
+  %storemerge90 = phi i8 [ 1, %36 ], [ 0, %46 ]
+  store i8 %storemerge90, ptr %28, align 4, !tbaa !33
   %50 = load ptr, ptr %29, align 8, !tbaa !34
   %51 = sdiv i64 %39, 8
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 %51

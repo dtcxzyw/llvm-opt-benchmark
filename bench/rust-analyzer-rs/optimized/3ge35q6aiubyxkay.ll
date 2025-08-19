@@ -94,9 +94,9 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc9
   %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 1
   %.sroa.0.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 2
   %.sroa.0.i.i.i.3.i.i.i.3.i.i.i.3.i.i.3.i.i.3.i.3.i.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 3
-  %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx18 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 1
-  %.sroa.0.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx20 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 2
-  %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx19 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 1
+  %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx27 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 1
+  %.sroa.0.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx29 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 2
+  %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx28 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 1
   br label %8
 
 8:                                                ; preds = %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$13spec_for_each5check28_$u7b$$u7b$closure$u7d$$u7d$17hce9b1bc1ebac7325E.exit", %3
@@ -189,7 +189,7 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc9
   %57 = trunc i32 %47 to i8
   %58 = and i8 %57, 63
   %59 = or disjoint i8 %58, -128
-  store i8 %59, ptr %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx19, align 1, !alias.scope !40, !noalias !37
+  store i8 %59, ptr %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx28, align 1, !alias.scope !40, !noalias !37
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i
 
 60:                                               ; preds = %51
@@ -201,11 +201,11 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc9
   %65 = trunc i32 %64 to i8
   %66 = and i8 %65, 63
   %67 = or disjoint i8 %66, -128
-  store i8 %67, ptr %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx18, align 1, !alias.scope !40, !noalias !37
+  store i8 %67, ptr %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx27, align 1, !alias.scope !40, !noalias !37
   %68 = trunc i32 %47 to i8
   %69 = and i8 %68, 63
   %70 = or disjoint i8 %69, -128
-  store i8 %70, ptr %.sroa.0.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx20, align 2, !alias.scope !40, !noalias !37
+  store i8 %70, ptr %.sroa.0.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx29, align 2, !alias.scope !40, !noalias !37
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i
 
 71:                                               ; preds = %51

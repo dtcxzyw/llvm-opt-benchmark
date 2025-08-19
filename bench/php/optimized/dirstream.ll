@@ -76,24 +76,24 @@ define hidden ptr @phar_wrapper_open_dir(ptr noundef %0, ptr noundef %1, ptr nou
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !12
   %.not93 = icmp eq ptr %17, null
-  br i1 %.not93, label %.thread120, label %23
+  br i1 %.not93, label %.thread131, label %23
 
 18:                                               ; preds = %12
-  br i1 %.not94, label %.thread, label %.thread120
+  br i1 %.not94, label %.thread, label %.thread131
 
-.thread120:                                       ; preds = %15, %18
+.thread131:                                       ; preds = %15, %18
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !12
   %.not95 = icmp eq ptr %20, null
   br i1 %.not95, label %21, label %.thread
 
-21:                                               ; preds = %.thread120
+21:                                               ; preds = %.thread131
   %22 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   tail call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef nonnull %22) #11
   tail call void @php_url_free(ptr noundef nonnull %9) #11
   br label %115
 
-.thread:                                          ; preds = %14, %.thread120, %18
+.thread:                                          ; preds = %14, %.thread131, %18
   tail call void @php_url_free(ptr noundef nonnull %9) #11
   tail call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.2, ptr noundef %1, ptr noundef %1) #11
   br label %115

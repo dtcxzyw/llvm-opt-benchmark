@@ -211,8 +211,8 @@ define dso_local i32 @cli_filter_fini() local_unnamed_addr #0 {
   br i1 %6, label %18, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %.not24 = icmp eq i32 %5, 0
-  br i1 %.not24, label %._crit_edge, label %.lr.ph.preheader
+  %.not27 = icmp eq i32 %5, 0
+  br i1 %.not27, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %.pre22 = load ptr, ptr @g_context, align 8

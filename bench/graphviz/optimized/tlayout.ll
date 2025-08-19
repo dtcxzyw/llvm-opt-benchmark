@@ -556,10 +556,10 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   br label %252
 
 252:                                              ; preds = %.thread.i, %.thread72, %226
-  %.sink243.i = phi ptr [ %235, %.thread72 ], [ %247, %.thread.i ], [ %229, %226 ]
+  %.sink257.i = phi ptr [ %235, %.thread72 ], [ %247, %.thread.i ], [ %229, %226 ]
   %.sink.i38 = phi double [ %236, %.thread72 ], [ %251, %.thread.i ], [ %.sroa.8.3.i, %226 ]
   %253 = phi ptr [ %233, %.thread72 ], [ %245, %.thread.i ], [ %227, %226 ]
-  %254 = getelementptr inbounds nuw i8, ptr %.sink243.i, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %.sink257.i, i64 8
   store double %.sink.i38, ptr %254, align 8, !tbaa !77
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 163
   store i8 1, ptr %255, align 1, !tbaa !69

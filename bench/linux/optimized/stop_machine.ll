@@ -441,16 +441,16 @@ define internal i32 @multi_cpu_stop(ptr noundef %0) #0 align 16 {
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.fr8 = freeze i1 %16
-  br i1 %.fr8, label %.split.us.preheader, label %.split.preheader
+  %.fr15 = freeze i1 %16
+  br i1 %.fr15, label %.split.us.preheader, label %.split.preheader
 
 20:                                               ; preds = %1
   %21 = zext i32 %3 to i64
   %22 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %21) #13, !srcloc !30
-  %.fr10 = freeze i8 %22
-  %23 = icmp ult i8 %.fr10, 2
+  %.fr17 = freeze i8 %22
+  %23 = icmp ult i8 %.fr17, 2
   call void @llvm.assume(i1 %23)
-  %.not = icmp eq i8 %.fr10, 0
+  %.not = icmp eq i8 %.fr17, 0
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -1569,8 +1569,8 @@ define internal fastcc i32 @g_write(ptr noundef %0, ptr noundef captures(none) %
 .thread:                                          ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not25 = icmp eq i32 %10, 0
-  br i1 %.not25, label %._crit_edge.thread, label %.lr.ph.backedge
+  %.not26 = icmp eq i32 %10, 0
+  br i1 %.not26, label %._crit_edge.thread, label %.lr.ph.backedge
 
 ._crit_edge:                                      ; preds = %18
   br i1 %22, label %._crit_edge.thread, label %.critedge, !prof !43

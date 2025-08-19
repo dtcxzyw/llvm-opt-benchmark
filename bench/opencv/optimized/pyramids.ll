@@ -349,8 +349,8 @@ _ZNK2cv11_InputArray6getMatEi.exit75:             ; preds = %57, %60
   %switch.maskindex = trunc nuw nsw i32 %62 to i8
   %switch.shifted = lshr i8 109, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond85 = select i1 %83, i1 %switch.lobit, i1 false
-  br i1 %or.cond85, label %switch.lookup, label %84
+  %or.cond88 = select i1 %83, i1 %switch.lobit, i1 false
+  br i1 %or.cond88, label %switch.lookup, label %84
 
 84:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -823,8 +823,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %152, %157
   %158 = load ptr, ptr %7, align 8, !tbaa !42
   %.not.i.i88 = icmp eq ptr %158, %57
   %159 = icmp eq ptr %158, null
-  %or.cond119 = or i1 %.not.i.i88, %159
-  br i1 %or.cond119, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit89, label %160
+  %or.cond135 = or i1 %.not.i.i88, %159
+  br i1 %or.cond135, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit89, label %160
 
 160:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %158) #17
@@ -835,8 +835,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit89:           ; preds = %160, %_ZN2cv10AutoB
   %161 = load ptr, ptr %6, align 8, !tbaa !42
   %.not.i.i90 = icmp eq ptr %161, %47
   %162 = icmp eq ptr %161, null
-  %or.cond120 = or i1 %.not.i.i90, %162
-  br i1 %or.cond120, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit91, label %163
+  %or.cond136 = or i1 %.not.i.i90, %162
+  br i1 %or.cond136, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit91, label %163
 
 163:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit89
   call void @_ZdaPv(ptr noundef nonnull %161) #17
@@ -881,8 +881,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit93:           ; preds = %171, %166, %86
   %172 = load ptr, ptr %7, align 8, !tbaa !42
   %.not.i.i94 = icmp eq ptr %172, %57
   %173 = icmp eq ptr %172, null
-  %or.cond121 = or i1 %.not.i.i94, %173
-  br i1 %or.cond121, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit95, label %174
+  %or.cond137 = or i1 %.not.i.i94, %173
+  br i1 %or.cond137, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit95, label %174
 
 174:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit93
   call void @_ZdaPv(ptr noundef nonnull %172) #17
@@ -894,8 +894,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit95:           ; preds = %174, %_ZN2cv10AutoB
   %175 = load ptr, ptr %6, align 8, !tbaa !42
   %.not.i.i96 = icmp eq ptr %175, %47
   %176 = icmp eq ptr %175, null
-  %or.cond122 = or i1 %.not.i.i96, %176
-  br i1 %or.cond122, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit97, label %177
+  %or.cond138 = or i1 %.not.i.i96, %176
+  br i1 %or.cond138, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit97, label %177
 
 177:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit95
   call void @_ZdaPv(ptr noundef nonnull %175) #17
@@ -1260,8 +1260,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %152, %157
   %158 = load ptr, ptr %7, align 8, !tbaa !42
   %.not.i.i88 = icmp eq ptr %158, %57
   %159 = icmp eq ptr %158, null
-  %or.cond119 = or i1 %.not.i.i88, %159
-  br i1 %or.cond119, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit89, label %160
+  %or.cond135 = or i1 %.not.i.i88, %159
+  br i1 %or.cond135, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit89, label %160
 
 160:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %158) #17
@@ -1272,8 +1272,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit89:           ; preds = %160, %_ZN2cv10AutoB
   %161 = load ptr, ptr %6, align 8, !tbaa !42
   %.not.i.i90 = icmp eq ptr %161, %47
   %162 = icmp eq ptr %161, null
-  %or.cond120 = or i1 %.not.i.i90, %162
-  br i1 %or.cond120, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit91, label %163
+  %or.cond136 = or i1 %.not.i.i90, %162
+  br i1 %or.cond136, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit91, label %163
 
 163:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit89
   call void @_ZdaPv(ptr noundef nonnull %161) #17
@@ -1318,8 +1318,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit93:           ; preds = %171, %166, %86
   %172 = load ptr, ptr %7, align 8, !tbaa !42
   %.not.i.i94 = icmp eq ptr %172, %57
   %173 = icmp eq ptr %172, null
-  %or.cond121 = or i1 %.not.i.i94, %173
-  br i1 %or.cond121, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit95, label %174
+  %or.cond137 = or i1 %.not.i.i94, %173
+  br i1 %or.cond137, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit95, label %174
 
 174:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit93
   call void @_ZdaPv(ptr noundef nonnull %172) #17
@@ -1331,8 +1331,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit95:           ; preds = %174, %_ZN2cv10AutoB
   %175 = load ptr, ptr %6, align 8, !tbaa !42
   %.not.i.i96 = icmp eq ptr %175, %47
   %176 = icmp eq ptr %175, null
-  %or.cond122 = or i1 %.not.i.i96, %176
-  br i1 %or.cond122, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit97, label %177
+  %or.cond138 = or i1 %.not.i.i96, %176
+  br i1 %or.cond138, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit97, label %177
 
 177:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit95
   call void @_ZdaPv(ptr noundef nonnull %175) #17
@@ -1697,8 +1697,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %152, %157
   %158 = load ptr, ptr %7, align 8, !tbaa !42
   %.not.i.i88 = icmp eq ptr %158, %57
   %159 = icmp eq ptr %158, null
-  %or.cond119 = or i1 %.not.i.i88, %159
-  br i1 %or.cond119, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit89, label %160
+  %or.cond135 = or i1 %.not.i.i88, %159
+  br i1 %or.cond135, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit89, label %160
 
 160:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %158) #17
@@ -1709,8 +1709,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit89:           ; preds = %160, %_ZN2cv10AutoB
   %161 = load ptr, ptr %6, align 8, !tbaa !42
   %.not.i.i90 = icmp eq ptr %161, %47
   %162 = icmp eq ptr %161, null
-  %or.cond120 = or i1 %.not.i.i90, %162
-  br i1 %or.cond120, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit91, label %163
+  %or.cond136 = or i1 %.not.i.i90, %162
+  br i1 %or.cond136, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit91, label %163
 
 163:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit89
   call void @_ZdaPv(ptr noundef nonnull %161) #17
@@ -1755,8 +1755,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit93:           ; preds = %171, %166, %86
   %172 = load ptr, ptr %7, align 8, !tbaa !42
   %.not.i.i94 = icmp eq ptr %172, %57
   %173 = icmp eq ptr %172, null
-  %or.cond121 = or i1 %.not.i.i94, %173
-  br i1 %or.cond121, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit95, label %174
+  %or.cond137 = or i1 %.not.i.i94, %173
+  br i1 %or.cond137, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit95, label %174
 
 174:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit93
   call void @_ZdaPv(ptr noundef nonnull %172) #17
@@ -1768,8 +1768,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit95:           ; preds = %174, %_ZN2cv10AutoB
   %175 = load ptr, ptr %6, align 8, !tbaa !42
   %.not.i.i96 = icmp eq ptr %175, %47
   %176 = icmp eq ptr %175, null
-  %or.cond122 = or i1 %.not.i.i96, %176
-  br i1 %or.cond122, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit97, label %177
+  %or.cond138 = or i1 %.not.i.i96, %176
+  br i1 %or.cond138, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit97, label %177
 
 177:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit95
   call void @_ZdaPv(ptr noundef nonnull %175) #17
@@ -2134,8 +2134,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %152, %157
   %158 = load ptr, ptr %7, align 8, !tbaa !42
   %.not.i.i88 = icmp eq ptr %158, %57
   %159 = icmp eq ptr %158, null
-  %or.cond119 = or i1 %.not.i.i88, %159
-  br i1 %or.cond119, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit89, label %160
+  %or.cond135 = or i1 %.not.i.i88, %159
+  br i1 %or.cond135, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit89, label %160
 
 160:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %158) #17
@@ -2146,8 +2146,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit89:           ; preds = %160, %_ZN2cv10AutoB
   %161 = load ptr, ptr %6, align 8, !tbaa !42
   %.not.i.i90 = icmp eq ptr %161, %47
   %162 = icmp eq ptr %161, null
-  %or.cond120 = or i1 %.not.i.i90, %162
-  br i1 %or.cond120, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit91, label %163
+  %or.cond136 = or i1 %.not.i.i90, %162
+  br i1 %or.cond136, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit91, label %163
 
 163:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit89
   call void @_ZdaPv(ptr noundef nonnull %161) #17
@@ -2192,8 +2192,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit93:           ; preds = %171, %166, %86
   %172 = load ptr, ptr %7, align 8, !tbaa !42
   %.not.i.i94 = icmp eq ptr %172, %57
   %173 = icmp eq ptr %172, null
-  %or.cond121 = or i1 %.not.i.i94, %173
-  br i1 %or.cond121, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit95, label %174
+  %or.cond137 = or i1 %.not.i.i94, %173
+  br i1 %or.cond137, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit95, label %174
 
 174:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit93
   call void @_ZdaPv(ptr noundef nonnull %172) #17
@@ -2205,8 +2205,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit95:           ; preds = %174, %_ZN2cv10AutoB
   %175 = load ptr, ptr %6, align 8, !tbaa !42
   %.not.i.i96 = icmp eq ptr %175, %47
   %176 = icmp eq ptr %175, null
-  %or.cond122 = or i1 %.not.i.i96, %176
-  br i1 %or.cond122, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit97, label %177
+  %or.cond138 = or i1 %.not.i.i96, %176
+  br i1 %or.cond138, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit97, label %177
 
 177:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit95
   call void @_ZdaPv(ptr noundef nonnull %175) #17
@@ -2571,8 +2571,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %152, %157
   %158 = load ptr, ptr %7, align 8, !tbaa !42
   %.not.i.i88 = icmp eq ptr %158, %57
   %159 = icmp eq ptr %158, null
-  %or.cond119 = or i1 %.not.i.i88, %159
-  br i1 %or.cond119, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit89, label %160
+  %or.cond135 = or i1 %.not.i.i88, %159
+  br i1 %or.cond135, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit89, label %160
 
 160:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %158) #17
@@ -2583,8 +2583,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit89:           ; preds = %160, %_ZN2cv10AutoB
   %161 = load ptr, ptr %6, align 8, !tbaa !42
   %.not.i.i90 = icmp eq ptr %161, %47
   %162 = icmp eq ptr %161, null
-  %or.cond120 = or i1 %.not.i.i90, %162
-  br i1 %or.cond120, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit91, label %163
+  %or.cond136 = or i1 %.not.i.i90, %162
+  br i1 %or.cond136, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit91, label %163
 
 163:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit89
   call void @_ZdaPv(ptr noundef nonnull %161) #17
@@ -2629,8 +2629,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit93:           ; preds = %171, %166, %86
   %172 = load ptr, ptr %7, align 8, !tbaa !42
   %.not.i.i94 = icmp eq ptr %172, %57
   %173 = icmp eq ptr %172, null
-  %or.cond121 = or i1 %.not.i.i94, %173
-  br i1 %or.cond121, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit95, label %174
+  %or.cond137 = or i1 %.not.i.i94, %173
+  br i1 %or.cond137, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit95, label %174
 
 174:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit93
   call void @_ZdaPv(ptr noundef nonnull %172) #17
@@ -2642,8 +2642,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit95:           ; preds = %174, %_ZN2cv10AutoB
   %175 = load ptr, ptr %6, align 8, !tbaa !42
   %.not.i.i96 = icmp eq ptr %175, %47
   %176 = icmp eq ptr %175, null
-  %or.cond122 = or i1 %.not.i.i96, %176
-  br i1 %or.cond122, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit97, label %177
+  %or.cond138 = or i1 %.not.i.i96, %176
+  br i1 %or.cond138, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit97, label %177
 
 177:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit95
   call void @_ZdaPv(ptr noundef nonnull %175) #17
@@ -3190,7 +3190,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %.preheader241
 
 .preheader.preheader:                             ; preds = %128
-  %invariant.gep318 = getelementptr inbounds nuw i32, ptr %125, i64 %99
+  %invariant.gep334 = getelementptr inbounds nuw i32, ptr %125, i64 %99
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -3199,8 +3199,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %137 = load i8, ptr %136, align 1, !tbaa !116
   %138 = zext i8 %137 to i32
   %139 = shl nuw nsw i32 %138, 3
-  %gep319 = getelementptr inbounds nuw i32, ptr %invariant.gep318, i64 %indvars.iv284
-  store i32 %139, ptr %gep319, align 4, !tbaa !41
+  %gep335 = getelementptr inbounds nuw i32, ptr %invariant.gep334, i64 %indvars.iv284
+  store i32 %139, ptr %gep335, align 4, !tbaa !41
   %140 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv284
   store i32 %139, ptr %140, align 4, !tbaa !41
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
@@ -3216,7 +3216,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %94, label %.lr.ph253.preheader, label %.loopexit238
 
 .lr.ph253.preheader:                              ; preds = %.preheader239
-  %invariant.gep316 = getelementptr inbounds nuw i8, ptr %135, i64 %98
+  %invariant.gep332 = getelementptr inbounds nuw i8, ptr %135, i64 %98
   br label %.lr.ph253
 
 .preheader241:                                    ; preds = %.preheader241.preheader, %188
@@ -3294,8 +3294,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %197 = zext i8 %196 to i32
   %198 = mul nuw nsw i32 %197, 6
   %199 = add nuw nsw i32 %198, %194
-  %gep317 = getelementptr inbounds nuw i8, ptr %invariant.gep316, i64 %indvars.iv279
-  %200 = load i8, ptr %gep317, align 1, !tbaa !116
+  %gep333 = getelementptr inbounds nuw i8, ptr %invariant.gep332, i64 %indvars.iv279
+  %200 = load i8, ptr %gep333, align 1, !tbaa !116
   %201 = zext i8 %200 to i32
   %202 = add nuw nsw i32 %199, %201
   %203 = add nuw nsw i32 %201, %197
@@ -3441,8 +3441,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %274, %.loopexit
   %275 = load ptr, ptr %4, align 8, !tbaa !42
   %.not.i.i226 = icmp eq ptr %275, %31
   %276 = icmp eq ptr %275, null
-  %or.cond320 = or i1 %.not.i.i226, %276
-  br i1 %or.cond320, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit227, label %277
+  %or.cond336 = or i1 %.not.i.i226, %276
+  br i1 %or.cond336, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit227, label %277
 
 277:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %275) #17
@@ -3458,8 +3458,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit227:          ; preds = %277, %_ZN2cv10AutoB
   %279 = load ptr, ptr %5, align 8, !tbaa !42
   %.not.i.i228 = icmp eq ptr %279, %45
   %280 = icmp eq ptr %279, null
-  %or.cond321 = or i1 %.not.i.i228, %280
-  br i1 %or.cond321, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit229, label %281
+  %or.cond337 = or i1 %.not.i.i228, %280
+  br i1 %or.cond337, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit229, label %281
 
 281:                                              ; preds = %278
   call void @_ZdaPv(ptr noundef nonnull %279) #17
@@ -3471,8 +3471,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit229:          ; preds = %281, %278, %64
   %282 = load ptr, ptr %4, align 8, !tbaa !42
   %.not.i.i230 = icmp eq ptr %282, %31
   %283 = icmp eq ptr %282, null
-  %or.cond322 = or i1 %.not.i.i230, %283
-  br i1 %or.cond322, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit231, label %284
+  %or.cond338 = or i1 %.not.i.i230, %283
+  br i1 %or.cond338, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit231, label %284
 
 284:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit229
   call void @_ZdaPv(ptr noundef nonnull %282) #17
@@ -3726,7 +3726,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %.preheader241
 
 .preheader.preheader:                             ; preds = %128
-  %invariant.gep318 = getelementptr inbounds nuw i32, ptr %125, i64 %99
+  %invariant.gep334 = getelementptr inbounds nuw i32, ptr %125, i64 %99
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -3735,8 +3735,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %137 = load i16, ptr %136, align 2, !tbaa !127
   %138 = sext i16 %137 to i32
   %139 = shl nsw i32 %138, 3
-  %gep319 = getelementptr inbounds nuw i32, ptr %invariant.gep318, i64 %indvars.iv284
-  store i32 %139, ptr %gep319, align 4, !tbaa !41
+  %gep335 = getelementptr inbounds nuw i32, ptr %invariant.gep334, i64 %indvars.iv284
+  store i32 %139, ptr %gep335, align 4, !tbaa !41
   %140 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv284
   store i32 %139, ptr %140, align 4, !tbaa !41
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
@@ -3752,7 +3752,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %94, label %.lr.ph253.preheader, label %.loopexit238
 
 .lr.ph253.preheader:                              ; preds = %.preheader239
-  %invariant.gep316 = getelementptr inbounds nuw i16, ptr %135, i64 %98
+  %invariant.gep332 = getelementptr inbounds nuw i16, ptr %135, i64 %98
   br label %.lr.ph253
 
 .preheader241:                                    ; preds = %.preheader241.preheader, %188
@@ -3830,8 +3830,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %197 = sext i16 %196 to i32
   %198 = mul nsw i32 %197, 6
   %199 = add nsw i32 %198, %194
-  %gep317 = getelementptr inbounds nuw i16, ptr %invariant.gep316, i64 %indvars.iv279
-  %200 = load i16, ptr %gep317, align 2, !tbaa !127
+  %gep333 = getelementptr inbounds nuw i16, ptr %invariant.gep332, i64 %indvars.iv279
+  %200 = load i16, ptr %gep333, align 2, !tbaa !127
   %201 = sext i16 %200 to i32
   %202 = add nsw i32 %199, %201
   %203 = add nsw i32 %201, %197
@@ -3977,8 +3977,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %274, %.loopexit
   %275 = load ptr, ptr %4, align 8, !tbaa !42
   %.not.i.i226 = icmp eq ptr %275, %31
   %276 = icmp eq ptr %275, null
-  %or.cond320 = or i1 %.not.i.i226, %276
-  br i1 %or.cond320, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit227, label %277
+  %or.cond336 = or i1 %.not.i.i226, %276
+  br i1 %or.cond336, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit227, label %277
 
 277:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %275) #17
@@ -3994,8 +3994,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit227:          ; preds = %277, %_ZN2cv10AutoB
   %279 = load ptr, ptr %5, align 8, !tbaa !42
   %.not.i.i228 = icmp eq ptr %279, %45
   %280 = icmp eq ptr %279, null
-  %or.cond321 = or i1 %.not.i.i228, %280
-  br i1 %or.cond321, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit229, label %281
+  %or.cond337 = or i1 %.not.i.i228, %280
+  br i1 %or.cond337, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit229, label %281
 
 281:                                              ; preds = %278
   call void @_ZdaPv(ptr noundef nonnull %279) #17
@@ -4007,8 +4007,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit229:          ; preds = %281, %278, %64
   %282 = load ptr, ptr %4, align 8, !tbaa !42
   %.not.i.i230 = icmp eq ptr %282, %31
   %283 = icmp eq ptr %282, null
-  %or.cond322 = or i1 %.not.i.i230, %283
-  br i1 %or.cond322, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit231, label %284
+  %or.cond338 = or i1 %.not.i.i230, %283
+  br i1 %or.cond338, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit231, label %284
 
 284:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit229
   call void @_ZdaPv(ptr noundef nonnull %282) #17
@@ -4262,7 +4262,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %.preheader241
 
 .preheader.preheader:                             ; preds = %128
-  %invariant.gep318 = getelementptr inbounds nuw i32, ptr %125, i64 %99
+  %invariant.gep334 = getelementptr inbounds nuw i32, ptr %125, i64 %99
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -4271,8 +4271,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %137 = load i16, ptr %136, align 2, !tbaa !127
   %138 = zext i16 %137 to i32
   %139 = shl nuw nsw i32 %138, 3
-  %gep319 = getelementptr inbounds nuw i32, ptr %invariant.gep318, i64 %indvars.iv284
-  store i32 %139, ptr %gep319, align 4, !tbaa !41
+  %gep335 = getelementptr inbounds nuw i32, ptr %invariant.gep334, i64 %indvars.iv284
+  store i32 %139, ptr %gep335, align 4, !tbaa !41
   %140 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv284
   store i32 %139, ptr %140, align 4, !tbaa !41
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
@@ -4288,7 +4288,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %94, label %.lr.ph253.preheader, label %.loopexit238
 
 .lr.ph253.preheader:                              ; preds = %.preheader239
-  %invariant.gep316 = getelementptr inbounds nuw i16, ptr %135, i64 %98
+  %invariant.gep332 = getelementptr inbounds nuw i16, ptr %135, i64 %98
   br label %.lr.ph253
 
 .preheader241:                                    ; preds = %.preheader241.preheader, %188
@@ -4366,8 +4366,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %197 = zext i16 %196 to i32
   %198 = mul nuw nsw i32 %197, 6
   %199 = add nuw nsw i32 %198, %194
-  %gep317 = getelementptr inbounds nuw i16, ptr %invariant.gep316, i64 %indvars.iv279
-  %200 = load i16, ptr %gep317, align 2, !tbaa !127
+  %gep333 = getelementptr inbounds nuw i16, ptr %invariant.gep332, i64 %indvars.iv279
+  %200 = load i16, ptr %gep333, align 2, !tbaa !127
   %201 = zext i16 %200 to i32
   %202 = add nuw nsw i32 %199, %201
   %203 = add nuw nsw i32 %201, %197
@@ -4513,8 +4513,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %274, %.loopexit
   %275 = load ptr, ptr %4, align 8, !tbaa !42
   %.not.i.i226 = icmp eq ptr %275, %31
   %276 = icmp eq ptr %275, null
-  %or.cond320 = or i1 %.not.i.i226, %276
-  br i1 %or.cond320, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit227, label %277
+  %or.cond336 = or i1 %.not.i.i226, %276
+  br i1 %or.cond336, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit227, label %277
 
 277:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %275) #17
@@ -4530,8 +4530,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit227:          ; preds = %277, %_ZN2cv10AutoB
   %279 = load ptr, ptr %5, align 8, !tbaa !42
   %.not.i.i228 = icmp eq ptr %279, %45
   %280 = icmp eq ptr %279, null
-  %or.cond321 = or i1 %.not.i.i228, %280
-  br i1 %or.cond321, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit229, label %281
+  %or.cond337 = or i1 %.not.i.i228, %280
+  br i1 %or.cond337, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit229, label %281
 
 281:                                              ; preds = %278
   call void @_ZdaPv(ptr noundef nonnull %279) #17
@@ -4543,8 +4543,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit229:          ; preds = %281, %278, %64
   %282 = load ptr, ptr %4, align 8, !tbaa !42
   %.not.i.i230 = icmp eq ptr %282, %31
   %283 = icmp eq ptr %282, null
-  %or.cond322 = or i1 %.not.i.i230, %283
-  br i1 %or.cond322, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit231, label %284
+  %or.cond338 = or i1 %.not.i.i230, %283
+  br i1 %or.cond338, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit231, label %284
 
 284:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit229
   call void @_ZdaPv(ptr noundef nonnull %282) #17
@@ -4794,7 +4794,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %89, label %.preheader.preheader, label %.preheader239
 
 .preheader.preheader:                             ; preds = %128
-  %invariant.gep318 = getelementptr inbounds nuw float, ptr %125, i64 %99
+  %invariant.gep334 = getelementptr inbounds nuw float, ptr %125, i64 %99
   br label %.preheader
 
 .preheader239:                                    ; preds = %128
@@ -4803,7 +4803,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %138 = mul nsw i32 %137, %22
   %139 = sext i32 %138 to i64
   %invariant.gep = getelementptr inbounds nuw float, ptr %135, i64 %98
-  %invariant.gep314 = getelementptr float, ptr %125, i64 %139
+  %invariant.gep330 = getelementptr float, ptr %125, i64 %139
   br label %146
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -4811,8 +4811,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %140 = getelementptr inbounds nuw float, ptr %135, i64 %indvars.iv282
   %141 = load float, ptr %140, align 4, !tbaa !153
   %142 = fmul float %141, 8.000000e+00
-  %gep319 = getelementptr inbounds nuw float, ptr %invariant.gep318, i64 %indvars.iv282
-  store float %142, ptr %gep319, align 4, !tbaa !153
+  %gep335 = getelementptr inbounds nuw float, ptr %invariant.gep334, i64 %indvars.iv282
+  store float %142, ptr %gep335, align 4, !tbaa !153
   %143 = getelementptr inbounds nuw float, ptr %125, i64 %indvars.iv282
   store float %142, ptr %143, align 4, !tbaa !153
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
@@ -4828,7 +4828,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %94, label %.lr.ph251.preheader, label %.loopexit236
 
 .lr.ph251.preheader:                              ; preds = %.preheader237
-  %invariant.gep316 = getelementptr inbounds nuw float, ptr %135, i64 %98
+  %invariant.gep332 = getelementptr inbounds nuw float, ptr %135, i64 %98
   br label %.lr.ph251
 
 146:                                              ; preds = %.preheader239, %180
@@ -4873,8 +4873,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %92, label %179, label %180
 
 179:                                              ; preds = %146
-  %gep315 = getelementptr float, ptr %invariant.gep314, i64 %indvars.iv272
-  store float %173, ptr %gep315, align 4, !tbaa !153
+  %gep331 = getelementptr float, ptr %invariant.gep330, i64 %indvars.iv272
+  store float %173, ptr %gep331, align 4, !tbaa !153
   br label %180
 
 180:                                              ; preds = %179, %146
@@ -4892,8 +4892,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %186 = getelementptr inbounds nuw float, ptr %135, i64 %indvars.iv277
   %187 = load float, ptr %186, align 4, !tbaa !153
   %188 = call float @llvm.fmuladd.f32(float %187, float 6.000000e+00, float %185)
-  %gep317 = getelementptr inbounds nuw float, ptr %invariant.gep316, i64 %indvars.iv277
-  %189 = load float, ptr %gep317, align 4, !tbaa !153
+  %gep333 = getelementptr inbounds nuw float, ptr %invariant.gep332, i64 %indvars.iv277
+  %189 = load float, ptr %gep333, align 4, !tbaa !153
   %190 = fadd float %188, %189
   %191 = fadd float %187, %189
   %192 = fmul float %191, 4.000000e+00
@@ -5030,8 +5030,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %254, %.loopexit
   %255 = load ptr, ptr %4, align 8, !tbaa !148
   %.not.i.i225 = icmp eq ptr %255, %31
   %256 = icmp eq ptr %255, null
-  %or.cond320 = or i1 %.not.i.i225, %256
-  br i1 %or.cond320, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit, label %257
+  %or.cond336 = or i1 %.not.i.i225, %256
+  br i1 %or.cond336, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit, label %257
 
 257:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %255) #17
@@ -5047,8 +5047,8 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %257, %_ZN2cv10AutoB
   %259 = load ptr, ptr %5, align 8, !tbaa !42
   %.not.i.i226 = icmp eq ptr %259, %45
   %260 = icmp eq ptr %259, null
-  %or.cond321 = or i1 %.not.i.i226, %260
-  br i1 %or.cond321, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit227, label %261
+  %or.cond337 = or i1 %.not.i.i226, %260
+  br i1 %or.cond337, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit227, label %261
 
 261:                                              ; preds = %258
   call void @_ZdaPv(ptr noundef nonnull %259) #17
@@ -5060,8 +5060,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit227:          ; preds = %261, %258, %64
   %262 = load ptr, ptr %4, align 8, !tbaa !148
   %.not.i.i228 = icmp eq ptr %262, %31
   %263 = icmp eq ptr %262, null
-  %or.cond322 = or i1 %.not.i.i228, %263
-  br i1 %or.cond322, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit229, label %264
+  %or.cond338 = or i1 %.not.i.i228, %263
+  br i1 %or.cond338, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit229, label %264
 
 264:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit227
   call void @_ZdaPv(ptr noundef nonnull %262) #17
@@ -5311,7 +5311,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %89, label %.preheader.preheader, label %.preheader239
 
 .preheader.preheader:                             ; preds = %128
-  %invariant.gep318 = getelementptr inbounds nuw double, ptr %125, i64 %99
+  %invariant.gep334 = getelementptr inbounds nuw double, ptr %125, i64 %99
   br label %.preheader
 
 .preheader239:                                    ; preds = %128
@@ -5320,7 +5320,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %138 = mul nsw i32 %137, %22
   %139 = sext i32 %138 to i64
   %invariant.gep = getelementptr inbounds nuw double, ptr %135, i64 %98
-  %invariant.gep314 = getelementptr double, ptr %125, i64 %139
+  %invariant.gep330 = getelementptr double, ptr %125, i64 %139
   br label %146
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -5328,8 +5328,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %140 = getelementptr inbounds nuw double, ptr %135, i64 %indvars.iv282
   %141 = load double, ptr %140, align 8, !tbaa !170
   %142 = fmul double %141, 8.000000e+00
-  %gep319 = getelementptr inbounds nuw double, ptr %invariant.gep318, i64 %indvars.iv282
-  store double %142, ptr %gep319, align 8, !tbaa !170
+  %gep335 = getelementptr inbounds nuw double, ptr %invariant.gep334, i64 %indvars.iv282
+  store double %142, ptr %gep335, align 8, !tbaa !170
   %143 = getelementptr inbounds nuw double, ptr %125, i64 %indvars.iv282
   store double %142, ptr %143, align 8, !tbaa !170
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
@@ -5345,7 +5345,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %94, label %.lr.ph251.preheader, label %.loopexit236
 
 .lr.ph251.preheader:                              ; preds = %.preheader237
-  %invariant.gep316 = getelementptr inbounds nuw double, ptr %135, i64 %98
+  %invariant.gep332 = getelementptr inbounds nuw double, ptr %135, i64 %98
   br label %.lr.ph251
 
 146:                                              ; preds = %.preheader239, %180
@@ -5390,8 +5390,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %92, label %179, label %180
 
 179:                                              ; preds = %146
-  %gep315 = getelementptr double, ptr %invariant.gep314, i64 %indvars.iv272
-  store double %173, ptr %gep315, align 8, !tbaa !170
+  %gep331 = getelementptr double, ptr %invariant.gep330, i64 %indvars.iv272
+  store double %173, ptr %gep331, align 8, !tbaa !170
   br label %180
 
 180:                                              ; preds = %179, %146
@@ -5409,8 +5409,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %186 = getelementptr inbounds nuw double, ptr %135, i64 %indvars.iv277
   %187 = load double, ptr %186, align 8, !tbaa !170
   %188 = call double @llvm.fmuladd.f64(double %187, double 6.000000e+00, double %185)
-  %gep317 = getelementptr inbounds nuw double, ptr %invariant.gep316, i64 %indvars.iv277
-  %189 = load double, ptr %gep317, align 8, !tbaa !170
+  %gep333 = getelementptr inbounds nuw double, ptr %invariant.gep332, i64 %indvars.iv277
+  %189 = load double, ptr %gep333, align 8, !tbaa !170
   %190 = fadd double %188, %189
   %191 = fadd double %187, %189
   %192 = fmul double %191, 4.000000e+00
@@ -5547,8 +5547,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %254, %.loopexit
   %255 = load ptr, ptr %4, align 8, !tbaa !165
   %.not.i.i225 = icmp eq ptr %255, %31
   %256 = icmp eq ptr %255, null
-  %or.cond320 = or i1 %.not.i.i225, %256
-  br i1 %or.cond320, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit, label %257
+  %or.cond336 = or i1 %.not.i.i225, %256
+  br i1 %or.cond336, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit, label %257
 
 257:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %255) #17
@@ -5564,8 +5564,8 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %257, %_ZN2cv10AutoB
   %259 = load ptr, ptr %5, align 8, !tbaa !42
   %.not.i.i226 = icmp eq ptr %259, %45
   %260 = icmp eq ptr %259, null
-  %or.cond321 = or i1 %.not.i.i226, %260
-  br i1 %or.cond321, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit227, label %261
+  %or.cond337 = or i1 %.not.i.i226, %260
+  br i1 %or.cond337, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit227, label %261
 
 261:                                              ; preds = %258
   call void @_ZdaPv(ptr noundef nonnull %259) #17
@@ -5577,8 +5577,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit227:          ; preds = %261, %258, %64
   %262 = load ptr, ptr %4, align 8, !tbaa !165
   %.not.i.i228 = icmp eq ptr %262, %31
   %263 = icmp eq ptr %262, null
-  %or.cond322 = or i1 %.not.i.i228, %263
-  br i1 %or.cond322, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit229, label %264
+  %or.cond338 = or i1 %.not.i.i228, %263
+  br i1 %or.cond338, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit229, label %264
 
 264:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit227
   call void @_ZdaPv(ptr noundef nonnull %262) #17
@@ -6892,9 +6892,9 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %109 = load ptr, ptr %52, align 8, !tbaa !64
   %110 = load ptr, ptr %109, align 8, !tbaa !45
   %invariant.gep = getelementptr inbounds nuw i32, ptr %110, i64 %63
-  %invariant.gep371 = getelementptr inbounds nuw i32, ptr %110, i64 %64
-  %invariant.gep373 = getelementptr inbounds nuw i32, ptr %110, i64 %65
-  %invariant.gep375 = getelementptr inbounds nuw i32, ptr %110, i64 %66
+  %invariant.gep381 = getelementptr inbounds nuw i32, ptr %110, i64 %64
+  %invariant.gep383 = getelementptr inbounds nuw i32, ptr %110, i64 %65
+  %invariant.gep385 = getelementptr inbounds nuw i32, ptr %110, i64 %66
   br label %111
 
 111:                                              ; preds = %99, %111
@@ -6907,14 +6907,14 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %115 = load i8, ptr %114, align 1, !tbaa !116
   %116 = zext i8 %115 to i32
   %117 = mul nuw nsw i32 %116, 6
-  %gep372 = getelementptr inbounds nuw i32, ptr %invariant.gep371, i64 %indvars.iv
-  %118 = load i32, ptr %gep372, align 4, !tbaa !41
+  %gep382 = getelementptr inbounds nuw i32, ptr %invariant.gep381, i64 %indvars.iv
+  %118 = load i32, ptr %gep382, align 4, !tbaa !41
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds i8, ptr %108, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !116
   %122 = zext i8 %121 to i32
-  %gep374 = getelementptr inbounds nuw i32, ptr %invariant.gep373, i64 %indvars.iv
-  %123 = load i32, ptr %gep374, align 4, !tbaa !41
+  %gep384 = getelementptr inbounds nuw i32, ptr %invariant.gep383, i64 %indvars.iv
+  %123 = load i32, ptr %gep384, align 4, !tbaa !41
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds i8, ptr %108, i64 %124
   %126 = load i8, ptr %125, align 1, !tbaa !116
@@ -6929,8 +6929,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %135 = load i8, ptr %134, align 1, !tbaa !116
   %136 = zext i8 %135 to i32
   %137 = add nuw nsw i32 %130, %136
-  %gep376 = getelementptr inbounds nuw i32, ptr %invariant.gep375, i64 %indvars.iv
-  %138 = load i32, ptr %gep376, align 4, !tbaa !41
+  %gep386 = getelementptr inbounds nuw i32, ptr %invariant.gep385, i64 %indvars.iv
+  %138 = load i32, ptr %gep386, align 4, !tbaa !41
   %139 = sext i32 %138 to i64
   %140 = getelementptr inbounds i8, ptr %108, i64 %139
   %141 = load i8, ptr %140, align 1, !tbaa !116
@@ -6950,8 +6950,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %147 = load ptr, ptr %3, align 8, !tbaa !42
   %.not.i.i265 = icmp eq ptr %147, %29
   %148 = icmp eq ptr %147, null
-  %or.cond385 = or i1 %.not.i.i265, %148
-  br i1 %or.cond385, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit266, label %149
+  %or.cond395 = or i1 %.not.i.i265, %148
+  br i1 %or.cond395, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit266, label %149
 
 149:                                              ; preds = %145
   call void @_ZdaPv(ptr noundef nonnull %147) #17
@@ -7321,30 +7321,30 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
   %425 = zext nneg i32 %.2 to i64
   %426 = sub i32 %22, %.2
   %wide.trip.count354 = zext i32 %426 to i64
-  %invariant.gep377 = getelementptr inbounds nuw i32, ptr %423, i64 %63
-  %invariant.gep379 = getelementptr inbounds nuw i32, ptr %423, i64 %64
-  %invariant.gep381 = getelementptr inbounds nuw i32, ptr %423, i64 %65
-  %invariant.gep383 = getelementptr inbounds nuw i32, ptr %423, i64 %66
+  %invariant.gep387 = getelementptr inbounds nuw i32, ptr %423, i64 %63
+  %invariant.gep389 = getelementptr inbounds nuw i32, ptr %423, i64 %64
+  %invariant.gep391 = getelementptr inbounds nuw i32, ptr %423, i64 %65
+  %invariant.gep393 = getelementptr inbounds nuw i32, ptr %423, i64 %66
   br label %.lr.ph303
 
 .lr.ph303:                                        ; preds = %.lr.ph303.preheader, %.lr.ph303
   %indvars.iv349 = phi i64 [ %425, %.lr.ph303.preheader ], [ %indvars.iv.next350, %.lr.ph303 ]
   %indvars.iv347 = phi i64 [ 0, %.lr.ph303.preheader ], [ %indvars.iv.next348, %.lr.ph303 ]
-  %gep378 = getelementptr inbounds nuw i32, ptr %invariant.gep377, i64 %indvars.iv347
-  %427 = load i32, ptr %gep378, align 4, !tbaa !41
+  %gep388 = getelementptr inbounds nuw i32, ptr %invariant.gep387, i64 %indvars.iv347
+  %427 = load i32, ptr %gep388, align 4, !tbaa !41
   %428 = sext i32 %427 to i64
   %429 = getelementptr inbounds i8, ptr %108, i64 %428
   %430 = load i8, ptr %429, align 1, !tbaa !116
   %431 = zext i8 %430 to i32
   %432 = mul nuw nsw i32 %431, 6
-  %gep380 = getelementptr inbounds nuw i32, ptr %invariant.gep379, i64 %indvars.iv347
-  %433 = load i32, ptr %gep380, align 4, !tbaa !41
+  %gep390 = getelementptr inbounds nuw i32, ptr %invariant.gep389, i64 %indvars.iv347
+  %433 = load i32, ptr %gep390, align 4, !tbaa !41
   %434 = sext i32 %433 to i64
   %435 = getelementptr inbounds i8, ptr %108, i64 %434
   %436 = load i8, ptr %435, align 1, !tbaa !116
   %437 = zext i8 %436 to i32
-  %gep382 = getelementptr inbounds nuw i32, ptr %invariant.gep381, i64 %indvars.iv347
-  %438 = load i32, ptr %gep382, align 4, !tbaa !41
+  %gep392 = getelementptr inbounds nuw i32, ptr %invariant.gep391, i64 %indvars.iv347
+  %438 = load i32, ptr %gep392, align 4, !tbaa !41
   %439 = sext i32 %438 to i64
   %440 = getelementptr inbounds i8, ptr %108, i64 %439
   %441 = load i8, ptr %440, align 1, !tbaa !116
@@ -7359,8 +7359,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
   %450 = load i8, ptr %449, align 1, !tbaa !116
   %451 = zext i8 %450 to i32
   %452 = add nuw nsw i32 %445, %451
-  %gep384 = getelementptr inbounds nuw i32, ptr %invariant.gep383, i64 %indvars.iv347
-  %453 = load i32, ptr %gep384, align 4, !tbaa !41
+  %gep394 = getelementptr inbounds nuw i32, ptr %invariant.gep393, i64 %indvars.iv347
+  %453 = load i32, ptr %gep394, align 4, !tbaa !41
   %454 = sext i32 %453 to i64
   %455 = getelementptr inbounds i8, ptr %108, i64 %454
   %456 = load i8, ptr %455, align 1, !tbaa !116
@@ -7608,9 +7608,9 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %109 = load ptr, ptr %52, align 8, !tbaa !74
   %110 = load ptr, ptr %109, align 8, !tbaa !45
   %invariant.gep = getelementptr inbounds nuw i32, ptr %110, i64 %63
-  %invariant.gep374 = getelementptr inbounds nuw i32, ptr %110, i64 %64
-  %invariant.gep376 = getelementptr inbounds nuw i32, ptr %110, i64 %65
-  %invariant.gep378 = getelementptr inbounds nuw i32, ptr %110, i64 %66
+  %invariant.gep384 = getelementptr inbounds nuw i32, ptr %110, i64 %64
+  %invariant.gep386 = getelementptr inbounds nuw i32, ptr %110, i64 %65
+  %invariant.gep388 = getelementptr inbounds nuw i32, ptr %110, i64 %66
   br label %111
 
 111:                                              ; preds = %99, %111
@@ -7623,14 +7623,14 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %115 = load i16, ptr %114, align 2, !tbaa !127
   %116 = sext i16 %115 to i32
   %117 = mul nsw i32 %116, 6
-  %gep375 = getelementptr inbounds nuw i32, ptr %invariant.gep374, i64 %indvars.iv
-  %118 = load i32, ptr %gep375, align 4, !tbaa !41
+  %gep385 = getelementptr inbounds nuw i32, ptr %invariant.gep384, i64 %indvars.iv
+  %118 = load i32, ptr %gep385, align 4, !tbaa !41
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds i16, ptr %108, i64 %119
   %121 = load i16, ptr %120, align 2, !tbaa !127
   %122 = sext i16 %121 to i32
-  %gep377 = getelementptr inbounds nuw i32, ptr %invariant.gep376, i64 %indvars.iv
-  %123 = load i32, ptr %gep377, align 4, !tbaa !41
+  %gep387 = getelementptr inbounds nuw i32, ptr %invariant.gep386, i64 %indvars.iv
+  %123 = load i32, ptr %gep387, align 4, !tbaa !41
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds i16, ptr %108, i64 %124
   %126 = load i16, ptr %125, align 2, !tbaa !127
@@ -7645,8 +7645,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %135 = load i16, ptr %134, align 2, !tbaa !127
   %136 = sext i16 %135 to i32
   %137 = add nsw i32 %130, %136
-  %gep379 = getelementptr inbounds nuw i32, ptr %invariant.gep378, i64 %indvars.iv
-  %138 = load i32, ptr %gep379, align 4, !tbaa !41
+  %gep389 = getelementptr inbounds nuw i32, ptr %invariant.gep388, i64 %indvars.iv
+  %138 = load i32, ptr %gep389, align 4, !tbaa !41
   %139 = sext i32 %138 to i64
   %140 = getelementptr inbounds i16, ptr %108, i64 %139
   %141 = load i16, ptr %140, align 2, !tbaa !127
@@ -7666,8 +7666,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %147 = load ptr, ptr %3, align 8, !tbaa !42
   %.not.i.i265 = icmp eq ptr %147, %29
   %148 = icmp eq ptr %147, null
-  %or.cond388 = or i1 %.not.i.i265, %148
-  br i1 %or.cond388, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit266, label %149
+  %or.cond398 = or i1 %.not.i.i265, %148
+  br i1 %or.cond398, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit266, label %149
 
 149:                                              ; preds = %145
   call void @_ZdaPv(ptr noundef nonnull %147) #17
@@ -7710,8 +7710,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
 
 .lr.ph296:                                        ; preds = %.preheader277, %.lr.ph296
   %indvars.iv340 = phi i64 [ %indvars.iv.next341, %.lr.ph296 ], [ %indvars.iv326, %.preheader277 ]
-  %.idx373 = shl nuw nsw i64 %indvars.iv340, 2
-  %154 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx373
+  %.idx383 = shl nuw nsw i64 %indvars.iv340, 2
+  %154 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx383
   %155 = load i16, ptr %154, align 2, !tbaa !127
   %156 = sext i16 %155 to i32
   %157 = mul nsw i32 %156, 6
@@ -7740,8 +7740,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
 
 .lr.ph293:                                        ; preds = %.preheader279, %.lr.ph293
   %indvars.iv336 = phi i64 [ %indvars.iv.next337, %.lr.ph293 ], [ %indvars.iv326, %.preheader279 ]
-  %.idx372 = shl nuw nsw i64 %indvars.iv336, 2
-  %177 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx372
+  %.idx382 = shl nuw nsw i64 %indvars.iv336, 2
+  %177 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx382
   %178 = load i16, ptr %177, align 2, !tbaa !127
   %179 = sext i16 %178 to i32
   %180 = mul nsw i32 %179, 6
@@ -7793,8 +7793,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
 
 .lr.ph290:                                        ; preds = %.preheader281, %.lr.ph290
   %indvars.iv332 = phi i64 [ %indvars.iv.next333, %.lr.ph290 ], [ %indvars.iv326, %.preheader281 ]
-  %.idx371 = shl nuw nsw i64 %indvars.iv332, 2
-  %222 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx371
+  %.idx381 = shl nuw nsw i64 %indvars.iv332, 2
+  %222 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx381
   %223 = load i16, ptr %222, align 2, !tbaa !127
   %224 = sext i16 %223 to i32
   %225 = mul nsw i32 %224, 6
@@ -8037,30 +8037,30 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
   %421 = zext nneg i32 %.2 to i64
   %422 = sub i32 %22, %.2
   %wide.trip.count354 = zext i32 %422 to i64
-  %invariant.gep380 = getelementptr inbounds nuw i32, ptr %419, i64 %63
-  %invariant.gep382 = getelementptr inbounds nuw i32, ptr %419, i64 %64
-  %invariant.gep384 = getelementptr inbounds nuw i32, ptr %419, i64 %65
-  %invariant.gep386 = getelementptr inbounds nuw i32, ptr %419, i64 %66
+  %invariant.gep390 = getelementptr inbounds nuw i32, ptr %419, i64 %63
+  %invariant.gep392 = getelementptr inbounds nuw i32, ptr %419, i64 %64
+  %invariant.gep394 = getelementptr inbounds nuw i32, ptr %419, i64 %65
+  %invariant.gep396 = getelementptr inbounds nuw i32, ptr %419, i64 %66
   br label %.lr.ph303
 
 .lr.ph303:                                        ; preds = %.lr.ph303.preheader, %.lr.ph303
   %indvars.iv349 = phi i64 [ %421, %.lr.ph303.preheader ], [ %indvars.iv.next350, %.lr.ph303 ]
   %indvars.iv347 = phi i64 [ 0, %.lr.ph303.preheader ], [ %indvars.iv.next348, %.lr.ph303 ]
-  %gep381 = getelementptr inbounds nuw i32, ptr %invariant.gep380, i64 %indvars.iv347
-  %423 = load i32, ptr %gep381, align 4, !tbaa !41
+  %gep391 = getelementptr inbounds nuw i32, ptr %invariant.gep390, i64 %indvars.iv347
+  %423 = load i32, ptr %gep391, align 4, !tbaa !41
   %424 = sext i32 %423 to i64
   %425 = getelementptr inbounds i16, ptr %108, i64 %424
   %426 = load i16, ptr %425, align 2, !tbaa !127
   %427 = sext i16 %426 to i32
   %428 = mul nsw i32 %427, 6
-  %gep383 = getelementptr inbounds nuw i32, ptr %invariant.gep382, i64 %indvars.iv347
-  %429 = load i32, ptr %gep383, align 4, !tbaa !41
+  %gep393 = getelementptr inbounds nuw i32, ptr %invariant.gep392, i64 %indvars.iv347
+  %429 = load i32, ptr %gep393, align 4, !tbaa !41
   %430 = sext i32 %429 to i64
   %431 = getelementptr inbounds i16, ptr %108, i64 %430
   %432 = load i16, ptr %431, align 2, !tbaa !127
   %433 = sext i16 %432 to i32
-  %gep385 = getelementptr inbounds nuw i32, ptr %invariant.gep384, i64 %indvars.iv347
-  %434 = load i32, ptr %gep385, align 4, !tbaa !41
+  %gep395 = getelementptr inbounds nuw i32, ptr %invariant.gep394, i64 %indvars.iv347
+  %434 = load i32, ptr %gep395, align 4, !tbaa !41
   %435 = sext i32 %434 to i64
   %436 = getelementptr inbounds i16, ptr %108, i64 %435
   %437 = load i16, ptr %436, align 2, !tbaa !127
@@ -8075,8 +8075,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
   %446 = load i16, ptr %445, align 2, !tbaa !127
   %447 = sext i16 %446 to i32
   %448 = add nsw i32 %441, %447
-  %gep387 = getelementptr inbounds nuw i32, ptr %invariant.gep386, i64 %indvars.iv347
-  %449 = load i32, ptr %gep387, align 4, !tbaa !41
+  %gep397 = getelementptr inbounds nuw i32, ptr %invariant.gep396, i64 %indvars.iv347
+  %449 = load i32, ptr %gep397, align 4, !tbaa !41
   %450 = sext i32 %449 to i64
   %451 = getelementptr inbounds i16, ptr %108, i64 %450
   %452 = load i16, ptr %451, align 2, !tbaa !127
@@ -8324,9 +8324,9 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %109 = load ptr, ptr %52, align 8, !tbaa !84
   %110 = load ptr, ptr %109, align 8, !tbaa !45
   %invariant.gep = getelementptr inbounds nuw i32, ptr %110, i64 %63
-  %invariant.gep374 = getelementptr inbounds nuw i32, ptr %110, i64 %64
-  %invariant.gep376 = getelementptr inbounds nuw i32, ptr %110, i64 %65
-  %invariant.gep378 = getelementptr inbounds nuw i32, ptr %110, i64 %66
+  %invariant.gep384 = getelementptr inbounds nuw i32, ptr %110, i64 %64
+  %invariant.gep386 = getelementptr inbounds nuw i32, ptr %110, i64 %65
+  %invariant.gep388 = getelementptr inbounds nuw i32, ptr %110, i64 %66
   br label %111
 
 111:                                              ; preds = %99, %111
@@ -8339,14 +8339,14 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %115 = load i16, ptr %114, align 2, !tbaa !127
   %116 = zext i16 %115 to i32
   %117 = mul nuw nsw i32 %116, 6
-  %gep375 = getelementptr inbounds nuw i32, ptr %invariant.gep374, i64 %indvars.iv
-  %118 = load i32, ptr %gep375, align 4, !tbaa !41
+  %gep385 = getelementptr inbounds nuw i32, ptr %invariant.gep384, i64 %indvars.iv
+  %118 = load i32, ptr %gep385, align 4, !tbaa !41
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds i16, ptr %108, i64 %119
   %121 = load i16, ptr %120, align 2, !tbaa !127
   %122 = zext i16 %121 to i32
-  %gep377 = getelementptr inbounds nuw i32, ptr %invariant.gep376, i64 %indvars.iv
-  %123 = load i32, ptr %gep377, align 4, !tbaa !41
+  %gep387 = getelementptr inbounds nuw i32, ptr %invariant.gep386, i64 %indvars.iv
+  %123 = load i32, ptr %gep387, align 4, !tbaa !41
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds i16, ptr %108, i64 %124
   %126 = load i16, ptr %125, align 2, !tbaa !127
@@ -8361,8 +8361,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %135 = load i16, ptr %134, align 2, !tbaa !127
   %136 = zext i16 %135 to i32
   %137 = add nuw nsw i32 %130, %136
-  %gep379 = getelementptr inbounds nuw i32, ptr %invariant.gep378, i64 %indvars.iv
-  %138 = load i32, ptr %gep379, align 4, !tbaa !41
+  %gep389 = getelementptr inbounds nuw i32, ptr %invariant.gep388, i64 %indvars.iv
+  %138 = load i32, ptr %gep389, align 4, !tbaa !41
   %139 = sext i32 %138 to i64
   %140 = getelementptr inbounds i16, ptr %108, i64 %139
   %141 = load i16, ptr %140, align 2, !tbaa !127
@@ -8382,8 +8382,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %147 = load ptr, ptr %3, align 8, !tbaa !42
   %.not.i.i265 = icmp eq ptr %147, %29
   %148 = icmp eq ptr %147, null
-  %or.cond388 = or i1 %.not.i.i265, %148
-  br i1 %or.cond388, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit266, label %149
+  %or.cond398 = or i1 %.not.i.i265, %148
+  br i1 %or.cond398, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit266, label %149
 
 149:                                              ; preds = %145
   call void @_ZdaPv(ptr noundef nonnull %147) #17
@@ -8426,8 +8426,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
 
 .lr.ph296:                                        ; preds = %.preheader277, %.lr.ph296
   %indvars.iv340 = phi i64 [ %indvars.iv.next341, %.lr.ph296 ], [ %indvars.iv326, %.preheader277 ]
-  %.idx373 = shl nuw nsw i64 %indvars.iv340, 2
-  %154 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx373
+  %.idx383 = shl nuw nsw i64 %indvars.iv340, 2
+  %154 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx383
   %155 = load i16, ptr %154, align 2, !tbaa !127
   %156 = zext i16 %155 to i32
   %157 = mul nuw nsw i32 %156, 6
@@ -8456,8 +8456,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
 
 .lr.ph293:                                        ; preds = %.preheader279, %.lr.ph293
   %indvars.iv336 = phi i64 [ %indvars.iv.next337, %.lr.ph293 ], [ %indvars.iv326, %.preheader279 ]
-  %.idx372 = shl nuw nsw i64 %indvars.iv336, 2
-  %177 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx372
+  %.idx382 = shl nuw nsw i64 %indvars.iv336, 2
+  %177 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx382
   %178 = load i16, ptr %177, align 2, !tbaa !127
   %179 = zext i16 %178 to i32
   %180 = mul nuw nsw i32 %179, 6
@@ -8509,8 +8509,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
 
 .lr.ph290:                                        ; preds = %.preheader281, %.lr.ph290
   %indvars.iv332 = phi i64 [ %indvars.iv.next333, %.lr.ph290 ], [ %indvars.iv326, %.preheader281 ]
-  %.idx371 = shl nuw nsw i64 %indvars.iv332, 2
-  %222 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx371
+  %.idx381 = shl nuw nsw i64 %indvars.iv332, 2
+  %222 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx381
   %223 = load i16, ptr %222, align 2, !tbaa !127
   %224 = zext i16 %223 to i32
   %225 = mul nuw nsw i32 %224, 6
@@ -8753,30 +8753,30 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
   %421 = zext nneg i32 %.2 to i64
   %422 = sub i32 %22, %.2
   %wide.trip.count354 = zext i32 %422 to i64
-  %invariant.gep380 = getelementptr inbounds nuw i32, ptr %419, i64 %63
-  %invariant.gep382 = getelementptr inbounds nuw i32, ptr %419, i64 %64
-  %invariant.gep384 = getelementptr inbounds nuw i32, ptr %419, i64 %65
-  %invariant.gep386 = getelementptr inbounds nuw i32, ptr %419, i64 %66
+  %invariant.gep390 = getelementptr inbounds nuw i32, ptr %419, i64 %63
+  %invariant.gep392 = getelementptr inbounds nuw i32, ptr %419, i64 %64
+  %invariant.gep394 = getelementptr inbounds nuw i32, ptr %419, i64 %65
+  %invariant.gep396 = getelementptr inbounds nuw i32, ptr %419, i64 %66
   br label %.lr.ph303
 
 .lr.ph303:                                        ; preds = %.lr.ph303.preheader, %.lr.ph303
   %indvars.iv349 = phi i64 [ %421, %.lr.ph303.preheader ], [ %indvars.iv.next350, %.lr.ph303 ]
   %indvars.iv347 = phi i64 [ 0, %.lr.ph303.preheader ], [ %indvars.iv.next348, %.lr.ph303 ]
-  %gep381 = getelementptr inbounds nuw i32, ptr %invariant.gep380, i64 %indvars.iv347
-  %423 = load i32, ptr %gep381, align 4, !tbaa !41
+  %gep391 = getelementptr inbounds nuw i32, ptr %invariant.gep390, i64 %indvars.iv347
+  %423 = load i32, ptr %gep391, align 4, !tbaa !41
   %424 = sext i32 %423 to i64
   %425 = getelementptr inbounds i16, ptr %108, i64 %424
   %426 = load i16, ptr %425, align 2, !tbaa !127
   %427 = zext i16 %426 to i32
   %428 = mul nuw nsw i32 %427, 6
-  %gep383 = getelementptr inbounds nuw i32, ptr %invariant.gep382, i64 %indvars.iv347
-  %429 = load i32, ptr %gep383, align 4, !tbaa !41
+  %gep393 = getelementptr inbounds nuw i32, ptr %invariant.gep392, i64 %indvars.iv347
+  %429 = load i32, ptr %gep393, align 4, !tbaa !41
   %430 = sext i32 %429 to i64
   %431 = getelementptr inbounds i16, ptr %108, i64 %430
   %432 = load i16, ptr %431, align 2, !tbaa !127
   %433 = zext i16 %432 to i32
-  %gep385 = getelementptr inbounds nuw i32, ptr %invariant.gep384, i64 %indvars.iv347
-  %434 = load i32, ptr %gep385, align 4, !tbaa !41
+  %gep395 = getelementptr inbounds nuw i32, ptr %invariant.gep394, i64 %indvars.iv347
+  %434 = load i32, ptr %gep395, align 4, !tbaa !41
   %435 = sext i32 %434 to i64
   %436 = getelementptr inbounds i16, ptr %108, i64 %435
   %437 = load i16, ptr %436, align 2, !tbaa !127
@@ -8791,8 +8791,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
   %446 = load i16, ptr %445, align 2, !tbaa !127
   %447 = zext i16 %446 to i32
   %448 = add nuw nsw i32 %441, %447
-  %gep387 = getelementptr inbounds nuw i32, ptr %invariant.gep386, i64 %indvars.iv347
-  %449 = load i32, ptr %gep387, align 4, !tbaa !41
+  %gep397 = getelementptr inbounds nuw i32, ptr %invariant.gep396, i64 %indvars.iv347
+  %449 = load i32, ptr %gep397, align 4, !tbaa !41
   %450 = sext i32 %449 to i64
   %451 = getelementptr inbounds i16, ptr %108, i64 %450
   %452 = load i16, ptr %451, align 2, !tbaa !127
@@ -9040,9 +9040,9 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %109 = load ptr, ptr %52, align 8, !tbaa !94
   %110 = load ptr, ptr %109, align 8, !tbaa !45
   %invariant.gep = getelementptr inbounds nuw i32, ptr %110, i64 %63
-  %invariant.gep374 = getelementptr inbounds nuw i32, ptr %110, i64 %64
-  %invariant.gep376 = getelementptr inbounds nuw i32, ptr %110, i64 %65
-  %invariant.gep378 = getelementptr inbounds nuw i32, ptr %110, i64 %66
+  %invariant.gep384 = getelementptr inbounds nuw i32, ptr %110, i64 %64
+  %invariant.gep386 = getelementptr inbounds nuw i32, ptr %110, i64 %65
+  %invariant.gep388 = getelementptr inbounds nuw i32, ptr %110, i64 %66
   br label %111
 
 111:                                              ; preds = %99, %111
@@ -9053,13 +9053,13 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %113 = sext i32 %112 to i64
   %114 = getelementptr inbounds float, ptr %108, i64 %113
   %115 = load float, ptr %114, align 4, !tbaa !153
-  %gep375 = getelementptr inbounds nuw i32, ptr %invariant.gep374, i64 %indvars.iv
-  %116 = load i32, ptr %gep375, align 4, !tbaa !41
+  %gep385 = getelementptr inbounds nuw i32, ptr %invariant.gep384, i64 %indvars.iv
+  %116 = load i32, ptr %gep385, align 4, !tbaa !41
   %117 = sext i32 %116 to i64
   %118 = getelementptr inbounds float, ptr %108, i64 %117
   %119 = load float, ptr %118, align 4, !tbaa !153
-  %gep377 = getelementptr inbounds nuw i32, ptr %invariant.gep376, i64 %indvars.iv
-  %120 = load i32, ptr %gep377, align 4, !tbaa !41
+  %gep387 = getelementptr inbounds nuw i32, ptr %invariant.gep386, i64 %indvars.iv
+  %120 = load i32, ptr %gep387, align 4, !tbaa !41
   %121 = sext i32 %120 to i64
   %122 = getelementptr inbounds float, ptr %108, i64 %121
   %123 = load float, ptr %122, align 4, !tbaa !153
@@ -9072,8 +9072,8 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %130 = getelementptr inbounds float, ptr %108, i64 %129
   %131 = load float, ptr %130, align 4, !tbaa !153
   %132 = fadd float %131, %126
-  %gep379 = getelementptr inbounds nuw i32, ptr %invariant.gep378, i64 %indvars.iv
-  %133 = load i32, ptr %gep379, align 4, !tbaa !41
+  %gep389 = getelementptr inbounds nuw i32, ptr %invariant.gep388, i64 %indvars.iv
+  %133 = load i32, ptr %gep389, align 4, !tbaa !41
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds float, ptr %108, i64 %134
   %136 = load float, ptr %135, align 4, !tbaa !153
@@ -9092,8 +9092,8 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %141 = load ptr, ptr %3, align 8, !tbaa !148
   %.not.i.i265 = icmp eq ptr %141, %29
   %142 = icmp eq ptr %141, null
-  %or.cond388 = or i1 %.not.i.i265, %142
-  br i1 %or.cond388, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit266, label %143
+  %or.cond398 = or i1 %.not.i.i265, %142
+  br i1 %or.cond398, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit266, label %143
 
 143:                                              ; preds = %139
   call void @_ZdaPv(ptr noundef nonnull %141) #17
@@ -9136,8 +9136,8 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit266:          ; preds = %143, %139
 
 .lr.ph296:                                        ; preds = %.preheader277, %.lr.ph296
   %indvars.iv340 = phi i64 [ %indvars.iv.next341, %.lr.ph296 ], [ %indvars.iv326, %.preheader277 ]
-  %.idx373 = shl nuw nsw i64 %indvars.iv340, 3
-  %148 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx373
+  %.idx383 = shl nuw nsw i64 %indvars.iv340, 3
+  %148 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx383
   %149 = load float, ptr %148, align 4, !tbaa !153
   %150 = getelementptr i8, ptr %148, i64 -4
   %151 = load float, ptr %150, align 4, !tbaa !153
@@ -9160,8 +9160,8 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit266:          ; preds = %143, %139
 
 .lr.ph293:                                        ; preds = %.preheader279, %.lr.ph293
   %indvars.iv336 = phi i64 [ %indvars.iv.next337, %.lr.ph293 ], [ %indvars.iv326, %.preheader279 ]
-  %.idx372 = shl nuw nsw i64 %indvars.iv336, 3
-  %165 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx372
+  %.idx382 = shl nuw nsw i64 %indvars.iv336, 3
+  %165 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx382
   %166 = load float, ptr %165, align 4, !tbaa !153
   %167 = getelementptr inbounds i8, ptr %165, i64 -8
   %168 = load float, ptr %167, align 4, !tbaa !153
@@ -9201,8 +9201,8 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit266:          ; preds = %143, %139
 
 .lr.ph290:                                        ; preds = %.preheader281, %.lr.ph290
   %indvars.iv332 = phi i64 [ %indvars.iv.next333, %.lr.ph290 ], [ %indvars.iv326, %.preheader281 ]
-  %.idx371 = shl nuw nsw i64 %indvars.iv332, 3
-  %198 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx371
+  %.idx381 = shl nuw nsw i64 %indvars.iv332, 3
+  %198 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx381
   %199 = load float, ptr %198, align 4, !tbaa !153
   %200 = getelementptr inbounds i8, ptr %198, i64 -12
   %201 = load float, ptr %200, align 4, !tbaa !153
@@ -9397,27 +9397,27 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit266:          ; preds = %143, %139
   %349 = zext nneg i32 %.2 to i64
   %350 = sub i32 %22, %.2
   %wide.trip.count354 = zext i32 %350 to i64
-  %invariant.gep380 = getelementptr inbounds nuw i32, ptr %347, i64 %63
-  %invariant.gep382 = getelementptr inbounds nuw i32, ptr %347, i64 %64
-  %invariant.gep384 = getelementptr inbounds nuw i32, ptr %347, i64 %65
-  %invariant.gep386 = getelementptr inbounds nuw i32, ptr %347, i64 %66
+  %invariant.gep390 = getelementptr inbounds nuw i32, ptr %347, i64 %63
+  %invariant.gep392 = getelementptr inbounds nuw i32, ptr %347, i64 %64
+  %invariant.gep394 = getelementptr inbounds nuw i32, ptr %347, i64 %65
+  %invariant.gep396 = getelementptr inbounds nuw i32, ptr %347, i64 %66
   br label %.lr.ph303
 
 .lr.ph303:                                        ; preds = %.lr.ph303.preheader, %.lr.ph303
   %indvars.iv349 = phi i64 [ %349, %.lr.ph303.preheader ], [ %indvars.iv.next350, %.lr.ph303 ]
   %indvars.iv347 = phi i64 [ 0, %.lr.ph303.preheader ], [ %indvars.iv.next348, %.lr.ph303 ]
-  %gep381 = getelementptr inbounds nuw i32, ptr %invariant.gep380, i64 %indvars.iv347
-  %351 = load i32, ptr %gep381, align 4, !tbaa !41
+  %gep391 = getelementptr inbounds nuw i32, ptr %invariant.gep390, i64 %indvars.iv347
+  %351 = load i32, ptr %gep391, align 4, !tbaa !41
   %352 = sext i32 %351 to i64
   %353 = getelementptr inbounds float, ptr %108, i64 %352
   %354 = load float, ptr %353, align 4, !tbaa !153
-  %gep383 = getelementptr inbounds nuw i32, ptr %invariant.gep382, i64 %indvars.iv347
-  %355 = load i32, ptr %gep383, align 4, !tbaa !41
+  %gep393 = getelementptr inbounds nuw i32, ptr %invariant.gep392, i64 %indvars.iv347
+  %355 = load i32, ptr %gep393, align 4, !tbaa !41
   %356 = sext i32 %355 to i64
   %357 = getelementptr inbounds float, ptr %108, i64 %356
   %358 = load float, ptr %357, align 4, !tbaa !153
-  %gep385 = getelementptr inbounds nuw i32, ptr %invariant.gep384, i64 %indvars.iv347
-  %359 = load i32, ptr %gep385, align 4, !tbaa !41
+  %gep395 = getelementptr inbounds nuw i32, ptr %invariant.gep394, i64 %indvars.iv347
+  %359 = load i32, ptr %gep395, align 4, !tbaa !41
   %360 = sext i32 %359 to i64
   %361 = getelementptr inbounds float, ptr %108, i64 %360
   %362 = load float, ptr %361, align 4, !tbaa !153
@@ -9430,8 +9430,8 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit266:          ; preds = %143, %139
   %369 = getelementptr inbounds float, ptr %108, i64 %368
   %370 = load float, ptr %369, align 4, !tbaa !153
   %371 = fadd float %370, %365
-  %gep387 = getelementptr inbounds nuw i32, ptr %invariant.gep386, i64 %indvars.iv347
-  %372 = load i32, ptr %gep387, align 4, !tbaa !41
+  %gep397 = getelementptr inbounds nuw i32, ptr %invariant.gep396, i64 %indvars.iv347
+  %372 = load i32, ptr %gep397, align 4, !tbaa !41
   %373 = sext i32 %372 to i64
   %374 = getelementptr inbounds float, ptr %108, i64 %373
   %375 = load float, ptr %374, align 4, !tbaa !153
@@ -9681,9 +9681,9 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %109 = load ptr, ptr %52, align 8, !tbaa !104
   %110 = load ptr, ptr %109, align 8, !tbaa !45
   %invariant.gep = getelementptr inbounds nuw i32, ptr %110, i64 %63
-  %invariant.gep374 = getelementptr inbounds nuw i32, ptr %110, i64 %64
-  %invariant.gep376 = getelementptr inbounds nuw i32, ptr %110, i64 %65
-  %invariant.gep378 = getelementptr inbounds nuw i32, ptr %110, i64 %66
+  %invariant.gep384 = getelementptr inbounds nuw i32, ptr %110, i64 %64
+  %invariant.gep386 = getelementptr inbounds nuw i32, ptr %110, i64 %65
+  %invariant.gep388 = getelementptr inbounds nuw i32, ptr %110, i64 %66
   br label %111
 
 111:                                              ; preds = %99, %111
@@ -9694,13 +9694,13 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %113 = sext i32 %112 to i64
   %114 = getelementptr inbounds double, ptr %108, i64 %113
   %115 = load double, ptr %114, align 8, !tbaa !170
-  %gep375 = getelementptr inbounds nuw i32, ptr %invariant.gep374, i64 %indvars.iv
-  %116 = load i32, ptr %gep375, align 4, !tbaa !41
+  %gep385 = getelementptr inbounds nuw i32, ptr %invariant.gep384, i64 %indvars.iv
+  %116 = load i32, ptr %gep385, align 4, !tbaa !41
   %117 = sext i32 %116 to i64
   %118 = getelementptr inbounds double, ptr %108, i64 %117
   %119 = load double, ptr %118, align 8, !tbaa !170
-  %gep377 = getelementptr inbounds nuw i32, ptr %invariant.gep376, i64 %indvars.iv
-  %120 = load i32, ptr %gep377, align 4, !tbaa !41
+  %gep387 = getelementptr inbounds nuw i32, ptr %invariant.gep386, i64 %indvars.iv
+  %120 = load i32, ptr %gep387, align 4, !tbaa !41
   %121 = sext i32 %120 to i64
   %122 = getelementptr inbounds double, ptr %108, i64 %121
   %123 = load double, ptr %122, align 8, !tbaa !170
@@ -9713,8 +9713,8 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %130 = getelementptr inbounds double, ptr %108, i64 %129
   %131 = load double, ptr %130, align 8, !tbaa !170
   %132 = fadd double %131, %126
-  %gep379 = getelementptr inbounds nuw i32, ptr %invariant.gep378, i64 %indvars.iv
-  %133 = load i32, ptr %gep379, align 4, !tbaa !41
+  %gep389 = getelementptr inbounds nuw i32, ptr %invariant.gep388, i64 %indvars.iv
+  %133 = load i32, ptr %gep389, align 4, !tbaa !41
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds double, ptr %108, i64 %134
   %136 = load double, ptr %135, align 8, !tbaa !170
@@ -9733,8 +9733,8 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %77, %._crit_edge314
   %141 = load ptr, ptr %3, align 8, !tbaa !165
   %.not.i.i265 = icmp eq ptr %141, %29
   %142 = icmp eq ptr %141, null
-  %or.cond388 = or i1 %.not.i.i265, %142
-  br i1 %or.cond388, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit266, label %143
+  %or.cond398 = or i1 %.not.i.i265, %142
+  br i1 %or.cond398, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit266, label %143
 
 143:                                              ; preds = %139
   call void @_ZdaPv(ptr noundef nonnull %141) #17
@@ -9777,8 +9777,8 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit266:          ; preds = %143, %139
 
 .lr.ph296:                                        ; preds = %.preheader277, %.lr.ph296
   %indvars.iv340 = phi i64 [ %indvars.iv.next341, %.lr.ph296 ], [ %indvars.iv326, %.preheader277 ]
-  %.idx373 = shl nuw nsw i64 %indvars.iv340, 4
-  %148 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx373
+  %.idx383 = shl nuw nsw i64 %indvars.iv340, 4
+  %148 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx383
   %149 = load double, ptr %148, align 8, !tbaa !170
   %150 = getelementptr i8, ptr %148, i64 -8
   %151 = load double, ptr %150, align 8, !tbaa !170
@@ -9801,8 +9801,8 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit266:          ; preds = %143, %139
 
 .lr.ph293:                                        ; preds = %.preheader279, %.lr.ph293
   %indvars.iv336 = phi i64 [ %indvars.iv.next337, %.lr.ph293 ], [ %indvars.iv326, %.preheader279 ]
-  %.idx372 = shl nuw nsw i64 %indvars.iv336, 4
-  %165 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx372
+  %.idx382 = shl nuw nsw i64 %indvars.iv336, 4
+  %165 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx382
   %166 = load double, ptr %165, align 8, !tbaa !170
   %167 = getelementptr inbounds i8, ptr %165, i64 -16
   %168 = load double, ptr %167, align 8, !tbaa !170
@@ -9842,8 +9842,8 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit266:          ; preds = %143, %139
 
 .lr.ph290:                                        ; preds = %.preheader281, %.lr.ph290
   %indvars.iv332 = phi i64 [ %indvars.iv.next333, %.lr.ph290 ], [ %indvars.iv326, %.preheader281 ]
-  %.idx371 = shl nuw nsw i64 %indvars.iv332, 4
-  %198 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx371
+  %.idx381 = shl nuw nsw i64 %indvars.iv332, 4
+  %198 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx381
   %199 = load double, ptr %198, align 8, !tbaa !170
   %200 = getelementptr inbounds i8, ptr %198, i64 -24
   %201 = load double, ptr %200, align 8, !tbaa !170
@@ -10038,27 +10038,27 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit266:          ; preds = %143, %139
   %349 = zext nneg i32 %.2 to i64
   %350 = sub i32 %22, %.2
   %wide.trip.count354 = zext i32 %350 to i64
-  %invariant.gep380 = getelementptr inbounds nuw i32, ptr %347, i64 %63
-  %invariant.gep382 = getelementptr inbounds nuw i32, ptr %347, i64 %64
-  %invariant.gep384 = getelementptr inbounds nuw i32, ptr %347, i64 %65
-  %invariant.gep386 = getelementptr inbounds nuw i32, ptr %347, i64 %66
+  %invariant.gep390 = getelementptr inbounds nuw i32, ptr %347, i64 %63
+  %invariant.gep392 = getelementptr inbounds nuw i32, ptr %347, i64 %64
+  %invariant.gep394 = getelementptr inbounds nuw i32, ptr %347, i64 %65
+  %invariant.gep396 = getelementptr inbounds nuw i32, ptr %347, i64 %66
   br label %.lr.ph303
 
 .lr.ph303:                                        ; preds = %.lr.ph303.preheader, %.lr.ph303
   %indvars.iv349 = phi i64 [ %349, %.lr.ph303.preheader ], [ %indvars.iv.next350, %.lr.ph303 ]
   %indvars.iv347 = phi i64 [ 0, %.lr.ph303.preheader ], [ %indvars.iv.next348, %.lr.ph303 ]
-  %gep381 = getelementptr inbounds nuw i32, ptr %invariant.gep380, i64 %indvars.iv347
-  %351 = load i32, ptr %gep381, align 4, !tbaa !41
+  %gep391 = getelementptr inbounds nuw i32, ptr %invariant.gep390, i64 %indvars.iv347
+  %351 = load i32, ptr %gep391, align 4, !tbaa !41
   %352 = sext i32 %351 to i64
   %353 = getelementptr inbounds double, ptr %108, i64 %352
   %354 = load double, ptr %353, align 8, !tbaa !170
-  %gep383 = getelementptr inbounds nuw i32, ptr %invariant.gep382, i64 %indvars.iv347
-  %355 = load i32, ptr %gep383, align 4, !tbaa !41
+  %gep393 = getelementptr inbounds nuw i32, ptr %invariant.gep392, i64 %indvars.iv347
+  %355 = load i32, ptr %gep393, align 4, !tbaa !41
   %356 = sext i32 %355 to i64
   %357 = getelementptr inbounds double, ptr %108, i64 %356
   %358 = load double, ptr %357, align 8, !tbaa !170
-  %gep385 = getelementptr inbounds nuw i32, ptr %invariant.gep384, i64 %indvars.iv347
-  %359 = load i32, ptr %gep385, align 4, !tbaa !41
+  %gep395 = getelementptr inbounds nuw i32, ptr %invariant.gep394, i64 %indvars.iv347
+  %359 = load i32, ptr %gep395, align 4, !tbaa !41
   %360 = sext i32 %359 to i64
   %361 = getelementptr inbounds double, ptr %108, i64 %360
   %362 = load double, ptr %361, align 8, !tbaa !170
@@ -10071,8 +10071,8 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit266:          ; preds = %143, %139
   %369 = getelementptr inbounds double, ptr %108, i64 %368
   %370 = load double, ptr %369, align 8, !tbaa !170
   %371 = fadd double %370, %365
-  %gep387 = getelementptr inbounds nuw i32, ptr %invariant.gep386, i64 %indvars.iv347
-  %372 = load i32, ptr %gep387, align 4, !tbaa !41
+  %gep397 = getelementptr inbounds nuw i32, ptr %invariant.gep396, i64 %indvars.iv347
+  %372 = load i32, ptr %gep397, align 4, !tbaa !41
   %373 = sext i32 %372 to i64
   %374 = getelementptr inbounds double, ptr %108, i64 %373
   %375 = load double, ptr %374, align 8, !tbaa !170

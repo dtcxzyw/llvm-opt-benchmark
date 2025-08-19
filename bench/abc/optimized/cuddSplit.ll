@@ -250,8 +250,8 @@ define internal fastcc ptr @selectMintermsFromUniverse(ptr noundef %0, ptr nound
   %17 = zext i1 %16 to i32
   %spec.select = add nuw nsw i32 %.04251, %17
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not73 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not73, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  %.not75 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not75, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %18 = zext nneg i32 %spec.select to i64
@@ -262,8 +262,8 @@ define internal fastcc ptr @selectMintermsFromUniverse(ptr noundef %0, ptr nound
 
 ._crit_edge.thread:                               ; preds = %3
   %21 = tail call noalias ptr @malloc(i64 noundef 0) #8
-  %.not69 = icmp eq ptr %21, null
-  br i1 %.not69, label %24, label %._crit_edge55
+  %.not71 = icmp eq ptr %21, null
+  br i1 %.not71, label %24, label %._crit_edge55
 
 .lr.ph54:                                         ; preds = %._crit_edge
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -308,10 +308,10 @@ define internal fastcc ptr @selectMintermsFromUniverse(ptr noundef %0, ptr nound
   br i1 %45, label %26, label %._crit_edge55, !llvm.loop !38
 
 ._crit_edge55:                                    ; preds = %44, %._crit_edge.thread
-  %.042.lcssa7072 = phi i32 [ 0, %._crit_edge.thread ], [ %spec.select, %44 ]
+  %.042.lcssa7274 = phi i32 [ 0, %._crit_edge.thread ], [ %spec.select, %44 ]
   %46 = phi i64 [ 0, %._crit_edge.thread ], [ %18, %44 ]
   %47 = phi ptr [ %21, %._crit_edge.thread ], [ %20, %44 ]
-  %48 = tail call fastcc ptr @mintermsFromUniverse(ptr noundef %0, ptr noundef %47, i32 noundef %.042.lcssa7072, double noundef %2, i32 noundef 0)
+  %48 = tail call fastcc ptr @mintermsFromUniverse(ptr noundef %0, ptr noundef %47, i32 noundef %.042.lcssa7274, double noundef %2, i32 noundef 0)
   %.not49 = icmp eq ptr %48, null
   br i1 %.not49, label %56, label %49
 
@@ -326,7 +326,7 @@ define internal fastcc ptr @selectMintermsFromUniverse(ptr noundef %0, ptr nound
   br label %56
 
 56:                                               ; preds = %49, %._crit_edge55
-  %.not60 = icmp eq i32 %.042.lcssa7072, 0
+  %.not60 = icmp eq i32 %.042.lcssa7274, 0
   br i1 %.not60, label %._crit_edge59, label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %56, %.lr.ph58
@@ -566,8 +566,8 @@ define ptr @cuddSplitSetRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %88, label %96, label %.thread
 
 .thread:                                          ; preds = %81, %87
-  %.0231270 = phi double [ %.0231.ph, %87 ], [ 0.000000e+00, %81 ]
-  %.pre-phi264268 = phi ptr [ %.pre-phi264.ph, %87 ], [ %48, %81 ]
+  %.0231285 = phi double [ %.0231.ph, %87 ], [ 0.000000e+00, %81 ]
+  %.pre-phi264283 = phi ptr [ %.pre-phi264.ph, %87 ], [ %48, %81 ]
   %89 = call i32 @st__lookup(ptr noundef %1, ptr noundef %.0235, ptr noundef nonnull %8) #9
   %.not251 = icmp eq i32 %89, 0
   br i1 %.not251, label %288, label %90
@@ -591,8 +591,8 @@ define ptr @cuddSplitSetRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %102
 
 102:                                              ; preds = %96, %98, %90
-  %.0231269 = phi double [ %.0231.ph, %98 ], [ %.0231270, %90 ], [ %.0231.ph, %96 ]
-  %.pre-phi264267 = phi ptr [ %.pre-phi264.ph, %98 ], [ %.pre-phi264268, %90 ], [ %.pre-phi264.ph, %96 ]
+  %.0231284 = phi double [ %.0231.ph, %98 ], [ %.0231285, %90 ], [ %.0231.ph, %96 ]
+  %.pre-phi264282 = phi ptr [ %.pre-phi264.ph, %98 ], [ %.pre-phi264283, %90 ], [ %.pre-phi264.ph, %96 ]
   %.0230 = phi double [ %101, %98 ], [ %95, %90 ], [ 0.000000e+00, %96 ]
   %103 = call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %17, ptr noundef %10, ptr noundef %13) #9
   %104 = ptrtoint ptr %103 to i64
@@ -602,7 +602,7 @@ define ptr @cuddSplitSetRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %108 = load i32, ptr %107, align 4, !tbaa !26
   %109 = add i32 %108, 1
   store i32 %109, ptr %107, align 4, !tbaa !26
-  %110 = fcmp oeq double %.0231269, %4
+  %110 = fcmp oeq double %.0231284, %4
   br i1 %110, label %111, label %124
 
 111:                                              ; preds = %102
@@ -658,11 +658,11 @@ define ptr @cuddSplitSetRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %288
 
 141:                                              ; preds = %124
-  %142 = fcmp olt double %.0231269, %4
+  %142 = fcmp olt double %.0231284, %4
   br i1 %142, label %143, label %168
 
 143:                                              ; preds = %141
-  %144 = fsub double %4, %.0231269
+  %144 = fsub double %4, %.0231284
   %145 = add nsw i32 %6, 1
   %146 = call ptr @cuddSplitSetRecur(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %.0235, double noundef %144, double noundef %5, i32 noundef %145)
   %147 = icmp eq ptr %146, null
@@ -754,7 +754,7 @@ define ptr @cuddSplitSetRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 195:                                              ; preds = %168
   %196 = load i32, ptr %42, align 8, !tbaa !30
   %197 = icmp eq i32 %196, 2147483647
-  %198 = load i32, ptr %.pre-phi264267, align 8, !tbaa !30
+  %198 = load i32, ptr %.pre-phi264282, align 8, !tbaa !30
   %199 = icmp eq i32 %198, 2147483647
   br i1 %197, label %200, label %224
 
@@ -849,7 +849,7 @@ define ptr @cuddSplitSetRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %288
 
 .thread253:                                       ; preds = %200, %224
-  %250 = fcmp uge double %.0231269, %.0230
+  %250 = fcmp uge double %.0231284, %.0230
   %251 = add nsw i32 %6, 1
   br i1 %250, label %252, label %.thread254
 

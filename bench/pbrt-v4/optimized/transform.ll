@@ -2571,8 +2571,8 @@ define linkonce_odr dso_local void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr de
   %or.cond = select i1 %79, i1 %81, i1 false
   %82 = fsub float %20, %18
   %83 = fcmp oeq float %82, 0.000000e+00
-  %or.cond334 = select i1 %or.cond, i1 %83, i1 false
-  br i1 %or.cond334, label %84, label %_ZNK4pbrt8Point3fi7IsExactEv.exit.thread
+  %or.cond347 = select i1 %or.cond, i1 %83, i1 false
+  br i1 %or.cond347, label %84, label %_ZNK4pbrt8Point3fi7IsExactEv.exit.thread
 
 84:                                               ; preds = %3
   %85 = tail call noundef float @llvm.fabs.f32(float %24)
@@ -3066,8 +3066,8 @@ define dso_local void @_ZNK4pbrt9Transform12ApplyInverseERKNS_8Point3fiE(ptr dea
   %or.cond = select i1 %80, i1 %82, i1 false
   %83 = fsub float %20, %18
   %84 = fcmp oeq float %83, 0.000000e+00
-  %or.cond322 = select i1 %or.cond, i1 %84, i1 false
-  br i1 %or.cond322, label %85, label %_ZNK4pbrt8Point3fi7IsExactEv.exit.thread
+  %or.cond335 = select i1 %or.cond, i1 %84, i1 false
+  br i1 %or.cond335, label %85, label %_ZNK4pbrt8Point3fi7IsExactEv.exit.thread
 
 85:                                               ; preds = %3
   %86 = tail call noundef float @llvm.fabs.f32(float %25)
@@ -3556,8 +3556,8 @@ _ZN4pbrt12DivRoundDownEff.exit15.i:               ; preds = %22, %20
   %.sroa.speculated.i.i = select i1 %35, float %.011.i.i.i, float %.010.i.i.i
   %.sroa.028.4.vec.insert35.i = insertelement <2 x float> %.sroa.028.0.vec.insert31.i, float %.sroa.speculated.i.i, i64 1
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.02.0.copyload8699 = load <2 x float>, ptr %36, align 4
-  %.sroa.0.0.vec.extract.i28 = extractelement <2 x float> %.sroa.02.0.copyload8699, i64 0
+  %.sroa.02.0.copyload86111 = load <2 x float>, ptr %36, align 4
+  %.sroa.0.0.vec.extract.i28 = extractelement <2 x float> %.sroa.02.0.copyload86111, i64 0
   %37 = fdiv float %.sroa.0.0.vec.extract.i28, %2
   %or.cond.i.i.i29 = fcmp oeq float %37, 0xFFF0000000000000
   br i1 %or.cond.i.i.i29, label %_ZN4pbrt12DivRoundDownEff.exit.i33, label %38
@@ -3574,7 +3574,7 @@ _ZN4pbrt12DivRoundDownEff.exit15.i:               ; preds = %22, %20
 
 _ZN4pbrt12DivRoundDownEff.exit.i33:               ; preds = %38, %33
   %.010.i.i.i34 = phi float [ %42, %38 ], [ 0xFFF0000000000000, %33 ]
-  %.sroa.0.4.vec.extract.i35 = extractelement <2 x float> %.sroa.02.0.copyload8699, i64 1
+  %.sroa.0.4.vec.extract.i35 = extractelement <2 x float> %.sroa.02.0.copyload86111, i64 1
   %43 = fdiv float %.sroa.0.4.vec.extract.i35, %2
   %or.cond.i.i6.i36 = fcmp oeq float %43, 0x7FF0000000000000
   br i1 %or.cond.i.i6.i36, label %65, label %44
@@ -3640,8 +3640,8 @@ _ZN4pbrt12DivRoundDownEff.exit15.i14:             ; preds = %54, %49
   %.sroa.speculated.i.i44 = select i1 %67, float %.011.i.i.i41, float %.010.i.i.i34
   %.sroa.028.4.vec.insert35.i45 = insertelement <2 x float> %.sroa.028.0.vec.insert31.i43, float %.sroa.speculated.i.i44, i64 1
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0.0.copyload92106 = load <2 x float>, ptr %68, align 4
-  %.sroa.0.0.vec.extract.i66 = extractelement <2 x float> %.sroa.0.0.copyload92106, i64 0
+  %.sroa.0.0.copyload92118 = load <2 x float>, ptr %68, align 4
+  %.sroa.0.0.vec.extract.i66 = extractelement <2 x float> %.sroa.0.0.copyload92118, i64 0
   %69 = fdiv float %.sroa.0.0.vec.extract.i66, %2
   %or.cond.i.i.i67 = fcmp oeq float %69, 0xFFF0000000000000
   br i1 %or.cond.i.i.i67, label %_ZN4pbrt12DivRoundDownEff.exit.i71, label %70
@@ -3658,7 +3658,7 @@ _ZN4pbrt12DivRoundDownEff.exit15.i14:             ; preds = %54, %49
 
 _ZN4pbrt12DivRoundDownEff.exit.i71:               ; preds = %70, %65
   %.010.i.i.i72 = phi float [ %74, %70 ], [ 0xFFF0000000000000, %65 ]
-  %.sroa.0.4.vec.extract.i73 = extractelement <2 x float> %.sroa.0.0.copyload92106, i64 1
+  %.sroa.0.4.vec.extract.i73 = extractelement <2 x float> %.sroa.0.0.copyload92118, i64 1
   %75 = fdiv float %.sroa.0.4.vec.extract.i73, %2
   %or.cond.i.i6.i74 = fcmp oeq float %75, 0x7FF0000000000000
   br i1 %or.cond.i.i6.i74, label %_ZN4pbrt10DivRoundUpEff.exit.i78, label %76

@@ -501,10 +501,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17haa7413036653
           to label %39 unwind label %25
 
 ._crit_edge.thread:                               ; preds = %39, %._crit_edge
-  %.0.lcssa38 = phi ptr [ %16, %._crit_edge ], [ %47, %39 ]
-  %storemerge.lcssa37 = phi i64 [ %13, %._crit_edge ], [ %24, %39 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.lcssa38, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
-  %29 = add i64 %storemerge.lcssa37, 1
+  %.0.lcssa40 = phi ptr [ %16, %._crit_edge ], [ %47, %39 ]
+  %storemerge.lcssa39 = phi i64 [ %13, %._crit_edge ], [ %24, %39 ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.lcssa40, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
+  %29 = add i64 %storemerge.lcssa39, 1
   store i64 %29, ptr %5, align 8
   br label %30
 
@@ -1009,22 +1009,22 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
   br i1 %87, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !172
 
 ._crit_edge.sink.split.sink.split:                ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us", %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us"
-  %.sink46 = phi i64 [ %23, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us" ], [ %29, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us" ]
+  %.sink57 = phi i64 [ %23, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us" ], [ %29, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us" ]
   %.sroa.0.0.i.i.us.sink.ph = phi ptr [ %.sroa.0.0.i.i.us, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us" ], [ %.sroa.0.0.i.i.us25, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us" ]
   %.sink.ph = phi i64 [ %22, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us" ], [ %28, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us" ]
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h63ac1e67645c3b58E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.sink46, i64 noundef range(i64 1, 0) 1)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h63ac1e67645c3b58E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.sink57, i64 noundef range(i64 1, 0) 1)
   br label %._crit_edge.sink.split
 
 ._crit_edge.sink.split:                           ; preds = %._crit_edge.sink.split.sink.split, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us", %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us"
-  %.sink45 = phi i64 [ %23, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us" ], [ %29, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us" ], [ %.sink46, %._crit_edge.sink.split.sink.split ]
+  %.sink56 = phi i64 [ %23, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us" ], [ %29, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us" ], [ %.sink57, %._crit_edge.sink.split.sink.split ]
   %.sroa.0.0.i.i.us.sink = phi ptr [ %.sroa.0.0.i.i.us, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us" ], [ %.sroa.0.0.i.i.us25, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us" ], [ %.sroa.0.0.i.i.us.sink.ph, %._crit_edge.sink.split.sink.split ]
   %.sink = phi i64 [ %22, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us" ], [ %28, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us" ], [ %.sink.ph, %._crit_edge.sink.split.sink.split ]
   %96 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
-  %97 = getelementptr inbounds { ptr, i64 }, ptr %96, i64 %.sink45
+  %97 = getelementptr inbounds { ptr, i64 }, ptr %96, i64 %.sink56
   store ptr %.sroa.0.0.i.i.us.sink, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i64 %.sink, ptr %98, align 8
-  %99 = add i64 %.sink45, 1
+  %99 = add i64 %.sink56, 1
   store i64 %99, ptr %20, align 8
   br label %._crit_edge
 

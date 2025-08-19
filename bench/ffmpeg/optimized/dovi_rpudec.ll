@@ -2599,13 +2599,13 @@ align_get_bits.exit:                              ; preds = %5, %32
   br i1 %35, label %.loopexit69, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %39
-  %.04675 = phi ptr [ %8, %39 ], [ %38, %37 ]
+  %.04684 = phi ptr [ %8, %39 ], [ %38, %37 ]
   %.not56 = icmp eq i32 %3, 0
   %40 = and i32 %4, 262152
   %.not57 = icmp eq i32 %40, 0
-  %41 = getelementptr inbounds nuw i8, ptr %.04675, i64 2432
-  %42 = getelementptr inbounds nuw i8, ptr %.04675, i64 2436
-  %43 = getelementptr inbounds nuw i8, ptr %.04675, i64 532
+  %41 = getelementptr inbounds nuw i8, ptr %.04684, i64 2432
+  %42 = getelementptr inbounds nuw i8, ptr %.04684, i64 2436
+  %43 = getelementptr inbounds nuw i8, ptr %.04684, i64 532
   %switch = icmp eq i32 %2, 1
   %.pre = load i32, ptr %9, align 8, !tbaa !47
   %.pre72 = load i32, ptr %11, align 8, !tbaa !43
@@ -2673,7 +2673,7 @@ ff_dovi_rpu_extension_is_static.exit:             ; preds = %44, %44, %44, %44, 
   %82 = zext nneg i32 %79 to i64
   %83 = add nuw nsw i32 %79, 1
   store i32 %83, ptr %41, align 4, !tbaa !25
-  %84 = getelementptr inbounds nuw [7 x %struct.AVDOVIDmData], ptr %.04675, i64 0, i64 %82
+  %84 = getelementptr inbounds nuw [7 x %struct.AVDOVIDmData], ptr %.04684, i64 0, i64 %82
   br label %92
 
 85:                                               ; preds = %44

@@ -38,11 +38,11 @@ define dso_local void @_ZN4llvm6detail17PtrUseVisitorBase12enqueueUsersERNS_5Val
   %17 = ptrtoint ptr %3 to i64
   br label %18
 
-._crit_edge:                                      ; preds = %.critedge20, %2
+._crit_edge:                                      ; preds = %.critedge22, %2
   ret void
 
-18:                                               ; preds = %.lr.ph, %.critedge20
-  %.sroa.09.017 = phi ptr [ %.sroa.09.015, %.lr.ph ], [ %.sroa.09.0, %.critedge20 ]
+18:                                               ; preds = %.lr.ph, %.critedge22
+  %.sroa.09.017 = phi ptr [ %.sroa.09.015, %.lr.ph ], [ %.sroa.09.0, %.critedge22 ]
   %19 = load i8, ptr %6, align 4, !tbaa !8, !range !12, !noalias !13, !noundef !16
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
@@ -60,7 +60,7 @@ define dso_local void @_ZN4llvm6detail17PtrUseVisitorBase12enqueueUsersERNS_5Val
   %.02937.i.i = phi ptr [ %27, %.critedge.i.i ], [ %22, %21 ]
   %26 = load ptr, ptr %.02937.i.i, align 8, !tbaa !19, !noalias !13
   %.not17.i.i = icmp eq ptr %26, %.sroa.09.017
-  br i1 %.not17.i.i, label %.critedge20, label %.critedge.i.i
+  br i1 %.not17.i.i, label %.critedge22, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
   %27 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
@@ -82,7 +82,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %31 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %5, ptr noundef nonnull %.sroa.09.017) #5, !noalias !13
   %32 = extractvalue { ptr, i8 } %31, 1
   %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %.critedge20
+  br i1 %33, label %34, label %.critedge22
 
 34:                                               ; preds = %.critedge, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -171,9 +171,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0E
 
 _ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE9push_backEOS3_.exit, %74, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.critedge20
+  br label %.critedge22
 
-.critedge20:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+.critedge22:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.09.017, i64 8
   %.sroa.09.0 = load ptr, ptr %78, align 8, !tbaa !3
   %.not = icmp eq ptr %.sroa.09.0, null

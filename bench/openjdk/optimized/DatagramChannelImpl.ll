@@ -68,7 +68,7 @@ define i32 @Java_sun_nio_ch_DatagramChannelImpl_receive0(ptr noundef %0, ptr nou
 18:                                               ; preds = %.lr.ph, %20
   %19 = load i32, ptr %17, align 4
   switch i32 %19, label %.split20.us [
-    i32 11, label %.critedge.loopexit35
+    i32 11, label %.critedge.loopexit38
     i32 4, label %.critedge
     i32 111, label %20
   ]
@@ -103,11 +103,11 @@ define i32 @Java_sun_nio_ch_DatagramChannelImpl_receive0(ptr noundef %0, ptr nou
 .critedge.loopexit:                               ; preds = %24
   br label %.critedge
 
-.critedge.loopexit35:                             ; preds = %18
+.critedge.loopexit38:                             ; preds = %18
   br label %.critedge
 
-.critedge:                                        ; preds = %20, %18, %.critedge.loopexit35, %.split.us, %.split, %24, %.critedge.loopexit, %.split20.us, %27
-  %.0 = phi i32 [ -5, %27 ], [ %28, %.split20.us ], [ -3, %24 ], [ %15, %.split.us ], [ %15, %.split ], [ -2, %.critedge.loopexit ], [ -3, %18 ], [ %22, %20 ], [ -2, %.critedge.loopexit35 ]
+.critedge:                                        ; preds = %20, %18, %.critedge.loopexit38, %.split.us, %.split, %24, %.critedge.loopexit, %.split20.us, %27
+  %.0 = phi i32 [ -5, %27 ], [ %28, %.split20.us ], [ -3, %24 ], [ %15, %.split.us ], [ %15, %.split ], [ -2, %.critedge.loopexit ], [ -3, %18 ], [ %22, %20 ], [ -2, %.critedge.loopexit38 ]
   ret i32 %.0
 }
 

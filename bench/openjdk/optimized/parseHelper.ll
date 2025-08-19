@@ -568,11 +568,11 @@ _ZN4Node7del_outEPS_.exit.i.i.i7:                 ; preds = %145, %133, %99
   br label %_ZN8GraphKit4pushEP4Node.exit.sink.split
 
 _ZN8GraphKit4pushEP4Node.exit.sink.split:         ; preds = %95, %161
-  %.sink18 = phi i32 [ %162, %161 ], [ %96, %95 ]
-  %.sink16 = phi ptr [ %163, %161 ], [ %97, %95 ]
+  %.sink29 = phi i32 [ %162, %161 ], [ %96, %95 ]
+  %.sink27 = phi ptr [ %163, %161 ], [ %97, %95 ]
   %.sink = phi ptr [ %120, %161 ], [ %54, %95 ]
-  %165 = zext i32 %.sink18 to i64
-  %166 = getelementptr inbounds nuw ptr, ptr %.sink16, i64 %165
+  %165 = zext i32 %.sink29 to i64
+  %166 = getelementptr inbounds nuw ptr, ptr %.sink27, i64 %165
   store ptr %.sink, ptr %166, align 8
   br label %_ZN8GraphKit4pushEP4Node.exit
 

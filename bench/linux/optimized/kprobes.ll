@@ -1110,7 +1110,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   %34 = phi ptr [ %.ph, %.thread ], [ %29, %31 ]
   %35 = ptrtoint ptr %34 to i64
   %36 = trunc i64 %35 to i32
-  br label %.thread40
+  br label %.thread58
 
 37:                                               ; preds = %31
   store ptr %29, ptr %4, align 8
@@ -1158,7 +1158,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1527, i32 2307, i64 12) #21, !srcloc !48
   call void asm sideeffect "411: nop\0A\09.pushsection .discard.instr_end\0A\09.long 411b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 411) #21, !srcloc !49
   call void @mutex_unlock(ptr noundef nonnull @kprobe_mutex) #21
-  br label %.thread40
+  br label %.thread58
 
 .thread24:                                        ; preds = %43, %55
   call void @mutex_unlock(ptr noundef nonnull @kprobe_mutex) #21
@@ -1174,7 +1174,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   store volatile ptr %66, ptr %67, align 8
   %68 = load ptr, ptr %4, align 8
   %69 = icmp eq ptr %68, null
-  br i1 %69, label %.thread40, label %70
+  br i1 %69, label %.thread58, label %70
 
 70:                                               ; preds = %.thread24
   call void @jump_label_lock() #21
@@ -1305,7 +1305,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
 
 152:                                              ; preds = %142, %149
   call void @jump_label_unlock() #21
-  br i1 %144, label %153, label %.thread40
+  br i1 %144, label %153, label %.thread58
 
 153:                                              ; preds = %152
   call void @mutex_lock(ptr noundef nonnull @kprobe_mutex) #21
@@ -1457,9 +1457,9 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   %238 = getelementptr inbounds nuw i8, ptr %167, i64 128
   %239 = load volatile ptr, ptr %238, align 8
   %240 = icmp eq ptr %239, %238
-  br i1 %240, label %242, label %.thread41, !prof !57
+  br i1 %240, label %242, label %.thread59, !prof !57
 
-.thread41:                                        ; preds = %237
+.thread59:                                        ; preds = %237
   %241 = and i32 %230, -3
   store i32 %241, ptr %229, align 8
   br label %245
@@ -1475,7 +1475,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   store i32 %244, ptr %229, align 8
   br i1 %243, label %245, label %.thread31
 
-245:                                              ; preds = %.thread41, %242
+245:                                              ; preds = %.thread59, %242
   %246 = getelementptr inbounds nuw i8, ptr %167, i64 160
   %247 = load i64, ptr %246, align 8
   %248 = and i64 %247, 4294967295
@@ -1683,13 +1683,13 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   %353 = phi i32 [ %322, %321 ], [ 0, %351 ], [ %342, %350 ], [ 0, %299 ], [ 0, %303 ], [ %307, %309 ], [ 0, %306 ], [ 0, %294 ], [ %291, %.thread31 ]
   call void @mutex_unlock(ptr noundef nonnull @kprobe_mutex) #21
   %354 = icmp eq ptr %143, null
-  br i1 %354, label %.thread40, label %355
+  br i1 %354, label %.thread58, label %355
 
 355:                                              ; preds = %352
   call void @module_put(ptr noundef nonnull %143) #21
-  br label %.thread40
+  br label %.thread58
 
-.thread40:                                        ; preds = %.thread24, %.loopexit, %355, %352, %152, %33
+.thread58:                                        ; preds = %.thread24, %.loopexit, %355, %352, %152, %33
   %356 = phi i32 [ %36, %33 ], [ -22, %.loopexit ], [ %145, %152 ], [ %353, %355 ], [ %353, %352 ], [ -22, %.thread24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %356

@@ -531,11 +531,11 @@ define hidden void @_ZN18PerfStringConstantC2E9CounterNSPKcS2_(ptr noundef nonnu
   br label %_ZN10PerfStringC2E9CounterNSPKcN8PerfData11VariabilityEiS2_.exit.sink.split
 
 _ZN10PerfStringC2E9CounterNSPKcN8PerfData11VariabilityEiS2_.exit.sink.split: ; preds = %9, %22
-  %.sink10.in = phi ptr [ %18, %22 ], [ %6, %9 ]
+  %.sink12.in = phi ptr [ %18, %22 ], [ %6, %9 ]
   %.sink.in = phi ptr [ %20, %22 ], [ %7, %9 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %.sink10 = load i32, ptr %.sink10.in, align 8
-  %26 = sext i32 %.sink10 to i64
+  %.sink12 = load i32, ptr %.sink12.in, align 8
+  %26 = sext i32 %.sink12 to i64
   %27 = getelementptr i8, ptr %.sink, i64 %26
   %28 = getelementptr i8, ptr %27, i64 -1
   store i8 0, ptr %28, align 1
@@ -868,10 +868,10 @@ _ZN12PerfDataListC2Ei.exit18:                     ; preds = %63, %67
   br i1 %78, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %72, %52
-  %.sink42 = phi i32 [ %55, %52 ], [ %75, %72 ]
-  %.sink31 = phi ptr [ %54, %52 ], [ %74, %72 ]
-  %79 = add nsw i32 %.sink42, 1
-  %80 = icmp sgt i32 %.sink42, -1
+  %.sink54 = phi i32 [ %55, %52 ], [ %75, %72 ]
+  %.sink43 = phi ptr [ %54, %52 ], [ %74, %72 ]
+  %79 = add nsw i32 %.sink54, 1
+  %80 = icmp sgt i32 %.sink54, -1
   %81 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %79)
   %82 = icmp samesign ult i32 %81, 2
   %or.cond.i.i.i.i.i19 = select i1 %80, i1 %82, i1 false
@@ -879,18 +879,18 @@ _ZN12PerfDataListC2Ei.exit18:                     ; preds = %63, %67
   %84 = sub nuw nsw i32 32, %83
   %85 = shl nuw i32 1, %84
   %.0.i.i.i.i.i20 = select i1 %or.cond.i.i.i.i.i19, i32 %79, i32 %85
-  tail call void @_ZN26GrowableArrayWithAllocatorIP8PerfData13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.sink31, i32 noundef %.0.i.i.i.i.i20)
-  %.pre.i.i21 = load i32, ptr %.sink31, align 8
+  tail call void @_ZN26GrowableArrayWithAllocatorIP8PerfData13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.sink43, i32 noundef %.0.i.i.i.i.i20)
+  %.pre.i.i21 = load i32, ptr %.sink43, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %72, %52
-  %.sink30 = phi i32 [ %55, %52 ], [ %75, %72 ], [ %.pre.i.i21, %.sink.split.sink.split ]
-  %.sink29 = phi ptr [ %54, %52 ], [ %74, %72 ], [ %.sink31, %.sink.split.sink.split ]
-  %86 = add nsw i32 %.sink30, 1
-  store i32 %86, ptr %.sink29, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %.sink29, i64 8
+  %.sink42 = phi i32 [ %55, %52 ], [ %75, %72 ], [ %.pre.i.i21, %.sink.split.sink.split ]
+  %.sink41 = phi ptr [ %54, %52 ], [ %74, %72 ], [ %.sink43, %.sink.split.sink.split ]
+  %86 = add nsw i32 %.sink42, 1
+  store i32 %86, ptr %.sink41, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %.sink41, i64 8
   %88 = load ptr, ptr %87, align 8
-  %89 = sext i32 %.sink30 to i64
+  %89 = sext i32 %.sink42 to i64
   %90 = getelementptr inbounds ptr, ptr %88, i64 %89
   store ptr %0, ptr %90, align 8
   br label %91
@@ -2216,7 +2216,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP8PerfData13Gro
   br i1 %.not, label %_ZN13GrowableArrayIP8PerfDataE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -2228,8 +2228,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP8PerfData13Gro
   br label %_ZN13GrowableArrayIP8PerfDataE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP8PerfDataE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP8PerfDataE10deallocateEPS1_.exit

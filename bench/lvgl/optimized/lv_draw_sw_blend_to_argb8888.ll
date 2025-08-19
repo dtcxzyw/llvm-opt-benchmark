@@ -2376,8 +2376,8 @@ argb8888_image_blend.exit:                        ; preds = %._crit_edge.us.i23,
   %793 = zext i32 %755 to i64
   %794 = zext i32 %759 to i64
   %795 = icmp eq i8 %752, 0
-  %or.cond271.i = select i1 %789, i1 true, i1 %795
-  br i1 %or.cond271.i, label %l8_image_blend.exit, label %.preheader175.us.preheader.i
+  %or.cond287.i = select i1 %789, i1 true, i1 %795
+  br i1 %or.cond287.i, label %l8_image_blend.exit, label %.preheader175.us.preheader.i
 
 .preheader175.us.preheader.i:                     ; preds = %.preheader175.lr.ph.i
   %wide.trip.count257.i = zext nneg i32 %748 to i64
@@ -3623,8 +3623,8 @@ blend_non_normal_pixel.exit.us.i136:              ; preds = %lv_color_32_32_mix.
   %1436 = zext i32 %1396 to i64
   %1437 = zext i32 %1400 to i64
   %1438 = icmp eq i8 %1393, 0
-  %or.cond273.i = select i1 %1432, i1 true, i1 %1438
-  br i1 %or.cond273.i, label %l8_image_blend.exit, label %.preheader177.us.preheader.i
+  %or.cond289.i = select i1 %1432, i1 true, i1 %1438
+  br i1 %or.cond289.i, label %l8_image_blend.exit, label %.preheader177.us.preheader.i
 
 .preheader177.us.preheader.i:                     ; preds = %.preheader177.lr.ph.i
   %wide.trip.count259.i = zext nneg i32 %1389 to i64

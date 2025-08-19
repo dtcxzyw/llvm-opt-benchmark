@@ -500,7 +500,6 @@ define dso_local void @lua_replace(ptr noundef %0, i32 noundef %1) local_unnamed
 28:                                               ; preds = %21
   switch i32 %1, label %73 [
     i32 -10000, label %29
-    i32 -10001, label %.thread33
     i32 -10002, label %33
   ]
 
@@ -514,7 +513,7 @@ define dso_local void @lua_replace(ptr noundef %0, i32 noundef %1) local_unnamed
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %.thread37
 
-.thread33:                                        ; preds = %4, %10, %28
+.thread33:                                        ; preds = %4, %10
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8, !tbaa !23
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8

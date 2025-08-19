@@ -1574,13 +1574,13 @@ define void @"_ZN4core3ptr104drop_in_place$LT$$LP$cranelift_isle..trie_again..Bi
   ]
 
 "_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$$u5b$cranelift_isle..trie_again..BindingId$u5d$$GT$$GT$17h907762c2270be2a6E.exit.sink.split.i": ; preds = %11, %7
-  %.sink6.i = phi i64 [ 16, %7 ], [ 24, %11 ]
-  %.sink5.i = phi i64 [ %9, %7 ], [ %13, %11 ]
-  %.sink4.i = phi i64 [ 32, %7 ], [ 40, %11 ]
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink6.i
-  %4 = shl nsw i64 %.sink5.i, 1
+  %.sink7.i = phi i64 [ 16, %7 ], [ 24, %11 ]
+  %.sink6.i = phi i64 [ %9, %7 ], [ %13, %11 ]
+  %.sink5.i = phi i64 [ 32, %7 ], [ 40, %11 ]
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink7.i
+  %4 = shl nsw i64 %.sink6.i, 1
   %5 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink4.i
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink5.i
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr nonnull align 1 %6, ptr nonnull %5, i64 2, i64 %4)
   br label %"_ZN4core3ptr56drop_in_place$LT$cranelift_isle..trie_again..Binding$GT$17hea7416d2e2542842E.exit"
 
@@ -8706,13 +8706,13 @@ define void @"_ZN4core3ptr56drop_in_place$LT$cranelift_isle..trie_again..Binding
   ]
 
 "_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$$u5b$cranelift_isle..trie_again..BindingId$u5d$$GT$$GT$17h907762c2270be2a6E.exit.sink.split": ; preds = %11, %7
-  %.sink6 = phi i64 [ 16, %7 ], [ 24, %11 ]
-  %.sink5 = phi i64 [ %9, %7 ], [ %13, %11 ]
-  %.sink4 = phi i64 [ 32, %7 ], [ 40, %11 ]
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink6
-  %4 = shl nsw i64 %.sink5, 1
+  %.sink7 = phi i64 [ 16, %7 ], [ 24, %11 ]
+  %.sink6 = phi i64 [ %9, %7 ], [ %13, %11 ]
+  %.sink5 = phi i64 [ 32, %7 ], [ 40, %11 ]
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink7
+  %4 = shl nsw i64 %.sink6, 1
   %5 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink5
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr nonnull align 1 %6, ptr nonnull %5, i64 2, i64 %4)
   br label %"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$$u5b$cranelift_isle..trie_again..BindingId$u5d$$GT$$GT$17h907762c2270be2a6E.exit"
 
@@ -9633,14 +9633,14 @@ define void @"_ZN4core3ptr59drop_in_place$LT$cranelift_isle..serialize..ControlF
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = load i16, ptr %0, align 8, !range !21, !noundef !3
-  switch i16 %5, label %default.unreachable5 [
+  switch i16 %5, label %default.unreachable7 [
     i16 0, label %7
     i16 1, label %20
     i16 2, label %33
     i16 3, label %6
   ]
 
-default.unreachable5:                             ; preds = %1
+default.unreachable7:                             ; preds = %1
   unreachable
 
 6:                                                ; preds = %1, %"_ZN4core3ptr86drop_in_place$LT$alloc..raw_vec..RawVec$LT$cranelift_isle..serialize..EvalStep$GT$$GT$17h799587b9e48b894fE.exit4", %"_ZN4core3ptr86drop_in_place$LT$alloc..raw_vec..RawVec$LT$cranelift_isle..serialize..EvalStep$GT$$GT$17h799587b9e48b894fE.exit", %"_ZN4core3ptr86drop_in_place$LT$alloc..raw_vec..RawVec$LT$cranelift_isle..serialize..MatchArm$GT$$GT$17h2eb765752ca31330E.exit"
@@ -10529,13 +10529,13 @@ define void @"_ZN4core3ptr66drop_in_place$LT$$u5b$cranelift_isle..trie_again..Bi
   ]
 
 "_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$$u5b$cranelift_isle..trie_again..BindingId$u5d$$GT$$GT$17h907762c2270be2a6E.exit.sink.split.i": ; preds = %15, %11
-  %.sink6.i = phi i64 [ 16, %11 ], [ 24, %15 ]
-  %.sink5.i = phi i64 [ %13, %11 ], [ %17, %15 ]
-  %.sink4.i = phi i64 [ 32, %11 ], [ 40, %15 ]
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink6.i
-  %8 = shl nsw i64 %.sink5.i, 1
+  %.sink7.i = phi i64 [ 16, %11 ], [ 24, %15 ]
+  %.sink6.i = phi i64 [ %13, %11 ], [ %17, %15 ]
+  %.sink5.i = phi i64 [ 32, %11 ], [ 40, %15 ]
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink7.i
+  %8 = shl nsw i64 %.sink6.i, 1
   %9 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink4.i
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink5.i
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr nonnull align 1 %10, ptr nonnull %9, i64 2, i64 %8)
           to label %"_ZN4core3ptr56drop_in_place$LT$cranelift_isle..trie_again..Binding$GT$17hea7416d2e2542842E.exit" unwind label %22
 
@@ -13549,13 +13549,13 @@ define void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..
   ]
 
 "_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$$u5b$cranelift_isle..trie_again..BindingId$u5d$$GT$$GT$17h907762c2270be2a6E.exit.sink.split.i.i.i": ; preds = %19, %15
-  %.sink6.i.i.i = phi i64 [ 16, %15 ], [ 24, %19 ]
-  %.sink5.i.i.i = phi i64 [ %17, %15 ], [ %21, %19 ]
-  %.sink4.i.i.i = phi i64 [ 32, %15 ], [ 40, %19 ]
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink6.i.i.i
-  %12 = shl nsw i64 %.sink5.i.i.i, 1
+  %.sink7.i.i.i = phi i64 [ 16, %15 ], [ 24, %19 ]
+  %.sink6.i.i.i = phi i64 [ %17, %15 ], [ %21, %19 ]
+  %.sink5.i.i.i = phi i64 [ 32, %15 ], [ 40, %19 ]
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink7.i.i.i
+  %12 = shl nsw i64 %.sink6.i.i.i, 1
   %13 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink4.i.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink5.i.i.i
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr nonnull align 1 %14, ptr nonnull %13, i64 2, i64 %12)
           to label %"_ZN4core3ptr56drop_in_place$LT$cranelift_isle..trie_again..Binding$GT$17hea7416d2e2542842E.exit.i.i" unwind label %26
 
@@ -14026,13 +14026,13 @@ define void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$cranelift_i
   ret void
 
 "_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$$u5b$cranelift_isle..trie_again..BindingId$u5d$$GT$$GT$17h907762c2270be2a6E.exit.sink.split.i": ; preds = %11, %7
-  %.sink6.i = phi i64 [ 16, %7 ], [ 24, %11 ]
-  %.sink5.i = phi i64 [ %9, %7 ], [ %13, %11 ]
-  %.sink4.i = phi i64 [ 32, %7 ], [ 40, %11 ]
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink6.i
-  %4 = shl nsw i64 %.sink5.i, 1
+  %.sink7.i = phi i64 [ 16, %7 ], [ 24, %11 ]
+  %.sink6.i = phi i64 [ %9, %7 ], [ %13, %11 ]
+  %.sink5.i = phi i64 [ 32, %7 ], [ 40, %11 ]
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink7.i
+  %4 = shl nsw i64 %.sink6.i, 1
   %5 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink4.i
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink5.i
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr nonnull align 1 %6, ptr nonnull %5, i64 2, i64 %4)
   br label %"_ZN4core3ptr56drop_in_place$LT$cranelift_isle..trie_again..Binding$GT$17hea7416d2e2542842E.exit"
 
@@ -15881,13 +15881,13 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   ]
 
 "_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$$u5b$cranelift_isle..trie_again..BindingId$u5d$$GT$$GT$17h907762c2270be2a6E.exit.sink.split.i.i": ; preds = %18, %14
-  %.sink6.i.i = phi i64 [ 16, %14 ], [ 24, %18 ]
-  %.sink5.i.i = phi i64 [ %16, %14 ], [ %20, %18 ]
-  %.sink4.i.i = phi i64 [ 32, %14 ], [ 40, %18 ]
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink6.i.i
-  %11 = shl nsw i64 %.sink5.i.i, 1
+  %.sink7.i.i = phi i64 [ 16, %14 ], [ 24, %18 ]
+  %.sink6.i.i = phi i64 [ %16, %14 ], [ %20, %18 ]
+  %.sink5.i.i = phi i64 [ 32, %14 ], [ 40, %18 ]
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink7.i.i
+  %11 = shl nsw i64 %.sink6.i.i, 1
   %12 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink4.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink5.i.i
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr nonnull align 1 %13, ptr nonnull %12, i64 2, i64 %11)
           to label %"_ZN4core3ptr56drop_in_place$LT$cranelift_isle..trie_again..Binding$GT$17hea7416d2e2542842E.exit.i" unwind label %25
 
@@ -18292,13 +18292,13 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   ]
 
 "_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$$u5b$cranelift_isle..trie_again..BindingId$u5d$$GT$$GT$17h907762c2270be2a6E.exit.sink.split.i.i": ; preds = %23, %19
-  %.sink6.i.i = phi i64 [ 16, %19 ], [ 24, %23 ]
-  %.sink5.i.i = phi i64 [ %21, %19 ], [ %25, %23 ]
-  %.sink4.i.i = phi i64 [ 32, %19 ], [ 40, %23 ]
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink6.i.i
-  %16 = shl nsw i64 %.sink5.i.i, 1
+  %.sink7.i.i = phi i64 [ 16, %19 ], [ 24, %23 ]
+  %.sink6.i.i = phi i64 [ %21, %19 ], [ %25, %23 ]
+  %.sink5.i.i = phi i64 [ 32, %19 ], [ 40, %23 ]
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink7.i.i
+  %16 = shl nsw i64 %.sink6.i.i, 1
   %17 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink4.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink5.i.i
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr nonnull align 1 %18, ptr nonnull %17, i64 2, i64 %16)
           to label %"_ZN4core3ptr56drop_in_place$LT$cranelift_isle..trie_again..Binding$GT$17hea7416d2e2542842E.exit.i" unwind label %30
 

@@ -1006,12 +1006,12 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPN4llvm4dxbc23ProgramS
 
 9:                                                ; preds = %2
   %10 = icmp eq ptr %0, %1
-  br i1 %10, label %common.ret25, label %.preheader.i
+  br i1 %10, label %common.ret29, label %.preheader.i
 
 .preheader.i:                                     ; preds = %9
   %.019.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.not20.i = icmp eq ptr %.019.i, %1
-  br i1 %.not20.i, label %common.ret25, label %.lr.ph.i
+  br i1 %.not20.i, label %common.ret29, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1120,9 +1120,9 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPN4llvm4dxbc23ProgramS
 40:                                               ; preds = %"_ZSt25__unguarded_linear_insertIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i"
   %.0.i = getelementptr inbounds nuw i8, ptr %.022.i, i64 32
   %.not.i = icmp eq ptr %.0.i, %1
-  br i1 %.not.i, label %common.ret25, label %11, !llvm.loop !124
+  br i1 %.not.i, label %common.ret29, label %11, !llvm.loop !124
 
-common.ret25:                                     ; preds = %.preheader.i, %9, %40, %41
+common.ret29:                                     ; preds = %.preheader.i, %9, %40, %41
   ret void
 
 41:                                               ; preds = %2
@@ -1134,7 +1134,7 @@ common.ret25:                                     ; preds = %.preheader.i, %9, %
   %45 = sub i64 %4, %44
   %46 = ashr exact i64 %45, 5
   tail call fastcc void @"_ZSt22__merge_without_bufferIPN4llvm4dxbc23ProgramSignatureElementElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_SD_T0_SE_T1_"(ptr noundef %0, ptr noundef %43, ptr noundef %1, i64 noundef %42, i64 noundef %46)
-  br label %common.ret25
+  br label %common.ret29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2028,9 +2028,9 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit73.thread: ;
   br label %48, !llvm.loop !134
 
 _ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit73.thread, %64
-  %.sink44.i = phi ptr [ %65, %64 ], [ %44, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit73.thread ]
+  %.sink53.i = phi ptr [ %65, %64 ], [ %44, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit73.thread ]
   %.lcssa.sink.i = phi ptr [ %62, %64 ], [ %2, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit73.thread ]
-  %70 = ptrtoint ptr %.sink44.i to i64
+  %70 = ptrtoint ptr %.sink53.i to i64
   %71 = ptrtoint ptr %5 to i64
   %72 = sub i64 %70, %71
   %73 = ashr exact i64 %72, 5

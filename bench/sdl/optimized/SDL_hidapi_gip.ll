@@ -2012,13 +2012,13 @@ GIP_SupportsVendorMessage.exit.thread:            ; preds = %129, %GIP_SupportsV
   br i1 %132, label %GIP_SupportsVendorMessage.exit42.thread, label %.lr.ph.i36
 
 .lr.ph.i36:                                       ; preds = %112, %117, %GIP_SupportsVendorMessage.exit.thread
-  %.pre-phi72 = phi i64 [ %.pre69, %GIP_SupportsVendorMessage.exit.thread ], [ %109, %117 ], [ %109, %112 ]
+  %.pre-phi76 = phi i64 [ %.pre69, %GIP_SupportsVendorMessage.exit.thread ], [ %109, %117 ], [ %109, %112 ]
   %133 = load ptr, ptr %110, align 8
   br label %136
 
 134:                                              ; preds = %136
   %135 = add nuw nsw i64 %.01316.i37, 1
-  %exitcond.not.i39 = icmp eq i64 %135, %.pre-phi72
+  %exitcond.not.i39 = icmp eq i64 %135, %.pre-phi76
   br i1 %exitcond.not.i39, label %GIP_SupportsVendorMessage.exit42.thread, label %136, !llvm.loop !14
 
 136:                                              ; preds = %134, %.lr.ph.i36
@@ -2786,8 +2786,8 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
 
 326:                                              ; preds = %326, %.lr.ph179.i.i.i.i
   %indvars.iv187.i.i.i.i = phi i64 [ 0, %.lr.ph179.i.i.i.i ], [ %indvars.iv.next188.i.i.i.i, %326 ]
-  %gep196.i.i.i.i = getelementptr inbounds nuw i8, ptr %321, i64 %indvars.iv187.i.i.i.i
-  %327 = getelementptr inbounds nuw i8, ptr %gep196.i.i.i.i, i64 1
+  %gep206.i.i.i.i = getelementptr inbounds nuw i8, ptr %321, i64 %indvars.iv187.i.i.i.i
+  %327 = getelementptr inbounds nuw i8, ptr %gep206.i.i.i.i, i64 1
   %328 = load i8, ptr %327, align 1
   %329 = zext i8 %328 to i32
   %330 = and i32 %329, 31
@@ -3182,9 +3182,9 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %453, %429
   br i1 %534, label %.sink.split.i.i, label %537
 
 .sink.split.i.i:                                  ; preds = %532, %529, %526, %523, %520
-  %.sink48.i.i = phi i32 [ 16, %520 ], [ 1, %523 ], [ 2, %526 ], [ 4, %529 ], [ 8, %532 ]
+  %.sink69.i.i = phi i32 [ 16, %520 ], [ 1, %523 ], [ 2, %526 ], [ 4, %529 ], [ 8, %532 ]
   %535 = load i32, ptr %480, align 4
-  %536 = or i32 %535, %.sink48.i.i
+  %536 = or i32 %535, %.sink69.i.i
   store i32 %536, ptr %480, align 4
   br label %537
 
@@ -3625,8 +3625,8 @@ GIP_SendVendorMessage.exit.i.i.i:                 ; preds = %.thread3.i.i
   br label %758
 
 758:                                              ; preds = %757, %756, %755, %754, %753, %750
-  %.sink1.i.i = phi i32 [ %752, %757 ], [ 339, %756 ], [ 353, %755 ], [ 338, %754 ], [ 352, %753 ], [ 8364, %750 ]
-  %759 = call ptr @SDL_UCS4ToUTF8_REAL(i32 noundef %.sink1.i.i, ptr noundef nonnull %6) #10
+  %.sink3.i.i = phi i32 [ %752, %757 ], [ 339, %756 ], [ 353, %755 ], [ 338, %754 ], [ 352, %753 ], [ 8364, %750 ]
+  %759 = call ptr @SDL_UCS4ToUTF8_REAL(i32 noundef %.sink3.i.i, ptr noundef nonnull %6) #10
   call void @SDL_SendKeyboardText(ptr noundef nonnull %6) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %760
@@ -4330,13 +4330,13 @@ GIP_HandleArcadeStickReport.exit.i:               ; preds = %1134, %.lr.ph74.i.i
   br i1 %.not115.i, label %1192, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %1162, %1159
-  %.sink35.i = phi i32 [ 2, %1162 ], [ 1, %1159 ]
-  %.sink26.i = phi i8 [ 8, %1162 ], [ 2, %1159 ]
-  %.sink16.i = phi i8 [ 1, %1162 ], [ 4, %1159 ]
-  %.sink7.i = phi i8 [ 4, %1162 ], [ 8, %1159 ]
+  %.sink47.i = phi i32 [ 2, %1162 ], [ 1, %1159 ]
+  %.sink38.i = phi i8 [ 8, %1162 ], [ 2, %1159 ]
+  %.sink28.i = phi i8 [ 1, %1162 ], [ 4, %1159 ]
+  %.sink19.i = phi i8 [ 4, %1162 ], [ 8, %1159 ]
   %1164 = getelementptr inbounds nuw i8, ptr %0, i64 341
   %1165 = load i8, ptr %1164, align 1
-  %1166 = and i32 %.sink35.i, %1158
+  %1166 = and i32 %.sink47.i, %1158
   %1167 = icmp ne i32 %1166, 0
   call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext %1165, i1 noundef zeroext %1167) #10
   %1168 = load i8, ptr %1164, align 1
@@ -4345,7 +4345,7 @@ GIP_HandleArcadeStickReport.exit.i:               ; preds = %1134, %.lr.ph74.i.i
   %1171 = sext i32 %1170 to i64
   %1172 = getelementptr inbounds i8, ptr %1, i64 %1171
   %1173 = load i8, ptr %1172, align 1
-  %1174 = and i8 %1173, %.sink26.i
+  %1174 = and i8 %1173, %.sink38.i
   %1175 = icmp ne i8 %1174, 0
   call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext %1169, i1 noundef zeroext %1175) #10
   %1176 = load i8, ptr %1164, align 1
@@ -4354,7 +4354,7 @@ GIP_HandleArcadeStickReport.exit.i:               ; preds = %1134, %.lr.ph74.i.i
   %1179 = sext i32 %1178 to i64
   %1180 = getelementptr inbounds i8, ptr %1, i64 %1179
   %1181 = load i8, ptr %1180, align 1
-  %1182 = and i8 %1181, %.sink16.i
+  %1182 = and i8 %1181, %.sink28.i
   %1183 = icmp ne i8 %1182, 0
   call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext %1177, i1 noundef zeroext %1183) #10
   %1184 = load i8, ptr %1164, align 1
@@ -4363,7 +4363,7 @@ GIP_HandleArcadeStickReport.exit.i:               ; preds = %1134, %.lr.ph74.i.i
   %1187 = sext i32 %1186 to i64
   %1188 = getelementptr inbounds i8, ptr %1, i64 %1187
   %1189 = load i8, ptr %1188, align 1
-  %1190 = and i8 %1189, %.sink7.i
+  %1190 = and i8 %1189, %.sink19.i
   %1191 = icmp ne i8 %1190, 0
   call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext %1185, i1 noundef zeroext %1191) #10
   %.pre = load i32, ptr %1145, align 4

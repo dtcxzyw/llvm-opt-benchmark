@@ -368,8 +368,8 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
   %218 = sext i32 %208 to i64
   %219 = shl nsw i64 %218, 2
   %smin555 = tail call i32 @llvm.smin.i32(i32 %119, i32 %indvars593)
-  %invariant.gep606 = getelementptr float, ptr %199, i64 %157
-  %invariant.gep608 = getelementptr float, ptr %199, i64 %157
+  %invariant.gep623 = getelementptr float, ptr %199, i64 %157
+  %invariant.gep625 = getelementptr float, ptr %199, i64 %157
   br label %277
 
 220:                                              ; preds = %.lr.ph, %220
@@ -490,8 +490,8 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph.us, %267
   %indvars.iv587 = phi i64 [ %indvars.iv553, %.preheader.lr.ph.us ], [ %indvars.iv.next588, %267 ]
-  %.idx597 = shl nsw i64 %indvars.iv587, 4
-  %274 = getelementptr inbounds nuw i8, ptr %266, i64 %.idx597
+  %.idx614 = shl nsw i64 %indvars.iv587, 4
+  %274 = getelementptr inbounds nuw i8, ptr %266, i64 %.idx614
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 12
   br label %269
 
@@ -592,7 +592,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
 
 .preheader.i447:                                  ; preds = %._crit_edge.i449, %.preheader.lr.ph.split.i
   %indvars.iv156.i = phi i64 [ %336, %.preheader.lr.ph.split.i ], [ %indvars.iv.next157.i, %._crit_edge.i449 ]
-  %invariant.gep.idx.i = shl i64 %indvars.iv156.i, 4
+  %invariant.gep.idx.i = shl nsw i64 %indvars.iv156.i, 4
   %invariant.gep.i = getelementptr i8, ptr %0, i64 %invariant.gep.idx.i
   br label %348
 
@@ -737,8 +737,8 @@ init_column_sums.exit:                            ; preds = %._crit_edge148.i, %
 406:                                              ; preds = %.lr.ph497, %427
   %indvars.iv550 = phi i64 [ %382, %.lr.ph497 ], [ %indvars.iv.next551, %427 ]
   %.1496 = phi float [ %.0402.lcssa, %.lr.ph497 ], [ %414, %427 ]
-  %gep609 = getelementptr float, ptr %invariant.gep608, i64 %indvars.iv550
-  %407 = load float, ptr %gep609, align 4, !tbaa !14
+  %gep626 = getelementptr float, ptr %invariant.gep625, i64 %indvars.iv550
+  %407 = load float, ptr %gep626, align 4, !tbaa !14
   %408 = trunc nuw nsw i64 %indvars.iv550 to i32
   %409 = add i32 %408, %161
   %410 = sext i32 %409 to i64
@@ -791,14 +791,14 @@ init_column_sums.exit:                            ; preds = %._crit_edge148.i, %
 .lr.ph491:                                        ; preds = %.preheader476, %483
   %indvars.iv545 = phi i64 [ %indvars.iv.next546, %483 ], [ %382, %.preheader476 ]
   %.2490 = phi float [ %459, %483 ], [ %.0402.lcssa, %.preheader476 ]
-  %gep607 = getelementptr float, ptr %invariant.gep606, i64 %indvars.iv545
-  %437 = load float, ptr %gep607, align 4, !tbaa !14
+  %gep624 = getelementptr float, ptr %invariant.gep623, i64 %indvars.iv545
+  %437 = load float, ptr %gep624, align 4, !tbaa !14
   %438 = trunc nuw nsw i64 %indvars.iv545 to i32
   %439 = add i32 %438, %161
   %440 = sext i32 %439 to i64
   %441 = getelementptr inbounds float, ptr %199, i64 %440
   %442 = load float, ptr %441, align 4, !tbaa !14
-  %443 = shl nsw i64 %indvars.iv545, 2
+  %443 = shl nuw nsw i64 %indvars.iv545, 2
   %444 = getelementptr inbounds nuw float, ptr %395, i64 %443
   %445 = getelementptr inbounds float, ptr %444, i64 %377
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -892,8 +892,8 @@ pixel_difference.exit:                            ; preds = %446
 
 .lr.ph508:                                        ; preds = %494, %pixel_difference.exit453
   %indvars.iv567 = phi i64 [ %indvars.iv.next568, %pixel_difference.exit453 ], [ %386, %494 ]
-  %.idx596 = shl nsw i64 %indvars.iv567, 4
-  %500 = getelementptr inbounds i8, ptr %499, i64 %.idx596
+  %.idx613 = shl nsw i64 %indvars.iv567, 4
+  %500 = getelementptr inbounds i8, ptr %499, i64 %.idx613
   %501 = getelementptr inbounds float, ptr %500, i64 %377
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)

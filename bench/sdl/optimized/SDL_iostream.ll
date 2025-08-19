@@ -1552,8 +1552,8 @@ SDL_GetIOStatus_REAL.exit:                        ; preds = %83, %91
   %100 = tail call ptr @SDL_GetError_REAL() #18
   %101 = load i8, ptr %100, align 1
   %.not18.i = icmp eq i8 %101, 0
-  %.152 = select i1 %.not18.i, i32 2, i32 1
-  store i32 %.152, ptr %39, align 8
+  %.165 = select i1 %.not18.i, i32 2, i32 1
+  store i32 %.165, ptr %39, align 8
   br label %.split72.us
 
 .split72.us:                                      ; preds = %SDL_GetIOStatus_REAL.exit, %SDL_GetIOStatus_REAL.exit.us77, %SDL_GetIOStatus_REAL.exit.us.us, %.split72.us.sink.split

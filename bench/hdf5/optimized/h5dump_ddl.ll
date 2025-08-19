@@ -2968,7 +2968,7 @@ define dso_local void @handle_attributes(i64 noundef %0, ptr noundef %1, ptr rea
   %29 = getelementptr i8, ptr %28, i64 -2
   %30 = load i8, ptr %29, align 1, !tbaa !72
   %.not = icmp eq i8 %30, 92
-  br i1 %.not, label %31, label %.thread.loopexit.split.loop.exit103
+  br i1 %.not, label %31, label %.thread.loopexit.split.loop.exit112
 
 31:                                               ; preds = %27, %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -2981,26 +2981,26 @@ define dso_local void @handle_attributes(i64 noundef %0, ptr noundef %1, ptr rea
   br i1 %33, label %._crit_edge.thread, label %.thread
 
 ._crit_edge.thread:                               ; preds = %31, %._crit_edge
-  %.0.lcssa102 = phi i32 [ %.088, %._crit_edge ], [ -1, %31 ]
+  %.0.lcssa111 = phi i32 [ %.088, %._crit_edge ], [ -1, %31 ]
   store i16 47, ptr %16, align 1
   br label %38
 
-.thread.loopexit.split.loop.exit103:              ; preds = %27
+.thread.loopexit.split.loop.exit112:              ; preds = %27
   %34 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.thread
 
-.thread:                                          ; preds = %25, %.thread.loopexit.split.loop.exit103, %._crit_edge
-  %.0.in87 = phi i64 [ %13, %._crit_edge ], [ %indvars.iv95, %.thread.loopexit.split.loop.exit103 ], [ %indvars.iv95, %25 ]
-  %.085 = phi i32 [ %.088, %._crit_edge ], [ %34, %.thread.loopexit.split.loop.exit103 ], [ 0, %25 ]
-  %sext106 = shl i64 %.0.in87, 32
-  %35 = ashr exact i64 %sext106, 32
+.thread:                                          ; preds = %25, %.thread.loopexit.split.loop.exit112, %._crit_edge
+  %.0.in87 = phi i64 [ %13, %._crit_edge ], [ %indvars.iv95, %.thread.loopexit.split.loop.exit112 ], [ %indvars.iv95, %25 ]
+  %.085 = phi i32 [ %.088, %._crit_edge ], [ %34, %.thread.loopexit.split.loop.exit112 ], [ 0, %25 ]
+  %sext115 = shl i64 %.0.in87, 32
+  %35 = ashr exact i64 %sext115, 32
   %36 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %1, i64 noundef %35) #15
   %37 = getelementptr inbounds i8, ptr %16, i64 %35
   store i8 0, ptr %37, align 1, !tbaa !72
   br label %38
 
 38:                                               ; preds = %.thread, %._crit_edge.thread
-  %.084 = phi i32 [ %.085, %.thread ], [ %.0.lcssa102, %._crit_edge.thread ]
+  %.084 = phi i32 [ %.085, %.thread ], [ %.0.lcssa111, %._crit_edge.thread ]
   %39 = load i32, ptr @dump_indent, align 4, !tbaa !4
   %40 = add i32 %39, 3
   store i32 %40, ptr @dump_indent, align 4, !tbaa !4
@@ -3349,7 +3349,7 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !137
   %.not139 = icmp eq ptr %44, null
-  br i1 %.not139, label %.thread.thread208, label %45
+  br i1 %.not139, label %.thread.thread231, label %45
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -3380,14 +3380,14 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !137
   %.not144 = icmp eq ptr %.pre, null
-  br i1 %.not144, label %.thread.thread208, label %.loopexit174
+  br i1 %.not144, label %.thread.thread231, label %.loopexit174
 
-.thread.thread208:                                ; preds = %42, %.thread
+.thread.thread231:                                ; preds = %42, %.thread
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.not145 = icmp eq i32 %36, 0
   br i1 %.not145, label %.loopexit174.thread, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread.thread208
+.lr.ph.preheader:                                 ; preds = %.thread.thread231
   %57 = zext nneg i32 %36 to i64
   %58 = tail call noalias ptr @calloc(i64 noundef %57, i64 noundef 8) #18
   store ptr %58, ptr %56, align 8, !tbaa !137
@@ -3411,20 +3411,20 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
   %.not147 = icmp eq ptr %63, null
   br i1 %.not147, label %67, label %.loopexit173
 
-.loopexit174.thread:                              ; preds = %.thread.thread208
+.loopexit174.thread:                              ; preds = %.thread.thread231
   store ptr null, ptr %56, align 8, !tbaa !137
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %36, ptr %64, align 8, !tbaa !141
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %66 = load ptr, ptr %65, align 8, !tbaa !138
-  %.not147212 = icmp eq ptr %66, null
-  br i1 %.not147212, label %.loopexit173.sink.split, label %.loopexit173
+  %.not147235 = icmp eq ptr %66, null
+  br i1 %.not147235, label %.loopexit173.sink.split, label %.loopexit173
 
 67:                                               ; preds = %.loopexit174
   %.not148 = icmp eq i32 %36, 0
-  br i1 %.not148, label %.thread216, label %.lr.ph177.preheader
+  br i1 %.not148, label %.thread239, label %.lr.ph177.preheader
 
-.thread216:                                       ; preds = %67
+.thread239:                                       ; preds = %67
   store ptr null, ptr %62, align 8, !tbaa !138
   br label %.loopexit173.sink.split
 
@@ -3445,8 +3445,8 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
   br i1 %exitcond191.not, label %.loopexit173, label %.lr.ph177, !llvm.loop !144
 
-.loopexit173.sink.split:                          ; preds = %.loopexit174.thread, %.thread216
-  %.ph = phi ptr [ %61, %.thread216 ], [ null, %.loopexit174.thread ]
+.loopexit173.sink.split:                          ; preds = %.loopexit174.thread, %.thread239
+  %.ph = phi ptr [ %61, %.thread239 ], [ null, %.loopexit174.thread ]
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %36, ptr %72, align 8, !tbaa !143
   br label %.loopexit173
@@ -3461,9 +3461,9 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
 
 77:                                               ; preds = %.loopexit173
   %.not151 = icmp eq i32 %36, 0
-  br i1 %.not151, label %.thread223, label %.lr.ph179.preheader
+  br i1 %.not151, label %.thread246, label %.lr.ph179.preheader
 
-.thread223:                                       ; preds = %77
+.thread246:                                       ; preds = %77
   store ptr null, ptr %75, align 8, !tbaa !139
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 %36, ptr %78, align 8, !tbaa !145
@@ -3486,10 +3486,10 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
   %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count195
   br i1 %exitcond196.not, label %.loopexit172, label %.lr.ph179, !llvm.loop !146
 
-.loopexit172:                                     ; preds = %.lr.ph179, %.thread223, %.loopexit173, %48
-  %83 = phi ptr [ %76, %.loopexit173 ], [ %50, %48 ], [ null, %.thread223 ], [ %80, %.lr.ph179 ]
-  %84 = phi ptr [ %73, %.loopexit173 ], [ %44, %48 ], [ %73, %.thread223 ], [ %73, %.lr.ph179 ]
-  %85 = phi ptr [ %74, %.loopexit173 ], [ %47, %48 ], [ %74, %.thread223 ], [ %74, %.lr.ph179 ]
+.loopexit172:                                     ; preds = %.lr.ph179, %.thread246, %.loopexit173, %48
+  %83 = phi ptr [ %76, %.loopexit173 ], [ %50, %48 ], [ null, %.thread246 ], [ %80, %.lr.ph179 ]
+  %84 = phi ptr [ %73, %.loopexit173 ], [ %44, %48 ], [ %73, %.thread246 ], [ %73, %.lr.ph179 ]
+  %85 = phi ptr [ %74, %.loopexit173 ], [ %47, %48 ], [ %74, %.thread246 ], [ %74, %.lr.ph179 ]
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %87 = load i32, ptr %86, align 8, !tbaa !140
   %88 = icmp ugt i32 %87, %36
@@ -3666,7 +3666,7 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
 
 167:                                              ; preds = %162
   %.not162 = icmp eq ptr %.pre206, null
-  br i1 %.not162, label %.thread228, label %168
+  br i1 %.not162, label %.thread251, label %168
 
 168:                                              ; preds = %167
   %fputs = call i32 @fputs(ptr nonnull %166, ptr nonnull %.pre206)
@@ -3695,11 +3695,11 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
   %179 = icmp ne i8 %char0165, 0
   %180 = icmp ne ptr %175, null
   %or.cond5 = select i1 %179, i1 %180, i1 false
-  br i1 %or.cond5, label %181, label %.thread228
+  br i1 %or.cond5, label %181, label %.thread251
 
 181:                                              ; preds = %174
   %fputs166 = call i32 @fputs(ptr nonnull %178, ptr nonnull %175)
-  br label %.thread228
+  br label %.thread251
 
 182:                                              ; preds = %127
   store i8 1, ptr %128, align 8, !tbaa !66
@@ -3710,11 +3710,11 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
   %185 = load i32, ptr @dump_indent, align 4, !tbaa !4
   %186 = add i32 %185, -3
   store i32 %186, ptr @dump_indent, align 4, !tbaa !4
-  br label %.thread228
+  br label %.thread251
 
 187:                                              ; preds = %123
   call void @h5tools_setstatus(i32 noundef 1) #15
-  br label %.thread228
+  br label %.thread251
 
 188:                                              ; preds = %.loopexit
   %189 = load i32, ptr @dump_indent, align 4, !tbaa !4
@@ -3724,17 +3724,17 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
   %191 = load i32, ptr @dump_indent, align 4, !tbaa !4
   %192 = add i32 %191, -3
   store i32 %192, ptr @dump_indent, align 4, !tbaa !4
-  br label %.thread228
+  br label %.thread251
 
-.thread228:                                       ; preds = %167, %187, %174, %181, %182, %188
+.thread251:                                       ; preds = %167, %187, %174, %181, %182, %188
   %.not167 = icmp eq i64 %.0, 0
   br i1 %.not167, label %195, label %193
 
-193:                                              ; preds = %.thread228
+193:                                              ; preds = %.thread251
   %194 = call i32 @H5Pclose(i64 noundef %.0) #15
   br label %195
 
-195:                                              ; preds = %193, %.thread228
+195:                                              ; preds = %193, %.thread251
   %196 = call i32 @H5Dclose(i64 noundef %29) #15
   %197 = icmp slt i32 %196, 0
   br i1 %197, label %198, label %.critedge
@@ -3874,7 +3874,7 @@ thread-pre-split:                                 ; preds = %49, %51
 
 56:                                               ; preds = %52
   %.not76 = icmp eq ptr %.pre116, null
-  br i1 %.not76, label %.thread126, label %57
+  br i1 %.not76, label %.thread144, label %57
 
 57:                                               ; preds = %56
   %fputs77 = call i32 @fputs(ptr nonnull %55, ptr nonnull %.pre116)
@@ -3903,11 +3903,11 @@ thread-pre-split:                                 ; preds = %49, %51
   %68 = icmp ne i8 %char080, 0
   %69 = icmp ne ptr %64, null
   %or.cond3 = select i1 %68, i1 %69, i1 false
-  br i1 %or.cond3, label %70, label %.thread126
+  br i1 %or.cond3, label %70, label %.thread144
 
 70:                                               ; preds = %63
   %fputs81 = call i32 @fputs(ptr nonnull %67, ptr nonnull %64)
-  br label %.thread126
+  br label %.thread144
 
 71:                                               ; preds = %22
   br i1 %.not82, label %80, label %72
@@ -4007,7 +4007,7 @@ thread-pre-split:                                 ; preds = %49, %51
 
 114:                                              ; preds = %110
   %.not63 = icmp eq ptr %.pre111, null
-  br i1 %.not63, label %.thread126, label %115
+  br i1 %.not63, label %.thread144, label %115
 
 115:                                              ; preds = %114
   %fputs = call i32 @fputs(ptr nonnull %113, ptr nonnull %.pre111)
@@ -4036,11 +4036,11 @@ thread-pre-split:                                 ; preds = %49, %51
   %126 = icmp ne i8 %char066, 0
   %127 = icmp ne ptr %122, null
   %or.cond7 = select i1 %126, i1 %127, i1 false
-  br i1 %or.cond7, label %128, label %.thread126
+  br i1 %or.cond7, label %128, label %.thread144
 
 128:                                              ; preds = %121
   %fputs67 = call i32 @fputs(ptr nonnull %125, ptr nonnull %122)
-  br label %.thread126
+  br label %.thread144
 
 129:                                              ; preds = %22
   br i1 %.not82, label %138, label %130
@@ -4082,7 +4082,7 @@ thread-pre-split:                                 ; preds = %49, %51
   call void @indentation(i32 noundef 3) #15
   %148 = load ptr, ptr @rawoutstream, align 8, !tbaa !17
   %.not87 = icmp eq ptr %148, null
-  br i1 %.not87, label %.thread126, label %149
+  br i1 %.not87, label %.thread144, label %149
 
 149:                                              ; preds = %.thread105
   %150 = load i32, ptr %6, align 8, !tbaa !45
@@ -4097,7 +4097,7 @@ thread-pre-split:                                 ; preds = %49, %51
 
 155:                                              ; preds = %149
   %.not90 = icmp eq ptr %.pre121.pre, null
-  br i1 %.not90, label %.thread126, label %156
+  br i1 %.not90, label %.thread144, label %156
 
 156:                                              ; preds = %155
   %fputs91 = call i32 @fputs(ptr nonnull %154, ptr nonnull %.pre121.pre)
@@ -4126,17 +4126,17 @@ thread-pre-split:                                 ; preds = %49, %51
   %167 = icmp ne i8 %char094, 0
   %168 = icmp ne ptr %163, null
   %or.cond11 = select i1 %167, i1 %168, i1 false
-  br i1 %or.cond11, label %169, label %.thread126
+  br i1 %or.cond11, label %169, label %.thread144
 
 169:                                              ; preds = %162
   %fputs95 = call i32 @fputs(ptr nonnull %166, ptr nonnull %163)
-  br label %.thread126
+  br label %.thread144
 
-.thread126:                                       ; preds = %.thread105, %155, %114, %56, %162, %169, %121, %128, %63, %70
+.thread144:                                       ; preds = %.thread105, %155, %114, %56, %162, %169, %121, %128, %63, %70
   call void @free(ptr noundef %19) #15
   br label %170
 
-170:                                              ; preds = %15, %.thread126, %11
+170:                                              ; preds = %15, %.thread144, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -4315,12 +4315,12 @@ define dso_local void @handle_datatypes(i64 noundef %0, ptr noundef %1, ptr read
   %.pre58 = load ptr, ptr @type_table, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %.pre58, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !98
-  %.not92 = icmp eq i64 %12, 0
-  br i1 %.not92, label %split, label %.lr.ph
+  %.not100 = icmp eq i64 %12, 0
+  br i1 %.not100, label %split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
   %13 = phi i64 [ %30, %.preheader ], [ 0, %.preheader.preheader ]
-  %.03088 = phi i32 [ %29, %.preheader ], [ 0, %.preheader.preheader ]
+  %.03096 = phi i32 [ %29, %.preheader ], [ 0, %.preheader.preheader ]
   %14 = phi ptr [ %28, %.preheader ], [ %.pre58, %.preheader.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -4347,7 +4347,7 @@ define dso_local void @handle_datatypes(i64 noundef %0, ptr noundef %1, ptr read
 
 .preheader:                                       ; preds = %.lr.ph, %20
   %28 = phi ptr [ %.pre, %20 ], [ %14, %.lr.ph ]
-  %29 = add i32 %.03088, 1
+  %29 = add i32 %.03096, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -4359,7 +4359,7 @@ define dso_local void @handle_datatypes(i64 noundef %0, ptr noundef %1, ptr read
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre59 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !98
-  %.pre65 = zext i32 %.03088 to i64
+  %.pre65 = zext i32 %.03096 to i64
   br label %split
 
 split:                                            ; preds = %.preheader, %.preheader.preheader, %._crit_edge
@@ -4434,7 +4434,7 @@ split:                                            ; preds = %.preheader, %.prehe
 
 64:                                               ; preds = %.thread
   %.not52 = icmp eq ptr %.pre64, null
-  br i1 %.not52, label %.thread73, label %65
+  br i1 %.not52, label %.thread81, label %65
 
 65:                                               ; preds = %64
   %fputs = call i32 @fputs(ptr nonnull %63, ptr nonnull %.pre64)
@@ -4463,13 +4463,13 @@ split:                                            ; preds = %.preheader, %.prehe
   %76 = icmp ne i8 %char055, 0
   %77 = icmp ne ptr %72, null
   %or.cond3 = select i1 %76, i1 %77, i1 false
-  br i1 %or.cond3, label %78, label %.thread73
+  br i1 %or.cond3, label %78, label %.thread81
 
 78:                                               ; preds = %71
   %fputs56 = call i32 @fputs(ptr nonnull %75, ptr nonnull %72)
-  br label %.thread73
+  br label %.thread81
 
-.thread73:                                        ; preds = %64, %78, %71
+.thread81:                                        ; preds = %64, %78, %71
   call void @h5tools_setstatus(i32 noundef 1) #15
   br label %100
 
@@ -4507,7 +4507,7 @@ split:                                            ; preds = %.preheader, %.prehe
   tail call void @h5tools_setstatus(i32 noundef 1) #15
   br label %100
 
-100:                                              ; preds = %79, %.thread73, %37, %92, %99
+100:                                              ; preds = %79, %.thread81, %37, %92, %99
   ret void
 }
 
@@ -4564,7 +4564,7 @@ define internal range(i32 -1, 1) i32 @attr_search(i64 noundef %0, ptr noundef re
   %20 = getelementptr i8, ptr %19, i64 -2
   %21 = load i8, ptr %20, align 1, !tbaa !72
   %.not = icmp eq i8 %21, 92
-  br i1 %.not, label %22, label %._crit_edge.loopexit.split.loop.exit71
+  br i1 %.not, label %22, label %._crit_edge.loopexit.split.loop.exit74
 
 22:                                               ; preds = %18, %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -4572,12 +4572,12 @@ define internal range(i32 -1, 1) i32 @attr_search(i64 noundef %0, ptr noundef re
   %indvars.iv.next67 = add nsw i64 %indvars.iv66, -1
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !148
 
-._crit_edge.loopexit.split.loop.exit71:           ; preds = %18
+._crit_edge.loopexit.split.loop.exit74:           ; preds = %18
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %16, %22, %._crit_edge.loopexit.split.loop.exit71, %4
-  %.054.lcssa = phi i32 [ %.05459, %4 ], [ %24, %._crit_edge.loopexit.split.loop.exit71 ], [ 0, %16 ], [ -1, %22 ]
+._crit_edge:                                      ; preds = %16, %22, %._crit_edge.loopexit.split.loop.exit74, %4
+  %.054.lcssa = phi i32 [ %.05459, %4 ], [ %24, %._crit_edge.loopexit.split.loop.exit74 ], [ 0, %16 ], [ -1, %22 ]
   %25 = sext i32 %.054.lcssa to i64
   %26 = getelementptr inbounds i8, ptr %7, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1

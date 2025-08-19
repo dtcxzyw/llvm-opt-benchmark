@@ -2377,15 +2377,15 @@ _ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread: ; preds = %273, %_
   br label %311
 
 311:                                              ; preds = %308, %305
-  %.sink134 = phi ptr [ %310, %308 ], [ %307, %305 ]
-  %.sink135 = load double, ptr %.sink134, align 8, !tbaa !90
-  %312 = fptrunc double %.sink135 to float
+  %.sink159 = phi ptr [ %310, %308 ], [ %307, %305 ]
+  %.sink160 = load double, ptr %.sink159, align 8, !tbaa !90
+  %312 = fptrunc double %.sink160 to float
   store float %312, ptr %302, align 4, !tbaa !91
-  %313 = getelementptr inbounds nuw i8, ptr %.sink134, i64 8
+  %313 = getelementptr inbounds nuw i8, ptr %.sink159, i64 8
   %314 = load double, ptr %313, align 8, !tbaa !90
   %315 = fptrunc double %314 to float
   store float %315, ptr %303, align 4, !tbaa !91
-  %316 = getelementptr inbounds nuw i8, ptr %.sink134, i64 16
+  %316 = getelementptr inbounds nuw i8, ptr %.sink159, i64 16
   %317 = load double, ptr %316, align 8, !tbaa !90
   %318 = fptrunc double %317 to float
   store float %318, ptr %304, align 4, !tbaa !91
@@ -3228,7 +3228,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi
   br i1 %.not28.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = mul i64 %12, 12
+  %22 = mul nuw nsw i64 %12, 12
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !48
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit

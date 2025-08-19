@@ -87,7 +87,7 @@ X509_NAME_get_index_by_OBJ.exit.thread:           ; preds = %11, %4, %X509_NAME_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483647, 2147483647) i32 @X509_NAME_get_index_by_OBJ(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2147483647) i32 @X509_NAME_get_index_by_OBJ(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
 
@@ -114,7 +114,7 @@ define hidden range(i32 -2147483647, 2147483647) i32 @X509_NAME_get_index_by_OBJ
   br i1 %16, label %.loopexit.loopexit.split.loop.exit, label %10, !llvm.loop !19
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %12
-  %17 = trunc nsw i64 %indvars.iv.next to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %.loopexit.loopexit.split.loop.exit, %3
@@ -183,7 +183,7 @@ define hidden i32 @X509_NAME_entry_count(ptr noundef readonly captures(address_i
 declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483647, -2147483648) i32 @X509_NAME_get_index_by_NID(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -2, 2147483647) i32 @X509_NAME_get_index_by_NID(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @OBJ_nid2obj(i32 noundef %1) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %X509_NAME_get_index_by_OBJ.exit, label %6
@@ -215,7 +215,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @X509_NAME_get_index_by_NI
   br i1 %19, label %.loopexit.loopexit.split.loop.exit.i, label %13, !llvm.loop !19
 
 .loopexit.loopexit.split.loop.exit.i:             ; preds = %15
-  %20 = trunc nsw i64 %indvars.iv.next.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %X509_NAME_get_index_by_OBJ.exit
 
 X509_NAME_get_index_by_OBJ.exit:                  ; preds = %13, %.loopexit.loopexit.split.loop.exit.i, %6, %3

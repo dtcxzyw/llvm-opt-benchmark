@@ -93,7 +93,7 @@ _ZL18pj_laea_destructorP8PJconstsi.exit:          ; preds = %13, %16
 28:                                               ; preds = %20
   %29 = fcmp olt double %11, 1.000000e-10
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  br i1 %29, label %31, label %.thread78
+  br i1 %29, label %31, label %.thread83
 
 31:                                               ; preds = %28
   store i32 2, ptr %30, align 8, !tbaa !47
@@ -105,16 +105,16 @@ _ZL18pj_laea_destructorP8PJconstsi.exit:          ; preds = %13, %16
   %35 = fcmp une double %34, 0.000000e+00
   br i1 %35, label %39, label %114
 
-.thread78:                                        ; preds = %28
+.thread83:                                        ; preds = %28
   store i32 3, ptr %30, align 8, !tbaa !47
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %37 = load double, ptr %36, align 8, !tbaa !48
   %38 = fcmp une double %37, 0.000000e+00
   br i1 %38, label %39, label %110
 
-39:                                               ; preds = %.thread78, %32
-  %40 = phi double [ %37, %.thread78 ], [ %34, %32 ]
-  %41 = phi ptr [ %36, %.thread78 ], [ %33, %32 ]
+39:                                               ; preds = %.thread83, %32
+  %40 = phi double [ %37, %.thread83 ], [ %34, %32 ]
+  %41 = phi ptr [ %36, %.thread83 ], [ %33, %32 ]
   %42 = tail call double @sqrt(double noundef %40) #7, !tbaa !49
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store double %42, ptr %43, align 8, !tbaa !50
@@ -226,7 +226,7 @@ _ZL18pj_laea_destructorP8PJconstsi.exit:          ; preds = %13, %16
   store ptr @_ZL14laea_e_forward5PJ_LPP8PJconsts, ptr %109, align 8, !tbaa !61
   br label %117
 
-110:                                              ; preds = %.thread78
+110:                                              ; preds = %.thread83
   %111 = tail call double @sin(double noundef %10) #7, !tbaa !49
   store double %111, ptr %2, align 8, !tbaa !58
   %112 = tail call double @cos(double noundef %10) #7, !tbaa !49
@@ -665,14 +665,14 @@ define internal { double, double } @_ZL14laea_s_inverse5PJ_XYP8PJconsts(double %
   br i1 %brmerge, label %.thread, label %64
 
 .thread:                                          ; preds = %56, %59, %61
-  %.sroa.3.153 = phi double [ %.sroa.3.1, %61 ], [ %60, %59 ], [ %58, %56 ]
-  %.sroa.7.052 = phi double [ %.sroa.7.0, %61 ], [ %1, %59 ], [ %57, %56 ]
-  %.sroa.0.051 = phi double [ %.sroa.0.0, %61 ], [ %0, %59 ], [ %0, %56 ]
-  %63 = tail call double @atan2(double noundef %.sroa.0.051, double noundef %.sroa.7.052) #7, !tbaa !49
+  %.sroa.3.154 = phi double [ %.sroa.3.1, %61 ], [ %60, %59 ], [ %58, %56 ]
+  %.sroa.7.053 = phi double [ %.sroa.7.0, %61 ], [ %1, %59 ], [ %57, %56 ]
+  %.sroa.0.052 = phi double [ %.sroa.0.0, %61 ], [ %0, %59 ], [ %0, %56 ]
+  %63 = tail call double @atan2(double noundef %.sroa.0.052, double noundef %.sroa.7.053) #7, !tbaa !49
   br label %64
 
 64:                                               ; preds = %61, %.thread, %9
-  %.sroa.3.0 = phi double [ %7, %9 ], [ %.sroa.3.153, %.thread ], [ %.sroa.3.1, %61 ]
+  %.sroa.3.0 = phi double [ %7, %9 ], [ %.sroa.3.154, %.thread ], [ %.sroa.3.1, %61 ]
   %.sroa.034.0 = phi double [ 0.000000e+00, %9 ], [ %63, %.thread ], [ 0.000000e+00, %61 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.034.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1

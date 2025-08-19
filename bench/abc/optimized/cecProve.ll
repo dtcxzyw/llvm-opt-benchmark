@@ -971,8 +971,8 @@ Cec_GiaWaitThreads.exit.thread160:                ; preds = %Cec_GiaInitThreads.
   br i1 %35, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.split, %Cec_GiaWaitThreads.exit.thread160
-  %.1180 = phi i32 [ %.1, %Cec_GiaWaitThreads.exit.thread160 ], [ 1, %.split ]
-  %.1155178 = phi i32 [ %.1155, %Cec_GiaWaitThreads.exit.thread160 ], [ -1, %.split ]
+  %.1198 = phi i32 [ %.1, %Cec_GiaWaitThreads.exit.thread160 ], [ 1, %.split ]
+  %.1155196 = phi i32 [ %.1155, %Cec_GiaWaitThreads.exit.thread160 ], [ -1, %.split ]
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
@@ -987,26 +987,26 @@ Cec_GiaWaitThreads.exit.thread160:                ; preds = %Cec_GiaInitThreads.
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.split, %Cec_GiaWaitThreads.exit.thread160
-  %.1179 = phi i32 [ %.1, %Cec_GiaWaitThreads.exit.thread160 ], [ 1, %.split ], [ %.1180, %.lr.ph ]
-  %.1155177 = phi i32 [ %.1155, %Cec_GiaWaitThreads.exit.thread160 ], [ -1, %.split ], [ %.1155178, %.lr.ph ]
+  %.1197 = phi i32 [ %.1, %Cec_GiaWaitThreads.exit.thread160 ], [ 1, %.split ], [ %.1198, %.lr.ph ]
+  %.1155195 = phi i32 [ %.1155, %Cec_GiaWaitThreads.exit.thread160 ], [ -1, %.split ], [ %.1155196, %.lr.ph ]
   br i1 %29, label %244, label %270
 
 244:                                              ; preds = %._crit_edge
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %246 = load ptr, ptr %245, align 8, !tbaa !79
   %247 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %246)
-  switch i32 %.1179, label %254 [
+  switch i32 %.1197, label %254 [
     i32 0, label %248
     i32 1, label %250
     i32 -1, label %252
   ]
 
 248:                                              ; preds = %244
-  %249 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.1155177)
+  %249 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.1155195)
   br label %254
 
 250:                                              ; preds = %244
-  %251 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.1155177)
+  %251 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.1155195)
   br label %254
 
 252:                                              ; preds = %244
@@ -1044,7 +1044,7 @@ Abc_Clock.exit152:                                ; preds = %254, %258
 270:                                              ; preds = %Abc_Clock.exit152, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  ret i32 %.1179
+  ret i32 %.1197
 }
 
 ; Function Attrs: nofree nounwind

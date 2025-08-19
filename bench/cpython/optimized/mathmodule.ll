@@ -1783,7 +1783,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %43, label %.lr.ph.i, label %._crit_edge.thread.i
 
 .lr.ph.i:                                         ; preds = %42, %37
-  %.119.i = phi ptr [ %4, %42 ], [ %39, %37 ]
+  %.131.i = phi ptr [ %4, %42 ], [ %39, %37 ]
   %44 = getelementptr inbounds nuw i8, ptr %.067.i, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %.069.i, i64 24
   br label %46
@@ -1870,7 +1870,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
   %.070.i = phi double [ %.val121.i, %67 ], [ -1.000000e+00, %73 ], [ %71, %70 ], [ -1.000000e+00, %78 ], [ %76, %75 ]
   %81 = fsub double %.071.i, %.070.i
   %82 = tail call double @llvm.fabs.f64(double %81)
-  %83 = getelementptr double, ptr %.119.i, i64 %.06814.i
+  %83 = getelementptr double, ptr %.131.i, i64 %.06814.i
   store double %82, ptr %83, align 8, !tbaa !33
   %84 = fcmp uno double %81, 0.000000e+00
   %85 = zext i1 %84 to i32
@@ -1882,12 +1882,12 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %exitcond.not.i, label %._crit_edge.i, label %46, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %80
-  %89 = call fastcc double @vector_norm(i64 noundef %.067.val.i, ptr noundef %.119.i, double noundef %.173.i, i32 noundef %86)
-  %.not90.i = icmp eq ptr %.119.i, %4
+  %89 = call fastcc double @vector_norm(i64 noundef %.067.val.i, ptr noundef %.131.i, double noundef %.173.i, i32 noundef %86)
+  %.not90.i = icmp eq ptr %.131.i, %4
   br i1 %.not90.i, label %._crit_edge.thread.i, label %90
 
 90:                                               ; preds = %._crit_edge.i
-  call void @PyMem_Free(ptr noundef nonnull %.119.i) #16
+  call void @PyMem_Free(ptr noundef nonnull %.131.i) #16
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %42, %90, %._crit_edge.i
@@ -1932,11 +1932,11 @@ Py_DECREF.exit107.i:                              ; preds = %103, %100, %98, %Py
   br label %math_dist_impl.exit
 
 105:                                              ; preds = %78, %73, %61, %56
-  %.not101.i = icmp eq ptr %.119.i, %4
+  %.not101.i = icmp eq ptr %.131.i, %4
   br i1 %.not101.i, label %107, label %106
 
 106:                                              ; preds = %105, %.thread3.i
-  %.06.i = phi ptr [ null, %.thread3.i ], [ %.119.i, %105 ]
+  %.06.i = phi ptr [ null, %.thread3.i ], [ %.131.i, %105 ]
   call void @PyMem_Free(ptr noundef %.06.i) #16
   br label %107
 
@@ -2863,18 +2863,18 @@ define internal ptr @math_frexp(ptr readnone captures(none) %0, ptr noundef %1) 
   br i1 %13, label %math_frexp_impl.exit, label %14
 
 14:                                               ; preds = %.thread, %12
-  %.012 = phi double [ -1.000000e+00, %.thread ], [ %.0, %12 ]
-  %or.cond.i = tail call i1 @llvm.is.fpclass.f64(double %.012, i32 408)
+  %.013 = phi double [ -1.000000e+00, %.thread ], [ %.0, %12 ]
+  %or.cond.i = tail call i1 @llvm.is.fpclass.f64(double %.013, i32 408)
   br i1 %or.cond.i, label %15, label %math_frexp_impl.exit
 
 15:                                               ; preds = %14
-  %16 = call double @frexp(double noundef %.012, ptr noundef nonnull %3) #16
+  %16 = call double @frexp(double noundef %.013, ptr noundef nonnull %3) #16
   %.pre.i = load i32, ptr %3, align 4, !tbaa !14
   br label %math_frexp_impl.exit
 
 math_frexp_impl.exit:                             ; preds = %12, %14, %15
   %17 = phi i32 [ %.pre.i, %15 ], [ 0, %14 ], [ 0, %12 ]
-  %.0.i = phi double [ %16, %15 ], [ %.012, %14 ], [ %.0, %12 ]
+  %.0.i = phi double [ %16, %15 ], [ %.013, %14 ], [ %.0, %12 ]
   %18 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.67, double noundef %.0.i, i32 noundef %17) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
@@ -2905,8 +2905,8 @@ define internal ptr @math_fsum(ptr readnone captures(none) %0, ptr noundef %1) #
 
 ._crit_edge180.thread:                            ; preds = %.preheader150
   %10 = tail call ptr @PyErr_Occurred() #16
-  %.not113199 = icmp eq ptr %10, null
-  br i1 %.not113199, label %.thread, label %Py_DECREF.exit118
+  %.not113213 = icmp eq ptr %10, null
+  br i1 %.not113213, label %.thread, label %Py_DECREF.exit118
 
 .lr.ph179:                                        ; preds = %.preheader150, %77
   %11 = phi ptr [ %78, %77 ], [ %6, %.preheader150 ]
@@ -3157,13 +3157,13 @@ _fsum_realloc.exit.thread:                        ; preds = %.thread30.i, %71, %
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge180.thread, %89, %101, %109, %111, %120, %115, %87
-  %.0133.lcssa200210214 = phi ptr [ %.2135, %120 ], [ %.2135, %115 ], [ %.2135, %111 ], [ %.2135, %109 ], [ %.2135, %101 ], [ %.2135, %87 ], [ %.2135, %89 ], [ %3, %._crit_edge180.thread ]
+  %.0133.lcssa214224228 = phi ptr [ %.2135, %120 ], [ %.2135, %115 ], [ %.2135, %111 ], [ %.2135, %109 ], [ %.2135, %101 ], [ %.2135, %87 ], [ %.2135, %89 ], [ %3, %._crit_edge180.thread ]
   %.079 = phi double [ %117, %120 ], [ %96, %115 ], [ %96, %111 ], [ %96, %109 ], [ %96, %101 ], [ 0.000000e+00, %87 ], [ %92, %89 ], [ 0.000000e+00, %._crit_edge180.thread ]
   %121 = call ptr @PyFloat_FromDouble(double noundef %.079) #16
   br label %Py_DECREF.exit118
 
 Py_DECREF.exit118:                                ; preds = %._crit_edge180.thread, %133, %130, %128, %_fsum_realloc.exit, %83, %85, %._crit_edge180, %.thread, %54
-  %.0133169 = phi ptr [ %.2135, %._crit_edge180 ], [ %.2135, %83 ], [ %.2135, %85 ], [ %.0133.lcssa200210214, %.thread ], [ %.0133175, %_fsum_realloc.exit ], [ %.0133175, %54 ], [ %.0133175, %128 ], [ %.0133175, %130 ], [ %.0133175, %133 ], [ %3, %._crit_edge180.thread ]
+  %.0133169 = phi ptr [ %.2135, %._crit_edge180 ], [ %.2135, %83 ], [ %.2135, %85 ], [ %.0133.lcssa214224228, %.thread ], [ %.0133175, %_fsum_realloc.exit ], [ %.0133175, %54 ], [ %.0133175, %128 ], [ %.0133175, %130 ], [ %.0133175, %133 ], [ %3, %._crit_edge180.thread ]
   %.088 = phi ptr [ null, %._crit_edge180 ], [ null, %83 ], [ %86, %85 ], [ %121, %.thread ], [ null, %_fsum_realloc.exit ], [ null, %54 ], [ null, %128 ], [ null, %130 ], [ null, %133 ], [ null, %._crit_edge180.thread ]
   %122 = load i32, ptr %4, align 8, !tbaa !13
   %.not.i115 = icmp sgt i32 %122, -1
@@ -3389,7 +3389,7 @@ define internal ptr @math_hypot(ptr readnone captures(none) %0, ptr noundef read
   br i1 %13, label %.lr.ph.preheader.i, label %._crit_edge.thread.i
 
 .lr.ph.preheader.i:                               ; preds = %12, %6
-  %.010.i = phi ptr [ %4, %12 ], [ %8, %6 ]
+  %.016.i = phi ptr [ %4, %12 ], [ %8, %6 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.preheader.i
@@ -3435,7 +3435,7 @@ define internal ptr @math_hypot(ptr readnone captures(none) %0, ptr noundef read
 30:                                               ; preds = %28, %25, %23, %20, %17
   %.035.i = phi double [ %.val52.i, %17 ], [ -1.000000e+00, %23 ], [ %21, %20 ], [ -1.000000e+00, %28 ], [ %26, %25 ]
   %31 = tail call double @llvm.fabs.f64(double %.035.i)
-  %32 = getelementptr double, ptr %.010.i, i64 %.0375.i
+  %32 = getelementptr double, ptr %.016.i, i64 %.0375.i
   store double %31, ptr %32, align 8, !tbaa !33
   %33 = fcmp uno double %.035.i, 0.000000e+00
   %34 = zext i1 %33 to i32
@@ -3447,12 +3447,12 @@ define internal ptr @math_hypot(ptr readnone captures(none) %0, ptr noundef read
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !44
 
 ._crit_edge.i:                                    ; preds = %30
-  %38 = call fastcc double @vector_norm(i64 noundef %2, ptr noundef %.010.i, double noundef %.1.i, i32 noundef %35)
-  %.not.i = icmp eq ptr %.010.i, %4
+  %38 = call fastcc double @vector_norm(i64 noundef %2, ptr noundef %.016.i, double noundef %.1.i, i32 noundef %35)
+  %.not.i = icmp eq ptr %.016.i, %4
   br i1 %.not.i, label %._crit_edge.thread.i, label %39
 
 39:                                               ; preds = %._crit_edge.i
-  call void @PyMem_Free(ptr noundef nonnull %.010.i) #16
+  call void @PyMem_Free(ptr noundef nonnull %.016.i) #16
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %12, %39, %._crit_edge.i
@@ -3461,11 +3461,11 @@ define internal ptr @math_hypot(ptr readnone captures(none) %0, ptr noundef read
   br label %math_hypot_impl.exit
 
 42:                                               ; preds = %28, %23
-  %.not50.i = icmp eq ptr %.010.i, %4
+  %.not50.i = icmp eq ptr %.016.i, %4
   br i1 %.not50.i, label %math_hypot_impl.exit, label %43
 
 43:                                               ; preds = %42
-  call void @PyMem_Free(ptr noundef nonnull %.010.i) #16
+  call void @PyMem_Free(ptr noundef nonnull %.016.i) #16
   br label %math_hypot_impl.exit
 
 math_hypot_impl.exit:                             ; preds = %10, %._crit_edge.thread.i, %42, %43
@@ -3606,7 +3606,7 @@ define internal ptr @math_isclose(ptr readnone captures(none) %0, ptr noundef %1
 59:                                               ; preds = %56
   %60 = call ptr @PyErr_Occurred() #16
   %.not71 = icmp eq ptr %60, null
-  br i1 %.not71, label %.thread91, label %87
+  br i1 %.not71, label %.thread101, label %87
 
 61:                                               ; preds = %54, %56, %49, %36
   %.043 = phi double [ %.1, %54 ], [ %.1, %56 ], [ %.2, %49 ], [ 1.000000e-09, %36 ]
@@ -3614,7 +3614,7 @@ define internal ptr @math_isclose(ptr readnone captures(none) %0, ptr noundef %1
   %62 = fcmp olt double %.043, 0.000000e+00
   %63 = fcmp olt double %.0, 0.000000e+00
   %or.cond.i = or i1 %62, %63
-  br i1 %or.cond.i, label %.thread91, label %64
+  br i1 %or.cond.i, label %.thread101, label %64
 
 64:                                               ; preds = %61
   %65 = fcmp oeq double %.045, %.044
@@ -3647,20 +3647,20 @@ define internal ptr @math_isclose(ptr readnone captures(none) %0, ptr noundef %1
   %83 = zext i1 %82 to i64
   br label %math_isclose_impl.exit.thread
 
-.thread91:                                        ; preds = %59, %61
+.thread101:                                       ; preds = %59, %61
   %84 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
   call void @PyErr_SetString(ptr noundef %84, ptr noundef nonnull @.str.76) #16
   %85 = call ptr @PyErr_Occurred() #16
   %.not72 = icmp eq ptr %85, null
   br i1 %.not72, label %math_isclose_impl.exit.thread, label %87
 
-math_isclose_impl.exit.thread:                    ; preds = %81, %71, %77, %66, %64, %.thread91
-  %.0.i86 = phi i64 [ -1, %.thread91 ], [ %83, %81 ], [ 1, %71 ], [ 1, %77 ], [ 0, %66 ], [ 1, %64 ]
+math_isclose_impl.exit.thread:                    ; preds = %81, %71, %77, %66, %64, %.thread101
+  %.0.i86 = phi i64 [ -1, %.thread101 ], [ %83, %81 ], [ 1, %71 ], [ 1, %77 ], [ 0, %66 ], [ 1, %64 ]
   %86 = call ptr @PyBool_FromLong(i64 noundef %.0.i86) #16
   br label %87
 
-87:                                               ; preds = %.thread91, %59, %47, %34, %23, %11, %math_isclose_impl.exit.thread
-  %.046 = phi ptr [ null, %.thread91 ], [ %86, %math_isclose_impl.exit.thread ], [ null, %59 ], [ null, %47 ], [ null, %34 ], [ null, %23 ], [ null, %11 ]
+87:                                               ; preds = %.thread101, %59, %47, %34, %23, %11, %math_isclose_impl.exit.thread
+  %.046 = phi ptr [ null, %.thread101 ], [ %86, %math_isclose_impl.exit.thread ], [ null, %59 ], [ null, %47 ], [ null, %34 ], [ null, %23 ], [ null, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.046
 }
@@ -5094,7 +5094,7 @@ define internal ptr @math_modf(ptr readnone captures(none) %0, ptr noundef %1) #
 10:                                               ; preds = %7
   %11 = tail call ptr @PyErr_Occurred() #16
   %.not9 = icmp eq ptr %11, null
-  br i1 %.not9, label %.thread14, label %27
+  br i1 %.not9, label %.thread15, label %27
 
 12:                                               ; preds = %7, %5
   %.0 = phi double [ %.val10, %5 ], [ %8, %7 ]
@@ -5103,7 +5103,7 @@ define internal ptr @math_modf(ptr readnone captures(none) %0, ptr noundef %1) #
   %14 = fcmp oeq double %13, 0x7FF0000000000000
   br i1 %14, label %15, label %18
 
-.thread14:                                        ; preds = %10
+.thread15:                                        ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %22
 
@@ -5120,11 +5120,11 @@ define internal ptr @math_modf(ptr readnone captures(none) %0, ptr noundef %1) #
   %21 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.81, double noundef %.0, double noundef %.0) #16
   br label %math_modf_impl.exit
 
-22:                                               ; preds = %.thread14, %18
-  %.01216 = phi double [ -1.000000e+00, %.thread14 ], [ %.0, %18 ]
+22:                                               ; preds = %.thread15, %18
+  %.01317 = phi double [ -1.000000e+00, %.thread15 ], [ %.0, %18 ]
   %23 = tail call ptr @__errno_location() #17
   store i32 0, ptr %23, align 4, !tbaa !14
-  %24 = call double @modf(double noundef %.01216, ptr noundef nonnull %3) #16
+  %24 = call double @modf(double noundef %.01317, ptr noundef nonnull %3) #16
   %25 = load double, ptr %3, align 8, !tbaa !33
   %26 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.81, double noundef %24, double noundef %25) #16
   br label %math_modf_impl.exit
@@ -5208,9 +5208,9 @@ define internal ptr @math_pow(ptr readnone captures(none) %0, ptr noundef readon
 
 33:                                               ; preds = %27
   %34 = fcmp uno double %.015, 0.000000e+00
-  br i1 %34, label %.thread5.i, label %37
+  br i1 %34, label %.thread12.i, label %37
 
-.thread5.i:                                       ; preds = %33
+.thread12.i:                                      ; preds = %33
   %35 = fcmp oeq double %.0, 0.000000e+00
   %36 = select i1 %35, double 1.000000e+00, double %.015
   br label %is_error.exit.i
@@ -5283,10 +5283,10 @@ define internal ptr @math_pow(ptr readnone captures(none) %0, ptr noundef readon
 72:                                               ; preds = %68
   %73 = fcmp uno double %69, 0.000000e+00
   %74 = fcmp oeq double %.015, 0.000000e+00
-  %or.cond13.i = or i1 %74, %73
-  br i1 %or.cond13.i, label %.thread.sink.split.i, label %.thread9.i
+  %or.cond20.i = or i1 %74, %73
+  br i1 %or.cond20.i, label %.thread.sink.split.i, label %.thread16.i
 
-.thread9.i:                                       ; preds = %72
+.thread16.i:                                      ; preds = %72
   store i32 34, ptr %32, align 4, !tbaa !14
   br label %77
 
@@ -5311,8 +5311,8 @@ define internal ptr @math_pow(ptr readnone captures(none) %0, ptr noundef readon
   tail call void @PyErr_SetString(ptr noundef %76, ptr noundef nonnull @.str.60) #16
   br label %math_pow_impl.exit
 
-77:                                               ; preds = %._crit_edge30, %.thread9.i
-  %.pre-phi = phi double [ %.pre, %._crit_edge30 ], [ %70, %.thread9.i ]
+77:                                               ; preds = %._crit_edge30, %.thread16.i
+  %.pre-phi = phi double [ %.pre, %._crit_edge30 ], [ %70, %.thread16.i ]
   %78 = fcmp olt double %.pre-phi, 1.500000e+00
   br i1 %78, label %is_error.exit.i, label %79
 
@@ -5326,9 +5326,9 @@ define internal ptr @math_pow(ptr readnone captures(none) %0, ptr noundef readon
   %83 = tail call ptr @PyErr_SetFromErrno(ptr noundef %82) #16
   br label %math_pow_impl.exit
 
-is_error.exit.i:                                  ; preds = %63, %60, %58, %53, %55, %51, %66, %39, %77, %75, %.thread5.i
-  %.0338.i = phi double [ %36, %.thread5.i ], [ %69, %75 ], [ %69, %77 ], [ 0.000000e+00, %63 ], [ %.0, %60 ], [ 1.000000e+00, %58 ], [ 1.000000e+00, %53 ], [ %57, %55 ], [ %52, %51 ], [ %67, %66 ], [ %41, %39 ]
-  %84 = tail call ptr @PyFloat_FromDouble(double noundef %.0338.i) #16
+is_error.exit.i:                                  ; preds = %63, %60, %58, %53, %55, %51, %66, %39, %77, %75, %.thread12.i
+  %.03315.i = phi double [ %36, %.thread12.i ], [ %69, %75 ], [ %69, %77 ], [ 0.000000e+00, %63 ], [ %.0, %60 ], [ 1.000000e+00, %58 ], [ 1.000000e+00, %53 ], [ %57, %55 ], [ %52, %51 ], [ %67, %66 ], [ %41, %39 ]
+  %84 = tail call ptr @PyFloat_FromDouble(double noundef %.03315.i) #16
   br label %math_pow_impl.exit
 
 math_pow_impl.exit:                               ; preds = %is_error.exit.i, %81, %79, %.thread.i, %25, %14, %4
@@ -6292,12 +6292,12 @@ Py_INCREF.exit.i:                                 ; preds = %29, %25
 
 .outer17.i.preheader:                             ; preds = %38, %36, %32, %.outer17.i.sink.split
   %.397.ph.i.ph = phi ptr [ null, %.outer17.i.sink.split ], [ null, %38 ], [ null, %36 ], [ %spec.select.i, %32 ]
-  %.066.ph.i.ph152 = phi i64 [ %.066.ph.i.ph, %.outer17.i.sink.split ], [ %33, %38 ], [ %33, %36 ], [ %33, %32 ]
+  %.066.ph.i.ph188 = phi i64 [ %.066.ph.i.ph, %.outer17.i.sink.split ], [ %33, %38 ], [ %33, %36 ], [ %33, %32 ]
   br label %.outer17.i
 
 .outer17.i:                                       ; preds = %.outer17.i.backedge, %.outer17.i.preheader
   %.397.ph.i = phi ptr [ %.397.ph.i.ph, %.outer17.i.preheader ], [ null, %.outer17.i.backedge ]
-  %.066.ph.i = phi i64 [ %.066.ph.i.ph152, %.outer17.i.preheader ], [ %62, %.outer17.i.backedge ]
+  %.066.ph.i = phi i64 [ %.066.ph.i.ph188, %.outer17.i.preheader ], [ %62, %.outer17.i.backedge ]
   %41 = sitofp i64 %.066.ph.i to double
   br label %42
 
@@ -7508,8 +7508,8 @@ define internal ptr @math_ulp(ptr readnone captures(none) %0, ptr noundef %1) #0
   br i1 %12, label %math_ulp_impl.exit, label %.thread
 
 .thread:                                          ; preds = %9, %11
-  %.0917 = phi double [ %.09, %11 ], [ -1.000000e+00, %9 ]
-  %13 = tail call double @llvm.fabs.f64(double %.0917)
+  %.0919 = phi double [ %.09, %11 ], [ -1.000000e+00, %9 ]
+  %13 = tail call double @llvm.fabs.f64(double %.0919)
   %14 = fcmp oeq double %13, 0x7FF0000000000000
   br i1 %14, label %math_ulp_impl.exit.thread, label %15
 

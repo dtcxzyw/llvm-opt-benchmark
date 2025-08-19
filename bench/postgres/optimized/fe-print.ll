@@ -657,9 +657,9 @@ do_field.exit:                                    ; preds = %232
   br i1 %.not271, label %287, label %289
 
 287:                                              ; preds = %282
-  br i1 %.not272, label %.loopexit, label %.thread370
+  br i1 %.not272, label %.loopexit, label %.thread390
 
-.thread370:                                       ; preds = %287
+.thread390:                                       ; preds = %287
   %288 = getelementptr inbounds nuw i8, ptr %2, i64 3
   br label %291
 
@@ -667,8 +667,8 @@ do_field.exit:                                    ; preds = %232
   %290 = getelementptr inbounds nuw i8, ptr %2, i64 3
   br i1 %.not272, label %307, label %291
 
-291:                                              ; preds = %.thread370, %289
-  %292 = phi ptr [ %288, %.thread370 ], [ %290, %289 ]
+291:                                              ; preds = %.thread390, %289
+  %292 = phi ptr [ %288, %.thread390 ], [ %290, %289 ]
   %293 = load i8, ptr %2, align 8
   %.not274 = icmp eq i8 %293, 0
   br i1 %.not274, label %303, label %294
@@ -1268,9 +1268,9 @@ define void @PQdisplayTuples(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
 
 .preheader97:                                     ; preds = %.loopexit
   %35 = icmp sgt i32 %8, 0
-  br i1 %35, label %.lr.ph, label %._crit_edge.thread151
+  br i1 %35, label %.lr.ph, label %._crit_edge.thread157
 
-._crit_edge.thread151:                            ; preds = %.preheader97
+._crit_edge.thread157:                            ; preds = %.preheader97
   %36 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %spec.select, ptr noundef nonnull @.str.19) #14
   br label %._crit_edge106
 
@@ -1353,7 +1353,7 @@ fill.exit92:                                      ; preds = %.lr.ph.i89, %.lr.ph
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
   br i1 %exitcond140.not, label %._crit_edge106, label %.lr.ph105.split, !llvm.loop !24
 
-._crit_edge106:                                   ; preds = %fill.exit92, %fill.exit92.us, %._crit_edge.thread151
+._crit_edge106:                                   ; preds = %fill.exit92, %fill.exit92.us, %._crit_edge.thread157
   %64 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %spec.select, ptr noundef nonnull @.str.19) #14
   br label %65
 

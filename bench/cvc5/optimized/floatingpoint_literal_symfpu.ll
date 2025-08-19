@@ -7939,10 +7939,10 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE13exponentWidth
   %.not6.i12.i50 = icmp eq i32 %48, 0
   %49 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %48, i1 true)
   %50 = sub nuw nsw i32 33, %49
-  %.1.i5396 = select i1 %.not6.i12.i50, i32 1, i32 %50
-  %.not97 = icmp ugt i32 %.0.i, %.1.i5396
+  %.1.i53103 = select i1 %.not6.i12.i50, i32 1, i32 %50
+  %.not104 = icmp ugt i32 %.0.i, %.1.i53103
   %51 = icmp ule i32 %21, %37
-  br i1 %.not97, label %73, label %52
+  br i1 %.not104, label %73, label %52
 
 52:                                               ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE13exponentWidthERKNS2_17FloatingPointSizeE.exit55.thread.thread
   %53 = shl nuw i32 1, %43

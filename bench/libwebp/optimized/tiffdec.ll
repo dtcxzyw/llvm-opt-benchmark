@@ -235,8 +235,8 @@ define hidden i32 @ReadTIFF(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
   %122 = icmp ne i32 %113, 0
   %or.cond = select i1 %121, i1 %122, i1 false
   %123 = icmp sgt i32 %111, 0
-  %or.cond99 = select i1 %or.cond, i1 %123, i1 false
-  br i1 %or.cond99, label %.lr.ph.split, label %.loopexit
+  %or.cond112 = select i1 %or.cond, i1 %123, i1 false
+  br i1 %or.cond112, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %119, %MultARGBRow.exit
   %124 = phi i32 [ %158, %MultARGBRow.exit ], [ %113, %119 ]
@@ -340,7 +340,8 @@ MultARGBRow.exit:                                 ; preds = %MultARGBRow.exit.lo
   br label %173
 
 173:                                              ; preds = %.critedge.i, %172
-  %indvars.iv.i = phi i64 [ 0, %172 ], [ %indvars.iv.next.i, %.critedge.i ]
+  %exitcond.i = phi i1 [ false, %172 ], [ true, %.critedge.i ]
+  %indvars.iv.i = phi i64 [ 1, %172 ], [ 2, %.critedge.i ]
   %174 = phi i32 [ 34675, %172 ], [ %186, %.critedge.i ]
   %175 = phi ptr [ @kTIFFMetadataMap, %172 ], [ %185, %.critedge.i ]
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
@@ -363,10 +364,8 @@ MultARGBRow.exit:                                 ; preds = %MultARGBRow.exit.lo
 .critedge.i:                                      ; preds = %179, %173
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %185 = getelementptr inbounds nuw [3 x %struct.anon], ptr @kTIFFMetadataMap, i64 0, i64 %indvars.iv.next.i
+  %185 = getelementptr inbounds nuw [3 x %struct.anon], ptr @kTIFFMetadataMap, i64 0, i64 %indvars.iv.i
   %186 = load i32, ptr %185, align 16, !tbaa !34
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 2
   br i1 %exitcond.i, label %187, label %173, !llvm.loop !35
 
 187:                                              ; preds = %.critedge.i
@@ -450,8 +449,8 @@ define internal i64 @MySeek(ptr noundef captures(none) %0, i64 noundef %1, i32 n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3, %4
-  %.sink13 = phi i64 [ 8, %4 ], [ 16, %3 ]
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink13
+  %.sink14 = phi i64 [ 8, %4 ], [ 16, %3 ]
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink14
   %6 = load i64, ptr %5, align 8, !tbaa !36
   br label %7
 

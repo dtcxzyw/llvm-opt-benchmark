@@ -609,7 +609,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement9SparseTagESaIS5_EE11_
 
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement9SparseTagESaIS5_EE13_M_deallocateEPS5_m.exit38: ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement9SparseTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %35
   store ptr %26, ptr %0, align 8
-  %37 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::SparseTag", ptr %27, i64 %1
+  %37 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::SparseTag", ptr %27, i64 %1
   store ptr %37, ptr %4, align 8
   %38 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::SparseTag", ptr %26, i64 %25
   store ptr %38, ptr %10, align 8
@@ -2232,7 +2232,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE11_S
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE13_M_deallocateEPS5_m.exit32.i.i: ; preds = %34, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i.i
   %.pre = phi ptr [ %.pre.pre, %34 ], [ %5, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i.i ]
   store ptr %30, ptr %3, align 8
-  %36 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %30, i64 %7
+  %36 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %30, i64 %7
   store ptr %36, ptr %8, align 8
   %37 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %30, i64 %29
   store ptr %37, ptr %17, align 8
@@ -2366,7 +2366,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE11_S
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE13_M_deallocateEPS5_m.exit32.i.i: ; preds = %35, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i.i
   %.pre = phi ptr [ %.pre.pre, %35 ], [ %5, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i.i ]
   store ptr %31, ptr %3, align 8
-  %37 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %31, i64 %8
+  %37 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %31, i64 %8
   store ptr %37, ptr %9, align 8
   %38 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %31, i64 %30
   store ptr %38, ptr %18, align 8
@@ -2831,8 +2831,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateFaceParent
   %indvars.iv124 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next125, %.loopexit ]
   %.05895 = phi i32 [ %20, %.lr.ph96 ], [ %.2, %.loopexit ]
   %28 = load ptr, ptr %21, align 8
-  %.idx127 = shl i64 %indvars.iv124, 3
-  %29 = getelementptr i8, ptr %28, i64 %.idx127
+  %.idx128 = shl i64 %indvars.iv124, 3
+  %29 = getelementptr i8, ptr %28, i64 %.idx128
   %30 = load i32, ptr %29, align 4
   %.fr = freeze i32 %30
   %31 = icmp eq i32 %.fr, 4
@@ -3121,16 +3121,16 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false)
-  %.idx.i.i.i.i.i = shl nsw i64 %21, 2
-  %25 = getelementptr inbounds i8, ptr %20, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -3183,7 +3183,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %40
   store ptr %32, ptr %0, align 8
-  %42 = getelementptr inbounds i32, ptr %33, i64 %1
+  %42 = getelementptr inbounds nuw i32, ptr %33, i64 %1
   store ptr %42, ptr %4, align 8
   %43 = getelementptr inbounds nuw i32, ptr %32, i64 %30
   store ptr %43, ptr %11, align 8
@@ -3239,8 +3239,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateEdgeParent
   %indvars.iv124 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next125, %.loopexit ]
   %.05895 = phi i32 [ %20, %.lr.ph96 ], [ %.2, %.loopexit ]
   %28 = load ptr, ptr %21, align 8
-  %.idx127 = shl i64 %indvars.iv124, 3
-  %29 = getelementptr i8, ptr %28, i64 %.idx127
+  %.idx128 = shl i64 %indvars.iv124, 3
+  %29 = getelementptr i8, ptr %28, i64 %.idx128
   %30 = load i32, ptr %29, align 4
   %.fr = freeze i32 %30
   %31 = icmp eq i32 %.fr, 4
@@ -4175,7 +4175,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE11_S_relocateE
 
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE13_M_deallocateEPS5_m.exit32.i.i: ; preds = %33, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i.i
   store ptr %29, ptr %4, align 8
-  %35 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::FTag", ptr %29, i64 %6
+  %35 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::FTag", ptr %29, i64 %6
   store ptr %35, ptr %7, align 8
   %36 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::FTag", ptr %29, i64 %28
   store ptr %36, ptr %16, align 8
@@ -4309,7 +4309,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4ETagESaIS5_EE11_S_relocateE
 
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Vtr8internal5Level4ETagESaIS5_EE13_M_deallocateEPS5_m.exit32.i.i: ; preds = %34, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4ETagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i.i
   store ptr %30, ptr %4, align 8
-  %36 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %30, i64 %7
+  %36 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %30, i64 %7
   store ptr %36, ptr %8, align 8
   %37 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %30, i64 %29
   store ptr %37, ptr %17, align 8
@@ -4796,7 +4796,7 @@ define linkonce_odr void @_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4V
   br i1 %.not28.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = shl i64 %12, 1
+  %22 = shl nuw nsw i64 %12, 1
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i.i.i, ptr %3, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE17_M_default_appendEm.exit
@@ -4842,7 +4842,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE11_S_relocateE
 
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE13_M_deallocateEPS5_m.exit32.i: ; preds = %34, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
   store ptr %29, ptr %0, align 8
-  %36 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %30, i64 %12
+  %36 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %30, i64 %12
   store ptr %36, ptr %3, align 8
   %37 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %29, i64 %27
   store ptr %37, ptr %13, align 8
@@ -5796,13 +5796,13 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement27reclassifySemishar
   %.1 = phi i32 [ %156, %148 ], [ %197, %181 ]
   %.188.fr = freeze i32 %.188
   %202 = icmp sgt i32 %.188.fr, 0
-  %spec.select177 = select i1 %202, i16 64, i16 0
+  %spec.select180 = select i1 %202, i16 64, i16 0
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %161, %136
-  %.1172 = phi i32 [ 0, %136 ], [ 0, %161 ], [ %.1, %.loopexit ]
-  %.188171 = phi i32 [ 0, %136 ], [ 0, %161 ], [ %.188.fr, %.loopexit ]
-  %203 = phi i16 [ 0, %136 ], [ 0, %161 ], [ %spec.select177, %.loopexit ]
+  %.1175 = phi i32 [ 0, %136 ], [ 0, %161 ], [ %.1, %.loopexit ]
+  %.188174 = phi i32 [ 0, %136 ], [ 0, %161 ], [ %.188.fr, %.loopexit ]
+  %203 = phi i16 [ 0, %136 ], [ 0, %161 ], [ %spec.select180, %.loopexit ]
   %204 = and i16 %121, -65
   %205 = or disjoint i16 %203, %204
   store i16 %205, ptr %120, align 2
@@ -5811,7 +5811,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement27reclassifySemishar
   br i1 %or.cond103, label %207, label %216
 
 207:                                              ; preds = %.loopexit.thread
-  %208 = add nsw i32 %.1172, %.188171
+  %208 = add nsw i32 %.1175, %.188174
   %209 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease25DetermineVertexVertexRuleEfi(ptr noundef nonnull align 1 dereferenceable(4) %2, float noundef 0.000000e+00, i32 noundef %208)
   %210 = trunc i32 %209 to i16
   %211 = load i16, ptr %120, align 2
@@ -5993,7 +5993,7 @@ _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds float, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw float, ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70

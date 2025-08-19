@@ -59,8 +59,8 @@ define dso_local void @PHP_WHIRLPOOLUpdate(ptr noundef captures(none) %0, ptr no
   %25 = lshr i32 %23, 8
   %26 = lshr i64 %.090, 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not105 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not105, label %.critedge, label %12
+  %.not109 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not109, label %.critedge, label %12
 
 .critedge:                                        ; preds = %16, %12
   %27 = icmp ugt i64 %4, 8

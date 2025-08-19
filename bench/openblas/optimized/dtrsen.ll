@@ -145,9 +145,9 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %.not244, label %91, label %.sink.split
 
 .sink.split:                                      ; preds = %87, %83, %84, %82
-  %.sink331 = phi i32 [ 1, %82 ], [ 2, %84 ], [ 2, %83 ], [ 1, %87 ]
+  %.sink338 = phi i32 [ 1, %82 ], [ 2, %84 ], [ 2, %83 ], [ 1, %87 ]
   %.1230.ph = phi i32 [ 0, %82 ], [ 1, %84 ], [ 1, %83 ], [ 0, %87 ]
-  %90 = add nsw i32 %68, %.sink331
+  %90 = add nsw i32 %68, %.sink338
   store i32 %90, ptr %10, align 4, !tbaa !3
   br label %91
 
@@ -261,7 +261,7 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 
 129:                                              ; preds = %128
   %130 = tail call double @dlange_(ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %13) #5
-  br label %.sink.split334
+  br label %.sink.split341
 
 131:                                              ; preds = %121
   store i32 0, ptr %28, align 4, !tbaa !3
@@ -342,7 +342,7 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %163
 
 163:                                              ; preds = %162, %161
-  br i1 %44, label %.sink.split334, label %217
+  br i1 %44, label %.sink.split341, label %217
 
 .thread:                                          ; preds = %.thread282, %158
   br i1 %.not255287, label %167, label %164
@@ -378,7 +378,7 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   call void @dtrsyl_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.3, ptr noundef nonnull @c_n1, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %179, ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef nonnull %24, ptr noundef nonnull %22, ptr noundef nonnull %21) #5
   %180 = call double @dlange_(ptr noundef nonnull @.str.6, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %13, ptr noundef nonnull %24, ptr noundef nonnull %13) #5
   %181 = fcmp oeq double %180, 0.000000e+00
-  br i1 %181, label %.sink.split332, label %182
+  br i1 %181, label %.sink.split339, label %182
 
 182:                                              ; preds = %168
   %183 = load double, ptr %22, align 8, !tbaa !7
@@ -389,14 +389,14 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %188 = call double @sqrt(double noundef %180) #5, !tbaa !3
   %189 = fmul double %187, %188
   %190 = fdiv double %183, %189
-  br label %.sink.split332
+  br label %.sink.split339
 
-.sink.split332:                                   ; preds = %168, %182
-  %.sink333 = phi double [ %190, %182 ], [ 1.000000e+00, %168 ]
-  store double %.sink333, ptr %11, align 8, !tbaa !7
+.sink.split339:                                   ; preds = %168, %182
+  %.sink340 = phi double [ %190, %182 ], [ 1.000000e+00, %168 ]
+  store double %.sink340, ptr %11, align 8, !tbaa !7
   br label %191
 
-191:                                              ; preds = %.sink.split332, %._crit_edge304
+191:                                              ; preds = %.sink.split339, %._crit_edge304
   br i1 %44, label %192, label %217
 
 192:                                              ; preds = %191
@@ -443,14 +443,14 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %214 = load double, ptr %22, align 8, !tbaa !7
   %215 = load double, ptr %29, align 8, !tbaa !7
   %216 = fdiv double %214, %215
-  br label %.sink.split334
+  br label %.sink.split341
 
-.sink.split334:                                   ; preds = %163, %129, %213
-  %.sink335 = phi double [ %216, %213 ], [ %130, %129 ], [ 0.000000e+00, %163 ]
-  store double %.sink335, ptr %12, align 8, !tbaa !7
+.sink.split341:                                   ; preds = %163, %129, %213
+  %.sink342 = phi double [ %216, %213 ], [ %130, %129 ], [ 0.000000e+00, %163 ]
+  store double %.sink342, ptr %12, align 8, !tbaa !7
   br label %217
 
-217:                                              ; preds = %.sink.split334, %191, %163, %128
+217:                                              ; preds = %.sink.split341, %191, %163, %128
   %218 = load i32, ptr %3, align 4, !tbaa !3
   %.not256305 = icmp slt i32 %218, 1
   br i1 %.not256305, label %._crit_edge314, label %.lr.ph308

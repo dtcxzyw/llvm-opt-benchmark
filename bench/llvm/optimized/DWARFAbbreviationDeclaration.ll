@@ -491,11 +491,11 @@ _ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exi
   br i1 %.not.i.i.not.i37, label %_ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit, label %_ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit.sink.split, !prof !77
 
 _ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit.sink.split: ; preds = %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit, %117
-  %.sink102 = phi i32 [ %119, %117 ], [ %152, %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit ]
+  %.sink110 = phi i32 [ %119, %117 ], [ %152, %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit ]
   %.sroa.044.0.insert.insert.sink.ph = phi i64 [ %.sroa.051.0.insert.insert, %117 ], [ %.sroa.044.0.insert.insert, %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit ]
   %.sroa.345.8.insert.insert.sink.ph = phi i64 [ %118, %117 ], [ %.sroa.345.8.insert.insert, %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit ]
   %.sroa.5.1.ph = phi i8 [ %.sroa.5.080, %117 ], [ %.not.i, %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit ]
-  %154 = zext i32 %.sink102 to i64
+  %154 = zext i32 %.sink110 to i64
   %155 = add nuw nsw i64 %154, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %78, i64 noundef %155, i64 noundef 16) #14
   %.pre.i38 = load i32, ptr %9, align 8, !tbaa !3

@@ -1451,7 +1451,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   br label %._crit_edge657.thread
 
 ._crit_edge657.thread:                            ; preds = %422, %459, %._crit_edge657, %446, %450
-  %.0485.lcssa749 = phi double [ %431, %450 ], [ %431, %446 ], [ %431, %._crit_edge657 ], [ %431, %459 ], [ 0.000000e+00, %422 ]
+  %.0485.lcssa786 = phi double [ %431, %450 ], [ %431, %446 ], [ %431, %._crit_edge657 ], [ %431, %459 ], [ 0.000000e+00, %422 ]
   %.1483 = phi i32 [ %448, %450 ], [ %435, %446 ], [ %435, %._crit_edge657 ], [ %435, %459 ], [ %.11, %422 ]
   %.2480 = phi i32 [ 0, %450 ], [ 0, %446 ], [ %427, %._crit_edge657 ], [ %427, %459 ], [ 0, %422 ]
   %.9475 = phi i32 [ %.8474, %450 ], [ %.8474, %446 ], [ %.8474, %._crit_edge657 ], [ %spec.select579, %459 ], [ %.8474, %422 ]
@@ -1467,7 +1467,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
 .lr.ph666:                                        ; preds = %.lr.ph666.preheader, %.lr.ph666
   %indvars.iv737 = phi i64 [ %462, %.lr.ph666.preheader ], [ %indvars.iv.next738, %.lr.ph666 ]
   %indvars.iv735 = phi i64 [ %461, %.lr.ph666.preheader ], [ %indvars.iv.next736, %.lr.ph666 ]
-  %.1486662 = phi double [ %.0485.lcssa749, %.lr.ph666.preheader ], [ %466, %.lr.ph666 ]
+  %.1486662 = phi double [ %.0485.lcssa786, %.lr.ph666.preheader ], [ %466, %.lr.ph666 ]
   %463 = getelementptr inbounds float, ptr %46, i64 %indvars.iv737
   %464 = load float, ptr %463, align 4
   %465 = fpext float %464 to double
@@ -1491,9 +1491,9 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   br i1 %.not, label %480, label %471
 
 471:                                              ; preds = %._crit_edge667.thread, %._crit_edge667
-  %.3481.lcssa754 = phi i32 [ %470, %._crit_edge667.thread ], [ %.2480, %._crit_edge667 ]
-  %.2484.lcssa753 = phi i32 [ %.9475, %._crit_edge667.thread ], [ %.1483, %._crit_edge667 ]
-  %472 = sub nsw i32 %.2484.lcssa753, %.3481.lcssa754
+  %.3481.lcssa791 = phi i32 [ %470, %._crit_edge667.thread ], [ %.2480, %._crit_edge667 ]
+  %.2484.lcssa790 = phi i32 [ %.9475, %._crit_edge667.thread ], [ %.1483, %._crit_edge667 ]
+  %472 = sub nsw i32 %.2484.lcssa790, %.3481.lcssa791
   %473 = sext i32 %472 to i64
   %474 = load i32, ptr %126, align 4
   %475 = sext i32 %474 to i64
@@ -1501,7 +1501,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %477 = add nsw i64 %476, %.0679
   %478 = inttoptr i64 %477 to ptr
   %479 = load ptr, ptr %127, align 8
-  tail call void %479(ptr noundef %478, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %.3481.lcssa754, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #8
+  tail call void %479(ptr noundef %478, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %.3481.lcssa791, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #8
   br label %480
 
 480:                                              ; preds = %471, %._crit_edge667
@@ -2004,86 +2004,86 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %228 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre = load double, ptr %80, align 8
   %.promoted = load double, ptr %17, align 16
-  %.promoted1323 = load double, ptr %88, align 16
-  %.promoted1324 = load double, ptr %91, align 16
-  %.promoted1325 = load double, ptr %92, align 8
-  %.promoted1326 = load double, ptr %100, align 16
-  %.promoted1329 = load double, ptr %33, align 8
-  %.promoted1332 = load double, ptr %108, align 8
-  %.promoted1333 = load double, ptr %111, align 8
-  %.promoted1336 = load double, ptr %112, align 16
-  %.promoted1339 = load double, ptr %118, align 8
-  %.promoted1342 = load double, ptr %47, align 16
-  %.promoted1343 = load double, ptr %126, align 16
-  %.promoted1344 = load double, ptr %129, align 16
-  %.promoted1347 = load double, ptr %130, align 8
-  %.promoted1350 = load double, ptr %136, align 16
-  %.promoted1353 = load double, ptr %58, align 8
-  %.promoted1356 = load double, ptr %144, align 8
-  %.promoted1357 = load double, ptr %147, align 8
-  %.promoted1360 = load double, ptr %148, align 16
-  %.promoted1363 = load double, ptr %154, align 8
-  %.promoted1366 = load double, ptr %48, align 16
-  %.promoted1367 = load double, ptr %162, align 16
-  %.promoted1368 = load double, ptr %165, align 16
-  %.promoted1371 = load double, ptr %166, align 8
-  %.promoted1374 = load double, ptr %172, align 16
-  %.promoted1377 = load double, ptr %63, align 8
-  %.promoted1380 = load double, ptr %180, align 8
-  %.promoted1381 = load double, ptr %183, align 8
-  %.promoted1384 = load double, ptr %184, align 16
-  %.promoted1387 = load double, ptr %190, align 8
-  %.promoted1390 = load double, ptr %27, align 16
-  %.promoted1391 = load double, ptr %198, align 16
-  %.promoted1392 = load double, ptr %201, align 16
-  %.promoted1395 = load double, ptr %202, align 8
-  %.promoted1398 = load double, ptr %208, align 16
-  %.promoted1401 = load double, ptr %41, align 8
-  %.promoted1404 = load double, ptr %216, align 8
-  %.promoted1405 = load double, ptr %219, align 8
-  %.promoted1408 = load double, ptr %220, align 16
+  %.promoted1410 = load double, ptr %88, align 16
+  %.promoted1411 = load double, ptr %91, align 16
+  %.promoted1412 = load double, ptr %92, align 8
+  %.promoted1413 = load double, ptr %100, align 16
+  %.promoted1416 = load double, ptr %33, align 8
+  %.promoted1419 = load double, ptr %108, align 8
+  %.promoted1420 = load double, ptr %111, align 8
+  %.promoted1423 = load double, ptr %112, align 16
+  %.promoted1426 = load double, ptr %118, align 8
+  %.promoted1429 = load double, ptr %47, align 16
+  %.promoted1430 = load double, ptr %126, align 16
+  %.promoted1431 = load double, ptr %129, align 16
+  %.promoted1434 = load double, ptr %130, align 8
+  %.promoted1437 = load double, ptr %136, align 16
+  %.promoted1440 = load double, ptr %58, align 8
+  %.promoted1443 = load double, ptr %144, align 8
+  %.promoted1444 = load double, ptr %147, align 8
+  %.promoted1447 = load double, ptr %148, align 16
+  %.promoted1450 = load double, ptr %154, align 8
+  %.promoted1453 = load double, ptr %48, align 16
+  %.promoted1454 = load double, ptr %162, align 16
+  %.promoted1455 = load double, ptr %165, align 16
+  %.promoted1458 = load double, ptr %166, align 8
+  %.promoted1461 = load double, ptr %172, align 16
+  %.promoted1464 = load double, ptr %63, align 8
+  %.promoted1467 = load double, ptr %180, align 8
+  %.promoted1468 = load double, ptr %183, align 8
+  %.promoted1471 = load double, ptr %184, align 16
+  %.promoted1474 = load double, ptr %190, align 8
+  %.promoted1477 = load double, ptr %27, align 16
+  %.promoted1478 = load double, ptr %198, align 16
+  %.promoted1479 = load double, ptr %201, align 16
+  %.promoted1482 = load double, ptr %202, align 8
+  %.promoted1485 = load double, ptr %208, align 16
+  %.promoted1488 = load double, ptr %41, align 8
+  %.promoted1491 = load double, ptr %216, align 8
+  %.promoted1492 = load double, ptr %219, align 8
+  %.promoted1495 = load double, ptr %220, align 16
   br label %229
 
 229:                                              ; preds = %.lr.ph1228, %883
-  %.0893.lcssa1410 = phi double [ %.promoted1408, %.lr.ph1228 ], [ %.0893.lcssa1409, %883 ]
-  %.0894.lcssa1407 = phi double [ %.promoted1405, %.lr.ph1228 ], [ %.0894.lcssa1406, %883 ]
-  %230 = phi double [ %.promoted1404, %.lr.ph1228 ], [ %810, %883 ]
-  %.08921403 = phi double [ %.promoted1401, %.lr.ph1228 ], [ %.08921402, %883 ]
-  %.08911400 = phi double [ %.promoted1398, %.lr.ph1228 ], [ %.08911399, %883 ]
-  %.0912.lcssa1397 = phi double [ %.promoted1395, %.lr.ph1228 ], [ %.0912.lcssa1396, %883 ]
-  %.0913.lcssa1394 = phi double [ %.promoted1392, %.lr.ph1228 ], [ %.0913.lcssa1393, %883 ]
-  %231 = phi double [ %.promoted1391, %.lr.ph1228 ], [ %739, %883 ]
-  %232 = phi double [ %.promoted1390, %.lr.ph1228 ], [ %740, %883 ]
-  %.09101389 = phi double [ %.promoted1387, %.lr.ph1228 ], [ %.09101388, %883 ]
-  %.0931.lcssa1386 = phi double [ %.promoted1384, %.lr.ph1228 ], [ %.0931.lcssa1385, %883 ]
-  %.0932.lcssa1383 = phi double [ %.promoted1381, %.lr.ph1228 ], [ %.0932.lcssa1382, %883 ]
-  %233 = phi double [ %.promoted1380, %.lr.ph1228 ], [ %669, %883 ]
-  %.09301379 = phi double [ %.promoted1377, %.lr.ph1228 ], [ %.09301378, %883 ]
-  %.09291376 = phi double [ %.promoted1374, %.lr.ph1228 ], [ %.09291375, %883 ]
-  %.0950.lcssa1373 = phi double [ %.promoted1371, %.lr.ph1228 ], [ %.0950.lcssa1372, %883 ]
-  %.0951.lcssa1370 = phi double [ %.promoted1368, %.lr.ph1228 ], [ %.0951.lcssa1369, %883 ]
-  %234 = phi double [ %.promoted1367, %.lr.ph1228 ], [ %598, %883 ]
-  %235 = phi double [ %.promoted1366, %.lr.ph1228 ], [ %599, %883 ]
-  %.09481365 = phi double [ %.promoted1363, %.lr.ph1228 ], [ %.09481364, %883 ]
-  %.0962.lcssa1362 = phi double [ %.promoted1360, %.lr.ph1228 ], [ %.0962.lcssa1361, %883 ]
-  %.0959.lcssa1359 = phi double [ %.promoted1357, %.lr.ph1228 ], [ %.0959.lcssa1358, %883 ]
-  %236 = phi double [ %.promoted1356, %.lr.ph1228 ], [ %528, %883 ]
-  %.09631355 = phi double [ %.promoted1353, %.lr.ph1228 ], [ %.09631354, %883 ]
-  %.09641352 = phi double [ %.promoted1350, %.lr.ph1228 ], [ %.09641351, %883 ]
-  %.0940.lcssa1349 = phi double [ %.promoted1347, %.lr.ph1228 ], [ %.0940.lcssa1348, %883 ]
-  %.0939.lcssa1346 = phi double [ %.promoted1344, %.lr.ph1228 ], [ %.0939.lcssa1345, %883 ]
-  %237 = phi double [ %.promoted1343, %.lr.ph1228 ], [ %457, %883 ]
-  %238 = phi double [ %.promoted1342, %.lr.ph1228 ], [ %458, %883 ]
-  %.09441341 = phi double [ %.promoted1339, %.lr.ph1228 ], [ %.09441340, %883 ]
-  %.0920.lcssa1338 = phi double [ %.promoted1336, %.lr.ph1228 ], [ %.0920.lcssa1337, %883 ]
-  %.0919.lcssa1335 = phi double [ %.promoted1333, %.lr.ph1228 ], [ %.0919.lcssa1334, %883 ]
-  %239 = phi double [ %.promoted1332, %.lr.ph1228 ], [ %387, %883 ]
-  %.09211331 = phi double [ %.promoted1329, %.lr.ph1228 ], [ %.09211330, %883 ]
-  %.09241328 = phi double [ %.promoted1326, %.lr.ph1228 ], [ %.09241327, %883 ]
-  %240 = phi double [ %.promoted1325, %.lr.ph1228 ], [ %314, %883 ]
-  %241 = phi double [ %.promoted1324, %.lr.ph1228 ], [ %315, %883 ]
-  %242 = phi double [ %.promoted1323, %.lr.ph1228 ], [ %316, %883 ]
-  %.09011322 = phi double [ %.promoted, %.lr.ph1228 ], [ %.09011321, %883 ]
+  %.0893.lcssa1497 = phi double [ %.promoted1495, %.lr.ph1228 ], [ %.0893.lcssa1496, %883 ]
+  %.0894.lcssa1494 = phi double [ %.promoted1492, %.lr.ph1228 ], [ %.0894.lcssa1493, %883 ]
+  %230 = phi double [ %.promoted1491, %.lr.ph1228 ], [ %810, %883 ]
+  %.08921490 = phi double [ %.promoted1488, %.lr.ph1228 ], [ %.08921489, %883 ]
+  %.08911487 = phi double [ %.promoted1485, %.lr.ph1228 ], [ %.08911486, %883 ]
+  %.0912.lcssa1484 = phi double [ %.promoted1482, %.lr.ph1228 ], [ %.0912.lcssa1483, %883 ]
+  %.0913.lcssa1481 = phi double [ %.promoted1479, %.lr.ph1228 ], [ %.0913.lcssa1480, %883 ]
+  %231 = phi double [ %.promoted1478, %.lr.ph1228 ], [ %739, %883 ]
+  %232 = phi double [ %.promoted1477, %.lr.ph1228 ], [ %740, %883 ]
+  %.09101476 = phi double [ %.promoted1474, %.lr.ph1228 ], [ %.09101475, %883 ]
+  %.0931.lcssa1473 = phi double [ %.promoted1471, %.lr.ph1228 ], [ %.0931.lcssa1472, %883 ]
+  %.0932.lcssa1470 = phi double [ %.promoted1468, %.lr.ph1228 ], [ %.0932.lcssa1469, %883 ]
+  %233 = phi double [ %.promoted1467, %.lr.ph1228 ], [ %669, %883 ]
+  %.09301466 = phi double [ %.promoted1464, %.lr.ph1228 ], [ %.09301465, %883 ]
+  %.09291463 = phi double [ %.promoted1461, %.lr.ph1228 ], [ %.09291462, %883 ]
+  %.0950.lcssa1460 = phi double [ %.promoted1458, %.lr.ph1228 ], [ %.0950.lcssa1459, %883 ]
+  %.0951.lcssa1457 = phi double [ %.promoted1455, %.lr.ph1228 ], [ %.0951.lcssa1456, %883 ]
+  %234 = phi double [ %.promoted1454, %.lr.ph1228 ], [ %598, %883 ]
+  %235 = phi double [ %.promoted1453, %.lr.ph1228 ], [ %599, %883 ]
+  %.09481452 = phi double [ %.promoted1450, %.lr.ph1228 ], [ %.09481451, %883 ]
+  %.0962.lcssa1449 = phi double [ %.promoted1447, %.lr.ph1228 ], [ %.0962.lcssa1448, %883 ]
+  %.0959.lcssa1446 = phi double [ %.promoted1444, %.lr.ph1228 ], [ %.0959.lcssa1445, %883 ]
+  %236 = phi double [ %.promoted1443, %.lr.ph1228 ], [ %528, %883 ]
+  %.09631442 = phi double [ %.promoted1440, %.lr.ph1228 ], [ %.09631441, %883 ]
+  %.09641439 = phi double [ %.promoted1437, %.lr.ph1228 ], [ %.09641438, %883 ]
+  %.0940.lcssa1436 = phi double [ %.promoted1434, %.lr.ph1228 ], [ %.0940.lcssa1435, %883 ]
+  %.0939.lcssa1433 = phi double [ %.promoted1431, %.lr.ph1228 ], [ %.0939.lcssa1432, %883 ]
+  %237 = phi double [ %.promoted1430, %.lr.ph1228 ], [ %457, %883 ]
+  %238 = phi double [ %.promoted1429, %.lr.ph1228 ], [ %458, %883 ]
+  %.09441428 = phi double [ %.promoted1426, %.lr.ph1228 ], [ %.09441427, %883 ]
+  %.0920.lcssa1425 = phi double [ %.promoted1423, %.lr.ph1228 ], [ %.0920.lcssa1424, %883 ]
+  %.0919.lcssa1422 = phi double [ %.promoted1420, %.lr.ph1228 ], [ %.0919.lcssa1421, %883 ]
+  %239 = phi double [ %.promoted1419, %.lr.ph1228 ], [ %387, %883 ]
+  %.09211418 = phi double [ %.promoted1416, %.lr.ph1228 ], [ %.09211417, %883 ]
+  %.09241415 = phi double [ %.promoted1413, %.lr.ph1228 ], [ %.09241414, %883 ]
+  %240 = phi double [ %.promoted1412, %.lr.ph1228 ], [ %314, %883 ]
+  %241 = phi double [ %.promoted1411, %.lr.ph1228 ], [ %315, %883 ]
+  %242 = phi double [ %.promoted1410, %.lr.ph1228 ], [ %316, %883 ]
+  %.09011409 = phi double [ %.promoted, %.lr.ph1228 ], [ %.09011408, %883 ]
   %243 = phi double [ %.pre, %.lr.ph1228 ], [ %317, %883 ]
   %.01227 = phi i64 [ %78, %.lr.ph1228 ], [ %886, %883 ]
   %.08121226 = phi i32 [ %21, %.lr.ph1228 ], [ %887, %883 ]
@@ -2108,7 +2108,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 .lr.ph:                                           ; preds = %250, %280
   %.08131096 = phi i32 [ %.2, %280 ], [ %79, %250 ]
   %.08141095 = phi i32 [ %.1815, %280 ], [ 0, %250 ]
-  %.08891094 = phi double [ %.08971092, %280 ], [ %.09011322, %250 ]
+  %.08891094 = phi double [ %.08971092, %280 ], [ %.09011409, %250 ]
   %.08901093 = phi double [ %.09001091, %280 ], [ %243, %250 ]
   %.08971092 = phi double [ %281, %280 ], [ %241, %250 ]
   %.09001091 = phi double [ %282, %280 ], [ %240, %250 ]
@@ -2165,7 +2165,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %.0900.lcssa = phi double [ %240, %250 ], [ %282, %280 ]
   %.0897.lcssa = phi double [ %241, %250 ], [ %281, %280 ]
   %.0890.lcssa = phi double [ %243, %250 ], [ %.09001091, %280 ]
-  %.0889.lcssa = phi double [ %.09011322, %250 ], [ %.08971092, %280 ]
+  %.0889.lcssa = phi double [ %.09011409, %250 ], [ %.08971092, %280 ]
   %.0814.lcssa = phi i32 [ 0, %250 ], [ %.1815, %280 ]
   %.0813.lcssa = phi i32 [ %79, %250 ], [ %.2, %280 ]
   store double %.0900.lcssa, ptr %92, align 8
@@ -2224,7 +2224,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %314 = phi double [ %240, %229 ], [ %240, %246 ], [ %.0900.lcssa, %311 ]
   %315 = phi double [ %241, %229 ], [ %241, %246 ], [ %.0897.lcssa, %311 ]
   %316 = phi double [ %242, %229 ], [ %242, %246 ], [ %312, %311 ]
-  %.09011321 = phi double [ %.09011322, %229 ], [ %.09011322, %246 ], [ %.0901, %311 ]
+  %.09011408 = phi double [ %.09011409, %229 ], [ %.09011409, %246 ], [ %.0901, %311 ]
   %317 = phi double [ %243, %229 ], [ %243, %246 ], [ %.0902, %311 ]
   %.3817 = phi i32 [ 0, %229 ], [ 0, %246 ], [ %.2816, %311 ]
   %.5 = phi i32 [ %79, %229 ], [ %79, %246 ], [ %.4, %311 ]
@@ -2234,7 +2234,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 319:                                              ; preds = %313
   %320 = add nsw i32 %.08121226, 1
   %321 = sitofp i32 %320 to double
-  %322 = fcmp oge double %.09241328, %321
+  %322 = fcmp oge double %.09241415, %321
   %or.cond3 = select i1 %322, i1 true, i1 %105
   br i1 %or.cond3, label %386, label %323
 
@@ -2242,16 +2242,16 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %324 = fcmp ogt double %104, %321
   %.0924 = select i1 %324, double %321, double %104
   %.0921 = select i1 %324, double %239, double %110
-  %325 = fcmp ugt double %.0920.lcssa1338, %.0924
+  %325 = fcmp ugt double %.0920.lcssa1425, %.0924
   br i1 %325, label %._crit_edge1110, label %.lr.ph1109
 
 .lr.ph1109:                                       ; preds = %323, %353
   %.61107 = phi i32 [ %.8, %353 ], [ %.5, %323 ]
   %.48181106 = phi i32 [ %.5819, %353 ], [ %.3817, %323 ]
-  %.09091105 = phi double [ %.09191103, %353 ], [ %.09211331, %323 ]
-  %.09161104 = phi double [ %.09201102, %353 ], [ %.09241328, %323 ]
-  %.09191103 = phi double [ %354, %353 ], [ %.0919.lcssa1335, %323 ]
-  %.09201102 = phi double [ %355, %353 ], [ %.0920.lcssa1338, %323 ]
+  %.09091105 = phi double [ %.09191103, %353 ], [ %.09211418, %323 ]
+  %.09161104 = phi double [ %.09201102, %353 ], [ %.09241415, %323 ]
+  %.09191103 = phi double [ %354, %353 ], [ %.0919.lcssa1422, %323 ]
+  %.09201102 = phi double [ %355, %353 ], [ %.0920.lcssa1425, %323 ]
   %326 = fadd double %.09191103, %.09091105
   %327 = fmul double %326, 5.000000e-01
   %328 = fcmp ugt double %327, %96
@@ -2302,10 +2302,10 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   br i1 %356, label %._crit_edge1110, label %.lr.ph1109, !llvm.loop !15
 
 ._crit_edge1110:                                  ; preds = %353, %323
-  %.0920.lcssa = phi double [ %.0920.lcssa1338, %323 ], [ %355, %353 ]
-  %.0919.lcssa = phi double [ %.0919.lcssa1335, %323 ], [ %354, %353 ]
-  %.0916.lcssa = phi double [ %.09241328, %323 ], [ %.09201102, %353 ]
-  %.0909.lcssa = phi double [ %.09211331, %323 ], [ %.09191103, %353 ]
+  %.0920.lcssa = phi double [ %.0920.lcssa1425, %323 ], [ %355, %353 ]
+  %.0919.lcssa = phi double [ %.0919.lcssa1422, %323 ], [ %354, %353 ]
+  %.0916.lcssa = phi double [ %.09241415, %323 ], [ %.09201102, %353 ]
+  %.0909.lcssa = phi double [ %.09211418, %323 ], [ %.09191103, %353 ]
   %.4818.lcssa = phi i32 [ %.3817, %323 ], [ %.5819, %353 ]
   %.6.lcssa = phi i32 [ %.5, %323 ], [ %.8, %353 ]
   store double %.0920.lcssa, ptr %112, align 16
@@ -2361,11 +2361,11 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   br label %386
 
 386:                                              ; preds = %384, %319, %313
-  %.0920.lcssa1337 = phi double [ %.0920.lcssa1338, %313 ], [ %.0920.lcssa1338, %319 ], [ %.0920.lcssa, %384 ]
-  %.0919.lcssa1334 = phi double [ %.0919.lcssa1335, %313 ], [ %.0919.lcssa1335, %319 ], [ %.0919.lcssa, %384 ]
+  %.0920.lcssa1424 = phi double [ %.0920.lcssa1425, %313 ], [ %.0920.lcssa1425, %319 ], [ %.0920.lcssa, %384 ]
+  %.0919.lcssa1421 = phi double [ %.0919.lcssa1422, %313 ], [ %.0919.lcssa1422, %319 ], [ %.0919.lcssa, %384 ]
   %387 = phi double [ %239, %313 ], [ %239, %319 ], [ %385, %384 ]
-  %.09211330 = phi double [ %.09211331, %313 ], [ %.09211331, %319 ], [ %.0921, %384 ]
-  %.09241327 = phi double [ %.09241328, %313 ], [ %.09241328, %319 ], [ %.0924, %384 ]
+  %.09211417 = phi double [ %.09211418, %313 ], [ %.09211418, %319 ], [ %.0921, %384 ]
+  %.09241414 = phi double [ %.09241415, %313 ], [ %.09241415, %319 ], [ %.0924, %384 ]
   %.7821 = phi i32 [ %.3817, %313 ], [ %.3817, %319 ], [ %.6820, %384 ]
   %.11 = phi i32 [ %.5, %313 ], [ %.5, %319 ], [ %.10, %384 ]
   %388 = fcmp ugt double %122, %244
@@ -2374,7 +2374,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 389:                                              ; preds = %386
   %390 = add nsw i32 %.08121226, 1
   %391 = sitofp i32 %390 to double
-  %392 = fcmp oge double %.09441341, %391
+  %392 = fcmp oge double %.09441428, %391
   %or.cond5 = select i1 %392, i1 true, i1 %123
   br i1 %or.cond5, label %456, label %393
 
@@ -2382,16 +2382,16 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %394 = fcmp ogt double %122, %391
   %.0944 = select i1 %394, double %391, double %122
   %.0943 = select i1 %394, double %237, double %128
-  %395 = fcmp ugt double %.0940.lcssa1349, %.0944
+  %395 = fcmp ugt double %.0940.lcssa1436, %.0944
   br i1 %395, label %._crit_edge1125, label %.lr.ph1124
 
 .lr.ph1124:                                       ; preds = %393, %423
   %.121122 = phi i32 [ %.14, %423 ], [ %.11, %393 ]
   %.88221121 = phi i32 [ %.9823, %423 ], [ %.7821, %393 ]
   %.09351120 = phi double [ %.09391118, %423 ], [ %238, %393 ]
-  %.09381119 = phi double [ %.09401117, %423 ], [ %.09441341, %393 ]
-  %.09391118 = phi double [ %424, %423 ], [ %.0939.lcssa1346, %393 ]
-  %.09401117 = phi double [ %425, %423 ], [ %.0940.lcssa1349, %393 ]
+  %.09381119 = phi double [ %.09401117, %423 ], [ %.09441428, %393 ]
+  %.09391118 = phi double [ %424, %423 ], [ %.0939.lcssa1433, %393 ]
+  %.09401117 = phi double [ %425, %423 ], [ %.0940.lcssa1436, %393 ]
   %396 = fadd double %.09391118, %.09351120
   %397 = fmul double %396, 5.000000e-01
   %398 = fcmp ugt double %397, %96
@@ -2442,9 +2442,9 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   br i1 %426, label %._crit_edge1125, label %.lr.ph1124, !llvm.loop !16
 
 ._crit_edge1125:                                  ; preds = %423, %393
-  %.0940.lcssa = phi double [ %.0940.lcssa1349, %393 ], [ %425, %423 ]
-  %.0939.lcssa = phi double [ %.0939.lcssa1346, %393 ], [ %424, %423 ]
-  %.0938.lcssa = phi double [ %.09441341, %393 ], [ %.09401117, %423 ]
+  %.0940.lcssa = phi double [ %.0940.lcssa1436, %393 ], [ %425, %423 ]
+  %.0939.lcssa = phi double [ %.0939.lcssa1433, %393 ], [ %424, %423 ]
+  %.0938.lcssa = phi double [ %.09441428, %393 ], [ %.09401117, %423 ]
   %.0935.lcssa = phi double [ %238, %393 ], [ %.09391118, %423 ]
   %.8822.lcssa = phi i32 [ %.7821, %393 ], [ %.9823, %423 ]
   %.12.lcssa = phi i32 [ %.11, %393 ], [ %.14, %423 ]
@@ -2501,11 +2501,11 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   br label %456
 
 456:                                              ; preds = %454, %389, %386
-  %.0940.lcssa1348 = phi double [ %.0940.lcssa1349, %386 ], [ %.0940.lcssa1349, %389 ], [ %.0940.lcssa, %454 ]
-  %.0939.lcssa1345 = phi double [ %.0939.lcssa1346, %386 ], [ %.0939.lcssa1346, %389 ], [ %.0939.lcssa, %454 ]
+  %.0940.lcssa1435 = phi double [ %.0940.lcssa1436, %386 ], [ %.0940.lcssa1436, %389 ], [ %.0940.lcssa, %454 ]
+  %.0939.lcssa1432 = phi double [ %.0939.lcssa1433, %386 ], [ %.0939.lcssa1433, %389 ], [ %.0939.lcssa, %454 ]
   %457 = phi double [ %237, %386 ], [ %237, %389 ], [ %455, %454 ]
   %458 = phi double [ %238, %386 ], [ %238, %389 ], [ %.0943, %454 ]
-  %.09441340 = phi double [ %.09441341, %386 ], [ %.09441341, %389 ], [ %.0944, %454 ]
+  %.09441427 = phi double [ %.09441428, %386 ], [ %.09441428, %389 ], [ %.0944, %454 ]
   %.11825 = phi i32 [ %.7821, %386 ], [ %.7821, %389 ], [ %.10824, %454 ]
   %.17 = phi i32 [ %.11, %386 ], [ %.11, %389 ], [ %.16, %454 ]
   %459 = fcmp ugt double %140, %244
@@ -2514,7 +2514,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 460:                                              ; preds = %456
   %461 = add nsw i32 %.08121226, 1
   %462 = sitofp i32 %461 to double
-  %463 = fcmp oge double %.09641352, %462
+  %463 = fcmp oge double %.09641439, %462
   %or.cond7 = select i1 %463, i1 true, i1 %141
   br i1 %or.cond7, label %527, label %464
 
@@ -2522,16 +2522,16 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %465 = fcmp ogt double %140, %462
   %.0964 = select i1 %465, double %462, double %140
   %.0963 = select i1 %465, double %236, double %146
-  %466 = fcmp ugt double %.0962.lcssa1362, %.0964
+  %466 = fcmp ugt double %.0962.lcssa1449, %.0964
   br i1 %466, label %._crit_edge1140, label %.lr.ph1139
 
 .lr.ph1139:                                       ; preds = %464, %494
   %.181137 = phi i32 [ %.20, %494 ], [ %.17, %464 ]
   %.128261136 = phi i32 [ %.13827, %494 ], [ %.11825, %464 ]
-  %.09571135 = phi double [ %.09591133, %494 ], [ %.09631355, %464 ]
-  %.09581134 = phi double [ %.09621132, %494 ], [ %.09641352, %464 ]
-  %.09591133 = phi double [ %495, %494 ], [ %.0959.lcssa1359, %464 ]
-  %.09621132 = phi double [ %496, %494 ], [ %.0962.lcssa1362, %464 ]
+  %.09571135 = phi double [ %.09591133, %494 ], [ %.09631442, %464 ]
+  %.09581134 = phi double [ %.09621132, %494 ], [ %.09641439, %464 ]
+  %.09591133 = phi double [ %495, %494 ], [ %.0959.lcssa1446, %464 ]
+  %.09621132 = phi double [ %496, %494 ], [ %.0962.lcssa1449, %464 ]
   %467 = fadd double %.09591133, %.09571135
   %468 = fmul double %467, 5.000000e-01
   %469 = fcmp ugt double %468, %96
@@ -2582,10 +2582,10 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   br i1 %497, label %._crit_edge1140, label %.lr.ph1139, !llvm.loop !17
 
 ._crit_edge1140:                                  ; preds = %494, %464
-  %.0962.lcssa = phi double [ %.0962.lcssa1362, %464 ], [ %496, %494 ]
-  %.0959.lcssa = phi double [ %.0959.lcssa1359, %464 ], [ %495, %494 ]
-  %.0958.lcssa = phi double [ %.09641352, %464 ], [ %.09621132, %494 ]
-  %.0957.lcssa = phi double [ %.09631355, %464 ], [ %.09591133, %494 ]
+  %.0962.lcssa = phi double [ %.0962.lcssa1449, %464 ], [ %496, %494 ]
+  %.0959.lcssa = phi double [ %.0959.lcssa1446, %464 ], [ %495, %494 ]
+  %.0958.lcssa = phi double [ %.09641439, %464 ], [ %.09621132, %494 ]
+  %.0957.lcssa = phi double [ %.09631442, %464 ], [ %.09591133, %494 ]
   %.12826.lcssa = phi i32 [ %.11825, %464 ], [ %.13827, %494 ]
   %.18.lcssa = phi i32 [ %.17, %464 ], [ %.20, %494 ]
   store double %.0962.lcssa, ptr %148, align 16
@@ -2641,11 +2641,11 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   br label %527
 
 527:                                              ; preds = %525, %460, %456
-  %.0962.lcssa1361 = phi double [ %.0962.lcssa1362, %456 ], [ %.0962.lcssa1362, %460 ], [ %.0962.lcssa, %525 ]
-  %.0959.lcssa1358 = phi double [ %.0959.lcssa1359, %456 ], [ %.0959.lcssa1359, %460 ], [ %.0959.lcssa, %525 ]
+  %.0962.lcssa1448 = phi double [ %.0962.lcssa1449, %456 ], [ %.0962.lcssa1449, %460 ], [ %.0962.lcssa, %525 ]
+  %.0959.lcssa1445 = phi double [ %.0959.lcssa1446, %456 ], [ %.0959.lcssa1446, %460 ], [ %.0959.lcssa, %525 ]
   %528 = phi double [ %236, %456 ], [ %236, %460 ], [ %526, %525 ]
-  %.09631354 = phi double [ %.09631355, %456 ], [ %.09631355, %460 ], [ %.0963, %525 ]
-  %.09641351 = phi double [ %.09641352, %456 ], [ %.09641352, %460 ], [ %.0964, %525 ]
+  %.09631441 = phi double [ %.09631442, %456 ], [ %.09631442, %460 ], [ %.0963, %525 ]
+  %.09641438 = phi double [ %.09641439, %456 ], [ %.09641439, %460 ], [ %.0964, %525 ]
   %.15829 = phi i32 [ %.11825, %456 ], [ %.11825, %460 ], [ %.14828, %525 ]
   %.23 = phi i32 [ %.17, %456 ], [ %.17, %460 ], [ %.22, %525 ]
   %529 = fcmp ugt double %158, %244
@@ -2654,7 +2654,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 530:                                              ; preds = %527
   %531 = add nsw i32 %.08121226, 1
   %532 = sitofp i32 %531 to double
-  %533 = fcmp oge double %.09481365, %532
+  %533 = fcmp oge double %.09481452, %532
   %or.cond9 = select i1 %533, i1 true, i1 %159
   br i1 %or.cond9, label %597, label %534
 
@@ -2662,15 +2662,15 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %535 = fcmp ogt double %158, %532
   %.0949 = select i1 %535, double %234, double %164
   %.0948 = select i1 %535, double %532, double %158
-  %536 = fcmp ugt double %.0950.lcssa1373, %.0948
+  %536 = fcmp ugt double %.0950.lcssa1460, %.0948
   br i1 %536, label %._crit_edge1155, label %.lr.ph1154
 
 .lr.ph1154:                                       ; preds = %534, %564
   %.08341152 = phi i32 [ %.2836, %564 ], [ %79, %534 ]
   %.08581151 = phi i32 [ %.1859, %564 ], [ 0, %534 ]
-  %.09501150 = phi double [ %566, %564 ], [ %.0950.lcssa1373, %534 ]
-  %.09511149 = phi double [ %565, %564 ], [ %.0951.lcssa1370, %534 ]
-  %.09521148 = phi double [ %.09501150, %564 ], [ %.09481365, %534 ]
+  %.09501150 = phi double [ %566, %564 ], [ %.0950.lcssa1460, %534 ]
+  %.09511149 = phi double [ %565, %564 ], [ %.0951.lcssa1457, %534 ]
+  %.09521148 = phi double [ %.09501150, %564 ], [ %.09481452, %534 ]
   %.09531147 = phi double [ %.09511149, %564 ], [ %235, %534 ]
   %537 = fadd double %.09531147, %.09511149
   %538 = fmul double %537, 5.000000e-01
@@ -2723,9 +2723,9 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 
 ._crit_edge1155:                                  ; preds = %564, %534
   %.0953.lcssa = phi double [ %235, %534 ], [ %.09511149, %564 ]
-  %.0952.lcssa = phi double [ %.09481365, %534 ], [ %.09501150, %564 ]
-  %.0951.lcssa = phi double [ %.0951.lcssa1370, %534 ], [ %565, %564 ]
-  %.0950.lcssa = phi double [ %.0950.lcssa1373, %534 ], [ %566, %564 ]
+  %.0952.lcssa = phi double [ %.09481452, %534 ], [ %.09501150, %564 ]
+  %.0951.lcssa = phi double [ %.0951.lcssa1457, %534 ], [ %565, %564 ]
+  %.0950.lcssa = phi double [ %.0950.lcssa1460, %534 ], [ %566, %564 ]
   %.0858.lcssa = phi i32 [ 0, %534 ], [ %.1859, %564 ]
   %.0834.lcssa = phi i32 [ %79, %534 ], [ %.2836, %564 ]
   store double %.0950.lcssa, ptr %166, align 8
@@ -2781,11 +2781,11 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   br label %597
 
 597:                                              ; preds = %595, %530, %527
-  %.0950.lcssa1372 = phi double [ %.0950.lcssa1373, %527 ], [ %.0950.lcssa1373, %530 ], [ %.0950.lcssa, %595 ]
-  %.0951.lcssa1369 = phi double [ %.0951.lcssa1370, %527 ], [ %.0951.lcssa1370, %530 ], [ %.0951.lcssa, %595 ]
+  %.0950.lcssa1459 = phi double [ %.0950.lcssa1460, %527 ], [ %.0950.lcssa1460, %530 ], [ %.0950.lcssa, %595 ]
+  %.0951.lcssa1456 = phi double [ %.0951.lcssa1457, %527 ], [ %.0951.lcssa1457, %530 ], [ %.0951.lcssa, %595 ]
   %598 = phi double [ %234, %527 ], [ %234, %530 ], [ %596, %595 ]
   %599 = phi double [ %235, %527 ], [ %235, %530 ], [ %.0949, %595 ]
-  %.09481364 = phi double [ %.09481365, %527 ], [ %.09481365, %530 ], [ %.0948, %595 ]
+  %.09481451 = phi double [ %.09481452, %527 ], [ %.09481452, %530 ], [ %.0948, %595 ]
   %.3861 = phi i32 [ 0, %527 ], [ 0, %530 ], [ %.2860, %595 ]
   %.5839 = phi i32 [ %79, %527 ], [ %79, %530 ], [ %.4838, %595 ]
   %600 = fcmp ugt double %176, %244
@@ -2794,7 +2794,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 601:                                              ; preds = %597
   %602 = add nsw i32 %.08121226, 1
   %603 = sitofp i32 %602 to double
-  %604 = fcmp oge double %.09291376, %603
+  %604 = fcmp oge double %.09291463, %603
   %or.cond11 = select i1 %604, i1 true, i1 %177
   br i1 %or.cond11, label %668, label %605
 
@@ -2802,16 +2802,16 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %606 = fcmp ogt double %176, %603
   %.0930 = select i1 %606, double %233, double %182
   %.0929 = select i1 %606, double %603, double %176
-  %607 = fcmp ugt double %.0931.lcssa1386, %.0929
+  %607 = fcmp ugt double %.0931.lcssa1473, %.0929
   br i1 %607, label %._crit_edge1170, label %.lr.ph1169
 
 .lr.ph1169:                                       ; preds = %605, %635
   %.68401167 = phi i32 [ %.8842, %635 ], [ %.5839, %605 ]
   %.48621166 = phi i32 [ %.5863, %635 ], [ %.3861, %605 ]
-  %.09311165 = phi double [ %637, %635 ], [ %.0931.lcssa1386, %605 ]
-  %.09321164 = phi double [ %636, %635 ], [ %.0932.lcssa1383, %605 ]
-  %.09331163 = phi double [ %.09311165, %635 ], [ %.09291376, %605 ]
-  %.09341162 = phi double [ %.09321164, %635 ], [ %.09301379, %605 ]
+  %.09311165 = phi double [ %637, %635 ], [ %.0931.lcssa1473, %605 ]
+  %.09321164 = phi double [ %636, %635 ], [ %.0932.lcssa1470, %605 ]
+  %.09331163 = phi double [ %.09311165, %635 ], [ %.09291463, %605 ]
+  %.09341162 = phi double [ %.09321164, %635 ], [ %.09301466, %605 ]
   %608 = fadd double %.09341162, %.09321164
   %609 = fmul double %608, 5.000000e-01
   %610 = fcmp ugt double %609, %96
@@ -2862,10 +2862,10 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   br i1 %638, label %._crit_edge1170, label %.lr.ph1169, !llvm.loop !19
 
 ._crit_edge1170:                                  ; preds = %635, %605
-  %.0934.lcssa = phi double [ %.09301379, %605 ], [ %.09321164, %635 ]
-  %.0933.lcssa = phi double [ %.09291376, %605 ], [ %.09311165, %635 ]
-  %.0932.lcssa = phi double [ %.0932.lcssa1383, %605 ], [ %636, %635 ]
-  %.0931.lcssa = phi double [ %.0931.lcssa1386, %605 ], [ %637, %635 ]
+  %.0934.lcssa = phi double [ %.09301466, %605 ], [ %.09321164, %635 ]
+  %.0933.lcssa = phi double [ %.09291463, %605 ], [ %.09311165, %635 ]
+  %.0932.lcssa = phi double [ %.0932.lcssa1470, %605 ], [ %636, %635 ]
+  %.0931.lcssa = phi double [ %.0931.lcssa1473, %605 ], [ %637, %635 ]
   %.4862.lcssa = phi i32 [ %.3861, %605 ], [ %.5863, %635 ]
   %.6840.lcssa = phi i32 [ %.5839, %605 ], [ %.8842, %635 ]
   store double %.0931.lcssa, ptr %184, align 16
@@ -2921,11 +2921,11 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   br label %668
 
 668:                                              ; preds = %666, %601, %597
-  %.0931.lcssa1385 = phi double [ %.0931.lcssa1386, %597 ], [ %.0931.lcssa1386, %601 ], [ %.0931.lcssa, %666 ]
-  %.0932.lcssa1382 = phi double [ %.0932.lcssa1383, %597 ], [ %.0932.lcssa1383, %601 ], [ %.0932.lcssa, %666 ]
+  %.0931.lcssa1472 = phi double [ %.0931.lcssa1473, %597 ], [ %.0931.lcssa1473, %601 ], [ %.0931.lcssa, %666 ]
+  %.0932.lcssa1469 = phi double [ %.0932.lcssa1470, %597 ], [ %.0932.lcssa1470, %601 ], [ %.0932.lcssa, %666 ]
   %669 = phi double [ %233, %597 ], [ %233, %601 ], [ %667, %666 ]
-  %.09301378 = phi double [ %.09301379, %597 ], [ %.09301379, %601 ], [ %.0930, %666 ]
-  %.09291375 = phi double [ %.09291376, %597 ], [ %.09291376, %601 ], [ %.0929, %666 ]
+  %.09301465 = phi double [ %.09301466, %597 ], [ %.09301466, %601 ], [ %.0930, %666 ]
+  %.09291462 = phi double [ %.09291463, %597 ], [ %.09291463, %601 ], [ %.0929, %666 ]
   %.7865 = phi i32 [ %.3861, %597 ], [ %.3861, %601 ], [ %.6864, %666 ]
   %.11845 = phi i32 [ %.5839, %597 ], [ %.5839, %601 ], [ %.10844, %666 ]
   %670 = fcmp ugt double %194, %244
@@ -2934,7 +2934,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 671:                                              ; preds = %668
   %672 = add nsw i32 %.08121226, 1
   %673 = sitofp i32 %672 to double
-  %674 = fcmp oge double %.09101389, %673
+  %674 = fcmp oge double %.09101476, %673
   %or.cond13 = select i1 %674, i1 true, i1 %195
   br i1 %or.cond13, label %738, label %675
 
@@ -2942,15 +2942,15 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %676 = fcmp ogt double %194, %673
   %.0911 = select i1 %676, double %231, double %200
   %.0910 = select i1 %676, double %673, double %194
-  %677 = fcmp ugt double %.0912.lcssa1397, %.0910
+  %677 = fcmp ugt double %.0912.lcssa1484, %.0910
   br i1 %677, label %._crit_edge1185, label %.lr.ph1184
 
 .lr.ph1184:                                       ; preds = %675, %705
   %.128461182 = phi i32 [ %.14848, %705 ], [ %.11845, %675 ]
   %.88661181 = phi i32 [ %.9867, %705 ], [ %.7865, %675 ]
-  %.09121180 = phi double [ %707, %705 ], [ %.0912.lcssa1397, %675 ]
-  %.09131179 = phi double [ %706, %705 ], [ %.0913.lcssa1394, %675 ]
-  %.09141178 = phi double [ %.09121180, %705 ], [ %.09101389, %675 ]
+  %.09121180 = phi double [ %707, %705 ], [ %.0912.lcssa1484, %675 ]
+  %.09131179 = phi double [ %706, %705 ], [ %.0913.lcssa1481, %675 ]
+  %.09141178 = phi double [ %.09121180, %705 ], [ %.09101476, %675 ]
   %.09151177 = phi double [ %.09131179, %705 ], [ %232, %675 ]
   %678 = fadd double %.09151177, %.09131179
   %679 = fmul double %678, 5.000000e-01
@@ -3003,9 +3003,9 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 
 ._crit_edge1185:                                  ; preds = %705, %675
   %.0915.lcssa = phi double [ %232, %675 ], [ %.09131179, %705 ]
-  %.0914.lcssa = phi double [ %.09101389, %675 ], [ %.09121180, %705 ]
-  %.0913.lcssa = phi double [ %.0913.lcssa1394, %675 ], [ %706, %705 ]
-  %.0912.lcssa = phi double [ %.0912.lcssa1397, %675 ], [ %707, %705 ]
+  %.0914.lcssa = phi double [ %.09101476, %675 ], [ %.09121180, %705 ]
+  %.0913.lcssa = phi double [ %.0913.lcssa1481, %675 ], [ %706, %705 ]
+  %.0912.lcssa = phi double [ %.0912.lcssa1484, %675 ], [ %707, %705 ]
   %.8866.lcssa = phi i32 [ %.7865, %675 ], [ %.9867, %705 ]
   %.12846.lcssa = phi i32 [ %.11845, %675 ], [ %.14848, %705 ]
   store double %.0912.lcssa, ptr %202, align 8
@@ -3061,11 +3061,11 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   br label %738
 
 738:                                              ; preds = %736, %671, %668
-  %.0912.lcssa1396 = phi double [ %.0912.lcssa1397, %668 ], [ %.0912.lcssa1397, %671 ], [ %.0912.lcssa, %736 ]
-  %.0913.lcssa1393 = phi double [ %.0913.lcssa1394, %668 ], [ %.0913.lcssa1394, %671 ], [ %.0913.lcssa, %736 ]
+  %.0912.lcssa1483 = phi double [ %.0912.lcssa1484, %668 ], [ %.0912.lcssa1484, %671 ], [ %.0912.lcssa, %736 ]
+  %.0913.lcssa1480 = phi double [ %.0913.lcssa1481, %668 ], [ %.0913.lcssa1481, %671 ], [ %.0913.lcssa, %736 ]
   %739 = phi double [ %231, %668 ], [ %231, %671 ], [ %737, %736 ]
   %740 = phi double [ %232, %668 ], [ %232, %671 ], [ %.0911, %736 ]
-  %.09101388 = phi double [ %.09101389, %668 ], [ %.09101389, %671 ], [ %.0910, %736 ]
+  %.09101475 = phi double [ %.09101476, %668 ], [ %.09101476, %671 ], [ %.0910, %736 ]
   %.11869 = phi i32 [ %.7865, %668 ], [ %.7865, %671 ], [ %.10868, %736 ]
   %.17851 = phi i32 [ %.11845, %668 ], [ %.11845, %671 ], [ %.16850, %736 ]
   %741 = fcmp ugt double %212, %244
@@ -3074,7 +3074,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 742:                                              ; preds = %738
   %743 = add nsw i32 %.08121226, 1
   %744 = sitofp i32 %743 to double
-  %745 = fcmp oge double %.08911400, %744
+  %745 = fcmp oge double %.08911487, %744
   %or.cond15 = select i1 %745, i1 true, i1 %213
   br i1 %or.cond15, label %809, label %746
 
@@ -3082,16 +3082,16 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %747 = fcmp ogt double %212, %744
   %.0892 = select i1 %747, double %230, double %218
   %.0891 = select i1 %747, double %744, double %212
-  %748 = fcmp ugt double %.0893.lcssa1410, %.0891
+  %748 = fcmp ugt double %.0893.lcssa1497, %.0891
   br i1 %748, label %._crit_edge1200, label %.lr.ph1199
 
 .lr.ph1199:                                       ; preds = %746, %776
   %.198531197 = phi i32 [ %.21855, %776 ], [ %.17851, %746 ]
   %.138711196 = phi i32 [ %.14872, %776 ], [ %.11869, %746 ]
-  %.08931195 = phi double [ %778, %776 ], [ %.0893.lcssa1410, %746 ]
-  %.08941194 = phi double [ %777, %776 ], [ %.0894.lcssa1407, %746 ]
-  %.08951193 = phi double [ %.08931195, %776 ], [ %.08911400, %746 ]
-  %.08961192 = phi double [ %.08941194, %776 ], [ %.08921403, %746 ]
+  %.08931195 = phi double [ %778, %776 ], [ %.0893.lcssa1497, %746 ]
+  %.08941194 = phi double [ %777, %776 ], [ %.0894.lcssa1494, %746 ]
+  %.08951193 = phi double [ %.08931195, %776 ], [ %.08911487, %746 ]
+  %.08961192 = phi double [ %.08941194, %776 ], [ %.08921490, %746 ]
   %749 = fadd double %.08961192, %.08941194
   %750 = fmul double %749, 5.000000e-01
   %751 = fcmp ugt double %750, %96
@@ -3142,10 +3142,10 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   br i1 %779, label %._crit_edge1200, label %.lr.ph1199, !llvm.loop !21
 
 ._crit_edge1200:                                  ; preds = %776, %746
-  %.0896.lcssa = phi double [ %.08921403, %746 ], [ %.08941194, %776 ]
-  %.0895.lcssa = phi double [ %.08911400, %746 ], [ %.08931195, %776 ]
-  %.0894.lcssa = phi double [ %.0894.lcssa1407, %746 ], [ %777, %776 ]
-  %.0893.lcssa = phi double [ %.0893.lcssa1410, %746 ], [ %778, %776 ]
+  %.0896.lcssa = phi double [ %.08921490, %746 ], [ %.08941194, %776 ]
+  %.0895.lcssa = phi double [ %.08911487, %746 ], [ %.08931195, %776 ]
+  %.0894.lcssa = phi double [ %.0894.lcssa1494, %746 ], [ %777, %776 ]
+  %.0893.lcssa = phi double [ %.0893.lcssa1497, %746 ], [ %778, %776 ]
   %.13871.lcssa = phi i32 [ %.11869, %746 ], [ %.14872, %776 ]
   %.19853.lcssa = phi i32 [ %.17851, %746 ], [ %.21855, %776 ]
   store double %.0893.lcssa, ptr %220, align 16
@@ -3201,11 +3201,11 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   br label %809
 
 809:                                              ; preds = %738, %742, %807
-  %.0893.lcssa1409 = phi double [ %.0893.lcssa1410, %738 ], [ %.0893.lcssa1410, %742 ], [ %.0893.lcssa, %807 ]
-  %.0894.lcssa1406 = phi double [ %.0894.lcssa1407, %738 ], [ %.0894.lcssa1407, %742 ], [ %.0894.lcssa, %807 ]
+  %.0893.lcssa1496 = phi double [ %.0893.lcssa1497, %738 ], [ %.0893.lcssa1497, %742 ], [ %.0893.lcssa, %807 ]
+  %.0894.lcssa1493 = phi double [ %.0894.lcssa1494, %738 ], [ %.0894.lcssa1494, %742 ], [ %.0894.lcssa, %807 ]
   %810 = phi double [ %230, %738 ], [ %230, %742 ], [ %808, %807 ]
-  %.08921402 = phi double [ %.08921403, %738 ], [ %.08921403, %742 ], [ %.0892, %807 ]
-  %.08911399 = phi double [ %.08911400, %738 ], [ %.08911400, %742 ], [ %.0891, %807 ]
+  %.08921489 = phi double [ %.08921490, %738 ], [ %.08921490, %742 ], [ %.0892, %807 ]
+  %.08911486 = phi double [ %.08911487, %738 ], [ %.08911487, %742 ], [ %.0891, %807 ]
   %.12870 = phi i32 [ %.11869, %738 ], [ %.11869, %742 ], [ %.15873, %807 ]
   %.18852 = phi i32 [ %.17851, %738 ], [ %.17851, %742 ], [ %.23857, %807 ]
   %spec.select1062 = tail call i32 @llvm.smin.i32(i32 %.15829, i32 %26)
@@ -3213,12 +3213,12 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %.not1044 = icmp sgt i32 %.18852, %spec.select1062
   %.17831 = select i1 %.not1044, i32 %spec.select1062, i32 %.16874
   %811 = icmp slt i32 %.23, %.17831
-  br i1 %811, label %.lr.ph1211.preheader, label %.thread1288
+  br i1 %811, label %.lr.ph1211.preheader, label %.thread1375
 
-.thread1288:                                      ; preds = %809
+.thread1375:                                      ; preds = %809
   %812 = icmp slt i32 %.18852, %.16874
   %813 = select i1 %812, i32 %.18852, i32 %26
-  %.0882.mux1293 = tail call i32 @llvm.smax.i32(i32 %.23, i32 %813)
+  %.0882.mux1380 = tail call i32 @llvm.smax.i32(i32 %.23, i32 %813)
   br label %850
 
 .lr.ph1211.preheader:                             ; preds = %809
@@ -3294,12 +3294,12 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %spec.select1063 = select i1 %.not1045, i32 %.16874, i32 %26
   br label %850
 
-850:                                              ; preds = %.thread1288, %849, %836, %840
-  %.0885.lcssa1275 = phi double [ %819, %836 ], [ %819, %840 ], [ %819, %849 ], [ 0.000000e+00, %.thread1288 ]
-  %.0887.lcssa1273 = phi i8 [ %821, %836 ], [ -1, %840 ], [ %821, %849 ], [ 0, %.thread1288 ]
-  %.1883 = phi i32 [ %.0882.mux, %836 ], [ %838, %840 ], [ %823, %849 ], [ %.0882.mux1293, %.thread1288 ]
-  %.2878 = phi i32 [ 0, %836 ], [ 0, %840 ], [ %815, %849 ], [ 0, %.thread1288 ]
-  %.17875 = phi i32 [ %.16874, %836 ], [ %.16874, %840 ], [ %spec.select1063, %849 ], [ %.16874, %.thread1288 ]
+850:                                              ; preds = %.thread1375, %849, %836, %840
+  %.0885.lcssa1362 = phi double [ %819, %836 ], [ %819, %840 ], [ %819, %849 ], [ 0.000000e+00, %.thread1375 ]
+  %.0887.lcssa1360 = phi i8 [ %821, %836 ], [ -1, %840 ], [ %821, %849 ], [ 0, %.thread1375 ]
+  %.1883 = phi i32 [ %.0882.mux, %836 ], [ %838, %840 ], [ %823, %849 ], [ %.0882.mux1380, %.thread1375 ]
+  %.2878 = phi i32 [ 0, %836 ], [ 0, %840 ], [ %815, %849 ], [ 0, %.thread1375 ]
+  %.17875 = phi i32 [ %.16874, %836 ], [ %.16874, %840 ], [ %spec.select1063, %849 ], [ %.16874, %.thread1375 ]
   %851 = icmp slt i32 %.1883, %.17875
   br i1 %851, label %.lr.ph1221.preheader, label %._crit_edge1222
 
@@ -3312,7 +3312,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 .lr.ph1221:                                       ; preds = %.lr.ph1221.preheader, %.lr.ph1221
   %indvars.iv1259 = phi i64 [ %853, %.lr.ph1221.preheader ], [ %indvars.iv.next1260, %.lr.ph1221 ]
   %indvars.iv1257 = phi i64 [ %852, %.lr.ph1221.preheader ], [ %indvars.iv.next1258, %.lr.ph1221 ]
-  %.18861217 = phi double [ %.0885.lcssa1275, %.lr.ph1221.preheader ], [ %857, %.lr.ph1221 ]
+  %.18861217 = phi double [ %.0885.lcssa1362, %.lr.ph1221.preheader ], [ %857, %.lr.ph1221 ]
   %854 = getelementptr inbounds float, ptr %74, i64 %indvars.iv1259
   %855 = load float, ptr %854, align 4
   %856 = fpext float %855 to double
@@ -3336,10 +3336,10 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   br i1 %.not, label %871, label %862
 
 862:                                              ; preds = %._crit_edge1222.thread, %._crit_edge1222
-  %.3879.lcssa1302 = phi i32 [ %861, %._crit_edge1222.thread ], [ %.2878, %._crit_edge1222 ]
-  %.2884.lcssa1300 = phi i32 [ %.17875, %._crit_edge1222.thread ], [ %.1883, %._crit_edge1222 ]
-  %.1888.lcssa1298 = phi i8 [ %859, %._crit_edge1222.thread ], [ %.0887.lcssa1273, %._crit_edge1222 ]
-  %863 = sub nsw i32 %.2884.lcssa1300, %.3879.lcssa1302
+  %.3879.lcssa1389 = phi i32 [ %861, %._crit_edge1222.thread ], [ %.2878, %._crit_edge1222 ]
+  %.2884.lcssa1387 = phi i32 [ %.17875, %._crit_edge1222.thread ], [ %.1883, %._crit_edge1222 ]
+  %.1888.lcssa1385 = phi i8 [ %859, %._crit_edge1222.thread ], [ %.0887.lcssa1360, %._crit_edge1222 ]
+  %863 = sub nsw i32 %.2884.lcssa1387, %.3879.lcssa1389
   %864 = sext i32 %863 to i64
   %865 = load i32, ptr %226, align 4
   %866 = sext i32 %865 to i64
@@ -3347,26 +3347,26 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %868 = add nsw i64 %867, %.01227
   %869 = inttoptr i64 %868 to ptr
   %870 = load ptr, ptr %227, align 8
-  tail call void %870(ptr noundef %869, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %.3879.lcssa1302, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #8
+  tail call void %870(ptr noundef %869, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %.3879.lcssa1389, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #8
   br label %871
 
 871:                                              ; preds = %862, %._crit_edge1222
-  %.2884.lcssa1301 = phi i32 [ %.2884.lcssa1300, %862 ], [ %.1883, %._crit_edge1222 ]
-  %.1888.lcssa1299 = phi i8 [ %.1888.lcssa1298, %862 ], [ %.0887.lcssa1273, %._crit_edge1222 ]
-  %872 = icmp eq i8 %.1888.lcssa1299, -1
-  %873 = icmp slt i32 %.2884.lcssa1301, %26
+  %.2884.lcssa1388 = phi i32 [ %.2884.lcssa1387, %862 ], [ %.1883, %._crit_edge1222 ]
+  %.1888.lcssa1386 = phi i8 [ %.1888.lcssa1385, %862 ], [ %.0887.lcssa1360, %._crit_edge1222 ]
+  %872 = icmp eq i8 %.1888.lcssa1386, -1
+  %873 = icmp slt i32 %.2884.lcssa1388, %26
   %or.cond1064 = select i1 %872, i1 %873, i1 false
   br i1 %or.cond1064, label %874, label %883
 
 874:                                              ; preds = %871
-  %875 = sext i32 %.2884.lcssa1301 to i64
+  %875 = sext i32 %.2884.lcssa1388 to i64
   %876 = load i32, ptr %226, align 4
   %877 = sext i32 %876 to i64
   %878 = mul nsw i64 %877, %875
   %879 = add nsw i64 %878, %.01227
   %880 = inttoptr i64 %879 to ptr
   %881 = load ptr, ptr %227, align 8
-  %882 = sub nsw i32 %26, %.2884.lcssa1301
+  %882 = sub nsw i32 %26, %.2884.lcssa1388
   tail call void %881(ptr noundef %880, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %882, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #8
   br label %883
 
@@ -3516,11 +3516,11 @@ define internal fastcc zeroext range(i8 0, 2) i8 @storeEdge(ptr noundef nonnull 
   br label %70
 
 70:                                               ; preds = %45, %59, %64
-  %.sink108 = phi i64 [ 32, %45 ], [ 40, %59 ], [ 40, %64 ]
-  %.sink106 = phi double [ %55, %45 ], [ %11, %59 ], [ %2, %64 ]
+  %.sink112 = phi i64 [ 32, %45 ], [ 40, %59 ], [ 40, %64 ]
+  %.sink110 = phi double [ %55, %45 ], [ %11, %59 ], [ %2, %64 ]
   %.094 = phi i8 [ 1, %45 ], [ 1, %59 ], [ 0, %64 ]
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink108
-  store double %.sink106, ptr %71, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink112
+  store double %.sink110, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 %8, ptr %72, align 8
   ret i8 %.094

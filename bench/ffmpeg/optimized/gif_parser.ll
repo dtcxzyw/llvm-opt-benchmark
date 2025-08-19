@@ -61,14 +61,14 @@ define internal i32 @gif_parse(ptr noundef captures(none) %0, ptr readnone captu
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %29, ptr noundef nonnull dereferenceable(6) @gif87a_sig, i64 6)
   %.not134.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not134.i, label %thread-pre-split.thread34.i, label %30
+  br i1 %.not134.i, label %thread-pre-split.thread40.i, label %30
 
 30:                                               ; preds = %28
   %bcmp135.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %29, ptr noundef nonnull dereferenceable(6) @gif89a_sig, i64 6)
   %.not136.i = icmp eq i32 %bcmp135.i, 0
-  br i1 %.not136.i, label %thread-pre-split.thread34.i, label %33
+  br i1 %.not136.i, label %thread-pre-split.thread40.i, label %33
 
-thread-pre-split.thread34.i:                      ; preds = %30, %28
+thread-pre-split.thread40.i:                      ; preds = %30, %28
   store i32 1, ptr %15, align 8, !tbaa !16
   %31 = load i32, ptr %17, align 8, !tbaa !19
   %32 = add i32 %31, 1
@@ -79,12 +79,12 @@ thread-pre-split.thread34.i:                      ; preds = %30, %28
 33:                                               ; preds = %30
   %34 = load i8, ptr %29, align 1, !tbaa !21
   switch i8 %34, label %thread-pre-split.thread.i [
-    i8 33, label %.thread36.i
+    i8 33, label %.thread42.i
     i8 44, label %35
     i8 59, label %.thread.i
   ]
 
-.thread36.i:                                      ; preds = %33
+.thread42.i:                                      ; preds = %33
   store i32 2, ptr %15, align 8, !tbaa !16
   store i32 1, ptr %19, align 8, !tbaa !22
   store i32 1, ptr %18, align 4, !tbaa !23
@@ -130,7 +130,7 @@ thread-pre-split.thread.i:                        ; preds = %33
   store i32 0, ptr %17, align 8, !tbaa !19
   br label %139
 
-43:                                               ; preds = %thread-pre-split.thread34.i, %27
+43:                                               ; preds = %thread-pre-split.thread40.i, %27
   %44 = load i32, ptr %21, align 4, !tbaa !25
   %45 = icmp eq i32 %44, 10
   br i1 %45, label %46, label %._crit_edge30.i
@@ -176,7 +176,7 @@ thread-pre-split.thread.i:                        ; preds = %33
   %63 = icmp eq i32 %.pre29.i, 0
   br i1 %63, label %70, label %64
 
-64:                                               ; preds = %62, %.thread36.i
+64:                                               ; preds = %62, %.thread42.i
   %65 = load i32, ptr %16, align 8, !tbaa !24
   %.not147.i = icmp eq i32 %65, 0
   br i1 %.not147.i, label %70, label %66

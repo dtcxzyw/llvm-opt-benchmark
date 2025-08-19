@@ -260,14 +260,14 @@ switch.lookup:                                    ; preds = %54
   %switch.downshift = lshr i48 6614317007876, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i8
   %70 = shl nuw nsw i8 %switch.tableidx, 3
-  %switch.shiftamt150 = zext nneg i8 %70 to i48
-  %switch.downshift151 = lshr i48 17179869443, %switch.shiftamt150
-  %switch.masked152 = trunc i48 %switch.downshift151 to i8
+  %switch.shiftamt158 = zext nneg i8 %70 to i48
+  %switch.downshift159 = lshr i48 17179869443, %switch.shiftamt158
+  %switch.masked160 = trunc i48 %switch.downshift159 to i8
   br label %pcap_read_sunatm_pseudoheader.exit
 
 pcap_read_sunatm_pseudoheader.exit:               ; preds = %switch.lookup, %66
   %spec.select.sink.i = phi i8 [ %spec.select.i, %66 ], [ %switch.masked, %switch.lookup ]
-  %.sink.i = phi i8 [ 0, %66 ], [ %switch.masked152, %switch.lookup ]
+  %.sink.i = phi i8 [ 0, %66 ], [ %switch.masked160, %switch.lookup ]
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 84
   store i8 %spec.select.sink.i, ptr %71, align 4
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 85
@@ -473,8 +473,8 @@ pcap_read_mtp2_pseudoheader.exit:                 ; preds = %126
   br label %pcap_read_lapd_pseudoheader.exit.thread.sink.split
 
 pcap_read_lapd_pseudoheader.exit.thread.sink.split: ; preds = %154, %142
-  %.sink146 = phi ptr [ %143, %142 ], [ %155, %154 ]
-  store ptr %.sink146, ptr %6, align 8
+  %.sink154 = phi ptr [ %143, %142 ], [ %155, %154 ]
+  store ptr %.sink154, ptr %6, align 8
   br label %pcap_read_lapd_pseudoheader.exit.thread
 
 pcap_read_lapd_pseudoheader.exit.thread:          ; preds = %pcap_read_lapd_pseudoheader.exit.thread.sink.split, %144, %153
@@ -1384,8 +1384,8 @@ define hidden void @pcap_read_post_process(i1 noundef zeroext %0, i32 noundef %1
   %168 = add i32 %167, %.035.lcssa.i.i
   %.not42.i.i = icmp uge i32 %168, %130
   %169 = select i1 %.not42.i.i, i32 %168, i32 %137
-  %.not48.i.i = icmp ugt i32 %130, %169
-  %170 = or i1 %.not42.i.i, %.not48.i.i
+  %.not52.i.i = icmp ugt i32 %130, %169
+  %170 = or i1 %.not42.i.i, %.not52.i.i
   br i1 %170, label %183, label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 .lr.ph.i.i:                                       ; preds = %161, %178

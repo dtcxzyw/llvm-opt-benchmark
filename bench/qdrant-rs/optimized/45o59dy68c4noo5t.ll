@@ -146,7 +146,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   unreachable
 
 71:                                               ; preds = %66
-  %72 = getelementptr inbounds [0 x i8], ptr %24, i64 0, i64 %storemerge.i.i
+  %72 = getelementptr inbounds nuw [0 x i8], ptr %24, i64 0, i64 %storemerge.i.i
   %73 = load <1 x i8>, ptr %72, align 1, !noundef !3
   %74 = shufflevector <1 x i8> %73, <1 x i8> poison, <16 x i32> zeroinitializer
   store <16 x i8> %74, ptr %11, align 16

@@ -78,8 +78,8 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
   br label %171
 
 .lr.ph:                                           ; preds = %.preheader, %19
-  %indvars.iv99 = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv99, 1
+  %indvars.iv110 = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv110, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 24
   br i1 %exitcond, label %.thread, label %19, !llvm.loop !13
 
@@ -100,9 +100,9 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
   br label %25
 
 25:                                               ; preds = %._crit_edge, %.preheader
-  %.lcssa97 = phi ptr [ %24, %._crit_edge ], [ @EVP_aead_aes_128_gcm, %.preheader ]
+  %.lcssa108 = phi ptr [ %24, %._crit_edge ], [ @EVP_aead_aes_128_gcm, %.preheader ]
   %.lcssa = phi ptr [ %20, %._crit_edge ], [ @_ZL6kAEADs, %.preheader ]
-  %26 = tail call noundef ptr %.lcssa97()
+  %26 = tail call noundef ptr %.lcssa108()
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %8, i8 0, i64 128, i1 false)
@@ -1255,7 +1255,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit235: ; preds = %_Z
 227:                                              ; preds = %218
   store i8 0, ptr %212, align 1, !tbaa !21
   %228 = getelementptr inbounds nuw i8, ptr %212, i64 1
-  %229 = add i64 %219, -1
+  %229 = add nsw i64 %219, -1
   %230 = icmp eq i64 %229, 0
   br i1 %230, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i.i, label %231
 
@@ -1437,7 +1437,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %252, %250, %248, %_
 321:                                              ; preds = %312
   store i8 0, ptr %306, align 1, !tbaa !21
   %322 = getelementptr inbounds nuw i8, ptr %306, i64 1
-  %323 = add i64 %313, -1
+  %323 = add nsw i64 %313, -1
   %324 = icmp eq i64 %323, 0
   br i1 %324, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i.i241, label %325
 
@@ -1678,14 +1678,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit268: ; preds = %_Z
   br i1 %419, label %425, label %436
 
 425:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit268
-  br i1 %.not141, label %.invoke, label %.invoke363
+  br i1 %.not141, label %.invoke, label %.invoke434
 
 426:                                              ; preds = %389, %388
   %427 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit293
 
-428:                                              ; preds = %.invoke363, %.invoke, %.noexc289, %538, %.noexc286, %492, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i276, %462, %567, %561, %551, %_ZN20ScopedOpenSSLContextI15evp_aead_ctx_stvXadL_Z17EVP_AEAD_CTX_zeroEEXadL_Z20EVP_AEAD_CTX_cleanupEEE5ResetEv.exit291, %537, %512, %506, %_ZN20ScopedOpenSSLContextI15evp_aead_ctx_stvXadL_Z17EVP_AEAD_CTX_zeroEEXadL_Z20EVP_AEAD_CTX_cleanupEEE5ResetEv.exit288, %_ZNSt6vectorIhSaIhEE6resizeEm.exit285, %397
+428:                                              ; preds = %.invoke434, %.invoke, %.noexc289, %538, %.noexc286, %492, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i276, %462, %567, %561, %551, %_ZN20ScopedOpenSSLContextI15evp_aead_ctx_stvXadL_Z17EVP_AEAD_CTX_zeroEEXadL_Z20EVP_AEAD_CTX_cleanupEEE5ResetEv.exit291, %537, %512, %506, %_ZN20ScopedOpenSSLContextI15evp_aead_ctx_stvXadL_Z17EVP_AEAD_CTX_zeroEEXadL_Z20EVP_AEAD_CTX_cleanupEEE5ResetEv.exit288, %_ZNSt6vectorIhSaIhEE6resizeEm.exit285, %397
   %429 = landingpad { ptr, i32 }
           cleanup
   br label %594
@@ -1712,7 +1712,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit271: ; preds = %_Z
   br label %594
 
 436:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit268
-  br i1 %.not141, label %.invoke363, label %437
+  br i1 %.not141, label %.invoke434, label %437
 
 437:                                              ; preds = %436
   %438 = load i64, ptr %19, align 8, !tbaa !22
@@ -1741,7 +1741,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit271: ; preds = %_Z
 454:                                              ; preds = %445
   store i8 0, ptr %439, align 1, !tbaa !21
   %455 = getelementptr inbounds nuw i8, ptr %439, i64 1
-  %456 = add i64 %446, -1
+  %456 = add nsw i64 %446, -1
   %457 = icmp eq i64 %456, 0
   br i1 %457, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i.i274, label %458
 
@@ -1864,7 +1864,7 @@ _ZN20ScopedOpenSSLContextI15evp_aead_ctx_stvXadL_Z17EVP_AEAD_CTX_zeroEEXadL_Z20E
 
 504:                                              ; preds = %_ZN20ScopedOpenSSLContextI15evp_aead_ctx_stvXadL_Z17EVP_AEAD_CTX_zeroEEXadL_Z20EVP_AEAD_CTX_cleanupEEE5ResetEv.exit288
   %.not137 = icmp eq i32 %503, 0
-  br i1 %.not137, label %.invoke363, label %505
+  br i1 %.not137, label %.invoke434, label %505
 
 505:                                              ; preds = %504
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -1908,7 +1908,7 @@ _ZN20ScopedOpenSSLContextI15evp_aead_ctx_stvXadL_Z17EVP_AEAD_CTX_zeroEEXadL_Z20E
 
 534:                                              ; preds = %512
   %.not138 = icmp eq i32 %533, 0
-  br i1 %.not138, label %537, label %.invoke363
+  br i1 %.not138, label %537, label %.invoke434
 
 535:                                              ; preds = %505
   %536 = landingpad { ptr, i32 }
@@ -1944,7 +1944,7 @@ _ZN20ScopedOpenSSLContextI15evp_aead_ctx_stvXadL_Z17EVP_AEAD_CTX_zeroEEXadL_Z20E
 
 550:                                              ; preds = %_ZN20ScopedOpenSSLContextI15evp_aead_ctx_stvXadL_Z17EVP_AEAD_CTX_zeroEEXadL_Z20EVP_AEAD_CTX_cleanupEEE5ResetEv.exit291
   %.not139 = icmp eq i32 %549, 0
-  br i1 %.not139, label %.invoke363, label %551
+  br i1 %.not139, label %.invoke434, label %551
 
 551:                                              ; preds = %550
   %552 = load ptr, ptr %15, align 8, !tbaa !29
@@ -1995,9 +1995,9 @@ _ZN20ScopedOpenSSLContextI15evp_aead_ctx_stvXadL_Z17EVP_AEAD_CTX_zeroEEXadL_Z20E
 
 589:                                              ; preds = %567
   %.not140 = icmp eq i32 %588, 0
-  br i1 %.not140, label %.invoke, label %.invoke363
+  br i1 %.not140, label %.invoke, label %.invoke434
 
-.invoke363:                                       ; preds = %425, %589, %550, %534, %504, %436
+.invoke434:                                       ; preds = %425, %589, %550, %534, %504, %436
   %590 = phi ptr [ @.str.25, %436 ], [ @.str.19, %504 ], [ @.str.26, %534 ], [ @.str.19, %550 ], [ @.str.27, %589 ], [ @.str.24, %425 ]
   invoke void (ptr, ptr, ...) @_ZN8FileTest9PrintLineEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %590)
           to label %591 unwind label %428
@@ -2006,8 +2006,8 @@ _ZN20ScopedOpenSSLContextI15evp_aead_ctx_stvXadL_Z17EVP_AEAD_CTX_zeroEEXadL_Z20E
   invoke void @ERR_clear_error()
           to label %591 unwind label %428
 
-591:                                              ; preds = %.invoke363, %.invoke, %491
-  %.4 = phi i1 [ false, %491 ], [ true, %.invoke ], [ false, %.invoke363 ]
+591:                                              ; preds = %.invoke434, %.invoke, %491
+  %.4 = phi i1 [ false, %491 ], [ true, %.invoke ], [ false, %.invoke434 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %592 = load ptr, ptr %18, align 8, !tbaa !29
   %.not.i.i.i = icmp eq ptr %592, null
@@ -2364,7 +2364,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 

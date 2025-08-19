@@ -1045,11 +1045,11 @@ from_directions.exit:                             ; preds = %38, %39, %40, %41, 
   %42 = xor i32 %4, -1
   %43 = and i32 %.0.i.sink, %42
   %44 = or i32 %43, %3
-  %switch.tableidx24 = add nsw i32 %44, -1
-  %45 = zext nneg i32 %switch.tableidx24 to i64
-  %switch.gep25 = getelementptr inbounds nuw [15 x i32], ptr %switch.table.merge.3.sink, i64 0, i64 %45
-  %switch.load26 = load i32, ptr %switch.gep25, align 4
-  store i32 %switch.load26, ptr %19, align 8, !tbaa !51
+  %switch.tableidx26 = add nsw i32 %44, -1
+  %45 = zext nneg i32 %switch.tableidx26 to i64
+  %switch.gep27 = getelementptr inbounds nuw [15 x i32], ptr %switch.table.merge.3.sink, i64 0, i64 %45
+  %switch.load28 = load i32, ptr %switch.gep27, align 4
+  store i32 %switch.load28, ptr %19, align 8, !tbaa !51
   %.not22.i = icmp eq ptr %5, null
   br i1 %.not22.i, label %put.exit, label %46
 

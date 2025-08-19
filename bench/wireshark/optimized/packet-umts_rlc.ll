@@ -1123,9 +1123,9 @@ define internal noundef zeroext i1 @dissect_rlc_heur(ptr noundef %0, ptr noundef
   %47 = icmp eq i8 %46, 0
   %spec.select = zext i1 %47 to i8
   %not. = xor i1 %47, true
-  %spec.select202 = zext i1 %not. to i32
+  %spec.select205 = zext i1 %not. to i32
   store i8 %spec.select, ptr %30, align 1
-  store i32 %spec.select202, ptr %31, align 8
+  store i32 %spec.select205, ptr %31, align 8
   br label %73
 
 48:                                               ; preds = %34
@@ -2071,9 +2071,9 @@ proto_item_set_hidden.exit:                       ; preds = %133, %130, %129, %1
   %.phi.trans.insert160.i = getelementptr %struct.rlc_li, ptr %8, i64 %.phi.trans.insert.i
   %.pre.i = load i16, ptr %.phi.trans.insert160.i, align 16
   %167 = icmp eq i16 %.pre.i, 127
-  %or.cond.not175.i = select i1 %not..0.in, i1 %167, i1 false
+  %or.cond.not188.i = select i1 %not..0.in, i1 %167, i1 false
   %168 = icmp eq i16 %.pre.i, 32767
-  %or.cond112 = select i1 %or.cond.not175.i, i1 true, i1 %168
+  %or.cond112 = select i1 %or.cond.not188.i, i1 true, i1 %168
   br i1 %or.cond112, label %169, label %179
 
 169:                                              ; preds = %165
@@ -2793,7 +2793,7 @@ define internal fastcc zeroext i1 @rlc_is_duplicate(i32 noundef range(i32 1, 3) 
   br i1 %.0.lcssa, label %._crit_edge.thread, label %rlc_channel_assign.exit.thread
 
 ._crit_edge.thread:                               ; preds = %88, %._crit_edge
-  %.054.lcssa84 = phi i1 [ %.054.lcssa, %._crit_edge ], [ false, %88 ]
+  %.054.lcssa97 = phi i1 [ %.054.lcssa, %._crit_edge ], [ false, %88 ]
   %122 = call ptr @wmem_file_scope()
   %123 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %122, i64 noundef 32) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %123, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
@@ -2806,7 +2806,7 @@ define internal fastcc zeroext i1 @rlc_is_duplicate(i32 noundef range(i32 1, 3) 
   br label %rlc_channel_assign.exit.thread
 
 rlc_channel_assign.exit.thread:                   ; preds = %._crit_edge, %._crit_edge.thread, %28, %5
-  %.056 = phi i1 [ false, %5 ], [ false, %28 ], [ %.054.lcssa84, %._crit_edge.thread ], [ %.054.lcssa, %._crit_edge ]
+  %.056 = phi i1 [ false, %5 ], [ false, %28 ], [ %.054.lcssa97, %._crit_edge.thread ], [ %.054.lcssa, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4896,8 +4896,8 @@ rlc_channel_assign.exit.thread:                   ; preds = %37, %17, %51, %13
   %.phi.trans.insert152 = getelementptr %struct.rlc_li, ptr %8, i64 %.phi.trans.insert
   %.pre = load i16, ptr %.phi.trans.insert152, align 8
   %70 = icmp ne i16 %.pre, 126
-  %or.cond164.not = select i1 %11, i1 true, i1 %70
-  br i1 %or.cond164.not, label %._crit_edge151, label %.thread
+  %or.cond175.not = select i1 %11, i1 true, i1 %70
+  br i1 %or.cond175.not, label %._crit_edge151, label %.thread
 
 ._crit_edge151:                                   ; preds = %68
   %71 = getelementptr %struct.rlc_li, ptr %8, i64 %.phi.trans.insert
@@ -4993,10 +4993,10 @@ rlc_channel_assign.exit.thread:                   ; preds = %37, %17, %51, %13
   br i1 %117, label %.sink.split, label %134
 
 ._crit_edge.thread:                               ; preds = %rlc_channel_assign.exit.thread, %._crit_edge
-  %.lcssa161 = phi i16 [ %115, %._crit_edge ], [ 0, %rlc_channel_assign.exit.thread ]
-  %.0107.lcssa160 = phi i1 [ %117, %._crit_edge ], [ true, %rlc_channel_assign.exit.thread ]
-  %.0113.lcssa158 = phi i16 [ %113, %._crit_edge ], [ %1, %rlc_channel_assign.exit.thread ]
-  %119 = zext i16 %.0113.lcssa158 to i32
+  %.lcssa172 = phi i16 [ %115, %._crit_edge ], [ 0, %rlc_channel_assign.exit.thread ]
+  %.0107.lcssa171 = phi i1 [ %117, %._crit_edge ], [ true, %rlc_channel_assign.exit.thread ]
+  %.0113.lcssa169 = phi i16 [ %113, %._crit_edge ], [ %1, %rlc_channel_assign.exit.thread ]
+  %119 = zext i16 %.0113.lcssa169 to i32
   %120 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %119)
   %121 = icmp sgt i32 %120, 0
   br i1 %121, label %122, label %.thread135
@@ -5018,11 +5018,11 @@ rlc_channel_assign.exit.thread:                   ; preds = %37, %17, %51, %13
 129:                                              ; preds = %126
   %130 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %119)
   %131 = trunc i32 %130 to i16
-  call fastcc void @add_fragment(i32 noundef 2, ptr noundef %0, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %.0113.lcssa158, i16 noundef zeroext %6, i16 noundef zeroext %.lcssa161, i16 noundef zeroext %131, i1 noundef zeroext %10, ptr noundef %12)
+  call fastcc void @add_fragment(i32 noundef 2, ptr noundef %0, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %.0113.lcssa169, i16 noundef zeroext %6, i16 noundef zeroext %.lcssa172, i16 noundef zeroext %131, i1 noundef zeroext %10, ptr noundef %12)
   br i1 %10, label %132, label %.thread135
 
 132:                                              ; preds = %129
-  %133 = call fastcc ptr @get_reassembled_data(i32 noundef 2, ptr noundef %0, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %6, i16 noundef zeroext %.lcssa161, ptr noundef %12)
+  %133 = call fastcc ptr @get_reassembled_data(i32 noundef 2, ptr noundef %0, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %6, i16 noundef zeroext %.lcssa172, ptr noundef %12)
   %.not121 = icmp eq ptr %133, null
   br i1 %.not121, label %.thread135, label %.thread138
 
@@ -5031,7 +5031,7 @@ rlc_channel_assign.exit.thread:                   ; preds = %37, %17, %51, %13
   br label %134
 
 .thread135:                                       ; preds = %._crit_edge.thread, %126, %129, %132
-  br i1 %.0107.lcssa160, label %.sink.split, label %134
+  br i1 %.0107.lcssa171, label %.sink.split, label %134
 
 134:                                              ; preds = %118, %.thread138, %.thread135
   %135 = icmp eq i32 %5, 8
@@ -5071,29 +5071,29 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %15 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %12)
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph320, label %.critedge
+  br i1 %16, label %.lr.ph326, label %.critedge
 
-.lr.ph320:                                        ; preds = %4
+.lr.ph326:                                        ; preds = %4
   %17 = shl nuw nsw i32 %12, 3
   %18 = or disjoint i32 %17, 4
   br label %19
 
-19:                                               ; preds = %.lr.ph320, %.loopexit
-  %20 = phi i32 [ %12, %.lr.ph320 ], [ %296, %.loopexit ]
-  %.0197249318 = phi i32 [ %18, %.lr.ph320 ], [ %.1198, %.loopexit ]
-  %.0251317 = phi i16 [ 0, %.lr.ph320 ], [ %.1, %.loopexit ]
-  %21 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %.0197249318, i32 noundef 4)
+19:                                               ; preds = %.lr.ph326, %.loopexit
+  %20 = phi i32 [ %12, %.lr.ph326 ], [ %296, %.loopexit ]
+  %.0197249324 = phi i32 [ %18, %.lr.ph326 ], [ %.1198, %.loopexit ]
+  %.0251323 = phi i16 [ 0, %.lr.ph326 ], [ %.1, %.loopexit ]
+  %21 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %.0197249324, i32 noundef 4)
   %22 = load i32, ptr @hf_rlc_sufi, align 4
   %23 = and i32 %20, 255
   %24 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef %23, i32 noundef 0, i32 noundef 0)
   %25 = load i32, ptr @ett_rlc_sufi, align 4
   %26 = call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25)
   %27 = load i32, ptr @hf_rlc_sufi_type, align 4
-  %28 = call ptr @proto_tree_add_bits_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %.0197249318, i32 noundef 4, i32 noundef 0)
+  %28 = call ptr @proto_tree_add_bits_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %.0197249324, i32 noundef 4, i32 noundef 0)
   %29 = zext i8 %21 to i32
   %30 = call ptr @val_to_str_const(i32 noundef %29, ptr noundef nonnull @rlc_sufi_vals, ptr noundef nonnull @.str.190)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef nonnull @.str.209, ptr noundef %30)
-  %31 = add i32 %.0197249318, 4
+  %31 = add i32 %.0197249324, 4
   switch i8 %21, label %291 [
     i8 0, label %.critedge.loopexit.critedge
     i8 2, label %32
@@ -5118,7 +5118,7 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   %40 = trunc i64 %39 to i32
   %41 = and i32 %40, 65535
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef nonnull @.str.234, i32 noundef %41)
-  %42 = add i32 %.0197249318, 16
+  %42 = add i32 %.0197249324, 16
   br label %.critedge.loopexit.critedge
 
 43:                                               ; preds = %19
@@ -5129,7 +5129,7 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   %48 = trunc i64 %47 to i32
   %49 = and i32 %48, 65535
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %46, i32 noundef 25, ptr noundef nonnull @.str.235, i32 noundef %49)
-  %50 = add i32 %.0197249318, 16
+  %50 = add i32 %.0197249324, 16
   br label %.loopexit
 
 51:                                               ; preds = %19
@@ -5140,7 +5140,7 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   %56 = trunc i64 %55 to i32
   %57 = and i32 %56, 255
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.236, i32 noundef %57)
-  %58 = add i32 %.0197249318, 8
+  %58 = add i32 %.0197249324, 8
   %59 = load i64, ptr %5, align 8
   %.not220 = icmp eq i64 %59, 0
   br i1 %.not220, label %88, label %.preheader
@@ -5199,13 +5199,13 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
 90:                                               ; preds = %19
   %91 = load i32, ptr @hf_rlc_sufi_len, align 4
   %92 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %26, i32 noundef %91, ptr noundef %0, i32 noundef %31, i32 noundef 4, ptr noundef nonnull %5, i32 noundef 0)
-  %93 = add i32 %.0197249318, 8
+  %93 = add i32 %.0197249324, 8
   %94 = load i64, ptr %5, align 8
   %95 = add i64 %94, 1
   store i64 %95, ptr %5, align 8
   %96 = load i32, ptr @hf_rlc_sufi_fsn, align 4
   %97 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %26, i32 noundef %96, ptr noundef %0, i32 noundef %93, i32 noundef 12, ptr noundef nonnull %6, i32 noundef 0)
-  %98 = add i32 %.0197249318, 20
+  %98 = add i32 %.0197249324, 20
   %99 = load i32, ptr @hf_rlc_sufi_bitmap, align 4
   %100 = sdiv i32 %98, 8
   %101 = load i64, ptr %5, align 8
@@ -5224,7 +5224,7 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   br i1 %.not254, label %._crit_edge245, label %.lr.ph244
 
 .lr.ph244:                                        ; preds = %90, %149
-  %.2242 = phi i16 [ %.4, %149 ], [ %.0251317, %90 ]
+  %.2242 = phi i16 [ %.4, %149 ], [ %.0251323, %90 ]
   %.3200241 = phi i32 [ %153, %149 ], [ %98, %90 ]
   %.0202240 = phi i32 [ %154, %149 ], [ 0, %90 ]
   %112 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %.3200241, i32 noundef 8)
@@ -5298,7 +5298,7 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
 
 ._crit_edge245:                                   ; preds = %149, %90
   %.3200.lcssa = phi i32 [ %98, %90 ], [ %153, %149 ]
-  %.2.lcssa = phi i16 [ %.0251317, %90 ], [ %.4, %149 ]
+  %.2.lcssa = phi i16 [ %.0251323, %90 ], [ %.4, %149 ]
   %158 = load ptr, ptr %10, align 8
   %159 = zext i16 %.2.lcssa to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %158, ptr noundef nonnull @.str.247, i32 noundef %159)
@@ -5309,10 +5309,10 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
 161:                                              ; preds = %19
   %162 = load i32, ptr @hf_rlc_sufi_len, align 4
   %163 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %26, i32 noundef %162, ptr noundef %0, i32 noundef %31, i32 noundef 4, ptr noundef nonnull %5, i32 noundef 0)
-  %164 = add i32 %.0197249318, 8
+  %164 = add i32 %.0197249324, 8
   %165 = load i32, ptr @hf_rlc_sufi_fsn, align 4
   %166 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %26, i32 noundef %165, ptr noundef %0, i32 noundef %164, i32 noundef 12, ptr noundef nonnull %6, i32 noundef 0)
-  %167 = add i32 %.0197249318, 20
+  %167 = add i32 %.0197249324, 20
   %168 = load i64, ptr %5, align 8
   %169 = trunc i64 %168 to i32
   %170 = and i32 %169, 65535
@@ -5368,9 +5368,9 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit
 
 ._crit_edge.thread:                               ; preds = %161, %187, %._crit_edge
-  %.4201.lcssa278 = phi i32 [ %180, %187 ], [ %180, %._crit_edge ], [ %167, %161 ]
+  %.4201.lcssa284 = phi i32 [ %180, %187 ], [ %180, %._crit_edge ], [ %167, %161 ]
   %196 = sdiv i32 %31, 8
-  %197 = sub i32 %.4201.lcssa278, %31
+  %197 = sub i32 %.4201.lcssa284, %31
   %198 = sdiv i32 %197, 8
   %199 = load i32, ptr @ett_rlc_rlist, align 4
   %200 = call ptr @proto_tree_add_subtree(ptr noundef %26, ptr noundef %0, i32 noundef %196, i32 noundef %198, i32 noundef %199, ptr noundef null, ptr noundef nonnull @.str.251)
@@ -5472,10 +5472,10 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   call void @col_append_str(ptr noundef %254, i32 noundef 25, ptr noundef nonnull @.str.257)
   %255 = load i32, ptr @hf_rlc_sufi_n, align 4
   %256 = call ptr @proto_tree_add_bits_item(ptr noundef %26, i32 noundef %255, ptr noundef %0, i32 noundef %31, i32 noundef 4, i32 noundef 0)
-  %257 = add i32 %.0197249318, 8
+  %257 = add i32 %.0197249324, 8
   %258 = load i32, ptr @hf_rlc_sufi_sn_ack, align 4
   %259 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %26, i32 noundef %258, ptr noundef %0, i32 noundef %257, i32 noundef 12, ptr noundef nonnull %6, i32 noundef 0)
-  %260 = add i32 %.0197249318, 20
+  %260 = add i32 %.0197249324, 20
   %261 = load ptr, ptr %13, align 8
   %262 = load i64, ptr %6, align 8
   %263 = trunc i64 %262 to i32
@@ -5488,7 +5488,7 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   call void @col_append_str(ptr noundef %266, i32 noundef 25, ptr noundef nonnull @.str.259)
   %267 = load i32, ptr @hf_rlc_sufi_len, align 4
   %268 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %26, i32 noundef %267, ptr noundef %0, i32 noundef %31, i32 noundef 4, ptr noundef nonnull %5, i32 noundef 0)
-  %269 = add i32 %.0197249318, 8
+  %269 = add i32 %.0197249324, 8
   %270 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %270, 0
   br i1 %.not, label %280, label %.preheader223
@@ -5514,7 +5514,7 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   %282 = call ptr @proto_tree_add_bits_item(ptr noundef %26, i32 noundef %281, ptr noundef %0, i32 noundef %269, i32 noundef 12, i32 noundef 0)
   store ptr %282, ptr %10, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %282, ptr noundef nonnull @.str.260)
-  %283 = add i32 %.0197249318, 20
+  %283 = add i32 %.0197249324, 20
   br label %.loopexit224
 
 .loopexit224:                                     ; preds = %.preheader223, %280
@@ -5527,7 +5527,7 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
 287:                                              ; preds = %19
   %288 = load i32, ptr @hf_rlc_sufi_poll_sn, align 4
   %289 = call ptr @proto_tree_add_bits_item(ptr noundef %26, i32 noundef %288, ptr noundef %0, i32 noundef %31, i32 noundef 12, i32 noundef 0)
-  %290 = add i32 %.0197249318, 16
+  %290 = add i32 %.0197249324, 16
   br label %.loopexit
 
 291:                                              ; preds = %19
@@ -5535,8 +5535,8 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   br label %.critedge
 
 .loopexit:                                        ; preds = %84, %194, %._crit_edge236, %88, %287, %.loopexit224, %253, %._crit_edge245, %43
-  %.1198 = phi i32 [ %50, %43 ], [ %58, %88 ], [ %.3200.lcssa, %._crit_edge245 ], [ %180, %194 ], [ %.4201.lcssa278, %._crit_edge236 ], [ %260, %253 ], [ %286, %.loopexit224 ], [ %290, %287 ], [ %85, %84 ]
-  %.1 = phi i16 [ %.0251317, %43 ], [ %.0251317, %88 ], [ %.2.lcssa, %._crit_edge245 ], [ %.0251317, %194 ], [ %.0251317, %._crit_edge236 ], [ %.0251317, %253 ], [ %.0251317, %.loopexit224 ], [ %.0251317, %287 ], [ %.0251317, %84 ]
+  %.1198 = phi i32 [ %50, %43 ], [ %58, %88 ], [ %.3200.lcssa, %._crit_edge245 ], [ %180, %194 ], [ %.4201.lcssa284, %._crit_edge236 ], [ %260, %253 ], [ %286, %.loopexit224 ], [ %290, %287 ], [ %85, %84 ]
+  %.1 = phi i16 [ %.0251323, %43 ], [ %.0251323, %88 ], [ %.2.lcssa, %._crit_edge245 ], [ %.0251323, %194 ], [ %.0251323, %._crit_edge236 ], [ %.0251323, %253 ], [ %.0251323, %.loopexit224 ], [ %.0251323, %287 ], [ %.0251323, %84 ]
   %293 = add i32 %.1198, 7
   %294 = sdiv i32 %293, 8
   %295 = sub nsw i32 %294, %23

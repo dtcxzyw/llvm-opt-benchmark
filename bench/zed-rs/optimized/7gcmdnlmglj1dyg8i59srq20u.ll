@@ -331,9 +331,9 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h5f7050365cfdee61E.exit28:
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h672bed6891b276c7E.exit
 
 _ZN10serde_json3ser9Formatter17write_char_escape17h672bed6891b276c7E.exit: ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h52b21ebd2c10fa20E.llvm.8175182550399395949.exit.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h52b21ebd2c10fa20E.llvm.8175182550399395949.exit4.i"
-  %.sink86 = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h52b21ebd2c10fa20E.llvm.8175182550399395949.exit.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h52b21ebd2c10fa20E.llvm.8175182550399395949.exit4.i" ]
+  %.sink89 = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h52b21ebd2c10fa20E.llvm.8175182550399395949.exit.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h52b21ebd2c10fa20E.llvm.8175182550399395949.exit4.i" ]
   %111 = load i64, ptr %6, align 8, !noalias !13, !noundef !13
-  %112 = add i64 %111, %.sink86
+  %112 = add i64 %111, %.sink89
   store i64 %112, ptr %6, align 8, !noalias !13
   br label %.outer
 }
@@ -3357,9 +3357,9 @@ _ZN10serde_json3ser9Formatter9end_array17he6f8d9ea4673ca91E.exit.i.sink.split.i.
   br label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h745f0d93939017bbE.exit.i"
 
 "_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h745f0d93939017bbE.exit.i": ; preds = %_ZN10serde_json3ser9Formatter9end_array17he6f8d9ea4673ca91E.exit.i.sink.split.i.i.i.i, %.thread.i.i.i.i, %48
-  %.sink25.i.i.i.i = phi i64 [ %47, %48 ], [ %85, %.thread.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i14.i.i.i.i, %_ZN10serde_json3ser9Formatter9end_array17he6f8d9ea4673ca91E.exit.i.sink.split.i.i.i.i ]
+  %.sink36.i.i.i.i = phi i64 [ %47, %48 ], [ %85, %.thread.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i14.i.i.i.i, %_ZN10serde_json3ser9Formatter9end_array17he6f8d9ea4673ca91E.exit.i.sink.split.i.i.i.i ]
   %89 = load ptr, ptr %43, align 8, !noalias !1860, !nonnull !13, !noundef !13
-  %90 = getelementptr inbounds i8, ptr %89, i64 %.sink25.i.i.i.i
+  %90 = getelementptr inbounds i8, ptr %89, i64 %.sink36.i.i.i.i
   store i8 93, ptr %90, align 1, !noalias !1860
   %storemerge.in.i.i.i.i = load i64, ptr %37, align 8, !noalias !1860, !noundef !13
   %storemerge.i.i.i.i = add i64 %storemerge.in.i.i.i.i, 1
@@ -3739,7 +3739,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 
 74:                                               ; preds = %67, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %67 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %67 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %67 ], [ 1, %._crit_edge.i.i ]
   %75 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %76 = bitcast <16 x i1> %75 to i16
   %.not.i.i = icmp eq i16 %76, 0
@@ -3909,7 +3909,7 @@ _ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hc6d54d5516b1859cE.exit: ; pr
 
 35:                                               ; preds = %._crit_edge, %28
   %.sroa.6.1 = phi i64 [ %.sroa.3.0.i, %28 ], [ %.sroa.6.0, %._crit_edge ]
-  %.sroa.01.1 = phi i64 [ %.sroa.0.0.i, %28 ], [ %.sroa.01.0, %._crit_edge ]
+  %.sroa.01.1 = phi i64 [ %.sroa.0.0.i, %28 ], [ 1, %._crit_edge ]
   %36 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40, splat (i8 -1)
   %37 = bitcast <16 x i1> %36 to i16
   %.not = icmp eq i16 %37, 0
@@ -4047,7 +4047,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
 
 42:                                               ; preds = %35, %._crit_edge.i
   %.sroa.6.1.i = phi i64 [ %.sroa.3.0.i.i, %35 ], [ %.sroa.6.0.i, %._crit_edge.i ]
-  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %35 ], [ %.sroa.01.0.i, %._crit_edge.i ]
+  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %35 ], [ 1, %._crit_edge.i ]
   %43 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i, splat (i8 -1)
   %44 = bitcast <16 x i1> %43 to i16
   %.not.i = icmp eq i16 %44, 0

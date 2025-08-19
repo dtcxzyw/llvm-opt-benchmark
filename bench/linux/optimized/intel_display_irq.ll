@@ -2642,7 +2642,7 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   %202 = and i32 %158, 2
   %203 = icmp eq i32 %202, 0
   %204 = or i1 %203, %201
-  br i1 %204, label %205, label %.thread27
+  br i1 %204, label %205, label %.thread47
 
 205:                                              ; preds = %197
   %206 = load i16, ptr %3, align 8
@@ -2652,7 +2652,7 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   %210 = or i1 %209, %207
   br i1 %210, label %285, label %216
 
-.thread27:                                        ; preds = %197
+.thread47:                                        ; preds = %197
   tail call void @intel_gmbus_irq_handler(ptr noundef %0) #8
   %211 = load i16, ptr %3, align 8
   %212 = icmp ult i16 %211, 11
@@ -2661,7 +2661,7 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   %215 = or i1 %214, %212
   br i1 %215, label %.thread, label %216
 
-216:                                              ; preds = %.thread27, %205
+216:                                              ; preds = %.thread47, %205
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   %218 = load ptr, ptr %217, align 8
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 64
@@ -2801,7 +2801,7 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %306, ptr noundef nonnull @.str.18) #9
   br label %.thread
 
-.thread:                                          ; preds = %.thread27, %276, %274, %250, %305, %297, %295, %287, %285, %151
+.thread:                                          ; preds = %.thread47, %276, %274, %250, %305, %297, %295, %287, %285, %151
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 7544

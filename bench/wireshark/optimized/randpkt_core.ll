@@ -243,7 +243,7 @@ define hidden void @randpkt_loop(ptr noundef readonly captures(none) %0, i64 nou
   br i1 %or.cond, label %66, label %75
 
 66:                                               ; preds = %59
-  %67 = zext i32 %.179 to i64
+  %67 = zext nneg i32 %.179 to i64
   %68 = getelementptr i8, ptr %7, i64 %67
   %69 = sub nsw i64 65536, %67
   %70 = icmp ugt i32 %.179, 65536
@@ -251,21 +251,21 @@ define hidden void @randpkt_loop(ptr noundef readonly captures(none) %0, i64 nou
   %72 = icmp ne i64 %71, -1
   call void @llvm.assume(i1 %72)
   %73 = call ptr @__memcpy_chk(ptr noundef %68, ptr noundef nonnull @.str.1, i64 noundef 3, i64 noundef %71) #11, !alias.scope !17
-  %74 = add i32 %.179, 2
+  %74 = add nuw nsw i32 %.179, 2
   br label %81
 
 75:                                               ; preds = %59
   %76 = load ptr, ptr @pkt_rand, align 8
   %77 = call i32 @g_rand_int_range(ptr noundef %76, i32 noundef 0, i32 noundef 256)
   %78 = trunc i32 %77 to i8
-  %79 = zext i32 %.179 to i64
+  %79 = zext nneg i32 %.179 to i64
   %80 = getelementptr i8, ptr %7, i64 %79
   store i8 %78, ptr %80, align 1
   br label %81
 
 81:                                               ; preds = %66, %75
   %.2 = phi i32 [ %74, %66 ], [ %.179, %75 ]
-  %82 = add i32 %.2, 1
+  %82 = add nuw nsw i32 %.2, 1
   %83 = icmp ult i32 %82, %spec.store.select
   br i1 %83, label %59, label %._crit_edge82, !llvm.loop !21
 

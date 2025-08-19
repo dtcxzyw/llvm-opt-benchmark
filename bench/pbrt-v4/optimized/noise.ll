@@ -398,17 +398,17 @@ define dso_local noundef float @_ZN4pbrt3FBmENS_6Point3IfEENS_7Vector3IfEES3_fi(
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(errnomem: write) uwtable
 define dso_local noundef float @_ZN4pbrt10TurbulenceENS_6Point3IfEENS_7Vector3IfEES3_fi(<2 x float> %0, float %1, <2 x float> %2, float %3, <2 x float> %4, float %5, float noundef %6, i32 noundef %7) local_unnamed_addr #2 {
   %foldExtExtBinop = fmul <2 x float> %2, %2
-  %foldExtExtBinop111 = fmul <2 x float> %2, %2
-  %shift = shufflevector <2 x float> %foldExtExtBinop111, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop113 = fadd <2 x float> %foldExtExtBinop, %shift
-  %9 = extractelement <2 x float> %foldExtExtBinop113, i64 0
+  %foldExtExtBinop112 = fmul <2 x float> %2, %2
+  %shift = shufflevector <2 x float> %foldExtExtBinop112, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop114 = fadd <2 x float> %foldExtExtBinop, %shift
+  %9 = extractelement <2 x float> %foldExtExtBinop114, i64 0
   %10 = fmul float %3, %3
   %11 = fadd float %10, %9
-  %foldExtExtBinop115 = fmul <2 x float> %4, %4
-  %foldExtExtBinop117 = fmul <2 x float> %4, %4
-  %shift119 = shufflevector <2 x float> %foldExtExtBinop117, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop120 = fadd <2 x float> %foldExtExtBinop115, %shift119
-  %12 = extractelement <2 x float> %foldExtExtBinop120, i64 0
+  %foldExtExtBinop116 = fmul <2 x float> %4, %4
+  %foldExtExtBinop118 = fmul <2 x float> %4, %4
+  %shift120 = shufflevector <2 x float> %foldExtExtBinop118, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop121 = fadd <2 x float> %foldExtExtBinop116, %shift120
+  %12 = extractelement <2 x float> %foldExtExtBinop121, i64 0
   %13 = fmul float %5, %5
   %14 = fadd float %13, %12
   %15 = fcmp olt float %11, %14

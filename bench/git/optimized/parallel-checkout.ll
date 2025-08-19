@@ -1098,18 +1098,18 @@ advance_progress_meter.exit.i29:                  ; preds = %239, %231, %228, %2
 advance_progress_meter.exit.thread.i:             ; preds = %.lr.ph31.i
   %248 = add nuw i64 %.12029.i, 1
   %249 = icmp ult i64 %248, %220
-  br i1 %249, label %.lr.ph31.outer.i, label %._crit_edge.thread45.i, !llvm.loop !87
+  br i1 %249, label %.lr.ph31.outer.i, label %._crit_edge.thread51.i, !llvm.loop !87
 
 ._crit_edge.i:                                    ; preds = %advance_progress_meter.exit.i29
-  br i1 %205, label %handle_results.exit, label %._crit_edge.thread45.i
+  br i1 %205, label %handle_results.exit, label %._crit_edge.thread51.i
 
-._crit_edge.thread45.i:                           ; preds = %advance_progress_meter.exit.thread.i, %._crit_edge.i
-  %.14448.i = phi i32 [ %.1.i, %._crit_edge.i ], [ -1, %advance_progress_meter.exit.thread.i ]
+._crit_edge.thread51.i:                           ; preds = %advance_progress_meter.exit.thread.i, %._crit_edge.i
+  %.15054.i = phi i32 [ %.1.i, %._crit_edge.i ], [ -1, %advance_progress_meter.exit.thread.i ]
   %250 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32) #17
   br label %handle_results.exit
 
-handle_results.exit:                              ; preds = %14, %write_items_sequentially.exit, %.preheader.i28, %._crit_edge.i, %._crit_edge.thread45.i
-  %.0.lcssa40.i = phi i32 [ %.14448.i, %._crit_edge.thread45.i ], [ %.1.i, %._crit_edge.i ], [ 0, %.preheader.i28 ], [ 0, %write_items_sequentially.exit ], [ 0, %14 ]
+handle_results.exit:                              ; preds = %14, %write_items_sequentially.exit, %.preheader.i28, %._crit_edge.i, %._crit_edge.thread51.i
+  %.0.lcssa46.i = phi i32 [ %.15054.i, %._crit_edge.thread51.i ], [ %.1.i, %._crit_edge.i ], [ 0, %.preheader.i28 ], [ 0, %write_items_sequentially.exit ], [ 0, %14 ]
   %251 = load i32, ptr @parallel_checkout, align 8, !tbaa !4
   %252 = icmp eq i32 %251, 0
   br i1 %252, label %253, label %finish_parallel_checkout.exit
@@ -1122,7 +1122,7 @@ finish_parallel_checkout.exit:                    ; preds = %handle_results.exit
   %254 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 8), align 8, !tbaa !25
   tail call void @free(ptr noundef %254) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @parallel_checkout, i8 0, i64 48, i1 false)
-  ret i32 %.0.lcssa40.i
+  ret i32 %.0.lcssa46.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn

@@ -938,9 +938,9 @@ define dso_local i32 @v9fs_vfs_rename(ptr readnone captures(none) %0, ptr nounde
 .thread21:                                        ; preds = %60, %62, %46, %63, %51
   %65 = phi ptr [ %52, %63 ], [ %52, %51 ], [ %49, %46 ], [ %52, %62 ], [ %52, %60 ]
   %66 = icmp ugt ptr %65, inttoptr (i64 -4096 to ptr)
-  br i1 %66, label %.thread36, label %69
+  br i1 %66, label %.thread53, label %69
 
-.thread36:                                        ; preds = %.thread21
+.thread53:                                        ; preds = %.thread21
   %67 = ptrtoint ptr %65 to i64
   %68 = trunc i64 %67 to i32
   br label %.thread30
@@ -1109,8 +1109,8 @@ define dso_local i32 @v9fs_vfs_rename(ptr readnone captures(none) %0, ptr nounde
   %155 = call i32 @p9_client_clunk(ptr noundef nonnull %65) #14
   br label %.thread30
 
-.thread30:                                        ; preds = %.thread36, %151, %153, %154, %142
-  %156 = phi i32 [ %68, %.thread36 ], [ %143, %151 ], [ %143, %153 ], [ %143, %154 ], [ %143, %142 ]
+.thread30:                                        ; preds = %.thread53, %151, %153, %154, %142
+  %156 = phi i32 [ %68, %.thread53 ], [ %143, %151 ], [ %143, %153 ], [ %143, %154 ], [ %143, %142 ]
   %157 = icmp eq ptr %42, null
   br i1 %157, label %.thread33, label %158
 

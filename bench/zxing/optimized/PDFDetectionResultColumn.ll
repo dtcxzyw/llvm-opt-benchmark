@@ -324,8 +324,8 @@ define void @_ZN5ZXing6Pdf41721DetectionResultColumn39adjustCompleteIndicatorCol
   %.not26.i.us = icmp eq i32 %51, %.sext.i.us
   %.sext5.i.us = sext i8 %50 to i32
   %.not27.i.us = icmp eq i32 %40, %.sext5.i.us
-  %or.cond102 = and i1 %.not26.i.us, %.not27.i.us
-  br i1 %or.cond102, label %55, label %.sink.split.i.us
+  %or.cond113 = and i1 %.not26.i.us, %.not27.i.us
+  br i1 %or.cond113, label %55, label %.sink.split.i.us
 
 52:                                               ; preds = %43
   %53 = mul nsw i32 %36, 3
@@ -387,8 +387,8 @@ define void @_ZN5ZXing6Pdf41721DetectionResultColumn39adjustCompleteIndicatorCol
   %.not26.i = icmp eq i32 %80, %.sext.i
   %.sext5.i = sext i8 %79 to i32
   %.not27.i = icmp eq i32 %68, %.sext5.i
-  %or.cond103 = and i1 %.not26.i, %.not27.i
-  br i1 %or.cond103, label %84, label %.sink.split.i
+  %or.cond114 = and i1 %.not26.i, %.not27.i
+  br i1 %or.cond114, label %84, label %.sink.split.i
 
 81:                                               ; preds = %71
   %82 = add nsw i32 %64, 1
@@ -507,8 +507,8 @@ _ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit: ; preds = %102
   %134 = add nsw i32 %133, -2
   %.042 = mul nsw i32 %116, %134
   %135 = zext nneg i32 %.042 to i64
-  %.not99 = icmp samesign ugt i64 %indvars.iv95, %135
-  br i1 %.not99, label %.lr.ph, label %.critedge
+  %.not110 = icmp samesign ugt i64 %indvars.iv95, %135
+  br i1 %.not110, label %.lr.ph, label %.critedge
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %139, label %.critedge, label %141
@@ -635,9 +635,9 @@ define void @_ZN5ZXing6Pdf41721DetectionResultColumn41adjustIncompleteIndicatorC
   br label %6
 
 6:                                                ; preds = %2, %5
-  %.sink49 = phi i64 [ 72, %5 ], [ 24, %2 ]
+  %.sink50 = phi i64 [ 72, %5 ], [ 24, %2 ]
   %.sink = phi i64 [ 96, %5 ], [ 48, %2 ]
-  %.sroa.433.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink49
+  %.sroa.433.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink50
   %.sroa.4.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.sroa.4.0 = load double, ptr %.sroa.4.0..sroa_idx30, align 8
   %.sroa.433.041 = load double, ptr %.sroa.433.0..sroa_idx34, align 8
@@ -732,9 +732,9 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41721DetectionResultColumn13getRowHeight
   br label %9
 
 9:                                                ; preds = %8, %5
-  %.sink49.i = phi i64 [ 72, %8 ], [ 24, %5 ]
+  %.sink50.i = phi i64 [ 72, %8 ], [ 24, %5 ]
   %.sink.i = phi i64 [ 96, %8 ], [ 48, %5 ]
-  %.sroa.433.0..sroa_idx34.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink49.i
+  %.sroa.433.0..sroa_idx34.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink50.i
   %.sroa.4.0..sroa_idx30.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
   %.sroa.4.0.i = load double, ptr %.sroa.4.0..sroa_idx30.i, align 8
   %.sroa.433.041.i = load double, ptr %.sroa.433.0..sroa_idx34.i, align 8
@@ -1480,13 +1480,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !32
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !32
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

@@ -3848,10 +3848,10 @@ proto_mpeg_descriptor_dissect_mosaic_measure_l_cell_len.exit: ; preds = %.lr.ph9
 
 .thread.sink.split:                               ; preds = %57, %._crit_edge
   %hf_mpeg_descr_mosaic_bouquet_id.sink = phi ptr [ @hf_mpeg_descr_mosaic_bouquet_id, %._crit_edge ], [ @hf_mpeg_descr_mosaic_event_id, %57 ]
-  %.sink99 = phi i32 [ %56, %._crit_edge ], [ %66, %57 ]
+  %.sink101 = phi i32 [ %56, %._crit_edge ], [ %66, %57 ]
   %.sink = phi i32 [ 3, %._crit_edge ], [ 9, %57 ]
   %68 = load i32, ptr %hf_mpeg_descr_mosaic_bouquet_id.sink, align 4
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %68, ptr noundef %0, i32 noundef %.sink99, i32 noundef 2, i32 noundef 0)
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %68, ptr noundef %0, i32 noundef %.sink101, i32 noundef 2, i32 noundef 0)
   %70 = add i32 %.1.lcssa, %.sink
   br label %.thread
 

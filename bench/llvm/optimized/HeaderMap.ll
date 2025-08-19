@@ -84,16 +84,16 @@ _ZNK5clang12FileEntryRef7getSizeEv.exit:          ; preds = %6
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
-  br i1 %20, label %.thread6, label %21
+  br i1 %20, label %.thread8, label %21
 
-.thread6:                                         ; preds = %16
+.thread8:                                         ; preds = %16
   store ptr null, ptr %0, align 8, !tbaa !30
   br label %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %4, align 8, !tbaa !35
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %.thread7, label %23
+  br i1 %.not, label %.thread9, label %23
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -162,7 +162,7 @@ _ZNSt10unique_ptrIKN4llvm12MemoryBufferESt14default_deleteIS2_EED2Ev.exit: ; pre
   store i32 24, ptr %59, align 4, !tbaa !56
   br label %_ZN5clang13HeaderMapImpl11checkHeaderERKN4llvm12MemoryBufferERb.exit.thread
 
-.thread7:                                         ; preds = %21
+.thread9:                                         ; preds = %21
   store ptr null, ptr %0, align 8, !tbaa !30
   br label %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit
 
@@ -180,7 +180,7 @@ _ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i: ; preds = %_ZN5cl
   call void %62(ptr noundef nonnull align 8 dereferenceable(24) %.pr) #16
   br label %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit
 
-_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit: ; preds = %_ZN5clang13HeaderMapImpl11checkHeaderERKN4llvm12MemoryBufferERb.exit.thread, %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i, %.thread7, %.thread6
+_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit: ; preds = %_ZN5clang13HeaderMapImpl11checkHeaderERKN4llvm12MemoryBufferERb.exit.thread, %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i, %.thread9, %.thread8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %63
 
@@ -1071,9 +1071,9 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i:    ; preds = %119
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit, label %124
 
 124:                                              ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.thread, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i
-  %.pre8.i88 = phi i64 [ %.pre8.pre.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i ]
+  %.pre8.i94 = phi i64 [ %.pre8.pre.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i ]
   %125 = load ptr, ptr %3, align 8, !tbaa !110
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 %.pre8.i88
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 %.pre8.i94
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %126, ptr align 1 %.sroa.043.0, i64 %.sroa.545.0, i1 false)
   %.pre.i = load i64, ptr %118, align 8, !tbaa !106
   br label %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit
@@ -1344,9 +1344,9 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i:    ; preds = %112
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit, label %114
 
 114:                                              ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.thread, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i
-  %.pre8.i81 = phi i64 [ %.pre8.pre.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i ]
+  %.pre8.i88 = phi i64 [ %.pre8.pre.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i ]
   %115 = load ptr, ptr %4, align 8, !tbaa !110
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 %.pre8.i81
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 %.pre8.i88
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr align 1 %.sroa.046.2, i64 %.sroa.548.2, i1 false)
   %.pre.i = load i64, ptr %32, align 8, !tbaa !106
   br label %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit

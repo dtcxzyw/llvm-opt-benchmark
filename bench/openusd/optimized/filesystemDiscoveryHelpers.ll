@@ -2453,8 +2453,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit77.i.i.i.i: ; preds = %210
   br i1 %.not.i.i78.i.i.i.i, label %.sink.split.i.i.i.i, label %.sink.split.sink.split.i.i.i.i
 
 .sink.split.sink.split.i.i.i.i:                   ; preds = %.critedge.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit65.i.i.i.i
-  %.sink12.i.i.i.i = phi i64 [ %170, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit65.i.i.i.i ], [ %215, %.critedge.i.i.i.i ]
-  %217 = and i64 %.sink12.i.i.i.i, -8
+  %.sink18.i.i.i.i = phi i64 [ %170, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit65.i.i.i.i ], [ %215, %.critedge.i.i.i.i ]
+  %217 = and i64 %.sink18.i.i.i.i, -8
   %218 = inttoptr i64 %217 to ptr
   %219 = atomicrmw sub ptr %218, i32 2 release, align 4
   br label %.sink.split.i.i.i.i

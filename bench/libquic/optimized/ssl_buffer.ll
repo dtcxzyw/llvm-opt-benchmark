@@ -97,9 +97,9 @@ ssl_read_buffer_discard.exit:                     ; preds = %2, %8
   br label %dtls_read_buffer_next_packet.exit
 
 setup_read_buffer.exit.sink.split:                ; preds = %26, %21
-  %.sink30 = phi ptr [ %22, %21 ], [ %27, %26 ]
+  %.sink37 = phi ptr [ %22, %21 ], [ %27, %26 ]
   %.sink = phi i16 [ 16717, %21 ], [ 16709, %26 ]
-  %30 = ptrtoint ptr %.sink30 to i64
+  %30 = ptrtoint ptr %.sink37 to i64
   %31 = add i64 %15, %30
   %32 = trunc i64 %31 to i16
   %33 = sub i16 0, %32
@@ -197,8 +197,8 @@ setup_read_buffer.exit:                           ; preds = %setup_read_buffer.e
   %85 = zext i16 %84 to i64
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 %81
-  %88 = sub nuw i64 %1, %81
-  %89 = trunc i64 %88 to i32
+  %88 = sub nuw nsw i64 %1, %81
+  %89 = trunc nuw nsw i64 %88 to i32
   %90 = tail call i32 @BIO_read(ptr noundef %82, ptr noundef %87, i32 noundef %89) #9
   %91 = icmp sgt i32 %90, 0
   br i1 %91, label %93, label %.thread.i

@@ -485,14 +485,14 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit170: ; preds = %_ZN4ll
   %198 = load i64, ptr %19, align 8, !tbaa !11
   %199 = and i64 %198, 4398046511104
   %.not304 = icmp eq i64 %199, 0
-  br i1 %.not304, label %.thread325, label %200
+  br i1 %.not304, label %.thread401, label %200
 
 200:                                              ; preds = %197
   %201 = shl i64 %1, 32
   %202 = ashr exact i64 %201, 32
   %203 = ashr i64 %1, 32
   %204 = icmp eq i64 %202, %203
-  br i1 %204, label %205, label %.thread325
+  br i1 %204, label %205, label %.thread401
 
 205:                                              ; preds = %200
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -610,16 +610,16 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit185: ; preds = %.s
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre315 = load i32, ptr %16, align 8, !tbaa !9
   %253 = icmp ugt i32 %.pre315, 2
-  br i1 %253, label %.thread325, label %_ZL17extractRotateInfol.exit.thread
+  br i1 %253, label %.thread401, label %_ZL17extractRotateInfol.exit.thread
 
-.thread325:                                       ; preds = %197, %200, %252
+.thread401:                                       ; preds = %197, %200, %252
   %254 = phi i32 [ %.pre315, %252 ], [ %195, %200 ], [ %195, %197 ]
   %255 = load i64, ptr %19, align 8, !tbaa !11
   %256 = and i64 %255, 35184372088832
   %.not305 = icmp eq i64 %256, 0
-  br i1 %.not305, label %.thread330, label %257
+  br i1 %.not305, label %.thread406, label %257
 
-257:                                              ; preds = %.thread325
+257:                                              ; preds = %.thread401
   %258 = and i64 %1, 2147483647
   %259 = and i64 %1, -2147483648
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -758,15 +758,15 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit201: ; preds = %.s
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre318 = load i32, ptr %16, align 8, !tbaa !9
   %316 = icmp ugt i32 %.pre318, 2
-  br i1 %316, label %.thread330, label %_ZL17extractRotateInfol.exit.thread
+  br i1 %316, label %.thread406, label %_ZL17extractRotateInfol.exit.thread
 
-.thread330:                                       ; preds = %.thread325, %315
+.thread406:                                       ; preds = %.thread401, %315
   %317 = load i64, ptr %19, align 8, !tbaa !11
   %318 = and i64 %317, 35184372088832
   %.not306 = icmp eq i64 %318, 0
-  br i1 %.not306, label %.thread333, label %319
+  br i1 %.not306, label %.thread409, label %319
 
-319:                                              ; preds = %.thread330
+319:                                              ; preds = %.thread406
   %320 = or i64 %1, -2147483648
   %321 = xor i64 %320, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -896,15 +896,15 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit217: ; preds = %.s
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre319 = load i32, ptr %16, align 8, !tbaa !9
   %376 = icmp ugt i32 %.pre319, 2
-  br i1 %376, label %.thread333, label %_ZL17extractRotateInfol.exit.thread
+  br i1 %376, label %.thread409, label %_ZL17extractRotateInfol.exit.thread
 
-.thread333:                                       ; preds = %.thread330, %375
+.thread409:                                       ; preds = %.thread406, %375
   %377 = load i64, ptr %19, align 8, !tbaa !11
   %378 = and i64 %377, 549755813888
   %.not307 = icmp eq i64 %378, 0
-  br i1 %.not307, label %.thread336, label %379
+  br i1 %.not307, label %.thread412, label %379
 
-379:                                              ; preds = %.thread333
+379:                                              ; preds = %.thread409
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -919,8 +919,8 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit217: ; preds = %.s
   %385 = icmp eq i64 %383, 0
   %386 = add nsw i64 %384, 2147483648
   %387 = icmp ult i64 %386, 4294967296
-  %or.cond340 = select i1 %385, i1 %387, i1 false
-  br i1 %or.cond340, label %400, label %388
+  %or.cond416 = select i1 %385, i1 %387, i1 false
+  br i1 %or.cond416, label %400, label %388
 
 388:                                              ; preds = %379
   %389 = srem i64 %1, 5
@@ -928,8 +928,8 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit217: ; preds = %.s
   %391 = icmp eq i64 %389, 0
   %392 = add nsw i64 %390, 2147483648
   %393 = icmp ult i64 %392, 4294967296
-  %or.cond342 = select i1 %391, i1 %393, i1 false
-  br i1 %or.cond342, label %400, label %394
+  %or.cond418 = select i1 %391, i1 %393, i1 false
+  br i1 %or.cond418, label %400, label %394
 
 394:                                              ; preds = %388
   %395 = srem i64 %1, 9
@@ -937,8 +937,8 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit217: ; preds = %.s
   %397 = icmp eq i64 %395, 0
   %398 = add nsw i64 %396, 2147483648
   %399 = icmp ult i64 %398, 4294967296
-  %or.cond344 = select i1 %397, i1 %399, i1 false
-  br i1 %or.cond344, label %400, label %.critedge
+  %or.cond420 = select i1 %397, i1 %399, i1 false
+  br i1 %or.cond420, label %400, label %.critedge
 
 400:                                              ; preds = %394, %388, %379
   %.sink = phi i32 [ 12879, %379 ], [ 12881, %388 ], [ 12883, %394 ]
@@ -1071,9 +1071,9 @@ _ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i227: ; preds = %
   br i1 %or.cond104, label %464, label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit232
 
 464:                                              ; preds = %458, %452, %.critedge
-  %.sink337 = phi i32 [ 12879, %.critedge ], [ 12881, %452 ], [ 12883, %458 ]
+  %.sink413 = phi i32 [ 12879, %.critedge ], [ 12881, %452 ], [ 12883, %458 ]
   %.pre-phi324 = phi i64 [ %447, %.critedge ], [ %453, %452 ], [ %459, %458 ]
-  store i32 %.sink337, ptr %10, align 4, !tbaa !20
+  store i32 %.sink413, ptr %10, align 4, !tbaa !20
   %.val124 = load i64, ptr %18, align 8, !tbaa !11
   call fastcc void @_ZL19generateInstSeqImpllRKN4llvm15MCSubtargetInfoERNS_11SmallVectorINS_11RISCVMatInt4InstELj8EEE(i64 noundef %.pre-phi324, i64 %.val124, i64 %377, ptr noundef nonnull align 8 dereferenceable(80) %11)
   %465 = load i32, ptr %381, align 8, !tbaa !9
@@ -1194,8 +1194,8 @@ _ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i245: ; preds = %
   br label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit232.sink.split
 
 _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit232.sink.split: ; preds = %497, %498, %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i245, %511, %423, %424, %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i227, %437
-  %.sink338 = phi i32 [ %419, %437 ], [ %419, %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i227 ], [ %419, %424 ], [ %419, %423 ], [ %493, %511 ], [ %493, %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i245 ], [ %493, %498 ], [ %493, %497 ]
-  store i32 %.sink338, ptr %16, align 8, !tbaa !9
+  %.sink414 = phi i32 [ %419, %437 ], [ %419, %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i227 ], [ %419, %424 ], [ %419, %423 ], [ %493, %511 ], [ %493, %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i245 ], [ %493, %498 ], [ %493, %497 ]
+  store i32 %.sink414, ptr %16, align 8, !tbaa !9
   br label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit232
 
 _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit232: ; preds = %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit232.sink.split, %464, %458, %"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0ERlEEERS2_DpOT_.exit238", %_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjiEEERS2_DpOT_.exit, %400
@@ -1212,22 +1212,22 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit232: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pre322 = load i32, ptr %16, align 8, !tbaa !9
   %521 = icmp ugt i32 %.pre322, 2
-  br i1 %521, label %.thread336, label %_ZL17extractRotateInfol.exit.thread
+  br i1 %521, label %.thread412, label %_ZL17extractRotateInfol.exit.thread
 
-.thread336:                                       ; preds = %.thread333, %520
+.thread412:                                       ; preds = %.thread409, %520
   %522 = load i64, ptr %19, align 8, !tbaa !11
   %523 = and i64 %522, 1099511627776
   %.not308 = icmp eq i64 %523, 0
   br i1 %.not308, label %524, label %528
 
-524:                                              ; preds = %.thread336
+524:                                              ; preds = %.thread412
   %525 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %526 = load i64, ptr %525, align 8, !tbaa !11
   %527 = and i64 %526, 16777216
   %.not309 = icmp eq i64 %527, 0
   br i1 %.not309, label %_ZL17extractRotateInfol.exit.thread, label %528
 
-528:                                              ; preds = %524, %.thread336
+528:                                              ; preds = %524, %.thread412
   %529 = xor i64 %1, -1
   %530 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %529, i1 false)
   %531 = trunc nuw nsw i64 %530 to i32
@@ -1446,9 +1446,9 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRlEEERS2_DpOT
   store i32 0, ptr %5, align 4, !tbaa !20
   %73 = add i64 %72, 2147483648
   %74 = icmp ult i64 %73, 4294967296
-  br i1 %74, label %.thread23, label %75
+  br i1 %74, label %.thread32, label %75
 
-.thread23:                                        ; preds = %69
+.thread32:                                        ; preds = %69
   tail call fastcc void @_ZL19generateInstSeqImpllRKN4llvm15MCSubtargetInfoERNS_11SmallVectorINS_11RISCVMatInt4InstELj8EEE(i64 noundef %72, i64 %.232.val, i64 %.240.val, ptr noundef nonnull align 8 dereferenceable(80) %1)
   br label %116
 
@@ -1539,7 +1539,7 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRiEEERS2_DpOT
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %116
 
-116:                                              ; preds = %.thread23, %_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRiEEERS2_DpOT_.exit, %101
+116:                                              ; preds = %.thread32, %_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRiEEERS2_DpOT_.exit, %101
   %.not39 = icmp eq i64 %70, 0
   br i1 %.not39, label %"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0ERlEEERS2_DpOT_.exit55", label %117
 
@@ -2389,7 +2389,7 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZN4llvm11RISCVMatInt13g
   br label %28
 
 ._crit_edge:                                      ; preds = %_ZN4llvm5APIntD2Ev.exit20, %19
-  %.025.lcssa = phi i32 [ 0, %19 ], [ %.133, %_ZN4llvm5APIntD2Ev.exit20 ]
+  %.025.lcssa = phi i32 [ 0, %19 ], [ %.138, %_ZN4llvm5APIntD2Ev.exit20 ]
   %not. = xor i1 %4, true
   %27 = zext i1 %not. to i32
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.025.lcssa, i32 %27)
@@ -2397,7 +2397,7 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZN4llvm11RISCVMatInt13g
 
 28:                                               ; preds = %.lr.ph, %_ZN4llvm5APIntD2Ev.exit20
   %.029 = phi i32 [ 0, %.lr.ph ], [ %96, %_ZN4llvm5APIntD2Ev.exit20 ]
-  %.02528 = phi i32 [ 0, %.lr.ph ], [ %.133, %_ZN4llvm5APIntD2Ev.exit20 ]
+  %.02528 = phi i32 [ 0, %.lr.ph ], [ %.138, %_ZN4llvm5APIntD2Ev.exit20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
@@ -2577,7 +2577,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit.thread:      ; preds = %_ZNK4llvm5APInt12ge
   br label %_ZN4llvm5APIntD2Ev.exit20
 
 _ZN4llvm5APIntD2Ev.exit20:                        ; preds = %54, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread, %92, %95
-  %.133 = phi i32 [ %.1, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread ], [ %.1, %92 ], [ %.1, %95 ], [ %.02528, %54 ]
+  %.138 = phi i32 [ %.1, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread ], [ %.1, %92 ], [ %.1, %95 ], [ %.02528, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %96 = add i32 %.029, %21
   %97 = icmp ult i32 %96, %1

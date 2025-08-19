@@ -183,8 +183,8 @@ _.exit:                                           ; preds = %18, %20
   %32 = icmp eq i32 %31, 0
   %33 = load i64, ptr %26, align 8
   %34 = icmp ne i64 %33, 0
-  %or.cond76 = select i1 %32, i1 %34, i1 false
-  br i1 %or.cond76, label %.lr.ph, label %.critedge
+  %or.cond79 = select i1 %32, i1 %34, i1 false
+  br i1 %or.cond79, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %23, %.backedge
   %35 = load ptr, ptr %9, align 8, !tbaa !4
@@ -201,8 +201,8 @@ _.exit:                                           ; preds = %18, %20
   %.pre = load ptr, ptr %9, align 8, !tbaa !4
   %.pre55 = load i8, ptr %.pre, align 1, !tbaa !26
   %40 = icmp eq i8 %.pre55, 64
-  %or.cond70 = select i1 %39, i1 %40, i1 false
-  br i1 %or.cond70, label %41, label %70
+  %or.cond73 = select i1 %39, i1 %40, i1 false
+  br i1 %or.cond73, label %41, label %70
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
@@ -245,7 +245,7 @@ skip_prefix.exit.preheader.i:                     ; preds = %44
 _.exit.i:                                         ; preds = %54, %52
   %.0.i.i = phi ptr [ %55, %54 ], [ @.str.34, %52 ]
   %56 = call i32 (ptr, ...) @error(ptr noundef %.0.i.i, ptr noundef %scevgep.i) #15
-  br label %.critedge.thread63
+  br label %.critedge.thread66
 
 57:                                               ; preds = %49
   %58 = sext i32 %50 to i64
@@ -284,9 +284,9 @@ skip_prefix.exit11.i:                             ; preds = %60
 _.exit14.i:                                       ; preds = %67, %skip_prefix.exit11.i
   %.0.i13.i = phi ptr [ %68, %67 ], [ @.str.36, %skip_prefix.exit11.i ]
   %69 = call i32 (ptr, ...) @error(ptr noundef %.0.i13.i, ptr noundef nonnull %42) #15
-  br label %.critedge.thread63
+  br label %.critedge.thread66
 
-.critedge.thread63:                               ; preds = %_.exit14.i, %_.exit.i
+.critedge.thread66:                               ; preds = %_.exit14.i, %_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge.thread
@@ -371,8 +371,8 @@ _.exit41:                                         ; preds = %86, %88
   br label %.critedge.thread
 
 104:                                              ; preds = %98, %100
-  %.sink71 = phi ptr [ %99, %98 ], [ %103, %100 ]
-  %105 = getelementptr inbounds nuw i8, ptr %.sink71, i64 8
+  %.sink74 = phi ptr [ %99, %98 ], [ %103, %100 ]
+  %105 = getelementptr inbounds nuw i8, ptr %.sink74, i64 8
   store ptr %95, ptr %105, align 8, !tbaa !32
   br label %.backedge
 
@@ -386,7 +386,7 @@ _.exit41:                                         ; preds = %86, %88
   %or.cond = select i1 %107, i1 %109, i1 false
   br i1 %or.cond, label %.lr.ph, label %.critedge
 
-.critedge.thread:                                 ; preds = %.critedge.thread63, %.thread45, %parse_bundle_signature.exit, %_.exit
+.critedge.thread:                                 ; preds = %.critedge.thread66, %.thread45, %parse_bundle_signature.exit, %_.exit
   %110 = call i32 @close(i32 noundef %0) #15
   br label %.critedge
 
@@ -955,7 +955,7 @@ sub_0:                                            ; preds = %6
   br label %42
 
 42:                                               ; preds = %.tail, %.tail.thread
-  %.not89 = phi i1 [ false, %.tail.thread ], [ true, %.tail ]
+  %.not95 = phi i1 [ false, %.tail.thread ], [ true, %.tail ]
   %.055 = phi i32 [ %41, %.tail.thread ], [ 1, %.tail ]
   %43 = icmp eq i32 %5, -1
   %spec.select65 = select i1 %43, i32 %spec.select, i32 %5
@@ -1429,7 +1429,7 @@ write_pack_data.exit.thread:                      ; preds = %_.exit.i72, %_.exit
 
 write_pack_data.exit:                             ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not89, label %260, label %256
+  br i1 %.not95, label %260, label %256
 
 256:                                              ; preds = %write_pack_data.exit
   %257 = call i32 @commit_lock_file(ptr noundef nonnull %13) #15

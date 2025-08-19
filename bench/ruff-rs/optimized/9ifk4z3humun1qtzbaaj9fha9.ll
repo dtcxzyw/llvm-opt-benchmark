@@ -512,7 +512,7 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit29.i: ; preds = %"_ZN5alloc
 
 209:                                              ; preds = %.preheader44.i.i
   %210 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i.i, i64 1
-  %211 = add i64 %.sroa.14.0.i.i, -1
+  %211 = add nsw i64 %.sroa.14.0.i.i, -1
   %212 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.013.0.i.i, i64 10)
   %213 = extractvalue { i64, i1 } %212, 0
   %214 = load i8, ptr %.sroa.01.0.i.i, align 1, !alias.scope !82, !noalias !85, !noundef !4

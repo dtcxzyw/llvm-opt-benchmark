@@ -247,7 +247,7 @@ define ptr @BN_mod_sqrt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br i1 %103, label %.loopexit, label %104
 
 104:                                              ; preds = %101
-  switch i32 %102, label %.loopexit.sink.split.loopexit350 [
+  switch i32 %102, label %.loopexit.sink.split.loopexit357 [
     i32 0, label %.loopexit.sink.split
     i32 1, label %105
     i32 -1, label %106
@@ -256,7 +256,7 @@ define ptr @BN_mod_sqrt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 105:                                              ; preds = %104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 82
-  br i1 %exitcond.not, label %.loopexit.sink.split.loopexit350, label %83, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit.sink.split.loopexit357, label %83, !llvm.loop !13
 
 106:                                              ; preds = %104
   %107 = tail call i32 @BN_rshift(ptr noundef %38, ptr noundef %38, i32 noundef %.0211) #2
@@ -410,14 +410,14 @@ define ptr @BN_mod_sqrt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %.not276 = icmp eq i32 %163, 0
   br i1 %.not276, label %.thread306, label %.loopexit.sink.split
 
-.loopexit.sink.split.loopexit350:                 ; preds = %105, %104
+.loopexit.sink.split.loopexit357:                 ; preds = %105, %104
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %.preheader, %143, %104, %.loopexit.sink.split.loopexit350, %162, %110
-  %.sink336 = phi i32 [ 230, %110 ], [ 353, %162 ], [ 215, %.loopexit.sink.split.loopexit350 ], [ 203, %104 ], [ 322, %143 ], [ 322, %.preheader ]
-  %.sink = phi i32 [ 112, %110 ], [ 111, %162 ], [ 113, %.loopexit.sink.split.loopexit350 ], [ 112, %104 ], [ 111, %143 ], [ 111, %.preheader ]
+.loopexit.sink.split:                             ; preds = %.preheader, %143, %104, %.loopexit.sink.split.loopexit357, %162, %110
+  %.sink343 = phi i32 [ 230, %110 ], [ 353, %162 ], [ 215, %.loopexit.sink.split.loopexit357 ], [ 203, %104 ], [ 322, %143 ], [ 322, %.preheader ]
+  %.sink = phi i32 [ 112, %110 ], [ 111, %162 ], [ 113, %.loopexit.sink.split.loopexit357 ], [ 112, %104 ], [ 111, %143 ], [ 111, %.preheader ]
   tail call void @ERR_new() #2
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink336, ptr noundef nonnull @__func__.BN_mod_sqrt) #2
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink343, ptr noundef nonnull @__func__.BN_mod_sqrt) #2
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 3, i32 noundef %.sink, ptr noundef null) #2
   br label %.loopexit
 

@@ -51235,10 +51235,10 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !1167
 
 _ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i29 = phi double [ %38, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i ]
+  %.0.i.i.i32 = phi double [ %38, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i ]
   %40 = load double, ptr %11, align 8, !tbaa !1164
   %41 = load double, ptr %12, align 8, !tbaa !1165
-  %42 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i29, double %41, double %40)
+  %42 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i32, double %41, double %40)
   %43 = load double, ptr %13, align 8, !tbaa !1161
   %44 = load double, ptr %14, align 8, !tbaa !1162
   %45 = fcmp oeq double %44, -1.000000e+00
@@ -82444,8 +82444,8 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i: ; preds = %330, %326, %_ZN
 
 343:                                              ; preds = %_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i
   %344 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !99
-  %.not.i.i.i.i.i406 = icmp ult i64 %344, 2
-  br i1 %.not.i.i.i.i.i406, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i, label %345
+  %.not.i.i.i.i.i477 = icmp ult i64 %344, 2
+  br i1 %.not.i.i.i.i.i477, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i, label %345
 
 345:                                              ; preds = %343
   %346 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -82505,8 +82505,8 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i: ; preds = %330, %326, %_ZN
 379:                                              ; preds = %.lr.ph.i.i.i.i
   %380 = add i16 %.sroa.015.043.i.i.i.i, -1
   %381 = and i16 %380, %.sroa.015.043.i.i.i.i
-  %.not.i.i.i.i405 = icmp eq i16 %381, 0
-  br i1 %.not.i.i.i.i405, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
+  %.not.i.i.i.i476 = icmp eq i16 %381, 0
+  br i1 %.not.i.i.i.i476, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %379, %366
   %382 = icmp eq <16 x i8> %368, splat (i8 -128)
@@ -83086,16 +83086,16 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i182: ; preds = %_ZNKSt14defa
 
 573:                                              ; preds = %_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i182
   %574 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i100, align 8, !tbaa !99
-  %.not.i.i.i.i.i428 = icmp ult i64 %574, 2
-  br i1 %.not.i.i.i.i.i428, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i425, label %575
+  %.not.i.i.i.i.i499 = icmp ult i64 %574, 2
+  br i1 %.not.i.i.i.i.i499, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i496, label %575
 
 575:                                              ; preds = %573
   %576 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %577 = load ptr, ptr %576, align 8, !tbaa !105
   %578 = icmp eq ptr %577, @_ZN4absl13base_internal11FastTypeTagIFiNS_15random_internal26UniformDistributionWrapperIiEESt5tupleIJiiEEEE9dummy_varE
-  %.fca.1.insert.i.i.i.i.i429 = insertvalue { ptr, ptr } { ptr @_ZN4absl18container_internal11kSooControlE, ptr poison }, ptr %576, 1
-  %spec.select.i.i.i.i430 = select i1 %578, { ptr, ptr } %.fca.1.insert.i.i.i.i.i429, { ptr, ptr } { ptr null, ptr undef }
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i425
+  %.fca.1.insert.i.i.i.i.i500 = insertvalue { ptr, ptr } { ptr @_ZN4absl18container_internal11kSooControlE, ptr poison }, ptr %576, 1
+  %spec.select.i.i.i.i501 = select i1 %578, { ptr, ptr } %.fca.1.insert.i.i.i.i.i500, { ptr, ptr } { ptr null, ptr undef }
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i496
 
 579:                                              ; preds = %_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i182
   %580 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -83115,67 +83115,67 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i182: ; preds = %_ZNKSt14defa
   %593 = insertelement <16 x i8> poison, i8 %592, i64 0
   %594 = shufflevector <16 x i8> %593, <16 x i8> poison, <16 x i32> zeroinitializer
   %595 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i410 = load ptr, ptr %595, align 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i481 = load ptr, ptr %595, align 8
   br label %596
 
 596:                                              ; preds = %614, %579
-  %.pn.i6.i.i.i411 = phi i64 [ %590, %579 ], [ %616, %614 ]
-  %.sroa.12.0.i.i.i.i412 = phi i64 [ 0, %579 ], [ %615, %614 ]
-  %.sroa.6.0.i.i.i.i413 = and i64 %.pn.i6.i.i.i411, %570
-  %597 = getelementptr inbounds nuw i8, ptr %581, i64 %.sroa.6.0.i.i.i.i413
+  %.pn.i6.i.i.i482 = phi i64 [ %590, %579 ], [ %616, %614 ]
+  %.sroa.12.0.i.i.i.i483 = phi i64 [ 0, %579 ], [ %615, %614 ]
+  %.sroa.6.0.i.i.i.i484 = and i64 %.pn.i6.i.i.i482, %570
+  %597 = getelementptr inbounds nuw i8, ptr %581, i64 %.sroa.6.0.i.i.i.i484
   %598 = load <16 x i8>, ptr %597, align 1, !tbaa !14
   %599 = icmp eq <16 x i8> %594, %598
   %600 = bitcast <16 x i1> %599 to i16
-  %.not42.i.i.i.i414 = icmp eq i16 %600, 0
-  br i1 %.not42.i.i.i.i414, label %._crit_edge.i.i.i.i418, label %.lr.ph.i.i.i.i415
+  %.not42.i.i.i.i485 = icmp eq i16 %600, 0
+  br i1 %.not42.i.i.i.i485, label %._crit_edge.i.i.i.i489, label %.lr.ph.i.i.i.i486
 
-.lr.ph.i.i.i.i415:                                ; preds = %596, %609
-  %.sroa.015.043.i.i.i.i416 = phi i16 [ %611, %609 ], [ %600, %596 ]
-  %601 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.015.043.i.i.i.i416, i1 true)
+.lr.ph.i.i.i.i486:                                ; preds = %596, %609
+  %.sroa.015.043.i.i.i.i487 = phi i16 [ %611, %609 ], [ %600, %596 ]
+  %601 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.015.043.i.i.i.i487, i1 true)
   %602 = zext nneg i16 %601 to i64
-  %603 = add i64 %.sroa.6.0.i.i.i.i413, %602
+  %603 = add i64 %.sroa.6.0.i.i.i.i484, %602
   %604 = and i64 %603, %570
-  %605 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i410, i64 %604
+  %605 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i481, i64 %604
   %606 = load ptr, ptr %605, align 8, !tbaa !105
   %607 = icmp eq ptr %606, @_ZN4absl13base_internal11FastTypeTagIFiNS_15random_internal26UniformDistributionWrapperIiEESt5tupleIJiiEEEE9dummy_varE
-  br i1 %607, label %.thread29.i.i.i.i427, label %609, !prof !387
+  br i1 %607, label %.thread29.i.i.i.i498, label %609, !prof !387
 
-.thread29.i.i.i.i427:                             ; preds = %.lr.ph.i.i.i.i415
+.thread29.i.i.i.i498:                             ; preds = %.lr.ph.i.i.i.i486
   %608 = getelementptr inbounds nuw i8, ptr %581, i64 %604
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i420
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i491
 
-609:                                              ; preds = %.lr.ph.i.i.i.i415
-  %610 = add i16 %.sroa.015.043.i.i.i.i416, -1
-  %611 = and i16 %610, %.sroa.015.043.i.i.i.i416
-  %.not.i.i.i.i417 = icmp eq i16 %611, 0
-  br i1 %.not.i.i.i.i417, label %._crit_edge.i.i.i.i418, label %.lr.ph.i.i.i.i415
+609:                                              ; preds = %.lr.ph.i.i.i.i486
+  %610 = add i16 %.sroa.015.043.i.i.i.i487, -1
+  %611 = and i16 %610, %.sroa.015.043.i.i.i.i487
+  %.not.i.i.i.i488 = icmp eq i16 %611, 0
+  br i1 %.not.i.i.i.i488, label %._crit_edge.i.i.i.i489, label %.lr.ph.i.i.i.i486
 
-._crit_edge.i.i.i.i418:                           ; preds = %609, %596
+._crit_edge.i.i.i.i489:                           ; preds = %609, %596
   %612 = icmp eq <16 x i8> %598, splat (i8 -128)
   %613 = bitcast <16 x i1> %612 to i16
-  %.not40.i.i.i.i419 = icmp eq i16 %613, 0
-  br i1 %.not40.i.i.i.i419, label %614, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i420, !prof !63
+  %.not40.i.i.i.i490 = icmp eq i16 %613, 0
+  br i1 %.not40.i.i.i.i490, label %614, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i491, !prof !63
 
-614:                                              ; preds = %._crit_edge.i.i.i.i418
-  %615 = add i64 %.sroa.12.0.i.i.i.i412, 16
-  %616 = add i64 %615, %.sroa.6.0.i.i.i.i413
+614:                                              ; preds = %._crit_edge.i.i.i.i489
+  %615 = add i64 %.sroa.12.0.i.i.i.i483, 16
+  %616 = add i64 %615, %.sroa.6.0.i.i.i.i484
   br label %596, !llvm.loop !388
 
-_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i420: ; preds = %._crit_edge.i.i.i.i418, %.thread29.i.i.i.i427
-  %.sroa.0.4.ph.i.i.i.i421 = phi ptr [ %608, %.thread29.i.i.i.i427 ], [ null, %._crit_edge.i.i.i.i418 ]
-  %.sroa.3.4.ph.i.i.i.i422 = phi ptr [ %605, %.thread29.i.i.i.i427 ], [ undef, %._crit_edge.i.i.i.i418 ]
-  %.fca.0.insert.i.i.i.i423 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.4.ph.i.i.i.i421, 0
-  %.fca.1.insert.i.i.i.i424 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i423, ptr %.sroa.3.4.ph.i.i.i.i422, 1
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i425
+_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i491: ; preds = %._crit_edge.i.i.i.i489, %.thread29.i.i.i.i498
+  %.sroa.0.4.ph.i.i.i.i492 = phi ptr [ %608, %.thread29.i.i.i.i498 ], [ null, %._crit_edge.i.i.i.i489 ]
+  %.sroa.3.4.ph.i.i.i.i493 = phi ptr [ %605, %.thread29.i.i.i.i498 ], [ undef, %._crit_edge.i.i.i.i489 ]
+  %.fca.0.insert.i.i.i.i494 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.4.ph.i.i.i.i492, 0
+  %.fca.1.insert.i.i.i.i495 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i494, ptr %.sroa.3.4.ph.i.i.i.i493, 1
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i496
 
-_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i425: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i420, %575, %573
-  %.pn.i.i.i426 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i424, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i420 ], [ { ptr null, ptr undef }, %573 ], [ %spec.select.i.i.i.i430, %575 ]
-  %617 = extractvalue { ptr, ptr } %.pn.i.i.i426, 0
-  %.not514 = icmp eq ptr %617, null
-  br i1 %.not514, label %_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i186, label %618
+_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i496: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i491, %575, %573
+  %.pn.i.i.i497 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i495, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i491 ], [ { ptr null, ptr undef }, %573 ], [ %spec.select.i.i.i.i501, %575 ]
+  %617 = extractvalue { ptr, ptr } %.pn.i.i.i497, 0
+  %.not585 = icmp eq ptr %617, null
+  br i1 %.not585, label %_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i186, label %618
 
-618:                                              ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i425
-  %619 = extractvalue { ptr, ptr } %.pn.i.i.i426, 1
+618:                                              ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i496
+  %619 = extractvalue { ptr, ptr } %.pn.i.i.i497, 1
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   %621 = load ptr, ptr %620, align 8, !tbaa !100
   %622 = load ptr, ptr %621, align 8, !tbaa !16
@@ -83188,7 +83188,7 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit._crit_edge.i.i.i.i194: ; preds = %6
   %.pre6.i.i.i.i195 = load i32, ptr %15, align 4, !tbaa !35
   br label %652
 
-_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i186: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i425
+_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i186: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i496
   %625 = load i64, ptr %81, align 8, !tbaa !31
   %626 = icmp ugt i64 %625, 31
   br i1 %626, label %627, label %634
@@ -83420,16 +83420,16 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i216: ; preds = %_ZNKSt14defa
 
 704:                                              ; preds = %_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i216
   %705 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i103, align 8, !tbaa !99
-  %.not.i.i.i.i.i454 = icmp ult i64 %705, 2
-  br i1 %.not.i.i.i.i.i454, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i451, label %706
+  %.not.i.i.i.i.i525 = icmp ult i64 %705, 2
+  br i1 %.not.i.i.i.i.i525, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i522, label %706
 
 706:                                              ; preds = %704
   %707 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %708 = load ptr, ptr %707, align 8, !tbaa !105
   %709 = icmp eq ptr %708, @_ZN4absl13base_internal11FastTypeTagIFiNS_15random_internal26UniformDistributionWrapperIiEESt5tupleIJiiEEEE9dummy_varE
-  %.fca.1.insert.i.i.i.i.i455 = insertvalue { ptr, ptr } { ptr @_ZN4absl18container_internal11kSooControlE, ptr poison }, ptr %707, 1
-  %spec.select.i.i.i.i456 = select i1 %709, { ptr, ptr } %.fca.1.insert.i.i.i.i.i455, { ptr, ptr } { ptr null, ptr undef }
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i451
+  %.fca.1.insert.i.i.i.i.i526 = insertvalue { ptr, ptr } { ptr @_ZN4absl18container_internal11kSooControlE, ptr poison }, ptr %707, 1
+  %spec.select.i.i.i.i527 = select i1 %709, { ptr, ptr } %.fca.1.insert.i.i.i.i.i526, { ptr, ptr } { ptr null, ptr undef }
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i522
 
 710:                                              ; preds = %_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i216
   %711 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -83449,67 +83449,67 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i216: ; preds = %_ZNKSt14defa
   %724 = insertelement <16 x i8> poison, i8 %723, i64 0
   %725 = shufflevector <16 x i8> %724, <16 x i8> poison, <16 x i32> zeroinitializer
   %726 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i436 = load ptr, ptr %726, align 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i507 = load ptr, ptr %726, align 8
   br label %727
 
 727:                                              ; preds = %745, %710
-  %.pn.i6.i.i.i437 = phi i64 [ %721, %710 ], [ %747, %745 ]
-  %.sroa.12.0.i.i.i.i438 = phi i64 [ 0, %710 ], [ %746, %745 ]
-  %.sroa.6.0.i.i.i.i439 = and i64 %.pn.i6.i.i.i437, %701
-  %728 = getelementptr inbounds nuw i8, ptr %712, i64 %.sroa.6.0.i.i.i.i439
+  %.pn.i6.i.i.i508 = phi i64 [ %721, %710 ], [ %747, %745 ]
+  %.sroa.12.0.i.i.i.i509 = phi i64 [ 0, %710 ], [ %746, %745 ]
+  %.sroa.6.0.i.i.i.i510 = and i64 %.pn.i6.i.i.i508, %701
+  %728 = getelementptr inbounds nuw i8, ptr %712, i64 %.sroa.6.0.i.i.i.i510
   %729 = load <16 x i8>, ptr %728, align 1, !tbaa !14
   %730 = icmp eq <16 x i8> %725, %729
   %731 = bitcast <16 x i1> %730 to i16
-  %.not42.i.i.i.i440 = icmp eq i16 %731, 0
-  br i1 %.not42.i.i.i.i440, label %._crit_edge.i.i.i.i444, label %.lr.ph.i.i.i.i441
+  %.not42.i.i.i.i511 = icmp eq i16 %731, 0
+  br i1 %.not42.i.i.i.i511, label %._crit_edge.i.i.i.i515, label %.lr.ph.i.i.i.i512
 
-.lr.ph.i.i.i.i441:                                ; preds = %727, %740
-  %.sroa.015.043.i.i.i.i442 = phi i16 [ %742, %740 ], [ %731, %727 ]
-  %732 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.015.043.i.i.i.i442, i1 true)
+.lr.ph.i.i.i.i512:                                ; preds = %727, %740
+  %.sroa.015.043.i.i.i.i513 = phi i16 [ %742, %740 ], [ %731, %727 ]
+  %732 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.015.043.i.i.i.i513, i1 true)
   %733 = zext nneg i16 %732 to i64
-  %734 = add i64 %.sroa.6.0.i.i.i.i439, %733
+  %734 = add i64 %.sroa.6.0.i.i.i.i510, %733
   %735 = and i64 %734, %701
-  %736 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i436, i64 %735
+  %736 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i507, i64 %735
   %737 = load ptr, ptr %736, align 8, !tbaa !105
   %738 = icmp eq ptr %737, @_ZN4absl13base_internal11FastTypeTagIFiNS_15random_internal26UniformDistributionWrapperIiEESt5tupleIJiiEEEE9dummy_varE
-  br i1 %738, label %.thread29.i.i.i.i453, label %740, !prof !387
+  br i1 %738, label %.thread29.i.i.i.i524, label %740, !prof !387
 
-.thread29.i.i.i.i453:                             ; preds = %.lr.ph.i.i.i.i441
+.thread29.i.i.i.i524:                             ; preds = %.lr.ph.i.i.i.i512
   %739 = getelementptr inbounds nuw i8, ptr %712, i64 %735
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i446
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i517
 
-740:                                              ; preds = %.lr.ph.i.i.i.i441
-  %741 = add i16 %.sroa.015.043.i.i.i.i442, -1
-  %742 = and i16 %741, %.sroa.015.043.i.i.i.i442
-  %.not.i.i.i.i443 = icmp eq i16 %742, 0
-  br i1 %.not.i.i.i.i443, label %._crit_edge.i.i.i.i444, label %.lr.ph.i.i.i.i441
+740:                                              ; preds = %.lr.ph.i.i.i.i512
+  %741 = add i16 %.sroa.015.043.i.i.i.i513, -1
+  %742 = and i16 %741, %.sroa.015.043.i.i.i.i513
+  %.not.i.i.i.i514 = icmp eq i16 %742, 0
+  br i1 %.not.i.i.i.i514, label %._crit_edge.i.i.i.i515, label %.lr.ph.i.i.i.i512
 
-._crit_edge.i.i.i.i444:                           ; preds = %740, %727
+._crit_edge.i.i.i.i515:                           ; preds = %740, %727
   %743 = icmp eq <16 x i8> %729, splat (i8 -128)
   %744 = bitcast <16 x i1> %743 to i16
-  %.not40.i.i.i.i445 = icmp eq i16 %744, 0
-  br i1 %.not40.i.i.i.i445, label %745, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i446, !prof !63
+  %.not40.i.i.i.i516 = icmp eq i16 %744, 0
+  br i1 %.not40.i.i.i.i516, label %745, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i517, !prof !63
 
-745:                                              ; preds = %._crit_edge.i.i.i.i444
-  %746 = add i64 %.sroa.12.0.i.i.i.i438, 16
-  %747 = add i64 %746, %.sroa.6.0.i.i.i.i439
+745:                                              ; preds = %._crit_edge.i.i.i.i515
+  %746 = add i64 %.sroa.12.0.i.i.i.i509, 16
+  %747 = add i64 %746, %.sroa.6.0.i.i.i.i510
   br label %727, !llvm.loop !388
 
-_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i446: ; preds = %._crit_edge.i.i.i.i444, %.thread29.i.i.i.i453
-  %.sroa.0.4.ph.i.i.i.i447 = phi ptr [ %739, %.thread29.i.i.i.i453 ], [ null, %._crit_edge.i.i.i.i444 ]
-  %.sroa.3.4.ph.i.i.i.i448 = phi ptr [ %736, %.thread29.i.i.i.i453 ], [ undef, %._crit_edge.i.i.i.i444 ]
-  %.fca.0.insert.i.i.i.i449 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.4.ph.i.i.i.i447, 0
-  %.fca.1.insert.i.i.i.i450 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i449, ptr %.sroa.3.4.ph.i.i.i.i448, 1
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i451
+_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i517: ; preds = %._crit_edge.i.i.i.i515, %.thread29.i.i.i.i524
+  %.sroa.0.4.ph.i.i.i.i518 = phi ptr [ %739, %.thread29.i.i.i.i524 ], [ null, %._crit_edge.i.i.i.i515 ]
+  %.sroa.3.4.ph.i.i.i.i519 = phi ptr [ %736, %.thread29.i.i.i.i524 ], [ undef, %._crit_edge.i.i.i.i515 ]
+  %.fca.0.insert.i.i.i.i520 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.4.ph.i.i.i.i518, 0
+  %.fca.1.insert.i.i.i.i521 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i520, ptr %.sroa.3.4.ph.i.i.i.i519, 1
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i522
 
-_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i451: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i446, %706, %704
-  %.pn.i.i.i452 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i450, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i446 ], [ { ptr null, ptr undef }, %704 ], [ %spec.select.i.i.i.i456, %706 ]
-  %748 = extractvalue { ptr, ptr } %.pn.i.i.i452, 0
-  %.not515 = icmp eq ptr %748, null
-  br i1 %.not515, label %_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i220, label %749
+_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i522: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i517, %706, %704
+  %.pn.i.i.i523 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i521, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i517 ], [ { ptr null, ptr undef }, %704 ], [ %spec.select.i.i.i.i527, %706 ]
+  %748 = extractvalue { ptr, ptr } %.pn.i.i.i523, 0
+  %.not586 = icmp eq ptr %748, null
+  br i1 %.not586, label %_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i220, label %749
 
-749:                                              ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i451
-  %750 = extractvalue { ptr, ptr } %.pn.i.i.i452, 1
+749:                                              ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i522
+  %750 = extractvalue { ptr, ptr } %.pn.i.i.i523, 1
   %751 = getelementptr inbounds nuw i8, ptr %750, i64 8
   %752 = load ptr, ptr %751, align 8, !tbaa !100
   %753 = load ptr, ptr %752, align 8, !tbaa !16
@@ -83522,7 +83522,7 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit._crit_edge.i.i.i.i228: ; preds = %7
   %.pre6.i.i.i.i229 = load i32, ptr %13, align 4, !tbaa !35
   br label %783
 
-_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i220: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i451
+_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i220: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i522
   %756 = load i64, ptr %90, align 8, !tbaa !31
   %757 = icmp ugt i64 %756, 31
   br i1 %757, label %758, label %765
@@ -83753,16 +83753,16 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i251: ; preds = %_ZNKSt14defa
 
 834:                                              ; preds = %_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i251
   %835 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i100, align 8, !tbaa !99
-  %.not.i.i.i.i.i480 = icmp ult i64 %835, 2
-  br i1 %.not.i.i.i.i.i480, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i477, label %836
+  %.not.i.i.i.i.i551 = icmp ult i64 %835, 2
+  br i1 %.not.i.i.i.i.i551, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i548, label %836
 
 836:                                              ; preds = %834
   %837 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %838 = load ptr, ptr %837, align 8, !tbaa !105
   %839 = icmp eq ptr %838, @_ZN4absl13base_internal11FastTypeTagIFiNS_15random_internal26UniformDistributionWrapperIiEESt5tupleIJiiEEEE9dummy_varE
-  %.fca.1.insert.i.i.i.i.i481 = insertvalue { ptr, ptr } { ptr @_ZN4absl18container_internal11kSooControlE, ptr poison }, ptr %837, 1
-  %spec.select.i.i.i.i482 = select i1 %839, { ptr, ptr } %.fca.1.insert.i.i.i.i.i481, { ptr, ptr } { ptr null, ptr undef }
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i477
+  %.fca.1.insert.i.i.i.i.i552 = insertvalue { ptr, ptr } { ptr @_ZN4absl18container_internal11kSooControlE, ptr poison }, ptr %837, 1
+  %spec.select.i.i.i.i553 = select i1 %839, { ptr, ptr } %.fca.1.insert.i.i.i.i.i552, { ptr, ptr } { ptr null, ptr undef }
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i548
 
 840:                                              ; preds = %_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i251
   %841 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -83782,67 +83782,67 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i251: ; preds = %_ZNKSt14defa
   %854 = insertelement <16 x i8> poison, i8 %853, i64 0
   %855 = shufflevector <16 x i8> %854, <16 x i8> poison, <16 x i32> zeroinitializer
   %856 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i462 = load ptr, ptr %856, align 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i533 = load ptr, ptr %856, align 8
   br label %857
 
 857:                                              ; preds = %875, %840
-  %.pn.i6.i.i.i463 = phi i64 [ %851, %840 ], [ %877, %875 ]
-  %.sroa.12.0.i.i.i.i464 = phi i64 [ 0, %840 ], [ %876, %875 ]
-  %.sroa.6.0.i.i.i.i465 = and i64 %.pn.i6.i.i.i463, %831
-  %858 = getelementptr inbounds nuw i8, ptr %842, i64 %.sroa.6.0.i.i.i.i465
+  %.pn.i6.i.i.i534 = phi i64 [ %851, %840 ], [ %877, %875 ]
+  %.sroa.12.0.i.i.i.i535 = phi i64 [ 0, %840 ], [ %876, %875 ]
+  %.sroa.6.0.i.i.i.i536 = and i64 %.pn.i6.i.i.i534, %831
+  %858 = getelementptr inbounds nuw i8, ptr %842, i64 %.sroa.6.0.i.i.i.i536
   %859 = load <16 x i8>, ptr %858, align 1, !tbaa !14
   %860 = icmp eq <16 x i8> %855, %859
   %861 = bitcast <16 x i1> %860 to i16
-  %.not42.i.i.i.i466 = icmp eq i16 %861, 0
-  br i1 %.not42.i.i.i.i466, label %._crit_edge.i.i.i.i470, label %.lr.ph.i.i.i.i467
+  %.not42.i.i.i.i537 = icmp eq i16 %861, 0
+  br i1 %.not42.i.i.i.i537, label %._crit_edge.i.i.i.i541, label %.lr.ph.i.i.i.i538
 
-.lr.ph.i.i.i.i467:                                ; preds = %857, %870
-  %.sroa.015.043.i.i.i.i468 = phi i16 [ %872, %870 ], [ %861, %857 ]
-  %862 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.015.043.i.i.i.i468, i1 true)
+.lr.ph.i.i.i.i538:                                ; preds = %857, %870
+  %.sroa.015.043.i.i.i.i539 = phi i16 [ %872, %870 ], [ %861, %857 ]
+  %862 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.015.043.i.i.i.i539, i1 true)
   %863 = zext nneg i16 %862 to i64
-  %864 = add i64 %.sroa.6.0.i.i.i.i465, %863
+  %864 = add i64 %.sroa.6.0.i.i.i.i536, %863
   %865 = and i64 %864, %831
-  %866 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i462, i64 %865
+  %866 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i533, i64 %865
   %867 = load ptr, ptr %866, align 8, !tbaa !105
   %868 = icmp eq ptr %867, @_ZN4absl13base_internal11FastTypeTagIFiNS_15random_internal26UniformDistributionWrapperIiEESt5tupleIJiiEEEE9dummy_varE
-  br i1 %868, label %.thread29.i.i.i.i479, label %870, !prof !387
+  br i1 %868, label %.thread29.i.i.i.i550, label %870, !prof !387
 
-.thread29.i.i.i.i479:                             ; preds = %.lr.ph.i.i.i.i467
+.thread29.i.i.i.i550:                             ; preds = %.lr.ph.i.i.i.i538
   %869 = getelementptr inbounds nuw i8, ptr %842, i64 %865
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i472
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i543
 
-870:                                              ; preds = %.lr.ph.i.i.i.i467
-  %871 = add i16 %.sroa.015.043.i.i.i.i468, -1
-  %872 = and i16 %871, %.sroa.015.043.i.i.i.i468
-  %.not.i.i.i.i469 = icmp eq i16 %872, 0
-  br i1 %.not.i.i.i.i469, label %._crit_edge.i.i.i.i470, label %.lr.ph.i.i.i.i467
+870:                                              ; preds = %.lr.ph.i.i.i.i538
+  %871 = add i16 %.sroa.015.043.i.i.i.i539, -1
+  %872 = and i16 %871, %.sroa.015.043.i.i.i.i539
+  %.not.i.i.i.i540 = icmp eq i16 %872, 0
+  br i1 %.not.i.i.i.i540, label %._crit_edge.i.i.i.i541, label %.lr.ph.i.i.i.i538
 
-._crit_edge.i.i.i.i470:                           ; preds = %870, %857
+._crit_edge.i.i.i.i541:                           ; preds = %870, %857
   %873 = icmp eq <16 x i8> %859, splat (i8 -128)
   %874 = bitcast <16 x i1> %873 to i16
-  %.not40.i.i.i.i471 = icmp eq i16 %874, 0
-  br i1 %.not40.i.i.i.i471, label %875, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i472, !prof !63
+  %.not40.i.i.i.i542 = icmp eq i16 %874, 0
+  br i1 %.not40.i.i.i.i542, label %875, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i543, !prof !63
 
-875:                                              ; preds = %._crit_edge.i.i.i.i470
-  %876 = add i64 %.sroa.12.0.i.i.i.i464, 16
-  %877 = add i64 %876, %.sroa.6.0.i.i.i.i465
+875:                                              ; preds = %._crit_edge.i.i.i.i541
+  %876 = add i64 %.sroa.12.0.i.i.i.i535, 16
+  %877 = add i64 %876, %.sroa.6.0.i.i.i.i536
   br label %857, !llvm.loop !388
 
-_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i472: ; preds = %._crit_edge.i.i.i.i470, %.thread29.i.i.i.i479
-  %.sroa.0.4.ph.i.i.i.i473 = phi ptr [ %869, %.thread29.i.i.i.i479 ], [ null, %._crit_edge.i.i.i.i470 ]
-  %.sroa.3.4.ph.i.i.i.i474 = phi ptr [ %866, %.thread29.i.i.i.i479 ], [ undef, %._crit_edge.i.i.i.i470 ]
-  %.fca.0.insert.i.i.i.i475 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.4.ph.i.i.i.i473, 0
-  %.fca.1.insert.i.i.i.i476 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i475, ptr %.sroa.3.4.ph.i.i.i.i474, 1
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i477
+_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i543: ; preds = %._crit_edge.i.i.i.i541, %.thread29.i.i.i.i550
+  %.sroa.0.4.ph.i.i.i.i544 = phi ptr [ %869, %.thread29.i.i.i.i550 ], [ null, %._crit_edge.i.i.i.i541 ]
+  %.sroa.3.4.ph.i.i.i.i545 = phi ptr [ %866, %.thread29.i.i.i.i550 ], [ undef, %._crit_edge.i.i.i.i541 ]
+  %.fca.0.insert.i.i.i.i546 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.4.ph.i.i.i.i544, 0
+  %.fca.1.insert.i.i.i.i547 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i546, ptr %.sroa.3.4.ph.i.i.i.i545, 1
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i548
 
-_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i477: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i472, %836, %834
-  %.pn.i.i.i478 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i476, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i472 ], [ { ptr null, ptr undef }, %834 ], [ %spec.select.i.i.i.i482, %836 ]
-  %878 = extractvalue { ptr, ptr } %.pn.i.i.i478, 0
-  %.not516 = icmp eq ptr %878, null
-  br i1 %.not516, label %_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i255, label %879
+_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i548: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i543, %836, %834
+  %.pn.i.i.i549 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i547, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i543 ], [ { ptr null, ptr undef }, %834 ], [ %spec.select.i.i.i.i553, %836 ]
+  %878 = extractvalue { ptr, ptr } %.pn.i.i.i549, 0
+  %.not587 = icmp eq ptr %878, null
+  br i1 %.not587, label %_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i255, label %879
 
-879:                                              ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i477
-  %880 = extractvalue { ptr, ptr } %.pn.i.i.i478, 1
+879:                                              ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i548
+  %880 = extractvalue { ptr, ptr } %.pn.i.i.i549, 1
   %881 = getelementptr inbounds nuw i8, ptr %880, i64 8
   %882 = load ptr, ptr %881, align 8, !tbaa !100
   %883 = load ptr, ptr %882, align 8, !tbaa !16
@@ -83855,7 +83855,7 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit._crit_edge.i.i.i.i263: ; preds = %8
   %.pre6.i.i.i.i264 = load i32, ptr %11, align 4, !tbaa !35
   br label %913
 
-_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i255: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i477
+_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i255: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i548
   %886 = load i64, ptr %81, align 8, !tbaa !31
   %887 = icmp ugt i64 %886, 31
   br i1 %887, label %888, label %895
@@ -84086,16 +84086,16 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i287: ; preds = %_ZNKSt14defa
 
 963:                                              ; preds = %_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i287
   %964 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i103, align 8, !tbaa !99
-  %.not.i.i.i.i.i506 = icmp ult i64 %964, 2
-  br i1 %.not.i.i.i.i.i506, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i503, label %965
+  %.not.i.i.i.i.i577 = icmp ult i64 %964, 2
+  br i1 %.not.i.i.i.i.i577, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i574, label %965
 
 965:                                              ; preds = %963
   %966 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %967 = load ptr, ptr %966, align 8, !tbaa !105
   %968 = icmp eq ptr %967, @_ZN4absl13base_internal11FastTypeTagIFiNS_15random_internal26UniformDistributionWrapperIiEESt5tupleIJiiEEEE9dummy_varE
-  %.fca.1.insert.i.i.i.i.i507 = insertvalue { ptr, ptr } { ptr @_ZN4absl18container_internal11kSooControlE, ptr poison }, ptr %966, 1
-  %spec.select.i.i.i.i508 = select i1 %968, { ptr, ptr } %.fca.1.insert.i.i.i.i.i507, { ptr, ptr } { ptr null, ptr undef }
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i503
+  %.fca.1.insert.i.i.i.i.i578 = insertvalue { ptr, ptr } { ptr @_ZN4absl18container_internal11kSooControlE, ptr poison }, ptr %966, 1
+  %spec.select.i.i.i.i579 = select i1 %968, { ptr, ptr } %.fca.1.insert.i.i.i.i.i578, { ptr, ptr } { ptr null, ptr undef }
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i574
 
 969:                                              ; preds = %_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i287
   %970 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -84115,67 +84115,67 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i287: ; preds = %_ZNKSt14defa
   %983 = insertelement <16 x i8> poison, i8 %982, i64 0
   %984 = shufflevector <16 x i8> %983, <16 x i8> poison, <16 x i32> zeroinitializer
   %985 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i488 = load ptr, ptr %985, align 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i559 = load ptr, ptr %985, align 8
   br label %986
 
 986:                                              ; preds = %1004, %969
-  %.pn.i6.i.i.i489 = phi i64 [ %980, %969 ], [ %1006, %1004 ]
-  %.sroa.12.0.i.i.i.i490 = phi i64 [ 0, %969 ], [ %1005, %1004 ]
-  %.sroa.6.0.i.i.i.i491 = and i64 %.pn.i6.i.i.i489, %960
-  %987 = getelementptr inbounds nuw i8, ptr %971, i64 %.sroa.6.0.i.i.i.i491
+  %.pn.i6.i.i.i560 = phi i64 [ %980, %969 ], [ %1006, %1004 ]
+  %.sroa.12.0.i.i.i.i561 = phi i64 [ 0, %969 ], [ %1005, %1004 ]
+  %.sroa.6.0.i.i.i.i562 = and i64 %.pn.i6.i.i.i560, %960
+  %987 = getelementptr inbounds nuw i8, ptr %971, i64 %.sroa.6.0.i.i.i.i562
   %988 = load <16 x i8>, ptr %987, align 1, !tbaa !14
   %989 = icmp eq <16 x i8> %984, %988
   %990 = bitcast <16 x i1> %989 to i16
-  %.not42.i.i.i.i492 = icmp eq i16 %990, 0
-  br i1 %.not42.i.i.i.i492, label %._crit_edge.i.i.i.i496, label %.lr.ph.i.i.i.i493
+  %.not42.i.i.i.i563 = icmp eq i16 %990, 0
+  br i1 %.not42.i.i.i.i563, label %._crit_edge.i.i.i.i567, label %.lr.ph.i.i.i.i564
 
-.lr.ph.i.i.i.i493:                                ; preds = %986, %999
-  %.sroa.015.043.i.i.i.i494 = phi i16 [ %1001, %999 ], [ %990, %986 ]
-  %991 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.015.043.i.i.i.i494, i1 true)
+.lr.ph.i.i.i.i564:                                ; preds = %986, %999
+  %.sroa.015.043.i.i.i.i565 = phi i16 [ %1001, %999 ], [ %990, %986 ]
+  %991 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.015.043.i.i.i.i565, i1 true)
   %992 = zext nneg i16 %991 to i64
-  %993 = add i64 %.sroa.6.0.i.i.i.i491, %992
+  %993 = add i64 %.sroa.6.0.i.i.i.i562, %992
   %994 = and i64 %993, %960
-  %995 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i488, i64 %994
+  %995 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i559, i64 %994
   %996 = load ptr, ptr %995, align 8, !tbaa !105
   %997 = icmp eq ptr %996, @_ZN4absl13base_internal11FastTypeTagIFiNS_15random_internal26UniformDistributionWrapperIiEESt5tupleIJiiEEEE9dummy_varE
-  br i1 %997, label %.thread29.i.i.i.i505, label %999, !prof !387
+  br i1 %997, label %.thread29.i.i.i.i576, label %999, !prof !387
 
-.thread29.i.i.i.i505:                             ; preds = %.lr.ph.i.i.i.i493
+.thread29.i.i.i.i576:                             ; preds = %.lr.ph.i.i.i.i564
   %998 = getelementptr inbounds nuw i8, ptr %971, i64 %994
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i498
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i569
 
-999:                                              ; preds = %.lr.ph.i.i.i.i493
-  %1000 = add i16 %.sroa.015.043.i.i.i.i494, -1
-  %1001 = and i16 %1000, %.sroa.015.043.i.i.i.i494
-  %.not.i.i.i.i495 = icmp eq i16 %1001, 0
-  br i1 %.not.i.i.i.i495, label %._crit_edge.i.i.i.i496, label %.lr.ph.i.i.i.i493
+999:                                              ; preds = %.lr.ph.i.i.i.i564
+  %1000 = add i16 %.sroa.015.043.i.i.i.i565, -1
+  %1001 = and i16 %1000, %.sroa.015.043.i.i.i.i565
+  %.not.i.i.i.i566 = icmp eq i16 %1001, 0
+  br i1 %.not.i.i.i.i566, label %._crit_edge.i.i.i.i567, label %.lr.ph.i.i.i.i564
 
-._crit_edge.i.i.i.i496:                           ; preds = %999, %986
+._crit_edge.i.i.i.i567:                           ; preds = %999, %986
   %1002 = icmp eq <16 x i8> %988, splat (i8 -128)
   %1003 = bitcast <16 x i1> %1002 to i16
-  %.not40.i.i.i.i497 = icmp eq i16 %1003, 0
-  br i1 %.not40.i.i.i.i497, label %1004, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i498, !prof !63
+  %.not40.i.i.i.i568 = icmp eq i16 %1003, 0
+  br i1 %.not40.i.i.i.i568, label %1004, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i569, !prof !63
 
-1004:                                             ; preds = %._crit_edge.i.i.i.i496
-  %1005 = add i64 %.sroa.12.0.i.i.i.i490, 16
-  %1006 = add i64 %1005, %.sroa.6.0.i.i.i.i491
+1004:                                             ; preds = %._crit_edge.i.i.i.i567
+  %1005 = add i64 %.sroa.12.0.i.i.i.i561, 16
+  %1006 = add i64 %1005, %.sroa.6.0.i.i.i.i562
   br label %986, !llvm.loop !388
 
-_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i498: ; preds = %._crit_edge.i.i.i.i496, %.thread29.i.i.i.i505
-  %.sroa.0.4.ph.i.i.i.i499 = phi ptr [ %998, %.thread29.i.i.i.i505 ], [ null, %._crit_edge.i.i.i.i496 ]
-  %.sroa.3.4.ph.i.i.i.i500 = phi ptr [ %995, %.thread29.i.i.i.i505 ], [ undef, %._crit_edge.i.i.i.i496 ]
-  %.fca.0.insert.i.i.i.i501 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.4.ph.i.i.i.i499, 0
-  %.fca.1.insert.i.i.i.i502 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i501, ptr %.sroa.3.4.ph.i.i.i.i500, 1
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i503
+_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i569: ; preds = %._crit_edge.i.i.i.i567, %.thread29.i.i.i.i576
+  %.sroa.0.4.ph.i.i.i.i570 = phi ptr [ %998, %.thread29.i.i.i.i576 ], [ null, %._crit_edge.i.i.i.i567 ]
+  %.sroa.3.4.ph.i.i.i.i571 = phi ptr [ %995, %.thread29.i.i.i.i576 ], [ undef, %._crit_edge.i.i.i.i567 ]
+  %.fca.0.insert.i.i.i.i572 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.4.ph.i.i.i.i570, 0
+  %.fca.1.insert.i.i.i.i573 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i572, ptr %.sroa.3.4.ph.i.i.i.i571, 1
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i574
 
-_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i503: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i498, %965, %963
-  %.pn.i.i.i504 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i502, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i498 ], [ { ptr null, ptr undef }, %963 ], [ %spec.select.i.i.i.i508, %965 ]
-  %1007 = extractvalue { ptr, ptr } %.pn.i.i.i504, 0
-  %.not517 = icmp eq ptr %1007, null
-  br i1 %.not517, label %_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i291, label %1008
+_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i574: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i569, %965, %963
+  %.pn.i.i.i575 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i573, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i.i569 ], [ { ptr null, ptr undef }, %963 ], [ %spec.select.i.i.i.i579, %965 ]
+  %1007 = extractvalue { ptr, ptr } %.pn.i.i.i575, 0
+  %.not588 = icmp eq ptr %1007, null
+  br i1 %.not588, label %_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i291, label %1008
 
-1008:                                             ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i503
-  %1009 = extractvalue { ptr, ptr } %.pn.i.i.i504, 1
+1008:                                             ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i574
+  %1009 = extractvalue { ptr, ptr } %.pn.i.i.i575, 1
   %1010 = getelementptr inbounds nuw i8, ptr %1009, i64 8
   %1011 = load ptr, ptr %1010, align 8, !tbaa !100
   %1012 = load ptr, ptr %1011, align 8, !tbaa !16
@@ -84188,7 +84188,7 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit._crit_edge.i.i.i.i299: ; preds = %1
   %.pre6.i.i.i.i300 = load i32, ptr %9, align 4, !tbaa !35
   br label %1042
 
-_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i291: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i503
+_ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i291: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i.i574
   %1015 = load i64, ptr %90, align 8, !tbaa !31
   %1016 = icmp ugt i64 %1015, 31
   br i1 %1016, label %1017, label %1024
@@ -85593,10 +85593,10 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %107, %_ZNKSt14defau
 
 .thread:                                          ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   %123 = add nuw nsw i32 %.074, 1
-  %exitcond.not75 = icmp eq i32 %123, 10000
-  br i1 %exitcond.not75, label %.thread76, label %.backedge.backedge
+  %exitcond.not94 = icmp eq i32 %123, 10000
+  br i1 %exitcond.not94, label %.thread95, label %.backedge.backedge
 
-.thread76:                                        ; preds = %.thread
+.thread95:                                        ; preds = %.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %124 = getelementptr inbounds nuw i8, ptr %15, i64 8
   br label %_ZN7testing15AssertionResultD2Ev.exit64
@@ -85757,8 +85757,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef 32) #35
   br label %_ZN7testing15AssertionResultD2Ev.exit64
 
-_ZN7testing15AssertionResultD2Ev.exit64:          ; preds = %.thread76, %54, %167, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i62
-  %177 = phi ptr [ %124, %.thread76 ], [ %57, %54 ], [ %57, %167 ], [ %57, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i62 ]
+_ZN7testing15AssertionResultD2Ev.exit64:          ; preds = %.thread95, %54, %167, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i62
+  %177 = phi ptr [ %124, %.thread95 ], [ %57, %54 ], [ %57, %167 ], [ %57, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i62 ]
   store ptr null, ptr %177, align 8, !tbaa !47
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %178 = load i64, ptr %6, align 8, !tbaa !97

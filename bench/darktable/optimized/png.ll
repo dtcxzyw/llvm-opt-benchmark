@@ -322,9 +322,9 @@ PNGwriteRawProfile.exit:                          ; preds = %80, %134
   br label %149
 
 149:                                              ; preds = %137, %148, %147, %146, %145, %144, %143, %142, %141
-  %.sink97 = phi i8 [ 12, %148 ], [ 12, %147 ], [ 12, %146 ], [ 9, %145 ], [ 9, %144 ], [ 9, %143 ], [ 1, %142 ], [ 1, %141 ], [ 1, %137 ]
+  %.sink109 = phi i8 [ 12, %148 ], [ 12, %147 ], [ 12, %146 ], [ 9, %145 ], [ 9, %144 ], [ 9, %143 ], [ 1, %142 ], [ 1, %141 ], [ 1, %137 ]
   %.sink = phi i8 [ 13, %148 ], [ 18, %147 ], [ 16, %146 ], [ 18, %145 ], [ 16, %144 ], [ 8, %143 ], [ 8, %142 ], [ 1, %141 ], [ 13, %137 ]
-  store i8 %.sink97, ptr %17, align 4, !tbaa !24
+  store i8 %.sink109, ptr %17, align 4, !tbaa !24
   %150 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 %.sink, ptr %150, align 1, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %18)

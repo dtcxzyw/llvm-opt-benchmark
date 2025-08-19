@@ -625,7 +625,7 @@ initSomState.exit:                                ; preds = %2, %13, %24
   %65 = ptrtoint ptr %.ptr157 to i64
   %66 = and i64 %65, 15
   %.not.i34 = icmp eq i64 %66, 0
-  br i1 %.not.i34, label %.preheader228, label %67
+  br i1 %.not.i34, label %.preheader248, label %67
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds i8, ptr %.ptr157, i64 -16
@@ -646,20 +646,20 @@ initSomState.exit:                                ; preds = %2, %13, %24
 
 78:                                               ; preds = %67
   %.add155 = sub nuw nsw i64 %52, %66
-  br label %.preheader228
+  br label %.preheader248
 
-.preheader228:                                    ; preds = %78, %64
+.preheader248:                                    ; preds = %78, %64
   %.014.i73.idx.ph = phi i64 [ %52, %64 ], [ %.add155, %78 ]
   br label %79
 
-79:                                               ; preds = %.preheader228, %81
-  %.014.i73.idx = phi i64 [ %.014.i73.add, %81 ], [ %.014.i73.idx.ph, %.preheader228 ]
+79:                                               ; preds = %.preheader248, %81
+  %.014.i73.idx = phi i64 [ %.014.i73.add, %81 ], [ %.014.i73.idx.ph, %.preheader248 ]
   %80 = icmp sgt i64 %.014.i73.idx, 15
   br i1 %80, label %81, label %91
 
 81:                                               ; preds = %79
   %.014.i73.add = add nsw i64 %.014.i73.idx, -16
-  %.ptr156 = getelementptr inbounds i8, ptr %37, i64 %.014.i73.add
+  %.ptr156 = getelementptr inbounds nuw i8, ptr %37, i64 %.014.i73.add
   call void @llvm.assume(i1 true) [ "align"(ptr %.ptr156, i64 16) ]
   %82 = load <16 x i8>, ptr %.ptr156, align 16
   %83 = icmp eq <16 x i8> %58, %82
@@ -742,7 +742,7 @@ rvermicelliExec.exit:                             ; preds = %.preheader, %61, %r
   %126 = ptrtoint ptr %.ptr153 to i64
   %127 = and i64 %126, 15
   %.not.i37 = icmp eq i64 %127, 0
-  br i1 %.not.i37, label %.preheader230, label %128
+  br i1 %.not.i37, label %.preheader250, label %128
 
 128:                                              ; preds = %125
   %129 = getelementptr inbounds i8, ptr %.ptr153, i64 -16
@@ -764,20 +764,20 @@ rvermicelliExec.exit:                             ; preds = %.preheader, %61, %r
 
 140:                                              ; preds = %128
   %.add151 = sub nuw nsw i64 %112, %127
-  br label %.preheader230
+  br label %.preheader250
 
-.preheader230:                                    ; preds = %140, %125
+.preheader250:                                    ; preds = %140, %125
   %.015.i.idx.ph = phi i64 [ %112, %125 ], [ %.add151, %140 ]
   br label %141
 
-141:                                              ; preds = %.preheader230, %143
-  %.015.i.idx = phi i64 [ %.015.i.add, %143 ], [ %.015.i.idx.ph, %.preheader230 ]
+141:                                              ; preds = %.preheader250, %143
+  %.015.i.idx = phi i64 [ %.015.i.add, %143 ], [ %.015.i.idx.ph, %.preheader250 ]
   %142 = icmp sgt i64 %.015.i.idx, 15
   br i1 %142, label %143, label %154
 
 143:                                              ; preds = %141
   %.015.i.add = add nsw i64 %.015.i.idx, -16
-  %.ptr152 = getelementptr inbounds i8, ptr %37, i64 %.015.i.add
+  %.ptr152 = getelementptr inbounds nuw i8, ptr %37, i64 %.015.i.add
   call void @llvm.assume(i1 true) [ "align"(ptr %.ptr152, i64 16) ]
   %144 = load <16 x i8>, ptr %.ptr152, align 16
   %145 = and <16 x i8> %144, splat (i8 -33)
@@ -849,7 +849,7 @@ rvermicelliExec.exit50:                           ; preds = %.preheader166, %121
   %187 = ptrtoint ptr %.ptr149 to i64
   %188 = and i64 %187, 15
   %.not.i51 = icmp eq i64 %188, 0
-  br i1 %.not.i51, label %.preheader233, label %189
+  br i1 %.not.i51, label %.preheader253, label %189
 
 189:                                              ; preds = %178
   %190 = getelementptr inbounds i8, ptr %.ptr149, i64 -16
@@ -877,21 +877,21 @@ rdvermPrecondition.exit:                          ; preds = %189
   %.add147 = sub nuw nsw i64 %176, %188
   %.ptr150 = getelementptr inbounds i8, ptr %37, i64 %.add147
   %.not41.i = icmp sgt i64 %176, %188
-  br i1 %.not41.i, label %.preheader233, label %rvermicelliDoubleExec.exit
+  br i1 %.not41.i, label %.preheader253, label %rvermicelliDoubleExec.exit
 
-.preheader233:                                    ; preds = %rdvermPrecondition.exit, %178
+.preheader253:                                    ; preds = %rdvermPrecondition.exit, %178
   %.020.i84.idx.ph = phi i64 [ %176, %178 ], [ %.add147, %rdvermPrecondition.exit ]
   br label %205
 
-205:                                              ; preds = %.preheader233, %221
-  %.020.i84.idx = phi i64 [ %.020.i84.add, %221 ], [ %.020.i84.idx.ph, %.preheader233 ]
+205:                                              ; preds = %.preheader253, %221
+  %.020.i84.idx = phi i64 [ %.020.i84.add, %221 ], [ %.020.i84.idx.ph, %.preheader253 ]
   %.020.i84.ptr = getelementptr inbounds i8, ptr %37, i64 %.020.i84.idx
   %206 = icmp sgt i64 %.020.i84.idx, 16
   br i1 %206, label %207, label %rvermicelliDoubleExec.exit
 
 207:                                              ; preds = %205
   %.020.i84.add = add nsw i64 %.020.i84.idx, -16
-  %.ptr148 = getelementptr inbounds i8, ptr %37, i64 %.020.i84.add
+  %.ptr148 = getelementptr inbounds nuw i8, ptr %37, i64 %.020.i84.add
   call void @llvm.assume(i1 true) [ "align"(ptr %.ptr148, i64 16) ]
   %208 = load <16 x i8>, ptr %.ptr148, align 16
   %209 = icmp eq <16 x i8> %186, %208
@@ -957,7 +957,7 @@ rvermicelliDoubleExec.exit:                       ; preds = %205, %.thread122, %
   %248 = ptrtoint ptr %.ptr145 to i64
   %249 = and i64 %248, 15
   %.not.i54 = icmp eq i64 %249, 0
-  br i1 %.not.i54, label %.preheader239, label %250
+  br i1 %.not.i54, label %.preheader259, label %250
 
 250:                                              ; preds = %239
   %251 = getelementptr inbounds i8, ptr %.ptr145, i64 -16
@@ -986,21 +986,21 @@ rdvermPreconditionNocase.exit:                    ; preds = %250
   %.add = sub nuw nsw i64 %237, %249
   %.ptr146 = getelementptr inbounds i8, ptr %37, i64 %.add
   %.not41.i56 = icmp sgt i64 %237, %249
-  br i1 %.not41.i56, label %.preheader239, label %rvermicelliDoubleExec.exit62
+  br i1 %.not41.i56, label %.preheader259, label %rvermicelliDoubleExec.exit62
 
-.preheader239:                                    ; preds = %rdvermPreconditionNocase.exit, %239
+.preheader259:                                    ; preds = %rdvermPreconditionNocase.exit, %239
   %.022.i.idx.ph = phi i64 [ %237, %239 ], [ %.add, %rdvermPreconditionNocase.exit ]
   br label %267
 
-267:                                              ; preds = %.preheader239, %286
-  %.022.i.idx = phi i64 [ %.022.i.add, %286 ], [ %.022.i.idx.ph, %.preheader239 ]
+267:                                              ; preds = %.preheader259, %286
+  %.022.i.idx = phi i64 [ %.022.i.add, %286 ], [ %.022.i.idx.ph, %.preheader259 ]
   %.022.i.ptr = getelementptr inbounds i8, ptr %37, i64 %.022.i.idx
   %268 = icmp sgt i64 %.022.i.idx, 16
   br i1 %268, label %269, label %rvermicelliDoubleExec.exit62
 
 269:                                              ; preds = %267
   %.022.i.add = add nsw i64 %.022.i.idx, -16
-  %.ptr = getelementptr inbounds i8, ptr %37, i64 %.022.i.add
+  %.ptr = getelementptr inbounds nuw i8, ptr %37, i64 %.022.i.add
   call void @llvm.assume(i1 true) [ "align"(ptr %.ptr, i64 16) ]
   %270 = load <16 x i8>, ptr %.ptr, align 16
   %271 = and <16 x i8> %270, splat (i8 -33)
@@ -1018,8 +1018,8 @@ rdvermPreconditionNocase.exit:                    ; preds = %250
   %283 = extractelement <16 x i8> %270, i64 0
   %284 = and i8 %283, -33
   %285 = icmp eq i8 %284, %243
-  %or.cond214 = select i1 %282, i1 %285, i1 false
-  br i1 %or.cond214, label %.thread139.split.loop.exit172, label %286
+  %or.cond234 = select i1 %282, i1 %285, i1 false
+  br i1 %or.cond234, label %.thread139.split.loop.exit172, label %286
 
 286:                                              ; preds = %269
   %.not.i82 = icmp eq i16 %278, 0
@@ -1687,7 +1687,7 @@ validScratch.exit:                                ; preds = %28
 
 131:                                              ; preds = %.lr.ph
   %132 = getelementptr inbounds nuw i8, ptr %.013.i86, i64 8
-  %133 = add i32 %.012.i87, -64
+  %133 = add nsw i32 %.012.i87, -64
   %134 = icmp ugt i32 %133, 64
   br i1 %134, label %.lr.ph, label %.preheader
 
@@ -1700,7 +1700,7 @@ validScratch.exit:                                ; preds = %28
 
 136:                                              ; preds = %.lr.ph91
   %137 = getelementptr inbounds nuw i8, ptr %.114.i89, i64 1
-  %138 = add i32 %.1.i90, -8
+  %138 = add nsw i32 %.1.i90, -8
   %139 = icmp ugt i32 %138, 8
   br i1 %139, label %.lr.ph91, label %isAllExhausted.exit
 
@@ -2145,7 +2145,7 @@ define internal fastcc range(i32 -13, 1) i32 @hs_scan_stream_internal(ptr nounde
 
 113:                                              ; preds = %.lr.ph201
   %114 = getelementptr inbounds nuw i8, ptr %.013.i.i199, i64 8
-  %115 = add i32 %.012.i.i200, -64
+  %115 = add nsw i32 %.012.i.i200, -64
   %116 = icmp ugt i32 %115, 64
   br i1 %116, label %.lr.ph201, label %.preheader
 
@@ -2158,7 +2158,7 @@ define internal fastcc range(i32 -13, 1) i32 @hs_scan_stream_internal(ptr nounde
 
 118:                                              ; preds = %.lr.ph206
   %119 = getelementptr inbounds nuw i8, ptr %.114.i.i204, i64 1
-  %120 = add i32 %.1.i.i205, -8
+  %120 = add nsw i32 %.1.i.i205, -8
   %121 = icmp ugt i32 %120, 8
   br i1 %121, label %.lr.ph206, label %isAllExhausted.exit.i
 
@@ -2405,7 +2405,7 @@ partial_load_u64a.exit:                           ; preds = %167, %187, %189, %2
 
 259:                                              ; preds = %.lr.ph
   %260 = getelementptr inbounds nuw i8, ptr %.013.i.i102191, i64 8
-  %261 = add i32 %.012.i.i103192, -64
+  %261 = add nsw i32 %.012.i.i103192, -64
   %262 = icmp ugt i32 %261, 64
   br i1 %262, label %.lr.ph, label %.preheader175
 
@@ -2418,7 +2418,7 @@ partial_load_u64a.exit:                           ; preds = %167, %187, %189, %2
 
 264:                                              ; preds = %.lr.ph196
   %265 = getelementptr inbounds nuw i8, ptr %.114.i.i104194, i64 1
-  %266 = add i32 %.1.i.i105195, -8
+  %266 = add nsw i32 %.1.i.i105195, -8
   %267 = icmp ugt i32 %266, 8
   br i1 %267, label %.lr.ph196, label %isAllExhausted.exit.i108
 
@@ -2849,7 +2849,7 @@ validScratch.exit:                                ; preds = %24
 
 127:                                              ; preds = %.lr.ph
   %128 = getelementptr inbounds nuw i8, ptr %.013.i68, i64 8
-  %129 = add i32 %.012.i69, -64
+  %129 = add nsw i32 %.012.i69, -64
   %130 = icmp ugt i32 %129, 64
   br i1 %130, label %.lr.ph, label %.preheader
 
@@ -2862,7 +2862,7 @@ validScratch.exit:                                ; preds = %24
 
 132:                                              ; preds = %.lr.ph73
   %133 = getelementptr inbounds nuw i8, ptr %.114.i71, i64 1
-  %134 = add i32 %.1.i72, -8
+  %134 = add nsw i32 %.1.i72, -8
   %135 = icmp ugt i32 %134, 8
   br i1 %135, label %.lr.ph73, label %isAllExhausted.exit
 
@@ -3269,7 +3269,7 @@ validScratch.exit:                                ; preds = %25
 
 128:                                              ; preds = %.lr.ph
   %129 = getelementptr inbounds nuw i8, ptr %.013.i76, i64 8
-  %130 = add i32 %.012.i77, -64
+  %130 = add nsw i32 %.012.i77, -64
   %131 = icmp ugt i32 %130, 64
   br i1 %131, label %.lr.ph, label %.preheader
 
@@ -3282,7 +3282,7 @@ validScratch.exit:                                ; preds = %25
 
 133:                                              ; preds = %.lr.ph81
   %134 = getelementptr inbounds nuw i8, ptr %.114.i79, i64 1
-  %135 = add i32 %.1.i80, -8
+  %135 = add nsw i32 %.1.i80, -8
   %136 = icmp ugt i32 %135, 8
   br i1 %136, label %.lr.ph81, label %isAllExhausted.exit
 
@@ -3837,7 +3837,7 @@ initSomState.exit:                                ; preds = %init_stream.exit, %
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %126 = load i32, ptr %125, align 4
-  %127 = tail call fastcc i32 @hs_scan_stream_internal(ptr noundef nonnull %42, ptr noundef %124, i32 noundef %126, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %127 = tail call fastcc i32 @hs_scan_stream_internal(ptr noundef nonnull %42, ptr noundef %124, i32 noundef %126, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %7)
   %.not56 = icmp eq i32 %127, 0
   br i1 %.not56, label %122, label %markScratchInUse.exit.sink.split
 
@@ -4028,7 +4028,7 @@ initSomState.exit:                                ; preds = %init_stream.exit, %
 
 221:                                              ; preds = %.lr.ph130
   %222 = getelementptr inbounds nuw i8, ptr %.013.i128, i64 8
-  %223 = add i32 %.012.i129, -64
+  %223 = add nsw i32 %.012.i129, -64
   %224 = icmp ugt i32 %223, 64
   br i1 %224, label %.lr.ph130, label %.preheader
 
@@ -4041,7 +4041,7 @@ initSomState.exit:                                ; preds = %init_stream.exit, %
 
 226:                                              ; preds = %.lr.ph134
   %227 = getelementptr inbounds nuw i8, ptr %.114.i132, i64 1
-  %228 = add i32 %.1.i133, -8
+  %228 = add nsw i32 %.1.i133, -8
   %229 = icmp ugt i32 %228, 8
   br i1 %229, label %.lr.ph134, label %isAllExhausted.exit
 
@@ -4128,7 +4128,7 @@ isAllExhausted.exit:                              ; preds = %226, %.preheader
 
 isAllExhausted.exit.thread:                       ; preds = %.lr.ph130, %.lr.ph134, %261, %256, %206, %isAllExhausted.exit
   %274 = load i64, ptr %53, align 8
-  tail call void @roseStreamEodExec(ptr noundef %.val, i64 noundef %274, ptr noundef %5) #13
+  tail call void @roseStreamEodExec(ptr noundef %.val, i64 noundef %274, ptr noundef nonnull %5) #13
   br label %rawEodExec.exit
 
 275:                                              ; preds = %200
@@ -4554,7 +4554,7 @@ validScratch.exit:                                ; preds = %26
 
 129:                                              ; preds = %.lr.ph
   %130 = getelementptr inbounds nuw i8, ptr %.013.i75, i64 8
-  %131 = add i32 %.012.i76, -64
+  %131 = add nsw i32 %.012.i76, -64
   %132 = icmp ugt i32 %131, 64
   br i1 %132, label %.lr.ph, label %.preheader
 
@@ -4567,7 +4567,7 @@ validScratch.exit:                                ; preds = %26
 
 134:                                              ; preds = %.lr.ph80
   %135 = getelementptr inbounds nuw i8, ptr %.114.i78, i64 1
-  %136 = add i32 %.1.i79, -8
+  %136 = add nsw i32 %.1.i79, -8
   %137 = icmp ugt i32 %136, 8
   br i1 %137, label %.lr.ph80, label %isAllExhausted.exit
 
@@ -4824,7 +4824,7 @@ define internal fastcc void @soleOutfixEodExec(ptr %.0.val, ptr noundef %0) unna
 
 21:                                               ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.013.i28, i64 8
-  %23 = add i32 %.012.i29, -64
+  %23 = add nsw i32 %.012.i29, -64
   %24 = icmp ugt i32 %23, 64
   br i1 %24, label %.lr.ph, label %.preheader
 
@@ -4837,7 +4837,7 @@ define internal fastcc void @soleOutfixEodExec(ptr %.0.val, ptr noundef %0) unna
 
 26:                                               ; preds = %.lr.ph33
   %27 = getelementptr inbounds nuw i8, ptr %.114.i31, i64 1
-  %28 = add i32 %.1.i32, -8
+  %28 = add nsw i32 %.1.i32, -8
   %29 = icmp ugt i32 %28, 8
   br i1 %29, label %.lr.ph33, label %isAllExhausted.exit
 

@@ -167,13 +167,13 @@ find_palette.exit.i:                              ; preds = %.lr.ph.i.i, %.threa
   %75 = add nsw i32 %69, -128
   %76 = add nsw i32 %66, -128
   %..i = select i1 %or.cond.i, i32 1836, i32 1634
-  %.70.i = select i1 %or.cond.i, i32 -218, i32 -401
-  %.71.i = select i1 %or.cond.i, i32 -546, i32 -832
-  %.72.i = select i1 %or.cond.i, i32 2163, i32 2066
+  %.72.i = select i1 %or.cond.i, i32 -218, i32 -401
+  %.73.i = select i1 %or.cond.i, i32 -546, i32 -832
+  %.74.i = select i1 %or.cond.i, i32 2163, i32 2066
   %77 = mul nsw i32 %..i, %76
-  %78 = mul nsw i32 %.70.i, %75
-  %.neg.i = mul nsw i32 %.71.i, %76
-  %79 = mul nsw i32 %.72.i, %75
+  %78 = mul nsw i32 %.72.i, %75
+  %.neg.i = mul nsw i32 %.73.i, %76
+  %79 = mul nsw i32 %.74.i, %75
   %80 = mul nuw nsw i32 %63, 1192
   %.044.i = add nsw i32 %80, -18560
   %81 = add nsw i32 %77, %.044.i
@@ -453,8 +453,8 @@ flush_cache.exit.i:                               ; preds = %228, %223
   br i1 %.not55.i, label %.lr.ph.i54, label %.thread
 
 251:                                              ; preds = %237
-  %.not84.i = icmp eq i8 %244, 0
-  br i1 %.not84.i, label %parse_palette_segment.exit, label %.lr.ph.i54
+  %.not86.i = icmp eq i8 %244, 0
+  br i1 %.not86.i, label %parse_palette_segment.exit, label %.lr.ph.i54
 
 .lr.ph.i54:                                       ; preds = %251, %248
   %252 = phi i32 [ %245, %251 ], [ 2, %248 ]

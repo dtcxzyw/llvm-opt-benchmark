@@ -4987,7 +4987,7 @@ _ZNK8QuantLib13UnitOfMeasure4codeB5cxx11Ev.exit:  ; preds = %_ZNK8QuantLib8Curre
   %basisOfCurve_ = getelementptr inbounds nuw i8, ptr %curve, i64 256
   %10 = load ptr, ptr %basisOfCurve_, align 8, !tbaa !104
   %cmp.i.not = icmp eq ptr %10, null
-  br i1 %cmp.i.not, label %common.ret25, label %if.then
+  br i1 %cmp.i.not, label %common.ret27, label %if.then
 
 if.then:                                          ; preds = %_ZNK8QuantLib13UnitOfMeasure4codeB5cxx11Ev.exit
   %call1.i22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.11, i64 noundef 12)
@@ -5000,15 +5000,15 @@ cond.false.i:                                     ; preds = %if.then
   %.pre.i = load ptr, ptr %basisOfCurve_, align 8, !tbaa !104
   br label %_ZNK5boost10shared_ptrIN8QuantLib14CommodityCurveEEdeEv.exit
 
-common.ret25:                                     ; preds = %_ZNK8QuantLib13UnitOfMeasure4codeB5cxx11Ev.exit, %_ZNK5boost10shared_ptrIN8QuantLib14CommodityCurveEEdeEv.exit
-  %common.ret25.op = phi ptr [ %out, %_ZNK5boost10shared_ptrIN8QuantLib14CommodityCurveEEdeEv.exit ], [ %out, %_ZNK8QuantLib13UnitOfMeasure4codeB5cxx11Ev.exit ]
-  ret ptr %common.ret25.op
+common.ret27:                                     ; preds = %_ZNK8QuantLib13UnitOfMeasure4codeB5cxx11Ev.exit, %_ZNK5boost10shared_ptrIN8QuantLib14CommodityCurveEEdeEv.exit
+  %common.ret27.op = phi ptr [ %out, %_ZNK5boost10shared_ptrIN8QuantLib14CommodityCurveEEdeEv.exit ], [ %out, %_ZNK8QuantLib13UnitOfMeasure4codeB5cxx11Ev.exit ]
+  ret ptr %common.ret27.op
 
 _ZNK5boost10shared_ptrIN8QuantLib14CommodityCurveEEdeEv.exit: ; preds = %if.then, %cond.false.i
   %12 = phi ptr [ %11, %if.then ], [ %.pre.i, %cond.false.i ]
   %call13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLiblsERSoRKNS_14CommodityCurveE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(280) %12)
   %call1.i24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.6, i64 noundef 1)
-  br label %common.ret25
+  br label %common.ret27
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -6546,13 +6546,13 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store double 0.000000e+00, ptr %0, align 8, !tbaa !83
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 3
-  %4 = add i64 %3, -8
+  %3 = shl nuw nsw i64 %__n, 3
+  %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !83
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i

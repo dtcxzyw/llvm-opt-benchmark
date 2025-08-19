@@ -16,7 +16,7 @@ define i64 @ZSTD_noCompressLiterals(ptr noundef writeonly captures(none) %0, i64
   br i1 %12, label %24, label %13
 
 13:                                               ; preds = %4
-  switch i32 %9, label %default.unreachable22 [
+  switch i32 %9, label %default.unreachable23 [
     i32 1, label %14
     i32 2, label %16
     i32 3, label %19
@@ -42,7 +42,7 @@ define i64 @ZSTD_noCompressLiterals(ptr noundef writeonly captures(none) %0, i64
   store i32 %21, ptr %0, align 1, !tbaa !8
   br label %22
 
-default.unreachable22:                            ; preds = %13
+default.unreachable23:                            ; preds = %13
   unreachable
 
 22:                                               ; preds = %19, %16, %14
@@ -130,7 +130,7 @@ define i64 @ZSTD_compressLiterals(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br i1 %28, label %ZSTD_noCompressLiterals.exit, label %29
 
 29:                                               ; preds = %20
-  switch i32 %25, label %default.unreachable123 [
+  switch i32 %25, label %default.unreachable131 [
     i32 1, label %30
     i32 2, label %32
     i32 3, label %35
@@ -156,7 +156,7 @@ define i64 @ZSTD_compressLiterals(ptr noundef %0, i64 noundef %1, ptr noundef %2
   store i32 %37, ptr %0, align 1, !tbaa !8
   br label %38
 
-default.unreachable123:                           ; preds = %129, %105, %59, %29
+default.unreachable131:                           ; preds = %129, %105, %59, %29
   unreachable
 
 38:                                               ; preds = %35, %32, %30
@@ -188,7 +188,7 @@ default.unreachable123:                           ; preds = %129, %105, %59, %29
   br i1 %58, label %ZSTD_noCompressLiterals.exit, label %59
 
 59:                                               ; preds = %50
-  switch i32 %55, label %default.unreachable123 [
+  switch i32 %55, label %default.unreachable131 [
     i32 1, label %60
     i32 2, label %62
     i32 3, label %65
@@ -275,7 +275,7 @@ default.unreachable123:                           ; preds = %129, %105, %59, %29
   br i1 %104, label %ZSTD_noCompressLiterals.exit, label %105
 
 105:                                              ; preds = %96
-  switch i32 %101, label %default.unreachable123 [
+  switch i32 %101, label %default.unreachable131 [
     i32 1, label %106
     i32 2, label %108
     i32 3, label %111
@@ -345,7 +345,7 @@ allBytesIdentical.exit:                           ; preds = %.lr.ph.i, %ZSTD_noC
   br label %129
 
 129:                                              ; preds = %127, %allBytesIdentical.exit
-  switch i64 %18, label %default.unreachable123 [
+  switch i64 %18, label %default.unreachable131 [
     i64 3, label %130
     i64 4, label %143
     i64 5, label %151

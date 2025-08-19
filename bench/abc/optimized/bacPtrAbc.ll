@@ -154,9 +154,9 @@ define ptr @Ptr_AbcObjName(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 tailrecurse.backedge:                             ; preds = %8, %8, %8, %16
-  %.sink33 = phi i64 [ 32, %16 ], [ 48, %8 ], [ 48, %8 ], [ 48, %8 ]
+  %.sink36 = phi i64 [ 32, %16 ], [ 48, %8 ], [ 48, %8 ], [ 48, %8 ]
   %.val16 = load ptr, ptr %.tr30, align 8, !tbaa !3
-  %9 = getelementptr i8, ptr %.tr30, i64 %.sink33
+  %9 = getelementptr i8, ptr %.tr30, i64 %.sink36
   %.val17 = load ptr, ptr %9, align 8, !tbaa !29
   %10 = getelementptr i8, ptr %.val16, i64 32
   %.val16.val = load ptr, ptr %10, align 8, !tbaa !30
@@ -434,9 +434,9 @@ Vec_PtrPush.exit36:                               ; preds = %Ptr_SopToTypeName.e
   ]
 
 tailrecurse.backedge.i:                           ; preds = %96, %88, %88, %88
-  %.sink33.i = phi i64 [ 32, %96 ], [ 48, %88 ], [ 48, %88 ], [ 48, %88 ]
+  %.sink36.i = phi i64 [ 32, %96 ], [ 48, %88 ], [ 48, %88 ], [ 48, %88 ]
   %.val16.i = load ptr, ptr %.tr30.i, align 8, !tbaa !3
-  %89 = getelementptr i8, ptr %.tr30.i, i64 %.sink33.i
+  %89 = getelementptr i8, ptr %.tr30.i, i64 %.sink36.i
   %.val17.i = load ptr, ptr %89, align 8, !tbaa !29
   %90 = getelementptr i8, ptr %.val16.i, i64 32
   %.val16.val.i = load ptr, ptr %90, align 8, !tbaa !30
@@ -636,9 +636,9 @@ Vec_PtrPush.exit54:                               ; preds = %.Vec_PtrGrow.exit11
   ]
 
 tailrecurse.backedge.i65:                         ; preds = %179, %171, %171, %171
-  %.sink33.i66 = phi i64 [ 32, %179 ], [ 48, %171 ], [ 48, %171 ], [ 48, %171 ]
+  %.sink36.i66 = phi i64 [ 32, %179 ], [ 48, %171 ], [ 48, %171 ], [ 48, %171 ]
   %.val16.i67 = load ptr, ptr %.tr30.i59, align 8, !tbaa !3
-  %172 = getelementptr i8, ptr %.tr30.i59, i64 %.sink33.i66
+  %172 = getelementptr i8, ptr %.tr30.i59, i64 %.sink36.i66
   %.val17.i68 = load ptr, ptr %172, align 8, !tbaa !29
   %173 = getelementptr i8, ptr %.val16.i67, i64 32
   %.val16.val.i69 = load ptr, ptr %173, align 8, !tbaa !30
@@ -822,9 +822,9 @@ Vec_PtrPush.exit90:                               ; preds = %.Vec_PtrGrow.exit11
   ]
 
 tailrecurse.backedge.i101:                        ; preds = %252, %244, %244, %244
-  %.sink33.i102 = phi i64 [ 32, %252 ], [ 48, %244 ], [ 48, %244 ], [ 48, %244 ]
+  %.sink36.i102 = phi i64 [ 32, %252 ], [ 48, %244 ], [ 48, %244 ], [ 48, %244 ]
   %.val16.i103 = load ptr, ptr %.tr30.i95, align 8, !tbaa !3
-  %245 = getelementptr i8, ptr %.tr30.i95, i64 %.sink33.i102
+  %245 = getelementptr i8, ptr %.tr30.i95, i64 %.sink36.i102
   %.val17.i104 = load ptr, ptr %245, align 8, !tbaa !29
   %246 = getelementptr i8, ptr %.val16.i103, i64 32
   %.val16.val.i105 = load ptr, ptr %246, align 8, !tbaa !30
@@ -978,9 +978,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   ]
 
 tailrecurse.backedge.i:                           ; preds = %34, %26, %26, %26
-  %.sink33.i = phi i64 [ 32, %34 ], [ 48, %26 ], [ 48, %26 ], [ 48, %26 ]
+  %.sink36.i = phi i64 [ 32, %34 ], [ 48, %26 ], [ 48, %26 ], [ 48, %26 ]
   %.val16.i = load ptr, ptr %.tr30.i, align 8, !tbaa !3
-  %27 = getelementptr i8, ptr %.tr30.i, i64 %.sink33.i
+  %27 = getelementptr i8, ptr %.tr30.i, i64 %.sink36.i
   %.val17.i = load ptr, ptr %27, align 8, !tbaa !29
   %28 = getelementptr i8, ptr %.val16.i, i64 32
   %.val16.val.i = load ptr, ptr %28, align 8, !tbaa !30
@@ -1010,7 +1010,7 @@ Ptr_AbcObjName.exit:                              ; preds = %.lr.ph.i, %tailrecu
   br i1 %37, label %40, label %.Vec_PtrGrow.exit11_crit_edge.i41
 
 .Vec_PtrGrow.exit11_crit_edge.i41:                ; preds = %34, %Ptr_AbcObjName.exit
-  %.0.i187 = phi ptr [ %36, %Ptr_AbcObjName.exit ], [ null, %34 ]
+  %.0.i221 = phi ptr [ %36, %Ptr_AbcObjName.exit ], [ null, %34 ]
   %38 = phi i32 [ %.pre, %Ptr_AbcObjName.exit ], [ 1, %34 ]
   %39 = phi i32 [ %.pre176, %Ptr_AbcObjName.exit ], [ %18, %34 ]
   %.pre.i43 = load ptr, ptr %19, align 8, !tbaa !32
@@ -1062,7 +1062,7 @@ Vec_PtrGrow.exit.i46:                             ; preds = %46, %44
   br label %Vec_PtrPush.exit47
 
 Vec_PtrPush.exit47:                               ; preds = %.Vec_PtrGrow.exit11_crit_edge.i41, %Vec_PtrGrow.exit.i46, %58
-  %.0.i186 = phi ptr [ %.0.i187, %.Vec_PtrGrow.exit11_crit_edge.i41 ], [ %36, %58 ], [ %36, %Vec_PtrGrow.exit.i46 ]
+  %.0.i220 = phi ptr [ %.0.i221, %.Vec_PtrGrow.exit11_crit_edge.i41 ], [ %36, %58 ], [ %36, %Vec_PtrGrow.exit.i46 ]
   %60 = phi i32 [ %38, %.Vec_PtrGrow.exit11_crit_edge.i41 ], [ %.pre, %58 ], [ %.pre, %Vec_PtrGrow.exit.i46 ]
   %61 = phi i32 [ %39, %.Vec_PtrGrow.exit11_crit_edge.i41 ], [ %50, %58 ], [ 16, %Vec_PtrGrow.exit.i46 ]
   %62 = phi ptr [ %.pre.i43, %.Vec_PtrGrow.exit11_crit_edge.i41 ], [ %59, %58 ], [ %48, %Vec_PtrGrow.exit.i46 ]
@@ -1070,7 +1070,7 @@ Vec_PtrPush.exit47:                               ; preds = %.Vec_PtrGrow.exit11
   store i32 %63, ptr %9, align 4, !tbaa !35
   %64 = sext i32 %60 to i64
   %65 = getelementptr inbounds ptr, ptr %62, i64 %64
-  store ptr %.0.i186, ptr %65, align 8, !tbaa !34
+  store ptr %.0.i220, ptr %65, align 8, !tbaa !34
   %.val167 = load i32, ptr %3, align 4, !tbaa !28
   %66 = icmp sgt i32 %.val167, 0
   br i1 %66, label %.lr.ph, label %.critedge.preheader
@@ -1143,9 +1143,9 @@ Vec_PtrPush.exit47:                               ; preds = %.Vec_PtrGrow.exit11
   ]
 
 tailrecurse.backedge.i58:                         ; preds = %101, %93, %93, %93
-  %.sink33.i59 = phi i64 [ 32, %101 ], [ 48, %93 ], [ 48, %93 ], [ 48, %93 ]
+  %.sink36.i59 = phi i64 [ 32, %101 ], [ 48, %93 ], [ 48, %93 ], [ 48, %93 ]
   %.val16.i60 = load ptr, ptr %.tr30.i52, align 8, !tbaa !3
-  %94 = getelementptr i8, ptr %.tr30.i52, i64 %.sink33.i59
+  %94 = getelementptr i8, ptr %.tr30.i52, i64 %.sink36.i59
   %.val17.i61 = load ptr, ptr %94, align 8, !tbaa !29
   %95 = getelementptr i8, ptr %.val16.i60, i64 32
   %.val16.val.i62 = load ptr, ptr %95, align 8, !tbaa !30
@@ -1261,9 +1261,9 @@ Vec_PtrPush.exit76:                               ; preds = %.Vec_PtrGrow.exit11
   ]
 
 tailrecurse.backedge.i87:                         ; preds = %145, %137, %137, %137
-  %.sink33.i88 = phi i64 [ 32, %145 ], [ 48, %137 ], [ 48, %137 ], [ 48, %137 ]
+  %.sink36.i88 = phi i64 [ 32, %145 ], [ 48, %137 ], [ 48, %137 ], [ 48, %137 ]
   %.val16.i89 = load ptr, ptr %.tr30.i81, align 8, !tbaa !3
-  %138 = getelementptr i8, ptr %.tr30.i81, i64 %.sink33.i88
+  %138 = getelementptr i8, ptr %.tr30.i81, i64 %.sink36.i88
   %.val17.i90 = load ptr, ptr %138, align 8, !tbaa !29
   %139 = getelementptr i8, ptr %.val16.i89, i64 32
   %.val16.val.i91 = load ptr, ptr %139, align 8, !tbaa !30
@@ -1405,9 +1405,9 @@ Vec_PtrPush.exit105:                              ; preds = %.Vec_PtrGrow.exit11
   ]
 
 tailrecurse.backedge.i116:                        ; preds = %204, %196, %196, %196
-  %.sink33.i117 = phi i64 [ 32, %204 ], [ 48, %196 ], [ 48, %196 ], [ 48, %196 ]
+  %.sink36.i117 = phi i64 [ 32, %204 ], [ 48, %196 ], [ 48, %196 ], [ 48, %196 ]
   %.val16.i118 = load ptr, ptr %.tr30.i110, align 8, !tbaa !3
-  %197 = getelementptr i8, ptr %.tr30.i110, i64 %.sink33.i117
+  %197 = getelementptr i8, ptr %.tr30.i110, i64 %.sink36.i117
   %.val17.i119 = load ptr, ptr %197, align 8, !tbaa !29
   %198 = getelementptr i8, ptr %.val16.i118, i64 32
   %.val16.val.i120 = load ptr, ptr %198, align 8, !tbaa !30
@@ -1523,9 +1523,9 @@ Vec_PtrPush.exit134:                              ; preds = %.Vec_PtrGrow.exit11
   ]
 
 tailrecurse.backedge.i145:                        ; preds = %248, %240, %240, %240
-  %.sink33.i146 = phi i64 [ 32, %248 ], [ 48, %240 ], [ 48, %240 ], [ 48, %240 ]
+  %.sink36.i146 = phi i64 [ 32, %248 ], [ 48, %240 ], [ 48, %240 ], [ 48, %240 ]
   %.val16.i147 = load ptr, ptr %.tr30.i139, align 8, !tbaa !3
-  %241 = getelementptr i8, ptr %.tr30.i139, i64 %.sink33.i146
+  %241 = getelementptr i8, ptr %.tr30.i139, i64 %.sink36.i146
   %.val17.i148 = load ptr, ptr %241, align 8, !tbaa !29
   %242 = getelementptr i8, ptr %.val16.i147, i64 32
   %.val16.val.i149 = load ptr, ptr %242, align 8, !tbaa !30
@@ -1903,9 +1903,9 @@ Vec_PtrAllocExact.exit:                           ; preds = %1
   ]
 
 tailrecurse.backedge.i:                           ; preds = %31, %23, %23, %23
-  %.sink33.i = phi i64 [ 32, %31 ], [ 48, %23 ], [ 48, %23 ], [ 48, %23 ]
+  %.sink36.i = phi i64 [ 32, %31 ], [ 48, %23 ], [ 48, %23 ], [ 48, %23 ]
   %.val16.i = load ptr, ptr %.tr30.i, align 8, !tbaa !3
-  %24 = getelementptr i8, ptr %.tr30.i, i64 %.sink33.i
+  %24 = getelementptr i8, ptr %.tr30.i, i64 %.sink36.i
   %.val17.i = load ptr, ptr %24, align 8, !tbaa !29
   %25 = getelementptr i8, ptr %.val16.i, i64 32
   %.val16.val.i = load ptr, ptr %25, align 8, !tbaa !30
@@ -2069,9 +2069,9 @@ Vec_PtrAllocExact.exit:                           ; preds = %1
   ]
 
 tailrecurse.backedge.i:                           ; preds = %31, %23, %23, %23
-  %.sink33.i = phi i64 [ 32, %31 ], [ 48, %23 ], [ 48, %23 ], [ 48, %23 ]
+  %.sink36.i = phi i64 [ 32, %31 ], [ 48, %23 ], [ 48, %23 ], [ 48, %23 ]
   %.val16.i = load ptr, ptr %.tr30.i, align 8, !tbaa !3
-  %24 = getelementptr i8, ptr %.tr30.i, i64 %.sink33.i
+  %24 = getelementptr i8, ptr %.tr30.i, i64 %.sink36.i
   %.val17.i = load ptr, ptr %24, align 8, !tbaa !29
   %25 = getelementptr i8, ptr %.val16.i, i64 32
   %.val16.val.i = load ptr, ptr %25, align 8, !tbaa !30
@@ -2590,9 +2590,9 @@ define range(i32 0, 2) i32 @Bac_NtkDeriveFromPtr(ptr noundef %0, ptr noundef rea
   br label %Vec_IntGrow.exit.sink.split.i.i
 
 Vec_IntGrow.exit.sink.split.i.i:                  ; preds = %51, %53, %42, %44
-  %storemerge445 = phi ptr [ %43, %42 ], [ %45, %44 ], [ %52, %51 ], [ %54, %53 ]
+  %storemerge527 = phi ptr [ %43, %42 ], [ %45, %44 ], [ %52, %51 ], [ %54, %53 ]
   %.sink.i.i = phi i32 [ %32, %42 ], [ %32, %44 ], [ %36, %51 ], [ %36, %53 ]
-  store ptr %storemerge445, ptr %21, align 8, !tbaa !78
+  store ptr %storemerge527, ptr %21, align 8, !tbaa !78
   store i32 %.sink.i.i, ptr %2, align 8, !tbaa !75
   %.pre.i = load i32, ptr %20, align 4, !tbaa !77
   br label %Vec_IntGrow.exit.i.i
@@ -2681,9 +2681,9 @@ Vec_IntGetEntryFull.exit:                         ; preds = %25, %._crit_edge.i.
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i:                ; preds = %88, %90, %79, %81
-  %storemerge446 = phi ptr [ %80, %79 ], [ %82, %81 ], [ %89, %88 ], [ %91, %90 ]
+  %storemerge528 = phi ptr [ %80, %79 ], [ %82, %81 ], [ %89, %88 ], [ %91, %90 ]
   %.sink.i.i.i = phi i32 [ %69, %79 ], [ %69, %81 ], [ %73, %88 ], [ %73, %90 ]
-  store ptr %storemerge446, ptr %24, align 8, !tbaa !78
+  store ptr %storemerge528, ptr %24, align 8, !tbaa !78
   store i32 %.sink.i.i.i, ptr %22, align 8, !tbaa !75
   %.pre.i.i = load i32, ptr %23, align 4, !tbaa !77
   br label %Vec_IntGrow.exit.i.i.i
@@ -3030,9 +3030,9 @@ Bac_ManNtkIsOk.exit.i:                            ; preds = %Bac_BoxAlloc.exit
   br label %Vec_IntGrow.exit.sink.split.i.i.i214
 
 Vec_IntGrow.exit.sink.split.i.i.i214:             ; preds = %238, %240, %229, %231
-  %storemerge447 = phi ptr [ %230, %229 ], [ %232, %231 ], [ %239, %238 ], [ %241, %240 ]
+  %storemerge529 = phi ptr [ %230, %229 ], [ %232, %231 ], [ %239, %238 ], [ %241, %240 ]
   %.sink.i.i.i215 = phi i32 [ %219, %229 ], [ %219, %231 ], [ %223, %238 ], [ %223, %240 ]
-  store ptr %storemerge447, ptr %139, align 8, !tbaa !78
+  store ptr %storemerge529, ptr %139, align 8, !tbaa !78
   store i32 %.sink.i.i.i215, ptr %137, align 8, !tbaa !75
   %.pre.i.i216 = load i32, ptr %138, align 4, !tbaa !77
   br label %Vec_IntGrow.exit.i.i.i217
@@ -3144,9 +3144,9 @@ Bac_ObjSetName.exit225:                           ; preds = %214, %._crit_edge.i
   br label %Vec_IntGrow.exit.sink.split.i.i230
 
 Vec_IntGrow.exit.sink.split.i.i230:               ; preds = %283, %285, %274, %276
-  %storemerge448 = phi ptr [ %275, %274 ], [ %277, %276 ], [ %284, %283 ], [ %286, %285 ]
+  %storemerge530 = phi ptr [ %275, %274 ], [ %277, %276 ], [ %284, %283 ], [ %286, %285 ]
   %.sink.i.i231 = phi i32 [ %264, %274 ], [ %264, %276 ], [ %268, %283 ], [ %268, %285 ]
-  store ptr %storemerge448, ptr %143, align 8, !tbaa !78
+  store ptr %storemerge530, ptr %143, align 8, !tbaa !78
   store i32 %.sink.i.i231, ptr %2, align 8, !tbaa !75
   %.pre.i232 = load i32, ptr %142, align 4, !tbaa !77
   br label %Vec_IntGrow.exit.i.i233
@@ -3523,9 +3523,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %Vec_IntGrow.exit.sink.split.i.i280
 
 Vec_IntGrow.exit.sink.split.i.i280:               ; preds = %435, %437, %426, %428
-  %storemerge449 = phi ptr [ %427, %426 ], [ %429, %428 ], [ %436, %435 ], [ %438, %437 ]
+  %storemerge531 = phi ptr [ %427, %426 ], [ %429, %428 ], [ %436, %435 ], [ %438, %437 ]
   %.sink.i.i281 = phi i32 [ %416, %426 ], [ %416, %428 ], [ %420, %435 ], [ %420, %437 ]
-  store ptr %storemerge449, ptr %149, align 8, !tbaa !78
+  store ptr %storemerge531, ptr %149, align 8, !tbaa !78
   store i32 %.sink.i.i281, ptr %2, align 8, !tbaa !75
   %.pre.i282 = load i32, ptr %148, align 4, !tbaa !77
   br label %Vec_IntGrow.exit.i.i283
@@ -3816,9 +3816,9 @@ Bac_ObjSetFanin.exit:                             ; preds = %Vec_IntGetEntryFull
   br label %Vec_IntGrow.exit.sink.split.i.i327
 
 Vec_IntGrow.exit.sink.split.i.i327:               ; preds = %551, %553, %542, %544
-  %storemerge450 = phi ptr [ %543, %542 ], [ %545, %544 ], [ %552, %551 ], [ %554, %553 ]
+  %storemerge532 = phi ptr [ %543, %542 ], [ %545, %544 ], [ %552, %551 ], [ %554, %553 ]
   %.sink.i.i328 = phi i32 [ %532, %542 ], [ %532, %544 ], [ %536, %551 ], [ %536, %553 ]
-  store ptr %storemerge450, ptr %396, align 8, !tbaa !78
+  store ptr %storemerge532, ptr %396, align 8, !tbaa !78
   store i32 %.sink.i.i328, ptr %2, align 8, !tbaa !75
   %.pre.i329 = load i32, ptr %395, align 4, !tbaa !77
   br label %Vec_IntGrow.exit.i.i330
@@ -4014,9 +4014,9 @@ Bac_ObjNameId.exit:                               ; preds = %604, %604, %604, %6
   br label %Vec_IntGrow.exit.sink.split.i.i361
 
 Vec_IntGrow.exit.sink.split.i.i361:               ; preds = %629, %631, %620, %622
-  %storemerge451 = phi ptr [ %621, %620 ], [ %623, %622 ], [ %630, %629 ], [ %632, %631 ]
+  %storemerge533 = phi ptr [ %621, %620 ], [ %623, %622 ], [ %630, %629 ], [ %632, %631 ]
   %.sink.i.i362 = phi i32 [ %610, %620 ], [ %610, %622 ], [ %614, %629 ], [ %614, %631 ]
-  store ptr %storemerge451, ptr %524, align 8, !tbaa !78
+  store ptr %storemerge533, ptr %524, align 8, !tbaa !78
   store i32 %.sink.i.i362, ptr %2, align 8, !tbaa !75
   %.pre.i363 = load i32, ptr %523, align 4, !tbaa !77
   br label %Vec_IntGrow.exit.i.i364
@@ -4208,9 +4208,9 @@ Vec_IntPush.exit17:                               ; preds = %.Vec_IntGrow.exit10
 
 thread-pre-split:                                 ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit17
   %.sink = phi i32 [ %34, %Vec_IntPush.exit ], [ %65, %Vec_IntPush.exit17 ]
-  %.sink29 = phi ptr [ %33, %Vec_IntPush.exit ], [ %64, %Vec_IntPush.exit17 ]
+  %.sink40 = phi ptr [ %33, %Vec_IntPush.exit ], [ %64, %Vec_IntPush.exit17 ]
   %67 = sext i32 %.sink to i64
-  %68 = getelementptr inbounds i32, ptr %.sink29, i64 %67
+  %68 = getelementptr inbounds i32, ptr %.sink40, i64 %67
   store i32 %.val, ptr %68, align 4, !tbaa !31
   %.pr = load i32, ptr %4, align 4, !tbaa !84
   br label %69
@@ -4447,9 +4447,9 @@ Vec_IntGrow.exit.i.i:                             ; preds = %38
   br label %Vec_IntPush.exit.i.sink.split
 
 Vec_IntPush.exit.i.sink.split:                    ; preds = %Vec_IntGrow.exit.i.i, %42
-  %.sink4 = phi i32 [ %43, %42 ], [ 16, %Vec_IntGrow.exit.i.i ]
+  %.sink10 = phi i32 [ %43, %42 ], [ 16, %Vec_IntGrow.exit.i.i ]
   %.ph = phi ptr [ %47, %42 ], [ %41, %Vec_IntGrow.exit.i.i ]
-  store i32 %.sink4, ptr %3, align 8, !tbaa !75
+  store i32 %.sink10, ptr %3, align 8, !tbaa !75
   br label %Vec_IntPush.exit.i
 
 Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.i.sink.split, %Vec_IntPush.exit
@@ -4470,9 +4470,9 @@ Vec_IntPush.exit9.sink.split.i:                   ; preds = %Vec_IntPush.exit.i
   %57 = shl nuw nsw i32 %53, 1
   %58 = zext nneg i32 %57 to i64
   %59 = shl nuw nsw i64 %58, 2
-  %.sink5 = select i1 %56, i64 64, i64 %59
+  %.sink11 = select i1 %56, i64 64, i64 %59
   %.sink.i = select i1 %56, i32 16, i32 %57
-  %60 = tail call ptr @realloc(ptr noundef nonnull %48, i64 noundef %.sink5) #21
+  %60 = tail call ptr @realloc(ptr noundef nonnull %48, i64 noundef %.sink11) #21
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %60, ptr %61, align 8, !tbaa !78
   store i32 %.sink.i, ptr %3, align 8, !tbaa !75

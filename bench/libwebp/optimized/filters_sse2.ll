@@ -354,8 +354,8 @@ define internal void @GradientUnfilter_SSE2(ptr noundef readonly captures(addres
 .lr.ph71.preheader.i:                             ; preds = %.preheader.i16
   %54 = zext i32 %.0.lcssa.i17 to i64
   %wide.trip.count.i18 = zext nneg i32 %44 to i64
-  %scevgep28 = getelementptr i8, ptr %2, i64 %54
-  %load_initial29 = load i8, ptr %scevgep28, align 1
+  %scevgep31 = getelementptr i8, ptr %2, i64 %54
+  %load_initial32 = load i8, ptr %scevgep31, align 1
   br label %.lr.ph71.i
 
 .lr.ph.i12:                                       ; preds = %96, %.lr.ph.preheader.i11
@@ -417,13 +417,13 @@ define internal void @GradientUnfilter_SSE2(ptr noundef readonly captures(addres
   br i1 %101, label %.lr.ph.i12, label %.preheader.loopexit.i15, !llvm.loop !13
 
 .lr.ph71.i:                                       ; preds = %.lr.ph71.i, %.lr.ph71.preheader.i
-  %store_forwarded30 = phi i8 [ %load_initial29, %.lr.ph71.preheader.i ], [ %116, %.lr.ph71.i ]
+  %store_forwarded33 = phi i8 [ %load_initial32, %.lr.ph71.preheader.i ], [ %116, %.lr.ph71.i ]
   %indvars.iv75.i = phi i64 [ %54, %.lr.ph71.preheader.i ], [ %indvars.iv.next76.i, %.lr.ph71.i ]
   %102 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv75.i
   %103 = load i8, ptr %102, align 1, !tbaa !7
   %104 = getelementptr i8, ptr %0, i64 %indvars.iv75.i
   %105 = load i8, ptr %104, align 1, !tbaa !7
-  %106 = zext i8 %store_forwarded30 to i32
+  %106 = zext i8 %store_forwarded33 to i32
   %107 = zext i8 %103 to i32
   %108 = add nuw nsw i32 %107, %106
   %109 = zext i8 %105 to i32

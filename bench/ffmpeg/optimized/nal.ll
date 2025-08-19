@@ -89,18 +89,18 @@ define ptr @ff_nal_find_startcode(ptr noundef %0, ptr noundef %1) local_unnamed_
 45:                                               ; preds = %43
   %.mask.i = and i32 %30, -16777216
   %46 = icmp eq i32 %.mask.i, 16777216
-  br i1 %46, label %.thread.loopexit87.split.loop.exit.i, label %.thread85.i
+  br i1 %46, label %.thread.loopexit95.split.loop.exit.i, label %.thread93.i
 
 47:                                               ; preds = %43, %36
   %48 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 3
   %49 = icmp ult i32 %30, 16777216
   br i1 %49, label %52, label %67
 
-.thread85.i:                                      ; preds = %45
+.thread93.i:                                      ; preds = %45
   %50 = icmp ult i32 %30, 16777216
-  br i1 %50, label %.thread86.i, label %67
+  br i1 %50, label %.thread94.i, label %67
 
-.thread86.i:                                      ; preds = %.thread85.i
+.thread94.i:                                      ; preds = %.thread93.i
   %51 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 3
   br label %54
 
@@ -113,8 +113,8 @@ define ptr @ff_nal_find_startcode(ptr noundef %0, ptr noundef %1) local_unnamed_
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !4
   br label %59
 
-54:                                               ; preds = %52, %.thread86.i
-  %55 = phi ptr [ %51, %.thread86.i ], [ %48, %52 ]
+54:                                               ; preds = %52, %.thread94.i
+  %55 = phi ptr [ %51, %.thread94.i ], [ %48, %52 ]
   %56 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 4
   %57 = load i8, ptr %56, align 1, !tbaa !4
   %58 = icmp eq i8 %57, 1
@@ -132,7 +132,7 @@ define ptr @ff_nal_find_startcode(ptr noundef %0, ptr noundef %1) local_unnamed_
   %66 = icmp eq i8 %65, 1
   br i1 %66, label %nal_find_startcode_internal.exit, label %67
 
-67:                                               ; preds = %63, %59, %.thread85.i, %47, %.lr.ph68.i
+67:                                               ; preds = %63, %59, %.thread93.i, %47, %.lr.ph68.i
   %68 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 4
   %69 = icmp ult ptr %68, %25
   br i1 %69, label %.lr.ph68.i, label %.preheader.i, !llvm.loop !9
@@ -160,7 +160,7 @@ define ptr @ff_nal_find_startcode(ptr noundef %0, ptr noundef %1) local_unnamed_
   %exitcond.not.i = icmp eq ptr %81, %scevgep.i
   br i1 %exitcond.not.i, label %nal_find_startcode_internal.exit.thread, label %.lr.ph71.i, !llvm.loop !10
 
-.thread.loopexit87.split.loop.exit.i:             ; preds = %45
+.thread.loopexit95.split.loop.exit.i:             ; preds = %45
   %82 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 1
   br label %nal_find_startcode_internal.exit
 
@@ -168,8 +168,8 @@ nal_find_startcode_internal.exit.loopexit12.split.loop.exit19: ; preds = %54
   %83 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 2
   br label %nal_find_startcode_internal.exit
 
-nal_find_startcode_internal.exit:                 ; preds = %16, %63, %39, %76, %nal_find_startcode_internal.exit.loopexit12.split.loop.exit19, %.thread.loopexit87.split.loop.exit.i
-  %.0.i = phi ptr [ %82, %.thread.loopexit87.split.loop.exit.i ], [ %83, %nal_find_startcode_internal.exit.loopexit12.split.loop.exit19 ], [ %.24670.i, %76 ], [ %60, %63 ], [ %.14566.i, %39 ], [ %.04456.i, %16 ]
+nal_find_startcode_internal.exit:                 ; preds = %16, %63, %39, %76, %nal_find_startcode_internal.exit.loopexit12.split.loop.exit19, %.thread.loopexit95.split.loop.exit.i
+  %.0.i = phi ptr [ %82, %.thread.loopexit95.split.loop.exit.i ], [ %83, %nal_find_startcode_internal.exit.loopexit12.split.loop.exit19 ], [ %.24670.i, %76 ], [ %60, %63 ], [ %.14566.i, %39 ], [ %.04456.i, %16 ]
   %84 = icmp ult ptr %0, %.0.i
   %85 = icmp ult ptr %.0.i, %1
   %or.cond = and i1 %84, %85

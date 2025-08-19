@@ -672,9 +672,9 @@ define internal fastcc void @dissect_bpdu(ptr noundef %0, ptr noundef %1, ptr no
   br label %166
 
 166:                                              ; preds = %162, %156
-  %.sink486 = phi ptr [ %163, %162 ], [ %157, %156 ]
+  %.sink488 = phi ptr [ %163, %162 ], [ %157, %156 ]
   %167 = load i32, ptr @hf_bpdu_bridge_mac, align 4
-  %168 = tail call ptr @proto_tree_add_item(ptr noundef %.sink486, i32 noundef %167, ptr noundef %0, i32 noundef 19, i32 noundef 6, i32 noundef 0)
+  %168 = tail call ptr @proto_tree_add_item(ptr noundef %.sink488, i32 noundef %167, ptr noundef %0, i32 noundef 19, i32 noundef 6, i32 noundef 0)
   %169 = load i32, ptr @hf_bpdu_port_id, align 4
   %170 = tail call ptr @proto_tree_add_uint(ptr noundef %100, i32 noundef %169, ptr noundef %0, i32 noundef 25, i32 noundef 2, i32 noundef %.0458)
   %171 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 27)
@@ -849,9 +849,9 @@ define internal fastcc void @dissect_bpdu(ptr noundef %0, ptr noundef %1, ptr no
   br label %290
 
 290:                                              ; preds = %284, %273
-  %.sink488 = phi ptr [ %287, %284 ], [ %279, %273 ]
+  %.sink490 = phi ptr [ %287, %284 ], [ %279, %273 ]
   %291 = load i32, ptr @hf_bpdu_cist_bridge_mac, align 4
-  %292 = tail call ptr @proto_tree_add_item(ptr noundef %.sink488, i32 noundef %291, ptr noundef %0, i32 noundef 91, i32 noundef 6, i32 noundef 0)
+  %292 = tail call ptr @proto_tree_add_item(ptr noundef %.sink490, i32 noundef %291, ptr noundef %0, i32 noundef 91, i32 noundef 6, i32 noundef 0)
   %293 = load i32, ptr @hf_bpdu_cist_internal_root_path_cost, align 4
   %294 = tail call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %293, ptr noundef %0, i32 noundef 97, i32 noundef 4, i32 noundef 0)
   br label %295

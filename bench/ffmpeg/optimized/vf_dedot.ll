@@ -94,7 +94,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br i1 %24, label %.thread, label %28
 
 .thread:                                          ; preds = %.critedge, %23
-  %.087130 = phi i32 [ %21, %23 ], [ 0, %.critedge ]
+  %.087137 = phi i32 [ %21, %23 ], [ 0, %.critedge ]
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 68
   %26 = load i32, ptr %25, align 4, !tbaa !32
   %27 = icmp sgt i32 %26, 0
@@ -145,7 +145,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br label %45
 
 45:                                               ; preds = %38, %41, %30
-  %.087129 = phi i32 [ %.087130, %38 ], [ %.087130, %41 ], [ %21, %30 ]
+  %.087136 = phi i32 [ %.087137, %38 ], [ %.087137, %41 ], [ %21, %30 ]
   %46 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %47 = load ptr, ptr %46, align 8, !tbaa !26
   %.not105 = icmp eq ptr %47, null
@@ -245,7 +245,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br label %select.unfold
 
 select.unfold:                                    ; preds = %60, %62, %80, %83, %98, %57, %54, %51, %48, %45
-  %.188 = phi i32 [ %66, %83 ], [ %66, %80 ], [ %66, %98 ], [ %.087129, %57 ], [ %.087129, %54 ], [ %.087129, %51 ], [ %.087129, %48 ], [ %.087129, %45 ], [ %.087129, %62 ], [ -12, %60 ]
+  %.188 = phi i32 [ %66, %83 ], [ %66, %80 ], [ %66, %98 ], [ %.087136, %57 ], [ %.087136, %54 ], [ %.087136, %51 ], [ %.087136, %48 ], [ %.087136, %45 ], [ %.087136, %62 ], [ -12, %60 ]
   call void @av_frame_free(ptr noundef nonnull %46) #7
   %99 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %100 = load ptr, ptr %99, align 8, !tbaa !26

@@ -347,7 +347,7 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
   %83 = icmp ne i32 %82, 0
   %.b5468 = load i1, ptr @revoke_job, align 1
   %or.cond3 = select i1 %83, i1 true, i1 %.b5468
-  br i1 %or.cond3, label %.thread108, label %job_desc_msg_destroy.exit
+  br i1 %or.cond3, label %.thread113, label %job_desc_msg_destroy.exit
 
 job_desc_msg_destroy.exit:                        ; preds = %.loopexit, %78
   %.17287 = phi ptr [ null, %.loopexit ], [ %39, %78 ]
@@ -376,9 +376,9 @@ job_desc_msg_destroy.exit:                        ; preds = %.loopexit, %78
 
 91:                                               ; preds = %.thread89, %.thread89.thread
   call void @slurm_free_resource_allocation_response_msg(ptr noundef nonnull %39) #9
-  br label %.thread108
+  br label %.thread113
 
-.thread108:                                       ; preds = %.loopexit, %91
+.thread113:                                       ; preds = %.loopexit, %91
   %92 = load i32, ptr @error_exit, align 4
   call void @exit(i32 noundef %92) #10
   unreachable

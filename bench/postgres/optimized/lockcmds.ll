@@ -341,12 +341,12 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %10, align 4
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph58, label %.critedge
+  br i1 %16, label %.lr.ph61, label %.critedge
 
-.lr.ph58:                                         ; preds = %.lr.ph, %64
-  %indvars.iv57 = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.lr.ph ]
+.lr.ph61:                                         ; preds = %.lr.ph, %64
+  %indvars.iv60 = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.lr.ph ]
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv57
+  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv60
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %21 = load i32, ptr %20, align 4
@@ -363,7 +363,7 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
   %25 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @LockViewRecurse_walker, ptr noundef %1, i32 noundef 4) #5
   br label %70
 
-26:                                               ; preds = %.lr.ph58, %.lr.ph58, %.lr.ph58
+26:                                               ; preds = %.lr.ph61, %.lr.ph61, %.lr.ph61
   %27 = load ptr, ptr %12, align 8
   %28 = tail call zeroext i1 @list_member_oid(ptr noundef %27, i32 noundef %21) #5
   br i1 %28, label %64, label %29
@@ -432,12 +432,12 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
   tail call fastcc void @LockTableRecurse(i32 noundef %21, i32 noundef %61, i1 noundef zeroext %63)
   br label %64
 
-64:                                               ; preds = %.lr.ph58, %51, %60, %56, %26
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv57, 1
+64:                                               ; preds = %.lr.ph61, %51, %60, %56, %26
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv60, 1
   %65 = load i32, ptr %10, align 4
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %67, label %.lr.ph58, label %.critedge
+  br i1 %67, label %.lr.ph61, label %.critedge
 
 68:                                               ; preds = %4
   %69 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @LockViewRecurse_walker, ptr noundef %1) #5

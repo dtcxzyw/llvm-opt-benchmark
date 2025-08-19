@@ -1146,7 +1146,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN19OpenColorIO_v2_5dev19GradingCon
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIPN19OpenColorIO_v2_5dev19GradingControlPointEmS1_ET_S3_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPN19OpenColorIO_v2_5dev19GradingControlPointEmS1_ET_S3_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = shl nuw i64 %12, 3
+  %21 = shl nuw nsw i64 %12, 3
   tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %21, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !36
@@ -2448,8 +2448,8 @@ _ZNSt6vectorIfSaIfEEaSERKS1_.exit:                ; preds = %_ZSt4copyIN9__gnu_c
   %325 = fmul float %304, %323
   store float %325, ptr %313, align 4, !tbaa !41
   %326 = add nuw i64 %.0695.i, 1
-  %exitcond.not.i67198 = icmp eq i64 %326, %281
-  br i1 %exitcond.not.i67198, label %_ZNSt6vectorIfSaIfEE5clearEv.exit, label %.lr.ph.i66.outer, !llvm.loop !76
+  %exitcond.not.i67235 = icmp eq i64 %326, %281
+  br i1 %exitcond.not.i67235, label %_ZNSt6vectorIfSaIfEE5clearEv.exit, label %.lr.ph.i66.outer, !llvm.loop !76
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit: ; preds = %310
   br i1 %.07.i.ph, label %_ZNSt6vectorIfSaIfEE5clearEv.exit, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit.thread

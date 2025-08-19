@@ -595,21 +595,21 @@ riemann_dissect_query.exit.i:                     ; preds = %174, %._crit_edge.i
 
 riemann_verify_wire_format.exit86.i:              ; preds = %180, %179
   %183 = trunc nuw i8 %.0177.i to i1
-  br i1 %183, label %.preheader120, label %184
+  br i1 %183, label %.preheader148, label %184
 
 184:                                              ; preds = %riemann_verify_wire_format.exit86.i
   %185 = load ptr, ptr %24, align 8
   tail call void @col_set_str(ptr noundef %185, i32 noundef 25, ptr noundef nonnull @.str.65)
-  br label %.preheader120
+  br label %.preheader148
 
-.preheader120:                                    ; preds = %184, %riemann_verify_wire_format.exit86.i
+.preheader148:                                    ; preds = %184, %riemann_verify_wire_format.exit86.i
   br label %186
 
-186:                                              ; preds = %.preheader120, %188
-  %.1251.i.i = phi i32 [ %195, %188 ], [ 0, %.preheader120 ]
-  %indvars.iv.i.i87.i = phi i64 [ %indvars.iv.next.i.i90.i, %188 ], [ 0, %.preheader120 ]
-  %.017.i.i88.i = phi i32 [ %189, %188 ], [ %50, %.preheader120 ]
-  %.015.i.i89.i = phi i64 [ %194, %188 ], [ 0, %.preheader120 ]
+186:                                              ; preds = %.preheader148, %188
+  %.1251.i.i = phi i32 [ %195, %188 ], [ 0, %.preheader148 ]
+  %indvars.iv.i.i87.i = phi i64 [ %indvars.iv.next.i.i90.i, %188 ], [ 0, %.preheader148 ]
+  %.017.i.i88.i = phi i32 [ %189, %188 ], [ %50, %.preheader148 ]
+  %.015.i.i89.i = phi i64 [ %194, %188 ], [ 0, %.preheader148 ]
   %187 = icmp samesign ugt i64 %indvars.iv.i.i87.i, 63
   br i1 %187, label %riemann_get_uint64.exit.i91.i, label %188
 
@@ -1382,21 +1382,21 @@ riemann_dissect_event.exit.i:                     ; preds = %545, %._crit_edge.i
 
 riemann_verify_wire_format.exit111.i:             ; preds = %551, %550
   %554 = trunc nuw i8 %.0177.i to i1
-  br i1 %554, label %.preheader121, label %555
+  br i1 %554, label %.preheader149, label %555
 
 555:                                              ; preds = %riemann_verify_wire_format.exit111.i
   %556 = load ptr, ptr %24, align 8
   tail call void @col_set_str(ptr noundef %556, i32 noundef 25, ptr noundef nonnull @.str.67)
-  br label %.preheader121
+  br label %.preheader149
 
-.preheader121:                                    ; preds = %555, %riemann_verify_wire_format.exit111.i
+.preheader149:                                    ; preds = %555, %riemann_verify_wire_format.exit111.i
   br label %557
 
-557:                                              ; preds = %.preheader121, %559
-  %.1187.i.i = phi i32 [ %566, %559 ], [ 0, %.preheader121 ]
-  %indvars.iv.i.i112.i = phi i64 [ %indvars.iv.next.i.i115.i, %559 ], [ 0, %.preheader121 ]
-  %.017.i.i113.i = phi i32 [ %560, %559 ], [ %50, %.preheader121 ]
-  %.015.i.i114.i = phi i64 [ %565, %559 ], [ 0, %.preheader121 ]
+557:                                              ; preds = %.preheader149, %559
+  %.1187.i.i = phi i32 [ %566, %559 ], [ 0, %.preheader149 ]
+  %indvars.iv.i.i112.i = phi i64 [ %indvars.iv.next.i.i115.i, %559 ], [ 0, %.preheader149 ]
+  %.017.i.i113.i = phi i32 [ %560, %559 ], [ %50, %.preheader149 ]
+  %.015.i.i114.i = phi i64 [ %565, %559 ], [ 0, %.preheader149 ]
   %558 = icmp samesign ugt i64 %indvars.iv.i.i112.i, 63
   br i1 %558, label %riemann_get_uint64.exit.i116.i, label %559
 
@@ -1870,7 +1870,7 @@ riemann_dissect_state.exit.i:                     ; preds = %773, %._crit_edge.i
   %789 = add i32 %.0138.i, %788
   %790 = zext i32 %.0138.i to i64
   %791 = add nuw nsw i64 %787, %790
-  %792 = sub i64 %.067175.i, %791
+  %792 = sub nsw i64 %.067175.i, %791
   %793 = icmp sgt i64 %792, 0
   br i1 %793, label %.preheader.i13, label %._crit_edge.i, !llvm.loop !11
 

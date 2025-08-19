@@ -1278,9 +1278,9 @@ strbuf_addch.exit167:                             ; preds = %strbuf_avail.exit.i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %91, %142
-  %.sink222 = phi i32 [ %144, %142 ], [ %92, %91 ]
+  %.sink241 = phi i32 [ %144, %142 ], [ %92, %91 ]
   %.sink.ph = phi i64 [ 4, %142 ], [ 2, %91 ]
-  %145 = tail call i32 @fputc(i32 noundef %.sink222, ptr noundef nonnull %3)
+  %145 = tail call i32 @fputc(i32 noundef %.sink241, ptr noundef nonnull %3)
   br label %146
 
 146:                                              ; preds = %.sink.split, %141, %90
@@ -1387,8 +1387,8 @@ define dso_local void @quote_two_c_style(ptr noundef %0, ptr noundef %1, ptr nou
 next_quote_pos.exit.thread185.i:                  ; preds = %.preheader.i.i
   %16 = icmp eq i64 %.0.i.i, -1
   %.not110.i = icmp eq i8 %8, 0
-  %or.cond88 = or i1 %16, %.not110.i
-  br i1 %or.cond88, label %next_quote_pos.exit.thread.i, label %next_quote_pos.exit.i
+  %or.cond93 = or i1 %16, %.not110.i
+  br i1 %or.cond93, label %next_quote_pos.exit.thread.i, label %next_quote_pos.exit.i
 
 next_quote_pos.exit.i:                            ; preds = %next_quote_pos.exit.thread185.i
   %17 = icmp eq ptr %.088.i, %1
@@ -2217,11 +2217,11 @@ strbuf_avail.exit.i25:                            ; preds = %strbuf_addch.exit23
 
 .backedge:                                        ; preds = %.backedge.sink.split, %strbuf_avail.exit.i25, %strbuf_avail.exit.i45
   %.pre-phi.i28.sink = phi i64 [ %.neg.i46, %strbuf_avail.exit.i45 ], [ %.neg.i26, %strbuf_avail.exit.i25 ], [ %.pre7.i32, %.backedge.sink.split ]
-  %.sink68 = phi i64 [ %41, %strbuf_avail.exit.i45 ], [ %27, %strbuf_avail.exit.i25 ], [ %.pre.i31, %.backedge.sink.split ]
+  %.sink74 = phi i64 [ %41, %strbuf_avail.exit.i45 ], [ %27, %strbuf_avail.exit.i25 ], [ %.pre.i31, %.backedge.sink.split ]
   %.sink = phi i8 [ %16, %strbuf_avail.exit.i45 ], [ 110, %strbuf_avail.exit.i25 ], [ %.sink.ph, %.backedge.sink.split ]
   %28 = load ptr, ptr %7, align 8, !tbaa !4
   store i64 %.pre-phi.i28.sink, ptr %9, align 8, !tbaa !12
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %.sink68
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %.sink74
   store i8 %.sink, ptr %29, align 1, !tbaa !13
   br label %11, !llvm.loop !30
 
@@ -2700,11 +2700,11 @@ strbuf_addch.exit59.sink.split:                   ; preds = %75, %strbuf_avail.e
 
 strbuf_addch.exit59:                              ; preds = %strbuf_addch.exit59.sink.split, %strbuf_avail.exit.i81, %strbuf_avail.exit.i71, %strbuf_avail.exit.i51
   %.pre-phi.i84.sink = phi i64 [ %.neg.i52, %strbuf_avail.exit.i51 ], [ %.neg.i72, %strbuf_avail.exit.i71 ], [ %.neg.i82, %strbuf_avail.exit.i81 ], [ %.pre7.i88, %strbuf_addch.exit59.sink.split ]
-  %.sink94 = phi i64 [ %59, %strbuf_avail.exit.i51 ], [ %74, %strbuf_avail.exit.i71 ], [ %77, %strbuf_avail.exit.i81 ], [ %.pre.i87, %strbuf_addch.exit59.sink.split ]
+  %.sink103 = phi i64 [ %59, %strbuf_avail.exit.i51 ], [ %74, %strbuf_avail.exit.i71 ], [ %77, %strbuf_avail.exit.i81 ], [ %.pre.i87, %strbuf_addch.exit59.sink.split ]
   %.sink = phi i8 [ %48, %strbuf_avail.exit.i51 ], [ 36, %strbuf_avail.exit.i71 ], [ %48, %strbuf_avail.exit.i81 ], [ %.sink.ph, %strbuf_addch.exit59.sink.split ]
   %78 = load ptr, ptr %45, align 8, !tbaa !4
   store i64 %.pre-phi.i84.sink, ptr %44, align 8, !tbaa !12
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %.sink94
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %.sink103
   store i8 %.sink, ptr %79, align 1, !tbaa !13
   %80 = load ptr, ptr %45, align 8, !tbaa !4
   %81 = load i64, ptr %44, align 8, !tbaa !12

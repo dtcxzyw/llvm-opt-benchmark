@@ -2635,7 +2635,7 @@ define internal fastcc noundef zeroext i1 @task_will_free_mem(ptr noundef readon
 
 .preheader:                                       ; preds = %39, %.preheader.backedge
   %43 = phi ptr [ %.be, %.preheader.backedge ], [ %41, %39 ]
-  %44 = phi ptr [ %.be50, %.preheader.backedge ], [ %40, %39 ]
+  %44 = phi ptr [ %.be57, %.preheader.backedge ], [ %40, %39 ]
   %45 = getelementptr i8, ptr %44, i64 768
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
@@ -2666,7 +2666,7 @@ define internal fastcc noundef zeroext i1 @task_will_free_mem(ptr noundef readon
 
 .preheader.backedge:                              ; preds = %.loopexit, %87
   %.be = phi ptr [ %60, %.loopexit ], [ %90, %87 ]
-  %.be50 = phi ptr [ %59, %.loopexit ], [ %89, %87 ]
+  %.be57 = phi ptr [ %59, %.loopexit ], [ %89, %87 ]
   br label %.preheader, !llvm.loop !46
 
 62:                                               ; preds = %56

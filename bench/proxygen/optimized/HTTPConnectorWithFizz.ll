@@ -15006,14 +15006,14 @@ invoke.cont40:                                    ; preds = %_ZNR5folly8Optional
   call void @_ZN5folly12small_vectorIN4fizz6client6ActionELm4EvED2Ev(ptr noundef nonnull align 16 dereferenceable(848) %ref.tmp31) #30
   %53 = load ptr, ptr %agg.tmp34, align 8
   %cmp.not.i.i = icmp eq ptr %53, null
-  br i1 %cmp.not.i.i, label %sw.epilog.thread189, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
+  br i1 %cmp.not.i.i, label %sw.epilog.thread201, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %invoke.cont40
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %53) #30
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %53) #30
-  br label %sw.epilog.thread189
+  br label %sw.epilog.thread201
 
-sw.epilog.thread189:                              ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i, %invoke.cont40
+sw.epilog.thread201:                              ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i, %invoke.cont40
   store ptr null, ptr %agg.tmp34, align 8
   %54 = load ptr, ptr %event, align 8
   %cmp.not.i.i4.i = icmp eq ptr %54, null
@@ -15216,12 +15216,12 @@ lpad87:                                           ; preds = %_ZNR5folly8Optional
   call void @_ZN5folly12small_vectorIN4fizz6client6ActionELm4EvED2Ev(ptr noundef nonnull align 16 dereferenceable(848) %ref.tmp83) #30
   br label %ehcleanup92
 
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i5.i: ; preds = %sw.epilog.thread189
+_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i5.i: ; preds = %sw.epilog.thread201
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %54) #30
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %54) #30
   br label %_ZN4fizz21WriteNewSessionTicketD2Ev.exit.i
 
-_ZN4fizz21WriteNewSessionTicketD2Ev.exit.i:       ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i5.i, %sw.epilog.thread189
+_ZN4fizz21WriteNewSessionTicketD2Ev.exit.i:       ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i5.i, %sw.epilog.thread201
   store ptr null, ptr %event, align 8
   br label %if.end96
 
@@ -17268,11 +17268,11 @@ sw.bb4.i15:                                       ; preds = %_ZNSt5dequeIN4fizz6
   br i1 %cmp.not.i.i4.i, label %_ZN4fizz6detail12PendingEvent14destroyVariantEv.exit, label %_ZN4fizz6detail12PendingEvent14destroyVariantEv.exit.sink.split
 
 _ZN4fizz6detail12PendingEvent14destroyVariantEv.exit.sink.split: ; preds = %sw.bb4.i15, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i3.i
-  %event.sroa.0.1.sink30 = phi ptr [ %23, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i3.i ], [ %22, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i ], [ %event.sroa.0.1, %sw.bb4.i15 ]
+  %event.sroa.0.1.sink31 = phi ptr [ %23, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i3.i ], [ %22, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i ], [ %event.sroa.0.1, %sw.bb4.i15 ]
   %event.sroa.0.2.ph = phi ptr [ %event.sroa.0.1, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i3.i ], [ %event.sroa.0.1, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i ], [ null, %sw.bb4.i15 ]
   %event.sroa.10.2.ph = phi i64 [ 0, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i3.i ], [ 0, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i ], [ %event.sroa.10.1, %sw.bb4.i15 ]
-  tail call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %event.sroa.0.1.sink30) #30
-  tail call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %event.sroa.0.1.sink30) #30
+  tail call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %event.sroa.0.1.sink31) #30
+  tail call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %event.sroa.0.1.sink31) #30
   br label %_ZN4fizz6detail12PendingEvent14destroyVariantEv.exit
 
 _ZN4fizz6detail12PendingEvent14destroyVariantEv.exit: ; preds = %_ZN4fizz6detail12PendingEvent14destroyVariantEv.exit.sink.split, %sw.bb4.i15, %_ZNSt5dequeIN4fizz6detail12PendingEventESaIS2_EE9pop_frontEv.exit, %sw.bb2.i16, %sw.bb.i17

@@ -3451,40 +3451,40 @@ _get_cluster_list.exit:                           ; preds = %136, %151
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 24
   %228 = load i16, ptr %227, align 8
   switch i16 %228, label %235 [
-    i16 2, label %.sink.split231
+    i16 2, label %.sink.split262
     i16 3, label %229
     i16 4, label %230
     i16 7, label %231
     i16 6, label %232
     i16 5, label %233
     i16 8, label %234
-    i16 14, label %.sink.split231
+    i16 14, label %.sink.split262
   ]
 
 229:                                              ; preds = %.lr.ph193
-  br label %.sink.split231
+  br label %.sink.split262
 
 230:                                              ; preds = %.lr.ph193
-  br label %.sink.split231
+  br label %.sink.split262
 
 231:                                              ; preds = %.lr.ph193
-  br label %.sink.split231
+  br label %.sink.split262
 
 232:                                              ; preds = %.lr.ph193
-  br label %.sink.split231
+  br label %.sink.split262
 
 233:                                              ; preds = %.lr.ph193
-  br label %.sink.split231
+  br label %.sink.split262
 
 234:                                              ; preds = %.lr.ph193
-  br label %.sink.split231
+  br label %.sink.split262
 
-.sink.split231:                                   ; preds = %.lr.ph193, %.lr.ph193, %229, %230, %231, %232, %233, %234
+.sink.split262:                                   ; preds = %.lr.ph193, %.lr.ph193, %229, %230, %231, %232, %233, %234
   %.sroa.0.0.lcssa.sink = phi i64 [ %.sroa.28.0.lcssa, %234 ], [ %.sroa.20.0.lcssa, %233 ], [ %.sroa.16.0.lcssa, %232 ], [ %.sroa.2447.0.lcssa, %231 ], [ %.sroa.12.0.lcssa, %230 ], [ %.sroa.8.0.lcssa, %229 ], [ %.sroa.0.0.lcssa, %.lr.ph193 ], [ %.sroa.0.0.lcssa, %.lr.ph193 ]
   call void @sreport_set_usage_col_width(ptr noundef nonnull %226, i64 noundef %.sroa.0.0.lcssa.sink) #9
   br label %235
 
-235:                                              ; preds = %.sink.split231, %.lr.ph193
+235:                                              ; preds = %.sink.split262, %.lr.ph193
   %236 = call ptr @list_next(ptr noundef %224) #9
   %.not125 = icmp eq ptr %236, null
   br i1 %.not125, label %._crit_edge194, label %.lr.ph193, !llvm.loop !37

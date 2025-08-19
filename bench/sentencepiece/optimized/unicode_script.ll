@@ -865,7 +865,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19236.not, label %101, label %240, !llvm.loop !35
 
 266:                                              ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit3243, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3265
-  %indvars.iv19237 = phi i64 [ 46, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit3243 ], [ %indvars.iv.next19238, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3265 ]
+  %exitcond19240.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit3243 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3265 ]
+  %indvars.iv19237 = phi i64 [ 46, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit3243 ], [ 47, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3265 ]
   %267 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %268 = urem i64 %indvars.iv19237, %267
   %269 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -923,8 +924,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i3263 = phi ptr [ %273, %272 ], [ %290, %.loopexit.i.i3261 ], [ %280, %278 ]
   %.1.i.i3264 = getelementptr inbounds nuw i8, ptr %.pn.i.i3263, i64 12
   store i32 23, ptr %.1.i.i3264, align 4, !tbaa !25
-  %indvars.iv.next19238 = add nuw nsw i64 %indvars.iv19237, 1
-  %exitcond19240.not = icmp eq i64 %indvars.iv.next19238, 48
   br i1 %exitcond19240.not, label %.preheader4024, label %266, !llvm.loop !36
 
 .preheader4024:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3265, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3276
@@ -991,7 +990,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19244.not, label %.preheader4023, label %.preheader4024, !llvm.loop !37
 
 .preheader4023:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3276, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3287
-  %indvars.iv19245 = phi i64 [ %indvars.iv.next19246, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3287 ], [ 58, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3276 ]
+  %exitcond19248.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3287 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3276 ]
+  %indvars.iv19245 = phi i64 [ 59, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3287 ], [ 58, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3276 ]
   %317 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %318 = urem i64 %indvars.iv19245, %317
   %319 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -1049,8 +1049,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i3285 = phi ptr [ %323, %322 ], [ %340, %.loopexit.i.i3283 ], [ %330, %328 ]
   %.1.i.i3286 = getelementptr inbounds nuw i8, ptr %.pn.i.i3285, i64 12
   store i32 23, ptr %.1.i.i3286, align 4, !tbaa !25
-  %indvars.iv.next19246 = add nuw nsw i64 %indvars.iv19245, 1
-  %exitcond19248.not = icmp eq i64 %indvars.iv.next19246, 60
   br i1 %exitcond19248.not, label %.preheader4022, label %.preheader4023, !llvm.loop !38
 
 .preheader4022:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3287, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3298
@@ -1715,7 +1713,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %670
 
 .preheader4021:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3298, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3419
-  %indvars.iv19253 = phi i64 [ %indvars.iv.next19254, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3419 ], [ 63, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3298 ]
+  %exitcond19256.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3419 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3298 ]
+  %indvars.iv19253 = phi i64 [ 64, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3419 ], [ 63, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3298 ]
   %598 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %599 = urem i64 %indvars.iv19253, %598
   %600 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -1773,8 +1772,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i3417 = phi ptr [ %604, %603 ], [ %621, %.loopexit.i.i3415 ], [ %611, %609 ]
   %.1.i.i3418 = getelementptr inbounds nuw i8, ptr %.pn.i.i3417, i64 12
   store i32 23, ptr %.1.i.i3418, align 4, !tbaa !25
-  %indvars.iv.next19254 = add nuw nsw i64 %indvars.iv19253, 1
-  %exitcond19256.not = icmp eq i64 %indvars.iv.next19254, 65
   br i1 %exitcond19256.not, label %367, label %.preheader4021, !llvm.loop !40
 
 623:                                              ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3452
@@ -2798,7 +2795,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %1119
 
 1023:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit3573, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3617
-  %indvars.iv19265 = phi i64 [ 178, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit3573 ], [ %indvars.iv.next19266, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3617 ]
+  %exitcond19268.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit3573 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3617 ]
+  %indvars.iv19265 = phi i64 [ 178, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit3573 ], [ 179, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3617 ]
   %1024 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %1025 = urem i64 %indvars.iv19265, %1024
   %1026 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -2856,8 +2854,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i3615 = phi ptr [ %1030, %1029 ], [ %1047, %.loopexit.i.i3613 ], [ %1037, %1035 ]
   %.1.i.i3616 = getelementptr inbounds nuw i8, ptr %.pn.i.i3615, i64 12
   store i32 23, ptr %.1.i.i3616, align 4, !tbaa !25
-  %indvars.iv.next19266 = add nuw nsw i64 %indvars.iv19265, 1
-  %exitcond19268.not = icmp eq i64 %indvars.iv.next19266, 180
   br i1 %exitcond19268.not, label %976, label %1023, !llvm.loop !43
 
 1049:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3661
@@ -3039,7 +3035,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %1215
 
 1119:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit3606, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3661
-  %indvars.iv19269 = phi i64 [ 182, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit3606 ], [ %indvars.iv.next19270, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3661 ]
+  %exitcond19272.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit3606 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3661 ]
+  %indvars.iv19269 = phi i64 [ 182, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit3606 ], [ 183, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3661 ]
   %1120 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %1121 = urem i64 %indvars.iv19269, %1120
   %1122 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -3097,8 +3094,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i3659 = phi ptr [ %1126, %1125 ], [ %1143, %.loopexit.i.i3657 ], [ %1133, %1131 ]
   %.1.i.i3660 = getelementptr inbounds nuw i8, ptr %.pn.i.i3659, i64 12
   store i32 23, ptr %.1.i.i3660, align 4, !tbaa !25
-  %indvars.iv.next19270 = add nuw nsw i64 %indvars.iv19269, 1
-  %exitcond19272.not = icmp eq i64 %indvars.iv.next19270, 184
   br i1 %exitcond19272.not, label %1049, label %1119, !llvm.loop !44
 
 1145:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3705
@@ -4735,7 +4730,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %1837
 
 1787:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit3936, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3969
-  %indvars.iv19301 = phi i64 [ 2404, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit3936 ], [ %indvars.iv.next19302, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3969 ]
+  %exitcond19304.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit3936 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3969 ]
+  %indvars.iv19301 = phi i64 [ 2404, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit3936 ], [ 2405, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3969 ]
   %1788 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %1789 = urem i64 %indvars.iv19301, %1788
   %1790 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -4793,8 +4789,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i3967 = phi ptr [ %1794, %1793 ], [ %1811, %.loopexit.i.i3965 ], [ %1801, %1799 ]
   %.1.i.i3968 = getelementptr inbounds nuw i8, ptr %.pn.i.i3967, i64 12
   store i32 23, ptr %.1.i.i3968, align 4, !tbaa !25
-  %indvars.iv.next19302 = add nuw nsw i64 %indvars.iv19301, 1
-  %exitcond19304.not = icmp eq i64 %indvars.iv.next19302, 2406
   br i1 %exitcond19304.not, label %1763, label %1787, !llvm.loop !52
 
 1813:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit3991
@@ -4982,7 +4976,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19312.not, label %.preheader4016, label %1863, !llvm.loop !54
 
 .preheader4016:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4002, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4013
-  %indvars.iv19313 = phi i64 [ %indvars.iv.next19314, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4013 ], [ 5941, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4002 ]
+  %exitcond19316.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4013 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4002 ]
+  %indvars.iv19313 = phi i64 [ 5942, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4013 ], [ 5941, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4002 ]
   %1889 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %1890 = urem i64 %indvars.iv19313, %1889
   %1891 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -5040,8 +5035,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i4011 = phi ptr [ %1895, %1894 ], [ %1912, %.loopexit.i.i4009 ], [ %1902, %1900 ]
   %.1.i.i4012 = getelementptr inbounds nuw i8, ptr %.pn.i.i4011, i64 12
   store i32 23, ptr %.1.i.i4012, align 4, !tbaa !25
-  %indvars.iv.next19314 = add nuw nsw i64 %indvars.iv19313, 1
-  %exitcond19316.not = icmp eq i64 %indvars.iv.next19314, 5943
   br i1 %exitcond19316.not, label %.preheader4015, label %.preheader4016, !llvm.loop !55
 
 1914:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4057
@@ -5223,7 +5216,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %2009
 
 .preheader4015:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4013, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4057
-  %indvars.iv19317 = phi i64 [ %indvars.iv.next19318, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4057 ], [ 6146, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4013 ]
+  %exitcond19320.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4057 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4013 ]
+  %indvars.iv19317 = phi i64 [ 6147, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4057 ], [ 6146, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4013 ]
   %1984 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %1985 = urem i64 %indvars.iv19317, %1984
   %1986 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -5281,8 +5275,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i4055 = phi ptr [ %1990, %1989 ], [ %2007, %.loopexit.i.i4053 ], [ %1997, %1995 ]
   %.1.i.i4056 = getelementptr inbounds nuw i8, ptr %.pn.i.i4055, i64 12
   store i32 23, ptr %.1.i.i4056, align 4, !tbaa !25
-  %indvars.iv.next19318 = add nuw nsw i64 %indvars.iv19317, 1
-  %exitcond19320.not = icmp eq i64 %indvars.iv.next19318, 6148
   br i1 %exitcond19320.not, label %1914, label %.preheader4015, !llvm.loop !56
 
 2009:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4046, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4068
@@ -5412,7 +5404,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19328.not, label %.preheader4013, label %.preheader4014, !llvm.loop !58
 
 .preheader4013:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4079, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4090
-  %indvars.iv19329 = phi i64 [ %indvars.iv.next19330, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4090 ], [ 7410, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4079 ]
+  %exitcond19332.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4090 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4079 ]
+  %indvars.iv19329 = phi i64 [ 7411, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4090 ], [ 7410, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4079 ]
   %2060 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %2061 = urem i64 %indvars.iv19329, %2060
   %2062 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -5470,12 +5463,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i4088 = phi ptr [ %2066, %2065 ], [ %2083, %.loopexit.i.i4086 ], [ %2073, %2071 ]
   %.1.i.i4089 = getelementptr inbounds nuw i8, ptr %.pn.i.i4088, i64 12
   store i32 23, ptr %.1.i.i4089, align 4, !tbaa !25
-  %indvars.iv.next19330 = add nuw nsw i64 %indvars.iv19329, 1
-  %exitcond19332.not = icmp eq i64 %indvars.iv.next19330, 7412
   br i1 %exitcond19332.not, label %.preheader4012, label %.preheader4013, !llvm.loop !59
 
 .preheader4012:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4090, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4101
-  %indvars.iv19333 = phi i64 [ %indvars.iv.next19334, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4101 ], [ 7413, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4090 ]
+  %exitcond19336.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4101 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4090 ]
+  %indvars.iv19333 = phi i64 [ 7414, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4101 ], [ 7413, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4090 ]
   %2085 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %2086 = urem i64 %indvars.iv19333, %2085
   %2087 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -5533,8 +5525,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i4099 = phi ptr [ %2091, %2090 ], [ %2108, %.loopexit.i.i4097 ], [ %2098, %2096 ]
   %.1.i.i4100 = getelementptr inbounds nuw i8, ptr %.pn.i.i4099, i64 12
   store i32 23, ptr %.1.i.i4100, align 4, !tbaa !25
-  %indvars.iv.next19334 = add nuw nsw i64 %indvars.iv19333, 1
-  %exitcond19336.not = icmp eq i64 %indvars.iv.next19334, 7415
   br i1 %exitcond19336.not, label %.preheader4011, label %.preheader4012, !llvm.loop !60
 
 2110:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4123
@@ -5659,7 +5649,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19340.not, label %2110, label %.preheader4011, !llvm.loop !61
 
 2159:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4112, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4134
-  %indvars.iv19341 = phi i64 [ 8206, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4112 ], [ %indvars.iv.next19342, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4134 ]
+  %exitcond19344.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4112 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4134 ]
+  %indvars.iv19341 = phi i64 [ 8206, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4112 ], [ 8207, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4134 ]
   %2160 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %2161 = urem i64 %indvars.iv19341, %2160
   %2162 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -5717,8 +5708,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i4132 = phi ptr [ %2166, %2165 ], [ %2183, %.loopexit.i.i4130 ], [ %2173, %2171 ]
   %.1.i.i4133 = getelementptr inbounds nuw i8, ptr %.pn.i.i4132, i64 12
   store i32 23, ptr %.1.i.i4133, align 4, !tbaa !25
-  %indvars.iv.next19342 = add nuw nsw i64 %indvars.iv19341, 1
-  %exitcond19344.not = icmp eq i64 %indvars.iv.next19342, 8208
   br i1 %exitcond19344.not, label %.preheader4010, label %2159, !llvm.loop !62
 
 .preheader4010:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4134, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4145
@@ -5963,7 +5952,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %2375
 
 .preheader4009:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4145, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4189
-  %indvars.iv19349 = phi i64 [ %indvars.iv.next19350, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4189 ], [ 8214, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4145 ]
+  %exitcond19352.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4189 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4145 ]
+  %indvars.iv19349 = phi i64 [ 8215, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4189 ], [ 8214, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4145 ]
   %2280 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %2281 = urem i64 %indvars.iv19349, %2280
   %2282 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -6021,8 +6011,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i4187 = phi ptr [ %2286, %2285 ], [ %2303, %.loopexit.i.i4185 ], [ %2293, %2291 ]
   %.1.i.i4188 = getelementptr inbounds nuw i8, ptr %.pn.i.i4187, i64 12
   store i32 23, ptr %.1.i.i4188, align 4, !tbaa !25
-  %indvars.iv.next19350 = add nuw nsw i64 %indvars.iv19349, 1
-  %exitcond19352.not = icmp eq i64 %indvars.iv.next19350, 8216
   br i1 %exitcond19352.not, label %2210, label %.preheader4009, !llvm.loop !64
 
 2305:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4233
@@ -6204,7 +6192,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %2448
 
 2375:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4178, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4233
-  %indvars.iv19353 = phi i64 [ 8219, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4178 ], [ %indvars.iv.next19354, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4233 ]
+  %exitcond19356.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4178 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4233 ]
+  %indvars.iv19353 = phi i64 [ 8219, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4178 ], [ 8220, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4233 ]
   %2376 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %2377 = urem i64 %indvars.iv19353, %2376
   %2378 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -6262,8 +6251,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i4231 = phi ptr [ %2382, %2381 ], [ %2399, %.loopexit.i.i4229 ], [ %2389, %2387 ]
   %.1.i.i4232 = getelementptr inbounds nuw i8, ptr %.pn.i.i4231, i64 12
   store i32 23, ptr %.1.i.i4232, align 4, !tbaa !25
-  %indvars.iv.next19354 = add nuw nsw i64 %indvars.iv19353, 1
-  %exitcond19356.not = icmp eq i64 %indvars.iv.next19354, 8221
   br i1 %exitcond19356.not, label %2305, label %2375, !llvm.loop !65
 
 2401:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4266
@@ -6813,7 +6800,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19372.not, label %.preheader4008, label %2597, !llvm.loop !69
 
 .preheader4008:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4332, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4343
-  %indvars.iv19373 = phi i64 [ %indvars.iv.next19374, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4343 ], [ 8255, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4332 ]
+  %exitcond19376.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4343 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4332 ]
+  %indvars.iv19373 = phi i64 [ 8256, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4343 ], [ 8255, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4332 ]
   %2623 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %2624 = urem i64 %indvars.iv19373, %2623
   %2625 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -6871,8 +6859,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i4341 = phi ptr [ %2629, %2628 ], [ %2646, %.loopexit.i.i4339 ], [ %2636, %2634 ]
   %.1.i.i4342 = getelementptr inbounds nuw i8, ptr %.pn.i.i4341, i64 12
   store i32 23, ptr %.1.i.i4342, align 4, !tbaa !25
-  %indvars.iv.next19374 = add nuw nsw i64 %indvars.iv19373, 1
-  %exitcond19376.not = icmp eq i64 %indvars.iv.next19374, 8257
   br i1 %exitcond19376.not, label %.preheader4007, label %.preheader4008, !llvm.loop !70
 
 2648:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4387
@@ -8272,7 +8258,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %3259
 
 .preheader4003:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4585, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4607
-  %indvars.iv19417 = phi i64 [ %indvars.iv.next19418, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4607 ], [ 8448, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4585 ]
+  %exitcond19420.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4607 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4585 ]
+  %indvars.iv19417 = phi i64 [ 8449, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4607 ], [ 8448, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4585 ]
   %3210 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %3211 = urem i64 %indvars.iv19417, %3210
   %3212 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -8330,8 +8317,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i4605 = phi ptr [ %3216, %3215 ], [ %3233, %.loopexit.i.i4603 ], [ %3223, %3221 ]
   %.1.i.i4606 = getelementptr inbounds nuw i8, ptr %.pn.i.i4605, i64 12
   store i32 23, ptr %.1.i.i4606, align 4, !tbaa !25
-  %indvars.iv.next19418 = add nuw nsw i64 %indvars.iv19417, 1
-  %exitcond19420.not = icmp eq i64 %indvars.iv.next19418, 8450
   br i1 %exitcond19420.not, label %3186, label %.preheader4003, !llvm.loop !81
 
 3235:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4629
@@ -8456,7 +8441,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19424.not, label %3235, label %3259, !llvm.loop !82
 
 3285:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4618, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4640
-  %indvars.iv19425 = phi i64 [ 8456, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4618 ], [ %indvars.iv.next19426, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4640 ]
+  %exitcond19428.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4618 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4640 ]
+  %indvars.iv19425 = phi i64 [ 8456, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4618 ], [ 8457, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4640 ]
   %3286 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %3287 = urem i64 %indvars.iv19425, %3286
   %3288 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -8514,8 +8500,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i4638 = phi ptr [ %3292, %3291 ], [ %3309, %.loopexit.i.i4636 ], [ %3299, %3297 ]
   %.1.i.i4639 = getelementptr inbounds nuw i8, ptr %.pn.i.i4638, i64 12
   store i32 23, ptr %.1.i.i4639, align 4, !tbaa !25
-  %indvars.iv.next19426 = add nuw nsw i64 %indvars.iv19425, 1
-  %exitcond19428.not = icmp eq i64 %indvars.iv.next19426, 8458
   br i1 %exitcond19428.not, label %.preheader4002, label %3285, !llvm.loop !83
 
 3311:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4673
@@ -8758,7 +8742,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %3433
 
 3407:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4662, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4695
-  %indvars.iv19433 = phi i64 [ 8470, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4662 ], [ %indvars.iv.next19434, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4695 ]
+  %exitcond19436.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4662 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4695 ]
+  %indvars.iv19433 = phi i64 [ 8470, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4662 ], [ 8471, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4695 ]
   %3408 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %3409 = urem i64 %indvars.iv19433, %3408
   %3410 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -8816,8 +8801,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i4693 = phi ptr [ %3414, %3413 ], [ %3431, %.loopexit.i.i4691 ], [ %3421, %3419 ]
   %.1.i.i4694 = getelementptr inbounds nuw i8, ptr %.pn.i.i4693, i64 12
   store i32 23, ptr %.1.i.i4694, align 4, !tbaa !25
-  %indvars.iv.next19434 = add nuw nsw i64 %indvars.iv19433, 1
-  %exitcond19436.not = icmp eq i64 %indvars.iv.next19434, 8472
   br i1 %exitcond19436.not, label %3383, label %3407, !llvm.loop !85
 
 3433:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4684, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4706
@@ -9303,7 +9286,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %3650
 
 3624:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4761, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4794
-  %indvars.iv19445 = phi i64 [ 8492, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4761 ], [ %indvars.iv.next19446, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4794 ]
+  %exitcond19448.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4761 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4794 ]
+  %indvars.iv19445 = phi i64 [ 8492, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4761 ], [ 8493, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4794 ]
   %3625 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %3626 = urem i64 %indvars.iv19445, %3625
   %3627 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -9361,8 +9345,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i4792 = phi ptr [ %3631, %3630 ], [ %3648, %.loopexit.i.i4790 ], [ %3638, %3636 ]
   %.1.i.i4793 = getelementptr inbounds nuw i8, ptr %.pn.i.i4792, i64 12
   store i32 23, ptr %.1.i.i4793, align 4, !tbaa !25
-  %indvars.iv.next19446 = add nuw nsw i64 %indvars.iv19445, 1
-  %exitcond19448.not = icmp eq i64 %indvars.iv.next19446, 8494
   br i1 %exitcond19448.not, label %3600, label %3624, !llvm.loop !88
 
 3650:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4783, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4805
@@ -9429,7 +9411,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19452.not, label %.preheader4000, label %3650, !llvm.loop !89
 
 .preheader4000:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4805, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4816
-  %indvars.iv19453 = phi i64 [ %indvars.iv.next19454, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4816 ], [ 8499, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4805 ]
+  %exitcond19456.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4816 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4805 ]
+  %indvars.iv19453 = phi i64 [ 8500, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4816 ], [ 8499, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4805 ]
   %3676 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %3677 = urem i64 %indvars.iv19453, %3676
   %3678 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -9487,8 +9470,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i4814 = phi ptr [ %3682, %3681 ], [ %3699, %.loopexit.i.i4812 ], [ %3689, %3687 ]
   %.1.i.i4815 = getelementptr inbounds nuw i8, ptr %.pn.i.i4814, i64 12
   store i32 23, ptr %.1.i.i4815, align 4, !tbaa !25
-  %indvars.iv.next19454 = add nuw nsw i64 %indvars.iv19453, 1
-  %exitcond19456.not = icmp eq i64 %indvars.iv.next19454, 8501
   br i1 %exitcond19456.not, label %.preheader3999, label %.preheader4000, !llvm.loop !90
 
 3701:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4838
@@ -9613,7 +9594,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19460.not, label %3701, label %.preheader3999, !llvm.loop !91
 
 3750:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4827, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4849
-  %indvars.iv19461 = phi i64 [ 8506, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4827 ], [ %indvars.iv.next19462, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4849 ]
+  %exitcond19464.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4827 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4849 ]
+  %indvars.iv19461 = phi i64 [ 8506, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4827 ], [ 8507, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4849 ]
   %3751 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %3752 = urem i64 %indvars.iv19461, %3751
   %3753 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -9671,8 +9653,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i4847 = phi ptr [ %3757, %3756 ], [ %3774, %.loopexit.i.i4845 ], [ %3764, %3762 ]
   %.1.i.i4848 = getelementptr inbounds nuw i8, ptr %.pn.i.i4847, i64 12
   store i32 23, ptr %.1.i.i4848, align 4, !tbaa !25
-  %indvars.iv.next19462 = add nuw nsw i64 %indvars.iv19461, 1
-  %exitcond19464.not = icmp eq i64 %indvars.iv.next19462, 8508
   br i1 %exitcond19464.not, label %.preheader3998, label %3750, !llvm.loop !92
 
 .preheader3998:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4849, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4860
@@ -10041,7 +10021,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %3972
 
 3922:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4893, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4926
-  %indvars.iv19477 = phi i64 [ 8524, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4893 ], [ %indvars.iv.next19478, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4926 ]
+  %exitcond19480.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4893 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4926 ]
+  %indvars.iv19477 = phi i64 [ 8524, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4893 ], [ 8525, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4926 ]
   %3923 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %3924 = urem i64 %indvars.iv19477, %3923
   %3925 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -10099,8 +10080,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i4924 = phi ptr [ %3929, %3928 ], [ %3946, %.loopexit.i.i4922 ], [ %3936, %3934 ]
   %.1.i.i4925 = getelementptr inbounds nuw i8, ptr %.pn.i.i4924, i64 12
   store i32 23, ptr %.1.i.i4925, align 4, !tbaa !25
-  %indvars.iv.next19478 = add nuw nsw i64 %indvars.iv19477, 1
-  %exitcond19480.not = icmp eq i64 %indvars.iv.next19478, 8526
   br i1 %exitcond19480.not, label %3898, label %3922, !llvm.loop !96
 
 3948:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4948
@@ -10225,7 +10204,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19484.not, label %3948, label %3972, !llvm.loop !97
 
 3998:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4937, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4959
-  %indvars.iv19485 = phi i64 [ 8586, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4937 ], [ %indvars.iv.next19486, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4959 ]
+  %exitcond19488.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4937 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4959 ]
+  %indvars.iv19485 = phi i64 [ 8586, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit4937 ], [ 8587, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4959 ]
   %3999 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %4000 = urem i64 %indvars.iv19485, %3999
   %4001 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -10283,8 +10263,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i4957 = phi ptr [ %4005, %4004 ], [ %4022, %.loopexit.i.i4955 ], [ %4012, %4010 ]
   %.1.i.i4958 = getelementptr inbounds nuw i8, ptr %.pn.i.i4957, i64 12
   store i32 23, ptr %.1.i.i4958, align 4, !tbaa !25
-  %indvars.iv.next19486 = add nuw nsw i64 %indvars.iv19485, 1
-  %exitcond19488.not = icmp eq i64 %indvars.iv.next19486, 8588
   br i1 %exitcond19488.not, label %.preheader3995, label %3998, !llvm.loop !98
 
 .preheader3995:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4959, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4970
@@ -10414,7 +10392,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19496.not, label %.preheader3993, label %.preheader3994, !llvm.loop !100
 
 .preheader3993:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4981, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4992
-  %indvars.iv19497 = phi i64 [ %indvars.iv.next19498, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4992 ], [ 8602, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4981 ]
+  %exitcond19500.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4992 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4981 ]
+  %indvars.iv19497 = phi i64 [ 8603, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4992 ], [ 8602, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit4981 ]
   %4074 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %4075 = urem i64 %indvars.iv19497, %4074
   %4076 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -10472,8 +10451,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i4990 = phi ptr [ %4080, %4079 ], [ %4097, %.loopexit.i.i4988 ], [ %4087, %4085 ]
   %.1.i.i4991 = getelementptr inbounds nuw i8, ptr %.pn.i.i4990, i64 12
   store i32 23, ptr %.1.i.i4991, align 4, !tbaa !25
-  %indvars.iv.next19498 = add nuw nsw i64 %indvars.iv19497, 1
-  %exitcond19500.not = icmp eq i64 %indvars.iv.next19498, 8604
   br i1 %exitcond19500.not, label %.preheader3992, label %.preheader3993, !llvm.loop !101
 
 4099:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5014
@@ -10656,7 +10633,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %4222
 
 4172:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit5003, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5036
-  %indvars.iv19505 = phi i64 [ 8609, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit5003 ], [ %indvars.iv.next19506, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5036 ]
+  %exitcond19508.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit5003 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5036 ]
+  %indvars.iv19505 = phi i64 [ 8609, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit5003 ], [ 8610, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5036 ]
   %4173 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %4174 = urem i64 %indvars.iv19505, %4173
   %4175 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -10714,8 +10692,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i5034 = phi ptr [ %4179, %4178 ], [ %4196, %.loopexit.i.i5032 ], [ %4186, %4184 ]
   %.1.i.i5035 = getelementptr inbounds nuw i8, ptr %.pn.i.i5034, i64 12
   store i32 23, ptr %.1.i.i5035, align 4, !tbaa !25
-  %indvars.iv.next19506 = add nuw nsw i64 %indvars.iv19505, 1
-  %exitcond19508.not = icmp eq i64 %indvars.iv.next19506, 8611
   br i1 %exitcond19508.not, label %4148, label %4172, !llvm.loop !103
 
 4198:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5058
@@ -10777,7 +10753,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %4272
 
 4222:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit5025, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5058
-  %indvars.iv19509 = phi i64 [ 8612, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit5025 ], [ %indvars.iv.next19510, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5058 ]
+  %exitcond19512.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit5025 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5058 ]
+  %indvars.iv19509 = phi i64 [ 8612, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit5025 ], [ 8613, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5058 ]
   %4223 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %4224 = urem i64 %indvars.iv19509, %4223
   %4225 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -10835,8 +10812,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i5056 = phi ptr [ %4229, %4228 ], [ %4246, %.loopexit.i.i5054 ], [ %4236, %4234 ]
   %.1.i.i5057 = getelementptr inbounds nuw i8, ptr %.pn.i.i5056, i64 12
   store i32 23, ptr %.1.i.i5057, align 4, !tbaa !25
-  %indvars.iv.next19510 = add nuw nsw i64 %indvars.iv19509, 1
-  %exitcond19512.not = icmp eq i64 %indvars.iv.next19510, 8614
   br i1 %exitcond19512.not, label %4198, label %4222, !llvm.loop !104
 
 4248:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5080
@@ -11024,7 +10999,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19520.not, label %.preheader3991, label %4298, !llvm.loop !106
 
 .preheader3991:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5091, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5102
-  %indvars.iv19521 = phi i64 [ %indvars.iv.next19522, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5102 ], [ 8654, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5091 ]
+  %exitcond19524.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5102 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5091 ]
+  %indvars.iv19521 = phi i64 [ 8655, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5102 ], [ 8654, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5091 ]
   %4324 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %4325 = urem i64 %indvars.iv19521, %4324
   %4326 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -11082,8 +11058,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i5100 = phi ptr [ %4330, %4329 ], [ %4347, %.loopexit.i.i5098 ], [ %4337, %4335 ]
   %.1.i.i5101 = getelementptr inbounds nuw i8, ptr %.pn.i.i5100, i64 12
   store i32 23, ptr %.1.i.i5101, align 4, !tbaa !25
-  %indvars.iv.next19522 = add nuw nsw i64 %indvars.iv19521, 1
-  %exitcond19524.not = icmp eq i64 %indvars.iv.next19522, 8656
   br i1 %exitcond19524.not, label %.preheader3990, label %.preheader3991, !llvm.loop !107
 
 4349:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5146
@@ -11265,7 +11239,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %4444
 
 .preheader3990:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5102, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5146
-  %indvars.iv19525 = phi i64 [ %indvars.iv.next19526, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5146 ], [ 8656, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5102 ]
+  %exitcond19528.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5146 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5102 ]
+  %indvars.iv19525 = phi i64 [ 8657, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5146 ], [ 8656, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5102 ]
   %4419 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %4420 = urem i64 %indvars.iv19525, %4419
   %4421 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -11323,8 +11298,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i5144 = phi ptr [ %4425, %4424 ], [ %4442, %.loopexit.i.i5142 ], [ %4432, %4430 ]
   %.1.i.i5145 = getelementptr inbounds nuw i8, ptr %.pn.i.i5144, i64 12
   store i32 23, ptr %.1.i.i5145, align 4, !tbaa !25
-  %indvars.iv.next19526 = add nuw nsw i64 %indvars.iv19525, 1
-  %exitcond19528.not = icmp eq i64 %indvars.iv.next19526, 8658
   br i1 %exitcond19528.not, label %4349, label %.preheader3990, !llvm.loop !108
 
 4444:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit5135, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5157
@@ -11818,7 +11791,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19544.not, label %.preheader3987, label %4613, !llvm.loop !112
 
 .preheader3987:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5234, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5245
-  %indvars.iv19545 = phi i64 [ %indvars.iv.next19546, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5245 ], [ 8992, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5234 ]
+  %exitcond19548.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5245 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5234 ]
+  %indvars.iv19545 = phi i64 [ 8993, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5245 ], [ 8992, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5234 ]
   %4639 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %4640 = urem i64 %indvars.iv19545, %4639
   %4641 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -11876,8 +11850,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i5243 = phi ptr [ %4645, %4644 ], [ %4662, %.loopexit.i.i5241 ], [ %4652, %4650 ]
   %.1.i.i5244 = getelementptr inbounds nuw i8, ptr %.pn.i.i5243, i64 12
   store i32 23, ptr %.1.i.i5244, align 4, !tbaa !25
-  %indvars.iv.next19546 = add nuw nsw i64 %indvars.iv19545, 1
-  %exitcond19548.not = icmp eq i64 %indvars.iv.next19546, 8994
   br i1 %exitcond19548.not, label %.preheader3986, label %.preheader3987, !llvm.loop !113
 
 4664:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit5278
@@ -17286,7 +17258,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19664.not, label %.preheader3968, label %.preheader3969, !llvm.loop !142
 
 .preheader3968:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6224, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6235
-  %indvars.iv19665 = phi i64 [ %indvars.iv.next19666, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6235 ], [ 11077, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6224 ]
+  %exitcond19668.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6235 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6224 ]
+  %indvars.iv19665 = phi i64 [ 11078, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6235 ], [ 11077, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6224 ]
   %6791 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %6792 = urem i64 %indvars.iv19665, %6791
   %6793 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -17344,8 +17317,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i6233 = phi ptr [ %6797, %6796 ], [ %6814, %.loopexit.i.i6231 ], [ %6804, %6802 ]
   %.1.i.i6234 = getelementptr inbounds nuw i8, ptr %.pn.i.i6233, i64 12
   store i32 23, ptr %.1.i.i6234, align 4, !tbaa !25
-  %indvars.iv.next19666 = add nuw nsw i64 %indvars.iv19665, 1
-  %exitcond19668.not = icmp eq i64 %indvars.iv.next19666, 11079
   br i1 %exitcond19668.not, label %.preheader3967, label %.preheader3968, !llvm.loop !143
 
 .preheader3967:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6235, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6246
@@ -18028,7 +17999,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %7225
 
 .preheader3960:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6312, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6367
-  %indvars.iv19697 = phi i64 [ %indvars.iv.next19698, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6367 ], [ 11776, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6312 ]
+  %exitcond19700.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6367 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6312 ]
+  %indvars.iv19697 = phi i64 [ 11777, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6367 ], [ 11776, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6312 ]
   %7084 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %7085 = urem i64 %indvars.iv19697, %7084
   %7086 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -18086,8 +18058,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i6365 = phi ptr [ %7090, %7089 ], [ %7107, %.loopexit.i.i6363 ], [ %7097, %7095 ]
   %.1.i.i6366 = getelementptr inbounds nuw i8, ptr %.pn.i.i6365, i64 12
   store i32 23, ptr %.1.i.i6366, align 4, !tbaa !25
-  %indvars.iv.next19698 = add nuw nsw i64 %indvars.iv19697, 1
-  %exitcond19700.not = icmp eq i64 %indvars.iv.next19698, 11778
   br i1 %exitcond19700.not, label %6991, label %.preheader3960, !llvm.loop !151
 
 7109:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6433
@@ -18811,7 +18781,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %7651
 
 7394:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit6444, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6510
-  %indvars.iv19709 = phi i64 [ 11800, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit6444 ], [ %indvars.iv.next19710, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6510 ]
+  %exitcond19712.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit6444 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6510 ]
+  %indvars.iv19709 = phi i64 [ 11800, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit6444 ], [ 11801, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6510 ]
   %7395 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %7396 = urem i64 %indvars.iv19709, %7395
   %7397 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -18869,8 +18840,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i6508 = phi ptr [ %7401, %7400 ], [ %7418, %.loopexit.i.i6506 ], [ %7408, %7406 ]
   %.1.i.i6509 = getelementptr inbounds nuw i8, ptr %.pn.i.i6508, i64 12
   store i32 23, ptr %.1.i.i6509, align 4, !tbaa !25
-  %indvars.iv.next19710 = add nuw nsw i64 %indvars.iv19709, 1
-  %exitcond19712.not = icmp eq i64 %indvars.iv.next19710, 11802
   br i1 %exitcond19712.not, label %7301, label %7394, !llvm.loop !154
 
 7420:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6631
@@ -19472,7 +19441,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %7701
 
 7651:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit6499, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6631
-  %indvars.iv19713 = phi i64 [ 11806, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit6499 ], [ %indvars.iv.next19714, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6631 ]
+  %exitcond19716.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit6499 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6631 ]
+  %indvars.iv19713 = phi i64 [ 11806, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit6499 ], [ 11807, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6631 ]
   %7652 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %7653 = urem i64 %indvars.iv19713, %7652
   %7654 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -19530,8 +19500,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i6629 = phi ptr [ %7658, %7657 ], [ %7675, %.loopexit.i.i6627 ], [ %7665, %7663 ]
   %.1.i.i6630 = getelementptr inbounds nuw i8, ptr %.pn.i.i6629, i64 12
   store i32 23, ptr %.1.i.i6630, align 4, !tbaa !25
-  %indvars.iv.next19714 = add nuw nsw i64 %indvars.iv19713, 1
-  %exitcond19716.not = icmp eq i64 %indvars.iv.next19714, 11808
   br i1 %exitcond19716.not, label %7420, label %7651, !llvm.loop !155
 
 7677:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6653
@@ -19719,7 +19687,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19724.not, label %.preheader3959, label %7727, !llvm.loop !157
 
 .preheader3959:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6664, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6675
-  %indvars.iv19725 = phi i64 [ %indvars.iv.next19726, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6675 ], [ 11834, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6664 ]
+  %exitcond19728.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6675 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6664 ]
+  %indvars.iv19725 = phi i64 [ 11835, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6675 ], [ 11834, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6664 ]
   %7753 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %7754 = urem i64 %indvars.iv19725, %7753
   %7755 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -19777,8 +19746,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i6673 = phi ptr [ %7759, %7758 ], [ %7776, %.loopexit.i.i6671 ], [ %7766, %7764 ]
   %.1.i.i6674 = getelementptr inbounds nuw i8, ptr %.pn.i.i6673, i64 12
   store i32 23, ptr %.1.i.i6674, align 4, !tbaa !25
-  %indvars.iv.next19726 = add nuw nsw i64 %indvars.iv19725, 1
-  %exitcond19728.not = icmp eq i64 %indvars.iv.next19726, 11836
   br i1 %exitcond19728.not, label %.preheader3958, label %.preheader3959, !llvm.loop !158
 
 7778:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6719
@@ -20023,7 +19990,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19732.not, label %7778, label %.preheader3958, !llvm.loop !159
 
 7873:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit6708, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6730
-  %indvars.iv19733 = phi i64 [ 11843, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit6708 ], [ %indvars.iv.next19734, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6730 ]
+  %exitcond19736.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit6708 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6730 ]
+  %indvars.iv19733 = phi i64 [ 11843, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit6708 ], [ 11844, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6730 ]
   %7874 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %7875 = urem i64 %indvars.iv19733, %7874
   %7876 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -20081,8 +20049,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i6728 = phi ptr [ %7880, %7879 ], [ %7897, %.loopexit.i.i6726 ], [ %7887, %7885 ]
   %.1.i.i6729 = getelementptr inbounds nuw i8, ptr %.pn.i.i6728, i64 12
   store i32 23, ptr %.1.i.i6729, align 4, !tbaa !25
-  %indvars.iv.next19734 = add nuw nsw i64 %indvars.iv19733, 1
-  %exitcond19736.not = icmp eq i64 %indvars.iv.next19734, 11845
   br i1 %exitcond19736.not, label %.preheader3957, label %7873, !llvm.loop !160
 
 7899:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit6752
@@ -21586,7 +21552,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %8555
 
 8482:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit6884, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7016
-  %indvars.iv19745 = phi i64 [ 12306, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit6884 ], [ %indvars.iv.next19746, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7016 ]
+  %exitcond19748.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit6884 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7016 ]
+  %indvars.iv19745 = phi i64 [ 12306, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit6884 ], [ 12307, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7016 ]
   %8483 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %8484 = urem i64 %indvars.iv19745, %8483
   %8485 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -21644,8 +21611,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i7014 = phi ptr [ %8489, %8488 ], [ %8506, %.loopexit.i.i7012 ], [ %8496, %8494 ]
   %.1.i.i7015 = getelementptr inbounds nuw i8, ptr %.pn.i.i7014, i64 12
   store i32 23, ptr %.1.i.i7015, align 4, !tbaa !25
-  %indvars.iv.next19746 = add nuw nsw i64 %indvars.iv19745, 1
-  %exitcond19748.not = icmp eq i64 %indvars.iv.next19746, 12308
   br i1 %exitcond19748.not, label %8251, label %8482, !llvm.loop !163
 
 8508:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7049
@@ -21767,7 +21732,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %8581
 
 8555:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7005, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7049
-  %indvars.iv19749 = phi i64 [ 12318, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7005 ], [ %indvars.iv.next19750, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7049 ]
+  %exitcond19752.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7005 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7049 ]
+  %indvars.iv19749 = phi i64 [ 12318, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7005 ], [ 12319, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7049 ]
   %8556 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %8557 = urem i64 %indvars.iv19749, %8556
   %8558 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -21825,8 +21791,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i7047 = phi ptr [ %8562, %8561 ], [ %8579, %.loopexit.i.i7045 ], [ %8569, %8567 ]
   %.1.i.i7048 = getelementptr inbounds nuw i8, ptr %.pn.i.i7047, i64 12
   store i32 23, ptr %.1.i.i7048, align 4, !tbaa !25
-  %indvars.iv.next19750 = add nuw nsw i64 %indvars.iv19749, 1
-  %exitcond19752.not = icmp eq i64 %indvars.iv.next19750, 12320
   br i1 %exitcond19752.not, label %8508, label %8555, !llvm.loop !164
 
 8581:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7038, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7060
@@ -22011,7 +21975,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %8679
 
 .preheader3956:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7060, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7093
-  %indvars.iv19757 = phi i64 [ %indvars.iv.next19758, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7093 ], [ 12342, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7060 ]
+  %exitcond19760.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7093 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7060 ]
+  %indvars.iv19757 = phi i64 [ 12343, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7093 ], [ 12342, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7060 ]
   %8654 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %8655 = urem i64 %indvars.iv19757, %8654
   %8656 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -22069,12 +22034,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i7091 = phi ptr [ %8660, %8659 ], [ %8677, %.loopexit.i.i7089 ], [ %8667, %8665 ]
   %.1.i.i7092 = getelementptr inbounds nuw i8, ptr %.pn.i.i7091, i64 12
   store i32 23, ptr %.1.i.i7092, align 4, !tbaa !25
-  %indvars.iv.next19758 = add nuw nsw i64 %indvars.iv19757, 1
-  %exitcond19760.not = icmp eq i64 %indvars.iv.next19758, 12344
   br i1 %exitcond19760.not, label %8607, label %.preheader3956, !llvm.loop !166
 
 8679:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7082, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7104
-  %indvars.iv19761 = phi i64 [ 12350, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7082 ], [ %indvars.iv.next19762, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7104 ]
+  %exitcond19764.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7082 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7104 ]
+  %indvars.iv19761 = phi i64 [ 12350, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7082 ], [ 12351, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7104 ]
   %8680 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %8681 = urem i64 %indvars.iv19761, %8680
   %8682 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -22132,8 +22096,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i7102 = phi ptr [ %8686, %8685 ], [ %8703, %.loopexit.i.i7100 ], [ %8693, %8691 ]
   %.1.i.i7103 = getelementptr inbounds nuw i8, ptr %.pn.i.i7102, i64 12
   store i32 23, ptr %.1.i.i7103, align 4, !tbaa !25
-  %indvars.iv.next19762 = add nuw nsw i64 %indvars.iv19761, 1
-  %exitcond19764.not = icmp eq i64 %indvars.iv.next19762, 12352
   br i1 %exitcond19764.not, label %.preheader3955, label %8679, !llvm.loop !167
 
 8705:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7148
@@ -22315,7 +22277,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %8800
 
 .preheader3955:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7104, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7148
-  %indvars.iv19765 = phi i64 [ %indvars.iv.next19766, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7148 ], [ 12443, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7104 ]
+  %exitcond19768.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7148 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7104 ]
+  %indvars.iv19765 = phi i64 [ 12444, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7148 ], [ 12443, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7104 ]
   %8775 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %8776 = urem i64 %indvars.iv19765, %8775
   %8777 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -22373,12 +22336,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i7146 = phi ptr [ %8781, %8780 ], [ %8798, %.loopexit.i.i7144 ], [ %8788, %8786 ]
   %.1.i.i7147 = getelementptr inbounds nuw i8, ptr %.pn.i.i7146, i64 12
   store i32 23, ptr %.1.i.i7147, align 4, !tbaa !25
-  %indvars.iv.next19766 = add nuw nsw i64 %indvars.iv19765, 1
-  %exitcond19768.not = icmp eq i64 %indvars.iv.next19766, 12445
   br i1 %exitcond19768.not, label %8705, label %.preheader3955, !llvm.loop !168
 
 8800:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7137, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7159
-  %indvars.iv19769 = phi i64 [ 12688, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7137 ], [ %indvars.iv.next19770, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7159 ]
+  %exitcond19772.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7137 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7159 ]
+  %indvars.iv19769 = phi i64 [ 12688, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7137 ], [ 12689, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7159 ]
   %8801 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %8802 = urem i64 %indvars.iv19769, %8801
   %8803 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -22436,8 +22398,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i7157 = phi ptr [ %8807, %8806 ], [ %8824, %.loopexit.i.i7155 ], [ %8814, %8812 ]
   %.1.i.i7158 = getelementptr inbounds nuw i8, ptr %.pn.i.i7157, i64 12
   store i32 23, ptr %.1.i.i7158, align 4, !tbaa !25
-  %indvars.iv.next19770 = add nuw nsw i64 %indvars.iv19769, 1
-  %exitcond19772.not = icmp eq i64 %indvars.iv.next19770, 12690
   br i1 %exitcond19772.not, label %.preheader3954, label %8800, !llvm.loop !169
 
 .preheader3954:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7159, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7170
@@ -23560,7 +23520,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %9300
 
 .preheader3941:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7346, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7368
-  %indvars.iv19833 = phi i64 [ %indvars.iv.next19834, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7368 ], [ 42784, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7346 ]
+  %exitcond19836.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7368 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7346 ]
+  %indvars.iv19833 = phi i64 [ 42785, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7368 ], [ 42784, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7346 ]
   %9275 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %9276 = urem i64 %indvars.iv19833, %9275
   %9277 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -23618,12 +23579,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i7366 = phi ptr [ %9281, %9280 ], [ %9298, %.loopexit.i.i7364 ], [ %9288, %9286 ]
   %.1.i.i7367 = getelementptr inbounds nuw i8, ptr %.pn.i.i7366, i64 12
   store i32 23, ptr %.1.i.i7367, align 4, !tbaa !25
-  %indvars.iv.next19834 = add nuw nsw i64 %indvars.iv19833, 1
-  %exitcond19836.not = icmp eq i64 %indvars.iv.next19834, 42786
   br i1 %exitcond19836.not, label %9251, label %.preheader3941, !llvm.loop !185
 
 9300:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7357, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7379
-  %indvars.iv19837 = phi i64 [ 42889, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7357 ], [ %indvars.iv.next19838, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7379 ]
+  %exitcond19840.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7357 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7379 ]
+  %indvars.iv19837 = phi i64 [ 42889, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7357 ], [ 42890, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7379 ]
   %9301 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %9302 = urem i64 %indvars.iv19837, %9301
   %9303 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -23681,8 +23641,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i7377 = phi ptr [ %9307, %9306 ], [ %9324, %.loopexit.i.i7375 ], [ %9314, %9312 ]
   %.1.i.i7378 = getelementptr inbounds nuw i8, ptr %.pn.i.i7377, i64 12
   store i32 23, ptr %.1.i.i7378, align 4, !tbaa !25
-  %indvars.iv.next19838 = add nuw nsw i64 %indvars.iv19837, 1
-  %exitcond19840.not = icmp eq i64 %indvars.iv.next19838, 42891
   br i1 %exitcond19840.not, label %.preheader3940, label %9300, !llvm.loop !186
 
 .preheader3940:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7379, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7390
@@ -24167,7 +24125,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %9631
 
 .preheader3939:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7390, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7478
-  %indvars.iv19845 = phi i64 [ %indvars.iv.next19846, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7478 ], [ 43062, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7390 ]
+  %exitcond19848.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7478 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7390 ]
+  %indvars.iv19845 = phi i64 [ 43063, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7478 ], [ 43062, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7390 ]
   %9513 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %9514 = urem i64 %indvars.iv19845, %9513
   %9515 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -24225,8 +24184,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i7476 = phi ptr [ %9519, %9518 ], [ %9536, %.loopexit.i.i7474 ], [ %9526, %9524 ]
   %.1.i.i7477 = getelementptr inbounds nuw i8, ptr %.pn.i.i7476, i64 12
   store i32 23, ptr %.1.i.i7477, align 4, !tbaa !25
-  %indvars.iv.next19846 = add nuw nsw i64 %indvars.iv19845, 1
-  %exitcond19848.not = icmp eq i64 %indvars.iv.next19846, 43064
   br i1 %exitcond19848.not, label %9351, label %.preheader3939, !llvm.loop !188
 
 9538:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7533
@@ -24531,7 +24488,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19852.not, label %9538, label %9631, !llvm.loop !189
 
 9657:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7522, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7544
-  %indvars.iv19853 = phi i64 [ 65073, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7522 ], [ %indvars.iv.next19854, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7544 ]
+  %exitcond19856.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7522 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7544 ]
+  %indvars.iv19853 = phi i64 [ 65073, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7522 ], [ 65074, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7544 ]
   %9658 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %9659 = urem i64 %indvars.iv19853, %9658
   %9660 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -24589,8 +24547,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i7542 = phi ptr [ %9664, %9663 ], [ %9681, %.loopexit.i.i7540 ], [ %9671, %9669 ]
   %.1.i.i7543 = getelementptr inbounds nuw i8, ptr %.pn.i.i7542, i64 12
   store i32 23, ptr %.1.i.i7543, align 4, !tbaa !25
-  %indvars.iv.next19854 = add nuw nsw i64 %indvars.iv19853, 1
-  %exitcond19856.not = icmp eq i64 %indvars.iv.next19854, 65075
   br i1 %exitcond19856.not, label %.preheader3938, label %9657, !llvm.loop !190
 
 9683:                                             ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7731
@@ -25552,7 +25508,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %10124
 
 .preheader3938:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7544, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7731
-  %indvars.iv19857 = phi i64 [ %indvars.iv.next19858, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7731 ], [ 65075, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7544 ]
+  %exitcond19860.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7731 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7544 ]
+  %indvars.iv19857 = phi i64 [ 65076, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7731 ], [ 65075, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7544 ]
   %10052 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %10053 = urem i64 %indvars.iv19857, %10052
   %10054 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -25610,8 +25567,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i7729 = phi ptr [ %10058, %10057 ], [ %10075, %.loopexit.i.i7727 ], [ %10065, %10063 ]
   %.1.i.i7730 = getelementptr inbounds nuw i8, ptr %.pn.i.i7729, i64 12
   store i32 23, ptr %.1.i.i7730, align 4, !tbaa !25
-  %indvars.iv.next19858 = add nuw nsw i64 %indvars.iv19857, 1
-  %exitcond19860.not = icmp eq i64 %indvars.iv.next19858, 65077
   br i1 %exitcond19860.not, label %9683, label %.preheader3938, !llvm.loop !191
 
 10077:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7764
@@ -25733,7 +25688,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %10150
 
 10124:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7720, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7764
-  %indvars.iv19861 = phi i64 [ 65093, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7720 ], [ %indvars.iv.next19862, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7764 ]
+  %exitcond19864.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7720 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7764 ]
+  %indvars.iv19861 = phi i64 [ 65093, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7720 ], [ 65094, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7764 ]
   %10125 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %10126 = urem i64 %indvars.iv19861, %10125
   %10127 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -25791,8 +25747,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i7762 = phi ptr [ %10131, %10130 ], [ %10148, %.loopexit.i.i7760 ], [ %10138, %10136 ]
   %.1.i.i7763 = getelementptr inbounds nuw i8, ptr %.pn.i.i7762, i64 12
   store i32 23, ptr %.1.i.i7763, align 4, !tbaa !25
-  %indvars.iv.next19862 = add nuw nsw i64 %indvars.iv19861, 1
-  %exitcond19864.not = icmp eq i64 %indvars.iv.next19862, 65095
   br i1 %exitcond19864.not, label %10077, label %10124, !llvm.loop !192
 
 10150:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7753, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7775
@@ -26886,7 +26840,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %10633
 
 10583:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7940, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7973
-  %indvars.iv19889 = phi i64 [ 65130, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7940 ], [ %indvars.iv.next19890, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7973 ]
+  %exitcond19892.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7940 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7973 ]
+  %indvars.iv19889 = phi i64 [ 65130, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit7940 ], [ 65131, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7973 ]
   %10584 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %10585 = urem i64 %indvars.iv19889, %10584
   %10586 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -26944,8 +26899,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i7971 = phi ptr [ %10590, %10589 ], [ %10607, %.loopexit.i.i7969 ], [ %10597, %10595 ]
   %.1.i.i7972 = getelementptr inbounds nuw i8, ptr %.pn.i.i7971, i64 12
   store i32 23, ptr %.1.i.i7972, align 4, !tbaa !25
-  %indvars.iv.next19890 = add nuw nsw i64 %indvars.iv19889, 1
-  %exitcond19892.not = icmp eq i64 %indvars.iv.next19890, 65132
   br i1 %exitcond19892.not, label %10559, label %10583, !llvm.loop !199
 
 10609:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit7995
@@ -27491,7 +27444,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19900.not, label %10659, label %10798, !llvm.loop !201
 
 10824:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8061, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8083
-  %indvars.iv19901 = phi i64 [ 65294, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8061 ], [ %indvars.iv.next19902, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8083 ]
+  %exitcond19904.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8061 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8083 ]
+  %indvars.iv19901 = phi i64 [ 65294, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8061 ], [ 65295, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8083 ]
   %10825 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %10826 = urem i64 %indvars.iv19901, %10825
   %10827 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -27549,8 +27503,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i8081 = phi ptr [ %10831, %10830 ], [ %10848, %.loopexit.i.i8079 ], [ %10838, %10836 ]
   %.1.i.i8082 = getelementptr inbounds nuw i8, ptr %.pn.i.i8081, i64 12
   store i32 23, ptr %.1.i.i8082, align 4, !tbaa !25
-  %indvars.iv.next19902 = add nuw nsw i64 %indvars.iv19901, 1
-  %exitcond19904.not = icmp eq i64 %indvars.iv.next19902, 65296
   br i1 %exitcond19904.not, label %.preheader3934, label %10824, !llvm.loop !202
 
 .preheader3934:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8083, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8094
@@ -27617,7 +27569,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19908.not, label %.preheader3933, label %.preheader3934, !llvm.loop !203
 
 .preheader3933:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8094, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8105
-  %indvars.iv19909 = phi i64 [ %indvars.iv.next19910, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8105 ], [ 65306, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8094 ]
+  %exitcond19912.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8105 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8094 ]
+  %indvars.iv19909 = phi i64 [ 65307, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8105 ], [ 65306, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8094 ]
   %10875 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %10876 = urem i64 %indvars.iv19909, %10875
   %10877 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -27675,8 +27628,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i8103 = phi ptr [ %10881, %10880 ], [ %10898, %.loopexit.i.i8101 ], [ %10888, %10886 ]
   %.1.i.i8104 = getelementptr inbounds nuw i8, ptr %.pn.i.i8103, i64 12
   store i32 23, ptr %.1.i.i8104, align 4, !tbaa !25
-  %indvars.iv.next19910 = add nuw nsw i64 %indvars.iv19909, 1
-  %exitcond19912.not = icmp eq i64 %indvars.iv.next19910, 65308
   br i1 %exitcond19912.not, label %.preheader3932, label %.preheader3933, !llvm.loop !204
 
 .preheader3932:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8105, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8116
@@ -28641,7 +28592,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %11320
 
 .preheader3931:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8116, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8292
-  %indvars.iv19917 = phi i64 [ %indvars.iv.next19918, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8292 ], [ 65311, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8116 ]
+  %exitcond19920.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8292 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8116 ]
+  %indvars.iv19917 = phi i64 [ 65312, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8292 ], [ 65311, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8116 ]
   %11271 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %11272 = urem i64 %indvars.iv19917, %11271
   %11273 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -28699,8 +28651,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i8290 = phi ptr [ %11277, %11276 ], [ %11294, %.loopexit.i.i8288 ], [ %11284, %11282 ]
   %.1.i.i8291 = getelementptr inbounds nuw i8, ptr %.pn.i.i8290, i64 12
   store i32 23, ptr %.1.i.i8291, align 4, !tbaa !25
-  %indvars.iv.next19918 = add nuw nsw i64 %indvars.iv19917, 1
-  %exitcond19920.not = icmp eq i64 %indvars.iv.next19918, 65313
   br i1 %exitcond19920.not, label %10925, label %.preheader3931, !llvm.loop !206
 
 11296:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8314
@@ -28762,7 +28712,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %11346
 
 11320:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8281, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8314
-  %indvars.iv19921 = phi i64 [ 65380, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8281 ], [ %indvars.iv.next19922, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8314 ]
+  %exitcond19924.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8281 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8314 ]
+  %indvars.iv19921 = phi i64 [ 65380, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8281 ], [ 65381, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8314 ]
   %11321 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %11322 = urem i64 %indvars.iv19921, %11321
   %11323 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -28820,12 +28771,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i8312 = phi ptr [ %11327, %11326 ], [ %11344, %.loopexit.i.i8310 ], [ %11334, %11332 ]
   %.1.i.i8313 = getelementptr inbounds nuw i8, ptr %.pn.i.i8312, i64 12
   store i32 23, ptr %.1.i.i8313, align 4, !tbaa !25
-  %indvars.iv.next19922 = add nuw nsw i64 %indvars.iv19921, 1
-  %exitcond19924.not = icmp eq i64 %indvars.iv.next19922, 65382
   br i1 %exitcond19924.not, label %11296, label %11320, !llvm.loop !207
 
 11346:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8303, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8325
-  %indvars.iv19925 = phi i64 [ 65438, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8303 ], [ %indvars.iv.next19926, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8325 ]
+  %exitcond19928.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8303 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8325 ]
+  %indvars.iv19925 = phi i64 [ 65438, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8303 ], [ 65439, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8325 ]
   %11347 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %11348 = urem i64 %indvars.iv19925, %11347
   %11349 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -28883,8 +28833,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i8323 = phi ptr [ %11353, %11352 ], [ %11370, %.loopexit.i.i8321 ], [ %11360, %11358 ]
   %.1.i.i8324 = getelementptr inbounds nuw i8, ptr %.pn.i.i8323, i64 12
   store i32 23, ptr %.1.i.i8324, align 4, !tbaa !25
-  %indvars.iv.next19926 = add nuw nsw i64 %indvars.iv19925, 1
-  %exitcond19928.not = icmp eq i64 %indvars.iv.next19926, 65440
   br i1 %exitcond19928.not, label %.preheader3930, label %11346, !llvm.loop !208
 
 11372:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8369
@@ -29066,7 +29014,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %11491
 
 .preheader3930:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8325, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8369
-  %indvars.iv19929 = phi i64 [ %indvars.iv.next19930, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8369 ], [ 65504, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8325 ]
+  %exitcond19932.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8369 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8325 ]
+  %indvars.iv19929 = phi i64 [ 65505, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8369 ], [ 65504, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8325 ]
   %11442 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %11443 = urem i64 %indvars.iv19929, %11442
   %11444 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -29124,8 +29073,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i8367 = phi ptr [ %11448, %11447 ], [ %11465, %.loopexit.i.i8365 ], [ %11455, %11453 ]
   %.1.i.i8368 = getelementptr inbounds nuw i8, ptr %.pn.i.i8367, i64 12
   store i32 23, ptr %.1.i.i8368, align 4, !tbaa !25
-  %indvars.iv.next19930 = add nuw nsw i64 %indvars.iv19929, 1
-  %exitcond19932.not = icmp eq i64 %indvars.iv.next19930, 65506
   br i1 %exitcond19932.not, label %11372, label %.preheader3930, !llvm.loop !209
 
 11467:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8391
@@ -29187,7 +29134,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %11517
 
 11491:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8358, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8391
-  %indvars.iv19933 = phi i64 [ 65509, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8358 ], [ %indvars.iv.next19934, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8391 ]
+  %exitcond19936.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8358 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8391 ]
+  %indvars.iv19933 = phi i64 [ 65509, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8358 ], [ 65510, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8391 ]
   %11492 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %11493 = urem i64 %indvars.iv19933, %11492
   %11494 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -29245,8 +29193,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i8389 = phi ptr [ %11498, %11497 ], [ %11515, %.loopexit.i.i8387 ], [ %11505, %11503 ]
   %.1.i.i8390 = getelementptr inbounds nuw i8, ptr %.pn.i.i8389, i64 12
   store i32 23, ptr %.1.i.i8390, align 4, !tbaa !25
-  %indvars.iv.next19934 = add nuw nsw i64 %indvars.iv19933, 1
-  %exitcond19936.not = icmp eq i64 %indvars.iv.next19934, 65511
   br i1 %exitcond19936.not, label %11467, label %11491, !llvm.loop !210
 
 11517:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8380, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8402
@@ -29313,7 +29259,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19940.not, label %.preheader3929, label %11517, !llvm.loop !211
 
 .preheader3929:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8402, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8413
-  %indvars.iv19941 = phi i64 [ %indvars.iv.next19942, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8413 ], [ 65517, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8402 ]
+  %exitcond19944.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8413 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8402 ]
+  %indvars.iv19941 = phi i64 [ 65518, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8413 ], [ 65517, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8402 ]
   %11543 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %11544 = urem i64 %indvars.iv19941, %11543
   %11545 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -29371,8 +29318,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i8411 = phi ptr [ %11549, %11548 ], [ %11566, %.loopexit.i.i8409 ], [ %11556, %11554 ]
   %.1.i.i8412 = getelementptr inbounds nuw i8, ptr %.pn.i.i8411, i64 12
   store i32 23, ptr %.1.i.i8412, align 4, !tbaa !25
-  %indvars.iv.next19942 = add nuw nsw i64 %indvars.iv19941, 1
-  %exitcond19944.not = icmp eq i64 %indvars.iv.next19942, 65519
   br i1 %exitcond19944.not, label %.preheader3928, label %.preheader3929, !llvm.loop !212
 
 .preheader3928:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8413, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8424
@@ -29439,7 +29384,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19948.not, label %.preheader3927, label %.preheader3928, !llvm.loop !213
 
 .preheader3927:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8424, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8435
-  %indvars.iv19949 = phi i64 [ %indvars.iv.next19950, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8435 ], [ 65532, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8424 ]
+  %exitcond19952.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8435 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8424 ]
+  %indvars.iv19949 = phi i64 [ 65533, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8435 ], [ 65532, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8424 ]
   %11593 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %11594 = urem i64 %indvars.iv19949, %11593
   %11595 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -29497,8 +29443,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i8433 = phi ptr [ %11599, %11598 ], [ %11616, %.loopexit.i.i8431 ], [ %11606, %11604 ]
   %.1.i.i8434 = getelementptr inbounds nuw i8, ptr %.pn.i.i8433, i64 12
   store i32 23, ptr %.1.i.i8434, align 4, !tbaa !25
-  %indvars.iv.next19950 = add nuw nsw i64 %indvars.iv19949, 1
-  %exitcond19952.not = icmp eq i64 %indvars.iv.next19950, 65534
   br i1 %exitcond19952.not, label %.preheader3926, label %.preheader3927, !llvm.loop !214
 
 .preheader3926:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8435, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8446
@@ -30132,7 +30076,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond19992.not, label %.preheader3916, label %.preheader3917, !llvm.loop !224
 
 .preheader3916:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8545, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8556
-  %indvars.iv19993 = phi i64 [ %indvars.iv.next19994, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8556 ], [ 119141, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8545 ]
+  %exitcond19996.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8556 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8545 ]
+  %indvars.iv19993 = phi i64 [ 119142, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8556 ], [ 119141, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8545 ]
   %11868 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %11869 = urem i64 %indvars.iv19993, %11868
   %11870 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -30190,8 +30135,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i8554 = phi ptr [ %11874, %11873 ], [ %11891, %.loopexit.i.i8552 ], [ %11881, %11879 ]
   %.1.i.i8555 = getelementptr inbounds nuw i8, ptr %.pn.i.i8554, i64 12
   store i32 23, ptr %.1.i.i8555, align 4, !tbaa !25
-  %indvars.iv.next19994 = add nuw nsw i64 %indvars.iv19993, 1
-  %exitcond19996.not = icmp eq i64 %indvars.iv.next19994, 119143
   br i1 %exitcond19996.not, label %.preheader3915, label %.preheader3916, !llvm.loop !225
 
 .preheader3915:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8556, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8567
@@ -30384,7 +30327,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond20008.not, label %.preheader3912, label %.preheader3913, !llvm.loop !228
 
 .preheader3912:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8589, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8600
-  %indvars.iv20009 = phi i64 [ %indvars.iv.next20010, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8600 ], [ 119171, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8589 ]
+  %exitcond20012.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8600 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8589 ]
+  %indvars.iv20009 = phi i64 [ 119172, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8600 ], [ 119171, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8589 ]
   %11968 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %11969 = urem i64 %indvars.iv20009, %11968
   %11970 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -30442,8 +30386,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i8598 = phi ptr [ %11974, %11973 ], [ %11991, %.loopexit.i.i8596 ], [ %11981, %11979 ]
   %.1.i.i8599 = getelementptr inbounds nuw i8, ptr %.pn.i.i8598, i64 12
   store i32 23, ptr %.1.i.i8599, align 4, !tbaa !25
-  %indvars.iv.next20010 = add nuw nsw i64 %indvars.iv20009, 1
-  %exitcond20012.not = icmp eq i64 %indvars.iv.next20010, 119173
   br i1 %exitcond20012.not, label %.preheader3911, label %.preheader3912, !llvm.loop !229
 
 .preheader3911:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8600, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8611
@@ -30883,7 +30825,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %12192
 
 .preheader3905:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8666, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8688
-  %indvars.iv20037 = phi i64 [ %indvars.iv.next20038, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8688 ], [ 119966, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8666 ]
+  %exitcond20040.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8688 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8666 ]
+  %indvars.iv20037 = phi i64 [ 119967, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8688 ], [ 119966, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8666 ]
   %12167 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %12168 = urem i64 %indvars.iv20037, %12167
   %12169 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -30941,12 +30884,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i8686 = phi ptr [ %12173, %12172 ], [ %12190, %.loopexit.i.i8684 ], [ %12180, %12178 ]
   %.1.i.i8687 = getelementptr inbounds nuw i8, ptr %.pn.i.i8686, i64 12
   store i32 23, ptr %.1.i.i8687, align 4, !tbaa !25
-  %indvars.iv.next20038 = add nuw nsw i64 %indvars.iv20037, 1
-  %exitcond20040.not = icmp eq i64 %indvars.iv.next20038, 119968
   br i1 %exitcond20040.not, label %12143, label %.preheader3905, !llvm.loop !236
 
 12192:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8677, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8699
-  %indvars.iv20041 = phi i64 [ 119973, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8677 ], [ %indvars.iv.next20042, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8699 ]
+  %exitcond20044.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8677 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8699 ]
+  %indvars.iv20041 = phi i64 [ 119973, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit8677 ], [ 119974, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8699 ]
   %12193 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %12194 = urem i64 %indvars.iv20041, %12193
   %12195 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -31004,8 +30946,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i8697 = phi ptr [ %12199, %12198 ], [ %12216, %.loopexit.i.i8695 ], [ %12206, %12204 ]
   %.1.i.i8698 = getelementptr inbounds nuw i8, ptr %.pn.i.i8697, i64 12
   store i32 23, ptr %.1.i.i8698, align 4, !tbaa !25
-  %indvars.iv.next20042 = add nuw nsw i64 %indvars.iv20041, 1
-  %exitcond20044.not = icmp eq i64 %indvars.iv.next20042, 119975
   br i1 %exitcond20044.not, label %.preheader3904, label %12192, !llvm.loop !237
 
 .preheader3904:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8699, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit8710
@@ -33910,7 +33850,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond20184.not, label %.preheader3881, label %.preheader3882, !llvm.loop !272
 
 .preheader3881:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9216, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9227
-  %indvars.iv20185 = phi i64 [ %indvars.iv.next20186, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9227 ], [ 127489, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9216 ]
+  %exitcond20188.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9227 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9216 ]
+  %indvars.iv20185 = phi i64 [ 127490, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9227 ], [ 127489, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9216 ]
   %13393 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %13394 = urem i64 %indvars.iv20185, %13393
   %13395 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -33968,8 +33909,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i9225 = phi ptr [ %13399, %13398 ], [ %13416, %.loopexit.i.i9223 ], [ %13406, %13404 ]
   %.1.i.i9226 = getelementptr inbounds nuw i8, ptr %.pn.i.i9225, i64 12
   store i32 23, ptr %.1.i.i9226, align 4, !tbaa !25
-  %indvars.iv.next20186 = add nuw nsw i64 %indvars.iv20185, 1
-  %exitcond20188.not = icmp eq i64 %indvars.iv.next20186, 127491
   br i1 %exitcond20188.not, label %.preheader3880, label %.preheader3881, !llvm.loop !273
 
 .preheader3880:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9227, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9238
@@ -34099,7 +34038,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond20196.not, label %.preheader3878, label %.preheader3879, !llvm.loop !275
 
 .preheader3878:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9249, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9260
-  %indvars.iv20197 = phi i64 [ %indvars.iv.next20198, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9260 ], [ 127568, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9249 ]
+  %exitcond20200.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9260 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9249 ]
+  %indvars.iv20197 = phi i64 [ 127569, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9260 ], [ 127568, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9249 ]
   %13468 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %13469 = urem i64 %indvars.iv20197, %13468
   %13470 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -34157,8 +34097,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i9258 = phi ptr [ %13474, %13473 ], [ %13491, %.loopexit.i.i9256 ], [ %13481, %13479 ]
   %.1.i.i9259 = getelementptr inbounds nuw i8, ptr %.pn.i.i9258, i64 12
   store i32 23, ptr %.1.i.i9259, align 4, !tbaa !25
-  %indvars.iv.next20198 = add nuw nsw i64 %indvars.iv20197, 1
-  %exitcond20200.not = icmp eq i64 %indvars.iv.next20198, 127570
   br i1 %exitcond20200.not, label %.preheader3877, label %.preheader3878, !llvm.loop !276
 
 .preheader3877:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9260, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9271
@@ -37202,7 +37140,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %14734
 
 .preheader3845:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9777, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9810
-  %indvars.iv20353 = phi i64 [ %indvars.iv.next20354, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9810 ], [ 8490, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9777 ]
+  %exitcond20356.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9810 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9777 ]
+  %indvars.iv20353 = phi i64 [ 8491, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9810 ], [ 8490, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9777 ]
   %14709 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %14710 = urem i64 %indvars.iv20353, %14709
   %14711 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -37260,8 +37199,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i9808 = phi ptr [ %14715, %14714 ], [ %14732, %.loopexit.i.i9806 ], [ %14722, %14720 ]
   %.1.i.i9809 = getelementptr inbounds nuw i8, ptr %.pn.i.i9808, i64 12
   store i32 61, ptr %.1.i.i9809, align 4, !tbaa !25
-  %indvars.iv.next20354 = add nuw nsw i64 %indvars.iv20353, 1
-  %exitcond20356.not = icmp eq i64 %indvars.iv.next20354, 8492
   br i1 %exitcond20356.not, label %14662, label %.preheader3845, !llvm.loop !315
 
 14734:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit9799, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9821
@@ -37328,7 +37265,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond20360.not, label %.preheader3844, label %14734, !llvm.loop !316
 
 .preheader3844:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9821, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9832
-  %indvars.iv20361 = phi i64 [ %indvars.iv.next20362, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9832 ], [ 8579, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9821 ]
+  %exitcond20364.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9832 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9821 ]
+  %indvars.iv20361 = phi i64 [ 8580, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9832 ], [ 8579, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9821 ]
   %14760 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %14761 = urem i64 %indvars.iv20361, %14760
   %14762 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -37386,8 +37324,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i9830 = phi ptr [ %14766, %14765 ], [ %14783, %.loopexit.i.i9828 ], [ %14773, %14771 ]
   %.1.i.i9831 = getelementptr inbounds nuw i8, ptr %.pn.i.i9830, i64 12
   store i32 61, ptr %.1.i.i9831, align 4, !tbaa !25
-  %indvars.iv.next20362 = add nuw nsw i64 %indvars.iv20361, 1
-  %exitcond20364.not = icmp eq i64 %indvars.iv.next20362, 8581
   br i1 %exitcond20364.not, label %.preheader3843, label %.preheader3844, !llvm.loop !317
 
 .preheader3843:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9832, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9843
@@ -37517,7 +37453,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond20372.not, label %.preheader3841, label %.preheader3842, !llvm.loop !319
 
 .preheader3841:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9854, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9865
-  %indvars.iv20373 = phi i64 [ %indvars.iv.next20374, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9865 ], [ 11388, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9854 ]
+  %exitcond20376.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9865 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9854 ]
+  %indvars.iv20373 = phi i64 [ 11389, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9865 ], [ 11388, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9854 ]
   %14835 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %14836 = urem i64 %indvars.iv20373, %14835
   %14837 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -37575,12 +37512,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i9863 = phi ptr [ %14841, %14840 ], [ %14858, %.loopexit.i.i9861 ], [ %14848, %14846 ]
   %.1.i.i9864 = getelementptr inbounds nuw i8, ptr %.pn.i.i9863, i64 12
   store i32 61, ptr %.1.i.i9864, align 4, !tbaa !25
-  %indvars.iv.next20374 = add nuw nsw i64 %indvars.iv20373, 1
-  %exitcond20376.not = icmp eq i64 %indvars.iv.next20374, 11390
   br i1 %exitcond20376.not, label %.preheader3840, label %.preheader3841, !llvm.loop !320
 
 .preheader3840:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9865, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9876
-  %indvars.iv20377 = phi i64 [ %indvars.iv.next20378, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9876 ], [ 11390, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9865 ]
+  %exitcond20380.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9876 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9865 ]
+  %indvars.iv20377 = phi i64 [ 11391, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9876 ], [ 11390, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9865 ]
   %14860 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %14861 = urem i64 %indvars.iv20377, %14860
   %14862 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -37638,8 +37574,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i9874 = phi ptr [ %14866, %14865 ], [ %14883, %.loopexit.i.i9872 ], [ %14873, %14871 ]
   %.1.i.i9875 = getelementptr inbounds nuw i8, ptr %.pn.i.i9874, i64 12
   store i32 61, ptr %.1.i.i9875, align 4, !tbaa !25
-  %indvars.iv.next20378 = add nuw nsw i64 %indvars.iv20377, 1
-  %exitcond20380.not = icmp eq i64 %indvars.iv.next20378, 11392
   br i1 %exitcond20380.not, label %.preheader3839, label %.preheader3840, !llvm.loop !321
 
 14885:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9898
@@ -38190,7 +38124,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %15134
 
 15108:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit9953, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9986
-  %indvars.iv20401 = phi i64 [ 43000, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit9953 ], [ %indvars.iv.next20402, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9986 ]
+  %exitcond20404.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit9953 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9986 ]
+  %indvars.iv20401 = phi i64 [ 43000, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit9953 ], [ 43001, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9986 ]
   %15109 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %15110 = urem i64 %indvars.iv20401, %15109
   %15111 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -38248,8 +38183,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i9984 = phi ptr [ %15115, %15114 ], [ %15132, %.loopexit.i.i9982 ], [ %15122, %15120 ]
   %.1.i.i9985 = getelementptr inbounds nuw i8, ptr %.pn.i.i9984, i64 12
   store i32 61, ptr %.1.i.i9985, align 4, !tbaa !25
-  %indvars.iv.next20402 = add nuw nsw i64 %indvars.iv20401, 1
-  %exitcond20404.not = icmp eq i64 %indvars.iv.next20402, 43002
   br i1 %exitcond20404.not, label %15084, label %15108, !llvm.loop !327
 
 15134:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit9975, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit9997
@@ -38873,7 +38806,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %15479
 
 15383:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit10074, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10107
-  %indvars.iv20437 = phi i64 [ 886, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit10074 ], [ %indvars.iv.next20438, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10107 ]
+  %exitcond20440.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit10074 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10107 ]
+  %indvars.iv20437 = phi i64 [ 886, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit10074 ], [ 887, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10107 ]
   %15384 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %15385 = urem i64 %indvars.iv20437, %15384
   %15386 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -38931,8 +38865,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i10105 = phi ptr [ %15390, %15389 ], [ %15407, %.loopexit.i.i10103 ], [ %15397, %15395 ]
   %.1.i.i10106 = getelementptr inbounds nuw i8, ptr %.pn.i.i10105, i64 12
   store i32 38, ptr %.1.i.i10106, align 4, !tbaa !25
-  %indvars.iv.next20438 = add nuw nsw i64 %indvars.iv20437, 1
-  %exitcond20440.not = icmp eq i64 %indvars.iv.next20438, 888
   br i1 %exitcond20440.not, label %15359, label %15383, !llvm.loop !336
 
 15409:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10151
@@ -41466,7 +41398,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %16447
 
 .preheader3808:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10536, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10569
-  %indvars.iv20553 = phi i64 [ %indvars.iv.next20554, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10569 ], [ 8189, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10536 ]
+  %exitcond20556.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10569 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10536 ]
+  %indvars.iv20553 = phi i64 [ 8190, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10569 ], [ 8189, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10536 ]
   %16422 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %16423 = urem i64 %indvars.iv20553, %16422
   %16424 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -41524,8 +41457,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i10567 = phi ptr [ %16428, %16427 ], [ %16445, %.loopexit.i.i10565 ], [ %16435, %16433 ]
   %.1.i.i10568 = getelementptr inbounds nuw i8, ptr %.pn.i.i10567, i64 12
   store i32 38, ptr %.1.i.i10568, align 4, !tbaa !25
-  %indvars.iv.next20554 = add nuw nsw i64 %indvars.iv20553, 1
-  %exitcond20556.not = icmp eq i64 %indvars.iv.next20554, 8191
   br i1 %exitcond20556.not, label %16375, label %.preheader3808, !llvm.loop !365
 
 16447:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit10558, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10580
@@ -41718,7 +41649,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond20568.not, label %.preheader3805, label %.preheader3806, !llvm.loop !368
 
 .preheader3805:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10602, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10613
-  %indvars.iv20569 = phi i64 [ %indvars.iv.next20570, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10613 ], [ 65930, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10602 ]
+  %exitcond20572.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10613 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10602 ]
+  %indvars.iv20569 = phi i64 [ 65931, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10613 ], [ 65930, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10602 ]
   %16523 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %16524 = urem i64 %indvars.iv20569, %16523
   %16525 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -41776,8 +41708,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i10611 = phi ptr [ %16529, %16528 ], [ %16546, %.loopexit.i.i10609 ], [ %16536, %16534 ]
   %.1.i.i10612 = getelementptr inbounds nuw i8, ptr %.pn.i.i10611, i64 12
   store i32 38, ptr %.1.i.i10612, align 4, !tbaa !25
-  %indvars.iv.next20570 = add nuw nsw i64 %indvars.iv20569, 1
-  %exitcond20572.not = icmp eq i64 %indvars.iv.next20570, 65932
   br i1 %exitcond20572.not, label %.preheader3804, label %.preheader3805, !llvm.loop !369
 
 16548:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10635
@@ -42265,7 +42195,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %16772
 
 16746:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit10679, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10712
-  %indvars.iv20589 = phi i64 [ 1155, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit10679 ], [ %indvars.iv.next20590, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10712 ]
+  %exitcond20592.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit10679 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10712 ]
+  %indvars.iv20589 = phi i64 [ 1155, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit10679 ], [ 1156, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10712 ]
   %16747 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %16748 = urem i64 %indvars.iv20589, %16747
   %16749 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -42323,12 +42254,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i10710 = phi ptr [ %16753, %16752 ], [ %16770, %.loopexit.i.i10708 ], [ %16760, %16758 ]
   %.1.i.i10711 = getelementptr inbounds nuw i8, ptr %.pn.i.i10710, i64 12
   store i32 27, ptr %.1.i.i10711, align 4, !tbaa !25
-  %indvars.iv.next20590 = add nuw nsw i64 %indvars.iv20589, 1
-  %exitcond20592.not = icmp eq i64 %indvars.iv.next20590, 1157
   br i1 %exitcond20592.not, label %16722, label %16746, !llvm.loop !374
 
 16772:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit10701, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10723
-  %indvars.iv20593 = phi i64 [ 1160, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit10701 ], [ %indvars.iv.next20594, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10723 ]
+  %exitcond20596.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit10701 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10723 ]
+  %indvars.iv20593 = phi i64 [ 1160, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit10701 ], [ 1161, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10723 ]
   %16773 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %16774 = urem i64 %indvars.iv20593, %16773
   %16775 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -42386,8 +42316,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i10721 = phi ptr [ %16779, %16778 ], [ %16796, %.loopexit.i.i10719 ], [ %16786, %16784 ]
   %.1.i.i10722 = getelementptr inbounds nuw i8, ptr %.pn.i.i10721, i64 12
   store i32 27, ptr %.1.i.i10722, align 4, !tbaa !25
-  %indvars.iv.next20594 = add nuw nsw i64 %indvars.iv20593, 1
-  %exitcond20596.not = icmp eq i64 %indvars.iv.next20594, 1162
   br i1 %exitcond20596.not, label %.preheader3802, label %16772, !llvm.loop !375
 
 .preheader3802:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10723, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10734
@@ -43244,7 +43172,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond20624.not, label %.preheader3799, label %17116, !llvm.loop !382
 
 .preheader3799:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10877, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10888
-  %indvars.iv20625 = phi i64 [ %indvars.iv.next20626, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10888 ], [ 42652, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10877 ]
+  %exitcond20628.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10888 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10877 ]
+  %indvars.iv20625 = phi i64 [ 42653, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10888 ], [ 42652, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10877 ]
   %17142 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %17143 = urem i64 %indvars.iv20625, %17142
   %17144 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -43302,12 +43231,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i10886 = phi ptr [ %17148, %17147 ], [ %17165, %.loopexit.i.i10884 ], [ %17155, %17153 ]
   %.1.i.i10887 = getelementptr inbounds nuw i8, ptr %.pn.i.i10886, i64 12
   store i32 27, ptr %.1.i.i10887, align 4, !tbaa !25
-  %indvars.iv.next20626 = add nuw nsw i64 %indvars.iv20625, 1
-  %exitcond20628.not = icmp eq i64 %indvars.iv.next20626, 42654
   br i1 %exitcond20628.not, label %.preheader3798, label %.preheader3799, !llvm.loop !383
 
 .preheader3798:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10888, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10899
-  %indvars.iv20629 = phi i64 [ %indvars.iv.next20630, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10899 ], [ 42654, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10888 ]
+  %exitcond20632.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10899 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10888 ]
+  %indvars.iv20629 = phi i64 [ 42655, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10899 ], [ 42654, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10888 ]
   %17167 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %17168 = urem i64 %indvars.iv20629, %17167
   %17169 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -43365,12 +43293,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i10897 = phi ptr [ %17173, %17172 ], [ %17190, %.loopexit.i.i10895 ], [ %17180, %17178 ]
   %.1.i.i10898 = getelementptr inbounds nuw i8, ptr %.pn.i.i10897, i64 12
   store i32 27, ptr %.1.i.i10898, align 4, !tbaa !25
-  %indvars.iv.next20630 = add nuw nsw i64 %indvars.iv20629, 1
-  %exitcond20632.not = icmp eq i64 %indvars.iv.next20630, 42656
   br i1 %exitcond20632.not, label %.preheader3797, label %.preheader3798, !llvm.loop !384
 
 .preheader3797:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10899, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10910
-  %indvars.iv20633 = phi i64 [ %indvars.iv.next20634, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10910 ], [ 65070, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10899 ]
+  %exitcond20636.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10910 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10899 ]
+  %indvars.iv20633 = phi i64 [ 65071, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10910 ], [ 65070, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10899 ]
   %17192 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %17193 = urem i64 %indvars.iv20633, %17192
   %17194 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -43428,8 +43355,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i10908 = phi ptr [ %17198, %17197 ], [ %17215, %.loopexit.i.i10906 ], [ %17205, %17203 ]
   %.1.i.i10909 = getelementptr inbounds nuw i8, ptr %.pn.i.i10908, i64 12
   store i32 27, ptr %.1.i.i10909, align 4, !tbaa !25
-  %indvars.iv.next20634 = add nuw nsw i64 %indvars.iv20633, 1
-  %exitcond20636.not = icmp eq i64 %indvars.iv.next20634, 65072
   br i1 %exitcond20636.not, label %.preheader3796, label %.preheader3797, !llvm.loop !385
 
 17217:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10932
@@ -43796,7 +43721,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %17391
 
 17365:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit10954, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10987
-  %indvars.iv20649 = phi i64 [ 1421, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit10954 ], [ %indvars.iv.next20650, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10987 ]
+  %exitcond20652.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit10954 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10987 ]
+  %indvars.iv20649 = phi i64 [ 1421, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit10954 ], [ 1422, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10987 ]
   %17366 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %17367 = urem i64 %indvars.iv20649, %17366
   %17368 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -43854,8 +43780,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i10985 = phi ptr [ %17372, %17371 ], [ %17389, %.loopexit.i.i10983 ], [ %17379, %17377 ]
   %.1.i.i10986 = getelementptr inbounds nuw i8, ptr %.pn.i.i10985, i64 12
   store i32 4, ptr %.1.i.i10986, align 4, !tbaa !25
-  %indvars.iv.next20650 = add nuw nsw i64 %indvars.iv20649, 1
-  %exitcond20652.not = icmp eq i64 %indvars.iv.next20650, 1423
   br i1 %exitcond20652.not, label %17341, label %17365, !llvm.loop !389
 
 17391:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit10976, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit10998
@@ -44221,7 +44145,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %17609
 
 17536:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11031, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11064
-  %indvars.iv20661 = phi i64 [ 1473, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11031 ], [ %indvars.iv.next20662, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11064 ]
+  %exitcond20664.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11031 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11064 ]
+  %indvars.iv20661 = phi i64 [ 1473, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11031 ], [ 1474, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11064 ]
   %17537 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %17538 = urem i64 %indvars.iv20661, %17537
   %17539 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -44279,8 +44204,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i11062 = phi ptr [ %17543, %17542 ], [ %17560, %.loopexit.i.i11060 ], [ %17550, %17548 ]
   %.1.i.i11063 = getelementptr inbounds nuw i8, ptr %.pn.i.i11062, i64 12
   store i32 45, ptr %.1.i.i11063, align 4, !tbaa !25
-  %indvars.iv.next20662 = add nuw nsw i64 %indvars.iv20661, 1
-  %exitcond20664.not = icmp eq i64 %indvars.iv.next20662, 1475
   br i1 %exitcond20664.not, label %17512, label %17536, !llvm.loop !392
 
 17562:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11097
@@ -44402,7 +44325,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %17635
 
 17609:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11053, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11097
-  %indvars.iv20665 = phi i64 [ 1476, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11053 ], [ %indvars.iv.next20666, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11097 ]
+  %exitcond20668.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11053 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11097 ]
+  %indvars.iv20665 = phi i64 [ 1476, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11053 ], [ 1477, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11097 ]
   %17610 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %17611 = urem i64 %indvars.iv20665, %17610
   %17612 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -44460,8 +44384,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i11095 = phi ptr [ %17616, %17615 ], [ %17633, %.loopexit.i.i11093 ], [ %17623, %17621 ]
   %.1.i.i11096 = getelementptr inbounds nuw i8, ptr %.pn.i.i11095, i64 12
   store i32 45, ptr %.1.i.i11096, align 4, !tbaa !25
-  %indvars.iv.next20666 = add nuw nsw i64 %indvars.iv20665, 1
-  %exitcond20668.not = icmp eq i64 %indvars.iv.next20666, 1478
   br i1 %exitcond20668.not, label %17562, label %17609, !llvm.loop !393
 
 17635:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11086, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11108
@@ -44709,7 +44631,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %17782
 
 .preheader3792:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11119, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11152
-  %indvars.iv20677 = phi i64 [ %indvars.iv.next20678, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11152 ], [ 1523, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11119 ]
+  %exitcond20680.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11152 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11119 ]
+  %indvars.iv20677 = phi i64 [ 1524, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11152 ], [ 1523, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11119 ]
   %17733 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %17734 = urem i64 %indvars.iv20677, %17733
   %17735 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -44767,8 +44690,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i11150 = phi ptr [ %17739, %17738 ], [ %17756, %.loopexit.i.i11148 ], [ %17746, %17744 ]
   %.1.i.i11151 = getelementptr inbounds nuw i8, ptr %.pn.i.i11150, i64 12
   store i32 45, ptr %.1.i.i11151, align 4, !tbaa !25
-  %indvars.iv.next20678 = add nuw nsw i64 %indvars.iv20677, 1
-  %exitcond20680.not = icmp eq i64 %indvars.iv.next20678, 1525
   br i1 %exitcond20680.not, label %17686, label %.preheader3792, !llvm.loop !396
 
 17758:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11174
@@ -45077,7 +44998,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond20692.not, label %17834, label %.preheader3791, !llvm.loop !399
 
 17883:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11196, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11218
-  %indvars.iv20693 = phi i64 [ 64320, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11196 ], [ %indvars.iv.next20694, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11218 ]
+  %exitcond20696.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11196 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11218 ]
+  %indvars.iv20693 = phi i64 [ 64320, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11196 ], [ 64321, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11218 ]
   %17884 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %17885 = urem i64 %indvars.iv20693, %17884
   %17886 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -45135,12 +45057,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i11216 = phi ptr [ %17890, %17889 ], [ %17907, %.loopexit.i.i11214 ], [ %17897, %17895 ]
   %.1.i.i11217 = getelementptr inbounds nuw i8, ptr %.pn.i.i11216, i64 12
   store i32 45, ptr %.1.i.i11217, align 4, !tbaa !25
-  %indvars.iv.next20694 = add nuw nsw i64 %indvars.iv20693, 1
-  %exitcond20696.not = icmp eq i64 %indvars.iv.next20694, 64322
   br i1 %exitcond20696.not, label %.preheader3790, label %17883, !llvm.loop !400
 
 .preheader3790:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11218, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11229
-  %indvars.iv20697 = phi i64 [ %indvars.iv.next20698, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11229 ], [ 64323, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11218 ]
+  %exitcond20700.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11229 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11218 ]
+  %indvars.iv20697 = phi i64 [ 64324, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11229 ], [ 64323, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11218 ]
   %17909 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %17910 = urem i64 %indvars.iv20697, %17909
   %17911 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -45198,8 +45119,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i11227 = phi ptr [ %17915, %17914 ], [ %17932, %.loopexit.i.i11225 ], [ %17922, %17920 ]
   %.1.i.i11228 = getelementptr inbounds nuw i8, ptr %.pn.i.i11227, i64 12
   store i32 45, ptr %.1.i.i11228, align 4, !tbaa !25
-  %indvars.iv.next20698 = add nuw nsw i64 %indvars.iv20697, 1
-  %exitcond20700.not = icmp eq i64 %indvars.iv.next20698, 64325
   br i1 %exitcond20700.not, label %.preheader3789, label %.preheader3790, !llvm.loop !401
 
 .preheader3789:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11229, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11240
@@ -45510,7 +45429,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %18081
 
 .preheader3786:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11262, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11295
-  %indvars.iv20713 = phi i64 [ %indvars.iv.next20714, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11295 ], [ 1545, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11262 ]
+  %exitcond20716.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11295 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11262 ]
+  %indvars.iv20713 = phi i64 [ 1546, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11295 ], [ 1545, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11262 ]
   %18056 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %18057 = urem i64 %indvars.iv20713, %18056
   %18058 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -45568,12 +45488,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i11293 = phi ptr [ %18062, %18061 ], [ %18079, %.loopexit.i.i11291 ], [ %18069, %18067 ]
   %.1.i.i11294 = getelementptr inbounds nuw i8, ptr %.pn.i.i11293, i64 12
   store i32 3, ptr %.1.i.i11294, align 4, !tbaa !25
-  %indvars.iv.next20714 = add nuw nsw i64 %indvars.iv20713, 1
-  %exitcond20716.not = icmp eq i64 %indvars.iv.next20714, 1547
   br i1 %exitcond20716.not, label %18009, label %.preheader3786, !llvm.loop !405
 
 18081:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11284, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11306
-  %indvars.iv20717 = phi i64 [ 1550, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11284 ], [ %indvars.iv.next20718, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11306 ]
+  %exitcond20720.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11284 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11306 ]
+  %indvars.iv20717 = phi i64 [ 1550, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11284 ], [ 1551, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11306 ]
   %18082 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %18083 = urem i64 %indvars.iv20717, %18082
   %18084 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -45631,8 +45550,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i11304 = phi ptr [ %18088, %18087 ], [ %18105, %.loopexit.i.i11302 ], [ %18095, %18093 ]
   %.1.i.i11305 = getelementptr inbounds nuw i8, ptr %.pn.i.i11304, i64 12
   store i32 3, ptr %.1.i.i11305, align 4, !tbaa !25
-  %indvars.iv.next20718 = add nuw nsw i64 %indvars.iv20717, 1
-  %exitcond20720.not = icmp eq i64 %indvars.iv.next20718, 1552
   br i1 %exitcond20720.not, label %.preheader3785, label %18081, !llvm.loop !406
 
 18107:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11328
@@ -46072,7 +45989,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond20744.not, label %.preheader3780, label %.preheader3781, !llvm.loop !412
 
 .preheader3780:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11383, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11394
-  %indvars.iv20745 = phi i64 [ %indvars.iv.next20746, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11394 ], [ 1646, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11383 ]
+  %exitcond20748.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11394 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11383 ]
+  %indvars.iv20745 = phi i64 [ 1647, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11394 ], [ 1646, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11383 ]
   %18282 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %18283 = urem i64 %indvars.iv20745, %18282
   %18284 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -46130,8 +46048,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i11392 = phi ptr [ %18288, %18287 ], [ %18305, %.loopexit.i.i11390 ], [ %18295, %18293 ]
   %.1.i.i11393 = getelementptr inbounds nuw i8, ptr %.pn.i.i11392, i64 12
   store i32 3, ptr %.1.i.i11393, align 4, !tbaa !25
-  %indvars.iv.next20746 = add nuw nsw i64 %indvars.iv20745, 1
-  %exitcond20748.not = icmp eq i64 %indvars.iv.next20746, 1648
   br i1 %exitcond20748.not, label %.preheader3779, label %.preheader3780, !llvm.loop !413
 
 18307:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11427
@@ -46500,7 +46416,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond20760.not, label %.preheader3778, label %18429, !llvm.loop !416
 
 .preheader3778:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11460, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11471
-  %indvars.iv20761 = phi i64 [ %indvars.iv.next20762, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11471 ], [ 1765, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11460 ]
+  %exitcond20764.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11471 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11460 ]
+  %indvars.iv20761 = phi i64 [ 1766, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11471 ], [ 1765, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11460 ]
   %18455 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %18456 = urem i64 %indvars.iv20761, %18455
   %18457 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -46558,8 +46475,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i11469 = phi ptr [ %18461, %18460 ], [ %18478, %.loopexit.i.i11467 ], [ %18468, %18466 ]
   %.1.i.i11470 = getelementptr inbounds nuw i8, ptr %.pn.i.i11469, i64 12
   store i32 3, ptr %.1.i.i11470, align 4, !tbaa !25
-  %indvars.iv.next20762 = add nuw nsw i64 %indvars.iv20761, 1
-  %exitcond20764.not = icmp eq i64 %indvars.iv.next20762, 1767
   br i1 %exitcond20764.not, label %.preheader3777, label %.preheader3778, !llvm.loop !417
 
 18480:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11493
@@ -46621,7 +46536,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %18529
 
 .preheader3777:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11471, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11493
-  %indvars.iv20765 = phi i64 [ %indvars.iv.next20766, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11493 ], [ 1767, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11471 ]
+  %exitcond20768.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11493 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11471 ]
+  %indvars.iv20765 = phi i64 [ 1768, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11493 ], [ 1767, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11471 ]
   %18504 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %18505 = urem i64 %indvars.iv20765, %18504
   %18506 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -46679,8 +46595,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i11491 = phi ptr [ %18510, %18509 ], [ %18527, %.loopexit.i.i11489 ], [ %18517, %18515 ]
   %.1.i.i11492 = getelementptr inbounds nuw i8, ptr %.pn.i.i11491, i64 12
   store i32 3, ptr %.1.i.i11492, align 4, !tbaa !25
-  %indvars.iv.next20766 = add nuw nsw i64 %indvars.iv20765, 1
-  %exitcond20768.not = icmp eq i64 %indvars.iv.next20766, 1769
   br i1 %exitcond20768.not, label %18480, label %.preheader3777, !llvm.loop !418
 
 18529:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11482, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11504
@@ -46747,7 +46661,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond20772.not, label %.preheader3776, label %18529, !llvm.loop !419
 
 .preheader3776:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11504, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11515
-  %indvars.iv20773 = phi i64 [ %indvars.iv.next20774, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11515 ], [ 1774, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11504 ]
+  %exitcond20776.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11515 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11504 ]
+  %indvars.iv20773 = phi i64 [ 1775, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11515 ], [ 1774, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11504 ]
   %18555 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %18556 = urem i64 %indvars.iv20773, %18555
   %18557 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -46805,8 +46720,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i11513 = phi ptr [ %18561, %18560 ], [ %18578, %.loopexit.i.i11511 ], [ %18568, %18566 ]
   %.1.i.i11514 = getelementptr inbounds nuw i8, ptr %.pn.i.i11513, i64 12
   store i32 3, ptr %.1.i.i11514, align 4, !tbaa !25
-  %indvars.iv.next20774 = add nuw nsw i64 %indvars.iv20773, 1
-  %exitcond20776.not = icmp eq i64 %indvars.iv.next20774, 1776
   br i1 %exitcond20776.not, label %.preheader3775, label %.preheader3776, !llvm.loop !420
 
 .preheader3775:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11515, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11526
@@ -46994,7 +46907,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %18679
 
 .preheader3773:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11537, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11559
-  %indvars.iv20785 = phi i64 [ %indvars.iv.next20786, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11559 ], [ 1789, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11537 ]
+  %exitcond20788.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11559 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11537 ]
+  %indvars.iv20785 = phi i64 [ 1790, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11559 ], [ 1789, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11537 ]
   %18654 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %18655 = urem i64 %indvars.iv20785, %18654
   %18656 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -47052,8 +46966,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i11557 = phi ptr [ %18660, %18659 ], [ %18677, %.loopexit.i.i11555 ], [ %18667, %18665 ]
   %.1.i.i11558 = getelementptr inbounds nuw i8, ptr %.pn.i.i11557, i64 12
   store i32 3, ptr %.1.i.i11558, align 4, !tbaa !25
-  %indvars.iv.next20786 = add nuw nsw i64 %indvars.iv20785, 1
-  %exitcond20788.not = icmp eq i64 %indvars.iv.next20786, 1791
   br i1 %exitcond20788.not, label %18630, label %.preheader3773, !llvm.loop !423
 
 18679:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11548, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11570
@@ -48301,7 +48213,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %19200
 
 .preheader3758:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11757, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11790
-  %indvars.iv20853 = phi i64 [ %indvars.iv.next20854, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11790 ], [ 126497, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11757 ]
+  %exitcond20856.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11790 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11757 ]
+  %indvars.iv20853 = phi i64 [ 126498, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11790 ], [ 126497, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11757 ]
   %19175 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %19176 = urem i64 %indvars.iv20853, %19175
   %19177 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -48359,8 +48272,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i11788 = phi ptr [ %19181, %19180 ], [ %19198, %.loopexit.i.i11786 ], [ %19188, %19186 ]
   %.1.i.i11789 = getelementptr inbounds nuw i8, ptr %.pn.i.i11788, i64 12
   store i32 3, ptr %.1.i.i11789, align 4, !tbaa !25
-  %indvars.iv.next20854 = add nuw nsw i64 %indvars.iv20853, 1
-  %exitcond20856.not = icmp eq i64 %indvars.iv.next20854, 126499
   br i1 %exitcond20856.not, label %19128, label %.preheader3758, !llvm.loop !440
 
 19200:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11779, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11801
@@ -49269,7 +49180,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %19604
 
 .preheader3756:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11889, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11966
-  %indvars.iv20869 = phi i64 [ %indvars.iv.next20870, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11966 ], [ 126545, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11889 ]
+  %exitcond20872.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11966 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11889 ]
+  %indvars.iv20869 = phi i64 [ 126546, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11966 ], [ 126545, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11889 ]
   %19555 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %19556 = urem i64 %indvars.iv20869, %19555
   %19557 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -49327,8 +49239,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i11964 = phi ptr [ %19561, %19560 ], [ %19578, %.loopexit.i.i11962 ], [ %19568, %19566 ]
   %.1.i.i11965 = getelementptr inbounds nuw i8, ptr %.pn.i.i11964, i64 12
   store i32 3, ptr %.1.i.i11965, align 4, !tbaa !25
-  %indvars.iv.next20870 = add nuw nsw i64 %indvars.iv20869, 1
-  %exitcond20872.not = icmp eq i64 %indvars.iv.next20870, 126547
   br i1 %exitcond20872.not, label %19416, label %.preheader3756, !llvm.loop !444
 
 19580:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11988
@@ -49390,7 +49300,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %19630
 
 19604:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11955, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11988
-  %indvars.iv20873 = phi i64 [ 126561, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11955 ], [ %indvars.iv.next20874, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11988 ]
+  %exitcond20876.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11955 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11988 ]
+  %indvars.iv20873 = phi i64 [ 126561, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11955 ], [ 126562, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11988 ]
   %19605 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %19606 = urem i64 %indvars.iv20873, %19605
   %19607 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -49448,8 +49359,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i11986 = phi ptr [ %19611, %19610 ], [ %19628, %.loopexit.i.i11984 ], [ %19618, %19616 ]
   %.1.i.i11987 = getelementptr inbounds nuw i8, ptr %.pn.i.i11986, i64 12
   store i32 3, ptr %.1.i.i11987, align 4, !tbaa !25
-  %indvars.iv.next20874 = add nuw nsw i64 %indvars.iv20873, 1
-  %exitcond20876.not = icmp eq i64 %indvars.iv.next20874, 126563
   br i1 %exitcond20876.not, label %19580, label %19604, !llvm.loop !445
 
 19630:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit11977, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit11999
@@ -50078,7 +49987,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond20912.not, label %.preheader3748, label %.preheader3749, !llvm.loop !454
 
 .preheader3748:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12098, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12109
-  %indvars.iv20913 = phi i64 [ %indvars.iv.next20914, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12109 ], [ 126704, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12098 ]
+  %exitcond20916.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12109 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12098 ]
+  %indvars.iv20913 = phi i64 [ 126705, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12109 ], [ 126704, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12098 ]
   %19881 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %19882 = urem i64 %indvars.iv20913, %19881
   %19883 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -50136,8 +50046,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i12107 = phi ptr [ %19887, %19886 ], [ %19904, %.loopexit.i.i12105 ], [ %19894, %19892 ]
   %.1.i.i12108 = getelementptr inbounds nuw i8, ptr %.pn.i.i12107, i64 12
   store i32 3, ptr %.1.i.i12108, align 4, !tbaa !25
-  %indvars.iv.next20914 = add nuw nsw i64 %indvars.iv20913, 1
-  %exitcond20916.not = icmp eq i64 %indvars.iv.next20914, 126706
   br i1 %exitcond20916.not, label %.preheader3747, label %.preheader3748, !llvm.loop !455
 
 19906:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12153
@@ -51482,7 +51390,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %20470
 
 20444:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12329, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12362
-  %indvars.iv20961 = phi i64 [ 2382, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12329 ], [ %indvars.iv.next20962, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12362 ]
+  %exitcond20964.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12329 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12362 ]
+  %indvars.iv20961 = phi i64 [ 2382, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12329 ], [ 2383, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12362 ]
   %20445 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %20446 = urem i64 %indvars.iv20961, %20445
   %20447 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -51540,8 +51449,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i12360 = phi ptr [ %20451, %20450 ], [ %20468, %.loopexit.i.i12358 ], [ %20458, %20456 ]
   %.1.i.i12361 = getelementptr inbounds nuw i8, ptr %.pn.i.i12360, i64 12
   store i32 29, ptr %.1.i.i12361, align 4, !tbaa !25
-  %indvars.iv.next20962 = add nuw nsw i64 %indvars.iv20961, 1
-  %exitcond20964.not = icmp eq i64 %indvars.iv.next20962, 2384
   br i1 %exitcond20964.not, label %20420, label %20444, !llvm.loop !467
 
 20470:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12351, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12373
@@ -51671,7 +51578,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond20972.not, label %.preheader3739, label %.preheader3740, !llvm.loop !469
 
 .preheader3739:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12384, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12395
-  %indvars.iv20973 = phi i64 [ %indvars.iv.next20974, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12395 ], [ 2402, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12384 ]
+  %exitcond20976.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12395 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12384 ]
+  %indvars.iv20973 = phi i64 [ 2403, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12395 ], [ 2402, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12384 ]
   %20521 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %20522 = urem i64 %indvars.iv20973, %20521
   %20523 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -51729,8 +51637,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i12393 = phi ptr [ %20527, %20526 ], [ %20544, %.loopexit.i.i12391 ], [ %20534, %20532 ]
   %.1.i.i12394 = getelementptr inbounds nuw i8, ptr %.pn.i.i12393, i64 12
   store i32 29, ptr %.1.i.i12394, align 4, !tbaa !25
-  %indvars.iv.next20974 = add nuw nsw i64 %indvars.iv20973, 1
-  %exitcond20976.not = icmp eq i64 %indvars.iv.next20974, 2404
   br i1 %exitcond20976.not, label %.preheader3738, label %.preheader3739, !llvm.loop !470
 
 20546:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12428
@@ -52465,7 +52371,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond20996.not, label %20694, label %.preheader3735, !llvm.loop !475
 
 20835:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12516, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12538
-  %indvars.iv20997 = phi i64 [ 2434, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12516 ], [ %indvars.iv.next20998, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12538 ]
+  %exitcond21000.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12516 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12538 ]
+  %indvars.iv20997 = phi i64 [ 2434, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12516 ], [ 2435, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12538 ]
   %20836 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %20837 = urem i64 %indvars.iv20997, %20836
   %20838 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -52523,8 +52430,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i12536 = phi ptr [ %20842, %20841 ], [ %20859, %.loopexit.i.i12534 ], [ %20849, %20847 ]
   %.1.i.i12537 = getelementptr inbounds nuw i8, ptr %.pn.i.i12536, i64 12
   store i32 10, ptr %.1.i.i12537, align 4, !tbaa !25
-  %indvars.iv.next20998 = add nuw nsw i64 %indvars.iv20997, 1
-  %exitcond21000.not = icmp eq i64 %indvars.iv.next20998, 2436
   br i1 %exitcond21000.not, label %.preheader3734, label %20835, !llvm.loop !476
 
 .preheader3734:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12538, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12549
@@ -52591,7 +52496,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21004.not, label %.preheader3733, label %.preheader3734, !llvm.loop !477
 
 .preheader3733:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12549, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12560
-  %indvars.iv21005 = phi i64 [ %indvars.iv.next21006, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12560 ], [ 2447, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12549 ]
+  %exitcond21008.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12560 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12549 ]
+  %indvars.iv21005 = phi i64 [ 2448, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12560 ], [ 2447, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12549 ]
   %20886 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %20887 = urem i64 %indvars.iv21005, %20886
   %20888 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -52649,8 +52555,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i12558 = phi ptr [ %20892, %20891 ], [ %20909, %.loopexit.i.i12556 ], [ %20899, %20897 ]
   %.1.i.i12559 = getelementptr inbounds nuw i8, ptr %.pn.i.i12558, i64 12
   store i32 10, ptr %.1.i.i12559, align 4, !tbaa !25
-  %indvars.iv.next21006 = add nuw nsw i64 %indvars.iv21005, 1
-  %exitcond21008.not = icmp eq i64 %indvars.iv.next21006, 2449
   br i1 %exitcond21008.not, label %.preheader3732, label %.preheader3733, !llvm.loop !478
 
 .preheader3732:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12560, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12571
@@ -53145,7 +53049,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21028.not, label %.preheader3729, label %.preheader3730, !llvm.loop !483
 
 .preheader3729:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12648, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12659
-  %indvars.iv21029 = phi i64 [ %indvars.iv.next21030, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12659 ], [ 2503, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12648 ]
+  %exitcond21032.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12659 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12648 ]
+  %indvars.iv21029 = phi i64 [ 2504, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12659 ], [ 2503, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12648 ]
   %21109 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %21110 = urem i64 %indvars.iv21029, %21109
   %21111 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -53203,8 +53108,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i12657 = phi ptr [ %21115, %21114 ], [ %21132, %.loopexit.i.i12655 ], [ %21122, %21120 ]
   %.1.i.i12658 = getelementptr inbounds nuw i8, ptr %.pn.i.i12657, i64 12
   store i32 10, ptr %.1.i.i12658, align 4, !tbaa !25
-  %indvars.iv.next21030 = add nuw nsw i64 %indvars.iv21029, 1
-  %exitcond21032.not = icmp eq i64 %indvars.iv.next21030, 2505
   br i1 %exitcond21032.not, label %.preheader3728, label %.preheader3729, !llvm.loop !484
 
 21134:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12703
@@ -53386,7 +53289,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %21229
 
 .preheader3728:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12659, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12703
-  %indvars.iv21033 = phi i64 [ %indvars.iv.next21034, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12703 ], [ 2507, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12659 ]
+  %exitcond21036.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12703 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12659 ]
+  %indvars.iv21033 = phi i64 [ 2508, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12703 ], [ 2507, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12659 ]
   %21204 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %21205 = urem i64 %indvars.iv21033, %21204
   %21206 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -53444,12 +53348,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i12701 = phi ptr [ %21210, %21209 ], [ %21227, %.loopexit.i.i12699 ], [ %21217, %21215 ]
   %.1.i.i12702 = getelementptr inbounds nuw i8, ptr %.pn.i.i12701, i64 12
   store i32 10, ptr %.1.i.i12702, align 4, !tbaa !25
-  %indvars.iv.next21034 = add nuw nsw i64 %indvars.iv21033, 1
-  %exitcond21036.not = icmp eq i64 %indvars.iv.next21034, 2509
   br i1 %exitcond21036.not, label %21134, label %.preheader3728, !llvm.loop !485
 
 21229:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12692, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12714
-  %indvars.iv21037 = phi i64 [ 2524, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12692 ], [ %indvars.iv.next21038, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12714 ]
+  %exitcond21040.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12692 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12714 ]
+  %indvars.iv21037 = phi i64 [ 2524, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12692 ], [ 2525, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12714 ]
   %21230 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %21231 = urem i64 %indvars.iv21037, %21230
   %21232 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -53507,8 +53410,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i12712 = phi ptr [ %21236, %21235 ], [ %21253, %.loopexit.i.i12710 ], [ %21243, %21241 ]
   %.1.i.i12713 = getelementptr inbounds nuw i8, ptr %.pn.i.i12712, i64 12
   store i32 10, ptr %.1.i.i12713, align 4, !tbaa !25
-  %indvars.iv.next21038 = add nuw nsw i64 %indvars.iv21037, 1
-  %exitcond21040.not = icmp eq i64 %indvars.iv.next21038, 2526
   br i1 %exitcond21040.not, label %.preheader3727, label %21229, !llvm.loop !486
 
 .preheader3727:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12714, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12725
@@ -53575,7 +53476,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21044.not, label %.preheader3726, label %.preheader3727, !llvm.loop !487
 
 .preheader3726:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12725, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12736
-  %indvars.iv21045 = phi i64 [ %indvars.iv.next21046, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12736 ], [ 2530, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12725 ]
+  %exitcond21048.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12736 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12725 ]
+  %indvars.iv21045 = phi i64 [ 2531, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12736 ], [ 2530, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12725 ]
   %21280 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %21281 = urem i64 %indvars.iv21045, %21280
   %21282 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -53633,8 +53535,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i12734 = phi ptr [ %21286, %21285 ], [ %21303, %.loopexit.i.i12732 ], [ %21293, %21291 ]
   %.1.i.i12735 = getelementptr inbounds nuw i8, ptr %.pn.i.i12734, i64 12
   store i32 10, ptr %.1.i.i12735, align 4, !tbaa !25
-  %indvars.iv.next21046 = add nuw nsw i64 %indvars.iv21045, 1
-  %exitcond21048.not = icmp eq i64 %indvars.iv.next21046, 2532
   br i1 %exitcond21048.not, label %.preheader3725, label %.preheader3726, !llvm.loop !488
 
 .preheader3725:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12736, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12747
@@ -53701,7 +53601,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21052.not, label %.preheader3724, label %.preheader3725, !llvm.loop !489
 
 .preheader3724:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12747, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12758
-  %indvars.iv21053 = phi i64 [ %indvars.iv.next21054, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12758 ], [ 2544, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12747 ]
+  %exitcond21056.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12758 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12747 ]
+  %indvars.iv21053 = phi i64 [ 2545, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12758 ], [ 2544, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12747 ]
   %21330 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %21331 = urem i64 %indvars.iv21053, %21330
   %21332 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -53759,12 +53660,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i12756 = phi ptr [ %21336, %21335 ], [ %21353, %.loopexit.i.i12754 ], [ %21343, %21341 ]
   %.1.i.i12757 = getelementptr inbounds nuw i8, ptr %.pn.i.i12756, i64 12
   store i32 10, ptr %.1.i.i12757, align 4, !tbaa !25
-  %indvars.iv.next21054 = add nuw nsw i64 %indvars.iv21053, 1
-  %exitcond21056.not = icmp eq i64 %indvars.iv.next21054, 2546
   br i1 %exitcond21056.not, label %.preheader3723, label %.preheader3724, !llvm.loop !490
 
 .preheader3723:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12758, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12769
-  %indvars.iv21057 = phi i64 [ %indvars.iv.next21058, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12769 ], [ 2546, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12758 ]
+  %exitcond21060.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12769 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12758 ]
+  %indvars.iv21057 = phi i64 [ 2547, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12769 ], [ 2546, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12758 ]
   %21355 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %21356 = urem i64 %indvars.iv21057, %21355
   %21357 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -53822,8 +53722,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i12767 = phi ptr [ %21361, %21360 ], [ %21378, %.loopexit.i.i12765 ], [ %21368, %21366 ]
   %.1.i.i12768 = getelementptr inbounds nuw i8, ptr %.pn.i.i12767, i64 12
   store i32 10, ptr %.1.i.i12768, align 4, !tbaa !25
-  %indvars.iv.next21058 = add nuw nsw i64 %indvars.iv21057, 1
-  %exitcond21060.not = icmp eq i64 %indvars.iv.next21058, 2548
   br i1 %exitcond21060.not, label %.preheader3722, label %.preheader3723, !llvm.loop !491
 
 21380:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12802
@@ -54066,7 +53964,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %21502
 
 21476:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12791, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12824
-  %indvars.iv21065 = phi i64 [ 2561, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12791 ], [ %indvars.iv.next21066, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12824 ]
+  %exitcond21068.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12791 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12824 ]
+  %indvars.iv21065 = phi i64 [ 2561, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12791 ], [ 2562, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12824 ]
   %21477 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %21478 = urem i64 %indvars.iv21065, %21477
   %21479 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -54124,8 +54023,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i12822 = phi ptr [ %21483, %21482 ], [ %21500, %.loopexit.i.i12820 ], [ %21490, %21488 ]
   %.1.i.i12823 = getelementptr inbounds nuw i8, ptr %.pn.i.i12822, i64 12
   store i32 40, ptr %.1.i.i12823, align 4, !tbaa !25
-  %indvars.iv.next21066 = add nuw nsw i64 %indvars.iv21065, 1
-  %exitcond21068.not = icmp eq i64 %indvars.iv.next21066, 2563
   br i1 %exitcond21068.not, label %21452, label %21476, !llvm.loop !493
 
 21502:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12813, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12835
@@ -54192,7 +54089,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21072.not, label %.preheader3721, label %21502, !llvm.loop !494
 
 .preheader3721:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12835, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12846
-  %indvars.iv21073 = phi i64 [ %indvars.iv.next21074, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12846 ], [ 2575, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12835 ]
+  %exitcond21076.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12846 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12835 ]
+  %indvars.iv21073 = phi i64 [ 2576, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12846 ], [ 2575, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12835 ]
   %21528 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %21529 = urem i64 %indvars.iv21073, %21528
   %21530 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -54250,8 +54148,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i12844 = phi ptr [ %21534, %21533 ], [ %21551, %.loopexit.i.i12842 ], [ %21541, %21539 ]
   %.1.i.i12845 = getelementptr inbounds nuw i8, ptr %.pn.i.i12844, i64 12
   store i32 40, ptr %.1.i.i12845, align 4, !tbaa !25
-  %indvars.iv.next21074 = add nuw nsw i64 %indvars.iv21073, 1
-  %exitcond21076.not = icmp eq i64 %indvars.iv.next21074, 2577
   br i1 %exitcond21076.not, label %.preheader3720, label %.preheader3721, !llvm.loop !495
 
 .preheader3720:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12846, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12857
@@ -54381,7 +54277,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21084.not, label %.preheader3718, label %.preheader3719, !llvm.loop !497
 
 .preheader3718:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12868, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12879
-  %indvars.iv21085 = phi i64 [ %indvars.iv.next21086, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12879 ], [ 2610, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12868 ]
+  %exitcond21088.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12879 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12868 ]
+  %indvars.iv21085 = phi i64 [ 2611, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12879 ], [ 2610, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12868 ]
   %21603 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %21604 = urem i64 %indvars.iv21085, %21603
   %21605 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -54439,12 +54336,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i12877 = phi ptr [ %21609, %21608 ], [ %21626, %.loopexit.i.i12875 ], [ %21616, %21614 ]
   %.1.i.i12878 = getelementptr inbounds nuw i8, ptr %.pn.i.i12877, i64 12
   store i32 40, ptr %.1.i.i12878, align 4, !tbaa !25
-  %indvars.iv.next21086 = add nuw nsw i64 %indvars.iv21085, 1
-  %exitcond21088.not = icmp eq i64 %indvars.iv.next21086, 2612
   br i1 %exitcond21088.not, label %.preheader3717, label %.preheader3718, !llvm.loop !498
 
 .preheader3717:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12879, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12890
-  %indvars.iv21089 = phi i64 [ %indvars.iv.next21090, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12890 ], [ 2613, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12879 ]
+  %exitcond21092.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12890 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12879 ]
+  %indvars.iv21089 = phi i64 [ 2614, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12890 ], [ 2613, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12879 ]
   %21628 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %21629 = urem i64 %indvars.iv21089, %21628
   %21630 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -54502,8 +54398,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i12888 = phi ptr [ %21634, %21633 ], [ %21651, %.loopexit.i.i12886 ], [ %21641, %21639 ]
   %.1.i.i12889 = getelementptr inbounds nuw i8, ptr %.pn.i.i12888, i64 12
   store i32 40, ptr %.1.i.i12889, align 4, !tbaa !25
-  %indvars.iv.next21090 = add nuw nsw i64 %indvars.iv21089, 1
-  %exitcond21092.not = icmp eq i64 %indvars.iv.next21090, 2615
   br i1 %exitcond21092.not, label %.preheader3716, label %.preheader3717, !llvm.loop !499
 
 21653:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12912
@@ -54565,7 +54459,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %21702
 
 .preheader3716:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12890, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12912
-  %indvars.iv21093 = phi i64 [ %indvars.iv.next21094, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12912 ], [ 2616, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12890 ]
+  %exitcond21096.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12912 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12890 ]
+  %indvars.iv21093 = phi i64 [ 2617, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12912 ], [ 2616, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12890 ]
   %21677 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %21678 = urem i64 %indvars.iv21093, %21677
   %21679 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -54623,8 +54518,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i12910 = phi ptr [ %21683, %21682 ], [ %21700, %.loopexit.i.i12908 ], [ %21690, %21688 ]
   %.1.i.i12911 = getelementptr inbounds nuw i8, ptr %.pn.i.i12910, i64 12
   store i32 40, ptr %.1.i.i12911, align 4, !tbaa !25
-  %indvars.iv.next21094 = add nuw nsw i64 %indvars.iv21093, 1
-  %exitcond21096.not = icmp eq i64 %indvars.iv.next21094, 2618
   br i1 %exitcond21096.not, label %21653, label %.preheader3716, !llvm.loop !500
 
 21702:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit12901, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12923
@@ -54691,7 +54584,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21100.not, label %.preheader3715, label %21702, !llvm.loop !501
 
 .preheader3715:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12923, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12934
-  %indvars.iv21101 = phi i64 [ %indvars.iv.next21102, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12934 ], [ 2625, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12923 ]
+  %exitcond21104.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12934 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12923 ]
+  %indvars.iv21101 = phi i64 [ 2626, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12934 ], [ 2625, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12923 ]
   %21728 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %21729 = urem i64 %indvars.iv21101, %21728
   %21730 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -54749,12 +54643,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i12932 = phi ptr [ %21734, %21733 ], [ %21751, %.loopexit.i.i12930 ], [ %21741, %21739 ]
   %.1.i.i12933 = getelementptr inbounds nuw i8, ptr %.pn.i.i12932, i64 12
   store i32 40, ptr %.1.i.i12933, align 4, !tbaa !25
-  %indvars.iv.next21102 = add nuw nsw i64 %indvars.iv21101, 1
-  %exitcond21104.not = icmp eq i64 %indvars.iv.next21102, 2627
   br i1 %exitcond21104.not, label %.preheader3714, label %.preheader3715, !llvm.loop !502
 
 .preheader3714:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12934, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12945
-  %indvars.iv21105 = phi i64 [ %indvars.iv.next21106, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12945 ], [ 2631, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12934 ]
+  %exitcond21108.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12945 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12934 ]
+  %indvars.iv21105 = phi i64 [ 2632, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12945 ], [ 2631, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12934 ]
   %21753 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %21754 = urem i64 %indvars.iv21105, %21753
   %21755 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -54812,8 +54705,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i12943 = phi ptr [ %21759, %21758 ], [ %21776, %.loopexit.i.i12941 ], [ %21766, %21764 ]
   %.1.i.i12944 = getelementptr inbounds nuw i8, ptr %.pn.i.i12943, i64 12
   store i32 40, ptr %.1.i.i12944, align 4, !tbaa !25
-  %indvars.iv.next21106 = add nuw nsw i64 %indvars.iv21105, 1
-  %exitcond21108.not = icmp eq i64 %indvars.iv.next21106, 2633
   br i1 %exitcond21108.not, label %.preheader3713, label %.preheader3714, !llvm.loop !503
 
 21778:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit12967
@@ -55122,7 +55013,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21120.not, label %.preheader3712, label %21877, !llvm.loop !506
 
 .preheader3712:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13000, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13011
-  %indvars.iv21121 = phi i64 [ %indvars.iv.next21122, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13011 ], [ 2672, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13000 ]
+  %exitcond21124.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13011 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13000 ]
+  %indvars.iv21121 = phi i64 [ 2673, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13011 ], [ 2672, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13000 ]
   %21903 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %21904 = urem i64 %indvars.iv21121, %21903
   %21905 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -55180,8 +55072,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13009 = phi ptr [ %21909, %21908 ], [ %21926, %.loopexit.i.i13007 ], [ %21916, %21914 ]
   %.1.i.i13010 = getelementptr inbounds nuw i8, ptr %.pn.i.i13009, i64 12
   store i32 40, ptr %.1.i.i13010, align 4, !tbaa !25
-  %indvars.iv.next21122 = add nuw nsw i64 %indvars.iv21121, 1
-  %exitcond21124.not = icmp eq i64 %indvars.iv.next21122, 2674
   br i1 %exitcond21124.not, label %.preheader3711, label %.preheader3712, !llvm.loop !507
 
 21928:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13033
@@ -55364,7 +55254,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %22027
 
 22001:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13022, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13055
-  %indvars.iv21129 = phi i64 [ 2689, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13022 ], [ %indvars.iv.next21130, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13055 ]
+  %exitcond21132.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13022 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13055 ]
+  %indvars.iv21129 = phi i64 [ 2689, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13022 ], [ 2690, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13055 ]
   %22002 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %22003 = urem i64 %indvars.iv21129, %22002
   %22004 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -55422,8 +55313,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13053 = phi ptr [ %22008, %22007 ], [ %22025, %.loopexit.i.i13051 ], [ %22015, %22013 ]
   %.1.i.i13054 = getelementptr inbounds nuw i8, ptr %.pn.i.i13053, i64 12
   store i32 39, ptr %.1.i.i13054, align 4, !tbaa !25
-  %indvars.iv.next21130 = add nuw nsw i64 %indvars.iv21129, 1
-  %exitcond21132.not = icmp eq i64 %indvars.iv.next21130, 2691
   br i1 %exitcond21132.not, label %21977, label %22001, !llvm.loop !509
 
 22027:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13044, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13066
@@ -55679,7 +55568,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21148.not, label %.preheader3707, label %.preheader3708, !llvm.loop !513
 
 .preheader3707:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13099, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13110
-  %indvars.iv21149 = phi i64 [ %indvars.iv.next21150, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13110 ], [ 2738, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13099 ]
+  %exitcond21152.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13110 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13099 ]
+  %indvars.iv21149 = phi i64 [ 2739, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13110 ], [ 2738, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13099 ]
   %22128 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %22129 = urem i64 %indvars.iv21149, %22128
   %22130 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -55737,8 +55627,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13108 = phi ptr [ %22134, %22133 ], [ %22151, %.loopexit.i.i13106 ], [ %22141, %22139 ]
   %.1.i.i13109 = getelementptr inbounds nuw i8, ptr %.pn.i.i13108, i64 12
   store i32 39, ptr %.1.i.i13109, align 4, !tbaa !25
-  %indvars.iv.next21150 = add nuw nsw i64 %indvars.iv21149, 1
-  %exitcond21152.not = icmp eq i64 %indvars.iv.next21150, 2740
   br i1 %exitcond21152.not, label %.preheader3706, label %.preheader3707, !llvm.loop !514
 
 22153:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13143
@@ -56107,7 +55995,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %22372
 
 .preheader3704:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13165, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13187
-  %indvars.iv21165 = phi i64 [ %indvars.iv.next21166, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13187 ], [ 2759, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13165 ]
+  %exitcond21168.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13187 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13165 ]
+  %indvars.iv21165 = phi i64 [ 2760, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13187 ], [ 2759, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13165 ]
   %22300 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %22301 = urem i64 %indvars.iv21165, %22300
   %22302 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -56165,8 +56054,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13185 = phi ptr [ %22306, %22305 ], [ %22323, %.loopexit.i.i13183 ], [ %22313, %22311 ]
   %.1.i.i13186 = getelementptr inbounds nuw i8, ptr %.pn.i.i13185, i64 12
   store i32 39, ptr %.1.i.i13186, align 4, !tbaa !25
-  %indvars.iv.next21166 = add nuw nsw i64 %indvars.iv21165, 1
-  %exitcond21168.not = icmp eq i64 %indvars.iv.next21166, 2761
   br i1 %exitcond21168.not, label %22276, label %.preheader3704, !llvm.loop !518
 
 22325:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13220
@@ -56288,7 +56175,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %22398
 
 22372:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13176, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13220
-  %indvars.iv21169 = phi i64 [ 2763, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13176 ], [ %indvars.iv.next21170, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13220 ]
+  %exitcond21172.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13176 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13220 ]
+  %indvars.iv21169 = phi i64 [ 2763, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13176 ], [ 2764, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13220 ]
   %22373 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %22374 = urem i64 %indvars.iv21169, %22373
   %22375 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -56346,12 +56234,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13218 = phi ptr [ %22379, %22378 ], [ %22396, %.loopexit.i.i13216 ], [ %22386, %22384 ]
   %.1.i.i13219 = getelementptr inbounds nuw i8, ptr %.pn.i.i13218, i64 12
   store i32 39, ptr %.1.i.i13219, align 4, !tbaa !25
-  %indvars.iv.next21170 = add nuw nsw i64 %indvars.iv21169, 1
-  %exitcond21172.not = icmp eq i64 %indvars.iv.next21170, 2765
   br i1 %exitcond21172.not, label %22325, label %22372, !llvm.loop !519
 
 22398:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13209, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13231
-  %indvars.iv21173 = phi i64 [ 2784, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13209 ], [ %indvars.iv.next21174, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13231 ]
+  %exitcond21176.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13209 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13231 ]
+  %indvars.iv21173 = phi i64 [ 2784, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13209 ], [ 2785, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13231 ]
   %22399 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %22400 = urem i64 %indvars.iv21173, %22399
   %22401 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -56409,12 +56296,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13229 = phi ptr [ %22405, %22404 ], [ %22422, %.loopexit.i.i13227 ], [ %22412, %22410 ]
   %.1.i.i13230 = getelementptr inbounds nuw i8, ptr %.pn.i.i13229, i64 12
   store i32 39, ptr %.1.i.i13230, align 4, !tbaa !25
-  %indvars.iv.next21174 = add nuw nsw i64 %indvars.iv21173, 1
-  %exitcond21176.not = icmp eq i64 %indvars.iv.next21174, 2786
   br i1 %exitcond21176.not, label %.preheader3703, label %22398, !llvm.loop !520
 
 .preheader3703:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13231, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13242
-  %indvars.iv21177 = phi i64 [ %indvars.iv.next21178, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13242 ], [ 2786, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13231 ]
+  %exitcond21180.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13242 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13231 ]
+  %indvars.iv21177 = phi i64 [ 2787, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13242 ], [ 2786, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13231 ]
   %22424 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %22425 = urem i64 %indvars.iv21177, %22424
   %22426 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -56472,8 +56358,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13240 = phi ptr [ %22430, %22429 ], [ %22447, %.loopexit.i.i13238 ], [ %22437, %22435 ]
   %.1.i.i13241 = getelementptr inbounds nuw i8, ptr %.pn.i.i13240, i64 12
   store i32 39, ptr %.1.i.i13241, align 4, !tbaa !25
-  %indvars.iv.next21178 = add nuw nsw i64 %indvars.iv21177, 1
-  %exitcond21180.not = icmp eq i64 %indvars.iv.next21178, 2788
   br i1 %exitcond21180.not, label %.preheader3702, label %.preheader3703, !llvm.loop !521
 
 22449:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13297
@@ -56778,7 +56662,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21184.not, label %22449, label %.preheader3702, !llvm.loop !522
 
 22567:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13286, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13308
-  %indvars.iv21185 = phi i64 [ 2818, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13286 ], [ %indvars.iv.next21186, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13308 ]
+  %exitcond21188.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13286 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13308 ]
+  %indvars.iv21185 = phi i64 [ 2818, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13286 ], [ 2819, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13308 ]
   %22568 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %22569 = urem i64 %indvars.iv21185, %22568
   %22570 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -56836,8 +56721,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13306 = phi ptr [ %22574, %22573 ], [ %22591, %.loopexit.i.i13304 ], [ %22581, %22579 ]
   %.1.i.i13307 = getelementptr inbounds nuw i8, ptr %.pn.i.i13306, i64 12
   store i32 97, ptr %.1.i.i13307, align 4, !tbaa !25
-  %indvars.iv.next21186 = add nuw nsw i64 %indvars.iv21185, 1
-  %exitcond21188.not = icmp eq i64 %indvars.iv.next21186, 2820
   br i1 %exitcond21188.not, label %.preheader3701, label %22567, !llvm.loop !523
 
 .preheader3701:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13308, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13319
@@ -56904,7 +56787,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21192.not, label %.preheader3700, label %.preheader3701, !llvm.loop !524
 
 .preheader3700:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13319, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13330
-  %indvars.iv21193 = phi i64 [ %indvars.iv.next21194, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13330 ], [ 2831, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13319 ]
+  %exitcond21196.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13330 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13319 ]
+  %indvars.iv21193 = phi i64 [ 2832, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13330 ], [ 2831, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13319 ]
   %22618 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %22619 = urem i64 %indvars.iv21193, %22618
   %22620 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -56962,8 +56846,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13328 = phi ptr [ %22624, %22623 ], [ %22641, %.loopexit.i.i13326 ], [ %22631, %22629 ]
   %.1.i.i13329 = getelementptr inbounds nuw i8, ptr %.pn.i.i13328, i64 12
   store i32 97, ptr %.1.i.i13329, align 4, !tbaa !25
-  %indvars.iv.next21194 = add nuw nsw i64 %indvars.iv21193, 1
-  %exitcond21196.not = icmp eq i64 %indvars.iv.next21194, 2833
   br i1 %exitcond21196.not, label %.preheader3699, label %.preheader3700, !llvm.loop !525
 
 .preheader3699:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13330, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13341
@@ -57093,7 +56975,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21204.not, label %.preheader3697, label %.preheader3698, !llvm.loop !527
 
 .preheader3697:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13352, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13363
-  %indvars.iv21205 = phi i64 [ %indvars.iv.next21206, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13363 ], [ 2866, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13352 ]
+  %exitcond21208.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13363 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13352 ]
+  %indvars.iv21205 = phi i64 [ 2867, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13363 ], [ 2866, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13352 ]
   %22693 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %22694 = urem i64 %indvars.iv21205, %22693
   %22695 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -57151,8 +57034,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13361 = phi ptr [ %22699, %22698 ], [ %22716, %.loopexit.i.i13359 ], [ %22706, %22704 ]
   %.1.i.i13362 = getelementptr inbounds nuw i8, ptr %.pn.i.i13361, i64 12
   store i32 97, ptr %.1.i.i13362, align 4, !tbaa !25
-  %indvars.iv.next21206 = add nuw nsw i64 %indvars.iv21205, 1
-  %exitcond21208.not = icmp eq i64 %indvars.iv.next21206, 2868
   br i1 %exitcond21208.not, label %.preheader3696, label %.preheader3697, !llvm.loop !528
 
 22718:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13429
@@ -57580,7 +57461,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21216.not, label %.preheader3695, label %22859, !llvm.loop !530
 
 .preheader3695:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13440, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13451
-  %indvars.iv21217 = phi i64 [ %indvars.iv.next21218, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13451 ], [ 2887, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13440 ]
+  %exitcond21220.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13451 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13440 ]
+  %indvars.iv21217 = phi i64 [ 2888, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13451 ], [ 2887, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13440 ]
   %22885 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %22886 = urem i64 %indvars.iv21217, %22885
   %22887 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -57638,8 +57520,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13449 = phi ptr [ %22891, %22890 ], [ %22908, %.loopexit.i.i13447 ], [ %22898, %22896 ]
   %.1.i.i13450 = getelementptr inbounds nuw i8, ptr %.pn.i.i13449, i64 12
   store i32 97, ptr %.1.i.i13450, align 4, !tbaa !25
-  %indvars.iv.next21218 = add nuw nsw i64 %indvars.iv21217, 1
-  %exitcond21220.not = icmp eq i64 %indvars.iv.next21218, 2889
   br i1 %exitcond21220.not, label %.preheader3694, label %.preheader3695, !llvm.loop !531
 
 22910:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13495
@@ -57821,7 +57701,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %23005
 
 .preheader3694:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13451, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13495
-  %indvars.iv21221 = phi i64 [ %indvars.iv.next21222, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13495 ], [ 2891, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13451 ]
+  %exitcond21224.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13495 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13451 ]
+  %indvars.iv21221 = phi i64 [ 2892, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13495 ], [ 2891, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13451 ]
   %22980 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %22981 = urem i64 %indvars.iv21221, %22980
   %22982 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -57879,12 +57760,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13493 = phi ptr [ %22986, %22985 ], [ %23003, %.loopexit.i.i13491 ], [ %22993, %22991 ]
   %.1.i.i13494 = getelementptr inbounds nuw i8, ptr %.pn.i.i13493, i64 12
   store i32 97, ptr %.1.i.i13494, align 4, !tbaa !25
-  %indvars.iv.next21222 = add nuw nsw i64 %indvars.iv21221, 1
-  %exitcond21224.not = icmp eq i64 %indvars.iv.next21222, 2893
   br i1 %exitcond21224.not, label %22910, label %.preheader3694, !llvm.loop !532
 
 23005:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13484, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13506
-  %indvars.iv21225 = phi i64 [ 2908, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13484 ], [ %indvars.iv.next21226, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13506 ]
+  %exitcond21228.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13484 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13506 ]
+  %indvars.iv21225 = phi i64 [ 2908, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13484 ], [ 2909, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13506 ]
   %23006 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %23007 = urem i64 %indvars.iv21225, %23006
   %23008 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -57942,8 +57822,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13504 = phi ptr [ %23012, %23011 ], [ %23029, %.loopexit.i.i13502 ], [ %23019, %23017 ]
   %.1.i.i13505 = getelementptr inbounds nuw i8, ptr %.pn.i.i13504, i64 12
   store i32 97, ptr %.1.i.i13505, align 4, !tbaa !25
-  %indvars.iv.next21226 = add nuw nsw i64 %indvars.iv21225, 1
-  %exitcond21228.not = icmp eq i64 %indvars.iv.next21226, 2910
   br i1 %exitcond21228.not, label %.preheader3693, label %23005, !llvm.loop !533
 
 .preheader3693:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13506, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13517
@@ -58010,7 +57888,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21232.not, label %.preheader3692, label %.preheader3693, !llvm.loop !534
 
 .preheader3692:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13517, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13528
-  %indvars.iv21233 = phi i64 [ %indvars.iv.next21234, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13528 ], [ 2914, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13517 ]
+  %exitcond21236.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13528 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13517 ]
+  %indvars.iv21233 = phi i64 [ 2915, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13528 ], [ 2914, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13517 ]
   %23056 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %23057 = urem i64 %indvars.iv21233, %23056
   %23058 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -58068,8 +57947,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13526 = phi ptr [ %23062, %23061 ], [ %23079, %.loopexit.i.i13524 ], [ %23069, %23067 ]
   %.1.i.i13527 = getelementptr inbounds nuw i8, ptr %.pn.i.i13526, i64 12
   store i32 97, ptr %.1.i.i13527, align 4, !tbaa !25
-  %indvars.iv.next21234 = add nuw nsw i64 %indvars.iv21233, 1
-  %exitcond21236.not = icmp eq i64 %indvars.iv.next21234, 2916
   br i1 %exitcond21236.not, label %.preheader3691, label %.preheader3692, !llvm.loop !535
 
 23081:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13561
@@ -58682,7 +58559,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %23351
 
 .preheader3688:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13627, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13649
-  %indvars.iv21257 = phi i64 [ %indvars.iv.next21258, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13649 ], [ 2969, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13627 ]
+  %exitcond21260.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13649 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13627 ]
+  %indvars.iv21257 = phi i64 [ 2970, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13649 ], [ 2969, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13627 ]
   %23326 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %23327 = urem i64 %indvars.iv21257, %23326
   %23328 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -58740,12 +58618,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13647 = phi ptr [ %23332, %23331 ], [ %23349, %.loopexit.i.i13645 ], [ %23339, %23337 ]
   %.1.i.i13648 = getelementptr inbounds nuw i8, ptr %.pn.i.i13647, i64 12
   store i32 125, ptr %.1.i.i13648, align 4, !tbaa !25
-  %indvars.iv.next21258 = add nuw nsw i64 %indvars.iv21257, 1
-  %exitcond21260.not = icmp eq i64 %indvars.iv.next21258, 2971
   br i1 %exitcond21260.not, label %23302, label %.preheader3688, !llvm.loop !541
 
 23351:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13638, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13660
-  %indvars.iv21261 = phi i64 [ 2974, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13638 ], [ %indvars.iv.next21262, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13660 ]
+  %exitcond21264.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13638 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13660 ]
+  %indvars.iv21261 = phi i64 [ 2974, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13638 ], [ 2975, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13660 ]
   %23352 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %23353 = urem i64 %indvars.iv21261, %23352
   %23354 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -58803,12 +58680,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13658 = phi ptr [ %23358, %23357 ], [ %23375, %.loopexit.i.i13656 ], [ %23365, %23363 ]
   %.1.i.i13659 = getelementptr inbounds nuw i8, ptr %.pn.i.i13658, i64 12
   store i32 125, ptr %.1.i.i13659, align 4, !tbaa !25
-  %indvars.iv.next21262 = add nuw nsw i64 %indvars.iv21261, 1
-  %exitcond21264.not = icmp eq i64 %indvars.iv.next21262, 2976
   br i1 %exitcond21264.not, label %.preheader3687, label %23351, !llvm.loop !542
 
 .preheader3687:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13660, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13671
-  %indvars.iv21265 = phi i64 [ %indvars.iv.next21266, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13671 ], [ 2979, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13660 ]
+  %exitcond21268.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13671 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13660 ]
+  %indvars.iv21265 = phi i64 [ 2980, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13671 ], [ 2979, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13660 ]
   %23377 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %23378 = urem i64 %indvars.iv21265, %23377
   %23379 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -58866,8 +58742,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13669 = phi ptr [ %23383, %23382 ], [ %23400, %.loopexit.i.i13667 ], [ %23390, %23388 ]
   %.1.i.i13670 = getelementptr inbounds nuw i8, ptr %.pn.i.i13669, i64 12
   store i32 125, ptr %.1.i.i13670, align 4, !tbaa !25
-  %indvars.iv.next21266 = add nuw nsw i64 %indvars.iv21265, 1
-  %exitcond21268.not = icmp eq i64 %indvars.iv.next21266, 2981
   br i1 %exitcond21268.not, label %.preheader3686, label %.preheader3687, !llvm.loop !543
 
 .preheader3686:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13671, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13682
@@ -59055,7 +58929,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %23501
 
 .preheader3684:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13693, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13715
-  %indvars.iv21277 = phi i64 [ %indvars.iv.next21278, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13715 ], [ 3006, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13693 ]
+  %exitcond21280.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13715 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13693 ]
+  %indvars.iv21277 = phi i64 [ 3007, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13715 ], [ 3006, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13693 ]
   %23476 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %23477 = urem i64 %indvars.iv21277, %23476
   %23478 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -59113,12 +58988,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13713 = phi ptr [ %23482, %23481 ], [ %23499, %.loopexit.i.i13711 ], [ %23489, %23487 ]
   %.1.i.i13714 = getelementptr inbounds nuw i8, ptr %.pn.i.i13713, i64 12
   store i32 125, ptr %.1.i.i13714, align 4, !tbaa !25
-  %indvars.iv.next21278 = add nuw nsw i64 %indvars.iv21277, 1
-  %exitcond21280.not = icmp eq i64 %indvars.iv.next21278, 3008
   br i1 %exitcond21280.not, label %23452, label %.preheader3684, !llvm.loop !546
 
 23501:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13704, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13726
-  %indvars.iv21281 = phi i64 [ 3009, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13704 ], [ %indvars.iv.next21282, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13726 ]
+  %exitcond21284.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13704 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13726 ]
+  %indvars.iv21281 = phi i64 [ 3009, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit13704 ], [ 3010, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13726 ]
   %23502 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %23503 = urem i64 %indvars.iv21281, %23502
   %23504 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -59176,8 +59050,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13724 = phi ptr [ %23508, %23507 ], [ %23525, %.loopexit.i.i13722 ], [ %23515, %23513 ]
   %.1.i.i13725 = getelementptr inbounds nuw i8, ptr %.pn.i.i13724, i64 12
   store i32 125, ptr %.1.i.i13725, align 4, !tbaa !25
-  %indvars.iv.next21282 = add nuw nsw i64 %indvars.iv21281, 1
-  %exitcond21284.not = icmp eq i64 %indvars.iv.next21282, 3011
   br i1 %exitcond21284.not, label %.preheader3683, label %23501, !llvm.loop !547
 
 .preheader3683:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13726, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13737
@@ -60477,7 +60349,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21340.not, label %.preheader3672, label %.preheader3673, !llvm.loop !561
 
 .preheader3672:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13957, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13968
-  %indvars.iv21341 = phi i64 [ %indvars.iv.next21342, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13968 ], [ 3157, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13957 ]
+  %exitcond21344.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13968 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13957 ]
+  %indvars.iv21341 = phi i64 [ 3158, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13968 ], [ 3157, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13957 ]
   %24044 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %24045 = urem i64 %indvars.iv21341, %24044
   %24046 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -60535,8 +60408,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13966 = phi ptr [ %24050, %24049 ], [ %24067, %.loopexit.i.i13964 ], [ %24057, %24055 ]
   %.1.i.i13967 = getelementptr inbounds nuw i8, ptr %.pn.i.i13966, i64 12
   store i32 127, ptr %.1.i.i13967, align 4, !tbaa !25
-  %indvars.iv.next21342 = add nuw nsw i64 %indvars.iv21341, 1
-  %exitcond21344.not = icmp eq i64 %indvars.iv.next21342, 3159
   br i1 %exitcond21344.not, label %.preheader3671, label %.preheader3672, !llvm.loop !562
 
 .preheader3671:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13968, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13979
@@ -60603,7 +60474,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21348.not, label %.preheader3670, label %.preheader3671, !llvm.loop !563
 
 .preheader3670:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13979, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13990
-  %indvars.iv21349 = phi i64 [ %indvars.iv.next21350, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13990 ], [ 3168, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13979 ]
+  %exitcond21352.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13990 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13979 ]
+  %indvars.iv21349 = phi i64 [ 3169, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13990 ], [ 3168, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13979 ]
   %24094 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %24095 = urem i64 %indvars.iv21349, %24094
   %24096 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -60661,12 +60533,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13988 = phi ptr [ %24100, %24099 ], [ %24117, %.loopexit.i.i13986 ], [ %24107, %24105 ]
   %.1.i.i13989 = getelementptr inbounds nuw i8, ptr %.pn.i.i13988, i64 12
   store i32 127, ptr %.1.i.i13989, align 4, !tbaa !25
-  %indvars.iv.next21350 = add nuw nsw i64 %indvars.iv21349, 1
-  %exitcond21352.not = icmp eq i64 %indvars.iv.next21350, 3170
   br i1 %exitcond21352.not, label %.preheader3669, label %.preheader3670, !llvm.loop !564
 
 .preheader3669:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13990, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14001
-  %indvars.iv21353 = phi i64 [ %indvars.iv.next21354, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14001 ], [ 3170, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13990 ]
+  %exitcond21356.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14001 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13990 ]
+  %indvars.iv21353 = phi i64 [ 3171, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14001 ], [ 3170, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit13990 ]
   %24119 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %24120 = urem i64 %indvars.iv21353, %24119
   %24121 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -60724,8 +60595,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i13999 = phi ptr [ %24125, %24124 ], [ %24142, %.loopexit.i.i13997 ], [ %24132, %24130 ]
   %.1.i.i14000 = getelementptr inbounds nuw i8, ptr %.pn.i.i13999, i64 12
   store i32 127, ptr %.1.i.i14000, align 4, !tbaa !25
-  %indvars.iv.next21354 = add nuw nsw i64 %indvars.iv21353, 1
-  %exitcond21356.not = icmp eq i64 %indvars.iv.next21354, 3172
   br i1 %exitcond21356.not, label %.preheader3668, label %.preheader3669, !llvm.loop !565
 
 .preheader3668:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14001, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14012
@@ -61033,7 +60902,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21364.not, label %24169, label %.preheader3667, !llvm.loop !567
 
 24264:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14045, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14067
-  %indvars.iv21365 = phi i64 [ 3202, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14045 ], [ %indvars.iv.next21366, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14067 ]
+  %exitcond21368.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14045 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14067 ]
+  %indvars.iv21365 = phi i64 [ 3202, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14045 ], [ 3203, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14067 ]
   %24265 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %24266 = urem i64 %indvars.iv21365, %24265
   %24267 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -61091,8 +60961,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14065 = phi ptr [ %24271, %24270 ], [ %24288, %.loopexit.i.i14063 ], [ %24278, %24276 ]
   %.1.i.i14066 = getelementptr inbounds nuw i8, ptr %.pn.i.i14065, i64 12
   store i32 53, ptr %.1.i.i14066, align 4, !tbaa !25
-  %indvars.iv.next21366 = add nuw nsw i64 %indvars.iv21365, 1
-  %exitcond21368.not = icmp eq i64 %indvars.iv.next21366, 3204
   br i1 %exitcond21368.not, label %.preheader3666, label %24264, !llvm.loop !568
 
 .preheader3666:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14067, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14078
@@ -61770,7 +61638,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21392.not, label %24508, label %24532, !llvm.loop !574
 
 24558:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14177, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14199
-  %indvars.iv21393 = phi i64 [ 3271, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14177 ], [ %indvars.iv.next21394, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14199 ]
+  %exitcond21396.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14177 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14199 ]
+  %indvars.iv21393 = phi i64 [ 3271, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14177 ], [ 3272, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14199 ]
   %24559 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %24560 = urem i64 %indvars.iv21393, %24559
   %24561 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -61828,12 +61697,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14197 = phi ptr [ %24565, %24564 ], [ %24582, %.loopexit.i.i14195 ], [ %24572, %24570 ]
   %.1.i.i14198 = getelementptr inbounds nuw i8, ptr %.pn.i.i14197, i64 12
   store i32 53, ptr %.1.i.i14198, align 4, !tbaa !25
-  %indvars.iv.next21394 = add nuw nsw i64 %indvars.iv21393, 1
-  %exitcond21396.not = icmp eq i64 %indvars.iv.next21394, 3273
   br i1 %exitcond21396.not, label %.preheader3661, label %24558, !llvm.loop !575
 
 .preheader3661:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14199, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14210
-  %indvars.iv21397 = phi i64 [ %indvars.iv.next21398, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14210 ], [ 3274, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14199 ]
+  %exitcond21400.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14210 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14199 ]
+  %indvars.iv21397 = phi i64 [ 3275, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14210 ], [ 3274, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14199 ]
   %24584 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %24585 = urem i64 %indvars.iv21397, %24584
   %24586 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -61891,12 +61759,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14208 = phi ptr [ %24590, %24589 ], [ %24607, %.loopexit.i.i14206 ], [ %24597, %24595 ]
   %.1.i.i14209 = getelementptr inbounds nuw i8, ptr %.pn.i.i14208, i64 12
   store i32 53, ptr %.1.i.i14209, align 4, !tbaa !25
-  %indvars.iv.next21398 = add nuw nsw i64 %indvars.iv21397, 1
-  %exitcond21400.not = icmp eq i64 %indvars.iv.next21398, 3276
   br i1 %exitcond21400.not, label %.preheader3660, label %.preheader3661, !llvm.loop !576
 
 .preheader3660:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14210, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14221
-  %indvars.iv21401 = phi i64 [ %indvars.iv.next21402, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14221 ], [ 3276, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14210 ]
+  %exitcond21404.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14221 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14210 ]
+  %indvars.iv21401 = phi i64 [ 3277, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14221 ], [ 3276, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14210 ]
   %24609 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %24610 = urem i64 %indvars.iv21401, %24609
   %24611 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -61954,8 +61821,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14219 = phi ptr [ %24615, %24614 ], [ %24632, %.loopexit.i.i14217 ], [ %24622, %24620 ]
   %.1.i.i14220 = getelementptr inbounds nuw i8, ptr %.pn.i.i14219, i64 12
   store i32 53, ptr %.1.i.i14220, align 4, !tbaa !25
-  %indvars.iv.next21402 = add nuw nsw i64 %indvars.iv21401, 1
-  %exitcond21404.not = icmp eq i64 %indvars.iv.next21402, 3278
   br i1 %exitcond21404.not, label %.preheader3659, label %.preheader3660, !llvm.loop !577
 
 24634:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14243
@@ -62017,7 +61882,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %24683
 
 .preheader3659:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14221, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14243
-  %indvars.iv21405 = phi i64 [ %indvars.iv.next21406, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14243 ], [ 3285, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14221 ]
+  %exitcond21408.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14243 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14221 ]
+  %indvars.iv21405 = phi i64 [ 3286, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14243 ], [ 3285, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14221 ]
   %24658 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %24659 = urem i64 %indvars.iv21405, %24658
   %24660 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -62075,12 +61941,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14241 = phi ptr [ %24664, %24663 ], [ %24681, %.loopexit.i.i14239 ], [ %24671, %24669 ]
   %.1.i.i14242 = getelementptr inbounds nuw i8, ptr %.pn.i.i14241, i64 12
   store i32 53, ptr %.1.i.i14242, align 4, !tbaa !25
-  %indvars.iv.next21406 = add nuw nsw i64 %indvars.iv21405, 1
-  %exitcond21408.not = icmp eq i64 %indvars.iv.next21406, 3287
   br i1 %exitcond21408.not, label %24634, label %.preheader3659, !llvm.loop !578
 
 24683:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14232, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14254
-  %indvars.iv21409 = phi i64 [ 3296, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14232 ], [ %indvars.iv.next21410, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14254 ]
+  %exitcond21412.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14232 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14254 ]
+  %indvars.iv21409 = phi i64 [ 3296, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14232 ], [ 3297, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14254 ]
   %24684 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %24685 = urem i64 %indvars.iv21409, %24684
   %24686 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -62138,12 +62003,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14252 = phi ptr [ %24690, %24689 ], [ %24707, %.loopexit.i.i14250 ], [ %24697, %24695 ]
   %.1.i.i14253 = getelementptr inbounds nuw i8, ptr %.pn.i.i14252, i64 12
   store i32 53, ptr %.1.i.i14253, align 4, !tbaa !25
-  %indvars.iv.next21410 = add nuw nsw i64 %indvars.iv21409, 1
-  %exitcond21412.not = icmp eq i64 %indvars.iv.next21410, 3298
   br i1 %exitcond21412.not, label %.preheader3658, label %24683, !llvm.loop !579
 
 .preheader3658:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14254, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14265
-  %indvars.iv21413 = phi i64 [ %indvars.iv.next21414, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14265 ], [ 3298, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14254 ]
+  %exitcond21416.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14265 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14254 ]
+  %indvars.iv21413 = phi i64 [ 3299, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14265 ], [ 3298, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14254 ]
   %24709 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %24710 = urem i64 %indvars.iv21413, %24709
   %24711 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -62201,8 +62065,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14263 = phi ptr [ %24715, %24714 ], [ %24732, %.loopexit.i.i14261 ], [ %24722, %24720 ]
   %.1.i.i14264 = getelementptr inbounds nuw i8, ptr %.pn.i.i14263, i64 12
   store i32 53, ptr %.1.i.i14264, align 4, !tbaa !25
-  %indvars.iv.next21414 = add nuw nsw i64 %indvars.iv21413, 1
-  %exitcond21416.not = icmp eq i64 %indvars.iv.next21414, 3300
   br i1 %exitcond21416.not, label %.preheader3657, label %.preheader3658, !llvm.loop !580
 
 .preheader3657:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14265, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14276
@@ -62327,7 +62189,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %24808
 
 .preheader3656:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14276, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14298
-  %indvars.iv21421 = phi i64 [ %indvars.iv.next21422, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14298 ], [ 3313, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14276 ]
+  %exitcond21424.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14298 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14276 ]
+  %indvars.iv21421 = phi i64 [ 3314, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14298 ], [ 3313, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14276 ]
   %24783 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %24784 = urem i64 %indvars.iv21421, %24783
   %24785 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -62385,12 +62248,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14296 = phi ptr [ %24789, %24788 ], [ %24806, %.loopexit.i.i14294 ], [ %24796, %24794 ]
   %.1.i.i14297 = getelementptr inbounds nuw i8, ptr %.pn.i.i14296, i64 12
   store i32 53, ptr %.1.i.i14297, align 4, !tbaa !25
-  %indvars.iv.next21422 = add nuw nsw i64 %indvars.iv21421, 1
-  %exitcond21424.not = icmp eq i64 %indvars.iv.next21422, 3315
   br i1 %exitcond21424.not, label %24759, label %.preheader3656, !llvm.loop !582
 
 24808:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14287, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14309
-  %indvars.iv21425 = phi i64 [ 3330, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14287 ], [ %indvars.iv.next21426, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14309 ]
+  %exitcond21428.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14287 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14309 ]
+  %indvars.iv21425 = phi i64 [ 3330, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14287 ], [ 3331, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14309 ]
   %24809 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %24810 = urem i64 %indvars.iv21425, %24809
   %24811 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -62448,8 +62310,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14307 = phi ptr [ %24815, %24814 ], [ %24832, %.loopexit.i.i14305 ], [ %24822, %24820 ]
   %.1.i.i14308 = getelementptr inbounds nuw i8, ptr %.pn.i.i14307, i64 12
   store i32 70, ptr %.1.i.i14308, align 4, !tbaa !25
-  %indvars.iv.next21426 = add nuw nsw i64 %indvars.iv21425, 1
-  %exitcond21428.not = icmp eq i64 %indvars.iv.next21426, 3332
   br i1 %exitcond21428.not, label %.preheader3655, label %24808, !llvm.loop !583
 
 .preheader3655:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14309, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14320
@@ -63377,7 +63237,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21468.not, label %.preheader3648, label %.preheader3649, !llvm.loop !593
 
 .preheader3648:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14474, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14485
-  %indvars.iv21469 = phi i64 [ %indvars.iv.next21470, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14485 ], [ 3426, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14474 ]
+  %exitcond21472.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14485 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14474 ]
+  %indvars.iv21469 = phi i64 [ 3427, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14485 ], [ 3426, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14474 ]
   %25205 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %25206 = urem i64 %indvars.iv21469, %25205
   %25207 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -63435,8 +63296,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14483 = phi ptr [ %25211, %25210 ], [ %25228, %.loopexit.i.i14481 ], [ %25218, %25216 ]
   %.1.i.i14484 = getelementptr inbounds nuw i8, ptr %.pn.i.i14483, i64 12
   store i32 70, ptr %.1.i.i14484, align 4, !tbaa !25
-  %indvars.iv.next21470 = add nuw nsw i64 %indvars.iv21469, 1
-  %exitcond21472.not = icmp eq i64 %indvars.iv.next21470, 3428
   br i1 %exitcond21472.not, label %.preheader3647, label %.preheader3648, !llvm.loop !594
 
 .preheader3647:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14485, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14496
@@ -63687,7 +63546,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21484.not, label %.preheader3645, label %25304, !llvm.loop !597
 
 .preheader3645:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14529, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14540
-  %indvars.iv21485 = phi i64 [ %indvars.iv.next21486, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14540 ], [ 3458, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14529 ]
+  %exitcond21488.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14540 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14529 ]
+  %indvars.iv21485 = phi i64 [ 3459, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14540 ], [ 3458, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14529 ]
   %25330 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %25331 = urem i64 %indvars.iv21485, %25330
   %25332 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -63745,8 +63605,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14538 = phi ptr [ %25336, %25335 ], [ %25353, %.loopexit.i.i14536 ], [ %25343, %25341 ]
   %.1.i.i14539 = getelementptr inbounds nuw i8, ptr %.pn.i.i14538, i64 12
   store i32 114, ptr %.1.i.i14539, align 4, !tbaa !25
-  %indvars.iv.next21486 = add nuw nsw i64 %indvars.iv21485, 1
-  %exitcond21488.not = icmp eq i64 %indvars.iv.next21486, 3460
   br i1 %exitcond21488.not, label %.preheader3644, label %.preheader3645, !llvm.loop !598
 
 .preheader3644:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14540, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14551
@@ -64486,7 +64344,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %25679
 
 .preheader3639:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14661, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14683
-  %indvars.iv21521 = phi i64 [ %indvars.iv.next21522, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14683 ], [ 3570, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14661 ]
+  %exitcond21524.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14683 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14661 ]
+  %indvars.iv21521 = phi i64 [ 3571, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14683 ], [ 3570, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14661 ]
   %25654 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %25655 = urem i64 %indvars.iv21521, %25654
   %25656 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -64544,8 +64403,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14681 = phi ptr [ %25660, %25659 ], [ %25677, %.loopexit.i.i14679 ], [ %25667, %25665 ]
   %.1.i.i14682 = getelementptr inbounds nuw i8, ptr %.pn.i.i14681, i64 12
   store i32 114, ptr %.1.i.i14682, align 4, !tbaa !25
-  %indvars.iv.next21522 = add nuw nsw i64 %indvars.iv21521, 1
-  %exitcond21524.not = icmp eq i64 %indvars.iv.next21522, 3572
   br i1 %exitcond21524.not, label %25630, label %.preheader3639, !llvm.loop !607
 
 25679:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14672, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14694
@@ -64733,7 +64590,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21532.not, label %25705, label %.preheader3638, !llvm.loop !609
 
 25754:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14705, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14727
-  %indvars.iv21533 = phi i64 [ 3634, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14705 ], [ %indvars.iv.next21534, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14727 ]
+  %exitcond21536.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14705 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14727 ]
+  %indvars.iv21533 = phi i64 [ 3634, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14705 ], [ 3635, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14727 ]
   %25755 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %25756 = urem i64 %indvars.iv21533, %25755
   %25757 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -64791,8 +64649,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14725 = phi ptr [ %25761, %25760 ], [ %25778, %.loopexit.i.i14723 ], [ %25768, %25766 ]
   %.1.i.i14726 = getelementptr inbounds nuw i8, ptr %.pn.i.i14725, i64 12
   store i32 129, ptr %.1.i.i14726, align 4, !tbaa !25
-  %indvars.iv.next21534 = add nuw nsw i64 %indvars.iv21533, 1
-  %exitcond21536.not = icmp eq i64 %indvars.iv.next21534, 3636
   br i1 %exitcond21536.not, label %.preheader3637, label %25754, !llvm.loop !610
 
 .preheader3637:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14727, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14738
@@ -65164,7 +65020,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21552.not, label %.preheader3635, label %25904, !llvm.loop !614
 
 .preheader3635:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14793, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14804
-  %indvars.iv21553 = phi i64 [ %indvars.iv.next21554, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14804 ], [ 3674, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14793 ]
+  %exitcond21556.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14804 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14793 ]
+  %indvars.iv21553 = phi i64 [ 3675, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14804 ], [ 3674, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14793 ]
   %25930 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %25931 = urem i64 %indvars.iv21553, %25930
   %25932 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -65222,8 +65079,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14802 = phi ptr [ %25936, %25935 ], [ %25953, %.loopexit.i.i14800 ], [ %25943, %25941 ]
   %.1.i.i14803 = getelementptr inbounds nuw i8, ptr %.pn.i.i14802, i64 12
   store i32 129, ptr %.1.i.i14803, align 4, !tbaa !25
-  %indvars.iv.next21554 = add nuw nsw i64 %indvars.iv21553, 1
-  %exitcond21556.not = icmp eq i64 %indvars.iv.next21554, 3676
   br i1 %exitcond21556.not, label %.preheader3634, label %.preheader3635, !llvm.loop !615
 
 25955:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14826
@@ -65285,7 +65140,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %26051
 
 .preheader3634:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14804, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14826
-  %indvars.iv21557 = phi i64 [ %indvars.iv.next21558, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14826 ], [ 3713, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14804 ]
+  %exitcond21560.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14826 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14804 ]
+  %indvars.iv21557 = phi i64 [ 3714, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14826 ], [ 3713, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14804 ]
   %25979 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %25980 = urem i64 %indvars.iv21557, %25979
   %25981 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -65343,8 +65199,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14824 = phi ptr [ %25985, %25984 ], [ %26002, %.loopexit.i.i14822 ], [ %25992, %25990 ]
   %.1.i.i14825 = getelementptr inbounds nuw i8, ptr %.pn.i.i14824, i64 12
   store i32 60, ptr %.1.i.i14825, align 4, !tbaa !25
-  %indvars.iv.next21558 = add nuw nsw i64 %indvars.iv21557, 1
-  %exitcond21560.not = icmp eq i64 %indvars.iv.next21558, 3715
   br i1 %exitcond21560.not, label %25955, label %.preheader3634, !llvm.loop !616
 
 26004:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14859
@@ -65466,7 +65320,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %26077
 
 26051:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14815, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14859
-  %indvars.iv21561 = phi i64 [ 3719, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14815 ], [ %indvars.iv.next21562, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14859 ]
+  %exitcond21564.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14815 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14859 ]
+  %indvars.iv21561 = phi i64 [ 3719, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14815 ], [ 3720, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14859 ]
   %26052 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %26053 = urem i64 %indvars.iv21561, %26052
   %26054 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -65524,8 +65379,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14857 = phi ptr [ %26058, %26057 ], [ %26075, %.loopexit.i.i14855 ], [ %26065, %26063 ]
   %.1.i.i14858 = getelementptr inbounds nuw i8, ptr %.pn.i.i14857, i64 12
   store i32 60, ptr %.1.i.i14858, align 4, !tbaa !25
-  %indvars.iv.next21562 = add nuw nsw i64 %indvars.iv21561, 1
-  %exitcond21564.not = icmp eq i64 %indvars.iv.next21562, 3721
   br i1 %exitcond21564.not, label %26004, label %26051, !llvm.loop !617
 
 26077:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14848, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14870
@@ -65836,7 +65689,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21576.not, label %26128, label %.preheader3632, !llvm.loop !620
 
 26200:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14903, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14925
-  %indvars.iv21577 = phi i64 [ 3754, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14903 ], [ %indvars.iv.next21578, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14925 ]
+  %exitcond21580.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14903 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14925 ]
+  %indvars.iv21577 = phi i64 [ 3754, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14903 ], [ 3755, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14925 ]
   %26201 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %26202 = urem i64 %indvars.iv21577, %26201
   %26203 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -65894,8 +65748,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14923 = phi ptr [ %26207, %26206 ], [ %26224, %.loopexit.i.i14921 ], [ %26214, %26212 ]
   %.1.i.i14924 = getelementptr inbounds nuw i8, ptr %.pn.i.i14923, i64 12
   store i32 60, ptr %.1.i.i14924, align 4, !tbaa !25
-  %indvars.iv.next21578 = add nuw nsw i64 %indvars.iv21577, 1
-  %exitcond21580.not = icmp eq i64 %indvars.iv.next21578, 3756
   br i1 %exitcond21580.not, label %.preheader3631, label %26200, !llvm.loop !621
 
 26226:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14947
@@ -66020,7 +65872,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21584.not, label %26226, label %.preheader3631, !llvm.loop !622
 
 26275:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14936, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14958
-  %indvars.iv21585 = phi i64 [ 3762, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14936 ], [ %indvars.iv.next21586, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14958 ]
+  %exitcond21588.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14936 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14958 ]
+  %indvars.iv21585 = phi i64 [ 3762, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit14936 ], [ 3763, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14958 ]
   %26276 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %26277 = urem i64 %indvars.iv21585, %26276
   %26278 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -66078,8 +65931,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14956 = phi ptr [ %26282, %26281 ], [ %26299, %.loopexit.i.i14954 ], [ %26289, %26287 ]
   %.1.i.i14957 = getelementptr inbounds nuw i8, ptr %.pn.i.i14956, i64 12
   store i32 60, ptr %.1.i.i14957, align 4, !tbaa !25
-  %indvars.iv.next21586 = add nuw nsw i64 %indvars.iv21585, 1
-  %exitcond21588.not = icmp eq i64 %indvars.iv.next21586, 3764
   br i1 %exitcond21588.not, label %.preheader3630, label %26275, !llvm.loop !623
 
 .preheader3630:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14958, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14969
@@ -66204,7 +66055,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %26399
 
 .preheader3629:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14969, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14991
-  %indvars.iv21593 = phi i64 [ %indvars.iv.next21594, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14991 ], [ 3771, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14969 ]
+  %exitcond21596.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14991 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14969 ]
+  %indvars.iv21593 = phi i64 [ 3772, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14991 ], [ 3771, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit14969 ]
   %26350 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %26351 = urem i64 %indvars.iv21593, %26350
   %26352 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -66262,8 +66114,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i14989 = phi ptr [ %26356, %26355 ], [ %26373, %.loopexit.i.i14987 ], [ %26363, %26361 ]
   %.1.i.i14990 = getelementptr inbounds nuw i8, ptr %.pn.i.i14989, i64 12
   store i32 60, ptr %.1.i.i14990, align 4, !tbaa !25
-  %indvars.iv.next21594 = add nuw nsw i64 %indvars.iv21593, 1
-  %exitcond21596.not = icmp eq i64 %indvars.iv.next21594, 3773
   br i1 %exitcond21596.not, label %26326, label %.preheader3629, !llvm.loop !625
 
 26375:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15013
@@ -66942,7 +66792,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21624.not, label %.preheader3625, label %26623, !llvm.loop !632
 
 .preheader3625:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15112, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15123
-  %indvars.iv21625 = phi i64 [ %indvars.iv.next21626, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15123 ], [ 3864, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15112 ]
+  %exitcond21628.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15123 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15112 ]
+  %indvars.iv21625 = phi i64 [ 3865, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15123 ], [ 3864, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15112 ]
   %26649 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %26650 = urem i64 %indvars.iv21625, %26649
   %26651 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -67000,8 +66851,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i15121 = phi ptr [ %26655, %26654 ], [ %26672, %.loopexit.i.i15119 ], [ %26662, %26660 ]
   %.1.i.i15122 = getelementptr inbounds nuw i8, ptr %.pn.i.i15121, i64 12
   store i32 130, ptr %.1.i.i15122, align 4, !tbaa !25
-  %indvars.iv.next21626 = add nuw nsw i64 %indvars.iv21625, 1
-  %exitcond21628.not = icmp eq i64 %indvars.iv.next21626, 3866
   br i1 %exitcond21628.not, label %.preheader3624, label %.preheader3625, !llvm.loop !633
 
 .preheader3624:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15123, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15134
@@ -67792,7 +67641,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21640.not, label %26724, label %.preheader3622, !llvm.loop !636
 
 26980:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15255, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15277
-  %indvars.iv21641 = phi i64 [ 3902, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15255 ], [ %indvars.iv.next21642, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15277 ]
+  %exitcond21644.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15255 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15277 ]
+  %indvars.iv21641 = phi i64 [ 3902, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15255 ], [ 3903, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15277 ]
   %26981 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %26982 = urem i64 %indvars.iv21641, %26981
   %26983 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -67850,8 +67700,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i15275 = phi ptr [ %26987, %26986 ], [ %27004, %.loopexit.i.i15273 ], [ %26994, %26992 ]
   %.1.i.i15276 = getelementptr inbounds nuw i8, ptr %.pn.i.i15275, i64 12
   store i32 130, ptr %.1.i.i15276, align 4, !tbaa !25
-  %indvars.iv.next21642 = add nuw nsw i64 %indvars.iv21641, 1
-  %exitcond21644.not = icmp eq i64 %indvars.iv.next21642, 3904
   br i1 %exitcond21644.not, label %.preheader3621, label %26980, !llvm.loop !637
 
 .preheader3621:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15277, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15288
@@ -68223,7 +68071,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21660.not, label %27105, label %27129, !llvm.loop !641
 
 27155:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15332, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15354
-  %indvars.iv21661 = phi i64 [ 3974, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15332 ], [ %indvars.iv.next21662, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15354 ]
+  %exitcond21664.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15332 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15354 ]
+  %indvars.iv21661 = phi i64 [ 3974, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15332 ], [ 3975, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15354 ]
   %27156 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %27157 = urem i64 %indvars.iv21661, %27156
   %27158 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -68281,8 +68130,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i15352 = phi ptr [ %27162, %27161 ], [ %27179, %.loopexit.i.i15350 ], [ %27169, %27167 ]
   %.1.i.i15353 = getelementptr inbounds nuw i8, ptr %.pn.i.i15352, i64 12
   store i32 130, ptr %.1.i.i15353, align 4, !tbaa !25
-  %indvars.iv.next21662 = add nuw nsw i64 %indvars.iv21661, 1
-  %exitcond21664.not = icmp eq i64 %indvars.iv.next21662, 3976
   br i1 %exitcond21664.not, label %.preheader3618, label %27155, !llvm.loop !642
 
 .preheader3618:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15354, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15365
@@ -68659,7 +68506,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21684.not, label %.preheader3614, label %27305, !llvm.loop !647
 
 .preheader3614:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15420, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15431
-  %indvars.iv21685 = phi i64 [ %indvars.iv.next21686, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15431 ], [ 4046, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15420 ]
+  %exitcond21688.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15431 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15420 ]
+  %indvars.iv21685 = phi i64 [ 4047, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15431 ], [ 4046, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15420 ]
   %27331 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %27332 = urem i64 %indvars.iv21685, %27331
   %27333 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -68717,8 +68565,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i15429 = phi ptr [ %27337, %27336 ], [ %27354, %.loopexit.i.i15427 ], [ %27344, %27342 ]
   %.1.i.i15430 = getelementptr inbounds nuw i8, ptr %.pn.i.i15429, i64 12
   store i32 130, ptr %.1.i.i15430, align 4, !tbaa !25
-  %indvars.iv.next21686 = add nuw nsw i64 %indvars.iv21685, 1
-  %exitcond21688.not = icmp eq i64 %indvars.iv.next21686, 4048
   br i1 %exitcond21688.not, label %.preheader3613, label %.preheader3614, !llvm.loop !648
 
 .preheader3613:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15431, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15442
@@ -68785,7 +68631,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21692.not, label %.preheader3612, label %.preheader3613, !llvm.loop !649
 
 .preheader3612:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15442, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15453
-  %indvars.iv21693 = phi i64 [ %indvars.iv.next21694, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15453 ], [ 4057, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15442 ]
+  %exitcond21696.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15453 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15442 ]
+  %indvars.iv21693 = phi i64 [ 4058, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15453 ], [ 4057, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15442 ]
   %27381 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %27382 = urem i64 %indvars.iv21693, %27381
   %27383 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -68843,8 +68690,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i15451 = phi ptr [ %27387, %27386 ], [ %27404, %.loopexit.i.i15449 ], [ %27394, %27392 ]
   %.1.i.i15452 = getelementptr inbounds nuw i8, ptr %.pn.i.i15451, i64 12
   store i32 130, ptr %.1.i.i15452, align 4, !tbaa !25
-  %indvars.iv.next21694 = add nuw nsw i64 %indvars.iv21693, 1
-  %exitcond21696.not = icmp eq i64 %indvars.iv.next21694, 4059
   br i1 %exitcond21696.not, label %.preheader3611, label %.preheader3612, !llvm.loop !650
 
 .preheader3611:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15453, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15464
@@ -68911,7 +68756,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21700.not, label %.preheader3610, label %.preheader3611, !llvm.loop !651
 
 .preheader3610:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15464, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15475
-  %indvars.iv21701 = phi i64 [ %indvars.iv.next21702, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15475 ], [ 4139, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15464 ]
+  %exitcond21704.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15475 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15464 ]
+  %indvars.iv21701 = phi i64 [ 4140, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15475 ], [ 4139, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15464 ]
   %27431 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %27432 = urem i64 %indvars.iv21701, %27431
   %27433 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -68969,8 +68815,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i15473 = phi ptr [ %27437, %27436 ], [ %27454, %.loopexit.i.i15471 ], [ %27444, %27442 ]
   %.1.i.i15474 = getelementptr inbounds nuw i8, ptr %.pn.i.i15473, i64 12
   store i32 83, ptr %.1.i.i15474, align 4, !tbaa !25
-  %indvars.iv.next21702 = add nuw nsw i64 %indvars.iv21701, 1
-  %exitcond21704.not = icmp eq i64 %indvars.iv.next21702, 4141
   br i1 %exitcond21704.not, label %.preheader3609, label %.preheader3610, !llvm.loop !652
 
 27456:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15497
@@ -69216,7 +69060,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21712.not, label %27505, label %27529, !llvm.loop !654
 
 27555:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15508, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15530
-  %indvars.iv21713 = phi i64 [ 4153, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15508 ], [ %indvars.iv.next21714, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15530 ]
+  %exitcond21716.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15508 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15530 ]
+  %indvars.iv21713 = phi i64 [ 4153, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15508 ], [ 4154, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15530 ]
   %27556 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %27557 = urem i64 %indvars.iv21713, %27556
   %27558 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -69274,12 +69119,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i15528 = phi ptr [ %27562, %27561 ], [ %27579, %.loopexit.i.i15526 ], [ %27569, %27567 ]
   %.1.i.i15529 = getelementptr inbounds nuw i8, ptr %.pn.i.i15528, i64 12
   store i32 83, ptr %.1.i.i15529, align 4, !tbaa !25
-  %indvars.iv.next21714 = add nuw nsw i64 %indvars.iv21713, 1
-  %exitcond21716.not = icmp eq i64 %indvars.iv.next21714, 4155
   br i1 %exitcond21716.not, label %.preheader3608, label %27555, !llvm.loop !655
 
 .preheader3608:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15530, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15541
-  %indvars.iv21717 = phi i64 [ %indvars.iv.next21718, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15541 ], [ 4155, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15530 ]
+  %exitcond21720.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15541 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15530 ]
+  %indvars.iv21717 = phi i64 [ 4156, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15541 ], [ 4155, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15530 ]
   %27581 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %27582 = urem i64 %indvars.iv21717, %27581
   %27583 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -69337,8 +69181,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i15539 = phi ptr [ %27587, %27586 ], [ %27604, %.loopexit.i.i15537 ], [ %27594, %27592 ]
   %.1.i.i15540 = getelementptr inbounds nuw i8, ptr %.pn.i.i15539, i64 12
   store i32 83, ptr %.1.i.i15540, align 4, !tbaa !25
-  %indvars.iv.next21718 = add nuw nsw i64 %indvars.iv21717, 1
-  %exitcond21720.not = icmp eq i64 %indvars.iv.next21718, 4157
   br i1 %exitcond21720.not, label %.preheader3607, label %.preheader3608, !llvm.loop !656
 
 27606:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15563
@@ -69400,7 +69242,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %27655
 
 .preheader3607:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15541, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15563
-  %indvars.iv21721 = phi i64 [ %indvars.iv.next21722, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15563 ], [ 4157, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15541 ]
+  %exitcond21724.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15563 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15541 ]
+  %indvars.iv21721 = phi i64 [ 4158, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15563 ], [ 4157, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15541 ]
   %27630 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %27631 = urem i64 %indvars.iv21721, %27630
   %27632 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -69458,8 +69301,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i15561 = phi ptr [ %27636, %27635 ], [ %27653, %.loopexit.i.i15559 ], [ %27643, %27641 ]
   %.1.i.i15562 = getelementptr inbounds nuw i8, ptr %.pn.i.i15561, i64 12
   store i32 83, ptr %.1.i.i15562, align 4, !tbaa !25
-  %indvars.iv.next21722 = add nuw nsw i64 %indvars.iv21721, 1
-  %exitcond21724.not = icmp eq i64 %indvars.iv.next21722, 4159
   br i1 %exitcond21724.not, label %27606, label %.preheader3607, !llvm.loop !657
 
 27655:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15552, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15574
@@ -69652,7 +69493,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21736.not, label %.preheader3604, label %.preheader3605, !llvm.loop !660
 
 .preheader3604:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15596, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15607
-  %indvars.iv21737 = phi i64 [ %indvars.iv.next21738, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15607 ], [ 4182, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15596 ]
+  %exitcond21740.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15607 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15596 ]
+  %indvars.iv21737 = phi i64 [ 4183, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15607 ], [ 4182, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15596 ]
   %27731 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %27732 = urem i64 %indvars.iv21737, %27731
   %27733 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -69710,12 +69552,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i15605 = phi ptr [ %27737, %27736 ], [ %27754, %.loopexit.i.i15603 ], [ %27744, %27742 ]
   %.1.i.i15606 = getelementptr inbounds nuw i8, ptr %.pn.i.i15605, i64 12
   store i32 83, ptr %.1.i.i15606, align 4, !tbaa !25
-  %indvars.iv.next21738 = add nuw nsw i64 %indvars.iv21737, 1
-  %exitcond21740.not = icmp eq i64 %indvars.iv.next21738, 4184
   br i1 %exitcond21740.not, label %.preheader3603, label %.preheader3604, !llvm.loop !661
 
 .preheader3603:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15607, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15618
-  %indvars.iv21741 = phi i64 [ %indvars.iv.next21742, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15618 ], [ 4184, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15607 ]
+  %exitcond21744.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15618 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15607 ]
+  %indvars.iv21741 = phi i64 [ 4185, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15618 ], [ 4184, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15607 ]
   %27756 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %27757 = urem i64 %indvars.iv21741, %27756
   %27758 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -69773,8 +69614,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i15616 = phi ptr [ %27762, %27761 ], [ %27779, %.loopexit.i.i15614 ], [ %27769, %27767 ]
   %.1.i.i15617 = getelementptr inbounds nuw i8, ptr %.pn.i.i15616, i64 12
   store i32 83, ptr %.1.i.i15617, align 4, !tbaa !25
-  %indvars.iv.next21742 = add nuw nsw i64 %indvars.iv21741, 1
-  %exitcond21744.not = icmp eq i64 %indvars.iv.next21742, 4186
   br i1 %exitcond21744.not, label %.preheader3602, label %.preheader3603, !llvm.loop !662
 
 .preheader3602:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15618, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15629
@@ -70025,7 +69864,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21756.not, label %.preheader3600, label %27855, !llvm.loop !665
 
 .preheader3600:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15662, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15673
-  %indvars.iv21757 = phi i64 [ %indvars.iv.next21758, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15673 ], [ 4197, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15662 ]
+  %exitcond21760.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15673 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15662 ]
+  %indvars.iv21757 = phi i64 [ 4198, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15673 ], [ 4197, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15662 ]
   %27881 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %27882 = urem i64 %indvars.iv21757, %27881
   %27883 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -70083,8 +69923,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i15671 = phi ptr [ %27887, %27886 ], [ %27904, %.loopexit.i.i15669 ], [ %27894, %27892 ]
   %.1.i.i15672 = getelementptr inbounds nuw i8, ptr %.pn.i.i15671, i64 12
   store i32 83, ptr %.1.i.i15672, align 4, !tbaa !25
-  %indvars.iv.next21758 = add nuw nsw i64 %indvars.iv21757, 1
-  %exitcond21760.not = icmp eq i64 %indvars.iv.next21758, 4199
   br i1 %exitcond21760.not, label %.preheader3599, label %.preheader3600, !llvm.loop !666
 
 .preheader3599:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15673, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15684
@@ -70398,7 +70236,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21776.not, label %27981, label %.preheader3596, !llvm.loop !670
 
 28030:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15717, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15739
-  %indvars.iv21777 = phi i64 [ 4227, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15717 ], [ %indvars.iv.next21778, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15739 ]
+  %exitcond21780.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15717 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15739 ]
+  %indvars.iv21777 = phi i64 [ 4227, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15717 ], [ 4228, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15739 ]
   %28031 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %28032 = urem i64 %indvars.iv21777, %28031
   %28033 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -70456,12 +70295,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i15737 = phi ptr [ %28037, %28036 ], [ %28054, %.loopexit.i.i15735 ], [ %28044, %28042 ]
   %.1.i.i15738 = getelementptr inbounds nuw i8, ptr %.pn.i.i15737, i64 12
   store i32 83, ptr %.1.i.i15738, align 4, !tbaa !25
-  %indvars.iv.next21778 = add nuw nsw i64 %indvars.iv21777, 1
-  %exitcond21780.not = icmp eq i64 %indvars.iv.next21778, 4229
   br i1 %exitcond21780.not, label %.preheader3595, label %28030, !llvm.loop !671
 
 .preheader3595:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15739, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15750
-  %indvars.iv21781 = phi i64 [ %indvars.iv.next21782, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15750 ], [ 4229, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15739 ]
+  %exitcond21784.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15750 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15739 ]
+  %indvars.iv21781 = phi i64 [ 4230, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15750 ], [ 4229, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15739 ]
   %28056 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %28057 = urem i64 %indvars.iv21781, %28056
   %28058 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -70519,8 +70357,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i15748 = phi ptr [ %28062, %28061 ], [ %28079, %.loopexit.i.i15746 ], [ %28069, %28067 ]
   %.1.i.i15749 = getelementptr inbounds nuw i8, ptr %.pn.i.i15748, i64 12
   store i32 83, ptr %.1.i.i15749, align 4, !tbaa !25
-  %indvars.iv.next21782 = add nuw nsw i64 %indvars.iv21781, 1
-  %exitcond21784.not = icmp eq i64 %indvars.iv.next21782, 4231
   br i1 %exitcond21784.not, label %.preheader3594, label %.preheader3595, !llvm.loop !672
 
 28081:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15794
@@ -70949,7 +70785,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21796.not, label %28202, label %.preheader3593, !llvm.loop !675
 
 28251:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15816, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15838
-  %indvars.iv21797 = phi i64 [ 4254, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15816 ], [ %indvars.iv.next21798, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15838 ]
+  %exitcond21800.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15816 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15838 ]
+  %indvars.iv21797 = phi i64 [ 4254, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15816 ], [ 4255, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15838 ]
   %28252 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %28253 = urem i64 %indvars.iv21797, %28252
   %28254 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -71007,8 +70844,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i15836 = phi ptr [ %28258, %28257 ], [ %28275, %.loopexit.i.i15834 ], [ %28265, %28263 ]
   %.1.i.i15837 = getelementptr inbounds nuw i8, ptr %.pn.i.i15836, i64 12
   store i32 83, ptr %.1.i.i15837, align 4, !tbaa !25
-  %indvars.iv.next21798 = add nuw nsw i64 %indvars.iv21797, 1
-  %exitcond21800.not = icmp eq i64 %indvars.iv.next21798, 4256
   br i1 %exitcond21800.not, label %.preheader3592, label %28251, !llvm.loop !676
 
 28277:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit15871
@@ -71867,7 +71702,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21828.not, label %28500, label %.preheader3588, !llvm.loop !683
 
 28618:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15981, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16003
-  %indvars.iv21829 = phi i64 [ 43646, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15981 ], [ %indvars.iv.next21830, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16003 ]
+  %exitcond21832.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15981 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16003 ]
+  %indvars.iv21829 = phi i64 [ 43646, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit15981 ], [ 43647, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16003 ]
   %28619 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %28620 = urem i64 %indvars.iv21829, %28619
   %28621 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -71925,8 +71761,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i16001 = phi ptr [ %28625, %28624 ], [ %28642, %.loopexit.i.i15999 ], [ %28632, %28630 ]
   %.1.i.i16002 = getelementptr inbounds nuw i8, ptr %.pn.i.i16001, i64 12
   store i32 83, ptr %.1.i.i16002, align 4, !tbaa !25
-  %indvars.iv.next21830 = add nuw nsw i64 %indvars.iv21829, 1
-  %exitcond21832.not = icmp eq i64 %indvars.iv.next21830, 43648
   br i1 %exitcond21832.not, label %.preheader3587, label %28618, !llvm.loop !684
 
 28644:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16036
@@ -72539,7 +72373,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond21852.not, label %.preheader3585, label %28864, !llvm.loop !689
 
 .preheader3585:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16113, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16124
-  %indvars.iv21853 = phi i64 [ %indvars.iv.next21854, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16124 ], [ 12334, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16113 ]
+  %exitcond21856.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16124 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16113 ]
+  %indvars.iv21853 = phi i64 [ 12335, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16124 ], [ 12334, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16113 ]
   %28890 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %28891 = urem i64 %indvars.iv21853, %28890
   %28892 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -72597,8 +72432,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i16122 = phi ptr [ %28896, %28895 ], [ %28913, %.loopexit.i.i16120 ], [ %28903, %28901 ]
   %.1.i.i16123 = getelementptr inbounds nuw i8, ptr %.pn.i.i16122, i64 12
   store i32 42, ptr %.1.i.i16123, align 4, !tbaa !25
-  %indvars.iv.next21854 = add nuw nsw i64 %indvars.iv21853, 1
-  %exitcond21856.not = icmp eq i64 %indvars.iv.next21854, 12336
   br i1 %exitcond21856.not, label %.preheader3584, label %.preheader3585, !llvm.loop !690
 
 .preheader3584:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16124, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16135
@@ -75863,7 +75696,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22052.not, label %.preheader3538, label %30189, !llvm.loop !739
 
 .preheader3538:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16696, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16707
-  %indvars.iv22053 = phi i64 [ %indvars.iv.next22054, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16707 ], [ 5741, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16696 ]
+  %exitcond22056.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16707 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16696 ]
+  %indvars.iv22053 = phi i64 [ 5742, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16707 ], [ 5741, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16696 ]
   %30215 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %30216 = urem i64 %indvars.iv22053, %30215
   %30217 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -75921,8 +75755,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i16705 = phi ptr [ %30221, %30220 ], [ %30238, %.loopexit.i.i16703 ], [ %30228, %30226 ]
   %.1.i.i16706 = getelementptr inbounds nuw i8, ptr %.pn.i.i16705, i64 12
   store i32 17, ptr %.1.i.i16706, align 4, !tbaa !25
-  %indvars.iv.next22054 = add nuw nsw i64 %indvars.iv22053, 1
-  %exitcond22056.not = icmp eq i64 %indvars.iv.next22054, 5743
   br i1 %exitcond22056.not, label %.preheader3537, label %.preheader3538, !llvm.loop !740
 
 .preheader3537:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16707, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16718
@@ -76601,7 +76433,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %30537
 
 .preheader3532:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16817, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16839
-  %indvars.iv22085 = phi i64 [ %indvars.iv.next22086, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16839 ], [ 6068, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16817 ]
+  %exitcond22088.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16839 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16817 ]
+  %indvars.iv22085 = phi i64 [ 6069, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16839 ], [ 6068, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16817 ]
   %30512 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %30513 = urem i64 %indvars.iv22085, %30512
   %30514 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -76659,8 +76492,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i16837 = phi ptr [ %30518, %30517 ], [ %30535, %.loopexit.i.i16835 ], [ %30525, %30523 ]
   %.1.i.i16838 = getelementptr inbounds nuw i8, ptr %.pn.i.i16837, i64 12
   store i32 57, ptr %.1.i.i16838, align 4, !tbaa !25
-  %indvars.iv.next22086 = add nuw nsw i64 %indvars.iv22085, 1
-  %exitcond22088.not = icmp eq i64 %indvars.iv.next22086, 6070
   br i1 %exitcond22088.not, label %30488, label %.preheader3532, !llvm.loop !748
 
 30537:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit16828, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16850
@@ -76848,7 +76679,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22096.not, label %30563, label %.preheader3531, !llvm.loop !750
 
 30612:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit16861, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16883
-  %indvars.iv22097 = phi i64 [ 6087, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit16861 ], [ %indvars.iv.next22098, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16883 ]
+  %exitcond22100.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit16861 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16883 ]
+  %indvars.iv22097 = phi i64 [ 6087, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit16861 ], [ 6088, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16883 ]
   %30613 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %30614 = urem i64 %indvars.iv22097, %30613
   %30615 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -76906,8 +76738,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i16881 = phi ptr [ %30619, %30618 ], [ %30636, %.loopexit.i.i16879 ], [ %30626, %30624 ]
   %.1.i.i16882 = getelementptr inbounds nuw i8, ptr %.pn.i.i16881, i64 12
   store i32 57, ptr %.1.i.i16882, align 4, !tbaa !25
-  %indvars.iv.next22098 = add nuw nsw i64 %indvars.iv22097, 1
-  %exitcond22100.not = icmp eq i64 %indvars.iv.next22098, 6089
   br i1 %exitcond22100.not, label %.preheader3530, label %30612, !llvm.loop !751
 
 .preheader3530:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16883, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16894
@@ -77643,7 +77473,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %30956
 
 .preheader3526:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16993, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17026
-  %indvars.iv22125 = phi i64 [ %indvars.iv.next22126, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17026 ], [ 6144, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16993 ]
+  %exitcond22128.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17026 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16993 ]
+  %indvars.iv22125 = phi i64 [ 6145, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17026 ], [ 6144, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit16993 ]
   %30931 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %30932 = urem i64 %indvars.iv22125, %30931
   %30933 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -77701,8 +77532,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i17024 = phi ptr [ %30937, %30936 ], [ %30954, %.loopexit.i.i17022 ], [ %30944, %30942 ]
   %.1.i.i17025 = getelementptr inbounds nuw i8, ptr %.pn.i.i17024, i64 12
   store i32 80, ptr %.1.i.i17025, align 4, !tbaa !25
-  %indvars.iv.next22126 = add nuw nsw i64 %indvars.iv22125, 1
-  %exitcond22128.not = icmp eq i64 %indvars.iv.next22126, 6146
   br i1 %exitcond22128.not, label %30884, label %.preheader3526, !llvm.loop !758
 
 30956:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit17015, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17037
@@ -78200,7 +78029,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22152.not, label %.preheader3522, label %.preheader3523, !llvm.loop !764
 
 .preheader3522:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17114, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17125
-  %indvars.iv22153 = phi i64 [ %indvars.iv.next22154, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17125 ], [ 6277, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17114 ]
+  %exitcond22156.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17125 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17114 ]
+  %indvars.iv22153 = phi i64 [ 6278, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17125 ], [ 6277, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17114 ]
   %31157 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %31158 = urem i64 %indvars.iv22153, %31157
   %31159 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -78258,8 +78088,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i17123 = phi ptr [ %31163, %31162 ], [ %31180, %.loopexit.i.i17121 ], [ %31170, %31168 ]
   %.1.i.i17124 = getelementptr inbounds nuw i8, ptr %.pn.i.i17123, i64 12
   store i32 80, ptr %.1.i.i17124, align 4, !tbaa !25
-  %indvars.iv.next22154 = add nuw nsw i64 %indvars.iv22153, 1
-  %exitcond22156.not = icmp eq i64 %indvars.iv.next22154, 6279
   br i1 %exitcond22156.not, label %.preheader3521, label %.preheader3522, !llvm.loop !765
 
 31182:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17158
@@ -78748,7 +78576,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %31400
 
 .preheader3519:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17180, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17224
-  %indvars.iv22169 = phi i64 [ %indvars.iv.next22170, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17224 ], [ 12445, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17180 ]
+  %exitcond22172.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17224 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17180 ]
+  %indvars.iv22169 = phi i64 [ 12446, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17224 ], [ 12445, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17180 ]
   %31375 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %31376 = urem i64 %indvars.iv22169, %31375
   %31377 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -78806,8 +78635,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i17222 = phi ptr [ %31381, %31380 ], [ %31398, %.loopexit.i.i17220 ], [ %31388, %31386 ]
   %.1.i.i17223 = getelementptr inbounds nuw i8, ptr %.pn.i.i17222, i64 12
   store i32 46, ptr %.1.i.i17223, align 4, !tbaa !25
-  %indvars.iv.next22170 = add nuw nsw i64 %indvars.iv22169, 1
-  %exitcond22172.not = icmp eq i64 %indvars.iv.next22170, 12447
   br i1 %exitcond22172.not, label %31305, label %.preheader3519, !llvm.loop !769
 
 31400:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit17213, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17235
@@ -78932,7 +78759,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %31475
 
 .preheader3518:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17235, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17257
-  %indvars.iv22177 = phi i64 [ %indvars.iv.next22178, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17257 ], [ 12541, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17235 ]
+  %exitcond22180.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17257 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17235 ]
+  %indvars.iv22177 = phi i64 [ 12542, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17257 ], [ 12541, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17235 ]
   %31450 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %31451 = urem i64 %indvars.iv22177, %31450
   %31452 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -78990,8 +78818,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i17255 = phi ptr [ %31456, %31455 ], [ %31473, %.loopexit.i.i17253 ], [ %31463, %31461 ]
   %.1.i.i17256 = getelementptr inbounds nuw i8, ptr %.pn.i.i17255, i64 12
   store i32 54, ptr %.1.i.i17256, align 4, !tbaa !25
-  %indvars.iv.next22178 = add nuw nsw i64 %indvars.iv22177, 1
-  %exitcond22180.not = icmp eq i64 %indvars.iv.next22178, 12543
   br i1 %exitcond22180.not, label %31426, label %.preheader3518, !llvm.loop !771
 
 31475:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit17246, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17268
@@ -79368,7 +79194,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22200.not, label %31576, label %.preheader3514, !llvm.loop !776
 
 31625:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit17312, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17334
-  %indvars.iv22201 = phi i64 [ 746, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit17312 ], [ %indvars.iv.next22202, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17334 ]
+  %exitcond22204.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit17312 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17334 ]
+  %indvars.iv22201 = phi i64 [ 746, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit17312 ], [ 747, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17334 ]
   %31626 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %31627 = urem i64 %indvars.iv22201, %31626
   %31628 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -79426,8 +79253,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i17332 = phi ptr [ %31632, %31631 ], [ %31649, %.loopexit.i.i17330 ], [ %31639, %31637 ]
   %.1.i.i17333 = getelementptr inbounds nuw i8, ptr %.pn.i.i17332, i64 12
   store i32 12, ptr %.1.i.i17333, align 4, !tbaa !25
-  %indvars.iv.next22202 = add nuw nsw i64 %indvars.iv22201, 1
-  %exitcond22204.not = icmp eq i64 %indvars.iv.next22202, 748
   br i1 %exitcond22204.not, label %.preheader3513, label %31625, !llvm.loop !777
 
 .preheader3513:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17334, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17345
@@ -81356,7 +81181,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22304.not, label %.preheader3493, label %.preheader3494, !llvm.loop !802
 
 .preheader3493:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17675, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17686
-  %indvars.iv22305 = phi i64 [ %indvars.iv.next22306, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17686 ], [ 1157, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17675 ]
+  %exitcond22308.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17686 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17675 ]
+  %indvars.iv22305 = phi i64 [ 1158, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17686 ], [ 1157, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17675 ]
   %32424 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %32425 = urem i64 %indvars.iv22305, %32424
   %32426 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -81414,8 +81240,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i17684 = phi ptr [ %32430, %32429 ], [ %32447, %.loopexit.i.i17682 ], [ %32437, %32435 ]
   %.1.i.i17685 = getelementptr inbounds nuw i8, ptr %.pn.i.i17684, i64 12
   store i32 48, ptr %.1.i.i17685, align 4, !tbaa !25
-  %indvars.iv.next22306 = add nuw nsw i64 %indvars.iv22305, 1
-  %exitcond22308.not = icmp eq i64 %indvars.iv.next22306, 1159
   br i1 %exitcond22308.not, label %.preheader3492, label %.preheader3493, !llvm.loop !803
 
 32449:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17708
@@ -81540,7 +81364,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22312.not, label %32449, label %.preheader3492, !llvm.loop !804
 
 32498:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit17697, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17719
-  %indvars.iv22313 = phi i64 [ 2385, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit17697 ], [ %indvars.iv.next22314, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17719 ]
+  %exitcond22316.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit17697 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17719 ]
+  %indvars.iv22313 = phi i64 [ 2385, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit17697 ], [ 2386, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17719 ]
   %32499 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %32500 = urem i64 %indvars.iv22313, %32499
   %32501 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -81598,8 +81423,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i17717 = phi ptr [ %32505, %32504 ], [ %32522, %.loopexit.i.i17715 ], [ %32512, %32510 ]
   %.1.i.i17718 = getelementptr inbounds nuw i8, ptr %.pn.i.i17717, i64 12
   store i32 48, ptr %.1.i.i17718, align 4, !tbaa !25
-  %indvars.iv.next22314 = add nuw nsw i64 %indvars.iv22313, 1
-  %exitcond22316.not = icmp eq i64 %indvars.iv.next22314, 2387
   br i1 %exitcond22316.not, label %.preheader3491, label %32498, !llvm.loop !805
 
 32524:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17741
@@ -82031,7 +81854,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22332.not, label %32624, label %.preheader3489, !llvm.loop !809
 
 32696:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit17785, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17807
-  %indvars.iv22333 = phi i64 [ 7416, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit17785 ], [ %indvars.iv.next22334, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17807 ]
+  %exitcond22336.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit17785 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17807 ]
+  %indvars.iv22333 = phi i64 [ 7416, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit17785 ], [ 7417, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17807 ]
   %32697 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %32698 = urem i64 %indvars.iv22333, %32697
   %32699 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -82089,8 +81913,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i17805 = phi ptr [ %32703, %32702 ], [ %32720, %.loopexit.i.i17803 ], [ %32710, %32708 ]
   %.1.i.i17806 = getelementptr inbounds nuw i8, ptr %.pn.i.i17805, i64 12
   store i32 48, ptr %.1.i.i17806, align 4, !tbaa !25
-  %indvars.iv.next22334 = add nuw nsw i64 %indvars.iv22333, 1
-  %exitcond22336.not = icmp eq i64 %indvars.iv.next22334, 7418
   br i1 %exitcond22336.not, label %.preheader3488, label %32696, !llvm.loop !810
 
 .preheader3488:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17807, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17818
@@ -82220,7 +82042,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22344.not, label %.preheader3486, label %.preheader3487, !llvm.loop !812
 
 .preheader3486:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17829, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17840
-  %indvars.iv22345 = phi i64 [ %indvars.iv.next22346, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17840 ], [ 8204, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17829 ]
+  %exitcond22348.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17840 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17829 ]
+  %indvars.iv22345 = phi i64 [ 8205, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17840 ], [ 8204, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17829 ]
   %32772 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %32773 = urem i64 %indvars.iv22345, %32772
   %32774 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -82278,8 +82101,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i17838 = phi ptr [ %32778, %32777 ], [ %32795, %.loopexit.i.i17836 ], [ %32785, %32783 ]
   %.1.i.i17839 = getelementptr inbounds nuw i8, ptr %.pn.i.i17838, i64 12
   store i32 48, ptr %.1.i.i17839, align 4, !tbaa !25
-  %indvars.iv.next22346 = add nuw nsw i64 %indvars.iv22345, 1
-  %exitcond22348.not = icmp eq i64 %indvars.iv.next22346, 8206
   br i1 %exitcond22348.not, label %.preheader3485, label %.preheader3486, !llvm.loop !813
 
 .preheader3485:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17840, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17851
@@ -82656,7 +82477,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22368.not, label %.preheader3481, label %.preheader3482, !llvm.loop !818
 
 .preheader3481:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17906, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17917
-  %indvars.iv22369 = phi i64 [ %indvars.iv.next22370, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17917 ], [ 12441, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17906 ]
+  %exitcond22372.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17917 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17906 ]
+  %indvars.iv22369 = phi i64 [ 12442, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17917 ], [ 12441, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17906 ]
   %32947 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %32948 = urem i64 %indvars.iv22369, %32947
   %32949 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -82714,8 +82536,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i17915 = phi ptr [ %32953, %32952 ], [ %32970, %.loopexit.i.i17913 ], [ %32960, %32958 ]
   %.1.i.i17916 = getelementptr inbounds nuw i8, ptr %.pn.i.i17915, i64 12
   store i32 48, ptr %.1.i.i17916, align 4, !tbaa !25
-  %indvars.iv.next22370 = add nuw nsw i64 %indvars.iv22369, 1
-  %exitcond22372.not = icmp eq i64 %indvars.iv.next22370, 12443
   br i1 %exitcond22372.not, label %.preheader3480, label %.preheader3481, !llvm.loop !819
 
 .preheader3480:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17917, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit17928
@@ -83656,7 +83476,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22424.not, label %.preheader3468, label %.preheader3469, !llvm.loop !832
 
 .preheader3468:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18082, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18093
-  %indvars.iv22425 = phi i64 [ %indvars.iv.next22426, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18093 ], [ 5970, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18082 ]
+  %exitcond22428.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18093 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18082 ]
+  %indvars.iv22425 = phi i64 [ 5971, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18093 ], [ 5970, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18082 ]
   %33345 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %33346 = urem i64 %indvars.iv22425, %33345
   %33347 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -83714,8 +83535,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i18091 = phi ptr [ %33351, %33350 ], [ %33368, %.loopexit.i.i18089 ], [ %33358, %33356 ]
   %.1.i.i18092 = getelementptr inbounds nuw i8, ptr %.pn.i.i18091, i64 12
   store i32 16, ptr %.1.i.i18092, align 4, !tbaa !25
-  %indvars.iv.next22426 = add nuw nsw i64 %indvars.iv22425, 1
-  %exitcond22428.not = icmp eq i64 %indvars.iv.next22426, 5972
   br i1 %exitcond22428.not, label %.preheader3467, label %.preheader3468, !llvm.loop !833
 
 .preheader3467:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18093, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18104
@@ -83845,7 +83664,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22436.not, label %.preheader3465, label %.preheader3466, !llvm.loop !835
 
 .preheader3465:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18115, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18126
-  %indvars.iv22437 = phi i64 [ %indvars.iv.next22438, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18126 ], [ 6002, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18115 ]
+  %exitcond22440.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18126 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18115 ]
+  %indvars.iv22437 = phi i64 [ 6003, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18126 ], [ 6002, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18115 ]
   %33420 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %33421 = urem i64 %indvars.iv22437, %33420
   %33422 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -83903,8 +83723,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i18124 = phi ptr [ %33426, %33425 ], [ %33443, %.loopexit.i.i18122 ], [ %33433, %33431 ]
   %.1.i.i18125 = getelementptr inbounds nuw i8, ptr %.pn.i.i18124, i64 12
   store i32 120, ptr %.1.i.i18125, align 4, !tbaa !25
-  %indvars.iv.next22438 = add nuw nsw i64 %indvars.iv22437, 1
-  %exitcond22440.not = icmp eq i64 %indvars.iv.next22438, 6004
   br i1 %exitcond22440.not, label %.preheader3464, label %.preheader3465, !llvm.loop !836
 
 .preheader3464:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18126, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18137
@@ -84097,7 +83915,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22452.not, label %.preheader3461, label %.preheader3462, !llvm.loop !839
 
 .preheader3461:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18159, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18170
-  %indvars.iv22453 = phi i64 [ %indvars.iv.next22454, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18170 ], [ 6439, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18159 ]
+  %exitcond22456.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18170 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18159 ]
+  %indvars.iv22453 = phi i64 [ 6440, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18170 ], [ 6439, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18159 ]
   %33520 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %33521 = urem i64 %indvars.iv22453, %33520
   %33522 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -84155,8 +83974,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i18168 = phi ptr [ %33526, %33525 ], [ %33543, %.loopexit.i.i18166 ], [ %33533, %33531 ]
   %.1.i.i18169 = getelementptr inbounds nuw i8, ptr %.pn.i.i18168, i64 12
   store i32 63, ptr %.1.i.i18169, align 4, !tbaa !25
-  %indvars.iv.next22454 = add nuw nsw i64 %indvars.iv22453, 1
-  %exitcond22456.not = icmp eq i64 %indvars.iv.next22454, 6441
   br i1 %exitcond22456.not, label %.preheader3460, label %.preheader3461, !llvm.loop !840
 
 .preheader3460:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18170, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18181
@@ -84281,7 +84098,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %33619
 
 .preheader3459:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18181, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18203
-  %indvars.iv22461 = phi i64 [ %indvars.iv.next22462, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18203 ], [ 6448, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18181 ]
+  %exitcond22464.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18203 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18181 ]
+  %indvars.iv22461 = phi i64 [ 6449, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18203 ], [ 6448, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18181 ]
   %33594 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %33595 = urem i64 %indvars.iv22461, %33594
   %33596 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -84339,8 +84157,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i18201 = phi ptr [ %33600, %33599 ], [ %33617, %.loopexit.i.i18199 ], [ %33607, %33605 ]
   %.1.i.i18202 = getelementptr inbounds nuw i8, ptr %.pn.i.i18201, i64 12
   store i32 63, ptr %.1.i.i18202, align 4, !tbaa !25
-  %indvars.iv.next22462 = add nuw nsw i64 %indvars.iv22461, 1
-  %exitcond22464.not = icmp eq i64 %indvars.iv.next22462, 6450
   br i1 %exitcond22464.not, label %33570, label %.preheader3459, !llvm.loop !842
 
 33619:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18192, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18214
@@ -84528,7 +84344,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22472.not, label %33645, label %.preheader3458, !llvm.loop !844
 
 33694:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18225, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18247
-  %indvars.iv22473 = phi i64 [ 6468, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18225 ], [ %indvars.iv.next22474, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18247 ]
+  %exitcond22476.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18225 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18247 ]
+  %indvars.iv22473 = phi i64 [ 6468, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18225 ], [ 6469, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18247 ]
   %33695 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %33696 = urem i64 %indvars.iv22473, %33695
   %33697 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -84586,8 +84403,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i18245 = phi ptr [ %33701, %33700 ], [ %33718, %.loopexit.i.i18243 ], [ %33708, %33706 ]
   %.1.i.i18246 = getelementptr inbounds nuw i8, ptr %.pn.i.i18245, i64 12
   store i32 63, ptr %.1.i.i18246, align 4, !tbaa !25
-  %indvars.iv.next22474 = add nuw nsw i64 %indvars.iv22473, 1
-  %exitcond22476.not = icmp eq i64 %indvars.iv.next22474, 6470
   br i1 %exitcond22476.not, label %.preheader3457, label %33694, !llvm.loop !845
 
 .preheader3457:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18247, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18258
@@ -84969,7 +84784,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22500.not, label %.preheader3451, label %.preheader3452, !llvm.loop !851
 
 .preheader3451:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18313, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18324
-  %indvars.iv22501 = phi i64 [ %indvars.iv.next22502, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18324 ], [ 65596, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18313 ]
+  %exitcond22504.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18324 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18313 ]
+  %indvars.iv22501 = phi i64 [ 65597, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18324 ], [ 65596, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18313 ]
   %33870 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %33871 = urem i64 %indvars.iv22501, %33870
   %33872 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -85027,8 +84843,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i18322 = phi ptr [ %33876, %33875 ], [ %33893, %.loopexit.i.i18320 ], [ %33883, %33881 ]
   %.1.i.i18323 = getelementptr inbounds nuw i8, ptr %.pn.i.i18322, i64 12
   store i32 65, ptr %.1.i.i18323, align 4, !tbaa !25
-  %indvars.iv.next22502 = add nuw nsw i64 %indvars.iv22501, 1
-  %exitcond22504.not = icmp eq i64 %indvars.iv.next22502, 65598
   br i1 %exitcond22504.not, label %.preheader3450, label %.preheader3451, !llvm.loop !852
 
 .preheader3450:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18324, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18335
@@ -85833,7 +85647,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %34242
 
 .preheader3443:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18445, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18478
-  %indvars.iv22541 = phi i64 [ %indvars.iv.next22542, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18478 ], [ 67639, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18445 ]
+  %exitcond22544.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18478 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18445 ]
+  %indvars.iv22541 = phi i64 [ 67640, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18478 ], [ 67639, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18445 ]
   %34217 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %34218 = urem i64 %indvars.iv22541, %34217
   %34219 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -85891,8 +85706,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i18476 = phi ptr [ %34223, %34222 ], [ %34240, %.loopexit.i.i18474 ], [ %34230, %34228 ]
   %.1.i.i18477 = getelementptr inbounds nuw i8, ptr %.pn.i.i18476, i64 12
   store i32 26, ptr %.1.i.i18477, align 4, !tbaa !25
-  %indvars.iv.next22542 = add nuw nsw i64 %indvars.iv22541, 1
-  %exitcond22544.not = icmp eq i64 %indvars.iv.next22542, 67641
   br i1 %exitcond22544.not, label %34170, label %.preheader3443, !llvm.loop !862
 
 34242:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18467, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18489
@@ -86022,7 +85835,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22552.not, label %.preheader3441, label %.preheader3442, !llvm.loop !864
 
 .preheader3441:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18500, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18511
-  %indvars.iv22553 = phi i64 [ %indvars.iv.next22554, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18511 ], [ 6679, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18500 ]
+  %exitcond22556.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18511 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18500 ]
+  %indvars.iv22553 = phi i64 [ 6680, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18511 ], [ 6679, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18500 ]
   %34293 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %34294 = urem i64 %indvars.iv22553, %34293
   %34295 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -86080,8 +85894,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i18509 = phi ptr [ %34299, %34298 ], [ %34316, %.loopexit.i.i18507 ], [ %34306, %34304 ]
   %.1.i.i18510 = getelementptr inbounds nuw i8, ptr %.pn.i.i18509, i64 12
   store i32 15, ptr %.1.i.i18510, align 4, !tbaa !25
-  %indvars.iv.next22554 = add nuw nsw i64 %indvars.iv22553, 1
-  %exitcond22556.not = icmp eq i64 %indvars.iv.next22554, 6681
   br i1 %exitcond22556.not, label %.preheader3440, label %.preheader3441, !llvm.loop !865
 
 34318:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18533
@@ -86143,7 +85955,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %34367
 
 .preheader3440:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18511, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18533
-  %indvars.iv22557 = phi i64 [ %indvars.iv.next22558, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18533 ], [ 6681, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18511 ]
+  %exitcond22560.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18533 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18511 ]
+  %indvars.iv22557 = phi i64 [ 6682, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18533 ], [ 6681, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18511 ]
   %34342 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %34343 = urem i64 %indvars.iv22557, %34342
   %34344 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -86201,12 +86014,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i18531 = phi ptr [ %34348, %34347 ], [ %34365, %.loopexit.i.i18529 ], [ %34355, %34353 ]
   %.1.i.i18532 = getelementptr inbounds nuw i8, ptr %.pn.i.i18531, i64 12
   store i32 15, ptr %.1.i.i18532, align 4, !tbaa !25
-  %indvars.iv.next22558 = add nuw nsw i64 %indvars.iv22557, 1
-  %exitcond22560.not = icmp eq i64 %indvars.iv.next22558, 6683
   br i1 %exitcond22560.not, label %34318, label %.preheader3440, !llvm.loop !866
 
 34367:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18522, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18544
-  %indvars.iv22561 = phi i64 [ 6686, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18522 ], [ %indvars.iv.next22562, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18544 ]
+  %exitcond22564.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18522 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18544 ]
+  %indvars.iv22561 = phi i64 [ 6686, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18522 ], [ 6687, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18544 ]
   %34368 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %34369 = urem i64 %indvars.iv22561, %34368
   %34370 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -86264,8 +86076,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i18542 = phi ptr [ %34374, %34373 ], [ %34391, %.loopexit.i.i18540 ], [ %34381, %34379 ]
   %.1.i.i18543 = getelementptr inbounds nuw i8, ptr %.pn.i.i18542, i64 12
   store i32 15, ptr %.1.i.i18543, align 4, !tbaa !25
-  %indvars.iv.next22562 = add nuw nsw i64 %indvars.iv22561, 1
-  %exitcond22564.not = icmp eq i64 %indvars.iv.next22562, 6688
   br i1 %exitcond22564.not, label %.preheader3439, label %34367, !llvm.loop !867
 
 .preheader3439:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18544, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18555
@@ -86584,7 +86394,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22584.not, label %.preheader3434, label %.preheader3435, !llvm.loop !872
 
 .preheader3434:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18599, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18610
-  %indvars.iv22585 = phi i64 [ %indvars.iv.next22586, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18610 ], [ 11506, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18599 ]
+  %exitcond22588.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18610 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18599 ]
+  %indvars.iv22585 = phi i64 [ 11507, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18610 ], [ 11506, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18599 ]
   %34518 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %34519 = urem i64 %indvars.iv22585, %34518
   %34520 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -86642,8 +86453,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i18608 = phi ptr [ %34524, %34523 ], [ %34541, %.loopexit.i.i18606 ], [ %34531, %34529 ]
   %.1.i.i18609 = getelementptr inbounds nuw i8, ptr %.pn.i.i18608, i64 12
   store i32 24, ptr %.1.i.i18609, align 4, !tbaa !25
-  %indvars.iv.next22586 = add nuw nsw i64 %indvars.iv22585, 1
-  %exitcond22588.not = icmp eq i64 %indvars.iv.next22586, 11508
   br i1 %exitcond22588.not, label %.preheader3433, label %.preheader3434, !llvm.loop !873
 
 34543:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18632
@@ -86768,7 +86577,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22592.not, label %34543, label %.preheader3433, !llvm.loop !874
 
 34592:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18621, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18643
-  %indvars.iv22593 = phi i64 [ 11518, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18621 ], [ %indvars.iv.next22594, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18643 ]
+  %exitcond22596.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18621 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18643 ]
+  %indvars.iv22593 = phi i64 [ 11518, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18621 ], [ 11519, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18643 ]
   %34593 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %34594 = urem i64 %indvars.iv22593, %34593
   %34595 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -86826,8 +86636,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i18641 = phi ptr [ %34599, %34598 ], [ %34616, %.loopexit.i.i18639 ], [ %34606, %34604 ]
   %.1.i.i18642 = getelementptr inbounds nuw i8, ptr %.pn.i.i18641, i64 12
   store i32 24, ptr %.1.i.i18642, align 4, !tbaa !25
-  %indvars.iv.next22594 = add nuw nsw i64 %indvars.iv22593, 1
-  %exitcond22596.not = icmp eq i64 %indvars.iv.next22594, 11520
   br i1 %exitcond22596.not, label %.preheader3432, label %34592, !llvm.loop !875
 
 .preheader3432:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18643, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18654
@@ -87078,7 +86886,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22608.not, label %34668, label %.preheader3430, !llvm.loop !878
 
 34717:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18676, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18698
-  %indvars.iv22609 = phi i64 [ 6622, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18676 ], [ %indvars.iv.next22610, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18698 ]
+  %exitcond22612.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18676 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18698 ]
+  %indvars.iv22609 = phi i64 [ 6622, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18676 ], [ 6623, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18698 ]
   %34718 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %34719 = urem i64 %indvars.iv22609, %34718
   %34720 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -87136,8 +86945,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i18696 = phi ptr [ %34724, %34723 ], [ %34741, %.loopexit.i.i18694 ], [ %34731, %34729 ]
   %.1.i.i18697 = getelementptr inbounds nuw i8, ptr %.pn.i.i18696, i64 12
   store i32 85, ptr %.1.i.i18697, align 4, !tbaa !25
-  %indvars.iv.next22610 = add nuw nsw i64 %indvars.iv22609, 1
-  %exitcond22612.not = icmp eq i64 %indvars.iv.next22610, 6624
   br i1 %exitcond22612.not, label %.preheader3429, label %34717, !llvm.loop !879
 
 .preheader3429:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18698, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18709
@@ -87456,7 +87263,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22632.not, label %.preheader3424, label %.preheader3425, !llvm.loop !884
 
 .preheader3424:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18753, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18764
-  %indvars.iv22633 = phi i64 [ %indvars.iv.next22634, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18764 ], [ 122915, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18753 ]
+  %exitcond22636.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18764 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18753 ]
+  %indvars.iv22633 = phi i64 [ 122916, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18764 ], [ 122915, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18753 ]
   %34868 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %34869 = urem i64 %indvars.iv22633, %34868
   %34870 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -87514,8 +87322,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i18762 = phi ptr [ %34874, %34873 ], [ %34891, %.loopexit.i.i18760 ], [ %34881, %34879 ]
   %.1.i.i18763 = getelementptr inbounds nuw i8, ptr %.pn.i.i18762, i64 12
   store i32 35, ptr %.1.i.i18763, align 4, !tbaa !25
-  %indvars.iv.next22634 = add nuw nsw i64 %indvars.iv22633, 1
-  %exitcond22636.not = icmp eq i64 %indvars.iv.next22634, 122917
   br i1 %exitcond22636.not, label %.preheader3423, label %.preheader3424, !llvm.loop !885
 
 .preheader3423:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18764, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18775
@@ -87881,7 +87687,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %35087
 
 35037:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18808, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18841
-  %indvars.iv22645 = phi i64 [ 43008, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18808 ], [ %indvars.iv.next22646, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18841 ]
+  %exitcond22648.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18808 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18841 ]
+  %indvars.iv22645 = phi i64 [ 43008, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18808 ], [ 43009, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18841 ]
   %35038 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %35039 = urem i64 %indvars.iv22645, %35038
   %35040 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -87939,8 +87746,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i18839 = phi ptr [ %35044, %35043 ], [ %35061, %.loopexit.i.i18837 ], [ %35051, %35049 ]
   %.1.i.i18840 = getelementptr inbounds nuw i8, ptr %.pn.i.i18839, i64 12
   store i32 117, ptr %.1.i.i18840, align 4, !tbaa !25
-  %indvars.iv.next22646 = add nuw nsw i64 %indvars.iv22645, 1
-  %exitcond22648.not = icmp eq i64 %indvars.iv.next22646, 43010
   br i1 %exitcond22648.not, label %35013, label %35037, !llvm.loop !888
 
 35063:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18863
@@ -88249,7 +88054,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22660.not, label %.preheader3421, label %35163, !llvm.loop !891
 
 .preheader3421:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18896, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18907
-  %indvars.iv22661 = phi i64 [ %indvars.iv.next22662, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18907 ], [ 43043, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18896 ]
+  %exitcond22664.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18907 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18896 ]
+  %indvars.iv22661 = phi i64 [ 43044, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18907 ], [ 43043, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18896 ]
   %35189 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %35190 = urem i64 %indvars.iv22661, %35189
   %35191 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -88307,8 +88113,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i18905 = phi ptr [ %35195, %35194 ], [ %35212, %.loopexit.i.i18903 ], [ %35202, %35200 ]
   %.1.i.i18906 = getelementptr inbounds nuw i8, ptr %.pn.i.i18905, i64 12
   store i32 117, ptr %.1.i.i18906, align 4, !tbaa !25
-  %indvars.iv.next22662 = add nuw nsw i64 %indvars.iv22661, 1
-  %exitcond22664.not = icmp eq i64 %indvars.iv.next22662, 43045
   br i1 %exitcond22664.not, label %.preheader3420, label %.preheader3421, !llvm.loop !892
 
 35214:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18929
@@ -88370,7 +88174,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %35263
 
 .preheader3420:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18907, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18929
-  %indvars.iv22665 = phi i64 [ %indvars.iv.next22666, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18929 ], [ 43045, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18907 ]
+  %exitcond22668.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18929 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18907 ]
+  %indvars.iv22665 = phi i64 [ 43046, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18929 ], [ 43045, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18907 ]
   %35238 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %35239 = urem i64 %indvars.iv22665, %35238
   %35240 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -88428,8 +88233,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i18927 = phi ptr [ %35244, %35243 ], [ %35261, %.loopexit.i.i18925 ], [ %35251, %35249 ]
   %.1.i.i18928 = getelementptr inbounds nuw i8, ptr %.pn.i.i18927, i64 12
   store i32 117, ptr %.1.i.i18928, align 4, !tbaa !25
-  %indvars.iv.next22666 = add nuw nsw i64 %indvars.iv22665, 1
-  %exitcond22668.not = icmp eq i64 %indvars.iv.next22666, 43047
   br i1 %exitcond22668.not, label %35214, label %.preheader3420, !llvm.loop !893
 
 35263:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit18918, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit18940
@@ -88864,7 +88667,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22688.not, label %.preheader3417, label %35413, !llvm.loop !898
 
 .preheader3417:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19006, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19017
-  %indvars.iv22689 = phi i64 [ %indvars.iv.next22690, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19017 ], [ 68101, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19006 ]
+  %exitcond22692.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19017 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19006 ]
+  %indvars.iv22689 = phi i64 [ 68102, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19017 ], [ 68101, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19006 ]
   %35439 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %35440 = urem i64 %indvars.iv22689, %35439
   %35441 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -88922,8 +88726,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i19015 = phi ptr [ %35445, %35444 ], [ %35462, %.loopexit.i.i19013 ], [ %35452, %35450 ]
   %.1.i.i19016 = getelementptr inbounds nuw i8, ptr %.pn.i.i19015, i64 12
   store i32 56, ptr %.1.i.i19016, align 4, !tbaa !25
-  %indvars.iv.next22690 = add nuw nsw i64 %indvars.iv22689, 1
-  %exitcond22692.not = icmp eq i64 %indvars.iv.next22690, 68103
   br i1 %exitcond22692.not, label %.preheader3416, label %.preheader3417, !llvm.loop !899
 
 .preheader3416:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19017, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19028
@@ -90030,7 +89832,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22736.not, label %35859, label %35883, !llvm.loop !910
 
 35909:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit19204, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19226
-  %indvars.iv22737 = phi i64 [ 6979, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit19204 ], [ %indvars.iv.next22738, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19226 ]
+  %exitcond22740.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit19204 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19226 ]
+  %indvars.iv22737 = phi i64 [ 6979, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit19204 ], [ 6980, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19226 ]
   %35910 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %35911 = urem i64 %indvars.iv22737, %35910
   %35912 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -90088,8 +89891,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i19224 = phi ptr [ %35916, %35915 ], [ %35933, %.loopexit.i.i19222 ], [ %35923, %35921 ]
   %.1.i.i19225 = getelementptr inbounds nuw i8, ptr %.pn.i.i19224, i64 12
   store i32 6, ptr %.1.i.i19225, align 4, !tbaa !25
-  %indvars.iv.next22738 = add nuw nsw i64 %indvars.iv22737, 1
-  %exitcond22740.not = icmp eq i64 %indvars.iv.next22738, 6981
   br i1 %exitcond22740.not, label %.preheader3409, label %35909, !llvm.loop !911
 
 .preheader3409:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19226, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19237
@@ -91280,7 +91081,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %36458
 
 .preheader3393:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19424, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19446
-  %indvars.iv22809 = phi i64 [ %indvars.iv.next22810, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19446 ], [ 2036, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19424 ]
+  %exitcond22812.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19446 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19424 ]
+  %indvars.iv22809 = phi i64 [ 2037, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19446 ], [ 2036, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19424 ]
   %36409 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %36410 = urem i64 %indvars.iv22809, %36409
   %36411 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -91338,8 +91140,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i19444 = phi ptr [ %36415, %36414 ], [ %36432, %.loopexit.i.i19442 ], [ %36422, %36420 ]
   %.1.i.i19445 = getelementptr inbounds nuw i8, ptr %.pn.i.i19444, i64 12
   store i32 87, ptr %.1.i.i19445, align 4, !tbaa !25
-  %indvars.iv.next22810 = add nuw nsw i64 %indvars.iv22809, 1
-  %exitcond22812.not = icmp eq i64 %indvars.iv.next22810, 2038
   br i1 %exitcond22812.not, label %36385, label %.preheader3393, !llvm.loop !929
 
 36434:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19468
@@ -91522,7 +91322,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %36558
 
 36508:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit19457, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19490
-  %indvars.iv22817 = phi i64 [ 7040, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit19457 ], [ %indvars.iv.next22818, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19490 ]
+  %exitcond22820.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit19457 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19490 ]
+  %indvars.iv22817 = phi i64 [ 7040, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit19457 ], [ 7041, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19490 ]
   %36509 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %36510 = urem i64 %indvars.iv22817, %36509
   %36511 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -91580,8 +91381,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i19488 = phi ptr [ %36515, %36514 ], [ %36532, %.loopexit.i.i19486 ], [ %36522, %36520 ]
   %.1.i.i19489 = getelementptr inbounds nuw i8, ptr %.pn.i.i19488, i64 12
   store i32 116, ptr %.1.i.i19489, align 4, !tbaa !25
-  %indvars.iv.next22818 = add nuw nsw i64 %indvars.iv22817, 1
-  %exitcond22820.not = icmp eq i64 %indvars.iv.next22818, 7042
   br i1 %exitcond22820.not, label %36484, label %36508, !llvm.loop !931
 
 36534:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19512
@@ -91769,7 +91568,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22828.not, label %.preheader3392, label %36584, !llvm.loop !933
 
 .preheader3392:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19523, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19534
-  %indvars.iv22829 = phi i64 [ %indvars.iv.next22830, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19534 ], [ 7078, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19523 ]
+  %exitcond22832.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19534 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19523 ]
+  %indvars.iv22829 = phi i64 [ 7079, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19534 ], [ 7078, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19523 ]
   %36610 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %36611 = urem i64 %indvars.iv22829, %36610
   %36612 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -91827,8 +91627,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i19532 = phi ptr [ %36616, %36615 ], [ %36633, %.loopexit.i.i19530 ], [ %36623, %36621 ]
   %.1.i.i19533 = getelementptr inbounds nuw i8, ptr %.pn.i.i19532, i64 12
   store i32 116, ptr %.1.i.i19533, align 4, !tbaa !25
-  %indvars.iv.next22830 = add nuw nsw i64 %indvars.iv22829, 1
-  %exitcond22832.not = icmp eq i64 %indvars.iv.next22830, 7080
   br i1 %exitcond22832.not, label %.preheader3391, label %.preheader3392, !llvm.loop !934
 
 36635:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19556
@@ -91890,7 +91688,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %36684
 
 .preheader3391:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19534, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19556
-  %indvars.iv22833 = phi i64 [ %indvars.iv.next22834, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19556 ], [ 7080, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19534 ]
+  %exitcond22836.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19556 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19534 ]
+  %indvars.iv22833 = phi i64 [ 7081, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19556 ], [ 7080, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19534 ]
   %36659 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %36660 = urem i64 %indvars.iv22833, %36659
   %36661 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -91948,8 +91747,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i19554 = phi ptr [ %36665, %36664 ], [ %36682, %.loopexit.i.i19552 ], [ %36672, %36670 ]
   %.1.i.i19555 = getelementptr inbounds nuw i8, ptr %.pn.i.i19554, i64 12
   store i32 116, ptr %.1.i.i19555, align 4, !tbaa !25
-  %indvars.iv.next22834 = add nuw nsw i64 %indvars.iv22833, 1
-  %exitcond22836.not = icmp eq i64 %indvars.iv.next22834, 7082
   br i1 %exitcond22836.not, label %36635, label %.preheader3391, !llvm.loop !935
 
 36684:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit19545, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19567
@@ -92016,7 +91813,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22840.not, label %.preheader3390, label %36684, !llvm.loop !936
 
 .preheader3390:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19567, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19578
-  %indvars.iv22841 = phi i64 [ %indvars.iv.next22842, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19578 ], [ 7086, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19567 ]
+  %exitcond22844.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19578 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19567 ]
+  %indvars.iv22841 = phi i64 [ 7087, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19578 ], [ 7086, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19567 ]
   %36710 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %36711 = urem i64 %indvars.iv22841, %36710
   %36712 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -92074,8 +91872,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i19576 = phi ptr [ %36716, %36715 ], [ %36733, %.loopexit.i.i19574 ], [ %36723, %36721 ]
   %.1.i.i19577 = getelementptr inbounds nuw i8, ptr %.pn.i.i19576, i64 12
   store i32 116, ptr %.1.i.i19577, align 4, !tbaa !25
-  %indvars.iv.next22842 = add nuw nsw i64 %indvars.iv22841, 1
-  %exitcond22844.not = icmp eq i64 %indvars.iv.next22842, 7088
   br i1 %exitcond22844.not, label %.preheader3389, label %.preheader3390, !llvm.loop !937
 
 .preheader3389:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19578, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19589
@@ -92457,7 +92253,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22868.not, label %.preheader3383, label %.preheader3384, !llvm.loop !943
 
 .preheader3383:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19644, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19655
-  %indvars.iv22869 = phi i64 [ %indvars.iv.next22870, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19655 ], [ 7220, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19644 ]
+  %exitcond22872.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19655 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19644 ]
+  %indvars.iv22869 = phi i64 [ 7221, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19655 ], [ 7220, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19644 ]
   %36885 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %36886 = urem i64 %indvars.iv22869, %36885
   %36887 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -92515,12 +92312,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i19653 = phi ptr [ %36891, %36890 ], [ %36908, %.loopexit.i.i19651 ], [ %36898, %36896 ]
   %.1.i.i19654 = getelementptr inbounds nuw i8, ptr %.pn.i.i19653, i64 12
   store i32 62, ptr %.1.i.i19654, align 4, !tbaa !25
-  %indvars.iv.next22870 = add nuw nsw i64 %indvars.iv22869, 1
-  %exitcond22872.not = icmp eq i64 %indvars.iv.next22870, 7222
   br i1 %exitcond22872.not, label %.preheader3382, label %.preheader3383, !llvm.loop !944
 
 .preheader3382:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19655, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19666
-  %indvars.iv22873 = phi i64 [ %indvars.iv.next22874, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19666 ], [ 7222, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19655 ]
+  %exitcond22876.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19666 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19655 ]
+  %indvars.iv22873 = phi i64 [ 7223, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19666 ], [ 7222, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19655 ]
   %36910 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %36911 = urem i64 %indvars.iv22873, %36910
   %36912 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -92578,8 +92374,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i19664 = phi ptr [ %36916, %36915 ], [ %36933, %.loopexit.i.i19662 ], [ %36923, %36921 ]
   %.1.i.i19665 = getelementptr inbounds nuw i8, ptr %.pn.i.i19664, i64 12
   store i32 62, ptr %.1.i.i19665, align 4, !tbaa !25
-  %indvars.iv.next22874 = add nuw nsw i64 %indvars.iv22873, 1
-  %exitcond22876.not = icmp eq i64 %indvars.iv.next22874, 7224
   br i1 %exitcond22876.not, label %.preheader3381, label %.preheader3382, !llvm.loop !945
 
 .preheader3381:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19666, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19677
@@ -92961,7 +92755,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22900.not, label %.preheader3375, label %.preheader3376, !llvm.loop !951
 
 .preheader3375:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19732, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19743
-  %indvars.iv22901 = phi i64 [ %indvars.iv.next22902, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19743 ], [ 7294, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19732 ]
+  %exitcond22904.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19743 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19732 ]
+  %indvars.iv22901 = phi i64 [ 7295, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19743 ], [ 7294, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19732 ]
   %37085 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %37086 = urem i64 %indvars.iv22901, %37085
   %37087 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -93019,8 +92814,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i19741 = phi ptr [ %37091, %37090 ], [ %37108, %.loopexit.i.i19739 ], [ %37098, %37096 ]
   %.1.i.i19742 = getelementptr inbounds nuw i8, ptr %.pn.i.i19741, i64 12
   store i32 89, ptr %.1.i.i19742, align 4, !tbaa !25
-  %indvars.iv.next22902 = add nuw nsw i64 %indvars.iv22901, 1
-  %exitcond22904.not = icmp eq i64 %indvars.iv.next22902, 7296
   br i1 %exitcond22904.not, label %.preheader3374, label %.preheader3375, !llvm.loop !952
 
 37110:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19765
@@ -93334,7 +93127,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22920.not, label %.preheader3371, label %.preheader3372, !llvm.loop !956
 
 .preheader3371:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19798, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19809
-  %indvars.iv22921 = phi i64 [ %indvars.iv.next22922, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19809 ], [ 42538, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19798 ]
+  %exitcond22924.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19809 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19798 ]
+  %indvars.iv22921 = phi i64 [ 42539, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19809 ], [ 42538, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19798 ]
   %37235 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %37236 = urem i64 %indvars.iv22921, %37235
   %37237 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -93392,12 +93186,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i19807 = phi ptr [ %37241, %37240 ], [ %37258, %.loopexit.i.i19805 ], [ %37248, %37246 ]
   %.1.i.i19808 = getelementptr inbounds nuw i8, ptr %.pn.i.i19807, i64 12
   store i32 134, ptr %.1.i.i19808, align 4, !tbaa !25
-  %indvars.iv.next22922 = add nuw nsw i64 %indvars.iv22921, 1
-  %exitcond22924.not = icmp eq i64 %indvars.iv.next22922, 42540
   br i1 %exitcond22924.not, label %.preheader3370, label %.preheader3371, !llvm.loop !957
 
 .preheader3370:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19809, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19820
-  %indvars.iv22925 = phi i64 [ %indvars.iv.next22926, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19820 ], [ 43136, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19809 ]
+  %exitcond22928.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19820 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19809 ]
+  %indvars.iv22925 = phi i64 [ 43137, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19820 ], [ 43136, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19809 ]
   %37260 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %37261 = urem i64 %indvars.iv22925, %37260
   %37262 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -93455,8 +93248,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i19818 = phi ptr [ %37266, %37265 ], [ %37283, %.loopexit.i.i19816 ], [ %37273, %37271 ]
   %.1.i.i19819 = getelementptr inbounds nuw i8, ptr %.pn.i.i19818, i64 12
   store i32 109, ptr %.1.i.i19819, align 4, !tbaa !25
-  %indvars.iv.next22926 = add nuw nsw i64 %indvars.iv22925, 1
-  %exitcond22928.not = icmp eq i64 %indvars.iv.next22926, 43138
   br i1 %exitcond22928.not, label %.preheader3369, label %.preheader3370, !llvm.loop !958
 
 .preheader3369:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19820, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19831
@@ -93586,7 +93377,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22936.not, label %.preheader3367, label %.preheader3368, !llvm.loop !960
 
 .preheader3367:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19842, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19853
-  %indvars.iv22937 = phi i64 [ %indvars.iv.next22938, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19853 ], [ 43204, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19842 ]
+  %exitcond22940.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19853 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19842 ]
+  %indvars.iv22937 = phi i64 [ 43205, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19853 ], [ 43204, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19842 ]
   %37335 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %37336 = urem i64 %indvars.iv22937, %37335
   %37337 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -93644,12 +93436,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i19851 = phi ptr [ %37341, %37340 ], [ %37358, %.loopexit.i.i19849 ], [ %37348, %37346 ]
   %.1.i.i19852 = getelementptr inbounds nuw i8, ptr %.pn.i.i19851, i64 12
   store i32 109, ptr %.1.i.i19852, align 4, !tbaa !25
-  %indvars.iv.next22938 = add nuw nsw i64 %indvars.iv22937, 1
-  %exitcond22940.not = icmp eq i64 %indvars.iv.next22938, 43206
   br i1 %exitcond22940.not, label %.preheader3366, label %.preheader3367, !llvm.loop !961
 
 .preheader3366:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19853, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19864
-  %indvars.iv22941 = phi i64 [ %indvars.iv.next22942, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19864 ], [ 43214, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19853 ]
+  %exitcond22944.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19864 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19853 ]
+  %indvars.iv22941 = phi i64 [ 43215, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19864 ], [ 43214, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19853 ]
   %37360 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %37361 = urem i64 %indvars.iv22941, %37360
   %37362 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -93707,8 +93498,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i19862 = phi ptr [ %37366, %37365 ], [ %37383, %.loopexit.i.i19860 ], [ %37373, %37371 ]
   %.1.i.i19863 = getelementptr inbounds nuw i8, ptr %.pn.i.i19862, i64 12
   store i32 109, ptr %.1.i.i19863, align 4, !tbaa !25
-  %indvars.iv.next22942 = add nuw nsw i64 %indvars.iv22941, 1
-  %exitcond22944.not = icmp eq i64 %indvars.iv.next22942, 43216
   br i1 %exitcond22944.not, label %.preheader3365, label %.preheader3366, !llvm.loop !962
 
 .preheader3365:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19864, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19875
@@ -94206,7 +93995,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %37609
 
 .preheader3360:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19941, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19963
-  %indvars.iv22969 = phi i64 [ %indvars.iv.next22970, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19963 ], [ 43346, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19941 ]
+  %exitcond22972.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19963 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19941 ]
+  %indvars.iv22969 = phi i64 [ 43347, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19963 ], [ 43346, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19941 ]
   %37584 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %37585 = urem i64 %indvars.iv22969, %37584
   %37586 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -94264,8 +94054,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i19961 = phi ptr [ %37590, %37589 ], [ %37607, %.loopexit.i.i19959 ], [ %37597, %37595 ]
   %.1.i.i19962 = getelementptr inbounds nuw i8, ptr %.pn.i.i19961, i64 12
   store i32 106, ptr %.1.i.i19962, align 4, !tbaa !25
-  %indvars.iv.next22970 = add nuw nsw i64 %indvars.iv22969, 1
-  %exitcond22972.not = icmp eq i64 %indvars.iv.next22970, 43348
   br i1 %exitcond22972.not, label %37560, label %.preheader3360, !llvm.loop !969
 
 37609:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit19952, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit19974
@@ -94642,7 +94430,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond22992.not, label %.preheader3356, label %.preheader3357, !llvm.loop !974
 
 .preheader3356:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20029, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20040
-  %indvars.iv22993 = phi i64 [ %indvars.iv.next22994, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20040 ], [ 43567, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20029 ]
+  %exitcond22996.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20040 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20029 ]
+  %indvars.iv22993 = phi i64 [ 43568, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20040 ], [ 43567, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20029 ]
   %37760 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %37761 = urem i64 %indvars.iv22993, %37760
   %37762 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -94700,12 +94489,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20038 = phi ptr [ %37766, %37765 ], [ %37783, %.loopexit.i.i20036 ], [ %37773, %37771 ]
   %.1.i.i20039 = getelementptr inbounds nuw i8, ptr %.pn.i.i20038, i64 12
   store i32 21, ptr %.1.i.i20039, align 4, !tbaa !25
-  %indvars.iv.next22994 = add nuw nsw i64 %indvars.iv22993, 1
-  %exitcond22996.not = icmp eq i64 %indvars.iv.next22994, 43569
   br i1 %exitcond22996.not, label %.preheader3355, label %.preheader3356, !llvm.loop !975
 
 .preheader3355:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20040, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20051
-  %indvars.iv22997 = phi i64 [ %indvars.iv.next22998, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20051 ], [ 43569, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20040 ]
+  %exitcond23000.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20051 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20040 ]
+  %indvars.iv22997 = phi i64 [ 43570, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20051 ], [ 43569, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20040 ]
   %37785 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %37786 = urem i64 %indvars.iv22997, %37785
   %37787 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -94763,12 +94551,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20049 = phi ptr [ %37791, %37790 ], [ %37808, %.loopexit.i.i20047 ], [ %37798, %37796 ]
   %.1.i.i20050 = getelementptr inbounds nuw i8, ptr %.pn.i.i20049, i64 12
   store i32 21, ptr %.1.i.i20050, align 4, !tbaa !25
-  %indvars.iv.next22998 = add nuw nsw i64 %indvars.iv22997, 1
-  %exitcond23000.not = icmp eq i64 %indvars.iv.next22998, 43571
   br i1 %exitcond23000.not, label %.preheader3354, label %.preheader3355, !llvm.loop !976
 
 .preheader3354:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20051, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20062
-  %indvars.iv23001 = phi i64 [ %indvars.iv.next23002, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20062 ], [ 43571, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20051 ]
+  %exitcond23004.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20062 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20051 ]
+  %indvars.iv23001 = phi i64 [ 43572, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20062 ], [ 43571, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20051 ]
   %37810 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %37811 = urem i64 %indvars.iv23001, %37810
   %37812 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -94826,12 +94613,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20060 = phi ptr [ %37816, %37815 ], [ %37833, %.loopexit.i.i20058 ], [ %37823, %37821 ]
   %.1.i.i20061 = getelementptr inbounds nuw i8, ptr %.pn.i.i20060, i64 12
   store i32 21, ptr %.1.i.i20061, align 4, !tbaa !25
-  %indvars.iv.next23002 = add nuw nsw i64 %indvars.iv23001, 1
-  %exitcond23004.not = icmp eq i64 %indvars.iv.next23002, 43573
   br i1 %exitcond23004.not, label %.preheader3353, label %.preheader3354, !llvm.loop !977
 
 .preheader3353:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20062, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20073
-  %indvars.iv23005 = phi i64 [ %indvars.iv.next23006, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20073 ], [ 43573, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20062 ]
+  %exitcond23008.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20073 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20062 ]
+  %indvars.iv23005 = phi i64 [ 43574, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20073 ], [ 43573, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20062 ]
   %37835 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %37836 = urem i64 %indvars.iv23005, %37835
   %37837 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -94889,8 +94675,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20071 = phi ptr [ %37841, %37840 ], [ %37858, %.loopexit.i.i20069 ], [ %37848, %37846 ]
   %.1.i.i20072 = getelementptr inbounds nuw i8, ptr %.pn.i.i20071, i64 12
   store i32 21, ptr %.1.i.i20072, align 4, !tbaa !25
-  %indvars.iv.next23006 = add nuw nsw i64 %indvars.iv23005, 1
-  %exitcond23008.not = icmp eq i64 %indvars.iv.next23006, 43575
   br i1 %exitcond23008.not, label %.preheader3352, label %.preheader3353, !llvm.loop !978
 
 37860:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20095
@@ -95804,7 +95588,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23032.not, label %38128, label %38198, !llvm.loop !984
 
 38224:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20227, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20249
-  %indvars.iv23033 = phi i64 [ 6755, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20227 ], [ %indvars.iv.next23034, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20249 ]
+  %exitcond23036.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20227 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20249 ]
+  %indvars.iv23033 = phi i64 [ 6755, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20227 ], [ 6756, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20249 ]
   %38225 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %38226 = urem i64 %indvars.iv23033, %38225
   %38227 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -95862,8 +95647,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20247 = phi ptr [ %38231, %38230 ], [ %38248, %.loopexit.i.i20245 ], [ %38238, %38236 ]
   %.1.i.i20248 = getelementptr inbounds nuw i8, ptr %.pn.i.i20247, i64 12
   store i32 122, ptr %.1.i.i20248, align 4, !tbaa !25
-  %indvars.iv.next23034 = add nuw nsw i64 %indvars.iv23033, 1
-  %exitcond23036.not = icmp eq i64 %indvars.iv.next23034, 6757
   br i1 %exitcond23036.not, label %.preheader3349, label %38224, !llvm.loop !985
 
 .preheader3349:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20249, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20260
@@ -96668,7 +96451,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23072.not, label %.preheader3343, label %38547, !llvm.loop !994
 
 .preheader3343:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20392, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20403
-  %indvars.iv23073 = phi i64 [ %indvars.iv.next23074, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20403 ], [ 43701, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20392 ]
+  %exitcond23076.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20403 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20392 ]
+  %indvars.iv23073 = phi i64 [ 43702, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20403 ], [ 43701, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20392 ]
   %38573 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %38574 = urem i64 %indvars.iv23073, %38573
   %38575 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -96726,12 +96510,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20401 = phi ptr [ %38579, %38578 ], [ %38596, %.loopexit.i.i20399 ], [ %38586, %38584 ]
   %.1.i.i20402 = getelementptr inbounds nuw i8, ptr %.pn.i.i20401, i64 12
   store i32 123, ptr %.1.i.i20402, align 4, !tbaa !25
-  %indvars.iv.next23074 = add nuw nsw i64 %indvars.iv23073, 1
-  %exitcond23076.not = icmp eq i64 %indvars.iv.next23074, 43703
   br i1 %exitcond23076.not, label %.preheader3342, label %.preheader3343, !llvm.loop !995
 
 .preheader3342:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20403, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20414
-  %indvars.iv23077 = phi i64 [ %indvars.iv.next23078, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20414 ], [ 43703, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20403 ]
+  %exitcond23080.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20414 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20403 ]
+  %indvars.iv23077 = phi i64 [ 43704, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20414 ], [ 43703, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20403 ]
   %38598 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %38599 = urem i64 %indvars.iv23077, %38598
   %38600 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -96789,8 +96572,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20412 = phi ptr [ %38604, %38603 ], [ %38621, %.loopexit.i.i20410 ], [ %38611, %38609 ]
   %.1.i.i20413 = getelementptr inbounds nuw i8, ptr %.pn.i.i20412, i64 12
   store i32 123, ptr %.1.i.i20413, align 4, !tbaa !25
-  %indvars.iv.next23078 = add nuw nsw i64 %indvars.iv23077, 1
-  %exitcond23080.not = icmp eq i64 %indvars.iv.next23078, 43705
   br i1 %exitcond23080.not, label %.preheader3341, label %.preheader3342, !llvm.loop !996
 
 .preheader3341:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20414, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20425
@@ -97035,7 +96816,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %38767
 
 .preheader3340:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20425, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20469
-  %indvars.iv23085 = phi i64 [ %indvars.iv.next23086, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20469 ], [ 43710, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20425 ]
+  %exitcond23088.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20469 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20425 ]
+  %indvars.iv23085 = phi i64 [ 43711, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20469 ], [ 43710, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20425 ]
   %38718 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %38719 = urem i64 %indvars.iv23085, %38718
   %38720 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -97093,8 +96875,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20467 = phi ptr [ %38724, %38723 ], [ %38741, %.loopexit.i.i20465 ], [ %38731, %38729 ]
   %.1.i.i20468 = getelementptr inbounds nuw i8, ptr %.pn.i.i20467, i64 12
   store i32 123, ptr %.1.i.i20468, align 4, !tbaa !25
-  %indvars.iv.next23086 = add nuw nsw i64 %indvars.iv23085, 1
-  %exitcond23088.not = icmp eq i64 %indvars.iv.next23086, 43712
   br i1 %exitcond23088.not, label %38648, label %.preheader3340, !llvm.loop !998
 
 38743:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20491
@@ -97156,7 +96936,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %38793
 
 38767:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20458, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20491
-  %indvars.iv23089 = phi i64 [ 43739, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20458 ], [ %indvars.iv.next23090, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20491 ]
+  %exitcond23092.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20458 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20491 ]
+  %indvars.iv23089 = phi i64 [ 43739, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20458 ], [ 43740, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20491 ]
   %38768 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %38769 = urem i64 %indvars.iv23089, %38768
   %38770 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -97214,12 +96995,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20489 = phi ptr [ %38774, %38773 ], [ %38791, %.loopexit.i.i20487 ], [ %38781, %38779 ]
   %.1.i.i20490 = getelementptr inbounds nuw i8, ptr %.pn.i.i20489, i64 12
   store i32 123, ptr %.1.i.i20490, align 4, !tbaa !25
-  %indvars.iv.next23090 = add nuw nsw i64 %indvars.iv23089, 1
-  %exitcond23092.not = icmp eq i64 %indvars.iv.next23090, 43741
   br i1 %exitcond23092.not, label %38743, label %38767, !llvm.loop !999
 
 38793:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20480, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20502
-  %indvars.iv23093 = phi i64 [ 43742, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20480 ], [ %indvars.iv.next23094, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20502 ]
+  %exitcond23096.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20480 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20502 ]
+  %indvars.iv23093 = phi i64 [ 43742, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20480 ], [ 43743, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20502 ]
   %38794 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %38795 = urem i64 %indvars.iv23093, %38794
   %38796 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -97277,8 +97057,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20500 = phi ptr [ %38800, %38799 ], [ %38817, %.loopexit.i.i20498 ], [ %38807, %38805 ]
   %.1.i.i20501 = getelementptr inbounds nuw i8, ptr %.pn.i.i20500, i64 12
   store i32 123, ptr %.1.i.i20501, align 4, !tbaa !25
-  %indvars.iv.next23094 = add nuw nsw i64 %indvars.iv23093, 1
-  %exitcond23096.not = icmp eq i64 %indvars.iv.next23094, 43744
   br i1 %exitcond23096.not, label %.preheader3339, label %38793, !llvm.loop !1000
 
 .preheader3339:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20502, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20513
@@ -98149,7 +97927,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23140.not, label %.preheader3331, label %.preheader3332, !llvm.loop !1011
 
 .preheader3331:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20656, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20667
-  %indvars.iv23141 = phi i64 [ %indvars.iv.next23142, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20667 ], [ 42238, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20656 ]
+  %exitcond23144.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20667 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20656 ]
+  %indvars.iv23141 = phi i64 [ 42239, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20667 ], [ 42238, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20656 ]
   %39169 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %39170 = urem i64 %indvars.iv23141, %39169
   %39171 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -98207,8 +97986,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20665 = phi ptr [ %39175, %39174 ], [ %39192, %.loopexit.i.i20663 ], [ %39182, %39180 ]
   %.1.i.i20666 = getelementptr inbounds nuw i8, ptr %.pn.i.i20665, i64 12
   store i32 66, ptr %.1.i.i20666, align 4, !tbaa !25
-  %indvars.iv.next23142 = add nuw nsw i64 %indvars.iv23141, 1
-  %exitcond23144.not = icmp eq i64 %indvars.iv.next23142, 42240
   br i1 %exitcond23144.not, label %.preheader3330, label %.preheader3331, !llvm.loop !1012
 
 .preheader3330:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20667, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20678
@@ -98338,7 +98115,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23152.not, label %.preheader3328, label %.preheader3329, !llvm.loop !1014
 
 .preheader3328:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20689, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20700
-  %indvars.iv23153 = phi i64 [ %indvars.iv.next23154, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20700 ], [ 42736, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20689 ]
+  %exitcond23156.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20700 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20689 ]
+  %indvars.iv23153 = phi i64 [ 42737, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20700 ], [ 42736, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20689 ]
   %39244 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %39245 = urem i64 %indvars.iv23153, %39244
   %39246 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -98396,8 +98174,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20698 = phi ptr [ %39250, %39249 ], [ %39267, %.loopexit.i.i20696 ], [ %39257, %39255 ]
   %.1.i.i20699 = getelementptr inbounds nuw i8, ptr %.pn.i.i20698, i64 12
   store i32 7, ptr %.1.i.i20699, align 4, !tbaa !25
-  %indvars.iv.next23154 = add nuw nsw i64 %indvars.iv23153, 1
-  %exitcond23156.not = icmp eq i64 %indvars.iv.next23154, 42738
   br i1 %exitcond23156.not, label %.preheader3327, label %.preheader3328, !llvm.loop !1015
 
 .preheader3327:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20700, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20711
@@ -98769,7 +98545,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23172.not, label %39368, label %39392, !llvm.loop !1019
 
 39418:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20755, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20777
-  %indvars.iv23173 = phi i64 [ 43444, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20755 ], [ %indvars.iv.next23174, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20777 ]
+  %exitcond23176.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20755 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20777 ]
+  %indvars.iv23173 = phi i64 [ 43444, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20755 ], [ 43445, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20777 ]
   %39419 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %39420 = urem i64 %indvars.iv23173, %39419
   %39421 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -98827,8 +98604,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20775 = phi ptr [ %39425, %39424 ], [ %39442, %.loopexit.i.i20773 ], [ %39432, %39430 ]
   %.1.i.i20776 = getelementptr inbounds nuw i8, ptr %.pn.i.i20775, i64 12
   store i32 51, ptr %.1.i.i20776, align 4, !tbaa !25
-  %indvars.iv.next23174 = add nuw nsw i64 %indvars.iv23173, 1
-  %exitcond23176.not = icmp eq i64 %indvars.iv.next23174, 43446
   br i1 %exitcond23176.not, label %.preheader3324, label %39418, !llvm.loop !1020
 
 .preheader3324:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20777, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20788
@@ -98953,7 +98728,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %39518
 
 .preheader3323:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20788, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20810
-  %indvars.iv23181 = phi i64 [ %indvars.iv.next23182, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20810 ], [ 43450, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20788 ]
+  %exitcond23184.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20810 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20788 ]
+  %indvars.iv23181 = phi i64 [ 43451, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20810 ], [ 43450, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20788 ]
   %39493 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %39494 = urem i64 %indvars.iv23181, %39493
   %39495 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -99011,8 +98787,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20808 = phi ptr [ %39499, %39498 ], [ %39516, %.loopexit.i.i20806 ], [ %39506, %39504 ]
   %.1.i.i20809 = getelementptr inbounds nuw i8, ptr %.pn.i.i20808, i64 12
   store i32 51, ptr %.1.i.i20809, align 4, !tbaa !25
-  %indvars.iv.next23182 = add nuw nsw i64 %indvars.iv23181, 1
-  %exitcond23184.not = icmp eq i64 %indvars.iv.next23182, 43452
   br i1 %exitcond23184.not, label %39469, label %.preheader3323, !llvm.loop !1022
 
 39518:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20799, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20821
@@ -99205,7 +98979,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23196.not, label %.preheader3320, label %.preheader3321, !llvm.loop !1025
 
 .preheader3320:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20843, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20854
-  %indvars.iv23197 = phi i64 [ %indvars.iv.next23198, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20854 ], [ 43486, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20843 ]
+  %exitcond23200.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20854 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20843 ]
+  %indvars.iv23197 = phi i64 [ 43487, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20854 ], [ 43486, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20843 ]
   %39594 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %39595 = urem i64 %indvars.iv23197, %39594
   %39596 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -99263,8 +99038,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20852 = phi ptr [ %39600, %39599 ], [ %39617, %.loopexit.i.i20850 ], [ %39607, %39605 ]
   %.1.i.i20853 = getelementptr inbounds nuw i8, ptr %.pn.i.i20852, i64 12
   store i32 51, ptr %.1.i.i20853, align 4, !tbaa !25
-  %indvars.iv.next23198 = add nuw nsw i64 %indvars.iv23197, 1
-  %exitcond23200.not = icmp eq i64 %indvars.iv.next23198, 43488
   br i1 %exitcond23200.not, label %.preheader3319, label %.preheader3320, !llvm.loop !1026
 
 39619:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20876
@@ -99389,7 +99162,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23204.not, label %39619, label %.preheader3319, !llvm.loop !1027
 
 39668:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20865, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20887
-  %indvars.iv23205 = phi i64 [ 43756, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20865 ], [ %indvars.iv.next23206, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20887 ]
+  %exitcond23208.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20865 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20887 ]
+  %indvars.iv23205 = phi i64 [ 43756, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20865 ], [ 43757, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20887 ]
   %39669 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %39670 = urem i64 %indvars.iv23205, %39669
   %39671 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -99447,12 +99221,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20885 = phi ptr [ %39675, %39674 ], [ %39692, %.loopexit.i.i20883 ], [ %39682, %39680 ]
   %.1.i.i20886 = getelementptr inbounds nuw i8, ptr %.pn.i.i20885, i64 12
   store i32 74, ptr %.1.i.i20886, align 4, !tbaa !25
-  %indvars.iv.next23206 = add nuw nsw i64 %indvars.iv23205, 1
-  %exitcond23208.not = icmp eq i64 %indvars.iv.next23206, 43758
   br i1 %exitcond23208.not, label %.preheader3318, label %39668, !llvm.loop !1028
 
 .preheader3318:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20887, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20898
-  %indvars.iv23209 = phi i64 [ %indvars.iv.next23210, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20898 ], [ 43758, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20887 ]
+  %exitcond23212.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20898 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20887 ]
+  %indvars.iv23209 = phi i64 [ 43759, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20898 ], [ 43758, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20887 ]
   %39694 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %39695 = urem i64 %indvars.iv23209, %39694
   %39696 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -99510,8 +99283,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20896 = phi ptr [ %39700, %39699 ], [ %39717, %.loopexit.i.i20894 ], [ %39707, %39705 ]
   %.1.i.i20897 = getelementptr inbounds nuw i8, ptr %.pn.i.i20896, i64 12
   store i32 74, ptr %.1.i.i20897, align 4, !tbaa !25
-  %indvars.iv.next23210 = add nuw nsw i64 %indvars.iv23209, 1
-  %exitcond23212.not = icmp eq i64 %indvars.iv.next23210, 43760
   br i1 %exitcond23212.not, label %.preheader3317, label %.preheader3318, !llvm.loop !1029
 
 39719:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20920
@@ -99573,7 +99344,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %39815
 
 .preheader3317:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20898, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20920
-  %indvars.iv23213 = phi i64 [ %indvars.iv.next23214, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20920 ], [ 43760, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20898 ]
+  %exitcond23216.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20920 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20898 ]
+  %indvars.iv23213 = phi i64 [ 43761, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20920 ], [ 43760, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20898 ]
   %39743 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %39744 = urem i64 %indvars.iv23213, %39743
   %39745 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -99631,8 +99403,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20918 = phi ptr [ %39749, %39748 ], [ %39766, %.loopexit.i.i20916 ], [ %39756, %39754 ]
   %.1.i.i20919 = getelementptr inbounds nuw i8, ptr %.pn.i.i20918, i64 12
   store i32 74, ptr %.1.i.i20919, align 4, !tbaa !25
-  %indvars.iv.next23214 = add nuw nsw i64 %indvars.iv23213, 1
-  %exitcond23216.not = icmp eq i64 %indvars.iv.next23214, 43762
   br i1 %exitcond23216.not, label %39719, label %.preheader3317, !llvm.loop !1030
 
 39768:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20953
@@ -99754,7 +99524,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %39841
 
 39815:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20909, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20953
-  %indvars.iv23217 = phi i64 [ 43763, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20909 ], [ %indvars.iv.next23218, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20953 ]
+  %exitcond23220.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20909 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20953 ]
+  %indvars.iv23217 = phi i64 [ 43763, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20909 ], [ 43764, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20953 ]
   %39816 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %39817 = urem i64 %indvars.iv23217, %39816
   %39818 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -99812,8 +99583,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20951 = phi ptr [ %39822, %39821 ], [ %39839, %.loopexit.i.i20949 ], [ %39829, %39827 ]
   %.1.i.i20952 = getelementptr inbounds nuw i8, ptr %.pn.i.i20951, i64 12
   store i32 74, ptr %.1.i.i20952, align 4, !tbaa !25
-  %indvars.iv.next23218 = add nuw nsw i64 %indvars.iv23217, 1
-  %exitcond23220.not = icmp eq i64 %indvars.iv.next23218, 43765
   br i1 %exitcond23220.not, label %39768, label %39815, !llvm.loop !1031
 
 39841:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20942, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20964
@@ -99938,7 +99707,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %39940
 
 .preheader3316:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20964, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20986
-  %indvars.iv23225 = phi i64 [ %indvars.iv.next23226, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20986 ], [ 44003, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20964 ]
+  %exitcond23228.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20986 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20964 ]
+  %indvars.iv23225 = phi i64 [ 44004, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20986 ], [ 44003, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit20964 ]
   %39891 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %39892 = urem i64 %indvars.iv23225, %39891
   %39893 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -99996,8 +99766,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i20984 = phi ptr [ %39897, %39896 ], [ %39914, %.loopexit.i.i20982 ], [ %39904, %39902 ]
   %.1.i.i20985 = getelementptr inbounds nuw i8, ptr %.pn.i.i20984, i64 12
   store i32 74, ptr %.1.i.i20985, align 4, !tbaa !25
-  %indvars.iv.next23226 = add nuw nsw i64 %indvars.iv23225, 1
-  %exitcond23228.not = icmp eq i64 %indvars.iv.next23226, 44005
   br i1 %exitcond23228.not, label %39867, label %.preheader3316, !llvm.loop !1033
 
 39916:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21008
@@ -100059,7 +99827,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %40036
 
 39940:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20975, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21008
-  %indvars.iv23229 = phi i64 [ 44006, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20975 ], [ %indvars.iv.next23230, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21008 ]
+  %exitcond23232.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20975 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21008 ]
+  %indvars.iv23229 = phi i64 [ 44006, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20975 ], [ 44007, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21008 ]
   %39941 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %39942 = urem i64 %indvars.iv23229, %39941
   %39943 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -100117,8 +99886,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i21006 = phi ptr [ %39947, %39946 ], [ %39964, %.loopexit.i.i21004 ], [ %39954, %39952 ]
   %.1.i.i21007 = getelementptr inbounds nuw i8, ptr %.pn.i.i21006, i64 12
   store i32 74, ptr %.1.i.i21007, align 4, !tbaa !25
-  %indvars.iv.next23230 = add nuw nsw i64 %indvars.iv23229, 1
-  %exitcond23232.not = icmp eq i64 %indvars.iv.next23230, 44008
   br i1 %exitcond23232.not, label %39916, label %39940, !llvm.loop !1034
 
 39966:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21052
@@ -100300,7 +100067,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %40062
 
 40036:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20997, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21052
-  %indvars.iv23233 = phi i64 [ 44009, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20997 ], [ %indvars.iv.next23234, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21052 ]
+  %exitcond23236.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20997 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21052 ]
+  %indvars.iv23233 = phi i64 [ 44009, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit20997 ], [ 44010, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21052 ]
   %40037 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %40038 = urem i64 %indvars.iv23233, %40037
   %40039 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -100358,8 +100126,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i21050 = phi ptr [ %40043, %40042 ], [ %40060, %.loopexit.i.i21048 ], [ %40050, %40048 ]
   %.1.i.i21051 = getelementptr inbounds nuw i8, ptr %.pn.i.i21050, i64 12
   store i32 74, ptr %.1.i.i21051, align 4, !tbaa !25
-  %indvars.iv.next23234 = add nuw nsw i64 %indvars.iv23233, 1
-  %exitcond23236.not = icmp eq i64 %indvars.iv.next23234, 44011
   br i1 %exitcond23236.not, label %39966, label %40036, !llvm.loop !1035
 
 40062:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit21041, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21063
@@ -100731,7 +100497,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %40237
 
 .preheader3313:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21107, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21129
-  %indvars.iv23253 = phi i64 [ %indvars.iv.next23254, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21129 ], [ 68221, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21107 ]
+  %exitcond23256.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21129 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21107 ]
+  %indvars.iv23253 = phi i64 [ 68222, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21129 ], [ 68221, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21107 ]
   %40212 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %40213 = urem i64 %indvars.iv23253, %40212
   %40214 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -100789,8 +100556,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i21127 = phi ptr [ %40218, %40217 ], [ %40235, %.loopexit.i.i21125 ], [ %40225, %40223 ]
   %.1.i.i21128 = getelementptr inbounds nuw i8, ptr %.pn.i.i21127, i64 12
   store i32 95, ptr %.1.i.i21128, align 4, !tbaa !25
-  %indvars.iv.next23254 = add nuw nsw i64 %indvars.iv23253, 1
-  %exitcond23256.not = icmp eq i64 %indvars.iv.next23254, 68223
   br i1 %exitcond23256.not, label %40188, label %.preheader3313, !llvm.loop !1040
 
 40237:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit21118, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21140
@@ -101167,7 +100932,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %40412
 
 .preheader3308:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21184, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21206
-  %indvars.iv23277 = phi i64 [ %indvars.iv.next23278, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21206 ], [ 69760, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21184 ]
+  %exitcond23280.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21206 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21184 ]
+  %indvars.iv23277 = phi i64 [ 69761, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21206 ], [ 69760, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21184 ]
   %40387 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %40388 = urem i64 %indvars.iv23277, %40387
   %40389 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -101225,8 +100991,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i21204 = phi ptr [ %40393, %40392 ], [ %40410, %.loopexit.i.i21202 ], [ %40400, %40398 ]
   %.1.i.i21205 = getelementptr inbounds nuw i8, ptr %.pn.i.i21204, i64 12
   store i32 52, ptr %.1.i.i21205, align 4, !tbaa !25
-  %indvars.iv.next23278 = add nuw nsw i64 %indvars.iv23277, 1
-  %exitcond23280.not = icmp eq i64 %indvars.iv.next23278, 69762
   br i1 %exitcond23280.not, label %40363, label %.preheader3308, !llvm.loop !1046
 
 40412:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit21195, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21217
@@ -101419,7 +101183,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23292.not, label %.preheader3305, label %.preheader3306, !llvm.loop !1049
 
 .preheader3305:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21239, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21250
-  %indvars.iv23293 = phi i64 [ %indvars.iv.next23294, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21250 ], [ 69815, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21239 ]
+  %exitcond23296.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21250 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21239 ]
+  %indvars.iv23293 = phi i64 [ 69816, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21250 ], [ 69815, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21239 ]
   %40488 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %40489 = urem i64 %indvars.iv23293, %40488
   %40490 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -101477,12 +101242,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i21248 = phi ptr [ %40494, %40493 ], [ %40511, %.loopexit.i.i21246 ], [ %40501, %40499 ]
   %.1.i.i21249 = getelementptr inbounds nuw i8, ptr %.pn.i.i21248, i64 12
   store i32 52, ptr %.1.i.i21249, align 4, !tbaa !25
-  %indvars.iv.next23294 = add nuw nsw i64 %indvars.iv23293, 1
-  %exitcond23296.not = icmp eq i64 %indvars.iv.next23294, 69817
   br i1 %exitcond23296.not, label %.preheader3304, label %.preheader3305, !llvm.loop !1050
 
 .preheader3304:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21250, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21261
-  %indvars.iv23297 = phi i64 [ %indvars.iv.next23298, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21261 ], [ 69817, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21250 ]
+  %exitcond23300.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21261 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21250 ]
+  %indvars.iv23297 = phi i64 [ 69818, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21261 ], [ 69817, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21250 ]
   %40513 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %40514 = urem i64 %indvars.iv23297, %40513
   %40515 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -101540,8 +101304,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i21259 = phi ptr [ %40519, %40518 ], [ %40536, %.loopexit.i.i21257 ], [ %40526, %40524 ]
   %.1.i.i21260 = getelementptr inbounds nuw i8, ptr %.pn.i.i21259, i64 12
   store i32 52, ptr %.1.i.i21260, align 4, !tbaa !25
-  %indvars.iv.next23298 = add nuw nsw i64 %indvars.iv23297, 1
-  %exitcond23300.not = icmp eq i64 %indvars.iv.next23298, 69819
   br i1 %exitcond23300.not, label %.preheader3303, label %.preheader3304, !llvm.loop !1051
 
 40538:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21283
@@ -101603,7 +101365,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %40587
 
 .preheader3303:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21261, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21283
-  %indvars.iv23301 = phi i64 [ %indvars.iv.next23302, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21283 ], [ 69819, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21261 ]
+  %exitcond23304.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21283 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21261 ]
+  %indvars.iv23301 = phi i64 [ 69820, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21283 ], [ 69819, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21261 ]
   %40562 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %40563 = urem i64 %indvars.iv23301, %40562
   %40564 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -101661,8 +101424,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i21281 = phi ptr [ %40568, %40567 ], [ %40585, %.loopexit.i.i21279 ], [ %40575, %40573 ]
   %.1.i.i21282 = getelementptr inbounds nuw i8, ptr %.pn.i.i21281, i64 12
   store i32 52, ptr %.1.i.i21282, align 4, !tbaa !25
-  %indvars.iv.next23302 = add nuw nsw i64 %indvars.iv23301, 1
-  %exitcond23304.not = icmp eq i64 %indvars.iv.next23302, 69821
   br i1 %exitcond23304.not, label %40538, label %.preheader3303, !llvm.loop !1052
 
 40587:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit21272, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21294
@@ -101910,7 +101671,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23312.not, label %40613, label %.preheader3302, !llvm.loop !1054
 
 40685:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit21316, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21338
-  %indvars.iv23313 = phi i64 [ 7144, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit21316 ], [ %indvars.iv.next23314, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21338 ]
+  %exitcond23316.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit21316 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21338 ]
+  %indvars.iv23313 = phi i64 [ 7144, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit21316 ], [ 7145, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21338 ]
   %40686 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %40687 = urem i64 %indvars.iv23313, %40686
   %40688 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -101968,8 +101730,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i21336 = phi ptr [ %40692, %40691 ], [ %40709, %.loopexit.i.i21334 ], [ %40699, %40697 ]
   %.1.i.i21337 = getelementptr inbounds nuw i8, ptr %.pn.i.i21336, i64 12
   store i32 9, ptr %.1.i.i21337, align 4, !tbaa !25
-  %indvars.iv.next23314 = add nuw nsw i64 %indvars.iv23313, 1
-  %exitcond23316.not = icmp eq i64 %indvars.iv.next23314, 7146
   br i1 %exitcond23316.not, label %.preheader3301, label %40685, !llvm.loop !1055
 
 40711:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21371
@@ -102217,7 +101977,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23324.not, label %.preheader3300, label %40783, !llvm.loop !1057
 
 .preheader3300:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21382, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21393
-  %indvars.iv23325 = phi i64 [ %indvars.iv.next23326, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21393 ], [ 7154, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21382 ]
+  %exitcond23328.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21393 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21382 ]
+  %indvars.iv23325 = phi i64 [ 7155, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21393 ], [ 7154, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21382 ]
   %40809 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %40810 = urem i64 %indvars.iv23325, %40809
   %40811 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -102275,8 +102036,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i21391 = phi ptr [ %40815, %40814 ], [ %40832, %.loopexit.i.i21389 ], [ %40822, %40820 ]
   %.1.i.i21392 = getelementptr inbounds nuw i8, ptr %.pn.i.i21391, i64 12
   store i32 9, ptr %.1.i.i21392, align 4, !tbaa !25
-  %indvars.iv.next23326 = add nuw nsw i64 %indvars.iv23325, 1
-  %exitcond23328.not = icmp eq i64 %indvars.iv.next23326, 7156
   br i1 %exitcond23328.not, label %.preheader3299, label %.preheader3300, !llvm.loop !1058
 
 40834:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21437
@@ -103577,7 +103336,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23388.not, label %.preheader3288, label %.preheader3289, !llvm.loop !1073
 
 .preheader3288:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21624, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21635
-  %indvars.iv23389 = phi i64 [ %indvars.iv.next23390, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21635 ], [ 68028, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21624 ]
+  %exitcond23392.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21635 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21624 ]
+  %indvars.iv23389 = phi i64 [ 68029, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21635 ], [ 68028, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21624 ]
   %41355 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %41356 = urem i64 %indvars.iv23389, %41355
   %41357 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -103635,12 +103395,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i21633 = phi ptr [ %41361, %41360 ], [ %41378, %.loopexit.i.i21631 ], [ %41368, %41366 ]
   %.1.i.i21634 = getelementptr inbounds nuw i8, ptr %.pn.i.i21633, i64 12
   store i32 76, ptr %.1.i.i21634, align 4, !tbaa !25
-  %indvars.iv.next23390 = add nuw nsw i64 %indvars.iv23389, 1
-  %exitcond23392.not = icmp eq i64 %indvars.iv.next23390, 68030
   br i1 %exitcond23392.not, label %.preheader3287, label %.preheader3288, !llvm.loop !1074
 
 .preheader3287:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21635, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21646
-  %indvars.iv23393 = phi i64 [ %indvars.iv.next23394, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21646 ], [ 68030, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21635 ]
+  %exitcond23396.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21646 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21635 ]
+  %indvars.iv23393 = phi i64 [ 68031, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21646 ], [ 68030, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21635 ]
   %41380 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %41381 = urem i64 %indvars.iv23393, %41380
   %41382 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -103698,8 +103457,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i21644 = phi ptr [ %41386, %41385 ], [ %41403, %.loopexit.i.i21642 ], [ %41393, %41391 ]
   %.1.i.i21645 = getelementptr inbounds nuw i8, ptr %.pn.i.i21644, i64 12
   store i32 76, ptr %.1.i.i21645, align 4, !tbaa !25
-  %indvars.iv.next23394 = add nuw nsw i64 %indvars.iv23393, 1
-  %exitcond23396.not = icmp eq i64 %indvars.iv.next23394, 68032
   br i1 %exitcond23396.not, label %.preheader3286, label %.preheader3287, !llvm.loop !1075
 
 .preheader3286:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21646, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21657
@@ -104260,7 +104017,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %41654
 
 .preheader3280:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21734, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21756
-  %indvars.iv23425 = phi i64 [ %indvars.iv.next23426, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21756 ], [ 70016, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21734 ]
+  %exitcond23428.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21756 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21734 ]
+  %indvars.iv23425 = phi i64 [ 70017, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21756 ], [ 70016, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21734 ]
   %41629 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %41630 = urem i64 %indvars.iv23425, %41629
   %41631 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -104318,8 +104076,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i21754 = phi ptr [ %41635, %41634 ], [ %41652, %.loopexit.i.i21752 ], [ %41642, %41640 ]
   %.1.i.i21755 = getelementptr inbounds nuw i8, ptr %.pn.i.i21754, i64 12
   store i32 110, ptr %.1.i.i21755, align 4, !tbaa !25
-  %indvars.iv.next23426 = add nuw nsw i64 %indvars.iv23425, 1
-  %exitcond23428.not = icmp eq i64 %indvars.iv.next23426, 70018
   br i1 %exitcond23428.not, label %41605, label %.preheader3280, !llvm.loop !1083
 
 41654:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit21745, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21767
@@ -104512,7 +104268,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23440.not, label %.preheader3277, label %.preheader3278, !llvm.loop !1086
 
 .preheader3277:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21789, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21800
-  %indvars.iv23441 = phi i64 [ %indvars.iv.next23442, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21800 ], [ 70079, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21789 ]
+  %exitcond23444.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21800 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21789 ]
+  %indvars.iv23441 = phi i64 [ 70080, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21800 ], [ 70079, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21789 ]
   %41730 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %41731 = urem i64 %indvars.iv23441, %41730
   %41732 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -104570,8 +104327,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i21798 = phi ptr [ %41736, %41735 ], [ %41753, %.loopexit.i.i21796 ], [ %41743, %41741 ]
   %.1.i.i21799 = getelementptr inbounds nuw i8, ptr %.pn.i.i21798, i64 12
   store i32 110, ptr %.1.i.i21799, align 4, !tbaa !25
-  %indvars.iv.next23442 = add nuw nsw i64 %indvars.iv23441, 1
-  %exitcond23444.not = icmp eq i64 %indvars.iv.next23442, 70081
   br i1 %exitcond23444.not, label %.preheader3276, label %.preheader3277, !llvm.loop !1087
 
 .preheader3276:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21800, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21811
@@ -105493,7 +105248,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23476.not, label %42026, label %.preheader3271, !llvm.loop !1095
 
 42121:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit21954, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21976
-  %indvars.iv23477 = phi i64 [ 71342, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit21954 ], [ %indvars.iv.next23478, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21976 ]
+  %exitcond23480.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit21954 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21976 ]
+  %indvars.iv23477 = phi i64 [ 71342, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit21954 ], [ 71343, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit21976 ]
   %42122 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %42123 = urem i64 %indvars.iv23477, %42122
   %42124 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -105551,8 +105307,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i21974 = phi ptr [ %42128, %42127 ], [ %42145, %.loopexit.i.i21972 ], [ %42135, %42133 ]
   %.1.i.i21975 = getelementptr inbounds nuw i8, ptr %.pn.i.i21974, i64 12
   store i32 124, ptr %.1.i.i21975, align 4, !tbaa !25
-  %indvars.iv.next23478 = add nuw nsw i64 %indvars.iv23477, 1
-  %exitcond23480.not = icmp eq i64 %indvars.iv.next23478, 71344
   br i1 %exitcond23480.not, label %.preheader3270, label %42121, !llvm.loop !1096
 
 42147:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22009
@@ -106473,7 +106227,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %42544
 
 42518:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22119, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22152
-  %indvars.iv23517 = phi i64 [ 113821, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22119 ], [ %indvars.iv.next23518, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22152 ]
+  %exitcond23520.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22119 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22152 ]
+  %indvars.iv23517 = phi i64 [ 113821, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22119 ], [ 113822, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22152 ]
   %42519 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %42520 = urem i64 %indvars.iv23517, %42519
   %42521 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -106531,8 +106286,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i22150 = phi ptr [ %42525, %42524 ], [ %42542, %.loopexit.i.i22148 ], [ %42532, %42530 ]
   %.1.i.i22151 = getelementptr inbounds nuw i8, ptr %.pn.i.i22150, i64 12
   store i32 30, ptr %.1.i.i22151, align 4, !tbaa !25
-  %indvars.iv.next23518 = add nuw nsw i64 %indvars.iv23517, 1
-  %exitcond23520.not = icmp eq i64 %indvars.iv.next23518, 113823
   br i1 %exitcond23520.not, label %42494, label %42518, !llvm.loop !1106
 
 42544:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22141, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22163
@@ -106599,7 +106352,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23524.not, label %.preheader3264, label %42544, !llvm.loop !1107
 
 .preheader3264:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22163, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22174
-  %indvars.iv23525 = phi i64 [ %indvars.iv.next23526, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22174 ], [ 70400, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22163 ]
+  %exitcond23528.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22174 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22163 ]
+  %indvars.iv23525 = phi i64 [ 70401, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22174 ], [ 70400, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22163 ]
   %42570 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %42571 = urem i64 %indvars.iv23525, %42570
   %42572 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -106657,12 +106411,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i22172 = phi ptr [ %42576, %42575 ], [ %42593, %.loopexit.i.i22170 ], [ %42583, %42581 ]
   %.1.i.i22173 = getelementptr inbounds nuw i8, ptr %.pn.i.i22172, i64 12
   store i32 37, ptr %.1.i.i22173, align 4, !tbaa !25
-  %indvars.iv.next23526 = add nuw nsw i64 %indvars.iv23525, 1
-  %exitcond23528.not = icmp eq i64 %indvars.iv.next23526, 70402
   br i1 %exitcond23528.not, label %.preheader3263, label %.preheader3264, !llvm.loop !1108
 
 .preheader3263:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22174, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22185
-  %indvars.iv23529 = phi i64 [ %indvars.iv.next23530, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22185 ], [ 70402, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22174 ]
+  %exitcond23532.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22185 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22174 ]
+  %indvars.iv23529 = phi i64 [ 70403, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22185 ], [ 70402, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22174 ]
   %42595 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %42596 = urem i64 %indvars.iv23529, %42595
   %42597 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -106720,8 +106473,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i22183 = phi ptr [ %42601, %42600 ], [ %42618, %.loopexit.i.i22181 ], [ %42608, %42606 ]
   %.1.i.i22184 = getelementptr inbounds nuw i8, ptr %.pn.i.i22183, i64 12
   store i32 37, ptr %.1.i.i22184, align 4, !tbaa !25
-  %indvars.iv.next23530 = add nuw nsw i64 %indvars.iv23529, 1
-  %exitcond23532.not = icmp eq i64 %indvars.iv.next23530, 70404
   br i1 %exitcond23532.not, label %.preheader3262, label %.preheader3263, !llvm.loop !1109
 
 .preheader3262:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22185, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22196
@@ -106788,7 +106539,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23536.not, label %.preheader3261, label %.preheader3262, !llvm.loop !1110
 
 .preheader3261:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22196, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22207
-  %indvars.iv23537 = phi i64 [ %indvars.iv.next23538, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22207 ], [ 70415, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22196 ]
+  %exitcond23540.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22207 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22196 ]
+  %indvars.iv23537 = phi i64 [ 70416, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22207 ], [ 70415, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22196 ]
   %42645 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %42646 = urem i64 %indvars.iv23537, %42645
   %42647 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -106846,8 +106598,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i22205 = phi ptr [ %42651, %42650 ], [ %42668, %.loopexit.i.i22203 ], [ %42658, %42656 ]
   %.1.i.i22206 = getelementptr inbounds nuw i8, ptr %.pn.i.i22205, i64 12
   store i32 37, ptr %.1.i.i22206, align 4, !tbaa !25
-  %indvars.iv.next23538 = add nuw nsw i64 %indvars.iv23537, 1
-  %exitcond23540.not = icmp eq i64 %indvars.iv.next23538, 70417
   br i1 %exitcond23540.not, label %.preheader3260, label %.preheader3261, !llvm.loop !1111
 
 .preheader3260:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22207, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22218
@@ -106977,7 +106727,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23548.not, label %.preheader3258, label %.preheader3259, !llvm.loop !1113
 
 .preheader3258:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22229, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22240
-  %indvars.iv23549 = phi i64 [ %indvars.iv.next23550, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22240 ], [ 70450, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22229 ]
+  %exitcond23552.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22240 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22229 ]
+  %indvars.iv23549 = phi i64 [ 70451, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22240 ], [ 70450, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22229 ]
   %42720 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %42721 = urem i64 %indvars.iv23549, %42720
   %42722 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -107035,8 +106786,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i22238 = phi ptr [ %42726, %42725 ], [ %42743, %.loopexit.i.i22236 ], [ %42733, %42731 ]
   %.1.i.i22239 = getelementptr inbounds nuw i8, ptr %.pn.i.i22238, i64 12
   store i32 37, ptr %.1.i.i22239, align 4, !tbaa !25
-  %indvars.iv.next23550 = add nuw nsw i64 %indvars.iv23549, 1
-  %exitcond23552.not = icmp eq i64 %indvars.iv.next23550, 70452
   br i1 %exitcond23552.not, label %.preheader3257, label %.preheader3258, !llvm.loop !1114
 
 42745:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22273
@@ -107279,7 +107028,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %42867
 
 42841:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22262, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22295
-  %indvars.iv23557 = phi i64 [ 70462, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22262 ], [ %indvars.iv.next23558, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22295 ]
+  %exitcond23560.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22262 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22295 ]
+  %indvars.iv23557 = phi i64 [ 70462, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22262 ], [ 70463, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22295 ]
   %42842 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %42843 = urem i64 %indvars.iv23557, %42842
   %42844 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -107337,8 +107087,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i22293 = phi ptr [ %42848, %42847 ], [ %42865, %.loopexit.i.i22291 ], [ %42855, %42853 ]
   %.1.i.i22294 = getelementptr inbounds nuw i8, ptr %.pn.i.i22293, i64 12
   store i32 37, ptr %.1.i.i22294, align 4, !tbaa !25
-  %indvars.iv.next23558 = add nuw nsw i64 %indvars.iv23557, 1
-  %exitcond23560.not = icmp eq i64 %indvars.iv.next23558, 70464
   br i1 %exitcond23560.not, label %42817, label %42841, !llvm.loop !1116
 
 42867:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22284, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22306
@@ -107405,7 +107153,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23564.not, label %.preheader3256, label %42867, !llvm.loop !1117
 
 .preheader3256:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22306, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22317
-  %indvars.iv23565 = phi i64 [ %indvars.iv.next23566, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22317 ], [ 70471, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22306 ]
+  %exitcond23568.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22317 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22306 ]
+  %indvars.iv23565 = phi i64 [ 70472, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22317 ], [ 70471, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22306 ]
   %42893 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %42894 = urem i64 %indvars.iv23565, %42893
   %42895 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -107463,8 +107212,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i22315 = phi ptr [ %42899, %42898 ], [ %42916, %.loopexit.i.i22313 ], [ %42906, %42904 ]
   %.1.i.i22316 = getelementptr inbounds nuw i8, ptr %.pn.i.i22315, i64 12
   store i32 37, ptr %.1.i.i22316, align 4, !tbaa !25
-  %indvars.iv.next23566 = add nuw nsw i64 %indvars.iv23565, 1
-  %exitcond23568.not = icmp eq i64 %indvars.iv.next23566, 70473
   br i1 %exitcond23568.not, label %.preheader3255, label %.preheader3256, !llvm.loop !1118
 
 42918:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22350
@@ -107712,7 +107459,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23576.not, label %.preheader3254, label %42990, !llvm.loop !1120
 
 .preheader3254:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22361, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22372
-  %indvars.iv23577 = phi i64 [ %indvars.iv.next23578, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22372 ], [ 70498, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22361 ]
+  %exitcond23580.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22372 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22361 ]
+  %indvars.iv23577 = phi i64 [ 70499, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22372 ], [ 70498, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22361 ]
   %43016 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %43017 = urem i64 %indvars.iv23577, %43016
   %43018 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -107770,8 +107518,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i22370 = phi ptr [ %43022, %43021 ], [ %43039, %.loopexit.i.i22368 ], [ %43029, %43027 ]
   %.1.i.i22371 = getelementptr inbounds nuw i8, ptr %.pn.i.i22370, i64 12
   store i32 37, ptr %.1.i.i22371, align 4, !tbaa !25
-  %indvars.iv.next23578 = add nuw nsw i64 %indvars.iv23577, 1
-  %exitcond23580.not = icmp eq i64 %indvars.iv.next23578, 70500
   br i1 %exitcond23580.not, label %.preheader3253, label %.preheader3254, !llvm.loop !1121
 
 .preheader3253:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22372, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22383
@@ -108956,7 +108702,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %43536
 
 .preheader3239:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22559, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22592
-  %indvars.iv23641 = phi i64 [ %indvars.iv.next23642, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22592 ], [ 70194, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22559 ]
+  %exitcond23644.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22592 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22559 ]
+  %indvars.iv23641 = phi i64 [ 70195, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22592 ], [ 70194, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22559 ]
   %43511 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %43512 = urem i64 %indvars.iv23641, %43511
   %43513 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -109014,12 +108761,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i22590 = phi ptr [ %43517, %43516 ], [ %43534, %.loopexit.i.i22588 ], [ %43524, %43522 ]
   %.1.i.i22591 = getelementptr inbounds nuw i8, ptr %.pn.i.i22590, i64 12
   store i32 58, ptr %.1.i.i22591, align 4, !tbaa !25
-  %indvars.iv.next23642 = add nuw nsw i64 %indvars.iv23641, 1
-  %exitcond23644.not = icmp eq i64 %indvars.iv.next23642, 70196
   br i1 %exitcond23644.not, label %43464, label %.preheader3239, !llvm.loop !1137
 
 43536:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22581, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22603
-  %indvars.iv23645 = phi i64 [ 70198, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22581 ], [ %indvars.iv.next23646, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22603 ]
+  %exitcond23648.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22581 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22603 ]
+  %indvars.iv23645 = phi i64 [ 70198, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22581 ], [ 70199, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22603 ]
   %43537 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %43538 = urem i64 %indvars.iv23645, %43537
   %43539 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -109077,8 +108823,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i22601 = phi ptr [ %43543, %43542 ], [ %43560, %.loopexit.i.i22599 ], [ %43550, %43548 ]
   %.1.i.i22602 = getelementptr inbounds nuw i8, ptr %.pn.i.i22601, i64 12
   store i32 58, ptr %.1.i.i22602, align 4, !tbaa !25
-  %indvars.iv.next23646 = add nuw nsw i64 %indvars.iv23645, 1
-  %exitcond23648.not = icmp eq i64 %indvars.iv.next23646, 70200
   br i1 %exitcond23648.not, label %.preheader3238, label %43536, !llvm.loop !1138
 
 43562:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22625
@@ -109571,7 +109315,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %43810
 
 43760:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22669, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22702
-  %indvars.iv23669 = phi i64 [ 70004, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22669 ], [ %indvars.iv.next23670, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22702 ]
+  %exitcond23672.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22669 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22702 ]
+  %indvars.iv23669 = phi i64 [ 70004, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22669 ], [ 70005, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22702 ]
   %43761 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %43762 = urem i64 %indvars.iv23669, %43761
   %43763 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -109629,8 +109374,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i22700 = phi ptr [ %43767, %43766 ], [ %43784, %.loopexit.i.i22698 ], [ %43774, %43772 ]
   %.1.i.i22701 = getelementptr inbounds nuw i8, ptr %.pn.i.i22700, i64 12
   store i32 69, ptr %.1.i.i22701, align 4, !tbaa !25
-  %indvars.iv.next23670 = add nuw nsw i64 %indvars.iv23669, 1
-  %exitcond23672.not = icmp eq i64 %indvars.iv.next23670, 70006
   br i1 %exitcond23672.not, label %43736, label %43760, !llvm.loop !1144
 
 43786:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22724
@@ -109818,7 +109561,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23680.not, label %.preheader3234, label %43836, !llvm.loop !1146
 
 .preheader3234:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22735, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22746
-  %indvars.iv23681 = phi i64 [ %indvars.iv.next23682, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22746 ], [ 68325, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22735 ]
+  %exitcond23684.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22746 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22735 ]
+  %indvars.iv23681 = phi i64 [ 68326, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22746 ], [ 68325, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22735 ]
   %43862 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %43863 = urem i64 %indvars.iv23681, %43862
   %43864 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -109876,8 +109620,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i22744 = phi ptr [ %43868, %43867 ], [ %43885, %.loopexit.i.i22742 ], [ %43875, %43873 ]
   %.1.i.i22745 = getelementptr inbounds nuw i8, ptr %.pn.i.i22744, i64 12
   store i32 72, ptr %.1.i.i22745, align 4, !tbaa !25
-  %indvars.iv.next23682 = add nuw nsw i64 %indvars.iv23681, 1
-  %exitcond23684.not = icmp eq i64 %indvars.iv.next23682, 68327
   br i1 %exitcond23684.not, label %.preheader3233, label %.preheader3234, !llvm.loop !1147
 
 .preheader3233:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22746, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22757
@@ -110503,7 +110245,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %44159
 
 .preheader3225:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22834, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22867
-  %indvars.iv23717 = phi i64 [ %indvars.iv.next23718, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22867 ], [ 71227, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22834 ]
+  %exitcond23720.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22867 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22834 ]
+  %indvars.iv23717 = phi i64 [ 71228, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22867 ], [ 71227, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22834 ]
   %44134 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %44135 = urem i64 %indvars.iv23717, %44134
   %44136 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -110561,12 +110304,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i22865 = phi ptr [ %44140, %44139 ], [ %44157, %.loopexit.i.i22863 ], [ %44147, %44145 ]
   %.1.i.i22866 = getelementptr inbounds nuw i8, ptr %.pn.i.i22865, i64 12
   store i32 79, ptr %.1.i.i22866, align 4, !tbaa !25
-  %indvars.iv.next23718 = add nuw nsw i64 %indvars.iv23717, 1
-  %exitcond23720.not = icmp eq i64 %indvars.iv.next23718, 71229
   br i1 %exitcond23720.not, label %44087, label %.preheader3225, !llvm.loop !1156
 
 44159:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22856, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22878
-  %indvars.iv23721 = phi i64 [ 71231, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22856 ], [ %indvars.iv.next23722, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22878 ]
+  %exitcond23724.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22856 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22878 ]
+  %indvars.iv23721 = phi i64 [ 71231, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit22856 ], [ 71232, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22878 ]
   %44160 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %44161 = urem i64 %indvars.iv23721, %44160
   %44162 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -110624,8 +110366,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i22876 = phi ptr [ %44166, %44165 ], [ %44183, %.loopexit.i.i22874 ], [ %44173, %44171 ]
   %.1.i.i22877 = getelementptr inbounds nuw i8, ptr %.pn.i.i22876, i64 12
   store i32 79, ptr %.1.i.i22877, align 4, !tbaa !25
-  %indvars.iv.next23722 = add nuw nsw i64 %indvars.iv23721, 1
-  %exitcond23724.not = icmp eq i64 %indvars.iv.next23722, 71233
   br i1 %exitcond23724.not, label %.preheader3224, label %44159, !llvm.loop !1157
 
 44185:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22900
@@ -110939,7 +110679,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23740.not, label %.preheader3221, label %.preheader3222, !llvm.loop !1161
 
 .preheader3221:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22933, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22944
-  %indvars.iv23741 = phi i64 [ %indvars.iv.next23742, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22944 ], [ 92782, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22933 ]
+  %exitcond23744.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22944 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22933 ]
+  %indvars.iv23741 = phi i64 [ 92783, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22944 ], [ 92782, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22933 ]
   %44310 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %44311 = urem i64 %indvars.iv23741, %44310
   %44312 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -110997,8 +110738,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i22942 = phi ptr [ %44316, %44315 ], [ %44333, %.loopexit.i.i22940 ], [ %44323, %44321 ]
   %.1.i.i22943 = getelementptr inbounds nuw i8, ptr %.pn.i.i22942, i64 12
   store i32 81, ptr %.1.i.i22943, align 4, !tbaa !25
-  %indvars.iv.next23742 = add nuw nsw i64 %indvars.iv23741, 1
-  %exitcond23744.not = icmp eq i64 %indvars.iv.next23742, 92784
   br i1 %exitcond23744.not, label %.preheader3220, label %.preheader3221, !llvm.loop !1162
 
 .preheader3220:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22944, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22955
@@ -111317,7 +111056,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23764.not, label %.preheader3215, label %.preheader3216, !llvm.loop !1167
 
 .preheader3215:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22999, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23010
-  %indvars.iv23765 = phi i64 [ %indvars.iv.next23766, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23010 ], [ 67703, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22999 ]
+  %exitcond23768.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23010 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22999 ]
+  %indvars.iv23765 = phi i64 [ 67704, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23010 ], [ 67703, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit22999 ]
   %44460 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %44461 = urem i64 %indvars.iv23765, %44460
   %44462 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -111375,8 +111115,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i23008 = phi ptr [ %44466, %44465 ], [ %44483, %.loopexit.i.i23006 ], [ %44473, %44471 ]
   %.1.i.i23009 = getelementptr inbounds nuw i8, ptr %.pn.i.i23008, i64 12
   store i32 101, ptr %.1.i.i23009, align 4, !tbaa !25
-  %indvars.iv.next23766 = add nuw nsw i64 %indvars.iv23765, 1
-  %exitcond23768.not = icmp eq i64 %indvars.iv.next23766, 67705
   br i1 %exitcond23768.not, label %.preheader3214, label %.preheader3215, !llvm.loop !1168
 
 .preheader3214:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23010, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23021
@@ -112131,7 +111869,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %44809
 
 .preheader3203:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23131, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23153
-  %indvars.iv23813 = phi i64 [ %indvars.iv.next23814, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23153 ], [ 71100, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23131 ]
+  %exitcond23816.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23153 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23131 ]
+  %indvars.iv23813 = phi i64 [ 71101, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23153 ], [ 71100, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23131 ]
   %44784 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %44785 = urem i64 %indvars.iv23813, %44784
   %44786 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -112189,12 +111928,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i23151 = phi ptr [ %44790, %44789 ], [ %44807, %.loopexit.i.i23149 ], [ %44797, %44795 ]
   %.1.i.i23152 = getelementptr inbounds nuw i8, ptr %.pn.i.i23151, i64 12
   store i32 112, ptr %.1.i.i23152, align 4, !tbaa !25
-  %indvars.iv.next23814 = add nuw nsw i64 %indvars.iv23813, 1
-  %exitcond23816.not = icmp eq i64 %indvars.iv.next23814, 71102
   br i1 %exitcond23816.not, label %44760, label %.preheader3203, !llvm.loop !1180
 
 44809:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit23142, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23164
-  %indvars.iv23817 = phi i64 [ 71103, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit23142 ], [ %indvars.iv.next23818, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23164 ]
+  %exitcond23820.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit23142 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23164 ]
+  %indvars.iv23817 = phi i64 [ 71103, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit23142 ], [ 71104, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23164 ]
   %44810 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %44811 = urem i64 %indvars.iv23817, %44810
   %44812 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -112252,8 +111990,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i23162 = phi ptr [ %44816, %44815 ], [ %44833, %.loopexit.i.i23160 ], [ %44823, %44821 ]
   %.1.i.i23163 = getelementptr inbounds nuw i8, ptr %.pn.i.i23162, i64 12
   store i32 112, ptr %.1.i.i23163, align 4, !tbaa !25
-  %indvars.iv.next23818 = add nuw nsw i64 %indvars.iv23817, 1
-  %exitcond23820.not = icmp eq i64 %indvars.iv.next23818, 71105
   br i1 %exitcond23820.not, label %.preheader3202, label %44809, !llvm.loop !1181
 
 .preheader3202:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23164, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23175
@@ -112383,7 +112119,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23828.not, label %.preheader3200, label %.preheader3201, !llvm.loop !1183
 
 .preheader3200:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23186, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23197
-  %indvars.iv23829 = phi i64 [ %indvars.iv.next23830, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23197 ], [ 71132, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23186 ]
+  %exitcond23832.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23197 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23186 ]
+  %indvars.iv23829 = phi i64 [ 71133, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23197 ], [ 71132, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23186 ]
   %44885 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %44886 = urem i64 %indvars.iv23829, %44885
   %44887 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -112441,8 +112178,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i23195 = phi ptr [ %44891, %44890 ], [ %44908, %.loopexit.i.i23193 ], [ %44898, %44896 ]
   %.1.i.i23196 = getelementptr inbounds nuw i8, ptr %.pn.i.i23195, i64 12
   store i32 112, ptr %.1.i.i23196, align 4, !tbaa !25
-  %indvars.iv.next23830 = add nuw nsw i64 %indvars.iv23829, 1
-  %exitcond23832.not = icmp eq i64 %indvars.iv.next23830, 71134
   br i1 %exitcond23832.not, label %.preheader3199, label %.preheader3200, !llvm.loop !1184
 
 44910:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23219
@@ -113184,7 +112919,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %45232
 
 .preheader3193:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23318, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23340
-  %indvars.iv23865 = phi i64 [ %indvars.iv.next23866, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23340 ], [ 70847, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23318 ]
+  %exitcond23868.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23340 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23318 ]
+  %indvars.iv23865 = phi i64 [ 70848, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23340 ], [ 70847, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23318 ]
   %45207 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %45208 = urem i64 %indvars.iv23865, %45207
   %45209 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -113242,12 +112978,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i23338 = phi ptr [ %45213, %45212 ], [ %45230, %.loopexit.i.i23336 ], [ %45220, %45218 ]
   %.1.i.i23339 = getelementptr inbounds nuw i8, ptr %.pn.i.i23338, i64 12
   store i32 132, ptr %.1.i.i23339, align 4, !tbaa !25
-  %indvars.iv.next23866 = add nuw nsw i64 %indvars.iv23865, 1
-  %exitcond23868.not = icmp eq i64 %indvars.iv.next23866, 70849
   br i1 %exitcond23868.not, label %45183, label %.preheader3193, !llvm.loop !1193
 
 45232:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit23329, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23351
-  %indvars.iv23869 = phi i64 [ 70850, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit23329 ], [ %indvars.iv.next23870, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23351 ]
+  %exitcond23872.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit23329 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23351 ]
+  %indvars.iv23869 = phi i64 [ 70850, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit23329 ], [ 70851, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23351 ]
   %45233 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %45234 = urem i64 %indvars.iv23869, %45233
   %45235 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -113305,8 +113040,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i23349 = phi ptr [ %45239, %45238 ], [ %45256, %.loopexit.i.i23347 ], [ %45246, %45244 ]
   %.1.i.i23350 = getelementptr inbounds nuw i8, ptr %.pn.i.i23349, i64 12
   store i32 132, ptr %.1.i.i23350, align 4, !tbaa !25
-  %indvars.iv.next23870 = add nuw nsw i64 %indvars.iv23869, 1
-  %exitcond23872.not = icmp eq i64 %indvars.iv.next23870, 70852
   br i1 %exitcond23872.not, label %.preheader3192, label %45232, !llvm.loop !1194
 
 45258:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23384
@@ -113428,7 +113161,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %45330
 
 .preheader3192:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23351, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23384
-  %indvars.iv23873 = phi i64 [ %indvars.iv.next23874, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23384 ], [ 70852, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23351 ]
+  %exitcond23876.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23384 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23351 ]
+  %indvars.iv23873 = phi i64 [ 70853, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23384 ], [ 70852, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23351 ]
   %45305 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %45306 = urem i64 %indvars.iv23873, %45305
   %45307 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -113486,8 +113220,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i23382 = phi ptr [ %45311, %45310 ], [ %45328, %.loopexit.i.i23380 ], [ %45318, %45316 ]
   %.1.i.i23383 = getelementptr inbounds nuw i8, ptr %.pn.i.i23382, i64 12
   store i32 132, ptr %.1.i.i23383, align 4, !tbaa !25
-  %indvars.iv.next23874 = add nuw nsw i64 %indvars.iv23873, 1
-  %exitcond23876.not = icmp eq i64 %indvars.iv.next23874, 70854
   br i1 %exitcond23876.not, label %45258, label %.preheader3192, !llvm.loop !1195
 
 45330:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit23373, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23395
@@ -113927,7 +113659,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23900.not, label %.preheader3187, label %.preheader3188, !llvm.loop !1201
 
 .preheader3187:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23461, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23472
-  %indvars.iv23901 = phi i64 [ %indvars.iv.next23902, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23472 ], [ 71456, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23461 ]
+  %exitcond23904.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23472 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23461 ]
+  %indvars.iv23901 = phi i64 [ 71457, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23472 ], [ 71456, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23461 ]
   %45506 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %45507 = urem i64 %indvars.iv23901, %45506
   %45508 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -113985,8 +113718,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i23470 = phi ptr [ %45512, %45511 ], [ %45529, %.loopexit.i.i23468 ], [ %45519, %45517 ]
   %.1.i.i23471 = getelementptr inbounds nuw i8, ptr %.pn.i.i23470, i64 12
   store i32 1, ptr %.1.i.i23471, align 4, !tbaa !25
-  %indvars.iv.next23902 = add nuw nsw i64 %indvars.iv23901, 1
-  %exitcond23904.not = icmp eq i64 %indvars.iv.next23902, 71458
   br i1 %exitcond23904.not, label %.preheader3186, label %.preheader3187, !llvm.loop !1202
 
 45531:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23494
@@ -114237,7 +113968,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23916.not, label %.preheader3184, label %.preheader3185, !llvm.loop !1205
 
 .preheader3184:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23516, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23527
-  %indvars.iv23917 = phi i64 [ %indvars.iv.next23918, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23527 ], [ 71482, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23516 ]
+  %exitcond23920.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23527 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23516 ]
+  %indvars.iv23917 = phi i64 [ 71483, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23527 ], [ 71482, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23516 ]
   %45631 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %45632 = urem i64 %indvars.iv23917, %45631
   %45633 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -114295,8 +114027,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i23525 = phi ptr [ %45637, %45636 ], [ %45654, %.loopexit.i.i23523 ], [ %45644, %45642 ]
   %.1.i.i23526 = getelementptr inbounds nuw i8, ptr %.pn.i.i23525, i64 12
   store i32 1, ptr %.1.i.i23526, align 4, !tbaa !25
-  %indvars.iv.next23918 = add nuw nsw i64 %indvars.iv23917, 1
-  %exitcond23920.not = icmp eq i64 %indvars.iv.next23918, 71484
   br i1 %exitcond23920.not, label %.preheader3183, label %.preheader3184, !llvm.loop !1206
 
 45656:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23549
@@ -114547,7 +114277,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23932.not, label %.preheader3181, label %.preheader3182, !llvm.loop !1209
 
 .preheader3181:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23571, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23582
-  %indvars.iv23933 = phi i64 [ %indvars.iv.next23934, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23582 ], [ 67828, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23571 ]
+  %exitcond23936.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23582 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23571 ]
+  %indvars.iv23933 = phi i64 [ 67829, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23582 ], [ 67828, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23571 ]
   %45756 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %45757 = urem i64 %indvars.iv23933, %45756
   %45758 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -114605,8 +114336,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i23580 = phi ptr [ %45762, %45761 ], [ %45779, %.loopexit.i.i23578 ], [ %45769, %45767 ]
   %.1.i.i23581 = getelementptr inbounds nuw i8, ptr %.pn.i.i23580, i64 12
   store i32 44, ptr %.1.i.i23581, align 4, !tbaa !25
-  %indvars.iv.next23934 = add nuw nsw i64 %indvars.iv23933, 1
-  %exitcond23936.not = icmp eq i64 %indvars.iv.next23934, 67830
   br i1 %exitcond23936.not, label %.preheader3180, label %.preheader3181, !llvm.loop !1210
 
 .preheader3180:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23582, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23593
@@ -115724,7 +115453,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond23992.not, label %46180, label %46204, !llvm.loop !1224
 
 46230:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit23769, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23791
-  %indvars.iv23993 = phi i64 [ 121477, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit23769 ], [ %indvars.iv.next23994, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23791 ]
+  %exitcond23996.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit23769 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23791 ]
+  %indvars.iv23993 = phi i64 [ 121477, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit23769 ], [ 121478, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23791 ]
   %46231 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %46232 = urem i64 %indvars.iv23993, %46231
   %46233 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -115782,8 +115512,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i23789 = phi ptr [ %46237, %46236 ], [ %46254, %.loopexit.i.i23787 ], [ %46244, %46242 ]
   %.1.i.i23790 = getelementptr inbounds nuw i8, ptr %.pn.i.i23789, i64 12
   store i32 113, ptr %.1.i.i23790, align 4, !tbaa !25
-  %indvars.iv.next23994 = add nuw nsw i64 %indvars.iv23993, 1
-  %exitcond23996.not = icmp eq i64 %indvars.iv.next23994, 121479
   br i1 %exitcond23996.not, label %.preheader3169, label %46230, !llvm.loop !1225
 
 .preheader3169:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23791, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23802
@@ -116165,7 +115893,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond24020.not, label %.preheader3163, label %.preheader3164, !llvm.loop !1231
 
 .preheader3163:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23857, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23868
-  %indvars.iv24021 = phi i64 [ %indvars.iv.next24022, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23868 ], [ 125278, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23857 ]
+  %exitcond24024.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23868 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23857 ]
+  %indvars.iv24021 = phi i64 [ 125279, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23868 ], [ 125278, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23857 ]
   %46406 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %46407 = urem i64 %indvars.iv24021, %46406
   %46408 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -116223,8 +115952,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i23866 = phi ptr [ %46412, %46411 ], [ %46429, %.loopexit.i.i23864 ], [ %46419, %46417 ]
   %.1.i.i23867 = getelementptr inbounds nuw i8, ptr %.pn.i.i23866, i64 12
   store i32 0, ptr %.1.i.i23867, align 4, !tbaa !25
-  %indvars.iv.next24022 = add nuw nsw i64 %indvars.iv24021, 1
-  %exitcond24024.not = icmp eq i64 %indvars.iv.next24022, 125280
   br i1 %exitcond24024.not, label %.preheader3162, label %.preheader3163, !llvm.loop !1232
 
 .preheader3162:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23868, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23879
@@ -116905,7 +116632,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond24052.not, label %.preheader3157, label %.preheader3158, !llvm.loop !1239
 
 .preheader3157:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23989, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24000
-  %indvars.iv24053 = phi i64 [ %indvars.iv.next24054, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24000 ], [ 72816, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23989 ]
+  %exitcond24056.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24000 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23989 ]
+  %indvars.iv24053 = phi i64 [ 72817, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24000 ], [ 72816, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit23989 ]
   %46702 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %46703 = urem i64 %indvars.iv24053, %46702
   %46704 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -116963,8 +116691,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i23998 = phi ptr [ %46708, %46707 ], [ %46725, %.loopexit.i.i23996 ], [ %46715, %46713 ]
   %.1.i.i23999 = getelementptr inbounds nuw i8, ptr %.pn.i.i23998, i64 12
   store i32 73, ptr %.1.i.i23999, align 4, !tbaa !25
-  %indvars.iv.next24054 = add nuw nsw i64 %indvars.iv24053, 1
-  %exitcond24056.not = icmp eq i64 %indvars.iv.next24054, 72818
   br i1 %exitcond24056.not, label %.preheader3156, label %.preheader3157, !llvm.loop !1240
 
 .preheader3156:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24000, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24011
@@ -117331,7 +117057,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br label %46901
 
 46875:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit24044, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24077
-  %indvars.iv24069 = phi i64 [ 72882, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit24044 ], [ %indvars.iv.next24070, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24077 ]
+  %exitcond24072.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit24044 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24077 ]
+  %indvars.iv24069 = phi i64 [ 72882, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit24044 ], [ 72883, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24077 ]
   %46876 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %46877 = urem i64 %indvars.iv24069, %46876
   %46878 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -117389,12 +117116,11 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i24075 = phi ptr [ %46882, %46881 ], [ %46899, %.loopexit.i.i24073 ], [ %46889, %46887 ]
   %.1.i.i24076 = getelementptr inbounds nuw i8, ptr %.pn.i.i24075, i64 12
   store i32 73, ptr %.1.i.i24076, align 4, !tbaa !25
-  %indvars.iv.next24070 = add nuw nsw i64 %indvars.iv24069, 1
-  %exitcond24072.not = icmp eq i64 %indvars.iv.next24070, 72884
   br i1 %exitcond24072.not, label %46851, label %46875, !llvm.loop !1244
 
 46901:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit24066, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24088
-  %indvars.iv24073 = phi i64 [ 72885, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit24066 ], [ %indvars.iv.next24074, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24088 ]
+  %exitcond24076.not = phi i1 [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit24066 ], [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24088 ]
+  %indvars.iv24073 = phi i64 [ 72885, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixEOj.exit24066 ], [ 72886, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24088 ]
   %46902 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %46903 = urem i64 %indvars.iv24073, %46902
   %46904 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -117452,8 +117178,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i24086 = phi ptr [ %46908, %46907 ], [ %46925, %.loopexit.i.i24084 ], [ %46915, %46913 ]
   %.1.i.i24087 = getelementptr inbounds nuw i8, ptr %.pn.i.i24086, i64 12
   store i32 73, ptr %.1.i.i24087, align 4, !tbaa !25
-  %indvars.iv.next24074 = add nuw nsw i64 %indvars.iv24073, 1
-  %exitcond24076.not = icmp eq i64 %indvars.iv.next24074, 72887
   br i1 %exitcond24076.not, label %.preheader3154, label %46901, !llvm.loop !1245
 
 .preheader3154:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24088, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24099
@@ -117646,7 +117370,8 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   br i1 %exitcond24088.not, label %.preheader3151, label %.preheader3152, !llvm.loop !1248
 
 .preheader3151:                                   ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24121, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24132
-  %indvars.iv24089 = phi i64 [ %indvars.iv.next24090, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24132 ], [ 70720, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24121 ]
+  %exitcond24092.not = phi i1 [ true, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24132 ], [ false, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24121 ]
+  %indvars.iv24089 = phi i64 [ 70721, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24132 ], [ 70720, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24121 ]
   %47002 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8, !tbaa !21
   %47003 = urem i64 %indvars.iv24089, %47002
   %47004 = load ptr, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8, !tbaa !22
@@ -117704,8 +117429,6 @@ _ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8
   %.pn.i.i24130 = phi ptr [ %47008, %47007 ], [ %47025, %.loopexit.i.i24128 ], [ %47015, %47013 ]
   %.1.i.i24131 = getelementptr inbounds nuw i8, ptr %.pn.i.i24130, i64 12
   store i32 86, ptr %.1.i.i24131, align 4, !tbaa !25
-  %indvars.iv.next24090 = add nuw nsw i64 %indvars.iv24089, 1
-  %exitcond24092.not = icmp eq i64 %indvars.iv.next24090, 70722
   br i1 %exitcond24092.not, label %.preheader3150, label %.preheader3151, !llvm.loop !1249
 
 47027:                                            ; preds = %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24165

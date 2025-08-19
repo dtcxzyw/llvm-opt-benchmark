@@ -502,7 +502,7 @@ sub_0:
   br label %10
 
 10:                                               ; preds = %8, %.tail.thread
-  %.not.not84 = phi i1 [ false, %.tail.thread ], [ true, %8 ]
+  %.not.not86 = phi i1 [ false, %.tail.thread ], [ true, %8 ]
   %.036 = phi ptr [ %7, %.tail.thread ], [ %9, %8 ]
   %.not44 = icmp eq ptr %.036, null
   br i1 %.not44, label %11, label %.preheader60
@@ -624,7 +624,7 @@ sub_0:
   br i1 %.not54, label %44, label %.loopexit, !llvm.loop !34
 
 44:                                               ; preds = %.loopexit
-  br i1 %.not.not84, label %47, label %45
+  br i1 %.not.not86, label %47, label %45
 
 45:                                               ; preds = %44
   %46 = tail call i32 @fclose(ptr noundef nonnull %.036)

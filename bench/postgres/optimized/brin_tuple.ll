@@ -238,8 +238,8 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %4, %122, %._crit_edge
-  %.0129.lcssa244 = phi i1 [ true, %122 ], [ false, %._crit_edge ], [ false, %4 ]
-  %.0148.lcssa243 = phi i32 [ %.1149, %122 ], [ %.1149, %._crit_edge ], [ 0, %4 ]
+  %.0129.lcssa252 = phi i1 [ true, %122 ], [ false, %._crit_edge ], [ false, %4 ]
+  %.0148.lcssa251 = phi i32 [ %.1149, %122 ], [ %.1149, %._crit_edge ], [ 0, %4 ]
   %.0153 = phi i64 [ %127, %122 ], [ 8, %._crit_edge ], [ 8, %4 ]
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %129 = load ptr, ptr %128, align 8
@@ -388,11 +388,11 @@ brtuple_disk_tupdesc.exit179:                     ; preds = %brtuple_disk_tupdes
   call void @pfree(ptr noundef %10) #9
   call void @pfree(ptr noundef %13) #9
   call void @pfree(ptr noundef %18) #9
-  %195 = icmp sgt i32 %.0148.lcssa243, 0
+  %195 = icmp sgt i32 %.0148.lcssa251, 0
   br i1 %195, label %.lr.ph208.preheader, label %._crit_edge209
 
 .lr.ph208.preheader:                              ; preds = %brtuple_disk_tupdesc.exit179
-  %wide.trip.count = zext nneg i32 %.0148.lcssa243 to i64
+  %wide.trip.count = zext nneg i32 %.0148.lcssa251 to i64
   br label %.lr.ph208
 
 .lr.ph208:                                        ; preds = %.lr.ph208.preheader, %.lr.ph208
@@ -406,7 +406,7 @@ brtuple_disk_tupdesc.exit179:                     ; preds = %brtuple_disk_tupdes
   br i1 %exitcond.not, label %._crit_edge209, label %.lr.ph208, !llvm.loop !12
 
 ._crit_edge209:                                   ; preds = %.lr.ph208, %brtuple_disk_tupdesc.exit179
-  br i1 %.0129.lcssa244, label %199, label %.loopexit
+  br i1 %.0129.lcssa252, label %199, label %.loopexit
 
 199:                                              ; preds = %._crit_edge209
   %200 = load i8, ptr %164, align 4

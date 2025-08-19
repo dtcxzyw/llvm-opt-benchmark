@@ -492,14 +492,14 @@ thread-pre-split.i:                               ; preds = %106
   %.sroa.23.0.i = phi i64 [ %156, %154 ], [ %.sroa.23.0.i.ph, %.preheader86.i.preheader ]
   %.sroa.03.0.i = phi ptr [ %157, %154 ], [ %.sroa.03.0.i.ph, %.preheader86.i.preheader ]
   %.not76.i = icmp eq i64 %.sroa.23.0.i, 0
-  br i1 %.not76.i, label %.loopexit162, label %147
+  br i1 %.not76.i, label %.loopexit184, label %147
 
 .preheader92.i:                                   ; preds = %118, %129
   %.sroa.025.3.i = phi i32 [ %135, %129 ], [ 0, %118 ]
   %.sroa.23.2.i = phi i64 [ %131, %129 ], [ %120, %118 ]
   %.sroa.03.2.i = phi ptr [ %132, %129 ], [ %119, %118 ]
   %.not.i64 = icmp eq i64 %.sroa.23.2.i, 0
-  br i1 %.not.i64, label %.loopexit162, label %122
+  br i1 %.not.i64, label %.loopexit184, label %122
 
 122:                                              ; preds = %.preheader92.i
   %123 = call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %.sroa.025.3.i, i32 10)
@@ -536,7 +536,7 @@ thread-pre-split.i:                               ; preds = %106
   %143 = getelementptr inbounds nuw i8, ptr %.sroa.03.3105.i, i64 1
   %144 = sub i32 %141, %138
   %.not75.i = icmp eq i64 %142, 0
-  br i1 %.not75.i, label %.loopexit162, label %.lr.ph.i
+  br i1 %.not75.i, label %.loopexit184, label %.lr.ph.i
 
 145:                                              ; preds = %112
   %146 = icmp ult i64 %108, 8
@@ -586,7 +586,7 @@ thread-pre-split.i:                               ; preds = %106
   %168 = getelementptr inbounds nuw i8, ptr %.sroa.03.1112.i, i64 1
   %169 = add i32 %163, %166
   %.not77.i = icmp eq i64 %167, 0
-  br i1 %.not77.i, label %.loopexit162, label %.lr.ph113.i
+  br i1 %.not77.i, label %.loopexit184, label %.lr.ph113.i
 
 .loopexit:                                        ; preds = %129, %.lr.ph.i, %154, %.lr.ph113.i, %106, %110, %110, %.loopexit88.split.loop.exit.i, %.loopexit94.split.loop.exit.i
   %.sroa.12.0.insert.insert.i.ph = phi i8 [ %.mux.le.i, %.loopexit94.split.loop.exit.i ], [ %.mux81.le.i, %.loopexit88.split.loop.exit.i ], [ 1, %110 ], [ 1, %110 ], [ 0, %106 ], [ 1, %.lr.ph113.i ], [ 2, %154 ], [ 1, %.lr.ph.i ], [ 3, %129 ]
@@ -602,14 +602,14 @@ thread-pre-split.i:                               ; preds = %106
   store i32 0, ptr %17, align 4
   br label %176
 
-.loopexit162:                                     ; preds = %.preheader92.i, %140, %.preheader86.i, %165
+.loopexit184:                                     ; preds = %.preheader92.i, %140, %.preheader86.i, %165
   %.sroa.025.1.i = phi i32 [ %169, %165 ], [ %.sroa.025.0.i, %.preheader86.i ], [ %144, %140 ], [ %.sroa.025.3.i, %.preheader92.i ]
   store i32 %.sroa.025.1.i, ptr %17, align 4
   %170 = add i32 %.sroa.025.1.i, 4
   %or.cond = icmp ult i32 %170, 20
   br i1 %or.cond, label %176, label %171
 
-171:                                              ; preds = %.loopexit162
+171:                                              ; preds = %.loopexit184
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %18, ptr %14, align 8
   %.sroa.445.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -662,7 +662,7 @@ thread-pre-split.i:                               ; preds = %106
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %194
 
-176:                                              ; preds = %.thread, %.loopexit162
+176:                                              ; preds = %.thread, %.loopexit184
   %177 = load double, ptr %21, align 8, !noundef !12
   %178 = call double @llvm.round.f64(double %177)
   %179 = fsub double %177, %178

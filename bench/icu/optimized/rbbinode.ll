@@ -557,8 +557,8 @@ define void @_ZN6icu_778RBBINodeC2ENS0_8NodeTypeER10UErrorCode(ptr noundef nonnu
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 263, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond30 = select i1 %43, i1 %switch.lobit, i1 false
-  br i1 %or.cond30, label %switch.lookup, label %45
+  %or.cond32 = select i1 %43, i1 %switch.lobit, i1 false
+  br i1 %or.cond32, label %switch.lookup, label %45
 
 switch.lookup:                                    ; preds = %42
   %44 = zext nneg i32 %switch.tableidx to i64
@@ -571,9 +571,9 @@ switch.lookup:                                    ; preds = %42
   ret void
 
 46:                                               ; preds = %40, %38, %36
-  %.sink29 = phi ptr [ %23, %40 ], [ %18, %38 ], [ %13, %36 ]
+  %.sink31 = phi ptr [ %23, %40 ], [ %18, %38 ], [ %13, %36 ]
   %.pn = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ], [ %37, %36 ]
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.sink29) #12
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.sink31) #12
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #12
   resume { ptr, i32 } %.pn
 }
@@ -1100,7 +1100,7 @@ define void @_ZN6icu_778RBBINode12NRDeleteNodeEPS0_(ptr noundef %0) local_unname
 define noundef ptr @_ZN6icu_778RBBINode9cloneTreeER10UErrorCodei(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr %1, align 4, !tbaa !13
   %5 = icmp slt i32 %4, 1
-  br i1 %5, label %6, label %common.ret48
+  br i1 %5, label %6, label %common.ret51
 
 6:                                                ; preds = %3
   %7 = icmp sgt i32 %2, 3500
@@ -1108,18 +1108,18 @@ define noundef ptr @_ZN6icu_778RBBINode9cloneTreeER10UErrorCodei(ptr noundef non
 
 8:                                                ; preds = %6
   store i32 31, ptr %1, align 4, !tbaa !13
-  br label %common.ret48
+  br label %common.ret51
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %0, align 8, !tbaa !18
   switch i32 %10, label %18 [
     i32 2, label %11
-    i32 1, label %common.ret48
+    i32 1, label %common.ret51
   ]
 
-common.ret48:                                     ; preds = %.thread, %30, %40, %52, %27, %9, %53, %43, %3, %8, %11
-  %common.ret48.op = phi ptr [ %spec.select, %11 ], [ null, %8 ], [ null, %3 ], [ null, %30 ], [ null, %40 ], [ null, %52 ], [ null, %27 ], [ %19, %53 ], [ %19, %43 ], [ %0, %9 ], [ null, %.thread ]
-  ret ptr %common.ret48.op
+common.ret51:                                     ; preds = %.thread, %30, %40, %52, %27, %9, %53, %43, %3, %8, %11
+  %common.ret51.op = phi ptr [ %spec.select, %11 ], [ null, %8 ], [ null, %3 ], [ null, %30 ], [ null, %40 ], [ null, %52 ], [ null, %27 ], [ %19, %53 ], [ %19, %43 ], [ %0, %9 ], [ null, %.thread ]
+  ret ptr %common.ret51.op
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1129,7 +1129,7 @@ common.ret48:                                     ; preds = %.thread, %30, %40, 
   %16 = load i32, ptr %1, align 4, !tbaa !13
   %17 = icmp slt i32 %16, 1
   %spec.select = select i1 %17, ptr %15, ptr null
-  br label %common.ret48
+  br label %common.ret51
 
 18:                                               ; preds = %9
   %19 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 160) #12
@@ -1148,12 +1148,12 @@ common.ret48:                                     ; preds = %.thread, %30, %40, 
 .thread:                                          ; preds = %18
   %25 = load i32, ptr %1, align 4, !tbaa !13
   %26 = icmp slt i32 %25, 1
-  br i1 %26, label %30, label %common.ret48
+  br i1 %26, label %30, label %common.ret51
 
 27:                                               ; preds = %22
   tail call void @_ZN6icu_778RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %19) #12
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %19) #12
-  br label %common.ret48
+  br label %common.ret51
 
 28:                                               ; preds = %21
   %29 = landingpad { ptr, i32 }
@@ -1163,7 +1163,7 @@ common.ret48:                                     ; preds = %.thread, %30, %40, 
 
 30:                                               ; preds = %.thread
   store i32 7, ptr %1, align 4, !tbaa !13
-  br label %common.ret48
+  br label %common.ret51
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1183,7 +1183,7 @@ common.ret48:                                     ; preds = %.thread, %30, %40, 
 40:                                               ; preds = %34
   tail call void @_ZN6icu_778RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %19) #12
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %19) #12
-  br label %common.ret48
+  br label %common.ret51
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -1194,7 +1194,7 @@ common.ret48:                                     ; preds = %.thread, %30, %40, 
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !41
   %.not42 = icmp eq ptr %45, null
-  br i1 %.not42, label %common.ret48, label %46
+  br i1 %.not42, label %common.ret51, label %46
 
 46:                                               ; preds = %43
   %47 = add nsw i32 %2, 1
@@ -1208,12 +1208,12 @@ common.ret48:                                     ; preds = %.thread, %30, %40, 
 52:                                               ; preds = %46
   tail call void @_ZN6icu_778RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %19) #12
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %19) #12
-  br label %common.ret48
+  br label %common.ret51
 
 53:                                               ; preds = %46
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %19, ptr %54, align 8, !tbaa !40
-  br label %common.ret48
+  br label %common.ret51
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1293,9 +1293,9 @@ define noundef ptr @_ZN6icu_778RBBINode16flattenVariablesER10UErrorCodei(ptr nou
   %40 = tail call noundef ptr @_ZN6icu_778RBBINode16flattenVariablesER10UErrorCodei(ptr noundef nonnull align 8 dereferenceable(160) %37, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %39)
   store ptr %40, ptr %36, align 8, !tbaa !41
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.thread28, label %42
+  br i1 %41, label %.thread31, label %42
 
-.thread28:                                        ; preds = %38
+.thread31:                                        ; preds = %38
   store i32 7, ptr %1, align 4, !tbaa !13
   br label %46
 
@@ -1309,8 +1309,8 @@ define noundef ptr @_ZN6icu_778RBBINode16flattenVariablesER10UErrorCodei(ptr nou
   store ptr %0, ptr %45, align 8, !tbaa !40
   br label %46
 
-46:                                               ; preds = %.thread28, %.thread, %35, %44, %42, %31, %19, %14, %3, %8
-  %.0 = phi ptr [ %0, %8 ], [ %0, %3 ], [ %16, %19 ], [ %0, %14 ], [ %0, %31 ], [ %0, %42 ], [ %0, %44 ], [ %0, %35 ], [ %0, %.thread ], [ %0, %.thread28 ]
+46:                                               ; preds = %.thread31, %.thread, %35, %44, %42, %31, %19, %14, %3, %8
+  %.0 = phi ptr [ %0, %8 ], [ %0, %3 ], [ %16, %19 ], [ %0, %14 ], [ %0, %31 ], [ %0, %42 ], [ %0, %44 ], [ %0, %35 ], [ %0, %.thread ], [ %0, %.thread31 ]
   ret ptr %.0
 }
 

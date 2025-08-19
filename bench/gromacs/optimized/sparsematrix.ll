@@ -370,23 +370,23 @@ define void @_Z25gmx_sparsematrix_compressP16gmx_sparsematrix(ptr noundef readon
   %14 = getelementptr i8, ptr %13, i64 -4
   %15 = load float, ptr %14, align 4, !tbaa !29
   %16 = fcmp oeq float %15, 0.000000e+00
-  br i1 %16, label %.lr.ph60, label %.critedge
+  br i1 %16, label %.lr.ph61, label %.critedge
 
-17:                                               ; preds = %.lr.ph60
+17:                                               ; preds = %.lr.ph61
   %18 = getelementptr %struct.gmx_sparsematrix_entry, ptr %11, i64 %indvars.iv.next
   %19 = getelementptr i8, ptr %18, i64 -4
   %20 = load float, ptr %19, align 4, !tbaa !29
   %21 = fcmp oeq float %20, 0.000000e+00
-  br i1 %21, label %.lr.ph60, label %.critedge.loopexit, !llvm.loop !35
+  br i1 %21, label %.lr.ph61, label %.critedge.loopexit, !llvm.loop !35
 
-.lr.ph60:                                         ; preds = %.lr.ph, %17
-  %indvars.iv59 = phi i64 [ %indvars.iv.next, %17 ], [ %12, %.lr.ph ]
-  %indvars.iv.next = add nsw i64 %indvars.iv59, -1
+.lr.ph61:                                         ; preds = %.lr.ph, %17
+  %indvars.iv60 = phi i64 [ %indvars.iv.next, %17 ], [ %12, %.lr.ph ]
+  %indvars.iv.next = add nsw i64 %indvars.iv60, -1
   %22 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %23 = icmp sgt i64 %indvars.iv59, 1
-  br i1 %23, label %17, label %..critedge_crit_edge61, !llvm.loop !35
+  %23 = icmp sgt i64 %indvars.iv60, 1
+  br i1 %23, label %17, label %..critedge_crit_edge62, !llvm.loop !35
 
-..critedge_crit_edge61:                           ; preds = %.lr.ph60
+..critedge_crit_edge62:                           ; preds = %.lr.ph61
   store i32 %22, ptr %8, align 4, !tbaa !17
   br label %.critedge, !llvm.loop !35
 
@@ -394,8 +394,8 @@ define void @_Z25gmx_sparsematrix_compressP16gmx_sparsematrix(ptr noundef readon
   store i32 %22, ptr %8, align 4, !tbaa !17
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %..critedge_crit_edge61, %.lr.ph
-  %24 = phi i32 [ %22, %..critedge_crit_edge61 ], [ %.promoted, %.lr.ph ], [ %22, %.critedge.loopexit ]
+.critedge:                                        ; preds = %.critedge.loopexit, %..critedge_crit_edge62, %.lr.ph
+  %24 = phi i32 [ %22, %..critedge_crit_edge62 ], [ %.promoted, %.lr.ph ], [ %22, %.critedge.loopexit ]
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph47, label %.critedge.._crit_edge_crit_edge
 

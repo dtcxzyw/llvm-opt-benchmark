@@ -1636,12 +1636,12 @@ define void @_ZN12tokio_quiche8settings6config6Config3new17h5f142b6e5b804931E(pt
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %29 = load i64, ptr %28, align 16, !range !109, !noundef !3
   %.not = icmp eq i64 %29, -9223372036854775808
-  %.sink166.i.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.sink166.i.sroa.gep59 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink166.i.sroa.gep61 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %.sink166.i.sroa.gep62 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sink162.i.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink162.i.sroa.gep63 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink178.i.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sink178.i.sroa.gep59 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink178.i.sroa.gep61 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.sink178.i.sroa.gep62 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink174.i.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink174.i.sroa.gep63 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br i1 %.not, label %35, label %30
 
 30:                                               ; preds = %3
@@ -1775,8 +1775,8 @@ define void @_ZN12tokio_quiche8settings6config6Config3new17h5f142b6e5b804931E(pt
   br label %.invoke.i
 
 _ZN12tokio_quiche8settings6config22quiche_config_with_tls17hcd958f043f058b0cE.exit.thread137.i: ; preds = %.noexc85.i
-  %.sroa.6102.0.copyload104.i = load ptr, ptr %.sink166.i.sroa.gep, align 16, !noalias !146
-  %.sroa.9.0.copyload106.i = load ptr, ptr %.sink166.i.sroa.gep61, align 8, !noalias !146
+  %.sroa.6102.0.copyload104.i = load ptr, ptr %.sink178.i.sroa.gep, align 16, !noalias !146
+  %.sroa.9.0.copyload106.i = load ptr, ptr %.sink178.i.sroa.gep61, align 8, !noalias !146
   %.sroa.12.0..sroa_idx107.i = getelementptr inbounds nuw i8, ptr %13, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(496) %.sroa.12.i, ptr noundef nonnull align 16 dereferenceable(496) %.sroa.12.0..sroa_idx107.i, i64 496, i1 false), !noalias !146
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !134
@@ -1819,16 +1819,16 @@ _ZN12tokio_quiche8settings6config22quiche_config_with_tls17hcd958f043f058b0cE.ex
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %85, %75
-  %.sink166.i.sroa.phi = phi ptr [ %.sink166.i.sroa.gep, %75 ], [ %.sink166.i.sroa.gep59, %85 ]
-  %.sink166.i.sroa.phi60 = phi ptr [ %.sink166.i.sroa.gep61, %75 ], [ %.sink166.i.sroa.gep62, %85 ]
-  %.sink162.i.sroa.phi = phi ptr [ %.sink162.i.sroa.gep, %75 ], [ %.sink162.i.sroa.gep63, %85 ]
-  %.sink162.i = phi ptr [ %8, %75 ], [ %9, %85 ]
+  %.sink178.i.sroa.phi = phi ptr [ %.sink178.i.sroa.gep, %75 ], [ %.sink178.i.sroa.gep59, %85 ]
+  %.sink178.i.sroa.phi60 = phi ptr [ %.sink178.i.sroa.gep61, %75 ], [ %.sink178.i.sroa.gep62, %85 ]
+  %.sink174.i.sroa.phi = phi ptr [ %.sink174.i.sroa.gep, %75 ], [ %.sink174.i.sroa.gep63, %85 ]
+  %.sink174.i = phi ptr [ %8, %75 ], [ %9, %85 ]
   %86 = phi ptr [ @anon.7374cd21b91d9246b4a7cc38cadcd57a.276, %75 ], [ @anon.7374cd21b91d9246b4a7cc38cadcd57a.272, %85 ]
-  %87 = load i64, ptr %.sink166.i.sroa.phi, align 16, !range !75, !noalias !134, !noundef !3
-  %88 = load i64, ptr %.sink166.i.sroa.phi60, align 8, !noalias !134
-  store i64 %87, ptr %.sink162.i, align 8, !noalias !134
-  store i64 %88, ptr %.sink162.i.sroa.phi, align 8, !noalias !134
-  invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.7374cd21b91d9246b4a7cc38cadcd57a.28, i64 noundef 43, ptr noundef nonnull align 1 %.sink162.i, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.7374cd21b91d9246b4a7cc38cadcd57a.27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %86) #22
+  %87 = load i64, ptr %.sink178.i.sroa.phi, align 16, !range !75, !noalias !134, !noundef !3
+  %88 = load i64, ptr %.sink178.i.sroa.phi60, align 8, !noalias !134
+  store i64 %87, ptr %.sink174.i, align 8, !noalias !134
+  store i64 %88, ptr %.sink174.i.sroa.phi, align 8, !noalias !134
+  invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.7374cd21b91d9246b4a7cc38cadcd57a.28, i64 noundef 43, ptr noundef nonnull align 1 %.sink174.i, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.7374cd21b91d9246b4a7cc38cadcd57a.27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %86) #22
           to label %.cont.i unwind label %115, !noalias !131
 
 .cont.i:                                          ; preds = %.invoke.i
@@ -1884,11 +1884,11 @@ _ZN12tokio_quiche8settings6config22quiche_config_with_tls17hcd958f043f058b0cE.ex
   br label %107
 
 107:                                              ; preds = %109, %106
-  %.sink26.i.i = phi ptr [ %96, %109 ], [ %104, %106 ]
+  %.sink30.i.i = phi ptr [ %96, %109 ], [ %104, %106 ]
   %.pn.i.i = phi { i64, i64 } [ %89, %109 ], [ %99, %106 ]
-  %.sink24.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
-  %108 = getelementptr inbounds nuw i8, ptr %.sink26.i.i, i64 8
-  store i64 %.sink24.i.i, ptr %108, align 8, !noalias !157
+  %.sink28.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
+  %108 = getelementptr inbounds nuw i8, ptr %.sink30.i.i, i64 8
+  store i64 %.sink28.i.i, ptr %108, align 8, !noalias !157
   invoke void @"_ZN4core3ptr35drop_in_place$LT$quiche..Config$GT$17h37befd0a43a7f7ccE"(ptr noalias noundef nonnull align 16 dereferenceable(528) %11)
           to label %_ZN12tokio_quiche8settings6config22quiche_config_with_tls17hcd958f043f058b0cE.exit.thread.i unwind label %115, !noalias !131
 
@@ -1998,7 +1998,7 @@ _ZN12tokio_quiche8settings6config22quiche_config_with_tls17hcd958f043f058b0cE.ex
   br i1 %141, label %142, label %145
 
 142:                                              ; preds = %_ZN12tokio_quiche8settings6config22quiche_config_with_tls17hcd958f043f058b0cE.exit.i, %_ZN12tokio_quiche8settings6config22quiche_config_with_tls17hcd958f043f058b0cE.exit.thread.i
-  %.sroa.6102.0135.i = phi ptr [ %.sink26.i.i, %_ZN12tokio_quiche8settings6config22quiche_config_with_tls17hcd958f043f058b0cE.exit.thread.i ], [ %.sroa.6102.0.copyload.i, %_ZN12tokio_quiche8settings6config22quiche_config_with_tls17hcd958f043f058b0cE.exit.i ]
+  %.sroa.6102.0135.i = phi ptr [ %.sink30.i.i, %_ZN12tokio_quiche8settings6config22quiche_config_with_tls17hcd958f043f058b0cE.exit.thread.i ], [ %.sroa.6102.0.copyload.i, %_ZN12tokio_quiche8settings6config22quiche_config_with_tls17hcd958f043f058b0cE.exit.i ]
   %.sroa.9.0118133.i = phi ptr [ @anon.7374cd21b91d9246b4a7cc38cadcd57a.264, %_ZN12tokio_quiche8settings6config22quiche_config_with_tls17hcd958f043f058b0cE.exit.thread.i ], [ %.sroa.9.0.copyload.i, %_ZN12tokio_quiche8settings6config22quiche_config_with_tls17hcd958f043f058b0cE.exit.i ]
   %143 = icmp ne ptr %.sroa.6102.0135.i, null
   call void @llvm.assume(i1 %143)

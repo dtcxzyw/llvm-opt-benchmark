@@ -342,13 +342,13 @@ define hidden noundef zeroext i1 @column_prefs_custom_display_strings(ptr nounde
   br i1 %.not45, label %19, label %17
 
 17:                                               ; preds = %14
-  %switch.tableidx102 = add i32 %12, -3
-  %18 = icmp ult i32 %switch.tableidx102, 33
-  %switch.maskindex105 = zext nneg i32 %switch.tableidx102 to i64
-  %switch.shifted106 = lshr i64 4295098367, %switch.maskindex105
-  %switch.lobit107 = trunc i64 %switch.shifted106 to i1
-  %or.cond108 = select i1 %18, i1 %switch.lobit107, i1 false
-  br i1 %or.cond108, label %._crit_edge, label %19
+  %switch.tableidx103 = add i32 %12, -3
+  %18 = icmp ult i32 %switch.tableidx103, 33
+  %switch.maskindex106 = zext nneg i32 %switch.tableidx103 to i64
+  %switch.shifted107 = lshr i64 4295098367, %switch.maskindex106
+  %switch.lobit108 = trunc i64 %switch.shifted107 to i1
+  %or.cond109 = select i1 %18, i1 %switch.lobit108, i1 false
+  br i1 %or.cond109, label %._crit_edge, label %19
 
 19:                                               ; preds = %17, %.lr.ph, %6, %14, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

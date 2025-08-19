@@ -1181,14 +1181,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %_ZNSt6ve
   %233 = load i32, ptr %35, align 4, !tbaa !53
   %234 = and i32 %233, 7
   invoke void @_ZN2cv3Mat6createENS_5Size_IiEEi(ptr noundef nonnull align 8 dereferenceable(96) %232, i64 %.sroa.0.0.copyload.i.i.i, i32 noundef %234)
-          to label %235 unwind label %.thread45.i.i.i
+          to label %235 unwind label %.thread53.i.i.i
 
 235:                                              ; preds = %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !78
 
-.thread45.i.i.i:                                  ; preds = %.lr.ph.i.i.i
+.thread53.i.i.i:                                  ; preds = %.lr.ph.i.i.i
   %236 = landingpad { ptr, i32 }
           cleanup
   br label %244
@@ -1227,14 +1227,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i:              ; preds = %241, %239
   %.not.i.i.i40.i.i.i = icmp eq ptr %.pre.i.i.i, null
   br i1 %.not.i.i.i40.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit41.i.i.i, label %244
 
-244:                                              ; preds = %242, %.thread45.i.i.i
-  %.pn3448.i.i.i = phi { ptr, i32 } [ %236, %.thread45.i.i.i ], [ %243, %242 ]
-  %245 = phi ptr [ %219, %.thread45.i.i.i ], [ %.pre.i.i.i, %242 ]
+244:                                              ; preds = %242, %.thread53.i.i.i
+  %.pn3456.i.i.i = phi { ptr, i32 } [ %236, %.thread53.i.i.i ], [ %243, %242 ]
+  %245 = phi ptr [ %219, %.thread53.i.i.i ], [ %.pre.i.i.i, %242 ]
   call void @_ZdlPv(ptr noundef nonnull %245) #30
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit41.i.i.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit41.i.i.i:            ; preds = %244, %242, %226
-  %.pn34.pn.i.i.i = phi { ptr, i32 } [ %227, %226 ], [ %243, %242 ], [ %.pn3448.i.i.i, %244 ]
+  %.pn34.pn.i.i.i = phi { ptr, i32 } [ %227, %226 ], [ %243, %242 ], [ %.pn3456.i.i.i, %244 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
@@ -2573,7 +2573,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN8h_filter
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %._crit_edge69.us.us
   %indvars.iv113 = phi i64 [ 0, %.lr.ph.us.us.preheader ], [ %indvars.iv.next114, %._crit_edge69.us.us ]
   %32 = mul i64 %23, %indvars.iv113
-  %scevgep128 = getelementptr i8, ptr %31, i64 %32
+  %scevgep129 = getelementptr i8, ptr %31, i64 %32
   %33 = mul i64 %23, %indvars.iv113
   %scevgep = getelementptr i8, ptr %20, i64 %33
   %34 = mul i64 %18, %indvars.iv113
@@ -2586,11 +2586,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN8h_filter
   br label %44
 
 ._crit_edge.us.us:                                ; preds = %._crit_edge.us.us.preheader, %._crit_edge.us.us
-  %store_forwarded130 = phi float [ %load_initial129, %._crit_edge.us.us.preheader ], [ %42, %._crit_edge.us.us ]
+  %store_forwarded131 = phi float [ %load_initial130, %._crit_edge.us.us.preheader ], [ %42, %._crit_edge.us.us ]
   %indvars.iv110 = phi i64 [ %28, %._crit_edge.us.us.preheader ], [ %indvars.iv.next111, %._crit_edge.us.us ]
   %39 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv110
   %40 = load float, ptr %39, align 4, !tbaa !96
-  %41 = fsub float %store_forwarded130, %40
+  %41 = fsub float %store_forwarded131, %40
   %42 = tail call float @llvm.fmuladd.f32(float %5, float %41, float %40)
   store float %42, ptr %39, align 4, !tbaa !96
   %indvars.iv.next111 = add nsw i64 %indvars.iv110, -1
@@ -2611,7 +2611,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN8h_filter
   br i1 %exitcond109.not, label %._crit_edge.us.us.preheader, label %44, !llvm.loop !107
 
 ._crit_edge.us.us.preheader:                      ; preds = %44
-  %load_initial129 = load float, ptr %scevgep128, align 4
+  %load_initial130 = load float, ptr %scevgep129, align 4
   br label %._crit_edge.us.us
 
 ._crit_edge69.us.us:                              ; preds = %._crit_edge.us.us
@@ -2691,8 +2691,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN8h_filter
   %86 = load i32, ptr %62, align 4, !tbaa !105
   tail call void @_ZN2cv8ximgproc10intrinsics16rf_vert_row_passEPfS2_fi(ptr noundef %82, ptr noundef %85, float noundef %5, i32 noundef %86)
   %indvars.iv.next122 = add nsw i64 %indvars.iv121, -1
-  %.not126 = icmp eq i64 %indvars.iv121, 0
-  br i1 %.not126, label %._crit_edge81, label %77, !llvm.loop !110
+  %.not127 = icmp eq i64 %indvars.iv121, 0
+  br i1 %.not127, label %._crit_edge81, label %77, !llvm.loop !110
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5243,7 +5243,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN
 
 ._crit_edge:                                      ; preds = %116, %.loopexit.thread, %.loopexit
   %105 = phi ptr [ %93, %.loopexit ], [ null, %.loopexit.thread ], [ %93, %116 ]
-  %.pr.i113 = phi ptr [ %88, %.loopexit ], [ null, %.loopexit.thread ], [ %88, %116 ]
+  %.pr.i125 = phi ptr [ %88, %.loopexit ], [ null, %.loopexit.thread ], [ %88, %116 ]
   %.lcssa99 = phi i32 [ %.pre, %.loopexit ], [ 0, %.loopexit.thread ], [ %117, %116 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   invoke void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %28, i32 noundef 1, i32 noundef %.lcssa99, i32 noundef 5)
@@ -5304,13 +5304,13 @@ _ZN2cv4Mat_IfEC2Eii.exit85:                       ; preds = %._crit_edge
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %123 = load i32, ptr %122, align 4, !tbaa !37
   %124 = ptrtoint ptr %105 to i64
-  %125 = ptrtoint ptr %.pr.i113 to i64
+  %125 = ptrtoint ptr %.pr.i125 to i64
   %126 = sub i64 %124, %125
   %127 = sdiv exact i64 %126, 96
   %128 = trunc i64 %127 to i32
-  %129 = getelementptr inbounds nuw i8, ptr %.pr.i113, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %.pr.i125, i64 8
   %130 = load i32, ptr %129, align 8, !tbaa !104
-  %131 = getelementptr inbounds nuw i8, ptr %.pr.i113, i64 12
+  %131 = getelementptr inbounds nuw i8, ptr %.pr.i125, i64 12
   %132 = load i32, ptr %131, align 4, !tbaa !105
   invoke void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %28, i32 noundef 1, i32 noundef %128, i32 noundef 5)
           to label %.noexc86 unwind label %317
@@ -5532,7 +5532,7 @@ _ZN2cv4Mat_IfEC2Eii.exit.preheader.i:             ; preds = %_ZN2cv4Mat_IdEC2Eii
 
 .lr.ph138.us.i:                                   ; preds = %204, %.loopexit.us.i
   %indvars.iv163.i = phi i64 [ %indvars.iv.next164.i, %.loopexit.us.i ], [ 0, %204 ]
-  %217 = getelementptr inbounds nuw %"class.cv::Mat", ptr %.pr.i113, i64 %indvars.iv163.i
+  %217 = getelementptr inbounds nuw %"class.cv::Mat", ptr %.pr.i125, i64 %indvars.iv163.i
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %219 = load ptr, ptr %218, align 8, !tbaa !93
   %220 = getelementptr inbounds nuw i8, ptr %217, i64 72
@@ -5599,7 +5599,7 @@ _ZN2cv4Mat_IfEC2Eii.exit.preheader.i:             ; preds = %_ZN2cv4Mat_IdEC2Eii
 
 .lr.ph143.us.us.i:                                ; preds = %.lr.ph145.us.i, %._crit_edge.us.us.i
   %indvars.iv183.i = phi i64 [ %indvars.iv.next184.i, %._crit_edge.us.us.i ], [ 0, %.lr.ph145.us.i ]
-  %237 = getelementptr inbounds nuw %"class.cv::Mat", ptr %.pr.i113, i64 %indvars.iv183.i
+  %237 = getelementptr inbounds nuw %"class.cv::Mat", ptr %.pr.i125, i64 %indvars.iv183.i
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %239 = load ptr, ptr %238, align 8, !tbaa !93
   %240 = getelementptr inbounds nuw i8, ptr %237, i64 72
@@ -5756,7 +5756,7 @@ _ZN2cv4Mat_IfEC2Eii.exit._crit_edge.i:            ; preds = %._crit_edge.us153.i
 
 293:                                              ; preds = %..loopexit40_crit_edge.us.us.us.us.us.i, %.lr.ph45.us.us.us.i
   %indvars.iv74.i = phi i64 [ %indvars.iv.next75.i, %..loopexit40_crit_edge.us.us.us.us.us.i ], [ 0, %.lr.ph45.us.us.us.i ]
-  %294 = getelementptr inbounds nuw %"class.cv::Mat", ptr %.pr.i113, i64 %indvars.iv74.i
+  %294 = getelementptr inbounds nuw %"class.cv::Mat", ptr %.pr.i125, i64 %indvars.iv74.i
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 16
   %296 = load ptr, ptr %295, align 8, !tbaa !93
   %297 = getelementptr inbounds nuw i8, ptr %294, i64 72
@@ -5805,18 +5805,18 @@ _ZN2cv4Mat_IfEC2Eii.exit._crit_edge.i:            ; preds = %._crit_edge.us153.i
 _ZN12_GLOBAL__N_123AdaptiveManifoldFilterN18computeOrientationERKSt6vectorIN2cv3MatESaIS3_EERKNS2_4Mat_IfEERS9_.exit: ; preds = %._crit_edge.split.us.us.us.split.us.us.i, %.lr.ph.i, %.noexc93
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  %.not4.i.i.i.i = icmp eq ptr %.pr.i113, %105
+  %.not4.i.i.i.i = icmp eq ptr %.pr.i125, %105
   br i1 %.not4.i.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN18computeOrientationERKSt6vectorIN2cv3MatESaIS3_EERKNS2_4Mat_IfEERS9_.exit, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %314, %.lr.ph.i.i.i.i ], [ %.pr.i113, %_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN18computeOrientationERKSt6vectorIN2cv3MatESaIS3_EERKNS2_4Mat_IfEERS9_.exit ]
+  %.05.i.i.i.i = phi ptr [ %314, %.lr.ph.i.i.i.i ], [ %.pr.i125, %_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN18computeOrientationERKSt6vectorIN2cv3MatESaIS3_EERKNS2_4Mat_IfEERS9_.exit ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #27
   %314 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 96
   %.not.i.i.i.i94 = icmp eq ptr %314, %105
   br i1 %.not.i.i.i.i94, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %.lr.ph.i.i.i.i, !llvm.loop !57
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %.lr.ph.i.i.i.i, %_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN18computeOrientationERKSt6vectorIN2cv3MatESaIS3_EERKNS2_4Mat_IfEERS9_.exit
-  call void @_ZdlPv(ptr noundef nonnull %.pr.i113) #30
+  call void @_ZdlPv(ptr noundef nonnull %.pr.i125) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %18)

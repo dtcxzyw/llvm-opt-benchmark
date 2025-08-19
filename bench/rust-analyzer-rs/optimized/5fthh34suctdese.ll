@@ -204,7 +204,7 @@ switch.lookup:
   %35 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %19)
           to label %36 unwind label %.loopexit.split-lp
 
-default.unreachable79:                            ; preds = %109
+default.unreachable88:                            ; preds = %109
   unreachable
 
 .loopexit74:                                      ; preds = %162, %103, %142
@@ -363,7 +363,7 @@ default.unreachable79:                            ; preds = %109
 
 109:                                              ; preds = %.noexc
   %110 = load i32, ptr %.sroa.0.078, align 8, !range !4, !alias.scope !28, !noalias !33, !noundef !5
-  switch i32 %110, label %default.unreachable79 [
+  switch i32 %110, label %default.unreachable88 [
     i32 0, label %121
     i32 1, label %113
     i32 2, label %134

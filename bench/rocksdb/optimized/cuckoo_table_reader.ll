@@ -3181,9 +3181,9 @@ _ZN7rocksdb7IterKey14SetInternalKeyERKNS_5SliceEb.exit: ; preds = %46, %54
   br label %69
 
 69:                                               ; preds = %59, %6
-  %.sink8 = phi i64 [ 144, %59 ], [ 168, %6 ]
+  %.sink9 = phi i64 [ 144, %59 ], [ 168, %6 ]
   %.sink = phi i64 [ %67, %59 ], [ 0, %6 ]
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink9
   store i64 %.sink, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !144
   ret void
 }
@@ -5515,7 +5515,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 28
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -5563,7 +5563,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__
 
 37:                                               ; preds = %20
   %.sroa.0.0.copyload = load ptr, ptr %3, align 8
-  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
+  %.sroa.434.0.copyload = load ptr, ptr %.sroa.434.0..sroa_idx, align 8
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
@@ -5571,7 +5571,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__
   %39 = getelementptr inbounds nuw i32, ptr %0, i64 %38
   %40 = getelementptr inbounds i8, ptr %storemerge19, i64 -4
   call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN7rocksdb19CuckooTableIterator16BucketComparatorEEEEvT_SD_SD_SD_T0_(ptr %0, ptr nonnull %15, ptr %39, ptr nonnull %40, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %3)
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.433.0.copyload, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.434.0.copyload, i64 32
   %42 = zext i32 %.sroa.6.0.copyload to i64
   br label %43
 

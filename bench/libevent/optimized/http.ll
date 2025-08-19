@@ -237,7 +237,7 @@ define ptr @evhttp_htmlescape(ptr noundef readonly captures(address_is_null) %0)
 3:                                                ; preds = %1
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %.not54 = icmp eq i64 %4, 0
-  br i1 %.not54, label %.thread60, label %.lr.ph
+  br i1 %.not54, label %.thread65, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %10
   %.02948 = phi i64 [ %12, %10 ], [ 0, %3 ]
@@ -287,13 +287,13 @@ html_replace.exit:                                ; preds = %7, %8, %.lr.ph, %.s
   %17 = icmp eq ptr %16, null
   br i1 %17, label %20, label %.lr.ph51
 
-.thread60:                                        ; preds = %3
+.thread65:                                        ; preds = %3
   %18 = tail call ptr @event_mm_malloc_(i64 noundef 1) #18
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %._crit_edge52
 
-20:                                               ; preds = %.thread60, %14
-  %21 = phi i64 [ 1, %.thread60 ], [ %15, %14 ]
+20:                                               ; preds = %.thread65, %14
+  %21 = phi i64 [ 1, %.thread65 ], [ %15, %14 ]
   tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.evhttp_htmlescape, i64 noundef %21) #18
   br label %31
 
@@ -334,9 +334,9 @@ html_replace.exit43:                              ; preds = %24, %25, %26, %27, 
   %exitcond57.not = icmp eq i64 %29, %4
   br i1 %exitcond57.not, label %._crit_edge52, label %.lr.ph51, !llvm.loop !5
 
-._crit_edge52:                                    ; preds = %html_replace.exit43, %.thread60
-  %30 = phi ptr [ %18, %.thread60 ], [ %16, %html_replace.exit43 ]
-  %.032.lcssa = phi ptr [ %18, %.thread60 ], [ %28, %html_replace.exit43 ]
+._crit_edge52:                                    ; preds = %html_replace.exit43, %.thread65
+  %30 = phi ptr [ %18, %.thread65 ], [ %16, %html_replace.exit43 ]
+  %.032.lcssa = phi ptr [ %18, %.thread65 ], [ %28, %html_replace.exit43 ]
   store i8 0, ptr %.032.lcssa, align 1
   br label %31
 
@@ -799,8 +799,8 @@ define hidden range(i32 -1, 1) i32 @evhttp_connection_connect_(ptr noundef %0) l
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %21 = load i16, ptr %20, align 8
   %.not50 = icmp eq i16 %21, 0
-  %or.cond55 = select i1 %.not, i1 %.not50, i1 false
-  br i1 %or.cond55, label %31, label %._crit_edge
+  %or.cond59 = select i1 %.not, i1 %.not50, i1 false
+  br i1 %or.cond59, label %31, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12
   %22 = tail call fastcc i32 @bind_socket(ptr noundef %19, i16 noundef zeroext %21, i32 noundef 0)
@@ -1338,13 +1338,13 @@ thread-pre-split:                                 ; preds = %25, %26
   %61 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %62 = load i8, ptr %61, align 1
   %.not186.i = icmp eq i8 %62, 69
-  br i1 %.not186.i, label %.thread193.i, label %.thread.i
+  br i1 %.not186.i, label %.thread199.i, label %.thread.i
 
 63:                                               ; preds = %58
   %64 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %65 = load i8, ptr %64, align 1
   %.not185.i = icmp eq i8 %65, 85
-  br i1 %.not185.i, label %.thread193.i, label %.thread.i
+  br i1 %.not185.i, label %.thread199.i, label %.thread.i
 
 66:                                               ; preds = %49
   %67 = load i8, ptr %44, align 1
@@ -1372,7 +1372,7 @@ thread-pre-split:                                 ; preds = %25, %26
   %77 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %78 = load i8, ptr %77, align 1
   %.not184.i = icmp eq i8 %78, 79
-  br i1 %.not184.i, label %.thread193.i, label %.thread.i
+  br i1 %.not184.i, label %.thread199.i, label %.thread.i
 
 79:                                               ; preds = %66
   %80 = getelementptr inbounds nuw i8, ptr %44, i64 3
@@ -1390,7 +1390,7 @@ thread-pre-split:                                 ; preds = %25, %26
   %88 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %89 = load i8, ptr %88, align 1
   %.not183.i = icmp eq i8 %89, 69
-  br i1 %.not183.i, label %.thread193.i, label %.thread.i
+  br i1 %.not183.i, label %.thread199.i, label %.thread.i
 
 90:                                               ; preds = %66
   %91 = getelementptr inbounds nuw i8, ptr %44, i64 3
@@ -1408,7 +1408,7 @@ thread-pre-split:                                 ; preds = %25, %26
   %99 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %100 = load i8, ptr %99, align 1
   %.not182.i = icmp eq i8 %100, 79
-  br i1 %.not182.i, label %.thread193.i, label %.thread.i
+  br i1 %.not182.i, label %.thread199.i, label %.thread.i
 
 101:                                              ; preds = %66
   %102 = getelementptr inbounds nuw i8, ptr %44, i64 3
@@ -1426,7 +1426,7 @@ thread-pre-split:                                 ; preds = %25, %26
   %110 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %111 = load i8, ptr %110, align 1
   %.not181.i = icmp eq i8 %111, 79
-  br i1 %.not181.i, label %.thread193.i, label %.thread.i
+  br i1 %.not181.i, label %.thread199.i, label %.thread.i
 
 112:                                              ; preds = %66
   %113 = getelementptr inbounds nuw i8, ptr %44, i64 3
@@ -1444,7 +1444,7 @@ thread-pre-split:                                 ; preds = %25, %26
   %121 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %122 = load i8, ptr %121, align 1
   %.not180.i = icmp eq i8 %122, 79
-  br i1 %.not180.i, label %.thread193.i, label %.thread.i
+  br i1 %.not180.i, label %.thread199.i, label %.thread.i
 
 123:                                              ; preds = %49
   %124 = load i8, ptr %44, align 1
@@ -1476,7 +1476,7 @@ thread-pre-split:                                 ; preds = %25, %26
   %138 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %139 = load i8, ptr %138, align 1
   %.not179.i = icmp eq i8 %139, 65
-  br i1 %.not179.i, label %.thread193.i, label %.thread.i
+  br i1 %.not179.i, label %.thread199.i, label %.thread.i
 
 140:                                              ; preds = %123
   %141 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -1500,7 +1500,7 @@ thread-pre-split:                                 ; preds = %25, %26
   %153 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %154 = load i8, ptr %153, align 1
   %.not178.i = icmp eq i8 %154, 82
-  br i1 %.not178.i, label %.thread193.i, label %.thread.i
+  br i1 %.not178.i, label %.thread199.i, label %.thread.i
 
 155:                                              ; preds = %123
   %156 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -1524,7 +1524,7 @@ thread-pre-split:                                 ; preds = %25, %26
   %168 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %169 = load i8, ptr %168, align 1
   %.not177.i = icmp eq i8 %169, 75
-  br i1 %.not177.i, label %.thread193.i, label %.thread.i
+  br i1 %.not177.i, label %.thread199.i, label %.thread.i
 
 170:                                              ; preds = %49
   %171 = load i8, ptr %44, align 1
@@ -1561,7 +1561,7 @@ thread-pre-split:                                 ; preds = %25, %26
   %189 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %190 = load i8, ptr %189, align 1
   %.not176.i = icmp eq i8 %190, 69
-  br i1 %.not176.i, label %.thread193.i, label %.thread.i
+  br i1 %.not176.i, label %.thread199.i, label %.thread.i
 
 191:                                              ; preds = %170
   %192 = getelementptr inbounds nuw i8, ptr %44, i64 5
@@ -1591,7 +1591,7 @@ thread-pre-split:                                 ; preds = %25, %26
   %208 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %209 = load i8, ptr %208, align 1
   %.not175.i = icmp eq i8 %209, 78
-  br i1 %.not175.i, label %.thread193.i, label %.thread.i
+  br i1 %.not175.i, label %.thread199.i, label %.thread.i
 
 210:                                              ; preds = %49
   %211 = load i8, ptr %44, align 1
@@ -1634,7 +1634,7 @@ thread-pre-split:                                 ; preds = %25, %26
   %233 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %234 = load i8, ptr %233, align 1
   %.not174.i = icmp eq i8 %234, 80
-  br i1 %.not174.i, label %.thread193.i, label %.thread.i
+  br i1 %.not174.i, label %.thread199.i, label %.thread.i
 
 235:                                              ; preds = %210
   %236 = getelementptr inbounds nuw i8, ptr %44, i64 6
@@ -1670,7 +1670,7 @@ thread-pre-split:                                 ; preds = %25, %26
   %256 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %257 = load i8, ptr %256, align 1
   %.not173.i = icmp eq i8 %257, 79
-  br i1 %.not173.i, label %.thread193.i, label %.thread.i
+  br i1 %.not173.i, label %.thread199.i, label %.thread.i
 
 258:                                              ; preds = %49
   %259 = load i8, ptr %44, align 1
@@ -1717,7 +1717,7 @@ thread-pre-split:                                 ; preds = %25, %26
   %285 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %286 = load i8, ptr %285, align 1
   %.not172.i = icmp eq i8 %286, 82
-  br i1 %.not172.i, label %.thread193.i, label %.thread.i
+  br i1 %.not172.i, label %.thread199.i, label %.thread.i
 
 287:                                              ; preds = %49
   %288 = load i8, ptr %44, align 1
@@ -1770,7 +1770,7 @@ thread-pre-split:                                 ; preds = %25, %26
   %318 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %319 = load i8, ptr %318, align 1
   %.not171.i = icmp eq i8 %319, 82
-  br i1 %.not171.i, label %.thread193.i, label %.thread.i
+  br i1 %.not171.i, label %.thread199.i, label %.thread.i
 
 .thread.i:                                        ; preds = %317, %313, %309, %305, %301, %297, %293, %289, %287, %284, %280, %276, %272, %268, %264, %260, %258, %255, %251, %247, %243, %239, %235, %232, %228, %224, %220, %216, %212, %210, %207, %203, %199, %195, %191, %188, %184, %180, %176, %172, %170, %167, %163, %159, %155, %152, %148, %144, %140, %137, %133, %129, %125, %123, %120, %116, %112, %109, %105, %101, %98, %94, %90, %87, %83, %79, %76, %72, %68, %66, %63, %60, %58, %55, %49
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1818,18 +1818,18 @@ thread-pre-split:                                 ; preds = %25, %26
   %338 = load i32, ptr @event_debug_logging_mask_, align 4
   %339 = icmp ne i32 %338, 0
   %or.cond.i = select i1 %337, i1 %339, i1 false
-  br i1 %or.cond.i, label %340, label %.thread193.i
+  br i1 %or.cond.i, label %340, label %.thread199.i
 
 340:                                              ; preds = %336
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %342 = load ptr, ptr %341, align 8
   call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.54, ptr noundef nonnull @__func__.evhttp_parse_request_line, ptr noundef %44, ptr noundef nonnull %0, ptr noundef %342) #18
-  br label %.thread193.i
+  br label %.thread199.i
 
-.thread193.i:                                     ; preds = %284, %255, %232, %207, %188, %167, %152, %137, %120, %109, %98, %87, %76, %63, %317, %340, %336, %60
-  %.1196.i = phi i32 [ 0, %340 ], [ %.3.ph.i, %336 ], [ 1, %60 ], [ 512, %284 ], [ 128, %255 ], [ 32, %232 ], [ 8192, %207 ], [ 16, %188 ], [ 2048, %167 ], [ 64, %152 ], [ 256, %137 ], [ 32768, %120 ], [ 16384, %109 ], [ 4096, %98 ], [ 4, %87 ], [ 2, %76 ], [ 8, %63 ], [ 1024, %317 ]
+.thread199.i:                                     ; preds = %284, %255, %232, %207, %188, %167, %152, %137, %120, %109, %98, %87, %76, %63, %317, %340, %336, %60
+  %.1202.i = phi i32 [ 0, %340 ], [ %.3.ph.i, %336 ], [ 1, %60 ], [ 512, %284 ], [ 128, %255 ], [ 32, %232 ], [ 8192, %207 ], [ 16, %188 ], [ 2048, %167 ], [ 64, %152 ], [ 256, %137 ], [ 32768, %120 ], [ 16384, %109 ], [ 4096, %98 ], [ 4, %87 ], [ 2, %76 ], [ 8, %63 ], [ 1024, %317 ]
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 %.1196.i, ptr %343, align 4
+  store i32 %.1202.i, ptr %343, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1845,7 +1845,7 @@ thread-pre-split:                                 ; preds = %25, %26
   %or.cond11.i.i = select i1 %or.cond5.i.i, i1 true, i1 %351
   br i1 %or.cond11.i.i, label %352, label %357
 
-352:                                              ; preds = %.thread193.i
+352:                                              ; preds = %.thread199.i
   %353 = load i32, ptr @event_debug_logging_mask_, align 4
   %.not.i.i = icmp eq i32 %353, 0
   br i1 %.not.i.i, label %evhttp_parse_http_version.exit.thread.i, label %354
@@ -1862,7 +1862,7 @@ evhttp_parse_http_version.exit.thread.i:          ; preds = %354, %352
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %394
 
-357:                                              ; preds = %.thread193.i
+357:                                              ; preds = %.thread199.i
   %358 = add nsw i8 %346, -48
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 %358, ptr %359, align 8
@@ -1888,7 +1888,7 @@ evhttp_parse_http_version.exit.thread.i:          ; preds = %354, %352
   br label %394
 
 368:                                              ; preds = %357
-  %369 = icmp eq i32 %.1196.i, 128
+  %369 = icmp eq i32 %.1202.i, 128
   br i1 %369, label %370, label %390
 
 370:                                              ; preds = %368
@@ -7971,7 +7971,7 @@ scheme_ok.exit:                                   ; preds = %22, %.preheader.i
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %24, ptr %25, align 8
   %26 = icmp eq ptr %24, null
-  br i1 %26, label %.thread.sink.split115, label %27
+  br i1 %26, label %.thread.sink.split122, label %27
 
 27:                                               ; preds = %scheme_ok.exit
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 1
@@ -8093,7 +8093,7 @@ path_matches_noscheme.exit:                       ; preds = %.preheader, %.prehe
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %73, ptr %74, align 8
   %75 = icmp eq ptr %73, null
-  br i1 %75, label %.thread.sink.split115, label %76
+  br i1 %75, label %.thread.sink.split122, label %76
 
 76:                                               ; preds = %path_matches_noscheme.exit
   %.not88 = icmp eq ptr %.072, null
@@ -8104,7 +8104,7 @@ path_matches_noscheme.exit:                       ; preds = %.preheader, %.prehe
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %78, ptr %79, align 8
   %80 = icmp eq ptr %78, null
-  br i1 %80, label %.thread.sink.split115, label %81
+  br i1 %80, label %.thread.sink.split122, label %81
 
 81:                                               ; preds = %77, %76
   %.not89 = icmp eq ptr %.071, null
@@ -8115,17 +8115,17 @@ path_matches_noscheme.exit:                       ; preds = %.preheader, %.prehe
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr %83, ptr %84, align 8
   %85 = icmp eq ptr %83, null
-  br i1 %85, label %.thread.sink.split115, label %86
+  br i1 %85, label %.thread.sink.split122, label %86
 
 86:                                               ; preds = %82, %81
   tail call void @event_mm_free_(ptr noundef nonnull %7) #18
   br label %87
 
-.thread.sink.split115:                            ; preds = %path_matches_noscheme.exit, %77, %82, %scheme_ok.exit
+.thread.sink.split122:                            ; preds = %path_matches_noscheme.exit, %77, %82, %scheme_ok.exit
   tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_uri_parse_with_flags) #18
   br label %.thread
 
-.thread:                                          ; preds = %.preheader, %.thread.sink.split115, %end_of_authority.exit, %.critedge, %62, %56
+.thread:                                          ; preds = %.preheader, %.thread.sink.split122, %end_of_authority.exit, %.critedge, %62, %56
   tail call void @evhttp_uri_free(ptr noundef nonnull %3)
   tail call void @event_mm_free_(ptr noundef nonnull %7) #18
   br label %87
@@ -8494,7 +8494,7 @@ switch.early.test.us:                             ; preds = %10
   br i1 %.not36.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !39
 
 25:                                               ; preds = %3
-  switch i32 %1, label %default.unreachable66 [
+  switch i32 %1, label %default.unreachable69 [
     i32 0, label %.preheader51
     i32 1, label %.preheader53
     i32 2, label %32
@@ -8530,7 +8530,7 @@ switch.early.test.us:                             ; preds = %10
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 %33
   br label %.critedge
 
-default.unreachable66:                            ; preds = %25
+default.unreachable69:                            ; preds = %25
   unreachable
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %54
@@ -8579,8 +8579,8 @@ switch.early.test:                                ; preds = %39
   br i1 %53, label %54, label %.critedge
 
 54:                                               ; preds = %51, %47, %.lr.ph.split, %39, %switch.early.test, %switch.early.test, %switch.early.test
-  %.sink71 = phi i64 [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %39 ], [ 1, %.lr.ph.split ], [ 3, %47 ], [ 1, %51 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.356, i64 %.sink71
+  %.sink74 = phi i64 [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %39 ], [ 1, %.lr.ph.split ], [ 3, %47 ], [ 1, %51 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.356, i64 %.sink74
   %56 = load i8, ptr %55, align 1
   %.not36 = icmp eq i8 %56, 0
   br i1 %.not36, label %.critedge, label %.lr.ph.split, !llvm.loop !39
@@ -9695,7 +9695,7 @@ evhttp_handle_chunked_read.exit.thread80:         ; preds = %27
 
 33:                                               ; preds = %30
   call void @event_mm_free_(ptr noundef nonnull %28) #18
-  br label %.thread101.i
+  br label %.thread112.i
 
 34:                                               ; preds = %30
   %35 = tail call ptr @__ctype_b_loc() #19
@@ -9775,7 +9775,7 @@ switch.early.test.i:                              ; preds = %34
   store i64 %60, ptr %19, align 8
   store i64 %47, ptr %14, align 8
   %69 = icmp eq i64 %47, 0
-  br i1 %69, label %88, label %.thread101.i
+  br i1 %69, label %88, label %.thread112.i
 
 70:                                               ; preds = %24
   %71 = icmp samesign ult i64 %22, %25
@@ -9805,11 +9805,11 @@ switch.early.test.i:                              ; preds = %34
   %.not65.i = icmp eq i32 %85, 0
   br i1 %.not65.i, label %.backedge.i, label %98
 
-.thread101.i:                                     ; preds = %68, %33
+.thread112.i:                                     ; preds = %68, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %.thread101.i, %76, %72
+.backedge.i:                                      ; preds = %.thread112.i, %76, %72
   %86 = call i64 @evbuffer_get_length(ptr noundef nonnull %6) #18
   %87 = icmp eq i64 %86, 0
   br i1 %87, label %evhttp_handle_chunked_read.exit.thread, label %21

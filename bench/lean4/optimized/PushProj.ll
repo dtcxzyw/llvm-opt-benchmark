@@ -109,7 +109,7 @@ lean_array_fget.exit:                             ; preds = %lean_dec.exit, %40,
   br label %lean_nat_add.exit
 
 52:                                               ; preds = %45
-  %53 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %46) #3
+  %53 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_nat_add.exit
 
 .critedge.i162:                                   ; preds = %lean_array_fget.exit
@@ -1192,7 +1192,7 @@ lean_array_fget.exit:                             ; preds = %lean_dec.exit179, %
   br label %lean_nat_add.exit
 
 51:                                               ; preds = %44
-  %52 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %45) #3
+  %52 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_nat_add.exit
 
 .critedge.i162:                                   ; preds = %lean_array_fget.exit
@@ -2773,7 +2773,7 @@ lean_array_fget.exit:                             ; preds = %lean_dec.exit179, %
   br label %lean_nat_add.exit
 
 52:                                               ; preds = %45
-  %53 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %46) #3
+  %53 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_nat_add.exit
 
 .critedge.i162:                                   ; preds = %lean_array_fget.exit
@@ -3850,7 +3850,7 @@ lean_array_fget.exit:                             ; preds = %lean_dec.exit179, %
   br label %lean_nat_add.exit
 
 51:                                               ; preds = %44
-  %52 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %45) #3
+  %52 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_nat_add.exit
 
 .critedge.i162:                                   ; preds = %lean_array_fget.exit
@@ -5429,7 +5429,7 @@ lean_array_fget.exit:                             ; preds = %lean_dec.exit179, %
   br label %lean_nat_add.exit
 
 52:                                               ; preds = %45
-  %53 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %46) #3
+  %53 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_nat_add.exit
 
 .critedge.i162:                                   ; preds = %lean_array_fget.exit
@@ -6506,7 +6506,7 @@ lean_array_fget.exit:                             ; preds = %lean_dec.exit179, %
   br label %lean_nat_add.exit
 
 51:                                               ; preds = %44
-  %52 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %45) #3
+  %52 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_nat_add.exit
 
 .critedge.i162:                                   ; preds = %lean_array_fget.exit
@@ -13592,18 +13592,18 @@ lean_dec_ref.exit16:                              ; preds = %34, %36, %37
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit16, %3
-  %.sink25 = phi ptr [ %4, %3 ], [ %39, %lean_dec_ref.exit16 ]
-  %42 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
-  store i32 1, ptr %.sink25, align 4, !tbaa !5
+  %.sink32 = phi ptr [ %4, %3 ], [ %39, %lean_dec_ref.exit16 ]
+  %42 = getelementptr inbounds nuw i8, ptr %.sink32, i64 4
+  store i32 1, ptr %.sink32, align 4, !tbaa !5
   store i32 131096, ptr %42, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.sink32, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %43, align 8, !tbaa !11
-  %44 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.sink32, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %44, align 8, !tbaa !11
   br label %45
 
 45:                                               ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit14 ], [ %.sink25, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit14 ], [ %.sink32, %.sink.split ]
   ret ptr %.0
 }
 

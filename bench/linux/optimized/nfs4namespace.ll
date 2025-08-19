@@ -774,8 +774,13 @@ define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonl
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %25
 
-.thread17:                                        ; preds = %25, %30, %33, %37, %.thread20, %89
-  %20 = phi i32 [ %49, %89 ], [ %.ph19, %.thread20 ], [ -12, %37 ], [ %27, %33 ], [ %27, %30 ], [ %27, %25 ]
+.thread17.sink.split:                             ; preds = %.thread13, %80, %43
+  %.ph = phi i32 [ -2, %43 ], [ -12, %80 ], [ %49, %.thread13 ]
+  tail call void @kfree(ptr noundef nonnull %41) #9
+  br label %.thread17
+
+.thread17:                                        ; preds = %.thread17.sink.split, %25, %30, %33, %37
+  %20 = phi i32 [ -12, %37 ], [ %27, %33 ], [ %27, %30 ], [ %27, %25 ], [ %.ph, %.thread17.sink.split ]
   %21 = add nuw nsw i64 %26, 1
   %22 = load i32, ptr %5, align 8
   %23 = sext i32 %22 to i64
@@ -811,7 +816,7 @@ define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonl
 43:                                               ; preds = %37
   %44 = load i32, ptr %28, align 8
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.thread20, label %46
+  br i1 %45, label %.thread17.sink.split, label %46
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -824,7 +829,7 @@ define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonl
   %51 = load i32, ptr %28, align 8
   %52 = zext i32 %51 to i64
   %53 = icmp samesign ult i64 %50, %52
-  br i1 %53, label %54, label %89, !llvm.loop !18
+  br i1 %53, label %54, label %.thread17.sink.split, !llvm.loop !18
 
 54:                                               ; preds = %.thread13, %46
   %55 = phi i64 [ 0, %46 ], [ %50, %.thread13 ]
@@ -879,7 +884,7 @@ define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonl
   %83 = zext i32 %82 to i64
   %84 = tail call ptr @kmemdup_nul(ptr noundef %81, i64 noundef %83, i32 noundef 3264) #9
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %.thread20, label %86
+  br i1 %85, label %.thread17.sink.split, label %86
 
 86:                                               ; preds = %80
   %87 = tail call i32 @nfs4_update_server(ptr noundef %0, ptr noundef nonnull %84, ptr noundef nonnull %41, i64 noundef %77, ptr noundef %39) #9
@@ -891,23 +896,13 @@ define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonl
   tail call void @kfree(ptr noundef nonnull %41) #9
   br label %.loopexit
 
-.thread20:                                        ; preds = %80, %43
-  %.ph19 = phi i32 [ -2, %43 ], [ -12, %80 ]
-  tail call void @kfree(ptr noundef nonnull %41) #9
-  br label %.thread17
-
-89:                                               ; preds = %.thread13
-  tail call void @kfree(ptr noundef nonnull %41) #9
-  %90 = icmp eq i32 %49, 0
-  br i1 %90, label %.loopexit, label %.thread17
-
-.loopexit:                                        ; preds = %89, %.thread17, %.thread21, %14, %11, %8, %4, %2
-  %91 = phi i64 [ 0, %2 ], [ 0, %4 ], [ %9, %11 ], [ 0, %8 ], [ %9, %14 ], [ %9, %.thread21 ], [ %9, %.thread17 ], [ %9, %89 ]
-  %92 = phi i64 [ 0, %2 ], [ 0, %4 ], [ 0, %11 ], [ 0, %8 ], [ %12, %14 ], [ %12, %.thread21 ], [ %12, %.thread17 ], [ %12, %89 ]
-  %93 = phi i32 [ -2, %2 ], [ -2, %4 ], [ -12, %11 ], [ -12, %8 ], [ -12, %14 ], [ 0, %.thread21 ], [ 0, %89 ], [ %20, %.thread17 ]
-  tail call void @free_pages(i64 noundef %91, i32 noundef 0) #9
-  tail call void @free_pages(i64 noundef %92, i32 noundef 0) #9
-  ret i32 %93
+.loopexit:                                        ; preds = %.thread17, %.thread21, %14, %11, %8, %4, %2
+  %89 = phi i64 [ 0, %2 ], [ 0, %4 ], [ %9, %11 ], [ 0, %8 ], [ %9, %14 ], [ %9, %.thread21 ], [ %9, %.thread17 ]
+  %90 = phi i64 [ 0, %2 ], [ 0, %4 ], [ 0, %11 ], [ 0, %8 ], [ %12, %14 ], [ %12, %.thread21 ], [ %12, %.thread17 ]
+  %91 = phi i32 [ -2, %2 ], [ -2, %4 ], [ -12, %11 ], [ -12, %8 ], [ -12, %14 ], [ 0, %.thread21 ], [ %20, %.thread17 ]
+  tail call void @free_pages(i64 noundef %89, i32 noundef 0) #9
+  tail call void @free_pages(i64 noundef %90, i32 noundef 0) #9
+  ret i32 %91
 }
 
 ; Function Attrs: null_pointer_is_valid

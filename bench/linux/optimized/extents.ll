@@ -419,20 +419,20 @@ define internal fastcc noundef range(i32 -117, 1) i32 @__ext4_ext_check(ptr noun
   br i1 %99, label %.critedge, label %54, !llvm.loop !14
 
 100:                                              ; preds = %46
-  br i1 %24, label %.preheader59, label %101
+  br i1 %24, label %.preheader68, label %101
 
 101:                                              ; preds = %100
   %102 = load i32, ptr %48, align 4
   %103 = icmp eq i32 %102, %6
-  br i1 %103, label %.preheader59, label %.critedge.thread
+  br i1 %103, label %.preheader68, label %.critedge.thread
 
-.preheader59:                                     ; preds = %101, %100
+.preheader68:                                     ; preds = %101, %100
   br label %104
 
-104:                                              ; preds = %.preheader59, %130
-  %105 = phi ptr [ %131, %130 ], [ %48, %.preheader59 ]
-  %106 = phi i32 [ %133, %130 ], [ 0, %.preheader59 ]
-  %107 = phi i16 [ %132, %130 ], [ %39, %.preheader59 ]
+104:                                              ; preds = %.preheader68, %130
+  %105 = phi ptr [ %131, %130 ], [ %48, %.preheader68 ]
+  %106 = phi i32 [ %133, %130 ], [ 0, %.preheader68 ]
+  %107 = phi i16 [ %132, %130 ], [ %39, %.preheader68 ]
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %109 = load i32, ptr %108, align 4
   %110 = zext i32 %109 to i64
@@ -495,7 +495,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @__ext4_ext_check(ptr noun
   %152 = getelementptr inbounds nuw i8, ptr %144, i64 1280
   %153 = load ptr, ptr %152, align 64
   %154 = icmp eq ptr %153, null
-  br i1 %154, label %155, label %.thread35, !prof !9
+  br i1 %154, label %155, label %.thread44, !prof !9
 
 155:                                              ; preds = %151
   tail call void asm sideeffect "467: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 467b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 467) #16, !srcloc !16
@@ -508,16 +508,16 @@ define internal fastcc noundef range(i32 -117, 1) i32 @__ext4_ext_check(ptr noun
   %.pre32 = load i32, ptr %.phi.trans.insert31, align 4
   %.pre33 = and i32 %.pre32, 1024
   %156 = icmp eq i32 %.pre33, 0
-  br i1 %156, label %.thread, label %.thread35
+  br i1 %156, label %.thread, label %.thread44
 
-.thread35:                                        ; preds = %151, %155
+.thread44:                                        ; preds = %151, %155
   %157 = phi ptr [ %.pre, %155 ], [ %144, %151 ]
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 1280
   %159 = load ptr, ptr %158, align 64
   %160 = icmp eq ptr %159, null
   br i1 %160, label %.thread, label %161
 
-161:                                              ; preds = %.thread35
+161:                                              ; preds = %.thread44
   %162 = load i16, ptr %17, align 4
   %163 = zext i16 %162 to i64
   %164 = mul nuw nsw i64 %163, 12
@@ -585,8 +585,8 @@ define internal fastcc noundef range(i32 -117, 1) i32 @__ext4_ext_check(ptr noun
   call void (ptr, ptr, i32, i64, i32, ptr, ...) @__ext4_error_inode(ptr noundef %2, ptr noundef %0, i32 noundef %1, i64 noundef 0, i32 noundef %194, ptr noundef nonnull @.str.16, i64 noundef %190, ptr noundef nonnull %191, i32 noundef %196, i32 noundef %199, i32 noundef %202, i32 noundef %192, i32 noundef %205, i32 noundef %4) #16
   br label %.thread
 
-.thread:                                          ; preds = %140, %.critedge.thread, %187, %.thread35, %155, %136
-  %206 = phi i32 [ %193, %.critedge.thread ], [ 0, %187 ], [ 0, %136 ], [ 0, %155 ], [ 0, %.thread35 ], [ 0, %140 ]
+.thread:                                          ; preds = %140, %.critedge.thread, %187, %.thread44, %155, %136
+  %206 = phi i32 [ %193, %.critedge.thread ], [ 0, %187 ], [ 0, %136 ], [ 0, %155 ], [ 0, %.thread44 ], [ 0, %140 ]
   ret i32 %206
 }
 
@@ -1030,7 +1030,7 @@ define dso_local ptr @ext4_find_extent(ptr noundef %0, i32 noundef %1, ptr nound
   %51 = select i1 %47, i32 3392, i32 36160
   %52 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %50, i32 noundef %51) #17
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %.thread43, label %54, !prof !9
+  br i1 %53, label %.thread68, label %54, !prof !9
 
 54:                                               ; preds = %.thread28
   %55 = add nuw nsw i16 %45, 1
@@ -1107,7 +1107,7 @@ define dso_local ptr @ext4_find_extent(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %65, label %.thread29, label %.preheader33.preheader
 
 .preheader33.preheader:                           ; preds = %.loopexit34
-  %105 = zext i16 %58 to i32
+  %105 = zext nneg i16 %58 to i32
   %.pre42 = load ptr, ptr %61, align 8
   br label %.preheader33
 
@@ -1159,7 +1159,7 @@ define dso_local ptr @ext4_find_extent(ptr noundef %0, i32 noundef %1, ptr nound
   %142 = or disjoint i64 %141, %137
   store i64 %142, ptr %109, align 8
   %143 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %144 = trunc nuw i32 %indvars.iv to i16
+  %144 = trunc nuw nsw i32 %indvars.iv to i16
   store i16 %144, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %109, i64 16
   store ptr null, ptr %145, align 8
@@ -1203,7 +1203,7 @@ define dso_local ptr @ext4_find_extent(ptr noundef %0, i32 noundef %1, ptr nound
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 2
   %170 = load i16, ptr %169, align 2
   %171 = icmp eq i16 %170, 0
-  br i1 %171, label %.thread43, label %172
+  br i1 %171, label %.thread68, label %172
 
 172:                                              ; preds = %.thread29
   %173 = getelementptr i8, ptr %168, i64 12
@@ -1212,7 +1212,7 @@ define dso_local ptr @ext4_find_extent(ptr noundef %0, i32 noundef %1, ptr nound
   %176 = getelementptr %struct.ext4_extent, ptr %173, i64 %175
   %177 = getelementptr i8, ptr %176, i64 -12
   %178 = icmp ugt ptr %174, %177
-  br i1 %178, label %.loopexit44, label %.preheader
+  br i1 %178, label %.loopexit69, label %.preheader
 
 .preheader:                                       ; preds = %172, %.preheader
   %179 = phi ptr [ %191, %.preheader ], [ %177, %172 ]
@@ -1229,16 +1229,16 @@ define dso_local ptr @ext4_find_extent(ptr noundef %0, i32 noundef %1, ptr nound
   %190 = select i1 %187, ptr %180, ptr %189
   %191 = select i1 %187, ptr %188, ptr %179
   %192 = icmp ugt ptr %190, %191
-  br i1 %192, label %.loopexit44, label %.preheader, !llvm.loop !38
+  br i1 %192, label %.loopexit69, label %.preheader, !llvm.loop !38
 
-.loopexit44:                                      ; preds = %.preheader, %172
+.loopexit69:                                      ; preds = %.preheader, %172
   %193 = phi ptr [ %174, %172 ], [ %190, %.preheader ]
   %194 = getelementptr i8, ptr %193, i64 -12
   store ptr %194, ptr %166, align 8
   %195 = icmp eq ptr %194, null
-  br i1 %195, label %.thread43, label %196
+  br i1 %195, label %.thread68, label %196
 
-196:                                              ; preds = %.loopexit44
+196:                                              ; preds = %.loopexit69
   %197 = getelementptr i8, ptr %193, i64 -4
   %198 = load i32, ptr %197, align 4
   %199 = zext i32 %198 to i64
@@ -1248,7 +1248,7 @@ define dso_local ptr @ext4_find_extent(ptr noundef %0, i32 noundef %1, ptr nound
   %203 = shl nuw nsw i64 %202, 32
   %204 = or disjoint i64 %203, %199
   store i64 %204, ptr %164, align 8
-  br label %.thread43
+  br label %.thread68
 
 205:                                              ; preds = %149, %18
   %206 = phi ptr [ %20, %18 ], [ %60, %149 ]
@@ -1291,10 +1291,10 @@ define dso_local ptr @ext4_find_extent(ptr noundef %0, i32 noundef %1, ptr nound
 
 225:                                              ; preds = %224, %.loopexit
   %226 = inttoptr i64 %207 to ptr
-  br label %.thread43
+  br label %.thread68
 
-.thread43:                                        ; preds = %.thread29, %225, %196, %.loopexit44, %.thread28
-  %227 = phi ptr [ %226, %225 ], [ %60, %196 ], [ %60, %.loopexit44 ], [ inttoptr (i64 -12 to ptr), %.thread28 ], [ %60, %.thread29 ]
+.thread68:                                        ; preds = %.thread29, %225, %196, %.loopexit69, %.thread28
+  %227 = phi ptr [ %226, %225 ], [ %60, %196 ], [ %60, %.loopexit69 ], [ inttoptr (i64 -12 to ptr), %.thread28 ], [ %60, %.thread29 ]
   ret ptr %227
 }
 
@@ -3366,9 +3366,9 @@ define dso_local i32 @ext4_ext_remove_space(ptr noundef %0, i32 noundef %1, i32 
   br label %67
 
 67:                                               ; preds = %64, %60, %47, %44
-  br i1 %25, label %70, label %.thread177
+  br i1 %25, label %70, label %.thread235
 
-.thread177:                                       ; preds = %67
+.thread235:                                       ; preds = %67
   %68 = load i16, ptr %13, align 2
   %69 = zext i16 %68 to i32
   br label %165
@@ -3528,9 +3528,9 @@ define dso_local i32 @ext4_ext_remove_space(ptr noundef %0, i32 noundef %1, i32 
   %164 = icmp samesign ugt i64 %155, 2
   br i1 %164, label %154, label %.loopexit74.loopexit, !llvm.loop !68
 
-165:                                              ; preds = %.thread177, %146
-  %166 = phi i32 [ %69, %.thread177 ], [ %148, %146 ]
-  %167 = phi i16 [ %68, %.thread177 ], [ %147, %146 ]
+165:                                              ; preds = %.thread235, %146
+  %166 = phi i32 [ %69, %.thread235 ], [ %148, %146 ]
+  %167 = phi i16 [ %68, %.thread235 ], [ %147, %146 ]
   %168 = mul nuw nsw i32 %166, 48
   %169 = add nuw nsw i32 %168, 48
   %170 = zext nneg i32 %169 to i64
@@ -3900,7 +3900,7 @@ ext4_datasem_ensure_credits.exit:                 ; preds = %361
   %409 = getelementptr inbounds nuw i8, ptr %395, i64 536
   %410 = load ptr, ptr %409, align 8
   call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %410, ptr noundef nonnull @__func__.ext4_remove_blocks, i32 noundef 2446, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.37, i32 noundef %267, i32 noundef %269, i32 noundef %402, i32 noundef %401) #16
-  br label %.thread180
+  br label %.thread238
 
 411:                                              ; preds = %404
   %412 = zext i32 %269 to i64
@@ -4164,7 +4164,7 @@ ext4_datasem_ensure_credits.exit:                 ; preds = %361
   %574 = zext nneg i32 %573 to i64
   %575 = lshr i64 %505, %574
   %576 = icmp eq i64 %571, %575
-  br i1 %576, label %.thread179, label %577
+  br i1 %576, label %.thread237, label %577
 
 577:                                              ; preds = %570, %565
   %578 = load i32, ptr %518, align 16
@@ -4175,14 +4175,14 @@ ext4_datasem_ensure_credits.exit:                 ; preds = %361
   %583 = select i1 %581, i1 %582, i1 false
   br i1 %583, label %590, label %595
 
-.thread179:                                       ; preds = %570
+.thread237:                                       ; preds = %570
   %584 = load i32, ptr %518, align 16
   %585 = add i32 %584, -1
   %586 = and i32 %585, %267
   %587 = icmp ne i32 %586, 0
   %588 = icmp eq i32 %502, %401
   %589 = select i1 %587, i1 %588, i1 false
-  br i1 %589, label %.thread180, label %595
+  br i1 %589, label %.thread238, label %595
 
 590:                                              ; preds = %577
   %591 = getelementptr inbounds nuw i8, ptr %395, i64 84
@@ -4192,17 +4192,17 @@ ext4_datasem_ensure_credits.exit:                 ; preds = %361
   store i64 %594, ptr %6, align 8
   store i32 %267, ptr %16, align 8
   store i32 1, ptr %17, align 4
-  br label %.thread180
+  br label %.thread238
 
-595:                                              ; preds = %.thread179, %577
+595:                                              ; preds = %.thread237, %577
   store i32 0, ptr %17, align 4
-  br label %.thread180
+  br label %.thread238
 
-.thread180:                                       ; preds = %.thread179, %595, %590, %408
+.thread238:                                       ; preds = %.thread237, %595, %590, %408
   %596 = icmp eq i32 %307, 0
   br i1 %596, label %605, label %597
 
-597:                                              ; preds = %.thread180
+597:                                              ; preds = %.thread238
   %598 = trunc i32 %307 to i16
   store i16 %598, ptr %264, align 4
   br i1 %266, label %599, label %.thread61
@@ -4222,7 +4222,7 @@ ext4_datasem_ensure_credits.exit:                 ; preds = %361
   store i16 %604, ptr %264, align 4
   br label %.thread61
 
-605:                                              ; preds = %.thread180
+605:                                              ; preds = %.thread238
   store i64 0, ptr %264, align 4
   br i1 %35, label %617, label %606
 
@@ -4508,16 +4508,16 @@ __ext4_ext_dirty.exit.thread62:                   ; preds = %ext4_extent_block_c
 
 .sink.split:                                      ; preds = %__ext4_ext_dirty.exit.thread62, %846
   %.sink = phi ptr [ %849, %846 ], [ %767, %__ext4_ext_dirty.exit.thread62 ]
-  %.ph224 = phi ptr [ %186, %846 ], [ %765, %__ext4_ext_dirty.exit.thread62 ]
-  %.ph225 = phi ptr [ %848, %846 ], [ %766, %__ext4_ext_dirty.exit.thread62 ]
-  %.ph226 = phi i32 [ %847, %846 ], [ %764, %__ext4_ext_dirty.exit.thread62 ]
+  %.ph282 = phi ptr [ %186, %846 ], [ %765, %__ext4_ext_dirty.exit.thread62 ]
+  %.ph283 = phi ptr [ %848, %846 ], [ %766, %__ext4_ext_dirty.exit.thread62 ]
+  %.ph284 = phi i32 [ %847, %846 ], [ %764, %__ext4_ext_dirty.exit.thread62 ]
   call void @__brelse(ptr noundef nonnull %.sink) #16
   br label %769
 
 769:                                              ; preds = %.sink.split, %846, %__ext4_ext_dirty.exit.thread62
-  %770 = phi ptr [ %765, %__ext4_ext_dirty.exit.thread62 ], [ %186, %846 ], [ %.ph224, %.sink.split ]
-  %771 = phi ptr [ %766, %__ext4_ext_dirty.exit.thread62 ], [ %848, %846 ], [ %.ph225, %.sink.split ]
-  %772 = phi i32 [ %764, %__ext4_ext_dirty.exit.thread62 ], [ %847, %846 ], [ %.ph226, %.sink.split ]
+  %770 = phi ptr [ %765, %__ext4_ext_dirty.exit.thread62 ], [ %186, %846 ], [ %.ph282, %.sink.split ]
+  %771 = phi ptr [ %766, %__ext4_ext_dirty.exit.thread62 ], [ %848, %846 ], [ %.ph283, %.sink.split ]
+  %772 = phi i32 [ %764, %__ext4_ext_dirty.exit.thread62 ], [ %847, %846 ], [ %.ph284, %.sink.split ]
   store ptr null, ptr %771, align 8
   %773 = add nsw i32 %187, -1
   br label %774
@@ -6708,8 +6708,8 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %876, label %846, label %.thread118, !llvm.loop !41
 
 .thread118.sink.split:                            ; preds = %863, %853
-  %.lcssa175.sink = phi ptr [ %851, %853 ], [ %865, %863 ]
-  %877 = getelementptr i8, ptr %.lcssa175.sink, i64 12
+  %.lcssa269.sink = phi ptr [ %851, %853 ], [ %865, %863 ]
+  %877 = getelementptr i8, ptr %.lcssa269.sink, i64 12
   %878 = load i32, ptr %877, align 4
   br label %.thread118
 
@@ -7081,15 +7081,15 @@ thread-pre-split:                                 ; preds = %925, %._crit_edge
   br i1 %.not, label %1102, label %.thread
 
 1102:                                             ; preds = %1099
-  %.not183 = icmp eq i32 %1100, -1
-  br i1 %.not183, label %ext4_ext_check_overlap.exit, label %ext4_ext_check_overlap.exit.thread119
+  %.not277 = icmp eq i32 %1100, -1
+  br i1 %.not277, label %ext4_ext_check_overlap.exit, label %ext4_ext_check_overlap.exit.thread119
 
 .thread:                                          ; preds = %1099
   %1103 = add i32 %1044, %811
   %1104 = icmp ugt i32 %1103, %1100
-  br i1 %1104, label %ext4_ext_check_overlap.exit.thread119, label %ext4_ext_check_overlap.exit.thread164
+  br i1 %1104, label %ext4_ext_check_overlap.exit.thread119, label %ext4_ext_check_overlap.exit.thread258
 
-ext4_ext_check_overlap.exit.thread164:            ; preds = %.thread
+ext4_ext_check_overlap.exit.thread258:            ; preds = %.thread
   store i32 0, ptr %10, align 4
   br label %1111
 
@@ -7112,8 +7112,8 @@ ext4_ext_check_overlap.exit:                      ; preds = %1102, %ext4_ext_che
   %1110 = select i1 %1108, i32 %1107, i32 %1109
   br label %1111
 
-1111:                                             ; preds = %ext4_ext_check_overlap.exit.thread164, %ext4_ext_check_overlap.exit, %ext4_ext_check_overlap.exit.thread
-  %1112 = phi i32 [ %1110, %ext4_ext_check_overlap.exit ], [ %1038, %ext4_ext_check_overlap.exit.thread ], [ %1038, %ext4_ext_check_overlap.exit.thread164 ]
+1111:                                             ; preds = %ext4_ext_check_overlap.exit.thread258, %ext4_ext_check_overlap.exit, %ext4_ext_check_overlap.exit.thread
+  %1112 = phi i32 [ %1110, %ext4_ext_check_overlap.exit ], [ %1038, %ext4_ext_check_overlap.exit.thread ], [ %1038, %ext4_ext_check_overlap.exit.thread258 ]
   store ptr %1, ptr %11, align 8
   %1113 = load i16, ptr %946, align 8
   %1114 = zext i16 %1113 to i64
@@ -7190,8 +7190,8 @@ ext4_ext_find_goal.exit:                          ; preds = %1119, %1142, %1145
   %spec.select124 = or disjoint i32 %spec.select, %1169
   %1170 = shl i32 %3, 8
   %1171 = and i32 %1170, 8192
-  %spec.select182 = or disjoint i32 %spec.select124, %1171
-  store i32 %spec.select182, ptr %1165, align 8
+  %spec.select276 = or disjoint i32 %spec.select124, %1171
+  store i32 %spec.select276, ptr %1165, align 8
   %1172 = call i64 @ext4_mb_new_blocks(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %10) #16
   %1173 = icmp eq i64 %1172, 0
   br i1 %1173, label %.thread115, label %1174
@@ -9117,9 +9117,9 @@ define dso_local i32 @ext4_convert_unwritten_extents(ptr noundef %0, ptr noundef
   %21 = sub i64 %20, %10
   %22 = trunc i64 %21 to i32
   %23 = icmp eq ptr %0, null
-  br i1 %23, label %27, label %.thread15
+  br i1 %23, label %27, label %.thread26
 
-.thread15:                                        ; preds = %4
+.thread26:                                        ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -9134,10 +9134,10 @@ define dso_local i32 @ext4_convert_unwritten_extents(ptr noundef %0, ptr noundef
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br i1 %31, label %.split.us.preheader, label %.split
 
-.split.us.preheader:                              ; preds = %.thread15, %27
-  %34 = phi ptr [ %26, %.thread15 ], [ %33, %27 ]
-  %35 = phi ptr [ %25, %.thread15 ], [ %32, %27 ]
-  %36 = phi ptr [ %24, %.thread15 ], [ %30, %27 ]
+.split.us.preheader:                              ; preds = %.thread26, %27
+  %34 = phi ptr [ %26, %.thread26 ], [ %33, %27 ]
+  %35 = phi ptr [ %25, %.thread26 ], [ %32, %27 ]
+  %36 = phi ptr [ %24, %.thread26 ], [ %30, %27 ]
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %51
@@ -9154,9 +9154,9 @@ define dso_local i32 @ext4_convert_unwritten_extents(ptr noundef %0, ptr noundef
   store i32 %43, ptr %36, align 4
   %44 = call i32 @ext4_map_blocks(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 19) #16
   %45 = icmp slt i32 %44, 1
-  br i1 %45, label %.thread17, label %51
+  br i1 %45, label %.thread28, label %51
 
-.thread17:                                        ; preds = %40
+.thread28:                                        ; preds = %40
   %46 = load ptr, ptr %35, align 8
   %47 = load i64, ptr %34, align 8
   %48 = load i32, ptr %12, align 8
@@ -9221,9 +9221,9 @@ define dso_local i32 @ext4_convert_unwritten_extents(ptr noundef %0, ptr noundef
   %85 = select i1 %73, i1 true, i1 %84
   br i1 %85, label %.thread, label %.split, !llvm.loop !167
 
-.thread:                                          ; preds = %.split, %83, %79, %51, %.split.us, %.thread17, %68
-  %86 = phi i32 [ %70, %68 ], [ %44, %.thread17 ], [ %38, %.split.us ], [ %44, %51 ], [ %72, %79 ], [ %54, %.split ], [ %72, %83 ]
-  %87 = phi i32 [ 0, %68 ], [ %50, %.thread17 ], [ 0, %.split.us ], [ %52, %51 ], [ %81, %79 ], [ 0, %.split ], [ %80, %83 ]
+.thread:                                          ; preds = %.split, %83, %79, %51, %.split.us, %.thread28, %68
+  %86 = phi i32 [ %70, %68 ], [ %44, %.thread28 ], [ %38, %.split.us ], [ %44, %51 ], [ %72, %79 ], [ %54, %.split ], [ %72, %83 ]
+  %87 = phi i32 [ 0, %68 ], [ %50, %.thread28 ], [ 0, %.split.us ], [ %52, %51 ], [ %81, %79 ], [ 0, %.split ], [ %80, %83 ]
   %88 = icmp sgt i32 %86, 0
   %89 = select i1 %88, i32 %87, i32 %86
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -9833,8 +9833,8 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %172, label %142, label %.thread32, !llvm.loop !41
 
 .thread32.sink.split:                             ; preds = %159, %149
-  %.lcssa67.sink = phi ptr [ %147, %149 ], [ %161, %159 ]
-  %173 = getelementptr i8, ptr %.lcssa67.sink, i64 12
+  %.lcssa100.sink = phi ptr [ %147, %149 ], [ %161, %159 ]
+  %173 = getelementptr i8, ptr %.lcssa100.sink, i64 12
   %174 = load i32, ptr %173, align 4
   br label %.thread32
 
@@ -9861,7 +9861,7 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
 
 191:                                              ; preds = %65
   %.not = icmp ult i32 %66, %36
-  br i1 %.not, label %192, label %.thread62
+  br i1 %.not, label %192, label %.thread95
 
 192:                                              ; preds = %191
   %193 = select i1 %71, i32 0, i32 6
@@ -9874,11 +9874,11 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
   %197 = icmp ult i32 %67, %37
   br i1 %197, label %199, label %.thread33
 
-.thread62:                                        ; preds = %191
+.thread95:                                        ; preds = %191
   %198 = icmp ult i32 %67, %37
   br i1 %198, label %199, label %210
 
-199:                                              ; preds = %.thread62, %196
+199:                                              ; preds = %.thread95, %196
   %200 = load i16, ptr %57, align 8
   %201 = zext i16 %200 to i64
   %202 = getelementptr %struct.ext4_ext_path, ptr %45, i64 %201, i32 3
@@ -9893,7 +9893,7 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
   %spec.select = select i1 %209, i32 %38, i32 0, !prof !13
   br label %.thread33
 
-210:                                              ; preds = %.thread62
+210:                                              ; preds = %.thread95
   %211 = sub nuw i32 %66, %36
   %212 = add i32 %211, %74
   %213 = call i32 @llvm.umin.i32(i32 %38, i32 %212)
@@ -9918,17 +9918,17 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
   %230 = call fastcc i32 @ext4_split_extent_at(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, i32 noundef %219, i32 noundef %229, i32 noundef 1073741832)
   store i32 %230, ptr %7, align 4
   %231 = icmp eq i32 %230, 0
-  br i1 %231, label %.thread64, label %.thread33, !prof !13
+  br i1 %231, label %.thread97, label %.thread33, !prof !13
 
 232:                                              ; preds = %210
   %233 = icmp eq i32 %216, %81
   br i1 %233, label %247, label %235
 
-.thread64:                                        ; preds = %218
+.thread97:                                        ; preds = %218
   %234 = icmp eq i32 %216, %81
   br i1 %234, label %.thread33, label %235
 
-235:                                              ; preds = %.thread64, %232
+235:                                              ; preds = %.thread97, %232
   %236 = add i32 %216, %37
   %237 = load i16, ptr %57, align 8
   %238 = zext i16 %237 to i64
@@ -10168,11 +10168,11 @@ __ext4_ext_dirty.exit29:                          ; preds = %335
   %358 = sub i32 %38, %81
   br label %.thread33
 
-.thread33:                                        ; preds = %.thread64, %196, %235, %199, %__ext4_ext_dirty.exit29.thread40, %__ext4_ext_dirty.exit.thread39, %276, %262, %354, %__ext4_ext_dirty.exit29, %__ext4_ext_dirty.exit, %218, %192, %183, %.thread32, %50, %47
-  %.ph41 = phi i32 [ %39, %__ext4_ext_dirty.exit29.thread40 ], [ %39, %__ext4_ext_dirty.exit.thread39 ], [ %39, %183 ], [ %39, %.thread32 ], [ %39, %47 ], [ %39, %50 ], [ %39, %192 ], [ %39, %218 ], [ %39, %262 ], [ %39, %276 ], [ %39, %__ext4_ext_dirty.exit ], [ %39, %__ext4_ext_dirty.exit29 ], [ %357, %354 ], [ %39, %199 ], [ %39, %235 ], [ %39, %196 ], [ %39, %.thread64 ]
-  %.ph42 = phi i32 [ 0, %__ext4_ext_dirty.exit29.thread40 ], [ 0, %__ext4_ext_dirty.exit.thread39 ], [ %190, %183 ], [ 0, %.thread32 ], [ 0, %47 ], [ 0, %50 ], [ 0, %192 ], [ 0, %218 ], [ 0, %262 ], [ 0, %276 ], [ 0, %__ext4_ext_dirty.exit ], [ 0, %__ext4_ext_dirty.exit29 ], [ %358, %354 ], [ %spec.select, %199 ], [ %spec.select46, %235 ], [ %38, %196 ], [ %38, %.thread64 ]
-  %.ph43 = phi i32 [ %37, %__ext4_ext_dirty.exit29.thread40 ], [ %37, %__ext4_ext_dirty.exit.thread39 ], [ %189, %183 ], [ %37, %.thread32 ], [ %37, %47 ], [ %37, %50 ], [ %37, %192 ], [ %37, %218 ], [ %37, %262 ], [ %37, %276 ], [ %37, %__ext4_ext_dirty.exit ], [ %37, %__ext4_ext_dirty.exit29 ], [ %356, %354 ], [ %37, %199 ], [ %37, %235 ], [ %37, %196 ], [ %37, %.thread64 ]
-  %.ph44 = phi i32 [ %36, %__ext4_ext_dirty.exit29.thread40 ], [ %36, %__ext4_ext_dirty.exit.thread39 ], [ %188, %183 ], [ %36, %.thread32 ], [ %36, %47 ], [ %36, %50 ], [ %36, %192 ], [ %36, %218 ], [ %36, %262 ], [ %36, %276 ], [ %36, %__ext4_ext_dirty.exit ], [ %36, %__ext4_ext_dirty.exit29 ], [ %355, %354 ], [ %36, %199 ], [ %36, %235 ], [ %36, %196 ], [ %36, %.thread64 ]
+.thread33:                                        ; preds = %.thread97, %196, %235, %199, %__ext4_ext_dirty.exit29.thread40, %__ext4_ext_dirty.exit.thread39, %276, %262, %354, %__ext4_ext_dirty.exit29, %__ext4_ext_dirty.exit, %218, %192, %183, %.thread32, %50, %47
+  %.ph41 = phi i32 [ %39, %__ext4_ext_dirty.exit29.thread40 ], [ %39, %__ext4_ext_dirty.exit.thread39 ], [ %39, %183 ], [ %39, %.thread32 ], [ %39, %47 ], [ %39, %50 ], [ %39, %192 ], [ %39, %218 ], [ %39, %262 ], [ %39, %276 ], [ %39, %__ext4_ext_dirty.exit ], [ %39, %__ext4_ext_dirty.exit29 ], [ %357, %354 ], [ %39, %199 ], [ %39, %235 ], [ %39, %196 ], [ %39, %.thread97 ]
+  %.ph42 = phi i32 [ 0, %__ext4_ext_dirty.exit29.thread40 ], [ 0, %__ext4_ext_dirty.exit.thread39 ], [ %190, %183 ], [ 0, %.thread32 ], [ 0, %47 ], [ 0, %50 ], [ 0, %192 ], [ 0, %218 ], [ 0, %262 ], [ 0, %276 ], [ 0, %__ext4_ext_dirty.exit ], [ 0, %__ext4_ext_dirty.exit29 ], [ %358, %354 ], [ %spec.select, %199 ], [ %spec.select46, %235 ], [ %38, %196 ], [ %38, %.thread97 ]
+  %.ph43 = phi i32 [ %37, %__ext4_ext_dirty.exit29.thread40 ], [ %37, %__ext4_ext_dirty.exit.thread39 ], [ %189, %183 ], [ %37, %.thread32 ], [ %37, %47 ], [ %37, %50 ], [ %37, %192 ], [ %37, %218 ], [ %37, %262 ], [ %37, %276 ], [ %37, %__ext4_ext_dirty.exit ], [ %37, %__ext4_ext_dirty.exit29 ], [ %356, %354 ], [ %37, %199 ], [ %37, %235 ], [ %37, %196 ], [ %37, %.thread97 ]
+  %.ph44 = phi i32 [ %36, %__ext4_ext_dirty.exit29.thread40 ], [ %36, %__ext4_ext_dirty.exit.thread39 ], [ %188, %183 ], [ %36, %.thread32 ], [ %36, %47 ], [ %36, %50 ], [ %36, %192 ], [ %36, %218 ], [ %36, %262 ], [ %36, %276 ], [ %36, %__ext4_ext_dirty.exit ], [ %36, %__ext4_ext_dirty.exit29 ], [ %355, %354 ], [ %36, %199 ], [ %36, %235 ], [ %36, %196 ], [ %36, %.thread97 ]
   %.pr = load ptr, ptr %9, align 8
   %359 = icmp eq ptr %.pr, null
   br i1 %359, label %.loopexit48, label %360
@@ -11848,7 +11848,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ext4_ext_try_to_merge_right(
   %37 = add i32 %36, %35
   %38 = load i32, ptr %17, align 4
   %39 = icmp eq i32 %37, %38
-  br i1 %39, label %.lr.ph12, label %.critedge
+  br i1 %39, label %.lr.ph16, label %.critedge
 
 40:                                               ; preds = %3
   tail call void asm sideeffect "2064: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2064b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2064) #16, !srcloc !191
@@ -11873,9 +11873,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @ext4_ext_try_to_merge_right(
   %54 = add i32 %53, %52
   %55 = load i32, ptr %17, align 4
   %56 = icmp eq i32 %54, %55
-  br i1 %56, label %.lr.ph12, label %.critedge, !llvm.loop !193
+  br i1 %56, label %.lr.ph16, label %.critedge, !llvm.loop !193
 
-.lr.ph12:                                         ; preds = %.lr.ph, %47
+.lr.ph16:                                         ; preds = %.lr.ph, %47
   %.in = phi i64 [ %51, %47 ], [ %34, %.lr.ph ]
   %57 = phi i32 [ %52, %47 ], [ %35, %.lr.ph ]
   %58 = phi i1 [ %49, %47 ], [ %32, %.lr.ph ]
@@ -11894,7 +11894,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ext4_ext_try_to_merge_right(
   %71 = or i1 %68, %70
   br i1 %71, label %.critedge, label %72
 
-72:                                               ; preds = %.lr.ph12
+72:                                               ; preds = %.lr.ph16
   %73 = and i64 %.in, 4294967295
   %74 = load i32, ptr %20, align 4
   %75 = zext i32 %74 to i64
@@ -11985,8 +11985,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @ext4_ext_try_to_merge_right(
 ..critedge.loopexit_crit_edge:                    ; preds = %41
   br label %.critedge, !llvm.loop !193
 
-.critedge:                                        ; preds = %47, %.lr.ph12, %72, %.lr.ph, %..critedge.loopexit_crit_edge, %16, %.thread..critedge.loopexit_crit_edge, %10
-  %119 = phi i32 [ 0, %10 ], [ 1, %.thread..critedge.loopexit_crit_edge ], [ 0, %16 ], [ 1, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %59, %72 ], [ %59, %.lr.ph12 ], [ 1, %47 ]
+.critedge:                                        ; preds = %47, %.lr.ph16, %72, %.lr.ph, %..critedge.loopexit_crit_edge, %16, %.thread..critedge.loopexit_crit_edge, %10
+  %119 = phi i32 [ 0, %10 ], [ 1, %.thread..critedge.loopexit_crit_edge ], [ 0, %16 ], [ 1, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %59, %72 ], [ %59, %.lr.ph16 ], [ 1, %47 ]
   ret i32 %119
 }
 
@@ -12971,17 +12971,17 @@ define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %
 .loopexit54:                                      ; preds = %.loopexit54.backedge, %66
   %73 = phi i32 [ -1, %66 ], [ %215, %.loopexit54.backedge ]
   %74 = icmp eq i32 %73, -1
-  br i1 %74, label %.preheader268, label %75
+  br i1 %74, label %.preheader308, label %75
 
 75:                                               ; preds = %.loopexit54
   store i32 %73, ptr %67, align 4
-  br label %.preheader268
+  br label %.preheader308
 
-.preheader268:                                    ; preds = %75, %.loopexit54
+.preheader308:                                    ; preds = %75, %.loopexit54
   br label %76
 
-76:                                               ; preds = %.preheader268, %__ext4_ext_dirty.exit.thread40
-  %77 = phi ptr [ %216, %__ext4_ext_dirty.exit.thread40 ], [ %67, %.preheader268 ]
+76:                                               ; preds = %.preheader308, %__ext4_ext_dirty.exit.thread40
+  %77 = phi ptr [ %216, %__ext4_ext_dirty.exit.thread40 ], [ %67, %.preheader308 ]
   %78 = icmp ne ptr %77, null
   %79 = load i32, ptr %6, align 4
   %80 = load i32, ptr %8, align 4
@@ -13090,8 +13090,8 @@ define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %
   br i1 %148, label %118, label %.thread.us, !llvm.loop !41
 
 .thread.us.sink.split:                            ; preds = %137, %121
-  %.lcssa165.sink = phi ptr [ %123, %121 ], [ %135, %137 ]
-  %149 = getelementptr i8, ptr %.lcssa165.sink, i64 12
+  %.lcssa205.sink = phi ptr [ %123, %121 ], [ %135, %137 ]
+  %149 = getelementptr i8, ptr %.lcssa205.sink, i64 12
   %150 = load i32, ptr %149, align 4
   br label %.thread.us
 
@@ -13247,170 +13247,170 @@ define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %
   %238 = zext i16 %237 to i64
   %239 = getelementptr %struct.ext4_extent, ptr %235, i64 %238
   %240 = getelementptr i8, ptr %239, i64 -12
-  %241 = icmp eq ptr %230, %235
+  %241 = icmp ne ptr %230, %235
   %242 = add nuw nsw i32 %222, 2
-  %243 = select i1 %241, i8 1, i8 %221
-  %244 = select i1 %241, i32 %242, i32 3
-  %245 = call i32 @ext4_writepage_trans_blocks(ptr noundef %0) #16
-  %246 = call i32 @__ext4_journal_ensure_credits(ptr noundef %1, i32 noundef %244, i32 noundef %245, i32 noundef 0) #16
-  %247 = icmp slt i32 %246, 1
-  br i1 %247, label %ext4_datasem_ensure_credits.exit, label %248
+  %243 = select i1 %241, i32 3, i32 %242
+  %244 = call i32 @ext4_writepage_trans_blocks(ptr noundef %0) #16
+  %245 = call i32 @__ext4_journal_ensure_credits(ptr noundef %1, i32 noundef %243, i32 noundef %244, i32 noundef 0) #16
+  %246 = icmp slt i32 %245, 1
+  br i1 %246, label %ext4_datasem_ensure_credits.exit, label %247
 
-248:                                              ; preds = %232
-  %249 = load ptr, ptr %68, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 872
-  %251 = load ptr, ptr %250, align 8
-  %252 = getelementptr inbounds nuw i8, ptr %251, i64 552
-  %253 = load ptr, ptr %252, align 8
-  %254 = icmp eq ptr %253, null
-  br i1 %254, label %255, label %256, !prof !9
+247:                                              ; preds = %232
+  %248 = load ptr, ptr %68, align 8
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 872
+  %250 = load ptr, ptr %249, align 8
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 552
+  %252 = load ptr, ptr %251, align 8
+  %253 = icmp eq ptr %252, null
+  br i1 %253, label %254, label %255, !prof !9
 
-255:                                              ; preds = %248
+254:                                              ; preds = %247
   call void asm sideeffect "2058: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2058b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2058) #16, !srcloc !10
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 102, i32 0, i64 12) #16, !srcloc !11
   unreachable
 
-256:                                              ; preds = %248
+255:                                              ; preds = %247
   call void @ext4_discard_preallocations(ptr noundef %0) #16
   call void @up_write(ptr noundef %71) #16
-  br i1 %72, label %.thread46, label %258
+  br i1 %72, label %.thread46, label %257
 
-.thread46:                                        ; preds = %256
+.thread46:                                        ; preds = %255
   call void @down_write(ptr noundef %71) #16
   br label %.loopexit54.backedge
 
-.loopexit54.backedge:                             ; preds = %__ext4_ext_dirty.exit.thread40, %258, %.thread46
+.loopexit54.backedge:                             ; preds = %__ext4_ext_dirty.exit.thread40, %257, %.thread46
   br label %.loopexit54
 
 ext4_datasem_ensure_credits.exit:                 ; preds = %232
-  %257 = icmp eq i32 %246, 0
-  br i1 %257, label %262, label %__ext4_ext_dirty.exit.thread40
+  %256 = icmp eq i32 %245, 0
+  br i1 %256, label %261, label %__ext4_ext_dirty.exit.thread40
 
-258:                                              ; preds = %256
-  %259 = call i32 @jbd2__journal_restart(ptr noundef %1, i32 noundef %245, i32 noundef 0, i32 noundef 3136) #16
-  %260 = call i32 @llvm.umax.i32(i32 %259, i32 1)
+257:                                              ; preds = %255
+  %258 = call i32 @jbd2__journal_restart(ptr noundef %1, i32 noundef %244, i32 noundef 0, i32 noundef 3136) #16
+  %259 = call i32 @llvm.umax.i32(i32 %258, i32 1)
   call void @down_write(ptr noundef %71) #16
-  %261 = icmp sgt i32 %260, 0
-  br i1 %261, label %.loopexit54.backedge, label %__ext4_ext_dirty.exit.thread40
+  %260 = icmp sgt i32 %259, 0
+  br i1 %260, label %.loopexit54.backedge, label %__ext4_ext_dirty.exit.thread40
 
-262:                                              ; preds = %ext4_datasem_ensure_credits.exit
-  %263 = getelementptr inbounds nuw i8, ptr %228, i64 40
-  %264 = load ptr, ptr %263, align 8
-  %265 = icmp eq ptr %264, null
-  br i1 %265, label %273, label %266
+261:                                              ; preds = %ext4_datasem_ensure_credits.exit
+  %262 = getelementptr inbounds nuw i8, ptr %228, i64 40
+  %263 = load ptr, ptr %262, align 8
+  %264 = icmp eq ptr %263, null
+  br i1 %264, label %272, label %265
 
-266:                                              ; preds = %262
-  %267 = load ptr, ptr %68, align 8
-  %268 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_ext_get_access, i32 noundef 164, ptr noundef %1, ptr noundef %267, ptr noundef nonnull %264, i32 noundef 1) #16
-  %269 = icmp eq i32 %268, 0
-  br i1 %269, label %270, label %__ext4_ext_dirty.exit.thread40
+265:                                              ; preds = %261
+  %266 = load ptr, ptr %68, align 8
+  %267 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_ext_get_access, i32 noundef 164, ptr noundef %1, ptr noundef %266, ptr noundef nonnull %263, i32 noundef 1) #16
+  %268 = icmp eq i32 %267, 0
+  br i1 %268, label %269, label %__ext4_ext_dirty.exit.thread40
 
-270:                                              ; preds = %266
-  %271 = load ptr, ptr %263, align 8
-  %272 = getelementptr i8, ptr %271, i64 3
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %272, i32 -2, ptr elementtype(i8) %272) #16, !srcloc !42
-  br label %273
+269:                                              ; preds = %265
+  %270 = load ptr, ptr %262, align 8
+  %271 = getelementptr i8, ptr %270, i64 3
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %271, i32 -2, ptr elementtype(i8) %271) #16, !srcloc !42
+  br label %272
 
-273:                                              ; preds = %270, %262
-  %274 = icmp ugt ptr %230, %240
-  br i1 %274, label %.loopexit48, label %.preheader
+272:                                              ; preds = %269, %261
+  %273 = icmp ugt ptr %230, %240
+  br i1 %273, label %.loopexit48, label %.preheader
 
-.preheader:                                       ; preds = %273
+.preheader:                                       ; preds = %272
   br i1 %23, label %.preheader.split.us, label %.preheader.split
 
-.preheader.split.us:                              ; preds = %.preheader, %290
-  %275 = phi ptr [ %292, %290 ], [ %240, %.preheader ]
-  %276 = phi ptr [ %291, %290 ], [ %230, %.preheader ]
-  %277 = load i32, ptr %276, align 4
-  %278 = sub i32 %277, %3
-  store i32 %278, ptr %276, align 4
-  %279 = load ptr, ptr %233, align 8
-  %280 = getelementptr i8, ptr %279, i64 12
-  %281 = icmp ugt ptr %276, %280
-  br i1 %281, label %282, label %288
+.preheader.split.us:                              ; preds = %.preheader, %289
+  %274 = phi ptr [ %291, %289 ], [ %240, %.preheader ]
+  %275 = phi ptr [ %290, %289 ], [ %230, %.preheader ]
+  %276 = load i32, ptr %275, align 4
+  %277 = sub i32 %276, %3
+  store i32 %277, ptr %275, align 4
+  %278 = load ptr, ptr %233, align 8
+  %279 = getelementptr i8, ptr %278, i64 12
+  %280 = icmp ugt ptr %275, %279
+  br i1 %280, label %281, label %287
 
-282:                                              ; preds = %.preheader.split.us
-  %283 = getelementptr i8, ptr %276, i64 -12
-  %284 = call fastcc i32 @ext4_ext_try_to_merge_right(ptr noundef %0, ptr noundef %214, ptr noundef %283), !range !62
-  %285 = icmp eq i32 %284, 0
-  br i1 %285, label %288, label %286
+281:                                              ; preds = %.preheader.split.us
+  %282 = getelementptr i8, ptr %275, i64 -12
+  %283 = call fastcc i32 @ext4_ext_try_to_merge_right(ptr noundef %0, ptr noundef %214, ptr noundef %282), !range !62
+  %284 = icmp eq i32 %283, 0
+  br i1 %284, label %287, label %285
 
-286:                                              ; preds = %282
-  %287 = getelementptr i8, ptr %275, i64 -12
-  br label %290
+285:                                              ; preds = %281
+  %286 = getelementptr i8, ptr %274, i64 -12
+  br label %289
 
-288:                                              ; preds = %282, %.preheader.split.us
-  %289 = getelementptr i8, ptr %276, i64 12
-  br label %290
+287:                                              ; preds = %281, %.preheader.split.us
+  %288 = getelementptr i8, ptr %275, i64 12
+  br label %289
 
-290:                                              ; preds = %288, %286
-  %291 = phi ptr [ %276, %286 ], [ %289, %288 ]
-  %292 = phi ptr [ %287, %286 ], [ %275, %288 ]
-  %293 = icmp ugt ptr %291, %292
-  br i1 %293, label %.loopexit48, label %.preheader.split.us, !llvm.loop !203
+289:                                              ; preds = %287, %285
+  %290 = phi ptr [ %275, %285 ], [ %288, %287 ]
+  %291 = phi ptr [ %286, %285 ], [ %274, %287 ]
+  %292 = icmp ugt ptr %290, %291
+  br i1 %292, label %.loopexit48, label %.preheader.split.us, !llvm.loop !203
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
-  %294 = phi ptr [ %298, %.preheader.split ], [ %240, %.preheader ]
-  %295 = load i32, ptr %294, align 4
-  %296 = add i32 %295, %3
-  store i32 %296, ptr %294, align 4
-  %297 = call fastcc i32 @ext4_ext_try_to_merge_right(ptr noundef %0, ptr noundef %214, ptr noundef %294), !range !62
-  %298 = getelementptr i8, ptr %294, i64 -12
-  %299 = icmp ugt ptr %230, %298
-  br i1 %299, label %.loopexit48, label %.preheader.split, !llvm.loop !203
+  %293 = phi ptr [ %297, %.preheader.split ], [ %240, %.preheader ]
+  %294 = load i32, ptr %293, align 4
+  %295 = add i32 %294, %3
+  store i32 %295, ptr %293, align 4
+  %296 = call fastcc i32 @ext4_ext_try_to_merge_right(ptr noundef %0, ptr noundef %214, ptr noundef %293), !range !62
+  %297 = getelementptr i8, ptr %293, i64 -12
+  %298 = icmp ugt ptr %230, %297
+  br i1 %298, label %.loopexit48, label %.preheader.split, !llvm.loop !203
 
-.loopexit48:                                      ; preds = %.preheader.split, %290, %273
-  %300 = load volatile i64, ptr %71, align 8
-  %301 = icmp eq i64 %300, 0
-  br i1 %301, label %302, label %303, !prof !9
+.loopexit48:                                      ; preds = %.preheader.split, %289, %272
+  %299 = load volatile i64, ptr %71, align 8
+  %300 = icmp eq i64 %299, 0
+  br i1 %300, label %301, label %302, !prof !9
 
-302:                                              ; preds = %.loopexit48
+301:                                              ; preds = %.loopexit48
   call void asm sideeffect "2059: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2059b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2059) #16, !srcloc !57
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 191, i32 2305, i64 12) #16, !srcloc !58
   call void asm sideeffect "2060: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2060b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2060) #16, !srcloc !59
-  br label %303
+  br label %302
 
-303:                                              ; preds = %302, %.loopexit48
-  %304 = load ptr, ptr %263, align 8
-  %305 = icmp eq ptr %304, null
-  br i1 %305, label %__ext4_ext_dirty.exit, label %306
+302:                                              ; preds = %301, %.loopexit48
+  %303 = load ptr, ptr %262, align 8
+  %304 = icmp eq ptr %303, null
+  br i1 %304, label %__ext4_ext_dirty.exit, label %305
 
-306:                                              ; preds = %303
-  %307 = getelementptr inbounds nuw i8, ptr %304, i64 40
-  %308 = load ptr, ptr %307, align 8
-  call fastcc void @ext4_extent_block_csum_set(ptr noundef %0, ptr noundef %308)
-  %309 = load ptr, ptr %263, align 8
-  %310 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_ext_shift_path_extents, i32 noundef 5117, ptr noundef %1, ptr noundef %0, ptr noundef %309) #16
-  %311 = icmp eq i32 %310, 0
-  br i1 %311, label %312, label %__ext4_ext_dirty.exit.thread40
+305:                                              ; preds = %302
+  %306 = getelementptr inbounds nuw i8, ptr %303, i64 40
+  %307 = load ptr, ptr %306, align 8
+  call fastcc void @ext4_extent_block_csum_set(ptr noundef %0, ptr noundef %307)
+  %308 = load ptr, ptr %262, align 8
+  %309 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_ext_shift_path_extents, i32 noundef 5117, ptr noundef %1, ptr noundef %0, ptr noundef %308) #16
+  %310 = icmp eq i32 %309, 0
+  br i1 %310, label %311, label %__ext4_ext_dirty.exit.thread40
 
-312:                                              ; preds = %306
-  %313 = load ptr, ptr %263, align 8
-  %314 = load volatile i64, ptr %313, align 8
-  %315 = and i64 %314, 16777216
-  %316 = icmp eq i64 %315, 0
-  br i1 %316, label %317, label %__ext4_ext_dirty.exit.thread
+311:                                              ; preds = %305
+  %312 = load ptr, ptr %262, align 8
+  %313 = load volatile i64, ptr %312, align 8
+  %314 = and i64 %313, 16777216
+  %315 = icmp eq i64 %314, 0
+  br i1 %315, label %316, label %__ext4_ext_dirty.exit.thread
 
-317:                                              ; preds = %312
-  %318 = getelementptr i8, ptr %313, i64 3
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %318, i32 1, ptr elementtype(i8) %318) #16, !srcloc !25
+316:                                              ; preds = %311
+  %317 = getelementptr i8, ptr %312, i64 3
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %317, i32 1, ptr elementtype(i8) %317) #16, !srcloc !25
   br label %__ext4_ext_dirty.exit.thread
 
-__ext4_ext_dirty.exit:                            ; preds = %303
-  %319 = call i32 @__ext4_mark_inode_dirty(ptr noundef %1, ptr noundef %0, ptr noundef nonnull @__func__.__ext4_ext_dirty, i32 noundef 202) #16
-  %320 = icmp eq i32 %319, 0
-  br i1 %320, label %__ext4_ext_dirty.exit.thread, label %__ext4_ext_dirty.exit.thread40
+__ext4_ext_dirty.exit:                            ; preds = %302
+  %318 = call i32 @__ext4_mark_inode_dirty(ptr noundef %1, ptr noundef %0, ptr noundef nonnull @__func__.__ext4_ext_dirty, i32 noundef 202) #16
+  %319 = icmp eq i32 %318, 0
+  br i1 %319, label %__ext4_ext_dirty.exit.thread, label %__ext4_ext_dirty.exit.thread40
 
-__ext4_ext_dirty.exit.thread:                     ; preds = %317, %312, %__ext4_ext_dirty.exit
-  %321 = icmp eq i32 %222, 0
-  %322 = add nsw i32 %222, -1
-  %323 = icmp eq i8 %243, 0
-  %or.cond = select i1 %321, i1 true, i1 %323
+__ext4_ext_dirty.exit.thread:                     ; preds = %316, %311, %__ext4_ext_dirty.exit
+  %320 = icmp eq i32 %222, 0
+  %321 = add nsw i32 %222, -1
+  %322 = icmp eq i8 %221, 0
+  %323 = select i1 %241, i1 %322, i1 false
+  %or.cond = select i1 %320, i1 true, i1 %323
   br i1 %or.cond, label %__ext4_ext_dirty.exit.thread40, label %324
 
 324:                                              ; preds = %__ext4_ext_dirty.exit.thread, %220
-  %325 = phi i32 [ %222, %220 ], [ %322, %__ext4_ext_dirty.exit.thread ]
-  %326 = phi i8 [ %221, %220 ], [ %243, %__ext4_ext_dirty.exit.thread ]
+  %325 = phi i32 [ %222, %220 ], [ %321, %__ext4_ext_dirty.exit.thread ]
+  %326 = phi i8 [ %221, %220 ], [ 1, %__ext4_ext_dirty.exit.thread ]
   %327 = zext nneg i32 %325 to i64
   %328 = getelementptr %struct.ext4_ext_path, ptr %214, i64 %327
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 40
@@ -13488,8 +13488,8 @@ __ext4_ext_dirty.exit35.thread:                   ; preds = %361, %356, %__ext4_
   %372 = and i1 %371, %369
   br i1 %372, label %220, label %__ext4_ext_dirty.exit.thread40, !llvm.loop !204
 
-__ext4_ext_dirty.exit.thread40:                   ; preds = %ext4_datasem_ensure_credits.exit, %350, %306, %332, %266, %__ext4_ext_dirty.exit35.thread, %__ext4_ext_dirty.exit35, %__ext4_ext_dirty.exit.thread, %__ext4_ext_dirty.exit, %258
-  %373 = phi i32 [ %260, %258 ], [ %246, %ext4_datasem_ensure_credits.exit ], [ %354, %350 ], [ %310, %306 ], [ %334, %332 ], [ %268, %266 ], [ 0, %__ext4_ext_dirty.exit35.thread ], [ %363, %__ext4_ext_dirty.exit35 ], [ 0, %__ext4_ext_dirty.exit.thread ], [ %319, %__ext4_ext_dirty.exit ]
+__ext4_ext_dirty.exit.thread40:                   ; preds = %ext4_datasem_ensure_credits.exit, %350, %305, %332, %265, %__ext4_ext_dirty.exit35.thread, %__ext4_ext_dirty.exit35, %__ext4_ext_dirty.exit.thread, %__ext4_ext_dirty.exit, %257
+  %373 = phi i32 [ %259, %257 ], [ %245, %ext4_datasem_ensure_credits.exit ], [ %354, %350 ], [ %309, %305 ], [ %334, %332 ], [ %267, %265 ], [ 0, %__ext4_ext_dirty.exit35.thread ], [ %363, %__ext4_ext_dirty.exit35 ], [ 0, %__ext4_ext_dirty.exit.thread ], [ %318, %__ext4_ext_dirty.exit ]
   switch i32 %373, label %.thread44 [
     i32 -11, label %.loopexit54.backedge
     i32 0, label %76

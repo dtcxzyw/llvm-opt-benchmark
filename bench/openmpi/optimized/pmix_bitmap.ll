@@ -587,8 +587,8 @@ define noundef zeroext i1 @pmix_bitmap_are_different(ptr noundef readonly captur
   %.not15.not = icmp ne i64 %15, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond21 = select i1 %.not15.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond21, label %.loopexit, label %13, !llvm.loop !24
+  %or.cond22 = select i1 %.not15.not, i1 true, i1 %exitcond.not
+  br i1 %or.cond22, label %.loopexit, label %13, !llvm.loop !24
 
 .loopexit:                                        ; preds = %13, %.preheader, %5, %2
   %.012 = phi i1 [ true, %2 ], [ true, %5 ], [ false, %.preheader ], [ %.not15.not, %13 ]

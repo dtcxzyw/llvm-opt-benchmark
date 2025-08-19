@@ -4121,7 +4121,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN16wasmtime_environ9co
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 4 dereferenceable(20) ptr @_ZN16wasmtime_environ9component5types14ComponentTypes13canonical_abi17h063e1c6a01d42f23E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(360) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4, !range !342, !noundef !4
-  switch i32 %3, label %default.unreachable1 [
+  switch i32 %3, label %default.unreachable21 [
     i32 0, label %85
     i32 1, label %85
     i32 2, label %85
@@ -4147,7 +4147,7 @@ define noundef nonnull align 4 dereferenceable(20) ptr @_ZN16wasmtime_environ9co
     i32 22, label %5
   ]
 
-default.unreachable1:                             ; preds = %2
+default.unreachable21:                            ; preds = %2
   unreachable
 
 4:                                                ; preds = %2, %2
@@ -5618,10 +5618,10 @@ define void @_ZN16wasmtime_environ9component5types21ComponentTypesBuilder27conve
   unreachable
 
 common.resume.sink.split:                         ; preds = %124, %.body36.thread, %109
-  %.sink106 = phi i64 [ %69, %109 ], [ %69, %.body36.thread ], [ %46, %124 ]
+  %.sink113 = phi i64 [ %69, %109 ], [ %69, %.body36.thread ], [ %46, %124 ]
   %.sink = phi ptr [ %68, %109 ], [ %68, %.body36.thread ], [ %45, %124 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %110, %109 ], [ %eh.lpad-body3787, %.body36.thread ], [ %65, %124 ]
-  %54 = shl nsw i64 %.sink106, 3
+  %54 = shl nsw i64 %.sink113, 3
   call void @__rust_dealloc(ptr noundef nonnull %.sink, i64 noundef range(i64 1, 0) %54, i64 noundef 4) #24
   br label %common.resume
 
@@ -6403,8 +6403,8 @@ common.resume.i:                                  ; preds = %.thread45.i, %110, 
   br label %205
 
 205:                                              ; preds = %145, %165, %171, %199, %201, %203, %169
-  %.sink79 = phi i32 [ 1, %145 ], [ 1, %165 ], [ 1, %171 ], [ 1, %199 ], [ 1, %201 ], [ 1, %203 ], [ 0, %169 ]
-  store i32 %.sink79, ptr %0, align 8
+  %.sink87 = phi i32 [ 1, %145 ], [ 1, %165 ], [ 1, %171 ], [ 1, %199 ], [ 1, %201 ], [ 1, %203 ], [ 0, %169 ]
+  store i32 %.sink87, ptr %0, align 8
   ret void
 }
 
@@ -8087,13 +8087,13 @@ _ZN4core4iter8adapters11try_process17h6d968736e5692335E.exit.i: ; preds = %"_ZN1
   store i64 %89, ptr %.sroa.4109.0..sroa_idx110, align 8, !noalias !901
   call void @llvm.experimental.noalias.scope.decl(metadata !902)
   %172 = load i8, ptr %171, align 4, !range !10, !alias.scope !902, !noalias !905, !noundef !4
-  %trunc.i173 = trunc nuw i8 %172 to i1
-  br i1 %trunc.i173, label %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit, label %switch.lookup219
+  %trunc.i179 = trunc nuw i8 %172 to i1
+  br i1 %trunc.i179, label %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit, label %switch.lookup233
 
-switch.lookup219:                                 ; preds = %170
+switch.lookup233:                                 ; preds = %170
   %173 = getelementptr inbounds nuw i8, ptr %100, i64 5
   %174 = load i8, ptr %173, align 1, !range !836, !alias.scope !909, !noalias !905, !noundef !4
-  %switch.idx.cast220 = zext nneg i8 %174 to i32
+  %switch.idx.cast234 = zext nneg i8 %174 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !891
   call void @llvm.lifetime.end.p0(ptr nonnull %53), !noalias !891
   br label %376
@@ -8104,13 +8104,13 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   %177 = getelementptr inbounds nuw i8, ptr %100, i64 12
   %178 = load i32, ptr %177, align 4, !alias.scope !902, !noalias !905, !noundef !4
   call void @_ZN16wasmtime_environ9component5types21ComponentTypesBuilder12defined_type17h41f238c187f2e570E.llvm.13863633964030799667(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %53, ptr noalias noundef nonnull align 8 dereferenceable(1256) %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %52, i32 noundef %176, i32 noundef %178), !noalias !912
-  %.pre208 = load i32, ptr %53, align 8, !range !15, !noalias !891
-  %.phi.trans.insert209 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  %.pre210 = load i32, ptr %.phi.trans.insert209, align 4, !range !342, !noalias !891
-  %.phi.trans.insert211 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %.pre212 = load i32, ptr %.phi.trans.insert211, align 8, !noalias !891
-  %.pre214 = load ptr, ptr %.phi.trans.insert211, align 8, !noalias !891
-  %179 = trunc nuw i32 %.pre208 to i1
+  %.pre214 = load i32, ptr %53, align 8, !range !15, !noalias !891
+  %.phi.trans.insert215 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  %.pre216 = load i32, ptr %.phi.trans.insert215, align 4, !range !342, !noalias !891
+  %.phi.trans.insert217 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %.pre218 = load i32, ptr %.phi.trans.insert217, align 8, !noalias !891
+  %.pre220 = load ptr, ptr %.phi.trans.insert217, align 8, !noalias !891
+  %179 = trunc nuw i32 %.pre214 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !891
   call void @llvm.lifetime.end.p0(ptr nonnull %53), !noalias !891
   br i1 %179, label %366, label %376
@@ -8376,30 +8376,30 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder9enum_type17h9385d7f
   store i64 %89, ptr %.sroa.4117.0..sroa_idx118, align 8, !noalias !975
   call void @llvm.experimental.noalias.scope.decl(metadata !976)
   %262 = load i8, ptr %261, align 4, !range !10, !alias.scope !976, !noalias !979, !noundef !4
-  %trunc.i174 = trunc nuw i8 %262 to i1
-  br i1 %trunc.i174, label %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit178, label %switch.lookup221
+  %trunc.i180 = trunc nuw i8 %262 to i1
+  br i1 %trunc.i180, label %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit184, label %switch.lookup235
 
-switch.lookup221:                                 ; preds = %260
+switch.lookup235:                                 ; preds = %260
   %263 = getelementptr inbounds nuw i8, ptr %100, i64 5
   %264 = load i8, ptr %263, align 1, !range !836, !alias.scope !983, !noalias !979, !noundef !4
-  %switch.idx.cast222 = zext nneg i8 %264 to i32
+  %switch.idx.cast236 = zext nneg i8 %264 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !965
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !965
   br label %387
 
-_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit178: ; preds = %260
+_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit184: ; preds = %260
   %265 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %266 = load i32, ptr %265, align 8, !alias.scope !976, !noalias !979, !noundef !4
   %267 = getelementptr inbounds nuw i8, ptr %100, i64 12
   %268 = load i32, ptr %267, align 4, !alias.scope !976, !noalias !979, !noundef !4
   call void @_ZN16wasmtime_environ9component5types21ComponentTypesBuilder12defined_type17h41f238c187f2e570E.llvm.13863633964030799667(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %33, ptr noalias noundef nonnull align 8 dereferenceable(1256) %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %32, i32 noundef %266, i32 noundef %268), !noalias !986
-  %.pre201 = load i32, ptr %33, align 8, !range !15, !noalias !965
-  %.phi.trans.insert202 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %.pre203 = load i32, ptr %.phi.trans.insert202, align 4, !range !342, !noalias !965
-  %.phi.trans.insert204 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %.pre205 = load i32, ptr %.phi.trans.insert204, align 8, !noalias !965
-  %.pre207 = load ptr, ptr %.phi.trans.insert204, align 8, !noalias !965
-  %269 = trunc nuw i32 %.pre201 to i1
+  %.pre207 = load i32, ptr %33, align 8, !range !15, !noalias !965
+  %.phi.trans.insert208 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  %.pre209 = load i32, ptr %.phi.trans.insert208, align 4, !range !342, !noalias !965
+  %.phi.trans.insert210 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %.pre211 = load i32, ptr %.phi.trans.insert210, align 8, !noalias !965
+  %.pre213 = load ptr, ptr %.phi.trans.insert210, align 8, !noalias !965
+  %269 = trunc nuw i32 %.pre207 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !965
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !965
   br i1 %269, label %399, label %387
@@ -8442,18 +8442,18 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   %.sroa.5123.0..sroa_idx124 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i64 %89, ptr %.sroa.5123.0..sroa_idx124, align 8, !noalias !1001
   call void @llvm.experimental.noalias.scope.decl(metadata !1002)
-  %trunc.i179 = trunc nuw i8 %277 to i1
-  br i1 %trunc.i179, label %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit183, label %switch.lookup223
+  %trunc.i185 = trunc nuw i8 %277 to i1
+  br i1 %trunc.i185, label %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit189, label %switch.lookup237
 
-switch.lookup223:                                 ; preds = %280
+switch.lookup237:                                 ; preds = %280
   %281 = getelementptr inbounds nuw i8, ptr %100, i64 5
   %282 = load i8, ptr %281, align 1, !range !836, !alias.scope !1005, !noalias !1008, !noundef !4
-  %switch.idx.cast224 = zext nneg i8 %282 to i32
+  %switch.idx.cast238 = zext nneg i8 %282 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !992
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !992
   br label %293
 
-_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit183: ; preds = %280
+_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit189: ; preds = %280
   %283 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %284 = load i32, ptr %283, align 8, !alias.scope !1002, !noalias !1008, !noundef !4
   %285 = getelementptr inbounds nuw i8, ptr %100, i64 12
@@ -8461,10 +8461,10 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   call void @_ZN16wasmtime_environ9component5types21ComponentTypesBuilder12defined_type17h41f238c187f2e570E.llvm.13863633964030799667(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %24, ptr noalias noundef nonnull align 8 dereferenceable(1256) %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %23, i32 noundef %284, i32 noundef %286), !noalias !1012
   %.pre = load i32, ptr %24, align 8, !range !15, !noalias !992
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %.pre189 = load i32, ptr %.phi.trans.insert, align 4, !range !342, !noalias !992
-  %.phi.trans.insert190 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %.pre191 = load i32, ptr %.phi.trans.insert190, align 8, !noalias !992
-  %.pre193 = load ptr, ptr %.phi.trans.insert190, align 8, !noalias !992
+  %.pre195 = load i32, ptr %.phi.trans.insert, align 4, !range !342, !noalias !992
+  %.phi.trans.insert196 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.pre197 = load i32, ptr %.phi.trans.insert196, align 8, !noalias !992
+  %.pre199 = load ptr, ptr %.phi.trans.insert196, align 8, !noalias !992
   %287 = trunc nuw i32 %.pre to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !992
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !992
@@ -8478,9 +8478,9 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   %292 = icmp eq i8 %291, 2
   br i1 %292, label %297, label %298
 
-293:                                              ; preds = %switch.lookup223, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit183
-  %294 = phi i32 [ %switch.idx.cast224, %switch.lookup223 ], [ %.pre189, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit183 ]
-  %295 = phi i32 [ undef, %switch.lookup223 ], [ %.pre191, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit183 ]
+293:                                              ; preds = %switch.lookup237, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit189
+  %294 = phi i32 [ %switch.idx.cast238, %switch.lookup237 ], [ %.pre195, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit189 ]
+  %295 = phi i32 [ undef, %switch.lookup237 ], [ %.pre197, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit189 ]
   store i32 %294, ptr %25, align 4, !noalias !992
   %296 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %295, ptr %296, align 4, !noalias !992
@@ -8515,30 +8515,30 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
 302:                                              ; preds = %298
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1019
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1019
-  %trunc.i184 = trunc nuw i8 %291 to i1
-  br i1 %trunc.i184, label %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit188, label %switch.lookup225
+  %trunc.i190 = trunc nuw i8 %291 to i1
+  br i1 %trunc.i190, label %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit194, label %switch.lookup239
 
-switch.lookup225:                                 ; preds = %302
+switch.lookup239:                                 ; preds = %302
   %303 = getelementptr inbounds nuw i8, ptr %100, i64 17
   %304 = load i8, ptr %303, align 1, !range !836, !alias.scope !1026, !noalias !1029, !noundef !4
-  %switch.idx.cast226 = zext nneg i8 %304 to i32
+  %switch.idx.cast240 = zext nneg i8 %304 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !992
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !992
   br label %314
 
-_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit188: ; preds = %302
+_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit194: ; preds = %302
   %305 = getelementptr inbounds nuw i8, ptr %100, i64 20
   %306 = load i32, ptr %305, align 4, !alias.scope !1017, !noalias !1029, !noundef !4
   %307 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %308 = load i32, ptr %307, align 8, !alias.scope !1017, !noalias !1029, !noundef !4
   call void @_ZN16wasmtime_environ9component5types21ComponentTypesBuilder12defined_type17h41f238c187f2e570E.llvm.13863633964030799667(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %21, ptr noalias noundef nonnull align 8 dereferenceable(1256) %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %20, i32 noundef %306, i32 noundef %308), !noalias !1030
-  %.pre194 = load i32, ptr %21, align 8, !range !15, !noalias !992
-  %.phi.trans.insert195 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %.pre196 = load i32, ptr %.phi.trans.insert195, align 4, !range !342, !noalias !992
-  %.phi.trans.insert197 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %.pre198 = load i32, ptr %.phi.trans.insert197, align 8, !noalias !992
-  %.pre200 = load ptr, ptr %.phi.trans.insert197, align 8, !noalias !992
-  %309 = trunc nuw i32 %.pre194 to i1
+  %.pre200 = load i32, ptr %21, align 8, !range !15, !noalias !992
+  %.phi.trans.insert201 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %.pre202 = load i32, ptr %.phi.trans.insert201, align 4, !range !342, !noalias !992
+  %.phi.trans.insert203 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %.pre204 = load i32, ptr %.phi.trans.insert203, align 8, !noalias !992
+  %.pre206 = load ptr, ptr %.phi.trans.insert203, align 8, !noalias !992
+  %309 = trunc nuw i32 %.pre200 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !992
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !992
   br i1 %309, label %318, label %314
@@ -8551,15 +8551,15 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   %313 = icmp eq i32 %290, 23
   br i1 %313, label %321, label %319
 
-314:                                              ; preds = %switch.lookup225, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit188
-  %315 = phi i32 [ %switch.idx.cast226, %switch.lookup225 ], [ %.pre196, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit188 ]
-  %316 = phi i32 [ undef, %switch.lookup225 ], [ %.pre198, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit188 ]
+314:                                              ; preds = %switch.lookup239, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit194
+  %315 = phi i32 [ %switch.idx.cast240, %switch.lookup239 ], [ %.pre202, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit194 ]
+  %316 = phi i32 [ undef, %switch.lookup239 ], [ %.pre204, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit194 ]
   store i32 %315, ptr %22, align 4, !noalias !992
   %317 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %316, ptr %317, align 4, !noalias !992
   br label %310
 
-318:                                              ; preds = %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit188
+318:                                              ; preds = %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit194
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !992
   br label %410
 
@@ -8684,9 +8684,9 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   br label %366
 
 366:                                              ; preds = %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit, %414, %410, %399, %386, %374, %364
-  %.sink170 = phi ptr [ %419, %414 ], [ %.sroa.8.0128, %410 ], [ %.pre207, %399 ], [ %198, %386 ], [ %.sroa.51.06.i, %374 ], [ %.sroa.6.0129.ph, %364 ], [ %.pre214, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit ]
+  %.sink176 = phi ptr [ %419, %414 ], [ %.sroa.8.0128, %410 ], [ %.pre213, %399 ], [ %198, %386 ], [ %.sroa.51.06.i, %374 ], [ %.sroa.6.0129.ph, %364 ], [ %.pre220, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit ]
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink170, ptr %367, align 8
+  store ptr %.sink176, ptr %367, align 8
   br label %420
 
 368:                                              ; preds = %158
@@ -8716,9 +8716,9 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   call void @llvm.assume(i1 %375)
   br label %366
 
-376:                                              ; preds = %switch.lookup219, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit
-  %377 = phi i32 [ %switch.idx.cast220, %switch.lookup219 ], [ %.pre210, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit ]
-  %378 = phi i32 [ undef, %switch.lookup219 ], [ %.pre212, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit ]
+376:                                              ; preds = %switch.lookup233, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit
+  %377 = phi i32 [ %switch.idx.cast234, %switch.lookup233 ], [ %.pre216, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit ]
+  %378 = phi i32 [ undef, %switch.lookup233 ], [ %.pre218, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit ]
   %379 = call noundef i32 @_ZN16wasmtime_environ9component5types21ComponentTypesBuilder13add_list_type17h31e97c79c4ee1c55E(ptr noalias noundef nonnull align 8 dereferenceable(1256) %1, i32 noundef %377, i32 %378), !noalias !1050
   %380 = getelementptr inbounds nuw i8, ptr %84, i64 4
   store i32 %379, ptr %380, align 4
@@ -8745,9 +8745,9 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   br label %366
 
-387:                                              ; preds = %switch.lookup221, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit178
-  %388 = phi i32 [ %switch.idx.cast222, %switch.lookup221 ], [ %.pre203, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit178 ]
-  %389 = phi i32 [ undef, %switch.lookup221 ], [ %.pre205, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit178 ]
+387:                                              ; preds = %switch.lookup235, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit184
+  %388 = phi i32 [ %switch.idx.cast236, %switch.lookup235 ], [ %.pre209, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit184 ]
+  %389 = phi i32 [ undef, %switch.lookup235 ], [ %.pre211, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit184 ]
   store i32 %388, ptr %34, align 4, !noalias !965
   %390 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 %389, ptr %390, align 4, !noalias !965
@@ -8776,7 +8776,7 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   store i32 %397, ptr %398, align 4
   br label %"_ZN156_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..convert..From$LT$$RF$wasmparser..readers..component..types..PrimitiveValType$GT$$GT$4from17h7a013854629155efE.exit"
 
-399:                                              ; preds = %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit178
+399:                                              ; preds = %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit184
   call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !965
   br label %366
 
@@ -8809,8 +8809,8 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   store i32 %408, ptr %409, align 4
   br label %"_ZN156_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..convert..From$LT$$RF$wasmparser..readers..component..types..PrimitiveValType$GT$$GT$4from17h7a013854629155efE.exit"
 
-410:                                              ; preds = %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit183, %318
-  %.sroa.8.0128 = phi ptr [ %.pre200, %318 ], [ %.pre193, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit183 ]
+410:                                              ; preds = %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit189, %318
+  %.sroa.8.0128 = phi ptr [ %.pre206, %318 ], [ %.pre199, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !992
   br label %366
 
@@ -8837,8 +8837,8 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   br label %366
 
 420:                                              ; preds = %411, %366
-  %.sink172 = phi i32 [ 0, %411 ], [ 1, %366 ]
-  store i32 %.sink172, ptr %0, align 8
+  %.sink178 = phi i32 [ 0, %411 ], [ 1, %366 ]
+  store i32 %.sink178, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
   ret void
 }
@@ -12114,7 +12114,7 @@ define noundef zeroext i1 @_ZN16wasmtime_environ9component5types21ComponentTypes
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 4 dereferenceable(40) ptr @_ZN16wasmtime_environ9component5types21ComponentTypesBuilder16type_information17h51378c5e64d84cf3E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(1256) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4, !range !342, !noundef !4
-  switch i32 %3, label %default.unreachable1 [
+  switch i32 %3, label %default.unreachable24 [
     i32 0, label %97
     i32 1, label %97
     i32 2, label %97
@@ -12140,7 +12140,7 @@ define hidden noundef nonnull align 4 dereferenceable(40) ptr @_ZN16wasmtime_env
     i32 22, label %96
   ]
 
-default.unreachable1:                             ; preds = %2
+default.unreachable24:                            ; preds = %2
   unreachable
 
 4:                                                ; preds = %2, %2

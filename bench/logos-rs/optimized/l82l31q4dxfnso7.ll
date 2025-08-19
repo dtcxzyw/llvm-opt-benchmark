@@ -2958,7 +2958,7 @@ define align 8 ptr @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E"(ptr readonly align 8 captures(none) %0, i32 %1, ptr align 8 %2) unnamed_addr #0 {
+define nonnull align 8 ptr @"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E"(ptr readonly align 8 captures(none) %0, i32 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16

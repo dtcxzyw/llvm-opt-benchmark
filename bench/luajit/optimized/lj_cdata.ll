@@ -171,9 +171,9 @@ define hidden void @lj_cdata_free(ptr noundef captures(none) %0, ptr noundef %1)
   br label %18
 
 18:                                               ; preds = %6, %15
-  %.sink30 = phi ptr [ %16, %15 ], [ %1, %6 ]
+  %.sink31 = phi ptr [ %16, %15 ], [ %1, %6 ]
   %19 = ptrtoint ptr %1 to i64
-  store i64 %19, ptr %.sink30, align 8, !tbaa !47
+  store i64 %19, ptr %.sink31, align 8, !tbaa !47
   store i64 %19, ptr %13, align 8, !tbaa !48
   br label %69
 
@@ -335,24 +335,24 @@ define hidden ptr @lj_cdata_index(ptr noundef %0, ptr noundef %1, ptr noundef re
   %15 = load i32, ptr %14, align 8, !tbaa !51
   %16 = and i32 %15, -260046848
   %17 = icmp eq i32 %16, 545259520
-  br i1 %17, label %18, label %.preheader250
+  br i1 %17, label %18, label %.preheader259
 
 18:                                               ; preds = %5
   %19 = load ptr, ptr %9, align 8, !tbaa !64
   %20 = and i32 %15, 65535
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw %struct.CType, ptr %12, i64 %21
-  br label %.preheader250
+  br label %.preheader259
 
-.preheader250:                                    ; preds = %18, %5
+.preheader259:                                    ; preds = %18, %5
   %.1104.ph = phi ptr [ %14, %5 ], [ %22, %18 ]
   %.1101.ph = phi ptr [ %9, %5 ], [ %19, %18 ]
   br label %23
 
-23:                                               ; preds = %.preheader250, %cdata_getptr.exit136
-  %24 = phi ptr [ %172, %cdata_getptr.exit136 ], [ %12, %.preheader250 ]
-  %.1104 = phi ptr [ %193, %cdata_getptr.exit136 ], [ %.1104.ph, %.preheader250 ]
-  %.1101 = phi ptr [ %.0.i135, %cdata_getptr.exit136 ], [ %.1101.ph, %.preheader250 ]
+23:                                               ; preds = %.preheader259, %cdata_getptr.exit136
+  %24 = phi ptr [ %172, %cdata_getptr.exit136 ], [ %12, %.preheader259 ]
+  %.1104 = phi ptr [ %193, %cdata_getptr.exit136 ], [ %.1104.ph, %.preheader259 ]
+  %.1101 = phi ptr [ %.0.i135, %cdata_getptr.exit136 ], [ %.1101.ph, %.preheader259 ]
   %25 = load i32, ptr %.1104, align 8, !tbaa !51
   %26 = lshr i32 %25, 28
   %27 = icmp eq i32 %26, 8

@@ -227,7 +227,7 @@ define hidden noundef i64 @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_
   %175 = bitcast <2 x i1> %174 to i2
   %176 = tail call range(i2 0, -1) i2 @llvm.cttz.i2(i2 %175, i1 false)
   %177 = zext nneg i2 %176 to i64
-  %.8 = add i64 %.6, %177
+  %.8 = add nuw i64 %.6, %177
   br label %178
 
 178:                                              ; preds = %159, %132, %88, %164, %162, %5

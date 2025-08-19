@@ -1138,12 +1138,12 @@ define internal fastcc i32 @do_vfs_ioctl(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %85, label %89, label %90
 
 89:                                               ; preds = %80
-  br i1 %88, label %569, label %.thread36
+  br i1 %88, label %569, label %.thread59
 
 90:                                               ; preds = %80
-  br i1 %88, label %92, label %.thread36
+  br i1 %88, label %92, label %.thread59
 
-.thread36:                                        ; preds = %89, %90
+.thread59:                                        ; preds = %89, %90
   %91 = tail call i32 %87(ptr noundef %76, i32 noundef 2) #9
   br label %569
 
@@ -1672,20 +1672,20 @@ define internal fastcc i32 @do_vfs_ioctl(ptr noundef %0, i32 noundef %1, i32 nou
   %420 = and i32 %419, 48
   %421 = lshr i32 %413, 2
   %422 = and i32 %421, 8
-  %spec.select37 = or disjoint i32 %420, %422
+  %spec.select60 = or disjoint i32 %420, %422
   %423 = shl i32 %413, 1
   %424 = and i32 %423, 128
-  %spec.select38 = or disjoint i32 %spec.select37, %424
+  %spec.select61 = or disjoint i32 %spec.select60, %424
   %425 = lshr i32 %413, 1
   %426 = and i32 %425, 64
-  %spec.select39 = or disjoint i32 %spec.select38, %426
+  %spec.select62 = or disjoint i32 %spec.select61, %426
   %427 = shl i32 %413, 10
   %428 = and i32 %427, 33554432
-  %spec.select40 = or disjoint i32 %spec.select39, %428
+  %spec.select63 = or disjoint i32 %spec.select62, %428
   %429 = shl i32 %413, 20
   %430 = and i32 %429, 536870912
-  %spec.select41 = or disjoint i32 %spec.select40, %430
-  store i32 %spec.select41, ptr %10, align 4
+  %spec.select64 = or disjoint i32 %spec.select63, %430
+  store i32 %spec.select64, ptr %10, align 4
   br label %431
 
 431:                                              ; preds = %412, %418
@@ -1957,8 +1957,8 @@ define internal fastcc i32 @do_vfs_ioctl(ptr noundef %0, i32 noundef %1, i32 nou
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %569
 
-569:                                              ; preds = %50, %57, %63, %567, %544, %521, %498, %453, %450, %448, %.thread23, %366, %.thread, %260, %254, %248, %242, %209, %174, %151, %145, %143, %108, %106, %94, %92, %.thread36, %89, %74, %69, %66, %41, %32, %24, %23, %22
-  %570 = phi i32 [ %449, %448 ], [ %402, %.thread23 ], [ %367, %366 ], [ %296, %.thread ], [ %272, %260 ], [ %243, %242 ], [ %211, %209 ], [ %176, %174 ], [ %158, %151 ], [ %144, %143 ], [ %73, %69 ], [ 0, %23 ], [ 0, %22 ], [ -25, %66 ], [ -22, %145 ], [ -515, %450 ], [ %30, %24 ], [ 0, %32 ], [ %48, %41 ], [ %91, %.thread36 ], [ %93, %92 ], [ -1, %74 ], [ -95, %89 ], [ %107, %106 ], [ %109, %108 ], [ -1, %94 ], [ %568, %567 ], [ %545, %544 ], [ %522, %521 ], [ %499, %498 ], [ -515, %453 ], [ %259, %254 ], [ -25, %248 ], [ %65, %63 ], [ 0, %50 ], [ -25, %57 ]
+569:                                              ; preds = %50, %57, %63, %567, %544, %521, %498, %453, %450, %448, %.thread23, %366, %.thread, %260, %254, %248, %242, %209, %174, %151, %145, %143, %108, %106, %94, %92, %.thread59, %89, %74, %69, %66, %41, %32, %24, %23, %22
+  %570 = phi i32 [ %449, %448 ], [ %402, %.thread23 ], [ %367, %366 ], [ %296, %.thread ], [ %272, %260 ], [ %243, %242 ], [ %211, %209 ], [ %176, %174 ], [ %158, %151 ], [ %144, %143 ], [ %73, %69 ], [ 0, %23 ], [ 0, %22 ], [ -25, %66 ], [ -22, %145 ], [ -515, %450 ], [ %30, %24 ], [ 0, %32 ], [ %48, %41 ], [ %91, %.thread59 ], [ %93, %92 ], [ -1, %74 ], [ -95, %89 ], [ %107, %106 ], [ %109, %108 ], [ -1, %94 ], [ %568, %567 ], [ %545, %544 ], [ %522, %521 ], [ %499, %498 ], [ -515, %453 ], [ %259, %254 ], [ -25, %248 ], [ %65, %63 ], [ 0, %50 ], [ -25, %57 ]
   ret i32 %570
 }
 

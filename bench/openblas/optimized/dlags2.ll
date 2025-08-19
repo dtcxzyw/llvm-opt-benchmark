@@ -149,7 +149,7 @@ define void @dlags2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %116 = fdiv double %107, %115
   %117 = fcmp ugt double %108, %116
   %. = select i1 %117, double %110, double %73
-  %.190 = select i1 %117, ptr %29, ptr %25
+  %.193 = select i1 %117, ptr %29, ptr %25
   br label %120
 
 118:                                              ; preds = %59
@@ -157,9 +157,9 @@ define void @dlags2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %120
 
 120:                                              ; preds = %80, %118
-  %.sink186 = phi double [ %119, %118 ], [ %., %80 ]
-  %.sink = phi ptr [ %29, %118 ], [ %.190, %80 ]
-  store double %.sink186, ptr %14, align 8, !tbaa !7
+  %.sink189 = phi double [ %119, %118 ], [ %., %80 ]
+  %.sink = phi ptr [ %29, %118 ], [ %.193, %80 ]
+  store double %.sink189, ptr %14, align 8, !tbaa !7
   call void @dlartg_(ptr noundef nonnull %14, ptr noundef nonnull %.sink, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #5
   %121 = load double, ptr %32, align 8, !tbaa !7
   store double %121, ptr %7, align 8, !tbaa !7
@@ -235,8 +235,8 @@ define void @dlags2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %183 = fadd double %179, %182
   %184 = fdiv double %175, %183
   %185 = fcmp ugt double %176, %184
-  %.191 = select i1 %185, double %178, double %142
-  %.192 = select i1 %185, ptr %31, ptr %27
+  %.194 = select i1 %185, double %178, double %142
+  %.195 = select i1 %185, ptr %31, ptr %27
   br label %188
 
 186:                                              ; preds = %127
@@ -244,10 +244,10 @@ define void @dlags2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %188
 
 188:                                              ; preds = %149, %186
-  %.sink188 = phi double [ %187, %186 ], [ %.191, %149 ]
-  %.sink187 = phi ptr [ %31, %186 ], [ %.192, %149 ]
-  store double %.sink188, ptr %14, align 8, !tbaa !7
-  call void @dlartg_(ptr noundef nonnull %14, ptr noundef nonnull %.sink187, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #5
+  %.sink191 = phi double [ %187, %186 ], [ %.194, %149 ]
+  %.sink190 = phi ptr [ %31, %186 ], [ %.195, %149 ]
+  store double %.sink191, ptr %14, align 8, !tbaa !7
+  call void @dlartg_(ptr noundef nonnull %14, ptr noundef nonnull %.sink190, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #5
   %189 = load double, ptr %34, align 8, !tbaa !7
   store double %189, ptr %7, align 8, !tbaa !7
   %190 = load double, ptr %32, align 8, !tbaa !7
@@ -460,8 +460,8 @@ define void @dlags2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %343
 
 343:                                              ; preds = %268, %338, %120, %188
-  %.sink189 = phi double [ %274, %268 ], [ %342, %338 ], [ %126, %120 ], [ %192, %188 ]
-  store double %.sink189, ptr %10, align 8, !tbaa !7
+  %.sink192 = phi double [ %274, %268 ], [ %342, %338 ], [ %126, %120 ], [ %192, %188 ]
+  store double %.sink192, ptr %10, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)

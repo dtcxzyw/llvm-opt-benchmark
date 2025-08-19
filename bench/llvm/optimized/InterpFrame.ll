@@ -769,14 +769,14 @@ _ZL21shouldSkipInBacktracePKN5clang6interp8FunctionE.exit.thread181: ; preds = %
 
 _ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i.preheader: ; preds = %.lr.ph.i.preheader
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %.sroa.0.0.copyload.i.i.i.i.i218 = load i64, ptr %53, align 8
-  %54 = and i64 %.sroa.0.0.copyload.i.i.i.i.i218, -8
+  %.sroa.0.0.copyload.i.i.i.i.i232 = load i64, ptr %53, align 8
+  %54 = and i64 %.sroa.0.0.copyload.i.i.i.i.i232, -8
   %55 = inttoptr i64 %54 to ptr
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 28
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, 512
-  %.not.i.i219 = icmp eq i32 %58, 0
-  br i1 %.not.i.i219, label %_ZNK5clang6interp11InterpFrame7getExprENS0_7CodePtrE.exit, label %.lr.ph222
+  %.not.i.i233 = icmp eq i32 %58, 0
+  br i1 %.not.i.i233, label %_ZNK5clang6interp11InterpFrame7getExprENS0_7CodePtrE.exit, label %.lr.ph236
 
 .lr.ph.i:                                         ; preds = %tailrecurse.i
   %59 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -794,29 +794,29 @@ _ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i: ; preds = %.lr.ph.i
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %65, 512
   %.not.i.i = icmp eq i32 %66, 0
-  br i1 %.not.i.i, label %_ZNK5clang6interp11InterpFrame7getExprENS0_7CodePtrE.exit, label %.lr.ph222
+  br i1 %.not.i.i, label %_ZNK5clang6interp11InterpFrame7getExprENS0_7CodePtrE.exit, label %.lr.ph236
 
-.lr.ph222:                                        ; preds = %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i.preheader, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i
+.lr.ph236:                                        ; preds = %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i.preheader, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i
   %67 = phi ptr [ %72, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i ], [ %50, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i.preheader ]
-  %.tr811.i199221 = phi ptr [ %.sroa.01.0.copyload.i, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i ], [ %.sroa.0.0.copyload.i, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i.preheader ]
-  %.tr10.i200220 = phi ptr [ %69, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i ], [ %47, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i.preheader ]
-  %68 = getelementptr inbounds nuw i8, ptr %.tr10.i200220, i64 8
+  %.tr811.i199235 = phi ptr [ %.sroa.01.0.copyload.i, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i ], [ %.sroa.0.0.copyload.i, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i.preheader ]
+  %.tr10.i200234 = phi ptr [ %69, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i ], [ %47, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i.preheader ]
+  %68 = getelementptr inbounds nuw i8, ptr %.tr10.i200234, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !6
   %.not6.i = icmp eq ptr %69, null
   br i1 %.not6.i, label %_ZNK5clang6interp11InterpFrame7getExprENS0_7CodePtrE.exit, label %tailrecurse.i
 
-tailrecurse.i:                                    ; preds = %.lr.ph222
-  %70 = getelementptr inbounds nuw i8, ptr %.tr10.i200220, i64 152
+tailrecurse.i:                                    ; preds = %.lr.ph236
+  %70 = getelementptr inbounds nuw i8, ptr %.tr10.i200234, i64 152
   %.sroa.01.0.copyload.i = load ptr, ptr %70, align 8, !tbaa !37
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %72 = load ptr, ptr %71, align 8, !tbaa !36
   %.not.i124 = icmp eq ptr %72, null
   br i1 %.not.i124, label %_ZNK5clang6interp11InterpFrame7getExprENS0_7CodePtrE.exit, label %.lr.ph.i
 
-_ZNK5clang6interp11InterpFrame7getExprENS0_7CodePtrE.exit: ; preds = %.lr.ph.i, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i, %.lr.ph222, %tailrecurse.i, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i.preheader, %.lr.ph.i.preheader, %_ZL21shouldSkipInBacktracePKN5clang6interp8FunctionE.exit.thread181
-  %.tr.lcssa.i = phi ptr [ %47, %_ZL21shouldSkipInBacktracePKN5clang6interp8FunctionE.exit.thread181 ], [ %47, %.lr.ph.i.preheader ], [ %47, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i.preheader ], [ %69, %tailrecurse.i ], [ %.tr10.i200220, %.lr.ph222 ], [ %69, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i ], [ %69, %.lr.ph.i ]
-  %.tr8.lcssa.i = phi ptr [ %.sroa.0.0.copyload.i, %_ZL21shouldSkipInBacktracePKN5clang6interp8FunctionE.exit.thread181 ], [ %.sroa.0.0.copyload.i, %.lr.ph.i.preheader ], [ %.sroa.0.0.copyload.i, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i.preheader ], [ %.sroa.01.0.copyload.i, %tailrecurse.i ], [ %.tr811.i199221, %.lr.ph222 ], [ %.sroa.01.0.copyload.i, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i ], [ %.sroa.01.0.copyload.i, %.lr.ph.i ]
-  %.lcssa.i = phi ptr [ null, %_ZL21shouldSkipInBacktracePKN5clang6interp8FunctionE.exit.thread181 ], [ %50, %.lr.ph.i.preheader ], [ %50, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i.preheader ], [ null, %tailrecurse.i ], [ %67, %.lr.ph222 ], [ %72, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i ], [ %72, %.lr.ph.i ]
+_ZNK5clang6interp11InterpFrame7getExprENS0_7CodePtrE.exit: ; preds = %.lr.ph.i, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i, %.lr.ph236, %tailrecurse.i, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i.preheader, %.lr.ph.i.preheader, %_ZL21shouldSkipInBacktracePKN5clang6interp8FunctionE.exit.thread181
+  %.tr.lcssa.i = phi ptr [ %47, %_ZL21shouldSkipInBacktracePKN5clang6interp8FunctionE.exit.thread181 ], [ %47, %.lr.ph.i.preheader ], [ %47, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i.preheader ], [ %69, %tailrecurse.i ], [ %.tr10.i200234, %.lr.ph236 ], [ %69, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i ], [ %69, %.lr.ph.i ]
+  %.tr8.lcssa.i = phi ptr [ %.sroa.0.0.copyload.i, %_ZL21shouldSkipInBacktracePKN5clang6interp8FunctionE.exit.thread181 ], [ %.sroa.0.0.copyload.i, %.lr.ph.i.preheader ], [ %.sroa.0.0.copyload.i, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i.preheader ], [ %.sroa.01.0.copyload.i, %tailrecurse.i ], [ %.tr811.i199235, %.lr.ph236 ], [ %.sroa.01.0.copyload.i, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i ], [ %.sroa.01.0.copyload.i, %.lr.ph.i ]
+  %.lcssa.i = phi ptr [ null, %_ZL21shouldSkipInBacktracePKN5clang6interp8FunctionE.exit.thread181 ], [ %50, %.lr.ph.i.preheader ], [ %50, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i.preheader ], [ null, %tailrecurse.i ], [ %67, %.lr.ph236 ], [ %72, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.i ], [ %72, %.lr.ph.i ]
   %73 = getelementptr inbounds nuw i8, ptr %.tr.lcssa.i, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !160
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
@@ -1896,9 +1896,9 @@ define dso_local noundef ptr @_ZNK5clang6interp11InterpFrame7getExprENS0_7CodePt
 .lr.ph.preheader:                                 ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !180
-  %.off.i24 = add i32 %6, -1
-  %switch.i25 = icmp ult i32 %.off.i24, 2
-  br i1 %switch.i25, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit
+  %.off.i26 = add i32 %6, -1
+  %switch.i27 = icmp ult i32 %.off.i26, 2
+  br i1 %switch.i27, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit
 
 .lr.ph:                                           ; preds = %tailrecurse
   %7 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -1908,8 +1908,8 @@ define dso_local noundef ptr @_ZNK5clang6interp11InterpFrame7getExprENS0_7CodePt
   br i1 %switch.i, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit
 
 _ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit: ; preds = %.lr.ph.preheader, %.lr.ph
-  %.tr1027 = phi ptr [ %18, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.tr81126 = phi ptr [ %.sroa.01.0.copyload, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.tr1029 = phi ptr [ %18, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.tr81128 = phi ptr [ %.sroa.01.0.copyload, %.lr.ph ], [ %1, %.lr.ph.preheader ]
   %9 = phi ptr [ %21, %.lr.ph ], [ %4, %.lr.ph.preheader ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %10, align 8
@@ -1922,13 +1922,13 @@ _ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit: ; preds = %.lr.ph.prehead
   br i1 %.not.i, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %16
 
 16:                                               ; preds = %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit
-  %17 = getelementptr inbounds nuw i8, ptr %.tr1027, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.tr1029, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !6
   %.not6 = icmp eq ptr %18, null
   br i1 %.not6, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %tailrecurse
 
 tailrecurse:                                      ; preds = %16
-  %19 = getelementptr inbounds nuw i8, ptr %.tr1027, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %.tr1029, i64 152
   %.sroa.01.0.copyload = load ptr, ptr %19, align 8, !tbaa !37
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !36
@@ -1936,8 +1936,8 @@ tailrecurse:                                      ; preds = %16
   br i1 %.not, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %.lr.ph
 
 _ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread: ; preds = %.lr.ph, %16, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit, %tailrecurse, %.lr.ph.preheader, %2
-  %.tr.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph.preheader ], [ %18, %tailrecurse ], [ %.tr1027, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %.tr1027, %16 ], [ %18, %.lr.ph ]
-  %.tr8.lcssa = phi ptr [ %1, %2 ], [ %1, %.lr.ph.preheader ], [ %.sroa.01.0.copyload, %tailrecurse ], [ %.tr81126, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %.tr81126, %16 ], [ %.sroa.01.0.copyload, %.lr.ph ]
+  %.tr.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph.preheader ], [ %18, %tailrecurse ], [ %.tr1029, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %.tr1029, %16 ], [ %18, %.lr.ph ]
+  %.tr8.lcssa = phi ptr [ %1, %2 ], [ %1, %.lr.ph.preheader ], [ %.sroa.01.0.copyload, %tailrecurse ], [ %.tr81128, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %.tr81128, %16 ], [ %.sroa.01.0.copyload, %.lr.ph ]
   %.lcssa = phi ptr [ null, %2 ], [ %4, %.lr.ph.preheader ], [ null, %tailrecurse ], [ %9, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %9, %16 ], [ %21, %.lr.ph ]
   %22 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !160
@@ -2601,9 +2601,9 @@ define dso_local i64 @_ZNK5clang6interp11InterpFrame9getSourceENS0_7CodePtrE(ptr
 .lr.ph.preheader:                                 ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !180
-  %.off.i26 = add i32 %7, -1
-  %switch.i27 = icmp ult i32 %.off.i26, 2
-  br i1 %switch.i27, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit
+  %.off.i30 = add i32 %7, -1
+  %switch.i31 = icmp ult i32 %.off.i30, 2
+  br i1 %switch.i31, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit
 
 .lr.ph:                                           ; preds = %tailrecurse
   %8 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -2613,8 +2613,8 @@ define dso_local i64 @_ZNK5clang6interp11InterpFrame9getSourceENS0_7CodePtrE(ptr
   br i1 %switch.i, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit
 
 _ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit: ; preds = %.lr.ph.preheader, %.lr.ph
-  %.tr1229 = phi ptr [ %19, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.tr101328 = phi ptr [ %.sroa.02.0.copyload, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.tr1233 = phi ptr [ %19, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.tr101332 = phi ptr [ %.sroa.02.0.copyload, %.lr.ph ], [ %1, %.lr.ph.preheader ]
   %10 = phi ptr [ %22, %.lr.ph ], [ %5, %.lr.ph.preheader ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %11, align 8
@@ -2627,13 +2627,13 @@ _ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit: ; preds = %.lr.ph.prehead
   br i1 %.not.i, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %17
 
 17:                                               ; preds = %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit
-  %18 = getelementptr inbounds nuw i8, ptr %.tr1229, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.tr1233, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !6
   %.not6 = icmp eq ptr %19, null
   br i1 %.not6, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %tailrecurse
 
 tailrecurse:                                      ; preds = %17
-  %20 = getelementptr inbounds nuw i8, ptr %.tr1229, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %.tr1233, i64 152
   %.sroa.02.0.copyload = load ptr, ptr %20, align 8, !tbaa !37
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !36
@@ -2641,8 +2641,8 @@ tailrecurse:                                      ; preds = %17
   br i1 %.not, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %.lr.ph
 
 _ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread: ; preds = %.lr.ph, %17, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit, %tailrecurse, %.lr.ph.preheader, %2
-  %.tr.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph.preheader ], [ %19, %tailrecurse ], [ %.tr1229, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %.tr1229, %17 ], [ %19, %.lr.ph ]
-  %.tr10.lcssa = phi ptr [ %1, %2 ], [ %1, %.lr.ph.preheader ], [ %.sroa.02.0.copyload, %tailrecurse ], [ %.tr101328, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %.tr101328, %17 ], [ %.sroa.02.0.copyload, %.lr.ph ]
+  %.tr.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph.preheader ], [ %19, %tailrecurse ], [ %.tr1233, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %.tr1233, %17 ], [ %19, %.lr.ph ]
+  %.tr10.lcssa = phi ptr [ %1, %2 ], [ %1, %.lr.ph.preheader ], [ %.sroa.02.0.copyload, %tailrecurse ], [ %.tr101332, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %.tr101332, %17 ], [ %.sroa.02.0.copyload, %.lr.ph ]
   %.lcssa = phi ptr [ null, %2 ], [ %5, %.lr.ph.preheader ], [ null, %tailrecurse ], [ %10, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %10, %17 ], [ %22, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 16
@@ -2706,9 +2706,9 @@ define dso_local i32 @_ZNK5clang6interp11InterpFrame11getLocationENS0_7CodePtrE(
 .lr.ph.preheader:                                 ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !180
-  %.off.i23 = add i32 %6, -1
-  %switch.i24 = icmp ult i32 %.off.i23, 2
-  br i1 %switch.i24, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit
+  %.off.i25 = add i32 %6, -1
+  %switch.i26 = icmp ult i32 %.off.i25, 2
+  br i1 %switch.i26, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit
 
 .lr.ph:                                           ; preds = %tailrecurse
   %7 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -2718,8 +2718,8 @@ define dso_local i32 @_ZNK5clang6interp11InterpFrame11getLocationENS0_7CodePtrE(
   br i1 %switch.i, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit
 
 _ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit: ; preds = %.lr.ph.preheader, %.lr.ph
-  %.tr926 = phi ptr [ %18, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.tr71025 = phi ptr [ %.sroa.01.0.copyload, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.tr928 = phi ptr [ %18, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.tr71027 = phi ptr [ %.sroa.01.0.copyload, %.lr.ph ], [ %1, %.lr.ph.preheader ]
   %9 = phi ptr [ %21, %.lr.ph ], [ %4, %.lr.ph.preheader ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %10, align 8
@@ -2732,13 +2732,13 @@ _ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit: ; preds = %.lr.ph.prehead
   br i1 %.not.i, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %16
 
 16:                                               ; preds = %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit
-  %17 = getelementptr inbounds nuw i8, ptr %.tr926, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.tr928, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !6
   %.not5 = icmp eq ptr %18, null
   br i1 %.not5, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %tailrecurse
 
 tailrecurse:                                      ; preds = %16
-  %19 = getelementptr inbounds nuw i8, ptr %.tr926, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %.tr928, i64 152
   %.sroa.01.0.copyload = load ptr, ptr %19, align 8, !tbaa !37
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !36
@@ -2746,8 +2746,8 @@ tailrecurse:                                      ; preds = %16
   br i1 %.not, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %.lr.ph
 
 _ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread: ; preds = %.lr.ph, %16, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit, %tailrecurse, %.lr.ph.preheader, %2
-  %.tr.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph.preheader ], [ %18, %tailrecurse ], [ %.tr926, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %.tr926, %16 ], [ %18, %.lr.ph ]
-  %.tr7.lcssa = phi ptr [ %1, %2 ], [ %1, %.lr.ph.preheader ], [ %.sroa.01.0.copyload, %tailrecurse ], [ %.tr71025, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %.tr71025, %16 ], [ %.sroa.01.0.copyload, %.lr.ph ]
+  %.tr.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph.preheader ], [ %18, %tailrecurse ], [ %.tr928, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %.tr928, %16 ], [ %18, %.lr.ph ]
+  %.tr7.lcssa = phi ptr [ %1, %2 ], [ %1, %.lr.ph.preheader ], [ %.sroa.01.0.copyload, %tailrecurse ], [ %.tr71027, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %.tr71027, %16 ], [ %.sroa.01.0.copyload, %.lr.ph ]
   %.lcssa = phi ptr [ null, %2 ], [ %4, %.lr.ph.preheader ], [ null, %tailrecurse ], [ %9, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %9, %16 ], [ %21, %.lr.ph ]
   %22 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !160
@@ -2768,9 +2768,9 @@ define dso_local i64 @_ZNK5clang6interp11InterpFrame8getRangeENS0_7CodePtrE(ptr 
 .lr.ph.preheader:                                 ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !180
-  %.off.i23 = add i32 %6, -1
-  %switch.i24 = icmp ult i32 %.off.i23, 2
-  br i1 %switch.i24, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit
+  %.off.i25 = add i32 %6, -1
+  %switch.i26 = icmp ult i32 %.off.i25, 2
+  br i1 %switch.i26, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit
 
 .lr.ph:                                           ; preds = %tailrecurse
   %7 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -2780,8 +2780,8 @@ define dso_local i64 @_ZNK5clang6interp11InterpFrame8getRangeENS0_7CodePtrE(ptr 
   br i1 %switch.i, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit
 
 _ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit: ; preds = %.lr.ph.preheader, %.lr.ph
-  %.tr926 = phi ptr [ %18, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.tr71025 = phi ptr [ %.sroa.01.0.copyload, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.tr928 = phi ptr [ %18, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.tr71027 = phi ptr [ %.sroa.01.0.copyload, %.lr.ph ], [ %1, %.lr.ph.preheader ]
   %9 = phi ptr [ %21, %.lr.ph ], [ %4, %.lr.ph.preheader ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %10, align 8
@@ -2794,13 +2794,13 @@ _ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit: ; preds = %.lr.ph.prehead
   br i1 %.not.i, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %16
 
 16:                                               ; preds = %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit
-  %17 = getelementptr inbounds nuw i8, ptr %.tr926, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.tr928, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !6
   %.not5 = icmp eq ptr %18, null
   br i1 %.not5, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %tailrecurse
 
 tailrecurse:                                      ; preds = %16
-  %19 = getelementptr inbounds nuw i8, ptr %.tr926, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %.tr928, i64 152
   %.sroa.01.0.copyload = load ptr, ptr %19, align 8, !tbaa !37
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !36
@@ -2808,8 +2808,8 @@ tailrecurse:                                      ; preds = %16
   br i1 %.not, label %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread, label %.lr.ph
 
 _ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit.thread: ; preds = %.lr.ph, %16, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit, %tailrecurse, %.lr.ph.preheader, %2
-  %.tr.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph.preheader ], [ %18, %tailrecurse ], [ %.tr926, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %.tr926, %16 ], [ %18, %.lr.ph ]
-  %.tr7.lcssa = phi ptr [ %1, %2 ], [ %1, %.lr.ph.preheader ], [ %.sroa.01.0.copyload, %tailrecurse ], [ %.tr71025, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %.tr71025, %16 ], [ %.sroa.01.0.copyload, %.lr.ph ]
+  %.tr.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph.preheader ], [ %18, %tailrecurse ], [ %.tr928, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %.tr928, %16 ], [ %18, %.lr.ph ]
+  %.tr7.lcssa = phi ptr [ %1, %2 ], [ %1, %.lr.ph.preheader ], [ %.sroa.01.0.copyload, %tailrecurse ], [ %.tr71027, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %.tr71027, %16 ], [ %.sroa.01.0.copyload, %.lr.ph ]
   %.lcssa = phi ptr [ null, %2 ], [ %4, %.lr.ph.preheader ], [ null, %tailrecurse ], [ %9, %_ZL17funcHasUsableBodyPKN5clang6interp8FunctionE.exit ], [ %9, %16 ], [ %21, %.lr.ph ]
   %22 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !160
@@ -3236,13 +3236,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIA_cSt14default_deleteIS3_EEN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %10, %55
-  %.sink28 = phi i32 [ %60, %55 ], [ %8, %10 ], [ %8, %23 ]
-  %.sink26 = phi ptr [ %59, %55 ], [ %6, %10 ], [ %6, %23 ]
-  %.sink25 = phi ptr [ %46, %55 ], [ %15, %10 ], [ %29, %23 ]
+  %.sink32 = phi i32 [ %60, %55 ], [ %8, %10 ], [ %8, %23 ]
+  %.sink30 = phi ptr [ %59, %55 ], [ %6, %10 ], [ %6, %23 ]
+  %.sink29 = phi ptr [ %46, %55 ], [ %15, %10 ], [ %29, %23 ]
   %.sink = phi i8 [ 1, %55 ], [ 0, %10 ], [ 0, %23 ]
-  %61 = zext i32 %.sink28 to i64
-  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink26, i64 %61
-  store ptr %.sink25, ptr %0, align 8
+  %61 = zext i32 %.sink32 to i64
+  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %61
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %62, ptr %.sroa.4.0..sroa_idx, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -861,12 +861,12 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %30
   %40 = zext i32 %22 to i64
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -8
-  %.0.i1.i24.sink.in = select i1 %spec.select.i.i.i, ptr %38, ptr %42
-  %.0.i1.i24.sink = load ptr, ptr %.0.i1.i24.sink.in, align 8, !tbaa !131
-  %43 = getelementptr inbounds nuw i8, ptr %.0.i1.i24.sink, i64 8
-  %.0.shrunk.i25 = load i32, ptr %43, align 4, !tbaa !23
-  %.0.i626 = zext i32 %.0.shrunk.i25 to i64
-  %44 = mul i64 %2, %.0.i626
+  %.0.i1.i26.sink.in = select i1 %spec.select.i.i.i, ptr %38, ptr %42
+  %.0.i1.i26.sink = load ptr, ptr %.0.i1.i26.sink.in, align 8, !tbaa !131
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i1.i26.sink, i64 8
+  %.0.shrunk.i27 = load i32, ptr %43, align 4, !tbaa !23
+  %.0.i628 = zext i32 %.0.shrunk.i27 to i64
+  %44 = mul i64 %2, %.0.i628
   %45 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !107
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
@@ -891,8 +891,8 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %30
 
 .thread4.i:                                       ; preds = %..thread4_crit_edge.i, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
   %55 = phi i64 [ %54, %..thread4_crit_edge.i ], [ %44, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i ]
-  %.pre.i1321 = phi ptr [ %.pre.i.i, %..thread4_crit_edge.i ], [ %31, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i ]
-  %56 = getelementptr inbounds nuw i8, ptr %.pre.i1321, i64 32
+  %.pre.i1323 = phi ptr [ %.pre.i.i, %..thread4_crit_edge.i ], [ %31, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i ]
+  %56 = getelementptr inbounds nuw i8, ptr %.pre.i1323, i64 32
   %.pre = zext i32 %22 to i64
   br label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit
 
@@ -905,7 +905,7 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %30
 
 _ZNK5clang6interp7Pointer12getFieldDescEv.exit:   ; preds = %.thread4.i, %57
   %62 = phi i64 [ %55, %.thread4.i ], [ %44, %57 ]
-  %.pre.i1320 = phi ptr [ %.pre.i1321, %.thread4.i ], [ %31, %57 ]
+  %.pre.i1322 = phi ptr [ %.pre.i1323, %.thread4.i ], [ %31, %57 ]
   %.pre-phi = phi i64 [ %.pre, %.thread4.i ], [ %59, %57 ]
   %.0.i8.in = phi ptr [ %56, %.thread4.i ], [ %61, %57 ]
   %.0.i8 = load ptr, ptr %.0.i8.in, align 8, !tbaa !131
@@ -915,7 +915,7 @@ _ZNK5clang6interp7Pointer12getFieldDescEv.exit:   ; preds = %.thread4.i, %57
   %.0.v = select i1 %.not, i64 32, i64 16
   %.0 = add i64 %62, %.pre-phi
   %65 = add i64 %.0, %.0.v
-  tail call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %.pre.i1320, i32 noundef %22, i64 noundef %65) #17
+  tail call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %.pre.i1322, i32 noundef %22, i64 noundef %65) #17
   br label %66
 
 66:                                               ; preds = %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, %_ZNK5clang6interp7Pointer11getDeclDescEv.exit, %15, %7
@@ -2266,8 +2266,8 @@ _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread: ; preds = %.thread191
   %243 = tail call i64 @_ZNK5clang6interp7Context8classifyENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(40) %241, i64 %.sroa.0.0.copyload.i116) #17
   store i64 %243, ptr %13, align 8
   %244 = and i64 %243, 4294967296
-  %.not273 = icmp eq i64 %244, 0
-  br i1 %.not273, label %249, label %245
+  %.not289 = icmp eq i64 %244, 0
+  br i1 %.not289, label %249, label %245
 
 245:                                              ; preds = %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -3460,13 +3460,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang10RecordDeclEPNS2_6interp6RecordENS
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %9, %58
-  %.sink27 = phi i32 [ %62, %58 ], [ %7, %9 ], [ %7, %26 ]
-  %.sink25 = phi ptr [ %61, %58 ], [ %5, %9 ], [ %5, %26 ]
-  %.sink24 = phi ptr [ %49, %58 ], [ %18, %9 ], [ %32, %26 ]
+  %.sink31 = phi i32 [ %62, %58 ], [ %7, %9 ], [ %7, %26 ]
+  %.sink29 = phi ptr [ %61, %58 ], [ %5, %9 ], [ %5, %26 ]
+  %.sink28 = phi ptr [ %49, %58 ], [ %18, %9 ], [ %32, %26 ]
   %.sink = phi i8 [ 1, %58 ], [ 0, %9 ], [ 0, %26 ]
-  %63 = zext i32 %.sink27 to i64
-  %64 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.102", ptr %.sink25, i64 %63
-  store ptr %.sink24, ptr %0, align 8
+  %63 = zext i32 %.sink31 to i64
+  %64 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.102", ptr %.sink29, i64 %63
+  store ptr %.sink28, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %64, ptr %.sroa.4.0..sroa_idx, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -485,9 +485,9 @@ _ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = load i64, ptr %55, align 8, !tbaa !63
   %57 = icmp slt i64 %56, 1
-  br i1 %57, label %69, label %.thread128
+  br i1 %57, label %69, label %.thread148
 
-.thread128:                                       ; preds = %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit
+.thread148:                                       ; preds = %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !4
@@ -553,9 +553,9 @@ _ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds
   %.pre127 = load ptr, ptr %82, align 8, !tbaa !4
   br label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit58
 
-_ZN5draco13EncoderBuffer6EncodeEPKvm.exit58:      ; preds = %.thread128, %._ZN5draco13EncoderBuffer6EncodeEPKvm.exit58_crit_edge, %80
-  %102 = phi ptr [ %82, %._ZN5draco13EncoderBuffer6EncodeEPKvm.exit58_crit_edge ], [ %82, %80 ], [ %58, %.thread128 ]
-  %103 = phi ptr [ %.pre127, %._ZN5draco13EncoderBuffer6EncodeEPKvm.exit58_crit_edge ], [ %83, %80 ], [ %59, %.thread128 ]
+_ZN5draco13EncoderBuffer6EncodeEPKvm.exit58:      ; preds = %.thread148, %._ZN5draco13EncoderBuffer6EncodeEPKvm.exit58_crit_edge, %80
+  %102 = phi ptr [ %82, %._ZN5draco13EncoderBuffer6EncodeEPKvm.exit58_crit_edge ], [ %82, %80 ], [ %58, %.thread148 ]
+  %103 = phi ptr [ %.pre127, %._ZN5draco13EncoderBuffer6EncodeEPKvm.exit58_crit_edge ], [ %83, %80 ], [ %59, %.thread148 ]
   %104 = invoke noundef i32 @_ZNK5draco10PointCloud19GetNamedAttributeIdENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %103, i32 noundef 0)
           to label %105 unwind label %140
 

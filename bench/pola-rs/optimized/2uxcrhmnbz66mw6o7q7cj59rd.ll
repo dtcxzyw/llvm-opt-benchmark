@@ -1098,13 +1098,13 @@ define void @"_ZN12polars_utils10slice_enum111_$LT$impl$u20$core..convert..TryFr
   br i1 %7, label %12, label %.sink.split
 
 .sink.split:                                      ; preds = %9, %13
-  %.sink10 = phi i64 [ %14, %13 ], [ %6, %9 ]
-  %.sink8.in = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sink8 = load i64, ptr %.sink8.in, align 8, !noundef !8
+  %.sink11 = phi i64 [ %14, %13 ], [ %6, %9 ]
+  %.sink9.in = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sink9 = load i64, ptr %.sink9.in, align 8, !noundef !8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink10, ptr %10, align 8
+  store i64 %.sink11, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink8, ptr %11, align 8
+  store i64 %.sink9, ptr %11, align 8
   br label %12
 
 12:                                               ; preds = %.sink.split, %9, %8

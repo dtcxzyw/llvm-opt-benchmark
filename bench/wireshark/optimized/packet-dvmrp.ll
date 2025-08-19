@@ -585,10 +585,10 @@ define internal noundef i32 @dissect_dvmrp(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %190, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !13
 
 dissect_v3_report.exit.sink.split.i:              ; preds = %140, %133, %124
-  %.sink169.i = phi i32 [ 20, %124 ], [ 16, %133 ], [ 16, %140 ]
+  %.sink170.i = phi i32 [ 20, %124 ], [ 16, %133 ], [ 16, %140 ]
   %.0.ph.i = phi i32 [ 24, %124 ], [ 20, %133 ], [ 20, %140 ]
   %191 = load i32, ptr @hf_netmask, align 4
-  %192 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %191, ptr noundef %0, i32 noundef %.sink169.i, i32 noundef 4, i32 noundef 0)
+  %192 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %191, ptr noundef %0, i32 noundef %.sink170.i, i32 noundef 4, i32 noundef 0)
   br label %dissect_dvmrp_v3.exit
 
 193:                                              ; preds = %17, %22, %4

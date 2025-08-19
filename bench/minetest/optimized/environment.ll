@@ -1458,9 +1458,9 @@ for.cond137.for.cond.cleanup143_crit_edge.split:  ; preds = %for.cond147.for.con
   br i1 %exitcond.not, label %cleanup365, label %for.cond137.preheader, !llvm.loop !93
 
 for.cond147.for.cond.cleanup153_crit_edge:        ; preds = %cleanup338
-  %inc352 = add i16 %y.01126, 1
-  %cmp142.not = icmp sgt i16 %inc352, %new_nodes.sroa.29.0
-  br i1 %cmp142.not, label %for.cond137.for.cond.cleanup143_crit_edge.split, label %for.cond147.preheader, !llvm.loop !94
+  %inc352 = add nsw i16 %y.01126, 1
+  %cmp142.not.not = icmp slt i16 %y.01126, %new_nodes.sroa.29.0
+  br i1 %cmp142.not.not, label %for.cond147.preheader, label %for.cond137.for.cond.cleanup143_crit_edge.split, !llvm.loop !94
 
 for.body154:                                      ; preds = %cleanup338, %for.cond147.preheader
   %lastIndex.41097 = phi i16 [ %lastIndex.31127, %for.cond147.preheader ], [ %lastIndex.8, %cleanup338 ]
@@ -1965,9 +1965,9 @@ cleanup338:                                       ; preds = %_ZNSt6vectorIN3irr4
   %lastIndex.8 = phi i16 [ %lastIndex.41097, %for.body154 ], [ %lastIndex.41097, %_ZL15isPointableNodeRK7MapNodePK14NodeDefManagerbRKSt8optionalI14PointabilitiesE.exit ], [ %lastIndex.6, %_ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EED2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %is_valid_position)
   call void @llvm.lifetime.end.p0(ptr nonnull %n)
-  %inc347 = add i16 %z.01095, 1
-  %cmp152.not = icmp sgt i16 %inc347, %new_nodes.sroa.36.0
-  br i1 %cmp152.not, label %for.cond147.for.cond.cleanup153_crit_edge, label %for.body154, !llvm.loop !154
+  %inc347 = add nsw i16 %z.01095, 1
+  %cmp152.not.not = icmp slt i16 %z.01095, %new_nodes.sroa.36.0
+  br i1 %cmp152.not.not, label %for.body154, label %for.cond147.for.cond.cleanup153_crit_edge, !llvm.loop !154
 
 ehcleanup331:                                     ; preds = %lpad309, %lpad252.loopexit.split-lp.loopexit.split-lp, %lpad252.loopexit.split-lp.loopexit, %lpad252.loopexit, %lpad194, %lpad168
   %.pn471.pn.pn.pn.pn = phi { ptr, i32 } [ %46, %lpad168 ], [ %53, %lpad194 ], [ %86, %lpad309 ], [ %lpad.loopexit, %lpad252.loopexit ], [ %lpad.loopexit790, %lpad252.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp791, %lpad252.loopexit.split-lp.loopexit.split-lp ]

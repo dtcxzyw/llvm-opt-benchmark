@@ -1258,14 +1258,14 @@ define noalias noundef ptr @Llb_Nonlin4CollectHighRefNodes(ptr noundef %0, i32 n
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %80, %82, %72, %74
-  %.sink68 = phi ptr [ %73, %72 ], [ %75, %74 ], [ %81, %80 ], [ %83, %82 ]
+  %.sink71 = phi ptr [ %73, %72 ], [ %75, %74 ], [ %81, %80 ], [ %83, %82 ]
   %.sink = phi i32 [ 16, %72 ], [ 16, %74 ], [ %77, %80 ], [ %77, %82 ]
-  store ptr %.sink68, ptr %49, align 8, !tbaa !27
+  store ptr %.sink71, ptr %49, align 8, !tbaa !27
   store i32 %.sink, ptr %46, align 8, !tbaa !54
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %64
-  %.pre.i66 = phi ptr [ %53, %64 ], [ %.sink68, %Vec_IntPush.exit.sink.split ]
+  %.pre.i66 = phi ptr [ %53, %64 ], [ %.sink71, %Vec_IntPush.exit.sink.split ]
   %84 = add nsw i32 %66, 1
   store i32 %84, ptr %47, align 4, !tbaa !55
   %85 = sext i32 %66 to i64
@@ -2140,7 +2140,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %3
   br i1 %24, label %.lr.ph.i106, label %Vec_PtrCleanSimInfo.exit.thread
 
 Vec_PtrCleanSimInfo.exit.thread:                  ; preds = %Vec_PtrAllocSimInfo.exit
-  %.not164 = icmp eq i32 %1, 0
+  %.not171 = icmp eq i32 %1, 0
   br label %Vec_PtrReverseOrder.exit
 
 .lr.ph.i106:                                      ; preds = %Vec_PtrAllocSimInfo.exit
@@ -2184,7 +2184,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %33
   br i1 %exitcond.not.i113, label %Vec_PtrReverseOrder.exit, label %40, !llvm.loop !96
 
 Vec_PtrReverseOrder.exit:                         ; preds = %40, %Vec_PtrCleanSimInfo.exit.thread, %Vec_PtrCleanSimInfo.exit
-  %.not166 = phi i1 [ %.not164, %Vec_PtrCleanSimInfo.exit.thread ], [ %.not, %Vec_PtrCleanSimInfo.exit ], [ %.not, %40 ]
+  %.not173 = phi i1 [ %.not171, %Vec_PtrCleanSimInfo.exit.thread ], [ %.not, %Vec_PtrCleanSimInfo.exit ], [ %.not, %40 ]
   %46 = load ptr, ptr %4, align 8, !tbaa !88
   %47 = tail call i32 @Cudd_ReadSize(ptr noundef %46) #18
   %48 = sext i32 %47 to i64
@@ -2230,7 +2230,7 @@ Vec_PtrReverseOrder.exit:                         ; preds = %40, %Vec_PtrCleanSi
   %.val17.val.i = load ptr, ptr %76, align 8, !tbaa !25
   %77 = getelementptr i8, ptr %66, i64 8
   %.val.i115 = load ptr, ptr %77, align 8, !tbaa !27
-  br i1 %.not166, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  br i1 %.not173, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i114, %98
   %.val14.us24.i = phi i32 [ %.val14.us.i, %98 ], [ %.val1419.i, %.lr.ph.i114 ]
@@ -2326,7 +2326,7 @@ Llb_Nonlin4RecordState.exit:                      ; preds = %121, %98, %Vec_PtrR
   %132 = phi ptr [ %.pre, %127 ], [ %64, %Llb_Nonlin4RecordState.exit ]
   %.089 = phi ptr [ %129, %127 ], [ null, %Llb_Nonlin4RecordState.exit ]
   %133 = load ptr, ptr %4, align 8, !tbaa !88
-  %134 = zext i1 %.not166 to i32
+  %134 = zext i1 %.not173 to i32
   %135 = tail call ptr @Llb_Nonlin4CreateVars2Q(ptr noundef %133, ptr noundef %132, ptr noundef %131, i32 noundef %134)
   %136 = load ptr, ptr %7, align 8, !tbaa !92
   %137 = getelementptr i8, ptr %136, i64 4
@@ -2430,7 +2430,7 @@ Llb_Nonlin4Deref.exit:                            ; preds = %.critedge.i, %168
   %.val17.val.i126 = load ptr, ptr %186, align 8, !tbaa !25
   %187 = getelementptr i8, ptr %176, i64 8
   %.val.i128 = load ptr, ptr %187, align 8, !tbaa !27
-  br i1 %.not166, label %.lr.ph.split.us.i136, label %.lr.ph.split.i129
+  br i1 %.not173, label %.lr.ph.split.us.i136, label %.lr.ph.split.i129
 
 .lr.ph.split.us.i136:                             ; preds = %.lr.ph.i122, %208
   %.val14.us24.i137 = phi i32 [ %.val14.us.i141, %208 ], [ %.val1419.i120, %.lr.ph.i122 ]
@@ -2543,7 +2543,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %244
   br label %246
 
 246:                                              ; preds = %Vec_IntFree.exit, %245
-  br i1 %.not166, label %Vec_PtrReverseOrder.exit150, label %247
+  br i1 %.not173, label %Vec_PtrReverseOrder.exit150, label %247
 
 247:                                              ; preds = %246
   %248 = load i32, ptr %29, align 4, !tbaa !23

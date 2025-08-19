@@ -112,11 +112,11 @@ define void @_ZN3gmx8internal45throwUnlessDerivativeIsConsistentWithFunctionERKS
   %31 = fmul double %15, %15
   br label %.outer
 
-.outer:                                           ; preds = %.thread120, %.lr.ph
-  %.035117.ph = phi i1 [ false, %.thread120 ], [ true, %.lr.ph ]
-  %storemerge116.ph = phi double [ %84, %.thread120 ], [ %18, %.lr.ph ]
-  %.074115.ph = phi double [ %.sroa.speculated64, %.thread120 ], [ %22, %.lr.ph ]
-  %.076114.ph = phi double [ %.sroa.speculated, %.thread120 ], [ %18, %.lr.ph ]
+.outer:                                           ; preds = %.thread127, %.lr.ph
+  %.035117.ph = phi i1 [ false, %.thread127 ], [ true, %.lr.ph ]
+  %storemerge116.ph = phi double [ %84, %.thread127 ], [ %18, %.lr.ph ]
+  %.074115.ph = phi double [ %.sroa.speculated64, %.thread127 ], [ %22, %.lr.ph ]
+  %.076114.ph = phi double [ %.sroa.speculated, %.thread127 ], [ %18, %.lr.ph ]
   br label %32
 
 ._crit_edge:                                      ; preds = %79
@@ -240,14 +240,14 @@ _ZNKSt8functionIFddEEclEd.exit52:                 ; preds = %_ZNKSt8functionIFdd
   %76 = call noundef double @llvm.fabs.f64(double %75)
   %77 = fmul double %74, 1.000000e+01
   %78 = fcmp ogt double %76, %77
-  br i1 %78, label %.thread120, label %79
+  br i1 %78, label %.thread127, label %79
 
 79:                                               ; preds = %_ZNKSt8functionIFddEEclEd.exit52
   %80 = fadd double %24, %storemerge116
   %81 = fcmp ugt double %80, %22
   br i1 %81, label %._crit_edge, label %32, !llvm.loop !17
 
-.thread120:                                       ; preds = %_ZNKSt8functionIFddEEclEd.exit52
+.thread127:                                       ; preds = %_ZNKSt8functionIFddEEclEd.exit52
   %82 = fcmp olt double %storemerge116, %.074115.ph
   %.sroa.speculated64 = select i1 %82, double %storemerge116, double %.074115.ph
   %83 = fcmp olt double %.076114.ph, %storemerge116
@@ -256,13 +256,13 @@ _ZNKSt8functionIFddEEclEd.exit52:                 ; preds = %_ZNKSt8functionIFdd
   %85 = fcmp ugt double %84, %22
   br i1 %85, label %._crit_edge.thread, label %.outer, !llvm.loop !17
 
-._crit_edge.thread:                               ; preds = %.thread120, %._crit_edge
-  %.177124131 = phi double [ %.076114.ph, %._crit_edge ], [ %.sroa.speculated, %.thread120 ]
-  %.175125130 = phi double [ %.074115.ph, %._crit_edge ], [ %.sroa.speculated64, %.thread120 ]
+._crit_edge.thread:                               ; preds = %.thread127, %._crit_edge
+  %.177131138 = phi double [ %.076114.ph, %._crit_edge ], [ %.sroa.speculated, %.thread127 ]
+  %.175132137 = phi double [ %.074115.ph, %._crit_edge ], [ %.sroa.speculated64, %.thread127 ]
   %86 = call ptr @__cxa_allocate_exception(i64 24) #22
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull @.str, double noundef %.175125130, double noundef %.177124131)
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull @.str, double noundef %.175132137, double noundef %.177131138)
           to label %87 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 87:                                               ; preds = %._crit_edge.thread

@@ -2098,9 +2098,9 @@ define noundef range(i32 0, -1) i32 @_Z12search_jtypeRK17PreprocessResiduePKcb(p
   br i1 %63, label %65, label %70
 
 23:                                               ; preds = %18, %.loopexit
-  %.04878 = phi i32 [ 0, %18 ], [ %61, %.loopexit ]
+  %24 = phi i1 [ false, %18 ], [ true, %.loopexit ]
+  %.04878 = phi i32 [ 0, %18 ], [ 1, %.loopexit ]
   %.05177 = phi i64 [ 0, %18 ], [ %.253, %.loopexit ]
-  %24 = icmp eq i32 %.04878, 1
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %23
@@ -2114,8 +2114,7 @@ define noundef range(i32 0, -1) i32 @_Z12search_jtypeRK17PreprocessResiduePKcb(p
 
 .lr.ph72:                                         ; preds = %26
   %29 = icmp eq i32 %.04878, %21
-  %.fr = freeze i1 %29
-  br i1 %.fr, label %.lr.ph72.split.us, label %.lr.ph72.split
+  br i1 %29, label %.lr.ph72.split.us, label %.lr.ph72.split
 
 .lr.ph72.split.us:                                ; preds = %.lr.ph72, %._crit_edge.us
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %._crit_edge.us ], [ 0, %.lr.ph72 ]

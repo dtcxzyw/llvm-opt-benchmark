@@ -370,13 +370,13 @@ _ZN7Imf_3_47Array2DINS_4RgbaEED2Ev.exit:          ; preds = %24, %27
   br i1 %51, label %_ZN7Imf_3_47Array2DINS_4RgbaEED2Ev.exit25, label %52
 
 52:                                               ; preds = %.thread, %49
-  %.pn27 = phi { ptr, i32 } [ %30, %.thread ], [ %50, %49 ]
+  %.pn29 = phi { ptr, i32 } [ %30, %.thread ], [ %50, %49 ]
   %53 = phi ptr [ %18, %.thread ], [ %.pre, %49 ]
   call void @_ZdaPv(ptr noundef nonnull %53) #11
   br label %_ZN7Imf_3_47Array2DINS_4RgbaEED2Ev.exit25
 
 _ZN7Imf_3_47Array2DINS_4RgbaEED2Ev.exit25:        ; preds = %52, %49, %28
-  %.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %50, %49 ], [ %.pn27, %52 ]
+  %.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %50, %49 ], [ %.pn29, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN7Imf_3_419TiledRgbaOutputFileD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

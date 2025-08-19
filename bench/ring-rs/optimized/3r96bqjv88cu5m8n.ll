@@ -274,14 +274,14 @@ define hidden noundef nonnull align 1 ptr @"_ZN4spin4once17Once$LT$T$C$R$GT$18tr
   %18 = load atomic i8, ptr %0 acquire, align 1
   %19 = icmp ult i8 %18, 4
   tail call void @llvm.assume(i1 %19)
-  switch i8 %18, label %default.unreachable.i [
+  switch i8 %18, label %default.unreachable [
     i8 0, label %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit.thread"
     i8 1, label %20
     i8 2, label %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit"
     i8 3, label %21
   ]
 
-default.unreachable.i:                            ; preds = %.preheader
+default.unreachable:                              ; preds = %.preheader
   unreachable
 
 20:                                               ; preds = %.preheader

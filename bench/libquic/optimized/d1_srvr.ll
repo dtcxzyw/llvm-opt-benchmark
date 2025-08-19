@@ -178,13 +178,13 @@ define hidden range(i32 -2147483648, 2) i32 @dtls1_accept(ptr noundef %0) local_
   %64 = load i8, ptr %63, align 8
   %65 = and i8 %64, 1
   %.not183 = icmp eq i8 %65, 0
-  %.196 = select i1 %.not183, i32 8528, i32 8704
+  %.214 = select i1 %.not183, i32 8528, i32 8704
   br label %66
 
 66:                                               ; preds = %53, %61
-  %.sink193 = phi i32 [ %.196, %61 ], [ 8528, %53 ]
+  %.sink211 = phi i32 [ %.214, %61 ], [ 8528, %53 ]
   %.2 = phi i32 [ 0, %61 ], [ 1, %53 ]
-  store i32 %.sink193, ptr %10, align 4, !tbaa !42
+  store i32 %.sink211, ptr %10, align 4, !tbaa !42
   store i32 0, ptr %13, align 8, !tbaa !44
   br label %172
 
@@ -350,12 +350,12 @@ define hidden range(i32 -2147483648, 2) i32 @dtls1_accept(ptr noundef %0) local_
 141:                                              ; preds = %138
   %142 = load i32, ptr %14, align 8, !tbaa !46
   %.not175 = icmp eq i32 %142, 0
-  %.197 = select i1 %.not175, i32 8656, i32 8688
+  %.215 = select i1 %.not175, i32 8656, i32 8688
   br label %143
 
 143:                                              ; preds = %141, %138
-  %.sink194 = phi i32 [ 3, %138 ], [ %.197, %141 ]
-  store i32 %.sink194, ptr %10, align 4, !tbaa !42
+  %.sink212 = phi i32 [ 3, %138 ], [ %.215, %141 ]
+  store i32 %.sink212, ptr %10, align 4, !tbaa !42
   store i32 0, ptr %13, align 8, !tbaa !44
   br label %172
 
@@ -393,8 +393,8 @@ define hidden range(i32 -2147483648, 2) i32 @dtls1_accept(ptr noundef %0) local_
   %.not172 = icmp eq i8 %158, 0
   %159 = load ptr, ptr %12, align 8, !tbaa !47
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 448
-  %.198 = select i1 %.not172, i32 3, i32 8624
-  store i32 %.198, ptr %160, align 8, !tbaa !66
+  %.216 = select i1 %.not172, i32 3, i32 8624
+  store i32 %.216, ptr %160, align 8, !tbaa !66
   store i32 0, ptr %13, align 8, !tbaa !44
   br label %172
 

@@ -502,7 +502,7 @@ define internal fastcc void @timing_setup(ptr noundef readonly captures(none) %0
   %110 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %111 = load i16, ptr %110, align 2
   %112 = icmp eq i16 %111, 0
-  switch i32 %4, label %default.unreachable5 [
+  switch i32 %4, label %default.unreachable9 [
     i32 1, label %113
     i32 2, label %121
     i32 3, label %132
@@ -564,7 +564,7 @@ define internal fastcc void @timing_setup(ptr noundef readonly captures(none) %0
   %145 = or i8 %144, -64
   br label %146
 
-default.unreachable5:                             ; preds = %106
+default.unreachable9:                             ; preds = %106
   unreachable
 
 146:                                              ; preds = %140, %133, %127, %114, %116

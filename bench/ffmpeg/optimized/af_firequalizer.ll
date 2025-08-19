@@ -311,41 +311,41 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %29 = load ptr, ptr %19, align 8, !tbaa !42
-  %.not75114 = icmp eq ptr %29, null
-  br i1 %.not75114, label %.critedge.loopexit, label %.lr.ph116
+  %.not75117 = icmp eq ptr %29, null
+  br i1 %.not75117, label %.critedge.loopexit, label %.lr.ph119
 
-30:                                               ; preds = %.lr.ph116
+30:                                               ; preds = %.lr.ph119
   %31 = load ptr, ptr %19, align 8, !tbaa !42
   %.not75 = icmp eq ptr %31, null
-  br i1 %.not75, label %.critedge.loopexit, label %.lr.ph116, !llvm.loop !43
+  br i1 %.not75, label %.critedge.loopexit, label %.lr.ph119, !llvm.loop !43
 
-.lr.ph116:                                        ; preds = %.lr.ph88, %30
-  %indvars.iv95115 = phi i64 [ %indvars.iv.next96, %30 ], [ 0, %.lr.ph88 ]
+.lr.ph119:                                        ; preds = %.lr.ph88, %30
+  %indvars.iv95118 = phi i64 [ %indvars.iv.next96, %30 ], [ 0, %.lr.ph88 ]
   %32 = load ptr, ptr %23, align 8, !tbaa !45
   %33 = load ptr, ptr %24, align 8, !tbaa !46
   %34 = load i32, ptr %25, align 4, !tbaa !47
-  %indvars.iv95.tr = trunc i64 %indvars.iv95115 to i32
+  %indvars.iv95.tr = trunc i64 %indvars.iv95118 to i32
   %35 = shl i32 %indvars.iv95.tr, 1
   %36 = mul nsw i32 %35, %34
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds float, ptr %33, i64 %37
   %39 = load ptr, ptr %26, align 8, !tbaa !48
-  %40 = getelementptr inbounds nuw %struct.OverlapIndex, ptr %39, i64 %indvars.iv95115
+  %40 = getelementptr inbounds nuw %struct.OverlapIndex, ptr %39, i64 %indvars.iv95118
   %41 = load ptr, ptr %27, align 8, !tbaa !49
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv95115
+  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv95118
   %43 = load ptr, ptr %42, align 8, !tbaa !28
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !28
   %46 = load i32, ptr %28, align 8, !tbaa !54
   tail call fastcc void @fast_convolute2(ptr noundef nonnull %6, ptr noundef %32, ptr noundef %38, ptr noundef %40, ptr noundef %43, ptr noundef %45, i32 noundef %46)
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95115, 2
+  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95118, 2
   %47 = load i32, ptr %20, align 4, !tbaa !41
   %48 = trunc i64 %indvars.iv.next96 to i32
   %49 = or disjoint i32 %48, 1
   %50 = icmp slt i32 %49, %47
   br i1 %50, label %30, label %..critedge.loopexit_crit_edge, !llvm.loop !43
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph116
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph119
   br label %.critedge.loopexit, !llvm.loop !43
 
 .critedge.loopexit:                               ; preds = %30, %..critedge.loopexit_crit_edge, %.lr.ph88
@@ -408,8 +408,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %86 = load i32, ptr %13, align 8, !tbaa !55
   %.not80 = icmp eq i32 %86, 0
   %.pre = load i32, ptr %14, align 4, !tbaa !47
-  %indvars.iv.tr111 = trunc i64 %indvars.iv to i32
-  %.pre105 = shl i32 %indvars.iv.tr111, 1
+  %indvars.iv.tr114 = trunc i64 %indvars.iv to i32
+  %.pre105 = shl i32 %indvars.iv.tr114, 1
   %.pre107 = mul i32 %.pre105, %.pre
   %.pre109 = sext i32 %.pre107 to i64
   %..pre109 = select i1 %.not80, i64 0, i64 %.pre109
@@ -1616,9 +1616,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_kernel(ptr nounde
   %88 = add nuw nsw i32 %.0160233, 1
   %89 = load i32, ptr %44, align 4, !tbaa !41
   %90 = icmp slt i32 %88, %89
-  br i1 %90, label %95, label %dump_fir.exit._crit_edge.thread265, !llvm.loop !124
+  br i1 %90, label %95, label %dump_fir.exit._crit_edge.thread280, !llvm.loop !124
 
-dump_fir.exit._crit_edge.thread265:               ; preds = %87
+dump_fir.exit._crit_edge.thread280:               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %12, i64 176
   %92 = load ptr, ptr %91, align 8, !tbaa !45
   %93 = getelementptr inbounds nuw i8, ptr %12, i64 160
@@ -2098,8 +2098,8 @@ generate_min_phase_kernel.exit:                   ; preds = %343, %._crit_edge95
   %367 = load i32, ptr %69, align 8, !tbaa !40
   %.not186 = icmp ne i32 %367, 0
   %.not187230 = icmp slt i32 %356, -1
-  %or.cond271 = or i1 %.not186, %.not187230
-  br i1 %or.cond271, label %.loopexit, label %.lr.ph232.preheader
+  %or.cond286 = or i1 %.not186, %.not187230
+  br i1 %or.cond286, label %.loopexit, label %.lr.ph232.preheader
 
 .lr.ph232.preheader:                              ; preds = %._crit_edge228
   %368 = sdiv i32 %356, 2
@@ -2109,8 +2109,8 @@ generate_min_phase_kernel.exit:                   ; preds = %343, %._crit_edge95
 
 .lr.ph232:                                        ; preds = %.lr.ph232.preheader, %.lr.ph232
   %indvars.iv251 = phi i64 [ 0, %.lr.ph232.preheader ], [ %indvars.iv.next252, %.lr.ph232 ]
-  %.idx263 = shl nuw nsw i64 %indvars.iv251, 3
-  %370 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx263
+  %.idx278 = shl nuw nsw i64 %indvars.iv251, 3
+  %370 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx278
   %371 = load float, ptr %370, align 4, !tbaa !67
   %372 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv251
   store float %371, ptr %372, align 4, !tbaa !67
@@ -2403,9 +2403,9 @@ dump_fir.exit._crit_edge:                         ; preds = %54
   %.not191 = icmp eq i32 %.pre261, 0
   br i1 %.not191, label %536, label %531
 
-531:                                              ; preds = %dump_fir.exit._crit_edge.thread265, %dump_fir.exit._crit_edge
-  %532 = phi ptr [ %94, %dump_fir.exit._crit_edge.thread265 ], [ %530, %dump_fir.exit._crit_edge ]
-  %533 = phi ptr [ %92, %dump_fir.exit._crit_edge.thread265 ], [ %528, %dump_fir.exit._crit_edge ]
+531:                                              ; preds = %dump_fir.exit._crit_edge.thread280, %dump_fir.exit._crit_edge
+  %532 = phi ptr [ %94, %dump_fir.exit._crit_edge.thread280 ], [ %530, %dump_fir.exit._crit_edge ]
+  %533 = phi ptr [ %92, %dump_fir.exit._crit_edge.thread280 ], [ %528, %dump_fir.exit._crit_edge ]
   %534 = load i32, ptr %44, align 4, !tbaa !41
   %535 = shl i32 %534, 1
   br label %536

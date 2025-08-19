@@ -2357,7 +2357,7 @@ define linkonce_odr hidden void @_ZN4lean10replace_fn5applyERKNS_4exprE(ptr dead
   %19 = load ptr, ptr %2, align 8, !tbaa !27
   %.val.i.i = load i32, ptr %19, align 4, !tbaa !29
   %.not = icmp ne i32 %.val.i.i, 1
-  br i1 %.not, label %20, label %_ZN4lean4exprC2ERKS0_.exit.thread137
+  br i1 %.not, label %20, label %_ZN4lean4exprC2ERKS0_.exit.thread170
 
 20:                                               ; preds = %3
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2454,17 +2454,17 @@ _ZN4lean4exprC2ERKS0_.exit:                       ; preds = %.lr.ph.i.i.i.i, %25
   %.not125 = icmp eq i64 %62, 0
   br i1 %.not125, label %65, label %_ZL8lean_incP11lean_object.exit
 
-_ZN4lean4exprC2ERKS0_.exit.thread137:             ; preds = %3
+_ZN4lean4exprC2ERKS0_.exit.thread170:             ; preds = %3
   %63 = ptrtoint ptr %19 to i64
   %64 = and i64 %63, 1
-  %.not125138 = icmp eq i64 %64, 0
-  br i1 %.not125138, label %.thread, label %_ZL8lean_incP11lean_object.exit
+  %.not125171 = icmp eq i64 %64, 0
+  br i1 %.not125171, label %.thread, label %_ZL8lean_incP11lean_object.exit
 
 65:                                               ; preds = %_ZN4lean4exprC2ERKS0_.exit
   %66 = icmp sgt i32 %.val.i.i, 0
   br i1 %66, label %.thread, label %68, !prof !90
 
-.thread:                                          ; preds = %_ZN4lean4exprC2ERKS0_.exit.thread137, %65
+.thread:                                          ; preds = %_ZN4lean4exprC2ERKS0_.exit.thread170, %65
   %67 = add nuw nsw i32 %.val.i.i, 1
   store i32 %67, ptr %19, align 4, !tbaa !29
   br label %_ZL8lean_incP11lean_object.exit
@@ -2477,7 +2477,7 @@ _ZN4lean4exprC2ERKS0_.exit.thread137:             ; preds = %3
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %19)
   br label %_ZL8lean_incP11lean_object.exit
 
-_ZL8lean_incP11lean_object.exit:                  ; preds = %_ZN4lean4exprC2ERKS0_.exit.thread137, %69, %68, %.thread, %_ZN4lean4exprC2ERKS0_.exit
+_ZL8lean_incP11lean_object.exit:                  ; preds = %_ZN4lean4exprC2ERKS0_.exit.thread170, %69, %68, %.thread, %_ZN4lean4exprC2ERKS0_.exit
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %71 = load ptr, ptr %70, align 8, !tbaa !39
   %.val.i70 = load i32, ptr %71, align 4, !tbaa !29

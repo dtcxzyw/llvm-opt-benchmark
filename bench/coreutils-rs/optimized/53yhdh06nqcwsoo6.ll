@@ -469,7 +469,7 @@ define hidden noundef i64 @_ZN5uu_od12inputdecoder13MemoryDecoder9read_uint17h31
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit": ; preds = %28
   %32 = getelementptr inbounds i8, ptr %24, i64 %1
-  switch i8 %20, label %default.unreachable46 [
+  switch i8 %20, label %default.unreachable54 [
     i8 0, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit"
     i8 1, label %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE.exit"
     i8 2, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit37"
@@ -501,7 +501,7 @@ define hidden noundef i64 @_ZN5uu_od12inputdecoder13MemoryDecoder9read_uint17h31
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit33": ; preds = %43
   %47 = getelementptr inbounds i8, ptr %39, i64 %1
-  switch i8 %35, label %default.unreachable46 [
+  switch i8 %35, label %default.unreachable54 [
     i8 0, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit"
     i8 1, label %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E.exit"
     i8 2, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit41"
@@ -533,7 +533,7 @@ define hidden noundef i64 @_ZN5uu_od12inputdecoder13MemoryDecoder9read_uint17h31
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit34": ; preds = %58
   %62 = getelementptr inbounds i8, ptr %54, i64 %1
-  switch i8 %50, label %default.unreachable46 [
+  switch i8 %50, label %default.unreachable54 [
     i8 0, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit"
     i8 1, label %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E.exit"
     i8 2, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit45"
@@ -555,7 +555,7 @@ define hidden noundef i64 @_ZN5uu_od12inputdecoder13MemoryDecoder9read_uint17h31
   %.0 = phi i64 [ %68, %63 ], [ %73, %72 ], [ %76, %75 ], [ %.val.i.i42, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit" ], [ %77, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E.exit" ], [ %.val.i.i44, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit45" ]
   ret i64 %.0
 
-default.unreachable46:                            ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit34", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit33", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit"
+default.unreachable54:                            ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit34", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit33", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit"
   unreachable
 
 "_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit"
@@ -664,7 +664,7 @@ define hidden noundef double @_ZN5uu_od12inputdecoder13MemoryDecoder10read_float
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit": ; preds = %23
   %27 = getelementptr inbounds i8, ptr %19, i64 %1
-  switch i8 %15, label %default.unreachable35 [
+  switch i8 %15, label %default.unreachable44 [
     i8 0, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit"
     i8 1, label %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE.exit"
     i8 2, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit32"
@@ -696,7 +696,7 @@ define hidden noundef double @_ZN5uu_od12inputdecoder13MemoryDecoder10read_float
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit22": ; preds = %38
   %42 = getelementptr inbounds i8, ptr %34, i64 %1
-  switch i8 %30, label %default.unreachable35 [
+  switch i8 %30, label %default.unreachable44 [
     i8 0, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit.i"
     i8 1, label %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E.exit.i"
     i8 2, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit3.i"
@@ -747,7 +747,7 @@ _ZN5uu_od12byteorder_io9ByteOrder8read_f3217h3c32612f14b3a8d0E.exit: ; preds = %
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit23": ; preds = %55
   %59 = getelementptr inbounds i8, ptr %51, i64 %1
-  switch i8 %47, label %default.unreachable35 [
+  switch i8 %47, label %default.unreachable44 [
     i8 0, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit.i"
     i8 1, label %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E.exit.i"
     i8 2, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit3.i"
@@ -771,7 +771,7 @@ _ZN5uu_od12byteorder_io9ByteOrder8read_f6417h361272dd8c7a212cE.exit: ; preds = %
   %.0.i26 = bitcast i64 %.0.in.i25 to double
   br label %114
 
-default.unreachable35:                            ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit23", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit22", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit"
+default.unreachable44:                            ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit23", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit22", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit"
   unreachable
 
 "_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit"

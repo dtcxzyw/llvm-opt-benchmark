@@ -5022,8 +5022,8 @@ _ZL6do_gkrP8t_gkrbiniPiPS1_PKiPA3_fS6_7PbcTypePA3_KfPK6t_atomS4_.exit: ; preds =
   %1543 = load double, ptr %105, align 16, !tbaa !91
   %1544 = fptrunc double %1543 to float
   %1545 = load ptr, ptr %.0103, align 8, !tbaa !80
-  %.idx370 = mul nuw nsw i64 %indvars.iv357, 12
-  %1546 = getelementptr inbounds nuw i8, ptr %1545, i64 %.idx370
+  %.idx597 = mul nuw nsw i64 %indvars.iv357, 12
+  %1546 = getelementptr inbounds nuw i8, ptr %1545, i64 %.idx597
   store float %1544, ptr %1546, align 4, !tbaa !8
   %1547 = load double, ptr %762, align 8, !tbaa !91
   %1548 = fptrunc double %1547 to float
@@ -6004,7 +6004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129.i: ; preds = %
   br i1 %1999, label %.lr.ph.i1020, label %._crit_edge.i1017
 
 .lr.ph.i1020:                                     ; preds = %.critedge.i, %.critedge.thread.i
-  %.077.lcssa155.i = phi i64 [ %1998, %.critedge.thread.i ], [ 1, %.critedge.i ]
+  %.077.lcssa172.i = phi i64 [ %1998, %.critedge.thread.i ], [ 1, %.critedge.i ]
   %.pn.in.i = mul nsw i32 %1904, %1587
   %.pn.i = sitofp i32 %.pn.in.i to double
   %2000 = fdiv double 2.000000e+00, %.pn.i
@@ -6062,7 +6062,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129.i: ; preds = %
   %2045 = fpext float %2040 to double
   %2046 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1931, ptr noundef nonnull @.str.255, double noundef %2041, double noundef %2042, double noundef %.066.i, double noundef %2043, double noundef %2044, double noundef %2045) #23
   %indvars.iv.next150.i = add nuw nsw i64 %indvars.iv149.i, 1
-  %exitcond.not.i1022 = icmp eq i64 %indvars.iv.next150.i, %.077.lcssa155.i
+  %exitcond.not.i1022 = icmp eq i64 %indvars.iv.next150.i, %.077.lcssa172.i
   br i1 %exitcond.not.i1022, label %._crit_edge.i1017, label %2001, !llvm.loop !143
 
 ._crit_edge.i1017:                                ; preds = %2001, %.critedge.i

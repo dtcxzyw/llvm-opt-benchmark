@@ -2934,7 +2934,7 @@ call.i.i.i.noexc21.i:                             ; preds = %invoke.cont3.i
 
 invoke.cont5.thread.i:                            ; preds = %call.i.i.i.noexc21.i
   call void @_ZdlPv(ptr noundef nonnull %call4.i) #17
-  %mpRefCount3.i1067.i = getelementptr inbounds nuw i8, ptr %pS1.i, i64 8
+  %mpRefCount3.i1131.i = getelementptr inbounds nuw i8, ptr %pS1.i, i64 8
   br label %_ZNK5eastl10shared_ptrIiE9use_countEv.exit.i
 
 cond.true.i.i:                                    ; preds = %call.i.i.i.noexc21.i
@@ -2954,7 +2954,7 @@ cond.true.i.i:                                    ; preds = %call.i.i.i.noexc21.
   br label %_ZNK5eastl10shared_ptrIiE9use_countEv.exit.i
 
 _ZNK5eastl10shared_ptrIiE9use_countEv.exit.i:     ; preds = %cond.true.i.i, %invoke.cont5.thread.i
-  %mpRefCount3.i1069.i = phi ptr [ %mpRefCount.i16.i, %cond.true.i.i ], [ %mpRefCount3.i1067.i, %invoke.cont5.thread.i ]
+  %mpRefCount3.i1133.i = phi ptr [ %mpRefCount.i16.i, %cond.true.i.i ], [ %mpRefCount3.i1131.i, %invoke.cont5.thread.i ]
   %192 = phi ptr [ %call4.i, %cond.true.i.i ], [ null, %invoke.cont5.thread.i ]
   %cond.i.i = phi i1 [ %191, %cond.true.i.i ], [ false, %invoke.cont5.thread.i ]
   %call9.i = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cond.i.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i54, ptr noundef nonnull @.str, i32 noundef 1541, ptr noundef nonnull @.str.125)
@@ -3006,7 +3006,7 @@ _ZNK5eastl8weak_ptrIiE7expiredEv.exit63.i:        ; preds = %_ZNK5eastl8weak_ptr
 
 invoke.cont34.i65:                                ; preds = %_ZNK5eastl8weak_ptrIiE7expiredEv.exit63.i
   store ptr null, ptr %pS1.i, align 8
-  store ptr null, ptr %mpRefCount3.i1069.i, align 8
+  store ptr null, ptr %mpRefCount3.i1133.i, align 8
   br i1 %tobool.not.i.i14.i, label %_ZNK5eastl8weak_ptrIiE7expiredEv.exit72.i, label %if.then.i.i65.i
 
 if.then.i.i65.i:                                  ; preds = %invoke.cont34.i65
@@ -3167,7 +3167,7 @@ _ZNK5eastl8weak_ptrIiE7expiredEv.exit131.i:       ; preds = %lor.rhs.i128.i, %_Z
           to label %invoke.cont68.i69 unwind label %lpad7.i
 
 invoke.cont68.i69:                                ; preds = %_ZNK5eastl8weak_ptrIiE7expiredEv.exit131.i
-  %214 = load ptr, ptr %mpRefCount3.i1069.i, align 8
+  %214 = load ptr, ptr %mpRefCount3.i1133.i, align 8
   %tobool.not.i133.i = icmp eq ptr %214, null
   br i1 %tobool.not.i133.i, label %_ZNK5eastl10shared_ptrIiE9use_countEv.exit137.i, label %cond.true.i134.i
 
@@ -3233,8 +3233,8 @@ if.else.i.i.i.i:                                  ; preds = %call.i.i.i.i.noexc.
 _ZN5eastl10shared_ptrIiEC2IiEEPT_PNS_9enable_ifIXsr14is_convertibleIS4_PiEE5valueEvE4typeE.exit.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i153.i
   %ref.tmp.sroa.0.0.i.i = phi ptr [ null, %if.else.i.i.i.i ], [ %call81.i, %if.then.i.i.i153.i ]
   store ptr %ref.tmp.sroa.0.0.i.i, ptr %pS1.i, align 8
-  %219 = load ptr, ptr %mpRefCount3.i1069.i, align 8
-  store ptr %call.i.i.i.i166.i, ptr %mpRefCount3.i1069.i, align 8
+  %219 = load ptr, ptr %mpRefCount3.i1133.i, align 8
+  store ptr %call.i.i.i.i166.i, ptr %mpRefCount3.i1133.i, align 8
   %tobool.not.i.i154.i = icmp eq ptr %219, null
   br i1 %tobool.not.i.i154.i, label %invoke.cont82.i70, label %if.then.i.i155.i
 
@@ -3267,7 +3267,7 @@ if.then.i.i.i.i161.i:                             ; preds = %if.end.i.i.i158.i
   br label %invoke.cont82thread-pre-split.i
 
 invoke.cont82thread-pre-split.i:                  ; preds = %if.then.i.i.i.i161.i, %if.end.i.i.i158.i
-  %.pr1038.i = load ptr, ptr %mpRefCount3.i1069.i, align 8
+  %.pr1038.i = load ptr, ptr %mpRefCount3.i1133.i, align 8
   br label %invoke.cont82.i70
 
 invoke.cont82.i70:                                ; preds = %invoke.cont82thread-pre-split.i, %_ZN5eastl10shared_ptrIiEC2IiEEPT_PNS_9enable_ifIXsr14is_convertibleIS4_PiEE5valueEvE4typeE.exit.i.i
@@ -3299,7 +3299,7 @@ cond.true.i191.i:                                 ; preds = %invoke.cont85.i
   br label %_ZNK5eastl10shared_ptrIiE9use_countEv.exit194.i
 
 _ZNK5eastl10shared_ptrIiE9use_countEv.exit194.i:  ; preds = %cond.true.i191.i, %invoke.cont85.i
-  %pW3.sroa.0.11073.i = phi ptr [ %227, %cond.true.i191.i ], [ null, %invoke.cont85.i ]
+  %pW3.sroa.0.11137.i = phi ptr [ %227, %cond.true.i191.i ], [ null, %invoke.cont85.i ]
   %cond.i193.i = phi i1 [ %230, %cond.true.i191.i ], [ false, %invoke.cont85.i ]
   %call91.i71 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cond.i193.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i54, ptr noundef nonnull @.str, i32 noundef 1565, ptr noundef nonnull @.str.125)
           to label %invoke.cont90.i72 unwind label %lpad7.i
@@ -3389,7 +3389,7 @@ cond.end.i225.i:                                  ; preds = %for.body.i.i218.i
   %244 = atomicrmw volatile add ptr %mWeakRefCount.i.i226.i, i32 1 monotonic, align 4, !noalias !14
   %mpRefCount4.i227.i = getelementptr inbounds nuw i8, ptr %pShared3.i, i64 8
   store ptr %224, ptr %mpRefCount4.i227.i, align 8, !alias.scope !14
-  store ptr %pW3.sroa.0.11073.i, ptr %pShared3.i, align 8, !alias.scope !14
+  store ptr %pW3.sroa.0.11137.i, ptr %pShared3.i, align 8, !alias.scope !14
   br label %_ZNK5eastl8weak_ptrIiE4lockEv.exit228.i
 
 _ZNK5eastl8weak_ptrIiE4lockEv.exit228.i:          ; preds = %cond.end.i225.i, %cond.end.thread.i223.i
@@ -3661,7 +3661,7 @@ if.then.i.i373.i:                                 ; preds = %if.then.i369.i
   br label %_ZN5eastl8weak_ptrIiED2Ev.exit376.i
 
 _ZN5eastl8weak_ptrIiED2Ev.exit376.i:              ; preds = %if.then.i.i373.i, %if.then.i369.i, %_ZN5eastl8weak_ptrIiED2Ev.exit366.i
-  %282 = load ptr, ptr %mpRefCount3.i1069.i, align 8
+  %282 = load ptr, ptr %mpRefCount3.i1133.i, align 8
   %tobool.not.i378.i = icmp eq ptr %282, null
   br i1 %tobool.not.i378.i, label %_ZN5eastl10shared_ptrIiED2Ev.exit392.i, label %if.then.i379.i
 
@@ -4311,13 +4311,13 @@ _ZNK5eastl8weak_ptrIKN12SmartPtrTest3fooEE4lockEv.exit653.i: ; preds = %cond.end
   br label %land.end215.i
 
 land.end215.i:                                    ; preds = %_ZNK5eastl8weak_ptrIKN12SmartPtrTest3fooEE4lockEv.exit653.i, %_ZNK5eastl8weak_ptrIKN12SmartPtrTest3fooEE4lockEv.exit636.i
-  %cmp.i.i6371081.i = phi i1 [ true, %_ZNK5eastl8weak_ptrIKN12SmartPtrTest3fooEE4lockEv.exit636.i ], [ false, %_ZNK5eastl8weak_ptrIKN12SmartPtrTest3fooEE4lockEv.exit653.i ]
+  %cmp.i.i6371145.i = phi i1 [ true, %_ZNK5eastl8weak_ptrIKN12SmartPtrTest3fooEE4lockEv.exit636.i ], [ false, %_ZNK5eastl8weak_ptrIKN12SmartPtrTest3fooEE4lockEv.exit653.i ]
   %372 = phi i1 [ false, %_ZNK5eastl8weak_ptrIKN12SmartPtrTest3fooEE4lockEv.exit636.i ], [ %cmp.i.i654.i, %_ZNK5eastl8weak_ptrIKN12SmartPtrTest3fooEE4lockEv.exit653.i ]
   %call218.i84 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %372, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i54, ptr noundef nonnull @.str, i32 noundef 1619, ptr noundef nonnull @.str.151)
           to label %invoke.cont217.i85 unwind label %lpad216.i
 
 invoke.cont217.i85:                               ; preds = %land.end215.i
-  br i1 %cmp.i.i6371081.i, label %cleanup.done.i, label %cleanup.action.i
+  br i1 %cmp.i.i6371145.i, label %cleanup.done.i, label %cleanup.action.i
 
 cleanup.action.i:                                 ; preds = %invoke.cont217.i85
   %mpRefCount.i655.i = getelementptr inbounds nuw i8, ptr %ref.tmp212.i, i64 8
@@ -4677,13 +4677,13 @@ _ZNK5eastl8weak_ptrIN12SmartPtrTest3fooEE4lockEv.exit810.i: ; preds = %cond.end.
   br label %land.end248.i
 
 land.end248.i:                                    ; preds = %_ZNK5eastl8weak_ptrIN12SmartPtrTest3fooEE4lockEv.exit810.i, %_ZNK5eastl8weak_ptrIN12SmartPtrTest3fooEE4lockEv.exit793.i
-  %cmp.i.i7941084.i = phi i1 [ true, %_ZNK5eastl8weak_ptrIN12SmartPtrTest3fooEE4lockEv.exit793.i ], [ false, %_ZNK5eastl8weak_ptrIN12SmartPtrTest3fooEE4lockEv.exit810.i ]
+  %cmp.i.i7941148.i = phi i1 [ true, %_ZNK5eastl8weak_ptrIN12SmartPtrTest3fooEE4lockEv.exit793.i ], [ false, %_ZNK5eastl8weak_ptrIN12SmartPtrTest3fooEE4lockEv.exit810.i ]
   %426 = phi i1 [ false, %_ZNK5eastl8weak_ptrIN12SmartPtrTest3fooEE4lockEv.exit793.i ], [ %cmp.i.i811.i, %_ZNK5eastl8weak_ptrIN12SmartPtrTest3fooEE4lockEv.exit810.i ]
   %call251.i = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %426, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i54, ptr noundef nonnull @.str, i32 noundef 1627, ptr noundef nonnull @.str.151)
           to label %invoke.cont250.i unwind label %lpad249.i
 
 invoke.cont250.i:                                 ; preds = %land.end248.i
-  br i1 %cmp.i.i7941084.i, label %cleanup.done254.i, label %cleanup.action253.i
+  br i1 %cmp.i.i7941148.i, label %cleanup.done254.i, label %cleanup.action253.i
 
 cleanup.action253.i:                              ; preds = %invoke.cont250.i
   %mpRefCount.i812.i = getelementptr inbounds nuw i8, ptr %ref.tmp244.i, i64 8
@@ -4955,7 +4955,7 @@ lpad205.i:                                        ; preds = %_ZNK5eastl8weak_ptr
 lpad216.i:                                        ; preds = %land.end215.i
   %461 = landingpad { ptr, i32 }
           cleanup
-  br i1 %cmp.i.i6371081.i, label %ehcleanup224.i, label %cleanup.action221.i
+  br i1 %cmp.i.i6371145.i, label %ehcleanup224.i, label %cleanup.action221.i
 
 cleanup.action221.i:                              ; preds = %lpad216.i
   call void @_ZN5eastl10shared_ptrIKN12SmartPtrTest3fooEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp212.i) #16
@@ -4993,7 +4993,7 @@ lpad237.i:                                        ; preds = %_ZNK5eastl8weak_ptr
 lpad249.i:                                        ; preds = %land.end248.i
   %465 = landingpad { ptr, i32 }
           cleanup
-  br i1 %cmp.i.i7941084.i, label %ehcleanup260.i, label %cleanup.action257.i
+  br i1 %cmp.i.i7941148.i, label %ehcleanup260.i, label %cleanup.action257.i
 
 cleanup.action257.i:                              ; preds = %lpad249.i
   call void @_ZN5eastl10shared_ptrIN12SmartPtrTest3fooEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp244.i) #16
@@ -7525,7 +7525,7 @@ if.end.i.i.i726.i:                                ; preds = %if.else.i.i.i724.i,
   br label %ehcleanup346.i
 
 ehcleanup346.i:                                   ; preds = %if.end.i.i.i726.i, %ehcleanup345.i, %ehcleanup345.thread.i
-  %.pn9.pn788.i = phi { ptr, i32 } [ %762, %ehcleanup345.thread.i ], [ %763, %if.end.i.i.i726.i ], [ %763, %ehcleanup345.i ]
+  %.pn9.pn852.i = phi { ptr, i32 } [ %762, %ehcleanup345.thread.i ], [ %763, %if.end.i.i.i726.i ], [ %763, %ehcleanup345.i ]
   %768 = load ptr, ptr %mpValue.i477.i, align 8
   %cmp.not.i.i.i732.i = icmp eq ptr %768, null
   br i1 %cmp.not.i.i.i732.i, label %ehcleanup347.i, label %if.then.i.i.i733.i
@@ -7557,7 +7557,7 @@ if.end.i.i.i738.i:                                ; preds = %if.else.i.i.i736.i,
   br label %ehcleanup347.i
 
 ehcleanup347.i:                                   ; preds = %if.end.i.i.i738.i, %ehcleanup346.i, %lpad312.i
-  %.pn9.pn.pn.pn.i = phi { ptr, i32 } [ %761, %lpad312.i ], [ %.pn9.pn788.i, %ehcleanup346.i ], [ %.pn9.pn788.i, %if.end.i.i.i738.i ]
+  %.pn9.pn.pn.pn.i = phi { ptr, i32 } [ %761, %lpad312.i ], [ %.pn9.pn852.i, %ehcleanup346.i ], [ %.pn9.pn852.i, %if.end.i.i.i738.i ]
   %773 = load ptr, ptr %mpValue.i451.i, align 8
   %cmp.not.i.i.i744.i = icmp eq ptr %773, null
   br i1 %cmp.not.i.i.i744.i, label %_ZN5eastl10linked_ptrIN12SmartPtrTest1AENS_17smart_ptr_deleterIS2_EEED2Ev.exit754.i, label %if.then.i.i.i745.i
@@ -9704,8 +9704,8 @@ invoke.cont30:                                    ; preds = %_ZNK5eastl10shared_
 
 _ZN5eastl10shared_ptrIiEaSERKS1_.exit.thread:     ; preds = %invoke.cont30
   store ptr %0, ptr %pT2, align 8
-  %mpRefCount.i2.i1483 = getelementptr inbounds nuw i8, ptr %pT2, i64 8
-  store ptr %call.i.i.i, ptr %mpRefCount.i2.i1483, align 8
+  %mpRefCount.i2.i1550 = getelementptr inbounds nuw i8, ptr %pT2, i64 8
+  store ptr %call.i.i.i, ptr %mpRefCount.i2.i1550, align 8
   br label %_ZNK5eastl10shared_ptrIiE9use_countEv.exit60
 
 cond.true.i57:                                    ; preds = %invoke.cont30
@@ -9722,7 +9722,7 @@ cond.true.i57:                                    ; preds = %invoke.cont30
   br label %_ZNK5eastl10shared_ptrIiE9use_countEv.exit60
 
 _ZNK5eastl10shared_ptrIiE9use_countEv.exit60:     ; preds = %_ZN5eastl10shared_ptrIiEaSERKS1_.exit.thread, %cond.true.i57
-  %mpRefCount.i2.i1484 = phi ptr [ %mpRefCount.i2.i, %cond.true.i57 ], [ %mpRefCount.i2.i1483, %_ZN5eastl10shared_ptrIiEaSERKS1_.exit.thread ]
+  %mpRefCount.i2.i1551 = phi ptr [ %mpRefCount.i2.i, %cond.true.i57 ], [ %mpRefCount.i2.i1550, %_ZN5eastl10shared_ptrIiEaSERKS1_.exit.thread ]
   %cond.i59 = phi i1 [ %13, %cond.true.i57 ], [ false, %_ZN5eastl10shared_ptrIiEaSERKS1_.exit.thread ]
   %call36 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cond.i59, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1035, ptr noundef nonnull @.str.76)
           to label %invoke.cont35 unwind label %lpad22
@@ -9800,7 +9800,7 @@ if.then.i.i.i75:                                  ; preds = %call.i.i.i.i.noexc
 
 _ZN5eastl10shared_ptrIiEC2IiEEPT_PNS_9enable_ifIXsr14is_convertibleIS4_PiEE5valueEvE4typeE.exit.i: ; preds = %call.i.i.i.i.noexc, %if.then.i.i.i75
   store ptr null, ptr %pT2, align 8
-  store ptr %call.i.i.i.i88, ptr %mpRefCount.i2.i1484, align 8
+  store ptr %call.i.i.i.i88, ptr %mpRefCount.i2.i1551, align 8
   br i1 %tobool.not.i28, label %invoke.cont64, label %if.then.i.i77
 
 if.then.i.i77:                                    ; preds = %_ZN5eastl10shared_ptrIiEC2IiEEPT_PNS_9enable_ifIXsr14is_convertibleIS4_PiEE5valueEvE4typeE.exit.i
@@ -9832,7 +9832,7 @@ if.then.i.i.i.i83:                                ; preds = %if.end.i.i.i80
   br label %invoke.cont64thread-pre-split
 
 invoke.cont64thread-pre-split:                    ; preds = %if.end.i.i.i80, %if.then.i.i.i.i83
-  %.pr = load ptr, ptr %mpRefCount.i2.i1484, align 8
+  %.pr = load ptr, ptr %mpRefCount.i2.i1551, align 8
   br label %invoke.cont64
 
 invoke.cont64:                                    ; preds = %invoke.cont64thread-pre-split, %_ZN5eastl10shared_ptrIiEC2IiEEPT_PNS_9enable_ifIXsr14is_convertibleIS4_PiEE5valueEvE4typeE.exit.i
@@ -10328,8 +10328,8 @@ if.end195:                                        ; preds = %invoke.cont177
 
 _ZN5eastl10shared_ptrIN12SmartPtrTest1AEEaSERKS3_.exit.thread: ; preds = %if.end195
   store ptr %60, ptr %pT4, align 8
-  %mpRefCount.i2.i2351485 = getelementptr inbounds nuw i8, ptr %pT4, i64 8
-  store ptr %63, ptr %mpRefCount.i2.i2351485, align 8
+  %mpRefCount.i2.i2351552 = getelementptr inbounds nuw i8, ptr %pT4, i64 8
+  store ptr %63, ptr %mpRefCount.i2.i2351552, align 8
   br label %_ZNK5eastl10shared_ptrIN12SmartPtrTest1AEE9use_countEv.exit254
 
 cond.true.i251:                                   ; preds = %if.end195
@@ -10346,7 +10346,7 @@ cond.true.i251:                                   ; preds = %if.end195
   br label %_ZNK5eastl10shared_ptrIN12SmartPtrTest1AEE9use_countEv.exit254
 
 _ZNK5eastl10shared_ptrIN12SmartPtrTest1AEE9use_countEv.exit254: ; preds = %_ZN5eastl10shared_ptrIN12SmartPtrTest1AEEaSERKS3_.exit.thread, %cond.true.i251
-  %mpRefCount.i2.i2351486 = phi ptr [ %mpRefCount.i2.i235, %cond.true.i251 ], [ %mpRefCount.i2.i2351485, %_ZN5eastl10shared_ptrIN12SmartPtrTest1AEEaSERKS3_.exit.thread ]
+  %mpRefCount.i2.i2351553 = phi ptr [ %mpRefCount.i2.i235, %cond.true.i251 ], [ %mpRefCount.i2.i2351552, %_ZN5eastl10shared_ptrIN12SmartPtrTest1AEEaSERKS3_.exit.thread ]
   %cond.i253 = phi i1 [ %92, %cond.true.i251 ], [ false, %_ZN5eastl10shared_ptrIN12SmartPtrTest1AEEaSERKS3_.exit.thread ]
   %call200 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cond.i253, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1094, ptr noundef nonnull @.str.77)
           to label %invoke.cont199 unwind label %lpad173
@@ -10505,7 +10505,7 @@ if.then.i.i307:                                   ; preds = %call.i.i.i305.noexc
 
 invoke.cont246:                                   ; preds = %if.then.i.i307, %call.i.i.i305.noexc
   store ptr null, ptr %pT4, align 8
-  store ptr %call.i.i.i305313, ptr %mpRefCount.i2.i2351486, align 8
+  store ptr %call.i.i.i305313, ptr %mpRefCount.i2.i2351553, align 8
   br i1 %tobool.not.i188, label %_ZN5eastl10shared_ptrIN12SmartPtrTest1AEED2Ev.exit, label %if.then.i.i319
 
 if.then.i.i319:                                   ; preds = %invoke.cont246
@@ -10537,7 +10537,7 @@ if.then.i.i.i.i325:                               ; preds = %if.end.i.i.i322
   br label %_ZN5eastl10shared_ptrIN12SmartPtrTest1AEED2Ev.exitthread-pre-split
 
 _ZN5eastl10shared_ptrIN12SmartPtrTest1AEED2Ev.exitthread-pre-split: ; preds = %if.end.i.i.i322, %if.then.i.i.i.i325
-  %.pr1393 = load ptr, ptr %mpRefCount.i2.i2351486, align 8
+  %.pr1393 = load ptr, ptr %mpRefCount.i2.i2351553, align 8
   br label %_ZN5eastl10shared_ptrIN12SmartPtrTest1AEED2Ev.exit
 
 _ZN5eastl10shared_ptrIN12SmartPtrTest1AEED2Ev.exit: ; preds = %_ZN5eastl10shared_ptrIN12SmartPtrTest1AEED2Ev.exitthread-pre-split, %invoke.cont246
@@ -10626,7 +10626,7 @@ if.then.i.i.i371:                                 ; preds = %if.end.i.i368
   br label %_ZN5eastl10shared_ptrIN12SmartPtrTest1AEED2Ev.exit377
 
 _ZN5eastl10shared_ptrIN12SmartPtrTest1AEED2Ev.exit377: ; preds = %invoke.cont260, %if.end.i.i368, %if.then.i.i.i371
-  %125 = load ptr, ptr %mpRefCount.i2.i2351486, align 8
+  %125 = load ptr, ptr %mpRefCount.i2.i2351553, align 8
   %tobool.not.i379 = icmp eq ptr %125, null
   br i1 %tobool.not.i379, label %_ZN5eastl10shared_ptrIN12SmartPtrTest1AEED2Ev.exit392, label %if.then.i380
 
@@ -11176,12 +11176,12 @@ if.then.i.i.i622:                                 ; preds = %if.end.i.i619
   br label %_ZN5eastl10shared_ptrIN12SmartPtrTest10ChildClassEED2Ev.exit.sink.split
 
 _ZN5eastl10shared_ptrIN12SmartPtrTest10ChildClassEED2Ev.exit.sink.split: ; preds = %_ZN5eastl10shared_ptrIN12SmartPtrTest1AEED2Ev.exit564, %if.then.i.i.i622
-  %call333.sink1508 = phi ptr [ %call.i.i.i565, %if.then.i.i.i622 ], [ %call333, %_ZN5eastl10shared_ptrIN12SmartPtrTest1AEED2Ev.exit564 ]
+  %call333.sink1575 = phi ptr [ %call.i.i.i565, %if.then.i.i.i622 ], [ %call333, %_ZN5eastl10shared_ptrIN12SmartPtrTest1AEED2Ev.exit564 ]
   %.sink = phi i64 [ 24, %if.then.i.i.i622 ], [ 8, %_ZN5eastl10shared_ptrIN12SmartPtrTest1AEED2Ev.exit564 ]
-  %vtable.i.i.i573 = load ptr, ptr %call333.sink1508, align 8
+  %vtable.i.i.i573 = load ptr, ptr %call333.sink1575, align 8
   %vfn.i.i.i574 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i573, i64 %.sink
   %195 = load ptr, ptr %vfn.i.i.i574, align 8
-  call void %195(ptr noundef nonnull align 8 dereferenceable(8) %call333.sink1508) #16
+  call void %195(ptr noundef nonnull align 8 dereferenceable(8) %call333.sink1575) #16
   br label %_ZN5eastl10shared_ptrIN12SmartPtrTest10ChildClassEED2Ev.exit
 
 _ZN5eastl10shared_ptrIN12SmartPtrTest10ChildClassEED2Ev.exit: ; preds = %_ZN5eastl10shared_ptrIN12SmartPtrTest10ChildClassEED2Ev.exit.sink.split, %if.end.i.i619
@@ -11506,8 +11506,8 @@ _ZN5eastl10shared_ptrIN12SmartPtrTest15GrandChildClassEEC2IS2_EEPT_PNS_9enable_i
   %vfn.i.i.i690 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i689, i64 8
   %239 = load ptr, ptr %vfn.i.i.i690, align 8
   call void %239(ptr noundef nonnull align 8 dereferenceable(8) %call359) #16
-  %mpRefCount.i.i6911487 = getelementptr inbounds nuw i8, ptr %pPC360, i64 8
-  %mpRefCount2.i.i6921488 = getelementptr inbounds nuw i8, ptr %pGCC358, i64 8
+  %mpRefCount.i.i6911554 = getelementptr inbounds nuw i8, ptr %pPC360, i64 8
+  %mpRefCount2.i.i6921555 = getelementptr inbounds nuw i8, ptr %pGCC358, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pPC360, i8 0, i64 16, i1 false)
   br label %_ZN5eastl19static_pointer_castIN12SmartPtrTest11ParentClassENS1_15GrandChildClassEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit
 
@@ -11534,8 +11534,8 @@ if.then.i.i694:                                   ; preds = %_ZN5eastl10shared_p
   br label %_ZN5eastl19static_pointer_castIN12SmartPtrTest11ParentClassENS1_15GrandChildClassEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit
 
 _ZN5eastl19static_pointer_castIN12SmartPtrTest11ParentClassENS1_15GrandChildClassEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit: ; preds = %_ZN5eastl10shared_ptrIN12SmartPtrTest15GrandChildClassEEC2IS2_EEPT_PNS_9enable_ifIXsr5eastl14is_convertibleIS6_PS2_EE5valueEvE4typeE.exit.thread, %if.then.i.i694
-  %mpRefCount2.i.i6921491 = phi ptr [ %mpRefCount2.i.i6921488, %_ZN5eastl10shared_ptrIN12SmartPtrTest15GrandChildClassEEC2IS2_EEPT_PNS_9enable_ifIXsr5eastl14is_convertibleIS6_PS2_EE5valueEvE4typeE.exit.thread ], [ %mpRefCount2.i.i692, %if.then.i.i694 ]
-  %mpRefCount.i.i6911490 = phi ptr [ %mpRefCount.i.i6911487, %_ZN5eastl10shared_ptrIN12SmartPtrTest15GrandChildClassEEC2IS2_EEPT_PNS_9enable_ifIXsr5eastl14is_convertibleIS6_PS2_EE5valueEvE4typeE.exit.thread ], [ %mpRefCount.i.i691, %if.then.i.i694 ]
+  %mpRefCount2.i.i6921558 = phi ptr [ %mpRefCount2.i.i6921555, %_ZN5eastl10shared_ptrIN12SmartPtrTest15GrandChildClassEEC2IS2_EEPT_PNS_9enable_ifIXsr5eastl14is_convertibleIS6_PS2_EE5valueEvE4typeE.exit.thread ], [ %mpRefCount2.i.i692, %if.then.i.i694 ]
+  %mpRefCount.i.i6911557 = phi ptr [ %mpRefCount.i.i6911554, %_ZN5eastl10shared_ptrIN12SmartPtrTest15GrandChildClassEEC2IS2_EEPT_PNS_9enable_ifIXsr5eastl14is_convertibleIS6_PS2_EE5valueEvE4typeE.exit.thread ], [ %mpRefCount.i.i691, %if.then.i.i694 ]
   %242 = phi ptr [ null, %_ZN5eastl10shared_ptrIN12SmartPtrTest15GrandChildClassEEC2IS2_EEPT_PNS_9enable_ifIXsr5eastl14is_convertibleIS6_PS2_EE5valueEvE4typeE.exit.thread ], [ %call359, %if.then.i.i694 ]
   %call364 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1175, ptr noundef nonnull @.str.107)
           to label %invoke.cont363 unwind label %lpad362
@@ -11672,12 +11672,12 @@ if.then.i.i.i788:                                 ; preds = %if.end.i.i784
   br label %_ZN5eastl10shared_ptrIKvED2Ev.exit.sink.split
 
 _ZN5eastl10shared_ptrIKvED2Ev.exit.sink.split:    ; preds = %call.i.i.i707.noexc, %if.then.i.i.i788
-  %call372.sink1511 = phi ptr [ %call.i.i.i707717, %if.then.i.i.i788 ], [ %call372, %call.i.i.i707.noexc ]
-  %.sink1510 = phi i64 [ 24, %if.then.i.i.i788 ], [ 8, %call.i.i.i707.noexc ]
-  %vtable.i.i.i715 = load ptr, ptr %call372.sink1511, align 8
-  %vfn.i.i.i716 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i715, i64 %.sink1510
+  %call372.sink1578 = phi ptr [ %call.i.i.i707717, %if.then.i.i.i788 ], [ %call372, %call.i.i.i707.noexc ]
+  %.sink1577 = phi i64 [ 24, %if.then.i.i.i788 ], [ 8, %call.i.i.i707.noexc ]
+  %vtable.i.i.i715 = load ptr, ptr %call372.sink1578, align 8
+  %vfn.i.i.i716 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i715, i64 %.sink1577
   %263 = load ptr, ptr %vfn.i.i.i716, align 8
-  call void %263(ptr noundef nonnull align 8 dereferenceable(8) %call372.sink1511) #16
+  call void %263(ptr noundef nonnull align 8 dereferenceable(8) %call372.sink1578) #16
   br label %_ZN5eastl10shared_ptrIKvED2Ev.exit
 
 _ZN5eastl10shared_ptrIKvED2Ev.exit:               ; preds = %_ZN5eastl10shared_ptrIKvED2Ev.exit.sink.split, %if.end.i.i784
@@ -11715,7 +11715,7 @@ if.then.i.i.i803:                                 ; preds = %if.end.i.i799
   br label %_ZN5eastl10shared_ptrIN12SmartPtrTest10ChildClassEED2Ev.exit809
 
 _ZN5eastl10shared_ptrIN12SmartPtrTest10ChildClassEED2Ev.exit809: ; preds = %_ZN5eastl10shared_ptrIKvED2Ev.exit, %if.end.i.i799, %if.then.i.i.i803
-  %269 = load ptr, ptr %mpRefCount.i.i6911490, align 8
+  %269 = load ptr, ptr %mpRefCount.i.i6911557, align 8
   %tobool.not.i811 = icmp eq ptr %269, null
   br i1 %tobool.not.i811, label %_ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit825, label %if.then.i812
 
@@ -11748,7 +11748,7 @@ if.then.i.i.i819:                                 ; preds = %if.end.i.i815
   br label %_ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit825
 
 _ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit825: ; preds = %_ZN5eastl10shared_ptrIN12SmartPtrTest10ChildClassEED2Ev.exit809, %if.end.i.i815, %if.then.i.i.i819
-  %274 = load ptr, ptr %mpRefCount2.i.i6921491, align 8
+  %274 = load ptr, ptr %mpRefCount2.i.i6921558, align 8
   %tobool.not.i827 = icmp eq ptr %274, null
   br i1 %tobool.not.i827, label %_ZN5eastl10shared_ptrIN12SmartPtrTest15GrandChildClassEED2Ev.exit841, label %if.then.i828
 
@@ -11793,8 +11793,8 @@ _ZN5eastl10shared_ptrIN12SmartPtrTest15GrandChildClassEEC2IS2_EEPT_PNS_9enable_i
   %vfn.i.i.i851 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i850, i64 8
   %279 = load ptr, ptr %vfn.i.i.i851, align 8
   call void %279(ptr noundef nonnull align 8 dereferenceable(8) %call379) #16
-  %mpRefCount.i.i.i8531493 = getelementptr inbounds nuw i8, ptr %pPC380, i64 8
-  %mpRefCount2.i.i.i1494 = getelementptr inbounds nuw i8, ptr %pGCC378, i64 8
+  %mpRefCount.i.i.i8531560 = getelementptr inbounds nuw i8, ptr %pPC380, i64 8
+  %mpRefCount2.i.i.i1561 = getelementptr inbounds nuw i8, ptr %pGCC378, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pPC380, i8 0, i64 16, i1 false)
   br label %_ZN5eastl26static_shared_pointer_castIN12SmartPtrTest11ParentClassENS1_15GrandChildClassEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit
 
@@ -11822,8 +11822,8 @@ if.then.i.i.i855:                                 ; preds = %_ZN5eastl10shared_p
   br label %_ZN5eastl26static_shared_pointer_castIN12SmartPtrTest11ParentClassENS1_15GrandChildClassEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit
 
 _ZN5eastl26static_shared_pointer_castIN12SmartPtrTest11ParentClassENS1_15GrandChildClassEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit: ; preds = %_ZN5eastl10shared_ptrIN12SmartPtrTest15GrandChildClassEEC2IS2_EEPT_PNS_9enable_ifIXsr5eastl14is_convertibleIS6_PS2_EE5valueEvE4typeE.exit852.thread, %if.then.i.i.i855
-  %mpRefCount2.i.i.i1497 = phi ptr [ %mpRefCount2.i.i.i1494, %_ZN5eastl10shared_ptrIN12SmartPtrTest15GrandChildClassEEC2IS2_EEPT_PNS_9enable_ifIXsr5eastl14is_convertibleIS6_PS2_EE5valueEvE4typeE.exit852.thread ], [ %mpRefCount2.i.i.i, %if.then.i.i.i855 ]
-  %mpRefCount.i.i.i8531496 = phi ptr [ %mpRefCount.i.i.i8531493, %_ZN5eastl10shared_ptrIN12SmartPtrTest15GrandChildClassEEC2IS2_EEPT_PNS_9enable_ifIXsr5eastl14is_convertibleIS6_PS2_EE5valueEvE4typeE.exit852.thread ], [ %mpRefCount.i.i.i853, %if.then.i.i.i855 ]
+  %mpRefCount2.i.i.i1564 = phi ptr [ %mpRefCount2.i.i.i1561, %_ZN5eastl10shared_ptrIN12SmartPtrTest15GrandChildClassEEC2IS2_EEPT_PNS_9enable_ifIXsr5eastl14is_convertibleIS6_PS2_EE5valueEvE4typeE.exit852.thread ], [ %mpRefCount2.i.i.i, %if.then.i.i.i855 ]
+  %mpRefCount.i.i.i8531563 = phi ptr [ %mpRefCount.i.i.i8531560, %_ZN5eastl10shared_ptrIN12SmartPtrTest15GrandChildClassEEC2IS2_EEPT_PNS_9enable_ifIXsr5eastl14is_convertibleIS6_PS2_EE5valueEvE4typeE.exit852.thread ], [ %mpRefCount.i.i.i853, %if.then.i.i.i855 ]
   %282 = phi ptr [ null, %_ZN5eastl10shared_ptrIN12SmartPtrTest15GrandChildClassEEC2IS2_EEPT_PNS_9enable_ifIXsr5eastl14is_convertibleIS6_PS2_EE5valueEvE4typeE.exit852.thread ], [ %call379, %if.then.i.i.i855 ]
   %call384 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1197, ptr noundef nonnull @.str.107)
           to label %invoke.cont383 unwind label %lpad382
@@ -11896,7 +11896,7 @@ if.then.i.i.i878:                                 ; preds = %if.end.i.i874
   br label %_ZN5eastl10shared_ptrIN12SmartPtrTest10ChildClassEED2Ev.exit884
 
 _ZN5eastl10shared_ptrIN12SmartPtrTest10ChildClassEED2Ev.exit884: ; preds = %invoke.cont388, %if.end.i.i874, %if.then.i.i.i878
-  %293 = load ptr, ptr %mpRefCount.i.i.i8531496, align 8
+  %293 = load ptr, ptr %mpRefCount.i.i.i8531563, align 8
   %tobool.not.i886 = icmp eq ptr %293, null
   br i1 %tobool.not.i886, label %_ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit900, label %if.then.i887
 
@@ -11929,7 +11929,7 @@ if.then.i.i.i894:                                 ; preds = %if.end.i.i890
   br label %_ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit900
 
 _ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit900: ; preds = %_ZN5eastl10shared_ptrIN12SmartPtrTest10ChildClassEED2Ev.exit884, %if.end.i.i890, %if.then.i.i.i894
-  %298 = load ptr, ptr %mpRefCount2.i.i.i1497, align 8
+  %298 = load ptr, ptr %mpRefCount2.i.i.i1564, align 8
   %tobool.not.i902 = icmp eq ptr %298, null
   br i1 %tobool.not.i902, label %_ZN5eastl10shared_ptrIN12SmartPtrTest15GrandChildClassEED2Ev.exit916, label %if.then.i903
 
@@ -12023,15 +12023,15 @@ invoke.cont403.thread:                            ; preds = %call.i.i.i927.noexc
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest11ParentClassENS_9allocatorENS_17smart_ptr_deleterIS2_EEEE, i64 16), ptr %call.i.i.i927937, align 8
   %mValue.i.i.i933 = getelementptr inbounds nuw i8, ptr %call.i.i.i927937, i64 16
   store ptr %call401, ptr %mValue.i.i.i933, align 8
-  %mpRefCount.i.i9381500 = getelementptr inbounds nuw i8, ptr %pVoid, i64 8
-  %cmp.i.i9401501 = icmp eq ptr %call.i.i.i917, %call.i.i.i927937
-  br i1 %cmp.i.i9401501, label %if.then.i958, label %if.then.i941
+  %mpRefCount.i.i9381567 = getelementptr inbounds nuw i8, ptr %pVoid, i64 8
+  %cmp.i.i9401568 = icmp eq ptr %call.i.i.i917, %call.i.i.i927937
+  br i1 %cmp.i.i9401568, label %if.then.i958, label %if.then.i941
 
 if.then.i941:                                     ; preds = %invoke.cont403.thread, %invoke.cont403
-  %mpRefCount.i.i9381503 = phi ptr [ %mpRefCount.i.i9381500, %invoke.cont403.thread ], [ %mpRefCount.i.i938, %invoke.cont403 ]
-  %ref.tmp399.sroa.0.01502 = phi ptr [ %call401, %invoke.cont403.thread ], [ null, %invoke.cont403 ]
-  store ptr %ref.tmp399.sroa.0.01502, ptr %pVoid, align 8
-  store ptr %call.i.i.i927937, ptr %mpRefCount.i.i9381503, align 8
+  %mpRefCount.i.i9381570 = phi ptr [ %mpRefCount.i.i9381567, %invoke.cont403.thread ], [ %mpRefCount.i.i938, %invoke.cont403 ]
+  %ref.tmp399.sroa.0.01569 = phi ptr [ %call401, %invoke.cont403.thread ], [ null, %invoke.cont403 ]
+  store ptr %ref.tmp399.sroa.0.01569, ptr %pVoid, align 8
+  store ptr %call.i.i.i927937, ptr %mpRefCount.i.i9381570, align 8
   %tobool.not.i.i942 = icmp eq ptr %call.i.i.i917, null
   br i1 %tobool.not.i.i942, label %_ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit971, label %if.then.i.i943
 
@@ -12076,24 +12076,24 @@ if.end.i.i961:                                    ; preds = %if.then.i.i968, %if
   br i1 %cmp.i.i.i963, label %_ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit971.sink.split, label %_ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit971
 
 _ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit971.sink.split: ; preds = %if.end.i.i961, %if.end.i.i.i946
-  %call.i.i.i917.sink1513 = phi ptr [ %call.i.i.i917, %if.end.i.i.i946 ], [ %call.i.i.i927937, %if.end.i.i961 ]
-  %mpRefCount.i.i9381504.ph = phi ptr [ %mpRefCount.i.i9381503, %if.end.i.i.i946 ], [ %mpRefCount.i.i9381500, %if.end.i.i961 ]
+  %call.i.i.i917.sink1580 = phi ptr [ %call.i.i.i917, %if.end.i.i.i946 ], [ %call.i.i.i927937, %if.end.i.i961 ]
+  %mpRefCount.i.i9381571.ph = phi ptr [ %mpRefCount.i.i9381570, %if.end.i.i.i946 ], [ %mpRefCount.i.i9381567, %if.end.i.i961 ]
   fence acquire
-  %vtable.i.i.i.i951 = load ptr, ptr %call.i.i.i917.sink1513, align 8
+  %vtable.i.i.i.i951 = load ptr, ptr %call.i.i.i917.sink1580, align 8
   %vfn.i.i.i.i952 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i951, i64 24
   %311 = load ptr, ptr %vfn.i.i.i.i952, align 8
-  call void %311(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i917.sink1513) #16
+  call void %311(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i917.sink1580) #16
   br label %_ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit971
 
 _ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit971: ; preds = %_ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit971.sink.split, %invoke.cont403, %if.end.i.i.i946, %if.then.i941, %if.end.i.i961
-  %mpRefCount.i.i9381504 = phi ptr [ %mpRefCount.i.i9381503, %if.end.i.i.i946 ], [ %mpRefCount.i.i9381503, %if.then.i941 ], [ %mpRefCount.i.i9381500, %if.end.i.i961 ], [ %mpRefCount.i.i938, %invoke.cont403 ], [ %mpRefCount.i.i9381504.ph, %_ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit971.sink.split ]
+  %mpRefCount.i.i9381571 = phi ptr [ %mpRefCount.i.i9381570, %if.end.i.i.i946 ], [ %mpRefCount.i.i9381570, %if.then.i941 ], [ %mpRefCount.i.i9381567, %if.end.i.i961 ], [ %mpRefCount.i.i938, %invoke.cont403 ], [ %mpRefCount.i.i9381571.ph, %_ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit971.sink.split ]
   %312 = load ptr, ptr %pVoid, align 8
   %cmp406 = icmp ne ptr %312, null
   %call408 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp406, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1211, ptr noundef nonnull @.str.109)
           to label %invoke.cont407 unwind label %lpad396
 
 invoke.cont407:                                   ; preds = %_ZN5eastl10shared_ptrIN12SmartPtrTest11ParentClassEED2Ev.exit971
-  %313 = load ptr, ptr %mpRefCount.i.i9381504, align 8
+  %313 = load ptr, ptr %mpRefCount.i.i9381571, align 8
   %tobool.not.i973 = icmp eq ptr %313, null
   br i1 %tobool.not.i973, label %_ZN5eastl10shared_ptrIvED2Ev.exit, label %if.then.i974
 

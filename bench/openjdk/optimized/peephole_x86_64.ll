@@ -157,7 +157,7 @@ _ZNK5Block8get_nodeEj.exit53:                     ; preds = %._crit_edge
   tail call void @llvm.assume(i1 %85)
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %87 = load ptr, ptr %86, align 8
-  %88 = zext i32 %83 to i64
+  %88 = zext nneg i32 %83 to i64
   %89 = getelementptr inbounds nuw ptr, ptr %87, i64 %88
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 44

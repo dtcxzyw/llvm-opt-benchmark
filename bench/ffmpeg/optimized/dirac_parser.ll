@@ -63,7 +63,7 @@ define internal i32 @dirac_parse(ptr noundef captures(none) %0, ptr noundef capt
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %26, align 8, !tbaa !23
   %27 = icmp slt i32 %.046.i, %5
-  br i1 %27, label %.lr.ph56.preheader.i, label %find_frame_end.exit.thread59
+  br i1 %27, label %.lr.ph56.preheader.i, label %find_frame_end.exit.thread73
 
 .lr.ph56.preheader.i:                             ; preds = %.thread.i
   %28 = zext nneg i32 %.046.i to i64
@@ -93,7 +93,7 @@ find_frame_end.exit.thread:                       ; preds = %30
 37:                                               ; preds = %30
   %38 = sub nsw i32 9, %32
   store i32 %38, ptr %33, align 4, !tbaa !20
-  br label %find_frame_end.exit.thread59
+  br label %find_frame_end.exit.thread73
 
 39:                                               ; preds = %.lr.ph56.i
   %40 = shl i32 %.354.i, 8
@@ -103,9 +103,9 @@ find_frame_end.exit.thread:                       ; preds = %30
   %44 = or disjoint i32 %40, %43
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond68.not.i = icmp eq i64 %indvars.iv.next65.i, %wide.trip.count67.i
-  br i1 %exitcond68.not.i, label %find_frame_end.exit.thread59, label %.lr.ph56.i, !llvm.loop !24
+  br i1 %exitcond68.not.i, label %find_frame_end.exit.thread73, label %.lr.ph56.i, !llvm.loop !24
 
-find_frame_end.exit.thread59:                     ; preds = %39, %37, %.thread.i
+find_frame_end.exit.thread73:                     ; preds = %39, %37, %.thread.i
   %.235.i.ph = phi i32 [ %.03345.i, %.thread.i ], [ 1111638852, %37 ], [ %44, %39 ]
   store i32 %.235.i.ph, ptr %7, align 8, !tbaa !16
   br label %45
@@ -115,9 +115,9 @@ find_frame_end.exit:                              ; preds = %25, %.preheader.i
   store i32 %.235.i, ptr %7, align 8, !tbaa !16
   br label %dirac_combine_frame.exit.thread
 
-45:                                               ; preds = %find_frame_end.exit.thread59, %find_frame_end.exit.thread
-  %46 = phi i1 [ %36, %find_frame_end.exit.thread ], [ true, %find_frame_end.exit.thread59 ]
-  %.036.i58 = phi i32 [ %35, %find_frame_end.exit.thread ], [ -1, %find_frame_end.exit.thread59 ]
+45:                                               ; preds = %find_frame_end.exit.thread73, %find_frame_end.exit.thread
+  %46 = phi i1 [ %36, %find_frame_end.exit.thread ], [ true, %find_frame_end.exit.thread73 ]
+  %.036.i72 = phi i32 [ %35, %find_frame_end.exit.thread ], [ -1, %find_frame_end.exit.thread73 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %48 = load i64, ptr %47, align 8, !tbaa !25
   %49 = icmp eq i64 %48, -9223372036854775808
@@ -203,7 +203,7 @@ find_frame_end.exit:                              ; preds = %25, %.preheader.i
   br label %dirac_combine_frame.exit.thread
 
 102:                                              ; preds = %76
-  %103 = add nsw i32 %77, %.036.i58
+  %103 = add nsw i32 %77, %.036.i72
   %104 = sext i32 %103 to i64
   %105 = tail call ptr @av_fast_realloc(ptr noundef %79, ptr noundef nonnull %80, i64 noundef %104) #4
   %.not108.i = icmp eq ptr %105, null
@@ -214,10 +214,10 @@ find_frame_end.exit:                              ; preds = %25, %.preheader.i
   %107 = load i32, ptr %81, align 8, !tbaa !28
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds i8, ptr %105, i64 %108
-  %110 = sext i32 %.036.i58 to i64
+  %110 = sext i32 %.036.i72 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %109, ptr align 1 %4, i64 %110, i1 false)
   %111 = load i32, ptr %81, align 8, !tbaa !28
-  %112 = add nsw i32 %111, %.036.i58
+  %112 = add nsw i32 %111, %.036.i72
   store i32 %112, ptr %81, align 8, !tbaa !28
   %113 = add nsw i32 %112, -13
   %114 = icmp slt i32 %112, 13
@@ -333,7 +333,7 @@ unpack_parse_unit.exit130.i:                      ; preds = %158, %.thread.i122.
 unpack_parse_unit.exit.thread.i:                  ; preds = %131, %155, %161, %unpack_parse_unit.exit130.i, %158, %137, %unpack_parse_unit.exit.i, %134, %106
   %170 = add nsw i32 %112, -9
   store i32 %170, ptr %81, align 8, !tbaa !28
-  %171 = add nsw i32 %.036.i58, -9
+  %171 = add nsw i32 %.036.i72, -9
   %172 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 9, ptr %172, align 4, !tbaa !20
   br label %dirac_combine_frame.exit.thread
@@ -377,8 +377,8 @@ unpack_parse_unit.exit.thread.i:                  ; preds = %131, %155, %161, %u
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %199 = load i64, ptr %198, align 8, !tbaa !34
   %200 = icmp eq i64 %199, 0
-  %or.cond159.i = select i1 %197, i1 %200, i1 false
-  br i1 %or.cond159.i, label %201, label %._crit_edge.i
+  %or.cond171.i = select i1 %197, i1 %200, i1 false
+  br i1 %or.cond171.i, label %201, label %._crit_edge.i
 
 201:                                              ; preds = %187
   %202 = add nsw i64 %194, -1
@@ -403,7 +403,7 @@ unpack_parse_unit.exit.thread.i:                  ; preds = %131, %155, %161, %u
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 172
   %208 = load i32, ptr %207, align 4, !tbaa !35
   %.not114.i = icmp eq i32 %208, 0
-  br i1 %.not114.i, label %209, label %.thread154.i
+  br i1 %.not114.i, label %209, label %.thread166.i
 
 209:                                              ; preds = %206
   %210 = getelementptr inbounds nuw i8, ptr %190, i64 4
@@ -414,48 +414,48 @@ unpack_parse_unit.exit.thread.i:                  ; preds = %131, %155, %161, %u
 
 213:                                              ; preds = %209
   store i32 1, ptr %207, align 4, !tbaa !35
-  br label %.thread154.i
+  br label %.thread166.i
 
 214:                                              ; preds = %185
   %.phi.trans.insert152.i = getelementptr inbounds nuw i8, ptr %1, i64 172
   %.pre153.i = load i32, ptr %.phi.trans.insert152.i, align 4, !tbaa !35
   %215 = icmp eq i32 %.pre153.i, 0
-  br i1 %215, label %dirac_combine_frame.exit, label %..thread154.i_crit_edge
+  br i1 %215, label %dirac_combine_frame.exit, label %..thread166.i_crit_edge
 
-..thread154.i_crit_edge:                          ; preds = %214
+..thread166.i_crit_edge:                          ; preds = %214
   %.pre55 = load i64, ptr %47, align 8, !tbaa !25
-  br label %.thread154.i
+  br label %.thread166.i
 
-.thread154.i:                                     ; preds = %..thread154.i_crit_edge, %213, %206
-  %216 = phi i64 [ %.pre55, %..thread154.i_crit_edge ], [ %194, %213 ], [ %194, %206 ]
+.thread166.i:                                     ; preds = %..thread166.i_crit_edge, %213, %206
+  %216 = phi i64 [ %.pre55, %..thread166.i_crit_edge ], [ %194, %213 ], [ %194, %206 ]
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %218 = load i64, ptr %217, align 8, !tbaa !26
   %219 = icmp eq i64 %216, %218
   br i1 %219, label %220, label %dirac_combine_frame.exit
 
-220:                                              ; preds = %.thread154.i
+220:                                              ; preds = %.thread166.i
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 3, ptr %221, align 8, !tbaa !52
   br label %dirac_combine_frame.exit
 
-dirac_combine_frame.exit:                         ; preds = %209, %214, %.thread154.i, %220
+dirac_combine_frame.exit:                         ; preds = %209, %214, %.thread166.i, %220
   store i32 0, ptr %163, align 8, !tbaa !31
   store i32 %113, ptr %56, align 8, !tbaa !27
   %222 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 9, ptr %222, align 4, !tbaa !20
-  %223 = icmp slt i32 %.036.i58, 0
+  %223 = icmp slt i32 %.036.i72, 0
   br i1 %223, label %dirac_combine_frame.exit.thread, label %dirac_combine_frame.exit.thread38
 
 dirac_combine_frame.exit.thread38:                ; preds = %6, %71, %dirac_combine_frame.exit
   %.032 = phi ptr [ %179, %dirac_combine_frame.exit ], [ %72, %71 ], [ %4, %6 ]
   %.031 = phi i32 [ %181, %dirac_combine_frame.exit ], [ %69, %71 ], [ %5, %6 ]
-  %.0 = phi i32 [ %.036.i58, %dirac_combine_frame.exit ], [ %.036.i58, %71 ], [ %5, %6 ]
+  %.0 = phi i32 [ %.036.i72, %dirac_combine_frame.exit ], [ %.036.i72, %71 ], [ %5, %6 ]
   store ptr %.032, ptr %2, align 8, !tbaa !12
   store i32 %.031, ptr %3, align 4, !tbaa !14
   br label %dirac_combine_frame.exit.thread
 
 dirac_combine_frame.exit.thread:                  ; preds = %find_frame_end.exit, %unpack_parse_unit.exit.thread.i, %183, %102, %82, %89, %dirac_combine_frame.exit, %dirac_combine_frame.exit.thread38
-  %.016 = phi i32 [ %.0, %dirac_combine_frame.exit.thread38 ], [ %5, %find_frame_end.exit ], [ %181, %dirac_combine_frame.exit ], [ %.036.i58, %183 ], [ %171, %unpack_parse_unit.exit.thread.i ], [ %5, %102 ], [ %5, %89 ], [ %5, %82 ]
+  %.016 = phi i32 [ %.0, %dirac_combine_frame.exit.thread38 ], [ %5, %find_frame_end.exit ], [ %181, %dirac_combine_frame.exit ], [ %.036.i72, %183 ], [ %171, %unpack_parse_unit.exit.thread.i ], [ %5, %102 ], [ %5, %89 ], [ %5, %82 ]
   ret i32 %.016
 }
 

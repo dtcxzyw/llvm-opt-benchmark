@@ -4156,12 +4156,12 @@ _ZN2cv3Mat2atIfEERT_i.exit118:                    ; preds = %197, %193, %188
 _ZN2cv3Mat2atIfEERT_i.exit121:                    ; preds = %216, %212, %209
   %.0.i120 = phi ptr [ %210, %209 ], [ %215, %212 ], [ %226, %216 ]
   %227 = load float, ptr %.0.i120, align 4, !tbaa !82
-  br i1 %.not.i109, label %228, label %.thread15
+  br i1 %.not.i109, label %228, label %.thread19
 
 228:                                              ; preds = %_ZN2cv3Mat2atIfEERT_i.exit121
   %229 = load i32, ptr %149, align 4, !tbaa !17
   %230 = icmp eq i32 %229, 1
-  br i1 %230, label %.thread15, label %231
+  br i1 %230, label %.thread19, label %231
 
 231:                                              ; preds = %228
   %232 = load i32, ptr %150, align 4, !tbaa !17
@@ -4215,7 +4215,7 @@ _ZN2cv3Mat2atIfEERT_i.exit121:                    ; preds = %216, %212, %209
   %267 = getelementptr inbounds float, ptr %266, i64 %262
   br label %273
 
-.thread15:                                        ; preds = %_ZN2cv3Mat2atIfEERT_i.exit121, %228
+.thread19:                                        ; preds = %_ZN2cv3Mat2atIfEERT_i.exit121, %228
   %268 = getelementptr inbounds nuw float, ptr %154, i64 %indvars.iv
   %269 = fadd float %208, %227
   store float %269, ptr %268, align 4, !tbaa !82
@@ -4254,9 +4254,9 @@ _ZN2cv3Mat2atIfEERT_i.exit121:                    ; preds = %216, %212, %209
   %292 = getelementptr inbounds float, ptr %291, i64 %287
   br label %_ZN2cv3Mat2atIfEERT_i.exit130
 
-_ZN2cv3Mat2atIfEERT_i.exit130:                    ; preds = %282, %278, %.thread15
-  %.1675 = phi i32 [ %.1679, %.thread15 ], [ %.1674, %278 ], [ %.1674, %282 ]
-  %.0.i129 = phi ptr [ %272, %.thread15 ], [ %281, %278 ], [ %292, %282 ]
+_ZN2cv3Mat2atIfEERT_i.exit130:                    ; preds = %282, %278, %.thread19
+  %.1675 = phi i32 [ %.1679, %.thread19 ], [ %.1674, %278 ], [ %.1674, %282 ]
+  %.0.i129 = phi ptr [ %272, %.thread19 ], [ %281, %278 ], [ %292, %282 ]
   %293 = load float, ptr %.0.i129, align 4, !tbaa !82
   %294 = fcmp olt float %293, %164
   %295 = trunc nuw nsw i64 %indvars.iv to i32
@@ -4423,7 +4423,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit143: ; preds = %357
   %386 = load i32, ptr %385, align 4, !tbaa !87
   %387 = sdiv i32 %.068.lcssa, %386
   %388 = mul nsw i32 %387, %386
-  %.recomposed20 = srem i32 %.068.lcssa, %386
+  %.recomposed24 = srem i32 %.068.lcssa, %386
   %389 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %390 = load ptr, ptr %389, align 8, !tbaa !81
   %391 = getelementptr inbounds nuw i8, ptr %39, i64 72
@@ -4432,7 +4432,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit143: ; preds = %357
   %394 = sext i32 %387 to i64
   %395 = mul i64 %393, %394
   %396 = getelementptr inbounds nuw i8, ptr %390, i64 %395
-  %397 = sext i32 %.recomposed20 to i64
+  %397 = sext i32 %.recomposed24 to i64
   %398 = getelementptr inbounds float, ptr %396, i64 %397
   br label %_ZN2cv3Mat2atIfEERT_i.exit146
 
@@ -4662,14 +4662,14 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc168
   %496 = trunc nuw nsw i64 %indvars.iv.i to i32
   %497 = sdiv i32 %496, %495
   %498 = mul nsw i32 %497, %495
-  %.recomposed21 = srem i32 %496, %495
+  %.recomposed25 = srem i32 %496, %495
   %499 = load ptr, ptr %467, align 8, !tbaa !81
   %500 = load ptr, ptr %468, align 8, !tbaa !86
   %501 = load i64, ptr %500, align 8, !tbaa !45
   %502 = sext i32 %497 to i64
   %503 = mul i64 %501, %502
   %504 = getelementptr inbounds nuw i8, ptr %499, i64 %503
-  %505 = sext i32 %.recomposed21 to i64
+  %505 = sext i32 %.recomposed25 to i64
   %506 = getelementptr inbounds float, ptr %504, i64 %505
   br label %507
 

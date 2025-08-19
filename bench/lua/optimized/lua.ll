@@ -179,7 +179,7 @@ define internal range(i32 0, 2) i32 @pmain(ptr noundef %0) #0 {
   %.not50.i = icmp eq i8 %19, 0
   %20 = zext i1 %.not50.i to i32
   %spec.select = add nsw i32 %.062.i, %20
-  %spec.select91 = select i1 %.not50.i, i32 %.03961.i, i32 1
+  %spec.select101 = select i1 %.not50.i, i32 %.03961.i, i32 1
   br label %collectargs.exit
 
 21:                                               ; preds = %14
@@ -252,7 +252,7 @@ collectargs.exit.loopexit:                        ; preds = %14
 
 collectargs.exit:                                 ; preds = %51, %.lr.ph.i, %21, %26, %31, %42, %48, %14, %collectargs.exit.loopexit, %17, %9, %1
   %.061 = phi i32 [ -1, %1 ], [ 0, %9 ], [ %spec.select, %17 ], [ %.062.i, %14 ], [ 0, %51 ], [ %.062.i, %.lr.ph.i ], [ %.062.i, %48 ], [ %.062.i, %42 ], [ %.062.i, %31 ], [ %.062.i, %26 ], [ %.062.i, %21 ], [ %.062.i, %collectargs.exit.loopexit ]
-  %.041.i = phi i32 [ 0, %1 ], [ 0, %9 ], [ %spec.select91, %17 ], [ %.03961.i, %14 ], [ %.3.i, %51 ], [ %.03961.i, %.lr.ph.i ], [ 1, %48 ], [ 1, %42 ], [ 1, %31 ], [ 1, %26 ], [ 1, %21 ], [ 1, %collectargs.exit.loopexit ]
+  %.041.i = phi i32 [ 0, %1 ], [ 0, %9 ], [ %spec.select101, %17 ], [ %.03961.i, %14 ], [ %.3.i, %51 ], [ %.03961.i, %.lr.ph.i ], [ 1, %48 ], [ 1, %42 ], [ 1, %31 ], [ 1, %26 ], [ 1, %21 ], [ 1, %collectargs.exit.loopexit ]
   %56 = icmp sgt i32 %.061, 0
   %57 = select i1 %56, i32 %.061, i32 %3
   tail call void @luaL_checkversion_(ptr noundef %0, double noundef 5.050000e+02, i64 noundef 136) #10

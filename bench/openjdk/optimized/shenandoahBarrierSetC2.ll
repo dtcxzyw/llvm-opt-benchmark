@@ -548,8 +548,8 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC227satb_can_remove_
   %.pre = load i64, ptr %8, align 8
   %.pre57 = load i64, ptr %7, align 8
   %34 = icmp eq i64 %.pre, %.pre57
-  %or.cond60 = select i1 %33, i1 %34, i1 false
-  br i1 %or.cond60, label %.loopexit, label %35
+  %or.cond65 = select i1 %33, i1 %34, i1 false
+  br i1 %or.cond65, label %.loopexit, label %35
 
 35:                                               ; preds = %32
   %36 = icmp ne i64 %.pre, %.pre57

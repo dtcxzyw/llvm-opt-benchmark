@@ -2004,17 +2004,17 @@ define internal fastcc void @"_ZN7reqwest10async_impl8response8Response4text28_$
   %11 = alloca [32 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 952
   %13 = load i8, ptr %12, align 8, !range !4, !noundef !5
-  switch i8 %13, label %default.unreachable27 [
-    i8 0, label %.thread28
+  switch i8 %13, label %default.unreachable31 [
+    i8 0, label %.thread32
     i8 1, label %18
     i8 2, label %19
     i8 3, label %20
   ]
 
-default.unreachable27:                            ; preds = %20, %3
+default.unreachable31:                            ; preds = %20, %3
   unreachable
 
-.thread28:                                        ; preds = %3
+.thread32:                                        ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 136
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %14, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 136, i1 false)
   %.sroa.710.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 272
@@ -2046,7 +2046,7 @@ default.unreachable27:                            ; preds = %20, %3
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 136
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.542.i)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 944
-  switch i8 %.pre, label %default.unreachable27 [
+  switch i8 %.pre, label %default.unreachable31 [
     i8 0, label %24
     i8 1, label %120
     i8 2, label %121
@@ -2057,9 +2057,9 @@ default.unreachable27:                            ; preds = %20, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !473
   br label %122
 
-24:                                               ; preds = %.thread28, %20
-  %25 = phi ptr [ %16, %.thread28 ], [ %22, %20 ]
-  %26 = phi ptr [ %15, %.thread28 ], [ %21, %20 ]
+24:                                               ; preds = %.thread32, %20
+  %25 = phi ptr [ %16, %.thread32 ], [ %22, %20 ]
+  %26 = phi ptr [ %15, %.thread32 ], [ %21, %20 ]
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 945
   store i8 1, ptr %27, align 1, !noalias !473
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -2602,14 +2602,14 @@ define internal fastcc void @"_ZN7reqwest10async_impl8response8Response5bytes28_
   %8 = alloca [128 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %10 = load i8, ptr %9, align 8, !range !4, !noundef !5
-  switch i8 %10, label %default.unreachable21 [
+  switch i8 %10, label %default.unreachable23 [
     i8 0, label %11
     i8 1, label %22
     i8 2, label %23
     i8 3, label %24
   ]
 
-default.unreachable21:                            ; preds = %3
+default.unreachable23:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -2712,9 +2712,9 @@ default.unreachable21:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %61, %41
-  %storemerge22 = phi i64 [ 0, %61 ], [ 1, %41 ]
+  %storemerge24 = phi i64 [ 0, %61 ], [ 1, %41 ]
   %storemerge = phi i8 [ 1, %61 ], [ 3, %41 ]
-  store i64 %storemerge22, ptr %0, align 8
+  store i64 %storemerge24, ptr %0, align 8
   store i8 %storemerge, ptr %9, align 8
   ret void
 
@@ -3206,14 +3206,14 @@ define internal { i64, ptr } @"_ZN84_$LT$live_kit_server..api..LiveKitClient$u20
   %43 = alloca [24 x i8], align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 2264
   %45 = load i8, ptr %44, align 8, !range !4, !noundef !5
-  switch i8 %45, label %default.unreachable40 [
+  switch i8 %45, label %default.unreachable53 [
     i8 0, label %47
     i8 1, label %82
     i8 2, label %83
     i8 3, label %46
   ]
 
-default.unreachable40:                            ; preds = %84, %2
+default.unreachable53:                            ; preds = %84, %2
   unreachable
 
 46:                                               ; preds = %2
@@ -3341,7 +3341,7 @@ default.unreachable40:                            ; preds = %84, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5130.i)
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   %87 = load i8, ptr %86, align 8, !range !95, !noalias !697, !noundef !5
-  switch i8 %87, label %default.unreachable40 [
+  switch i8 %87, label %default.unreachable53 [
     i8 0, label %88
     i8 1, label %138
     i8 2, label %139
@@ -4500,14 +4500,14 @@ define internal { i64, ptr } @"_ZN84_$LT$live_kit_server..api..LiveKitClient$u20
   %42 = alloca [24 x i8], align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %44 = load i8, ptr %43, align 8, !range !4, !noundef !5
-  switch i8 %44, label %default.unreachable19 [
+  switch i8 %44, label %default.unreachable32 [
     i8 0, label %46
     i8 1, label %66
     i8 2, label %67
     i8 3, label %45
   ]
 
-default.unreachable19:                            ; preds = %68, %2
+default.unreachable32:                            ; preds = %68, %2
   unreachable
 
 45:                                               ; preds = %2
@@ -4587,7 +4587,7 @@ default.unreachable19:                            ; preds = %68, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5143.i)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %71 = load i8, ptr %70, align 8, !range !95, !noalias !848, !noundef !5
-  switch i8 %71, label %default.unreachable19 [
+  switch i8 %71, label %default.unreachable32 [
     i8 0, label %72
     i8 1, label %122
     i8 2, label %123
@@ -5737,14 +5737,14 @@ define internal { i64, ptr } @"_ZN84_$LT$live_kit_server..api..LiveKitClient$u20
   %44 = alloca [24 x i8], align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %46 = load i8, ptr %45, align 8, !range !4, !noundef !5
-  switch i8 %46, label %default.unreachable34 [
+  switch i8 %46, label %default.unreachable49 [
     i8 0, label %53
     i8 1, label %84
     i8 2, label %85
     i8 3, label %47
   ]
 
-default.unreachable34:                            ; preds = %86, %2
+default.unreachable49:                            ; preds = %86, %2
   unreachable
 
 47:                                               ; preds = %2
@@ -5870,7 +5870,7 @@ default.unreachable34:                            ; preds = %86, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5139.i)
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %89 = load i8, ptr %88, align 8, !range !95, !noalias !1020, !noundef !5
-  switch i8 %89, label %default.unreachable34 [
+  switch i8 %89, label %default.unreachable49 [
     i8 0, label %90
     i8 1, label %140
     i8 2, label %141
@@ -7090,14 +7090,14 @@ define internal { i64, ptr } @"_ZN84_$LT$live_kit_server..api..LiveKitClient$u20
   %48 = alloca [24 x i8], align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1357
   %50 = load i8, ptr %49, align 1, !range !4, !noundef !5
-  switch i8 %50, label %default.unreachable54 [
+  switch i8 %50, label %default.unreachable69 [
     i8 0, label %57
     i8 1, label %104
     i8 2, label %105
     i8 3, label %51
   ]
 
-default.unreachable54:                            ; preds = %106, %2
+default.unreachable69:                            ; preds = %106, %2
   unreachable
 
 51:                                               ; preds = %2
@@ -7285,7 +7285,7 @@ default.unreachable54:                            ; preds = %106, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5130.i)
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %109 = load i8, ptr %108, align 8, !range !95, !noalias !1194, !noundef !5
-  switch i8 %109, label %default.unreachable54 [
+  switch i8 %109, label %default.unreachable69 [
     i8 0, label %110
     i8 1, label %160
     i8 2, label %161

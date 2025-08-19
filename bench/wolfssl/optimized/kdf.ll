@@ -29,8 +29,8 @@ switch.lookup:                                    ; preds = %9
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.wc_PRF, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep101 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.wc_PRF.1, i64 0, i64 %14
-  %switch.load102 = load i32, ptr %switch.gep101, align 4
+  %switch.gep117 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.wc_PRF.1, i64 0, i64 %14
+  %switch.load118 = load i32, ptr %switch.gep117, align 4
   %15 = udiv i32 %1, %switch.load
   %16 = urem i32 %1, %switch.load
   %17 = icmp ne i32 %16, 0
@@ -46,7 +46,7 @@ switch.lookup:                                    ; preds = %9
   br i1 %23, label %24, label %.preheader23.i
 
 24:                                               ; preds = %20
-  %25 = call i32 @wc_HmacSetKey(ptr noundef nonnull %11, i32 noundef %switch.load102, ptr noundef %2, i32 noundef %3) #6
+  %25 = call i32 @wc_HmacSetKey(ptr noundef nonnull %11, i32 noundef %switch.load118, ptr noundef %2, i32 noundef %3) #6
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %.thread88
 

@@ -288,8 +288,8 @@ _ZNK4ncnn3Mat5emptyEv.exit258:                    ; preds = %115
   %137 = load i32, ptr %105, align 8, !tbaa !44
   %138 = icmp sgt i32 %137, 0
   %139 = icmp sgt i32 %135, 0
-  %or.cond426 = select i1 %138, i1 %139, i1 false
-  br i1 %or.cond426, label %.preheader, label %._crit_edge389
+  %or.cond482 = select i1 %138, i1 %139, i1 false
+  br i1 %or.cond482, label %.preheader, label %._crit_edge389
 
 .preheader:                                       ; preds = %132, %._crit_edge383
   %140 = phi i32 [ %150, %._crit_edge383 ], [ %137, %132 ]
@@ -589,14 +589,14 @@ _ZNK4ncnn3Mat5emptyEv.exit259:                    ; preds = %253
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %268 = load i32, ptr %267, align 8, !tbaa !40
   switch i32 %268, label %272 [
-    i32 0, label %.sink.split427
+    i32 0, label %.sink.split483
     i32 1, label %269
   ]
 
 269:                                              ; preds = %265
-  br label %.sink.split427
+  br label %.sink.split483
 
-.sink.split427:                                   ; preds = %265, %269
+.sink.split483:                                   ; preds = %265, %269
   %_ZNK4ncnn18Pooling_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.6.sink = phi ptr [ @_ZNK4ncnn18Pooling_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.6, %269 ], [ @_ZNK4ncnn18Pooling_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.5, %265 ]
   %270 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %271 = load i32, ptr %270, align 4, !tbaa !41
@@ -604,7 +604,7 @@ _ZNK4ncnn3Mat5emptyEv.exit259:                    ; preds = %253
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull %_ZNK4ncnn18Pooling_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.6.sink, ptr nonnull %7, ptr nonnull %1, ptr nonnull %18, ptr nonnull %2)
   br label %272
 
-272:                                              ; preds = %.sink.split427, %265
+272:                                              ; preds = %.sink.split483, %265
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
@@ -712,8 +712,8 @@ _ZNK4ncnn3Mat5emptyEv.exit261:                    ; preds = %310
   %332 = load i32, ptr %300, align 8, !tbaa !44
   %333 = icmp sgt i32 %332, 0
   %334 = icmp sgt i32 %330, 0
-  %or.cond429 = select i1 %333, i1 %334, i1 false
-  br i1 %or.cond429, label %.preheader353, label %._crit_edge376
+  %or.cond485 = select i1 %333, i1 %334, i1 false
+  br i1 %or.cond485, label %.preheader353, label %._crit_edge376
 
 .preheader353:                                    ; preds = %327, %._crit_edge370
   %335 = phi i32 [ %345, %._crit_edge370 ], [ %332, %327 ]
@@ -1013,14 +1013,14 @@ _ZNK4ncnn3Mat5emptyEv.exit262:                    ; preds = %448
   %462 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %463 = load i32, ptr %462, align 8, !tbaa !40
   switch i32 %463, label %467 [
-    i32 0, label %.sink.split430
+    i32 0, label %.sink.split486
     i32 1, label %464
   ]
 
 464:                                              ; preds = %460
-  br label %.sink.split430
+  br label %.sink.split486
 
-.sink.split430:                                   ; preds = %460, %464
+.sink.split486:                                   ; preds = %460, %464
   %_ZNK4ncnn18Pooling_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.11.sink = phi ptr [ @_ZNK4ncnn18Pooling_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.11, %464 ], [ @_ZNK4ncnn18Pooling_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.10, %460 ]
   %465 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %466 = load i32, ptr %465, align 4, !tbaa !41
@@ -1028,7 +1028,7 @@ _ZNK4ncnn3Mat5emptyEv.exit262:                    ; preds = %448
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull %_ZNK4ncnn18Pooling_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.11.sink, ptr nonnull %7, ptr nonnull %1, ptr nonnull %28, ptr nonnull %2)
   br label %467
 
-467:                                              ; preds = %.sink.split430, %460
+467:                                              ; preds = %.sink.split486, %460
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
@@ -1136,8 +1136,8 @@ _ZNK4ncnn3Mat5emptyEv.exit264:                    ; preds = %505
   %527 = load i32, ptr %495, align 8, !tbaa !44
   %528 = icmp sgt i32 %527, 0
   %529 = icmp sgt i32 %525, 0
-  %or.cond432 = select i1 %528, i1 %529, i1 false
-  br i1 %or.cond432, label %.preheader354, label %._crit_edge364
+  %or.cond488 = select i1 %528, i1 %529, i1 false
+  br i1 %or.cond488, label %.preheader354, label %._crit_edge364
 
 .preheader354:                                    ; preds = %522, %._crit_edge
   %530 = phi i32 [ %540, %._crit_edge ], [ %527, %522 ]
@@ -3167,8 +3167,8 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge139, %.l
   %117 = insertelement <8 x float> poison, float %116, i64 0
   %118 = shufflevector <8 x float> %117, <8 x float> poison, <8 x i32> zeroinitializer
   %119 = fmul fast <8 x float> %118, %.062.lcssa
-  %.idx163 = shl nsw i64 %indvars.iv156, 5
-  %120 = getelementptr inbounds nuw i8, ptr %.054142, i64 %.idx163
+  %.idx176 = shl nsw i64 %indvars.iv156, 5
+  %120 = getelementptr inbounds nuw i8, ptr %.054142, i64 %.idx176
   store <8 x float> %119, ptr %120, align 1, !tbaa !71
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %121 = load i32, ptr %7, align 4, !tbaa !31
@@ -3988,8 +3988,8 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge139, %.l
   %117 = insertelement <4 x float> poison, float %116, i64 0
   %118 = shufflevector <4 x float> %117, <4 x float> poison, <4 x i32> zeroinitializer
   %119 = fmul fast <4 x float> %118, %.062.lcssa
-  %.idx163 = shl nsw i64 %indvars.iv156, 4
-  %120 = getelementptr inbounds nuw i8, ptr %.054142, i64 %.idx163
+  %.idx176 = shl nsw i64 %indvars.iv156, 4
+  %120 = getelementptr inbounds nuw i8, ptr %.054142, i64 %.idx176
   store <4 x float> %119, ptr %120, align 1, !tbaa !71
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %121 = load i32, ptr %7, align 4, !tbaa !31

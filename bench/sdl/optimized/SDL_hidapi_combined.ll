@@ -89,15 +89,15 @@ define internal noundef zeroext i1 @HIDAPI_DriverCombined_OpenJoystick(ptr nound
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %3, align 8
-  %.not62.not.not79 = icmp slt i32 %6, 1
-  br i1 %.not62.not.not79, label %._crit_edge86, label %.lr.ph85
+  %.not62.not.not81 = icmp slt i32 %6, 1
+  br i1 %.not62.not.not81, label %._crit_edge88, label %.lr.ph87
 
-.lr.ph85:                                         ; preds = %2, %45
-  %.04282 = phi i64 [ %.244, %45 ], [ 0, %2 ]
-  %.04581 = phi i32 [ %46, %45 ], [ 0, %2 ]
-  %.04880 = phi ptr [ %.250, %45 ], [ null, %2 ]
+.lr.ph87:                                         ; preds = %2, %45
+  %.04284 = phi i64 [ %.244, %45 ], [ 0, %2 ]
+  %.04583 = phi i32 [ %46, %45 ], [ 0, %2 ]
+  %.04882 = phi ptr [ %.250, %45 ], [ null, %2 ]
   %7 = load ptr, ptr %4, align 8
-  %8 = zext nneg i32 %.04581 to i64
+  %8 = zext nneg i32 %.04583 to i64
   %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 104
@@ -107,14 +107,14 @@ define internal noundef zeroext i1 @HIDAPI_DriverCombined_OpenJoystick(ptr nound
   %15 = tail call zeroext i1 %14(ptr noundef %10, ptr noundef %1) #4
   br i1 %15, label %28, label %16
 
-16:                                               ; preds = %.lr.ph85
+16:                                               ; preds = %.lr.ph87
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 154
   store i8 1, ptr %17, align 2
-  %.not74 = icmp eq i32 %.04581, 0
-  br i1 %.not74, label %._crit_edge, label %.lr.ph.preheader
+  %.not76 = icmp eq i32 %.04583, 0
+  br i1 %.not76, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %16
-  %18 = zext nneg i32 %.04581 to i64
+  %18 = zext nneg i32 %.04583 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -132,28 +132,28 @@ define internal noundef zeroext i1 @HIDAPI_DriverCombined_OpenJoystick(ptr nound
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
-  %.not55 = icmp eq ptr %.04880, null
+  %.not55 = icmp eq ptr %.04882, null
   br i1 %.not55, label %.loopexit, label %27
 
 27:                                               ; preds = %._crit_edge
-  tail call void @SDL_free_REAL(ptr noundef nonnull %.04880) #4
+  tail call void @SDL_free_REAL(ptr noundef nonnull %.04882) #4
   br label %.loopexit
 
-28:                                               ; preds = %.lr.ph85
+28:                                               ; preds = %.lr.ph87
   %29 = load ptr, ptr %5, align 8
   %.not56 = icmp eq ptr %29, null
   br i1 %.not56, label %45, label %30
 
 30:                                               ; preds = %28
-  %31 = add i64 %.04282, 1
+  %31 = add i64 %.04284, 1
   %32 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %29) #4
   %33 = add i64 %31, %32
-  %34 = tail call ptr @SDL_realloc_REAL(ptr noundef %.04880, i64 noundef %33) #5
+  %34 = tail call ptr @SDL_realloc_REAL(ptr noundef %.04882, i64 noundef %33) #5
   %.not57 = icmp eq ptr %34, null
   br i1 %.not57, label %43, label %35
 
 35:                                               ; preds = %30
-  %.not58 = icmp eq ptr %.04880, null
+  %.not58 = icmp eq ptr %.04882, null
   br i1 %.not58, label %40, label %36
 
 36:                                               ; preds = %35
@@ -168,38 +168,38 @@ define internal noundef zeroext i1 @HIDAPI_DriverCombined_OpenJoystick(ptr nound
   br label %43
 
 43:                                               ; preds = %36, %40, %30
-  %.351 = phi ptr [ %.04880, %30 ], [ %34, %40 ], [ %34, %36 ]
-  %.3 = phi i64 [ %.04282, %30 ], [ %33, %40 ], [ %33, %36 ]
+  %.351 = phi ptr [ %.04882, %30 ], [ %34, %40 ], [ %34, %36 ]
+  %.3 = phi i64 [ %.04284, %30 ], [ %33, %40 ], [ %33, %36 ]
   %44 = load ptr, ptr %5, align 8
   tail call void @SDL_free_REAL(ptr noundef %44) #4
   store ptr null, ptr %5, align 8
   br label %45
 
 45:                                               ; preds = %28, %43
-  %.250 = phi ptr [ %.351, %43 ], [ %.04880, %28 ]
-  %.244 = phi i64 [ %.3, %43 ], [ %.04282, %28 ]
-  %46 = add nuw nsw i32 %.04581, 1
+  %.250 = phi ptr [ %.351, %43 ], [ %.04882, %28 ]
+  %.244 = phi i64 [ %.3, %43 ], [ %.04284, %28 ]
+  %46 = add nuw nsw i32 %.04583, 1
   %47 = load i32, ptr %3, align 8
   %.not62.not.not.not = icmp slt i32 %46, %47
-  br i1 %.not62.not.not.not, label %.lr.ph85, label %._crit_edge86
+  br i1 %.not62.not.not.not, label %.lr.ph87, label %._crit_edge88
 
-._crit_edge86:                                    ; preds = %45, %2
+._crit_edge88:                                    ; preds = %45, %2
   %.048.lcssa = phi ptr [ null, %2 ], [ %.250, %45 ]
   %48 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %48, null
   br i1 %.not, label %50, label %49
 
-49:                                               ; preds = %._crit_edge86
+49:                                               ; preds = %._crit_edge88
   tail call void @SDL_free_REAL(ptr noundef nonnull %48) #4
   br label %50
 
-50:                                               ; preds = %49, %._crit_edge86
+50:                                               ; preds = %49, %._crit_edge88
   store ptr %.048.lcssa, ptr %5, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %._crit_edge, %50
-  %.not62.not.not76 = phi i1 [ false, %27 ], [ false, %._crit_edge ], [ true, %50 ]
-  ret i1 %.not62.not.not76
+  %.not62.not.not78 = phi i1 [ false, %27 ], [ false, %._crit_edge ], [ true, %50 ]
+  ret i1 %.not62.not.not78
 }
 
 ; Function Attrs: nounwind uwtable

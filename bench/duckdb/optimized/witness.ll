@@ -139,8 +139,8 @@ witness_print_witness.exit:                       ; preds = %13, %12, %14
   %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = load ptr, ptr %0, align 8, !tbaa !15
   %.not20 = icmp eq ptr %17, %18
-  %.not30 = icmp eq ptr %17, null
-  %.not = or i1 %.not20, %.not30
+  %.not31 = icmp eq ptr %17, null
+  %.not = or i1 %.not20, %.not31
   br i1 %.not, label %select.unfold._crit_edge, label %.lr.ph
 
 select.unfold._crit_edge:                         ; preds = %witness_print_witness.exit

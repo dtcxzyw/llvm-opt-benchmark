@@ -181,10 +181,10 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .sink.split.i:                                    ; preds = %54, %.lr.ph.i
   %hf_bmc_message_id.sink.i = phi ptr [ @hf_bmc_offset_to_ctch_bs_index_of_first_transmission, %54 ], [ @hf_bmc_message_id, %.lr.ph.i ]
-  %.sink21.i = phi i32 [ 1, %54 ], [ 2, %.lr.ph.i ]
+  %.sink24.i = phi i32 [ 1, %54 ], [ 2, %.lr.ph.i ]
   %.sink.i = phi i32 [ 2, %54 ], [ 3, %.lr.ph.i ]
   %55 = load i32, ptr %hf_bmc_message_id.sink.i, align 4
-  %56 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %55, ptr noundef %18, i32 noundef %52, i32 noundef %.sink21.i, i32 noundef 0)
+  %56 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %55, ptr noundef %18, i32 noundef %52, i32 noundef %.sink24.i, i32 noundef 0)
   %57 = add i32 %.sink.i, %.13.i
   br label %58
 

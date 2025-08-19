@@ -138,9 +138,9 @@ define void @Abc_NtkCecSat(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
   %27 = tail call i32 @Abc_NtkMiterSat(ptr noundef nonnull %21, i64 noundef %25, i64 noundef %26, i32 noundef 0, ptr noundef null, ptr noundef null) #15
   %switch.selectcmp = icmp eq i32 %27, 0
   %switch.select = select i1 %switch.selectcmp, ptr @str.27, ptr @str.26
-  %switch.selectcmp46 = icmp eq i32 %27, -1
-  %switch.select47 = select i1 %switch.selectcmp46, ptr @str.28, ptr %switch.select
-  %puts37 = tail call i32 @puts(ptr nonnull dereferenceable(1) %switch.select47)
+  %switch.selectcmp49 = icmp eq i32 %27, -1
+  %switch.select50 = select i1 %switch.selectcmp49, ptr @str.28, ptr %switch.select
+  %puts37 = tail call i32 @puts(ptr nonnull dereferenceable(1) %switch.select50)
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 304
   %29 = load ptr, ptr %28, align 8, !tbaa !26
   %.not = icmp eq ptr %29, null
@@ -955,9 +955,9 @@ define void @Abc_NtkCecFraigPart(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %28 = getelementptr i8, ptr %.val6979, i64 4
   %.val69.val80 = load i32, ptr %28, align 4, !tbaa !24
   %29 = icmp sgt i32 %.val69.val80, 0
-  br i1 %29, label %.lr.ph, label %.critedge.thread87
+  br i1 %29, label %.lr.ph, label %.critedge.thread89
 
-.critedge.thread87:                               ; preds = %24
+.critedge.thread89:                               ; preds = %24
   %30 = call ptr (...) @Abc_FrameGetGlobalFrame() #15
   %31 = call i32 @Cmd_CommandExecute(ptr noundef %30, ptr noundef nonnull @.str.22) #15
   br label %88
@@ -1093,7 +1093,7 @@ define void @Abc_NtkCecFraigPart(ptr noundef %0, ptr noundef %1, i32 noundef %2,
     i32 -1, label %89
   ]
 
-88:                                               ; preds = %.critedge.thread87, %.critedge
+88:                                               ; preds = %.critedge.thread89, %.critedge
   %puts57 = call i32 @puts(ptr nonnull dereferenceable(1) @str.22)
   br label %93
 
@@ -1473,9 +1473,9 @@ define void @Abc_NtkSecSat(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
   %28 = tail call i32 @Abc_NtkMiterSat(ptr noundef nonnull %22, i64 noundef %26, i64 noundef %27, i32 noundef 0, ptr noundef null, ptr noundef null) #15
   %switch.selectcmp = icmp eq i32 %28, 0
   %switch.select = select i1 %switch.selectcmp, ptr @str.27, ptr @str.26
-  %switch.selectcmp39 = icmp eq i32 %28, -1
-  %switch.select40 = select i1 %switch.selectcmp39, ptr @str.28, ptr %switch.select
-  %puts30 = tail call i32 @puts(ptr nonnull dereferenceable(1) %switch.select40)
+  %switch.selectcmp41 = icmp eq i32 %28, -1
+  %switch.select42 = select i1 %switch.selectcmp41, ptr @str.28, ptr %switch.select
+  %puts30 = tail call i32 @puts(ptr nonnull dereferenceable(1) %switch.select42)
   tail call void @Abc_NtkDelete(ptr noundef nonnull %22) #15
   br label %29
 
@@ -2667,7 +2667,7 @@ define void @Abc_NtkSimulteBuggyMiter(ptr noundef %0) local_unnamed_addr #0 {
   %45 = getelementptr i8, ptr %0, i64 48
   %46 = sext i32 %.val71.val to i64
   %wide.trip.count105 = zext nneg i32 %.val to i64
-  %invariant.gep107 = getelementptr i32, ptr %38, i64 %46
+  %invariant.gep108 = getelementptr i32, ptr %38, i64 %46
   br label %52
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
@@ -2700,8 +2700,8 @@ define void @Abc_NtkSimulteBuggyMiter(ptr noundef %0) local_unnamed_addr #0 {
   %60 = getelementptr i32, ptr %32, i64 %indvars.iv102
   %61 = getelementptr i32, ptr %60, i64 %59
   %62 = load i32, ptr %61, align 4, !tbaa !28
-  %gep108 = getelementptr i32, ptr %invariant.gep107, i64 %indvars.iv102
-  store i32 %62, ptr %gep108, align 4, !tbaa !28
+  %gep109 = getelementptr i32, ptr %invariant.gep108, i64 %indvars.iv102
+  store i32 %62, ptr %gep109, align 4, !tbaa !28
   br label %.critedge4
 
 .critedge4:                                       ; preds = %57, %52

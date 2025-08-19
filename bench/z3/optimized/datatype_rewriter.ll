@@ -524,10 +524,10 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i101:   ; preds = %.noexc106, %._crit_
   br i1 %exitcond.not, label %._crit_edge, label %184, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %234, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit86.thread, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit86
-  %.0.i85137 = phi i32 [ 0, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit86 ], [ 0, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit86.thread ], [ %178, %234 ]
+  %.0.i85156 = phi i32 [ 0, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit86 ], [ 0, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit86.thread ], [ %178, %234 ]
   %237 = phi ptr [ %179, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit86 ], [ %174, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit86.thread ], [ %.pre.i131, %234 ]
   %238 = load ptr, ptr %0, align 8, !tbaa !25
-  %239 = invoke noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %238, ptr noundef %154, i32 noundef %.0.i85137, ptr noundef %237)
+  %239 = invoke noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %238, ptr noundef %154, i32 noundef %.0.i85156, ptr noundef %237)
           to label %240 unwind label %243
 
 240:                                              ; preds = %._crit_edge

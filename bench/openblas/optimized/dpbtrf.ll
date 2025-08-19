@@ -364,8 +364,8 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv383 = phi i64 [ %indvars.iv381, %.lr.ph301 ], [ %indvars.iv.next384, %178 ]
   %179 = trunc nuw nsw i64 %indvars.iv383 to i32
   %180 = add i64 %173, %indvars.iv383
-  %sext416 = shl i64 %180, 32
-  %181 = ashr exact i64 %sext416, 32
+  %sext434 = shl i64 %180, 32
+  %181 = ashr exact i64 %sext434, 32
   %182 = getelementptr inbounds [1056 x double], ptr %10, i64 0, i64 %181
   %183 = load double, ptr %182, align 8, !tbaa !7
   %.reass305 = add i32 %invariant.op304, %179
@@ -508,7 +508,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph335:                                        ; preds = %247
   %249 = add nsw i32 %.3225352, -1
   %250 = load i32, ptr %2, align 4, !tbaa !3
-  %invariant.op425 = add i32 %250, 1
+  %invariant.op443 = add i32 %250, 1
   br label %.lr.ph327
 
 .lr.ph327:                                        ; preds = %._crit_edge328, %.lr.ph335
@@ -518,7 +518,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %252 = add i32 %249, %.2333
   %253 = mul nsw i32 %252, %15
   %reass.sub357 = sub i32 %253, %.2333
-  %invariant.op330.reass = add i32 %reass.sub357, %invariant.op425
+  %invariant.op330.reass = add i32 %reass.sub357, %invariant.op443
   %254 = mul nuw nsw i32 %.2333, 33
   %255 = add nsw i32 %254, -34
   %wide.trip.count404 = zext i32 %251 to i64
@@ -649,8 +649,8 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .loopexit:                                        ; preds = %285, %..loopexit_crit_edge, %211, %244
   %314 = add nuw nsw i32 %37, %.3225352
-  %.not417 = icmp sgt i32 %314, %195
-  br i1 %.not417, label %.loopexit279, label %.lr.ph354, !llvm.loop !21
+  %.not435 = icmp sgt i32 %314, %195
+  br i1 %.not435, label %.loopexit279, label %.lr.ph354, !llvm.loop !21
 
 315:                                              ; preds = %209, %64
   %storemerge253.in = phi i32 [ %210, %209 ], [ %65, %64 ]

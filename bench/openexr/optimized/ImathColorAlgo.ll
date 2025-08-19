@@ -163,9 +163,9 @@ define void @_ZN9Imath_3_29rgb2hsv_dERKNS_4Vec3IdEE(ptr dead_on_unwind noalias w
   %9 = fcmp ogt double %., %8
   %.65 = select i1 %9, double %., double %8
   %10 = fcmp olt double %5, %6
-  %.sink71 = select i1 %10, double %5, double %6
-  %11 = fcmp olt double %.sink71, %8
-  %.67 = select i1 %11, double %.sink71, double %8
+  %.sink77 = select i1 %10, double %5, double %6
+  %11 = fcmp olt double %.sink77, %8
+  %.67 = select i1 %11, double %.sink77, double %8
   %12 = fsub double %.65, %.67
   %13 = fcmp une double %.65, 0.000000e+00
   %14 = fdiv double %12, %.65
@@ -228,9 +228,9 @@ define void @_ZN9Imath_3_29rgb2hsv_dERKNS_6Color4IdEE(ptr dead_on_unwind noalias
   %9 = fcmp ogt double %., %8
   %.66 = select i1 %9, double %., double %8
   %10 = fcmp olt double %5, %6
-  %.sink72 = select i1 %10, double %5, double %6
-  %11 = fcmp olt double %.sink72, %8
-  %.68 = select i1 %11, double %.sink72, double %8
+  %.sink78 = select i1 %10, double %5, double %6
+  %11 = fcmp olt double %.sink78, %8
+  %.68 = select i1 %11, double %.sink78, double %8
   %12 = fsub double %.66, %.68
   %13 = fcmp une double %.66, 0.000000e+00
   %14 = fdiv double %12, %.66

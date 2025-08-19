@@ -66,14 +66,14 @@ define void @dimatcopy_(ptr noundef readonly captures(none) %0, ptr noundef read
   %35 = load i32, ptr %3, align 4, !tbaa !3
   %spec.select157 = tail call i32 @llvm.smax.i32(i32 %35, i32 1)
   %36 = icmp slt i32 %34, %spec.select157
-  br i1 %36, label %.sink.split197, label %47
+  br i1 %36, label %.sink.split200, label %47
 
 37:                                               ; preds = %32
   %38 = load i32, ptr %7, align 4, !tbaa !3
   %39 = load i32, ptr %2, align 4, !tbaa !3
   %spec.select158 = tail call i32 @llvm.smax.i32(i32 %39, i32 1)
   %40 = icmp slt i32 %38, %spec.select158
-  br i1 %40, label %.sink.split197, label %47
+  br i1 %40, label %.sink.split200, label %47
 
 .sink.split:                                      ; preds = %27, %23
   store i32 8, ptr %9, align 4, !tbaa !3
@@ -85,30 +85,30 @@ define void @dimatcopy_(ptr noundef readonly captures(none) %0, ptr noundef read
   %43 = load i32, ptr %2, align 4, !tbaa !3
   %spec.select159 = tail call i32 @llvm.smax.i32(i32 %43, i32 1)
   %44 = icmp slt i32 %42, %spec.select159
-  br i1 %44, label %45, label %.thread181
+  br i1 %44, label %45, label %.thread184
 
 45:                                               ; preds = %41
   store i32 7, ptr %9, align 4, !tbaa !3
-  br label %.thread181
+  br label %.thread184
 
-.thread181:                                       ; preds = %45, %41
+.thread184:                                       ; preds = %45, %41
   %.pr164171.ph = phi i32 [ %.pr164173.ph, %41 ], [ 7, %45 ]
-  %.pr.pre183 = load i32, ptr %3, align 4, !tbaa !3
+  %.pr.pre186 = load i32, ptr %3, align 4, !tbaa !3
   br label %thread-pre-split
 
 46:                                               ; preds = %31
   %.pr.pre = load i32, ptr %3, align 4, !tbaa !3
   br label %thread-pre-split
 
-.sink.split197:                                   ; preds = %37, %33
+.sink.split200:                                   ; preds = %37, %33
   store i32 8, ptr %9, align 4, !tbaa !3
   br label %47
 
-47:                                               ; preds = %.sink.split197, %33, %32, %37
-  %.pr164172.ph.ph = phi i32 [ -1, %33 ], [ -1, %32 ], [ -1, %37 ], [ 8, %.sink.split197 ]
-  %.pr.pre189 = load i32, ptr %3, align 4, !tbaa !3
+47:                                               ; preds = %.sink.split200, %33, %32, %37
+  %.pr164172.ph.ph = phi i32 [ -1, %33 ], [ -1, %32 ], [ -1, %37 ], [ 8, %.sink.split200 ]
+  %.pr.pre192 = load i32, ptr %3, align 4, !tbaa !3
   %48 = load i32, ptr %6, align 4, !tbaa !3
-  %spec.select160 = tail call i32 @llvm.smax.i32(i32 %.pr.pre189, i32 1)
+  %spec.select160 = tail call i32 @llvm.smax.i32(i32 %.pr.pre192, i32 1)
   %49 = icmp slt i32 %48, %spec.select160
   br i1 %49, label %50, label %thread-pre-split
 
@@ -116,11 +116,11 @@ define void @dimatcopy_(ptr noundef readonly captures(none) %0, ptr noundef read
   store i32 7, ptr %9, align 4, !tbaa !3
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %50, %.thread181, %46, %47
-  %.pr.pre184 = phi i32 [ %.pr.pre189, %47 ], [ %.pr.pre, %46 ], [ %.pr.pre189, %50 ], [ %.pr.pre183, %.thread181 ]
-  %.pr164169 = phi i32 [ %.pr164172.ph.ph, %47 ], [ -1, %46 ], [ 7, %50 ], [ %.pr164171.ph, %.thread181 ]
-  %51 = icmp slt i32 %.pr.pre184, 0
-  br i1 %51, label %.thread192, label %52
+thread-pre-split:                                 ; preds = %50, %.thread184, %46, %47
+  %.pr.pre187 = phi i32 [ %.pr.pre192, %47 ], [ %.pr.pre, %46 ], [ %.pr.pre192, %50 ], [ %.pr.pre186, %.thread184 ]
+  %.pr164169 = phi i32 [ %.pr164172.ph.ph, %47 ], [ -1, %46 ], [ 7, %50 ], [ %.pr164171.ph, %.thread184 ]
+  %51 = icmp slt i32 %.pr.pre187, 0
+  br i1 %51, label %.thread195, label %52
 
 52:                                               ; preds = %thread-pre-split
   %53 = load i32, ptr %2, align 4, !tbaa !3
@@ -130,33 +130,33 @@ thread-pre-split:                                 ; preds = %50, %.thread181, %4
   %57 = or i1 %narrow167, %56
   br i1 %57, label %.thread, label %64
 
-.thread192:                                       ; preds = %thread-pre-split
+.thread195:                                       ; preds = %thread-pre-split
   store i32 4, ptr %9, align 4, !tbaa !3
   %58 = load i32, ptr %2, align 4, !tbaa !3
   %59 = icmp slt i32 %58, 0
   %60 = and i1 %.not166, %narrow
   %61 = or i1 %60, %59
   %62 = or i1 %narrow167, %61
-  br i1 %62, label %.thread, label %.thread195
+  br i1 %62, label %.thread, label %.thread198
 
-.thread:                                          ; preds = %.thread192, %52
-  %63 = phi i1 [ %60, %.thread192 ], [ %55, %52 ]
+.thread:                                          ; preds = %.thread195, %52
+  %63 = phi i1 [ %60, %.thread195 ], [ %55, %52 ]
   %spec.select161 = select i1 %63, i32 2, i32 3
   %spec.select162 = select i1 %narrow167, i32 1, i32 %spec.select161
   store i32 %spec.select162, ptr %9, align 4, !tbaa !3
-  br label %.thread195
+  br label %.thread198
 
 64:                                               ; preds = %52
   %65 = icmp sgt i32 %.pr164169, -1
-  br i1 %65, label %.thread195, label %67
+  br i1 %65, label %.thread198, label %67
 
-.thread195:                                       ; preds = %.thread192, %.thread, %64
+.thread198:                                       ; preds = %.thread195, %.thread, %64
   %66 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %9, i32 noundef 10) #8
   br label %155
 
 67:                                               ; preds = %64
   %68 = icmp eq i32 %53, 0
-  %69 = icmp eq i32 %.pr.pre184, 0
+  %69 = icmp eq i32 %.pr.pre187, 0
   %or.cond = or i1 %69, %68
   br i1 %or.cond, label %155, label %70
 
@@ -175,18 +175,18 @@ thread-pre-split:                                 ; preds = %50, %.thread181, %4
 
 77:                                               ; preds = %76
   %78 = zext nneg i32 %53 to i64
-  %79 = zext nneg i32 %.pr.pre184 to i64
+  %79 = zext nneg i32 %.pr.pre187 to i64
   %80 = load double, ptr %4, align 8, !tbaa !8
   %81 = sext i32 %71 to i64
   %82 = tail call i32 @dimatcopy_k_cn(i64 noundef %78, i64 noundef %79, double noundef %80, ptr noundef %5, i64 noundef %81) #8
   br label %155
 
 83:                                               ; preds = %76
-  %84 = icmp eq i32 %53, %.pr.pre184
+  %84 = icmp eq i32 %53, %.pr.pre187
   br i1 %84, label %85, label %104
 
 85:                                               ; preds = %83
-  %86 = zext nneg i32 %.pr.pre184 to i64
+  %86 = zext nneg i32 %.pr.pre187 to i64
   %87 = load double, ptr %4, align 8, !tbaa !8
   %88 = sext i32 %71 to i64
   %89 = tail call i32 @dimatcopy_k_ct(i64 noundef %86, i64 noundef %86, double noundef %87, ptr noundef %5, i64 noundef %88) #8
@@ -197,18 +197,18 @@ thread-pre-split:                                 ; preds = %50, %.thread181, %4
 
 91:                                               ; preds = %90
   %92 = zext nneg i32 %53 to i64
-  %93 = zext nneg i32 %.pr.pre184 to i64
+  %93 = zext nneg i32 %.pr.pre187 to i64
   %94 = load double, ptr %4, align 8, !tbaa !8
   %95 = sext i32 %71 to i64
   %96 = tail call i32 @dimatcopy_k_rn(i64 noundef %92, i64 noundef %93, double noundef %94, ptr noundef %5, i64 noundef %95) #8
   br label %155
 
 97:                                               ; preds = %90
-  %98 = icmp eq i32 %53, %.pr.pre184
+  %98 = icmp eq i32 %53, %.pr.pre187
   br i1 %98, label %99, label %104
 
 99:                                               ; preds = %97
-  %100 = zext nneg i32 %.pr.pre184 to i64
+  %100 = zext nneg i32 %.pr.pre187 to i64
   %101 = load double, ptr %4, align 8, !tbaa !8
   %102 = sext i32 %71 to i64
   %103 = tail call i32 @dimatcopy_k_rt(i64 noundef %100, i64 noundef %100, double noundef %101, ptr noundef %5, i64 noundef %102) #8
@@ -217,7 +217,7 @@ thread-pre-split:                                 ; preds = %50, %.thread181, %4
 104:                                              ; preds = %83, %97, %70
   %105 = zext nneg i32 %53 to i64
   %106 = sext i32 %72 to i64
-  %107 = tail call i32 @llvm.umax.i32(i32 %53, i32 %.pr.pre184)
+  %107 = tail call i32 @llvm.umax.i32(i32 %53, i32 %.pr.pre187)
   %.0.in.v = zext nneg i32 %107 to i64
   %.0.in = mul nsw i64 %106, %.0.in.v
   %.0 = shl i64 %.0.in, 3
@@ -232,7 +232,7 @@ thread-pre-split:                                 ; preds = %50, %.thread181, %4
 
 111:                                              ; preds = %104
   %112 = icmp eq i32 %.3, 0
-  %113 = zext nneg i32 %.pr.pre184 to i64
+  %113 = zext nneg i32 %.pr.pre187 to i64
   %114 = load double, ptr %4, align 8, !tbaa !8
   %115 = sext i32 %71 to i64
   br i1 %16, label %135, label %116
@@ -291,7 +291,7 @@ thread-pre-split:                                 ; preds = %50, %.thread181, %4
   tail call void @free(ptr noundef nonnull %108) #8
   br label %155
 
-155:                                              ; preds = %67, %154, %99, %91, %85, %77, %.thread195
+155:                                              ; preds = %67, %154, %99, %91, %85, %77, %.thread198
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }

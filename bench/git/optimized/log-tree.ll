@@ -246,10 +246,10 @@ define dso_local void @load_ref_decorations(ptr noundef %0, i32 noundef %1) loca
   br i1 %13, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.04050 = phi ptr [ %15, %.lr.ph ], [ %7, %.lr.ph.preheader ]
-  %14 = load ptr, ptr %.04050, align 8, !tbaa !25
-  tail call void @normalize_glob_ref(ptr noundef nonnull %.04050, ptr noundef null, ptr noundef %14) #15
-  %15 = getelementptr inbounds nuw i8, ptr %.04050, i64 16
+  %.04053 = phi ptr [ %15, %.lr.ph ], [ %7, %.lr.ph.preheader ]
+  %14 = load ptr, ptr %.04053, align 8, !tbaa !25
+  tail call void @normalize_glob_ref(ptr noundef nonnull %.04053, ptr noundef null, ptr noundef %14) #15
+  %15 = getelementptr inbounds nuw i8, ptr %.04053, i64 16
   %16 = load ptr, ptr %5, align 8, !tbaa !17
   %17 = load ptr, ptr %16, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -274,10 +274,10 @@ define dso_local void @load_ref_decorations(ptr noundef %0, i32 noundef %1) loca
   br i1 %29, label %.lr.ph44, label %.critedge2
 
 .lr.ph44:                                         ; preds = %.lr.ph44.preheader, %.lr.ph44
-  %.14352 = phi ptr [ %31, %.lr.ph44 ], [ %23, %.lr.ph44.preheader ]
-  %30 = load ptr, ptr %.14352, align 8, !tbaa !25
-  tail call void @normalize_glob_ref(ptr noundef nonnull %.14352, ptr noundef null, ptr noundef %30) #15
-  %31 = getelementptr inbounds nuw i8, ptr %.14352, i64 16
+  %.14355 = phi ptr [ %31, %.lr.ph44 ], [ %23, %.lr.ph44.preheader ]
+  %30 = load ptr, ptr %.14355, align 8, !tbaa !25
+  tail call void @normalize_glob_ref(ptr noundef nonnull %.14355, ptr noundef null, ptr noundef %30) #15
+  %31 = getelementptr inbounds nuw i8, ptr %.14355, i64 16
   %32 = load ptr, ptr %0, align 8, !tbaa !27
   %33 = load ptr, ptr %32, align 8, !tbaa !20
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -303,10 +303,10 @@ define dso_local void @load_ref_decorations(ptr noundef %0, i32 noundef %1) loca
   br i1 %46, label %.lr.ph48, label %.critedge4
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.lr.ph48
-  %.24754 = phi ptr [ %48, %.lr.ph48 ], [ %40, %.lr.ph48.preheader ]
-  %47 = load ptr, ptr %.24754, align 8, !tbaa !25
-  tail call void @normalize_glob_ref(ptr noundef nonnull %.24754, ptr noundef null, ptr noundef %47) #15
-  %48 = getelementptr inbounds nuw i8, ptr %.24754, i64 16
+  %.24757 = phi ptr [ %48, %.lr.ph48 ], [ %40, %.lr.ph48.preheader ]
+  %47 = load ptr, ptr %.24757, align 8, !tbaa !25
+  tail call void @normalize_glob_ref(ptr noundef nonnull %.24757, ptr noundef null, ptr noundef %47) #15
+  %48 = getelementptr inbounds nuw i8, ptr %.24757, i64 16
   %49 = load ptr, ptr %38, align 8, !tbaa !28
   %50 = load ptr, ptr %49, align 8, !tbaa !20
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8

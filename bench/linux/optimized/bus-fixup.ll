@@ -694,7 +694,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mei_fwver(ptr noundef %0) 
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %44 = load i8, ptr %43, align 2
   %45 = load ptr, ptr %13, align 8
-  %.idx = shl i64 %31, 3
+  %.idx = shl nuw nsw i64 %31, 3
   %46 = getelementptr i8, ptr %45, i64 3325
   %47 = getelementptr i8, ptr %46, i64 %.idx
   store i8 %44, ptr %47, align 1

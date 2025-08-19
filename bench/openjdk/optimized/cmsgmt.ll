@@ -338,13 +338,13 @@ define hidden ptr @_cmsCreateGamutCheckPipeline(ptr noundef %0, ptr noundef read
   br i1 %.not72, label %52, label %.thread
 
 .thread:                                          ; preds = %41, %46, %49
-  %.06381 = phi ptr [ %.063, %49 ], [ null, %46 ], [ null, %41 ]
+  %.06387 = phi ptr [ %.063, %49 ], [ null, %46 ], [ null, %41 ]
   %51 = phi ptr [ %50, %49 ], [ %33, %46 ], [ %33, %41 ]
   call void @cmsDeleteTransform(ptr noundef nonnull %51) #6
   br label %52
 
 52:                                               ; preds = %.thread, %49
-  %.06382 = phi ptr [ %.06381, %.thread ], [ %.063, %49 ]
+  %.06388 = phi ptr [ %.06387, %.thread ], [ %.063, %49 ]
   %53 = load ptr, ptr %35, align 8
   %.not73 = icmp eq ptr %53, null
   br i1 %.not73, label %55, label %54
@@ -367,7 +367,7 @@ define hidden ptr @_cmsCreateGamutCheckPipeline(ptr noundef %0, ptr noundef read
   br label %60
 
 60:                                               ; preds = %15, %58, %14
-  %.062 = phi ptr [ null, %14 ], [ %.06382, %58 ], [ null, %15 ]
+  %.062 = phi ptr [ null, %14 ], [ %.06388, %58 ], [ null, %15 ]
   ret ptr %.062
 }
 
@@ -421,8 +421,8 @@ define internal noundef i32 @GamutSampler(ptr noundef %0, ptr noundef writeonly 
   %20 = load double, ptr %19, align 8
   %21 = fcmp olt double %17, %20
   %22 = fcmp one double %18, %20
-  %or.cond42 = select i1 %21, i1 %22, i1 false
-  br i1 %or.cond42, label %42, label %23
+  %or.cond44 = select i1 %21, i1 %22, i1 false
+  br i1 %or.cond44, label %42, label %23
 
 23:                                               ; preds = %3
   %24 = fcmp olt double %18, %20

@@ -95,9 +95,9 @@ define internal fastcc ptr @GetPoint(ptr noundef readonly captures(ret: address,
   %sqrt.i = call double @llvm.sqrt.f64(double %18)
   store double %sqrt.i, ptr %2, align 8
   %19 = fcmp oeq double %18, 0.000000e+00
-  br i1 %19, label %.thread26, label %21
+  br i1 %19, label %.thread33, label %21
 
-.thread26:                                        ; preds = %3
+.thread33:                                        ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   br label %QuantizeToSector.exit
@@ -166,9 +166,9 @@ ToSpherical.exit:                                 ; preds = %.lr.ph.i24.i, %_cms
   call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %49, i32 noundef 2, ptr noundef nonnull @.str) #8
   br label %70
 
-QuantizeToSector.exit:                            ; preds = %45, %.thread26
-  %50 = phi double [ 0.000000e+00, %.thread26 ], [ %.09.i23.i, %45 ]
-  %51 = phi double [ 0.000000e+00, %.thread26 ], [ %.pre, %45 ]
+QuantizeToSector.exit:                            ; preds = %45, %.thread33
+  %50 = phi double [ 0.000000e+00, %.thread33 ], [ %.09.i23.i, %45 ]
+  %51 = phi double [ 0.000000e+00, %.thread33 ], [ %.pre, %45 ]
   %52 = fmul double %51, 1.600000e+01
   %53 = fdiv double %52, 3.600000e+02
   %54 = call double @llvm.floor.f64(double %53)

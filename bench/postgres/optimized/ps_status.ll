@@ -459,8 +459,8 @@ define dso_local void @set_ps_display_suffix(ptr noundef readonly captures(none)
   br label %flush_ps_display.exit.sink.split
 
 flush_ps_display.exit.sink.split:                 ; preds = %35, %42, %.lr.ph.preheader.i
-  %.sink11 = phi i64 [ %53, %.lr.ph.preheader.i ], [ %38, %42 ], [ %38, %35 ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %37, i8 0, i64 %.sink11, i1 false)
+  %.sink18 = phi i64 [ %53, %.lr.ph.preheader.i ], [ %38, %42 ], [ %38, %35 ]
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %37, i8 0, i64 %.sink18, i1 false)
   br label %flush_ps_display.exit
 
 flush_ps_display.exit:                            ; preds = %flush_ps_display.exit.sink.split, %31

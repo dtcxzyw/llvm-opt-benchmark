@@ -707,7 +707,7 @@ if.end19.i.us61:                                  ; preds = %while.body.us50
   br i1 %cmp.i.i.us64, label %land.rhs.i.i.us65, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66
 
 land.rhs.i.i.us65:                                ; preds = %if.end19.i.us61
-  %bcmp.i.us = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload.fr, ptr %agg.tmp6.sroa.0.0.copyload.us57, i64 %agg.tmp.sroa.2.0.copyload.fr)
+  %bcmp.i.us = tail call i32 @bcmp(ptr nonnull inttoptr (i64 -2 to ptr), ptr %agg.tmp6.sroa.0.0.copyload.us57, i64 %agg.tmp.sroa.2.0.copyload.fr)
   %2 = icmp eq i32 %bcmp.i.us, 0
   br i1 %2, label %return, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66
 
@@ -748,7 +748,7 @@ if.end19.i.us94:                                  ; preds = %while.body.us83
   br i1 %cmp.i.i.us97, label %land.rhs.i.i.us98, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100
 
 land.rhs.i.i.us98:                                ; preds = %if.end19.i.us94
-  %bcmp.i.us99 = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload.fr, ptr %agg.tmp6.sroa.0.0.copyload.us90, i64 %agg.tmp.sroa.2.0.copyload.fr)
+  %bcmp.i.us99 = tail call i32 @bcmp(ptr nonnull inttoptr (i64 -1 to ptr), ptr %agg.tmp6.sroa.0.0.copyload.us90, i64 %agg.tmp.sroa.2.0.copyload.fr)
   %3 = icmp eq i32 %bcmp.i.us99, 0
   br i1 %3, label %return, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100
 
@@ -3392,10 +3392,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %13, %if.then19.i ], [ %11, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %6, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %6, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -3839,10 +3839,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %13, %if.then19.i ], [ %11, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %6, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %6, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -4286,10 +4286,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %13, %if.then19.i ], [ %11, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %6, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %6, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -4733,10 +4733,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %13, %if.then19.i ], [ %11, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %6, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %6, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -6532,10 +6532,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %13, %if.then19.i ], [ %11, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %6, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %6, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -7485,10 +7485,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %18, %if.then19.i ], [ %16, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %11, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %11, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -8018,10 +8018,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %18, %if.then19.i ], [ %16, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %11, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %11, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -8261,10 +8261,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %18, %if.then19.i ], [ %16, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %11, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %11, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -9868,10 +9868,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %13, %if.then19.i ], [ %11, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %6, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %6, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -10259,10 +10259,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %8, %if.then19.i ], [ %6, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %1, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %1, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -10360,10 +10360,10 @@ if.then19.i41:                                    ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i42:                          ; preds = %if.then19.i41, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i51
   %.sink.i43 = phi ptr [ %17, %if.then19.i41 ], [ %15, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i51 ]
-  %it.sroa.0.029.sink30.i44 = phi ptr [ %it.sroa.0.029.i10, %if.then19.i41 ], [ %12, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i51 ]
+  %it.sroa.0.029.sink31.i44 = phi ptr [ %it.sroa.0.029.i10, %if.then19.i41 ], [ %12, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i51 ]
   %Next2.i7.i.i.i24.i45 = getelementptr inbounds nuw i8, ptr %.sink.i43, i64 8
-  store ptr %it.sroa.0.029.sink30.i44, ptr %Next2.i7.i.i.i24.i45, align 8
-  store ptr %it.sroa.0.029.sink30.i44, ptr %10, align 8
+  store ptr %it.sroa.0.029.sink31.i44, ptr %Next2.i7.i.i.i24.i45, align 8
+  store ptr %it.sroa.0.029.sink31.i44, ptr %10, align 8
   br label %if.end27.i39
 
 if.end27.i39:                                     ; preds = %if.end27.sink.split.i42, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i36
@@ -11023,10 +11023,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %28, %if.then19.i ], [ %26, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %23, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %23, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %21, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %21, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -11124,10 +11124,10 @@ if.then19.i216:                                   ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i217:                         ; preds = %if.then19.i216, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i226
   %.sink.i218 = phi ptr [ %37, %if.then19.i216 ], [ %35, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i226 ]
-  %it.sroa.0.029.sink30.i219 = phi ptr [ %it.sroa.0.029.i185, %if.then19.i216 ], [ %32, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i226 ]
+  %it.sroa.0.029.sink31.i219 = phi ptr [ %it.sroa.0.029.i185, %if.then19.i216 ], [ %32, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i226 ]
   %Next2.i7.i.i.i24.i220 = getelementptr inbounds nuw i8, ptr %.sink.i218, i64 8
-  store ptr %it.sroa.0.029.sink30.i219, ptr %Next2.i7.i.i.i24.i220, align 8
-  store ptr %it.sroa.0.029.sink30.i219, ptr %30, align 8
+  store ptr %it.sroa.0.029.sink31.i219, ptr %Next2.i7.i.i.i24.i220, align 8
+  store ptr %it.sroa.0.029.sink31.i219, ptr %30, align 8
   br label %if.end27.i214
 
 if.end27.i214:                                    ; preds = %if.end27.sink.split.i217, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i211
@@ -11571,10 +11571,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %28, %if.then19.i ], [ %26, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %23, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %23, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %21, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %21, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -11672,10 +11672,10 @@ if.then19.i216:                                   ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i217:                         ; preds = %if.then19.i216, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i226
   %.sink.i218 = phi ptr [ %37, %if.then19.i216 ], [ %35, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i226 ]
-  %it.sroa.0.029.sink30.i219 = phi ptr [ %it.sroa.0.029.i185, %if.then19.i216 ], [ %32, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i226 ]
+  %it.sroa.0.029.sink31.i219 = phi ptr [ %it.sroa.0.029.i185, %if.then19.i216 ], [ %32, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i226 ]
   %Next2.i7.i.i.i24.i220 = getelementptr inbounds nuw i8, ptr %.sink.i218, i64 8
-  store ptr %it.sroa.0.029.sink30.i219, ptr %Next2.i7.i.i.i24.i220, align 8
-  store ptr %it.sroa.0.029.sink30.i219, ptr %30, align 8
+  store ptr %it.sroa.0.029.sink31.i219, ptr %Next2.i7.i.i.i24.i220, align 8
+  store ptr %it.sroa.0.029.sink31.i219, ptr %30, align 8
   br label %if.end27.i214
 
 if.end27.i214:                                    ; preds = %if.end27.sink.split.i217, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i211
@@ -12356,10 +12356,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %8, %if.then19.i ], [ %6, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %1, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %1, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -12525,10 +12525,10 @@ if.then19.i64:                                    ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i65:                          ; preds = %if.then19.i64, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i74
   %.sink.i66 = phi ptr [ %22, %if.then19.i64 ], [ %20, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i74 ]
-  %it.sroa.0.029.sink30.i67 = phi ptr [ %it.sroa.0.029.i33, %if.then19.i64 ], [ %17, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i74 ]
+  %it.sroa.0.029.sink31.i67 = phi ptr [ %it.sroa.0.029.i33, %if.then19.i64 ], [ %17, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i74 ]
   %Next2.i7.i.i.i24.i68 = getelementptr inbounds nuw i8, ptr %.sink.i66, i64 8
-  store ptr %it.sroa.0.029.sink30.i67, ptr %Next2.i7.i.i.i24.i68, align 8
-  store ptr %it.sroa.0.029.sink30.i67, ptr %15, align 8
+  store ptr %it.sroa.0.029.sink31.i67, ptr %Next2.i7.i.i.i24.i68, align 8
+  store ptr %it.sroa.0.029.sink31.i67, ptr %15, align 8
   br label %if.end27.i62
 
 if.end27.i62:                                     ; preds = %if.end27.sink.split.i65, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59
@@ -13132,10 +13132,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %13, %if.then19.i ], [ %11, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %6, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %6, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -13671,10 +13671,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %8, %if.then19.i ], [ %6, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %1, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %1, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -13846,10 +13846,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %8, %if.then19.i ], [ %6, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %1, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %1, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -14737,10 +14737,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %13, %if.then19.i ], [ %11, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %6, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %6, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -15270,10 +15270,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %13, %if.then19.i ], [ %11, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %6, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %6, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -15513,10 +15513,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %13, %if.then19.i ], [ %11, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %6, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %6, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -15688,10 +15688,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %8, %if.then19.i ], [ %6, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %1, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %1, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -16209,10 +16209,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %8, %if.then19.i ], [ %6, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %1, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %1, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -18588,10 +18588,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %8, %if.then19.i ], [ %6, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %1, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %1, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -19387,10 +19387,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %18, %if.then19.i ], [ %16, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %11, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %11, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -20186,10 +20186,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %18, %if.then19.i ], [ %16, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %11, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %11, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -20497,10 +20497,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %18, %if.then19.i ], [ %16, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %11, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %11, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -20598,10 +20598,10 @@ if.then19.i142:                                   ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i143:                         ; preds = %if.then19.i142, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i152
   %.sink.i144 = phi ptr [ %27, %if.then19.i142 ], [ %25, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i152 ]
-  %it.sroa.0.029.sink30.i145 = phi ptr [ %it.sroa.0.029.i111, %if.then19.i142 ], [ %22, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i152 ]
+  %it.sroa.0.029.sink31.i145 = phi ptr [ %it.sroa.0.029.i111, %if.then19.i142 ], [ %22, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i152 ]
   %Next2.i7.i.i.i24.i146 = getelementptr inbounds nuw i8, ptr %.sink.i144, i64 8
-  store ptr %it.sroa.0.029.sink30.i145, ptr %Next2.i7.i.i.i24.i146, align 8
-  store ptr %it.sroa.0.029.sink30.i145, ptr %20, align 8
+  store ptr %it.sroa.0.029.sink31.i145, ptr %Next2.i7.i.i.i24.i146, align 8
+  store ptr %it.sroa.0.029.sink31.i145, ptr %20, align 8
   br label %if.end27.i140
 
 if.end27.i140:                                    ; preds = %if.end27.sink.split.i143, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i137
@@ -20699,10 +20699,10 @@ if.then19.i191:                                   ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i192:                         ; preds = %if.then19.i191, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i201
   %.sink.i193 = phi ptr [ %36, %if.then19.i191 ], [ %34, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i201 ]
-  %it.sroa.0.029.sink30.i194 = phi ptr [ %it.sroa.0.029.i160, %if.then19.i191 ], [ %31, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i201 ]
+  %it.sroa.0.029.sink31.i194 = phi ptr [ %it.sroa.0.029.i160, %if.then19.i191 ], [ %31, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i201 ]
   %Next2.i7.i.i.i24.i195 = getelementptr inbounds nuw i8, ptr %.sink.i193, i64 8
-  store ptr %it.sroa.0.029.sink30.i194, ptr %Next2.i7.i.i.i24.i195, align 8
-  store ptr %it.sroa.0.029.sink30.i194, ptr %29, align 8
+  store ptr %it.sroa.0.029.sink31.i194, ptr %Next2.i7.i.i.i24.i195, align 8
+  store ptr %it.sroa.0.029.sink31.i194, ptr %29, align 8
   br label %if.end27.i189
 
 if.end27.i189:                                    ; preds = %if.end27.sink.split.i192, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i186
@@ -21084,10 +21084,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %13, %if.then19.i ], [ %11, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %6, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %6, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -21679,10 +21679,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %13, %if.then19.i ], [ %11, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %6, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %6, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -22502,10 +22502,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %8, %if.then19.i ], [ %6, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %1, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %1, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -22603,10 +22603,10 @@ if.then19.i57:                                    ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i58:                          ; preds = %if.then19.i57, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i67
   %.sink.i59 = phi ptr [ %17, %if.then19.i57 ], [ %15, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i67 ]
-  %it.sroa.0.029.sink30.i60 = phi ptr [ %it.sroa.0.029.i26, %if.then19.i57 ], [ %12, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i67 ]
+  %it.sroa.0.029.sink31.i60 = phi ptr [ %it.sroa.0.029.i26, %if.then19.i57 ], [ %12, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i67 ]
   %Next2.i7.i.i.i24.i61 = getelementptr inbounds nuw i8, ptr %.sink.i59, i64 8
-  store ptr %it.sroa.0.029.sink30.i60, ptr %Next2.i7.i.i.i24.i61, align 8
-  store ptr %it.sroa.0.029.sink30.i60, ptr %10, align 8
+  store ptr %it.sroa.0.029.sink31.i60, ptr %Next2.i7.i.i.i24.i61, align 8
+  store ptr %it.sroa.0.029.sink31.i60, ptr %10, align 8
   br label %if.end27.i55
 
 if.end27.i55:                                     ; preds = %if.end27.sink.split.i58, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i52
@@ -22704,10 +22704,10 @@ if.then19.i106:                                   ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i107:                         ; preds = %if.then19.i106, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i116
   %.sink.i108 = phi ptr [ %26, %if.then19.i106 ], [ %24, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i116 ]
-  %it.sroa.0.029.sink30.i109 = phi ptr [ %it.sroa.0.029.i75, %if.then19.i106 ], [ %21, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i116 ]
+  %it.sroa.0.029.sink31.i109 = phi ptr [ %it.sroa.0.029.i75, %if.then19.i106 ], [ %21, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i116 ]
   %Next2.i7.i.i.i24.i110 = getelementptr inbounds nuw i8, ptr %.sink.i108, i64 8
-  store ptr %it.sroa.0.029.sink30.i109, ptr %Next2.i7.i.i.i24.i110, align 8
-  store ptr %it.sroa.0.029.sink30.i109, ptr %19, align 8
+  store ptr %it.sroa.0.029.sink31.i109, ptr %Next2.i7.i.i.i24.i110, align 8
+  store ptr %it.sroa.0.029.sink31.i109, ptr %19, align 8
   br label %if.end27.i104
 
 if.end27.i104:                                    ; preds = %if.end27.sink.split.i107, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i101
@@ -22805,10 +22805,10 @@ if.then19.i155:                                   ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i156:                         ; preds = %if.then19.i155, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i165
   %.sink.i157 = phi ptr [ %35, %if.then19.i155 ], [ %33, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i165 ]
-  %it.sroa.0.029.sink30.i158 = phi ptr [ %it.sroa.0.029.i124, %if.then19.i155 ], [ %30, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i165 ]
+  %it.sroa.0.029.sink31.i158 = phi ptr [ %it.sroa.0.029.i124, %if.then19.i155 ], [ %30, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i165 ]
   %Next2.i7.i.i.i24.i159 = getelementptr inbounds nuw i8, ptr %.sink.i157, i64 8
-  store ptr %it.sroa.0.029.sink30.i158, ptr %Next2.i7.i.i.i24.i159, align 8
-  store ptr %it.sroa.0.029.sink30.i158, ptr %28, align 8
+  store ptr %it.sroa.0.029.sink31.i158, ptr %Next2.i7.i.i.i24.i159, align 8
+  store ptr %it.sroa.0.029.sink31.i158, ptr %28, align 8
   br label %if.end27.i153
 
 if.end27.i153:                                    ; preds = %if.end27.sink.split.i156, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i150
@@ -25968,10 +25968,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %8, %if.then19.i ], [ %6, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %1, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %1, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -26211,10 +26211,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %8, %if.then19.i ], [ %6, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %1, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %1, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -27300,10 +27300,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %18, %if.then19.i ], [ %16, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %11, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %11, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -27685,10 +27685,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %13, %if.then19.i ], [ %11, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %6, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %6, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -29058,10 +29058,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %13, %if.then19.i ], [ %11, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %6, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %6, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -29233,10 +29233,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %8, %if.then19.i ], [ %6, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %1, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %1, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -29408,10 +29408,10 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %8, %if.then19.i ], [ %6, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %it.sroa.0.029.sink30.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
+  %it.sroa.0.029.sink31.i = phi ptr [ %it.sroa.0.029.i, %if.then19.i ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %Next2.i7.i.i.i24.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %Next2.i7.i.i.i24.i, align 8
-  store ptr %it.sroa.0.029.sink30.i, ptr %1, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %Next2.i7.i.i.i24.i, align 8
+  store ptr %it.sroa.0.029.sink31.i, ptr %1, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -29872,10 +29872,10 @@ if.then19:                                        ; preds = %_ZSt17holds_alterna
 
 if.end27.sink.split:                              ; preds = %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit, %if.then19
   %.sink = phi ptr [ %8, %if.then19 ], [ %6, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit ]
-  %it.sroa.0.029.sink30 = phi ptr [ %it.sroa.0.029, %if.then19 ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit ]
+  %it.sroa.0.029.sink31 = phi ptr [ %it.sroa.0.029, %if.then19 ], [ %3, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit ]
   %Next2.i7.i.i.i24 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
-  store ptr %it.sroa.0.029.sink30, ptr %Next2.i7.i.i.i24, align 8
-  store ptr %it.sroa.0.029.sink30, ptr %1, align 8
+  store ptr %it.sroa.0.029.sink31, ptr %Next2.i7.i.i.i24, align 8
+  store ptr %it.sroa.0.029.sink31, ptr %1, align 8
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end27.sink.split, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit
@@ -31270,14 +31270,14 @@ if.then.i.i.i110:                                 ; preds = %_ZN6hermes6ESTree4N
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i.i.i110, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i101, %if.then
-  %retval.0.i.i.i.i102.sink222 = phi ptr [ %call.i, %if.then ], [ %retval.0.i.i.i.i102, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i101 ], [ %retval.0.i.i.i.i102, %if.then.i.i.i110 ]
+  %retval.0.i.i.i.i102.sink223 = phi ptr [ %call.i, %if.then ], [ %retval.0.i.i.i.i102, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i101 ], [ %retval.0.i.i.i.i102, %if.then.i.i.i110 ]
   %60 = load ptr, ptr %parameters, align 8
-  %Next2.i.i.i.i.i122 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i102.sink222, i64 8
+  %Next2.i.i.i.i.i122 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i102.sink223, i64 8
   store ptr %parameters, ptr %Next2.i.i.i.i.i122, align 8
-  store ptr %60, ptr %retval.0.i.i.i.i102.sink222, align 8
+  store ptr %60, ptr %retval.0.i.i.i.i102.sink223, align 8
   %Next2.i7.i.i.i.i123 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %retval.0.i.i.i.i102.sink222, ptr %Next2.i7.i.i.i.i123, align 8
-  store ptr %retval.0.i.i.i.i102.sink222, ptr %parameters, align 8
+  store ptr %retval.0.i.i.i.i102.sink223, ptr %Next2.i7.i.i.i.i123, align 8
+  store ptr %retval.0.i.i.i.i102.sink223, ptr %parameters, align 8
   %_name = getelementptr inbounds nuw i8, ptr %propertyName, i64 48
   %61 = load ptr, ptr %this, align 8
   %state_.i.i.i.i124 = getelementptr inbounds nuw i8, ptr %61, i64 24
@@ -32648,10 +32648,10 @@ if.end.i160.sink.split:                           ; preds = %_ZN6hermes25ES6Clas
   br label %if.end.i160
 
 if.end.i160:                                      ; preds = %if.end.i160.sink.split, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit336, %if.then13.i
-  %.sink418 = phi i32 [ %161, %if.then13.i ], [ %176, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit336 ], [ %.pre.i.i297, %if.end.i160.sink.split ]
+  %.sink442 = phi i32 [ %161, %if.then13.i ], [ %176, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit336 ], [ %.pre.i.i297, %if.end.i160.sink.split ]
   %retval.0.i.i.i.i.i.i.i317.sink = phi ptr [ %160, %if.then13.i ], [ %retval.0.i.i.i.i.i.i.i317, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit336 ], [ %retval.0.i.i.i.i.i.i.i317.sink.ph, %if.end.i160.sink.split ]
   %178 = load ptr, ptr %parameters.i, align 8
-  %conv.i3.i.i298 = zext i32 %.sink418 to i64
+  %conv.i3.i.i298 = zext i32 %.sink442 to i64
   %add.ptr.i.i.i299 = getelementptr inbounds nuw ptr, ptr %178, i64 %conv.i3.i.i298
   store ptr %retval.0.i.i.i.i.i.i.i317.sink, ptr %add.ptr.i.i.i299, align 8
   %179 = load i32, ptr %Size.i.i.i.i.i.i411, align 8
@@ -32760,13 +32760,13 @@ if.end31.i.sink.split:                            ; preds = %_ZN6hermes25ES6Clas
   br label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.end31.i.sink.split, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit, %if.then22.i, %if.then.i155
-  %.sink419 = phi i32 [ %154, %if.then.i155 ], [ %184, %if.then22.i ], [ %199, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %.pre.i.i272, %if.end31.i.sink.split ]
+  %.sink443 = phi i32 [ %154, %if.then.i155 ], [ %184, %if.then22.i ], [ %199, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %.pre.i.i272, %if.end31.i.sink.split ]
   %retval.0.i.i.i.i.i.i.i.sink = phi ptr [ %153, %if.then.i155 ], [ %183, %if.then22.i ], [ %retval.0.i.i.i.i.i.i.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %retval.0.i.i.i.i.i.i.i.sink.ph, %if.end31.i.sink.split ]
   %hermesCallName.i.sroa.0.1 = phi ptr [ %cond.i, %if.then.i155 ], [ %cond11.i, %if.then22.i ], [ %cond11.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %hermesCallName.i.sroa.0.1.ph, %if.end31.i.sink.split ]
   %hermesCallName.i.sroa.6.1 = phi i64 [ %call.i.i156, %if.then.i155 ], [ %call.i43.i, %if.then22.i ], [ %call.i43.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %hermesCallName.i.sroa.6.1.ph, %if.end31.i.sink.split ]
   %srcNode.0.i = phi ptr [ %149, %if.then.i155 ], [ %180, %if.then22.i ], [ %157, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %srcNode.0.i.ph, %if.end31.i.sink.split ]
   %201 = load ptr, ptr %parameters.i, align 8
-  %conv.i3.i.i273 = zext i32 %.sink419 to i64
+  %conv.i3.i.i273 = zext i32 %.sink443 to i64
   %add.ptr.i.i.i274 = getelementptr inbounds nuw ptr, ptr %201, i64 %conv.i3.i.i273
   store ptr %retval.0.i.i.i.i.i.i.i.sink, ptr %add.ptr.i.i.i274, align 8
   %202 = load i32, ptr %Size.i.i.i.i.i.i411, align 8
@@ -33798,43 +33798,43 @@ if.then12:                                        ; preds = %for.end
   %Next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %classBody, i64 56
   %__begin2.sroa.0.010.i = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not11.i = icmp eq ptr %__begin2.sroa.0.010.i, %_body.i
-  br i1 %cmp.i.not11.i, label %if.end, label %for.body.i146
+  br i1 %cmp.i.not11.i, label %if.end, label %for.body.i159
 
-for.body.i146:                                    ; preds = %if.then12, %for.inc.i
+for.body.i159:                                    ; preds = %if.then12, %for.inc.i
   %__begin2.sroa.0.012.i = phi ptr [ %__begin2.sroa.0.0.i, %for.inc.i ], [ %__begin2.sroa.0.010.i, %if.then12 ]
-  %kind_.i.i.i.i.i.i.i.i.i147 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i, i64 16
-  %46 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i147, align 8
+  %kind_.i.i.i.i.i.i.i.i.i160 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i, i64 16
+  %46 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i160, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %46, 77
   %tobool.not9.i = icmp eq ptr %__begin2.sroa.0.012.i, null
   %tobool.not.i = or i1 %tobool.not9.i, %cmp.i.i.i.i.i.i.i.i
-  br i1 %tobool.not.i, label %for.inc.i, label %if.then.i148
+  br i1 %tobool.not.i, label %for.inc.i, label %if.then.i161
 
-if.then.i148:                                     ; preds = %for.body.i146
+if.then.i161:                                     ; preds = %for.body.i159
   %_value.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i, i64 56
   %47 = load ptr, ptr %_value.i, align 8
   %cmp.not.i = icmp eq ptr %47, null
   br i1 %cmp.not.i, label %for.inc.i, label %if.then8.i
 
-if.then8.i:                                       ; preds = %if.then.i148
-  %call.i.i149 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %47, ptr noundef null)
+if.then8.i:                                       ; preds = %if.then.i161
+  %call.i.i162 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %47, ptr noundef null)
   %_key.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i, i64 48
   %48 = load ptr, ptr %_key.i, align 8
   %49 = load ptr, ptr %_value.i, align 8
   %call11.i = call noundef ptr @_ZN6hermes25ES6ClassesTransformations29createThisPropertyInitializerEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__begin2.sroa.0.012.i, ptr noundef %48, ptr noundef %49)
   %50 = load ptr, ptr %ctorStatements, align 8
-  %Next2.i.i.i.i.i.i150 = getelementptr inbounds nuw i8, ptr %call11.i, i64 8
-  store ptr %ctorStatements, ptr %Next2.i.i.i.i.i.i150, align 8
+  %Next2.i.i.i.i.i.i163 = getelementptr inbounds nuw i8, ptr %call11.i, i64 8
+  store ptr %ctorStatements, ptr %Next2.i.i.i.i.i.i163, align 8
   store ptr %50, ptr %call11.i, align 8
   %Next2.i7.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %call11.i, ptr %Next2.i7.i.i.i.i.i, align 8
   store ptr %call11.i, ptr %ctorStatements, align 8
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.then8.i, %if.then.i148, %for.body.i146
-  %Next.i.i.i.i151 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i, i64 8
-  %__begin2.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i151, align 8
+for.inc.i:                                        ; preds = %if.then8.i, %if.then.i161, %for.body.i159
+  %Next.i.i.i.i164 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i, i64 8
+  %__begin2.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i164, align 8
   %cmp.i.not.i = icmp eq ptr %__begin2.sroa.0.0.i, %_body.i
-  br i1 %cmp.i.not.i, label %if.end, label %for.body.i146
+  br i1 %cmp.i.not.i, label %if.end, label %for.body.i159
 
 if.end:                                           ; preds = %for.inc.i, %if.then12, %for.end
   %tmpStatements.val = load ptr, ptr %tmpStatements, align 8
@@ -33847,8 +33847,8 @@ if.end:                                           ; preds = %for.inc.i, %if.then
 
 for.body20.lr.ph:                                 ; preds = %if.end
   %_currentProcessingClass = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %_body.i153 = getelementptr inbounds nuw i8, ptr %classBody, i64 48
-  %Next.i.i.i.i.i154 = getelementptr inbounds nuw i8, ptr %classBody, i64 56
+  %_body.i166 = getelementptr inbounds nuw i8, ptr %classBody, i64 48
+  %Next.i.i.i.i.i167 = getelementptr inbounds nuw i8, ptr %classBody, i64 56
   br label %for.body20
 
 for.body20:                                       ; preds = %for.body20.lr.ph, %for.inc30
@@ -33879,48 +33879,48 @@ land.lhs.true24:                                  ; preds = %for.body20
   br i1 %tobool27, label %if.then28, label %for.inc30
 
 if.then28:                                        ; preds = %land.lhs.true24
-  %__begin2.sroa.0.010.i155 = load ptr, ptr %Next.i.i.i.i.i154, align 8
-  %cmp.i.not11.i156 = icmp eq ptr %__begin2.sroa.0.010.i155, %_body.i153
-  br i1 %cmp.i.not11.i156, label %for.inc30, label %for.body.i157
+  %__begin2.sroa.0.010.i168 = load ptr, ptr %Next.i.i.i.i.i167, align 8
+  %cmp.i.not11.i169 = icmp eq ptr %__begin2.sroa.0.010.i168, %_body.i166
+  br i1 %cmp.i.not11.i169, label %for.inc30, label %for.body.i170
 
-for.body.i157:                                    ; preds = %if.then28, %for.inc.i172
-  %__begin2.sroa.0.012.i158 = phi ptr [ %__begin2.sroa.0.0.i174, %for.inc.i172 ], [ %__begin2.sroa.0.010.i155, %if.then28 ]
-  %kind_.i.i.i.i.i.i.i.i.i159 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i158, i64 16
-  %58 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i159, align 8
-  %cmp.i.i.i.i.i.i.i.i160 = icmp ne i32 %58, 77
-  %tobool.not9.i161 = icmp eq ptr %__begin2.sroa.0.012.i158, null
-  %tobool.not.i162 = or i1 %tobool.not9.i161, %cmp.i.i.i.i.i.i.i.i160
-  br i1 %tobool.not.i162, label %for.inc.i172, label %if.then.i163
+for.body.i170:                                    ; preds = %if.then28, %for.inc.i185
+  %__begin2.sroa.0.012.i171 = phi ptr [ %__begin2.sroa.0.0.i187, %for.inc.i185 ], [ %__begin2.sroa.0.010.i168, %if.then28 ]
+  %kind_.i.i.i.i.i.i.i.i.i172 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i171, i64 16
+  %58 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i172, align 8
+  %cmp.i.i.i.i.i.i.i.i173 = icmp ne i32 %58, 77
+  %tobool.not9.i174 = icmp eq ptr %__begin2.sroa.0.012.i171, null
+  %tobool.not.i175 = or i1 %tobool.not9.i174, %cmp.i.i.i.i.i.i.i.i173
+  br i1 %tobool.not.i175, label %for.inc.i185, label %if.then.i176
 
-if.then.i163:                                     ; preds = %for.body.i157
-  %_value.i164 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i158, i64 56
-  %59 = load ptr, ptr %_value.i164, align 8
-  %cmp.not.i165 = icmp eq ptr %59, null
-  br i1 %cmp.not.i165, label %for.inc.i172, label %if.then8.i166
+if.then.i176:                                     ; preds = %for.body.i170
+  %_value.i177 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i171, i64 56
+  %59 = load ptr, ptr %_value.i177, align 8
+  %cmp.not.i178 = icmp eq ptr %59, null
+  br i1 %cmp.not.i178, label %for.inc.i185, label %if.then8.i179
 
-if.then8.i166:                                    ; preds = %if.then.i163
-  %call.i.i167 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %59, ptr noundef null)
-  %_key.i168 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i158, i64 48
-  %60 = load ptr, ptr %_key.i168, align 8
-  %61 = load ptr, ptr %_value.i164, align 8
-  %call11.i169 = call noundef ptr @_ZN6hermes25ES6ClassesTransformations29createThisPropertyInitializerEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__begin2.sroa.0.012.i158, ptr noundef %60, ptr noundef %61)
+if.then8.i179:                                    ; preds = %if.then.i176
+  %call.i.i180 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %59, ptr noundef null)
+  %_key.i181 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i171, i64 48
+  %60 = load ptr, ptr %_key.i181, align 8
+  %61 = load ptr, ptr %_value.i177, align 8
+  %call11.i182 = call noundef ptr @_ZN6hermes25ES6ClassesTransformations29createThisPropertyInitializerEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__begin2.sroa.0.012.i171, ptr noundef %60, ptr noundef %61)
   %62 = load ptr, ptr %ctorStatements, align 8
-  %Next2.i.i.i.i.i.i170 = getelementptr inbounds nuw i8, ptr %call11.i169, i64 8
-  store ptr %ctorStatements, ptr %Next2.i.i.i.i.i.i170, align 8
-  store ptr %62, ptr %call11.i169, align 8
-  %Next2.i7.i.i.i.i.i171 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store ptr %call11.i169, ptr %Next2.i7.i.i.i.i.i171, align 8
-  store ptr %call11.i169, ptr %ctorStatements, align 8
-  br label %for.inc.i172
+  %Next2.i.i.i.i.i.i183 = getelementptr inbounds nuw i8, ptr %call11.i182, i64 8
+  store ptr %ctorStatements, ptr %Next2.i.i.i.i.i.i183, align 8
+  store ptr %62, ptr %call11.i182, align 8
+  %Next2.i7.i.i.i.i.i184 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store ptr %call11.i182, ptr %Next2.i7.i.i.i.i.i184, align 8
+  store ptr %call11.i182, ptr %ctorStatements, align 8
+  br label %for.inc.i185
 
-for.inc.i172:                                     ; preds = %if.then8.i166, %if.then.i163, %for.body.i157
-  %Next.i.i.i.i173 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i158, i64 8
-  %__begin2.sroa.0.0.i174 = load ptr, ptr %Next.i.i.i.i173, align 8
-  %cmp.i.not.i175 = icmp eq ptr %__begin2.sroa.0.0.i174, %_body.i153
-  br i1 %cmp.i.not.i175, label %for.inc30, label %for.body.i157
+for.inc.i185:                                     ; preds = %if.then8.i179, %if.then.i176, %for.body.i170
+  %Next.i.i.i.i186 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i171, i64 8
+  %__begin2.sroa.0.0.i187 = load ptr, ptr %Next.i.i.i.i186, align 8
+  %cmp.i.not.i188 = icmp eq ptr %__begin2.sroa.0.0.i187, %_body.i166
+  br i1 %cmp.i.not.i188, label %for.inc30, label %for.body.i170
 
-for.inc30:                                        ; preds = %for.inc.i172, %if.then28, %for.body20, %land.lhs.true24
-  %addedPropertyInitializers.2 = phi i1 [ %addedPropertyInitializers.1145, %for.body20 ], [ false, %land.lhs.true24 ], [ true, %if.then28 ], [ true, %for.inc.i172 ]
+for.inc30:                                        ; preds = %for.inc.i185, %if.then28, %for.body20, %land.lhs.true24
+  %addedPropertyInitializers.2 = phi i1 [ %addedPropertyInitializers.1145, %for.body20 ], [ false, %land.lhs.true24 ], [ true, %if.then28 ], [ true, %for.inc.i185 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin314.0144, i64 8
   %cmp19.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
   br i1 %cmp19.not, label %for.end31.loopexit, label %for.body20
@@ -34135,49 +34135,49 @@ _ZN12_GLOBAL__N_110NodeVectorD2Ev.exit63:         ; preds = %_ZN6hermes25ES6Clas
   br label %if.end41
 
 if.end41:                                         ; preds = %_ZN12_GLOBAL__N_110NodeVectorD2Ev.exit63, %if.else
-  %_body.i178 = getelementptr inbounds nuw i8, ptr %classBody, i64 48
-  %Next.i.i.i.i.i179 = getelementptr inbounds nuw i8, ptr %classBody, i64 56
-  %__begin2.sroa.0.010.i180 = load ptr, ptr %Next.i.i.i.i.i179, align 8
-  %cmp.i.not11.i181 = icmp eq ptr %__begin2.sroa.0.010.i180, %_body.i178
-  br i1 %cmp.i.not11.i181, label %if.end42, label %for.body.i182
+  %_body.i191 = getelementptr inbounds nuw i8, ptr %classBody, i64 48
+  %Next.i.i.i.i.i192 = getelementptr inbounds nuw i8, ptr %classBody, i64 56
+  %__begin2.sroa.0.010.i193 = load ptr, ptr %Next.i.i.i.i.i192, align 8
+  %cmp.i.not11.i194 = icmp eq ptr %__begin2.sroa.0.010.i193, %_body.i191
+  br i1 %cmp.i.not11.i194, label %if.end42, label %for.body.i195
 
-for.body.i182:                                    ; preds = %if.end41, %for.inc.i197
-  %__begin2.sroa.0.012.i183 = phi ptr [ %__begin2.sroa.0.0.i199, %for.inc.i197 ], [ %__begin2.sroa.0.010.i180, %if.end41 ]
-  %kind_.i.i.i.i.i.i.i.i.i184 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i183, i64 16
-  %95 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i184, align 8
-  %cmp.i.i.i.i.i.i.i.i185 = icmp ne i32 %95, 77
-  %tobool.not9.i186 = icmp eq ptr %__begin2.sroa.0.012.i183, null
-  %tobool.not.i187 = or i1 %tobool.not9.i186, %cmp.i.i.i.i.i.i.i.i185
-  br i1 %tobool.not.i187, label %for.inc.i197, label %if.then.i188
+for.body.i195:                                    ; preds = %if.end41, %for.inc.i210
+  %__begin2.sroa.0.012.i196 = phi ptr [ %__begin2.sroa.0.0.i212, %for.inc.i210 ], [ %__begin2.sroa.0.010.i193, %if.end41 ]
+  %kind_.i.i.i.i.i.i.i.i.i197 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i196, i64 16
+  %95 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i197, align 8
+  %cmp.i.i.i.i.i.i.i.i198 = icmp ne i32 %95, 77
+  %tobool.not9.i199 = icmp eq ptr %__begin2.sroa.0.012.i196, null
+  %tobool.not.i200 = or i1 %tobool.not9.i199, %cmp.i.i.i.i.i.i.i.i198
+  br i1 %tobool.not.i200, label %for.inc.i210, label %if.then.i201
 
-if.then.i188:                                     ; preds = %for.body.i182
-  %_value.i189 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i183, i64 56
-  %96 = load ptr, ptr %_value.i189, align 8
-  %cmp.not.i190 = icmp eq ptr %96, null
-  br i1 %cmp.not.i190, label %for.inc.i197, label %if.then8.i191
+if.then.i201:                                     ; preds = %for.body.i195
+  %_value.i202 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i196, i64 56
+  %96 = load ptr, ptr %_value.i202, align 8
+  %cmp.not.i203 = icmp eq ptr %96, null
+  br i1 %cmp.not.i203, label %for.inc.i210, label %if.then8.i204
 
-if.then8.i191:                                    ; preds = %if.then.i188
-  %call.i.i192 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %96, ptr noundef null)
-  %_key.i193 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i183, i64 48
-  %97 = load ptr, ptr %_key.i193, align 8
-  %98 = load ptr, ptr %_value.i189, align 8
-  %call11.i194 = call noundef ptr @_ZN6hermes25ES6ClassesTransformations29createThisPropertyInitializerEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__begin2.sroa.0.012.i183, ptr noundef %97, ptr noundef %98)
+if.then8.i204:                                    ; preds = %if.then.i201
+  %call.i.i205 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %96, ptr noundef null)
+  %_key.i206 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i196, i64 48
+  %97 = load ptr, ptr %_key.i206, align 8
+  %98 = load ptr, ptr %_value.i202, align 8
+  %call11.i207 = call noundef ptr @_ZN6hermes25ES6ClassesTransformations29createThisPropertyInitializerEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__begin2.sroa.0.012.i196, ptr noundef %97, ptr noundef %98)
   %99 = load ptr, ptr %ctorStatements, align 8
-  %Next2.i.i.i.i.i.i195 = getelementptr inbounds nuw i8, ptr %call11.i194, i64 8
-  store ptr %ctorStatements, ptr %Next2.i.i.i.i.i.i195, align 8
-  store ptr %99, ptr %call11.i194, align 8
-  %Next2.i7.i.i.i.i.i196 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  store ptr %call11.i194, ptr %Next2.i7.i.i.i.i.i196, align 8
-  store ptr %call11.i194, ptr %ctorStatements, align 8
-  br label %for.inc.i197
+  %Next2.i.i.i.i.i.i208 = getelementptr inbounds nuw i8, ptr %call11.i207, i64 8
+  store ptr %ctorStatements, ptr %Next2.i.i.i.i.i.i208, align 8
+  store ptr %99, ptr %call11.i207, align 8
+  %Next2.i7.i.i.i.i.i209 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  store ptr %call11.i207, ptr %Next2.i7.i.i.i.i.i209, align 8
+  store ptr %call11.i207, ptr %ctorStatements, align 8
+  br label %for.inc.i210
 
-for.inc.i197:                                     ; preds = %if.then8.i191, %if.then.i188, %for.body.i182
-  %Next.i.i.i.i198 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i183, i64 8
-  %__begin2.sroa.0.0.i199 = load ptr, ptr %Next.i.i.i.i198, align 8
-  %cmp.i.not.i200 = icmp eq ptr %__begin2.sroa.0.0.i199, %_body.i178
-  br i1 %cmp.i.not.i200, label %if.end42, label %for.body.i182
+for.inc.i210:                                     ; preds = %if.then8.i204, %if.then.i201, %for.body.i195
+  %Next.i.i.i.i211 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i196, i64 8
+  %__begin2.sroa.0.0.i212 = load ptr, ptr %Next.i.i.i.i211, align 8
+  %cmp.i.not.i213 = icmp eq ptr %__begin2.sroa.0.0.i212, %_body.i191
+  br i1 %cmp.i.not.i213, label %if.end42, label %for.body.i195
 
-if.end42:                                         ; preds = %for.inc.i197, %if.end41, %if.then.i.i.i30, %for.end31
+if.end42:                                         ; preds = %for.inc.i210, %if.end41, %if.then.i.i.i30, %for.end31
   %100 = load ptr, ptr %this, align 8
   %state_.i.i.i.i66 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %101 = load ptr, ptr %state_.i.i.i.i66, align 8

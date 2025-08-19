@@ -201,11 +201,11 @@ define i32 @Mvc_CoverBestLiteral(ptr noundef readonly captures(none) %0, ptr nou
   %.028.lcssa = phi i32 [ %spec.select39.us, %._crit_edge.us ], [ %.129, %33 ]
   %.028.lcssa.fr = freeze i32 %.028.lcssa
   %35 = icmp sgt i32 %.028.lcssa.fr, 1
-  %spec.select62 = select i1 %35, i32 %.030.lcssa, i32 -1
+  %spec.select64 = select i1 %35, i32 %.030.lcssa, i32 -1
   br label %._crit_edge49.thread
 
 ._crit_edge49.thread:                             ; preds = %._crit_edge49, %.lr.ph48.split.us, %2
-  %36 = phi i32 [ -1, %2 ], [ -1, %.lr.ph48.split.us ], [ %spec.select62, %._crit_edge49 ]
+  %36 = phi i32 [ -1, %2 ], [ -1, %.lr.ph48.split.us ], [ %spec.select64, %._crit_edge49 ]
   ret i32 %36
 }
 
@@ -312,11 +312,11 @@ define i32 @Mvc_CoverWorstLiteral(ptr noundef readonly captures(none) %0, ptr no
   %.029.lcssa = phi i32 [ %spec.select40.us, %._crit_edge.us ], [ %.130, %35 ]
   %.029.lcssa.fr = freeze i32 %.029.lcssa
   %37 = icmp slt i32 %.029.lcssa.fr, 1000000
-  %spec.select63 = select i1 %37, i32 %.031.lcssa, i32 -1
+  %spec.select65 = select i1 %37, i32 %.031.lcssa, i32 -1
   br label %._crit_edge50.thread
 
 ._crit_edge50.thread:                             ; preds = %._crit_edge50, %.lr.ph49.split.us, %2
-  %38 = phi i32 [ -1, %2 ], [ -1, %.lr.ph49.split.us ], [ %spec.select63, %._crit_edge50 ]
+  %38 = phi i32 [ -1, %2 ], [ -1, %.lr.ph49.split.us ], [ %spec.select65, %._crit_edge50 ]
   ret i32 %38
 }
 
@@ -450,11 +450,11 @@ define noundef ptr @Mvc_CoverBestLiteralCover(ptr noundef %0, ptr noundef %1) lo
   %.028.lcssa.i = phi i32 [ %spec.select39.us.i, %._crit_edge.us.i ], [ %.129.i, %46 ]
   %.028.lcssa.fr.i = freeze i32 %.028.lcssa.i
   %48 = icmp sgt i32 %.028.lcssa.fr.i, 1
-  %spec.select62.i = select i1 %48, i32 %.030.lcssa.i, i32 -1
+  %spec.select64.i = select i1 %48, i32 %.030.lcssa.i, i32 -1
   br label %Mvc_CoverBestLiteral.exit
 
 Mvc_CoverBestLiteral.exit:                        ; preds = %.loopexit, %.lr.ph48.split.us.i, %._crit_edge49.i
-  %49 = phi i32 [ -1, %.loopexit ], [ -1, %.lr.ph48.split.us.i ], [ %spec.select62.i, %._crit_edge49.i ]
+  %49 = phi i32 [ -1, %.loopexit ], [ -1, %.lr.ph48.split.us.i ], [ %spec.select64.i, %._crit_edge49.i ]
   %50 = and i32 %49, 31
   %51 = shl nuw i32 1, %50
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 16

@@ -267,7 +267,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i19: ; preds = %32
   br i1 %.not.i, label %_ZN5zxing8ArrayRefIiED2Ev.exit, label %51
 
 51:                                               ; preds = %.body27.thread, %.body27
-  %eh.lpad-body2833 = phi { ptr, i32 } [ %49, %.body27.thread ], [ %50, %.body27 ]
+  %eh.lpad-body2835 = phi { ptr, i32 } [ %49, %.body27.thread ], [ %50, %.body27 ]
   %52 = phi ptr [ %22, %.body27.thread ], [ %.pre, %.body27 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i32, ptr %53, align 8, !tbaa !3
@@ -285,12 +285,12 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i19: ; preds = %32
   br label %_ZN5zxing8ArrayRefIiED2Ev.exit
 
 _ZN5zxing8ArrayRefIiED2Ev.exit:                   ; preds = %.body27, %51, %57
-  %eh.lpad-body2834 = phi { ptr, i32 } [ %50, %.body27 ], [ %eh.lpad-body2833, %51 ], [ %eh.lpad-body2833, %57 ]
+  %eh.lpad-body2836 = phi { ptr, i32 } [ %50, %.body27 ], [ %eh.lpad-body2835, %51 ], [ %eh.lpad-body2835, %57 ]
   store ptr null, ptr %21, align 8, !tbaa !23
   br label %.body17
 
 .body17:                                          ; preds = %47, %30, %_ZN5zxing8ArrayRefIiED2Ev.exit
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body2834, %_ZN5zxing8ArrayRefIiED2Ev.exit ], [ %48, %47 ], [ %31, %30 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body2836, %_ZN5zxing8ArrayRefIiED2Ev.exit ], [ %48, %47 ], [ %31, %30 ]
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIhEE, i64 16), ptr %4, align 8, !tbaa !8
   %61 = load ptr, ptr %6, align 8, !tbaa !17
   %.not.i30 = icmp eq ptr %61, null

@@ -171,19 +171,19 @@ define internal range(i32 -2147483648, 1) i32 @ra144_encode_frame(ptr noundef %0
   br i1 %60, label %.loopexit.thread, label %66
 
 .loopexit.thread:                                 ; preds = %.preheader195, %45, %.loopexit
-  %.1288 = phi i32 [ %58, %.loopexit ], [ %44, %45 ], [ %44, %.preheader195 ]
-  %.1105286 = phi i32 [ %59, %.loopexit ], [ 100, %45 ], [ 100, %.preheader195 ]
-  %61 = zext nneg i32 %.1105286 to i64
+  %.1306 = phi i32 [ %58, %.loopexit ], [ %44, %45 ], [ %44, %.preheader195 ]
+  %.1105304 = phi i32 [ %59, %.loopexit ], [ 100, %45 ], [ 100, %.preheader195 ]
+  %61 = zext nneg i32 %.1105304 to i64
   %62 = getelementptr inbounds nuw [160 x i32], ptr %18, i64 0, i64 %61
-  %63 = shl i32 %.1105286, 2
+  %63 = shl i32 %.1105304, 2
   %64 = sub nsw i32 640, %63
   %65 = zext i32 %64 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %62, i8 0, i64 %65, i1 false)
   br label %66
 
 66:                                               ; preds = %.loopexit.thread, %.loopexit
-  %.1287 = phi i32 [ %.1288, %.loopexit.thread ], [ %58, %.loopexit ]
-  %67 = ashr i32 %.1287, 5
+  %.1305 = phi i32 [ %.1306, %.loopexit.thread ], [ %58, %.loopexit ]
+  %67 = ashr i32 %.1305, 5
   %68 = tail call i32 @ff_t_sqrt(i32 noundef %67) #9
   %69 = ashr i32 %68, 10
   %70 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ff_energy_tab, i64 30), align 2, !tbaa !41
@@ -1172,9 +1172,9 @@ fixed_cb_search.exit:                             ; preds = %get_match_score.exi
 
 put_bits.exit.i:                                  ; preds = %543, %536, %529
   %.sroa.33.6 = phi ptr [ %.sroa.33.1226, %529 ], [ %542, %536 ], [ %.sroa.33.1226, %543 ]
-  %.sink157.i = phi i32 [ -7, %529 ], [ 25, %536 ], [ 25, %543 ]
+  %.sink159.i = phi i32 [ -7, %529 ], [ 25, %536 ], [ 25, %543 ]
   %.026.i.i.i = phi i32 [ %531, %529 ], [ %.sink.i190, %536 ], [ %.sink.i190, %543 ]
-  %544 = add nsw i32 %.sink157.i, %.sroa.18.1227
+  %544 = add nsw i32 %.sink159.i, %.sroa.18.1227
   %545 = icmp sgt i32 %544, 8
   br i1 %545, label %546, label %549
 
@@ -1205,9 +1205,9 @@ put_bits.exit.i:                                  ; preds = %543, %536, %529
 
 put_bits.exit101.i:                               ; preds = %560, %553, %546
   %.sroa.33.7 = phi ptr [ %.sroa.33.6, %546 ], [ %559, %553 ], [ %.sroa.33.6, %560 ]
-  %.sink158.i = phi i32 [ -8, %546 ], [ 24, %553 ], [ 24, %560 ]
+  %.sink160.i = phi i32 [ -8, %546 ], [ 24, %553 ], [ 24, %560 ]
   %.026.i.i99.i = phi i32 [ %548, %546 ], [ %.190.i, %553 ], [ %.190.i, %560 ]
-  %561 = add nsw i32 %.sink158.i, %544
+  %561 = add nsw i32 %.sink160.i, %544
   %562 = icmp sgt i32 %561, 7
   br i1 %562, label %563, label %566
 
@@ -1238,9 +1238,9 @@ put_bits.exit101.i:                               ; preds = %560, %553, %546
 
 put_bits.exit105.i:                               ; preds = %577, %570, %563
   %.sroa.33.8 = phi ptr [ %.sroa.33.7, %563 ], [ %576, %570 ], [ %.sroa.33.7, %577 ]
-  %.sink159.i = phi i32 [ -7, %563 ], [ 25, %570 ], [ 25, %577 ]
+  %.sink161.i = phi i32 [ -7, %563 ], [ 25, %570 ], [ 25, %577 ]
   %.026.i.i103.i = phi i32 [ %565, %563 ], [ %.1183, %570 ], [ %.1183, %577 ]
-  %578 = add nsw i32 %.sink159.i, %561
+  %578 = add nsw i32 %.sink161.i, %561
   %579 = icmp sgt i32 %578, 7
   br i1 %579, label %580, label %583
 
@@ -1271,9 +1271,9 @@ put_bits.exit105.i:                               ; preds = %577, %570, %563
 
 ra144_encode_subblock.exit:                       ; preds = %580, %587, %594
   %.sroa.33.9 = phi ptr [ %.sroa.33.8, %580 ], [ %593, %587 ], [ %.sroa.33.8, %594 ]
-  %.sink160.i = phi i32 [ -7, %580 ], [ 25, %587 ], [ 25, %594 ]
+  %.sink162.i = phi i32 [ -7, %580 ], [ 25, %587 ], [ 25, %594 ]
   %.026.i.i107.i = phi i32 [ %582, %580 ], [ %.1185, %587 ], [ %.1185, %594 ]
-  %595 = add nsw i32 %.sink160.i, %578
+  %595 = add nsw i32 %.sink162.i, %578
   call void @ff_subblock_synthesis(ptr noundef nonnull %25, ptr noundef nonnull %245, i32 noundef %.sink.i190, i32 noundef %.1183, i32 noundef %.1185, i32 noundef %247, i32 noundef %.190.i) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)

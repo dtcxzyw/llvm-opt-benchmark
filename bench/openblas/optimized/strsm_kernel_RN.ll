@@ -324,7 +324,7 @@ solve.exit184:                                    ; preds = %.split47.us.i171
   %125 = tail call float @llvm.fmuladd.f32(float %118, float %121, float %124)
   store float %125, ptr %123, align 4, !tbaa !3
   %indvars.iv.next57.i205 = add nuw nsw i64 %indvars.iv56.i204, 1
-  %exitcond59.not.i206 = icmp eq i64 %indvars.iv.next57.i205, %.1279
+  %exitcond59.not.i206 = icmp eq i64 %indvars.iv.next57.i205, 2
   br i1 %exitcond59.not.i206, label %._crit_edge.us.i207, label %119, !llvm.loop !7
 
 ._crit_edge.us.i207:                              ; preds = %119
@@ -429,7 +429,7 @@ solve.exit210:                                    ; preds = %.split47.us.i197
   %163 = tail call float @llvm.fmuladd.f32(float %156, float %159, float %162)
   store float %163, ptr %161, align 4, !tbaa !3
   %indvars.iv.next57.i231 = add nuw nsw i64 %indvars.iv56.i230, 1
-  %exitcond59.not.i232 = icmp eq i64 %indvars.iv.next57.i231, %.1279
+  %exitcond59.not.i232 = icmp eq i64 %indvars.iv.next57.i231, 2
   br i1 %exitcond59.not.i232, label %._crit_edge.us.i233, label %157, !llvm.loop !7
 
 ._crit_edge.us.i233:                              ; preds = %157

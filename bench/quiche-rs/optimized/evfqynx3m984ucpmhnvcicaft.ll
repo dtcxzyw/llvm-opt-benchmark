@@ -1403,13 +1403,13 @@ define hidden noundef align 8 ptr @"_ZN68_$LT$serde_json..number..Number$u20$as$
   %.val = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val1 = load ptr, ptr %8, align 8
-  switch i64 %6, label %default.unreachable20 [
+  switch i64 %6, label %default.unreachable24 [
     i64 0, label %9
     i64 1, label %62
     i64 2, label %120
   ]
 
-default.unreachable20:                            ; preds = %2
+default.unreachable24:                            ; preds = %2
   unreachable
 
 9:                                                ; preds = %2
@@ -1670,13 +1670,13 @@ define hidden noundef align 8 ptr @"_ZN68_$LT$serde_json..number..Number$u20$as$
   %.val = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val1 = load ptr, ptr %8, align 8
-  switch i64 %6, label %default.unreachable20 [
+  switch i64 %6, label %default.unreachable24 [
     i64 0, label %9
     i64 1, label %62
     i64 2, label %120
   ]
 
-default.unreachable20:                            ; preds = %2
+default.unreachable24:                            ; preds = %2
   unreachable
 
 9:                                                ; preds = %2
@@ -4361,7 +4361,7 @@ _ZN3h3i12frame_parser11FrameParser15try_fill_buffer17h6ed48f9443789da0E.exit.thr
 
 135:                                              ; preds = %137, %130
   %136 = load i8, ptr %64, align 8, !range !112, !noundef !4
-  switch i8 %136, label %default.unreachable316 [
+  switch i8 %136, label %default.unreachable323 [
     i8 0, label %143
     i8 1, label %145
     i8 2, label %147
@@ -4384,7 +4384,7 @@ _ZN3h3i12frame_parser11FrameParser15try_fill_buffer17h6ed48f9443789da0E.exit.thr
   store i64 0, ptr %.sroa.46.0..sroa_idx, align 8
   br label %152
 
-default.unreachable316:                           ; preds = %135
+default.unreachable323:                           ; preds = %135
   unreachable
 
 143:                                              ; preds = %135

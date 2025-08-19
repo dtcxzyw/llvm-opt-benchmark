@@ -3460,9 +3460,9 @@ for.body.i.i.i.i.preheader:                       ; preds = %_ZNSt12_Vector_base
   %56 = lshr i64 %55, 3
   %57 = add nuw nsw i64 %56, 1
   %min.iters.check = icmp ult i64 %55, 56
-  br i1 %min.iters.check, label %for.body.i.i.i.i.preheader32, label %vector.memcheck
+  br i1 %min.iters.check, label %for.body.i.i.i.i.preheader42, label %vector.memcheck
 
-for.body.i.i.i.i.preheader32:                     ; preds = %middle.block, %vector.memcheck, %for.body.i.i.i.i.preheader
+for.body.i.i.i.i.preheader42:                     ; preds = %middle.block, %vector.memcheck, %for.body.i.i.i.i.preheader
   %__cur.08.i.i.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %call5.i.i.i.i252, %for.body.i.i.i.i.preheader ], [ %call5.i.i.i.i252, %vector.memcheck ]
   %__first.addr.07.i.i.i.i.ph = phi ptr [ %ind.end294, %middle.block ], [ %50, %for.body.i.i.i.i.preheader ], [ %50, %vector.memcheck ]
   br label %for.body.i.i.i.i
@@ -3476,7 +3476,7 @@ vector.memcheck:                                  ; preds = %for.body.i.i.i.i.pr
   %bound0 = icmp ult ptr %call5.i.i.i.i252, %scevgep293
   %bound1 = icmp ult ptr %50, %scevgep291
   %found.conflict = and i1 %bound0, %bound1
-  br i1 %found.conflict, label %for.body.i.i.i.i.preheader32, label %vector.ph
+  br i1 %found.conflict, label %for.body.i.i.i.i.preheader42, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %57, 4611686018427387900
@@ -3505,15 +3505,15 @@ middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %call5.i.i.i.i252, i64 %62
   %ind.end294 = getelementptr i8, ptr %50, i64 %62
   %cmp.n = icmp eq i64 %57, %n.vec
-  br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI22MeshUpdateWorkerThreadSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.thread, label %for.body.i.i.i.i.preheader32
+  br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI22MeshUpdateWorkerThreadSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.thread, label %for.body.i.i.i.i.preheader42
 
 _ZNSt6vectorISt10unique_ptrI22MeshUpdateWorkerThreadSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.thread: ; preds = %middle.block
   %incdec.ptr.i12 = getelementptr i8, ptr %ind.end, i64 8
   br label %if.then.i41.i
 
-for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader32, %for.body.i.i.i.i
-  %__cur.08.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %__cur.08.i.i.i.i.ph, %for.body.i.i.i.i.preheader32 ]
-  %__first.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %__first.addr.07.i.i.i.i.ph, %for.body.i.i.i.i.preheader32 ]
+for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader42, %for.body.i.i.i.i
+  %__cur.08.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %__cur.08.i.i.i.i.ph, %for.body.i.i.i.i.preheader42 ]
+  %__first.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %__first.addr.07.i.i.i.i.ph, %for.body.i.i.i.i.preheader42 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !176)
   call void @llvm.experimental.noalias.scope.decl(metadata !179)
   %63 = load i64, ptr %__first.addr.07.i.i.i.i, align 8, !tbaa !47, !alias.scope !179, !noalias !176

@@ -1662,8 +1662,8 @@ if.then.i.i.i36:                                  ; preds = %cleanup
   br label %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EED2Ev.exit: ; preds = %entry, %cleanup, %if.then.i.i.i36
-  %cmp.lcssa45 = phi i1 [ %cmp.lcssa.ph, %cleanup ], [ %cmp.lcssa.ph, %if.then.i.i.i36 ], [ true, %entry ]
-  ret i1 %cmp.lcssa45
+  %cmp.lcssa52 = phi i1 [ %cmp.lcssa.ph, %cleanup ], [ %cmp.lcssa.ph, %if.then.i.i.i36 ], [ true, %entry ]
+  ret i1 %cmp.lcssa52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

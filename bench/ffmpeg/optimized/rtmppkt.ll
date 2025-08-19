@@ -787,8 +787,8 @@ define i32 @ff_rtmp_packet_write(ptr noundef %0, ptr noundef captures(none) %1, 
   %11 = icmp slt i32 %9, %10
   %.pre = load ptr, ptr %3, align 8, !tbaa !17
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %.sink.sroa.gep196 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  %.sink.sroa.gep197 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %.sink.sroa.gep212 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  %.sink.sroa.gep213 = getelementptr inbounds nuw i8, ptr %6, i64 1
   br i1 %11, label %23, label %12
 
 12:                                               ; preds = %5
@@ -840,17 +840,17 @@ define i32 @ff_rtmp_packet_write(ptr noundef %0, ptr noundef captures(none) %1, 
   %41 = load i32, ptr %40, align 8, !tbaa !24
   %.not167 = icmp uge i32 %39, %41
   %42 = select i1 %.not167, i32 %41, i32 0
-  %spec.select186 = sub nuw i32 %39, %42
+  %spec.select202 = sub nuw i32 %39, %42
   br label %43
 
 43:                                               ; preds = %37, %.thread
   %44 = phi i32 [ %36, %.thread ], [ %39, %37 ]
   %45 = phi ptr [ %35, %.thread ], [ %38, %37 ]
   %46 = phi i1 [ false, %.thread ], [ %.not167, %37 ]
-  %.0105 = phi i32 [ %36, %.thread ], [ %spec.select186, %37 ]
-  %spec.select187 = tail call i32 @llvm.umin.i32(i32 %.0105, i32 16777215)
+  %.0105 = phi i32 [ %36, %.thread ], [ %spec.select202, %37 ]
+  %spec.select203 = tail call i32 @llvm.umin.i32(i32 %.0105, i32 16777215)
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %spec.select187, ptr %47, align 4, !tbaa !23
+  store i32 %spec.select203, ptr %47, align 4, !tbaa !23
   br i1 %46, label %48, label %65
 
 48:                                               ; preds = %43
@@ -872,7 +872,7 @@ define i32 @ff_rtmp_packet_write(ptr noundef %0, ptr noundef captures(none) %1, 
 60:                                               ; preds = %54
   %61 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %62 = load i32, ptr %61, align 4, !tbaa !23
-  %63 = icmp eq i32 %spec.select187, %62
+  %63 = icmp eq i32 %spec.select203, %62
   br i1 %63, label %64, label %65
 
 64:                                               ; preds = %60
@@ -914,18 +914,18 @@ define i32 @ff_rtmp_packet_write(ptr noundef %0, ptr noundef captures(none) %1, 
   br label %82
 
 82:                                               ; preds = %73, %77, %67
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %73 ], [ %.sink.sroa.gep196, %77 ], [ %.sink.sroa.gep197, %67 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %73 ], [ %.sink.sroa.gep212, %77 ], [ %.sink.sroa.gep213, %67 ]
   br i1 %.not126, label %111, label %83
 
 83:                                               ; preds = %82
-  %84 = trunc i32 %spec.select187 to i8
+  %84 = trunc i32 %spec.select203 to i8
   %85 = getelementptr inbounds nuw i8, ptr %.sink.sroa.phi, i64 2
   store i8 %84, ptr %85, align 1, !tbaa !9
-  %86 = lshr i32 %spec.select187, 8
+  %86 = lshr i32 %spec.select203, 8
   %87 = trunc i32 %86 to i8
   %88 = getelementptr inbounds nuw i8, ptr %.sink.sroa.phi, i64 1
   store i8 %87, ptr %88, align 1, !tbaa !9
-  %89 = lshr i32 %spec.select187, 16
+  %89 = lshr i32 %spec.select203, 16
   %90 = trunc nuw i32 %89 to i8
   store i8 %90, ptr %.sink.sroa.phi, align 1, !tbaa !9
   %91 = getelementptr inbounds nuw i8, ptr %.sink.sroa.phi, i64 3
@@ -976,7 +976,7 @@ define i32 @ff_rtmp_packet_write(ptr noundef %0, ptr noundef captures(none) %1, 
 
 116:                                              ; preds = %113, %111
   %.pre-phi = phi i64 [ %.pre181, %113 ], [ %26, %111 ]
-  %117 = phi i32 [ %.pre178, %113 ], [ %spec.select187, %111 ]
+  %117 = phi i32 [ %.pre178, %113 ], [ %spec.select203, %111 ]
   %118 = phi i32 [ %.pre177, %113 ], [ %44, %111 ]
   %119 = phi i32 [ %.pre176, %113 ], [ %25, %111 ]
   %.2156 = phi ptr [ %115, %113 ], [ %.1155, %111 ]

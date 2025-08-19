@@ -88,7 +88,7 @@ switch.lookup:                                    ; preds = %9
   %29 = mul nsw i64 %indvars.iv78, %25
   %30 = mul nsw i64 %indvars.iv78, %26
   %invariant.gep = getelementptr i8, ptr %0, i64 %29
-  %invariant.gep82 = getelementptr i8, ptr %1, i64 %30
+  %invariant.gep89 = getelementptr i8, ptr %1, i64 %30
   br label %31
 
 31:                                               ; preds = %.preheader66.us, %76
@@ -140,7 +140,7 @@ avpriv_mirror.exit.us:                            ; preds = %.lr.ph.us, %.prehea
 
 avpriv_mirror.exit64.us:                          ; preds = %.lr.ph69.us, %.preheader.us, %avpriv_mirror.exit.us
   %.0.i61.us = phi i32 [ 0, %avpriv_mirror.exit.us ], [ %78, %.preheader.us ], [ %.1.i63.us, %.lr.ph69.us ]
-  %52 = sitofp i32 %.0.i61.us to float
+  %52 = uitofp nneg i32 %.0.i61.us to float
   %53 = fptosi float %52 to i32
   %54 = mul nsw i32 %2, %53
   %55 = fptosi float %49 to i32
@@ -178,8 +178,8 @@ avpriv_mirror.exit64.us:                          ; preds = %.lr.ph69.us, %.preh
   %.051.us = phi nsz float [ %45, %31 ], [ %45, %74 ], [ %..i.us, %60 ], [ %52, %avpriv_mirror.exit64.us ]
   %.2.us = phi i8 [ %.172.us, %31 ], [ %75, %74 ], [ %73, %60 ], [ %59, %avpriv_mirror.exit64.us ]
   %77 = tail call zeroext i8 %switch.load(float noundef %.052.us, float noundef %.051.us, ptr noundef %0, i32 noundef %4, i32 noundef %5, i32 noundef %2, i8 noundef zeroext %.2.us) #4, !callees !11
-  %gep83 = getelementptr i8, ptr %invariant.gep82, i64 %indvars.iv
-  store i8 %77, ptr %gep83, align 1, !tbaa !10
+  %gep90 = getelementptr i8, ptr %invariant.gep89, i64 %indvars.iv
+  store i8 %77, ptr %gep90, align 1, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !12

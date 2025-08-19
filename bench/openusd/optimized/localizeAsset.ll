@@ -624,22 +624,22 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30U
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13ArGetResolverEv()
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 640
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16TfStringCatPathsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %.sink64.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink64.sroa.gep65 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink64.sroa.gep67 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sink64.sroa.gep68 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sink64.sroa.gep70 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sink64.sroa.gep71 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.sink64.sroa.gep73 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %.sink64.sroa.gep74 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sink52.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink52.sroa.gep75 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink52.sroa.gep77 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink52.sroa.gep78 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sink52.sroa.gep80 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sink52.sroa.gep81 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sink52.sroa.gep83 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink52.sroa.gep84 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink69.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sink69.sroa.gep70 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sink69.sroa.gep72 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sink69.sroa.gep73 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sink69.sroa.gep75 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sink69.sroa.gep76 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sink69.sroa.gep78 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sink69.sroa.gep79 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink57.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink57.sroa.gep80 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink57.sroa.gep82 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink57.sroa.gep83 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink57.sroa.gep85 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink57.sroa.gep86 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink57.sroa.gep88 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink57.sroa.gep89 = getelementptr inbounds nuw i8, ptr %8, i64 32
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10ArResolver7ResolveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::ArResolvedPath") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %16 unwind label %19
 
@@ -671,20 +671,20 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30U
   br i1 %26, label %.invoke, label %28
 
 .invoke:                                          ; preds = %25, %17
-  %.sink52.sroa.phi = phi ptr [ %.sink52.sroa.gep, %17 ], [ %.sink52.sroa.gep75, %25 ]
-  %.sink52.sroa.phi76 = phi ptr [ %.sink52.sroa.gep77, %17 ], [ %.sink52.sroa.gep78, %25 ]
-  %.sink52.sroa.phi79 = phi ptr [ %.sink52.sroa.gep80, %17 ], [ %.sink52.sroa.gep81, %25 ]
-  %.sink52.sroa.phi82 = phi ptr [ %.sink52.sroa.gep83, %17 ], [ %.sink52.sroa.gep84, %25 ]
-  %.sink52 = phi ptr [ %7, %17 ], [ %8, %25 ]
-  %.sink47 = phi i64 [ 58, %17 ], [ 64, %25 ]
+  %.sink57.sroa.phi = phi ptr [ %.sink57.sroa.gep, %17 ], [ %.sink57.sroa.gep80, %25 ]
+  %.sink57.sroa.phi81 = phi ptr [ %.sink57.sroa.gep82, %17 ], [ %.sink57.sroa.gep83, %25 ]
+  %.sink57.sroa.phi84 = phi ptr [ %.sink57.sroa.gep85, %17 ], [ %.sink57.sroa.gep86, %25 ]
+  %.sink57.sroa.phi87 = phi ptr [ %.sink57.sroa.gep88, %17 ], [ %.sink57.sroa.gep89, %25 ]
+  %.sink57 = phi ptr [ %7, %17 ], [ %8, %25 ]
+  %.sink52 = phi i64 [ 58, %17 ], [ 64, %25 ]
   %.sink = phi ptr [ %1, %17 ], [ %2, %25 ]
-  store ptr @.str.2, ptr %.sink52, align 8
-  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__30UsdUtils_LocalizedAssetBuilder15_WriteToPackageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_, ptr %.sink52.sroa.phi, align 8
-  store i64 %.sink47, ptr %.sink52.sroa.phi76, align 8
-  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__30UsdUtils_LocalizedAssetBuilder15_WriteToPackageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_, ptr %.sink52.sroa.phi79, align 8
-  store i8 0, ptr %.sink52.sroa.phi82, align 8
+  store ptr @.str.2, ptr %.sink57, align 8
+  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__30UsdUtils_LocalizedAssetBuilder15_WriteToPackageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_, ptr %.sink57.sroa.phi, align 8
+  store i64 %.sink52, ptr %.sink57.sroa.phi81, align 8
+  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__30UsdUtils_LocalizedAssetBuilder15_WriteToPackageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_, ptr %.sink57.sroa.phi84, align 8
+  store i8 0, ptr %.sink57.sroa.phi87, align 8
   %27 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #12
-  invoke void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13TfCallContextEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %.sink52, ptr noundef nonnull @.str.7, ptr noundef %27)
+  invoke void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13TfCallContextEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %.sink57, ptr noundef nonnull @.str.7, ptr noundef %27)
           to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__7ArAssetEED2Ev.exit unwind label %23
 
 28:                                               ; preds = %25
@@ -698,24 +698,24 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30U
 30:                                               ; preds = %29
   %31 = load ptr, ptr %9, align 8
   %.not38 = icmp eq ptr %31, null
-  br i1 %.not38, label %.invoke53, label %37
+  br i1 %.not38, label %.invoke58, label %37
 
-.invoke53:                                        ; preds = %30, %37
-  %.sink64.sroa.phi = phi ptr [ %.sink64.sroa.gep, %37 ], [ %.sink64.sroa.gep65, %30 ]
-  %.sink64.sroa.phi66 = phi ptr [ %.sink64.sroa.gep67, %37 ], [ %.sink64.sroa.gep68, %30 ]
-  %.sink64.sroa.phi69 = phi ptr [ %.sink64.sroa.gep70, %37 ], [ %.sink64.sroa.gep71, %30 ]
-  %.sink64.sroa.phi72 = phi ptr [ %.sink64.sroa.gep73, %37 ], [ %.sink64.sroa.gep74, %30 ]
-  %.sink64 = phi ptr [ %12, %37 ], [ %11, %30 ]
-  %.sink59 = phi i64 [ 79, %37 ], [ 74, %30 ]
-  %.sink54 = phi ptr [ %2, %37 ], [ %1, %30 ]
+.invoke58:                                        ; preds = %30, %37
+  %.sink69.sroa.phi = phi ptr [ %.sink69.sroa.gep, %37 ], [ %.sink69.sroa.gep70, %30 ]
+  %.sink69.sroa.phi71 = phi ptr [ %.sink69.sroa.gep72, %37 ], [ %.sink69.sroa.gep73, %30 ]
+  %.sink69.sroa.phi74 = phi ptr [ %.sink69.sroa.gep75, %37 ], [ %.sink69.sroa.gep76, %30 ]
+  %.sink69.sroa.phi77 = phi ptr [ %.sink69.sroa.gep78, %37 ], [ %.sink69.sroa.gep79, %30 ]
+  %.sink69 = phi ptr [ %12, %37 ], [ %11, %30 ]
+  %.sink64 = phi i64 [ 79, %37 ], [ 74, %30 ]
+  %.sink59 = phi ptr [ %2, %37 ], [ %1, %30 ]
   %32 = phi ptr [ @.str.9, %37 ], [ @.str.8, %30 ]
-  store ptr @.str.2, ptr %.sink64, align 8
-  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__30UsdUtils_LocalizedAssetBuilder15_WriteToPackageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_, ptr %.sink64.sroa.phi, align 8
-  store i64 %.sink59, ptr %.sink64.sroa.phi66, align 8
-  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__30UsdUtils_LocalizedAssetBuilder15_WriteToPackageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_, ptr %.sink64.sroa.phi69, align 8
-  store i8 0, ptr %.sink64.sroa.phi72, align 8
-  %33 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink54) #12
-  invoke void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13TfCallContextEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %.sink64, ptr noundef nonnull %32, ptr noundef %33)
+  store ptr @.str.2, ptr %.sink69, align 8
+  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__30UsdUtils_LocalizedAssetBuilder15_WriteToPackageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_, ptr %.sink69.sroa.phi, align 8
+  store i64 %.sink64, ptr %.sink69.sroa.phi71, align 8
+  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__30UsdUtils_LocalizedAssetBuilder15_WriteToPackageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_, ptr %.sink69.sroa.phi74, align 8
+  store i8 0, ptr %.sink69.sroa.phi77, align 8
+  %33 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink59) #12
+  invoke void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13TfCallContextEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %.sink69, ptr noundef nonnull %32, ptr noundef %33)
           to label %.loopexit unwind label %.loopexit.split-lp
 
 34:                                               ; preds = %29
@@ -728,7 +728,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30U
           cleanup
   br label %36
 
-.loopexit.split-lp:                               ; preds = %.invoke53, %39
+.loopexit.split-lp:                               ; preds = %.invoke58, %39
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %36
@@ -741,7 +741,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30U
 37:                                               ; preds = %30
   %38 = load ptr, ptr %10, align 8
   %.not39 = icmp eq ptr %38, null
-  br i1 %.not39, label %.invoke53, label %39
+  br i1 %.not39, label %.invoke58, label %39
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %31, align 8
@@ -777,8 +777,8 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30U
   %.not = icmp eq i64 %56, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
-.loopexit:                                        ; preds = %55, %.invoke53, %.preheader
-  %.1 = phi i1 [ true, %.preheader ], [ false, %.invoke53 ], [ true, %55 ]
+.loopexit:                                        ; preds = %55, %.invoke58, %.preheader
+  %.1 = phi i1 [ true, %.preheader ], [ false, %.invoke58 ], [ true, %55 ]
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not.i.i.i = icmp eq ptr %58, null

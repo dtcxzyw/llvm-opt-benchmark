@@ -5218,7 +5218,7 @@ ehcleanup112:                                     ; preds = %for.body102
   br i1 %tobool.not.i.i.i124, label %ehcleanup113, label %if.then.i.i.i125
 
 if.then.i.i.i125:                                 ; preds = %ehcleanup112.thread, %ehcleanup112
-  %.pn178 = phi { ptr, i32 } [ %65, %ehcleanup112.thread ], [ %70, %ehcleanup112 ]
+  %.pn203 = phi { ptr, i32 } [ %65, %ehcleanup112.thread ], [ %70, %ehcleanup112 ]
   %71 = phi ptr [ %call5.i.i.i.i2.i.i108, %ehcleanup112.thread ], [ %.pre, %ehcleanup112 ]
   %_M_end_of_storage.i.i126 = getelementptr inbounds nuw i8, ptr %referenceValues, i64 16
   %72 = load ptr, ptr %_M_end_of_storage.i.i126, align 8, !tbaa !63
@@ -5229,7 +5229,7 @@ if.then.i.i.i125:                                 ; preds = %ehcleanup112.thread
   br label %ehcleanup113
 
 ehcleanup113:                                     ; preds = %if.then.i.i.i125, %ehcleanup112, %lpad71
-  %.pn.pn = phi { ptr, i32 } [ %56, %lpad71 ], [ %70, %ehcleanup112 ], [ %.pn178, %if.then.i.i.i125 ]
+  %.pn.pn = phi { ptr, i32 } [ %56, %lpad71 ], [ %70, %ehcleanup112 ], [ %.pn203, %if.then.i.i.i125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %referenceValues)
   br label %eh.resume
 
@@ -6266,13 +6266,13 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store double 0.000000e+00, ptr %0, align 8, !tbaa !22
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 3
-  %4 = add i64 %3, -8
+  %3 = shl nuw nsw i64 %__n, 3
+  %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !22
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
@@ -6366,7 +6366,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp8.not, label %if.else, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIdSaIdEEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIdSaIdEEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %if.then
-  %3 = mul nuw i64 %__n, 24
+  %3 = mul nuw nsw i64 %__n, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %3, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %3
   store ptr %scevgep.i.i.i, ptr %_M_finish.i, align 8, !tbaa !75

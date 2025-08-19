@@ -174,8 +174,8 @@ define hidden void @X11_Xinput2UpdateDevices(ptr noundef readonly captures(none)
 
 ._crit_edge169.thread:                            ; preds = %2
   %20 = load i32, ptr %4, align 4
-  %.not176221 = icmp eq i32 %20, 0
-  br i1 %.not176221, label %._crit_edge179.thread, label %.lr.ph178.thread
+  %.not176232 = icmp eq i32 %20, 0
+  br i1 %.not176232, label %._crit_edge179.thread, label %.lr.ph178.thread
 
 .lr.ph178.thread:                                 ; preds = %._crit_edge169.thread
   %21 = add i32 %20, -1
@@ -189,11 +189,11 @@ define hidden void @X11_Xinput2UpdateDevices(ptr noundef readonly captures(none)
 
 HasDeviceID.exit95.preheader:                     ; preds = %.lr.ph178.thread, %.lr.ph178
   %23 = phi i32 [ %21, %.lr.ph178.thread ], [ %22, %.lr.ph178 ]
-  %.0138.lcssa223245 = phi ptr [ null, %.lr.ph178.thread ], [ %.1139, %.lr.ph178 ]
-  %.0135.lcssa225244 = phi i32 [ 0, %.lr.ph178.thread ], [ %.1136, %.lr.ph178 ]
-  %.0132.lcssa227243 = phi ptr [ null, %.lr.ph178.thread ], [ %.1133, %.lr.ph178 ]
-  %.0128.lcssa229242 = phi i32 [ 0, %.lr.ph178.thread ], [ %.1129.lcssa, %.lr.ph178 ]
-  %.0127.lcssa231241 = phi ptr [ null, %.lr.ph178.thread ], [ %.1.lcssa, %.lr.ph178 ]
+  %.0138.lcssa234256 = phi ptr [ null, %.lr.ph178.thread ], [ %.1139, %.lr.ph178 ]
+  %.0135.lcssa236255 = phi i32 [ 0, %.lr.ph178.thread ], [ %.1136, %.lr.ph178 ]
+  %.0132.lcssa238254 = phi ptr [ null, %.lr.ph178.thread ], [ %.1133, %.lr.ph178 ]
+  %.0128.lcssa240253 = phi i32 [ 0, %.lr.ph178.thread ], [ %.1129.lcssa, %.lr.ph178 ]
+  %.0127.lcssa242252 = phi ptr [ null, %.lr.ph178.thread ], [ %.1.lcssa, %.lr.ph178 ]
   %24 = sext i32 %23 to i64
   br label %HasDeviceID.exit95
 
@@ -437,19 +437,19 @@ HasDeviceID64.exit:                               ; preds = %.lr.ph.i83, %.loope
   br i1 %107, label %79, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge179:                                   ; preds = %HasDeviceID.exit95, %HasDeviceID.exit95.us, %._crit_edge169
-  %.0127.lcssa232 = phi ptr [ %.1.lcssa, %._crit_edge169 ], [ %.1.lcssa, %HasDeviceID.exit95.us ], [ %.0127.lcssa231241, %HasDeviceID.exit95 ]
-  %.0128.lcssa230 = phi i32 [ %.1129.lcssa, %._crit_edge169 ], [ %.1129.lcssa, %HasDeviceID.exit95.us ], [ %.0128.lcssa229242, %HasDeviceID.exit95 ]
-  %.0132.lcssa228 = phi ptr [ %.1133, %._crit_edge169 ], [ %.1133, %HasDeviceID.exit95.us ], [ %.0132.lcssa227243, %HasDeviceID.exit95 ]
-  %.0135.lcssa226 = phi i32 [ %.1136, %._crit_edge169 ], [ %.1136, %HasDeviceID.exit95.us ], [ %.0135.lcssa225244, %HasDeviceID.exit95 ]
-  %.0138.lcssa224 = phi ptr [ %.1139, %._crit_edge169 ], [ %.1139, %HasDeviceID.exit95.us ], [ %.0138.lcssa223245, %HasDeviceID.exit95 ]
+  %.0127.lcssa243 = phi ptr [ %.1.lcssa, %._crit_edge169 ], [ %.1.lcssa, %HasDeviceID.exit95.us ], [ %.0127.lcssa242252, %HasDeviceID.exit95 ]
+  %.0128.lcssa241 = phi i32 [ %.1129.lcssa, %._crit_edge169 ], [ %.1129.lcssa, %HasDeviceID.exit95.us ], [ %.0128.lcssa240253, %HasDeviceID.exit95 ]
+  %.0132.lcssa239 = phi ptr [ %.1133, %._crit_edge169 ], [ %.1133, %HasDeviceID.exit95.us ], [ %.0132.lcssa238254, %HasDeviceID.exit95 ]
+  %.0135.lcssa237 = phi i32 [ %.1136, %._crit_edge169 ], [ %.1136, %HasDeviceID.exit95.us ], [ %.0135.lcssa236255, %HasDeviceID.exit95 ]
+  %.0138.lcssa235 = phi ptr [ %.1139, %._crit_edge169 ], [ %.1139, %HasDeviceID.exit95.us ], [ %.0138.lcssa234256, %HasDeviceID.exit95 ]
   %108 = load i32, ptr %5, align 4
   %.not64180 = icmp eq i32 %108, 0
   br i1 %.not64180, label %._crit_edge183, label %.lr.ph182
 
 ._crit_edge179.thread:                            ; preds = %._crit_edge169.thread
   %109 = load i32, ptr %5, align 4
-  %.not64180251 = icmp eq i32 %109, 0
-  br i1 %.not64180251, label %._crit_edge183.thread, label %.lr.ph182.thread
+  %.not64180262 = icmp eq i32 %109, 0
+  br i1 %.not64180262, label %._crit_edge183.thread, label %.lr.ph182.thread
 
 .lr.ph182.thread:                                 ; preds = %._crit_edge179.thread
   %110 = add i32 %109, -1
@@ -457,16 +457,16 @@ HasDeviceID64.exit:                               ; preds = %.lr.ph.i83, %.loope
 
 .lr.ph182:                                        ; preds = %._crit_edge179
   %111 = add i32 %108, -1
-  %.not9.i96 = icmp sgt i32 %.0135.lcssa226, 0
-  %wide.trip.count.i99 = zext nneg i32 %.0135.lcssa226 to i64
+  %.not9.i96 = icmp sgt i32 %.0135.lcssa237, 0
+  %wide.trip.count.i99 = zext nneg i32 %.0135.lcssa237 to i64
   br i1 %.not9.i96, label %.lr.ph.preheader.i98.us.preheader, label %HasDeviceID.exit104.preheader
 
 HasDeviceID.exit104.preheader:                    ; preds = %.lr.ph182.thread, %.lr.ph182
   %112 = phi i32 [ %110, %.lr.ph182.thread ], [ %111, %.lr.ph182 ]
-  %.0127.lcssa232252271 = phi ptr [ null, %.lr.ph182.thread ], [ %.0127.lcssa232, %.lr.ph182 ]
-  %.0128.lcssa230254270 = phi i32 [ 0, %.lr.ph182.thread ], [ %.0128.lcssa230, %.lr.ph182 ]
-  %.0132.lcssa228256269 = phi ptr [ null, %.lr.ph182.thread ], [ %.0132.lcssa228, %.lr.ph182 ]
-  %.0138.lcssa224259268 = phi ptr [ null, %.lr.ph182.thread ], [ %.0138.lcssa224, %.lr.ph182 ]
+  %.0127.lcssa243263282 = phi ptr [ null, %.lr.ph182.thread ], [ %.0127.lcssa243, %.lr.ph182 ]
+  %.0128.lcssa241265281 = phi i32 [ 0, %.lr.ph182.thread ], [ %.0128.lcssa241, %.lr.ph182 ]
+  %.0132.lcssa239267280 = phi ptr [ null, %.lr.ph182.thread ], [ %.0132.lcssa239, %.lr.ph182 ]
+  %.0138.lcssa235270279 = phi ptr [ null, %.lr.ph182.thread ], [ %.0138.lcssa235, %.lr.ph182 ]
   %113 = sext i32 %112 to i64
   br label %HasDeviceID.exit104
 
@@ -482,7 +482,7 @@ HasDeviceID.exit104.preheader:                    ; preds = %.lr.ph182.thread, %
 
 .lr.ph.i100.us:                                   ; preds = %120, %.lr.ph.preheader.i98.us
   %indvars.iv.i101.us = phi i64 [ 0, %.lr.ph.preheader.i98.us ], [ %indvars.iv.next.i102.us, %120 ]
-  %117 = getelementptr inbounds nuw i32, ptr %.0132.lcssa228, i64 %indvars.iv.i101.us
+  %117 = getelementptr inbounds nuw i32, ptr %.0132.lcssa239, i64 %indvars.iv.i101.us
   %118 = load i32, ptr %117, align 4
   %119 = icmp eq i32 %116, %118
   br i1 %119, label %HasDeviceID.exit104.us, label %120
@@ -511,18 +511,18 @@ HasDeviceID.exit95:                               ; preds = %HasDeviceID.exit95.
   br i1 %124, label %._crit_edge179, label %HasDeviceID.exit95, !llvm.loop !6
 
 ._crit_edge183:                                   ; preds = %HasDeviceID.exit104, %HasDeviceID.exit104.us, %._crit_edge179
-  %.0138.lcssa224260 = phi ptr [ %.0138.lcssa224, %._crit_edge179 ], [ %.0138.lcssa224, %HasDeviceID.exit104.us ], [ %.0138.lcssa224259268, %HasDeviceID.exit104 ]
-  %.0132.lcssa228257 = phi ptr [ %.0132.lcssa228, %._crit_edge179 ], [ %.0132.lcssa228, %HasDeviceID.exit104.us ], [ %.0132.lcssa228256269, %HasDeviceID.exit104 ]
-  %.0128.lcssa230255 = phi i32 [ %.0128.lcssa230, %._crit_edge179 ], [ %.0128.lcssa230, %HasDeviceID.exit104.us ], [ %.0128.lcssa230254270, %HasDeviceID.exit104 ]
-  %.0127.lcssa232253 = phi ptr [ %.0127.lcssa232, %._crit_edge179 ], [ %.0127.lcssa232, %HasDeviceID.exit104.us ], [ %.0127.lcssa232252271, %HasDeviceID.exit104 ]
+  %.0138.lcssa235271 = phi ptr [ %.0138.lcssa235, %._crit_edge179 ], [ %.0138.lcssa235, %HasDeviceID.exit104.us ], [ %.0138.lcssa235270279, %HasDeviceID.exit104 ]
+  %.0132.lcssa239268 = phi ptr [ %.0132.lcssa239, %._crit_edge179 ], [ %.0132.lcssa239, %HasDeviceID.exit104.us ], [ %.0132.lcssa239267280, %HasDeviceID.exit104 ]
+  %.0128.lcssa241266 = phi i32 [ %.0128.lcssa241, %._crit_edge179 ], [ %.0128.lcssa241, %HasDeviceID.exit104.us ], [ %.0128.lcssa241265281, %HasDeviceID.exit104 ]
+  %.0127.lcssa243264 = phi ptr [ %.0127.lcssa243, %._crit_edge179 ], [ %.0127.lcssa243, %HasDeviceID.exit104.us ], [ %.0127.lcssa243263282, %HasDeviceID.exit104 ]
   %125 = load i32, ptr %6, align 4
   %.not65184 = icmp eq i32 %125, 0
   br i1 %.not65184, label %._crit_edge187, label %.lr.ph186
 
 ._crit_edge183.thread:                            ; preds = %._crit_edge179.thread
   %126 = load i32, ptr %6, align 4
-  %.not65184276 = icmp eq i32 %126, 0
-  br i1 %.not65184276, label %._crit_edge187, label %.lr.ph186.thread
+  %.not65184287 = icmp eq i32 %126, 0
+  br i1 %.not65184287, label %._crit_edge187, label %.lr.ph186.thread
 
 .lr.ph186.thread:                                 ; preds = %._crit_edge183.thread
   %127 = add i32 %126, -1
@@ -530,15 +530,15 @@ HasDeviceID.exit95:                               ; preds = %HasDeviceID.exit95.
 
 .lr.ph186:                                        ; preds = %._crit_edge183
   %128 = add i32 %125, -1
-  %.not9.i105 = icmp sgt i32 %.0128.lcssa230255, 0
-  %wide.trip.count.i108 = zext nneg i32 %.0128.lcssa230255 to i64
+  %.not9.i105 = icmp sgt i32 %.0128.lcssa241266, 0
+  %wide.trip.count.i108 = zext nneg i32 %.0128.lcssa241266 to i64
   br i1 %.not9.i105, label %.lr.ph.preheader.i107.us.preheader, label %HasDeviceID64.exit113.preheader
 
 HasDeviceID64.exit113.preheader:                  ; preds = %.lr.ph186.thread, %.lr.ph186
   %129 = phi i32 [ %127, %.lr.ph186.thread ], [ %128, %.lr.ph186 ]
-  %.0138.lcssa224260277292 = phi ptr [ null, %.lr.ph186.thread ], [ %.0138.lcssa224260, %.lr.ph186 ]
-  %.0132.lcssa228257279291 = phi ptr [ null, %.lr.ph186.thread ], [ %.0132.lcssa228257, %.lr.ph186 ]
-  %.0127.lcssa232253282290 = phi ptr [ null, %.lr.ph186.thread ], [ %.0127.lcssa232253, %.lr.ph186 ]
+  %.0138.lcssa235271288303 = phi ptr [ null, %.lr.ph186.thread ], [ %.0138.lcssa235271, %.lr.ph186 ]
+  %.0132.lcssa239268290302 = phi ptr [ null, %.lr.ph186.thread ], [ %.0132.lcssa239268, %.lr.ph186 ]
+  %.0127.lcssa243264293301 = phi ptr [ null, %.lr.ph186.thread ], [ %.0127.lcssa243264, %.lr.ph186 ]
   %130 = sext i32 %129 to i64
   br label %HasDeviceID64.exit113
 
@@ -554,7 +554,7 @@ HasDeviceID64.exit113.preheader:                  ; preds = %.lr.ph186.thread, %
 
 .lr.ph.i109.us:                                   ; preds = %137, %.lr.ph.preheader.i107.us
   %indvars.iv.i110.us = phi i64 [ 0, %.lr.ph.preheader.i107.us ], [ %indvars.iv.next.i111.us, %137 ]
-  %134 = getelementptr inbounds nuw i64, ptr %.0127.lcssa232253, i64 %indvars.iv.i110.us
+  %134 = getelementptr inbounds nuw i64, ptr %.0127.lcssa243264, i64 %indvars.iv.i110.us
   %135 = load i64, ptr %134, align 8
   %136 = icmp eq i64 %133, %135
   br i1 %136, label %HasDeviceID64.exit113.us, label %137
@@ -583,15 +583,15 @@ HasDeviceID.exit104:                              ; preds = %HasDeviceID.exit104
   br i1 %141, label %._crit_edge183, label %HasDeviceID.exit104, !llvm.loop !10
 
 ._crit_edge187:                                   ; preds = %HasDeviceID64.exit113, %HasDeviceID64.exit113.us, %._crit_edge183.thread, %._crit_edge183
-  %.0127.lcssa232253283 = phi ptr [ null, %._crit_edge183.thread ], [ %.0127.lcssa232253, %._crit_edge183 ], [ %.0127.lcssa232253, %HasDeviceID64.exit113.us ], [ %.0127.lcssa232253282290, %HasDeviceID64.exit113 ]
-  %.0132.lcssa228257280 = phi ptr [ null, %._crit_edge183.thread ], [ %.0132.lcssa228257, %._crit_edge183 ], [ %.0132.lcssa228257, %HasDeviceID64.exit113.us ], [ %.0132.lcssa228257279291, %HasDeviceID64.exit113 ]
-  %.0138.lcssa224260278 = phi ptr [ null, %._crit_edge183.thread ], [ %.0138.lcssa224260, %._crit_edge183 ], [ %.0138.lcssa224260, %HasDeviceID64.exit113.us ], [ %.0138.lcssa224260277292, %HasDeviceID64.exit113 ]
+  %.0127.lcssa243264294 = phi ptr [ null, %._crit_edge183.thread ], [ %.0127.lcssa243264, %._crit_edge183 ], [ %.0127.lcssa243264, %HasDeviceID64.exit113.us ], [ %.0127.lcssa243264293301, %HasDeviceID64.exit113 ]
+  %.0132.lcssa239268291 = phi ptr [ null, %._crit_edge183.thread ], [ %.0132.lcssa239268, %._crit_edge183 ], [ %.0132.lcssa239268, %HasDeviceID64.exit113.us ], [ %.0132.lcssa239268290302, %HasDeviceID64.exit113 ]
+  %.0138.lcssa235271289 = phi ptr [ null, %._crit_edge183.thread ], [ %.0138.lcssa235271, %._crit_edge183 ], [ %.0138.lcssa235271, %HasDeviceID64.exit113.us ], [ %.0138.lcssa235271288303, %HasDeviceID64.exit113 ]
   call void @SDL_free_REAL(ptr noundef %13) #8
-  call void @SDL_free_REAL(ptr noundef %.0138.lcssa224260278) #8
+  call void @SDL_free_REAL(ptr noundef %.0138.lcssa235271289) #8
   call void @SDL_free_REAL(ptr noundef %14) #8
-  call void @SDL_free_REAL(ptr noundef %.0132.lcssa228257280) #8
+  call void @SDL_free_REAL(ptr noundef %.0132.lcssa239268291) #8
   call void @SDL_free_REAL(ptr noundef %15) #8
-  call void @SDL_free_REAL(ptr noundef %.0127.lcssa232253283) #8
+  call void @SDL_free_REAL(ptr noundef %.0127.lcssa243264294) #8
   %142 = load ptr, ptr @X11_XIFreeDeviceInfo, align 8
   call void %142(ptr noundef %12) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -612,7 +612,7 @@ HasDeviceID64.exit113:                            ; preds = %HasDeviceID64.exit1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X11_HandleXinput2Event(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %.sroa.0350 = alloca double, align 16
+  %.sroa.0371 = alloca double, align 16
   %.sroa.7 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
   %.sroa.4 = alloca double, align 8
@@ -724,8 +724,8 @@ define hidden void @X11_HandleXinput2Event(ptr noundef %0, ptr noundef readonly 
   br label %53
 
 53:                                               ; preds = %49, %46
-  %.018.i.lcssa303 = phi ptr [ %.0.i, %49 ], [ %.015.i, %46 ]
-  tail call void @SDL_free_REAL(ptr noundef nonnull %.018.i.lcssa303) #8
+  %.018.i.lcssa324 = phi ptr [ %.0.i, %49 ], [ %.015.i, %46 ]
+  tail call void @SDL_free_REAL(ptr noundef nonnull %.018.i.lcssa324) #8
   br label %xinput2_remove_device_info.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -755,7 +755,7 @@ xinput2_remove_device_info.exit:                  ; preds = %.lr.ph, %53, %40, %
   %64 = tail call ptr @X11_FindPenByDeviceID(i32 noundef %63) #8
   %.not189 = icmp eq ptr %64, null
   %65 = tail call ptr @SDL_GetMouse() #8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0350)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0371)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
@@ -782,7 +782,7 @@ xinput2_remove_device_info.exit:                  ; preds = %.lr.ph, %53, %40, %
   %80 = load i32, ptr %77, align 8
   %81 = shl nsw i32 %80, 3
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %81, i32 16)
-  store double 0.000000e+00, ptr %.sroa.0350, align 16
+  store double 0.000000e+00, ptr %.sroa.0371, align 16
   store double 0.000000e+00, ptr %.sroa.7, align 8
   %82 = icmp sgt i32 %80, 0
   br i1 %82, label %.lr.ph.i195.preheader, label %parse_valuators.exit
@@ -794,7 +794,7 @@ xinput2_remove_device_info.exit:                  ; preds = %.lr.ph, %53, %40, %
 
 .lr.ph.i195:                                      ; preds = %.lr.ph.i195.preheader, %93
   %85 = phi i1 [ false, %93 ], [ true, %.lr.ph.i195.preheader ]
-  %indvars.iv.i.sroa.phi = phi ptr [ %.sroa.7, %93 ], [ %.sroa.0350, %.lr.ph.i195.preheader ]
+  %indvars.iv.i.sroa.phi = phi ptr [ %.sroa.7, %93 ], [ %.sroa.0371, %.lr.ph.i195.preheader ]
   %indvars.iv.i = phi i32 [ 1, %93 ], [ 0, %.lr.ph.i195.preheader ]
   %.021.i = phi ptr [ %.1.i, %93 ], [ %76, %.lr.ph.i195.preheader ]
   %86 = shl nuw nsw i32 1, %indvars.iv.i
@@ -825,7 +825,7 @@ parse_valuators.exit:                             ; preds = %93, %74
 98:                                               ; preds = %parse_valuators.exit, %110
   %99 = phi i1 [ true, %parse_valuators.exit ], [ false, %110 ]
   %indvars.iv294.sroa.phi = phi ptr [ %.sroa.0, %parse_valuators.exit ], [ %.sroa.4, %110 ]
-  %indvars.iv294.sroa.phi347 = phi ptr [ %.sroa.0350, %parse_valuators.exit ], [ %.sroa.7, %110 ]
+  %indvars.iv294.sroa.phi368 = phi ptr [ %.sroa.0371, %parse_valuators.exit ], [ %.sroa.7, %110 ]
   %indvars.iv294 = phi i64 [ 0, %parse_valuators.exit ], [ 1, %110 ]
   %100 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 0, i64 %indvars.iv294
   %101 = load i8, ptr %100, align 1, !range !3, !noundef !15
@@ -833,13 +833,13 @@ parse_valuators.exit:                             ; preds = %93, %74
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %98
-  %104 = load double, ptr %indvars.iv294.sroa.phi347, align 8
+  %104 = load double, ptr %indvars.iv294.sroa.phi368, align 8
   br label %110
 
 105:                                              ; preds = %98
   %106 = getelementptr inbounds nuw [2 x double], ptr %97, i64 0, i64 %indvars.iv294
   %107 = load double, ptr %106, align 8
-  %108 = load double, ptr %indvars.iv294.sroa.phi347, align 8
+  %108 = load double, ptr %indvars.iv294.sroa.phi368, align 8
   %109 = fsub double %107, %108
   br label %110
 
@@ -871,8 +871,8 @@ parse_valuators.exit:                             ; preds = %93, %74
   br label %123
 
 123:                                              ; preds = %117, %115, %111
-  %.sroa.0350.0..sroa.0350.0. = load double, ptr %.sroa.0350, align 16
-  store double %.sroa.0350.0..sroa.0350.0., ptr %97, align 8
+  %.sroa.0371.0..sroa.0371.0. = load double, ptr %.sroa.0371, align 16
+  store double %.sroa.0371.0..sroa.0371.0., ptr %97, align 8
   %.sroa.7.0..sroa.7.8. = load double, ptr %.sroa.7, align 8
   %124 = getelementptr inbounds nuw i8, ptr %73, i64 48
   store double %.sroa.7.0..sroa.7.8., ptr %124, align 8
@@ -881,7 +881,7 @@ parse_valuators.exit:                             ; preds = %93, %74
 125:                                              ; preds = %70, %59, %123
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0350)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0371)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   br label %.critedge
 
@@ -1542,16 +1542,16 @@ define internal fastcc noundef ptr @xinput2_get_device_info(ptr noundef captures
 .lr.ph.preheader:                                 ; preds = %2
   %5 = load i32, ptr %.04459, align 8
   %6 = icmp eq i32 %5, %1
-  br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph77
+  br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph80
 
-.lr.ph:                                           ; preds = %.lr.ph77
+.lr.ph:                                           ; preds = %.lr.ph80
   %7 = load i32, ptr %.044, align 8
   %8 = icmp eq i32 %7, %1
-  br i1 %8, label %.lr.ph._crit_edge, label %.lr.ph77, !llvm.loop !19
+  br i1 %8, label %.lr.ph._crit_edge, label %.lr.ph80, !llvm.loop !19
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.04462.lcssa = phi ptr [ %.04459, %.lr.ph.preheader ], [ %.044, %.lr.ph ]
-  %.04361.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0446276, %.lr.ph ]
+  %.04361.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0446279, %.lr.ph ]
   %.not52 = icmp eq ptr %.04361.lcssa, null
   br i1 %.not52, label %56, label %9
 
@@ -1565,14 +1565,14 @@ define internal fastcc noundef ptr @xinput2_get_device_info(ptr noundef captures
   store ptr %.04462.lcssa, ptr %4, align 8
   br label %56
 
-.lr.ph77:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0446276 = phi ptr [ %.044, %.lr.ph ], [ %.04459, %.lr.ph.preheader ]
-  %14 = getelementptr inbounds nuw i8, ptr %.0446276, i64 56
+.lr.ph80:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0446279 = phi ptr [ %.044, %.lr.ph ], [ %.04459, %.lr.ph.preheader ]
+  %14 = getelementptr inbounds nuw i8, ptr %.0446279, i64 56
   %.044 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %.044, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %.lr.ph77, %2
+._crit_edge:                                      ; preds = %.lr.ph80, %2
   %15 = tail call noalias dereferenceable_or_null(64) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 64) #10
   %.not50 = icmp eq ptr %15, null
   br i1 %.not50, label %56, label %16

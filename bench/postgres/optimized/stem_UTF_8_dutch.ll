@@ -190,7 +190,7 @@ define hidden range(i32 -2147483648, 2) i32 @dutch_UTF_8_stem(ptr noundef initia
   br label %.preheader.i.outer
 
 .preheader.i.outer:                               ; preds = %.preheader.i.preheader, %88
-  %.ph156 = phi i32 [ %.ph, %.preheader.i.preheader ], [ %86, %88 ]
+  %.ph208 = phi i32 [ %.ph, %.preheader.i.preheader ], [ %86, %88 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.outer, %select.unfold191.i
@@ -260,8 +260,8 @@ define hidden range(i32 -2147483648, 2) i32 @dutch_UTF_8_stem(ptr noundef initia
 .thread.i:                                        ; preds = %77, %74, %60, %._crit_edge241.i
   %84 = phi i32 [ %.pre244.i, %._crit_edge241.i ], [ %61, %60 ], [ %61, %74 ], [ %75, %77 ]
   %85 = phi ptr [ %.pre242.i, %._crit_edge241.i ], [ %.pre243.pre246.i, %60 ], [ %.pre243.i, %74 ], [ %.pre243.i, %77 ]
-  store i32 %.ph156, ptr %2, align 8
-  %86 = tail call i32 @skip_utf8(ptr noundef %85, i32 noundef %.ph156, i32 noundef %84, i32 noundef 1) #3
+  store i32 %.ph208, ptr %2, align 8
+  %86 = tail call i32 @skip_utf8(ptr noundef %85, i32 noundef %.ph208, i32 noundef %84, i32 noundef 1) #3
   %87 = icmp slt i32 %86, 0
   br i1 %87, label %89, label %88
 
@@ -270,7 +270,7 @@ define hidden range(i32 -2147483648, 2) i32 @dutch_UTF_8_stem(ptr noundef initia
   br label %.preheader.i.outer
 
 select.unfold191.i:                               ; preds = %80, %71
-  store i32 %.ph156, ptr %2, align 8
+  store i32 %.ph208, ptr %2, align 8
   br label %.preheader.i
 
 89:                                               ; preds = %.thread.i

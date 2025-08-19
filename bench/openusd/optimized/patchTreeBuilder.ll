@@ -355,18 +355,18 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
   %145 = load ptr, ptr %0, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load i32, ptr %146, align 8
-  %switch.tableidx58 = add i32 %147, -1
-  %148 = icmp ult i32 %switch.tableidx58, 10
-  br i1 %148, label %switch.lookup57, label %150
+  %switch.tableidx66 = add i32 %147, -1
+  %148 = icmp ult i32 %switch.tableidx66, 10
+  br i1 %148, label %switch.lookup65, label %150
 
-switch.lookup57:                                  ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
-  %149 = zext nneg i32 %switch.tableidx58 to i64
-  %switch.gep59 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilderC2ERNS0_3Far15TopologyRefinerERKNS2_7OptionsE.84, i64 0, i64 %149
-  %switch.load60 = load i32, ptr %switch.gep59, align 4
+switch.lookup65:                                  ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
+  %149 = zext nneg i32 %switch.tableidx66 to i64
+  %switch.gep67 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilderC2ERNS0_3Far15TopologyRefinerERKNS2_7OptionsE.84, i64 0, i64 %149
+  %switch.load68 = load i32, ptr %switch.gep67, align 4
   br label %150
 
-150:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit, %switch.lookup57
-  %.0.i.i40 = phi i32 [ %switch.load60, %switch.lookup57 ], [ -1, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit ]
+150:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit, %switch.lookup65
+  %.0.i.i40 = phi i32 [ %switch.load68, %switch.lookup65 ], [ -1, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit ]
   %151 = getelementptr inbounds nuw i8, ptr %145, i64 16
   store i32 %.0.i.i40, ptr %151, align 8
   %152 = load ptr, ptr %0, align 8
@@ -586,16 +586,16 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false)
-  %.idx.i.i.i.i.i = shl nsw i64 %21, 2
-  %25 = getelementptr inbounds i8, ptr %20, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -648,7 +648,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %40
   store ptr %32, ptr %0, align 8
-  %42 = getelementptr inbounds i32, ptr %33, i64 %1
+  %42 = getelementptr inbounds nuw i32, ptr %33, i64 %1
   store ptr %42, ptr %4, align 8
   %43 = getelementptr inbounds nuw i32, ptr %32, i64 %30
   store ptr %43, ptr %11, align 8
@@ -3866,7 +3866,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE5ClearEv.exit.i57.i: ; pr
   %1431 = icmp sgt i32 %1430, 0
   %1432 = icmp sgt i32 %1399, 0
   %or.cond.i58.i = select i1 %1431, i1 %1432, i1 false
-  br i1 %or.cond.i58.i, label %.lr.ph.i66.us.preheader.i, label %.loopexit23.i.i.thread190
+  br i1 %or.cond.i58.i, label %.lr.ph.i66.us.preheader.i, label %.loopexit23.i.i.thread268
 
 .lr.ph.i66.us.preheader.i:                        ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE5ClearEv.exit.i57.i
   %wide.trip.count.i65.i = zext nneg i32 %1399 to i64
@@ -3917,29 +3917,29 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.ex
   %or.cond29.i.i71 = select i1 %1453, i1 %1454, i1 false
   br i1 %or.cond29.i.i71, label %.lr.ph26.i.i.us.preheader, label %.loopexit23.i..loopexit.i59_crit_edge.i
 
-.loopexit23.i.i.thread190:                        ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE5ClearEv.exit.i57.i
+.loopexit23.i.i.thread268:                        ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE5ClearEv.exit.i57.i
   %1455 = load i32, ptr %1126, align 4
   %1456 = icmp sgt i32 %1455, 0
   %1457 = icmp sgt i32 %1391, 0
-  %or.cond29.i.i71191 = select i1 %1456, i1 %1457, i1 false
-  br i1 %or.cond29.i.i71191, label %.lr.ph26.i.i.us.preheader, label %.loopexit23.i..loopexit.i59_crit_edge.i
+  %or.cond29.i.i71269 = select i1 %1456, i1 %1457, i1 false
+  br i1 %or.cond29.i.i71269, label %.lr.ph26.i.i.us.preheader, label %.loopexit23.i..loopexit.i59_crit_edge.i
 
 .loopexit23.i.i.thread:                           ; preds = %1426
   %1458 = load i32, ptr %1126, align 4
   %1459 = icmp sgt i32 %1458, 0
   %1460 = icmp sgt i32 %1391, 0
-  %or.cond29.i.i71188 = select i1 %1459, i1 %1460, i1 false
-  br i1 %or.cond29.i.i71188, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.exit155.i.i, label %.loopexit23.i..loopexit.i59_crit_edge.i
+  %or.cond29.i.i71266 = select i1 %1459, i1 %1460, i1 false
+  br i1 %or.cond29.i.i71266, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.exit155.i.i, label %.loopexit23.i..loopexit.i59_crit_edge.i
 
-.loopexit23.i..loopexit.i59_crit_edge.i:          ; preds = %.loopexit23.i.i.thread190, %.loopexit23.i.i.thread, %.loopexit23.i.i
+.loopexit23.i..loopexit.i59_crit_edge.i:          ; preds = %.loopexit23.i.i.thread268, %.loopexit23.i.i.thread, %.loopexit23.i.i
   %.pre23.i = mul nsw i32 %1381, %.8.val3.fr.i
   %.pre24.i = sext i32 %.pre23.i to i64
   br label %.loopexit.i59.i
 
-.lr.ph26.i.i.us.preheader:                        ; preds = %.loopexit23.i.i, %.loopexit23.i.i.thread190
-  %wide.trip.count34.i.i194 = zext i32 %1391 to i64
-  %.in211 = mul nsw i32 %1381, %.8.val3.fr.i
-  %1461 = sext i32 %.in211 to i64
+.lr.ph26.i.i.us.preheader:                        ; preds = %.loopexit23.i.i, %.loopexit23.i.i.thread268
+  %wide.trip.count34.i.i272 = zext i32 %1391 to i64
+  %.in289 = mul nsw i32 %1381, %.8.val3.fr.i
+  %1461 = sext i32 %.in289 to i64
   %1462 = getelementptr inbounds double, ptr %1138, i64 %1461
   br label %.lr.ph26.i.i.us
 
@@ -3978,7 +3978,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.ex
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.exit144.i.i.loopexit.us: ; preds = %.lr.ph.i140.i.i.us
   %indvars.iv.next32.i.i.us = add nuw nsw i64 %indvars.iv31.i.i.us, 1
-  %exitcond35.not.i.i.us = icmp eq i64 %indvars.iv.next32.i.i.us, %wide.trip.count34.i.i194
+  %exitcond35.not.i.i.us = icmp eq i64 %indvars.iv.next32.i.i.us, %wide.trip.count34.i.i272
   br i1 %exitcond35.not.i.i.us, label %.loopexit.i59.i, label %.lr.ph26.i.i.us, !llvm.loop !59
 
 .loopexit.i59.i:                                  ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.exit144.i.i.loopexit.us, %.loopexit23.i..loopexit.i59_crit_edge.i
@@ -4579,7 +4579,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE5ClearEv.exit.i197.i: ; p
   %1788 = icmp sgt i32 %1787, 0
   %1789 = icmp sgt i32 %1756, 0
   %or.cond.i198.i = select i1 %1788, i1 %1789, i1 false
-  br i1 %or.cond.i198.i, label %.lr.ph.i237.us.preheader.i, label %.loopexit23.i199.i.thread198
+  br i1 %or.cond.i198.i, label %.lr.ph.i237.us.preheader.i, label %.loopexit23.i199.i.thread276
 
 .lr.ph.i237.us.preheader.i:                       ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE5ClearEv.exit.i197.i
   %wide.trip.count.i236.i = zext nneg i32 %1756 to i64
@@ -4630,27 +4630,27 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.ex
   %or.cond29.i200.i = select i1 %1810, i1 %1811, i1 false
   br i1 %or.cond29.i200.i, label %.lr.ph26.i218.i.us.preheader, label %.loopexit23.i199..loopexit.i201_crit_edge.i
 
-.loopexit23.i199.i.thread198:                     ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE5ClearEv.exit.i197.i
+.loopexit23.i199.i.thread276:                     ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE5ClearEv.exit.i197.i
   %1812 = load i32, ptr %1097, align 4
   %1813 = icmp sgt i32 %1812, 0
   %1814 = icmp sgt i32 %1748, 0
-  %or.cond29.i200.i199 = select i1 %1813, i1 %1814, i1 false
-  br i1 %or.cond29.i200.i199, label %.lr.ph26.i218.i.us.preheader, label %.loopexit23.i199..loopexit.i201_crit_edge.i
+  %or.cond29.i200.i277 = select i1 %1813, i1 %1814, i1 false
+  br i1 %or.cond29.i200.i277, label %.lr.ph26.i218.i.us.preheader, label %.loopexit23.i199..loopexit.i201_crit_edge.i
 
 .loopexit23.i199.i.thread:                        ; preds = %1783
   %1815 = load i32, ptr %1097, align 4
   %1816 = icmp sgt i32 %1815, 0
   %1817 = icmp sgt i32 %1748, 0
-  %or.cond29.i200.i196 = select i1 %1816, i1 %1817, i1 false
-  br i1 %or.cond29.i200.i196, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.exit155.i206.i, label %.loopexit23.i199..loopexit.i201_crit_edge.i
+  %or.cond29.i200.i274 = select i1 %1816, i1 %1817, i1 false
+  br i1 %or.cond29.i200.i274, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.exit155.i206.i, label %.loopexit23.i199..loopexit.i201_crit_edge.i
 
-.loopexit23.i199..loopexit.i201_crit_edge.i:      ; preds = %.loopexit23.i199.i.thread198, %.loopexit23.i199.i.thread, %.loopexit23.i199.i
+.loopexit23.i199..loopexit.i201_crit_edge.i:      ; preds = %.loopexit23.i199.i.thread276, %.loopexit23.i199.i.thread, %.loopexit23.i199.i
   %.pre26.i = mul nsw i32 %1738, %.8.val3.fr.i
   %.pre28.i = sext i32 %.pre26.i to i64
   br label %.loopexit.i201.i
 
-.lr.ph26.i218.i.us.preheader:                     ; preds = %.loopexit23.i199.i, %.loopexit23.i199.i.thread198
-  %wide.trip.count34.i217.i202 = zext i32 %1748 to i64
+.lr.ph26.i218.i.us.preheader:                     ; preds = %.loopexit23.i199.i, %.loopexit23.i199.i.thread276
+  %wide.trip.count34.i217.i280 = zext i32 %1748 to i64
   %.in = mul nsw i32 %1738, %.8.val3.fr.i
   %1818 = sext i32 %.in to i64
   %1819 = getelementptr inbounds double, ptr %1138, i64 %1818
@@ -4691,7 +4691,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.ex
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.exit144.i226.i.loopexit.us: ; preds = %.lr.ph.i140.i231.i.us
   %indvars.iv.next32.i227.i.us = add nuw nsw i64 %indvars.iv31.i219.i.us, 1
-  %exitcond35.not.i228.i.us = icmp eq i64 %indvars.iv.next32.i227.i.us, %wide.trip.count34.i217.i202
+  %exitcond35.not.i228.i.us = icmp eq i64 %indvars.iv.next32.i227.i.us, %wide.trip.count34.i217.i280
   br i1 %exitcond35.not.i228.i.us, label %.loopexit.i201.i, label %.lr.ph26.i218.i.us, !llvm.loop !67
 
 .loopexit.i201.i:                                 ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.exit144.i226.i.loopexit.us, %.loopexit23.i199..loopexit.i201_crit_edge.i
@@ -7795,7 +7795,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE5ClearEv.exit.i57.i: ; pr
   %1431 = icmp sgt i32 %1430, 0
   %1432 = icmp sgt i32 %1399, 0
   %or.cond.i58.i = select i1 %1431, i1 %1432, i1 false
-  br i1 %or.cond.i58.i, label %.lr.ph.i66.us.preheader.i, label %.loopexit23.i.i.thread190
+  br i1 %or.cond.i58.i, label %.lr.ph.i66.us.preheader.i, label %.loopexit23.i.i.thread268
 
 .lr.ph.i66.us.preheader.i:                        ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE5ClearEv.exit.i57.i
   %wide.trip.count.i65.i = zext nneg i32 %1399 to i64
@@ -7846,29 +7846,29 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.ex
   %or.cond29.i.i71 = select i1 %1453, i1 %1454, i1 false
   br i1 %or.cond29.i.i71, label %.lr.ph26.i.i.us.preheader, label %.loopexit23.i..loopexit.i59_crit_edge.i
 
-.loopexit23.i.i.thread190:                        ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE5ClearEv.exit.i57.i
+.loopexit23.i.i.thread268:                        ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE5ClearEv.exit.i57.i
   %1455 = load i32, ptr %1126, align 4
   %1456 = icmp sgt i32 %1455, 0
   %1457 = icmp sgt i32 %1391, 0
-  %or.cond29.i.i71191 = select i1 %1456, i1 %1457, i1 false
-  br i1 %or.cond29.i.i71191, label %.lr.ph26.i.i.us.preheader, label %.loopexit23.i..loopexit.i59_crit_edge.i
+  %or.cond29.i.i71269 = select i1 %1456, i1 %1457, i1 false
+  br i1 %or.cond29.i.i71269, label %.lr.ph26.i.i.us.preheader, label %.loopexit23.i..loopexit.i59_crit_edge.i
 
 .loopexit23.i.i.thread:                           ; preds = %1426
   %1458 = load i32, ptr %1126, align 4
   %1459 = icmp sgt i32 %1458, 0
   %1460 = icmp sgt i32 %1391, 0
-  %or.cond29.i.i71188 = select i1 %1459, i1 %1460, i1 false
-  br i1 %or.cond29.i.i71188, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.exit155.i.i, label %.loopexit23.i..loopexit.i59_crit_edge.i
+  %or.cond29.i.i71266 = select i1 %1459, i1 %1460, i1 false
+  br i1 %or.cond29.i.i71266, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.exit155.i.i, label %.loopexit23.i..loopexit.i59_crit_edge.i
 
-.loopexit23.i..loopexit.i59_crit_edge.i:          ; preds = %.loopexit23.i.i.thread190, %.loopexit23.i.i.thread, %.loopexit23.i.i
+.loopexit23.i..loopexit.i59_crit_edge.i:          ; preds = %.loopexit23.i.i.thread268, %.loopexit23.i.i.thread, %.loopexit23.i.i
   %.pre23.i = mul nsw i32 %1381, %.8.val3.fr.i
   %.pre24.i = sext i32 %.pre23.i to i64
   br label %.loopexit.i59.i
 
-.lr.ph26.i.i.us.preheader:                        ; preds = %.loopexit23.i.i, %.loopexit23.i.i.thread190
-  %wide.trip.count34.i.i194 = zext i32 %1391 to i64
-  %.in211 = mul nsw i32 %1381, %.8.val3.fr.i
-  %1461 = sext i32 %.in211 to i64
+.lr.ph26.i.i.us.preheader:                        ; preds = %.loopexit23.i.i, %.loopexit23.i.i.thread268
+  %wide.trip.count34.i.i272 = zext i32 %1391 to i64
+  %.in289 = mul nsw i32 %1381, %.8.val3.fr.i
+  %1461 = sext i32 %.in289 to i64
   %1462 = getelementptr inbounds float, ptr %1138, i64 %1461
   br label %.lr.ph26.i.i.us
 
@@ -7907,7 +7907,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.ex
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.exit144.i.i.loopexit.us: ; preds = %.lr.ph.i140.i.i.us
   %indvars.iv.next32.i.i.us = add nuw nsw i64 %indvars.iv31.i.i.us, 1
-  %exitcond35.not.i.i.us = icmp eq i64 %indvars.iv.next32.i.i.us, %wide.trip.count34.i.i194
+  %exitcond35.not.i.i.us = icmp eq i64 %indvars.iv.next32.i.i.us, %wide.trip.count34.i.i272
   br i1 %exitcond35.not.i.i.us, label %.loopexit.i59.i, label %.lr.ph26.i.i.us, !llvm.loop !107
 
 .loopexit.i59.i:                                  ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.exit144.i.i.loopexit.us, %.loopexit23.i..loopexit.i59_crit_edge.i
@@ -8508,7 +8508,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE5ClearEv.exit.i197.i: ; p
   %1788 = icmp sgt i32 %1787, 0
   %1789 = icmp sgt i32 %1756, 0
   %or.cond.i198.i = select i1 %1788, i1 %1789, i1 false
-  br i1 %or.cond.i198.i, label %.lr.ph.i237.us.preheader.i, label %.loopexit23.i199.i.thread198
+  br i1 %or.cond.i198.i, label %.lr.ph.i237.us.preheader.i, label %.loopexit23.i199.i.thread276
 
 .lr.ph.i237.us.preheader.i:                       ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE5ClearEv.exit.i197.i
   %wide.trip.count.i236.i = zext nneg i32 %1756 to i64
@@ -8559,27 +8559,27 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.ex
   %or.cond29.i200.i = select i1 %1810, i1 %1811, i1 false
   br i1 %or.cond29.i200.i, label %.lr.ph26.i218.i.us.preheader, label %.loopexit23.i199..loopexit.i201_crit_edge.i
 
-.loopexit23.i199.i.thread198:                     ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE5ClearEv.exit.i197.i
+.loopexit23.i199.i.thread276:                     ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE5ClearEv.exit.i197.i
   %1812 = load i32, ptr %1097, align 4
   %1813 = icmp sgt i32 %1812, 0
   %1814 = icmp sgt i32 %1748, 0
-  %or.cond29.i200.i199 = select i1 %1813, i1 %1814, i1 false
-  br i1 %or.cond29.i200.i199, label %.lr.ph26.i218.i.us.preheader, label %.loopexit23.i199..loopexit.i201_crit_edge.i
+  %or.cond29.i200.i277 = select i1 %1813, i1 %1814, i1 false
+  br i1 %or.cond29.i200.i277, label %.lr.ph26.i218.i.us.preheader, label %.loopexit23.i199..loopexit.i201_crit_edge.i
 
 .loopexit23.i199.i.thread:                        ; preds = %1783
   %1815 = load i32, ptr %1097, align 4
   %1816 = icmp sgt i32 %1815, 0
   %1817 = icmp sgt i32 %1748, 0
-  %or.cond29.i200.i196 = select i1 %1816, i1 %1817, i1 false
-  br i1 %or.cond29.i200.i196, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.exit155.i206.i, label %.loopexit23.i199..loopexit.i201_crit_edge.i
+  %or.cond29.i200.i274 = select i1 %1816, i1 %1817, i1 false
+  br i1 %or.cond29.i200.i274, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.exit155.i206.i, label %.loopexit23.i199..loopexit.i201_crit_edge.i
 
-.loopexit23.i199..loopexit.i201_crit_edge.i:      ; preds = %.loopexit23.i199.i.thread198, %.loopexit23.i199.i.thread, %.loopexit23.i199.i
+.loopexit23.i199..loopexit.i201_crit_edge.i:      ; preds = %.loopexit23.i199.i.thread276, %.loopexit23.i199.i.thread, %.loopexit23.i199.i
   %.pre26.i = mul nsw i32 %1738, %.8.val3.fr.i
   %.pre28.i = sext i32 %.pre26.i to i64
   br label %.loopexit.i201.i
 
-.lr.ph26.i218.i.us.preheader:                     ; preds = %.loopexit23.i199.i, %.loopexit23.i199.i.thread198
-  %wide.trip.count34.i217.i202 = zext i32 %1748 to i64
+.lr.ph26.i218.i.us.preheader:                     ; preds = %.loopexit23.i199.i, %.loopexit23.i199.i.thread276
+  %wide.trip.count34.i217.i280 = zext i32 %1748 to i64
   %.in = mul nsw i32 %1738, %.8.val3.fr.i
   %1818 = sext i32 %.in to i64
   %1819 = getelementptr inbounds float, ptr %1138, i64 %1818
@@ -8620,7 +8620,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.ex
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.exit144.i226.i.loopexit.us: ; preds = %.lr.ph.i140.i231.i.us
   %indvars.iv.next32.i227.i.us = add nuw nsw i64 %indvars.iv31.i219.i.us, 1
-  %exitcond35.not.i228.i.us = icmp eq i64 %indvars.iv.next32.i227.i.us, %wide.trip.count34.i217.i202
+  %exitcond35.not.i228.i.us = icmp eq i64 %indvars.iv.next32.i227.i.us, %wide.trip.count34.i217.i280
   br i1 %exitcond35.not.i228.i.us, label %.loopexit.i201.i, label %.lr.ph26.i218.i.us, !llvm.loop !115
 
 .loopexit.i201.i:                                 ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.exit144.i226.i.loopexit.us, %.loopexit23.i199..loopexit.i201_crit_edge.i
@@ -9498,16 +9498,16 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store double 0.000000e+00, ptr %5, align 8
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false)
-  %.idx.i.i.i.i.i = shl nsw i64 %21, 3
-  %25 = getelementptr inbounds i8, ptr %20, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -9560,7 +9560,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %40
   store ptr %32, ptr %0, align 8
-  %42 = getelementptr inbounds double, ptr %33, i64 %1
+  %42 = getelementptr inbounds nuw double, ptr %33, i64 %1
   store ptr %42, ptr %4, align 8
   %43 = getelementptr inbounds nuw double, ptr %32, i64 %30
   store ptr %43, ptr %11, align 8
@@ -9824,23 +9824,23 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1
   br label %.loopexit45.sink.split.sink.split
 
 .loopexit45.sink.split.sink.split:                ; preds = %.loopexit, %.loopexit.thread
-  %.sink57 = phi double [ %73, %.loopexit.thread ], [ 2.500000e-01, %.loopexit ]
-  %.sink52.ph = phi double [ %71, %.loopexit.thread ], [ 2.500000e-01, %.loopexit ]
+  %.sink58 = phi double [ %73, %.loopexit.thread ], [ 2.500000e-01, %.loopexit ]
+  %.sink53.ph = phi double [ %71, %.loopexit.thread ], [ 2.500000e-01, %.loopexit ]
   %74 = load ptr, ptr %2, align 8
-  store double %.sink57, ptr %74, align 8
+  store double %.sink58, ptr %74, align 8
   %75 = load ptr, ptr %2, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store double %.sink57, ptr %76, align 8
+  store double %.sink58, ptr %76, align 8
   br label %.loopexit45.sink.split
 
 .loopexit45.sink.split:                           ; preds = %.loopexit45.sink.split.sink.split, %.critedge
-  %.sink52 = phi double [ 2.500000e-01, %.critedge ], [ %.sink52.ph, %.loopexit45.sink.split.sink.split ]
+  %.sink53 = phi double [ 2.500000e-01, %.critedge ], [ %.sink53.ph, %.loopexit45.sink.split.sink.split ]
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %78 = load ptr, ptr %77, align 8
-  store double %.sink52, ptr %78, align 8
+  store double %.sink53, ptr %78, align 8
   %79 = load ptr, ptr %77, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store double %.sink52, ptr %80, align 8
+  store double %.sink53, ptr %80, align 8
   br label %.loopexit45
 
 .loopexit45:                                      ; preds = %63, %.loopexit45.sink.split, %58
@@ -10019,10 +10019,10 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal15VertexInterface19GetSharpnessPerEdgeEPf.ex
   br i1 %exitcond.not.i97, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS0_3Far18PrimvarRefinerRealIdE4MaskEEEvRKT_RT0_.exit, label %93, !llvm.loop !129
 
 .thread:                                          ; preds = %42, %74
-  %.0138 = phi i32 [ %.0, %74 ], [ %3, %42 ]
-  %.078137 = phi ptr [ %40, %74 ], [ null, %42 ]
-  %.079136 = phi float [ %50, %74 ], [ 0.000000e+00, %42 ]
-  %98 = icmp eq i32 %.0138, 4
+  %.0149 = phi i32 [ %.0, %74 ], [ %3, %42 ]
+  %.078148 = phi ptr [ %40, %74 ], [ null, %42 ]
+  %.079147 = phi float [ %50, %74 ], [ 0.000000e+00, %42 ]
+  %98 = icmp eq i32 %.0149, 4
   br i1 %98, label %99, label %126
 
 99:                                               ; preds = %.thread
@@ -10031,7 +10031,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal15VertexInterface19GetSharpnessPerEdgeEPf.ex
 
 101:                                              ; preds = %101, %99
   %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i100, %101 ], [ 0, %99 ]
-  %102 = getelementptr inbounds nuw float, ptr %.078137, i64 %indvars.iv.i99
+  %102 = getelementptr inbounds nuw float, ptr %.078148, i64 %indvars.iv.i99
   %103 = load float, ptr %102, align 4
   %104 = fcmp ugt float %103, %100
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
@@ -10040,7 +10040,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal15VertexInterface19GetSharpnessPerEdgeEPf.ex
 .preheader129:                                    ; preds = %101, %.preheader129
   %indvars.iv10.i = phi i64 [ %indvars.iv.next11.i, %.preheader129 ], [ %38, %101 ]
   %indvars.iv.next11.i = add nsw i64 %indvars.iv10.i, -1
-  %105 = getelementptr inbounds float, ptr %.078137, i64 %indvars.iv.next11.i
+  %105 = getelementptr inbounds float, ptr %.078148, i64 %indvars.iv.next11.i
   %106 = load float, ptr %105, align 4
   %107 = fcmp ugt float %106, %100
   br i1 %107, label %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit, label %.preheader129, !llvm.loop !132
@@ -10098,7 +10098,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignCreaseMaskForVer
   br label %130
 
 130:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignCreaseMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS0_3Far18PrimvarRefinerRealIdE4MaskEEEvRKT_RT0_PKi.exit, %126
-  %131 = icmp eq i32 %spec.select, %.0138
+  %131 = icmp eq i32 %spec.select, %.0149
   br i1 %131, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS0_3Far18PrimvarRefinerRealIdE4MaskEEEvRKT_RT0_.exit, label %132
 
 132:                                              ; preds = %130
@@ -10120,7 +10120,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignCreaseMaskForVer
 
 146:                                              ; preds = %132
   %147 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease25DetermineVertexVertexRuleEfiPKf(ptr noundef nonnull align 1 dereferenceable(4) %7, float noundef %144, i32 noundef %37, ptr noundef %135)
-  %148 = icmp eq i32 %147, %.0138
+  %148 = icmp eq i32 %147, %.0149
   br i1 %148, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS0_3Far18PrimvarRefinerRealIdE4MaskEEEvRKT_RT0_.exit, label %149
 
 149:                                              ; preds = %146, %132
@@ -10247,7 +10247,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignCreaseMaskForVer
   br label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS4_9LocalMaskIdEEEEvRKT_RT0_.exit
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS4_9LocalMaskIdEEEEvRKT_RT0_.exit: ; preds = %175, %160, %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignCreaseMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS4_9LocalMaskIdEEEEvRKT_RT0_PKi.exit, %201
-  %204 = call noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeightAtVertexEffiPKfS4_(ptr noundef nonnull align 1 dereferenceable(4) %7, float noundef %.079136, float noundef %144, i32 noundef %37, ptr noundef %.078137, ptr noundef %135)
+  %204 = call noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeightAtVertexEffiPKfS4_(ptr noundef nonnull align 1 dereferenceable(4) %7, float noundef %.079147, float noundef %144, i32 noundef %37, ptr noundef %.078148, ptr noundef %135)
   %205 = fpext float %204 to double
   %206 = fsub double 1.000000e+00, %205
   call void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE9LocalMaskIdE24CombineVertexVertexMasksINS0_3Far18PrimvarRefinerRealIdE4MaskEEEvddRT_(ptr noundef nonnull align 8 dereferenceable(37) %8, double noundef %206, double noundef %205, ptr noundef nonnull align 8 dereferenceable(37) %2)
@@ -10719,10 +10719,10 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdg
   br i1 %exitcond.not, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdgeINS0_3Vtr8internal13EdgeInterfaceENS0_3Far18PrimvarRefinerRealIdE4MaskEEEvRKT_RT0_.exit, label %123, !llvm.loop !141
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdgeINS0_3Vtr8internal13EdgeInterfaceENS0_3Far18PrimvarRefinerRealIdE4MaskEEEvRKT_RT0_.exit.sink.split: ; preds = %46, %33, %.thread
-  %.sink69.in = phi ptr [ %2, %.thread ], [ %34, %33 ], [ %2, %46 ]
+  %.sink72.in = phi ptr [ %2, %.thread ], [ %34, %33 ], [ %2, %46 ]
   %.sink = phi double [ 5.000000e-01, %.thread ], [ 1.250000e-01, %33 ], [ 5.000000e-01, %46 ]
-  %.sink69 = load ptr, ptr %.sink69.in, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %.sink69, i64 8
+  %.sink72 = load ptr, ptr %.sink72.in, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %.sink72, i64 8
   store double %.sink, ptr %128, align 8
   br label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdgeINS0_3Vtr8internal13EdgeInterfaceENS0_3Far18PrimvarRefinerRealIdE4MaskEEEvRKT_RT0_.exit
 
@@ -10917,10 +10917,10 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal15VertexInterface19GetSharpnessPerEdgeEPf.ex
   br i1 %exitcond.not.i99, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS0_3Far18PrimvarRefinerRealIdE4MaskEEEvRKT_RT0_.exit, label %99, !llvm.loop !142
 
 .thread:                                          ; preds = %44, %76
-  %.0144 = phi i32 [ %.0, %76 ], [ %3, %44 ]
-  %.078143 = phi ptr [ %42, %76 ], [ null, %44 ]
-  %.079142 = phi float [ %52, %76 ], [ 0.000000e+00, %44 ]
-  %102 = icmp eq i32 %.0144, 4
+  %.0155 = phi i32 [ %.0, %76 ], [ %3, %44 ]
+  %.078154 = phi ptr [ %42, %76 ], [ null, %44 ]
+  %.079153 = phi float [ %52, %76 ], [ 0.000000e+00, %44 ]
+  %102 = icmp eq i32 %.0155, 4
   br i1 %102, label %103, label %130
 
 103:                                              ; preds = %.thread
@@ -10929,7 +10929,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal15VertexInterface19GetSharpnessPerEdgeEPf.ex
 
 105:                                              ; preds = %105, %103
   %indvars.iv.i102 = phi i64 [ %indvars.iv.next.i103, %105 ], [ 0, %103 ]
-  %106 = getelementptr inbounds nuw float, ptr %.078143, i64 %indvars.iv.i102
+  %106 = getelementptr inbounds nuw float, ptr %.078154, i64 %indvars.iv.i102
   %107 = load float, ptr %106, align 4
   %108 = fcmp ugt float %107, %104
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i102, 1
@@ -10938,7 +10938,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal15VertexInterface19GetSharpnessPerEdgeEPf.ex
 .preheader135:                                    ; preds = %105, %.preheader135
   %indvars.iv10.i = phi i64 [ %indvars.iv.next11.i, %.preheader135 ], [ %40, %105 ]
   %indvars.iv.next11.i = add nsw i64 %indvars.iv10.i, -1
-  %109 = getelementptr inbounds float, ptr %.078143, i64 %indvars.iv.next11.i
+  %109 = getelementptr inbounds float, ptr %.078154, i64 %indvars.iv.next11.i
   %110 = load float, ptr %109, align 4
   %111 = fcmp ugt float %110, %104
   br i1 %111, label %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit, label %.preheader135, !llvm.loop !132
@@ -10996,7 +10996,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignCreaseMaskForVer
   br label %134
 
 134:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignCreaseMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS0_3Far18PrimvarRefinerRealIdE4MaskEEEvRKT_RT0_PKi.exit, %130
-  %135 = icmp eq i32 %spec.select, %.0144
+  %135 = icmp eq i32 %spec.select, %.0155
   br i1 %135, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS0_3Far18PrimvarRefinerRealIdE4MaskEEEvRKT_RT0_.exit, label %136
 
 136:                                              ; preds = %134
@@ -11018,7 +11018,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignCreaseMaskForVer
 
 150:                                              ; preds = %136
   %151 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease25DetermineVertexVertexRuleEfiPKf(ptr noundef nonnull align 1 dereferenceable(4) %7, float noundef %148, i32 noundef %39, ptr noundef %139)
-  %152 = icmp eq i32 %151, %.0144
+  %152 = icmp eq i32 %151, %.0155
   br i1 %152, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS0_3Far18PrimvarRefinerRealIdE4MaskEEEvRKT_RT0_.exit, label %153
 
 153:                                              ; preds = %150, %136
@@ -11155,7 +11155,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignCreaseMaskForVer
   br label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS4_9LocalMaskIdEEEEvRKT_RT0_.exit
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS4_9LocalMaskIdEEEEvRKT_RT0_.exit: ; preds = %183, %171, %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignCreaseMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS4_9LocalMaskIdEEEEvRKT_RT0_PKi.exit, %208
-  %211 = call noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeightAtVertexEffiPKfS4_(ptr noundef nonnull align 1 dereferenceable(4) %7, float noundef %.079142, float noundef %148, i32 noundef %39, ptr noundef %.078143, ptr noundef %139)
+  %211 = call noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeightAtVertexEffiPKfS4_(ptr noundef nonnull align 1 dereferenceable(4) %7, float noundef %.079153, float noundef %148, i32 noundef %39, ptr noundef %.078154, ptr noundef %139)
   %212 = fpext float %211 to double
   %213 = fsub double 1.000000e+00, %212
   call void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE9LocalMaskIdE24CombineVertexVertexMasksINS0_3Far18PrimvarRefinerRealIdE4MaskEEEvddRT_(ptr noundef nonnull align 8 dereferenceable(37) %8, double noundef %213, double noundef %212, ptr noundef nonnull align 8 dereferenceable(37) %2)
@@ -11645,16 +11645,16 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false)
-  %.idx.i.i.i.i.i = shl nsw i64 %21, 2
-  %25 = getelementptr inbounds i8, ptr %20, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -11707,7 +11707,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %40
   store ptr %32, ptr %0, align 8
-  %42 = getelementptr inbounds float, ptr %33, i64 %1
+  %42 = getelementptr inbounds nuw float, ptr %33, i64 %1
   store ptr %42, ptr %4, align 8
   %43 = getelementptr inbounds nuw float, ptr %32, i64 %30
   store ptr %43, ptr %11, align 8
@@ -11967,23 +11967,23 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1
   br label %.loopexit45.sink.split.sink.split
 
 .loopexit45.sink.split.sink.split:                ; preds = %.loopexit, %.loopexit.thread
-  %.sink57 = phi float [ %73, %.loopexit.thread ], [ 2.500000e-01, %.loopexit ]
-  %.sink52.ph = phi float [ %71, %.loopexit.thread ], [ 2.500000e-01, %.loopexit ]
+  %.sink58 = phi float [ %73, %.loopexit.thread ], [ 2.500000e-01, %.loopexit ]
+  %.sink53.ph = phi float [ %71, %.loopexit.thread ], [ 2.500000e-01, %.loopexit ]
   %74 = load ptr, ptr %2, align 8
-  store float %.sink57, ptr %74, align 4
+  store float %.sink58, ptr %74, align 4
   %75 = load ptr, ptr %2, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  store float %.sink57, ptr %76, align 4
+  store float %.sink58, ptr %76, align 4
   br label %.loopexit45.sink.split
 
 .loopexit45.sink.split:                           ; preds = %.loopexit45.sink.split.sink.split, %.critedge
-  %.sink52 = phi float [ 2.500000e-01, %.critedge ], [ %.sink52.ph, %.loopexit45.sink.split.sink.split ]
+  %.sink53 = phi float [ 2.500000e-01, %.critedge ], [ %.sink53.ph, %.loopexit45.sink.split.sink.split ]
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %78 = load ptr, ptr %77, align 8
-  store float %.sink52, ptr %78, align 4
+  store float %.sink53, ptr %78, align 4
   %79 = load ptr, ptr %77, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  store float %.sink52, ptr %80, align 4
+  store float %.sink53, ptr %80, align 4
   br label %.loopexit45
 
 .loopexit45:                                      ; preds = %63, %.loopexit45.sink.split, %58
@@ -12162,10 +12162,10 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal15VertexInterface19GetSharpnessPerEdgeEPf.ex
   br i1 %exitcond.not.i97, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_.exit, label %93, !llvm.loop !155
 
 .thread:                                          ; preds = %42, %74
-  %.0138 = phi i32 [ %.0, %74 ], [ %3, %42 ]
-  %.078137 = phi ptr [ %40, %74 ], [ null, %42 ]
-  %.079136 = phi float [ %50, %74 ], [ 0.000000e+00, %42 ]
-  %98 = icmp eq i32 %.0138, 4
+  %.0149 = phi i32 [ %.0, %74 ], [ %3, %42 ]
+  %.078148 = phi ptr [ %40, %74 ], [ null, %42 ]
+  %.079147 = phi float [ %50, %74 ], [ 0.000000e+00, %42 ]
+  %98 = icmp eq i32 %.0149, 4
   br i1 %98, label %99, label %126
 
 99:                                               ; preds = %.thread
@@ -12174,7 +12174,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal15VertexInterface19GetSharpnessPerEdgeEPf.ex
 
 101:                                              ; preds = %101, %99
   %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i100, %101 ], [ 0, %99 ]
-  %102 = getelementptr inbounds nuw float, ptr %.078137, i64 %indvars.iv.i99
+  %102 = getelementptr inbounds nuw float, ptr %.078148, i64 %indvars.iv.i99
   %103 = load float, ptr %102, align 4
   %104 = fcmp ugt float %103, %100
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
@@ -12183,7 +12183,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal15VertexInterface19GetSharpnessPerEdgeEPf.ex
 .preheader129:                                    ; preds = %101, %.preheader129
   %indvars.iv10.i = phi i64 [ %indvars.iv.next11.i, %.preheader129 ], [ %38, %101 ]
   %indvars.iv.next11.i = add nsw i64 %indvars.iv10.i, -1
-  %105 = getelementptr inbounds float, ptr %.078137, i64 %indvars.iv.next11.i
+  %105 = getelementptr inbounds float, ptr %.078148, i64 %indvars.iv.next11.i
   %106 = load float, ptr %105, align 4
   %107 = fcmp ugt float %106, %100
   br i1 %107, label %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit, label %.preheader129, !llvm.loop !132
@@ -12241,7 +12241,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignCreaseMaskForVer
   br label %130
 
 130:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignCreaseMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_PKi.exit, %126
-  %131 = icmp eq i32 %spec.select, %.0138
+  %131 = icmp eq i32 %spec.select, %.0149
   br i1 %131, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_.exit, label %132
 
 132:                                              ; preds = %130
@@ -12263,7 +12263,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignCreaseMaskForVer
 
 146:                                              ; preds = %132
   %147 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease25DetermineVertexVertexRuleEfiPKf(ptr noundef nonnull align 1 dereferenceable(4) %7, float noundef %144, i32 noundef %37, ptr noundef %135)
-  %148 = icmp eq i32 %147, %.0138
+  %148 = icmp eq i32 %147, %.0149
   br i1 %148, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_.exit, label %149
 
 149:                                              ; preds = %146, %132
@@ -12390,7 +12390,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignCreaseMaskForVer
   br label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS4_9LocalMaskIfEEEEvRKT_RT0_.exit
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS4_9LocalMaskIfEEEEvRKT_RT0_.exit: ; preds = %175, %160, %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignCreaseMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS4_9LocalMaskIfEEEEvRKT_RT0_PKi.exit, %201
-  %204 = call noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeightAtVertexEffiPKfS4_(ptr noundef nonnull align 1 dereferenceable(4) %7, float noundef %.079136, float noundef %144, i32 noundef %37, ptr noundef %.078137, ptr noundef %135)
+  %204 = call noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeightAtVertexEffiPKfS4_(ptr noundef nonnull align 1 dereferenceable(4) %7, float noundef %.079147, float noundef %144, i32 noundef %37, ptr noundef %.078148, ptr noundef %135)
   %205 = fsub float 1.000000e+00, %204
   call void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE9LocalMaskIfE24CombineVertexVertexMasksINS0_3Far18PrimvarRefinerRealIfE4MaskEEEvffRT_(ptr noundef nonnull align 8 dereferenceable(37) %8, float noundef %205, float noundef %204, ptr noundef nonnull align 8 dereferenceable(37) %2)
   br label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_.exit
@@ -12767,10 +12767,10 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdg
   br i1 %exitcond.not, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdgeINS0_3Vtr8internal13EdgeInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_.exit, label %122, !llvm.loop !164
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdgeINS0_3Vtr8internal13EdgeInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_.exit.sink.split: ; preds = %46, %33, %.thread
-  %.sink69.in = phi ptr [ %2, %.thread ], [ %34, %33 ], [ %2, %46 ]
+  %.sink72.in = phi ptr [ %2, %.thread ], [ %34, %33 ], [ %2, %46 ]
   %.sink = phi float [ 5.000000e-01, %.thread ], [ 1.250000e-01, %33 ], [ 5.000000e-01, %46 ]
-  %.sink69 = load ptr, ptr %.sink69.in, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %.sink69, i64 4
+  %.sink72 = load ptr, ptr %.sink72.in, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %.sink72, i64 4
   store float %.sink, ptr %127, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdgeINS0_3Vtr8internal13EdgeInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_.exit
 
@@ -12971,10 +12971,10 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal15VertexInterface19GetSharpnessPerEdgeEPf.ex
   br i1 %exitcond.not.i99, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_.exit, label %105, !llvm.loop !165
 
 .thread:                                          ; preds = %47, %79
-  %.0144 = phi i32 [ %.0, %79 ], [ %3, %47 ]
-  %.078143 = phi ptr [ %45, %79 ], [ null, %47 ]
-  %.079142 = phi float [ %55, %79 ], [ 0.000000e+00, %47 ]
-  %108 = icmp eq i32 %.0144, 4
+  %.0155 = phi i32 [ %.0, %79 ], [ %3, %47 ]
+  %.078154 = phi ptr [ %45, %79 ], [ null, %47 ]
+  %.079153 = phi float [ %55, %79 ], [ 0.000000e+00, %47 ]
+  %108 = icmp eq i32 %.0155, 4
   br i1 %108, label %109, label %136
 
 109:                                              ; preds = %.thread
@@ -12983,7 +12983,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal15VertexInterface19GetSharpnessPerEdgeEPf.ex
 
 111:                                              ; preds = %111, %109
   %indvars.iv.i102 = phi i64 [ %indvars.iv.next.i103, %111 ], [ 0, %109 ]
-  %112 = getelementptr inbounds nuw float, ptr %.078143, i64 %indvars.iv.i102
+  %112 = getelementptr inbounds nuw float, ptr %.078154, i64 %indvars.iv.i102
   %113 = load float, ptr %112, align 4
   %114 = fcmp ugt float %113, %110
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i102, 1
@@ -12992,7 +12992,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal15VertexInterface19GetSharpnessPerEdgeEPf.ex
 .preheader135:                                    ; preds = %111, %.preheader135
   %indvars.iv10.i = phi i64 [ %indvars.iv.next11.i, %.preheader135 ], [ %43, %111 ]
   %indvars.iv.next11.i = add nsw i64 %indvars.iv10.i, -1
-  %115 = getelementptr inbounds float, ptr %.078143, i64 %indvars.iv.next11.i
+  %115 = getelementptr inbounds float, ptr %.078154, i64 %indvars.iv.next11.i
   %116 = load float, ptr %115, align 4
   %117 = fcmp ugt float %116, %110
   br i1 %117, label %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit, label %.preheader135, !llvm.loop !132
@@ -13050,7 +13050,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignCreaseMaskForVer
   br label %140
 
 140:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignCreaseMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_PKi.exit, %136
-  %141 = icmp eq i32 %spec.select, %.0144
+  %141 = icmp eq i32 %spec.select, %.0155
   br i1 %141, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_.exit, label %142
 
 142:                                              ; preds = %140
@@ -13072,7 +13072,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignCreaseMaskForVer
 
 156:                                              ; preds = %142
   %157 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease25DetermineVertexVertexRuleEfiPKf(ptr noundef nonnull align 1 dereferenceable(4) %7, float noundef %154, i32 noundef %42, ptr noundef %145)
-  %158 = icmp eq i32 %157, %.0144
+  %158 = icmp eq i32 %157, %.0155
   br i1 %158, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_.exit, label %159
 
 159:                                              ; preds = %156, %142
@@ -13212,7 +13212,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignCreaseMaskForVer
   br label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS4_9LocalMaskIfEEEEvRKT_RT0_.exit
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS4_9LocalMaskIfEEEEvRKT_RT0_.exit: ; preds = %192, %177, %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignCreaseMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS4_9LocalMaskIfEEEEvRKT_RT0_PKi.exit, %217
-  %220 = call noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeightAtVertexEffiPKfS4_(ptr noundef nonnull align 1 dereferenceable(4) %7, float noundef %.079142, float noundef %154, i32 noundef %42, ptr noundef %.078143, ptr noundef %145)
+  %220 = call noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeightAtVertexEffiPKfS4_(ptr noundef nonnull align 1 dereferenceable(4) %7, float noundef %.079153, float noundef %154, i32 noundef %42, ptr noundef %.078154, ptr noundef %145)
   %221 = fsub float 1.000000e+00, %220
   call void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE9LocalMaskIfE24CombineVertexVertexMasksINS0_3Far18PrimvarRefinerRealIfE4MaskEEEvffRT_(ptr noundef nonnull align 8 dereferenceable(37) %8, float noundef %221, float noundef %220, ptr noundef nonnull align 8 dereferenceable(37) %2)
   br label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignSmoothMaskForVertexINS0_3Vtr8internal15VertexInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_.exit
@@ -13464,13 +13464,13 @@ define linkonce_odr void @_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchParamEmS3_ET_S5_T0_RSaIT1_E.exit, label %23
 
 23:                                               ; preds = %19
-  %.idx.i.i.i.i.i = shl nsw i64 %21, 3
-  %24 = getelementptr inbounds i8, ptr %20, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %23
@@ -13539,7 +13539,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EE11_S_relocateEPS3_S6_S
 
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EE13_M_deallocateEPS3_m.exit38: ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %44
   store ptr %33, ptr %0, align 8
-  %46 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %34, i64 %1
+  %46 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %34, i64 %1
   store ptr %46, ptr %4, align 8
   %47 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %33, i64 %31
   store ptr %47, ptr %11, align 8

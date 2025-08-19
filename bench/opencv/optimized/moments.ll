@@ -671,8 +671,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %switch.maskindex = trunc nsw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 27, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond212 = select i1 %260, i1 %switch.lobit, i1 false
-  br i1 %or.cond212, label %switch.lookup, label %261
+  %or.cond219 = select i1 %260, i1 %switch.lobit, i1 false
+  br i1 %or.cond219, label %switch.lookup, label %261
 
 261:                                              ; preds = %259
   call void @llvm.lifetime.start.p0(ptr nonnull %13)

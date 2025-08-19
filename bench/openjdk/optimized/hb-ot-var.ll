@@ -1907,19 +1907,19 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %72 = or disjoint i16 %68, %71
   %73 = sext i16 %72 to i32
   %74 = icmp sgt i32 %1, %73
-  br i1 %74, label %75, label %.critedge.loopexit.split.loop.exit54
+  br i1 %74, label %75, label %.critedge.loopexit.split.loop.exit61
 
 75:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !20
 
-.critedge.loopexit.split.loop.exit54:             ; preds = %.lr.ph
+.critedge.loopexit.split.loop.exit61:             ; preds = %.lr.ph
   %76 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %75, %.critedge.loopexit.split.loop.exit54, %63
-  %.044.lcssa = phi i32 [ 1, %63 ], [ %76, %.critedge.loopexit.split.loop.exit54 ], [ %64, %75 ]
+.critedge:                                        ; preds = %75, %.critedge.loopexit.split.loop.exit61, %63
+  %.044.lcssa = phi i32 [ 1, %63 ], [ %76, %.critedge.loopexit.split.loop.exit61 ], [ %64, %75 ]
   %77 = zext i32 %.044.lcssa to i64
   %78 = getelementptr inbounds nuw [1 x %"struct.OT::AxisValueMap"], ptr %39, i64 0, i64 %77
   %79 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed"], ptr %78, i64 0, i64 %40
@@ -2449,10 +2449,10 @@ _ZNK2OT13VarRegionAxis8evaluateEi.exit:           ; preds = %74
   %77 = sub nsw i32 %48, %59
   %78 = sub nsw i32 %68, %38
   %79 = sub nsw i32 %68, %48
-  %.sink45 = select i1 %75, i32 %77, i32 %79
+  %.sink55 = select i1 %75, i32 %77, i32 %79
   %.sink.in = select i1 %75, i32 %76, i32 %78
   %.sink = sitofp i32 %.sink.in to float
-  %80 = sitofp i32 %.sink45 to float
+  %80 = sitofp i32 %.sink55 to float
   %81 = fdiv float %.sink, %80
   %82 = fcmp oeq float %81, 0.000000e+00
   br i1 %82, label %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread37, label %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread
@@ -3386,10 +3386,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT10avarV2Tail8sanitizeEP21h
   br i1 %.not16.i.i7.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %46, %95
-  %.sink14.i.i.i = phi i32 [ %60, %46 ], [ %96, %95 ]
+  %.sink17.i.i.i = phi i32 [ %60, %46 ], [ %96, %95 ]
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %102 = load i32, ptr %101, align 4
-  %103 = sub i32 %102, %.sink14.i.i.i
+  %103 = sub i32 %102, %.sink17.i.i.i
   store i32 %103, ptr %101, align 4
   %104 = icmp sgt i32 %103, 0
   br i1 %104, label %.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread

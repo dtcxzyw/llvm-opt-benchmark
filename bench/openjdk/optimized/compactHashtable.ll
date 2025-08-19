@@ -367,7 +367,7 @@ define hidden void @_ZN22CompactHashtableWriter14allocate_tableEv(ptr noundef no
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %20, %._crit_edge
-  %.0.lcssa19 = phi i32 [ %.1, %20 ], [ %.1, %._crit_edge ], [ 0, %1 ]
+  %.0.lcssa20 = phi i32 [ %.1, %20 ], [ %.1, %._crit_edge ], [ 0, %1 ]
   %21 = phi i32 [ %.pre, %20 ], [ %3, %._crit_edge ], [ %3, %1 ]
   %22 = add nsw i32 %21, 1
   %23 = tail call i32 @llvm.smax.i32(i32 %22, i32 1)
@@ -381,7 +381,7 @@ define hidden void @_ZN22CompactHashtableWriter14allocate_tableEv(ptr noundef no
   store i32 %22, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %30, ptr %31, align 8
-  %32 = tail call i32 @llvm.smax.i32(i32 %.0.lcssa19, i32 1)
+  %32 = tail call i32 @llvm.smax.i32(i32 %.0.lcssa20, i32 1)
   %33 = add nsw i32 %32, -1
   %34 = zext nneg i32 %33 to i64
   %35 = shl nuw nsw i64 %34, 2
@@ -389,7 +389,7 @@ define hidden void @_ZN22CompactHashtableWriter14allocate_tableEv(ptr noundef no
   %37 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 336
   %39 = tail call noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64) %38, i64 noundef %36) #14
-  store i32 %.0.lcssa19, ptr %39, align 4
+  store i32 %.0.lcssa20, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %39, ptr %40, align 8
   %41 = load i32, ptr %2, align 4
@@ -524,14 +524,14 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noun
   br label %59
 
 ._crit_edge.thread:                               ; preds = %39, %._crit_edge
-  %.2.lcssa48 = phi i32 [ %.02235, %._crit_edge ], [ %49, %39 ]
+  %.2.lcssa50 = phi i32 [ %.02235, %._crit_edge ], [ %49, %39 ]
   %57 = load i32, ptr %9, align 8
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %9, align 8
   br label %59
 
 59:                                               ; preds = %54, %._crit_edge.thread, %20
-  %.1 = phi i32 [ %28, %20 ], [ %.02235, %54 ], [ %.2.lcssa48, %._crit_edge.thread ]
+  %.1 = phi i32 [ %28, %20 ], [ %.02235, %54 ], [ %.2.lcssa50, %._crit_edge.thread ]
   %60 = sitofp i32 %16 to double
   %61 = load ptr, ptr %1, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -1535,10 +1535,10 @@ define hidden void @_ZN17HashtableTextDump8get_utf8EPci(ptr noundef nonnull alig
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %19
 
-19:                                               ; preds = %.lr.ph, %80
-  %.034 = phi ptr [ %10, %.lr.ph ], [ %.1, %80 ]
-  %.02533 = phi ptr [ %1, %.lr.ph ], [ %.126, %80 ]
-  %.02732 = phi i32 [ %2, %.lr.ph ], [ %81, %80 ]
+19:                                               ; preds = %.lr.ph, %79
+  %.034 = phi ptr [ %10, %.lr.ph ], [ %.1, %79 ]
+  %.02533 = phi ptr [ %1, %.lr.ph ], [ %.126, %79 ]
+  %.02732 = phi i32 [ %2, %.lr.ph ], [ %80, %79 ]
   %20 = load i8, ptr %.034, align 1
   %.not = icmp eq i8 %20, 92
   br i1 %.not, label %24, label %21
@@ -1547,7 +1547,7 @@ define hidden void @_ZN17HashtableTextDump8get_utf8EPci(ptr noundef nonnull alig
   %22 = getelementptr inbounds nuw i8, ptr %.034, i64 1
   %23 = getelementptr inbounds nuw i8, ptr %.02533, i64 1
   store i8 %20, ptr %.02533, align 1
-  br label %80
+  br label %79
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %.034, i64 2
@@ -1572,12 +1572,12 @@ define hidden void @_ZN17HashtableTextDump8get_utf8EPci(ptr noundef nonnull alig
 _ZN17HashtableTextDump12corrupted_ifEbPKc.exit:   ; preds = %24, %27
   %37 = getelementptr inbounds nuw i8, ptr %.034, i64 1
   %38 = load i8, ptr %37, align 1
-  switch i8 %38, label %70 [
+  switch i8 %38, label %69 [
     i8 120, label %39
-    i8 116, label %62
-    i8 110, label %64
-    i8 114, label %66
-    i8 92, label %68
+    i8 116, label %61
+    i8 110, label %63
+    i8 114, label %65
+    i8 92, label %67
   ]
 
 39:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
@@ -1605,7 +1605,7 @@ _ZN17HashtableTextDump12corrupted_ifEbPKc.exit:   ; preds = %24, %27
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %switch.lookup
   %.020.i = phi ptr [ %52, %switch.lookup ], [ %25, %.lr.ph.i.preheader ]
-  %.01519.i = phi i32 [ %60, %switch.lookup ], [ 0, %.lr.ph.i.preheader ]
+  %exitcond.not.i = phi i1 [ true, %switch.lookup ], [ false, %.lr.ph.i.preheader ]
   %.01618.i = phi i8 [ %.1.i, %switch.lookup ], [ 0, %.lr.ph.i.preheader ]
   %52 = getelementptr inbounds nuw i8, ptr %.020.i, i64 1
   %53 = load i8, ptr %.020.i, align 1
@@ -1632,128 +1632,126 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %58 = shl i8 %.01618.i, 4
   %59 = add i8 %53, %58
   %.1.i = add i8 %59, %switch.load
-  %60 = add nuw nsw i32 %.01519.i, 1
-  %exitcond.not.i = icmp eq i32 %60, 2
   br i1 %exitcond.not.i, label %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit, label %.lr.ph.i, !llvm.loop !15
 
 _ZN17HashtableTextDump8unescapeEPKcS1_i.exit:     ; preds = %switch.lookup
-  %61 = getelementptr inbounds nuw i8, ptr %.02533, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %.02533, i64 1
   store i8 %.1.i, ptr %.02533, align 1
-  br label %80
+  br label %79
 
-62:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
-  %63 = getelementptr inbounds nuw i8, ptr %.02533, i64 1
+61:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+  %62 = getelementptr inbounds nuw i8, ptr %.02533, i64 1
   store i8 9, ptr %.02533, align 1
-  br label %80
+  br label %79
 
-64:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
-  %65 = getelementptr inbounds nuw i8, ptr %.02533, i64 1
+63:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+  %64 = getelementptr inbounds nuw i8, ptr %.02533, i64 1
   store i8 10, ptr %.02533, align 1
-  br label %80
+  br label %79
 
-66:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
-  %67 = getelementptr inbounds nuw i8, ptr %.02533, i64 1
+65:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+  %66 = getelementptr inbounds nuw i8, ptr %.02533, i64 1
   store i8 13, ptr %.02533, align 1
-  br label %80
+  br label %79
 
-68:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
-  %69 = getelementptr inbounds nuw i8, ptr %.02533, i64 1
+67:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+  %68 = getelementptr inbounds nuw i8, ptr %.02533, i64 1
   store i8 92, ptr %.02533, align 1
-  br label %80
+  br label %79
 
-70:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
-  %71 = load ptr, ptr %9, align 8
+69:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+  %70 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %72 = load i32, ptr %16, align 4
-  %73 = load ptr, ptr %17, align 8
-  %74 = ptrtoint ptr %71 to i64
-  %75 = ptrtoint ptr %73 to i64
-  %76 = sub i64 %74, %75
-  %77 = trunc i64 %76 to i32
-  %78 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %6, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.29, i32 noundef %72, i32 noundef %77) #14
-  %79 = load ptr, ptr %18, align 8
-  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %6, ptr noundef %79) #14
+  %71 = load i32, ptr %16, align 4
+  %72 = load ptr, ptr %17, align 8
+  %73 = ptrtoint ptr %70 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = trunc i64 %75 to i32
+  %77 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %6, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.29, i32 noundef %71, i32 noundef %76) #14
+  %78 = load ptr, ptr %18, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %6, ptr noundef %78) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %80
+  br label %79
 
-80:                                               ; preds = %21, %70, %68, %66, %64, %62, %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit
-  %.126 = phi ptr [ %23, %21 ], [ %.02533, %70 ], [ %61, %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ]
-  %.1 = phi ptr [ %22, %21 ], [ %25, %70 ], [ %40, %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit ], [ %25, %62 ], [ %25, %64 ], [ %25, %66 ], [ %25, %68 ]
-  %81 = add nsw i32 %.02732, -1
-  %82 = icmp sgt i32 %.02732, 1
-  %83 = icmp ult ptr %.1, %12
-  %84 = select i1 %82, i1 %83, i1 false
-  br i1 %84, label %19, label %._crit_edge, !llvm.loop !16
+79:                                               ; preds = %21, %69, %67, %65, %63, %61, %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit
+  %.126 = phi ptr [ %23, %21 ], [ %.02533, %69 ], [ %60, %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ]
+  %.1 = phi ptr [ %22, %21 ], [ %25, %69 ], [ %40, %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit ], [ %25, %61 ], [ %25, %63 ], [ %25, %65 ], [ %25, %67 ]
+  %80 = add nsw i32 %.02732, -1
+  %81 = icmp sgt i32 %.02732, 1
+  %82 = icmp ult ptr %.1, %12
+  %83 = select i1 %81, i1 %82, i1 false
+  br i1 %83, label %19, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %80, %3
-  %.0.lcssa = phi ptr [ %10, %3 ], [ %.1, %80 ]
-  %.lcssa = phi i1 [ %13, %3 ], [ %82, %80 ]
-  br i1 %.lcssa, label %85, label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29
+._crit_edge:                                      ; preds = %79, %3
+  %.0.lcssa = phi ptr [ %10, %3 ], [ %.1, %79 ]
+  %.lcssa = phi i1 [ %13, %3 ], [ %81, %79 ]
+  br i1 %.lcssa, label %84, label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29
 
-85:                                               ; preds = %._crit_edge
-  %86 = load ptr, ptr %9, align 8
+84:                                               ; preds = %._crit_edge
+  %85 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = ptrtoint ptr %86 to i64
-  %92 = ptrtoint ptr %90 to i64
-  %93 = sub i64 %91, %92
-  %94 = trunc i64 %93 to i32
-  %95 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, i32 noundef %88, i32 noundef %94) #14
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %97 = load ptr, ptr %96, align 8
-  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %5, ptr noundef %97) #14
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %87 = load i32, ptr %86, align 4
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %89 = load ptr, ptr %88, align 8
+  %90 = ptrtoint ptr %85 to i64
+  %91 = ptrtoint ptr %89 to i64
+  %92 = sub i64 %90, %91
+  %93 = trunc i64 %92 to i32
+  %94 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, i32 noundef %87, i32 noundef %93) #14
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %96 = load ptr, ptr %95, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %5, ptr noundef %96) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29
 
-_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29: ; preds = %._crit_edge, %85
+_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29: ; preds = %._crit_edge, %84
   store ptr %.0.lcssa, ptr %9, align 8
-  %98 = load i8, ptr %.0.lcssa, align 1
-  switch i8 %98, label %.thread.i [
-    i8 13, label %99
-    i8 10, label %105
+  %97 = load i8, ptr %.0.lcssa, align 1
+  switch i8 %97, label %.thread.i [
+    i8 13, label %98
+    i8 10, label %104
   ]
 
-99:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29
-  %100 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
-  %101 = load i8, ptr %100, align 1
-  %102 = icmp eq i8 %101, 10
-  br i1 %102, label %103, label %.thread.i
+98:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29
+  %99 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
+  %100 = load i8, ptr %99, align 1
+  %101 = icmp eq i8 %100, 10
+  br i1 %101, label %102, label %.thread.i
 
-103:                                              ; preds = %99
-  %104 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
-  store ptr %104, ptr %9, align 8
+102:                                              ; preds = %98
+  %103 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
+  store ptr %103, ptr %9, align 8
   br label %_ZN17HashtableTextDump12skip_newlineEv.exit
 
-105:                                              ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29
-  %106 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
-  store ptr %106, ptr %9, align 8
+104:                                              ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29
+  %105 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
+  store ptr %105, ptr %9, align 8
   br label %_ZN17HashtableTextDump12skip_newlineEv.exit
 
-.thread.i:                                        ; preds = %99, %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29
+.thread.i:                                        ; preds = %98, %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %108 = load i32, ptr %107, align 4
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %110 = load ptr, ptr %109, align 8
-  %111 = ptrtoint ptr %.0.lcssa to i64
-  %112 = ptrtoint ptr %110 to i64
-  %113 = sub i64 %111, %112
-  %114 = trunc i64 %113 to i32
-  %115 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %108, i32 noundef %114) #14
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %117 = load ptr, ptr %116, align 8
-  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %4, ptr noundef %117) #14
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %107 = load i32, ptr %106, align 4
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %109 = load ptr, ptr %108, align 8
+  %110 = ptrtoint ptr %.0.lcssa to i64
+  %111 = ptrtoint ptr %109 to i64
+  %112 = sub i64 %110, %111
+  %113 = trunc i64 %112 to i32
+  %114 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %107, i32 noundef %113) #14
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %116 = load ptr, ptr %115, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %4, ptr noundef %116) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN17HashtableTextDump12skip_newlineEv.exit
 
-_ZN17HashtableTextDump12skip_newlineEv.exit:      ; preds = %103, %105, %.thread.i
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %119 = load i32, ptr %118, align 4
-  %120 = add nsw i32 %119, 1
-  store i32 %120, ptr %118, align 4
+_ZN17HashtableTextDump12skip_newlineEv.exit:      ; preds = %102, %104, %.thread.i
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %118 = load i32, ptr %117, align 4
+  %119 = add nsw i32 %118, 1
+  store i32 %119, ptr %117, align 4
   ret void
 }
 
@@ -1955,7 +1953,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN22CompactHasht
   br i1 %.not, label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -1967,8 +1965,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN22CompactHasht
   br label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit

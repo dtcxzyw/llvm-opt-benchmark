@@ -477,8 +477,8 @@ define hidden void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.109073
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.1..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %14, ptr %.sroa.0.1..sroa_idx12, align 1, !alias.scope !36
+  %.sroa.0.1..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %14, ptr %.sroa.0.1..sroa_idx15, align 1, !alias.scope !36
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.10907310164025772830.exit
 
 15:                                               ; preds = %6
@@ -490,13 +490,13 @@ define hidden void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.109073
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %22, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !36
+  %.sroa.0.1..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %22, ptr %.sroa.0.1..sroa_idx14, align 1, !alias.scope !36
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.2..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  store i8 %25, ptr %.sroa.0.2..sroa_idx13, align 2, !alias.scope !36
+  %.sroa.0.2..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  store i8 %25, ptr %.sroa.0.2..sroa_idx16, align 2, !alias.scope !36
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.10907310164025772830.exit
 
 26:                                               ; preds = %6
@@ -1301,9 +1301,9 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.10907310164025772830.exit1
   br label %34
 
 34:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hc039338dbf10fe23E.exit", %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.10907310164025772830.exit12
-  %.sink19 = phi i64 [ %43, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hc039338dbf10fe23E.exit" ], [ 1, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.10907310164025772830.exit12 ]
+  %.sink23 = phi i64 [ %43, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hc039338dbf10fe23E.exit" ], [ 1, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.10907310164025772830.exit12 ]
   %35 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !noundef !9
-  %36 = add i64 %35, %.sink19
+  %36 = add i64 %35, %.sink23
   store i64 %36, ptr %.sroa.5.0..sroa_idx, align 8
   %37 = icmp eq ptr %18, %11
   br i1 %37, label %._crit_edge, label %.lr.ph

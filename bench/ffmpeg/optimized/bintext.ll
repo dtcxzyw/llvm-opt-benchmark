@@ -253,7 +253,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %46 = lshr i32 %45, 6
   %47 = and i32 %45, 63
   %48 = getelementptr inbounds nuw i8, ptr %.090141, i64 1
-  switch i32 %46, label %default.unreachable153 [
+  switch i32 %46, label %default.unreachable178 [
     i32 0, label %.preheader114
     i32 1, label %95
     i32 2, label %139
@@ -514,7 +514,7 @@ draw_char.exit107:                                ; preds = %193, %202, %221
   %exitcond.not = icmp eq i32 %.394128, %47
   br i1 %exitcond.not, label %.loopexit115, label %193, !llvm.loop !58
 
-default.unreachable153:                           ; preds = %.lr.ph142
+default.unreachable178:                           ; preds = %.lr.ph142
   unreachable
 
 .loopexit115:                                     ; preds = %draw_char.exit107, %draw_char.exit106, %draw_char.exit105, %draw_char.exit, %184, %139, %95, %.preheader114

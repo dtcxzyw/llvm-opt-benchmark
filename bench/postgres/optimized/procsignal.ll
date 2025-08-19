@@ -641,9 +641,9 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
   %30 = atomicrmw or ptr %29, i32 1 seq_cst, align 4
   store volatile i32 1, ptr @ProcSignalBarrierPending, align 4
   store volatile i32 1, ptr @InterruptPending, align 4
-  %.0..0..0..0.1229 = load volatile i32, ptr %1, align 4
-  %.not2330 = icmp eq i32 %.0..0..0..0.1229, 0
-  br i1 %.not2330, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !27
+  %.0..0..0..0.1230 = load volatile i32, ptr %1, align 4
+  %.not2331 = icmp eq i32 %.0..0..0..0.1230, 0
+  br i1 %.not2331, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !27
 
 ._crit_edge.thread:                               ; preds = %.thread
   store ptr %15, ptr @PG_exception_stack, align 8

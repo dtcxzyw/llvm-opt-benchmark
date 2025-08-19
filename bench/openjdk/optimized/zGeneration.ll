@@ -6331,7 +6331,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN26ZPageTableParallelIterator8
   br i1 %.not36.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i, label %48, !llvm.loop !30
 
 48:                                               ; preds = %45
-  %49 = shl i64 %43, 6
+  %49 = shl nuw i64 %43, 6
   br label %50
 
 50:                                               ; preds = %48, %41

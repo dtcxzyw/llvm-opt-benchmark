@@ -2188,7 +2188,7 @@ erkStep_ApplyForcing.exit:                        ; preds = %._crit_edge.us.i, %
   br i1 %exitcond165.not, label %.lr.ph.preheader.i93, label %153
 
 .lr.ph.preheader.i93:                             ; preds = %153, %.preheader..lr.ph.preheader.i93_crit_edge
-  %.2126.lcssa174176 = phi i32 [ 0, %.preheader..lr.ph.preheader.i93_crit_edge ], [ %112, %153 ]
+  %.2126.lcssa181183 = phi i32 [ 0, %.preheader..lr.ph.preheader.i93_crit_edge ], [ %112, %153 ]
   %168 = phi i32 [ %137, %.preheader..lr.ph.preheader.i93_crit_edge ], [ %135, %153 ]
   %169 = phi ptr [ %.pre171, %.preheader..lr.ph.preheader.i93_crit_edge ], [ %152, %153 ]
   %170 = phi ptr [ %.pre169, %.preheader..lr.ph.preheader.i93_crit_edge ], [ %146, %153 ]
@@ -2200,7 +2200,7 @@ erkStep_ApplyForcing.exit:                        ; preds = %._crit_edge.us.i, %
   %176 = load double, ptr %175, align 8, !tbaa !87
   %177 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %178 = load ptr, ptr %177, align 8, !tbaa !52
-  %179 = zext nneg i32 %.2126.lcssa174176 to i64
+  %179 = zext nneg i32 %.2126.lcssa181183 to i64
   %wide.trip.count.i94 = zext nneg i32 %168 to i64
   br label %.lr.ph.i95
 
@@ -2254,7 +2254,7 @@ erkStep_ApplyForcing.exit:                        ; preds = %._crit_edge.us.i, %
   br i1 %exitcond.not.i98, label %.preheader.i99, label %.lr.ph.i95
 
 erkStep_ApplyForcing.exit114:                     ; preds = %._crit_edge.us.i111, %.preheader.i99
-  %196 = add nuw nsw i32 %168, %.2126.lcssa174176
+  %196 = add nuw nsw i32 %168, %.2126.lcssa181183
   br label %197
 
 197:                                              ; preds = %._crit_edge140.thread, %erkStep_ApplyForcing.exit114, %._crit_edge140

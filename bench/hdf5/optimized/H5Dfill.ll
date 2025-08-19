@@ -503,11 +503,11 @@ define range(i32 -1, 1) i32 @H5D__fill_init(ptr noundef %0, ptr noundef %1, ptr 
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %55, %57, %59
-  %.sink264 = phi i64 [ %60, %59 ], [ 1, %55 ], [ %spec.select, %57 ]
+  %.sink282 = phi i64 [ %60, %59 ], [ 1, %55 ], [ %spec.select, %57 ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 %.sink264, ptr %61, align 8, !tbaa !33
+  store i64 %.sink282, ptr %61, align 8, !tbaa !33
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %63 = mul i64 %.sink264, %.
+  %63 = mul i64 %.sink282, %.
   %.236 = tail call i64 @llvm.umin.i64(i64 %9, i64 %63)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.236, ptr %64, align 8, !tbaa !34
@@ -542,10 +542,10 @@ define range(i32 -1, 1) i32 @H5D__fill_init(ptr noundef %0, ptr noundef %1, ptr 
 
 .thread:                                          ; preds = %72, %69
   %H5E_CANTSET_g.sink = phi ptr [ @H5E_CANTSET_g, %69 ], [ @H5E_CANTRESTORE_g, %72 ]
-  %.sink266 = phi i32 [ 352, %69 ], [ 356, %72 ]
+  %.sink284 = phi i32 [ 352, %69 ], [ 356, %72 ]
   %78 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
   %79 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !10
-  %80 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__fill_init, i32 noundef %.sink266, i64 noundef %78, i64 noundef %79, ptr noundef nonnull @.str.15) #6
+  %80 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__fill_init, i32 noundef %.sink284, i64 noundef %78, i64 noundef %79, ptr noundef nonnull @.str.15) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %237
 
@@ -661,7 +661,7 @@ define range(i32 -1, 1) i32 @H5D__fill_init(ptr noundef %0, ptr noundef %1, ptr 
 
 142:                                              ; preds = %140
   %143 = udiv i64 %9, %136
-  %spec.select269 = tail call i64 @llvm.umin.i64(i64 %8, i64 %143)
+  %spec.select287 = tail call i64 @llvm.umin.i64(i64 %8, i64 %143)
   br label %.critedge238.thread
 
 144:                                              ; preds = %134
@@ -669,11 +669,11 @@ define range(i32 -1, 1) i32 @H5D__fill_init(ptr noundef %0, ptr noundef %1, ptr 
   br label %.critedge238.thread
 
 .critedge238.thread:                              ; preds = %140, %142, %144
-  %.sink270 = phi i64 [ %145, %144 ], [ 1, %140 ], [ %spec.select269, %142 ]
+  %.sink288 = phi i64 [ %145, %144 ], [ 1, %140 ], [ %spec.select287, %142 ]
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 %.sink270, ptr %146, align 8, !tbaa !33
+  store i64 %.sink288, ptr %146, align 8, !tbaa !33
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %148 = mul i64 %.sink270, %136
+  %148 = mul i64 %.sink288, %136
   %.239 = tail call i64 @llvm.umin.i64(i64 %9, i64 %148)
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.239, ptr %149, align 8, !tbaa !34
@@ -707,11 +707,11 @@ define range(i32 -1, 1) i32 @H5D__fill_init(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %162, label %.thread247, label %166
 
 .thread247:                                       ; preds = %157, %154
-  %H5E_CANTSET_g.sink275 = phi ptr [ @H5E_CANTSET_g, %154 ], [ @H5E_CANTRESTORE_g, %157 ]
-  %.sink272 = phi i32 [ 411, %154 ], [ 415, %157 ]
+  %H5E_CANTSET_g.sink293 = phi ptr [ @H5E_CANTSET_g, %154 ], [ @H5E_CANTRESTORE_g, %157 ]
+  %.sink290 = phi i32 [ 411, %154 ], [ 415, %157 ]
   %163 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
-  %164 = load i64, ptr %H5E_CANTSET_g.sink275, align 8, !tbaa !10
-  %165 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__fill_init, i32 noundef %.sink272, i64 noundef %163, i64 noundef %164, ptr noundef nonnull @.str.15) #6
+  %164 = load i64, ptr %H5E_CANTSET_g.sink293, align 8, !tbaa !10
+  %165 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__fill_init, i32 noundef %.sink290, i64 noundef %163, i64 noundef %164, ptr noundef nonnull @.str.15) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %237
 
@@ -743,7 +743,7 @@ define range(i32 -1, 1) i32 @H5D__fill_init(ptr noundef %0, ptr noundef %1, ptr 
   br label %237
 
 177:                                              ; preds = %._crit_edge, %150
-  %178 = phi i64 [ %.pre259, %._crit_edge ], [ %.sink270, %150 ]
+  %178 = phi i64 [ %.pre259, %._crit_edge ], [ %.sink288, %150 ]
   %179 = phi i64 [ %.pre258, %._crit_edge ], [ %136, %150 ]
   %180 = phi ptr [ %171, %._crit_edge ], [ %1, %150 ]
   %181 = load ptr, ptr %27, align 8, !tbaa !23
@@ -767,7 +767,7 @@ define range(i32 -1, 1) i32 @H5D__fill_init(ptr noundef %0, ptr noundef %1, ptr 
 
 190:                                              ; preds = %188
   %191 = udiv i64 %9, %184
-  %spec.select276 = tail call i64 @llvm.umin.i64(i64 %8, i64 %191)
+  %spec.select294 = tail call i64 @llvm.umin.i64(i64 %8, i64 %191)
   br label %.critedge241.thread
 
 192:                                              ; preds = %183
@@ -775,10 +775,10 @@ define range(i32 -1, 1) i32 @H5D__fill_init(ptr noundef %0, ptr noundef %1, ptr 
   br label %.critedge241.thread
 
 .critedge241.thread:                              ; preds = %188, %190, %192
-  %.sink277 = phi i64 [ %193, %192 ], [ 1, %188 ], [ %spec.select276, %190 ]
+  %.sink295 = phi i64 [ %193, %192 ], [ 1, %188 ], [ %spec.select294, %190 ]
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 %.sink277, ptr %194, align 8, !tbaa !33
-  %195 = mul i64 %.sink277, %184
+  store i64 %.sink295, ptr %194, align 8, !tbaa !33
+  %195 = mul i64 %.sink295, %184
   %.242 = tail call i64 @llvm.umin.i64(i64 %9, i64 %195)
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.242, ptr %196, align 8, !tbaa !34
@@ -813,11 +813,11 @@ define range(i32 -1, 1) i32 @H5D__fill_init(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %209, label %.thread252, label %213
 
 .thread252:                                       ; preds = %204, %201
-  %H5E_CANTSET_g.sink282 = phi ptr [ @H5E_CANTSET_g, %201 ], [ @H5E_CANTRESTORE_g, %204 ]
-  %.sink279 = phi i32 [ 452, %201 ], [ 456, %204 ]
+  %H5E_CANTSET_g.sink300 = phi ptr [ @H5E_CANTSET_g, %201 ], [ @H5E_CANTRESTORE_g, %204 ]
+  %.sink297 = phi i32 [ 452, %201 ], [ 456, %204 ]
   %210 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
-  %211 = load i64, ptr %H5E_CANTSET_g.sink282, align 8, !tbaa !10
-  %212 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__fill_init, i32 noundef %.sink279, i64 noundef %210, i64 noundef %211, ptr noundef nonnull @.str.15) #6
+  %211 = load i64, ptr %H5E_CANTSET_g.sink300, align 8, !tbaa !10
+  %212 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__fill_init, i32 noundef %.sink297, i64 noundef %210, i64 noundef %211, ptr noundef nonnull @.str.15) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %237
 

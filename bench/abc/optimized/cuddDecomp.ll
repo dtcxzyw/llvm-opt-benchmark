@@ -793,9 +793,9 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
   br i1 %.not146.i, label %.loopexit158.split.us.sink.split.i, label %.lr.ph187.i, !llvm.loop !47
 
 .loopexit158.split.us.sink.split.i:               ; preds = %135, %144, %.preheader153.us.i, %.preheader152.i
-  %.lcssa196.sink.i = phi ptr [ %147, %.preheader153.us.i ], [ %130, %.preheader152.i ], [ %147, %144 ], [ %130, %135 ]
+  %.lcssa218.sink.i = phi ptr [ %147, %.preheader153.us.i ], [ %130, %.preheader152.i ], [ %147, %144 ], [ %130, %135 ]
   %.0109.ph157.sink.i = phi ptr [ %.0109.ph157.i, %.preheader153.us.i ], [ %.0111.ph155.i, %.preheader152.i ], [ %.0109.ph157.i, %144 ], [ %.0111.ph155.i, %135 ]
-  call void @st__free_gen(ptr noundef nonnull %.lcssa196.sink.i) #8
+  call void @st__free_gen(ptr noundef nonnull %.lcssa218.sink.i) #8
   call void @st__free_table(ptr noundef nonnull %.0109.ph157.sink.i) #8
   br label %.loopexit158.split.us.i
 
@@ -872,11 +872,11 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
   br label %cuddConjunctsAux.exit.thread
 
 cuddConjunctsAux.exit:                            ; preds = %.lr.ph178.i, %49, %.preheader163.i, %.preheader162.i
-  %.sink68 = phi ptr [ %44, %.preheader162.i ], [ %115, %.preheader163.i ], [ %44, %49 ], [ %115, %.lr.ph178.i ]
+  %.sink95 = phi ptr [ %44, %.preheader162.i ], [ %115, %.preheader163.i ], [ %44, %49 ], [ %115, %.lr.ph178.i ]
   %.sink = phi ptr [ %18, %.preheader162.i ], [ %69, %.preheader163.i ], [ %18, %49 ], [ %69, %.lr.ph178.i ]
   %.246 = phi ptr [ %1, %.preheader162.i ], [ %.044, %.preheader163.i ], [ %1, %49 ], [ %.044, %.lr.ph178.i ]
   %.2 = phi ptr [ %35, %.preheader162.i ], [ %.043, %.preheader163.i ], [ %35, %49 ], [ %.043, %.lr.ph178.i ]
-  call void @st__free_gen(ptr noundef nonnull %.sink68) #8
+  call void @st__free_gen(ptr noundef nonnull %.sink95) #8
   call void @st__free_table(ptr noundef nonnull %.sink) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2683,9 +2683,9 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   br label %154
 
 .sink.split:                                      ; preds = %23, %21, %19, %17
-  %.sink208 = phi ptr [ %1, %17 ], [ %3, %19 ], [ %2, %21 ], [ %4, %23 ]
+  %.sink221 = phi ptr [ %1, %17 ], [ %3, %19 ], [ %2, %21 ], [ %4, %23 ]
   %.sink = phi ptr [ %2, %17 ], [ %4, %19 ], [ %1, %21 ], [ %3, %23 ]
-  store ptr %.sink208, ptr %14, align 8, !tbaa !42
+  store ptr %.sink221, ptr %14, align 8, !tbaa !42
   %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %.sink, ptr %149, align 8, !tbaa !44
   br label %150
@@ -2797,10 +2797,10 @@ define internal fastcc noundef ptr @PickOnePair(ptr noundef %0, ptr noundef nonn
   %.051 = phi i32 [ %48, %43 ], [ %56, %51 ], [ %69, %57 ]
   %.not = icmp slt i32 %.051, %.0
   %spec.select = select i1 %.not, ptr %3, ptr %1
-  %spec.select67 = select i1 %.not, ptr %4, ptr %2
+  %spec.select75 = select i1 %.not, ptr %4, ptr %2
   store ptr %spec.select, ptr %9, align 8, !tbaa !42
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %spec.select67, ptr %71, align 8, !tbaa !44
+  store ptr %spec.select75, ptr %71, align 8, !tbaa !44
   %.not62 = icmp eq ptr %spec.select, %12
   br i1 %.not62, label %86, label %72
 
@@ -2984,9 +2984,9 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
   br label %.sink.split
 
 .sink.split:                                      ; preds = %39, %48, %50, %40, %42, %26, %28, %11, %13, %56
-  %.sink73 = phi ptr [ %1, %56 ], [ %1, %13 ], [ %1, %11 ], [ %1, %28 ], [ %1, %26 ], [ %2, %42 ], [ %2, %40 ], [ %2, %50 ], [ %2, %48 ], [ %2, %39 ]
+  %.sink77 = phi ptr [ %1, %56 ], [ %1, %13 ], [ %1, %11 ], [ %1, %28 ], [ %1, %26 ], [ %2, %42 ], [ %2, %40 ], [ %2, %50 ], [ %2, %48 ], [ %2, %39 ]
   %.sink = phi ptr [ %2, %56 ], [ %2, %13 ], [ %2, %11 ], [ %2, %28 ], [ %2, %26 ], [ %1, %42 ], [ %1, %40 ], [ %1, %50 ], [ %1, %48 ], [ %1, %39 ]
-  store ptr %.sink73, ptr %8, align 8, !tbaa !42
+  store ptr %.sink77, ptr %8, align 8, !tbaa !42
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.sink, ptr %57, align 8, !tbaa !44
   br label %58

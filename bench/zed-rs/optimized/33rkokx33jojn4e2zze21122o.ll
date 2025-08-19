@@ -41798,8 +41798,8 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   %14 = load i64, ptr %12, align 8, !range !166, !noalias !7588, !noundef !7
   %.sink3.i31.sroa.gep.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sink3.i31.sroa.gep39.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink48.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %12, i64 1048
-  %.sink46.i.sroa.gep2 = getelementptr inbounds nuw i8, ptr %12, i64 1056
+  %.sink49.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %12, i64 1048
+  %.sink47.i.sroa.gep2 = getelementptr inbounds nuw i8, ptr %12, i64 1056
   switch i64 %14, label %15 [
     i64 3, label %21
     i64 4, label %20
@@ -41820,23 +41820,23 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
           to label %147 unwind label %145
 
 20:                                               ; preds = %2
-  %.sink46.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 1072
-  %.sink48.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 1064
+  %.sink47.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 1072
+  %.sink49.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 1064
   br label %21
 
 21:                                               ; preds = %20, %2
-  %.sink48.i.sroa.phi = phi ptr [ %.sink48.i.sroa.gep, %20 ], [ %.sink48.i.sroa.gep1, %2 ]
-  %.sink46.i.sroa.phi = phi ptr [ %.sink46.i.sroa.gep, %20 ], [ %.sink46.i.sroa.gep2, %2 ]
+  %.sink49.i.sroa.phi = phi ptr [ %.sink49.i.sroa.gep, %20 ], [ %.sink49.i.sroa.gep1, %2 ]
+  %.sink47.i.sroa.phi = phi ptr [ %.sink47.i.sroa.gep, %20 ], [ %.sink47.i.sroa.gep2, %2 ]
   %.sroa.014.0.i = phi i1 [ true, %20 ], [ false, %2 ]
   %.sroa.012.0.i = phi i1 [ false, %20 ], [ true, %2 ]
-  %22 = load i64, ptr %.sink48.i.sroa.phi, align 8, !noalias !7588, !noundef !7
+  %22 = load i64, ptr %.sink49.i.sroa.phi, align 8, !noalias !7588, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !7588
   %23 = load i64, ptr %.sink3.i31.sroa.gep39.i, align 8, !range !27, !noalias !7588, !noundef !7
   %24 = getelementptr inbounds nuw [2 x i64], ptr @anon.186dbb956d37f1f030343507acf9b939.56, i64 0, i64 %23
   %25 = load i64, ptr %24, align 8, !noalias !7588, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 8 %.sink3.i31.sroa.gep39.i, i64 %25, i1 false), !noalias !7588
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !7588
-  %26 = load i64, ptr %.sink46.i.sroa.phi, align 8, !noalias !7588, !noundef !7
+  %26 = load i64, ptr %.sink47.i.sroa.phi, align 8, !noalias !7588, !noundef !7
   store i64 %26, ptr %10, align 8, !noalias !7588
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !7588
   invoke void @"_ZN67_$LT$gpui..elements..img..Img$u20$as$u20$gpui..element..Element$GT$2id17h678bc25a246e1a1dE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(1824) %0)
@@ -44628,8 +44628,8 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   store i64 0, ptr %12, align 8, !alias.scope !8217, !noalias !8220
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i64, ptr %11, align 8, !range !1072, !noalias !8222, !noundef !7
-  %.sink52.i.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.sink52.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sink53.i.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.sink53.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %11, i64 24
   switch i64 %13, label %14 [
     i64 1, label %20
     i64 2, label %19
@@ -44653,16 +44653,16 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   br label %20
 
 20:                                               ; preds = %19, %2
-  %.sink52.i.sroa.phi = phi ptr [ %.sink52.i.sroa.gep, %19 ], [ %.sink52.i.sroa.gep1, %2 ]
+  %.sink53.i.sroa.phi = phi ptr [ %.sink53.i.sroa.gep, %19 ], [ %.sink53.i.sroa.gep1, %2 ]
   %.sroa.016.0.i = phi i8 [ 1, %19 ], [ 0, %2 ]
   %.sroa.014.0.i = phi i8 [ 0, %19 ], [ 1, %2 ]
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %22 = load i64, ptr %21, align 8, !noalias !8222, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !8222
-  %23 = load i64, ptr %.sink52.i.sroa.phi, align 8, !range !27, !noalias !8222, !noundef !7
+  %23 = load i64, ptr %.sink53.i.sroa.phi, align 8, !range !27, !noalias !8222, !noundef !7
   %24 = getelementptr inbounds nuw [2 x i64], ptr @anon.186dbb956d37f1f030343507acf9b939.56, i64 0, i64 %23
   %25 = load i64, ptr %24, align 8, !noalias !8222, !noundef !7
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 8 %.sink52.i.sroa.phi, i64 %25, i1 false), !noalias !8222
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 8 %.sink53.i.sroa.phi, i64 %25, i1 false), !noalias !8222
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !8222
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %27 = load ptr, ptr %26, align 8, !noalias !8222, !nonnull !7, !noundef !7
@@ -44955,7 +44955,7 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   br i1 %cond30.i, label %"_ZN4core3ptr53drop_in_place$LT$gpui..elements..text..TextLayout$GT$17ha180e8b57c28fa00E.exit37.i", label %141
 
 132:                                              ; preds = %130
-  %133 = load i64, ptr %.sink52.i.sroa.gep1, align 8, !range !27, !alias.scope !8284, !noalias !8222, !noundef !7
+  %133 = load i64, ptr %.sink53.i.sroa.gep1, align 8, !range !27, !alias.scope !8284, !noalias !8222, !noundef !7
   %134 = icmp eq i64 %133, 0
   br i1 %134, label %.noexc34.i, label %135
 
@@ -44978,7 +44978,7 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   br i1 %140, label %.invoke.i, label %"_ZN4core3ptr53drop_in_place$LT$gpui..elements..text..TextLayout$GT$17ha180e8b57c28fa00E.exit37.i"
 
 141:                                              ; preds = %131
-  %142 = load i64, ptr %.sink52.i.sroa.gep, align 8, !range !27, !alias.scope !8297, !noalias !8222, !noundef !7
+  %142 = load i64, ptr %.sink53.i.sroa.gep, align 8, !range !27, !alias.scope !8297, !noalias !8222, !noundef !7
   %143 = icmp eq i64 %142, 0
   br i1 %143, label %.noexc38.i, label %144
 
@@ -45725,9 +45725,9 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1136) %12, ptr noundef nonnull align 8 dereferenceable(1136) %13, i64 1136, i1 false), !noalias !8473
   store i64 2, ptr %13, align 8, !alias.scope !8470, !noalias !8473
   %14 = load i64, ptr %12, align 8, !range !166, !noalias !8475, !noundef !7
-  %.sink46.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %12, i64 1048
-  %.sink47.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 1056
-  %.sink47.i.sroa.gep3 = getelementptr inbounds nuw i8, ptr %12, i64 1072
+  %.sink47.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %12, i64 1048
+  %.sink48.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 1056
+  %.sink48.i.sroa.gep3 = getelementptr inbounds nuw i8, ptr %12, i64 1072
   switch i64 %14, label %15 [
     i64 3, label %21
     i64 4, label %20
@@ -45748,15 +45748,15 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
           to label %122 unwind label %120
 
 20:                                               ; preds = %2
-  %.sink46.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 1064
+  %.sink47.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 1064
   br label %21
 
 21:                                               ; preds = %20, %2
-  %.sink46.i.sroa.phi = phi ptr [ %.sink46.i.sroa.gep, %20 ], [ %.sink46.i.sroa.gep1, %2 ]
+  %.sink47.i.sroa.phi = phi ptr [ %.sink47.i.sroa.gep, %20 ], [ %.sink47.i.sroa.gep1, %2 ]
   %.sink.i = phi i64 [ 1072, %20 ], [ 1056, %2 ]
   %.sroa.012.0.i = phi i8 [ 1, %20 ], [ 0, %2 ]
   %.sroa.010.0.i = phi i8 [ 0, %20 ], [ 1, %2 ]
-  %22 = load i64, ptr %.sink46.i.sroa.phi, align 8, !noalias !8475, !noundef !7
+  %22 = load i64, ptr %.sink47.i.sroa.phi, align 8, !noalias !8475, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !8475
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %24 = load i64, ptr %23, align 8, !range !27, !noalias !8475, !noundef !7
@@ -46073,8 +46073,8 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
           to label %.noexc32.invoke.i unwind label %112
 
 .noexc32.invoke.i:                                ; preds = %137, %133, %130, %126
-  %.sink47.i.sroa.phi = phi ptr [ %.sink47.i.sroa.gep, %130 ], [ %.sink47.i.sroa.gep, %126 ], [ %.sink47.i.sroa.gep3, %137 ], [ %.sink47.i.sroa.gep3, %133 ]
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$gpui..elements..div..DivFrameState$GT$17h5dc9d882cbfd2664E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sink47.i.sroa.phi) #21
+  %.sink48.i.sroa.phi = phi ptr [ %.sink48.i.sroa.gep, %130 ], [ %.sink48.i.sroa.gep, %126 ], [ %.sink48.i.sroa.gep3, %137 ], [ %.sink48.i.sroa.gep3, %133 ]
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$gpui..elements..div..DivFrameState$GT$17h5dc9d882cbfd2664E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sink48.i.sroa.phi) #21
           to label %132 unwind label %112
 
 "_ZN4gpui7element17Drawable$LT$E$GT$8prepaint17hddb57b0297dd8e5dE.exit": ; preds = %108, %110
@@ -47492,9 +47492,9 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1136) %14, ptr noundef nonnull align 8 dereferenceable(1136) %15, i64 1136, i1 false), !noalias !8856
   store i64 2, ptr %15, align 8, !alias.scope !8853, !noalias !8856
   %16 = load i64, ptr %14, align 8, !range !166, !noalias !8858, !noundef !7
-  %.sink46.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %14, i64 1048
-  %.sink47.i.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 1056
-  %.sink47.i.sroa.gep3 = getelementptr inbounds nuw i8, ptr %14, i64 1072
+  %.sink47.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %14, i64 1048
+  %.sink48.i.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 1056
+  %.sink48.i.sroa.gep3 = getelementptr inbounds nuw i8, ptr %14, i64 1072
   switch i64 %16, label %17 [
     i64 3, label %23
     i64 4, label %22
@@ -47515,15 +47515,15 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
           to label %130 unwind label %128
 
 22:                                               ; preds = %2
-  %.sink46.i.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 1064
+  %.sink47.i.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 1064
   br label %23
 
 23:                                               ; preds = %22, %2
-  %.sink46.i.sroa.phi = phi ptr [ %.sink46.i.sroa.gep, %22 ], [ %.sink46.i.sroa.gep1, %2 ]
+  %.sink47.i.sroa.phi = phi ptr [ %.sink47.i.sroa.gep, %22 ], [ %.sink47.i.sroa.gep1, %2 ]
   %.sink.i = phi i64 [ 1072, %22 ], [ 1056, %2 ]
   %.sroa.012.0.i = phi i8 [ 1, %22 ], [ 0, %2 ]
   %.sroa.010.0.i = phi i8 [ 0, %22 ], [ 1, %2 ]
-  %24 = load i64, ptr %.sink46.i.sroa.phi, align 8, !noalias !8858, !noundef !7
+  %24 = load i64, ptr %.sink47.i.sroa.phi, align 8, !noalias !8858, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !8858
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %26 = load i64, ptr %25, align 8, !range !27, !noalias !8858, !noundef !7
@@ -47855,8 +47855,8 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
           to label %.noexc32.invoke.i unwind label %120
 
 .noexc32.invoke.i:                                ; preds = %145, %141, %138, %134
-  %.sink47.i.sroa.phi = phi ptr [ %.sink47.i.sroa.gep, %138 ], [ %.sink47.i.sroa.gep, %134 ], [ %.sink47.i.sroa.gep3, %145 ], [ %.sink47.i.sroa.gep3, %141 ]
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$gpui..elements..div..DivFrameState$GT$17h5dc9d882cbfd2664E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sink47.i.sroa.phi) #21
+  %.sink48.i.sroa.phi = phi ptr [ %.sink48.i.sroa.gep, %138 ], [ %.sink48.i.sroa.gep, %134 ], [ %.sink48.i.sroa.gep3, %145 ], [ %.sink48.i.sroa.gep3, %141 ]
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$gpui..elements..div..DivFrameState$GT$17h5dc9d882cbfd2664E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sink48.i.sroa.phi) #21
           to label %140 unwind label %120
 
 "_ZN4gpui7element17Drawable$LT$E$GT$8prepaint17he5e9f516cc193106E.exit": ; preds = %116, %118
@@ -47889,8 +47889,8 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   %12 = load i64, ptr %11, align 8, !range !1072, !noalias !8932, !noundef !7
   %.sink3.i31.sroa.gep.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.sink3.i31.sroa.gep38.i = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.sink53.i.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sink53.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sink54.i.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink54.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %11, i64 16
   switch i64 %12, label %13 [
     i64 1, label %19
     i64 2, label %18
@@ -47914,16 +47914,16 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   br label %19
 
 19:                                               ; preds = %18, %2
-  %.sink53.i.sroa.phi = phi ptr [ %.sink53.i.sroa.gep, %18 ], [ %.sink53.i.sroa.gep1, %2 ]
+  %.sink54.i.sroa.phi = phi ptr [ %.sink54.i.sroa.gep, %18 ], [ %.sink54.i.sroa.gep1, %2 ]
   %.sroa.014.0.i = phi i1 [ true, %18 ], [ false, %2 ]
   %.sroa.012.0.i = phi i1 [ false, %18 ], [ true, %2 ]
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = load i64, ptr %20, align 8, !noalias !8932, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !8932
-  %22 = load i64, ptr %.sink53.i.sroa.phi, align 8, !range !27, !noalias !8932, !noundef !7
+  %22 = load i64, ptr %.sink54.i.sroa.phi, align 8, !range !27, !noalias !8932, !noundef !7
   %23 = getelementptr inbounds nuw [2 x i64], ptr @anon.186dbb956d37f1f030343507acf9b939.56, i64 0, i64 %22
   %24 = load i64, ptr %23, align 8, !noalias !8932, !noundef !7
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 8 %.sink53.i.sroa.phi, i64 %24, i1 false), !noalias !8932
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 8 %.sink54.i.sroa.phi, i64 %24, i1 false), !noalias !8932
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !8932
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   invoke void @"_ZN68_$LT$gpui..element..AnyElement$u20$as$u20$gpui..element..Element$GT$2id17h842ad69dd1ccf056E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25)
@@ -48171,17 +48171,17 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   br label %"_ZN4gpui7element17Drawable$LT$E$GT$8prepaint17h3bf165d057d55833E.exit"
 
 122:                                              ; preds = %121
-  %123 = load i64, ptr %.sink53.i.sroa.gep1, align 8, !range !27, !alias.scope !8993, !noalias !8932, !noundef !7
+  %123 = load i64, ptr %.sink54.i.sroa.gep1, align 8, !range !27, !alias.scope !8993, !noalias !8932, !noundef !7
   %124 = icmp eq i64 %123, 0
   br i1 %124, label %"_ZN4gpui7element17Drawable$LT$E$GT$8prepaint17h3bf165d057d55833E.exit", label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.exit.sink.split.i30.i"
 
 125:                                              ; preds = %121
-  %126 = load i64, ptr %.sink53.i.sroa.gep, align 8, !range !27, !alias.scope !8998, !noalias !8932, !noundef !7
+  %126 = load i64, ptr %.sink54.i.sroa.gep, align 8, !range !27, !alias.scope !8998, !noalias !8932, !noundef !7
   %127 = icmp eq i64 %126, 0
   br i1 %127, label %"_ZN4gpui7element17Drawable$LT$E$GT$8prepaint17h3bf165d057d55833E.exit", label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.exit.sink.split.i30.i"
 
 128:                                              ; preds = %121
-  %129 = load i64, ptr %.sink53.i.sroa.gep, align 8, !range !27, !alias.scope !9001, !noalias !8932, !noundef !7
+  %129 = load i64, ptr %.sink54.i.sroa.gep, align 8, !range !27, !alias.scope !9001, !noalias !8932, !noundef !7
   %130 = icmp eq i64 %129, 0
   br i1 %130, label %"_ZN4gpui7element17Drawable$LT$E$GT$8prepaint17h3bf165d057d55833E.exit", label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.exit.sink.split.i30.i"
 
@@ -48236,13 +48236,13 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
           to label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.exit35.i" unwind label %138
 
 144:                                              ; preds = %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.exit.i"
-  %145 = load i64, ptr %.sink53.i.sroa.gep1, align 8, !range !27, !noalias !8932
+  %145 = load i64, ptr %.sink54.i.sroa.gep1, align 8, !range !27, !noalias !8932
   %146 = icmp ne i64 %145, 0
   %or.cond.not.i = select i1 %.sroa.014.1.i, i1 %146, i1 false
   br i1 %or.cond.not.i, label %.invoke.i, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.exit35.i"
 
 147:                                              ; preds = %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.exit.i"
-  %148 = load i64, ptr %.sink53.i.sroa.gep, align 8, !range !27, !noalias !8932
+  %148 = load i64, ptr %.sink54.i.sroa.gep, align 8, !range !27, !noalias !8932
   %149 = icmp ne i64 %148, 0
   %or.cond48.not.i = select i1 %.sroa.012.1.i, i1 %149, i1 false
   br i1 %or.cond48.not.i, label %.invoke.i, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.exit35.i"
@@ -48286,8 +48286,8 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   %13 = load i64, ptr %11, align 8, !range !1072, !noalias !9012, !noundef !7
   %.sink3.i31.sroa.gep.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.sink3.i31.sroa.gep38.i = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.sink53.i.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sink53.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sink54.i.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink54.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %11, i64 16
   switch i64 %13, label %14 [
     i64 1, label %20
     i64 2, label %19
@@ -48311,16 +48311,16 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   br label %20
 
 20:                                               ; preds = %19, %2
-  %.sink53.i.sroa.phi = phi ptr [ %.sink53.i.sroa.gep, %19 ], [ %.sink53.i.sroa.gep1, %2 ]
+  %.sink54.i.sroa.phi = phi ptr [ %.sink54.i.sroa.gep, %19 ], [ %.sink54.i.sroa.gep1, %2 ]
   %.sroa.014.0.i = phi i1 [ true, %19 ], [ false, %2 ]
   %.sroa.012.0.i = phi i1 [ false, %19 ], [ true, %2 ]
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %22 = load i64, ptr %21, align 8, !noalias !9012, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !9012
-  %23 = load i64, ptr %.sink53.i.sroa.phi, align 8, !range !27, !noalias !9012, !noundef !7
+  %23 = load i64, ptr %.sink54.i.sroa.phi, align 8, !range !27, !noalias !9012, !noundef !7
   %24 = getelementptr inbounds nuw [2 x i64], ptr @anon.186dbb956d37f1f030343507acf9b939.56, i64 0, i64 %23
   %25 = load i64, ptr %24, align 8, !noalias !9012, !noundef !7
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 8 %.sink53.i.sroa.phi, i64 %25, i1 false), !noalias !9012
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 8 %.sink54.i.sroa.phi, i64 %25, i1 false), !noalias !9012
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !9012
   invoke void @"_ZN75_$LT$gpui..elements..text..StyledText$u20$as$u20$gpui..element..Element$GT$2id17h905752b37065c6b0E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(1128) %0)
           to label %28 unwind label %26
@@ -48567,17 +48567,17 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   br label %"_ZN4gpui7element17Drawable$LT$E$GT$8prepaint17hb77dfa394c0b28e6E.exit"
 
 122:                                              ; preds = %121
-  %123 = load i64, ptr %.sink53.i.sroa.gep1, align 8, !range !27, !alias.scope !9073, !noalias !9012, !noundef !7
+  %123 = load i64, ptr %.sink54.i.sroa.gep1, align 8, !range !27, !alias.scope !9073, !noalias !9012, !noundef !7
   %124 = icmp eq i64 %123, 0
   br i1 %124, label %"_ZN4gpui7element17Drawable$LT$E$GT$8prepaint17hb77dfa394c0b28e6E.exit", label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.exit.sink.split.i30.i"
 
 125:                                              ; preds = %121
-  %126 = load i64, ptr %.sink53.i.sroa.gep, align 8, !range !27, !alias.scope !9078, !noalias !9012, !noundef !7
+  %126 = load i64, ptr %.sink54.i.sroa.gep, align 8, !range !27, !alias.scope !9078, !noalias !9012, !noundef !7
   %127 = icmp eq i64 %126, 0
   br i1 %127, label %"_ZN4gpui7element17Drawable$LT$E$GT$8prepaint17hb77dfa394c0b28e6E.exit", label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.exit.sink.split.i30.i"
 
 128:                                              ; preds = %121
-  %129 = load i64, ptr %.sink53.i.sroa.gep, align 8, !range !27, !alias.scope !9081, !noalias !9012, !noundef !7
+  %129 = load i64, ptr %.sink54.i.sroa.gep, align 8, !range !27, !alias.scope !9081, !noalias !9012, !noundef !7
   %130 = icmp eq i64 %129, 0
   br i1 %130, label %"_ZN4gpui7element17Drawable$LT$E$GT$8prepaint17hb77dfa394c0b28e6E.exit", label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.exit.sink.split.i30.i"
 
@@ -48632,13 +48632,13 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
           to label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.exit35.i" unwind label %138
 
 144:                                              ; preds = %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.exit.i"
-  %145 = load i64, ptr %.sink53.i.sroa.gep1, align 8, !range !27, !noalias !9012
+  %145 = load i64, ptr %.sink54.i.sroa.gep1, align 8, !range !27, !noalias !9012
   %146 = icmp ne i64 %145, 0
   %or.cond.not.i = select i1 %.sroa.014.1.i, i1 %146, i1 false
   br i1 %or.cond.not.i, label %.invoke.i, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.exit35.i"
 
 147:                                              ; preds = %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.exit.i"
-  %148 = load i64, ptr %.sink53.i.sroa.gep, align 8, !range !27, !noalias !9012
+  %148 = load i64, ptr %.sink54.i.sroa.gep, align 8, !range !27, !noalias !9012
   %149 = icmp ne i64 %148, 0
   %or.cond48.not.i = select i1 %.sroa.012.1.i, i1 %149, i1 false
   br i1 %or.cond48.not.i, label %.invoke.i, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.exit35.i"
@@ -48682,7 +48682,7 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   %14 = load i64, ptr %12, align 8, !range !166, !noalias !9092, !noundef !7
   %.sink3.i29.sroa.gep.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sink3.i29.sroa.gep37.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink45.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %12, i64 1048
+  %.sink46.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %12, i64 1048
   switch i64 %14, label %15 [
     i64 3, label %21
     i64 4, label %20
@@ -48703,14 +48703,14 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
           to label %145 unwind label %143
 
 20:                                               ; preds = %2
-  %.sink45.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 1064
+  %.sink46.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 1064
   br label %21
 
 21:                                               ; preds = %20, %2
-  %.sink45.i.sroa.phi = phi ptr [ %.sink45.i.sroa.gep, %20 ], [ %.sink45.i.sroa.gep1, %2 ]
+  %.sink46.i.sroa.phi = phi ptr [ %.sink46.i.sroa.gep, %20 ], [ %.sink46.i.sroa.gep1, %2 ]
   %.sroa.012.0.i = phi i1 [ true, %20 ], [ false, %2 ]
   %.sroa.010.0.i = phi i1 [ false, %20 ], [ true, %2 ]
-  %22 = load i64, ptr %.sink45.i.sroa.phi, align 8, !noalias !9092, !noundef !7
+  %22 = load i64, ptr %.sink46.i.sroa.phi, align 8, !noalias !9092, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !9092
   %23 = load i64, ptr %.sink3.i29.sroa.gep37.i, align 8, !range !27, !noalias !9092, !noundef !7
   %24 = getelementptr inbounds nuw [2 x i64], ptr @anon.186dbb956d37f1f030343507acf9b939.56, i64 0, i64 %23
@@ -50462,9 +50462,9 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1136) %12, ptr noundef nonnull align 8 dereferenceable(1136) %13, i64 1136, i1 false), !noalias !9484
   store i64 2, ptr %13, align 8, !alias.scope !9481, !noalias !9484
   %14 = load i64, ptr %12, align 8, !range !166, !noalias !9486, !noundef !7
-  %.sink46.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %12, i64 1048
-  %.sink47.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 1056
-  %.sink47.i.sroa.gep3 = getelementptr inbounds nuw i8, ptr %12, i64 1072
+  %.sink47.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %12, i64 1048
+  %.sink48.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 1056
+  %.sink48.i.sroa.gep3 = getelementptr inbounds nuw i8, ptr %12, i64 1072
   switch i64 %14, label %15 [
     i64 3, label %21
     i64 4, label %20
@@ -50485,15 +50485,15 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
           to label %124 unwind label %122
 
 20:                                               ; preds = %2
-  %.sink46.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 1064
+  %.sink47.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 1064
   br label %21
 
 21:                                               ; preds = %20, %2
-  %.sink46.i.sroa.phi = phi ptr [ %.sink46.i.sroa.gep, %20 ], [ %.sink46.i.sroa.gep1, %2 ]
+  %.sink47.i.sroa.phi = phi ptr [ %.sink47.i.sroa.gep, %20 ], [ %.sink47.i.sroa.gep1, %2 ]
   %.sink.i = phi i64 [ 1072, %20 ], [ 1056, %2 ]
   %.sroa.012.0.i = phi i8 [ 1, %20 ], [ 0, %2 ]
   %.sroa.010.0.i = phi i8 [ 0, %20 ], [ 1, %2 ]
-  %22 = load i64, ptr %.sink46.i.sroa.phi, align 8, !noalias !9486, !noundef !7
+  %22 = load i64, ptr %.sink47.i.sroa.phi, align 8, !noalias !9486, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !9486
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %24 = load i64, ptr %23, align 8, !range !27, !noalias !9486, !noundef !7
@@ -50810,8 +50810,8 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
           to label %.noexc32.invoke.i unwind label %114
 
 .noexc32.invoke.i:                                ; preds = %139, %135, %132, %128
-  %.sink47.i.sroa.phi = phi ptr [ %.sink47.i.sroa.gep, %132 ], [ %.sink47.i.sroa.gep, %128 ], [ %.sink47.i.sroa.gep3, %139 ], [ %.sink47.i.sroa.gep3, %135 ]
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$gpui..elements..div..DivFrameState$GT$17h5dc9d882cbfd2664E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sink47.i.sroa.phi) #21
+  %.sink48.i.sroa.phi = phi ptr [ %.sink48.i.sroa.gep, %132 ], [ %.sink48.i.sroa.gep, %128 ], [ %.sink48.i.sroa.gep3, %139 ], [ %.sink48.i.sroa.gep3, %135 ]
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$gpui..elements..div..DivFrameState$GT$17h5dc9d882cbfd2664E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sink48.i.sroa.phi) #21
           to label %134 unwind label %114
 
 "_ZN4gpui7element17Drawable$LT$E$GT$8prepaint17hba63f3abafbde163E.exit": ; preds = %110, %112
@@ -53262,8 +53262,8 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   store i64 0, ptr %12, align 8, !alias.scope !10104, !noalias !10107
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   %13 = load i64, ptr %11, align 8, !range !1072, !noalias !10109, !noundef !7
-  %.sink50.i.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %.sink50.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.sink51.i.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 56
+  %.sink51.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 48
   %.sink.i.sroa.gep2 = getelementptr inbounds nuw i8, ptr %11, i64 64
   switch i64 %13, label %14 [
@@ -53289,16 +53289,16 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   br label %20
 
 20:                                               ; preds = %19, %2
-  %.sink50.i.sroa.phi = phi ptr [ %.sink50.i.sroa.gep, %19 ], [ %.sink50.i.sroa.gep1, %2 ]
+  %.sink51.i.sroa.phi = phi ptr [ %.sink51.i.sroa.gep, %19 ], [ %.sink51.i.sroa.gep1, %2 ]
   %.sroa.014.0.i = phi i8 [ 1, %19 ], [ 0, %2 ]
   %.sroa.012.0.i = phi i8 [ 0, %19 ], [ 1, %2 ]
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %22 = load i64, ptr %21, align 8, !noalias !10109, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !10109
-  %23 = load i64, ptr %.sink50.i.sroa.phi, align 8, !range !27, !noalias !10109, !noundef !7
+  %23 = load i64, ptr %.sink51.i.sroa.phi, align 8, !range !27, !noalias !10109, !noundef !7
   %24 = getelementptr inbounds nuw [2 x i64], ptr @anon.186dbb956d37f1f030343507acf9b939.56, i64 0, i64 %23
   %25 = load i64, ptr %24, align 8, !noalias !10109, !noundef !7
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 8 %.sink50.i.sroa.phi, i64 %25, i1 false), !noalias !10109
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 8 %.sink51.i.sroa.phi, i64 %25, i1 false), !noalias !10109
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !10109
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false), !noalias !10107
@@ -53621,7 +53621,7 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   br i1 %cond29.i, label %146, label %147
 
 143:                                              ; preds = %141
-  %144 = load i64, ptr %.sink50.i.sroa.gep1, align 8, !range !27, !alias.scope !10186, !noalias !10109, !noundef !7
+  %144 = load i64, ptr %.sink51.i.sroa.gep1, align 8, !range !27, !alias.scope !10186, !noalias !10109, !noundef !7
   %145 = icmp eq i64 %144, 0
   br i1 %145, label %.noexc38.invoke.i, label %.invoke.i
 
@@ -53629,7 +53629,7 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   resume { ptr, i32 } %.pn24.i
 
 147:                                              ; preds = %142
-  %148 = load i64, ptr %.sink50.i.sroa.gep, align 8, !range !27, !alias.scope !10189, !noalias !10109, !noundef !7
+  %148 = load i64, ptr %.sink51.i.sroa.gep, align 8, !range !27, !alias.scope !10189, !noalias !10109, !noundef !7
   %149 = icmp eq i64 %148, 0
   br i1 %149, label %.noexc38.invoke.i, label %.invoke.i
 

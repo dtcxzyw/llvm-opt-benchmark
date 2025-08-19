@@ -88,19 +88,19 @@ define noundef range(i32 0, 27) i32 @_Z10tMPI_Get_NPiPPPcPKcS_(ptr noundef reado
   %10 = load ptr, ptr %9, align 8, !tbaa !48
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %10) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.loopexit.loopexit.split.loop.exit34, label %13
+  br i1 %12, label %.loopexit.loopexit.split.loop.exit37, label %13
 
 13:                                               ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit.loopexit, label %8, !llvm.loop !50
 
-.loopexit.loopexit.split.loop.exit34:             ; preds = %8
+.loopexit.loopexit.split.loop.exit37:             ; preds = %8
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit.loopexit
 
-.loopexit.loopexit:                               ; preds = %13, %.loopexit.loopexit.split.loop.exit34
-  %.0.ph = phi i32 [ %14, %.loopexit.loopexit.split.loop.exit34 ], [ %.pre, %13 ]
+.loopexit.loopexit:                               ; preds = %13, %.loopexit.loopexit.split.loop.exit37
+  %.0.ph = phi i32 [ %14, %.loopexit.loopexit.split.loop.exit37 ], [ %.pre, %13 ]
   %15 = add nuw nsw i32 %.0.ph, 1
   br label %.loopexit
 
@@ -120,14 +120,14 @@ define noundef range(i32 0, 27) i32 @_Z10tMPI_Get_NPiPPPcPKcS_(ptr noundef reado
   store i32 %23, ptr %3, align 4, !tbaa !46
   %24 = load ptr, ptr %5, align 8, !tbaa !48
   %.not23 = icmp eq ptr %24, null
-  br i1 %.not23, label %.thread32, label %25
+  br i1 %.not23, label %.thread35, label %25
 
 25:                                               ; preds = %17
   %26 = load i8, ptr %24, align 1, !tbaa !52
   %.not24 = icmp eq i8 %26, 0
-  br i1 %.not24, label %27, label %.thread32
+  br i1 %.not24, label %27, label %.thread35
 
-.thread32:                                        ; preds = %17, %25
+.thread35:                                        ; preds = %17, %25
   store i32 0, ptr %3, align 4, !tbaa !46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
@@ -137,16 +137,16 @@ define noundef range(i32 0, 27) i32 @_Z10tMPI_Get_NPiPPPcPKcS_(ptr noundef reado
   %28 = icmp slt i32 %23, 1
   br i1 %28, label %.thread, label %30
 
-.thread:                                          ; preds = %.loopexit, %.thread32, %27
-  %.01831 = phi i32 [ 0, %27 ], [ 26, %.thread32 ], [ 0, %.loopexit ]
+.thread:                                          ; preds = %.loopexit, %.thread35, %27
+  %.01834 = phi i32 [ 0, %27 ], [ 26, %.thread35 ], [ 0, %.loopexit ]
   %29 = tail call noundef i32 @_Z25tMPI_Thread_get_hw_numberv()
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %29, i32 1)
   store i32 %spec.store.select, ptr %3, align 4, !tbaa !46
   br label %30
 
 30:                                               ; preds = %.thread, %27
-  %.01830 = phi i32 [ %.01831, %.thread ], [ 0, %27 ]
-  ret i32 %.01830
+  %.01833 = phi i32 [ %.01834, %.thread ], [ 0, %27 ]
+  ret i32 %.01833
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -180,19 +180,19 @@ define noundef range(i32 0, 2) i32 @_Z9tMPI_InitPiPPPcPFiiS1_E(ptr noundef reado
   %12 = load ptr, ptr %11, align 8, !tbaa !48
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str, ptr noundef nonnull dereferenceable(1) %12) #17
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.loopexit.loopexit.split.loop.exit34.i, label %15
+  br i1 %14, label %.loopexit.loopexit.split.loop.exit37.i, label %15
 
 15:                                               ; preds = %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit.loopexit.i, label %10, !llvm.loop !50
 
-.loopexit.loopexit.split.loop.exit34.i:           ; preds = %10
+.loopexit.loopexit.split.loop.exit37.i:           ; preds = %10
   %16 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.loopexit.loopexit.i
 
-.loopexit.loopexit.i:                             ; preds = %15, %.loopexit.loopexit.split.loop.exit34.i
-  %.0.ph.i = phi i32 [ %16, %.loopexit.loopexit.split.loop.exit34.i ], [ %.pre.i, %15 ]
+.loopexit.loopexit.i:                             ; preds = %15, %.loopexit.loopexit.split.loop.exit37.i
+  %.0.ph.i = phi i32 [ %16, %.loopexit.loopexit.split.loop.exit37.i ], [ %.pre.i, %15 ]
   %17 = add nuw nsw i32 %.0.ph.i, 1
   br label %.loopexit.i
 
@@ -211,14 +211,14 @@ define noundef range(i32 0, 2) i32 @_Z9tMPI_InitPiPPPcPFiiS1_E(ptr noundef reado
   %25 = trunc i64 %24 to i32
   %26 = load ptr, ptr %4, align 8, !tbaa !48
   %.not23.i = icmp eq ptr %26, null
-  br i1 %.not23.i, label %.thread32.i, label %27
+  br i1 %.not23.i, label %.thread35.i, label %27
 
 27:                                               ; preds = %19
   %28 = load i8, ptr %26, align 1, !tbaa !52
   %.not24.i = icmp eq i8 %28, 0
-  br i1 %.not24.i, label %29, label %.thread32.i
+  br i1 %.not24.i, label %29, label %.thread35.i
 
-.thread32.i:                                      ; preds = %27, %19
+.thread35.i:                                      ; preds = %27, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread.i
 
@@ -227,7 +227,7 @@ define noundef range(i32 0, 2) i32 @_Z9tMPI_InitPiPPPcPFiiS1_E(ptr noundef reado
   %30 = icmp slt i32 %25, 1
   br i1 %30, label %.thread.i, label %_Z10tMPI_Get_NPiPPPcPKcS_.exit
 
-.thread.i:                                        ; preds = %29, %.thread32.i, %.loopexit.i
+.thread.i:                                        ; preds = %29, %.thread35.i, %.loopexit.i
   %31 = tail call noundef i32 @_Z25tMPI_Thread_get_hw_numberv()
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %31, i32 1)
   br label %_Z10tMPI_Get_NPiPPPcPKcS_.exit
@@ -420,18 +420,18 @@ _ZL16tMPI_Global_initP11tmpi_globali.exit:        ; preds = %20, %16, %13
   %84 = tail call noundef ptr @_Z16tMPI_Thread_selfv()
   %85 = load ptr, ptr @threads, align 8, !tbaa !29
   store ptr %84, ptr %85, align 8, !tbaa !67
-  br i1 %or.cond74.not, label %86, label %.thread122
+  br i1 %or.cond74.not, label %86, label %.thread127
 
 86:                                               ; preds = %.thread, %80
   %.not91 = icmp eq i32 %1, 1
   br i1 %.not91, label %._crit_edge90, label %.lr.ph.split.us.preheader
 
-.thread122:                                       ; preds = %80
+.thread127:                                       ; preds = %80
   %87 = tail call noundef i32 @_Z30tMPI_Thread_setaffinity_singleP11tMPI_Threadj(ptr noundef %84, i32 noundef 0)
-  %.not91124 = icmp eq i32 %1, 1
-  br i1 %.not91124, label %._crit_edge90, label %.lr.ph.split.preheader
+  %.not91129 = icmp eq i32 %1, 1
+  br i1 %.not91129, label %._crit_edge90, label %.lr.ph.split.preheader
 
-.lr.ph.split.preheader:                           ; preds = %.thread122
+.lr.ph.split.preheader:                           ; preds = %.thread127
   %smax110 = tail call i32 @llvm.smax.i32(i32 %1, i32 2)
   %wide.trip.count111 = zext nneg i32 %smax110 to i64
   br label %.lr.ph.split
@@ -477,7 +477,7 @@ _ZL16tMPI_Global_initP11tmpi_globali.exit:        ; preds = %20, %16, %13
   %102 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %101, i32 noundef 3)
   br label %.thread79
 
-._crit_edge90:                                    ; preds = %92, %91, %.thread122, %86
+._crit_edge90:                                    ; preds = %92, %91, %.thread127, %86
   %.not71 = icmp eq i32 %0, 0
   %103 = load ptr, ptr @threads, align 8, !tbaa !29
   br i1 %.not71, label %104, label %106

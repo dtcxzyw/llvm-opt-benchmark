@@ -1674,7 +1674,7 @@ define noalias noundef ptr @Cudd_bddCharToVect(ptr noundef %0, ptr noundef %1) l
   %6 = xor i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
   %8 = icmp eq ptr %1, %7
-  br i1 %8, label %.split.thread66, label %9
+  br i1 %8, label %.split.thread70, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1696,7 +1696,7 @@ define noalias noundef ptr @Cudd_bddCharToVect(ptr noundef %0, ptr noundef %1) l
 20:                                               ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %21, align 8, !tbaa !38
-  br label %.split.thread66
+  br label %.split.thread70
 
 .lr.ph.preheader:                                 ; preds = %.preheader42, %.backedge
   %.pre57 = load ptr, ptr %18, align 8, !tbaa !43
@@ -1761,7 +1761,7 @@ define noalias noundef ptr @Cudd_bddCharToVect(ptr noundef %0, ptr noundef %1) l
 ._crit_edge:                                      ; preds = %37
   %.pre58 = load i32, ptr %16, align 8, !tbaa !3
   %52 = icmp eq i32 %.pre58, 1
-  br i1 %52, label %.backedge, label %.split.thread66
+  br i1 %52, label %.backedge, label %.split.thread70
 
 .backedge:                                        ; preds = %.thread..backedge_crit_edge, %._crit_edge
   %.pre = phi i32 [ %49, %._crit_edge ], [ %.pre.pre, %.thread..backedge_crit_edge ]
@@ -1780,13 +1780,13 @@ define noalias noundef ptr @Cudd_bddCharToVect(ptr noundef %0, ptr noundef %1) l
 
 .split:                                           ; preds = %.backedge
   %56 = icmp eq ptr %29, null
-  br i1 %56, label %.thread40, label %.split.thread66
+  br i1 %56, label %.thread40, label %.split.thread70
 
 .thread40:                                        ; preds = %.thread, %.preheader42, %.split
   tail call void @free(ptr noundef %14) #9
-  br label %.split.thread66
+  br label %.split.thread70
 
-.split.thread66:                                  ; preds = %._crit_edge, %.split, %2, %.thread40, %20
+.split.thread70:                                  ; preds = %._crit_edge, %.split, %2, %.thread40, %20
   %.034 = phi ptr [ null, %20 ], [ null, %.thread40 ], [ null, %2 ], [ %14, %.split ], [ %14, %._crit_edge ]
   ret ptr %.034
 }
@@ -1982,10 +1982,10 @@ define ptr @cuddBddLICompaction(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %16, %23
-  %.sink32 = phi ptr [ %21, %23 ], [ %11, %16 ]
+  %.sink37 = phi ptr [ %21, %23 ], [ %11, %16 ]
   %.sink.ph = phi ptr [ %11, %23 ], [ %14, %16 ]
   %.0.ph.ph = phi ptr [ %24, %23 ], [ null, %16 ]
-  tail call void @st__free_table(ptr noundef nonnull %.sink32) #9
+  tail call void @st__free_table(ptr noundef nonnull %.sink37) #9
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %20, %13

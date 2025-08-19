@@ -716,14 +716,14 @@ switch.lookup:                                    ; preds = %2
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.udbg_enumArrayValue, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not = icmp samesign ult i32 %1, %switch.load
-  br i1 %.not, label %switch.lookup16, label %_ZL16_udbg_enumFields14UDebugEnumType.exit
+  br i1 %.not, label %switch.lookup17, label %_ZL16_udbg_enumFields14UDebugEnumType.exit
 
-switch.lookup16:                                  ; preds = %switch.lookup
+switch.lookup17:                                  ; preds = %switch.lookup
   %6 = zext nneg i32 %0 to i64
-  %switch.gep17 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.udbg_enumByName, i64 0, i64 %6
-  %switch.load18 = load ptr, ptr %switch.gep17, align 8
+  %switch.gep18 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.udbg_enumByName, i64 0, i64 %6
+  %switch.load19 = load ptr, ptr %switch.gep18, align 8
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.Field, ptr %switch.load18, i64 %7
+  %8 = getelementptr inbounds nuw %struct.Field, ptr %switch.load19, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = load i32, ptr %8, align 8, !tbaa !17
@@ -731,8 +731,8 @@ switch.lookup16:                                  ; preds = %switch.lookup
   %13 = getelementptr inbounds i8, ptr %10, i64 %12
   br label %_ZL16_udbg_enumFields14UDebugEnumType.exit
 
-_ZL16_udbg_enumFields14UDebugEnumType.exit:       ; preds = %switch.lookup16, %2, %switch.lookup
-  %.0 = phi ptr [ null, %switch.lookup ], [ null, %2 ], [ %13, %switch.lookup16 ]
+_ZL16_udbg_enumFields14UDebugEnumType.exit:       ; preds = %switch.lookup17, %2, %switch.lookup
+  %.0 = phi ptr [ null, %switch.lookup ], [ null, %2 ], [ %13, %switch.lookup17 ]
   ret ptr %.0
 }
 
@@ -748,19 +748,19 @@ switch.lookup:                                    ; preds = %2
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.udbg_enumArrayValue, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not = icmp samesign ult i32 %1, %switch.load
-  br i1 %.not, label %switch.lookup14, label %_ZL16_udbg_enumFields14UDebugEnumType.exit
+  br i1 %.not, label %switch.lookup15, label %_ZL16_udbg_enumFields14UDebugEnumType.exit
 
-switch.lookup14:                                  ; preds = %switch.lookup
+switch.lookup15:                                  ; preds = %switch.lookup
   %6 = zext nneg i32 %0 to i64
-  %switch.gep15 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.udbg_enumByName, i64 0, i64 %6
-  %switch.load16 = load ptr, ptr %switch.gep15, align 8
+  %switch.gep16 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.udbg_enumByName, i64 0, i64 %6
+  %switch.load17 = load ptr, ptr %switch.gep16, align 8
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.Field, ptr %switch.load16, i64 %7, i32 2
+  %8 = getelementptr inbounds nuw %struct.Field, ptr %switch.load17, i64 %7, i32 2
   %9 = load i32, ptr %8, align 8, !tbaa !18
   br label %_ZL16_udbg_enumFields14UDebugEnumType.exit
 
-_ZL16_udbg_enumFields14UDebugEnumType.exit:       ; preds = %switch.lookup14, %2, %switch.lookup
-  %.0 = phi i32 [ -1, %switch.lookup ], [ -1, %2 ], [ %9, %switch.lookup14 ]
+_ZL16_udbg_enumFields14UDebugEnumType.exit:       ; preds = %switch.lookup15, %2, %switch.lookup
+  %.0 = phi i32 [ -1, %switch.lookup ], [ -1, %2 ], [ %9, %switch.lookup15 ]
   ret i32 %.0
 }
 
@@ -774,54 +774,54 @@ switch.lookup:                                    ; preds = %2
   %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.udbg_enumByName, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep55 = getelementptr inbounds nuw [6 x i64], ptr @switch.table.udbg_enumByName.4, i64 0, i64 %4
-  br label %switch.lookup54
+  %switch.gep60 = getelementptr inbounds nuw [6 x i64], ptr @switch.table.udbg_enumByName.4, i64 0, i64 %4
+  %switch.load61 = load i64, ptr %switch.gep60, align 8
+  br label %switch.lookup59
 
-switch.lookup54:                                  ; preds = %7, %switch.lookup
-  %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %switch.lookup ]
-  %switch.load56 = load i64, ptr %switch.gep55, align 8
-  %5 = icmp slt i64 %indvars.iv, %switch.load56
-  br i1 %5, label %7, label %.preheader.preheader
+switch.lookup59:                                  ; preds = %6, %switch.lookup
+  %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %switch.lookup ]
+  %.not33 = icmp samesign ult i64 %indvars.iv, %switch.load61
+  br i1 %.not33, label %6, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %switch.lookup54
-  %6 = zext nneg i32 %0 to i64
-  %switch.gep58 = getelementptr inbounds nuw [6 x i64], ptr @switch.table.udbg_enumByName.4, i64 0, i64 %6
+.preheader.preheader:                             ; preds = %switch.lookup59
+  %5 = zext nneg i32 %0 to i64
+  %switch.gep63 = getelementptr inbounds nuw [6 x i64], ptr @switch.table.udbg_enumByName.4, i64 0, i64 %5
+  %switch.load64 = load i64, ptr %switch.gep63, align 8
   br label %.preheader
 
-7:                                                ; preds = %switch.lookup54
-  %8 = getelementptr inbounds nuw %struct.Field, ptr %switch.load, i64 %indvars.iv
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !15
-  %11 = load i32, ptr %8, align 8, !tbaa !17
-  %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %10, i64 %12
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %13) #29
-  %.not32 = icmp eq i32 %14, 0
+6:                                                ; preds = %switch.lookup59
+  %7 = getelementptr inbounds nuw %struct.Field, ptr %switch.load, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !15
+  %10 = load i32, ptr %7, align 8, !tbaa !17
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr inbounds i8, ptr %9, i64 %11
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %12) #29
+  %.not32 = icmp eq i32 %13, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not32, label %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread.sink.split, label %switch.lookup54, !llvm.loop !19
+  br i1 %.not32, label %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread.sink.split, label %switch.lookup59, !llvm.loop !19
 
-.preheader:                                       ; preds = %.preheader.preheader, %16
-  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %16 ], [ 0, %.preheader.preheader ]
-  %switch.load59 = load i64, ptr %switch.gep58, align 8
-  %15 = icmp slt i64 %indvars.iv47, %switch.load59
-  br i1 %15, label %16, label %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread
+.preheader:                                       ; preds = %.preheader.preheader, %14
+  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %14 ], [ 0, %.preheader.preheader ]
+  %.not35 = icmp samesign ult i64 %indvars.iv47, %switch.load64
+  br i1 %.not35, label %14, label %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread
 
-16:                                               ; preds = %.preheader
-  %17 = getelementptr inbounds nuw %struct.Field, ptr %switch.load, i64 %indvars.iv47, i32 1
-  %18 = load ptr, ptr %17, align 8, !tbaa !15
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %18) #29
-  %.not34 = icmp eq i32 %19, 0
+14:                                               ; preds = %.preheader
+  %15 = getelementptr inbounds nuw %struct.Field, ptr %switch.load, i64 %indvars.iv47, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !15
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %16) #29
+  %.not34 = icmp eq i32 %17, 0
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   br i1 %.not34, label %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread.sink.split, label %.preheader, !llvm.loop !21
 
-_ZL16_udbg_enumFields14UDebugEnumType.exit.thread.sink.split: ; preds = %7, %16
-  %20 = phi i64 [ %indvars.iv47, %16 ], [ %indvars.iv, %7 ]
-  %21 = getelementptr inbounds nuw %struct.Field, ptr %switch.load, i64 %20, i32 2
-  %22 = load i32, ptr %21, align 8, !tbaa !18
+_ZL16_udbg_enumFields14UDebugEnumType.exit.thread.sink.split: ; preds = %6, %14
+  %18 = phi i64 [ %indvars.iv47, %14 ], [ %indvars.iv, %6 ]
+  %19 = getelementptr inbounds nuw %struct.Field, ptr %switch.load, i64 %18, i32 2
+  %20 = load i32, ptr %19, align 8, !tbaa !18
   br label %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread
 
 _ZL16_udbg_enumFields14UDebugEnumType.exit.thread: ; preds = %.preheader, %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread.sink.split, %2
-  %.027 = phi i32 [ -1, %2 ], [ %22, %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread.sink.split ], [ -1, %.preheader ]
+  %.027 = phi i32 [ -1, %2 ], [ %20, %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread.sink.split ], [ -1, %.preheader ]
   ret i32 %.027
 }
 
@@ -977,15 +977,15 @@ define internal fastcc noundef i32 @_ZL21integerToStringBufferPciiiP10UErrorCode
   br i1 %.not21.i, label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %16, %13
-  %.sink25.i = phi i32 [ %15, %13 ], [ %19, %16 ]
+  %.sink26.i = phi i32 [ %15, %13 ], [ %19, %16 ]
   %.sink.i = phi ptr [ %6, %13 ], [ %17, %16 ]
-  %20 = call i32 @uprv_min_77(i32 noundef %.sink25.i, i32 noundef %1)
+  %20 = call i32 @uprv_min_77(i32 noundef %.sink26.i, i32 noundef %1)
   %21 = sext i32 %20 to i64
   %22 = call ptr @strncpy(ptr noundef nonnull %0, ptr noundef nonnull %.sink.i, i64 noundef %21) #26
   br label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit
 
 _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %13, %16, %.sink.split.i
-  %.018.i = phi i32 [ %15, %13 ], [ %19, %16 ], [ %.sink25.i, %.sink.split.i ]
+  %.018.i = phi i32 [ %15, %13 ], [ %19, %16 ], [ %.sink26.i, %.sink.split.i ]
   %23 = call noundef i32 @u_terminateChars_77(ptr noundef %0, i32 noundef %1, i32 noundef %.018.i, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %24
@@ -1032,15 +1032,15 @@ define noundef i32 @paramCldrVersion(ptr readnone captures(none) %0, ptr noundef
   br i1 %.not21.i, label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %18, %15
-  %.sink25.i = phi i32 [ %17, %15 ], [ %21, %18 ]
+  %.sink26.i = phi i32 [ %17, %15 ], [ %21, %18 ]
   %.sink.i = phi ptr [ %5, %15 ], [ %19, %18 ]
-  %22 = call i32 @uprv_min_77(i32 noundef %.sink25.i, i32 noundef %2)
+  %22 = call i32 @uprv_min_77(i32 noundef %.sink26.i, i32 noundef %2)
   %23 = sext i32 %22 to i64
   %24 = call ptr @strncpy(ptr noundef nonnull %1, ptr noundef nonnull %.sink.i, i64 noundef %23) #26
   br label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit
 
 _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %15, %18, %.sink.split.i
-  %.018.i = phi i32 [ %17, %15 ], [ %21, %18 ], [ %.sink25.i, %.sink.split.i ]
+  %.018.i = phi i32 [ %17, %15 ], [ %21, %18 ], [ %.sink26.i, %.sink.split.i ]
   %25 = call noundef i32 @u_terminateChars_77(ptr noundef %1, i32 noundef %2, i32 noundef %.018.i, ptr noundef nonnull %3)
   br label %26
 
@@ -1101,15 +1101,15 @@ define noundef i32 @paramTimezoneDefault(ptr readnone captures(none) %0, ptr nou
   br i1 %.not21.i, label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %21, %18
-  %.sink25.i = phi i32 [ %20, %18 ], [ %24, %21 ]
+  %.sink26.i = phi i32 [ %20, %18 ], [ %24, %21 ]
   %.sink.i = phi ptr [ %6, %18 ], [ %22, %21 ]
-  %25 = call i32 @uprv_min_77(i32 noundef %.sink25.i, i32 noundef %2)
+  %25 = call i32 @uprv_min_77(i32 noundef %.sink26.i, i32 noundef %2)
   %26 = sext i32 %25 to i64
   %27 = call ptr @strncpy(ptr noundef nonnull %1, ptr noundef nonnull %.sink.i, i64 noundef %26) #26
   br label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit
 
 _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %18, %21, %.sink.split.i
-  %.018.i = phi i32 [ %20, %18 ], [ %24, %21 ], [ %.sink25.i, %.sink.split.i ]
+  %.018.i = phi i32 [ %20, %18 ], [ %24, %21 ], [ %.sink26.i, %.sink.split.i ]
   %28 = call noundef i32 @u_terminateChars_77(ptr noundef %1, i32 noundef %2, i32 noundef %.018.i, ptr noundef nonnull %3)
   br label %29
 
@@ -1171,15 +1171,15 @@ define noundef i32 @paramIcudataPath(ptr readnone captures(none) %0, ptr noundef
   br i1 %.not21.i, label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %8
-  %.sink25.i = phi i32 [ %11, %8 ], [ %15, %12 ]
+  %.sink26.i = phi i32 [ %11, %8 ], [ %15, %12 ]
   %.sink.i = phi ptr [ %spec.select.i, %8 ], [ %13, %12 ]
-  %16 = tail call i32 @uprv_min_77(i32 noundef %.sink25.i, i32 noundef %2)
+  %16 = tail call i32 @uprv_min_77(i32 noundef %.sink26.i, i32 noundef %2)
   %17 = sext i32 %16 to i64
   %18 = tail call ptr @strncpy(ptr noundef nonnull %1, ptr noundef nonnull %.sink.i, i64 noundef %17) #26
   br label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit
 
 _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %8, %12, %.sink.split.i
-  %.018.i = phi i32 [ %11, %8 ], [ %15, %12 ], [ %.sink25.i, %.sink.split.i ]
+  %.018.i = phi i32 [ %11, %8 ], [ %15, %12 ], [ %.sink26.i, %.sink.split.i ]
   %19 = tail call noundef i32 @u_terminateChars_77(ptr noundef %1, i32 noundef %2, i32 noundef %.018.i, ptr noundef nonnull %3)
   ret i32 %19
 }
@@ -1204,15 +1204,15 @@ define noundef i32 @paramPlatform(ptr readnone captures(none) %0, ptr noundef %1
   br i1 %.not21.i, label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %8, %7
-  %.sink25.i = phi i32 [ 5, %7 ], [ %11, %8 ]
+  %.sink26.i = phi i32 [ 5, %7 ], [ %11, %8 ]
   %.sink.i = phi ptr [ @.str, %7 ], [ %9, %8 ]
-  %12 = tail call i32 @uprv_min_77(i32 noundef %.sink25.i, i32 noundef %2)
+  %12 = tail call i32 @uprv_min_77(i32 noundef %.sink26.i, i32 noundef %2)
   %13 = sext i32 %12 to i64
   %14 = tail call ptr @strncpy(ptr noundef nonnull %1, ptr noundef nonnull %.sink.i, i64 noundef %13) #26
   br label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit
 
 _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %7, %8, %.sink.split.i
-  %.018.i = phi i32 [ 5, %7 ], [ %11, %8 ], [ %.sink25.i, %.sink.split.i ]
+  %.018.i = phi i32 [ 5, %7 ], [ %11, %8 ], [ %.sink26.i, %.sink.split.i ]
   %15 = tail call noundef i32 @u_terminateChars_77(ptr noundef %1, i32 noundef %2, i32 noundef %.018.i, ptr noundef nonnull %3)
   ret i32 %15
 }
@@ -1240,15 +1240,15 @@ define noundef i32 @paramLocaleDefault(ptr readnone captures(none) %0, ptr nound
   br i1 %.not21.i, label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %8
-  %.sink25.i = phi i32 [ %11, %8 ], [ %15, %12 ]
+  %.sink26.i = phi i32 [ %11, %8 ], [ %15, %12 ]
   %.sink.i = phi ptr [ %spec.select.i, %8 ], [ %13, %12 ]
-  %16 = tail call i32 @uprv_min_77(i32 noundef %.sink25.i, i32 noundef %2)
+  %16 = tail call i32 @uprv_min_77(i32 noundef %.sink26.i, i32 noundef %2)
   %17 = sext i32 %16 to i64
   %18 = tail call ptr @strncpy(ptr noundef nonnull %1, ptr noundef nonnull %.sink.i, i64 noundef %17) #26
   br label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit
 
 _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %8, %12, %.sink.split.i
-  %.018.i = phi i32 [ %11, %8 ], [ %15, %12 ], [ %.sink25.i, %.sink.split.i ]
+  %.018.i = phi i32 [ %11, %8 ], [ %15, %12 ], [ %.sink26.i, %.sink.split.i ]
   %19 = tail call noundef i32 @u_terminateChars_77(ptr noundef %1, i32 noundef %2, i32 noundef %.018.i, ptr noundef nonnull %3)
   ret i32 %19
 }
@@ -1276,15 +1276,15 @@ define noundef i32 @paramConverterDefault(ptr readnone captures(none) %0, ptr no
   br i1 %.not21.i, label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %8
-  %.sink25.i = phi i32 [ %11, %8 ], [ %15, %12 ]
+  %.sink26.i = phi i32 [ %11, %8 ], [ %15, %12 ]
   %.sink.i = phi ptr [ %spec.select.i, %8 ], [ %13, %12 ]
-  %16 = tail call i32 @uprv_min_77(i32 noundef %.sink25.i, i32 noundef %2)
+  %16 = tail call i32 @uprv_min_77(i32 noundef %.sink26.i, i32 noundef %2)
   %17 = sext i32 %16 to i64
   %18 = tail call ptr @strncpy(ptr noundef nonnull %1, ptr noundef nonnull %.sink.i, i64 noundef %17) #26
   br label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit
 
 _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %8, %12, %.sink.split.i
-  %.018.i = phi i32 [ %11, %8 ], [ %15, %12 ], [ %.sink25.i, %.sink.split.i ]
+  %.018.i = phi i32 [ %11, %8 ], [ %15, %12 ], [ %.sink26.i, %.sink.split.i ]
   %19 = tail call noundef i32 @u_terminateChars_77(ptr noundef %1, i32 noundef %2, i32 noundef %.018.i, ptr noundef nonnull %3)
   ret i32 %19
 }
@@ -1314,15 +1314,15 @@ define noundef i32 @paramTimezoneVersion(ptr readnone captures(none) %0, ptr nou
   br i1 %.not21.i, label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %8
-  %.sink25.i = phi i32 [ %11, %8 ], [ %15, %12 ]
+  %.sink26.i = phi i32 [ %11, %8 ], [ %15, %12 ]
   %.sink.i = phi ptr [ %spec.select.i, %8 ], [ %13, %12 ]
-  %16 = tail call i32 @uprv_min_77(i32 noundef %.sink25.i, i32 noundef %2)
+  %16 = tail call i32 @uprv_min_77(i32 noundef %.sink26.i, i32 noundef %2)
   %17 = sext i32 %16 to i64
   %18 = tail call ptr @strncpy(ptr noundef nonnull %1, ptr noundef nonnull %.sink.i, i64 noundef %17) #26
   br label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit
 
 _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %8, %12, %.sink.split.i
-  %.018.i = phi i32 [ %11, %8 ], [ %15, %12 ], [ %.sink25.i, %.sink.split.i ]
+  %.018.i = phi i32 [ %11, %8 ], [ %15, %12 ], [ %.sink26.i, %.sink.split.i ]
   %19 = tail call noundef i32 @u_terminateChars_77(ptr noundef %1, i32 noundef %2, i32 noundef %.018.i, ptr noundef nonnull %3)
   ret i32 %19
 }
@@ -4808,18 +4808,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !29
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #29
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #29
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !38
@@ -4853,7 +4853,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -5319,18 +5319,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !29
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #29
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #29
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !38
@@ -5364,7 +5364,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -5424,18 +5424,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !29
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #29
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #29
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !38
@@ -5469,7 +5469,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

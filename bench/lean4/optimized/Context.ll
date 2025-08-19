@@ -1789,18 +1789,18 @@ _init_l_Lake_getIsQuiet___rarg___closed__1.exit:  ; preds = %_init_l_Lake_getIsV
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_getIsQuiet___rarg___closed__1.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %84, %_init_l_Lake_getIsQuiet___rarg___closed__1.exit ]
-  %87 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !7
+  %.sink30 = phi ptr [ %4, %3 ], [ %84, %_init_l_Lake_getIsQuiet___rarg___closed__1.exit ]
+  %87 = getelementptr inbounds nuw i8, ptr %.sink30, i64 4
+  store i32 1, ptr %.sink30, align 4, !tbaa !7
   store i32 131096, ptr %87, align 4
-  %88 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.sink30, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %88, align 8, !tbaa !11
-  %89 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.sink30, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %89, align 8, !tbaa !11
   br label %90
 
 90:                                               ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink30, %.sink.split ]
   ret ptr %.0
 }
 

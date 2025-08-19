@@ -2860,12 +2860,12 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt6vectorIiSaIiEENS_17__normal_iteratorIP
   br i1 %.not.i.i.i.i.i1.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %_ZNSt6vectorIiSaIiEED2Ev.exit.sink.split
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.sink.split:         ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt6vectorIiSaIiEENS_17__normal_iteratorIPS5_S3_IS5_SaIS5_EEEEEEbRT_T0_.exit.thread18.i, %.loopexit
-  %.sink47 = phi ptr [ %55, %.loopexit ], [ %88, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt6vectorIiSaIiEENS_17__normal_iteratorIPS5_S3_IS5_SaIS5_EEEEEEbRT_T0_.exit.thread18.i ]
-  %.sink46 = phi ptr [ %54, %.loopexit ], [ %85, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt6vectorIiSaIiEENS_17__normal_iteratorIPS5_S3_IS5_SaIS5_EEEEEEbRT_T0_.exit.thread18.i ]
-  %89 = ptrtoint ptr %.sink47 to i64
-  %90 = ptrtoint ptr %.sink46 to i64
+  %.sink62 = phi ptr [ %55, %.loopexit ], [ %88, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt6vectorIiSaIiEENS_17__normal_iteratorIPS5_S3_IS5_SaIS5_EEEEEEbRT_T0_.exit.thread18.i ]
+  %.sink61 = phi ptr [ %54, %.loopexit ], [ %85, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt6vectorIiSaIiEENS_17__normal_iteratorIPS5_S3_IS5_SaIS5_EEEEEEbRT_T0_.exit.thread18.i ]
+  %89 = ptrtoint ptr %.sink62 to i64
+  %90 = ptrtoint ptr %.sink61 to i64
   %91 = sub i64 %89, %90
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink46, i64 noundef %91) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink61, i64 noundef %91) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.sink.split, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt6vectorIiSaIiEENS_17__normal_iteratorIPS5_S3_IS5_SaIS5_EEEEEEbRT_T0_.exit.thread18.i, %.loopexit

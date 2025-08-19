@@ -3450,7 +3450,7 @@ define internal fastcc i32 @do_epoll_wait(i32 noundef %0, ptr noundef %1, i32 no
 
 .thread29:                                        ; preds = %.thread29.backedge, %64
   %78 = phi i32 [ %65, %64 ], [ %.be, %.thread29.backedge ]
-  %79 = phi i32 [ %49, %64 ], [ %.be72, %.thread29.backedge ]
+  %79 = phi i32 [ %49, %64 ], [ %.be90, %.thread29.backedge ]
   %80 = icmp eq i32 %78, 0
   br i1 %80, label %191, label %81
 
@@ -3505,8 +3505,8 @@ define internal fastcc i32 @do_epoll_wait(i32 noundef %0, ptr noundef %1, i32 no
   store volatile ptr null, ptr %70, align 8
   call void @_raw_write_unlock_irq(ptr noundef nonnull %68) #11
   %101 = load ptr, ptr %5, align 8
-  %.not61 = icmp eq ptr %101, %5
-  br i1 %.not61, label %.thread26, label %.lr.ph
+  %.not79 = icmp eq ptr %101, %5
+  br i1 %.not79, label %.thread26, label %.lr.ph
 
 .lr.ph:                                           ; preds = %100, %184
   %102 = phi ptr [ %186, %184 ], [ %1, %100 ]
@@ -3698,7 +3698,7 @@ define internal fastcc i32 @do_epoll_wait(i32 noundef %0, ptr noundef %1, i32 no
 
 .thread29.backedge:                               ; preds = %202, %199, %205, %256, %249
   %.be = phi i32 [ 1, %249 ], [ %258, %256 ], [ 1, %205 ], [ 1, %199 ], [ 1, %202 ]
-  %.be72 = phi i32 [ %246, %249 ], [ %246, %256 ], [ 0, %205 ], [ 0, %199 ], [ 0, %202 ]
+  %.be90 = phi i32 [ %246, %249 ], [ %246, %256 ], [ 0, %205 ], [ 0, %199 ], [ 0, %202 ]
   br label %.thread29, !llvm.loop !56
 
 205:                                              ; preds = %202

@@ -631,13 +631,13 @@ switch.lookup:                                    ; preds = %.lr.ph
   %switch.gep = getelementptr inbounds nuw [12 x i8], ptr @switch.table._ZNSt3__14__fs10filesystem12__dir_stream7advanceERNS_10error_codeE, i64 0, i64 %19
   %switch.load = load i8, ptr %switch.gep, align 1
   %20 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep72 = getelementptr inbounds nuw [12 x i8], ptr @switch.table._ZNSt3__14__fs10filesystem12__dir_stream7advanceERNS_10error_codeE.1, i64 0, i64 %20
-  %switch.load73 = load i8, ptr %switch.gep72, align 1
+  %switch.gep73 = getelementptr inbounds nuw [12 x i8], ptr @switch.table._ZNSt3__14__fs10filesystem12__dir_stream7advanceERNS_10error_codeE.1, i64 0, i64 %20
+  %switch.load74 = load i8, ptr %switch.gep73, align 1
   br label %_ZNSt3__14__fs10filesystem6detail13posix_readdirB8ne210000EP11__dirstreamRNS_10error_codeE.exit
 
 _ZNSt3__14__fs10filesystem6detail13posix_readdirB8ne210000EP11__dirstreamRNS_10error_codeE.exit: ; preds = %.lr.ph, %switch.lookup
   %switch.selectcmp1.i.i = phi i8 [ %switch.load, %switch.lookup ], [ 0, %.lr.ph ]
-  %.0.i.i = phi i8 [ %switch.load73, %switch.lookup ], [ 0, %.lr.ph ]
+  %.0.i.i = phi i8 [ %switch.load74, %switch.lookup ], [ 0, %.lr.ph ]
   %21 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(256) %15) #29, !noalias !53
   switch i64 %21, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit22.thread [
     i64 1, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit
@@ -822,8 +822,8 @@ _ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit33: ; preds = %.body, %82
   br i1 %90, label %._crit_edge, label %.lr.ph
 
 91:                                               ; preds = %_ZNSt3__14__fs10filesystem12__dir_stream5closeEv.exit, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit27
-  %or.cond.not68 = phi i1 [ false, %_ZNSt3__14__fs10filesystem12__dir_stream5closeEv.exit ], [ true, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit27 ]
-  ret i1 %or.cond.not68
+  %or.cond.not69 = phi i1 [ false, %_ZNSt3__14__fs10filesystem12__dir_stream5closeEv.exit ], [ true, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit27 ]
+  ret i1 %or.cond.not69
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1725,10 +1725,10 @@ _ZNSt3__14__fs10filesystem6detail12ErrorHandlerIvEC2B8ne210000EPKcPNS_10error_co
 35:                                               ; preds = %_ZNSt3__14__fs10filesystem6detail12ErrorHandlerIvEC2B8ne210000EPKcPNS_10error_codeEPKNS1_4pathESB_.exit
   switch i8 %34, label %42 [
     i8 0, label %_ZNKSt3__14__fs10filesystem15directory_entry12__get_sym_ftB8ne210000EPNS_10error_codeE.exit
-    i8 1, label %.thread151.thread177
-    i8 6, label %.thread151.thread177
-    i8 3, label %.thread151.thread177
-    i8 4, label %.thread151.thread177
+    i8 1, label %.thread151.thread181
+    i8 6, label %.thread151.thread181
+    i8 3, label %.thread151.thread181
+    i8 4, label %.thread151.thread181
     i8 7, label %36
     i8 2, label %36
     i8 5, label %36
@@ -1774,7 +1774,7 @@ _ZNKSt3__14__fs10filesystem15directory_entry12__get_sym_ftB8ne210000EPNS_10error
 .thread118.thread:                                ; preds = %36, %_ZNKSt3__14__fs10filesystem15directory_entry12__get_sym_ftB8ne210000EPNS_10error_codeE.exit, %.thread122
   %.0.i112117120124 = phi i8 [ %.0.i115, %.thread122 ], [ %44, %_ZNKSt3__14__fs10filesystem15directory_entry12__get_sym_ftB8ne210000EPNS_10error_codeE.exit ], [ %38, %36 ]
   %.not166 = icmp eq i8 %.0.i112117120124, 2
-  br i1 %.not166, label %57, label %.thread151.thread177
+  br i1 %.not166, label %57, label %.thread151.thread181
 
 46:                                               ; preds = %_ZNSt3__14__fs10filesystem6detail12ErrorHandlerIvEC2B8ne210000EPKcPNS_10error_codeEPKNS1_4pathESB_.exit
   switch i8 %34, label %53 [
@@ -1828,7 +1828,7 @@ _ZNKSt3__14__fs10filesystem15directory_entry8__get_ftB8ne210000EPNS_10error_code
 .thread141.thread:                                ; preds = %47, %_ZNKSt3__14__fs10filesystem15directory_entry8__get_ftB8ne210000EPNS_10error_codeE.exit, %.thread146
   %.0.i33133140143148 = phi i8 [ %.0.i33134, %.thread146 ], [ %55, %_ZNKSt3__14__fs10filesystem15directory_entry8__get_ftB8ne210000EPNS_10error_codeE.exit ], [ %49, %47 ]
   %.not162 = icmp eq i8 %.0.i33133140143148, 2
-  br i1 %.not162, label %57, label %.thread151.thread177
+  br i1 %.not162, label %57, label %.thread151.thread181
 
 57:                                               ; preds = %.thread118.thread, %.thread141.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1940,7 +1940,7 @@ _ZNSt3__14__fs10filesystem15directory_entryD2B8ne210000Ev.exit.i: ; preds = %106
 
 _ZNSt3__14__fs10filesystem12__dir_streamD2Ev.exit: ; preds = %_ZNSt3__14__fs10filesystem15directory_entryD2B8ne210000Ev.exit.i, %113
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread151.thread177
+  br label %.thread151.thread181
 
 .critedge:                                        ; preds = %57
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -1976,7 +1976,7 @@ _ZNSt3__14__fs10filesystem15directory_entryD2B8ne210000Ev.exit.i38: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pr157.pre = load i32, ptr %6, align 8, !tbaa !15
   %.not168 = icmp eq i32 %.pr157.pre, 0
-  br i1 %.not168, label %.thread151.thread177, label %.thread151.thread
+  br i1 %.not168, label %.thread151.thread181, label %.thread151.thread
 
 .thread151.thread:                                ; preds = %56, %45, %.thread151
   %134 = phi i32 [ %.pr157.pre, %.thread151 ], [ %.pr121.pr, %45 ], [ %.pr145.pr, %56 ]
@@ -2013,13 +2013,13 @@ _ZNSt3__1eqB8ne210000ERKNS_10error_codeERKNS_15error_conditionE.exit: ; preds = 
   br i1 %154, label %155, label %158
 
 155:                                              ; preds = %_ZNSt3__1eqB8ne210000ERKNS_10error_codeERKNS_15error_conditionE.exit
-  br i1 %.not.i, label %.thread151.thread177, label %156
+  br i1 %.not.i, label %.thread151.thread181, label %156
 
 156:                                              ; preds = %155
   store i32 0, ptr %1, align 8, !tbaa !15
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %.pre-phi, ptr %157, align 8, !tbaa !19
-  br label %.thread151.thread177
+  br label %.thread151.thread181
 
 158:                                              ; preds = %_ZNSt3__1eqB8ne210000ERKNS_10error_codeERKNS_15error_conditionE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2073,7 +2073,7 @@ _ZNSt3__110shared_ptrINS_4__fs10filesystem28recursive_directory_iterator12__shar
 
 _ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit: ; preds = %176, %179
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread151.thread177
+  br label %.thread151.thread181
 
 183:                                              ; preds = %_ZNSt3__110shared_ptrINS_4__fs10filesystem28recursive_directory_iterator12__shared_impEE5resetB8ne210000Ev.exit
   %184 = landingpad { ptr, i32 }
@@ -2094,7 +2094,7 @@ _ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit45: ; preds = %183, %187
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %191
 
-.thread151.thread177:                             ; preds = %35, %35, %35, %35, %.thread141.thread, %.thread118.thread, %_ZNSt3__14__fs10filesystem12__dir_streamD2Ev.exit, %.thread151, %155, %156, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit
+.thread151.thread181:                             ; preds = %35, %35, %35, %35, %.thread141.thread, %.thread118.thread, %_ZNSt3__14__fs10filesystem12__dir_streamD2Ev.exit, %.thread151, %155, %156, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit
   %.1 = phi i1 [ true, %_ZNSt3__14__fs10filesystem12__dir_streamD2Ev.exit ], [ false, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit ], [ false, %156 ], [ false, %155 ], [ false, %.thread151 ], [ false, %.thread118.thread ], [ false, %.thread141.thread ], [ false, %35 ], [ false, %35 ], [ false, %35 ], [ false, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2226,7 +2226,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
 
 37:                                               ; preds = %34
   %38 = icmp eq i8 %35, 44
-  br i1 %38, label %.thread38.i.i, label %68
+  br i1 %38, label %.thread41.i.i, label %68
 
 .thread.i.i:                                      ; preds = %34
   %39 = load i64, ptr %0, align 8
@@ -2238,7 +2238,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   %44 = icmp eq i64 %43, %41
   br i1 %44, label %.critedge.i.i, label %.thread24.i.i
 
-.thread38.i.i:                                    ; preds = %37
+.thread41.i.i:                                    ; preds = %37
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %56
@@ -2259,18 +2259,18 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   %spec.select.i.i = select i1 %.inv.i.inv.i.i.i.i, i64 23, i64 %55
   br label %56
 
-56:                                               ; preds = %50, %.thread38.i.i
-  %.01322283742.i.i = phi i64 [ 22, %.thread38.i.i ], [ %41, %50 ]
-  %57 = phi ptr [ %45, %.thread38.i.i ], [ %47, %50 ]
-  %58 = phi ptr [ %46, %.thread38.i.i ], [ %48, %50 ]
-  %59 = phi i64 [ 48, %.thread38.i.i ], [ %spec.select.i.i, %50 ]
-  %60 = add nuw nsw i64 %.01322283742.i.i, 1
+56:                                               ; preds = %50, %.thread41.i.i
+  %.01322283745.i.i = phi i64 [ 22, %.thread41.i.i ], [ %41, %50 ]
+  %57 = phi ptr [ %45, %.thread41.i.i ], [ %47, %50 ]
+  %58 = phi ptr [ %46, %.thread41.i.i ], [ %48, %50 ]
+  %59 = phi i64 [ 48, %.thread41.i.i ], [ %spec.select.i.i, %50 ]
+  %60 = add nuw nsw i64 %.01322283745.i.i, 1
   br label %61
 
 61:                                               ; preds = %56, %.critedge.i.i
   %62 = phi ptr [ %58, %56 ], [ %48, %.critedge.i.i ]
   %63 = phi ptr [ %57, %56 ], [ %47, %.critedge.i.i ]
-  %.013222836.i.i = phi i64 [ %.01322283742.i.i, %56 ], [ %41, %.critedge.i.i ]
+  %.013222836.i.i = phi i64 [ %.01322283745.i.i, %56 ], [ %41, %.critedge.i.i ]
   %.014192934.i.i = phi i64 [ %60, %56 ], [ %40, %.critedge.i.i ]
   %64 = phi i64 [ %59, %56 ], [ -9, %.critedge.i.i ]
   %65 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %64) #28
@@ -2513,8 +2513,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_r
   br label %_ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit
 
 _ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit: ; preds = %11, %8, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit
-  %.sink25 = phi ptr [ %35, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit ], [ %10, %8 ], [ %10, %11 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.sink25, i64 %2
+  %.sink27 = phi ptr [ %35, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit ], [ %10, %8 ], [ %10, %11 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.sink27, i64 %2
   store i8 0, ptr %37, align 1, !tbaa !51
   ret ptr %0
 }
@@ -3361,8 +3361,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_r
   br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__null_terminate_atB8ne210000EPcm.exit
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__null_terminate_atB8ne210000EPcm.exit: ; preds = %22, %21, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit
-  %.sink26 = phi ptr [ %45, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit ], [ %17, %21 ], [ %17, %22 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.sink26, i64 %2
+  %.sink28 = phi ptr [ %45, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit ], [ %17, %21 ], [ %17, %22 ]
+  %49 = getelementptr inbounds nuw i8, ptr %.sink28, i64 %2
   store i8 0, ptr %49, align 1, !tbaa !51
   ret ptr %0
 }

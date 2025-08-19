@@ -67,14 +67,14 @@ define hidden void @"_ZN14async_executor8Executor5spawn28_$u7b$$u7b$closure$u7d$
   %14 = alloca { i64, [2 x i64] }, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %16 = load i8, ptr %15, align 8, !range !24, !noundef !4
-  switch i8 %16, label %default.unreachable73 [
+  switch i8 %16, label %default.unreachable81 [
     i8 0, label %17
     i8 1, label %28
     i8 2, label %29
     i8 3, label %30
   ]
 
-default.unreachable73:                            ; preds = %307, %2
+default.unreachable81:                            ; preds = %307, %2
   unreachable
 
 17:                                               ; preds = %2
@@ -262,7 +262,7 @@ default.unreachable73:                            ; preds = %307, %2
   %.1.i.i.ph.i = phi ptr [ %51, %50 ], [ %73, %72 ]
   %78 = load i64, ptr %77, align 8, !range !29, !noalias !26, !noundef !4
   %79 = icmp eq i64 %78, 2
-  br i1 %79, label %.thread116.i, label %80
+  br i1 %79, label %.thread124.i, label %80
 
 80:                                               ; preds = %76
   %81 = invoke noundef align 8 ptr @"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hcf7a8666f2c17ecfE"(ptr noundef nonnull align 8 %77)
@@ -282,14 +282,14 @@ default.unreachable73:                            ; preds = %307, %2
 
 "_ZN4core3ptr114drop_in_place$LT$async_lock..mutex..AcquireSlow$LT$$RF$async_lock..mutex..Mutex$LT$$LP$$RP$$GT$$C$$LP$$RP$$GT$$GT$17hcb3320e5ec62c0a7E.exit.i.i.i.i.i": ; preds = %80
   invoke void @"_ZN4core3ptr125drop_in_place$LT$event_listener..Listener$LT$$LP$$RP$$C$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h1791e95088b67237E.llvm.14408593437386099104"(ptr noundef nonnull align 8 %77)
-          to label %.thread116.i unwind label %86
+          to label %.thread124.i unwind label %86
 
 86:                                               ; preds = %"_ZN4core3ptr114drop_in_place$LT$async_lock..mutex..AcquireSlow$LT$$RF$async_lock..mutex..Mutex$LT$$LP$$RP$$GT$$C$$LP$$RP$$GT$$GT$17hcb3320e5ec62c0a7E.exit.i.i.i.i.i"
   %87 = landingpad { ptr, i32 }
           cleanup
   br label %.body32.i
 
-.thread116.i:                                     ; preds = %"_ZN4core3ptr114drop_in_place$LT$async_lock..mutex..AcquireSlow$LT$$RF$async_lock..mutex..Mutex$LT$$LP$$RP$$GT$$C$$LP$$RP$$GT$$GT$17hcb3320e5ec62c0a7E.exit.i.i.i.i.i", %76
+.thread124.i:                                     ; preds = %"_ZN4core3ptr114drop_in_place$LT$async_lock..mutex..AcquireSlow$LT$$RF$async_lock..mutex..Mutex$LT$$LP$$RP$$GT$$C$$LP$$RP$$GT$$GT$17hcb3320e5ec62c0a7E.exit.i.i.i.i.i", %76
   %88 = load ptr, ptr %31, align 8, !noalias !26, !nonnull !4, !align !5, !noundef !4
   store ptr %88, ptr %77, align 8, !noalias !26
   %.sroa.649.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -330,10 +330,10 @@ default.unreachable73:                            ; preds = %307, %2
 95:                                               ; preds = %93
   unreachable
 
-96:                                               ; preds = %._crit_edge71, %.thread116.i
-  %97 = phi ptr [ %.1.i.i.ph.i, %.thread116.i ], [ %.pre72, %._crit_edge71 ]
-  %98 = phi ptr [ %.sroa.8.0..sroa_idx.i, %.thread116.i ], [ %.phi.trans.insert110.i, %._crit_edge71 ]
-  %99 = phi ptr [ %89, %.thread116.i ], [ %94, %._crit_edge71 ]
+96:                                               ; preds = %._crit_edge71, %.thread124.i
+  %97 = phi ptr [ %.1.i.i.ph.i, %.thread124.i ], [ %.pre72, %._crit_edge71 ]
+  %98 = phi ptr [ %.sroa.8.0..sroa_idx.i, %.thread124.i ], [ %.phi.trans.insert110.i, %._crit_edge71 ]
+  %99 = phi ptr [ %89, %.thread124.i ], [ %94, %._crit_edge71 ]
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %101 = load ptr, ptr %99, align 8, !noalias !41, !nonnull !4, !align !5, !noundef !4
   store ptr %101, ptr %100, align 8, !noalias !41
@@ -866,7 +866,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i125.i.i: ; preds = %29
 307:                                              ; preds = %93
   %.phi.trans.insert245.i.i = getelementptr inbounds nuw i8, ptr %0, i64 240
   %.pre246.i.i = load i8, ptr %.phi.trans.insert245.i.i, align 8, !range !24, !noalias !96
-  switch i8 %.pre246.i.i, label %default.unreachable73 [
+  switch i8 %.pre246.i.i, label %default.unreachable81 [
     i8 0, label %._crit_edge112.i
     i8 1, label %.invoke.i.i
     i8 2, label %316

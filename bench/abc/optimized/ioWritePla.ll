@@ -741,11 +741,11 @@ define noundef i32 @Io_WriteMoPlaOneInt(ptr noundef captures(none) %0, ptr nound
   %59 = load ptr, ptr %6, align 8, !tbaa !56
   %60 = call i32 @Abc_CountZddCubes(ptr noundef %2, ptr noundef %59) #11
   %.not = icmp sgt i32 %60, %53
-  %.171 = call i32 @llvm.smin.i32(i32 %60, i32 %53)
-  %.val172 = load ptr, ptr %5, align 8
-  %.val173 = load ptr, ptr %6, align 8
-  %61 = select i1 %.not, ptr %.val172, ptr %.val173
-  %62 = select i1 %.not, ptr %.val173, ptr %.val172
+  %.173 = call i32 @llvm.smin.i32(i32 %60, i32 %53)
+  %.val174 = load ptr, ptr %5, align 8
+  %.val175 = load ptr, ptr %6, align 8
+  %61 = select i1 %.not, ptr %.val174, ptr %.val175
+  %62 = select i1 %.not, ptr %.val175, ptr %.val174
   call void @Cudd_RecursiveDerefZdd(ptr noundef %2, ptr noundef %62) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -754,7 +754,7 @@ define noundef i32 @Io_WriteMoPlaOneInt(ptr noundef captures(none) %0, ptr nound
   call void @Cudd_RecursiveDerefZdd(ptr noundef %2, ptr noundef %61) #11
   %63 = call i32 @Cudd_DagSize(ptr noundef %61) #11
   %64 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %63)
-  %65 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %.171)
+  %65 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %.173)
   %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %.val131.val) #11
   %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %.val127.val) #11
   %68 = call i64 @fwrite(ptr nonnull @.str.2, i64 4, i64 1, ptr %0)
@@ -809,7 +809,7 @@ define noundef i32 @Io_WriteMoPlaOneInt(ptr noundef captures(none) %0, ptr nound
 
 .critedge2:                                       ; preds = %.lr.ph157, %.critedge
   %fputc125 = call i32 @fputc(i32 10, ptr %0)
-  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %.171) #11
+  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %.173) #11
   %91 = call i64 @fwrite(ptr nonnull @.str.8, i64 3, i64 1, ptr %0)
   ret i32 1
 }

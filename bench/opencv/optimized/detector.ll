@@ -1941,8 +1941,8 @@ _ZN5zxing3RefINS_11ResultPointEED2Ev.exit266:     ; preds = %_ZN5zxing3RefINS_11
   %414 = icmp eq i32 %412, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  %or.cond470 = select i1 %414, i1 true, i1 %exitcond.not
-  br i1 %or.cond470, label %417, label %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit266, !llvm.loop !92
+  %or.cond573 = select i1 %414, i1 true, i1 %exitcond.not
+  br i1 %or.cond573, label %417, label %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit266, !llvm.loop !92
 
 415:                                              ; preds = %408, %403, %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit266
   %416 = landingpad { ptr, i32 }
@@ -5309,12 +5309,12 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit143: ; preds = %442, %44
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit104.sink.split
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit104.sink.split: ; preds = %245, %564
-  %.sink189 = phi ptr [ %558, %564 ], [ %149, %245 ]
+  %.sink230 = phi ptr [ %558, %564 ], [ %149, %245 ]
   %.pn70.pn.ph = phi { ptr, i32 } [ %.pn70, %564 ], [ %230, %245 ]
-  %565 = load ptr, ptr %.sink189, align 8, !tbaa !8
+  %565 = load ptr, ptr %.sink230, align 8, !tbaa !8
   %566 = getelementptr inbounds nuw i8, ptr %565, i64 8
   %567 = load ptr, ptr %566, align 8
-  call void %567(ptr noundef nonnull align 8 dereferenceable(12) %.sink189) #17
+  call void %567(ptr noundef nonnull align 8 dereferenceable(12) %.sink230) #17
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit104
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit104:        ; preds = %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit104.sink.split, %559, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit143, %240, %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit102
@@ -5337,12 +5337,12 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit104:        ; preds = %_ZN5zxing3RefINS_9B
   br label %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit100.sink.split
 
 _ZN5zxing3RefINS_11ResultPointEED2Ev.exit100.sink.split: ; preds = %228, %574
-  %.sink194 = phi ptr [ %568, %574 ], [ %222, %228 ]
+  %.sink235 = phi ptr [ %568, %574 ], [ %222, %228 ]
   %.pn70.pn.pn.ph = phi { ptr, i32 } [ %.pn70.pn, %574 ], [ %191, %228 ]
-  %575 = load ptr, ptr %.sink194, align 8, !tbaa !8
+  %575 = load ptr, ptr %.sink235, align 8, !tbaa !8
   %576 = getelementptr inbounds nuw i8, ptr %575, i64 8
   %577 = load ptr, ptr %576, align 8
-  call void %577(ptr noundef nonnull align 8 dereferenceable(12) %.sink194) #17
+  call void %577(ptr noundef nonnull align 8 dereferenceable(12) %.sink235) #17
   br label %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit100
 
 _ZN5zxing3RefINS_11ResultPointEED2Ev.exit100:     ; preds = %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit100.sink.split, %569, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit104, %223, %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit98
@@ -5598,13 +5598,13 @@ _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit13: ; preds = %55, %50, %47
 
 75:                                               ; preds = %46
   %.not.i.i18 = icmp eq ptr %.pre, null
-  br i1 %.not.i.i18, label %_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit19.thread, label %_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit19.thread24
+  br i1 %.not.i.i18, label %_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit19.thread, label %_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit19.thread30
 
 _ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit19.thread: ; preds = %75
   store ptr null, ptr %0, align 8, !tbaa !10
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit21
 
-_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit19.thread24: ; preds = %75
+_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit19.thread30: ; preds = %75
   %76 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %77 = load i32, ptr %76, align 8, !tbaa !3
   %78 = add i32 %77, 1
@@ -5617,7 +5617,7 @@ _ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit19:     ; preds = %46
   %.not.i20 = icmp eq ptr %.pre, null
   br i1 %.not.i20, label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit21, label %79
 
-79:                                               ; preds = %_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit19.thread24, %_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit19
+79:                                               ; preds = %_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit19.thread30, %_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit19
   %80 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %81 = load i32, ptr %80, align 8, !tbaa !3
   %82 = add i32 %81, -1
@@ -5638,12 +5638,12 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit21:         ; preds = %_ZN5zxing3RefINS_9B
   ret void
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit15.sink.split: ; preds = %65, %74
-  %.sink30 = phi ptr [ %68, %74 ], [ %59, %65 ]
+  %.sink36 = phi ptr [ %68, %74 ], [ %59, %65 ]
   %.pn8.ph = phi { ptr, i32 } [ %67, %74 ], [ %48, %65 ]
-  %88 = load ptr, ptr %.sink30, align 8, !tbaa !8
+  %88 = load ptr, ptr %.sink36, align 8, !tbaa !8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
-  call void %90(ptr noundef nonnull align 8 dereferenceable(12) %.sink30) #17
+  call void %90(ptr noundef nonnull align 8 dereferenceable(12) %.sink36) #17
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit15
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit15:         ; preds = %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit15.sink.split, %69, %66, %60, %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit13
@@ -6168,13 +6168,13 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %80, %82, %87
 
 123:                                              ; preds = %96
   %.not.i.i55 = icmp eq ptr %.pre, null
-  br i1 %.not.i.i55, label %_ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2ERKS3_.exit.thread, label %_ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2ERKS3_.exit.thread78
+  br i1 %.not.i.i55, label %_ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2ERKS3_.exit.thread, label %_ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2ERKS3_.exit.thread86
 
 _ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2ERKS3_.exit.thread: ; preds = %123
   store ptr null, ptr %0, align 8, !tbaa !80
   br label %_ZN5zxing3RefINS_6qrcode16AlignmentPatternEED2Ev.exit57
 
-_ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2ERKS3_.exit.thread78: ; preds = %123
+_ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2ERKS3_.exit.thread86: ; preds = %123
   %124 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %125 = load i32, ptr %124, align 8, !tbaa !3
   %126 = add i32 %125, 1
@@ -6187,7 +6187,7 @@ _ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2ERKS3_.exit: ; preds = %96
   %.not.i56 = icmp eq ptr %.pre, null
   br i1 %.not.i56, label %_ZN5zxing3RefINS_6qrcode16AlignmentPatternEED2Ev.exit57, label %127
 
-127:                                              ; preds = %_ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2ERKS3_.exit.thread78, %_ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2ERKS3_.exit
+127:                                              ; preds = %_ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2ERKS3_.exit.thread86, %_ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2ERKS3_.exit
   %128 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %129 = load i32, ptr %128, align 8, !tbaa !3
   %130 = add i32 %129, -1
@@ -6632,12 +6632,12 @@ _ZN5zxing3RefINS_11ResultPointEED2Ev.exit36:      ; preds = %115, %110, %107
   ret i32 %.011
 
 _ZN5zxing3RefINS_11ResultPointEED2Ev.exit34.sink.split: ; preds = %106, %125
-  %.sink42 = phi ptr [ %119, %125 ], [ %100, %106 ]
+  %.sink53 = phi ptr [ %119, %125 ], [ %100, %106 ]
   %.pn16.pn.ph = phi { ptr, i32 } [ %108, %125 ], [ %89, %106 ]
-  %131 = load ptr, ptr %.sink42, align 8, !tbaa !8
+  %131 = load ptr, ptr %.sink53, align 8, !tbaa !8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
-  call void %133(ptr noundef nonnull align 8 dereferenceable(12) %.sink42) #17
+  call void %133(ptr noundef nonnull align 8 dereferenceable(12) %.sink53) #17
   br label %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit34
 
 _ZN5zxing3RefINS_11ResultPointEED2Ev.exit34:      ; preds = %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit34.sink.split, %120, %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit36, %101, %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit32
@@ -7491,16 +7491,16 @@ define hidden void @_ZN5zxing6qrcode8Detector19fixAlignmentPatternERfS2_f(ptr no
   %35 = sext i32 %25 to i64
   %36 = sext i32 %9 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 0)
-  %exitcond.not252 = icmp slt i32 %11, 1
-  br i1 %exitcond.not252, label %.critedge, label %.lr.ph254
+  %exitcond.not262 = icmp slt i32 %11, 1
+  br i1 %exitcond.not262, label %.critedge, label %.lr.ph264
 
-.critedge107.loopexit:                            ; preds = %.critedge104, %.critedge104.us.us135, %.critedge104.us.us, %.lr.ph118.split.us.split, %.lr.ph254
+.critedge107.loopexit:                            ; preds = %.critedge104, %.critedge104.us.us135, %.critedge104.us.us, %.lr.ph118.split.us.split, %.lr.ph264
   %exitcond.not = icmp eq i32 %37, %smax
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph254
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph264
 
-.lr.ph254:                                        ; preds = %.lr.ph142.split.split.preheader, %.critedge107.loopexit
-  %.088141253 = phi i32 [ %37, %.critedge107.loopexit ], [ 0, %.lr.ph142.split.split.preheader ]
-  %37 = add nuw i32 %.088141253, 1
+.lr.ph264:                                        ; preds = %.lr.ph142.split.split.preheader, %.critedge107.loopexit
+  %.088141263 = phi i32 [ %37, %.critedge107.loopexit ], [ 0, %.lr.ph142.split.split.preheader ]
+  %37 = add nuw i32 %.088141263, 1
   %38 = uitofp nneg i32 %37 to float
   %39 = fsub float %15, %38
   %40 = fptosi float %39 to i32
@@ -7509,20 +7509,20 @@ define hidden void @_ZN5zxing6qrcode8Detector19fixAlignmentPatternERfS2_f(ptr no
   %43 = fcmp ult float %41, %42
   br i1 %43, label %.critedge107.loopexit, label %.lr.ph118
 
-.lr.ph118:                                        ; preds = %.lr.ph254
+.lr.ph118:                                        ; preds = %.lr.ph264
   %44 = fsub float %12, %38
   %45 = fptosi float %44 to i32
   %.fr145 = freeze i32 %45
   %46 = icmp sgt i32 %7, %.fr145
   %47 = icmp sgt i32 %.fr145, 0
   %48 = fadd float %12, %38
-  %.fr186 = freeze float %48
-  %49 = fptosi float %.fr186 to i32
+  %.fr196 = freeze float %48
+  %49 = fptosi float %.fr196 to i32
   %.fr146 = freeze i32 %49
   %50 = icmp sgt i32 %7, %.fr146
   %51 = icmp sgt i32 %.fr146, 0
   %52 = sitofp i32 %.fr145 to float
-  %53 = fcmp ult float %.fr186, %52
+  %53 = fcmp ult float %.fr196, %52
   br i1 %53, label %.lr.ph118.split.us, label %.lr.ph118.split.preheader
 
 .lr.ph118.split.preheader:                        ; preds = %.lr.ph118
@@ -7530,8 +7530,8 @@ define hidden void @_ZN5zxing6qrcode8Detector19fixAlignmentPatternERfS2_f(ptr no
   %55 = sext i32 %40 to i64
   %56 = sext i32 %.fr146 to i64
   %57 = sext i32 %.fr145 to i64
-  %invariant.gep214 = getelementptr i8, ptr %31, i64 %57
-  %invariant.gep216 = getelementptr i8, ptr %31, i64 %56
+  %invariant.gep224 = getelementptr i8, ptr %31, i64 %57
+  %invariant.gep226 = getelementptr i8, ptr %31, i64 %56
   br label %.lr.ph118.split
 
 .lr.ph118.split.us:                               ; preds = %.lr.ph118
@@ -7541,9 +7541,9 @@ define hidden void @_ZN5zxing6qrcode8Detector19fixAlignmentPatternERfS2_f(ptr no
   %58 = sext i32 %40 to i64
   %59 = sext i32 %.fr145 to i64
   %60 = sext i32 %.fr146 to i64
-  %invariant.gep220 = getelementptr i8, ptr %31, i64 %59
-  %invariant.gep222 = getelementptr i8, ptr %31, i64 %60
-  %invariant.op304 = and i1 %51, %50
+  %invariant.gep230 = getelementptr i8, ptr %31, i64 %59
+  %invariant.gep232 = getelementptr i8, ptr %31, i64 %60
+  %invariant.op314 = and i1 %51, %50
   br label %.lr.ph118.split.us.split.us
 
 .lr.ph118.split.us.split.us:                      ; preds = %.lr.ph118.split.us.split.us.preheader, %.critedge104.us.us
@@ -7563,19 +7563,19 @@ define hidden void @_ZN5zxing6qrcode8Detector19fixAlignmentPatternERfS2_f(ptr no
 
 68:                                               ; preds = %64
   %69 = mul nsw i64 %indvars.iv183, %35
-  %gep221 = getelementptr i8, ptr %invariant.gep220, i64 %69
-  %70 = load i8, ptr %gep221, align 1, !tbaa !149
+  %gep231 = getelementptr i8, ptr %invariant.gep230, i64 %69
+  %70 = load i8, ptr %gep231, align 1, !tbaa !149
   %.not96.us.us = icmp eq i8 %70, 0
   br i1 %.not96.us.us, label %71, label %.split.us
 
 71:                                               ; preds = %68, %64
-  %or.cond224.reass = and i1 %67, %invariant.op304
-  br i1 %or.cond224.reass, label %72, label %.critedge104.us.us
+  %or.cond234.reass = and i1 %67, %invariant.op314
+  br i1 %or.cond234.reass, label %72, label %.critedge104.us.us
 
 72:                                               ; preds = %71
   %73 = mul nsw i64 %indvars.iv183, %35
-  %gep223 = getelementptr i8, ptr %invariant.gep222, i64 %73
-  %74 = load i8, ptr %gep223, align 1, !tbaa !149
+  %gep233 = getelementptr i8, ptr %invariant.gep232, i64 %73
+  %74 = load i8, ptr %gep233, align 1, !tbaa !149
   %.not97.us.us = icmp eq i8 %74, 0
   br i1 %.not97.us.us, label %.critedge104.us.us, label %.split121.us
 
@@ -7592,7 +7592,7 @@ define hidden void @_ZN5zxing6qrcode8Detector19fixAlignmentPatternERfS2_f(ptr no
 .lr.ph118.split.us.split.split.us.preheader:      ; preds = %.lr.ph118.split.us.split
   %78 = sext i32 %40 to i64
   %79 = sext i32 %.fr146 to i64
-  %invariant.gep218 = getelementptr i8, ptr %31, i64 %79
+  %invariant.gep228 = getelementptr i8, ptr %31, i64 %79
   br label %.lr.ph118.split.us.split.split.us
 
 .lr.ph118.split.us.split.split.us:                ; preds = %.lr.ph118.split.us.split.split.us.preheader, %.critedge104.us.us135
@@ -7612,8 +7612,8 @@ define hidden void @_ZN5zxing6qrcode8Detector19fixAlignmentPatternERfS2_f(ptr no
 
 87:                                               ; preds = %83
   %88 = mul nsw i64 %indvars.iv180, %35
-  %gep219 = getelementptr i8, ptr %invariant.gep218, i64 %88
-  %89 = load i8, ptr %gep219, align 1, !tbaa !149
+  %gep229 = getelementptr i8, ptr %invariant.gep228, i64 %88
+  %89 = load i8, ptr %gep229, align 1, !tbaa !149
   %.not97.us.us133 = icmp eq i8 %89, 0
   br i1 %.not97.us.us133, label %.critedge104.us.us135, label %.split121.us
 
@@ -7662,7 +7662,7 @@ define hidden void @_ZN5zxing6qrcode8Detector19fixAlignmentPatternERfS2_f(ptr no
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %105 = trunc nsw i64 %indvars.iv.next to i32
   %106 = sitofp i32 %105 to float
-  %107 = fcmp ult float %.fr186, %106
+  %107 = fcmp ult float %.fr196, %106
   br i1 %107, label %.critedge104, label %.lr.ph.split, !llvm.loop !152
 
 108:                                              ; preds = %.lr.ph118.split
@@ -7677,8 +7677,8 @@ define hidden void @_ZN5zxing6qrcode8Detector19fixAlignmentPatternERfS2_f(ptr no
 
 113:                                              ; preds = %109
   %114 = mul nsw i64 %indvars.iv177, %35
-  %gep215 = getelementptr i8, ptr %invariant.gep214, i64 %114
-  %115 = load i8, ptr %gep215, align 1, !tbaa !149
+  %gep225 = getelementptr i8, ptr %invariant.gep224, i64 %114
+  %115 = load i8, ptr %gep225, align 1, !tbaa !149
   %.not96 = icmp eq i8 %115, 0
   br i1 %.not96, label %117, label %.split.us
 
@@ -7699,8 +7699,8 @@ define hidden void @_ZN5zxing6qrcode8Detector19fixAlignmentPatternERfS2_f(ptr no
 
 122:                                              ; preds = %118
   %123 = mul nsw i64 %indvars.iv177, %35
-  %gep217 = getelementptr i8, ptr %invariant.gep216, i64 %123
-  %124 = load i8, ptr %gep217, align 1, !tbaa !149
+  %gep227 = getelementptr i8, ptr %invariant.gep226, i64 %123
+  %124 = load i8, ptr %gep227, align 1, !tbaa !149
   %.not97 = icmp eq i8 %124, 0
   br i1 %.not97, label %.critedge104, label %.split121.us
 

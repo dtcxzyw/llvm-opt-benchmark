@@ -354,7 +354,7 @@ define hidden void @_ZN23ShenandoahControlThread11run_serviceEv(ptr noundef nonn
   call void @_ZN14ShenandoahHeap26set_forced_counters_updateEb(ptr noundef nonnull align 8 dereferenceable(2657) %10, i1 noundef zeroext true) #10
   %96 = load ptr, ptr %29, align 8
   call void @_ZN17ShenandoahFreeSet21log_status_under_lockEv(ptr noundef nonnull align 8 dereferenceable(224) %96) #10
-  switch i32 %.088109, label %default.unreachable [
+  switch i32 %.088109, label %default.unreachable121 [
     i32 1, label %97
     i32 2, label %98
     i32 3, label %100
@@ -395,7 +395,7 @@ define hidden void @_ZN23ShenandoahControlThread11run_serviceEv(ptr noundef nonn
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %102
 
-default.unreachable:                              ; preds = %95
+default.unreachable121:                           ; preds = %95
   unreachable
 
 102:                                              ; preds = %100, %98, %97

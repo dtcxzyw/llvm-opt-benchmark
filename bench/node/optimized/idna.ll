@@ -467,9 +467,9 @@ if.then20:                                        ; preds = %if.end18
   br label %if.end23
 
 if.end23:                                         ; preds = %entry, %if.end18, %if.then20, %while.end
-  %cmp6.not346 = phi i1 [ false, %if.end18 ], [ false, %if.then20 ], [ true, %while.end ], [ true, %entry ]
-  %todo.0.lcssa345 = phi i32 [ %todo.1, %if.end18 ], [ %todo.1, %if.then20 ], [ 0, %while.end ], [ 0, %entry ]
-  %h.0.lcssa344 = phi i32 [ %h.1, %if.end18 ], [ %h.1, %if.then20 ], [ %h.1, %while.end ], [ 0, %entry ]
+  %cmp6.not359 = phi i1 [ false, %if.end18 ], [ false, %if.then20 ], [ true, %while.end ], [ true, %entry ]
+  %todo.0.lcssa358 = phi i32 [ %todo.1, %if.end18 ], [ %todo.1, %if.then20 ], [ 0, %while.end ], [ 0, %entry ]
+  %h.0.lcssa357 = phi i32 [ %h.1, %if.end18 ], [ %h.1, %if.then20 ], [ %h.1, %while.end ], [ 0, %entry ]
   %sub.ptr.lhs.cast.i.i101 = ptrtoint ptr %se to i64
   br label %while.cond24.outer
 
@@ -596,14 +596,14 @@ if.then32:                                        ; preds = %if.end30
 
 if.end34:                                         ; preds = %if.then32, %if.end30
   %inc35 = add i32 %x.0.ph, 1
-  %cmp36 = icmp eq i32 %inc35, %h.0.lcssa344
+  %cmp36 = icmp eq i32 %inc35, %h.0.lcssa357
   br i1 %cmp36, label %while.end40, label %while.cond24.outer
 
 while.end40:                                      ; preds = %if.end34, %while.cond24
-  br i1 %cmp6.not346, label %return, label %if.end44
+  br i1 %cmp6.not359, label %return, label %if.end44
 
 if.end44:                                         ; preds = %while.end40
-  %cmp45.not = icmp eq i32 %h.0.lcssa344, 0
+  %cmp45.not = icmp eq i32 %h.0.lcssa357, 0
   br i1 %cmp45.not, label %while.cond58.preheader.preheader, label %if.then47
 
 if.then47:                                        ; preds = %if.end44
@@ -622,11 +622,11 @@ while.cond58.preheader.preheader:                 ; preds = %if.then47, %if.then
 
 while.cond58.preheader:                           ; preds = %while.cond58.preheader.preheader, %while.end143
   %first.0329 = phi i32 [ %first.1.ph, %while.end143 ], [ 1, %while.cond58.preheader.preheader ]
-  %todo.2328 = phi i32 [ %todo.3.ph, %while.end143 ], [ %todo.0.lcssa345, %while.cond58.preheader.preheader ]
+  %todo.2328 = phi i32 [ %todo.3.ph, %while.end143 ], [ %todo.0.lcssa358, %while.cond58.preheader.preheader ]
   %delta.0327 = phi i32 [ %inc144, %while.end143 ], [ 0, %while.cond58.preheader.preheader ]
   %bias.0326 = phi i32 [ %bias.1.ph, %while.end143 ], [ 72, %while.cond58.preheader.preheader ]
   %n.0325 = phi i32 [ %inc145, %while.end143 ], [ 128, %while.cond58.preheader.preheader ]
-  %h.2324 = phi i32 [ %h.3.ph, %while.end143 ], [ %h.0.lcssa344, %while.cond58.preheader.preheader ]
+  %h.2324 = phi i32 [ %h.3.ph, %while.end143 ], [ %h.0.lcssa357, %while.cond58.preheader.preheader ]
   br i1 %cmp302, label %while.body61, label %while.end71
 
 while.body61:                                     ; preds = %while.cond58.preheader, %uv__utf8_decode1.exit214
@@ -965,7 +965,7 @@ while.end143:                                     ; preds = %while.cond77
   br i1 %cmp55.not, label %return, label %while.cond58.preheader
 
 return:                                           ; preds = %if.end48.i.i, %if.end32.i.i, %sw.epilog.i.i, %if.end.i.i, %sw.bb17.i.i, %if.end.i, %while.end143, %while.end71, %if.then84, %while.end40
-  %retval.0 = phi i32 [ %h.0.lcssa344, %while.end40 ], [ -7, %if.then84 ], [ 0, %while.end143 ], [ -7, %while.end71 ], [ -22, %if.end.i ], [ -22, %sw.bb17.i.i ], [ -22, %if.end.i.i ], [ -22, %sw.epilog.i.i ], [ -22, %if.end32.i.i ], [ -22, %if.end48.i.i ]
+  %retval.0 = phi i32 [ %h.0.lcssa357, %while.end40 ], [ -7, %if.then84 ], [ 0, %while.end143 ], [ -7, %while.end71 ], [ -22, %if.end.i ], [ -22, %sw.bb17.i.i ], [ -22, %if.end.i.i ], [ -22, %sw.epilog.i.i ], [ -22, %if.end32.i.i ], [ -22, %if.end48.i.i ]
   ret i32 %retval.0
 }
 

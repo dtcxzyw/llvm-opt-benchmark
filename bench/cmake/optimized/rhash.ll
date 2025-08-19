@@ -443,8 +443,8 @@ rhash_init.exit.thread:                           ; preds = %4
 
 24:                                               ; preds = %21, %19
   %.1.i = phi i64 [ %22, %21 ], [ %.0612.i, %19 ]
-  %25 = shl i32 %.013.i, 1
-  %.not10.i = icmp ugt i32 %25, %8
+  %25 = shl nuw nsw i32 %.013.i, 1
+  %.not10.i = icmp samesign ugt i32 %25, %8
   br i1 %.not10.i, label %26, label %19, !llvm.loop !25
 
 26:                                               ; preds = %24
@@ -739,8 +739,8 @@ define dso_local range(i32 -1, 1) i32 @rhash_file(i32 noundef %0, ptr noundef re
 
 26:                                               ; preds = %23, %21
   %.1.i = phi i64 [ %24, %23 ], [ %.0612.i, %21 ]
-  %27 = shl i32 %.013.i, 1
-  %.not10.i = icmp ugt i32 %27, %7
+  %27 = shl nuw nsw i32 %.013.i, 1
+  %.not10.i = icmp samesign ugt i32 %27, %7
   br i1 %.not10.i, label %28, label %21, !llvm.loop !25
 
 28:                                               ; preds = %26

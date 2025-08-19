@@ -530,8 +530,8 @@ define void @_ZN15wiggle_generate8wasmtime11link_module17hb869d6407f4936e6E(ptr 
           to label %198 unwind label %195
 
 198:                                              ; preds = %197, %203
-  %.sink115 = phi ptr [ %25, %203 ], [ %24, %197 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %.sink115, i64 32, i1 false)
+  %.sink118 = phi ptr [ %25, %203 ], [ %24, %197 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %.sink118, i64 32, i1 false)
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %23)
           to label %207 unwind label %205
 

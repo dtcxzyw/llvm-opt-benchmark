@@ -4431,7 +4431,7 @@ define dso_local void @iov_iter_revert(ptr noundef captures(none) %0, i64 nounde
   %35 = add i64 %28, 1
   store i64 %35, ptr %25, align 8
   %36 = icmp ugt i64 %29, %34
-  %37 = sub nuw i64 %29, %34
+  %37 = sub nuw nsw i64 %29, %34
   br i1 %36, label %27, label %.thread
 
 .thread:                                          ; preds = %27
@@ -5244,7 +5244,7 @@ define internal fastcc range(i64 -2147483648, 2147479553) i64 @__iov_iter_get_pa
 .thread:                                          ; preds = %56
   %69 = load ptr, ptr %1, align 8
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %71, label %.thread24
+  br i1 %70, label %71, label %.thread36
 
 71:                                               ; preds = %.thread, %66
   %72 = zext nneg i32 %64 to i64
@@ -5253,20 +5253,20 @@ define internal fastcc range(i64 -2147483648, 2147479553) i64 @__iov_iter_get_pa
   store ptr %74, ptr %1, align 8
   %75 = icmp eq ptr %74, null
   %or.cond = or i1 %65, %75
-  br i1 %or.cond, label %.thread12, label %.thread24
+  br i1 %or.cond, label %.thread12, label %.thread36
 
-.thread24:                                        ; preds = %.thread, %71
+.thread36:                                        ; preds = %.thread, %71
   %76 = phi ptr [ %74, %71 ], [ %69, %.thread ]
   %77 = and i64 %58, -4096
   %78 = tail call i32 @get_user_pages_fast(i64 noundef %77, i32 noundef %64, i32 noundef %24, ptr noundef nonnull %76) #15
   %79 = icmp slt i32 %78, 1
   br i1 %79, label %80, label %82, !prof !9
 
-80:                                               ; preds = %.thread24
+80:                                               ; preds = %.thread36
   %81 = sext i32 %78 to i64
   br label %.thread12
 
-82:                                               ; preds = %.thread24
+82:                                               ; preds = %.thread36
   %83 = zext nneg i32 %78 to i64
   %84 = shl nuw nsw i64 %83, 12
   %85 = load i64, ptr %4, align 8
@@ -5890,7 +5890,7 @@ define dso_local i64 @__import_iovec(i32 noundef %0, ptr noundef %1, i32 noundef
   %70 = zext i32 %2 to i64
   %71 = load ptr, ptr %4, align 8
   %72 = icmp eq i32 %2, 0
-  br i1 %72, label %iovec_from_user.exit.thread12, label %73
+  br i1 %72, label %iovec_from_user.exit.thread26, label %73
 
 73:                                               ; preds = %69
   %74 = icmp ugt i32 %2, 1024
@@ -5984,12 +5984,12 @@ iovec_from_user.exit:                             ; preds = %112, %118
   %122 = icmp ugt ptr %121, inttoptr (i64 -4096 to ptr)
   br i1 %122, label %iovec_from_user.exit.thread, label %.preheader
 
-iovec_from_user.exit.thread12:                    ; preds = %69
+iovec_from_user.exit.thread26:                    ; preds = %69
   %123 = icmp ugt ptr %71, inttoptr (i64 -4096 to ptr)
   br i1 %123, label %iovec_from_user.exit.thread, label %.loopexit
 
-iovec_from_user.exit.thread:                      ; preds = %iovec_from_user.exit.thread12, %77, %73, %iovec_from_user.exit
-  %124 = phi ptr [ %121, %iovec_from_user.exit ], [ inttoptr (i64 -12 to ptr), %77 ], [ inttoptr (i64 -22 to ptr), %73 ], [ %71, %iovec_from_user.exit.thread12 ]
+iovec_from_user.exit.thread:                      ; preds = %iovec_from_user.exit.thread26, %77, %73, %iovec_from_user.exit
+  %124 = phi ptr [ %121, %iovec_from_user.exit ], [ inttoptr (i64 -12 to ptr), %77 ], [ inttoptr (i64 -22 to ptr), %73 ], [ %71, %iovec_from_user.exit.thread26 ]
   store ptr null, ptr %4, align 8
   %125 = ptrtoint ptr %124 to i64
   br label %168
@@ -6037,9 +6037,9 @@ iovec_from_user.exit.thread:                      ; preds = %iovec_from_user.exi
   store ptr null, ptr %4, align 8
   br label %168
 
-.loopexit:                                        ; preds = %126, %iovec_from_user.exit.thread12
-  %151 = phi ptr [ %71, %iovec_from_user.exit.thread12 ], [ %121, %126 ]
-  %152 = phi i64 [ 0, %iovec_from_user.exit.thread12 ], [ %128, %126 ]
+.loopexit:                                        ; preds = %126, %iovec_from_user.exit.thread26
+  %151 = phi ptr [ %71, %iovec_from_user.exit.thread26 ], [ %121, %126 ]
+  %152 = phi i64 [ 0, %iovec_from_user.exit.thread26 ], [ %128, %126 ]
   %153 = icmp ult i32 %0, 2
   br i1 %153, label %155, label %154, !prof !11
 
@@ -6210,7 +6210,7 @@ define dso_local void @iov_iter_restore(ptr noundef captures(none) %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147483648) i64 @iov_iter_extract_pages(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) #0 align 16 {
+define dso_local range(i64 -2147483648, 17592186040321) i64 @iov_iter_extract_pages(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = tail call i64 @llvm.umin.i64(i64 %8, i64 %2)
@@ -6312,7 +6312,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @iov_iter_extract_pages(
 .thread:                                          ; preds = %61
   %74 = load ptr, ptr %1, align 8
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %76, label %.thread21
+  br i1 %75, label %76, label %.thread31
 
 76:                                               ; preds = %.thread, %71
   %77 = zext nneg i32 %69 to i64
@@ -6321,20 +6321,20 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @iov_iter_extract_pages(
   store ptr %79, ptr %1, align 8
   %80 = icmp eq ptr %79, null
   %or.cond = or i1 %70, %80
-  br i1 %or.cond, label %.thread10, label %.thread21
+  br i1 %or.cond, label %.thread10, label %.thread31
 
-.thread21:                                        ; preds = %.thread, %76
+.thread31:                                        ; preds = %.thread, %76
   %81 = phi ptr [ %79, %76 ], [ %74, %.thread ]
   %82 = and i64 %63, -4096
   %83 = tail call i32 @pin_user_pages_fast(i64 noundef %82, i32 noundef %69, i32 noundef %27, ptr noundef nonnull %81) #15
   %84 = icmp slt i32 %83, 1
   br i1 %84, label %85, label %87, !prof !9
 
-85:                                               ; preds = %.thread21
+85:                                               ; preds = %.thread31
   %86 = sext i32 %83 to i64
   br label %.thread10
 
-87:                                               ; preds = %.thread21
+87:                                               ; preds = %.thread31
   %88 = zext nneg i32 %83 to i64
   %89 = shl nuw nsw i64 %88, 12
   %90 = sub nuw nsw i64 %89, %64
@@ -6405,7 +6405,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @iov_iter_extract_pages(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_kvec_pages(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef range(i64 0, 2147479553) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -12, 17592186040321) i64 @iov_iter_extract_kvec_pages(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef range(i64 0, 2147479553) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
@@ -6450,7 +6450,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_kvec_pag
   %35 = trunc nuw nsw i64 %34 to i32
   %36 = tail call i32 @llvm.umin.i32(i32 %35, i32 %3)
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %.thread17, !prof !9
+  br i1 %37, label %38, label %.thread25, !prof !9
 
 38:                                               ; preds = %27
   tail call void asm sideeffect "477: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 477b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 477) #15, !srcloc !105
@@ -6460,29 +6460,29 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_kvec_pag
   %40 = icmp eq ptr %39, null
   br i1 %40, label %43, label %.thread
 
-.thread17:                                        ; preds = %27
+.thread25:                                        ; preds = %27
   %41 = load ptr, ptr %1, align 8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %.thread18
+  br i1 %42, label %43, label %.thread26
 
-43:                                               ; preds = %.thread17, %38
+43:                                               ; preds = %.thread25, %38
   %44 = shl nuw nsw i32 %36, 3
   %45 = zext nneg i32 %44 to i64
   %46 = tail call noalias ptr @kvmalloc_node(i64 noundef %45, i32 noundef 3264, i32 noundef -1) #17
   store ptr %46, ptr %1, align 8
   %47 = icmp eq ptr %46, null
   %or.cond = or i1 %37, %47
-  br i1 %or.cond, label %.thread, label %.thread18
+  br i1 %or.cond, label %.thread, label %.thread26
 
-.thread18:                                        ; preds = %.thread17, %43
-  %48 = phi ptr [ %46, %43 ], [ %41, %.thread17 ]
+.thread26:                                        ; preds = %.thread25, %43
+  %48 = phi ptr [ %46, %43 ], [ %41, %.thread25 ]
   %49 = sub nsw i64 0, %31
   %50 = getelementptr i8, ptr %29, i64 %49
   br label %51
 
-51:                                               ; preds = %71, %.thread18
-  %52 = phi ptr [ %50, %.thread18 ], [ %75, %71 ]
-  %53 = phi i32 [ 0, %.thread18 ], [ %76, %71 ]
+51:                                               ; preds = %71, %.thread26
+  %52 = phi ptr [ %50, %.thread26 ], [ %75, %71 ]
+  %53 = phi i32 [ 0, %.thread26 ], [ %76, %71 ]
   %54 = tail call i32 @is_vmalloc_or_module_addr(ptr noundef %52) #15
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %58, label %56
@@ -6568,7 +6568,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_kvec_pag
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_bvec_pages(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef range(i64 0, 2147479553) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -12, 17592186040321) i64 @iov_iter_extract_bvec_pages(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef range(i64 0, 2147479553) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
@@ -6618,7 +6618,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_bvec_pag
   %40 = trunc nuw nsw i64 %39 to i32
   %41 = tail call i32 @llvm.umin.i32(i32 %40, i32 %3)
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %.thread16, !prof !9
+  br i1 %42, label %43, label %.thread23, !prof !9
 
 43:                                               ; preds = %28
   tail call void asm sideeffect "477: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 477b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 477) #15, !srcloc !105
@@ -6628,26 +6628,26 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_bvec_pag
   %45 = icmp eq ptr %44, null
   br i1 %45, label %48, label %.thread
 
-.thread16:                                        ; preds = %28
+.thread23:                                        ; preds = %28
   %46 = load ptr, ptr %1, align 8
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %.thread17
+  br i1 %47, label %48, label %.thread24
 
-48:                                               ; preds = %.thread16, %43
+48:                                               ; preds = %.thread23, %43
   %49 = shl nuw nsw i32 %41, 3
   %50 = zext nneg i32 %49 to i64
   %51 = tail call noalias ptr @kvmalloc_node(i64 noundef %50, i32 noundef 3264, i32 noundef -1) #17
   store ptr %51, ptr %1, align 8
   %52 = icmp eq ptr %51, null
   %or.cond = or i1 %42, %52
-  br i1 %or.cond, label %.thread, label %.thread17
+  br i1 %or.cond, label %.thread, label %.thread24
 
-.thread17:                                        ; preds = %.thread16, %48
-  %53 = phi ptr [ %51, %48 ], [ %46, %.thread16 ]
+.thread24:                                        ; preds = %.thread23, %48
+  %53 = phi ptr [ %51, %48 ], [ %46, %.thread23 ]
   br label %54
 
-54:                                               ; preds = %54, %.thread17
-  %55 = phi i32 [ 0, %.thread17 ], [ %59, %54 ]
+54:                                               ; preds = %54, %.thread24
+  %55 = phi i32 [ 0, %.thread24 ], [ %59, %54 ]
   %56 = sext i32 %55 to i64
   %57 = getelementptr %struct.page, ptr %35, i64 %56
   %58 = getelementptr ptr, ptr %53, i64 %56
@@ -6736,7 +6736,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_xarray_p
   %24 = trunc nuw nsw i64 %23 to i32
   %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 %3)
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %.thread10, !prof !9
+  br i1 %26, label %27, label %.thread21, !prof !9
 
 27:                                               ; preds = %5
   tail call void asm sideeffect "477: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 477b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 477) #15, !srcloc !105
@@ -6746,31 +6746,31 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_xarray_p
   %29 = icmp eq ptr %28, null
   br i1 %29, label %32, label %.thread
 
-.thread10:                                        ; preds = %5
+.thread21:                                        ; preds = %5
   %30 = load ptr, ptr %1, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %.thread11
+  br i1 %31, label %32, label %.thread22
 
-32:                                               ; preds = %.thread10, %27
+32:                                               ; preds = %.thread21, %27
   %33 = shl nuw nsw i32 %25, 3
   %34 = zext nneg i32 %33 to i64
   %35 = tail call noalias ptr @kvmalloc_node(i64 noundef %34, i32 noundef 3264, i32 noundef -1) #17
   store ptr %35, ptr %1, align 8
   %36 = icmp eq ptr %35, null
   %or.cond = or i1 %26, %36
-  br i1 %or.cond, label %.thread, label %.thread11
+  br i1 %or.cond, label %.thread, label %.thread22
 
-.thread11:                                        ; preds = %.thread10, %32
-  %37 = phi ptr [ %35, %32 ], [ %30, %.thread10 ]
+.thread22:                                        ; preds = %.thread21, %32
+  %37 = phi ptr [ %35, %32 ], [ %30, %.thread21 ]
   store i64 0, ptr %13, align 8, !annotation !27
   tail call void @__rcu_read_lock() #15
   %38 = call ptr @xas_load(ptr noundef nonnull %6) #15
   %39 = icmp eq ptr %38, null
   br i1 %39, label %128, label %.preheader
 
-.preheader:                                       ; preds = %.thread11, %121
-  %40 = phi ptr [ %122, %121 ], [ %38, %.thread11 ]
-  %41 = phi i32 [ %98, %121 ], [ 0, %.thread11 ]
+.preheader:                                       ; preds = %.thread22, %121
+  %40 = phi ptr [ %122, %121 ], [ %38, %.thread22 ]
+  %41 = phi i32 [ %98, %121 ], [ 0, %.thread22 ]
   %42 = ptrtoint ptr %40 to i64
   switch i64 %42, label %43 [
     i64 1030, label %97
@@ -6904,8 +6904,8 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_xarray_p
   %127 = shl nuw nsw i64 %126, 12
   br label %128
 
-128:                                              ; preds = %124, %.thread11
-  %129 = phi i64 [ 0, %.thread11 ], [ %127, %124 ]
+128:                                              ; preds = %124, %.thread22
+  %129 = phi i64 [ 0, %.thread22 ], [ %127, %124 ]
   call void @__rcu_read_unlock() #15
   %130 = sub nsw i64 %129, %20
   %131 = call i64 @llvm.umin.i64(i64 %130, i64 %2)

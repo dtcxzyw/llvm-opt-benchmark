@@ -1555,8 +1555,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit161.i.i:   ; preds = %_ZNSt6vectorIiSaIiE
 
 .critedge.i.i:                                    ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit161.i.i, %550
   %.val83.i427.i = phi ptr [ %.val83.i428.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit161.i.i ], [ %.val83.i.i, %550 ]
-  %.sink248.i.i = phi i32 [ %583, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit161.i.i ], [ %552, %550 ]
-  %584 = sext i32 %.sink248.i.i to i64
+  %.sink265.i.i = phi i32 [ %583, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit161.i.i ], [ %552, %550 ]
+  %584 = sext i32 %.sink265.i.i to i64
   %storemerge.in.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::LinkRunPoint", ptr %.val83.i427.i, i64 %584, i32 1
   %storemerge.i.i = load i32, ptr %storemerge.in.i.i, align 4, !tbaa !57
   %585 = add i32 %.260231.i.i, 1

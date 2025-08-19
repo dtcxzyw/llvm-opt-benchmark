@@ -1500,21 +1500,21 @@ bits_read_nz_be.exit:                             ; preds = %151, %bits_priv_ref
   %172 = phi i32 [ 0, %bits_read_nz_be.exit.thread ], [ %166, %bits_read_nz_be.exit ]
   %173 = phi i64 [ %154, %bits_read_nz_be.exit.thread ], [ %165, %bits_read_nz_be.exit ]
   %174 = phi i32 [ 2, %bits_read_nz_be.exit.thread ], [ %164, %bits_read_nz_be.exit ]
-  %.sroa.0.20253 = phi i64 [ %.sroa.0.19, %bits_read_nz_be.exit.thread ], [ %.sroa.0.20, %bits_read_nz_be.exit ]
-  %.sroa.65.21251 = phi ptr [ %.sroa.65.20, %bits_read_nz_be.exit.thread ], [ %.sroa.65.21, %bits_read_nz_be.exit ]
+  %.sroa.0.20259 = phi i64 [ %.sroa.0.19, %bits_read_nz_be.exit.thread ], [ %.sroa.0.20, %bits_read_nz_be.exit ]
+  %.sroa.65.21257 = phi ptr [ %.sroa.65.20, %bits_read_nz_be.exit.thread ], [ %.sroa.65.21, %bits_read_nz_be.exit ]
   %175 = sub nuw nsw i32 16, %174
-  %.not.i.i104 = icmp ult ptr %.sroa.65.21251, %28
+  %.not.i.i104 = icmp ult ptr %.sroa.65.21257, %28
   br i1 %.not.i.i104, label %176, label %bits_priv_refill_64_be.exit.i105
 
 176:                                              ; preds = %171
-  %177 = load i64, ptr %.sroa.65.21251, align 1, !tbaa !35
+  %177 = load i64, ptr %.sroa.65.21257, align 1, !tbaa !35
   %178 = tail call noundef i64 @llvm.bswap.i64(i64 %177)
-  %179 = getelementptr inbounds nuw i8, ptr %.sroa.65.21251, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.65.21257, i64 8
   br label %bits_priv_refill_64_be.exit.i105
 
 bits_priv_refill_64_be.exit.i105:                 ; preds = %176, %171
   %.sroa.94.18 = phi i32 [ 64, %176 ], [ 0, %171 ]
-  %.sroa.65.22 = phi ptr [ %179, %176 ], [ %.sroa.65.21251, %171 ]
+  %.sroa.65.22 = phi ptr [ %179, %176 ], [ %.sroa.65.21257, %171 ]
   %.sroa.0.21 = phi i64 [ %178, %176 ], [ 0, %171 ]
   %.not.i106 = icmp eq i32 %172, 14
   br i1 %.not.i106, label %bits_skip_be.exit109, label %180
@@ -1527,7 +1527,7 @@ bits_priv_refill_64_be.exit.i105:                 ; preds = %176, %171
 
 bits_skip_be.exit109:                             ; preds = %168, %180, %bits_priv_refill_64_be.exit.i105
   %184 = phi i64 [ %173, %bits_priv_refill_64_be.exit.i105 ], [ %173, %180 ], [ %165, %168 ]
-  %.sroa.0.20252 = phi i64 [ %.sroa.0.20253, %bits_priv_refill_64_be.exit.i105 ], [ %.sroa.0.20253, %180 ], [ %.sroa.0.20, %168 ]
+  %.sroa.0.20258 = phi i64 [ %.sroa.0.20259, %bits_priv_refill_64_be.exit.i105 ], [ %.sroa.0.20259, %180 ], [ %.sroa.0.20, %168 ]
   %.sroa.94.19 = phi i32 [ %.sroa.94.18, %bits_priv_refill_64_be.exit.i105 ], [ %183, %180 ], [ %170, %168 ]
   %.sroa.65.24 = phi ptr [ %.sroa.65.22, %bits_priv_refill_64_be.exit.i105 ], [ %.sroa.65.22, %180 ], [ %.sroa.65.21, %168 ]
   %.sroa.0.23 = phi i64 [ %.sroa.0.21, %bits_priv_refill_64_be.exit.i105 ], [ %182, %180 ], [ %169, %168 ]
@@ -1540,7 +1540,7 @@ bits_skip_be.exit109:                             ; preds = %168, %180, %bits_pr
   %189 = zext i8 %188 to i64
   %190 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %189
   %191 = load ptr, ptr %190, align 8, !tbaa !50
-  %192 = icmp ugt i64 %.sroa.0.20252, 4611686018427387903
+  %192 = icmp ugt i64 %.sroa.0.20258, 4611686018427387903
   %193 = zext i1 %192 to i32
   %194 = lshr i32 %150, %193
   %195 = getelementptr inbounds nuw [8 x i32], ptr %38, i64 0, i64 %189

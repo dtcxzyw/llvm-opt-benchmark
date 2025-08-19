@@ -337,7 +337,7 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17
   br label %72
 
 71:                                               ; preds = %30
-  %spec.select162 = zext i1 %19 to i64
+  %spec.select185 = zext i1 %19 to i64
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he21cac0fa60d7f79E.exit"
 
 72:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4edb9f3589ada7ecE.exit16.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4edb9f3589ada7ecE.exit14.i.i.i", %47, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4edb9f3589ada7ecE.exit12.i.i.i"
@@ -399,7 +399,7 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17
   br label %104
 
 104:                                              ; preds = %.sink.split.i, %.lr.ph.i8
-  %105 = phi i64 [ %.promoted.i5, %.lr.ph.i8 ], [ %.ph69.i, %.sink.split.i ]
+  %105 = phi i64 [ %.promoted.i5, %.lr.ph.i8 ], [ %.ph76.i, %.sink.split.i ]
   %106 = phi i64 [ %83, %.lr.ph.i8 ], [ %.sink.i, %.sink.split.i ]
   %107 = phi i64 [ %96, %.lr.ph.i8 ], [ %118, %.sink.split.i ]
   %108 = getelementptr inbounds i8, ptr %86, i64 %107
@@ -421,8 +421,8 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17
 
 .sink.split.i:                                    ; preds = %149, %139, %115
   %.sink.i = phi i64 [ %103, %139 ], [ 0, %149 ], [ 0, %115 ]
-  %.ph69.i = phi i64 [ %140, %139 ], [ %151, %149 ], [ %116, %115 ]
-  %118 = add i64 %.ph69.i, %94
+  %.ph76.i = phi i64 [ %140, %139 ], [ %151, %149 ], [ %116, %115 ]
+  %118 = add i64 %.ph76.i, %94
   %119 = icmp ult i64 %118, %88
   br i1 %119, label %104, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he21cac0fa60d7f79E.exit"
 
@@ -600,7 +600,7 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17
 
 "_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he21cac0fa60d7f79E.exit": ; preds = %72, %.sink.split.i, %.preheader20, %173, %.preheader, %71, %152, %95, %.preheader.i
   %.sroa.6.1 = phi i64 [ undef, %.preheader.i ], [ %15, %71 ], [ undef, %95 ], [ undef, %152 ], [ %162, %.preheader ], [ undef, %173 ], [ %105, %.preheader20 ], [ undef, %.sink.split.i ], [ %18, %72 ]
-  %not.switch = phi i64 [ 0, %.preheader.i ], [ %spec.select162, %71 ], [ 0, %95 ], [ 0, %152 ], [ 1, %.preheader ], [ 0, %173 ], [ 1, %.preheader20 ], [ 0, %.sink.split.i ], [ 1, %72 ]
+  %not.switch = phi i64 [ 0, %.preheader.i ], [ %spec.select185, %71 ], [ 0, %95 ], [ 0, %152 ], [ 1, %.preheader ], [ 0, %173 ], [ 1, %.preheader20 ], [ 0, %.sink.split.i ], [ 1, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %206 = insertvalue { i64, i64 } poison, i64 %not.switch, 0
   %207 = insertvalue { i64, i64 } %206, i64 %.sroa.6.1, 1

@@ -1011,9 +1011,9 @@ define void @ucm_addMapping(ptr noundef captures(none) %0, ptr noundef captures(
   br i1 %109, label %.sink.split, label %112
 
 .sink.split:                                      ; preds = %107, %103
-  %.sink76 = phi i8 [ 1, %103 ], [ 2, %107 ]
+  %.sink80 = phi i8 [ 1, %103 ], [ 2, %107 ]
   %110 = load i8, ptr %102, align 8, !tbaa !43
-  %111 = or i8 %110, %.sink76
+  %111 = or i8 %110, %.sink80
   store i8 %111, ptr %102, align 8, !tbaa !43
   br label %112
 
@@ -2338,9 +2338,9 @@ _ZL15compareMappingsP8UCMTablePK9UCMappingS0_S3_a.exit.thread: ; preds = %.lr.ph
   br label %162
 
 162:                                              ; preds = %152, %157, %161
-  %.sink147 = phi i8 [ 1, %161 ], [ 2, %157 ], [ 2, %152 ]
+  %.sink159 = phi i8 [ 1, %161 ], [ 2, %157 ], [ 2, %152 ]
   %163 = getelementptr inbounds nuw i8, ptr %.0122, i64 10
-  store i8 %.sink147, ptr %163, align 2, !tbaa !22
+  store i8 %.sink159, ptr %163, align 2, !tbaa !22
   %164 = getelementptr inbounds nuw i8, ptr %.0122, i64 12
   %165 = add nsw i32 %.093119, 1
   br label %198
@@ -2467,9 +2467,9 @@ _ZL15compareMappingsP8UCMTablePK9UCMappingS0_S3_a.exit.thread: ; preds = %.lr.ph
   br label %229
 
 229:                                              ; preds = %219, %224, %228
-  %.sink149 = phi i8 [ 1, %228 ], [ 2, %224 ], [ 2, %219 ]
+  %.sink161 = phi i8 [ 1, %228 ], [ 2, %224 ], [ 2, %219 ]
   %230 = getelementptr inbounds nuw i8, ptr %.3129, i64 10
-  store i8 %.sink149, ptr %230, align 2, !tbaa !22
+  store i8 %.sink161, ptr %230, align 2, !tbaa !22
   %231 = getelementptr inbounds nuw i8, ptr %.3129, i64 12
   %232 = add nsw i32 %.295128, 1
   %exitcond.not = icmp eq i32 %232, %9
@@ -2550,7 +2550,7 @@ define signext range(i8 0, 2) i8 @ucm_separateMappings(ptr noundef %0, i8 nounde
   %.idx = mul nsw i64 %7, 12
   %8 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %9 = icmp sgt i32 %6, 0
-  br i1 %9, label %.lr.ph, label %.thread77
+  br i1 %9, label %.lr.ph, label %.thread85
 
 .lr.ph:                                           ; preds = %2
   %.not52 = icmp ne i8 %1, 0
@@ -2580,9 +2580,9 @@ define signext range(i8 0, 2) i8 @ucm_separateMappings(ptr noundef %0, i8 nounde
   %19 = load i8, ptr %18, align 4, !tbaa !17
   %20 = and i8 %19, -2
   %switch = icmp eq i8 %20, 14
-  br i1 %switch, label %23, label %.thread66
+  br i1 %switch, label %23, label %.thread74
 
-.thread66:                                        ; preds = %17
+.thread74:                                        ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %.04859, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %.04859, i64 9
   br label %48
@@ -2627,10 +2627,10 @@ ucm_printMapping.exit:                            ; preds = %35, %39
   %47 = icmp slt i8 %.pre, 5
   br i1 %47, label %48, label %53
 
-48:                                               ; preds = %.thread66, %._crit_edge65
-  %49 = phi ptr [ %22, %.thread66 ], [ %46, %._crit_edge65 ]
-  %50 = phi ptr [ %21, %.thread66 ], [ %45, %._crit_edge65 ]
-  %51 = phi i8 [ 1, %.thread66 ], [ %.pre, %._crit_edge65 ]
+48:                                               ; preds = %.thread74, %._crit_edge65
+  %49 = phi ptr [ %22, %.thread74 ], [ %46, %._crit_edge65 ]
+  %50 = phi ptr [ %21, %.thread74 ], [ %45, %._crit_edge65 ]
+  %51 = phi i8 [ 1, %.thread74 ], [ %.pre, %._crit_edge65 ]
   %52 = getelementptr inbounds nuw i8, ptr %.04859, i64 4
   br label %59
 
@@ -2729,10 +2729,10 @@ ucm_mappingType.exit:                             ; preds = %59
   br label %.thread.thread
 
 .thread.sink.split:                               ; preds = %69, %71, %79, %82, %89, %ucm_printMapping.exit
-  %.sink86 = phi i8 [ 2, %ucm_printMapping.exit ], [ 1, %89 ], [ 1, %82 ], [ 1, %79 ], [ 1, %71 ], [ 1, %69 ]
+  %.sink94 = phi i8 [ 2, %ucm_printMapping.exit ], [ 1, %89 ], [ 1, %82 ], [ 1, %79 ], [ 1, %71 ], [ 1, %69 ]
   %109 = getelementptr inbounds nuw i8, ptr %.04859, i64 11
   %110 = load i8, ptr %109, align 1, !tbaa !37
-  %111 = or i8 %110, %.sink86
+  %111 = or i8 %110, %.sink94
   store i8 %111, ptr %109, align 1, !tbaa !37
   br label %.thread
 
@@ -2748,14 +2748,14 @@ ucm_mappingType.exit:                             ; preds = %59
   tail call fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noundef nonnull %.04859, ptr noundef %98, ptr noundef %114, ptr noundef %115)
   %116 = getelementptr inbounds nuw i8, ptr %.04859, i64 12
   %117 = icmp ult ptr %116, %8
-  br i1 %117, label %.outer, label %._crit_edge.thread74, !llvm.loop !62
+  br i1 %117, label %.outer, label %._crit_edge.thread82, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %.thread
-  br i1 %14, label %._crit_edge.thread74, label %118
+  br i1 %14, label %._crit_edge.thread82, label %118
 
 118:                                              ; preds = %._crit_edge
   %119 = icmp eq i8 %.146, 0
-  br i1 %119, label %.thread77, label %120
+  br i1 %119, label %.thread85, label %120
 
 120:                                              ; preds = %118
   %121 = load ptr, ptr %0, align 8, !tbaa !58
@@ -2897,15 +2897,15 @@ ucm_moveMappings.exit:                            ; preds = %185, %145, %120
   %188 = load ptr, ptr %0, align 8, !tbaa !58
   %189 = load ptr, ptr %122, align 8, !tbaa !63
   %190 = tail call signext i8 @ucm_checkBaseExt(ptr noundef nonnull %187, ptr noundef %188, ptr noundef %189, ptr noundef %189, i8 noundef signext 0)
-  br label %._crit_edge.thread74
+  br label %._crit_edge.thread82
 
-.thread77:                                        ; preds = %2, %118
+.thread85:                                        ; preds = %2, %118
   %191 = load ptr, ptr %0, align 8, !tbaa !58
   tail call void @ucm_sortTable(ptr noundef %191)
-  br label %._crit_edge.thread74
+  br label %._crit_edge.thread82
 
-._crit_edge.thread74:                             ; preds = %.thread.thread, %._crit_edge, %.thread77, %ucm_moveMappings.exit
-  %.047 = phi i8 [ %190, %ucm_moveMappings.exit ], [ 1, %.thread77 ], [ 0, %._crit_edge ], [ 0, %.thread.thread ]
+._crit_edge.thread82:                             ; preds = %.thread.thread, %._crit_edge, %.thread85, %ucm_moveMappings.exit
+  %.047 = phi i8 [ %190, %ucm_moveMappings.exit ], [ 1, %.thread85 ], [ 0, %._crit_edge ], [ 0, %.thread.thread ]
   ret i8 %.047
 }
 
@@ -3064,8 +3064,8 @@ define signext range(i8 0, 2) i8 @ucm_parseMappingLine(ptr noundef writeonly cap
 9:                                                ; preds = %43, %4
   %storemerge = phi ptr [ %3, %4 ], [ %47, %43 ]
   %.041 = phi i8 [ 0, %4 ], [ %44, %43 ]
-  %.not88 = icmp eq i8 %.041, 0
-  br i1 %.not88, label %thread-pre-split, label %10
+  %.not93 = icmp eq i8 %.041, 0
+  br i1 %.not93, label %thread-pre-split, label %10
 
 10:                                               ; preds = %9
   %11 = load i8, ptr %storemerge, align 1, !tbaa !17
@@ -3201,22 +3201,22 @@ thread-pre-split:                                 ; preds = %9, %13
   %spec.select.idx.i = zext i1 %70 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %.018.i, i64 %spec.select.idx.i
   %71 = load i8, ptr %spec.select.i, align 1, !tbaa !17
-  %.not.i90 = icmp eq i8 %71, 92
-  br i1 %.not.i90, label %72, label %90
+  %.not.i95 = icmp eq i8 %71, 92
+  br i1 %.not.i95, label %72, label %90
 
 72:                                               ; preds = %.thread, %69
-  %.1.i91 = phi ptr [ %spec.select.i, %.thread ], [ %.018.i, %69 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.1.i91, i64 1
+  %.1.i96 = phi ptr [ %spec.select.i, %.thread ], [ %.018.i, %69 ]
+  %73 = getelementptr inbounds nuw i8, ptr %.1.i96, i64 1
   %74 = load i8, ptr %73, align 1, !tbaa !17
   %.not19.i = icmp eq i8 %74, 120
   br i1 %.not19.i, label %75, label %ucm_parseBytes.exit.thread
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %.1.i91, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %.1.i96, i64 2
   %77 = call i64 @strtoul(ptr noundef nonnull %76, ptr noundef nonnull %5, i32 noundef 16) #16
   %78 = trunc i64 %77 to i8
   %79 = load ptr, ptr %5, align 8, !tbaa !64
-  %80 = getelementptr inbounds nuw i8, ptr %.1.i91, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %.1.i96, i64 4
   %.not20.i = icmp eq ptr %79, %80
   br i1 %.not20.i, label %81, label %ucm_parseBytes.exit.thread
 

@@ -1613,12 +1613,12 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %18, %20, %22, %24
   %59 = phi ptr [ %35, %._crit_edge.thread ], [ %47, %._crit_edge ]
   %60 = phi ptr [ %34, %._crit_edge.thread ], [ %46, %._crit_edge ]
   %61 = phi ptr [ %33, %._crit_edge.thread ], [ %45, %._crit_edge ]
-  %.014.lcssa33 = phi i64 [ 0, %._crit_edge.thread ], [ %77, %._crit_edge ]
-  %62 = icmp ult i64 %.014.lcssa33, %57
+  %.014.lcssa40 = phi i64 [ 0, %._crit_edge.thread ], [ %77, %._crit_edge ]
+  %62 = icmp ult i64 %.014.lcssa40, %57
   br i1 %62, label %63, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
 
 63:                                               ; preds = %56
-  %64 = getelementptr inbounds nuw float, ptr %58, i64 %.014.lcssa33
+  %64 = getelementptr inbounds nuw float, ptr %58, i64 %.014.lcssa40
   %.not.i.i18 = icmp eq ptr %59, %64
   br i1 %.not.i.i18, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19, label %65
 
@@ -1734,13 +1734,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !57
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !57
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -2147,8 +2147,8 @@ define internal void @_ZNK5faiss17AdditiveQuantizer10pack_codesEmPKiPhlPKfS5_.om
   %18 = call i64 @llvm.umin.i64(i64 %17, i64 %15)
   store i64 %18, ptr %10, align 8, !tbaa !13
   %19 = load i64, ptr %9, align 8, !tbaa !13
-  %.not52 = icmp ugt i64 %19, %18
-  br i1 %.not52, label %._crit_edge49, label %.lr.ph48
+  %.not58 = icmp ugt i64 %19, %18
+  br i1 %.not58, label %._crit_edge49, label %.lr.ph48
 
 .lr.ph48:                                         ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2363,8 +2363,8 @@ define internal void @_ZNK5faiss17AdditiveQuantizer6decodeEPKhPfm.omp_outlined(p
   %16 = call i64 @llvm.umin.i64(i64 %15, i64 %13)
   store i64 %16, ptr %8, align 8, !tbaa !13
   %17 = load i64, ptr %7, align 8, !tbaa !13
-  %.not43 = icmp ugt i64 %17, %16
-  br i1 %.not43, label %._crit_edge35, label %.lr.ph34
+  %.not50 = icmp ugt i64 %17, %16
+  br i1 %.not50, label %._crit_edge35, label %.lr.ph34
 
 .lr.ph34:                                         ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2557,8 +2557,8 @@ define internal void @_ZNK5faiss17AdditiveQuantizer15decode_unpackedEPKiPfml.omp
   %17 = call i64 @llvm.umin.i64(i64 %16, i64 %14)
   store i64 %17, ptr %9, align 8, !tbaa !13
   %18 = load i64, ptr %8, align 8, !tbaa !13
-  %.not39 = icmp ugt i64 %18, %17
-  br i1 %.not39, label %._crit_edge34, label %.lr.ph33
+  %.not43 = icmp ugt i64 %18, %17
+  br i1 %.not43, label %._crit_edge34, label %.lr.ph33
 
 .lr.ph33:                                         ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2869,8 +2869,8 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %25 = call i64 @llvm.umin.i64(i64 %24, i64 %23)
   store i64 %25, ptr %7, align 8, !tbaa !13
   %26 = load i64, ptr %6, align 8, !tbaa !13
-  %.not28 = icmp ugt i64 %26, %25
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not33 = icmp ugt i64 %26, %25
+  br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3277,8 +3277,8 @@ _ZN5faiss15minheap_heapifyIfEEvmPT_PlPKS1_PKlm.exit: ; preds = %.lr.ph46.i.i
 
 _ZN5faiss15minheap_heapifyIfEEvmPT_PlPKS1_PKlm.exit.thread: ; preds = %_ZN5faiss12_GLOBAL__N_127compute_inner_prod_with_LUTERKNS_17AdditiveQuantizerEPKfPf.exit
   %70 = load i64, ptr %2, align 8, !tbaa !13
-  %.not50.i44 = icmp eq i64 %70, 0
-  br i1 %.not50.i44, label %._crit_edge.i.i, label %.lr.ph47.split.us.i
+  %.not50.i73 = icmp eq i64 %70, 0
+  br i1 %.not50.i73, label %._crit_edge.i.i, label %.lr.ph47.split.us.i
 
 .lr.ph47.i:                                       ; preds = %_ZN5faiss15minheap_heapifyIfEEvmPT_PlPKS1_PKlm.exit
   %71 = getelementptr inbounds i8, ptr %63, i64 -4
@@ -3372,11 +3372,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i31.i:        ; preds = %110
   br i1 %114, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.loopexit.i, label %115
 
 115:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i31.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i37.i
-  %.sink63.i32.i = phi float [ %103, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i37.i ], [ %94, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i31.i ]
+  %.sink71.i32.i = phi float [ %103, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i37.i ], [ %94, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i31.i ]
   %.sink.i33.i = phi i64 [ %106, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i37.i ], [ %96, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i31.i ]
   %.1.i34.i = phi i64 [ %88, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i37.i ], [ %87, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i31.i ]
   %116 = getelementptr inbounds nuw float, ptr %71, i64 %.056.i29.i
-  store float %.sink63.i32.i, ptr %116, align 4, !tbaa !57
+  store float %.sink71.i32.i, ptr %116, align 4, !tbaa !57
   %117 = getelementptr inbounds nuw i64, ptr %72, i64 %.056.i29.i
   store i64 %.sink.i33.i, ptr %117, align 8, !tbaa !13
   %118 = shl i64 %.1.i34.i, 1
@@ -3477,11 +3477,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i.i:        ; preds = %160
   br i1 %164, label %_ZN5faiss4CMinIflE4cmp2Effll.exit60.thread.loopexit.i.i.i, label %165
 
 165:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit60.i.i.i
-  %.sink71.i.i.i = phi float [ %153, %_ZN5faiss4CMinIflE4cmp2Effll.exit60.i.i.i ], [ %144, %_ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i.i ]
+  %.sink79.i.i.i = phi float [ %153, %_ZN5faiss4CMinIflE4cmp2Effll.exit60.i.i.i ], [ %144, %_ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i.i ]
   %.sink.i.i.i = phi i64 [ %156, %_ZN5faiss4CMinIflE4cmp2Effll.exit60.i.i.i ], [ %146, %_ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i.i ]
   %.1.i.i.i = phi i64 [ %138, %_ZN5faiss4CMinIflE4cmp2Effll.exit60.i.i.i ], [ %137, %_ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i.i ]
   %166 = getelementptr inbounds nuw float, ptr %126, i64 %.062.i.i.i
-  store float %.sink71.i.i.i, ptr %166, align 4, !tbaa !57
+  store float %.sink79.i.i.i, ptr %166, align 4, !tbaa !57
   %167 = getelementptr inbounds nuw i64, ptr %127, i64 %.062.i.i.i
   store i64 %.sink.i.i.i, ptr %167, align 8, !tbaa !13
   %168 = shl i64 %.1.i.i.i, 1
@@ -3958,11 +3958,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i.i:        ; preds = %113
   br i1 %117, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.thread.loopexit.i.i.i, label %118
 
 118:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.i.i.i
-  %.sink71.i.i.i = phi float [ %106, %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.i.i.i ], [ %97, %_ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i.i ]
+  %.sink79.i.i.i = phi float [ %106, %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.i.i.i ], [ %97, %_ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i.i ]
   %.sink.i.i.i = phi i64 [ %109, %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.i.i.i ], [ %99, %_ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i.i ]
   %.1.i.i.i = phi i64 [ %91, %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.i.i.i ], [ %90, %_ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i.i ]
   %119 = getelementptr inbounds nuw float, ptr %79, i64 %.062.i.i.i
-  store float %.sink71.i.i.i, ptr %119, align 4, !tbaa !57
+  store float %.sink79.i.i.i, ptr %119, align 4, !tbaa !57
   %120 = getelementptr inbounds nuw i64, ptr %80, i64 %.062.i.i.i
   store i64 %.sink.i.i.i, ptr %120, align 8, !tbaa !13
   %121 = shl i64 %.1.i.i.i, 1
@@ -4097,11 +4097,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i:            ; preds = %182
   br i1 %186, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %187
 
 187:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i
-  %.sink63.i = phi float [ %175, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i ], [ %166, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i ]
+  %.sink71.i = phi float [ %175, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i ], [ %166, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i ]
   %.sink.i = phi i64 [ %178, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i ], [ %168, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i ]
   %.1.i = phi i64 [ %160, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i ], [ %159, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i ]
   %188 = getelementptr inbounds nuw float, ptr %76, i64 %.056.i
-  store float %.sink63.i, ptr %188, align 4, !tbaa !57
+  store float %.sink71.i, ptr %188, align 4, !tbaa !57
   %189 = getelementptr inbounds nuw i64, ptr %77, i64 %.056.i
   store i64 %.sink.i, ptr %189, align 8, !tbaa !13
   %190 = shl i64 %.1.i, 1
@@ -4665,14 +4665,14 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   br label %_ZN5faiss15BitstringReader4readEi.exit
 
 _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit.thread, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit, %61
-  %.012.lcssa.i19 = phi float [ %51, %61 ], [ %51, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit ], [ 0.000000e+00, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit.thread ]
+  %.012.lcssa.i24 = phi float [ %51, %61 ], [ %51, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit ], [ 0.000000e+00, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit.thread ]
   %.0.i = phi i32 [ %68, %61 ], [ %60, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit ], [ %7, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit.thread ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %70 = load ptr, ptr %69, align 8, !tbaa !79
   %71 = zext nneg i32 %.0.i to i64
   %72 = getelementptr inbounds nuw float, ptr %70, i64 %71
   %73 = load float, ptr %72, align 4, !tbaa !57
-  %74 = tail call float @llvm.fmuladd.f32(float %.012.lcssa.i19, float -2.000000e+00, float %73)
+  %74 = tail call float @llvm.fmuladd.f32(float %.012.lcssa.i24, float -2.000000e+00, float %73)
   ret float %74
 }
 
@@ -4795,7 +4795,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
 
 61:                                               ; preds = %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit.thread, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit
   %62 = phi i32 [ %7, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit.thread ], [ %60, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit ]
-  %.012.lcssa.i20 = phi float [ 0.000000e+00, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit.thread ], [ %51, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit ]
+  %.012.lcssa.i25 = phi float [ 0.000000e+00, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit.thread ], [ %51, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit ]
   %63 = and i32 %62, 15
   br label %_ZN5faiss15BitstringReader4readEi.exit
 
@@ -4810,14 +4810,14 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   br label %_ZN5faiss15BitstringReader4readEi.exit
 
 _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %61, %._crit_edge.i
-  %.012.lcssa.i19 = phi float [ %.012.lcssa.i20, %61 ], [ %51, %._crit_edge.i ]
+  %.012.lcssa.i24 = phi float [ %.012.lcssa.i25, %61 ], [ %51, %._crit_edge.i ]
   %.0.i = phi i32 [ %63, %61 ], [ %70, %._crit_edge.i ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %72 = load ptr, ptr %71, align 8, !tbaa !79
   %73 = zext nneg i32 %.0.i to i64
   %74 = getelementptr inbounds nuw float, ptr %72, i64 %73
   %75 = load float, ptr %74, align 4, !tbaa !57
-  %76 = tail call float @llvm.fmuladd.f32(float %.012.lcssa.i19, float -2.000000e+00, float %75)
+  %76 = tail call float @llvm.fmuladd.f32(float %.012.lcssa.i24, float -2.000000e+00, float %75)
   ret float %76
 }
 
@@ -4940,7 +4940,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
 
 61:                                               ; preds = %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit.thread, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit
   %62 = phi i32 [ %7, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit.thread ], [ %60, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit ]
-  %.012.lcssa.i20 = phi float [ 0.000000e+00, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit.thread ], [ %51, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit ]
+  %.012.lcssa.i25 = phi float [ 0.000000e+00, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit.thread ], [ %51, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit ]
   %63 = trunc nuw nsw i32 %62 to i16
   br label %_ZN5faiss15BitstringReader4readEi.exit
 
@@ -4960,7 +4960,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   br label %_ZN5faiss15BitstringReader4readEi.exit
 
 _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %61, %64
-  %.012.lcssa.i19 = phi float [ %.012.lcssa.i20, %61 ], [ %51, %64 ]
+  %.012.lcssa.i24 = phi float [ %.012.lcssa.i25, %61 ], [ %51, %64 ]
   %.0.i = phi i16 [ %63, %61 ], [ %75, %64 ]
   %76 = trunc i16 %.0.i to i8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 348
@@ -4975,7 +4975,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %61, %64
   %86 = fpext float %78 to double
   %87 = tail call double @llvm.fmuladd.f64(double %83, double %85, double %86)
   %88 = fptrunc double %87 to float
-  %89 = tail call float @llvm.fmuladd.f32(float %.012.lcssa.i19, float -2.000000e+00, float %88)
+  %89 = tail call float @llvm.fmuladd.f32(float %.012.lcssa.i24, float -2.000000e+00, float %88)
   ret float %89
 }
 
@@ -5101,7 +5101,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
 
 61:                                               ; preds = %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit.thread, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit
   %62 = phi i32 [ %7, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit.thread ], [ %60, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit ]
-  %.012.lcssa.i20 = phi float [ 0.000000e+00, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit.thread ], [ %51, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit ]
+  %.012.lcssa.i25 = phi float [ 0.000000e+00, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit.thread ], [ %51, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKf.exit ]
   %63 = trunc nuw nsw i32 %62 to i16
   %64 = and i16 %63, 15
   br label %_ZN5faiss15BitstringReader4readEi.exit
@@ -5123,7 +5123,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   br label %_ZN5faiss15BitstringReader4readEi.exit
 
 _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %61, %._crit_edge.i
-  %.012.lcssa.i19 = phi float [ %.012.lcssa.i20, %61 ], [ %51, %._crit_edge.i ]
+  %.012.lcssa.i24 = phi float [ %.012.lcssa.i25, %61 ], [ %51, %._crit_edge.i ]
   %.0.i = phi i16 [ %64, %61 ], [ %76, %._crit_edge.i ]
   %77 = trunc nuw i16 %.0.i to i8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 348
@@ -5138,7 +5138,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %61, %._crit_edge.i
   %87 = fpext float %79 to double
   %88 = tail call double @llvm.fmuladd.f64(double %84, double %86, double %87)
   %89 = fptrunc double %88 to float
-  %90 = tail call float @llvm.fmuladd.f32(float %.012.lcssa.i19, float -2.000000e+00, float %89)
+  %90 = tail call float @llvm.fmuladd.f32(float %.012.lcssa.i24, float -2.000000e+00, float %89)
   ret float %90
 }
 

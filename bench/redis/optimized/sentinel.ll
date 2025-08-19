@@ -2777,8 +2777,8 @@ instanceLinkCloseConnection.exit31:               ; preds = %36, %40
   br label %67
 
 67:                                               ; preds = %._crit_edge.thread, %66, %._crit_edge
-  %.0.lcssa36 = phi i32 [ 0, %._crit_edge.thread ], [ %.1, %66 ], [ 0, %._crit_edge ]
-  ret i32 %.0.lcssa36
+  %.0.lcssa40 = phi i32 [ 0, %._crit_edge.thread ], [ %.1, %66 ], [ 0, %._crit_edge ]
+  ret i32 %.0.lcssa40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -5422,7 +5422,7 @@ define dso_local void @sentinelReconnectInstance(ptr noundef %0) local_unnamed_a
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 272
   %46 = load i32, ptr %45, align 8, !tbaa !208
   %.not92 = icmp eq i32 %46, 0
-  br i1 %.not92, label %47, label %.thread112
+  br i1 %.not92, label %47, label %.thread115
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 140
@@ -5430,21 +5430,21 @@ define dso_local void @sentinelReconnectInstance(ptr noundef %0) local_unnamed_a
   %50 = tail call i32 @anetCloexec(i32 noundef %49) #30
   %.pr.pre = load ptr, ptr %22, align 8, !tbaa !124
   %.not93 = icmp eq ptr %.pr.pre, null
-  br i1 %.not93, label %.thread, label %.thread112
+  br i1 %.not93, label %.thread, label %.thread115
 
 .thread:                                          ; preds = %36, %47
   tail call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 0, ptr noundef nonnull @.str.151, ptr noundef nonnull %0, ptr noundef nonnull @.str.152)
   br label %instanceLinkCloseConnection.exit
 
-.thread112:                                       ; preds = %44, %47
-  %.pr115 = phi ptr [ %.pr.pre, %47 ], [ %43, %44 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.pr115, i64 272
+.thread115:                                       ; preds = %44, %47
+  %.pr118 = phi ptr [ %.pr.pre, %47 ], [ %43, %44 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.pr118, i64 272
   %52 = load i32, ptr %51, align 8, !tbaa !208
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %67, label %54
 
-54:                                               ; preds = %.thread112
-  %55 = getelementptr inbounds nuw i8, ptr %.pr115, i64 280
+54:                                               ; preds = %.thread115
+  %55 = getelementptr inbounds nuw i8, ptr %.pr118, i64 280
   %56 = load ptr, ptr %55, align 8, !tbaa !210
   tail call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 0, ptr noundef nonnull @.str.151, ptr noundef nonnull %0, ptr noundef nonnull @.str.154, ptr noundef %56)
   %57 = load ptr, ptr %22, align 8, !tbaa !124
@@ -5471,7 +5471,7 @@ define dso_local void @sentinelReconnectInstance(ptr noundef %0) local_unnamed_a
   tail call void @redisAsyncFree(ptr noundef nonnull %57) #30
   br label %instanceLinkCloseConnection.exit
 
-67:                                               ; preds = %.thread112
+67:                                               ; preds = %.thread115
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %68, align 8, !tbaa !118
   %69 = tail call i64 @mstime() #30
@@ -5521,7 +5521,7 @@ instanceLinkCloseConnection.exit:                 ; preds = %65, %54, %.thread, 
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 272
   %97 = load i32, ptr %96, align 8, !tbaa !208
   %.not97 = icmp eq i32 %97, 0
-  br i1 %.not97, label %98, label %.thread116
+  br i1 %.not97, label %98, label %.thread119
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 140
@@ -5529,28 +5529,28 @@ instanceLinkCloseConnection.exit:                 ; preds = %65, %54, %.thread, 
   %101 = tail call i32 @anetCloexec(i32 noundef %100) #30
   %.pr106.pre = load ptr, ptr %84, align 8, !tbaa !125
   %.not98 = icmp eq ptr %.pr106.pre, null
-  br i1 %.not98, label %.thread107, label %.thread116
+  br i1 %.not98, label %.thread107, label %.thread119
 
 .thread107:                                       ; preds = %87, %98
   tail call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 0, ptr noundef nonnull @.str.156, ptr noundef nonnull %0, ptr noundef nonnull @.str.152)
   br label %.critedge
 
-.thread116:                                       ; preds = %95, %98
-  %.pr106119 = phi ptr [ %.pr106.pre, %98 ], [ %94, %95 ]
-  %102 = getelementptr inbounds nuw i8, ptr %.pr106119, i64 272
+.thread119:                                       ; preds = %95, %98
+  %.pr106122 = phi ptr [ %.pr106.pre, %98 ], [ %94, %95 ]
+  %102 = getelementptr inbounds nuw i8, ptr %.pr106122, i64 272
   %103 = load i32, ptr %102, align 8, !tbaa !208
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %109, label %105
 
-105:                                              ; preds = %.thread116
-  %106 = getelementptr inbounds nuw i8, ptr %.pr106119, i64 280
+105:                                              ; preds = %.thread119
+  %106 = getelementptr inbounds nuw i8, ptr %.pr106122, i64 280
   %107 = load ptr, ptr %106, align 8, !tbaa !210
   tail call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 0, ptr noundef nonnull @.str.156, ptr noundef nonnull %0, ptr noundef nonnull @.str.154, ptr noundef %107)
   %108 = load ptr, ptr %84, align 8, !tbaa !125
   tail call void @instanceLinkCloseConnection(ptr noundef nonnull %3, ptr noundef %108)
   br label %.critedge
 
-109:                                              ; preds = %.thread116
+109:                                              ; preds = %.thread119
   %110 = tail call i64 @mstime() #30
   %111 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %110, ptr %111, align 8, !tbaa !213
@@ -9948,7 +9948,7 @@ define dso_local void @sentinelCommand(ptr noundef %0) local_unnamed_addr #0 {
 14:                                               ; preds = %1
   %15 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.302) #34
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %16, label %.thread400
+  br i1 %.not, label %16, label %.thread418
 
 16:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -9960,14 +9960,14 @@ define dso_local void @sentinelCommand(ptr noundef %0) local_unnamed_addr #0 {
 17:                                               ; preds = %1
   %18 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.349) #34
   %.not241 = icmp eq i32 %18, 0
-  br i1 %.not241, label %.thread405, label %21
+  br i1 %.not241, label %.thread423, label %21
 
-.thread400:                                       ; preds = %14
+.thread418:                                       ; preds = %14
   %19 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.349) #34
-  %.not241401 = icmp eq i32 %19, 0
-  br i1 %.not241401, label %.thread402, label %.thread403
+  %.not241419 = icmp eq i32 %19, 0
+  br i1 %.not241419, label %.thread420, label %.thread421
 
-.thread402:                                       ; preds = %.thread400
+.thread420:                                       ; preds = %.thread418
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 56), align 8, !tbaa !65
   tail call void @addReplyDictOfRedisInstances(ptr noundef nonnull %0, ptr noundef %20)
   br label %.thread
@@ -9977,14 +9977,14 @@ define dso_local void @sentinelCommand(ptr noundef %0) local_unnamed_addr #0 {
   %.not243 = icmp eq i32 %22, 0
   br i1 %.not243, label %24, label %32
 
-.thread403:                                       ; preds = %.thread400
+.thread421:                                       ; preds = %.thread418
   %23 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.48) #34
-  %.not243404 = icmp eq i32 %23, 0
-  br i1 %.not243404, label %.thread405, label %32
+  %.not243422 = icmp eq i32 %23, 0
+  br i1 %.not243422, label %.thread423, label %32
 
 24:                                               ; preds = %21
   %.not244 = icmp eq i32 %12, 3
-  br i1 %.not244, label %25, label %.thread405
+  br i1 %.not244, label %25, label %.thread423
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -10004,7 +10004,7 @@ sentinelGetMasterByNameOrReplyError.exit:         ; preds = %25
   tail call void @addReplySentinelRedisInstance(ptr noundef nonnull %0, ptr noundef nonnull %31)
   br label %.thread
 
-32:                                               ; preds = %.thread403, %21
+32:                                               ; preds = %.thread421, %21
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %34 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.350) #34
   %.not245 = icmp eq i32 %34, 0
@@ -10017,7 +10017,7 @@ sentinelGetMasterByNameOrReplyError.exit:         ; preds = %25
 
 37:                                               ; preds = %35, %32
   %.not247 = icmp eq i32 %12, 3
-  br i1 %.not247, label %38, label %.thread405
+  br i1 %.not247, label %38, label %.thread423
 
 38:                                               ; preds = %37
   %39 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -10046,7 +10046,7 @@ sentinelGetMasterByNameOrReplyError.exit322:      ; preds = %38
 
 49:                                               ; preds = %47
   %.not249 = icmp eq i32 %12, 3
-  br i1 %.not249, label %50, label %.thread405
+  br i1 %.not249, label %50, label %.thread423
 
 50:                                               ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -10124,15 +10124,15 @@ sentinelGetMasterByNameOrReplyError.exit324:      ; preds = %50
 
 .thread339:                                       ; preds = %74
   %87 = load i32, ptr %83, align 8, !tbaa !34
-  %.fr415 = freeze i32 %87
-  %88 = and i32 %.fr415, 9
+  %.fr433 = freeze i32 %87
+  %88 = and i32 %.fr433, 9
   %or.cond306 = icmp ne i32 %88, 9
   br label %90
 
 89:                                               ; preds = %74
-  br i1 %86, label %._crit_edge397, label %.thread407
+  br i1 %86, label %._crit_edge397, label %.thread425
 
-.thread407:                                       ; preds = %89
+.thread425:                                       ; preds = %89
   call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 3) #30
   br label %104
 
@@ -10141,7 +10141,7 @@ sentinelGetMasterByNameOrReplyError.exit324:      ; preds = %50
   br label %90
 
 90:                                               ; preds = %._crit_edge397, %.thread339
-  %91 = phi i32 [ %.fr415, %.thread339 ], [ %.pre398, %._crit_edge397 ]
+  %91 = phi i32 [ %.fr433, %.thread339 ], [ %.pre398, %._crit_edge397 ]
   %.not259342 = phi i1 [ %or.cond306, %.thread339 ], [ true, %._crit_edge397 ]
   %92 = and i32 %91, 1
   %.not257 = icmp eq i32 %92, 0
@@ -10168,25 +10168,25 @@ sentinelGetMasterByNameOrReplyError.exit324:      ; preds = %50
   call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 3) #30
   br i1 %.not259342, label %104, label %106
 
-104:                                              ; preds = %100, %.thread407, %103
-  %.0216412 = phi ptr [ null, %.thread407 ], [ null, %103 ], [ %102, %100 ]
-  %105 = phi i64 [ 0, %.thread407 ], [ 0, %103 ], [ %.pre399, %100 ]
+104:                                              ; preds = %100, %.thread425, %103
+  %.0216430 = phi ptr [ null, %.thread425 ], [ null, %103 ], [ %102, %100 ]
+  %105 = phi i64 [ 0, %.thread425 ], [ 0, %103 ], [ %.pre399, %100 ]
   br label %106
 
 106:                                              ; preds = %100, %103, %104
-  %.0216411 = phi ptr [ %.0216412, %104 ], [ null, %103 ], [ %102, %100 ]
+  %.0216429 = phi ptr [ %.0216430, %104 ], [ null, %103 ], [ %102, %100 ]
   %107 = phi i64 [ %105, %104 ], [ 0, %103 ], [ %.pre399, %100 ]
   %.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @shared, i64 24), %104 ], [ getelementptr inbounds nuw (i8, ptr @shared, i64 32), %103 ], [ getelementptr inbounds nuw (i8, ptr @shared, i64 32), %100 ]
   %108 = load ptr, ptr %.in, align 8
   call void @addReply(ptr noundef nonnull %0, ptr noundef %108) #30
-  %.not260 = icmp eq ptr %.0216411, null
-  %109 = select i1 %.not260, ptr @.str.354, ptr %.0216411
+  %.not260 = icmp eq ptr %.0216429, null
+  %109 = select i1 %.not260, ptr @.str.354, ptr %.0216429
   call void @addReplyBulkCString(ptr noundef nonnull %0, ptr noundef nonnull %109) #30
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %107) #30
   br i1 %.not260, label %.thread344, label %110
 
 110:                                              ; preds = %106
-  call void @sdsfree(ptr noundef nonnull %.0216411) #30
+  call void @sdsfree(ptr noundef nonnull %.0216429) #30
   br label %.thread344
 
 .thread344:                                       ; preds = %69, %65, %110, %106
@@ -10199,7 +10199,7 @@ sentinelGetMasterByNameOrReplyError.exit324:      ; preds = %50
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread405
+  br label %.thread423
 
 112:                                              ; preds = %62
   %113 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.355) #34
@@ -10208,7 +10208,7 @@ sentinelGetMasterByNameOrReplyError.exit324:      ; preds = %50
 
 114:                                              ; preds = %112
   %.not262 = icmp eq i32 %12, 3
-  br i1 %.not262, label %115, label %.thread405
+  br i1 %.not262, label %115, label %.thread423
 
 115:                                              ; preds = %114
   %116 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -10227,7 +10227,7 @@ sentinelGetMasterByNameOrReplyError.exit324:      ; preds = %50
 
 124:                                              ; preds = %122
   %.not264 = icmp eq i32 %12, 3
-  br i1 %.not264, label %125, label %.thread405
+  br i1 %.not264, label %125, label %.thread423
 
 125:                                              ; preds = %124
   %126 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -10287,7 +10287,7 @@ sentinelGetCurrentMasterAddress.exit:             ; preds = %139, %143
 
 151:                                              ; preds = %149
   %.not266 = icmp eq i32 %12, 3
-  br i1 %.not266, label %152, label %.thread405
+  br i1 %.not266, label %152, label %.thread423
 
 152:                                              ; preds = %151
   %153 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -10341,7 +10341,7 @@ sentinelGetCurrentMasterAddress.exit:             ; preds = %139, %143
   br i1 %.not268, label %177, label %179
 
 177:                                              ; preds = %175
-  br i1 %13, label %.thread405, label %178
+  br i1 %13, label %.thread423, label %178
 
 178:                                              ; preds = %177
   tail call void @sentinelPendingScriptsCommand(ptr noundef nonnull %0)
@@ -10458,7 +10458,7 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread405
+  br label %.thread423
 
 232:                                              ; preds = %179
   %233 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.365) #34
@@ -10466,7 +10466,7 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   br i1 %.not275, label %234, label %236
 
 234:                                              ; preds = %232
-  br i1 %13, label %.thread405, label %235
+  br i1 %13, label %.thread423, label %235
 
 235:                                              ; preds = %234
   tail call fastcc void @sentinelFlushConfigAndReply(ptr noundef nonnull %0)
@@ -10479,7 +10479,7 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
 
 238:                                              ; preds = %236
   %.not278 = icmp eq i32 %12, 3
-  br i1 %.not278, label %239, label %.thread405
+  br i1 %.not278, label %239, label %.thread423
 
 239:                                              ; preds = %238
   %240 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -10560,7 +10560,7 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
 
 276:                                              ; preds = %254
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread405
+  br label %.thread423
 
 277:                                              ; preds = %252
   %278 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.374) #34
@@ -10578,7 +10578,7 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
 
 282:                                              ; preds = %280
   %283 = icmp slt i32 %12, 4
-  br i1 %283, label %.thread405, label %284
+  br i1 %283, label %.thread423, label %284
 
 284:                                              ; preds = %282
   %285 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -10615,7 +10615,7 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
 
 297:                                              ; preds = %295
   %298 = icmp slt i32 %12, 2
-  br i1 %298, label %.thread405, label %299
+  br i1 %298, label %.thread423, label %299
 
 299:                                              ; preds = %297
   %300 = tail call i64 @mstime() #30
@@ -10907,11 +10907,11 @@ sdslen.exit:                                      ; preds = %367, %372, %375, %3
   tail call void @addReplySubcommandSyntaxError(ptr noundef nonnull %0) #30
   br label %.thread
 
-.thread405:                                       ; preds = %.thread403, %17, %276, %238, %231, %151, %124, %111, %49, %37, %24, %297, %282, %234, %177, %114
+.thread423:                                       ; preds = %.thread421, %17, %276, %238, %231, %151, %124, %111, %49, %37, %24, %297, %282, %234, %177, %114
   tail call void @addReplyErrorArity(ptr noundef nonnull %0) #30
   br label %.thread
 
-.thread:                                          ; preds = %239, %244, %152, %171, %164, %160, %132, %sentinelGetCurrentMasterAddress.exit, %sentinelGetMasterByNameOrReplyError.exit324.thread, %sentinelGetMasterByNameOrReplyError.exit324, %sentinelGetMasterByNameOrReplyError.exit322.thread, %sentinelGetMasterByNameOrReplyError.exit322, %sentinelGetMasterByNameOrReplyError.exit.thread, %sentinelGetMasterByNameOrReplyError.exit, %.thread371, %.thread356, %.thread344, %421, %422, %._crit_edge, %16, %178, %293, %294, %290, %431, %432, %433, %396, %279, %115, %61, %.thread402, %.thread405, %235
+.thread:                                          ; preds = %239, %244, %152, %171, %164, %160, %132, %sentinelGetCurrentMasterAddress.exit, %sentinelGetMasterByNameOrReplyError.exit324.thread, %sentinelGetMasterByNameOrReplyError.exit324, %sentinelGetMasterByNameOrReplyError.exit322.thread, %sentinelGetMasterByNameOrReplyError.exit322, %sentinelGetMasterByNameOrReplyError.exit.thread, %sentinelGetMasterByNameOrReplyError.exit, %.thread371, %.thread356, %.thread344, %421, %422, %._crit_edge, %16, %178, %293, %294, %290, %431, %432, %433, %396, %279, %115, %61, %.thread420, %.thread423, %235
   ret void
 }
 
@@ -12125,10 +12125,10 @@ define dso_local void @sentinelCheckSubjectivelyDown(ptr noundef captures(addres
   br i1 %.not33, label %14, label %.sink.split
 
 .sink.split:                                      ; preds = %6, %1
-  %.sink47 = phi i64 [ 64, %1 ], [ 56, %6 ]
+  %.sink49 = phi i64 [ 64, %1 ], [ 56, %6 ]
   %9 = tail call i64 @mstime() #30
   %10 = load ptr, ptr %2, align 8, !tbaa !19
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink47
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink49
   %12 = load i64, ptr %11, align 8, !tbaa !107
   %13 = sub nsw i64 %9, %12
   br label %14
@@ -12330,7 +12330,7 @@ instanceLinkCloseConnection.exit40:               ; preds = %91, %81, %72, %64, 
   store i64 %130, ptr %131, align 8, !tbaa !175
   %132 = load i32, ptr %0, align 8, !tbaa !34
   %133 = or i32 %132, 8
-  br label %.sink.split48
+  br label %.sink.split50
 
 134:                                              ; preds = %._crit_edge42, %114
   %135 = phi i32 [ %.pre43, %._crit_edge42 ], [ %115, %114 ]
@@ -12342,14 +12342,14 @@ instanceLinkCloseConnection.exit40:               ; preds = %91, %81, %72, %64, 
   tail call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef nonnull @.str.405, ptr noundef nonnull %0, ptr noundef nonnull @.str.54)
   %138 = load i32, ptr %0, align 8, !tbaa !34
   %139 = and i32 %138, -4105
-  br label %.sink.split48
+  br label %.sink.split50
 
-.sink.split48:                                    ; preds = %129, %137
+.sink.split50:                                    ; preds = %129, %137
   %.sink = phi i32 [ %139, %137 ], [ %133, %129 ]
   store i32 %.sink, ptr %0, align 8, !tbaa !34
   br label %140
 
-140:                                              ; preds = %.sink.split48, %134, %125
+140:                                              ; preds = %.sink.split50, %134, %125
   ret void
 }
 
@@ -12829,9 +12829,9 @@ sentinelLeaderIncr.exit:                          ; preds = %34, %40
 
 53:                                               ; preds = %._crit_edge80.thread, %._crit_edge80, %52
   %sentinel.sink = phi ptr [ %.144, %._crit_edge80 ], [ @sentinel, %._crit_edge80.thread ], [ @sentinel, %52 ]
-  %.not5589 = phi i1 [ false, %._crit_edge80 ], [ true, %._crit_edge80.thread ], [ true, %52 ]
-  %.0.lcssa87 = phi i64 [ %.1, %._crit_edge80 ], [ 0, %._crit_edge80.thread ], [ %.1, %52 ]
-  %.043.lcssa85 = phi ptr [ %.144, %._crit_edge80 ], [ null, %._crit_edge80.thread ], [ null, %52 ]
+  %.not5598 = phi i1 [ false, %._crit_edge80 ], [ true, %._crit_edge80.thread ], [ true, %52 ]
+  %.0.lcssa96 = phi i64 [ %.1, %._crit_edge80 ], [ 0, %._crit_edge80.thread ], [ %.1, %52 ]
+  %.043.lcssa94 = phi ptr [ %.144, %._crit_edge80 ], [ null, %._crit_edge80.thread ], [ null, %52 ]
   %54 = call ptr @sentinelVoteLeader(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %sentinel.sink, ptr noundef nonnull %5)
   %.not56 = icmp ne ptr %54, null
   %55 = load i64, ptr %5, align 8
@@ -12871,18 +12871,18 @@ sentinelLeaderIncr.exit:                          ; preds = %34, %40
 sentinelLeaderIncr.exit65:                        ; preds = %60, %67
   %.0.i63 = phi i64 [ %64, %60 ], [ 1, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %68 = icmp uge i64 %.0.lcssa87, %.0.i63
-  %brmerge.not = and i1 %68, %.not5589
-  %.0.i63.mux = call i64 @llvm.umax.i64(i64 %.0.lcssa87, i64 %.0.i63)
-  %.mux = select i1 %68, ptr %.043.lcssa85, ptr %54
+  %68 = icmp uge i64 %.0.lcssa96, %.0.i63
+  %brmerge.not = and i1 %68, %.not5598
+  %.0.i63.mux = call i64 @llvm.umax.i64(i64 %.0.lcssa96, i64 %.0.i63)
+  %.mux = select i1 %68, ptr %.043.lcssa94, ptr %54
   br i1 %brmerge.not, label %.thread71, label %.thread
 
 69:                                               ; preds = %53
-  br i1 %.not5589, label %.thread71, label %.thread
+  br i1 %.not5598, label %.thread71, label %.thread
 
 .thread:                                          ; preds = %sentinelLeaderIncr.exit65, %69
-  %.270 = phi i64 [ %.0.lcssa87, %69 ], [ %.0.i63.mux, %sentinelLeaderIncr.exit65 ]
-  %.24569 = phi ptr [ %.043.lcssa85, %69 ], [ %.mux, %sentinelLeaderIncr.exit65 ]
+  %.270 = phi i64 [ %.0.lcssa96, %69 ], [ %.0.i63.mux, %sentinelLeaderIncr.exit65 ]
+  %.24569 = phi ptr [ %.043.lcssa94, %69 ], [ %.mux, %sentinelLeaderIncr.exit65 ]
   %70 = lshr i32 %19, 1
   %71 = add nuw i32 %70, 1
   %72 = zext i32 %71 to i64
@@ -13432,8 +13432,8 @@ define dso_local void @sentinelFailoverDetectEnd(ptr noundef captures(address_is
   tail call void @dictReleaseIterator(ptr noundef %15) #30
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %26 = load i64, ptr %25, align 8, !tbaa !164
-  %.not3449 = icmp sgt i64 %5, %26
-  br i1 %.not3449, label %.thread, label %.thread41.critedge
+  %.not3452 = icmp sgt i64 %5, %26
+  br i1 %.not3452, label %.thread, label %.thread41.critedge
 
 .thread:                                          ; preds = %._crit_edge.thread, %._crit_edge
   tail call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef nonnull @.str.437, ptr noundef nonnull %0, ptr noundef nonnull @.str.54)

@@ -3784,16 +3784,16 @@ define internal fastcc void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_inser
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %.outer161
+  br label %.outer170
 
-.outer161:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf1c31beb54b97f6bE.exit.thread", %18
+.outer170:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf1c31beb54b97f6bE.exit.thread", %18
   %.sroa.010.0.ph = phi i64 [ %84, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf1c31beb54b97f6bE.exit.thread" ], [ 0, %18 ]
   %.sroa.020.0.ph = phi i64 [ %85, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf1c31beb54b97f6bE.exit.thread" ], [ %22, %18 ]
   %28 = load i64, ptr %24, align 8, !noundef !4
   br label %29
 
-29:                                               ; preds = %.outer161, %29
-  %.sroa.020.0 = phi i64 [ 0, %29 ], [ %.sroa.020.0.ph, %.outer161 ]
+29:                                               ; preds = %.outer170, %29
+  %.sroa.020.0 = phi i64 [ 0, %29 ], [ %.sroa.020.0.ph, %.outer170 ]
   %30 = icmp ult i64 %.sroa.020.0, %28
   br i1 %30, label %31, label %29
 
@@ -3919,7 +3919,7 @@ define internal fastcc void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_inser
 "_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf1c31beb54b97f6bE.exit.thread": ; preds = %89, %100, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf1c31beb54b97f6bE.exit", %82
   %84 = add nuw nsw i64 %.sroa.010.0.ph, 1
   %85 = add i64 %.sroa.020.0, 1
-  br label %.outer161
+  br label %.outer170
 
 86:                                               ; preds = %82
   %87 = load i64, ptr %25, align 8, !noundef !4
@@ -8680,7 +8680,7 @@ define hidden void @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$14poll_read_b
   %.not160 = icmp eq i64 %47, 5
   br i1 %.not160, label %.critedge, label %48
 
-default.unreachable203:                           ; preds = %75
+default.unreachable210:                           ; preds = %75
   unreachable
 
 48:                                               ; preds = %46
@@ -8790,7 +8790,7 @@ default.unreachable203:                           ; preds = %75
   %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i64 16, i1 false)
   %76 = load i8, ptr %42, align 8, !range !280, !noundef !4
-  switch i8 %76, label %default.unreachable203 [
+  switch i8 %76, label %default.unreachable210 [
     i8 0, label %77
     i8 1, label %81
     i8 2, label %85
@@ -9294,7 +9294,7 @@ define hidden void @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$14poll_read_b
   %.not160 = icmp eq i64 %47, 5
   br i1 %.not160, label %.critedge, label %48
 
-default.unreachable203:                           ; preds = %75
+default.unreachable210:                           ; preds = %75
   unreachable
 
 48:                                               ; preds = %46
@@ -9404,7 +9404,7 @@ default.unreachable203:                           ; preds = %75
   %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i64 16, i1 false)
   %76 = load i8, ptr %42, align 8, !range !280, !noundef !4
-  switch i8 %76, label %default.unreachable203 [
+  switch i8 %76, label %default.unreachable210 [
     i8 0, label %77
     i8 1, label %81
     i8 2, label %85
@@ -9908,7 +9908,7 @@ define hidden void @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$14poll_read_b
   %.not160 = icmp eq i64 %47, 5
   br i1 %.not160, label %.critedge, label %48
 
-default.unreachable203:                           ; preds = %75
+default.unreachable210:                           ; preds = %75
   unreachable
 
 48:                                               ; preds = %46
@@ -10018,7 +10018,7 @@ default.unreachable203:                           ; preds = %75
   %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i64 16, i1 false)
   %76 = load i8, ptr %42, align 8, !range !280, !noundef !4
-  switch i8 %76, label %default.unreachable203 [
+  switch i8 %76, label %default.unreachable210 [
     i8 0, label %77
     i8 1, label %81
     i8 2, label %85
@@ -16594,13 +16594,13 @@ define internal fastcc noundef zeroext i1 @_ZN5hyper5proto2h16encode7Encoder14en
   %.val = load i64, ptr %27, align 8, !noundef !4
   store i64 %.val, ptr %26, align 8
   %28 = load i64, ptr %0, align 8, !range !380, !noundef !4
-  switch i64 %28, label %default.unreachable131 [
+  switch i64 %28, label %default.unreachable136 [
     i64 0, label %30
     i64 1, label %66
     i64 2, label %106
   ]
 
-default.unreachable131:                           ; preds = %3
+default.unreachable136:                           ; preds = %3
   unreachable
 
 29:                                               ; preds = %.critedge98
@@ -17185,13 +17185,13 @@ define internal fastcc void @_ZN5hyper5proto2h16encode7Encoder6encode17h6abc297f
   %22 = load i64, ptr %1, align 8, !range !380, !noundef !4
   %23 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h9e420ea5df983dc6E monotonic, align 8
   %.not99 = icmp eq i64 %23, 5
-  switch i64 %22, label %default.unreachable134 [
+  switch i64 %22, label %default.unreachable141 [
     i64 0, label %24
     i64 1, label %53
     i64 2, label %85
   ]
 
-default.unreachable134:                           ; preds = %3
+default.unreachable141:                           ; preds = %3
   unreachable
 
 24:                                               ; preds = %3

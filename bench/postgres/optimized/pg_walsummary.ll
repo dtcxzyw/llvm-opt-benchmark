@@ -213,7 +213,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %exitcond21.not.i, label %dump_one_relation.exit, label %.critedge.thread.us.i, !llvm.loop !7
 
 .preheader.i:                                     ; preds = %.lr.ph17.i, %110
-  %.015.i = phi i32 [ %.2.lcssa25.i, %110 ], [ 0, %.lr.ph17.i ]
+  %.015.i = phi i32 [ %.2.lcssa35.i, %110 ], [ 0, %.lr.ph17.i ]
   %83 = load ptr, ptr @block_buffer, align 8
   %84 = add nuw i32 %.015.i, 1
   %85 = zext i32 %.015.i to i64
@@ -240,27 +240,27 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %94 = load i32, ptr %93, align 4
   %95 = add i32 %.1397.i, 1
   %96 = icmp eq i32 %94, %95
-  br i1 %96, label %97, label %.critedge.i.split.loop.exit32
+  br i1 %96, label %97, label %.critedge.i.split.loop.exit42
 
 97:                                               ; preds = %.lr.ph9.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next, %72
   br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph9.i, !llvm.loop !8
 
-.critedge.i.split.loop.exit32:                    ; preds = %.lr.ph9.i
+.critedge.i.split.loop.exit42:                    ; preds = %.lr.ph9.i
   %98 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %97, %.critedge.i.split.loop.exit32
-  %.139.lcssa.i = phi i32 [ %.1397.i, %.critedge.i.split.loop.exit32 ], [ %91, %97 ]
-  %.2.lcssa.i = phi i32 [ %98, %.critedge.i.split.loop.exit32 ], [ %.040.lcssa.i, %97 ]
+.critedge.i:                                      ; preds = %97, %.critedge.i.split.loop.exit42
+  %.139.lcssa.i = phi i32 [ %.1397.i, %.critedge.i.split.loop.exit42 ], [ %91, %97 ]
+  %.2.lcssa.i = phi i32 [ %98, %.critedge.i.split.loop.exit42 ], [ %.040.lcssa.i, %97 ]
   %99 = icmp eq i32 %87, %.139.lcssa.i
   %.pre28 = load ptr, ptr %74, align 8
   br i1 %99, label %.critedge.thread.i, label %105
 
 .critedge.thread.i:                               ; preds = %.preheader.i..critedge.thread.i_crit_edge, %.critedge.i
   %100 = phi ptr [ %.pre28, %.critedge.i ], [ %.pre, %.preheader.i..critedge.thread.i_crit_edge ]
-  %.2.lcssa26.i = phi i32 [ %.2.lcssa.i, %.critedge.i ], [ %84, %.preheader.i..critedge.thread.i_crit_edge ]
+  %.2.lcssa36.i = phi i32 [ %.2.lcssa.i, %.critedge.i ], [ %84, %.preheader.i..critedge.thread.i_crit_edge ]
   %101 = load i32, ptr %5, align 4
   %102 = load i32, ptr %19, align 4
   %103 = load i32, ptr %20, align 4
@@ -275,8 +275,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %110
 
 110:                                              ; preds = %105, %.critedge.thread.i
-  %.2.lcssa25.i = phi i32 [ %.2.lcssa.i, %105 ], [ %.2.lcssa26.i, %.critedge.thread.i ]
-  %111 = icmp ult i32 %.2.lcssa25.i, %.040.lcssa.i
+  %.2.lcssa35.i = phi i32 [ %.2.lcssa.i, %105 ], [ %.2.lcssa36.i, %.critedge.thread.i ]
+  %111 = icmp ult i32 %.2.lcssa35.i, %.040.lcssa.i
   br i1 %111, label %.preheader.i, label %dump_one_relation.exit, !llvm.loop !7
 
 dump_one_relation.exit:                           ; preds = %110, %.critedge.thread.us.i, %._crit_edge.i, %70

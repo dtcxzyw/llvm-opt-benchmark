@@ -270,8 +270,8 @@ RemoveGXact.exit:                                 ; preds = %18
   %24 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %indvars.iv.i
   %25 = add nsw i32 %14, -1
   store i32 %25, ptr %13, align 8
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [0 x ptr], ptr %16, i64 0, i64 %26
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %24, align 8
   %29 = load ptr, ptr %12, align 8
@@ -630,9 +630,9 @@ GetPreparedTransactionList.exit:                  ; preds = %25, %._crit_edge.i
   %.pre = load i32, ptr %48, align 4
   %.pre54 = load i32, ptr %49, align 8
   %51 = icmp slt i32 %.pre, %.pre54
-  br i1 %51, label %.lr.ph59, label %.critedge
+  br i1 %51, label %.lr.ph61, label %.critedge
 
-.lr.ph59:                                         ; preds = %.lr.ph, %92
+.lr.ph61:                                         ; preds = %.lr.ph, %92
   %52 = phi i32 [ %53, %92 ], [ %.pre, %.lr.ph ]
   %53 = add nsw i32 %52, 1
   store i32 %53, ptr %48, align 4
@@ -649,7 +649,7 @@ GetPreparedTransactionList.exit:                  ; preds = %25, %._crit_edge.i
   %61 = trunc nuw i8 %60 to i1
   br i1 %61, label %.thread, label %92, !llvm.loop !12
 
-.thread:                                          ; preds = %.lr.ph59
+.thread:                                          ; preds = %.lr.ph61
   %62 = sext i32 %58 to i64
   %63 = getelementptr inbounds %struct.PGPROC, ptr %56, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 52
@@ -692,11 +692,11 @@ GetPreparedTransactionList.exit:                  ; preds = %25, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %98
 
-92:                                               ; preds = %.lr.ph59
+92:                                               ; preds = %.lr.ph61
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %93 = icmp slt i32 %53, %.pre54
-  br i1 %93, label %.lr.ph59, label %.critedge
+  br i1 %93, label %.lr.ph61, label %.critedge
 
 .critedge:                                        ; preds = %92, %.lr.ph, %43
   tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef %44) #14
@@ -2456,8 +2456,8 @@ RemoveGXact.exit:                                 ; preds = %255
   %261 = getelementptr inbounds nuw [0 x ptr], ptr %253, i64 0, i64 %indvars.iv.i93
   %262 = add nsw i32 %251, -1
   store i32 %262, ptr %250, align 8
-  %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds [0 x ptr], ptr %253, i64 0, i64 %263
+  %263 = zext nneg i32 %262 to i64
+  %264 = getelementptr inbounds nuw [0 x ptr], ptr %253, i64 0, i64 %263
   %265 = load ptr, ptr %264, align 8
   store ptr %265, ptr %261, align 8
   %266 = load ptr, ptr %249, align 8
@@ -3891,8 +3891,8 @@ RemoveGXact.exit:                                 ; preds = %31
   %37 = getelementptr inbounds nuw [0 x ptr], ptr %29, i64 0, i64 %indvars.iv.i
   %38 = add nsw i32 %27, -1
   store i32 %38, ptr %26, align 8
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [0 x ptr], ptr %29, i64 0, i64 %39
+  %39 = zext nneg i32 %38 to i64
+  %40 = getelementptr inbounds nuw [0 x ptr], ptr %29, i64 0, i64 %39
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %37, align 8
   %42 = load ptr, ptr %25, align 8

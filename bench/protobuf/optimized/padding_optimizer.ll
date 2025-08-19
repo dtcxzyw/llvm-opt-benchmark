@@ -1844,16 +1844,16 @@ while.body.i.i.i:                                 ; preds = %if.end.i, %if.end4.
   %storemerge27.i.i.in.in.i = phi i64 [ %storemerge27.i.i.i, %if.end4.i.i.i ], [ %sub.ptr.div.i.i, %if.end.i ]
   %storemerge27.i.i.in.i = add nuw nsw i64 %storemerge27.i.i.in.in.i, 1
   %storemerge27.i.i.i = lshr i64 %storemerge27.i.i.in.i, 1
-  %mul.i.i.i = shl i64 %storemerge27.i.i.i, 5
+  %mul.i.i.i = shl nuw nsw i64 %storemerge27.i.i.i, 5
   %call.i.i.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #30
   %cmp2.not.i.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp2.not.i.i.i, label %if.end4.i.i.i, label %if.then.i.i
+  br i1 %cmp2.not.i.i.i, label %if.end4.i.i.i, label %if.end.i.i.i.i
 
 if.end4.i.i.i:                                    ; preds = %while.body.i.i.i
   %cmp1.not.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i, 3
   br i1 %cmp1.not.i.i.i, label %if.end22.thread.i, label %while.body.i.i.i, !llvm.loop !25
 
-if.then.i.i:                                      ; preds = %while.body.i.i.i
+if.end.i.i.i.i:                                   ; preds = %while.body.i.i.i
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %mul.i.i.i
   %0 = load double, ptr %__first.coerce, align 8
   store double %0, ptr %call.i.i.i, align 8
@@ -1871,9 +1871,9 @@ if.then.i.i:                                      ; preds = %while.body.i.i.i
   store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_finish3.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %cmp1.not18.i.i.i.i = icmp eq i64 %storemerge27.i.i.i, 1
-  br i1 %cmp1.not18.i.i.i.i, label %for.body.i.i.i8.preheader.i, label %for.body.i.i.preheader.i.i
+  br i1 %cmp1.not18.i.i.i.i, label %if.end22.i, label %for.body.i.i.preheader.i.i
 
-for.body.i.i.preheader.i.i:                       ; preds = %if.then.i.i
+for.body.i.i.preheader.i.i:                       ; preds = %if.end.i.i.i.i
   %__cur.017.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   br label %for.body.i.i.i.i
 
@@ -1902,15 +1902,15 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 
 for.end.loopexit.i.i.i.i:                         ; preds = %for.body.i.i.i.i
   %.pre.i.i = load double, ptr %incdec.ptr4.i.i.i.i, align 8
-  br label %for.body.i.i.i8.preheader.i
+  br label %if.end22.i
 
 if.end22.thread.i:                                ; preds = %if.end4.i.i.i, %if.end.i
   tail call fastcc void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_T0_(ptr %__first.coerce, ptr %__last.coerce)
   br label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEES7_ED2Ev.exit.i
 
-for.body.i.i.i8.preheader.i:                      ; preds = %for.end.loopexit.i.i.i.i, %if.then.i.i
-  %8 = phi double [ %0, %if.then.i.i ], [ %.pre.i.i, %for.end.loopexit.i.i.i.i ]
-  %__prev.0.lcssa.i.i.i.i = phi ptr [ %call.i.i.i, %if.then.i.i ], [ %incdec.ptr4.i.i.i.i, %for.end.loopexit.i.i.i.i ]
+if.end22.i:                                       ; preds = %for.end.loopexit.i.i.i.i, %if.end.i.i.i.i
+  %8 = phi double [ %0, %if.end.i.i.i.i ], [ %.pre.i.i, %for.end.loopexit.i.i.i.i ]
+  %__prev.0.lcssa.i.i.i.i = phi ptr [ %call.i.i.i, %if.end.i.i.i.i ], [ %incdec.ptr4.i.i.i.i, %for.end.loopexit.i.i.i.i ]
   store double %8, ptr %__first.coerce, align 8
   %fields_3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__prev.0.lcssa.i.i.i.i, i64 8
   %9 = load ptr, ptr %fields_3.i.i.i.i.i, align 8
@@ -1925,8 +1925,8 @@ for.body.i.i.i8.preheader.i:                      ; preds = %for.end.loopexit.i.
   tail call fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEES8_lNS0_5__ops15_Iter_less_iterEEvT_SF_T0_T1_T2_(ptr nonnull %__first.coerce, ptr %__last.coerce, ptr noundef nonnull %call.i.i.i, i64 noundef %storemerge27.i.i.i)
   br label %for.body.i.i.i8.i
 
-for.body.i.i.i8.i:                                ; preds = %_ZSt8_DestroyIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupEEvPT_.exit.i.i.i.i, %for.body.i.i.i8.preheader.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupEEvPT_.exit.i.i.i.i ], [ %call.i.i.i, %for.body.i.i.i8.preheader.i ]
+for.body.i.i.i8.i:                                ; preds = %_ZSt8_DestroyIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupEEvPT_.exit.i.i.i.i, %if.end22.i
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupEEvPT_.exit.i.i.i.i ], [ %call.i.i.i, %if.end22.i ]
   %12 = getelementptr i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %__first.addr.0.val.i.i.i.i = load ptr, ptr %12, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %__first.addr.0.val.i.i.i.i, null

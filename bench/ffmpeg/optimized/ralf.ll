@@ -1383,15 +1383,15 @@ decode_channel.exit.i:                            ; preds = %decode_channel.exit
   br i1 %737, label %738, label %._crit_edge.thread.i.i
 
 738:                                              ; preds = %._crit_edge.i125.i
-  %739 = add i32 %724, %736
+  %739 = add nsw i32 %724, %736
   %740 = ashr i32 %739, %.pre229.i
   %741 = tail call i32 @llvm.smax.i32(i32 %740, i32 %notmask.i.i)
   br label %746
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i125.i, %.._crit_edge.thread.i_crit_edge.i
   %742 = phi i32 [ %.pre229.i, %._crit_edge.i125.i ], [ %.pre.i, %.._crit_edge.thread.i_crit_edge.i ]
-  %.039.lcssa54.i.i = phi i32 [ %736, %._crit_edge.i125.i ], [ 0, %.._crit_edge.thread.i_crit_edge.i ]
-  %743 = add nuw i32 %.039.lcssa54.i.i, %722
+  %.039.lcssa55.i.i = phi i32 [ %736, %._crit_edge.i125.i ], [ 0, %.._crit_edge.thread.i_crit_edge.i ]
+  %743 = add nuw i32 %.039.lcssa55.i.i, %722
   %744 = lshr i32 %743, %742
   %745 = tail call i32 @llvm.smin.i32(i32 %744, i32 %723)
   br label %746

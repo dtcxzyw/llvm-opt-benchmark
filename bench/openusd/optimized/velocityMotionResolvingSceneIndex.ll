@@ -4853,13 +4853,13 @@ define linkonce_odr void @_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7TfTokenE
   br i1 %31, label %._crit_edge.thread.i.i, label %36
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %22
-  %.019.lcssa28.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %6, %22 ]
+  %.019.lcssa29.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %6, %22 ]
   %32 = load ptr, ptr %8, align 8
-  %33 = icmp eq ptr %.019.lcssa28.i.i, %32
+  %33 = icmp eq ptr %.019.lcssa29.i.i, %32
   br i1 %33, label %select.unfold, label %34
 
 34:                                               ; preds = %._crit_edge.thread.i.i
-  %35 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #32
+  %35 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i) #32
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %35, i64 32
   %.pre81.i = load ptr, ptr %.phi.trans.insert80.i, align 8
   %.pre82.i = load ptr, ptr %.08.i, align 8
@@ -4872,12 +4872,12 @@ define linkonce_odr void @_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7TfTokenE
 36:                                               ; preds = %34, %._crit_edge.i.i
   %.pre-phi89.i = phi i64 [ %.pre88.i, %34 ], [ %25, %._crit_edge.i.i ]
   %.pre-phi85.i = phi i64 [ %.pre84.i, %34 ], [ %30, %._crit_edge.i.i ]
-  %.019.lcssa29.i.i = phi ptr [ %.019.lcssa28.i.i, %34 ], [ %.02024.i.i, %._crit_edge.i.i ]
+  %.019.lcssa28.i.i = phi ptr [ %.019.lcssa29.i.i, %34 ], [ %.02024.i.i, %._crit_edge.i.i ]
   %37 = icmp ult i64 %.pre-phi85.i, %.pre-phi89.i
   br i1 %37, label %select.unfold, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_St9_IdentityIS1_ENS0_28TfTokenFastArbitraryLessThanESaIS1_EE17_M_insert_unique_IRKS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_ESt23_Rb_tree_const_iteratorIS1_EOT_RT0_.exit.i
 
 select.unfold:                                    ; preds = %36, %12, %._crit_edge.thread.i.i
-  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %36 ]
+  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %36 ]
   %38 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %38, label %._crit_edge.i.i.i, label %39
 
@@ -7485,12 +7485,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37HdPrimvarSchemaTokens_
   call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %37 = load ptr, ptr %4, align 8, !noalias !47
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread136, label %39
+  br i1 %38, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread146, label %39
 
 39:                                               ; preds = %36
   %40 = call ptr @__dynamic_cast(ptr nonnull %37, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseE, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceE, i64 0) #29, !noalias !47
   %.not.i.i10 = icmp eq ptr %40, null
-  br i1 %.not.i.i10, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread136, label %41
+  br i1 %.not.i.i10, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread146, label %41
 
 41:                                               ; preds = %39
   store ptr %40, ptr %5, align 8, !alias.scope !47
@@ -7513,7 +7513,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37HdPrimvarSchemaTokens_
   store i32 %50, ptr %46, align 4, !noalias !47
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread136: ; preds = %36, %39
+_ZN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread146: ; preds = %36, %39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !alias.scope !47
   br label %.critedge
 
@@ -8255,7 +8255,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   br label %.body
 
-.critedge:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread136, %_ZN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit
+.critedge:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread146, %_ZN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit
   %266 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %267 = load ptr, ptr %266, align 8
   %.not.i.i.i119 = icmp eq ptr %267, null
@@ -16593,8 +16593,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread: ; pr
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %2, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread, %34
-  %.016 = phi i1 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread ], [ %.0, %34 ], [ false, %2 ]
-  ret i1 %.016
+  %.017 = phi i1 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread ], [ %.0, %34 ], [ false, %2 ]
+  ret i1 %.017
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -17355,12 +17355,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i: ; 
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i: ; preds = %207, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i, %176
-  %.29.i = phi float [ %.2.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i ], [ %.2.i, %207 ], [ 2.400000e+01, %176 ]
+  %.221.i = phi float [ %.2.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i ], [ %.2.i, %207 ], [ 2.400000e+01, %176 ]
   store ptr null, ptr %177, align 8
   br label %215
 
 215:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit.i
-  %.1.i = phi float [ %.29.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i ], [ 2.400000e+01, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit.i ]
+  %.1.i = phi float [ %.221.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i ], [ 2.400000e+01, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit.i ]
   %216 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %217 = load ptr, ptr %216, align 8
   %.not.i.i.i16.i = icmp eq ptr %217, null
@@ -18820,13 +18820,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec3f
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIfSaIfEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %175, %144, %284
-  %.171 = phi i1 [ %.2, %284 ], [ false, %144 ], [ false, %175 ]
-  %.pr.i69 = phi ptr [ %.pre64, %284 ], [ %133, %144 ], [ %133, %175 ]
+  %.188 = phi i1 [ %.2, %284 ], [ false, %144 ], [ false, %175 ]
+  %.pr.i86 = phi ptr [ %.pre64, %284 ], [ %133, %144 ], [ %133, %175 ]
   %285 = phi ptr [ %.pre65, %284 ], [ %135, %144 ], [ %135, %175 ]
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZSt8_DestroyISt6vectorIfSaIfEEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %293, %_ZSt8_DestroyISt6vectorIfSaIfEEEvPT_.exit.i.i.i.i ], [ %.pr.i69, %.lr.ph.i.i.i.i.preheader ]
+  %.05.i.i.i.i = phi ptr [ %293, %_ZSt8_DestroyISt6vectorIfSaIfEEEvPT_.exit.i.i.i.i ], [ %.pr.i86, %.lr.ph.i.i.i.i.preheader ]
   %286 = load ptr, ptr %.05.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %286, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIfSaIfEEEvPT_.exit.i.i.i.i, label %287
@@ -18846,17 +18846,17 @@ _ZSt8_DestroyISt6vectorIfSaIfEEEvPT_.exit.i.i.i.i: ; preds = %287, %.lr.ph.i.i.i
   br i1 %.not.i.i.i.i52, label %_ZSt8_DestroyIPSt6vectorIfSaIfEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !663
 
 _ZSt8_DestroyIPSt6vectorIfSaIfEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt6vectorIfSaIfEEEvPT_.exit.i.i.i.i, %284
-  %.172 = phi i1 [ %.2, %284 ], [ %.171, %_ZSt8_DestroyISt6vectorIfSaIfEEEvPT_.exit.i.i.i.i ]
-  %.pr.i70 = phi ptr [ %.pre64, %284 ], [ %.pr.i69, %_ZSt8_DestroyISt6vectorIfSaIfEEEvPT_.exit.i.i.i.i ]
-  %.not.i.i.i53 = icmp eq ptr %.pr.i70, null
+  %.189 = phi i1 [ %.2, %284 ], [ %.188, %_ZSt8_DestroyISt6vectorIfSaIfEEEvPT_.exit.i.i.i.i ]
+  %.pr.i87 = phi ptr [ %.pre64, %284 ], [ %.pr.i86, %_ZSt8_DestroyISt6vectorIfSaIfEEEvPT_.exit.i.i.i.i ]
+  %.not.i.i.i53 = icmp eq ptr %.pr.i87, null
   br i1 %.not.i.i.i53, label %_ZNSt6vectorIS_IfSaIfEESaIS1_EED2Ev.exit, label %294
 
 294:                                              ; preds = %_ZSt8_DestroyIPSt6vectorIfSaIfEES2_EvT_S4_RSaIT0_E.exit.i
   %295 = load ptr, ptr %137, align 8
   %296 = ptrtoint ptr %295 to i64
-  %297 = ptrtoint ptr %.pr.i70 to i64
+  %297 = ptrtoint ptr %.pr.i87 to i64
   %298 = sub i64 %296, %297
-  call void @_ZdlPvm(ptr noundef nonnull %.pr.i70, i64 noundef %298) #27
+  call void @_ZdlPvm(ptr noundef nonnull %.pr.i87, i64 noundef %298) #27
   br label %_ZNSt6vectorIS_IfSaIfEESaIS1_EED2Ev.exit
 
 299:                                              ; preds = %283, %147
@@ -18865,7 +18865,7 @@ _ZSt8_DestroyIPSt6vectorIfSaIfEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_Dest
   br label %356
 
 _ZNSt6vectorIS_IfSaIfEESaIS1_EED2Ev.exit:         ; preds = %294, %_ZSt8_DestroyIPSt6vectorIfSaIfEES2_EvT_S4_RSaIT0_E.exit.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit
-  %.0 = phi i1 [ false, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit ], [ %.172, %_ZSt8_DestroyIPSt6vectorIfSaIfEES2_EvT_S4_RSaIT0_E.exit.i ], [ %.172, %294 ]
+  %.0 = phi i1 [ false, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit ], [ %.189, %_ZSt8_DestroyIPSt6vectorIfSaIfEES2_EvT_S4_RSaIT0_E.exit.i ], [ %.189, %294 ]
   %300 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %301 = load ptr, ptr %300, align 8
   %.not.i.i.i54 = icmp eq ptr %301, null
@@ -19259,7 +19259,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit.i: ; preds = %_ZNKSt6vectorI
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i: ; preds = %118, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit.i
   store ptr %116, ptr %6, align 8
-  %120 = getelementptr inbounds nuw float, ptr %117, i64 %107
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 4
   store ptr %120, ptr %98, align 8
   %121 = getelementptr inbounds nuw i8, ptr %116, i64 4
   store ptr %121, ptr %108, align 8
@@ -19699,16 +19699,16 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false)
-  %.idx.i.i.i.i.i = shl nsw i64 %21, 2
-  %25 = getelementptr inbounds i8, ptr %20, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -19761,7 +19761,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %40
   store ptr %32, ptr %0, align 8
-  %42 = getelementptr inbounds float, ptr %33, i64 %1
+  %42 = getelementptr inbounds nuw float, ptr %33, i64 %1
   store ptr %42, ptr %4, align 8
   %43 = getelementptr inbounds nuw float, ptr %32, i64 %30
   store ptr %43, ptr %11, align 8
@@ -21149,10 +21149,10 @@ _ZSt4copyIPKfPfET0_T_S4_S3_.exit18.i:             ; preds = %_ZSt7advanceIPKfmEv
   br label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit18.i.thread
 
 _ZSt4copyIPKfPfET0_T_S4_S3_.exit18.i.thread:      ; preds = %_ZSt7advanceIPKfmEvRT_T0_.exit.i, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit18.i
-  %.sink.i.i25.i.idx52 = phi i64 [ %40, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit18.i ], [ 0, %_ZSt7advanceIPKfmEvRT_T0_.exit.i ]
+  %.sink.i.i25.i.idx65 = phi i64 [ %40, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit18.i ], [ 0, %_ZSt7advanceIPKfmEvRT_T0_.exit.i ]
   %45 = phi ptr [ %.pre26.i, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit18.i ], [ %38, %_ZSt7advanceIPKfmEvRT_T0_.exit.i ]
   %46 = sub nuw nsw i64 8, %40
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.sink.i.i25.i.idx52
+  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.sink.i.i25.i.idx65
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %45, ptr nonnull align 4 %.sink.i.i25.i.ptr, i64 %46, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 %46
   store ptr %47, ptr %37, align 8
@@ -21912,8 +21912,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIcEEbv.exit.thread: ; pr
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %2, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIcEEbv.exit.thread, %33
-  %.016 = phi i8 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIcEEbv.exit.thread ], [ %.0, %33 ], [ 0, %2 ]
-  ret i8 %.016
+  %.017 = phi i8 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIcEEbv.exit.thread ], [ %.0, %33 ], [ 0, %2 ]
+  ret i8 %.017
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -22092,8 +22092,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIhEEbv.exit.thread: ; pr
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %2, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIhEEbv.exit.thread, %33
-  %.016 = phi i8 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIhEEbv.exit.thread ], [ %.0, %33 ], [ 0, %2 ]
-  ret i8 %.016
+  %.017 = phi i8 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIhEEbv.exit.thread ], [ %.0, %33 ], [ 0, %2 ]
+  ret i8 %.017
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -22272,8 +22272,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIsEEbv.exit.thread: ; pr
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %2, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIsEEbv.exit.thread, %33
-  %.016 = phi i16 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIsEEbv.exit.thread ], [ %.0, %33 ], [ 0, %2 ]
-  ret i16 %.016
+  %.017 = phi i16 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIsEEbv.exit.thread ], [ %.0, %33 ], [ 0, %2 ]
+  ret i16 %.017
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -22452,8 +22452,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingItEEbv.exit.thread: ; pr
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %2, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingItEEbv.exit.thread, %33
-  %.016 = phi i16 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingItEEbv.exit.thread ], [ %.0, %33 ], [ 0, %2 ]
-  ret i16 %.016
+  %.017 = phi i16 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingItEEbv.exit.thread ], [ %.0, %33 ], [ 0, %2 ]
+  ret i16 %.017
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -22632,8 +22632,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread: ; pr
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %2, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread, %33
-  %.016 = phi i32 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread ], [ %.0, %33 ], [ 0, %2 ]
-  ret i32 %.016
+  %.017 = phi i32 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread ], [ %.0, %33 ], [ 0, %2 ]
+  ret i32 %.017
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -22812,8 +22812,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIjEEbv.exit.thread: ; pr
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %2, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIjEEbv.exit.thread, %33
-  %.016 = phi i32 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIjEEbv.exit.thread ], [ %.0, %33 ], [ 0, %2 ]
-  ret i32 %.016
+  %.017 = phi i32 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIjEEbv.exit.thread ], [ %.0, %33 ], [ 0, %2 ]
+  ret i32 %.017
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -22992,8 +22992,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIlEEbv.exit.thread: ; pr
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %2, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIlEEbv.exit.thread, %33
-  %.016 = phi i64 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIlEEbv.exit.thread ], [ %.0, %33 ], [ 0, %2 ]
-  ret i64 %.016
+  %.017 = phi i64 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIlEEbv.exit.thread ], [ %.0, %33 ], [ 0, %2 ]
+  ret i64 %.017
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23172,8 +23172,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingImEEbv.exit.thread: ; pr
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %2, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingImEEbv.exit.thread, %33
-  %.016 = phi i64 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingImEEbv.exit.thread ], [ %.0, %33 ], [ 0, %2 ]
-  ret i64 %.016
+  %.017 = phi i64 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingImEEbv.exit.thread ], [ %.0, %33 ], [ 0, %2 ]
+  ret i64 %.017
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23352,8 +23352,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread: ; pr
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %2, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread, %33
-  %.016 = phi double [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread ], [ %.0, %33 ], [ 0.000000e+00, %2 ]
-  ret double %.016
+  %.017 = phi double [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread ], [ %.0, %33 ], [ 0.000000e+00, %2 ]
+  ret double %.017
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23532,8 +23532,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread: ; pr
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %2, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread, %33
-  %.016 = phi float [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread ], [ %.0, %33 ], [ 0.000000e+00, %2 ]
-  ret float %.016
+  %.017 = phi float [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread ], [ %.0, %33 ], [ 0.000000e+00, %2 ]
+  ret float %.017
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

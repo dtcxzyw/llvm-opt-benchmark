@@ -368,10 +368,10 @@ if.then.i.i.i.i46.i.i:                            ; preds = %for.end.i.i44.i.i
   br label %_ZN6hermes12_GLOBAL__N_114tryCopyToStackEPNS_8VariableE.exit.i.i
 
 _ZN6hermes12_GLOBAL__N_114tryCopyToStackEPNS_8VariableE.exit.i.i: ; preds = %if.then.i.i.i.i46.i.i, %for.end.i.i44.i.i, %for.end.i27.i.i, %if.end.i.i
-  %hasStoreInInnerFunction.0.lcssa43.i.i.i = phi i1 [ true, %if.then.i.i.i.i46.i.i ], [ true, %for.end.i.i44.i.i ], [ false, %for.end.i27.i.i ], [ false, %if.end.i.i ]
+  %hasStoreInInnerFunction.0.lcssa44.i.i.i = phi i1 [ true, %if.then.i.i.i.i46.i.i ], [ true, %for.end.i.i44.i.i ], [ false, %for.end.i27.i.i ], [ false, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %builder.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %destroyer.i18.i.i)
-  %or15.i.i = or i1 %changed.04.i.i, %hasStoreInInnerFunction.0.lcssa43.i.i.i
+  %or15.i.i = or i1 %changed.04.i.i, %hasStoreInInnerFunction.0.lcssa44.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %destroyer.i54.i.i)
   %call.i55.i.i = call noundef zeroext i1 @_ZNK6hermes5Value8hasUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #10
   br i1 %call.i55.i.i, label %if.end.i.i.i, label %_ZN6hermes12_GLOBAL__N_126tryDeleteStoreOnlyVariableEPNS_8VariableE.exit.i.i
@@ -544,13 +544,13 @@ if.end4.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.
   %incdec.ptr5.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 16
   %incdec.ptr5.val.i.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr5.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i28.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr5.val.i.i.i.i.i.i.i.i, null
-  br i1 %tobool.not.i.i28.i.i.i.i.i.i.i.i, label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit13", label %if.end8.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i28.i.i.i.i.i.i.i.i, label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit18", label %if.end8.i.i.i.i.i.i.i.i
 
 if.end8.i.i.i.i.i.i.i.i:                          ; preds = %if.end4.i.i.i.i.i.i.i.i
   %incdec.ptr9.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 24
   %incdec.ptr9.val.i.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr9.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i29.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr9.val.i.i.i.i.i.i.i.i, null
-  br i1 %tobool.not.i.i29.i.i.i.i.i.i.i.i, label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit15", label %if.end12.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i29.i.i.i.i.i.i.i.i, label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit20", label %if.end12.i.i.i.i.i.i.i.i
 
 if.end12.i.i.i.i.i.i.i.i:                         ; preds = %if.end8.i.i.i.i.i.i.i.i
   %incdec.ptr13.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 32
@@ -565,7 +565,7 @@ for.end.loopexit.i.i.i.i.i.i.i.i:                 ; preds = %if.end12.i.i.i.i.i.
 for.end.i.i.i.i.i.i.i.i:                          ; preds = %for.end.loopexit.i.i.i.i.i.i.i.i, %for.end29.i.i
   %sub.ptr.sub16.pre-phi.i.i.i.i.i.i.i.i = phi i32 [ %71, %for.end.loopexit.i.i.i.i.i.i.i.i ], [ %C.val3.i.pre.i.i, %for.end29.i.i ]
   %__first.addr.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i.i.i ], [ %C.val.i.pre.i.i, %for.end29.i.i ]
-  switch i32 %sub.ptr.sub16.pre-phi.i.i.i.i.i.i.i.i, label %for.end.i.i.i.i.unreachabledefault.i.i.i.i [
+  switch i32 %sub.ptr.sub16.pre-phi.i.i.i.i.i.i.i.i, label %default.unreachable [
     i32 3, label %sw.bb.i.i.i.i.i.i.i.i
     i32 2, label %sw.bb22.i.i.i.i.i.i.i.i
     i32 1, label %sw.bb27.i.i.i.i.i.i.i.i
@@ -601,16 +601,16 @@ sw.bb27.i.i.i.i.i.i.i.i:                          ; preds = %if.end25.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 8
   br label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i"
 
-"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit13": ; preds = %if.end4.i.i.i.i.i.i.i.i
+"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit18": ; preds = %if.end4.i.i.i.i.i.i.i.i
   %incdec.ptr5.i.i.i.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 16
   br label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i"
 
-"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit15": ; preds = %if.end8.i.i.i.i.i.i.i.i
+"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit20": ; preds = %if.end8.i.i.i.i.i.i.i.i
   %incdec.ptr9.i.i.i.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 24
   br label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i"
 
-"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i.i.i, %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit13", %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit15", %sw.bb27.i.i.i.i.i.i.i.i, %sw.bb22.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i.i.i.i, %sw.bb22.i.i.i.i.i.i.i.i ], [ %__first.addr.2.i.i.i.i.i.i.i.i, %sw.bb27.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i.i.le, %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr5.i.i.i.i.i.i.i.i.le, %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit13" ], [ %incdec.ptr9.i.i.i.i.i.i.i.i.le, %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit15" ], [ %__first.addr.044.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ]
+"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i.i.i, %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit18", %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit20", %sw.bb27.i.i.i.i.i.i.i.i, %sw.bb22.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i
+  %retval.0.i.i.i.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i.i.i.i, %sw.bb22.i.i.i.i.i.i.i.i ], [ %__first.addr.2.i.i.i.i.i.i.i.i, %sw.bb27.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i.i.le, %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr5.i.i.i.i.i.i.i.i.le, %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit18" ], [ %incdec.ptr9.i.i.i.i.i.i.i.i.le, %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit20" ], [ %__first.addr.044.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq ptr %retval.0.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i92.i.i
   %__first.addr.023.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i, i64 8
   %cmp1.not24.i.i.i.i.i.i = icmp eq ptr %__first.addr.023.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i92.i.i
@@ -635,7 +635,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %if.then3.i.i.i.i.i.
   %cmp1.not.i.i.i.i.i.i = icmp eq ptr %__first.addr.0.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i92.i.i
   br i1 %cmp1.not.i.i.i.i.i.i, label %_ZN4llvh15SmallVectorImplIPN6hermes8VariableEE5eraseEPKS3_S6_.exit.loopexit.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !9
 
-for.end.i.i.i.i.unreachabledefault.i.i.i.i:       ; preds = %for.end.i.i.i.i.i.i.i.i
+default.unreachable:                              ; preds = %for.end.i.i.i.i.i.i.i.i
   unreachable
 
 _ZN4llvh15SmallVectorImplIPN6hermes8VariableEE5eraseEPKS3_S6_.exit.loopexit.i.i.i: ; preds = %for.inc.i.i.i.i.i.i
@@ -643,7 +643,7 @@ _ZN4llvh15SmallVectorImplIPN6hermes8VariableEE5eraseEPKS3_S6_.exit.loopexit.i.i.
   br label %_ZN6hermes12_GLOBAL__N_113runOnFunctionEPNS_8FunctionE.exit.i
 
 _ZN6hermes12_GLOBAL__N_113runOnFunctionEPNS_8FunctionE.exit.i: ; preds = %_ZN4llvh15SmallVectorImplIPN6hermes8VariableEE5eraseEPKS3_S6_.exit.loopexit.i.i.i, %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i", %sw.bb27.i.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i.i, %for.end.i.i, %for.body.i
-  %changed.2.lcssa38.i.i = phi i1 [ %changed.3.i.i, %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i" ], [ %changed.3.i.i, %for.end.i.i.i.i.i.i.i.i ], [ %changed.3.i.i, %sw.bb27.i.i.i.i.i.i.i.i ], [ %changed.3.i.i, %_ZN4llvh15SmallVectorImplIPN6hermes8VariableEE5eraseEPKS3_S6_.exit.loopexit.i.i.i ], [ %changed.1.i.i, %for.end.i.i ], [ false, %for.body.i ]
+  %changed.2.lcssa43.i.i = phi i1 [ %changed.3.i.i, %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i" ], [ %changed.3.i.i, %for.end.i.i.i.i.i.i.i.i ], [ %changed.3.i.i, %sw.bb27.i.i.i.i.i.i.i.i ], [ %changed.3.i.i, %_ZN4llvh15SmallVectorImplIPN6hermes8VariableEE5eraseEPKS3_S6_.exit.loopexit.i.i.i ], [ %changed.1.i.i, %for.end.i.i ], [ false, %for.body.i ]
   %72 = phi ptr [ %C.val.i.pre.i.i, %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i" ], [ %C.val.i.pre.i.i, %for.end.i.i.i.i.i.i.i.i ], [ %C.val.i.pre.i.i, %sw.bb27.i.i.i.i.i.i.i.i ], [ %.pre.i93.i.i, %_ZN4llvh15SmallVectorImplIPN6hermes8VariableEE5eraseEPKS3_S6_.exit.loopexit.i.i.i ], [ %.pre.i.i, %for.end.i.i ], [ %1, %for.body.i ]
   %retval.0.i.i.i.i.i.i = phi ptr [ %retval.0.i.i.i.i.i.i.i.i, %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i" ], [ %add.ptr.i.i.i.i.i.i92.i.i, %for.end.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i92.i.i, %sw.bb27.i.i.i.i.i.i.i.i ], [ %__result.1.i.i.i.i.i.i, %_ZN4llvh15SmallVectorImplIPN6hermes8VariableEE5eraseEPKS3_S6_.exit.loopexit.i.i.i ], [ %.pre.i.i, %for.end.i.i ], [ %1, %for.body.i ]
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %retval.0.i.i.i.i.i.i to i64
@@ -652,7 +652,7 @@ _ZN6hermes12_GLOBAL__N_113runOnFunctionEPNS_8FunctionE.exit.i: ; preds = %_ZN4ll
   %sub.ptr.div.i.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %conv.i5.i.i.i.i = trunc i64 %sub.ptr.div.i.i.i.i to i32
   store i32 %conv.i5.i.i.i.i, ptr %Size.i.i.i, align 8
-  %or3.i = or i1 %changed.017.i, %changed.2.lcssa38.i.i
+  %or3.i = or i1 %changed.017.i, %changed.2.lcssa43.i.i
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.018.i, i64 8
   %__begin2.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin2.sroa.0.0.i, %FunctionList.i.i

@@ -1436,7 +1436,7 @@ _ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit: ; preds = %.noexc
 57:                                               ; preds = %_ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit
   %58 = load i32, ptr %4, align 4, !tbaa !13
   %59 = icmp slt i32 %58, 1
-  br i1 %59, label %64, label %.thread94
+  br i1 %59, label %64, label %.thread101
 
 60:                                               ; preds = %49
   %61 = landingpad { ptr, i32 }
@@ -1462,7 +1462,7 @@ _ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit: ; preds = %.noexc
 70:                                               ; preds = %67
   %71 = load i32, ptr %4, align 4, !tbaa !13
   %72 = icmp slt i32 %71, 1
-  br i1 %72, label %75, label %.thread94
+  br i1 %72, label %75, label %.thread101
 
 73:                                               ; preds = %103, %75, %67
   %74 = landingpad { ptr, i32 }
@@ -1607,7 +1607,7 @@ _ZL16skipZoneIDPrefixPPKc.exit:                   ; preds = %131, %134
 140:                                              ; preds = %_ZL16skipZoneIDPrefixPPKc.exit
   %141 = load i32, ptr %4, align 4, !tbaa !13
   %142 = icmp slt i32 %141, 1
-  br i1 %142, label %145, label %.thread94
+  br i1 %142, label %145, label %.thread101
 
 143:                                              ; preds = %_ZL16skipZoneIDPrefixPPKc.exit
   %144 = landingpad { ptr, i32 }
@@ -1617,9 +1617,9 @@ _ZL16skipZoneIDPrefixPPKc.exit:                   ; preds = %131, %134
 145:                                              ; preds = %140
   %146 = load ptr, ptr @_ZL19gSearchTZFileResult, align 8, !tbaa !41
   %147 = load ptr, ptr %146, align 8, !tbaa !3
-  br label %.thread94
+  br label %.thread101
 
-.thread94:                                        ; preds = %57, %70, %145, %140
+.thread101:                                       ; preds = %57, %70, %145, %140
   %.337.ph = phi ptr [ null, %140 ], [ %147, %145 ], [ null, %70 ], [ null, %57 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1641,8 +1641,8 @@ _ZL16skipZoneIDPrefixPPKc.exit:                   ; preds = %131, %134
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %150
 
-.thread79:                                        ; preds = %78, %35, %.thread94, %.thread
-  %.03483 = phi ptr [ null, %.thread ], [ %.337.ph, %.thread94 ], [ %77, %78 ], [ null, %35 ]
+.thread79:                                        ; preds = %78, %35, %.thread101, %.thread
+  %.03483 = phi ptr [ null, %.thread ], [ %.337.ph, %.thread101 ], [ %77, %78 ], [ null, %35 ]
   %149 = call i32 @closedir(ptr noundef nonnull %15)
   br label %.thread73
 
@@ -1844,8 +1844,8 @@ define ptr @u_getDataDirectory_77() local_unnamed_addr #1 {
   br label %.thread.i
 
 .thread.i:                                        ; preds = %22, %20, %18, %7
-  %.0.i4.i = phi ptr [ %16, %22 ], [ %16, %20 ], [ %16, %18 ], [ @.str.5, %7 ]
-  store ptr %.0.i4.i, ptr @_ZL14gDataDirectory, align 8, !tbaa !20
+  %.0.i5.i = phi ptr [ %16, %22 ], [ %16, %20 ], [ %16, %18 ], [ @.str.5, %7 ]
+  store ptr %.0.i5.i, ptr @_ZL14gDataDirectory, align 8, !tbaa !20
   tail call void @ucln_common_registerCleanup_77(i32 noundef 24, ptr noundef nonnull @_ZL13putil_cleanupv)
   br label %_ZL19dataDirectoryInitFnv.exit
 
@@ -2291,10 +2291,10 @@ define void @u_versionFromString_77(ptr noundef writeonly captures(address_is_nu
   br i1 %22, label %.lr.ph21.preheader, label %.loopexit
 
 .lr.ph21.preheader:                               ; preds = %.preheader, %5, %.loopexit14
-  %.027 = phi i16 [ %21, %.loopexit14 ], [ 0, %5 ], [ 0, %.preheader ]
-  %23 = zext nneg i16 %.027 to i64
+  %.031 = phi i16 [ %21, %.loopexit14 ], [ 0, %5 ], [ 0, %.preheader ]
+  %23 = zext nneg i16 %.031 to i64
   %scevgep = getelementptr i8, ptr %0, i64 %23
-  %narrow = sub nuw nsw i16 4, %.027
+  %narrow = sub nuw nsw i16 4, %.031
   %24 = zext nneg i16 %narrow to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %24, i1 false), !tbaa !21
   br label %.loopexit
@@ -2360,10 +2360,10 @@ define void @u_versionFromUString_77(ptr noundef writeonly captures(address_is_n
   br i1 %27, label %.lr.ph21.preheader.i, label %u_versionFromString_77.exit
 
 .lr.ph21.preheader.i:                             ; preds = %.loopexit14.i, %7
-  %.027.i = phi i16 [ %26, %.loopexit14.i ], [ 0, %7 ]
-  %28 = zext nneg i16 %.027.i to i64
+  %.031.i = phi i16 [ %26, %.loopexit14.i ], [ 0, %7 ]
+  %28 = zext nneg i16 %.031.i to i64
   %scevgep.i = getelementptr i8, ptr %0, i64 %28
-  %narrow.i = sub nuw nsw i16 4, %.027.i
+  %narrow.i = sub nuw nsw i16 4, %.031.i
   %29 = zext nneg i16 %narrow.i to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %29, i1 false), !tbaa !21
   br label %u_versionFromString_77.exit
@@ -2537,10 +2537,10 @@ define void @u_getVersion_77(ptr noundef writeonly captures(address_is_null) %0)
   br i1 %21, label %.lr.ph21.preheader.i, label %u_versionFromString_77.exit
 
 .lr.ph21.preheader.i:                             ; preds = %.loopexit14.i, %4
-  %.027.i = phi i16 [ %20, %.loopexit14.i ], [ 0, %4 ]
-  %22 = zext nneg i16 %.027.i to i64
+  %.031.i = phi i16 [ %20, %.loopexit14.i ], [ 0, %4 ]
+  %22 = zext nneg i16 %.031.i to i64
   %scevgep.i = getelementptr i8, ptr %0, i64 %22
-  %narrow.i = sub nuw nsw i16 4, %.027.i
+  %narrow.i = sub nuw nsw i16 4, %.031.i
   %23 = zext nneg i16 %narrow.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %23, i1 false), !tbaa !21
   br label %u_versionFromString_77.exit

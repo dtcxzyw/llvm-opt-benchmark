@@ -360,8 +360,8 @@ define dso_local noundef ptr @bit_alloc(i64 noundef %0) #0 {
   %12 = load ptr, ptr %9, align 8
   store ptr %12, ptr @cached_bitstr, align 8
   %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cache_mutex) #17
-  %.not9.i10 = icmp eq i32 %13, 0
-  br i1 %.not9.i10, label %17, label %14
+  %.not9.i14 = icmp eq i32 %13, 0
+  br i1 %.not9.i14, label %17, label %14
 
 14:                                               ; preds = %.thread, %10
   %15 = phi i32 [ %13, %.thread ], [ %11, %10 ]
@@ -1125,7 +1125,7 @@ define dso_local noundef ptr @bit_rotate_copy(ptr noundef readonly captures(none
   br i1 %16, label %.lr.ph43.preheader, label %._crit_edge
 
 .lr.ph43.preheader:                               ; preds = %.preheader
-  %17 = sub i64 %5, %.033.lcssa
+  %17 = sub nsw i64 %5, %.033.lcssa
   br label %.lr.ph43
 
 .lr.ph:                                           ; preds = %3, %34
@@ -2288,8 +2288,8 @@ define dso_local noundef ptr @bit_copy(ptr noundef readonly captures(none) %0) #
   %16 = load ptr, ptr %13, align 8
   store ptr %16, ptr @cached_bitstr, align 8
   %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cache_mutex) #17
-  %.not9.i8.i = icmp eq i32 %17, 0
-  br i1 %.not9.i8.i, label %bit_alloc_nz.exit, label %18
+  %.not9.i11.i = icmp eq i32 %17, 0
+  br i1 %.not9.i11.i, label %bit_alloc_nz.exit, label %18
 
 18:                                               ; preds = %.thread.i, %14
   %19 = phi i32 [ %17, %.thread.i ], [ %15, %14 ]
@@ -3337,8 +3337,7 @@ define dso_local ptr @bit_fmt_range(ptr noundef readonly captures(none) %0, i32 
   %.03341 = phi i64 [ %.033.ph42, %.lr.ph ], [ %20, %19 ]
   %13 = ashr i64 %.03341, 6
   %14 = add nsw i64 %13, 2
-  %sext = shl i64 %14, 32
-  %15 = ashr exact i64 %sext, 29
+  %15 = shl nsw i64 %14, 3
   %16 = getelementptr inbounds i8, ptr %0, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0

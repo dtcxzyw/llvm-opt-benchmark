@@ -420,14 +420,14 @@ bio_call_callback.exit:                           ; preds = %24, %.thread
 
 47:                                               ; preds = %43
   %.not36 = icmp eq ptr %46, null
-  br i1 %.not36, label %63, label %.thread45
+  br i1 %.not36, label %63, label %.thread56
 
 48:                                               ; preds = %43
   %49 = sext i32 %36 to i64
   %.not.i37 = icmp eq ptr %46, null
-  br i1 %.not.i37, label %51, label %.thread45
+  br i1 %.not.i37, label %51, label %.thread56
 
-.thread45:                                        ; preds = %47, %48
+.thread56:                                        ; preds = %47, %48
   %50 = tail call i64 %46(ptr noundef nonnull %0, i32 noundef 130, ptr noundef %1, i64 noundef %2, i32 noundef 0, i64 noundef 0, i32 noundef %36, ptr noundef %3) #14
   br label %bio_call_callback.exit39
 
@@ -454,8 +454,8 @@ bio_call_callback.exit:                           ; preds = %24, %.thread
   store i64 %59, ptr %3, align 8, !tbaa !32
   br label %bio_call_callback.exit39
 
-bio_call_callback.exit39:                         ; preds = %.thread45, %51, %55, %58, %61
-  %.0.i38 = phi i64 [ %50, %.thread45 ], [ -1, %51 ], [ -1, %55 ], [ 1, %61 ], [ %59, %58 ]
+bio_call_callback.exit39:                         ; preds = %.thread56, %51, %55, %58, %61
+  %.0.i38 = phi i64 [ %50, %.thread56 ], [ -1, %51 ], [ -1, %55 ], [ 1, %61 ], [ %59, %58 ]
   %62 = trunc i64 %.0.i38 to i32
   br label %63
 
@@ -470,11 +470,11 @@ bio_call_callback.exit39:                         ; preds = %.thread45, %51, %55
   br i1 %67, label %bio_call_callback.exit.thread.sink.split, label %bio_call_callback.exit.thread
 
 bio_call_callback.exit.thread.sink.split:         ; preds = %65, %29, %6, %10, %4
-  %.sink47 = phi i32 [ 267, %4 ], [ 271, %10 ], [ 271, %6 ], [ 281, %29 ], [ 296, %65 ]
+  %.sink58 = phi i32 [ 267, %4 ], [ 271, %10 ], [ 271, %6 ], [ 281, %29 ], [ 296, %65 ]
   %.sink = phi i32 [ 786690, %4 ], [ 121, %10 ], [ 121, %6 ], [ 120, %29 ], [ 786691, %65 ]
   %.029.ph = phi i32 [ -1, %4 ], [ -2, %10 ], [ -2, %6 ], [ -1, %29 ], [ -1, %65 ]
   tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink47, ptr noundef nonnull @__func__.bio_read_intern) #14
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink58, ptr noundef nonnull @__func__.bio_read_intern) #14
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef %.sink, ptr noundef null) #14
   br label %bio_call_callback.exit.thread
 
@@ -617,14 +617,14 @@ bio_call_callback.exit:                           ; preds = %28, %.thread
 
 52:                                               ; preds = %48
   %.not36 = icmp eq ptr %51, null
-  br i1 %.not36, label %68, label %.thread45
+  br i1 %.not36, label %68, label %.thread58
 
 53:                                               ; preds = %48
   %54 = sext i32 %41 to i64
   %.not.i37 = icmp eq ptr %51, null
-  br i1 %.not.i37, label %56, label %.thread45
+  br i1 %.not.i37, label %56, label %.thread58
 
-.thread45:                                        ; preds = %52, %53
+.thread58:                                        ; preds = %52, %53
   %55 = call i64 %51(ptr noundef nonnull %0, i32 noundef 131, ptr noundef %1, i64 noundef %2, i32 noundef 0, i64 noundef 0, i32 noundef %41, ptr noundef nonnull %5) #14
   br label %bio_call_callback.exit39
 
@@ -651,8 +651,8 @@ bio_call_callback.exit:                           ; preds = %28, %.thread
   store i64 %64, ptr %5, align 8, !tbaa !32
   br label %bio_call_callback.exit39
 
-bio_call_callback.exit39:                         ; preds = %.thread45, %56, %60, %63, %66
-  %.0.i38 = phi i64 [ %55, %.thread45 ], [ -1, %56 ], [ -1, %60 ], [ 1, %66 ], [ %64, %63 ]
+bio_call_callback.exit39:                         ; preds = %.thread58, %56, %60, %63, %66
+  %.0.i38 = phi i64 [ %55, %.thread58 ], [ -1, %56 ], [ -1, %60 ], [ 1, %66 ], [ %64, %63 ]
   %67 = trunc i64 %.0.i38 to i32
   br label %68
 
@@ -793,12 +793,12 @@ bio_call_callback.exit:                           ; preds = %36, %34
   br i1 %.not34, label %52, label %53
 
 52:                                               ; preds = %43
-  br i1 %.not35, label %60, label %.thread43
+  br i1 %.not35, label %60, label %.thread48
 
 53:                                               ; preds = %43
-  br i1 %.not35, label %55, label %.thread43
+  br i1 %.not35, label %55, label %.thread48
 
-.thread43:                                        ; preds = %52, %53
+.thread48:                                        ; preds = %52, %53
   %54 = call i64 %51(ptr noundef nonnull %0, i32 noundef 136, ptr noundef nonnull %7, i64 noundef %48, i32 noundef 0, i64 noundef 0, i32 noundef %47, ptr noundef null) #14
   br label %bio_call_callback.exit38
 
@@ -810,8 +810,8 @@ bio_call_callback.exit:                           ; preds = %36, %34
   call void @llvm.assume(i1 %58)
   br label %bio_call_callback.exit38
 
-bio_call_callback.exit38:                         ; preds = %55, %.thread43
-  %.0.i37 = phi i64 [ %54, %.thread43 ], [ %57, %55 ]
+bio_call_callback.exit38:                         ; preds = %55, %.thread48
+  %.0.i37 = phi i64 [ %54, %.thread48 ], [ %57, %55 ]
   %59 = trunc i64 %.0.i37 to i32
   br label %60
 
@@ -931,12 +931,12 @@ bio_call_callback.exit:                           ; preds = %36, %34
   br i1 %.not34, label %52, label %53
 
 52:                                               ; preds = %43
-  br i1 %.not35, label %60, label %.thread43
+  br i1 %.not35, label %60, label %.thread48
 
 53:                                               ; preds = %43
-  br i1 %.not35, label %55, label %.thread43
+  br i1 %.not35, label %55, label %.thread48
 
-.thread43:                                        ; preds = %52, %53
+.thread48:                                        ; preds = %52, %53
   %54 = call i64 %51(ptr noundef nonnull %0, i32 noundef 135, ptr noundef nonnull %7, i64 noundef %48, i32 noundef 0, i64 noundef 0, i32 noundef %47, ptr noundef null) #14
   br label %bio_call_callback.exit38
 
@@ -948,8 +948,8 @@ bio_call_callback.exit:                           ; preds = %36, %34
   call void @llvm.assume(i1 %58)
   br label %bio_call_callback.exit38
 
-bio_call_callback.exit38:                         ; preds = %55, %.thread43
-  %.0.i37 = phi i64 [ %54, %.thread43 ], [ %57, %55 ]
+bio_call_callback.exit38:                         ; preds = %55, %.thread48
+  %.0.i37 = phi i64 [ %54, %.thread48 ], [ %57, %55 ]
   %59 = trunc i64 %.0.i37 to i32
   br label %60
 
@@ -1034,12 +1034,12 @@ bio_call_callback.exit._crit_edge:                ; preds = %bio_call_callback.e
   br i1 %.not29, label %32, label %33
 
 32:                                               ; preds = %26
-  br i1 %.not30, label %bio_call_callback.exit33, label %.thread41
+  br i1 %.not30, label %bio_call_callback.exit33, label %.thread47
 
 33:                                               ; preds = %26
-  br i1 %.not30, label %36, label %.thread41
+  br i1 %.not30, label %36, label %.thread47
 
-.thread41:                                        ; preds = %32, %33
+.thread47:                                        ; preds = %32, %33
   %34 = trunc i64 %28 to i32
   %35 = tail call i64 %31(ptr noundef nonnull %0, i32 noundef 134, ptr noundef %3, i64 noundef 0, i32 noundef %1, i64 noundef %2, i32 noundef %34, ptr noundef null) #14
   br label %bio_call_callback.exit33
@@ -1048,8 +1048,8 @@ bio_call_callback.exit._crit_edge:                ; preds = %bio_call_callback.e
   %37 = tail call i64 %29(ptr noundef nonnull %0, i32 noundef 134, ptr noundef %3, i32 noundef %1, i64 noundef %2, i64 noundef %28) #14
   br label %bio_call_callback.exit33
 
-bio_call_callback.exit33:                         ; preds = %36, %.thread41, %32, %bio_call_callback.exit, %4, %14
-  %.024 = phi i64 [ -2, %14 ], [ -1, %4 ], [ %.0.i, %bio_call_callback.exit ], [ %28, %32 ], [ %35, %.thread41 ], [ %37, %36 ]
+bio_call_callback.exit33:                         ; preds = %36, %.thread47, %32, %bio_call_callback.exit, %4, %14
+  %.024 = phi i64 [ -2, %14 ], [ -1, %4 ], [ %.0.i, %bio_call_callback.exit ], [ %28, %32 ], [ %35, %.thread47 ], [ %37, %36 ]
   ret i64 %.024
 }
 
@@ -1161,12 +1161,12 @@ bio_call_callback.exit:                           ; preds = %23, %.thread
   br i1 %.not33, label %47, label %48
 
 47:                                               ; preds = %42
-  br i1 %.not34, label %57, label %.thread42
+  br i1 %.not34, label %57, label %.thread54
 
 48:                                               ; preds = %42
-  br i1 %.not34, label %50, label %.thread42
+  br i1 %.not34, label %50, label %.thread54
 
-.thread42:                                        ; preds = %47, %48
+.thread54:                                        ; preds = %47, %48
   %49 = call i64 %46(ptr noundef nonnull %0, i32 noundef 132, ptr noundef %1, i64 noundef 0, i32 noundef 0, i64 noundef 0, i32 noundef %.0, ptr noundef nonnull %3) #14
   br label %bio_call_callback.exit37
 
@@ -1182,8 +1182,8 @@ bio_call_callback.exit:                           ; preds = %23, %.thread
   store i64 %53, ptr %3, align 8, !tbaa !32
   br label %bio_call_callback.exit37
 
-bio_call_callback.exit37:                         ; preds = %.thread42, %50, %55
-  %.0.i36 = phi i64 [ %49, %.thread42 ], [ 1, %55 ], [ %53, %50 ]
+bio_call_callback.exit37:                         ; preds = %.thread54, %50, %55
+  %.0.i36 = phi i64 [ %49, %.thread54 ], [ 1, %55 ], [ %53, %50 ]
   %56 = trunc i64 %.0.i36 to i32
   br label %57
 
@@ -1321,12 +1321,12 @@ bio_call_callback.exit:                           ; preds = %28, %.thread
   br i1 %.not37, label %49, label %50
 
 49:                                               ; preds = %44
-  br i1 %.not38, label %60, label %.thread46
+  br i1 %.not38, label %60, label %.thread58
 
 50:                                               ; preds = %44
-  br i1 %.not38, label %53, label %.thread46
+  br i1 %.not38, label %53, label %.thread58
 
-.thread46:                                        ; preds = %49, %50
+.thread58:                                        ; preds = %49, %50
   %51 = zext nneg i32 %2 to i64
   %52 = call i64 %48(ptr noundef nonnull %0, i32 noundef 133, ptr noundef %1, i64 noundef %51, i32 noundef 0, i64 noundef 0, i32 noundef %.0, ptr noundef nonnull %4) #14
   br label %bio_call_callback.exit41
@@ -1334,8 +1334,8 @@ bio_call_callback.exit:                           ; preds = %28, %.thread
 53:                                               ; preds = %50
   %54 = sext i32 %.0 to i64
   %55 = icmp sgt i32 %.0, 0
-  %spec.select48 = select i1 %55, i64 %45, i64 %54
-  %56 = tail call i64 %46(ptr noundef nonnull %0, i32 noundef 133, ptr noundef %1, i32 noundef %2, i64 noundef 0, i64 noundef %spec.select48) #14
+  %spec.select60 = select i1 %55, i64 %45, i64 %54
+  %56 = tail call i64 %46(ptr noundef nonnull %0, i32 noundef 133, ptr noundef %1, i32 noundef %2, i64 noundef 0, i64 noundef %spec.select60) #14
   %57 = icmp sgt i64 %56, 0
   br i1 %57, label %58, label %bio_call_callback.exit41
 
@@ -1343,8 +1343,8 @@ bio_call_callback.exit:                           ; preds = %28, %.thread
   store i64 %56, ptr %4, align 8, !tbaa !32
   br label %bio_call_callback.exit41
 
-bio_call_callback.exit41:                         ; preds = %.thread46, %53, %58
-  %.0.i40 = phi i64 [ %52, %.thread46 ], [ 1, %58 ], [ %56, %53 ]
+bio_call_callback.exit41:                         ; preds = %.thread58, %53, %58
+  %.0.i40 = phi i64 [ %52, %.thread58 ], [ 1, %58 ], [ %56, %53 ]
   %59 = trunc i64 %.0.i40 to i32
   br label %60
 
@@ -1408,7 +1408,7 @@ define i32 @BIO_get_line(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
 
 .preheader:                                       ; preds = %13
   %.not43 = icmp eq i32 %2, 1
-  br i1 %.not43, label %.critedge.thread49, label %.lr.ph
+  br i1 %.not43, label %.critedge.thread51, label %.lr.ph
 
 16:                                               ; preds = %13
   tail call void @ERR_new() #14
@@ -1431,7 +1431,7 @@ define i32 @BIO_get_line(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
 
 .critedge.thread29:                               ; preds = %.lr.ph
   store i8 0, ptr %.041, align 1, !tbaa !49
-  br label %.critedge.thread49
+  br label %.critedge.thread51
 
 22:                                               ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %.041, i64 1
@@ -1442,7 +1442,7 @@ define i32 @BIO_get_line(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   %or.cond = select i1 %25, i1 %27, i1 false
   br i1 %or.cond, label %.lr.ph, label %.sink.split, !llvm.loop !50
 
-.critedge.thread49:                               ; preds = %.preheader, %.critedge.thread29
+.critedge.thread51:                               ; preds = %.preheader, %.critedge.thread29
   %.037 = phi ptr [ %.041, %.critedge.thread29 ], [ %1, %.preheader ]
   %.11732 = phi i32 [ %.0.i, %.critedge.thread29 ], [ 0, %.preheader ]
   %28 = call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 2, i64 noundef 0, ptr noundef null)
@@ -1454,16 +1454,16 @@ define i32 @BIO_get_line(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   store i8 0, ptr %23, align 1, !tbaa !49
   br label %30
 
-30:                                               ; preds = %.sink.split, %.critedge.thread49
-  %.128 = phi ptr [ %.037, %.critedge.thread49 ], [ %23, %.sink.split ]
+30:                                               ; preds = %.sink.split, %.critedge.thread51
+  %.128 = phi ptr [ %.037, %.critedge.thread51 ], [ %23, %.sink.split ]
   %31 = ptrtoint ptr %.128 to i64
   %32 = ptrtoint ptr %1 to i64
   %33 = sub i64 %31, %32
   %34 = trunc i64 %33 to i32
   br label %35
 
-35:                                               ; preds = %30, %.critedge.thread49, %16, %12, %9, %6
-  %.019 = phi i32 [ -1, %6 ], [ -1, %9 ], [ -1, %12 ], [ -1, %16 ], [ %34, %30 ], [ %.11732, %.critedge.thread49 ]
+35:                                               ; preds = %30, %.critedge.thread51, %16, %12, %9, %6
+  %.019 = phi i32 [ -1, %6 ], [ -1, %9 ], [ -1, %12 ], [ -1, %16 ], [ %34, %30 ], [ %.11732, %.critedge.thread51 ]
   ret i32 %.019
 }
 
@@ -1586,12 +1586,12 @@ bio_call_callback.exit._crit_edge:                ; preds = %bio_call_callback.e
   br i1 %.not26, label %34, label %35
 
 34:                                               ; preds = %27
-  br i1 %.not27, label %bio_call_callback.exit30, label %.thread39
+  br i1 %.not27, label %bio_call_callback.exit30, label %.thread45
 
 35:                                               ; preds = %27
-  br i1 %.not27, label %38, label %.thread39
+  br i1 %.not27, label %38, label %.thread45
 
-.thread39:                                        ; preds = %34, %35
+.thread45:                                        ; preds = %34, %35
   %36 = trunc i64 %30 to i32
   %37 = call i64 %33(ptr noundef nonnull %0, i32 noundef 134, ptr noundef nonnull %4, i64 noundef 0, i32 noundef 14, i64 noundef 0, i32 noundef %36, ptr noundef null) #14
   br label %bio_call_callback.exit30
@@ -1600,8 +1600,8 @@ bio_call_callback.exit._crit_edge:                ; preds = %bio_call_callback.e
   %39 = call i64 %31(ptr noundef nonnull %0, i32 noundef 134, ptr noundef nonnull %4, i32 noundef 14, i64 noundef 0, i64 noundef %30) #14
   br label %bio_call_callback.exit30
 
-bio_call_callback.exit30:                         ; preds = %38, %.thread39, %34, %bio_call_callback.exit, %3, %15
-  %.020 = phi i64 [ -2, %15 ], [ -2, %3 ], [ %.0.i, %bio_call_callback.exit ], [ %30, %34 ], [ %37, %.thread39 ], [ %39, %38 ]
+bio_call_callback.exit30:                         ; preds = %38, %.thread45, %34, %bio_call_callback.exit, %3, %15
+  %.020 = phi i64 [ -2, %15 ], [ -2, %3 ], [ %.0.i, %bio_call_callback.exit ], [ %30, %34 ], [ %37, %.thread45 ], [ %39, %38 ]
   ret i64 %.020
 }
 
@@ -2202,12 +2202,12 @@ define i32 @BIO_do_connect_retry(ptr noundef %0, i32 noundef %1, i32 noundef %2)
 41:                                               ; preds = %.lr.ph.split.split.us
   %.0.i.us53 = and i32 %36, 8388607
   switch i32 %.0.i.us53, label %43 [
-    i32 524290, label %.thread69
-    i32 103, label %.thread69
-    i32 110, label %.thread69
+    i32 524290, label %.thread76
+    i32 103, label %.thread76
+    i32 110, label %.thread76
   ]
 
-.thread69:                                        ; preds = %41, %41, %41
+.thread76:                                        ; preds = %41, %41, %41
   %42 = tail call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 0, ptr noundef null)
   br label %bio_wait.exit.thread.us
 
@@ -2215,7 +2215,7 @@ define i32 @BIO_do_connect_retry(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %.not58 = icmp eq i32 %38, 0
   br i1 %.not58, label %.split.us, label %bio_wait.exit.thread.us
 
-bio_wait.exit.thread.us:                          ; preds = %.thread69, %43
+bio_wait.exit.thread.us:                          ; preds = %.thread76, %43
   %44 = tail call i32 @ERR_pop_to_mark() #14
   %45 = tail call i32 @ERR_set_mark() #14
   %46 = tail call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 101, i64 noundef 0, ptr noundef null)
@@ -2238,12 +2238,12 @@ bio_wait.exit.thread.us:                          ; preds = %.thread69, %43
 56:                                               ; preds = %.lr.ph.split.split
   %.0.i = and i32 %51, 8388607
   switch i32 %.0.i, label %58 [
-    i32 524290, label %.thread72
-    i32 103, label %.thread72
-    i32 110, label %.thread72
+    i32 524290, label %.thread79
+    i32 103, label %.thread79
+    i32 110, label %.thread79
   ]
 
-.thread72:                                        ; preds = %56, %56, %56
+.thread79:                                        ; preds = %56, %56, %56
   %57 = call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 0, ptr noundef null)
   br label %59
 
@@ -2251,7 +2251,7 @@ bio_wait.exit.thread.us:                          ; preds = %.thread69, %43
   %.not = icmp eq i32 %53, 0
   br i1 %.not, label %.split.us, label %59
 
-59:                                               ; preds = %.thread72, %58
+59:                                               ; preds = %.thread79, %58
   %60 = call i32 @ERR_pop_to_mark() #14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %61 = call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 105, i64 noundef 0, ptr noundef nonnull %4)

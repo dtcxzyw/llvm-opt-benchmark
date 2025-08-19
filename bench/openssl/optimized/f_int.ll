@@ -169,19 +169,19 @@ define range(i32 0, 2) i32 @a2i_ASN1_INTEGER(ptr noundef %0, ptr noundef writeon
   %31 = sext i8 %30 to i32
   %32 = tail call i32 @ossl_ctype_check(i32 noundef %31, i32 noundef 16) #3
   %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %._crit_edge.split.loop.exit161, label %33
+  br i1 %.not, label %._crit_edge.split.loop.exit169, label %33
 
 33:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.pre-phi153
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
-._crit_edge.split.loop.exit161:                   ; preds = %.lr.ph
+._crit_edge.split.loop.exit169:                   ; preds = %.lr.ph
   %34 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %33, %._crit_edge.split.loop.exit161
-  %.288.ph = phi i32 [ %34, %._crit_edge.split.loop.exit161 ], [ %.187101, %33 ]
+._crit_edge:                                      ; preds = %33, %._crit_edge.split.loop.exit169
+  %.288.ph = phi i32 [ %34, %._crit_edge.split.loop.exit169 ], [ %.187101, %33 ]
   %35 = sext i32 %.288.ph to i64
   %36 = getelementptr inbounds i8, ptr %2, i64 %35
   store i8 0, ptr %36, align 1, !tbaa !13
@@ -208,7 +208,7 @@ define range(i32 0, 2) i32 @a2i_ASN1_INTEGER(ptr noundef %0, ptr noundef writeon
 46:                                               ; preds = %42, %39, %38
   %.3 = phi i32 [ %.288.ph, %39 ], [ %.288.ph, %38 ], [ %spec.select, %42 ]
   %.081 = phi ptr [ %2, %39 ], [ %2, %38 ], [ %spec.select130, %42 ]
-  %47 = add i32 %.3, %.neg
+  %47 = add nsw i32 %.3, %.neg
   %48 = and i32 %47, 1
   %.not96 = icmp eq i32 %48, 0
   br i1 %.not96, label %50, label %49
@@ -247,13 +247,13 @@ define range(i32 0, 2) i32 @a2i_ASN1_INTEGER(ptr noundef %0, ptr noundef writeon
 .preheader.preheader:                             ; preds = %61
   %63 = sext i32 %.080118 to i64
   %wide.trip.count149 = zext nneg i32 %51 to i64
-  %invariant.gep163 = getelementptr i8, ptr %.2, i64 %63
+  %invariant.gep171 = getelementptr i8, ptr %.2, i64 %63
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %75
   %indvars.iv144 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next145, %75 ]
   %indvars.iv142 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next143, %75 ]
-  %gep164 = getelementptr i8, ptr %invariant.gep163, i64 %indvars.iv142
+  %gep172 = getelementptr i8, ptr %invariant.gep171, i64 %indvars.iv142
   %invariant.gep = getelementptr inbounds nuw i8, ptr %.081, i64 %indvars.iv144
   br label %64
 
@@ -273,11 +273,11 @@ define range(i32 0, 2) i32 @a2i_ASN1_INTEGER(ptr noundef %0, ptr noundef writeon
   br label %.loopexit
 
 70:                                               ; preds = %64
-  %71 = load i8, ptr %gep164, align 1, !tbaa !13
+  %71 = load i8, ptr %gep172, align 1, !tbaa !13
   %72 = shl i8 %71, 4
   %73 = trunc i32 %67 to i8
   %74 = or i8 %72, %73
-  store i8 %74, ptr %gep164, align 1, !tbaa !13
+  store i8 %74, ptr %gep172, align 1, !tbaa !13
   br i1 %65, label %64, label %75, !llvm.loop !17
 
 75:                                               ; preds = %70

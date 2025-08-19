@@ -51,8 +51,8 @@ define dso_local noundef range(i64 0, 2) i64 @parse_header(ptr noundef %0, ptr n
   %27 = icmp eq i32 %26, 0
   %.neg = select i1 %27, i64 -4, i64 -8
   %.neg2 = add nsw i64 %2, -9
-  %.neg4 = add i64 %.neg2, %.neg5
-  %gepdiff = add i64 %.neg4, %.neg
+  %.neg4 = add nsw i64 %.neg2, %.neg5
+  %gepdiff = add nsw i64 %.neg4, %.neg
   %28 = icmp slt i64 %gepdiff, 13
   br i1 %28, label %.loopexit, label %29
 

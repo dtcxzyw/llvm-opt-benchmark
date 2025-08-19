@@ -274,7 +274,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_c_luiP11pr
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %77 = load i8, ptr %76, align 2, !tbaa !93, !range !94, !noundef !95
   %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %79, label %.thread102
+  br i1 %78, label %79, label %.thread104
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -285,19 +285,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_c_luiP11pr
   %85 = tail call noundef i64 %84(ptr noundef nonnull align 8 dereferenceable(37) %81) #18
   %86 = and i64 %85, 8
   %.not63 = icmp eq i64 %86, 0
-  br i1 %.not63, label %87, label %.thread102
+  br i1 %.not63, label %87, label %.thread104
 
 87:                                               ; preds = %79
   %.pre100 = load i8, ptr %76, align 2, !tbaa !93, !range !94
   %88 = trunc nuw i8 %.pre100 to i1
-  br i1 %88, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread102
+  br i1 %88, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread104
 
-.thread102:                                       ; preds = %75, %87, %79
+.thread104:                                       ; preds = %75, %87, %79
   %89 = load i64, ptr %60, align 8, !tbaa !16
   %90 = icmp eq i64 %89, 0
   br i1 %90, label %91, label %.thread
 
-91:                                               ; preds = %.thread102
+91:                                               ; preds = %.thread104
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 3512
   %93 = load ptr, ptr %92, align 8, !tbaa !92
   %94 = load ptr, ptr %93, align 8, !tbaa !14
@@ -313,7 +313,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_c_luiP11pr
   %.not65 = icmp eq i64 %.pr, 0
   br i1 %.not65, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread
 
-.thread:                                          ; preds = %.thread102, %99, %91
+.thread:                                          ; preds = %.thread104, %99, %91
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %101 = load ptr, ptr %100, align 8, !tbaa !96
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 3816
@@ -386,7 +386,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_c_luiP11pr
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %144 = load i8, ptr %143, align 2, !tbaa !93, !range !94, !noundef !95
   %145 = trunc nuw i8 %144 to i1
-  br i1 %145, label %146, label %.thread103
+  br i1 %145, label %146, label %.thread105
 
 146:                                              ; preds = %142
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -397,19 +397,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_c_luiP11pr
   %152 = tail call noundef i64 %151(ptr noundef nonnull align 8 dereferenceable(37) %148) #18
   %153 = and i64 %152, 8
   %.not58 = icmp eq i64 %153, 0
-  br i1 %.not58, label %154, label %.thread103
+  br i1 %.not58, label %154, label %.thread105
 
 154:                                              ; preds = %146
   %.pre = load i8, ptr %143, align 2, !tbaa !93, !range !94
   %155 = trunc nuw i8 %.pre to i1
-  br i1 %155, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread103
+  br i1 %155, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread105
 
-.thread103:                                       ; preds = %142, %154, %146
+.thread105:                                       ; preds = %142, %154, %146
   %156 = load i64, ptr %127, align 8, !tbaa !16
   %157 = icmp eq i64 %156, 0
   br i1 %157, label %158, label %.thread97
 
-158:                                              ; preds = %.thread103
+158:                                              ; preds = %.thread105
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 3512
   %160 = load ptr, ptr %159, align 8, !tbaa !92
   %161 = load ptr, ptr %160, align 8, !tbaa !14
@@ -425,7 +425,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_c_luiP11pr
   %.not60 = icmp eq i64 %.pr96, 0
   br i1 %.not60, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread97
 
-.thread97:                                        ; preds = %.thread103, %166, %158
+.thread97:                                        ; preds = %.thread105, %166, %158
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %168 = load i64, ptr %167, align 8, !tbaa !3
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 3816
@@ -758,7 +758,7 @@ define noundef i64 @_Z16fast_rv64i_c_luiP11processor_t6insn_tm(ptr noundef captu
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %75 = load i8, ptr %74, align 2, !tbaa !93, !range !94, !noundef !95
   %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %77, label %.thread102
+  br i1 %76, label %77, label %.thread104
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -769,19 +769,19 @@ define noundef i64 @_Z16fast_rv64i_c_luiP11processor_t6insn_tm(ptr noundef captu
   %83 = tail call noundef i64 %82(ptr noundef nonnull align 8 dereferenceable(37) %79) #18
   %84 = and i64 %83, 8
   %.not63 = icmp eq i64 %84, 0
-  br i1 %.not63, label %85, label %.thread102
+  br i1 %.not63, label %85, label %.thread104
 
 85:                                               ; preds = %77
   %.pre100 = load i8, ptr %74, align 2, !tbaa !93, !range !94
   %86 = trunc nuw i8 %.pre100 to i1
-  br i1 %86, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread102
+  br i1 %86, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread104
 
-.thread102:                                       ; preds = %73, %85, %77
+.thread104:                                       ; preds = %73, %85, %77
   %87 = load i64, ptr %58, align 8, !tbaa !16
   %88 = icmp eq i64 %87, 0
   br i1 %88, label %89, label %.thread
 
-89:                                               ; preds = %.thread102
+89:                                               ; preds = %.thread104
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 3512
   %91 = load ptr, ptr %90, align 8, !tbaa !92
   %92 = load ptr, ptr %91, align 8, !tbaa !14
@@ -797,7 +797,7 @@ define noundef i64 @_Z16fast_rv64i_c_luiP11processor_t6insn_tm(ptr noundef captu
   %.not65 = icmp eq i64 %.pr, 0
   br i1 %.not65, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread
 
-.thread:                                          ; preds = %.thread102, %97, %89
+.thread:                                          ; preds = %.thread104, %97, %89
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %99 = load ptr, ptr %98, align 8, !tbaa !96
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 3816
@@ -869,7 +869,7 @@ define noundef i64 @_Z16fast_rv64i_c_luiP11processor_t6insn_tm(ptr noundef captu
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %141 = load i8, ptr %140, align 2, !tbaa !93, !range !94, !noundef !95
   %142 = trunc nuw i8 %141 to i1
-  br i1 %142, label %143, label %.thread103
+  br i1 %142, label %143, label %.thread105
 
 143:                                              ; preds = %139
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -880,19 +880,19 @@ define noundef i64 @_Z16fast_rv64i_c_luiP11processor_t6insn_tm(ptr noundef captu
   %149 = tail call noundef i64 %148(ptr noundef nonnull align 8 dereferenceable(37) %145) #18
   %150 = and i64 %149, 8
   %.not58 = icmp eq i64 %150, 0
-  br i1 %.not58, label %151, label %.thread103
+  br i1 %.not58, label %151, label %.thread105
 
 151:                                              ; preds = %143
   %.pre = load i8, ptr %140, align 2, !tbaa !93, !range !94
   %152 = trunc nuw i8 %.pre to i1
-  br i1 %152, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread103
+  br i1 %152, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread105
 
-.thread103:                                       ; preds = %139, %151, %143
+.thread105:                                       ; preds = %139, %151, %143
   %153 = load i64, ptr %124, align 8, !tbaa !16
   %154 = icmp eq i64 %153, 0
   br i1 %154, label %155, label %.thread97
 
-155:                                              ; preds = %.thread103
+155:                                              ; preds = %.thread105
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 3512
   %157 = load ptr, ptr %156, align 8, !tbaa !92
   %158 = load ptr, ptr %157, align 8, !tbaa !14
@@ -908,7 +908,7 @@ define noundef i64 @_Z16fast_rv64i_c_luiP11processor_t6insn_tm(ptr noundef captu
   %.not60 = icmp eq i64 %.pr96, 0
   br i1 %.not60, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread97
 
-.thread97:                                        ; preds = %.thread103, %163, %155
+.thread97:                                        ; preds = %.thread105, %163, %155
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %165 = load i64, ptr %164, align 8, !tbaa !3
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 3816
@@ -1245,7 +1245,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_c_luiP11
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %84 = load i8, ptr %83, align 2, !tbaa !93, !range !94, !noundef !95
   %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %86, label %.thread110
+  br i1 %85, label %86, label %.thread112
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -1256,19 +1256,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_c_luiP11
   %92 = tail call noundef i64 %91(ptr noundef nonnull align 8 dereferenceable(37) %88) #18
   %93 = and i64 %92, 8
   %.not70 = icmp eq i64 %93, 0
-  br i1 %.not70, label %94, label %.thread110
+  br i1 %.not70, label %94, label %.thread112
 
 94:                                               ; preds = %86
   %.pre108 = load i8, ptr %83, align 2, !tbaa !93, !range !94
   %95 = trunc nuw i8 %.pre108 to i1
-  br i1 %95, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread110
+  br i1 %95, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread112
 
-.thread110:                                       ; preds = %82, %94, %86
+.thread112:                                       ; preds = %82, %94, %86
   %96 = load i64, ptr %67, align 8, !tbaa !16
   %97 = icmp eq i64 %96, 0
   br i1 %97, label %98, label %.thread
 
-98:                                               ; preds = %.thread110
+98:                                               ; preds = %.thread112
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 3512
   %100 = load ptr, ptr %99, align 8, !tbaa !92
   %101 = load ptr, ptr %100, align 8, !tbaa !14
@@ -1284,7 +1284,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_c_luiP11
   %.not72 = icmp eq i64 %.pr, 0
   br i1 %.not72, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread
 
-.thread:                                          ; preds = %.thread110, %106, %98
+.thread:                                          ; preds = %.thread112, %106, %98
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %108 = load ptr, ptr %107, align 8, !tbaa !96
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 3816
@@ -1357,7 +1357,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_c_luiP11
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %151 = load i8, ptr %150, align 2, !tbaa !93, !range !94, !noundef !95
   %152 = trunc nuw i8 %151 to i1
-  br i1 %152, label %153, label %.thread111
+  br i1 %152, label %153, label %.thread113
 
 153:                                              ; preds = %149
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -1368,19 +1368,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_c_luiP11
   %159 = tail call noundef i64 %158(ptr noundef nonnull align 8 dereferenceable(37) %155) #18
   %160 = and i64 %159, 8
   %.not65 = icmp eq i64 %160, 0
-  br i1 %.not65, label %161, label %.thread111
+  br i1 %.not65, label %161, label %.thread113
 
 161:                                              ; preds = %153
   %.pre = load i8, ptr %150, align 2, !tbaa !93, !range !94
   %162 = trunc nuw i8 %.pre to i1
-  br i1 %162, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread111
+  br i1 %162, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread113
 
-.thread111:                                       ; preds = %149, %161, %153
+.thread113:                                       ; preds = %149, %161, %153
   %163 = load i64, ptr %134, align 8, !tbaa !16
   %164 = icmp eq i64 %163, 0
   br i1 %164, label %165, label %.thread105
 
-165:                                              ; preds = %.thread111
+165:                                              ; preds = %.thread113
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 3512
   %167 = load ptr, ptr %166, align 8, !tbaa !92
   %168 = load ptr, ptr %167, align 8, !tbaa !14
@@ -1396,7 +1396,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_c_luiP11
   %.not67 = icmp eq i64 %.pr104, 0
   br i1 %.not67, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread105
 
-.thread105:                                       ; preds = %.thread111, %173, %165
+.thread105:                                       ; preds = %.thread113, %173, %165
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %175 = load i64, ptr %174, align 8, !tbaa !3
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 3816
@@ -1687,7 +1687,7 @@ define noundef i64 @_Z18logged_rv64i_c_luiP11processor_t6insn_tm(ptr noundef %0,
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %82 = load i8, ptr %81, align 2, !tbaa !93, !range !94, !noundef !95
   %83 = trunc nuw i8 %82 to i1
-  br i1 %83, label %84, label %.thread110
+  br i1 %83, label %84, label %.thread112
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -1698,19 +1698,19 @@ define noundef i64 @_Z18logged_rv64i_c_luiP11processor_t6insn_tm(ptr noundef %0,
   %90 = tail call noundef i64 %89(ptr noundef nonnull align 8 dereferenceable(37) %86) #18
   %91 = and i64 %90, 8
   %.not70 = icmp eq i64 %91, 0
-  br i1 %.not70, label %92, label %.thread110
+  br i1 %.not70, label %92, label %.thread112
 
 92:                                               ; preds = %84
   %.pre108 = load i8, ptr %81, align 2, !tbaa !93, !range !94
   %93 = trunc nuw i8 %.pre108 to i1
-  br i1 %93, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread110
+  br i1 %93, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread112
 
-.thread110:                                       ; preds = %80, %92, %84
+.thread112:                                       ; preds = %80, %92, %84
   %94 = load i64, ptr %65, align 8, !tbaa !16
   %95 = icmp eq i64 %94, 0
   br i1 %95, label %96, label %.thread
 
-96:                                               ; preds = %.thread110
+96:                                               ; preds = %.thread112
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 3512
   %98 = load ptr, ptr %97, align 8, !tbaa !92
   %99 = load ptr, ptr %98, align 8, !tbaa !14
@@ -1726,7 +1726,7 @@ define noundef i64 @_Z18logged_rv64i_c_luiP11processor_t6insn_tm(ptr noundef %0,
   %.not72 = icmp eq i64 %.pr, 0
   br i1 %.not72, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread
 
-.thread:                                          ; preds = %.thread110, %104, %96
+.thread:                                          ; preds = %.thread112, %104, %96
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %106 = load ptr, ptr %105, align 8, !tbaa !96
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 3816
@@ -1798,7 +1798,7 @@ define noundef i64 @_Z18logged_rv64i_c_luiP11processor_t6insn_tm(ptr noundef %0,
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %148 = load i8, ptr %147, align 2, !tbaa !93, !range !94, !noundef !95
   %149 = trunc nuw i8 %148 to i1
-  br i1 %149, label %150, label %.thread111
+  br i1 %149, label %150, label %.thread113
 
 150:                                              ; preds = %146
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -1809,19 +1809,19 @@ define noundef i64 @_Z18logged_rv64i_c_luiP11processor_t6insn_tm(ptr noundef %0,
   %156 = tail call noundef i64 %155(ptr noundef nonnull align 8 dereferenceable(37) %152) #18
   %157 = and i64 %156, 8
   %.not65 = icmp eq i64 %157, 0
-  br i1 %.not65, label %158, label %.thread111
+  br i1 %.not65, label %158, label %.thread113
 
 158:                                              ; preds = %150
   %.pre = load i8, ptr %147, align 2, !tbaa !93, !range !94
   %159 = trunc nuw i8 %.pre to i1
-  br i1 %159, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread111
+  br i1 %159, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread113
 
-.thread111:                                       ; preds = %146, %158, %150
+.thread113:                                       ; preds = %146, %158, %150
   %160 = load i64, ptr %131, align 8, !tbaa !16
   %161 = icmp eq i64 %160, 0
   br i1 %161, label %162, label %.thread105
 
-162:                                              ; preds = %.thread111
+162:                                              ; preds = %.thread113
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 3512
   %164 = load ptr, ptr %163, align 8, !tbaa !92
   %165 = load ptr, ptr %164, align 8, !tbaa !14
@@ -1837,7 +1837,7 @@ define noundef i64 @_Z18logged_rv64i_c_luiP11processor_t6insn_tm(ptr noundef %0,
   %.not67 = icmp eq i64 %.pr104, 0
   br i1 %.not67, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread105
 
-.thread105:                                       ; preds = %.thread111, %170, %162
+.thread105:                                       ; preds = %.thread113, %170, %162
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %172 = load i64, ptr %171, align 8, !tbaa !3
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 3816
@@ -2038,7 +2038,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_c_luiP11pr
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %84 = load i8, ptr %83, align 2, !tbaa !93, !range !94, !noundef !95
   %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %86, label %.thread106
+  br i1 %85, label %86, label %.thread108
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -2049,19 +2049,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_c_luiP11pr
   %92 = tail call noundef i64 %91(ptr noundef nonnull align 8 dereferenceable(37) %88) #18
   %93 = and i64 %92, 8
   %.not65 = icmp eq i64 %93, 0
-  br i1 %.not65, label %94, label %.thread106
+  br i1 %.not65, label %94, label %.thread108
 
 94:                                               ; preds = %86
   %.pre104 = load i8, ptr %83, align 2, !tbaa !93, !range !94
   %95 = trunc nuw i8 %.pre104 to i1
-  br i1 %95, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread106
+  br i1 %95, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread108
 
-.thread106:                                       ; preds = %82, %94, %86
+.thread108:                                       ; preds = %82, %94, %86
   %96 = load i64, ptr %67, align 8, !tbaa !16
   %97 = icmp eq i64 %96, 0
   br i1 %97, label %98, label %.thread
 
-98:                                               ; preds = %.thread106
+98:                                               ; preds = %.thread108
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 3512
   %100 = load ptr, ptr %99, align 8, !tbaa !92
   %101 = load ptr, ptr %100, align 8, !tbaa !14
@@ -2077,7 +2077,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_c_luiP11pr
   %.not67 = icmp eq i64 %.pr, 0
   br i1 %.not67, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread
 
-.thread:                                          ; preds = %.thread106, %106, %98
+.thread:                                          ; preds = %.thread108, %106, %98
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %108 = load ptr, ptr %107, align 8, !tbaa !96
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 3816
@@ -2150,7 +2150,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_c_luiP11pr
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %151 = load i8, ptr %150, align 2, !tbaa !93, !range !94, !noundef !95
   %152 = trunc nuw i8 %151 to i1
-  br i1 %152, label %153, label %.thread107
+  br i1 %152, label %153, label %.thread109
 
 153:                                              ; preds = %149
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -2161,19 +2161,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_c_luiP11pr
   %159 = tail call noundef i64 %158(ptr noundef nonnull align 8 dereferenceable(37) %155) #18
   %160 = and i64 %159, 8
   %.not60 = icmp eq i64 %160, 0
-  br i1 %.not60, label %161, label %.thread107
+  br i1 %.not60, label %161, label %.thread109
 
 161:                                              ; preds = %153
   %.pre = load i8, ptr %150, align 2, !tbaa !93, !range !94
   %162 = trunc nuw i8 %.pre to i1
-  br i1 %162, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread107
+  br i1 %162, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread109
 
-.thread107:                                       ; preds = %149, %161, %153
+.thread109:                                       ; preds = %149, %161, %153
   %163 = load i64, ptr %134, align 8, !tbaa !16
   %164 = icmp eq i64 %163, 0
   br i1 %164, label %165, label %.thread101
 
-165:                                              ; preds = %.thread107
+165:                                              ; preds = %.thread109
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 3512
   %167 = load ptr, ptr %166, align 8, !tbaa !92
   %168 = load ptr, ptr %167, align 8, !tbaa !14
@@ -2189,7 +2189,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_c_luiP11pr
   %.not62 = icmp eq i64 %.pr100, 0
   br i1 %.not62, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread101
 
-.thread101:                                       ; preds = %.thread107, %173, %165
+.thread101:                                       ; preds = %.thread109, %173, %165
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %175 = load i64, ptr %174, align 8, !tbaa !3
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 3816
@@ -2391,7 +2391,7 @@ define noundef i64 @_Z16fast_rv64e_c_luiP11processor_t6insn_tm(ptr noundef captu
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %82 = load i8, ptr %81, align 2, !tbaa !93, !range !94, !noundef !95
   %83 = trunc nuw i8 %82 to i1
-  br i1 %83, label %84, label %.thread106
+  br i1 %83, label %84, label %.thread108
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -2402,19 +2402,19 @@ define noundef i64 @_Z16fast_rv64e_c_luiP11processor_t6insn_tm(ptr noundef captu
   %90 = tail call noundef i64 %89(ptr noundef nonnull align 8 dereferenceable(37) %86) #18
   %91 = and i64 %90, 8
   %.not65 = icmp eq i64 %91, 0
-  br i1 %.not65, label %92, label %.thread106
+  br i1 %.not65, label %92, label %.thread108
 
 92:                                               ; preds = %84
   %.pre104 = load i8, ptr %81, align 2, !tbaa !93, !range !94
   %93 = trunc nuw i8 %.pre104 to i1
-  br i1 %93, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread106
+  br i1 %93, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread108
 
-.thread106:                                       ; preds = %80, %92, %84
+.thread108:                                       ; preds = %80, %92, %84
   %94 = load i64, ptr %65, align 8, !tbaa !16
   %95 = icmp eq i64 %94, 0
   br i1 %95, label %96, label %.thread
 
-96:                                               ; preds = %.thread106
+96:                                               ; preds = %.thread108
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 3512
   %98 = load ptr, ptr %97, align 8, !tbaa !92
   %99 = load ptr, ptr %98, align 8, !tbaa !14
@@ -2430,7 +2430,7 @@ define noundef i64 @_Z16fast_rv64e_c_luiP11processor_t6insn_tm(ptr noundef captu
   %.not67 = icmp eq i64 %.pr, 0
   br i1 %.not67, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread
 
-.thread:                                          ; preds = %.thread106, %104, %96
+.thread:                                          ; preds = %.thread108, %104, %96
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %106 = load ptr, ptr %105, align 8, !tbaa !96
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 3816
@@ -2502,7 +2502,7 @@ define noundef i64 @_Z16fast_rv64e_c_luiP11processor_t6insn_tm(ptr noundef captu
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %148 = load i8, ptr %147, align 2, !tbaa !93, !range !94, !noundef !95
   %149 = trunc nuw i8 %148 to i1
-  br i1 %149, label %150, label %.thread107
+  br i1 %149, label %150, label %.thread109
 
 150:                                              ; preds = %146
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -2513,19 +2513,19 @@ define noundef i64 @_Z16fast_rv64e_c_luiP11processor_t6insn_tm(ptr noundef captu
   %156 = tail call noundef i64 %155(ptr noundef nonnull align 8 dereferenceable(37) %152) #18
   %157 = and i64 %156, 8
   %.not60 = icmp eq i64 %157, 0
-  br i1 %.not60, label %158, label %.thread107
+  br i1 %.not60, label %158, label %.thread109
 
 158:                                              ; preds = %150
   %.pre = load i8, ptr %147, align 2, !tbaa !93, !range !94
   %159 = trunc nuw i8 %.pre to i1
-  br i1 %159, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread107
+  br i1 %159, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread109
 
-.thread107:                                       ; preds = %146, %158, %150
+.thread109:                                       ; preds = %146, %158, %150
   %160 = load i64, ptr %131, align 8, !tbaa !16
   %161 = icmp eq i64 %160, 0
   br i1 %161, label %162, label %.thread101
 
-162:                                              ; preds = %.thread107
+162:                                              ; preds = %.thread109
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 3512
   %164 = load ptr, ptr %163, align 8, !tbaa !92
   %165 = load ptr, ptr %164, align 8, !tbaa !14
@@ -2541,7 +2541,7 @@ define noundef i64 @_Z16fast_rv64e_c_luiP11processor_t6insn_tm(ptr noundef captu
   %.not62 = icmp eq i64 %.pr100, 0
   br i1 %.not62, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread101
 
-.thread101:                                       ; preds = %.thread107, %170, %162
+.thread101:                                       ; preds = %.thread109, %170, %162
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %172 = load i64, ptr %171, align 8, !tbaa !3
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 3816
@@ -2761,7 +2761,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_c_luiP11
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %91 = load i8, ptr %90, align 2, !tbaa !93, !range !94, !noundef !95
   %92 = trunc nuw i8 %91 to i1
-  br i1 %92, label %93, label %.thread114
+  br i1 %92, label %93, label %.thread116
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -2772,19 +2772,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_c_luiP11
   %99 = tail call noundef i64 %98(ptr noundef nonnull align 8 dereferenceable(37) %95) #18
   %100 = and i64 %99, 8
   %.not72 = icmp eq i64 %100, 0
-  br i1 %.not72, label %101, label %.thread114
+  br i1 %.not72, label %101, label %.thread116
 
 101:                                              ; preds = %93
   %.pre112 = load i8, ptr %90, align 2, !tbaa !93, !range !94
   %102 = trunc nuw i8 %.pre112 to i1
-  br i1 %102, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread114
+  br i1 %102, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread116
 
-.thread114:                                       ; preds = %89, %101, %93
+.thread116:                                       ; preds = %89, %101, %93
   %103 = load i64, ptr %74, align 8, !tbaa !16
   %104 = icmp eq i64 %103, 0
   br i1 %104, label %105, label %.thread
 
-105:                                              ; preds = %.thread114
+105:                                              ; preds = %.thread116
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 3512
   %107 = load ptr, ptr %106, align 8, !tbaa !92
   %108 = load ptr, ptr %107, align 8, !tbaa !14
@@ -2800,7 +2800,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_c_luiP11
   %.not74 = icmp eq i64 %.pr, 0
   br i1 %.not74, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread
 
-.thread:                                          ; preds = %.thread114, %113, %105
+.thread:                                          ; preds = %.thread116, %113, %105
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %115 = load ptr, ptr %114, align 8, !tbaa !96
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 3816
@@ -2873,7 +2873,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_c_luiP11
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %158 = load i8, ptr %157, align 2, !tbaa !93, !range !94, !noundef !95
   %159 = trunc nuw i8 %158 to i1
-  br i1 %159, label %160, label %.thread115
+  br i1 %159, label %160, label %.thread117
 
 160:                                              ; preds = %156
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -2884,19 +2884,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_c_luiP11
   %166 = tail call noundef i64 %165(ptr noundef nonnull align 8 dereferenceable(37) %162) #18
   %167 = and i64 %166, 8
   %.not67 = icmp eq i64 %167, 0
-  br i1 %.not67, label %168, label %.thread115
+  br i1 %.not67, label %168, label %.thread117
 
 168:                                              ; preds = %160
   %.pre = load i8, ptr %157, align 2, !tbaa !93, !range !94
   %169 = trunc nuw i8 %.pre to i1
-  br i1 %169, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread115
+  br i1 %169, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread117
 
-.thread115:                                       ; preds = %156, %168, %160
+.thread117:                                       ; preds = %156, %168, %160
   %170 = load i64, ptr %141, align 8, !tbaa !16
   %171 = icmp eq i64 %170, 0
   br i1 %171, label %172, label %.thread109
 
-172:                                              ; preds = %.thread115
+172:                                              ; preds = %.thread117
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 3512
   %174 = load ptr, ptr %173, align 8, !tbaa !92
   %175 = load ptr, ptr %174, align 8, !tbaa !14
@@ -2912,7 +2912,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_c_luiP11
   %.not69 = icmp eq i64 %.pr108, 0
   br i1 %.not69, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread109
 
-.thread109:                                       ; preds = %.thread115, %180, %172
+.thread109:                                       ; preds = %.thread117, %180, %172
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %182 = load i64, ptr %181, align 8, !tbaa !3
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 3816
@@ -3133,7 +3133,7 @@ define noundef i64 @_Z18logged_rv64e_c_luiP11processor_t6insn_tm(ptr noundef %0,
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %89 = load i8, ptr %88, align 2, !tbaa !93, !range !94, !noundef !95
   %90 = trunc nuw i8 %89 to i1
-  br i1 %90, label %91, label %.thread114
+  br i1 %90, label %91, label %.thread116
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -3144,19 +3144,19 @@ define noundef i64 @_Z18logged_rv64e_c_luiP11processor_t6insn_tm(ptr noundef %0,
   %97 = tail call noundef i64 %96(ptr noundef nonnull align 8 dereferenceable(37) %93) #18
   %98 = and i64 %97, 8
   %.not72 = icmp eq i64 %98, 0
-  br i1 %.not72, label %99, label %.thread114
+  br i1 %.not72, label %99, label %.thread116
 
 99:                                               ; preds = %91
   %.pre112 = load i8, ptr %88, align 2, !tbaa !93, !range !94
   %100 = trunc nuw i8 %.pre112 to i1
-  br i1 %100, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread114
+  br i1 %100, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread116
 
-.thread114:                                       ; preds = %87, %99, %91
+.thread116:                                       ; preds = %87, %99, %91
   %101 = load i64, ptr %72, align 8, !tbaa !16
   %102 = icmp eq i64 %101, 0
   br i1 %102, label %103, label %.thread
 
-103:                                              ; preds = %.thread114
+103:                                              ; preds = %.thread116
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 3512
   %105 = load ptr, ptr %104, align 8, !tbaa !92
   %106 = load ptr, ptr %105, align 8, !tbaa !14
@@ -3172,7 +3172,7 @@ define noundef i64 @_Z18logged_rv64e_c_luiP11processor_t6insn_tm(ptr noundef %0,
   %.not74 = icmp eq i64 %.pr, 0
   br i1 %.not74, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread
 
-.thread:                                          ; preds = %.thread114, %111, %103
+.thread:                                          ; preds = %.thread116, %111, %103
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %113 = load ptr, ptr %112, align 8, !tbaa !96
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 3816
@@ -3244,7 +3244,7 @@ define noundef i64 @_Z18logged_rv64e_c_luiP11processor_t6insn_tm(ptr noundef %0,
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %155 = load i8, ptr %154, align 2, !tbaa !93, !range !94, !noundef !95
   %156 = trunc nuw i8 %155 to i1
-  br i1 %156, label %157, label %.thread115
+  br i1 %156, label %157, label %.thread117
 
 157:                                              ; preds = %153
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -3255,19 +3255,19 @@ define noundef i64 @_Z18logged_rv64e_c_luiP11processor_t6insn_tm(ptr noundef %0,
   %163 = tail call noundef i64 %162(ptr noundef nonnull align 8 dereferenceable(37) %159) #18
   %164 = and i64 %163, 8
   %.not67 = icmp eq i64 %164, 0
-  br i1 %.not67, label %165, label %.thread115
+  br i1 %.not67, label %165, label %.thread117
 
 165:                                              ; preds = %157
   %.pre = load i8, ptr %154, align 2, !tbaa !93, !range !94
   %166 = trunc nuw i8 %.pre to i1
-  br i1 %166, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread115
+  br i1 %166, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread117
 
-.thread115:                                       ; preds = %153, %165, %157
+.thread117:                                       ; preds = %153, %165, %157
   %167 = load i64, ptr %138, align 8, !tbaa !16
   %168 = icmp eq i64 %167, 0
   br i1 %168, label %169, label %.thread109
 
-169:                                              ; preds = %.thread115
+169:                                              ; preds = %.thread117
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 3512
   %171 = load ptr, ptr %170, align 8, !tbaa !92
   %172 = load ptr, ptr %171, align 8, !tbaa !14
@@ -3283,7 +3283,7 @@ define noundef i64 @_Z18logged_rv64e_c_luiP11processor_t6insn_tm(ptr noundef %0,
   %.not69 = icmp eq i64 %.pr108, 0
   br i1 %.not69, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread109
 
-.thread109:                                       ; preds = %.thread115, %177, %169
+.thread109:                                       ; preds = %.thread117, %177, %169
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %179 = load i64, ptr %178, align 8, !tbaa !3
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 3816
@@ -3474,14 +3474,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !192
-  %25 = icmp eq ptr %.019.lcssa28.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #22
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #22
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81 = load i64, ptr %.phi.trans.insert80, align 8, !tbaa !3
   %.pre82 = load i64, ptr %2, align 8, !tbaa !3
@@ -3490,11 +3490,11 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 28:                                               ; preds = %26, %._crit_edge.i
   %29 = phi i64 [ %.pre82, %26 ], [ %18, %._crit_edge.i ]
   %30 = phi i64 [ %.pre81, %26 ], [ %21, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %26 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %26 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %27, %26 ], [ %.02024.i, %._crit_edge.i ]
   %31 = icmp ult i64 %30, %29
   %spec.select.i = select i1 %31, ptr null, ptr %.sroa.05.0.i
-  %spec.select21.i = select i1 %31, ptr %.019.lcssa29.i, ptr null
+  %spec.select21.i = select i1 %31, ptr %.019.lcssa28.i, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 32:                                               ; preds = %3
@@ -3546,23 +3546,23 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br i1 %54, label %._crit_edge.thread.i27, label %58
 
 ._crit_edge.thread.i27:                           ; preds = %._crit_edge.i18, %50
-  %.019.lcssa28.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
-  %55 = icmp eq ptr %.019.lcssa28.i28, %39
+  %.019.lcssa29.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
+  %55 = icmp eq ptr %.019.lcssa29.i28, %39
   br i1 %55, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #22
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i28) #22
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre79 = load i64, ptr %.phi.trans.insert78, align 8, !tbaa !3
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i18
   %59 = phi i64 [ %.pre79, %56 ], [ %53, %._crit_edge.i18 ]
-  %.019.lcssa29.i19 = phi ptr [ %.019.lcssa28.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
+  %.019.lcssa28.i19 = phi ptr [ %.019.lcssa29.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %.sroa.05.0.i20 = phi ptr [ %57, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %60 = icmp ult i64 %59, %34
   %spec.select.i21 = select i1 %60, ptr null, ptr %.sroa.05.0.i20
-  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa29.i19, ptr null
+  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa28.i19, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 61:                                               ; preds = %32
@@ -3611,30 +3611,30 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br i1 %80, label %._crit_edge.thread.i47, label %86
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
-  %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
+  %.019.lcssa29.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !192
-  %83 = icmp eq ptr %.019.lcssa28.i48, %82
+  %83 = icmp eq ptr %.019.lcssa29.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #22
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i48) #22
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !3
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i38
   %87 = phi i64 [ %.pre, %84 ], [ %79, %._crit_edge.i38 ]
-  %.019.lcssa29.i39 = phi ptr [ %.019.lcssa28.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
+  %.019.lcssa28.i39 = phi ptr [ %.019.lcssa29.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %.sroa.05.0.i40 = phi ptr [ %85, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %88 = icmp ult i64 %87, %34
   %spec.select.i41 = select i1 %88, ptr null, ptr %.sroa.05.0.i40
-  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa29.i39, ptr null
+  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa28.i39, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
   %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

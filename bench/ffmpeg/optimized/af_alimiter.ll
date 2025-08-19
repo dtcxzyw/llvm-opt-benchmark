@@ -277,14 +277,14 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph359.preheader:                              ; preds = %111
   %117 = zext nneg i32 %115 to i64
-  %invariant.gep437 = getelementptr inbounds nuw double, ptr %19, i64 %117
+  %invariant.gep461 = getelementptr inbounds nuw double, ptr %19, i64 %117
   br label %.lr.ph359
 
 .lr.ph359:                                        ; preds = %.lr.ph359.preheader, %.lr.ph359
   %indvars.iv401 = phi i64 [ 0, %.lr.ph359.preheader ], [ %indvars.iv.next402, %.lr.ph359 ]
   %.1299357 = phi double [ 0.000000e+00, %.lr.ph359.preheader ], [ %.1299., %.lr.ph359 ]
-  %gep438 = getelementptr inbounds nuw double, ptr %invariant.gep437, i64 %indvars.iv401
-  %118 = load double, ptr %gep438, align 8, !tbaa !60
+  %gep462 = getelementptr inbounds nuw double, ptr %invariant.gep461, i64 %indvars.iv401
+  %118 = load double, ptr %gep462, align 8, !tbaa !60
   %119 = tail call nsz double @llvm.fabs.f64(double %118)
   %120 = fcmp nsz ogt double %.1299357, %119
   %.1299. = select nsz i1 %120, double %.1299357, double %119
@@ -477,14 +477,14 @@ get_rdelta.exit:                                  ; preds = %193, %202, %210
 
 .lr.ph377.preheader:                              ; preds = %218
   %224 = sext i32 %223 to i64
-  %invariant.gep440 = getelementptr double, ptr %19, i64 %224
+  %invariant.gep464 = getelementptr double, ptr %19, i64 %224
   br label %.lr.ph377
 
 .lr.ph377:                                        ; preds = %.lr.ph377.preheader, %.lr.ph377
   %indvars.iv416 = phi i64 [ 0, %.lr.ph377.preheader ], [ %indvars.iv.next417, %.lr.ph377 ]
   %.0292374 = phi double [ 0.000000e+00, %.lr.ph377.preheader ], [ %.0292., %.lr.ph377 ]
-  %gep441 = getelementptr double, ptr %invariant.gep440, i64 %indvars.iv416
-  %225 = load double, ptr %gep441, align 8, !tbaa !60
+  %gep465 = getelementptr double, ptr %invariant.gep464, i64 %indvars.iv416
+  %225 = load double, ptr %gep465, align 8, !tbaa !60
   %226 = tail call nsz double @llvm.fabs.f64(double %225)
   %227 = fcmp nsz ogt double %.0292374, %226
   %.0292. = select nsz i1 %227, double %.0292374, double %226
@@ -533,9 +533,9 @@ get_rdelta.exit:                                  ; preds = %193, %202, %210
 249:                                              ; preds = %._crit_edge373._crit_edge, %242
   %250 = phi double [ %.pre426, %._crit_edge373._crit_edge ], [ %243, %242 ]
   %251 = fcmp nsz ogt double %250, 1.000000e+00
-  br i1 %251, label %.thread427, label %252
+  br i1 %251, label %.thread451, label %252
 
-.thread427:                                       ; preds = %249
+.thread451:                                       ; preds = %249
   store double 1.000000e+00, ptr %57, align 8, !tbaa !27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
   store i32 -1, ptr %35, align 4, !tbaa !68
@@ -566,7 +566,7 @@ get_rdelta.exit:                                  ; preds = %193, %202, %210
   store double 1.000000e+00, ptr %57, align 8, !tbaa !27
   br label %265
 
-265:                                              ; preds = %.thread427, %264, %259
+265:                                              ; preds = %.thread451, %264, %259
   %266 = load double, ptr %60, align 8, !tbaa !67
   %267 = fcmp nsz une double %266, 0.000000e+00
   %268 = tail call nsz double @llvm.fabs.f64(double %266)

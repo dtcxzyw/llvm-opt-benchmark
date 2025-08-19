@@ -1247,9 +1247,9 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17h3136a4fc5ae63fadE.exit.threa
 
 ._crit_edge.i.i:                                  ; preds = %167
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %23, i64 16)
-  %spec.select34.i = tail call i64 @llvm.umin.i64(i64 %23, i64 16)
+  %spec.select37.i = tail call i64 @llvm.umin.i64(i64 %23, i64 16)
   %153 = getelementptr inbounds i8, ptr %.val.i4, i64 %spec.select.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %153, ptr nonnull align 1 %.val.i4, i64 %spec.select34.i, i1 false), !noalias !208
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %153, ptr nonnull align 1 %.val.i4, i64 %spec.select37.i, i1 false), !noalias !208
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !208
   %154 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @"_ZN4core3ptr108drop_in_place$LT$$LP$$LP$core..time..Duration$C$http_client..RedirectPolicy$RP$$C$ureq..agent..Agent$RP$$GT$17h98174e9b1f59812aE.llvm.1269278195741123570", ptr %154, align 8, !noalias !208

@@ -3148,13 +3148,13 @@ _ZN6icu_776number4impl22DecimalFormatWarehouseD2Ev.exit: ; preds = %14, %18
 54:                                               ; preds = %28
   %55 = load i32, ptr %2, align 4
   %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %.thread29, label %57
+  br i1 %56, label %.thread38, label %57
 
 57:                                               ; preds = %54
   store i32 7, ptr %2, align 4, !tbaa !13
-  br label %.thread29
+  br label %.thread38
 
-.thread29:                                        ; preds = %57, %54
+.thread38:                                        ; preds = %57, %54
   store ptr null, ptr %11, align 8, !tbaa !85
   br label %_ZN6icu_7712LocalPointerINS_6number4impl22DecimalFormatWarehouseEED2Ev.exit
 
@@ -3281,7 +3281,7 @@ _ZN6icu_776number4impl22DecimalFormatWarehouseD2Ev.exit.i: ; preds = %105, %101
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %29) #17
   br label %_ZN6icu_7712LocalPointerINS_6number4impl22DecimalFormatWarehouseEED2Ev.exit
 
-_ZN6icu_7712LocalPointerINS_6number4impl22DecimalFormatWarehouseEED2Ev.exit: ; preds = %.thread29, %.thread26, %_ZN6icu_776number4impl22DecimalFormatWarehouseD2Ev.exit.i
+_ZN6icu_7712LocalPointerINS_6number4impl22DecimalFormatWarehouseEED2Ev.exit: ; preds = %.thread38, %.thread26, %_ZN6icu_776number4impl22DecimalFormatWarehouseD2Ev.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %112
 

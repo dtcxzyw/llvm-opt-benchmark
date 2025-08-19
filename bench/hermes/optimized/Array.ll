@@ -621,7 +621,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT
   %60 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %60, 2147483647
   %conv.i146 = zext nneg i32 %and.i to i64
-  %add.i = add i64 %size.sroa.0.0225, %conv.i146
+  %add.i = add nuw nsw i64 %size.sroa.0.0225, %conv.i146
   %cmp.i149.not = icmp ult i64 %add.i, 4294967296
   br i1 %cmp.i149.not, label %if.end195, label %if.then178
 
@@ -1359,8 +1359,8 @@ if.then31:                                        ; preds = %for.end
   br label %cleanup
 
 if.end33:                                         ; preds = %if.end17, %for.end
-  %finalSizeEstimate.sroa.0.1.lcssa387 = phi i64 [ %add.i92, %for.end ], [ %finalSizeEstimate.sroa.0.0, %if.end17 ]
-  %conv.i.i103 = trunc i64 %finalSizeEstimate.sroa.0.1.lcssa387 to i32
+  %finalSizeEstimate.sroa.0.1.lcssa395 = phi i64 [ %add.i92, %for.end ], [ %finalSizeEstimate.sroa.0.0, %if.end17 ]
+  %conv.i.i103 = trunc i64 %finalSizeEstimate.sroa.0.1.lcssa395 to i32
   %call36 = call ptr @_ZN6hermes2vm7JSArray6createERNS0_7RuntimeEjj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %conv.i.i103, i32 noundef %conv.i.i103) #8
   %cmp.i.i105.not = icmp eq ptr %call36, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i105.not, label %cleanup, label %if.end43
@@ -9266,13 +9266,13 @@ if.then36:                                        ; preds = %_ZNK6hermes2vm18Seg
   br label %cleanup179
 
 if.end41:                                         ; preds = %for.inc, %for.end
-  %numProps.0.lcssa271 = phi i32 [ %numProps.0259, %for.end ], [ %retval.0.i, %for.inc ]
-  %call42 = call ptr @_ZN6hermes2vm7JSArray6createERNS0_7RuntimeEjj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %numProps.0.lcssa271, i32 noundef %numProps.0.lcssa271) #8
+  %numProps.0.lcssa276 = phi i32 [ %numProps.0259, %for.end ], [ %retval.0.i, %for.inc ]
+  %call42 = call ptr @_ZN6hermes2vm7JSArray6createERNS0_7RuntimeEjj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %numProps.0.lcssa276, i32 noundef %numProps.0.lcssa276) #8
   %cmp.i.i56.not = icmp eq ptr %call42, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i56.not, label %cleanup179, label %if.end48
 
 if.end48:                                         ; preds = %if.end41
-  %call53 = call noundef i32 @_ZN6hermes2vm9ArrayImpl18setStorageEndIndexENS0_6HandleIS1_EERNS0_7RuntimeEj(ptr %call42, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %numProps.0.lcssa271) #8
+  %call53 = call noundef i32 @_ZN6hermes2vm9ArrayImpl18setStorageEndIndexENS0_6HandleIS1_EERNS0_7RuntimeEj(ptr %call42, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %numProps.0.lcssa276) #8
   %cmp54 = icmp eq i32 %call53, 0
   br i1 %cmp54, label %cleanup179, label %if.end56
 
@@ -9622,7 +9622,7 @@ _ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13Her
 for.inc119:                                       ; preds = %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit, %if.end85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond = icmp eq i32 %numProps.0.lcssa271, %lftr.wideiv
+  %exitcond = icmp eq i32 %numProps.0.lcssa276, %lftr.wideiv
   br i1 %exitcond, label %for.end121, label %for.body67, !llvm.loop !169
 
 for.end121:                                       ; preds = %for.inc119
@@ -9634,7 +9634,7 @@ for.end121:                                       ; preds = %for.inc119
   store ptr %add.ptr.i.i146, ptr %curChunkEnd_.i, align 8
   store ptr %27, ptr %next_.i, align 8
   call fastcc void @_ZN6hermes2vm12_GLOBAL__N_117StandardSortModelC2ERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS5_INS0_8CallableEEE(ptr noundef nonnull align 8 dereferenceable(328) %sm, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %call42, ptr %compareFn.coerce)
-  %call128 = call noundef i32 @_ZN6hermes2vm9quickSortEPNS0_9SortModelEjj(ptr noundef nonnull %sm, i32 noundef 0, i32 noundef %numProps.0.lcssa271) #8
+  %call128 = call noundef i32 @_ZN6hermes2vm9quickSortEPNS0_9SortModelEjj(ptr noundef nonnull %sm, i32 noundef 0, i32 noundef %numProps.0.lcssa276) #8
   %cmp129.not = icmp eq i32 %call128, 0
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i64 16), ptr %sm, align 8
   %gcScope_.i = getelementptr inbounds nuw i8, ptr %sm, i64 16
@@ -9644,7 +9644,7 @@ for.end121:                                       ; preds = %for.inc119
 
 for.cond134:                                      ; preds = %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit216
   %inc172 = add i32 %i133.0263, 1
-  %cmp135.not = icmp eq i32 %inc172, %numProps.0.lcssa271
+  %cmp135.not = icmp eq i32 %inc172, %numProps.0.lcssa276
   br i1 %cmp135.not, label %for.end173, label %for.body136, !llvm.loop !170
 
 for.body136:                                      ; preds = %for.end121, %for.cond134
@@ -11498,22 +11498,22 @@ while.cond.preheader:                             ; preds = %_ZN6hermes2vm13Muta
   %conv.i = zext i32 %38 to i64
   %slot.i.i = getelementptr inbounds nuw i8, ptr %kDesc, i64 4
   %39 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.us168 = getelementptr inbounds nuw ptr, ptr %39, i64 %conv.i
-  %40 = load ptr, ptr %arrayidx.i20.i.us168, align 8
-  %add.ptr.i.us169 = getelementptr inbounds nuw i8, ptr %40, i64 128
+  %arrayidx.i20.i.us173 = getelementptr inbounds nuw ptr, ptr %39, i64 %conv.i
+  %40 = load ptr, ptr %arrayidx.i20.i.us173, align 8
+  %add.ptr.i.us174 = getelementptr inbounds nuw i8, ptr %40, i64 128
   store i32 %38, ptr %curChunkIndex_.i, align 8
-  store ptr %add.ptr.i.us169, ptr %curChunkEnd_.i, align 8
+  store ptr %add.ptr.i.us174, ptr %curChunkEnd_.i, align 8
   store ptr %37, ptr %next_.i, align 8
   %41 = load double, ptr %retval.0.i.i.i.i.i.i59, align 8
   br i1 %reverse, label %while.body.us.preheader, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %while.cond.preheader
-  %cmp81167 = fcmp ult double %41, %conv
-  br i1 %cmp81167, label %if.end90, label %if.then132
+  %cmp81172 = fcmp ult double %41, %conv
+  br i1 %cmp81172, label %if.end90, label %if.then132
 
 while.body.us.preheader:                          ; preds = %while.cond.preheader
-  %cmp87.us170 = fcmp olt double %41, 0.000000e+00
-  br i1 %cmp87.us170, label %if.then132, label %if.end90.us
+  %cmp87.us175 = fcmp olt double %41, 0.000000e+00
+  br i1 %cmp87.us175, label %if.then132, label %if.end90.us
 
 while.body.us.critedge:                           ; preds = %if.end114.us
   %42 = load double, ptr %retval.0.i.i.i.i.i.i59, align 8

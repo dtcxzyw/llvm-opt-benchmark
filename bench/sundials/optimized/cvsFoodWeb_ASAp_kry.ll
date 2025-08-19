@@ -831,7 +831,7 @@ check_retval.exit:                                ; preds = %7
   %64 = mul nuw nsw i64 %indvars.iv172, %60
   %65 = sitofp i32 %62 to double
   %66 = mul nsw i32 %55, %62
-  %invariant.gep187 = getelementptr inbounds nuw ptr, ptr %6, i64 %64
+  %invariant.gep194 = getelementptr inbounds nuw ptr, ptr %6, i64 %64
   br label %.lr.ph117.us.us.us.us.us
 
 .lr.ph117.us.us.us.us.us:                         ; preds = %._crit_edge118.split.us.us.us.us.us.us, %.lr.ph.us.us.us
@@ -845,10 +845,10 @@ check_retval.exit:                                ; preds = %7
   %73 = mul nsw i32 %56, %71
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds double, ptr %17, i64 %74
-  %gep188 = getelementptr inbounds nuw ptr, ptr %invariant.gep187, i64 %indvars.iv167
-  %76 = load ptr, ptr %gep188, align 8, !tbaa !9
+  %gep195 = getelementptr inbounds nuw ptr, ptr %invariant.gep194, i64 %indvars.iv167
+  %76 = load ptr, ptr %gep195, align 8, !tbaa !9
   %77 = sext i32 %70 to i64
-  %invariant.gep185 = getelementptr double, ptr %34, i64 %77
+  %invariant.gep192 = getelementptr double, ptr %34, i64 %77
   br label %.preheader.us.preheader.i.i.us.us.us.us.us.us
 
 .preheader.us.preheader.i.i.us.us.us.us.us.us:    ; preds = %._crit_edge.us.us.us.us.us.us, %.lr.ph117.us.us.us.us.us
@@ -919,8 +919,8 @@ check_retval.exit:                                ; preds = %7
   %indvars.iv157 = phi i64 [ 0, %fblock.exit.loopexit.us.us.us.us.us.us ], [ %indvars.iv.next158, %108 ]
   %109 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv157
   %110 = load double, ptr %109, align 8, !tbaa !22
-  %gep186 = getelementptr double, ptr %invariant.gep185, i64 %indvars.iv157
-  %111 = load double, ptr %gep186, align 8, !tbaa !22
+  %gep193 = getelementptr double, ptr %invariant.gep192, i64 %indvars.iv157
+  %111 = load double, ptr %gep193, align 8, !tbaa !22
   %112 = fsub double %110, %111
   %113 = fmul double %115, %112
   %114 = getelementptr inbounds nuw double, ptr %117, i64 %indvars.iv157
@@ -957,7 +957,7 @@ fblock.exit.loopexit.us.us.us.us.us.us:           ; preds = %.lr.ph43.i.i.us.us.
   %119 = load i32, ptr %118, align 4, !tbaa !35
   %120 = mul nsw i32 %119, %33
   %121 = mul nuw nsw i64 %indvars.iv152, %60
-  %invariant.gep183 = getelementptr inbounds nuw ptr, ptr %6, i64 %121
+  %invariant.gep190 = getelementptr inbounds nuw ptr, ptr %6, i64 %121
   br label %.lr.ph117.us.us133.us
 
 .lr.ph117.us.us133.us:                            ; preds = %.lr.ph.us.us, %._crit_edge118.split.split.us.us.us.us
@@ -966,8 +966,8 @@ fblock.exit.loopexit.us.us.us.us.us.us:           ; preds = %.lr.ph43.i.i.us.us.
   %123 = load i32, ptr %122, align 4, !tbaa !35
   %124 = mul nsw i32 %123, %23
   %125 = add nsw i32 %124, %120
-  %gep184 = getelementptr inbounds nuw ptr, ptr %invariant.gep183, i64 %indvars.iv147
-  %126 = load ptr, ptr %gep184, align 8, !tbaa !9
+  %gep191 = getelementptr inbounds nuw ptr, ptr %invariant.gep190, i64 %indvars.iv147
+  %126 = load ptr, ptr %gep191, align 8, !tbaa !9
   %127 = sext i32 %125 to i64
   %invariant.gep = getelementptr double, ptr %34, i64 %127
   br label %fblock.exit.us119.us.us.us
@@ -1661,7 +1661,7 @@ check_retval.exit117:                             ; preds = %17
   %71 = mul nuw nsw i64 %indvars.iv180, %67
   %72 = sitofp i32 %69 to double
   %73 = mul nsw i32 %62, %69
-  %invariant.gep195 = getelementptr inbounds nuw ptr, ptr %7, i64 %71
+  %invariant.gep203 = getelementptr inbounds nuw ptr, ptr %7, i64 %71
   br label %.lr.ph125.us.us.us.us.us
 
 .lr.ph125.us.us.us.us.us:                         ; preds = %._crit_edge126.split.us.us.us.us.us.us, %.lr.ph.us.us.us
@@ -1675,10 +1675,10 @@ check_retval.exit117:                             ; preds = %17
   %80 = mul nsw i32 %63, %78
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds double, ptr %25, i64 %81
-  %gep196 = getelementptr inbounds nuw ptr, ptr %invariant.gep195, i64 %indvars.iv175
-  %83 = load ptr, ptr %gep196, align 8, !tbaa !9
+  %gep204 = getelementptr inbounds nuw ptr, ptr %invariant.gep203, i64 %indvars.iv175
+  %83 = load ptr, ptr %gep204, align 8, !tbaa !9
   %84 = sext i32 %77 to i64
-  %invariant.gep193 = getelementptr double, ptr %42, i64 %84
+  %invariant.gep201 = getelementptr double, ptr %42, i64 %84
   br label %.preheader.us.preheader.i.i.us.us.us.us.us.us
 
 .preheader.us.preheader.i.i.us.us.us.us.us.us:    ; preds = %._crit_edge.us.us.us.us.us.us, %.lr.ph125.us.us.us.us.us
@@ -1749,8 +1749,8 @@ check_retval.exit117:                             ; preds = %17
   %indvars.iv165 = phi i64 [ 0, %fblock.exit.loopexit.us.us.us.us.us.us ], [ %indvars.iv.next166, %115 ]
   %116 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv165
   %117 = load double, ptr %116, align 8, !tbaa !22
-  %gep194 = getelementptr double, ptr %invariant.gep193, i64 %indvars.iv165
-  %118 = load double, ptr %gep194, align 8, !tbaa !22
+  %gep202 = getelementptr double, ptr %invariant.gep201, i64 %indvars.iv165
+  %118 = load double, ptr %gep202, align 8, !tbaa !22
   %119 = fsub double %117, %118
   %120 = fmul double %124, %119
   %121 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv165
@@ -1787,7 +1787,7 @@ fblock.exit.loopexit.us.us.us.us.us.us:           ; preds = %.lr.ph43.i.i.us.us.
   %126 = load i32, ptr %125, align 4, !tbaa !35
   %127 = mul nsw i32 %126, %41
   %128 = mul nuw nsw i64 %indvars.iv160, %67
-  %invariant.gep191 = getelementptr inbounds nuw ptr, ptr %7, i64 %128
+  %invariant.gep199 = getelementptr inbounds nuw ptr, ptr %7, i64 %128
   br label %.lr.ph125.us.us141.us
 
 .lr.ph125.us.us141.us:                            ; preds = %.lr.ph.us.us, %._crit_edge126.split.split.us.us.us.us
@@ -1796,8 +1796,8 @@ fblock.exit.loopexit.us.us.us.us.us.us:           ; preds = %.lr.ph43.i.i.us.us.
   %130 = load i32, ptr %129, align 4, !tbaa !35
   %131 = mul nsw i32 %130, %31
   %132 = add nsw i32 %131, %127
-  %gep192 = getelementptr inbounds nuw ptr, ptr %invariant.gep191, i64 %indvars.iv155
-  %133 = load ptr, ptr %gep192, align 8, !tbaa !9
+  %gep200 = getelementptr inbounds nuw ptr, ptr %invariant.gep199, i64 %indvars.iv155
+  %133 = load ptr, ptr %gep200, align 8, !tbaa !9
   %134 = sext i32 %132 to i64
   %invariant.gep = getelementptr double, ptr %42, i64 %134
   br label %fblock.exit.us127.us.us.us
@@ -2137,8 +2137,8 @@ define internal fastcc void @GSIter(double noundef %0, ptr noundef %1, ptr nound
 .lr.ph394:                                        ; preds = %.preheader389
   %25 = icmp slt i32 %15, 1
   %wide.trip.count.i = zext nneg i32 %13 to i64
-  %brmerge478 = or i1 %25, %22
-  br i1 %brmerge478, label %._crit_edge395, label %.lr.ph392.us.us.preheader
+  %brmerge484 = or i1 %25, %22
+  br i1 %brmerge484, label %._crit_edge395, label %.lr.ph392.us.us.preheader
 
 .lr.ph392.us.us.preheader:                        ; preds = %.lr.ph394
   %26 = zext nneg i32 %13 to i64
@@ -2230,7 +2230,7 @@ v_prod.exit.loopexit.us.us.us:                    ; preds = %.lr.ph.i.us.us.us
   %wide.trip.count444 = zext nneg i32 %15 to i64
   %wide.trip.count459 = zext nneg i32 %17 to i64
   %wide.trip.count454 = zext nneg i32 %15 to i64
-  %brmerge481 = select i1 %24, i1 true, i1 %59
+  %brmerge487 = select i1 %24, i1 true, i1 %59
   br label %69
 
 69:                                               ; preds = %._crit_edge395, %._crit_edge408
@@ -2260,7 +2260,7 @@ v_prod.exit.loopexit.us.us.us:                    ; preds = %.lr.ph.i.us.us.us
   %81 = select i1 %80, i32 2, i32 1
   %82 = select i1 %79, i32 0, i32 %81
   %83 = add nuw nsw i32 %82, %75
-  switch i32 %83, label %default.unreachable462 [
+  switch i32 %83, label %default.unreachable468 [
     i32 0, label %167
     i32 1, label %152
     i32 2, label %143
@@ -2458,11 +2458,11 @@ v_sum_prods.exit.us:                              ; preds = %.lr.ph.i286.us, %.l
   %exitcond450.not = icmp eq i64 %indvars.iv.next447, %wide.trip.count449
   br i1 %exitcond450.not, label %.loopexit, label %.lr.ph400.us
 
-default.unreachable462:                           ; preds = %76
+default.unreachable468:                           ; preds = %76
   unreachable
 
 .loopexit:                                        ; preds = %._crit_edge.us, %69
-  br i1 %brmerge481, label %._crit_edge408, label %.lr.ph404.us
+  br i1 %brmerge487, label %._crit_edge408, label %.lr.ph404.us
 
 .lr.ph404.us:                                     ; preds = %.loopexit, %._crit_edge.us409
   %indvars.iv456 = phi i64 [ %indvars.iv.next457, %._crit_edge.us409 ], [ 0, %.loopexit ]

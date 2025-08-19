@@ -122,12 +122,12 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 30
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 3424
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 46
-  %indvars.iv113.sroa.gep128 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %indvars.iv113.sroa.gep131 = getelementptr inbounds nuw i8, ptr %4, i64 1
   br label %19
 
 19:                                               ; preds = %3, %45
   %20 = phi i1 [ true, %3 ], [ false, %45 ]
-  %indvars.iv113.sroa.phi = phi ptr [ %4, %3 ], [ %indvars.iv113.sroa.gep128, %45 ]
+  %indvars.iv113.sroa.phi = phi ptr [ %4, %3 ], [ %indvars.iv113.sroa.gep131, %45 ]
   %indvars.iv113 = phi i64 [ 0, %3 ], [ 1, %45 ]
   store i8 1, ptr %indvars.iv113.sroa.phi, align 1, !tbaa !49
   %21 = getelementptr inbounds nuw [4 x [16 x i8]], ptr %11, i64 0, i64 %indvars.iv113

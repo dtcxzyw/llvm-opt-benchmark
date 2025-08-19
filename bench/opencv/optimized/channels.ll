@@ -280,7 +280,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit219: ; preds = %_Z
   %.idx253 = shl i64 %.2188275, 4
   %106 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx253
   store i32 %105, ptr %106, align 4, !tbaa !30
-  %107 = mul i32 %.0175272, %43
+  %107 = mul nuw nsw i32 %.0175272, %43
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 4
   store i32 %107, ptr %108, align 4, !tbaa !30
   %109 = add nuw nsw i32 %85, 1
@@ -321,8 +321,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit219: ; preds = %_Z
   %124 = icmp sgt i32 %.0174274, -1
   %125 = and i32 %117, 7
   %126 = icmp eq i32 %125, %45
-  %or.cond320 = select i1 %124, i1 %126, i1 false
-  br i1 %or.cond320, label %139, label %.thread
+  %or.cond343 = select i1 %124, i1 %126, i1 false
+  br i1 %or.cond343, label %139, label %.thread
 
 .thread:                                          ; preds = %123, %120
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -374,7 +374,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit222: ; preds = %_Z
   %142 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx256
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   store i32 %141, ptr %143, align 4, !tbaa !30
-  %144 = mul i32 %.0174274, %43
+  %144 = mul nuw nsw i32 %.0174274, %43
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 12
   store i32 %144, ptr %145, align 4, !tbaa !30
   %146 = add nuw nsw i32 %119, 1
@@ -596,8 +596,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit225: ; preds = %_Z
   %251 = load ptr, ptr %10, align 8, !tbaa !21
   %.not.i.i227 = icmp eq ptr %251, %51
   %252 = icmp eq ptr %251, null
-  %or.cond321 = or i1 %.not.i.i227, %252
-  br i1 %or.cond321, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %253
+  %or.cond344 = or i1 %.not.i.i227, %252
+  br i1 %or.cond344, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %253
 
 253:                                              ; preds = %.split.us
   call void @_ZdaPv(ptr noundef nonnull %251) #14
@@ -638,8 +638,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %254, %257
   %263 = load ptr, ptr %10, align 8, !tbaa !21
   %.not.i.i228 = icmp eq ptr %263, %51
   %264 = icmp eq ptr %263, null
-  %or.cond322 = or i1 %.not.i.i228, %264
-  br i1 %or.cond322, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit229, label %265
+  %or.cond345 = or i1 %.not.i.i228, %264
+  br i1 %or.cond345, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit229, label %265
 
 265:                                              ; preds = %262
   call void @_ZdaPv(ptr noundef nonnull %263) #14

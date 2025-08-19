@@ -13,9 +13,9 @@ define void @_Z10calc_rffacP8_IO_FILEfffPfS1_(ptr noundef captures(address_is_nu
   %9 = tail call float @llvm.fmuladd.f32(float %2, float 2.000000e+00, float %1)
   %10 = fdiv float %8, %9
   %11 = fmul float %3, 2.000000e+00
-  %.sink33 = select i1 %7, float %11, float %3
+  %.sink35 = select i1 %7, float %11, float %3
   %.sink = select i1 %7, float 1.000000e+00, float %10
-  %12 = fmul float %3, %.sink33
+  %12 = fmul float %3, %.sink35
   %13 = fmul float %3, %12
   %14 = fdiv float %.sink, %13
   store float %14, ptr %4, align 4, !tbaa !4

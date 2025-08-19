@@ -677,7 +677,7 @@ define void @_ZN6LibRaw22parse_makernote_0xc634Eiij(ptr noundef nonnull align 8 
   %239 = icmp eq i32 %238, 4
   %240 = shl nuw nsw i32 %220, 2
   %.sink = select i1 %239, i32 %240, i32 %220
-  %.sink224 = select i1 %239, i64 4, i64 1
+  %.sink233 = select i1 %239, i64 4, i64 1
   %241 = call i32 @llvm.umax.i32(i32 %.sink, i32 16)
   %242 = zext nneg i32 %241 to i64
   %243 = call noundef ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %242, i64 noundef 1)
@@ -687,7 +687,7 @@ define void @_ZN6LibRaw22parse_makernote_0xc634Eiij(ptr noundef nonnull align 8 
   %247 = load ptr, ptr %244, align 8, !tbaa !79
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 24
   %249 = load ptr, ptr %248, align 8
-  %250 = call noundef i32 %249(ptr noundef nonnull align 8 dereferenceable(8) %244, ptr noundef %243, i64 noundef %246, i64 noundef %.sink224)
+  %250 = call noundef i32 %249(ptr noundef nonnull align 8 dereferenceable(8) %244, ptr noundef %243, i64 noundef %246, i64 noundef %.sink233)
   %251 = load i32, ptr %8, align 4, !tbaa !6
   %252 = load i32, ptr %7, align 4, !tbaa !6
   br label %.loopexit
@@ -1669,11 +1669,11 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 153184
   br label %315
 
-315:                                              ; preds = %.lr.ph, %.thread320
-  %.in = phi i32 [ %285, %.lr.ph ], [ %316, %.thread320 ]
-  %.0129277 = phi i32 [ 0, %.lr.ph ], [ %.2131, %.thread320 ]
-  %.0132276 = phi i32 [ 0, %.lr.ph ], [ %.2134, %.thread320 ]
-  %.0136275 = phi ptr [ null, %.lr.ph ], [ %.2138, %.thread320 ]
+315:                                              ; preds = %.lr.ph, %.thread328
+  %.in = phi i32 [ %285, %.lr.ph ], [ %316, %.thread328 ]
+  %.0129277 = phi i32 [ 0, %.lr.ph ], [ %.2131, %.thread328 ]
+  %.0132276 = phi i32 [ 0, %.lr.ph ], [ %.2134, %.thread328 ]
+  %.0136275 = phi ptr [ null, %.lr.ph ], [ %.2138, %.thread328 ]
   %316 = add nsw i32 %.in, -1
   store i16 %284, ptr %70, align 8, !tbaa !85
   call void @_ZN6LibRaw8tiff_getEjPjS0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %.0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
@@ -1687,7 +1687,7 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   %323 = call noundef i64 %322(ptr noundef nonnull align 8 dereferenceable(8) %319)
   %324 = load i32, ptr %8, align 4, !tbaa !6
   %325 = icmp ugt i32 %324, 104857600
-  br i1 %325, label %.thread320, label %326
+  br i1 %325, label %.thread328, label %326
 
 326:                                              ; preds = %315
   %327 = icmp samesign ugt i32 %324, 8
@@ -1695,7 +1695,7 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   %329 = add nsw i64 %323, %328
   %330 = icmp sgt i64 %329, %287
   %or.cond285 = select i1 %327, i1 %330, i1 false
-  br i1 %or.cond285, label %.thread320, label %331, !llvm.loop !107
+  br i1 %or.cond285, label %.thread328, label %331, !llvm.loop !107
 
 331:                                              ; preds = %326
   %332 = load i16, ptr %288, align 2, !tbaa !106
@@ -1768,7 +1768,7 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   %364 = icmp eq i32 %363, 4
   %365 = shl nuw nsw i32 %324, 2
   %.sink = select i1 %364, i32 %365, i32 %324
-  %.sink325 = select i1 %364, i64 4, i64 1
+  %.sink333 = select i1 %364, i64 4, i64 1
   %366 = call i32 @llvm.umax.i32(i32 %.sink, i32 16)
   %367 = zext nneg i32 %366 to i64
   %368 = call noundef ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %367, i64 noundef 1)
@@ -1778,7 +1778,7 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   %372 = load ptr, ptr %369, align 8, !tbaa !79
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 24
   %374 = load ptr, ptr %373, align 8
-  %375 = call noundef i32 %374(ptr noundef nonnull align 8 dereferenceable(8) %369, ptr noundef %368, i64 noundef %371, i64 noundef %.sink325)
+  %375 = call noundef i32 %374(ptr noundef nonnull align 8 dereferenceable(8) %369, ptr noundef %368, i64 noundef %371, i64 noundef %.sink333)
   %376 = load i32, ptr %8, align 4, !tbaa !6
   %377 = load i32, ptr %7, align 4, !tbaa !6
   br label %442
@@ -2057,8 +2057,8 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   br label %.sink.split
 
 .sink.split:                                      ; preds = %479, %488, %487
-  %.sink332 = phi i32 [ 6, %487 ], [ 5, %488 ], [ 0, %479 ]
-  store i32 %.sink332, ptr %305, align 8, !tbaa !116
+  %.sink340 = phi i32 [ 6, %487 ], [ 5, %488 ], [ 0, %479 ]
+  store i32 %.sink340, ptr %305, align 8, !tbaa !116
   br label %489
 
 489:                                              ; preds = %.sink.split, %.loopexit269, %479, %478
@@ -2237,7 +2237,7 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
 574:                                              ; preds = %569
   %575 = call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.51, i64 noundef 7) #11
   %.not257 = icmp eq i32 %575, 0
-  br i1 %.not257, label %.thread320, label %576
+  br i1 %.not257, label %.thread328, label %576
 
 576:                                              ; preds = %574
   store i16 18761, ptr %70, align 8, !tbaa !85
@@ -2303,32 +2303,32 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
 
 606:                                              ; preds = %601
   %607 = load i32, ptr %8, align 4, !tbaa !6
-  switch i32 %607, label %.thread320 [
-    i32 614, label %.sink.split333
+  switch i32 %607, label %.thread328 [
+    i32 614, label %.sink.split341
     i32 1502, label %608
     i32 734, label %608
   ]
 
 608:                                              ; preds = %606, %606
-  br label %.sink.split333
+  br label %.sink.split341
 
 609:                                              ; preds = %601
   %610 = icmp eq i32 %602, 8209
   %611 = load i32, ptr %8, align 4
   %612 = icmp eq i32 %611, 2
   %or.cond68 = select i1 %610, i1 %612, i1 false
-  br i1 %or.cond68, label %618, label %.thread320
+  br i1 %or.cond68, label %618, label %.thread328
 
-.sink.split333:                                   ; preds = %606, %608
-  %.sink335 = phi i64 [ 148, %608 ], [ 176, %606 ]
+.sink.split341:                                   ; preds = %606, %608
+  %.sink343 = phi i64 [ 148, %608 ], [ 176, %606 ]
   %613 = load ptr, ptr %29, align 8, !tbaa !78
   %614 = load ptr, ptr %613, align 8, !tbaa !79
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 32
   %616 = load ptr, ptr %615, align 8
-  %617 = call noundef i32 %616(ptr noundef nonnull align 8 dereferenceable(8) %613, i64 noundef %.sink335, i32 noundef 1)
+  %617 = call noundef i32 %616(ptr noundef nonnull align 8 dereferenceable(8) %613, i64 noundef %.sink343, i32 noundef 1)
   br label %618
 
-618:                                              ; preds = %.sink.split333, %609
+618:                                              ; preds = %.sink.split341, %609
   store i16 19789, ptr %70, align 8, !tbaa !85
   %619 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %620 = uitofp i16 %619 to double
@@ -2340,9 +2340,9 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   %625 = fmul reassoc nsz arcp contract afn double %624, 3.906250e-03
   %626 = fptrunc reassoc nsz arcp contract afn double %625 to float
   store float %626, ptr %314, align 8, !tbaa !102
-  br label %.thread320
+  br label %.thread328
 
-.thread320:                                       ; preds = %315, %618, %609, %606, %574, %326
+.thread328:                                       ; preds = %315, %618, %609, %606, %574, %326
   %.2138 = phi ptr [ %.0136275, %326 ], [ %.0136275, %315 ], [ %.3139, %618 ], [ %.3139, %609 ], [ %.3139, %606 ], [ %.3139, %574 ]
   %.2134 = phi i32 [ %.0132276, %326 ], [ %.0132276, %315 ], [ %.3135, %618 ], [ %.3135, %609 ], [ %.3135, %606 ], [ %.3135, %574 ]
   %.2131 = phi i32 [ %.0129277, %326 ], [ %.0129277, %315 ], [ %.3, %618 ], [ %.3, %609 ], [ %.3, %606 ], [ %.3, %574 ]
@@ -2356,7 +2356,7 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   %.not222 = icmp eq i32 %316, 0
   br i1 %.not222, label %.loopexit265, label %315
 
-.loopexit265:                                     ; preds = %.thread320, %96, %.loopexit, %283, %79
+.loopexit265:                                     ; preds = %.thread328, %96, %.loopexit, %283, %79
   store i16 %71, ptr %70, align 8, !tbaa !85
   br label %634
 

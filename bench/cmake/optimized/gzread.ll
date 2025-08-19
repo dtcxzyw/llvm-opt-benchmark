@@ -440,20 +440,20 @@ define dso_local range(i32 -1, -2147483648) i32 @cm_zlib_gzungetc(i32 noundef %0
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %10 = load i32, ptr %9, align 4, !tbaa !26
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %.thread64
+  br i1 %11, label %12, label %.thread71
 
 12:                                               ; preds = %8
   %13 = load i32, ptr %1, align 8, !tbaa !18
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %.thread64
+  br i1 %14, label %15, label %.thread71
 
 15:                                               ; preds = %12
   %16 = tail call fastcc i32 @gz_look(ptr noundef %1)
   %.pr.pre = load i32, ptr %5, align 8, !tbaa !4
   %17 = icmp eq i32 %.pr.pre, 7247
-  br i1 %17, label %.thread64, label %.thread
+  br i1 %17, label %.thread71, label %.thread
 
-.thread64:                                        ; preds = %8, %12, %15
+.thread71:                                        ; preds = %8, %12, %15
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %19 = load i32, ptr %18, align 4, !tbaa !15
   switch i32 %19, label %.thread [
@@ -461,7 +461,7 @@ define dso_local range(i32 -1, -2147483648) i32 @cm_zlib_gzungetc(i32 noundef %0
     i32 -5, label %20
   ]
 
-20:                                               ; preds = %.thread64, %.thread64
+20:                                               ; preds = %.thread71, %.thread71
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %22 = load i32, ptr %21, align 8, !tbaa !16
   %.not56 = icmp eq i32 %22, 0
@@ -617,8 +617,8 @@ gz_skip.exit:                                     ; preds = %45, %51, %23
   store i32 0, ptr %103, align 4, !tbaa !25
   br label %.thread
 
-.thread:                                          ; preds = %48, %4, %53, %gz_skip.exit, %15, %.thread64, %2, %._crit_edge, %77, %57
-  %.047 = phi i32 [ %0, %57 ], [ -1, %77 ], [ %0, %._crit_edge ], [ -1, %2 ], [ -1, %.thread64 ], [ -1, %15 ], [ -1, %gz_skip.exit ], [ -1, %53 ], [ -1, %4 ], [ -1, %48 ]
+.thread:                                          ; preds = %48, %4, %53, %gz_skip.exit, %15, %.thread71, %2, %._crit_edge, %77, %57
+  %.047 = phi i32 [ %0, %57 ], [ -1, %77 ], [ %0, %._crit_edge ], [ -1, %2 ], [ -1, %.thread71 ], [ -1, %15 ], [ -1, %gz_skip.exit ], [ -1, %53 ], [ -1, %4 ], [ -1, %48 ]
   ret i32 %.047
 }
 

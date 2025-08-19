@@ -653,13 +653,13 @@ _ZNSt10lock_guardIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit: ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !52
   %26 = icmp eq ptr %25, %1
-  br i1 %26, label %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit16, label %27
+  br i1 %26, label %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit19, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !52
   %30 = icmp eq ptr %29, %1
-  br i1 %30, label %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit18, label %31
+  br i1 %30, label %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit21, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 32
@@ -712,16 +712,16 @@ _ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 8
   br label %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit16: ; preds = %23
+_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit19: ; preds = %23
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 16
   br label %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit18: ; preds = %27
+_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit21: ; preds = %27
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 24
   br label %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit: ; preds = %16, %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit16, %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit18, %._crit_edge.i.i.i.i, %36, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %36 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %9, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %47, %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %48, %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit16 ], [ %49, %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit18 ], [ %.sroa.032.051.i.i.i.i, %16 ]
+_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit: ; preds = %16, %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit19, %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit21, %._crit_edge.i.i.i.i, %36, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %36 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %9, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %47, %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %48, %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit19 ], [ %49, %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit21 ], [ %.sroa.032.051.i.i.i.i, %16 ]
   %50 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i to i64
   %51 = sub i64 %50, %11
   %52 = getelementptr inbounds i8, ptr %7, i64 %51
@@ -887,13 +887,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPKNS_8PassInfoENS_12DenseMapInfoIS3_vEENS
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %65 = zext i32 %.sink28 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink26, i64 %65
-  store ptr %.sink25, ptr %0, align 8
+  %65 = zext i32 %.sink32 to i64
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %65
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16

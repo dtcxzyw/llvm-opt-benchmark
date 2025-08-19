@@ -2292,9 +2292,9 @@ define void @"_ZN119_$LT$salsa..tracked_struct..IngredientImpl$LT$C$GT$..delete_
   %.sroa.7.2.i = phi i64 [ %.sroa.7.0.i, %10 ], [ %.sroa.7.1.i, %27 ], [ %.sroa.7.1.i, %31 ], [ %.sroa.7.1.i, %.loopexit.i.i.i.i.i ]
   %.sroa.4.2.i = phi i64 [ %.sroa.4.0.i, %10 ], [ %.sroa.4.1.i, %27 ], [ %.sroa.4.1.i, %31 ], [ 59, %.loopexit.i.i.i.i.i ]
   %.sroa.17.1.i = phi ptr [ %.sroa.17.0.i, %10 ], [ %.sroa.17.0.i, %27 ], [ %32, %31 ], [ %.sroa.17.0.i, %.loopexit.i.i.i.i.i ]
-  %.sink21.i.sroa.phi.i = phi ptr [ %.sroa.49.i, %10 ], [ %.sroa.49.i, %27 ], [ %.sroa.10.i, %31 ], [ %.sroa.49.i, %.loopexit.i.i.i.i.i ]
+  %.sink25.i.sroa.phi.i = phi ptr [ %.sroa.49.i, %10 ], [ %.sroa.49.i, %27 ], [ %.sroa.10.i, %31 ], [ %.sroa.49.i, %.loopexit.i.i.i.i.i ]
   %.sink.i.i = phi ptr [ null, %10 ], [ null, %27 ], [ %.sroa.17.0.i, %31 ], [ null, %.loopexit.i.i.i.i.i ]
-  store ptr %.sink.i.i, ptr %.sink21.i.sroa.phi.i, align 8, !alias.scope !344, !noalias !356
+  store ptr %.sink.i.i, ptr %.sink25.i.sroa.phi.i, align 8, !alias.scope !344, !noalias !356
   %.sroa.49.i.0..sroa.49.i.0..sroa.49.i.0..sroa.49.0..sroa.49.0..sroa.49.8..i = load i64, ptr %.sroa.49.i, align 8, !noundef !10
   %34 = inttoptr i64 %.sroa.49.i.0..sroa.49.i.0..sroa.49.i.0..sroa.49.0..sroa.49.0..sroa.49.8..i to ptr
   %.not.i = icmp eq i64 %.sroa.49.i.0..sroa.49.i.0..sroa.49.i.0..sroa.49.0..sroa.49.0..sroa.49.8..i, 0

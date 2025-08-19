@@ -966,7 +966,7 @@ define linkonce_odr void @_ZNSt6vectorIN7rocksdb5EntryESaIS1_EE6resizeEm(ptr nou
   br i1 %.not37.i, label %22, label %_ZSt27__uninitialized_default_n_aIPN7rocksdb5EntryEmS1_ET_S3_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPN7rocksdb5EntryEmS1_ET_S3_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = shl nuw i64 %12, 3
+  %21 = shl nuw nsw i64 %12, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %21, i1 false), !tbaa !72
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !70

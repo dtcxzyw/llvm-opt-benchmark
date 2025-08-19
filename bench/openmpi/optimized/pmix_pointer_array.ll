@@ -380,8 +380,8 @@ pmix_tma_realloc.exit55:                          ; preds = %46, %50
   br i1 %59, label %.lr.ph59.preheader, label %.loopexit
 
 .lr.ph59.preheader:                               ; preds = %53
-  %sext64 = shl i64 %57, 32
-  %60 = ashr exact i64 %sext64, 29
+  %sext69 = shl i64 %57, 32
+  %60 = ashr exact i64 %sext69, 29
   %scevgep = getelementptr i8, ptr %.0.i54, i64 %60
   %61 = xor i64 %57, -1
   %62 = add nsw i64 %37, %61

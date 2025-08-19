@@ -723,8 +723,8 @@ _ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit425: ; pr
   %.sroa.08.0.i423 = phi i32 [ %115, %107 ], [ %117, %116 ]
   %118 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 67, i32 %.sroa.08.0.i423)
   %switch462 = icmp eq i32 %7, 10
-  %.465 = select i1 %switch462, i8 40, i8 41
-  %119 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %.465, i32 %104, i32 %118)
+  %.469 = select i1 %switch462, i8 40, i8 41
+  %119 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %.469, i32 %104, i32 %118)
   %120 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 68, i32 %119)
   %121 = trunc nuw i32 %1 to i8
   %122 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %121)

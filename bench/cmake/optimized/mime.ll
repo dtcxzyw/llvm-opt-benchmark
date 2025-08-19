@@ -2026,7 +2026,7 @@ thread-pre-split:                                 ; preds = %81, %87
 
 95:                                               ; preds = %91, %91, %91, %91
   %.not56.i = icmp eq i64 %.048.i.ph, 0
-  %spec.select163 = select i1 %.not56.i, i64 %94, i64 %.048.i.ph
+  %spec.select175 = select i1 %.not56.i, i64 %94, i64 %.048.i.ph
   br label %read_encoded_part_content.exit
 
 96:                                               ; preds = %91
@@ -2044,7 +2044,7 @@ thread-pre-split:                                 ; preds = %81, %87
   br label %read_encoded_part_content.exit
 
 read_encoded_part_content.exit:                   ; preds = %75, %95, %76, %90, %99
-  %.159 = phi i64 [ %100, %99 ], [ %.048.i.ph, %90 ], [ %spec.select163, %95 ], [ %spec.select, %76 ], [ %.048.i.ph, %75 ]
+  %.159 = phi i64 [ %100, %99 ], [ %.048.i.ph, %90 ], [ %spec.select175, %95 ], [ %spec.select, %76 ], [ %.048.i.ph, %75 ]
   switch i64 %.159, label %111 [
     i64 0, label %101
     i64 268435456, label %read_encoded_part_content.exit.thread
@@ -2476,7 +2476,7 @@ match_header.exit.i208:                           ; preds = %111, %.lr.ph.i205
   br i1 %.not156, label %133, label %129
 
 129:                                              ; preds = %127
-  br i1 %.not160, label %130, label %.thread313
+  br i1 %.not160, label %130, label %.thread339
 
 130:                                              ; preds = %129
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -2485,15 +2485,15 @@ match_header.exit.i208:                           ; preds = %111, %.lr.ph.i205
   br i1 %.not158, label %search_header.exit215, label %.thread
 
 133:                                              ; preds = %127
-  br i1 %.not160, label %.thread, label %.thread313
+  br i1 %.not160, label %.thread, label %.thread339
 
-.thread313:                                       ; preds = %129, %133
+.thread339:                                       ; preds = %129, %133
   %134 = tail call fastcc ptr @escape_string(ptr noundef %0, ptr noundef %.pre, i32 noundef %4)
   %.not161 = icmp eq ptr %134, null
   br i1 %.not161, label %select.unfold257, label %.thread
 
-.thread:                                          ; preds = %130, %.thread313, %133
-  %.0106.ph = phi ptr [ null, %133 ], [ %134, %.thread313 ], [ null, %130 ]
+.thread:                                          ; preds = %130, %.thread339, %133
+  %.0106.ph = phi ptr [ null, %133 ], [ %134, %.thread339 ], [ null, %130 ]
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %136 = load ptr, ptr %135, align 8, !tbaa !32
   %.not163 = icmp eq ptr %136, null
@@ -2517,10 +2517,10 @@ match_header.exit.i208:                           ; preds = %111, %.lr.ph.i205
   %146 = tail call i32 (ptr, ptr, ...) @Curl_mime_add_header(ptr noundef nonnull %6, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0117, ptr noundef nonnull %140, ptr noundef nonnull %141, ptr noundef nonnull %142, ptr noundef nonnull %143, ptr noundef nonnull %144, ptr noundef nonnull %145)
   br label %select.unfold257
 
-select.unfold257:                                 ; preds = %137, %.thread313, %139
-  %.0105266 = phi ptr [ %.0105.ph, %139 ], [ null, %.thread313 ], [ null, %137 ]
-  %.0106255264 = phi ptr [ %.0106.ph, %139 ], [ null, %.thread313 ], [ %.0106.ph, %137 ]
-  %.3 = phi i32 [ %146, %139 ], [ 27, %.thread313 ], [ 27, %137 ]
+select.unfold257:                                 ; preds = %137, %.thread339, %139
+  %.0105266 = phi ptr [ %.0105.ph, %139 ], [ null, %.thread339 ], [ null, %137 ]
+  %.0106255264 = phi ptr [ %.0106.ph, %139 ], [ null, %.thread339 ], [ %.0106.ph, %137 ]
+  %.3 = phi i32 [ %146, %139 ], [ 27, %.thread339 ], [ 27, %137 ]
   %147 = load ptr, ptr @Curl_cfree, align 8, !tbaa !29
   tail call void %147(ptr noundef %.0106255264) #18
   %148 = load ptr, ptr @Curl_cfree, align 8, !tbaa !29

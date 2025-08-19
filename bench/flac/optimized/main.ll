@@ -448,9 +448,9 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 20:                                               ; preds = %14, %9
   %.sink = phi i64 [ %19, %14 ], [ %13, %9 ]
-  %.sink18 = phi i32 [ %17, %14 ], [ %12, %9 ]
+  %.sink31 = phi i32 [ %17, %14 ], [ %12, %9 ]
   %21 = trunc i64 %.sink to i32
-  %22 = add i32 %.sink18, %21
+  %22 = add i32 %.sink31, %21
   tail call void @srand(i32 noundef %22) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %23 = tail call ptr @setlocale(i32 noundef 6, ptr noundef nonnull @.str) #21
@@ -1650,8 +1650,8 @@ sub_0193:                                         ; preds = %sub_0, %.tail
 
 .thread:                                          ; preds = %55
   %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 100), align 4, !tbaa !64
-  %.not134213 = icmp eq i32 %61, 0
-  br i1 %.not134213, label %63, label %84
+  %.not134219 = icmp eq i32 %61, 0
+  br i1 %.not134219, label %63, label %84
 
 .thread166:                                       ; preds = %46
   %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 100), align 4, !tbaa !64
@@ -1767,8 +1767,8 @@ sub_0193:                                         ; preds = %sub_0, %.tail
   br i1 %or.cond5.not, label %.thread186, label %106
 
 .thread186:                                       ; preds = %96, %.thread172
-  %.1117176222 = phi i32 [ %.1117176, %.thread172 ], [ 1, %96 ]
-  %.0115178219 = phi i32 [ %.0115178, %.thread172 ], [ 1, %96 ]
+  %.1117176228 = phi i32 [ %.1117176, %.thread172 ], [ 1, %96 ]
+  %.0115178225 = phi i32 [ %.0115178, %.thread172 ], [ 1, %96 ]
   %.pr = load i32, ptr %.0113, align 8, !tbaa !89
   br label %114
 
@@ -1790,34 +1790,34 @@ sub_0193:                                         ; preds = %sub_0, %.tail
   br i1 %or.cond7, label %114, label %.thread188
 
 114:                                              ; preds = %.thread186, %113
-  %.1117176221 = phi i32 [ %.1117176222, %.thread186 ], [ %.1117176, %113 ]
-  %.0115178218 = phi i32 [ %.0115178219, %.thread186 ], [ %.0115178, %113 ]
+  %.1117176227 = phi i32 [ %.1117176228, %.thread186 ], [ %.1117176, %113 ]
+  %.0115178224 = phi i32 [ %.0115178225, %.thread186 ], [ %.0115178, %113 ]
   %.pr190 = phi i32 [ %.pr, %.thread186 ], [ %107, %113 ]
   %115 = icmp eq i32 %.pr190, 0
   br i1 %115, label %116, label %120
 
 116:                                              ; preds = %114
   call void @flac__foreign_metadata_delete(ptr noundef nonnull %.0113) #21
-  %117 = zext nneg i32 %.1117176221 to i64
+  %117 = zext nneg i32 %.1117176227 to i64
   %118 = getelementptr inbounds nuw [8 x ptr], ptr @FileFormatString, i64 0, i64 %117
   %119 = load ptr, ptr %118, align 8, !tbaa !45
   call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.199, ptr noundef %119)
   br label %249
 
 120:                                              ; preds = %114
-  %.not148 = icmp eq i32 %.1117176221, 2
+  %.not148 = icmp eq i32 %.1117176227, 2
   br i1 %.not148, label %.thread182, label %.thread188
 
 .thread188:                                       ; preds = %120, %113
-  %.1117176223 = phi i32 [ %.1117176, %113 ], [ %.1117176221, %120 ]
-  %.0115178220 = phi i32 [ %.0115178, %113 ], [ %.0115178218, %120 ]
+  %.1117176229 = phi i32 [ %.1117176, %113 ], [ %.1117176227, %120 ]
+  %.0115178226 = phi i32 [ %.0115178, %113 ], [ %.0115178224, %120 ]
   %121 = phi i32 [ %107, %113 ], [ %.pr190, %120 ]
   %122 = icmp eq i32 %121, 2
   br i1 %122, label %123, label %.thread182
 
 123:                                              ; preds = %.thread188
   call void @flac__foreign_metadata_delete(ptr noundef nonnull %.0113) #21
-  %124 = zext nneg i32 %.1117176223 to i64
+  %124 = zext nneg i32 %.1117176229 to i64
   %125 = getelementptr inbounds nuw [8 x ptr], ptr @FileFormatString, i64 0, i64 %124
   %126 = load ptr, ptr %125, align 8, !tbaa !45
   call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.200, ptr noundef %126)
@@ -1825,8 +1825,8 @@ sub_0193:                                         ; preds = %sub_0, %.tail
 
 .thread182:                                       ; preds = %92, %120, %.thread188, %104
   %.not147181 = phi i1 [ false, %120 ], [ false, %.thread188 ], [ true, %104 ], [ true, %92 ]
-  %.0115179 = phi i32 [ %.0115178218, %120 ], [ %.0115178220, %.thread188 ], [ %.0115, %104 ], [ 0, %92 ]
-  %.1117177 = phi i32 [ 2, %120 ], [ %.1117176223, %.thread188 ], [ %.1117, %104 ], [ %.0116, %92 ]
+  %.0115179 = phi i32 [ %.0115178224, %120 ], [ %.0115178226, %.thread188 ], [ %.0115, %104 ], [ 0, %92 ]
+  %.1117177 = phi i32 [ 2, %120 ], [ %.1117176229, %.thread188 ], [ %.1117, %104 ], [ %.0116, %92 ]
   %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 160), align 8, !tbaa !95
   %.not.i = icmp eq ptr %127, null
   br i1 %.not.i, label %130, label %128
@@ -2280,8 +2280,8 @@ sub_0:                                            ; preds = %get_encoded_outfile
 
 83:                                               ; preds = %.critedge309.thread, %.critedge309
   %84 = phi i32 [ %66, %.critedge309.thread ], [ %63, %.critedge309 ]
-  %.1241429 = phi i32 [ 0, %.critedge309.thread ], [ %.1241, %.critedge309 ]
-  %.not278426 = phi i1 [ true, %.critedge309.thread ], [ %.not278, %.critedge309 ]
+  %.1241438 = phi i32 [ 0, %.critedge309.thread ], [ %.1241, %.critedge309 ]
+  %.not278435 = phi i1 [ true, %.critedge309.thread ], [ %.not278, %.critedge309 ]
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %4, ptr noundef nonnull dereferenceable(3) @.str.223, i64 3)
   %.not255 = icmp eq i32 %bcmp, 0
   br i1 %.not255, label %85, label %94
@@ -2356,11 +2356,11 @@ sub_0:                                            ; preds = %get_encoded_outfile
   br i1 %.not277, label %.thread, label %107
 
 107:                                              ; preds = %106
-  br i1 %.not278426, label %.thread, label %108
+  br i1 %.not278435, label %.thread, label %108
 
 108:                                              ; preds = %107
   %109 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %110 = zext nneg i32 %.1241429 to i64
+  %110 = zext nneg i32 %.1241438 to i64
   %111 = getelementptr inbounds nuw [8 x ptr], ptr @FileFormatString, i64 0, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !45
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %109, i32 noundef 1, ptr noundef nonnull @.str.249, ptr noundef nonnull %0, ptr noundef %112, ptr noundef nonnull @.str.208) #21
@@ -2443,8 +2443,8 @@ conditional_fclose.exit331:                       ; preds = %139, %145
   %153 = add nsw i64 %.0236, -8
   %154 = zext i32 %spec.select to i64
   %.not284 = icmp eq i64 %153, %154
-  %or.cond436 = select i1 %152, i1 true, i1 %.not284
-  br i1 %or.cond436, label %159, label %155
+  %or.cond445 = select i1 %152, i1 true, i1 %.not284
+  br i1 %or.cond445, label %159, label %155
 
 155:                                              ; preds = %148
   %156 = load ptr, ptr @stderr, align 8, !tbaa !39

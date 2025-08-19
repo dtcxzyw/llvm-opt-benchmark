@@ -808,8 +808,8 @@ Exp_Truth6.exit:                                  ; preds = %Exp_Truth6Lit.exit3
 
 312:                                              ; preds = %307, %303
   %313 = phi ptr [ %306, %303 ], [ %311, %307 ]
-  %.idx68.i = shl nsw i64 %indvars.iv44.i, 5
-  %314 = getelementptr inbounds nuw i8, ptr %276, i64 %.idx68.i
+  %.idx75.i = shl nsw i64 %indvars.iv44.i, 5
+  %314 = getelementptr inbounds nuw i8, ptr %276, i64 %.idx75.i
   %315 = icmp ne i32 %288, 0
   %316 = icmp ne i32 %289, 0
   %or.cond3.i = select i1 %315, i1 %316, i1 false

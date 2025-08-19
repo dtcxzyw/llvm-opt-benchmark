@@ -580,7 +580,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %6, null
-  %indvars.iv.sroa.gep168 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %indvars.iv.sroa.gep175 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %1
@@ -687,7 +687,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
 
 60:                                               ; preds = %53, %59
   %61 = phi i1 [ true, %53 ], [ false, %59 ]
-  %indvars.iv.sroa.phi = phi ptr [ %2, %53 ], [ %indvars.iv.sroa.gep168, %59 ]
+  %indvars.iv.sroa.phi = phi ptr [ %2, %53 ], [ %indvars.iv.sroa.gep175, %59 ]
   %indvars.iv = phi i64 [ 0, %53 ], [ 1, %59 ]
   %62 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8
@@ -2455,9 +2455,9 @@ define noundef i64 @test_support_func(ptr noundef readonly captures(none) %0) lo
   br label %.sink.split
 
 .sink.split:                                      ; preds = %60, %.thread
-  %.sink43 = phi i64 [ 40, %.thread ], [ 32, %60 ]
+  %.sink45 = phi i64 [ 40, %.thread ], [ 32, %60 ]
   %.sink = phi double [ %33, %.thread ], [ %68, %60 ]
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink43
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink45
   store double %.sink, ptr %69, align 8
   br label %70
 

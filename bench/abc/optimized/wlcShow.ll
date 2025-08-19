@@ -180,8 +180,8 @@ define void @Wlc_NtkDumpDot(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   %fputc413 = tail call i32 @fputc(i32 34, ptr nonnull %40)
   %54 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 3, i64 1, ptr nonnull %40)
   %55 = add nsw i32 %.0348544, -1
-  %.not657 = icmp eq i32 %.0348544, 0
-  br i1 %.not657, label %.lr.ph550.preheader, label %.lr.ph546, !llvm.loop !26
+  %.not664 = icmp eq i32 %.0348544, 0
+  br i1 %.not664, label %.lr.ph550.preheader, label %.lr.ph546, !llvm.loop !26
 
 ._crit_edge547:                                   ; preds = %39
   %56 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 32, i64 1, ptr nonnull %40)
@@ -190,13 +190,13 @@ define void @Wlc_NtkDumpDot(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
 .lr.ph550.preheader:                              ; preds = %.lr.ph546
   %57 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 32, i64 1, ptr nonnull %40)
   %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %40, ptr noundef nonnull @.str.15, i32 noundef %.0355) #8
-  %.not410658 = icmp eq i32 %.0355, 0
-  br i1 %.not410658, label %._crit_edge551.loopexit, label %.lr.ph550
+  %.not410665 = icmp eq i32 %.0355, 0
+  br i1 %.not410665, label %._crit_edge551.loopexit, label %.lr.ph550
 
 .lr.ph550:                                        ; preds = %.lr.ph550.preheader, %.lr.ph550
-  %.1349548659 = phi i32 [ %60, %.lr.ph550 ], [ %.0355, %.lr.ph550.preheader ]
+  %.1349548666 = phi i32 [ %60, %.lr.ph550 ], [ %.0355, %.lr.ph550.preheader ]
   %59 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 3, i64 1, ptr nonnull %40)
-  %60 = add nsw i32 %.1349548659, -1
+  %60 = add nsw i32 %.1349548666, -1
   %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %40, ptr noundef nonnull @.str.15, i32 noundef %60) #8
   %.not410 = icmp eq i32 %60, 0
   br i1 %.not410, label %._crit_edge551.loopexit, label %.lr.ph550, !llvm.loop !27
@@ -380,8 +380,8 @@ Wlc_ObjCo2PoFo.exit:                              ; preds = %114, %118
   %.pre = load i16, ptr %153, align 8
   %157 = and i16 %.pre, 128
   %.not405 = icmp eq i16 %157, 0
-  %or.cond656 = select i1 %.not, i1 %.not405, i1 false
-  br i1 %or.cond656, label %274, label %158
+  %or.cond663 = select i1 %.not, i1 %.not405, i1 false
+  br i1 %or.cond663, label %274, label %158
 
 158:                                              ; preds = %156
   %159 = and i16 %.pre, 63

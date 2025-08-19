@@ -1188,12 +1188,12 @@ zend_array_release.exit50.i:                      ; preds = %105, %100, %96, %87
   br label %114
 
 114:                                              ; preds = %112, %109
-  %.sink57.i = phi ptr [ %4, %112 ], [ null, %109 ]
+  %.sink65.i = phi ptr [ %4, %112 ], [ null, %109 ]
   %115 = getelementptr inbounds nuw i8, ptr %.034.i, i64 16
   %116 = load ptr, ptr %115, align 8, !tbaa !15
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !37
-  call fastcc void @zend_create_closure_ex(ptr noundef %1, ptr noundef nonnull %.034.i, ptr noundef %116, ptr noundef %118, ptr noundef %.sink57.i, i1 noundef zeroext true)
+  call fastcc void @zend_create_closure_ex(ptr noundef %1, ptr noundef nonnull %.034.i, ptr noundef %116, ptr noundef %118, ptr noundef %.sink65.i, i1 noundef zeroext true)
   %119 = load ptr, ptr %1, align 8, !tbaa !15
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 60
   %121 = load i32, ptr %120, align 4, !tbaa !15
@@ -1720,9 +1720,9 @@ define internal ptr @zend_closure_get_debug_info(ptr noundef %0, ptr noundef wri
   br label %50
 
 50:                                               ; preds = %41, %47, %25
-  %.sink152 = phi i32 [ 262, %47 ], [ %40, %25 ], [ 6, %41 ]
+  %.sink157 = phi i32 [ 262, %47 ], [ %40, %25 ], [ 6, %41 ]
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %.sink152, ptr %51, align 8, !tbaa !15
+  store i32 %.sink157, ptr %51, align 8, !tbaa !15
   br label %82
 
 52:                                               ; preds = %16
@@ -1778,9 +1778,9 @@ define internal ptr @zend_closure_get_debug_info(ptr noundef %0, ptr noundef wri
   br label %82
 
 82:                                               ; preds = %75, %50
-  %.sink157 = phi i64 [ 8, %75 ], [ 16, %50 ]
+  %.sink162 = phi i64 [ 8, %75 ], [ 16, %50 ]
   %83 = load ptr, ptr @zend_known_strings, align 8, !tbaa !59
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 %.sink157
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 %.sink162
   %85 = load ptr, ptr %84, align 8, !tbaa !61
   %86 = call ptr @zend_hash_update(ptr noundef %18, ptr noundef %85, ptr noundef nonnull %3) #13
   %87 = load i8, ptr %6, align 8, !tbaa !15

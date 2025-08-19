@@ -758,9 +758,9 @@ ossl_dh_generate_public_key.exit:                 ; preds = %90, %94
   %108 = tail call i32 %104(ptr noundef nonnull %0, ptr noundef nonnull %.164, ptr noundef %106, ptr noundef nonnull %88, ptr noundef %107, ptr noundef nonnull %22, ptr noundef %.022.i) #9
   %.not25.i.not = icmp eq i32 %108, 0
   tail call void @BN_clear_free(ptr noundef nonnull %88) #9
-  br i1 %.not25.i.not, label %112, label %.thread117
+  br i1 %.not25.i.not, label %112, label %.thread127
 
-.thread117:                                       ; preds = %ossl_dh_generate_public_key.exit
+.thread127:                                       ; preds = %ossl_dh_generate_public_key.exit
   store ptr %.164, ptr %31, align 8, !tbaa !38
   store ptr %.1, ptr %25, align 8, !tbaa !22
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -784,16 +784,16 @@ ossl_dh_generate_public_key.exit:                 ; preds = %90, %94
   tail call void @BN_free(ptr noundef %.063.ph) #9
   br label %115
 
-115:                                              ; preds = %.thread117, %114, %112
-  %.065112123 = phi i32 [ 1, %.thread117 ], [ 0, %114 ], [ 0, %112 ]
-  %.062116122 = phi ptr [ %.1, %.thread117 ], [ %.062.ph, %114 ], [ %.062.ph, %112 ]
+115:                                              ; preds = %.thread127, %114, %112
+  %.065112133 = phi i32 [ 1, %.thread127 ], [ 0, %114 ], [ 0, %112 ]
+  %.062116132 = phi ptr [ %.1, %.thread127 ], [ %.062.ph, %114 ], [ %.062.ph, %112 ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %117 = load ptr, ptr %116, align 8, !tbaa !22
-  %.not94 = icmp eq ptr %.062116122, %117
+  %.not94 = icmp eq ptr %.062116132, %117
   br i1 %.not94, label %119, label %118
 
 118:                                              ; preds = %115
-  tail call void @BN_free(ptr noundef %.062116122) #9
+  tail call void @BN_free(ptr noundef %.062116132) #9
   br label %119
 
 119:                                              ; preds = %118, %115
@@ -801,7 +801,7 @@ ossl_dh_generate_public_key.exit:                 ; preds = %90, %94
   br label %120
 
 120:                                              ; preds = %119, %18, %13, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %13 ], [ 0, %18 ], [ %.065112123, %119 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %13 ], [ 0, %18 ], [ %.065112133, %119 ]
   ret i32 %.0
 }
 

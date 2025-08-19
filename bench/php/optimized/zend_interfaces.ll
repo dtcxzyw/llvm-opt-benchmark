@@ -941,9 +941,9 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
   br i1 %.not26, label %46, label %.sink.split
 
 .sink.split:                                      ; preds = %33, %36
-  %.sink35 = phi i32 [ %40, %36 ], [ %31, %33 ]
+  %.sink38 = phi i32 [ %40, %36 ], [ %31, %33 ]
   %.sink.in = phi ptr [ %38, %36 ], [ %28, %33 ]
-  %42 = and i32 %.sink35, 65280
+  %42 = and i32 %.sink38, 65280
   %43 = icmp ne i32 %42, 0
   tail call void @llvm.assume(i1 %43)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !4

@@ -243,8 +243,8 @@ define void @_ZN5ZXing6QRCode6EncodeERKNSt7__cxx1112basic_stringIwSt11char_trait
   %or.cond20.not.i.i = or i1 %or.cond.i.i, %or.cond4.i.i
   %70 = add i64 %.01622.i.i, 2
   %.not19.not.i.i = icmp ult i64 %70, %64
-  %or.cond313 = and i1 %or.cond20.not.i.i, %.not19.not.i.i
-  br i1 %or.cond313, label %.critedge.i.i, label %.loopexit.i.i, !llvm.loop !13
+  %or.cond432 = and i1 %or.cond20.not.i.i, %.not19.not.i.i
+  br i1 %or.cond432, label %.critedge.i.i, label %.loopexit.i.i, !llvm.loop !13
 
 .loopexit.i.i:                                    ; preds = %.critedge.i.i, %.preheader.i.i, %..loopexit_crit_edge.i.i
   %71 = phi ptr [ %.pre.i.i, %..loopexit_crit_edge.i.i ], [ %.pre24.i.i, %.preheader.i.i ], [ %.pre24.i.i, %.critedge.i.i ]
@@ -1041,7 +1041,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40.i: ; preds = %_
 
 _ZN5ZXing6QRCodeL11AppendBytesERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS0_9CodecModeENS_12CharacterSetERNS_8BitArrayE.exit: ; preds = %_ZN5ZXing8BitArray10appendBitsEii.exit32.i.i, %_ZN5ZXing8BitArray10appendBitsEii.exit34.i.i, %_ZN5ZXing6QRCodeL16AppendKanjiBytesERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEERNS_8BitArrayE.exit.i, %_ZN5ZXing6QRCodeL15Append8BitBytesERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS_12CharacterSetERNS_8BitArrayE.exit.i, %180, %135
   %345 = icmp sgt i32 %4, 0
-  br i1 %345, label %346, label %.invoke299
+  br i1 %345, label %346, label %.invoke418
 
 346:                                              ; preds = %_ZN5ZXing6QRCodeL11AppendBytesERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS0_9CodecModeENS_12CharacterSetERNS_8BitArrayE.exit
   %347 = invoke noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %4) #19
@@ -1049,7 +1049,7 @@ _ZN5ZXing6QRCodeL11AppendBytesERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESa
 
 348:                                              ; preds = %346
   %.not = icmp eq ptr %347, null
-  br i1 %.not, label %.invoke299, label %349
+  br i1 %.not, label %.invoke418, label %349
 
 349:                                              ; preds = %348
   %.val = load ptr, ptr %54, align 8, !tbaa !28
@@ -1129,7 +1129,7 @@ _ZN5ZXing6QRCodeL11AppendBytesERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESa
           cleanup
   br label %.body
 
-384:                                              ; preds = %.invoke299, %346
+384:                                              ; preds = %.invoke418, %346
   %385 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1145,12 +1145,12 @@ _ZN5ZXing6QRCodeL11AppendBytesERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESa
   call void @__cxa_free_exception(ptr nonnull %382) #21
   br label %.body
 
-.invoke299:                                       ; preds = %_ZN5ZXing6QRCodeL11AppendBytesERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS0_9CodecModeENS_12CharacterSetERNS_8BitArrayE.exit, %348
+.invoke418:                                       ; preds = %_ZN5ZXing6QRCodeL11AppendBytesERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS0_9CodecModeENS_12CharacterSetERNS_8BitArrayE.exit, %348
   %390 = invoke fastcc noundef nonnull align 8 dereferenceable(120) ptr @_ZN5ZXing6QRCodeL16RecommendVersionENS0_20ErrorCorrectionLevelENS0_9CodecModeERKNS_8BitArrayES5_(i32 noundef %2, i32 noundef %.0.i216, ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %55) #19
           to label %391 unwind label %384
 
-391:                                              ; preds = %.invoke299, %352
-  %.064 = phi ptr [ %347, %352 ], [ %390, %.invoke299 ]
+391:                                              ; preds = %.invoke418, %352
+  %.064 = phi ptr [ %347, %352 ], [ %390, %.invoke418 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
   %392 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -1760,8 +1760,8 @@ _ZN5ZXing6QRCodeL13TerminateBitsEiRNS_8BitArrayE.exit: ; preds = %._crit_edge.i
   br i1 %.not61.i, label %730, label %723
 
 ._crit_edge.thread.i:                             ; preds = %612
-  %.not61181.i = icmp eq i32 %481, %488
-  br i1 %.not61181.i, label %.preheader.thread.i, label %723
+  %.not61210.i = icmp eq i32 %481, %488
+  br i1 %.not61210.i, label %.preheader.thread.i, label %723
 
 .preheader.thread.i:                              ; preds = %._crit_edge.thread.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false), !alias.scope !49
@@ -2131,8 +2131,8 @@ _ZN5ZXing8BitArray10appendBitsEii.exit.i172:      ; preds = %.noexc82.i, %.lr.ph
   %777 = ptrtoint ptr %775 to i64
   %778 = ptrtoint ptr %776 to i64
   %779 = sub i64 %777, %778
-  %sext176.i = shl i64 %779, 32
-  %780 = ashr exact i64 %sext176.i, 32
+  %sext205.i = shl i64 %779, 32
+  %780 = ashr exact i64 %sext205.i, 32
   %781 = icmp slt i64 %indvars.iv171.i, %780
   br i1 %781, label %782, label %_ZN5ZXing8BitArray10appendBitsEii.exit87.i
 
@@ -4498,7 +4498,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef 
 17:                                               ; preds = %3
   store i8 0, ptr %5, align 1, !tbaa !12
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %19 = add i64 %1, -1
+  %19 = add nsw i64 %1, -1
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit, label %21
 

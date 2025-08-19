@@ -178,7 +178,7 @@ _Z11cmd_versionaR10UErrorCode.exit:               ; preds = %37, %38
   %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 288), align 16, !tbaa !15
   %49 = tail call noalias ptr @fopen(ptr noundef %48, ptr noundef nonnull @.str.12)
   %.not23 = icmp eq ptr %49, null
-  br i1 %.not23, label %.thread, label %.thread33
+  br i1 %.not23, label %.thread, label %.thread35
 
 .thread:                                          ; preds = %47
   %50 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -191,23 +191,23 @@ _Z11cmd_versionaR10UErrorCode.exit:               ; preds = %37, %38
   %.not24 = icmp eq i8 %54, 0
   br i1 %.not24, label %60, label %.thread30
 
-.thread33:                                        ; preds = %47
+.thread35:                                        ; preds = %47
   %55 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 40, i64 1, ptr nonnull %49)
   tail call void @udbg_writeIcuInfo(ptr noundef nonnull %49)
   %56 = tail call i32 @fclose(ptr noundef nonnull %49)
   %57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 274), align 2, !tbaa !13
-  %.not2435 = icmp eq i8 %57, 0
-  br i1 %.not2435, label %.thread37, label %.thread30
+  %.not2437 = icmp eq i8 %57, 0
+  br i1 %.not2437, label %.thread39, label %.thread30
 
-.thread30:                                        ; preds = %.thread33, %53
+.thread30:                                        ; preds = %.thread35, %53
   tail call void @u_cleanup_77()
   %58 = load ptr, ptr @stdout, align 8, !tbaa !4
   %59 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 24, i64 1, ptr %58)
-  br label %.thread37
+  br label %.thread39
 
 60:                                               ; preds = %53
   %.not25 = icmp eq i8 %.2, 0
-  br i1 %.not25, label %61, label %.thread37
+  br i1 %.not25, label %61, label %.thread39
 
 61:                                               ; preds = %60
   %.b.i.i26 = load i1, ptr @_ZL10icuInitted, align 1
@@ -226,19 +226,19 @@ _Z11cmd_versionaR10UErrorCode.exit27:             ; preds = %61, %62
   %66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %65)
   %67 = load ptr, ptr @stderr, align 8, !tbaa !4
   %68 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 22, i64 1, ptr %67) #6
-  br label %.thread37
+  br label %.thread39
 
-.thread37:                                        ; preds = %.thread33, %.thread30, %_Z11cmd_versionaR10UErrorCode.exit27, %60
+.thread39:                                        ; preds = %.thread35, %.thread30, %_Z11cmd_versionaR10UErrorCode.exit27, %60
   %.b.i = load i1, ptr @_ZL10icuInitted, align 1
   br i1 %.b.i, label %69, label %_ZL10do_cleanupv.exit
 
-69:                                               ; preds = %.thread37
+69:                                               ; preds = %.thread39
   tail call void @u_cleanup_77()
   store i1 false, ptr @_ZL10icuInitted, align 1
   br label %_ZL10do_cleanupv.exit
 
-_ZL10do_cleanupv.exit:                            ; preds = %69, %.thread37, %.thread, %17
-  %.0 = phi i32 [ %.lobit, %17 ], [ 1, %.thread ], [ 0, %.thread37 ], [ 0, %69 ]
+_ZL10do_cleanupv.exit:                            ; preds = %69, %.thread39, %.thread, %17
+  %.0 = phi i32 [ %.lobit, %17 ], [ 1, %.thread ], [ 0, %.thread39 ], [ 0, %69 ]
   ret i32 %.0
 }
 

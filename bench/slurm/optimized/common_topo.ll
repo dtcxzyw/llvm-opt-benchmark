@@ -38,7 +38,7 @@ define dso_local i32 @common_topo_split_hostlist_treewidth(ptr noundef %0, ptr n
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  %11 = tail call zeroext i1 @slurm_running_in_slurmctld() #8
+  %11 = tail call zeroext i1 @slurm_running_in_slurmctld() #7
   br i1 %11, label %12, label %117
 
 12:                                               ; preds = %4
@@ -48,7 +48,7 @@ define dso_local i32 @common_topo_split_hostlist_treewidth(ptr noundef %0, ptr n
 
 .sink.split.i:                                    ; preds = %12
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1472), align 8
-  %16 = tail call ptr @slurm_xstrcasestr(ptr noundef %15, ptr noundef nonnull @.str.2) #8
+  %16 = tail call ptr @slurm_xstrcasestr(ptr noundef %15, ptr noundef nonnull @.str.2) #7
   %.not.i = icmp ne ptr %16, null
   %..i = zext i1 %.not.i to i32
   store i32 %..i, ptr @common_topo_route_part.route_part, align 4
@@ -63,24 +63,24 @@ common_topo_route_part.exit:                      ; preds = %12, %.sink.split.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  tail call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._route_part_split_hostlist.node_read_lock) #8
-  %19 = call i32 @slurm_hostlist2bitmap(ptr noundef %0, i1 noundef zeroext false, ptr noundef nonnull %5) #8
+  tail call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._route_part_split_hostlist.node_read_lock) #7
+  %19 = call i32 @slurm_hostlist2bitmap(ptr noundef %0, i1 noundef zeroext false, ptr noundef nonnull %5) #7
   %.not.i8 = icmp eq i32 %19, 0
   br i1 %.not.i8, label %22, label %20
 
 20:                                               ; preds = %18
-  %21 = call ptr @slurm_hostlist_ranged_string_xmalloc(ptr noundef %0) #8
-  call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.4, ptr noundef %21) #9
+  %21 = call ptr @slurm_hostlist_ranged_string_xmalloc(ptr noundef %0) #7
+  call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.4, ptr noundef %21) #8
   unreachable
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr @part_list, align 8
-  %24 = call i32 @slurm_list_count(ptr noundef %23) #8
+  %24 = call i32 @slurm_list_count(ptr noundef %23) #7
   %25 = sext i32 %24 to i64
-  %26 = call ptr @slurm_xcalloc(i64 noundef %25, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 141, ptr noundef nonnull @__func__._route_part_split_hostlist) #8
+  %26 = call ptr @slurm_xcalloc(i64 noundef %25, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 141, ptr noundef nonnull @__func__._route_part_split_hostlist) #7
   store ptr %26, ptr %1, align 8
   store i32 0, ptr %2, align 4
-  %27 = call i32 @slurm_hostlist_count(ptr noundef %0) #8
+  %27 = call i32 @slurm_hostlist_count(ptr noundef %0) #7
   %28 = load ptr, ptr %5, align 8
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.10.0..sroa_idx.i, i8 0, i64 6, i1 false)
@@ -99,13 +99,13 @@ common_topo_route_part.exit:                      ; preds = %12, %.sink.split.i
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i16 %3, ptr %.sroa.9.0..sroa_idx.i, align 8
   %29 = load ptr, ptr @part_list, align 8
-  %30 = call i32 @slurm_list_for_each_ro(ptr noundef %29, ptr noundef nonnull @_part_split_hostlist, ptr noundef nonnull %6) #8
+  %30 = call i32 @slurm_list_for_each_ro(ptr noundef %29, ptr noundef nonnull @_part_split_hostlist, ptr noundef nonnull %6) #7
   %31 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.not26.i = icmp eq ptr %31, null
   br i1 %.not26.i, label %33, label %32
 
 32:                                               ; preds = %22
-  call void @slurm_bit_free(ptr noundef nonnull %.sroa.4.0..sroa_idx.i) #8
+  call void @slurm_bit_free(ptr noundef nonnull %.sroa.4.0..sroa_idx.i) #7
   br label %33
 
 33:                                               ; preds = %32, %22
@@ -125,7 +125,7 @@ common_topo_route_part.exit:                      ; preds = %12, %.sink.split.i
 40:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %41 = load ptr, ptr %5, align 8
-  %42 = call ptr @slurm_bitmap2node_name(ptr noundef %41) #8
+  %42 = call ptr @slurm_bitmap2node_name(ptr noundef %41) #7
   store ptr %42, ptr %7, align 8
   %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %44 = and i64 %43, 536870912
@@ -133,16 +133,16 @@ common_topo_route_part.exit:                      ; preds = %12, %.sink.split.i
   br i1 %.not29.i, label %49, label %45
 
 45:                                               ; preds = %40
-  %46 = call i32 @slurm_get_log_level() #8
+  %46 = call i32 @slurm_get_log_level() #7
   %47 = icmp sgt i32 %46, 3
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %45
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._route_part_split_hostlist, ptr noundef %42) #8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._route_part_split_hostlist, ptr noundef %42) #7
   br label %49
 
 49:                                               ; preds = %48, %45, %40
-  call void @slurm_xfree(ptr noundef nonnull %7) #8
+  call void @slurm_xfree(ptr noundef nonnull %7) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 8
   br label %50
@@ -152,11 +152,11 @@ common_topo_route_part.exit:                      ; preds = %12, %.sink.split.i
   %52 = sext i32 %51 to i64
   %53 = add nsw i64 %52, %37
   %54 = shl nsw i64 %53, 3
-  %55 = call ptr @slurm_xrecalloc(ptr noundef nonnull %1, i64 noundef 1, i64 noundef %54, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 170, ptr noundef nonnull @__func__._route_part_split_hostlist) #8
+  %55 = call ptr @slurm_xrecalloc(ptr noundef nonnull %1, i64 noundef 1, i64 noundef %54, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 170, ptr noundef nonnull @__func__._route_part_split_hostlist) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %56 = load ptr, ptr %5, align 8
-  %57 = call ptr @next_node_bitmap(ptr noundef %56, ptr noundef nonnull %8) #8
+  %57 = call ptr @next_node_bitmap(ptr noundef %56, ptr noundef nonnull %8) #7
   %.not3036.i = icmp eq ptr %57, null
   br i1 %.not3036.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -169,7 +169,7 @@ common_topo_route_part.exit:                      ; preds = %12, %.sink.split.i
 
 .lr.ph.i:                                         ; preds = %50, %.lr.ph.i
   %60 = phi ptr [ %79, %.lr.ph.i ], [ %57, %50 ]
-  %61 = call ptr @slurm_hostlist_create(ptr noundef null) #8
+  %61 = call ptr @slurm_hostlist_create(ptr noundef null) #7
   %62 = load ptr, ptr %1, align 8
   %63 = load i32, ptr %2, align 4
   %64 = sext i32 %63 to i64
@@ -182,7 +182,7 @@ common_topo_route_part.exit:                      ; preds = %12, %.sink.split.i
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %60, i64 272
   %72 = load ptr, ptr %71, align 8
-  %73 = call i32 @slurm_hostlist_push_host(ptr noundef %70, ptr noundef %72) #8
+  %73 = call i32 @slurm_hostlist_push_host(ptr noundef %70, ptr noundef %72) #7
   %74 = load i32, ptr %2, align 4
   %75 = add nsw i32 %74, 1
   store i32 %75, ptr %2, align 4
@@ -190,7 +190,7 @@ common_topo_route_part.exit:                      ; preds = %12, %.sink.split.i
   %77 = add nsw i32 %76, 1
   store i32 %77, ptr %8, align 4
   %78 = load ptr, ptr %5, align 8
-  %79 = call ptr @next_node_bitmap(ptr noundef %78, ptr noundef nonnull %8) #8
+  %79 = call ptr @next_node_bitmap(ptr noundef %78, ptr noundef nonnull %8) #7
   %.not30.i = icmp eq ptr %79, null
   br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
@@ -202,7 +202,7 @@ common_topo_route_part.exit:                      ; preds = %12, %.sink.split.i
 
 83:                                               ; preds = %80
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %84 = call ptr @slurm_hostlist_ranged_string_xmalloc(ptr noundef %0) #8
+  %84 = call ptr @slurm_hostlist_ranged_string_xmalloc(ptr noundef %0) #7
   store ptr %84, ptr %9, align 8
   %85 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %86 = and i64 %85, 536870912
@@ -210,16 +210,16 @@ common_topo_route_part.exit:                      ; preds = %12, %.sink.split.i
   br i1 %.not32.i, label %91, label %87
 
 87:                                               ; preds = %83
-  %88 = call i32 @slurm_get_log_level() #8
+  %88 = call i32 @slurm_get_log_level() #7
   %89 = icmp sgt i32 %88, 3
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %87
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._route_part_split_hostlist, ptr noundef %84) #8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._route_part_split_hostlist, ptr noundef %84) #7
   br label %91
 
 91:                                               ; preds = %90, %87, %83
-  call void @slurm_xfree(ptr noundef nonnull %9) #8
+  call void @slurm_xfree(ptr noundef nonnull %9) #7
   %92 = load i32, ptr %2, align 4
   %93 = icmp sgt i32 %92, 0
   br i1 %93, label %.lr.ph39.i, label %._crit_edge40.i
@@ -234,7 +234,7 @@ common_topo_route_part.exit:                      ; preds = %12, %.sink.split.i
   %94 = load ptr, ptr %1, align 8
   %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv.i
   %96 = load ptr, ptr %95, align 8
-  %97 = call ptr @slurm_hostlist_ranged_string_xmalloc(ptr noundef %96) #8
+  %97 = call ptr @slurm_hostlist_ranged_string_xmalloc(ptr noundef %96) #7
   store ptr %97, ptr %10, align 8
   %98 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %99 = and i64 %98, 536870912
@@ -242,18 +242,18 @@ common_topo_route_part.exit:                      ; preds = %12, %.sink.split.i
   br i1 %.not35.i, label %106, label %100
 
 100:                                              ; preds = %.lr.ph39.i
-  %101 = call i32 @slurm_get_log_level() #8
+  %101 = call i32 @slurm_get_log_level() #7
   %102 = icmp sgt i32 %101, 3
   br i1 %102, label %103, label %106
 
 103:                                              ; preds = %100
   %104 = load ptr, ptr %10, align 8
   %105 = trunc nuw nsw i64 %indvars.iv.i to i32
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.8, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._route_part_split_hostlist, i32 noundef %105, ptr noundef %104) #8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.8, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._route_part_split_hostlist, i32 noundef %105, ptr noundef %104) #7
   br label %106
 
 106:                                              ; preds = %103, %100, %.lr.ph39.i
-  call void @slurm_xfree(ptr noundef nonnull %10) #8
+  call void @slurm_xfree(ptr noundef nonnull %10) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %107 = load i32, ptr %2, align 4
@@ -262,13 +262,13 @@ common_topo_route_part.exit:                      ; preds = %12, %.sink.split.i
   br i1 %109, label %.lr.ph39.i, label %._crit_edge40.i, !llvm.loop !11
 
 110:                                              ; preds = %._crit_edge40.i, %80
-  call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._route_part_split_hostlist.node_read_lock) #8
+  call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._route_part_split_hostlist.node_read_lock) #7
   %111 = load ptr, ptr %5, align 8
   %.not33.i = icmp eq ptr %111, null
   br i1 %.not33.i, label %113, label %112
 
 112:                                              ; preds = %110
-  call void @slurm_bit_free(ptr noundef nonnull %5) #8
+  call void @slurm_bit_free(ptr noundef nonnull %5) #7
   br label %113
 
 113:                                              ; preds = %112, %110
@@ -278,7 +278,7 @@ common_topo_route_part.exit:                      ; preds = %12, %.sink.split.i
   br i1 %.not34.i, label %_route_part_split_hostlist.exit, label %115
 
 115:                                              ; preds = %113
-  call void @slurm_bit_free(ptr noundef nonnull %.sroa.4.0..sroa_idx.i) #8
+  call void @slurm_bit_free(ptr noundef nonnull %.sroa.4.0..sroa_idx.i) #7
   br label %_route_part_split_hostlist.exit
 
 _route_part_split_hostlist.exit:                  ; preds = %113, %115
@@ -306,7 +306,7 @@ define dso_local zeroext i1 @common_topo_route_part() local_unnamed_addr #0 {
 
 .sink.split:                                      ; preds = %0
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1472), align 8
-  %4 = tail call ptr @slurm_xstrcasestr(ptr noundef %3, ptr noundef nonnull @.str.2) #8
+  %4 = tail call ptr @slurm_xstrcasestr(ptr noundef %3, ptr noundef nonnull @.str.2) #7
   %.not = icmp ne ptr %4, null
   %. = zext i1 %.not to i32
   store i32 %., ptr @common_topo_route_part.route_part, align 4
@@ -322,7 +322,7 @@ define dso_local zeroext i1 @common_topo_route_part() local_unnamed_addr #0 {
 define internal fastcc range(i32 -1, -2147483648) i32 @_split_hostlist_treewidth(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i16 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = tail call i32 @slurm_hostlist_count(ptr noundef %0) #8
+  %7 = tail call i32 @slurm_hostlist_count(ptr noundef %0) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %.not = icmp eq i16 %3, 0
@@ -344,11 +344,10 @@ _set_span.exit.thread.thread:                     ; preds = %10
 
 13:                                               ; preds = %10
   %14 = zext i16 %spec.select.i to i64
-  %15 = tail call ptr @slurm_xcalloc(i64 noundef %14, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 236, ptr noundef nonnull @__func__._set_span) #8
+  %15 = tail call ptr @slurm_xcalloc(i64 noundef %14, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 236, ptr noundef nonnull @__func__._set_span) #7
   store ptr %15, ptr %5, align 8
-  %.not85.i = icmp ne i16 %spec.select.i, 0
-  tail call void @llvm.assume(i1 %.not85.i)
-  br label %.preheader.us.i
+  %.not85.i = icmp eq i16 %spec.select.i, 0
+  br i1 %.not85.i, label %.preheader.i.preheader, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %13, %16
   %.04876.us.i = phi i32 [ %18, %16 ], [ %11, %13 ]
@@ -411,6 +410,9 @@ _set_span.exit.thread.thread:                     ; preds = %10
   %.not64.i = icmp eq i32 %35, 0
   br i1 %.not64.i, label %_set_span.exit, label %.lr.ph.i, !llvm.loop !15
 
+.preheader.i.preheader:                           ; preds = %13, %.preheader.i.preheader
+  br label %.preheader.i.preheader
+
 _set_span.exit:                                   ; preds = %.lr.ph.i, %26
   %36 = add nuw nsw i32 %.05174.us.i, 2
   br label %_set_span.exit.thread.thread49
@@ -426,7 +428,7 @@ _set_span.exit.thread.thread49:                   ; preds = %_set_span.exit, %_s
   %.053.i4247 = phi i32 [ 1, %_set_span.exit.thread.thread ], [ %36, %_set_span.exit ], [ %24, %_set_span.exit.thread ]
   %40 = phi i16 [ %12, %_set_span.exit.thread.thread ], [ %spec.select, %_set_span.exit ], [ %spec.select52, %_set_span.exit.thread ]
   %41 = zext i16 %40 to i64
-  %42 = tail call ptr @slurm_xcalloc(i64 noundef %41, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 304, ptr noundef nonnull @__func__._split_hostlist_treewidth) #8
+  %42 = tail call ptr @slurm_xcalloc(i64 noundef %41, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 304, ptr noundef nonnull @__func__._split_hostlist_treewidth) #7
   store ptr %42, ptr %1, align 8
   %43 = zext i16 %40 to i32
   store i32 0, ptr %2, align 4
@@ -439,18 +441,18 @@ _set_span.exit.thread.thread49:                   ; preds = %_set_span.exit, %_s
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %82
   %44 = phi ptr [ %39, %.lr.ph65.preheader ], [ %58, %82 ]
-  %45 = call ptr @slurm_hostlist_shift(ptr noundef %0) #8
+  %45 = call ptr @slurm_hostlist_shift(ptr noundef %0) #7
   %.not37 = icmp eq ptr %45, null
   br i1 %.not37, label %.critedge, label %46
 
 46:                                               ; preds = %.lr.ph65
-  %47 = call ptr @slurm_hostlist_create(ptr noundef nonnull %45) #8
+  %47 = call ptr @slurm_hostlist_create(ptr noundef nonnull %45) #7
   %48 = load ptr, ptr %1, align 8
   %49 = load i32, ptr %2, align 4
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds ptr, ptr %48, i64 %50
   store ptr %47, ptr %51, align 8
-  call void @free(ptr noundef nonnull %45) #8
+  call void @free(ptr noundef nonnull %45) #7
   %.not3862 = icmp eq ptr %44, null
   br i1 %.not3862, label %.critedge2, label %.lr.ph
 
@@ -473,14 +475,14 @@ _set_span.exit.thread.thread49:                   ; preds = %_set_span.exit, %_s
   br i1 %.not39, label %82, label %70
 
 61:                                               ; preds = %.lr.ph
-  %62 = call ptr @slurm_hostlist_shift(ptr noundef %0) #8
+  %62 = call ptr @slurm_hostlist_shift(ptr noundef %0) #7
   %63 = load ptr, ptr %1, align 8
   %64 = load i32, ptr %2, align 4
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds ptr, ptr %63, i64 %65
   %67 = load ptr, ptr %66, align 8
-  %68 = call i32 @slurm_hostlist_push_host(ptr noundef %67, ptr noundef %62) #8
-  call void @free(ptr noundef %62) #8
+  %68 = call i32 @slurm_hostlist_push_host(ptr noundef %67, ptr noundef %62) #7
+  call void @free(ptr noundef %62) #7
   %69 = add nuw nsw i32 %.063, 1
   br i1 %.not38, label %.critedge2, label %.lr.ph, !llvm.loop !16
 
@@ -490,20 +492,20 @@ _set_span.exit.thread.thread49:                   ; preds = %_set_span.exit, %_s
   %72 = sext i32 %.pre77 to i64
   %73 = getelementptr inbounds ptr, ptr %71, i64 %72
   %74 = load ptr, ptr %73, align 8
-  %75 = call ptr @slurm_hostlist_ranged_string_xmalloc(ptr noundef %74) #8
+  %75 = call ptr @slurm_hostlist_ranged_string_xmalloc(ptr noundef %74) #7
   store ptr %75, ptr %6, align 8
-  %76 = call i32 @slurm_get_log_level() #8
+  %76 = call i32 @slurm_get_log_level() #7
   %77 = icmp sgt i32 %76, 4
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %70
   %79 = load i32, ptr %2, align 4
   %80 = load ptr, ptr %6, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.9, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._split_hostlist_treewidth, i32 noundef %79, ptr noundef %80) #8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.9, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._split_hostlist_treewidth, i32 noundef %79, ptr noundef %80) #7
   br label %81
 
 81:                                               ; preds = %78, %70
-  call void @slurm_xfree(ptr noundef nonnull %6) #8
+  call void @slurm_xfree(ptr noundef nonnull %6) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load i32, ptr %2, align 4
   br label %82
@@ -516,7 +518,7 @@ _set_span.exit.thread.thread49:                   ; preds = %_set_span.exit, %_s
   br i1 %85, label %.lr.ph65, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %.lr.ph65, %82, %_set_span.exit.thread.thread49
-  call void @slurm_xfree(ptr noundef nonnull %5) #8
+  call void @slurm_xfree(ptr noundef nonnull %5) #7
   br label %_set_span.exit.thread43
 
 _set_span.exit.thread43:                          ; preds = %4, %.critedge
@@ -527,14 +529,14 @@ _set_span.exit.thread43:                          ; preds = %4, %.critedge
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @common_topo_get_node_addr(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @slurm_find_node_record(ptr noundef %0) #8
+  %4 = tail call ptr @slurm_find_node_record(ptr noundef %0) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @slurm_xstrdup(ptr noundef %0) #8
+  %7 = tail call ptr @slurm_xstrdup(ptr noundef %0) #7
   store ptr %7, ptr %1, align 8
-  %8 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str) #8
+  %8 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str) #7
   store ptr %8, ptr %2, align 8
   br label %9
 
@@ -555,7 +557,7 @@ define dso_local zeroext i1 @common_topo_route_tree() local_unnamed_addr #0 {
 
 .sink.split:                                      ; preds = %0
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1472), align 8
-  %4 = tail call ptr @slurm_xstrcasestr(ptr noundef %3, ptr noundef nonnull @.str.1) #8
+  %4 = tail call ptr @slurm_xstrcasestr(ptr noundef %3, ptr noundef nonnull @.str.1) #7
   %.not = icmp ne ptr %4, null
   %. = zext i1 %.not to i32
   store i32 %., ptr @common_topo_route_tree.route_tree, align 4
@@ -592,7 +594,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %2, align 4
   %16 = load ptr, ptr %15, align 8
-  %17 = call ptr @next_node_bitmap(ptr noundef %16, ptr noundef nonnull %2) #8
+  %17 = call ptr @next_node_bitmap(ptr noundef %16, ptr noundef nonnull %2) #7
   %.not115179 = icmp eq ptr %17, null
   br i1 %.not115179, label %._crit_edge, label %.lr.ph
 
@@ -639,7 +641,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
 
 41:                                               ; preds = %39
   %42 = sext i32 %40 to i64
-  %43 = call i32 @slurm_bit_test(ptr noundef nonnull %.fr, i64 noundef %42) #8
+  %43 = call i32 @slurm_bit_test(ptr noundef nonnull %.fr, i64 noundef %42) #7
   %.not140 = icmp eq i32 %43, 0
   br i1 %.not140, label %._crit_edge213, label %.loopexit170
 
@@ -651,7 +653,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   %45 = phi i32 [ %.pre214, %._crit_edge213 ], [ %40, %39 ]
   %46 = load ptr, ptr %15, align 8
   %47 = sext i32 %45 to i64
-  call void @slurm_bit_clear(ptr noundef %46, i64 noundef %47) #8
+  call void @slurm_bit_clear(ptr noundef %46, i64 noundef %47) #7
   %.pre215 = load i32, ptr %2, align 4
   br label %48
 
@@ -660,7 +662,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %2, align 4
   %51 = load ptr, ptr %15, align 8
-  %52 = call ptr @next_node_bitmap(ptr noundef %51, ptr noundef nonnull %2) #8
+  %52 = call ptr @next_node_bitmap(ptr noundef %51, ptr noundef nonnull %2) #7
   %.not115 = icmp eq ptr %52, null
   br i1 %.not115, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
@@ -691,14 +693,14 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
 
 65:                                               ; preds = %62, %59, %56, %._crit_edge
   %66 = load ptr, ptr %15, align 8
-  %67 = call ptr @slurm_bit_copy(ptr noundef %66) #8
+  %67 = call ptr @slurm_bit_copy(ptr noundef %66) #7
   store ptr %67, ptr %3, align 8
   %68 = load ptr, ptr %0, align 8
-  %69 = call ptr @copy_core_array(ptr noundef %68) #8
+  %69 = call ptr @copy_core_array(ptr noundef %68) #7
   store ptr %69, ptr %4, align 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %70, align 8
-  %71 = call i32 @eval_nodes(ptr noundef nonnull %0) #8
+  %71 = call i32 @eval_nodes(ptr noundef nonnull %0) #7
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %.thread163, label %73
 
@@ -706,11 +708,11 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   store i8 0, ptr %70, align 8
   store i32 %10, ptr %9, align 8
   %74 = load ptr, ptr %15, align 8
-  call void @slurm_bit_or(ptr noundef %74, ptr noundef %67) #8
+  call void @slurm_bit_or(ptr noundef %74, ptr noundef %67) #7
   %75 = load ptr, ptr %0, align 8
-  call void @core_array_or(ptr noundef %75, ptr noundef %69) #8
+  call void @core_array_or(ptr noundef %75, ptr noundef %69) #7
   %76 = load ptr, ptr %15, align 8
-  %77 = call i32 @slurm_bit_set_count(ptr noundef %76) #8
+  %77 = call i32 @slurm_bit_set_count(ptr noundef %76) #7
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %79 = load i32, ptr %78, align 8
   %.not118 = icmp ugt i32 %77, %79
@@ -718,12 +720,12 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
 
 .preheader169:                                    ; preds = %73
   store i32 0, ptr %2, align 4
-  %80 = call ptr @next_node(ptr noundef nonnull %2) #8
+  %80 = call ptr @next_node(ptr noundef nonnull %2) #7
   %.not120180 = icmp eq ptr %80, null
   br i1 %.not120180, label %.thread165, label %.lr.ph182
 
 81:                                               ; preds = %73
-  %82 = call i32 @eval_nodes(ptr noundef nonnull %0) #8
+  %82 = call i32 @eval_nodes(ptr noundef nonnull %0) #7
   br label %.loopexit
 
 .preheader167:                                    ; preds = %92
@@ -750,7 +752,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   %.192 = phi i32 [ %.091., %88 ], [ %.091181, %.lr.ph182 ]
   %93 = add nsw i32 %84, 1
   store i32 %93, ptr %2, align 4
-  %94 = call ptr @next_node(ptr noundef nonnull %2) #8
+  %94 = call ptr @next_node(ptr noundef nonnull %2) #7
   %.not120 = icmp eq ptr %94, null
   br i1 %.not120, label %.preheader167, label %.lr.ph182, !llvm.loop !19
 
@@ -761,13 +763,13 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   store i32 %10, ptr %9, align 8
   %95 = load ptr, ptr %15, align 8
   %96 = load ptr, ptr %3, align 8
-  call void @slurm_bit_or(ptr noundef %95, ptr noundef %96) #8
+  call void @slurm_bit_or(ptr noundef %95, ptr noundef %96) #7
   %97 = load ptr, ptr %0, align 8
   %98 = load ptr, ptr %4, align 8
-  call void @core_array_or(ptr noundef %97, ptr noundef %98) #8
+  call void @core_array_or(ptr noundef %97, ptr noundef %98) #7
   store i32 0, ptr %2, align 4
   %99 = load ptr, ptr %15, align 8
-  %100 = call ptr @next_node_bitmap(ptr noundef %99, ptr noundef nonnull %2) #8
+  %100 = call ptr @next_node_bitmap(ptr noundef %99, ptr noundef nonnull %2) #7
   %.not122184 = icmp eq ptr %100, null
   br i1 %.not122184, label %._crit_edge189, label %.lr.ph188
 
@@ -791,10 +793,10 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
 
 108:                                              ; preds = %.lr.ph188.split.us
   %109 = load ptr, ptr %15, align 8
-  call void @slurm_bit_clear(ptr noundef %109, i64 noundef %102) #8
+  call void @slurm_bit_clear(ptr noundef %109, i64 noundef %102) #7
   %110 = load i32, ptr %2, align 4
   %111 = sext i32 %110 to i64
-  call void @slurm_bit_clear(ptr noundef %96, i64 noundef %111) #8
+  call void @slurm_bit_clear(ptr noundef %96, i64 noundef %111) #7
   %112 = add nsw i32 %.188185.us, -1
   %113 = load i32, ptr %78, align 8
   %.not127.us = icmp ugt i32 %112, %113
@@ -811,7 +813,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   %116 = add nsw i32 %115, 1
   store i32 %116, ptr %2, align 4
   %117 = load ptr, ptr %15, align 8
-  %118 = call ptr @next_node_bitmap(ptr noundef %117, ptr noundef nonnull %2) #8
+  %118 = call ptr @next_node_bitmap(ptr noundef %117, ptr noundef nonnull %2) #7
   %.not122.us = icmp eq ptr %118, null
   br i1 %.not122.us, label %._crit_edge189, label %.lr.ph188.split.us, !llvm.loop !20
 
@@ -831,7 +833,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   br i1 %or.cond141, label %136, label %126
 
 126:                                              ; preds = %.lr.ph188.split
-  %127 = call i32 @slurm_bit_test(ptr noundef nonnull %.fr, i64 noundef %120) #8
+  %127 = call i32 @slurm_bit_test(ptr noundef nonnull %.fr, i64 noundef %120) #7
   %.not126 = icmp eq i32 %127, 0
   %.pre218 = load i32, ptr %2, align 4
   br i1 %.not126, label %128, label %136
@@ -839,11 +841,11 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
 128:                                              ; preds = %126
   %129 = load ptr, ptr %15, align 8
   %130 = sext i32 %.pre218 to i64
-  call void @slurm_bit_clear(ptr noundef %129, i64 noundef %130) #8
+  call void @slurm_bit_clear(ptr noundef %129, i64 noundef %130) #7
   %131 = load ptr, ptr %3, align 8
   %132 = load i32, ptr %2, align 4
   %133 = sext i32 %132 to i64
-  call void @slurm_bit_clear(ptr noundef %131, i64 noundef %133) #8
+  call void @slurm_bit_clear(ptr noundef %131, i64 noundef %133) #7
   %134 = add nsw i32 %.188185, -1
   %135 = load i32, ptr %78, align 8
   %.not127 = icmp ugt i32 %134, %135
@@ -860,7 +862,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   %138 = add nsw i32 %137, 1
   store i32 %138, ptr %2, align 4
   %139 = load ptr, ptr %15, align 8
-  %140 = call ptr @next_node_bitmap(ptr noundef %139, ptr noundef nonnull %2) #8
+  %140 = call ptr @next_node_bitmap(ptr noundef %139, ptr noundef nonnull %2) #7
   %.not122 = icmp eq ptr %140, null
   br i1 %.not122, label %._crit_edge189, label %.lr.ph188.split, !llvm.loop !20
 
@@ -874,7 +876,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
 
 .thread:                                          ; preds = %128, %108, %._crit_edge189
   %.289147 = phi i32 [ %.188.lcssa, %._crit_edge189 ], [ %112, %108 ], [ %134, %128 ]
-  %143 = call i32 @eval_nodes(ptr noundef nonnull %0) #8
+  %143 = call i32 @eval_nodes(ptr noundef nonnull %0) #7
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %.thread163, label %145
 
@@ -907,7 +909,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
 .preheader:                                       ; preds = %.thread163
   store i32 0, ptr %2, align 4
   %154 = load ptr, ptr %15, align 8
-  %155 = call ptr @next_node_bitmap(ptr noundef %154, ptr noundef nonnull %2) #8
+  %155 = call ptr @next_node_bitmap(ptr noundef %154, ptr noundef nonnull %2) #7
   %.not131202 = icmp eq ptr %155, null
   br i1 %.not131202, label %.thread165, label %.lr.ph204
 
@@ -929,7 +931,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   br i1 %.not134, label %198, label %165
 
 165:                                              ; preds = %161
-  %166 = call i32 @slurm_bit_set_count(ptr noundef nonnull %164) #8
+  %166 = call i32 @slurm_bit_set_count(ptr noundef nonnull %164) #7
   %167 = load ptr, ptr @node_record_table_ptr, align 8
   %168 = load i32, ptr %2, align 4
   %169 = sext i32 %168 to i64
@@ -955,13 +957,13 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   br i1 %187, label %188, label %198
 
 188:                                              ; preds = %165
-  %189 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.3, ptr noundef %8) #8
+  %189 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.3, ptr noundef %8) #7
   br i1 %.not, label %194, label %190
 
 190:                                              ; preds = %188
   %191 = load i32, ptr %2, align 4
   %192 = sext i32 %191 to i64
-  %193 = call i32 @slurm_bit_test(ptr noundef nonnull %.fr, i64 noundef %192) #8
+  %193 = call i32 @slurm_bit_test(ptr noundef nonnull %.fr, i64 noundef %192) #7
   %.not136 = icmp eq i32 %193, 0
   %spec.select143 = select i1 %.not136, i32 %.396203, i32 -1
   br label %194
@@ -971,7 +973,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   %195 = load ptr, ptr %15, align 8
   %196 = load i32, ptr %2, align 4
   %197 = sext i32 %196 to i64
-  call void @slurm_bit_clear(ptr noundef %195, i64 noundef %197) #8
+  call void @slurm_bit_clear(ptr noundef %195, i64 noundef %197) #7
   %.pre221 = load i32, ptr %2, align 4
   br label %198
 
@@ -981,7 +983,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   %200 = add nsw i32 %199, 1
   store i32 %200, ptr %2, align 4
   %201 = load ptr, ptr %15, align 8
-  %202 = call ptr @next_node_bitmap(ptr noundef %201, ptr noundef nonnull %2) #8
+  %202 = call ptr @next_node_bitmap(ptr noundef %201, ptr noundef nonnull %2) #7
   %.not131 = icmp eq ptr %202, null
   br i1 %.not131, label %.thread165, label %.lr.ph204, !llvm.loop !22
 
@@ -992,12 +994,12 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   br i1 %.not132, label %205, label %204
 
 204:                                              ; preds = %.thread165
-  call void @slurm_bit_free(ptr noundef nonnull %3) #8
+  call void @slurm_bit_free(ptr noundef nonnull %3) #7
   br label %205
 
 205:                                              ; preds = %204, %.thread165
   store ptr null, ptr %3, align 8
-  call void @free_core_array(ptr noundef nonnull %4) #8
+  call void @free_core_array(ptr noundef nonnull %4) #7
   br label %.loopexit170
 
 .loopexit170:                                     ; preds = %41, %205
@@ -1064,7 +1066,7 @@ define internal range(i32 -1, 1) i32 @_part_split_hostlist(ptr noundef readonly 
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @slurm_bit_overlap_any(ptr noundef %6, ptr noundef %8) #8
+  %9 = tail call i32 @slurm_bit_overlap_any(ptr noundef %6, ptr noundef %8) #7
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %59, label %10
 
@@ -1076,40 +1078,40 @@ define internal range(i32 -1, 1) i32 @_part_split_hostlist(ptr noundef readonly 
   br i1 %.not40, label %15, label %14
 
 14:                                               ; preds = %10
-  tail call void @slurm_bit_copybits(ptr noundef nonnull %12, ptr noundef %13) #8
+  tail call void @slurm_bit_copybits(ptr noundef nonnull %12, ptr noundef %13) #7
   %.pre = load ptr, ptr %11, align 8
   br label %17
 
 15:                                               ; preds = %10
-  %16 = tail call ptr @slurm_bit_copy(ptr noundef %13) #8
+  %16 = tail call ptr @slurm_bit_copy(ptr noundef %13) #7
   store ptr %16, ptr %11, align 8
   br label %17
 
 17:                                               ; preds = %15, %14
   %18 = phi ptr [ %16, %15 ], [ %.pre, %14 ]
   %19 = load ptr, ptr %7, align 8
-  tail call void @slurm_bit_and(ptr noundef %18, ptr noundef %19) #8
+  tail call void @slurm_bit_and(ptr noundef %18, ptr noundef %19) #7
   %20 = load ptr, ptr %7, align 8
   %21 = load ptr, ptr %11, align 8
-  tail call void @bit_and_not(ptr noundef %20, ptr noundef %21) #8
+  tail call void @bit_and_not(ptr noundef %20, ptr noundef %21) #7
   %22 = load ptr, ptr %11, align 8
-  %23 = tail call i32 @slurm_bit_set_count(ptr noundef %22) #8
+  %23 = tail call i32 @slurm_bit_set_count(ptr noundef %22) #7
   %24 = load ptr, ptr %11, align 8
-  %25 = tail call ptr @bitmap2hostlist(ptr noundef %24) #8
+  %25 = tail call ptr @bitmap2hostlist(ptr noundef %24) #7
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %27 = load i16, ptr %26, align 8
   %28 = call fastcc i32 @_split_hostlist_treewidth(ptr noundef %25, ptr noundef nonnull %4, ptr noundef nonnull %3, i16 noundef zeroext %27)
-  tail call void @slurm_hostlist_destroy(ptr noundef %25) #8
+  tail call void @slurm_hostlist_destroy(ptr noundef %25) #7
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i64 @slurm_xsize(ptr noundef %31) #8
+  %32 = tail call i64 @slurm_xsize(ptr noundef %31) #7
   %33 = load i32, ptr %3, align 4
   %34 = sext i32 %33 to i64
   %35 = shl nsw i64 %34, 3
   %36 = add i64 %35, %32
   %37 = load ptr, ptr %29, align 8
-  %38 = tail call ptr @slurm_xrecalloc(ptr noundef %37, i64 noundef 1, i64 noundef %36, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 107, ptr noundef nonnull @__func__._part_split_hostlist) #8
+  %38 = tail call ptr @slurm_xrecalloc(ptr noundef %37, i64 noundef 1, i64 noundef %36, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 107, ptr noundef nonnull @__func__._part_split_hostlist) #7
   %39 = icmp sgt i32 %33, 0
   br i1 %39, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1119,7 +1121,7 @@ define internal range(i32 -1, 1) i32 @_part_split_hostlist(ptr noundef readonly 
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
-  call void @slurm_xfree(ptr noundef nonnull %4) #8
+  call void @slurm_xfree(ptr noundef nonnull %4) #7
   %40 = load ptr, ptr %1, align 8
   %41 = load i32, ptr %40, align 4
   %42 = add nsw i32 %41, %33
@@ -1210,9 +1212,6 @@ declare i32 @llvm.umax.i32(i32, i32) #6
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1220,9 +1219,8 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 

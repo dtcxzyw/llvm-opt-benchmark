@@ -482,13 +482,13 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not, label %.critedge.thread, label %59, !llvm.loop !46
 
 .critedge:                                        ; preds = %1, %.preheader
-  %.pre3539 = phi ptr [ %.pre35.pre, %.preheader ], [ %6, %1 ]
-  %.not.i = icmp eq ptr %.pre3539, null
+  %.pre3543 = phi ptr [ %.pre35.pre, %.preheader ], [ %6, %1 ]
+  %.not.i = icmp eq ptr %.pre3543, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %59, %.critedge
-  %.pre353942 = phi ptr [ %.pre3539, %.critedge ], [ %.pre35.pre, %59 ]
-  tail call void @free(ptr noundef nonnull %.pre353942) #22
+  %.pre354346 = phi ptr [ %.pre3543, %.critedge ], [ %.pre35.pre, %59 ]
+  tail call void @free(ptr noundef nonnull %.pre354346) #22
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge, %.critedge.thread
@@ -1704,12 +1704,12 @@ define void @Abc_AigRehash(ptr noundef captures(none) %0) local_unnamed_addr #0 
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %33
-  %.sink71 = phi ptr [ %16, %33 ], [ %12, %8 ]
+  %.sink77 = phi ptr [ %16, %33 ], [ %12, %8 ]
   %13 = phi i32 [ %34, %33 ], [ %9, %8 ]
   %14 = phi i32 [ %35, %33 ], [ %9, %8 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.sink71, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sink77, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !68
-  %17 = getelementptr inbounds nuw i8, ptr %.sink71, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.sink77, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !51
   %19 = load i32, ptr %18, align 4, !tbaa !32
   %20 = getelementptr i8, ptr %18, i64 4
@@ -1718,14 +1718,14 @@ define void @Abc_AigRehash(ptr noundef captures(none) %0) local_unnamed_addr #0 
   br i1 %22, label %23, label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %.phi.trans.insert = getelementptr i8, ptr %.sink71, i64 20
+  %.phi.trans.insert = getelementptr i8, ptr %.sink77, i64 20
   %.val3.i.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %33
 
 23:                                               ; preds = %.lr.ph
   store i32 %21, ptr %18, align 4, !tbaa !32
   store i32 %19, ptr %20, align 4, !tbaa !32
-  %24 = getelementptr inbounds nuw i8, ptr %.sink71, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %.sink77, i64 20
   %25 = load i32, ptr %24, align 4
   %26 = lshr i32 %25, 1
   %27 = and i32 %26, 1024
@@ -1746,7 +1746,7 @@ define void @Abc_AigRehash(ptr noundef captures(none) %0) local_unnamed_addr #0 
   %.val2.val.i54 = phi i32 [ %.val2.val.i54.pre, %23 ], [ %21, %.lr.ph._crit_edge ]
   %.val3.i = phi i32 [ %32, %23 ], [ %.val3.i.pre, %.lr.ph._crit_edge ]
   %.val2.val.i = phi i32 [ %.val2.val.i.pre, %23 ], [ %19, %.lr.ph._crit_edge ]
-  %.val.i = load ptr, ptr %.sink71, align 8, !tbaa !50
+  %.val.i = load ptr, ptr %.sink77, align 8, !tbaa !50
   %36 = getelementptr i8, ptr %.val.i, i64 32
   %.val.val.i = load ptr, ptr %36, align 8, !tbaa !52
   %37 = getelementptr i8, ptr %.val.val.i, i64 8
@@ -1786,9 +1786,9 @@ define void @Abc_AigRehash(ptr noundef captures(none) %0) local_unnamed_addr #0 
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !39
-  %73 = getelementptr inbounds nuw i8, ptr %.sink71, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.sink77, i64 8
   store ptr %72, ptr %73, align 8, !tbaa !68
-  store ptr %.sink71, ptr %71, align 8, !tbaa !39
+  store ptr %.sink77, ptr %71, align 8, !tbaa !39
   %.not50 = icmp eq ptr %16, null
   br i1 %.not50, label %._crit_edge, label %.lr.ph, !llvm.loop !84
 
@@ -1886,11 +1886,11 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
   br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %30, %.lr.ph.i.i
-  %.sink62.i.i = phi ptr [ %34, %.lr.ph.i.i ], [ %32, %30 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.sink62.i.i, i64 8
+  %.sink65.i.i = phi ptr [ %34, %.lr.ph.i.i ], [ %32, %30 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sink65.i.i, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !68
-  %.val.i.i.i = load ptr, ptr %.sink62.i.i, align 8, !tbaa !50
-  %35 = getelementptr i8, ptr %.sink62.i.i, i64 32
+  %.val.i.i.i = load ptr, ptr %.sink65.i.i, align 8, !tbaa !50
+  %35 = getelementptr i8, ptr %.sink65.i.i, i64 32
   %.val2.i.i.i = load ptr, ptr %35, align 8, !tbaa !51
   %36 = getelementptr i8, ptr %.val.i.i.i, i64 32
   %.val.val.i.i.i = load ptr, ptr %36, align 8, !tbaa !52
@@ -1900,7 +1900,7 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
   %38 = sext i32 %.val2.val.i.i.i to i64
   %39 = getelementptr inbounds ptr, ptr %.val.val.val.i.i.i, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !36
-  %41 = getelementptr i8, ptr %.sink62.i.i, i64 20
+  %41 = getelementptr i8, ptr %.sink65.i.i, i64 20
   %.val3.i.i.i = load i32, ptr %41, align 4
   %42 = lshr i32 %.val3.i.i.i, 10
   %43 = ptrtoint ptr %40 to i64
@@ -1937,7 +1937,7 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
   %73 = getelementptr inbounds nuw ptr, ptr %calloc.i.i, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !39
   store ptr %74, ptr %33, align 8, !tbaa !68
-  store ptr %.sink62.i.i, ptr %73, align 8, !tbaa !39
+  store ptr %.sink65.i.i, ptr %73, align 8, !tbaa !39
   %.not38.i.i = icmp eq ptr %34, null
   br i1 %.not38.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !86
 

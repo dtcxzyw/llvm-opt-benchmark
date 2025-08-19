@@ -205,13 +205,13 @@ uriEqualsAuthorityA.exit.thread.i:                ; preds = %uriEqualsAuthorityA
   br i1 %.not97150.i, label %.critedge5.i, label %.lr.ph152.i
 
 .lr.ph152.i:                                      ; preds = %78, %.lr.ph.i, %.critedge.i
-  %.083.lcssa172.i = phi ptr [ %.083.lcssa.i, %.critedge.i ], [ %.083142.i, %.lr.ph.i ], [ %.083142.i, %78 ]
-  %.085.lcssa170.i = phi ptr [ %.085.lcssa.i, %.critedge.i ], [ %.085141.i, %.lr.ph.i ], [ %.085141.i, %78 ]
+  %.083.lcssa194.i = phi ptr [ %.083.lcssa.i, %.critedge.i ], [ %.083142.i, %.lr.ph.i ], [ %.083142.i, %78 ]
+  %.085.lcssa192.i = phi ptr [ %.085.lcssa.i, %.critedge.i ], [ %.085141.i, %.lr.ph.i ], [ %.085141.i, %78 ]
   %87 = load ptr, ptr @uriConstParentA, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 2
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %91 = getelementptr inbounds nuw i8, ptr %.083.lcssa172.i, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.083.lcssa194.i, i64 16
   %92 = load ptr, ptr %91, align 8, !tbaa !25
   %.not98.i24 = icmp eq ptr %92, null
   br i1 %.not98.i24, label %.critedge5.i, label %.lr.ph
@@ -250,9 +250,9 @@ uriAppendSegmentA.exit.i:                         ; preds = %103, %102
   br i1 %.not98.i, label %.critedge5.i, label %.lr.ph
 
 .critedge5.i:                                     ; preds = %uriAppendSegmentA.exit.i, %.lr.ph152.i, %.critedge.i
-  %.085.lcssa171.i = phi ptr [ %.085.lcssa.i, %.critedge.i ], [ %.085.lcssa170.i, %.lr.ph152.i ], [ %.085.lcssa170.i, %uriAppendSegmentA.exit.i ]
+  %.085.lcssa193.i = phi ptr [ %.085.lcssa.i, %.critedge.i ], [ %.085.lcssa192.i, %.lr.ph152.i ], [ %.085.lcssa192.i, %uriAppendSegmentA.exit.i ]
   %.lcssa138.i = phi i1 [ true, %.critedge.i ], [ true, %.lr.ph152.i ], [ false, %uriAppendSegmentA.exit.i ]
-  %.not99160.i = icmp eq ptr %.085.lcssa171.i, null
+  %.not99160.i = icmp eq ptr %.085.lcssa193.i, null
   br i1 %.not99160.i, label %.loopexit.i, label %.lr.ph163.i
 
 .lr.ph163.i:                                      ; preds = %.critedge5.i
@@ -264,7 +264,7 @@ uriAppendSegmentA.exit.i:                         ; preds = %103, %102
 
 111:                                              ; preds = %158, %.lr.ph163.i
   %.182162.i = phi i1 [ %.lcssa138.i, %.lr.ph163.i ], [ false, %158 ]
-  %.186161.i = phi ptr [ %.085.lcssa171.i, %.lr.ph163.i ], [ %160, %158 ]
+  %.186161.i = phi ptr [ %.085.lcssa193.i, %.lr.ph163.i ], [ %160, %158 ]
   %.pre29 = load ptr, ptr %.186161.i, align 8, !tbaa !22
   br i1 %.182162.i, label %112, label %.critedge115.i
 
@@ -597,13 +597,13 @@ uriEqualsAuthorityW.exit.thread.i:                ; preds = %uriEqualsAuthorityW
   br i1 %.not97150.i, label %.critedge5.i, label %.lr.ph152.i
 
 .lr.ph152.i:                                      ; preds = %78, %.lr.ph.i, %.critedge.i
-  %.083.lcssa172.i = phi ptr [ %.083.lcssa.i, %.critedge.i ], [ %.083142.i, %.lr.ph.i ], [ %.083142.i, %78 ]
-  %.085.lcssa170.i = phi ptr [ %.085.lcssa.i, %.critedge.i ], [ %.085141.i, %.lr.ph.i ], [ %.085141.i, %78 ]
+  %.083.lcssa195.i = phi ptr [ %.083.lcssa.i, %.critedge.i ], [ %.083142.i, %.lr.ph.i ], [ %.083142.i, %78 ]
+  %.085.lcssa193.i = phi ptr [ %.085.lcssa.i, %.critedge.i ], [ %.085141.i, %.lr.ph.i ], [ %.085141.i, %78 ]
   %87 = load ptr, ptr @uriConstParentW, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %91 = getelementptr inbounds nuw i8, ptr %.083.lcssa172.i, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.083.lcssa195.i, i64 16
   %92 = load ptr, ptr %91, align 8, !tbaa !50
   %.not98.i24 = icmp eq ptr %92, null
   br i1 %.not98.i24, label %.critedge5.i, label %.lr.ph
@@ -642,9 +642,9 @@ uriAppendSegmentW.exit.i:                         ; preds = %103, %102
   br i1 %.not98.i, label %.critedge5.i, label %.lr.ph
 
 .critedge5.i:                                     ; preds = %uriAppendSegmentW.exit.i, %.lr.ph152.i, %.critedge.i
-  %.085.lcssa171.i = phi ptr [ %.085.lcssa.i, %.critedge.i ], [ %.085.lcssa170.i, %.lr.ph152.i ], [ %.085.lcssa170.i, %uriAppendSegmentW.exit.i ]
+  %.085.lcssa194.i = phi ptr [ %.085.lcssa.i, %.critedge.i ], [ %.085.lcssa193.i, %.lr.ph152.i ], [ %.085.lcssa193.i, %uriAppendSegmentW.exit.i ]
   %.lcssa138.i = phi i1 [ true, %.critedge.i ], [ true, %.lr.ph152.i ], [ false, %uriAppendSegmentW.exit.i ]
-  %.not99160.i = icmp eq ptr %.085.lcssa171.i, null
+  %.not99160.i = icmp eq ptr %.085.lcssa194.i, null
   br i1 %.not99160.i, label %.loopexit.i, label %.lr.ph163.i
 
 .lr.ph163.i:                                      ; preds = %.critedge5.i
@@ -656,7 +656,7 @@ uriAppendSegmentW.exit.i:                         ; preds = %103, %102
 
 111:                                              ; preds = %158, %.lr.ph163.i
   %.182162.i = phi i1 [ %.lcssa138.i, %.lr.ph163.i ], [ false, %158 ]
-  %.186161.i = phi ptr [ %.085.lcssa171.i, %.lr.ph163.i ], [ %160, %158 ]
+  %.186161.i = phi ptr [ %.085.lcssa194.i, %.lr.ph163.i ], [ %160, %158 ]
   %.pre29 = load ptr, ptr %.186161.i, align 8, !tbaa !47
   br i1 %.182162.i, label %112, label %.critedge115.i
 

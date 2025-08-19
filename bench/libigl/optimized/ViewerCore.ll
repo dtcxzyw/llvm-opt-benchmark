@@ -234,9 +234,9 @@ define dso_local void @_ZN3igl6opengl10ViewerCore31get_scale_and_shift_to_fit_me
 23:                                               ; preds = %20
   %24 = mul nsw i64 %17, %8
   %25 = icmp sgt i64 %24, 0
-  br i1 %25, label %28, label %.thread14
+  br i1 %25, label %28, label %.thread18
 
-.thread14:                                        ; preds = %23
+.thread18:                                        ; preds = %23
   store i64 %8, ptr %18, align 8, !tbaa !4
   store i64 %17, ptr %19, align 8, !tbaa !11
   %.nonneg = sub i64 0, %24
@@ -271,10 +271,10 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %28
   %.not = icmp eq i64 %24, 1
   br i1 %.not, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.thread14, %.thread, %34
-  %36 = phi i64 [ 0, %.thread ], [ %35, %34 ], [ %27, %.thread14 ], [ %35, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %37 = phi ptr [ null, %.thread ], [ %31, %34 ], [ null, %.thread14 ], [ %31, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %38 = phi i64 [ 0, %.thread ], [ 1, %34 ], [ %24, %.thread14 ], [ %24, %.lr.ph.i.i.i.i.i.i.i.i ]
+._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.thread18, %.thread, %34
+  %36 = phi i64 [ 0, %.thread ], [ %35, %34 ], [ %27, %.thread18 ], [ %35, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %37 = phi ptr [ null, %.thread ], [ %31, %34 ], [ null, %.thread18 ], [ %31, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %38 = phi i64 [ 0, %.thread ], [ 1, %34 ], [ %24, %.thread18 ], [ %24, %.lr.ph.i.i.i.i.i.i.i.i ]
   %39 = icmp slt i64 %36, %38
   br i1 %39, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit
 

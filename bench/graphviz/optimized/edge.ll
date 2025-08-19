@@ -903,10 +903,10 @@ agsubrep.exit.i98:                                ; preds = %.thread154
   br i1 %.not91, label %.thread124, label %73
 
 .thread121.thread:                                ; preds = %44
-  %.not91159 = icmp eq i32 %4, 0
-  br i1 %.not91159, label %.thread124, label %.thread160
+  %.not91175 = icmp eq i32 %4, 0
+  br i1 %.not91175, label %.thread124, label %.thread176
 
-.thread160:                                       ; preds = %.thread121.thread
+.thread176:                                       ; preds = %.thread121.thread
   %71 = call ptr @agroot(ptr noundef %0) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %agfindedge_by_key.exit109.thread
@@ -950,7 +950,7 @@ agsubrep.exit.i105:                               ; preds = %75
   %.not.i106 = icmp eq ptr %86, null
   br i1 %.not.i106, label %agfindedge_by_key.exit109.thread, label %agfindedge_by_key.exit109
 
-agfindedge_by_key.exit109.thread:                 ; preds = %.thread160, %73, %agsubrep.exit.i105
+agfindedge_by_key.exit109.thread:                 ; preds = %.thread176, %73, %agsubrep.exit.i105
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %99
 

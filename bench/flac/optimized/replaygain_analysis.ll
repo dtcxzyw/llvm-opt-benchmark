@@ -583,10 +583,10 @@ filter.exit137:                                   ; preds = %165
   br label %filter.exit137.thread
 
 filter.exit137.thread:                            ; preds = %60, %._crit_edge, %filter.exit137
-  %.089149157162170197 = phi i64 [ %.089148, %._crit_edge ], [ %.089148, %filter.exit137 ], [ 0, %60 ]
-  %187 = sub nsw i64 %.090, %.089149157162170197
-  %188 = add nsw i64 %.089149157162170197, %.088
-  %189 = add i64 %.089149157162170197, %41
+  %.089149157162170206 = phi i64 [ %.089148, %._crit_edge ], [ %.089148, %filter.exit137 ], [ 0, %60 ]
+  %187 = sub nsw i64 %.090, %.089149157162170206
+  %188 = add nsw i64 %.089149157162170206, %.088
+  %189 = add i64 %.089149157162170206, %41
   store i64 %189, ptr @totsamp, align 8, !tbaa !17
   %190 = icmp eq i64 %189, %45
   br i1 %190, label %191, label %209

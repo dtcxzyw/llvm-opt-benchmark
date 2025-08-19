@@ -1405,8 +1405,8 @@ define internal fastcc void @get_caps(ptr noundef nonnull %0, ptr noundef %1, pt
 
 26:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %27 = phi i64 [ %14, %._crit_edge.thread ], [ %24, %._crit_edge ]
-  %.0.lcssa5 = phi i64 [ 0, %._crit_edge.thread ], [ %23, %._crit_edge ]
-  %28 = getelementptr inbounds nuw i64, ptr %2, i64 %.0.lcssa5
+  %.0.lcssa8 = phi i64 [ 0, %._crit_edge.thread ], [ %23, %._crit_edge ]
+  %28 = getelementptr inbounds nuw i64, ptr %2, i64 %.0.lcssa8
   store i64 %27, ptr %28, align 8
   br label %29
 

@@ -1037,13 +1037,13 @@ switch.lookup:                                    ; preds = %52
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_mih, i64 0, i64 %61
   %switch.load = load ptr, ptr %switch.gep, align 8
   %62 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep213 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_mih.1, i64 0, i64 %62
-  %switch.load214 = load ptr, ptr %switch.gep213, align 8
+  %switch.gep217 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_mih.1, i64 0, i64 %62
+  %switch.load218 = load ptr, ptr %switch.gep217, align 8
   %63 = load i32, ptr %switch.load, align 4
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %63, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %65 = load ptr, ptr %5, align 8
   %66 = zext nneg i16 %60 to i32
-  %67 = tail call ptr @val_to_str_const(i32 noundef %66, ptr noundef nonnull %switch.load214, ptr noundef nonnull @.str.629)
+  %67 = tail call ptr @val_to_str_const(i32 noundef %66, ptr noundef nonnull %switch.load218, ptr noundef nonnull @.str.629)
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %65, i32 noundef 25, ptr noundef nonnull @.str.630, ptr noundef %67)
   br label %68
 
@@ -1147,7 +1147,7 @@ switch.lookup:                                    ; preds = %52
   %.0175 = phi i32 [ %117, %114 ], [ 1, %.lr.ph ]
   %119 = zext nneg i32 %.0178201 to i64
   %.not196 = icmp ugt i64 %.1177, %119
-  br i1 %.not196, label %.thread204, label %120
+  br i1 %.not196, label %.thread208, label %120
 
 120:                                              ; preds = %118
   %121 = add nuw nsw i32 %.0175, 1
@@ -1184,7 +1184,7 @@ switch.lookup:                                    ; preds = %52
   %143 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %128, i32 noundef %140, ptr noundef %0, i32 noundef %141, i32 noundef %142, i32 noundef 0)
   br label %146
 
-.thread204:                                       ; preds = %118
+.thread208:                                       ; preds = %118
   %144 = load i32, ptr @hf_fragmented_tlv, align 4
   %145 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %144, ptr noundef %0, i32 noundef %.0182199, i32 noundef -1, i32 noundef 0)
   br label %._crit_edge
@@ -1198,8 +1198,8 @@ switch.lookup:                                    ; preds = %52
   %150 = icmp sgt i32 %149, 0
   br i1 %150, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %146, %.thread204, %74
-  %.0182.lcssa = phi i32 [ 8, %74 ], [ %.0182199, %.thread204 ], [ %148, %146 ]
+._crit_edge:                                      ; preds = %146, %.thread208, %74
+  %.0182.lcssa = phi i32 [ 8, %74 ], [ %.0182199, %.thread208 ], [ %148, %146 ]
   br i1 %76, label %154, label %151
 
 151:                                              ; preds = %._crit_edge
@@ -2189,14 +2189,14 @@ define internal fastcc void @dissect_link_status_req(ptr noundef %0, i16 noundef
   %6 = load i32, ptr @ett_link_states_req, align 4
   %7 = add nsw i32 %4, 2
   %. = select i1 %.not, i32 3, i32 4
-  %.38 = select i1 %.not, i32 1, i32 2
-  %.39 = select i1 %.not, i16 3, i16 4
+  %.40 = select i1 %.not, i32 1, i32 2
+  %.41 = select i1 %.not, i16 3, i16 4
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %4, i32 noundef %., i32 noundef %6, ptr noundef null, ptr noundef nonnull @.str.638)
   %hf_op_mode.val = load i32, ptr @hf_op_mode, align 4
   %hf_channel_id.val = load i32, ptr @hf_channel_id, align 4
   %9 = select i1 %.not, i32 %hf_op_mode.val, i32 %hf_channel_id.val
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef %7, i32 noundef %.38, i32 noundef 0)
-  %11 = add i16 %1, %.39
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef %7, i32 noundef %.40, i32 noundef 0)
+  %11 = add i16 %1, %.41
   %12 = sext i16 %11 to i32
   %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %12)
   %14 = add i16 %11, 1

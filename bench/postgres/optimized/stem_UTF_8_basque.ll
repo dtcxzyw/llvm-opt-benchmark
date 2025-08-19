@@ -516,9 +516,9 @@ define hidden range(i32 -2147483648, 2) i32 @basque_UTF_8_stem(ptr noundef %0) l
   br i1 %40, label %.thread106.i, label %43
 
 .sink.split.i:                                    ; preds = %30, %22, %17
-  %.sink125.i = phi i32 [ %18, %17 ], [ %23, %22 ], [ %31, %30 ]
+  %.sink132.i = phi i32 [ %18, %17 ], [ %23, %22 ], [ %31, %30 ]
   %41 = load i32, ptr %11, align 8
-  %42 = add i32 %41, %.sink125.i
+  %42 = add i32 %41, %.sink132.i
   br label %43
 
 43:                                               ; preds = %.sink.split.i, %35
@@ -578,8 +578,8 @@ r_mark_regions.exit:                              ; preds = %.thread106.i, %49, 
   store i32 %71, ptr %72, align 8
   %74 = add i32 %71, -1
   %75 = load i32, ptr %70, align 8
-  %.not.i54143 = icmp sgt i32 %74, %75
-  br i1 %.not.i54143, label %.lr.ph, label %.preheader
+  %.not.i54173 = icmp sgt i32 %74, %75
+  br i1 %.not.i54173, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %r_mark_regions.exit, %r_aditzak.exit
   %76 = phi i32 [ %112, %r_aditzak.exit ], [ %74, %r_mark_regions.exit ]
@@ -665,18 +665,18 @@ r_aditzak.exit:                                   ; preds = %107, %104, %101, %9
   br i1 %.not.i54, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %88, %r_aditzak.exit, %.lr.ph, %84, %97, %92, %r_mark_regions.exit
-  %.lcssa141 = phi i32 [ %71, %r_mark_regions.exit ], [ %78, %88 ], [ %110, %r_aditzak.exit ], [ %78, %.lr.ph ], [ %78, %84 ], [ %78, %97 ], [ %78, %92 ]
-  %.lcssa139 = phi i32 [ %71, %r_mark_regions.exit ], [ %77, %88 ], [ %111, %r_aditzak.exit ], [ %77, %.lr.ph ], [ %77, %84 ], [ %77, %97 ], [ %77, %92 ]
-  %.neg.le = sub i32 %.lcssa139, %.lcssa141
+  %.lcssa171 = phi i32 [ %71, %r_mark_regions.exit ], [ %78, %88 ], [ %110, %r_aditzak.exit ], [ %78, %.lr.ph ], [ %78, %84 ], [ %78, %97 ], [ %78, %92 ]
+  %.lcssa169 = phi i32 [ %71, %r_mark_regions.exit ], [ %77, %88 ], [ %111, %r_aditzak.exit ], [ %77, %.lr.ph ], [ %77, %84 ], [ %77, %97 ], [ %77, %92 ]
+  %.neg.le = sub i32 %.lcssa169, %.lcssa171
   %114 = load i32, ptr %2, align 4
   %115 = add i32 %.neg.le, %114
   store i32 %115, ptr %11, align 8
   store i32 %115, ptr %72, align 8
   %116 = load i32, ptr %70, align 8
-  %.not.i55160 = icmp sgt i32 %115, %116
-  br i1 %.not.i55160, label %.lr.ph161, label %.thread
+  %.not.i55190 = icmp sgt i32 %115, %116
+  br i1 %.not.i55190, label %.lr.ph191, label %.thread
 
-.lr.ph161:                                        ; preds = %.preheader, %r_izenak.exit
+.lr.ph191:                                        ; preds = %.preheader, %r_izenak.exit
   %117 = phi i32 [ %169, %r_izenak.exit ], [ %115, %.preheader ]
   %118 = phi i32 [ %168, %r_izenak.exit ], [ %114, %.preheader ]
   %119 = load ptr, ptr %0, align 8
@@ -689,7 +689,7 @@ r_aditzak.exit:                                   ; preds = %107, %104, %101, %9
   %.not95.i = icmp eq i32 %.mask.i57, 96
   br i1 %.not95.i, label %125, label %.thread
 
-125:                                              ; preds = %.lr.ph161
+125:                                              ; preds = %.lr.ph191
   %126 = and i32 %124, 31
   %127 = shl nuw i32 1, %126
   %128 = and i32 %127, 71162402
@@ -793,12 +793,12 @@ r_izenak.exit:                                    ; preds = %131, %135, %139, %1
   store i32 %169, ptr %72, align 8
   %170 = load i32, ptr %70, align 8
   %.not.i55 = icmp sgt i32 %169, %170
-  br i1 %.not.i55, label %.lr.ph161, label %.thread
+  br i1 %.not.i55, label %.lr.ph191, label %.thread
 
-.thread:                                          ; preds = %129, %r_izenak.exit, %.lr.ph161, %125, %145, %138, %133, %.preheader
-  %.lcssa137 = phi i32 [ %114, %.preheader ], [ %118, %129 ], [ %168, %r_izenak.exit ], [ %118, %.lr.ph161 ], [ %118, %125 ], [ %118, %145 ], [ %118, %138 ], [ %118, %133 ]
-  %.lcssa = phi i32 [ %115, %.preheader ], [ %117, %129 ], [ %169, %r_izenak.exit ], [ %117, %.lr.ph161 ], [ %117, %125 ], [ %117, %145 ], [ %117, %138 ], [ %117, %133 ]
-  %.neg51.le = sub i32 %.lcssa, %.lcssa137
+.thread:                                          ; preds = %129, %r_izenak.exit, %.lr.ph191, %125, %145, %138, %133, %.preheader
+  %.lcssa167 = phi i32 [ %114, %.preheader ], [ %118, %129 ], [ %168, %r_izenak.exit ], [ %118, %.lr.ph191 ], [ %118, %125 ], [ %118, %145 ], [ %118, %138 ], [ %118, %133 ]
+  %.lcssa = phi i32 [ %115, %.preheader ], [ %117, %129 ], [ %169, %r_izenak.exit ], [ %117, %.lr.ph191 ], [ %117, %125 ], [ %117, %145 ], [ %117, %138 ], [ %117, %133 ]
+  %.neg51.le = sub i32 %.lcssa, %.lcssa167
   %171 = load i32, ptr %2, align 4
   %172 = add i32 %171, %.neg51.le
   store i32 %172, ptr %11, align 8

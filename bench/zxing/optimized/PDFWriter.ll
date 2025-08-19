@@ -724,14 +724,14 @@ _ZNSt6vectorIS_IbSaIbEESaIS1_EE6resizeEm.exit:    ; preds = %30, %32, %_ZSt8_Des
   br label %79
 
 .preheader:                                       ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit, %_ZNSt6vectorIS_IbSaIbEESaIS1_EE6resizeEm.exit
-  %.not41 = phi i1 [ true, %_ZNSt6vectorIS_IbSaIbEESaIS1_EE6resizeEm.exit ], [ false, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit ]
+  %.not52 = phi i1 [ true, %_ZNSt6vectorIS_IbSaIbEESaIS1_EE6resizeEm.exit ], [ false, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit ]
   %.not36 = icmp eq ptr %4, %5
   br i1 %.not36, label %._crit_edge35, label %.lr.ph34
 
 .lr.ph34:                                         ; preds = %.preheader
   %50 = load ptr, ptr %0, align 8
   %51 = load ptr, ptr %1, align 8
-  br i1 %.not41, label %._crit_edge35, label %.lr.ph32.us
+  br i1 %.not52, label %._crit_edge35, label %.lr.ph32.us
 
 .lr.ph32.us:                                      ; preds = %.lr.ph34, %._crit_edge.us
   %.02433.us = phi i64 [ %78, %._crit_edge.us ], [ 0, %.lr.ph34 ]
@@ -1633,7 +1633,7 @@ define linkonce_odr void @_ZNSt6vectorIS_IbSaIbEESaIS1_EE17_M_default_appendEm(p
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIbSaIbEEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIbSaIbEEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 40
+  %19 = mul nuw nsw i64 %1, 40
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !25
@@ -2583,8 +2583,8 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %24
   br i1 %.not.i25, label %_ZNSt6vectorIbSaIbEE13_M_initializeEm.exit, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.thread
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.thread: ; preds = %24, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
-  %.pre-phi4757 = phi i64 [ %.pre46, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit ], [ %15, %24 ]
-  %28 = add i64 %.pre-phi4757, 63
+  %.pre-phi4761 = phi i64 [ %.pre46, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit ], [ %15, %24 ]
+  %28 = add i64 %.pre-phi4761, 63
   %29 = lshr i64 %28, 3
   %30 = and i64 %29, 2305843009213693944
   %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #24
@@ -2594,13 +2594,13 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.thread: ; preds = %24, %_ZNSt1
   store ptr %31, ptr %0, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %34 = sdiv i64 %.pre-phi4757, 64
+  %34 = sdiv i64 %.pre-phi4761, 64
   %35 = getelementptr inbounds i64, ptr %31, i64 %34
-  %36 = and i64 %.pre-phi4757, -9223372036854775745
+  %36 = and i64 %.pre-phi4761, -9223372036854775745
   %37 = icmp ugt i64 %36, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %37, i64 -8, i64 0
   %storemerge.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 %storemerge.idx.i.i.i.i
-  %38 = trunc i64 %.pre-phi4757 to i32
+  %38 = trunc i64 %.pre-phi4761 to i32
   %39 = and i32 %38, 63
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %storemerge.i.i.i.i, ptr %40, align 8

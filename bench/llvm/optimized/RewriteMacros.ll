@@ -575,24 +575,24 @@ _ZN4llvmeqENS_9StringRefES0_.exit102.thread346:   ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not393, label %.lr.ph398, label %.critedge2.loopexit, !llvm.loop !377
 
 .lr.ph398:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit102.thread346
-  %.not371473 = icmp eq i16 %.sroa.15.2392, 1
-  br i1 %.not371473, label %..critedge2.loopexit_crit_edge404, label %.lr.ph475, !llvm.loop !377
+  %.not371508 = icmp eq i16 %.sroa.15.2392, 1
+  br i1 %.not371508, label %..critedge2.loopexit_crit_edge404, label %.lr.ph510, !llvm.loop !377
 
-.lr.ph475:                                        ; preds = %.lr.ph398
+.lr.ph510:                                        ; preds = %.lr.ph398
   br label %236, !llvm.loop !377
 
 235:                                              ; preds = %236
   %.not371 = icmp eq i16 %.sroa.15.2, 1
   br i1 %.not371, label %...critedge2.loopexit_crit_edge404_crit_edge, label %236, !llvm.loop !384
 
-236:                                              ; preds = %.lr.ph475, %235
-  %.2394474 = phi i32 [ %.2386, %.lr.ph475 ], [ %.2, %235 ]
-  %237 = zext i32 %.2394474 to i64
+236:                                              ; preds = %.lr.ph510, %235
+  %.2394509 = phi i32 [ %.2386, %.lr.ph510 ], [ %.2, %235 ]
+  %237 = zext i32 %.2394509 to i64
   %238 = getelementptr inbounds nuw %"class.clang::Token", ptr %.sroa.0327.1, i64 %237, i32 3
   %239 = load i16, ptr %238, align 8, !tbaa !358
   %240 = icmp eq i16 %239, 4
   %241 = zext i1 %240 to i32
-  %spec.select.i116 = add i32 %.2394474, %241
+  %spec.select.i116 = add i32 %.2394509, %241
   %.2 = add i32 %spec.select.i116, 1
   %.pn370 = zext i32 %spec.select.i116 to i64
   %.sroa.0263.2.in = getelementptr inbounds nuw %"class.clang::Token", ptr %.sroa.0327.1, i64 %.pn370
@@ -628,12 +628,12 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit.i:     ; preds = %247
   %switch.lobit = trunc i32 %switch.shifted to i1
   %250 = select i1 %249, i1 %switch.lobit, i1 false
   %.0.i.i = select i1 %250, ptr null, ptr %.val88
-  %switch.tableidx478 = add i16 %.sroa.15.0415, -1
-  %251 = icmp ult i16 %switch.tableidx478, 19
-  %switch.maskindex480 = zext nneg i16 %switch.tableidx478 to i32
-  %switch.shifted481 = lshr i32 524225, %switch.maskindex480
-  %switch.lobit482 = trunc i32 %switch.shifted481 to i1
-  %252 = select i1 %251, i1 %switch.lobit482, i1 false
+  %switch.tableidx513 = add i16 %.sroa.15.0415, -1
+  %251 = icmp ult i16 %switch.tableidx513, 19
+  %switch.maskindex515 = zext nneg i16 %switch.tableidx513 to i32
+  %switch.shifted516 = lshr i32 524225, %switch.maskindex515
+  %switch.lobit517 = trunc i32 %switch.shifted516 to i1
+  %252 = select i1 %251, i1 %switch.lobit517, i1 false
   %.0.i8.i = select i1 %252, ptr null, ptr %.sroa.13.0414
   %253 = icmp eq ptr %.0.i.i, %.0.i8.i
   br i1 %253, label %260, label %254
@@ -676,12 +676,12 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit11.i:   ; preds = %254
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit13.i:   ; preds = %256, %255, %255, %255, %255, %255, %255, %255
   %.0.i12.i = phi ptr [ %.val88, %256 ], [ null, %255 ], [ null, %255 ], [ null, %255 ], [ null, %255 ], [ null, %255 ], [ null, %255 ], [ null, %255 ]
-  %switch.tableidx484 = add i16 %.sroa.15.0415, -1
-  %257 = icmp ult i16 %switch.tableidx484, 19
-  %switch.maskindex486 = zext nneg i16 %switch.tableidx484 to i32
-  %switch.shifted487 = lshr i32 524225, %switch.maskindex486
-  %switch.lobit488 = trunc i32 %switch.shifted487 to i1
-  %258 = select i1 %257, i1 %switch.lobit488, i1 false
+  %switch.tableidx519 = add i16 %.sroa.15.0415, -1
+  %257 = icmp ult i16 %switch.tableidx519, 19
+  %switch.maskindex521 = zext nneg i16 %switch.tableidx519 to i32
+  %switch.shifted522 = lshr i32 524225, %switch.maskindex521
+  %switch.lobit523 = trunc i32 %switch.shifted522 to i1
+  %258 = select i1 %257, i1 %switch.lobit523, i1 false
   %.0.i14.i = select i1 %258, ptr null, ptr %.sroa.13.0414
   %259 = icmp eq ptr %.0.i12.i, %.0.i14.i
   br i1 %259, label %260, label %_ZL11isSameTokenRN5clang5TokenES1_.exit
@@ -1056,19 +1056,19 @@ _ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE.exit: ; preds =
   br i1 %424, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i139, label %430
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit.i139:  ; preds = %423
-  %switch.tableidx490 = add i16 %.sroa.15.0.copyload299, -1
-  %425 = icmp ult i16 %switch.tableidx490, 19
-  %switch.maskindex492 = zext nneg i16 %switch.tableidx490 to i32
-  %switch.shifted493 = lshr i32 524225, %switch.maskindex492
-  %switch.lobit494 = trunc i32 %switch.shifted493 to i1
-  %426 = select i1 %425, i1 %switch.lobit494, i1 false
+  %switch.tableidx525 = add i16 %.sroa.15.0.copyload299, -1
+  %425 = icmp ult i16 %switch.tableidx525, 19
+  %switch.maskindex527 = zext nneg i16 %switch.tableidx525 to i32
+  %switch.shifted528 = lshr i32 524225, %switch.maskindex527
+  %switch.lobit529 = trunc i32 %switch.shifted528 to i1
+  %426 = select i1 %425, i1 %switch.lobit529, i1 false
   %.0.i.i140 = select i1 %426, ptr null, ptr %.val92
-  %switch.tableidx496 = add i16 %.sroa.15.0.copyload299, -1
-  %427 = icmp ult i16 %switch.tableidx496, 19
-  %switch.maskindex498 = zext nneg i16 %switch.tableidx496 to i32
-  %switch.shifted499 = lshr i32 524225, %switch.maskindex498
-  %switch.lobit500 = trunc i32 %switch.shifted499 to i1
-  %428 = select i1 %427, i1 %switch.lobit500, i1 false
+  %switch.tableidx531 = add i16 %.sroa.15.0.copyload299, -1
+  %427 = icmp ult i16 %switch.tableidx531, 19
+  %switch.maskindex533 = zext nneg i16 %switch.tableidx531 to i32
+  %switch.shifted534 = lshr i32 524225, %switch.maskindex533
+  %switch.lobit535 = trunc i32 %switch.shifted534 to i1
+  %428 = select i1 %427, i1 %switch.lobit535, i1 false
   %.0.i8.i142 = select i1 %428, ptr null, ptr %.sroa.13.0.copyload289
   %429 = icmp eq ptr %.0.i.i140, %.0.i8.i142
   br i1 %429, label %.critedge4, label %430
@@ -1111,12 +1111,12 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit11.i133: ; preds = %430
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit13.i135: ; preds = %432, %431, %431, %431, %431, %431, %431, %431
   %.0.i12.i136 = phi ptr [ %.val92, %432 ], [ null, %431 ], [ null, %431 ], [ null, %431 ], [ null, %431 ], [ null, %431 ], [ null, %431 ], [ null, %431 ]
-  %switch.tableidx502 = add i16 %.sroa.15.0.copyload299, -1
-  %433 = icmp ult i16 %switch.tableidx502, 19
-  %switch.maskindex504 = zext nneg i16 %switch.tableidx502 to i32
-  %switch.shifted505 = lshr i32 524225, %switch.maskindex504
-  %switch.lobit506 = trunc i32 %switch.shifted505 to i1
-  %434 = select i1 %433, i1 %switch.lobit506, i1 false
+  %switch.tableidx537 = add i16 %.sroa.15.0.copyload299, -1
+  %433 = icmp ult i16 %switch.tableidx537, 19
+  %switch.maskindex539 = zext nneg i16 %switch.tableidx537 to i32
+  %switch.shifted540 = lshr i32 524225, %switch.maskindex539
+  %switch.lobit541 = trunc i32 %switch.shifted540 to i1
+  %434 = select i1 %433, i1 %switch.lobit541, i1 false
   %.0.i14.i138 = select i1 %434, ptr null, ptr %.sroa.13.0.copyload289
   %435 = icmp eq ptr %.0.i12.i136, %.0.i14.i138
   br i1 %435, label %.critedge4, label %.critedge6.backedge

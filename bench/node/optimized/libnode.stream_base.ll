@@ -1462,12 +1462,12 @@ do.end259:                                        ; preds = %do.body248
   br i1 %cmp.i.not, label %cond.end, label %cond.true264
 
 cond.end:                                         ; preds = %do.end259
-  %add.ptr = getelementptr inbounds i8, ptr null, i64 %offset.0155
+  %add.ptr = getelementptr inbounds nuw i8, ptr null, i64 %offset.0155
   br label %cond.end268
 
 cond.true264:                                     ; preds = %do.end259
   %call262 = call noundef ptr @_ZNK2v812BackingStore4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.0) #21
-  %add.ptr143 = getelementptr inbounds i8, ptr %call262, i64 %offset.0155
+  %add.ptr143 = getelementptr inbounds nuw i8, ptr %call262, i64 %offset.0155
   %call266 = call noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.0) #21
   br label %cond.end268
 
@@ -1524,8 +1524,8 @@ for.inc325:                                       ; preds = %_ZN4node16MaybeStac
   br i1 %exitcond159.not, label %if.end328, label %for.body208, !llvm.loop !10
 
 if.end328:                                        ; preds = %for.inc325, %for.cond.preheader, %for.cond161.preheader, %if.end202
-  %bs.sroa.0.0183 = phi ptr [ %bs.sroa.0.0, %if.end202 ], [ null, %for.cond161.preheader ], [ null, %for.cond.preheader ], [ %bs.sroa.0.0, %for.inc325 ]
-  %cmp197141182 = phi i1 [ %cmp197141, %if.end202 ], [ false, %for.cond161.preheader ], [ false, %for.cond.preheader ], [ %cmp197141, %for.inc325 ]
+  %bs.sroa.0.0188 = phi ptr [ %bs.sroa.0.0, %if.end202 ], [ null, %for.cond161.preheader ], [ null, %for.cond.preheader ], [ %bs.sroa.0.0, %for.inc325 ]
+  %cmp197141187 = phi i1 [ %cmp197141, %if.end202 ], [ false, %for.cond161.preheader ], [ false, %for.cond.preheader ], [ %cmp197141, %for.inc325 ]
   %53 = load ptr, ptr %buf_.i.i, align 8
   call void @_ZN4node10StreamBase5WriteEP8uv_buf_tmP11uv_stream_sN2v85LocalINS5_6ObjectEEEb(ptr nonnull sret(%"struct.node::StreamWriteResult") align 8 %res, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %53, i64 noundef %count.0, ptr noundef null, ptr %retval.i367.sroa.0.0129134, i1 noundef zeroext false)
   %bytes.i = getelementptr inbounds nuw i8, ptr %res, i64 16
@@ -1548,7 +1548,7 @@ if.end328:                                        ; preds = %for.inc325, %for.co
   %wrap = getelementptr inbounds nuw i8, ptr %res, i64 8
   %61 = load ptr, ptr %wrap, align 8
   %cmp334 = icmp ne ptr %61, null
-  %or.cond = and i1 %cmp197141182, %cmp334
+  %or.cond = and i1 %cmp197141187, %cmp334
   br i1 %or.cond, label %if.then337, label %if.end340
 
 if.then337:                                       ; preds = %if.end328
@@ -1563,11 +1563,11 @@ do.body5.i:                                       ; preds = %if.then337
   unreachable
 
 _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit111: ; preds = %if.then337
-  store ptr %bs.sroa.0.0183, ptr %backing_store_.i, align 8
+  store ptr %bs.sroa.0.0188, ptr %backing_store_.i, align 8
   br label %if.end340
 
 if.end340:                                        ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit111, %if.end328
-  %bs.sroa.0.2 = phi ptr [ null, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit111 ], [ %bs.sroa.0.0183, %if.end328 ]
+  %bs.sroa.0.2 = phi ptr [ null, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit111 ], [ %bs.sroa.0.0188, %if.end328 ]
   %err = getelementptr inbounds nuw i8, ptr %res, i64 4
   %63 = load i32, ptr %err, align 4
   %wrap_obj.i = getelementptr inbounds nuw i8, ptr %res, i64 24

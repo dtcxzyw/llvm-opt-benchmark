@@ -1557,8 +1557,8 @@ define internal fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %0, i3
   %32 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv37
   store i32 %.1.us, ptr %32, align 4, !tbaa !40
   %33 = fsub fast float 1.000000e+00, %.2.us
-  %.idx42 = shl nuw nsw i64 %indvars.iv37, 3
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx42
+  %.idx43 = shl nuw nsw i64 %indvars.iv37, 3
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx43
   store float %33, ptr %34, align 4, !tbaa !56
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store float %.2.us, ptr %35, align 4, !tbaa !56
@@ -1800,27 +1800,27 @@ define internal fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %0, i32
   br label %.sink.split
 
 .sink.split:                                      ; preds = %60, %.thread
-  %.sink99 = phi float [ %57, %.thread ], [ %61, %60 ]
-  %.sink98 = phi float [ %54, %.thread ], [ %50, %60 ]
+  %.sink100 = phi float [ %57, %.thread ], [ %61, %60 ]
+  %.sink99 = phi float [ %54, %.thread ], [ %50, %60 ]
   %.sink = phi float [ 0.000000e+00, %.thread ], [ %54, %60 ]
-  store float %.sink99, ptr %31, align 4, !tbaa !56
-  store float %.sink98, ptr %45, align 4, !tbaa !56
+  store float %.sink100, ptr %31, align 4, !tbaa !56
+  store float %.sink99, ptr %45, align 4, !tbaa !56
   store float %.sink, ptr %51, align 4, !tbaa !56
   store float 0.000000e+00, ptr %55, align 4, !tbaa !56
   br label %62
 
 62:                                               ; preds = %.sink.split, %58
-  %63 = phi float [ %44, %58 ], [ %.sink98, %.sink.split ]
+  %63 = phi float [ %44, %58 ], [ %.sink99, %.sink.split ]
   %64 = phi float [ %54, %58 ], [ 0.000000e+00, %.sink.split ]
   %65 = phi float [ %50, %58 ], [ %.sink, %.sink.split ]
-  %66 = phi float [ %39, %58 ], [ %.sink99, %.sink.split ]
+  %66 = phi float [ %39, %58 ], [ %.sink100, %.sink.split ]
   %.1 = phi i32 [ %28, %58 ], [ 1, %.sink.split ]
   %67 = icmp eq i32 %.1, %17
   br i1 %67, label %.thread91, label %69
 
 .thread91:                                        ; preds = %62
   %68 = fadd fast float %64, %65
-  br label %.sink.split100
+  br label %.sink.split101
 
 69:                                               ; preds = %62
   %.not89 = icmp slt i32 %.1, %18
@@ -1828,20 +1828,20 @@ define internal fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %0, i32
 
 70:                                               ; preds = %69
   %71 = fsub fast float 1.000000e+00, %66
-  br label %.sink.split100
+  br label %.sink.split101
 
-.sink.split100:                                   ; preds = %70, %.thread91
-  %.sink103 = phi float [ %68, %.thread91 ], [ %71, %70 ]
-  %.sink102 = phi float [ %63, %.thread91 ], [ %66, %70 ]
-  %.sink101 = phi float [ %66, %.thread91 ], [ 0.000000e+00, %70 ]
-  store float %.sink103, ptr %55, align 4, !tbaa !56
-  store float %.sink102, ptr %51, align 4, !tbaa !56
-  store float %.sink101, ptr %45, align 4, !tbaa !56
+.sink.split101:                                   ; preds = %70, %.thread91
+  %.sink104 = phi float [ %68, %.thread91 ], [ %71, %70 ]
+  %.sink103 = phi float [ %63, %.thread91 ], [ %66, %70 ]
+  %.sink102 = phi float [ %66, %.thread91 ], [ 0.000000e+00, %70 ]
+  store float %.sink104, ptr %55, align 4, !tbaa !56
+  store float %.sink103, ptr %51, align 4, !tbaa !56
+  store float %.sink102, ptr %45, align 4, !tbaa !56
   store float 0.000000e+00, ptr %31, align 4, !tbaa !56
   br label %72
 
-72:                                               ; preds = %.sink.split100, %69
-  %.3 = phi i32 [ %.1, %69 ], [ %19, %.sink.split100 ]
+72:                                               ; preds = %.sink.split101, %69
+  %.3 = phi i32 [ %.1, %69 ], [ %19, %.sink.split101 ]
   %73 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %.3, ptr %73, align 4, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2310,8 +2310,8 @@ _ZN4ncnn3MatD2Ev.exit99.i:                        ; preds = %110, %109, %105, %9
 114:                                              ; preds = %._crit_edge.i, %.lr.ph130.i
   %indvars.iv142.i = phi i64 [ 0, %.lr.ph130.i ], [ %indvars.iv.next143.i, %._crit_edge.i ]
   %.087129.i = phi ptr [ %57, %.lr.ph130.i ], [ %174, %._crit_edge.i ]
-  %.088128.i = phi ptr [ %61, %.lr.ph130.i ], [ %.1151.i, %._crit_edge.i ]
-  %.089127.i = phi ptr [ %60, %.lr.ph130.i ], [ %.190149.i, %._crit_edge.i ]
+  %.088128.i = phi ptr [ %61, %.lr.ph130.i ], [ %.1163.i, %._crit_edge.i ]
+  %.089127.i = phi ptr [ %60, %.lr.ph130.i ], [ %.190161.i, %._crit_edge.i ]
   %.091126.i = phi i32 [ -2, %.lr.ph130.i ], [ %116, %._crit_edge.i ]
   %115 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv142.i
   %116 = load i32, ptr %115, align 4, !tbaa !40
@@ -2399,8 +2399,8 @@ _ZN4ncnn3MatD2Ev.exit99.i:                        ; preds = %110, %109, %105, %9
   br i1 %63, label %.lr.ph124.preheader.i, label %._crit_edge.i
 
 .lr.ph124.preheader.i:                            ; preds = %.lr.ph.i, %.lr.ph119.i, %.loopexit.i
-  %.1152.i = phi ptr [ %.088128.i, %.loopexit.i ], [ %.089127.i, %.lr.ph119.i ], [ %.088128.i, %.lr.ph.i ]
-  %.190150.i = phi ptr [ %.089127.i, %.loopexit.i ], [ %.088128.i, %.lr.ph119.i ], [ %.089127.i, %.lr.ph.i ]
+  %.1164.i = phi ptr [ %.088128.i, %.loopexit.i ], [ %.089127.i, %.lr.ph119.i ], [ %.088128.i, %.lr.ph.i ]
+  %.190162.i = phi ptr [ %.089127.i, %.loopexit.i ], [ %.088128.i, %.lr.ph119.i ], [ %.089127.i, %.lr.ph.i ]
   %171 = load float, ptr %.087129.i, align 4, !tbaa !56
   %.in.i = getelementptr inbounds nuw i8, ptr %.087129.i, i64 4
   %172 = load float, ptr %.in.i, align 4, !tbaa !56
@@ -2409,8 +2409,8 @@ _ZN4ncnn3MatD2Ev.exit99.i:                        ; preds = %110, %109, %105, %9
   br label %.lr.ph124.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph124.i, %.loopexit.i, %140, %121
-  %.1151.i = phi ptr [ %.088128.i, %.loopexit.i ], [ %.088128.i, %140 ], [ %.089127.i, %121 ], [ %.1152.i, %.lr.ph124.i ]
-  %.190149.i = phi ptr [ %.089127.i, %.loopexit.i ], [ %.089127.i, %140 ], [ %.088128.i, %121 ], [ %.190150.i, %.lr.ph124.i ]
+  %.1163.i = phi ptr [ %.088128.i, %.loopexit.i ], [ %.088128.i, %140 ], [ %.089127.i, %121 ], [ %.1164.i, %.lr.ph124.i ]
+  %.190161.i = phi ptr [ %.089127.i, %.loopexit.i ], [ %.089127.i, %140 ], [ %.088128.i, %121 ], [ %.190162.i, %.lr.ph124.i ]
   %174 = getelementptr inbounds nuw i8, ptr %.087129.i, i64 8
   %indvars.iv.next143.i = add nuw nsw i64 %indvars.iv142.i, 1
   %exitcond146.not.i = icmp eq i64 %indvars.iv.next143.i, %wide.trip.count145.i
@@ -2419,8 +2419,8 @@ _ZN4ncnn3MatD2Ev.exit99.i:                        ; preds = %110, %109, %105, %9
 .lr.ph124.i:                                      ; preds = %.lr.ph124.i, %.lr.ph124.preheader.i
   %.0123.i = phi i32 [ %183, %.lr.ph124.i ], [ 0, %.lr.ph124.preheader.i ]
   %.084122.i = phi ptr [ %182, %.lr.ph124.i ], [ %173, %.lr.ph124.preheader.i ]
-  %.085121.i = phi ptr [ %178, %.lr.ph124.i ], [ %.190150.i, %.lr.ph124.preheader.i ]
-  %.086120.i = phi ptr [ %175, %.lr.ph124.i ], [ %.1152.i, %.lr.ph124.preheader.i ]
+  %.085121.i = phi ptr [ %178, %.lr.ph124.i ], [ %.190162.i, %.lr.ph124.preheader.i ]
+  %.086120.i = phi ptr [ %175, %.lr.ph124.i ], [ %.1164.i, %.lr.ph124.preheader.i ]
   %175 = getelementptr inbounds nuw i8, ptr %.086120.i, i64 4
   %176 = load float, ptr %.086120.i, align 4, !tbaa !56
   %177 = fmul fast float %176, %171
@@ -2800,10 +2800,10 @@ _ZN4ncnn3MatD2Ev.exit288.i:                       ; preds = %118, %117, %113, %1
 160:                                              ; preds = %._crit_edge.i, %.lr.ph362.i
   %indvars.iv386.i = phi i64 [ 0, %.lr.ph362.i ], [ %indvars.iv.next387.i, %._crit_edge.i ]
   %.0261361.i = phi ptr [ %65, %.lr.ph362.i ], [ %423, %._crit_edge.i ]
-  %.0265360.i = phi ptr [ %71, %.lr.ph362.i ], [ %.1266401.i, %._crit_edge.i ]
-  %.0267359.i = phi ptr [ %70, %.lr.ph362.i ], [ %.1268399.i, %._crit_edge.i ]
-  %.0269358.i = phi ptr [ %69, %.lr.ph362.i ], [ %.1270397.i, %._crit_edge.i ]
-  %.0271357.i = phi ptr [ %68, %.lr.ph362.i ], [ %.1272395.i, %._crit_edge.i ]
+  %.0265360.i = phi ptr [ %71, %.lr.ph362.i ], [ %.1266424.i, %._crit_edge.i ]
+  %.0267359.i = phi ptr [ %70, %.lr.ph362.i ], [ %.1268422.i, %._crit_edge.i ]
+  %.0269358.i = phi ptr [ %69, %.lr.ph362.i ], [ %.1270420.i, %._crit_edge.i ]
+  %.0271357.i = phi ptr [ %68, %.lr.ph362.i ], [ %.1272418.i, %._crit_edge.i ]
   %.0273356.i = phi i32 [ -3, %.lr.ph362.i ], [ %162, %._crit_edge.i ]
   %161 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv386.i
   %162 = load i32, ptr %161, align 4, !tbaa !40
@@ -3121,15 +3121,15 @@ _ZN4ncnn3MatD2Ev.exit288.i:                       ; preds = %118, %117, %113, %1
   br i1 %73, label %.lr.ph354.preheader.i, label %._crit_edge.i
 
 .lr.ph354.preheader.i:                            ; preds = %.lr.ph.i, %.lr.ph341.i, %.lr.ph344.i, %.lr.ph347.i, %.loopexit.i
-  %.1266402.i = phi ptr [ %.0265360.i, %.loopexit.i ], [ %.0267359.i, %.lr.ph347.i ], [ %.0269358.i, %.lr.ph344.i ], [ %.0271357.i, %.lr.ph341.i ], [ %.0265360.i, %.lr.ph.i ]
-  %.1268400.i = phi ptr [ %.0267359.i, %.loopexit.i ], [ %.0269358.i, %.lr.ph347.i ], [ %.0271357.i, %.lr.ph344.i ], [ %.0265360.i, %.lr.ph341.i ], [ %.0267359.i, %.lr.ph.i ]
-  %.1270398.i = phi ptr [ %.0269358.i, %.loopexit.i ], [ %.0271357.i, %.lr.ph347.i ], [ %.0265360.i, %.lr.ph344.i ], [ %.0267359.i, %.lr.ph341.i ], [ %.0269358.i, %.lr.ph.i ]
-  %.1272396.i = phi ptr [ %.0271357.i, %.loopexit.i ], [ %.0265360.i, %.lr.ph347.i ], [ %.0267359.i, %.lr.ph344.i ], [ %.0269358.i, %.lr.ph341.i ], [ %.0271357.i, %.lr.ph.i ]
+  %.1266425.i = phi ptr [ %.0265360.i, %.loopexit.i ], [ %.0267359.i, %.lr.ph347.i ], [ %.0269358.i, %.lr.ph344.i ], [ %.0271357.i, %.lr.ph341.i ], [ %.0265360.i, %.lr.ph.i ]
+  %.1268423.i = phi ptr [ %.0267359.i, %.loopexit.i ], [ %.0269358.i, %.lr.ph347.i ], [ %.0271357.i, %.lr.ph344.i ], [ %.0265360.i, %.lr.ph341.i ], [ %.0267359.i, %.lr.ph.i ]
+  %.1270421.i = phi ptr [ %.0269358.i, %.loopexit.i ], [ %.0271357.i, %.lr.ph347.i ], [ %.0265360.i, %.lr.ph344.i ], [ %.0267359.i, %.lr.ph341.i ], [ %.0269358.i, %.lr.ph.i ]
+  %.1272419.i = phi ptr [ %.0271357.i, %.loopexit.i ], [ %.0265360.i, %.lr.ph347.i ], [ %.0267359.i, %.lr.ph344.i ], [ %.0269358.i, %.lr.ph341.i ], [ %.0271357.i, %.lr.ph.i ]
   %418 = load float, ptr %.0261361.i, align 4, !tbaa !56
-  %.in417.i = getelementptr inbounds nuw i8, ptr %.0261361.i, i64 4
-  %419 = load float, ptr %.in417.i, align 4, !tbaa !56
-  %.in416.i = getelementptr inbounds nuw i8, ptr %.0261361.i, i64 8
-  %420 = load float, ptr %.in416.i, align 4, !tbaa !56
+  %.in440.i = getelementptr inbounds nuw i8, ptr %.0261361.i, i64 4
+  %419 = load float, ptr %.in440.i, align 4, !tbaa !56
+  %.in439.i = getelementptr inbounds nuw i8, ptr %.0261361.i, i64 8
+  %420 = load float, ptr %.in439.i, align 4, !tbaa !56
   %.in.i = getelementptr inbounds nuw i8, ptr %.0261361.i, i64 12
   %421 = load float, ptr %.in.i, align 4, !tbaa !56
   %.reass365.i = mul i64 %factor.op.mul364.i, %indvars.iv386.i
@@ -3137,10 +3137,10 @@ _ZN4ncnn3MatD2Ev.exit288.i:                       ; preds = %118, %117, %113, %1
   br label %.lr.ph354.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph354.i, %.loopexit.i, %327, %256, %201, %167
-  %.1266401.i = phi ptr [ %.0265360.i, %.loopexit.i ], [ %.0265360.i, %327 ], [ %.0271357.i, %256 ], [ %.0269358.i, %201 ], [ %.0267359.i, %167 ], [ %.1266402.i, %.lr.ph354.i ]
-  %.1268399.i = phi ptr [ %.0267359.i, %.loopexit.i ], [ %.0267359.i, %327 ], [ %.0265360.i, %256 ], [ %.0271357.i, %201 ], [ %.0269358.i, %167 ], [ %.1268400.i, %.lr.ph354.i ]
-  %.1270397.i = phi ptr [ %.0269358.i, %.loopexit.i ], [ %.0269358.i, %327 ], [ %.0267359.i, %256 ], [ %.0265360.i, %201 ], [ %.0271357.i, %167 ], [ %.1270398.i, %.lr.ph354.i ]
-  %.1272395.i = phi ptr [ %.0271357.i, %.loopexit.i ], [ %.0271357.i, %327 ], [ %.0269358.i, %256 ], [ %.0267359.i, %201 ], [ %.0265360.i, %167 ], [ %.1272396.i, %.lr.ph354.i ]
+  %.1266424.i = phi ptr [ %.0265360.i, %.loopexit.i ], [ %.0265360.i, %327 ], [ %.0271357.i, %256 ], [ %.0269358.i, %201 ], [ %.0267359.i, %167 ], [ %.1266425.i, %.lr.ph354.i ]
+  %.1268422.i = phi ptr [ %.0267359.i, %.loopexit.i ], [ %.0267359.i, %327 ], [ %.0265360.i, %256 ], [ %.0271357.i, %201 ], [ %.0269358.i, %167 ], [ %.1268423.i, %.lr.ph354.i ]
+  %.1270420.i = phi ptr [ %.0269358.i, %.loopexit.i ], [ %.0269358.i, %327 ], [ %.0267359.i, %256 ], [ %.0265360.i, %201 ], [ %.0271357.i, %167 ], [ %.1270421.i, %.lr.ph354.i ]
+  %.1272418.i = phi ptr [ %.0271357.i, %.loopexit.i ], [ %.0271357.i, %327 ], [ %.0269358.i, %256 ], [ %.0267359.i, %201 ], [ %.0265360.i, %167 ], [ %.1272419.i, %.lr.ph354.i ]
   %423 = getelementptr inbounds nuw i8, ptr %.0261361.i, i64 16
   %indvars.iv.next387.i = add nuw nsw i64 %indvars.iv386.i, 1
   %exitcond390.not.i = icmp eq i64 %indvars.iv.next387.i, %wide.trip.count389.i
@@ -3149,10 +3149,10 @@ _ZN4ncnn3MatD2Ev.exit288.i:                       ; preds = %118, %117, %113, %1
 .lr.ph354.i:                                      ; preds = %.lr.ph354.i, %.lr.ph354.preheader.i
   %.0353.i = phi i32 [ %440, %.lr.ph354.i ], [ 0, %.lr.ph354.preheader.i ]
   %.0256352.i = phi ptr [ %439, %.lr.ph354.i ], [ %422, %.lr.ph354.preheader.i ]
-  %.0257351.i = phi ptr [ %435, %.lr.ph354.i ], [ %.1272396.i, %.lr.ph354.preheader.i ]
-  %.0258350.i = phi ptr [ %431, %.lr.ph354.i ], [ %.1270398.i, %.lr.ph354.preheader.i ]
-  %.0259349.i = phi ptr [ %427, %.lr.ph354.i ], [ %.1268400.i, %.lr.ph354.preheader.i ]
-  %.0260348.i = phi ptr [ %424, %.lr.ph354.i ], [ %.1266402.i, %.lr.ph354.preheader.i ]
+  %.0257351.i = phi ptr [ %435, %.lr.ph354.i ], [ %.1272419.i, %.lr.ph354.preheader.i ]
+  %.0258350.i = phi ptr [ %431, %.lr.ph354.i ], [ %.1270421.i, %.lr.ph354.preheader.i ]
+  %.0259349.i = phi ptr [ %427, %.lr.ph354.i ], [ %.1268423.i, %.lr.ph354.preheader.i ]
+  %.0260348.i = phi ptr [ %424, %.lr.ph354.i ], [ %.1266425.i, %.lr.ph354.preheader.i ]
   %424 = getelementptr inbounds nuw i8, ptr %.0260348.i, i64 4
   %425 = load float, ptr %.0260348.i, align 4, !tbaa !56
   %426 = fmul fast float %425, %418

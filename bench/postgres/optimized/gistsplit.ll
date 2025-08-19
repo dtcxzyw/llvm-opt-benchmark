@@ -219,9 +219,9 @@ index_getattr.exit.thread:                        ; preds = %72, %47, %50, %53, 
 
 118:                                              ; preds = %114, %110
   %.sink.i = phi i32 [ %112, %110 ], [ %116, %114 ]
-  %.sink19.i = phi ptr [ %111, %110 ], [ %115, %114 ]
+  %.sink20.i = phi ptr [ %111, %110 ], [ %115, %114 ]
   %119 = sext i32 %.sink.i to i64
-  %120 = getelementptr inbounds i16, ptr %.sink19.i, i64 %119
+  %120 = getelementptr inbounds i16, ptr %.sink20.i, i64 %119
   store i16 %109, ptr %120, align 2
   %121 = add nuw nsw i32 %.018.i, 1
   %exitcond.i = icmp eq i32 %.018.i, %3
@@ -557,8 +557,8 @@ gistunionsubkeyvec.exit:                          ; preds = %30, %.lr.ph.i.us, %
   %41 = getelementptr i8, ptr %40, i64 -8
   %42 = load ptr, ptr %41, align 8
   %indvars.iv.next.i25.us = add nuw nsw i64 %indvars.iv.i15.us, 1
-  %sext47 = shl i64 %indvars.iv.i15.us, 32
-  %43 = ashr exact i64 %sext47, 29
+  %sext49 = shl i64 %indvars.iv.i15.us, 32
+  %43 = ashr exact i64 %sext49, 29
   %44 = getelementptr inbounds i8, ptr %37, i64 %43
   store ptr %42, ptr %44, align 8
   %exitcond46.not = icmp eq i64 %indvars.iv.next.i25.us, %39

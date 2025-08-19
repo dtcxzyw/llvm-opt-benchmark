@@ -1037,18 +1037,18 @@ _ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_
   br i1 %.0.i.i26, label %._crit_edge.thread, label %30
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.023.lcssa41 = phi ptr [ %.02436, %._crit_edge ], [ %4, %2 ]
+  %.023.lcssa48 = phi ptr [ %.02436, %._crit_edge ], [ %4, %2 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !16
-  %27 = icmp eq ptr %.023.lcssa41, %26
+  %27 = icmp eq ptr %.023.lcssa48, %26
   br i1 %27, label %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit8.thread32, label %28
 
 28:                                               ; preds = %._crit_edge.thread
-  %29 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa41) #14
+  %29 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa48) #14
   br label %30
 
 30:                                               ; preds = %28, %._crit_edge
-  %.023.lcssa40 = phi ptr [ %.023.lcssa41, %28 ], [ %.02436, %._crit_edge ]
+  %.023.lcssa47 = phi ptr [ %.023.lcssa48, %28 ], [ %.02436, %._crit_edge ]
   %.sroa.09.0 = phi ptr [ %29, %28 ], [ %.02436, %._crit_edge ]
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.09.0, i64 32
   %32 = load ptr, ptr %31, align 8, !tbaa !19
@@ -1087,7 +1087,7 @@ _ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_
 
 _ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit8.thread32: ; preds = %38, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit8, %._crit_edge.thread, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit8.thread
   %.sroa.022.0 = phi ptr [ %.sroa.09.0, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit8.thread ], [ null, %._crit_edge.thread ], [ null, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit8 ], [ null, %38 ]
-  %.sroa.4.0 = phi ptr [ null, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit8.thread ], [ %.023.lcssa41, %._crit_edge.thread ], [ %.023.lcssa40, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit8 ], [ %.023.lcssa40, %38 ]
+  %.sroa.4.0 = phi ptr [ null, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit8.thread ], [ %.023.lcssa48, %._crit_edge.thread ], [ %.023.lcssa47, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit8 ], [ %.023.lcssa47, %38 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.022.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

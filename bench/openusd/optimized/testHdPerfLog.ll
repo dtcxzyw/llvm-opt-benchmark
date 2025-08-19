@@ -2629,8 +2629,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit152: ;
   %711 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i156, i64 8
   %712 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i155, i64 8
   %.not.i.i.i.i.i.i157 = icmp eq ptr %711, %693
-  %or.cond277 = select i1 %710, i1 true, i1 %.not.i.i.i.i.i.i157
-  br i1 %or.cond277, label %_ZStneIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit158, label %.lr.ph.i.i.i.i.i.i154, !llvm.loop !7
+  %or.cond361 = select i1 %710, i1 true, i1 %.not.i.i.i.i.i.i157
+  br i1 %or.cond361, label %_ZStneIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit158, label %.lr.ph.i.i.i.i.i.i154, !llvm.loop !7
 
 _ZStneIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit158: ; preds = %.lr.ph.i.i.i.i.i.i154, %704, %691
   %713 = phi i1 [ true, %691 ], [ false, %704 ], [ %710, %.lr.ph.i.i.i.i.i.i154 ]

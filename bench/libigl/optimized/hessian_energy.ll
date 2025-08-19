@@ -320,8 +320,8 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i.i.i.i.th
   store i8 0, ptr %84, align 8, !alias.scope !45
   %85 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 0, ptr %85, align 8
-  %.sroa.8.8..sroa_idx88 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %9, ptr %.sroa.8.8..sroa_idx88, align 8
+  %.sroa.8.8..sroa_idx110 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr %9, ptr %.sroa.8.8..sroa_idx110, align 8
   %86 = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false), !alias.scope !48
   br label %98
@@ -361,7 +361,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i.i.i: ; preds 
 
 98:                                               ; preds = %95, %_ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i.i.i.i.thread.i
   %99 = phi ptr [ %96, %95 ], [ %86, %_ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i.i.i.i.thread.i ]
-  %.sroa.9.089 = phi ptr [ %81, %95 ], [ null, %_ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i.i.i.i.thread.i ]
+  %.sroa.9.0111 = phi ptr [ %81, %95 ], [ null, %_ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i.i.i.i.thread.i ]
   %100 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %9, ptr %100, align 8, !tbaa !22, !alias.scope !48
   %101 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Eigen12SparseMatrixIdLi0EiEaSINS_7ProductINS_9TransposeIS1_EENS_14DiagonalMatrixIdLin1ELin1EEELi0EEES1_EERS1_RKNS3_IT_T0_Li2EEE(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(56) %10)
@@ -370,7 +370,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i.i.i: ; preds 
 102:                                              ; preds = %98
   %103 = load ptr, ptr %99, align 8, !tbaa !29
   call void @free(ptr noundef %103) #21
-  call void @free(ptr noundef %.sroa.9.089) #21
+  call void @free(ptr noundef %.sroa.9.0111) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %104 = load ptr, ptr %66, align 8, !tbaa !19
   call void @free(ptr noundef %104) #21
@@ -498,9 +498,9 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit46:       ; preds = %140, %144
   br label %154
 
 154:                                              ; preds = %151, %149
-  %.sroa.9.091 = phi ptr [ %.sroa.9.089, %151 ], [ %81, %149 ]
+  %.sroa.9.0113 = phi ptr [ %.sroa.9.0111, %151 ], [ %81, %149 ]
   %.pn = phi { ptr, i32 } [ %152, %151 ], [ %150, %149 ]
-  call void @free(ptr noundef %.sroa.9.091) #21
+  call void @free(ptr noundef %.sroa.9.0113) #21
   br label %155
 
 155:                                              ; preds = %154, %147
@@ -3616,7 +3616,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi1EiEEE13InnerIteratorC2ERKS
   br i1 %95, label %.lr.ph, label %._crit_edge, !llvm.loop !134
 
 ._crit_edge75:                                    ; preds = %.lr.ph74, %._crit_edge71
-  %.sroa.052.096 = phi ptr [ null, %._crit_edge71 ], [ %74, %.lr.ph74 ]
+  %.sroa.052.0106 = phi ptr [ null, %._crit_edge71 ], [ %74, %.lr.ph74 ]
   %.035.lcssa = phi i32 [ 0, %._crit_edge71 ], [ %136, %.lr.ph74 ]
   %96 = getelementptr inbounds i32, ptr %calloc, i64 %7
   store i32 %.035.lcssa, ptr %96, align 4, !tbaa !33
@@ -3675,7 +3675,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi1EiEEE13InnerIteratorC2ERKS
   %121 = getelementptr inbounds i32, ptr %104, i64 %.sroa.8.076.us
   %122 = load i32, ptr %121, align 4, !tbaa !33
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i32, ptr %.sroa.052.096, i64 %123
+  %124 = getelementptr inbounds i32, ptr %.sroa.052.0106, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !33
   %126 = add nsw i32 %125, 1
   store i32 %126, ptr %124, align 4, !tbaa !33
@@ -3746,7 +3746,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi1EiEEE13InnerIteratorC2ERKS
   %163 = load i64, ptr %161, align 8, !tbaa !77
   store i64 %163, ptr %160, align 8, !tbaa !77
   store i64 %162, ptr %161, align 8, !tbaa !77
-  call void @free(ptr noundef %.sroa.052.096) #21
+  call void @free(ptr noundef %.sroa.052.0106) #21
   call void @free(ptr noundef %140) #21
   %164 = load ptr, ptr %20, align 8, !tbaa !50
   call void @free(ptr noundef %164) #21
@@ -3774,7 +3774,7 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit:         ; preds = %168, %171
 172:                                              ; preds = %._crit_edge75
   %173 = landingpad { ptr, i32 }
           cleanup
-  call void @free(ptr noundef %.sroa.052.096) #21
+  call void @free(ptr noundef %.sroa.052.0106) #21
   br label %.body45
 
 _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi1EiEEE13InnerIteratorC2ERKS3_l.exit48: ; preds = %.lr.ph80, %._crit_edge78
@@ -3803,7 +3803,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi1EiEEE13InnerIteratorC2ERKS
   %183 = getelementptr inbounds i32, ptr %104, i64 %.sroa.8.076
   %184 = load i32, ptr %183, align 4, !tbaa !33
   %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds i32, ptr %.sroa.052.096, i64 %185
+  %186 = getelementptr inbounds i32, ptr %.sroa.052.0106, i64 %185
   %187 = load i32, ptr %186, align 4, !tbaa !33
   %188 = add nsw i32 %187, 1
   store i32 %188, ptr %186, align 4, !tbaa !33
@@ -4062,7 +4062,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
   br i1 %95, label %.lr.ph, label %._crit_edge, !llvm.loop !139
 
 ._crit_edge75:                                    ; preds = %.lr.ph74, %._crit_edge71
-  %.sroa.052.096 = phi ptr [ null, %._crit_edge71 ], [ %74, %.lr.ph74 ]
+  %.sroa.052.0106 = phi ptr [ null, %._crit_edge71 ], [ %74, %.lr.ph74 ]
   %.035.lcssa = phi i32 [ 0, %._crit_edge71 ], [ %136, %.lr.ph74 ]
   %96 = getelementptr inbounds i32, ptr %calloc, i64 %5
   store i32 %.035.lcssa, ptr %96, align 4, !tbaa !33
@@ -4121,7 +4121,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
   %121 = getelementptr inbounds i32, ptr %104, i64 %.sroa.8.076.us
   %122 = load i32, ptr %121, align 4, !tbaa !33
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i32, ptr %.sroa.052.096, i64 %123
+  %124 = getelementptr inbounds i32, ptr %.sroa.052.0106, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !33
   %126 = add nsw i32 %125, 1
   store i32 %126, ptr %124, align 4, !tbaa !33
@@ -4152,7 +4152,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
 138:                                              ; preds = %._crit_edge75
   %139 = landingpad { ptr, i32 }
           cleanup
-  call void @free(ptr noundef %.sroa.052.096) #21
+  call void @free(ptr noundef %.sroa.052.0106) #21
   br label %.body45
 
 _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS3_l.exit48: ; preds = %.lr.ph80, %._crit_edge78
@@ -4181,7 +4181,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
   %149 = getelementptr inbounds i32, ptr %104, i64 %.sroa.8.076
   %150 = load i32, ptr %149, align 4, !tbaa !33
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds i32, ptr %.sroa.052.096, i64 %151
+  %152 = getelementptr inbounds i32, ptr %.sroa.052.0106, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !33
   %154 = add nsw i32 %153, 1
   store i32 %154, ptr %152, align 4, !tbaa !33
@@ -4239,7 +4239,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
   %187 = load i64, ptr %185, align 8, !tbaa !77
   store i64 %187, ptr %184, align 8, !tbaa !77
   store i64 %186, ptr %185, align 8, !tbaa !77
-  call void @free(ptr noundef %.sroa.052.096) #21
+  call void @free(ptr noundef %.sroa.052.0106) #21
   call void @free(ptr noundef %164) #21
   %188 = load ptr, ptr %20, align 8, !tbaa !102
   call void @free(ptr noundef %188) #21

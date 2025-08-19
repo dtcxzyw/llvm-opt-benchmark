@@ -1453,20 +1453,20 @@ Vec_PtrGrow.exit.i40:                             ; preds = %70, %68
   br label %.sink.split
 
 .sink.split:                                      ; preds = %82, %Vec_PtrGrow.exit.i40, %.Vec_PtrGrow.exit11_crit_edge.i35, %60, %Vec_PtrGrow.exit.i, %.Vec_PtrGrow.exit11_crit_edge.i
-  %.sink57 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %61, %60 ], [ %50, %Vec_PtrGrow.exit.i ], [ %.pre.i37, %.Vec_PtrGrow.exit11_crit_edge.i35 ], [ %83, %82 ], [ %72, %Vec_PtrGrow.exit.i40 ]
-  %.sink55 = phi ptr [ %40, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %40, %60 ], [ %40, %Vec_PtrGrow.exit.i ], [ %34, %.Vec_PtrGrow.exit11_crit_edge.i35 ], [ %34, %82 ], [ %34, %Vec_PtrGrow.exit.i40 ]
+  %.sink64 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %61, %60 ], [ %50, %Vec_PtrGrow.exit.i ], [ %.pre.i37, %.Vec_PtrGrow.exit11_crit_edge.i35 ], [ %83, %82 ], [ %72, %Vec_PtrGrow.exit.i40 ]
+  %.sink62 = phi ptr [ %40, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %40, %60 ], [ %40, %Vec_PtrGrow.exit.i ], [ %34, %.Vec_PtrGrow.exit11_crit_edge.i35 ], [ %34, %82 ], [ %34, %Vec_PtrGrow.exit.i40 ]
   %.ph = phi i32 [ %22, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %52, %60 ], [ 16, %Vec_PtrGrow.exit.i ], [ %22, %.Vec_PtrGrow.exit11_crit_edge.i35 ], [ %74, %82 ], [ 16, %Vec_PtrGrow.exit.i40 ]
-  %.ph53 = phi i32 [ %22, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %52, %60 ], [ 16, %Vec_PtrGrow.exit.i ], [ %23, %.Vec_PtrGrow.exit11_crit_edge.i35 ], [ %74, %82 ], [ 16, %Vec_PtrGrow.exit.i40 ]
+  %.ph60 = phi i32 [ %22, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %52, %60 ], [ 16, %Vec_PtrGrow.exit.i ], [ %23, %.Vec_PtrGrow.exit11_crit_edge.i35 ], [ %74, %82 ], [ 16, %Vec_PtrGrow.exit.i40 ]
   %84 = add nsw i32 %24, 1
   store i32 %84, ptr %3, align 4, !tbaa !33
   %85 = sext i32 %24 to i64
-  %86 = getelementptr inbounds ptr, ptr %.sink57, i64 %85
-  store ptr %.sink55, ptr %86, align 8, !tbaa !42
+  %86 = getelementptr inbounds ptr, ptr %.sink64, i64 %85
+  store ptr %.sink62, ptr %86, align 8, !tbaa !42
   br label %87
 
 87:                                               ; preds = %.sink.split, %30
   %88 = phi i32 [ %22, %30 ], [ %.ph, %.sink.split ]
-  %89 = phi i32 [ %23, %30 ], [ %.ph53, %.sink.split ]
+  %89 = phi i32 [ %23, %30 ], [ %.ph60, %.sink.split ]
   %90 = phi i32 [ %24, %30 ], [ %84, %.sink.split ]
   store ptr %34, ptr %35, align 8, !tbaa !49
   %.pre = load ptr, ptr %17, align 8, !tbaa !40
@@ -3995,7 +3995,7 @@ define internal fastcc void @Abc_FlowRetime_SimulateSop(ptr noundef readonly cap
   br label %21
 
 21:                                               ; preds = %12, %20
-  %.sink64 = phi i16 [ 6, %20 ], [ 5, %12 ]
+  %.sink65 = phi i16 [ 6, %20 ], [ 5, %12 ]
   %22 = load ptr, ptr %7, align 8, !tbaa !47
   %23 = getelementptr i8, ptr %19, i64 16
   %.val51 = load i32, ptr %23, align 8, !tbaa !48
@@ -4007,7 +4007,7 @@ define internal fastcc void @Abc_FlowRetime_SimulateSop(ptr noundef readonly cap
   br i1 %.not49, label %31, label %28
 
 28:                                               ; preds = %21
-  %29 = lshr i16 %26, %.sink64
+  %29 = lshr i16 %26, %.sink65
   %.032.in = and i16 %29, 1
   %.032 = zext nneg i16 %.032.in to i32
   %30 = and i32 %.036, %.032

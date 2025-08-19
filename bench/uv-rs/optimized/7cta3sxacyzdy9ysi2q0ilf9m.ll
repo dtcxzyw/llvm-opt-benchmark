@@ -1966,8 +1966,8 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %.sroa.0.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %35, i64 0
   %.sroa.0.15.vec.insert.i.i.i = shufflevector <16 x i8> %.sroa.0.0.vec.insert.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %36 = load i64, ptr %6, align 8, !range !168, !alias.scope !321, !noalias !331
-  %.fr21.i = freeze i64 %36
-  %37 = icmp eq i64 %.fr21.i, -9223372036854775808
+  %.fr22.i = freeze i64 %36
+  %37 = icmp eq i64 %.fr22.i, -9223372036854775808
   br i1 %37, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hf60cbbfedc9e9f54E.exit.split.us.i", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hf60cbbfedc9e9f54E.exit.split.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hf60cbbfedc9e9f54E.exit.split.us.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hf60cbbfedc9e9f54E.exit.i", %53
@@ -2006,7 +2006,7 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %50 = icmp eq <16 x i8> %.sroa.0.0.copyload.i21.i.us.i, splat (i8 -1)
   %51 = bitcast <16 x i1> %50 to i16
   %52 = icmp eq i16 %51, 0
-  br i1 %52, label %53, label %.split17.us.i, !prof !329
+  br i1 %52, label %53, label %.split18.us.i, !prof !329
 
 53:                                               ; preds = %49
   %54 = add i64 %.sroa.8.0.i.us.i, 16
@@ -2112,24 +2112,24 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %101 = icmp eq <16 x i8> %.sroa.0.0.copyload.i21.i.i, splat (i8 -1)
   %102 = bitcast <16 x i1> %101 to i16
   %103 = icmp eq i16 %102, 0
-  br i1 %103, label %104, label %.split17.us.i, !prof !329
+  br i1 %103, label %104, label %.split18.us.i, !prof !329
 
 104:                                              ; preds = %100
   %105 = add i64 %.sroa.8.0.i.i, 16
   %106 = add i64 %.sroa.0.020.i.i, %105
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hf60cbbfedc9e9f54E.exit.split.i"
 
-.split17.us.i:                                    ; preds = %100, %49
-  %.us-phi18.i = phi i64 [ %.sroa.6.1.i.us.i, %49 ], [ %.sroa.6.1.i.i, %100 ]
-  %.us-phi19.i = phi i64 [ %.sroa.01.1.i.us.i, %49 ], [ %.sroa.01.1.i.i, %100 ]
-  %cond.i.i = icmp ne i64 %.us-phi19.i, 0
+.split18.us.i:                                    ; preds = %100, %49
+  %.us-phi19.i = phi i64 [ %.sroa.6.1.i.us.i, %49 ], [ %.sroa.6.1.i.i, %100 ]
+  %.us-phi20.i = phi i64 [ %.sroa.01.1.i.us.i, %49 ], [ %.sroa.01.1.i.i, %100 ]
+  %cond.i.i = icmp ne i64 %.us-phi20.i, 0
   call void @llvm.assume(i1 %cond.i.i)
-  %107 = getelementptr inbounds i8, ptr %.val.i, i64 %.us-phi18.i
+  %107 = getelementptr inbounds i8, ptr %.val.i, i64 %.us-phi19.i
   %108 = load i8, ptr %107, align 1, !noundef !7
   %109 = icmp sgt i8 %108, -1
   br i1 %109, label %110, label %122, !prof !329
 
-110:                                              ; preds = %.split17.us.i
+110:                                              ; preds = %.split18.us.i
   %111 = load <16 x i8>, ptr %.val.i, align 16, !noalias !356
   %112 = icmp slt <16 x i8> %111, zeroinitializer
   %113 = bitcast <16 x i1> %112 to i16
@@ -2153,8 +2153,8 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %.sroa.0.0 = phi ptr [ %120, %.loopexit17 ], [ null, %122 ]
   ret ptr %.sroa.0.0
 
-122:                                              ; preds = %.split17.us.i, %110
-  %.sroa.3.0.i.ph.i = phi i64 [ %.us-phi18.i, %.split17.us.i ], [ %116, %110 ]
+122:                                              ; preds = %.split18.us.i, %110
+  %.sroa.3.0.i.ph.i = phi i64 [ %.us-phi19.i, %.split18.us.i ], [ %116, %110 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.014)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.014, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !359)

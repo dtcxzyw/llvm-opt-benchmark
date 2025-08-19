@@ -317,11 +317,11 @@ define hidden void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_
   %spec.select.i18 = select i1 %or.cond.i17, i32 %1, i32 -1
   %or.cond.i15 = icmp ult i32 %2, 32
   %spec.select.i16 = select i1 %or.cond.i15, i32 %2, i32 -1
-  %.sink27 = select i1 %.not14, i32 -1, i32 %spec.select.i16
+  %.sink28 = select i1 %.not14, i32 -1, i32 %spec.select.i16
   %.sink = select i1 %.not14, i32 -1, i32 %3
   store i32 %spec.select.i18, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink27, ptr %17, align 4
+  store i32 %.sink28, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1016,7 +1016,7 @@ define hidden noundef zeroext i1 @_ZN9Assembler26query_compressed_disp_byteEibii
 20:                                               ; preds = %10
   %switch.tableidx = add i32 %4, -1
   %21 = icmp ult i32 %switch.tableidx, 3
-  %spec.select34 = select i1 %21, i32 %4, i32 0
+  %spec.select35 = select i1 %21, i32 %4, i32 0
   br label %switch.lookup
 
 22:                                               ; preds = %10, %10, %10
@@ -1025,7 +1025,7 @@ define hidden noundef zeroext i1 @_ZN9Assembler26query_compressed_disp_byteEibii
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %20, %10, %13, %16, %22, %18
-  %.028 = phi i32 [ 0, %10 ], [ %15, %13 ], [ %.lobit32, %16 ], [ %.lobit, %18 ], [ %24, %22 ], [ %spec.select34, %20 ]
+  %.028 = phi i32 [ 0, %10 ], [ %15, %13 ], [ %.lobit32, %16 ], [ %.lobit, %18 ], [ %24, %22 ], [ %spec.select35, %20 ]
   %or.cond3 = icmp ult i32 %2, 3
   br i1 %or.cond3, label %25, label %38
 
@@ -1811,12 +1811,12 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
     i8 77, label %thread-pre-split.backedge
     i8 78, label %thread-pre-split.backedge
     i8 79, label %thread-pre-split.backedge
-    i8 -1, label %.loopexit.loopexit309
-    i8 -120, label %.loopexit.loopexit309
-    i8 -119, label %.loopexit.loopexit309
-    i8 -118, label %.loopexit.loopexit309
-    i8 -117, label %.loopexit.loopexit309
-    i8 -113, label %.loopexit.loopexit309
+    i8 -1, label %.loopexit.loopexit310
+    i8 -120, label %.loopexit.loopexit310
+    i8 -119, label %.loopexit.loopexit310
+    i8 -118, label %.loopexit.loopexit310
+    i8 -117, label %.loopexit.loopexit310
+    i8 -113, label %.loopexit.loopexit310
     i8 104, label %9
     i8 102, label %.outer
     i8 -72, label %21
@@ -1827,10 +1827,10 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
     i8 -67, label %21
     i8 -66, label %21
     i8 -65, label %21
-    i8 105, label %.loopexit.loopexit381
-    i8 -57, label %.loopexit.loopexit381
+    i8 105, label %.loopexit.loopexit382
+    i8 -57, label %.loopexit.loopexit382
     i8 15, label %26
-    i8 -127, label %.loopexit.loopexit381
+    i8 -127, label %.loopexit.loopexit382
     i8 -125, label %.loopexit
     i8 21, label %40
     i8 5, label %40
@@ -1841,42 +1841,42 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
     i8 45, label %40
     i8 53, label %40
     i8 -101, label %44
-    i8 0, label %.loopexit.loopexit309
-    i8 1, label %.loopexit.loopexit309
-    i8 2, label %.loopexit.loopexit309
-    i8 3, label %.loopexit.loopexit309
-    i8 16, label %.loopexit.loopexit309
-    i8 17, label %.loopexit.loopexit309
-    i8 18, label %.loopexit.loopexit309
-    i8 19, label %.loopexit.loopexit309
-    i8 32, label %.loopexit.loopexit309
-    i8 33, label %.loopexit.loopexit309
-    i8 34, label %.loopexit.loopexit309
-    i8 35, label %.loopexit.loopexit309
-    i8 48, label %.loopexit.loopexit309
-    i8 49, label %.loopexit.loopexit309
-    i8 50, label %.loopexit.loopexit309
-    i8 51, label %.loopexit.loopexit309
-    i8 8, label %.loopexit.loopexit309
-    i8 9, label %.loopexit.loopexit309
-    i8 10, label %.loopexit.loopexit309
-    i8 11, label %.loopexit.loopexit309
-    i8 24, label %.loopexit.loopexit309
-    i8 25, label %.loopexit.loopexit309
-    i8 26, label %.loopexit.loopexit309
-    i8 27, label %.loopexit.loopexit309
-    i8 40, label %.loopexit.loopexit309
-    i8 41, label %.loopexit.loopexit309
-    i8 42, label %.loopexit.loopexit309
-    i8 43, label %.loopexit.loopexit309
-    i8 -9, label %.loopexit.loopexit309
-    i8 -115, label %.loopexit.loopexit309
-    i8 -121, label %.loopexit.loopexit309
-    i8 56, label %.loopexit.loopexit309
-    i8 57, label %.loopexit.loopexit309
-    i8 58, label %.loopexit.loopexit309
-    i8 59, label %.loopexit.loopexit309
-    i8 -123, label %.loopexit.loopexit309
+    i8 0, label %.loopexit.loopexit310
+    i8 1, label %.loopexit.loopexit310
+    i8 2, label %.loopexit.loopexit310
+    i8 3, label %.loopexit.loopexit310
+    i8 16, label %.loopexit.loopexit310
+    i8 17, label %.loopexit.loopexit310
+    i8 18, label %.loopexit.loopexit310
+    i8 19, label %.loopexit.loopexit310
+    i8 32, label %.loopexit.loopexit310
+    i8 33, label %.loopexit.loopexit310
+    i8 34, label %.loopexit.loopexit310
+    i8 35, label %.loopexit.loopexit310
+    i8 48, label %.loopexit.loopexit310
+    i8 49, label %.loopexit.loopexit310
+    i8 50, label %.loopexit.loopexit310
+    i8 51, label %.loopexit.loopexit310
+    i8 8, label %.loopexit.loopexit310
+    i8 9, label %.loopexit.loopexit310
+    i8 10, label %.loopexit.loopexit310
+    i8 11, label %.loopexit.loopexit310
+    i8 24, label %.loopexit.loopexit310
+    i8 25, label %.loopexit.loopexit310
+    i8 26, label %.loopexit.loopexit310
+    i8 27, label %.loopexit.loopexit310
+    i8 40, label %.loopexit.loopexit310
+    i8 41, label %.loopexit.loopexit310
+    i8 42, label %.loopexit.loopexit310
+    i8 43, label %.loopexit.loopexit310
+    i8 -9, label %.loopexit.loopexit310
+    i8 -115, label %.loopexit.loopexit310
+    i8 -121, label %.loopexit.loopexit310
+    i8 56, label %.loopexit.loopexit310
+    i8 57, label %.loopexit.loopexit310
+    i8 58, label %.loopexit.loopexit310
+    i8 59, label %.loopexit.loopexit310
+    i8 -123, label %.loopexit.loopexit310
     i8 -88, label %49
     i8 -87, label %53
     i8 -63, label %.loopexit
@@ -1886,15 +1886,15 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
     i8 -60, label %57
     i8 -59, label %57
     i8 98, label %72
-    i8 -47, label %.loopexit.loopexit309
-    i8 -45, label %.loopexit.loopexit309
-    i8 -39, label %.loopexit.loopexit309
-    i8 -35, label %.loopexit.loopexit309
-    i8 -37, label %.loopexit.loopexit309
-    i8 -33, label %.loopexit.loopexit309
-    i8 -40, label %.loopexit.loopexit309
-    i8 -36, label %.loopexit.loopexit309
-    i8 -34, label %.loopexit.loopexit309
+    i8 -47, label %.loopexit.loopexit310
+    i8 -45, label %.loopexit.loopexit310
+    i8 -39, label %.loopexit.loopexit310
+    i8 -35, label %.loopexit.loopexit310
+    i8 -37, label %.loopexit.loopexit310
+    i8 -33, label %.loopexit.loopexit310
+    i8 -40, label %.loopexit.loopexit310
+    i8 -36, label %.loopexit.loopexit310
+    i8 -34, label %.loopexit.loopexit310
     i8 -24, label %78
     i8 -23, label %78
     i8 -16, label %thread-pre-split.backedge.loopexit
@@ -2233,18 +2233,18 @@ thread-pre-split.backedge:                        ; preds = %.loopexit89, %.loop
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 1206) #19
   unreachable
 
-.loopexit.loopexit309:                            ; preds = %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89
+.loopexit.loopexit310:                            ; preds = %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %12, %12
   br label %.loopexit
 
-.loopexit.loopexit381:                            ; preds = %.loopexit89, %.loopexit89, %.loopexit89
+.loopexit.loopexit382:                            ; preds = %.loopexit89, %.loopexit89, %.loopexit89
   br label %.loopexit
 
-.loopexit:                                        ; preds = %12, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit.loopexit381, %.loopexit.loopexit, %.loopexit.loopexit309, %44, %30, %32, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %84, %76, %69
-  %.075 = phi i64 [ %.176, %30 ], [ 1, %32 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %44 ], [ %.277, %69 ], [ %.378, %76 ], [ 0, %84 ], [ 0, %.loopexit.loopexit309 ], [ 0, %.loopexit.loopexit ], [ 4, %.loopexit.loopexit381 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 2, %12 ]
-  %.1 = phi ptr [ %31, %30 ], [ %27, %32 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %45, %44 ], [ %71, %69 ], [ %77, %76 ], [ %87, %84 ], [ %4, %.loopexit.loopexit309 ], [ %13, %.loopexit.loopexit ], [ %4, %.loopexit.loopexit381 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %13, %12 ]
+.loopexit:                                        ; preds = %12, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit.loopexit382, %.loopexit.loopexit, %.loopexit.loopexit310, %44, %30, %32, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %84, %76, %69
+  %.075 = phi i64 [ %.176, %30 ], [ 1, %32 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %44 ], [ %.277, %69 ], [ %.378, %76 ], [ 0, %84 ], [ 0, %.loopexit.loopexit310 ], [ 0, %.loopexit.loopexit ], [ 4, %.loopexit.loopexit382 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 2, %12 ]
+  %.1 = phi ptr [ %31, %30 ], [ %27, %32 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %45, %44 ], [ %71, %69 ], [ %77, %76 ], [ %87, %84 ], [ %4, %.loopexit.loopexit310 ], [ %13, %.loopexit.loopexit ], [ %4, %.loopexit.loopexit382 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %13, %12 ]
   %90 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %91 = load i8, ptr %.1, align 1
   %92 = zext i8 %91 to i32
@@ -2922,13 +2922,13 @@ _ZN9Assembler11prefix_rex2E7Address8Registerbb.exit: ; preds = %30, %42
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN9Assembler11prefix_rex2E7Address8Registerbb.exit, %112
-  %.sink12.in = phi ptr [ %113, %112 ], [ %63, %_ZN9Assembler11prefix_rex2E7Address8Registerbb.exit ]
-  %.sink9 = phi i8 [ 15, %112 ], [ %68, %_ZN9Assembler11prefix_rex2E7Address8Registerbb.exit ]
-  %.sink12 = load ptr, ptr %.sink12.in, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
+  %.sink13.in = phi ptr [ %113, %112 ], [ %63, %_ZN9Assembler11prefix_rex2E7Address8Registerbb.exit ]
+  %.sink10 = phi i8 [ 15, %112 ], [ %68, %_ZN9Assembler11prefix_rex2E7Address8Registerbb.exit ]
+  %.sink13 = load ptr, ptr %.sink13.in, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %.sink13, i64 16
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 1
-  store i8 %.sink9, ptr %115, align 1
+  store i8 %.sink10, ptr %115, align 1
   store ptr %116, ptr %114, align 8
   br label %117
 
@@ -7082,14 +7082,14 @@ define hidden void @_ZN9Assembler4bsflE8RegisterS0_(ptr noundef nonnull readonly
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %57 = add nsw i32 %13, -8
   %spec.select.i = select i1 %51, i8 68, i8 69
-  %spec.select3.i = select i1 %51, i32 %13, i32 %57
+  %spec.select4.i = select i1 %51, i32 %13, i32 %57
   store i8 %spec.select.i, ptr %55, align 1
   store ptr %56, ptr %54, align 8
   %58 = add nsw i32 %8, -8
   br label %59
 
 59:                                               ; preds = %50, %43, %41
-  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select3.i, %50 ], [ %13, %41 ]
+  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select4.i, %50 ], [ %13, %41 ]
   %.025.i.i = phi i32 [ %8, %43 ], [ %58, %50 ], [ %8, %41 ]
   %60 = shl i32 %.025.i.i, 3
   %61 = or i32 %.026.i.i, %60
@@ -7215,14 +7215,14 @@ define hidden void @_ZN9Assembler4bsrlE8RegisterS0_(ptr noundef nonnull readonly
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %57 = add nsw i32 %13, -8
   %spec.select.i = select i1 %51, i8 68, i8 69
-  %spec.select3.i = select i1 %51, i32 %13, i32 %57
+  %spec.select4.i = select i1 %51, i32 %13, i32 %57
   store i8 %spec.select.i, ptr %55, align 1
   store ptr %56, ptr %54, align 8
   %58 = add nsw i32 %8, -8
   br label %59
 
 59:                                               ; preds = %50, %43, %41
-  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select3.i, %50 ], [ %13, %41 ]
+  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select4.i, %50 ], [ %13, %41 ]
   %.025.i.i = phi i32 [ %8, %43 ], [ %58, %50 ], [ %8, %41 ]
   %60 = shl i32 %.025.i.i, 3
   %61 = or i32 %.026.i.i, %60
@@ -8289,14 +8289,14 @@ define hidden void @_ZN9Assembler5cmovlENS_9ConditionE8RegisterS1_(ptr noundef n
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %58 = add nsw i32 %14, -8
   %spec.select.i = select i1 %52, i8 68, i8 69
-  %spec.select3.i = select i1 %52, i32 %14, i32 %58
+  %spec.select4.i = select i1 %52, i32 %14, i32 %58
   store i8 %spec.select.i, ptr %56, align 1
   store ptr %57, ptr %55, align 8
   %59 = add nsw i32 %9, -8
   br label %60
 
 60:                                               ; preds = %51, %44, %42
-  %.026.i.i = phi i32 [ %50, %44 ], [ %spec.select3.i, %51 ], [ %14, %42 ]
+  %.026.i.i = phi i32 [ %50, %44 ], [ %spec.select4.i, %51 ], [ %14, %42 ]
   %.025.i.i = phi i32 [ %9, %44 ], [ %59, %51 ], [ %9, %42 ]
   %61 = shl i32 %.025.i.i, 3
   %62 = or i32 %.026.i.i, %61
@@ -9900,9 +9900,9 @@ _ZN9Assembler11needs_eevexE8RegisterS0_S0_.exit:  ; preds = %12
 
 .sink.split.i:                                    ; preds = %77, %._crit_edge.i
   %.1.sink.i = phi i32 [ %72, %._crit_edge.i ], [ %.1.i, %77 ]
-  %.sink16.i = load ptr, ptr %56, align 8
+  %.sink17.i = load ptr, ptr %56, align 8
   %82 = trunc nuw nsw i32 %.1.sink.i to i8
-  %83 = getelementptr inbounds nuw i8, ptr %.sink16.i, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.sink17.i, i64 16
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 1
   store i8 %82, ptr %84, align 1
@@ -10002,10 +10002,10 @@ define hidden void @_ZN9Assembler6prefixE8RegisterS0_NS_6PrefixE(ptr noundef non
 
 .sink.split:                                      ; preds = %._crit_edge, %46
   %.1.sink = phi i32 [ %.1, %46 ], [ %35, %._crit_edge ]
-  %.sink16.in = phi ptr [ %47, %46 ], [ %36, %._crit_edge ]
-  %.sink16 = load ptr, ptr %.sink16.in, align 8
+  %.sink17.in = phi ptr [ %47, %46 ], [ %36, %._crit_edge ]
+  %.sink17 = load ptr, ptr %.sink17.in, align 8
   %48 = trunc i32 %.1.sink to i8
-  %49 = getelementptr inbounds nuw i8, ptr %.sink16, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
   store i8 %48, ptr %50, align 1
@@ -14893,14 +14893,14 @@ define hidden void @_ZN9Assembler5imullE8RegisterS0_(ptr noundef nonnull readonl
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %57 = add nsw i32 %13, -8
   %spec.select.i = select i1 %51, i8 68, i8 69
-  %spec.select3.i = select i1 %51, i32 %13, i32 %57
+  %spec.select4.i = select i1 %51, i32 %13, i32 %57
   store i8 %spec.select.i, ptr %55, align 1
   store ptr %56, ptr %54, align 8
   %58 = add nsw i32 %8, -8
   br label %59
 
 59:                                               ; preds = %50, %43, %41
-  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select3.i, %50 ], [ %13, %41 ]
+  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select4.i, %50 ], [ %13, %41 ]
   %.025.i.i = phi i32 [ %8, %43 ], [ %58, %50 ], [ %8, %41 ]
   %60 = shl i32 %.025.i.i, 3
   %61 = or i32 %.026.i.i, %60
@@ -15136,14 +15136,14 @@ define hidden void @_ZN9Assembler5imullE8RegisterS0_i(ptr noundef nonnull readon
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %57 = add nsw i32 %14, -8
   %spec.select.i = select i1 %51, i8 68, i8 69
-  %spec.select3.i = select i1 %51, i32 %14, i32 %57
+  %spec.select4.i = select i1 %51, i32 %14, i32 %57
   store i8 %spec.select.i, ptr %55, align 1
   store ptr %56, ptr %54, align 8
   %58 = add nsw i32 %9, -8
   br label %59
 
 59:                                               ; preds = %50, %43, %41
-  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select3.i, %50 ], [ %14, %41 ]
+  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select4.i, %50 ], [ %14, %41 ]
   %.025.i.i = phi i32 [ %9, %43 ], [ %58, %50 ], [ %9, %41 ]
   %60 = shl i32 %.025.i.i, 3
   %61 = or i32 %60, %.026.i.i
@@ -16096,14 +16096,14 @@ define hidden void @_ZN9Assembler6lzcntlE8RegisterS0_(ptr noundef nonnull readon
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %59 = add nsw i32 %18, -8
   %spec.select.i = select i1 %54, i8 68, i8 69
-  %spec.select3.i = select i1 %54, i32 %18, i32 %59
+  %spec.select4.i = select i1 %54, i32 %18, i32 %59
   store i8 %spec.select.i, ptr %57, align 1
   store ptr %58, ptr %56, align 8
   %60 = add nsw i32 %13, -8
   br label %61
 
 61:                                               ; preds = %53, %47, %45
-  %.026.i.i = phi i32 [ %52, %47 ], [ %spec.select3.i, %53 ], [ %18, %45 ]
+  %.026.i.i = phi i32 [ %52, %47 ], [ %spec.select4.i, %53 ], [ %18, %45 ]
   %.025.i.i = phi i32 [ %13, %47 ], [ %60, %53 ], [ %13, %45 ]
   %62 = shl i32 %.025.i.i, 3
   %63 = or i32 %.026.i.i, %62
@@ -16323,14 +16323,14 @@ define hidden void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull readonly 
 51:                                               ; preds = %39
   %52 = add nsw i32 %13, -8
   %spec.select.i = select i1 %41, i8 76, i8 77
-  %spec.select2.i = select i1 %41, i32 %13, i32 %52
+  %spec.select3.i = select i1 %41, i32 %13, i32 %52
   store i8 %spec.select.i, ptr %45, align 1
   store ptr %46, ptr %44, align 8
   %53 = add nsw i32 %8, -8
   br label %54
 
 54:                                               ; preds = %51, %49, %48
-  %.018.i.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select2.i, %51 ]
+  %.018.i.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select3.i, %51 ]
   %.017.i.i = phi i32 [ %8, %48 ], [ %8, %49 ], [ %53, %51 ]
   %55 = shl i32 %.017.i.i, 3
   %56 = or i32 %55, %.018.i.i
@@ -16428,14 +16428,14 @@ define hidden void @_ZN9Assembler4movqE8RegisterS0_(ptr noundef nonnull readonly
 51:                                               ; preds = %39
   %52 = add nsw i32 %13, -8
   %spec.select = select i1 %41, i8 76, i8 77
-  %spec.select2 = select i1 %41, i32 %13, i32 %52
+  %spec.select3 = select i1 %41, i32 %13, i32 %52
   store i8 %spec.select, ptr %45, align 1
   store ptr %46, ptr %44, align 8
   %53 = add nsw i32 %8, -8
   br label %54
 
 54:                                               ; preds = %51, %49, %48
-  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select2, %51 ]
+  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select3, %51 ]
   %.017.i = phi i32 [ %8, %48 ], [ %8, %49 ], [ %53, %51 ]
   %55 = shl i32 %.017.i, 3
   %56 = or i32 %55, %.018.i
@@ -24608,14 +24608,14 @@ define hidden void @_ZN9Assembler4movlE8RegisterS0_(ptr noundef nonnull readonly
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %56 = add nsw i32 %13, -8
   %spec.select.i = select i1 %50, i8 68, i8 69
-  %spec.select3.i = select i1 %50, i32 %13, i32 %56
+  %spec.select4.i = select i1 %50, i32 %13, i32 %56
   store i8 %spec.select.i, ptr %54, align 1
   store ptr %55, ptr %53, align 8
   %57 = add nsw i32 %8, -8
   br label %58
 
 58:                                               ; preds = %49, %42, %40
-  %.026.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i, %49 ], [ %13, %40 ]
+  %.026.i.i = phi i32 [ %48, %42 ], [ %spec.select4.i, %49 ], [ %13, %40 ]
   %.025.i.i = phi i32 [ %8, %42 ], [ %57, %49 ], [ %8, %40 ]
   %59 = shl i32 %.025.i.i, 3
   %60 = or i32 %59, %.026.i.i
@@ -25591,14 +25591,14 @@ define hidden void @_ZN9Assembler6movsblE8RegisterS0_(ptr noundef nonnull readon
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 1
   %65 = add nsw i32 %13, -8
   %spec.select = select i1 %59, i8 68, i8 69
-  %spec.select2 = select i1 %59, i32 %13, i32 %65
+  %spec.select3 = select i1 %59, i32 %13, i32 %65
   store i8 %spec.select, ptr %63, align 1
   store ptr %64, ptr %62, align 8
   %66 = add nsw i32 %8, -8
   br label %67
 
 67:                                               ; preds = %58, %52, %50, %43
-  %.026.i = phi i32 [ %49, %43 ], [ %13, %52 ], [ %spec.select2, %58 ], [ %13, %50 ]
+  %.026.i = phi i32 [ %49, %43 ], [ %13, %52 ], [ %spec.select3, %58 ], [ %13, %50 ]
   %.025.i = phi i32 [ %8, %43 ], [ %8, %52 ], [ %66, %58 ], [ %8, %50 ]
   %68 = shl i32 %.025.i, 3
   %69 = or i32 %.026.i, %68
@@ -26633,14 +26633,14 @@ define hidden void @_ZN9Assembler6movswlE8RegisterS0_(ptr noundef nonnull readon
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %57 = add nsw i32 %13, -8
   %spec.select.i = select i1 %51, i8 68, i8 69
-  %spec.select3.i = select i1 %51, i32 %13, i32 %57
+  %spec.select4.i = select i1 %51, i32 %13, i32 %57
   store i8 %spec.select.i, ptr %55, align 1
   store ptr %56, ptr %54, align 8
   %58 = add nsw i32 %8, -8
   br label %59
 
 59:                                               ; preds = %50, %43, %41
-  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select3.i, %50 ], [ %13, %41 ]
+  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select4.i, %50 ], [ %13, %41 ]
   %.025.i.i = phi i32 [ %8, %43 ], [ %58, %50 ], [ %8, %41 ]
   %60 = shl i32 %.025.i.i, 3
   %61 = or i32 %.026.i.i, %60
@@ -27513,14 +27513,14 @@ define hidden void @_ZN9Assembler6movzblE8RegisterS0_(ptr noundef nonnull readon
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 1
   %65 = add nsw i32 %13, -8
   %spec.select = select i1 %59, i8 68, i8 69
-  %spec.select2 = select i1 %59, i32 %13, i32 %65
+  %spec.select3 = select i1 %59, i32 %13, i32 %65
   store i8 %spec.select, ptr %63, align 1
   store ptr %64, ptr %62, align 8
   %66 = add nsw i32 %8, -8
   br label %67
 
 67:                                               ; preds = %58, %52, %50, %43
-  %.026.i = phi i32 [ %49, %43 ], [ %13, %52 ], [ %spec.select2, %58 ], [ %13, %50 ]
+  %.026.i = phi i32 [ %49, %43 ], [ %13, %52 ], [ %spec.select3, %58 ], [ %13, %50 ]
   %.025.i = phi i32 [ %8, %43 ], [ %8, %52 ], [ %66, %58 ], [ %8, %50 ]
   %68 = shl i32 %.025.i, 3
   %69 = or i32 %.026.i, %68
@@ -27705,14 +27705,14 @@ define hidden void @_ZN9Assembler6movzwlE8RegisterS0_(ptr noundef nonnull readon
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %57 = add nsw i32 %13, -8
   %spec.select.i = select i1 %51, i8 68, i8 69
-  %spec.select3.i = select i1 %51, i32 %13, i32 %57
+  %spec.select4.i = select i1 %51, i32 %13, i32 %57
   store i8 %spec.select.i, ptr %55, align 1
   store ptr %56, ptr %54, align 8
   %58 = add nsw i32 %8, -8
   br label %59
 
 59:                                               ; preds = %50, %43, %41
-  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select3.i, %50 ], [ %13, %41 ]
+  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select4.i, %50 ], [ %13, %41 ]
   %.025.i.i = phi i32 [ %8, %43 ], [ %58, %50 ], [ %8, %41 ]
   %60 = shl i32 %.025.i.i, 3
   %61 = or i32 %.026.i.i, %60
@@ -28857,10 +28857,10 @@ define hidden void @_ZN9Assembler3nopEj(ptr noundef nonnull readonly align 8 der
   br label %289
 
 .sink.split:                                      ; preds = %204, %214
-  %.sink61.in = phi ptr [ %216, %214 ], [ %206, %204 ]
+  %.sink70.in = phi ptr [ %216, %214 ], [ %206, %204 ]
   %.5.ph = phi i32 [ %215, %214 ], [ %205, %204 ]
-  %.sink61 = load ptr, ptr %.sink61.in, align 8
-  %239 = getelementptr inbounds nuw i8, ptr %.sink61, i64 16
+  %.sink70 = load ptr, ptr %.sink70.in, align 8
+  %239 = getelementptr inbounds nuw i8, ptr %.sink70, i64 16
   %240 = load ptr, ptr %239, align 8
   store i32 0, ptr %240, align 1
   %241 = load ptr, ptr %239, align 8
@@ -29348,8 +29348,8 @@ define hidden void @_ZN9Assembler3nopEj(ptr noundef nonnull readonly align 8 der
   br i1 %502, label %._crit_edge43.thread, label %517
 
 ._crit_edge43.thread:                             ; preds = %492, %._crit_edge43
-  %.7.lcssa53 = phi i32 [ %1, %._crit_edge43 ], [ %493, %492 ]
-  %.not = icmp eq i32 %.7.lcssa53, 9
+  %.7.lcssa62 = phi i32 [ %1, %._crit_edge43 ], [ %493, %492 ]
+  %.not = icmp eq i32 %.7.lcssa62, 9
   br i1 %.not, label %.thread30, label %503
 
 503:                                              ; preds = %._crit_edge43.thread
@@ -29360,7 +29360,7 @@ define hidden void @_ZN9Assembler3nopEj(ptr noundef nonnull readonly align 8 der
   %508 = getelementptr inbounds nuw i8, ptr %507, i64 1
   store i8 102, ptr %507, align 1
   store ptr %508, ptr %506, align 8
-  %509 = add nsw i32 %.7.lcssa53, -4
+  %509 = add nsw i32 %.7.lcssa62, -4
   br label %.thread30
 
 .thread30:                                        ; preds = %._crit_edge43.thread, %503
@@ -41326,14 +41326,14 @@ define hidden void @_ZN9Assembler7popcntlE8RegisterS0_(ptr noundef nonnull reado
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %59 = add nsw i32 %18, -8
   %spec.select.i = select i1 %54, i8 68, i8 69
-  %spec.select3.i = select i1 %54, i32 %18, i32 %59
+  %spec.select4.i = select i1 %54, i32 %18, i32 %59
   store i8 %spec.select.i, ptr %57, align 1
   store ptr %58, ptr %56, align 8
   %60 = add nsw i32 %13, -8
   br label %61
 
 61:                                               ; preds = %53, %47, %45
-  %.026.i.i = phi i32 [ %52, %47 ], [ %spec.select3.i, %53 ], [ %18, %45 ]
+  %.026.i.i = phi i32 [ %52, %47 ], [ %spec.select4.i, %53 ], [ %18, %45 ]
   %.025.i.i = phi i32 [ %13, %47 ], [ %60, %53 ], [ %13, %45 ]
   %62 = shl i32 %.025.i.i, 3
   %63 = or i32 %.026.i.i, %62
@@ -48767,14 +48767,14 @@ define hidden void @_ZN9Assembler9sha1rnds4E11XMMRegisterS0_i(ptr noundef nonnul
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %57 = add nsw i32 %14, -8
   %spec.select.i.i = select i1 %51, i8 68, i8 69
-  %spec.select3.i.i = select i1 %51, i32 %14, i32 %57
+  %spec.select4.i.i = select i1 %51, i32 %14, i32 %57
   store i8 %spec.select.i.i, ptr %55, align 1
   store ptr %56, ptr %54, align 8
   %58 = add nsw i32 %9, -8
   br label %59
 
 59:                                               ; preds = %50, %43, %41
-  %.026.i.i.i = phi i32 [ %49, %43 ], [ %spec.select3.i.i, %50 ], [ %14, %41 ]
+  %.026.i.i.i = phi i32 [ %49, %43 ], [ %spec.select4.i.i, %50 ], [ %14, %41 ]
   %.025.i.i.i = phi i32 [ %9, %43 ], [ %58, %50 ], [ %9, %41 ]
   %60 = shl i32 %.025.i.i.i, 3
   %61 = or i32 %60, %.026.i.i.i
@@ -48898,14 +48898,14 @@ define hidden noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPr
 57:                                               ; preds = %45
   %58 = add nsw i32 %2, -8
   %spec.select = select i1 %47, i8 76, i8 77
-  %spec.select17 = select i1 %47, i32 %2, i32 %58
+  %spec.select20 = select i1 %47, i32 %2, i32 %58
   store i8 %spec.select, ptr %51, align 1
   store ptr %52, ptr %50, align 8
   %59 = add nsw i32 %1, -8
   br label %60
 
 60:                                               ; preds = %57, %55, %54
-  %.018.i = phi i32 [ %2, %54 ], [ %56, %55 ], [ %spec.select17, %57 ]
+  %.018.i = phi i32 [ %2, %54 ], [ %56, %55 ], [ %spec.select20, %57 ]
   %.017.i = phi i32 [ %1, %54 ], [ %1, %55 ], [ %59, %57 ]
   %61 = shl i32 %.017.i, 3
   %62 = or i32 %61, %.018.i
@@ -48976,14 +48976,14 @@ define hidden noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPr
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 1
   %106 = add nsw i32 %2, -8
   %spec.select.i = select i1 %100, i8 68, i8 69
-  %spec.select3.i = select i1 %100, i32 %2, i32 %106
+  %spec.select4.i = select i1 %100, i32 %2, i32 %106
   store i8 %spec.select.i, ptr %104, align 1
   store ptr %105, ptr %103, align 8
   %107 = add nsw i32 %1, -8
   br label %108
 
 108:                                              ; preds = %99, %92, %90
-  %.026.i.i = phi i32 [ %98, %92 ], [ %spec.select3.i, %99 ], [ %2, %90 ]
+  %.026.i.i = phi i32 [ %98, %92 ], [ %spec.select4.i, %99 ], [ %2, %90 ]
   %.025.i.i = phi i32 [ %1, %92 ], [ %107, %99 ], [ %1, %90 ]
   %109 = shl i32 %.025.i.i, 3
   %110 = or i32 %109, %.026.i.i
@@ -49099,14 +49099,14 @@ define hidden void @_ZN9Assembler9sha1nexteE11XMMRegisterS0_(ptr noundef nonnull
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %56 = add nsw i32 %13, -8
   %spec.select.i.i = select i1 %50, i8 68, i8 69
-  %spec.select3.i.i = select i1 %50, i32 %13, i32 %56
+  %spec.select4.i.i = select i1 %50, i32 %13, i32 %56
   store i8 %spec.select.i.i, ptr %54, align 1
   store ptr %55, ptr %53, align 8
   %57 = add nsw i32 %8, -8
   br label %58
 
 58:                                               ; preds = %49, %42, %40
-  %.026.i.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i.i, %49 ], [ %13, %40 ]
+  %.026.i.i.i = phi i32 [ %48, %42 ], [ %spec.select4.i.i, %49 ], [ %13, %40 ]
   %.025.i.i.i = phi i32 [ %8, %42 ], [ %57, %49 ], [ %8, %40 ]
   %59 = shl i32 %.025.i.i.i, 3
   %60 = or i32 %59, %.026.i.i.i
@@ -49216,14 +49216,14 @@ define hidden void @_ZN9Assembler8sha1msg1E11XMMRegisterS0_(ptr noundef nonnull 
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %56 = add nsw i32 %13, -8
   %spec.select.i.i = select i1 %50, i8 68, i8 69
-  %spec.select3.i.i = select i1 %50, i32 %13, i32 %56
+  %spec.select4.i.i = select i1 %50, i32 %13, i32 %56
   store i8 %spec.select.i.i, ptr %54, align 1
   store ptr %55, ptr %53, align 8
   %57 = add nsw i32 %8, -8
   br label %58
 
 58:                                               ; preds = %49, %42, %40
-  %.026.i.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i.i, %49 ], [ %13, %40 ]
+  %.026.i.i.i = phi i32 [ %48, %42 ], [ %spec.select4.i.i, %49 ], [ %13, %40 ]
   %.025.i.i.i = phi i32 [ %8, %42 ], [ %57, %49 ], [ %8, %40 ]
   %59 = shl i32 %.025.i.i.i, 3
   %60 = or i32 %59, %.026.i.i.i
@@ -49333,14 +49333,14 @@ define hidden void @_ZN9Assembler8sha1msg2E11XMMRegisterS0_(ptr noundef nonnull 
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %56 = add nsw i32 %13, -8
   %spec.select.i.i = select i1 %50, i8 68, i8 69
-  %spec.select3.i.i = select i1 %50, i32 %13, i32 %56
+  %spec.select4.i.i = select i1 %50, i32 %13, i32 %56
   store i8 %spec.select.i.i, ptr %54, align 1
   store ptr %55, ptr %53, align 8
   %57 = add nsw i32 %8, -8
   br label %58
 
 58:                                               ; preds = %49, %42, %40
-  %.026.i.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i.i, %49 ], [ %13, %40 ]
+  %.026.i.i.i = phi i32 [ %48, %42 ], [ %spec.select4.i.i, %49 ], [ %13, %40 ]
   %.025.i.i.i = phi i32 [ %8, %42 ], [ %57, %49 ], [ %8, %40 ]
   %59 = shl i32 %.025.i.i.i, 3
   %60 = or i32 %59, %.026.i.i.i
@@ -49450,14 +49450,14 @@ define hidden void @_ZN9Assembler11sha256rnds2E11XMMRegisterS0_(ptr noundef nonn
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %56 = add nsw i32 %13, -8
   %spec.select.i.i = select i1 %50, i8 68, i8 69
-  %spec.select3.i.i = select i1 %50, i32 %13, i32 %56
+  %spec.select4.i.i = select i1 %50, i32 %13, i32 %56
   store i8 %spec.select.i.i, ptr %54, align 1
   store ptr %55, ptr %53, align 8
   %57 = add nsw i32 %8, -8
   br label %58
 
 58:                                               ; preds = %49, %42, %40
-  %.026.i.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i.i, %49 ], [ %13, %40 ]
+  %.026.i.i.i = phi i32 [ %48, %42 ], [ %spec.select4.i.i, %49 ], [ %13, %40 ]
   %.025.i.i.i = phi i32 [ %8, %42 ], [ %57, %49 ], [ %8, %40 ]
   %59 = shl i32 %.025.i.i.i, 3
   %60 = or i32 %59, %.026.i.i.i
@@ -49567,14 +49567,14 @@ define hidden void @_ZN9Assembler10sha256msg1E11XMMRegisterS0_(ptr noundef nonnu
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %56 = add nsw i32 %13, -8
   %spec.select.i.i = select i1 %50, i8 68, i8 69
-  %spec.select3.i.i = select i1 %50, i32 %13, i32 %56
+  %spec.select4.i.i = select i1 %50, i32 %13, i32 %56
   store i8 %spec.select.i.i, ptr %54, align 1
   store ptr %55, ptr %53, align 8
   %57 = add nsw i32 %8, -8
   br label %58
 
 58:                                               ; preds = %49, %42, %40
-  %.026.i.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i.i, %49 ], [ %13, %40 ]
+  %.026.i.i.i = phi i32 [ %48, %42 ], [ %spec.select4.i.i, %49 ], [ %13, %40 ]
   %.025.i.i.i = phi i32 [ %8, %42 ], [ %57, %49 ], [ %8, %40 ]
   %59 = shl i32 %.025.i.i.i, 3
   %60 = or i32 %59, %.026.i.i.i
@@ -49684,14 +49684,14 @@ define hidden void @_ZN9Assembler10sha256msg2E11XMMRegisterS0_(ptr noundef nonnu
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %56 = add nsw i32 %13, -8
   %spec.select.i.i = select i1 %50, i8 68, i8 69
-  %spec.select3.i.i = select i1 %50, i32 %13, i32 %56
+  %spec.select4.i.i = select i1 %50, i32 %13, i32 %56
   store i8 %spec.select.i.i, ptr %54, align 1
   store ptr %55, ptr %53, align 8
   %57 = add nsw i32 %8, -8
   br label %58
 
 58:                                               ; preds = %49, %42, %40
-  %.026.i.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i.i, %49 ], [ %13, %40 ]
+  %.026.i.i.i = phi i32 [ %48, %42 ], [ %spec.select4.i.i, %49 ], [ %13, %40 ]
   %.025.i.i.i = phi i32 [ %8, %42 ], [ %57, %49 ], [ %8, %40 ]
   %59 = shl i32 %.025.i.i.i, 3
   %60 = or i32 %59, %.026.i.i.i
@@ -50246,14 +50246,14 @@ define hidden void @_ZN9Assembler5shldlE8RegisterS0_(ptr noundef nonnull readonl
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %57 = add nsw i32 %13, -8
   %spec.select.i = select i1 %51, i8 68, i8 69
-  %spec.select3.i = select i1 %51, i32 %13, i32 %57
+  %spec.select4.i = select i1 %51, i32 %13, i32 %57
   store i8 %spec.select.i, ptr %55, align 1
   store ptr %56, ptr %54, align 8
   %58 = add nsw i32 %8, -8
   br label %59
 
 59:                                               ; preds = %50, %43, %41
-  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select3.i, %50 ], [ %13, %41 ]
+  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select4.i, %50 ], [ %13, %41 ]
   %.025.i.i = phi i32 [ %8, %43 ], [ %58, %50 ], [ %8, %41 ]
   %60 = shl i32 %.025.i.i, 3
   %61 = or i32 %.026.i.i, %60
@@ -50379,14 +50379,14 @@ define hidden void @_ZN9Assembler5shldlE8RegisterS0_a(ptr noundef nonnull readon
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %58 = add nsw i32 %14, -8
   %spec.select.i = select i1 %52, i8 68, i8 69
-  %spec.select3.i = select i1 %52, i32 %14, i32 %58
+  %spec.select4.i = select i1 %52, i32 %14, i32 %58
   store i8 %spec.select.i, ptr %56, align 1
   store ptr %57, ptr %55, align 8
   %59 = add nsw i32 %9, -8
   br label %60
 
 60:                                               ; preds = %51, %44, %42
-  %.026.i.i = phi i32 [ %50, %44 ], [ %spec.select3.i, %51 ], [ %14, %42 ]
+  %.026.i.i = phi i32 [ %50, %44 ], [ %spec.select4.i, %51 ], [ %14, %42 ]
   %.025.i.i = phi i32 [ %9, %44 ], [ %59, %51 ], [ %9, %42 ]
   %61 = shl i32 %.025.i.i, 3
   %62 = or i32 %.026.i.i, %61
@@ -50516,14 +50516,14 @@ define hidden void @_ZN9Assembler5shrdlE8RegisterS0_(ptr noundef nonnull readonl
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %57 = add nsw i32 %13, -8
   %spec.select.i = select i1 %51, i8 68, i8 69
-  %spec.select3.i = select i1 %51, i32 %13, i32 %57
+  %spec.select4.i = select i1 %51, i32 %13, i32 %57
   store i8 %spec.select.i, ptr %55, align 1
   store ptr %56, ptr %54, align 8
   %58 = add nsw i32 %8, -8
   br label %59
 
 59:                                               ; preds = %50, %43, %41
-  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select3.i, %50 ], [ %13, %41 ]
+  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select4.i, %50 ], [ %13, %41 ]
   %.025.i.i = phi i32 [ %8, %43 ], [ %58, %50 ], [ %8, %41 ]
   %60 = shl i32 %.025.i.i, 3
   %61 = or i32 %.026.i.i, %60
@@ -50649,14 +50649,14 @@ define hidden void @_ZN9Assembler5shrdlE8RegisterS0_a(ptr noundef nonnull readon
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %58 = add nsw i32 %14, -8
   %spec.select.i = select i1 %52, i8 68, i8 69
-  %spec.select3.i = select i1 %52, i32 %14, i32 %58
+  %spec.select4.i = select i1 %52, i32 %14, i32 %58
   store i8 %spec.select.i, ptr %56, align 1
   store ptr %57, ptr %55, align 8
   %59 = add nsw i32 %9, -8
   br label %60
 
 60:                                               ; preds = %51, %44, %42
-  %.026.i.i = phi i32 [ %50, %44 ], [ %spec.select3.i, %51 ], [ %14, %42 ]
+  %.026.i.i = phi i32 [ %50, %44 ], [ %spec.select4.i, %51 ], [ %14, %42 ]
   %.025.i.i = phi i32 [ %9, %44 ], [ %59, %51 ], [ %9, %42 ]
   %61 = shl i32 %.025.i.i, 3
   %62 = or i32 %.026.i.i, %61
@@ -50785,14 +50785,14 @@ define hidden void @_ZN9Assembler5shldqE8RegisterS0_a(ptr noundef nonnull readon
 52:                                               ; preds = %40
   %53 = add nsw i32 %14, -8
   %spec.select = select i1 %42, i8 76, i8 77
-  %spec.select3 = select i1 %42, i32 %14, i32 %53
+  %spec.select4 = select i1 %42, i32 %14, i32 %53
   store i8 %spec.select, ptr %46, align 1
   store ptr %47, ptr %45, align 8
   %54 = add nsw i32 %9, -8
   br label %55
 
 55:                                               ; preds = %52, %50, %49
-  %.018.i = phi i32 [ %14, %49 ], [ %51, %50 ], [ %spec.select3, %52 ]
+  %.018.i = phi i32 [ %14, %49 ], [ %51, %50 ], [ %spec.select4, %52 ]
   %.017.i = phi i32 [ %9, %49 ], [ %9, %50 ], [ %54, %52 ]
   %56 = shl i32 %.017.i, 3
   %57 = or i32 %.018.i, %56
@@ -51018,14 +51018,14 @@ define hidden void @_ZN9Assembler5shrdqE8RegisterS0_a(ptr noundef nonnull readon
 52:                                               ; preds = %40
   %53 = add nsw i32 %14, -8
   %spec.select = select i1 %42, i8 76, i8 77
-  %spec.select3 = select i1 %42, i32 %14, i32 %53
+  %spec.select4 = select i1 %42, i32 %14, i32 %53
   store i8 %spec.select, ptr %46, align 1
   store ptr %47, ptr %45, align 8
   %54 = add nsw i32 %9, -8
   br label %55
 
 55:                                               ; preds = %52, %50, %49
-  %.018.i = phi i32 [ %14, %49 ], [ %51, %50 ], [ %spec.select3, %52 ]
+  %.018.i = phi i32 [ %14, %49 ], [ %51, %50 ], [ %spec.select4, %52 ]
   %.017.i = phi i32 [ %9, %49 ], [ %9, %50 ], [ %54, %52 ]
   %56 = shl i32 %.017.i, 3
   %57 = or i32 %.018.i, %56
@@ -52768,13 +52768,13 @@ define hidden void @_ZN9Assembler5testbE8Registerib(ptr noundef nonnull readonly
   br label %_ZN9Assembler17prefix_and_encodeEibb.exit.sink.split
 
 _ZN9Assembler17prefix_and_encodeEibb.exit.sink.split: ; preds = %34, %50, %46
-  %.sink11.in = phi ptr [ %47, %46 ], [ %51, %50 ], [ %38, %34 ]
-  %.sink8 = phi i8 [ 65, %46 ], [ 64, %50 ], [ %43, %34 ]
-  %.sink11 = load ptr, ptr %.sink11.in, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %.sink11, i64 16
+  %.sink12.in = phi ptr [ %47, %46 ], [ %51, %50 ], [ %38, %34 ]
+  %.sink9 = phi i8 [ 65, %46 ], [ 64, %50 ], [ %43, %34 ]
+  %.sink12 = load ptr, ptr %.sink12.in, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
-  store i8 %.sink8, ptr %53, align 1
+  store i8 %.sink9, ptr %53, align 1
   store ptr %54, ptr %52, align 8
   br label %_ZN9Assembler17prefix_and_encodeEibb.exit
 
@@ -52999,9 +52999,9 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %34, %32, %17
   br label %49
 
 49:                                               ; preds = %_ZN9Assembler17prefix_and_encodeEibb.exit, %4
-  %.sink9.in = phi ptr [ %41, %_ZN9Assembler17prefix_and_encodeEibb.exit ], [ %5, %4 ]
-  %.sink9 = load ptr, ptr %.sink9.in, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %.sink10.in = phi ptr [ %41, %_ZN9Assembler17prefix_and_encodeEibb.exit ], [ %5, %4 ]
+  %.sink10 = load ptr, ptr %.sink10.in, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %.sink10, i64 16
   %51 = load ptr, ptr %50, align 8
   store i32 %2, ptr %51, align 1
   %52 = load ptr, ptr %50, align 8
@@ -53242,14 +53242,14 @@ define hidden void @_ZN9Assembler6tzcntlE8RegisterS0_(ptr noundef nonnull readon
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %59 = add nsw i32 %18, -8
   %spec.select.i = select i1 %54, i8 68, i8 69
-  %spec.select3.i = select i1 %54, i32 %18, i32 %59
+  %spec.select4.i = select i1 %54, i32 %18, i32 %59
   store i8 %spec.select.i, ptr %57, align 1
   store ptr %58, ptr %56, align 8
   %60 = add nsw i32 %13, -8
   br label %61
 
 61:                                               ; preds = %53, %47, %45
-  %.026.i.i = phi i32 [ %52, %47 ], [ %spec.select3.i, %53 ], [ %18, %45 ]
+  %.026.i.i = phi i32 [ %52, %47 ], [ %spec.select4.i, %53 ], [ %18, %45 ]
   %.025.i.i = phi i32 [ %13, %47 ], [ %60, %53 ], [ %13, %45 ]
   %62 = shl i32 %.025.i.i, 3
   %63 = or i32 %.026.i.i, %62
@@ -53442,14 +53442,14 @@ define hidden void @_ZN9Assembler6tzcntqE8RegisterS0_(ptr noundef nonnull readon
 54:                                               ; preds = %43
   %55 = add nsw i32 %18, -8
   %spec.select = select i1 %45, i8 76, i8 77
-  %spec.select2 = select i1 %45, i32 %18, i32 %55
+  %spec.select3 = select i1 %45, i32 %18, i32 %55
   store i8 %spec.select, ptr %48, align 1
   store ptr %49, ptr %47, align 8
   %56 = add nsw i32 %13, -8
   br label %57
 
 57:                                               ; preds = %54, %52, %51
-  %.018.i = phi i32 [ %18, %51 ], [ %53, %52 ], [ %spec.select2, %54 ]
+  %.018.i = phi i32 [ %18, %51 ], [ %53, %52 ], [ %spec.select3, %54 ]
   %.017.i = phi i32 [ %13, %51 ], [ %13, %52 ], [ %56, %54 ]
   %58 = shl i32 %.017.i, 3
   %59 = or i32 %.018.i, %58
@@ -54636,14 +54636,14 @@ define hidden void @_ZN9Assembler5xchglE8RegisterS0_(ptr noundef nonnull readonl
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %56 = add nsw i32 %13, -8
   %spec.select.i = select i1 %50, i8 68, i8 69
-  %spec.select3.i = select i1 %50, i32 %13, i32 %56
+  %spec.select4.i = select i1 %50, i32 %13, i32 %56
   store i8 %spec.select.i, ptr %54, align 1
   store ptr %55, ptr %53, align 8
   %57 = add nsw i32 %8, -8
   br label %58
 
 58:                                               ; preds = %49, %42, %40
-  %.026.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i, %49 ], [ %13, %40 ]
+  %.026.i.i = phi i32 [ %48, %42 ], [ %spec.select4.i, %49 ], [ %13, %40 ]
   %.025.i.i = phi i32 [ %8, %42 ], [ %57, %49 ], [ %8, %40 ]
   %59 = shl i32 %.025.i.i, 3
   %60 = or i32 %59, %.026.i.i
@@ -104802,14 +104802,14 @@ _ZN9Assembler10needs_rex2E8RegisterS0_S0_.exit:   ; preds = %11
 89:                                               ; preds = %78
   %90 = add nsw i32 %15, -8
   %spec.select = select i1 %80, i8 76, i8 77
-  %spec.select8 = select i1 %80, i32 %15, i32 %90
+  %spec.select10 = select i1 %80, i32 %15, i32 %90
   store i8 %spec.select, ptr %83, align 1
   store ptr %84, ptr %82, align 8
   %91 = add nsw i32 %9, -8
   br label %92
 
 92:                                               ; preds = %89, %87, %86
-  %.018.i = phi i32 [ %15, %86 ], [ %88, %87 ], [ %spec.select8, %89 ]
+  %.018.i = phi i32 [ %15, %86 ], [ %88, %87 ], [ %spec.select10, %89 ]
   %.017.i = phi i32 [ %9, %86 ], [ %9, %87 ], [ %91, %89 ]
   %93 = shl i32 %.017.i, 3
   %94 = or i32 %93, %.018.i
@@ -104985,14 +104985,14 @@ _ZN9Assembler10needs_rex2E8RegisterS0_S0_.exit:   ; preds = %11
 89:                                               ; preds = %78
   %90 = add nsw i32 %15, -8
   %spec.select = select i1 %80, i8 76, i8 77
-  %spec.select8 = select i1 %80, i32 %15, i32 %90
+  %spec.select10 = select i1 %80, i32 %15, i32 %90
   store i8 %spec.select, ptr %83, align 1
   store ptr %84, ptr %82, align 8
   %91 = add nsw i32 %9, -8
   br label %92
 
 92:                                               ; preds = %89, %87, %86
-  %.018.i = phi i32 [ %15, %86 ], [ %88, %87 ], [ %spec.select8, %89 ]
+  %.018.i = phi i32 [ %15, %86 ], [ %88, %87 ], [ %spec.select10, %89 ]
   %.017.i = phi i32 [ %9, %86 ], [ %9, %87 ], [ %91, %89 ]
   %93 = shl i32 %.017.i, 3
   %94 = or i32 %93, %.018.i
@@ -105697,14 +105697,14 @@ define hidden void @_ZN9Assembler4bsfqE8RegisterS0_(ptr noundef nonnull readonly
 51:                                               ; preds = %39
   %52 = add nsw i32 %13, -8
   %spec.select = select i1 %41, i8 76, i8 77
-  %spec.select2 = select i1 %41, i32 %13, i32 %52
+  %spec.select3 = select i1 %41, i32 %13, i32 %52
   store i8 %spec.select, ptr %45, align 1
   store ptr %46, ptr %44, align 8
   %53 = add nsw i32 %8, -8
   br label %54
 
 54:                                               ; preds = %51, %49, %48
-  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select2, %51 ]
+  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select3, %51 ]
   %.017.i = phi i32 [ %8, %48 ], [ %8, %49 ], [ %53, %51 ]
   %55 = shl i32 %.017.i, 3
   %56 = or i32 %.018.i, %55
@@ -105829,14 +105829,14 @@ define hidden void @_ZN9Assembler4bsrqE8RegisterS0_(ptr noundef nonnull readonly
 51:                                               ; preds = %39
   %52 = add nsw i32 %13, -8
   %spec.select = select i1 %41, i8 76, i8 77
-  %spec.select2 = select i1 %41, i32 %13, i32 %52
+  %spec.select3 = select i1 %41, i32 %13, i32 %52
   store i8 %spec.select, ptr %45, align 1
   store ptr %46, ptr %44, align 8
   %53 = add nsw i32 %8, -8
   br label %54
 
 54:                                               ; preds = %51, %49, %48
-  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select2, %51 ]
+  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select3, %51 ]
   %.017.i = phi i32 [ %8, %48 ], [ %8, %49 ], [ %53, %51 ]
   %55 = shl i32 %.017.i, 3
   %56 = or i32 %.018.i, %55
@@ -106762,14 +106762,14 @@ define hidden void @_ZN9Assembler5cmovqENS_9ConditionE8RegisterS1_(ptr noundef n
 52:                                               ; preds = %40
   %53 = add nsw i32 %14, -8
   %spec.select = select i1 %42, i8 76, i8 77
-  %spec.select3 = select i1 %42, i32 %14, i32 %53
+  %spec.select4 = select i1 %42, i32 %14, i32 %53
   store i8 %spec.select, ptr %46, align 1
   store ptr %47, ptr %45, align 8
   %54 = add nsw i32 %9, -8
   br label %55
 
 55:                                               ; preds = %52, %50, %49
-  %.018.i = phi i32 [ %14, %49 ], [ %51, %50 ], [ %spec.select3, %52 ]
+  %.018.i = phi i32 [ %14, %49 ], [ %51, %50 ], [ %spec.select4, %52 ]
   %.017.i = phi i32 [ %9, %49 ], [ %9, %50 ], [ %54, %52 ]
   %56 = shl i32 %.017.i, 3
   %57 = or i32 %.018.i, %56
@@ -108721,14 +108721,14 @@ define hidden void @_ZN9Assembler5imulqE8RegisterS0_(ptr noundef nonnull readonl
 51:                                               ; preds = %39
   %52 = add nsw i32 %13, -8
   %spec.select = select i1 %41, i8 76, i8 77
-  %spec.select2 = select i1 %41, i32 %13, i32 %52
+  %spec.select3 = select i1 %41, i32 %13, i32 %52
   store i8 %spec.select, ptr %45, align 1
   store ptr %46, ptr %44, align 8
   %53 = add nsw i32 %8, -8
   br label %54
 
 54:                                               ; preds = %51, %49, %48
-  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select2, %51 ]
+  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select3, %51 ]
   %.017.i = phi i32 [ %8, %48 ], [ %8, %49 ], [ %53, %51 ]
   %55 = shl i32 %.017.i, 3
   %56 = or i32 %.018.i, %55
@@ -109033,14 +109033,14 @@ define hidden void @_ZN9Assembler5imulqE8RegisterS0_i(ptr noundef nonnull readon
 52:                                               ; preds = %40
   %53 = add nsw i32 %14, -8
   %spec.select = select i1 %42, i8 76, i8 77
-  %spec.select6 = select i1 %42, i32 %14, i32 %53
+  %spec.select7 = select i1 %42, i32 %14, i32 %53
   store i8 %spec.select, ptr %46, align 1
   store ptr %47, ptr %45, align 8
   %54 = add nsw i32 %9, -8
   br label %55
 
 55:                                               ; preds = %52, %50, %49
-  %.018.i = phi i32 [ %14, %49 ], [ %51, %50 ], [ %spec.select6, %52 ]
+  %.018.i = phi i32 [ %14, %49 ], [ %51, %50 ], [ %spec.select7, %52 ]
   %.017.i = phi i32 [ %9, %49 ], [ %9, %50 ], [ %54, %52 ]
   %56 = shl i32 %.017.i, 3
   %57 = or i32 %56, %.018.i
@@ -110150,14 +110150,14 @@ define hidden void @_ZN9Assembler6lzcntqE8RegisterS0_(ptr noundef nonnull readon
 54:                                               ; preds = %43
   %55 = add nsw i32 %18, -8
   %spec.select = select i1 %45, i8 76, i8 77
-  %spec.select2 = select i1 %45, i32 %18, i32 %55
+  %spec.select3 = select i1 %45, i32 %18, i32 %55
   store i8 %spec.select, ptr %48, align 1
   store ptr %49, ptr %47, align 8
   %56 = add nsw i32 %13, -8
   br label %57
 
 57:                                               ; preds = %54, %52, %51
-  %.018.i = phi i32 [ %18, %51 ], [ %53, %52 ], [ %spec.select2, %54 ]
+  %.018.i = phi i32 [ %18, %51 ], [ %53, %52 ], [ %spec.select3, %54 ]
   %.017.i = phi i32 [ %13, %51 ], [ %13, %52 ], [ %56, %54 ]
   %58 = shl i32 %.017.i, 3
   %59 = or i32 %.018.i, %58
@@ -110938,14 +110938,14 @@ define hidden void @_ZN9Assembler6movsbqE8RegisterS0_(ptr noundef nonnull readon
 51:                                               ; preds = %39
   %52 = add nsw i32 %13, -8
   %spec.select = select i1 %41, i8 76, i8 77
-  %spec.select2 = select i1 %41, i32 %13, i32 %52
+  %spec.select3 = select i1 %41, i32 %13, i32 %52
   store i8 %spec.select, ptr %45, align 1
   store ptr %46, ptr %44, align 8
   %53 = add nsw i32 %8, -8
   br label %54
 
 54:                                               ; preds = %51, %49, %48
-  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select2, %51 ]
+  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select3, %51 ]
   %.017.i = phi i32 [ %8, %48 ], [ %8, %49 ], [ %53, %51 ]
   %55 = shl i32 %.017.i, 3
   %56 = or i32 %.018.i, %55
@@ -111243,14 +111243,14 @@ define hidden void @_ZN9Assembler6movslqE8RegisterS0_(ptr noundef nonnull readon
 51:                                               ; preds = %39
   %52 = add nsw i32 %13, -8
   %spec.select = select i1 %41, i8 76, i8 77
-  %spec.select2 = select i1 %41, i32 %13, i32 %52
+  %spec.select3 = select i1 %41, i32 %13, i32 %52
   store i8 %spec.select, ptr %45, align 1
   store ptr %46, ptr %44, align 8
   %53 = add nsw i32 %8, -8
   br label %54
 
 54:                                               ; preds = %51, %49, %48
-  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select2, %51 ]
+  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select3, %51 ]
   %.017.i = phi i32 [ %8, %48 ], [ %8, %49 ], [ %53, %51 ]
   %55 = shl i32 %.017.i, 3
   %56 = or i32 %55, %.018.i
@@ -111433,14 +111433,14 @@ define hidden void @_ZN9Assembler6movswqE8RegisterS0_(ptr noundef nonnull readon
 51:                                               ; preds = %39
   %52 = add nsw i32 %13, -8
   %spec.select = select i1 %41, i8 76, i8 77
-  %spec.select2 = select i1 %41, i32 %13, i32 %52
+  %spec.select3 = select i1 %41, i32 %13, i32 %52
   store i8 %spec.select, ptr %45, align 1
   store ptr %46, ptr %44, align 8
   %53 = add nsw i32 %8, -8
   br label %54
 
 54:                                               ; preds = %51, %49, %48
-  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select2, %51 ]
+  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select3, %51 ]
   %.017.i = phi i32 [ %8, %48 ], [ %8, %49 ], [ %53, %51 ]
   %55 = shl i32 %.017.i, 3
   %56 = or i32 %.018.i, %55
@@ -111650,14 +111650,14 @@ define hidden void @_ZN9Assembler6movzbqE8RegisterS0_(ptr noundef nonnull readon
 51:                                               ; preds = %39
   %52 = add nsw i32 %13, -8
   %spec.select = select i1 %41, i8 76, i8 77
-  %spec.select2 = select i1 %41, i32 %13, i32 %52
+  %spec.select3 = select i1 %41, i32 %13, i32 %52
   store i8 %spec.select, ptr %45, align 1
   store ptr %46, ptr %44, align 8
   %53 = add nsw i32 %8, -8
   br label %54
 
 54:                                               ; preds = %51, %49, %48
-  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select2, %51 ]
+  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select3, %51 ]
   %.017.i = phi i32 [ %8, %48 ], [ %8, %49 ], [ %53, %51 ]
   %55 = shl i32 %.017.i, 3
   %56 = or i32 %.018.i, %55
@@ -111867,14 +111867,14 @@ define hidden void @_ZN9Assembler6movzwqE8RegisterS0_(ptr noundef nonnull readon
 51:                                               ; preds = %39
   %52 = add nsw i32 %13, -8
   %spec.select = select i1 %41, i8 76, i8 77
-  %spec.select2 = select i1 %41, i32 %13, i32 %52
+  %spec.select3 = select i1 %41, i32 %13, i32 %52
   store i8 %spec.select, ptr %45, align 1
   store ptr %46, ptr %44, align 8
   %53 = add nsw i32 %8, -8
   br label %54
 
 54:                                               ; preds = %51, %49, %48
-  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select2, %51 ]
+  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select3, %51 ]
   %.017.i = phi i32 [ %8, %48 ], [ %8, %49 ], [ %53, %51 ]
   %55 = shl i32 %.017.i, 3
   %56 = or i32 %.018.i, %55
@@ -112441,14 +112441,14 @@ define hidden void @_ZN9Assembler3btqE8RegisterS0_(ptr noundef nonnull readonly 
 51:                                               ; preds = %39
   %52 = add nsw i32 %13, -8
   %spec.select = select i1 %41, i8 76, i8 77
-  %spec.select2 = select i1 %41, i32 %13, i32 %52
+  %spec.select3 = select i1 %41, i32 %13, i32 %52
   store i8 %spec.select, ptr %45, align 1
   store ptr %46, ptr %44, align 8
   %53 = add nsw i32 %8, -8
   br label %54
 
 54:                                               ; preds = %51, %49, %48
-  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select2, %51 ]
+  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select3, %51 ]
   %.017.i = phi i32 [ %8, %48 ], [ %8, %49 ], [ %53, %51 ]
   %55 = shl i32 %.017.i, 3
   %56 = or i32 %.018.i, %55
@@ -113429,14 +113429,14 @@ define hidden void @_ZN9Assembler7popcntqE8RegisterS0_(ptr noundef nonnull reado
 54:                                               ; preds = %43
   %55 = add nsw i32 %18, -8
   %spec.select = select i1 %45, i8 76, i8 77
-  %spec.select2 = select i1 %45, i32 %18, i32 %55
+  %spec.select3 = select i1 %45, i32 %18, i32 %55
   store i8 %spec.select, ptr %48, align 1
   store ptr %49, ptr %47, align 8
   %56 = add nsw i32 %13, -8
   br label %57
 
 57:                                               ; preds = %54, %52, %51
-  %.018.i = phi i32 [ %18, %51 ], [ %53, %52 ], [ %spec.select2, %54 ]
+  %.018.i = phi i32 [ %18, %51 ], [ %53, %52 ], [ %spec.select3, %54 ]
   %.017.i = phi i32 [ %13, %51 ], [ %13, %52 ], [ %56, %54 ]
   %58 = shl i32 %.017.i, 3
   %59 = or i32 %.018.i, %58
@@ -119025,9 +119025,9 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %44, %45, %21
   br label %55
 
 55:                                               ; preds = %_ZN9Assembler18prefixq_and_encodeEib.exit, %4
-  %.sink9.in = phi ptr [ %47, %_ZN9Assembler18prefixq_and_encodeEib.exit ], [ %5, %4 ]
-  %.sink9 = load ptr, ptr %.sink9.in, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %.sink10.in = phi ptr [ %47, %_ZN9Assembler18prefixq_and_encodeEib.exit ], [ %5, %4 ]
+  %.sink10 = load ptr, ptr %.sink10.in, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %.sink10, i64 16
   %57 = load ptr, ptr %56, align 8
   store i32 %2, ptr %57, align 1
   %58 = load ptr, ptr %56, align 8
@@ -119459,14 +119459,14 @@ define hidden void @_ZN9Assembler5xchgqE8RegisterS0_(ptr noundef nonnull readonl
 51:                                               ; preds = %39
   %52 = add nsw i32 %13, -8
   %spec.select = select i1 %41, i8 76, i8 77
-  %spec.select2 = select i1 %41, i32 %13, i32 %52
+  %spec.select3 = select i1 %41, i32 %13, i32 %52
   store i8 %spec.select, ptr %45, align 1
   store ptr %46, ptr %44, align 8
   %53 = add nsw i32 %8, -8
   br label %54
 
 54:                                               ; preds = %51, %49, %48
-  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select2, %51 ]
+  %.018.i = phi i32 [ %13, %48 ], [ %50, %49 ], [ %spec.select3, %51 ]
   %.017.i = phi i32 [ %8, %48 ], [ %8, %49 ], [ %53, %51 ]
   %55 = shl i32 %.017.i, 3
   %56 = or i32 %55, %.018.i

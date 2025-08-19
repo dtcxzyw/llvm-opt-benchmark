@@ -2238,19 +2238,19 @@ define hidden noundef zeroext i1 @_ZN17ConstantPoolCache32check_no_old_or_obsole
   br i1 %50, label %.lr.ph38, label %.loopexit, !llvm.loop !17
 
 .loopexit.sink.split:                             ; preds = %44, %27
-  %.lcssa.sink55 = phi ptr [ %21, %27 ], [ %41, %44 ]
+  %.lcssa.sink60 = phi ptr [ %21, %27 ], [ %41, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load ptr, ptr %53, align 8
   %55 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %54) #12
-  %56 = getelementptr inbounds nuw i8, ptr %.lcssa.sink55, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %.lcssa.sink60, i64 48
   %57 = load i32, ptr %56, align 4
   %58 = lshr i32 %57, 2
   %.lobit31 = and i32 %58, 1
   %59 = lshr i32 %57, 3
   %.lobit32 = and i32 %59, 1
-  %60 = tail call noundef ptr @_ZNK6Method13external_nameEv(ptr noundef nonnull align 8 dereferenceable(88) %.lcssa.sink55) #12
+  %60 = tail call noundef ptr @_ZNK6Method13external_nameEv(ptr noundef nonnull align 8 dereferenceable(88) %.lcssa.sink60) #12
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_168ELS1_23ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef %55, i32 noundef %.lobit31, i32 noundef %.lobit32, ptr noundef %60)
   br label %.loopexit
 
@@ -4936,7 +4936,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI18ResolvedField
   br i1 %.not, label %_ZN13GrowableArrayI18ResolvedFieldEntryE10deallocateEPS0_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %50, 1
@@ -4948,8 +4948,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI18ResolvedField
   br label %_ZN13GrowableArrayI18ResolvedFieldEntryE10deallocateEPS0_.exit
 
 _ZN13GrowableArrayI18ResolvedFieldEntryE10deallocateEPS0_.exit: ; preds = %52, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %52 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %52 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %53
 
 53:                                               ; preds = %1, %_ZN13GrowableArrayI18ResolvedFieldEntryE10deallocateEPS0_.exit
@@ -5045,7 +5045,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI19ResolvedMetho
   br i1 %.not, label %_ZN13GrowableArrayI19ResolvedMethodEntryE10deallocateEPS0_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %50, 1
@@ -5057,8 +5057,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI19ResolvedMetho
   br label %_ZN13GrowableArrayI19ResolvedMethodEntryE10deallocateEPS0_.exit
 
 _ZN13GrowableArrayI19ResolvedMethodEntryE10deallocateEPS0_.exit: ; preds = %52, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %52 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %52 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %53
 
 53:                                               ; preds = %1, %_ZN13GrowableArrayI19ResolvedMethodEntryE10deallocateEPS0_.exit

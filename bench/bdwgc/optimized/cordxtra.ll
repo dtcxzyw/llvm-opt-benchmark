@@ -890,16 +890,16 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
   %34 = phi ptr [ %22, %.preheader.thread ], [ %31, %.preheader ]
   %35 = phi ptr [ %21, %.preheader.thread ], [ %30, %.preheader ]
   %36 = phi i64 [ %20, %.preheader.thread ], [ %29, %.preheader ]
-  %.049.lcssa90 = phi i64 [ 0, %.preheader.thread ], [ %67, %.preheader ]
-  %.050.lcssa89 = phi i64 [ 0, %.preheader.thread ], [ %88, %.preheader ]
-  %.051.lcssa88 = phi i64 [ 0, %.preheader.thread ], [ %72, %.preheader ]
-  %37 = and i64 %.050.lcssa89, %.049.lcssa90
-  %38 = icmp eq i64 %37, %.051.lcssa88
+  %.049.lcssa100 = phi i64 [ 0, %.preheader.thread ], [ %67, %.preheader ]
+  %.050.lcssa99 = phi i64 [ 0, %.preheader.thread ], [ %88, %.preheader ]
+  %.051.lcssa98 = phi i64 [ 0, %.preheader.thread ], [ %72, %.preheader ]
+  %37 = and i64 %.050.lcssa99, %.049.lcssa100
+  %38 = icmp eq i64 %37, %.051.lcssa98
   br i1 %38, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %.preheader.split.us, %61
   %.0.us72 = phi i64 [ %62, %61 ], [ %1, %.preheader.split.us ]
-  %.1.us71 = phi i64 [ %56, %61 ], [ %.050.lcssa89, %.preheader.split.us ]
+  %.1.us71 = phi i64 [ %56, %61 ], [ %.050.lcssa99, %.preheader.split.us ]
   %39 = icmp eq i64 %.0.us72, %36
   br i1 %39, label %.loopexit, label %40
 
@@ -944,8 +944,8 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
 
 61:                                               ; preds = %60, %59
   %62 = add i64 %.0.us72, 1
-  %63 = and i64 %56, %.049.lcssa90
-  %64 = icmp eq i64 %63, %.051.lcssa88
+  %63 = and i64 %56, %.049.lcssa100
+  %64 = icmp eq i64 %63, %.051.lcssa98
   br i1 %64, label %.loopexit, label %.lr.ph73
 
 65:                                               ; preds = %.lr.ph, %93

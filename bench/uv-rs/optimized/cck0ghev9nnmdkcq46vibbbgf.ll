@@ -420,8 +420,8 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17hcdabf85b00eacafaE(ptr no
   br label %7
 
 7:                                                ; preds = %.lr.ph, %35
-  %.sroa.0.016 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.124, %35 ]
-  %.sroa.4.015 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.123, %35 ]
+  %.sroa.0.016 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.125, %35 ]
+  %.sroa.4.015 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.124, %35 ]
   %8 = call { i64, ptr } @"_ZN48_$LT$std..fs..File$u20$as$u20$std..io..Write$GT$5write17h617d25ae3ca79501E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.016, i64 noundef %.sroa.4.015)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -503,9 +503,9 @@ _ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.4340179735558614
   br label %35
 
 35:                                               ; preds = %.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h84f8dab24a82abd8E.exit"
-  %.sroa.0.124 = phi ptr [ %31, %.thread ], [ %.sroa.0.016, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h84f8dab24a82abd8E.exit" ]
-  %.sroa.4.123 = phi i64 [ %30, %.thread ], [ %.sroa.4.015, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h84f8dab24a82abd8E.exit" ]
-  %36 = icmp eq i64 %.sroa.4.123, 0
+  %.sroa.0.125 = phi ptr [ %31, %.thread ], [ %.sroa.0.016, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h84f8dab24a82abd8E.exit" ]
+  %.sroa.4.124 = phi i64 [ %30, %.thread ], [ %.sroa.4.015, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h84f8dab24a82abd8E.exit" ]
+  %36 = icmp eq i64 %.sroa.4.124, 0
   br i1 %36, label %.loopexit, label %7
 }
 
@@ -3068,7 +3068,7 @@ define internal fastcc noundef zeroext i1 @"_ZN61_$LT$std..path..Component$u20$a
   br i1 %18, label %19, label %"_ZN58_$LT$std..path..Prefix$u20$as$u20$core..cmp..PartialEq$GT$2eq17haeacdc7f747eeba7E.exit"
 
 19:                                               ; preds = %17
-  switch i8 %3, label %default.unreachable63.i [
+  switch i8 %3, label %default.unreachable [
     i8 0, label %20
     i8 1, label %27
     i8 2, label %33
@@ -3077,7 +3077,7 @@ define internal fastcc noundef zeroext i1 @"_ZN61_$LT$std..path..Component$u20$a
     i8 5, label %52
   ]
 
-default.unreachable63.i:                          ; preds = %19
+default.unreachable:                              ; preds = %19
   unreachable
 
 20:                                               ; preds = %19
@@ -3815,8 +3815,8 @@ define hidden void @_ZN8pathdiff10diff_paths17h9beccaaac32025afE(ptr dead_on_unw
   br label %.sink.split
 
 .sink.split:                                      ; preds = %51, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heeb2c56c74f620fdE.exit9"
-  %.sink31 = phi i64 [ %38, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heeb2c56c74f620fdE.exit9" ], [ %47, %51 ]
-  %54 = add i64 %.sink31, 1
+  %.sink32 = phi i64 [ %38, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heeb2c56c74f620fdE.exit9" ], [ %47, %51 ]
+  %54 = add i64 %.sink32, 1
   store i64 %54, ptr %25, align 8, !noalias !3
   br label %55
 
@@ -3942,12 +3942,12 @@ define hidden void @_ZN8pathdiff10diff_paths17h9beccaaac32025afE(ptr dead_on_unw
           to label %117 unwind label %.loopexit
 
 .invoke:                                          ; preds = %99, %95, %59, %56
-  %.sink34 = phi i64 [ %38, %56 ], [ %38, %59 ], [ %96, %95 ], [ %96, %99 ]
+  %.sink35 = phi i64 [ %38, %56 ], [ %38, %59 ], [ %96, %95 ], [ %96, %99 ]
   %105 = phi ptr [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.81, %56 ], [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.81, %59 ], [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.86, %95 ], [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.86, %99 ]
   %106 = load ptr, ptr %24, align 8, !noalias !3, !nonnull !3, !noundef !3
-  %107 = getelementptr inbounds { i8, [55 x i8] }, ptr %106, i64 %.sink34
+  %107 = getelementptr inbounds { i8, [55 x i8] }, ptr %106, i64 %.sink35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %107, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false)
-  %108 = add i64 %.sink34, 1
+  %108 = add i64 %.sink35, 1
   store i64 %108, ptr %25, align 8, !noalias !3
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h149fd31b587c39a5E.llvm.3930467516614908829"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13, ptr noalias noundef nonnull align 8 dereferenceable(64) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %105)
           to label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hc033610157200488E.exit" unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -4138,8 +4138,8 @@ define hidden void @_ZN8pathdiff10diff_paths17haa5af8e06471be23E(ptr dead_on_unw
   br label %.sink.split
 
 .sink.split:                                      ; preds = %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heeb2c56c74f620fdE.exit9"
-  %.sink31 = phi i64 [ %41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heeb2c56c74f620fdE.exit9" ], [ %50, %54 ]
-  %57 = add i64 %.sink31, 1
+  %.sink32 = phi i64 [ %41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heeb2c56c74f620fdE.exit9" ], [ %50, %54 ]
+  %57 = add i64 %.sink32, 1
   store i64 %57, ptr %28, align 8, !noalias !3
   br label %58
 
@@ -4265,12 +4265,12 @@ define hidden void @_ZN8pathdiff10diff_paths17haa5af8e06471be23E(ptr dead_on_unw
           to label %120 unwind label %.loopexit
 
 .invoke:                                          ; preds = %102, %98, %62, %59
-  %.sink34 = phi i64 [ %41, %59 ], [ %41, %62 ], [ %99, %98 ], [ %99, %102 ]
+  %.sink35 = phi i64 [ %41, %59 ], [ %41, %62 ], [ %99, %98 ], [ %99, %102 ]
   %108 = phi ptr [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.81, %59 ], [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.81, %62 ], [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.86, %98 ], [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.86, %102 ]
   %109 = load ptr, ptr %27, align 8, !noalias !3, !nonnull !3, !noundef !3
-  %110 = getelementptr inbounds { i8, [55 x i8] }, ptr %109, i64 %.sink34
+  %110 = getelementptr inbounds { i8, [55 x i8] }, ptr %109, i64 %.sink35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %110, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
-  %111 = add i64 %.sink34, 1
+  %111 = add i64 %.sink35, 1
   store i64 %111, ptr %28, align 8, !noalias !3
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h149fd31b587c39a5E.llvm.3930467516614908829"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(64) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %108)
           to label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hc033610157200488E.exit" unwind label %.loopexit.split-lp.loopexit.split-lp

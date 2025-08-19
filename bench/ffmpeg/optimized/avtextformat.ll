@@ -279,7 +279,7 @@ define range(i32 -2147483648, 1) i32 @avtext_context_open(ptr noundef writeonly 
   %61 = load ptr, ptr %59, align 8, !tbaa !45
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !47
-  %64 = call i32 @av_opt_set(ptr noundef %18, ptr noundef %61, ptr noundef %63, i32 noundef 1) #12
+  %64 = call i32 @av_opt_set(ptr noundef nonnull %18, ptr noundef %61, ptr noundef %63, i32 noundef 1) #12
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %66, label %.preheader, !llvm.loop !48
 
@@ -287,7 +287,7 @@ define range(i32 -2147483648, 1) i32 @avtext_context_open(ptr noundef writeonly 
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %68 = load ptr, ptr %59, align 8, !tbaa !45
   %69 = load ptr, ptr %67, align 8, !tbaa !47
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %18, i32 noundef 16, ptr noundef nonnull @.str.7, ptr noundef %68, ptr noundef %69) #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %18, i32 noundef 16, ptr noundef nonnull @.str.7, ptr noundef %68, ptr noundef %69) #12
   br label %.thread
 
 .thread:                                          ; preds = %57, %66
@@ -351,32 +351,32 @@ define range(i32 -2147483648, 1) i32 @avtext_context_open(ptr noundef writeonly 
   %90 = load i32, ptr %89, align 8, !tbaa !53
   %91 = call i32 @av_utf8_decode(ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %87, i32 noundef %90) #12
   %92 = icmp sgt i32 %91, -1
-  br i1 %92, label %.lr.ph125, label %.lr.ph102._crit_edge
+  br i1 %92, label %.lr.ph142, label %.lr.ph102._crit_edge
 
-.lr.ph102:                                        ; preds = %.lr.ph125
+.lr.ph102:                                        ; preds = %.lr.ph142
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %93 = load i32, ptr %89, align 8, !tbaa !53
   %94 = call i32 @av_utf8_decode(ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %87, i32 noundef %93) #12
   %95 = icmp sgt i32 %94, -1
-  br i1 %95, label %.lr.ph125, label %.lr.ph102._crit_edge, !llvm.loop !54
+  br i1 %95, label %.lr.ph142, label %.lr.ph102._crit_edge, !llvm.loop !54
 
 .lr.ph102._crit_edge:                             ; preds = %.lr.ph102, %.lr.ph102.preheader
-  %.lcssa120 = phi ptr [ %85, %.lr.ph102.preheader ], [ %107, %.lr.ph102 ]
+  %.lcssa137 = phi ptr [ %85, %.lr.ph102.preheader ], [ %107, %.lr.ph102 ]
   %.lcssa = phi i32 [ %91, %.lr.ph102.preheader ], [ %94, %.lr.ph102 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @av_bprint_init(ptr noundef nonnull %13, i32 noundef 0, i32 noundef 1) #12
   %96 = load ptr, ptr %11, align 8, !tbaa !51
   %97 = ptrtoint ptr %96 to i64
-  %98 = ptrtoint ptr %.lcssa120 to i64
+  %98 = ptrtoint ptr %.lcssa137 to i64
   %99 = sub i64 %97, %98
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.39) #12
-  %.not.i = icmp eq ptr %96, %.lcssa120
+  %.not.i = icmp eq ptr %96, %.lcssa137
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph102._crit_edge, %.lr.ph.i
   %100 = phi i64 [ %105, %.lr.ph.i ], [ 0, %.lr.ph102._crit_edge ]
   %.07.i = phi i32 [ %104, %.lr.ph.i ], [ 0, %.lr.ph102._crit_edge ]
-  %101 = getelementptr inbounds nuw i8, ptr %.lcssa120, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr %.lcssa137, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !52
   %103 = zext i8 %102 to i32
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.40, i32 noundef %103) #12
@@ -385,7 +385,7 @@ define range(i32 -2147483648, 1) i32 @avtext_context_open(ptr noundef writeonly 
   %106 = icmp ugt i64 %99, %105
   br i1 %106, label %.lr.ph.i, label %.loopexit, !llvm.loop !55
 
-.lr.ph125:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
+.lr.ph142:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %107 = load ptr, ptr %11, align 8, !tbaa !51
   %108 = load i8, ptr %107, align 1, !tbaa !52
@@ -401,7 +401,7 @@ define range(i32 -2147483648, 1) i32 @avtext_context_open(ptr noundef writeonly 
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %119
 
-._crit_edge103:                                   ; preds = %.lr.ph125, %83
+._crit_edge103:                                   ; preds = %.lr.ph142, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %111 = load ptr, ptr %46, align 8, !tbaa !9
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 24

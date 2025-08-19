@@ -848,7 +848,7 @@ define noundef i32 @_ZNK6icu_778EraRules11getEraIndexEiiiR10UErrorCode(ptr nound
 
 23:                                               ; preds = %13
   %24 = icmp eq i32 %21, -2147483391
-  br i1 %24, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread63, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread56
+  br i1 %24, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread66, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread59
 
 25:                                               ; preds = %13
   %26 = icmp sgt i32 %1, 32767
@@ -867,17 +867,17 @@ _ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37: ; preds = %_ZN6icu_77
   %32 = icmp slt i32 %17, %31
   br i1 %32, label %.lr.ph.split, label %.loopexit
 
-_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread63: ; preds = %23
+_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread66: ; preds = %23
   %33 = add nsw i32 %15, -1
   %34 = icmp slt i32 %17, %33
   br i1 %34, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us.preheader, label %.loopexit
 
-_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread56: ; preds = %23
+_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread59: ; preds = %23
   %35 = icmp sgt i32 %15, 1
   br i1 %35, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us.preheader, label %.loopexit
 
-_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us.preheader: ; preds = %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread63, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread56
-  %.140.us.ph = phi i32 [ %17, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread63 ], [ 0, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread56 ]
+_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us.preheader: ; preds = %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread66, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread59
+  %.140.us.ph = phi i32 [ %17, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread66 ], [ 0, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread59 ]
   br label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us
 
 _ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread: ; preds = %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit
@@ -913,7 +913,7 @@ _ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us: ; preds = %_ZN6icu_77L25c
   br i1 %51, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.preheader
 
 _ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.preheader: ; preds = %.lr.ph.split.thread, %.lr.ph.split
-  %.026535562 = phi i32 [ 0, %.lr.ph.split.thread ], [ %17, %.lr.ph.split ]
+  %.026565865 = phi i32 [ 0, %.lr.ph.split.thread ], [ %17, %.lr.ph.split ]
   %.pn = phi i32 [ %39, %.lr.ph.split.thread ], [ %50, %.lr.ph.split ]
   %52 = or disjoint i32 %.pn, %3
   br label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35
@@ -926,7 +926,7 @@ _ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43: ; preds = %.lr.ph.split
   br i1 %55, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43, label %.loopexit, !llvm.loop !29
 
 _ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35: ; preds = %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.preheader, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35
-  %.140 = phi i32 [ %..1, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35 ], [ %.026535562, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.preheader ]
+  %.140 = phi i32 [ %..1, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35 ], [ %.026565865, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.preheader ]
   %.02739 = phi i32 [ %.027., %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35 ], [ %15, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.preheader ]
   %56 = add nsw i32 %.140, %.02739
   %57 = sdiv i32 %56, 2
@@ -940,8 +940,8 @@ _ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35: ; preds = %_ZN6icu_77L25comp
   %62 = icmp slt i32 %..1, %61
   br i1 %62, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35, label %.loopexit, !llvm.loop !29
 
-.loopexit:                                        ; preds = %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread63, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread56, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37, %5, %12
-  %.0 = phi i32 [ -1, %12 ], [ -1, %5 ], [ %17, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37 ], [ 0, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread ], [ 0, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread56 ], [ %17, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread63 ], [ %..1.us, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us ], [ %54, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43 ], [ %..1, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35 ]
+.loopexit:                                        ; preds = %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread66, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread59, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37, %5, %12
+  %.0 = phi i32 [ -1, %12 ], [ -1, %5 ], [ %17, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37 ], [ 0, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread ], [ 0, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread59 ], [ %17, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread66 ], [ %..1.us, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us ], [ %54, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43 ], [ %..1, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35 ]
   ret i32 %.0
 }
 

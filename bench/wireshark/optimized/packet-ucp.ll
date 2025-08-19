@@ -3308,8 +3308,8 @@ ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte
   %48 = phi i32 [ %.pre, %ucp_handle_byte.exit.thread ], [ %spec.select.i23, %ucp_handle_string.exit25 ]
   %49 = load i32, ptr @hf_ucp_parm_SM, align 4
   %50 = tail call i32 @tvb_find_uint8(ptr noundef %2, i32 noundef %48, i32 noundef -1, i8 noundef zeroext 47)
-  %.not36 = icmp eq i32 %50, -1
-  br i1 %.not36, label %51, label %54
+  %.not41 = icmp eq i32 %50, -1
+  br i1 %.not41, label %51, label %54
 
 51:                                               ; preds = %47
   %52 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %48)
@@ -4131,8 +4131,8 @@ ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte
   %34 = phi i32 [ %.pre, %ucp_handle_byte.exit.thread ], [ %spec.select.i24.lcssa, %._crit_edge ]
   %35 = load i32, ptr @hf_ucp_parm_SM, align 4
   %36 = tail call i32 @tvb_find_uint8(ptr noundef %2, i32 noundef %34, i32 noundef -1, i8 noundef zeroext 47)
-  %.not27 = icmp eq i32 %36, -1
-  br i1 %.not27, label %37, label %40
+  %.not31 = icmp eq i32 %36, -1
+  br i1 %.not31, label %37, label %40
 
 37:                                               ; preds = %33
   %38 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %34)
@@ -4379,8 +4379,8 @@ ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte
   %34 = phi i32 [ %.pre, %ucp_handle_byte.exit.thread ], [ %spec.select.i24.lcssa, %._crit_edge ]
   %35 = load i32, ptr @hf_ucp_parm_SM, align 4
   %36 = tail call i32 @tvb_find_uint8(ptr noundef %2, i32 noundef %34, i32 noundef -1, i8 noundef zeroext 47)
-  %.not27 = icmp eq i32 %36, -1
-  br i1 %.not27, label %37, label %40
+  %.not31 = icmp eq i32 %36, -1
+  br i1 %.not31, label %37, label %40
 
 37:                                               ; preds = %33
   %38 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %34)
@@ -4682,8 +4682,8 @@ ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte
   %29 = load i32, ptr @hf_ucp_parm_SM, align 4
   %30 = load i32, ptr %5, align 4
   %31 = tail call i32 @tvb_find_uint8(ptr noundef %2, i32 noundef %30, i32 noundef -1, i8 noundef zeroext 47)
-  %.not22 = icmp eq i32 %31, -1
-  br i1 %.not22, label %32, label %35
+  %.not26 = icmp eq i32 %31, -1
+  br i1 %.not26, label %32, label %35
 
 32:                                               ; preds = %ucp_handle_byte.exit.thread
   %33 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %30)
@@ -5157,8 +5157,8 @@ ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte
   %25 = load i32, ptr @hf_ucp_parm_SM, align 4
   %26 = load i32, ptr %5, align 4
   %27 = tail call i32 @tvb_find_uint8(ptr noundef %2, i32 noundef %26, i32 noundef -1, i8 noundef zeroext 47)
-  %.not24 = icmp eq i32 %27, -1
-  br i1 %.not24, label %28, label %31
+  %.not27 = icmp eq i32 %27, -1
+  br i1 %.not27, label %28, label %31
 
 28:                                               ; preds = %._crit_edge
   %29 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %26)
@@ -5532,8 +5532,8 @@ ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte
   %126 = load i32, ptr @hf_ucp_parm_SM, align 4
   %127 = load i32, ptr %5, align 4
   %128 = tail call i32 @tvb_find_uint8(ptr noundef %2, i32 noundef %127, i32 noundef -1, i8 noundef zeroext 47)
-  %.not136 = icmp eq i32 %128, -1
-  br i1 %.not136, label %129, label %132
+  %.not153 = icmp eq i32 %128, -1
+  br i1 %.not153, label %129, label %132
 
 129:                                              ; preds = %124
   %130 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %127)
@@ -5896,9 +5896,9 @@ ucp_handle_byte.exit32:                           ; preds = %ucp_handle_byte.exi
   br i1 %.not.i35, label %ucp_handle_byte.exit34, label %ucp_handle_byte.exit34.sink.split
 
 ucp_handle_byte.exit34.sink.split:                ; preds = %41, %38
-  %.sink63 = phi i8 [ %40, %38 ], [ %43, %41 ]
+  %.sink73 = phi i8 [ %40, %38 ], [ %43, %41 ]
   %.sink = phi i32 [ %39, %38 ], [ %42, %41 ]
-  %44 = zext i8 %.sink63 to i32
+  %44 = zext i8 %.sink73 to i32
   %45 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %.sink, ptr noundef %2, i32 noundef %35, i32 noundef 1, i32 noundef %44)
   %46 = add i32 %35, 2
   store i32 %46, ptr %5, align 4
@@ -6575,7 +6575,7 @@ define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32
 .thread.i:                                        ; preds = %22
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %33, align 8
-  br label %.thread18.i
+  br label %.thread19.i
 
 34:                                               ; preds = %22
   %35 = getelementptr i8, ptr %20, i64 2
@@ -6590,7 +6590,7 @@ define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %43, ptr %44, align 8
   %45 = icmp samesign ugt i32 %.0, 5
-  br i1 %45, label %46, label %.thread18.i
+  br i1 %45, label %46, label %.thread19.i
 
 46:                                               ; preds = %34
   %47 = getelementptr i8, ptr %20, i64 4
@@ -6605,16 +6605,16 @@ define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %55, ptr %56, align 4
   %57 = icmp slt i32 %55, 90
-  br i1 %57, label %.thread18.i, label %61
+  br i1 %57, label %.thread19.i, label %61
 
-.thread18.i:                                      ; preds = %46, %34, %.thread.i
+.thread19.i:                                      ; preds = %46, %34, %.thread.i
   %58 = phi i32 [ %55, %46 ], [ 0, %34 ], [ 0, %.thread.i ]
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %60 = add nsw i32 %58, 100
   store i32 %60, ptr %59, align 4
   br label %61
 
-61:                                               ; preds = %.thread18.i, %46
+61:                                               ; preds = %.thread19.i, %46
   %62 = icmp samesign ugt i32 %.0, 7
   br i1 %62, label %64, label %.thread16.i
 

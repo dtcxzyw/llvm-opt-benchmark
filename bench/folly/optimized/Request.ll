@@ -2729,10 +2729,10 @@ _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %122
   br label %133
 
 133:                                              ; preds = %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjvvvSt17integral_constantIbLb1EEE14keyMatchesItemIS8_EEbRKT_RKj.exit.thread, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit
-  %.sink124 = phi ptr [ %84, %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjvvvSt17integral_constantIbLb1EEE14keyMatchesItemIS8_EEbRKT_RKj.exit.thread ], [ %131, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ]
+  %.sink135 = phi ptr [ %84, %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjvvvSt17integral_constantIbLb1EEE14keyMatchesItemIS8_EEbRKT_RKj.exit.thread ], [ %131, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ]
   %.us-phi.sink = phi i64 [ %.us-phi, %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjvvvSt17integral_constantIbLb1EEE14keyMatchesItemIS8_EEbRKT_RKj.exit.thread ], [ %124, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ]
   %.sink = phi i8 [ 0, %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjvvvSt17integral_constantIbLb1EEE14keyMatchesItemIS8_EEbRKT_RKj.exit.thread ], [ 1, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ]
-  store ptr %.sink124, ptr %0, align 8, !tbaa !100
+  store ptr %.sink135, ptr %0, align 8, !tbaa !100
   %.sroa.543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.us-phi.sink, ptr %.sroa.543.0..sroa_idx, align 8, !tbaa !101
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3583,18 +3583,18 @@ define linkonce_odr void @_ZZN5folly3f146detail8F14TableINS1_21VectorContainerPo
           to label %.noexc unwind label %56
 
 .noexc:                                           ; preds = %7, %11, %40, %18
-  %.09 = phi i64 [ %24, %40 ], [ %24, %18 ], [ 0, %7 ], [ %17, %11 ]
-  %.028 = phi ptr [ %21, %40 ], [ %21, %18 ], [ null, %7 ], [ %14, %11 ]
+  %.010 = phi i64 [ %24, %40 ], [ %24, %18 ], [ 0, %7 ], [ %17, %11 ]
+  %.029 = phi ptr [ %21, %40 ], [ %21, %18 ], [ null, %7 ], [ %14, %11 ]
   %50 = phi i64 [ %43, %40 ], [ %.pre5, %18 ], [ %10, %7 ], [ %10, %11 ]
-  %.not.i = icmp eq ptr %.028, null
+  %.not.i = icmp eq ptr %.029, null
   br i1 %.not.i, label %_ZN5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjvvvSt17integral_constantIbLb1EEE11afterRehashEPSt4pairIKS8_jEbmmmPhm.exit, label %51
 
 51:                                               ; preds = %.noexc
-  %52 = sub i64 0, %.09
+  %52 = sub i64 0, %.010
   %53 = and i64 %52, -8
   %54 = mul i64 %50, 40
   %55 = sub i64 %54, %53
-  tail call void @_ZdlPvm(ptr noundef nonnull %.028, i64 noundef %55) #9
+  tail call void @_ZdlPvm(ptr noundef nonnull %.029, i64 noundef %55) #9
   br label %_ZN5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjvvvSt17integral_constantIbLb1EEE11afterRehashEPSt4pairIKS8_jEbmmmPhm.exit
 
 _ZN5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjvvvSt17integral_constantIbLb1EEE11afterRehashEPSt4pairIKS8_jEbmmmPhm.exit: ; preds = %51, %.noexc
@@ -8340,8 +8340,8 @@ _ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11
 
 _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit: ; preds = %33
   %.pre = load i64, ptr %0, align 8, !tbaa !283
-  %.not51 = icmp ult i64 %.014.i21.i, %.pre
-  br i1 %.not51, label %67, label %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit.thread
+  %.not54 = icmp ult i64 %.014.i21.i, %.pre
+  br i1 %.not54, label %67, label %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit.thread
 
 _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit.thread: ; preds = %20, %.thread15.loopexit.i, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit
   %38 = phi i64 [ %.pre, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit ], [ %.pre24.i, %20 ], [ %.pre.i, %.thread15.loopexit.i ]
@@ -8422,8 +8422,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %61
   unreachable
 
 67:                                               ; preds = %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit, %.critedge25
-  %.4.i.i44 = phi i1 [ false, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit ], [ true, %.critedge25 ]
-  ret i1 %.4.i.i44
+  %.4.i.i47 = phi i1 [ false, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit ], [ true, %.critedge25 ]
+  ret i1 %.4.i.i47
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -8512,8 +8512,8 @@ _ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEiE4Elem
 
 _ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit: ; preds = %34
   %.pre = load i64, ptr %0, align 8, !tbaa !304
-  %.not45 = icmp ult i64 %.016.i16.i, %.pre
-  br i1 %.not45, label %70, label %_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit.thread
+  %.not48 = icmp ult i64 %.016.i16.i, %.pre
+  br i1 %.not48, label %70, label %_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit.thread
 
 _ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit.thread: ; preds = %21, %.thread10.loopexit.i, %_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit
   %41 = phi i64 [ %.pre, %_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit ], [ %.pre19.i, %21 ], [ %.pre.i, %.thread10.loopexit.i ]
@@ -8593,8 +8593,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %64
   unreachable
 
 70:                                               ; preds = %_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit, %.critedge25
-  %.4.i.i38 = phi i1 [ false, %_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit ], [ true, %.critedge25 ]
-  ret i1 %.4.i.i38
+  %.4.i.i41 = phi i1 [ false, %_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit ], [ true, %.critedge25 ]
+  ret i1 %.4.i.i41
 }
 
 ; Function Attrs: noreturn
@@ -9928,19 +9928,19 @@ _ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5begin
   %178 = getelementptr inbounds nuw %"class.folly::SingleWriterFixedHashMap<folly::RequestToken, folly::RequestData *>::Elem", ptr %170, i64 %.sroa.13.023.i, i32 2
   %179 = load atomic i64, ptr %178 monotonic, align 8
   %.not.i63 = icmp eq i64 %179, 0
-  br i1 %.not.i63, label %.preheader156, label %180
+  br i1 %.not.i63, label %.preheader176, label %180
 
 180:                                              ; preds = %.lr.ph.i62
   %.0.i.i.i64 = inttoptr i64 %179 to ptr
   %181 = getelementptr inbounds nuw i8, ptr %.0.i.i.i64, i64 8
   %182 = atomicrmw add ptr %181, i32 4097 monotonic, align 4
-  br label %.preheader156
+  br label %.preheader176
 
-.preheader156:                                    ; preds = %180, %.lr.ph.i62
+.preheader176:                                    ; preds = %180, %.lr.ph.i62
   br label %183
 
-183:                                              ; preds = %.preheader156, %185
-  %.sroa.13.2.in.i = phi i64 [ %.sroa.13.2.i, %185 ], [ %.sroa.13.023.i, %.preheader156 ]
+183:                                              ; preds = %.preheader176, %185
+  %.sroa.13.2.in.i = phi i64 [ %.sroa.13.2.i, %185 ], [ %.sroa.13.023.i, %.preheader176 ]
   %.sroa.13.2.i = add i64 %.sroa.13.2.in.i, 1
   %184 = icmp ult i64 %.sroa.13.2.i, %167
   br i1 %184, label %185, label %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i
@@ -10136,8 +10136,8 @@ _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterat
   br label %.noexc7.thread.thread
 
 .noexc7.thread.thread:                            ; preds = %.noexc8, %257, %.noexc7.thread
-  %.not40.i144 = phi i1 [ false, %257 ], [ true, %.noexc7.thread ], [ true, %.noexc8 ]
-  %.234.i143 = phi ptr [ %.234.i, %257 ], [ null, %.noexc7.thread ], [ null, %.noexc8 ]
+  %.not40.i164 = phi i1 [ false, %257 ], [ true, %.noexc7.thread ], [ true, %.noexc8 ]
+  %.234.i163 = phi ptr [ %.234.i, %257 ], [ null, %.noexc7.thread ], [ null, %.noexc8 ]
   %262 = load ptr, ptr %7, align 8, !tbaa !325
   %263 = invoke noundef i64 @_ZN5folly20processLocalUniqueIdEv()
           to label %264 unwind label %278
@@ -10301,21 +10301,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %_ZN
   br label %322
 
 .loopexit121:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %287, %.preheader120, %_ZN5folly14RequestContext5State9LockGuardD2Ev.exit
-  br i1 %.not40.i144, label %_ZN5folly14RequestContext5State16doSetContextDataERKNS_12RequestTokenERSt10unique_ptrINS_11RequestDataESt14default_deleteIS6_EENS0_14DoSetBehaviourEb.exit, label %318
+  br i1 %.not40.i164, label %_ZN5folly14RequestContext5State16doSetContextDataERKNS_12RequestTokenERSt10unique_ptrINS_11RequestDataESt14default_deleteIS6_EENS0_14DoSetBehaviourEb.exit, label %318
 
 318:                                              ; preds = %.loopexit121
-  %319 = getelementptr inbounds nuw i8, ptr %.234.i143, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %.234.i163, i64 8
   %320 = load ptr, ptr %319, align 8, !tbaa !166
-  %.not.i.i.i90 = icmp eq ptr %320, %.234.i143
+  %.not.i.i.i90 = icmp eq ptr %320, %.234.i163
   br i1 %.not.i.i.i90, label %_ZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14default_deleteIS3_EE6retireES6_RNS_13hazptr_domainIS4_EE.exit, label %321
 
 321:                                              ; preds = %318
-  call void @_ZN5folly10hazptr_objISt6atomicE21pre_retire_check_failEv(ptr noundef nonnull align 8 dereferenceable(24) %.234.i143) #9
+  call void @_ZN5folly10hazptr_objISt6atomicE21pre_retire_check_failEv(ptr noundef nonnull align 8 dereferenceable(24) %.234.i163) #9
   br label %_ZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14default_deleteIS3_EE6retireES6_RNS_13hazptr_domainIS4_EE.exit
 
 _ZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14default_deleteIS3_EE6retireES6_RNS_13hazptr_domainIS4_EE.exit: ; preds = %318, %321
-  store ptr @_ZZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14default_deleteIS3_EE11set_reclaimEvENUlPNS_10hazptr_objIS4_EERNS_15hazptr_obj_listIS4_EEE_8__invokeESA_SD_, ptr %.234.i143, align 8, !tbaa !171
-  call void @_ZN5folly10hazptr_objISt6atomicE8push_objERNS_13hazptr_domainIS1_EE(ptr noundef nonnull align 8 dereferenceable(24) %.234.i143, ptr noundef nonnull align 8 dereferenceable(444) @_ZN5folly14default_domainE)
+  store ptr @_ZZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14default_deleteIS3_EE11set_reclaimEvENUlPNS_10hazptr_objIS4_EERNS_15hazptr_obj_listIS4_EEE_8__invokeESA_SD_, ptr %.234.i163, align 8, !tbaa !171
+  call void @_ZN5folly10hazptr_objISt6atomicE8push_objERNS_13hazptr_domainIS1_EE(ptr noundef nonnull align 8 dereferenceable(24) %.234.i163, ptr noundef nonnull align 8 dereferenceable(444) @_ZN5folly14default_domainE)
   br label %_ZN5folly14RequestContext5State16doSetContextDataERKNS_12RequestTokenERSt10unique_ptrINS_11RequestDataESt14default_deleteIS6_EENS0_14DoSetBehaviourEb.exit
 
 322:                                              ; preds = %317, %.body
@@ -10631,7 +10631,7 @@ _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterat
   br label %133
 
 133:                                              ; preds = %.noexc4, %128, %.noexc5
-  %.not70 = phi i1 [ false, %.noexc4 ], [ true, %128 ], [ true, %.noexc5 ]
+  %.not78 = phi i1 [ false, %.noexc4 ], [ true, %128 ], [ true, %.noexc5 ]
   %.sroa.529.0.i = phi ptr [ null, %.noexc4 ], [ %.0.i7, %128 ], [ null, %.noexc5 ]
   %134 = load ptr, ptr %7, align 8, !tbaa !325
   %135 = invoke noundef i64 @_ZN5folly20processLocalUniqueIdEv()
@@ -10708,7 +10708,7 @@ _ZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14defau
   br label %_ZN5folly14RequestContext5State16doSetContextDataERKNS_12RequestTokenERSt10unique_ptrINS_11RequestDataESt14default_deleteIS6_EENS0_14DoSetBehaviourEb.exit
 
 _ZN5folly14RequestContext5State16doSetContextDataERKNS_12RequestTokenERSt10unique_ptrINS_11RequestDataESt14default_deleteIS6_EENS0_14DoSetBehaviourEb.exit: ; preds = %155, %_ZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14default_deleteIS3_EE6retireES6_RNS_13hazptr_domainIS4_EE.exit
-  ret i1 %.not70
+  ret i1 %.not78
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11242,7 +11242,7 @@ _ZN5folly14RequestContext5State9LockGuardC2ERS1_.exit: ; preds = %202, %.critedg
   br label %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11reader_findES1_.exit.i.thread
 
 _ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11reader_findES1_.exit.i.thread: ; preds = %.thread223.loopexit, %226, %.noexc
-  %.ph276 = phi i64 [ %.pre266, %.noexc ], [ 0, %226 ], [ %.pre, %.thread223.loopexit ]
+  %.ph304 = phi i64 [ %.pre266, %.noexc ], [ 0, %226 ], [ %.pre, %.thread223.loopexit ]
   %241 = getelementptr inbounds nuw i8, ptr %.0.i39, i64 48
   br label %.noexc5
 
@@ -11275,8 +11275,8 @@ _ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11read
 .noexc5:                                          ; preds = %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11reader_findES1_.exit.i.thread, %.noexc5.loopexit, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11reader_findES1_.exit.i
   %252 = phi ptr [ %245, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11reader_findES1_.exit.i ], [ %244, %.noexc5.loopexit ], [ null, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11reader_findES1_.exit.i.thread ]
   %253 = phi ptr [ %243, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11reader_findES1_.exit.i ], [ %243, %.noexc5.loopexit ], [ %241, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11reader_findES1_.exit.i.thread ]
-  %254 = phi i64 [ %.pre267, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11reader_findES1_.exit.i ], [ %.pre268, %.noexc5.loopexit ], [ %.ph276, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11reader_findES1_.exit.i.thread ]
-  %.sroa.7.1 = phi i64 [ %.014.i.i.i250, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11reader_findES1_.exit.i ], [ %.sroa.7.1.ph, %.noexc5.loopexit ], [ %.ph276, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11reader_findES1_.exit.i.thread ]
+  %254 = phi i64 [ %.pre267, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11reader_findES1_.exit.i ], [ %.pre268, %.noexc5.loopexit ], [ %.ph304, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11reader_findES1_.exit.i.thread ]
+  %.sroa.7.1 = phi i64 [ %.014.i.i.i250, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11reader_findES1_.exit.i ], [ %.sroa.7.1.ph, %.noexc5.loopexit ], [ %.ph304, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11reader_findES1_.exit.i.thread ]
   %.not = icmp eq i64 %.sroa.7.1, %254
   br i1 %.not, label %.thread228, label %255
 
@@ -11547,19 +11547,19 @@ _ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5begin
   %364 = getelementptr inbounds nuw %"class.folly::SingleWriterFixedHashMap<folly::RequestToken, folly::RequestData *>::Elem", ptr %356, i64 %.sroa.13.023.i140, i32 2
   %365 = load atomic i64, ptr %364 monotonic, align 8
   %.not.i141 = icmp eq i64 %365, 0
-  br i1 %.not.i141, label %.preheader299, label %366
+  br i1 %.not.i141, label %.preheader327, label %366
 
 366:                                              ; preds = %.lr.ph.i139
   %.0.i.i.i142 = inttoptr i64 %365 to ptr
   %367 = getelementptr inbounds nuw i8, ptr %.0.i.i.i142, i64 8
   %368 = atomicrmw add ptr %367, i32 4097 monotonic, align 4
-  br label %.preheader299
+  br label %.preheader327
 
-.preheader299:                                    ; preds = %366, %.lr.ph.i139
+.preheader327:                                    ; preds = %366, %.lr.ph.i139
   br label %369
 
-369:                                              ; preds = %.preheader299, %371
-  %.sroa.13.2.in.i143 = phi i64 [ %.sroa.13.2.i144, %371 ], [ %.sroa.13.023.i140, %.preheader299 ]
+369:                                              ; preds = %.preheader327, %371
+  %.sroa.13.2.in.i143 = phi i64 [ %.sroa.13.2.i144, %371 ], [ %.sroa.13.023.i140, %.preheader327 ]
   %.sroa.13.2.i144 = add i64 %.sroa.13.2.in.i143, 1
   %370 = icmp ult i64 %.sroa.13.2.i144, %353
   br i1 %370, label %371, label %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i145
@@ -11654,19 +11654,19 @@ _ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5begin
   %409 = getelementptr inbounds nuw %"class.folly::SingleWriterFixedHashMap<folly::RequestToken, folly::RequestData *>::Elem", ptr %401, i64 %.sroa.13.023.i156, i32 2
   %410 = load atomic i64, ptr %409 monotonic, align 8
   %.not.i157 = icmp eq i64 %410, 0
-  br i1 %.not.i157, label %.preheader297, label %411
+  br i1 %.not.i157, label %.preheader325, label %411
 
 411:                                              ; preds = %.lr.ph.i155
   %.0.i.i.i158 = inttoptr i64 %410 to ptr
   %412 = getelementptr inbounds nuw i8, ptr %.0.i.i.i158, i64 8
   %413 = atomicrmw add ptr %412, i32 4097 monotonic, align 4
-  br label %.preheader297
+  br label %.preheader325
 
-.preheader297:                                    ; preds = %411, %.lr.ph.i155
+.preheader325:                                    ; preds = %411, %.lr.ph.i155
   br label %414
 
-414:                                              ; preds = %.preheader297, %416
-  %.sroa.13.2.in.i159 = phi i64 [ %.sroa.13.2.i160, %416 ], [ %.sroa.13.023.i156, %.preheader297 ]
+414:                                              ; preds = %.preheader325, %416
+  %.sroa.13.2.in.i159 = phi i64 [ %.sroa.13.2.i160, %416 ], [ %.sroa.13.023.i156, %.preheader325 ]
   %.sroa.13.2.i160 = add i64 %.sroa.13.2.in.i159, 1
   %415 = icmp ult i64 %.sroa.13.2.i160, %398
   br i1 %415, label %416, label %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i161
@@ -12608,8 +12608,8 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockE
   br i1 %46, label %69, label %.critedge.i.i.i.i.i.i.sink.split, !prof !44
 
 .critedge.i.i.i.i.i.i.sink.split:                 ; preds = %43, %52
-  %.sink51 = phi { i32, i1 } [ %59, %52 ], [ %45, %43 ]
-  %47 = extractvalue { i32, i1 } %.sink51, 0
+  %.sink60 = phi { i32, i1 } [ %59, %52 ], [ %45, %43 ]
+  %47 = extractvalue { i32, i1 } %.sink60, 0
   store i32 %47, ptr %2, align 4, !noalias !522
   br label %.critedge.i.i.i.i.i.i
 
@@ -14789,8 +14789,8 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
   unreachable
 
 _ZN5folly6detail14ScopeGuardImplIZNS_17atomic_grow_arrayINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_32atomic_grow_array_policy_defaultISA_EEE9new_arrayEmRPNSD_5arrayEEUlvE_Lb1EED2Ev.exit: ; preds = %.critedge, %.preheader49, %55
-  %.364 = phi ptr [ null, %55 ], [ %23, %.preheader49 ], [ %23, %.critedge ]
-  ret ptr %.364
+  %.367 = phi ptr [ null, %55 ], [ %23, %.preheader49 ], [ %23, %.critedge ]
+  ret ptr %.367
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -16386,9 +16386,9 @@ _ZNK5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE5beginEv.exit66: ; pred
 .loopexit385:                                     ; preds = %173
   %.pre455 = load i64, ptr %72, align 8, !tbaa !304
   %180 = icmp ult i64 %.016.i.i138400, %.pre455
-  br i1 %180, label %.preheader511, label %.loopexit385.thread
+  br i1 %180, label %.preheader556, label %.loopexit385.thread
 
-.preheader511:                                    ; preds = %.loopexit385.thread, %.loopexit385
+.preheader556:                                    ; preds = %.loopexit385.thread, %.loopexit385
   br label %186
 
 .loopexit385.thread:                              ; preds = %.lr.ph, %177, %160, %165, %.loopexit385
@@ -16396,15 +16396,15 @@ _ZNK5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE5beginEv.exit66: ; pred
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 32
   %183 = load ptr, ptr %182, align 8
   invoke void %183(ptr noundef nonnull align 8 dereferenceable(12) %162)
-          to label %.preheader511 unwind label %184
+          to label %.preheader556 unwind label %184
 
 184:                                              ; preds = %.loopexit385.thread
   %185 = landingpad { ptr, i32 }
           cleanup
   br label %242
 
-186:                                              ; preds = %.preheader511, %188
-  %.sroa.14245.2.in = phi i64 [ %.sroa.14245.2, %188 ], [ %.sroa.14245.0403, %.preheader511 ]
+186:                                              ; preds = %.preheader556, %188
+  %.sroa.14245.2.in = phi i64 [ %.sroa.14245.2, %188 ], [ %.sroa.14245.0403, %.preheader556 ]
   %.sroa.14245.2 = add i64 %.sroa.14245.2.in, 1
   %187 = icmp ult i64 %.sroa.14245.2, %77
   br i1 %187, label %188, label %_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE8Iterator4nextEv.exit
@@ -16508,9 +16508,9 @@ _ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagE
 .loopexit384:                                     ; preds = %222
   %.pre459 = load i64, ptr %71, align 8, !tbaa !304
   %229 = icmp ult i64 %.016.i.i406, %.pre459
-  br i1 %229, label %.preheader509, label %.loopexit384.thread
+  br i1 %229, label %.preheader554, label %.loopexit384.thread
 
-.preheader509:                                    ; preds = %.loopexit384.thread, %.loopexit384
+.preheader554:                                    ; preds = %.loopexit384.thread, %.loopexit384
   br label %235
 
 .loopexit384.thread:                              ; preds = %.lr.ph408, %226, %.lr.ph412, %214, %.loopexit384
@@ -16518,15 +16518,15 @@ _ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagE
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 24
   %232 = load ptr, ptr %231, align 8
   invoke void %232(ptr noundef nonnull align 8 dereferenceable(12) %211)
-          to label %.preheader509 unwind label %233
+          to label %.preheader554 unwind label %233
 
 233:                                              ; preds = %.loopexit384.thread
   %234 = landingpad { ptr, i32 }
           cleanup
   br label %242
 
-235:                                              ; preds = %.preheader509, %237
-  %.sroa.14.2.in = phi i64 [ %.sroa.14.2, %237 ], [ %.sroa.14.0411, %.preheader509 ]
+235:                                              ; preds = %.preheader554, %237
+  %.sroa.14.2.in = phi i64 [ %.sroa.14.2, %237 ], [ %.sroa.14.0411, %.preheader554 ]
   %.sroa.14.2 = add i64 %.sroa.14.2.in, 1
   %236 = icmp ult i64 %.sroa.14.2, %149
   br i1 %236, label %237, label %_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE8Iterator4nextEv.exit95
@@ -16557,14 +16557,14 @@ _ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagE
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 72
   %248 = load i8, ptr %247, align 8, !tbaa !457
   %249 = icmp ugt i8 %248, 7
-  br i1 %249, label %250, label %.critedge503, !prof !63
+  br i1 %249, label %250, label %.critedge548, !prof !63
 
 250:                                              ; preds = %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit.i129
   %251 = add i8 %248, -7
   invoke void @_ZN5folly9hazptr_tcISt6atomicE5evictEh(ptr noundef nonnull align 8 dereferenceable(74) %246, i8 noundef zeroext %251)
-          to label %.critedge503 unwind label %257
+          to label %.critedge548 unwind label %257
 
-.critedge503:                                     ; preds = %250, %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit.i129
+.critedge548:                                     ; preds = %250, %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit.i129
   %.020.i130 = phi i8 [ %248, %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit.i129 ], [ 7, %250 ]
   %252 = zext nneg i8 %.020.i130 to i64
   store atomic i64 0, ptr %.sroa.0.0.copyload release, align 8
@@ -17216,8 +17216,8 @@ _ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i217: ; preds = %.crite
   store atomic i64 0, ptr %417 monotonic, align 8
   br label %_ZN5folly13hazptr_holderISt6atomicED2Ev.exit
 
-.body:                                            ; preds = %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i214, %54, %52, %.critedge503, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.thread, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread, %364
-  %.pn48.pn.pn.pn = phi { ptr, i32 } [ %365, %364 ], [ %296, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread ], [ %456, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.thread ], [ %55, %54 ], [ %53, %52 ], [ %.pn48.pn, %.critedge503 ], [ %456, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i214 ], [ %296, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i ]
+.body:                                            ; preds = %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i214, %54, %52, %.critedge548, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.thread, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread, %364
+  %.pn48.pn.pn.pn = phi { ptr, i32 } [ %365, %364 ], [ %296, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread ], [ %456, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.thread ], [ %55, %54 ], [ %53, %52 ], [ %.pn48.pn, %.critedge548 ], [ %456, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i214 ], [ %296, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i ]
   tail call void @_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   br label %546
 
@@ -18001,8 +18001,8 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockE
   br i1 %46, label %69, label %.critedge.i.i.i.i.i.i.sink.split, !prof !44
 
 .critedge.i.i.i.i.i.i.sink.split:                 ; preds = %43, %52
-  %.sink51 = phi { i32, i1 } [ %59, %52 ], [ %45, %43 ]
-  %47 = extractvalue { i32, i1 } %.sink51, 0
+  %.sink60 = phi { i32, i1 } [ %59, %52 ], [ %45, %43 ]
+  %47 = extractvalue { i32, i1 } %.sink60, 0
   store i32 %47, ptr %2, align 4, !noalias !698
   br label %.critedge.i.i.i.i.i.i
 

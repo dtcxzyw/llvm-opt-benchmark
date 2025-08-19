@@ -163,12 +163,12 @@ define { i64, i64 } @softfloat_subMagsF128(i64 noundef %0, i64 noundef %1, i64 n
   br label %82
 
 82:                                               ; preds = %78, %58
-  %.sink120 = phi i1 [ %81, %78 ], [ %62, %58 ]
+  %.sink133 = phi i1 [ %81, %78 ], [ %62, %58 ]
   %.sink = phi i64 [ %80, %78 ], [ %61, %58 ]
   %.2 = phi i64 [ %.087, %78 ], [ %.188, %58 ]
   %.pn119 = phi i64 [ %79, %78 ], [ %60, %58 ]
   %.0.in = phi i1 [ %4, %78 ], [ %59, %58 ]
-  %.neg.i114 = sext i1 %.sink120 to i64
+  %.neg.i114 = sext i1 %.sink133 to i64
   %83 = add i64 %.sink, %.neg.i114
   %84 = add nsw i64 %.2, -5
   %85 = tail call { i64, i64 } @softfloat_normRoundPackToF128(i1 noundef zeroext %.0.in, i64 noundef %84, i64 noundef %83, i64 noundef %.pn119) #4

@@ -620,7 +620,7 @@ define internal fastcc ptr @llvm_get_debug_type_internal(ptr noundef readonly ca
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %common.ret74
+  br i1 %.not, label %6, label %common.ret76
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -628,16 +628,16 @@ define internal fastcc ptr @llvm_get_debug_type_internal(ptr noundef readonly ca
   %.not67 = icmp eq ptr %8, %1
   br i1 %.not67, label %13, label %9
 
-common.ret74:                                     ; preds = %13, %3, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %48, %46, %36, %33, %30, %27, %24, %21, %16, %9
-  %common.ret74.op = phi ptr [ %12, %9 ], [ %20, %16 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %45, %36 ], [ %47, %46 ], [ %50, %48 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %5, %3 ], [ null, %13 ]
-  ret ptr %common.ret74.op
+common.ret76:                                     ; preds = %13, %3, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %48, %46, %36, %33, %30, %27, %24, %21, %16, %9
+  %common.ret76.op = phi ptr [ %12, %9 ], [ %20, %16 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %45, %36 ], [ %47, %46 ], [ %50, %48 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %5, %3 ], [ null, %13 ]
+  ret ptr %common.ret76.op
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %11 = load ptr, ptr %10, align 8
   %12 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef %0, ptr noundef %8, ptr noundef %11)
   store ptr %12, ptr %4, align 8
-  br label %common.ret74
+  br label %common.ret76
 
 13:                                               ; preds = %6
   %14 = load i32, ptr %1, align 8
@@ -670,7 +670,7 @@ common.ret74:                                     ; preds = %13, %3, %69, %67, %
     i32 16, label %36
     i32 17, label %36
     i32 37, label %46
-    i32 1, label %common.ret74
+    i32 1, label %common.ret76
     i32 22, label %48
     i32 23, label %51
     i32 24, label %53
@@ -698,37 +698,37 @@ common.ret74:                                     ; preds = %13, %3, %69, %67, %
   %19 = load ptr, ptr %18, align 8
   %20 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef %0, ptr noundef %17, ptr noundef %19)
   store ptr %20, ptr %4, align 8
-  br label %common.ret74
+  br label %common.ret76
 
 21:                                               ; preds = %13
   %22 = getelementptr i8, ptr %0, i64 304
   %.val = load ptr, ptr %22, align 8
   %23 = tail call fastcc ptr @llvm_debug_simple_type(ptr %.val, ptr noundef nonnull %1, i32 noundef 2)
-  br label %common.ret74
+  br label %common.ret76
 
 24:                                               ; preds = %13
   %25 = getelementptr i8, ptr %0, i64 304
   %.val68 = load ptr, ptr %25, align 8
   %26 = tail call fastcc ptr @llvm_debug_simple_type(ptr %.val68, ptr noundef nonnull %1, i32 noundef 6)
-  br label %common.ret74
+  br label %common.ret76
 
 27:                                               ; preds = %13
   %28 = getelementptr i8, ptr %0, i64 304
   %.val69 = load ptr, ptr %28, align 8
   %29 = tail call fastcc ptr @llvm_debug_simple_type(ptr %.val69, ptr noundef nonnull %1, i32 noundef 8)
-  br label %common.ret74
+  br label %common.ret76
 
 30:                                               ; preds = %13, %13, %13, %13
   %31 = getelementptr i8, ptr %0, i64 304
   %.val70 = load ptr, ptr %31, align 8
   %32 = tail call fastcc ptr @llvm_debug_simple_type(ptr %.val70, ptr noundef nonnull %1, i32 noundef 5)
-  br label %common.ret74
+  br label %common.ret76
 
 33:                                               ; preds = %13, %13, %13, %13
   %34 = getelementptr i8, ptr %0, i64 304
   %.val71 = load ptr, ptr %34, align 8
   %35 = tail call fastcc ptr @llvm_debug_simple_type(ptr %.val71, ptr noundef nonnull %1, i32 noundef 7)
-  br label %common.ret74
+  br label %common.ret76
 
 36:                                               ; preds = %13, %13, %13, %13, %13
   %37 = getelementptr i8, ptr %0, i64 304
@@ -742,69 +742,69 @@ common.ret74:                                     ; preds = %13, %3, %69, %67, %
   %44 = zext nneg i32 %43 to i64
   %45 = tail call ptr @LLVMDIBuilderCreateBasicType(ptr noundef %.val72, ptr noundef nonnull %39, i64 noundef %40, i64 noundef %44, i32 noundef 4, i32 noundef 0) #8
   store ptr %45, ptr %4, align 8
-  br label %common.ret74
+  br label %common.ret76
 
 46:                                               ; preds = %13
   %47 = tail call fastcc ptr @llvm_debug_vector_type(ptr noundef %0, ptr noundef nonnull %1)
   store ptr %47, ptr %4, align 8
-  br label %common.ret74
+  br label %common.ret76
 
 48:                                               ; preds = %13
   %49 = getelementptr i8, ptr %0, i64 304
   %.val73 = load ptr, ptr %49, align 8
   %50 = tail call fastcc ptr @llvm_debug_typeid_type(ptr %.val73, ptr noundef nonnull %1)
   store ptr %50, ptr %4, align 8
-  br label %common.ret74
+  br label %common.ret76
 
 51:                                               ; preds = %13
   %52 = tail call fastcc ptr @llvm_debug_pointer_type(ptr noundef %0, ptr noundef nonnull %1)
   store ptr %52, ptr %4, align 8
-  br label %common.ret74
+  br label %common.ret76
 
 53:                                               ; preds = %13
   %54 = tail call fastcc ptr @llvm_debug_enum_type(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   store ptr %54, ptr %4, align 8
-  br label %common.ret74
+  br label %common.ret76
 
 55:                                               ; preds = %13
   %56 = tail call fastcc ptr @llvm_debug_enum_type(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   store ptr %56, ptr %4, align 8
-  br label %common.ret74
+  br label %common.ret76
 
 57:                                               ; preds = %13
   %58 = tail call fastcc ptr @llvm_debug_func_type(ptr noundef %0, ptr noundef nonnull %1)
   store ptr %58, ptr %4, align 8
-  br label %common.ret74
+  br label %common.ret76
 
 59:                                               ; preds = %13, %13
   %60 = tail call fastcc ptr @llvm_debug_structlike_type(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   store ptr %60, ptr %4, align 8
-  br label %common.ret74
+  br label %common.ret76
 
 61:                                               ; preds = %13, %13
   %62 = tail call fastcc ptr @llvm_debug_typedef_type(ptr noundef %0, ptr noundef nonnull %1)
   store ptr %62, ptr %4, align 8
-  br label %common.ret74
+  br label %common.ret76
 
 63:                                               ; preds = %13, %13
   %64 = tail call fastcc ptr @llvm_debug_array_type(ptr noundef %0, ptr noundef nonnull %1)
   store ptr %64, ptr %4, align 8
-  br label %common.ret74
+  br label %common.ret76
 
 65:                                               ; preds = %13
   %66 = tail call fastcc ptr @llvm_debug_subarray_type(ptr noundef %0, ptr noundef nonnull %1)
   store ptr %66, ptr %4, align 8
-  br label %common.ret74
+  br label %common.ret76
 
 67:                                               ; preds = %13
   %68 = tail call fastcc ptr @llvm_debug_errunion_type(ptr noundef %0, ptr noundef nonnull %1)
   store ptr %68, ptr %4, align 8
-  br label %common.ret74
+  br label %common.ret76
 
 69:                                               ; preds = %13, %13
   %70 = tail call fastcc ptr @llvm_debug_any_type(ptr noundef %0, ptr noundef nonnull %1)
   store ptr %70, ptr %4, align 8
-  br label %common.ret74
+  br label %common.ret76
 
 71:                                               ; preds = %13
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.llvm_get_debug_type_internal, ptr noundef nonnull @.str.4, i32 noundef 617) #10

@@ -1346,14 +1346,14 @@ _ZN2cv3Mat2atINS_3VecIhLi3EEEEERT_i.exit:         ; preds = %472, %466, %459
   %513 = trunc nuw nsw i64 %indvars.iv416 to i32
   %514 = sdiv i32 %513, %512
   %515 = mul nsw i32 %514, %512
-  %.recomposed419 = srem i32 %513, %512
+  %.recomposed457 = srem i32 %513, %512
   %516 = load ptr, ptr %265, align 8, !tbaa !52
   %517 = load ptr, ptr %266, align 8, !tbaa !53
   %518 = load i64, ptr %517, align 8, !tbaa !15
   %519 = sext i32 %514 to i64
   %520 = mul i64 %518, %519
   %521 = getelementptr inbounds nuw i8, ptr %516, i64 %520
-  %522 = sext i32 %.recomposed419 to i64
+  %522 = sext i32 %.recomposed457 to i64
   %523 = getelementptr inbounds float, ptr %521, i64 %522
   br label %524
 
@@ -1408,14 +1408,14 @@ _ZN2cv3Mat2atINS_3VecIhLi3EEEEERT_i.exit:         ; preds = %472, %466, %459
   %554 = trunc nuw nsw i64 %indvars.iv416 to i32
   %555 = sdiv i32 %554, %553
   %556 = mul nsw i32 %555, %553
-  %.recomposed420 = srem i32 %554, %553
+  %.recomposed458 = srem i32 %554, %553
   %557 = load ptr, ptr %256, align 8, !tbaa !52
   %558 = load ptr, ptr %257, align 8, !tbaa !53
   %559 = load i64, ptr %558, align 8, !tbaa !15
   %560 = sext i32 %555 to i64
   %561 = mul i64 %559, %560
   %562 = getelementptr inbounds nuw i8, ptr %557, i64 %561
-  %563 = sext i32 %.recomposed420 to i64
+  %563 = sext i32 %.recomposed458 to i64
   %564 = getelementptr inbounds %"class.cv::Vec.4", ptr %562, i64 %563
   br label %_ZN2cv3Mat2atINS_3VecIhLi3EEEEERT_i.exit310
 

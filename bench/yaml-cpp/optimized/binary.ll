@@ -324,7 +324,7 @@ define void @_ZN4YAML12DecodeBase64ERKNSt7__cxx1112basic_stringIcSt11char_traits
 68:                                               ; preds = %61
   store i8 0, ptr %.0.i.i.i.i.i, align 1, !tbaa !12
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
-  %70 = add i64 %62, -1
+  %70 = add nsw i64 %62, -1
   %71 = icmp eq i64 %70, 0
   br i1 %71, label %.thread68, label %72
 

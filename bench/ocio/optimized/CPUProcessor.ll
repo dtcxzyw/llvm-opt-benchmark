@@ -2310,11 +2310,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i60: ; preds = %201,
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit62thread-pre-split
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit62thread-pre-split: ; preds = %204, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i60, %189
-  %.pr159 = load ptr, ptr %48, align 8, !tbaa !197
+  %.pr193 = load ptr, ptr %48, align 8, !tbaa !197
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit62
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit62: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit62thread-pre-split, %180
-  %205 = phi ptr [ %.pr159, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit62thread-pre-split ], [ null, %180 ]
+  %205 = phi ptr [ %.pr193, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit62thread-pre-split ], [ null, %180 ]
   %.not.i.i63 = icmp eq ptr %205, null
   br i1 %.not.i.i63, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit67, label %206
 
@@ -2432,11 +2432,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i70: ; preds = %251,
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit72thread-pre-split
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit72thread-pre-split: ; preds = %254, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i70, %239
-  %.pr160 = load ptr, ptr %45, align 8, !tbaa !197
+  %.pr194 = load ptr, ptr %45, align 8, !tbaa !197
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit72
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit72: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit72thread-pre-split, %230
-  %255 = phi ptr [ %.pr160, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit72thread-pre-split ], [ null, %230 ]
+  %255 = phi ptr [ %.pr194, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit72thread-pre-split ], [ null, %230 ]
   %.not.i.i73 = icmp eq ptr %255, null
   br i1 %.not.i.i73, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit77, label %256
 
@@ -2655,11 +2655,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i86: ; preds = %342,
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit88thread-pre-split
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit88thread-pre-split: ; preds = %345, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i86, %330
-  %.pr161 = load ptr, ptr %52, align 8, !tbaa !197
+  %.pr195 = load ptr, ptr %52, align 8, !tbaa !197
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit88
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit88: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit88thread-pre-split, %321
-  %346 = phi ptr [ %.pr161, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit88thread-pre-split ], [ null, %321 ]
+  %346 = phi ptr [ %.pr195, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit88thread-pre-split ], [ null, %321 ]
   %.not.i.i89 = icmp eq ptr %346, null
   br i1 %.not.i.i89, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit93, label %347
 
@@ -2828,11 +2828,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i101: ; preds = %413
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit103thread-pre-split
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit103thread-pre-split: ; preds = %416, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i101, %401
-  %.pr162 = load ptr, ptr %43, align 8, !tbaa !197
+  %.pr196 = load ptr, ptr %43, align 8, !tbaa !197
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit103
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit103: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit103thread-pre-split, %392
-  %417 = phi ptr [ %.pr162, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit103thread-pre-split ], [ null, %392 ]
+  %417 = phi ptr [ %.pr196, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit103thread-pre-split ], [ null, %392 ]
   %.not.i.i104 = icmp eq ptr %417, null
   br i1 %.not.i.i104, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit108, label %418
 
@@ -3009,11 +3009,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i116: ; preds = %490
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit118thread-pre-split
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit118thread-pre-split: ; preds = %493, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i116, %478
-  %.pr163 = load ptr, ptr %41, align 8, !tbaa !197
+  %.pr197 = load ptr, ptr %41, align 8, !tbaa !197
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit118
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit118: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit118thread-pre-split, %469
-  %494 = phi ptr [ %.pr163, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit118thread-pre-split ], [ null, %469 ]
+  %494 = phi ptr [ %.pr197, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit118thread-pre-split ], [ null, %469 ]
   %.not.i.i119 = icmp eq ptr %494, null
   br i1 %.not.i.i119, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit123, label %495
 
@@ -3131,11 +3131,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i126: ; preds = %540
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit128thread-pre-split
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit128thread-pre-split: ; preds = %543, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i126, %528
-  %.pr164 = load ptr, ptr %38, align 8, !tbaa !197
+  %.pr198 = load ptr, ptr %38, align 8, !tbaa !197
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit128
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit128: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit128thread-pre-split, %519
-  %544 = phi ptr [ %.pr164, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit128thread-pre-split ], [ null, %519 ]
+  %544 = phi ptr [ %.pr198, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEEaSEOS3_.exit128thread-pre-split ], [ null, %519 ]
   %.not.i.i129 = icmp eq ptr %544, null
   br i1 %.not.i.i129, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit133, label %545
 
@@ -4494,12 +4494,12 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl18getDynamicPropertyENS
   resume { ptr, i32 } %30
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %3
-  %.sink28.in = phi ptr [ %1, %3 ], [ %20, %._crit_edge ], [ %.sroa.014.022, %.lr.ph ]
-  %.sink28 = load ptr, ptr %.sink28.in, align 8, !tbaa !191
-  %31 = load ptr, ptr %.sink28, align 8, !tbaa !12
+  %.sink30.in = phi ptr [ %1, %3 ], [ %20, %._crit_edge ], [ %.sroa.014.022, %.lr.ph ]
+  %.sink30 = load ptr, ptr %.sink30.in, align 8, !tbaa !191
+  %31 = load ptr, ptr %.sink30, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.192") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %.sink28, i32 noundef %2)
+  tail call void %33(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.192") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %.sink30, i32 noundef %2)
   ret void
 }
 
@@ -4937,7 +4937,7 @@ _ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds
   %174 = load ptr, ptr %173, align 8, !tbaa !278
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %176 = icmp eq ptr %174, %175
-  br i1 %176, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %176, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4948,13 +4948,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %181 = icmp eq ptr %180, %149
   br i1 %181, label %184, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit
   %182 = load ptr, ptr %9, align 8, !tbaa !278
   %183 = icmp eq ptr %182, %149
   br i1 %183, label %184, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-184:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %185 = phi ptr [ %182, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %180, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+184:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %185 = phi ptr [ %182, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %180, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %186 = load i64, ptr %150, align 8, !tbaa !279
   %187 = icmp ult i64 %186, 16
   call void @llvm.assume(i1 %187)
@@ -4994,7 +4994,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %197, ptr %175, align 8, !tbaa !207
   br label %203
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %198 = load i64, ptr %175, align 8, !tbaa !207
   store ptr %182, ptr %173, align 8, !tbaa !278
   %199 = load i64, ptr %150, align 8, !tbaa !279

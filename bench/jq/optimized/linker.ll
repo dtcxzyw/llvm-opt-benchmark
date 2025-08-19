@@ -510,11 +510,11 @@ jv_basename.exit:                                 ; preds = %build_lib_search_ch
   br label %200
 
 200:                                              ; preds = %197, %190
-  %.sink64 = phi { i64, ptr } [ %199, %197 ], [ %196, %190 ]
+  %.sink71 = phi { i64, ptr } [ %199, %197 ], [ %196, %190 ]
   %.sroa.061.0 = phi i64 [ %114, %197 ], [ %192, %190 ]
   %.sroa.9.0 = phi ptr [ %115, %197 ], [ %193, %190 ]
-  %201 = extractvalue { i64, ptr } %.sink64, 0
-  %202 = extractvalue { i64, ptr } %.sink64, 1
+  %201 = extractvalue { i64, ptr } %.sink71, 0
+  %202 = extractvalue { i64, ptr } %.sink71, 1
   %203 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %201, ptr %202) #11
   tail call void @jv_free(i64 %.sroa.061.0, ptr %.sroa.9.0) #11
   tail call void @jv_free(i64 %0, ptr %1) #11

@@ -526,9 +526,9 @@ _ZN14regex_automata4util4iter8Searcher7advance17he706eb4fbc3da569E.exit.i.i: ; p
   br label %206
 
 206:                                              ; preds = %_ZN14regex_automata4util4iter8Searcher7advance17he706eb4fbc3da569E.exit.i.i, %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h079326073e003297E.exit.i", %198
-  %.sink58 = phi i64 [ 72, %198 ], [ 8, %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h079326073e003297E.exit.i" ], [ 8, %_ZN14regex_automata4util4iter8Searcher7advance17he706eb4fbc3da569E.exit.i.i ]
+  %.sink68 = phi i64 [ 72, %198 ], [ 8, %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h079326073e003297E.exit.i" ], [ 8, %_ZN14regex_automata4util4iter8Searcher7advance17he706eb4fbc3da569E.exit.i.i ]
   %.sink = phi i64 [ %200, %198 ], [ 2, %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h079326073e003297E.exit.i" ], [ 2, %_ZN14regex_automata4util4iter8Searcher7advance17he706eb4fbc3da569E.exit.i.i ]
-  %.sroa.4.sroa.12.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink58
+  %.sroa.4.sroa.12.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink68
   store i64 %.sink, ptr %.sroa.4.sroa.12.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   ret void
 }
@@ -948,8 +948,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !198, !noalias !195
+  %.sroa.0.i.1.i.1.i.1..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx9, align 1, !alias.scope !198, !noalias !195
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 15:                                               ; preds = %6
@@ -961,13 +961,13 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !198, !noalias !195
+  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !198, !noalias !195
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !198, !noalias !195
+  %.sroa.0.i.2.i.2.i.2..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx10, align 2, !alias.scope !198, !noalias !195
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 26:                                               ; preds = %6
@@ -1785,7 +1785,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h07796c882b77fcafE.exit: ; 
   %246 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %247 = load ptr, ptr %246, align 8, !alias.scope !268, !nonnull !9, !align !10, !noundef !9
   invoke void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17hf4373e9e0e4b3488E.llvm.8392816388146978635"(ptr noundef nonnull align 8 %247, ptr noalias noundef nonnull align 8 %89)
-          to label %.sink.split260 unwind label %258
+          to label %.sink.split275 unwind label %258
 
 248:                                              ; preds = %239
   invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17h3fbd1b40e61f06b7E"(ptr noalias noundef nonnull align 8 dereferenceable(1400) %89)
@@ -1805,7 +1805,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h07796c882b77fcafE.exit: ; 
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h425122ae047c59ecE.llvm.8392816388146978635.exit.i148": ; preds = %248
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h56955f986ca94afeE.llvm.8392816388146978635"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
-          to label %.sink.split260 unwind label %258
+          to label %.sink.split275 unwind label %258
 
 253:                                              ; preds = %243
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !268
@@ -1833,11 +1833,11 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h07796c882b77fcafE.exit: ; 
   invoke void @"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$C$usize$GT$$GT$17h0e60a9dbcab01a71E.llvm.8392816388146978635"(ptr noalias noundef nonnull align 8 dereferenceable(176) %31) #24
           to label %.body116 unwind label %269
 
-.sink.split260:                                   ; preds = %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h425122ae047c59ecE.llvm.8392816388146978635.exit.i148", %245
+.sink.split275:                                   ; preds = %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h425122ae047c59ecE.llvm.8392816388146978635.exit.i148", %245
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !268
   br label %260
 
-260:                                              ; preds = %.sink.split260, %254
+260:                                              ; preds = %.sink.split275, %254
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !262
   call void @llvm.experimental.noalias.scope.decl(metadata !331)
   %261 = load i64, ptr %31, align 8, !range !12, !alias.scope !334, !noundef !9
@@ -2885,7 +2885,7 @@ define internal fastcc void @_ZN16html_to_markdown15markdown_writer14MarkdownWri
   %29 = load ptr, ptr %1, align 8, !nonnull !9, !noundef !9
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i8, ptr %30, align 8, !range !542, !noundef !9
-  switch i8 %31, label %default.unreachable155 [
+  switch i8 %31, label %default.unreachable189 [
     i8 0, label %.thread
     i8 1, label %.thread
     i8 2, label %34
@@ -2894,7 +2894,7 @@ define internal fastcc void @_ZN16html_to_markdown15markdown_writer14MarkdownWri
     i8 5, label %.thread
   ]
 
-default.unreachable155:                           ; preds = %.noexc.i34, %.noexc11.i, %4
+default.unreachable189:                           ; preds = %.noexc.i34, %.noexc11.i, %4
   unreachable
 
 32:                                               ; preds = %304, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter10visit_text17h3ceb8b48504189a2E.exit
@@ -3172,7 +3172,7 @@ default.unreachable155:                           ; preds = %.noexc.i34, %.noexc
 
 .noexc.i34:                                       ; preds = %115
   %116 = load i64, ptr %15, align 8, !range !79, !noalias !593, !noundef !9
-  switch i64 %116, label %default.unreachable155 [
+  switch i64 %116, label %default.unreachable189 [
     i64 1, label %117
     i64 2, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h96b3983d9bde1e6eE.llvm.17595068327711128686.exit.i.i"
     i64 0, label %122
@@ -3203,7 +3203,7 @@ default.unreachable155:                           ; preds = %.noexc.i34, %.noexc
 
 .noexc11.i:                                       ; preds = %123
   %124 = load i64, ptr %14, align 8, !range !79, !noalias !601, !noundef !9
-  switch i64 %124, label %default.unreachable155 [
+  switch i64 %124, label %default.unreachable189 [
     i64 1, label %126
     i64 2, label %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h411bf68da0037c28E.llvm.17595068327711128686.exit.i.i"
     i64 0, label %125
@@ -3796,10 +3796,10 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter10visit_text17h3ceb8b48504
   br i1 %357, label %388, label %353
 
 364:                                              ; preds = %359, %340
-  %.sink57.i = phi i64 [ 1, %359 ], [ -1, %340 ]
+  %.sink59.i = phi i64 [ 1, %359 ], [ -1, %340 ]
   %.pn.i45 = phi { ptr, i32 } [ %360, %359 ], [ %341, %340 ]
   %365 = load i64, ptr %330, align 8, !noalias !708, !noundef !9
-  %366 = add i64 %365, %.sink57.i
+  %366 = add i64 %365, %.sink59.i
   store i64 %366, ptr %330, align 8, !noalias !708
   br label %.body
 
@@ -4110,10 +4110,10 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter10visit_text17h3ceb8b48504
   br label %492
 
 503:                                              ; preds = %498, %479
-  %.sink40.i = phi i64 [ 1, %498 ], [ -1, %479 ]
+  %.sink42.i = phi i64 [ 1, %498 ], [ -1, %479 ]
   %.pn.i75 = phi { ptr, i32 } [ %499, %498 ], [ %480, %479 ]
   %504 = load i64, ptr %470, align 8, !noalias !774, !noundef !9
-  %505 = add i64 %504, %.sink40.i
+  %505 = add i64 %504, %.sink42.i
   store i64 %505, ptr %470, align 8, !noalias !774
   br label %.body79
 

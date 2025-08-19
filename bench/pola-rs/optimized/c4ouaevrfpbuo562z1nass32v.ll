@@ -5393,14 +5393,14 @@ define internal fastcc void @"_ZN4core3ptr181drop_in_place$LT$core..task..poll..
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i64 %2, label %.unreachabledefault.i [
+  switch i64 %2, label %default.unreachable [
     i64 3, label %25
     i64 0, label %10
     i64 1, label %15
     i64 2, label %5
   ]
 
-.unreachabledefault.i:                            ; preds = %3
+default.unreachable:                              ; preds = %3
   unreachable
 
 5:                                                ; preds = %3
@@ -9631,7 +9631,7 @@ define internal void @"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$polar
 16:                                               ; preds = %12
   %17 = atomicrmw sub ptr %14, i64 1 release, align 8, !noalias !982
   %18 = icmp eq i64 %17, 1
-  br i1 %18, label %.invoke11, label %"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17h100e68b0f634ca74E.exit"
+  br i1 %18, label %.invoke12, label %"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17h100e68b0f634ca74E.exit"
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -9643,9 +9643,9 @@ define internal void @"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$polar
 23:                                               ; preds = %19
   %24 = atomicrmw sub ptr %21, i64 1 release, align 8, !noalias !990
   %25 = icmp eq i64 %24, 1
-  br i1 %25, label %.invoke11, label %"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17h100e68b0f634ca74E.exit"
+  br i1 %25, label %.invoke12, label %"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17h100e68b0f634ca74E.exit"
 
-.invoke11:                                        ; preds = %23, %16
+.invoke12:                                        ; preds = %23, %16
   %26 = phi ptr [ %13, %16 ], [ %20, %23 ]
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h03d41d54fa949362E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26)
@@ -9656,11 +9656,11 @@ define internal void @"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$polar
   invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$polars_core..datatypes..field..Field$GT$$GT$17h07b2f101aeacb6e1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
           to label %"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17h100e68b0f634ca74E.exit" unwind label %29
 
-"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17h100e68b0f634ca74E.exit": ; preds = %.invoke11, %.invoke, %1, %4, %8, %16, %12, %23, %19, %27
+"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17h100e68b0f634ca74E.exit": ; preds = %.invoke12, %.invoke, %1, %4, %8, %16, %12, %23, %19, %27
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %2, i64 noundef 48, i64 noundef 16) #30
   ret void
 
-29:                                               ; preds = %.invoke11, %.invoke, %27, %8
+29:                                               ; preds = %.invoke12, %.invoke, %27, %8
   %30 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %2, i64 noundef 48, i64 noundef 16) #30
@@ -54822,7 +54822,7 @@ define hidden void @"_ZN62_$LT$$RF$mut$u20$F$u20$as$u20$core..future..future..Fu
     i8 2, label %.thread8.i
   ], !prof !108
 
-default.unreachable:                              ; preds = %3
+default.unreachable:                              ; preds = %26, %3
   unreachable
 
 _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i.i: ; preds = %3
@@ -54886,15 +54886,12 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.thread2.i.i: ; p
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  switch i64 %25, label %.unreachabledefault.i.i.i [
+  switch i64 %25, label %default.unreachable [
     i64 3, label %47
     i64 0, label %33
     i64 1, label %38
     i64 2, label %28
   ]
-
-.unreachabledefault.i.i.i:                        ; preds = %26
-  unreachable
 
 28:                                               ; preds = %26
   %29 = load i64, ptr %27, align 8, !range !28, !alias.scope !5018, !noalias !5006, !noundef !4
@@ -57569,7 +57566,10 @@ define internal fastcc void @"_ZN9polars_io10file_cache8eviction15EvictionManage
     i8 6, label %28
   ]
 
-25:                                               ; preds = %"_ZN4core3ptr86drop_in_place$LT$$LP$tokio..sync..notify..Notified$C$tokio..time..sleep..Sleep$RP$$GT$17hce9dd101dd3465d6E.exit", %2
+default.unreachable:                              ; preds = %"_ZN4core3ptr86drop_in_place$LT$$LP$tokio..sync..notify..Notified$C$tokio..time..sleep..Sleep$RP$$GT$17hce9dd101dd3465d6E.exit"
+  unreachable
+
+25:                                               ; preds = %2
   unreachable
 
 26:                                               ; preds = %2
@@ -57720,7 +57720,7 @@ common.ret:                                       ; preds = %174, %86, %61, %43
 
 "_ZN4core3ptr86drop_in_place$LT$$LP$tokio..sync..notify..Notified$C$tokio..time..sleep..Sleep$RP$$GT$17hce9dd101dd3465d6E.exit": ; preds = %67
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  switch i8 %55, label %25 [
+  switch i8 %55, label %default.unreachable [
     i8 0, label %196
     i8 1, label %73
     i8 2, label %237

@@ -757,8 +757,8 @@ cond.false.i6:                                    ; preds = %dynamic_cast.end3.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %cond.true.i, %if.then.i.i.i, %cond.false.i6
-  %.pr7480 = phi ptr [ null, %cond.false.i6 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
-  %call3 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20VarianceGammaProcess13dividendYieldEv(ptr noundef nonnull align 8 dereferenceable(216) %.pr7480)
+  %.pr7488 = phi ptr [ null, %cond.false.i6 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
+  %call3 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20VarianceGammaProcess13dividendYieldEv(ptr noundef nonnull align 8 dereferenceable(216) %.pr7488)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -790,7 +790,7 @@ call.i.noexc:                                     ; preds = %invoke.cont6
 invoke.cont10:                                    ; preds = %call.i.noexc
   %dividendDiscount_ = getelementptr inbounds nuw i8, ptr %this, i64 408
   store double %call2.i12, ptr %dividendDiscount_, align 8, !tbaa !83
-  %call13 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20VarianceGammaProcess12riskFreeRateEv(ptr noundef nonnull align 8 dereferenceable(216) %.pr7480)
+  %call13 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20VarianceGammaProcess12riskFreeRateEv(ptr noundef nonnull align 8 dereferenceable(216) %.pr7488)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -823,7 +823,7 @@ invoke.cont21:                                    ; preds = %call.i.noexc23
   %riskFreeDiscount_ = getelementptr inbounds nuw i8, ptr %this, i64 416
   store double %call2.i25, ptr %riskFreeDiscount_, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(ptr nonnull %rfdc)
-  %call24 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20VarianceGammaProcess12riskFreeRateEv(ptr noundef nonnull align 8 dereferenceable(216) %.pr7480)
+  %call24 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20VarianceGammaProcess12riskFreeRateEv(ptr noundef nonnull align 8 dereferenceable(216) %.pr7488)
           to label %invoke.cont23 unwind label %lpad20
 
 invoke.cont23:                                    ; preds = %invoke.cont21
@@ -852,7 +852,7 @@ invoke.cont27:                                    ; preds = %.noexc35, %invoke.c
           to label %invoke.cont31 unwind label %lpad20
 
 invoke.cont31:                                    ; preds = %invoke.cont27
-  %call34 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20VarianceGammaProcess12riskFreeRateEv(ptr noundef nonnull align 8 dereferenceable(216) %.pr7480)
+  %call34 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20VarianceGammaProcess12riskFreeRateEv(ptr noundef nonnull align 8 dereferenceable(216) %.pr7488)
           to label %invoke.cont33 unwind label %lpad30
 
 invoke.cont33:                                    ; preds = %invoke.cont31
@@ -899,17 +899,17 @@ invoke.cont58:                                    ; preds = %invoke.cont47
   store double %call49, ptr %t_, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp45)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  %sigma_.i71 = getelementptr inbounds nuw i8, ptr %.pr7480, i64 192
+  %sigma_.i71 = getelementptr inbounds nuw i8, ptr %.pr7488, i64 192
   %15 = load double, ptr %sigma_.i71, align 8, !tbaa !87
   %sigma_72 = getelementptr inbounds nuw i8, ptr %this, i64 432
   store double %15, ptr %sigma_72, align 8, !tbaa !97
-  %nu_.i.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pr7480, i64 200
+  %nu_.i.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pr7488, i64 200
   %.pre.pre = load double, ptr %nu_.i.phi.trans.insert.phi.trans.insert, align 8, !tbaa !98
   %nu_ = getelementptr inbounds nuw i8, ptr %this, i64 440
   store double %.pre.pre, ptr %nu_, align 8, !tbaa !99
   %pn.i.i62.phi.trans.insert = getelementptr inbounds nuw i8, ptr %rfdc, i64 8
   %.pre76 = load ptr, ptr %pn.i.i62.phi.trans.insert, align 8, !tbaa !37
-  %theta_.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pr7480, i64 208
+  %theta_.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pr7488, i64 208
   %.pre75 = load double, ptr %theta_.i.phi.trans.insert, align 8, !tbaa !100
   %theta_ = getelementptr inbounds nuw i8, ptr %this, i64 448
   store double %.pre75, ptr %theta_, align 8, !tbaa !101
@@ -1753,9 +1753,9 @@ cond.false.i1:                                    ; preds = %dynamic_cast.end3.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %cond.true.i, %if.then.i.i.i, %cond.false.i1
-  %.pre.i11 = phi ptr [ null, %cond.false.i1 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
+  %.pre.i15 = phi ptr [ null, %cond.false.i1 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
   %5 = phi ptr [ null, %cond.false.i1 ], [ %3, %if.then.i.i.i ], [ null, %cond.true.i ]
-  %call3 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20VarianceGammaProcess12riskFreeRateEv(ptr noundef nonnull align 8 dereferenceable(216) %.pre.i11)
+  %call3 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20VarianceGammaProcess12riskFreeRateEv(ptr noundef nonnull align 8 dereferenceable(216) %.pre.i15)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -1871,9 +1871,9 @@ cond.false.i1:                                    ; preds = %dynamic_cast.end3.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %cond.true.i, %if.then.i.i.i, %cond.false.i1
-  %.pre.i11 = phi ptr [ null, %cond.false.i1 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
+  %.pre.i15 = phi ptr [ null, %cond.false.i1 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
   %5 = phi ptr [ null, %cond.false.i1 ], [ %3, %if.then.i.i.i ], [ null, %cond.true.i ]
-  %call3 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20VarianceGammaProcess13dividendYieldEv(ptr noundef nonnull align 8 dereferenceable(216) %.pre.i11)
+  %call3 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20VarianceGammaProcess13dividendYieldEv(ptr noundef nonnull align 8 dereferenceable(216) %.pre.i15)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont

@@ -180,10 +180,10 @@ define noundef i32 @dtrmm_outncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br label %.sink.split
 
 .sink.split:                                      ; preds = %83, %86
-  %.sink182.in = phi ptr [ %gep, %86 ], [ %85, %83 ]
+  %.sink185.in = phi ptr [ %gep, %86 ], [ %85, %83 ]
   %.sink = phi double [ %88, %86 ], [ 0.000000e+00, %83 ]
-  %.sink182 = load double, ptr %.sink182.in, align 8, !tbaa !3
-  store double %.sink182, ptr %.1137, align 8, !tbaa !3
+  %.sink185 = load double, ptr %.sink185.in, align 8, !tbaa !3
+  store double %.sink185, ptr %.1137, align 8, !tbaa !3
   %89 = getelementptr inbounds nuw i8, ptr %.1137, i64 8
   store double %.sink, ptr %89, align 8, !tbaa !3
   br label %90

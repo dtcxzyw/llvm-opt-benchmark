@@ -184,9 +184,9 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i: ; preds = %21
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPKS2_vEEvT_S7_.exit, label %24
 
 24:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.thread, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i
-  %.pre8.i70 = phi i64 [ %23, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i ]
+  %.pre8.i78 = phi i64 [ %23, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i ]
   %25 = load ptr, ptr %7, align 8, !tbaa !41
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.pre8.i70
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.pre8.i78
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 8 %3, i64 %.idx, i1 false)
   %.pre.i = load i32, ptr %17, align 8, !tbaa !42
   br label %_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPKS2_vEEvT_S7_.exit

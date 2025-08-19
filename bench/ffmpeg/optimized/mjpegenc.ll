@@ -1272,14 +1272,14 @@ define internal fastcc void @encode_block(ptr noundef %0, ptr noundef readonly c
   %16 = sub nsw i32 %11, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4808
   %. = select i1 %6, i64 8, i64 44
-  %.100 = select i1 %6, i64 20, i64 56
-  %.101 = select i1 %6, i64 80, i64 848
-  %.102 = select i1 %6, i64 336, i64 1104
+  %.115 = select i1 %6, i64 20, i64 56
+  %.116 = select i1 %6, i64 80, i64 848
+  %.117 = select i1 %6, i64 336, i64 1104
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 %.
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 %.100
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 %.115
   tail call void @ff_mjpeg_encode_dc(ptr noundef nonnull %17, i32 noundef %16, ptr noundef nonnull %18, ptr noundef nonnull %19) #7
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 %.101
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 %.102
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 %.116
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 %.117
   store i32 %11, ptr %14, align 4, !tbaa !62
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = sext i32 %2 to i64
@@ -1634,9 +1634,9 @@ define internal fastcc void @record_block(ptr noundef captures(none) %0, ptr nou
 mjpeg_encode_coef.exit:                           ; preds = %19, %26
   %.promoted58 = phi i64 [ %41, %26 ], [ %24, %19 ]
   %43 = phi ptr [ %37, %26 ], [ %21, %19 ]
-  %.sink18.i = phi ptr [ %42, %26 ], [ %25, %19 ]
+  %.sink19.i = phi ptr [ %42, %26 ], [ %25, %19 ]
   %.sink.i = phi i8 [ %34, %26 ], [ 0, %19 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.sink19.i, i64 1
   store i8 %.sink.i, ptr %44, align 1, !tbaa !61
   store i32 %12, ptr %15, align 4, !tbaa !62
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 20

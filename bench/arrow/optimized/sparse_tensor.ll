@@ -472,13 +472,13 @@ define void @_ZN5arrow8internal28CheckSparseIndexMaximumValueERKSt10shared_ptrIN
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !8, !noalias !39
   %24 = icmp sgt i64 %23, 127
-  br i1 %24, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit212, label %25
+  br i1 %24, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit217, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 24
   %27 = load i64, ptr %26, align 8, !tbaa !8, !noalias !39
   %28 = icmp sgt i64 %27, 127
-  br i1 %28, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit214, label %29
+  br i1 %28, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit219, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 32
@@ -531,16 +531,16 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 8
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit212: ; preds = %21
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit217: ; preds = %21
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 16
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit214: ; preds = %25
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit219: ; preds = %25
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 24
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit212, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit214, %44, %39, %34
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %34 ], [ %.sroa.025.1.i.i.i.i.i.i, %39 ], [ %spec.select.i.i.i.i.i.i, %44 ], [ %47, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit ], [ %48, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit212 ], [ %49, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit214 ], [ %.sroa.025.044.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit217, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit219, %44, %39, %34
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %34 ], [ %.sroa.025.1.i.i.i.i.i.i, %39 ], [ %spec.select.i.i.i.i.i.i, %44 ], [ %47, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit ], [ %48, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit217 ], [ %49, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit219 ], [ %.sroa.025.044.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i = icmp eq ptr %.val9, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   br i1 %.not.i, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.thread.i, label %50
 
@@ -586,13 +586,13 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i32, i64 16
   %67 = load i64, ptr %66, align 8, !tbaa !8, !noalias !46
   %68 = icmp sgt i64 %67, 255
-  br i1 %68, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit204, label %69
+  br i1 %68, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit209, label %69
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i32, i64 24
   %71 = load i64, ptr %70, align 8, !tbaa !8, !noalias !46
   %72 = icmp sgt i64 %71, 255
-  br i1 %72, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit206, label %73
+  br i1 %72, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit211, label %73
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i32, i64 32
@@ -645,16 +645,16 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i32, i64 8
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit204: ; preds = %65
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit209: ; preds = %65
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i32, i64 16
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit206: ; preds = %69
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit211: ; preds = %69
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i32, i64 24
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i30, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit204, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit206, %88, %83, %78
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i25 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i22, %78 ], [ %.sroa.025.1.i.i.i.i.i.i27, %83 ], [ %spec.select.i.i.i.i.i.i24, %88 ], [ %91, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit ], [ %92, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit204 ], [ %93, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit206 ], [ %.sroa.025.044.i.i.i.i.i.i32, %.lr.ph.i.i.i.i.i.i30 ]
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i30, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit209, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit211, %88, %83, %78
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i25 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i22, %78 ], [ %.sroa.025.1.i.i.i.i.i.i27, %83 ], [ %spec.select.i.i.i.i.i.i24, %88 ], [ %91, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit ], [ %92, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit209 ], [ %93, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit211 ], [ %.sroa.025.044.i.i.i.i.i.i32, %.lr.ph.i.i.i.i.i.i30 ]
   %.not.i26 = icmp eq ptr %.val11, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i25
   br i1 %.not.i26, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.thread.i, label %94
 
@@ -700,13 +700,13 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i48, i64 16
   %111 = load i64, ptr %110, align 8, !tbaa !8, !noalias !53
   %112 = icmp sgt i64 %111, 32767
-  br i1 %112, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit196, label %113
+  br i1 %112, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit201, label %113
 
 113:                                              ; preds = %109
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i48, i64 24
   %115 = load i64, ptr %114, align 8, !tbaa !8, !noalias !53
   %116 = icmp sgt i64 %115, 32767
-  br i1 %116, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit198, label %117
+  br i1 %116, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit203, label %117
 
 117:                                              ; preds = %113
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i48, i64 32
@@ -759,16 +759,16 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   %135 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i48, i64 8
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit196: ; preds = %109
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit201: ; preds = %109
   %136 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i48, i64 16
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit198: ; preds = %113
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit203: ; preds = %113
   %137 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i48, i64 24
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i46, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit196, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit198, %132, %127, %122
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i41 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i38, %122 ], [ %.sroa.025.1.i.i.i.i.i.i43, %127 ], [ %spec.select.i.i.i.i.i.i40, %132 ], [ %135, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit ], [ %136, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit196 ], [ %137, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit198 ], [ %.sroa.025.044.i.i.i.i.i.i48, %.lr.ph.i.i.i.i.i.i46 ]
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i46, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit201, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit203, %132, %127, %122
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i41 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i38, %122 ], [ %.sroa.025.1.i.i.i.i.i.i43, %127 ], [ %spec.select.i.i.i.i.i.i40, %132 ], [ %135, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit ], [ %136, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit201 ], [ %137, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit203 ], [ %.sroa.025.044.i.i.i.i.i.i48, %.lr.ph.i.i.i.i.i.i46 ]
   %.not.i42 = icmp eq ptr %.val13, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i41
   br i1 %.not.i42, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.thread.i, label %138
 
@@ -814,13 +814,13 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   %154 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i64, i64 16
   %155 = load i64, ptr %154, align 8, !tbaa !8, !noalias !60
   %156 = icmp sgt i64 %155, 65535
-  br i1 %156, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit188, label %157
+  br i1 %156, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit193, label %157
 
 157:                                              ; preds = %153
   %158 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i64, i64 24
   %159 = load i64, ptr %158, align 8, !tbaa !8, !noalias !60
   %160 = icmp sgt i64 %159, 65535
-  br i1 %160, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit190, label %161
+  br i1 %160, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit195, label %161
 
 161:                                              ; preds = %157
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i64, i64 32
@@ -873,16 +873,16 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   %179 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i64, i64 8
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit188: ; preds = %153
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit193: ; preds = %153
   %180 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i64, i64 16
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit190: ; preds = %157
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit195: ; preds = %157
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i64, i64 24
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i62, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit188, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit190, %176, %171, %166
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i57 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i54, %166 ], [ %.sroa.025.1.i.i.i.i.i.i59, %171 ], [ %spec.select.i.i.i.i.i.i56, %176 ], [ %179, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit ], [ %180, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit188 ], [ %181, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit190 ], [ %.sroa.025.044.i.i.i.i.i.i64, %.lr.ph.i.i.i.i.i.i62 ]
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i62, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit193, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit195, %176, %171, %166
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i57 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i54, %166 ], [ %.sroa.025.1.i.i.i.i.i.i59, %171 ], [ %spec.select.i.i.i.i.i.i56, %176 ], [ %179, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit ], [ %180, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit193 ], [ %181, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit195 ], [ %.sroa.025.044.i.i.i.i.i.i64, %.lr.ph.i.i.i.i.i.i62 ]
   %.not.i58 = icmp eq ptr %.val15, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i57
   br i1 %.not.i58, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.thread.i, label %182
 
@@ -928,13 +928,13 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   %198 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i80, i64 16
   %199 = load i64, ptr %198, align 8, !tbaa !8, !noalias !67
   %200 = icmp sgt i64 %199, 2147483647
-  br i1 %200, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit180, label %201
+  br i1 %200, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit185, label %201
 
 201:                                              ; preds = %197
   %202 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i80, i64 24
   %203 = load i64, ptr %202, align 8, !tbaa !8, !noalias !67
   %204 = icmp sgt i64 %203, 2147483647
-  br i1 %204, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit182, label %205
+  br i1 %204, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit187, label %205
 
 205:                                              ; preds = %201
   %206 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i80, i64 32
@@ -987,16 +987,16 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   %223 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i80, i64 8
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit180: ; preds = %197
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit185: ; preds = %197
   %224 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i80, i64 16
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit182: ; preds = %201
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit187: ; preds = %201
   %225 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i80, i64 24
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i78, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit180, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit182, %220, %215, %210
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i73 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i70, %210 ], [ %.sroa.025.1.i.i.i.i.i.i75, %215 ], [ %spec.select.i.i.i.i.i.i72, %220 ], [ %223, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit ], [ %224, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit180 ], [ %225, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit182 ], [ %.sroa.025.044.i.i.i.i.i.i80, %.lr.ph.i.i.i.i.i.i78 ]
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i78, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit185, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit187, %220, %215, %210
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i73 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i70, %210 ], [ %.sroa.025.1.i.i.i.i.i.i75, %215 ], [ %spec.select.i.i.i.i.i.i72, %220 ], [ %223, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit ], [ %224, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit185 ], [ %225, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit187 ], [ %.sroa.025.044.i.i.i.i.i.i80, %.lr.ph.i.i.i.i.i.i78 ]
   %.not.i74 = icmp eq ptr %.val17, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i73
   br i1 %.not.i74, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.thread.i, label %226
 
@@ -1042,13 +1042,13 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   %242 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i96, i64 16
   %243 = load i64, ptr %242, align 8, !tbaa !8, !noalias !74
   %244 = icmp sgt i64 %243, 4294967295
-  br i1 %244, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit172, label %245
+  br i1 %244, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit177, label %245
 
 245:                                              ; preds = %241
   %246 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i96, i64 24
   %247 = load i64, ptr %246, align 8, !tbaa !8, !noalias !74
   %248 = icmp sgt i64 %247, 4294967295
-  br i1 %248, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit174, label %249
+  br i1 %248, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit179, label %249
 
 249:                                              ; preds = %245
   %250 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i96, i64 32
@@ -1101,16 +1101,16 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   %267 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i96, i64 8
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit172: ; preds = %241
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit177: ; preds = %241
   %268 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i96, i64 16
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit174: ; preds = %245
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit179: ; preds = %245
   %269 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i96, i64 24
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i94, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit172, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit174, %264, %259, %254
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i89 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i86, %254 ], [ %.sroa.025.1.i.i.i.i.i.i91, %259 ], [ %spec.select.i.i.i.i.i.i88, %264 ], [ %267, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit ], [ %268, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit172 ], [ %269, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit174 ], [ %.sroa.025.044.i.i.i.i.i.i96, %.lr.ph.i.i.i.i.i.i94 ]
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i94, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit177, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit179, %264, %259, %254
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i89 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i86, %254 ], [ %.sroa.025.1.i.i.i.i.i.i91, %259 ], [ %spec.select.i.i.i.i.i.i88, %264 ], [ %267, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit ], [ %268, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit177 ], [ %269, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i.loopexit.split.loop.exit179 ], [ %.sroa.025.044.i.i.i.i.i.i96, %.lr.ph.i.i.i.i.i.i94 ]
   %.not.i90 = icmp eq ptr %.val19, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i89
   br i1 %.not.i90, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.thread.i, label %270
 
@@ -4096,7 +4096,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNSt12__shared_ptr
   br i1 %.not.i.i.i90, label %_ZNSt6vectorIlSaIlEED2Ev.exit91, label %103
 
 103:                                              ; preds = %.body.thread, %.body
-  %eh.lpad-body222 = phi { ptr, i32 } [ %101, %.body.thread ], [ %102, %.body ]
+  %eh.lpad-body256 = phi { ptr, i32 } [ %101, %.body.thread ], [ %102, %.body ]
   %104 = phi ptr [ %59, %.body.thread ], [ %.pre, %.body ]
   %105 = load ptr, ptr %46, align 8, !tbaa !160
   %106 = ptrtoint ptr %105 to i64
@@ -4106,7 +4106,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNSt12__shared_ptr
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit91
 
 _ZNSt6vectorIlSaIlEED2Ev.exit91:                  ; preds = %103, %.body, %99
-  %.pn61 = phi { ptr, i32 } [ %100, %99 ], [ %102, %.body ], [ %eh.lpad-body222, %103 ]
+  %.pn61 = phi { ptr, i32 } [ %100, %99 ], [ %102, %.body ], [ %eh.lpad-body256, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body150
 
@@ -4297,7 +4297,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit114:                 ; preds = %_ZNSt12__shared_ptr
   br i1 %.not.i.i.i115, label %_ZNSt6vectorIlSaIlEED2Ev.exit116, label %187
 
 187:                                              ; preds = %.body100.thread, %.body100
-  %eh.lpad-body101225 = phi { ptr, i32 } [ %185, %.body100.thread ], [ %186, %.body100 ]
+  %eh.lpad-body101259 = phi { ptr, i32 } [ %185, %.body100.thread ], [ %186, %.body100 ]
   %188 = phi ptr [ %144, %.body100.thread ], [ %.pre215, %.body100 ]
   %189 = load ptr, ptr %49, align 8, !tbaa !160
   %190 = ptrtoint ptr %189 to i64
@@ -4307,7 +4307,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit114:                 ; preds = %_ZNSt12__shared_ptr
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit116
 
 _ZNSt6vectorIlSaIlEED2Ev.exit116:                 ; preds = %187, %.body100, %183
-  %.pn = phi { ptr, i32 } [ %184, %183 ], [ %186, %.body100 ], [ %eh.lpad-body101225, %187 ]
+  %.pn = phi { ptr, i32 } [ %184, %183 ], [ %186, %.body100 ], [ %eh.lpad-body101259, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.body150
 
@@ -7984,13 +7984,13 @@ define linkonce_odr void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 8, !tbaa !8
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !8
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

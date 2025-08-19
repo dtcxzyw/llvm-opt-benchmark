@@ -6550,7 +6550,7 @@ define hidden noundef i64 @"_ZN83_$LT$core..hash..BuildHasherDefault$LT$H$GT$$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(2608) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h6fdd0149d19016e3E.llvm.1438012894402087875"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
+define hidden noundef nonnull align 8 dereferenceable(2608) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h6fdd0149d19016e3E.llvm.1438012894402087875"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !7
   %4 = icmp eq ptr %3, null
@@ -6750,14 +6750,14 @@ define hidden { i64, ptr } @"_ZN8markdown15MarkdownElement13load_language28_$u7b
   %3 = alloca [8 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i8, ptr %4, align 8, !range !244, !noundef !7
-  switch i8 %5, label %default.unreachable22 [
+  switch i8 %5, label %default.unreachable24 [
     i8 0, label %7
     i8 1, label %14
     i8 2, label %15
     i8 3, label %6
   ]
 
-default.unreachable22:                            ; preds = %2
+default.unreachable24:                            ; preds = %2
   unreachable
 
 6:                                                ; preds = %2

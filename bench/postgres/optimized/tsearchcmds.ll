@@ -122,16 +122,16 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %32 = load i32, ptr %25, align 4
   %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %.lr.ph66, label %.critedge.thread
+  br i1 %33, label %.lr.ph67, label %.critedge.thread
 
-.lr.ph66:                                         ; preds = %.lr.ph, %76
-  %indvars.iv65 = phi i64 [ %indvars.iv.next, %76 ], [ 0, %.lr.ph ]
+.lr.ph67:                                         ; preds = %.lr.ph, %76
+  %indvars.iv66 = phi i64 [ %indvars.iv.next, %76 ], [ 0, %.lr.ph ]
   %34 = phi i64 [ %80, %76 ], [ 0, %.lr.ph ]
   %35 = phi i64 [ %79, %76 ], [ 0, %.lr.ph ]
   %36 = phi i64 [ %78, %76 ], [ 0, %.lr.ph ]
   %37 = phi i64 [ %77, %76 ], [ 0, %.lr.ph ]
   %38 = load ptr, ptr %26, align 8
-  %39 = getelementptr inbounds nuw %union.ListCell, ptr %38, i64 %indvars.iv65
+  %39 = getelementptr inbounds nuw %union.ListCell, ptr %38, i64 %indvars.iv66
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
@@ -145,12 +145,12 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
   %47 = icmp eq i64 %77, 0
   br i1 %45, label %.critedge.thread, label %87
 
-48:                                               ; preds = %.lr.ph66
+48:                                               ; preds = %.lr.ph67
   %49 = call fastcc i64 @get_ts_parser_func(ptr noundef nonnull %40, i32 noundef 4)
   store i64 %49, ptr %31, align 8
   br label %76
 
-50:                                               ; preds = %.lr.ph66
+50:                                               ; preds = %.lr.ph67
   %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(9) @.str.3) #12
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %55
@@ -205,11 +205,11 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
   %78 = phi i64 [ %36, %53 ], [ %36, %63 ], [ %36, %68 ], [ %59, %58 ], [ %36, %48 ]
   %79 = phi i64 [ %54, %53 ], [ %35, %63 ], [ %35, %68 ], [ %35, %58 ], [ %35, %48 ]
   %80 = phi i64 [ %34, %53 ], [ %34, %63 ], [ %34, %68 ], [ %34, %58 ], [ %49, %48 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv65, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv66, 1
   %81 = load i32, ptr %25, align 4
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %.lr.ph66, label %..critedge_crit_edge
+  br i1 %83, label %.lr.ph67, label %..critedge_crit_edge
 
 .critedge.thread:                                 ; preds = %.lr.ph, %14, %..critedge_crit_edge
   %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -702,12 +702,12 @@ define dso_local ptr @serialize_deflist(ptr noundef readonly captures(address_is
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %3, align 4
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.lr.ph40, label %.critedge
+  br i1 %6, label %.lr.ph42, label %.critedge
 
-.lr.ph40:                                         ; preds = %.lr.ph36, %39
-  %indvars.iv39 = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.lr.ph36 ]
+.lr.ph42:                                         ; preds = %.lr.ph36, %39
+  %indvars.iv41 = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.lr.ph36 ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv39
+  %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv41
   %9 = load ptr, ptr %8, align 8
   %10 = call ptr @defGetString(ptr noundef %9) #10
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -731,11 +731,11 @@ define dso_local ptr @serialize_deflist(ptr noundef readonly captures(address_is
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %21
 
-23:                                               ; preds = %.lr.ph40
+23:                                               ; preds = %.lr.ph42
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef %10) #10
   br label %34
 
-24:                                               ; preds = %.lr.ph40
+24:                                               ; preds = %.lr.ph42
   %25 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 92) #12
   %.not27 = icmp eq ptr %25, null
   br i1 %.not27, label %27, label %26
@@ -787,11 +787,11 @@ define dso_local ptr @serialize_deflist(ptr noundef readonly captures(address_is
   br label %39
 
 39:                                               ; preds = %38, %34
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv39, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv41, 1
   %40 = load i32, ptr %3, align 4
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %.lr.ph40, label %.critedge
+  br i1 %42, label %.lr.ph42, label %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1618,14 +1618,14 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
 
 14:                                               ; preds = %12, %3
   %.not123 = icmp eq ptr %1, null
-  br i1 %.not123, label %.thread183, label %.lr.ph
+  br i1 %.not123, label %.thread190, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i32, ptr %15, align 4
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph149, label %.thread183
+  br i1 %18, label %.lr.ph149, label %.thread190
 
 .lr.ph149:                                        ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.lr.ph ]
@@ -1734,9 +1734,9 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   %71 = phi i1 [ %56, %62 ], [ false, %54 ]
   %.2 = phi i32 [ %69, %62 ], [ %.1109, %54 ]
   %.not126 = icmp eq i32 %.2, 0
-  br i1 %.not126, label %.thread183, label %75
+  br i1 %.not126, label %.thread190, label %75
 
-.thread183:                                       ; preds = %14, %.lr.ph, %70
+.thread190:                                       ; preds = %14, %.lr.ph, %70
   %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %72)
   %73 = call i32 @errcode(i32 noundef 117833860) #10

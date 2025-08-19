@@ -1333,9 +1333,9 @@ spl_ptr_heap_top.exit.thread:                     ; preds = %18, %spl_ptr_heap_t
   br i1 %.not23, label %44, label %.sink.split
 
 .sink.split:                                      ; preds = %31, %34
-  %.sink33 = phi i32 [ %38, %34 ], [ %29, %31 ]
+  %.sink34 = phi i32 [ %38, %34 ], [ %29, %31 ]
   %.sink.in = phi ptr [ %36, %34 ], [ %22, %31 ]
-  %40 = and i32 %.sink33, 65280
+  %40 = and i32 %.sink34, 65280
   %41 = icmp ne i32 %40, 0
   tail call void @llvm.assume(i1 %41)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !4
@@ -2447,7 +2447,7 @@ define internal fastcc noundef nonnull ptr @spl_heap_object_new_ex(ptr noundef %
   %18 = load ptr, ptr @spl_ce_SplMaxHeap, align 8
   %19 = load ptr, ptr @spl_ce_SplHeap, align 8
   %20 = icmp eq ptr %0, %16
-  br i1 %20, label %.loopexit, label %.lr.ph89
+  br i1 %20, label %.loopexit, label %.lr.ph95
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds i8, ptr %1, i64 -32
@@ -2529,17 +2529,17 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
   store ptr %65, ptr %66, align 8, !tbaa !98
   br label %114
 
-.lr.ph89:                                         ; preds = %.lr.ph, %81
-  %.0466588 = phi ptr [ %83, %81 ], [ %0, %.lr.ph ]
-  %.not486687 = phi i1 [ false, %81 ], [ true, %.lr.ph ]
-  %67 = icmp eq ptr %.0466588, %17
-  %68 = icmp eq ptr %.0466588, %18
+.lr.ph95:                                         ; preds = %.lr.ph, %81
+  %.0466594 = phi ptr [ %83, %81 ], [ %0, %.lr.ph ]
+  %.not486693 = phi i1 [ false, %81 ], [ true, %.lr.ph ]
+  %67 = icmp eq ptr %.0466594, %17
+  %68 = icmp eq ptr %.0466594, %18
   %or.cond = select i1 %67, i1 true, i1 %68
-  %69 = icmp eq ptr %.0466588, %19
+  %69 = icmp eq ptr %.0466594, %19
   %or.cond52 = select i1 %or.cond, i1 true, i1 %69
   br i1 %or.cond52, label %70, label %81
 
-70:                                               ; preds = %.lr.ph89
+70:                                               ; preds = %.lr.ph95
   %71 = select i1 %67, ptr @spl_ptr_heap_zval_min_cmp, ptr @spl_ptr_heap_zval_max_cmp
   %72 = tail call noalias ptr @_emalloc_56() #15
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
@@ -2559,13 +2559,13 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 48
   store i64 16, ptr %80, align 8, !tbaa !57
   store ptr %72, ptr %14, align 8, !tbaa !44
-  br i1 %.not486687, label %114, label %95
+  br i1 %.not486693, label %114, label %95
 
-81:                                               ; preds = %.lr.ph89
-  %82 = getelementptr inbounds nuw i8, ptr %.0466588, i64 16
+81:                                               ; preds = %.lr.ph95
+  %82 = getelementptr inbounds nuw i8, ptr %.0466594, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !4, !nonnull !105, !noundef !105
   %84 = icmp eq ptr %83, %16
-  br i1 %84, label %.loopexit, label %.lr.ph89
+  br i1 %84, label %.loopexit, label %.lr.ph95
 
 .loopexit:                                        ; preds = %81, %.lr.ph
   %85 = tail call noalias ptr @_emalloc_56() #15
@@ -2591,7 +2591,7 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
   br i1 %20, label %114, label %95
 
 95:                                               ; preds = %70, %.loopexit
-  %.0466379 = phi ptr [ %16, %.loopexit ], [ %.0466588, %70 ]
+  %.0466385 = phi ptr [ %16, %.loopexit ], [ %.0466594, %70 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %97 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %96, ptr noundef nonnull @.str.7, i64 noundef 7) #15
   %.not.i = icmp eq ptr %97, null
@@ -2607,7 +2607,7 @@ zend_hash_str_find_ptr.exit:                      ; preds = %95, %98
   store ptr %.0.i, ptr %100, align 8, !tbaa !61
   %101 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %102 = load ptr, ptr %101, align 8, !tbaa !4
-  %103 = icmp eq ptr %102, %.0466379
+  %103 = icmp eq ptr %102, %.0466385
   %spec.store.select = select i1 %103, ptr null, ptr %.0.i
   store ptr %spec.store.select, ptr %100, align 8
   %104 = load ptr, ptr @zend_known_strings, align 8, !tbaa !106
@@ -2627,7 +2627,7 @@ zend_hash_find_ptr.exit:                          ; preds = %zend_hash_str_find_
   store ptr %.0.i55, ptr %110, align 8, !tbaa !98
   %111 = getelementptr inbounds nuw i8, ptr %.0.i55, i64 16
   %112 = load ptr, ptr %111, align 8, !tbaa !4
-  %113 = icmp eq ptr %112, %.0466379
+  %113 = icmp eq ptr %112, %.0466385
   %spec.store.select53 = select i1 %113, ptr null, ptr %.0.i55
   store ptr %spec.store.select53, ptr %110, align 8
   br label %114

@@ -487,9 +487,9 @@ H5O__copy_obj.exit:                               ; preds = %50, %173
   %184 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__copy, i32 noundef 158, i64 noundef %182, i64 noundef %183, ptr noundef nonnull @.str.7) #7
   %185 = call i32 @H5G_loc_free(ptr noundef nonnull %14) #7
   %186 = icmp slt i32 %185, 0
-  br i1 %186, label %.thread35, label %.thread27
+  br i1 %186, label %.thread38, label %.thread27
 
-.thread35:                                        ; preds = %.thread
+.thread38:                                        ; preds = %.thread
   %187 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
   %188 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !10
   %189 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__copy, i32 noundef 167, i64 noundef %187, i64 noundef %188, ptr noundef nonnull @.str.9) #7
@@ -513,8 +513,8 @@ H5O__copy_obj.exit:                               ; preds = %50, %173
   %200 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__copy, i32 noundef 169, i64 noundef %198, i64 noundef %199, ptr noundef nonnull @.str.10) #7
   br label %.thread27
 
-.thread27:                                        ; preds = %.thread35, %.thread, %43, %34, %27, %194, %197, %6
-  %.0 = phi i32 [ -1, %197 ], [ %.230, %194 ], [ 0, %6 ], [ -1, %27 ], [ -1, %34 ], [ -1, %43 ], [ -1, %.thread ], [ -1, %.thread35 ]
+.thread27:                                        ; preds = %.thread38, %.thread, %43, %34, %27, %194, %197, %6
+  %.0 = phi i32 [ -1, %197 ], [ %.230, %194 ], [ 0, %6 ], [ -1, %27 ], [ -1, %34 ], [ -1, %43 ], [ -1, %.thread ], [ -1, %.thread38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -1591,7 +1591,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   br label %534
 
 .preheader688.thread:                             ; preds = %514, %._crit_edge
-  %.pre771794 = load i8, ptr %315, align 8, !tbaa !79
+  %.pre771834 = load i8, ptr %315, align 8, !tbaa !79
   br label %._crit_edge725
 
 .preheader688:                                    ; preds = %655
@@ -1784,11 +1784,11 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   br label %619
 
 615:                                              ; preds = %611, %574
-  %H5E_CANTSET_g.sink834 = phi ptr [ @H5E_CANTDECODE_g, %574 ], [ @H5E_CANTSET_g, %611 ]
-  %.str.24.sink833 = phi ptr [ @.str.23, %574 ], [ @.str.24, %611 ]
+  %H5E_CANTSET_g.sink874 = phi ptr [ @H5E_CANTDECODE_g, %574 ], [ @H5E_CANTSET_g, %611 ]
+  %.str.24.sink873 = phi ptr [ @.str.23, %574 ], [ @.str.24, %611 ]
   %616 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
-  %617 = load i64, ptr %H5E_CANTSET_g.sink834, align 8, !tbaa !10
-  %618 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__copy_header_real, i32 noundef 459, i64 noundef %616, i64 noundef %617, ptr noundef nonnull %.str.24.sink833) #7
+  %617 = load i64, ptr %H5E_CANTSET_g.sink874, align 8, !tbaa !10
+  %618 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__copy_header_real, i32 noundef 459, i64 noundef %616, i64 noundef %617, ptr noundef nonnull %.str.24.sink873) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.thread580
 
@@ -1821,9 +1821,9 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   %637 = and i32 %634, 2
   %638 = icmp eq i32 %637, 0
   %.not547.not = xor i1 %638, %.not546
-  br i1 %.not547.not, label %.thread796, label %640
+  br i1 %.not547.not, label %.thread836, label %640
 
-.thread796:                                       ; preds = %633
+.thread836:                                       ; preds = %633
   store i8 1, ptr %17, align 1, !tbaa !3
   %639 = trunc i32 %634 to i8
   store i8 %639, ptr %553, align 1, !tbaa !118
@@ -1836,7 +1836,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   store i8 %642, ptr %553, align 1, !tbaa !118
   br i1 %641, label %643, label %653
 
-643:                                              ; preds = %.thread796, %640
+643:                                              ; preds = %.thread836, %640
   %644 = load i8, ptr %315, align 8, !tbaa !79
   %645 = icmp eq i8 %644, 1
   %646 = load ptr, ptr %1, align 8, !tbaa !18
@@ -1883,9 +1883,9 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   br i1 %668, label %660, label %._crit_edge725, !llvm.loop !134
 
 ._crit_edge725:                                   ; preds = %660, %.preheader688.thread, %.preheader688
-  %.pre771795 = phi i8 [ %.pre771, %.preheader688 ], [ %.pre771794, %.preheader688.thread ], [ %.pre771, %660 ]
+  %.pre771835 = phi i8 [ %.pre771, %.preheader688 ], [ %.pre771834, %.preheader688.thread ], [ %.pre771, %660 ]
   %.0465.lcssa = phi i64 [ 0, %.preheader688 ], [ 0, %.preheader688.thread ], [ %665, %660 ]
-  %669 = icmp ugt i8 %.pre771795, 1
+  %669 = icmp ugt i8 %.pre771835, 1
   br i1 %669, label %670, label %.thread585
 
 670:                                              ; preds = %._crit_edge725
@@ -1923,19 +1923,19 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   br i1 %685, label %690, label %..thread588_crit_edge
 
 .thread585:                                       ; preds = %.lr.ph724.split.us, %._crit_edge725
-  %.0465.lcssa804 = phi i64 [ %.0465.lcssa, %._crit_edge725 ], [ %525, %.lr.ph724.split.us ]
-  %.pre771795803 = phi i8 [ %.pre771795, %._crit_edge725 ], [ 1, %.lr.ph724.split.us ]
-  %686 = icmp ult i64 %.0465.lcssa804, 22
+  %.0465.lcssa844 = phi i64 [ %.0465.lcssa, %._crit_edge725 ], [ %525, %.lr.ph724.split.us ]
+  %.pre771835843 = phi i8 [ %.pre771835, %._crit_edge725 ], [ 1, %.lr.ph724.split.us ]
+  %686 = icmp ult i64 %.0465.lcssa844, 22
   br i1 %686, label %.thread586, label %707
 
 .thread586:                                       ; preds = %.thread585
-  %687 = sub nuw nsw i64 22, %.0465.lcssa804
-  %.not835 = icmp eq i8 %.pre771795803, 0
-  br i1 %.not835, label %.thread586..thread587_crit_edge, label %.thread587.thread
+  %687 = sub nuw nsw i64 22, %.0465.lcssa844
+  %.not875 = icmp eq i8 %.pre771835843, 0
+  br i1 %.not875, label %.thread586..thread587_crit_edge, label %.thread587.thread
 
 .thread587.thread:                                ; preds = %.thread586
-  %688 = icmp ult i64 %.0465.lcssa804, 15
-  %.mux811 = select i1 %688, i64 %687, i64 8
+  %688 = icmp ult i64 %.0465.lcssa844, 15
+  %.mux851 = select i1 %688, i64 %687, i64 8
   br label %705
 
 .thread586..thread587_crit_edge:                  ; preds = %.thread586
@@ -1957,8 +1957,8 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   br i1 %696, label %705, label %.thread587
 
 .thread587:                                       ; preds = %690, %.thread586..thread587_crit_edge
-  %.0465.lcssa805 = phi i64 [ %.0465.lcssa804, %.thread586..thread587_crit_edge ], [ %.0465.lcssa, %690 ]
-  %.pre771795802 = phi i8 [ 0, %.thread586..thread587_crit_edge ], [ %.pre771795, %690 ]
+  %.0465.lcssa847 = phi i64 [ %.0465.lcssa844, %.thread586..thread587_crit_edge ], [ %.0465.lcssa, %690 ]
+  %.pre771835842 = phi i8 [ 0, %.thread586..thread587_crit_edge ], [ %.pre771835, %690 ]
   %697 = phi i64 [ %687, %.thread586..thread587_crit_edge ], [ %691, %690 ]
   %698 = phi i1 [ %689, %.thread586..thread587_crit_edge ], [ true, %690 ]
   %.mux = select i1 %698, i64 %697, i64 8
@@ -1973,34 +1973,34 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   br label %705
 
 705:                                              ; preds = %.thread587.thread, %.thread587, %699, %690
-  %.0465.lcssa807 = phi i64 [ %.0465.lcssa, %690 ], [ %.0465.lcssa805, %.thread587 ], [ %.0465.lcssa805, %699 ], [ %.0465.lcssa804, %.thread587.thread ]
-  %.pre771795801 = phi i8 [ %.pre771795, %690 ], [ %.pre771795802, %.thread587 ], [ %.pre771795802, %699 ], [ 1, %.thread587.thread ]
-  %.1464 = phi i64 [ 0, %690 ], [ %.mux, %.thread587 ], [ %704, %699 ], [ %.mux811, %.thread587.thread ]
+  %.0465.lcssa846 = phi i64 [ %.0465.lcssa, %690 ], [ %.0465.lcssa847, %.thread587 ], [ %.0465.lcssa847, %699 ], [ %.0465.lcssa844, %.thread587.thread ]
+  %.pre771835841 = phi i8 [ %.pre771835, %690 ], [ %.pre771835842, %.thread587 ], [ %.pre771835842, %699 ], [ 1, %.thread587.thread ]
+  %.1464 = phi i64 [ 0, %690 ], [ %.mux, %.thread587 ], [ %704, %699 ], [ %.mux851, %.thread587.thread ]
   %.1462 = phi i64 [ %691, %690 ], [ 0, %.thread587 ], [ 0, %699 ], [ 0, %.thread587.thread ]
-  %.0443 = phi i64 [ %691, %690 ], [ %.mux, %.thread587 ], [ %704, %699 ], [ %.mux811, %.thread587.thread ]
-  %706 = add nuw nsw i64 %.0443, %.0465.lcssa807
+  %.0443 = phi i64 [ %691, %690 ], [ %.mux, %.thread587 ], [ %704, %699 ], [ %.mux851, %.thread587.thread ]
+  %706 = add nuw nsw i64 %.0443, %.0465.lcssa846
   br label %707
 
 707:                                              ; preds = %.thread585, %705
-  %.pre771795799 = phi i8 [ %.pre771795801, %705 ], [ %.pre771795803, %.thread585 ]
-  %.1466 = phi i64 [ %706, %705 ], [ %.0465.lcssa804, %.thread585 ]
+  %.pre771835839 = phi i8 [ %.pre771835841, %705 ], [ %.pre771835843, %.thread585 ]
+  %.1466 = phi i64 [ %706, %705 ], [ %.0465.lcssa844, %.thread585 ]
   %.0463 = phi i64 [ %.1464, %705 ], [ 0, %.thread585 ]
   %.0461 = phi i64 [ %.1462, %705 ], [ 0, %.thread585 ]
-  %708 = icmp eq i8 %.pre771795799, 1
+  %708 = icmp eq i8 %.pre771835839, 1
   br i1 %708, label %721, label %..thread588_crit_edge
 
 ..thread588_crit_edge:                            ; preds = %684, %707
-  %.0461819 = phi i64 [ %.0461, %707 ], [ 0, %684 ]
-  %.0463818 = phi i64 [ %.0463, %707 ], [ 0, %684 ]
-  %.1466817 = phi i64 [ %.1466, %707 ], [ %.0465.lcssa, %684 ]
+  %.0461859 = phi i64 [ %.0461, %707 ], [ 0, %684 ]
+  %.0463858 = phi i64 [ %.0463, %707 ], [ 0, %684 ]
+  %.1466857 = phi i64 [ %.1466, %707 ], [ %.0465.lcssa, %684 ]
   %.pre773 = load i8, ptr %330, align 1, !tbaa !91
   br label %.thread588
 
 .thread588:                                       ; preds = %..thread588_crit_edge, %674, %682, %678
   %709 = phi i8 [ %.pre773, %..thread588_crit_edge ], [ %679, %678 ], [ %683, %682 ], [ %675, %674 ]
-  %.0461596 = phi i64 [ %.0461819, %..thread588_crit_edge ], [ 0, %678 ], [ 0, %682 ], [ 0, %674 ]
-  %.0463594 = phi i64 [ %.0463818, %..thread588_crit_edge ], [ 0, %678 ], [ 0, %682 ], [ 0, %674 ]
-  %.1466592 = phi i64 [ %.1466817, %..thread588_crit_edge ], [ %.0465.lcssa, %678 ], [ %.0465.lcssa, %682 ], [ %.0465.lcssa, %674 ]
+  %.0461596 = phi i64 [ %.0461859, %..thread588_crit_edge ], [ 0, %678 ], [ 0, %682 ], [ 0, %674 ]
+  %.0463594 = phi i64 [ %.0463858, %..thread588_crit_edge ], [ 0, %678 ], [ 0, %682 ], [ 0, %674 ]
+  %.1466592 = phi i64 [ %.1466857, %..thread588_crit_edge ], [ %.0465.lcssa, %678 ], [ %.0465.lcssa, %682 ], [ %.0465.lcssa, %674 ]
   %710 = zext i8 %709 to i32
   %711 = lshr i32 %710, 1
   %712 = and i32 %711, 16

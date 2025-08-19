@@ -147,45 +147,45 @@ define internal void @_ZN12_GLOBAL__N_117InternalStatsPass7executeESt6vectorINSt
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %26 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull @.str.5) #18
   %27 = icmp eq i32 %26, 0
-  %.pre.pre180 = load ptr, ptr %18, align 8, !tbaa !6
-  %.pre139.pre181 = load ptr, ptr %1, align 8, !tbaa !12
-  br i1 %27, label %.lr.ph185, label %.lr.ph.._crit_edge.loopexit_crit_edge
+  %.pre.pre233 = load ptr, ptr %18, align 8, !tbaa !6
+  %.pre139.pre234 = load ptr, ptr %1, align 8, !tbaa !12
+  br i1 %27, label %.lr.ph238, label %.lr.ph.._crit_edge.loopexit_crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph185
-  %28 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre139.pre184, i64 %31
+.lr.ph:                                           ; preds = %.lr.ph238
+  %28 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre139.pre237, i64 %31
   %29 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.5) #18
   %30 = icmp eq i32 %29, 0
   %.pre.pre = load ptr, ptr %18, align 8, !tbaa !6
   %.pre139.pre = load ptr, ptr %1, align 8, !tbaa !12
-  br i1 %30, label %.lr.ph185, label %.lr.ph.._crit_edge.loopexit_crit_edge, !llvm.loop !13
+  br i1 %30, label %.lr.ph238, label %.lr.ph.._crit_edge.loopexit_crit_edge, !llvm.loop !13
 
 .lr.ph.._crit_edge.loopexit_crit_edge:            ; preds = %.lr.ph, %.lr.ph.preheader
   %.013122.lcssa = phi i64 [ 1, %.lr.ph.preheader ], [ %31, %.lr.ph ]
-  %.pre.pre.lcssa = phi ptr [ %.pre.pre180, %.lr.ph.preheader ], [ %.pre.pre, %.lr.ph ]
-  %.pre139.pre.lcssa = phi ptr [ %.pre139.pre181, %.lr.ph.preheader ], [ %.pre139.pre, %.lr.ph ]
+  %.pre.pre.lcssa = phi ptr [ %.pre.pre233, %.lr.ph.preheader ], [ %.pre.pre, %.lr.ph ]
+  %.pre139.pre.lcssa = phi ptr [ %.pre139.pre234, %.lr.ph.preheader ], [ %.pre139.pre, %.lr.ph ]
   %.pre144 = ptrtoint ptr %.pre.pre.lcssa to i64
   %.pre = ptrtoint ptr %.pre139.pre.lcssa to i64
   %.pre145 = sub i64 %.pre144, %.pre
   br label %._crit_edge
 
-.lr.ph185:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.pre139.pre184 = phi ptr [ %.pre139.pre, %.lr.ph ], [ %.pre139.pre181, %.lr.ph.preheader ]
-  %.pre.pre183 = phi ptr [ %.pre.pre, %.lr.ph ], [ %.pre.pre180, %.lr.ph.preheader ]
-  %.013122182 = phi i64 [ %31, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %31 = add nuw i64 %.013122182, 1
-  %32 = ptrtoint ptr %.pre.pre183 to i64
-  %33 = ptrtoint ptr %.pre139.pre184 to i64
+.lr.ph238:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.pre139.pre237 = phi ptr [ %.pre139.pre, %.lr.ph ], [ %.pre139.pre234, %.lr.ph.preheader ]
+  %.pre.pre236 = phi ptr [ %.pre.pre, %.lr.ph ], [ %.pre.pre233, %.lr.ph.preheader ]
+  %.013122235 = phi i64 [ %31, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %31 = add nuw i64 %.013122235, 1
+  %32 = ptrtoint ptr %.pre.pre236 to i64
+  %33 = ptrtoint ptr %.pre139.pre237 to i64
   %34 = sub i64 %32, %33
   %35 = ashr exact i64 %34, 5
   %36 = icmp ult i64 %31, %35
   br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.lr.ph185, %.lr.ph.._crit_edge.loopexit_crit_edge, %3
-  %.pre-phi143 = phi i64 [ %23, %3 ], [ %.pre145, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %34, %.lr.ph185 ]
-  %37 = phi ptr [ %20, %3 ], [ %.pre139.pre.lcssa, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %.pre139.pre184, %.lr.ph185 ]
-  %38 = phi ptr [ %19, %3 ], [ %.pre.pre.lcssa, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %.pre.pre183, %.lr.ph185 ]
-  %.013.lcssa = phi i64 [ 1, %3 ], [ %.013122.lcssa, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %31, %.lr.ph185 ]
-  %.0.lcssa = phi i1 [ false, %3 ], [ %27, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ true, %.lr.ph185 ]
+._crit_edge:                                      ; preds = %.lr.ph238, %.lr.ph.._crit_edge.loopexit_crit_edge, %3
+  %.pre-phi143 = phi i64 [ %23, %3 ], [ %.pre145, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %34, %.lr.ph238 ]
+  %37 = phi ptr [ %20, %3 ], [ %.pre139.pre.lcssa, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %.pre139.pre237, %.lr.ph238 ]
+  %38 = phi ptr [ %19, %3 ], [ %.pre.pre.lcssa, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %.pre.pre236, %.lr.ph238 ]
+  %.013.lcssa = phi i64 [ 1, %3 ], [ %.013122.lcssa, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %31, %.lr.ph238 ]
+  %.0.lcssa = phi i1 [ false, %3 ], [ %27, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ true, %.lr.ph238 ]
   %.not.i.i.i.i = icmp eq ptr %38, %37
   br i1 %.not.i.i.i.i, label %42, label %39
 

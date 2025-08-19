@@ -1487,7 +1487,7 @@ define hidden noundef zeroext i1 @_ZN10OopStorage23reduce_deferred_updatesEv(ptr
   %30 = icmp eq ptr %19, null
   %or.cond.i = and i1 %30, %29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  br i1 %or.cond.i, label %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit.thread31, label %31
+  br i1 %or.cond.i, label %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit.thread37, label %31
 
 31:                                               ; preds = %26
   br i1 %29, label %32, label %34
@@ -1516,9 +1516,9 @@ _ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit.thread: ; preds = %34
 _ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit: ; preds = %32, %36
   %.pr = load ptr, ptr %20, align 8
   %39 = icmp eq ptr %.pr, null
-  br i1 %39, label %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit.thread31, label %40
+  br i1 %39, label %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit.thread37, label %40
 
-_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit.thread31: ; preds = %26, %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit
+_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit.thread37: ; preds = %26, %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit
   store ptr %.021, ptr %17, align 8
   br label %_ZN10OopStorage14AllocationList9push_backERKNS_5BlockE.exit
 
@@ -1529,7 +1529,7 @@ _ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit.thread31: ; preds = %26
   store ptr %41, ptr %27, align 8
   br label %_ZN10OopStorage14AllocationList9push_backERKNS_5BlockE.exit
 
-_ZN10OopStorage14AllocationList9push_backERKNS_5BlockE.exit: ; preds = %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit.thread31, %40
+_ZN10OopStorage14AllocationList9push_backERKNS_5BlockE.exit: ; preds = %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit.thread37, %40
   store ptr %.021, ptr %20, align 8
   br label %56
 

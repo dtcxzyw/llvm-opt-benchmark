@@ -67,10 +67,10 @@ define ptr @ff_urlcontext_child_class_iterate(ptr noundef captures(none) %0) loc
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %1, %._crit_edge
-  %.127 = phi ptr [ %7, %._crit_edge ], [ null, %1 ], [ null, %9 ]
+  %.128 = phi ptr [ %7, %._crit_edge ], [ null, %1 ], [ null, %9 ]
   %11 = phi ptr [ %10, %._crit_edge ], [ inttoptr (i64 31 to ptr), %1 ], [ inttoptr (i64 31 to ptr), %9 ]
   store ptr %11, ptr %0, align 8, !tbaa !4
-  ret ptr %.127
+  ret ptr %.128
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -262,11 +262,11 @@ define noalias ptr @ffurl_get_protocols(ptr noundef %0, ptr noundef %1) local_un
 .preheader.split.split.us.splitthread-pre-split:  ; preds = %43
   %32 = getelementptr inbounds nuw [32 x ptr], ptr @url_protocols, i64 0, i64 %indvars.iv.next46
   %33 = load ptr, ptr %32, align 8, !tbaa !8
-  %.pr66 = load i8, ptr %0, align 1, !tbaa !23
+  %.pr69 = load i8, ptr %0, align 1, !tbaa !23
   br label %.preheader.split.split.us.split
 
 .preheader.split.split.us.split:                  ; preds = %.preheader.split.split.us, %.preheader.split.split.us.splitthread-pre-split
-  %34 = phi i8 [ %.pr66, %.preheader.split.split.us.splitthread-pre-split ], [ 1, %.preheader.split.split.us ]
+  %34 = phi i8 [ %.pr69, %.preheader.split.split.us.splitthread-pre-split ], [ 1, %.preheader.split.split.us ]
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %.preheader.split.split.us.splitthread-pre-split ], [ 0, %.preheader.split.split.us ]
   %35 = phi ptr [ %33, %.preheader.split.split.us.splitthread-pre-split ], [ @ff_async_protocol, %.preheader.split.split.us ]
   %.01630.us31 = phi i32 [ %.1.us33, %.preheader.split.split.us.splitthread-pre-split ], [ 0, %.preheader.split.split.us ]

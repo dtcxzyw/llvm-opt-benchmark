@@ -260,21 +260,21 @@ tunnel_is_established.exit.i:                     ; preds = %45
 tunnel_is_failed.exit.preheader.i:                ; preds = %tunnel_is_established.exit.i.thread, %tunnel_is_established.exit.i
   %85 = phi ptr [ %82, %tunnel_is_established.exit.i.thread ], [ %84, %tunnel_is_established.exit.i ]
   %86 = phi ptr [ %81, %tunnel_is_established.exit.i.thread ], [ %83, %tunnel_is_established.exit.i ]
-  %.05984 = phi ptr [ %58, %tunnel_is_established.exit.i.thread ], [ %12, %tunnel_is_established.exit.i ]
-  %87 = getelementptr inbounds nuw i8, ptr %.05984, i64 168
+  %.059129 = phi ptr [ %58, %tunnel_is_established.exit.i.thread ], [ %12, %tunnel_is_established.exit.i ]
+  %87 = getelementptr inbounds nuw i8, ptr %.059129, i64 168
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 2658
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 4864
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 432
-  %91 = getelementptr inbounds nuw i8, ptr %.05984, i64 32
-  %92 = getelementptr inbounds nuw i8, ptr %.05984, i64 64
-  %93 = getelementptr inbounds nuw i8, ptr %.05984, i64 152
+  %91 = getelementptr inbounds nuw i8, ptr %.059129, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %.059129, i64 64
+  %93 = getelementptr inbounds nuw i8, ptr %.059129, i64 152
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %95 = getelementptr inbounds nuw i8, ptr %.05984, i64 72
+  %95 = getelementptr inbounds nuw i8, ptr %.059129, i64 72
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 5036
-  %98 = getelementptr inbounds nuw i8, ptr %.05984, i64 160
-  %99 = getelementptr inbounds nuw i8, ptr %.05984, i64 172
-  %100 = getelementptr inbounds nuw i8, ptr %.05984, i64 80
+  %98 = getelementptr inbounds nuw i8, ptr %.059129, i64 160
+  %99 = getelementptr inbounds nuw i8, ptr %.059129, i64 172
+  %100 = getelementptr inbounds nuw i8, ptr %.059129, i64 80
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 5052
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 520
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 3432
@@ -441,7 +441,7 @@ start_CONNECT.exit.i:                             ; preds = %157, %155
 176:                                              ; preds = %175, %170, %166, %161
   store i32 1, ptr %87, align 8, !tbaa !104
   store i32 1, ptr %93, align 8, !tbaa !107
-  call void @Curl_dyn_reset(ptr noundef nonnull %.05984) #5
+  call void @Curl_dyn_reset(ptr noundef nonnull %.059129) #5
   br label %h1_tunnel_go_state.exit.thread.i
 
 h1_tunnel_go_state.exit.i:                        ; preds = %110
@@ -748,7 +748,7 @@ h1_tunnel_go_state.exit181.i:                     ; preds = %232, %213, %110
   br label %.thread.i182.i
 
 307:                                              ; preds = %279
-  %308 = call i32 @Curl_dyn_addn(ptr noundef nonnull %.05984, ptr noundef nonnull %6, i64 noundef 1) #5
+  %308 = call i32 @Curl_dyn_addn(ptr noundef nonnull %.059129, ptr noundef nonnull %6, i64 noundef 1) #5
   %.not138.i.i = icmp eq i32 %308, 0
   br i1 %.not138.i.i, label %310, label %309
 
@@ -765,8 +765,8 @@ h1_tunnel_go_state.exit181.i:                     ; preds = %232, %213, %110
   %313 = load i64, ptr %95, align 8, !tbaa !128
   %314 = add i64 %313, 1
   store i64 %314, ptr %95, align 8, !tbaa !128
-  %315 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %.05984) #5
-  %316 = call i64 @Curl_dyn_len(ptr noundef nonnull %.05984) #5
+  %315 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %.059129) #5
+  %316 = call i64 @Curl_dyn_len(ptr noundef nonnull %.059129) #5
   call void @Curl_debug(ptr noundef %1, i32 noundef 1, ptr noundef %315, i64 noundef %316) #5
   %317 = load i64, ptr %95, align 8, !tbaa !128
   %318 = icmp eq i64 %317, 1
@@ -1119,7 +1119,7 @@ on_resp_header.exit.i:                            ; preds = %396, %391, %387, %3
   br i1 %.not142.i.i, label %on_resp_header.exit.thread.i, label %.thread.i182.i
 
 on_resp_header.exit.thread.i:                     ; preds = %on_resp_header.exit.i, %481, %477, %473, %469, %465, %461, %457, %455, %452, %447, %435, %434, %430, %425, %417, %412, %411, %407, %402
-  call void @Curl_dyn_reset(ptr noundef nonnull %.05984) #5
+  call void @Curl_dyn_reset(ptr noundef nonnull %.059129) #5
   br label %492
 
 select.unfold.i.i:                                ; preds = %305, %292
@@ -1296,17 +1296,17 @@ h1_tunnel_go_state.exit186.i:                     ; preds = %519, %500, %110
   br i1 %559, label %.critedge.i, label %..thread.i_crit_edge
 
 ..thread.i_crit_edge:                             ; preds = %558
-  %.pr256.i.pre = load ptr, ptr %89, align 8, !tbaa !3
+  %.pr300.i.pre = load ptr, ptr %89, align 8, !tbaa !3
   br label %.thread.i
 
 .thread.i:                                        ; preds = %..thread.i_crit_edge, %553
-  %.pr256.i = phi ptr [ %.pr256.i.pre, %..thread.i_crit_edge ], [ %548, %553 ]
-  %.not167.i = icmp eq ptr %.pr256.i, null
+  %.pr300.i = phi ptr [ %.pr300.i.pre, %..thread.i_crit_edge ], [ %548, %553 ]
+  %.not167.i = icmp eq ptr %.pr300.i, null
   br i1 %.not167.i, label %.thread.thread.i, label %.thread.i.thread
 
 .thread.i.thread:                                 ; preds = %549, %.thread.i
-  %.pr256.i87 = phi ptr [ %.pr256.i, %.thread.i ], [ %548, %549 ]
-  %560 = getelementptr inbounds nuw i8, ptr %.pr256.i87, i64 8
+  %.pr300.i132 = phi ptr [ %.pr300.i, %.thread.i ], [ %548, %549 ]
+  %560 = getelementptr inbounds nuw i8, ptr %.pr300.i132, i64 8
   %561 = load i32, ptr %560, align 8, !tbaa !75
   %562 = icmp sgt i32 %561, 0
   br i1 %562, label %.thread.thread.i, label %.critedge.i
@@ -1356,7 +1356,7 @@ h1_tunnel_go_state.exit186.i:                     ; preds = %519, %500, %110
   br label %583
 
 583:                                              ; preds = %582, %577, %573, %568
-  call void @Curl_dyn_reset(ptr noundef nonnull %.05984) #5
+  call void @Curl_dyn_reset(ptr noundef nonnull %.059129) #5
   call void @Curl_dyn_reset(ptr noundef nonnull %91) #5
   store i32 0, ptr %87, align 8, !tbaa !104
   store i32 1, ptr %93, align 8, !tbaa !107
@@ -1416,7 +1416,7 @@ h1_tunnel_go_state.exit188.thread.i:              ; preds = %h1_tunnel_go_state.
 
 606:                                              ; preds = %605, %600, %596, %591
   store i32 5, ptr %87, align 8, !tbaa !104
-  call void @Curl_dyn_reset(ptr noundef nonnull %.05984) #5
+  call void @Curl_dyn_reset(ptr noundef nonnull %.059129) #5
   call void @Curl_dyn_reset(ptr noundef nonnull %91) #5
   %607 = getelementptr inbounds nuw i8, ptr %1, i64 5048
   store i32 0, ptr %607, align 8, !tbaa !132
@@ -1432,7 +1432,7 @@ h1_tunnel_go_state.exit190.i:                     ; preds = %606, %587
   br label %.critedge
 
 611:                                              ; preds = %h1_tunnel_go_state.exit188.thread.i
-  call fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef nonnull %.05984, i32 noundef 4, ptr noundef nonnull %1)
+  call fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef nonnull %.059129, i32 noundef 4, ptr noundef nonnull %1)
   %612 = load i64, ptr %88, align 2
   %613 = and i64 %612, 2147483648
   %.not171.i = icmp eq i64 %613, 0
@@ -1498,7 +1498,7 @@ h1_tunnel_go_state.exit190.i:                     ; preds = %606, %587
 
 640:                                              ; preds = %639, %634, %630, %625, %624
   store i32 5, ptr %87, align 8, !tbaa !104
-  call void @Curl_dyn_reset(ptr noundef nonnull %.05984) #5
+  call void @Curl_dyn_reset(ptr noundef nonnull %.059129) #5
   call void @Curl_dyn_reset(ptr noundef nonnull %91) #5
   %641 = getelementptr inbounds nuw i8, ptr %1, i64 5048
   store i32 0, ptr %641, align 8, !tbaa !132
@@ -1848,7 +1848,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
 
 8:                                                ; preds = %4
   %.not115 = icmp eq ptr %3, null
-  switch i32 %2, label %default.unreachable121 [
+  switch i32 %2, label %default.unreachable131 [
     i32 0, label %9
     i32 1, label %36
     i32 2, label %58
@@ -2065,39 +2065,39 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
   %111 = icmp sgt i32 %110, 0
   %112 = icmp ne ptr %0, null
   %or.cond13 = and i1 %112, %111
-  br i1 %or.cond13, label %114, label %.thread122
+  br i1 %or.cond13, label %114, label %.thread132
 
 113:                                              ; preds = %105
   %.old12.not = icmp eq ptr %0, null
-  br i1 %.old12.not, label %.thread122, label %114
+  br i1 %.old12.not, label %.thread132, label %114
 
 114:                                              ; preds = %108, %113
   %115 = load ptr, ptr %0, align 8, !tbaa !77
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 12
   %117 = load i32, ptr %116, align 4, !tbaa !81
   %118 = icmp sgt i32 %117, 0
-  br i1 %118, label %119, label %.thread122
+  br i1 %118, label %119, label %.thread132
 
 119:                                              ; preds = %114
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #5
   %.pre = load i64, ptr %102, align 2
   %.pre120 = and i64 %.pre, 2147483648
   %120 = icmp eq i64 %.pre120, 0
-  br i1 %120, label %.thread, label %.thread122
+  br i1 %120, label %.thread, label %.thread132
 
-.thread122:                                       ; preds = %114, %113, %108, %119
+.thread132:                                       ; preds = %114, %113, %108, %119
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 4864
   %122 = load ptr, ptr %121, align 8, !tbaa !3
   %.not103 = icmp eq ptr %122, null
   br i1 %.not103, label %127, label %123
 
-123:                                              ; preds = %.thread122
+123:                                              ; preds = %.thread132
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %125 = load i32, ptr %124, align 8, !tbaa !75
   %126 = icmp sgt i32 %125, 0
   br i1 %126, label %127, label %.thread
 
-127:                                              ; preds = %123, %.thread122
+127:                                              ; preds = %123, %.thread132
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %3, ptr noundef nonnull @.str.7) #5
   br label %.thread
 
@@ -2162,7 +2162,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
   store ptr null, ptr %156, align 8, !tbaa !124
   br label %158
 
-default.unreachable121:                           ; preds = %8
+default.unreachable131:                           ; preds = %8
   unreachable
 
 158:                                              ; preds = %4, %152, %99, %78, %56, %29

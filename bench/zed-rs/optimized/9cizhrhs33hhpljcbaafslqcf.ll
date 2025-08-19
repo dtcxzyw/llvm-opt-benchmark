@@ -2288,7 +2288,7 @@ common.resume:                                    ; preds = %448, %251, %.thread
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %83 = zext i32 %81 to i64
   %84 = add nsw i64 %83, -1
-  %85 = getelementptr inbounds [0 x { ptr, i64, { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] } }], ptr %82, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [0 x { ptr, i64, { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] } }], ptr %82, i64 0, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 1984
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 2016
@@ -2753,7 +2753,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h397b5d198f3da9dcE.exit: ; preds 
   %298 = add nsw i64 %297, -1
   %299 = trunc nuw i64 %298 to i32
   store i32 %299, ptr %0, align 8, !alias.scope !449, !noalias !442
-  %300 = getelementptr inbounds { ptr, i64, { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] } }, ptr %148, i64 %298
+  %300 = getelementptr inbounds nuw { ptr, i64, { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] } }, ptr %148, i64 %298
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %43, ptr noundef nonnull align 8 dereferenceable(120) %300, i64 120, i1 false), !alias.scope !452
   %.pr = load ptr, ptr %43, align 8, !alias.scope !453
   call void @llvm.experimental.noalias.scope.decl(metadata !453)
@@ -3691,7 +3691,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %.sroa.06.0126 = phi i1 [ false, %.lr.ph128 ], [ %.sroa.06.0.be, %.backedge ]
   %.pn.in = zext i32 %.pn.in.in to i64
   %.pn = add nsw i64 %.pn.in, -1
-  %56 = getelementptr inbounds [0 x { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }], ptr %53, i64 0, i64 %.pn
+  %56 = getelementptr inbounds nuw [0 x { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }], ptr %53, i64 0, i64 %.pn
   %57 = load ptr, ptr %56, align 8, !nonnull !20, !align !194, !noundef !20
   %58 = load ptr, ptr %57, align 8, !nonnull !20, !noundef !20
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -4077,7 +4077,7 @@ define internal fastcc void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_int
   %.sroa.06.0108 = phi i1 [ false, %.lr.ph110 ], [ %.sroa.06.0.be, %.backedge ]
   %.pn.in = zext i32 %.pn.in.in to i64
   %.pn = add nsw i64 %.pn.in, -1
-  %50 = getelementptr inbounds [0 x { ptr, i64, { i64, i64 } }], ptr %47, i64 0, i64 %.pn
+  %50 = getelementptr inbounds nuw [0 x { ptr, i64, { i64, i64 } }], ptr %47, i64 0, i64 %.pn
   %51 = load ptr, ptr %50, align 8, !nonnull !20, !align !194, !noundef !20
   %52 = load ptr, ptr %51, align 8, !nonnull !20, !noundef !20
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
@@ -4528,7 +4528,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17hd880b66e415fc3dbE.exit: ; p
   %.sroa.06.0173 = phi i1 [ false, %.lr.ph174 ], [ %.sroa.06.0.be, %.backedge ]
   %.pn.in = zext i32 %.pn.in.in to i64
   %.pn = add nsw i64 %.pn.in, -1
-  %66 = getelementptr inbounds [0 x { { i64, { i64, [1 x i64] } }, ptr, i64 }], ptr %63, i64 0, i64 %.pn
+  %66 = getelementptr inbounds nuw [0 x { { i64, { i64, [1 x i64] } }, ptr, i64 }], ptr %63, i64 0, i64 %.pn
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %68 = load ptr, ptr %67, align 8, !nonnull !20, !align !194, !noundef !20
   %69 = load ptr, ptr %68, align 8, !nonnull !20, !noundef !20
@@ -4978,7 +4978,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %.sroa.06.0131 = phi i1 [ false, %.lr.ph133 ], [ %.sroa.06.0.be, %.backedge ]
   %.pn.in = zext i32 %.pn.in.in to i64
   %.pn = add nsw i64 %.pn.in, -1
-  %56 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %53, i64 0, i64 %.pn
+  %56 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %53, i64 0, i64 %.pn
   %57 = load ptr, ptr %56, align 8, !nonnull !20, !align !194, !noundef !20
   %58 = load ptr, ptr %57, align 8, !nonnull !20, !noundef !20
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -5379,7 +5379,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %.sroa.06.0152 = phi i1 [ false, %.lr.ph154 ], [ %.sroa.06.0.be, %.backedge ]
   %.pn.in = zext i32 %.pn.in.in to i64
   %.pn = add nsw i64 %.pn.in, -1
-  %61 = getelementptr inbounds [0 x { ptr, i64, { ptr, i64 } }], ptr %58, i64 0, i64 %.pn
+  %61 = getelementptr inbounds nuw [0 x { ptr, i64, { ptr, i64 } }], ptr %58, i64 0, i64 %.pn
   %62 = load ptr, ptr %61, align 8, !nonnull !20, !align !194, !noundef !20
   %63 = load ptr, ptr %62, align 8, !nonnull !20, !noundef !20
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
@@ -5714,9 +5714,9 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 545
   %10 = load i8, ptr %9, align 1, !range !26, !noundef !20
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %.thread49, label %13
+  br i1 %11, label %.thread56, label %13
 
-.thread49:                                        ; preds = %8
+.thread56:                                        ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i8 1, ptr %12, align 8
   br label %._crit_edge
@@ -5744,7 +5744,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %21
 
-._crit_edge:                                      ; preds = %66, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h8ad6b9d3f43f3358E.exit, %.thread49
+._crit_edge:                                      ; preds = %66, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h8ad6b9d3f43f3358E.exit, %.thread56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 545
   store i8 1, ptr %20, align 1
   br label %.loopexit
@@ -5757,7 +5757,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   %.sroa.04.241 = phi i1 [ %7, %.lr.ph ], [ %.sroa.04.3, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h8ad6b9d3f43f3358E.exit ]
   %23 = zext i32 %22 to i64
   %24 = add nsw i64 %23, -1
-  %25 = getelementptr inbounds [0 x { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }], ptr %19, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [0 x { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }], ptr %19, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8, !nonnull !20, !align !194, !noundef !20
   %27 = load ptr, ptr %26, align 8, !nonnull !20, !noundef !20
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -5786,7 +5786,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   %37 = load i32, ptr %36, align 8, !noundef !20
   %38 = zext i32 %37 to i64
   %39 = icmp ult i64 %35, %38
-  br i1 %39, label %59, label %.thread51
+  br i1 %39, label %59, label %.thread58
 
 40:                                               ; preds = %31
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 704
@@ -5849,16 +5849,16 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
 66:                                               ; preds = %47
   %.pre46 = load i32, ptr %5, align 8, !alias.scope !1187, !noalias !1192
   %67 = icmp eq i32 %.pre46, 0
-  br i1 %67, label %._crit_edge, label %.thread51
+  br i1 %67, label %._crit_edge, label %.thread58
 
-.thread51:                                        ; preds = %._crit_edge44, %66
+.thread58:                                        ; preds = %._crit_edge44, %66
   %68 = phi i32 [ %.pre46, %66 ], [ %22, %._crit_edge44 ]
   %69 = add i32 %68, -1
   br label %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h8ad6b9d3f43f3358E.exit
 
-_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h8ad6b9d3f43f3358E.exit: ; preds = %.thread51, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd14e3ff26368e94cE.exit15"
-  %70 = phi i32 [ %65, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd14e3ff26368e94cE.exit15" ], [ %69, %.thread51 ]
-  %.sroa.04.3 = phi i1 [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd14e3ff26368e94cE.exit15" ], [ false, %.thread51 ]
+_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h8ad6b9d3f43f3358E.exit: ; preds = %.thread58, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd14e3ff26368e94cE.exit15"
+  %70 = phi i32 [ %65, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd14e3ff26368e94cE.exit15" ], [ %69, %.thread58 ]
+  %.sroa.04.3 = phi i1 [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd14e3ff26368e94cE.exit15" ], [ false, %.thread58 ]
   store i32 %70, ptr %5, align 8, !noalias !20
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %._crit_edge, label %21
@@ -5875,9 +5875,9 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 409
   %9 = load i8, ptr %8, align 1, !range !26, !noundef !20
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %.thread55, label %12
+  br i1 %10, label %.thread62, label %12
 
-.thread55:                                        ; preds = %7
+.thread62:                                        ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i8 1, ptr %11, align 8
   br label %._crit_edge
@@ -5904,7 +5904,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 392
   br label %22
 
-._crit_edge:                                      ; preds = %69, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h8048ae6c2ee17f81E.exit, %.thread55
+._crit_edge:                                      ; preds = %69, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h8048ae6c2ee17f81E.exit, %.thread62
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 409
   store i8 1, ptr %21, align 1
   br label %.loopexit
@@ -5917,7 +5917,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   %.sroa.04.246 = phi i1 [ %6, %.lr.ph ], [ %.sroa.04.3, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h8048ae6c2ee17f81E.exit ]
   %24 = zext i32 %23 to i64
   %25 = add nsw i64 %24, -1
-  %26 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %19, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %19, i64 0, i64 %25
   %27 = load ptr, ptr %26, align 8, !nonnull !20, !align !194, !noundef !20
   %28 = load ptr, ptr %27, align 8, !nonnull !20, !noundef !20
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -5947,7 +5947,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   %39 = load i32, ptr %38, align 8, !noundef !20
   %40 = zext i32 %39 to i64
   %41 = icmp ult i64 %37, %40
-  br i1 %41, label %61, label %.thread57
+  br i1 %41, label %61, label %.thread64
 
 42:                                               ; preds = %32
   %43 = getelementptr inbounds nuw i8, ptr %28, i64 1608
@@ -6011,16 +6011,16 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
 69:                                               ; preds = %49
   %.pre52 = load i32, ptr %0, align 8, !alias.scope !1226, !noalias !1231
   %70 = icmp eq i32 %.pre52, 0
-  br i1 %70, label %._crit_edge, label %.thread57
+  br i1 %70, label %._crit_edge, label %.thread64
 
-.thread57:                                        ; preds = %._crit_edge50, %69
+.thread64:                                        ; preds = %._crit_edge50, %69
   %71 = phi i32 [ %.pre52, %69 ], [ %23, %._crit_edge50 ]
   %72 = add i32 %71, -1
   br label %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h8048ae6c2ee17f81E.exit
 
-_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h8048ae6c2ee17f81E.exit: ; preds = %.thread57, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4ceaee92aeea59cfE.exit15"
-  %73 = phi i32 [ %68, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4ceaee92aeea59cfE.exit15" ], [ %72, %.thread57 ]
-  %.sroa.04.3 = phi i1 [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4ceaee92aeea59cfE.exit15" ], [ false, %.thread57 ]
+_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h8048ae6c2ee17f81E.exit: ; preds = %.thread64, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4ceaee92aeea59cfE.exit15"
+  %73 = phi i32 [ %68, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4ceaee92aeea59cfE.exit15" ], [ %72, %.thread64 ]
+  %.sroa.04.3 = phi i1 [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4ceaee92aeea59cfE.exit15" ], [ false, %.thread64 ]
   store i32 %73, ptr %0, align 8, !noalias !20
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %._crit_edge, label %22
@@ -6038,9 +6038,9 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 545
   %10 = load i8, ptr %9, align 1, !range !26, !noundef !20
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %.thread68, label %13
+  br i1 %11, label %.thread75, label %13
 
-.thread68:                                        ; preds = %8
+.thread75:                                        ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i8 1, ptr %12, align 8
   br label %._crit_edge
@@ -6071,7 +6071,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
-._crit_edge:                                      ; preds = %75, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h72009a4b561ca0e2E.exit, %.thread68
+._crit_edge:                                      ; preds = %75, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h72009a4b561ca0e2E.exit, %.thread75
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 545
   store i8 1, ptr %24, align 1
   br label %.loopexit
@@ -6084,7 +6084,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   %.sroa.04.258 = phi i1 [ %7, %.lr.ph ], [ %.sroa.04.3, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h72009a4b561ca0e2E.exit ]
   %27 = zext i32 %26 to i64
   %28 = add nsw i64 %27, -1
-  %29 = getelementptr inbounds [0 x { ptr, i64, { i64, i64 } }], ptr %22, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [0 x { ptr, i64, { i64, i64 } }], ptr %22, i64 0, i64 %28
   %30 = load ptr, ptr %29, align 8, !nonnull !20, !align !194, !noundef !20
   %31 = load ptr, ptr %30, align 8, !nonnull !20, !noundef !20
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -6117,7 +6117,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   %44 = load i32, ptr %43, align 8, !noundef !20
   %45 = zext i32 %44 to i64
   %46 = icmp ult i64 %42, %45
-  br i1 %46, label %66, label %.thread70
+  br i1 %46, label %66, label %.thread77
 
 47:                                               ; preds = %35
   %48 = getelementptr inbounds nuw i8, ptr %31, i64 2056
@@ -6186,16 +6186,16 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
 75:                                               ; preds = %54
   %.pre65 = load i32, ptr %5, align 8, !alias.scope !1265, !noalias !1270
   %76 = icmp eq i32 %.pre65, 0
-  br i1 %76, label %._crit_edge, label %.thread70
+  br i1 %76, label %._crit_edge, label %.thread77
 
-.thread70:                                        ; preds = %._crit_edge63, %75
+.thread77:                                        ; preds = %._crit_edge63, %75
   %77 = phi i32 [ %.pre65, %75 ], [ %26, %._crit_edge63 ]
   %78 = add i32 %77, -1
   br label %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h72009a4b561ca0e2E.exit
 
-_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h72009a4b561ca0e2E.exit: ; preds = %.thread70, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3812bca4ddd7eb28E.exit15"
-  %79 = phi i32 [ %74, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3812bca4ddd7eb28E.exit15" ], [ %78, %.thread70 ]
-  %.sroa.04.3 = phi i1 [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3812bca4ddd7eb28E.exit15" ], [ false, %.thread70 ]
+_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h72009a4b561ca0e2E.exit: ; preds = %.thread77, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3812bca4ddd7eb28E.exit15"
+  %79 = phi i32 [ %74, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3812bca4ddd7eb28E.exit15" ], [ %78, %.thread77 ]
+  %.sroa.04.3 = phi i1 [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3812bca4ddd7eb28E.exit15" ], [ false, %.thread77 ]
   store i32 %79, ptr %5, align 8, !noalias !20
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %._crit_edge, label %25
@@ -6212,9 +6212,9 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 273
   %10 = load i8, ptr %9, align 1, !range !26, !noundef !20
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %.thread53, label %13
+  br i1 %11, label %.thread62, label %13
 
-.thread53:                                        ; preds = %8
+.thread62:                                        ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i8 1, ptr %12, align 8
   br label %._crit_edge
@@ -6232,13 +6232,13 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   br label %.lr.ph39
 
 .lr.ph39:                                         ; preds = %4, %13
-  %.promoted3751 = phi i32 [ 1, %13 ], [ %6, %4 ]
+  %.promoted3760 = phi i32 [ 1, %13 ], [ %6, %4 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %23
 
-._crit_edge:                                      ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h3499b4260f91bc9fE.exit, %.thread53
+._crit_edge:                                      ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h3499b4260f91bc9fE.exit, %.thread62
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 273
   store i8 1, ptr %22, align 1
   br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h3a5aef92db7963f7E.exit18.thread"
@@ -6248,10 +6248,10 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
 
 23:                                               ; preds = %.lr.ph39, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h3499b4260f91bc9fE.exit
   %.sroa.04.238 = phi i1 [ %7, %.lr.ph39 ], [ %.sroa.04.3, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h3499b4260f91bc9fE.exit ]
-  %24 = phi i32 [ %.promoted3751, %.lr.ph39 ], [ %106, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h3499b4260f91bc9fE.exit ]
+  %24 = phi i32 [ %.promoted3760, %.lr.ph39 ], [ %106, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h3499b4260f91bc9fE.exit ]
   %25 = zext i32 %24 to i64
   %26 = add nsw i64 %25, -1
-  %27 = getelementptr inbounds [0 x { ptr, i64, {} }], ptr %19, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [0 x { ptr, i64, {} }], ptr %19, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8, !nonnull !20, !align !194, !noundef !20
   %29 = load ptr, ptr %28, align 8, !nonnull !20, !noundef !20
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -6443,9 +6443,9 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2041
   %19 = load i8, ptr %18, align 1, !range !26, !noundef !20
   %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %.thread217, label %22
+  br i1 %20, label %.thread231, label %22
 
-.thread217:                                       ; preds = %17
+.thread231:                                       ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2040
   store i8 1, ptr %21, align 8
   br label %._crit_edge
@@ -6537,7 +6537,7 @@ common.resume:                                    ; preds = %175, %158, %90, %28
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %69
 
-._crit_edge:                                      ; preds = %205, %.thread217
+._crit_edge:                                      ; preds = %205, %.thread231
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 2041
   store i8 1, ptr %68, align 1
   br label %.loopexit
@@ -6550,7 +6550,7 @@ common.resume:                                    ; preds = %175, %158, %90, %28
   %.sroa.04.2178 = phi i1 [ %16, %.lr.ph ], [ %.sroa.04.3, %205 ]
   %71 = zext i32 %70 to i64
   %72 = add nsw i64 %71, -1
-  %73 = getelementptr inbounds [0 x { ptr, i64, { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] } }], ptr %40, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [0 x { ptr, i64, { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] } }], ptr %40, i64 0, i64 %72
   %74 = load ptr, ptr %73, align 8, !nonnull !20, !align !194, !noundef !20
   %75 = load ptr, ptr %74, align 8, !nonnull !20, !noundef !20
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
@@ -6897,7 +6897,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h397b5d198f3da9dcE.exit: ; preds 
   %187 = add nsw i64 %186, -1
   %188 = trunc nuw i64 %187 to i32
   store i32 %188, ptr %0, align 8, !alias.scope !1427, !noalias !1420
-  %189 = getelementptr inbounds { ptr, i64, { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] } }, ptr %40, i64 %187
+  %189 = getelementptr inbounds nuw { ptr, i64, { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] } }, ptr %40, i64 %187
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %14, ptr noundef nonnull align 8 dereferenceable(120) %189, i64 120, i1 false), !alias.scope !1430
   %.pr = load ptr, ptr %14, align 8, !alias.scope !1431
   call void @llvm.experimental.noalias.scope.decl(metadata !1431)
@@ -7091,7 +7091,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17hd880b66e415fc3dbE.exit: ; p
 .backedge:                                        ; preds = %.backedge.backedge, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc77c2f361b409fefE.exit"
   %51 = phi i32 [ %.pre159, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc77c2f361b409fefE.exit" ], [ %.be, %.backedge.backedge ]
   %.sroa.08.0 = phi i1 [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc77c2f361b409fefE.exit" ], [ %.sroa.08.0.be, %.backedge.backedge ]
-  switch i32 %51, label %.thread172 [
+  switch i32 %51, label %.thread179 [
     i32 0, label %52
     i32 1, label %61
   ]
@@ -7099,7 +7099,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17hd880b66e415fc3dbE.exit: ; p
 52:                                               ; preds = %.backedge, %100
   ret void
 
-.thread172:                                       ; preds = %.backedge
+.thread179:                                       ; preds = %.backedge
   %53 = zext i32 %51 to i64
   %54 = getelementptr inbounds nuw { { i64, { i64, [1 x i64] } }, ptr, i64 }, ptr %15, i64 %53
   %55 = getelementptr inbounds i8, ptr %54, i64 -80
@@ -7132,11 +7132,11 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17hd880b66e415fc3dbE.exit: ; p
   call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #28
   unreachable
 
-67:                                               ; preds = %.thread172, %61
-  %.in = phi i64 [ %53, %.thread172 ], [ %.pre169, %61 ]
-  %68 = phi i64 [ %56, %.thread172 ], [ %62, %61 ]
-  %69 = phi i64 [ %58, %.thread172 ], [ %64, %61 ]
-  %70 = phi i64 [ %.sroa.3.0.i.i, %.thread172 ], [ %65, %61 ]
+67:                                               ; preds = %.thread179, %61
+  %.in = phi i64 [ %53, %.thread179 ], [ %.pre169, %61 ]
+  %68 = phi i64 [ %56, %.thread179 ], [ %62, %61 ]
+  %69 = phi i64 [ %58, %.thread179 ], [ %64, %61 ]
+  %70 = phi i64 [ %.sroa.3.0.i.i, %.thread179 ], [ %65, %61 ]
   %71 = add nsw i64 %.in, -1
   %72 = getelementptr inbounds [0 x { { i64, { i64, [1 x i64] } }, ptr, i64 }], ptr %15, i64 0, i64 %71
   %.phi.trans.insert162 = getelementptr inbounds nuw i8, ptr %72, i64 32
@@ -7415,7 +7415,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
 .backedge:                                        ; preds = %.backedge.backedge, %16
   %43 = phi i32 [ %.pre112, %16 ], [ %.be, %.backedge.backedge ]
   %.sroa.08.0 = phi i1 [ false, %16 ], [ %.sroa.08.0.be, %.backedge.backedge ]
-  switch i32 %43, label %.thread122 [
+  switch i32 %43, label %.thread127 [
     i32 0, label %44
     i32 1, label %48
   ]
@@ -7423,7 +7423,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
 44:                                               ; preds = %.backedge, %77
   ret void
 
-.thread122:                                       ; preds = %.backedge
+.thread127:                                       ; preds = %.backedge
   %45 = zext i32 %43 to i64
   %46 = getelementptr inbounds nuw { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }, ptr %18, i64 %45
   %47 = getelementptr inbounds i8, ptr %46, i64 -48
@@ -7444,8 +7444,8 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
   call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #28
   unreachable
 
-50:                                               ; preds = %.thread122, %48
-  %.in = phi i64 [ %45, %.thread122 ], [ %.pre119, %48 ]
+50:                                               ; preds = %.thread127, %48
+  %.in = phi i64 [ %45, %.thread127 ], [ %.pre119, %48 ]
   %51 = add nsw i64 %.in, -1
   %52 = getelementptr inbounds [0 x { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }], ptr %18, i64 0, i64 %51
   %.phi.trans.insert115 = getelementptr inbounds nuw i8, ptr %52, i64 8

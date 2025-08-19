@@ -1337,14 +1337,14 @@ define noundef zeroext i1 @_ZN4base12StringToUintERKNS_16BasicStringPieceINSt7__
 
 _ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIjLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pj.exit.i.sink.split.i: ; preds = %.lr.ph.i, %25, %23
   %.sink.i = phi i32 [ -1, %23 ], [ -1, %25 ], [ 0, %.lr.ph.i ]
-  %.022.i9.ph.i = phi i1 [ %.022.i.i, %23 ], [ %.022.i.i, %25 ], [ false, %.lr.ph.i ]
+  %.022.i13.ph.i = phi i1 [ %.022.i.i, %23 ], [ %.022.i.i, %25 ], [ false, %.lr.ph.i ]
   store i32 %.sink.i, ptr %1, align 4, !tbaa !66
   br label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIjLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pj.exit.i.i
 
 _ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIjLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pj.exit.i.i: ; preds = %.critedge.i.i.i, %.preheader.i.i.i, %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIjLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pj.exit.i.sink.split.i, %.critedge18.i.i
-  %.022.i9.i = phi i1 [ %.022.i.i, %.critedge18.i.i ], [ %.022.i9.ph.i, %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIjLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pj.exit.i.sink.split.i ], [ %.022.i.i, %.preheader.i.i.i ], [ %.022.i.i, %.critedge.i.i.i ]
+  %.022.i13.i = phi i1 [ %.022.i.i, %.critedge18.i.i ], [ %.022.i13.ph.i, %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIjLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pj.exit.i.sink.split.i ], [ %.022.i.i, %.preheader.i.i.i ], [ %.022.i.i, %.critedge.i.i.i ]
   %.016.i.i.i = phi i1 [ false, %.critedge18.i.i ], [ false, %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIjLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pj.exit.i.sink.split.i ], [ %or.cond.i.i.i.i.i, %.preheader.i.i.i ], [ %or.cond.i.i.i.i.i, %.critedge.i.i.i ]
-  %spec.select19.i.i = and i1 %.022.i9.i, %.016.i.i.i
+  %spec.select19.i.i = and i1 %.022.i13.i, %.016.i.i.i
   br label %_ZN4base12_GLOBAL__N_117String16ToIntImplIjEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
 _ZN4base12_GLOBAL__N_117String16ToIntImplIjEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit: ; preds = %14, %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIjLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pj.exit.i.i
@@ -1825,14 +1825,14 @@ define noundef zeroext i1 @_ZN4base14StringToUint64ERKNS_16BasicStringPieceINSt7
 
 _ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pm.exit.i.sink.split.i: ; preds = %.lr.ph.i, %25, %23
   %.sink.i = phi i64 [ -1, %23 ], [ -1, %25 ], [ 0, %.lr.ph.i ]
-  %.022.i9.ph.i = phi i1 [ %.022.i.i, %23 ], [ %.022.i.i, %25 ], [ false, %.lr.ph.i ]
+  %.022.i13.ph.i = phi i1 [ %.022.i.i, %23 ], [ %.022.i.i, %25 ], [ false, %.lr.ph.i ]
   store i64 %.sink.i, ptr %1, align 8, !tbaa !18
   br label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pm.exit.i.i
 
 _ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pm.exit.i.i: ; preds = %.critedge.i.i.i, %.preheader.i.i.i, %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pm.exit.i.sink.split.i, %.critedge18.i.i
-  %.022.i9.i = phi i1 [ %.022.i.i, %.critedge18.i.i ], [ %.022.i9.ph.i, %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pm.exit.i.sink.split.i ], [ %.022.i.i, %.preheader.i.i.i ], [ %.022.i.i, %.critedge.i.i.i ]
+  %.022.i13.i = phi i1 [ %.022.i.i, %.critedge18.i.i ], [ %.022.i13.ph.i, %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pm.exit.i.sink.split.i ], [ %.022.i.i, %.preheader.i.i.i ], [ %.022.i.i, %.critedge.i.i.i ]
   %.016.i.i.i = phi i1 [ false, %.critedge18.i.i ], [ false, %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pm.exit.i.sink.split.i ], [ %or.cond.i.i.i.i.i, %.preheader.i.i.i ], [ %or.cond.i.i.i.i.i, %.critedge.i.i.i ]
-  %spec.select19.i.i = and i1 %.022.i9.i, %.016.i.i.i
+  %spec.select19.i.i = and i1 %.022.i13.i, %.016.i.i.i
   br label %_ZN4base12_GLOBAL__N_117String16ToIntImplImEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
 _ZN4base12_GLOBAL__N_117String16ToIntImplImEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit: ; preds = %14, %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pm.exit.i.i
@@ -2036,14 +2036,14 @@ define noundef zeroext i1 @_ZN4base13StringToSizeTERKNS_16BasicStringPieceINSt7_
 
 _ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pm.exit.i.sink.split.i: ; preds = %.lr.ph.i, %25, %23
   %.sink.i = phi i64 [ -1, %23 ], [ -1, %25 ], [ 0, %.lr.ph.i ]
-  %.022.i9.ph.i = phi i1 [ %.022.i.i, %23 ], [ %.022.i.i, %25 ], [ false, %.lr.ph.i ]
+  %.022.i13.ph.i = phi i1 [ %.022.i.i, %23 ], [ %.022.i.i, %25 ], [ false, %.lr.ph.i ]
   store i64 %.sink.i, ptr %1, align 8, !tbaa !18
   br label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pm.exit.i.i
 
 _ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pm.exit.i.i: ; preds = %.critedge.i.i.i, %.preheader.i.i.i, %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pm.exit.i.sink.split.i, %.critedge18.i.i
-  %.022.i9.i = phi i1 [ %.022.i.i, %.critedge18.i.i ], [ %.022.i9.ph.i, %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pm.exit.i.sink.split.i ], [ %.022.i.i, %.preheader.i.i.i ], [ %.022.i.i, %.critedge.i.i.i ]
+  %.022.i13.i = phi i1 [ %.022.i.i, %.critedge18.i.i ], [ %.022.i13.ph.i, %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pm.exit.i.sink.split.i ], [ %.022.i.i, %.preheader.i.i.i ], [ %.022.i.i, %.critedge.i.i.i ]
   %.016.i.i.i = phi i1 [ false, %.critedge18.i.i ], [ false, %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pm.exit.i.sink.split.i ], [ %or.cond.i.i.i.i.i, %.preheader.i.i.i ], [ %or.cond.i.i.i.i.i, %.critedge.i.i.i ]
-  %spec.select19.i.i = and i1 %.022.i9.i, %.016.i.i.i
+  %spec.select19.i.i = and i1 %.022.i13.i, %.016.i.i.i
   br label %_ZN4base12_GLOBAL__N_117String16ToIntImplImEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
 _ZN4base12_GLOBAL__N_117String16ToIntImplImEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit: ; preds = %14, %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pm.exit.i.i

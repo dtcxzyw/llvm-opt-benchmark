@@ -10043,7 +10043,7 @@ define i32 @exr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 0, ptr %42, align 4, !tbaa !88
-  br label %.thread118
+  br label %.thread125
 
 43:                                               ; preds = %39
   %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(11) @.str.86) #7
@@ -10053,7 +10053,7 @@ define i32 @exr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 1, ptr %46, align 4, !tbaa !88
-  br label %.thread118
+  br label %.thread125
 
 47:                                               ; preds = %43
   %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(13) @.str.87) #7
@@ -10063,7 +10063,7 @@ define i32 @exr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 2, ptr %50, align 4, !tbaa !88
-  br label %.thread118
+  br label %.thread125
 
 51:                                               ; preds = %47
   %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(9) @.str.88) #7
@@ -10073,11 +10073,11 @@ define i32 @exr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 
 54:                                               ; preds = %51
   store i32 3, ptr %53, align 4, !tbaa !88
-  br label %.thread118
+  br label %.thread125
 
 55:                                               ; preds = %51
   store i32 5, ptr %53, align 4, !tbaa !88
-  br label %.thread118
+  br label %.thread125
 
 56:                                               ; preds = %31
   %57 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #6
@@ -10086,7 +10086,7 @@ define i32 @exr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %60 = tail call i32 (ptr, i32, ptr, ...) %59(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.89) #6
   br label %144
 
-.thread118:                                       ; preds = %41, %49, %55, %54, %45
+.thread125:                                       ; preds = %41, %49, %55, %54, %45
   %61 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %62 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %61, ptr noundef nonnull %2, ptr noundef nonnull %5) #6
   br label %77
@@ -10118,9 +10118,9 @@ define i32 @exr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %.not111 = icmp eq ptr %3, null
   br i1 %.not111, label %.thread, label %77
 
-77:                                               ; preds = %.thread118, %74
-  %78 = phi i32 [ %62, %.thread118 ], [ %76, %74 ]
-  %79 = phi ptr [ %61, %.thread118 ], [ %75, %74 ]
+77:                                               ; preds = %.thread125, %74
+  %78 = phi i32 [ %62, %.thread125 ], [ %76, %74 ]
+  %79 = phi ptr [ %61, %.thread125 ], [ %75, %74 ]
   %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7
   %81 = icmp ugt i64 %80, 2147483647
   br i1 %81, label %82, label %.thread
@@ -10133,7 +10133,7 @@ define i32 @exr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br label %144
 
 .thread:                                          ; preds = %74, %77
-  %.not111121 = phi i1 [ false, %77 ], [ true, %74 ]
+  %.not111128 = phi i1 [ false, %77 ], [ true, %74 ]
   %87 = phi i32 [ %78, %77 ], [ %76, %74 ]
   %88 = phi ptr [ %79, %77 ], [ %75, %74 ]
   %89 = phi i64 [ %80, %77 ], [ 0, %74 ]
@@ -10198,7 +10198,7 @@ define i32 @exr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br i1 %124, label %125, label %129
 
 125:                                              ; preds = %121
-  br i1 %.not111121, label %142, label %126
+  br i1 %.not111128, label %142, label %126
 
 126:                                              ; preds = %125
   %127 = getelementptr inbounds nuw i8, ptr %117, i64 8
@@ -13290,9 +13290,9 @@ define i32 @exr_attr_get_user(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   br i1 %.not61, label %96, label %.sink.split
 
 .sink.split:                                      ; preds = %92, %87
-  %.sink65 = phi i64 [ 24, %87 ], [ 16, %92 ]
+  %.sink73 = phi i64 [ 24, %87 ], [ 16, %92 ]
   %93 = load ptr, ptr %79, align 8, !tbaa !35
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 %.sink65
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 %.sink73
   %95 = load ptr, ptr %94, align 8, !tbaa !30
   store ptr %95, ptr %5, align 8, !tbaa !30
   br label %96

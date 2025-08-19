@@ -576,7 +576,7 @@ define noundef ptr @l___private_Lean_Data_NameTrie_0__Lean_toKey_loop(ptr nounde
   br label %3
 
 3:                                                ; preds = %.backedge, %2
-  %.024 = phi ptr [ %1, %2 ], [ %.sink52, %.backedge ]
+  %.024 = phi ptr [ %1, %2 ], [ %.sink56, %.backedge ]
   %.0 = phi ptr [ %0, %2 ], [ %.0.be, %.backedge ]
   %4 = ptrtoint ptr %.0 to i64
   %5 = and i64 %4, 1
@@ -658,15 +658,15 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit25
   unreachable
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_alloc_ctor.exit32
-  %.sink52 = phi ptr [ %55, %lean_alloc_ctor.exit32 ], [ %31, %lean_alloc_ctor.exit ]
+  %.sink56 = phi ptr [ %55, %lean_alloc_ctor.exit32 ], [ %31, %lean_alloc_ctor.exit ]
   %.sink = phi ptr [ %50, %lean_alloc_ctor.exit32 ], [ %26, %lean_alloc_ctor.exit ]
   %.0.be = phi ptr [ %39, %lean_alloc_ctor.exit32 ], [ %15, %lean_alloc_ctor.exit ]
-  %34 = getelementptr inbounds nuw i8, ptr %.sink52, i64 4
-  store i32 1, ptr %.sink52, align 4, !tbaa !8
+  %34 = getelementptr inbounds nuw i8, ptr %.sink56, i64 4
+  store i32 1, ptr %.sink56, align 4, !tbaa !8
   store i32 16908312, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %.sink52, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.sink56, i64 8
   store ptr %.sink, ptr %35, align 8, !tbaa !4
-  %36 = getelementptr inbounds nuw i8, ptr %.sink52, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.sink56, i64 16
   store ptr %.024, ptr %36, align 8, !tbaa !4
   br label %3
 
@@ -5536,18 +5536,18 @@ _init_l_Lean_NameTrie_matchingToArray___rarg___closed__2.exit: ; preds = %_init_
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_NameTrie_matchingToArray___rarg___closed__2.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %35, %_init_l_Lean_NameTrie_matchingToArray___rarg___closed__2.exit ]
-  %38 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !8
+  %.sink14 = phi ptr [ %4, %3 ], [ %35, %_init_l_Lean_NameTrie_matchingToArray___rarg___closed__2.exit ]
+  %38 = getelementptr inbounds nuw i8, ptr %.sink14, i64 4
+  store i32 1, ptr %.sink14, align 4, !tbaa !8
   store i32 131096, ptr %38, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.sink14, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %39, align 8, !tbaa !4
-  %40 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.sink14, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %40, align 8, !tbaa !4
   br label %41
 
 41:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink14, %.sink.split ]
   ret ptr %.0
 }
 

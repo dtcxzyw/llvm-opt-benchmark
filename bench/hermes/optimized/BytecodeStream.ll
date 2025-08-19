@@ -64,10 +64,10 @@ entry:
   %0 = and i8 %retval.sroa.0.0.copyload.i, 2
   %bf.cast.not = icmp eq i8 %0, 0
   %. = select i1 %bf.cast.not, i64 440, i64 464
-  %.131 = select i1 %bf.cast.not, i64 448, i64 472
+  %.133 = select i1 %bf.cast.not, i64 448, i64 472
   %cjsModuleTable_.i = getelementptr inbounds nuw i8, ptr %BM, i64 %.
   %1 = load ptr, ptr %cjsModuleTable_.i, align 8
-  %_M_finish.i.i.i27 = getelementptr inbounds nuw i8, ptr %BM, i64 %.131
+  %_M_finish.i.i.i27 = getelementptr inbounds nuw i8, ptr %BM, i64 %.133
   %2 = load ptr, ptr %_M_finish.i.i.i27, align 8
   %sub.ptr.lhs.cast.i.i.i28 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i.i29 = ptrtoint ptr %1 to i64
@@ -702,8 +702,8 @@ if.end.i34:                                       ; preds = %while.end
 
 for.body.us.i48.preheader:                        ; preds = %if.end.i34
   %51 = or i64 %47, -4
-  %sub75 = sub i64 %47, %51
-  store i64 %sub75, ptr %loc_21, align 8
+  %sub77 = sub i64 %47, %51
+  store i64 %sub77, ptr %loc_21, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit55
 
 for.body.i38:                                     ; preds = %if.end.i34, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i44
@@ -1241,8 +1241,8 @@ if.then6:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end
   %10 = shl nuw i32 %6, 25
-  %bf.set1394 = or disjoint i32 %1, %10
-  %bf.set13 = zext i32 %bf.set1394 to i120
+  %bf.set13100 = or disjoint i32 %1, %10
+  %bf.set13 = zext i32 %bf.set13100 to i120
   store i120 %bf.set13, ptr %this, align 1
   %bytecodeSizeInBytes = getelementptr inbounds nuw i8, ptr %large, i64 8
   %11 = load i32, ptr %bytecodeSizeInBytes, align 1
@@ -3359,7 +3359,7 @@ if.end19.i.us63:                                  ; preds = %while.body.us52
   br i1 %cmp.not.i.i.i.us66, label %if.end.i.i.i.us67, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit28.us68
 
 if.end.i.i.i.us67:                                ; preds = %if.end19.i.us63
-  %bcmp.i.i.i.i.i.i.i.us = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload.fr, ptr %agg.tmp6.sroa.0.0.copyload.us59, i64 %agg.tmp.sroa.2.0.copyload.fr)
+  %bcmp.i.i.i.i.i.i.i.us = tail call i32 @bcmp(ptr nonnull inttoptr (i64 -2 to ptr), ptr %agg.tmp6.sroa.0.0.copyload.us59, i64 %agg.tmp.sroa.2.0.copyload.fr)
   %tobool1.not.i.i.i.i.i.i.i.us = icmp eq i32 %bcmp.i.i.i.i.i.i.i.us, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.us, label %return, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit28.us68
 
@@ -3400,7 +3400,7 @@ if.end19.i.us96:                                  ; preds = %while.body.us85
   br i1 %cmp.not.i.i.i.us99, label %if.end.i.i.i.us100, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit28.us103
 
 if.end.i.i.i.us100:                               ; preds = %if.end19.i.us96
-  %bcmp.i.i.i.i.i.i.i.us101 = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload.fr, ptr %agg.tmp6.sroa.0.0.copyload.us92, i64 %agg.tmp.sroa.2.0.copyload.fr)
+  %bcmp.i.i.i.i.i.i.i.us101 = tail call i32 @bcmp(ptr nonnull inttoptr (i64 -1 to ptr), ptr %agg.tmp6.sroa.0.0.copyload.us92, i64 %agg.tmp.sroa.2.0.copyload.fr)
   %tobool1.not.i.i.i.i.i.i.i.us102 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.us101, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.us102, label %return, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit28.us103
 

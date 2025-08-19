@@ -311,12 +311,12 @@ define internal noundef float @"_ZNSt17_Function_handlerIFfdEZN19OpenColorIO_v2_
   %3 = fcmp olt double %.val, 0x3FB7C5F17BD8BE73
   %4 = fadd double %.val, 0xBFB7C5F17BD8BE73
   %5 = fsub double 0x3FB7C5F17BD8BE73, %.val
-  %.sink3.i.i.i = select i1 %3, double %5, double %4
-  %.sink1.i.i.i = select i1 %3, double 0xC055C65C28F5C28F, double 0x4055C65C28F5C28F
-  %6 = fdiv double %.sink3.i.i.i, 0x3FCEE4E8E2D7FC00
+  %.sink4.i.i.i = select i1 %3, double %5, double %4
+  %.sink2.i.i.i = select i1 %3, double 0xC055C65C28F5C28F, double 0x4055C65C28F5C28F
+  %6 = fdiv double %.sink4.i.i.i, 0x3FCEE4E8E2D7FC00
   %7 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %6) #15, !tbaa !14
   %8 = fadd double %7, -1.000000e+00
-  %9 = fdiv double %8, %.sink1.i.i.i
+  %9 = fdiv double %8, %.sink2.i.i.i
   %10 = fmul double %9, 9.000000e-01
   %11 = fptrunc double %10 to float
   ret float %11

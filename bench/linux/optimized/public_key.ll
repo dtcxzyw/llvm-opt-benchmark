@@ -749,7 +749,7 @@ define internal i32 @software_key_eds_op(ptr noundef readonly captures(none) %0,
   %79 = load ptr, ptr %78, align 8
   %80 = call i32 %79(ptr noundef %65, ptr noundef nonnull %27, i32 noundef %74) #8
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %.thread.thread13
+  br i1 %81, label %82, label %.thread.thread21
 
 82:                                               ; preds = %70
   %83 = load ptr, ptr %75, align 8
@@ -792,7 +792,7 @@ define internal i32 @software_key_eds_op(ptr noundef readonly captures(none) %0,
   br label %.thread
 
 106:                                              ; preds = %87
-  br i1 %43, label %.thread.thread13, label %107
+  br i1 %43, label %.thread.thread21, label %107
 
 107:                                              ; preds = %106
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -814,7 +814,7 @@ define internal i32 @software_key_eds_op(ptr noundef readonly captures(none) %0,
   %spec.select = select i1 %115, i32 %90, i32 %.fr
   %.pre = load i8, ptr %5, align 1, !range !14
   %116 = icmp eq i8 %.pre, 0
-  br i1 %116, label %.thread.thread13, label %.thread.thread
+  br i1 %116, label %.thread.thread21, label %.thread.thread
 
 .thread.thread:                                   ; preds = %92, %99, %59, %.thread
   %117 = phi i32 [ %spec.select, %.thread ], [ -22, %92 ], [ -22, %99 ], [ %60, %59 ]
@@ -822,15 +822,15 @@ define internal i32 @software_key_eds_op(ptr noundef readonly captures(none) %0,
   call void @crypto_destroy_tfm(ptr noundef %118, ptr noundef %118) #8
   br label %122
 
-.thread.thread13:                                 ; preds = %106, %70, %.thread
+.thread.thread21:                                 ; preds = %106, %70, %.thread
   %119 = phi i32 [ %spec.select, %.thread ], [ -22, %106 ], [ %80, %70 ]
   %120 = phi ptr [ %88, %.thread ], [ %88, %106 ], [ %65, %70 ]
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   call void @crypto_destroy_tfm(ptr noundef %120, ptr noundef nonnull %121) #8
   br label %122
 
-122:                                              ; preds = %.thread.thread13, %.thread.thread, %67, %47
-  %123 = phi i32 [ %49, %47 ], [ %117, %.thread.thread ], [ %119, %.thread.thread13 ], [ %69, %67 ]
+122:                                              ; preds = %.thread.thread21, %.thread.thread, %67, %47
+  %123 = phi i32 [ %49, %47 ], [ %117, %.thread.thread ], [ %119, %.thread.thread21 ], [ %69, %67 ]
   call void @kfree_sensitive(ptr noundef nonnull %27) #8
   br label %124
 

@@ -246,8 +246,8 @@ lean_obj_tag.exit:                                ; preds = %83, %86
 lean_obj_tag.exit345:                             ; preds = %89
   %90 = getelementptr i8, ptr %.0158513, i64 4
   %.val.i344 = load i32, ptr %90, align 4
-  %.mask676 = and i32 %.val.i344, -16777216
-  %91 = icmp eq i32 %.mask676, 50331648
+  %.mask770 = and i32 %.val.i344, -16777216
+  %91 = icmp eq i32 %.mask770, 50331648
   br i1 %91, label %94, label %144
 
 lean_obj_tag.exit345.thread:                      ; preds = %89
@@ -437,8 +437,8 @@ lean_dec.exit204:                                 ; preds = %lean_obj_tag.exit34
 lean_obj_tag.exit355:                             ; preds = %158
   %159 = getelementptr i8, ptr %.0158513, i64 4
   %.val.i354 = load i32, ptr %159, align 4
-  %.mask675 = and i32 %.val.i354, -16777216
-  %160 = icmp eq i32 %.mask675, 67108864
+  %.mask769 = and i32 %.val.i354, -16777216
+  %160 = icmp eq i32 %.mask769, 67108864
   br i1 %160, label %163, label %265
 
 lean_obj_tag.exit355.thread:                      ; preds = %158
@@ -769,8 +769,8 @@ lean_dec.exit214:                                 ; preds = %lean_obj_tag.exit35
 lean_obj_tag.exit371:                             ; preds = %279
   %280 = getelementptr i8, ptr %.0158513, i64 4
   %.val.i370 = load i32, ptr %280, align 4
-  %.mask674 = and i32 %.val.i370, -16777216
-  %281 = icmp eq i32 %.mask674, 83886080
+  %.mask768 = and i32 %.val.i370, -16777216
+  %281 = icmp eq i32 %.mask768, 83886080
   br i1 %281, label %284, label %356
 
 lean_obj_tag.exit371.thread:                      ; preds = %279
@@ -1016,8 +1016,8 @@ lean_dec.exit220:                                 ; preds = %lean_obj_tag.exit37
 lean_obj_tag.exit387:                             ; preds = %370
   %371 = getelementptr i8, ptr %.0158513, i64 4
   %.val.i386 = load i32, ptr %371, align 4
-  %.mask673 = and i32 %.val.i386, -16777216
-  %372 = icmp eq i32 %.mask673, 100663296
+  %.mask767 = and i32 %.val.i386, -16777216
+  %372 = icmp eq i32 %.mask767, 100663296
   br i1 %372, label %375, label %447
 
 lean_obj_tag.exit387.thread:                      ; preds = %370
@@ -16984,18 +16984,18 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %19, %lean_dec_ref.exit ]
-  %22 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !4
+  %.sink12 = phi ptr [ %4, %3 ], [ %19, %lean_dec_ref.exit ]
+  %22 = getelementptr inbounds nuw i8, ptr %.sink12, i64 4
+  store i32 1, ptr %.sink12, align 4, !tbaa !4
   store i32 131096, ptr %22, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %23, align 8, !tbaa !10
-  %24 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %24, align 8, !tbaa !10
   br label %25
 
 25:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink12, %.sink.split ]
   ret ptr %.0
 }
 

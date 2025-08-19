@@ -305,9 +305,9 @@ define { double, i64 } @_ZN10open_spiel10algorithms15AlphaBetaSearchERKNS_4GameE
           to label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EEaSEOS4_.exit unwind label %86
 
 _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %88, %82
-  %.sink44 = phi ptr [ %28, %82 ], [ %29, %88 ]
-  %92 = load ptr, ptr %.sink44, align 8
-  store ptr null, ptr %.sink44, align 8
+  %.sink50 = phi ptr [ %28, %82 ], [ %29, %88 ]
+  %92 = load ptr, ptr %.sink50, align 8
+  store ptr null, ptr %.sink50, align 8
   %93 = icmp eq i32 %4, -3
   br i1 %93, label %94, label %99
 
@@ -1574,11 +1574,11 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit151: ; pr
 
 ._crit_edgethread-pre-split:                      ; preds = %290, %213
   %.1.ph = phi double [ %.2.us, %213 ], [ %.2, %290 ]
-  %.pr259 = load ptr, ptr %15, align 8
+  %.pr303 = load ptr, ptr %15, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edgethread-pre-split, %180
-  %294 = phi ptr [ %.pr259, %._crit_edgethread-pre-split ], [ %181, %180 ]
+  %294 = phi ptr [ %.pr303, %._crit_edgethread-pre-split ], [ %181, %180 ]
   %.1 = phi double [ %.1.ph, %._crit_edgethread-pre-split ], [ 0x7FF0000000000000, %180 ]
   %.not.i.i.i153 = icmp eq ptr %294, null
   br i1 %.not.i.i.i153, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %295
@@ -1857,9 +1857,9 @@ define { double, i64 } @_ZN10open_spiel10algorithms20ExpectiminimaxSearchERKNS_4
           to label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EEaSEOS4_.exit unwind label %100
 
 _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %102, %96
-  %.sink48 = phi ptr [ %31, %96 ], [ %32, %102 ]
-  %106 = load ptr, ptr %.sink48, align 8
-  store ptr null, ptr %.sink48, align 8
+  %.sink53 = phi ptr [ %31, %96 ], [ %32, %102 ]
+  %106 = load ptr, ptr %.sink53, align 8
+  store ptr null, ptr %.sink53, align 8
   %107 = icmp eq i32 %4, -3
   br i1 %107, label %108, label %123
 

@@ -190,9 +190,9 @@ define range(i32 -1094995529, 1) i32 @ff_sauce_read(ptr noundef %0, ptr noundef 
   br i1 %or.cond33, label %.sink.split, label %111
 
 .sink.split:                                      ; preds = %98, %91
-  %.sink131 = phi ptr [ %96, %91 ], [ %106, %98 ]
+  %.sink139 = phi ptr [ %96, %91 ], [ %106, %98 ]
   %.sink = shl i32 %56, 4
-  %110 = getelementptr inbounds nuw i8, ptr %.sink131, i64 76
+  %110 = getelementptr inbounds nuw i8, ptr %.sink139, i64 76
   store i32 %.sink, ptr %110, align 4, !tbaa !39
   br label %111
 
@@ -241,7 +241,7 @@ define range(i32 -1094995529, 1) i32 @ff_sauce_read(ptr noundef %0, ptr noundef 
   %134 = getelementptr inbounds nuw i8, ptr %128, i64 %133
   %135 = call i32 @avio_read(ptr noundef %7, ptr noundef nonnull %134, i32 noundef 64) #4
   %.not123 = icmp eq i32 %135, 64
-  br i1 %.not123, label %136, label %._crit_edge.split.loop.exit128
+  br i1 %.not123, label %136, label %._crit_edge.split.loop.exit136
 
 136:                                              ; preds = %.lr.ph
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 64
@@ -250,12 +250,12 @@ define range(i32 -1094995529, 1) i32 @ff_sauce_read(ptr noundef %0, ptr noundef 
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
-._crit_edge.split.loop.exit128:                   ; preds = %.lr.ph
+._crit_edge.split.loop.exit136:                   ; preds = %.lr.ph
   %138 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %136, %._crit_edge.split.loop.exit128
-  %.0108.lcssa.ph = phi i32 [ %138, %._crit_edge.split.loop.exit128 ], [ %57, %136 ]
+._crit_edge:                                      ; preds = %136, %._crit_edge.split.loop.exit136
+  %.0108.lcssa.ph = phi i32 [ %138, %._crit_edge.split.loop.exit136 ], [ %57, %136 ]
   %139 = mul nuw nsw i32 %.0108.lcssa.ph, 65
   %140 = zext nneg i32 %139 to i64
   %141 = getelementptr inbounds nuw i8, ptr %128, i64 %140

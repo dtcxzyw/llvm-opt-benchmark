@@ -1118,9 +1118,9 @@ _ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit: ; preds = %324
   %326 = add i64 %325, -128
   %327 = call i64 @llvm.fshl.i64(i64 %326, i64 %326, i64 57)
   %328 = icmp ult i64 %327, 4
-  %.309 = select i1 %328, i64 %327, i64 1
+  %.350 = select i1 %328, i64 %327, i64 1
   %329 = getelementptr inbounds nuw i8, ptr %44, i64 328
-  %330 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %329, i64 0, i64 %.309
+  %330 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %329, i64 0, i64 %.350
   br label %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit210.invoke
 
 331:                                              ; preds = %313
@@ -1135,14 +1135,14 @@ _ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit210: ; preds = %_ZN5boost6loc
   %334 = add i64 %332, -1024
   %335 = call i64 @llvm.fshl.i64(i64 %334, i64 %334, i64 54)
   %336 = icmp ult i64 %335, 4
-  %.310 = select i1 %336, i64 %335, i64 1
+  %.351 = select i1 %336, i64 %335, i64 1
   %337 = add i64 %333, -128
   %338 = call i64 @llvm.fshl.i64(i64 %337, i64 %337, i64 57)
   %339 = icmp ult i64 %338, 4
-  %.311 = select i1 %339, i64 %338, i64 1
+  %.352 = select i1 %339, i64 %338, i64 1
   %340 = getelementptr inbounds nuw i8, ptr %44, i64 584
-  %341 = getelementptr inbounds nuw [4 x [4 x %"class.icu_70::UnicodeString"]], ptr %340, i64 0, i64 %.310
-  %342 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %341, i64 0, i64 %.311
+  %341 = getelementptr inbounds nuw [4 x [4 x %"class.icu_70::UnicodeString"]], ptr %340, i64 0, i64 %.351
+  %342 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %341, i64 0, i64 %.352
   br label %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit210.invoke
 
 _ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit210.invoke: ; preds = %_ZN5boost6locale8impl_icu17date_flags_to_lenEm.exit, %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit, %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit210
@@ -1385,11 +1385,11 @@ _ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit: ; preds = %405
 
 _ZN5boost6locale8impl_icu21time_flags_to_icu_lenEm.exit: ; preds = %412
   %414 = call i64 @llvm.fshl.i64(i64 %413, i64 %413, i64 57)
-  %switch.tableidx313 = add i64 %414, -1
-  %415 = icmp ult i64 %switch.tableidx313, 4
-  %switch.idx.cast314 = trunc i64 %switch.tableidx313 to i32
-  %switch.offset316 = sub i32 3, %switch.idx.cast314
-  %.0.i225 = select i1 %415, i32 %switch.offset316, i32 2
+  %switch.tableidx354 = add i64 %414, -1
+  %415 = icmp ult i64 %switch.tableidx354, 4
+  %switch.idx.cast355 = trunc i64 %switch.tableidx354 to i32
+  %switch.offset357 = sub i32 3, %switch.idx.cast355
+  %.0.i225 = select i1 %415, i32 %switch.offset357, i32 2
   %416 = invoke noundef ptr @_ZN6icu_7010DateFormat18createTimeInstanceENS0_6EStyleERKNS_6LocaleE(i32 noundef %.0.i225, ptr noundef nonnull align 8 dereferenceable(217) %2)
           to label %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EE5resetEPS1_.exit unwind label %410
 
@@ -1403,17 +1403,17 @@ _ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit230: ; preds = %417
 
 _ZN5boost6locale8impl_icu21time_flags_to_icu_lenEm.exit232: ; preds = %_ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit230
   %420 = call i64 @llvm.fshl.i64(i64 %418, i64 %418, i64 54)
-  %switch.tableidx318 = add i64 %420, -1
-  %421 = icmp ult i64 %switch.tableidx318, 4
-  %switch.idx.cast319 = trunc i64 %switch.tableidx318 to i32
-  %switch.offset321 = sub i32 3, %switch.idx.cast319
-  %.0.i229 = select i1 %421, i32 %switch.offset321, i32 2
+  %switch.tableidx359 = add i64 %420, -1
+  %421 = icmp ult i64 %switch.tableidx359, 4
+  %switch.idx.cast360 = trunc i64 %switch.tableidx359 to i32
+  %switch.offset362 = sub i32 3, %switch.idx.cast360
+  %.0.i229 = select i1 %421, i32 %switch.offset362, i32 2
   %422 = call i64 @llvm.fshl.i64(i64 %419, i64 %419, i64 57)
-  %switch.tableidx323 = add i64 %422, -1
-  %423 = icmp ult i64 %switch.tableidx323, 4
-  %switch.idx.cast324 = trunc i64 %switch.tableidx323 to i32
-  %switch.offset326 = sub i32 3, %switch.idx.cast324
-  %.0.i231 = select i1 %423, i32 %switch.offset326, i32 2
+  %switch.tableidx364 = add i64 %422, -1
+  %423 = icmp ult i64 %switch.tableidx364, 4
+  %switch.idx.cast365 = trunc i64 %switch.tableidx364 to i32
+  %switch.offset367 = sub i32 3, %switch.idx.cast365
+  %.0.i231 = select i1 %423, i32 %switch.offset367, i32 2
   %424 = invoke noundef ptr @_ZN6icu_7010DateFormat22createDateTimeInstanceENS0_6EStyleES1_RKNS_6LocaleE(i32 noundef %.0.i229, i32 noundef %.0.i231, ptr noundef nonnull align 8 dereferenceable(217) %2)
           to label %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EE5resetEPS1_.exit unwind label %410
 
@@ -3351,9 +3351,9 @@ _ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit: ; preds = %418
   %420 = add i64 %419, -128
   %421 = call i64 @llvm.fshl.i64(i64 %420, i64 %420, i64 57)
   %422 = icmp ult i64 %421, 4
-  %.319 = select i1 %422, i64 %421, i64 1
+  %.379 = select i1 %422, i64 %421, i64 1
   %423 = getelementptr inbounds nuw i8, ptr %58, i64 328
-  %424 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %423, i64 0, i64 %.319
+  %424 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %423, i64 0, i64 %.379
   br label %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit209.invoke
 
 425:                                              ; preds = %407
@@ -3368,14 +3368,14 @@ _ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit209: ; preds = %_ZN5boost6loc
   %428 = add i64 %426, -1024
   %429 = call i64 @llvm.fshl.i64(i64 %428, i64 %428, i64 54)
   %430 = icmp ult i64 %429, 4
-  %.320 = select i1 %430, i64 %429, i64 1
+  %.380 = select i1 %430, i64 %429, i64 1
   %431 = add i64 %427, -128
   %432 = call i64 @llvm.fshl.i64(i64 %431, i64 %431, i64 57)
   %433 = icmp ult i64 %432, 4
-  %.321 = select i1 %433, i64 %432, i64 1
+  %.381 = select i1 %433, i64 %432, i64 1
   %434 = getelementptr inbounds nuw i8, ptr %58, i64 584
-  %435 = getelementptr inbounds nuw [4 x [4 x %"class.icu_70::UnicodeString"]], ptr %434, i64 0, i64 %.320
-  %436 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %435, i64 0, i64 %.321
+  %435 = getelementptr inbounds nuw [4 x [4 x %"class.icu_70::UnicodeString"]], ptr %434, i64 0, i64 %.380
+  %436 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %435, i64 0, i64 %.381
   br label %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit209.invoke
 
 _ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit209.invoke: ; preds = %_ZN5boost6locale8impl_icu17date_flags_to_lenEm.exit, %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit, %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit209
@@ -3646,11 +3646,11 @@ _ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit: ; preds = %513
 
 _ZN5boost6locale8impl_icu21time_flags_to_icu_lenEm.exit: ; preds = %520
   %522 = call i64 @llvm.fshl.i64(i64 %521, i64 %521, i64 57)
-  %switch.tableidx323 = add i64 %522, -1
-  %523 = icmp ult i64 %switch.tableidx323, 4
-  %switch.idx.cast324 = trunc i64 %switch.tableidx323 to i32
-  %switch.offset326 = sub i32 3, %switch.idx.cast324
-  %.0.i225 = select i1 %523, i32 %switch.offset326, i32 2
+  %switch.tableidx383 = add i64 %522, -1
+  %523 = icmp ult i64 %switch.tableidx383, 4
+  %switch.idx.cast384 = trunc i64 %switch.tableidx383 to i32
+  %switch.offset386 = sub i32 3, %switch.idx.cast384
+  %.0.i225 = select i1 %523, i32 %switch.offset386, i32 2
   %524 = invoke noundef ptr @_ZN6icu_7010DateFormat18createTimeInstanceENS0_6EStyleERKNS_6LocaleE(i32 noundef %.0.i225, ptr noundef nonnull align 8 dereferenceable(217) %2)
           to label %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EE5resetEPS1_.exit unwind label %518
 
@@ -3664,17 +3664,17 @@ _ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit230: ; preds = %525
 
 _ZN5boost6locale8impl_icu21time_flags_to_icu_lenEm.exit232: ; preds = %_ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit230
   %528 = call i64 @llvm.fshl.i64(i64 %526, i64 %526, i64 54)
-  %switch.tableidx328 = add i64 %528, -1
-  %529 = icmp ult i64 %switch.tableidx328, 4
-  %switch.idx.cast329 = trunc i64 %switch.tableidx328 to i32
-  %switch.offset331 = sub i32 3, %switch.idx.cast329
-  %.0.i229 = select i1 %529, i32 %switch.offset331, i32 2
+  %switch.tableidx388 = add i64 %528, -1
+  %529 = icmp ult i64 %switch.tableidx388, 4
+  %switch.idx.cast389 = trunc i64 %switch.tableidx388 to i32
+  %switch.offset391 = sub i32 3, %switch.idx.cast389
+  %.0.i229 = select i1 %529, i32 %switch.offset391, i32 2
   %530 = call i64 @llvm.fshl.i64(i64 %527, i64 %527, i64 57)
-  %switch.tableidx333 = add i64 %530, -1
-  %531 = icmp ult i64 %switch.tableidx333, 4
-  %switch.idx.cast334 = trunc i64 %switch.tableidx333 to i32
-  %switch.offset336 = sub i32 3, %switch.idx.cast334
-  %.0.i231 = select i1 %531, i32 %switch.offset336, i32 2
+  %switch.tableidx393 = add i64 %530, -1
+  %531 = icmp ult i64 %switch.tableidx393, 4
+  %switch.idx.cast394 = trunc i64 %switch.tableidx393 to i32
+  %switch.offset396 = sub i32 3, %switch.idx.cast394
+  %.0.i231 = select i1 %531, i32 %switch.offset396, i32 2
   %532 = invoke noundef ptr @_ZN6icu_7010DateFormat22createDateTimeInstanceENS0_6EStyleES1_RKNS_6LocaleE(i32 noundef %.0.i229, i32 noundef %.0.i231, ptr noundef nonnull align 8 dereferenceable(217) %2)
           to label %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EE5resetEPS1_.exit unwind label %518
 
@@ -5680,7 +5680,7 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu5uconvC2ERKNSt7__cxx11
   invoke void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTIN5boost6locale4conv21invalid_charset_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #22
           to label %29 unwind label %16
 
-16:                                               ; preds = %.invoke9, %.invoke, %9, %23, %22, %15, %3
+16:                                               ; preds = %.invoke10, %.invoke, %9, %23, %22, %15, %3
   %17 = landingpad { ptr, i32 }
           cleanup
   br label %28
@@ -5697,19 +5697,19 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu5uconvC2ERKNSt7__cxx11
 
 22:                                               ; preds = %20
   invoke void @ucnv_setFromUCallBack_70(ptr noundef nonnull %6, ptr noundef nonnull @UCNV_FROM_U_CALLBACK_SKIP_70, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %4)
-          to label %.invoke9 unwind label %16
+          to label %.invoke10 unwind label %16
 
 23:                                               ; preds = %20
   invoke void @ucnv_setFromUCallBack_70(ptr noundef nonnull %6, ptr noundef nonnull @UCNV_FROM_U_CALLBACK_STOP_70, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %4)
-          to label %.invoke9 unwind label %16
+          to label %.invoke10 unwind label %16
 
-.invoke9:                                         ; preds = %23, %22
+.invoke10:                                        ; preds = %23, %22
   %24 = phi ptr [ @UCNV_TO_U_CALLBACK_SKIP_70, %22 ], [ @UCNV_TO_U_CALLBACK_STOP_70, %23 ]
   %25 = load ptr, ptr %0, align 8, !tbaa !29
   invoke void @ucnv_setToUCallBack_70(ptr noundef %25, ptr noundef nonnull %24, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %4)
           to label %.invoke unwind label %16
 
-.invoke:                                          ; preds = %.invoke9
+.invoke:                                          ; preds = %.invoke10
   %26 = load i32, ptr %4, align 4, !tbaa !37
   invoke void @_ZN5boost6locale8impl_icu25check_and_throw_icu_errorE10UErrorCodePKc(i32 noundef %26, ptr noundef nonnull @.str.23)
           to label %27 unwind label %16

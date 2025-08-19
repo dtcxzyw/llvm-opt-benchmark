@@ -157,7 +157,7 @@ define hidden range(i32 -1, 46) i32 @df_yylex(ptr noundef %0) local_unnamed_addr
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %64
 
-64:                                               ; preds = %.backedge1698, %50
+64:                                               ; preds = %.backedge1726, %50
   %65 = load ptr, ptr %51, align 8
   %66 = load i8, ptr %52, align 8
   store i8 %66, ptr %65, align 1
@@ -234,18 +234,18 @@ define hidden range(i32 -1, 46) i32 @df_yylex(ptr noundef %0) local_unnamed_addr
   %105 = sext i16 %104 to i32
   %106 = getelementptr i8, ptr %.1580, i64 1
   %.not611 = icmp eq i16 %104, 891
-  br i1 %.not611, label %.backedge.sink.split1697, label %68, !llvm.loop !8
+  br i1 %.not611, label %.backedge.sink.split1725, label %68, !llvm.loop !8
 
-.backedge.sink.split1697:                         ; preds = %._crit_edge, %.backedge.sink.split1697.backedge
-  %.1586.ph = phi ptr [ %.1586.ph.be, %.backedge.sink.split1697.backedge ], [ %.0585, %._crit_edge ]
+.backedge.sink.split1725:                         ; preds = %._crit_edge, %.backedge.sink.split1725.backedge
+  %.1586.ph = phi ptr [ %.1586.ph.be, %.backedge.sink.split1725.backedge ], [ %.0585, %._crit_edge ]
   %107 = load ptr, ptr %55, align 8
   %108 = load i32, ptr %54, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split1697
-  %.1586 = phi ptr [ %.1586.ph, %.backedge.sink.split1697 ], [ %1717, %.backedge.backedge ]
-  %.2581 = phi ptr [ %107, %.backedge.sink.split1697 ], [ %1719, %.backedge.backedge ]
-  %.3575 = phi i32 [ %108, %.backedge.sink.split1697 ], [ %.3575.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split1725
+  %.1586 = phi ptr [ %.1586.ph, %.backedge.sink.split1725 ], [ %1717, %.backedge.backedge ]
+  %.2581 = phi ptr [ %107, %.backedge.sink.split1725 ], [ %1719, %.backedge.backedge ]
+  %.3575 = phi i32 [ %108, %.backedge.sink.split1725 ], [ %.3575.be, %.backedge.backedge ]
   %109 = sext i32 %.3575 to i64
   %110 = getelementptr [892 x i16], ptr @yy_accept, i64 0, i64 %109
   %111 = load i16, ptr %110, align 2
@@ -365,7 +365,7 @@ define hidden range(i32 -1, 46) i32 @df_yylex(ptr noundef %0) local_unnamed_addr
 119:                                              ; preds = %118
   %120 = load i8, ptr %52, align 8
   store i8 %120, ptr %.2581, align 1
-  br label %.backedge.sink.split1697.backedge
+  br label %.backedge.sink.split1725.backedge
 
 121:                                              ; preds = %118
   %122 = load ptr, ptr %0, align 8
@@ -378,7 +378,7 @@ define hidden range(i32 -1, 46) i32 @df_yylex(ptr noundef %0) local_unnamed_addr
   %129 = add i64 %128, %127
   store i64 %129, ptr %125, align 8
   store i64 %124, ptr %126, align 8
-  br label %.backedge1698
+  br label %.backedge1726
 
 130:                                              ; preds = %118
   %131 = load ptr, ptr %0, align 8
@@ -1318,13 +1318,13 @@ define hidden range(i32 -1, 46) i32 @df_yylex(ptr noundef %0) local_unnamed_addr
   %771 = load ptr, ptr %0, align 8
   %772 = getelementptr inbounds nuw i8, ptr %771, i64 48
   store i8 1, ptr %772, align 8
-  br label %.backedge1698
+  br label %.backedge1726
 
 773:                                              ; preds = %753
   %774 = load ptr, ptr %0, align 8
   %775 = getelementptr inbounds nuw i8, ptr %774, i64 48
   store i8 0, ptr %775, align 8
-  br label %.backedge1698
+  br label %.backedge1726
 
 776:                                              ; preds = %118
   %777 = load ptr, ptr %0, align 8
@@ -1410,7 +1410,7 @@ define hidden range(i32 -1, 46) i32 @df_yylex(ptr noundef %0) local_unnamed_addr
   %836 = load ptr, ptr %835, align 8
   %837 = load ptr, ptr %56, align 8
   %838 = tail call ptr @g_string_append(ptr noundef %836, ptr noundef %837)
-  br label %.backedge1698
+  br label %.backedge1726
 
 839:                                              ; preds = %818
   %840 = load ptr, ptr %56, align 8
@@ -1425,9 +1425,9 @@ define hidden range(i32 -1, 46) i32 @df_yylex(ptr noundef %0) local_unnamed_addr
 .thread:                                          ; preds = %839
   %847 = trunc nuw i64 %842 to i8
   %848 = tail call fastcc ptr @g_string_append_c_inline(ptr noundef %846, i8 noundef signext %847)
-  br label %.backedge1698
+  br label %.backedge1726
 
-.backedge1698:                                    ; preds = %.thread, %968, %970, %938, %940, %908, %910, %875, %880, %834, %770, %773, %1356, %1077, %1060, %998, %981, %121
+.backedge1726:                                    ; preds = %.thread, %968, %970, %938, %940, %908, %910, %875, %880, %834, %770, %773, %1356, %1077, %1060, %998, %981, %121
   br label %64
 
 849:                                              ; preds = %839
@@ -1470,7 +1470,7 @@ define hidden range(i32 -1, 46) i32 @df_yylex(ptr noundef %0) local_unnamed_addr
   %877 = load ptr, ptr %876, align 8
   %878 = load ptr, ptr %56, align 8
   %879 = tail call ptr @g_string_append(ptr noundef %877, ptr noundef %878)
-  br label %.backedge1698
+  br label %.backedge1726
 
 880:                                              ; preds = %859
   %881 = load ptr, ptr %56, align 8
@@ -1481,7 +1481,7 @@ define hidden range(i32 -1, 46) i32 @df_yylex(ptr noundef %0) local_unnamed_addr
   %886 = load ptr, ptr %885, align 8
   %887 = trunc i64 %883 to i8
   %888 = tail call fastcc ptr @g_string_append_c_inline(ptr noundef %886, i8 noundef signext %887)
-  br label %.backedge1698
+  br label %.backedge1726
 
 889:                                              ; preds = %118
   %890 = load ptr, ptr %0, align 8
@@ -1509,11 +1509,11 @@ define hidden range(i32 -1, 46) i32 @df_yylex(ptr noundef %0) local_unnamed_addr
 
 908:                                              ; preds = %889
   %909 = tail call ptr @g_string_append(ptr noundef %906, ptr noundef %907)
-  br label %.backedge1698
+  br label %.backedge1726
 
 910:                                              ; preds = %889
   %911 = tail call fastcc zeroext i1 @append_universal_character_name(ptr noundef %901, ptr noundef %906, ptr noundef %907)
-  br i1 %911, label %.backedge1698, label %912
+  br i1 %911, label %.backedge1726, label %912
 
 912:                                              ; preds = %910
   %913 = load ptr, ptr %0, align 8
@@ -1551,11 +1551,11 @@ define hidden range(i32 -1, 46) i32 @df_yylex(ptr noundef %0) local_unnamed_addr
 
 938:                                              ; preds = %919
   %939 = tail call ptr @g_string_append(ptr noundef %936, ptr noundef %937)
-  br label %.backedge1698
+  br label %.backedge1726
 
 940:                                              ; preds = %919
   %941 = tail call fastcc zeroext i1 @append_universal_character_name(ptr noundef %931, ptr noundef %936, ptr noundef %937)
-  br i1 %941, label %.backedge1698, label %942
+  br i1 %941, label %.backedge1726, label %942
 
 942:                                              ; preds = %940
   %943 = load ptr, ptr %0, align 8
@@ -1593,13 +1593,13 @@ define hidden range(i32 -1, 46) i32 @df_yylex(ptr noundef %0) local_unnamed_addr
 
 968:                                              ; preds = %949
   %969 = tail call ptr @g_string_append(ptr noundef %966, ptr noundef %967)
-  br label %.backedge1698
+  br label %.backedge1726
 
 970:                                              ; preds = %949
   %971 = getelementptr i8, ptr %967, i64 1
   %972 = load i8, ptr %971, align 1
   %973 = tail call fastcc zeroext i1 @append_escaped_char(ptr noundef %961, ptr noundef %966, i8 noundef signext %972)
-  br i1 %973, label %.backedge1698, label %974
+  br i1 %973, label %.backedge1726, label %974
 
 974:                                              ; preds = %970
   %975 = load ptr, ptr %0, align 8
@@ -1631,7 +1631,7 @@ define hidden range(i32 -1, 46) i32 @df_yylex(ptr noundef %0) local_unnamed_addr
   %995 = load ptr, ptr %994, align 8
   %996 = load ptr, ptr %56, align 8
   %997 = tail call ptr @g_string_append(ptr noundef %995, ptr noundef %996)
-  br label %.backedge1698
+  br label %.backedge1726
 
 998:                                              ; preds = %118
   store i32 9, ptr %53, align 4
@@ -1653,7 +1653,7 @@ define hidden range(i32 -1, 46) i32 @df_yylex(ptr noundef %0) local_unnamed_addr
   %1011 = load ptr, ptr %0, align 8
   %1012 = getelementptr inbounds nuw i8, ptr %1011, i64 40
   store ptr %1010, ptr %1012, align 8
-  br label %.backedge1698
+  br label %.backedge1726
 
 1013:                                             ; preds = %118
   %1014 = load ptr, ptr %0, align 8
@@ -1737,7 +1737,7 @@ define hidden range(i32 -1, 46) i32 @df_yylex(ptr noundef %0) local_unnamed_addr
   %1074 = load ptr, ptr %1073, align 8
   %1075 = load ptr, ptr %56, align 8
   %1076 = tail call ptr @g_string_append(ptr noundef %1074, ptr noundef %1075)
-  br label %.backedge1698
+  br label %.backedge1726
 
 1077:                                             ; preds = %118
   %1078 = load ptr, ptr %0, align 8
@@ -1759,7 +1759,7 @@ define hidden range(i32 -1, 46) i32 @df_yylex(ptr noundef %0) local_unnamed_addr
   %1091 = load ptr, ptr %1090, align 8
   %1092 = load ptr, ptr %56, align 8
   %1093 = tail call ptr @g_string_append(ptr noundef %1091, ptr noundef %1092)
-  br label %.backedge1698
+  br label %.backedge1726
 
 1094:                                             ; preds = %118
   %1095 = load ptr, ptr %0, align 8
@@ -2144,7 +2144,7 @@ define hidden range(i32 -1, 46) i32 @df_yylex(ptr noundef %0) local_unnamed_addr
   %1359 = sext i32 %1358 to i64
   %1360 = load ptr, ptr %63, align 8
   %1361 = tail call i64 @fwrite(ptr noundef %1357, i64 noundef %1359, i64 noundef 1, ptr noundef %1360)
-  br label %.backedge1698
+  br label %.backedge1726
 
 1362:                                             ; preds = %118
   %1363 = load ptr, ptr %56, align 8
@@ -2322,13 +2322,13 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i617, %1447
   %1465 = getelementptr [8880 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i619
   %1466 = load i16, ptr %1465, align 2
   switch i16 %1466, label %1467 [
-    i16 891, label %.backedge.sink.split1697.backedge
-    i16 0, label %.backedge.sink.split1697.backedge
+    i16 891, label %.backedge.sink.split1725.backedge
+    i16 0, label %.backedge.sink.split1725.backedge
   ]
 
-.backedge.sink.split1697.backedge:                ; preds = %yy_try_NUL_trans.exit, %yy_try_NUL_trans.exit, %119
+.backedge.sink.split1725.backedge:                ; preds = %yy_try_NUL_trans.exit, %yy_try_NUL_trans.exit, %119
   %.1586.ph.be = phi ptr [ %.1586, %119 ], [ %1397, %yy_try_NUL_trans.exit ], [ %1397, %yy_try_NUL_trans.exit ]
-  br label %.backedge.sink.split1697
+  br label %.backedge.sink.split1725
 
 1467:                                             ; preds = %yy_try_NUL_trans.exit
   %1468 = sext i16 %1466 to i32
@@ -2608,10 +2608,10 @@ fread.inline.exit.i:                              ; preds = %1569, %1590
   br label %1596
 
 1596:                                             ; preds = %.critedge2.i, %1501
-  %.sink193.in.i = phi ptr [ %1595, %.critedge2.i ], [ %1502, %1501 ]
+  %.sink199.in.i = phi ptr [ %1595, %.critedge2.i ], [ %1502, %1501 ]
   %.sink.i = phi i32 [ %1592, %.critedge2.i ], [ 0, %1501 ]
-  %.sink193.i = load ptr, ptr %.sink193.in.i, align 8
-  %1597 = getelementptr inbounds nuw i8, ptr %.sink193.i, i64 28
+  %.sink199.i = load ptr, ptr %.sink199.in.i, align 8
+  %1597 = getelementptr inbounds nuw i8, ptr %.sink199.i, i64 28
   store i32 %.sink.i, ptr %1597, align 4
   %1598 = load i32, ptr %60, align 4
   %1599 = icmp eq i32 %1598, 0
@@ -2714,7 +2714,7 @@ yy_get_next_buffer.exit:                          ; preds = %1610, %1639
   %1664 = getelementptr inbounds nuw i8, ptr %1663, i64 8
   %1665 = load ptr, ptr %1664, align 8
   store ptr %1665, ptr %56, align 8
-  switch i32 %.0135.i, label %default.unreachable1426 [
+  switch i32 %.0135.i, label %default.unreachable1454 [
     i32 1, label %yy_get_previous_state.exit638
     i32 0, label %1667
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread655_crit_edge
@@ -2734,8 +2734,8 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread655_crit_edge: ; preds = %
   %1669 = ptrtoint ptr %1363 to i64
   %1670 = xor i64 %1669, -1
   %1671 = add i64 %1670, %1668
-  %sext1524 = shl i64 %1671, 32
-  %1672 = ashr exact i64 %sext1524, 32
+  %sext1552 = shl i64 %1671, 32
+  %1672 = ashr exact i64 %sext1552, 32
   %1673 = getelementptr i8, ptr %1665, i64 %1672
   store ptr %1673, ptr %51, align 8
   %1674 = load i32, ptr %53, align 4
@@ -2904,7 +2904,7 @@ yy_get_next_buffer.exit.thread655:                ; preds = %1483, %yy_get_next_
   %exitcond.not.i652 = icmp eq ptr %1762, %1719
   br i1 %exitcond.not.i652, label %.backedge.backedge, label %.lr.ph31.i640, !llvm.loop !12
 
-default.unreachable1426:                          ; preds = %yy_get_next_buffer.exit
+default.unreachable1454:                          ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit638:                    ; preds = %yy_get_next_buffer.exit, %1483
@@ -3963,7 +3963,7 @@ define hidden void @df_yyrestart(ptr noundef %0, ptr noundef captures(none) %1) 
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %9, null
-  br i1 %.not16, label %10, label %.thread19
+  br i1 %.not16, label %10, label %.thread25
 
 10:                                               ; preds = %5, %2
   tail call fastcc void @df_yyensure_buffer_stack(ptr noundef %1)
@@ -3977,14 +3977,14 @@ define hidden void @df_yyrestart(ptr noundef %0, ptr noundef captures(none) %1) 
   store ptr %13, ptr %17, align 8
   %.pre = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %.pre, null
-  br i1 %.not17, label %.thread, label %.thread19
+  br i1 %.not17, label %.thread, label %.thread25
 
 .thread:                                          ; preds = %10
   %18 = tail call ptr @__errno_location() #33
   %19 = load i32, ptr %18, align 4
   br label %df_yy_flush_buffer.exit.i
 
-.thread19:                                        ; preds = %5, %10
+.thread25:                                        ; preds = %5, %10
   %20 = phi ptr [ %.pre, %10 ], [ %4, %5 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8
@@ -3995,7 +3995,7 @@ define hidden void @df_yyrestart(ptr noundef %0, ptr noundef captures(none) %1) 
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %df_yy_flush_buffer.exit.i, label %27
 
-27:                                               ; preds = %.thread19
+27:                                               ; preds = %.thread25
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 28
   store i32 0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -4043,10 +4043,10 @@ define hidden void @df_yyrestart(ptr noundef %0, ptr noundef captures(none) %1) 
   store i8 %55, ptr %56, align 8
   br label %df_yy_flush_buffer.exit.i
 
-df_yy_flush_buffer.exit.i:                        ; preds = %.thread, %43, %38, %27, %.thread19
-  %57 = phi i32 [ %19, %.thread ], [ %26, %43 ], [ %26, %38 ], [ %26, %27 ], [ %26, %.thread19 ]
-  %58 = phi ptr [ %18, %.thread ], [ %25, %43 ], [ %25, %38 ], [ %25, %27 ], [ %25, %.thread19 ]
-  %59 = phi ptr [ null, %.thread ], [ %24, %43 ], [ %24, %38 ], [ %24, %27 ], [ null, %.thread19 ]
+df_yy_flush_buffer.exit.i:                        ; preds = %.thread, %43, %38, %27, %.thread25
+  %57 = phi i32 [ %19, %.thread ], [ %26, %43 ], [ %26, %38 ], [ %26, %27 ], [ %26, %.thread25 ]
+  %58 = phi ptr [ %18, %.thread ], [ %25, %43 ], [ %25, %38 ], [ %25, %27 ], [ %25, %.thread25 ]
+  %59 = phi ptr [ null, %.thread ], [ %24, %43 ], [ %24, %38 ], [ %24, %27 ], [ null, %.thread25 ]
   store ptr %0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 52
   store i32 1, ptr %60, align 4
@@ -4319,7 +4319,7 @@ define hidden void @df_yypush_buffer_state(ptr noundef %0, ptr noundef captures(
   %10 = getelementptr ptr, ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not25 = icmp eq ptr %11, null
-  br i1 %.not25, label %.thread30, label %12
+  br i1 %.not25, label %.thread31, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -4344,23 +4344,23 @@ define hidden void @df_yypush_buffer_state(ptr noundef %0, ptr noundef captures(
   store i32 %24, ptr %29, align 4
   %.pr.pre = load ptr, ptr %5, align 8
   %.not26 = icmp eq ptr %.pr.pre, null
-  br i1 %.not26, label %.thread, label %.thread30
+  br i1 %.not26, label %.thread, label %.thread31
 
-.thread30:                                        ; preds = %7, %12
-  %.pr33 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
+.thread31:                                        ; preds = %7, %12
+  %.pr34 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
   %30 = load i64, ptr %8, align 8
-  %31 = getelementptr ptr, ptr %.pr33, i64 %30
+  %31 = getelementptr ptr, ptr %.pr34, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not27 = icmp eq ptr %32, null
   br i1 %.not27, label %.thread, label %33
 
-33:                                               ; preds = %.thread30
+33:                                               ; preds = %.thread31
   %34 = add i64 %30, 1
   store i64 %34, ptr %8, align 8
   br label %.thread
 
-.thread:                                          ; preds = %4, %12, %33, %.thread30
-  %35 = phi ptr [ null, %12 ], [ %.pr33, %33 ], [ %.pr33, %.thread30 ], [ null, %4 ]
+.thread:                                          ; preds = %4, %12, %33, %.thread31
+  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37

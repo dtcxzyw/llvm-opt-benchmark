@@ -9615,14 +9615,14 @@ define noundef i32 @"_ZN75_$LT$wasmtime_wasi..random..Deterministic$u20$as$u20$r
           to label %26 unwind label %24
 
 common.resume:                                    ; preds = %87, %66, %45, %24
-  %.sink54 = phi ptr [ %84, %87 ], [ %63, %66 ], [ %42, %45 ], [ %21, %24 ]
-  %.sink52 = phi i64 [ %83, %87 ], [ %62, %66 ], [ %41, %45 ], [ %20, %24 ]
+  %.sink60 = phi ptr [ %84, %87 ], [ %63, %66 ], [ %42, %45 ], [ %21, %24 ]
+  %.sink58 = phi i64 [ %83, %87 ], [ %62, %66 ], [ %41, %45 ], [ %20, %24 ]
   %.sink = phi ptr [ %86, %87 ], [ %65, %66 ], [ %44, %45 ], [ %23, %24 ]
   %common.resume.op = phi { ptr, i32 } [ %88, %87 ], [ %67, %66 ], [ %46, %45 ], [ %25, %24 ]
-  store ptr %.sink54, ptr %6, align 8
-  store ptr %.sink54, ptr %9, align 8
+  store ptr %.sink60, ptr %6, align 8
+  store ptr %.sink60, ptr %9, align 8
   %.sroa.6.0..sroa_idx.i36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %.sink52, ptr %.sroa.6.0..sroa_idx.i36, align 8
+  store i64 %.sink58, ptr %.sroa.6.0..sroa_idx.i36, align 8
   store ptr %.sink, ptr %7, align 8
   resume { ptr, i32 } %common.resume.op
 

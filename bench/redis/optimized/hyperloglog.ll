@@ -1062,7 +1062,7 @@ sdslen.exit248:                                   ; preds = %92, %95, %99, %103,
 
 143:                                              ; preds = %140
   %144 = shl nuw i8 %2, 2
-  %145 = add i8 %144, 124
+  %145 = add nuw i8 %144, 124
   %146 = or i8 %145, -128
   store i8 %146, ptr %.0181.lcssa, align 1, !tbaa !11
   br label %319
@@ -1073,7 +1073,7 @@ sdslen.exit248:                                   ; preds = %92, %95, %99, %103,
 
 149:                                              ; preds = %147
   %150 = shl nuw i8 %2, 2
-  %151 = add i8 %150, 124
+  %151 = add nuw i8 %150, 124
   %152 = or i8 %151, -128
   store i8 %152, ptr %.0181.lcssa, align 1, !tbaa !11
   br label %319
@@ -1118,7 +1118,7 @@ sdslen.exit248:                                   ; preds = %92, %95, %99, %103,
 174:                                              ; preds = %.thread275, %170, %162
   %.0198 = phi ptr [ %169, %162 ], [ %173, %170 ], [ %4, %.thread275 ]
   %175 = shl nuw i8 %2, 2
-  %176 = add i8 %175, 124
+  %176 = add nuw i8 %175, 124
   %177 = or i8 %176, -128
   store i8 %177, ptr %.0198, align 1, !tbaa !11
   %178 = getelementptr inbounds nuw i8, ptr %.0198, i64 1
@@ -1173,7 +1173,7 @@ sdslen.exit248:                                   ; preds = %92, %95, %99, %103,
 212:                                              ; preds = %155, %204
   %.2200 = phi ptr [ %211, %204 ], [ %4, %155 ]
   %213 = shl nuw i8 %2, 2
-  %214 = add i8 %213, 124
+  %214 = add nuw i8 %213, 124
   %215 = or i8 %214, -128
   store i8 %215, ptr %.2200, align 1, !tbaa !11
   %216 = getelementptr inbounds nuw i8, ptr %.2200, i64 1

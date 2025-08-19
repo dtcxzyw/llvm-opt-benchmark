@@ -893,9 +893,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_channel_name(ptr nou
   br i1 %or.cond3, label %.sink.split, label %28
 
 .sink.split:                                      ; preds = %18, %15
-  %.sink16 = phi i32 [ %16, %15 ], [ %22, %18 ]
+  %.sink18 = phi i32 [ %16, %15 ], [ %22, %18 ]
   %.sink = phi i32 [ 1, %15 ], [ 0, %18 ]
-  store i32 %.sink16, ptr %1, align 4, !tbaa !27
+  store i32 %.sink18, ptr %1, align 4, !tbaa !27
   store i32 %.sink, ptr %2, align 4, !tbaa !27
   %24 = load i32, ptr %6, align 4, !tbaa !27
   %25 = load ptr, ptr %0, align 8, !tbaa !26

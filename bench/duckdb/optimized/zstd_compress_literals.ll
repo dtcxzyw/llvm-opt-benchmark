@@ -16,7 +16,7 @@ define noundef i64 @_ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm(ptr nounde
   br i1 %12, label %24, label %13
 
 13:                                               ; preds = %4
-  switch i32 %9, label %default.unreachable22 [
+  switch i32 %9, label %default.unreachable23 [
     i32 1, label %14
     i32 2, label %16
     i32 3, label %19
@@ -42,7 +42,7 @@ define noundef i64 @_ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm(ptr nounde
   store i32 %21, ptr %0, align 1, !tbaa !8
   br label %22
 
-default.unreachable22:                            ; preds = %13
+default.unreachable23:                            ; preds = %13
   unreachable
 
 22:                                               ; preds = %19, %16, %14
@@ -130,7 +130,7 @@ define noundef i64 @_ZN11duckdb_zstd21ZSTD_compressLiteralsEPvmPKvmS0_mPKNS_17ZS
   br i1 %28, label %_ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm.exit, label %29
 
 29:                                               ; preds = %20
-  switch i32 %25, label %default.unreachable123 [
+  switch i32 %25, label %default.unreachable131 [
     i32 1, label %30
     i32 2, label %32
     i32 3, label %35
@@ -156,7 +156,7 @@ define noundef i64 @_ZN11duckdb_zstd21ZSTD_compressLiteralsEPvmPKvmS0_mPKNS_17ZS
   store i32 %37, ptr %0, align 1, !tbaa !8
   br label %38
 
-default.unreachable123:                           ; preds = %128, %104, %59, %29
+default.unreachable131:                           ; preds = %128, %104, %59, %29
   unreachable
 
 38:                                               ; preds = %35, %32, %30
@@ -188,7 +188,7 @@ default.unreachable123:                           ; preds = %128, %104, %59, %29
   br i1 %58, label %_ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm.exit, label %59
 
 59:                                               ; preds = %50
-  switch i32 %55, label %default.unreachable123 [
+  switch i32 %55, label %default.unreachable131 [
     i32 1, label %60
     i32 2, label %62
     i32 3, label %65
@@ -275,7 +275,7 @@ default.unreachable123:                           ; preds = %128, %104, %59, %29
   br i1 %103, label %_ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm.exit, label %104
 
 104:                                              ; preds = %95
-  switch i32 %100, label %default.unreachable123 [
+  switch i32 %100, label %default.unreachable131 [
     i32 1, label %105
     i32 2, label %107
     i32 3, label %110
@@ -345,7 +345,7 @@ _ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit:   ; preds = %.lr.ph.i, %_ZN11duc
   br label %128
 
 128:                                              ; preds = %126, %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit
-  switch i64 %18, label %default.unreachable123 [
+  switch i64 %18, label %default.unreachable131 [
     i64 3, label %129
     i64 4, label %142
     i64 5, label %150

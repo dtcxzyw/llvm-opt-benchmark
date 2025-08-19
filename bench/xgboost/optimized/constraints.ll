@@ -3744,13 +3744,13 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
           to label %28 unwind label %52
 
 28:                                               ; preds = %26, %24
-  %.sink12.i = phi ptr [ %23, %24 ], [ %27, %26 ]
-  store ptr null, ptr %.sink12.i, align 8, !tbaa !38
-  %29 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 8
+  %.sink13.i = phi ptr [ %23, %24 ], [ %27, %26 ]
+  store ptr null, ptr %.sink13.i, align 8, !tbaa !38
+  %29 = getelementptr inbounds nuw i8, ptr %.sink13.i, i64 8
   %30 = load i32, ptr %22, align 4, !tbaa !48
   store i32 %30, ptr %29, align 8, !tbaa !48
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink12.i, ptr %31, align 8, !tbaa !30
+  store ptr %.sink13.i, ptr %31, align 8, !tbaa !30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !42
   %34 = zext i32 %30 to i64
@@ -3767,7 +3767,7 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %56
   %.02840 = phi ptr [ %.028, %56 ], [ %.02837, %.lr.ph.preheader ]
-  %.02639 = phi ptr [ %.sink12.i34, %56 ], [ %.sink12.i, %.lr.ph.preheader ]
+  %.02639 = phi ptr [ %.sink13.i34, %56 ], [ %.sink13.i, %.lr.ph.preheader ]
   %37 = phi ptr [ %44, %56 ], [ %.promoted, %.lr.ph.preheader ]
   %38 = getelementptr inbounds nuw i8, ptr %.02840, i64 8
   %.not.i33 = icmp eq ptr %37, null
@@ -3784,12 +3784,12 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
 
 43:                                               ; preds = %39, %41
   %44 = phi ptr [ %40, %39 ], [ null, %41 ]
-  %.sink12.i34 = phi ptr [ %37, %39 ], [ %42, %41 ]
-  store ptr null, ptr %.sink12.i34, align 8, !tbaa !38
-  %45 = getelementptr inbounds nuw i8, ptr %.sink12.i34, i64 8
+  %.sink13.i34 = phi ptr [ %37, %39 ], [ %42, %41 ]
+  store ptr null, ptr %.sink13.i34, align 8, !tbaa !38
+  %45 = getelementptr inbounds nuw i8, ptr %.sink13.i34, i64 8
   %46 = load i32, ptr %38, align 4, !tbaa !48
   store i32 %46, ptr %45, align 8, !tbaa !48
-  store ptr %.sink12.i34, ptr %.02639, align 8, !tbaa !38
+  store ptr %.sink13.i34, ptr %.02639, align 8, !tbaa !38
   %47 = zext i32 %46 to i64
   %48 = urem i64 %47, %33
   %49 = getelementptr inbounds nuw ptr, ptr %18, i64 %48

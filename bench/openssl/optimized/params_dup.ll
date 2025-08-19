@@ -360,10 +360,10 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %66, label %.preheader, label %.lr.ph95
 
 .loopexit.sink.split:                             ; preds = %.loopexit80, %2
-  %.sink109 = phi i32 [ 157, %2 ], [ 175, %.loopexit80 ]
+  %.sink116 = phi i32 [ 157, %2 ], [ 175, %.loopexit80 ]
   %.sink = phi i32 [ 786690, %2 ], [ 131, %.loopexit80 ]
   tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink109, ptr noundef nonnull @__func__.OSSL_PARAM_merge) #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink116, ptr noundef nonnull @__func__.OSSL_PARAM_merge) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef %.sink, ptr noundef null) #8
   br label %.loopexit
 

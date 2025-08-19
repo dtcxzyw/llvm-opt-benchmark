@@ -288,11 +288,11 @@ wc_GenerateSeed.exit.thread57:                    ; preds = %32, %27
   %40 = zext nneg i32 %39 to i64
   br label %.lr.ph.i.outer
 
-.lr.ph.i.outer:                                   ; preds = %.thread71, %37
-  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i72, %.thread71 ], [ 0, %37 ]
-  %.019.i.ph = phi i32 [ %60, %.thread71 ], [ 4, %37 ]
-  %41 = phi i1 [ false, %.thread71 ], [ true, %37 ]
-  %.01317.i.ph = phi i32 [ 3, %.thread71 ], [ 0, %37 ]
+.lr.ph.i.outer:                                   ; preds = %.thread76, %37
+  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i77, %.thread76 ], [ 0, %37 ]
+  %.019.i.ph = phi i32 [ %60, %.thread76 ], [ 4, %37 ]
+  %41 = phi i1 [ false, %.thread76 ], [ true, %37 ]
+  %.01317.i.ph = phi i32 [ 3, %.thread76 ], [ 0, %37 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.outer, %53
@@ -302,7 +302,7 @@ wc_GenerateSeed.exit.thread57:                    ; preds = %32, %27
   %43 = zext nneg i32 %.019.i to i64
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 %43
   %.not.i51 = icmp eq i32 %.019.i, 0
-  br i1 %.not.i51, label %.thread71, label %.lr.ph.i.i
+  br i1 %.not.i51, label %.thread76, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i ]
@@ -321,7 +321,7 @@ wc_GenerateSeed.exit.thread57:                    ; preds = %32, %27
 
 ConstantCompare.exit.i:                           ; preds = %.lr.ph.i.i
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %.thread71, label %53
+  br i1 %52, label %.thread76, label %53
 
 53:                                               ; preds = %ConstantCompare.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
@@ -331,20 +331,20 @@ ConstantCompare.exit.i:                           ; preds = %.lr.ph.i.i
   %57 = icmp samesign ult i64 %indvars.iv.next.i, %40
   br i1 %57, label %.lr.ph.i, label %wc_RNG_TestSeed.exit, !llvm.loop !20
 
-.thread71:                                        ; preds = %.lr.ph.i, %ConstantCompare.exit.i
-  %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i, 4
-  %58 = trunc nuw i64 %indvars.iv.next.i72 to i32
+.thread76:                                        ; preds = %.lr.ph.i, %ConstantCompare.exit.i
+  %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i, 4
+  %58 = trunc nuw i64 %indvars.iv.next.i77 to i32
   %59 = sub i32 %spec.select, %58
   %60 = tail call noundef range(i32 0, 5) i32 @llvm.umin.i32(i32 %59, i32 4)
-  %61 = icmp samesign ult i64 %indvars.iv.next.i72, %40
-  br i1 %61, label %.lr.ph.i.outer, label %wc_RNG_TestSeed.exit.thread73, !llvm.loop !20
+  %61 = icmp samesign ult i64 %indvars.iv.next.i77, %40
+  br i1 %61, label %.lr.ph.i.outer, label %wc_RNG_TestSeed.exit.thread78, !llvm.loop !20
 
 wc_RNG_TestSeed.exit.thread:                      ; preds = %wc_GenerateSeed.exit.thread57, %22
   store i8 2, ptr %14, align 8, !tbaa !22
-  br label %wc_RNG_TestSeed.exit.thread73
+  br label %wc_RNG_TestSeed.exit.thread78
 
 wc_RNG_TestSeed.exit:                             ; preds = %53
-  br i1 %41, label %62, label %wc_RNG_TestSeed.exit.thread73
+  br i1 %41, label %62, label %wc_RNG_TestSeed.exit.thread78
 
 62:                                               ; preds = %wc_RNG_TestSeed.exit
   %63 = load ptr, ptr %13, align 8, !tbaa !3
@@ -356,29 +356,29 @@ wc_RNG_TestSeed.exit:                             ; preds = %53
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %68 = call fastcc i32 @Hash_df(ptr noundef nonnull %63, ptr noundef nonnull %67, i8 noundef zeroext 4, ptr noundef nonnull %64, i32 noundef %39, ptr noundef %1, i32 noundef %2)
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %wc_RNG_TestSeed.exit.thread73
+  br i1 %69, label %70, label %wc_RNG_TestSeed.exit.thread78
 
 70:                                               ; preds = %62
   %71 = getelementptr inbounds nuw i8, ptr %63, i64 59
   %72 = call fastcc i32 @Hash_df(ptr noundef nonnull %63, ptr noundef nonnull %71, i8 noundef zeroext 0, ptr noundef nonnull %67, i32 noundef 55, ptr noundef null, i32 noundef 0)
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %Hash_DRBG_Instantiate.exit, label %wc_RNG_TestSeed.exit.thread73
+  br i1 %73, label %Hash_DRBG_Instantiate.exit, label %wc_RNG_TestSeed.exit.thread78
 
 Hash_DRBG_Instantiate.exit:                       ; preds = %70
   store i32 1, ptr %63, align 8, !tbaa !17
   br label %.lr.ph29.preheader.i
 
-wc_RNG_TestSeed.exit.thread73:                    ; preds = %.thread71, %wc_RNG_TestSeed.exit, %wc_RNG_TestSeed.exit.thread, %70, %62
-  %.4.ph = phi i32 [ 1, %62 ], [ 1, %70 ], [ 1, %wc_RNG_TestSeed.exit.thread ], [ %.01317.i.ph, %wc_RNG_TestSeed.exit ], [ 3, %.thread71 ]
+wc_RNG_TestSeed.exit.thread78:                    ; preds = %.thread76, %wc_RNG_TestSeed.exit, %wc_RNG_TestSeed.exit.thread, %70, %62
+  %.4.ph = phi i32 [ 1, %62 ], [ 1, %70 ], [ 1, %wc_RNG_TestSeed.exit.thread ], [ %.01317.i.ph, %wc_RNG_TestSeed.exit ], [ 3, %.thread76 ]
   %74 = load ptr, ptr %13, align 8, !tbaa !3
   %.not50 = icmp eq ptr %74, null
   br i1 %.not50, label %76, label %75
 
-75:                                               ; preds = %wc_RNG_TestSeed.exit.thread73
+75:                                               ; preds = %wc_RNG_TestSeed.exit.thread78
   call void @wolfSSL_Free(ptr noundef nonnull %74) #9
   br label %76
 
-76:                                               ; preds = %75, %wc_RNG_TestSeed.exit.thread73
+76:                                               ; preds = %75, %wc_RNG_TestSeed.exit.thread78
   store ptr null, ptr %13, align 8, !tbaa !3
   br label %.lr.ph29.preheader.i
 
@@ -1525,7 +1525,7 @@ define internal fastcc range(i32 0, 2) i32 @Hash_df(ptr noundef readnone capture
 
 45:                                               ; preds = %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.03358, ptr noundef nonnull align 16 dereferenceable(32) %12, i64 32, i1 false)
-  %46 = add i32 %.03557, -32
+  %46 = add nsw i32 %.03557, -32
   %47 = getelementptr inbounds nuw i8, ptr %.03358, i64 32
   br label %50
 

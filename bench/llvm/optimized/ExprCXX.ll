@@ -1842,7 +1842,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang25DependentScopeDeclRefExpr11CreateEmptyERKNS_10ASTContextEbj(ptr noundef nonnull align 8 dereferenceable(23216) %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull ptr @_ZN5clang25DependentScopeDeclRefExpr11CreateEmptyERKNS_10ASTContextEbj(ptr noundef nonnull align 8 dereferenceable(23216) %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = alloca %"struct.clang::DeclarationNameInfo", align 8
   %5 = zext i32 %2 to i64
   %6 = shl nuw nsw i64 %5, 5
@@ -8934,7 +8934,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang26ResolvedUnexpandedPackExpr6CreateERNS_10ASTContextENS_14SourceLocationENS_8QualTypeEj(ptr noundef nonnull align 8 dereferenceable(23216) %0, i32 %1, i64 %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull ptr @_ZN5clang26ResolvedUnexpandedPackExpr6CreateERNS_10ASTContextENS_14SourceLocationENS_8QualTypeEj(ptr noundef nonnull align 8 dereferenceable(23216) %0, i32 %1, i64 %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
   %5 = zext i32 %3 to i64
   %6 = shl nuw nsw i64 %5, 3
   %7 = add nuw nsw i64 %6, 24
@@ -8988,7 +8988,7 @@ _ZSt18uninitialized_fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit: ; preds = %_ZNK5cla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang26ResolvedUnexpandedPackExpr6CreateERNS_10ASTContextENS_14SourceLocationENS_8QualTypeEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(23216) %0, i32 %1, i64 %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull ptr @_ZN5clang26ResolvedUnexpandedPackExpr6CreateERNS_10ASTContextENS_14SourceLocationENS_8QualTypeEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(23216) %0, i32 %1, i64 %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #4 align 2 {
   %6 = trunc i64 %4 to i32
   %7 = shl i64 %4, 3
   %8 = and i64 %7, 34359738360

@@ -275,8 +275,8 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
 thread-pre-split:                                 ; preds = %87, %89
   %91 = phi ptr [ %90, %89 ], [ %88, %87 ]
   %.not123 = icmp eq ptr %91, null
-  %spec.select153 = select i1 %.not123, ptr null, ptr @.str.10
-  store ptr %spec.select153, ptr %85, align 8
+  %spec.select162 = select i1 %.not123, ptr null, ptr @.str.10
+  store ptr %spec.select162, ptr %85, align 8
   store ptr %91, ptr %86, align 8
   %92 = load ptr, ptr @connection_string, align 8
   %.not124 = icmp eq ptr %92, null

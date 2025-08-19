@@ -2864,13 +2864,13 @@ define linkonce_odr void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 8, !tbaa !29
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !29
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -2977,8 +2977,8 @@ define internal void @_ZNK5faiss18IndexIDMapTemplateINS_5IndexEE12range_searchEl
   %20 = call i64 @llvm.umin.i64(i64 %19, i64 %17)
   store i64 %20, ptr %6, align 8, !tbaa !29
   %21 = load i64, ptr %5, align 8, !tbaa !29
-  %.not17 = icmp ugt i64 %21, %20
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.not20 = icmp ugt i64 %21, %20
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
   %22 = load ptr, ptr %2, align 8, !tbaa !49
@@ -3385,8 +3385,8 @@ define internal void @_ZNK5faiss18IndexIDMapTemplateINS_11IndexBinaryEE12range_s
   %20 = call i64 @llvm.umin.i64(i64 %19, i64 %17)
   store i64 %20, ptr %6, align 8, !tbaa !29
   %21 = load i64, ptr %5, align 8, !tbaa !29
-  %.not17 = icmp ugt i64 %21, %20
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.not20 = icmp ugt i64 %21, %20
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
   %22 = load ptr, ptr %2, align 8, !tbaa !49

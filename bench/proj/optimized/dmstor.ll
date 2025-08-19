@@ -212,7 +212,7 @@ _ZL11proj_strtodPcPS_.exit:                       ; preds = %42, %._crit_edge.i
   br i1 %67, label %34, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %70, %60, %.thread
-  %.143.ph97 = phi double [ %.0.i, %60 ], [ %65, %.thread ], [ %74, %70 ]
+  %.143.ph104 = phi double [ %.0.i, %60 ], [ %65, %.thread ], [ %74, %70 ]
   %77 = phi ptr [ %61, %60 ], [ %50, %.thread ], [ %75, %70 ]
   %.pre93 = load i8, ptr %77, align 1, !tbaa !10
   br label %split, !llvm.loop !19
@@ -220,7 +220,7 @@ _ZL11proj_strtodPcPS_.exit:                       ; preds = %42, %._crit_edge.i
 split:                                            ; preds = %34, %._crit_edge
   %78 = phi i8 [ %.pre93, %._crit_edge ], [ %36, %34 ]
   %79 = phi ptr [ %77, %._crit_edge ], [ %35, %34 ]
-  %.042.lcssa = phi double [ %.143.ph97, %._crit_edge ], [ %.04285, %34 ]
+  %.042.lcssa = phi double [ %.143.ph104, %._crit_edge ], [ %.04285, %34 ]
   %.not65 = icmp eq i8 %78, 0
   br i1 %.not65, label %88, label %80
 

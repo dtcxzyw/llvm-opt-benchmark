@@ -1658,7 +1658,7 @@ define hidden noundef zeroext i1 @"_ZN4hkdf17Hkdf$LT$H$C$I$GT$17expand_multi_inf
   %30 = phi i1 [ false, %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2e1df9a069d68a9E.exit.i.lr.ph" ], [ true, %"_ZN13generic_array25GenericArray$LT$T$C$N$GT$16clone_from_slice17hdc82163ea053f3f1E.exit" ]
   %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 range(i64 1, 0) %.sroa.534.057, i64 32)
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.056, i64 %.0.sroa.speculated.i.i.i
-  %32 = sub nuw i64 %.sroa.534.057, %.0.sroa.speculated.i.i.i
+  %32 = sub nuw nsw i64 %.sroa.534.057, %.0.sroa.speculated.i.i.i
   %33 = add i8 %.sroa.10.058, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !493)
@@ -6372,13 +6372,13 @@ define internal void @"_ZN191_$LT$ockam_vault..software..vault_for_verifying_sig
   %30 = alloca { { [32 x i8] }, { { [5 x i64] }, { [5 x i64] }, { [5 x i64] }, { [5 x i64] } } }, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %32 = load i8, ptr %31, align 8, !range !1226, !noundef !32
-  switch i8 %32, label %default.unreachable45 [
+  switch i8 %32, label %default.unreachable48 [
     i8 0, label %33
     i8 1, label %185
     i8 2, label %186
   ]
 
-default.unreachable45:                            ; preds = %3
+default.unreachable48:                            ; preds = %3
   unreachable
 
 .noexc12:                                         ; preds = %63, %.noexc36, %"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$signature..error..Error$GT$$GT$17h88d8ff99006b884cE.exit52.i", %.noexc16, %"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$signature..error..Error$GT$$GT$17h88d8ff99006b884cE.exit.i"

@@ -1773,7 +1773,7 @@ _ZNK3sat6solver8num_varsEv.exit.i:                ; preds = %82, %.noexc37
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !209
   invoke void @_ZNK3sat6solver19collect_bin_clausesER7svectorISt4pairINS_7literalES3_EjEbb(ptr noundef nonnull align 8 dereferenceable(4264) %10, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %104 unwind label %.loopexit.split-lp88
+          to label %104 unwind label %.loopexit.split-lp134
 
 104:                                              ; preds = %102
   %105 = load ptr, ptr %83, align 8, !tbaa !62
@@ -1834,7 +1834,7 @@ _ZNK6vectorI7svectorIN3sat7literalEjELb1EjE8capacityEv.exit.i.i.i: ; preds = %_Z
 
 _ZNK6vectorI7svectorIN3sat7literalEjELb1EjE8capacityEv.exit.thread.i.i.i: ; preds = %_ZNK6vectorI7svectorIN3sat7literalEjELb1EjE8capacityEv.exit.i.i.i, %_ZNK6vectorI7svectorIN3sat7literalEjELb1EjE4sizeEv.exit.i.i.i
   invoke void @_ZN6vectorI7svectorIN3sat7literalEjELb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %.noexc.i unwind label %.loopexit87
+          to label %.noexc.i unwind label %.loopexit133
 
 .noexc.i:                                         ; preds = %_ZNK6vectorI7svectorIN3sat7literalEjELb1EjE8capacityEv.exit.thread.i.i.i
   %.pr.pre.i.i.i = load ptr, ptr %12, align 8, !tbaa !196
@@ -1877,13 +1877,13 @@ _ZNK3sat6solver8num_varsEv.exit59.i:              ; preds = %177, %_ZNK3sat6solv
   %143 = icmp samesign ult i64 %indvars.iv.i, %142
   br i1 %143, label %144, label %.critedge87.preheader.i
 
-.loopexit87:                                      ; preds = %_ZNK6vectorI7svectorIN3sat7literalEjELb1EjE8capacityEv.exit.thread.i.i.i
-  %lpad.loopexit89 = landingpad { ptr, i32 }
+.loopexit133:                                     ; preds = %_ZNK6vectorI7svectorIN3sat7literalEjELb1EjE8capacityEv.exit.thread.i.i.i
+  %lpad.loopexit135 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.loopexit.split-lp88:                             ; preds = %102
-  %lpad.loopexit.split-lp90 = landingpad { ptr, i32 }
+.loopexit.split-lp134:                            ; preds = %102
+  %lpad.loopexit.split-lp136 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
@@ -2284,8 +2284,8 @@ _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit71.thread.i: ; preds = %269
   %304 = icmp eq ptr %303, null
   br i1 %304, label %_ZN6vectorISt4pairIN3sat7literalES2_ELb0EjED2Ev.exit.i, label %_ZNK6vectorISt4pairIN3sat7literalES2_ELb0EjE4sizeEv.exit68.thread.i, !llvm.loop !221
 
-.body.i:                                          ; preds = %.loopexit87, %.loopexit.split-lp88, %267, %.loopexit.split-lp.i, %.loopexit.i, %236, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i.i, %175, %173
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %268, %267 ], [ %174, %173 ], [ %176, %175 ], [ %229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i.i ], [ %237, %236 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit89, %.loopexit87 ], [ %lpad.loopexit.split-lp90, %.loopexit.split-lp88 ]
+.body.i:                                          ; preds = %.loopexit133, %.loopexit.split-lp134, %267, %.loopexit.split-lp.i, %.loopexit.i, %236, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i.i, %175, %173
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %268, %267 ], [ %174, %173 ], [ %176, %175 ], [ %229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i.i ], [ %237, %236 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit135, %.loopexit133 ], [ %lpad.loopexit.split-lp136, %.loopexit.split-lp134 ]
   call void @_ZN6vectorISt4pairIN3sat7literalES2_ELb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN6vectorIN3sat7literalELb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #21
@@ -3762,9 +3762,9 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
   br i1 %42, label %.preheader, label %_ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7dec_refERKP4expr.exit, !llvm.loop !237
 
 _ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7dec_refERKP4expr.exit: ; preds = %113, %41, %36, %33
-  %.sink21 = phi i64 [ 16, %33 ], [ 16, %36 ], [ 16, %41 ], [ 24, %113 ]
+  %.sink34 = phi i64 [ 16, %33 ], [ 16, %36 ], [ 16, %41 ], [ 24, %113 ]
   %114 = load ptr, ptr %21, align 8, !tbaa !238
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %114, i64 noundef %.sink21, ptr noundef nonnull %29)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %114, i64 noundef %.sink34, ptr noundef nonnull %29)
   %115 = load ptr, ptr %5, align 8, !tbaa !233
   %116 = icmp eq ptr %115, null
   br i1 %116, label %_ZNK6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE5emptyEv.exit.thread, label %_ZNK6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE5emptyEv.exit, !llvm.loop !239

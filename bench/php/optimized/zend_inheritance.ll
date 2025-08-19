@@ -277,8 +277,8 @@ define dso_local range(i32 -1, 3) i32 @zend_perform_covariant_type_check(ptr nou
   br i1 %.not21.i.i, label %.sink.split.i.i, label %resolve_class_name.exit.i
 
 .sink.split.i.i:                                  ; preds = %70, %59
-  %.sink22.i.i = phi ptr [ %58, %59 ], [ %3, %70 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.sink22.i.i, i64 8
+  %.sink25.i.i = phi ptr [ %58, %59 ], [ %3, %70 ]
+  %74 = getelementptr inbounds nuw i8, ptr %.sink25.i.i, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !37
   br label %resolve_class_name.exit.i
 
@@ -428,8 +428,8 @@ zend_type_permits_self.exit:                      ; preds = %.critedge.i
   br i1 %.not21.i.i93, label %get_class_from_type.exit, label %150
 
 get_class_from_type.exit:                         ; preds = %132, %143
-  %.sink22.i.i95 = phi ptr [ %131, %132 ], [ %0, %143 ]
-  %147 = getelementptr inbounds nuw i8, ptr %.sink22.i.i95, i64 8
+  %.sink25.i.i95 = phi ptr [ %131, %132 ], [ %0, %143 ]
+  %147 = getelementptr inbounds nuw i8, ptr %.sink25.i.i95, i64 8
   %148 = load ptr, ptr %147, align 8, !tbaa !37
   %.not87.not = icmp eq ptr %148, null
   br i1 %.not87.not, label %.thread, label %.thread111
@@ -577,8 +577,8 @@ define internal fastcc range(i32 -1, 3) i32 @zend_is_intersection_subtype_of_typ
   br i1 %.not21.i.i, label %get_class_from_type.exit, label %get_class_from_type.exit.thread
 
 get_class_from_type.exit:                         ; preds = %46, %57
-  %.sink22.i.i = phi ptr [ %45, %46 ], [ %0, %57 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.sink22.i.i, i64 8
+  %.sink25.i.i = phi ptr [ %45, %46 ], [ %0, %57 ]
+  %61 = getelementptr inbounds nuw i8, ptr %.sink25.i.i, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !37
   %.not76 = icmp eq ptr %62, null
   br i1 %.not76, label %get_class_from_type.exit.thread105, label %get_class_from_type.exit.thread
@@ -702,8 +702,8 @@ get_class_from_type.exit.thread105:               ; preds = %26, %get_class_from
   br i1 %.not21.i.i85, label %get_class_from_type.exit91, label %get_class_from_type.exit91.thread
 
 get_class_from_type.exit91:                       ; preds = %114, %125
-  %.sink22.i.i87 = phi ptr [ %113, %114 ], [ %3, %125 ]
-  %129 = getelementptr inbounds nuw i8, ptr %.sink22.i.i87, i64 8
+  %.sink25.i.i87 = phi ptr [ %113, %114 ], [ %3, %125 ]
+  %129 = getelementptr inbounds nuw i8, ptr %.sink25.i.i87, i64 8
   %130 = load ptr, ptr %129, align 8, !tbaa !37
   %.not81.not = icmp eq ptr %130, null
   br i1 %.not81.not, label %.thread127, label %get_class_from_type.exit91.thread
@@ -793,8 +793,8 @@ get_class_from_type.exit91.thread:                ; preds = %117, %125, %114, %g
   br i1 %.not21.i.i93, label %.sink.split.i.i94, label %resolve_class_name.exit.i
 
 .sink.split.i.i94:                                ; preds = %175, %164
-  %.sink22.i.i95 = phi ptr [ %163, %164 ], [ %0, %175 ]
-  %179 = getelementptr inbounds nuw i8, ptr %.sink22.i.i95, i64 8
+  %.sink25.i.i95 = phi ptr [ %163, %164 ], [ %0, %175 ]
+  %179 = getelementptr inbounds nuw i8, ptr %.sink25.i.i95, i64 8
   %180 = load ptr, ptr %179, align 8, !tbaa !37
   br label %resolve_class_name.exit.i
 
@@ -1135,8 +1135,8 @@ define internal fastcc range(i32 -1, 16384) i32 @zend_is_class_subtype_of_type(p
   br i1 %.not21.i, label %.sink.split.i, label %resolve_class_name.exit
 
 .sink.split.i:                                    ; preds = %75, %64
-  %.sink22.i = phi ptr [ %63, %64 ], [ %2, %75 ]
-  %79 = getelementptr inbounds nuw i8, ptr %.sink22.i, i64 8
+  %.sink25.i = phi ptr [ %63, %64 ], [ %2, %75 ]
+  %79 = getelementptr inbounds nuw i8, ptr %.sink25.i, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !37
   br label %resolve_class_name.exit
 
@@ -1302,8 +1302,8 @@ define internal fastcc void @register_unresolved_classes(ptr noundef captures(ad
   br i1 %.not21.i, label %.sink.split.i, label %resolve_class_name.exit
 
 .sink.split.i:                                    ; preds = %53, %42
-  %.sink22.i = phi ptr [ %41, %42 ], [ %0, %53 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.sink22.i, i64 8
+  %.sink25.i = phi ptr [ %41, %42 ], [ %0, %53 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.sink25.i, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !37
   br label %resolve_class_name.exit
 
@@ -1545,8 +1545,8 @@ define dso_local void @zend_verify_hooked_property(ptr noundef readonly captures
   %46 = load i32, ptr %45, align 4, !tbaa !21
   %47 = and i32 %46, 4096
   %.not46 = icmp eq i32 %47, 0
-  %or.cond54 = select i1 %40, i1 true, i1 %.not46
-  br i1 %or.cond54, label %._crit_edge, label %48
+  %or.cond55 = select i1 %40, i1 true, i1 %.not46
+  br i1 %or.cond55, label %._crit_edge, label %48
 
 48:                                               ; preds = %44
   %49 = load i32, ptr %7, align 4, !tbaa !102
@@ -2232,8 +2232,8 @@ zend_string_release_ex.exit:                      ; preds = %73, %68, %64, %61
   br label %.sink.split
 
 .sink.split:                                      ; preds = %288, %294
-  %.sink594 = phi i32 [ %297, %294 ], [ %291, %288 ]
-  store i32 %.sink594, ptr %280, align 8, !tbaa !103
+  %.sink622 = phi i32 [ %297, %294 ], [ %291, %288 ]
+  store i32 %.sink622, ptr %280, align 8, !tbaa !103
   br label %298
 
 298:                                              ; preds = %.sink.split, %279, %292, %.lr.ph
@@ -3629,16 +3629,16 @@ define dso_local void @zend_do_implement_interface(ptr noundef %0, ptr noundef %
   %15 = icmp ne i32 %14, 0
   tail call void @llvm.assume(i1 %15)
   %.not74 = icmp eq i32 %4, 0
-  br i1 %.not74, label %.thread86, label %.lr.ph
+  br i1 %.not74, label %.thread94, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 440
   br label %.outer
 
-.outer:                                           ; preds = %.loopexit88, %.lr.ph
-  %.ph = phi i32 [ %42, %.loopexit88 ], [ %4, %.lr.ph ]
-  %.068.ph = phi i32 [ %.1, %.loopexit88 ], [ 0, %.lr.ph ]
-  %.05267.ph = phi i32 [ %.05267, %.loopexit88 ], [ 0, %.lr.ph ]
+.outer:                                           ; preds = %.loopexit96, %.lr.ph
+  %.ph = phi i32 [ %42, %.loopexit96 ], [ %4, %.lr.ph ]
+  %.068.ph = phi i32 [ %.1, %.loopexit96 ], [ 0, %.lr.ph ]
+  %.05267.ph = phi i32 [ %.05267, %.loopexit96 ], [ 0, %.lr.ph ]
   %17 = load ptr, ptr %16, align 8, !tbaa !21
   br label %18
 
@@ -3661,11 +3661,11 @@ define dso_local void @zend_do_implement_interface(ptr noundef %0, ptr noundef %
   %29 = shl nuw nsw i64 %28, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 8 %25, i64 %29, i1 false)
   %.pre = load i32, ptr %3, align 8, !tbaa !148
-  br label %.loopexit88
+  br label %.loopexit96
 
 30:                                               ; preds = %18
   %31 = icmp eq ptr %21, %1
-  br i1 %31, label %32, label %.loopexit88.loopexit
+  br i1 %31, label %32, label %.loopexit96.loopexit
 
 32:                                               ; preds = %30
   %33 = icmp ult i32 %.068, %11
@@ -3681,26 +3681,26 @@ define dso_local void @zend_do_implement_interface(ptr noundef %0, ptr noundef %
   tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.21, ptr noundef nonnull %37, ptr noundef nonnull %40) #19
   unreachable
 
-.loopexit88.loopexit:                             ; preds = %30
+.loopexit96.loopexit:                             ; preds = %30
   %41 = add i32 %.068, 1
-  br label %.loopexit88
+  br label %.loopexit96
 
-.loopexit88:                                      ; preds = %.loopexit88.loopexit, %23
-  %42 = phi i32 [ %.pre, %23 ], [ %.ph, %.loopexit88.loopexit ]
-  %.1 = phi i32 [ %.068, %23 ], [ %41, %.loopexit88.loopexit ]
+.loopexit96:                                      ; preds = %.loopexit96.loopexit, %23
+  %42 = phi i32 [ %.pre, %23 ], [ %.ph, %.loopexit96.loopexit ]
+  %.1 = phi i32 [ %.068, %23 ], [ %41, %.loopexit96.loopexit ]
   %43 = icmp ult i32 %.1, %42
   br i1 %43, label %.outer, label %._crit_edge
 
 .thread:                                          ; preds = %32
   %44 = add nuw i32 %.068, 1
   %45 = icmp ult i32 %44, %.ph
-  br i1 %45, label %18, label %._crit_edge.thread84
+  br i1 %45, label %18, label %._crit_edge.thread92
 
-._crit_edge:                                      ; preds = %.loopexit88
+._crit_edge:                                      ; preds = %.loopexit96
   %46 = icmp eq i32 %.05267, 0
-  br i1 %46, label %66, label %._crit_edge.thread84
+  br i1 %46, label %66, label %._crit_edge.thread92
 
-._crit_edge.thread84:                             ; preds = %.thread, %._crit_edge
+._crit_edge.thread92:                             ; preds = %.thread, %._crit_edge
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %48 = load ptr, ptr %47, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 200
@@ -3716,8 +3716,8 @@ define dso_local void @zend_do_implement_interface(ptr noundef %0, ptr noundef %
   %.not6470 = icmp eq i32 %50, 0
   br i1 %.not6470, label %.loopexit, label %.lr.ph73
 
-.lr.ph73:                                         ; preds = %._crit_edge.thread84, %64
-  %.05471 = phi ptr [ %65, %64 ], [ %48, %._crit_edge.thread84 ]
+.lr.ph73:                                         ; preds = %._crit_edge.thread92, %64
+  %.05471 = phi ptr [ %65, %64 ], [ %48, %._crit_edge.thread92 ]
   %56 = getelementptr inbounds nuw i8, ptr %.05471, i64 8
   %57 = load i8, ptr %56, align 8, !tbaa !21
   %58 = icmp eq i8 %57, 0
@@ -3737,14 +3737,14 @@ define dso_local void @zend_do_implement_interface(ptr noundef %0, ptr noundef %
 
 66:                                               ; preds = %._crit_edge
   %67 = icmp ult i32 %42, %4
-  br i1 %67, label %._crit_edge76, label %.thread86
+  br i1 %67, label %._crit_edge76, label %.thread94
 
 ._crit_edge76:                                    ; preds = %66
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 440
   %.pre77 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !21
   br label %79
 
-.thread86:                                        ; preds = %10, %66
+.thread94:                                        ; preds = %10, %66
   %68 = load i8, ptr %0, align 8, !tbaa !86
   %69 = icmp eq i8 %68, 1
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 440
@@ -3754,12 +3754,12 @@ define dso_local void @zend_do_implement_interface(ptr noundef %0, ptr noundef %
   %74 = shl nuw nsw i64 %73, 3
   br i1 %69, label %75, label %77
 
-75:                                               ; preds = %.thread86
+75:                                               ; preds = %.thread94
   %76 = tail call ptr @realloc(ptr noundef %71, i64 noundef %74) #21
   store ptr %76, ptr %70, align 8, !tbaa !21
   br label %79
 
-77:                                               ; preds = %.thread86
+77:                                               ; preds = %.thread94
   %78 = tail call ptr @_erealloc(ptr noundef %71, i64 noundef %74) #21
   store ptr %78, ptr %70, align 8, !tbaa !21
   br label %79
@@ -3775,7 +3775,7 @@ define dso_local void @zend_do_implement_interface(ptr noundef %0, ptr noundef %
   tail call fastcc void @do_interface_implementation(ptr noundef nonnull %0, ptr noundef %1)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %64, %._crit_edge.thread84, %79
+.loopexit:                                        ; preds = %64, %._crit_edge.thread92, %79
   ret void
 }
 
@@ -4862,8 +4862,8 @@ define dso_local ptr @zend_do_link_class(ptr noundef %0, ptr noundef %1, ptr nou
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %47 = load i32, ptr %46, align 8, !tbaa !148
   %.not392 = icmp eq i32 %47, 0
-  %or.cond892 = select i1 %.not391, i1 %.not392, i1 false
-  br i1 %or.cond892, label %.loopexit467, label %._crit_edge745
+  %or.cond972 = select i1 %.not391, i1 %.not392, i1 false
+  br i1 %or.cond972, label %.loopexit467, label %._crit_edge745
 
 ._crit_edge745:                                   ; preds = %43
   %48 = add i32 %47, %45
@@ -4953,11 +4953,11 @@ define dso_local ptr @zend_do_link_class(ptr noundef %0, ptr noundef %1, ptr nou
   %86 = load i8, ptr %66, align 8, !tbaa !86
   %87 = icmp eq i8 %86, 2
   %88 = select i1 %87, i32 %71, i32 -1
-  %spec.select893 = and i32 %.2360605, %88
+  %spec.select973 = and i32 %.2360605, %88
   br label %.thread449
 
 .thread449:                                       ; preds = %._crit_edge, %.thread
-  %.3361451 = phi i32 [ %.2360605, %.thread ], [ %spec.select893, %._crit_edge ]
+  %.3361451 = phi i32 [ %.2360605, %.thread ], [ %spec.select973, %._crit_edge ]
   %indvars.iv.next740 = add nuw nsw i64 %indvars.iv739, 1
   %89 = load i32, ptr %44, align 4, !tbaa !155
   %90 = zext i32 %89 to i64
@@ -6898,12 +6898,12 @@ zend_hash_find_ptr.exit.thread.i.i:               ; preds = %1027, %829, %814
   %1048 = load i32, ptr %817, align 8, !tbaa !103
   %1049 = add i32 %1048, -40
   %1050 = lshr i32 %1049, 4
-  %.sink265.i.i = select i1 %.not153.i.i, i32 %1050, i32 %1048
-  %.sink263.in.i.v.i = select i1 %.not153.i.i, i64 40, i64 48
-  %.sink263.in.i.i = getelementptr inbounds nuw i8, ptr %1047, i64 %.sink263.in.i.v.i
-  %.sink263.i.i = load ptr, ptr %.sink263.in.i.i, align 8, !tbaa !185
-  %1051 = zext i32 %.sink265.i.i to i64
-  %1052 = getelementptr inbounds nuw %struct._zval_struct, ptr %.sink263.i.i, i64 %1051
+  %.sink280.i.i = select i1 %.not153.i.i, i32 %1050, i32 %1048
+  %.sink278.in.i.v.i = select i1 %.not153.i.i, i64 40, i64 48
+  %.sink278.in.i.i = getelementptr inbounds nuw i8, ptr %1047, i64 %.sink278.in.i.v.i
+  %.sink278.i.i = load ptr, ptr %.sink278.in.i.i, align 8, !tbaa !185
+  %1051 = zext i32 %.sink280.i.i to i64
+  %1052 = getelementptr inbounds nuw %struct._zval_struct, ptr %.sink278.i.i, i64 %1051
   %1053 = getelementptr inbounds nuw i8, ptr %1052, i64 9
   %1054 = load i8, ptr %1053, align 1, !tbaa !21
   %.not154.i.i = icmp eq i8 %1054, 0
@@ -7344,8 +7344,8 @@ zend_do_bind_traits.exit:                         ; preds = %.loopexit.i47.i, %z
 ._crit_edge112.thread.i:                          ; preds = %1196
   %1265 = load i32, ptr %174, align 4, !tbaa !22
   %1266 = and i32 %1265, 4194304
-  %.not80153.i = icmp eq i32 %1266, 0
-  br i1 %.not80153.i, label %._crit_edge115.i, label %1299
+  %.not80158.i = icmp eq i32 %1266, 0
+  br i1 %.not80158.i, label %._crit_edge115.i, label %1299
 
 .preheader92.i:                                   ; preds = %._crit_edge112.i
   %1267 = icmp eq i32 %1260, 0
@@ -7410,7 +7410,7 @@ zend_string_release_ex.exit.i:                    ; preds = %1293, %1288, %zend_
   br i1 %1296, label %1269, label %._crit_edge115.i
 
 ._crit_edge115.i:                                 ; preds = %zend_string_release_ex.exit.i, %.preheader92.i, %._crit_edge112.thread.i
-  %.073.lcssa156159.i = phi i32 [ %.1.i, %.preheader92.i ], [ %1197, %._crit_edge112.thread.i ], [ %.1.i, %zend_string_release_ex.exit.i ]
+  %.073.lcssa161164.i = phi i32 [ %.1.i, %.preheader92.i ], [ %1197, %._crit_edge112.thread.i ], [ %.1.i, %zend_string_release_ex.exit.i ]
   %1297 = getelementptr inbounds nuw i8, ptr %.0351, i64 440
   %1298 = load ptr, ptr %1297, align 8, !tbaa !21
   call void @_efree(ptr noundef %1298) #17
@@ -7418,9 +7418,9 @@ zend_string_release_ex.exit.i:                    ; preds = %1293, %1288, %zend_
   br label %1299
 
 1299:                                             ; preds = %._crit_edge115.i, %._crit_edge112.thread.i, %._crit_edge112.i
-  %.073.lcssa155.i = phi i32 [ %.073.lcssa156159.i, %._crit_edge115.i ], [ %.1.i, %._crit_edge112.i ], [ %1197, %._crit_edge112.thread.i ]
+  %.073.lcssa160.i = phi i32 [ %.073.lcssa161164.i, %._crit_edge115.i ], [ %.1.i, %._crit_edge112.i ], [ %1197, %._crit_edge112.thread.i ]
   %1300 = phi i32 [ %.pre149.i, %._crit_edge115.i ], [ %1263, %._crit_edge112.i ], [ %1265, %._crit_edge112.thread.i ]
-  store i32 %.073.lcssa155.i, ptr %1167, align 8, !tbaa !148
+  store i32 %.073.lcssa160.i, ptr %1167, align 8, !tbaa !148
   %1301 = getelementptr inbounds nuw i8, ptr %.0351, i64 440
   store ptr %1178, ptr %1301, align 8, !tbaa !21
   %1302 = or i32 %1300, 262144
@@ -7433,7 +7433,7 @@ zend_string_release_ex.exit.i:                    ; preds = %1293, %1288, %zend_
   br label %.lr.ph118.i
 
 .preheader.i:                                     ; preds = %do_implement_interface.exit.i, %1299
-  %1303 = icmp ult i32 %1197, %.073.lcssa155.i
+  %1303 = icmp ult i32 %1197, %.073.lcssa160.i
   br i1 %1303, label %.lr.ph121.preheader.i, label %zend_do_implement_interfaces.exit
 
 .lr.ph121.preheader.i:                            ; preds = %.preheader.i
@@ -7487,7 +7487,7 @@ do_implement_interface.exit.i:                    ; preds = %1313, %1310, %.lr.p
   call fastcc void @do_interface_implementation(ptr noundef nonnull %.0351, ptr noundef %1327)
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next146.i to i32
-  %exitcond148.not.i = icmp eq i32 %.073.lcssa155.i, %lftr.wideiv.i
+  %exitcond148.not.i = icmp eq i32 %.073.lcssa160.i, %lftr.wideiv.i
   br i1 %exitcond148.not.i, label %zend_do_implement_interfaces.exit, label %.lr.ph121.i
 
 1328:                                             ; preds = %zend_do_bind_traits.exit
@@ -9934,7 +9934,7 @@ define internal fastcc void @inherit_property_hook(ptr noundef %0, ptr noundef r
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %14 = load ptr, ptr %13, align 8, !tbaa !105
   %.not4373 = icmp eq ptr %14, null
-  br i1 %.not4373, label %property_has_operation.exit61.thread, label %.thread79
+  br i1 %.not4373, label %property_has_operation.exit61.thread, label %.thread89
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw ptr, ptr %12, i64 %8
@@ -9942,17 +9942,17 @@ define internal fastcc void @inherit_property_hook(ptr noundef %0, ptr noundef r
   %.not44 = icmp eq ptr %17, null
   br i1 %.not44, label %property_has_operation.exit.thread64.thread, label %20
 
-.thread79:                                        ; preds = %.thread72
+.thread89:                                        ; preds = %.thread72
   %.pre77 = zext nneg i32 %3 to i64
   %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %.pre77
   %19 = load ptr, ptr %18, align 8, !tbaa !108
-  %.not4481 = icmp eq ptr %19, null
-  br i1 %.not4481, label %property_has_operation.exit61.thread, label %20
+  %.not4491 = icmp eq ptr %19, null
+  br i1 %.not4491, label %property_has_operation.exit61.thread, label %20
 
-20:                                               ; preds = %.thread79, %15
-  %21 = phi ptr [ %19, %.thread79 ], [ %17, %15 ]
-  %22 = phi ptr [ null, %.thread79 ], [ %10, %15 ]
-  %.pre-phi82 = phi i64 [ %.pre77, %.thread79 ], [ %8, %15 ]
+20:                                               ; preds = %.thread89, %15
+  %21 = phi ptr [ %19, %.thread89 ], [ %17, %15 ]
+  %22 = phi ptr [ null, %.thread89 ], [ %10, %15 ]
+  %.pre-phi92 = phi i64 [ %.pre77, %.thread89 ], [ %8, %15 ]
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !21
   %25 = and i32 %24, 268435456
@@ -9977,7 +9977,7 @@ define internal fastcc void @inherit_property_hook(ptr noundef %0, ptr noundef r
   br i1 %.not, label %property_has_operation.exit.thread64, label %property_has_operation.exit
 
 property_has_operation.exit:                      ; preds = %33
-  %34 = getelementptr inbounds nuw ptr, ptr %6, i64 %.pre-phi82
+  %34 = getelementptr inbounds nuw ptr, ptr %6, i64 %.pre-phi92
   %35 = load ptr, ptr %34, align 8, !tbaa !108
   %.not75 = icmp eq ptr %35, null
   br i1 %.not75, label %property_has_operation.exit.thread64, label %property_has_operation.exit.thread
@@ -9992,8 +9992,8 @@ property_has_operation.exit.thread64:             ; preds = %33, %property_has_o
   br i1 %.not46, label %property_has_operation.exit61.thread, label %103
 
 property_has_operation.exit.thread64.thread:      ; preds = %15
-  %.not4678 = icmp eq ptr %10, null
-  br i1 %.not4678, label %property_has_operation.exit61.thread, label %.thread69
+  %.not4688 = icmp eq ptr %10, null
+  br i1 %.not4688, label %property_has_operation.exit61.thread, label %.thread69
 
 .thread65:                                        ; preds = %7
   %.not4667 = icmp eq ptr %10, null
@@ -10184,7 +10184,7 @@ zend_duplicate_function.exit:                     ; preds = %97, %93, %82, %90
   tail call fastcc void @do_inheritance_check_on_method(ptr noundef nonnull %21, ptr noundef %127, ptr noundef nonnull %22, ptr noundef %129, ptr noundef %0, ptr noundef null, i32 noundef 124)
   br label %property_has_operation.exit61.thread
 
-property_has_operation.exit61.thread:             ; preds = %.thread79, %property_has_operation.exit.thread64.thread, %.thread72, %44, %.thread65, %110, %125, %property_has_operation.exit61, %property_has_operation.exit.thread64, %zend_duplicate_function.exit
+property_has_operation.exit61.thread:             ; preds = %.thread89, %property_has_operation.exit.thread64.thread, %.thread72, %44, %.thread65, %110, %125, %property_has_operation.exit61, %property_has_operation.exit.thread64, %zend_duplicate_function.exit
   ret void
 }
 
@@ -11220,13 +11220,13 @@ define internal fastcc range(i32 -1, 3) i32 @zend_do_perform_implementation_chec
 58:                                               ; preds = %54, %.sink.split
   %59 = phi ptr [ %57, %.sink.split ], [ null, %54 ]
   %60 = icmp samesign ult i64 %indvars.iv, %53
-  %brmerge110 = or i1 %60, %37
-  br i1 %brmerge110, label %61, label %.thread
+  %brmerge113 = or i1 %60, %37
+  br i1 %brmerge113, label %61, label %.thread
 
 61:                                               ; preds = %58
-  %indvars.iv.mux111 = select i1 %60, i64 %indvars.iv, i64 %51
+  %indvars.iv.mux114 = select i1 %60, i64 %indvars.iv, i64 %51
   %62 = load ptr, ptr %49, align 8, !tbaa !21
-  %63 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %62, i64 %indvars.iv.mux111
+  %63 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %62, i64 %indvars.iv.mux114
   %.not87 = icmp eq ptr %59, null
   br i1 %.not87, label %select.unfold, label %64
 
@@ -11606,7 +11606,7 @@ define internal fastcc ptr @zend_get_function_declaration(ptr noundef readonly c
   %5 = load i32, ptr %4, align 4, !tbaa !21
   %6 = and i32 %5, 4096
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %.thread357, label %7
+  br i1 %.not, label %.thread422, label %7
 
 7:                                                ; preds = %2
   call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef 2) #17
@@ -11624,13 +11624,13 @@ define internal fastcc ptr @zend_get_function_declaration(ptr noundef readonly c
   %.not81 = icmp eq ptr %15, null
   br i1 %.not81, label %._crit_edge275, label %23
 
-.thread357:                                       ; preds = %2
+.thread422:                                       ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !21
-  %.not81359 = icmp eq ptr %17, null
-  br i1 %.not81359, label %.thread362, label %.thread370
+  %.not81424 = icmp eq ptr %17, null
+  br i1 %.not81424, label %.thread427, label %.thread435
 
-.thread362:                                       ; preds = %.thread357
+.thread427:                                       ; preds = %.thread422
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
@@ -11648,21 +11648,21 @@ define internal fastcc ptr @zend_get_function_declaration(ptr noundef readonly c
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   br i1 %.not82, label %55, label %39
 
-.thread370:                                       ; preds = %.thread357
+.thread435:                                       ; preds = %.thread422
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %31 = load i32, ptr %30, align 4, !tbaa !22
   %32 = and i32 %31, 4
-  %.not82372 = icmp eq i32 %32, 0
+  %.not82437 = icmp eq i32 %32, 0
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !37
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  br i1 %.not82372, label %.thread375, label %.thread378
+  br i1 %.not82437, label %.thread440, label %.thread443
 
-.thread378:                                       ; preds = %.thread370
+.thread443:                                       ; preds = %.thread435
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #24
   br label %46
 
-.thread375:                                       ; preds = %.thread370
+.thread440:                                       ; preds = %.thread435
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !13
   br label %63
@@ -11677,10 +11677,10 @@ define internal fastcc ptr @zend_get_function_declaration(ptr noundef readonly c
   %.not12.i99 = icmp ult i64 %43, %45
   br i1 %.not12.i99, label %smart_str_alloc.exit102, label %46, !prof !82
 
-46:                                               ; preds = %.thread378, %39
-  %47 = phi i64 [ %40, %39 ], [ %36, %.thread378 ]
-  %48 = phi ptr [ %29, %39 ], [ %35, %.thread378 ]
-  %.0.i100 = phi i64 [ %43, %39 ], [ %36, %.thread378 ]
+46:                                               ; preds = %.thread443, %39
+  %47 = phi i64 [ %40, %39 ], [ %36, %.thread443 ]
+  %48 = phi ptr [ %29, %39 ], [ %35, %.thread443 ]
+  %.0.i100 = phi i64 [ %43, %39 ], [ %36, %.thread443 ]
   call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %.0.i100) #17
   %.pre267 = load ptr, ptr %3, align 8, !tbaa !228
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre267, i64 16
@@ -11709,10 +11709,10 @@ smart_str_alloc.exit102:                          ; preds = %39, %46
   %.not12.i184 = icmp ult i64 %60, %62
   br i1 %.not12.i184, label %smart_str_alloc.exit187, label %63, !prof !82
 
-63:                                               ; preds = %.thread375, %55
-  %64 = phi i64 [ %57, %55 ], [ %38, %.thread375 ]
-  %65 = phi ptr [ %29, %55 ], [ %35, %.thread375 ]
-  %.0.i185 = phi i64 [ %60, %55 ], [ %38, %.thread375 ]
+63:                                               ; preds = %.thread440, %55
+  %64 = phi i64 [ %57, %55 ], [ %38, %.thread440 ]
+  %65 = phi ptr [ %29, %55 ], [ %35, %.thread440 ]
+  %.0.i185 = phi i64 [ %60, %55 ], [ %38, %.thread440 ]
   call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %.0.i185) #17
   %.pre269 = load ptr, ptr %3, align 8, !tbaa !228
   %.phi.trans.insert270 = getelementptr inbounds nuw i8, ptr %.pre269, i64 16
@@ -11778,10 +11778,10 @@ smart_str_alloc.exit187:                          ; preds = %55, %63
   %.not12.i.i215 = icmp ult i64 %90, %92
   br i1 %.not12.i.i215, label %96, label %93, !prof !82
 
-93:                                               ; preds = %.thread362, %85
-  %94 = phi i64 [ %89, %85 ], [ %22, %.thread362 ]
-  %95 = phi ptr [ %88, %85 ], [ %20, %.thread362 ]
-  %.0.i.i216 = phi i64 [ %90, %85 ], [ %22, %.thread362 ]
+93:                                               ; preds = %.thread427, %85
+  %94 = phi i64 [ %89, %85 ], [ %22, %.thread427 ]
+  %95 = phi ptr [ %88, %85 ], [ %20, %.thread427 ]
+  %.0.i.i216 = phi i64 [ %90, %85 ], [ %22, %.thread427 ]
   call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %.0.i.i216) #17
   %.pre278 = load ptr, ptr %3, align 8, !tbaa !228
   %.phi.trans.insert279 = getelementptr inbounds nuw i8, ptr %.pre278, i64 16
@@ -12721,7 +12721,7 @@ smart_str_appendc_ex.exit:                        ; preds = %.loopexit.thread, %
   %514 = load i32, ptr %4, align 4, !tbaa !21
   %515 = and i32 %514, 8192
   %.not85 = icmp eq i32 %515, 0
-  br i1 %.not85, label %.thread368, label %516
+  br i1 %.not85, label %.thread433, label %516
 
 516:                                              ; preds = %smart_str_appendc_ex.exit
   %517 = add i64 %.1.i.i222, 2
@@ -12750,9 +12750,9 @@ smart_str_appendc_ex.exit:                        ; preds = %.loopexit.thread, %
   call fastcc void @zend_append_type_hint(ptr noundef %3, ptr noundef %1, ptr noundef nonnull %528, i1 noundef zeroext true)
   %.pre355 = load ptr, ptr %3, align 8, !tbaa !228
   %.not.i95 = icmp eq ptr %.pre355, null
-  br i1 %.not.i95, label %smart_str_0.exit, label %.thread368
+  br i1 %.not.i95, label %smart_str_0.exit, label %.thread433
 
-.thread368:                                       ; preds = %smart_str_appendc_ex.exit, %520
+.thread433:                                       ; preds = %smart_str_appendc_ex.exit, %520
   %529 = phi ptr [ %.pre355, %520 ], [ %512, %smart_str_appendc_ex.exit ]
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 24
   %531 = getelementptr inbounds nuw i8, ptr %529, i64 16
@@ -12762,8 +12762,8 @@ smart_str_appendc_ex.exit:                        ; preds = %.loopexit.thread, %
   %.pre356 = load ptr, ptr %3, align 8, !tbaa !228
   br label %smart_str_0.exit
 
-smart_str_0.exit:                                 ; preds = %520, %.thread368
-  %534 = phi ptr [ null, %520 ], [ %.pre356, %.thread368 ]
+smart_str_0.exit:                                 ; preds = %520, %.thread433
+  %534 = phi ptr [ null, %520 ], [ %.pre356, %.thread433 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %534
 }
@@ -13196,8 +13196,8 @@ zend_string_release_ex.exit:                      ; preds = %60, %55, %zend_trai
   %.not78 = icmp eq i32 %98, 0
   %99 = load i32, ptr %74, align 4, !tbaa !21
   %100 = and i32 %99, -8
-  %.sink106 = select i1 %.not78, i32 %99, i32 %100
-  %101 = or i32 %.sink106, %97
+  %.sink110 = select i1 %.not78, i32 %99, i32 %100
+  %101 = or i32 %.sink110, %97
   store i32 %101, ptr %75, align 4, !tbaa !21
   br label %102
 

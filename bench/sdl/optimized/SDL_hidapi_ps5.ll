@@ -900,20 +900,20 @@ HIDAPI_DriverPS5_IsPacketValid.exit:              ; preds = %60, %90, %HIDAPI_Dr
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %240 = load i8, ptr %239, align 4, !range !5, !noundef !6
   %241 = trunc nuw i8 %240 to i1
-  br i1 %241, label %.thread82, label %.thread87
+  br i1 %241, label %.thread90, label %.thread95
 
 242:                                              ; preds = %._crit_edge
-  br i1 %235, label %.thread82, label %264
+  br i1 %235, label %.thread90, label %264
 
-.thread82:                                        ; preds = %._crit_edge.thread, %242
-  %.lcssa8185 = phi i32 [ %233, %242 ], [ %20, %._crit_edge.thread ]
+.thread90:                                        ; preds = %._crit_edge.thread, %242
+  %.lcssa8993 = phi i32 [ %233, %242 ], [ %20, %._crit_edge.thread ]
   %243 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %244 = load i64, ptr %243, align 8
   %245 = add i64 %244, 500
   %.not = icmp ult i64 %8, %245
   br i1 %.not, label %273, label %246
 
-246:                                              ; preds = %.thread82
+246:                                              ; preds = %.thread90
   %247 = load ptr, ptr %6, align 8
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 28
   %249 = load i8, ptr %248, align 4, !range !5, !noundef !6
@@ -968,30 +968,30 @@ HIDAPI_DriverPS5_TickleBluetooth.exit:            ; preds = %256, %257, %260
   %272 = call zeroext i1 @HIDAPI_JoystickConnected(ptr noundef nonnull %0, ptr noundef null) #9
   br label %273
 
-273:                                              ; preds = %HIDAPI_DriverPS5_TickleBluetooth.exit, %.thread82, %271, %267, %264, %._crit_edge
-  %.lcssa80 = phi i32 [ %.lcssa8185, %HIDAPI_DriverPS5_TickleBluetooth.exit ], [ %.lcssa8185, %.thread82 ], [ %233, %271 ], [ %233, %267 ], [ %233, %264 ], [ %233, %._crit_edge ]
-  %.064.lcssa78 = phi i1 [ true, %HIDAPI_DriverPS5_TickleBluetooth.exit ], [ true, %.thread82 ], [ false, %271 ], [ false, %267 ], [ false, %264 ], [ %235, %._crit_edge ]
+273:                                              ; preds = %HIDAPI_DriverPS5_TickleBluetooth.exit, %.thread90, %271, %267, %264, %._crit_edge
+  %.lcssa88 = phi i32 [ %.lcssa8993, %HIDAPI_DriverPS5_TickleBluetooth.exit ], [ %.lcssa8993, %.thread90 ], [ %233, %271 ], [ %233, %267 ], [ %233, %264 ], [ %233, %._crit_edge ]
+  %.064.lcssa86 = phi i1 [ true, %HIDAPI_DriverPS5_TickleBluetooth.exit ], [ true, %.thread90 ], [ false, %271 ], [ false, %267 ], [ false, %264 ], [ %235, %._crit_edge ]
   %274 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %275 = load i8, ptr %274, align 8, !range !5, !noundef !6
   %276 = trunc nuw i8 %275 to i1
   br i1 %276, label %280, label %296
 
-.thread87:                                        ; preds = %._crit_edge.thread
+.thread95:                                        ; preds = %._crit_edge.thread
   %277 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %278 = load i8, ptr %277, align 8, !range !5, !noundef !6
   %279 = trunc nuw i8 %278 to i1
-  br i1 %279, label %.thread95, label %296
+  br i1 %279, label %.thread103, label %296
 
 280:                                              ; preds = %273
-  br i1 %.064.lcssa78, label %.thread95, label %291
+  br i1 %.064.lcssa86, label %.thread103, label %291
 
-.thread95:                                        ; preds = %.thread87, %280
-  %.lcssa809299 = phi i32 [ %.lcssa80, %280 ], [ %20, %.thread87 ]
+.thread103:                                       ; preds = %.thread95, %280
+  %.lcssa88100107 = phi i32 [ %.lcssa88, %280 ], [ %20, %.thread95 ]
   %281 = load i32, ptr %9, align 4
   %282 = icmp sgt i32 %281, 0
   br i1 %282, label %283, label %296
 
-283:                                              ; preds = %.thread95
+283:                                              ; preds = %.thread103
   %284 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %285 = load i64, ptr %284, align 8
   %286 = add i64 %285, 500
@@ -1014,11 +1014,11 @@ HIDAPI_DriverPS5_TickleBluetooth.exit:            ; preds = %256, %257, %260
   %295 = call zeroext i1 @HIDAPI_JoystickConnected(ptr noundef nonnull %0, ptr noundef null) #9
   br label %.thread
 
-296:                                              ; preds = %.thread87, %283, %287, %.thread95, %273
-  %.064.lcssa7894 = phi i1 [ true, %.thread87 ], [ true, %283 ], [ true, %287 ], [ true, %.thread95 ], [ %.064.lcssa78, %273 ]
-  %.lcssa8091 = phi i32 [ %20, %.thread87 ], [ %.lcssa809299, %283 ], [ %.lcssa809299, %287 ], [ %.lcssa809299, %.thread95 ], [ %.lcssa80, %273 ]
-  %297 = icmp ne i32 %.lcssa8091, 0
-  %or.cond3 = and i1 %.064.lcssa7894, %297
+296:                                              ; preds = %.thread95, %283, %287, %.thread103, %273
+  %.064.lcssa86102 = phi i1 [ true, %.thread95 ], [ true, %283 ], [ true, %287 ], [ true, %.thread103 ], [ %.064.lcssa86, %273 ]
+  %.lcssa8899 = phi i32 [ %20, %.thread95 ], [ %.lcssa88100107, %283 ], [ %.lcssa88100107, %287 ], [ %.lcssa88100107, %.thread103 ], [ %.lcssa88, %273 ]
+  %297 = icmp ne i32 %.lcssa8899, 0
+  %or.cond3 = and i1 %.064.lcssa86102, %297
   br i1 %or.cond3, label %298, label %.thread
 
 298:                                              ; preds = %296
@@ -1034,8 +1034,8 @@ HIDAPI_DriverPS5_TickleBluetooth.exit:            ; preds = %256, %257, %260
   br label %.thread
 
 .thread:                                          ; preds = %291, %294, %301, %298, %296
-  %.lcssa8090 = phi i32 [ %.lcssa80, %291 ], [ %.lcssa80, %294 ], [ 1, %301 ], [ 1, %298 ], [ %.lcssa8091, %296 ]
-  %305 = icmp eq i32 %.lcssa8090, 0
+  %.lcssa8898 = phi i32 [ %.lcssa88, %291 ], [ %.lcssa88, %294 ], [ 1, %301 ], [ 1, %298 ], [ %.lcssa8899, %296 ]
+  %305 = icmp eq i32 %.lcssa8898, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %305
 }
@@ -1686,10 +1686,10 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef ca
   br label %.sink.split
 
 .sink.split:                                      ; preds = %65, %73
-  %.sink41.in = phi ptr [ %83, %73 ], [ %72, %65 ]
-  %.sink41 = load i8, ptr %.sink41.in, align 1
+  %.sink42.in = phi ptr [ %83, %73 ], [ %72, %65 ]
+  %.sink42 = load i8, ptr %.sink42.in, align 1
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 46
-  store i8 %.sink41, ptr %84, align 1
+  store i8 %.sink42, ptr %84, align 1
   br label %85
 
 85:                                               ; preds = %.sink.split, %56, %48
@@ -1708,13 +1708,13 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef ca
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %94 = load i8, ptr %93, align 4, !range !5, !noundef !6
   %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %.sink.split43
+  br i1 %95, label %96, label %.sink.split44
 
 96:                                               ; preds = %90
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %98 = load i32, ptr %97, align 8
   %99 = icmp sgt i32 %98, -1
-  br i1 %99, label %100, label %.sink.split43
+  br i1 %99, label %100, label %.sink.split44
 
 100:                                              ; preds = %96
   %101 = urem i32 %98, 5
@@ -1722,15 +1722,15 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef ca
   %103 = getelementptr inbounds nuw [5 x i8], ptr @SetLightsForPlayerIndex.lights, i64 0, i64 %102
   %104 = load i8, ptr %103, align 1
   %105 = or i8 %104, 32
-  br label %.sink.split43
+  br label %.sink.split44
 
-.sink.split43:                                    ; preds = %90, %100, %96
+.sink.split44:                                    ; preds = %90, %100, %96
   %.sink.i.sink = phi i8 [ %105, %100 ], [ 0, %96 ], [ 0, %90 ]
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 43
   store i8 %.sink.i.sink, ptr %106, align 1
   br label %107
 
-107:                                              ; preds = %.sink.split43, %85
+107:                                              ; preds = %.sink.split44, %85
   %108 = call fastcc zeroext i1 @HIDAPI_DriverPS5_InternalSendJoystickEffect(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 47, i1 noundef zeroext %2)
   br label %109
 
@@ -2988,13 +2988,13 @@ define internal void @SDL_PS5PlayerLEDHintChanged(ptr noundef captures(none) %0,
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 16, ptr %55, align 1
-  br i1 %6, label %56, label %.sink.split43.i
+  br i1 %6, label %56, label %.sink.split44.i
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %58 = load i32, ptr %57, align 8
   %59 = icmp sgt i32 %58, -1
-  br i1 %59, label %60, label %.sink.split43.i
+  br i1 %59, label %60, label %.sink.split44.i
 
 60:                                               ; preds = %56
   %61 = urem i32 %58, 5
@@ -3002,15 +3002,15 @@ define internal void @SDL_PS5PlayerLEDHintChanged(ptr noundef captures(none) %0,
   %63 = getelementptr inbounds nuw [5 x i8], ptr @SetLightsForPlayerIndex.lights, i64 0, i64 %62
   %64 = load i8, ptr %63, align 1
   %65 = or i8 %64, 32
-  br label %.sink.split43.i
+  br label %.sink.split44.i
 
-.sink.split43.i:                                  ; preds = %60, %56, %54
+.sink.split44.i:                                  ; preds = %60, %56, %54
   %.sink.i.sink.i = phi i8 [ %65, %60 ], [ 0, %56 ], [ 0, %54 ]
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 43
   store i8 %.sink.i.sink.i, ptr %66, align 1
   br label %67
 
-67:                                               ; preds = %.sink.split43.i, %50
+67:                                               ; preds = %.sink.split44.i, %50
   %68 = call fastcc zeroext i1 @HIDAPI_DriverPS5_InternalSendJoystickEffect(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 47, i1 noundef zeroext false) #11
   br label %HIDAPI_DriverPS5_UpdateEffects.exit
 

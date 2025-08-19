@@ -812,9 +812,9 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   %192 = fmul <2 x double> %191, %191
   %193 = fmul <2 x double> %190, %190
   %194 = fadd <2 x double> %193, %192
-  %shift41 = shufflevector <2 x double> %194, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop42 = fadd <2 x double> %194, %shift41
-  %195 = extractelement <2 x double> %foldExtExtBinop42, i64 0
+  %shift44 = shufflevector <2 x double> %194, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop45 = fadd <2 x double> %194, %shift44
+  %195 = extractelement <2 x double> %foldExtExtBinop45, i64 0
   %196 = fcmp ogt double %195, 0.000000e+00
   br i1 %196, label %197, label %_ZNK3g2o7SE3QuatmlERKS0_.exit16
 
@@ -1429,8 +1429,8 @@ define void @_ZN3g2o10EdgeSBACam12computeErrorEv(ptr noundef nonnull align 16 ca
   %131 = load i64, ptr %.sroa.049.sroa.6.0..sroa_idx, align 8, !tbaa !63
   store i64 %131, ptr %.sroa.049.sroa.6, align 16, !tbaa !63
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %.sroa.049.sroa.6.32..sroa_idx122 = getelementptr inbounds nuw i8, ptr %.sroa.049.sroa.6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.049.sroa.6.32..sroa_idx122, ptr noundef nonnull align 16 dereferenceable(16) %132, i64 16, i1 false), !tbaa.struct !217
+  %.sroa.049.sroa.6.32..sroa_idx123 = getelementptr inbounds nuw i8, ptr %.sroa.049.sroa.6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.049.sroa.6.32..sroa_idx123, ptr noundef nonnull align 16 dereferenceable(16) %132, i64 16, i1 false), !tbaa.struct !217
   %.sroa.21.32..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 720
   %.sroa.21.32.copyload = load double, ptr %.sroa.21.32..sroa_idx, align 16, !tbaa !63
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 680
@@ -1471,8 +1471,8 @@ define void @_ZN3g2o10EdgeSBACam12computeErrorEv(ptr noundef nonnull align 16 ca
   %.sroa.049.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.049.sroa.6, i64 8
   %.sroa.049.sroa.6.8..sroa.049.sroa.6.32..sroa.049.32..sroa.049.32..sroa.049.32. = load <2 x double>, ptr %.sroa.049.sroa.6.8..sroa_idx, align 8, !tbaa !63, !alias.scope !214
   %161 = fadd <2 x double> %.sroa.049.sroa.6.8..sroa.049.sroa.6.32..sroa.049.32..sroa.049.32..sroa.049.32., %160
-  %.sroa.049.sroa.6.8..sroa_idx123 = getelementptr inbounds nuw i8, ptr %.sroa.049.sroa.6, i64 8
-  store <2 x double> %161, ptr %.sroa.049.sroa.6.8..sroa_idx123, align 8, !tbaa !63, !alias.scope !214
+  %.sroa.049.sroa.6.8..sroa_idx124 = getelementptr inbounds nuw i8, ptr %.sroa.049.sroa.6, i64 8
+  store <2 x double> %161, ptr %.sroa.049.sroa.6.8..sroa_idx124, align 8, !tbaa !63, !alias.scope !214
   %162 = shufflevector <1 x double> %.sroa.049.sroa.0.0.copyload, <1 x double> poison, <2 x i32> zeroinitializer
   %163 = shufflevector <1 x double> %.sroa.049.sroa.4.0.copyload, <1 x double> poison, <2 x i32> zeroinitializer
   %164 = shufflevector <1 x double> %.sroa.049.sroa.5.0.copyload, <1 x double> poison, <2 x i32> zeroinitializer
@@ -1519,9 +1519,9 @@ define void @_ZN3g2o10EdgeSBACam12computeErrorEv(ptr noundef nonnull align 16 ca
   %196 = fmul <2 x double> %195, %195
   %197 = fmul <2 x double> %194, %194
   %198 = fadd <2 x double> %197, %196
-  %shift118 = shufflevector <2 x double> %198, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop119 = fadd <2 x double> %198, %shift118
-  %199 = extractelement <2 x double> %foldExtExtBinop119, i64 0
+  %shift119 = shufflevector <2 x double> %198, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop120 = fadd <2 x double> %198, %shift119
+  %199 = extractelement <2 x double> %foldExtExtBinop120, i64 0
   %200 = fcmp ogt double %199, 0.000000e+00
   br i1 %200, label %201, label %_ZNK3g2o7SE3QuatmlERKS0_.exit19
 

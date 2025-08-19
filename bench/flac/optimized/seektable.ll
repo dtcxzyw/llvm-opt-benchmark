@@ -27,22 +27,22 @@ define dso_local range(i32 0, 2) i32 @grabbag__seektable_convert_specification_t
   %.not92 = icmp eq i64 %2, 0
   %14 = add i64 %2, -1
   %15 = load i8, ptr %0, align 1, !tbaa !8
-  %.not85111 = icmp eq i8 %15, 0
-  br i1 %.not85111, label %.critedge, label %.lr.ph113
+  %.not85122 = icmp eq i8 %15, 0
+  br i1 %.not85122, label %.critedge, label %.lr.ph124
 
-.lr.ph113:                                        ; preds = %.lr.ph, %.critedge101
+.lr.ph124:                                        ; preds = %.lr.ph, %.critedge101
   %16 = phi i8 [ %66, %.critedge101 ], [ %15, %.lr.ph ]
-  %.063108112 = phi ptr [ %65, %.critedge101 ], [ %0, %.lr.ph ]
-  %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.063108112, i32 noundef 59) #6
-  %18 = icmp ugt ptr %17, %.063108112
+  %.063108123 = phi ptr [ %65, %.critedge101 ], [ %0, %.lr.ph ]
+  %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.063108123, i32 noundef 59) #6
+  %18 = icmp ugt ptr %17, %.063108123
   br i1 %18, label %sub_0, label %.critedge101
 
-sub_0:                                            ; preds = %.lr.ph113
+sub_0:                                            ; preds = %.lr.ph124
   %.not110 = icmp eq i8 %16, 88
   br i1 %.not110, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %19 = getelementptr inbounds nuw i8, ptr %.063108112, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.063108123, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 59
   br i1 %21, label %22, label %.tail.thread
@@ -74,7 +74,7 @@ sub_0:                                            ; preds = %.lr.ph113
   br i1 %.not89, label %30, label %.critedge101
 
 30:                                               ; preds = %29
-  %31 = tail call i64 @strtol(ptr noundef nonnull captures(none) %.063108112, ptr noundef null, i32 noundef 10) #7
+  %31 = tail call i64 @strtol(ptr noundef nonnull captures(none) %.063108123, ptr noundef null, i32 noundef 10) #7
   %32 = trunc i64 %31 to i32
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %34, label %.critedge101
@@ -98,7 +98,7 @@ sub_0:                                            ; preds = %.lr.ph113
   br i1 %.not89, label %40, label %.critedge101
 
 40:                                               ; preds = %39
-  %41 = tail call double @strtod(ptr noundef nonnull captures(none) %.063108112, ptr noundef null) #7
+  %41 = tail call double @strtod(ptr noundef nonnull captures(none) %.063108123, ptr noundef null) #7
   %42 = fcmp ogt double %41, 0.000000e+00
   br i1 %42, label %43, label %.critedge101
 
@@ -126,13 +126,13 @@ sub_0:                                            ; preds = %.lr.ph113
 
 52:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %53 = call i64 @strtoll(ptr noundef nonnull %.063108112, ptr noundef nonnull %7, i32 noundef 10) #7
+  %53 = call i64 @strtoll(ptr noundef nonnull %.063108123, ptr noundef nonnull %7, i32 noundef 10) #7
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %61, label %55
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr %7, align 8, !tbaa !9
-  %57 = icmp ugt ptr %56, %.063108112
+  %57 = icmp ugt ptr %56, %.063108123
   br i1 %57, label %58, label %.critedge104
 
 58:                                               ; preds = %55
@@ -159,11 +159,11 @@ sub_0:                                            ; preds = %.lr.ph113
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge105
 
-.critedge101:                                     ; preds = %43, %47, %30, %34, %.critedge104, %40, %22, %39, %36, %51, %26, %29, %.lr.ph113
+.critedge101:                                     ; preds = %43, %47, %30, %34, %.critedge104, %40, %22, %39, %36, %51, %26, %29, %.lr.ph124
   %65 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %66 = load i8, ptr %65, align 1, !tbaa !8
   %.not85 = icmp eq i8 %66, 0
-  br i1 %.not85, label %.critedge, label %.lr.ph113
+  br i1 %.not85, label %.critedge, label %.lr.ph124
 
 .critedge:                                        ; preds = %.critedge101, %.lr.ph, %9
   %67 = tail call i32 @FLAC__metadata_object_seektable_template_sort(ptr noundef %4, i32 noundef 1) #7

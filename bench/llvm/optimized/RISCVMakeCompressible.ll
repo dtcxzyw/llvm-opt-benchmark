@@ -726,8 +726,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit71:                 ; preds = %259
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit73.sink.split
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit73.sink.split: ; preds = %259, %263
-  %.sink186 = phi ptr [ %14, %263 ], [ %13, %259 ]
-  store ptr null, ptr %.sink186, align 8, !tbaa !360
+  %.sink214 = phi ptr [ %14, %263 ], [ %13, %259 ]
+  store ptr null, ptr %.sink214, align 8, !tbaa !360
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit73
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit73: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit73.sink.split, %_ZN4llvm8DebugLocC2ERKS0_.exit71
@@ -821,8 +821,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit85:                 ; preds = %293
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit87.sink.split
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit87.sink.split: ; preds = %293, %297
-  %.sink187 = phi ptr [ %16, %297 ], [ %15, %293 ]
-  store ptr null, ptr %.sink187, align 8, !tbaa !360
+  %.sink215 = phi ptr [ %16, %297 ], [ %15, %293 ]
+  store ptr null, ptr %.sink215, align 8, !tbaa !360
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit87
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit87: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit87.sink.split, %_ZN4llvm8DebugLocC2ERKS0_.exit85
@@ -919,8 +919,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit99:                 ; preds = %_ZNK4llvm19TargetRe
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit101.sink.split
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit101.sink.split: ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit97.thread, %330
-  %.sink188 = phi ptr [ %18, %330 ], [ %17, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit97.thread ]
-  store ptr null, ptr %.sink188, align 8, !tbaa !360
+  %.sink216 = phi ptr [ %18, %330 ], [ %17, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit97.thread ]
+  store ptr null, ptr %.sink216, align 8, !tbaa !360
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit101
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit101: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit101.sink.split, %_ZN4llvm8DebugLocC2ERKS0_.exit99

@@ -287,13 +287,13 @@ X11_GetScreenResources.exit.i..preheader2.i_crit_edge.i: ; preds = %X11_GetScree
 
 .preheader2.i.i:                                  ; preds = %X11_GetScreenResources.exit.i..preheader2.i_crit_edge.i, %26
   %37 = phi i32 [ %.pre.i, %X11_GetScreenResources.exit.i..preheader2.i_crit_edge.i ], [ %28, %26 ]
-  %.0.i28.i.i = phi ptr [ %36, %X11_GetScreenResources.exit.i..preheader2.i_crit_edge.i ], [ %25, %26 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i28.i.i, i64 32
+  %.0.i34.i.i = phi ptr [ %36, %X11_GetScreenResources.exit.i..preheader2.i_crit_edge.i ], [ %25, %26 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i34.i.i, i64 32
   %39 = icmp sgt i32 %37, 0
   br i1 %39, label %.preheader1.lr.ph.i.i, label %._crit_edge.i.i
 
 .preheader1.lr.ph.i.i:                            ; preds = %.preheader2.i.i
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i28.i.i, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i34.i.i, i64 40
   %41 = load i32, ptr %7, align 4
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %.preheader1.i.i, label %._crit_edge.i.i
@@ -310,7 +310,7 @@ X11_GetScreenResources.exit.i..preheader2.i_crit_edge.i: ; preds = %X11_GetScree
 
 ._crit_edge.i.i:                                  ; preds = %.loopexit.i.i, %.preheader1.lr.ph.i.i, %.preheader2.i.i
   %45 = load ptr, ptr @X11_XRRFreeScreenResources, align 8
-  call void %45(ptr noundef nonnull %.0.i28.i.i) #8
+  call void %45(ptr noundef nonnull %.0.i34.i.i) #8
   br label %66
 
 .lr.ph.i.i:                                       ; preds = %.preheader1.i.i, %.critedge.i.i
@@ -555,7 +555,7 @@ X11_GetScreenResources.exit.i11:                  ; preds = %144, %134
   br i1 %.not27.i, label %189, label %.preheader.i6
 
 .preheader.i6:                                    ; preds = %X11_GetScreenResources.exit.i11, %140
-  %.0.i43.i = phi ptr [ %150, %X11_GetScreenResources.exit.i11 ], [ %139, %140 ]
+  %.0.i47.i = phi ptr [ %150, %X11_GetScreenResources.exit.i11 ], [ %139, %140 ]
   %151 = load i32, ptr %128, align 4
   %.not2831.i = icmp eq i32 %151, 0
   br i1 %.not2831.i, label %._crit_edge.i10, label %.lr.ph.preheader.i
@@ -566,7 +566,7 @@ X11_GetScreenResources.exit.i11:                  ; preds = %144, %134
 
 ._crit_edge.i10:                                  ; preds = %186, %.preheader.i6
   %153 = load ptr, ptr @X11_XRRFreeScreenResources, align 8
-  call void %153(ptr noundef nonnull %.0.i43.i) #8
+  call void %153(ptr noundef nonnull %.0.i47.i) #8
   br label %189
 
 .lr.ph.i7:                                        ; preds = %186, %.lr.ph.preheader.i
@@ -585,7 +585,7 @@ X11_GetScreenResources.exit.i11:                  ; preds = %144, %134
   %163 = load i64, ptr %162, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %164 = call fastcc zeroext i1 @X11_FillXRandRDisplayInfo(ptr noundef %0, ptr noundef %125, i32 noundef %152, i64 noundef %163, ptr noundef nonnull %.0.i43.i, ptr noundef %3, ptr noundef %4)
+  %164 = call fastcc zeroext i1 @X11_FillXRandRDisplayInfo(ptr noundef %0, ptr noundef %125, i32 noundef %152, i64 noundef %163, ptr noundef nonnull %.0.i47.i, ptr noundef %3, ptr noundef %4)
   br i1 %164, label %165, label %X11_UpdateXRandRDisplay.exit.i
 
 165:                                              ; preds = %161
@@ -762,13 +762,13 @@ X11_GetScreenResources.exit.us.i.us..preheader.us.i.us_crit_edge: ; preds = %X11
 
 .preheader.us.i.us:                               ; preds = %X11_GetScreenResources.exit.us.i.us..preheader.us.i.us_crit_edge, %49
   %60 = phi i32 [ %.pre33, %X11_GetScreenResources.exit.us.i.us..preheader.us.i.us_crit_edge ], [ %51, %49 ]
-  %.0.i.us104.i.us = phi ptr [ %59, %X11_GetScreenResources.exit.us.i.us..preheader.us.i.us_crit_edge ], [ %48, %49 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.0.i.us104.i.us, i64 32
+  %.0.i.us117.i.us = phi ptr [ %59, %X11_GetScreenResources.exit.us.i.us..preheader.us.i.us_crit_edge ], [ %48, %49 ]
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i.us117.i.us, i64 32
   %62 = icmp sgt i32 %60, 0
   br i1 %62, label %.lr.ph.us.i.us, label %X11_AddXRandRDisplay.exit._crit_edge.us.i.us
 
 .lr.ph.us.i.us:                                   ; preds = %.preheader.us.i.us
-  %63 = getelementptr inbounds nuw i8, ptr %.0.i.us104.i.us, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i.us117.i.us, i64 40
   br i1 %.not50.us.i.us, label %.critedge.us.us.us.i.us, label %.critedge.us.us78.preheader.i.us
 
 .critedge.us.us78.preheader.i.us:                 ; preds = %.lr.ph.us.i.us
@@ -782,7 +782,7 @@ X11_GetScreenResources.exit.us.i.us..preheader.us.i.us_crit_edge: ; preds = %X11
   %67 = load i64, ptr %66, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %68 = call fastcc zeroext i1 @X11_FillXRandRDisplayInfo(ptr noundef %0, ptr noundef %27, i32 noundef %64, i64 noundef %67, ptr noundef nonnull %.0.i.us104.i.us, ptr noundef %6, ptr noundef %7)
+  %68 = call fastcc zeroext i1 @X11_FillXRandRDisplayInfo(ptr noundef %0, ptr noundef %27, i32 noundef %64, i64 noundef %67, ptr noundef nonnull %.0.i.us117.i.us, ptr noundef %6, ptr noundef %7)
   br i1 %68, label %X11_AddXRandRDisplay.exit.us.us81.i.us, label %X11_AddXRandRDisplay.exit.thread.us.us80.i.us
 
 X11_AddXRandRDisplay.exit.thread.us.us80.i.us:    ; preds = %.critedge.us.us78.i.us
@@ -815,7 +815,7 @@ X11_AddXRandRDisplay.exit.us.us81.i.us:           ; preds = %.critedge.us.us78.i
 78:                                               ; preds = %.critedge.us.us.us.i.us
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %79 = call fastcc zeroext i1 @X11_FillXRandRDisplayInfo(ptr noundef %0, ptr noundef %27, i32 noundef %31, i64 noundef %76, ptr noundef nonnull %.0.i.us104.i.us, ptr noundef %6, ptr noundef %7)
+  %79 = call fastcc zeroext i1 @X11_FillXRandRDisplayInfo(ptr noundef %0, ptr noundef %27, i32 noundef %31, i64 noundef %76, ptr noundef nonnull %.0.i.us117.i.us, ptr noundef %6, ptr noundef %7)
   br i1 %79, label %X11_AddXRandRDisplay.exit.us.us.us.i.us, label %X11_AddXRandRDisplay.exit.thread.us.us.us.i.us
 
 X11_AddXRandRDisplay.exit.thread.us.us.us.i.us:   ; preds = %78
@@ -839,7 +839,7 @@ X11_AddXRandRDisplay.exit.us.us.us.i.us:          ; preds = %78
 
 X11_AddXRandRDisplay.exit._crit_edge.us.i.us:     ; preds = %X11_AddXRandRDisplay.exit.us.us81.i.us, %70, %X11_AddXRandRDisplay.exit.us.us.us.i.us, %81, %.preheader.us.i.us
   %85 = load ptr, ptr @X11_XRRFreeScreenResources, align 8
-  call void %85(ptr noundef nonnull %.0.i.us104.i.us) #8
+  call void %85(ptr noundef nonnull %.0.i.us117.i.us) #8
   %86 = load ptr, ptr @X11_XRRSelectInput, align 8
   %87 = load ptr, ptr %33, align 8
   %88 = getelementptr inbounds nuw %struct.Screen, ptr %87, i64 %indvars.iv98.i.us, i32 2
@@ -902,7 +902,7 @@ X11_GetScreenResources.exit.us.i..preheader.us.i_crit_edge: ; preds = %X11_GetSc
 111:                                              ; preds = %.lr.ph.split.us77.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %112 = call fastcc zeroext i1 @X11_FillXRandRDisplayInfo(ptr noundef %0, ptr noundef %27, i32 noundef %31, i64 noundef %38, ptr noundef nonnull %.0.i.us104.i, ptr noundef %6, ptr noundef %7)
+  %112 = call fastcc zeroext i1 @X11_FillXRandRDisplayInfo(ptr noundef %0, ptr noundef %27, i32 noundef %31, i64 noundef %38, ptr noundef nonnull %.0.i.us117.i, ptr noundef %6, ptr noundef %7)
   br i1 %112, label %X11_AddXRandRDisplay.exit.us73.i, label %X11_AddXRandRDisplay.exit.thread.us72.i
 
 X11_AddXRandRDisplay.exit.thread.us72.i:          ; preds = %111
@@ -919,7 +919,7 @@ X11_AddXRandRDisplay.exit.us73.i:                 ; preds = %111
 
 X11_AddXRandRDisplay.exit._crit_edge.us.i:        ; preds = %119, %X11_AddXRandRDisplay.exit.us73.i, %.preheader.us.i
   %114 = load ptr, ptr @X11_XRRFreeScreenResources, align 8
-  call void %114(ptr noundef nonnull %.0.i.us104.i) #8
+  call void %114(ptr noundef nonnull %.0.i.us117.i) #8
   %115 = load ptr, ptr @X11_XRRSelectInput, align 8
   %116 = load ptr, ptr %33, align 8
   %117 = getelementptr inbounds nuw %struct.Screen, ptr %116, i64 %43, i32 2
@@ -941,13 +941,13 @@ X11_AddXRandRDisplay.exit._crit_edge.us.i:        ; preds = %119, %X11_AddXRandR
 
 .preheader.us.i:                                  ; preds = %X11_GetScreenResources.exit.us.i..preheader.us.i_crit_edge, %97
   %124 = phi i32 [ %.pre, %X11_GetScreenResources.exit.us.i..preheader.us.i_crit_edge ], [ %99, %97 ]
-  %.0.i.us104.i = phi ptr [ %107, %X11_GetScreenResources.exit.us.i..preheader.us.i_crit_edge ], [ %96, %97 ]
-  %125 = getelementptr inbounds nuw i8, ptr %.0.i.us104.i, i64 32
+  %.0.i.us117.i = phi ptr [ %107, %X11_GetScreenResources.exit.us.i..preheader.us.i_crit_edge ], [ %96, %97 ]
+  %125 = getelementptr inbounds nuw i8, ptr %.0.i.us117.i, i64 32
   %126 = icmp sgt i32 %124, 0
   br i1 %126, label %.lr.ph.us.i, label %X11_AddXRandRDisplay.exit._crit_edge.us.i
 
 .lr.ph.us.i:                                      ; preds = %.preheader.us.i
-  %127 = getelementptr inbounds nuw i8, ptr %.0.i.us104.i, i64 40
+  %127 = getelementptr inbounds nuw i8, ptr %.0.i.us117.i, i64 40
   br label %.lr.ph.split.us77.i
 
 ._crit_edge69.us.i:                               ; preds = %123, %90
@@ -1445,14 +1445,14 @@ define internal fastcc noundef zeroext i1 @SetXRandRModeInfo(ptr noundef %0, ptr
   %.035 = phi i32 [ %34, %30 ], [ 65536, %24 ]
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %. = select i1 %.037, i64 8, i64 12
-  %.58 = select i1 %.037, i64 12, i64 8
+  %.61 = select i1 %.037, i64 12, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 %.
-  %.sink55 = load i32, ptr %39, align 4
-  %40 = mul i32 %.sink55, %.036
+  %.sink58 = load i32, ptr %39, align 4
+  %40 = mul i32 %.sink58, %.036
   %41 = add i32 %40, 65535
   %42 = lshr i32 %41, 16
   store i32 %42, ptr %38, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %13, i64 %.58
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 %.61
   %.pn = load i32, ptr %43, align 4
   %.sink.in.in = mul i32 %.pn, %.035
   %.sink.in = add i32 %.sink.in.in, 65535

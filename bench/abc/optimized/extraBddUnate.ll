@@ -667,10 +667,10 @@ define void @Extra_UnateInfoPrint(ptr noundef readonly captures(none) %0) local_
   %15 = load i32, ptr %14, align 4
   %.not = icmp sgt i32 %15, -1
   %.not24 = icmp samesign ult i32 %15, 1073741824
-  %spec.select30 = select i1 %.not24, i8 46, i8 112
-  %.sink = select i1 %.not, i8 %spec.select30, i8 110
-  %.sink29 = and i32 %15, 1073741823
-  %16 = zext nneg i32 %.sink29 to i64
+  %spec.select31 = select i1 %.not24, i8 46, i8 112
+  %.sink = select i1 %.not, i8 %spec.select31, i8 110
+  %.sink30 = and i32 %15, 1073741823
+  %16 = zext nneg i32 %.sink30 to i64
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 %16
   store i8 %.sink, ptr %17, align 1, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -736,8 +736,8 @@ define noalias noundef ptr @Extra_UnateComputeSlow(ptr noundef %0, ptr noundef %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %14, %24
-  %.sink35 = phi i32 [ 1073741824, %24 ], [ -2147483648, %14 ]
-  %25 = or i32 %23, %.sink35
+  %.sink36 = phi i32 [ 1073741824, %24 ], [ -2147483648, %14 ]
+  %25 = or i32 %23, %.sink36
   store i32 %25, ptr %19, align 4
   br label %26
 

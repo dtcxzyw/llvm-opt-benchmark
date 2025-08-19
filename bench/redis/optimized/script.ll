@@ -904,8 +904,8 @@ scriptVerifyACL.exit:                             ; preds = %46
   %.pre23.i = load i64, ptr %.phi.trans.insert22.i, align 8, !tbaa !95
   %65 = and i64 %.pre23.i, 65537
   %.not13.i = icmp eq i64 %65, 0
-  %or.cond24.i = select i1 %.not.i53, i1 true, i1 %.not13.i
-  br i1 %or.cond24.i, label %._crit_edge.i, label %66
+  %or.cond25.i = select i1 %.not.i53, i1 true, i1 %.not13.i
+  br i1 %or.cond25.i, label %._crit_edge.i, label %66
 
 66:                                               ; preds = %61
   %67 = call ptr @sdsnew(ptr noundef nonnull @.str.35) #11

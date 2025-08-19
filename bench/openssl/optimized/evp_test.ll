@@ -685,8 +685,8 @@ define internal range(i32 0, 2) i32 @run_file_tests(i32 noundef %0) #1 {
   store i32 0, ptr @fips_indicator_callback_unapproved_count, align 4, !tbaa !4
   br label %34
 
-34:                                               ; preds = %.backedge346, %33
-  %.0132.i = phi i32 [ 0, %33 ], [ %.1133267.i, %.backedge346 ]
+34:                                               ; preds = %.backedge372, %33
+  %.0132.i = phi i32 [ 0, %33 ], [ %.1133267.i, %.backedge372 ]
   br label %35
 
 35:                                               ; preds = %53, %34
@@ -1098,7 +1098,7 @@ key_unsupported.exit:                             ; preds = %160, %167, %172, %1
   br label %.critedge.thread.i.i
 
 .critedge.thread.i.i:                             ; preds = %199, %.critedge.i.i
-  %.1.i.i = phi i32 [ %.0.i188.i, %.critedge.i.i ], [ 0, %199 ]
+  %.1.i.i = phi i32 [ 1, %.critedge.i.i ], [ 0, %199 ]
   %202 = load ptr, ptr @libctx, align 8, !tbaa !13
   %203 = tail call i32 @OSSL_PROVIDER_available(ptr noundef %202, ptr noundef nonnull %.113.i.i) #10
   %.not18.i.i = icmp eq i32 %203, 0
@@ -1168,7 +1168,7 @@ key_unsupported.exit:                             ; preds = %160, %167, %172, %1
   br i1 %.not16.i203.i, label %.critedge.thread.i199.i, label %.lr.ph.i195.i, !llvm.loop !42
 
 .critedge.thread.i199.i:                          ; preds = %231, %.lr.ph.i195.i
-  %.1.i200.i = phi i32 [ 0, %231 ], [ %.0.i190.i, %.lr.ph.i195.i ]
+  %.1.i200.i = phi i32 [ 0, %231 ], [ 1, %.lr.ph.i195.i ]
   %234 = load ptr, ptr @libctx, align 8, !tbaa !13
   %235 = tail call i32 @OSSL_PROVIDER_available(ptr noundef %234, ptr noundef nonnull %.113.i193.i) #10
   %.not18.i201.i = icmp eq i32 %235, 0
@@ -1244,14 +1244,14 @@ find_key.exit.i:                                  ; preds = %.lr.ph.i205.i
   %265 = load i32, ptr %17, align 4, !tbaa !28
   %266 = sub nsw i32 %265, %.1133267.i
   %.not167.i = icmp eq i32 %266, 1
-  br i1 %.not167.i, label %.backedge346, label %267
+  br i1 %.not167.i, label %.backedge372, label %267
 
 267:                                              ; preds = %260
   %268 = load i32, ptr %20, align 8, !tbaa !46
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.29, i32 noundef 5200, ptr noundef nonnull @.str.52, i32 noundef %268) #10
-  br label %.backedge346
+  br label %.backedge372
 
-.backedge346:                                     ; preds = %267, %260
+.backedge372:                                     ; preds = %267, %260
   br label %34
 
 269:                                              ; preds = %.loopexit
@@ -3572,8 +3572,8 @@ define internal range(i32 0, 2) i32 @cipher_test_run(ptr noundef captures(none) 
 
 .split98.us:                                      ; preds = %.preheader88.split, %.split95, %.preheader88.split.us, %.split95.us.us
   %80 = add nsw i32 %.05899, -1
-  %.not104 = icmp eq i32 %.05899, 0
-  br i1 %.not104, label %81, label %48, !llvm.loop !139
+  %.not107 = icmp eq i32 %.05899, 0
+  br i1 %.not107, label %81, label %48, !llvm.loop !139
 
 81:                                               ; preds = %48, %.split98.us
   %82 = load i64, ptr %3, align 8, !tbaa !35
@@ -3741,13 +3741,13 @@ define internal fastcc range(i32 0, 2) i32 @cipher_test_enc(ptr noundef captures
   tail call void @EVP_CIPHER_CTX_set_flags(ptr noundef %31, i32 noundef 1) #10
   %.not333 = icmp ne i32 %1, 0
   %. = select i1 %.not333, i64 80, i64 96
-  %.544 = select i1 %.not333, i64 88, i64 104
-  %.545 = select i1 %.not333, i64 96, i64 80
-  %.546 = select i1 %.not333, i64 104, i64 88
+  %.561 = select i1 %.not333, i64 88, i64 104
+  %.562 = select i1 %.not333, i64 96, i64 80
+  %.563 = select i1 %.not333, i64 104, i64 88
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 %.
-  %38 = getelementptr inbounds nuw i8, ptr %27, i64 %.544
-  %39 = getelementptr inbounds nuw i8, ptr %27, i64 %.545
-  %40 = getelementptr inbounds nuw i8, ptr %27, i64 %.546
+  %38 = getelementptr inbounds nuw i8, ptr %27, i64 %.561
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 %.562
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 %.563
   %.0286 = load ptr, ptr %37, align 8, !tbaa !10
   %.0292 = load ptr, ptr %39, align 8, !tbaa !10
   %.0308 = load i64, ptr %40, align 8, !tbaa !35
@@ -3786,9 +3786,9 @@ define internal fastcc range(i32 0, 2) i32 @cipher_test_enc(ptr noundef captures
   br label %60
 
 60:                                               ; preds = %55, %45
-  %.sink543 = phi ptr [ %59, %55 ], [ %46, %45 ]
+  %.sink560 = phi ptr [ %59, %55 ], [ %46, %45 ]
   %.1316 = phi ptr [ %54, %55 ], [ %44, %45 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sink543, ptr align 1 %.0286, i64 %.0310, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sink560, ptr align 1 %.0286, i64 %.0310, i1 false)
   %61 = load ptr, ptr %27, align 8, !tbaa !116
   %62 = tail call i32 @EVP_CipherInit_ex2(ptr noundef %31, ptr noundef %61, ptr noundef null, ptr noundef null, i32 noundef %1, ptr noundef nonnull %6) #10
   %.not337 = icmp eq i32 %62, 0
@@ -4365,7 +4365,7 @@ define internal fastcc range(i32 0, 2) i32 @cipher_test_enc(ptr noundef captures
 291:                                              ; preds = %.preheader, %301
   %292 = phi i32 [ %304, %301 ], [ 0, %.preheader ]
   %.1311 = phi i64 [ %306, %301 ], [ %.0310, %.preheader ]
-  %.2288 = phi ptr [ %305, %301 ], [ %.sink543, %.preheader ]
+  %.2288 = phi ptr [ %305, %301 ], [ %.sink560, %.preheader ]
   %293 = load i32, ptr @data_chunk_size, align 4, !tbaa !4
   %294 = icmp eq i32 %293, 0
   %295 = sext i32 %293 to i64
@@ -4394,7 +4394,7 @@ define internal fastcc range(i32 0, 2) i32 @cipher_test_enc(ptr noundef captures
 
 308:                                              ; preds = %307
   %309 = getelementptr inbounds nuw i8, ptr %.1316, i64 %2
-  %310 = call i32 @EVP_CipherUpdate(ptr noundef %.2297, ptr noundef nonnull %309, ptr noundef nonnull %9, ptr noundef %.sink543, i32 noundef 1) #10
+  %310 = call i32 @EVP_CipherUpdate(ptr noundef %.2297, ptr noundef nonnull %309, ptr noundef nonnull %9, ptr noundef %.sink560, i32 noundef 1) #10
   %.not383 = icmp eq i32 %310, 0
   br i1 %.not383, label %.loopexit, label %311
 
@@ -4403,7 +4403,7 @@ define internal fastcc range(i32 0, 2) i32 @cipher_test_enc(ptr noundef captures
   %313 = load i32, ptr %8, align 4, !tbaa !4
   %314 = add nsw i32 %313, %312
   store i32 %314, ptr %8, align 4, !tbaa !4
-  %315 = getelementptr inbounds nuw i8, ptr %.sink543, i64 1
+  %315 = getelementptr inbounds nuw i8, ptr %.sink560, i64 1
   %316 = add i64 %.0310, -1
   %317 = icmp ugt i64 %316, 1
   br i1 %317, label %318, label %328
@@ -5440,7 +5440,7 @@ parse_bin_chunk.exit.thread.thread49:             ; preds = %38
 .tail.thread.i:                                   ; preds = %sub_1.i
   %45 = load i8, ptr %33, align 1, !tbaa !34
   %46 = icmp eq i8 %45, 0
-  br i1 %46, label %parse_bin_chunk.exit.thread, label %.thread57.i
+  br i1 %46, label %parse_bin_chunk.exit.thread, label %.thread60.i
 
 .tail.thread.thread.i:                            ; preds = %sub_0.i
   %47 = load i8, ptr %33, align 1, !tbaa !34
@@ -5450,9 +5450,9 @@ parse_bin_chunk.exit.thread.thread49:             ; preds = %38
 .thread.i:                                        ; preds = %.tail.i
   %49 = load i8, ptr %33, align 1, !tbaa !34
   %50 = icmp eq i8 %49, 0
-  br i1 %50, label %parse_bin_chunk.exit.thread, label %.thread57.i
+  br i1 %50, label %parse_bin_chunk.exit.thread, label %.thread60.i
 
-.thread57.i:                                      ; preds = %.thread.i, %.tail.thread.i
+.thread60.i:                                      ; preds = %.thread.i, %.tail.thread.i
   %51 = phi i8 [ %49, %.thread.i ], [ %45, %.tail.thread.i ]
   %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #11
   %53 = icmp ne i64 %52, 1
@@ -5460,7 +5460,7 @@ parse_bin_chunk.exit.thread.thread49:             ; preds = %38
   %or.cond.i = or i1 %.not52.i, %53
   br i1 %or.cond.i, label %54, label %parse_bin_chunk.exit
 
-54:                                               ; preds = %.thread57.i
+54:                                               ; preds = %.thread60.i
   %.not52.not.i = xor i1 %.not52.i, true
   %brmerge.i = or i1 %53, %.not52.not.i
   br i1 %brmerge.i, label %55, label %parse_bin_chunk.exit.thread
@@ -5549,8 +5549,8 @@ evp_test_buffer_free.exit:                        ; preds = %parse_bin_chunk.exi
   %83 = icmp eq i32 %.02345, 1
   br i1 %83, label %.split, label %evp_test_buffer_free.exit33, !llvm.loop !169
 
-parse_bin_chunk.exit:                             ; preds = %.split, %.thread57.i, %.split.us.split, %.loopexit
-  %84 = phi ptr [ %26, %.loopexit ], [ %15, %.split.us.split ], [ %26, %.thread57.i ], [ %26, %.split ]
+parse_bin_chunk.exit:                             ; preds = %.split, %.thread60.i, %.split.us.split, %.loopexit
+  %84 = phi ptr [ %26, %.loopexit ], [ %15, %.split.us.split ], [ %26, %.thread60.i ], [ %26, %.split ]
   %.not.i32 = icmp eq ptr %84, null
   br i1 %.not.i32, label %evp_test_buffer_free.exit33, label %.thread
 
@@ -5560,10 +5560,10 @@ parse_bin_chunk.exit:                             ; preds = %.split, %.thread57.
   br label %evp_test_buffer_free.exit33.sink.split
 
 evp_test_buffer_free.exit33.sink.split:           ; preds = %parse_bin_chunk.exit.thread.us, %.thread
-  %.sink82 = phi ptr [ %86, %.thread ], [ null, %parse_bin_chunk.exit.thread.us ]
+  %.sink87 = phi ptr [ %86, %.thread ], [ null, %parse_bin_chunk.exit.thread.us ]
   %.sink = phi ptr [ %85, %.thread ], [ %15, %parse_bin_chunk.exit.thread.us ]
   %.025.ph = phi i32 [ 0, %.thread ], [ 1, %parse_bin_chunk.exit.thread.us ]
-  call void @CRYPTO_free(ptr noundef %.sink82, ptr noundef nonnull @.str.29, i32 noundef 368) #10
+  call void @CRYPTO_free(ptr noundef %.sink87, ptr noundef nonnull @.str.29, i32 noundef 368) #10
   call void @CRYPTO_free(ptr noundef nonnull %.sink, ptr noundef nonnull @.str.29, i32 noundef 369) #10
   br label %evp_test_buffer_free.exit33
 
@@ -7077,7 +7077,7 @@ sub_167.i:                                        ; preds = %sub_066.i
 97:                                               ; preds = %.tail65.thread.i
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 35240
   store ptr @.str.303, ptr %98, align 8, !tbaa !64
-  br label %.sink.split72.i
+  br label %.sink.split73.i
 
 99:                                               ; preds = %.tail65.thread.i
   %100 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(7) @.str.99) #11
@@ -7087,7 +7087,7 @@ sub_167.i:                                        ; preds = %sub_066.i
 102:                                              ; preds = %99
   %103 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.057.i, ptr noundef nonnull @.str.215) #10
   %.not64.i = icmp eq i32 %103, 0
-  br i1 %.not64.i, label %104, label %.sink.split72.i
+  br i1 %.not64.i, label %104, label %.sink.split73.i
 
 104:                                              ; preds = %102
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.29, i32 noundef 3827, ptr noundef nonnull @.str.134, ptr noundef nonnull %.057.i) #10
@@ -7101,12 +7101,12 @@ sub_167.i:                                        ; preds = %sub_066.i
 108:                                              ; preds = %105
   %109 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(7) @.str.304) #11
   %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %.sink.split72.i
+  br i1 %110, label %111, label %.sink.split73.i
 
 111:                                              ; preds = %108, %105
   %112 = call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %.057.i, ptr noundef nonnull @.str.139, i64 noundef 3) #10
   %.not63.i = icmp eq i32 %112, 0
-  br i1 %.not63.i, label %113, label %.sink.split72.i
+  br i1 %.not63.i, label %113, label %.sink.split73.i
 
 113:                                              ; preds = %111
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.29, i32 noundef 3836, ptr noundef nonnull @.str.134, ptr noundef nonnull %.057.i) #10
@@ -7115,16 +7115,16 @@ sub_167.i:                                        ; preds = %sub_066.i
 .sink.split.i:                                    ; preds = %113, %104, %90, %80, %73, %66, %59, %52, %46
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 35224
   store i32 1, ptr %114, align 8, !tbaa !26
-  br label %.sink.split72.i
+  br label %.sink.split73.i
 
-.sink.split72.i:                                  ; preds = %.sink.split.i, %111, %108, %102, %97
+.sink.split73.i:                                  ; preds = %.sink.split.i, %111, %108, %102, %97
   %.sink.i = phi i32 [ 3822, %97 ], [ 3846, %.sink.split.i ], [ 3846, %108 ], [ 3846, %111 ], [ 3846, %102 ]
   %.0.ph.i = phi i32 [ 0, %97 ], [ 1, %.sink.split.i ], [ 1, %108 ], [ 1, %111 ], [ 1, %102 ]
   call void @CRYPTO_free(ptr noundef nonnull %32, ptr noundef nonnull @.str.29, i32 noundef %.sink.i) #10
   br label %ctrladd.exit
 
-ctrladd.exit:                                     ; preds = %.sink.split72.i, %28, %24, %21, %16, %25, %9
-  %.0 = phi i32 [ %12, %9 ], [ 0, %25 ], [ -1, %24 ], [ -1, %16 ], [ 1, %21 ], [ 0, %28 ], [ %.0.ph.i, %.sink.split72.i ]
+ctrladd.exit:                                     ; preds = %.sink.split73.i, %28, %24, %21, %16, %25, %9
+  %.0 = phi i32 [ %12, %9 ], [ 0, %25 ], [ -1, %24 ], [ -1, %16 ], [ 1, %21 ], [ 0, %28 ], [ %.0.ph.i, %.sink.split73.i ]
   ret i32 %.0
 }
 

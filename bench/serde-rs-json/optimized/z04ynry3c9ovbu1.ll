@@ -880,7 +880,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h6b2
 .lr.ph.i30.us:                                    ; preds = %18, %.backedge.sink.split.i.us
   %19 = phi i64 [ %.sink.i36.us, %.backedge.sink.split.i.us ], [ %.sroa.3251.0.us, %18 ]
   %20 = phi i64 [ %60, %.backedge.sink.split.i.us ], [ %17, %18 ]
-  %21 = phi i64 [ %.ph84.i.us, %.backedge.sink.split.i.us ], [ %.sroa.20.0.us, %18 ]
+  %21 = phi i64 [ %.ph91.i.us, %.backedge.sink.split.i.us ], [ %.sroa.20.0.us, %18 ]
   %22 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload, i64 %20
   %23 = load i8, ptr %22, align 1, !alias.scope !139, !noalias !144, !noundef !4
   %24 = and i8 %23, 63
@@ -902,7 +902,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h6b2
 .preheader101.us:                                 ; preds = %30, %39
   %.sroa.5.0.i34.us = phi i64 [ %34, %39 ], [ %.sroa.03.sroa.4.0.copyload, %30 ]
   %32 = icmp ult i64 %19, %.sroa.5.0.i34.us
-  br i1 %32, label %33, label %.loopexit266
+  br i1 %32, label %33, label %.loopexit286
 
 33:                                               ; preds = %.preheader101.us
   %34 = add i64 %.sroa.5.0.i34.us, -1
@@ -952,8 +952,8 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h6b2
 
 .backedge.sink.split.i.us:                        ; preds = %58, %55, %44
   %.sink.i36.us = phi i64 [ 0, %58 ], [ %13, %44 ], [ 0, %55 ]
-  %.ph84.i.us = phi i64 [ %59, %58 ], [ %45, %44 ], [ %57, %55 ]
-  %60 = add i64 %.ph84.i.us, %12
+  %.ph91.i.us = phi i64 [ %59, %58 ], [ %45, %44 ], [ %57, %55 ]
+  %60 = add i64 %.ph91.i.us, %12
   %.not38.i38.us = icmp ult i64 %60, %.sroa.03.sroa.13.0.copyload
   br i1 %.not38.i38.us, label %.lr.ph.i30.us, label %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h00178e3998ce88a3E.exit.thread"
 
@@ -982,7 +982,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h6b2
 .preheader.us:                                    ; preds = %.preheader100.us, %77
   %.sroa.5.0.i.us = phi i64 [ %73, %77 ], [ %.sroa.03.sroa.4.0.copyload, %.preheader100.us ]
   %.not99.us = icmp eq i64 %.sroa.5.0.i.us, 0
-  br i1 %.not99.us, label %.loopexit266, label %72
+  br i1 %.not99.us, label %.loopexit286, label %72
 
 72:                                               ; preds = %.preheader.us
   %73 = add i64 %.sroa.5.0.i.us, -1
@@ -1005,7 +1005,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h6b2
   %83 = add i64 %.sroa.03.sroa.6.0.copyload, %63
   br label %.backedge.i.us
 
-.loopexit266:                                     ; preds = %.preheader101.us, %.preheader.us
+.loopexit286:                                     ; preds = %.preheader101.us, %.preheader.us
   %.sroa.3251.1.us = phi i64 [ -1, %.preheader.us ], [ 0, %.preheader101.us ]
   %.sroa.6.2.us = phi i64 [ %63, %.preheader.us ], [ %21, %.preheader101.us ]
   %.sroa.20.1.us = add i64 %.sroa.6.2.us, %.sroa.03.sroa.15.0.copyload
@@ -1017,7 +1017,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h6b2
   %89 = icmp ugt i64 %85, %88
   br i1 %89, label %90, label %91
 
-90:                                               ; preds = %.loopexit266
+90:                                               ; preds = %.loopexit286
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h948e40cee1b136e6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %86, i64 noundef %85)
           to label %.noexc18.us unwind label %.loopexit.split.us
 
@@ -1025,8 +1025,8 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h6b2
   %.pre.i.i17.us = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !167, !noalias !165
   br label %91
 
-91:                                               ; preds = %.noexc18.us, %.loopexit266
-  %92 = phi i64 [ %86, %.loopexit266 ], [ %.pre.i.i17.us, %.noexc18.us ]
+91:                                               ; preds = %.noexc18.us, %.loopexit286
+  %92 = phi i64 [ %86, %.loopexit286 ], [ %.pre.i.i17.us, %.noexc18.us ]
   %93 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !167, !noalias !165, !nonnull !4, !noundef !4
   %94 = getelementptr inbounds i8, ptr %93, i64 %92
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr nonnull readonly align 1 %84, i64 %85, i1 false)

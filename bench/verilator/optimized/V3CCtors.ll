@@ -724,9 +724,9 @@ _ZN16VSelfPointerTextC2ENS_4ThisE.exit.thread:    ; preds = %134
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i: ; preds = %152, %149
   %154 = phi ptr [ %145, %149 ], [ %.pr.pre.i.i.i.i.i, %152 ]
   %.not8.i.i.i.i.i = icmp eq ptr %154, null
-  br i1 %.not8.i.i.i.i.i, label %_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit.thread341, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.thread
+  br i1 %.not8.i.i.i.i.i, label %_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit.thread390, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.thread
 
-_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit.thread341: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i
+_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit.thread390: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i
   store ptr %136, ptr %117, align 8, !tbaa !100
   br label %_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit.thread
 
@@ -779,7 +779,7 @@ _ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit: ; preds = %160, %_ZN9
   store ptr %136, ptr %117, align 8, !tbaa !100
   br i1 %.not.i.i.i.i127, label %_ZN16VSelfPointerTextD2Ev.exit, label %_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit.thread
 
-_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit.thread: ; preds = %_ZN16VSelfPointerTextC2ENS_4ThisE.exit, %_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit.thread341, %_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit
+_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit.thread: ; preds = %_ZN16VSelfPointerTextC2ENS_4ThisE.exit, %_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit.thread390, %_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit
   %176 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %177 = load atomic i64, ptr %176 acquire, align 8
   %178 = icmp eq i64 %177, 4294967297
@@ -2922,7 +2922,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN12V3NumberData9ValueAndXEmS1_ET_S3_T0_RSaIT1_E.exit, label %23
 
@@ -5348,9 +5348,9 @@ _ZN16VSelfPointerTextC2ENS_4ThisE.exit.thread:    ; preds = %70
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i: ; preds = %88, %85
   %90 = phi ptr [ %81, %85 ], [ %.pr.pre.i.i.i.i.i, %88 ]
   %.not8.i.i.i.i.i = icmp eq ptr %90, null
-  br i1 %.not8.i.i.i.i.i, label %_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit.thread45, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.thread
+  br i1 %.not8.i.i.i.i.i, label %_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit.thread58, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.thread
 
-_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit.thread45: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i
+_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit.thread58: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i
   store ptr %72, ptr %41, align 8, !tbaa !100
   br label %_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit.thread
 
@@ -5403,7 +5403,7 @@ _ZN8AstCCall11selfPointerERK16VSelfPointerText.exit: ; preds = %96, %_ZN9__gnu_c
   store ptr %72, ptr %41, align 8, !tbaa !100
   br i1 %.not.i.i.i.i, label %_ZN16VSelfPointerTextD2Ev.exit, label %_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit.thread
 
-_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit.thread: ; preds = %_ZN16VSelfPointerTextC2ENS_4ThisE.exit, %_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit.thread45, %_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit
+_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit.thread: ; preds = %_ZN16VSelfPointerTextC2ENS_4ThisE.exit, %_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit.thread58, %_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit
   %112 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %113 = load atomic i64, ptr %112 acquire, align 8
   %114 = icmp eq i64 %113, 4294967297

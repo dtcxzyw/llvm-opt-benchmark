@@ -82,7 +82,7 @@ select.unfold:                                    ; preds = %9, %16, %19
 
 .loopexit.thread.i:                               ; preds = %select.unfold
   store i8 39, ptr %31, align 1
-  %.12333.i = getelementptr inbounds nuw i8, ptr %27, i64 5
+  %.12336.i = getelementptr inbounds nuw i8, ptr %27, i64 5
   br label %quote_literal_internal.exit
 
 34:                                               ; preds = %.lr.ph.i
@@ -136,7 +136,7 @@ select.unfold:                                    ; preds = %9, %16, %19
 
 quote_literal_internal.exit:                      ; preds = %45, %.loopexit.thread.i
   %.0.pn.lcssa.i = phi ptr [ %31, %.loopexit.thread.i ], [ %.2.i, %45 ]
-  %.1.lcssa.i = phi ptr [ %.12333.i, %.loopexit.thread.i ], [ %.1.i, %45 ]
+  %.1.lcssa.i = phi ptr [ %.12336.i, %.loopexit.thread.i ], [ %.1.i, %45 ]
   %48 = getelementptr inbounds nuw i8, ptr %.0.pn.lcssa.i, i64 2
   store i8 39, ptr %.1.lcssa.i, align 1
   %49 = ptrtoint ptr %48 to i64
@@ -168,7 +168,7 @@ define dso_local ptr @quote_literal_cstr(ptr noundef readonly captures(address) 
 
 .loopexit.thread.i:                               ; preds = %1
   store i8 39, ptr %7, align 1
-  %.12333.i = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %.12336.i = getelementptr inbounds nuw i8, ptr %7, i64 1
   br label %quote_literal_internal.exit
 
 10:                                               ; preds = %.lr.ph.i
@@ -222,7 +222,7 @@ define dso_local ptr @quote_literal_cstr(ptr noundef readonly captures(address) 
 
 quote_literal_internal.exit:                      ; preds = %21, %.loopexit.thread.i
   %.0.pn.lcssa.i = phi ptr [ %7, %.loopexit.thread.i ], [ %.2.i, %21 ]
-  %.1.lcssa.i = phi ptr [ %.12333.i, %.loopexit.thread.i ], [ %.1.i, %21 ]
+  %.1.lcssa.i = phi ptr [ %.12336.i, %.loopexit.thread.i ], [ %.1.i, %21 ]
   %24 = getelementptr inbounds nuw i8, ptr %.0.pn.lcssa.i, i64 2
   store i8 39, ptr %.1.lcssa.i, align 1
   %25 = ptrtoint ptr %24 to i64

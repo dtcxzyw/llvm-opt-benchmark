@@ -1244,7 +1244,7 @@ h263_get_modb.exit:                               ; preds = %158, %156, %105, %1
   %265 = lshr exact i32 128, %262
   %266 = and i32 %265, %263
   %.not.i406 = icmp eq i32 %266, 0
-  br i1 %.not.i406, label %267, label %h263p_decode_umotion.exit.thread552
+  br i1 %.not.i406, label %267, label %h263p_decode_umotion.exit.thread568
 
 267:                                              ; preds = %260
   %268 = lshr i32 %264, 3
@@ -1402,16 +1402,16 @@ h263p_decode_umotion.exit:                        ; preds = %364, %get_vlc2.exit
   %372 = icmp sgt i32 %.1325, 65534
   br i1 %372, label %h263p_decode_umotion.exit.thread, label %374
 
-h263p_decode_umotion.exit.thread552:              ; preds = %260
+h263p_decode_umotion.exit.thread568:              ; preds = %260
   %373 = icmp sgt i32 %254, 65534
-  br i1 %373, label %h263p_decode_umotion.exit.thread, label %.thread554
+  br i1 %373, label %h263p_decode_umotion.exit.thread, label %.thread570
 
 374:                                              ; preds = %h263p_decode_umotion.exit
-  br i1 %.not360, label %431, label %.thread554
+  br i1 %.not360, label %431, label %.thread570
 
-.thread554:                                       ; preds = %h263p_decode_umotion.exit.thread552, %374
-  %.1325483556 = phi i32 [ %.1325, %374 ], [ %254, %h263p_decode_umotion.exit.thread552 ]
-  %375 = phi i32 [ %371, %374 ], [ %264, %h263p_decode_umotion.exit.thread552 ]
+.thread570:                                       ; preds = %h263p_decode_umotion.exit.thread568, %374
+  %.1325483572 = phi i32 [ %.1325, %374 ], [ %254, %h263p_decode_umotion.exit.thread568 ]
+  %375 = phi i32 [ %371, %374 ], [ %264, %h263p_decode_umotion.exit.thread568 ]
   %376 = load i32, ptr %6, align 4, !tbaa !85
   %377 = lshr i32 %375, 3
   %378 = zext nneg i32 %377 to i64
@@ -1426,7 +1426,7 @@ h263p_decode_umotion.exit.thread552:              ; preds = %260
   %.not.i410 = icmp eq i32 %385, 0
   br i1 %.not.i410, label %386, label %h263p_decode_umotion.exit416
 
-386:                                              ; preds = %.thread554
+386:                                              ; preds = %.thread570
   %387 = lshr i32 %383, 3
   %388 = zext nneg i32 %387 to i64
   %389 = getelementptr inbounds nuw i8, ptr %256, i64 %388
@@ -1490,7 +1490,7 @@ h263p_decode_umotion.exit.thread552:              ; preds = %260
   br label %h263p_decode_umotion.exit416
 
 431:                                              ; preds = %.thread, %374
-  %.1325483551 = phi i32 [ %363, %.thread ], [ %.1325, %374 ]
+  %.1325483567 = phi i32 [ %363, %.thread ], [ %.1325, %374 ]
   %432 = phi i32 [ %356, %.thread ], [ %371, %374 ]
   %433 = load i32, ptr %6, align 4, !tbaa !85
   %434 = lshr i32 %432, 3
@@ -1582,30 +1582,30 @@ h263p_decode_umotion.exit416.thread485:           ; preds = %473
   %spec.select38.i427 = select i1 %or.cond3.i426, i32 %494, i32 %spec.select37.i425
   br label %h263p_decode_umotion.exit416
 
-h263p_decode_umotion.exit416:                     ; preds = %488, %get_vlc2.exit.i417, %426, %.thread554
-  %.1325483550 = phi i32 [ %.1325483556, %426 ], [ %.1325483556, %.thread554 ], [ %.1325483551, %get_vlc2.exit.i417 ], [ %.1325483551, %488 ]
-  %495 = phi i32 [ %376, %426 ], [ %376, %.thread554 ], [ %433, %get_vlc2.exit.i417 ], [ %433, %488 ]
-  %.1329 = phi i32 [ %430, %426 ], [ %376, %.thread554 ], [ %433, %get_vlc2.exit.i417 ], [ %spec.select38.i427, %488 ]
+h263p_decode_umotion.exit416:                     ; preds = %488, %get_vlc2.exit.i417, %426, %.thread570
+  %.1325483566 = phi i32 [ %.1325483572, %426 ], [ %.1325483572, %.thread570 ], [ %.1325483567, %get_vlc2.exit.i417 ], [ %.1325483567, %488 ]
+  %495 = phi i32 [ %376, %426 ], [ %376, %.thread570 ], [ %433, %get_vlc2.exit.i417 ], [ %433, %488 ]
+  %.1329 = phi i32 [ %430, %426 ], [ %376, %.thread570 ], [ %433, %get_vlc2.exit.i417 ], [ %spec.select38.i427, %488 ]
   %496 = icmp sgt i32 %.1329, 65534
   br i1 %496, label %h263p_decode_umotion.exit.thread, label %497
 
 497:                                              ; preds = %h263p_decode_umotion.exit416.thread485, %h263p_decode_umotion.exit416
-  %.1325483549 = phi i32 [ %.1325483551, %h263p_decode_umotion.exit416.thread485 ], [ %.1325483550, %h263p_decode_umotion.exit416 ]
+  %.1325483565 = phi i32 [ %.1325483567, %h263p_decode_umotion.exit416.thread485 ], [ %.1325483566, %h263p_decode_umotion.exit416 ]
   %498 = phi i32 [ %433, %h263p_decode_umotion.exit416.thread485 ], [ %495, %h263p_decode_umotion.exit416 ]
   %.1329487 = phi i32 [ %487, %h263p_decode_umotion.exit416.thread485 ], [ %.1329, %h263p_decode_umotion.exit416 ]
   %499 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %249, i64 0, i64 %indvars.iv
-  store i32 %.1325483549, ptr %499, align 8, !tbaa !85
+  store i32 %.1325483565, ptr %499, align 8, !tbaa !85
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 4
   store i32 %.1329487, ptr %500, align 4, !tbaa !85
   %501 = load i32, ptr %247, align 8, !tbaa !55
   %.not362 = icmp ne i32 %501, 0
-  %502 = sub nsw i32 %.1325483549, %254
+  %502 = sub nsw i32 %.1325483565, %254
   %503 = icmp eq i32 %502, 1
-  %or.cond575 = select i1 %.not362, i1 %503, i1 false
+  %or.cond591 = select i1 %.not362, i1 %503, i1 false
   %504 = sub nsw i32 %.1329487, %498
   %505 = icmp eq i32 %504, 1
-  %or.cond577 = select i1 %or.cond575, i1 %505, i1 false
-  br i1 %or.cond577, label %506, label %509
+  %or.cond593 = select i1 %or.cond591, i1 %505, i1 false
+  br i1 %or.cond593, label %506, label %509
 
 506:                                              ; preds = %497
   %507 = load i32, ptr %18, align 8, !tbaa !73
@@ -1614,7 +1614,7 @@ h263p_decode_umotion.exit416:                     ; preds = %488, %get_vlc2.exit
   br label %509
 
 509:                                              ; preds = %506, %497
-  %510 = trunc i32 %.1325483549 to i16
+  %510 = trunc i32 %.1325483565 to i16
   store i16 %510, ptr %252, align 2, !tbaa !70
   %511 = trunc i32 %.1329487 to i16
   %512 = getelementptr inbounds nuw i8, ptr %252, i64 2
@@ -2044,9 +2044,9 @@ h263_decode_dquant.exit:                          ; preds = %675, %691, %699
 
 set_one_direct_mv.exit.i:                         ; preds = %803, %793
   %.idx.sink.i.i = phi i64 [ %.idx.i.i, %803 ], [ %.idx49.i.i, %793 ]
-  %.sink3.i.i = phi i32 [ %809, %803 ], [ %802, %793 ]
+  %.sink4.i.i = phi i32 [ %809, %803 ], [ %802, %793 ]
   %810 = getelementptr i8, ptr %756, i64 %.idx.sink.i.i
-  store i32 %.sink3.i.i, ptr %810, align 4, !tbaa !85
+  store i32 %.sink4.i.i, ptr %810, align 4, !tbaa !85
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %set_direct_mv.exit, label %763, !llvm.loop !120
@@ -2128,11 +2128,11 @@ set_one_direct_mv.exit.i:                         ; preds = %803, %793
 
 set_one_direct_mv.exit44.i:                       ; preds = %862, %852
   %.sink47.i = phi i32 [ %857, %852 ], [ %866, %862 ]
-  %.sink3.i43.i = phi i32 [ %861, %852 ], [ %869, %862 ]
+  %.sink4.i43.i = phi i32 [ %861, %852 ], [ %869, %862 ]
   %870 = getelementptr i8, ptr %0, i64 2980
   store i32 %.sink47.i, ptr %870, align 4, !tbaa !85
   %871 = getelementptr i8, ptr %0, i64 3012
-  store i32 %.sink3.i43.i, ptr %871, align 4, !tbaa !85
+  store i32 %.sink4.i43.i, ptr %871, align 4, !tbaa !85
   %872 = getelementptr inbounds nuw i8, ptr %0, i64 3000
   store i32 %844, ptr %872, align 8, !tbaa !85
   %873 = getelementptr inbounds nuw i8, ptr %0, i64 2992
@@ -2152,11 +2152,11 @@ set_one_direct_mv.exit44.i:                       ; preds = %862, %852
   %880 = getelementptr inbounds nuw i8, ptr %0, i64 3016
   store i32 %.sink.i41.i, ptr %880, align 8, !tbaa !85
   %881 = getelementptr inbounds nuw i8, ptr %0, i64 3036
-  store i32 %.sink3.i43.i, ptr %881, align 4, !tbaa !85
+  store i32 %.sink4.i43.i, ptr %881, align 4, !tbaa !85
   %882 = getelementptr inbounds nuw i8, ptr %0, i64 3028
-  store i32 %.sink3.i43.i, ptr %882, align 4, !tbaa !85
+  store i32 %.sink4.i43.i, ptr %882, align 4, !tbaa !85
   %883 = getelementptr inbounds nuw i8, ptr %0, i64 3020
-  store i32 %.sink3.i43.i, ptr %883, align 4, !tbaa !85
+  store i32 %.sink4.i43.i, ptr %883, align 4, !tbaa !85
   %884 = getelementptr inbounds nuw i8, ptr %0, i64 2972
   store i32 1, ptr %884, align 4, !tbaa !93
   br label %set_direct_mv.exit
@@ -2755,23 +2755,23 @@ h263_decode_dquant.exit449:                       ; preds = %1192, %1208, %1216
   %1237 = getelementptr inbounds nuw i8, ptr %0, i64 4176
   %1238 = load ptr, ptr %1236, align 8, !tbaa !74
   %.promoted527 = load i32, ptr %1237, align 8, !tbaa !73
-  br label %1239
+  %1239 = icmp eq i32 %.1321, 1
+  br label %1240
 
 .preheader:                                       ; preds = %get_vlc2.exit.i463, %.loopexit.thread, %.loopexit
-  %.0311562 = phi i32 [ %.2313, %.loopexit.thread ], [ %.0311, %.loopexit ], [ %.0311, %get_vlc2.exit.i463 ]
-  %.1479561 = phi i32 [ 0, %.loopexit.thread ], [ %.1479, %.loopexit ], [ %.1479, %get_vlc2.exit.i463 ]
+  %.0311578 = phi i32 [ %.2313, %.loopexit.thread ], [ %.0311, %.loopexit ], [ %.0311, %get_vlc2.exit.i463 ]
+  %.1479577 = phi i32 [ 0, %.loopexit.thread ], [ %.1479, %.loopexit ], [ %.1479, %get_vlc2.exit.i463 ]
   br label %1316
 
-1239:                                             ; preds = %.lr.ph, %get_vlc2.exit.i463
-  %1240 = phi i32 [ %.promoted527, %.lr.ph ], [ %spec.select579, %get_vlc2.exit.i463 ]
-  %.3323526 = phi i32 [ %.1321, %.lr.ph ], [ %1241, %get_vlc2.exit.i463 ]
-  %1241 = add nsw i32 %.3323526, -1
-  %1242 = lshr i32 %1240, 3
+1240:                                             ; preds = %.lr.ph, %get_vlc2.exit.i463
+  %1241 = phi i32 [ %.promoted527, %.lr.ph ], [ %spec.select595, %get_vlc2.exit.i463 ]
+  %.3323526 = phi i1 [ %1239, %.lr.ph ], [ true, %get_vlc2.exit.i463 ]
+  %1242 = lshr i32 %1241, 3
   %1243 = zext nneg i32 %1242 to i64
   %1244 = getelementptr inbounds nuw i8, ptr %1238, i64 %1243
   %1245 = load i32, ptr %1244, align 1, !tbaa !72
   %1246 = call i32 @llvm.bswap.i32(i32 %1245)
-  %1247 = and i32 %1240, 7
+  %1247 = and i32 %1241, 7
   %1248 = shl i32 %1246, %1247
   %1249 = lshr i32 %1248, 23
   %1250 = zext nneg i32 %1249 to i64
@@ -2784,8 +2784,8 @@ h263_decode_dquant.exit449:                       ; preds = %1192, %1208, %1216
   %1257 = icmp slt i16 %1255, 0
   br i1 %1257, label %1258, label %get_vlc2.exit.i450
 
-1258:                                             ; preds = %1239
-  %1259 = add i32 %1240, 9
+1258:                                             ; preds = %1240
+  %1259 = add i32 %1241, 9
   %1260 = lshr i32 %1259, 3
   %1261 = zext nneg i32 %1260 to i64
   %1262 = getelementptr inbounds nuw i8, ptr %1238, i64 %1261
@@ -2805,21 +2805,21 @@ h263_decode_dquant.exit449:                       ; preds = %1192, %1208, %1216
   %1276 = sext i16 %1275 to i32
   br label %get_vlc2.exit.i450
 
-get_vlc2.exit.i450:                               ; preds = %1258, %1239
-  %.051.i.i451 = phi i32 [ %1273, %1258 ], [ %1253, %1239 ]
-  %.050.i.i452 = phi i32 [ %1259, %1258 ], [ %1240, %1239 ]
-  %.0.i.i453 = phi i32 [ %1276, %1258 ], [ %1256, %1239 ]
+get_vlc2.exit.i450:                               ; preds = %1258, %1240
+  %.051.i.i451 = phi i32 [ %1273, %1258 ], [ %1253, %1240 ]
+  %.050.i.i452 = phi i32 [ %1259, %1258 ], [ %1241, %1240 ]
+  %.0.i.i453 = phi i32 [ %1276, %1258 ], [ %1256, %1240 ]
   %1277 = add i32 %.0.i.i453, %.050.i.i452
   %or.cond498 = icmp sgt i32 %.051.i.i451, 0
   %1278 = zext i1 %or.cond498 to i32
-  %spec.select578 = add i32 %1277, %1278
-  store i32 %spec.select578, ptr %1237, align 8, !tbaa !73
-  %1279 = lshr i32 %spec.select578, 3
+  %spec.select594 = add i32 %1277, %1278
+  store i32 %spec.select594, ptr %1237, align 8, !tbaa !73
+  %1279 = lshr i32 %spec.select594, 3
   %1280 = zext nneg i32 %1279 to i64
   %1281 = getelementptr inbounds nuw i8, ptr %1238, i64 %1280
   %1282 = load i32, ptr %1281, align 1, !tbaa !72
   %1283 = call i32 @llvm.bswap.i32(i32 %1282)
-  %1284 = and i32 %spec.select578, 7
+  %1284 = and i32 %spec.select594, 7
   %1285 = shl i32 %1283, %1284
   %1286 = lshr i32 %1285, 23
   %1287 = zext nneg i32 %1286 to i64
@@ -2833,7 +2833,7 @@ get_vlc2.exit.i450:                               ; preds = %1258, %1239
   br i1 %1294, label %1295, label %get_vlc2.exit.i463
 
 1295:                                             ; preds = %get_vlc2.exit.i450
-  %1296 = add i32 %spec.select578, 9
+  %1296 = add i32 %spec.select594, 9
   %1297 = lshr i32 %1296, 3
   %1298 = zext nneg i32 %1297 to i64
   %1299 = getelementptr inbounds nuw i8, ptr %1238, i64 %1298
@@ -2855,19 +2855,18 @@ get_vlc2.exit.i450:                               ; preds = %1258, %1239
 
 get_vlc2.exit.i463:                               ; preds = %1295, %get_vlc2.exit.i450
   %.051.i.i464 = phi i32 [ %1310, %1295 ], [ %1290, %get_vlc2.exit.i450 ]
-  %.050.i.i465 = phi i32 [ %1296, %1295 ], [ %spec.select578, %get_vlc2.exit.i450 ]
+  %.050.i.i465 = phi i32 [ %1296, %1295 ], [ %spec.select594, %get_vlc2.exit.i450 ]
   %.0.i.i466 = phi i32 [ %1313, %1295 ], [ %1293, %get_vlc2.exit.i450 ]
   %1314 = add i32 %.0.i.i466, %.050.i.i465
   %or.cond499 = icmp sgt i32 %.051.i.i464, 0
   %1315 = zext i1 %or.cond499 to i32
-  %spec.select579 = add i32 %1314, %1315
-  store i32 %spec.select579, ptr %1237, align 8, !tbaa !73
-  %.not371 = icmp eq i32 %1241, 0
-  br i1 %.not371, label %.preheader, label %1239, !llvm.loop !124
+  %spec.select595 = add i32 %1314, %1315
+  store i32 %spec.select595, ptr %1237, align 8, !tbaa !73
+  br i1 %.3323526, label %.preheader, label %1240, !llvm.loop !124
 
 1316:                                             ; preds = %.preheader, %1322
   %indvars.iv539 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next540, %1322 ]
-  %.3314528 = phi i32 [ %.0311562, %.preheader ], [ %1323, %1322 ]
+  %.3314528 = phi i32 [ %.0311578, %.preheader ], [ %1323, %1322 ]
   %1317 = getelementptr inbounds nuw [64 x i16], ptr %1, i64 %indvars.iv539
   %1318 = and i32 %.3314528, 32
   %1319 = trunc nuw nsw i64 %indvars.iv539 to i32
@@ -2899,7 +2898,7 @@ get_vlc2.exit.i463:                               ; preds = %1295, %get_vlc2.exi
 
 1331:                                             ; preds = %1335, %1327
   %.01417.i = phi i32 [ 0, %1327 ], [ %1337, %1335 ]
-  %.01516.i = phi i32 [ %.1479561, %1327 ], [ %1336, %1335 ]
+  %.01516.i = phi i32 [ %.1479577, %1327 ], [ %1336, %1335 ]
   %1332 = and i32 %.01516.i, 32
   %1333 = call fastcc i32 @h263_decode_block(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %.01417.i, i32 noundef %1332)
   %1334 = icmp slt i32 %1333, 0
@@ -2984,8 +2983,8 @@ h263_skip_b_part.exit:                            ; preds = %1335
   %spec.select = select i1 %.not377, i32 -2, i32 0
   br label %h263p_decode_umotion.exit.thread
 
-h263p_decode_umotion.exit.thread:                 ; preds = %471, %347, %h263p_decode_umotion.exit416, %h263p_decode_umotion.exit, %h263p_decode_umotion.exit.thread552, %1316, %946, %955, %898, %907, %639, %590, %423, %304, %h263_skip_b_part.exit.thread, %1362, %1357, %229, %220, %1166, %1026, %186, %89
-  %.1 = phi i32 [ -1, %89 ], [ -1, %1166 ], [ -1, %186 ], [ -1, %1026 ], [ -1, %220 ], [ -1, %229 ], [ -1094995529, %1357 ], [ %spec.select, %1362 ], [ -1, %h263_skip_b_part.exit.thread ], [ -1, %304 ], [ -1, %423 ], [ -1, %590 ], [ -1, %639 ], [ -1, %907 ], [ -1, %898 ], [ -1, %955 ], [ -1, %946 ], [ -1, %1316 ], [ -1, %h263p_decode_umotion.exit.thread552 ], [ -1, %h263p_decode_umotion.exit ], [ -1, %h263p_decode_umotion.exit416 ], [ -1, %347 ], [ -1, %471 ]
+h263p_decode_umotion.exit.thread:                 ; preds = %471, %347, %h263p_decode_umotion.exit416, %h263p_decode_umotion.exit, %h263p_decode_umotion.exit.thread568, %1316, %946, %955, %898, %907, %639, %590, %423, %304, %h263_skip_b_part.exit.thread, %1362, %1357, %229, %220, %1166, %1026, %186, %89
+  %.1 = phi i32 [ -1, %89 ], [ -1, %1166 ], [ -1, %186 ], [ -1, %1026 ], [ -1, %220 ], [ -1, %229 ], [ -1094995529, %1357 ], [ %spec.select, %1362 ], [ -1, %h263_skip_b_part.exit.thread ], [ -1, %304 ], [ -1, %423 ], [ -1, %590 ], [ -1, %639 ], [ -1, %907 ], [ -1, %898 ], [ -1, %955 ], [ -1, %946 ], [ -1, %1316 ], [ -1, %h263p_decode_umotion.exit.thread568 ], [ -1, %h263p_decode_umotion.exit ], [ -1, %h263p_decode_umotion.exit416 ], [ -1, %347 ], [ -1, %471 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
@@ -3323,9 +3322,9 @@ define internal fastcc range(i32 -1, 1) i32 @h263_decode_block(ptr noundef %0, p
   br i1 %.not196, label %103, label %.preheader
 
 .preheader:                                       ; preds = %19, %21, %13, %.thread
-  %.0173238 = phi i32 [ %.0173, %.thread ], [ -1, %13 ], [ -1, %21 ], [ -1, %19 ]
-  %.0179237 = phi ptr [ %7, %.thread ], [ %7, %13 ], [ %22, %21 ], [ %20, %19 ]
-  %.0180236 = phi ptr [ @ff_h263_rl_inter, %.thread ], [ @ff_rl_intra_aic, %13 ], [ @ff_rl_intra_aic, %21 ], [ @ff_rl_intra_aic, %19 ]
+  %.0173244 = phi i32 [ %.0173, %.thread ], [ -1, %13 ], [ -1, %21 ], [ -1, %19 ]
+  %.0179243 = phi ptr [ %7, %.thread ], [ %7, %13 ], [ %22, %21 ], [ %20, %19 ]
+  %.0180242 = phi ptr [ @ff_h263_rl_inter, %.thread ], [ @ff_rl_intra_aic, %13 ], [ @ff_rl_intra_aic, %21 ], [ @ff_rl_intra_aic, %19 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 4176
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 516
@@ -3342,8 +3341,8 @@ define internal fastcc range(i32 -1, 1) i32 @h263_decode_block(ptr noundef %0, p
   br label %.critedge
 
 107:                                              ; preds = %.preheader, %236
-  %.1181 = phi ptr [ @ff_rl_intra_aic, %236 ], [ %.0180236, %.preheader ]
-  %.1174 = phi i32 [ -1, %236 ], [ %.0173238, %.preheader ]
+  %.1181 = phi ptr [ @ff_rl_intra_aic, %236 ], [ %.0180242, %.preheader ]
+  %.1174 = phi i32 [ -1, %236 ], [ %.0173244, %.preheader ]
   %108 = load i32, ptr %97, align 8, !tbaa !130
   %109 = load ptr, ptr %6, align 8, !tbaa !131
   %110 = getelementptr inbounds nuw i8, ptr %.1181, i64 80
@@ -3512,8 +3511,8 @@ define internal fastcc range(i32 -1, 1) i32 @h263_decode_block(ptr noundef %0, p
   %or.cond = and i1 %221, %220
   %.pre229 = load i32, ptr %101, align 8, !tbaa !91
   %.not200 = icmp eq i32 %.pre229, 0
-  %or.cond245 = select i1 %or.cond, i1 %.not200, i1 false
-  br i1 %or.cond245, label %236, label %222
+  %or.cond251 = select i1 %or.cond, i1 %.not200, i1 false
+  br i1 %or.cond251, label %236, label %222
 
 222:                                              ; preds = %218
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -3527,7 +3526,7 @@ define internal fastcc range(i32 -1, 1) i32 @h263_decode_block(ptr noundef %0, p
 
 229:                                              ; preds = %210
   %230 = sext i32 %211 to i64
-  %231 = getelementptr inbounds i8, ptr %.0179237, i64 %230
+  %231 = getelementptr inbounds i8, ptr %.0179243, i64 %230
   %232 = load i8, ptr %231, align 1, !tbaa !72
   %233 = trunc i32 %.6162 to i16
   %234 = zext i8 %232 to i64
@@ -3545,7 +3544,7 @@ define internal fastcc range(i32 -1, 1) i32 @h263_decode_block(ptr noundef %0, p
   %239 = add nsw i32 %216, 1
   %240 = trunc i32 %.6162 to i16
   %241 = sext i32 %239 to i64
-  %242 = getelementptr inbounds i8, ptr %.0179237, i64 %241
+  %242 = getelementptr inbounds i8, ptr %.0179243, i64 %241
   %243 = load i8, ptr %242, align 1, !tbaa !72
   %244 = zext i8 %243 to i64
   %245 = getelementptr inbounds nuw i16, ptr %1, i64 %244
@@ -3978,8 +3977,8 @@ get_vlc2.exit:                                    ; preds = %58, %75
   br label %.sink.split
 
 .sink.split:                                      ; preds = %117, %120
-  %.sink243 = phi i32 [ %., %120 ], [ 2, %117 ]
-  %129 = add i32 %115, %.sink243
+  %.sink250 = phi i32 [ %., %120 ], [ 2, %117 ]
+  %129 = add i32 %115, %.sink250
   store i32 %129, ptr %27, align 8, !tbaa !73
   br label %130
 
@@ -4015,7 +4014,7 @@ get_vlc2.exit:                                    ; preds = %58, %75
   %152 = lshr exact i32 128, %149
   %153 = and i32 %152, %150
   %.not.i = icmp eq i32 %153, 0
-  br i1 %.not.i, label %154, label %h263p_decode_umotion.exit.thread212
+  br i1 %.not.i, label %154, label %h263p_decode_umotion.exit.thread219
 
 154:                                              ; preds = %147
   %155 = lshr i32 %151, 3
@@ -4072,7 +4071,7 @@ get_vlc2.exit:                                    ; preds = %58, %75
   %194 = sub nsw i32 0, %193
   %.p.i = select i1 %.not20.i, i32 %193, i32 %194
   %195 = add i32 %.p.i, %141
-  br label %h263p_decode_umotion.exit.thread212
+  br label %h263p_decode_umotion.exit.thread219
 
 196:                                              ; preds = %137
   %197 = load i32, ptr %146, align 1, !tbaa !72
@@ -4168,10 +4167,10 @@ h263p_decode_umotion.exit:                        ; preds = %177
   call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %258, ptr noundef nonnull @.str.40) #12
   %.pre205 = load i32, ptr %139, align 8, !tbaa !55
   %259 = icmp eq i32 %.pre205, 0
-  br i1 %259, label %h263p_decode_umotion.exit.thread, label %h263p_decode_umotion.exit.thread212
+  br i1 %259, label %h263p_decode_umotion.exit.thread, label %h263p_decode_umotion.exit.thread219
 
-h263p_decode_umotion.exit.thread212:              ; preds = %147, %191, %h263p_decode_umotion.exit
-  %.096215 = phi i32 [ 65535, %h263p_decode_umotion.exit ], [ %141, %147 ], [ %195, %191 ]
+h263p_decode_umotion.exit.thread219:              ; preds = %147, %191, %h263p_decode_umotion.exit
+  %.096222 = phi i32 [ 65535, %h263p_decode_umotion.exit ], [ %141, %147 ], [ %195, %191 ]
   %260 = load i32, ptr %4, align 4, !tbaa !85
   %261 = load i32, ptr %27, align 8, !tbaa !73
   %262 = load ptr, ptr %5, align 8, !tbaa !74
@@ -4188,7 +4187,7 @@ h263p_decode_umotion.exit.thread212:              ; preds = %147, %191, %h263p_d
   %.not.i112 = icmp eq i32 %271, 0
   br i1 %.not.i112, label %272, label %h263p_decode_umotion.exit118
 
-272:                                              ; preds = %h263p_decode_umotion.exit.thread212
+272:                                              ; preds = %h263p_decode_umotion.exit.thread219
   %273 = lshr i32 %269, 3
   %274 = zext nneg i32 %273 to i64
   %275 = getelementptr inbounds nuw i8, ptr %262, i64 %274
@@ -4252,7 +4251,7 @@ h263p_decode_umotion.exit.thread212:              ; preds = %147, %191, %h263p_d
   br label %h263p_decode_umotion.exit118
 
 h263p_decode_umotion.exit.thread:                 ; preds = %250, %247, %231, %get_vlc2.exit.i, %h263p_decode_umotion.exit
-  %.096209 = phi i32 [ 65535, %h263p_decode_umotion.exit ], [ %spec.select38.i, %250 ], [ %249, %247 ], [ 65535, %231 ], [ %141, %get_vlc2.exit.i ]
+  %.096216 = phi i32 [ 65535, %h263p_decode_umotion.exit ], [ %spec.select38.i, %250 ], [ %249, %247 ], [ 65535, %231 ], [ %141, %get_vlc2.exit.i ]
   %317 = load i32, ptr %4, align 4, !tbaa !85
   %318 = load i32, ptr %27, align 8, !tbaa !73
   %319 = load ptr, ptr %5, align 8, !tbaa !74
@@ -4346,10 +4345,10 @@ get_vlc2.exit.i119:                               ; preds = %336, %h263p_decode_
   %spec.select38.i129 = select i1 %or.cond3.i128, i32 %382, i32 %spec.select37.i127
   br label %h263p_decode_umotion.exit118
 
-h263p_decode_umotion.exit118:                     ; preds = %376, %373, %357, %get_vlc2.exit.i119, %312, %309, %h263p_decode_umotion.exit.thread212
-  %.096208 = phi i32 [ %.096215, %309 ], [ %.096215, %312 ], [ %.096215, %h263p_decode_umotion.exit.thread212 ], [ %.096209, %get_vlc2.exit.i119 ], [ %.096209, %357 ], [ %.096209, %373 ], [ %.096209, %376 ]
-  %.098 = phi i32 [ 65535, %309 ], [ %316, %312 ], [ %260, %h263p_decode_umotion.exit.thread212 ], [ %317, %get_vlc2.exit.i119 ], [ 65535, %357 ], [ %375, %373 ], [ %spec.select38.i129, %376 ]
-  %383 = trunc i32 %.096208 to i16
+h263p_decode_umotion.exit118:                     ; preds = %376, %373, %357, %get_vlc2.exit.i119, %312, %309, %h263p_decode_umotion.exit.thread219
+  %.096215 = phi i32 [ %.096222, %309 ], [ %.096222, %312 ], [ %.096222, %h263p_decode_umotion.exit.thread219 ], [ %.096216, %get_vlc2.exit.i119 ], [ %.096216, %357 ], [ %.096216, %373 ], [ %.096216, %376 ]
+  %.098 = phi i32 [ 65535, %309 ], [ %316, %312 ], [ %260, %h263p_decode_umotion.exit.thread219 ], [ %317, %get_vlc2.exit.i119 ], [ 65535, %357 ], [ %375, %373 ], [ %spec.select38.i129, %376 ]
+  %383 = trunc i32 %.096215 to i16
   %384 = sext i32 %26 to i64
   %385 = getelementptr i16, ptr %138, i64 %384
   %386 = getelementptr i8, ptr %385, i64 4
@@ -4398,7 +4397,7 @@ h263p_decode_umotion.exit118:                     ; preds = %376, %373, %357, %g
   %411 = lshr exact i32 128, %408
   %412 = and i32 %411, %409
   %.not.i132 = icmp eq i32 %412, 0
-  br i1 %.not.i132, label %413, label %h263p_decode_umotion.exit138.thread222
+  br i1 %.not.i132, label %413, label %h263p_decode_umotion.exit138.thread229
 
 413:                                              ; preds = %406
   %414 = lshr i32 %410, 3
@@ -4455,7 +4454,7 @@ h263p_decode_umotion.exit118:                     ; preds = %376, %373, %357, %g
   %453 = sub nsw i32 0, %452
   %.p.i137 = select i1 %.not20.i136, i32 %452, i32 %453
   %454 = add i32 %.p.i137, %400
-  br label %h263p_decode_umotion.exit138.thread222
+  br label %h263p_decode_umotion.exit138.thread229
 
 455:                                              ; preds = %397
   %456 = load i32, ptr %405, align 1, !tbaa !72
@@ -4549,10 +4548,10 @@ h263p_decode_umotion.exit138:                     ; preds = %436
   call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %515, ptr noundef nonnull @.str.40) #12
   %.pre = load i32, ptr %394, align 8, !tbaa !55
   %516 = icmp eq i32 %.pre, 0
-  br i1 %516, label %h263p_decode_umotion.exit138.thread, label %h263p_decode_umotion.exit138.thread222
+  br i1 %516, label %h263p_decode_umotion.exit138.thread, label %h263p_decode_umotion.exit138.thread229
 
-h263p_decode_umotion.exit138.thread222:           ; preds = %406, %450, %h263p_decode_umotion.exit138
-  %.197225 = phi i32 [ 65535, %h263p_decode_umotion.exit138 ], [ %400, %406 ], [ %454, %450 ]
+h263p_decode_umotion.exit138.thread229:           ; preds = %406, %450, %h263p_decode_umotion.exit138
+  %.197232 = phi i32 [ 65535, %h263p_decode_umotion.exit138 ], [ %400, %406 ], [ %454, %450 ]
   %517 = load i32, ptr %4, align 4, !tbaa !85
   %518 = load i32, ptr %27, align 8, !tbaa !73
   %519 = load ptr, ptr %5, align 8, !tbaa !74
@@ -4567,9 +4566,9 @@ h263p_decode_umotion.exit138.thread222:           ; preds = %406, %450, %h263p_d
   %527 = lshr exact i32 128, %524
   %528 = and i32 %527, %525
   %.not.i152 = icmp eq i32 %528, 0
-  br i1 %.not.i152, label %529, label %h263p_decode_umotion.exit158.thread233
+  br i1 %.not.i152, label %529, label %h263p_decode_umotion.exit158.thread240
 
-529:                                              ; preds = %h263p_decode_umotion.exit138.thread222
+529:                                              ; preds = %h263p_decode_umotion.exit138.thread229
   %530 = lshr i32 %526, 3
   %531 = zext nneg i32 %530 to i64
   %532 = getelementptr inbounds nuw i8, ptr %519, i64 %531
@@ -4624,10 +4623,10 @@ h263p_decode_umotion.exit138.thread222:           ; preds = %406, %450, %h263p_d
   %569 = sub nsw i32 0, %568
   %.p.i157 = select i1 %.not20.i156, i32 %568, i32 %569
   %570 = add i32 %.p.i157, %517
-  br label %h263p_decode_umotion.exit158.thread233
+  br label %h263p_decode_umotion.exit158.thread240
 
 h263p_decode_umotion.exit138.thread:              ; preds = %508, %505, %490, %get_vlc2.exit.i139, %h263p_decode_umotion.exit138
-  %.197219 = phi i32 [ 65535, %h263p_decode_umotion.exit138 ], [ %spec.select38.i149, %508 ], [ %507, %505 ], [ 65535, %490 ], [ %400, %get_vlc2.exit.i139 ]
+  %.197226 = phi i32 [ 65535, %h263p_decode_umotion.exit138 ], [ %spec.select38.i149, %508 ], [ %507, %505 ], [ 65535, %490 ], [ %400, %get_vlc2.exit.i139 ]
   %571 = load i32, ptr %4, align 4, !tbaa !85
   %572 = load i32, ptr %27, align 8, !tbaa !73
   %573 = load ptr, ptr %5, align 8, !tbaa !74
@@ -4725,18 +4724,18 @@ h263p_decode_umotion.exit158:                     ; preds = %552
   call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %636, ptr noundef nonnull @.str.40) #12
   %.pre204 = load i32, ptr %394, align 8, !tbaa !55
   %637 = icmp eq i32 %.pre204, 0
-  br i1 %637, label %h263p_decode_umotion.exit158.thread, label %h263p_decode_umotion.exit158.thread233
+  br i1 %637, label %h263p_decode_umotion.exit158.thread, label %h263p_decode_umotion.exit158.thread240
 
-h263p_decode_umotion.exit158.thread233:           ; preds = %h263p_decode_umotion.exit138.thread222, %566, %h263p_decode_umotion.exit158
-  %.199238 = phi i32 [ 65535, %h263p_decode_umotion.exit158 ], [ %517, %h263p_decode_umotion.exit138.thread222 ], [ %570, %566 ]
+h263p_decode_umotion.exit158.thread240:           ; preds = %h263p_decode_umotion.exit138.thread229, %566, %h263p_decode_umotion.exit158
+  %.199245 = phi i32 [ 65535, %h263p_decode_umotion.exit158 ], [ %517, %h263p_decode_umotion.exit138.thread229 ], [ %570, %566 ]
   %638 = load i32, ptr %3, align 4, !tbaa !85
-  %639 = sub nsw i32 %.197225, %638
+  %639 = sub nsw i32 %.197232, %638
   %640 = icmp eq i32 %639, 1
   br i1 %640, label %641, label %h263p_decode_umotion.exit158.thread
 
-641:                                              ; preds = %h263p_decode_umotion.exit158.thread233
+641:                                              ; preds = %h263p_decode_umotion.exit158.thread240
   %642 = load i32, ptr %4, align 4, !tbaa !85
-  %643 = sub nsw i32 %.199238, %642
+  %643 = sub nsw i32 %.199245, %642
   %644 = icmp eq i32 %643, 1
   br i1 %644, label %645, label %h263p_decode_umotion.exit158.thread
 
@@ -4746,12 +4745,12 @@ h263p_decode_umotion.exit158.thread233:           ; preds = %h263p_decode_umotio
   store i32 %647, ptr %27, align 8, !tbaa !73
   br label %h263p_decode_umotion.exit158.thread
 
-h263p_decode_umotion.exit158.thread:              ; preds = %629, %626, %611, %get_vlc2.exit.i159, %645, %641, %h263p_decode_umotion.exit158.thread233, %h263p_decode_umotion.exit158
-  %.199230 = phi i32 [ %.199238, %645 ], [ %.199238, %641 ], [ %.199238, %h263p_decode_umotion.exit158.thread233 ], [ 65535, %h263p_decode_umotion.exit158 ], [ %spec.select38.i169, %629 ], [ %628, %626 ], [ 65535, %611 ], [ %571, %get_vlc2.exit.i159 ]
-  %.197218229 = phi i32 [ %.197225, %645 ], [ %.197225, %641 ], [ %.197225, %h263p_decode_umotion.exit158.thread233 ], [ %.197225, %h263p_decode_umotion.exit158 ], [ %.197219, %629 ], [ %.197219, %626 ], [ %.197219, %611 ], [ %.197219, %get_vlc2.exit.i159 ]
-  %648 = trunc i32 %.197218229 to i16
+h263p_decode_umotion.exit158.thread:              ; preds = %629, %626, %611, %get_vlc2.exit.i159, %645, %641, %h263p_decode_umotion.exit158.thread240, %h263p_decode_umotion.exit158
+  %.199237 = phi i32 [ %.199245, %645 ], [ %.199245, %641 ], [ %.199245, %h263p_decode_umotion.exit158.thread240 ], [ 65535, %h263p_decode_umotion.exit158 ], [ %spec.select38.i169, %629 ], [ %628, %626 ], [ 65535, %611 ], [ %571, %get_vlc2.exit.i159 ]
+  %.197225236 = phi i32 [ %.197232, %645 ], [ %.197232, %641 ], [ %.197232, %h263p_decode_umotion.exit158.thread240 ], [ %.197232, %h263p_decode_umotion.exit158 ], [ %.197226, %629 ], [ %.197226, %626 ], [ %.197226, %611 ], [ %.197226, %get_vlc2.exit.i159 ]
+  %648 = trunc i32 %.197225236 to i16
   store i16 %648, ptr %398, align 2, !tbaa !70
-  %649 = trunc i32 %.199230 to i16
+  %649 = trunc i32 %.199237 to i16
   %650 = getelementptr inbounds nuw i8, ptr %398, i64 2
   store i16 %649, ptr %650, align 2, !tbaa !70
   %651 = add nuw nsw i32 %.2183, 1
@@ -5807,11 +5806,11 @@ check_marker.exit:                                ; preds = %.thread
   %641 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %642 = load i32, ptr %641, align 4, !tbaa !58
   %.not299 = icmp eq i32 %642, 0
-  %spec.select356 = select i1 %.not299, ptr @ff_mpeg12_dc_scale_table, ptr @ff_aic_dc_scale_table
+  %spec.select362 = select i1 %.not299, ptr @ff_mpeg12_dc_scale_table, ptr @ff_aic_dc_scale_table
   %643 = getelementptr inbounds nuw i8, ptr %0, i64 1336
-  store ptr %spec.select356, ptr %643, align 8, !tbaa !162
+  store ptr %spec.select362, ptr %643, align 8, !tbaa !162
   %644 = getelementptr inbounds nuw i8, ptr %0, i64 1328
-  store ptr %spec.select356, ptr %644, align 8, !tbaa !163
+  store ptr %spec.select362, ptr %644, align 8, !tbaa !163
   tail call void @ff_h263_show_pict_info(ptr noundef nonnull %0)
   %645 = load i32, ptr %601, align 8, !tbaa !51
   %646 = icmp eq i32 %645, 1

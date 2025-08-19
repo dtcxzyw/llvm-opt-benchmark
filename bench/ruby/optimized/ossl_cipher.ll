@@ -277,8 +277,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   %12 = icmp ne i64 %9, 5
   %13 = and i64 %8, 49152
   %.not.i = icmp eq i64 %13, 0
-  %or.cond8.i = or i1 %12, %.not.i
-  br i1 %or.cond8.i, label %rb_check_frozen_inline.exit, label %14, !prof !21
+  %or.cond9.i = or i1 %12, %.not.i
+  br i1 %or.cond9.i, label %rb_check_frozen_inline.exit, label %14, !prof !21
 
 14:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   tail call void @rb_str_modify(i64 noundef %0) #11
@@ -776,7 +776,7 @@ RSTRING_PTR.exit17:                               ; preds = %54
   br i1 %.not.i18, label %.split.us.i, label %.split.i.preheader
 
 .split.i.preheader:                               ; preds = %RSTRING_PTR.exit17.thread, %RSTRING_PTR.exit17
-  %.sroa.2.0.i1641 = phi ptr [ %59, %RSTRING_PTR.exit17.thread ], [ %.sroa.2.0.copyload.i15, %RSTRING_PTR.exit17 ]
+  %.sroa.2.0.i1645 = phi ptr [ %59, %RSTRING_PTR.exit17.thread ], [ %.sroa.2.0.copyload.i15, %RSTRING_PTR.exit17 ]
   br label %.split.i
 
 .split.us.i:                                      ; preds = %RSTRING_PTR.exit17, %63
@@ -806,7 +806,7 @@ RSTRING_PTR.exit17:                               ; preds = %54
   %.020.i = phi i64 [ %78, %75 ], [ 0, %.split.i.preheader ]
   %71 = call i64 @llvm.smin.i64(i64 %.024.i, i64 1073741824)
   %72 = trunc i64 %71 to i32
-  %73 = getelementptr inbounds i8, ptr %.sroa.2.0.i1641, i64 %.020.i
+  %73 = getelementptr inbounds i8, ptr %.sroa.2.0.i1645, i64 %.020.i
   %74 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %33, ptr noundef nonnull %73, ptr noundef nonnull %4, ptr noundef %.022.i, i32 noundef %72) #11
   %.not27.not.i = icmp eq i32 %74, 0
   br i1 %.not27.not.i, label %.loopexit, label %75
@@ -1651,190 +1651,173 @@ define internal fastcc noundef i64 @ossl_cipher_init(i32 noundef %0, ptr noundef
   %6 = alloca [16 x i8], align 16
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  %9 = alloca [2 x ptr], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr %7, ptr %9, align 8, !tbaa !22
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %8, ptr %10, align 8, !tbaa !22
-  %11 = icmp slt i32 %0, 0
-  br i1 %11, label %27, label %.preheader
+  %9 = icmp slt i32 %0, 0
+  br i1 %9, label %20, label %.preheader
 
-.preheader:                                       ; preds = %4, %24
-  %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %4 ]
-  %.185.i35 = phi i32 [ %.286.i, %24 ], [ 0, %4 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
-  %13 = load ptr, ptr %12, align 8, !tbaa !22
-  %14 = icmp slt i32 %.185.i35, %0
-  %.not108.i = icmp eq ptr %13, null
-  br i1 %14, label %15, label %22
+.preheader:                                       ; preds = %4, %17
+  %exitcond.not = phi i1 [ true, %17 ], [ false, %4 ]
+  %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %8, %17 ], [ %7, %4 ]
+  %.185.i35 = phi i32 [ %.286.i, %17 ], [ 0, %4 ]
+  %10 = icmp slt i32 %.185.i35, %0
+  br i1 %10, label %11, label %16
 
-15:                                               ; preds = %.preheader
-  br i1 %.not108.i, label %20, label %16
+11:                                               ; preds = %.preheader
+  %12 = sext i32 %.185.i35 to i64
+  %13 = getelementptr inbounds i64, ptr %1, i64 %12
+  %14 = load i64, ptr %13, align 8, !tbaa !6
+  store i64 %14, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
+  %15 = add nsw i32 %.185.i35, 1
+  br label %17
 
-16:                                               ; preds = %15
-  %17 = sext i32 %.185.i35 to i64
-  %18 = getelementptr inbounds i64, ptr %1, i64 %17
-  %19 = load i64, ptr %18, align 8, !tbaa !6
-  store i64 %19, ptr %13, align 8, !tbaa !6
-  br label %20
+16:                                               ; preds = %.preheader
+  store i64 4, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
+  br label %17
 
-20:                                               ; preds = %16, %15
-  %21 = add nsw i32 %.185.i35, 1
-  br label %24
+17:                                               ; preds = %16, %11
+  %.286.i = phi i32 [ %15, %11 ], [ %.185.i35, %16 ]
+  br i1 %exitcond.not, label %18, label %.preheader, !llvm.loop !24
 
-22:                                               ; preds = %.preheader
-  br i1 %.not108.i, label %24, label %23
+18:                                               ; preds = %17
+  %19 = icmp eq i32 %.286.i, %0
+  br i1 %19, label %rb_scan_args_set.exit, label %20
 
-23:                                               ; preds = %22
-  store i64 4, ptr %13, align 8, !tbaa !6
-  br label %24
-
-24:                                               ; preds = %23, %22, %20
-  %.286.i = phi i32 [ %21, %20 ], [ %.185.i35, %23 ], [ %.185.i35, %22 ]
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond.not, label %25, label %.preheader, !llvm.loop !24
-
-25:                                               ; preds = %24
-  %26 = icmp eq i32 %.286.i, %0
-  br i1 %26, label %rb_scan_args_set.exit, label %27
-
-27:                                               ; preds = %25, %4
-  call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 2) #12
+20:                                               ; preds = %18, %4
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 2) #12
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %25
+rb_scan_args_set.exit:                            ; preds = %18
   %.not33 = icmp eq i32 %0, 0
-  br i1 %.not33, label %72, label %28
+  br i1 %.not33, label %65, label %21
 
-28:                                               ; preds = %rb_scan_args_set.exit
-  %29 = call i64 @rb_obj_class(i64 noundef %2) #11
-  %30 = call i64 @rb_class_path(i64 noundef %29) #11
-  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.34, i64 noundef %30, i64 noundef %30, i64 noundef %30) #15
-  %31 = call i64 @rb_string_value(ptr noundef nonnull %7) #11
-  %32 = call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_cipher_type) #11
-  %.not21 = icmp eq ptr %32, null
-  br i1 %.not21, label %33, label %35
+21:                                               ; preds = %rb_scan_args_set.exit
+  %22 = tail call i64 @rb_obj_class(i64 noundef %2) #11
+  %23 = tail call i64 @rb_class_path(i64 noundef %22) #11
+  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.34, i64 noundef %23, i64 noundef %23, i64 noundef %23) #15
+  %24 = call i64 @rb_string_value(ptr noundef nonnull %7) #11
+  %25 = call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_cipher_type) #11
+  %.not21 = icmp eq ptr %25, null
+  br i1 %.not21, label %26, label %28
 
-33:                                               ; preds = %28
-  %34 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %34, ptr noundef nonnull @.str) #12
+26:                                               ; preds = %21
+  %27 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %27, ptr noundef nonnull @.str) #12
   unreachable
 
-35:                                               ; preds = %28
-  %36 = load i64, ptr %8, align 8, !tbaa !6
-  %37 = icmp eq i64 %36, 4
-  br i1 %37, label %38, label %39
+28:                                               ; preds = %21
+  %29 = load i64, ptr %8, align 8, !tbaa !6
+  %30 = icmp eq i64 %29, 4
+  br i1 %30, label %31, label %32
 
-38:                                               ; preds = %35
+31:                                               ; preds = %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(16) @.str.35, i64 noundef 16, i1 noundef false) #11
-  br label %57
+  br label %50
 
-39:                                               ; preds = %35
-  %40 = call i64 @rb_string_value(ptr noundef nonnull %8) #11
-  %41 = load i64, ptr %8, align 8, !tbaa !6
-  %42 = inttoptr i64 %41 to ptr
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !26
-  %45 = icmp slt i64 %44, 16
-  br i1 %45, label %46, label %52
+32:                                               ; preds = %28
+  %33 = call i64 @rb_string_value(ptr noundef nonnull %8) #11
+  %34 = load i64, ptr %8, align 8, !tbaa !6
+  %35 = inttoptr i64 %34 to ptr
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %37 = load i64, ptr %36, align 8, !tbaa !26
+  %38 = icmp slt i64 %37, 16
+  br i1 %38, label %39, label %45
 
-46:                                               ; preds = %39
+39:                                               ; preds = %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 noundef 0, i64 noundef 16, i1 noundef false) #11
-  %47 = load i64, ptr %42, align 8, !tbaa !10, !noalias !65
-  %48 = and i64 %47, 8192
-  %.not.i.i = icmp eq i64 %48, 0
-  %49 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %50
+  %40 = load i64, ptr %35, align 8, !tbaa !10, !noalias !65
+  %41 = and i64 %40, 8192
+  %.not.i.i = icmp eq i64 %41, 0
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %43
 
-50:                                               ; preds = %46
-  %.sroa.2.0.copyload.i = load ptr, ptr %49, align 8
+43:                                               ; preds = %39
+  %.sroa.2.0.copyload.i = load ptr, ptr %42, align 8
   br label %RSTRING_PTR.exit
 
-RSTRING_PTR.exit:                                 ; preds = %46, %50
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %50 ], [ %49, %46 ]
-  %51 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef nonnull %.sroa.2.0.i, i64 noundef %44, i64 noundef 16) #11, !alias.scope !68
-  br label %57
+RSTRING_PTR.exit:                                 ; preds = %39, %43
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %43 ], [ %42, %39 ]
+  %44 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef nonnull %.sroa.2.0.i, i64 noundef %37, i64 noundef 16) #11, !alias.scope !68
+  br label %50
 
-52:                                               ; preds = %39
-  %53 = load i64, ptr %42, align 8, !tbaa !10, !noalias !72
-  %54 = and i64 %53, 8192
-  %.not.i.i24 = icmp eq i64 %54, 0
-  %55 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  br i1 %.not.i.i24, label %RSTRING_PTR.exit27, label %56
+45:                                               ; preds = %32
+  %46 = load i64, ptr %35, align 8, !tbaa !10, !noalias !72
+  %47 = and i64 %46, 8192
+  %.not.i.i24 = icmp eq i64 %47, 0
+  %48 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  br i1 %.not.i.i24, label %RSTRING_PTR.exit27, label %49
 
-56:                                               ; preds = %52
-  %.sroa.2.0.copyload.i25 = load ptr, ptr %55, align 8
+49:                                               ; preds = %45
+  %.sroa.2.0.copyload.i25 = load ptr, ptr %48, align 8
   br label %RSTRING_PTR.exit27
 
-RSTRING_PTR.exit27:                               ; preds = %52, %56
-  %.sroa.2.0.i26 = phi ptr [ %.sroa.2.0.copyload.i25, %56 ], [ %55, %52 ]
+RSTRING_PTR.exit27:                               ; preds = %45, %49
+  %.sroa.2.0.i26 = phi ptr [ %.sroa.2.0.copyload.i25, %49 ], [ %48, %45 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.2.0.i26, i64 noundef 16, i1 noundef false) #11
-  br label %57
+  br label %50
 
-57:                                               ; preds = %RSTRING_PTR.exit, %RSTRING_PTR.exit27, %38
-  %58 = call ptr @EVP_CIPHER_CTX_cipher(ptr noundef nonnull %32) #11
-  %59 = call ptr @EVP_md5() #11
-  %60 = load i64, ptr %7, align 8, !tbaa !6
-  %61 = inttoptr i64 %60 to ptr
-  %62 = load i64, ptr %61, align 8, !tbaa !10, !noalias !75
-  %63 = and i64 %62, 8192
-  %.not.i.i28 = icmp eq i64 %63, 0
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  br i1 %.not.i.i28, label %RSTRING_PTR.exit31, label %65
+50:                                               ; preds = %RSTRING_PTR.exit, %RSTRING_PTR.exit27, %31
+  %51 = call ptr @EVP_CIPHER_CTX_cipher(ptr noundef nonnull %25) #11
+  %52 = call ptr @EVP_md5() #11
+  %53 = load i64, ptr %7, align 8, !tbaa !6
+  %54 = inttoptr i64 %53 to ptr
+  %55 = load i64, ptr %54, align 8, !tbaa !10, !noalias !75
+  %56 = and i64 %55, 8192
+  %.not.i.i28 = icmp eq i64 %56, 0
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  br i1 %.not.i.i28, label %RSTRING_PTR.exit31, label %58
 
-65:                                               ; preds = %57
-  %.sroa.2.0.copyload.i29 = load ptr, ptr %64, align 8
+58:                                               ; preds = %50
+  %.sroa.2.0.copyload.i29 = load ptr, ptr %57, align 8
   br label %RSTRING_PTR.exit31
 
-RSTRING_PTR.exit31:                               ; preds = %57, %65
-  %.sroa.2.0.i30 = phi ptr [ %.sroa.2.0.copyload.i29, %65 ], [ %64, %57 ]
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %67 = load i64, ptr %66, align 8, !tbaa !26
-  %68 = add i64 %67, 2147483648
-  %.not.i.i32 = icmp ult i64 %68, 4294967296
-  br i1 %.not.i.i32, label %RSTRING_LENINT.exit, label %69
+RSTRING_PTR.exit31:                               ; preds = %50, %58
+  %.sroa.2.0.i30 = phi ptr [ %.sroa.2.0.copyload.i29, %58 ], [ %57, %50 ]
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %60 = load i64, ptr %59, align 8, !tbaa !26
+  %61 = add i64 %60, 2147483648
+  %.not.i.i32 = icmp ult i64 %61, 4294967296
+  br i1 %.not.i.i32, label %RSTRING_LENINT.exit, label %62
 
-69:                                               ; preds = %RSTRING_PTR.exit31
-  call void @rb_out_of_int(i64 noundef %67) #13
+62:                                               ; preds = %RSTRING_PTR.exit31
+  call void @rb_out_of_int(i64 noundef %60) #13
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit31
-  %70 = trunc nsw i64 %67 to i32
-  %71 = call i32 @EVP_BytesToKey(ptr noundef %58, ptr noundef %59, ptr noundef nonnull %6, ptr noundef %.sroa.2.0.i30, i32 noundef %70, i32 noundef 1, ptr noundef nonnull %5, ptr noundef null) #11
-  br label %76
+  %63 = trunc nsw i64 %60 to i32
+  %64 = call i32 @EVP_BytesToKey(ptr noundef %51, ptr noundef %52, ptr noundef nonnull %6, ptr noundef %.sroa.2.0.i30, i32 noundef %63, i32 noundef 1, ptr noundef nonnull %5, ptr noundef null) #11
+  br label %69
 
-72:                                               ; preds = %rb_scan_args_set.exit
-  %73 = call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_cipher_type) #11
-  %.not = icmp eq ptr %73, null
-  br i1 %.not, label %74, label %76
+65:                                               ; preds = %rb_scan_args_set.exit
+  %66 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_cipher_type) #11
+  %.not = icmp eq ptr %66, null
+  br i1 %.not, label %67, label %69
 
-74:                                               ; preds = %72
-  %75 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %75, ptr noundef nonnull @.str) #12
+67:                                               ; preds = %65
+  %68 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %68, ptr noundef nonnull @.str) #12
   unreachable
 
-76:                                               ; preds = %72, %RSTRING_LENINT.exit
-  %.018 = phi ptr [ %5, %RSTRING_LENINT.exit ], [ null, %72 ]
-  %.017 = phi ptr [ %6, %RSTRING_LENINT.exit ], [ null, %72 ]
-  %.0 = phi ptr [ %32, %RSTRING_LENINT.exit ], [ %73, %72 ]
-  %77 = call i32 @EVP_CipherInit_ex(ptr noundef nonnull %.0, ptr noundef null, ptr noundef null, ptr noundef %.018, ptr noundef %.017, i32 noundef %3) #11
-  %.not22 = icmp eq i32 %77, 1
-  br i1 %.not22, label %80, label %78
+69:                                               ; preds = %65, %RSTRING_LENINT.exit
+  %.018 = phi ptr [ %5, %RSTRING_LENINT.exit ], [ null, %65 ]
+  %.017 = phi ptr [ %6, %RSTRING_LENINT.exit ], [ null, %65 ]
+  %.0 = phi ptr [ %25, %RSTRING_LENINT.exit ], [ %66, %65 ]
+  %70 = call i32 @EVP_CipherInit_ex(ptr noundef nonnull %.0, ptr noundef null, ptr noundef null, ptr noundef %.018, ptr noundef %.017, i32 noundef %3) #11
+  %.not22 = icmp eq i32 %70, 1
+  br i1 %.not22, label %73, label %71
 
-78:                                               ; preds = %76
-  %79 = load i64, ptr @eCipherError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %79, ptr noundef null) #12
+71:                                               ; preds = %69
+  %72 = load i64, ptr @eCipherError, align 8, !tbaa !6
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %72, ptr noundef null) #12
   unreachable
 
-80:                                               ; preds = %76
-  %81 = load i64, ptr @id_key_set, align 8, !tbaa !6
+73:                                               ; preds = %69
+  %74 = load i64, ptr @id_key_set, align 8, !tbaa !6
   %.not23 = icmp eq ptr %.018, null
-  %82 = select i1 %.not23, i64 0, i64 20
-  %83 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %81, i64 noundef %82) #11
+  %75 = select i1 %.not23, i64 0, i64 20
+  %76 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %74, i64 noundef %75) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

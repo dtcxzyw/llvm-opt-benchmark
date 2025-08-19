@@ -2152,11 +2152,11 @@ define hidden ptr @gcp_msg(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2
   %38 = load i32, ptr %9, align 8
   %39 = load i32, ptr %10, align 8
   %40 = icmp sgt i32 %38, %39
-  br i1 %40, label %.thread63, label %41
+  br i1 %40, label %.thread67, label %41
 
 41:                                               ; preds = %37
   %42 = icmp slt i32 %38, %39
-  br i1 %42, label %.thread63, label %43
+  br i1 %42, label %.thread67, label %43
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 212
@@ -2164,15 +2164,15 @@ define hidden ptr @gcp_msg(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %47 = load i32, ptr %46, align 4
   %48 = icmp sgt i32 %45, %47
-  br i1 %48, label %.thread63thread-pre-split, label %49
+  br i1 %48, label %.thread67thread-pre-split, label %49
 
 49:                                               ; preds = %43
   %50 = icmp slt i32 %45, %47
-  br i1 %50, label %.thread63thread-pre-split, label %51
+  br i1 %50, label %.thread67thread-pre-split, label %51
 
 51:                                               ; preds = %49
   %52 = icmp eq i32 %45, 0
-  br i1 %52, label %.thread63thread-pre-split, label %cmp_address.exit
+  br i1 %52, label %.thread67thread-pre-split, label %cmp_address.exit
 
 cmp_address.exit:                                 ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -2184,31 +2184,31 @@ cmp_address.exit:                                 ; preds = %51
   %.fr = freeze i32 %58
   %59 = icmp slt i32 %.fr, 0
   %spec.select = select i1 %59, ptr %9, ptr %10
-  %spec.select68 = select i1 %59, ptr %10, ptr %9
-  br label %.thread63thread-pre-split
+  %spec.select72 = select i1 %59, ptr %10, ptr %9
+  br label %.thread67thread-pre-split
 
-.thread63thread-pre-split:                        ; preds = %cmp_address.exit, %51, %43, %49
+.thread67thread-pre-split:                        ; preds = %cmp_address.exit, %51, %43, %49
   %.ph = phi ptr [ %9, %49 ], [ %10, %43 ], [ %10, %51 ], [ %spec.select, %cmp_address.exit ]
-  %.ph67 = phi ptr [ %10, %49 ], [ %9, %43 ], [ %9, %51 ], [ %spec.select68, %cmp_address.exit ]
+  %.ph71 = phi ptr [ %10, %49 ], [ %9, %43 ], [ %9, %51 ], [ %spec.select72, %cmp_address.exit ]
   %.pr = load i32, ptr %.ph, align 8
-  br label %.thread63
+  br label %.thread67
 
-.thread63:                                        ; preds = %.thread63thread-pre-split, %41, %37
-  %60 = phi i32 [ %.pr, %.thread63thread-pre-split ], [ %38, %41 ], [ %39, %37 ]
-  %61 = phi ptr [ %.ph, %.thread63thread-pre-split ], [ %9, %41 ], [ %10, %37 ]
-  %62 = phi ptr [ %.ph67, %.thread63thread-pre-split ], [ %10, %41 ], [ %9, %37 ]
+.thread67:                                        ; preds = %.thread67thread-pre-split, %41, %37
+  %60 = phi i32 [ %.pr, %.thread67thread-pre-split ], [ %38, %41 ], [ %39, %37 ]
+  %61 = phi ptr [ %.ph, %.thread67thread-pre-split ], [ %9, %41 ], [ %10, %37 ]
+  %62 = phi ptr [ %.ph71, %.thread67thread-pre-split ], [ %10, %41 ], [ %9, %37 ]
   switch i32 %60, label %73 [
     i32 0, label %63
     i32 2, label %65
   ]
 
-63:                                               ; preds = %.thread63
+63:                                               ; preds = %.thread67
   store i32 0, ptr %.147, align 8
   %64 = getelementptr inbounds nuw i8, ptr %.147, i64 4
   store i32 0, ptr %64, align 4
   br label %93
 
-65:                                               ; preds = %.thread63
+65:                                               ; preds = %.thread67
   %66 = getelementptr inbounds nuw i8, ptr %.147, i64 4
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %68 = load ptr, ptr %67, align 8
@@ -2220,7 +2220,7 @@ cmp_address.exit:                                 ; preds = %51
   store i32 %72, ptr %.147, align 1
   br label %93
 
-73:                                               ; preds = %.thread63
+73:                                               ; preds = %.thread67
   %74 = load i32, ptr @ss7pc_address_type, align 4
   %75 = icmp eq i32 %60, %74
   br i1 %75, label %76, label %84

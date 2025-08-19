@@ -2017,14 +2017,14 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape14performRaycastEP18btTria
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %66 = load i32, ptr %65, align 8, !tbaa !41
   %67 = icmp eq i32 %66, 2
-  %.sroa.gep39 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.gep42 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.gep40 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.gep43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %4
-  %.sroa.gep41 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.sroa.gep42 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.sroa.0.4.gep.sroa_idx37 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
+  %.sroa.0.4.gep.sroa_idx38 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 2, ptr %69, align 4, !tbaa !54
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2032,16 +2032,16 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape14performRaycastEP18btTria
   br label %71
 
 71:                                               ; preds = %68, %4
-  %.sroa.phi = phi ptr [ %.sroa.0.4.gep.sroa_idx37, %68 ], [ %.sroa.4, %4 ]
-  %.sroa.phi38 = phi ptr [ %.sroa.gep, %68 ], [ %.sroa.gep39, %4 ]
-  %.sroa.phi40 = phi ptr [ %.sroa.gep41, %68 ], [ %.sroa.gep42, %4 ]
+  %.sroa.phi = phi ptr [ %.sroa.0.4.gep.sroa_idx38, %68 ], [ %.sroa.4, %4 ]
+  %.sroa.phi39 = phi ptr [ %.sroa.gep, %68 ], [ %.sroa.gep40, %4 ]
+  %.sroa.phi41 = phi ptr [ %.sroa.gep42, %68 ], [ %.sroa.gep43, %4 ]
   %72 = tail call noundef float @llvm.floor.f32(float %38)
   %73 = fptosi float %72 to i32
-  %74 = load float, ptr %.sroa.phi40, align 4, !tbaa !42
+  %74 = load float, ptr %.sroa.phi41, align 4, !tbaa !42
   %75 = tail call noundef float @llvm.floor.f32(float %74)
   %76 = tail call noundef float @llvm.floor.f32(float %46)
   %77 = fptosi float %76 to i32
-  %78 = load float, ptr %.sroa.phi38, align 4, !tbaa !42
+  %78 = load float, ptr %.sroa.phi39, align 4, !tbaa !42
   %79 = tail call noundef float @llvm.floor.f32(float %78)
   %80 = fptosi float %79 to i32
   %81 = icmp eq i32 %73, %77
@@ -2265,16 +2265,16 @@ define linkonce_odr dso_local void @_ZNK22ProcessTrianglesAction4execEii(ptr nou
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.sink.split: ; preds = %57, %43, %29
   %.ph = phi float [ %42, %29 ], [ %56, %43 ], [ %70, %57 ]
-  %.ph123 = phi float [ %37, %29 ], [ %51, %43 ], [ %67, %57 ]
-  %.ph124 = phi float [ %32, %29 ], [ %48, %43 ], [ %62, %57 ]
+  %.ph124 = phi float [ %37, %29 ], [ %51, %43 ], [ %67, %57 ]
+  %.ph125 = phi float [ %32, %29 ], [ %48, %43 ], [ %62, %57 ]
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store float 0.000000e+00, ptr %71, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit: ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.sink.split, %21
   %72 = phi float [ undef, %21 ], [ %.ph, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.sink.split ]
-  %73 = phi float [ undef, %21 ], [ %.ph123, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.sink.split ]
-  %74 = phi float [ undef, %21 ], [ %.ph124, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.sink.split ]
+  %73 = phi float [ undef, %21 ], [ %.ph124, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.sink.split ]
+  %74 = phi float [ undef, %21 ], [ %.ph125, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.sink.split ]
   %75 = getelementptr inbounds nuw i8, ptr %22, i64 132
   %76 = load float, ptr %75, align 4, !tbaa !42
   %77 = fmul float %74, %76
@@ -2353,17 +2353,17 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit: ; preds = %_ZNK25b
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52.sink.split
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52.sink.split: ; preds = %123, %109, %95
-  %.ph125 = phi float [ %108, %95 ], [ %122, %109 ], [ %136, %123 ]
-  %.ph126 = phi float [ %103, %95 ], [ %117, %109 ], [ %133, %123 ]
-  %.ph127 = phi float [ %98, %95 ], [ %114, %109 ], [ %128, %123 ]
+  %.ph126 = phi float [ %108, %95 ], [ %122, %109 ], [ %136, %123 ]
+  %.ph127 = phi float [ %103, %95 ], [ %117, %109 ], [ %133, %123 ]
+  %.ph128 = phi float [ %98, %95 ], [ %114, %109 ], [ %128, %123 ]
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float 0.000000e+00, ptr %137, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52: ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52.sink.split, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit
-  %138 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit ], [ %.ph125, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52.sink.split ]
-  %139 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit ], [ %.ph126, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52.sink.split ]
-  %140 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit ], [ %.ph127, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52.sink.split ]
+  %138 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit ], [ %.ph126, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52.sink.split ]
+  %139 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit ], [ %.ph127, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52.sink.split ]
+  %140 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit ], [ %.ph128, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52.sink.split ]
   %141 = getelementptr inbounds nuw i8, ptr %86, i64 132
   %142 = load float, ptr %141, align 4, !tbaa !42
   %143 = fmul float %140, %142
@@ -2442,17 +2442,17 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52: ; preds = %_ZNK2
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit59.sink.split
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit59.sink.split: ; preds = %189, %175, %161
-  %.ph128 = phi float [ %174, %161 ], [ %188, %175 ], [ %202, %189 ]
-  %.ph129 = phi float [ %169, %161 ], [ %183, %175 ], [ %199, %189 ]
-  %.ph130 = phi float [ %164, %161 ], [ %180, %175 ], [ %194, %189 ]
+  %.ph129 = phi float [ %174, %161 ], [ %188, %175 ], [ %202, %189 ]
+  %.ph130 = phi float [ %169, %161 ], [ %183, %175 ], [ %199, %189 ]
+  %.ph131 = phi float [ %164, %161 ], [ %180, %175 ], [ %194, %189 ]
   %203 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store float 0.000000e+00, ptr %203, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit59
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit59: ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit59.sink.split, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52
-  %204 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52 ], [ %.ph128, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit59.sink.split ]
-  %205 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52 ], [ %.ph129, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit59.sink.split ]
-  %206 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52 ], [ %.ph130, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit59.sink.split ]
+  %204 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52 ], [ %.ph129, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit59.sink.split ]
+  %205 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52 ], [ %.ph130, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit59.sink.split ]
+  %206 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52 ], [ %.ph131, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit59.sink.split ]
   %207 = getelementptr inbounds nuw i8, ptr %152, i64 132
   %208 = load float, ptr %207, align 4, !tbaa !42
   %209 = fmul float %206, %208
@@ -2805,17 +2805,17 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit80: ; preds = %._cri
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87.sink.split
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87.sink.split: ; preds = %451, %437, %423
-  %.ph131 = phi float [ %436, %423 ], [ %450, %437 ], [ %464, %451 ]
-  %.ph132 = phi float [ %431, %423 ], [ %445, %437 ], [ %461, %451 ]
-  %.ph133 = phi float [ %426, %423 ], [ %442, %437 ], [ %456, %451 ]
+  %.ph132 = phi float [ %436, %423 ], [ %450, %437 ], [ %464, %451 ]
+  %.ph133 = phi float [ %431, %423 ], [ %445, %437 ], [ %461, %451 ]
+  %.ph134 = phi float [ %426, %423 ], [ %442, %437 ], [ %456, %451 ]
   %465 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store float 0.000000e+00, ptr %465, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87: ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87.sink.split, %415
-  %466 = phi float [ undef, %415 ], [ %.ph131, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87.sink.split ]
-  %467 = phi float [ undef, %415 ], [ %.ph132, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87.sink.split ]
-  %468 = phi float [ undef, %415 ], [ %.ph133, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87.sink.split ]
+  %466 = phi float [ undef, %415 ], [ %.ph132, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87.sink.split ]
+  %467 = phi float [ undef, %415 ], [ %.ph133, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87.sink.split ]
+  %468 = phi float [ undef, %415 ], [ %.ph134, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87.sink.split ]
   %469 = getelementptr inbounds nuw i8, ptr %416, i64 132
   %470 = load float, ptr %469, align 4, !tbaa !42
   %471 = fmul float %468, %470
@@ -2894,17 +2894,17 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87: ; preds = %_ZNK2
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94.sink.split
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94.sink.split: ; preds = %517, %503, %489
-  %.ph134 = phi float [ %502, %489 ], [ %516, %503 ], [ %530, %517 ]
-  %.ph135 = phi float [ %497, %489 ], [ %511, %503 ], [ %527, %517 ]
-  %.ph136 = phi float [ %492, %489 ], [ %508, %503 ], [ %522, %517 ]
+  %.ph135 = phi float [ %502, %489 ], [ %516, %503 ], [ %530, %517 ]
+  %.ph136 = phi float [ %497, %489 ], [ %511, %503 ], [ %527, %517 ]
+  %.ph137 = phi float [ %492, %489 ], [ %508, %503 ], [ %522, %517 ]
   %531 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float 0.000000e+00, ptr %531, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94: ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94.sink.split, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87
-  %532 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87 ], [ %.ph134, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94.sink.split ]
-  %533 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87 ], [ %.ph135, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94.sink.split ]
-  %534 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87 ], [ %.ph136, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94.sink.split ]
+  %532 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87 ], [ %.ph135, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94.sink.split ]
+  %533 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87 ], [ %.ph136, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94.sink.split ]
+  %534 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87 ], [ %.ph137, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94.sink.split ]
   %535 = getelementptr inbounds nuw i8, ptr %480, i64 132
   %536 = load float, ptr %535, align 4, !tbaa !42
   %537 = fmul float %534, %536
@@ -2983,17 +2983,17 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94: ; preds = %_ZNK2
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit101.sink.split
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit101.sink.split: ; preds = %583, %569, %555
-  %.ph137 = phi float [ %568, %555 ], [ %582, %569 ], [ %596, %583 ]
-  %.ph138 = phi float [ %563, %555 ], [ %577, %569 ], [ %593, %583 ]
-  %.ph139 = phi float [ %558, %555 ], [ %574, %569 ], [ %588, %583 ]
+  %.ph138 = phi float [ %568, %555 ], [ %582, %569 ], [ %596, %583 ]
+  %.ph139 = phi float [ %563, %555 ], [ %577, %569 ], [ %593, %583 ]
+  %.ph140 = phi float [ %558, %555 ], [ %574, %569 ], [ %588, %583 ]
   %597 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store float 0.000000e+00, ptr %597, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit101
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit101: ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit101.sink.split, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94
-  %598 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94 ], [ %.ph137, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit101.sink.split ]
-  %599 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94 ], [ %.ph138, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit101.sink.split ]
-  %600 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94 ], [ %.ph139, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit101.sink.split ]
+  %598 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94 ], [ %.ph138, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit101.sink.split ]
+  %599 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94 ], [ %.ph139, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit101.sink.split ]
+  %600 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94 ], [ %.ph140, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit101.sink.split ]
   %601 = getelementptr inbounds nuw i8, ptr %546, i64 132
   %602 = load float, ptr %601, align 4, !tbaa !42
   %603 = fmul float %600, %602
@@ -3284,12 +3284,12 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit122: ; preds = %._cr
   br label %809
 
 809:                                              ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit122, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit80
-  %.sink143.in = phi ptr [ %612, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit122 ], [ %218, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit80 ]
-  %.sink143 = load ptr, ptr %.sink143.in, align 8, !tbaa !67
-  %810 = load ptr, ptr %.sink143, align 8, !tbaa !4
+  %.sink144.in = phi ptr [ %612, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit122 ], [ %218, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit80 ]
+  %.sink144 = load ptr, ptr %.sink144.in, align 8, !tbaa !67
+  %810 = load ptr, ptr %.sink144, align 8, !tbaa !4
   %811 = getelementptr inbounds nuw i8, ptr %810, i64 16
   %812 = load ptr, ptr %811, align 8
-  call void %812(ptr noundef nonnull align 8 dereferenceable(8) %.sink143, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2)
+  call void %812(ptr noundef nonnull align 8 dereferenceable(8) %.sink144, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %813
 

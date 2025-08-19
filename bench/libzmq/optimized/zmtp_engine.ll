@@ -1437,7 +1437,7 @@ define noundef zeroext i1 @_ZN3zmq13zmtp_engine_t14handshake_v3_xEb(ptr noundef 
 33:                                               ; preds = %30
   %34 = tail call noalias noundef dereferenceable_or_null(1576) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1576, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.thread23, label %36
+  br i1 %35, label %.thread26, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1672
@@ -1460,7 +1460,7 @@ define noundef zeroext i1 @_ZN3zmq13zmtp_engine_t14handshake_v3_xEb(ptr noundef 
 45:                                               ; preds = %30
   %46 = tail call noalias noundef dereferenceable_or_null(1504) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1504, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %.thread23, label %48
+  br i1 %47, label %.thread26, label %48
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1672
@@ -1478,7 +1478,7 @@ define noundef zeroext i1 @_ZN3zmq13zmtp_engine_t14handshake_v3_xEb(ptr noundef 
   store ptr %46, ptr %54, align 8, !tbaa !96
   br label %65
 
-.thread23:                                        ; preds = %45, %33
+.thread26:                                        ; preds = %45, %33
   %.sink = phi ptr [ null, %33 ], [ %46, %45 ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   store ptr %.sink, ptr %55, align 8, !tbaa !96
@@ -1499,7 +1499,7 @@ define noundef zeroext i1 @_ZN3zmq13zmtp_engine_t14handshake_v3_xEb(ptr noundef 
   tail call void @_ZN3zmq20stream_engine_base_t5errorENS_8i_engine14error_reason_tE(ptr noundef nonnull align 8 dereferenceable(1689) %0, i32 noundef 0)
   br label %68
 
-65:                                               ; preds = %40, %53, %16, %.thread23, %19
+65:                                               ; preds = %40, %53, %16, %.thread26, %19
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1416
   store i64 ptrtoint (ptr @_ZN3zmq20stream_engine_base_t22next_handshake_commandEPNS_5msg_tE to i64), ptr %66, align 8, !tbaa !66
   %.repack19 = getelementptr inbounds nuw i8, ptr %0, i64 1424
@@ -1515,9 +1515,9 @@ define noundef zeroext i1 @_ZN3zmq13zmtp_engine_t14handshake_v3_xEb(ptr noundef 
   ret i1 %.0
 
 69:                                               ; preds = %51, %43, %25
-  %.sink26 = phi ptr [ %46, %51 ], [ %34, %43 ], [ %10, %25 ]
+  %.sink29 = phi ptr [ %46, %51 ], [ %34, %43 ], [ %10, %25 ]
   %.pn = phi { ptr, i32 } [ %52, %51 ], [ %44, %43 ], [ %26, %25 ]
-  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %.sink26, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %.sink29, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
   resume { ptr, i32 } %.pn
 }
 

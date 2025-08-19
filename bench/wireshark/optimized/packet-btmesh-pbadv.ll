@@ -202,7 +202,7 @@ define internal i32 @dissect_btmesh_pbadv_msg(ptr noundef %0, ptr noundef %1, pt
   %28 = zext nneg i8 %26 to i32
   %29 = call ptr @val_to_str_const(i32 noundef %28, ptr noundef nonnull @btmesh_generic_provisioning_control_format, ptr noundef nonnull @.str.75)
   call void @col_set_str(ptr noundef %27, i32 noundef 25, ptr noundef %29)
-  switch i8 %26, label %default.unreachable161 [
+  switch i8 %26, label %default.unreachable163 [
     i8 0, label %30
     i8 1, label %71
     i8 2, label %74
@@ -349,7 +349,7 @@ define internal i32 @dissect_btmesh_pbadv_msg(ptr noundef %0, ptr noundef %1, pt
   %113 = call ptr @proto_tree_add_expert(ptr noundef %13, ptr noundef %1, ptr noundef nonnull @ei_btmesh_gpcf_unknown_payload, ptr noundef %0, i32 noundef %.1, i32 noundef -1)
   br label %.thread
 
-default.unreachable161:                           ; preds = %4
+default.unreachable163:                           ; preds = %4
   unreachable
 
 114:                                              ; preds = %85, %90, %52, %43, %64, %67, %68

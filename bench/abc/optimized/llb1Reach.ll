@@ -2540,20 +2540,20 @@ Abc_Clock.exit356:                                ; preds = %369, %391
   br i1 %405, label %126, label %.loopexit, !llvm.loop !134
 
 .loopexit.sink.split.sink.split:                  ; preds = %358, %330
-  %.lcssa578.sink = phi ptr [ %303, %330 ], [ %.1297430, %358 ]
-  %.lcssa580.sink.ph = phi ptr [ %.1297430, %330 ], [ %303, %358 ]
+  %.lcssa597.sink = phi ptr [ %303, %330 ], [ %.1297430, %358 ]
+  %.lcssa599.sink.ph = phi ptr [ %.1297430, %330 ], [ %303, %358 ]
   %.2.ph.ph = phi ptr [ null, %330 ], [ %340, %358 ]
   %406 = load ptr, ptr %81, align 8, !tbaa !79
-  call void @Cudd_RecursiveDeref(ptr noundef %406, ptr noundef %.lcssa578.sink) #13
+  call void @Cudd_RecursiveDeref(ptr noundef %406, ptr noundef %.lcssa597.sink) #13
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %325, %321, %.loopexit.sink.split.sink.split
-  %.lcssa580.sink = phi ptr [ %.lcssa580.sink.ph, %.loopexit.sink.split.sink.split ], [ %303, %321 ], [ %303, %325 ]
+  %.lcssa599.sink = phi ptr [ %.lcssa599.sink.ph, %.loopexit.sink.split.sink.split ], [ %303, %321 ], [ %303, %325 ]
   %.2298.ph = phi ptr [ null, %.loopexit.sink.split.sink.split ], [ %.1297430, %321 ], [ %.1297430, %325 ]
   %.2.ph = phi ptr [ %.2.ph.ph, %.loopexit.sink.split.sink.split ], [ null, %321 ], [ null, %325 ]
   %.1.ph = phi i32 [ %326, %.loopexit.sink.split.sink.split ], [ %326, %325 ], [ %.0292433, %321 ]
   %407 = load ptr, ptr %81, align 8, !tbaa !79
-  call void @Cudd_RecursiveDeref(ptr noundef %407, ptr noundef %.lcssa580.sink) #13
+  call void @Cudd_RecursiveDeref(ptr noundef %407, ptr noundef %.lcssa599.sink) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %400, %.loopexit.sink.split, %116

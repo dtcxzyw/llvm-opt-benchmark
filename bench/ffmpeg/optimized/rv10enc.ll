@@ -64,9 +64,9 @@ align_put_bits.exit:                              ; preds = %21, %26
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %align_put_bits.exit.thread, %align_put_bits.exit
-  %.0.i.i.i53 = phi i32 [ %9, %align_put_bits.exit.thread ], [ %27, %align_put_bits.exit ]
-  %.026.i.i.i52 = phi i32 [ %11, %align_put_bits.exit.thread ], [ 1, %align_put_bits.exit ]
-  %30 = add nsw i32 %.0.i.i.i53, -1
+  %.0.i.i.i55 = phi i32 [ %9, %align_put_bits.exit.thread ], [ %27, %align_put_bits.exit ]
+  %.026.i.i.i54 = phi i32 [ %11, %align_put_bits.exit.thread ], [ 1, %align_put_bits.exit ]
+  %30 = add nsw i32 %.0.i.i.i55, -1
   br label %put_bits.exit
 
 31:                                               ; preds = %align_put_bits.exit
@@ -96,7 +96,7 @@ align_put_bits.exit:                              ; preds = %21, %26
   br label %put_bits.exit
 
 put_bits.exit:                                    ; preds = %29, %44
-  %.026.i.i = phi i32 [ %.026.i.i.i52, %29 ], [ 1, %44 ]
+  %.026.i.i = phi i32 [ %.026.i.i.i54, %29 ], [ 1, %44 ]
   %.0.i.i = phi i32 [ %30, %29 ], [ %45, %44 ]
   store i32 %.026.i.i, ptr %2, align 8, !tbaa !11
   store i32 %.0.i.i, ptr %3, align 4, !tbaa !4
@@ -177,9 +177,9 @@ put_bits.exit25:                                  ; preds = %63, %71, %51
   br label %put_bits.exit29
 
 put_bits.exit29:                                  ; preds = %85, %90, %74
-  %.sink54 = phi i32 [ -1, %74 ], [ 31, %90 ], [ 31, %85 ]
+  %.sink56 = phi i32 [ -1, %74 ], [ 31, %90 ], [ 31, %85 ]
   %.026.i.i27 = phi i32 [ %75, %74 ], [ 0, %90 ], [ 0, %85 ]
-  %91 = add nsw i32 %72, %.sink54
+  %91 = add nsw i32 %72, %.sink56
   store i32 %.026.i.i27, ptr %2, align 8, !tbaa !11
   store i32 %91, ptr %3, align 4, !tbaa !4
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 1472
@@ -220,9 +220,9 @@ put_bits.exit29:                                  ; preds = %85, %90, %74
   br label %put_bits.exit33
 
 put_bits.exit33:                                  ; preds = %107, %115, %95
-  %.sink55 = phi i32 [ -5, %95 ], [ 27, %115 ], [ 27, %107 ]
+  %.sink57 = phi i32 [ -5, %95 ], [ 27, %115 ], [ 27, %107 ]
   %.026.i.i31 = phi i32 [ %97, %95 ], [ %93, %115 ], [ %93, %107 ]
-  %116 = add nsw i32 %91, %.sink55
+  %116 = add nsw i32 %91, %.sink57
   store i32 %.026.i.i31, ptr %2, align 8, !tbaa !11
   store i32 %116, ptr %3, align 4, !tbaa !4
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 540
@@ -272,9 +272,9 @@ put_bits.exit33:                                  ; preds = %107, %115, %95
   br label %put_bits.exit37
 
 put_bits.exit37:                                  ; preds = %139, %144, %128
-  %.sink56 = phi i32 [ -6, %128 ], [ 26, %144 ], [ 26, %139 ]
+  %.sink58 = phi i32 [ -6, %128 ], [ 26, %144 ], [ 26, %139 ]
   %.026.i.i35 = phi i32 [ %129, %128 ], [ 0, %144 ], [ 0, %139 ]
-  %145 = add nsw i32 %116, %.sink56
+  %145 = add nsw i32 %116, %.sink58
   store i32 %.026.i.i35, ptr %2, align 8, !tbaa !11
   store i32 %145, ptr %3, align 4, !tbaa !4
   %146 = icmp sgt i32 %145, 6
@@ -309,9 +309,9 @@ put_bits.exit37:                                  ; preds = %139, %144, %128
   br label %put_bits.exit41
 
 put_bits.exit41:                                  ; preds = %158, %163, %147
-  %.sink57 = phi i32 [ -6, %147 ], [ 26, %163 ], [ 26, %158 ]
+  %.sink59 = phi i32 [ -6, %147 ], [ 26, %163 ], [ 26, %158 ]
   %.026.i.i39 = phi i32 [ %148, %147 ], [ 0, %163 ], [ 0, %158 ]
-  %164 = add nsw i32 %145, %.sink57
+  %164 = add nsw i32 %145, %.sink59
   store i32 %.026.i.i39, ptr %2, align 8, !tbaa !11
   store i32 %164, ptr %3, align 4, !tbaa !4
   %165 = load i32, ptr %117, align 4, !tbaa !51
@@ -353,9 +353,9 @@ put_bits.exit41:                                  ; preds = %158, %163, %147
   br label %put_bits.exit45
 
 put_bits.exit45:                                  ; preds = %181, %189, %169
-  %.sink58 = phi i32 [ -12, %169 ], [ 20, %189 ], [ 20, %181 ]
+  %.sink60 = phi i32 [ -12, %169 ], [ 20, %189 ], [ 20, %181 ]
   %.026.i.i43 = phi i32 [ %171, %169 ], [ %167, %189 ], [ %167, %181 ]
-  %190 = add nsw i32 %164, %.sink58
+  %190 = add nsw i32 %164, %.sink60
   store i32 %.026.i.i43, ptr %2, align 8, !tbaa !11
   store i32 %190, ptr %3, align 4, !tbaa !4
   %191 = icmp sgt i32 %190, 3
@@ -390,9 +390,9 @@ put_bits.exit45:                                  ; preds = %181, %189, %169
   br label %put_bits.exit49
 
 put_bits.exit49:                                  ; preds = %203, %208, %192
-  %.sink59 = phi i32 [ -3, %192 ], [ 29, %208 ], [ 29, %203 ]
+  %.sink61 = phi i32 [ -3, %192 ], [ 29, %208 ], [ 29, %203 ]
   %.026.i.i47 = phi i32 [ %193, %192 ], [ 0, %208 ], [ 0, %203 ]
-  %209 = add nsw i32 %190, %.sink59
+  %209 = add nsw i32 %190, %.sink61
   store i32 %.026.i.i47, ptr %2, align 8, !tbaa !11
   store i32 %209, ptr %3, align 4, !tbaa !4
   br label %210

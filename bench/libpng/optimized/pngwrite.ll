@@ -3739,7 +3739,7 @@ define internal noundef i32 @png_write_image_16bit(ptr noundef readonly captures
   br i1 %.not89, label %.split.us.us, label %.split.us87.preheader
 
 .split.us87.preheader:                            ; preds = %.thread, %35
-  %.056.us94 = phi i32 [ %34, %.thread ], [ 0, %35 ]
+  %.056.us98 = phi i32 [ %34, %.thread ], [ 0, %35 ]
   br label %.split.us87
 
 .split.us87:                                      ; preds = %.split.us87.preheader, %45
@@ -3757,7 +3757,7 @@ define internal noundef i32 @png_write_image_16bit(ptr noundef readonly captures
   br i1 %.not90, label %45, label %40
 
 40:                                               ; preds = %39
-  %41 = mul i32 %.056.us94, %38
+  %41 = mul i32 %.056.us98, %38
   %42 = add i32 %41, 16384
   %43 = lshr i32 %42, 15
   %44 = trunc i32 %43 to i16
@@ -3863,8 +3863,8 @@ define internal noundef i32 @png_write_image_8bit(ptr noundef readonly captures(
   %.0.idx = select i1 %.not76.not, i64 0, i64 2
   %.0 = getelementptr inbounds nuw i8, ptr %6, i64 %.0.idx
   %26 = lshr i32 %12, 1
-  %.lobit110 = and i32 %26, 1
-  %27 = zext nneg i32 %.lobit110 to i64
+  %.lobit115 = and i32 %26, 1
+  %27 = zext nneg i32 %.lobit115 to i64
   %28 = shl nuw nsw i64 %27, 1
   %29 = or disjoint i64 %28, 1
   %30 = shl nuw nsw i64 %27, 2

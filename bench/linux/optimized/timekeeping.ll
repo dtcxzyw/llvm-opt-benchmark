@@ -457,18 +457,18 @@ define dso_local void @ktime_get_real_ts64(ptr noundef captures(none) %0) #0 ali
   %2 = alloca i64, align 8
   %3 = load i32, ptr @timekeeping_suspended, align 4
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %.preheader36, label %5, !prof !11
+  br i1 %4, label %.preheader37, label %5, !prof !11
 
 5:                                                ; preds = %1
   tail call void asm sideeffect "361: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 361b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 361) #10, !srcloc !12
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 821, i32 2305, i64 12) #10, !srcloc !13
   tail call void asm sideeffect "362: nop\0A\09.pushsection .discard.instr_end\0A\09.long 362b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 362) #10, !srcloc !14
-  br label %.preheader36
+  br label %.preheader37
 
-.preheader36:                                     ; preds = %5, %1
+.preheader37:                                     ; preds = %5, %1
   br label %6
 
-6:                                                ; preds = %.preheader36, %.loopexit
+6:                                                ; preds = %.preheader37, %.loopexit
   %7 = load volatile i32, ptr @tk_core, align 64
   %8 = and i32 %7, 1
   %9 = icmp eq i32 %8, 0
@@ -858,18 +858,18 @@ define dso_local void @ktime_get_ts64(ptr noundef captures(none) %0) #0 align 16
   %2 = alloca i64, align 8
   %3 = load i32, ptr @timekeeping_suspended, align 4
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %.preheader44, label %5, !prof !11
+  br i1 %4, label %.preheader45, label %5, !prof !11
 
 5:                                                ; preds = %1
   tail call void asm sideeffect "378: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 378b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 378) #10, !srcloc !52
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 976, i32 2305, i64 12) #10, !srcloc !53
   tail call void asm sideeffect "379: nop\0A\09.pushsection .discard.instr_end\0A\09.long 379b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 379) #10, !srcloc !54
-  br label %.preheader44
+  br label %.preheader45
 
-.preheader44:                                     ; preds = %5, %1
+.preheader45:                                     ; preds = %5, %1
   br label %6
 
-6:                                                ; preds = %.preheader44, %.loopexit
+6:                                                ; preds = %.preheader45, %.loopexit
   %7 = load volatile i32, ptr @tk_core, align 64
   %8 = and i32 %7, 1
   %9 = icmp eq i32 %8, 0
@@ -3726,7 +3726,7 @@ define dso_local i32 @do_adjtimex(ptr noundef %0) local_unnamed_addr #0 align 16
 
 16:                                               ; preds = %1
   %17 = icmp eq i32 %5, 0
-  br i1 %17, label %.thread12, label %18
+  br i1 %17, label %.thread17, label %18
 
 18:                                               ; preds = %16
   %19 = tail call zeroext i1 @capable(i32 noundef 25) #10
@@ -3779,16 +3779,16 @@ define dso_local i32 @do_adjtimex(ptr noundef %0) local_unnamed_addr #0 align 16
   %47 = phi i32 [ %39, %44 ], [ %39, %42 ], [ %29, %28 ]
   %48 = and i32 %47, 2
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %.thread12, label %50
+  br i1 %49, label %.thread17, label %50
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, -140737488356
   %54 = icmp ult i64 %53, -281474976711
-  br i1 %54, label %.thread, label %.thread12
+  br i1 %54, label %.thread, label %.thread17
 
-.thread12:                                        ; preds = %16, %50, %46
+.thread17:                                        ; preds = %16, %50, %46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !67
   tail call void @add_device_randomness(ptr noundef %0, i64 noundef 208) #10
   %55 = load i32, ptr %0, align 8
@@ -3796,7 +3796,7 @@ define dso_local i32 @do_adjtimex(ptr noundef %0) local_unnamed_addr #0 align 16
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %83, label %58
 
-58:                                               ; preds = %.thread12
+58:                                               ; preds = %.thread17
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %60 = load i64, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3832,7 +3832,7 @@ define dso_local i32 @do_adjtimex(ptr noundef %0) local_unnamed_addr #0 align 16
   tail call void @__audit_tk_injoffset(i64 %60, i64 %66) #10
   br label %83
 
-83:                                               ; preds = %69, %73, %79, %82, %.thread12
+83:                                               ; preds = %69, %73, %79, %82, %.thread17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, i8 0, i64 96, i1 false)
   call void @ktime_get_real_ts64(ptr noundef nonnull %3)
   call void @add_device_randomness(ptr noundef nonnull %3, i64 noundef 16) #10

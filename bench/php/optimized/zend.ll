@@ -2803,9 +2803,9 @@ zend_observer_error_notify.exit:                  ; preds = %69, %72
   br label %106
 
 106:                                              ; preds = %94, %98, %103
-  %.sink137 = phi i32 [ 262, %103 ], [ 6, %98 ], [ 1, %94 ]
+  %.sink144 = phi i32 [ 262, %103 ], [ 6, %98 ], [ 1, %94 ]
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 %.sink137, ptr %107, align 8, !tbaa !13
+  store i32 %.sink144, ptr %107, align 8, !tbaa !13
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %109 = zext i32 %2 to i64
   store i64 %109, ptr %108, align 16, !tbaa !13

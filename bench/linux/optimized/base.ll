@@ -1641,9 +1641,9 @@ define internal fastcc noundef range(i32 -2, 1) i32 @proc_pident_readdir(ptr nou
   %33 = load i64, ptr %32, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull %27) #18
   %34 = tail call zeroext i1 %24(ptr noundef %1, ptr noundef nonnull @.str.7, i32 noundef 2, i64 noundef 1, i64 noundef %33, i32 noundef 4) #18
-  br i1 %34, label %.thread8, label %.loopexit
+  br i1 %34, label %.thread13, label %.loopexit
 
-.thread8:                                         ; preds = %23
+.thread13:                                        ; preds = %23
   store i64 2, ptr %12, align 8
   br label %39
 
@@ -1653,8 +1653,8 @@ define internal fastcc noundef range(i32 -2, 1) i32 @proc_pident_readdir(ptr nou
   %38 = icmp slt i64 %13, %37
   br i1 %38, label %39, label %.loopexit
 
-39:                                               ; preds = %.thread8, %35
-  %40 = phi i64 [ 2, %.thread8 ], [ %13, %35 ]
+39:                                               ; preds = %.thread13, %35
+  %40 = phi i64 [ 2, %.thread13 ], [ %13, %35 ]
   %41 = getelementptr %struct.pid_entry, ptr %2, i64 %40
   %42 = getelementptr i8, ptr %41, i64 -80
   %43 = zext nneg i32 %3 to i64
@@ -6085,7 +6085,8 @@ define internal i64 @timens_offsets_write(ptr noundef %0, ptr noundef %1, i64 no
   %10 = icmp ne i64 %9, 0
   %11 = icmp ugt i64 %2, 4095
   %12 = or i1 %11, %10
-  br i1 %12, label %85, label %13
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 24
+  br i1 %12, label %81, label %13
 
 13:                                               ; preds = %4
   %14 = tail call ptr @memdup_user_nul(ptr noundef %1, i64 noundef %2) #18
@@ -6101,130 +6102,127 @@ define internal i64 @timens_offsets_write(ptr noundef %0, ptr noundef %1, i64 no
 
 20:                                               ; preds = %13
   %21 = ptrtoint ptr %14 to i64
-  br label %85
+  br label %81
 
-.lr.ph:                                           ; preds = %16, %62
-  %22 = phi i32 [ %56, %62 ], [ 0, %16 ]
-  %23 = phi ptr [ %34, %62 ], [ %14, %16 ]
-  %24 = zext nneg i32 %22 to i64
-  %25 = getelementptr [2 x %struct.proc_timens_offset], ptr %5, i64 0, i64 %24
+.lr.ph:                                           ; preds = %16, %58
+  %22 = phi i1 [ true, %58 ], [ false, %16 ]
+  %.sroa.phi = phi ptr [ %.sroa.gep, %58 ], [ %5, %16 ]
+  %23 = phi ptr [ %32, %58 ], [ %14, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %6, i8 0, i64 10, i1 false), !annotation !10
-  %26 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %23, i32 noundef 10) #18
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %33, label %28
+  %24 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %23, i32 noundef 10) #18
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %31, label %26
 
-28:                                               ; preds = %.lr.ph
-  store i8 0, ptr %26, align 1
-  %29 = getelementptr i8, ptr %26, i64 1
-  %30 = load i8, ptr %29, align 1
-  %31 = icmp eq i8 %30, 0
-  %32 = select i1 %31, ptr null, ptr %29
-  br label %33
+26:                                               ; preds = %.lr.ph
+  store i8 0, ptr %24, align 1
+  %27 = getelementptr i8, ptr %24, i64 1
+  %28 = load i8, ptr %27, align 1
+  %29 = icmp eq i8 %28, 0
+  %30 = select i1 %29, ptr null, ptr %27
+  br label %31
 
-33:                                               ; preds = %28, %.lr.ph
-  %34 = phi ptr [ %32, %28 ], [ null, %.lr.ph ]
-  %35 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %36 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %37 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %23, ptr noundef nonnull @.str.105, ptr noundef nonnull %6, ptr noundef nonnull %35, ptr noundef nonnull %36)
-  %38 = icmp eq i32 %37, 3
-  br i1 %38, label %39, label %.thread
+31:                                               ; preds = %26, %.lr.ph
+  %32 = phi ptr [ %30, %26 ], [ null, %.lr.ph ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.phi, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.phi, i64 16
+  %35 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %23, ptr noundef nonnull @.str.105, ptr noundef nonnull %6, ptr noundef nonnull %33, ptr noundef nonnull %34)
+  %36 = icmp eq i32 %35, 3
+  br i1 %36, label %37, label %.thread
 
-39:                                               ; preds = %33
-  %40 = load i64, ptr %36, align 8
-  %41 = icmp sgt i64 %40, 999999999
-  br i1 %41, label %.thread, label %42
+37:                                               ; preds = %31
+  %38 = load i64, ptr %34, align 8
+  %39 = icmp sgt i64 %38, 999999999
+  br i1 %39, label %.thread, label %40
 
-42:                                               ; preds = %39
+40:                                               ; preds = %37
   store i8 0, ptr %17, align 1
-  %43 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %6, ptr noundef nonnull dereferenceable(10) @.str.106, i64 10)
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %54, label %45
+  %41 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %6, ptr noundef nonnull dereferenceable(10) @.str.106, i64 10)
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %52, label %43
 
-45:                                               ; preds = %42
-  %46 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %6, ptr noundef nonnull dereferenceable(2) @.str.107, i64 2)
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %54, label %48
+43:                                               ; preds = %40
+  %44 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %6, ptr noundef nonnull dereferenceable(2) @.str.107, i64 2)
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %52, label %46
 
-48:                                               ; preds = %45
-  %49 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %6, ptr noundef nonnull dereferenceable(9) @.str.108, i64 9)
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %54, label %51
+46:                                               ; preds = %43
+  %47 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %6, ptr noundef nonnull dereferenceable(9) @.str.108, i64 9)
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %52, label %49
 
-51:                                               ; preds = %48
-  %52 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %6, ptr noundef nonnull dereferenceable(2) @.str.109, i64 2)
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %.thread
+49:                                               ; preds = %46
+  %50 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %6, ptr noundef nonnull dereferenceable(2) @.str.109, i64 2)
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %.thread
 
-54:                                               ; preds = %51, %48, %45, %42
-  %55 = phi i32 [ 1, %45 ], [ 1, %42 ], [ 7, %51 ], [ 7, %48 ]
-  store i32 %55, ptr %25, align 8
-  %56 = add nuw nsw i32 %22, 1
-  %57 = icmp eq i32 %56, 2
-  br i1 %57, label %.thread8, label %62
+52:                                               ; preds = %49, %46, %43, %40
+  %53 = phi i32 [ 1, %43 ], [ 1, %40 ], [ 7, %49 ], [ 7, %46 ]
+  store i32 %53, ptr %.sroa.phi, align 8
+  br i1 %22, label %.thread8, label %58
 
-.thread8:                                         ; preds = %54
-  %58 = icmp eq ptr %34, null
-  %59 = ptrtoint ptr %34 to i64
-  %60 = sub i64 %59, %18
-  %61 = select i1 %58, i64 %2, i64 %60
+.thread8:                                         ; preds = %52
+  %54 = icmp eq ptr %32, null
+  %55 = ptrtoint ptr %32 to i64
+  %56 = sub i64 %55, %18
+  %57 = select i1 %54, i64 %2, i64 %56
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-.thread:                                          ; preds = %39, %33, %51
+.thread:                                          ; preds = %37, %31, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %83
+  br label %79
 
-62:                                               ; preds = %54
+58:                                               ; preds = %52
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %63 = icmp eq ptr %34, null
-  br i1 %63, label %.loopexit, label %.lr.ph
+  %59 = icmp eq ptr %32, null
+  br i1 %59, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %62, %16, %.thread8
-  %64 = phi i64 [ %61, %.thread8 ], [ %2, %16 ], [ %2, %62 ]
-  %65 = phi i32 [ 2, %.thread8 ], [ 0, %16 ], [ %56, %62 ]
-  %66 = getelementptr i8, ptr %8, i64 -72
-  %67 = load ptr, ptr %66, align 8
-  %68 = call ptr @get_pid_task(ptr noundef %67, i32 noundef 0) #18
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %83, label %70
+.loopexit:                                        ; preds = %58, %16, %.thread8
+  %60 = phi i64 [ %57, %.thread8 ], [ %2, %16 ], [ %2, %58 ]
+  %61 = phi i32 [ 2, %.thread8 ], [ 0, %16 ], [ 1, %58 ]
+  %62 = getelementptr i8, ptr %8, i64 -72
+  %63 = load ptr, ptr %62, align 8
+  %64 = call ptr @get_pid_task(ptr noundef %63, i32 noundef 0) #18
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %79, label %66
 
-70:                                               ; preds = %.loopexit
-  %71 = call i32 @proc_timens_set_offset(ptr noundef %0, ptr noundef nonnull %68, ptr noundef nonnull %5, i32 noundef %65) #18
-  %72 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  %73 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %72, i32 -1, ptr nonnull elementtype(i32) %72) #18, !srcloc !6
-  %74 = icmp eq i32 %73, 1
-  br i1 %74, label %78, label %75
+66:                                               ; preds = %.loopexit
+  %67 = call i32 @proc_timens_set_offset(ptr noundef %0, ptr noundef nonnull %64, ptr noundef nonnull %5, i32 noundef %61) #18
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 40
+  %69 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %68, i32 -1, ptr nonnull elementtype(i32) %68) #18, !srcloc !6
+  %70 = icmp eq i32 %69, 1
+  br i1 %70, label %74, label %71
 
-75:                                               ; preds = %70
-  %76 = icmp sgt i32 %73, 0
-  br i1 %76, label %.thread10, label %77, !prof !7
+71:                                               ; preds = %66
+  %72 = icmp sgt i32 %69, 0
+  br i1 %72, label %.thread10, label %73, !prof !7
 
-77:                                               ; preds = %75
-  call void @refcount_warn_saturate(ptr noundef nonnull %72, i32 noundef 3) #18
+73:                                               ; preds = %71
+  call void @refcount_warn_saturate(ptr noundef nonnull %68, i32 noundef 3) #18
   br label %.thread10
 
-78:                                               ; preds = %70
+74:                                               ; preds = %66
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !8
-  call void @__put_task_struct(ptr noundef nonnull %68) #18
+  call void @__put_task_struct(ptr noundef nonnull %64) #18
   br label %.thread10
 
-.thread10:                                        ; preds = %75, %77, %78
-  %79 = icmp eq i32 %71, 0
-  %80 = trunc i64 %64 to i32
-  %81 = select i1 %79, i32 %80, i32 %71
-  %82 = sext i32 %81 to i64
-  br label %83
+.thread10:                                        ; preds = %71, %73, %74
+  %75 = icmp eq i32 %67, 0
+  %76 = trunc i64 %60 to i32
+  %77 = select i1 %75, i32 %76, i32 %67
+  %78 = sext i32 %77 to i64
+  br label %79
 
-83:                                               ; preds = %.thread, %.thread10, %.loopexit
-  %84 = phi i64 [ -3, %.loopexit ], [ %82, %.thread10 ], [ -22, %.thread ]
+79:                                               ; preds = %.thread, %.thread10, %.loopexit
+  %80 = phi i64 [ -3, %.loopexit ], [ %78, %.thread10 ], [ -22, %.thread ]
   call void @kfree(ptr noundef %14) #18
-  br label %85
+  br label %81
 
-85:                                               ; preds = %83, %20, %4
-  %86 = phi i64 [ %21, %20 ], [ %84, %83 ], [ -22, %4 ]
+81:                                               ; preds = %79, %20, %4
+  %82 = phi i64 [ %21, %20 ], [ %80, %79 ], [ -22, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i64 %86
+  ret i64 %82
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

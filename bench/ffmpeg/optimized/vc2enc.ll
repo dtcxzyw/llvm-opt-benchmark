@@ -275,15 +275,15 @@ define internal range(i32 -22, 1) i32 @vc2_encode_init(ptr noundef %0) #0 {
   br label %101
 
 101:                                              ; preds = %83, %100, %96, %.critedge.thread
-  %.sink247 = phi i32 [ 2, %.critedge.thread ], [ 1, %96 ], [ 1, %100 ], [ 2, %83 ]
-  %.sink245 = phi i32 [ 4, %.critedge.thread ], [ 1, %96 ], [ 2, %100 ], [ 3, %83 ]
-  %.sink243 = phi i32 [ 2048, %.critedge.thread ], [ 128, %96 ], [ 128, %100 ], [ 512, %83 ]
+  %.sink251 = phi i32 [ 2, %.critedge.thread ], [ 1, %96 ], [ 1, %100 ], [ 2, %83 ]
+  %.sink249 = phi i32 [ 4, %.critedge.thread ], [ 1, %96 ], [ 2, %100 ], [ 3, %83 ]
+  %.sink247 = phi i32 [ 2048, %.critedge.thread ], [ 128, %96 ], [ 128, %100 ], [ 512, %83 ]
   %102 = getelementptr inbounds nuw i8, ptr %3, i64 1940
-  store i32 %.sink247, ptr %102, align 4, !tbaa !72
+  store i32 %.sink251, ptr %102, align 4, !tbaa !72
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 1944
-  store i32 %.sink245, ptr %103, align 8, !tbaa !73
+  store i32 %.sink249, ptr %103, align 8, !tbaa !73
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 1936
-  store i32 %.sink243, ptr %104, align 8, !tbaa !74
+  store i32 %.sink247, ptr %104, align 8, !tbaa !74
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %106 = getelementptr inbounds nuw i8, ptr %3, i64 2972
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 1640
@@ -1426,12 +1426,12 @@ put_bits.exit.i10.i.i:                            ; preds = %324, %302
   %333 = load i32, ptr %332, align 8, !tbaa !68
   %switch.selectcmp.i.i.i = icmp eq i32 %333, 1
   %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, i32 2, i32 0
-  %switch.selectcmp9.i.i.i = icmp eq i32 %333, 0
-  %switch.select10.i.i.i = select i1 %switch.selectcmp9.i.i.i, i32 1, i32 %switch.select.i.i.i
+  %switch.selectcmp11.i.i.i = icmp eq i32 %333, 0
+  %switch.select12.i.i.i = select i1 %switch.selectcmp11.i.i.i, i32 1, i32 %switch.select.i.i.i
   br label %334
 
 334:                                              ; preds = %331, %327
-  %.0.i.i.i = phi i32 [ %switch.select10.i.i.i, %331 ], [ 0, %327 ]
+  %.0.i.i.i = phi i32 [ %switch.select12.i.i.i, %331 ], [ 0, %327 ]
   tail call fastcc void @put_vc2_ue_uint(ptr noundef nonnull %224, i32 noundef %.0.i.i.i)
   %.pr47.i.i = load i32, ptr %225, align 4, !tbaa !107
   %.pre53.i.i = load i32, ptr %260, align 8, !tbaa !40
@@ -1899,9 +1899,9 @@ switch.lookup:                                    ; preds = %put_bits.exit30.i.i
   br label %put_bits.exit34.i.i.i
 
 put_bits.exit34.i.i.i:                            ; preds = %577, %569, %557
-  %.sink39.i.i.i = phi i32 [ -1, %557 ], [ 31, %577 ], [ 31, %569 ]
+  %.sink47.i.i.i = phi i32 [ -1, %557 ], [ 31, %577 ], [ 31, %569 ]
   %.026.i.i32.i.i.i = phi i32 [ %559, %557 ], [ 1, %577 ], [ 1, %569 ]
-  %578 = add nsw i32 %.sink39.i.i.i, %555
+  %578 = add nsw i32 %.sink47.i.i.i, %555
   store i32 %.026.i.i32.i.i.i, ptr %224, align 8, !tbaa !108
   store i32 %578, ptr %225, align 4, !tbaa !107
   %579 = getelementptr inbounds nuw i8, ptr %495, i64 152
@@ -1962,9 +1962,9 @@ put_bits.exit34.i.i.i:                            ; preds = %577, %569, %557
   br label %put_bits.exit38.i.i.i
 
 put_bits.exit38.i.i.i:                            ; preds = %608, %600, %588
-  %.sink40.i.i.i = phi i32 [ -1, %588 ], [ 31, %608 ], [ 31, %600 ]
+  %.sink48.i.i.i = phi i32 [ -1, %588 ], [ 31, %608 ], [ 31, %600 ]
   %.026.i.i36.i.i.i = phi i32 [ %590, %588 ], [ 1, %608 ], [ 1, %600 ]
-  %609 = add nsw i32 %.sink40.i.i.i, %586
+  %609 = add nsw i32 %.sink48.i.i.i, %586
   store i32 %.026.i.i36.i.i.i, ptr %224, align 8, !tbaa !108
   store i32 %609, ptr %225, align 4, !tbaa !107
   %610 = getelementptr inbounds nuw i8, ptr %495, i64 148
@@ -2034,11 +2034,11 @@ align_put_bits.exit.i49:                          ; preds = %636, %631
   br i1 %638, label %639, label %643
 
 639:                                              ; preds = %align_put_bits.exit.i49, %align_put_bits.exit.thread.i
-  %.0.i.i.i15.i = phi i32 [ %621, %align_put_bits.exit.thread.i ], [ %637, %align_put_bits.exit.i49 ]
-  %.026.i.i.i14.i = phi i32 [ %620, %align_put_bits.exit.thread.i ], [ 0, %align_put_bits.exit.i49 ]
-  %640 = and i32 %.0.i.i.i15.i, 7
-  %641 = shl i32 %.026.i.i.i14.i, %640
-  %642 = and i32 %.0.i.i.i15.i, 2147483640
+  %.0.i.i.i19.i = phi i32 [ %621, %align_put_bits.exit.thread.i ], [ %637, %align_put_bits.exit.i49 ]
+  %.026.i.i.i18.i = phi i32 [ %620, %align_put_bits.exit.thread.i ], [ 0, %align_put_bits.exit.i49 ]
+  %640 = and i32 %.0.i.i.i19.i, 7
+  %641 = shl i32 %.026.i.i.i18.i, %640
+  %642 = and i32 %.0.i.i.i19.i, 2147483640
   br label %align_put_bits.exit.i.i
 
 643:                                              ; preds = %align_put_bits.exit.i49
@@ -2842,46 +2842,46 @@ define internal noundef i32 @rate_control(ptr readnone captures(none) %0, ptr no
   %17 = add nsw i32 %16, %9
   %18 = add nsw i32 %15, -1
   %19 = icmp slt i32 %17, 0
-  %..i87 = tail call i32 @llvm.smin.i32(i32 %17, i32 %18)
-  %.0.i88 = select i1 %19, i32 0, i32 %..i87
-  %20 = tail call fastcc i32 @count_hq_slice(ptr noundef nonnull %1, i32 noundef %.0.i88)
-  %21 = icmp eq i32 %.0.i88, -1
-  br i1 %21, label %.thread, label %.lr.ph91
+  %..i88 = tail call i32 @llvm.smin.i32(i32 %17, i32 %18)
+  %.0.i89 = select i1 %19, i32 0, i32 %..i88
+  %20 = tail call fastcc i32 @count_hq_slice(ptr noundef nonnull %1, i32 noundef %.0.i89)
+  %21 = icmp eq i32 %.0.i89, -1
+  br i1 %21, label %.thread, label %.lr.ph92
 
-22:                                               ; preds = %.lr.ph91
+22:                                               ; preds = %.lr.ph92
   %23 = load i32, ptr %14, align 8, !tbaa !34
   %24 = select i1 %33, i32 1, i32 -1
-  %25 = add nsw i32 %24, %.0.i90
+  %25 = add nsw i32 %24, %.0.i91
   %26 = add nsw i32 %23, -1
   %27 = icmp slt i32 %25, 0
   %..i = tail call i32 @llvm.smin.i32(i32 %25, i32 %26)
   %.0.i = select i1 %27, i32 0, i32 %..i
   %28 = tail call fastcc i32 @count_hq_slice(ptr noundef nonnull %1, i32 noundef %.0.i)
-  %29 = icmp eq i32 %.sroa.0.06789, %.0.i
-  br i1 %29, label %.thread, label %.lr.ph91
+  %29 = icmp eq i32 %.sroa.0.06790, %.0.i
+  br i1 %29, label %.thread, label %.lr.ph92
 
 .thread:                                          ; preds = %22, %.lr.ph
-  %.sroa.8.071.lcssa = phi i32 [ -1, %.lr.ph ], [ %.sroa.0.06789, %22 ]
+  %.sroa.8.071.lcssa = phi i32 [ -1, %.lr.ph ], [ %.sroa.0.06790, %22 ]
   %.04270.lcssa = phi i32 [ undef, %.lr.ph ], [ %32, %22 ]
-  %.sroa.0.067.lcssa = phi i32 [ -1, %.lr.ph ], [ %.0.i90, %22 ]
+  %.sroa.0.067.lcssa = phi i32 [ -1, %.lr.ph ], [ %.0.i91, %22 ]
   %.lcssa = phi i32 [ %20, %.lr.ph ], [ %28, %22 ]
   %30 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.067.lcssa, i32 %.sroa.8.071.lcssa)
   %.not = icmp slt i32 %.sroa.0.067.lcssa, %.sroa.8.071.lcssa
   %31 = select i1 %.not, i32 %.lcssa, i32 %.04270.lcssa
   br label %.loopexit
 
-.lr.ph91:                                         ; preds = %.lr.ph, %22
+.lr.ph92:                                         ; preds = %.lr.ph, %22
   %32 = phi i32 [ %28, %22 ], [ %20, %.lr.ph ]
-  %.0.i90 = phi i32 [ %.0.i, %22 ], [ %.0.i88, %.lr.ph ]
-  %.sroa.0.06789 = phi i32 [ %.0.i90, %22 ], [ -1, %.lr.ph ]
+  %.0.i91 = phi i32 [ %.0.i, %22 ], [ %.0.i89, %.lr.ph ]
+  %.sroa.0.06790 = phi i32 [ %.0.i91, %22 ], [ -1, %.lr.ph ]
   %33 = icmp sgt i32 %32, %5
   %34 = icmp slt i32 %32, %7
   %35 = select i1 %33, i1 true, i1 %34
   br i1 %35, label %22, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph91, %2, %.thread
-  %.147 = phi i32 [ %30, %.thread ], [ %9, %2 ], [ %.0.i90, %.lr.ph91 ]
-  %.1 = phi i32 [ %31, %.thread ], [ %10, %2 ], [ %32, %.lr.ph91 ]
+.loopexit:                                        ; preds = %.lr.ph92, %2, %.thread
+  %.147 = phi i32 [ %30, %.thread ], [ %9, %2 ], [ %.0.i91, %.lr.ph92 ]
+  %.1 = phi i32 [ %31, %.thread ], [ %10, %2 ], [ %32, %.lr.ph92 ]
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 2952
   %37 = load i32, ptr %36, align 8, !tbaa !34
   %38 = add nsw i32 %37, -1
@@ -2930,7 +2930,7 @@ define internal fastcc i32 @count_hq_slice(ptr noundef captures(none) %0, i32 no
 .preheader117.thread:                             ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 2928
   %18 = load i32, ptr %17, align 8, !tbaa !105
-  %invariant.op174 = add i32 %18, -1
+  %invariant.op181 = add i32 %18, -1
   %19 = sub i32 0, %18
   br label %.preheader117.split
 
@@ -3151,7 +3151,7 @@ define internal fastcc i32 @count_hq_slice(ptr noundef captures(none) %0, i32 no
   %141 = ashr i32 %.reass144, 3
   %142 = xor i32 %139, -1
   %143 = add nsw i32 %141, %142
-  %.reass = add i32 %143, %invariant.op174
+  %.reass = add i32 %143, %invariant.op181
   %144 = and i32 %.reass, %19
   %.fr = freeze i32 %144
   %145 = srem i32 %.fr, %18
@@ -3873,15 +3873,15 @@ encode_subband.exit:                              ; preds = %._crit_edge.us.i, %
   br i1 %252, label %.lr.ph.i, label %flush_put_bits.exit
 
 .lr.ph.i:                                         ; preds = %put_bits.exit91, %._crit_edge
-  %.sroa.0.1.lcssa178 = phi i32 [ %.sroa.0.6, %._crit_edge ], [ %.sroa.0.0153, %put_bits.exit91 ]
-  %.sroa.22.1.lcssa177 = phi i32 [ %.sroa.22.6, %._crit_edge ], [ %59, %put_bits.exit91 ]
-  %.sroa.46.1.lcssa176 = phi ptr [ %.sroa.46.11, %._crit_edge ], [ %.sroa.46.0151, %put_bits.exit91 ]
-  %253 = shl i32 %.sroa.0.1.lcssa178, %.sroa.22.1.lcssa177
+  %.sroa.0.1.lcssa188 = phi i32 [ %.sroa.0.6, %._crit_edge ], [ %.sroa.0.0153, %put_bits.exit91 ]
+  %.sroa.22.1.lcssa187 = phi i32 [ %.sroa.22.6, %._crit_edge ], [ %59, %put_bits.exit91 ]
+  %.sroa.46.1.lcssa186 = phi ptr [ %.sroa.46.11, %._crit_edge ], [ %.sroa.46.0151, %put_bits.exit91 ]
+  %253 = shl i32 %.sroa.0.1.lcssa188, %.sroa.22.1.lcssa187
   br label %254
 
 254:                                              ; preds = %257, %.lr.ph.i
-  %.sroa.46.12 = phi ptr [ %.sroa.46.1.lcssa176, %.lr.ph.i ], [ %260, %257 ]
-  %.sroa.22.7 = phi i32 [ %.sroa.22.1.lcssa177, %.lr.ph.i ], [ %262, %257 ]
+  %.sroa.46.12 = phi ptr [ %.sroa.46.1.lcssa186, %.lr.ph.i ], [ %260, %257 ]
+  %.sroa.22.7 = phi i32 [ %.sroa.22.1.lcssa187, %.lr.ph.i ], [ %262, %257 ]
   %.sroa.0.7 = phi i32 [ %253, %.lr.ph.i ], [ %261, %257 ]
   %255 = icmp ult ptr %.sroa.46.12, %25
   br i1 %255, label %257, label %256
@@ -3913,8 +3913,8 @@ flush_put_bits.exit:                              ; preds = %257, %._crit_edge
   %271 = sub i32 0, %270
   %272 = add i32 %268, -1
   %273 = add i32 %39, %267
-  %.sink182 = select i1 %269, i32 %273, i32 %272
-  %274 = add i32 %.sink182, %270
+  %.sink192 = select i1 %269, i32 %273, i32 %272
+  %274 = add i32 %.sink192, %270
   %275 = and i32 %274, %271
   %276 = sdiv i32 %275, %270
   %277 = mul nsw i32 %276, %270

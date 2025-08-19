@@ -2837,12 +2837,12 @@ _ZNK5boost6locale4util14code_converterIwLb1EE10to_unicodeERSt10unique_ptrINS1_14
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %3)
-  %or.cond27 = icmp ugt i32 %15, -3
-  br i1 %or.cond27, label %_ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit17, label %.lr.ph
+  %or.cond31 = icmp ugt i32 %15, -3
+  br i1 %or.cond31, label %_ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit17, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK5boost6locale4util14code_converterIwLb1EE10to_unicodeERSt10unique_ptrINS1_14base_converterESt14default_deleteIS5_EERPKcSB_.exit.lr.ph, %_ZNK5boost6locale4util14code_converterIwLb1EE10to_unicodeERSt10unique_ptrINS1_14base_converterESt14default_deleteIS5_EERPKcSB_.exit
-  %.0122328 = phi i64 [ %16, %_ZNK5boost6locale4util14code_converterIwLb1EE10to_unicodeERSt10unique_ptrINS1_14base_converterESt14default_deleteIS5_EERPKcSB_.exit ], [ %4, %_ZNK5boost6locale4util14code_converterIwLb1EE10to_unicodeERSt10unique_ptrINS1_14base_converterESt14default_deleteIS5_EERPKcSB_.exit.lr.ph ]
-  %16 = add i64 %.0122328, -1
+  %.0122332 = phi i64 [ %16, %_ZNK5boost6locale4util14code_converterIwLb1EE10to_unicodeERSt10unique_ptrINS1_14base_converterESt14default_deleteIS5_EERPKcSB_.exit ], [ %4, %_ZNK5boost6locale4util14code_converterIwLb1EE10to_unicodeERSt10unique_ptrINS1_14base_converterESt14default_deleteIS5_EERPKcSB_.exit.lr.ph ]
+  %16 = add i64 %.0122332, -1
   %17 = icmp ne i64 %16, 0
   %18 = load ptr, ptr %6, align 8
   %19 = icmp ult ptr %18, %3
@@ -3080,8 +3080,8 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2
 ._crit_edge.thread:                               ; preds = %27
   store ptr %30, ptr %4, align 8, !tbaa !15
   store ptr %28, ptr %7, align 8, !tbaa !15
-  %.not58 = icmp ne ptr %30, %3
-  %spec.select59 = zext i1 %.not58 to i32
+  %.not63 = icmp ne ptr %30, %3
+  %spec.select64 = zext i1 %.not63 to i32
   br label %_ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i27
 
 .thread38.loopexit:                               ; preds = %_ZNK5boost6locale4util14code_converterIwLb0EE10to_unicodeERSt10unique_ptrINS1_14base_converterESt14default_deleteIS5_EERPKcSB_.exit
@@ -3103,7 +3103,7 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2
   br i1 %.not.i26, label %_ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit28, label %_ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i27
 
 _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i27: ; preds = %._crit_edge.thread, %.thread38, %._crit_edge
-  %33 = phi i32 [ %.121.ph, %.thread38 ], [ %spec.select, %._crit_edge ], [ %spec.select59, %._crit_edge.thread ]
+  %33 = phi i32 [ %.121.ph, %.thread38 ], [ %spec.select, %._crit_edge ], [ %spec.select64, %._crit_edge.thread ]
   %34 = load ptr, ptr %14, align 8, !tbaa !22
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8

@@ -98,8 +98,8 @@ define void @dorbdb1_(ptr noundef readonly captures(none) %0, ptr noundef readon
 
 .thread:                                          ; preds = %54
   %.not265286 = icmp eq i32 %41, 0
-  %or.cond293 = or i1 %36, %.not265286
-  br i1 %or.cond293, label %.loopexit, label %.lr.ph
+  %or.cond296 = or i1 %36, %.not265286
+  br i1 %or.cond296, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 8

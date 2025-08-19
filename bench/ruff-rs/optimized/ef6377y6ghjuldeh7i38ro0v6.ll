@@ -119,20 +119,20 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
   br i1 %22, label %23, label %.loopexit.sink.split.i.i.i.i
 
 23:                                               ; preds = %12
-  switch i64 %17, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h776a7fcbca795092E.exit.thread20.i.i.i.i.i.i" [
+  switch i64 %17, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h776a7fcbca795092E.exit.thread21.i.i.i.i.i.i" [
     i64 0, label %24
     i64 4, label %54
   ]
 
 24:                                               ; preds = %23
-  br i1 %18, label %25, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h776a7fcbca795092E.exit.thread20.i.i.i.i.i.i"
+  br i1 %18, label %25, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h776a7fcbca795092E.exit.thread21.i.i.i.i.i.i"
 
 25:                                               ; preds = %24
   %26 = icmp eq i8 %10, %11
   br i1 %26, label %27, label %.loopexit.sink.split.i.i.i.i
 
 27:                                               ; preds = %25
-  switch i8 %10, label %default.unreachable41.i.i.i.i.i.i.i.i.i.i [
+  switch i8 %10, label %default.unreachable [
     i8 0, label %28
     i8 1, label %32
     i8 2, label %36
@@ -141,7 +141,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
     i8 5, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h776a7fcbca795092E.exit.i.i.i.i.i.i"
   ]
 
-default.unreachable41.i.i.i.i.i.i.i.i.i.i:        ; preds = %27
+default.unreachable:                              ; preds = %27
   unreachable
 
 28:                                               ; preds = %27
@@ -164,8 +164,8 @@ default.unreachable41.i.i.i.i.i.i.i.i.i.i:        ; preds = %27
 36:                                               ; preds = %27
   %37 = icmp eq i8 %.sroa.2.0.copyload.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !37
-  %cond.fr23.i.i.i.i.i.i = freeze i1 %37
-  br i1 %cond.fr23.i.i.i.i.i.i, label %59, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h46bb440cd83fc6b8E.exit.thread.i
+  %cond.fr24.i.i.i.i.i.i = freeze i1 %37
+  br i1 %cond.fr24.i.i.i.i.i.i, label %59, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h46bb440cd83fc6b8E.exit.thread.i
 
 38:                                               ; preds = %27
   %39 = icmp ne ptr %.sroa.49.0.copyload.i.i.i.i, null
@@ -211,7 +211,7 @@ default.unreachable41.i.i.i.i.i.i.i.i.i.i:        ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !37
   br i1 %57, label %59, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h46bb440cd83fc6b8E.exit.thread.i
 
-"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h776a7fcbca795092E.exit.thread20.i.i.i.i.i.i": ; preds = %24, %23
+"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h776a7fcbca795092E.exit.thread21.i.i.i.i.i.i": ; preds = %24, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !37
   br label %59
 
@@ -225,7 +225,7 @@ default.unreachable41.i.i.i.i.i.i.i.i.i.i:        ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !37
   br label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h46bb440cd83fc6b8E.exit.thread.i
 
-59:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h776a7fcbca795092E.exit.i.i.i.i.i.i", %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h776a7fcbca795092E.exit.thread20.i.i.i.i.i.i", %54, %50, %46, %38, %36, %28
+59:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h776a7fcbca795092E.exit.i.i.i.i.i.i", %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h776a7fcbca795092E.exit.thread21.i.i.i.i.i.i", %54, %50, %46, %38, %36, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !22
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !22
   call void @"_ZN95_$LT$std..path..Components$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h35aff9f9921657ffE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %7)

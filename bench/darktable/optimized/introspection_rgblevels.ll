@@ -2125,7 +2125,8 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
 
 120:                                              ; preds = %103, %129
   %121 = phi i32 [ 0, %103 ], [ %130, %129 ]
-  %indvars.iv = phi i64 [ 1, %103 ], [ %indvars.iv.next, %129 ]
+  %exitcond.not = phi i1 [ false, %103 ], [ true, %129 ]
+  %indvars.iv = phi i64 [ 1, %103 ], [ 2, %129 ]
   %.089 = phi float [ %116, %103 ], [ %.1, %129 ]
   %122 = getelementptr inbounds nuw [3 x float], ptr %113, i64 0, i64 %indvars.iv
   %123 = load float, ptr %122, align 4, !tbaa !37
@@ -2142,8 +2143,6 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
 129:                                              ; preds = %127, %120
   %130 = phi i32 [ %128, %127 ], [ %121, %120 ]
   %.1 = phi nsz float [ %125, %127 ], [ %.089, %120 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %117, label %120
 
 131:                                              ; preds = %70, %81, %117
@@ -2701,8 +2700,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %indvars.iv150.i = phi i64 [ %indvars.iv.next151.i, %.loopexit.us.us.i ], [ %133, %.lr.ph.us129.i ]
   %.196.us101.us.i = phi float [ %.3.us.us.i, %.loopexit.us.us.i ], [ %.074112.us131.i, %.lr.ph.us129.i ]
   %.17695.us102.us.i = phi float [ %.378.us.us.i, %.loopexit.us.us.i ], [ %.075111.us132.i, %.lr.ph.us129.i ]
-  %.idx170.i = shl nsw i64 %indvars.iv150.i, 4
-  %140 = getelementptr inbounds i8, ptr %139, i64 %.idx170.i
+  %.idx178.i = shl nsw i64 %indvars.iv150.i, 4
+  %140 = getelementptr inbounds i8, ptr %139, i64 %.idx178.i
   br label %141
 
 141:                                              ; preds = %148, %.preheader.us.us.i
@@ -3394,7 +3393,7 @@ define internal fastcc void @_rgblevels_move_handle(ptr noundef %0, i32 noundef 
   br i1 %or.cond36, label %74, label %9
 
 9:                                                ; preds = %5
-  switch i32 %1, label %default.unreachable [
+  switch i32 %1, label %default.unreachable41 [
     i32 0, label %10
     i32 1, label %43
     i32 2, label %27
@@ -3437,7 +3436,7 @@ define internal fastcc void @_rgblevels_move_handle(ptr noundef %0, i32 noundef 
   %42 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %41, float %34)
   br label %55
 
-default.unreachable:                              ; preds = %9
+default.unreachable41:                            ; preds = %9
   unreachable
 
 43:                                               ; preds = %9

@@ -127,8 +127,8 @@ _ZNSt6vectorIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EE6resizeEm.ex
   %29 = icmp sgt i32 %28, 0
   %30 = load i32, ptr %2, align 8
   %31 = icmp sgt i32 %30, 0
-  %or.cond13 = select i1 %29, i1 %31, i1 false
-  br i1 %or.cond13, label %.preheader32.i, label %_ZN2cv8ximgproc18EstimateCovariance22buildCombinationsTableEv.exit
+  %or.cond30 = select i1 %29, i1 %31, i1 false
+  br i1 %or.cond30, label %.preheader32.i, label %_ZN2cv8ximgproc18EstimateCovariance22buildCombinationsTableEv.exit
 
 .preheader32.i:                                   ; preds = %_ZNSt6vectorIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EE6resizeEm.exit, %._crit_edge.i
   %32 = phi i32 [ %45, %._crit_edge.i ], [ %28, %_ZNSt6vectorIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EE6resizeEm.exit ]
@@ -822,13 +822,13 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance21computeOneCombinationEi
   br i1 %.not, label %.preheader409, label %.preheader411
 
 .preheader411:                                    ; preds = %7
-  br i1 %.not225435, label %.loopexit410.thread645, label %.lr.ph422
+  br i1 %.not225435, label %.loopexit410.thread699, label %.lr.ph422
 
 .lr.ph422:                                        ; preds = %.preheader411
   %.not232413 = icmp slt i32 %35, 0
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  br i1 %.not232413, label %.loopexit410.thread645, label %.lr.ph.preheader
+  br i1 %.not232413, label %.loopexit410.thread699, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph422
   %38 = zext nneg i32 %24 to i64
@@ -986,17 +986,17 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %115 = load ptr, ptr %114, align 8, !tbaa !53
   %116 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store float 0.000000e+00, ptr %115, align 4, !tbaa !57
-  %.sroa_idx396643 = getelementptr inbounds nuw i8, ptr %115, i64 4
-  store float 0.000000e+00, ptr %.sroa_idx396643, align 4, !tbaa !57
+  %.sroa_idx396697 = getelementptr inbounds nuw i8, ptr %115, i64 4
+  store float 0.000000e+00, ptr %.sroa_idx396697, align 4, !tbaa !57
   br label %123
 
-.loopexit410.thread645:                           ; preds = %.lr.ph422, %.preheader411
+.loopexit410.thread699:                           ; preds = %.lr.ph422, %.preheader411
   %117 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !53
   %119 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store float 0.000000e+00, ptr %118, align 4, !tbaa !57
-  %.sroa_idx396648 = getelementptr inbounds nuw i8, ptr %118, i64 4
-  store float 0.000000e+00, ptr %.sroa_idx396648, align 4, !tbaa !57
+  %.sroa_idx396702 = getelementptr inbounds nuw i8, ptr %118, i64 4
+  store float 0.000000e+00, ptr %.sroa_idx396702, align 4, !tbaa !57
   br label %130
 
 .loopexit410:                                     ; preds = %._crit_edge, %._crit_edge432
@@ -1020,9 +1020,9 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %129 = add nsw i32 %128, %18
   br label %136
 
-130:                                              ; preds = %.loopexit410.thread645, %.loopexit410
-  %131 = phi ptr [ %119, %.loopexit410.thread645 ], [ %122, %.loopexit410 ]
-  %132 = phi ptr [ %117, %.loopexit410.thread645 ], [ %120, %.loopexit410 ]
+130:                                              ; preds = %.loopexit410.thread699, %.loopexit410
+  %131 = phi ptr [ %119, %.loopexit410.thread699 ], [ %122, %.loopexit410 ]
+  %132 = phi ptr [ %117, %.loopexit410.thread699 ], [ %120, %.loopexit410 ]
   %133 = load ptr, ptr %5, align 8, !tbaa !44
   store i32 %18, ptr %133, align 4, !tbaa !34
   %134 = load i32, ptr %25, align 8, !tbaa !3
@@ -1963,8 +1963,8 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323
   br label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302
 
 _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302: ; preds = %694, %692, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323, %600, %598, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295
-  %.sink673 = phi float [ %595, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295 ], [ %595, %598 ], [ %.sroa.0.0.vec.extract.i.i.i300, %600 ], [ %689, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323 ], [ %689, %692 ], [ %.sroa.0.0.vec.extract.i.i.i328, %694 ]
-  %.sink672 = phi float [ %596, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295 ], [ %596, %598 ], [ %.sroa.0.4.vec.extract.i.i.i301, %600 ], [ %690, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323 ], [ %690, %692 ], [ %.sroa.0.4.vec.extract.i.i.i329, %694 ]
+  %.sink727 = phi float [ %595, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295 ], [ %595, %598 ], [ %.sroa.0.0.vec.extract.i.i.i300, %600 ], [ %689, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323 ], [ %689, %692 ], [ %.sroa.0.0.vec.extract.i.i.i328, %694 ]
+  %.sink726 = phi float [ %596, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295 ], [ %596, %598 ], [ %.sroa.0.4.vec.extract.i.i.i301, %600 ], [ %690, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323 ], [ %690, %692 ], [ %.sroa.0.4.vec.extract.i.i.i329, %694 ]
   %.sroa.0357.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295 ], [ %.sroa.0.4.vec.insert.i.i, %598 ], [ %.sroa.0.4.vec.insert.i.i, %600 ], [ %.sroa.0.4.vec.insert.i.i306, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323 ], [ %.sroa.0.4.vec.insert.i.i306, %692 ], [ %.sroa.0.4.vec.insert.i.i306, %694 ]
   %.sroa.0354.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i285, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295 ], [ %.sroa.0.4.vec.insert.i.i285, %598 ], [ %.sroa.0.4.vec.insert.i.i285, %600 ], [ %.sroa.0.4.vec.insert.i.i313, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323 ], [ %.sroa.0.4.vec.insert.i.i313, %692 ], [ %.sroa.0.4.vec.insert.i.i313, %694 ]
   %.sroa.0351.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i292, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295 ], [ %.sroa.0.4.vec.insert.i.i292, %598 ], [ %.sroa.0.4.vec.insert.i.i292, %600 ], [ %.sroa.0.4.vec.insert.i.i320, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323 ], [ %.sroa.0.4.vec.insert.i.i320, %692 ], [ %.sroa.0.4.vec.insert.i.i320, %694 ]
@@ -1980,8 +1980,8 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302
   %.sroa.0351.4.vec.extract = extractelement <2 x float> %.sroa.0351.2, i64 1
   %700 = fsub float %698, %.sroa.0351.0.vec.extract
   %701 = fsub float %699, %.sroa.0351.4.vec.extract
-  %702 = fadd float %.sink673, %700
-  %703 = fadd float %.sink672, %701
+  %702 = fadd float %.sink727, %700
+  %703 = fadd float %.sink726, %701
   %704 = add nsw i64 %indvars.iv576, %454
   %705 = load ptr, ptr %138, align 8, !tbaa !53
   %706 = load ptr, ptr %137, align 8, !tbaa !54
@@ -2348,12 +2348,12 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %53
   store i32 %3, ptr %100, align 4, !tbaa !13
   %101 = mul nsw i32 %3, %2
   invoke void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %101, i32 noundef %101, i32 noundef 13, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
-          to label %102 unwind label %.thread59
+          to label %102 unwind label %.thread61
 
 102:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %103 = invoke noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %.noexc49 unwind label %.thread63
+          to label %.noexc49 unwind label %.thread65
 
 .noexc49:                                         ; preds = %102
   %104 = icmp eq i32 %103, 65536
@@ -2363,11 +2363,11 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %53
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %107 = load ptr, ptr %106, align 8, !tbaa !38, !noalias !92
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(96) %107)
-          to label %_ZNK2cv11_InputArray6getMatEi.exit52 unwind label %.thread63
+          to label %_ZNK2cv11_InputArray6getMatEi.exit52 unwind label %.thread65
 
 108:                                              ; preds = %.noexc49
   invoke void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef -1)
-          to label %_ZNK2cv11_InputArray6getMatEi.exit52 unwind label %.thread63
+          to label %_ZNK2cv11_InputArray6getMatEi.exit52 unwind label %.thread65
 
 _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %105, %108
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %7)
@@ -2402,12 +2402,12 @@ _ZN2cv8ximgproc18EstimateCovarianceD2Ev.exit:     ; preds = %111, %113
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-.thread59:                                        ; preds = %97
+.thread61:                                        ; preds = %97
   %114 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN2cv8ximgproc18EstimateCovarianceD2Ev.exit54
 
-.thread63:                                        ; preds = %102, %105, %108
+.thread65:                                        ; preds = %102, %105, %108
   %115 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -2446,13 +2446,13 @@ _ZN2cv8ximgproc18EstimateCovarianceD2Ev.exit:     ; preds = %111, %113
   call void @_ZdlPv(ptr noundef nonnull %.pre.pre) #20
   br label %_ZN2cv8ximgproc18EstimateCovarianceD2Ev.exit54
 
-_ZN2cv8ximgproc18EstimateCovarianceD2Ev.exit54:   ; preds = %.thread63, %.thread59, %123, %124
-  %.pn39.pn.pn.pn62 = phi { ptr, i32 } [ %114, %.thread59 ], [ %.pn39.pn, %123 ], [ %.pn39.pn, %124 ], [ %115, %.thread63 ]
+_ZN2cv8ximgproc18EstimateCovarianceD2Ev.exit54:   ; preds = %.thread65, %.thread61, %123, %124
+  %.pn39.pn.pn.pn64 = phi { ptr, i32 } [ %114, %.thread61 ], [ %.pn39.pn, %123 ], [ %.pn39.pn, %124 ], [ %115, %.thread65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %125
 
 125:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovarianceD2Ev.exit54, %95, %90, %77
-  %.pn39.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn.pn62, %_ZN2cv8ximgproc18EstimateCovarianceD2Ev.exit54 ], [ %.pn35.pn.pn, %90 ], [ %78, %77 ], [ %96, %95 ]
+  %.pn39.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn.pn64, %_ZN2cv8ximgproc18EstimateCovarianceD2Ev.exit54 ], [ %.pn35.pn.pn, %90 ], [ %78, %77 ], [ %96, %95 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #21
   br label %126
 
@@ -2536,7 +2536,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv8ximgproc18EstimateCovariance1
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN2cv8ximgproc18EstimateCovariance11CombinationEmS3_ET_S5_T0_RSaIT1_E.exit, label %23
 

@@ -217,7 +217,7 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph575.preheader:                              ; preds = %.preheader566
   %106 = add nuw i32 %97, 1
   %wide.trip.count697 = zext i32 %106 to i64
-  %invariant.gep835 = getelementptr double, ptr %26, i64 %80
+  %invariant.gep846 = getelementptr double, ptr %26, i64 %80
   br label %.lr.ph575
 
 .preheader564:                                    ; preds = %105
@@ -226,26 +226,26 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph584.preheader:                              ; preds = %.preheader564
   %107 = add nuw i32 %97, 1
   %wide.trip.count707 = zext i32 %107 to i64
-  %invariant.gep839 = getelementptr double, ptr %26, i64 %80
+  %invariant.gep850 = getelementptr double, ptr %26, i64 %80
   br label %.lr.ph584
 
 .lr.ph575:                                        ; preds = %.lr.ph575.preheader, %122
   %indvars.iv692 = phi i64 [ 1, %.lr.ph575.preheader ], [ %indvars.iv.next693, %122 ]
   %indvars.iv690 = phi i64 [ 2, %.lr.ph575.preheader ], [ %indvars.iv.next691, %122 ]
   %.0476574 = phi i32 [ 1, %.lr.ph575.preheader ], [ %124, %122 ]
-  %gep836 = getelementptr double, ptr %invariant.gep835, i64 %indvars.iv692
-  %108 = load double, ptr %gep836, align 8, !tbaa !7
+  %gep847 = getelementptr double, ptr %invariant.gep846, i64 %indvars.iv692
+  %108 = load double, ptr %gep847, align 8, !tbaa !7
   %109 = fcmp oge double %108, 0.000000e+00
   %110 = fneg double %108
   %111 = select i1 %109, double %108, double %110
   %112 = zext i32 %.0476574 to i64
-  %invariant.gep833 = getelementptr double, ptr %20, i64 %112
+  %invariant.gep844 = getelementptr double, ptr %20, i64 %112
   br label %113
 
 113:                                              ; preds = %.lr.ph575, %113
   %indvars.iv683 = phi i64 [ 1, %.lr.ph575 ], [ %indvars.iv.next684, %113 ]
-  %gep834 = getelementptr double, ptr %invariant.gep833, i64 %indvars.iv683
-  %114 = getelementptr i8, ptr %gep834, i64 -8
+  %gep845 = getelementptr double, ptr %invariant.gep844, i64 %indvars.iv683
+  %114 = getelementptr i8, ptr %gep845, i64 -8
   %115 = load double, ptr %114, align 8, !tbaa !7
   %116 = fcmp oge double %115, 0.000000e+00
   %117 = fneg double %115
@@ -269,8 +269,8 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph584:                                        ; preds = %.lr.ph584.preheader, %._crit_edge580
   %indvars.iv704 = phi i64 [ 1, %.lr.ph584.preheader ], [ %indvars.iv.next705, %._crit_edge580 ]
   %.1583 = phi i32 [ 1, %.lr.ph584.preheader ], [ %142, %._crit_edge580 ]
-  %gep840 = getelementptr double, ptr %invariant.gep839, i64 %indvars.iv704
-  %125 = load double, ptr %gep840, align 8, !tbaa !7
+  %gep851 = getelementptr double, ptr %invariant.gep850, i64 %indvars.iv704
+  %125 = load double, ptr %gep851, align 8, !tbaa !7
   %126 = fcmp oge double %125, 0.000000e+00
   %127 = fneg double %125
   %128 = select i1 %126, double %125, double %127
@@ -279,13 +279,13 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph579.preheader:                              ; preds = %.lr.ph584
   %129 = zext i32 %.1583 to i64
-  %invariant.gep837 = getelementptr double, ptr %20, i64 %129
+  %invariant.gep848 = getelementptr double, ptr %20, i64 %129
   br label %.lr.ph579
 
 .lr.ph579:                                        ; preds = %.lr.ph579.preheader, %.lr.ph579
   %indvars.iv699 = phi i64 [ 1, %.lr.ph579.preheader ], [ %indvars.iv.next700, %.lr.ph579 ]
-  %gep838 = getelementptr double, ptr %invariant.gep837, i64 %indvars.iv699
-  %130 = getelementptr i8, ptr %gep838, i64 -8
+  %gep849 = getelementptr double, ptr %invariant.gep848, i64 %indvars.iv699
+  %130 = getelementptr i8, ptr %gep849, i64 -8
   %131 = load double, ptr %130, align 8, !tbaa !7
   %132 = fcmp oge double %131, 0.000000e+00
   %133 = fneg double %131
@@ -318,7 +318,7 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph590:                                        ; preds = %.preheader562
   %144 = add nuw i32 %97, 1
   %wide.trip.count718 = zext i32 %144 to i64
-  %invariant.gep841 = getelementptr double, ptr %26, i64 %80
+  %invariant.gep852 = getelementptr double, ptr %26, i64 %80
   br label %147
 
 .preheader560:                                    ; preds = %143
@@ -328,15 +328,15 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %145 = add nuw i32 %97, 1
   %146 = zext nneg i32 %97 to i64
   %wide.trip.count730 = zext i32 %145 to i64
-  %invariant.gep843 = getelementptr double, ptr %26, i64 %80
+  %invariant.gep854 = getelementptr double, ptr %26, i64 %80
   br label %170
 
 147:                                              ; preds = %.lr.ph590, %165
   %indvars.iv709 = phi i64 [ 1, %.lr.ph590 ], [ %indvars.iv.next710, %165 ]
   %.2485.neg589 = phi i32 [ -1, %.lr.ph590 ], [ %169, %165 ]
   %.2588 = phi i32 [ 1, %.lr.ph590 ], [ %167, %165 ]
-  %gep842 = getelementptr double, ptr %invariant.gep841, i64 %indvars.iv709
-  %148 = load double, ptr %gep842, align 8, !tbaa !7
+  %gep853 = getelementptr double, ptr %invariant.gep852, i64 %indvars.iv709
+  %148 = load double, ptr %gep853, align 8, !tbaa !7
   %149 = fcmp oge double %148, 0.000000e+00
   %150 = fneg double %148
   %151 = select i1 %149, double %148, double %150
@@ -375,8 +375,8 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv720 = phi i32 [ 2, %.lr.ph600 ], [ %indvars.iv.next721, %._crit_edge595 ]
   %.3486.neg599 = phi i32 [ -1, %.lr.ph600 ], [ %195, %._crit_edge595 ]
   %.3598 = phi i32 [ 1, %.lr.ph600 ], [ %193, %._crit_edge595 ]
-  %gep844 = getelementptr double, ptr %invariant.gep843, i64 %indvars.iv726
-  %171 = load double, ptr %gep844, align 8, !tbaa !7
+  %gep855 = getelementptr double, ptr %invariant.gep854, i64 %indvars.iv726
+  %171 = load double, ptr %gep855, align 8, !tbaa !7
   %172 = fcmp oge double %171, 0.000000e+00
   %173 = fneg double %171
   %174 = select i1 %172, double %171, double %173
@@ -433,7 +433,7 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .preheader551.preheader:                          ; preds = %.preheader558
   %198 = add nuw i32 %97, 1
   %wide.trip.count746 = zext i32 %198 to i64
-  %invariant.gep847 = getelementptr double, ptr %26, i64 %80
+  %invariant.gep858 = getelementptr double, ptr %26, i64 %80
   br label %.preheader551
 
 .preheader556:                                    ; preds = %197
@@ -442,8 +442,8 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph615.preheader:                              ; preds = %.preheader556
   %199 = add nuw i32 %97, 1
   %wide.trip.count756 = zext i32 %199 to i64
-  %invariant.gep853 = getelementptr double, ptr %26, i64 %80
-  %invariant.gep851 = getelementptr double, ptr %26, i64 %80
+  %invariant.gep864 = getelementptr double, ptr %26, i64 %80
+  %invariant.gep862 = getelementptr double, ptr %26, i64 %80
   br label %.lr.ph615
 
 .preheader551:                                    ; preds = %.preheader551.preheader, %212
@@ -451,20 +451,20 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv739 = phi i64 [ 2, %.preheader551.preheader ], [ %indvars.iv.next740, %212 ]
   %.4605 = phi i32 [ 1, %.preheader551.preheader ], [ %217, %212 ]
   %200 = sext i32 %.4605 to i64
-  %invariant.gep845 = getelementptr double, ptr %20, i64 %200
+  %invariant.gep856 = getelementptr double, ptr %20, i64 %200
   br label %201
 
 201:                                              ; preds = %.preheader551, %201
   %indvars.iv732 = phi i64 [ 1, %.preheader551 ], [ %indvars.iv.next733, %201 ]
   %.0477602 = phi double [ 0.000000e+00, %.preheader551 ], [ %211, %201 ]
-  %gep846 = getelementptr double, ptr %invariant.gep845, i64 %indvars.iv732
-  %202 = getelementptr i8, ptr %gep846, i64 -8
+  %gep857 = getelementptr double, ptr %invariant.gep856, i64 %indvars.iv732
+  %202 = getelementptr i8, ptr %gep857, i64 -8
   %203 = load double, ptr %202, align 8, !tbaa !7
   %204 = fcmp oge double %203, 0.000000e+00
   %205 = fneg double %203
   %206 = select i1 %204, double %203, double %205
-  %gep848 = getelementptr double, ptr %invariant.gep847, i64 %indvars.iv732
-  %207 = load double, ptr %gep848, align 8, !tbaa !7
+  %gep859 = getelementptr double, ptr %invariant.gep858, i64 %indvars.iv732
+  %207 = load double, ptr %gep859, align 8, !tbaa !7
   %208 = fcmp oge double %207, 0.000000e+00
   %209 = fneg double %207
   %210 = select i1 %208, double %207, double %209
@@ -488,8 +488,8 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph615:                                        ; preds = %.lr.ph615.preheader, %._crit_edge611
   %indvars.iv753 = phi i64 [ 1, %.lr.ph615.preheader ], [ %indvars.iv.next754, %._crit_edge611 ]
   %.5614 = phi i32 [ 1, %.lr.ph615.preheader ], [ %237, %._crit_edge611 ]
-  %gep854 = getelementptr double, ptr %invariant.gep853, i64 %indvars.iv753
-  %218 = load double, ptr %gep854, align 8, !tbaa !7
+  %gep865 = getelementptr double, ptr %invariant.gep864, i64 %indvars.iv753
+  %218 = load double, ptr %gep865, align 8, !tbaa !7
   %219 = fcmp oge double %218, 0.000000e+00
   %220 = fneg double %218
   %221 = select i1 %219, double %218, double %220
@@ -498,20 +498,20 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph610.preheader:                              ; preds = %.lr.ph615
   %222 = sext i32 %.5614 to i64
-  %invariant.gep849 = getelementptr double, ptr %20, i64 %222
+  %invariant.gep860 = getelementptr double, ptr %20, i64 %222
   br label %.lr.ph610
 
 .lr.ph610:                                        ; preds = %.lr.ph610.preheader, %.lr.ph610
   %indvars.iv748 = phi i64 [ 1, %.lr.ph610.preheader ], [ %indvars.iv.next749, %.lr.ph610 ]
   %.1478608 = phi double [ %221, %.lr.ph610.preheader ], [ %232, %.lr.ph610 ]
-  %gep850 = getelementptr double, ptr %invariant.gep849, i64 %indvars.iv748
-  %223 = getelementptr i8, ptr %gep850, i64 -8
+  %gep861 = getelementptr double, ptr %invariant.gep860, i64 %indvars.iv748
+  %223 = getelementptr i8, ptr %gep861, i64 -8
   %224 = load double, ptr %223, align 8, !tbaa !7
   %225 = fcmp oge double %224, 0.000000e+00
   %226 = fneg double %224
   %227 = select i1 %225, double %224, double %226
-  %gep852 = getelementptr double, ptr %invariant.gep851, i64 %indvars.iv748
-  %228 = load double, ptr %gep852, align 8, !tbaa !7
+  %gep863 = getelementptr double, ptr %invariant.gep862, i64 %indvars.iv748
+  %228 = load double, ptr %gep863, align 8, !tbaa !7
   %229 = fcmp oge double %228, 0.000000e+00
   %230 = fneg double %228
   %231 = select i1 %229, double %228, double %230
@@ -541,7 +541,7 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .preheader.lr.ph:                                 ; preds = %.preheader554
   %239 = add nuw i32 %97, 1
   %wide.trip.count767 = zext i32 %239 to i64
-  %invariant.gep855 = getelementptr double, ptr %26, i64 %80
+  %invariant.gep866 = getelementptr double, ptr %26, i64 %80
   br label %.preheader
 
 .preheader552:                                    ; preds = %238
@@ -551,8 +551,8 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %240 = add nuw i32 %97, 1
   %241 = zext nneg i32 %97 to i64
   %wide.trip.count780 = zext i32 %240 to i64
-  %invariant.gep859 = getelementptr double, ptr %26, i64 %80
-  %invariant.gep857 = getelementptr double, ptr %26, i64 %80
+  %invariant.gep870 = getelementptr double, ptr %26, i64 %80
+  %invariant.gep868 = getelementptr double, ptr %26, i64 %80
   br label %264
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %257
@@ -573,8 +573,8 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %249 = fcmp oge double %248, 0.000000e+00
   %250 = fneg double %248
   %251 = select i1 %249, double %248, double %250
-  %gep856 = getelementptr double, ptr %invariant.gep855, i64 %indvars.iv760
-  %252 = load double, ptr %gep856, align 8, !tbaa !7
+  %gep867 = getelementptr double, ptr %invariant.gep866, i64 %indvars.iv760
+  %252 = load double, ptr %gep867, align 8, !tbaa !7
   %253 = fcmp oge double %252, 0.000000e+00
   %254 = fneg double %252
   %255 = select i1 %253, double %252, double %254
@@ -601,8 +601,8 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv769 = phi i32 [ 2, %.lr.ph633 ], [ %indvars.iv.next770, %._crit_edge627 ]
   %.7490.neg632 = phi i32 [ -1, %.lr.ph633 ], [ %291, %._crit_edge627 ]
   %.7631 = phi i32 [ 1, %.lr.ph633 ], [ %289, %._crit_edge627 ]
-  %gep860 = getelementptr double, ptr %invariant.gep859, i64 %indvars.iv776
-  %265 = load double, ptr %gep860, align 8, !tbaa !7
+  %gep871 = getelementptr double, ptr %invariant.gep870, i64 %indvars.iv776
+  %265 = load double, ptr %gep871, align 8, !tbaa !7
   %266 = fcmp oge double %265, 0.000000e+00
   %267 = fneg double %265
   %268 = select i1 %266, double %265, double %267
@@ -626,8 +626,8 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %277 = fcmp oge double %276, 0.000000e+00
   %278 = fneg double %276
   %279 = select i1 %277, double %276, double %278
-  %gep858 = getelementptr double, ptr %invariant.gep857, i64 %indvars.iv771
-  %280 = load double, ptr %gep858, align 8, !tbaa !7
+  %gep869 = getelementptr double, ptr %invariant.gep868, i64 %indvars.iv771
+  %280 = load double, ptr %gep869, align 8, !tbaa !7
   %281 = fcmp oge double %280, 0.000000e+00
   %282 = fneg double %280
   %283 = select i1 %281, double %280, double %282
@@ -658,8 +658,8 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %292 = zext nneg i32 %97 to i64
   %293 = add nuw i32 %97, 1
   %wide.trip.count785 = zext i32 %293 to i64
-  %invariant.gep861 = getelementptr inbounds nuw double, ptr %29, i64 %292
-  %invariant.gep863 = getelementptr inbounds nuw double, ptr %29, i64 %292
+  %invariant.gep872 = getelementptr inbounds nuw double, ptr %29, i64 %292
+  %invariant.gep874 = getelementptr inbounds nuw double, ptr %29, i64 %292
   br label %.lr.ph638
 
 .lr.ph638:                                        ; preds = %.lr.ph638.preheader, %311
@@ -671,8 +671,8 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %296, label %297, label %303
 
 297:                                              ; preds = %.lr.ph638
-  %gep864 = getelementptr inbounds nuw double, ptr %invariant.gep863, i64 %indvars.iv782
-  %298 = load double, ptr %gep864, align 8, !tbaa !7
+  %gep875 = getelementptr inbounds nuw double, ptr %invariant.gep874, i64 %indvars.iv782
+  %298 = load double, ptr %gep875, align 8, !tbaa !7
   %299 = fcmp oge double %298, 0.000000e+00
   %300 = fneg double %298
   %301 = select i1 %299, double %298, double %300
@@ -680,8 +680,8 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %311
 
 303:                                              ; preds = %.lr.ph638
-  %gep862 = getelementptr inbounds nuw double, ptr %invariant.gep861, i64 %indvars.iv782
-  %304 = load double, ptr %gep862, align 8, !tbaa !7
+  %gep873 = getelementptr inbounds nuw double, ptr %invariant.gep872, i64 %indvars.iv782
+  %304 = load double, ptr %gep873, align 8, !tbaa !7
   %305 = fcmp oge double %304, 0.000000e+00
   %306 = fneg double %304
   %307 = select i1 %305, double %304, double %306
@@ -691,9 +691,9 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %311
 
 311:                                              ; preds = %297, %303
-  %.sink877 = phi double [ %302, %297 ], [ %310, %303 ]
-  %312 = fcmp oge double %.4481636, %.sink877
-  %313 = select i1 %312, double %.4481636, double %.sink877
+  %.sink888 = phi double [ %302, %297 ], [ %310, %303 ]
+  %312 = fcmp oge double %.4481636, %.sink888
+  %313 = select i1 %312, double %.4481636, double %.sink888
   %indvars.iv.next783 = add nuw nsw i64 %indvars.iv782, 1
   %exitcond786.not = icmp eq i64 %indvars.iv.next783, %wide.trip.count785
   br i1 %exitcond786.not, label %._crit_edge639, label %.lr.ph638, !llvm.loop !29
@@ -709,8 +709,8 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %316 = zext nneg i32 %97 to i64
   %317 = add nuw i32 %97, 1
   %wide.trip.count790 = zext i32 %317 to i64
-  %invariant.gep865 = getelementptr inbounds nuw double, ptr %29, i64 %316
-  %invariant.gep867 = getelementptr inbounds nuw double, ptr %29, i64 %316
+  %invariant.gep876 = getelementptr inbounds nuw double, ptr %29, i64 %316
+  %invariant.gep878 = getelementptr inbounds nuw double, ptr %29, i64 %316
   br label %.lr.ph644
 
 .lr.ph644:                                        ; preds = %._crit_edge639, %334
@@ -721,8 +721,8 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %320, label %321, label %327
 
 321:                                              ; preds = %.lr.ph644
-  %gep868 = getelementptr inbounds nuw double, ptr %invariant.gep867, i64 %indvars.iv787
-  %322 = load double, ptr %gep868, align 8, !tbaa !7
+  %gep879 = getelementptr inbounds nuw double, ptr %invariant.gep878, i64 %indvars.iv787
+  %322 = load double, ptr %gep879, align 8, !tbaa !7
   %323 = fcmp oge double %322, 0.000000e+00
   %324 = fneg double %322
   %325 = select i1 %323, double %322, double %324
@@ -730,8 +730,8 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %334
 
 327:                                              ; preds = %.lr.ph644
-  %gep866 = getelementptr inbounds nuw double, ptr %invariant.gep865, i64 %indvars.iv787
-  %328 = load double, ptr %gep866, align 8, !tbaa !7
+  %gep877 = getelementptr inbounds nuw double, ptr %invariant.gep876, i64 %indvars.iv787
+  %328 = load double, ptr %gep877, align 8, !tbaa !7
   %329 = fcmp oge double %328, 0.000000e+00
   %330 = fneg double %328
   %331 = select i1 %329, double %328, double %330
@@ -785,17 +785,17 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %351 = zext nneg i32 %350 to i64
   %352 = add nuw i32 %350, 1
   %wide.trip.count795 = zext i32 %352 to i64
-  %invariant.gep869 = getelementptr inbounds nuw double, ptr %29, i64 %351
+  %invariant.gep880 = getelementptr inbounds nuw double, ptr %29, i64 %351
   br label %.lr.ph649
 
 .lr.ph649:                                        ; preds = %.lr.ph649.preheader, %.lr.ph649
   %indvars.iv792 = phi i64 [ 1, %.lr.ph649.preheader ], [ %indvars.iv.next793, %.lr.ph649 ]
   %353 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv792
   %354 = load double, ptr %353, align 8, !tbaa !7
-  %gep870 = getelementptr inbounds nuw double, ptr %invariant.gep869, i64 %indvars.iv792
-  %355 = load double, ptr %gep870, align 8, !tbaa !7
+  %gep881 = getelementptr inbounds nuw double, ptr %invariant.gep880, i64 %indvars.iv792
+  %355 = load double, ptr %gep881, align 8, !tbaa !7
   %356 = fmul double %354, %355
-  store double %356, ptr %gep870, align 8, !tbaa !7
+  store double %356, ptr %gep881, align 8, !tbaa !7
   %indvars.iv.next793 = add nuw nsw i64 %indvars.iv792, 1
   %exitcond796.not = icmp eq i64 %indvars.iv.next793, %wide.trip.count795
   br i1 %exitcond796.not, label %.loopexit550.backedge, label %.lr.ph649, !llvm.loop !31
@@ -808,17 +808,17 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %358 = zext nneg i32 %345 to i64
   %359 = add nuw i32 %345, 1
   %wide.trip.count800 = zext i32 %359 to i64
-  %invariant.gep871 = getelementptr inbounds nuw double, ptr %29, i64 %358
+  %invariant.gep882 = getelementptr inbounds nuw double, ptr %29, i64 %358
   br label %.lr.ph653
 
 .lr.ph653:                                        ; preds = %.lr.ph653.preheader, %.lr.ph653
   %indvars.iv797 = phi i64 [ 1, %.lr.ph653.preheader ], [ %indvars.iv.next798, %.lr.ph653 ]
   %360 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv797
   %361 = load double, ptr %360, align 8, !tbaa !7
-  %gep872 = getelementptr inbounds nuw double, ptr %invariant.gep871, i64 %indvars.iv797
-  %362 = load double, ptr %gep872, align 8, !tbaa !7
+  %gep883 = getelementptr inbounds nuw double, ptr %invariant.gep882, i64 %indvars.iv797
+  %362 = load double, ptr %gep883, align 8, !tbaa !7
   %363 = fmul double %361, %362
-  store double %363, ptr %gep872, align 8, !tbaa !7
+  store double %363, ptr %gep883, align 8, !tbaa !7
   %indvars.iv.next798 = add nuw nsw i64 %indvars.iv797, 1
   %exitcond801.not = icmp eq i64 %indvars.iv.next798, %wide.trip.count800
   br i1 %exitcond801.not, label %._crit_edge654, label %.lr.ph653, !llvm.loop !32
@@ -838,14 +838,14 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph659.preheader:                              ; preds = %367
   %368 = add nuw i32 %345, 1
   %wide.trip.count805 = zext i32 %368 to i64
-  %invariant.gep873 = getelementptr double, ptr %26, i64 %80
+  %invariant.gep884 = getelementptr double, ptr %26, i64 %80
   br label %.lr.ph659
 
 .lr.ph659:                                        ; preds = %.lr.ph659.preheader, %.lr.ph659
   %indvars.iv802 = phi i64 [ 1, %.lr.ph659.preheader ], [ %indvars.iv.next803, %.lr.ph659 ]
   %.0657 = phi double [ 0.000000e+00, %.lr.ph659.preheader ], [ %374, %.lr.ph659 ]
-  %gep874 = getelementptr double, ptr %invariant.gep873, i64 %indvars.iv802
-  %369 = load double, ptr %gep874, align 8, !tbaa !7
+  %gep885 = getelementptr double, ptr %invariant.gep884, i64 %indvars.iv802
+  %369 = load double, ptr %gep885, align 8, !tbaa !7
   %370 = fcmp oge double %369, 0.000000e+00
   %371 = fneg double %369
   %372 = select i1 %370, double %369, double %371

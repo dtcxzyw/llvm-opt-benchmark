@@ -1220,7 +1220,7 @@ define dso_local range(i32 0, 10) i32 @__ieee80211_vht_handle_opmode(ptr noundef
   %.pr = phi i32 [ 5, %22 ], [ 1, %27 ], [ 1, %24 ], [ 1, %8 ]
   %33 = phi i32 [ 8, %22 ], [ 0, %27 ], [ 0, %24 ], [ 0, %8 ]
   %34 = and i32 %6, 3
-  switch i32 %34, label %default.unreachable4 [
+  switch i32 %34, label %default.unreachable7 [
     i32 0, label %35
     i32 1, label %37
     i32 2, label %39
@@ -1256,7 +1256,7 @@ define dso_local range(i32 0, 10) i32 @__ieee80211_vht_handle_opmode(ptr noundef
   store i32 3, ptr %46, align 8
   br label %47
 
-default.unreachable4:                             ; preds = %31
+default.unreachable7:                             ; preds = %31
   unreachable
 
 47:                                               ; preds = %45, %44, %43, %37, %35

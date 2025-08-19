@@ -1852,7 +1852,7 @@ define dso_local range(i32 -1, 1) i32 @streamAppendItem(ptr noundef captures(non
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load i64, ptr %28, align 8, !tbaa !108
   %30 = icmp eq i64 %29, -1
-  br i1 %30, label %31, label %streamNextID.exit.thread257
+  br i1 %30, label %31, label %streamNextID.exit.thread280
 
 31:                                               ; preds = %27
   %32 = tail call ptr @__errno_location() #20
@@ -1875,18 +1875,18 @@ define dso_local range(i32 -1, 1) i32 @streamAppendItem(ptr noundef captures(non
   %.sroa.17.0..sroa_idx197 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.17.0.copyload198 = load i64, ptr %.sroa.17.0..sroa_idx197, align 8, !tbaa !25
   %40 = icmp eq i64 %.sroa.17.0.copyload198, -1
-  br i1 %40, label %41, label %streamNextID.exit.thread257
+  br i1 %40, label %41, label %streamNextID.exit.thread280
 
 41:                                               ; preds = %39
   %42 = icmp eq i64 %37, -1
-  br i1 %42, label %streamNextID.exit.thread.thread, label %streamNextID.exit.thread260
+  br i1 %42, label %streamNextID.exit.thread.thread, label %streamNextID.exit.thread283
 
-streamNextID.exit.thread260:                      ; preds = %41
+streamNextID.exit.thread283:                      ; preds = %41
   %43 = add nuw i64 %37, 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %streamCompareID.exit
 
-streamNextID.exit.thread257:                      ; preds = %39, %27
+streamNextID.exit.thread280:                      ; preds = %39, %27
   %.sink = phi i64 [ %29, %27 ], [ %.sroa.17.0.copyload198, %39 ]
   %.ph = phi i64 [ %24, %27 ], [ %37, %39 ]
   %45 = add nuw i64 %.sink, 1
@@ -1901,11 +1901,11 @@ streamNextID.exit:                                ; preds = %34, %21, %33
   %49 = icmp ugt i64 %.sroa.0177.0, %47
   br i1 %49, label %streamCompareID.exit, label %streamNextID.exit.thread
 
-streamNextID.exit.thread:                         ; preds = %streamNextID.exit.thread257, %streamNextID.exit
-  %50 = phi i64 [ %47, %streamNextID.exit ], [ %.ph, %streamNextID.exit.thread257 ]
-  %51 = phi ptr [ %48, %streamNextID.exit ], [ %46, %streamNextID.exit.thread257 ]
-  %.sroa.17.0215 = phi i64 [ %.sroa.17.0, %streamNextID.exit ], [ %45, %streamNextID.exit.thread257 ]
-  %.sroa.0177.0213 = phi i64 [ %.sroa.0177.0, %streamNextID.exit ], [ %.ph, %streamNextID.exit.thread257 ]
+streamNextID.exit.thread:                         ; preds = %streamNextID.exit.thread280, %streamNextID.exit
+  %50 = phi i64 [ %47, %streamNextID.exit ], [ %.ph, %streamNextID.exit.thread280 ]
+  %51 = phi ptr [ %48, %streamNextID.exit ], [ %46, %streamNextID.exit.thread280 ]
+  %.sroa.17.0215 = phi i64 [ %.sroa.17.0, %streamNextID.exit ], [ %45, %streamNextID.exit.thread280 ]
+  %.sroa.0177.0213 = phi i64 [ %.sroa.0177.0, %streamNextID.exit ], [ %.ph, %streamNextID.exit.thread280 ]
   %52 = icmp ult i64 %.sroa.0177.0213, %50
   br i1 %52, label %streamNextID.exit.thread.thread, label %53
 
@@ -1915,10 +1915,10 @@ streamNextID.exit.thread:                         ; preds = %streamNextID.exit.t
   %56 = icmp ugt i64 %.sroa.17.0215, %55
   br i1 %56, label %streamCompareID.exit, label %streamNextID.exit.thread.thread
 
-streamCompareID.exit:                             ; preds = %streamNextID.exit.thread260, %streamNextID.exit, %53
-  %57 = phi ptr [ %48, %streamNextID.exit ], [ %51, %53 ], [ %44, %streamNextID.exit.thread260 ]
-  %.sroa.17.0216 = phi i64 [ %.sroa.17.0, %streamNextID.exit ], [ %.sroa.17.0215, %53 ], [ 0, %streamNextID.exit.thread260 ]
-  %.sroa.0177.0214 = phi i64 [ %.sroa.0177.0, %streamNextID.exit ], [ %.sroa.0177.0213, %53 ], [ %43, %streamNextID.exit.thread260 ]
+streamCompareID.exit:                             ; preds = %streamNextID.exit.thread283, %streamNextID.exit, %53
+  %57 = phi ptr [ %48, %streamNextID.exit ], [ %51, %53 ], [ %44, %streamNextID.exit.thread283 ]
+  %.sroa.17.0216 = phi i64 [ %.sroa.17.0, %streamNextID.exit ], [ %.sroa.17.0215, %53 ], [ 0, %streamNextID.exit.thread283 ]
+  %.sroa.0177.0214 = phi i64 [ %.sroa.0177.0, %streamNextID.exit ], [ %.sroa.0177.0213, %53 ], [ %43, %streamNextID.exit.thread283 ]
   %58 = icmp sgt i64 %2, 0
   br i1 %58, label %.lr.ph.preheader, label %._crit_edge.thread
 
@@ -1996,7 +1996,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %70, %73, %
   br label %373
 
 ._crit_edge.thread:                               ; preds = %streamCompareID.exit, %._crit_edge
-  %.0118.lcssa266 = phi i64 [ %88, %._crit_edge ], [ 0, %streamCompareID.exit ]
+  %.0118.lcssa289 = phi i64 [ %88, %._crit_edge ], [ 0, %streamCompareID.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %92 = load ptr, ptr %0, align 8, !tbaa !5
   call void @raxStart(ptr noundef nonnull %15, ptr noundef %92) #17
@@ -2024,7 +2024,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %70, %73, %
   %101 = add i64 %100, -1073741825
   %or.cond = icmp ult i64 %101, -1073741824
   %spec.store.select = select i1 %or.cond, i64 1073741824, i64 %100
-  %102 = add i64 %98, %.0118.lcssa266
+  %102 = add i64 %98, %.0118.lcssa289
   %.not142 = icmp ult i64 %102, %spec.store.select
   br i1 %.not142, label %103, label %.critedge155
 
@@ -2391,13 +2391,13 @@ sdslen.exit172:                                   ; preds = %.lr.ph233, %228, %2
   %260 = call ptr @lpAppendInteger(ptr noundef %258, i64 noundef %259) #17
   %261 = and i32 %.0128, 2
   %.not150 = icmp eq i32 %261, 0
-  br i1 %.not150, label %262, label %.thread267
+  br i1 %.not150, label %262, label %.thread290
 
 262:                                              ; preds = %254
   %263 = call ptr @lpAppendInteger(ptr noundef %260, i64 noundef %2) #17
   br i1 %58, label %.lr.ph244.split.us, label %._crit_edge245
 
-.thread267:                                       ; preds = %254
+.thread290:                                       ; preds = %254
   br i1 %58, label %.lr.ph244.split, label %._crit_edge245
 
 .lr.ph244.split.us:                               ; preds = %262, %sdslen.exit176.us
@@ -2504,8 +2504,8 @@ sdslen.exit176.us:                                ; preds = %315, %311, %307, %3
   %exitcond256.not = icmp eq i64 %320, %2
   br i1 %exitcond256.not, label %._crit_edge245, label %.lr.ph244.split.us, !llvm.loop !117
 
-._crit_edge245:                                   ; preds = %sdslen.exit176, %sdslen.exit176.us, %.thread267, %262
-  %.6.lcssa = phi ptr [ %263, %262 ], [ %260, %.thread267 ], [ %319, %sdslen.exit176.us ], [ %355, %sdslen.exit176 ]
+._crit_edge245:                                   ; preds = %sdslen.exit176, %sdslen.exit176.us, %.thread290, %262
+  %.6.lcssa = phi ptr [ %263, %262 ], [ %260, %.thread290 ], [ %319, %sdslen.exit176.us ], [ %355, %sdslen.exit176 ]
   %321 = add nsw i64 %2, 3
   %322 = add nsw i64 %2, 1
   %323 = select i1 %.not150, i64 %322, i64 0
@@ -2516,9 +2516,9 @@ sdslen.exit176.us:                                ; preds = %315, %311, %307, %3
   %.not151 = icmp eq ptr %326, %324
   br i1 %.not151, label %360, label %357
 
-.lr.ph244.split:                                  ; preds = %.thread267, %sdslen.exit176
-  %.0117242 = phi i64 [ %356, %sdslen.exit176 ], [ 0, %.thread267 ]
-  %.6241 = phi ptr [ %355, %sdslen.exit176 ], [ %260, %.thread267 ]
+.lr.ph244.split:                                  ; preds = %.thread290, %sdslen.exit176
+  %.0117242 = phi i64 [ %356, %sdslen.exit176 ], [ 0, %.thread290 ]
+  %.6241 = phi ptr [ %355, %sdslen.exit176 ], [ %260, %.thread290 ]
   %.idx227 = shl nuw nsw i64 %.0117242, 4
   %327 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx227
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 8
@@ -2961,9 +2961,9 @@ lpGetIntegerIfValid.exit137:                      ; preds = %130, %136
   br i1 %100, label %143, label %139
 
 139:                                              ; preds = %lpGetIntegerIfValid.exit137
-  br i1 %38, label %141, label %.thread262
+  br i1 %38, label %141, label %.thread276
 
-.thread262:                                       ; preds = %139
+.thread276:                                       ; preds = %139
   %140 = load i64, ptr %26, align 8, !tbaa !23
   br label %150
 
@@ -2981,16 +2981,16 @@ lpGetIntegerIfValid.exit137:                      ; preds = %130, %136
   %149 = icmp ugt i64 %145, %148
   br i1 %149, label %.thread167, label %150
 
-150:                                              ; preds = %.thread262, %143
-  %151 = phi i64 [ %140, %.thread262 ], [ %148, %143 ]
-  %.sroa.0.5154266 = phi i64 [ 0, %.thread262 ], [ %145, %143 ]
-  %.sroa.5.5156265 = phi i64 [ 0, %.thread262 ], [ %147, %143 ]
-  %152 = icmp ult i64 %.sroa.0.5154266, %151
+150:                                              ; preds = %.thread276, %143
+  %151 = phi i64 [ %140, %.thread276 ], [ %148, %143 ]
+  %.sroa.0.5154280 = phi i64 [ 0, %.thread276 ], [ %145, %143 ]
+  %.sroa.5.5156279 = phi i64 [ 0, %.thread276 ], [ %147, %143 ]
+  %152 = icmp ult i64 %.sroa.0.5154280, %151
   br i1 %152, label %.thread164, label %153
 
 153:                                              ; preds = %150
   %154 = load i64, ptr %44, align 8, !tbaa !22
-  %.not191 = icmp ult i64 %.sroa.5.5156265, %154
+  %.not191 = icmp ult i64 %.sroa.5.5156279, %154
   br i1 %.not191, label %.thread164, label %.thread167
 
 .thread164:                                       ; preds = %153, %150, %141
@@ -6181,9 +6181,9 @@ define dso_local void @xrangeGenericCommand(ptr noundef %0, i32 noundef %1) loca
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8, !tbaa !159
   %. = select i1 %.not, i64 16, i64 24
-  %.66 = select i1 %.not, i64 24, i64 16
+  %.72 = select i1 %.not, i64 24, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %.66
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %.72
   %12 = load ptr, ptr %10, align 8, !tbaa !109
   %13 = load ptr, ptr %11, align 8, !tbaa !109
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -6224,8 +6224,8 @@ define dso_local void @xrangeGenericCommand(ptr noundef %0, i32 noundef %1) loca
   br label %.critedge
 
 streamIncrID.exit.thread.sink.split:              ; preds = %24, %26
-  %.sink64 = phi i64 [ %27, %26 ], [ 0, %24 ]
-  store i64 %.sink64, ptr %18, align 8, !tbaa !22
+  %.sink70 = phi i64 [ %27, %26 ], [ 0, %24 ]
+  store i64 %.sink70, ptr %18, align 8, !tbaa !22
   br label %streamIncrID.exit.thread
 
 streamIncrID.exit.thread:                         ; preds = %streamIncrID.exit.thread.sink.split, %15
@@ -6263,8 +6263,8 @@ streamIncrID.exit.thread:                         ; preds = %streamIncrID.exit.t
   br label %.critedge
 
 streamDecrID.exit.thread.sink.split:              ; preds = %39, %41
-  %.sink65 = phi i64 [ %42, %41 ], [ -1, %39 ]
-  store i64 %.sink65, ptr %33, align 8, !tbaa !22
+  %.sink71 = phi i64 [ %42, %41 ], [ -1, %39 ]
+  store i64 %.sink71, ptr %33, align 8, !tbaa !22
   br label %streamDecrID.exit.thread
 
 streamDecrID.exit.thread:                         ; preds = %streamDecrID.exit.thread.sink.split, %30
@@ -9123,8 +9123,8 @@ streamIncrID.exit.thread:                         ; preds = %streamIncrID.exit.t
   br label %.critedge125
 
 streamDecrID.exit.thread.sink.split:              ; preds = %87, %89
-  %.sink156 = phi i64 [ %90, %89 ], [ -1, %87 ]
-  store i64 %.sink156, ptr %81, align 8, !tbaa !22
+  %.sink167 = phi i64 [ %90, %89 ], [ -1, %87 ]
+  store i64 %.sink167, ptr %81, align 8, !tbaa !22
   br label %streamDecrID.exit.thread
 
 streamDecrID.exit.thread:                         ; preds = %streamDecrID.exit.thread.sink.split, %78
@@ -9833,8 +9833,8 @@ streamLookupCG.exit.thread:                       ; preds = %.streamLookupCG.exi
 
 159:                                              ; preds = %._crit_edge244.thread, %._crit_edge244
   %160 = phi i64 [ %103, %._crit_edge244.thread ], [ %157, %._crit_edge244 ]
-  %.0157.lcssa273 = phi i1 [ false, %._crit_edge244.thread ], [ %155, %._crit_edge244 ]
-  %.0161.lcssa270 = phi i1 [ true, %._crit_edge244.thread ], [ %156, %._crit_edge244 ]
+  %.0157.lcssa289 = phi i1 [ false, %._crit_edge244.thread ], [ %155, %._crit_edge244 ]
+  %.0161.lcssa286 = phi i1 [ true, %._crit_edge244.thread ], [ %156, %._crit_edge244 ]
   %161 = phi i64 [ 0, %._crit_edge244.thread ], [ %.pre263, %._crit_edge244 ]
   %162 = icmp ult i64 %161, %160
   br i1 %162, label %streamCompareID.exit, label %163
@@ -9848,14 +9848,14 @@ streamLookupCG.exit.thread:                       ; preds = %.streamLookupCG.exi
   br i1 %168, label %169, label %streamCompareID.exit
 
 169:                                              ; preds = %._crit_edge244, %163
-  %.0157.lcssa271 = phi i1 [ %155, %._crit_edge244 ], [ %.0157.lcssa273, %163 ]
-  %.0161.lcssa268 = phi i1 [ %156, %._crit_edge244 ], [ %.0161.lcssa270, %163 ]
+  %.0157.lcssa287 = phi i1 [ %155, %._crit_edge244 ], [ %.0157.lcssa289, %163 ]
+  %.0161.lcssa284 = phi i1 [ %156, %._crit_edge244 ], [ %.0161.lcssa286, %163 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !24
   br label %streamCompareID.exit
 
 streamCompareID.exit:                             ; preds = %163, %159, %169
-  %.0157.lcssa272 = phi i1 [ %.0157.lcssa271, %169 ], [ %.0157.lcssa273, %159 ], [ %.0157.lcssa273, %163 ]
-  %.0161.lcssa269 = phi i1 [ %.0161.lcssa268, %169 ], [ %.0161.lcssa270, %159 ], [ %.0161.lcssa270, %163 ]
+  %.0157.lcssa288 = phi i1 [ %.0157.lcssa287, %169 ], [ %.0157.lcssa289, %159 ], [ %.0157.lcssa289, %163 ]
+  %.0161.lcssa285 = phi i1 [ %.0161.lcssa284, %169 ], [ %.0161.lcssa286, %159 ], [ %.0161.lcssa286, %163 ]
   %.0166 = phi i32 [ 1, %169 ], [ 0, %159 ], [ 0, %163 ]
   %170 = load i64, ptr %9, align 8, !tbaa !58
   %.not187 = icmp eq i64 %170, -1
@@ -10049,7 +10049,7 @@ streamCompareID.exit.thread.i:                    ; preds = %243, %240
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %265 = icmp eq ptr %237, null
-  %or.cond11 = select i1 %.0157.lcssa272, i1 %265, i1 false
+  %or.cond11 = select i1 %.0157.lcssa288, i1 %265, i1 false
   br i1 %or.cond11, label %.thread223, label %272
 
 .thread223:                                       ; preds = %264
@@ -10108,7 +10108,7 @@ streamCompareID.exit.thread.i:                    ; preds = %243, %240
   br label %298
 
 293:                                              ; preds = %287
-  br i1 %.0161.lcssa269, label %294, label %298
+  br i1 %.0161.lcssa285, label %294, label %298
 
 294:                                              ; preds = %293
   %295 = getelementptr inbounds nuw i8, ptr %.0154226, i64 8
@@ -10129,7 +10129,7 @@ streamCompareID.exit.thread.i:                    ; preds = %243, %240
   br label %303
 
 303:                                              ; preds = %300, %298
-  br i1 %.0161.lcssa269, label %322, label %304
+  br i1 %.0161.lcssa285, label %322, label %304
 
 304:                                              ; preds = %303
   %305 = load ptr, ptr @SDS_NOINIT, align 8, !tbaa !115
@@ -10330,8 +10330,8 @@ define dso_local void @xautoclaimCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %.critedge154
 
 streamIncrID.exit.thread.sink.split:              ; preds = %42, %44
-  %.sink195 = phi i64 [ %45, %44 ], [ 0, %42 ]
-  store i64 %.sink195, ptr %36, align 8, !tbaa !22
+  %.sink206 = phi i64 [ %45, %44 ], [ 0, %42 ]
+  store i64 %.sink206, ptr %36, align 8, !tbaa !22
   br label %streamIncrID.exit.thread
 
 streamIncrID.exit.thread:                         ; preds = %streamIncrID.exit.thread.sink.split, %33
@@ -11147,8 +11147,8 @@ streamGetEdgeID.exit:                             ; preds = %84, %95
   store i64 %110, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
   br label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge, %.preheader, %28, %96
-  %.pre-phi = phi i64 [ %108, %96 ], [ 0, %28 ], [ 0, %.preheader ], [ 0, %._crit_edge ]
+.critedge:                                        ; preds = %28, %.preheader, %._crit_edge, %96
+  %.pre-phi = phi i64 [ %108, %96 ], [ 0, %._crit_edge ], [ 0, %.preheader ], [ 0, %28 ]
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.pre-phi) #17
   br label %.thread
 

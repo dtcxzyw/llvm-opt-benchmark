@@ -1236,8 +1236,8 @@ for.body.lr.ph:                                   ; preds = %if.end52
   %effectiveEnd_.i.i.i.i.i.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %runtime, i64 1664
   %heapStorage_.i.i.i.i93 = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %youngGen_.i.i.i.i87 = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
-  %narrow131 = add nuw nsw i32 %cond, 1
-  %23 = zext nneg i32 %narrow131 to i64
+  %narrow135 = add nuw nsw i32 %cond, 1
+  %23 = zext nneg i32 %narrow135 to i64
   %24 = zext nneg i32 %div1.i47 to i64
   br label %for.body
 
@@ -4125,8 +4125,8 @@ for.body.lr.ph:                                   ; preds = %if.end52
   %heapStorage_.i.i.i.i92 = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %26 = ptrtoint ptr %runtime to i64
   %youngGen_.i.i.i.i86 = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
-  %narrow133 = add nuw nsw i32 %cond, 1
-  %27 = zext nneg i32 %narrow133 to i64
+  %narrow137 = add nuw nsw i32 %cond, 1
+  %27 = zext nneg i32 %narrow137 to i64
   %28 = zext nneg i32 %div1.i47 to i64
   br label %for.body
 

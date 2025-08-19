@@ -439,7 +439,7 @@ lpad.loopexit207.i:                               ; preds = %_ZNKSt6vectorISt4pa
   br label %ehcleanup77.i
 
 lpad.loopexit.split-lp208.i:                      ; preds = %.noexc39.i, %if.then.i.i.i32.i, %.noexc28.i, %if.then.i.i.i23.i, %if.then.i.i.i.i9, %_ZNSt12_Vector_baseISt4pairIN4absl12lts_202308024SpanIKiEEiESaIS6_EE11_M_allocateEm.exit.i.i, %if.then.i.i10
-  %sorted_locations.sroa.0.0.ph.i = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIN4absl12lts_202308024SpanIKiEEiESaIS6_EE11_M_allocateEm.exit.i.i ], [ %sorted_locations.sroa.0.4.i, %if.then.i.i.i23.i ], [ %sorted_locations.sroa.0.4.i, %.noexc28.i ], [ %sorted_locations.sroa.0.1.lcssa245.i, %if.then.i.i.i32.i ], [ %sorted_locations.sroa.0.1.lcssa245.i, %.noexc39.i ], [ %sorted_locations.sroa.0.1219.i, %if.then.i.i.i.i9 ], [ null, %if.then.i.i10 ]
+  %sorted_locations.sroa.0.0.ph.i = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIN4absl12lts_202308024SpanIKiEEiESaIS6_EE11_M_allocateEm.exit.i.i ], [ %sorted_locations.sroa.0.4.i, %if.then.i.i.i23.i ], [ %sorted_locations.sroa.0.4.i, %.noexc28.i ], [ %sorted_locations.sroa.0.1.lcssa261.i, %if.then.i.i.i32.i ], [ %sorted_locations.sroa.0.1.lcssa261.i, %.noexc39.i ], [ %sorted_locations.sroa.0.1219.i, %if.then.i.i.i.i9 ], [ null, %if.then.i.i10 ]
   %lpad.loopexit.split-lp210.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup77.i
@@ -464,8 +464,8 @@ if.then.i.i.i23.i:                                ; preds = %for.end.i
           to label %invoke.cont11.i unwind label %lpad.loopexit.split-lp208.i
 
 invoke.cont11.i:                                  ; preds = %.noexc28.i, %for.end.i, %if.end.i.i
-  %sorted_locations.sroa.0.1.lcssa245.i = phi ptr [ %sorted_locations.sroa.0.4.i, %for.end.i ], [ %sorted_locations.sroa.0.4.i, %.noexc28.i ], [ null, %if.end.i.i ]
-  %sorted_locations.sroa.9.0.lcssa244.i = phi ptr [ %sorted_locations.sroa.0.4.i, %for.end.i ], [ %sorted_locations.sroa.9.2.i, %.noexc28.i ], [ null, %if.end.i.i ]
+  %sorted_locations.sroa.0.1.lcssa261.i = phi ptr [ %sorted_locations.sroa.0.4.i, %for.end.i ], [ %sorted_locations.sroa.0.4.i, %.noexc28.i ], [ null, %if.end.i.i ]
+  %sorted_locations.sroa.9.0.lcssa260.i = phi ptr [ %sorted_locations.sroa.0.4.i, %for.end.i ], [ %sorted_locations.sroa.9.2.i, %.noexc28.i ], [ null, %if.end.i.i ]
   %25 = load ptr, ptr %stripped_paths, align 8
   %_M_finish.i.i.i.i30.i = getelementptr inbounds nuw i8, ptr %stripped_paths, i64 8
   %26 = load ptr, ptr %_M_finish.i.i.i.i30.i, align 8
@@ -474,8 +474,8 @@ invoke.cont11.i:                                  ; preds = %.noexc28.i, %for.en
 
 invoke.cont12.thread.i:                           ; preds = %invoke.cont11.i
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %indices_to_delete.i, align 8
-  %slots_.i.i.i.i.i.i249.i = getelementptr inbounds nuw i8, ptr %indices_to_delete.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i249.i, i8 0, i64 24, i1 false)
+  %slots_.i.i.i.i.i.i265.i = getelementptr inbounds nuw i8, ptr %indices_to_delete.i, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i265.i, i8 0, i64 24, i1 false)
   br label %invoke.cont46.i
 
 if.then.i.i.i32.i:                                ; preds = %invoke.cont11.i
@@ -500,7 +500,7 @@ invoke.cont12.i:                                  ; preds = %.noexc39.i
   %slots_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %indices_to_delete.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %cmp.i42222.i = icmp ne ptr %.pre.i, %.pre232.i
-  %cmp.i44223.i = icmp ne ptr %sorted_locations.sroa.0.1.lcssa245.i, %sorted_locations.sroa.9.0.lcssa244.i
+  %cmp.i44223.i = icmp ne ptr %sorted_locations.sroa.0.1.lcssa261.i, %sorted_locations.sroa.9.0.lcssa260.i
   %or.cond224.i = and i1 %cmp.i44223.i, %cmp.i42222.i
   br i1 %or.cond224.i, label %while.body.lr.ph.i, label %invoke.cont46.i
 
@@ -512,7 +512,7 @@ while.body.i:                                     ; preds = %if.end44.i, %while.
   %.pre233234.i = phi ptr [ %.pre232.i, %while.body.lr.ph.i ], [ %.pre233235.i, %if.end44.i ]
   %28 = phi ptr [ %.pre232.i, %while.body.lr.ph.i ], [ %48, %if.end44.i ]
   %i14.sroa.0.0226.i = phi ptr [ %.pre.i, %while.body.lr.ph.i ], [ %i14.sroa.0.1.i, %if.end44.i ]
-  %j.sroa.0.0225.i = phi ptr [ %sorted_locations.sroa.0.1.lcssa245.i, %while.body.lr.ph.i ], [ %j.sroa.0.1.i, %if.end44.i ]
+  %j.sroa.0.0225.i = phi ptr [ %sorted_locations.sroa.0.1.lcssa261.i, %while.body.lr.ph.i ], [ %j.sroa.0.1.i, %if.end44.i ]
   %29 = load ptr, ptr %i14.sroa.0.0226.i, align 8
   %_M_finish.i.i45.i = getelementptr inbounds nuw i8, ptr %i14.sroa.0.0226.i, i64 8
   %30 = load ptr, ptr %_M_finish.i.i45.i, align 8
@@ -670,12 +670,12 @@ if.end44.i:                                       ; preds = %if.else42.i, %if.th
   %j.sroa.0.1.i = phi ptr [ %incdec.ptr.i51.i, %invoke.cont32.i ], [ %j.sroa.0.0225.i, %if.then40.i ], [ %incdec.ptr.i56.i, %if.else42.i ]
   %i14.sroa.0.1.i = phi ptr [ %i14.sroa.0.0226.i, %invoke.cont32.i ], [ %incdec.ptr.i55.i, %if.then40.i ], [ %i14.sroa.0.0226.i, %if.else42.i ]
   %cmp.i42.i = icmp ne ptr %i14.sroa.0.1.i, %48
-  %cmp.i44.i = icmp ne ptr %j.sroa.0.1.i, %sorted_locations.sroa.9.0.lcssa244.i
+  %cmp.i44.i = icmp ne ptr %j.sroa.0.1.i, %sorted_locations.sroa.9.0.lcssa260.i
   %or.cond.i = select i1 %cmp.i42.i, i1 %cmp.i44.i, i1 false
   br i1 %or.cond.i, label %while.body.i, label %invoke.cont46.i, !llvm.loop !29
 
 invoke.cont46.i:                                  ; preds = %if.end44.i, %invoke.cont12.i, %invoke.cont12.thread.i
-  %slots_.i.i.i.i.i.i253.i = phi ptr [ %slots_.i.i.i.i.i.i249.i, %invoke.cont12.thread.i ], [ %slots_.i.i.i.i.i.i.i, %invoke.cont12.i ], [ %slots_.i.i.i.i.i.i.i, %if.end44.i ]
+  %slots_.i.i.i.i.i.i269.i = phi ptr [ %slots_.i.i.i.i.i.i265.i, %invoke.cont12.thread.i ], [ %slots_.i.i.i.i.i.i.i, %invoke.cont12.i ], [ %slots_.i.i.i.i.i.i.i, %if.end44.i ]
   %49 = load i32, ptr %current_size_.i.i.i, align 8
   %conv48.i = sext i32 %49 to i64
   %cmp.i63.not.i = icmp eq i32 %49, 0
@@ -754,7 +754,7 @@ if.end29.i.i:                                     ; preds = %.noexc74.i, %if.els
           to label %invoke.cont55.i unwind label %lpad45.thread.i
 
 lpad45.thread.i:                                  ; preds = %if.end29.i.i
-  %lpad.thr_comm.split-lp202255.i = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp202271.i = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i93.i
 
@@ -799,7 +799,7 @@ for.body63.i:                                     ; preds = %for.inc74.i, %for.b
   %59 = ptrtoint ptr %57 to i64
   %shr.i.i.i.i.i.i.i.i.i = lshr i64 %59, 12
   %xor.i.i.i.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i.i.i, %shr.i.i.i.i.i.i.i.i.i
-  %60 = load ptr, ptr %slots_.i.i.i.i.i.i253.i, align 8
+  %60 = load ptr, ptr %slots_.i.i.i.i.i.i269.i, align 8
   %61 = trunc i128 %xor.i.i.i.i.i.i to i8
   %conv.i.i.i2.i.i.i = and i8 %61, 127
   %vecinit.i.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i2.i.i.i, i64 0
@@ -886,7 +886,7 @@ lpad45.i:                                         ; preds = %invoke.cont55.i
   br i1 %tobool.not.i.i.i92.i, label %ehcleanup.i, label %if.then.i.i.i93.i
 
 if.then.i.i.i93.i:                                ; preds = %lpad45.i, %lpad45.thread.loopexit.split-lp.i, %lpad45.thread.loopexit.i, %lpad45.thread.i
-  %lpad.phi197.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp202.i, %lpad45.i ], [ %lpad.loopexit.i, %lpad45.thread.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad45.thread.loopexit.split-lp.i ], [ %lpad.thr_comm.split-lp202255.i, %lpad45.thread.i ]
+  %lpad.phi197.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp202.i, %lpad45.i ], [ %lpad.loopexit.i, %lpad45.thread.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad45.thread.loopexit.split-lp.i ], [ %lpad.thr_comm.split-lp202271.i, %lpad45.thread.i ]
   %old_locations.sroa.0.0196.i = phi ptr [ %old_locations.sroa.0.1183.i, %lpad45.i ], [ %old_locations.sroa.0.1183.i, %lpad45.thread.loopexit.i ], [ %call5.i.i.i.i140.i, %lpad45.thread.loopexit.split-lp.i ], [ %call5.i.i.i.i140.i, %lpad45.thread.i ]
   call void @_ZdlPv(ptr noundef nonnull %old_locations.sroa.0.0196.i) #27
   br label %ehcleanup.i
@@ -1019,11 +1019,11 @@ invoke.cont13.i.i.i:                              ; preds = %_ZNSt6vectorIPN6goo
   br label %_ZN4absl12lts_2023080213flat_hash_setIiNS0_13hash_internal4HashIiEESt8equal_toIiESaIiEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_setIiNS0_13hash_internal4HashIiEESt8equal_toIiESaIiEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i, %_ZNSt6vectorIPN6google8protobuf23SourceCodeInfo_LocationESaIS3_EED2Ev.exit103.i
-  %tobool.not.i.i.i105.i = icmp eq ptr %sorted_locations.sroa.0.1.lcssa245.i, null
+  %tobool.not.i.i.i105.i = icmp eq ptr %sorted_locations.sroa.0.1.lcssa261.i, null
   br i1 %tobool.not.i.i.i105.i, label %_ZN6google8protobuf8compiler12_GLOBAL__N_119StripSourceCodeInfoERSt6vectorIS3_IiSaIiEESaIS5_EERNS0_14SourceCodeInfoE.exit, label %if.then.i.i.i106.i
 
 if.then.i.i.i106.i:                               ; preds = %_ZN4absl12lts_2023080213flat_hash_setIiNS0_13hash_internal4HashIiEESt8equal_toIiESaIiEED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %sorted_locations.sroa.0.1.lcssa245.i) #27
+  call void @_ZdlPv(ptr noundef nonnull %sorted_locations.sroa.0.1.lcssa261.i) #27
   br label %_ZN6google8protobuf8compiler12_GLOBAL__N_119StripSourceCodeInfoERSt6vectorIS3_IiSaIiEESaIS5_EERNS0_14SourceCodeInfoE.exit
 
 ehcleanup.i:                                      ; preds = %if.then.i.i.i93.i, %lpad45.i, %lpad45.thread203.i, %lpad28.i
@@ -1040,7 +1040,7 @@ invoke.cont13.i.i109.i:                           ; preds = %ehcleanup.i
   br label %ehcleanup77.i
 
 ehcleanup77.i:                                    ; preds = %invoke.cont13.i.i109.i, %ehcleanup.i, %lpad.loopexit.split-lp208.i, %lpad.loopexit207.i
-  %sorted_locations.sroa.0.2.i = phi ptr [ %sorted_locations.sroa.0.1.lcssa245.i, %ehcleanup.i ], [ %sorted_locations.sroa.0.1.lcssa245.i, %invoke.cont13.i.i109.i ], [ %sorted_locations.sroa.0.1219.i, %lpad.loopexit207.i ], [ %sorted_locations.sroa.0.0.ph.i, %lpad.loopexit.split-lp208.i ]
+  %sorted_locations.sroa.0.2.i = phi ptr [ %sorted_locations.sroa.0.1.lcssa261.i, %ehcleanup.i ], [ %sorted_locations.sroa.0.1.lcssa261.i, %invoke.cont13.i.i109.i ], [ %sorted_locations.sroa.0.1219.i, %lpad.loopexit207.i ], [ %sorted_locations.sroa.0.0.ph.i, %lpad.loopexit.split-lp208.i ]
   %.pn15.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %.pn.i, %invoke.cont13.i.i109.i ], [ %lpad.loopexit209.i, %lpad.loopexit207.i ], [ %lpad.loopexit.split-lp210.i, %lpad.loopexit.split-lp208.i ]
   %tobool.not.i.i.i112.i = icmp eq ptr %sorted_locations.sroa.0.2.i, null
   br i1 %tobool.not.i.i.i112.i, label %lpad.body, label %if.then.i.i.i113.i
@@ -1373,7 +1373,7 @@ ehcleanup:                                        ; preds = %lpad13.loopexit.spl
   br i1 %cmp.not.i35, label %ehcleanup159, label %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i36
 
 _ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i36: ; preds = %ehcleanup.thread, %ehcleanup
-  %.pn73 = phi { ptr, i32 } [ %.pn.ph, %ehcleanup.thread ], [ %.pn, %ehcleanup ]
+  %.pn74 = phi { ptr, i32 } [ %.pn.ph, %ehcleanup.thread ], [ %.pn, %ehcleanup ]
   %vtable.i.i37 = load ptr, ptr %call.i28, align 8
   %vfn.i.i38 = getelementptr inbounds nuw i8, ptr %vtable.i.i37, i64 8
   %18 = load ptr, ptr %vfn.i.i38, align 8
@@ -1381,7 +1381,7 @@ _ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i36: ; preds = %e
   br label %ehcleanup159
 
 ehcleanup159:                                     ; preds = %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i36, %ehcleanup, %lpad8
-  %.pn.pn = phi { ptr, i32 } [ %6, %lpad8 ], [ %.pn, %ehcleanup ], [ %.pn73, %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i36 ]
+  %.pn.pn = phi { ptr, i32 } [ %6, %lpad8 ], [ %.pn, %ehcleanup ], [ %.pn74, %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i36 ]
   call void @_ZN6google8protobuf21DynamicMessageFactoryD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %factory) #23
   br label %ehcleanup164
 

@@ -1895,29 +1895,29 @@ define hidden void @dom_set_document_ref_pointers(ptr noundef %0, ptr noundef %1
 
 .lr.ph.preheader:                                 ; preds = %5
   %8 = tail call fastcc zeroext i1 @dom_set_document_ref_pointers_node(ptr noundef nonnull %7, ptr noundef %1)
-  br i1 %8, label %.lr.ph20, label %.critedge
+  br i1 %8, label %.lr.ph25, label %.critedge
 
-.lr.ph20:                                         ; preds = %.lr.ph.preheader, %php_dom_next_in_tree_order.exit
-  %.01319 = phi ptr [ %.0.i, %php_dom_next_in_tree_order.exit ], [ %7, %.lr.ph.preheader ]
-  %9 = getelementptr inbounds nuw i8, ptr %.01319, i64 8
+.lr.ph25:                                         ; preds = %.lr.ph.preheader, %php_dom_next_in_tree_order.exit
+  %.01324 = phi ptr [ %.0.i, %php_dom_next_in_tree_order.exit ], [ %7, %.lr.ph.preheader ]
+  %9 = getelementptr inbounds nuw i8, ptr %.01324, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !26
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %12, label %15
 
-12:                                               ; preds = %.lr.ph20
-  %13 = getelementptr inbounds nuw i8, ptr %.01319, i64 24
+12:                                               ; preds = %.lr.ph25
+  %13 = getelementptr inbounds nuw i8, ptr %.01324, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !38
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %15, label %php_dom_next_in_tree_order.exit
 
-15:                                               ; preds = %12, %.lr.ph20
-  %16 = getelementptr inbounds nuw i8, ptr %.01319, i64 48
+15:                                               ; preds = %12, %.lr.ph25
+  %16 = getelementptr inbounds nuw i8, ptr %.01324, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !45
   %.not17.i = icmp eq ptr %17, null
   br i1 %.not17.i, label %.preheader, label %php_dom_next_in_tree_order.exit
 
 .preheader:                                       ; preds = %15, %24
-  %.012.i = phi ptr [ %19, %24 ], [ %.01319, %15 ]
+  %.012.i = phi ptr [ %19, %24 ], [ %.01324, %15 ]
   %18 = getelementptr inbounds nuw i8, ptr %.012.i, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !27
   %20 = icmp eq ptr %19, %0
@@ -1940,7 +1940,7 @@ define hidden void @dom_set_document_ref_pointers(ptr noundef %0, ptr noundef %1
 php_dom_next_in_tree_order.exit:                  ; preds = %24, %12, %15
   %.0.i = phi ptr [ %14, %12 ], [ %17, %15 ], [ %26, %24 ]
   %28 = tail call fastcc zeroext i1 @dom_set_document_ref_pointers_node(ptr noundef nonnull %.0.i, ptr noundef %1)
-  br i1 %28, label %.lr.ph20, label %.critedge
+  br i1 %28, label %.lr.ph25, label %.critedge
 
 .critedge:                                        ; preds = %php_dom_next_in_tree_order.exit, %.preheader, %.lr.ph.preheader, %23, %5, %3, %2
   ret void
@@ -6001,9 +6001,9 @@ zend_string_alloc.exit:                           ; preds = %206
   br i1 %.not157, label %.critedge165, label %.thread
 
 .thread.thread:                                   ; preds = %217, %zend_string_alloc.exit
-  %.sink191 = phi ptr [ %218, %217 ], [ %211, %zend_string_alloc.exit ]
+  %.sink207 = phi ptr [ %218, %217 ], [ %211, %zend_string_alloc.exit ]
   %.sink = phi i32 [ 6, %217 ], [ 262, %zend_string_alloc.exit ]
-  store ptr %.sink191, ptr %1, align 8, !tbaa !9
+  store ptr %.sink207, ptr %1, align 8, !tbaa !9
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink, ptr %221, align 8, !tbaa !9
   %222 = call i32 @xmlOutputBufferClose(ptr noundef nonnull %.0121) #11
@@ -7471,9 +7471,9 @@ php_dom_node_count_list_size_xmlNode.exit33:      ; preds = %.lr.ph.i28, %php_do
   %.not = icmp ne i64 %.0.lcssa.i, %.0.lcssa.i32
   %brmerge = or i1 %.not, %.not4.i
   %not..not = xor i1 %.not, true
-  %brmerge47 = or i1 %brmerge, %.not4.i27
+  %brmerge50 = or i1 %brmerge, %.not4.i27
   %.mux.mux = and i1 %.not4.i, %not..not
-  br i1 %brmerge47, label %.loopexit, label %.preheader
+  br i1 %brmerge50, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %php_dom_node_count_list_size_xmlNode.exit33, %15
   %.01839 = phi ptr [ %17, %15 ], [ %0, %php_dom_node_count_list_size_xmlNode.exit33 ]
@@ -7533,9 +7533,9 @@ php_dom_node_count_list_size_xmlNs.exit33:        ; preds = %.lr.ph.i28, %php_do
   %.not = icmp ne i64 %.0.lcssa.i, %.0.lcssa.i32
   %brmerge = or i1 %.not, %.not4.i
   %not..not = xor i1 %.not, true
-  %brmerge47 = or i1 %brmerge, %.not4.i27
+  %brmerge50 = or i1 %brmerge, %.not4.i27
   %.mux.mux = and i1 %.not4.i, %not..not
-  br i1 %brmerge47, label %.loopexit, label %.preheader
+  br i1 %brmerge50, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %php_dom_node_count_list_size_xmlNs.exit33, %11
   %.01839 = phi ptr [ %12, %11 ], [ %0, %php_dom_node_count_list_size_xmlNs.exit33 ]

@@ -1833,7 +1833,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit165: ; preds = %71, %65, %73
   br i1 %89, label %90, label %.critedge152
 
 90:                                               ; preds = %.thread, %80
-  %.068280 = phi i1 [ true, %.thread ], [ false, %80 ]
+  %.068292 = phi i1 [ true, %.thread ], [ false, %80 ]
   %91 = phi ptr [ %.pre, %.thread ], [ %81, %80 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
@@ -2291,7 +2291,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit187: ; preds = %_ZN4cvc58internal8
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit191: ; preds = %.critedge148, %319, %325
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.068280, label %.critedge152, label %.critedge154
+  br i1 %.068292, label %.critedge152, label %.critedge154
 
 .critedge152:                                     ; preds = %.thread, %79, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit191
   %.182205217228238 = phi i1 [ %18, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit191 ], [ true, %79 ], [ true, %.thread ]
@@ -2523,7 +2523,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit199: ; preds = %_ZN4cvc58internal8
 412:                                              ; preds = %411, %390
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %411 ], [ %391, %390 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.068280, label %413, label %.critedge160
+  br i1 %.068292, label %413, label %.critedge160
 
 413:                                              ; preds = %412, %.thread242
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn246 = phi { ptr, i32 } [ %389, %.thread242 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %412 ]

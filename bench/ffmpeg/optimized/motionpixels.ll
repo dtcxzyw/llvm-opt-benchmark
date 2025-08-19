@@ -703,16 +703,17 @@ mp_get_vlc.exit35.i:                              ; preds = %347, %327
   %415 = icmp slt i64 %indvars.iv.next.i74, %414
   br i1 %415, label %227, label %.preheader49.i, !llvm.loop !70
 
-.preheader.i:                                     ; preds = %._crit_edge.i70, %.preheader49.i
-  %.lcssa8284.lcssa88 = phi i32 [ %.promoted86, %.preheader49.i ], [ %.lcssa8284.lcssa87, %._crit_edge.i70 ]
-  %416 = phi ptr [ %218, %.preheader49.i ], [ %703, %._crit_edge.i70 ]
-  %417 = phi ptr [ %218, %.preheader49.i ], [ %704, %._crit_edge.i70 ]
-  %indvars.iv57.i = phi i64 [ 0, %.preheader49.i ], [ %indvars.iv.next58.i, %._crit_edge.i70 ]
-  %indvars62.i = trunc i64 %indvars.iv57.i to i32
+.preheader.i:                                     ; preds = %._crit_edge.i71, %.preheader49.i
+  %.lcssa8284.lcssa88 = phi i32 [ %.promoted86, %.preheader49.i ], [ %.lcssa8284.lcssa87, %._crit_edge.i71 ]
+  %416 = phi ptr [ %218, %.preheader49.i ], [ %703, %._crit_edge.i71 ]
+  %417 = phi ptr [ %218, %.preheader49.i ], [ %704, %._crit_edge.i71 ]
+  %exitcond.not.i70 = phi i1 [ false, %.preheader49.i ], [ true, %._crit_edge.i71 ]
+  %indvars.iv57.i = phi i64 [ 0, %.preheader49.i ], [ 1, %._crit_edge.i71 ]
+  %indvars62.i = trunc nuw nsw i64 %indvars.iv57.i to i32
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 116
   %419 = load i32, ptr %418, align 4, !tbaa !28
   %420 = icmp sgt i32 %419, %indvars62.i
-  br i1 %420, label %.lr.ph55.i, label %._crit_edge.i70
+  br i1 %420, label %.lr.ph55.i, label %._crit_edge.i71
 
 .lr.ph55.i:                                       ; preds = %.preheader.i, %mp_decode_line.exit.i
   %.lcssa8285 = phi i32 [ %.lcssa8284, %mp_decode_line.exit.i ], [ %.lcssa8284.lcssa88, %.preheader.i ]
@@ -1114,17 +1115,15 @@ mp_decode_line.exit.i:                            ; preds = %692, %435
   %700 = load i32, ptr %699, align 4, !tbaa !28
   %701 = sext i32 %700 to i64
   %702 = icmp slt i64 %indvars.iv.next60.i, %701
-  br i1 %702, label %.lr.ph55.i, label %._crit_edge.i70, !llvm.loop !76
+  br i1 %702, label %.lr.ph55.i, label %._crit_edge.i71, !llvm.loop !76
 
-._crit_edge.i70:                                  ; preds = %mp_decode_line.exit.i, %.preheader.i
+._crit_edge.i71:                                  ; preds = %mp_decode_line.exit.i, %.preheader.i
   %.lcssa8284.lcssa87 = phi i32 [ %.lcssa8284.lcssa88, %.preheader.i ], [ %.lcssa8284, %mp_decode_line.exit.i ]
   %703 = phi ptr [ %416, %.preheader.i ], [ %698, %mp_decode_line.exit.i ]
   %704 = phi ptr [ %417, %.preheader.i ], [ %698, %mp_decode_line.exit.i ]
-  %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
-  %exitcond.not.i71 = icmp eq i64 %indvars.iv.next58.i, 2
-  br i1 %exitcond.not.i71, label %mp_decode_frame_helper.exit, label %.preheader.i, !llvm.loop !77
+  br i1 %exitcond.not.i70, label %mp_decode_frame_helper.exit, label %.preheader.i, !llvm.loop !77
 
-mp_decode_frame_helper.exit:                      ; preds = %._crit_edge.i70
+mp_decode_frame_helper.exit:                      ; preds = %._crit_edge.i71
   %705 = getelementptr inbounds nuw i8, ptr %11, i64 88
   tail call void @ff_vlc_free(ptr noundef nonnull %705) #11
   br label %mp_read_codes_table.exit.thread

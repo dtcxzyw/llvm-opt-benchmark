@@ -519,16 +519,16 @@ get_compress_algorithm_name.exit35:               ; preds = %26, %27, %28, %29
 
 33:                                               ; preds = %31
   %34 = icmp ult i32 %5, 3
-  br i1 %34, label %switch.lookup46, label %get_compress_algorithm_name.exit37
+  br i1 %34, label %switch.lookup48, label %get_compress_algorithm_name.exit37
 
-switch.lookup46:                                  ; preds = %33
+switch.lookup48:                                  ; preds = %33
   %35 = zext nneg i32 %5 to i64
-  %switch.gep47 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.validate_compress_specification.1, i64 0, i64 %35
-  %switch.load48 = load ptr, ptr %switch.gep47, align 8
+  %switch.gep49 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.validate_compress_specification.1, i64 0, i64 %35
+  %switch.load50 = load ptr, ptr %switch.gep49, align 8
   br label %get_compress_algorithm_name.exit37
 
-get_compress_algorithm_name.exit37:               ; preds = %33, %switch.lookup46
-  %.0.i36 = phi ptr [ %switch.load48, %switch.lookup46 ], [ @.str.4, %33 ]
+get_compress_algorithm_name.exit37:               ; preds = %33, %switch.lookup48
+  %.0.i36 = phi ptr [ %switch.load50, %switch.lookup48 ], [ @.str.4, %33 ]
   %36 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.16, ptr noundef nonnull %.0.i36) #9
   br label %.thread39
 

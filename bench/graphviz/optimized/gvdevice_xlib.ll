@@ -218,17 +218,17 @@ define internal void @xlib_finalize(ptr noundef %0) #0 {
 agxblen.exit.i.i:                                 ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %41 = icmp ugt i64 %37, 31
-  br i1 %41, label %42, label %.thread173
+  br i1 %41, label %42, label %.thread193
 
 42:                                               ; preds = %agxblen.exit.i.i
   call fastcc void @agxbmore(ptr noundef nonnull %9, i64 noundef %37)
   %.val.i25.pre.i.i = load i8, ptr %39, align 1, !tbaa !53
   %.not.i26.i.i = icmp eq i8 %.val.i25.pre.i.i, -1
-  br i1 %.not.i26.i.i, label %agxbput.exit.thread180, label %.thread173
+  br i1 %.not.i26.i.i, label %agxbput.exit.thread200, label %.thread193
 
-.thread173:                                       ; preds = %agxblen.exit.i.i, %42
-  %.val.i25.i.i176 = phi i8 [ %.val.i25.pre.i.i, %42 ], [ 0, %agxblen.exit.i.i ]
-  %43 = zext i8 %.val.i25.i.i176 to i64
+.thread193:                                       ; preds = %agxblen.exit.i.i, %42
+  %.val.i25.i.i196 = phi i8 [ %.val.i25.pre.i.i, %42 ], [ 0, %agxblen.exit.i.i ]
+  %43 = zext i8 %.val.i25.i.i196 to i64
   %44 = getelementptr inbounds nuw [31 x i8], ptr %9, i64 0, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr nonnull readonly align 1 %26, i64 %37, i1 false)
   %45 = trunc i64 %37 to i8
@@ -237,7 +237,7 @@ agxblen.exit.i.i:                                 ; preds = %36
   store i8 %47, ptr %39, align 1, !tbaa !53
   br label %agxbput.exit
 
-agxbput.exit.thread180:                           ; preds = %42
+agxbput.exit.thread200:                           ; preds = %42
   %48 = load i64, ptr %40, align 8, !tbaa !53
   %49 = load ptr, ptr %9, align 8, !tbaa !53
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %48
@@ -247,8 +247,8 @@ agxbput.exit.thread180:                           ; preds = %42
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 31
   br label %56
 
-agxbput.exit:                                     ; preds = %.thread173, %33
-  %.val.i = phi i8 [ %47, %.thread173 ], [ %.val.i.pre, %33 ]
+agxbput.exit:                                     ; preds = %.thread193, %33
+  %.val.i = phi i8 [ %47, %.thread193 ], [ %.val.i.pre, %33 ]
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 31
   switch i8 %.val.i, label %agxblen.exit.i.i99 [
     i8 -1, label %56
@@ -257,12 +257,12 @@ agxbput.exit:                                     ; preds = %.thread173, %33
 
 agxblen.exit.i.i99:                               ; preds = %36, %agxbput.exit
   %54 = phi ptr [ %53, %agxbput.exit ], [ %39, %36 ]
-  %.val.i179 = phi i8 [ %.val.i, %agxbput.exit ], [ 0, %36 ]
-  %55 = zext i8 %.val.i179 to i64
+  %.val.i199 = phi i8 [ %.val.i, %agxbput.exit ], [ 0, %36 ]
+  %55 = zext i8 %.val.i199 to i64
   br label %agxbsizeof.exit.i.i98
 
-56:                                               ; preds = %agxbput.exit.thread180, %agxbput.exit
-  %57 = phi ptr [ %52, %agxbput.exit.thread180 ], [ %53, %agxbput.exit ]
+56:                                               ; preds = %agxbput.exit.thread200, %agxbput.exit
+  %57 = phi ptr [ %52, %agxbput.exit.thread200 ], [ %53, %agxbput.exit ]
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %59 = load i64, ptr %58, align 8, !tbaa !53
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -271,7 +271,7 @@ agxblen.exit.i.i99:                               ; preds = %36, %agxbput.exit
 
 agxbsizeof.exit.i.i98:                            ; preds = %56, %agxblen.exit.i.i99
   %62 = phi ptr [ %57, %56 ], [ %54, %agxblen.exit.i.i99 ]
-  %.val.i178 = phi i8 [ -1, %56 ], [ %.val.i179, %agxblen.exit.i.i99 ]
+  %.val.i198 = phi i8 [ -1, %56 ], [ %.val.i199, %agxblen.exit.i.i99 ]
   %.0.i20.i.i = phi i64 [ %59, %56 ], [ %55, %agxblen.exit.i.i99 ]
   %.0.i14.i.i = phi i64 [ %61, %56 ], [ 31, %agxblen.exit.i.i99 ]
   %.not.i5.i = icmp ult i64 %.0.i20.i.i, %.0.i14.i.i
@@ -283,7 +283,7 @@ agxbsizeof.exit.i.i98:                            ; preds = %56, %agxblen.exit.i
   br label %64
 
 64:                                               ; preds = %63, %agxbsizeof.exit.i.i98
-  %.val.i15.i.i = phi i8 [ %.val.i15.pre.i.i, %63 ], [ %.val.i178, %agxbsizeof.exit.i.i98 ]
+  %.val.i15.i.i = phi i8 [ %.val.i15.pre.i.i, %63 ], [ %.val.i198, %agxbsizeof.exit.i.i98 ]
   %.not.i16.i.i = icmp eq i8 %.val.i15.i.i, -1
   br i1 %.not.i16.i.i, label %70, label %65
 
@@ -763,13 +763,13 @@ init_window.exit:                                 ; preds = %136, %update_displa
 
 ._crit_edge.i.thread:                             ; preds = %.preheader.i
   call void @free(ptr noundef nonnull %284) #21
-  %.not46.i185 = icmp eq i32 %290, 0
-  br i1 %.not46.i185, label %.sink.split, label %321
+  %.not46.i205 = icmp eq i32 %290, 0
+  br i1 %.not46.i205, label %.sink.split, label %321
 
 321:                                              ; preds = %._crit_edge.i.thread, %._crit_edge.i
-  %.033.lcssa.i187 = phi i32 [ %290, %._crit_edge.i.thread ], [ %319, %._crit_edge.i ]
+  %.033.lcssa.i207 = phi i32 [ %290, %._crit_edge.i.thread ], [ %319, %._crit_edge.i ]
   %322 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %323 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %322, ptr noundef nonnull @.str.19, i32 noundef %.033.lcssa.i187) #22
+  %323 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %322, ptr noundef nonnull @.str.19, i32 noundef %.033.lcssa.i207) #22
   br label %handle_file_events.exit.thread
 
 handle_file_events.exit.thread:                   ; preds = %277, %285, %321, %293

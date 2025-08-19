@@ -5719,18 +5719,18 @@ _init_l_Std_Mutex_tryAtomically___rarg___lambda__2___closed__1.exit: ; preds = %
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Mutex_tryAtomically___rarg___lambda__2___closed__1.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %42, %_init_l_Std_Mutex_tryAtomically___rarg___lambda__2___closed__1.exit ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !4
+  %.sink16 = phi ptr [ %4, %3 ], [ %42, %_init_l_Std_Mutex_tryAtomically___rarg___lambda__2___closed__1.exit ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sink16, i64 4
+  store i32 1, ptr %.sink16, align 4, !tbaa !4
   store i32 131096, ptr %45, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %46, align 8, !tbaa !10
-  %47 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.sink16, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %47, align 8, !tbaa !10
   br label %48
 
 48:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink16, %.sink.split ]
   ret ptr %.0
 }
 

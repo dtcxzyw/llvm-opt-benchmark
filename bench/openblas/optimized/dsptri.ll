@@ -489,7 +489,7 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %274 = add i32 %273, %253
   %275 = load i32, ptr %1, align 4, !tbaa !3
   %276 = zext nneg i32 %.1418468 to i64
-  %wide.trip.count489 = sext i32 %272 to i64
+  %wide.trip.count489 = zext nneg i32 %272 to i64
   br label %277
 
 277:                                              ; preds = %.lr.ph465, %277

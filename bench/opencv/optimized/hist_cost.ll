@@ -2361,9 +2361,9 @@ _ZNK2cv11_InputArray6getMatEi.exit92:             ; preds = %52, %55
   br label %152
 
 152:                                              ; preds = %._crit_edge.us.us, %150
-  %.sink164 = phi float [ %171, %._crit_edge.us.us ], [ %151, %150 ]
+  %.sink166 = phi float [ %171, %._crit_edge.us.us ], [ %151, %150 ]
   %153 = getelementptr inbounds nuw float, ptr %141, i64 %indvars.iv148
-  store float %.sink164, ptr %153, align 4, !tbaa !58
+  store float %.sink166, ptr %153, align 4, !tbaa !58
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count156
   br i1 %exitcond152.not, label %._crit_edge125.us, label %.lr.ph124.split.split.us.us, !llvm.loop !172

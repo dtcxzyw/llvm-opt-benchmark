@@ -130,14 +130,14 @@ Vec_IntAlloc.exit:                                ; preds = %3, %8
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %44, %46, %36, %38
-  %.sink39 = phi ptr [ %37, %36 ], [ %39, %38 ], [ %45, %44 ], [ %47, %46 ]
+  %.sink40 = phi ptr [ %37, %36 ], [ %39, %38 ], [ %45, %44 ], [ %47, %46 ]
   %.sink = phi i32 [ 16, %36 ], [ 16, %38 ], [ %41, %44 ], [ %41, %46 ]
-  store ptr %.sink39, ptr %13, align 8, !tbaa !13
+  store ptr %.sink40, ptr %13, align 8, !tbaa !13
   store i32 %.sink, ptr %5, align 8, !tbaa !12
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %28
-  %.pre.i35 = phi ptr [ %20, %28 ], [ %.sink39, %Vec_IntPush.exit.sink.split ]
+  %.pre.i35 = phi ptr [ %20, %28 ], [ %.sink40, %Vec_IntPush.exit.sink.split ]
   %48 = add nsw i32 %.val23, 1
   store i32 %48, ptr %7, align 4, !tbaa !9
   %49 = getelementptr inbounds i32, ptr %.pre.i35, i64 %29

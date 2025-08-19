@@ -573,8 +573,8 @@ define range(i32 0, 2) i32 @Hop_ObjRecognizeExor(ptr noundef readonly captures(n
   %40 = icmp eq ptr %.val34, %.val35
   %or.cond = or i1 %.not32, %40
   %41 = icmp eq ptr %.val36, %.val37
-  %or.cond52 = or i1 %or.cond, %41
-  br i1 %or.cond52, label %43, label %42
+  %or.cond54 = or i1 %or.cond, %41
+  br i1 %or.cond54, label %43, label %42
 
 42:                                               ; preds = %34
   store ptr %.val35, ptr %1, align 8, !tbaa !27

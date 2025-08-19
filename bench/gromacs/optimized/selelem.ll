@@ -3088,13 +3088,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 .thread75:                                        ; preds = %56
   %66 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split91
+  br label %.sink.split103
 
 .thread80:                                        ; preds = %58
   %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #24
-  br label %.sink.split91
+  br label %.sink.split103
 
 68:                                               ; preds = %59, %61
   %.010 = phi i1 [ false, %61 ], [ true, %59 ]
@@ -3107,13 +3107,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.010, label %70, label %71
 
-.sink.split91:                                    ; preds = %.thread75, %.thread80
+.sink.split103:                                   ; preds = %.thread75, %.thread80
   %.pn35.pn79.ph = phi { ptr, i32 } [ %67, %.thread80 ], [ %66, %.thread75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %70
 
-70:                                               ; preds = %.sink.split91, %68
-  %.pn35.pn79 = phi { ptr, i32 } [ %69, %68 ], [ %.pn35.pn79.ph, %.sink.split91 ]
+70:                                               ; preds = %.sink.split103, %68
+  %.pn35.pn79 = phi { ptr, i32 } [ %69, %68 ], [ %.pn35.pn79.ph, %.sink.split103 ]
   call void @__cxa_free_exception(ptr %57) #24
   br label %71
 
@@ -3193,13 +3193,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZN
 .thread83:                                        ; preds = %88
   %96 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split92
+  br label %.sink.split104
 
 .thread88:                                        ; preds = %90
   %97 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #24
-  br label %.sink.split92
+  br label %.sink.split104
 
 98:                                               ; preds = %91, %93
   %.0 = phi i1 [ false, %93 ], [ true, %91 ]
@@ -3212,13 +3212,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %.0, label %100, label %101
 
-.sink.split92:                                    ; preds = %.thread83, %.thread88
+.sink.split104:                                   ; preds = %.thread83, %.thread88
   %.pn.pn87.ph = phi { ptr, i32 } [ %97, %.thread88 ], [ %96, %.thread83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %100
 
-100:                                              ; preds = %.sink.split92, %98
-  %.pn.pn87 = phi { ptr, i32 } [ %99, %98 ], [ %.pn.pn87.ph, %.sink.split92 ]
+100:                                              ; preds = %.sink.split104, %98
+  %.pn.pn87 = phi { ptr, i32 } [ %99, %98 ], [ %.pn.pn87.ph, %.sink.split104 ]
   call void @__cxa_free_exception(ptr %89) #24
   br label %101
 
@@ -3612,16 +3612,16 @@ _Z21_gmx_selelem_type_strRKN3gmx20SelectionTreeElementE.exit: ; preds = %switch.
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !25
   %13 = icmp ult i32 %12, 6
-  br i1 %13, label %switch.lookup212, label %_Z23_gmx_sel_value_type_strPK18gmx_ana_selvalue_t.exit
+  br i1 %13, label %switch.lookup229, label %_Z23_gmx_sel_value_type_strPK18gmx_ana_selvalue_t.exit
 
-switch.lookup212:                                 ; preds = %_Z21_gmx_selelem_type_strRKN3gmx20SelectionTreeElementE.exit
+switch.lookup229:                                 ; preds = %_Z21_gmx_selelem_type_strRKN3gmx20SelectionTreeElementE.exit
   %14 = zext nneg i32 %12 to i64
-  %switch.gep213 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.11, i64 0, i64 %14
-  %switch.load214 = load ptr, ptr %switch.gep213, align 8
+  %switch.gep230 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.11, i64 0, i64 %14
+  %switch.load231 = load ptr, ptr %switch.gep230, align 8
   br label %_Z23_gmx_sel_value_type_strPK18gmx_ana_selvalue_t.exit
 
-_Z23_gmx_sel_value_type_strPK18gmx_ana_selvalue_t.exit: ; preds = %switch.lookup212, %_Z21_gmx_selelem_type_strRKN3gmx20SelectionTreeElementE.exit
-  %.0.i180 = phi ptr [ null, %_Z21_gmx_selelem_type_strRKN3gmx20SelectionTreeElementE.exit ], [ %switch.load214, %switch.lookup212 ]
+_Z23_gmx_sel_value_type_strPK18gmx_ana_selvalue_t.exit: ; preds = %switch.lookup229, %_Z21_gmx_selelem_type_strRKN3gmx20SelectionTreeElementE.exit
+  %.0.i180 = phi ptr [ null, %_Z21_gmx_selelem_type_strRKN3gmx20SelectionTreeElementE.exit ], [ %switch.load231, %switch.lookup229 ]
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.46, i32 noundef %7, i32 noundef 42, ptr noundef %.0.i, ptr noundef %.0.i180) #24
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %17 = load i64, ptr %16, align 8, !tbaa !28
@@ -3789,16 +3789,16 @@ _Z23_gmx_sel_value_type_strPK18gmx_ana_selvalue_t.exit: ; preds = %switch.lookup
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %91 = load i32, ptr %90, align 8, !tbaa !26
   %92 = icmp ult i32 %91, 4
-  br i1 %92, label %switch.lookup215, label %_Z29_gmx_selelem_boolean_type_strRKN3gmx20SelectionTreeElementE.exit
+  br i1 %92, label %switch.lookup232, label %_Z29_gmx_selelem_boolean_type_strRKN3gmx20SelectionTreeElementE.exit
 
-switch.lookup215:                                 ; preds = %89
+switch.lookup232:                                 ; preds = %89
   %93 = zext nneg i32 %91 to i64
-  %switch.gep216 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.12, i64 0, i64 %93
-  %switch.load217 = load ptr, ptr %switch.gep216, align 8
+  %switch.gep233 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.12, i64 0, i64 %93
+  %switch.load234 = load ptr, ptr %switch.gep233, align 8
   br label %_Z29_gmx_selelem_boolean_type_strRKN3gmx20SelectionTreeElementE.exit
 
-_Z29_gmx_selelem_boolean_type_strRKN3gmx20SelectionTreeElementE.exit: ; preds = %switch.lookup215, %89
-  %.0.i181 = phi ptr [ null, %89 ], [ %switch.load217, %switch.lookup215 ]
+_Z29_gmx_selelem_boolean_type_strRKN3gmx20SelectionTreeElementE.exit: ; preds = %switch.lookup232, %89
+  %.0.i181 = phi ptr [ null, %89 ], [ %switch.load234, %switch.lookup232 ]
   %94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.61, ptr noundef %.0.i181) #24
   br label %104
 
@@ -4034,8 +4034,8 @@ _Z29_gmx_selelem_boolean_type_strRKN3gmx20SelectionTreeElementE.exit: ; preds = 
   %211 = load ptr, ptr %187, align 8, !tbaa !26
   %212 = load i32, ptr %211, align 8, !tbaa !90
   %213 = add i32 %212, -1
-  %or.cond211 = icmp ult i32 %213, 19
-  br i1 %or.cond211, label %214, label %.loopexit
+  %or.cond228 = icmp ult i32 %213, 19
+  br i1 %or.cond228, label %214, label %.loopexit
 
 214:                                              ; preds = %207
   %fputc175 = tail call i32 @fputc(i32 58, ptr %0)

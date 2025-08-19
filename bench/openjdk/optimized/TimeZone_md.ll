@@ -44,9 +44,9 @@ define hidden ptr @findJavaTZ_md(ptr noundef readnone captures(none) %0) local_u
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = tail call noalias ptr @fopen64(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5)
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %.preheader55, label %12
+  br i1 %.not.i, label %.preheader63, label %12
 
-.preheader55:                                     ; preds = %19, %.thread.i, %10
+.preheader63:                                     ; preds = %19, %.thread.i, %10
   br label %22
 
 12:                                               ; preds = %10
@@ -70,13 +70,13 @@ define hidden ptr @findJavaTZ_md(ptr noundef readnone captures(none) %0) local_u
 
 .thread.i:                                        ; preds = %17, %12
   %18 = call i32 @fclose(ptr noundef nonnull %11)
-  br label %.preheader55
+  br label %.preheader63
 
 19:                                               ; preds = %17
   %20 = call noalias ptr @strdup(ptr noundef nonnull %3) #14
   %21 = call i32 @fclose(ptr noundef nonnull %11)
   %.not49.i = icmp eq ptr %20, null
-  br i1 %.not49.i, label %.preheader55, label %.thread28
+  br i1 %.not49.i, label %.preheader63, label %.thread28
 
 .thread28:                                        ; preds = %19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -84,7 +84,7 @@ define hidden ptr @findJavaTZ_md(ptr noundef readnone captures(none) %0) local_u
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
-22:                                               ; preds = %.preheader55, %25
+22:                                               ; preds = %.preheader63, %25
   %23 = call i32 @lstat64(ptr noundef nonnull @.str.8, ptr noundef nonnull %2) #14
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %25, label %.critedge53.i

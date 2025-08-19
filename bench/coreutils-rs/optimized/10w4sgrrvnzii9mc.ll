@@ -1109,8 +1109,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
 25:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 %.sroa.0.0.copyload, ptr %20, align 8
-  %.sroa.7.0..sroa_idx122 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx122, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7, i64 56, i1 false)
+  %.sroa.7.0..sroa_idx142 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx142, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7, i64 56, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %27 = load i64, ptr %26, align 8, !noundef !13
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -1121,8 +1121,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
 30:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 %.sroa.0.0.copyload, ptr %19, align 8
-  %.sroa.7.0..sroa_idx123 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx123, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7, i64 56, i1 false)
+  %.sroa.7.0..sroa_idx143 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx143, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7, i64 56, i1 false)
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hceba2e3e31393cfeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21, i64 noundef 0)
           to label %38 unwind label %31, !noalias !200
 
@@ -1151,8 +1151,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   %39 = load ptr, ptr %22, align 8, !alias.scope !203, !noalias !200, !nonnull !13, !noundef !13
   %40 = getelementptr inbounds { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, ptr %39, i64 %.pre.i
   store i64 %.sroa.0.0.copyload, ptr %40, align 8
-  %.sroa.7.0..sroa_idx124 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx124, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7, i64 56, i1 false)
+  %.sroa.7.0..sroa_idx144 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx144, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7, i64 56, i1 false)
   %41 = add i64 %.pre.i, 1
   store i64 %41, ptr %23, align 8, !alias.scope !203, !noalias !200
   call void @llvm.lifetime.end.p0(ptr nonnull %19)

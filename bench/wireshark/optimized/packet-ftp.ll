@@ -1137,9 +1137,9 @@ split.i:                                          ; preds = %.thread.i
   br i1 %.not.i353, label %parse_extended_pasv_response.exit.thread, label %split.thread.i
 
 split.thread.i:                                   ; preds = %isvalid_rfc2428_delimiter.exit.thread.i, %isvalid_rfc2428_delimiter.exit.i355, %415, %split.i
-  %.3.lcssa75.i = phi ptr [ %indvars.iv.i349, %split.i ], [ %.366.i351, %415 ], [ %.366.i351, %isvalid_rfc2428_delimiter.exit.i355 ], [ %.366.i351, %isvalid_rfc2428_delimiter.exit.thread.i ]
+  %.3.lcssa77.i = phi ptr [ %indvars.iv.i349, %split.i ], [ %.366.i351, %415 ], [ %.366.i351, %isvalid_rfc2428_delimiter.exit.i355 ], [ %.366.i351, %isvalid_rfc2428_delimiter.exit.thread.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %423 = call zeroext i1 @ws_strtou16(ptr noundef %.3.lcssa75.i, ptr noundef nonnull %5, ptr noundef nonnull %18)
+  %423 = call zeroext i1 @ws_strtou16(ptr noundef %.3.lcssa77.i, ptr noundef nonnull %5, ptr noundef nonnull %18)
   br i1 %423, label %.thread58.i, label %424
 
 424:                                              ; preds = %split.thread.i
@@ -1149,12 +1149,12 @@ split.thread.i:                                   ; preds = %isvalid_rfc2428_del
   br i1 %427, label %.thread58.i, label %parse_extended_pasv_response.exit.thread411
 
 .thread58.i:                                      ; preds = %424, %split.thread.i
-  %428 = ptrtoint ptr %.3.lcssa75.i to i64
+  %428 = ptrtoint ptr %.3.lcssa77.i to i64
   %429 = ptrtoint ptr %405 to i64
   %430 = sub i64 %428, %429
   %431 = trunc i64 %430 to i32
   store i32 %431, ptr %11, align 4
-  %432 = call ptr @strchr(ptr noundef %.3.lcssa75.i, i32 noundef 41) #13
+  %432 = call ptr @strchr(ptr noundef %.3.lcssa77.i, i32 noundef 41) #13
   %433 = icmp eq ptr %432, null
   br i1 %433, label %parse_extended_pasv_response.exit.thread411, label %434
 
@@ -1202,8 +1202,8 @@ parse_extended_pasv_response.exit.thread411:      ; preds = %424, %.thread58.i
   br i1 %.not5.i361, label %proto_item_set_generated.exit362, label %proto_item_set_generated.exit362.sink.split
 
 proto_item_set_generated.exit362.sink.split:      ; preds = %452, %445
-  %.sink439 = phi ptr [ %447, %445 ], [ %454, %452 ]
-  %455 = getelementptr inbounds nuw i8, ptr %.sink439, i64 28
+  %.sink486 = phi ptr [ %447, %445 ], [ %454, %452 ]
+  %455 = getelementptr inbounds nuw i8, ptr %.sink486, i64 28
   %456 = load i32, ptr %455, align 4
   %457 = or i32 %456, 2
   store i32 %457, ptr %455, align 4
@@ -1999,12 +1999,12 @@ define internal range(i32 0, 2) i32 @ftp_eo_packet(ptr noundef readonly captures
   %86 = zext i32 %85 to i64
   %87 = icmp ugt i64 %84, %86
   %88 = sub i64 %86, %80
-  %spec.select82 = select i1 %87, i64 %88, i64 %83
+  %spec.select89 = select i1 %87, i64 %88, i64 %83
   br label %89
 
 89:                                               ; preds = %78, %._crit_edge
   %90 = phi i64 [ %.pre76.pre, %._crit_edge ], [ %80, %78 ]
-  %.0 = phi i64 [ %.pre81, %._crit_edge ], [ %spec.select82, %78 ]
+  %.0 = phi i64 [ %.pre81, %._crit_edge ], [ %spec.select89, %78 ]
   %91 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %76, i64 32

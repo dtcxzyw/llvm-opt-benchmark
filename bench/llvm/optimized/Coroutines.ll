@@ -420,8 +420,8 @@ _ZN4llvm8dyn_castINS_12CoroFreeInstENS_4UserEEEDcPT0_.exit.thread: ; preds = %_Z
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8, !tbaa !136
   %54 = zext i32 %41 to i64
-  %.idx35 = shl nuw nsw i64 %54, 3
-  %55 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx35
+  %.idx38 = shl nuw nsw i64 %54, 3
+  %55 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx38
   br label %.lr.ph32.preheader
 
 56:                                               ; preds = %43
@@ -781,8 +781,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_20CoroAwaitSuspendInstELb1EE9push_backES2_
   br label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread
 
 84:                                               ; preds = %62, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm14CastIsPossibleINS_20CoroAwaitSuspendInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i
-  %.not201 = icmp eq i8 %57, 85
-  br i1 %.not201, label %85, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread
+  %.not242 = icmp eq i8 %57, 85
+  br i1 %.not242, label %85, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread
 
 85:                                               ; preds = %84
   %86 = load i8, ptr %61, align 8, !tbaa !135
@@ -2437,8 +2437,8 @@ _ZNK4llvm4coro5Shape20getRetconResultTypesEv.exit: ; preds = %1, %17
   %65 = load ptr, ptr %64, align 8, !tbaa !249
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i32, ptr %66, align 8
-  %trunc141 = trunc i32 %67 to i8
-  switch i8 %trunc141, label %.split88.us [
+  %trunc164 = trunc i32 %67 to i8
+  switch i8 %trunc164, label %.split88.us [
     i8 7, label %.preheader.us.us
     i8 15, label %68
   ]
@@ -2488,8 +2488,8 @@ _ZNK4llvm4coro5Shape20getRetconResultTypesEv.exit: ; preds = %1, %17
   store ptr %91, ptr %3, align 8, !tbaa !111
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load i32, ptr %92, align 8
-  %trunc140 = trunc i32 %93 to i8
-  switch i8 %trunc140, label %.fold.split [
+  %trunc163 = trunc i32 %93 to i8
+  switch i8 %trunc163, label %.fold.split [
     i8 7, label %100
     i8 15, label %94
   ]
@@ -2656,7 +2656,7 @@ _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %144, %148
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = load i32, ptr %162, align 8
   %trunc = trunc i32 %163 to i8
-  switch i8 %trunc, label %.fold.split139 [
+  switch i8 %trunc, label %.fold.split162 [
     i8 7, label %170
     i8 15, label %164
   ]
@@ -2669,12 +2669,12 @@ _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %144, %148
   %169 = zext i32 %168 to i64
   br label %170
 
-.fold.split139:                                   ; preds = %159
+.fold.split162:                                   ; preds = %159
   br label %170
 
-170:                                              ; preds = %159, %.fold.split139, %164
-  %.sroa.6.1 = phi i64 [ 0, %159 ], [ %169, %164 ], [ 1, %.fold.split139 ]
-  %.sroa.062.1 = phi ptr [ null, %159 ], [ %166, %164 ], [ %3, %.fold.split139 ]
+170:                                              ; preds = %159, %.fold.split162, %164
+  %.sroa.6.1 = phi i64 [ 0, %159 ], [ %169, %164 ], [ 1, %.fold.split162 ]
+  %.sroa.062.1 = phi ptr [ null, %159 ], [ %166, %164 ], [ %3, %.fold.split162 ]
   %.not51 = icmp eq i64 %.sroa.6.1, %37
   br i1 %.not51, label %.preheader, label %.split88.us
 

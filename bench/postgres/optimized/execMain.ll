@@ -1451,12 +1451,12 @@ define dso_local zeroext i1 @ExecCheckPermissions(ptr noundef %0, ptr noundef %1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %4, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph53, label %._crit_edge
+  br i1 %7, label %.lr.ph60, label %._crit_edge
 
-.lr.ph53:                                         ; preds = %.lr.ph, %.critedge
-  %indvars.iv52 = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.lr.ph ]
+.lr.ph60:                                         ; preds = %.lr.ph, %.critedge
+  %indvars.iv59 = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv52
+  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv59
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
@@ -1467,12 +1467,12 @@ define dso_local zeroext i1 @ExecCheckPermissions(ptr noundef %0, ptr noundef %1
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %19
 
-17:                                               ; preds = %.lr.ph53
+17:                                               ; preds = %.lr.ph60
   %18 = tail call i32 @GetUserId() #9
   br label %19
 
-19:                                               ; preds = %17, %.lr.ph53
-  %20 = phi i32 [ %18, %17 ], [ %16, %.lr.ph53 ]
+19:                                               ; preds = %17, %.lr.ph60
+  %20 = phi i32 [ %18, %17 ], [ %16, %.lr.ph60 ]
   %21 = tail call i64 @pg_class_aclmask(i32 noundef %12, i32 noundef %20, i64 noundef %14, i32 noundef 0) #9
   %22 = xor i64 %21, -1
   %23 = and i64 %14, %22
@@ -1567,11 +1567,11 @@ define dso_local zeroext i1 @ExecCheckPermissions(ptr noundef %0, ptr noundef %1
   br label %.thread35
 
 .critedge:                                        ; preds = %53, %54, %19
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv52, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv59, 1
   %65 = load i32, ptr %4, align 4
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %67, label %.lr.ph53, label %._crit_edge
+  br i1 %67, label %.lr.ph60, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.critedge, %.lr.ph, %3
   %68 = load ptr, ptr @ExecutorCheckPerms_hook, align 8
@@ -2159,12 +2159,12 @@ define dso_local void @ExecCloseResultRelations(ptr noundef readonly captures(no
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %4, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph62, label %.critedge
+  br i1 %7, label %.lr.ph65, label %.critedge
 
-.lr.ph62:                                         ; preds = %.lr.ph47, %.critedge39
-  %indvars.iv5561 = phi i64 [ %indvars.iv.next56, %.critedge39 ], [ 0, %.lr.ph47 ]
+.lr.ph65:                                         ; preds = %.lr.ph47, %.critedge39
+  %indvars.iv5564 = phi i64 [ %indvars.iv.next56, %.critedge39 ], [ 0, %.lr.ph47 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv5561
+  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv5564
   %10 = load ptr, ptr %9, align 8
   tail call void @ExecCloseIndices(ptr noundef %10) #9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 384
@@ -2173,7 +2173,7 @@ define dso_local void @ExecCloseResultRelations(ptr noundef readonly captures(no
   %.not35 = icmp eq ptr %12, null
   br i1 %.not35, label %.critedge39, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph62
+.lr.ph:                                           ; preds = %.lr.ph65
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i32, ptr %13, align 4
   %16 = icmp sgt i32 %15, 0
@@ -2203,12 +2203,12 @@ define dso_local void @ExecCloseResultRelations(ptr noundef readonly captures(no
   %.not37 = icmp eq i32 %28, 0
   br i1 %.not37, label %32, label %35
 
-.critedge39:                                      ; preds = %35, %.lr.ph, %.lr.ph62
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv5561, 1
+.critedge39:                                      ; preds = %35, %.lr.ph, %.lr.ph65
+  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv5564, 1
   %29 = load i32, ptr %4, align 4
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next56, %30
-  br i1 %31, label %.lr.ph62, label %.critedge
+  br i1 %31, label %.lr.ph65, label %.critedge
 
 32:                                               ; preds = %.lr.ph45
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -2375,12 +2375,12 @@ define dso_local void @ExecPartitionCheckEmitError(ptr noundef %0, ptr noundef %
   br label %28
 
 28:                                               ; preds = %6, %18, %21
-  %.sink38 = phi ptr [ %0, %21 ], [ %5, %18 ], [ %5, %6 ]
+  %.sink41 = phi ptr [ %0, %21 ], [ %5, %18 ], [ %5, %6 ]
   %.029 = phi ptr [ %27, %21 ], [ %12, %18 ], [ %12, %6 ]
   %.028 = phi i32 [ %25, %21 ], [ %10, %18 ], [ %10, %6 ]
   %.1 = phi ptr [ %1, %21 ], [ %20, %18 ], [ %1, %6 ]
-  %29 = tail call ptr @ExecGetInsertedCols(ptr noundef nonnull %.sink38, ptr noundef %2) #9
-  %30 = tail call ptr @ExecGetUpdatedCols(ptr noundef nonnull %.sink38, ptr noundef %2) #9
+  %29 = tail call ptr @ExecGetInsertedCols(ptr noundef nonnull %.sink41, ptr noundef %2) #9
+  %30 = tail call ptr @ExecGetUpdatedCols(ptr noundef nonnull %.sink41, ptr noundef %2) #9
   %31 = tail call ptr @bms_union(ptr noundef %29, ptr noundef %30) #9
   %32 = tail call ptr @ExecBuildSlotValueDescription(i32 noundef %.028, ptr noundef %.1, ptr noundef %.029, ptr noundef %31, i32 noundef 64)
   %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -3587,8 +3587,8 @@ list_length.exit.i:                               ; preds = %74, %69
   %96 = getelementptr inbounds nuw %struct.ParamExecData, ptr %95, i64 %indvars.iv.i, i32 2
   store i8 %94, ptr %96, align 8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %.not143.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not143.i, label %.loopexit.i, label %86, !llvm.loop !14
+  %.not148.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not148.i, label %.loopexit.i, label %86, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %86, %list_length.exit.i, %6
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 96
@@ -3779,8 +3779,8 @@ list_length.exit:                                 ; preds = %187
   %209 = getelementptr inbounds nuw %struct.ParamExecData, ptr %208, i64 %indvars.iv, i32 2
   store i8 %207, ptr %209, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not33 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not33, label %.loopexit, label %199, !llvm.loop !15
+  %.not42 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not42, label %.loopexit, label %199, !llvm.loop !15
 
 .loopexit:                                        ; preds = %199, %187, %list_length.exit, %164
   %210 = getelementptr inbounds nuw i8, ptr %168, i64 104

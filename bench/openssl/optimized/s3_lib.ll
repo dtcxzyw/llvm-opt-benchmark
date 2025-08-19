@@ -1389,8 +1389,8 @@ define i64 @ssl3_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr nounde
   %302 = getelementptr inbounds nuw i8, ptr %14, i64 1024
   %303 = load ptr, ptr %302, align 8, !tbaa !145
   %304 = icmp eq ptr %303, null
-  %or.cond263 = select i1 %301, i1 %304, i1 false
-  br i1 %or.cond263, label %.thread, label %._crit_edge
+  %or.cond282 = select i1 %301, i1 %304, i1 false
+  br i1 %or.cond282, label %.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %300
   %305 = load ptr, ptr %303, align 8, !tbaa !146
@@ -3453,10 +3453,10 @@ define i32 @ssl_fill_hello_random(ptr noundef readonly captures(none) %0, i32 no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %39, %40
-  %.sink36 = phi i64 [ 19230764626825028, %40 ], [ 91288358664752964, %39 ]
+  %.sink37 = phi i64 [ 19230764626825028, %40 ], [ 91288358664752964, %39 ]
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   %42 = getelementptr inbounds i8, ptr %41, i64 -8
-  store i64 %.sink36, ptr %42, align 1
+  store i64 %.sink37, ptr %42, align 1
   br label %43
 
 43:                                               ; preds = %.sink.split, %35, %39, %37, %5

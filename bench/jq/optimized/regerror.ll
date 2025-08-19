@@ -574,8 +574,8 @@ to_ascii.exit.thread:                             ; preds = %18
   %82 = icmp ult ptr %.160.i, %25
   %83 = call ptr @onig_error_code_to_format(i32 noundef %1)
   %84 = sext i32 %.2.i to i64
-  %.sink.shrunk.i.fr40 = freeze i1 %82
-  br i1 %.sink.shrunk.i.fr40, label %to_ascii.exit.split.us.preheader, label %to_ascii.exit.split.preheader
+  %.sink.shrunk.i.fr47 = freeze i1 %82
+  br i1 %.sink.shrunk.i.fr47, label %to_ascii.exit.split.us.preheader, label %to_ascii.exit.split.preheader
 
 to_ascii.exit:                                    ; preds = %27
   %85 = ptrtoint ptr %25 to i64

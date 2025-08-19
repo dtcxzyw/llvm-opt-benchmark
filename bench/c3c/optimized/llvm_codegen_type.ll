@@ -2190,7 +2190,7 @@ define dso_local ptr @llvm_get_typeid(ptr noundef %0, ptr noundef %1) local_unna
   %69 = getelementptr inbounds i8, ptr %57, i64 -8
   %70 = load i32, ptr %69, align 4
   %.not171 = icmp eq i32 %70, 0
-  br i1 %.not171, label %.loopexit222, label %.lr.ph170.preheader
+  br i1 %.not171, label %.loopexit226, label %.lr.ph170.preheader
 
 .lr.ph170.preheader:                              ; preds = %68
   %wide.trip.count = zext i32 %70 to i64
@@ -2218,16 +2218,16 @@ define dso_local ptr @llvm_get_typeid(ptr noundef %0, ptr noundef %1) local_unna
 81:                                               ; preds = %77, %.lr.ph170
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit222, label %.lr.ph170, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit226, label %.lr.ph170, !llvm.loop !14
 
-.loopexit222:                                     ; preds = %81, %68
+.loopexit226:                                     ; preds = %81, %68
   %82 = getelementptr inbounds i8, ptr %57, i64 -8
   %83 = load i32, ptr %82, align 4
   %84 = zext i32 %83 to i64
   br label %llvm_get_introspection_for_struct_union.exit
 
-llvm_get_introspection_for_struct_union.exit:     ; preds = %52, %.loopexit222
-  %.028.i = phi i64 [ %84, %.loopexit222 ], [ 0, %52 ]
+llvm_get_introspection_for_struct_union.exit:     ; preds = %52, %.loopexit226
+  %.028.i = phi i64 [ %84, %.loopexit226 ], [ 0, %52 ]
   %.in = getelementptr inbounds nuw i8, ptr %55, i64 24
   %85 = load i64, ptr %.in, align 8
   %86 = and i64 %85, 127
@@ -2679,8 +2679,8 @@ type_base.exit:                                   ; preds = %44
 
 102:                                              ; preds = %._crit_edge132.thread, %._crit_edge132
   %103 = phi ptr [ %77, %._crit_edge132.thread ], [ %98, %._crit_edge132 ]
-  %.0112.lcssa162 = phi ptr [ null, %._crit_edge132.thread ], [ %.1113, %._crit_edge132 ]
-  %104 = call ptr @LLVMConstArray(ptr noundef %.0112.lcssa162, ptr noundef %40, i32 noundef %spec.select) #6
+  %.0112.lcssa164 = phi ptr [ null, %._crit_edge132.thread ], [ %.1113, %._crit_edge132 ]
+  %104 = call ptr @LLVMConstArray(ptr noundef %.0112.lcssa164, ptr noundef %40, i32 noundef %spec.select) #6
   br label %105
 
 105:                                              ; preds = %102, %99

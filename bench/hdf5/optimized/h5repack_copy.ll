@@ -1908,9 +1908,9 @@ define internal fastcc range(i32 -1, 1) i32 @do_copy_objects(i64 noundef range(i
 62:                                               ; preds = %56
   %63 = load i32, ptr %29, align 4, !tbaa !43
   %64 = icmp sgt i32 %63, 0
-  br i1 %64, label %.sink.split5967, label %69
+  br i1 %64, label %.sink.split6201, label %69
 
-.sink.split5967:                                  ; preds = %62
+.sink.split6201:                                  ; preds = %62
   %65 = icmp eq i32 %63, 2
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %67 = load ptr, ptr %66, align 8, !tbaa !57
@@ -1918,7 +1918,7 @@ define internal fastcc range(i32 -1, 1) i32 @do_copy_objects(i64 noundef range(i
   %68 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.37..str.39, ptr noundef nonnull @.str.38, ptr noundef %67)
   br label %69
 
-69:                                               ; preds = %.sink.split5967, %62
+69:                                               ; preds = %.sink.split6201, %62
   %70 = load ptr, ptr %34, align 8, !tbaa !49
   %71 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %70, i64 %57, i32 3
   %72 = load ptr, ptr %71, align 8, !tbaa !57
@@ -2128,8 +2128,8 @@ sub_0:                                            ; preds = %149
   %196 = icmp sgt i32 %195, 0
   %.pre4401 = load i32, ptr %55, align 4, !tbaa !30
   %197 = icmp sgt i32 %.pre4401, 0
-  %or.cond5968 = select i1 %196, i1 true, i1 %197
-  br i1 %or.cond5968, label %198, label %217
+  %or.cond6202 = select i1 %196, i1 true, i1 %197
+  br i1 %or.cond6202, label %198, label %217
 
 198:                                              ; preds = %.tail.thread
   %199 = call i32 @H5Pset_link_phase_change(i64 noundef %131, i32 noundef %195, i32 noundef %.pre4401) #15
@@ -4699,17 +4699,17 @@ sub_0:                                            ; preds = %149
 1685:                                             ; preds = %56
   %1686 = load i32, ptr %29, align 4, !tbaa !43
   %1687 = icmp sgt i32 %1686, 0
-  br i1 %1687, label %.sink.split5969, label %1692
+  br i1 %1687, label %.sink.split6203, label %1692
 
-.sink.split5969:                                  ; preds = %1685
+.sink.split6203:                                  ; preds = %1685
   %1688 = icmp eq i32 %1686, 2
   %1689 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %1690 = load ptr, ptr %1689, align 8, !tbaa !57
-  %.str.37..str.395973 = select i1 %1688, ptr @.str.37, ptr @.str.39
-  %1691 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.37..str.395973, ptr noundef nonnull @.str.79, ptr noundef %1690)
+  %.str.37..str.396207 = select i1 %1688, ptr @.str.37, ptr @.str.39
+  %1691 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.37..str.396207, ptr noundef nonnull @.str.79, ptr noundef %1690)
   br label %1692
 
-1692:                                             ; preds = %.sink.split5969, %1685
+1692:                                             ; preds = %.sink.split6203, %1685
   %1693 = load ptr, ptr %34, align 8, !tbaa !49
   %1694 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %1693, i64 %57, i32 3
   %1695 = load ptr, ptr %1694, align 8, !tbaa !57
@@ -4904,17 +4904,17 @@ sub_0:                                            ; preds = %149
 1812:                                             ; preds = %56, %56
   %1813 = load i32, ptr %29, align 4, !tbaa !43
   %1814 = icmp sgt i32 %1813, 0
-  br i1 %1814, label %.sink.split5971, label %1819
+  br i1 %1814, label %.sink.split6205, label %1819
 
-.sink.split5971:                                  ; preds = %1812
+.sink.split6205:                                  ; preds = %1812
   %1815 = icmp eq i32 %1813, 2
   %1816 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %58, i64 %57, i32 3
   %1817 = load ptr, ptr %1816, align 8, !tbaa !57
-  %.str.37..str.395974 = select i1 %1815, ptr @.str.37, ptr @.str.39
-  %1818 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.37..str.395974, ptr noundef nonnull @.str.83, ptr noundef %1817)
+  %.str.37..str.396208 = select i1 %1815, ptr @.str.37, ptr @.str.39
+  %1818 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.37..str.396208, ptr noundef nonnull @.str.83, ptr noundef %1817)
   br label %1819
 
-1819:                                             ; preds = %.sink.split5971, %1812
+1819:                                             ; preds = %.sink.split6205, %1812
   %1820 = load i8, ptr %38, align 8, !tbaa !84, !range !19, !noundef !20
   %1821 = trunc nuw i8 %1820 to i1
   br i1 %1821, label %1822, label %1997
@@ -5850,8 +5850,8 @@ define internal fastcc range(i32 -1, 1) i32 @get_hyperslab(i64 noundef range(i64
 ._crit_edge.thread:                               ; preds = %.lr.ph
   %36 = load i64, ptr @H5TOOLS_BUFSIZE, align 8, !tbaa !9
   %37 = udiv i64 %36, %3
-  %.not143 = icmp ugt i64 %33, %37
-  br i1 %.not143, label %.preheader.preheader, label %.lr.ph123.preheader
+  %.not154 = icmp ugt i64 %33, %37
+  br i1 %.not154, label %.preheader.preheader, label %.lr.ph123.preheader
 
 .preheader.preheader:                             ; preds = %._crit_edge.thread, %._crit_edge
   %38 = zext nneg i32 %1 to i64

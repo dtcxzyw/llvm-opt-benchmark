@@ -2033,7 +2033,7 @@ define internal fastcc void @_ZN11polars_core13chunked_array3ops9any_value16arr_
 
 27:                                               ; preds = %4
   %28 = load i8, ptr %3, align 16, !range !133, !noundef !3
-  switch i8 %28, label %default.unreachable34 [
+  switch i8 %28, label %default.unreachable39 [
     i8 0, label %30
     i8 1, label %49
     i8 2, label %58
@@ -2068,7 +2068,7 @@ define internal fastcc void @_ZN11polars_core13chunked_array3ops9any_value16arr_
   store i8 0, ptr %0, align 16
   br label %355
 
-default.unreachable34:                            ; preds = %27
+default.unreachable39:                            ; preds = %27
   unreachable
 
 30:                                               ; preds = %27
@@ -3578,8 +3578,8 @@ define hidden void @_ZN11polars_core13chunked_array7struct_11constructor17h4d66c
   %36 = icmp eq ptr %4, %3
   br i1 %36, label %37, label %77
 
-.thread89:                                        ; preds = %77, %80, %93
-  %lpad.thr_comm88 = landingpad { ptr, i32 }
+.thread91:                                        ; preds = %77, %80, %93
+  %lpad.thr_comm90 = landingpad { ptr, i32 }
           cleanup
   br label %.thread80
 
@@ -3740,7 +3740,7 @@ define hidden void @_ZN11polars_core13chunked_array7struct_11constructor17h4d66c
 
 77:                                               ; preds = %5
   %78 = invoke noundef zeroext i1 @_ZN12polars_utils9itertools9Itertools9all_equal17h8d88228fb7268d68E(ptr noundef nonnull %3, ptr noundef %4)
-          to label %79 unwind label %.thread89
+          to label %79 unwind label %.thread91
 
 79:                                               ; preds = %77
   br i1 %78, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fb64c2b68b517ffE.exit", label %80
@@ -3748,7 +3748,7 @@ define hidden void @_ZN11polars_core13chunked_array7struct_11constructor17h4d66c
 80:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17ha9984e9e8d4df2c1E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %23, ptr noundef nonnull %3, ptr noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2eb0536cc20e33f639e4bcf57a35d082.122)
-          to label %_ZN4core4iter6traits8iterator8Iterator7collect17h6f4eba56a78693ecE.exit unwind label %.thread89
+          to label %_ZN4core4iter6traits8iterator8Iterator7collect17h6f4eba56a78693ecE.exit unwind label %.thread91
 
 _ZN4core4iter6traits8iterator8Iterator7collect17h6f4eba56a78693ecE.exit: ; preds = %80
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -3789,7 +3789,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h6f4eba56a78693ecE.exit: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h6856e28fbad1288dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %20, ptr noundef nonnull %3, ptr noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2eb0536cc20e33f639e4bcf57a35d082.122)
-          to label %_ZN4core4iter6traits8iterator8Iterator7collect17hd3479a98c4bddc72E.exit unwind label %.thread89
+          to label %_ZN4core4iter6traits8iterator8Iterator7collect17hd3479a98c4bddc72E.exit unwind label %.thread91
 
 _ZN4core4iter6traits8iterator8Iterator7collect17hd3479a98c4bddc72E.exit: ; preds = %93
   %94 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -3999,8 +3999,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hdc4a5914d3075ed6E.exit: ; preds
   %.pn17.pn.pn77 = phi { ptr, i32 } [ %.pn17.pn.pn83, %.thread80 ], [ %.pn17.pn.pn, %135 ], [ %87, %86 ]
   resume { ptr, i32 } %.pn17.pn.pn77
 
-.thread80:                                        ; preds = %.thread89, %90, %.thread, %135
-  %.pn17.pn.pn83 = phi { ptr, i32 } [ %.pn17.pn.pn, %135 ], [ %91, %90 ], [ %.pn17.pn44, %.thread ], [ %lpad.thr_comm88, %.thread89 ]
+.thread80:                                        ; preds = %.thread91, %90, %.thread, %135
+  %.pn17.pn.pn83 = phi { ptr, i32 } [ %.pn17.pn.pn, %135 ], [ %91, %90 ], [ %.pn17.pn44, %.thread ], [ %lpad.thr_comm90, %.thread91 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h385cc918f3a85b63E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #27
           to label %.thread74 unwind label %73
 }
@@ -4894,7 +4894,7 @@ define internal void @"_ZN11polars_core6series15implementations4list213_$LT$impl
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h387f407cd22a10edE.exit.i.i, label %.lr.ph.i.i.i
@@ -5007,7 +5007,7 @@ define internal void @"_ZN11polars_core6series15implementations6floats216_$LT$im
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h387f407cd22a10edE.exit.i.i, label %.lr.ph.i.i.i
@@ -5120,7 +5120,7 @@ define internal void @"_ZN11polars_core6series15implementations7boolean216_$LT$i
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h387f407cd22a10edE.exit.i.i, label %.lr.ph.i.i.i
@@ -5179,7 +5179,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
   %18 = alloca [2 x i8], align 2
   store i16 %2, ptr %18, align 2
   %19 = load i8, ptr %1, align 16, !range !133, !noundef !3
-  switch i8 %19, label %default.unreachable127 [
+  switch i8 %19, label %default.unreachable129 [
     i8 0, label %20
     i8 1, label %22
     i8 2, label %24
@@ -5210,7 +5210,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
     i8 27, label %110
   ], !prof !340
 
-default.unreachable127:                           ; preds = %110, %3
+default.unreachable129:                           ; preds = %110, %3
   unreachable
 
 20:                                               ; preds = %3
@@ -5502,7 +5502,7 @@ common.resume:                                    ; preds = %147, %98, %84
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %112 = load i128, ptr %111, align 16, !range !361, !noundef !3
   %113 = trunc nuw nsw i128 %112 to i64
-  switch i64 %113, label %default.unreachable127 [
+  switch i64 %113, label %default.unreachable129 [
     i64 0, label %142
     i64 1, label %157
     i64 2, label %145
@@ -5695,7 +5695,7 @@ define internal fastcc void @_ZN11polars_core9datatypes9any_value8AnyValue11into
   %19 = alloca [24 x i8], align 8
   %20 = alloca [48 x i8], align 8
   %21 = load i8, ptr %1, align 16, !range !32, !noundef !3
-  switch i8 %21, label %default.unreachable47 [
+  switch i8 %21, label %default.unreachable53 [
     i8 0, label %22
     i8 1, label %23
     i8 2, label %24
@@ -5731,7 +5731,7 @@ define internal fastcc void @_ZN11polars_core9datatypes9any_value8AnyValue11into
     i8 32, label %227
   ]
 
-default.unreachable47:                            ; preds = %2
+default.unreachable53:                            ; preds = %2
   unreachable
 
 22:                                               ; preds = %2
@@ -8737,7 +8737,7 @@ define internal void @"_ZN204_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h387f407cd22a10edE.exit.i.i, label %.lr.ph.i.i.i
@@ -8850,7 +8850,7 @@ define internal void @"_ZN204_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h387f407cd22a10edE.exit.i.i, label %.lr.ph.i.i.i
@@ -8963,7 +8963,7 @@ define internal void @"_ZN205_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h387f407cd22a10edE.exit.i.i, label %.lr.ph.i.i.i
@@ -34889,7 +34889,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17h9494e921ee717dd5E(ptr 
   br i1 %.sroa.06.3103.i.i.i, label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit85.thread.i.i.i", label %.body
 
 .thread.i.i.i:                                    ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h00bbca526cf63c62E.exit.i.i.i.i.i.i.i", %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h00bbca526cf63c62E.exit.i.i.i.thread.i.i.i.i", %.noexc.i.i.i, %2
-  %lpad.thr_comm158.i.i.i = landingpad { ptr, i32 }
+  %lpad.thr_comm166.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit85.thread.i.i.i"
 
@@ -35555,7 +35555,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
           to label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit85.i.i.i" unwind label %168, !noalias !3783
 
 "_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit85.thread.i.i.i": ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit85.thread.loopexit.split-lp.i.i.i", %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit85.thread.loopexit.i.i.i", %.thread.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit85.i.i.i"
-  %.pn23.pn.pn125.i.i.i = phi { ptr, i32 } [ %.pn23.pn102.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit85.i.i.i" ], [ %lpad.loopexit133.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit85.thread.loopexit.i.i.i" ], [ %lpad.loopexit.split-lp134.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit85.thread.loopexit.split-lp.i.i.i" ], [ %lpad.thr_comm158.i.i.i, %.thread.i.i.i ]
+  %.pn23.pn.pn125.i.i.i = phi { ptr, i32 } [ %.pn23.pn102.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit85.i.i.i" ], [ %lpad.loopexit133.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit85.thread.loopexit.i.i.i" ], [ %lpad.loopexit.split-lp134.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit85.thread.loopexit.split-lp.i.i.i" ], [ %lpad.thr_comm166.i.i.i, %.thread.i.i.i ]
   invoke void @"_ZN4core3ptr862drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..zip..Zip$LT$core..iter..adapters..zip..Zip$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$core..option..Option$LT$polars_core..series..amortized_iter..AmortSeries$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$core..option..Option$LT$polars_core..series..amortized_iter..AmortSeries$GT$$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$core..option..Option$LT$polars_core..series..amortized_iter..AmortSeries$GT$$GT$$GT$$C$polars_expr..expressions..ternary..finish_as_iters..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17ha9518eca7b1eef23E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %26) #27
           to label %.body unwind label %168, !noalias !3783
 
@@ -35799,7 +35799,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17hd5ff76e4b7732e20E(ptr 
   br i1 %.sroa.06.3101.i.i.i, label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.thread.i.i.i", label %.body
 
 .thread.i.i.i:                                    ; preds = %.noexc.i.i.i, %2
-  %lpad.thr_comm156.i.i.i = landingpad { ptr, i32 }
+  %lpad.thr_comm164.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.thread.i.i.i"
 
@@ -36465,7 +36465,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
           to label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.i.i.i" unwind label %155, !noalias !3951
 
 "_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.thread.i.i.i": ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.thread.loopexit.split-lp.i.i.i", %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.thread.loopexit.i.i.i", %.thread.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.i.i.i"
-  %.pn23.pn.pn123.i.i.i = phi { ptr, i32 } [ %.pn23.pn100.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.i.i.i" ], [ %lpad.loopexit131.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.thread.loopexit.i.i.i" ], [ %lpad.loopexit.split-lp132.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.thread.loopexit.split-lp.i.i.i" ], [ %lpad.thr_comm156.i.i.i, %.thread.i.i.i ]
+  %.pn23.pn.pn123.i.i.i = phi { ptr, i32 } [ %.pn23.pn100.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.i.i.i" ], [ %lpad.loopexit131.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.thread.loopexit.i.i.i" ], [ %lpad.loopexit.split-lp132.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.thread.loopexit.split-lp.i.i.i" ], [ %lpad.thr_comm164.i.i.i, %.thread.i.i.i ]
   invoke void @"_ZN4core3ptr1460drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..zip..Zip$LT$polars_core..chunked_array..list..iterator..AmortizedListIter$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$$C$polars_core..chunked_array..ops..downcast..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..ListType$GT$$GT$..downcast_iter..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$C$polars_arrow..array..iterator..ArrayValuesIter$LT$polars_arrow..array..list..ListArray$LT$i64$GT$$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$C$polars_core..chunked_array..list..iterator..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..ListType$GT$$GT$..amortized_iter_with_name..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$core..option..Option$LT$polars_core..series..amortized_iter..AmortSeries$GT$$GT$$GT$$C$$LT$polars_expr..expressions..filter..FilterExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate_on_groups..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h4d79bc145bee9697E"(ptr noalias noundef nonnull align 16 dereferenceable(304) %25) #27
           to label %.body unwind label %155, !noalias !3951
 
@@ -36593,7 +36593,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17hd7889f293243b4beE(ptr 
   br i1 %.sroa.06.3101.i.i.i, label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.thread.i.i.i", label %.body
 
 .thread.i.i.i:                                    ; preds = %.noexc.i.i.i, %2
-  %lpad.thr_comm156.i.i.i = landingpad { ptr, i32 }
+  %lpad.thr_comm164.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.thread.i.i.i"
 
@@ -37259,7 +37259,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
           to label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.i.i.i" unwind label %155, !noalias !4072
 
 "_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.thread.i.i.i": ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.thread.loopexit.split-lp.i.i.i", %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.thread.loopexit.i.i.i", %.thread.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.i.i.i"
-  %.pn23.pn.pn123.i.i.i = phi { ptr, i32 } [ %.pn23.pn100.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.i.i.i" ], [ %lpad.loopexit131.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.thread.loopexit.i.i.i" ], [ %lpad.loopexit.split-lp132.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.thread.loopexit.split-lp.i.i.i" ], [ %lpad.thr_comm156.i.i.i, %.thread.i.i.i ]
+  %.pn23.pn.pn123.i.i.i = phi { ptr, i32 } [ %.pn23.pn100.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.i.i.i" ], [ %lpad.loopexit131.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.thread.loopexit.i.i.i" ], [ %lpad.loopexit.split-lp132.i.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17hdcbe6aac6412e583E.exit83.thread.loopexit.split-lp.i.i.i" ], [ %lpad.thr_comm164.i.i.i, %.thread.i.i.i ]
   invoke void @"_ZN4core3ptr2390drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..zip..Zip$LT$polars_core..chunked_array..list..iterator..AmortizedListIter$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$$C$polars_core..chunked_array..ops..downcast..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..ListType$GT$$GT$..downcast_iter..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$C$polars_arrow..array..iterator..ArrayValuesIter$LT$polars_arrow..array..list..ListArray$LT$i64$GT$$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$C$polars_core..chunked_array..list..iterator..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..ListType$GT$$GT$..amortized_iter_with_name..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$polars_core..chunked_array..list..iterator..AmortizedListIter$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$$C$polars_core..chunked_array..ops..downcast..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..ListType$GT$$GT$..downcast_iter..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$C$polars_arrow..array..iterator..ArrayValuesIter$LT$polars_arrow..array..list..ListArray$LT$i64$GT$$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$C$polars_core..chunked_array..list..iterator..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..ListType$GT$$GT$..amortized_iter_with_name..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$C$$LT$polars_expr..expressions..gather..GatherExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate_on_groups..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$polars_expr..expressions..gather..GatherExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate_on_groups..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17hce8655a525285707E"(ptr noalias noundef nonnull align 16 dereferenceable(528) %25) #27
           to label %.body unwind label %155, !noalias !4072
 
@@ -41988,7 +41988,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %5 = alloca [24 x i8], align 8
   %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !133, !noundef !3
-  switch i8 %6, label %default.unreachable23 [
+  switch i8 %6, label %default.unreachable25 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -42019,7 +42019,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
     i8 27, label %74
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable25:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -44340,7 +44340,7 @@ define hidden void @_ZN11polars_expr11expressions6binary14apply_operator17h73125
   %79 = alloca [64 x i8], align 8
   %80 = alloca [64 x i8], align 8
   %81 = alloca [64 x i8], align 8
-  switch i8 %3, label %default.unreachable243 [
+  switch i8 %3, label %default.unreachable256 [
     i8 0, label %82
     i8 1, label %163
     i8 2, label %244
@@ -44363,7 +44363,7 @@ define hidden void @_ZN11polars_expr11expressions6binary14apply_operator17h73125
     i8 19, label %781
   ]
 
-default.unreachable243:                           ; preds = %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit, %752, %734, %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit.i194, %657, %649, %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit.i180, %576, %568, %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit.i166, %495, %487, %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit.i152, %414, %406, %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit.i138, %333, %325, %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit.i124, %252, %244, %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit.i110, %171, %163, %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit.i, %90, %82, %4
+default.unreachable256:                           ; preds = %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit, %752, %734, %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit.i194, %657, %649, %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit.i180, %576, %568, %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit.i166, %495, %487, %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit.i152, %414, %406, %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit.i138, %333, %325, %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit.i124, %252, %244, %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit.i110, %171, %163, %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit.i, %90, %82, %4
   unreachable
 
 82:                                               ; preds = %4
@@ -44372,7 +44372,7 @@ default.unreachable243:                           ; preds = %_ZN11polars_core5fr
   %83 = load i8, ptr %1, align 16, !range !278, !noalias !4734, !noundef !3
   %84 = add nsw i8 %83, -28
   %narrow.i = tail call i8 @llvm.umin.i8(i8 %84, i8 2)
-  switch i8 %narrow.i, label %default.unreachable243 [
+  switch i8 %narrow.i, label %default.unreachable256 [
     i8 0, label %85
     i8 2, label %90
     i8 1, label %93
@@ -44390,7 +44390,7 @@ default.unreachable243:                           ; preds = %_ZN11polars_core5fr
   %91 = load i8, ptr %2, align 16, !range !278, !noalias !4734, !noundef !3
   %92 = add nsw i8 %91, -28
   %narrow1.i = tail call i8 @llvm.umin.i8(i8 %92, i8 2)
-  switch i8 %narrow1.i, label %default.unreachable243 [
+  switch i8 %narrow1.i, label %default.unreachable256 [
     i8 0, label %118
     i8 2, label %125
     i8 1, label %96
@@ -44410,7 +44410,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %98 = load i8, ptr %2, align 16, !range !278, !noalias !4734, !noundef !3
   %99 = add nsw i8 %98, -28
   %narrow.i7.i = tail call i8 @llvm.umin.i8(i8 %99, i8 2)
-  switch i8 %narrow.i7.i, label %default.unreachable243 [
+  switch i8 %narrow.i7.i, label %default.unreachable256 [
     i8 0, label %100
     i8 1, label %103
     i8 2, label %106
@@ -44607,7 +44607,7 @@ common.resume:                                    ; preds = %939, %955, %974, %9
   %164 = load i8, ptr %1, align 16, !range !278, !noalias !4743, !noundef !3
   %165 = add nsw i8 %164, -28
   %narrow.i109 = tail call i8 @llvm.umin.i8(i8 %165, i8 2)
-  switch i8 %narrow.i109, label %default.unreachable243 [
+  switch i8 %narrow.i109, label %default.unreachable256 [
     i8 0, label %166
     i8 2, label %171
     i8 1, label %174
@@ -44625,7 +44625,7 @@ common.resume:                                    ; preds = %939, %955, %974, %9
   %172 = load i8, ptr %2, align 16, !range !278, !noalias !4743, !noundef !3
   %173 = add nsw i8 %172, -28
   %narrow1.i116 = tail call i8 @llvm.umin.i8(i8 %173, i8 2)
-  switch i8 %narrow1.i116, label %default.unreachable243 [
+  switch i8 %narrow1.i116, label %default.unreachable256 [
     i8 0, label %199
     i8 2, label %206
     i8 1, label %177
@@ -44645,7 +44645,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %179 = load i8, ptr %2, align 16, !range !278, !noalias !4743, !noundef !3
   %180 = add nsw i8 %179, -28
   %narrow.i7.i112 = tail call i8 @llvm.umin.i8(i8 %180, i8 2)
-  switch i8 %narrow.i7.i112, label %default.unreachable243 [
+  switch i8 %narrow.i7.i112, label %default.unreachable256 [
     i8 0, label %181
     i8 1, label %184
     i8 2, label %187
@@ -44838,7 +44838,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %245 = load i8, ptr %1, align 16, !range !278, !noalias !4752, !noundef !3
   %246 = add nsw i8 %245, -28
   %narrow.i123 = tail call i8 @llvm.umin.i8(i8 %246, i8 2)
-  switch i8 %narrow.i123, label %default.unreachable243 [
+  switch i8 %narrow.i123, label %default.unreachable256 [
     i8 0, label %247
     i8 2, label %252
     i8 1, label %255
@@ -44856,7 +44856,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %253 = load i8, ptr %2, align 16, !range !278, !noalias !4752, !noundef !3
   %254 = add nsw i8 %253, -28
   %narrow1.i130 = tail call i8 @llvm.umin.i8(i8 %254, i8 2)
-  switch i8 %narrow1.i130, label %default.unreachable243 [
+  switch i8 %narrow1.i130, label %default.unreachable256 [
     i8 0, label %280
     i8 2, label %287
     i8 1, label %258
@@ -44876,7 +44876,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %260 = load i8, ptr %2, align 16, !range !278, !noalias !4752, !noundef !3
   %261 = add nsw i8 %260, -28
   %narrow.i7.i126 = tail call i8 @llvm.umin.i8(i8 %261, i8 2)
-  switch i8 %narrow.i7.i126, label %default.unreachable243 [
+  switch i8 %narrow.i7.i126, label %default.unreachable256 [
     i8 0, label %262
     i8 1, label %265
     i8 2, label %268
@@ -45069,7 +45069,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %326 = load i8, ptr %1, align 16, !range !278, !noalias !4761, !noundef !3
   %327 = add nsw i8 %326, -28
   %narrow.i137 = tail call i8 @llvm.umin.i8(i8 %327, i8 2)
-  switch i8 %narrow.i137, label %default.unreachable243 [
+  switch i8 %narrow.i137, label %default.unreachable256 [
     i8 0, label %328
     i8 2, label %333
     i8 1, label %336
@@ -45087,7 +45087,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %334 = load i8, ptr %2, align 16, !range !278, !noalias !4761, !noundef !3
   %335 = add nsw i8 %334, -28
   %narrow1.i144 = tail call i8 @llvm.umin.i8(i8 %335, i8 2)
-  switch i8 %narrow1.i144, label %default.unreachable243 [
+  switch i8 %narrow1.i144, label %default.unreachable256 [
     i8 0, label %361
     i8 2, label %368
     i8 1, label %339
@@ -45107,7 +45107,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %341 = load i8, ptr %2, align 16, !range !278, !noalias !4761, !noundef !3
   %342 = add nsw i8 %341, -28
   %narrow.i7.i140 = tail call i8 @llvm.umin.i8(i8 %342, i8 2)
-  switch i8 %narrow.i7.i140, label %default.unreachable243 [
+  switch i8 %narrow.i7.i140, label %default.unreachable256 [
     i8 0, label %343
     i8 1, label %346
     i8 2, label %349
@@ -45300,7 +45300,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %407 = load i8, ptr %1, align 16, !range !278, !noalias !4770, !noundef !3
   %408 = add nsw i8 %407, -28
   %narrow.i151 = tail call i8 @llvm.umin.i8(i8 %408, i8 2)
-  switch i8 %narrow.i151, label %default.unreachable243 [
+  switch i8 %narrow.i151, label %default.unreachable256 [
     i8 0, label %409
     i8 2, label %414
     i8 1, label %417
@@ -45318,7 +45318,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %415 = load i8, ptr %2, align 16, !range !278, !noalias !4770, !noundef !3
   %416 = add nsw i8 %415, -28
   %narrow1.i158 = tail call i8 @llvm.umin.i8(i8 %416, i8 2)
-  switch i8 %narrow1.i158, label %default.unreachable243 [
+  switch i8 %narrow1.i158, label %default.unreachable256 [
     i8 0, label %442
     i8 2, label %449
     i8 1, label %420
@@ -45338,7 +45338,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %422 = load i8, ptr %2, align 16, !range !278, !noalias !4770, !noundef !3
   %423 = add nsw i8 %422, -28
   %narrow.i7.i154 = tail call i8 @llvm.umin.i8(i8 %423, i8 2)
-  switch i8 %narrow.i7.i154, label %default.unreachable243 [
+  switch i8 %narrow.i7.i154, label %default.unreachable256 [
     i8 0, label %424
     i8 1, label %427
     i8 2, label %430
@@ -45531,7 +45531,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %488 = load i8, ptr %1, align 16, !range !278, !noalias !4779, !noundef !3
   %489 = add nsw i8 %488, -28
   %narrow.i165 = tail call i8 @llvm.umin.i8(i8 %489, i8 2)
-  switch i8 %narrow.i165, label %default.unreachable243 [
+  switch i8 %narrow.i165, label %default.unreachable256 [
     i8 0, label %490
     i8 2, label %495
     i8 1, label %498
@@ -45549,7 +45549,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %496 = load i8, ptr %2, align 16, !range !278, !noalias !4779, !noundef !3
   %497 = add nsw i8 %496, -28
   %narrow1.i172 = tail call i8 @llvm.umin.i8(i8 %497, i8 2)
-  switch i8 %narrow1.i172, label %default.unreachable243 [
+  switch i8 %narrow1.i172, label %default.unreachable256 [
     i8 0, label %523
     i8 2, label %530
     i8 1, label %501
@@ -45569,7 +45569,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %503 = load i8, ptr %2, align 16, !range !278, !noalias !4779, !noundef !3
   %504 = add nsw i8 %503, -28
   %narrow.i7.i168 = tail call i8 @llvm.umin.i8(i8 %504, i8 2)
-  switch i8 %narrow.i7.i168, label %default.unreachable243 [
+  switch i8 %narrow.i7.i168, label %default.unreachable256 [
     i8 0, label %505
     i8 1, label %508
     i8 2, label %511
@@ -45762,7 +45762,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %569 = load i8, ptr %1, align 16, !range !278, !noalias !4788, !noundef !3
   %570 = add nsw i8 %569, -28
   %narrow.i179 = tail call i8 @llvm.umin.i8(i8 %570, i8 2)
-  switch i8 %narrow.i179, label %default.unreachable243 [
+  switch i8 %narrow.i179, label %default.unreachable256 [
     i8 0, label %571
     i8 2, label %576
     i8 1, label %579
@@ -45780,7 +45780,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %577 = load i8, ptr %2, align 16, !range !278, !noalias !4788, !noundef !3
   %578 = add nsw i8 %577, -28
   %narrow1.i186 = tail call i8 @llvm.umin.i8(i8 %578, i8 2)
-  switch i8 %narrow1.i186, label %default.unreachable243 [
+  switch i8 %narrow1.i186, label %default.unreachable256 [
     i8 0, label %604
     i8 2, label %611
     i8 1, label %582
@@ -45800,7 +45800,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %584 = load i8, ptr %2, align 16, !range !278, !noalias !4788, !noundef !3
   %585 = add nsw i8 %584, -28
   %narrow.i7.i182 = tail call i8 @llvm.umin.i8(i8 %585, i8 2)
-  switch i8 %narrow.i7.i182, label %default.unreachable243 [
+  switch i8 %narrow.i7.i182, label %default.unreachable256 [
     i8 0, label %586
     i8 1, label %589
     i8 2, label %592
@@ -45993,7 +45993,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %650 = load i8, ptr %1, align 16, !range !278, !noalias !4797, !noundef !3
   %651 = add nsw i8 %650, -28
   %narrow.i193 = tail call i8 @llvm.umin.i8(i8 %651, i8 2)
-  switch i8 %narrow.i193, label %default.unreachable243 [
+  switch i8 %narrow.i193, label %default.unreachable256 [
     i8 0, label %652
     i8 2, label %657
     i8 1, label %660
@@ -46011,7 +46011,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %658 = load i8, ptr %2, align 16, !range !278, !noalias !4797, !noundef !3
   %659 = add nsw i8 %658, -28
   %narrow1.i200 = tail call i8 @llvm.umin.i8(i8 %659, i8 2)
-  switch i8 %narrow1.i200, label %default.unreachable243 [
+  switch i8 %narrow1.i200, label %default.unreachable256 [
     i8 0, label %685
     i8 2, label %692
     i8 1, label %663
@@ -46031,7 +46031,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %665 = load i8, ptr %2, align 16, !range !278, !noalias !4797, !noundef !3
   %666 = add nsw i8 %665, -28
   %narrow.i7.i196 = tail call i8 @llvm.umin.i8(i8 %666, i8 2)
-  switch i8 %narrow.i7.i196, label %default.unreachable243 [
+  switch i8 %narrow.i7.i196, label %default.unreachable256 [
     i8 0, label %667
     i8 1, label %670
     i8 2, label %673
@@ -46238,7 +46238,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %735 = load i8, ptr %1, align 16, !range !278, !noundef !3
   %736 = add nsw i8 %735, -28
   %narrow.i207 = tail call i8 @llvm.umin.i8(i8 %736, i8 2)
-  switch i8 %narrow.i207, label %default.unreachable243 [
+  switch i8 %narrow.i207, label %default.unreachable256 [
     i8 0, label %737
     i8 1, label %746
     i8 2, label %749
@@ -46282,7 +46282,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   %753 = load i8, ptr %1, align 16, !range !278, !noundef !3
   %754 = add nsw i8 %753, -28
   %narrow.i209 = tail call i8 @llvm.umin.i8(i8 %754, i8 2)
-  switch i8 %narrow.i209, label %default.unreachable243 [
+  switch i8 %narrow.i209, label %default.unreachable256 [
     i8 0, label %755
     i8 1, label %758
     i8 2, label %761
@@ -46307,7 +46307,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %763 = load i8, ptr %2, align 16, !range !278, !noundef !3
   %764 = add nsw i8 %763, -28
   %narrow.i212 = tail call i8 @llvm.umin.i8(i8 %764, i8 2)
-  switch i8 %narrow.i212, label %default.unreachable243 [
+  switch i8 %narrow.i212, label %default.unreachable256 [
     i8 0, label %765
     i8 1, label %768
     i8 2, label %771
@@ -48644,13 +48644,13 @@ default.unreachable:                              ; preds = %78, %71
   %82 = load i8, ptr %.pn.sroa.phi, align 16, !range !278, !noundef !3
   %83 = add nsw i8 %82, -28
   %narrow.i = call i8 @llvm.umin.i8(i8 %83, i8 2)
-  switch i8 %narrow.i, label %default.unreachable117 [
+  switch i8 %narrow.i, label %default.unreachable121 [
     i8 0, label %84
     i8 1, label %88
     i8 2, label %91
   ]
 
-default.unreachable117:                           ; preds = %177, %160, %81
+default.unreachable121:                           ; preds = %177, %160, %81
   unreachable
 
 84:                                               ; preds = %81
@@ -48911,7 +48911,7 @@ default.unreachable117:                           ; preds = %177, %160, %81
   store i8 2, ptr %161, align 2, !alias.scope !4942, !noalias !4917
   %162 = add nsw i8 %153, -28
   %narrow.i.i = call i8 @llvm.umin.i8(i8 %162, i8 2)
-  switch i8 %narrow.i.i, label %default.unreachable117 [
+  switch i8 %narrow.i.i, label %default.unreachable121 [
     i8 0, label %163
     i8 1, label %167
     i8 2, label %170
@@ -48955,7 +48955,7 @@ _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit.i: ; preds = %
   %178 = load i8, ptr %16, align 16, !range !278, !noalias !4916, !noundef !3
   %179 = add nsw i8 %178, -28
   %narrow.i63.i = call i8 @llvm.umin.i8(i8 %179, i8 2)
-  switch i8 %narrow.i63.i, label %default.unreachable117 [
+  switch i8 %narrow.i63.i, label %default.unreachable121 [
     i8 0, label %180
     i8 1, label %183
     i8 2, label %186
@@ -49281,7 +49281,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
           to label %102 unwind label %259, !noalias !4909
 
 273:                                              ; preds = %.thread.i, %249
-  %.pn54118.i = phi { ptr, i32 } [ %.pn52.i, %249 ], [ %270, %.thread.i ]
+  %.pn54120.i = phi { ptr, i32 } [ %.pn52.i, %249 ], [ %270, %.thread.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_expr..expressions..AggregationContext$GT$17h1eb6da6d4d35656cE"(ptr noalias noundef nonnull align 16 dereferenceable(272) %45) #27
           to label %.body.thread100.thread unwind label %259, !noalias !4909
 
@@ -49549,7 +49549,7 @@ _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %.n
   unreachable
 
 .body.thread100.thread:                           ; preds = %273, %249, %.body.thread100.thread111
-  %.pn74110 = phi { ptr, i32 } [ %.pn74114, %.body.thread100.thread111 ], [ %.pn52.i, %249 ], [ %.pn54118.i, %273 ]
+  %.pn74110 = phi { ptr, i32 } [ %.pn74114, %.body.thread100.thread111 ], [ %.pn52.i, %249 ], [ %.pn54120.i, %273 ]
   resume { ptr, i32 } %.pn74110
 
 .body.thread100.thread111:                        ; preds = %.body.thread, %.body.thread100.thread115
@@ -51562,14 +51562,14 @@ define hidden { ptr, ptr } @"_ZN11polars_expr11expressions10group_iter62_$LT$imp
   %20 = alloca [160 x i8], align 16
   %21 = load i128, ptr %0, align 16, !range !361, !noundef !3
   %22 = trunc nuw nsw i128 %21 to i64
-  switch i64 %22, label %default.unreachable103 [
+  switch i64 %22, label %default.unreachable106 [
     i64 0, label %23
     i64 1, label %33
     i64 2, label %35
     i64 3, label %52
   ]
 
-default.unreachable103:                           ; preds = %264, %220, %203, %171, %141, %109, %89, %55, %2
+default.unreachable106:                           ; preds = %264, %220, %203, %171, %141, %109, %89, %55, %2
   unreachable
 
 23:                                               ; preds = %2
@@ -51696,7 +51696,7 @@ common.resume:                                    ; preds = %196, %167, %231, %1
   %56 = load i8, ptr %.sroa.0.0.i, align 16, !range !278, !noundef !3
   %57 = add nsw i8 %56, -28
   %narrow.i21 = tail call i8 @llvm.umin.i8(i8 %57, i8 2)
-  switch i8 %narrow.i21, label %default.unreachable103 [
+  switch i8 %narrow.i21, label %default.unreachable106 [
     i8 0, label %58
     i8 1, label %67
     i8 2, label %70
@@ -51780,7 +51780,7 @@ _ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit: ; preds = %5
   %90 = load i8, ptr %.sroa.0.0.i18, align 16, !range !278, !noundef !3
   %91 = add nsw i8 %90, -28
   %narrow.i23 = tail call i8 @llvm.umin.i8(i8 %91, i8 2)
-  switch i8 %narrow.i23, label %default.unreachable103 [
+  switch i8 %narrow.i23, label %default.unreachable106 [
     i8 0, label %92
     i8 1, label %101
     i8 2, label %104
@@ -51820,7 +51820,7 @@ _ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit26: ; preds = 
   %110 = load i8, ptr %.sroa.0.0.i18, align 16, !range !278, !noundef !3
   %111 = add nsw i8 %110, -28
   %narrow.i27 = tail call i8 @llvm.umin.i8(i8 %111, i8 2)
-  switch i8 %narrow.i27, label %default.unreachable103 [
+  switch i8 %narrow.i27, label %default.unreachable106 [
     i8 0, label %112
     i8 1, label %115
     i8 2, label %118
@@ -51883,7 +51883,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %142 = load i8, ptr %.sroa.0.0.i18, align 16, !range !278, !noundef !3
   %143 = add nsw i8 %142, -28
   %narrow.i33 = tail call i8 @llvm.umin.i8(i8 %143, i8 2)
-  switch i8 %narrow.i33, label %default.unreachable103 [
+  switch i8 %narrow.i33, label %default.unreachable106 [
     i8 0, label %144
     i8 1, label %153
     i8 2, label %156
@@ -51971,7 +51971,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   %172 = load i8, ptr %.sroa.0.0.i19, align 16, !range !278, !noundef !3
   %173 = add nsw i8 %172, -28
   %narrow.i43 = call i8 @llvm.umin.i8(i8 %173, i8 2)
-  switch i8 %narrow.i43, label %default.unreachable103 [
+  switch i8 %narrow.i43, label %default.unreachable106 [
     i8 0, label %174
     i8 1, label %183
     i8 2, label %186
@@ -52052,7 +52052,7 @@ _ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit46: ; preds = 
   %204 = load i8, ptr %20, align 16, !range !278, !noundef !3
   %205 = add nsw i8 %204, -28
   %narrow.i49 = tail call i8 @llvm.umin.i8(i8 %205, i8 2)
-  switch i8 %narrow.i49, label %default.unreachable103 [
+  switch i8 %narrow.i49, label %default.unreachable106 [
     i8 0, label %206
     i8 1, label %215
     i8 2, label %218
@@ -52089,7 +52089,7 @@ _ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit46: ; preds = 
   %221 = load i8, ptr %20, align 16, !range !278, !noundef !3
   %222 = add nsw i8 %221, -28
   %narrow.i58 = call i8 @llvm.umin.i8(i8 %222, i8 2)
-  switch i8 %narrow.i58, label %default.unreachable103 [
+  switch i8 %narrow.i58, label %default.unreachable106 [
     i8 0, label %223
     i8 1, label %226
     i8 2, label %229
@@ -52202,7 +52202,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
   %265 = load i8, ptr %20, align 16, !range !278, !noundef !3
   %266 = add nsw i8 %265, -28
   %narrow.i69 = call i8 @llvm.umin.i8(i8 %266, i8 2)
-  switch i8 %narrow.i69, label %default.unreachable103 [
+  switch i8 %narrow.i69, label %default.unreachable106 [
     i8 0, label %267
     i8 1, label %276
     i8 2, label %279
@@ -56000,8 +56000,8 @@ _ZN3std4sync6poison4once4Once9call_once17h8f8ac5c0a03556b6E.exit: ; preds = %5, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %46, ptr noundef nonnull readonly align 8 dereferenceable(56) %45, i64 56, i1 false)
   %347 = getelementptr inbounds nuw i8, ptr %46, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %347, ptr noundef nonnull readonly align 8 dereferenceable(56) %44, i64 56, i1 false)
-  %.112..112..112..sroa_idx392 = getelementptr inbounds nuw i8, ptr %46, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.112..112..112..sroa_idx392, i8 0, i64 24, i1 false)
+  %.112..112..112..sroa_idx407 = getelementptr inbounds nuw i8, ptr %46, i64 112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.112..112..112..sroa_idx407, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !5527
@@ -56395,8 +56395,8 @@ _ZN3std4sync6poison4once4Once9call_once17h8f8ac5c0a03556b6E.exit: ; preds = %5, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %28, ptr noundef nonnull readonly align 8 dereferenceable(56) %27, i64 56, i1 false), !alias.scope !5557, !noalias !5560
   %457 = getelementptr inbounds nuw i8, ptr %28, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %457, ptr noundef nonnull readonly align 8 dereferenceable(56) %26, i64 56, i1 false), !alias.scope !5561, !noalias !5562
-  %.112..112..112..sroa_idx393 = getelementptr inbounds nuw i8, ptr %28, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.112..112..112..sroa_idx393, i8 0, i64 24, i1 false), !alias.scope !5563, !noalias !5564
+  %.112..112..112..sroa_idx408 = getelementptr inbounds nuw i8, ptr %28, i64 112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.112..112..112..sroa_idx408, i8 0, i64 24, i1 false), !alias.scope !5563, !noalias !5564
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
@@ -60380,8 +60380,8 @@ _ZN3std4sync6poison4once4Once9call_once17h8f8ac5c0a03556b6E.exit183: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   call void @llvm.experimental.noalias.scope.decl(metadata !5960)
   %395 = load i128, ptr %64, align 16, !range !361, !noalias !5960, !noundef !3
-  %switch269 = icmp eq i128 %395, 0
-  br i1 %switch269, label %396, label %_ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438E.exit.thread.sink.split
+  %switch279 = icmp eq i128 %395, 0
+  br i1 %switch279, label %396, label %_ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438E.exit.thread.sink.split
 
 default.unreachable:                              ; preds = %_ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438E.exit.thread
   unreachable
@@ -60435,7 +60435,7 @@ _ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438
   br label %_ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438E.exit.thread
 
 _ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438E.exit.thread: ; preds = %_ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438E.exit, %_ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438E.exit.thread.sink.split
-  %.not166267 = phi i1 [ %406, %_ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438E.exit ], [ true, %_ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438E.exit.thread.sink.split ]
+  %.not166277 = phi i1 [ %406, %_ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438E.exit ], [ true, %_ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438E.exit.thread.sink.split ]
   %407 = phi ptr [ %.pre264, %_ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438E.exit ], [ %.sroa.4.0..sroa_idx, %_ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438E.exit.thread.sink.split ]
   %408 = phi ptr [ %spec.select, %_ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438E.exit ], [ %.sroa.4.0..sroa_idx, %_ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438E.exit.thread.sink.split ]
   %409 = load i8, ptr %408, align 16, !range !278, !noundef !3
@@ -60449,7 +60449,7 @@ _ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438
 
 411:                                              ; preds = %_ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438E.exit.thread
   %.sroa.gep212 = getelementptr inbounds nuw i8, ptr %407, i64 8
-  %.sroa.0100.0.sroa.sel214 = select i1 %.not166267, ptr %.sroa.gep212, ptr %137
+  %.sroa.0100.0.sroa.sel214 = select i1 %.not166277, ptr %.sroa.gep212, ptr %137
   %412 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN92_$LT$polars_core..frame..column..series..SeriesColumn$u20$as$u20$core..ops..deref..Deref$GT$5deref17h160166a383b70c02E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0100.0.sroa.sel214)
           to label %.noexc188 unwind label %418
 
@@ -60459,7 +60459,7 @@ _ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438
 
 414:                                              ; preds = %_ZN11polars_expr11expressions18AggregationContext10flat_naive17haecee1e34fd13438E.exit.thread
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %407, i64 8
-  %.sroa.0100.0.sroa.sel = select i1 %.not166267, ptr %.sroa.gep, ptr %137
+  %.sroa.0100.0.sroa.sel = select i1 %.not166277, ptr %.sroa.gep, ptr %137
   %415 = invoke noundef i64 @_ZN11polars_core5frame6column11partitioned17PartitionedColumn3len17h01061125d3d26a30E(ptr noundef nonnull align 8 %.sroa.0100.0.sroa.sel)
           to label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit unwind label %418
 

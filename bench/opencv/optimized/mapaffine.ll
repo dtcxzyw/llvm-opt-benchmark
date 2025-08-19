@@ -209,12 +209,12 @@ define linkonce_odr hidden void @_ZNK2cv3MatcvNS_4MatxIT_XT0_EXT1_EEEIdLi2ELi2EE
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 2
-  %or.cond15 = select i1 %or.cond, i1 %14, i1 false
+  %or.cond16 = select i1 %or.cond, i1 %14, i1 false
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 2
-  %or.cond18 = select i1 %or.cond15, i1 %17, i1 false
-  br i1 %or.cond18, label %18, label %22
+  %or.cond19 = select i1 %or.cond16, i1 %17, i1 false
+  br i1 %or.cond19, label %18, label %22
 
 18:                                               ; preds = %2
   %19 = load i32, ptr %1, align 8, !tbaa !32

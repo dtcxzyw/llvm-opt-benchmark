@@ -1030,7 +1030,7 @@ _ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_1
   br i1 %.not, label %40, label %67
 
 40:                                               ; preds = %_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE.exit.thread, %_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE.exit
-  %.01419 = phi ptr [ %23, %_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE.exit.thread ], [ %.0.ph, %_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE.exit ]
+  %.02126 = phi ptr [ %23, %_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE.exit.thread ], [ %.0.ph, %_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE.exit ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %42 = load i32, ptr %41, align 4, !tbaa !38
   %43 = add i32 %42, 1
@@ -1073,7 +1073,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit.i:            ; preds = %62, %47
 
 _ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE.exit: ; preds = %40, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit.i
   %.pre-phi.i = phi i32 [ %.pre14.i, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit.i ], [ %43, %40 ]
-  %.012.i = phi ptr [ %59, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit.i ], [ %.01419, %40 ]
+  %.012.i = phi ptr [ %59, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit.i ], [ %.02126, %40 ]
   store i32 %.pre-phi.i, ptr %41, align 4, !tbaa !38
   %63 = load ptr, ptr %.012.i, align 8, !tbaa !36
   %.not.i11 = icmp eq ptr %63, null

@@ -1518,9 +1518,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE11set_big_i64ER3mpzl(ptr noun
   %22 = or i8 %20, 1
   store i8 %22, ptr %21, align 4
   %23 = icmp eq i64 %2, -9223372036854775808
-  br i1 %23, label %27, label %.thread25
+  br i1 %23, label %27, label %.thread27
 
-.thread25:                                        ; preds = %18
+.thread27:                                        ; preds = %18
   %24 = icmp slt i64 %2, 0
   %.sink = select i1 %24, i32 -1, i32 1
   %.0 = tail call i64 @llvm.abs.i64(i64 %2, i1 true)
@@ -1541,7 +1541,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE11set_big_i64ER3mpzl(ptr noun
   tail call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %29
 
-29:                                               ; preds = %.thread25, %27
+29:                                               ; preds = %.thread27, %27
   ret void
 }
 
@@ -1607,9 +1607,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE7set_i64ER3mpzl(ptr noundef n
   %29 = or i8 %27, 1
   store i8 %29, ptr %28, align 4
   %30 = icmp eq i64 %2, -9223372036854775808
-  br i1 %30, label %34, label %.thread25.i
+  br i1 %30, label %34, label %.thread27.i
 
-.thread25.i:                                      ; preds = %25
+.thread27.i:                                      ; preds = %25
   %31 = icmp slt i64 %2, 0
   %.sink.i = select i1 %31, i32 -1, i32 1
   %.0.i = tail call i64 @llvm.abs.i64(i64 %2, i1 true)
@@ -1630,7 +1630,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE7set_i64ER3mpzl(ptr noundef n
   tail call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZN11mpz_managerILb1EE11set_big_i64ER3mpzl.exit
 
-_ZN11mpz_managerILb1EE11set_big_i64ER3mpzl.exit:  ; preds = %34, %.thread25.i, %5
+_ZN11mpz_managerILb1EE11set_big_i64ER3mpzl.exit:  ; preds = %34, %.thread27.i, %5
   ret void
 }
 
@@ -4210,7 +4210,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EEC2Ev(ptr noundef nonnull alig
 51:                                               ; preds = %44
   %52 = load ptr, ptr %14, align 8, !tbaa !22
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %.thread25.i.i.i
+  br i1 %53, label %54, label %.thread27.i.i.i
 
 54:                                               ; preds = %51
   %55 = load i32, ptr %15, align 4, !tbaa !12
@@ -4226,9 +4226,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EEC2Ev(ptr noundef nonnull alig
   store ptr %59, ptr %14, align 8, !tbaa !22
   %61 = load i8, ptr %11, align 4
   %62 = and i8 %61, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %51, %.noexc8
+.thread27.i.i.i:                                  ; preds = %51, %.noexc8
   %63 = phi ptr [ %59, %.noexc8 ], [ %52, %51 ]
   %64 = phi i8 [ %62, %.noexc8 ], [ %41, %51 ]
   %65 = or i8 %64, 1
@@ -4249,7 +4249,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EEC2Ev(ptr noundef nonnull alig
   invoke void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit unwind label %72
 
-_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %.thread25.i.i.i, %49, %69
+_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %.thread27.i.i.i, %49, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
@@ -4322,9 +4322,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3setER3mpzl(ptr noundef nonnu
   %29 = or i8 %27, 1
   store i8 %29, ptr %28, align 4
   %30 = icmp eq i64 %2, -9223372036854775808
-  br i1 %30, label %34, label %.thread25.i
+  br i1 %30, label %34, label %.thread27.i
 
-.thread25.i:                                      ; preds = %25
+.thread27.i:                                      ; preds = %25
   %31 = icmp slt i64 %2, 0
   %.sink.i = select i1 %31, i32 -1, i32 1
   %.0.i = tail call i64 @llvm.abs.i64(i64 %2, i1 true)
@@ -4345,7 +4345,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3setER3mpzl(ptr noundef nonnu
   tail call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit
 
-_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit:       ; preds = %34, %.thread25.i, %5
+_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit:       ; preds = %34, %.thread27.i, %5
   ret void
 }
 
@@ -4450,7 +4450,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_(ptr nounde
 ._crit_edge.i.i:                                  ; preds = %26
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -4465,9 +4465,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_(ptr nounde
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %39 = load i8, ptr %38, align 4
   %40 = and i8 %39, -3
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
-.thread25.i.i:                                    ; preds = %._crit_edge.i.i, %30
+.thread27.i.i:                                    ; preds = %._crit_edge.i.i, %30
   %41 = phi ptr [ %28, %._crit_edge.i.i ], [ %36, %30 ]
   %42 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %40, %30 ]
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4489,7 +4489,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_(ptr nounde
   tail call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit
 
-_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit:       ; preds = %.thread25.i.i, %21, %48
+_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit:       ; preds = %.thread27.i.i, %21, %48
   ret void
 }
 
@@ -4662,7 +4662,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3subERK3mpzS3_RS1_(ptr nounde
 ._crit_edge.i.i:                                  ; preds = %26
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -4677,9 +4677,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3subERK3mpzS3_RS1_(ptr nounde
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %39 = load i8, ptr %38, align 4
   %40 = and i8 %39, -3
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
-.thread25.i.i:                                    ; preds = %._crit_edge.i.i, %30
+.thread27.i.i:                                    ; preds = %._crit_edge.i.i, %30
   %41 = phi ptr [ %28, %._crit_edge.i.i ], [ %36, %30 ]
   %42 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %40, %30 ]
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4701,7 +4701,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3subERK3mpzS3_RS1_(ptr nounde
   tail call void @_ZN11mpz_managerILb1EE11big_add_subILb1EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit
 
-_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit:       ; preds = %.thread25.i.i, %21, %48
+_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit:       ; preds = %.thread27.i.i, %21, %48
   ret void
 }
 
@@ -4739,7 +4739,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3incER3mpz(ptr noundef nonnul
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !22
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %.thread25.i.i.i
+  br i1 %20, label %21, label %.thread27.i.i.i
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -4753,9 +4753,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3incER3mpz(ptr noundef nonnul
   store ptr %27, ptr %18, align 8, !tbaa !22
   %29 = load i8, ptr %6, align 4
   %30 = and i8 %29, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %17, %21
+.thread27.i.i.i:                                  ; preds = %17, %21
   %31 = phi ptr [ %27, %21 ], [ %19, %17 ]
   %32 = phi i8 [ %30, %21 ], [ %7, %17 ]
   %33 = or i8 %32, 1
@@ -4772,7 +4772,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3incER3mpz(ptr noundef nonnul
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %15, %.thread25.i.i.i, %36
+_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %15, %.thread27.i.i.i, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -4810,7 +4810,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3decER3mpz(ptr noundef nonnul
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !22
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %.thread25.i.i.i
+  br i1 %19, label %20, label %.thread27.i.i.i
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -4824,9 +4824,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3decER3mpz(ptr noundef nonnul
   store ptr %26, ptr %17, align 8, !tbaa !22
   %28 = load i8, ptr %6, align 4
   %29 = and i8 %28, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %16, %20
+.thread27.i.i.i:                                  ; preds = %16, %20
   %30 = phi ptr [ %26, %20 ], [ %18, %16 ]
   %31 = phi i8 [ %29, %20 ], [ %7, %16 ]
   %32 = or i8 %31, 1
@@ -4842,7 +4842,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3decER3mpz(ptr noundef nonnul
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %14, %.thread25.i.i.i, %34
+_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %14, %.thread27.i.i.i, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -4890,7 +4890,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr nounde
 ._crit_edge.i.i:                                  ; preds = %26
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -4905,9 +4905,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr nounde
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %39 = load i8, ptr %38, align 4
   %40 = and i8 %39, -3
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
-.thread25.i.i:                                    ; preds = %._crit_edge.i.i, %30
+.thread27.i.i:                                    ; preds = %._crit_edge.i.i, %30
   %41 = phi ptr [ %28, %._crit_edge.i.i ], [ %36, %30 ]
   %42 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %40, %30 ]
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4929,7 +4929,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr nounde
   tail call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit
 
-_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit:       ; preds = %.thread25.i.i, %21, %48
+_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit:       ; preds = %.thread27.i.i, %21, %48
   ret void
 }
 
@@ -4987,7 +4987,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE6addmulERK3mpzS3_S3_RS1_(ptr 
 ._crit_edge.i.i.i:                                ; preds = %36
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i, align 4
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -5002,9 +5002,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE6addmulERK3mpzS3_S3_RS1_(ptr 
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %49 = load i8, ptr %48, align 4
   %50 = and i8 %49, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %40, %._crit_edge.i.i.i
+.thread27.i.i.i:                                  ; preds = %40, %._crit_edge.i.i.i
   %51 = phi ptr [ %38, %._crit_edge.i.i.i ], [ %46, %40 ]
   %52 = phi i8 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %50, %40 ]
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -5073,7 +5073,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE6addmulERK3mpzS3_S3_RS1_(ptr 
 ._crit_edge.i.i.i14:                              ; preds = %84
   %.phi.trans.insert.i.i.i15 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.pre.i.i.i16 = load i8, ptr %.phi.trans.insert.i.i.i15, align 4
-  br label %.thread25.i.i.i17
+  br label %.thread27.i.i.i17
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -5088,9 +5088,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE6addmulERK3mpzS3_S3_RS1_(ptr 
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %97 = load i8, ptr %96, align 4
   %98 = and i8 %97, -3
-  br label %.thread25.i.i.i17
+  br label %.thread27.i.i.i17
 
-.thread25.i.i.i17:                                ; preds = %88, %._crit_edge.i.i.i14
+.thread27.i.i.i17:                                ; preds = %88, %._crit_edge.i.i.i14
   %99 = phi ptr [ %86, %._crit_edge.i.i.i14 ], [ %94, %88 ]
   %100 = phi i8 [ %.pre.i.i.i16, %._crit_edge.i.i.i14 ], [ %98, %88 ]
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -5135,7 +5135,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE6addmulERK3mpzS3_S3_RS1_(ptr 
   %119 = mul nsw i64 %118, %116
   %120 = add nsw i64 %119, 2147483648
   %or.cond.i.i22 = icmp ult i64 %120, 4294967296
-  br i1 %or.cond.i.i22, label %121, label %.thread25.i.i.i26
+  br i1 %or.cond.i.i22, label %121, label %.thread27.i.i.i26
 
 121:                                              ; preds = %115
   %122 = trunc nsw i64 %119 to i32
@@ -5143,7 +5143,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE6addmulERK3mpzS3_S3_RS1_(ptr 
   store i8 0, ptr %108, align 4
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit
 
-.thread25.i.i.i26:                                ; preds = %115
+.thread27.i.i.i26:                                ; preds = %115
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 564
   %124 = load i32, ptr %123, align 4, !tbaa !12
   %125 = shl i32 %124, 2
@@ -5170,7 +5170,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE6addmulERK3mpzS3_S3_RS1_(ptr 
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread25.i.i.i26, %133
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread27.i.i.i26, %133
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %135 = load i8, ptr %134, align 4
   %136 = and i8 %135, 1
@@ -5211,7 +5211,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread25.i.i
 ._crit_edge.i.i.i32:                              ; preds = %154
   %.phi.trans.insert.i.i.i33 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.pre.i.i.i34 = load i8, ptr %.phi.trans.insert.i.i.i33, align 4
-  br label %.thread25.i.i.i35
+  br label %.thread27.i.i.i35
 
 158:                                              ; preds = %154
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -5226,9 +5226,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread25.i.i
   %166 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %167 = load i8, ptr %166, align 4
   %168 = and i8 %167, -3
-  br label %.thread25.i.i.i35
+  br label %.thread27.i.i.i35
 
-.thread25.i.i.i35:                                ; preds = %158, %._crit_edge.i.i.i32
+.thread27.i.i.i35:                                ; preds = %158, %._crit_edge.i.i.i32
   %169 = phi ptr [ %156, %._crit_edge.i.i.i32 ], [ %164, %158 ]
   %170 = phi i8 [ %.pre.i.i.i34, %._crit_edge.i.i.i32 ], [ %168, %158 ]
   %171 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -5250,7 +5250,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %4)
   br label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit40
 
-_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit40:  ; preds = %149, %.thread25.i.i.i35, %176
+_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit40:  ; preds = %149, %.thread27.i.i.i35, %176
   %177 = load ptr, ptr %109, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %177, null
   br i1 %.not.i.i, label %_ZN11mpz_managerILb1EE3delER3mpz.exit, label %178
@@ -5269,7 +5269,7 @@ _ZN11mpz_managerILb1EE3delER3mpz.exit:            ; preds = %178, %182, %_ZN11mp
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %106, %.thread25.i.i.i17, %79, %58, %.thread25.i.i.i, %31, %_ZN11mpz_managerILb1EE3delER3mpz.exit
+_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %106, %.thread27.i.i.i17, %79, %58, %.thread27.i.i.i, %31, %_ZN11mpz_managerILb1EE3delER3mpz.exit
   ret void
 }
 
@@ -5351,7 +5351,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE6submulERK3mpzS3_S3_RS1_(ptr 
 ._crit_edge.i.i.i:                                ; preds = %36
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i, align 4
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -5366,9 +5366,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE6submulERK3mpzS3_S3_RS1_(ptr 
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %49 = load i8, ptr %48, align 4
   %50 = and i8 %49, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %40, %._crit_edge.i.i.i
+.thread27.i.i.i:                                  ; preds = %40, %._crit_edge.i.i.i
   %51 = phi ptr [ %38, %._crit_edge.i.i.i ], [ %46, %40 ]
   %52 = phi i8 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %50, %40 ]
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -5437,7 +5437,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE6submulERK3mpzS3_S3_RS1_(ptr 
 ._crit_edge.i.i.i14:                              ; preds = %84
   %.phi.trans.insert.i.i.i15 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.pre.i.i.i16 = load i8, ptr %.phi.trans.insert.i.i.i15, align 4
-  br label %.thread25.i.i.i17
+  br label %.thread27.i.i.i17
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -5452,9 +5452,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE6submulERK3mpzS3_S3_RS1_(ptr 
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %97 = load i8, ptr %96, align 4
   %98 = and i8 %97, -3
-  br label %.thread25.i.i.i17
+  br label %.thread27.i.i.i17
 
-.thread25.i.i.i17:                                ; preds = %88, %._crit_edge.i.i.i14
+.thread27.i.i.i17:                                ; preds = %88, %._crit_edge.i.i.i14
   %99 = phi ptr [ %86, %._crit_edge.i.i.i14 ], [ %94, %88 ]
   %100 = phi i8 [ %.pre.i.i.i16, %._crit_edge.i.i.i14 ], [ %98, %88 ]
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -5499,7 +5499,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE6submulERK3mpzS3_S3_RS1_(ptr 
   %119 = mul nsw i64 %118, %116
   %120 = add nsw i64 %119, 2147483648
   %or.cond.i.i22 = icmp ult i64 %120, 4294967296
-  br i1 %or.cond.i.i22, label %121, label %.thread25.i.i.i26
+  br i1 %or.cond.i.i22, label %121, label %.thread27.i.i.i26
 
 121:                                              ; preds = %115
   %122 = trunc nsw i64 %119 to i32
@@ -5507,7 +5507,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE6submulERK3mpzS3_S3_RS1_(ptr 
   store i8 0, ptr %108, align 4
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit
 
-.thread25.i.i.i26:                                ; preds = %115
+.thread27.i.i.i26:                                ; preds = %115
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 564
   %124 = load i32, ptr %123, align 4, !tbaa !12
   %125 = shl i32 %124, 2
@@ -5534,7 +5534,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE6submulERK3mpzS3_S3_RS1_(ptr 
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread25.i.i.i26, %133
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread27.i.i.i26, %133
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %135 = load i8, ptr %134, align 4
   %136 = and i8 %135, 1
@@ -5575,7 +5575,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread25.i.i
 ._crit_edge.i.i.i32:                              ; preds = %154
   %.phi.trans.insert.i.i.i33 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.pre.i.i.i34 = load i8, ptr %.phi.trans.insert.i.i.i33, align 4
-  br label %.thread25.i.i.i35
+  br label %.thread27.i.i.i35
 
 158:                                              ; preds = %154
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -5590,9 +5590,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread25.i.i
   %166 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %167 = load i8, ptr %166, align 4
   %168 = and i8 %167, -3
-  br label %.thread25.i.i.i35
+  br label %.thread27.i.i.i35
 
-.thread25.i.i.i35:                                ; preds = %158, %._crit_edge.i.i.i32
+.thread27.i.i.i35:                                ; preds = %158, %._crit_edge.i.i.i32
   %169 = phi ptr [ %156, %._crit_edge.i.i.i32 ], [ %164, %158 ]
   %170 = phi i8 [ %.pre.i.i.i34, %._crit_edge.i.i.i32 ], [ %168, %158 ]
   %171 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -5614,7 +5614,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE11big_add_subILb1EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %4)
   br label %_ZN11mpz_managerILb1EE3subERK3mpzS3_RS1_.exit40
 
-_ZN11mpz_managerILb1EE3subERK3mpzS3_RS1_.exit40:  ; preds = %149, %.thread25.i.i.i35, %176
+_ZN11mpz_managerILb1EE3subERK3mpzS3_RS1_.exit40:  ; preds = %149, %.thread27.i.i.i35, %176
   %177 = load ptr, ptr %109, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %177, null
   br i1 %.not.i.i, label %_ZN11mpz_managerILb1EE3delER3mpz.exit, label %178
@@ -5633,7 +5633,7 @@ _ZN11mpz_managerILb1EE3delER3mpz.exit:            ; preds = %178, %182, %_ZN11mp
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN11mpz_managerILb1EE3subERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3subERK3mpzS3_RS1_.exit:    ; preds = %106, %.thread25.i.i.i17, %79, %58, %.thread25.i.i.i, %31, %_ZN11mpz_managerILb1EE3delER3mpz.exit
+_ZN11mpz_managerILb1EE3subERK3mpzS3_RS1_.exit:    ; preds = %106, %.thread27.i.i.i17, %79, %58, %.thread27.i.i.i, %31, %_ZN11mpz_managerILb1EE3delER3mpz.exit
   ret void
 }
 
@@ -5682,7 +5682,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE15machine_div_remERK3mpzS3_RS
 ._crit_edge.i.i:                                  ; preds = %28
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -5697,9 +5697,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE15machine_div_remERK3mpzS3_RS
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %41 = load i8, ptr %40, align 4
   %42 = and i8 %41, -3
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
-.thread25.i.i:                                    ; preds = %._crit_edge.i.i, %32
+.thread27.i.i:                                    ; preds = %._crit_edge.i.i, %32
   %43 = phi ptr [ %30, %._crit_edge.i.i ], [ %38, %32 ]
   %44 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %42, %32 ]
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5713,7 +5713,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE15machine_div_remERK3mpzS3_RS
   store i32 %.ph.i.i, ptr %43, align 4, !tbaa !25
   br label %_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit
 
-_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit:       ; preds = %23, %.thread25.i.i
+_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit:       ; preds = %23, %.thread27.i.i
   %49 = trunc nsw i64 %21 to i32
   store i32 %49, ptr %4, align 8, !tbaa !23
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -5858,7 +5858,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 ._crit_edge.i.i:                                  ; preds = %58
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -5873,9 +5873,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %71 = load i8, ptr %70, align 4
   %72 = and i8 %71, -3
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
-.thread25.i.i:                                    ; preds = %._crit_edge.i.i, %62
+.thread27.i.i:                                    ; preds = %._crit_edge.i.i, %62
   %73 = phi ptr [ %60, %._crit_edge.i.i ], [ %68, %62 ]
   %74 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %72, %62 ]
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5915,7 +5915,7 @@ _ZN11mpz_managerILb1EE7big_divERK3mpzS3_RS1_.exit: ; preds = %.thread20, %82, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit
 
-_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit:       ; preds = %.thread25.i.i, %53, %_ZN11mpz_managerILb1EE7big_divERK3mpzS3_RS1_.exit
+_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit:       ; preds = %.thread27.i.i, %53, %_ZN11mpz_managerILb1EE7big_divERK3mpzS3_RS1_.exit
   ret void
 
 87:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %40
@@ -6228,7 +6228,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3divERK3mpzS3_RS1_(ptr nounde
 ._crit_edge.i.i.i:                                ; preds = %47
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i, align 4
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -6243,9 +6243,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3divERK3mpzS3_RS1_(ptr nounde
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %60 = load i8, ptr %59, align 4
   %61 = and i8 %60, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %51, %._crit_edge.i.i.i
+.thread27.i.i.i:                                  ; preds = %51, %._crit_edge.i.i.i
   %62 = phi ptr [ %49, %._crit_edge.i.i.i ], [ %57, %51 ]
   %63 = phi i8 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %61, %51 ]
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -6259,7 +6259,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3divERK3mpzS3_RS1_(ptr nounde
   store i32 %.ph.i.i.i, ptr %62, align 4, !tbaa !25
   br label %_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit.i
 
-_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit.i:     ; preds = %.thread25.i.i.i, %42
+_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit.i:     ; preds = %.thread27.i.i.i, %42
   %68 = trunc nsw i64 %40 to i32
   store i32 %68, ptr %5, align 8, !tbaa !23
   store i8 0, ptr %30, align 4
@@ -6312,7 +6312,7 @@ _ZN11mpz_managerILb1EE15machine_div_remERK3mpzS3_RS1_S4_.exit: ; preds = %_ZN11m
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !22
   %92 = icmp eq ptr %91, null
-  br i1 %92, label %93, label %.thread25.i.i.i21
+  br i1 %92, label %93, label %.thread27.i.i.i21
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -6326,9 +6326,9 @@ _ZN11mpz_managerILb1EE15machine_div_remERK3mpzS3_RS1_S4_.exit: ; preds = %_ZN11m
   store ptr %99, ptr %90, align 8, !tbaa !22
   %101 = load i8, ptr %75, align 4
   %102 = and i8 %101, -3
-  br label %.thread25.i.i.i21
+  br label %.thread27.i.i.i21
 
-.thread25.i.i.i21:                                ; preds = %89, %93
+.thread27.i.i.i21:                                ; preds = %89, %93
   %103 = phi ptr [ %99, %93 ], [ %91, %89 ]
   %104 = phi i8 [ %102, %93 ], [ %79, %89 ]
   %105 = or i8 %104, 1
@@ -6345,7 +6345,7 @@ _ZN11mpz_managerILb1EE15machine_div_remERK3mpzS3_RS1_S4_.exit: ; preds = %_ZN11m
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %87, %.thread25.i.i.i21, %108
+_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %87, %.thread27.i.i.i21, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %140
 
@@ -6379,7 +6379,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %87, %.thread25.i.i.
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %123 = load ptr, ptr %122, align 8, !tbaa !22
   %124 = icmp eq ptr %123, null
-  br i1 %124, label %125, label %.thread25.i.i.i29
+  br i1 %124, label %125, label %.thread27.i.i.i29
 
 125:                                              ; preds = %121
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -6393,9 +6393,9 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %87, %.thread25.i.i.
   store ptr %131, ptr %122, align 8, !tbaa !22
   %133 = load i8, ptr %75, align 4
   %134 = and i8 %133, -3
-  br label %.thread25.i.i.i29
+  br label %.thread27.i.i.i29
 
-.thread25.i.i.i29:                                ; preds = %121, %125
+.thread27.i.i.i29:                                ; preds = %121, %125
   %135 = phi ptr [ %131, %125 ], [ %123, %121 ]
   %136 = phi i8 [ %134, %125 ], [ %112, %121 ]
   %137 = or i8 %136, 1
@@ -6411,7 +6411,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %87, %.thread25.i.i.
   call void @_ZN11mpz_managerILb1EE11big_add_subILb1EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb1EE3subERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3subERK3mpzS3_RS1_.exit:    ; preds = %119, %.thread25.i.i.i29, %139
+_ZN11mpz_managerILb1EE3subERK3mpzS3_RS1_.exit:    ; preds = %119, %.thread27.i.i.i29, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %140
 
@@ -7824,9 +7824,9 @@ _ZN11mpz_managerILb1EE3remERK3mpzS3_RS1_.exit104: ; preds = %._crit_edge.thread,
   %451 = or i8 %450, 1
   store i8 %451, ptr %165, align 4
   %452 = icmp eq i64 %.067.lcssa, -9223372036854775808
-  br i1 %452, label %456, label %.thread25.i.i
+  br i1 %452, label %456, label %.thread27.i.i
 
-.thread25.i.i:                                    ; preds = %448
+.thread27.i.i:                                    ; preds = %448
   %453 = icmp slt i64 %.067.lcssa, 0
   %.sink.i.i = select i1 %453, i32 -1, i32 1
   %.0.i.i = call i64 @llvm.abs.i64(i64 %.067.lcssa, i1 true)
@@ -7847,7 +7847,7 @@ _ZN11mpz_managerILb1EE3remERK3mpzS3_RS1_.exit104: ; preds = %._crit_edge.thread,
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11)
   br label %_ZN11mpz_managerILb1EE3setER3mpzl.exit
 
-_ZN11mpz_managerILb1EE3setER3mpzl.exit:           ; preds = %432, %.thread25.i.i, %456
+_ZN11mpz_managerILb1EE3setER3mpzl.exit:           ; preds = %432, %.thread27.i.i, %456
   %458 = load i8, ptr %157, align 4
   %459 = and i8 %458, 1
   %460 = icmp eq i8 %459, 0
@@ -7884,7 +7884,7 @@ _ZN11mpz_managerILb1EE3setER3mpzl.exit:           ; preds = %432, %.thread25.i.i
 
 ._crit_edge.i.i.i106:                             ; preds = %476
   %.pre.i.i.i108 = load i8, ptr %161, align 4
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
 479:                                              ; preds = %476
   %480 = load i32, ptr %251, align 4, !tbaa !12
@@ -7897,9 +7897,9 @@ _ZN11mpz_managerILb1EE3setER3mpzl.exit:           ; preds = %432, %.thread25.i.i
   store ptr %484, ptr %162, align 8, !tbaa !22
   %486 = load i8, ptr %161, align 4
   %487 = and i8 %486, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %479, %._crit_edge.i.i.i106
+.thread27.i.i.i:                                  ; preds = %479, %._crit_edge.i.i.i106
   %488 = phi ptr [ %477, %._crit_edge.i.i.i106 ], [ %484, %479 ]
   %489 = phi i8 [ %.pre.i.i.i108, %._crit_edge.i.i.i106 ], [ %487, %479 ]
   %490 = or i8 %489, 1
@@ -7920,7 +7920,7 @@ _ZN11mpz_managerILb1EE3setER3mpzl.exit:           ; preds = %432, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %9)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %472, %.thread25.i.i.i, %494
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %472, %.thread27.i.i.i, %494
   %495 = add i64 %.070.lcssa, 2147483648
   %or.cond.i.i109 = icmp ult i64 %495, 4294967296
   br i1 %or.cond.i.i109, label %496, label %500
@@ -7961,9 +7961,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %472, %.thread25.i.i
   %515 = or i8 %514, 1
   store i8 %515, ptr %165, align 4
   %516 = icmp eq i64 %.070.lcssa, -9223372036854775808
-  br i1 %516, label %520, label %.thread25.i.i113
+  br i1 %516, label %520, label %.thread27.i.i113
 
-.thread25.i.i113:                                 ; preds = %512
+.thread27.i.i113:                                 ; preds = %512
   %517 = icmp slt i64 %.070.lcssa, 0
   %.sink.i.i114 = select i1 %517, i32 -1, i32 1
   %.0.i.i115 = call i64 @llvm.abs.i64(i64 %.070.lcssa, i1 true)
@@ -7984,7 +7984,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %472, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11)
   br label %_ZN11mpz_managerILb1EE3setER3mpzl.exit118
 
-_ZN11mpz_managerILb1EE3setER3mpzl.exit118:        ; preds = %496, %.thread25.i.i113, %520
+_ZN11mpz_managerILb1EE3setER3mpzl.exit118:        ; preds = %496, %.thread27.i.i113, %520
   call void @_ZN11mpz_managerILb1EE6addmulERK3mpzS3_S3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
   %522 = add i64 %.069.lcssa, 2147483648
   %or.cond.i.i119 = icmp ult i64 %522, 4294967296
@@ -8026,9 +8026,9 @@ _ZN11mpz_managerILb1EE3setER3mpzl.exit118:        ; preds = %496, %.thread25.i.i
   %542 = or i8 %541, 1
   store i8 %542, ptr %165, align 4
   %543 = icmp eq i64 %.069.lcssa, -9223372036854775808
-  br i1 %543, label %547, label %.thread25.i.i123
+  br i1 %543, label %547, label %.thread27.i.i123
 
-.thread25.i.i123:                                 ; preds = %539
+.thread27.i.i123:                                 ; preds = %539
   %544 = icmp slt i64 %.069.lcssa, 0
   %.sink.i.i124 = select i1 %544, i32 -1, i32 1
   %.0.i.i125 = call i64 @llvm.abs.i64(i64 %.069.lcssa, i1 true)
@@ -8049,7 +8049,7 @@ _ZN11mpz_managerILb1EE3setER3mpzl.exit118:        ; preds = %496, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11)
   br label %_ZN11mpz_managerILb1EE3setER3mpzl.exit128
 
-_ZN11mpz_managerILb1EE3setER3mpzl.exit128:        ; preds = %523, %.thread25.i.i123, %547
+_ZN11mpz_managerILb1EE3setER3mpzl.exit128:        ; preds = %523, %.thread27.i.i123, %547
   %549 = load i8, ptr %157, align 4
   %550 = and i8 %549, 1
   %551 = icmp eq i8 %550, 0
@@ -8086,7 +8086,7 @@ _ZN11mpz_managerILb1EE3setER3mpzl.exit128:        ; preds = %523, %.thread25.i.i
 
 ._crit_edge.i.i.i130:                             ; preds = %567
   %.pre.i.i.i132 = load i8, ptr %163, align 4
-  br label %.thread25.i.i.i133
+  br label %.thread27.i.i.i133
 
 570:                                              ; preds = %567
   %571 = load i32, ptr %251, align 4, !tbaa !12
@@ -8099,9 +8099,9 @@ _ZN11mpz_managerILb1EE3setER3mpzl.exit128:        ; preds = %523, %.thread25.i.i
   store ptr %575, ptr %164, align 8, !tbaa !22
   %577 = load i8, ptr %163, align 4
   %578 = and i8 %577, -3
-  br label %.thread25.i.i.i133
+  br label %.thread27.i.i.i133
 
-.thread25.i.i.i133:                               ; preds = %570, %._crit_edge.i.i.i130
+.thread27.i.i.i133:                               ; preds = %570, %._crit_edge.i.i.i130
   %579 = phi ptr [ %568, %._crit_edge.i.i.i130 ], [ %575, %570 ]
   %580 = phi i8 [ %.pre.i.i.i132, %._crit_edge.i.i.i130 ], [ %578, %570 ]
   %581 = or i8 %580, 1
@@ -8122,7 +8122,7 @@ _ZN11mpz_managerILb1EE3setER3mpzl.exit128:        ; preds = %523, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %10)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit138
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit138: ; preds = %563, %.thread25.i.i.i133, %585
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit138: ; preds = %563, %.thread27.i.i.i133, %585
   %586 = add i64 %.068.lcssa, 2147483648
   %or.cond.i.i139 = icmp ult i64 %586, 4294967296
   br i1 %or.cond.i.i139, label %587, label %591
@@ -8163,9 +8163,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit138: ; preds = %563, %.thread25.i.i
   %606 = or i8 %605, 1
   store i8 %606, ptr %165, align 4
   %607 = icmp eq i64 %.068.lcssa, -9223372036854775808
-  br i1 %607, label %611, label %.thread25.i.i143
+  br i1 %607, label %611, label %.thread27.i.i143
 
-.thread25.i.i143:                                 ; preds = %603
+.thread27.i.i143:                                 ; preds = %603
   %608 = icmp slt i64 %.068.lcssa, 0
   %.sink.i.i144 = select i1 %608, i32 -1, i32 1
   %.0.i.i145 = call i64 @llvm.abs.i64(i64 %.068.lcssa, i1 true)
@@ -8186,7 +8186,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit138: ; preds = %563, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11)
   br label %_ZN11mpz_managerILb1EE3setER3mpzl.exit148
 
-_ZN11mpz_managerILb1EE3setER3mpzl.exit148:        ; preds = %587, %.thread25.i.i143, %611
+_ZN11mpz_managerILb1EE3setER3mpzl.exit148:        ; preds = %587, %.thread27.i.i143, %611
   call void @_ZN11mpz_managerILb1EE6addmulERK3mpzS3_S3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %10)
   %613 = load i32, ptr %7, align 8, !tbaa !26
   %614 = load i32, ptr %9, align 8, !tbaa !26
@@ -8996,7 +8996,7 @@ _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit21:     ; preds = %204, %208
 225:                                              ; preds = %216
   %226 = load ptr, ptr %47, align 8, !tbaa !22
   %227 = icmp eq ptr %226, null
-  br i1 %227, label %228, label %.thread25.i.i.i
+  br i1 %227, label %228, label %.thread27.i.i.i
 
 228:                                              ; preds = %225
   %229 = load i32, ptr %162, align 4, !tbaa !12
@@ -9009,9 +9009,9 @@ _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit21:     ; preds = %204, %208
   store ptr %233, ptr %47, align 8, !tbaa !22
   %235 = load i8, ptr %44, align 4
   %236 = and i8 %235, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %225, %228
+.thread27.i.i.i:                                  ; preds = %225, %228
   %237 = phi ptr [ %233, %228 ], [ %226, %225 ]
   %238 = phi i8 [ %236, %228 ], [ %213, %225 ]
   %239 = or i8 %238, 1
@@ -9032,7 +9032,7 @@ _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit21:     ; preds = %204, %208
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %223, %.thread25.i.i.i, %243
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %223, %.thread27.i.i.i, %243
   %244 = load i8, ptr %38, align 4
   %245 = and i8 %244, 1
   %246 = icmp eq i8 %245, 0
@@ -9063,7 +9063,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %223, %.thread25.i.i
 260:                                              ; preds = %251
   %261 = load ptr, ptr %47, align 8, !tbaa !22
   %262 = icmp eq ptr %261, null
-  br i1 %262, label %263, label %.thread25.i.i.i26
+  br i1 %262, label %263, label %.thread27.i.i.i26
 
 263:                                              ; preds = %260
   %264 = load i32, ptr %162, align 4, !tbaa !12
@@ -9076,9 +9076,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %223, %.thread25.i.i
   store ptr %268, ptr %47, align 8, !tbaa !22
   %270 = load i8, ptr %44, align 4
   %271 = and i8 %270, -3
-  br label %.thread25.i.i.i26
+  br label %.thread27.i.i.i26
 
-.thread25.i.i.i26:                                ; preds = %260, %263
+.thread27.i.i.i26:                                ; preds = %260, %263
   %272 = phi ptr [ %268, %263 ], [ %261, %260 ]
   %273 = phi i8 [ %271, %263 ], [ %248, %260 ]
   %274 = or i8 %273, 1
@@ -9099,7 +9099,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %223, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE11big_add_subILb1EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12)
   br label %_ZN11mpz_managerILb1EE3subERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3subERK3mpzS3_RS1_.exit:    ; preds = %258, %.thread25.i.i.i26, %278
+_ZN11mpz_managerILb1EE3subERK3mpzS3_RS1_.exit:    ; preds = %258, %.thread27.i.i.i26, %278
   %279 = load i8, ptr %18, align 4
   %280 = and i8 %279, 1
   %281 = icmp eq i8 %280, 0
@@ -9167,7 +9167,7 @@ _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit32:     ; preds = %290, %294
 311:                                              ; preds = %302
   %312 = load ptr, ptr %51, align 8, !tbaa !22
   %313 = icmp eq ptr %312, null
-  br i1 %313, label %314, label %.thread25.i.i.i37
+  br i1 %313, label %314, label %.thread27.i.i.i37
 
 314:                                              ; preds = %311
   %315 = load i32, ptr %162, align 4, !tbaa !12
@@ -9180,9 +9180,9 @@ _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit32:     ; preds = %290, %294
   store ptr %319, ptr %51, align 8, !tbaa !22
   %321 = load i8, ptr %48, align 4
   %322 = and i8 %321, -3
-  br label %.thread25.i.i.i37
+  br label %.thread27.i.i.i37
 
-.thread25.i.i.i37:                                ; preds = %311, %314
+.thread27.i.i.i37:                                ; preds = %311, %314
   %323 = phi ptr [ %319, %314 ], [ %312, %311 ]
   %324 = phi i8 [ %322, %314 ], [ %295, %311 ]
   %325 = or i8 %324, 1
@@ -9203,7 +9203,7 @@ _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit32:     ; preds = %290, %294
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %13)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit42
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit42:  ; preds = %309, %.thread25.i.i.i37, %329
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit42:  ; preds = %309, %.thread27.i.i.i37, %329
   %330 = load i8, ptr %41, align 4
   %331 = and i8 %330, 1
   %332 = icmp eq i8 %331, 0
@@ -9234,7 +9234,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit42:  ; preds = %309, %.thread25.i.i
 346:                                              ; preds = %337
   %347 = load ptr, ptr %51, align 8, !tbaa !22
   %348 = icmp eq ptr %347, null
-  br i1 %348, label %349, label %.thread25.i.i.i47
+  br i1 %348, label %349, label %.thread27.i.i.i47
 
 349:                                              ; preds = %346
   %350 = load i32, ptr %162, align 4, !tbaa !12
@@ -9247,9 +9247,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit42:  ; preds = %309, %.thread25.i.i
   store ptr %354, ptr %51, align 8, !tbaa !22
   %356 = load i8, ptr %48, align 4
   %357 = and i8 %356, -3
-  br label %.thread25.i.i.i47
+  br label %.thread27.i.i.i47
 
-.thread25.i.i.i47:                                ; preds = %346, %349
+.thread27.i.i.i47:                                ; preds = %346, %349
   %358 = phi ptr [ %354, %349 ], [ %347, %346 ]
   %359 = phi i8 [ %357, %349 ], [ %334, %346 ]
   %360 = or i8 %359, 1
@@ -9270,7 +9270,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit42:  ; preds = %309, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE11big_add_subILb1EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13)
   br label %_ZN11mpz_managerILb1EE3subERK3mpzS3_RS1_.exit52
 
-_ZN11mpz_managerILb1EE3subERK3mpzS3_RS1_.exit52:  ; preds = %344, %.thread25.i.i.i47, %364
+_ZN11mpz_managerILb1EE3subERK3mpzS3_RS1_.exit52:  ; preds = %344, %.thread27.i.i.i47, %364
   %365 = load i8, ptr %18, align 4
   %366 = and i8 %365, 1
   %367 = icmp eq i8 %366, 0
@@ -9711,7 +9711,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3lcmERK3mpzS3_RS1_(ptr nounde
 ._crit_edge.i.i.i:                                ; preds = %86
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i, align 4
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -9726,9 +9726,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3lcmERK3mpzS3_RS1_(ptr nounde
   %98 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %99 = load i8, ptr %98, align 4
   %100 = and i8 %99, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %90, %._crit_edge.i.i.i
+.thread27.i.i.i:                                  ; preds = %90, %._crit_edge.i.i.i
   %101 = phi ptr [ %88, %._crit_edge.i.i.i ], [ %96, %90 ]
   %102 = phi i8 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %100, %90 ]
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -9750,7 +9750,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3lcmERK3mpzS3_RS1_(ptr nounde
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit21
 
-_ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit21:     ; preds = %108, %.thread25.i.i.i, %81, %65, %60, %53, %48
+_ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit21:     ; preds = %108, %.thread27.i.i.i, %81, %65, %60, %53, %48
   %109 = load ptr, ptr %42, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %109, null
   br i1 %.not.i.i, label %_ZN11mpz_managerILb1EE3delER3mpz.exit, label %110
@@ -9872,8 +9872,8 @@ _ZN11mpz_managerILb1EE3remERK3mpzS3_RS1_.exit:    ; preds = %.noexc, %35, %39
   unreachable
 
 _ZN15_scoped_numeralI11mpz_managerILb1EEED2Ev.exit: ; preds = %40, %44, %25, %11, %_ZN11mpz_managerILb1EE3remERK3mpzS3_RS1_.exit
-  %.0.in.in12 = phi i32 [ %.pre, %_ZN11mpz_managerILb1EE3remERK3mpzS3_RS1_.exit ], [ %30, %25 ], [ %12, %11 ], [ %.pre, %44 ], [ %.pre, %40 ]
-  %.0.in = icmp eq i32 %.0.in.in12, 0
+  %.0.in.in14 = phi i32 [ %.pre, %_ZN11mpz_managerILb1EE3remERK3mpzS3_RS1_.exit ], [ %30, %25 ], [ %12, %11 ], [ %.pre, %44 ], [ %.pre, %40 ]
+  %.0.in = icmp eq i32 %.0.in.in14, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.in
 }
@@ -10044,14 +10044,14 @@ _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit16:     ; preds = %47, %51
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 588
   %63 = load i32, ptr %6, align 8, !tbaa !23
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %.critedge, label %.lr.ph103
+  br i1 %64, label %.critedge, label %.lr.ph120
 
 65:                                               ; preds = %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit37
   %66 = load i32, ptr %6, align 8, !tbaa !23
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %.critedge, label %.lr.ph103, !llvm.loop !68
+  br i1 %67, label %.critedge, label %.lr.ph120, !llvm.loop !68
 
-.lr.ph103:                                        ; preds = %.lr.ph, %65
+.lr.ph120:                                        ; preds = %.lr.ph, %65
   call void @_ZN11mpz_managerILb1EE3modERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @_ZN11mpz_managerILb1EE3modERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %8)
   %68 = load i8, ptr %32, align 4
@@ -10059,12 +10059,12 @@ _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit16:     ; preds = %47, %51
   %70 = icmp eq i8 %69, 0
   br i1 %70, label %71, label %74
 
-71:                                               ; preds = %.lr.ph103
+71:                                               ; preds = %.lr.ph120
   %72 = load i32, ptr %7, align 8, !tbaa !23
   %73 = sext i32 %72 to i64
   br label %_ZNK11mpz_managerILb1EE10get_uint64ERK3mpz.exit
 
-74:                                               ; preds = %.lr.ph103
+74:                                               ; preds = %.lr.ph120
   %75 = load ptr, ptr %33, align 8, !tbaa !22
   %76 = load i32, ptr %75, align 4, !tbaa !25
   %77 = icmp eq i32 %76, 1
@@ -10188,7 +10188,7 @@ _ZN11mpz_managerILb1EE3setER3mpzm.exit:           ; preds = %102, %_ZN11mpz_mana
 139:                                              ; preds = %132
   %140 = load ptr, ptr %39, align 8, !tbaa !22
   %141 = icmp eq ptr %140, null
-  br i1 %141, label %142, label %.thread25.i.i.i
+  br i1 %141, label %142, label %.thread27.i.i.i
 
 142:                                              ; preds = %139
   %143 = load i32, ptr %60, align 4, !tbaa !12
@@ -10201,9 +10201,9 @@ _ZN11mpz_managerILb1EE3setER3mpzm.exit:           ; preds = %102, %_ZN11mpz_mana
   store ptr %147, ptr %39, align 8, !tbaa !22
   %149 = load i8, ptr %38, align 4
   %150 = and i8 %149, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %139, %142
+.thread27.i.i.i:                                  ; preds = %139, %142
   %151 = phi ptr [ %147, %142 ], [ %140, %139 ]
   %152 = phi i8 [ %150, %142 ], [ %125, %139 ]
   %153 = or i8 %152, 1
@@ -10224,7 +10224,7 @@ _ZN11mpz_managerILb1EE3setER3mpzm.exit:           ; preds = %102, %_ZN11mpz_mana
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread25.i.i.i, %157
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread27.i.i.i, %157
   %158 = load i8, ptr %54, align 4
   %159 = and i8 %158, 1
   %160 = icmp eq i8 %159, 0
@@ -10255,7 +10255,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread25.i.i
 174:                                              ; preds = %165
   %175 = load ptr, ptr %61, align 8, !tbaa !22
   %176 = icmp eq ptr %175, null
-  br i1 %176, label %177, label %.thread25.i.i.i23
+  br i1 %176, label %177, label %.thread27.i.i.i23
 
 177:                                              ; preds = %174
   %178 = load i32, ptr %60, align 4, !tbaa !12
@@ -10268,9 +10268,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread25.i.i
   store ptr %182, ptr %61, align 8, !tbaa !22
   %184 = load i8, ptr %54, align 4
   %185 = and i8 %184, -3
-  br label %.thread25.i.i.i23
+  br label %.thread27.i.i.i23
 
-.thread25.i.i.i23:                                ; preds = %174, %177
+.thread27.i.i.i23:                                ; preds = %174, %177
   %186 = phi ptr [ %182, %177 ], [ %175, %174 ]
   %187 = phi i8 [ %185, %177 ], [ %158, %174 ]
   %188 = or i8 %187, 1
@@ -10291,7 +10291,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread25.i.i.i23, %192
+_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread27.i.i.i23, %192
   %193 = load i8, ptr %36, align 4
   %194 = and i8 %193, 1
   %195 = icmp eq i8 %194, 0
@@ -10322,7 +10322,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread25.i.i
 209:                                              ; preds = %200
   %210 = load ptr, ptr %37, align 8, !tbaa !22
   %211 = icmp eq ptr %210, null
-  br i1 %211, label %212, label %.thread25.i.i.i32
+  br i1 %211, label %212, label %.thread27.i.i.i32
 
 212:                                              ; preds = %209
   %213 = load i32, ptr %60, align 4, !tbaa !12
@@ -10335,9 +10335,9 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread25.i.i
   store ptr %217, ptr %37, align 8, !tbaa !22
   %219 = load i8, ptr %36, align 4
   %220 = and i8 %219, -3
-  br label %.thread25.i.i.i32
+  br label %.thread27.i.i.i32
 
-.thread25.i.i.i32:                                ; preds = %209, %212
+.thread27.i.i.i32:                                ; preds = %209, %212
   %221 = phi ptr [ %217, %212 ], [ %210, %209 ]
   %222 = phi i8 [ %220, %212 ], [ %193, %209 ]
   %223 = or i8 %222, 1
@@ -10358,7 +10358,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %9)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit37
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit37:  ; preds = %207, %.thread25.i.i.i32, %227
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit37:  ; preds = %207, %.thread27.i.i.i32, %227
   call void @_ZN11mpz_managerILb1EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @_ZN11mpz_managerILb1EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %228 = load i32, ptr %5, align 8, !tbaa !23
@@ -10396,7 +10396,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit37:  ; preds = %207, %.thread25.i.i
 245:                                              ; preds = %237
   %246 = load ptr, ptr %29, align 8, !tbaa !22
   %247 = icmp eq ptr %246, null
-  br i1 %247, label %248, label %.thread25.i.i.i42
+  br i1 %247, label %248, label %.thread27.i.i.i42
 
 248:                                              ; preds = %245
   %249 = load i32, ptr %60, align 4, !tbaa !12
@@ -10409,9 +10409,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit37:  ; preds = %207, %.thread25.i.i
   store ptr %253, ptr %29, align 8, !tbaa !22
   %255 = load i8, ptr %28, align 4
   %256 = and i8 %255, -3
-  br label %.thread25.i.i.i42
+  br label %.thread27.i.i.i42
 
-.thread25.i.i.i42:                                ; preds = %245, %248
+.thread27.i.i.i42:                                ; preds = %245, %248
   %257 = phi ptr [ %253, %248 ], [ %246, %245 ]
   %258 = phi i8 [ %256, %248 ], [ %230, %245 ]
   %259 = or i8 %258, 1
@@ -10432,7 +10432,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit37:  ; preds = %207, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %5)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit47
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit47:  ; preds = %243, %.thread25.i.i.i42, %263
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit47:  ; preds = %243, %.thread27.i.i.i42, %263
   %264 = load i8, ptr %54, align 4
   %265 = and i8 %264, 1
   %266 = icmp eq i8 %265, 0
@@ -10463,7 +10463,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit47:  ; preds = %243, %.thread25.i.i
 280:                                              ; preds = %271
   %281 = load ptr, ptr %61, align 8, !tbaa !22
   %282 = icmp eq ptr %281, null
-  br i1 %282, label %283, label %.thread25.i.i.i52
+  br i1 %282, label %283, label %.thread27.i.i.i52
 
 283:                                              ; preds = %280
   %284 = load i32, ptr %60, align 4, !tbaa !12
@@ -10476,9 +10476,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit47:  ; preds = %243, %.thread25.i.i
   store ptr %288, ptr %61, align 8, !tbaa !22
   %290 = load i8, ptr %54, align 4
   %291 = and i8 %290, -3
-  br label %.thread25.i.i.i52
+  br label %.thread27.i.i.i52
 
-.thread25.i.i.i52:                                ; preds = %280, %283
+.thread27.i.i.i52:                                ; preds = %280, %283
   %292 = phi ptr [ %288, %283 ], [ %281, %280 ]
   %293 = phi i8 [ %291, %283 ], [ %264, %280 ]
   %294 = or i8 %293, 1
@@ -10499,7 +10499,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit47:  ; preds = %243, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit57
 
-_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit57:  ; preds = %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit37, %_ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit16, %298, %.thread25.i.i.i52, %278
+_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit57:  ; preds = %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit37, %_ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit16, %298, %.thread27.i.i.i52, %278
   %299 = load i32, ptr %6, align 8, !tbaa !23
   %300 = icmp eq i32 %299, 0
   br i1 %300, label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit77, label %301
@@ -10534,7 +10534,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit57:  ; preds = %_ZN11mpz_managerILb
 317:                                              ; preds = %309
   %318 = load ptr, ptr %31, align 8, !tbaa !22
   %319 = icmp eq ptr %318, null
-  br i1 %319, label %320, label %.thread25.i.i.i62
+  br i1 %319, label %320, label %.thread27.i.i.i62
 
 320:                                              ; preds = %317
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -10548,9 +10548,9 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit57:  ; preds = %_ZN11mpz_managerILb
   store ptr %326, ptr %31, align 8, !tbaa !22
   %328 = load i8, ptr %30, align 4
   %329 = and i8 %328, -3
-  br label %.thread25.i.i.i62
+  br label %.thread27.i.i.i62
 
-.thread25.i.i.i62:                                ; preds = %317, %320
+.thread27.i.i.i62:                                ; preds = %317, %320
   %330 = phi ptr [ %326, %320 ], [ %318, %317 ]
   %331 = phi i8 [ %329, %320 ], [ %302, %317 ]
   %332 = or i8 %331, 1
@@ -10571,7 +10571,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit57:  ; preds = %_ZN11mpz_managerILb
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %6)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit67
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit67:  ; preds = %315, %.thread25.i.i.i62, %336
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit67:  ; preds = %315, %.thread27.i.i.i62, %336
   %337 = load i8, ptr %54, align 4
   %338 = and i8 %337, 1
   %339 = icmp eq i8 %338, 0
@@ -10603,7 +10603,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit67:  ; preds = %315, %.thread25.i.i
   %354 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %355 = load ptr, ptr %354, align 8, !tbaa !22
   %356 = icmp eq ptr %355, null
-  br i1 %356, label %357, label %.thread25.i.i.i72
+  br i1 %356, label %357, label %.thread27.i.i.i72
 
 357:                                              ; preds = %353
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -10617,9 +10617,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit67:  ; preds = %315, %.thread25.i.i
   store ptr %363, ptr %354, align 8, !tbaa !22
   %365 = load i8, ptr %54, align 4
   %366 = and i8 %365, -3
-  br label %.thread25.i.i.i72
+  br label %.thread27.i.i.i72
 
-.thread25.i.i.i72:                                ; preds = %353, %357
+.thread27.i.i.i72:                                ; preds = %353, %357
   %367 = phi ptr [ %363, %357 ], [ %355, %353 ]
   %368 = phi i8 [ %366, %357 ], [ %337, %353 ]
   %369 = or i8 %368, 1
@@ -10640,7 +10640,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit67:  ; preds = %315, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit77
 
-_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit77:  ; preds = %373, %.thread25.i.i.i72, %351, %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit57
+_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit77:  ; preds = %373, %.thread27.i.i.i72, %351, %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit57
   %374 = load ptr, ptr %29, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %374, null
   br i1 %.not.i.i, label %_ZN11mpz_managerILb1EE3delER3mpz.exit, label %375
@@ -11079,7 +11079,7 @@ _ZN11mpz_managerILb1EE3setER3mpzm.exit:           ; preds = %100, %_ZN11mpz_mana
 137:                                              ; preds = %130
   %138 = load ptr, ptr %39, align 8, !tbaa !22
   %139 = icmp eq ptr %138, null
-  br i1 %139, label %140, label %.thread25.i.i.i
+  br i1 %139, label %140, label %.thread27.i.i.i
 
 140:                                              ; preds = %137
   %141 = load i32, ptr %62, align 4, !tbaa !12
@@ -11092,9 +11092,9 @@ _ZN11mpz_managerILb1EE3setER3mpzm.exit:           ; preds = %100, %_ZN11mpz_mana
   store ptr %145, ptr %39, align 8, !tbaa !22
   %147 = load i8, ptr %38, align 4
   %148 = and i8 %147, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %137, %140
+.thread27.i.i.i:                                  ; preds = %137, %140
   %149 = phi ptr [ %145, %140 ], [ %138, %137 ]
   %150 = phi i8 [ %148, %140 ], [ %123, %137 ]
   %151 = or i8 %150, 1
@@ -11115,7 +11115,7 @@ _ZN11mpz_managerILb1EE3setER3mpzm.exit:           ; preds = %100, %_ZN11mpz_mana
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %135, %.thread25.i.i.i, %155
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %135, %.thread27.i.i.i, %155
   %156 = load i8, ptr %55, align 4
   %157 = and i8 %156, 1
   %158 = icmp eq i8 %157, 0
@@ -11146,7 +11146,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %135, %.thread25.i.i
 172:                                              ; preds = %163
   %173 = load ptr, ptr %63, align 8, !tbaa !22
   %174 = icmp eq ptr %173, null
-  br i1 %174, label %175, label %.thread25.i.i.i19
+  br i1 %174, label %175, label %.thread27.i.i.i19
 
 175:                                              ; preds = %172
   %176 = load i32, ptr %62, align 4, !tbaa !12
@@ -11159,9 +11159,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %135, %.thread25.i.i
   store ptr %180, ptr %63, align 8, !tbaa !22
   %182 = load i8, ptr %55, align 4
   %183 = and i8 %182, -3
-  br label %.thread25.i.i.i19
+  br label %.thread27.i.i.i19
 
-.thread25.i.i.i19:                                ; preds = %172, %175
+.thread27.i.i.i19:                                ; preds = %172, %175
   %184 = phi ptr [ %180, %175 ], [ %173, %172 ]
   %185 = phi i8 [ %183, %175 ], [ %156, %172 ]
   %186 = or i8 %185, 1
@@ -11182,7 +11182,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %135, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %170, %.thread25.i.i.i19, %190
+_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %170, %.thread27.i.i.i19, %190
   %191 = load i8, ptr %36, align 4
   %192 = and i8 %191, 1
   %193 = icmp eq i8 %192, 0
@@ -11213,7 +11213,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %170, %.thread25.i.i
 207:                                              ; preds = %198
   %208 = load ptr, ptr %37, align 8, !tbaa !22
   %209 = icmp eq ptr %208, null
-  br i1 %209, label %210, label %.thread25.i.i.i28
+  br i1 %209, label %210, label %.thread27.i.i.i28
 
 210:                                              ; preds = %207
   %211 = load i32, ptr %62, align 4, !tbaa !12
@@ -11226,9 +11226,9 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %170, %.thread25.i.i
   store ptr %215, ptr %37, align 8, !tbaa !22
   %217 = load i8, ptr %36, align 4
   %218 = and i8 %217, -3
-  br label %.thread25.i.i.i28
+  br label %.thread27.i.i.i28
 
-.thread25.i.i.i28:                                ; preds = %207, %210
+.thread27.i.i.i28:                                ; preds = %207, %210
   %219 = phi ptr [ %215, %210 ], [ %208, %207 ]
   %220 = phi i8 [ %218, %210 ], [ %191, %207 ]
   %221 = or i8 %220, 1
@@ -11249,7 +11249,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %170, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %9)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit33
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit33:  ; preds = %205, %.thread25.i.i.i28, %225
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit33:  ; preds = %205, %.thread27.i.i.i28, %225
   call void @_ZN11mpz_managerILb1EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @_ZN11mpz_managerILb1EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %226 = load i32, ptr %5, align 8, !tbaa !23
@@ -11523,14 +11523,14 @@ _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit15:     ; preds = %47, %51
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 588
   %63 = load i32, ptr %6, align 8, !tbaa !23
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %.critedge, label %.lr.ph105
+  br i1 %64, label %.critedge, label %.lr.ph123
 
 65:                                               ; preds = %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit39
   %66 = load i32, ptr %6, align 8, !tbaa !23
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %.critedge, label %.lr.ph105, !llvm.loop !70
+  br i1 %67, label %.critedge, label %.lr.ph123, !llvm.loop !70
 
-.lr.ph105:                                        ; preds = %.lr.ph, %65
+.lr.ph123:                                        ; preds = %.lr.ph, %65
   call void @_ZN11mpz_managerILb1EE3modERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @_ZN11mpz_managerILb1EE3modERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %8)
   %68 = load i8, ptr %32, align 4
@@ -11538,12 +11538,12 @@ _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit15:     ; preds = %47, %51
   %70 = icmp eq i8 %69, 0
   br i1 %70, label %71, label %74
 
-71:                                               ; preds = %.lr.ph105
+71:                                               ; preds = %.lr.ph123
   %72 = load i32, ptr %7, align 8, !tbaa !23
   %73 = sext i32 %72 to i64
   br label %_ZNK11mpz_managerILb1EE10get_uint64ERK3mpz.exit
 
-74:                                               ; preds = %.lr.ph105
+74:                                               ; preds = %.lr.ph123
   %75 = load ptr, ptr %33, align 8, !tbaa !22
   %76 = load i32, ptr %75, align 4, !tbaa !25
   %77 = icmp eq i32 %76, 1
@@ -11667,7 +11667,7 @@ _ZN11mpz_managerILb1EE3setER3mpzm.exit:           ; preds = %102, %_ZN11mpz_mana
 139:                                              ; preds = %132
   %140 = load ptr, ptr %39, align 8, !tbaa !22
   %141 = icmp eq ptr %140, null
-  br i1 %141, label %142, label %.thread25.i.i.i
+  br i1 %141, label %142, label %.thread27.i.i.i
 
 142:                                              ; preds = %139
   %143 = load i32, ptr %60, align 4, !tbaa !12
@@ -11680,9 +11680,9 @@ _ZN11mpz_managerILb1EE3setER3mpzm.exit:           ; preds = %102, %_ZN11mpz_mana
   store ptr %147, ptr %39, align 8, !tbaa !22
   %149 = load i8, ptr %38, align 4
   %150 = and i8 %149, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %139, %142
+.thread27.i.i.i:                                  ; preds = %139, %142
   %151 = phi ptr [ %147, %142 ], [ %140, %139 ]
   %152 = phi i8 [ %150, %142 ], [ %125, %139 ]
   %153 = or i8 %152, 1
@@ -11703,7 +11703,7 @@ _ZN11mpz_managerILb1EE3setER3mpzm.exit:           ; preds = %102, %_ZN11mpz_mana
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread25.i.i.i, %157
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread27.i.i.i, %157
   %158 = load i8, ptr %54, align 4
   %159 = and i8 %158, 1
   %160 = icmp eq i8 %159, 0
@@ -11734,7 +11734,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread25.i.i
 174:                                              ; preds = %165
   %175 = load ptr, ptr %61, align 8, !tbaa !22
   %176 = icmp eq ptr %175, null
-  br i1 %176, label %177, label %.thread25.i.i.i25
+  br i1 %176, label %177, label %.thread27.i.i.i25
 
 177:                                              ; preds = %174
   %178 = load i32, ptr %60, align 4, !tbaa !12
@@ -11747,9 +11747,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread25.i.i
   store ptr %182, ptr %61, align 8, !tbaa !22
   %184 = load i8, ptr %54, align 4
   %185 = and i8 %184, -3
-  br label %.thread25.i.i.i25
+  br label %.thread27.i.i.i25
 
-.thread25.i.i.i25:                                ; preds = %174, %177
+.thread27.i.i.i25:                                ; preds = %174, %177
   %186 = phi ptr [ %182, %177 ], [ %175, %174 ]
   %187 = phi i8 [ %185, %177 ], [ %158, %174 ]
   %188 = or i8 %187, 1
@@ -11770,7 +11770,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread25.i.i.i25, %192
+_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread27.i.i.i25, %192
   %193 = load i8, ptr %36, align 4
   %194 = and i8 %193, 1
   %195 = icmp eq i8 %194, 0
@@ -11801,7 +11801,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread25.i.i
 209:                                              ; preds = %200
   %210 = load ptr, ptr %37, align 8, !tbaa !22
   %211 = icmp eq ptr %210, null
-  br i1 %211, label %212, label %.thread25.i.i.i34
+  br i1 %211, label %212, label %.thread27.i.i.i34
 
 212:                                              ; preds = %209
   %213 = load i32, ptr %60, align 4, !tbaa !12
@@ -11814,9 +11814,9 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread25.i.i
   store ptr %217, ptr %37, align 8, !tbaa !22
   %219 = load i8, ptr %36, align 4
   %220 = and i8 %219, -3
-  br label %.thread25.i.i.i34
+  br label %.thread27.i.i.i34
 
-.thread25.i.i.i34:                                ; preds = %209, %212
+.thread27.i.i.i34:                                ; preds = %209, %212
   %221 = phi ptr [ %217, %212 ], [ %210, %209 ]
   %222 = phi i8 [ %220, %212 ], [ %193, %209 ]
   %223 = or i8 %222, 1
@@ -11837,7 +11837,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %9)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit39
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit39:  ; preds = %207, %.thread25.i.i.i34, %227
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit39:  ; preds = %207, %.thread27.i.i.i34, %227
   call void @_ZN11mpz_managerILb1EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @_ZN11mpz_managerILb1EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %228 = load i32, ptr %5, align 8, !tbaa !23
@@ -11875,7 +11875,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit39:  ; preds = %207, %.thread25.i.i
 245:                                              ; preds = %237
   %246 = load ptr, ptr %29, align 8, !tbaa !22
   %247 = icmp eq ptr %246, null
-  br i1 %247, label %248, label %.thread25.i.i.i44
+  br i1 %247, label %248, label %.thread27.i.i.i44
 
 248:                                              ; preds = %245
   %249 = load i32, ptr %60, align 4, !tbaa !12
@@ -11888,9 +11888,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit39:  ; preds = %207, %.thread25.i.i
   store ptr %253, ptr %29, align 8, !tbaa !22
   %255 = load i8, ptr %28, align 4
   %256 = and i8 %255, -3
-  br label %.thread25.i.i.i44
+  br label %.thread27.i.i.i44
 
-.thread25.i.i.i44:                                ; preds = %245, %248
+.thread27.i.i.i44:                                ; preds = %245, %248
   %257 = phi ptr [ %253, %248 ], [ %246, %245 ]
   %258 = phi i8 [ %256, %248 ], [ %230, %245 ]
   %259 = or i8 %258, 1
@@ -11911,7 +11911,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit39:  ; preds = %207, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %5)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit49
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit49:  ; preds = %243, %.thread25.i.i.i44, %263
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit49:  ; preds = %243, %.thread27.i.i.i44, %263
   %264 = load i8, ptr %54, align 4
   %265 = and i8 %264, 1
   %266 = icmp eq i8 %265, 0
@@ -11942,7 +11942,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit49:  ; preds = %243, %.thread25.i.i
 280:                                              ; preds = %271
   %281 = load ptr, ptr %61, align 8, !tbaa !22
   %282 = icmp eq ptr %281, null
-  br i1 %282, label %283, label %.thread25.i.i.i54
+  br i1 %282, label %283, label %.thread27.i.i.i54
 
 283:                                              ; preds = %280
   %284 = load i32, ptr %60, align 4, !tbaa !12
@@ -11955,9 +11955,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit49:  ; preds = %243, %.thread25.i.i
   store ptr %288, ptr %61, align 8, !tbaa !22
   %290 = load i8, ptr %54, align 4
   %291 = and i8 %290, -3
-  br label %.thread25.i.i.i54
+  br label %.thread27.i.i.i54
 
-.thread25.i.i.i54:                                ; preds = %280, %283
+.thread27.i.i.i54:                                ; preds = %280, %283
   %292 = phi ptr [ %288, %283 ], [ %281, %280 ]
   %293 = phi i8 [ %291, %283 ], [ %264, %280 ]
   %294 = or i8 %293, 1
@@ -11978,7 +11978,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit49:  ; preds = %243, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit59
 
-_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit59:  ; preds = %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit39, %_ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit15, %298, %.thread25.i.i.i54, %278
+_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit59:  ; preds = %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit39, %_ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit15, %298, %.thread27.i.i.i54, %278
   %299 = load i32, ptr %6, align 8, !tbaa !23
   %300 = icmp eq i32 %299, 0
   br i1 %300, label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit79, label %301
@@ -12013,7 +12013,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit59:  ; preds = %_ZN11mpz_managerILb
 317:                                              ; preds = %309
   %318 = load ptr, ptr %31, align 8, !tbaa !22
   %319 = icmp eq ptr %318, null
-  br i1 %319, label %320, label %.thread25.i.i.i64
+  br i1 %319, label %320, label %.thread27.i.i.i64
 
 320:                                              ; preds = %317
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -12027,9 +12027,9 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit59:  ; preds = %_ZN11mpz_managerILb
   store ptr %326, ptr %31, align 8, !tbaa !22
   %328 = load i8, ptr %30, align 4
   %329 = and i8 %328, -3
-  br label %.thread25.i.i.i64
+  br label %.thread27.i.i.i64
 
-.thread25.i.i.i64:                                ; preds = %317, %320
+.thread27.i.i.i64:                                ; preds = %317, %320
   %330 = phi ptr [ %326, %320 ], [ %318, %317 ]
   %331 = phi i8 [ %329, %320 ], [ %302, %317 ]
   %332 = or i8 %331, 1
@@ -12050,7 +12050,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit59:  ; preds = %_ZN11mpz_managerILb
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %6)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit69
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit69:  ; preds = %315, %.thread25.i.i.i64, %336
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit69:  ; preds = %315, %.thread27.i.i.i64, %336
   %337 = load i8, ptr %54, align 4
   %338 = and i8 %337, 1
   %339 = icmp eq i8 %338, 0
@@ -12082,7 +12082,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit69:  ; preds = %315, %.thread25.i.i
   %354 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %355 = load ptr, ptr %354, align 8, !tbaa !22
   %356 = icmp eq ptr %355, null
-  br i1 %356, label %357, label %.thread25.i.i.i74
+  br i1 %356, label %357, label %.thread27.i.i.i74
 
 357:                                              ; preds = %353
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -12096,9 +12096,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit69:  ; preds = %315, %.thread25.i.i
   store ptr %363, ptr %354, align 8, !tbaa !22
   %365 = load i8, ptr %54, align 4
   %366 = and i8 %365, -3
-  br label %.thread25.i.i.i74
+  br label %.thread27.i.i.i74
 
-.thread25.i.i.i74:                                ; preds = %353, %357
+.thread27.i.i.i74:                                ; preds = %353, %357
   %367 = phi ptr [ %363, %357 ], [ %355, %353 ]
   %368 = phi i8 [ %366, %357 ], [ %337, %353 ]
   %369 = or i8 %368, 1
@@ -12119,7 +12119,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit69:  ; preds = %315, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit79
 
-_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit79:  ; preds = %373, %.thread25.i.i.i74, %351, %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit59
+_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit79:  ; preds = %373, %.thread27.i.i.i74, %351, %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit59
   %374 = load ptr, ptr %29, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %374, null
   br i1 %.not.i.i, label %_ZN11mpz_managerILb1EE3delER3mpz.exit, label %375
@@ -12508,7 +12508,7 @@ _ZN11mpz_managerILb1EE3setER3mpzm.exit32:         ; preds = %93, %_ZN11mpz_manag
 130:                                              ; preds = %123
   %131 = load ptr, ptr %57, align 8, !tbaa !22
   %132 = icmp eq ptr %131, null
-  br i1 %132, label %133, label %.thread25.i.i.i
+  br i1 %132, label %133, label %.thread27.i.i.i
 
 133:                                              ; preds = %130
   %134 = load i32, ptr %67, align 4, !tbaa !12
@@ -12521,9 +12521,9 @@ _ZN11mpz_managerILb1EE3setER3mpzm.exit32:         ; preds = %93, %_ZN11mpz_manag
   store ptr %138, ptr %57, align 8, !tbaa !22
   %140 = load i8, ptr %56, align 4
   %141 = and i8 %140, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %130, %133
+.thread27.i.i.i:                                  ; preds = %130, %133
   %142 = phi ptr [ %138, %133 ], [ %131, %130 ]
   %143 = phi i8 [ %141, %133 ], [ %116, %130 ]
   %144 = or i8 %143, 1
@@ -12544,7 +12544,7 @@ _ZN11mpz_managerILb1EE3setER3mpzm.exit32:         ; preds = %93, %_ZN11mpz_manag
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %128, %.thread25.i.i.i, %148
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %128, %.thread27.i.i.i, %148
   %149 = load i8, ptr %63, align 4
   %150 = and i8 %149, 1
   %151 = icmp eq i8 %150, 0
@@ -12575,7 +12575,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %128, %.thread25.i.i
 165:                                              ; preds = %156
   %166 = load ptr, ptr %68, align 8, !tbaa !22
   %167 = icmp eq ptr %166, null
-  br i1 %167, label %168, label %.thread25.i.i.i37
+  br i1 %167, label %168, label %.thread27.i.i.i37
 
 168:                                              ; preds = %165
   %169 = load i32, ptr %67, align 4, !tbaa !12
@@ -12588,9 +12588,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %128, %.thread25.i.i
   store ptr %173, ptr %68, align 8, !tbaa !22
   %175 = load i8, ptr %63, align 4
   %176 = and i8 %175, -3
-  br label %.thread25.i.i.i37
+  br label %.thread27.i.i.i37
 
-.thread25.i.i.i37:                                ; preds = %165, %168
+.thread27.i.i.i37:                                ; preds = %165, %168
   %177 = phi ptr [ %173, %168 ], [ %166, %165 ]
   %178 = phi i8 [ %176, %168 ], [ %149, %165 ]
   %179 = or i8 %178, 1
@@ -12611,7 +12611,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %128, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %163, %.thread25.i.i.i37, %183
+_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %163, %.thread27.i.i.i37, %183
   %184 = load i8, ptr %54, align 4
   %185 = and i8 %184, 1
   %186 = icmp eq i8 %185, 0
@@ -12642,7 +12642,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %163, %.thread25.i.i
 200:                                              ; preds = %191
   %201 = load ptr, ptr %55, align 8, !tbaa !22
   %202 = icmp eq ptr %201, null
-  br i1 %202, label %203, label %.thread25.i.i.i46
+  br i1 %202, label %203, label %.thread27.i.i.i46
 
 203:                                              ; preds = %200
   %204 = load i32, ptr %67, align 4, !tbaa !12
@@ -12655,9 +12655,9 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %163, %.thread25.i.i
   store ptr %208, ptr %55, align 8, !tbaa !22
   %210 = load i8, ptr %54, align 4
   %211 = and i8 %210, -3
-  br label %.thread25.i.i.i46
+  br label %.thread27.i.i.i46
 
-.thread25.i.i.i46:                                ; preds = %200, %203
+.thread27.i.i.i46:                                ; preds = %200, %203
   %212 = phi ptr [ %208, %203 ], [ %201, %200 ]
   %213 = phi i8 [ %211, %203 ], [ %184, %200 ]
   %214 = or i8 %213, 1
@@ -12678,7 +12678,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %163, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %7)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit51
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit51:  ; preds = %198, %.thread25.i.i.i46, %218
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit51:  ; preds = %198, %.thread27.i.i.i46, %218
   call void @_ZN11mpz_managerILb1EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %5)
   %219 = add i32 %.066, -64
   %.not = icmp ult i32 %.066, 65
@@ -12866,7 +12866,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3setER3mpzPKc(ptr noundef non
 
 ._crit_edge.i.i.i:                                ; preds = %46
   %.pre.i.i.i = load i8, ptr %12, align 4
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
 49:                                               ; preds = %46
   %50 = load i32, ptr %20, align 4, !tbaa !12
@@ -12879,9 +12879,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3setER3mpzPKc(ptr noundef non
   store ptr %54, ptr %13, align 8, !tbaa !22
   %56 = load i8, ptr %12, align 4
   %57 = and i8 %56, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %49, %._crit_edge.i.i.i
+.thread27.i.i.i:                                  ; preds = %49, %._crit_edge.i.i.i
   %58 = phi ptr [ %47, %._crit_edge.i.i.i ], [ %54, %49 ]
   %59 = phi i8 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %57, %49 ]
   %60 = or i8 %59, 1
@@ -12902,7 +12902,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3setER3mpzPKc(ptr noundef non
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %42, %.thread25.i.i.i, %64
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %42, %.thread27.i.i.i, %64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %65 = load i8, ptr %.128, align 1, !tbaa !55
   %66 = sext i8 %65 to i32
@@ -12941,7 +12941,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %42, %.thread25.i.i.
 
 ._crit_edge.i.i.i19:                              ; preds = %83
   %.pre.i.i.i21 = load i8, ptr %7, align 4
-  br label %.thread25.i.i.i22
+  br label %.thread27.i.i.i22
 
 86:                                               ; preds = %83
   %87 = load i32, ptr %20, align 4, !tbaa !12
@@ -12954,9 +12954,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %42, %.thread25.i.i.
   store ptr %91, ptr %23, align 8, !tbaa !22
   %93 = load i8, ptr %7, align 4
   %94 = and i8 %93, -3
-  br label %.thread25.i.i.i22
+  br label %.thread27.i.i.i22
 
-.thread25.i.i.i22:                                ; preds = %86, %._crit_edge.i.i.i19
+.thread27.i.i.i22:                                ; preds = %86, %._crit_edge.i.i.i19
   %95 = phi ptr [ %84, %._crit_edge.i.i.i19 ], [ %91, %86 ]
   %96 = phi i8 [ %.pre.i.i.i21, %._crit_edge.i.i.i19 ], [ %94, %86 ]
   %97 = or i8 %96, 1
@@ -12977,7 +12977,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %42, %.thread25.i.i.
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %79, %.thread25.i.i.i22, %101
+_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %79, %.thread27.i.i.i22, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %102
 
@@ -13351,14 +13351,14 @@ _ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit:    ; preds = %2
 
 _ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread: ; preds = %28
   %31 = icmp slt i32 %20, 0
-  %.not19 = select i1 %29, i1 %31, i1 false
-  br i1 %.not19, label %_ZNK11mpz_managerILb1EE8is_int64ERK3mpz.exit.thread12, label %.thread15
+  %.not20 = select i1 %29, i1 %31, i1 false
+  br i1 %.not20, label %_ZNK11mpz_managerILb1EE8is_int64ERK3mpz.exit.thread12, label %.thread15
 
 _ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread.thread: ; preds = %28
   %32 = load i64, ptr %13, align 4
   %33 = sub i64 0, %32
-  %spec.select.i17 = select i1 %29, i64 %33, i64 %32
-  %34 = icmp sgt i64 %spec.select.i17, -2147483648
+  %spec.select.i18 = select i1 %29, i64 %33, i64 %32
+  %34 = icmp sgt i64 %spec.select.i18, -2147483648
   br i1 %34, label %.thread15.thread, label %_ZNK11mpz_managerILb1EE8is_int64ERK3mpz.exit.thread12
 
 35:                                               ; preds = %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit
@@ -14331,8 +14331,8 @@ _ZNK11mpz_managerILb1EE10get_uint64ERK3mpz.exit:  ; preds = %4
   br i1 %.not, label %_ZL19display_binary_dataRSomm.exit, label %.lr.ph58
 
 .loopexit.thread:                                 ; preds = %.lr.ph
-  %.not71 = icmp eq i32 %24, 0
-  br i1 %.not71, label %_ZL19display_binary_dataRSomm.exit, label %.lr.ph58.split.us.preheader
+  %.not73 = icmp eq i32 %24, 0
+  br i1 %.not73, label %_ZL19display_binary_dataRSomm.exit, label %.lr.ph58.split.us.preheader
 
 .lr.ph58:                                         ; preds = %.loopexit
   %30 = and i32 %3, 31
@@ -14675,7 +14675,7 @@ _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit:       ; preds = %70, %73
 102:                                              ; preds = %93
   %103 = load ptr, ptr %81, align 8, !tbaa !22
   %104 = icmp eq ptr %103, null
-  br i1 %104, label %105, label %.thread25.i.i.i
+  br i1 %104, label %105, label %.thread27.i.i.i
 
 105:                                              ; preds = %102
   %106 = load i32, ptr %82, align 4, !tbaa !12
@@ -14688,9 +14688,9 @@ _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit:       ; preds = %70, %73
   store ptr %110, ptr %81, align 8, !tbaa !22
   %112 = load i8, ptr %78, align 4
   %113 = and i8 %112, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %102, %105
+.thread27.i.i.i:                                  ; preds = %102, %105
   %114 = phi ptr [ %110, %105 ], [ %103, %102 ]
   %115 = phi i8 [ %113, %105 ], [ %86, %102 ]
   %116 = or i8 %115, 1
@@ -14711,7 +14711,7 @@ _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit:       ; preds = %70, %73
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %120, %.thread25.i.i.i, %100, %83
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %120, %.thread27.i.i.i, %100, %83
   %121 = load i8, ptr %77, align 4
   %122 = and i8 %121, 1
   %123 = icmp eq i8 %122, 0
@@ -14734,7 +14734,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %120, %.thread25.i.i
 130:                                              ; preds = %124
   %131 = load ptr, ptr %76, align 8, !tbaa !22
   %132 = icmp eq ptr %131, null
-  br i1 %132, label %133, label %.thread25.i.i.i45
+  br i1 %132, label %133, label %.thread27.i.i.i45
 
 133:                                              ; preds = %130
   %134 = load i32, ptr %82, align 4, !tbaa !12
@@ -14747,9 +14747,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %120, %.thread25.i.i
   store ptr %138, ptr %76, align 8, !tbaa !22
   %140 = load i8, ptr %77, align 4
   %141 = and i8 %140, -3
-  br label %.thread25.i.i.i45
+  br label %.thread27.i.i.i45
 
-.thread25.i.i.i45:                                ; preds = %130, %133
+.thread27.i.i.i45:                                ; preds = %130, %133
   %142 = phi ptr [ %138, %133 ], [ %131, %130 ]
   %143 = phi i8 [ %141, %133 ], [ %121, %130 ]
   %144 = or i8 %143, 1
@@ -14766,7 +14766,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %120, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit50
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit50:  ; preds = %128, %.thread25.i.i.i45, %147
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit50:  ; preds = %128, %.thread27.i.i.i45, %147
   %148 = shl i32 %.056, 1
   %.not = icmp ugt i32 %148, %2
   br i1 %.not, label %._crit_edge58, label %83, !llvm.loop !131
@@ -15247,7 +15247,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE5mul2kER3mpzj(ptr noundef non
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !22
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %.thread25.i.i
+  br i1 %24, label %25, label %.thread27.i.i
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -15261,9 +15261,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE5mul2kER3mpzj(ptr noundef non
   store ptr %31, ptr %22, align 8, !tbaa !22
   %33 = load i8, ptr %9, align 4
   %34 = and i8 %33, -3
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
-.thread25.i.i:                                    ; preds = %25, %21
+.thread27.i.i:                                    ; preds = %25, %21
   %35 = phi ptr [ %31, %25 ], [ %23, %21 ]
   %36 = phi i8 [ %34, %25 ], [ %10, %21 ]
   %37 = or i8 %36, 1
@@ -15431,7 +15431,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE5mul2kER3mpzj(ptr noundef non
   store i32 %93, ptr %52, align 4, !tbaa !25
   br label %_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit
 
-_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit:       ; preds = %107, %100, %94, %.thread25.i.i, %19, %3, %5
+_ZN11mpz_managerILb1EE7set_i64ER3mpzl.exit:       ; preds = %107, %100, %94, %.thread27.i.i, %19, %3, %5
   ret void
 }
 
@@ -15805,7 +15805,7 @@ _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit:       ; preds = %28
 
 ._crit_edge.i.i.i:                                ; preds = %52
   %.pre.i.i.i = load i8, ptr %37, align 4
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -15819,9 +15819,9 @@ _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit:       ; preds = %28
   store ptr %61, ptr %38, align 8, !tbaa !22
   %63 = load i8, ptr %37, align 4
   %64 = and i8 %63, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %55, %._crit_edge.i.i.i
+.thread27.i.i.i:                                  ; preds = %55, %._crit_edge.i.i.i
   %65 = phi ptr [ %53, %._crit_edge.i.i.i ], [ %61, %55 ]
   %66 = phi i8 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %64, %55 ]
   %67 = or i8 %66, 1
@@ -15838,7 +15838,7 @@ _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit:       ; preds = %28
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %8)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %48, %.thread25.i.i.i, %70
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %48, %.thread27.i.i.i, %70
   %71 = call noundef zeroext i1 @_ZN11mpz_managerILb1EE2eqERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br i1 %71, label %._crit_edge, label %.lr.ph
 
@@ -15904,7 +15904,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %48, %.thread25.i.i.
 
 ._crit_edge.i.i.i21:                              ; preds = %100
   %.pre.i.i.i23 = load i8, ptr %33, align 4
-  br label %.thread25.i.i.i24
+  br label %.thread27.i.i.i24
 
 103:                                              ; preds = %100
   %104 = load i32, ptr %74, align 4, !tbaa !12
@@ -15917,9 +15917,9 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %48, %.thread25.i.i.
   store ptr %108, ptr %34, align 8, !tbaa !22
   %110 = load i8, ptr %33, align 4
   %111 = and i8 %110, -3
-  br label %.thread25.i.i.i24
+  br label %.thread27.i.i.i24
 
-.thread25.i.i.i24:                                ; preds = %103, %._crit_edge.i.i.i21
+.thread27.i.i.i24:                                ; preds = %103, %._crit_edge.i.i.i21
   %112 = phi ptr [ %101, %._crit_edge.i.i.i21 ], [ %108, %103 ]
   %113 = phi i8 [ %.pre.i.i.i23, %._crit_edge.i.i.i21 ], [ %111, %103 ]
   %114 = or i8 %113, 1
@@ -15936,7 +15936,7 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %48, %.thread25.i.i.
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %6)
   br label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %96, %.thread25.i.i.i24, %117
+_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %96, %.thread27.i.i.i24, %117
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %118 = call noundef zeroext i1 @_ZN11mpz_managerILb1EE2eqERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5)
   %119 = load i8, ptr %31, align 4
@@ -15993,7 +15993,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %96, %.thread25.i.i.
 
 ._crit_edge.i.i.i31:                              ; preds = %144
   %.pre.i.i.i33 = load i8, ptr %33, align 4
-  br label %.thread25.i.i.i34
+  br label %.thread27.i.i.i34
 
 147:                                              ; preds = %144
   %148 = load i32, ptr %74, align 4, !tbaa !12
@@ -16006,9 +16006,9 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %96, %.thread25.i.i.
   store ptr %152, ptr %34, align 8, !tbaa !22
   %154 = load i8, ptr %33, align 4
   %155 = and i8 %154, -3
-  br label %.thread25.i.i.i34
+  br label %.thread27.i.i.i34
 
-.thread25.i.i.i34:                                ; preds = %147, %._crit_edge.i.i.i31
+.thread27.i.i.i34:                                ; preds = %147, %._crit_edge.i.i.i31
   %156 = phi ptr [ %145, %._crit_edge.i.i.i31 ], [ %152, %147 ]
   %157 = phi i8 [ %.pre.i.i.i33, %._crit_edge.i.i.i31 ], [ %155, %147 ]
   %158 = or i8 %157, 1
@@ -16029,7 +16029,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %96, %.thread25.i.i.
   call void @_ZN11mpz_managerILb1EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %6)
   br label %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit39
 
-_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit39:  ; preds = %140, %.thread25.i.i.i34, %162
+_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit39:  ; preds = %140, %.thread27.i.i.i34, %162
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 2, ptr %11, align 8, !tbaa !23
   %163 = load i8, ptr %75, align 4
@@ -16066,7 +16066,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit39:  ; preds = %140, %.thread25.i.i
 
 ._crit_edge.i.i.i41:                              ; preds = %176
   %.pre.i.i.i43 = load i8, ptr %39, align 4
-  br label %.thread25.i.i.i44
+  br label %.thread27.i.i.i44
 
 179:                                              ; preds = %176
   %180 = load i32, ptr %74, align 4, !tbaa !12
@@ -16079,9 +16079,9 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit39:  ; preds = %140, %.thread25.i.i
   store ptr %184, ptr %40, align 8, !tbaa !22
   %186 = load i8, ptr %39, align 4
   %187 = and i8 %186, -3
-  br label %.thread25.i.i.i44
+  br label %.thread27.i.i.i44
 
-.thread25.i.i.i44:                                ; preds = %179, %._crit_edge.i.i.i41
+.thread27.i.i.i44:                                ; preds = %179, %._crit_edge.i.i.i41
   %188 = phi ptr [ %177, %._crit_edge.i.i.i41 ], [ %184, %179 ]
   %189 = phi i8 [ %.pre.i.i.i43, %._crit_edge.i.i.i41 ], [ %187, %179 ]
   %190 = or i8 %189, 1
@@ -16098,7 +16098,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit39:  ; preds = %140, %.thread25.i.i
   call void @_ZN11mpz_managerILb1EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %9)
   br label %_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit49
 
-_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit49:  ; preds = %172, %.thread25.i.i.i44, %193
+_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit49:  ; preds = %172, %.thread27.i.i.i44, %193
   %194 = call noundef zeroext i1 @_ZN11mpz_managerILb1EE2ltERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %9)
   %195 = load i8, ptr %33, align 4
   %196 = and i8 %195, 1
@@ -18123,9 +18123,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE11set_big_i64ER3mpzl(ptr noun
   %22 = or i8 %20, 1
   store i8 %22, ptr %21, align 4
   %23 = icmp eq i64 %2, -9223372036854775808
-  br i1 %23, label %27, label %.thread25
+  br i1 %23, label %27, label %.thread27
 
-.thread25:                                        ; preds = %18
+.thread27:                                        ; preds = %18
   %24 = icmp slt i64 %2, 0
   %.sink = select i1 %24, i32 -1, i32 1
   %.0 = tail call i64 @llvm.abs.i64(i64 %2, i1 true)
@@ -18146,7 +18146,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE11set_big_i64ER3mpzl(ptr noun
   tail call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %29
 
-29:                                               ; preds = %.thread25, %27
+29:                                               ; preds = %.thread27, %27
   ret void
 }
 
@@ -18212,9 +18212,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE7set_i64ER3mpzl(ptr noundef n
   %29 = or i8 %27, 1
   store i8 %29, ptr %28, align 4
   %30 = icmp eq i64 %2, -9223372036854775808
-  br i1 %30, label %34, label %.thread25.i
+  br i1 %30, label %34, label %.thread27.i
 
-.thread25.i:                                      ; preds = %25
+.thread27.i:                                      ; preds = %25
   %31 = icmp slt i64 %2, 0
   %.sink.i = select i1 %31, i32 -1, i32 1
   %.0.i = tail call i64 @llvm.abs.i64(i64 %2, i1 true)
@@ -18235,7 +18235,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE7set_i64ER3mpzl(ptr noundef n
   tail call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZN11mpz_managerILb0EE11set_big_i64ER3mpzl.exit
 
-_ZN11mpz_managerILb0EE11set_big_i64ER3mpzl.exit:  ; preds = %34, %.thread25.i, %5
+_ZN11mpz_managerILb0EE11set_big_i64ER3mpzl.exit:  ; preds = %34, %.thread27.i, %5
   ret void
 }
 
@@ -20904,7 +20904,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EEC2Ev(ptr noundef nonnull alig
 51:                                               ; preds = %44
   %52 = load ptr, ptr %14, align 8, !tbaa !22
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %.thread25.i.i.i
+  br i1 %53, label %54, label %.thread27.i.i.i
 
 54:                                               ; preds = %51
   %55 = load i32, ptr %15, align 4, !tbaa !143
@@ -20920,9 +20920,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EEC2Ev(ptr noundef nonnull alig
   store ptr %59, ptr %14, align 8, !tbaa !22
   %61 = load i8, ptr %11, align 4
   %62 = and i8 %61, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %51, %.noexc8
+.thread27.i.i.i:                                  ; preds = %51, %.noexc8
   %63 = phi ptr [ %59, %.noexc8 ], [ %52, %51 ]
   %64 = phi i8 [ %62, %.noexc8 ], [ %41, %51 ]
   %65 = or i8 %64, 1
@@ -20943,7 +20943,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EEC2Ev(ptr noundef nonnull alig
   invoke void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit unwind label %72
 
-_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %.thread25.i.i.i, %49, %69
+_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %.thread27.i.i.i, %49, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
@@ -21012,9 +21012,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3setER3mpzl(ptr noundef nonnu
   %29 = or i8 %27, 1
   store i8 %29, ptr %28, align 4
   %30 = icmp eq i64 %2, -9223372036854775808
-  br i1 %30, label %34, label %.thread25.i
+  br i1 %30, label %34, label %.thread27.i
 
-.thread25.i:                                      ; preds = %25
+.thread27.i:                                      ; preds = %25
   %31 = icmp slt i64 %2, 0
   %.sink.i = select i1 %31, i32 -1, i32 1
   %.0.i = tail call i64 @llvm.abs.i64(i64 %2, i1 true)
@@ -21035,7 +21035,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3setER3mpzl(ptr noundef nonnu
   tail call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit
 
-_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit:       ; preds = %34, %.thread25.i, %5
+_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit:       ; preds = %34, %.thread27.i, %5
   ret void
 }
 
@@ -21140,7 +21140,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_(ptr nounde
 ._crit_edge.i.i:                                  ; preds = %26
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -21155,9 +21155,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_(ptr nounde
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %39 = load i8, ptr %38, align 4
   %40 = and i8 %39, -3
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
-.thread25.i.i:                                    ; preds = %._crit_edge.i.i, %30
+.thread27.i.i:                                    ; preds = %._crit_edge.i.i, %30
   %41 = phi ptr [ %28, %._crit_edge.i.i ], [ %36, %30 ]
   %42 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %40, %30 ]
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -21179,7 +21179,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_(ptr nounde
   tail call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit
 
-_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit:       ; preds = %.thread25.i.i, %21, %48
+_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit:       ; preds = %.thread27.i.i, %21, %48
   ret void
 }
 
@@ -21352,7 +21352,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_(ptr nounde
 ._crit_edge.i.i:                                  ; preds = %26
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -21367,9 +21367,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_(ptr nounde
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %39 = load i8, ptr %38, align 4
   %40 = and i8 %39, -3
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
-.thread25.i.i:                                    ; preds = %._crit_edge.i.i, %30
+.thread27.i.i:                                    ; preds = %._crit_edge.i.i, %30
   %41 = phi ptr [ %28, %._crit_edge.i.i ], [ %36, %30 ]
   %42 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %40, %30 ]
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -21391,7 +21391,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_(ptr nounde
   tail call void @_ZN11mpz_managerILb0EE11big_add_subILb1EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit
 
-_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit:       ; preds = %.thread25.i.i, %21, %48
+_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit:       ; preds = %.thread27.i.i, %21, %48
   ret void
 }
 
@@ -21429,7 +21429,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3incER3mpz(ptr noundef nonnul
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !22
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %.thread25.i.i.i
+  br i1 %20, label %21, label %.thread27.i.i.i
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -21443,9 +21443,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3incER3mpz(ptr noundef nonnul
   store ptr %27, ptr %18, align 8, !tbaa !22
   %29 = load i8, ptr %6, align 4
   %30 = and i8 %29, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %17, %21
+.thread27.i.i.i:                                  ; preds = %17, %21
   %31 = phi ptr [ %27, %21 ], [ %19, %17 ]
   %32 = phi i8 [ %30, %21 ], [ %7, %17 ]
   %33 = or i8 %32, 1
@@ -21462,7 +21462,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3incER3mpz(ptr noundef nonnul
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %15, %.thread25.i.i.i, %36
+_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %15, %.thread27.i.i.i, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -21500,7 +21500,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3decER3mpz(ptr noundef nonnul
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !22
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %.thread25.i.i.i
+  br i1 %19, label %20, label %.thread27.i.i.i
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -21514,9 +21514,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3decER3mpz(ptr noundef nonnul
   store ptr %26, ptr %17, align 8, !tbaa !22
   %28 = load i8, ptr %6, align 4
   %29 = and i8 %28, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %16, %20
+.thread27.i.i.i:                                  ; preds = %16, %20
   %30 = phi ptr [ %26, %20 ], [ %18, %16 ]
   %31 = phi i8 [ %29, %20 ], [ %7, %16 ]
   %32 = or i8 %31, 1
@@ -21532,7 +21532,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3decER3mpz(ptr noundef nonnul
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %14, %.thread25.i.i.i, %34
+_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %14, %.thread27.i.i.i, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -21580,7 +21580,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_(ptr nounde
 ._crit_edge.i.i:                                  ; preds = %26
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -21595,9 +21595,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_(ptr nounde
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %39 = load i8, ptr %38, align 4
   %40 = and i8 %39, -3
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
-.thread25.i.i:                                    ; preds = %._crit_edge.i.i, %30
+.thread27.i.i:                                    ; preds = %._crit_edge.i.i, %30
   %41 = phi ptr [ %28, %._crit_edge.i.i ], [ %36, %30 ]
   %42 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %40, %30 ]
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -21619,7 +21619,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_(ptr nounde
   tail call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit
 
-_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit:       ; preds = %.thread25.i.i, %21, %48
+_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit:       ; preds = %.thread27.i.i, %21, %48
   ret void
 }
 
@@ -21677,7 +21677,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE6addmulERK3mpzS3_S3_RS1_(ptr 
 ._crit_edge.i.i.i:                                ; preds = %36
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i, align 4
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -21692,9 +21692,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE6addmulERK3mpzS3_S3_RS1_(ptr 
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %49 = load i8, ptr %48, align 4
   %50 = and i8 %49, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %40, %._crit_edge.i.i.i
+.thread27.i.i.i:                                  ; preds = %40, %._crit_edge.i.i.i
   %51 = phi ptr [ %38, %._crit_edge.i.i.i ], [ %46, %40 ]
   %52 = phi i8 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %50, %40 ]
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -21763,7 +21763,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE6addmulERK3mpzS3_S3_RS1_(ptr 
 ._crit_edge.i.i.i14:                              ; preds = %84
   %.phi.trans.insert.i.i.i15 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.pre.i.i.i16 = load i8, ptr %.phi.trans.insert.i.i.i15, align 4
-  br label %.thread25.i.i.i17
+  br label %.thread27.i.i.i17
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -21778,9 +21778,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE6addmulERK3mpzS3_S3_RS1_(ptr 
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %97 = load i8, ptr %96, align 4
   %98 = and i8 %97, -3
-  br label %.thread25.i.i.i17
+  br label %.thread27.i.i.i17
 
-.thread25.i.i.i17:                                ; preds = %88, %._crit_edge.i.i.i14
+.thread27.i.i.i17:                                ; preds = %88, %._crit_edge.i.i.i14
   %99 = phi ptr [ %86, %._crit_edge.i.i.i14 ], [ %94, %88 ]
   %100 = phi i8 [ %.pre.i.i.i16, %._crit_edge.i.i.i14 ], [ %98, %88 ]
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -21825,7 +21825,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE6addmulERK3mpzS3_S3_RS1_(ptr 
   %119 = mul nsw i64 %118, %116
   %120 = add nsw i64 %119, 2147483648
   %or.cond.i.i22 = icmp ult i64 %120, 4294967296
-  br i1 %or.cond.i.i22, label %121, label %.thread25.i.i.i26
+  br i1 %or.cond.i.i22, label %121, label %.thread27.i.i.i26
 
 121:                                              ; preds = %115
   %122 = trunc nsw i64 %119 to i32
@@ -21833,7 +21833,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE6addmulERK3mpzS3_S3_RS1_(ptr 
   store i8 0, ptr %108, align 4
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit
 
-.thread25.i.i.i26:                                ; preds = %115
+.thread27.i.i.i26:                                ; preds = %115
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 564
   %124 = load i32, ptr %123, align 4, !tbaa !143
   %125 = shl i32 %124, 2
@@ -21863,7 +21863,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE6addmulERK3mpzS3_S3_RS1_(ptr 
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread25.i.i.i26, %136
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread27.i.i.i26, %136
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %138 = load i8, ptr %137, align 4
   %139 = and i8 %138, 1
@@ -21904,7 +21904,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread25.i.i
 ._crit_edge.i.i.i32:                              ; preds = %157
   %.phi.trans.insert.i.i.i33 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.pre.i.i.i34 = load i8, ptr %.phi.trans.insert.i.i.i33, align 4
-  br label %.thread25.i.i.i35
+  br label %.thread27.i.i.i35
 
 161:                                              ; preds = %157
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -21919,9 +21919,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread25.i.i
   %169 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %170 = load i8, ptr %169, align 4
   %171 = and i8 %170, -3
-  br label %.thread25.i.i.i35
+  br label %.thread27.i.i.i35
 
-.thread25.i.i.i35:                                ; preds = %161, %._crit_edge.i.i.i32
+.thread27.i.i.i35:                                ; preds = %161, %._crit_edge.i.i.i32
   %172 = phi ptr [ %159, %._crit_edge.i.i.i32 ], [ %167, %161 ]
   %173 = phi i8 [ %.pre.i.i.i34, %._crit_edge.i.i.i32 ], [ %171, %161 ]
   %174 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -21943,7 +21943,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %4)
   br label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit40
 
-_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit40:  ; preds = %152, %.thread25.i.i.i35, %179
+_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit40:  ; preds = %152, %.thread27.i.i.i35, %179
   %180 = load ptr, ptr %109, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %180, null
   br i1 %.not.i.i, label %_ZN11mpz_managerILb0EE3delER3mpz.exit, label %181
@@ -21967,7 +21967,7 @@ _ZN11mpz_managerILb0EE3delER3mpz.exit:            ; preds = %181, %185, %_ZN11mp
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %106, %.thread25.i.i.i17, %79, %58, %.thread25.i.i.i, %31, %_ZN11mpz_managerILb0EE3delER3mpz.exit
+_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %106, %.thread27.i.i.i17, %79, %58, %.thread27.i.i.i, %31, %_ZN11mpz_managerILb0EE3delER3mpz.exit
   ret void
 }
 
@@ -22049,7 +22049,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE6submulERK3mpzS3_S3_RS1_(ptr 
 ._crit_edge.i.i.i:                                ; preds = %36
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i, align 4
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -22064,9 +22064,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE6submulERK3mpzS3_S3_RS1_(ptr 
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %49 = load i8, ptr %48, align 4
   %50 = and i8 %49, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %40, %._crit_edge.i.i.i
+.thread27.i.i.i:                                  ; preds = %40, %._crit_edge.i.i.i
   %51 = phi ptr [ %38, %._crit_edge.i.i.i ], [ %46, %40 ]
   %52 = phi i8 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %50, %40 ]
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -22135,7 +22135,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE6submulERK3mpzS3_S3_RS1_(ptr 
 ._crit_edge.i.i.i14:                              ; preds = %84
   %.phi.trans.insert.i.i.i15 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.pre.i.i.i16 = load i8, ptr %.phi.trans.insert.i.i.i15, align 4
-  br label %.thread25.i.i.i17
+  br label %.thread27.i.i.i17
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -22150,9 +22150,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE6submulERK3mpzS3_S3_RS1_(ptr 
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %97 = load i8, ptr %96, align 4
   %98 = and i8 %97, -3
-  br label %.thread25.i.i.i17
+  br label %.thread27.i.i.i17
 
-.thread25.i.i.i17:                                ; preds = %88, %._crit_edge.i.i.i14
+.thread27.i.i.i17:                                ; preds = %88, %._crit_edge.i.i.i14
   %99 = phi ptr [ %86, %._crit_edge.i.i.i14 ], [ %94, %88 ]
   %100 = phi i8 [ %.pre.i.i.i16, %._crit_edge.i.i.i14 ], [ %98, %88 ]
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -22197,7 +22197,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE6submulERK3mpzS3_S3_RS1_(ptr 
   %119 = mul nsw i64 %118, %116
   %120 = add nsw i64 %119, 2147483648
   %or.cond.i.i22 = icmp ult i64 %120, 4294967296
-  br i1 %or.cond.i.i22, label %121, label %.thread25.i.i.i26
+  br i1 %or.cond.i.i22, label %121, label %.thread27.i.i.i26
 
 121:                                              ; preds = %115
   %122 = trunc nsw i64 %119 to i32
@@ -22205,7 +22205,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE6submulERK3mpzS3_S3_RS1_(ptr 
   store i8 0, ptr %108, align 4
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit
 
-.thread25.i.i.i26:                                ; preds = %115
+.thread27.i.i.i26:                                ; preds = %115
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 564
   %124 = load i32, ptr %123, align 4, !tbaa !143
   %125 = shl i32 %124, 2
@@ -22235,7 +22235,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE6submulERK3mpzS3_S3_RS1_(ptr 
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread25.i.i.i26, %136
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread27.i.i.i26, %136
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %138 = load i8, ptr %137, align 4
   %139 = and i8 %138, 1
@@ -22276,7 +22276,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread25.i.i
 ._crit_edge.i.i.i32:                              ; preds = %157
   %.phi.trans.insert.i.i.i33 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.pre.i.i.i34 = load i8, ptr %.phi.trans.insert.i.i.i33, align 4
-  br label %.thread25.i.i.i35
+  br label %.thread27.i.i.i35
 
 161:                                              ; preds = %157
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -22291,9 +22291,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread25.i.i
   %169 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %170 = load i8, ptr %169, align 4
   %171 = and i8 %170, -3
-  br label %.thread25.i.i.i35
+  br label %.thread27.i.i.i35
 
-.thread25.i.i.i35:                                ; preds = %161, %._crit_edge.i.i.i32
+.thread27.i.i.i35:                                ; preds = %161, %._crit_edge.i.i.i32
   %172 = phi ptr [ %159, %._crit_edge.i.i.i32 ], [ %167, %161 ]
   %173 = phi i8 [ %.pre.i.i.i34, %._crit_edge.i.i.i32 ], [ %171, %161 ]
   %174 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -22315,7 +22315,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %121, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE11big_add_subILb1EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %4)
   br label %_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_.exit40
 
-_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_.exit40:  ; preds = %152, %.thread25.i.i.i35, %179
+_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_.exit40:  ; preds = %152, %.thread27.i.i.i35, %179
   %180 = load ptr, ptr %109, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %180, null
   br i1 %.not.i.i, label %_ZN11mpz_managerILb0EE3delER3mpz.exit, label %181
@@ -22339,7 +22339,7 @@ _ZN11mpz_managerILb0EE3delER3mpz.exit:            ; preds = %181, %185, %_ZN11mp
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_.exit:    ; preds = %106, %.thread25.i.i.i17, %79, %58, %.thread25.i.i.i, %31, %_ZN11mpz_managerILb0EE3delER3mpz.exit
+_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_.exit:    ; preds = %106, %.thread27.i.i.i17, %79, %58, %.thread27.i.i.i, %31, %_ZN11mpz_managerILb0EE3delER3mpz.exit
   ret void
 }
 
@@ -22388,7 +22388,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE15machine_div_remERK3mpzS3_RS
 ._crit_edge.i.i:                                  ; preds = %28
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -22403,9 +22403,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE15machine_div_remERK3mpzS3_RS
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %41 = load i8, ptr %40, align 4
   %42 = and i8 %41, -3
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
-.thread25.i.i:                                    ; preds = %._crit_edge.i.i, %32
+.thread27.i.i:                                    ; preds = %._crit_edge.i.i, %32
   %43 = phi ptr [ %30, %._crit_edge.i.i ], [ %38, %32 ]
   %44 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %42, %32 ]
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -22419,7 +22419,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE15machine_div_remERK3mpzS3_RS
   store i32 %.ph.i.i, ptr %43, align 4, !tbaa !25
   br label %_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit
 
-_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit:       ; preds = %23, %.thread25.i.i
+_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit:       ; preds = %23, %.thread27.i.i
   %49 = trunc nsw i64 %21 to i32
   store i32 %49, ptr %4, align 8, !tbaa !23
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -22564,7 +22564,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 ._crit_edge.i.i:                                  ; preds = %58
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -22579,9 +22579,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %71 = load i8, ptr %70, align 4
   %72 = and i8 %71, -3
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
-.thread25.i.i:                                    ; preds = %._crit_edge.i.i, %62
+.thread27.i.i:                                    ; preds = %._crit_edge.i.i, %62
   %73 = phi ptr [ %60, %._crit_edge.i.i ], [ %68, %62 ]
   %74 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %72, %62 ]
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -22626,7 +22626,7 @@ _ZN11mpz_managerILb0EE7big_divERK3mpzS3_RS1_.exit: ; preds = %.thread20, %82, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit
 
-_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit:       ; preds = %.thread25.i.i, %53, %_ZN11mpz_managerILb0EE7big_divERK3mpzS3_RS1_.exit
+_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit:       ; preds = %.thread27.i.i, %53, %_ZN11mpz_managerILb0EE7big_divERK3mpzS3_RS1_.exit
   ret void
 
 92:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %40
@@ -22847,7 +22847,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr nounde
 ._crit_edge.i.i.i:                                ; preds = %47
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i, align 4
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -22862,9 +22862,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr nounde
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %60 = load i8, ptr %59, align 4
   %61 = and i8 %60, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %51, %._crit_edge.i.i.i
+.thread27.i.i.i:                                  ; preds = %51, %._crit_edge.i.i.i
   %62 = phi ptr [ %49, %._crit_edge.i.i.i ], [ %57, %51 ]
   %63 = phi i8 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %61, %51 ]
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -22878,7 +22878,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr nounde
   store i32 %.ph.i.i.i, ptr %62, align 4, !tbaa !25
   br label %_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit.i
 
-_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit.i:     ; preds = %.thread25.i.i.i, %42
+_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit.i:     ; preds = %.thread27.i.i.i, %42
   %68 = trunc nsw i64 %40 to i32
   store i32 %68, ptr %5, align 8, !tbaa !23
   store i8 0, ptr %30, align 4
@@ -22931,7 +22931,7 @@ _ZN11mpz_managerILb0EE15machine_div_remERK3mpzS3_RS1_S4_.exit: ; preds = %_ZN11m
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !22
   %92 = icmp eq ptr %91, null
-  br i1 %92, label %93, label %.thread25.i.i.i21
+  br i1 %92, label %93, label %.thread27.i.i.i21
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -22945,9 +22945,9 @@ _ZN11mpz_managerILb0EE15machine_div_remERK3mpzS3_RS1_S4_.exit: ; preds = %_ZN11m
   store ptr %99, ptr %90, align 8, !tbaa !22
   %101 = load i8, ptr %75, align 4
   %102 = and i8 %101, -3
-  br label %.thread25.i.i.i21
+  br label %.thread27.i.i.i21
 
-.thread25.i.i.i21:                                ; preds = %89, %93
+.thread27.i.i.i21:                                ; preds = %89, %93
   %103 = phi ptr [ %99, %93 ], [ %91, %89 ]
   %104 = phi i8 [ %102, %93 ], [ %79, %89 ]
   %105 = or i8 %104, 1
@@ -22964,7 +22964,7 @@ _ZN11mpz_managerILb0EE15machine_div_remERK3mpzS3_RS1_S4_.exit: ; preds = %_ZN11m
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %87, %.thread25.i.i.i21, %108
+_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %87, %.thread27.i.i.i21, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %140
 
@@ -22998,7 +22998,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %87, %.thread25.i.i.
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %123 = load ptr, ptr %122, align 8, !tbaa !22
   %124 = icmp eq ptr %123, null
-  br i1 %124, label %125, label %.thread25.i.i.i29
+  br i1 %124, label %125, label %.thread27.i.i.i29
 
 125:                                              ; preds = %121
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -23012,9 +23012,9 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %87, %.thread25.i.i.
   store ptr %131, ptr %122, align 8, !tbaa !22
   %133 = load i8, ptr %75, align 4
   %134 = and i8 %133, -3
-  br label %.thread25.i.i.i29
+  br label %.thread27.i.i.i29
 
-.thread25.i.i.i29:                                ; preds = %121, %125
+.thread27.i.i.i29:                                ; preds = %121, %125
   %135 = phi ptr [ %131, %125 ], [ %123, %121 ]
   %136 = phi i8 [ %134, %125 ], [ %112, %121 ]
   %137 = or i8 %136, 1
@@ -23030,7 +23030,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %87, %.thread25.i.i.
   call void @_ZN11mpz_managerILb0EE11big_add_subILb1EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_.exit:    ; preds = %119, %.thread25.i.i.i29, %139
+_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_.exit:    ; preds = %119, %.thread27.i.i.i29, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %140
 
@@ -24463,9 +24463,9 @@ _ZN11mpz_managerILb0EE3remERK3mpzS3_RS1_.exit104: ; preds = %._crit_edge.thread,
   %461 = or i8 %460, 1
   store i8 %461, ptr %165, align 4
   %462 = icmp eq i64 %.067.lcssa, -9223372036854775808
-  br i1 %462, label %466, label %.thread25.i.i
+  br i1 %462, label %466, label %.thread27.i.i
 
-.thread25.i.i:                                    ; preds = %458
+.thread27.i.i:                                    ; preds = %458
   %463 = icmp slt i64 %.067.lcssa, 0
   %.sink.i.i = select i1 %463, i32 -1, i32 1
   %.0.i.i = call i64 @llvm.abs.i64(i64 %.067.lcssa, i1 true)
@@ -24486,7 +24486,7 @@ _ZN11mpz_managerILb0EE3remERK3mpzS3_RS1_.exit104: ; preds = %._crit_edge.thread,
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11)
   br label %_ZN11mpz_managerILb0EE3setER3mpzl.exit
 
-_ZN11mpz_managerILb0EE3setER3mpzl.exit:           ; preds = %442, %.thread25.i.i, %466
+_ZN11mpz_managerILb0EE3setER3mpzl.exit:           ; preds = %442, %.thread27.i.i, %466
   %468 = load i8, ptr %157, align 4
   %469 = and i8 %468, 1
   %470 = icmp eq i8 %469, 0
@@ -24523,7 +24523,7 @@ _ZN11mpz_managerILb0EE3setER3mpzl.exit:           ; preds = %442, %.thread25.i.i
 
 ._crit_edge.i.i.i106:                             ; preds = %486
   %.pre.i.i.i108 = load i8, ptr %161, align 4
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
 489:                                              ; preds = %486
   %490 = load i32, ptr %251, align 4, !tbaa !143
@@ -24536,9 +24536,9 @@ _ZN11mpz_managerILb0EE3setER3mpzl.exit:           ; preds = %442, %.thread25.i.i
   store ptr %494, ptr %162, align 8, !tbaa !22
   %496 = load i8, ptr %161, align 4
   %497 = and i8 %496, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %489, %._crit_edge.i.i.i106
+.thread27.i.i.i:                                  ; preds = %489, %._crit_edge.i.i.i106
   %498 = phi ptr [ %487, %._crit_edge.i.i.i106 ], [ %494, %489 ]
   %499 = phi i8 [ %.pre.i.i.i108, %._crit_edge.i.i.i106 ], [ %497, %489 ]
   %500 = or i8 %499, 1
@@ -24559,7 +24559,7 @@ _ZN11mpz_managerILb0EE3setER3mpzl.exit:           ; preds = %442, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %9)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %482, %.thread25.i.i.i, %504
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %482, %.thread27.i.i.i, %504
   %505 = add i64 %.070.lcssa, 2147483648
   %or.cond.i.i109 = icmp ult i64 %505, 4294967296
   br i1 %or.cond.i.i109, label %506, label %510
@@ -24600,9 +24600,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %482, %.thread25.i.i
   %525 = or i8 %524, 1
   store i8 %525, ptr %165, align 4
   %526 = icmp eq i64 %.070.lcssa, -9223372036854775808
-  br i1 %526, label %530, label %.thread25.i.i113
+  br i1 %526, label %530, label %.thread27.i.i113
 
-.thread25.i.i113:                                 ; preds = %522
+.thread27.i.i113:                                 ; preds = %522
   %527 = icmp slt i64 %.070.lcssa, 0
   %.sink.i.i114 = select i1 %527, i32 -1, i32 1
   %.0.i.i115 = call i64 @llvm.abs.i64(i64 %.070.lcssa, i1 true)
@@ -24623,7 +24623,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %482, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11)
   br label %_ZN11mpz_managerILb0EE3setER3mpzl.exit118
 
-_ZN11mpz_managerILb0EE3setER3mpzl.exit118:        ; preds = %506, %.thread25.i.i113, %530
+_ZN11mpz_managerILb0EE3setER3mpzl.exit118:        ; preds = %506, %.thread27.i.i113, %530
   call void @_ZN11mpz_managerILb0EE6addmulERK3mpzS3_S3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
   %532 = add i64 %.069.lcssa, 2147483648
   %or.cond.i.i119 = icmp ult i64 %532, 4294967296
@@ -24665,9 +24665,9 @@ _ZN11mpz_managerILb0EE3setER3mpzl.exit118:        ; preds = %506, %.thread25.i.i
   %552 = or i8 %551, 1
   store i8 %552, ptr %165, align 4
   %553 = icmp eq i64 %.069.lcssa, -9223372036854775808
-  br i1 %553, label %557, label %.thread25.i.i123
+  br i1 %553, label %557, label %.thread27.i.i123
 
-.thread25.i.i123:                                 ; preds = %549
+.thread27.i.i123:                                 ; preds = %549
   %554 = icmp slt i64 %.069.lcssa, 0
   %.sink.i.i124 = select i1 %554, i32 -1, i32 1
   %.0.i.i125 = call i64 @llvm.abs.i64(i64 %.069.lcssa, i1 true)
@@ -24688,7 +24688,7 @@ _ZN11mpz_managerILb0EE3setER3mpzl.exit118:        ; preds = %506, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11)
   br label %_ZN11mpz_managerILb0EE3setER3mpzl.exit128
 
-_ZN11mpz_managerILb0EE3setER3mpzl.exit128:        ; preds = %533, %.thread25.i.i123, %557
+_ZN11mpz_managerILb0EE3setER3mpzl.exit128:        ; preds = %533, %.thread27.i.i123, %557
   %559 = load i8, ptr %157, align 4
   %560 = and i8 %559, 1
   %561 = icmp eq i8 %560, 0
@@ -24725,7 +24725,7 @@ _ZN11mpz_managerILb0EE3setER3mpzl.exit128:        ; preds = %533, %.thread25.i.i
 
 ._crit_edge.i.i.i130:                             ; preds = %577
   %.pre.i.i.i132 = load i8, ptr %163, align 4
-  br label %.thread25.i.i.i133
+  br label %.thread27.i.i.i133
 
 580:                                              ; preds = %577
   %581 = load i32, ptr %251, align 4, !tbaa !143
@@ -24738,9 +24738,9 @@ _ZN11mpz_managerILb0EE3setER3mpzl.exit128:        ; preds = %533, %.thread25.i.i
   store ptr %585, ptr %164, align 8, !tbaa !22
   %587 = load i8, ptr %163, align 4
   %588 = and i8 %587, -3
-  br label %.thread25.i.i.i133
+  br label %.thread27.i.i.i133
 
-.thread25.i.i.i133:                               ; preds = %580, %._crit_edge.i.i.i130
+.thread27.i.i.i133:                               ; preds = %580, %._crit_edge.i.i.i130
   %589 = phi ptr [ %578, %._crit_edge.i.i.i130 ], [ %585, %580 ]
   %590 = phi i8 [ %.pre.i.i.i132, %._crit_edge.i.i.i130 ], [ %588, %580 ]
   %591 = or i8 %590, 1
@@ -24761,7 +24761,7 @@ _ZN11mpz_managerILb0EE3setER3mpzl.exit128:        ; preds = %533, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %10)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit138
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit138: ; preds = %573, %.thread25.i.i.i133, %595
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit138: ; preds = %573, %.thread27.i.i.i133, %595
   %596 = add i64 %.068.lcssa, 2147483648
   %or.cond.i.i139 = icmp ult i64 %596, 4294967296
   br i1 %or.cond.i.i139, label %597, label %601
@@ -24802,9 +24802,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit138: ; preds = %573, %.thread25.i.i
   %616 = or i8 %615, 1
   store i8 %616, ptr %165, align 4
   %617 = icmp eq i64 %.068.lcssa, -9223372036854775808
-  br i1 %617, label %621, label %.thread25.i.i143
+  br i1 %617, label %621, label %.thread27.i.i143
 
-.thread25.i.i143:                                 ; preds = %613
+.thread27.i.i143:                                 ; preds = %613
   %618 = icmp slt i64 %.068.lcssa, 0
   %.sink.i.i144 = select i1 %618, i32 -1, i32 1
   %.0.i.i145 = call i64 @llvm.abs.i64(i64 %.068.lcssa, i1 true)
@@ -24825,7 +24825,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit138: ; preds = %573, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11)
   br label %_ZN11mpz_managerILb0EE3setER3mpzl.exit148
 
-_ZN11mpz_managerILb0EE3setER3mpzl.exit148:        ; preds = %597, %.thread25.i.i143, %621
+_ZN11mpz_managerILb0EE3setER3mpzl.exit148:        ; preds = %597, %.thread27.i.i143, %621
   call void @_ZN11mpz_managerILb0EE6addmulERK3mpzS3_S3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %10)
   %623 = load i32, ptr %7, align 8, !tbaa !26
   %624 = load i32, ptr %9, align 8, !tbaa !26
@@ -25665,7 +25665,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit21:     ; preds = %209, %213
 230:                                              ; preds = %221
   %231 = load ptr, ptr %47, align 8, !tbaa !22
   %232 = icmp eq ptr %231, null
-  br i1 %232, label %233, label %.thread25.i.i.i
+  br i1 %232, label %233, label %.thread27.i.i.i
 
 233:                                              ; preds = %230
   %234 = load i32, ptr %162, align 4, !tbaa !143
@@ -25678,9 +25678,9 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit21:     ; preds = %209, %213
   store ptr %238, ptr %47, align 8, !tbaa !22
   %240 = load i8, ptr %44, align 4
   %241 = and i8 %240, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %230, %233
+.thread27.i.i.i:                                  ; preds = %230, %233
   %242 = phi ptr [ %238, %233 ], [ %231, %230 ]
   %243 = phi i8 [ %241, %233 ], [ %218, %230 ]
   %244 = or i8 %243, 1
@@ -25701,7 +25701,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit21:     ; preds = %209, %213
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %228, %.thread25.i.i.i, %248
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %228, %.thread27.i.i.i, %248
   %249 = load i8, ptr %38, align 4
   %250 = and i8 %249, 1
   %251 = icmp eq i8 %250, 0
@@ -25732,7 +25732,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %228, %.thread25.i.i
 265:                                              ; preds = %256
   %266 = load ptr, ptr %47, align 8, !tbaa !22
   %267 = icmp eq ptr %266, null
-  br i1 %267, label %268, label %.thread25.i.i.i26
+  br i1 %267, label %268, label %.thread27.i.i.i26
 
 268:                                              ; preds = %265
   %269 = load i32, ptr %162, align 4, !tbaa !143
@@ -25745,9 +25745,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %228, %.thread25.i.i
   store ptr %273, ptr %47, align 8, !tbaa !22
   %275 = load i8, ptr %44, align 4
   %276 = and i8 %275, -3
-  br label %.thread25.i.i.i26
+  br label %.thread27.i.i.i26
 
-.thread25.i.i.i26:                                ; preds = %265, %268
+.thread27.i.i.i26:                                ; preds = %265, %268
   %277 = phi ptr [ %273, %268 ], [ %266, %265 ]
   %278 = phi i8 [ %276, %268 ], [ %253, %265 ]
   %279 = or i8 %278, 1
@@ -25768,7 +25768,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %228, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE11big_add_subILb1EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12)
   br label %_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_.exit:    ; preds = %263, %.thread25.i.i.i26, %283
+_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_.exit:    ; preds = %263, %.thread27.i.i.i26, %283
   %284 = load i8, ptr %18, align 4
   %285 = and i8 %284, 1
   %286 = icmp eq i8 %285, 0
@@ -25836,7 +25836,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit32:     ; preds = %295, %299
 316:                                              ; preds = %307
   %317 = load ptr, ptr %51, align 8, !tbaa !22
   %318 = icmp eq ptr %317, null
-  br i1 %318, label %319, label %.thread25.i.i.i37
+  br i1 %318, label %319, label %.thread27.i.i.i37
 
 319:                                              ; preds = %316
   %320 = load i32, ptr %162, align 4, !tbaa !143
@@ -25849,9 +25849,9 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit32:     ; preds = %295, %299
   store ptr %324, ptr %51, align 8, !tbaa !22
   %326 = load i8, ptr %48, align 4
   %327 = and i8 %326, -3
-  br label %.thread25.i.i.i37
+  br label %.thread27.i.i.i37
 
-.thread25.i.i.i37:                                ; preds = %316, %319
+.thread27.i.i.i37:                                ; preds = %316, %319
   %328 = phi ptr [ %324, %319 ], [ %317, %316 ]
   %329 = phi i8 [ %327, %319 ], [ %300, %316 ]
   %330 = or i8 %329, 1
@@ -25872,7 +25872,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit32:     ; preds = %295, %299
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %13)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit42
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit42:  ; preds = %314, %.thread25.i.i.i37, %334
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit42:  ; preds = %314, %.thread27.i.i.i37, %334
   %335 = load i8, ptr %41, align 4
   %336 = and i8 %335, 1
   %337 = icmp eq i8 %336, 0
@@ -25903,7 +25903,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit42:  ; preds = %314, %.thread25.i.i
 351:                                              ; preds = %342
   %352 = load ptr, ptr %51, align 8, !tbaa !22
   %353 = icmp eq ptr %352, null
-  br i1 %353, label %354, label %.thread25.i.i.i47
+  br i1 %353, label %354, label %.thread27.i.i.i47
 
 354:                                              ; preds = %351
   %355 = load i32, ptr %162, align 4, !tbaa !143
@@ -25916,9 +25916,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit42:  ; preds = %314, %.thread25.i.i
   store ptr %359, ptr %51, align 8, !tbaa !22
   %361 = load i8, ptr %48, align 4
   %362 = and i8 %361, -3
-  br label %.thread25.i.i.i47
+  br label %.thread27.i.i.i47
 
-.thread25.i.i.i47:                                ; preds = %351, %354
+.thread27.i.i.i47:                                ; preds = %351, %354
   %363 = phi ptr [ %359, %354 ], [ %352, %351 ]
   %364 = phi i8 [ %362, %354 ], [ %339, %351 ]
   %365 = or i8 %364, 1
@@ -25939,7 +25939,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit42:  ; preds = %314, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE11big_add_subILb1EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13)
   br label %_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_.exit52
 
-_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_.exit52:  ; preds = %349, %.thread25.i.i.i47, %369
+_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_.exit52:  ; preds = %349, %.thread27.i.i.i47, %369
   %370 = load i8, ptr %18, align 4
   %371 = and i8 %370, 1
   %372 = icmp eq i8 %371, 0
@@ -26410,7 +26410,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3lcmERK3mpzS3_RS1_(ptr nounde
 ._crit_edge.i.i.i:                                ; preds = %86
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i, align 4
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -26425,9 +26425,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3lcmERK3mpzS3_RS1_(ptr nounde
   %98 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %99 = load i8, ptr %98, align 4
   %100 = and i8 %99, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %90, %._crit_edge.i.i.i
+.thread27.i.i.i:                                  ; preds = %90, %._crit_edge.i.i.i
   %101 = phi ptr [ %88, %._crit_edge.i.i.i ], [ %96, %90 ]
   %102 = phi i8 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %100, %90 ]
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -26449,7 +26449,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3lcmERK3mpzS3_RS1_(ptr nounde
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit21
 
-_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit21:     ; preds = %108, %.thread25.i.i.i, %81, %65, %60, %53, %48
+_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit21:     ; preds = %108, %.thread27.i.i.i, %81, %65, %60, %53, %48
   %109 = load ptr, ptr %42, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %109, null
   br i1 %.not.i.i, label %_ZN11mpz_managerILb0EE3delER3mpz.exit, label %110
@@ -26587,8 +26587,8 @@ _ZN11mpz_managerILb0EE3remERK3mpzS3_RS1_.exit:    ; preds = %.noexc, %35, %39
   unreachable
 
 _ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit: ; preds = %45, %49, %25, %11, %_ZN11mpz_managerILb0EE3remERK3mpzS3_RS1_.exit
-  %.0.in.in14 = phi i32 [ %.pre, %_ZN11mpz_managerILb0EE3remERK3mpzS3_RS1_.exit ], [ %30, %25 ], [ %12, %11 ], [ %.pre, %49 ], [ %.pre, %45 ]
-  %.0.in = icmp eq i32 %.0.in.in14, 0
+  %.0.in.in16 = phi i32 [ %.pre, %_ZN11mpz_managerILb0EE3remERK3mpzS3_RS1_.exit ], [ %30, %25 ], [ %12, %11 ], [ %.pre, %49 ], [ %.pre, %45 ]
+  %.0.in = icmp eq i32 %.0.in.in16, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.in
 }
@@ -26765,14 +26765,14 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit16:     ; preds = %47, %51
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 588
   %63 = load i32, ptr %6, align 8, !tbaa !23
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %.critedge, label %.lr.ph103
+  br i1 %64, label %.critedge, label %.lr.ph120
 
 65:                                               ; preds = %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit37
   %66 = load i32, ptr %6, align 8, !tbaa !23
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %.critedge, label %.lr.ph103, !llvm.loop !171
+  br i1 %67, label %.critedge, label %.lr.ph120, !llvm.loop !171
 
-.lr.ph103:                                        ; preds = %.lr.ph, %65
+.lr.ph120:                                        ; preds = %.lr.ph, %65
   call void @_ZN11mpz_managerILb0EE3modERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @_ZN11mpz_managerILb0EE3modERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %8)
   %68 = load i8, ptr %32, align 4
@@ -26780,12 +26780,12 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit16:     ; preds = %47, %51
   %70 = icmp eq i8 %69, 0
   br i1 %70, label %71, label %74
 
-71:                                               ; preds = %.lr.ph103
+71:                                               ; preds = %.lr.ph120
   %72 = load i32, ptr %7, align 8, !tbaa !23
   %73 = sext i32 %72 to i64
   br label %_ZNK11mpz_managerILb0EE10get_uint64ERK3mpz.exit
 
-74:                                               ; preds = %.lr.ph103
+74:                                               ; preds = %.lr.ph120
   %75 = load ptr, ptr %33, align 8, !tbaa !22
   %76 = load i32, ptr %75, align 4, !tbaa !25
   %77 = icmp eq i32 %76, 1
@@ -26909,7 +26909,7 @@ _ZN11mpz_managerILb0EE3setER3mpzm.exit:           ; preds = %102, %_ZN11mpz_mana
 139:                                              ; preds = %132
   %140 = load ptr, ptr %39, align 8, !tbaa !22
   %141 = icmp eq ptr %140, null
-  br i1 %141, label %142, label %.thread25.i.i.i
+  br i1 %141, label %142, label %.thread27.i.i.i
 
 142:                                              ; preds = %139
   %143 = load i32, ptr %60, align 4, !tbaa !143
@@ -26922,9 +26922,9 @@ _ZN11mpz_managerILb0EE3setER3mpzm.exit:           ; preds = %102, %_ZN11mpz_mana
   store ptr %147, ptr %39, align 8, !tbaa !22
   %149 = load i8, ptr %38, align 4
   %150 = and i8 %149, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %139, %142
+.thread27.i.i.i:                                  ; preds = %139, %142
   %151 = phi ptr [ %147, %142 ], [ %140, %139 ]
   %152 = phi i8 [ %150, %142 ], [ %125, %139 ]
   %153 = or i8 %152, 1
@@ -26945,7 +26945,7 @@ _ZN11mpz_managerILb0EE3setER3mpzm.exit:           ; preds = %102, %_ZN11mpz_mana
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread25.i.i.i, %157
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread27.i.i.i, %157
   %158 = load i8, ptr %54, align 4
   %159 = and i8 %158, 1
   %160 = icmp eq i8 %159, 0
@@ -26976,7 +26976,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread25.i.i
 174:                                              ; preds = %165
   %175 = load ptr, ptr %61, align 8, !tbaa !22
   %176 = icmp eq ptr %175, null
-  br i1 %176, label %177, label %.thread25.i.i.i23
+  br i1 %176, label %177, label %.thread27.i.i.i23
 
 177:                                              ; preds = %174
   %178 = load i32, ptr %60, align 4, !tbaa !143
@@ -26989,9 +26989,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread25.i.i
   store ptr %182, ptr %61, align 8, !tbaa !22
   %184 = load i8, ptr %54, align 4
   %185 = and i8 %184, -3
-  br label %.thread25.i.i.i23
+  br label %.thread27.i.i.i23
 
-.thread25.i.i.i23:                                ; preds = %174, %177
+.thread27.i.i.i23:                                ; preds = %174, %177
   %186 = phi ptr [ %182, %177 ], [ %175, %174 ]
   %187 = phi i8 [ %185, %177 ], [ %158, %174 ]
   %188 = or i8 %187, 1
@@ -27012,7 +27012,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread25.i.i.i23, %192
+_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread27.i.i.i23, %192
   %193 = load i8, ptr %36, align 4
   %194 = and i8 %193, 1
   %195 = icmp eq i8 %194, 0
@@ -27043,7 +27043,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread25.i.i
 209:                                              ; preds = %200
   %210 = load ptr, ptr %37, align 8, !tbaa !22
   %211 = icmp eq ptr %210, null
-  br i1 %211, label %212, label %.thread25.i.i.i32
+  br i1 %211, label %212, label %.thread27.i.i.i32
 
 212:                                              ; preds = %209
   %213 = load i32, ptr %60, align 4, !tbaa !143
@@ -27056,9 +27056,9 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread25.i.i
   store ptr %217, ptr %37, align 8, !tbaa !22
   %219 = load i8, ptr %36, align 4
   %220 = and i8 %219, -3
-  br label %.thread25.i.i.i32
+  br label %.thread27.i.i.i32
 
-.thread25.i.i.i32:                                ; preds = %209, %212
+.thread27.i.i.i32:                                ; preds = %209, %212
   %221 = phi ptr [ %217, %212 ], [ %210, %209 ]
   %222 = phi i8 [ %220, %212 ], [ %193, %209 ]
   %223 = or i8 %222, 1
@@ -27079,7 +27079,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %9)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit37
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit37:  ; preds = %207, %.thread25.i.i.i32, %227
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit37:  ; preds = %207, %.thread27.i.i.i32, %227
   call void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %228 = load i32, ptr %5, align 8, !tbaa !23
@@ -27117,7 +27117,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit37:  ; preds = %207, %.thread25.i.i
 245:                                              ; preds = %237
   %246 = load ptr, ptr %29, align 8, !tbaa !22
   %247 = icmp eq ptr %246, null
-  br i1 %247, label %248, label %.thread25.i.i.i42
+  br i1 %247, label %248, label %.thread27.i.i.i42
 
 248:                                              ; preds = %245
   %249 = load i32, ptr %60, align 4, !tbaa !143
@@ -27130,9 +27130,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit37:  ; preds = %207, %.thread25.i.i
   store ptr %253, ptr %29, align 8, !tbaa !22
   %255 = load i8, ptr %28, align 4
   %256 = and i8 %255, -3
-  br label %.thread25.i.i.i42
+  br label %.thread27.i.i.i42
 
-.thread25.i.i.i42:                                ; preds = %245, %248
+.thread27.i.i.i42:                                ; preds = %245, %248
   %257 = phi ptr [ %253, %248 ], [ %246, %245 ]
   %258 = phi i8 [ %256, %248 ], [ %230, %245 ]
   %259 = or i8 %258, 1
@@ -27153,7 +27153,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit37:  ; preds = %207, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %5)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit47
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit47:  ; preds = %243, %.thread25.i.i.i42, %263
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit47:  ; preds = %243, %.thread27.i.i.i42, %263
   %264 = load i8, ptr %54, align 4
   %265 = and i8 %264, 1
   %266 = icmp eq i8 %265, 0
@@ -27184,7 +27184,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit47:  ; preds = %243, %.thread25.i.i
 280:                                              ; preds = %271
   %281 = load ptr, ptr %61, align 8, !tbaa !22
   %282 = icmp eq ptr %281, null
-  br i1 %282, label %283, label %.thread25.i.i.i52
+  br i1 %282, label %283, label %.thread27.i.i.i52
 
 283:                                              ; preds = %280
   %284 = load i32, ptr %60, align 4, !tbaa !143
@@ -27197,9 +27197,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit47:  ; preds = %243, %.thread25.i.i
   store ptr %288, ptr %61, align 8, !tbaa !22
   %290 = load i8, ptr %54, align 4
   %291 = and i8 %290, -3
-  br label %.thread25.i.i.i52
+  br label %.thread27.i.i.i52
 
-.thread25.i.i.i52:                                ; preds = %280, %283
+.thread27.i.i.i52:                                ; preds = %280, %283
   %292 = phi ptr [ %288, %283 ], [ %281, %280 ]
   %293 = phi i8 [ %291, %283 ], [ %264, %280 ]
   %294 = or i8 %293, 1
@@ -27220,7 +27220,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit47:  ; preds = %243, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit57
 
-_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit57:  ; preds = %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit37, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit16, %298, %.thread25.i.i.i52, %278
+_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit57:  ; preds = %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit37, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit16, %298, %.thread27.i.i.i52, %278
   %299 = load i32, ptr %6, align 8, !tbaa !23
   %300 = icmp eq i32 %299, 0
   br i1 %300, label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit77, label %301
@@ -27255,7 +27255,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit57:  ; preds = %_ZN11mpz_managerILb
 317:                                              ; preds = %309
   %318 = load ptr, ptr %31, align 8, !tbaa !22
   %319 = icmp eq ptr %318, null
-  br i1 %319, label %320, label %.thread25.i.i.i62
+  br i1 %319, label %320, label %.thread27.i.i.i62
 
 320:                                              ; preds = %317
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -27269,9 +27269,9 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit57:  ; preds = %_ZN11mpz_managerILb
   store ptr %326, ptr %31, align 8, !tbaa !22
   %328 = load i8, ptr %30, align 4
   %329 = and i8 %328, -3
-  br label %.thread25.i.i.i62
+  br label %.thread27.i.i.i62
 
-.thread25.i.i.i62:                                ; preds = %317, %320
+.thread27.i.i.i62:                                ; preds = %317, %320
   %330 = phi ptr [ %326, %320 ], [ %318, %317 ]
   %331 = phi i8 [ %329, %320 ], [ %302, %317 ]
   %332 = or i8 %331, 1
@@ -27292,7 +27292,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit57:  ; preds = %_ZN11mpz_managerILb
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %6)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit67
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit67:  ; preds = %315, %.thread25.i.i.i62, %336
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit67:  ; preds = %315, %.thread27.i.i.i62, %336
   %337 = load i8, ptr %54, align 4
   %338 = and i8 %337, 1
   %339 = icmp eq i8 %338, 0
@@ -27324,7 +27324,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit67:  ; preds = %315, %.thread25.i.i
   %354 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %355 = load ptr, ptr %354, align 8, !tbaa !22
   %356 = icmp eq ptr %355, null
-  br i1 %356, label %357, label %.thread25.i.i.i72
+  br i1 %356, label %357, label %.thread27.i.i.i72
 
 357:                                              ; preds = %353
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -27338,9 +27338,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit67:  ; preds = %315, %.thread25.i.i
   store ptr %363, ptr %354, align 8, !tbaa !22
   %365 = load i8, ptr %54, align 4
   %366 = and i8 %365, -3
-  br label %.thread25.i.i.i72
+  br label %.thread27.i.i.i72
 
-.thread25.i.i.i72:                                ; preds = %353, %357
+.thread27.i.i.i72:                                ; preds = %353, %357
   %367 = phi ptr [ %363, %357 ], [ %355, %353 ]
   %368 = phi i8 [ %366, %357 ], [ %337, %353 ]
   %369 = or i8 %368, 1
@@ -27361,7 +27361,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit67:  ; preds = %315, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit77
 
-_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit77:  ; preds = %373, %.thread25.i.i.i72, %351, %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit57
+_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit77:  ; preds = %373, %.thread27.i.i.i72, %351, %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit57
   %374 = load ptr, ptr %29, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %374, null
   br i1 %.not.i.i, label %_ZN11mpz_managerILb0EE3delER3mpz.exit, label %375
@@ -27830,7 +27830,7 @@ _ZN11mpz_managerILb0EE3setER3mpzm.exit:           ; preds = %100, %_ZN11mpz_mana
 137:                                              ; preds = %130
   %138 = load ptr, ptr %39, align 8, !tbaa !22
   %139 = icmp eq ptr %138, null
-  br i1 %139, label %140, label %.thread25.i.i.i
+  br i1 %139, label %140, label %.thread27.i.i.i
 
 140:                                              ; preds = %137
   %141 = load i32, ptr %62, align 4, !tbaa !143
@@ -27843,9 +27843,9 @@ _ZN11mpz_managerILb0EE3setER3mpzm.exit:           ; preds = %100, %_ZN11mpz_mana
   store ptr %145, ptr %39, align 8, !tbaa !22
   %147 = load i8, ptr %38, align 4
   %148 = and i8 %147, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %137, %140
+.thread27.i.i.i:                                  ; preds = %137, %140
   %149 = phi ptr [ %145, %140 ], [ %138, %137 ]
   %150 = phi i8 [ %148, %140 ], [ %123, %137 ]
   %151 = or i8 %150, 1
@@ -27866,7 +27866,7 @@ _ZN11mpz_managerILb0EE3setER3mpzm.exit:           ; preds = %100, %_ZN11mpz_mana
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %135, %.thread25.i.i.i, %155
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %135, %.thread27.i.i.i, %155
   %156 = load i8, ptr %55, align 4
   %157 = and i8 %156, 1
   %158 = icmp eq i8 %157, 0
@@ -27897,7 +27897,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %135, %.thread25.i.i
 172:                                              ; preds = %163
   %173 = load ptr, ptr %63, align 8, !tbaa !22
   %174 = icmp eq ptr %173, null
-  br i1 %174, label %175, label %.thread25.i.i.i19
+  br i1 %174, label %175, label %.thread27.i.i.i19
 
 175:                                              ; preds = %172
   %176 = load i32, ptr %62, align 4, !tbaa !143
@@ -27910,9 +27910,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %135, %.thread25.i.i
   store ptr %180, ptr %63, align 8, !tbaa !22
   %182 = load i8, ptr %55, align 4
   %183 = and i8 %182, -3
-  br label %.thread25.i.i.i19
+  br label %.thread27.i.i.i19
 
-.thread25.i.i.i19:                                ; preds = %172, %175
+.thread27.i.i.i19:                                ; preds = %172, %175
   %184 = phi ptr [ %180, %175 ], [ %173, %172 ]
   %185 = phi i8 [ %183, %175 ], [ %156, %172 ]
   %186 = or i8 %185, 1
@@ -27933,7 +27933,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %135, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %170, %.thread25.i.i.i19, %190
+_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %170, %.thread27.i.i.i19, %190
   %191 = load i8, ptr %36, align 4
   %192 = and i8 %191, 1
   %193 = icmp eq i8 %192, 0
@@ -27964,7 +27964,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %170, %.thread25.i.i
 207:                                              ; preds = %198
   %208 = load ptr, ptr %37, align 8, !tbaa !22
   %209 = icmp eq ptr %208, null
-  br i1 %209, label %210, label %.thread25.i.i.i28
+  br i1 %209, label %210, label %.thread27.i.i.i28
 
 210:                                              ; preds = %207
   %211 = load i32, ptr %62, align 4, !tbaa !143
@@ -27977,9 +27977,9 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %170, %.thread25.i.i
   store ptr %215, ptr %37, align 8, !tbaa !22
   %217 = load i8, ptr %36, align 4
   %218 = and i8 %217, -3
-  br label %.thread25.i.i.i28
+  br label %.thread27.i.i.i28
 
-.thread25.i.i.i28:                                ; preds = %207, %210
+.thread27.i.i.i28:                                ; preds = %207, %210
   %219 = phi ptr [ %215, %210 ], [ %208, %207 ]
   %220 = phi i8 [ %218, %210 ], [ %191, %207 ]
   %221 = or i8 %220, 1
@@ -28000,7 +28000,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %170, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %9)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit33
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit33:  ; preds = %205, %.thread25.i.i.i28, %225
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit33:  ; preds = %205, %.thread27.i.i.i28, %225
   call void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %226 = load i32, ptr %5, align 8, !tbaa !23
@@ -28304,14 +28304,14 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit15:     ; preds = %47, %51
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 588
   %63 = load i32, ptr %6, align 8, !tbaa !23
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %.critedge, label %.lr.ph105
+  br i1 %64, label %.critedge, label %.lr.ph123
 
 65:                                               ; preds = %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit39
   %66 = load i32, ptr %6, align 8, !tbaa !23
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %.critedge, label %.lr.ph105, !llvm.loop !173
+  br i1 %67, label %.critedge, label %.lr.ph123, !llvm.loop !173
 
-.lr.ph105:                                        ; preds = %.lr.ph, %65
+.lr.ph123:                                        ; preds = %.lr.ph, %65
   call void @_ZN11mpz_managerILb0EE3modERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @_ZN11mpz_managerILb0EE3modERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %8)
   %68 = load i8, ptr %32, align 4
@@ -28319,12 +28319,12 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit15:     ; preds = %47, %51
   %70 = icmp eq i8 %69, 0
   br i1 %70, label %71, label %74
 
-71:                                               ; preds = %.lr.ph105
+71:                                               ; preds = %.lr.ph123
   %72 = load i32, ptr %7, align 8, !tbaa !23
   %73 = sext i32 %72 to i64
   br label %_ZNK11mpz_managerILb0EE10get_uint64ERK3mpz.exit
 
-74:                                               ; preds = %.lr.ph105
+74:                                               ; preds = %.lr.ph123
   %75 = load ptr, ptr %33, align 8, !tbaa !22
   %76 = load i32, ptr %75, align 4, !tbaa !25
   %77 = icmp eq i32 %76, 1
@@ -28448,7 +28448,7 @@ _ZN11mpz_managerILb0EE3setER3mpzm.exit:           ; preds = %102, %_ZN11mpz_mana
 139:                                              ; preds = %132
   %140 = load ptr, ptr %39, align 8, !tbaa !22
   %141 = icmp eq ptr %140, null
-  br i1 %141, label %142, label %.thread25.i.i.i
+  br i1 %141, label %142, label %.thread27.i.i.i
 
 142:                                              ; preds = %139
   %143 = load i32, ptr %60, align 4, !tbaa !143
@@ -28461,9 +28461,9 @@ _ZN11mpz_managerILb0EE3setER3mpzm.exit:           ; preds = %102, %_ZN11mpz_mana
   store ptr %147, ptr %39, align 8, !tbaa !22
   %149 = load i8, ptr %38, align 4
   %150 = and i8 %149, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %139, %142
+.thread27.i.i.i:                                  ; preds = %139, %142
   %151 = phi ptr [ %147, %142 ], [ %140, %139 ]
   %152 = phi i8 [ %150, %142 ], [ %125, %139 ]
   %153 = or i8 %152, 1
@@ -28484,7 +28484,7 @@ _ZN11mpz_managerILb0EE3setER3mpzm.exit:           ; preds = %102, %_ZN11mpz_mana
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread25.i.i.i, %157
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread27.i.i.i, %157
   %158 = load i8, ptr %54, align 4
   %159 = and i8 %158, 1
   %160 = icmp eq i8 %159, 0
@@ -28515,7 +28515,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread25.i.i
 174:                                              ; preds = %165
   %175 = load ptr, ptr %61, align 8, !tbaa !22
   %176 = icmp eq ptr %175, null
-  br i1 %176, label %177, label %.thread25.i.i.i25
+  br i1 %176, label %177, label %.thread27.i.i.i25
 
 177:                                              ; preds = %174
   %178 = load i32, ptr %60, align 4, !tbaa !143
@@ -28528,9 +28528,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread25.i.i
   store ptr %182, ptr %61, align 8, !tbaa !22
   %184 = load i8, ptr %54, align 4
   %185 = and i8 %184, -3
-  br label %.thread25.i.i.i25
+  br label %.thread27.i.i.i25
 
-.thread25.i.i.i25:                                ; preds = %174, %177
+.thread27.i.i.i25:                                ; preds = %174, %177
   %186 = phi ptr [ %182, %177 ], [ %175, %174 ]
   %187 = phi i8 [ %185, %177 ], [ %158, %174 ]
   %188 = or i8 %187, 1
@@ -28551,7 +28551,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %137, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread25.i.i.i25, %192
+_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread27.i.i.i25, %192
   %193 = load i8, ptr %36, align 4
   %194 = and i8 %193, 1
   %195 = icmp eq i8 %194, 0
@@ -28582,7 +28582,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread25.i.i
 209:                                              ; preds = %200
   %210 = load ptr, ptr %37, align 8, !tbaa !22
   %211 = icmp eq ptr %210, null
-  br i1 %211, label %212, label %.thread25.i.i.i34
+  br i1 %211, label %212, label %.thread27.i.i.i34
 
 212:                                              ; preds = %209
   %213 = load i32, ptr %60, align 4, !tbaa !143
@@ -28595,9 +28595,9 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread25.i.i
   store ptr %217, ptr %37, align 8, !tbaa !22
   %219 = load i8, ptr %36, align 4
   %220 = and i8 %219, -3
-  br label %.thread25.i.i.i34
+  br label %.thread27.i.i.i34
 
-.thread25.i.i.i34:                                ; preds = %209, %212
+.thread27.i.i.i34:                                ; preds = %209, %212
   %221 = phi ptr [ %217, %212 ], [ %210, %209 ]
   %222 = phi i8 [ %220, %212 ], [ %193, %209 ]
   %223 = or i8 %222, 1
@@ -28618,7 +28618,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %172, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %9)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit39
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit39:  ; preds = %207, %.thread25.i.i.i34, %227
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit39:  ; preds = %207, %.thread27.i.i.i34, %227
   call void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %228 = load i32, ptr %5, align 8, !tbaa !23
@@ -28656,7 +28656,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit39:  ; preds = %207, %.thread25.i.i
 245:                                              ; preds = %237
   %246 = load ptr, ptr %29, align 8, !tbaa !22
   %247 = icmp eq ptr %246, null
-  br i1 %247, label %248, label %.thread25.i.i.i44
+  br i1 %247, label %248, label %.thread27.i.i.i44
 
 248:                                              ; preds = %245
   %249 = load i32, ptr %60, align 4, !tbaa !143
@@ -28669,9 +28669,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit39:  ; preds = %207, %.thread25.i.i
   store ptr %253, ptr %29, align 8, !tbaa !22
   %255 = load i8, ptr %28, align 4
   %256 = and i8 %255, -3
-  br label %.thread25.i.i.i44
+  br label %.thread27.i.i.i44
 
-.thread25.i.i.i44:                                ; preds = %245, %248
+.thread27.i.i.i44:                                ; preds = %245, %248
   %257 = phi ptr [ %253, %248 ], [ %246, %245 ]
   %258 = phi i8 [ %256, %248 ], [ %230, %245 ]
   %259 = or i8 %258, 1
@@ -28692,7 +28692,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit39:  ; preds = %207, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %5)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit49
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit49:  ; preds = %243, %.thread25.i.i.i44, %263
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit49:  ; preds = %243, %.thread27.i.i.i44, %263
   %264 = load i8, ptr %54, align 4
   %265 = and i8 %264, 1
   %266 = icmp eq i8 %265, 0
@@ -28723,7 +28723,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit49:  ; preds = %243, %.thread25.i.i
 280:                                              ; preds = %271
   %281 = load ptr, ptr %61, align 8, !tbaa !22
   %282 = icmp eq ptr %281, null
-  br i1 %282, label %283, label %.thread25.i.i.i54
+  br i1 %282, label %283, label %.thread27.i.i.i54
 
 283:                                              ; preds = %280
   %284 = load i32, ptr %60, align 4, !tbaa !143
@@ -28736,9 +28736,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit49:  ; preds = %243, %.thread25.i.i
   store ptr %288, ptr %61, align 8, !tbaa !22
   %290 = load i8, ptr %54, align 4
   %291 = and i8 %290, -3
-  br label %.thread25.i.i.i54
+  br label %.thread27.i.i.i54
 
-.thread25.i.i.i54:                                ; preds = %280, %283
+.thread27.i.i.i54:                                ; preds = %280, %283
   %292 = phi ptr [ %288, %283 ], [ %281, %280 ]
   %293 = phi i8 [ %291, %283 ], [ %264, %280 ]
   %294 = or i8 %293, 1
@@ -28759,7 +28759,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit49:  ; preds = %243, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit59
 
-_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit59:  ; preds = %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit39, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit15, %298, %.thread25.i.i.i54, %278
+_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit59:  ; preds = %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit39, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit15, %298, %.thread27.i.i.i54, %278
   %299 = load i32, ptr %6, align 8, !tbaa !23
   %300 = icmp eq i32 %299, 0
   br i1 %300, label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit79, label %301
@@ -28794,7 +28794,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit59:  ; preds = %_ZN11mpz_managerILb
 317:                                              ; preds = %309
   %318 = load ptr, ptr %31, align 8, !tbaa !22
   %319 = icmp eq ptr %318, null
-  br i1 %319, label %320, label %.thread25.i.i.i64
+  br i1 %319, label %320, label %.thread27.i.i.i64
 
 320:                                              ; preds = %317
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -28808,9 +28808,9 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit59:  ; preds = %_ZN11mpz_managerILb
   store ptr %326, ptr %31, align 8, !tbaa !22
   %328 = load i8, ptr %30, align 4
   %329 = and i8 %328, -3
-  br label %.thread25.i.i.i64
+  br label %.thread27.i.i.i64
 
-.thread25.i.i.i64:                                ; preds = %317, %320
+.thread27.i.i.i64:                                ; preds = %317, %320
   %330 = phi ptr [ %326, %320 ], [ %318, %317 ]
   %331 = phi i8 [ %329, %320 ], [ %302, %317 ]
   %332 = or i8 %331, 1
@@ -28831,7 +28831,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit59:  ; preds = %_ZN11mpz_managerILb
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %6)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit69
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit69:  ; preds = %315, %.thread25.i.i.i64, %336
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit69:  ; preds = %315, %.thread27.i.i.i64, %336
   %337 = load i8, ptr %54, align 4
   %338 = and i8 %337, 1
   %339 = icmp eq i8 %338, 0
@@ -28863,7 +28863,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit69:  ; preds = %315, %.thread25.i.i
   %354 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %355 = load ptr, ptr %354, align 8, !tbaa !22
   %356 = icmp eq ptr %355, null
-  br i1 %356, label %357, label %.thread25.i.i.i74
+  br i1 %356, label %357, label %.thread27.i.i.i74
 
 357:                                              ; preds = %353
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -28877,9 +28877,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit69:  ; preds = %315, %.thread25.i.i
   store ptr %363, ptr %354, align 8, !tbaa !22
   %365 = load i8, ptr %54, align 4
   %366 = and i8 %365, -3
-  br label %.thread25.i.i.i74
+  br label %.thread27.i.i.i74
 
-.thread25.i.i.i74:                                ; preds = %353, %357
+.thread27.i.i.i74:                                ; preds = %353, %357
   %367 = phi ptr [ %363, %357 ], [ %355, %353 ]
   %368 = phi i8 [ %366, %357 ], [ %337, %353 ]
   %369 = or i8 %368, 1
@@ -28900,7 +28900,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit69:  ; preds = %315, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit79
 
-_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit79:  ; preds = %373, %.thread25.i.i.i74, %351, %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit59
+_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit79:  ; preds = %373, %.thread27.i.i.i74, %351, %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit59
   %374 = load ptr, ptr %29, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %374, null
   br i1 %.not.i.i, label %_ZN11mpz_managerILb0EE3delER3mpz.exit, label %375
@@ -29319,7 +29319,7 @@ _ZN11mpz_managerILb0EE3setER3mpzm.exit32:         ; preds = %93, %_ZN11mpz_manag
 130:                                              ; preds = %123
   %131 = load ptr, ptr %57, align 8, !tbaa !22
   %132 = icmp eq ptr %131, null
-  br i1 %132, label %133, label %.thread25.i.i.i
+  br i1 %132, label %133, label %.thread27.i.i.i
 
 133:                                              ; preds = %130
   %134 = load i32, ptr %67, align 4, !tbaa !143
@@ -29332,9 +29332,9 @@ _ZN11mpz_managerILb0EE3setER3mpzm.exit32:         ; preds = %93, %_ZN11mpz_manag
   store ptr %138, ptr %57, align 8, !tbaa !22
   %140 = load i8, ptr %56, align 4
   %141 = and i8 %140, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %130, %133
+.thread27.i.i.i:                                  ; preds = %130, %133
   %142 = phi ptr [ %138, %133 ], [ %131, %130 ]
   %143 = phi i8 [ %141, %133 ], [ %116, %130 ]
   %144 = or i8 %143, 1
@@ -29355,7 +29355,7 @@ _ZN11mpz_managerILb0EE3setER3mpzm.exit32:         ; preds = %93, %_ZN11mpz_manag
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %128, %.thread25.i.i.i, %148
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %128, %.thread27.i.i.i, %148
   %149 = load i8, ptr %63, align 4
   %150 = and i8 %149, 1
   %151 = icmp eq i8 %150, 0
@@ -29386,7 +29386,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %128, %.thread25.i.i
 165:                                              ; preds = %156
   %166 = load ptr, ptr %68, align 8, !tbaa !22
   %167 = icmp eq ptr %166, null
-  br i1 %167, label %168, label %.thread25.i.i.i37
+  br i1 %167, label %168, label %.thread27.i.i.i37
 
 168:                                              ; preds = %165
   %169 = load i32, ptr %67, align 4, !tbaa !143
@@ -29399,9 +29399,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %128, %.thread25.i.i
   store ptr %173, ptr %68, align 8, !tbaa !22
   %175 = load i8, ptr %63, align 4
   %176 = and i8 %175, -3
-  br label %.thread25.i.i.i37
+  br label %.thread27.i.i.i37
 
-.thread25.i.i.i37:                                ; preds = %165, %168
+.thread27.i.i.i37:                                ; preds = %165, %168
   %177 = phi ptr [ %173, %168 ], [ %166, %165 ]
   %178 = phi i8 [ %176, %168 ], [ %149, %165 ]
   %179 = or i8 %178, 1
@@ -29422,7 +29422,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %128, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %163, %.thread25.i.i.i37, %183
+_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %163, %.thread27.i.i.i37, %183
   %184 = load i8, ptr %54, align 4
   %185 = and i8 %184, 1
   %186 = icmp eq i8 %185, 0
@@ -29453,7 +29453,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %163, %.thread25.i.i
 200:                                              ; preds = %191
   %201 = load ptr, ptr %55, align 8, !tbaa !22
   %202 = icmp eq ptr %201, null
-  br i1 %202, label %203, label %.thread25.i.i.i46
+  br i1 %202, label %203, label %.thread27.i.i.i46
 
 203:                                              ; preds = %200
   %204 = load i32, ptr %67, align 4, !tbaa !143
@@ -29466,9 +29466,9 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %163, %.thread25.i.i
   store ptr %208, ptr %55, align 8, !tbaa !22
   %210 = load i8, ptr %54, align 4
   %211 = and i8 %210, -3
-  br label %.thread25.i.i.i46
+  br label %.thread27.i.i.i46
 
-.thread25.i.i.i46:                                ; preds = %200, %203
+.thread27.i.i.i46:                                ; preds = %200, %203
   %212 = phi ptr [ %208, %203 ], [ %201, %200 ]
   %213 = phi i8 [ %211, %203 ], [ %184, %200 ]
   %214 = or i8 %213, 1
@@ -29489,7 +29489,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %163, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %7)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit51
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit51:  ; preds = %198, %.thread25.i.i.i46, %218
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit51:  ; preds = %198, %.thread27.i.i.i46, %218
   call void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %5)
   %219 = add i32 %.066, -64
   %.not = icmp ult i32 %.066, 65
@@ -29697,7 +29697,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3setER3mpzPKc(ptr noundef non
 
 ._crit_edge.i.i.i:                                ; preds = %46
   %.pre.i.i.i = load i8, ptr %12, align 4
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
 49:                                               ; preds = %46
   %50 = load i32, ptr %20, align 4, !tbaa !143
@@ -29710,9 +29710,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3setER3mpzPKc(ptr noundef non
   store ptr %54, ptr %13, align 8, !tbaa !22
   %56 = load i8, ptr %12, align 4
   %57 = and i8 %56, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %49, %._crit_edge.i.i.i
+.thread27.i.i.i:                                  ; preds = %49, %._crit_edge.i.i.i
   %58 = phi ptr [ %47, %._crit_edge.i.i.i ], [ %54, %49 ]
   %59 = phi i8 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %57, %49 ]
   %60 = or i8 %59, 1
@@ -29733,7 +29733,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3setER3mpzPKc(ptr noundef non
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %42, %.thread25.i.i.i, %64
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %42, %.thread27.i.i.i, %64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %65 = load i8, ptr %.128, align 1, !tbaa !55
   %66 = sext i8 %65 to i32
@@ -29772,7 +29772,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %42, %.thread25.i.i.
 
 ._crit_edge.i.i.i19:                              ; preds = %83
   %.pre.i.i.i21 = load i8, ptr %7, align 4
-  br label %.thread25.i.i.i22
+  br label %.thread27.i.i.i22
 
 86:                                               ; preds = %83
   %87 = load i32, ptr %20, align 4, !tbaa !143
@@ -29785,9 +29785,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %42, %.thread25.i.i.
   store ptr %91, ptr %23, align 8, !tbaa !22
   %93 = load i8, ptr %7, align 4
   %94 = and i8 %93, -3
-  br label %.thread25.i.i.i22
+  br label %.thread27.i.i.i22
 
-.thread25.i.i.i22:                                ; preds = %86, %._crit_edge.i.i.i19
+.thread27.i.i.i22:                                ; preds = %86, %._crit_edge.i.i.i19
   %95 = phi ptr [ %84, %._crit_edge.i.i.i19 ], [ %91, %86 ]
   %96 = phi i8 [ %.pre.i.i.i21, %._crit_edge.i.i.i19 ], [ %94, %86 ]
   %97 = or i8 %96, 1
@@ -29808,7 +29808,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %42, %.thread25.i.i.
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %79, %.thread25.i.i.i22, %101
+_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %79, %.thread27.i.i.i22, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %102
 
@@ -30187,14 +30187,14 @@ _ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit:    ; preds = %2
 
 _ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread: ; preds = %28
   %31 = icmp slt i32 %20, 0
-  %.not19 = select i1 %29, i1 %31, i1 false
-  br i1 %.not19, label %_ZNK11mpz_managerILb0EE8is_int64ERK3mpz.exit.thread12, label %.thread15
+  %.not20 = select i1 %29, i1 %31, i1 false
+  br i1 %.not20, label %_ZNK11mpz_managerILb0EE8is_int64ERK3mpz.exit.thread12, label %.thread15
 
 _ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread.thread: ; preds = %28
   %32 = load i64, ptr %13, align 4
   %33 = sub i64 0, %32
-  %spec.select.i17 = select i1 %29, i64 %33, i64 %32
-  %34 = icmp sgt i64 %spec.select.i17, -2147483648
+  %spec.select.i18 = select i1 %29, i64 %33, i64 %32
+  %34 = icmp sgt i64 %spec.select.i18, -2147483648
   br i1 %34, label %.thread15.thread, label %_ZNK11mpz_managerILb0EE8is_int64ERK3mpz.exit.thread12
 
 35:                                               ; preds = %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit
@@ -31131,8 +31131,8 @@ _ZNK11mpz_managerILb0EE10get_uint64ERK3mpz.exit:  ; preds = %4
   br i1 %.not, label %_ZL19display_binary_dataRSomm.exit, label %.lr.ph58
 
 .loopexit.thread:                                 ; preds = %.lr.ph
-  %.not71 = icmp eq i32 %24, 0
-  br i1 %.not71, label %_ZL19display_binary_dataRSomm.exit, label %.lr.ph58.split.us.preheader
+  %.not73 = icmp eq i32 %24, 0
+  br i1 %.not73, label %_ZL19display_binary_dataRSomm.exit, label %.lr.ph58.split.us.preheader
 
 .lr.ph58:                                         ; preds = %.loopexit
   %30 = and i32 %3, 31
@@ -31473,7 +31473,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %73, %76
 105:                                              ; preds = %96
   %106 = load ptr, ptr %84, align 8, !tbaa !22
   %107 = icmp eq ptr %106, null
-  br i1 %107, label %108, label %.thread25.i.i.i
+  br i1 %107, label %108, label %.thread27.i.i.i
 
 108:                                              ; preds = %105
   %109 = load i32, ptr %85, align 4, !tbaa !143
@@ -31486,9 +31486,9 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %73, %76
   store ptr %113, ptr %84, align 8, !tbaa !22
   %115 = load i8, ptr %81, align 4
   %116 = and i8 %115, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %105, %108
+.thread27.i.i.i:                                  ; preds = %105, %108
   %117 = phi ptr [ %113, %108 ], [ %106, %105 ]
   %118 = phi i8 [ %116, %108 ], [ %89, %105 ]
   %119 = or i8 %118, 1
@@ -31509,7 +31509,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %73, %76
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %123, %.thread25.i.i.i, %103, %86
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %123, %.thread27.i.i.i, %103, %86
   %124 = load i8, ptr %80, align 4
   %125 = and i8 %124, 1
   %126 = icmp eq i8 %125, 0
@@ -31532,7 +31532,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %123, %.thread25.i.i
 133:                                              ; preds = %127
   %134 = load ptr, ptr %79, align 8, !tbaa !22
   %135 = icmp eq ptr %134, null
-  br i1 %135, label %136, label %.thread25.i.i.i45
+  br i1 %135, label %136, label %.thread27.i.i.i45
 
 136:                                              ; preds = %133
   %137 = load i32, ptr %85, align 4, !tbaa !143
@@ -31545,9 +31545,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %123, %.thread25.i.i
   store ptr %141, ptr %79, align 8, !tbaa !22
   %143 = load i8, ptr %80, align 4
   %144 = and i8 %143, -3
-  br label %.thread25.i.i.i45
+  br label %.thread27.i.i.i45
 
-.thread25.i.i.i45:                                ; preds = %133, %136
+.thread27.i.i.i45:                                ; preds = %133, %136
   %145 = phi ptr [ %141, %136 ], [ %134, %133 ]
   %146 = phi i8 [ %144, %136 ], [ %124, %133 ]
   %147 = or i8 %146, 1
@@ -31564,7 +31564,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %123, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit50
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit50:  ; preds = %131, %.thread25.i.i.i45, %150
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit50:  ; preds = %131, %.thread27.i.i.i45, %150
   %151 = shl i32 %.056, 1
   %.not = icmp ugt i32 %151, %2
   br i1 %.not, label %._crit_edge58, label %86, !llvm.loop !192
@@ -32048,7 +32048,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE5mul2kER3mpzj(ptr noundef non
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !22
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %.thread25.i.i
+  br i1 %24, label %25, label %.thread27.i.i
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -32062,9 +32062,9 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE5mul2kER3mpzj(ptr noundef non
   store ptr %31, ptr %22, align 8, !tbaa !22
   %33 = load i8, ptr %9, align 4
   %34 = and i8 %33, -3
-  br label %.thread25.i.i
+  br label %.thread27.i.i
 
-.thread25.i.i:                                    ; preds = %25, %21
+.thread27.i.i:                                    ; preds = %25, %21
   %35 = phi ptr [ %31, %25 ], [ %23, %21 ]
   %36 = phi i8 [ %34, %25 ], [ %10, %21 ]
   %37 = or i8 %36, 1
@@ -32232,7 +32232,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE5mul2kER3mpzj(ptr noundef non
   store i32 %93, ptr %52, align 4, !tbaa !25
   br label %_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit
 
-_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit:       ; preds = %107, %100, %94, %.thread25.i.i, %19, %3, %5
+_ZN11mpz_managerILb0EE7set_i64ER3mpzl.exit:       ; preds = %107, %100, %94, %.thread27.i.i, %19, %3, %5
   ret void
 }
 
@@ -32606,7 +32606,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %28
 
 ._crit_edge.i.i.i:                                ; preds = %52
   %.pre.i.i.i = load i8, ptr %37, align 4
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -32620,9 +32620,9 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %28
   store ptr %61, ptr %38, align 8, !tbaa !22
   %63 = load i8, ptr %37, align 4
   %64 = and i8 %63, -3
-  br label %.thread25.i.i.i
+  br label %.thread27.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %55, %._crit_edge.i.i.i
+.thread27.i.i.i:                                  ; preds = %55, %._crit_edge.i.i.i
   %65 = phi ptr [ %53, %._crit_edge.i.i.i ], [ %61, %55 ]
   %66 = phi i8 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %64, %55 ]
   %67 = or i8 %66, 1
@@ -32639,7 +32639,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %28
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %8)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %48, %.thread25.i.i.i, %70
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %48, %.thread27.i.i.i, %70
   %71 = call noundef zeroext i1 @_ZN11mpz_managerILb0EE2eqERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br i1 %71, label %._crit_edge, label %.lr.ph
 
@@ -32705,7 +32705,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %48, %.thread25.i.i.
 
 ._crit_edge.i.i.i21:                              ; preds = %100
   %.pre.i.i.i23 = load i8, ptr %33, align 4
-  br label %.thread25.i.i.i24
+  br label %.thread27.i.i.i24
 
 103:                                              ; preds = %100
   %104 = load i32, ptr %74, align 4, !tbaa !143
@@ -32718,9 +32718,9 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %48, %.thread25.i.i.
   store ptr %108, ptr %34, align 8, !tbaa !22
   %110 = load i8, ptr %33, align 4
   %111 = and i8 %110, -3
-  br label %.thread25.i.i.i24
+  br label %.thread27.i.i.i24
 
-.thread25.i.i.i24:                                ; preds = %103, %._crit_edge.i.i.i21
+.thread27.i.i.i24:                                ; preds = %103, %._crit_edge.i.i.i21
   %112 = phi ptr [ %101, %._crit_edge.i.i.i21 ], [ %108, %103 ]
   %113 = phi i8 [ %.pre.i.i.i23, %._crit_edge.i.i.i21 ], [ %111, %103 ]
   %114 = or i8 %113, 1
@@ -32737,7 +32737,7 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %48, %.thread25.i.i.
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %6)
   br label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit
 
-_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %96, %.thread25.i.i.i24, %117
+_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %96, %.thread27.i.i.i24, %117
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %118 = call noundef zeroext i1 @_ZN11mpz_managerILb0EE2eqERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5)
   %119 = load i8, ptr %31, align 4
@@ -32794,7 +32794,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %96, %.thread25.i.i.
 
 ._crit_edge.i.i.i31:                              ; preds = %144
   %.pre.i.i.i33 = load i8, ptr %33, align 4
-  br label %.thread25.i.i.i34
+  br label %.thread27.i.i.i34
 
 147:                                              ; preds = %144
   %148 = load i32, ptr %74, align 4, !tbaa !143
@@ -32807,9 +32807,9 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %96, %.thread25.i.i.
   store ptr %152, ptr %34, align 8, !tbaa !22
   %154 = load i8, ptr %33, align 4
   %155 = and i8 %154, -3
-  br label %.thread25.i.i.i34
+  br label %.thread27.i.i.i34
 
-.thread25.i.i.i34:                                ; preds = %147, %._crit_edge.i.i.i31
+.thread27.i.i.i34:                                ; preds = %147, %._crit_edge.i.i.i31
   %156 = phi ptr [ %145, %._crit_edge.i.i.i31 ], [ %152, %147 ]
   %157 = phi i8 [ %.pre.i.i.i33, %._crit_edge.i.i.i31 ], [ %155, %147 ]
   %158 = or i8 %157, 1
@@ -32830,7 +32830,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %96, %.thread25.i.i.
   call void @_ZN11mpz_managerILb0EE11big_add_subILb0EEEvRK3mpzS4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %6)
   br label %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit39
 
-_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit39:  ; preds = %140, %.thread25.i.i.i34, %162
+_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit39:  ; preds = %140, %.thread27.i.i.i34, %162
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 2, ptr %11, align 8, !tbaa !23
   %163 = load i8, ptr %75, align 4
@@ -32867,7 +32867,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit39:  ; preds = %140, %.thread25.i.i
 
 ._crit_edge.i.i.i41:                              ; preds = %176
   %.pre.i.i.i43 = load i8, ptr %39, align 4
-  br label %.thread25.i.i.i44
+  br label %.thread27.i.i.i44
 
 179:                                              ; preds = %176
   %180 = load i32, ptr %74, align 4, !tbaa !143
@@ -32880,9 +32880,9 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit39:  ; preds = %140, %.thread25.i.i
   store ptr %184, ptr %40, align 8, !tbaa !22
   %186 = load i8, ptr %39, align 4
   %187 = and i8 %186, -3
-  br label %.thread25.i.i.i44
+  br label %.thread27.i.i.i44
 
-.thread25.i.i.i44:                                ; preds = %179, %._crit_edge.i.i.i41
+.thread27.i.i.i44:                                ; preds = %179, %._crit_edge.i.i.i41
   %188 = phi ptr [ %177, %._crit_edge.i.i.i41 ], [ %184, %179 ]
   %189 = phi i8 [ %.pre.i.i.i43, %._crit_edge.i.i.i41 ], [ %187, %179 ]
   %190 = or i8 %189, 1
@@ -32899,7 +32899,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit39:  ; preds = %140, %.thread25.i.i
   call void @_ZN11mpz_managerILb0EE7big_mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %9)
   br label %_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit49
 
-_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit49:  ; preds = %172, %.thread25.i.i.i44, %193
+_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit49:  ; preds = %172, %.thread27.i.i.i44, %193
   %194 = call noundef zeroext i1 @_ZN11mpz_managerILb0EE2ltERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %9)
   %195 = load i8, ptr %33, align 4
   %196 = and i8 %195, 1

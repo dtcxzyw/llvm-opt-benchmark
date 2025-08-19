@@ -428,7 +428,7 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr noundef captures(non
   %205 = sub i32 %204, %108
   %206 = sext i32 %205 to i64
   %207 = icmp sgt i64 %203, %206
-  br i1 %207, label %386, label %.preheader471
+  br i1 %207, label %386, label %.preheader503
 
 208:                                              ; preds = %.thread35
   %209 = getelementptr i8, ptr %226, i64 %37
@@ -446,9 +446,9 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr noundef captures(non
   %221 = sub i32 %220, %108
   %222 = sext i32 %221 to i64
   %223 = icmp sgt i64 %219, %222
-  br i1 %223, label %.loopexit, label %.preheader471, !llvm.loop !16
+  br i1 %223, label %.loopexit, label %.preheader503, !llvm.loop !16
 
-.preheader471:                                    ; preds = %197, %208
+.preheader503:                                    ; preds = %197, %208
   %224 = phi i32 [ %383, %208 ], [ %50, %197 ]
   %225 = phi i32 [ %382, %208 ], [ %48, %197 ]
   %226 = phi ptr [ %214, %208 ], [ %199, %197 ]
@@ -467,14 +467,14 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr noundef captures(non
   %239 = icmp ult i64 %237, %238
   br i1 %239, label %244, label %240
 
-240:                                              ; preds = %.preheader471
+240:                                              ; preds = %.preheader503
   %241 = load i64, ptr %28, align 8
   %242 = sub nuw i64 %237, %238
   %243 = add i64 %241, %242
   br label %244
 
-244:                                              ; preds = %240, %.preheader471
-  %245 = phi i64 [ %243, %240 ], [ %237, %.preheader471 ]
+244:                                              ; preds = %240, %.preheader503
+  %245 = phi i64 [ %243, %240 ], [ %237, %.preheader503 ]
   %246 = trunc i64 %227 to i32
   %247 = call fastcc i32 @jread(ptr noundef nonnull %12, ptr noundef %0, i32 noundef %246)
   %248 = icmp eq i32 %247, 0
@@ -1012,8 +1012,8 @@ jbd2_commit_block_csum_verify.exit.thread:        ; preds = %449, %471, %jbd2_co
   %524 = load i32, ptr %523, align 4
   %.fr73 = freeze i32 %524
   %525 = and i32 %.fr73, 33554432
-  %.not470 = icmp eq i32 %525, 0
-  %spec.select = select i1 %.not470, i32 4, i32 8
+  %.not502 = icmp eq i32 %525, 0
+  %spec.select = select i1 %.not502, i32 4, i32 8
   %526 = or disjoint i32 %spec.select, 16
   %527 = icmp sgt i32 %526, %497
   br i1 %527, label %.thread48, label %.lr.ph
@@ -1023,7 +1023,7 @@ jbd2_commit_block_csum_verify.exit.thread:        ; preds = %449, %471, %jbd2_co
   br i1 %528, label %.thread48, label %.lr.ph.split.preheader
 
 .lr.ph:                                           ; preds = %.thread46
-  br i1 %.not470, label %.lr.ph.split.preheader, label %.lr.ph.split.us
+  br i1 %.not502, label %.lr.ph.split.preheader, label %.lr.ph.split.us
 
 .lr.ph.split.preheader:                           ; preds = %.thread46.thread, %.lr.ph
   %529 = phi i32 [ %spec.select, %.lr.ph ], [ 4, %.thread46.thread ]
@@ -1089,13 +1089,13 @@ jbd2_commit_block_csum_verify.exit.thread:        ; preds = %449, %471, %jbd2_co
   br i1 %566, label %568, label %.sink.split
 
 .loopexit79.sink.split:                           ; preds = %398, %354, %357, %116
-  %.lcssa342.sink = phi ptr [ %73, %116 ], [ %252, %357 ], [ %252, %354 ], [ %73, %398 ]
-  %.ph465 = phi i32 [ -74, %116 ], [ -12, %357 ], [ -12, %354 ], [ -74, %398 ]
-  call void @__brelse(ptr noundef nonnull %.lcssa342.sink) #9
+  %.lcssa374.sink = phi ptr [ %73, %116 ], [ %252, %357 ], [ %252, %354 ], [ %73, %398 ]
+  %.ph497 = phi i32 [ -74, %116 ], [ -12, %357 ], [ -12, %354 ], [ -74, %398 ]
+  call void @__brelse(ptr noundef nonnull %.lcssa374.sink) #9
   br label %.loopexit79
 
 .loopexit79:                                      ; preds = %563, %58, %.loopexit79.sink.split, %398, %116
-  %567 = phi i32 [ -74, %116 ], [ -74, %398 ], [ %.ph465, %.loopexit79.sink.split ], [ %560, %563 ], [ %61, %58 ]
+  %567 = phi i32 [ -74, %116 ], [ -74, %398 ], [ %.ph497, %.loopexit79.sink.split ], [ %560, %563 ], [ %61, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %635
 
@@ -1391,13 +1391,13 @@ define internal fastcc i32 @jread(ptr noundef writeonly captures(none) initializ
   br label %59
 
 59:                                               ; preds = %._crit_edge, %54
-  %.lcssa42 = phi i32 [ %58, %._crit_edge ], [ %2, %54 ]
-  %.lcssa38 = phi i32 [ %.be28, %._crit_edge ], [ 0, %54 ]
-  %60 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, i32 noundef %.lcssa42) #10
+  %.lcssa53 = phi i32 [ %58, %._crit_edge ], [ %2, %54 ]
+  %.lcssa49 = phi i32 [ %.be39, %._crit_edge ], [ 0, %54 ]
+  %60 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, i32 noundef %.lcssa53) #10
   br label %.loopexit14
 
 .lr.ph:                                           ; preds = %54, %.backedge
-  %61 = phi i32 [ %.be28, %.backedge ], [ 0, %54 ]
+  %61 = phi i32 [ %.be39, %.backedge ], [ 0, %54 ]
   %62 = phi i64 [ %.be, %.backedge ], [ %13, %54 ]
   %63 = load ptr, ptr %19, align 8
   %64 = load i64, ptr %4, align 8
@@ -1467,7 +1467,7 @@ define internal fastcc i32 @jread(ptr noundef writeonly captures(none) initializ
 
 .backedge:                                        ; preds = %.loopexit, %.loopexit.thread
   %.be = phi i64 [ %101, %.loopexit ], [ %105, %.loopexit.thread ]
-  %.be28 = phi i32 [ %100, %.loopexit ], [ 0, %.loopexit.thread ]
+  %.be39 = phi i32 [ %100, %.loopexit ], [ 0, %.loopexit.thread ]
   %103 = call i32 @jbd2_journal_bmap(ptr noundef %1, i64 noundef %.be, ptr noundef nonnull %4) #9
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %.lr.ph, label %._crit_edge, !llvm.loop !30
@@ -1486,7 +1486,7 @@ define internal fastcc i32 @jread(ptr noundef writeonly captures(none) initializ
   br label %111
 
 .loopexit14:                                      ; preds = %.lr.ph, %59
-  %109 = phi i32 [ %.lcssa38, %59 ], [ %61, %.lr.ph ]
+  %109 = phi i32 [ %.lcssa49, %59 ], [ %61, %.lr.ph ]
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %.thread12, label %111
 

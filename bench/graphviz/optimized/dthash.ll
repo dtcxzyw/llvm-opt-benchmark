@@ -436,7 +436,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br label %233
 
 .thread390:                                       ; preds = %199, %153, %157
-  %.3529 = phi ptr [ %163, %157 ], [ null, %153 ], [ %163, %199 ]
+  %.3559 = phi ptr [ %163, %157 ], [ null, %153 ], [ %163, %199 ]
   %.0287.lcssa = phi ptr [ null, %157 ], [ null, %153 ], [ %.4281493, %199 ]
   %212 = and i32 %2, 1540
   %.not350397 = icmp eq i32 %212, 0
@@ -444,19 +444,19 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 213:                                              ; preds = %.loopexit487
   %.not383 = icmp eq ptr %.0287492, null
-  br i1 %.not383, label %.thread546, label %214
+  br i1 %.not383, label %.thread576, label %214
 
 214:                                              ; preds = %213
   %215 = load i32, ptr %4, align 8, !tbaa !3
   %216 = and i32 %215, 1
   %.not384 = icmp eq i32 %216, 0
-  br i1 %.not384, label %.thread546, label %217
+  br i1 %.not384, label %.thread576, label %217
 
 217:                                              ; preds = %214
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %219 = load i32, ptr %218, align 8, !tbaa !33
   %220 = icmp slt i32 %219, 1
-  br i1 %220, label %221, label %.thread546
+  br i1 %220, label %221, label %.thread576
 
 221:                                              ; preds = %217
   %222 = load ptr, ptr %.4281493, align 8, !tbaa !26
@@ -464,32 +464,32 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %223 = load ptr, ptr %163, align 8, !tbaa !22
   store ptr %223, ptr %.4281493, align 8, !tbaa !26
   store ptr %.4281493, ptr %163, align 8, !tbaa !22
-  br label %.thread546
+  br label %.thread576
 
-.thread546:                                       ; preds = %221, %217, %214, %213
+.thread576:                                       ; preds = %221, %217, %214, %213
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.4281493, ptr %224, align 8, !tbaa !32
   %225 = icmp slt i32 %.fr508, 0
   br i1 %225, label %226, label %229
 
-226:                                              ; preds = %.thread546
+226:                                              ; preds = %.thread576
   %227 = getelementptr inbounds nuw i8, ptr %.4281493, i64 16
   %228 = load ptr, ptr %227, align 8, !tbaa !28
   br label %dthtab.exit
 
-229:                                              ; preds = %.thread546
+229:                                              ; preds = %.thread576
   %230 = zext nneg i32 %.fr508 to i64
   %231 = sub nsw i64 0, %230
   %232 = getelementptr inbounds i8, ptr %.4281493, i64 %231
   br label %dthtab.exit
 
 233:                                              ; preds = %.loopexit487.thread, %.loopexit487
-  %.4544 = phi ptr [ %211, %.loopexit487.thread ], [ %163, %.loopexit487 ]
-  %.1274543 = phi ptr [ %1, %.loopexit487.thread ], [ %.0273, %.loopexit487 ]
-  %.5282541 = phi ptr [ %131, %.loopexit487.thread ], [ %.4281493, %.loopexit487 ]
-  %.1284540 = phi ptr [ null, %.loopexit487.thread ], [ %.0283, %.loopexit487 ]
-  %.1288538 = phi ptr [ null, %.loopexit487.thread ], [ %.0287492, %.loopexit487 ]
-  %.1295537 = phi i32 [ %203, %.loopexit487.thread ], [ %.0294, %.loopexit487 ]
+  %.4574 = phi ptr [ %211, %.loopexit487.thread ], [ %163, %.loopexit487 ]
+  %.1274573 = phi ptr [ %1, %.loopexit487.thread ], [ %.0273, %.loopexit487 ]
+  %.5282571 = phi ptr [ %131, %.loopexit487.thread ], [ %.4281493, %.loopexit487 ]
+  %.1284570 = phi ptr [ null, %.loopexit487.thread ], [ %.0283, %.loopexit487 ]
+  %.1288568 = phi ptr [ null, %.loopexit487.thread ], [ %.0287492, %.loopexit487 ]
+  %.1295567 = phi i32 [ %203, %.loopexit487.thread ], [ %.0294, %.loopexit487 ]
   %234 = and i32 %2, 1
   %.not351 = icmp eq i32 %234, 0
   br i1 %.not351, label %307, label %236
@@ -507,25 +507,25 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 239:                                              ; preds = %236
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.5282541, ptr %240, align 8, !tbaa !32
+  store ptr %.5282571, ptr %240, align 8, !tbaa !32
   %241 = icmp slt i32 %.fr508, 0
   br i1 %241, label %242, label %245
 
 242:                                              ; preds = %239
-  %243 = getelementptr inbounds nuw i8, ptr %.5282541, i64 16
+  %243 = getelementptr inbounds nuw i8, ptr %.5282571, i64 16
   %244 = load ptr, ptr %243, align 8, !tbaa !28
   br label %dthtab.exit
 
 245:                                              ; preds = %239
   %246 = zext nneg i32 %.fr508 to i64
   %247 = sub nsw i64 0, %246
-  %248 = getelementptr inbounds i8, ptr %.5282541, i64 %247
+  %248 = getelementptr inbounds i8, ptr %.5282571, i64 %247
   br label %dthtab.exit
 
 .thread434:                                       ; preds = %.thread412, %236
-  %.1274404421443 = phi ptr [ %.1274543, %236 ], [ %.0273, %.thread412 ]
-  %.5282403423442 = phi ptr [ %.5282541, %236 ], [ null, %.thread412 ]
-  %.1295398428441 = phi i32 [ %.1295537, %236 ], [ %.0294, %.thread412 ]
+  %.1274404421443 = phi ptr [ %.1274573, %236 ], [ %.0273, %.thread412 ]
+  %.5282403423442 = phi ptr [ %.5282571, %236 ], [ null, %.thread412 ]
+  %.1295398428441 = phi i32 [ %.1295567, %236 ], [ %.0294, %.thread412 ]
   %249 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %250 = load ptr, ptr %249, align 8, !tbaa !38
   %.not374 = icmp eq ptr %250, null
@@ -670,7 +670,7 @@ thread-pre-split:                                 ; preds = %281, %277, %270
   br i1 %.not352452, label %323, label %.thread463
 
 310:                                              ; preds = %307
-  %311 = load ptr, ptr %.5282541, align 8, !tbaa !26
+  %311 = load ptr, ptr %.5282571, align 8, !tbaa !26
   %.not368 = icmp eq ptr %311, null
   br i1 %.not368, label %312, label %.thread469
 
@@ -684,7 +684,7 @@ thread-pre-split:                                 ; preds = %281, %277, %270
   br label %319
 
 319:                                              ; preds = %321, %312
-  %.4.pn370 = phi ptr [ %.4544, %312 ], [ %.5, %321 ]
+  %.4.pn370 = phi ptr [ %.4574, %312 ], [ %.5, %321 ]
   %.5 = getelementptr inbounds nuw i8, ptr %.4.pn370, i64 8
   %320 = icmp ult ptr %.5, %318
   br i1 %320, label %321, label %.thread474
@@ -695,12 +695,12 @@ thread-pre-split:                                 ; preds = %281, %277, %270
   br i1 %.not369, label %319, label %.thread469, !llvm.loop !39
 
 323:                                              ; preds = %.thread444, %307
-  %.4406420461 = phi ptr [ %.3529, %.thread444 ], [ %.4544, %307 ]
-  %.1274404422460 = phi ptr [ %.0273, %.thread444 ], [ %.1274543, %307 ]
-  %.5282403425458 = phi ptr [ null, %.thread444 ], [ %.5282541, %307 ]
-  %.1284401426457 = phi ptr [ %.0283, %.thread444 ], [ %.1284540, %307 ]
-  %.1288400427456 = phi ptr [ %.0287.lcssa, %.thread444 ], [ %.1288538, %307 ]
-  %.1295398430454 = phi i32 [ %.0294, %.thread444 ], [ %.1295537, %307 ]
+  %.4406420461 = phi ptr [ %.3559, %.thread444 ], [ %.4574, %307 ]
+  %.1274404422460 = phi ptr [ %.0273, %.thread444 ], [ %.1274573, %307 ]
+  %.5282403425458 = phi ptr [ null, %.thread444 ], [ %.5282571, %307 ]
+  %.1284401426457 = phi ptr [ %.0283, %.thread444 ], [ %.1284570, %307 ]
+  %.1288400427456 = phi ptr [ %.0287.lcssa, %.thread444 ], [ %.1288568, %307 ]
+  %.1295398430454 = phi i32 [ %.0294, %.thread444 ], [ %.1295567, %307 ]
   %324 = and i32 %2, 16
   %.not353 = icmp eq i32 %324, 0
   br i1 %.not353, label %401, label %325

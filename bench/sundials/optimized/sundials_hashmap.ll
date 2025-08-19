@@ -65,7 +65,7 @@ define noundef i32 @SUNHashMap_Destroy(ptr noundef captures(address_is_null) %0,
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !16
   %.not32 = icmp eq ptr %16, null
-  br i1 %.not32, label %.thread43, label %17
+  br i1 %.not32, label %.thread49, label %17
 
 17:                                               ; preds = %14
   tail call void %1(ptr noundef nonnull %16) #10
@@ -75,16 +75,16 @@ define noundef i32 @SUNHashMap_Destroy(ptr noundef captures(address_is_null) %0,
   %.phi.trans.insert38 = getelementptr inbounds nuw ptr, ptr %.pre37, i64 %indvars.iv
   %.pre39 = load ptr, ptr %.phi.trans.insert38, align 8, !tbaa !14
   %.not33 = icmp eq ptr %.pre39, null
-  br i1 %.not33, label %.thread, label %.thread43
+  br i1 %.not33, label %.thread, label %.thread49
 
-.thread43:                                        ; preds = %14, %17
+.thread49:                                        ; preds = %14, %17
   %18 = phi ptr [ %.pre39, %17 ], [ %13, %14 ]
   tail call void @free(ptr noundef nonnull %18) #10
   %.pre40 = load ptr, ptr %0, align 8, !tbaa !3
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %17, %.thread43
-  %19 = phi ptr [ %.pre, %17 ], [ %.pre40, %.thread43 ], [ %9, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %17, %.thread49
+  %19 = phi ptr [ %.pre, %17 ], [ %.pre40, %.thread49 ], [ %9, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !12
@@ -97,20 +97,20 @@ define noundef i32 @SUNHashMap_Destroy(ptr noundef captures(address_is_null) %0,
   %24 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !13
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %.thread45, label %26
+  br i1 %.not, label %.thread51, label %26
 
 26:                                               ; preds = %._crit_edge
   tail call void @free(ptr noundef nonnull %25) #10
   %.pre41 = load ptr, ptr %0, align 8, !tbaa !3
   %.not30 = icmp eq ptr %.pre41, null
-  br i1 %.not30, label %28, label %.thread45
+  br i1 %.not30, label %28, label %.thread51
 
-.thread45:                                        ; preds = %._crit_edge, %26
+.thread51:                                        ; preds = %._crit_edge, %26
   %27 = phi ptr [ %.pre41, %26 ], [ %.lcssa, %._crit_edge ]
   tail call void @free(ptr noundef nonnull %27) #10
   br label %28
 
-28:                                               ; preds = %.thread45, %26
+28:                                               ; preds = %.thread51, %26
   store ptr null, ptr %0, align 8, !tbaa !3
   br label %29
 

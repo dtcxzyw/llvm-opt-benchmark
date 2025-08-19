@@ -492,11 +492,11 @@ BIT_reloadDStreamFast.exit.i:                     ; preds = %.lr.ph
   br label %BIT_reloadDStream.exit29.i
 
 BIT_reloadDStream.exit29.i:                       ; preds = %150, %BIT_reloadDStreamFast.exit.i
-  %.pn427.in.i = phi i32 [ %146, %BIT_reloadDStreamFast.exit.i ], [ %.020.i25.i, %150 ]
+  %.pn468.in.i = phi i32 [ %146, %BIT_reloadDStreamFast.exit.i ], [ %.020.i25.i, %150 ]
   %.lcssa205.promoted.i = phi i32 [ %147, %BIT_reloadDStreamFast.exit.i ], [ %160, %150 ]
   %.021.i24.i = phi i1 [ true, %BIT_reloadDStreamFast.exit.i ], [ %155, %150 ]
-  %.pn427.i = zext i32 %.pn427.in.i to i64
-  %.pn.i = sub nsw i64 0, %.pn427.i
+  %.pn468.i = zext i32 %.pn468.in.i to i64
+  %.pn.i = sub nsw i64 0, %.pn468.i
   %.promoted240.i = getelementptr inbounds i8, ptr %145, i64 %.pn.i
   %.val.i.i209.i = load i64, ptr %.promoted240.i, align 1, !tbaa !12
   %161 = icmp ult ptr %.038.i10.i35, %57
@@ -507,12 +507,12 @@ BIT_reloadDStream.exit29.i:                       ; preds = %150, %BIT_reloadDSt
   %.lcssa33 = phi i64 [ %.promoted212.i, %131 ], [ %144, %BIT_reloadDStream.exit29.i ], [ %144, %148 ], [ %215, %165 ]
   %.lcssa32 = phi i64 [ %.promoted210.i, %131 ], [ %143, %BIT_reloadDStream.exit29.i ], [ %143, %148 ], [ %201, %165 ]
   %.038.i10.i.lcssa = phi ptr [ %0, %131 ], [ %.038.i10.i35, %BIT_reloadDStream.exit29.i ], [ %.038.i10.i35, %148 ], [ %217, %165 ]
-  %.lcssa205.promoted384.i = phi i32 [ %.promoted.i, %131 ], [ %.lcssa205.promoted.i, %BIT_reloadDStream.exit29.i ], [ %142, %148 ], [ %213, %165 ]
-  %.val.i.i209383.i = phi i64 [ %.promoted207.i, %131 ], [ %.val.i.i209.i, %BIT_reloadDStream.exit29.i ], [ %.val.i.i208.i34, %148 ], [ %.val.i.i209.i, %165 ]
-  %.promoted240382.i = phi ptr [ %.promoted214.i, %131 ], [ %.promoted240.i, %BIT_reloadDStream.exit29.i ], [ %145, %148 ], [ %.promoted240.i, %165 ]
-  store ptr %.promoted240382.i, ptr %133, align 8
-  store i32 %.lcssa205.promoted384.i, ptr %132, align 8
-  store i64 %.val.i.i209383.i, ptr %9, align 8
+  %.lcssa205.promoted425.i = phi i32 [ %.promoted.i, %131 ], [ %.lcssa205.promoted.i, %BIT_reloadDStream.exit29.i ], [ %142, %148 ], [ %213, %165 ]
+  %.val.i.i209424.i = phi i64 [ %.promoted207.i, %131 ], [ %.val.i.i209.i, %BIT_reloadDStream.exit29.i ], [ %.val.i.i208.i34, %148 ], [ %.val.i.i209.i, %165 ]
+  %.promoted240423.i = phi ptr [ %.promoted214.i, %131 ], [ %.promoted240.i, %BIT_reloadDStream.exit29.i ], [ %145, %148 ], [ %.promoted240.i, %165 ]
+  store ptr %.promoted240423.i, ptr %133, align 8
+  store i32 %.lcssa205.promoted425.i, ptr %132, align 8
+  store i64 %.val.i.i209424.i, ptr %9, align 8
   store i64 %.lcssa32, ptr %10, align 8
   store i64 %.lcssa33, ptr %11, align 8
   %163 = getelementptr inbounds i8, ptr %56, i64 -2
@@ -600,11 +600,11 @@ BIT_reloadDStream.exit29.i:                       ; preds = %150, %BIT_reloadDSt
   br i1 %218, label %.preheader186.i, label %.lr.ph, !llvm.loop !36
 
 .lr.ph.i:                                         ; preds = %.preheader186.i, %BIT_reloadDStream.exit.i
-  %219 = phi ptr [ %301, %BIT_reloadDStream.exit.i ], [ %.promoted240382.i, %.preheader186.i ]
-  %220 = phi i32 [ %302, %BIT_reloadDStream.exit.i ], [ %.lcssa205.promoted384.i, %.preheader186.i ]
+  %219 = phi ptr [ %301, %BIT_reloadDStream.exit.i ], [ %.promoted240423.i, %.preheader186.i ]
+  %220 = phi i32 [ %302, %BIT_reloadDStream.exit.i ], [ %.lcssa205.promoted425.i, %.preheader186.i ]
   %.139.i11229.i = phi ptr [ %277, %BIT_reloadDStream.exit.i ], [ %.038.i10.i.lcssa, %.preheader186.i ]
   %221 = phi i64 [ %234, %BIT_reloadDStream.exit.i ], [ %.lcssa32, %.preheader186.i ]
-  %.val.i105220228.i = phi i64 [ %.val.i105221.i, %BIT_reloadDStream.exit.i ], [ %.val.i.i209383.i, %.preheader186.i ]
+  %.val.i105220228.i = phi i64 [ %.val.i105221.i, %BIT_reloadDStream.exit.i ], [ %.val.i.i209424.i, %.preheader186.i ]
   %222 = phi i64 [ %276, %BIT_reloadDStream.exit.i ], [ %.lcssa33, %.preheader186.i ]
   %223 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %138, i64 %221
   %.sroa.0.0.copyload.i81.i = load i16, ptr %223, align 2, !tbaa !4
@@ -827,12 +827,12 @@ BIT_reloadDStreamFast.exit117.i:                  ; preds = %.lr.ph55
   br label %BIT_reloadDStream.exit50.i
 
 BIT_reloadDStream.exit50.i:                       ; preds = %335, %BIT_reloadDStreamFast.exit117.i
-  %.pn429.in.i = phi i32 [ %331, %BIT_reloadDStreamFast.exit117.i ], [ %.020.i46.i, %335 ]
+  %.pn470.in.i = phi i32 [ %331, %BIT_reloadDStreamFast.exit117.i ], [ %.020.i46.i, %335 ]
   %.lcssa195.promoted.i = phi i32 [ %332, %BIT_reloadDStreamFast.exit117.i ], [ %345, %335 ]
   %.021.i45.i = phi i1 [ true, %BIT_reloadDStreamFast.exit117.i ], [ %340, %335 ]
-  %.pn429.i = zext i32 %.pn429.in.i to i64
-  %.pn428.i = sub nsw i64 0, %.pn429.i
-  %.promoted281.i = getelementptr inbounds i8, ptr %330, i64 %.pn428.i
+  %.pn470.i = zext i32 %.pn470.in.i to i64
+  %.pn469.i = sub nsw i64 0, %.pn470.i
+  %.promoted281.i = getelementptr inbounds i8, ptr %330, i64 %.pn469.i
   %346 = load i64, ptr %.promoted281.i, align 1, !tbaa !12
   %347 = icmp ult ptr %.038.i.i54, %57
   %348 = and i1 %347, %.021.i45.i
@@ -842,11 +842,11 @@ BIT_reloadDStream.exit50.i:                       ; preds = %335, %BIT_reloadDSt
   %.lcssa19 = phi i64 [ %.promoted251.i, %313 ], [ %329, %BIT_reloadDStream.exit50.i ], [ %329, %333 ], [ %402, %352 ]
   %.lcssa18 = phi i64 [ %.promoted249.i, %313 ], [ %328, %BIT_reloadDStream.exit50.i ], [ %328, %333 ], [ %388, %352 ]
   %.038.i.i.lcssa = phi ptr [ %0, %313 ], [ %.038.i.i54, %BIT_reloadDStream.exit50.i ], [ %.038.i.i54, %333 ], [ %404, %352 ]
-  %.lcssa195.promoted389.i = phi i32 [ %.promoted245.i, %313 ], [ %.lcssa195.promoted.i, %BIT_reloadDStream.exit50.i ], [ %326, %333 ], [ %393, %352 ]
+  %.lcssa195.promoted430.i = phi i32 [ %.promoted245.i, %313 ], [ %.lcssa195.promoted.i, %BIT_reloadDStream.exit50.i ], [ %326, %333 ], [ %393, %352 ]
   %349 = phi i64 [ %.promoted247.i, %313 ], [ %346, %BIT_reloadDStream.exit50.i ], [ %327, %333 ], [ %346, %352 ]
-  %.promoted281388.i = phi ptr [ %.promoted253.i, %313 ], [ %.promoted281.i, %BIT_reloadDStream.exit50.i ], [ %330, %333 ], [ %.promoted281.i, %352 ]
-  store ptr %.promoted281388.i, ptr %315, align 8
-  store i32 %.lcssa195.promoted389.i, ptr %314, align 8
+  %.promoted281429.i = phi ptr [ %.promoted253.i, %313 ], [ %.promoted281.i, %BIT_reloadDStream.exit50.i ], [ %330, %333 ], [ %.promoted281.i, %352 ]
+  store ptr %.promoted281429.i, ptr %315, align 8
+  store i32 %.lcssa195.promoted430.i, ptr %314, align 8
   store i64 %349, ptr %12, align 8
   store i64 %.lcssa18, ptr %13, align 8
   store i64 %.lcssa19, ptr %14, align 8
@@ -939,8 +939,8 @@ BIT_reloadDStream.exit50.i:                       ; preds = %335, %BIT_reloadDSt
   br i1 %405, label %.preheader.i, label %.lr.ph55, !llvm.loop !36
 
 .lr.ph269.i:                                      ; preds = %.preheader.i, %BIT_reloadDStream.exit36.i
-  %406 = phi ptr [ %488, %BIT_reloadDStream.exit36.i ], [ %.promoted281388.i, %.preheader.i ]
-  %407 = phi i32 [ %489, %BIT_reloadDStream.exit36.i ], [ %.lcssa195.promoted389.i, %.preheader.i ]
+  %406 = phi ptr [ %488, %BIT_reloadDStream.exit36.i ], [ %.promoted281429.i, %.preheader.i ]
+  %407 = phi i32 [ %489, %BIT_reloadDStream.exit36.i ], [ %.lcssa195.promoted430.i, %.preheader.i ]
   %.139.i268.i = phi ptr [ %464, %BIT_reloadDStream.exit36.i ], [ %.038.i.i.lcssa, %.preheader.i ]
   %408 = phi i64 [ %421, %BIT_reloadDStream.exit36.i ], [ %.lcssa18, %.preheader.i ]
   %.val.i162259267.i = phi i64 [ %.val.i162260.i, %BIT_reloadDStream.exit36.i ], [ %349, %.preheader.i ]

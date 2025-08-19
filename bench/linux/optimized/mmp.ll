@@ -375,13 +375,13 @@ define internal fastcc noundef i32 @read_mmp_block(ptr noundef %0, ptr noundef c
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 1024
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %.thread10, label %50
+  br i1 %49, label %.thread15, label %50
 
 50:                                               ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 1280
   %52 = load ptr, ptr %51, align 64
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %.thread12, !prof !9
+  br i1 %53, label %54, label %.thread17, !prof !9
 
 54:                                               ; preds = %50
   tail call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #10, !srcloc !10
@@ -394,16 +394,16 @@ define internal fastcc noundef i32 @read_mmp_block(ptr noundef %0, ptr noundef c
   %.pre8 = load i32, ptr %.phi.trans.insert7, align 4
   %.pre9 = and i32 %.pre8, 1024
   %55 = icmp eq i32 %.pre9, 0
-  br i1 %55, label %.thread10, label %.thread12
+  br i1 %55, label %.thread15, label %.thread17
 
-.thread12:                                        ; preds = %50, %54
+.thread17:                                        ; preds = %50, %54
   %56 = phi ptr [ %.pre, %54 ], [ %43, %50 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 1280
   %58 = load ptr, ptr %57, align 64
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %.thread10, label %60
+  br i1 %59, label %.thread15, label %60
 
-60:                                               ; preds = %.thread12
+60:                                               ; preds = %.thread17
   %61 = getelementptr inbounds nuw i8, ptr %38, i64 1020
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %56, i64 1288
@@ -437,7 +437,7 @@ define internal fastcc noundef i32 @read_mmp_block(ptr noundef %0, ptr noundef c
   %75 = load i32, ptr %70, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %76 = icmp eq i32 %62, %75
-  br i1 %76, label %.thread10, label %thread-pre-split
+  br i1 %76, label %.thread15, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %31, %74
   %.ph = phi i32 [ -74, %74 ], [ %33, %31 ]
@@ -458,10 +458,10 @@ thread-pre-split:                                 ; preds = %31, %74
   %82 = phi i32 [ %79, %81 ], [ %79, %77 ], [ -12, %.thread ]
   store ptr null, ptr %1, align 8
   call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.read_mmp_block, i32 noundef 115, ptr noundef nonnull @.str.11, i32 noundef %82, i64 noundef %2) #10
-  br label %.thread10
+  br label %.thread15
 
-.thread10:                                        ; preds = %41, %.thread5, %74, %.thread12, %54
-  %83 = phi i32 [ %82, %.thread5 ], [ 0, %74 ], [ 0, %54 ], [ 0, %.thread12 ], [ 0, %41 ]
+.thread15:                                        ; preds = %41, %.thread5, %74, %.thread17, %54
+  %83 = phi i32 [ %82, %.thread5 ], [ 0, %74 ], [ 0, %54 ], [ 0, %.thread17 ], [ 0, %41 ]
   ret i32 %83
 }
 
@@ -487,7 +487,7 @@ define internal fastcc range(i32 -5, 1) i32 @write_mmp_block_thawed(ptr noundef 
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 1280
   %16 = load ptr, ptr %15, align 64
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %.thread6, !prof !9
+  br i1 %17, label %18, label %.thread7, !prof !9
 
 18:                                               ; preds = %14
   tail call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #10, !srcloc !10
@@ -500,16 +500,16 @@ define internal fastcc range(i32 -5, 1) i32 @write_mmp_block_thawed(ptr noundef 
   %.pre3 = load i32, ptr %.phi.trans.insert2, align 4
   %.pre4 = and i32 %.pre3, 1024
   %19 = icmp eq i32 %.pre4, 0
-  br i1 %19, label %.thread, label %.thread6
+  br i1 %19, label %.thread, label %.thread7
 
-.thread6:                                         ; preds = %14, %18
+.thread7:                                         ; preds = %14, %18
   %20 = phi ptr [ %.pre, %18 ], [ %7, %14 ]
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1280
   %22 = load ptr, ptr %21, align 64
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread, label %24
 
-24:                                               ; preds = %.thread6
+24:                                               ; preds = %.thread7
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 1288
   %26 = load i32, ptr %25, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -544,7 +544,7 @@ define internal fastcc range(i32 -5, 1) i32 @write_mmp_block_thawed(ptr noundef 
   store i32 %37, ptr %38, align 4
   br label %.thread
 
-.thread:                                          ; preds = %2, %36, %.thread6, %18
+.thread:                                          ; preds = %2, %36, %.thread7, %18
   %39 = call i32 @__SCT__might_resched() #10
   %40 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 2, ptr elementtype(i64) %1) #10, !srcloc !8
   %41 = icmp ult i8 %40, 2

@@ -5852,8 +5852,8 @@ define hidden void @"_ZN4core3ptr171drop_in_place$LT$ockam_node..relay..processo
   ]
 
 common.ret.sink.split:                            ; preds = %"_ZN4core3ptr79drop_in_place$LT$ockam_transport_udp..workers..listener..UdpListenProcessor$GT$17h8bc60dd9e41ed372E.exit", %"_ZN4core3ptr79drop_in_place$LT$ockam_transport_udp..workers..listener..UdpListenProcessor$GT$17h8bc60dd9e41ed372E.exit.i"
-  %.sink32 = phi i64 [ 280, %"_ZN4core3ptr79drop_in_place$LT$ockam_transport_udp..workers..listener..UdpListenProcessor$GT$17h8bc60dd9e41ed372E.exit.i" ], [ 288, %"_ZN4core3ptr79drop_in_place$LT$ockam_transport_udp..workers..listener..UdpListenProcessor$GT$17h8bc60dd9e41ed372E.exit" ]
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink32
+  %.sink38 = phi i64 [ 280, %"_ZN4core3ptr79drop_in_place$LT$ockam_transport_udp..workers..listener..UdpListenProcessor$GT$17h8bc60dd9e41ed372E.exit.i" ], [ 288, %"_ZN4core3ptr79drop_in_place$LT$ockam_transport_udp..workers..listener..UdpListenProcessor$GT$17h8bc60dd9e41ed372E.exit" ]
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink38
   tail call void @"_ZN4core3ptr125drop_in_place$LT$tokio..sync..mpsc..chan..Rx$LT$ockam_node..relay..CtrlSignal$C$tokio..sync..mpsc..bounded..Semaphore$GT$$GT$17hdc947b48ef989c1aE.llvm.11279091928976205697"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
   br label %common.ret
 
@@ -6919,10 +6919,10 @@ define hidden void @"_ZN4core3ptr186drop_in_place$LT$ockam_node..delayed..Delaye
   ]
 
 common.ret.sink.split:                            ; preds = %378, %347
-  %.sink17 = phi i64 [ %349, %347 ], [ %380, %378 ]
+  %.sink49 = phi i64 [ %349, %347 ], [ %380, %378 ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %.sink17, i64 noundef 1) #23, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %.sink49, i64 noundef 1) #23, !noalias !4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %378, %376, %347, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h30dc414a52625d46E.exit", %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h30dc414a52625d46E.exit13", %1
@@ -13009,9 +13009,9 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMe
   unreachable
 
 152:                                              ; preds = %130, %135, %.body48, %172
-  %.sink57 = phi i64 [ 56, %172 ], [ 56, %.body48 ], [ 64, %135 ], [ 64, %130 ]
+  %.sink82 = phi i64 [ 56, %172 ], [ 56, %.body48 ], [ 64, %135 ], [ 64, %130 ]
   %.pn12 = phi { ptr, i32 } [ %173, %172 ], [ %.pn, %.body48 ], [ %136, %135 ], [ %.pn8, %130 ]
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink57
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink82
   tail call void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_core..routing..address_meta..AddressAndMetadata$GT$$GT$17hd4343657a65088fcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %153) #21
   resume { ptr, i32 } %.pn12
 

@@ -2470,8 +2470,8 @@ define hidden noundef nonnull ptr @_ZN10MethodData9bci_to_dpEi(ptr noundef nonnu
   %28 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 2
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i32
-  %.not41 = icmp sgt i32 %1, %30
-  br i1 %.not41, label %select.unfold, label %._crit_edge
+  %.not44 = icmp sgt i32 %1, %30
+  br i1 %.not44, label %select.unfold, label %._crit_edge
 
 31:                                               ; preds = %select.unfold
   %32 = sext i32 %55 to i64
@@ -2483,7 +2483,7 @@ define hidden noundef nonnull ptr @_ZN10MethodData9bci_to_dpEi(ptr noundef nonnu
   br i1 %.not, label %select.unfold, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %31, %.lr.ph
-  %.027.lcssa = phi ptr [ null, %.lr.ph ], [ %.0132642, %31 ]
+  %.027.lcssa = phi ptr [ null, %.lr.ph ], [ %.0132645, %31 ]
   %.01326.lcssa = phi ptr [ %spec.select.i, %.lr.ph ], [ %33, %31 ]
   %.lcssa = phi i32 [ %30, %.lr.ph ], [ %36, %31 ]
   %37 = icmp eq i32 %1, %.lcssa
@@ -2510,11 +2510,11 @@ define hidden noundef nonnull ptr @_ZN10MethodData9bci_to_dpEi(ptr noundef nonnu
   br label %61
 
 select.unfold:                                    ; preds = %.lr.ph, %31
-  %.0132642 = phi ptr [ %33, %31 ], [ %spec.select.i, %.lr.ph ]
-  %49 = ptrtoint ptr %.0132642 to i64
+  %.0132645 = phi ptr [ %33, %31 ], [ %spec.select.i, %.lr.ph ]
+  %49 = ptrtoint ptr %.0132645 to i64
   %50 = sub i64 %49, %27
   %51 = trunc i64 %50 to i32
-  %52 = tail call noundef i32 @_ZN10DataLayout10cell_countEv(ptr noundef nonnull align 8 dereferenceable(16) %.0132642)
+  %52 = tail call noundef i32 @_ZN10DataLayout10cell_countEv(ptr noundef nonnull align 8 dereferenceable(16) %.0132645)
   %53 = shl nsw i32 %52, 3
   %54 = add i32 %51, 8
   %55 = add i32 %54, %53
@@ -2932,16 +2932,16 @@ _ZN21Bytecode_lookupswitchC2EP6MethodPh.exit:     ; preds = %72, %74
   br label %124
 
 124:                                              ; preds = %._crit_edge, %._crit_edge57
-  %.sink68 = phi ptr [ %123, %._crit_edge ], [ %71, %._crit_edge57 ]
-  %.sink67.in = phi ptr [ %118, %._crit_edge ], [ %66, %._crit_edge57 ]
-  %.sink65.in = phi ptr [ %117, %._crit_edge ], [ %65, %._crit_edge57 ]
-  %.sink67 = ptrtoint ptr %.sink67.in to i64
-  %125 = ptrtoint ptr %.sink68 to i64
-  %126 = sub i64 %125, %.sink67
+  %.sink69 = phi ptr [ %123, %._crit_edge ], [ %71, %._crit_edge57 ]
+  %.sink68.in = phi ptr [ %118, %._crit_edge ], [ %66, %._crit_edge57 ]
+  %.sink66.in = phi ptr [ %117, %._crit_edge ], [ %65, %._crit_edge57 ]
+  %.sink68 = ptrtoint ptr %.sink68.in to i64
+  %125 = ptrtoint ptr %.sink69 to i64
+  %126 = sub i64 %125, %.sink68
   %.sink.in = shl i64 %126, 32
   %.sink = ashr exact i64 %.sink.in, 32
-  %.sink65 = load ptr, ptr %.sink65.in, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %.sink65, i64 24
+  %.sink66 = load ptr, ptr %.sink66.in, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %.sink66, i64 24
   store i64 %.sink, ptr %127, align 8
   ret void
 }
@@ -4014,8 +4014,8 @@ _ZN10MethodData28is_speculative_trap_bytecodeEN9Bytecodes4CodeE.exit: ; preds = 
   %43 = call noundef i32 @llvm.smin.i32(i32 %.025.lcssa, i32 %42)
   %44 = load i32, ptr @SpecTrapLimitExtraEntries, align 4
   %45 = shl nsw i32 %44, 1
-  %spec.select40 = select i1 %.026.lcssa, i32 %45, i32 0
-  %46 = call noundef range(i32 -2147483648, 2147483647) i32 @llvm.smax.i32(i32 %43, i32 %spec.select40)
+  %spec.select42 = select i1 %.026.lcssa, i32 %45, i32 0
+  %46 = call noundef range(i32 -2147483648, 2147483647) i32 @llvm.smax.i32(i32 %43, i32 %spec.select42)
   %47 = load ptr, ptr %0, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
@@ -5095,8 +5095,8 @@ _ZN10MethodData28is_speculative_trap_bytecodeEN9Bytecodes4CodeE.exit: ; preds = 
   %86 = call noundef i32 @llvm.smin.i32(i32 %.054.lcssa, i32 %85)
   %87 = load i32, ptr @SpecTrapLimitExtraEntries, align 4
   %88 = shl nsw i32 %87, 1
-  %spec.select79 = select i1 %.055.lcssa, i32 %88, i32 0
-  %89 = call noundef range(i32 -2147483648, 2147483647) i32 @llvm.smax.i32(i32 %86, i32 %spec.select79)
+  %spec.select86 = select i1 %.055.lcssa, i32 %88, i32 0
+  %89 = call noundef range(i32 -2147483648, 2147483647) i32 @llvm.smax.i32(i32 %86, i32 %spec.select86)
   %90 = shl nsw i32 %89, 3
   %91 = icmp sgt i32 %89, 0
   br i1 %91, label %92, label %96
@@ -5574,8 +5574,8 @@ _ZN10MethodData10next_extraEP10DataLayout.exit:   ; preds = %25, %25, %27
 
 _ZN10DataLayout10initializeEhti.exit:             ; preds = %_ZN10MethodData10next_extraEP10DataLayout.exit
   %34 = shl i32 %1, 16
-  %.sroa.0.0.insert.insert44 = or disjoint i32 %34, 13
-  %.sroa.0.0.insert.insert = zext i32 %.sroa.0.0.insert.insert44 to i64
+  %.sroa.0.0.insert.insert47 = or disjoint i32 %34, 13
+  %.sroa.0.0.insert.insert = zext i32 %.sroa.0.0.insert.insert47 to i64
   store i64 %.sroa.0.0.insert.insert, ptr %23, align 8
   %35 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -5588,8 +5588,8 @@ _ZN10DataLayout10initializeEhti.exit:             ; preds = %_ZN10MethodData10ne
 
 .critedge:                                        ; preds = %24
   %39 = shl i32 %1, 16
-  %.sroa.0.0.insert.insert2745 = or disjoint i32 %39, 1
-  %.sroa.0.0.insert.insert27 = zext i32 %.sroa.0.0.insert.insert2745 to i64
+  %.sroa.0.0.insert.insert2748 = or disjoint i32 %39, 1
+  %.sroa.0.0.insert.insert27 = zext i32 %.sroa.0.0.insert.insert2748 to i64
   store i64 %.sroa.0.0.insert.insert27, ptr %23, align 8
   %40 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8

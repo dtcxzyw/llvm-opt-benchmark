@@ -604,13 +604,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_9sandboxir
   %52 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !37
   %54 = icmp eq ptr %53, %42
-  br i1 %54, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit19, label %55
+  br i1 %54, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit28, label %55
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   %57 = load ptr, ptr %56, align 8, !tbaa !37
   %58 = icmp eq ptr %57, %42
-  br i1 %58, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit21, label %59
+  br i1 %58, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit30, label %59
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 32
@@ -625,7 +625,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_9sandboxir
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %.loopexit
   %.pre-phi56.i.i.i.i = phi i32 [ %63, %._crit_edge.loopexit.i.i.i.i ], [ %38, %.loopexit ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %36, %.loopexit ]
-  switch i32 %.pre-phi56.i.i.i.i, label %._crit_edge.i.i.i.unreachabledefault.i [
+  switch i32 %.pre-phi56.i.i.i.i, label %default.unreachable [
     i32 3, label %64
     i32 2, label %._crit_edge._crit_edge.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i
@@ -668,7 +668,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_9sandboxir
   %79 = icmp eq ptr %78, %77
   br i1 %79, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit, label %80
 
-._crit_edge.i.i.i.unreachabledefault.i:           ; preds = %._crit_edge.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
   unreachable
 
 80:                                               ; preds = %76, %._crit_edge.i.i.i.i
@@ -678,16 +678,16 @@ _ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0
   %81 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
   br label %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit19: ; preds = %51
+_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit28: ; preds = %51
   %82 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   br label %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit21: ; preds = %55
+_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit30: ; preds = %55
   %83 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   br label %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit: ; preds = %44, %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit19, %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit21, %64, %70, %76, %80
-  %.028.i.i.i.i = phi ptr [ %40, %80 ], [ %.029.lcssa.i.i.i.i, %64 ], [ %.1.i.i.i.i, %70 ], [ %.2.i.i.i.i, %76 ], [ %81, %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %82, %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit19 ], [ %83, %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit21 ], [ %.02946.i.i.i.i, %44 ]
+_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit: ; preds = %44, %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit28, %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit30, %64, %70, %76, %80
+  %.028.i.i.i.i = phi ptr [ %40, %80 ], [ %.029.lcssa.i.i.i.i, %64 ], [ %.1.i.i.i.i, %70 ], [ %.2.i.i.i.i, %76 ], [ %81, %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %82, %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit28 ], [ %83, %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit30 ], [ %.02946.i.i.i.i, %44 ]
   %84 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i, i64 8
   %85 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
   %.not.i.i.i.i.i.i = icmp eq ptr %85, %84
@@ -1070,8 +1070,8 @@ _ZNSt10unique_ptrIN4llvm9sandboxir6RegionESt14default_deleteIS2_EED2Ev.exit: ; p
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_6MDNodeEPNS_9sandboxir6RegionENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E11try_emplaceIJEEESt4pairINS_16DenseMapIteratorIS3_S6_S8_SB_Lb0EEEbERKS3_DpOT_.exit.thread
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_6MDNodeEPNS_9sandboxir6RegionENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E11try_emplaceIJEEESt4pairINS_16DenseMapIteratorIS3_S6_S8_SB_Lb0EEEbERKS3_DpOT_.exit.thread: ; preds = %71, %55, %_ZNSt10unique_ptrIN4llvm9sandboxir6RegionESt14default_deleteIS2_EED2Ev.exit
-  %.sink24.i86 = phi ptr [ %119, %_ZNSt10unique_ptrIN4llvm9sandboxir6RegionESt14default_deleteIS2_EED2Ev.exit ], [ %63, %55 ], [ %77, %71 ]
-  %171 = getelementptr inbounds nuw i8, ptr %.sink24.i86, i64 8
+  %.sink28.i86 = phi ptr [ %119, %_ZNSt10unique_ptrIN4llvm9sandboxir6RegionESt14default_deleteIS2_EED2Ev.exit ], [ %63, %55 ], [ %77, %71 ]
+  %171 = getelementptr inbounds nuw i8, ptr %.sink28.i86, i64 8
   %172 = load ptr, ptr %171, align 8, !tbaa !156
   %173 = load ptr, ptr %172, align 8, !tbaa !33, !noalias !158
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 16
@@ -1557,13 +1557,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionENS_6detail13Dens
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %63 = zext i32 %.sink28 to i64
-  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink26, i64 %63
-  store ptr %.sink25, ptr %0, align 8
+  %63 = zext i32 %.sink32 to i64
+  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink30, i64 %63
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %64, ptr %.sroa.4.0..sroa_idx, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16

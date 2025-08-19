@@ -821,7 +821,7 @@ _ZN5arrow4util12_GLOBAL__N_117DoTotalBufferSizeERKNS_12ChunkedArrayEPSt13unorder
   br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !44
 
 _ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %1, %_ZN5arrow4util12_GLOBAL__N_117DoTotalBufferSizeERKNS_12ChunkedArrayEPSt13unordered_setIPKhSt4hashIS7_ESt8equal_toIS7_ESaIS7_EE.exit
-  %.0.lcssa.i5 = phi i64 [ %12, %_ZN5arrow4util12_GLOBAL__N_117DoTotalBufferSizeERKNS_12ChunkedArrayEPSt13unordered_setIPKhSt4hashIS7_ESt8equal_toIS7_ESaIS7_EE.exit ], [ 0, %1 ], [ %12, %.lr.ph.i.i.i.i ]
+  %.0.lcssa.i7 = phi i64 [ %12, %_ZN5arrow4util12_GLOBAL__N_117DoTotalBufferSizeERKNS_12ChunkedArrayEPSt13unordered_setIPKhSt4hashIS7_ESt8equal_toIS7_ESaIS7_EE.exit ], [ 0, %1 ], [ %12, %.lr.ph.i.i.i.i ]
   %15 = load ptr, ptr %2, align 8, !tbaa !32
   %16 = load i64, ptr %4, align 8, !tbaa !40
   %17 = shl i64 %16, 3
@@ -839,7 +839,7 @@ _ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1
 
 _ZNSt13unordered_setIPKhSt4hashIS1_ESt8equal_toIS1_ESaIS1_EED2Ev.exit: ; preds = %_ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %.0.lcssa.i5
+  ret i64 %.0.lcssa.i7
 
 23:                                               ; preds = %.lr.ph.i
   %24 = landingpad { ptr, i32 }
@@ -5293,8 +5293,8 @@ _ZN5arrow6StatusD2Ev.exit108:                     ; preds = %_ZN5arrow6StatusD2E
   %316 = ptrtoint ptr %314 to i64
   %317 = ptrtoint ptr %315 to i64
   %318 = sub i64 %316, %317
-  %sext195 = shl i64 %318, 28
-  %319 = ashr i64 %sext195, 32
+  %sext217 = shl i64 %318, 28
+  %319 = ashr i64 %sext217, 32
   %320 = icmp slt i64 %indvars.iv.next190, %319
   br i1 %320, label %_ZN5arrow6StatusD2Ev.exit110, label %._crit_edge180, !llvm.loop !334
 
@@ -5497,8 +5497,8 @@ _ZN5arrow6StatusD2Ev.exit112:                     ; preds = %_ZN5arrow6StatusD2E
   %414 = ptrtoint ptr %412 to i64
   %415 = ptrtoint ptr %413 to i64
   %416 = sub i64 %414, %415
-  %sext194 = shl i64 %416, 28
-  %417 = ashr i64 %sext194, 32
+  %sext216 = shl i64 %416, 28
+  %417 = ashr i64 %sext216, 32
   %418 = icmp slt i64 %indvars.iv.next187, %417
   br i1 %418, label %_ZN5arrow6StatusD2Ev.exit114, label %._crit_edge, !llvm.loop !354
 
@@ -5879,8 +5879,8 @@ _ZN5arrow6StatusD2Ev.exit126:                     ; preds = %_ZN5arrow6StatusD2E
   %609 = ptrtoint ptr %607 to i64
   %610 = ptrtoint ptr %608 to i64
   %611 = sub i64 %609, %610
-  %sext193 = shl i64 %611, 28
-  %612 = ashr i64 %sext193, 32
+  %sext215 = shl i64 %611, 28
+  %612 = ashr i64 %sext215, 32
   %.not52.i = icmp slt i64 %indvars.iv.next184, %612
   br i1 %.not52.i, label %573, label %.critedge56.i, !llvm.loop !386
 

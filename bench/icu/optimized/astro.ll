@@ -836,7 +836,7 @@ define noundef i32 @_ZN6icu_7713CalendarCache3getEPPS0_iR10UErrorCode(ptr nounde
 .thread.i:                                        ; preds = %9
   store ptr null, ptr %0, align 8, !tbaa !29
   %16 = load i32, ptr %2, align 4, !tbaa !27
-  br label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread10
+  br label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread14
 
 17:                                               ; preds = %12
   %18 = landingpad { ptr, i32 }
@@ -851,12 +851,12 @@ _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit: ; preds = %13
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %10) #16
   %.pre.pre = load i32, ptr %2, align 4, !tbaa !27
   store ptr null, ptr %0, align 8, !tbaa !29
-  br label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread10
+  br label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread14
 
-_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread10: ; preds = %.thread.i, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit
-  %.sink12.in = phi i32 [ %16, %.thread.i ], [ %.pre.pre, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit ]
-  %.sink12 = icmp sgt i32 %.sink12.in, 0
-  tail call void @llvm.assume(i1 %.sink12)
+_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread14: ; preds = %.thread.i, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit
+  %.sink16.in = phi i32 [ %16, %.thread.i ], [ %.pre.pre, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit ]
+  %.sink16 = icmp sgt i32 %.sink16.in, 0
+  tail call void @llvm.assume(i1 %.sink16)
   br label %.sink.split
 
 _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread: ; preds = %13, %6
@@ -866,8 +866,8 @@ _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread: ; preds =
   %25 = tail call i32 @uhash_igeti_77(ptr noundef %24, i32 noundef %1)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread10, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread
-  %.0.ph = phi i32 [ %25, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread ], [ 0, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread10 ]
+.sink.split:                                      ; preds = %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread14, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread
+  %.0.ph = phi i32 [ %25, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread ], [ 0, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread14 ]
   tail call void @umtx_unlock_77(ptr noundef nonnull @_ZL6ccLock)
   br label %26
 
@@ -913,7 +913,7 @@ define void @_ZN6icu_7713CalendarCache3putEPPS0_iiR10UErrorCode(ptr noundef capt
 .thread.i:                                        ; preds = %10
   store ptr null, ptr %0, align 8, !tbaa !29
   %17 = load i32, ptr %3, align 4, !tbaa !27
-  br label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread10
+  br label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread13
 
 18:                                               ; preds = %13
   %19 = landingpad { ptr, i32 }
@@ -928,12 +928,12 @@ _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit: ; preds = %14
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %11) #16
   %.pre.pre = load i32, ptr %3, align 4, !tbaa !27
   store ptr null, ptr %0, align 8, !tbaa !29
-  br label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread10
+  br label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread13
 
-_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread10: ; preds = %.thread.i, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit
-  %.sink12.in = phi i32 [ %17, %.thread.i ], [ %.pre.pre, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit ]
-  %.sink12 = icmp sgt i32 %.sink12.in, 0
-  tail call void @llvm.assume(i1 %.sink12)
+_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread13: ; preds = %.thread.i, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit
+  %.sink15.in = phi i32 [ %17, %.thread.i ], [ %.pre.pre, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit ]
+  %.sink15 = icmp sgt i32 %.sink15.in, 0
+  tail call void @llvm.assume(i1 %.sink15)
   br label %.sink.split
 
 _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread: ; preds = %14, %7
@@ -943,7 +943,7 @@ _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread: ; preds =
   %26 = tail call i32 @uhash_iputi_77(ptr noundef %25, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread10, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread
+.sink.split:                                      ; preds = %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread13, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread
   tail call void @umtx_unlock_77(ptr noundef nonnull @_ZL6ccLock)
   br label %27
 

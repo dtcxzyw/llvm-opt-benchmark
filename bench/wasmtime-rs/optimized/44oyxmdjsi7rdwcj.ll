@@ -2240,13 +2240,13 @@ define hidden void @"_ZN80_$LT$zstd..stream..zio..reader..Reader$LT$R$C$D$GT$$u2
 .backedge:                                        ; preds = %.backedge.backedge, %4
   %.0.not = phi i1 [ false, %4 ], [ true, %.backedge.backedge ]
   %20 = load i8, ptr %8, align 8, !range !132, !noundef !4
-  switch i8 %20, label %default.unreachable78 [
+  switch i8 %20, label %default.unreachable80 [
     i8 0, label %21
     i8 1, label %22
     i8 2, label %25
   ]
 
-default.unreachable78:                            ; preds = %.backedge
+default.unreachable80:                            ; preds = %.backedge
   unreachable
 
 21:                                               ; preds = %.backedge
@@ -2371,9 +2371,9 @@ default.unreachable78:                            ; preds = %.backedge
   br label %34
 
 .loopexit:                                        ; preds = %43, %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$3run17hf2ad75e0bb1f0283E.exit"
-  %.sink85 = phi ptr [ %42, %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$3run17hf2ad75e0bb1f0283E.exit" ], [ %44, %43 ]
+  %.sink87 = phi ptr [ %42, %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$3run17hf2ad75e0bb1f0283E.exit" ], [ %44, %43 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink85, ptr %62, align 8
+  store ptr %.sink87, ptr %62, align 8
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

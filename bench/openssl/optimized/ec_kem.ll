@@ -934,8 +934,8 @@ define internal fastcc range(i32 0, 2) i32 @derive_secret(ptr noundef readonly c
   br label %49
 
 49:                                               ; preds = %42, %45
-  %.16472 = phi i64 [ %39, %45 ], [ %19, %42 ]
-  %.0446570 = phi i64 [ %40, %45 ], [ %25, %42 ]
+  %.16876 = phi i64 [ %39, %45 ], [ %19, %42 ]
+  %.0446974 = phi i64 [ %40, %45 ], [ %25, %42 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = load ptr, ptr %50, align 8, !tbaa !39
   %52 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -964,7 +964,7 @@ define internal fastcc range(i32 0, 2) i32 @derive_secret(ptr noundef readonly c
   %68 = trunc i16 %63 to i8
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %68, ptr %69, align 1, !tbaa !3
-  %70 = call i32 @ossl_hpke_labeled_extract(ptr noundef nonnull %58, ptr noundef nonnull %10, i64 noundef %62, ptr noundef null, i64 noundef 0, ptr noundef nonnull @LABEL_KEM, ptr noundef nonnull %9, i64 noundef 2, ptr noundef nonnull @.str.10, ptr noundef nonnull %12, i64 noundef %.16472) #5
+  %70 = call i32 @ossl_hpke_labeled_extract(ptr noundef nonnull %58, ptr noundef nonnull %10, i64 noundef %62, ptr noundef null, i64 noundef 0, ptr noundef nonnull @LABEL_KEM, ptr noundef nonnull %9, i64 noundef 2, ptr noundef nonnull @.str.10, ptr noundef nonnull %12, i64 noundef %.16876) #5
   %.not.i = icmp eq i32 %70, 0
   br i1 %.not.i, label %dhkem_extract_and_expand.exit.thread57, label %dhkem_extract_and_expand.exit
 
@@ -973,7 +973,7 @@ dhkem_extract_and_expand.exit.thread57:           ; preds = %65
   br label %.sink.split
 
 dhkem_extract_and_expand.exit:                    ; preds = %65
-  %71 = call i32 @ossl_hpke_labeled_expand(ptr noundef nonnull %58, ptr noundef %1, i64 noundef %62, ptr noundef nonnull %10, i64 noundef %62, ptr noundef nonnull @LABEL_KEM, ptr noundef nonnull %9, i64 noundef 2, ptr noundef nonnull @.str.11, ptr noundef nonnull %13, i64 noundef range(i64 0, 400) %.0446570) #5
+  %71 = call i32 @ossl_hpke_labeled_expand(ptr noundef nonnull %58, ptr noundef %1, i64 noundef %62, ptr noundef nonnull %10, i64 noundef %62, ptr noundef nonnull @LABEL_KEM, ptr noundef nonnull %9, i64 noundef 2, ptr noundef nonnull @.str.11, ptr noundef nonnull %13, i64 noundef range(i64 0, 400) %.0446974) #5
   %.fr = freeze i32 %71
   %.not61 = icmp eq i32 %.fr, 0
   call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef %62) #5
@@ -990,7 +990,7 @@ dhkem_extract_and_expand.exit:                    ; preds = %65
   br label %73
 
 73:                                               ; preds = %.thread, %72, %dhkem_extract_and_expand.exit, %49, %37, %33, %26, %8, %32
-  %.045 = phi i64 [ %19, %32 ], [ %19, %37 ], [ %.16472, %49 ], [ %19, %33 ], [ %19, %26 ], [ 0, %8 ], [ %.16472, %dhkem_extract_and_expand.exit ], [ %.16472, %72 ], [ %39, %.thread ]
+  %.045 = phi i64 [ %19, %32 ], [ %19, %37 ], [ %.16876, %49 ], [ %19, %33 ], [ %19, %26 ], [ 0, %8 ], [ %.16876, %dhkem_extract_and_expand.exit ], [ %.16876, %72 ], [ %39, %.thread ]
   %.043 = phi ptr [ null, %32 ], [ null, %37 ], [ null, %49 ], [ null, %33 ], [ null, %26 ], [ null, %8 ], [ %58, %dhkem_extract_and_expand.exit ], [ %58, %72 ], [ null, %.thread ]
   %.0 = phi i32 [ 0, %32 ], [ 0, %37 ], [ 0, %49 ], [ 0, %33 ], [ 0, %26 ], [ 0, %8 ], [ 1, %dhkem_extract_and_expand.exit ], [ 0, %72 ], [ 0, %.thread ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %12, i64 noundef %.045) #5

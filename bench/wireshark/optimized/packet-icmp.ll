@@ -1197,7 +1197,7 @@ proto_item_set_generated.exit332:                 ; preds = %193, %202, %205
     i8 5, label %.thread377
     i8 8, label %402
     i8 18, label %713
-    i8 9, label %.thread384
+    i8 9, label %.thread423
     i8 13, label %614
     i8 14, label %614
     i8 17, label %713
@@ -1657,8 +1657,8 @@ _find_or_create_conversation.exit.i:              ; preds = %444, %432
   %496 = load ptr, ptr %495, align 8
   %497 = load i8, ptr %496, align 1
   %498 = and i8 %497, -16
-  %.not74.i = icmp eq i8 %498, -32
-  br i1 %.not74.i, label %._crit_edge.i, label %499
+  %.not82.i = icmp eq i8 %498, -32
+  br i1 %.not82.i, label %._crit_edge.i, label %499
 
 499:                                              ; preds = %494
   %500 = zext i8 %497 to i32
@@ -1834,7 +1834,7 @@ proto_item_set_generated.exit341:                 ; preds = %562, %567, %570
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %590, ptr noundef nonnull @.str.236, ptr noundef %595)
   %.pre = load i32, ptr %12, align 4
   %596 = icmp eq i32 %.pre, 2
-  br i1 %596, label %.preheader, label %.thread384
+  br i1 %596, label %.preheader, label %.thread423
 
 .preheader:                                       ; preds = %584
   %597 = load i32, ptr %11, align 4
@@ -1870,7 +1870,7 @@ proto_item_set_generated.exit341:                 ; preds = %562, %567, %570
   call fastcc void @dissect_mip_extensions(ptr noundef %0, i32 noundef %.0301.lcssa, ptr noundef %72)
   br label %719
 
-.thread384:                                       ; preds = %242, %584
+.thread423:                                       ; preds = %242, %584
   %612 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8)
   %613 = call i32 @call_data_dissector(ptr noundef %612, ptr noundef %1, ptr noundef %72)
   br label %719
@@ -2058,8 +2058,8 @@ get_best_guess_mstimeofday.exit368:               ; preds = %get_best_guess_msti
   %718 = call i32 @dissect_icmp_extension(ptr noundef %717, ptr noundef %1, ptr noundef %72, ptr poison)
   br label %719
 
-719:                                              ; preds = %242, %113, %.thread378, %.thread380, %716, %.thread384, %._crit_edge, %611, %proto_item_set_generated.exit341, %583, %553, %556, %279, %292, %287, %713, %get_best_guess_mstimeofday.exit368
-  %.0302 = phi ptr [ null, %242 ], [ null, %292 ], [ null, %287 ], [ null, %279 ], [ %.1303, %556 ], [ %.1303, %553 ], [ %.1303, %proto_item_set_generated.exit341 ], [ %.1303, %583 ], [ null, %611 ], [ null, %._crit_edge ], [ null, %.thread384 ], [ null, %get_best_guess_mstimeofday.exit368 ], [ null, %713 ], [ null, %716 ], [ null, %.thread380 ], [ null, %.thread378 ], [ null, %113 ]
+719:                                              ; preds = %242, %113, %.thread378, %.thread380, %716, %.thread423, %._crit_edge, %611, %proto_item_set_generated.exit341, %583, %553, %556, %279, %292, %287, %713, %get_best_guess_mstimeofday.exit368
+  %.0302 = phi ptr [ null, %242 ], [ null, %292 ], [ null, %287 ], [ null, %279 ], [ %.1303, %556 ], [ %.1303, %553 ], [ %.1303, %proto_item_set_generated.exit341 ], [ %.1303, %583 ], [ null, %611 ], [ null, %._crit_edge ], [ null, %.thread423 ], [ null, %get_best_guess_mstimeofday.exit368 ], [ null, %713 ], [ null, %716 ], [ null, %.thread380 ], [ null, %.thread378 ], [ null, %113 ]
   %720 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %721 = load ptr, ptr %720, align 8
   %722 = getelementptr inbounds nuw i8, ptr %721, i64 57
@@ -2376,10 +2376,10 @@ dissect_mpls_stack_entry_object.exit:             ; preds = %._crit_edge.i, %119
 
 .sink.split.i:                                    ; preds = %163, %151
   %hf_icmp_int_info_ipv4.sink.i = phi ptr [ @hf_icmp_int_info_ipv6, %163 ], [ @hf_icmp_int_info_ipv4, %151 ]
-  %.sink101.i = phi i32 [ 16, %163 ], [ 4, %151 ]
+  %.sink105.i = phi i32 [ 16, %163 ], [ 4, %151 ]
   %.sink.i = phi i32 [ 20, %163 ], [ 8, %151 ]
   %168 = load i32, ptr %hf_icmp_int_info_ipv4.sink.i, align 4
-  %169 = call ptr @proto_tree_add_item(ptr noundef %157, i32 noundef %168, ptr noundef %0, i32 noundef %162, i32 noundef %.sink101.i, i32 noundef 0)
+  %169 = call ptr @proto_tree_add_item(ptr noundef %157, i32 noundef %168, ptr noundef %0, i32 noundef %162, i32 noundef %.sink105.i, i32 noundef 0)
   %170 = add i32 %.sink.i, %.088.i
   br label %171
 

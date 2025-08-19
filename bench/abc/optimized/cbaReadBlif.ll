@@ -688,8 +688,8 @@ Vec_StrPush.exit67.i.i.i:                         ; preds = %244, %Vec_StrGrow.e
   %.promoted26.i68.i.i.i = load ptr, ptr %69, align 8, !tbaa !20
   br label %251
 
-251:                                              ; preds = %.backedge581, %Vec_StrPush.exit67.i.i.i
-  %252 = phi ptr [ %.promoted26.i68.i.i.i, %Vec_StrPush.exit67.i.i.i ], [ %storemerge722, %.backedge581 ]
+251:                                              ; preds = %.backedge655, %Vec_StrPush.exit67.i.i.i
+  %252 = phi ptr [ %.promoted26.i68.i.i.i, %Vec_StrPush.exit67.i.i.i ], [ %storemerge796, %.backedge655 ]
   %.val.val.i69.i.i.i = load i8, ptr %252, align 1, !tbaa !3
   switch i8 %.val.val.i69.i.i.i, label %259 [
     i8 32, label %Prs_ManIsSpace.exit.thread.i77.i.i.i
@@ -702,11 +702,11 @@ Vec_StrPush.exit67.i.i.i:                         ; preds = %244, %Vec_StrGrow.e
 
 Prs_ManIsSpace.exit.thread.i77.i.i.i:             ; preds = %251, %251, %251
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 1
-  br label %.backedge581
+  br label %.backedge655
 
-.backedge581:                                     ; preds = %Prs_ManIsSpace.exit.thread.i77.i.i.i, %Prs_ManSkipToChar.exit.i76.i.i.i
-  %storemerge722 = phi ptr [ %256, %Prs_ManSkipToChar.exit.i76.i.i.i ], [ %253, %Prs_ManIsSpace.exit.thread.i77.i.i.i ]
-  store ptr %storemerge722, ptr %69, align 8, !tbaa !20
+.backedge655:                                     ; preds = %Prs_ManIsSpace.exit.thread.i77.i.i.i, %Prs_ManSkipToChar.exit.i76.i.i.i
+  %storemerge796 = phi ptr [ %256, %Prs_ManSkipToChar.exit.i76.i.i.i ], [ %253, %Prs_ManIsSpace.exit.thread.i77.i.i.i ]
+  store ptr %storemerge796, ptr %69, align 8, !tbaa !20
   br label %251, !llvm.loop !49
 
 .lr.ph.i.i73.i.i.i:                               ; preds = %251, %.lr.ph.i.i73.i.i.i
@@ -719,7 +719,7 @@ Prs_ManIsSpace.exit.thread.i77.i.i.i:             ; preds = %251, %251, %251
 
 Prs_ManSkipToChar.exit.i76.i.i.i:                 ; preds = %.lr.ph.i.i73.i.i.i
   %256 = getelementptr inbounds nuw i8, ptr %254, i64 2
-  br label %.backedge581
+  br label %.backedge655
 
 .lr.ph.i14.i70.i.i.i:                             ; preds = %251, %.lr.ph.i14.i70.i.i.i
   %257 = phi ptr [ %258, %.lr.ph.i14.i70.i.i.i ], [ %252, %251 ]
@@ -756,11 +756,11 @@ Prs_ManSkipToChar.exit.i76.i.i.i:                 ; preds = %.lr.ph.i.i73.i.i.i
   br label %thread-pre-split.sink.split.i.i.i
 
 thread-pre-split.sink.split.i.i.i:                ; preds = %267, %264
-  %.sink24.i.i.i = phi i8 [ 8, %267 ], [ 4, %264 ]
+  %.sink26.i.i.i = phi i8 [ 8, %267 ], [ 4, %264 ]
   %268 = load ptr, ptr %75, align 8, !tbaa !50
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 4
   %270 = load i8, ptr %269, align 4
-  %271 = or i8 %270, %.sink24.i.i.i
+  %271 = or i8 %270, %.sink26.i.i.i
   store i8 %271, ptr %269, align 4
   %.pr.i.pre.i.i = load i32, ptr %74, align 4, !tbaa !45
   br label %thread-pre-split.i.i.i
@@ -858,8 +858,8 @@ Prs_ManSaveCover.exit.i.i:                        ; preds = %291, %Vec_StrGrow.e
   %.ph = phi ptr [ %storemerge11.i, %261 ], [ %.promoted26.i.i.pre.i.i, %Prs_ManSaveCover.exit.i.i ]
   br label %311
 
-311:                                              ; preds = %.backedge621, %.preheader
-  %312 = phi ptr [ %.ph, %.preheader ], [ %storemerge, %.backedge621 ]
+311:                                              ; preds = %.backedge695, %.preheader
+  %312 = phi ptr [ %.ph, %.preheader ], [ %storemerge, %.backedge695 ]
   %.val.val.i.i36.i.i = load i8, ptr %312, align 1, !tbaa !3
   switch i8 %.val.val.i.i36.i.i, label %.preheader.i48.i.i [
     i8 32, label %Prs_ManIsSpace.exit.thread.i.i46.i.i
@@ -872,9 +872,9 @@ Prs_ManSaveCover.exit.i.i:                        ; preds = %291, %Vec_StrGrow.e
 
 Prs_ManIsSpace.exit.thread.i.i46.i.i:             ; preds = %311, %311, %311
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 1
-  br label %.backedge621
+  br label %.backedge695
 
-.backedge621:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i46.i.i, %Prs_ManSkipToChar.exit.i.i45.i.i
+.backedge695:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i46.i.i, %Prs_ManSkipToChar.exit.i.i45.i.i
   %storemerge = phi ptr [ %316, %Prs_ManSkipToChar.exit.i.i45.i.i ], [ %313, %Prs_ManIsSpace.exit.thread.i.i46.i.i ]
   store ptr %storemerge, ptr %69, align 8, !tbaa !20
   br label %311, !llvm.loop !49
@@ -889,7 +889,7 @@ Prs_ManIsSpace.exit.thread.i.i46.i.i:             ; preds = %311, %311, %311
 
 Prs_ManSkipToChar.exit.i.i45.i.i:                 ; preds = %.lr.ph.i.i.i42.i.i
   %316 = getelementptr inbounds nuw i8, ptr %314, i64 2
-  br label %.backedge621
+  br label %.backedge695
 
 .lr.ph.i14.i.i37.i.i:                             ; preds = %311, %.lr.ph.i14.i.i37.i.i
   %317 = phi ptr [ %318, %.lr.ph.i14.i.i37.i.i ], [ %312, %311 ]
@@ -952,8 +952,8 @@ Prs_ManReadName.exit.i.i:                         ; preds = %.critedge.i.i.i
   %.promoted26.i.i.i.i.i = load ptr, ptr %69, align 8, !tbaa !20
   br label %330
 
-330:                                              ; preds = %.backedge589, %329
-  %331 = phi ptr [ %.promoted26.i.i.i.i.i, %329 ], [ %storemerge720, %.backedge589 ]
+330:                                              ; preds = %.backedge663, %329
+  %331 = phi ptr [ %.promoted26.i.i.i.i.i, %329 ], [ %storemerge794, %.backedge663 ]
   %.val.val.i.i.i52.i.i = load i8, ptr %331, align 1, !tbaa !3
   switch i8 %.val.val.i.i.i52.i.i, label %.preheader.i.i.i.i [
     i8 32, label %Prs_ManIsSpace.exit.thread.i.i.i.i.i
@@ -966,11 +966,11 @@ Prs_ManReadName.exit.i.i:                         ; preds = %.critedge.i.i.i
 
 Prs_ManIsSpace.exit.thread.i.i.i.i.i:             ; preds = %330, %330, %330
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 1
-  br label %.backedge589
+  br label %.backedge663
 
-.backedge589:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i.i.i.i, %Prs_ManSkipToChar.exit.i.i.i.i.i
-  %storemerge720 = phi ptr [ %335, %Prs_ManSkipToChar.exit.i.i.i.i.i ], [ %332, %Prs_ManIsSpace.exit.thread.i.i.i.i.i ]
-  store ptr %storemerge720, ptr %69, align 8, !tbaa !20
+.backedge663:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i.i.i.i, %Prs_ManSkipToChar.exit.i.i.i.i.i
+  %storemerge794 = phi ptr [ %335, %Prs_ManSkipToChar.exit.i.i.i.i.i ], [ %332, %Prs_ManIsSpace.exit.thread.i.i.i.i.i ]
+  store ptr %storemerge794, ptr %69, align 8, !tbaa !20
   br label %330, !llvm.loop !49
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %330, %.lr.ph.i.i.i.i.i.i
@@ -983,7 +983,7 @@ Prs_ManIsSpace.exit.thread.i.i.i.i.i:             ; preds = %330, %330, %330
 
 Prs_ManSkipToChar.exit.i.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i.i
   %335 = getelementptr inbounds nuw i8, ptr %333, i64 2
-  br label %.backedge589
+  br label %.backedge663
 
 .lr.ph.i14.i.i.i.i.i:                             ; preds = %330, %.lr.ph.i14.i.i.i.i.i
   %336 = phi ptr [ %337, %.lr.ph.i14.i.i.i.i.i ], [ %331, %330 ]
@@ -1118,8 +1118,8 @@ Prs_ManInitializeNtk.exit.i.i.i:                  ; preds = %386, %Vec_PtrGrow.e
   %.promoted26.i.i54.i.i = load ptr, ptr %69, align 8, !tbaa !20
   br label %393
 
-393:                                              ; preds = %.backedge586, %Prs_ManInitializeNtk.exit.i.i.i
-  %394 = phi ptr [ %.promoted26.i.i54.i.i, %Prs_ManInitializeNtk.exit.i.i.i ], [ %storemerge721, %.backedge586 ]
+393:                                              ; preds = %.backedge660, %Prs_ManInitializeNtk.exit.i.i.i
+  %394 = phi ptr [ %.promoted26.i.i54.i.i, %Prs_ManInitializeNtk.exit.i.i.i ], [ %storemerge795, %.backedge660 ]
   %.val.val.i13.i.i.i = load i8, ptr %394, align 1, !tbaa !3
   switch i8 %.val.val.i13.i.i.i, label %401 [
     i8 32, label %Prs_ManIsSpace.exit.thread.i.i61.i.i
@@ -1132,11 +1132,11 @@ Prs_ManInitializeNtk.exit.i.i.i:                  ; preds = %386, %Vec_PtrGrow.e
 
 Prs_ManIsSpace.exit.thread.i.i61.i.i:             ; preds = %393, %393, %393
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 1
-  br label %.backedge586
+  br label %.backedge660
 
-.backedge586:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i61.i.i, %Prs_ManSkipToChar.exit.i.i60.i.i
-  %storemerge721 = phi ptr [ %398, %Prs_ManSkipToChar.exit.i.i60.i.i ], [ %395, %Prs_ManIsSpace.exit.thread.i.i61.i.i ]
-  store ptr %storemerge721, ptr %69, align 8, !tbaa !20
+.backedge660:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i61.i.i, %Prs_ManSkipToChar.exit.i.i60.i.i
+  %storemerge795 = phi ptr [ %398, %Prs_ManSkipToChar.exit.i.i60.i.i ], [ %395, %Prs_ManIsSpace.exit.thread.i.i61.i.i ]
+  store ptr %storemerge795, ptr %69, align 8, !tbaa !20
   br label %393, !llvm.loop !49
 
 .lr.ph.i.i.i58.i.i:                               ; preds = %393, %.lr.ph.i.i.i58.i.i
@@ -1149,7 +1149,7 @@ Prs_ManIsSpace.exit.thread.i.i61.i.i:             ; preds = %393, %393, %393
 
 Prs_ManSkipToChar.exit.i.i60.i.i:                 ; preds = %.lr.ph.i.i.i58.i.i
   %398 = getelementptr inbounds nuw i8, ptr %396, i64 2
-  br label %.backedge586
+  br label %.backedge660
 
 .lr.ph.i14.i.i55.i.i:                             ; preds = %393, %.lr.ph.i14.i.i55.i.i
   %399 = phi ptr [ %400, %.lr.ph.i14.i.i55.i.i ], [ %394, %393 ]
@@ -1449,7 +1449,7 @@ Vec_IntPush.exit.i.i92.i.i:                       ; preds = %520, %Vec_IntGrow.e
   br label %531
 
 531:                                              ; preds = %.backedge, %530
-  %532 = phi ptr [ %.promoted26.i.i.i.i.i.i, %530 ], [ %storemerge719, %.backedge ]
+  %532 = phi ptr [ %.promoted26.i.i.i.i.i.i, %530 ], [ %storemerge793, %.backedge ]
   %.val.val.i.i.i.i98.i.i = load i8, ptr %532, align 1, !tbaa !3
   switch i8 %.val.val.i.i.i.i98.i.i, label %.preheader.i.i.i.i.i [
     i8 32, label %Prs_ManIsSpace.exit.thread.i.i.i.i.i.i
@@ -1465,8 +1465,8 @@ Prs_ManIsSpace.exit.thread.i.i.i.i.i.i:           ; preds = %531, %531, %531
   br label %.backedge
 
 .backedge:                                        ; preds = %Prs_ManIsSpace.exit.thread.i.i.i.i.i.i, %Prs_ManSkipToChar.exit.i.i.i.i.i.i
-  %storemerge719 = phi ptr [ %536, %Prs_ManSkipToChar.exit.i.i.i.i.i.i ], [ %533, %Prs_ManIsSpace.exit.thread.i.i.i.i.i.i ]
-  store ptr %storemerge719, ptr %69, align 8, !tbaa !20
+  %storemerge793 = phi ptr [ %536, %Prs_ManSkipToChar.exit.i.i.i.i.i.i ], [ %533, %Prs_ManIsSpace.exit.thread.i.i.i.i.i.i ]
+  store ptr %storemerge793, ptr %69, align 8, !tbaa !20
   br label %531, !llvm.loop !49
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %531, %.lr.ph.i.i.i.i.i.i.i
@@ -1631,8 +1631,8 @@ Prs_ManReadList2.exit.i.i.i:                      ; preds = %Prs_ManReadName.exi
   %.promoted26.i.i.i103.i.i = load ptr, ptr %69, align 8, !tbaa !20
   br label %593
 
-593:                                              ; preds = %.backedge605, %592
-  %594 = phi ptr [ %.promoted26.i.i.i103.i.i, %592 ], [ %storemerge716, %.backedge605 ]
+593:                                              ; preds = %.backedge679, %592
+  %594 = phi ptr [ %.promoted26.i.i.i103.i.i, %592 ], [ %storemerge790, %.backedge679 ]
   %.val.val.i.i.i104.i.i = load i8, ptr %594, align 1, !tbaa !3
   switch i8 %.val.val.i.i.i104.i.i, label %.preheader.i.i115.i.i [
     i8 32, label %Prs_ManIsSpace.exit.thread.i.i.i113.i.i
@@ -1645,11 +1645,11 @@ Prs_ManReadList2.exit.i.i.i:                      ; preds = %Prs_ManReadName.exi
 
 Prs_ManIsSpace.exit.thread.i.i.i113.i.i:          ; preds = %593, %593, %593
   %595 = getelementptr inbounds nuw i8, ptr %594, i64 1
-  br label %.backedge605
+  br label %.backedge679
 
-.backedge605:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i.i113.i.i, %Prs_ManSkipToChar.exit.i.i.i112.i.i
-  %storemerge716 = phi ptr [ %598, %Prs_ManSkipToChar.exit.i.i.i112.i.i ], [ %595, %Prs_ManIsSpace.exit.thread.i.i.i113.i.i ]
-  store ptr %storemerge716, ptr %69, align 8, !tbaa !20
+.backedge679:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i.i113.i.i, %Prs_ManSkipToChar.exit.i.i.i112.i.i
+  %storemerge790 = phi ptr [ %598, %Prs_ManSkipToChar.exit.i.i.i112.i.i ], [ %595, %Prs_ManIsSpace.exit.thread.i.i.i113.i.i ]
+  store ptr %storemerge790, ptr %69, align 8, !tbaa !20
   br label %593, !llvm.loop !49
 
 .lr.ph.i.i.i.i109.i.i:                            ; preds = %593, %.lr.ph.i.i.i.i109.i.i
@@ -1662,7 +1662,7 @@ Prs_ManIsSpace.exit.thread.i.i.i113.i.i:          ; preds = %593, %593, %593
 
 Prs_ManSkipToChar.exit.i.i.i112.i.i:              ; preds = %.lr.ph.i.i.i.i109.i.i
   %598 = getelementptr inbounds nuw i8, ptr %596, i64 2
-  br label %.backedge605
+  br label %.backedge679
 
 .lr.ph.i14.i.i.i106.i.i:                          ; preds = %593, %.lr.ph.i14.i.i.i106.i.i
   %599 = phi ptr [ %600, %.lr.ph.i14.i.i.i106.i.i ], [ %594, %593 ]
@@ -1718,8 +1718,8 @@ Prs_ManReadName.exit.i118.i.i:                    ; preds = %.critedge.i.i117.i.
   %.promoted26.i.i25.i.i.i = load ptr, ptr %69, align 8, !tbaa !20
   br label %611
 
-611:                                              ; preds = %.backedge602, %609
-  %612 = phi ptr [ %.promoted26.i.i25.i.i.i, %609 ], [ %storemerge717, %.backedge602 ]
+611:                                              ; preds = %.backedge676, %609
+  %612 = phi ptr [ %.promoted26.i.i25.i.i.i, %609 ], [ %storemerge791, %.backedge676 ]
   %.val.val.i.i26.i.i.i = load i8, ptr %612, align 1, !tbaa !3
   switch i8 %.val.val.i.i26.i.i.i, label %.preheader.i38.i.i.i [
     i8 32, label %Prs_ManIsSpace.exit.thread.i.i35.i.i.i
@@ -1732,11 +1732,11 @@ Prs_ManReadName.exit.i118.i.i:                    ; preds = %.critedge.i.i117.i.
 
 Prs_ManIsSpace.exit.thread.i.i35.i.i.i:           ; preds = %611, %611, %611
   %613 = getelementptr inbounds nuw i8, ptr %612, i64 1
-  br label %.backedge602
+  br label %.backedge676
 
-.backedge602:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i35.i.i.i, %Prs_ManSkipToChar.exit.i.i34.i.i.i
-  %storemerge717 = phi ptr [ %616, %Prs_ManSkipToChar.exit.i.i34.i.i.i ], [ %613, %Prs_ManIsSpace.exit.thread.i.i35.i.i.i ]
-  store ptr %storemerge717, ptr %69, align 8, !tbaa !20
+.backedge676:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i35.i.i.i, %Prs_ManSkipToChar.exit.i.i34.i.i.i
+  %storemerge791 = phi ptr [ %616, %Prs_ManSkipToChar.exit.i.i34.i.i.i ], [ %613, %Prs_ManIsSpace.exit.thread.i.i35.i.i.i ]
+  store ptr %storemerge791, ptr %69, align 8, !tbaa !20
   br label %611, !llvm.loop !49
 
 .lr.ph.i.i.i31.i.i.i:                             ; preds = %611, %.lr.ph.i.i.i31.i.i.i
@@ -1749,7 +1749,7 @@ Prs_ManIsSpace.exit.thread.i.i35.i.i.i:           ; preds = %611, %611, %611
 
 Prs_ManSkipToChar.exit.i.i34.i.i.i:               ; preds = %.lr.ph.i.i.i31.i.i.i
   %616 = getelementptr inbounds nuw i8, ptr %614, i64 2
-  br label %.backedge602
+  br label %.backedge676
 
 .lr.ph.i14.i.i27.i.i.i:                           ; preds = %611, %.lr.ph.i14.i.i27.i.i.i
   %617 = phi ptr [ %618, %.lr.ph.i14.i.i27.i.i.i ], [ %612, %611 ]
@@ -1799,8 +1799,8 @@ Prs_ManReadName.exit42.thread.i.i.i:              ; preds = %Prs_ManReadName.exi
   %.promoted26.i.i119.i.i = load ptr, ptr %69, align 8, !tbaa !20
   br label %628
 
-628:                                              ; preds = %.backedge599, %627
-  %629 = phi ptr [ %.promoted26.i.i119.i.i, %627 ], [ %storemerge718, %.backedge599 ]
+628:                                              ; preds = %.backedge673, %627
+  %629 = phi ptr [ %.promoted26.i.i119.i.i, %627 ], [ %storemerge792, %.backedge673 ]
   %.val.val.i44.i.i.i = load i8, ptr %629, align 1, !tbaa !3
   switch i8 %.val.val.i44.i.i.i, label %.lr.ph.i.preheader.i.i.i [
     i8 32, label %Prs_ManIsSpace.exit.thread.i.i126.i.i
@@ -1809,17 +1809,17 @@ Prs_ManReadName.exit42.thread.i.i.i:              ; preds = %Prs_ManReadName.exi
     i8 92, label %.lr.ph.i.i.i123.i.i
     i8 35, label %.lr.ph.i14.i.i120.i.i
     i8 49, label %.lr.ph.i.preheader.i.i.i.loopexit
-    i8 48, label %.lr.ph.i.preheader.i.i.i.loopexit597
+    i8 48, label %.lr.ph.i.preheader.i.i.i.loopexit671
     i8 10, label %Prs_ManSkipToChar.exit.i.i.i
   ]
 
 Prs_ManIsSpace.exit.thread.i.i126.i.i:            ; preds = %628, %628, %628
   %630 = getelementptr inbounds nuw i8, ptr %629, i64 1
-  br label %.backedge599
+  br label %.backedge673
 
-.backedge599:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i126.i.i, %Prs_ManSkipToChar.exit.i.i125.i.i
-  %storemerge718 = phi ptr [ %633, %Prs_ManSkipToChar.exit.i.i125.i.i ], [ %630, %Prs_ManIsSpace.exit.thread.i.i126.i.i ]
-  store ptr %storemerge718, ptr %69, align 8, !tbaa !20
+.backedge673:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i126.i.i, %Prs_ManSkipToChar.exit.i.i125.i.i
+  %storemerge792 = phi ptr [ %633, %Prs_ManSkipToChar.exit.i.i125.i.i ], [ %630, %Prs_ManIsSpace.exit.thread.i.i126.i.i ]
+  store ptr %storemerge792, ptr %69, align 8, !tbaa !20
   br label %628, !llvm.loop !49
 
 .lr.ph.i.i.i123.i.i:                              ; preds = %628, %.lr.ph.i.i.i123.i.i
@@ -1832,7 +1832,7 @@ Prs_ManIsSpace.exit.thread.i.i126.i.i:            ; preds = %628, %628, %628
 
 Prs_ManSkipToChar.exit.i.i125.i.i:                ; preds = %.lr.ph.i.i.i123.i.i
   %633 = getelementptr inbounds nuw i8, ptr %631, i64 2
-  br label %.backedge599
+  br label %.backedge673
 
 .lr.ph.i14.i.i120.i.i:                            ; preds = %628, %.lr.ph.i14.i.i120.i.i
   %634 = phi ptr [ %635, %.lr.ph.i14.i.i120.i.i ], [ %629, %628 ]
@@ -1845,11 +1845,11 @@ Prs_ManSkipToChar.exit.i.i125.i.i:                ; preds = %.lr.ph.i.i.i123.i.i
 .lr.ph.i.preheader.i.i.i.loopexit:                ; preds = %628
   br label %.lr.ph.i.preheader.i.i.i
 
-.lr.ph.i.preheader.i.i.i.loopexit597:             ; preds = %628
+.lr.ph.i.preheader.i.i.i.loopexit671:             ; preds = %628
   br label %.lr.ph.i.preheader.i.i.i
 
-.lr.ph.i.preheader.i.i.i:                         ; preds = %628, %.lr.ph.i.preheader.i.i.i.loopexit597, %.lr.ph.i.preheader.i.i.i.loopexit
-  %636 = phi i32 [ 1, %.lr.ph.i.preheader.i.i.i.loopexit ], [ 0, %.lr.ph.i.preheader.i.i.i.loopexit597 ], [ 2, %628 ]
+.lr.ph.i.preheader.i.i.i:                         ; preds = %628, %.lr.ph.i.preheader.i.i.i.loopexit671, %.lr.ph.i.preheader.i.i.i.loopexit
+  %636 = phi i32 [ 1, %.lr.ph.i.preheader.i.i.i.loopexit ], [ 0, %.lr.ph.i.preheader.i.i.i.loopexit671 ], [ 2, %628 ]
   br label %.lr.ph.i.i128.i.i
 
 .lr.ph.i.i128.i.i:                                ; preds = %.lr.ph.i.i128.i.i, %.lr.ph.i.preheader.i.i.i
@@ -1870,8 +1870,8 @@ Prs_ManSkipToChar.exit.i.i.i:                     ; preds = %628, %.lr.ph.i14.i.
   %.promoted26.i.i.i130.i.i = load ptr, ptr %69, align 8, !tbaa !20
   br label %642
 
-642:                                              ; preds = %.backedge614, %641
-  %643 = phi ptr [ %.promoted26.i.i.i130.i.i, %641 ], [ %storemerge713, %.backedge614 ]
+642:                                              ; preds = %.backedge688, %641
+  %643 = phi ptr [ %.promoted26.i.i.i130.i.i, %641 ], [ %storemerge787, %.backedge688 ]
   %.val.val.i.i.i131.i.i = load i8, ptr %643, align 1, !tbaa !3
   switch i8 %.val.val.i.i.i131.i.i, label %.preheader.i.i143.i.i [
     i8 32, label %Prs_ManIsSpace.exit.thread.i.i.i141.i.i
@@ -1884,11 +1884,11 @@ Prs_ManSkipToChar.exit.i.i.i:                     ; preds = %628, %.lr.ph.i14.i.
 
 Prs_ManIsSpace.exit.thread.i.i.i141.i.i:          ; preds = %642, %642, %642
   %644 = getelementptr inbounds nuw i8, ptr %643, i64 1
-  br label %.backedge614
+  br label %.backedge688
 
-.backedge614:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i.i141.i.i, %Prs_ManSkipToChar.exit.i.i.i140.i.i
-  %storemerge713 = phi ptr [ %647, %Prs_ManSkipToChar.exit.i.i.i140.i.i ], [ %644, %Prs_ManIsSpace.exit.thread.i.i.i141.i.i ]
-  store ptr %storemerge713, ptr %69, align 8, !tbaa !20
+.backedge688:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i.i141.i.i, %Prs_ManSkipToChar.exit.i.i.i140.i.i
+  %storemerge787 = phi ptr [ %647, %Prs_ManSkipToChar.exit.i.i.i140.i.i ], [ %644, %Prs_ManIsSpace.exit.thread.i.i.i141.i.i ]
+  store ptr %storemerge787, ptr %69, align 8, !tbaa !20
   br label %642, !llvm.loop !49
 
 .lr.ph.i.i.i.i137.i.i:                            ; preds = %642, %.lr.ph.i.i.i.i137.i.i
@@ -1901,7 +1901,7 @@ Prs_ManIsSpace.exit.thread.i.i.i141.i.i:          ; preds = %642, %642, %642
 
 Prs_ManSkipToChar.exit.i.i.i140.i.i:              ; preds = %.lr.ph.i.i.i.i137.i.i
   %647 = getelementptr inbounds nuw i8, ptr %645, i64 2
-  br label %.backedge614
+  br label %.backedge688
 
 .lr.ph.i14.i.i.i134.i.i:                          ; preds = %642, %.lr.ph.i14.i.i.i134.i.i
   %648 = phi ptr [ %649, %.lr.ph.i14.i.i.i134.i.i ], [ %643, %642 ]
@@ -1957,8 +1957,8 @@ Prs_ManReadName.exit.i146.i.i:                    ; preds = %.critedge.i.i145.i.
   %.promoted26.i.i22.i.i.i = load ptr, ptr %69, align 8, !tbaa !20
   br label %660
 
-660:                                              ; preds = %.backedge611, %658
-  %661 = phi ptr [ %.promoted26.i.i22.i.i.i, %658 ], [ %storemerge714, %.backedge611 ]
+660:                                              ; preds = %.backedge685, %658
+  %661 = phi ptr [ %.promoted26.i.i22.i.i.i, %658 ], [ %storemerge788, %.backedge685 ]
   %.val.val.i.i23.i.i.i = load i8, ptr %661, align 1, !tbaa !3
   switch i8 %.val.val.i.i23.i.i.i, label %.preheader.i35.i.i.i [
     i8 32, label %Prs_ManIsSpace.exit.thread.i.i32.i.i.i
@@ -1971,11 +1971,11 @@ Prs_ManReadName.exit.i146.i.i:                    ; preds = %.critedge.i.i145.i.
 
 Prs_ManIsSpace.exit.thread.i.i32.i.i.i:           ; preds = %660, %660, %660
   %662 = getelementptr inbounds nuw i8, ptr %661, i64 1
-  br label %.backedge611
+  br label %.backedge685
 
-.backedge611:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i32.i.i.i, %Prs_ManSkipToChar.exit.i.i31.i.i.i
-  %storemerge714 = phi ptr [ %665, %Prs_ManSkipToChar.exit.i.i31.i.i.i ], [ %662, %Prs_ManIsSpace.exit.thread.i.i32.i.i.i ]
-  store ptr %storemerge714, ptr %69, align 8, !tbaa !20
+.backedge685:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i32.i.i.i, %Prs_ManSkipToChar.exit.i.i31.i.i.i
+  %storemerge788 = phi ptr [ %665, %Prs_ManSkipToChar.exit.i.i31.i.i.i ], [ %662, %Prs_ManIsSpace.exit.thread.i.i32.i.i.i ]
+  store ptr %storemerge788, ptr %69, align 8, !tbaa !20
   br label %660, !llvm.loop !49
 
 .lr.ph.i.i.i28.i.i.i:                             ; preds = %660, %.lr.ph.i.i.i28.i.i.i
@@ -1988,7 +1988,7 @@ Prs_ManIsSpace.exit.thread.i.i32.i.i.i:           ; preds = %660, %660, %660
 
 Prs_ManSkipToChar.exit.i.i31.i.i.i:               ; preds = %.lr.ph.i.i.i28.i.i.i
   %665 = getelementptr inbounds nuw i8, ptr %663, i64 2
-  br label %.backedge611
+  br label %.backedge685
 
 .lr.ph.i14.i.i24.i.i.i:                           ; preds = %660, %.lr.ph.i14.i.i24.i.i.i
   %666 = phi ptr [ %667, %.lr.ph.i14.i.i24.i.i.i ], [ %661, %660 ]
@@ -2038,8 +2038,8 @@ Prs_ManReadName.exit39.thread.i.i.i:              ; preds = %Prs_ManReadName.exi
   %.promoted26.i.i149.i.i = load ptr, ptr %69, align 8, !tbaa !20
   br label %677
 
-677:                                              ; preds = %.backedge608, %676
-  %678 = phi ptr [ %.promoted26.i.i149.i.i, %676 ], [ %storemerge715, %.backedge608 ]
+677:                                              ; preds = %.backedge682, %676
+  %678 = phi ptr [ %.promoted26.i.i149.i.i, %676 ], [ %storemerge789, %.backedge682 ]
   %.val.val.i41.i.i.i = load i8, ptr %678, align 1, !tbaa !3
   switch i8 %.val.val.i41.i.i.i, label %685 [
     i8 32, label %Prs_ManIsSpace.exit.thread.i.i157.i.i
@@ -2052,11 +2052,11 @@ Prs_ManReadName.exit39.thread.i.i.i:              ; preds = %Prs_ManReadName.exi
 
 Prs_ManIsSpace.exit.thread.i.i157.i.i:            ; preds = %677, %677, %677
   %679 = getelementptr inbounds nuw i8, ptr %678, i64 1
-  br label %.backedge608
+  br label %.backedge682
 
-.backedge608:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i157.i.i, %Prs_ManSkipToChar.exit.i.i156.i.i
-  %storemerge715 = phi ptr [ %682, %Prs_ManSkipToChar.exit.i.i156.i.i ], [ %679, %Prs_ManIsSpace.exit.thread.i.i157.i.i ]
-  store ptr %storemerge715, ptr %69, align 8, !tbaa !20
+.backedge682:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i157.i.i, %Prs_ManSkipToChar.exit.i.i156.i.i
+  %storemerge789 = phi ptr [ %682, %Prs_ManSkipToChar.exit.i.i156.i.i ], [ %679, %Prs_ManIsSpace.exit.thread.i.i157.i.i ]
+  store ptr %storemerge789, ptr %69, align 8, !tbaa !20
   br label %677, !llvm.loop !49
 
 .lr.ph.i.i.i154.i.i:                              ; preds = %677, %.lr.ph.i.i.i154.i.i
@@ -2069,7 +2069,7 @@ Prs_ManIsSpace.exit.thread.i.i157.i.i:            ; preds = %677, %677, %677
 
 Prs_ManSkipToChar.exit.i.i156.i.i:                ; preds = %.lr.ph.i.i.i154.i.i
   %682 = getelementptr inbounds nuw i8, ptr %680, i64 2
-  br label %.backedge608
+  br label %.backedge682
 
 .lr.ph.i14.i.i150.i.i:                            ; preds = %677, %.lr.ph.i14.i.i150.i.i
   %683 = phi ptr [ %684, %.lr.ph.i14.i.i150.i.i ], [ %678, %677 ]
@@ -2106,8 +2106,8 @@ Prs_ManSkipSpaces.exit.thread.i153.i.i:           ; preds = %677, %.lr.ph.i14.i.
   %.promoted26.i.i160.i.i = load ptr, ptr %69, align 8, !tbaa !20
   br label %696
 
-696:                                              ; preds = %.backedge618, %695
-  %697 = phi ptr [ %.promoted26.i.i160.i.i, %695 ], [ %storemerge712, %.backedge618 ]
+696:                                              ; preds = %.backedge692, %695
+  %697 = phi ptr [ %.promoted26.i.i160.i.i, %695 ], [ %storemerge786, %.backedge692 ]
   %.val.val.i.i161.i.i = load i8, ptr %697, align 1, !tbaa !3
   switch i8 %.val.val.i.i161.i.i, label %704 [
     i8 32, label %Prs_ManIsSpace.exit.thread.i.i171.i.i
@@ -2120,11 +2120,11 @@ Prs_ManSkipSpaces.exit.thread.i153.i.i:           ; preds = %677, %.lr.ph.i14.i.
 
 Prs_ManIsSpace.exit.thread.i.i171.i.i:            ; preds = %696, %696, %696
   %698 = getelementptr inbounds nuw i8, ptr %697, i64 1
-  br label %.backedge618
+  br label %.backedge692
 
-.backedge618:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i171.i.i, %Prs_ManSkipToChar.exit.i.i170.i.i
-  %storemerge712 = phi ptr [ %701, %Prs_ManSkipToChar.exit.i.i170.i.i ], [ %698, %Prs_ManIsSpace.exit.thread.i.i171.i.i ]
-  store ptr %storemerge712, ptr %69, align 8, !tbaa !20
+.backedge692:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i171.i.i, %Prs_ManSkipToChar.exit.i.i170.i.i
+  %storemerge786 = phi ptr [ %701, %Prs_ManSkipToChar.exit.i.i170.i.i ], [ %698, %Prs_ManIsSpace.exit.thread.i.i171.i.i ]
+  store ptr %storemerge786, ptr %69, align 8, !tbaa !20
   br label %696, !llvm.loop !49
 
 .lr.ph.i.i.i167.i.i:                              ; preds = %696, %.lr.ph.i.i.i167.i.i
@@ -2137,7 +2137,7 @@ Prs_ManIsSpace.exit.thread.i.i171.i.i:            ; preds = %696, %696, %696
 
 Prs_ManSkipToChar.exit.i.i170.i.i:                ; preds = %.lr.ph.i.i.i167.i.i
   %701 = getelementptr inbounds nuw i8, ptr %699, i64 2
-  br label %.backedge618
+  br label %.backedge692
 
 .lr.ph.i14.i.i162.i.i:                            ; preds = %696, %.lr.ph.i14.i.i162.i.i
   %702 = phi ptr [ %703, %.lr.ph.i14.i.i162.i.i ], [ %697, %696 ]
@@ -3327,9 +3327,9 @@ Cba_ObjSetName.exit:                              ; preds = %73, %._crit_edge.i.
   br label %Vec_IntGrow.exit.sink.split.i.i.i56
 
 Vec_IntGrow.exit.sink.split.i.i.i56:              ; preds = %129, %131, %120, %122
-  %storemerge99 = phi ptr [ %121, %120 ], [ %123, %122 ], [ %130, %129 ], [ %132, %131 ]
+  %storemerge127 = phi ptr [ %121, %120 ], [ %123, %122 ], [ %130, %129 ], [ %132, %131 ]
   %.sink.i.i.i57 = phi i32 [ %110, %120 ], [ %110, %122 ], [ %114, %129 ], [ %114, %131 ]
-  store ptr %storemerge99, ptr %67, align 8, !tbaa !27
+  store ptr %storemerge127, ptr %67, align 8, !tbaa !27
   store i32 %.sink.i.i.i57, ptr %42, align 8, !tbaa !26
   %.pre.i.i58 = load i32, ptr %61, align 4, !tbaa !28
   br label %Vec_IntGrow.exit.i.i.i59
@@ -3503,9 +3503,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %Vec_IntGrow.exit.sink.split.i.i.i70
 
 Vec_IntGrow.exit.sink.split.i.i.i70:              ; preds = %203, %205, %194, %196
-  %storemerge100 = phi ptr [ %195, %194 ], [ %197, %196 ], [ %204, %203 ], [ %206, %205 ]
+  %storemerge128 = phi ptr [ %195, %194 ], [ %197, %196 ], [ %204, %203 ], [ %206, %205 ]
   %.sink.i.i.i71 = phi i32 [ %184, %194 ], [ %184, %196 ], [ %188, %203 ], [ %188, %205 ]
-  store ptr %storemerge100, ptr %176, align 8, !tbaa !27
+  store ptr %storemerge128, ptr %176, align 8, !tbaa !27
   store i32 %.sink.i.i.i71, ptr %23, align 8, !tbaa !26
   %.pre.i.i72 = load i32, ptr %41, align 4, !tbaa !28
   br label %Vec_IntGrow.exit.i.i.i73
@@ -3754,9 +3754,9 @@ Vec_IntPush.exit36:                               ; preds = %.Vec_IntGrow.exit10
 
 thread-pre-split:                                 ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit36
   %.sink = phi i32 [ %36, %Vec_IntPush.exit ], [ %67, %Vec_IntPush.exit36 ]
-  %.sink75 = phi ptr [ %35, %Vec_IntPush.exit ], [ %66, %Vec_IntPush.exit36 ]
+  %.sink97 = phi ptr [ %35, %Vec_IntPush.exit ], [ %66, %Vec_IntPush.exit36 ]
   %69 = sext i32 %.sink to i64
-  %70 = getelementptr inbounds i32, ptr %.sink75, i64 %69
+  %70 = getelementptr inbounds i32, ptr %.sink97, i64 %69
   store i32 %.val, ptr %70, align 4, !tbaa !33
   %.pr = load i32, ptr %6, align 4, !tbaa !45
   br label %71
@@ -4574,9 +4574,9 @@ Cba_ObjName.exit:                                 ; preds = %33, %._crit_edge.i.
   br label %Vec_IntGrow.exit.sink.split.i.i.i271
 
 Vec_IntGrow.exit.sink.split.i.i.i271:             ; preds = %131, %133, %122, %124
-  %storemerge536 = phi ptr [ %123, %122 ], [ %125, %124 ], [ %132, %131 ], [ %134, %133 ]
+  %storemerge630 = phi ptr [ %123, %122 ], [ %125, %124 ], [ %132, %131 ], [ %134, %133 ]
   %.sink.i.i.i272 = phi i32 [ %112, %122 ], [ %112, %124 ], [ %116, %131 ], [ %116, %133 ]
-  store ptr %storemerge536, ptr %28, align 8, !tbaa !27
+  store ptr %storemerge630, ptr %28, align 8, !tbaa !27
   store i32 %.sink.i.i.i272, ptr %26, align 8, !tbaa !26
   %.pre.i.i273 = load i32, ptr %27, align 4, !tbaa !28
   br label %Vec_IntGrow.exit.i.i.i274
@@ -4665,9 +4665,9 @@ Vec_IntGrow.exit.i.i.i274:                        ; preds = %Vec_IntGrow.exit.si
   br label %Vec_IntGrow.exit.sink.split.i.i.i284
 
 Vec_IntGrow.exit.sink.split.i.i.i284:             ; preds = %175, %177, %166, %168
-  %storemerge534 = phi ptr [ %167, %166 ], [ %169, %168 ], [ %176, %175 ], [ %178, %177 ]
+  %storemerge628 = phi ptr [ %167, %166 ], [ %169, %168 ], [ %176, %175 ], [ %178, %177 ]
   %.sink.i.i.i285 = phi i32 [ %156, %166 ], [ %156, %168 ], [ %160, %175 ], [ %160, %177 ]
-  store ptr %storemerge534, ptr %32, align 8, !tbaa !27
+  store ptr %storemerge628, ptr %32, align 8, !tbaa !27
   store i32 %.sink.i.i.i285, ptr %30, align 8, !tbaa !26
   %.pre.i.i286 = load i32, ptr %31, align 4, !tbaa !28
   br label %Vec_IntGrow.exit.i.i.i287
@@ -4760,9 +4760,9 @@ Cba_FonSetName.exit:                              ; preds = %143, %._crit_edge.i
   br label %Vec_IntGrow.exit.sink.split.i.i.i298
 
 Vec_IntGrow.exit.sink.split.i.i.i298:             ; preds = %214, %216, %205, %207
-  %storemerge535 = phi ptr [ %206, %205 ], [ %208, %207 ], [ %215, %214 ], [ %217, %216 ]
+  %storemerge629 = phi ptr [ %206, %205 ], [ %208, %207 ], [ %215, %214 ], [ %217, %216 ]
   %.sink.i.i.i299 = phi i32 [ %195, %205 ], [ %195, %207 ], [ %199, %214 ], [ %199, %216 ]
-  store ptr %storemerge535, ptr %28, align 8, !tbaa !27
+  store ptr %storemerge629, ptr %28, align 8, !tbaa !27
   store i32 %.sink.i.i.i299, ptr %26, align 8, !tbaa !26
   %.pre.i.i300 = load i32, ptr %27, align 4, !tbaa !28
   br label %Vec_IntGrow.exit.i.i.i301
@@ -4862,9 +4862,9 @@ Cba_ManNtkFind.exit:                              ; preds = %223, %Cba_ManNtkIsO
   br label %Vec_IntGrow.exit.sink.split.i.i.i315
 
 Vec_IntGrow.exit.sink.split.i.i.i315:             ; preds = %259, %261, %250, %252
-  %storemerge531 = phi ptr [ %251, %250 ], [ %253, %252 ], [ %260, %259 ], [ %262, %261 ]
+  %storemerge625 = phi ptr [ %251, %250 ], [ %253, %252 ], [ %260, %259 ], [ %262, %261 ]
   %.sink.i.i.i316 = phi i32 [ %240, %250 ], [ %240, %252 ], [ %244, %259 ], [ %244, %261 ]
-  store ptr %storemerge531, ptr %28, align 8, !tbaa !27
+  store ptr %storemerge625, ptr %28, align 8, !tbaa !27
   store i32 %.sink.i.i.i316, ptr %26, align 8, !tbaa !26
   %.pre.i.i317 = load i32, ptr %27, align 4, !tbaa !28
   br label %Vec_IntGrow.exit.i.i.i318
@@ -4993,9 +4993,9 @@ Cba_NtkCleanMap2.exit:                            ; preds = %277, %Cba_ObjSetFun
   br label %Vec_IntGrow.exit.sink.split.i.i.i337
 
 Vec_IntGrow.exit.sink.split.i.i.i337:             ; preds = %312, %314, %303, %305
-  %storemerge532 = phi ptr [ %304, %303 ], [ %306, %305 ], [ %313, %312 ], [ %315, %314 ]
+  %storemerge626 = phi ptr [ %304, %303 ], [ %306, %305 ], [ %313, %312 ], [ %315, %314 ]
   %.sink.i.i.i338 = phi i32 [ %293, %303 ], [ %293, %305 ], [ %297, %312 ], [ %297, %314 ]
-  store ptr %storemerge532, ptr %288, align 8, !tbaa !27
+  store ptr %storemerge626, ptr %288, align 8, !tbaa !27
   store i32 %.sink.i.i.i338, ptr %286, align 8, !tbaa !26
   %.pre.i.i339 = load i32, ptr %287, align 4, !tbaa !28
   br label %Vec_IntGrow.exit.i.i.i340
@@ -5291,9 +5291,9 @@ Cba_NtkGetMap2.exit363:                           ; preds = %378, %._crit_edge.i
   br label %Vec_IntGrow.exit.sink.split.i.i.i368
 
 Vec_IntGrow.exit.sink.split.i.i.i368:             ; preds = %443, %445, %434, %436
-  %storemerge533 = phi ptr [ %435, %434 ], [ %437, %436 ], [ %444, %443 ], [ %446, %445 ]
+  %storemerge627 = phi ptr [ %435, %434 ], [ %437, %436 ], [ %444, %443 ], [ %446, %445 ]
   %.sink.i.i.i369 = phi i32 [ %423, %434 ], [ %423, %436 ], [ %428, %443 ], [ %428, %445 ]
-  store ptr %storemerge533, ptr %32, align 8, !tbaa !27
+  store ptr %storemerge627, ptr %32, align 8, !tbaa !27
   store i32 %.sink.i.i.i369, ptr %30, align 8, !tbaa !26
   %.pre.i.i370 = load i32, ptr %31, align 4, !tbaa !28
   br label %Vec_IntGrow.exit.i.i.i371
@@ -5337,29 +5337,29 @@ Cba_FonSetName.exit378:                           ; preds = %Cba_NtkGetMap2.exit
   br i1 %459, label %.lr.ph482, label %.critedge6, !llvm.loop !83
 
 .critedge6.sink.split.sink.split.sink.split:      ; preds = %.lr.ph.i.i.i275, %.lr.ph.i.i.i303
-  %.sink547 = phi i32 [ %222, %.lr.ph.i.i.i303 ], [ %139, %.lr.ph.i.i.i275 ]
+  %.sink641 = phi i32 [ %222, %.lr.ph.i.i.i303 ], [ %139, %.lr.ph.i.i.i275 ]
   %scevgep.i.i.i304.sink = phi ptr [ %scevgep.i.i.i304, %.lr.ph.i.i.i303 ], [ %scevgep.i.i.i276, %.lr.ph.i.i.i275 ]
-  %.sink543.ph = phi i32 [ %195, %.lr.ph.i.i.i303 ], [ %112, %.lr.ph.i.i.i275 ]
-  %.sink542.ph.ph = phi i64 [ %149, %.lr.ph.i.i.i303 ], [ %102, %.lr.ph.i.i.i275 ]
+  %.sink637.ph = phi i32 [ %195, %.lr.ph.i.i.i303 ], [ %112, %.lr.ph.i.i.i275 ]
+  %.sink636.ph.ph = phi i64 [ %149, %.lr.ph.i.i.i303 ], [ %102, %.lr.ph.i.i.i275 ]
   %.sink.ph.ph = phi i32 [ %96, %.lr.ph.i.i.i303 ], [ %111, %.lr.ph.i.i.i275 ]
-  %460 = zext i32 %.sink547 to i64
+  %460 = zext i32 %.sink641 to i64
   %461 = shl nuw nsw i64 %460, 2
   %462 = add nuw nsw i64 %461, 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i.i304.sink, i8 0, i64 %462, i1 false), !tbaa !33
   br label %.critedge6.sink.split.sink.split
 
 .critedge6.sink.split.sink.split:                 ; preds = %.critedge6.sink.split.sink.split.sink.split, %Vec_IntGrow.exit.i.i.i301, %Vec_IntGrow.exit.i.i.i274
-  %.sink543 = phi i32 [ %112, %Vec_IntGrow.exit.i.i.i274 ], [ %195, %Vec_IntGrow.exit.i.i.i301 ], [ %.sink543.ph, %.critedge6.sink.split.sink.split.sink.split ]
-  %.sink542.ph = phi i64 [ %102, %Vec_IntGrow.exit.i.i.i274 ], [ %149, %Vec_IntGrow.exit.i.i.i301 ], [ %.sink542.ph.ph, %.critedge6.sink.split.sink.split.sink.split ]
+  %.sink637 = phi i32 [ %112, %Vec_IntGrow.exit.i.i.i274 ], [ %195, %Vec_IntGrow.exit.i.i.i301 ], [ %.sink637.ph, %.critedge6.sink.split.sink.split.sink.split ]
+  %.sink636.ph = phi i64 [ %102, %Vec_IntGrow.exit.i.i.i274 ], [ %149, %Vec_IntGrow.exit.i.i.i301 ], [ %.sink636.ph.ph, %.critedge6.sink.split.sink.split.sink.split ]
   %.sink.ph = phi i32 [ %111, %Vec_IntGrow.exit.i.i.i274 ], [ %96, %Vec_IntGrow.exit.i.i.i301 ], [ %.sink.ph.ph, %.critedge6.sink.split.sink.split.sink.split ]
-  store i32 %.sink543, ptr %27, align 4, !tbaa !28
+  store i32 %.sink637, ptr %27, align 4, !tbaa !28
   br label %.critedge6.sink.split
 
 .critedge6.sink.split:                            ; preds = %.critedge6.sink.split.sink.split, %Cba_FonSetName.exit, %98
-  %.sink542 = phi i64 [ %102, %98 ], [ %149, %Cba_FonSetName.exit ], [ %.sink542.ph, %.critedge6.sink.split.sink.split ]
+  %.sink636 = phi i64 [ %102, %98 ], [ %149, %Cba_FonSetName.exit ], [ %.sink636.ph, %.critedge6.sink.split.sink.split ]
   %.sink = phi i32 [ %111, %98 ], [ %96, %Cba_FonSetName.exit ], [ %.sink.ph, %.critedge6.sink.split.sink.split ]
   %.val.i.i306 = load ptr, ptr %28, align 8, !tbaa !27
-  %463 = getelementptr inbounds i32, ptr %.val.i.i306, i64 %.sink542
+  %463 = getelementptr inbounds i32, ptr %.val.i.i306, i64 %.sink636
   store i32 %.sink, ptr %463, align 4, !tbaa !33
   br label %.critedge6
 
@@ -5706,9 +5706,9 @@ Cba_NtkCleanMap2.exit389:                         ; preds = %588, %582
   br label %Vec_IntGrow.exit.sink.split.i.i.i394
 
 Vec_IntGrow.exit.sink.split.i.i.i394:             ; preds = %625, %627, %616, %618
-  %storemerge537 = phi ptr [ %617, %616 ], [ %619, %618 ], [ %626, %625 ], [ %628, %627 ]
+  %storemerge631 = phi ptr [ %617, %616 ], [ %619, %618 ], [ %626, %625 ], [ %628, %627 ]
   %.sink.i.i.i395 = phi i32 [ %606, %616 ], [ %606, %618 ], [ %610, %625 ], [ %610, %627 ]
-  store ptr %storemerge537, ptr %600, align 8, !tbaa !27
+  store ptr %storemerge631, ptr %600, align 8, !tbaa !27
   store i32 %.sink.i.i.i395, ptr %598, align 8, !tbaa !26
   %.pre.i.i396 = load i32, ptr %599, align 4, !tbaa !28
   br label %Vec_IntGrow.exit.i.i.i397
@@ -6143,9 +6143,9 @@ Cba_NtkGetMap2.exit457:                           ; preds = %Prs_CreateBlifFindF
   br label %Vec_IntGrow.exit.sink.split.i.i.i462
 
 Vec_IntGrow.exit.sink.split.i.i.i462:             ; preds = %817, %819, %808, %810
-  %storemerge538 = phi ptr [ %809, %808 ], [ %811, %810 ], [ %818, %817 ], [ %820, %819 ]
+  %storemerge632 = phi ptr [ %809, %808 ], [ %811, %810 ], [ %818, %817 ], [ %820, %819 ]
   %.sink.i.i.i463 = phi i32 [ %798, %808 ], [ %798, %810 ], [ %802, %817 ], [ %802, %819 ]
-  store ptr %storemerge538, ptr %471, align 8, !tbaa !27
+  store ptr %storemerge632, ptr %471, align 8, !tbaa !27
   store i32 %.sink.i.i.i463, ptr %469, align 8, !tbaa !26
   %.pre.i.i464 = load i32, ptr %470, align 4, !tbaa !28
   br label %Vec_IntGrow.exit.i.i.i465
@@ -6650,9 +6650,9 @@ Cba_ManAlloc.exit:                                ; preds = %Hash_IntManStart.ex
   %69 = getelementptr inbounds nuw i8, ptr %14, i64 1568
   %70 = zext nneg i32 %68 to i64
   %71 = shl nuw nsw i64 %70, 3
-  %.sink15.i = select i1 %.not.i30.not.i, i64 128, i64 %71
+  %.sink22.i = select i1 %.not.i30.not.i, i64 128, i64 %71
   %.sink.i = select i1 %.not.i30.not.i, i32 16, i32 %68
-  %72 = tail call noalias ptr @malloc(i64 noundef %.sink15.i) #20
+  %72 = tail call noalias ptr @malloc(i64 noundef %.sink22.i) #20
   store ptr %72, ptr %69, align 8, !tbaa !39
   store i32 %.sink.i, ptr %67, align 8, !tbaa !38
   %73 = getelementptr inbounds nuw i8, ptr %14, i64 1564
@@ -7007,9 +7007,9 @@ Vec_IntPush.exit50.sink.split.i:                  ; preds = %Vec_IntPush.exit.i
   %234 = shl nuw nsw i32 %230, 1
   %235 = zext nneg i32 %234 to i64
   %236 = shl nuw nsw i64 %235, 2
-  %.sink92 = select i1 %233, i64 64, i64 %236
+  %.sink141 = select i1 %233, i64 64, i64 %236
   %.sink.i52 = select i1 %233, i32 16, i32 %234
-  %237 = call ptr @realloc(ptr noundef nonnull %225, i64 noundef %.sink92) #22
+  %237 = call ptr @realloc(ptr noundef nonnull %225, i64 noundef %.sink141) #22
   %238 = getelementptr inbounds nuw i8, ptr %86, i64 112
   store ptr %237, ptr %238, align 8, !tbaa !27
   store i32 %.sink.i52, ptr %185, align 8, !tbaa !26
@@ -7129,11 +7129,11 @@ Vec_IntPush.exit67.sink.split.i:                  ; preds = %Vec_IntPush.exit60.
   %293 = zext nneg i32 %292 to i64
   %294 = shl nuw nsw i64 %293, 2
   %.sink = select i1 %291, i64 64, i64 %294
-  %.sink89.i = select i1 %291, i32 16, i32 %292
+  %.sink126.i = select i1 %291, i32 16, i32 %292
   %295 = call ptr @realloc(ptr noundef nonnull %283, i64 noundef %.sink) #22
   %296 = getelementptr inbounds nuw i8, ptr %86, i64 128
   store ptr %295, ptr %296, align 8, !tbaa !27
-  store i32 %.sink89.i, ptr %244, align 8, !tbaa !26
+  store i32 %.sink126.i, ptr %244, align 8, !tbaa !26
   %.pre81 = load i32, ptr %258, align 4, !tbaa !28
   br label %Vec_IntPush.exit67.i
 
@@ -7643,8 +7643,8 @@ define internal fastcc range(i32 0, 2) i32 @Prs_ManReadBox(ptr noundef nonnull c
   %.promoted26.i.i = load ptr, ptr %3, align 8, !tbaa !20
   br label %4
 
-4:                                                ; preds = %.backedge232, %2
-  %5 = phi ptr [ %.promoted26.i.i, %2 ], [ %storemerge, %.backedge232 ]
+4:                                                ; preds = %.backedge247, %2
+  %5 = phi ptr [ %.promoted26.i.i, %2 ], [ %storemerge, %.backedge247 ]
   %.val.val.i.i = load i8, ptr %5, align 1, !tbaa !3
   switch i8 %.val.val.i.i, label %.preheader.i [
     i8 32, label %Prs_ManIsSpace.exit.thread.i.i
@@ -7657,9 +7657,9 @@ define internal fastcc range(i32 0, 2) i32 @Prs_ManReadBox(ptr noundef nonnull c
 
 Prs_ManIsSpace.exit.thread.i.i:                   ; preds = %4, %4, %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  br label %.backedge232
+  br label %.backedge247
 
-.backedge232:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i, %Prs_ManSkipToChar.exit.i.i
+.backedge247:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i, %Prs_ManSkipToChar.exit.i.i
   %storemerge = phi ptr [ %9, %Prs_ManSkipToChar.exit.i.i ], [ %6, %Prs_ManIsSpace.exit.thread.i.i ]
   store ptr %storemerge, ptr %3, align 8, !tbaa !20
   br label %4, !llvm.loop !49
@@ -7674,7 +7674,7 @@ Prs_ManIsSpace.exit.thread.i.i:                   ; preds = %4, %4, %4
 
 Prs_ManSkipToChar.exit.i.i:                       ; preds = %.lr.ph.i.i.i
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  br label %.backedge232
+  br label %.backedge247
 
 .lr.ph.i14.i.i:                                   ; preds = %4, %.lr.ph.i14.i.i
   %10 = phi ptr [ %11, %.lr.ph.i14.i.i ], [ %5, %4 ]
@@ -7733,7 +7733,7 @@ Prs_ManReadName.exit.thread:                      ; preds = %4, %.lr.ph.i14.i.i,
   br label %.preheader79.i
 
 .preheader79.i:                                   ; preds = %.preheader79.i.backedge, %.preheader79.lr.ph.i
-  %24 = phi ptr [ %.val115.i, %.preheader79.lr.ph.i ], [ %.be205, %.preheader79.i.backedge ]
+  %24 = phi ptr [ %.val115.i, %.preheader79.lr.ph.i ], [ %.be220, %.preheader79.i.backedge ]
   %.val.val.i.i.i11 = load i8, ptr %24, align 1, !tbaa !3
   switch i8 %.val.val.i.i.i11, label %.preheader.i.i [
     i8 32, label %Prs_ManIsSpace.exit.thread.i.i.i
@@ -7750,7 +7750,7 @@ Prs_ManIsSpace.exit.thread.i.i.i:                 ; preds = %.preheader79.i, %.p
   br label %.preheader79.i.backedge
 
 .preheader79.i.backedge:                          ; preds = %125, %Prs_ManIsSpace.exit.thread.i.i.i, %Prs_ManSkipToChar.exit.i.i.i
-  %.be205 = phi ptr [ %25, %Prs_ManIsSpace.exit.thread.i.i.i ], [ %28, %Prs_ManSkipToChar.exit.i.i.i ], [ %126, %125 ]
+  %.be220 = phi ptr [ %25, %Prs_ManIsSpace.exit.thread.i.i.i ], [ %28, %Prs_ManSkipToChar.exit.i.i.i ], [ %126, %125 ]
   br label %.preheader79.i, !llvm.loop !49
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader79.i, %.lr.ph.i.i.i.i
@@ -7874,8 +7874,8 @@ Vec_IntPush.exit.i:                               ; preds = %61, %Vec_IntGrow.ex
   %.promoted26.i.i13 = load ptr, ptr %3, align 8, !tbaa !20
   br label %68
 
-68:                                               ; preds = %.backedge201, %Vec_IntPush.exit.i
-  %69 = phi ptr [ %.promoted26.i.i13, %Vec_IntPush.exit.i ], [ %storemerge240, %.backedge201 ]
+68:                                               ; preds = %.backedge216, %Vec_IntPush.exit.i
+  %69 = phi ptr [ %.promoted26.i.i13, %Vec_IntPush.exit.i ], [ %storemerge255, %.backedge216 ]
   %.val.val.i28.i = load i8, ptr %69, align 1, !tbaa !3
   switch i8 %.val.val.i28.i, label %Prs_ManSkipSpaces.exit.i17 [
     i8 32, label %Prs_ManIsSpace.exit.thread.i.i22
@@ -7887,11 +7887,11 @@ Vec_IntPush.exit.i:                               ; preds = %61, %Vec_IntGrow.ex
 
 Prs_ManIsSpace.exit.thread.i.i22:                 ; preds = %68, %68, %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
-  br label %.backedge201
+  br label %.backedge216
 
-.backedge201:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i22, %Prs_ManSkipToChar.exit.i.i21
-  %storemerge240 = phi ptr [ %73, %Prs_ManSkipToChar.exit.i.i21 ], [ %70, %Prs_ManIsSpace.exit.thread.i.i22 ]
-  store ptr %storemerge240, ptr %3, align 8, !tbaa !20
+.backedge216:                                     ; preds = %Prs_ManIsSpace.exit.thread.i.i22, %Prs_ManSkipToChar.exit.i.i21
+  %storemerge255 = phi ptr [ %73, %Prs_ManSkipToChar.exit.i.i21 ], [ %70, %Prs_ManIsSpace.exit.thread.i.i22 ]
+  store ptr %storemerge255, ptr %3, align 8, !tbaa !20
   br label %68, !llvm.loop !49
 
 .lr.ph.i.i.i19:                                   ; preds = %68, %.lr.ph.i.i.i19
@@ -7904,7 +7904,7 @@ Prs_ManIsSpace.exit.thread.i.i22:                 ; preds = %68, %68, %68
 
 Prs_ManSkipToChar.exit.i.i21:                     ; preds = %.lr.ph.i.i.i19
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 2
-  br label %.backedge201
+  br label %.backedge216
 
 .lr.ph.i14.i.i14:                                 ; preds = %68, %.lr.ph.i14.i.i14
   %74 = phi ptr [ %75, %.lr.ph.i14.i.i14 ], [ %69, %68 ]
@@ -8069,7 +8069,7 @@ Vec_IntPush.exit56.i:                             ; preds = %118, %Vec_IntGrow.e
   br label %125
 
 125:                                              ; preds = %.backedge, %Vec_IntPush.exit56.i
-  %126 = phi ptr [ %.promoted26.i57.i, %Vec_IntPush.exit56.i ], [ %storemerge241, %.backedge ]
+  %126 = phi ptr [ %.promoted26.i57.i, %Vec_IntPush.exit56.i ], [ %storemerge256, %.backedge ]
   %.val.val.i58.i = load i8, ptr %126, align 1, !tbaa !3
   switch i8 %.val.val.i58.i, label %.preheader79.i.backedge [
     i8 32, label %Prs_ManIsSpace.exit.thread.i66.i
@@ -8085,8 +8085,8 @@ Prs_ManIsSpace.exit.thread.i66.i:                 ; preds = %125, %125, %125
   br label %.backedge
 
 .backedge:                                        ; preds = %Prs_ManIsSpace.exit.thread.i66.i, %Prs_ManSkipToChar.exit.i65.i
-  %storemerge241 = phi ptr [ %130, %Prs_ManSkipToChar.exit.i65.i ], [ %127, %Prs_ManIsSpace.exit.thread.i66.i ]
-  store ptr %storemerge241, ptr %3, align 8, !tbaa !20
+  %storemerge256 = phi ptr [ %130, %Prs_ManSkipToChar.exit.i65.i ], [ %127, %Prs_ManIsSpace.exit.thread.i66.i ]
+  store ptr %storemerge256, ptr %3, align 8, !tbaa !20
   br label %125, !llvm.loop !49
 
 .lr.ph.i.i62.i:                                   ; preds = %125, %.lr.ph.i.i62.i
@@ -8660,13 +8660,13 @@ Vec_IntGrow.exit.i40:                             ; preds = %124
   br label %Vec_IntPush.exit41.sink.split
 
 Vec_IntPush.exit41.sink.split:                    ; preds = %128, %Vec_IntGrow.exit.i40
-  %.sink46 = phi i32 [ 16, %Vec_IntGrow.exit.i40 ], [ %129, %128 ]
-  %.ph45 = phi ptr [ %127, %Vec_IntGrow.exit.i40 ], [ %133, %128 ]
-  store i32 %.sink46, ptr %5, align 8, !tbaa !26
+  %.sink61 = phi i32 [ 16, %Vec_IntGrow.exit.i40 ], [ %129, %128 ]
+  %.ph60 = phi ptr [ %127, %Vec_IntGrow.exit.i40 ], [ %133, %128 ]
+  store i32 %.sink61, ptr %5, align 8, !tbaa !26
   br label %Vec_IntPush.exit41
 
 Vec_IntPush.exit41:                               ; preds = %Vec_IntPush.exit41.sink.split, %Vec_IntPush.exit34
-  %134 = phi ptr [ %116, %Vec_IntPush.exit34 ], [ %.ph45, %Vec_IntPush.exit41.sink.split ]
+  %134 = phi ptr [ %116, %Vec_IntPush.exit34 ], [ %.ph60, %Vec_IntPush.exit41.sink.split ]
   %135 = load i32, ptr %6, align 4, !tbaa !28
   %136 = add nsw i32 %135, 1
   store i32 %136, ptr %6, align 4, !tbaa !28
@@ -8698,11 +8698,11 @@ Vec_IntPush.exit.i.sink.split:                    ; preds = %141
   %149 = shl nuw nsw i32 %145, 1
   %150 = zext nneg i32 %149 to i64
   %151 = shl nuw nsw i64 %150, 2
-  %.sink49 = select i1 %148, i64 64, i64 %151
-  %.sink47 = select i1 %148, i32 16, i32 %149
-  %152 = tail call ptr @realloc(ptr noundef nonnull %142, i64 noundef %.sink49) #22
+  %.sink64 = select i1 %148, i64 64, i64 %151
+  %.sink62 = select i1 %148, i32 16, i32 %149
+  %152 = tail call ptr @realloc(ptr noundef nonnull %142, i64 noundef %.sink64) #22
   store ptr %152, ptr %.phi.trans.insert.i.i, align 8, !tbaa !27
-  store i32 %.sink47, ptr %5, align 8, !tbaa !26
+  store i32 %.sink62, ptr %5, align 8, !tbaa !26
   br label %Vec_IntPush.exit.i
 
 Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.i.sink.split, %141

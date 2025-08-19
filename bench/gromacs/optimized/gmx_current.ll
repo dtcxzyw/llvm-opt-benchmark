@@ -555,8 +555,8 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit95:        ; preds = %_ZL13gmx_snew_implI
   br i1 %exitcond56.not.i, label %._crit_edge.i, label %.lr.ph42.i, !llvm.loop !61
 
 ._crit_edge.i:                                    ; preds = %.lr.ph42.i, %155
-  %.032.lcssa64.i = phi float [ 0.000000e+00, %155 ], [ %166, %.lr.ph42.i ]
-  %177 = fadd float %.03543.i, %.032.lcssa64.i
+  %.032.lcssa67.i = phi float [ 0.000000e+00, %155 ], [ %166, %.lr.ph42.i ]
+  %177 = fadd float %.03543.i, %.032.lcssa67.i
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count60.i
   br i1 %exitcond61.not.i, label %._crit_edge47.i, label %155, !llvm.loop !62
 
@@ -784,10 +784,10 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNKSt7__cxx1112bas
   br label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread
 
 _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread: ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader, %._crit_edge62.loopexit.i, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge
-  %.lcssa340397 = phi i32 [ %194, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge ], [ %194, %._crit_edge62.loopexit.i ], [ %188, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader ]
+  %.lcssa340495 = phi i32 [ %194, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge ], [ %194, %._crit_edge62.loopexit.i ], [ %188, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader ]
   %.035.lcssa.i96 = phi i32 [ 0, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge ], [ %255, %._crit_edge62.loopexit.i ], [ 0, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader ]
   %256 = load ptr, ptr @stderr, align 8, !tbaa !68
-  %257 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %256, ptr noundef nonnull @.str.84, i32 noundef %.lcssa340397, i32 noundef %.035.lcssa.i96) #20
+  %257 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %256, ptr noundef nonnull @.str.84, i32 noundef %.lcssa340495, i32 noundef %.035.lcssa.i96) #20
   %258 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %259 = load i8, ptr %258, align 8, !tbaa !70, !range !74, !noundef !75
   %260 = trunc nuw i8 %259 to i1

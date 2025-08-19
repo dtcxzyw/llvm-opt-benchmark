@@ -841,13 +841,13 @@ define void @_ZN6duckdb7roaring19RoaringAnalyzeState14FlushContainerEv(ptr nound
 36:                                               ; preds = %35
   %.not32.i.i = icmp ugt i16 %6, %8
   %..i.i = tail call i16 @llvm.umin.i16(i16 %6, i16 %8)
-  %.47.i.i = select i1 %.not32.i.i, i32 1, i32 257
+  %.48.i.i = select i1 %.not32.i.i, i32 1, i32 257
   br label %_ZN6duckdb7roaring19RoaringAnalyzeState9GetResultEv.exit
 
 _ZN6duckdb7roaring19RoaringAnalyzeState9GetResultEv.exit: ; preds = %4, %15, %35, %36
-  %.sink46.i.i = phi i16 [ %3, %4 ], [ %3, %15 ], [ %..i.i, %36 ], [ %10, %35 ]
-  %.sink.i.i = phi i32 [ 258, %4 ], [ 258, %15 ], [ %.47.i.i, %36 ], [ 256, %35 ]
-  %.sroa.3.0.insert.ext.i33.i.i = zext i16 %.sink46.i.i to i32
+  %.sink47.i.i = phi i16 [ %3, %4 ], [ %3, %15 ], [ %..i.i, %36 ], [ %10, %35 ]
+  %.sink.i.i = phi i32 [ 258, %4 ], [ 258, %15 ], [ %.48.i.i, %36 ], [ 256, %35 ]
+  %.sroa.3.0.insert.ext.i33.i.i = zext i16 %.sink47.i.i to i32
   %.sroa.3.0.insert.shift.i34.i.i = shl nuw i32 %.sroa.3.0.insert.ext.i33.i.i, 16
   %.sroa.0.0.extract.trunc = trunc i32 %.sink.i.i to i8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -909,8 +909,8 @@ _ZNK6duckdb7roaring27ContainerMetadataCollection15GetMetadataSizeEmmm.exit: ; pr
   br label %_ZNK6duckdb7roaring17ContainerMetadata18GetDataSizeInBytesEm.exit
 
 72:                                               ; preds = %_ZNK6duckdb7roaring27ContainerMetadataCollection15GetMetadataSizeEmmm.exit
-  %73 = zext i16 %.sink46.i.i to i64
-  %74 = icmp ugt i16 %.sink46.i.i, 3
+  %73 = zext i16 %.sink47.i.i to i64
+  %74 = icmp ugt i16 %.sink47.i.i, 3
   %75 = shl nuw nsw i64 %73, 1
   %76 = add nuw nsw i64 %75, 8
   %77 = shl nuw nsw i64 %73, 2
@@ -918,8 +918,8 @@ _ZNK6duckdb7roaring27ContainerMetadataCollection15GetMetadataSizeEmmm.exit: ; pr
   br label %_ZNK6duckdb7roaring17ContainerMetadata18GetDataSizeInBytesEm.exit
 
 78:                                               ; preds = %_ZNK6duckdb7roaring27ContainerMetadataCollection15GetMetadataSizeEmmm.exit
-  %79 = zext i16 %.sink46.i.i to i64
-  %80 = icmp ugt i16 %.sink46.i.i, 7
+  %79 = zext i16 %.sink47.i.i to i64
+  %80 = icmp ugt i16 %.sink47.i.i, 7
   %81 = add nuw nsw i64 %79, 8
   %82 = shl nuw nsw i64 %79, 1
   %.2.i = select i1 %80, i64 %81, i64 %82
@@ -1043,7 +1043,7 @@ _ZNSt6vectorIN6duckdb7roaring17ContainerMetadataESaIS2_EE9push_backERKS2_.exit: 
   ]
 
 130:                                              ; preds = %_ZNSt6vectorIN6duckdb7roaring17ContainerMetadataESaIS2_EE9push_backERKS2_.exit
-  %131 = zext i16 %.sink46.i.i to i64
+  %131 = zext i16 %.sink47.i.i to i64
   %132 = trunc i32 %.sroa.3.0.extract.shift.i to i1
   tail call void @_ZN6duckdb7roaring27ContainerMetadataCollection15AddRunContainerEmb(ptr noundef nonnull align 8 dereferenceable(96) %37, i64 noundef %131, i1 noundef zeroext %132)
   br label %_ZN6duckdb7roaring27ContainerMetadataCollection11AddMetadataENS0_17ContainerMetadataE.exit
@@ -1053,7 +1053,7 @@ _ZNSt6vectorIN6duckdb7roaring17ContainerMetadataESaIS2_EE9push_backERKS2_.exit: 
   br label %_ZN6duckdb7roaring27ContainerMetadataCollection11AddMetadataENS0_17ContainerMetadataE.exit
 
 134:                                              ; preds = %_ZNSt6vectorIN6duckdb7roaring17ContainerMetadataESaIS2_EE9push_backERKS2_.exit
-  %.sroa.5.0.extract.trunc.i = zext i16 %.sink46.i.i to i64
+  %.sroa.5.0.extract.trunc.i = zext i16 %.sink47.i.i to i64
   %135 = trunc i32 %.sroa.3.0.extract.shift.i to i1
   tail call void @_ZN6duckdb7roaring27ContainerMetadataCollection17AddArrayContainerEmb(ptr noundef nonnull align 8 dereferenceable(96) %37, i64 noundef %.sroa.5.0.extract.trunc.i, i1 noundef zeroext %135)
   br label %_ZN6duckdb7roaring27ContainerMetadataCollection11AddMetadataENS0_17ContainerMetadataE.exit
@@ -1713,11 +1713,11 @@ _ZN6duckdb9make_uniqINS_7roaring33CompressedArrayContainerScanStateILb0EEEJRmS4_
   br i1 %.not.i.i.i.i.i45, label %_ZNSt10unique_ptrIN6duckdb7roaring24BitsetContainerScanStateESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrIN6duckdb7roaring24BitsetContainerScanStateESt14default_deleteIS2_EED2Ev.exit.sink.split
 
 _ZNSt10unique_ptrIN6duckdb7roaring24BitsetContainerScanStateESt14default_deleteIS2_EED2Ev.exit.sink.split: ; preds = %82, %80, %_ZN6duckdb9make_uniqINS_7roaring33CompressedArrayContainerScanStateILb0EEEJRmS4_S4_RPhS6_EEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit, %_ZN6duckdb9make_uniqINS_7roaring33CompressedArrayContainerScanStateILb1EEEJRmS4_S4_RPhS6_EEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit, %_ZN6duckdb9make_uniqINS_7roaring21RunContainerScanStateEJRmS3_S3_RPhEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit, %_ZN6duckdb9make_uniqINS_7roaring31CompressedRunContainerScanStateEJRmS3_S3_RPhS5_EEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit, %_ZN6duckdb9make_uniqINS_7roaring24BitsetContainerScanStateEJRmS3_PmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit
-  %.sink122 = phi ptr [ %32, %_ZN6duckdb9make_uniqINS_7roaring24BitsetContainerScanStateEJRmS3_PmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit ], [ %41, %_ZN6duckdb9make_uniqINS_7roaring31CompressedRunContainerScanStateEJRmS3_S3_RPhS5_EEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit ], [ %46, %_ZN6duckdb9make_uniqINS_7roaring21RunContainerScanStateEJRmS3_S3_RPhEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit ], [ %65, %_ZN6duckdb9make_uniqINS_7roaring33CompressedArrayContainerScanStateILb1EEEJRmS4_S4_RPhS6_EEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit ], [ %69, %_ZN6duckdb9make_uniqINS_7roaring33CompressedArrayContainerScanStateILb0EEEJRmS4_S4_RPhS6_EEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit ], [ %81, %80 ], [ %83, %82 ]
-  %84 = load ptr, ptr %.sink122, align 8, !tbaa !136
+  %.sink131 = phi ptr [ %32, %_ZN6duckdb9make_uniqINS_7roaring24BitsetContainerScanStateEJRmS3_PmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit ], [ %41, %_ZN6duckdb9make_uniqINS_7roaring31CompressedRunContainerScanStateEJRmS3_S3_RPhS5_EEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit ], [ %46, %_ZN6duckdb9make_uniqINS_7roaring21RunContainerScanStateEJRmS3_S3_RPhEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit ], [ %65, %_ZN6duckdb9make_uniqINS_7roaring33CompressedArrayContainerScanStateILb1EEEJRmS4_S4_RPhS6_EEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit ], [ %69, %_ZN6duckdb9make_uniqINS_7roaring33CompressedArrayContainerScanStateILb0EEEJRmS4_S4_RPhS6_EEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit ], [ %81, %80 ], [ %83, %82 ]
+  %84 = load ptr, ptr %.sink131, align 8, !tbaa !136
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8
-  tail call void %86(ptr noundef nonnull align 8 dereferenceable(32) %.sink122) #27
+  tail call void %86(ptr noundef nonnull align 8 dereferenceable(32) %.sink131) #27
   br label %_ZNSt10unique_ptrIN6duckdb7roaring24BitsetContainerScanStateESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6duckdb7roaring24BitsetContainerScanStateESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN6duckdb7roaring24BitsetContainerScanStateESt14default_deleteIS2_EED2Ev.exit.sink.split, %_ZN6duckdb9make_uniqINS_7roaring33CompressedArrayContainerScanStateILb0EEEJRmS4_S4_RPhS6_EEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit, %_ZN6duckdb9make_uniqINS_7roaring33CompressedArrayContainerScanStateILb1EEEJRmS4_S4_RPhS6_EEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit, %80, %82, %_ZN6duckdb9make_uniqINS_7roaring31CompressedRunContainerScanStateEJRmS3_S3_RPhS5_EEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit, %_ZN6duckdb9make_uniqINS_7roaring21RunContainerScanStateEJRmS3_S3_RPhEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit, %_ZN6duckdb9make_uniqINS_7roaring24BitsetContainerScanStateEJRmS3_PmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit
@@ -2033,13 +2033,13 @@ define range(i32 1, -65024) i32 @_ZN6duckdb7roaring17ContainerMetadata14CreateMe
 30:                                               ; preds = %29
   %.not32 = icmp ugt i16 %1, %2
   %. = tail call i16 @llvm.umin.i16(i16 %1, i16 %2)
-  %.47 = select i1 %.not32, i32 1, i32 257
+  %.48 = select i1 %.not32, i32 1, i32 257
   br label %31
 
 31:                                               ; preds = %29, %30, %9, %4
-  %.sink46 = phi i16 [ %0, %4 ], [ %0, %9 ], [ %., %30 ], [ %3, %29 ]
-  %.sink = phi i32 [ 258, %4 ], [ 258, %9 ], [ %.47, %30 ], [ 256, %29 ]
-  %.sroa.3.0.insert.ext.i33 = zext i16 %.sink46 to i32
+  %.sink47 = phi i16 [ %0, %4 ], [ %0, %9 ], [ %., %30 ], [ %3, %29 ]
+  %.sink = phi i32 [ 258, %4 ], [ 258, %9 ], [ %.48, %30 ], [ 256, %29 ]
+  %.sroa.3.0.insert.ext.i33 = zext i16 %.sink47 to i32
   %.sroa.3.0.insert.shift.i34 = shl nuw i32 %.sroa.3.0.insert.ext.i33, 16
   %.sroa.0.0.insert.insert.i35 = or disjoint i32 %.sroa.3.0.insert.shift.i34, %.sink
   ret i32 %.sroa.0.0.insert.insert.i35
@@ -3109,7 +3109,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !295
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 
@@ -3841,13 +3841,13 @@ define range(i32 1, -65024) i32 @_ZN6duckdb7roaring19RoaringAnalyzeState9GetResu
 35:                                               ; preds = %34
   %.not32.i = icmp ugt i16 %5, %7
   %..i = tail call i16 @llvm.umin.i16(i16 %5, i16 %7)
-  %.47.i = select i1 %.not32.i, i32 1, i32 257
+  %.48.i = select i1 %.not32.i, i32 1, i32 257
   br label %_ZN6duckdb7roaring17ContainerMetadata14CreateMetadataEtttt.exit
 
 _ZN6duckdb7roaring17ContainerMetadata14CreateMetadataEtttt.exit: ; preds = %1, %14, %34, %35
-  %.sink46.i = phi i16 [ %3, %1 ], [ %3, %14 ], [ %..i, %35 ], [ %9, %34 ]
-  %.sink.i = phi i32 [ 258, %1 ], [ 258, %14 ], [ %.47.i, %35 ], [ 256, %34 ]
-  %.sroa.3.0.insert.ext.i33.i = zext i16 %.sink46.i to i32
+  %.sink47.i = phi i16 [ %3, %1 ], [ %3, %14 ], [ %..i, %35 ], [ %9, %34 ]
+  %.sink.i = phi i32 [ 258, %1 ], [ 258, %14 ], [ %.48.i, %35 ], [ 256, %34 ]
+  %.sroa.3.0.insert.ext.i33.i = zext i16 %.sink47.i to i32
   %.sroa.3.0.insert.shift.i34.i = shl nuw i32 %.sroa.3.0.insert.ext.i33.i, 16
   %.sroa.0.0.insert.insert.i35.i = or disjoint i32 %.sroa.3.0.insert.shift.i34.i, %.sink.i
   ret i32 %.sroa.0.0.insert.insert.i35.i
@@ -4154,8 +4154,8 @@ _ZN6duckdb7roaring19RoaringAnalyzeState10HandleByteERS1_h.exit.i: ; preds = %_ZN
 _ZN6duckdb7roaring20RoaringStateAppenderINS0_19RoaringAnalyzeStateEE11AppendBytesERS2_mm.exit.sink.split: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit127.thread, %_ZN6duckdb7roaring19RoaringAnalyzeState15HandleNoneValidERS1_m.exit130
   %.sink = phi i8 [ 0, %_ZN6duckdb7roaring19RoaringAnalyzeState15HandleNoneValidERS1_m.exit130 ], [ 1, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit127.thread ]
   %.ph = phi i16 [ %100, %_ZN6duckdb7roaring19RoaringAnalyzeState15HandleNoneValidERS1_m.exit130 ], [ %106, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit127.thread ]
-  %.ph176 = phi i16 [ %112, %_ZN6duckdb7roaring19RoaringAnalyzeState15HandleNoneValidERS1_m.exit130 ], [ %101, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit127.thread ]
-  %.ph177 = phi i16 [ %111, %_ZN6duckdb7roaring19RoaringAnalyzeState15HandleNoneValidERS1_m.exit130 ], [ %102, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit127.thread ]
+  %.ph190 = phi i16 [ %112, %_ZN6duckdb7roaring19RoaringAnalyzeState15HandleNoneValidERS1_m.exit130 ], [ %101, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit127.thread ]
+  %.ph191 = phi i16 [ %111, %_ZN6duckdb7roaring19RoaringAnalyzeState15HandleNoneValidERS1_m.exit130 ], [ %102, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit127.thread ]
   store i8 %.sink, ptr %9, align 2, !tbaa !318
   %139 = add i16 %.promoted.i141143, 64
   store i16 %139, ptr %8, align 8, !tbaa !117
@@ -4163,8 +4163,8 @@ _ZN6duckdb7roaring20RoaringStateAppenderINS0_19RoaringAnalyzeStateEE11AppendByte
 
 _ZN6duckdb7roaring20RoaringStateAppenderINS0_19RoaringAnalyzeStateEE11AppendBytesERS2_mm.exit: ; preds = %_ZN6duckdb7roaring19RoaringAnalyzeState10HandleByteERS1_h.exit.i, %_ZN6duckdb7roaring20RoaringStateAppenderINS0_19RoaringAnalyzeStateEE11AppendBytesERS2_mm.exit.sink.split
   %140 = phi i16 [ %.ph, %_ZN6duckdb7roaring20RoaringStateAppenderINS0_19RoaringAnalyzeStateEE11AppendBytesERS2_mm.exit.sink.split ], [ %134, %_ZN6duckdb7roaring19RoaringAnalyzeState10HandleByteERS1_h.exit.i ]
-  %141 = phi i16 [ %.ph176, %_ZN6duckdb7roaring20RoaringStateAppenderINS0_19RoaringAnalyzeStateEE11AppendBytesERS2_mm.exit.sink.split ], [ %135, %_ZN6duckdb7roaring19RoaringAnalyzeState10HandleByteERS1_h.exit.i ]
-  %142 = phi i16 [ %.ph177, %_ZN6duckdb7roaring20RoaringStateAppenderINS0_19RoaringAnalyzeStateEE11AppendBytesERS2_mm.exit.sink.split ], [ %131, %_ZN6duckdb7roaring19RoaringAnalyzeState10HandleByteERS1_h.exit.i ]
+  %141 = phi i16 [ %.ph190, %_ZN6duckdb7roaring20RoaringStateAppenderINS0_19RoaringAnalyzeStateEE11AppendBytesERS2_mm.exit.sink.split ], [ %135, %_ZN6duckdb7roaring19RoaringAnalyzeState10HandleByteERS1_h.exit.i ]
+  %142 = phi i16 [ %.ph191, %_ZN6duckdb7roaring20RoaringStateAppenderINS0_19RoaringAnalyzeStateEE11AppendBytesERS2_mm.exit.sink.split ], [ %131, %_ZN6duckdb7roaring19RoaringAnalyzeState10HandleByteERS1_h.exit.i ]
   %143 = phi i8 [ %.sink, %_ZN6duckdb7roaring20RoaringStateAppenderINS0_19RoaringAnalyzeStateEE11AppendBytesERS2_mm.exit.sink.split ], [ %.lobit.i.i, %_ZN6duckdb7roaring19RoaringAnalyzeState10HandleByteERS1_h.exit.i ]
   %.promoted.i142 = phi i16 [ %139, %_ZN6duckdb7roaring20RoaringStateAppenderINS0_19RoaringAnalyzeStateEE11AppendBytesERS2_mm.exit.sink.split ], [ %137, %_ZN6duckdb7roaring19RoaringAnalyzeState10HandleByteERS1_h.exit.i ]
   %144 = add nuw nsw i64 %.096144, 1
@@ -4602,15 +4602,15 @@ define linkonce_odr void @_ZN6duckdb7roaring13AppendToArrayILb1EEEvRNS0_25Contai
   %46 = load ptr, ptr %45, align 8, !tbaa !335
   %47 = zext i16 %6 to i64
   %wide.trip.count75 = zext i16 %2 to i64
-  %invariant.gep77 = getelementptr inbounds nuw i16, ptr %46, i64 %47
+  %invariant.gep80 = getelementptr inbounds nuw i16, ptr %46, i64 %47
   br label %48
 
 48:                                               ; preds = %.lr.ph65, %48
   %indvars.iv72 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next73, %48 ]
   %49 = trunc i64 %indvars.iv72 to i16
   %50 = add i16 %13, %49
-  %gep78 = getelementptr inbounds nuw i16, ptr %invariant.gep77, i64 %indvars.iv72
-  store i16 %50, ptr %gep78, align 2, !tbaa !334
+  %gep81 = getelementptr inbounds nuw i16, ptr %invariant.gep80, i64 %indvars.iv72
+  store i16 %50, ptr %gep81, align 2, !tbaa !334
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
   br i1 %exitcond76.not, label %.loopexit, label %48, !llvm.loop !347
@@ -4712,15 +4712,15 @@ define linkonce_odr void @_ZN6duckdb7roaring13AppendToArrayILb0EEEvRNS0_25Contai
   %51 = load ptr, ptr %50, align 8, !tbaa !335
   %52 = zext i16 %8 to i64
   %wide.trip.count75 = zext i16 %2 to i64
-  %invariant.gep77 = getelementptr inbounds nuw i16, ptr %51, i64 %52
+  %invariant.gep80 = getelementptr inbounds nuw i16, ptr %51, i64 %52
   br label %53
 
 53:                                               ; preds = %.lr.ph65, %53
   %indvars.iv72 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next73, %53 ]
   %54 = trunc i64 %indvars.iv72 to i16
   %55 = add i16 %15, %54
-  %gep78 = getelementptr inbounds nuw i16, ptr %invariant.gep77, i64 %indvars.iv72
-  store i16 %55, ptr %gep78, align 2, !tbaa !334
+  %gep81 = getelementptr inbounds nuw i16, ptr %invariant.gep80, i64 %indvars.iv72
+  store i16 %55, ptr %gep81, align 2, !tbaa !334
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
   br i1 %exitcond76.not, label %.loopexit, label %53, !llvm.loop !350
@@ -4785,8 +4785,8 @@ define linkonce_odr void @_ZN6duckdb7roaring9AppendRunERNS0_25ContainerCompressi
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i8, ptr %11, align 8, !range !319
   %.not42 = icmp ne i8 %12, 0
-  %or.cond48.not = select i1 %or.cond4, i1 %.not42, i1 false
-  br i1 %or.cond48.not, label %13, label %41
+  %or.cond49.not = select i1 %or.cond4, i1 %.not42, i1 false
+  br i1 %or.cond49.not, label %13, label %41
 
 13:                                               ; preds = %3
   %14 = icmp samesign ult i16 %5, 4
@@ -5093,13 +5093,13 @@ define range(i32 1, -65024) i32 @_ZN6duckdb7roaring25ContainerCompressionState9G
 38:                                               ; preds = %37
   %.not32.i = icmp ugt i16 %9, %10
   %..i = tail call i16 @llvm.umin.i16(i16 %9, i16 %10)
-  %.47.i = select i1 %.not32.i, i32 1, i32 257
+  %.48.i = select i1 %.not32.i, i32 1, i32 257
   br label %_ZN6duckdb7roaring17ContainerMetadata14CreateMetadataEtttt.exit
 
 _ZN6duckdb7roaring17ContainerMetadata14CreateMetadataEtttt.exit: ; preds = %38, %37, %17, %6, %1
-  %.sink46.i.sink = phi i16 [ %5, %1 ], [ %5, %6 ], [ %5, %17 ], [ %..i, %38 ], [ %12, %37 ]
-  %.sink.i.sink = phi i32 [ 258, %1 ], [ 258, %6 ], [ 258, %17 ], [ %.47.i, %38 ], [ 256, %37 ]
-  %.sroa.3.0.insert.ext.i33.i = zext i16 %.sink46.i.sink to i32
+  %.sink47.i.sink = phi i16 [ %5, %1 ], [ %5, %6 ], [ %5, %17 ], [ %..i, %38 ], [ %12, %37 ]
+  %.sink.i.sink = phi i32 [ 258, %1 ], [ 258, %6 ], [ 258, %17 ], [ %.48.i, %38 ], [ 256, %37 ]
+  %.sroa.3.0.insert.ext.i33.i = zext i16 %.sink47.i.sink to i32
   %.sroa.3.0.insert.shift.i34.i = shl nuw i32 %.sroa.3.0.insert.ext.i33.i, 16
   %.sroa.0.0.insert.insert.i35.i = or disjoint i32 %.sroa.3.0.insert.shift.i34.i, %.sink.i.sink
   ret i32 %.sroa.0.0.insert.insert.i35.i
@@ -6918,17 +6918,17 @@ _ZN6duckdb7roaringL9HandleBitERNS0_20RoaringCompressStateEb.exit.i.i: ; preds = 
   br i1 %exitcond.not.i.i, label %.noexc137, label %138, !llvm.loop !413
 
 .noexc137.sink.split.sink.split:                  ; preds = %.noexc144, %.noexc145
-  %.sink178 = phi i16 [ %130, %.noexc145 ], [ %122, %.noexc144 ]
+  %.sink204 = phi i16 [ %130, %.noexc145 ], [ %122, %.noexc144 ]
   %.sink.ph = phi i8 [ 0, %.noexc145 ], [ 1, %.noexc144 ]
   %160 = load i16, ptr %9, align 4, !tbaa !340
-  %161 = add i16 %160, %.sink178
+  %161 = add i16 %160, %.sink204
   store i16 %161, ptr %9, align 4, !tbaa !340
   br label %.noexc137.sink.split
 
 .noexc137.sink.split:                             ; preds = %.noexc137.sink.split.sink.split, %129, %121
-  %.sink172 = phi i16 [ %122, %121 ], [ %130, %129 ], [ 0, %.noexc137.sink.split.sink.split ]
+  %.sink198 = phi i16 [ %122, %121 ], [ %130, %129 ], [ 0, %.noexc137.sink.split.sink.split ]
   %.sink = phi i8 [ 1, %121 ], [ 0, %129 ], [ %.sink.ph, %.noexc137.sink.split.sink.split ]
-  %162 = add i16 %.sink172, 8
+  %162 = add i16 %.sink198, 8
   store i16 %162, ptr %8, align 8, !tbaa !330
   store i8 %.sink, ptr %10, align 2, !tbaa !412
   br label %.noexc137
@@ -6939,19 +6939,19 @@ _ZN6duckdb7roaringL9HandleBitERNS0_20RoaringCompressStateEb.exit.i.i: ; preds = 
   br i1 %exitcond.not.i, label %_ZN6duckdb7roaring20RoaringStateAppenderINS0_20RoaringCompressStateEE11AppendBytesERS2_mm.exit, label %.preheader168, !llvm.loop !415
 
 _ZN6duckdb7roaring20RoaringStateAppenderINS0_20RoaringCompressStateEE11AppendBytesERS2_mm.exit.sink.split.sink.split: ; preds = %.noexc132, %.noexc136
-  %.sink181 = phi i16 [ %110, %.noexc136 ], [ %102, %.noexc132 ]
-  %.sink173.ph = phi i8 [ 0, %.noexc136 ], [ 1, %.noexc132 ]
+  %.sink207 = phi i16 [ %110, %.noexc136 ], [ %102, %.noexc132 ]
+  %.sink199.ph = phi i8 [ 0, %.noexc136 ], [ 1, %.noexc132 ]
   %164 = load i16, ptr %9, align 4, !tbaa !340
-  %165 = add i16 %164, %.sink181
+  %165 = add i16 %164, %.sink207
   store i16 %165, ptr %9, align 4, !tbaa !340
   br label %_ZN6duckdb7roaring20RoaringStateAppenderINS0_20RoaringCompressStateEE11AppendBytesERS2_mm.exit.sink.split
 
 _ZN6duckdb7roaring20RoaringStateAppenderINS0_20RoaringCompressStateEE11AppendBytesERS2_mm.exit.sink.split: ; preds = %_ZN6duckdb7roaring20RoaringStateAppenderINS0_20RoaringCompressStateEE11AppendBytesERS2_mm.exit.sink.split.sink.split, %109, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit129.thread
-  %.sink175 = phi i16 [ %102, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit129.thread ], [ %110, %109 ], [ 0, %_ZN6duckdb7roaring20RoaringStateAppenderINS0_20RoaringCompressStateEE11AppendBytesERS2_mm.exit.sink.split.sink.split ]
-  %.sink173 = phi i8 [ 1, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit129.thread ], [ 0, %109 ], [ %.sink173.ph, %_ZN6duckdb7roaring20RoaringStateAppenderINS0_20RoaringCompressStateEE11AppendBytesERS2_mm.exit.sink.split.sink.split ]
-  %166 = add i16 %.sink175, 64
+  %.sink201 = phi i16 [ %102, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit129.thread ], [ %110, %109 ], [ 0, %_ZN6duckdb7roaring20RoaringStateAppenderINS0_20RoaringCompressStateEE11AppendBytesERS2_mm.exit.sink.split.sink.split ]
+  %.sink199 = phi i8 [ 1, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit129.thread ], [ 0, %109 ], [ %.sink199.ph, %_ZN6duckdb7roaring20RoaringStateAppenderINS0_20RoaringCompressStateEE11AppendBytesERS2_mm.exit.sink.split.sink.split ]
+  %166 = add i16 %.sink201, 64
   store i16 %166, ptr %8, align 8, !tbaa !330
-  store i8 %.sink173, ptr %10, align 2, !tbaa !412
+  store i8 %.sink199, ptr %10, align 2, !tbaa !412
   br label %_ZN6duckdb7roaring20RoaringStateAppenderINS0_20RoaringCompressStateEE11AppendBytesERS2_mm.exit
 
 _ZN6duckdb7roaring20RoaringStateAppenderINS0_20RoaringCompressStateEE11AppendBytesERS2_mm.exit: ; preds = %.noexc137, %_ZN6duckdb7roaring20RoaringStateAppenderINS0_20RoaringCompressStateEE11AppendBytesERS2_mm.exit.sink.split
@@ -7448,8 +7448,8 @@ define void @_ZN6duckdb7roaring31CompressedRunContainerScanState11LoadNextRunEv(
   %14 = zext nneg i8 %.promoted.i to i64
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !295
-  %.not.i39 = icmp ult i8 %.pre.i, %16
-  br i1 %.not.i39, label %_ZN6duckdb7roaring20ContainerSegmentScanppEi.exit, label %.lr.ph
+  %.not.i42 = icmp ult i8 %.pre.i, %16
+  br i1 %.not.i42, label %_ZN6duckdb7roaring20ContainerSegmentScanppEi.exit, label %.lr.ph
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.next.i
@@ -7458,9 +7458,9 @@ define void @_ZN6duckdb7roaring31CompressedRunContainerScanState11LoadNextRunEv(
   br i1 %.not.i.not, label %.lr.ph, label %..critedge.loopexit.split.loop.exit5.i_crit_edge, !llvm.loop !421
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %17
-  %indvars.iv.i40 = phi i64 [ %indvars.iv.next.i, %17 ], [ %14, %.lr.ph.i ]
+  %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i, %17 ], [ %14, %.lr.ph.i ]
   store i8 0, ptr %10, align 1, !tbaa !420
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i40, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i43, 1
   %20 = trunc i64 %indvars.iv.next.i to i8
   store i8 %20, ptr %11, align 8, !tbaa !419
   %exitcond.not.i = icmp eq i8 %20, 8

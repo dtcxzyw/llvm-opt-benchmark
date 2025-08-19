@@ -266,9 +266,9 @@ Vec_IntPush.exit47.sink.split:                    ; preds = %89
   %94 = shl nuw nsw i32 %54, 1
   %95 = zext nneg i32 %94 to i64
   %96 = shl nuw nsw i64 %95, 2
-  %.sink71 = select i1 %93, i64 64, i64 %96
+  %.sink81 = select i1 %93, i64 64, i64 %96
   %.sink = select i1 %93, i32 16, i32 %94
-  %97 = tail call ptr @realloc(ptr noundef nonnull %53, i64 noundef %.sink71) #16
+  %97 = tail call ptr @realloc(ptr noundef nonnull %53, i64 noundef %.sink81) #16
   store ptr %97, ptr %50, align 8, !tbaa !17
   store i32 %.sink, ptr %3, align 8, !tbaa !23
   br label %Vec_IntPush.exit47
@@ -373,14 +373,14 @@ Vec_IntPush.exit47:                               ; preds = %Vec_IntPush.exit47.
   br label %Vec_IntPush.exit58.sink.split
 
 Vec_IntPush.exit58.sink.split:                    ; preds = %151, %153, %143, %145
-  %.sink73 = phi ptr [ %144, %143 ], [ %146, %145 ], [ %152, %151 ], [ %154, %153 ]
-  %.sink72 = phi i32 [ 16, %143 ], [ 16, %145 ], [ %148, %151 ], [ %148, %153 ]
-  store ptr %.sink73, ptr %50, align 8, !tbaa !17
-  store i32 %.sink72, ptr %3, align 8, !tbaa !23
+  %.sink83 = phi ptr [ %144, %143 ], [ %146, %145 ], [ %152, %151 ], [ %154, %153 ]
+  %.sink82 = phi i32 [ 16, %143 ], [ 16, %145 ], [ %148, %151 ], [ %148, %153 ]
+  store ptr %.sink83, ptr %50, align 8, !tbaa !17
+  store i32 %.sink82, ptr %3, align 8, !tbaa !23
   br label %Vec_IntPush.exit58
 
 Vec_IntPush.exit58:                               ; preds = %Vec_IntPush.exit58.sink.split, %133
-  %.pre.i5469 = phi ptr [ %116, %133 ], [ %.sink73, %Vec_IntPush.exit58.sink.split ]
+  %.pre.i5469 = phi ptr [ %116, %133 ], [ %.sink83, %Vec_IntPush.exit58.sink.split ]
   %155 = load i32, ptr %19, align 4, !tbaa !14
   %156 = add nsw i32 %155, 1
   store i32 %156, ptr %19, align 4, !tbaa !14
@@ -1191,12 +1191,12 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not.i113, label %Vec_PtrFree.exit, label %207
 
 207:                                              ; preds = %.critedge6.thread, %.critedge6
-  %.0.lcssa154 = phi i32 [ %.1, %.critedge6.thread ], [ %176, %.critedge6 ]
+  %.0.lcssa162 = phi i32 [ %.1, %.critedge6.thread ], [ %176, %.critedge6 ]
   call void @free(ptr noundef nonnull %.pre151) #18
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge6, %207
-  %.0.lcssa155 = phi i32 [ %176, %.critedge6 ], [ %.0.lcssa154, %207 ]
+  %.0.lcssa163 = phi i32 [ %176, %.critedge6 ], [ %.0.lcssa162, %207 ]
   call void @free(ptr noundef nonnull %18) #18
   %208 = load i32, ptr %28, align 8, !tbaa !35
   %209 = load i32, ptr %0, align 8, !tbaa !10
@@ -1240,7 +1240,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge6, %207
   br i1 %exitcond.not.i, label %Vec_SetShrinkLimits.exit, label %225, !llvm.loop !46
 
 Vec_SetShrinkLimits.exit:                         ; preds = %225, %Vec_PtrFree.exit
-  ret i32 %.0.lcssa155
+  ret i32 %.0.lcssa163
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1450,14 +1450,14 @@ define noalias noundef ptr @Sat_ProofCollectCore(ptr noundef readonly captures(n
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %100, %102, %92, %94
-  %.sink114 = phi ptr [ %93, %92 ], [ %95, %94 ], [ %101, %100 ], [ %103, %102 ]
+  %.sink117 = phi ptr [ %93, %92 ], [ %95, %94 ], [ %101, %100 ], [ %103, %102 ]
   %.sink = phi i32 [ 16, %92 ], [ 16, %94 ], [ %97, %100 ], [ %97, %102 ]
-  store ptr %.sink114, ptr %46, align 8, !tbaa !17
+  store ptr %.sink117, ptr %46, align 8, !tbaa !17
   store i32 %.sink, ptr %43, align 8, !tbaa !23
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %84
-  %.pre.i108 = phi ptr [ %65, %84 ], [ %.sink114, %Vec_IntPush.exit.sink.split ]
+  %.pre.i108 = phi ptr [ %65, %84 ], [ %.sink117, %Vec_IntPush.exit.sink.split ]
   %104 = add nsw i32 %86, 1
   store i32 %104, ptr %44, align 4, !tbaa !14
   %105 = sext i32 %86 to i64

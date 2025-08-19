@@ -2418,14 +2418,14 @@ Py_DECREF.exit:                                   ; preds = %_PyFrame_Copy.exit,
   br i1 %59, label %_Py_NewRef.exit, label %_Py_NewRef.exit.sink.split
 
 _Py_NewRef.exit.sink.split:                       ; preds = %54, %51
-  %.sink48 = phi i32 [ %52, %51 ], [ %58, %54 ]
-  %.sink47 = phi ptr [ %2, %51 ], [ %57, %54 ]
-  %60 = add nuw i32 %.sink48, 1
-  store i32 %60, ptr %.sink47, align 8, !tbaa !4
+  %.sink56 = phi i32 [ %52, %51 ], [ %58, %54 ]
+  %.sink55 = phi ptr [ %2, %51 ], [ %57, %54 ]
+  %60 = add nuw i32 %.sink56, 1
+  store i32 %60, ptr %.sink55, align 8, !tbaa !4
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit.sink.split, %54, %51
-  %.sink = phi ptr [ %2, %51 ], [ %57, %54 ], [ %.sink47, %_Py_NewRef.exit.sink.split ]
+  %.sink = phi ptr [ %2, %51 ], [ %57, %54 ], [ %.sink55, %_Py_NewRef.exit.sink.split ]
   %61 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %.sink, ptr %61, align 8, !tbaa !117
   %.not33 = icmp eq ptr %3, null
@@ -2446,16 +2446,16 @@ _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit.sin
   br i1 %70, label %_Py_NewRef.exit40, label %_Py_NewRef.exit40.sink.split
 
 _Py_NewRef.exit40.sink.split:                     ; preds = %65, %62
-  %.sink51 = phi i32 [ %63, %62 ], [ %69, %65 ]
-  %.sink50 = phi ptr [ %3, %62 ], [ %68, %65 ]
-  %71 = add nuw i32 %.sink51, 1
-  store i32 %71, ptr %.sink50, align 8, !tbaa !4
+  %.sink59 = phi i32 [ %63, %62 ], [ %69, %65 ]
+  %.sink58 = phi ptr [ %3, %62 ], [ %68, %65 ]
+  %71 = add nuw i32 %.sink59, 1
+  store i32 %71, ptr %.sink58, align 8, !tbaa !4
   br label %_Py_NewRef.exit40
 
 _Py_NewRef.exit40:                                ; preds = %_Py_NewRef.exit40.sink.split, %65, %62
-  %.sink44 = phi ptr [ %3, %62 ], [ %68, %65 ], [ %.sink50, %_Py_NewRef.exit40.sink.split ]
+  %.sink52 = phi ptr [ %3, %62 ], [ %68, %65 ], [ %.sink58, %_Py_NewRef.exit40.sink.split ]
   %72 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store ptr %.sink44, ptr %72, align 8, !tbaa !116
+  store ptr %.sink52, ptr %72, align 8, !tbaa !116
   %73 = getelementptr i8, ptr %14, i64 -16
   %74 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %75 = load ptr, ptr %74, align 8, !tbaa !39

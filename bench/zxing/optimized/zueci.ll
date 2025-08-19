@@ -217,9 +217,9 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
 .loopexit.thread:                                 ; preds = %.critedge
   %42 = icmp ugt i32 %31, 127
   %43 = add i32 %31, -256
-  %or.cond9183 = icmp ult i32 %43, -96
-  %or.cond77184 = and i1 %42, %or.cond9183
-  br i1 %or.cond77184, label %zueci_is_valid_utf8.exit.thread, label %.thread
+  %or.cond9190 = icmp ult i32 %43, -96
+  %or.cond77191 = and i1 %42, %or.cond9190
+  br i1 %or.cond77191, label %zueci_is_valid_utf8.exit.thread, label %.thread
 
 .thread:                                          ; preds = %.loopexit.thread
   %44 = trunc nuw i32 %31 to i8
@@ -354,9 +354,9 @@ switch.early.test78:                              ; preds = %zueci_decode_utf8.e
 .loopexit115.thread:                              ; preds = %.critedge13
   %103 = tail call i32 %.062(i32 noundef %92, ptr noundef %.164149) #8
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %zueci_is_valid_utf8.exit.thread, label %.thread185
+  br i1 %104, label %zueci_is_valid_utf8.exit.thread, label %.thread192
 
-.thread185:                                       ; preds = %.loopexit115.thread
+.thread192:                                       ; preds = %.loopexit115.thread
   %105 = sext i32 %103 to i64
   %106 = getelementptr inbounds i8, ptr %.164149, i64 %105
   br label %._crit_edge
@@ -366,8 +366,8 @@ switch.early.test78:                              ; preds = %zueci_decode_utf8.e
   %109 = getelementptr inbounds i8, ptr %.164149, i64 %108
   br label %.preheader114, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.thread185, %74
-  %.164.lcssa = phi ptr [ %3, %74 ], [ %106, %.thread185 ]
+._crit_edge:                                      ; preds = %.thread192, %74
+  %.164.lcssa = phi ptr [ %3, %74 ], [ %106, %.thread192 ]
   %110 = ptrtoint ptr %.164.lcssa to i64
   %111 = ptrtoint ptr %3 to i64
   %112 = sub i64 %110, %111
@@ -3244,8 +3244,8 @@ zueci_encode_utf8.exit:                           ; preds = %.lr.ph, %25
   %50 = trunc i32 %3 to i8
   %51 = and i8 %50, 63
   %52 = or disjoint i8 %51, -128
-  %.1..1..1..sroa_idx317 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store i8 %52, ptr %.1..1..1..sroa_idx317, align 1, !tbaa !3
+  %.1..1..1..sroa_idx341 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  store i8 %52, ptr %.1..1..1..sroa_idx341, align 1, !tbaa !3
   br label %zueci_encode_utf8.exit162
 
 53:                                               ; preds = %44
@@ -3425,7 +3425,7 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
 .loopexit194:                                     ; preds = %switch.early.test
   %121 = load i8, ptr %.3141, align 1, !tbaa !3
   %122 = icmp sgt i8 %121, -1
-  %.3141.lcssa276.mux = select i1 %122, ptr %.3141, ptr %97
+  %.3141.lcssa300.mux = select i1 %122, ptr %.3141, ptr %97
   br i1 %122, label %.critedge21, label %.lr.ph215
 
 .loopexit194.thread:                              ; preds = %.critedge
@@ -3446,7 +3446,7 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
   br i1 %129, label %.lr.ph215, label %.critedge21, !llvm.loop !30
 
 .critedge21:                                      ; preds = %127, %.lr.ph215, %.loopexit194.thread, %.loopexit194
-  %.4142 = phi ptr [ %.3141.lcssa276.mux, %.loopexit194 ], [ %spec.select, %.loopexit194.thread ], [ %128, %127 ], [ %.5143214, %.lr.ph215 ]
+  %.4142 = phi ptr [ %.3141.lcssa300.mux, %.loopexit194 ], [ %spec.select, %.loopexit194.thread ], [ %128, %127 ], [ %.5143214, %.lr.ph215 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3135226, ptr nonnull align 1 %9, i64 %.0129, i1 false)
   br label %zueci_encode_utf8.exit166
 
@@ -3740,9 +3740,9 @@ zueci_replacement_incr.exit:                      ; preds = %257, %245, %234, %2
   br label %zueci_is_valid_utf8.exit.thread.sink.split
 
 zueci_is_valid_utf8.exit.thread.sink.split:       ; preds = %._crit_edge, %._crit_edge245, %._crit_edge229, %194, %._crit_edge238
-  %.sink286 = phi i32 [ %278, %._crit_edge238 ], [ %2, %194 ], [ %179, %._crit_edge229 ], [ %91, %._crit_edge245 ], [ %35, %._crit_edge ]
+  %.sink310 = phi i32 [ %278, %._crit_edge238 ], [ %2, %194 ], [ %179, %._crit_edge229 ], [ %91, %._crit_edge245 ], [ %35, %._crit_edge ]
   %.0130.ph = phi i32 [ %.4.lcssa, %._crit_edge238 ], [ 0, %194 ], [ %.2.lcssa, %._crit_edge229 ], [ %.0.lcssa, %._crit_edge245 ], [ 0, %._crit_edge ]
-  store i32 %.sink286, ptr %6, align 4, !tbaa !12
+  store i32 %.sink310, ptr %6, align 4, !tbaa !12
   br label %zueci_is_valid_utf8.exit.thread
 
 zueci_is_valid_utf8.exit.thread:                  ; preds = %zueci_decode_utf8.exit.i, %210, %.lr.ph244.split.us, %zueci_is_valid_utf8.exit.thread.sink.split, %switch.early.test188, %switch.early.test188, %switch.early.test187, %37, %zueci_is_valid_utf8.exit, %12
@@ -5713,12 +5713,12 @@ switch.early.test:                                ; preds = %8
   br i1 %or.cond113, label %67, label %53
 
 53:                                               ; preds = %.critedge112, %50
-  %.sink126 = phi i32 [ 96, %50 ], [ 190, %.critedge112 ]
-  %.sink124 = phi i32 [ -10112, %50 ], [ -24574, %.critedge112 ]
-  %54 = mul nuw nsw i32 %.sink126, %6
+  %.sink132 = phi i32 [ 96, %50 ], [ 190, %.critedge112 ]
+  %.sink130 = phi i32 [ -10112, %50 ], [ -24574, %.critedge112 ]
+  %54 = mul nuw nsw i32 %.sink132, %6
   %55 = ashr i8 %12, 7
   %56 = sext i8 %55 to i32
-  %57 = add nsw i32 %54, %.sink124
+  %57 = add nsw i32 %54, %.sink130
   %58 = add nsw i32 %57, %13
   %59 = add nsw i32 %58, %56
   %60 = icmp slt i32 %59, 14352

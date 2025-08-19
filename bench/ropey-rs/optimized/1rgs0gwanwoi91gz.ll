@@ -489,12 +489,12 @@ define noundef i64 @_ZN5ropey9str_utils27byte_to_utf16_surrogate_idx17h1e1aeb5c0
   unreachable
 
 "_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$5index17h66d5095e8283f190E.llvm.12620698079031950665.exit": ; preds = %6, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.12620698079031950665.exit.i"
-  %.sroa.0.058.lcssa82 = phi i64 [ %.sroa.0.058, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.12620698079031950665.exit.i" ], [ %1, %6 ]
-  %19 = icmp ult i64 %.sroa.0.058.lcssa82, 4
+  %.sroa.0.058.lcssa86 = phi i64 [ %.sroa.0.058, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.12620698079031950665.exit.i" ], [ %1, %6 ]
+  %19 = icmp ult i64 %.sroa.0.058.lcssa86, 4
   br i1 %19, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.llvm.12620698079031950665.exit, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.llvm.12620698079031950665.exit.i"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.llvm.12620698079031950665.exit.i": ; preds = %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$5index17h66d5095e8283f190E.llvm.12620698079031950665.exit"
-  %20 = add i64 %.sroa.0.058.lcssa82, -3
+  %20 = add i64 %.sroa.0.058.lcssa86, -3
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !56
   call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17hd09afb8bd0740044E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %20)
   %21 = load ptr, ptr %4, align 8, !noalias !56, !nonnull !4, !align !5, !noundef !4
@@ -731,9 +731,9 @@ define noundef i64 @_ZN5ropey9str_utils27utf16_code_unit_to_char_idx17hbc7fc5756
   %.sroa.0.0.vec.extract.i3 = extractelement <2 x i64> %69, i64 0
   %.sroa.0.8.vec.extract.i4 = extractelement <2 x i64> %69, i64 1
   %70 = add i64 %.idx, %.sroa.08.2.i152
-  %shift213 = shufflevector <2 x i64> %68, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop214 = add <2 x i64> %shift213, %68
-  %71 = extractelement <2 x i64> %foldExtExtBinop214, i64 0
+  %shift228 = shufflevector <2 x i64> %68, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop229 = add <2 x i64> %shift228, %68
+  %71 = extractelement <2 x i64> %foldExtExtBinop229, i64 0
   %72 = sub i64 %70, %71
   %73 = add i64 %72, %.sroa.0.8.vec.extract.i4
   %74 = add i64 %73, %.sroa.0.0.vec.extract.i3

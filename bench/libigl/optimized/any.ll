@@ -78,11 +78,11 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS
   %31 = sext i32 %26 to i64
   %32 = load ptr, ptr %3, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv.i.us.us
-  %.promoted27 = load i8, ptr %33, align 1
+  %.promoted32 = load i8, ptr %33, align 1
   br label %.lr.ph.split.us.i.us.us
 
 .lr.ph.split.us.i.us.us:                          ; preds = %.lr.ph.split.us.i.us.us, %.lr.ph.i.us.us
-  %34 = phi i8 [ %44, %.lr.ph.split.us.i.us.us ], [ %.promoted27, %.lr.ph.i.us.us ]
+  %34 = phi i8 [ %44, %.lr.ph.split.us.i.us.us ], [ %.promoted32, %.lr.ph.i.us.us ]
   %.sroa.8.09.us.i.us.us = phi i64 [ %45, %.lr.ph.split.us.i.us.us ], [ %31, %.lr.ph.i.us.us ]
   %35 = getelementptr inbounds i32, ptr %19, i64 %.sroa.8.09.us.i.us.us
   %36 = load i32, ptr %35, align 4, !tbaa !32

@@ -3686,8 +3686,8 @@ sdslen.exit:                                      ; preds = %60, %63, %67, %71, 
 
 80:                                               ; preds = %sdslen.exit
   %81 = load i8, ptr %55, align 1, !tbaa !76
-  %.fr486 = freeze i8 %81
-  %82 = icmp ne i8 %.fr486, 42
+  %.fr514 = freeze i8 %81
+  %82 = icmp ne i8 %.fr514, 42
   %83 = zext i1 %82 to i32
   br label %sdslen.exit.thread
 
@@ -3866,8 +3866,8 @@ sdslen.exit.thread:                               ; preds = %95, %108, %101, %99
   %152 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 0, ptr %152, align 4
   %153 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %spec.select525 = select i1 %.not285323335, ptr @sdslen, ptr @hfieldlen
-  store ptr %spec.select525, ptr %153, align 8, !tbaa !133
+  %spec.select553 = select i1 %.not285323335, ptr @sdslen, ptr @hfieldlen
+  store ptr %spec.select553, ptr %153, align 8, !tbaa !133
   %or.cond11 = and i1 %17, %148
   %154 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7888), align 8
   %155 = icmp ne i32 %154, 0
@@ -3885,7 +3885,7 @@ sdslen.exit.thread:                               ; preds = %95, %108, %101, %99
 
 .split435.us.preheader:                           ; preds = %.thread, %158
   %160 = phi ptr [ %157, %.thread ], [ %159, %158 ]
-  %.0257488 = phi i32 [ %156, %.thread ], [ -1, %158 ]
+  %.0257516 = phi i32 [ %156, %.thread ], [ -1, %158 ]
   br label %.split435.us
 
 .split435.us:                                     ; preds = %.split435.us.preheader, %164
@@ -3893,7 +3893,7 @@ sdslen.exit.thread:                               ; preds = %95, %108, %101, %99
   %.0.us = phi i64 [ %163, %164 ], [ %2, %.split435.us.preheader ]
   %161 = load ptr, ptr %160, align 8, !tbaa !74
   %162 = load ptr, ptr %161, align 8, !tbaa !6
-  %163 = call i64 @kvstoreScan(ptr noundef %162, i64 noundef %.0.us, i32 noundef %.0257488, ptr noundef nonnull @scanCallback, ptr noundef null, ptr noundef nonnull %5) #20
+  %163 = call i64 @kvstoreScan(ptr noundef %162, i64 noundef %.0.us, i32 noundef %.0257516, ptr noundef nonnull @scanCallback, ptr noundef null, ptr noundef nonnull %5) #20
   %.not286.us = icmp eq i64 %163, 0
   %.not287.us = icmp eq i64 %.0258.us, 0
   %or.cond308.us = select i1 %.not286.us, i1 true, i1 %.not287.us
@@ -4622,7 +4622,7 @@ define dso_local void @shutdownCommand(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8, !tbaa !103
   %.not4858 = icmp sgt i32 %3, 1
-  br i1 %.not4858, label %.lr.ph, label %.thread82
+  br i1 %.not4858, label %.lr.ph, label %.thread83
 
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -4728,25 +4728,25 @@ define dso_local void @shutdownCommand(ptr noundef %0) local_unnamed_addr #0 {
 45:                                               ; preds = %38
   %46 = and i32 %.142, 4
   %.not51 = icmp eq i32 %46, 0
-  br i1 %.not51, label %.thread82, label %51
+  br i1 %.not51, label %.thread83, label %51
 
-.thread82:                                        ; preds = %1, %45
-  %.not49758089 = phi i1 [ %.not49, %45 ], [ true, %1 ]
-  %.041.lcssa67748187 = phi i32 [ %.142, %45 ], [ 0, %1 ]
+.thread83:                                        ; preds = %1, %45
+  %.not49768190 = phi i1 [ %.not49, %45 ], [ true, %1 ]
+  %.041.lcssa68758288 = phi i32 [ %.142, %45 ], [ 0, %1 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !55
   %49 = and i64 %48, 2199023255552
   %.not52 = icmp eq i64 %49, 0
   br i1 %.not52, label %51, label %50
 
-50:                                               ; preds = %.thread82
+50:                                               ; preds = %.thread83
   tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.37) #20
   br label %73
 
-51:                                               ; preds = %.thread82, %45
-  %.not49758088 = phi i1 [ %.not49758089, %.thread82 ], [ %.not49, %45 ]
-  %.041.lcssa67748186 = phi i32 [ %.041.lcssa67748187, %.thread82 ], [ %.142, %45 ]
-  br i1 %.not49758088, label %52, label %69
+51:                                               ; preds = %.thread83, %45
+  %.not49768189 = phi i1 [ %.not49768190, %.thread83 ], [ %.not49, %45 ]
+  %.041.lcssa68758287 = phi i32 [ %.041.lcssa68758288, %.thread83 ], [ %.142, %45 ]
+  br i1 %.not49768189, label %52, label %69
 
 52:                                               ; preds = %51
   %53 = tail call i32 @isInsideYieldingLongCommand() #20
@@ -4790,7 +4790,7 @@ define dso_local void @shutdownCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 69:                                               ; preds = %52, %51
   tail call void @blockClientShutdown(ptr noundef nonnull %0) #20
-  %70 = tail call i32 @prepareForShutdown(i32 noundef %.041.lcssa67748186) #20
+  %70 = tail call i32 @prepareForShutdown(i32 noundef %.041.lcssa68758287) #20
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %73
 
@@ -6621,7 +6621,7 @@ define dso_local i32 @getKeysUsingKeySpecs(ptr noundef readonly captures(none) %
   %85 = sext i32 %76 to i64
   %86 = sdiv i64 %84, %85
   %87 = add nsw i64 %.0109, -1
-  %88 = add i64 %87, %86
+  %88 = add nsw i64 %87, %86
   br label %134
 
 89:                                               ; preds = %62
@@ -7765,8 +7765,8 @@ define dso_local range(i32 -2147483640, -2147483648) i32 @migrateGetKeys(ptr nou
 
 .preheader.preheader:                             ; preds = %.preheader40
   %12 = tail call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.62) #24
-  %.not3758 = icmp eq i32 %12, 0
-  br i1 %.not3758, label %.preheader._crit_edge, label %.lr.ph60
+  %.not3763 = icmp eq i32 %12, 0
+  br i1 %.not3763, label %.preheader._crit_edge, label %.lr.ph65
 
 13:                                               ; preds = %.preheader40
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -7824,18 +7824,18 @@ sdslen.exit.thread:                               ; preds = %13, %sdslen.exit
   %42 = zext i32 %40 to i64
   br label %.loopexit41
 
-.lr.ph60:                                         ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv59 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv59, 1
+.lr.ph65:                                         ; preds = %.preheader.preheader, %.preheader
+  %indvars.iv64 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv64, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !210
 
-.preheader:                                       ; preds = %.lr.ph60
+.preheader:                                       ; preds = %.lr.ph65
   %43 = getelementptr inbounds nuw [5 x %struct.anon.6], ptr @__const.migrateGetKeys.skip_keywords, i64 0, i64 %indvars.iv.next
   %44 = load ptr, ptr %43, align 16, !tbaa !205
   %45 = tail call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull %44) #24
   %.not37 = icmp eq i32 %45, 0
-  br i1 %.not37, label %.preheader._crit_edge, label %.lr.ph60, !llvm.loop !210
+  br i1 %.not37, label %.preheader._crit_edge, label %.lr.ph65, !llvm.loop !210
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
   %.lcssa = phi ptr [ @__const.migrateGetKeys.skip_keywords, %.preheader.preheader ], [ %43, %.preheader ]
@@ -7844,8 +7844,8 @@ sdslen.exit.thread:                               ; preds = %13, %sdslen.exit
   %48 = add nsw i32 %47, %.045
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph60, %.preheader._crit_edge
-  %.1 = phi i32 [ %48, %.preheader._crit_edge ], [ %.045, %.lr.ph60 ]
+.loopexit:                                        ; preds = %.lr.ph65, %.preheader._crit_edge
+  %.1 = phi i32 [ %48, %.preheader._crit_edge ], [ %.045, %.lr.ph65 ]
   %49 = add nsw i32 %.1, 1
   %50 = icmp slt i32 %49, %2
   br i1 %50, label %.preheader40, label %.loopexit41, !llvm.loop !211
@@ -8434,9 +8434,9 @@ getKeysPrepareResult.exit:                        ; preds = %12, %27
   br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !217
 
 ._crit_edge:                                      ; preds = %48, %43, %47, %52, %getKeysPrepareResult.exit
-  %.sink46 = phi i32 [ 17, %getKeysPrepareResult.exit ], [ 17, %52 ], [ 50, %47 ], [ 50, %43 ], [ 50, %48 ]
+  %.sink51 = phi i32 [ 17, %getKeysPrepareResult.exit ], [ 17, %52 ], [ 50, %47 ], [ 50, %43 ], [ 50, %48 ]
   %56 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  store i32 %.sink46, ptr %56, align 4, !tbaa !190
+  store i32 %.sink51, ptr %56, align 4, !tbaa !190
   ret i32 1
 }
 

@@ -241,11 +241,11 @@ define void @html_tag_arg_add(ptr noundef captures(none) %0, ptr noundef %1, ptr
   br label %.lr.ph107.split
 
 .lr.ph105.splitthread-pre-split:                  ; preds = %87
-  %.pr122 = load ptr, ptr %71, align 8, !tbaa !11
+  %.pr134 = load ptr, ptr %71, align 8, !tbaa !11
   br label %.lr.ph105.split
 
 .lr.ph105.split:                                  ; preds = %.lr.ph105.splitthread-pre-split, %.lr.ph105.split.preheader
-  %83 = phi ptr [ %.pr122, %.lr.ph105.splitthread-pre-split ], [ %72, %.lr.ph105.split.preheader ]
+  %83 = phi ptr [ %.pr134, %.lr.ph105.splitthread-pre-split ], [ %72, %.lr.ph105.split.preheader ]
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.lr.ph105.splitthread-pre-split ], [ 0, %.lr.ph105.split.preheader ]
   %.not100 = icmp eq ptr %83, null
   br i1 %.not100, label %87, label %84
@@ -262,11 +262,11 @@ define void @html_tag_arg_add(ptr noundef captures(none) %0, ptr noundef %1, ptr
   br i1 %exitcond116.not, label %.preheader, label %.lr.ph105.splitthread-pre-split, !llvm.loop !19
 
 .lr.ph107.splitthread-pre-split:                  ; preds = %93
-  %.pr123 = load ptr, ptr %80, align 8, !tbaa !13
+  %.pr135 = load ptr, ptr %80, align 8, !tbaa !13
   br label %.lr.ph107.split
 
 .lr.ph107.split:                                  ; preds = %.lr.ph107.splitthread-pre-split, %.lr.ph107.split.preheader
-  %88 = phi ptr [ %.pr123, %.lr.ph107.splitthread-pre-split ], [ %81, %.lr.ph107.split.preheader ]
+  %88 = phi ptr [ %.pr135, %.lr.ph107.splitthread-pre-split ], [ %81, %.lr.ph107.split.preheader ]
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %.lr.ph107.splitthread-pre-split ], [ 0, %.lr.ph107.split.preheader ]
   %.not98 = icmp eq ptr %88, null
   br i1 %.not98, label %93, label %89
@@ -696,8 +696,8 @@ define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, pt
   %.011572485 = phi ptr [ null, %.lr.ph2509 ], [ %.21159.lcssa, %.backedge2035 ]
   %.111692484 = phi ptr [ null, %.lr.ph2509 ], [ %.21170.lcssa, %.backedge2035 ]
   %.011742483 = phi i64 [ 0, %.lr.ph2509 ], [ %.11175.lcssa, %.backedge2035 ]
-  %.111782482 = phi ptr [ null, %.lr.ph2509 ], [ %.611832642, %.backedge2035 ]
-  %.011842481 = phi ptr [ null, %.lr.ph2509 ], [ %.511892641, %.backedge2035 ]
+  %.111782482 = phi ptr [ null, %.lr.ph2509 ], [ %.611832796, %.backedge2035 ]
+  %.011842481 = phi ptr [ null, %.lr.ph2509 ], [ %.511892795, %.backedge2035 ]
   %.111972480 = phi ptr [ null, %.lr.ph2509 ], [ %.91205, %.backedge2035 ]
   %.012112479 = phi i64 [ 0, %.lr.ph2509 ], [ %.61217, %.backedge2035 ]
   %.012192478 = phi ptr [ null, %.lr.ph2509 ], [ %.01219.be, %.backedge2035 ]
@@ -1277,10 +1277,10 @@ html_output_c.exit1522:                           ; preds = %html_output_c.exit1
   br i1 %281, label %.sink.split.i, label %284
 
 .sink.split.i:                                    ; preds = %.thread81.i, %260, %260, %260
-  %.06491.sink94.i = phi i64 [ %.06491.i, %260 ], [ %.06491.i, %260 ], [ %.06491.i, %260 ], [ %.5.i, %.thread81.i ]
+  %.06491.sink99.i = phi i64 [ %.06491.i, %260 ], [ %.06491.i, %260 ], [ %.06491.i, %260 ], [ %.5.i, %.thread81.i ]
   %.sink.i = phi i8 [ 46, %260 ], [ 46, %260 ], [ 46, %260 ], [ %280, %.thread81.i ]
-  %282 = add nuw nsw i64 %.06491.sink94.i, 1
-  %283 = getelementptr inbounds nuw [1025 x i8], ptr %66, i64 0, i64 %.06491.sink94.i
+  %282 = add nuw nsw i64 %.06491.sink99.i, 1
+  %283 = getelementptr inbounds nuw [1025 x i8], ptr %66, i64 0, i64 %.06491.sink99.i
   store i8 %.sink.i, ptr %283, align 1, !tbaa !16
   br label %284
 
@@ -2223,8 +2223,8 @@ html_output_c.exit1586:                           ; preds = %703, %709
   %.not1428 = icmp eq i16 %719, 0
   %720 = add nsw i64 %.110502426, 1
   %721 = getelementptr inbounds [1025 x i8], ptr %10, i64 0, i64 %.110502426
-  %.2752 = select i1 %.not1428, i8 62, i8 32
-  store i8 %.2752, ptr %721, align 1, !tbaa !16
+  %.2906 = select i1 %.not1428, i8 62, i8 32
+  store i8 %.2906, ptr %721, align 1, !tbaa !16
   br label %722
 
 722:                                              ; preds = %.sink.split, %html_output_c.exit1586
@@ -2251,13 +2251,13 @@ html_output_c.exit1586:                           ; preds = %703, %709
   ]
 
 729:                                              ; preds = %728
-  switch i8 %83, label %.thread2635 [
+  switch i8 %83, label %.thread2789 [
     i8 67, label %730
     i8 68, label %730
     i8 79, label %730
   ]
 
-.thread2635:                                      ; preds = %729
+.thread2789:                                      ; preds = %729
   call fastcc void @html_output_c(ptr noundef %.11137, i8 noundef zeroext -95)
   br label %769
 
@@ -2349,9 +2349,9 @@ html_output_c.exit1589:                           ; preds = %730, %736
   store i8 %752, ptr %768, align 1, !tbaa !16
   br label %769
 
-769:                                              ; preds = %.thread2635, %764, %766
-  %770 = phi i8 [ %753, %766 ], [ %753, %764 ], [ -95, %.thread2635 ]
-  %.15 = phi i64 [ %767, %766 ], [ %.14, %764 ], [ %.110502426, %.thread2635 ]
+769:                                              ; preds = %.thread2789, %764, %766
+  %770 = phi i8 [ %753, %766 ], [ %753, %764 ], [ -95, %.thread2789 ]
+  %.15 = phi i64 [ %767, %766 ], [ %.14, %764 ], [ %.110502426, %.thread2789 ]
   %771 = icmp slt i64 %.15, 1024
   br i1 %771, label %772, label %775
 
@@ -4281,18 +4281,18 @@ html_output_c.exit1722:                           ; preds = %1520, %1532
 
 1649:                                             ; preds = %1647
   %1650 = icmp slt i64 %.110502426, 1024
-  br i1 %1650, label %.sink.split2750, label %1653
+  br i1 %1650, label %.sink.split2904, label %1653
 
-.sink.split2750:                                  ; preds = %1649
+.sink.split2904:                                  ; preds = %1649
   %.not1345 = icmp eq i16 %1645, 0
   %1651 = add nsw i64 %.110502426, 1
   %1652 = getelementptr inbounds [1025 x i8], ptr %10, i64 0, i64 %.110502426
-  %.2755 = select i1 %.not1345, i8 62, i8 32
-  store i8 %.2755, ptr %1652, align 1, !tbaa !16
+  %.2909 = select i1 %.not1345, i8 62, i8 32
+  store i8 %.2909, ptr %1652, align 1, !tbaa !16
   br label %1653
 
-1653:                                             ; preds = %.sink.split2750, %1649
-  %.33 = phi i64 [ %.110502426, %1649 ], [ %1651, %.sink.split2750 ]
+1653:                                             ; preds = %.sink.split2904, %1649
+  %.33 = phi i64 [ %.110502426, %1649 ], [ %1651, %.sink.split2904 ]
   %1654 = getelementptr inbounds nuw i8, ptr %.211162405, i64 1
   br label %1672
 
@@ -4992,10 +4992,10 @@ html_output_flush.exit.i1786:                     ; preds = %1877
   br i1 %1955, label %.sink.split.i1806, label %1958
 
 .sink.split.i1806:                                ; preds = %.thread81.i1803, %1934, %1934, %1934
-  %.06491.sink94.i1807 = phi i64 [ %.06491.i1793, %1934 ], [ %.06491.i1793, %1934 ], [ %.06491.i1793, %1934 ], [ %.5.i1804, %.thread81.i1803 ]
+  %.06491.sink99.i1807 = phi i64 [ %.06491.i1793, %1934 ], [ %.06491.i1793, %1934 ], [ %.06491.i1793, %1934 ], [ %.5.i1804, %.thread81.i1803 ]
   %.sink.i1808 = phi i8 [ 46, %1934 ], [ 46, %1934 ], [ 46, %1934 ], [ %1954, %.thread81.i1803 ]
-  %1956 = add nuw nsw i64 %.06491.sink94.i1807, 1
-  %1957 = getelementptr inbounds nuw [1025 x i8], ptr %66, i64 0, i64 %.06491.sink94.i1807
+  %1956 = add nuw nsw i64 %.06491.sink99.i1807, 1
+  %1957 = getelementptr inbounds nuw [1025 x i8], ptr %66, i64 0, i64 %.06491.sink99.i1807
   store i8 %.sink.i1808, ptr %1957, align 1, !tbaa !16
   br label %1958
 
@@ -5127,8 +5127,8 @@ js_process.exit1824:                              ; preds = %1989, %1971
 
 2011:                                             ; preds = %js_process.exit1824.thread, %.thread1902, %js_process.exit1824
   %2012 = phi i1 [ false, %js_process.exit1824 ], [ true, %.thread1902 ], [ false, %js_process.exit1824.thread ]
-  %.611832642 = phi ptr [ %.21179.lcssa, %js_process.exit1824 ], [ %.21179.lcssa, %.thread1902 ], [ null, %js_process.exit1824.thread ]
-  %.511892641 = phi ptr [ %.51189, %js_process.exit1824 ], [ %.51189, %.thread1902 ], [ null, %js_process.exit1824.thread ]
+  %.611832796 = phi ptr [ %.21179.lcssa, %js_process.exit1824 ], [ %.21179.lcssa, %.thread1902 ], [ null, %js_process.exit1824.thread ]
+  %.511892795 = phi ptr [ %.51189, %js_process.exit1824 ], [ %.51189, %.thread1902 ], [ null, %js_process.exit1824.thread ]
   %.61217 = phi i64 [ %.11212.lcssa, %js_process.exit1824 ], [ %2009, %.thread1902 ], [ %.11212.lcssa, %js_process.exit1824.thread ]
   %.91205 = phi ptr [ %.21198.lcssa, %js_process.exit1824 ], [ %.111207, %.thread1902 ], [ %.21198.lcssa, %js_process.exit1824.thread ]
   %2013 = icmp ne ptr %.11123.lcssa, null
@@ -5187,15 +5187,15 @@ js_process.exit1824:                              ; preds = %1989, %1971
   br label %.thread1924
 
 ._crit_edge2510.thread:                           ; preds = %55, %.thread1919, %._crit_edge2510
-  %.11141.lcssa2654 = phi ptr [ %.21142.lcssa, %.thread1919 ], [ %.21142.lcssa, %._crit_edge2510 ], [ null, %55 ]
-  %.11149.lcssa2653 = phi i32 [ %.21150.lcssa, %.thread1919 ], [ %.21150.lcssa, %._crit_edge2510 ], [ 0, %55 ]
-  %.11169.lcssa2652 = phi ptr [ %.21170.lcssa, %.thread1919 ], [ %.21170.lcssa, %._crit_edge2510 ], [ null, %55 ]
-  %.01174.lcssa2651 = phi i64 [ %.11175.lcssa, %.thread1919 ], [ %.11175.lcssa, %._crit_edge2510 ], [ 0, %55 ]
-  %.11178.lcssa2650 = phi ptr [ %.611832642, %.thread1919 ], [ %.611832642, %._crit_edge2510 ], [ null, %55 ]
+  %.11141.lcssa2808 = phi ptr [ %.21142.lcssa, %.thread1919 ], [ %.21142.lcssa, %._crit_edge2510 ], [ null, %55 ]
+  %.11149.lcssa2807 = phi i32 [ %.21150.lcssa, %.thread1919 ], [ %.21150.lcssa, %._crit_edge2510 ], [ 0, %55 ]
+  %.11169.lcssa2806 = phi ptr [ %.21170.lcssa, %.thread1919 ], [ %.21170.lcssa, %._crit_edge2510 ], [ null, %55 ]
+  %.01174.lcssa2805 = phi i64 [ %.11175.lcssa, %.thread1919 ], [ %.11175.lcssa, %._crit_edge2510 ], [ 0, %55 ]
+  %.11178.lcssa2804 = phi ptr [ %.611832796, %.thread1919 ], [ %.611832796, %._crit_edge2510 ], [ null, %55 ]
   br i1 %.not13571842, label %.thread1924, label %2025
 
 2025:                                             ; preds = %._crit_edge2510.thread
-  %2026 = getelementptr inbounds nuw [1025 x i8], ptr %14, i64 0, i64 %.01174.lcssa2651
+  %2026 = getelementptr inbounds nuw [1025 x i8], ptr %14, i64 0, i64 %.01174.lcssa2805
   store i8 0, ptr %2026, align 1, !tbaa !16
   %2027 = call ptr @entity_norm(ptr noundef nonnull %13, ptr noundef nonnull %14) #17
   %.not1320 = icmp eq ptr %2027, null
@@ -5237,7 +5237,7 @@ html_output_c.exit1827:                           ; preds = %html_output_flush.e
   br i1 %2041, label %.lr.ph2518.split, label %.thread1924
 
 2042:                                             ; preds = %2025
-  %.not1321 = icmp eq i64 %.01174.lcssa2651, 0
+  %.not1321 = icmp eq i64 %.01174.lcssa2805, 0
   br i1 %.not1321, label %.thread1924, label %2043
 
 2043:                                             ; preds = %2042
@@ -5273,7 +5273,7 @@ html_output_c.exit1830:                           ; preds = %html_output_flush.e
   %2060 = getelementptr inbounds nuw [8192 x i8], ptr %2046, i64 0, i64 %2058
   store i8 %2053, ptr %2060, align 1, !tbaa !16
   %2061 = add nuw i64 %.110322519, 1
-  %exitcond2617.not = icmp eq i64 %2061, %.01174.lcssa2651
+  %exitcond2617.not = icmp eq i64 %2061, %.01174.lcssa2805
   br i1 %exitcond2617.not, label %.thread1924, label %.split
 
 .thread1862:                                      ; preds = %2000, %2004, %867, %871, %93, %1994, %.thread1899, %861
@@ -5291,10 +5291,10 @@ html_output_c.exit1830:                           ; preds = %html_output_flush.e
 
 .thread1924:                                      ; preds = %html_output_c.exit1827, %html_output_c.exit1830, %2043, %.lr.ph2518, %.preheader, %._crit_edge2510.thread, %2042, %2023, %.thread1862
   %.010361942 = phi i1 [ false, %.thread1862 ], [ true, %._crit_edge2510.thread ], [ true, %2042 ], [ false, %2023 ], [ true, %.preheader ], [ true, %.lr.ph2518 ], [ true, %2043 ], [ true, %html_output_c.exit1830 ], [ true, %html_output_c.exit1827 ]
-  %.011401939 = phi ptr [ %.01140, %.thread1862 ], [ %.11141.lcssa2654, %._crit_edge2510.thread ], [ %.11141.lcssa2654, %2042 ], [ %.21142.lcssa, %2023 ], [ %.11141.lcssa2654, %.preheader ], [ %.11141.lcssa2654, %.lr.ph2518 ], [ %.11141.lcssa2654, %2043 ], [ %.11141.lcssa2654, %html_output_c.exit1830 ], [ %.11141.lcssa2654, %html_output_c.exit1827 ]
-  %.011481938 = phi i32 [ %.211502193, %.thread1862 ], [ %.11149.lcssa2653, %._crit_edge2510.thread ], [ %.11149.lcssa2653, %2042 ], [ %.21150.lcssa, %2023 ], [ %.11149.lcssa2653, %.preheader ], [ %.11149.lcssa2653, %.lr.ph2518 ], [ %.11149.lcssa2653, %2043 ], [ %.11149.lcssa2653, %html_output_c.exit1830 ], [ %.11149.lcssa2653, %html_output_c.exit1827 ]
-  %.011681937 = phi ptr [ %.211702210, %.thread1862 ], [ %.11169.lcssa2652, %._crit_edge2510.thread ], [ %.11169.lcssa2652, %2042 ], [ %.21170.lcssa, %2023 ], [ %.11169.lcssa2652, %.preheader ], [ %.11169.lcssa2652, %.lr.ph2518 ], [ %.11169.lcssa2652, %2043 ], [ %.11169.lcssa2652, %html_output_c.exit1830 ], [ %.11169.lcssa2652, %html_output_c.exit1827 ]
-  %.011771936 = phi ptr [ %.01177, %.thread1862 ], [ %.11178.lcssa2650, %._crit_edge2510.thread ], [ %.11178.lcssa2650, %2042 ], [ %.611832642, %2023 ], [ %.11178.lcssa2650, %.preheader ], [ %.11178.lcssa2650, %.lr.ph2518 ], [ %.11178.lcssa2650, %2043 ], [ %.11178.lcssa2650, %html_output_c.exit1830 ], [ %.11178.lcssa2650, %html_output_c.exit1827 ]
+  %.011401939 = phi ptr [ %.01140, %.thread1862 ], [ %.11141.lcssa2808, %._crit_edge2510.thread ], [ %.11141.lcssa2808, %2042 ], [ %.21142.lcssa, %2023 ], [ %.11141.lcssa2808, %.preheader ], [ %.11141.lcssa2808, %.lr.ph2518 ], [ %.11141.lcssa2808, %2043 ], [ %.11141.lcssa2808, %html_output_c.exit1830 ], [ %.11141.lcssa2808, %html_output_c.exit1827 ]
+  %.011481938 = phi i32 [ %.211502193, %.thread1862 ], [ %.11149.lcssa2807, %._crit_edge2510.thread ], [ %.11149.lcssa2807, %2042 ], [ %.21150.lcssa, %2023 ], [ %.11149.lcssa2807, %.preheader ], [ %.11149.lcssa2807, %.lr.ph2518 ], [ %.11149.lcssa2807, %2043 ], [ %.11149.lcssa2807, %html_output_c.exit1830 ], [ %.11149.lcssa2807, %html_output_c.exit1827 ]
+  %.011681937 = phi ptr [ %.211702210, %.thread1862 ], [ %.11169.lcssa2806, %._crit_edge2510.thread ], [ %.11169.lcssa2806, %2042 ], [ %.21170.lcssa, %2023 ], [ %.11169.lcssa2806, %.preheader ], [ %.11169.lcssa2806, %.lr.ph2518 ], [ %.11169.lcssa2806, %2043 ], [ %.11169.lcssa2806, %html_output_c.exit1830 ], [ %.11169.lcssa2806, %html_output_c.exit1827 ]
+  %.011771936 = phi ptr [ %.01177, %.thread1862 ], [ %.11178.lcssa2804, %._crit_edge2510.thread ], [ %.11178.lcssa2804, %2042 ], [ %.611832796, %2023 ], [ %.11178.lcssa2804, %.preheader ], [ %.11178.lcssa2804, %.lr.ph2518 ], [ %.11178.lcssa2804, %2043 ], [ %.11178.lcssa2804, %html_output_c.exit1830 ], [ %.11178.lcssa2804, %html_output_c.exit1827 ]
   %.011961935 = phi ptr [ %.01196, %.thread1862 ], [ null, %._crit_edge2510.thread ], [ null, %2042 ], [ %.91205, %2023 ], [ null, %.preheader ], [ null, %.lr.ph2518 ], [ null, %2043 ], [ null, %html_output_c.exit1830 ], [ null, %html_output_c.exit1827 ]
   %.not1450 = icmp eq ptr %.011681937, null
   br i1 %.not1450, label %2063, label %2062
@@ -5522,7 +5522,7 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
 
 16:                                               ; preds = %2
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %4) #17
-  br label %114
+  br label %109
 
 .lr.ph:                                           ; preds = %.preheader, %19
   %17 = phi ptr [ %20, %19 ], [ %15, %.preheader ]
@@ -5643,63 +5643,51 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
   %96 = add i32 %95, %85
   store i32 %96, ptr %5, align 4, !tbaa !45
   %97 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull @.str.3, i64 noundef 8) #17
-  %98 = icmp ne i32 %96, 0
-  %99 = icmp ne ptr %.233, null
-  %100 = select i1 %98, i1 %99, i1 false
-  br i1 %100, label %.lr.ph73, label %._crit_edge
+  %.not87 = icmp eq i32 %96, 0
+  br i1 %.not87, label %._crit_edge.thread, label %.lr.ph73
 
-.lr.ph73:                                         ; preds = %34, %106
-  %.472 = phi ptr [ %107, %106 ], [ %33, %34 ]
-  %.33471 = phi ptr [ %107, %106 ], [ %.233, %34 ]
+.lr.ph73:                                         ; preds = %34, %101
+  %.472 = phi ptr [ %102, %101 ], [ %33, %34 ]
+  %.33471 = phi ptr [ %102, %101 ], [ %.233, %34 ]
   call fastcc void @screnc_decode(ptr noundef nonnull %.472, ptr noundef %5)
-  %101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.472) #18
-  %102 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull %.472, i64 noundef %101) #17
+  %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.472) #18
+  %99 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull %.472, i64 noundef %98) #17
   tail call void @free(ptr noundef nonnull %.33471) #17
-  %103 = load i32, ptr %5, align 4, !tbaa !45
-  %.not61 = icmp eq i32 %103, 0
-  br i1 %.not61, label %.critedge.thread95, label %106
+  %100 = load i32, ptr %5, align 4, !tbaa !45
+  %.not61 = icmp eq i32 %100, 0
+  br i1 %.not61, label %._crit_edge.thread, label %101
 
-.critedge.thread95:                               ; preds = %.lr.ph73
-  %104 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull @.str.4, i64 noundef 9) #17
-  %105 = tail call i32 @close(i32 noundef %13) #17
-  br label %114
+101:                                              ; preds = %.lr.ph73
+  %102 = call fastcc ptr @cli_readchunk(ptr noundef %6)
+  %.not102 = icmp eq ptr %102, null
+  br i1 %.not102, label %104, label %.lr.ph73
 
-106:                                              ; preds = %.lr.ph73
-  %107 = call fastcc ptr @cli_readchunk(ptr noundef %6)
-  %.not105 = icmp eq ptr %107, null
-  br i1 %.not105, label %._crit_edge.thread89, label %.lr.ph73
+._crit_edge.thread:                               ; preds = %.lr.ph73, %34
+  %.334.lcssa.ph = phi ptr [ %.233, %34 ], [ null, %.lr.ph73 ]
+  %103 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull @.str.4, i64 noundef 9) #17
+  br label %.critedge
 
-._crit_edge.thread89:                             ; preds = %106
-  %108 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull @.str.4, i64 noundef 9) #17
-  br label %110
-
-._crit_edge:                                      ; preds = %34
-  %109 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull @.str.4, i64 noundef 9) #17
-  %.not59 = icmp eq i32 %96, 0
-  br i1 %.not59, label %.critedge, label %110
-
-110:                                              ; preds = %._crit_edge.thread89, %._crit_edge
-  %.334.lcssa94 = phi ptr [ %107, %._crit_edge.thread89 ], [ %.233, %._crit_edge ]
-  %.lcssa93 = phi i32 [ %103, %._crit_edge.thread89 ], [ %96, %._crit_edge ]
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %.lcssa93) #17
+104:                                              ; preds = %101
+  %105 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull @.str.4, i64 noundef 9) #17
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %100) #17
   br label %.critedge
 
 .critedge.thread:                                 ; preds = %19, %25, %.preheader
-  %111 = tail call i32 @close(i32 noundef %13) #17
-  br label %114
+  %106 = tail call i32 @close(i32 noundef %13) #17
+  br label %109
 
-.critedge:                                        ; preds = %._crit_edge, %110
-  %.334.lcssa88 = phi ptr [ %.233, %._crit_edge ], [ %.334.lcssa94, %110 ]
-  %112 = tail call i32 @close(i32 noundef %13) #17
-  %.not60 = icmp eq ptr %.334.lcssa88, null
-  br i1 %.not60, label %114, label %113
+.critedge:                                        ; preds = %._crit_edge.thread, %104
+  %.334.lcssa94 = phi ptr [ %.334.lcssa.ph, %._crit_edge.thread ], [ %102, %104 ]
+  %107 = tail call i32 @close(i32 noundef %13) #17
+  %.not60 = icmp eq ptr %.334.lcssa94, null
+  br i1 %.not60, label %109, label %108
 
-113:                                              ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %.334.lcssa88) #17
-  br label %114
+108:                                              ; preds = %.critedge
+  tail call void @free(ptr noundef nonnull %.334.lcssa94) #17
+  br label %109
 
-114:                                              ; preds = %.critedge.thread95, %.critedge.thread, %.critedge, %113, %16
-  %.0 = phi i1 [ false, %16 ], [ true, %113 ], [ true, %.critedge ], [ false, %.critedge.thread ], [ true, %.critedge.thread95 ]
+109:                                              ; preds = %.critedge.thread, %.critedge, %108, %16
+  %.0 = phi i1 [ false, %16 ], [ true, %108 ], [ true, %.critedge ], [ false, %.critedge.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -5940,7 +5928,7 @@ declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @screnc_decode(ptr noundef captures(address_is_null) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %119, label %thread-pre-split.preheader
+  br i1 %.not, label %121, label %thread-pre-split.preheader
 
 thread-pre-split.preheader:                       ; preds = %2
   %.pr97 = load i32, ptr %1, align 4, !tbaa !45
@@ -5962,7 +5950,7 @@ thread-pre-split.preheader:                       ; preds = %2
   %.093 = phi ptr [ %6, %thread-pre-split ], [ %.093.ph, %.lr.ph.outer ]
   %5 = load i8, ptr %.093, align 1, !tbaa !16
   switch i8 %5, label %7 [
-    i8 0, label %.critedge.thread117
+    i8 0, label %.critedge
     i8 10, label %thread-pre-split
     i8 13, label %thread-pre-split
   ]
@@ -6045,7 +6033,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
   %44 = getelementptr inbounds nuw i8, ptr %.06492.ph, i64 2
   store i8 %43, ptr %42, align 1, !tbaa !16
   %.not79 = icmp eq i8 %43, 0
-  br i1 %.not79, label %.critedge, label %45
+  br i1 %.not79, label %.critedge.split.loop.exit, label %45
 
 45:                                               ; preds = %40, %32
   %.266 = phi ptr [ %36, %32 ], [ %44, %40 ]
@@ -6057,114 +6045,119 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
   %.not77 = icmp eq i32 %48, 0
   br i1 %.not77, label %.critedge.thread, label %.lr.ph.outer
 
-.critedge:                                        ; preds = %40
+.critedge.split.loop.exit:                        ; preds = %40
   %49 = getelementptr inbounds nuw i8, ptr %.06492.ph, i64 1
   %.pre = load i32, ptr %1, align 4, !tbaa !45
-  %.not80 = icmp eq i32 %.pre, 0
-  br i1 %.not80, label %.critedge.thread, label %.critedge.thread117
+  %50 = icmp eq i32 %.pre, 0
+  br label %.critedge
+
+.critedge:                                        ; preds = %.lr.ph, %.critedge.split.loop.exit
+  %.not80 = phi i1 [ %50, %.critedge.split.loop.exit ], [ false, %.lr.ph ]
+  %.165 = phi ptr [ %49, %.critedge.split.loop.exit ], [ %.06492.ph, %.lr.ph ]
+  %.1 = phi ptr [ %41, %.critedge.split.loop.exit ], [ %.093, %.lr.ph ]
+  br i1 %.not80, label %.critedge.thread, label %120
 
 .critedge.thread:                                 ; preds = %45, %thread-pre-split.preheader, %.critedge
-  %.1116 = phi ptr [ %41, %.critedge ], [ %0, %thread-pre-split.preheader ], [ %46, %45 ]
-  %.165115 = phi ptr [ %49, %.critedge ], [ %0, %thread-pre-split.preheader ], [ %.266, %45 ]
-  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1116) #18
-  %51 = icmp ugt i64 %50, 11
-  br i1 %51, label %52, label %116
+  %.1120 = phi ptr [ %.1, %.critedge ], [ %0, %thread-pre-split.preheader ], [ %46, %45 ]
+  %.165119 = phi ptr [ %.165, %.critedge ], [ %0, %thread-pre-split.preheader ], [ %.266, %45 ]
+  %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1120) #18
+  %52 = icmp ugt i64 %51, 11
+  br i1 %52, label %53, label %117
 
-52:                                               ; preds = %.critedge.thread
-  %53 = load i8, ptr %.1116, align 1, !tbaa !16
-  %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %54
-  %56 = load i64, ptr %55, align 8, !tbaa !44
-  %57 = tail call i64 @llvm.smax.i64(i64 %56, i64 0)
-  %spec.select = shl i64 %57, 2
-  %58 = getelementptr inbounds nuw i8, ptr %.1116, i64 1
-  %59 = load i8, ptr %58, align 1, !tbaa !16
-  %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %60
-  %62 = load i64, ptr %61, align 8, !tbaa !44
-  %63 = ashr i64 %62, 4
-  %64 = add i64 %63, %spec.select
-  %65 = shl i64 %62, 12
-  %66 = and i64 %65, 61440
-  %67 = add i64 %64, %66
-  %68 = getelementptr inbounds nuw i8, ptr %.1116, i64 2
-  %69 = load i8, ptr %68, align 1, !tbaa !16
-  %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %70
-  %72 = load i64, ptr %71, align 8, !tbaa !44
-  %73 = ashr i64 %72, 2
-  %74 = tail call i64 @llvm.smax.i64(i64 %73, i64 0)
-  %75 = shl i64 %74, 8
-  %76 = shl i64 %72, 22
-  %77 = and i64 %76, 12582912
-  %78 = getelementptr inbounds nuw i8, ptr %.1116, i64 3
-  %79 = load i8, ptr %78, align 1, !tbaa !16
-  %80 = zext i8 %79 to i64
-  %81 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %80
-  %82 = load i64, ptr %81, align 8, !tbaa !44
-  %83 = tail call i64 @llvm.smax.i64(i64 %82, i64 0)
-  %84 = shl i64 %83, 16
-  %85 = getelementptr inbounds nuw i8, ptr %.1116, i64 4
-  %86 = load i8, ptr %85, align 1, !tbaa !16
-  %87 = zext i8 %86 to i64
-  %88 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %87
-  %89 = load i64, ptr %88, align 8, !tbaa !44
-  %90 = tail call i64 @llvm.smax.i64(i64 %89, i64 0)
-  %91 = shl i64 %90, 26
-  %92 = getelementptr inbounds nuw i8, ptr %.1116, i64 5
-  %93 = load i8, ptr %92, align 1, !tbaa !16
-  %94 = zext i8 %93 to i64
-  %95 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %94
-  %96 = load i64, ptr %95, align 8, !tbaa !44
-  %97 = ashr i64 %96, 4
-  %98 = tail call i64 @llvm.smax.i64(i64 %97, i64 0)
-  %99 = shl i64 %98, 24
-  %100 = add i64 %67, %77
-  %101 = add i64 %100, %75
-  %102 = add i64 %101, %84
-  %103 = add i64 %102, %91
-  %104 = add i64 %103, %99
-  %105 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %106 = load i32, ptr %105, align 4, !tbaa !57
-  %107 = zext i32 %106 to i64
-  %.not81 = icmp eq i64 %104, %107
-  br i1 %.not81, label %109, label %108
+53:                                               ; preds = %.critedge.thread
+  %54 = load i8, ptr %.1120, align 1, !tbaa !16
+  %55 = zext i8 %54 to i64
+  %56 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %55
+  %57 = load i64, ptr %56, align 8, !tbaa !44
+  %58 = tail call i64 @llvm.smax.i64(i64 %57, i64 0)
+  %spec.select = shl i64 %58, 2
+  %59 = getelementptr inbounds nuw i8, ptr %.1120, i64 1
+  %60 = load i8, ptr %59, align 1, !tbaa !16
+  %61 = zext i8 %60 to i64
+  %62 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %61
+  %63 = load i64, ptr %62, align 8, !tbaa !44
+  %64 = ashr i64 %63, 4
+  %65 = add i64 %64, %spec.select
+  %66 = shl i64 %63, 12
+  %67 = and i64 %66, 61440
+  %68 = add i64 %65, %67
+  %69 = getelementptr inbounds nuw i8, ptr %.1120, i64 2
+  %70 = load i8, ptr %69, align 1, !tbaa !16
+  %71 = zext i8 %70 to i64
+  %72 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %71
+  %73 = load i64, ptr %72, align 8, !tbaa !44
+  %74 = ashr i64 %73, 2
+  %75 = tail call i64 @llvm.smax.i64(i64 %74, i64 0)
+  %76 = shl i64 %75, 8
+  %77 = shl i64 %73, 22
+  %78 = and i64 %77, 12582912
+  %79 = getelementptr inbounds nuw i8, ptr %.1120, i64 3
+  %80 = load i8, ptr %79, align 1, !tbaa !16
+  %81 = zext i8 %80 to i64
+  %82 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %81
+  %83 = load i64, ptr %82, align 8, !tbaa !44
+  %84 = tail call i64 @llvm.smax.i64(i64 %83, i64 0)
+  %85 = shl i64 %84, 16
+  %86 = getelementptr inbounds nuw i8, ptr %.1120, i64 4
+  %87 = load i8, ptr %86, align 1, !tbaa !16
+  %88 = zext i8 %87 to i64
+  %89 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %88
+  %90 = load i64, ptr %89, align 8, !tbaa !44
+  %91 = tail call i64 @llvm.smax.i64(i64 %90, i64 0)
+  %92 = shl i64 %91, 26
+  %93 = getelementptr inbounds nuw i8, ptr %.1120, i64 5
+  %94 = load i8, ptr %93, align 1, !tbaa !16
+  %95 = zext i8 %94 to i64
+  %96 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %95
+  %97 = load i64, ptr %96, align 8, !tbaa !44
+  %98 = ashr i64 %97, 4
+  %99 = tail call i64 @llvm.smax.i64(i64 %98, i64 0)
+  %100 = shl i64 %99, 24
+  %101 = add i64 %68, %78
+  %102 = add i64 %101, %76
+  %103 = add i64 %102, %85
+  %104 = add i64 %103, %92
+  %105 = add i64 %104, %100
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %107 = load i32, ptr %106, align 4, !tbaa !57
+  %108 = zext i32 %107 to i64
+  %.not81 = icmp eq i64 %105, %108
+  br i1 %.not81, label %110, label %109
 
-108:                                              ; preds = %52
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.57, i32 noundef %106, i64 noundef %104) #17
-  br label %114
+109:                                              ; preds = %53
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.57, i32 noundef %107, i64 noundef %105) #17
+  br label %115
 
-109:                                              ; preds = %52
-  %110 = getelementptr inbounds nuw i8, ptr %.1116, i64 8
-  %111 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %110, ptr noundef nonnull dereferenceable(5) @.str.58, i64 noundef 4) #18
-  %.not82 = icmp eq i32 %111, 0
-  br i1 %.not82, label %113, label %112
+110:                                              ; preds = %53
+  %111 = getelementptr inbounds nuw i8, ptr %.1120, i64 8
+  %112 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %111, ptr noundef nonnull dereferenceable(5) @.str.58, i64 noundef 4) #18
+  %.not82 = icmp eq i32 %112, 0
+  br i1 %.not82, label %114, label %113
 
-112:                                              ; preds = %109
+113:                                              ; preds = %110
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.59) #17
-  br label %114
+  br label %115
 
-113:                                              ; preds = %109
+114:                                              ; preds = %110
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.60) #17
-  br label %114
+  br label %115
 
-114:                                              ; preds = %112, %113, %108
-  %115 = getelementptr inbounds nuw i8, ptr %.1116, i64 12
-  br label %116
+115:                                              ; preds = %113, %114, %109
+  %116 = getelementptr inbounds nuw i8, ptr %.1120, i64 12
+  br label %117
 
-116:                                              ; preds = %114, %.critedge.thread
-  %.4 = phi ptr [ %115, %114 ], [ %.1116, %.critedge.thread ]
-  %117 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4) #18
-  %118 = add i64 %117, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.165115, ptr nonnull align 1 %.4, i64 %118, i1 false)
-  br label %119
+117:                                              ; preds = %115, %.critedge.thread
+  %.4 = phi ptr [ %116, %115 ], [ %.1120, %.critedge.thread ]
+  %118 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4) #18
+  %119 = add i64 %118, 1
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.165119, ptr nonnull align 1 %.4, i64 %119, i1 false)
+  br label %121
 
-.critedge.thread117:                              ; preds = %.lr.ph, %.critedge
-  %.165121 = phi ptr [ %49, %.critedge ], [ %.06492.ph, %.lr.ph ]
-  store i8 0, ptr %.165121, align 1, !tbaa !16
-  br label %119
+120:                                              ; preds = %.critedge
+  store i8 0, ptr %.165, align 1, !tbaa !16
+  br label %121
 
-119:                                              ; preds = %116, %.critedge.thread117, %2
+121:                                              ; preds = %117, %120, %2
   ret void
 }
 
@@ -6298,10 +6291,10 @@ define internal fastcc void @html_tag_contents_append(ptr noundef nonnull captur
   br i1 %37, label %.sink.split, label %40
 
 .sink.split:                                      ; preds = %.thread81, %16, %16, %16
-  %.06491.sink94 = phi i64 [ %.06491, %16 ], [ %.06491, %16 ], [ %.06491, %16 ], [ %.5, %.thread81 ]
+  %.06491.sink99 = phi i64 [ %.06491, %16 ], [ %.06491, %16 ], [ %.06491, %16 ], [ %.5, %.thread81 ]
   %.sink = phi i8 [ 46, %16 ], [ 46, %16 ], [ 46, %16 ], [ %36, %.thread81 ]
-  %38 = add nuw nsw i64 %.06491.sink94, 1
-  %39 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.06491.sink94
+  %38 = add nuw nsw i64 %.06491.sink99, 1
+  %39 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.06491.sink99
   store i8 %.sink, ptr %39, align 1, !tbaa !16
   br label %40
 
@@ -6603,7 +6596,7 @@ html_output_str.exit47.thread:                    ; preds = %html_output_flush.e
   %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre67) #18
   %87 = trunc i64 %86 to i32
   %88 = icmp sgt i32 %87, 0
-  br i1 %88, label %.lr.ph.split.preheader, label %._crit_edge.thread69
+  br i1 %88, label %.lr.ph.split.preheader, label %._crit_edge.thread80
 
 .lr.ph.split.preheader:                           ; preds = %html_output_str.exit47.thread
   %89 = tail call ptr @__ctype_tolower_loc() #20
@@ -6639,20 +6632,20 @@ html_output_c.exit50:                             ; preds = %html_output_flush.e
   store i8 %99, ptr %106, align 1, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread69, label %.lr.ph.split
+  br i1 %exitcond.not, label %._crit_edge.thread80, label %.lr.ph.split
 
-._crit_edge.thread69:                             ; preds = %html_output_c.exit50, %html_output_str.exit47.thread
+._crit_edge.thread80:                             ; preds = %html_output_c.exit50, %html_output_str.exit47.thread
   %107 = load i64, ptr %37, align 8, !tbaa !36
   %108 = icmp eq i64 %107, 8192
   br i1 %108, label %html_output_flush.exit.i52, label %111
 
-html_output_flush.exit.i52:                       ; preds = %._crit_edge.thread69
+html_output_flush.exit.i52:                       ; preds = %._crit_edge.thread80
   %109 = load i32, ptr %0, align 8, !tbaa !34
   %110 = tail call i64 @cli_writen(i32 noundef %109, ptr noundef nonnull %38, i64 noundef 8192) #17
   br label %111
 
-111:                                              ; preds = %html_output_flush.exit.i52, %._crit_edge.thread69
-  %112 = phi i64 [ 0, %html_output_flush.exit.i52 ], [ %107, %._crit_edge.thread69 ]
+111:                                              ; preds = %html_output_flush.exit.i52, %._crit_edge.thread80
+  %112 = phi i64 [ 0, %html_output_flush.exit.i52 ], [ %107, %._crit_edge.thread80 ]
   %113 = add i64 %112, 1
   store i64 %113, ptr %37, align 8, !tbaa !36
   %114 = getelementptr inbounds nuw [8192 x i8], ptr %38, i64 0, i64 %112

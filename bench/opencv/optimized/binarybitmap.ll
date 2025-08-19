@@ -254,13 +254,13 @@ _ZN5zxing3RefINS_8BitArrayEED2Ev.exit:            ; preds = %18, %20, %25
 
 52:                                               ; preds = %33
   %.not.i.i11 = icmp eq ptr %.pre, null
-  br i1 %.not.i.i11, label %_ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit12.thread, label %_ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit12.thread17
+  br i1 %.not.i.i11, label %_ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit12.thread, label %_ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit12.thread20
 
 _ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit12.thread: ; preds = %52
   store ptr null, ptr %0, align 8, !tbaa !17
   br label %_ZN5zxing3RefINS_8BitArrayEED2Ev.exit14
 
-_ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit12.thread17: ; preds = %52
+_ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit12.thread20: ; preds = %52
   %53 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %54 = load i32, ptr %53, align 8, !tbaa !3
   %55 = add i32 %54, 1
@@ -273,7 +273,7 @@ _ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit12:      ; preds = %33
   %.not.i13 = icmp eq ptr %.pre, null
   br i1 %.not.i13, label %_ZN5zxing3RefINS_8BitArrayEED2Ev.exit14, label %56
 
-56:                                               ; preds = %_ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit12.thread17, %_ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit12
+56:                                               ; preds = %_ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit12.thread20, %_ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit12
   %57 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %58 = load i32, ptr %57, align 8, !tbaa !3
   %59 = add i32 %58, -1
@@ -294,12 +294,12 @@ _ZN5zxing3RefINS_8BitArrayEED2Ev.exit14:          ; preds = %_ZN5zxing3RefINS_8B
   ret void
 
 _ZN5zxing3RefINS_8BitArrayEED2Ev.exit8.sink.split: ; preds = %42, %51
-  %.sink23 = phi ptr [ %45, %51 ], [ %36, %42 ]
+  %.sink26 = phi ptr [ %45, %51 ], [ %36, %42 ]
   %.pn.ph = phi { ptr, i32 } [ %44, %51 ], [ %35, %42 ]
-  %65 = load ptr, ptr %.sink23, align 8, !tbaa !8
+  %65 = load ptr, ptr %.sink26, align 8, !tbaa !8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
-  call void %67(ptr noundef nonnull align 8 dereferenceable(12) %.sink23) #9
+  call void %67(ptr noundef nonnull align 8 dereferenceable(12) %.sink26) #9
   br label %_ZN5zxing3RefINS_8BitArrayEED2Ev.exit8
 
 _ZN5zxing3RefINS_8BitArrayEED2Ev.exit8:           ; preds = %_ZN5zxing3RefINS_8BitArrayEED2Ev.exit8.sink.split, %46, %43, %37, %34

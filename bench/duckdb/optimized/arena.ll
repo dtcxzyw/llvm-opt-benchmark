@@ -352,8 +352,8 @@ malloc_mutex_lock.exit:                           ; preds = %82, %88
 select.unfold:                                    ; preds = %172
   %141 = load ptr, ptr %.0136158, align 8, !tbaa !89
   %.not141 = icmp eq ptr %141, %93
-  %.not174 = icmp eq ptr %141, null
-  %.not = or i1 %.not141, %.not174
+  %.not176 = icmp eq ptr %141, null
+  %.not = or i1 %.not141, %.not176
   br i1 %.not, label %select.unfold._crit_edge, label %.preheader154
 
 142:                                              ; preds = %.preheader154, %172
@@ -2661,7 +2661,7 @@ arena_bin_flush_batch_after_lock.exit:            ; preds = %._crit_edge170, %83
   br label %arena_slab_reg_alloc_batch.exit
 
 .lr.ph46.preheader.i:                             ; preds = %._crit_edge.i
-  %249 = sub i32 %231, %.02751.i
+  %249 = sub nsw i32 %231, %.02751.i
   %250 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 range(i64 1, 0) %.138.lcssa.i)
   %251 = trunc nuw nsw i64 %250 to i32
   %spec.select.i = call i32 @llvm.umin.i32(i32 %249, i32 %251)
@@ -2788,9 +2788,9 @@ arena_bin_refill_slabcur_no_fresh_slab.exit:      ; preds = %arena_bin_slabs_ful
   br i1 %.1174, label %.critedge, label %.thread144.thread
 
 .thread144.thread:                                ; preds = %arena_bin_flush_batch_after_lock.exit, %.thread144, %307
-  %.276216 = phi ptr [ %.3, %307 ], [ %.074, %arena_bin_flush_batch_after_lock.exit ], [ null, %.thread144 ]
-  %.182.lcssa215 = phi i16 [ %.384, %307 ], [ %.081, %arena_bin_flush_batch_after_lock.exit ], [ %.182172, %.thread144 ]
-  %309 = zext i16 %.182.lcssa215 to i64
+  %.276239 = phi ptr [ %.3, %307 ], [ %.074, %arena_bin_flush_batch_after_lock.exit ], [ null, %.thread144 ]
+  %.182.lcssa238 = phi i16 [ %.384, %307 ], [ %.081, %arena_bin_flush_batch_after_lock.exit ], [ %.182172, %.thread144 ]
+  %309 = zext i16 %.182.lcssa238 to i64
   %310 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 112
   %311 = load i64, ptr %310, align 8, !tbaa !109
   %312 = add i64 %311, %309
@@ -2931,7 +2931,7 @@ duckdb_je_arena_slab_dalloc.exit122:              ; preds = %edata_list_active_r
   br i1 %372, label %arena_bin_flush_batch_after_unlock.exit95, label %.lr.ph194
 
 arena_bin_flush_batch_after_unlock.exit95:        ; preds = %duckdb_je_arena_slab_dalloc.exit122, %.preheader, %arena_bin_flush_batch_before_unlock.exit93
-  %.not90 = icmp eq ptr %.276216, null
+  %.not90 = icmp eq ptr %.276239, null
   br i1 %.not90, label %508, label %503
 
 .critedge:                                        ; preds = %.thread144
@@ -3195,7 +3195,7 @@ arena_bin_flush_batch_after_unlock.exit:          ; preds = %duckdb_je_arena_sla
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !141
   %504 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  call void @duckdb_je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %504, ptr noundef nonnull %.276216, ptr noundef nonnull %6) #17
+  call void @duckdb_je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %504, ptr noundef nonnull %.276239, ptr noundef nonnull %6) #17
   %505 = load i8, ptr %6, align 1, !tbaa !141, !range !148, !noundef !149
   %506 = trunc nuw i8 %505 to i1
   br i1 %506, label %507, label %duckdb_je_arena_slab_dalloc.exit131
@@ -3216,7 +3216,7 @@ duckdb_je_arena_slab_dalloc.exit131:              ; preds = %503, %507
   %511 = sub i16 %.val12.i, %510
   %512 = zext i16 %511 to i64
   %513 = getelementptr inbounds nuw i8, ptr %.val.i132, i64 %512
-  %514 = icmp ult i16 %.182.lcssa215, %4
+  %514 = icmp ult i16 %.182.lcssa238, %4
   %515 = sub nsw i64 0, %309
   br i1 %514, label %516, label %cache_bin_finish_fill.exit
 
@@ -3778,8 +3778,8 @@ arena_bin_slabs_full_insert.exit:                 ; preds = %edata_list_active_a
   br label %52
 
 52:                                               ; preds = %50, %arena_bin_slabs_full_insert.exit
-  %.sink3 = phi i64 [ 184, %50 ], [ 168, %arena_bin_slabs_full_insert.exit ]
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink3
+  %.sink4 = phi i64 [ 184, %50 ], [ 168, %arena_bin_slabs_full_insert.exit ]
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink4
   %54 = load i64, ptr %53, align 8, !tbaa !10
   %55 = add i64 %54, 1
   store i64 %55, ptr %53, align 8, !tbaa !10

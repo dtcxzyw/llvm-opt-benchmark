@@ -317,9 +317,9 @@ define dso_local void @_ZN31btDefaultCollisionConfigurationC2ERK34btDefaultColli
   br label %74
 
 74:                                               ; preds = %.loopexit66, %54
-  %.sink71 = phi ptr [ %55, %.loopexit66 ], [ %52, %54 ]
+  %.sink74 = phi ptr [ %55, %.loopexit66 ], [ %52, %54 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink71, ptr %75, align 8, !tbaa !53
+  store ptr %.sink74, ptr %75, align 8, !tbaa !53
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !54
   %.not30 = icmp eq ptr %77, null
@@ -377,9 +377,9 @@ define dso_local void @_ZN31btDefaultCollisionConfigurationC2ERK34btDefaultColli
   br label %102
 
 102:                                              ; preds = %.loopexit, %78
-  %.sink73 = phi ptr [ %83, %.loopexit ], [ %77, %78 ]
+  %.sink76 = phi ptr [ %83, %.loopexit ], [ %77, %78 ]
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sink73, ptr %103, align 8, !tbaa !57
+  store ptr %.sink76, ptr %103, align 8, !tbaa !57
   ret void
 }
 
@@ -675,11 +675,11 @@ define dso_local noundef ptr @_ZN31btDefaultCollisionConfiguration35getClosestPo
 
 .thread33:                                        ; preds = %24, %18
   %28 = icmp eq i32 %2, 31
-  %.36 = select i1 %28, i64 96, i64 104
+  %.38 = select i1 %28, i64 96, i64 104
   br label %29
 
 29:                                               ; preds = %.thread33, %26, %21, %18, %17, %13, %10, %8, %6, %3
-  %.sink = phi i64 [ 112, %3 ], [ 144, %6 ], [ 152, %8 ], [ 168, %10 ], [ 160, %13 ], [ 56, %17 ], [ 64, %18 ], [ 72, %21 ], [ %., %26 ], [ %.36, %.thread33 ]
+  %.sink = phi i64 [ 112, %3 ], [ 144, %6 ], [ 152, %8 ], [ 168, %10 ], [ 160, %13 ], [ 56, %17 ], [ 64, %18 ], [ 72, %21 ], [ %., %26 ], [ %.38, %.thread33 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.0 = load ptr, ptr %30, align 8, !tbaa !60
   ret ptr %.0
@@ -747,11 +747,11 @@ define dso_local noundef ptr @_ZN31btDefaultCollisionConfiguration31getCollision
 
 .thread37:                                        ; preds = %26, %20
   %30 = icmp eq i32 %2, 31
-  %.40 = select i1 %30, i64 96, i64 104
+  %.42 = select i1 %30, i64 96, i64 104
   br label %31
 
 31:                                               ; preds = %.thread37, %28, %23, %20, %19, %15, %12, %10, %8, %6, %3
-  %.sink = phi i64 [ 112, %3 ], [ 144, %6 ], [ 152, %8 ], [ 136, %10 ], [ 168, %12 ], [ 160, %15 ], [ 56, %19 ], [ 64, %20 ], [ 72, %23 ], [ %., %28 ], [ %.40, %.thread37 ]
+  %.sink = phi i64 [ 112, %3 ], [ 144, %6 ], [ 152, %8 ], [ 136, %10 ], [ 168, %12 ], [ 160, %15 ], [ 56, %19 ], [ 64, %20 ], [ 72, %23 ], [ %., %28 ], [ %.42, %.thread37 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.0 = load ptr, ptr %32, align 8, !tbaa !60
   ret ptr %.0

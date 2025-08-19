@@ -137,7 +137,7 @@ define hidden range(i32 0, 20) i32 @ascend_lex(ptr noundef %0) local_unnamed_add
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %64
 
-64:                                               ; preds = %.backedge796, %50
+64:                                               ; preds = %.backedge816, %50
   %65 = load ptr, ptr %51, align 8
   %66 = load i8, ptr %52, align 8
   store i8 %66, ptr %65, align 1
@@ -214,18 +214,18 @@ define hidden range(i32 0, 20) i32 @ascend_lex(ptr noundef %0) local_unnamed_add
   %105 = sext i16 %104 to i32
   %106 = getelementptr i8, ptr %.1283, i64 1
   %.not311 = icmp eq i16 %104, 488
-  br i1 %.not311, label %.backedge.sink.split795, label %68, !llvm.loop !8
+  br i1 %.not311, label %.backedge.sink.split815, label %68, !llvm.loop !8
 
-.backedge.sink.split795:                          ; preds = %._crit_edge, %.backedge.sink.split795.backedge
-  %.1290.ph = phi ptr [ %.1290.ph.be, %.backedge.sink.split795.backedge ], [ %.0289, %._crit_edge ]
+.backedge.sink.split815:                          ; preds = %._crit_edge, %.backedge.sink.split815.backedge
+  %.1290.ph = phi ptr [ %.1290.ph.be, %.backedge.sink.split815.backedge ], [ %.0289, %._crit_edge ]
   %107 = load ptr, ptr %55, align 8
   %108 = load i32, ptr %54, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split795
-  %.1290 = phi ptr [ %.1290.ph, %.backedge.sink.split795 ], [ %575, %.backedge.backedge ]
-  %.2284 = phi ptr [ %107, %.backedge.sink.split795 ], [ %573, %.backedge.backedge ]
-  %.3 = phi i32 [ %108, %.backedge.sink.split795 ], [ %.3.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split815
+  %.1290 = phi ptr [ %.1290.ph, %.backedge.sink.split815 ], [ %575, %.backedge.backedge ]
+  %.2284 = phi ptr [ %107, %.backedge.sink.split815 ], [ %573, %.backedge.backedge ]
+  %.3 = phi i32 [ %108, %.backedge.sink.split815 ], [ %.3.be, %.backedge.backedge ]
   %109 = sext i32 %.3 to i64
   %110 = getelementptr [489 x i16], ptr @yy_accept, i64 0, i64 %109
   %111 = load i16, ptr %110, align 2
@@ -314,7 +314,7 @@ define hidden range(i32 0, 20) i32 @ascend_lex(ptr noundef %0) local_unnamed_add
 119:                                              ; preds = %118
   %120 = load i8, ptr %52, align 8
   store i8 %120, ptr %.2284, align 1
-  br label %.backedge.sink.split795.backedge
+  br label %.backedge.sink.split815.backedge
 
 121:                                              ; preds = %118
   %122 = load i32, ptr %57, align 8
@@ -597,7 +597,7 @@ define hidden range(i32 0, 20) i32 @ascend_lex(ptr noundef %0) local_unnamed_add
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 92
   store i32 %281, ptr %283, align 4
   store i32 43, ptr %53, align 4
-  br label %.backedge796
+  br label %.backedge816
 
 284:                                              ; preds = %118
   %285 = load i32, ptr %57, align 8
@@ -605,7 +605,7 @@ define hidden range(i32 0, 20) i32 @ascend_lex(ptr noundef %0) local_unnamed_add
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 92
   store i32 %285, ptr %287, align 4
   store i32 13, ptr %53, align 4
-  br label %.backedge796
+  br label %.backedge816
 
 288:                                              ; preds = %118
   %289 = load i32, ptr %57, align 8
@@ -785,7 +785,7 @@ define hidden range(i32 0, 20) i32 @ascend_lex(ptr noundef %0) local_unnamed_add
   %395 = load ptr, ptr %0, align 8
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 92
   store i32 %394, ptr %396, align 4
-  br label %.backedge796
+  br label %.backedge816
 
 397:                                              ; preds = %118
   %398 = load i32, ptr %57, align 8
@@ -796,9 +796,9 @@ define hidden range(i32 0, 20) i32 @ascend_lex(ptr noundef %0) local_unnamed_add
   %402 = sext i32 %398 to i64
   %403 = load ptr, ptr %63, align 8
   %404 = tail call i64 @fwrite(ptr noundef %401, i64 noundef %402, i64 noundef 1, ptr noundef %403)
-  br label %.backedge796
+  br label %.backedge816
 
-.backedge796:                                     ; preds = %397, %393, %284, %280
+.backedge816:                                     ; preds = %397, %393, %284, %280
   br label %64
 
 405:                                              ; preds = %118
@@ -850,8 +850,8 @@ define hidden range(i32 0, 20) i32 @ascend_lex(ptr noundef %0) local_unnamed_add
   %436 = xor i64 %435, -1
   %437 = add i64 %436, %434
   %438 = load ptr, ptr %56, align 8
-  %sext736 = shl i64 %437, 32
-  %439 = ashr exact i64 %sext736, 32
+  %sext756 = shl i64 %437, 32
+  %439 = ashr exact i64 %sext756, 32
   %440 = getelementptr i8, ptr %438, i64 %439
   store ptr %440, ptr %51, align 8
   %441 = load i32, ptr %53, align 4
@@ -975,13 +975,13 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i318, %488
   %506 = getelementptr [3498 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i320
   %507 = load i16, ptr %506, align 2
   switch i16 %507, label %508 [
-    i16 488, label %.backedge.sink.split795.backedge
-    i16 0, label %.backedge.sink.split795.backedge
+    i16 488, label %.backedge.sink.split815.backedge
+    i16 0, label %.backedge.sink.split815.backedge
   ]
 
-.backedge.sink.split795.backedge:                 ; preds = %yy_try_NUL_trans.exit, %yy_try_NUL_trans.exit, %119
+.backedge.sink.split815.backedge:                 ; preds = %yy_try_NUL_trans.exit, %yy_try_NUL_trans.exit, %119
   %.1290.ph.be = phi ptr [ %.1290, %119 ], [ %438, %yy_try_NUL_trans.exit ], [ %438, %yy_try_NUL_trans.exit ]
-  br label %.backedge.sink.split795
+  br label %.backedge.sink.split815
 
 508:                                              ; preds = %yy_try_NUL_trans.exit
   %509 = sext i16 %507 to i32
@@ -997,7 +997,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i318, %488
 
 511:                                              ; preds = %425
   %512 = tail call fastcc i32 @yy_get_next_buffer(ptr noundef %0)
-  switch i32 %512, label %default.unreachable692 [
+  switch i32 %512, label %default.unreachable712 [
     i32 1, label %yy_get_previous_state.exit335
     i32 0, label %513
     i32 2, label %564
@@ -1009,8 +1009,8 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i318, %488
   %516 = xor i64 %515, -1
   %517 = add i64 %516, %514
   %518 = load ptr, ptr %56, align 8
-  %sext737 = shl i64 %517, 32
-  %519 = ashr exact i64 %sext737, 32
+  %sext757 = shl i64 %517, 32
+  %519 = ashr exact i64 %sext757, 32
   %520 = getelementptr i8, ptr %518, i64 %519
   store ptr %520, ptr %51, align 8
   %521 = load i32, ptr %53, align 4
@@ -1185,7 +1185,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i318, %488
   %exitcond.not.i349 = icmp eq ptr %617, %573
   br i1 %exitcond.not.i349, label %.backedge.backedge, label %.lr.ph31.i337, !llvm.loop !10
 
-default.unreachable692:                           ; preds = %511
+default.unreachable712:                           ; preds = %511
   unreachable
 
 yy_get_previous_state.exit335:                    ; preds = %511
@@ -1414,7 +1414,7 @@ define internal fastcc range(i32 0, 256) i32 @input(ptr noundef captures(none) %
   %27 = getelementptr i8, ptr %6, i64 1
   store ptr %27, ptr %4, align 8
   %28 = tail call fastcc i32 @yy_get_next_buffer(ptr noundef %0)
-  switch i32 %28, label %default.unreachable27 [
+  switch i32 %28, label %default.unreachable28 [
     i32 2, label %29
     i32 1, label %45
     i32 0, label %.critedge
@@ -1437,7 +1437,7 @@ define internal fastcc range(i32 0, 256) i32 @input(ptr noundef captures(none) %
   store ptr %37, ptr %4, align 8
   br label %38
 
-default.unreachable27:                            ; preds = %24
+default.unreachable28:                            ; preds = %24
   unreachable
 
 38:                                               ; preds = %.critedge, %23, %1
@@ -1761,10 +1761,10 @@ ascend_yyinput.exit:                              ; preds = %86, %92
   br label %99
 
 99:                                               ; preds = %ascend_yyinput.exit, %47
-  %.sink133.in = phi ptr [ %98, %ascend_yyinput.exit ], [ %48, %47 ]
+  %.sink139.in = phi ptr [ %98, %ascend_yyinput.exit ], [ %48, %47 ]
   %.0.i.sink = phi i32 [ %.0.i, %ascend_yyinput.exit ], [ 0, %47 ]
-  %.sink133 = load ptr, ptr %.sink133.in, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %.sink133, i64 28
+  %.sink139 = load ptr, ptr %.sink139.in, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %.sink139, i64 28
   store i32 %.0.i.sink, ptr %100, align 4
   %101 = load i32, ptr %14, align 4
   %102 = icmp eq i32 %101, 0
@@ -1896,7 +1896,7 @@ define hidden void @ascend_restart(ptr noundef %0, ptr noundef captures(none) %1
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %9, null
-  br i1 %.not16, label %10, label %.thread19
+  br i1 %.not16, label %10, label %.thread25
 
 10:                                               ; preds = %5, %2
   tail call fastcc void @ascend_ensure_buffer_stack(ptr noundef %1)
@@ -1910,14 +1910,14 @@ define hidden void @ascend_restart(ptr noundef %0, ptr noundef captures(none) %1
   store ptr %13, ptr %17, align 8
   %.pre = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %.pre, null
-  br i1 %.not17, label %.thread, label %.thread19
+  br i1 %.not17, label %.thread, label %.thread25
 
 .thread:                                          ; preds = %10
   %18 = tail call ptr @__errno_location() #27
   %19 = load i32, ptr %18, align 4
   br label %ascend__flush_buffer.exit.i
 
-.thread19:                                        ; preds = %5, %10
+.thread25:                                        ; preds = %5, %10
   %20 = phi ptr [ %.pre, %10 ], [ %4, %5 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8
@@ -1928,7 +1928,7 @@ define hidden void @ascend_restart(ptr noundef %0, ptr noundef captures(none) %1
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %ascend__flush_buffer.exit.i, label %27
 
-27:                                               ; preds = %.thread19
+27:                                               ; preds = %.thread25
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 28
   store i32 0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -1976,10 +1976,10 @@ define hidden void @ascend_restart(ptr noundef %0, ptr noundef captures(none) %1
   store i8 %55, ptr %56, align 8
   br label %ascend__flush_buffer.exit.i
 
-ascend__flush_buffer.exit.i:                      ; preds = %.thread, %43, %38, %27, %.thread19
-  %57 = phi i32 [ %19, %.thread ], [ %26, %43 ], [ %26, %38 ], [ %26, %27 ], [ %26, %.thread19 ]
-  %58 = phi ptr [ %18, %.thread ], [ %25, %43 ], [ %25, %38 ], [ %25, %27 ], [ %25, %.thread19 ]
-  %59 = phi ptr [ null, %.thread ], [ %24, %43 ], [ %24, %38 ], [ %24, %27 ], [ null, %.thread19 ]
+ascend__flush_buffer.exit.i:                      ; preds = %.thread, %43, %38, %27, %.thread25
+  %57 = phi i32 [ %19, %.thread ], [ %26, %43 ], [ %26, %38 ], [ %26, %27 ], [ %26, %.thread25 ]
+  %58 = phi ptr [ %18, %.thread ], [ %25, %43 ], [ %25, %38 ], [ %25, %27 ], [ %25, %.thread25 ]
+  %59 = phi ptr [ null, %.thread ], [ %24, %43 ], [ %24, %38 ], [ %24, %27 ], [ null, %.thread25 ]
   store ptr %0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 52
   store i32 1, ptr %60, align 4
@@ -2246,7 +2246,7 @@ define hidden void @ascend_push_buffer_state(ptr noundef %0, ptr noundef capture
   %10 = getelementptr ptr, ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not25 = icmp eq ptr %11, null
-  br i1 %.not25, label %.thread30, label %12
+  br i1 %.not25, label %.thread31, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -2271,23 +2271,23 @@ define hidden void @ascend_push_buffer_state(ptr noundef %0, ptr noundef capture
   store i32 %24, ptr %29, align 4
   %.pr.pre = load ptr, ptr %5, align 8
   %.not26 = icmp eq ptr %.pr.pre, null
-  br i1 %.not26, label %.thread, label %.thread30
+  br i1 %.not26, label %.thread, label %.thread31
 
-.thread30:                                        ; preds = %7, %12
-  %.pr33 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
+.thread31:                                        ; preds = %7, %12
+  %.pr34 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
   %30 = load i64, ptr %8, align 8
-  %31 = getelementptr ptr, ptr %.pr33, i64 %30
+  %31 = getelementptr ptr, ptr %.pr34, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not27 = icmp eq ptr %32, null
   br i1 %.not27, label %.thread, label %33
 
-33:                                               ; preds = %.thread30
+33:                                               ; preds = %.thread31
   %34 = add i64 %30, 1
   store i64 %34, ptr %8, align 8
   br label %.thread
 
-.thread:                                          ; preds = %4, %12, %33, %.thread30
-  %35 = phi ptr [ null, %12 ], [ %.pr33, %33 ], [ %.pr33, %.thread30 ], [ null, %4 ]
+.thread:                                          ; preds = %4, %12, %33, %.thread31
+  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37

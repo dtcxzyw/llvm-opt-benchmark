@@ -648,8 +648,8 @@ proto_item_set_generated.exit56:                  ; preds = %.loopexit, %40, %43
   br i1 %.not5.i58, label %proto_item_set_generated.exit53, label %proto_item_set_generated.exit53.sink.split
 
 proto_item_set_generated.exit53.sink.split:       ; preds = %49, %33
-  %.sink63 = phi ptr [ %35, %33 ], [ %51, %49 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.sink63, i64 28
+  %.sink72 = phi ptr [ %35, %33 ], [ %51, %49 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.sink72, i64 28
   %53 = load i32, ptr %52, align 4
   %54 = or i32 %53, 2
   store i32 %54, ptr %52, align 4

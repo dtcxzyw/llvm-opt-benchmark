@@ -713,7 +713,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   br label %158
 
 158:                                              ; preds = %.sink.split.i.i.i.i, %.lr.ph.i29.i.i.i
-  %159 = phi i64 [ %.promoted.i26.i.i.i, %.lr.ph.i29.i.i.i ], [ %.ph69.i.i.i.i, %.sink.split.i.i.i.i ]
+  %159 = phi i64 [ %.promoted.i26.i.i.i, %.lr.ph.i29.i.i.i ], [ %.ph76.i.i.i.i, %.sink.split.i.i.i.i ]
   %160 = phi i64 [ %144, %.lr.ph.i29.i.i.i ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
   %161 = phi i64 [ %152, %.lr.ph.i29.i.i.i ], [ %172, %.sink.split.i.i.i.i ]
   %162 = getelementptr inbounds i8, ptr %146, i64 %161
@@ -735,8 +735,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
 
 .sink.split.i.i.i.i:                              ; preds = %206, %196, %169
   %.sink.i.i.i.i = phi i64 [ %157, %196 ], [ 0, %206 ], [ 0, %169 ]
-  %.ph69.i.i.i.i = phi i64 [ %197, %196 ], [ %208, %206 ], [ %170, %169 ]
-  %172 = add i64 %.ph69.i.i.i.i, %150
+  %.ph76.i.i.i.i = phi i64 [ %197, %196 ], [ %208, %206 ], [ %170, %169 ]
+  %172 = add i64 %.ph76.i.i.i.i, %150
   %173 = icmp ult i64 %172, %147
   br i1 %173, label %158, label %"_ZN125_$LT$html_to_markdown..structure..wikipedia..WikipediaCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$17he237fa0f64b16e96E.exit.thread.i"
 

@@ -279,18 +279,18 @@ findwrd.exit89:                                   ; preds = %100, %97
   br label %127
 
 127:                                              ; preds = %119, %113
-  %.sink174 = phi i64 [ %123, %119 ], [ %116, %113 ]
-  %.sink171 = phi ptr [ %126, %119 ], [ %118, %113 ]
+  %.sink183 = phi i64 [ %123, %119 ], [ %116, %113 ]
+  %.sink180 = phi ptr [ %126, %119 ], [ %118, %113 ]
   %128 = load ptr, ptr %47, align 8
-  %129 = getelementptr inbounds %struct.Syn, ptr %128, i64 %.sink174, i32 1
-  store ptr %.sink171, ptr %129, align 8
+  %129 = getelementptr inbounds %struct.Syn, ptr %128, i64 %.sink183, i32 1
+  store ptr %.sink180, ptr %129, align 8
   %130 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02939.i75) #8
   %131 = trunc i64 %130 to i32
   %132 = load ptr, ptr %47, align 8
-  %133 = getelementptr inbounds %struct.Syn, ptr %132, i64 %.sink174, i32 2
+  %133 = getelementptr inbounds %struct.Syn, ptr %132, i64 %.sink183, i32 2
   store i32 %131, ptr %133, align 8
   %134 = load ptr, ptr %47, align 8
-  %135 = getelementptr inbounds %struct.Syn, ptr %134, i64 %.sink174, i32 3
+  %135 = getelementptr inbounds %struct.Syn, ptr %134, i64 %.sink183, i32 3
   store i16 %.2, ptr %135, align 4
   %136 = add i32 %.060139, 1
   br label %findwrd.exit.thread

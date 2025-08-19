@@ -169,7 +169,7 @@ define void @dlaqr0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %114 = add i32 %36, 1
   %115 = sext i32 %36 to i64
   %invariant.op = add i32 %36, 2
-  %invariant.op585 = add i32 %36, 4
+  %invariant.op600 = add i32 %36, 4
   br label %116
 
 116:                                              ; preds = %.lr.ph559, %426
@@ -198,14 +198,14 @@ define void @dlaqr0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %125 = getelementptr double, ptr %124, i64 %indvars.iv
   %126 = load double, ptr %125, align 8, !tbaa !8
   %127 = fcmp oeq double %126, 0.000000e+00
-  br i1 %127, label %.split.loop.exit583, label %.preheader544, !llvm.loop !10
+  br i1 %127, label %.split.loop.exit598, label %.preheader544, !llvm.loop !10
 
-.split.loop.exit583:                              ; preds = %122
+.split.loop.exit598:                              ; preds = %122
   %128 = trunc nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %.preheader544, %.split.loop.exit583
-  %.1485 = phi i32 [ %128, %.split.loop.exit583 ], [ %118, %.preheader544 ]
+.split.loop.exit:                                 ; preds = %.preheader544, %.split.loop.exit598
+  %.1485 = phi i32 [ %128, %.split.loop.exit598 ], [ %118, %.preheader544 ]
   store i32 %.1485, ptr %19, align 4, !tbaa !3
   %129 = sub nsw i32 %117, %.1485
   %130 = add nsw i32 %129, 1
@@ -247,12 +247,12 @@ define void @dlaqr0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %137, %155
-  %.sink587 = phi i32 [ %156, %155 ], [ %130, %137 ]
-  store i32 %.sink587, ptr %31, align 4, !tbaa !3
+  %.sink602 = phi i32 [ %156, %155 ], [ %130, %137 ]
+  store i32 %.sink602, ptr %31, align 4, !tbaa !3
   br label %157
 
 157:                                              ; preds = %.sink.split, %138, %.split.loop.exit
-  %158 = phi i32 [ %135, %138 ], [ %135, %.split.loop.exit ], [ %.sink587, %.sink.split ]
+  %158 = phi i32 [ %135, %138 ], [ %135, %.split.loop.exit ], [ %.sink602, %.sink.split ]
   br i1 %132, label %166, label %159
 
 159:                                              ; preds = %157
@@ -681,8 +681,8 @@ define void @dlaqr0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %417 = add nsw i32 %408, %36
   %418 = sext i32 %417 to i64
   %419 = getelementptr inbounds double, ptr %38, i64 %418
-  %.reass586 = add i32 %405, %invariant.op585
-  %420 = sext i32 %.reass586 to i64
+  %.reass601 = add i32 %405, %invariant.op600
+  %420 = sext i32 %.reass601 to i64
   %421 = getelementptr inbounds double, ptr %38, i64 %420
   %422 = mul nsw i32 %409, %36
   %423 = add nsw i32 %408, %422
@@ -717,8 +717,8 @@ define void @dlaqr0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %433
 
 433:                                              ; preds = %16, %.loopexit545, %83
-  %.sink588 = phi double [ %432, %.loopexit545 ], [ %84, %83 ], [ 1.000000e+00, %16 ]
-  store double %.sink588, ptr %13, align 8, !tbaa !8
+  %.sink603 = phi double [ %432, %.loopexit545 ], [ %84, %83 ], [ 1.000000e+00, %16 ]
+  store double %.sink603, ptr %13, align 8, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)

@@ -50,29 +50,29 @@ define dso_local noundef i32 @diffcore_count_changes(ptr noundef %0, ptr noundef
   %20 = getelementptr inbounds nuw i8, ptr %.161, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %.163, i64 12
   %22 = load i32, ptr %21, align 4, !tbaa !8
-  %.not80.not138 = icmp eq i32 %22, 0
-  br i1 %.not80.not138, label %.preheader, label %.preheader94
+  %.not80.not147 = icmp eq i32 %22, 0
+  br i1 %.not80.not147, label %.preheader, label %.preheader94
 
 .preheader94:                                     ; preds = %19, %.loopexit
   %23 = phi i32 [ %40, %.loopexit ], [ %22, %19 ]
-  %.163.pn = phi ptr [ %.053142, %.loopexit ], [ %.163, %19 ]
-  %.055141 = phi i64 [ %.3, %.loopexit ], [ 0, %19 ]
-  %.057140 = phi i64 [ %.259, %.loopexit ], [ 0, %19 ]
-  %.064139 = phi ptr [ %.367, %.loopexit ], [ %20, %19 ]
-  %.053142 = getelementptr inbounds nuw i8, ptr %.163.pn, i64 8
-  %24 = getelementptr inbounds nuw i8, ptr %.064139, i64 4
+  %.163.pn = phi ptr [ %.053151, %.loopexit ], [ %.163, %19 ]
+  %.055150 = phi i64 [ %.3, %.loopexit ], [ 0, %19 ]
+  %.057149 = phi i64 [ %.259, %.loopexit ], [ 0, %19 ]
+  %.064148 = phi ptr [ %.367, %.loopexit ], [ %20, %19 ]
+  %.053151 = getelementptr inbounds nuw i8, ptr %.163.pn, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.064148, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !8
   %.not8199 = icmp eq i32 %25, 0
   br i1 %.not8199, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader94
-  %26 = load i32, ptr %.053142, align 4, !tbaa !11
+  %26 = load i32, ptr %.053151, align 4, !tbaa !11
   br label %27
 
 27:                                               ; preds = %.lr.ph, %30
   %28 = phi i32 [ %25, %.lr.ph ], [ %35, %30 ]
-  %.2101 = phi i64 [ %.055141, %.lr.ph ], [ %32, %30 ]
-  %.266100 = phi ptr [ %.064139, %.lr.ph ], [ %33, %30 ]
+  %.2101 = phi i64 [ %.055150, %.lr.ph ], [ %32, %30 ]
+  %.266100 = phi ptr [ %.064148, %.lr.ph ], [ %33, %30 ]
   %29 = load i32, ptr %.266100, align 4, !tbaa !11
   %.not82 = icmp ult i32 %29, %26
   br i1 %.not82, label %30, label %36
@@ -94,15 +94,15 @@ define dso_local noundef i32 @diffcore_count_changes(ptr noundef %0, ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %36, %.preheader94
-  %.297 = phi i64 [ %.2101, %36 ], [ %.055141, %.preheader94 ], [ %32, %30 ]
-  %.367 = phi ptr [ %spec.select, %36 ], [ %.064139, %.preheader94 ], [ %33, %30 ]
+  %.297 = phi i64 [ %.2101, %36 ], [ %.055150, %.preheader94 ], [ %32, %30 ]
+  %.367 = phi ptr [ %spec.select, %36 ], [ %.064148, %.preheader94 ], [ %33, %30 ]
   %.054 = phi i32 [ %spec.select85, %36 ], [ 0, %.preheader94 ], [ 0, %30 ]
   %.pn.in = tail call i32 @llvm.umin.i32(i32 %23, i32 %.054)
   %narrow = tail call i32 @llvm.usub.sat.i32(i32 %.054, i32 %23)
   %38 = zext i32 %narrow to i64
   %.3 = add i64 %.297, %38
   %.pn = zext i32 %.pn.in to i64
-  %.259 = add i64 %.057140, %.pn
+  %.259 = add i64 %.057149, %.pn
   %39 = getelementptr inbounds nuw i8, ptr %.163.pn, i64 20
   %40 = load i32, ptr %39, align 4, !tbaa !8
   %.not80.not = icmp eq i32 %40, 0
@@ -312,10 +312,10 @@ define internal fastcc noundef ptr @add_spanhash(ptr noundef captures(ret: addre
 .lr.ph.preheader:                                 ; preds = %3
   %13 = load i32, ptr %10, align 4, !tbaa !11
   %14 = icmp eq i32 %13, %1
-  br i1 %14, label %.lr.ph._crit_edge, label %.lr.ph53
+  br i1 %14, label %.lr.ph._crit_edge, label %.lr.ph57
 
-._crit_edge:                                      ; preds = %.lr.ph53, %3
-  %.lcssa33 = phi ptr [ %10, %3 ], [ %66, %.lr.ph53 ]
+._crit_edge:                                      ; preds = %.lr.ph57, %3
+  %.lcssa33 = phi ptr [ %10, %3 ], [ %66, %.lr.ph57 ]
   %15 = getelementptr inbounds nuw i8, ptr %.lcssa33, i64 4
   store i32 %1, ptr %.lcssa33, align 4, !tbaa !11
   store i32 %2, ptr %15, align 4, !tbaa !8
@@ -410,24 +410,24 @@ spanhash_rehash.exit:                             ; preds = %57, %st_mult.exit.i
   tail call void @free(ptr noundef nonnull %0) #8
   br label %69
 
-.lr.ph:                                           ; preds = %.lr.ph53
+.lr.ph:                                           ; preds = %.lr.ph57
   %58 = load i32, ptr %66, align 4, !tbaa !11
   %59 = icmp eq i32 %58, %1
-  br i1 %59, label %.lr.ph._crit_edge, label %.lr.ph53
+  br i1 %59, label %.lr.ph._crit_edge, label %.lr.ph57
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
-  %.lcssa49 = phi i32 [ %12, %.lr.ph.preheader ], [ %68, %.lr.ph ]
+  %.lcssa53 = phi i32 [ %12, %.lr.ph.preheader ], [ %68, %.lr.ph ]
   %60 = phi i64 [ %9, %.lr.ph.preheader ], [ %65, %.lr.ph ]
   %.idx = shl nsw i64 %60, 3
   %61 = getelementptr i8, ptr %8, i64 %.idx
   %62 = getelementptr i8, ptr %61, i64 4
-  %63 = add i32 %.lcssa49, %2
+  %63 = add i32 %.lcssa53, %2
   store i32 %63, ptr %62, align 4, !tbaa !8
   br label %69
 
-.lr.ph53:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.in52 = phi i32 [ %spec.store.select, %.lr.ph ], [ %7, %.lr.ph.preheader ]
-  %64 = add nsw i32 %.in52, 1
+.lr.ph57:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.in56 = phi i32 [ %spec.store.select, %.lr.ph ], [ %7, %.lr.ph.preheader ]
+  %64 = add nsw i32 %.in56, 1
   %.not23 = icmp sgt i32 %5, %64
   %spec.store.select = select i1 %.not23, i32 %64, i32 0
   %65 = sext i32 %spec.store.select to i64

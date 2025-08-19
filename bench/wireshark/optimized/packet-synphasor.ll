@@ -1064,8 +1064,8 @@ config_frame_fast.exit:                           ; preds = %._crit_edge.i, %35
   call void @wmem_array_append(ptr noundef %258, ptr noundef nonnull %6, i32 noundef 1)
   %259 = add i16 %.0195.i, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not211.i = icmp eq i16 %259, 0
-  br i1 %.not211.i, label %config_3_frame_fast.exit, label %160, !llvm.loop !15
+  %.not217.i = icmp eq i16 %259, 0
+  br i1 %.not217.i, label %config_3_frame_fast.exit, label %160, !llvm.loop !15
 
 config_3_frame_fast.exit:                         ; preds = %.loopexit.i, %135
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 20

@@ -324,15 +324,15 @@ _ZN5clang19PreprocessingRecord34getPreprocessedEntitiesInRangeSlowENS_11SourceRa
 
 51:                                               ; preds = %3, %_ZN5clang19PreprocessingRecord34getPreprocessedEntitiesInRangeSlowENS_11SourceRangeE.exit, %14
   %.sroa.07.0.extract.trunc.sink = phi i32 [ %.sroa.07.0.extract.trunc, %_ZN5clang19PreprocessingRecord34getPreprocessedEntitiesInRangeSlowENS_11SourceRangeE.exit ], [ %16, %14 ], [ 0, %3 ]
-  %.sink31 = phi ptr [ %1, %_ZN5clang19PreprocessingRecord34getPreprocessedEntitiesInRangeSlowENS_11SourceRangeE.exit ], [ %1, %14 ], [ null, %3 ]
+  %.sink32 = phi ptr [ %1, %_ZN5clang19PreprocessingRecord34getPreprocessedEntitiesInRangeSlowENS_11SourceRangeE.exit ], [ %1, %14 ], [ null, %3 ]
   %.sroa.5.0.extract.trunc.pre-phi.sink = phi i32 [ %.sroa.5.0.extract.trunc.pre-phi, %_ZN5clang19PreprocessingRecord34getPreprocessedEntitiesInRangeSlowENS_11SourceRangeE.exit ], [ %18, %14 ], [ 0, %3 ]
   store i32 %.sroa.07.0.extract.trunc.sink, ptr %0, align 8
   %.sroa.24.0..sroa_idx.i.i3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink31, ptr %.sroa.24.0..sroa_idx.i.i3, align 8
+  store ptr %.sink32, ptr %.sroa.24.0..sroa_idx.i.i3, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.5.0.extract.trunc.pre-phi.sink, ptr %52, align 8
   %.sroa.21.0..sroa_idx.i.i4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink31, ptr %.sroa.21.0..sroa_idx.i.i4, align 8
+  store ptr %.sink32, ptr %.sroa.21.0..sroa_idx.i.i4, align 8
   ret void
 }
 
@@ -1345,7 +1345,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5clang11SourceRangeESaIS1_EE6resi
   br i1 %.not23.i, label %22, label %_ZSt27__uninitialized_default_n_aIPN5clang11SourceRangeEmS1_ET_S3_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPN5clang11SourceRangeEmS1_ET_S3_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = shl nuw i64 %12, 3
+  %21 = shl nuw nsw i64 %12, 3
   tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %21, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !159
@@ -3464,13 +3464,13 @@ define linkonce_odr void @_ZNSt6vectorIPN5clang18PreprocessedEntityESaIS2_EE17_M
 19:                                               ; preds = %3
   store ptr null, ptr %5, align 8, !tbaa !150
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPPN5clang18PreprocessedEntityEmS2_ET_S4_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPPN5clang18PreprocessedEntityEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPPN5clang18PreprocessedEntityEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !150
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

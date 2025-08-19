@@ -113,7 +113,8 @@ define internal noundef i32 @ogg_write_header(ptr noundef readonly captures(none
   br label %33
 
 33:                                               ; preds = %25, %ogg_buffer_data.exit
-  %indvars.iv81 = phi i64 [ 1, %25 ], [ %indvars.iv.next82, %ogg_buffer_data.exit ]
+  %exitcond.not = phi i1 [ false, %25 ], [ true, %ogg_buffer_data.exit ]
+  %indvars.iv81 = phi i64 [ 1, %25 ], [ 2, %ogg_buffer_data.exit ]
   %34 = getelementptr inbounds nuw [3 x i32], ptr %31, i64 0, i64 %indvars.iv81
   %35 = load i32, ptr %34, align 4, !tbaa !35
   %.not = icmp eq i32 %35, 0
@@ -361,8 +362,6 @@ ogg_buffer_page.exit71:                           ; preds = %ogg_compare_granule
   br i1 %.not105.i, label %ogg_buffer_data.exit, label %50, !llvm.loop !68
 
 ogg_buffer_data.exit:                             ; preds = %ogg_buffer_page.exit71, %33
-  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next82, 3
   br i1 %exitcond.not, label %162, label %33, !llvm.loop !69
 
 162:                                              ; preds = %ogg_buffer_data.exit
@@ -1269,8 +1268,8 @@ ogg_write_vorbiscomment.exit.thread:              ; preds = %281, %291
   %319 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %320 = load i32, ptr %319, align 4, !tbaa !106
   %.not162 = icmp eq i32 %320, %313
-  %or.cond318 = select i1 %.not161, i1 %.not162, i1 false
-  br i1 %or.cond318, label %321, label %._crit_edge
+  %or.cond337 = select i1 %.not161, i1 %.not162, i1 false
+  br i1 %or.cond337, label %321, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %309
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.34, i32 noundef %318, i32 noundef %320, i32 noundef %316, i32 noundef %313) #9
@@ -1441,8 +1440,8 @@ ogg_granule_to_timestamp.exit122.thread:          ; preds = %15
   %37 = add nsw i64 %36, %35
   %38 = icmp sgt i64 %31, %37
   %.not4.i = icmp eq i64 %30, 0
-  %or.cond28 = or i1 %38, %.not4.i
-  br i1 %or.cond28, label %ogg_key_granule.exit.thread7, label %.thread._crit_edge
+  %or.cond31 = or i1 %38, %.not4.i
+  br i1 %or.cond31, label %ogg_key_granule.exit.thread7, label %.thread._crit_edge
 
 .thread._crit_edge:                               ; preds = %ogg_granule_to_timestamp.exit122.thread
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.24.val, i64 60

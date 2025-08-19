@@ -368,8 +368,8 @@ compute_growth.exit.thread:                       ; preds = %safe_mul_int.exit42
 
 compute_growth.exit:                              ; preds = %.backedge.i, %43
   %.0 = phi i32 [ %spec.store.select, %43 ], [ %.0.be.i, %.backedge.i ]
-  %45 = sext i32 %.0 to i64
-  %46 = shl nsw i64 %45, 3
+  %45 = zext nneg i32 %.0 to i64
+  %46 = shl nuw nsw i64 %45, 3
   %47 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %11, i64 noundef %46, ptr noundef nonnull @.str, i32 noundef 217) #16
   %48 = icmp eq ptr %47, null
   br i1 %48, label %51, label %49

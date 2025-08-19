@@ -179,7 +179,7 @@ define hidden { ptr, i64 } @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_
 
 6:                                                ; preds = %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit", %1
   %7 = phi ptr [ %24, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit" ], [ %.promoted24, %1 ]
-  %8 = phi i64 [ %.sroa.7.033, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit" ], [ %.sroa.5.0..sroa_idx.promoted, %1 ]
+  %8 = phi i64 [ %.sroa.7.034, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit" ], [ %.sroa.5.0..sroa_idx.promoted, %1 ]
   %.0.val23 = phi ptr [ %25, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit" ], [ %.sroa.45.0..sroa_idx.promoted, %1 ]
   %switch = phi i1 [ false, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit" ], [ %5, %1 ]
   br i1 %switch, label %9, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit"
@@ -188,9 +188,9 @@ define hidden { ptr, i64 } @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %10 = icmp eq ptr %7, %3
-  br i1 %10, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit.thread.loopexit", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit.thread30"
+  br i1 %10, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit.thread.loopexit", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit.thread31"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit.thread30": ; preds = %9
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit.thread31": ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %11, ptr %4, align 8, !alias.scope !22
   %12 = load ptr, ptr %7, align 8, !noalias !22, !nonnull !4, !align !23, !noundef !4
@@ -202,10 +202,10 @@ define hidden { ptr, i64 } @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_
   %15 = icmp eq ptr %.0.val23, null
   br i1 %15, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit.thread.loopexit", label %16
 
-16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit.thread30", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit"
-  %.sroa.01.034 = phi ptr [ %12, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit.thread30" ], [ %.0.val23, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit" ]
-  %.sroa.7.033 = phi i64 [ %14, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit.thread30" ], [ %8, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit" ]
-  %17 = phi ptr [ %11, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit.thread30" ], [ %7, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit" ]
+16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit.thread31", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit"
+  %.sroa.01.035 = phi ptr [ %12, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit.thread31" ], [ %.0.val23, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit" ]
+  %.sroa.7.034 = phi i64 [ %14, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit.thread31" ], [ %8, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit" ]
+  %17 = phi ptr [ %11, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit.thread31" ], [ %7, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
@@ -215,15 +215,15 @@ define hidden { ptr, i64 } @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_
   br i1 %18, label %22, label %23
 
 "_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit.thread.loopexit": ; preds = %9, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit", %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit", %23
-  %.sroa.01.0.lcssa = phi ptr [ null, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit" ], [ %.sroa.01.034, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit" ], [ %.sroa.01.034, %23 ], [ null, %9 ]
+  %.sroa.01.0.lcssa = phi ptr [ null, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit" ], [ %.sroa.01.035, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit" ], [ %.sroa.01.035, %23 ], [ null, %9 ]
   %19 = phi i64 [ 0, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit" ], [ 1, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit" ], [ 1, %23 ], [ 0, %9 ]
-  %.sroa.4.0.ph = phi i64 [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit" ], [ %.sroa.7.033, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit" ], [ %.sroa.7.033, %23 ], [ undef, %9 ]
+  %.sroa.4.0.ph = phi i64 [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a2bc6717164b3a6E.exit" ], [ %.sroa.7.034, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit" ], [ %.sroa.7.034, %23 ], [ undef, %9 ]
   store i64 %19, ptr %0, align 8
   br label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit.thread"
 
 "_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit.thread": ; preds = %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit.thread.loopexit", %22
-  %.sroa.01.026 = phi ptr [ %.sroa.01.034, %22 ], [ %.sroa.01.0.lcssa, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit.thread.loopexit" ]
-  %.sroa.4.0 = phi i64 [ %.sroa.7.033, %22 ], [ %.sroa.4.0.ph, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit.thread.loopexit" ]
+  %.sroa.01.026 = phi ptr [ %.sroa.01.035, %22 ], [ %.sroa.01.0.lcssa, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit.thread.loopexit" ]
+  %.sroa.4.0 = phi i64 [ %.sroa.7.034, %22 ], [ %.sroa.4.0.ph, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit.thread.loopexit" ]
   %20 = insertvalue { ptr, i64 } poison, ptr %.sroa.01.026, 0
   %21 = insertvalue { ptr, i64 } %20, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %21
@@ -241,11 +241,11 @@ define hidden { ptr, i64 } @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_
   %27 = load i64, ptr %26, align 8, !noalias !39, !noundef !4
   store ptr %25, ptr %.sroa.45.0..sroa_idx, align 8, !alias.scope !24, !noalias !27
   store i64 %27, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !24, !noalias !27
-  %.not.i.i.i.i = icmp eq i64 %.sroa.7.033, %27
+  %.not.i.i.i.i = icmp eq i64 %.sroa.7.034, %27
   br i1 %.not.i.i.i.i, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit", label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit.thread.loopexit"
 
 "_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit": ; preds = %23
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.01.034, ptr nonnull readonly align 1 %25, i64 %.sroa.7.033), !alias.scope !40
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.01.035, ptr nonnull readonly align 1 %25, i64 %.sroa.7.034), !alias.scope !40
   %.not = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %.not, label %6, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hb465d947fbe1eeb4E.exit.thread.loopexit"
 }

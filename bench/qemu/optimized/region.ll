@@ -397,8 +397,8 @@ tcg_region_tree_lock_all.exit:                    ; preds = %.lr.ph.i
   br i1 %31, label %.lr.ph.i7, label %tcg_region_tree_unlock_all.exit, !llvm.loop !8
 
 tcg_region_tree_unlock_all.exit:                  ; preds = %.lr.ph.i7, %0, %tcg_region_tree_lock_all.exit, %._crit_edge
-  %.0.lcssa16 = phi i64 [ %20, %._crit_edge ], [ 0, %tcg_region_tree_lock_all.exit ], [ 0, %0 ], [ %20, %.lr.ph.i7 ]
-  ret i64 %.0.lcssa16
+  %.0.lcssa17 = phi i64 [ %20, %._crit_edge ], [ 0, %tcg_region_tree_lock_all.exit ], [ 0, %0 ], [ %20, %.lr.ph.i7 ]
+  ret i64 %.0.lcssa17
 }
 
 declare i32 @q_tree_nnodes(ptr noundef) local_unnamed_addr #3

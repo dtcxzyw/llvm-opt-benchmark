@@ -712,8 +712,8 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h2fb71c2b
   store ptr %26, ptr %9, align 8, !noalias !146
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %29, ptr %30, align 8, !noalias !146
-  %.not142 = icmp eq i64 %28, 1
-  br i1 %.not142, label %31, label %42
+  %.not152 = icmp eq i64 %28, 1
+  br i1 %.not152, label %31, label %42
 
 31:                                               ; preds = %3
   %32 = invoke noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h520471e13dd01ffdE.llvm.13350262499926924963"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)

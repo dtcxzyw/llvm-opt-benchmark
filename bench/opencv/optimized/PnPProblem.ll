@@ -1678,7 +1678,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %60
   %78 = load ptr, ptr %77, align 8
   store double %69, ptr %78, align 8, !tbaa !25
   %79 = fmul double %59, 8.000000e+00
-  br i1 %76, label %.thread228, label %80
+  br i1 %76, label %.thread235, label %80
 
 80:                                               ; preds = %72
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 4
@@ -1717,14 +1717,14 @@ _ZN2cv3Mat2atIdEERT_i.exit121:                    ; preds = %_ZNK2cv7MatExprcvNS
   %106 = load ptr, ptr %105, align 8, !tbaa !26
   store double %69, ptr %106, align 8, !tbaa !25
   %107 = fmul double %59, 8.000000e+00
-  br label %.thread228
+  br label %.thread235
 
-.thread228:                                       ; preds = %72, %_ZN2cv3Mat2atIdEERT_i.exit121
-  %.sink246 = phi ptr [ %106, %_ZN2cv3Mat2atIdEERT_i.exit121 ], [ %78, %72 ]
+.thread235:                                       ; preds = %72, %_ZN2cv3Mat2atIdEERT_i.exit121
+  %.sink253 = phi ptr [ %106, %_ZN2cv3Mat2atIdEERT_i.exit121 ], [ %78, %72 ]
   %.sink = phi double [ %107, %_ZN2cv3Mat2atIdEERT_i.exit121 ], [ %79, %72 ]
-  %108 = getelementptr inbounds nuw i8, ptr %.sink246, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %.sink253, i64 8
   store double %.sink, ptr %108, align 8, !tbaa !25
-  %109 = getelementptr inbounds nuw i8, ptr %.sink246, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %.sink253, i64 16
   br label %_ZN2cv3Mat2atIdEERT_i.exit124
 
 110:                                              ; preds = %84, %89
@@ -1759,8 +1759,8 @@ _ZN2cv3Mat2atIdEERT_i.exit121:                    ; preds = %_ZNK2cv7MatExprcvNS
   %132 = getelementptr inbounds double, ptr %130, i64 %131
   br label %_ZN2cv3Mat2atIdEERT_i.exit124
 
-_ZN2cv3Mat2atIdEERT_i.exit124:                    ; preds = %.thread228, %114, %120
-  %.0.i123 = phi ptr [ %109, %.thread228 ], [ %119, %114 ], [ %132, %120 ]
+_ZN2cv3Mat2atIdEERT_i.exit124:                    ; preds = %.thread235, %114, %120
+  %.0.i123 = phi ptr [ %109, %.thread235 ], [ %119, %114 ], [ %132, %120 ]
   store double 8.000000e+00, ptr %.0.i123, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2067,8 +2067,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %209
   br label %280
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE9push_backERKS2_.exit
-  %.not247 = icmp ne ptr %.sroa.0190.1, %.sroa.10.1
-  br i1 %.not247, label %.thread, label %423
+  %.not254 = icmp ne ptr %.sroa.0190.1, %.sroa.10.1
+  br i1 %.not254, label %.thread, label %423
 
 240:                                              ; preds = %_ZNK4Mesh16getTrianglesListEv.exit
   %241 = landingpad { ptr, i32 }
@@ -2274,13 +2274,13 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %209
   %.sroa.22.0.copyload.i173.i = load float, ptr %.sroa.22.0..sroa_idx.i172.i, align 4, !tbaa !71
   %foldExtExtBinop = fsub <2 x float> %.sroa.01.0.copyload.i156.i, %.sroa.01.0.copyload.i.i
   %300 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop256 = fsub <2 x float> %.sroa.01.0.copyload.i156.i, %.sroa.01.0.copyload.i.i
-  %301 = extractelement <2 x float> %foldExtExtBinop256, i64 1
+  %foldExtExtBinop263 = fsub <2 x float> %.sroa.01.0.copyload.i156.i, %.sroa.01.0.copyload.i.i
+  %301 = extractelement <2 x float> %foldExtExtBinop263, i64 1
   %302 = fsub float %.sroa.22.0.copyload.i158.i, %.sroa.22.0.copyload.i.i
-  %foldExtExtBinop258 = fsub <2 x float> %.sroa.01.0.copyload.i161.i, %.sroa.01.0.copyload.i.i
-  %303 = extractelement <2 x float> %foldExtExtBinop258, i64 0
-  %foldExtExtBinop260 = fsub <2 x float> %.sroa.01.0.copyload.i161.i, %.sroa.01.0.copyload.i.i
-  %304 = extractelement <2 x float> %foldExtExtBinop260, i64 1
+  %foldExtExtBinop265 = fsub <2 x float> %.sroa.01.0.copyload.i161.i, %.sroa.01.0.copyload.i.i
+  %303 = extractelement <2 x float> %foldExtExtBinop265, i64 0
+  %foldExtExtBinop267 = fsub <2 x float> %.sroa.01.0.copyload.i161.i, %.sroa.01.0.copyload.i.i
+  %304 = extractelement <2 x float> %foldExtExtBinop267, i64 1
   %305 = fsub float %.sroa.22.0.copyload.i163.i, %.sroa.22.0.copyload.i.i
   %.sroa.011.4.vec.extract.i.i = extractelement <2 x float> %.sroa.01.0.copyload.i171.i, i64 1
   %306 = fneg float %304
@@ -2306,11 +2306,11 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %209
   %.sroa.01.0.copyload.i166.i = load <2 x float>, ptr %239, align 8
   %321 = fdiv double 1.000000e+00, %318
   %.sroa.06.0.vec.extract.i192.i = extractelement <2 x float> %.sroa.01.0.copyload.i166.i, i64 0
-  %foldExtExtBinop262 = fsub <2 x float> %.sroa.01.0.copyload.i166.i, %.sroa.01.0.copyload.i.i
-  %322 = extractelement <2 x float> %foldExtExtBinop262, i64 0
+  %foldExtExtBinop269 = fsub <2 x float> %.sroa.01.0.copyload.i166.i, %.sroa.01.0.copyload.i.i
+  %322 = extractelement <2 x float> %foldExtExtBinop269, i64 0
   %.sroa.06.4.vec.extract.i195.i = extractelement <2 x float> %.sroa.01.0.copyload.i166.i, i64 1
-  %foldExtExtBinop264 = fsub <2 x float> %.sroa.01.0.copyload.i166.i, %.sroa.01.0.copyload.i.i
-  %323 = extractelement <2 x float> %foldExtExtBinop264, i64 1
+  %foldExtExtBinop271 = fsub <2 x float> %.sroa.01.0.copyload.i166.i, %.sroa.01.0.copyload.i.i
+  %323 = extractelement <2 x float> %foldExtExtBinop271, i64 1
   %324 = fsub float %.sroa.22.0.copyload.i168.i, %.sroa.22.0.copyload.i.i
   %325 = fmul float %311, %323
   %326 = call float @llvm.fmuladd.f32(float %322, float %308, float %325)
@@ -2551,7 +2551,7 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %350, %332
 _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit:   ; preds = %233, %423, %424
   %425 = phi ptr [ %396, %423 ], [ %.pre226, %424 ], [ %47, %233 ]
   %.pr.i = phi ptr [ %397, %423 ], [ %.pre, %424 ], [ %47, %233 ]
-  %.0207 = phi i1 [ false, %423 ], [ %.not247, %424 ], [ false, %233 ]
+  %.0207 = phi i1 [ false, %423 ], [ %.not254, %424 ], [ false, %233 ]
   call void @_ZN3RayD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #23
@@ -2811,13 +2811,13 @@ define hidden noundef zeroext i1 @_ZN10PnPProblem24intersect_MollerTrumboreER3Ra
   %.sroa.22.0.copyload.i173 = load float, ptr %.sroa.22.0..sroa_idx.i172, align 4, !tbaa !71
   %foldExtExtBinop = fsub <2 x float> %.sroa.01.0.copyload.i156, %.sroa.01.0.copyload.i
   %9 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop234 = fsub <2 x float> %.sroa.01.0.copyload.i156, %.sroa.01.0.copyload.i
-  %10 = extractelement <2 x float> %foldExtExtBinop234, i64 1
+  %foldExtExtBinop236 = fsub <2 x float> %.sroa.01.0.copyload.i156, %.sroa.01.0.copyload.i
+  %10 = extractelement <2 x float> %foldExtExtBinop236, i64 1
   %11 = fsub float %.sroa.22.0.copyload.i158, %.sroa.22.0.copyload.i
-  %foldExtExtBinop236 = fsub <2 x float> %.sroa.01.0.copyload.i161, %.sroa.01.0.copyload.i
-  %12 = extractelement <2 x float> %foldExtExtBinop236, i64 0
   %foldExtExtBinop238 = fsub <2 x float> %.sroa.01.0.copyload.i161, %.sroa.01.0.copyload.i
-  %13 = extractelement <2 x float> %foldExtExtBinop238, i64 1
+  %12 = extractelement <2 x float> %foldExtExtBinop238, i64 0
+  %foldExtExtBinop240 = fsub <2 x float> %.sroa.01.0.copyload.i161, %.sroa.01.0.copyload.i
+  %13 = extractelement <2 x float> %foldExtExtBinop240, i64 1
   %14 = fsub float %.sroa.22.0.copyload.i163, %.sroa.22.0.copyload.i
   %.sroa.011.4.vec.extract.i = extractelement <2 x float> %.sroa.01.0.copyload.i171, i64 1
   %15 = fneg float %13
@@ -2844,10 +2844,10 @@ define hidden noundef zeroext i1 @_ZN10PnPProblem24intersect_MollerTrumboreER3Ra
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.01.0.copyload.i166 = load <2 x float>, ptr %30, align 8
   %31 = fdiv double 1.000000e+00, %27
-  %foldExtExtBinop240 = fsub <2 x float> %.sroa.01.0.copyload.i166, %.sroa.01.0.copyload.i
-  %32 = extractelement <2 x float> %foldExtExtBinop240, i64 0
   %foldExtExtBinop242 = fsub <2 x float> %.sroa.01.0.copyload.i166, %.sroa.01.0.copyload.i
-  %33 = extractelement <2 x float> %foldExtExtBinop242, i64 1
+  %32 = extractelement <2 x float> %foldExtExtBinop242, i64 0
+  %foldExtExtBinop244 = fsub <2 x float> %.sroa.01.0.copyload.i166, %.sroa.01.0.copyload.i
+  %33 = extractelement <2 x float> %foldExtExtBinop244, i64 1
   %34 = fsub float %.sroa.22.0.copyload.i168, %.sroa.22.0.copyload.i
   %35 = fmul float %20, %33
   %36 = tail call float @llvm.fmuladd.f32(float %32, float %17, float %35)

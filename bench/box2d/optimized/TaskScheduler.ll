@@ -808,11 +808,11 @@ _ZN4enki13TaskScheduler8NewArrayISt6threadEEPT_mPKci.exit: ; preds = %_ZN4enki13
   br i1 %53, label %.lr.ph, label %.preheader55
 
 thread-pre-split:                                 ; preds = %_ZN4enki13TaskScheduler8NewArrayINS_14PinnedTaskListEEEPT_mPKci.exit
-  %.pr85 = load i32, ptr %14, align 8, !tbaa !72
+  %.pr88 = load i32, ptr %14, align 8, !tbaa !72
   br label %54
 
 54:                                               ; preds = %thread-pre-split, %7
-  %55 = phi i32 [ %.pr85, %thread-pre-split ], [ %13, %7 ]
+  %55 = phi i32 [ %.pr88, %thread-pre-split ], [ %13, %7 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %thread-pre-split ], [ 0, %7 ]
   %56 = zext i32 %55 to i64
   %57 = load ptr, ptr %15, align 8, !tbaa !83
@@ -1072,21 +1072,21 @@ define dso_local void @_ZN4enki13TaskScheduler11StopThreadsEb(ptr noundef nonnul
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load atomic i32, ptr %9 seq_cst, align 4
-  %.not68 = icmp eq i32 %16, 0
-  br i1 %.not68, label %.critedge, label %.lr.ph69
+  %.not74 = icmp eq i32 %16, 0
+  br i1 %.not74, label %.critedge, label %.lr.ph75
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZN4enki13TaskScheduler22WakeThreadsForNewTasksEv.exit
   %17 = load atomic i32, ptr %9 seq_cst, align 4
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %.critedge, label %.lr.ph69
+  br i1 %.not, label %.critedge, label %.lr.ph75
 
-.lr.ph69:                                         ; preds = %.lr.ph31, %.loopexit
+.lr.ph75:                                         ; preds = %.lr.ph31, %.loopexit
   %18 = load atomic i32, ptr %10 monotonic, align 8
   %.old1.i = icmp sgt i32 %18, 0
   br i1 %.old1.i, label %.preheader.i, label %_ZN4enki15SemaphoreSignalERNS_13semaphoreid_tEi.exit.i
 
-.preheader.i:                                     ; preds = %.lr.ph69, %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i
-  %.0.i = phi i32 [ %21, %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i ], [ %18, %.lr.ph69 ]
+.preheader.i:                                     ; preds = %.lr.ph75, %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i
+  %.0.i = phi i32 [ %21, %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i ], [ %18, %.lr.ph75 ]
   %19 = cmpxchg weak ptr %10, i32 %.0.i, i32 0 release monotonic, align 4
   %20 = extractvalue { i32, i1 } %19, 1
   br i1 %20, label %.critedge.thread.i, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i
@@ -1107,7 +1107,7 @@ _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i: ; 
   %26 = icmp samesign ugt i32 %.01.i.i, 1
   br i1 %26, label %.lr.ph.i.i, label %_ZN4enki15SemaphoreSignalERNS_13semaphoreid_tEi.exit.i, !llvm.loop !34
 
-_ZN4enki15SemaphoreSignalERNS_13semaphoreid_tEi.exit.i: ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i, %.lr.ph.i.i, %.lr.ph69
+_ZN4enki15SemaphoreSignalERNS_13semaphoreid_tEi.exit.i: ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i, %.lr.ph.i.i, %.lr.ph75
   %27 = load atomic i32, ptr %12 monotonic, align 4
   %.old1.i.i = icmp sgt i32 %27, 0
   br i1 %.old1.i.i, label %.preheader.i.i, label %_ZN4enki13TaskScheduler22WakeThreadsForNewTasksEv.exit
@@ -1532,13 +1532,13 @@ _ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.ex
   %75 = xor i32 %74, %73
   %.not50 = icmp eq i32 %75, %36
   %76 = load i32, ptr %34, align 8, !tbaa !72
-  %.not208 = icmp eq i32 %76, 0
-  br i1 %.not208, label %.critedge, label %.lr.ph
+  %.not226 = icmp eq i32 %76, 0
+  br i1 %.not226, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit123, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.exit61
   %77 = phi i32 [ %104, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.exit61 ], [ %76, %.loopexit123 ]
-  %.046143207 = phi i32 [ %103, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.exit61 ], [ 0, %.loopexit123 ]
-  %78 = add i32 %.046143207, %75
+  %.046143225 = phi i32 [ %103, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.exit61 ], [ 0, %.loopexit123 ]
+  %78 = add i32 %.046143225, %75
   %79 = urem i32 %78, %77
   %.not = icmp eq i32 %79, %1
   %or.cond = select i1 %.not, i1 true, i1 %.not50
@@ -1587,7 +1587,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i58
   br i1 %.not39.i60, label %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.exit61, label %90
 
 _ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.exit61: ; preds = %99, %80, %.lr.ph
-  %103 = add i32 %.046143207, 1
+  %103 = add i32 %.046143225, 1
   %104 = load i32, ptr %34, align 8, !tbaa !72
   %105 = icmp ult i32 %103, %104
   br i1 %105, label %.lr.ph, label %.critedge, !llvm.loop !114
@@ -3023,8 +3023,8 @@ _ZN4enki15SemaphoreSignalERNS_13semaphoreid_tEi.exit: ; preds = %.lr.ph, %61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load i32, ptr %15, align 8, !tbaa !72
   %70 = zext i32 %69 to i64
-  %.not105 = icmp samesign ult i64 %indvars.iv.next, %70
-  br i1 %.not105, label %.lr.ph, label %.preheader, !llvm.loop !133
+  %.not112 = icmp samesign ult i64 %indvars.iv.next, %70
+  br i1 %.not112, label %.lr.ph, label %.preheader, !llvm.loop !133
 
 .lr.ph80:                                         ; preds = %.preheader, %_ZN4enki13TaskScheduler9HaveTasksEj.exit
   %71 = phi i32 [ %88, %_ZN4enki13TaskScheduler9HaveTasksEj.exit ], [ %69, %.preheader ]
@@ -3069,8 +3069,8 @@ _ZN4enki15SemaphoreSignalERNS_13semaphoreid_tEi.exit: ; preds = %.lr.ph, %61
   %.not.i = icmp ne ptr %87, %.0.i.i.i.i.i
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next24.i, 3
-  %or.cond104 = select i1 %.not.i, i1 true, i1 %exitcond26.not.i
-  br i1 %or.cond104, label %_ZN4enki13TaskScheduler9HaveTasksEj.exit.loopexit83, label %.preheader.i, !llvm.loop !71
+  %or.cond111 = select i1 %.not.i, i1 true, i1 %exitcond26.not.i
+  br i1 %or.cond111, label %_ZN4enki13TaskScheduler9HaveTasksEj.exit.loopexit83, label %.preheader.i, !llvm.loop !71
 
 _ZN4enki13TaskScheduler9HaveTasksEj.exit.loopexit83: ; preds = %._crit_edge.i
   %.pre = load i32, ptr %15, align 8, !tbaa !72
@@ -3401,18 +3401,18 @@ define dso_local void @_ZN4enki10DependencyC2EOS0_(ptr noundef nonnull align 8 d
 
 .lr.ph.preheader:                                 ; preds = %10
   %13 = icmp eq ptr %1, %12
-  br i1 %13, label %.lr.ph._crit_edge, label %.lr.ph18
+  br i1 %13, label %.lr.ph._crit_edge, label %.lr.ph21
 
-.lr.ph18:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph21:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %14 = phi ptr [ %16, %.lr.ph ], [ %12, %.lr.ph.preheader ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !123
   %.not11 = icmp eq ptr %16, null
   br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !144
 
-.lr.ph:                                           ; preds = %.lr.ph18
+.lr.ph:                                           ; preds = %.lr.ph21
   %17 = icmp eq ptr %1, %16
-  br i1 %17, label %.lr.ph._crit_edge.loopexit, label %.lr.ph18, !llvm.loop !144
+  br i1 %17, label %.lr.ph._crit_edge.loopexit, label %.lr.ph21, !llvm.loop !144
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -3423,7 +3423,7 @@ define dso_local void @_ZN4enki10DependencyC2EOS0_(ptr noundef nonnull align 8 d
   store ptr %0, ptr %.014.lcssa, align 8, !tbaa !123
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph18, %10, %.lr.ph._crit_edge, %2
+.loopexit:                                        ; preds = %.lr.ph21, %10, %.lr.ph._crit_edge, %2
   ret void
 }
 

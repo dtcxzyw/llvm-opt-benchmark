@@ -1007,8 +1007,8 @@ _ZN6LibRaw9PentaxISOEt.exit:                      ; preds = %62, %58
   %266 = getelementptr i8, ptr %265, i64 16
   store ptr %262, ptr %266, align 8, !tbaa !129
   %267 = load ptr, ptr %255, align 8, !tbaa !81
-  %.idx234 = mul nsw i64 %264, 24
-  %268 = getelementptr i8, ptr %252, i64 %.idx234
+  %.idx246 = mul nsw i64 %264, 24
+  %268 = getelementptr i8, ptr %252, i64 %.idx246
   %269 = getelementptr i8, ptr %268, i64 12
   %270 = load i32, ptr %269, align 4, !tbaa !128
   %271 = zext i32 %270 to i64
@@ -1416,8 +1416,8 @@ _ZNK21libraw_static_table_tixEj.exit169:          ; preds = %448, %452, %453, %4
   %499 = getelementptr i8, ptr %498, i64 16
   store ptr %495, ptr %499, align 8, !tbaa !129
   %500 = load ptr, ptr %488, align 8, !tbaa !81
-  %.idx235 = mul nsw i64 %497, 24
-  %501 = getelementptr i8, ptr %485, i64 %.idx235
+  %.idx247 = mul nsw i64 %497, 24
+  %501 = getelementptr i8, ptr %485, i64 %.idx247
   %502 = getelementptr i8, ptr %501, i64 12
   %503 = load i32, ptr %502, align 4, !tbaa !128
   %504 = zext i32 %503 to i64

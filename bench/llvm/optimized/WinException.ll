@@ -2839,11 +2839,11 @@ _ZN4llvm12WinException19getFrameIndexOffsetEiRKNS_13WinEHFuncInfoE.exit260: ; pr
   br label %582
 
 582:                                              ; preds = %.lr.ph339, %_ZN4llvm12WinException19getFrameIndexOffsetEiRKNS_13WinEHFuncInfoE.exit260
-  %.sink374 = phi ptr [ %581, %_ZN4llvm12WinException19getFrameIndexOffsetEiRKNS_13WinEHFuncInfoE.exit260 ], [ %544, %.lr.ph339 ]
-  %.sink371 = phi i64 [ %580, %_ZN4llvm12WinException19getFrameIndexOffsetEiRKNS_13WinEHFuncInfoE.exit260 ], [ 0, %.lr.ph339 ]
-  %583 = getelementptr inbounds nuw i8, ptr %.sink374, i64 72
+  %.sink389 = phi ptr [ %581, %_ZN4llvm12WinException19getFrameIndexOffsetEiRKNS_13WinEHFuncInfoE.exit260 ], [ %544, %.lr.ph339 ]
+  %.sink386 = phi i64 [ %580, %_ZN4llvm12WinException19getFrameIndexOffsetEiRKNS_13WinEHFuncInfoE.exit260 ], [ 0, %.lr.ph339 ]
+  %583 = getelementptr inbounds nuw i8, ptr %.sink389, i64 72
   %584 = load ptr, ptr %583, align 8, !tbaa !304
-  %585 = call noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef %.sink371, ptr noundef nonnull align 8 dereferenceable(2432) %584, i1 noundef zeroext false, i32 noundef 0) #13
+  %585 = call noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef %.sink386, ptr noundef nonnull align 8 dereferenceable(2432) %584, i1 noundef zeroext false, i32 noundef 0) #13
   %586 = getelementptr inbounds nuw i8, ptr %.0122337, i64 24
   %.sroa.0.0.copyload.i.i.i261 = load i64, ptr %586, align 8
   %587 = and i64 %.sroa.0.0.copyload.i.i.i261, 4
@@ -3509,9 +3509,9 @@ _ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.exit32.i: ; preds = %.lr.ph.i27.i, %_ZL
   br i1 %153, label %.lr.ph.i, label %.preheader.i, !llvm.loop !680
 
 .preheader.i:                                     ; preds = %.lr.ph8.i, %.lr.ph.i, %.preheader1.i
-  %.021.lcssa22.i = phi i32 [ %138, %.preheader1.i ], [ %151, %.lr.ph.i ], [ %138, %.lr.ph8.i ]
+  %.021.lcssa24.i = phi i32 [ %138, %.preheader1.i ], [ %151, %.lr.ph.i ], [ %138, %.lr.ph8.i ]
   %.022.lcssa.i = phi i32 [ %.0139170, %.preheader1.i ], [ %.0139170, %.lr.ph.i ], [ %156, %.lr.ph8.i ]
-  %.not10.i = icmp eq i32 %.022.lcssa.i, %.021.lcssa22.i
+  %.not10.i = icmp eq i32 %.022.lcssa.i, %.021.lcssa24.i
   br i1 %.not10.i, label %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.exit, label %.lr.ph13.i
 
 .lr.ph8.i:                                        ; preds = %.preheader1.i, %.lr.ph8.i
@@ -3525,7 +3525,7 @@ _ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.exit32.i: ; preds = %.lr.ph.i27.i, %_ZL
   br i1 %158, label %.lr.ph8.i, label %.preheader.i, !llvm.loop !681
 
 .lr.ph13.i:                                       ; preds = %.preheader.i, %.lr.ph13.i
-  %.112.i = phi i32 [ %164, %.lr.ph13.i ], [ %.021.lcssa22.i, %.preheader.i ]
+  %.112.i = phi i32 [ %164, %.lr.ph13.i ], [ %.021.lcssa24.i, %.preheader.i ]
   %.12311.i = phi i32 [ %161, %.lr.ph13.i ], [ %.022.lcssa.i, %.preheader.i ]
   %159 = sext i32 %.12311.i to i64
   %160 = getelementptr inbounds nuw %"struct.llvm::ClrEHUnwindMapEntry", ptr %.val98, i64 %159, i32 3
@@ -3537,7 +3537,7 @@ _ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.exit32.i: ; preds = %.lr.ph.i27.i, %_ZL
   br i1 %.not.i100, label %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.exit, label %.lr.ph13.i, !llvm.loop !682
 
 _ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.exit: ; preds = %.lr.ph13.i, %.preheader.i
-  %.123.lcssa.i = phi i32 [ %.021.lcssa22.i, %.preheader.i ], [ %161, %.lr.ph13.i ]
+  %.123.lcssa.i = phi i32 [ %.021.lcssa24.i, %.preheader.i ], [ %161, %.lr.ph13.i ]
   %.not93159 = icmp eq i32 %.0139170, %.123.lcssa.i
   br i1 %.not93159, label %._crit_edge163, label %.lr.ph162
 

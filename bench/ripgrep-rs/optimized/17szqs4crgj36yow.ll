@@ -188,9 +188,9 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %.l
   br label %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit
 
 _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i"
-  %.sink138 = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i" ]
+  %.sink175 = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i" ]
   %63 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !32, !noundef !5
-  %64 = add i64 %63, %.sink138
+  %64 = add i64 %63, %.sink175
   store i64 %64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !32
   %65 = getelementptr inbounds nuw [0 x i8], ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 0, i64 %34
   %66 = load i8, ptr %65, align 1, !noundef !5
@@ -252,9 +252,9 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i12: ; preds = %
   br label %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit23
 
 _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit23: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i13", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i18"
-  %.sink139 = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i13" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i18" ]
+  %.sink176 = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i13" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i18" ]
   %89 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !48, !noundef !5
-  %90 = add i64 %89, %.sink139
+  %90 = add i64 %89, %.sink176
   store i64 %90, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !48
   %91 = getelementptr inbounds nuw [0 x i8], ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 0, i64 %36
   %92 = load i8, ptr %91, align 1, !noundef !5
@@ -316,9 +316,9 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i24: ; preds = %
   br label %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit35
 
 _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit35: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i25", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i30"
-  %.sink140 = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i25" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i30" ]
+  %.sink177 = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i25" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i30" ]
   %115 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !64, !noundef !5
-  %116 = add i64 %115, %.sink140
+  %116 = add i64 %115, %.sink177
   store i64 %116, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !64
   %117 = getelementptr inbounds nuw [0 x i8], ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 0, i64 %37
   %118 = load i8, ptr %117, align 1, !noundef !5
@@ -380,17 +380,17 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i36: ; preds = %
   br label %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit47
 
 _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit47: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i42", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i37"
-  %.sink141 = phi i64 [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i42" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i37" ]
+  %.sink178 = phi i64 [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i42" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i37" ]
   %141 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !80, !noundef !5
-  %142 = add i64 %141, %.sink141
+  %142 = add i64 %141, %.sink178
   store i64 %142, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !80
   %143 = icmp ult i64 %20, 3
   br i1 %143, label %._crit_edge, label %.lr.ph
 
 .sink.split:                                      ; preds = %.noexc118, %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit115, %.noexc78, %210
-  %.sink144 = phi i64 [ %.pre.i.i77, %.noexc78 ], [ %215, %210 ], [ %.pre.i.i117, %.noexc118 ], [ %309, %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit115 ]
+  %.sink181 = phi i64 [ %.pre.i.i77, %.noexc78 ], [ %215, %210 ], [ %.pre.i.i117, %.noexc118 ], [ %309, %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit115 ]
   %144 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !5, !noundef !5
-  %145 = getelementptr inbounds i8, ptr %144, i64 %.sink144
+  %145 = getelementptr inbounds i8, ptr %144, i64 %.sink181
   store i8 61, ptr %145, align 1
   %146 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !noundef !5
   %147 = add i64 %146, 1
@@ -468,9 +468,9 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i48: ; preds = %
   br label %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit59
 
 _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit59: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i49", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i54"
-  %.sink145 = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i49" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i54" ]
+  %.sink182 = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i49" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i54" ]
   %179 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !96, !noundef !5
-  %180 = add i64 %179, %.sink145
+  %180 = add i64 %179, %.sink182
   store i64 %180, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !96
   %181 = getelementptr inbounds nuw [0 x i8], ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 0, i64 %153
   %182 = load i8, ptr %181, align 1, !noundef !5
@@ -532,9 +532,9 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i60: ; preds = %
   br label %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit71
 
 _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit71: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i61", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i66"
-  %.sink146 = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i61" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i66" ]
+  %.sink183 = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i61" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i66" ]
   %205 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !112, !noundef !5
-  %206 = add i64 %205, %.sink146
+  %206 = add i64 %205, %.sink183
   store i64 %206, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !112
   %207 = load i64, ptr %5, align 8, !alias.scope !113, !noundef !5
   %208 = icmp eq i64 %206, %207
@@ -641,9 +641,9 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i80: ; preds = %
   br label %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit91
 
 _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit91: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i81", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i86"
-  %.sink147 = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i81" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i86" ]
+  %.sink184 = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i81" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i86" ]
   %256 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !138, !noundef !5
-  %257 = add i64 %256, %.sink147
+  %257 = add i64 %256, %.sink184
   store i64 %257, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !138
   %258 = getelementptr inbounds nuw [0 x i8], ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 0, i64 %228
   %259 = load i8, ptr %258, align 1, !noundef !5
@@ -705,9 +705,9 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i92: ; preds = %
   br label %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit103
 
 _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit103: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i93", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i98"
-  %.sink148 = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i93" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i98" ]
+  %.sink185 = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i93" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i98" ]
   %282 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !154, !noundef !5
-  %283 = add i64 %282, %.sink148
+  %283 = add i64 %282, %.sink185
   store i64 %283, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !154
   %284 = getelementptr inbounds nuw [0 x i8], ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 0, i64 %230
   %285 = load i8, ptr %284, align 1, !noundef !5
@@ -769,9 +769,9 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i104: ; preds = 
   br label %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit115
 
 _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit115: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i105", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i110"
-  %.sink149 = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i105" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i110" ]
+  %.sink186 = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i105" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i110" ]
   %308 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !170, !noundef !5
-  %309 = add i64 %308, %.sink149
+  %309 = add i64 %308, %.sink186
   store i64 %309, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !170
   %310 = load i64, ptr %5, align 8, !alias.scope !171, !noundef !5
   %311 = icmp eq i64 %309, %310

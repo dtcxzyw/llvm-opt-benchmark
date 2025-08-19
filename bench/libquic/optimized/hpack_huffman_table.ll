@@ -190,7 +190,7 @@ _ZNSt6vectorIN3net18HpackHuffmanSymbolESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %.ptr = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %15, 3
   %.add = add nuw nsw i64 %.idx.i.i.i.i.i.i.i, 8
-  %.ptr188 = getelementptr inbounds nuw i8, ptr %12, i64 %.add
+  %.ptr202 = getelementptr inbounds nuw i8, ptr %12, i64 %.add
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %17
@@ -198,7 +198,7 @@ _ZNSt6vectorIN3net18HpackHuffmanSymbolESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %18 = load i64, ptr %12, align 4
   store i64 %18, ptr %.06.i.i.i.i.i.i.i.i.i, align 4
   %19 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %19, %.ptr188
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %19, %.ptr202
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.lr.ph, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !31
 
 .critedge52.thread:                               ; preds = %_ZNSt6vectorIN3net18HpackHuffmanSymbolESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
@@ -659,15 +659,15 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3
   br label %.critedge54.thread
 
 .critedge54.thread:                               ; preds = %.critedge54.thread.sink.split, %.critedge55, %.critedge54
-  %.1179 = phi i1 [ true, %.critedge54 ], [ false, %.critedge55 ], [ false, %.critedge54.thread.sink.split ]
+  %.1193 = phi i1 [ true, %.critedge54 ], [ false, %.critedge55 ], [ false, %.critedge54.thread.sink.split ]
   %209 = phi ptr [ %.pre, %.critedge54 ], [ %121, %.critedge55 ], [ %.ph, %.critedge54.thread.sink.split ]
   call void @_ZdlPv(ptr noundef nonnull %209) #19
   br label %_ZNSt6vectorIN3net18HpackHuffmanSymbolESaIS1_EED2Ev.exit64
 
 _ZNSt6vectorIN3net18HpackHuffmanSymbolESaIS1_EED2Ev.exit64: ; preds = %.critedge54, %.critedge54.thread
-  %.1180 = phi i1 [ true, %.critedge54 ], [ %.1179, %.critedge54.thread ]
+  %.1194 = phi i1 [ true, %.critedge54 ], [ %.1193, %.critedge54.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %.1180
+  ret i1 %.1194
 
 _ZNSt6vectorIN3net18HpackHuffmanSymbolESaIS1_EED2Ev.exit: ; preds = %131, %128
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2344,7 +2344,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3ne
 
 .split.preheader:                                 ; preds = %10
   %18 = or disjoint i64 %11, 1
-  %19 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %18
   %20 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %17
   br label %.split
 
@@ -2386,12 +2386,12 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3ne
   %.018.i.i.us = phi i64 [ %.0919.i.i.us, %36 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.0919.in.i.i.us = add nsw i64 %.018.i.i.us, -1
   %.0919.i.i.us = sdiv i64 %.0919.in.i.i.us, 2
-  %34 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.0919.i.i.us
+  %34 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.0919.i.i.us
   %35 = call noundef zeroext i1 %.sroa.0.0.copyload.us(ptr noundef nonnull align 4 dereferenceable(8) %34, ptr noundef nonnull align 4 dereferenceable(8) %4)
   br i1 %35, label %36, label %.critedge.loopexit.i.i.us
 
 36:                                               ; preds = %.lr.ph.i.i.us
-  %37 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.018.i.i.us
+  %37 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.018.i.i.us
   %38 = load i64, ptr %34, align 4
   store i64 %38, ptr %37, align 4
   %39 = icmp sgt i64 %.0919.i.i.us, %.010.us
@@ -2405,7 +2405,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3ne
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.us: ; preds = %._crit_edge.i.us.thread, %.critedge.loopexit.i.i.us, %._crit_edge.i.us
   %40 = phi i64 [ %.sroa.03.0.copyload.us, %._crit_edge.i.us ], [ %.pre.i.i.us, %.critedge.loopexit.i.i.us ], [ %.sroa.03.0.copyload.us, %._crit_edge.i.us.thread ]
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.0.lcssa.ph.i.i.us, %.critedge.loopexit.i.i.us ], [ %.010.us, %._crit_edge.i.us.thread ]
-  %41 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.0.lcssa.i.i.us
+  %41 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.0.lcssa.i.i.us
   store i64 %40, ptr %41, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.us = icmp eq i64 %.010.us, 0
@@ -2457,12 +2457,12 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt
   %.018.i.i = phi i64 [ %.0919.i.i, %62 ], [ %.1.i, %58 ]
   %.0919.in.i.i = add nsw i64 %.018.i.i, -1
   %.0919.i.i = sdiv i64 %.0919.in.i.i, 2
-  %60 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.0919.i.i
+  %60 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.0919.i.i
   %61 = call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 4 dereferenceable(8) %4)
   br i1 %61, label %62, label %.critedge.loopexit.i.i
 
 62:                                               ; preds = %.lr.ph.i.i
-  %63 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.018.i.i
+  %63 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.018.i.i
   %64 = load i64, ptr %60, align 4
   store i64 %64, ptr %63, align 4
   %65 = icmp sgt i64 %.0919.i.i, %.010
@@ -2476,7 +2476,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit: ; preds = %58, %.critedge.loopexit.i.i
   %66 = phi i64 [ %.sroa.03.0.copyload, %58 ], [ %.pre.i.i, %.critedge.loopexit.i.i ]
   %.0.lcssa.i.i = phi i64 [ %.1.i, %58 ], [ %.0.lcssa.ph.i.i, %.critedge.loopexit.i.i ]
-  %67 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.0.lcssa.i.i
+  %67 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.0.lcssa.i.i
   store i64 %66, ptr %67, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i64 %.010, 0
@@ -3087,7 +3087,7 @@ define linkonce_odr void @_ZNSt6vectorIN3net17HpackHuffmanTable11DecodeEntryESaI
           to label %_ZSt10_ConstructIN3net17HpackHuffmanTable11DecodeEntryEJEEvPT_DpOT0_.exit.i.i.i unwind label %21
 
 _ZSt10_ConstructIN3net17HpackHuffmanTable11DecodeEntryEJEEvPT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %19 = add i64 %.01013.i.i.i, -1
+  %19 = add nsw i64 %.01013.i.i.i, -1
   %20 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 4
   %.not.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN3net17HpackHuffmanTable11DecodeEntryEmS2_ET_S4_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !139
@@ -3148,7 +3148,7 @@ _ZNKSt6vectorIN3net17HpackHuffmanTable11DecodeEntryESaIS2_EE12_M_check_lenEmPKc.
           to label %_ZSt10_ConstructIN3net17HpackHuffmanTable11DecodeEntryEJEEvPT_DpOT0_.exit.i.i.i33 unwind label %41
 
 _ZSt10_ConstructIN3net17HpackHuffmanTable11DecodeEntryEJEEvPT_DpOT0_.exit.i.i.i33: ; preds = %.lr.ph.i.i.i30
-  %39 = add i64 %.01013.i.i.i32, -1
+  %39 = add nsw i64 %.01013.i.i.i32, -1
   %40 = getelementptr inbounds nuw i8, ptr %.014.i.i.i31, i64 4
   %.not.i.i.i34 = icmp eq i64 %39, 0
   br i1 %.not.i.i.i34, label %_ZSt27__uninitialized_default_n_aIPN3net17HpackHuffmanTable11DecodeEntryEmS2_ET_S4_T0_RSaIT1_E.exit36, label %.lr.ph.i.i.i30, !llvm.loop !139

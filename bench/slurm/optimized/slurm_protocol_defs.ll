@@ -5034,9 +5034,9 @@ define dso_local ptr @slurm_parse_step_str(ptr noundef %0) local_unnamed_addr #1
   br label %77
 
 77:                                               ; preds = %68, %75, %51
-  %.sink62 = phi i32 [ %70, %68 ], [ -2, %75 ], [ -2, %51 ]
+  %.sink66 = phi i32 [ %70, %68 ], [ -2, %75 ], [ -2, %51 ]
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %.sink62, ptr %78, align 4
+  store i32 %.sink66, ptr %78, align 4
   %79 = tail call i64 @strtol(ptr noundef nonnull captures(none) %0, ptr noundef null, i32 noundef 10) #24
   %80 = trunc i64 %79 to i32
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -9208,7 +9208,7 @@ define internal fastcc zeroext i1 @_job_name_test(i32 noundef range(i32 0, 83886
 
 5:                                                ; preds = %2
   %.not13.i = icmp samesign ult i32 %0, 8388608
-  br i1 %.not13.i, label %6, label %job_state_string.exit.thread21
+  br i1 %.not13.i, label %6, label %job_state_string.exit.thread22
 
 6:                                                ; preds = %5
   %7 = and i64 %3, 16384
@@ -9277,10 +9277,10 @@ job_state_string.exit:                            ; preds = %25, %switch.lookup,
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %54, label %31
 
-job_state_string.exit.thread21:                   ; preds = %5
+job_state_string.exit.thread22:                   ; preds = %5
   %29 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.70) #24
-  %.not23 = icmp eq i32 %29, 0
-  br i1 %.not23, label %54, label %job_state_string_compact.exit
+  %.not24 = icmp eq i32 %29, 0
+  br i1 %.not24, label %54, label %job_state_string_compact.exit
 
 job_state_string.exit.thread:                     ; preds = %2
   %30 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.69) #24
@@ -9339,23 +9339,23 @@ job_state_string.exit.thread:                     ; preds = %2
 50:                                               ; preds = %49
   %trunc.i18 = trunc i32 %0 to i8
   %51 = icmp ult i8 %trunc.i18, 12
-  br i1 %51, label %switch.lookup24, label %job_state_string_compact.exit
+  br i1 %51, label %switch.lookup25, label %job_state_string_compact.exit
 
-switch.lookup24:                                  ; preds = %50
+switch.lookup25:                                  ; preds = %50
   %trunc.i18.mask = and i32 %0, 15
   %52 = zext nneg i32 %trunc.i18.mask to i64
-  %switch.gep25 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._job_name_test.1, i64 0, i64 %52
-  %switch.load26 = load ptr, ptr %switch.gep25, align 8
+  %switch.gep26 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._job_name_test.1, i64 0, i64 %52
+  %switch.load27 = load ptr, ptr %switch.gep26, align 8
   br label %job_state_string_compact.exit
 
-job_state_string_compact.exit:                    ; preds = %50, %switch.lookup24, %job_state_string.exit.thread21, %job_state_string.exit.thread, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49
-  %.0.i6 = phi ptr [ @.str.94, %31 ], [ @.str.95, %33 ], [ @.str.96, %35 ], [ @.str.97, %37 ], [ @.str.98, %39 ], [ @.str.99, %41 ], [ @.str.100, %43 ], [ @.str.101, %45 ], [ @.str.102, %47 ], [ @.str.103, %49 ], [ @.str.92, %job_state_string.exit.thread ], [ @.str.93, %job_state_string.exit.thread21 ], [ %switch.load26, %switch.lookup24 ], [ @.str.91, %50 ]
+job_state_string_compact.exit:                    ; preds = %50, %switch.lookup25, %job_state_string.exit.thread22, %job_state_string.exit.thread, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49
+  %.0.i6 = phi ptr [ @.str.94, %31 ], [ @.str.95, %33 ], [ @.str.96, %35 ], [ @.str.97, %37 ], [ @.str.98, %39 ], [ @.str.99, %41 ], [ @.str.100, %43 ], [ @.str.101, %45 ], [ @.str.102, %47 ], [ @.str.103, %49 ], [ @.str.92, %job_state_string.exit.thread ], [ @.str.93, %job_state_string.exit.thread22 ], [ %switch.load27, %switch.lookup25 ], [ @.str.91, %50 ]
   %53 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull %.0.i6) #24
   %.not4 = icmp eq i32 %53, 0
   br label %54
 
-54:                                               ; preds = %job_state_string.exit.thread21, %job_state_string.exit.thread, %job_state_string_compact.exit, %job_state_string.exit
-  %.0 = phi i1 [ true, %job_state_string.exit ], [ %.not4, %job_state_string_compact.exit ], [ true, %job_state_string.exit.thread ], [ true, %job_state_string.exit.thread21 ]
+54:                                               ; preds = %job_state_string.exit.thread22, %job_state_string.exit.thread, %job_state_string_compact.exit, %job_state_string.exit
+  %.0 = phi i1 [ true, %job_state_string.exit ], [ %.not4, %job_state_string_compact.exit ], [ true, %job_state_string.exit.thread ], [ true, %job_state_string.exit.thread22 ]
   ret i1 %.0
 }
 
@@ -12550,8 +12550,8 @@ define dso_local void @xlate_array_task_str(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not7282.not, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader80
-  %sext92 = shl i64 %34, 32
-  %47 = ashr exact i64 %sext92, 32
+  %sext100 = shl i64 %34, 32
+  %47 = ashr exact i64 %sext100, 32
   %48 = add nsw i64 %47, 1
   %49 = add i32 %37, 1
   br label %50
@@ -12595,21 +12595,21 @@ define dso_local void @xlate_array_task_str(ptr noundef %0, i32 noundef %1, ptr 
 59:                                               ; preds = %.thread
   %60 = tail call ptr @getenv(ptr noundef nonnull @.str.452) #24
   %.not75 = icmp eq ptr %60, null
-  br i1 %.not75, label %.thread93, label %61
+  br i1 %.not75, label %.thread101, label %61
 
 61:                                               ; preds = %59
   %62 = tail call i64 @strtol(ptr noundef nonnull captures(none) %60, ptr noundef null, i32 noundef 10) #24
-  %.fr95 = freeze i64 %62
-  %63 = trunc i64 %.fr95 to i32
+  %.fr103 = freeze i64 %62
+  %63 = trunc i64 %.fr103 to i32
   %64 = icmp slt i32 %63, 0
   %65 = tail call i32 @llvm.smin.i32(i32 %63, i32 4096)
-  br i1 %64, label %.thread93, label %66
+  br i1 %64, label %.thread101, label %66
 
-.thread93:                                        ; preds = %59, %61
+.thread101:                                       ; preds = %59, %61
   br label %66
 
-66:                                               ; preds = %61, %.thread93
-  %67 = phi i32 [ 64, %.thread93 ], [ %65, %61 ]
+66:                                               ; preds = %61, %.thread101
+  %67 = phi i32 [ 64, %.thread101 ], [ %65, %61 ]
   store i32 %67, ptr @xlate_array_task_str.bitstr_len, align 4
   br label %68
 

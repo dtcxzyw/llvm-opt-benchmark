@@ -2067,8 +2067,8 @@ define hidden range(i32 0, 2) i32 @SSL_set_wfd(ptr noundef captures(none) %0, i3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not22.i = icmp eq ptr %25, %13
   %.not23.i = icmp eq ptr %17, %25
-  %or.cond27 = select i1 %.not22.i, i1 true, i1 %.not23.i
-  br i1 %or.cond27, label %.thread, label %27
+  %or.cond36 = select i1 %.not22.i, i1 true, i1 %.not23.i
+  br i1 %or.cond36, label %.thread, label %27
 
 27:                                               ; preds = %._crit_edge24
   tail call void @BIO_free_all(ptr noundef %25) #21
@@ -2091,8 +2091,8 @@ define hidden range(i32 0, 2) i32 @SSL_set_wfd(ptr noundef captures(none) %0, i3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !117
   %33 = icmp eq ptr %.pre, %32
-  %or.cond28 = select i1 %.not.i18, i1 %33, i1 false
-  br i1 %or.cond28, label %34, label %._crit_edge
+  %or.cond37 = select i1 %.not.i18, i1 %33, i1 false
+  br i1 %or.cond37, label %34, label %._crit_edge
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %.pre, i64 56
@@ -5178,10 +5178,10 @@ switch.lookup:                                    ; preds = %22
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %14, %15
-  %.sink44 = phi i32 [ 27, %15 ], [ 26, %14 ], [ %switch.load, %switch.lookup ]
+  %.sink45 = phi i32 [ 27, %15 ], [ 26, %14 ], [ %switch.load, %switch.lookup ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %26 = load i32, ptr %25, align 8, !tbaa !81
-  %27 = lshr i32 %26, %.sink44
+  %27 = lshr i32 %26, %.sink45
   %.lobit = and i32 %27, 1
   %28 = xor i32 %.lobit, 1
   br label %29
@@ -5642,11 +5642,11 @@ define hidden range(i32 0, 2) i32 @SSL_clear(ptr noundef %0) local_unnamed_addr 
 
 .sink.split:                                      ; preds = %18, %20
   %.sink = phi i32 [ 4096, %20 ], [ 8192, %18 ]
-  %.sink34 = phi i64 [ 32, %20 ], [ 24, %18 ]
+  %.sink35 = phi i64 [ 32, %20 ], [ 24, %18 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %.sink, ptr %22, align 4, !tbaa !128
   %23 = load ptr, ptr %2, align 8, !tbaa !106
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.sink34
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.sink35
   %25 = load ptr, ptr %24, align 8, !tbaa !248
   store ptr %25, ptr %16, align 8, !tbaa !130
   br label %26

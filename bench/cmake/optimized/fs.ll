@@ -240,7 +240,7 @@ define internal void @uv__fs_work(ptr noundef %0) #0 {
 136:                                              ; preds = %uv__fs_readlink.exit.thread, %1
   store i32 0, ptr %25, align 4, !tbaa !27
   %137 = load i32, ptr %22, align 8, !tbaa !18
-  switch i32 %137, label %860 [
+  switch i32 %137, label %861 [
     i32 12, label %138
     i32 13, label %143
     i32 26, label %148
@@ -271,12 +271,12 @@ define internal void @uv__fs_work(ptr noundef %0) #0 {
     i32 21, label %603
     i32 18, label %608
     i32 5, label %612
-    i32 6, label %702
-    i32 34, label %729
-    i32 24, label %750
-    i32 17, label %755
-    i32 10, label %759
-    i32 4, label %787
+    i32 6, label %703
+    i32 34, label %730
+    i32 24, label %751
+    i32 17, label %756
+    i32 10, label %760
+    i32 4, label %788
   ]
 
 138:                                              ; preds = %136
@@ -455,12 +455,12 @@ uv__fs_close.exit:                                ; preds = %154, %158
 
 224:                                              ; preds = %218, %212
   %225 = load i64, ptr %132, align 8, !tbaa !37
-  %cond234 = icmp eq i64 %225, 0
-  br i1 %cond234, label %.thread, label %.lr.ph
+  %cond229 = icmp eq i64 %225, 0
+  br i1 %cond229, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %224, %230
-  %.054.i236 = phi i64 [ %232, %230 ], [ 0, %224 ]
-  %.055.i235 = phi i64 [ %231, %230 ], [ %225, %224 ]
+  %.054.i231 = phi i64 [ %232, %230 ], [ 0, %224 ]
+  %.055.i230 = phi i64 [ %231, %230 ], [ %225, %224 ]
   store i32 6, ptr %119, align 8, !tbaa !4
   store i32 5, ptr %120, align 8, !tbaa !18
   store ptr null, ptr %124, align 8, !tbaa !21
@@ -468,8 +468,8 @@ uv__fs_close.exit:                                ; preds = %154, %158
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %122, i8 0, i64 40, i1 false)
   store i32 %165, ptr %126, align 4, !tbaa !24
   store i32 %180, ptr %133, align 8, !tbaa !31
-  store i64 %.054.i236, ptr %134, align 8, !tbaa !38
-  store i64 %.055.i235, ptr %135, align 8, !tbaa !39
+  store i64 %.054.i231, ptr %134, align 8, !tbaa !38
+  store i64 %.055.i230, ptr %135, align 8, !tbaa !39
   call void @uv__fs_work(ptr noundef nonnull %128)
   %226 = load i64, ptr %121, align 8, !tbaa !26
   call void @uv_fs_req_cleanup(ptr noundef nonnull %19)
@@ -481,8 +481,8 @@ uv__fs_close.exit:                                ; preds = %154, %158
   br label %233
 
 230:                                              ; preds = %.lr.ph
-  %231 = sub nsw i64 %.055.i235, %226
-  %232 = add nuw nsw i64 %226, %.054.i236
+  %231 = sub nsw i64 %.055.i230, %226
+  %232 = add nuw nsw i64 %226, %.054.i231
   %cond = icmp eq i64 %231, 0
   br i1 %cond, label %.thread, label %.lr.ph, !llvm.loop !41
 
@@ -1256,9 +1256,9 @@ uv__fs_closedir.exit:                             ; preds = %572, %576
   br i1 %596, label %uv__fs_readlink.exit.thread, label %597
 
 597:                                              ; preds = %593, %591
-  %.lcssa304 = phi i64 [ %spec.store.select.i.i, %593 ], [ %588, %591 ]
+  %.lcssa294 = phi i64 [ %spec.store.select.i.i, %593 ], [ %588, %591 ]
   %.0.i101 = phi ptr [ %595, %593 ], [ %583, %591 ]
-  %598 = getelementptr inbounds i8, ptr %.0.i101, i64 %.lcssa304
+  %598 = getelementptr inbounds i8, ptr %.0.i101, i64 %.lcssa294
   store i8 0, ptr %598, align 1, !tbaa !25
   br label %.thread160
 
@@ -1455,62 +1455,62 @@ thread-pre-split.i:                               ; preds = %uv__is_cifs_or_smb.
 
 .lr.ph.i.i:                                       ; preds = %664, %.outer68.i.i
   %.0.ph151.i.i = phi i32 [ %.0105.us177.i.i, %.outer68.i.i ], [ 1, %664 ]
-  %.047.ph149.i.i = phi i64 [ %699, %.outer68.i.i ], [ %657, %664 ]
-  %.048.ph148.i.i = phi i64 [ %700, %.outer68.i.i ], [ 0, %664 ]
-  br label %668
+  %.047.ph149.i.i = phi i64 [ %700, %.outer68.i.i ], [ %657, %664 ]
+  %.048.ph148.i.i = phi i64 [ %701, %.outer68.i.i ], [ 0, %664 ]
+  %668 = icmp ne i32 %.0.ph151.i.i, 0
+  br label %669
 
-668:                                              ; preds = %.backedge, %.lr.ph.i.i
-  %.0105.us.i.i = phi i32 [ %.0.ph151.i.i, %.lr.ph.i.i ], [ 0, %.backedge ]
+669:                                              ; preds = %.backedge, %.lr.ph.i.i
+  %.0105.us.i.i = phi i1 [ %668, %.lr.ph.i.i ], [ false, %.backedge ]
   %.048104.us.i.i = phi i64 [ %.048.ph148.i.i, %.lr.ph.i.i ], [ 0, %.backedge ]
-  %669 = sub nuw i64 %665, %.048104.us.i.i
-  %spec.store.select.us.i.i = call i64 @llvm.umin.i64(i64 %669, i64 8192)
-  %.not154.i.i = icmp ne i32 %.0105.us.i.i, 0
-  br i1 %.not154.i.i, label %.split.us.us.i.i, label %.split.us110.i.i
+  %670 = sub nuw i64 %665, %.048104.us.i.i
+  %spec.store.select.us.i.i = call i64 @llvm.umin.i64(i64 %670, i64 8192)
+  br i1 %.0105.us.i.i, label %.split.us.us.i.i, label %.split.us110.i.i
 
-.split.us110.i.i:                                 ; preds = %668, %671
-  %670 = call i64 @read(i32 noundef %666, ptr noundef nonnull %6, i64 noundef %spec.store.select.us.i.i) #15
-  switch i64 %670, label %.preheader64.i.i [
-    i64 -1, label %671
+.split.us110.i.i:                                 ; preds = %669, %672
+  %671 = call i64 @read(i32 noundef %666, ptr noundef nonnull %6, i64 noundef %spec.store.select.us.i.i) #15
+  switch i64 %671, label %.preheader64.i.i [
+    i64 -1, label %672
     i64 0, label %.loopexit.i.i
   ]
 
-671:                                              ; preds = %.split.us110.i.i
-  %672 = load i32, ptr %25, align 4, !tbaa !27
-  %673 = icmp eq i32 %672, 4
-  br i1 %673, label %.split.us110.i.i, label %.split102.us109.i.i, !llvm.loop !96
+672:                                              ; preds = %.split.us110.i.i
+  %673 = load i32, ptr %25, align 4, !tbaa !27
+  %674 = icmp eq i32 %673, 4
+  br i1 %674, label %.split.us110.i.i, label %.split102.us109.i.i, !llvm.loop !96
 
-674:                                              ; preds = %.split102.us109.i.i
-  switch i32 %675, label %uv__fs_sendfile_emul.exit.i [
+675:                                              ; preds = %.split102.us109.i.i
+  switch i32 %676, label %uv__fs_sendfile_emul.exit.i [
     i32 5, label %.backedge
     i32 29, label %.backedge
   ]
 
-.backedge:                                        ; preds = %674, %674
-  br label %668
+.backedge:                                        ; preds = %675, %675
+  br label %669
 
-.split102.us109.i.i:                              ; preds = %671, %678
-  %675 = phi i32 [ %679, %678 ], [ %672, %671 ]
-  %676 = icmp eq i64 %.048104.us.i.i, 0
-  %or.cond.us.i.i = and i1 %.not154.i.i, %676
-  br i1 %or.cond.us.i.i, label %674, label %.split122.us.i.i
+.split102.us109.i.i:                              ; preds = %672, %679
+  %676 = phi i32 [ %680, %679 ], [ %673, %672 ]
+  %677 = icmp eq i64 %.048104.us.i.i, 0
+  %or.cond.us.i.i = and i1 %.0105.us.i.i, %677
+  br i1 %or.cond.us.i.i, label %675, label %.split122.us.i.i
 
-.split.us.us.i.i:                                 ; preds = %668, %678
-  %677 = call i64 @pread(i32 noundef %666, ptr noundef nonnull %6, i64 noundef %spec.store.select.us.i.i, i64 noundef %.047.ph149.i.i) #15
-  switch i64 %677, label %.preheader64.i.i [
-    i64 -1, label %678
+.split.us.us.i.i:                                 ; preds = %669, %679
+  %678 = call i64 @pread(i32 noundef %666, ptr noundef nonnull %6, i64 noundef %spec.store.select.us.i.i, i64 noundef %.047.ph149.i.i) #15
+  switch i64 %678, label %.preheader64.i.i [
+    i64 -1, label %679
     i64 0, label %.loopexit.i.i
   ]
 
-678:                                              ; preds = %.split.us.us.i.i
-  %679 = load i32, ptr %25, align 4, !tbaa !27
-  %680 = icmp eq i32 %679, 4
-  br i1 %680, label %.split.us.us.i.i, label %.split102.us109.i.i, !llvm.loop !96
+679:                                              ; preds = %.split.us.us.i.i
+  %680 = load i32, ptr %25, align 4, !tbaa !27
+  %681 = icmp eq i32 %680, 4
+  br i1 %681, label %.split.us.us.i.i, label %.split102.us109.i.i, !llvm.loop !96
 
 .preheader64.i.i:                                 ; preds = %.split.us110.i.i, %.split.us.us.i.i
-  %.0105.us177.i.i = phi i32 [ %.0105.us.i.i, %.split.us.us.i.i ], [ 0, %.split.us110.i.i ]
-  %.us-phi98.i.i = phi i64 [ %677, %.split.us.us.i.i ], [ %670, %.split.us110.i.i ]
-  %681 = icmp sgt i64 %.us-phi98.i.i, 0
-  br i1 %681, label %.outer.split.i.i, label %.outer68.i.i
+  %.0105.us177.i.i = phi i32 [ 1, %.split.us.us.i.i ], [ 0, %.split.us110.i.i ]
+  %.us-phi98.i.i = phi i64 [ %678, %.split.us.us.i.i ], [ %671, %.split.us110.i.i ]
+  %682 = icmp sgt i64 %.us-phi98.i.i, 0
+  br i1 %682, label %.outer.split.i.i, label %.outer68.i.i
 
 .split122.us.i.i:                                 ; preds = %.split102.us109.i.i
   switch i64 %.048104.us.i.i, label %.loopexit.thread.i.i [
@@ -1519,67 +1519,67 @@ thread-pre-split.i:                               ; preds = %uv__is_cifs_or_smb.
   ]
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.backedge, %.outer.split.i.i
-  %682 = call i64 @write(i32 noundef %667, ptr noundef nonnull %689, i64 noundef %688) #15
-  %cond.i.i = icmp eq i64 %682, -1
-  br i1 %cond.i.i, label %683, label %.outer.i.i105
+  %683 = call i64 @write(i32 noundef %667, ptr noundef nonnull %690, i64 noundef %689) #15
+  %cond.i.i = icmp eq i64 %683, -1
+  br i1 %cond.i.i, label %684, label %.outer.i.i105
 
-683:                                              ; preds = %.preheader.i.i
-  %684 = load i32, ptr %25, align 4, !tbaa !27
-  switch i32 %684, label %uv__fs_sendfile_emul.exit.i [
+684:                                              ; preds = %.preheader.i.i
+  %685 = load i32, ptr %25, align 4, !tbaa !27
+  switch i32 %685, label %uv__fs_sendfile_emul.exit.i [
     i32 4, label %.preheader.i.i.backedge
-    i32 11, label %690
+    i32 11, label %691
   ]
 
-.preheader.i.i.backedge:                          ; preds = %683, %.critedge57.i.i
+.preheader.i.i.backedge:                          ; preds = %684, %.critedge57.i.i
   br label %.preheader.i.i, !llvm.loop !97
 
 .outer.i.i105:                                    ; preds = %.preheader.i.i
-  %685 = add nsw i64 %682, %.049.ph147.i.i
-  %686 = icmp slt i64 %685, %.us-phi98.i.i
-  %687 = sub nsw i64 %.us-phi98.i.i, %685
-  br i1 %686, label %.outer.split.i.i, label %.outer68.i.i, !llvm.loop !97
+  %686 = add nsw i64 %683, %.049.ph147.i.i
+  %687 = icmp slt i64 %686, %.us-phi98.i.i
+  %688 = sub nsw i64 %.us-phi98.i.i, %686
+  br i1 %687, label %.outer.split.i.i, label %.outer68.i.i, !llvm.loop !97
 
 .outer.split.i.i:                                 ; preds = %.preheader64.i.i, %.outer.i.i105
-  %688 = phi i64 [ %687, %.outer.i.i105 ], [ %.us-phi98.i.i, %.preheader64.i.i ]
-  %.049.ph147.i.i = phi i64 [ %685, %.outer.i.i105 ], [ 0, %.preheader64.i.i ]
-  %689 = getelementptr inbounds i8, ptr %6, i64 %.049.ph147.i.i
+  %689 = phi i64 [ %688, %.outer.i.i105 ], [ %.us-phi98.i.i, %.preheader64.i.i ]
+  %.049.ph147.i.i = phi i64 [ %686, %.outer.i.i105 ], [ 0, %.preheader64.i.i ]
+  %690 = getelementptr inbounds i8, ptr %6, i64 %.049.ph147.i.i
   br label %.preheader.i.i
 
-690:                                              ; preds = %683
+691:                                              ; preds = %684
   store i32 %667, ptr %5, align 4, !tbaa !98
   store i16 4, ptr %80, align 4, !tbaa !101
   store i16 0, ptr %81, align 2, !tbaa !102
-  br label %691
+  br label %692
 
-691:                                              ; preds = %694, %690
-  %692 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef -1) #15
-  %693 = icmp eq i32 %692, -1
-  br i1 %693, label %694, label %.critedge57.i.i
+692:                                              ; preds = %695, %691
+  %693 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef -1) #15
+  %694 = icmp eq i32 %693, -1
+  br i1 %694, label %695, label %.critedge57.i.i
 
-694:                                              ; preds = %691
-  %695 = load i32, ptr %25, align 4, !tbaa !27
-  %696 = icmp eq i32 %695, 4
-  br i1 %696, label %691, label %.critedge6.i.i, !llvm.loop !103
+695:                                              ; preds = %692
+  %696 = load i32, ptr %25, align 4, !tbaa !27
+  %697 = icmp eq i32 %696, 4
+  br i1 %697, label %692, label %.critedge6.i.i, !llvm.loop !103
 
-.critedge57.i.i:                                  ; preds = %691
-  %697 = load i16, ptr %81, align 2, !tbaa !102
-  %698 = and i16 %697, -5
-  %.not55.i.i = icmp eq i16 %698, 0
+.critedge57.i.i:                                  ; preds = %692
+  %698 = load i16, ptr %81, align 2, !tbaa !102
+  %699 = and i16 %698, -5
+  %.not55.i.i = icmp eq i16 %699, 0
   br i1 %.not55.i.i, label %.preheader.i.i.backedge, label %.critedge6.i.i
 
-.critedge6.i.i:                                   ; preds = %.critedge57.i.i, %694
+.critedge6.i.i:                                   ; preds = %.critedge57.i.i, %695
   store i32 5, ptr %25, align 4, !tbaa !27
   br label %uv__fs_sendfile_emul.exit.i
 
 .outer68.i.i:                                     ; preds = %.outer.i.i105, %.preheader64.i.i
-  %699 = add nsw i64 %.us-phi98.i.i, %.047.ph149.i.i
-  %700 = add nsw i64 %.us-phi98.i.i, %.048104.us.i.i
-  %701 = icmp ult i64 %700, %665
-  br i1 %701, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !104
+  %700 = add nsw i64 %.us-phi98.i.i, %.047.ph149.i.i
+  %701 = add nsw i64 %.us-phi98.i.i, %.048104.us.i.i
+  %702 = icmp ult i64 %701, %665
+  br i1 %702, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !104
 
 .loopexit.i.i:                                    ; preds = %.outer68.i.i, %.split.us110.i.i, %.split.us.us.i.i
-  %.047.ph96.i.i = phi i64 [ %.047.ph149.i.i, %.split.us.us.i.i ], [ %.047.ph149.i.i, %.split.us110.i.i ], [ %699, %.outer68.i.i ]
-  %.04882.i.i = phi i64 [ %.048104.us.i.i, %.split.us.us.i.i ], [ %.048104.us.i.i, %.split.us110.i.i ], [ %700, %.outer68.i.i ]
+  %.047.ph96.i.i = phi i64 [ %.047.ph149.i.i, %.split.us.us.i.i ], [ %.047.ph149.i.i, %.split.us110.i.i ], [ %700, %.outer68.i.i ]
+  %.04882.i.i = phi i64 [ %.048104.us.i.i, %.split.us.us.i.i ], [ %.048104.us.i.i, %.split.us110.i.i ], [ %701, %.outer68.i.i ]
   %.not56.old.i.i = icmp eq i64 %.04882.i.i, -1
   br i1 %.not56.old.i.i, label %uv__fs_sendfile_emul.exit.i, label %.loopexit.thread.i.i
 
@@ -1589,8 +1589,8 @@ thread-pre-split.i:                               ; preds = %uv__is_cifs_or_smb.
   store i64 %.047.ph95.i.i, ptr %28, align 8, !tbaa !38
   br label %uv__fs_sendfile_emul.exit.i
 
-uv__fs_sendfile_emul.exit.i:                      ; preds = %674, %683, %.loopexit.thread.i.i, %.loopexit.i.i, %.critedge6.i.i, %.split122.us.i.i, %.split122.us.i.i
-  %.161.i.i = phi i64 [ %.04881.i.i, %.loopexit.thread.i.i ], [ -1, %.loopexit.i.i ], [ -1, %.critedge6.i.i ], [ -1, %.split122.us.i.i ], [ -1, %.split122.us.i.i ], [ -1, %683 ], [ -1, %674 ]
+uv__fs_sendfile_emul.exit.i:                      ; preds = %675, %684, %.loopexit.thread.i.i, %.loopexit.i.i, %.critedge6.i.i, %.split122.us.i.i, %.split122.us.i.i
+  %.161.i.i = phi i64 [ %.04881.i.i, %.loopexit.thread.i.i ], [ -1, %.loopexit.i.i ], [ -1, %.critedge6.i.i ], [ -1, %.split122.us.i.i ], [ -1, %.split122.us.i.i ], [ -1, %684 ], [ -1, %675 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %uv__fs_sendfile.exit
@@ -1600,384 +1600,384 @@ uv__fs_sendfile.exit:                             ; preds = %.critedge.thread25.
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %uv__fs_readlink.exit
 
-702:                                              ; preds = %136
-  %703 = load ptr, ptr %34, align 8, !tbaa !20
+703:                                              ; preds = %136
+  %704 = load ptr, ptr %34, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %704 = call fastcc i32 @uv__fs_statx(i32 noundef -1, ptr noundef %703, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %43)
-  %.not.i106 = icmp eq i32 %704, -38
-  br i1 %.not.i106, label %705, label %uv__fs_stat.exit
+  %705 = call fastcc i32 @uv__fs_statx(i32 noundef -1, ptr noundef %704, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %43)
+  %.not.i106 = icmp eq i32 %705, -38
+  br i1 %.not.i106, label %706, label %uv__fs_stat.exit
 
-705:                                              ; preds = %702
-  %706 = call i32 @stat(ptr noundef %703, ptr noundef nonnull %4) #15
-  %707 = icmp eq i32 %706, 0
-  br i1 %707, label %708, label %uv__fs_stat.exit
+706:                                              ; preds = %703
+  %707 = call i32 @stat(ptr noundef %704, ptr noundef nonnull %4) #15
+  %708 = icmp eq i32 %707, 0
+  br i1 %708, label %709, label %uv__fs_stat.exit
 
-708:                                              ; preds = %705
-  %709 = load i64, ptr %4, align 8, !tbaa !35
-  store i64 %709, ptr %43, align 8, !tbaa !43
-  %710 = load i32, ptr %44, align 8, !tbaa !32
-  %711 = zext i32 %710 to i64
-  store i64 %711, ptr %45, align 8, !tbaa !44
-  %712 = load i64, ptr %46, align 8, !tbaa !45
-  store i64 %712, ptr %47, align 8, !tbaa !46
-  %713 = load i32, ptr %48, align 4, !tbaa !47
-  %714 = zext i32 %713 to i64
-  store i64 %714, ptr %49, align 8, !tbaa !48
-  %715 = load i32, ptr %50, align 8, !tbaa !49
-  %716 = zext i32 %715 to i64
-  store i64 %716, ptr %51, align 8, !tbaa !50
-  %717 = load i64, ptr %52, align 8, !tbaa !51
-  store i64 %717, ptr %53, align 8, !tbaa !52
-  %718 = load i64, ptr %54, align 8, !tbaa !36
-  store i64 %718, ptr %55, align 8, !tbaa !53
-  %719 = load i64, ptr %56, align 8, !tbaa !37
-  store i64 %719, ptr %57, align 8, !tbaa !54
-  %720 = load i64, ptr %58, align 8, !tbaa !55
-  store i64 %720, ptr %59, align 8, !tbaa !56
-  %721 = load i64, ptr %60, align 8, !tbaa !57
-  store i64 %721, ptr %61, align 8, !tbaa !58
-  %722 = load i64, ptr %62, align 8, !tbaa !59
-  store i64 %722, ptr %63, align 8, !tbaa !60
-  %723 = load i64, ptr %64, align 8, !tbaa !61
-  store i64 %723, ptr %65, align 8, !tbaa !62
-  %724 = load i64, ptr %66, align 8, !tbaa !63
-  store i64 %724, ptr %67, align 8, !tbaa !64
-  %725 = load i64, ptr %68, align 8, !tbaa !65
-  store i64 %725, ptr %69, align 8, !tbaa !66
-  %726 = load i64, ptr %70, align 8, !tbaa !67
-  store i64 %726, ptr %71, align 8, !tbaa !68
-  %727 = load i64, ptr %72, align 8, !tbaa !69
-  store i64 %727, ptr %73, align 8, !tbaa !70
-  store i64 %726, ptr %74, align 8, !tbaa !71
-  store i64 %727, ptr %75, align 8, !tbaa !72
+709:                                              ; preds = %706
+  %710 = load i64, ptr %4, align 8, !tbaa !35
+  store i64 %710, ptr %43, align 8, !tbaa !43
+  %711 = load i32, ptr %44, align 8, !tbaa !32
+  %712 = zext i32 %711 to i64
+  store i64 %712, ptr %45, align 8, !tbaa !44
+  %713 = load i64, ptr %46, align 8, !tbaa !45
+  store i64 %713, ptr %47, align 8, !tbaa !46
+  %714 = load i32, ptr %48, align 4, !tbaa !47
+  %715 = zext i32 %714 to i64
+  store i64 %715, ptr %49, align 8, !tbaa !48
+  %716 = load i32, ptr %50, align 8, !tbaa !49
+  %717 = zext i32 %716 to i64
+  store i64 %717, ptr %51, align 8, !tbaa !50
+  %718 = load i64, ptr %52, align 8, !tbaa !51
+  store i64 %718, ptr %53, align 8, !tbaa !52
+  %719 = load i64, ptr %54, align 8, !tbaa !36
+  store i64 %719, ptr %55, align 8, !tbaa !53
+  %720 = load i64, ptr %56, align 8, !tbaa !37
+  store i64 %720, ptr %57, align 8, !tbaa !54
+  %721 = load i64, ptr %58, align 8, !tbaa !55
+  store i64 %721, ptr %59, align 8, !tbaa !56
+  %722 = load i64, ptr %60, align 8, !tbaa !57
+  store i64 %722, ptr %61, align 8, !tbaa !58
+  %723 = load i64, ptr %62, align 8, !tbaa !59
+  store i64 %723, ptr %63, align 8, !tbaa !60
+  %724 = load i64, ptr %64, align 8, !tbaa !61
+  store i64 %724, ptr %65, align 8, !tbaa !62
+  %725 = load i64, ptr %66, align 8, !tbaa !63
+  store i64 %725, ptr %67, align 8, !tbaa !64
+  %726 = load i64, ptr %68, align 8, !tbaa !65
+  store i64 %726, ptr %69, align 8, !tbaa !66
+  %727 = load i64, ptr %70, align 8, !tbaa !67
+  store i64 %727, ptr %71, align 8, !tbaa !68
+  %728 = load i64, ptr %72, align 8, !tbaa !69
+  store i64 %728, ptr %73, align 8, !tbaa !70
+  store i64 %727, ptr %74, align 8, !tbaa !71
+  store i64 %728, ptr %75, align 8, !tbaa !72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
   br label %uv__fs_stat.exit
 
-uv__fs_stat.exit:                                 ; preds = %702, %705, %708
-  %.0.i107 = phi i32 [ %704, %702 ], [ 0, %708 ], [ %706, %705 ]
+uv__fs_stat.exit:                                 ; preds = %703, %706, %709
+  %.0.i107 = phi i32 [ %705, %703 ], [ 0, %709 ], [ %707, %706 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %728 = sext i32 %.0.i107 to i64
+  %729 = sext i32 %.0.i107 to i64
   br label %uv__fs_readlink.exit
 
-729:                                              ; preds = %136
+730:                                              ; preds = %136
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %730 = load ptr, ptr %34, align 8, !tbaa !20
-  %731 = call i32 @statfs(ptr noundef %730, ptr noundef nonnull %3) #15
-  %.not.i108 = icmp eq i32 %731, 0
-  br i1 %.not.i108, label %732, label %uv__fs_statfs.exit
+  %731 = load ptr, ptr %34, align 8, !tbaa !20
+  %732 = call i32 @statfs(ptr noundef %731, ptr noundef nonnull %3) #15
+  %.not.i108 = icmp eq i32 %732, 0
+  br i1 %.not.i108, label %733, label %uv__fs_statfs.exit
 
-732:                                              ; preds = %729
-  %733 = call ptr @uv__malloc(i64 noundef 88) #15
-  %734 = icmp eq ptr %733, null
-  br i1 %734, label %735, label %736
+733:                                              ; preds = %730
+  %734 = call ptr @uv__malloc(i64 noundef 88) #15
+  %735 = icmp eq ptr %734, null
+  br i1 %735, label %736, label %737
 
-735:                                              ; preds = %732
+736:                                              ; preds = %733
   store i32 12, ptr %25, align 4, !tbaa !27
   br label %uv__fs_statfs.exit
 
-736:                                              ; preds = %732
-  %737 = load i64, ptr %3, align 8, !tbaa !93
-  store i64 %737, ptr %733, align 8, !tbaa !105
-  %738 = load i64, ptr %36, align 8, !tbaa !107
-  %739 = getelementptr inbounds nuw i8, ptr %733, i64 8
-  store i64 %738, ptr %739, align 8, !tbaa !108
-  %740 = load i64, ptr %37, align 8, !tbaa !109
-  %741 = getelementptr inbounds nuw i8, ptr %733, i64 16
-  store i64 %740, ptr %741, align 8, !tbaa !110
-  %742 = load i64, ptr %38, align 8, !tbaa !111
-  %743 = getelementptr inbounds nuw i8, ptr %733, i64 24
-  store i64 %742, ptr %743, align 8, !tbaa !112
-  %744 = load i64, ptr %39, align 8, !tbaa !113
-  %745 = getelementptr inbounds nuw i8, ptr %733, i64 32
-  store i64 %744, ptr %745, align 8, !tbaa !114
-  %746 = load i64, ptr %40, align 8, !tbaa !115
-  %747 = getelementptr inbounds nuw i8, ptr %733, i64 40
-  store i64 %746, ptr %747, align 8, !tbaa !116
-  %748 = load i64, ptr %41, align 8, !tbaa !117
-  %749 = getelementptr inbounds nuw i8, ptr %733, i64 48
-  store i64 %748, ptr %749, align 8, !tbaa !118
-  store ptr %733, ptr %42, align 8, !tbaa !81
+737:                                              ; preds = %733
+  %738 = load i64, ptr %3, align 8, !tbaa !93
+  store i64 %738, ptr %734, align 8, !tbaa !105
+  %739 = load i64, ptr %36, align 8, !tbaa !107
+  %740 = getelementptr inbounds nuw i8, ptr %734, i64 8
+  store i64 %739, ptr %740, align 8, !tbaa !108
+  %741 = load i64, ptr %37, align 8, !tbaa !109
+  %742 = getelementptr inbounds nuw i8, ptr %734, i64 16
+  store i64 %741, ptr %742, align 8, !tbaa !110
+  %743 = load i64, ptr %38, align 8, !tbaa !111
+  %744 = getelementptr inbounds nuw i8, ptr %734, i64 24
+  store i64 %743, ptr %744, align 8, !tbaa !112
+  %745 = load i64, ptr %39, align 8, !tbaa !113
+  %746 = getelementptr inbounds nuw i8, ptr %734, i64 32
+  store i64 %745, ptr %746, align 8, !tbaa !114
+  %747 = load i64, ptr %40, align 8, !tbaa !115
+  %748 = getelementptr inbounds nuw i8, ptr %734, i64 40
+  store i64 %747, ptr %748, align 8, !tbaa !116
+  %749 = load i64, ptr %41, align 8, !tbaa !117
+  %750 = getelementptr inbounds nuw i8, ptr %734, i64 48
+  store i64 %749, ptr %750, align 8, !tbaa !118
+  store ptr %734, ptr %42, align 8, !tbaa !81
   br label %uv__fs_statfs.exit
 
-uv__fs_statfs.exit:                               ; preds = %729, %735, %736
-  %.0.i109 = phi i64 [ -1, %735 ], [ 0, %736 ], [ -1, %729 ]
+uv__fs_statfs.exit:                               ; preds = %730, %736, %737
+  %.0.i109 = phi i64 [ -1, %736 ], [ 0, %737 ], [ -1, %730 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %uv__fs_readlink.exit
 
-750:                                              ; preds = %136
-  %751 = load ptr, ptr %34, align 8, !tbaa !20
-  %752 = load ptr, ptr %35, align 8, !tbaa !21
-  %753 = call i32 @symlink(ptr noundef %751, ptr noundef %752) #15
-  %754 = sext i32 %753 to i64
+751:                                              ; preds = %136
+  %752 = load ptr, ptr %34, align 8, !tbaa !20
+  %753 = load ptr, ptr %35, align 8, !tbaa !21
+  %754 = call i32 @symlink(ptr noundef %752, ptr noundef %753) #15
+  %755 = sext i32 %754 to i64
   br label %uv__fs_readlink.exit
 
-755:                                              ; preds = %136
-  %756 = load ptr, ptr %34, align 8, !tbaa !20
-  %757 = call i32 @unlink(ptr noundef %756) #15
-  %758 = sext i32 %757 to i64
+756:                                              ; preds = %136
+  %757 = load ptr, ptr %34, align 8, !tbaa !20
+  %758 = call i32 @unlink(ptr noundef %757) #15
+  %759 = sext i32 %758 to i64
   br label %uv__fs_readlink.exit
 
-759:                                              ; preds = %136
+760:                                              ; preds = %136
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %760 = load double, ptr %31, align 8, !tbaa !73
-  %761 = fptosi double %760 to i64
-  %762 = sitofp i64 %761 to double
-  %763 = fsub double %760, %762
-  %764 = fmul double %763, 1.000000e+09
-  %765 = fptosi double %764 to i64
-  %766 = srem i64 %765, 1000
-  %767 = sub nsw i64 %765, %766
-  %768 = icmp slt i64 %767, 0
-  %769 = sitofp i64 %767 to double
-  %770 = fadd double %769, 1.000000e+09
-  %771 = fptosi double %770 to i64
-  %.lobit.i.i110 = ashr i64 %767, 63
-  %.sroa.0.0.i.i111 = add nsw i64 %.lobit.i.i110, %761
-  %.sroa.5.0.i.i112 = select i1 %768, i64 %771, i64 %767
+  %761 = load double, ptr %31, align 8, !tbaa !73
+  %762 = fptosi double %761 to i64
+  %763 = sitofp i64 %762 to double
+  %764 = fsub double %761, %763
+  %765 = fmul double %764, 1.000000e+09
+  %766 = fptosi double %765 to i64
+  %767 = srem i64 %766, 1000
+  %768 = sub nsw i64 %766, %767
+  %769 = icmp slt i64 %768, 0
+  %770 = sitofp i64 %768 to double
+  %771 = fadd double %770, 1.000000e+09
+  %772 = fptosi double %771 to i64
+  %.lobit.i.i110 = ashr i64 %768, 63
+  %.sroa.0.0.i.i111 = add nsw i64 %.lobit.i.i110, %762
+  %.sroa.5.0.i.i112 = select i1 %769, i64 %772, i64 %768
   store i64 %.sroa.0.0.i.i111, ptr %2, align 16, !tbaa !74
   store i64 %.sroa.5.0.i.i112, ptr %.sroa.42.0..sroa_idx.i113, align 8, !tbaa !74
-  %772 = load double, ptr %33, align 8, !tbaa !75
-  %773 = fptosi double %772 to i64
-  %774 = sitofp i64 %773 to double
-  %775 = fsub double %772, %774
-  %776 = fmul double %775, 1.000000e+09
-  %777 = fptosi double %776 to i64
-  %778 = srem i64 %777, 1000
-  %779 = sub nsw i64 %777, %778
-  %780 = icmp slt i64 %779, 0
-  %781 = sitofp i64 %779 to double
-  %782 = fadd double %781, 1.000000e+09
-  %783 = fptosi double %782 to i64
-  %.lobit.i5.i114 = ashr i64 %779, 63
-  %.sroa.0.0.i6.i115 = add nsw i64 %.lobit.i5.i114, %773
-  %.sroa.5.0.i7.i116 = select i1 %780, i64 %783, i64 %779
+  %773 = load double, ptr %33, align 8, !tbaa !75
+  %774 = fptosi double %773 to i64
+  %775 = sitofp i64 %774 to double
+  %776 = fsub double %773, %775
+  %777 = fmul double %776, 1.000000e+09
+  %778 = fptosi double %777 to i64
+  %779 = srem i64 %778, 1000
+  %780 = sub nsw i64 %778, %779
+  %781 = icmp slt i64 %780, 0
+  %782 = sitofp i64 %780 to double
+  %783 = fadd double %782, 1.000000e+09
+  %784 = fptosi double %783 to i64
+  %.lobit.i5.i114 = ashr i64 %780, 63
+  %.sroa.0.0.i6.i115 = add nsw i64 %.lobit.i5.i114, %774
+  %.sroa.5.0.i7.i116 = select i1 %781, i64 %784, i64 %780
   store i64 %.sroa.0.0.i6.i115, ptr %32, align 16, !tbaa !74
   store i64 %.sroa.5.0.i7.i116, ptr %.sroa.4.0..sroa_idx.i117, align 8, !tbaa !74
-  %784 = load ptr, ptr %34, align 8, !tbaa !20
-  %785 = call i32 @utimensat(i32 noundef -100, ptr noundef %784, ptr noundef nonnull %2, i32 noundef 0) #15
-  %786 = sext i32 %785 to i64
+  %785 = load ptr, ptr %34, align 8, !tbaa !20
+  %786 = call i32 @utimensat(i32 noundef -100, ptr noundef %785, ptr noundef nonnull %2, i32 noundef 0) #15
+  %787 = sext i32 %786 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %uv__fs_readlink.exit
 
-787:                                              ; preds = %136
-  %788 = call i32 @uv__getiovmax() #15
-  %789 = load i32, ptr %26, align 4, !tbaa !76
-  %790 = load ptr, ptr %27, align 8, !tbaa !22
-  %.not54.i = icmp eq i32 %789, 0
+788:                                              ; preds = %136
+  %789 = call i32 @uv__getiovmax() #15
+  %790 = load i32, ptr %26, align 4, !tbaa !76
+  %791 = load ptr, ptr %27, align 8, !tbaa !22
+  %.not54.i = icmp eq i32 %790, 0
   br i1 %.not54.i, label %.loopexit.i, label %.lr.ph.i118
 
-.lr.ph.i118:                                      ; preds = %787, %uv__fs_buf_offset.exit.i
-  %.056.i119 = phi i32 [ %857, %uv__fs_buf_offset.exit.i ], [ %789, %787 ]
-  %.03155.i = phi i64 [ %858, %uv__fs_buf_offset.exit.i ], [ 0, %787 ]
-  %spec.select.i120 = call i32 @llvm.umin.i32(i32 %.056.i119, i32 %788)
+.lr.ph.i118:                                      ; preds = %788, %uv__fs_buf_offset.exit.i
+  %.056.i119 = phi i32 [ %858, %uv__fs_buf_offset.exit.i ], [ %790, %788 ]
+  %.03155.i = phi i64 [ %859, %uv__fs_buf_offset.exit.i ], [ 0, %788 ]
+  %spec.select.i120 = call i32 @llvm.umin.i32(i32 %.056.i119, i32 %789)
   store i32 %spec.select.i120, ptr %26, align 4, !tbaa !76
-  br label %791
+  br label %792
 
 thread-pre-split.i128:                            ; preds = %uv__fs_write.exit.thread.i
   %.pr.i129 = load i32, ptr %26, align 4, !tbaa !76
-  br label %791
+  br label %792
 
-791:                                              ; preds = %thread-pre-split.i128, %.lr.ph.i118
-  %792 = phi i32 [ %.pr.i129, %thread-pre-split.i128 ], [ %spec.select.i120, %.lr.ph.i118 ]
-  %793 = load i64, ptr %28, align 8, !tbaa !38
-  %794 = icmp slt i64 %793, 0
-  %795 = icmp eq i32 %792, 1
-  br i1 %794, label %796, label %806
+792:                                              ; preds = %thread-pre-split.i128, %.lr.ph.i118
+  %793 = phi i32 [ %.pr.i129, %thread-pre-split.i128 ], [ %spec.select.i120, %.lr.ph.i118 ]
+  %794 = load i64, ptr %28, align 8, !tbaa !38
+  %795 = icmp slt i64 %794, 0
+  %796 = icmp eq i32 %793, 1
+  br i1 %795, label %797, label %807
 
-796:                                              ; preds = %791
-  %797 = load i32, ptr %29, align 8, !tbaa !31
-  %798 = load ptr, ptr %27, align 8, !tbaa !22
-  br i1 %795, label %799, label %804
+797:                                              ; preds = %792
+  %798 = load i32, ptr %29, align 8, !tbaa !31
+  %799 = load ptr, ptr %27, align 8, !tbaa !22
+  br i1 %796, label %800, label %805
 
-799:                                              ; preds = %796
-  %800 = load ptr, ptr %798, align 8, !tbaa !77
-  %801 = getelementptr inbounds nuw i8, ptr %798, i64 8
-  %802 = load i64, ptr %801, align 8, !tbaa !39
-  %803 = call i64 @write(i32 noundef %797, ptr noundef %800, i64 noundef %802) #15
+800:                                              ; preds = %797
+  %801 = load ptr, ptr %799, align 8, !tbaa !77
+  %802 = getelementptr inbounds nuw i8, ptr %799, i64 8
+  %803 = load i64, ptr %802, align 8, !tbaa !39
+  %804 = call i64 @write(i32 noundef %798, ptr noundef %801, i64 noundef %803) #15
   br label %uv__fs_write.exit.i
 
-804:                                              ; preds = %796
-  %805 = call i64 @writev(i32 noundef %797, ptr noundef %798, i32 noundef %792) #15
+805:                                              ; preds = %797
+  %806 = call i64 @writev(i32 noundef %798, ptr noundef %799, i32 noundef %793) #15
   br label %uv__fs_write.exit.i
 
-806:                                              ; preds = %791
-  %807 = load ptr, ptr %27, align 8, !tbaa !22
-  br i1 %795, label %808, label %814
+807:                                              ; preds = %792
+  %808 = load ptr, ptr %27, align 8, !tbaa !22
+  br i1 %796, label %809, label %815
 
-808:                                              ; preds = %806
-  %809 = load i32, ptr %29, align 8, !tbaa !31
-  %810 = load ptr, ptr %807, align 8, !tbaa !77
-  %811 = getelementptr inbounds nuw i8, ptr %807, i64 8
-  %812 = load i64, ptr %811, align 8, !tbaa !39
-  %813 = call i64 @pwrite(i32 noundef %809, ptr noundef %810, i64 noundef %812, i64 noundef %793) #15
+809:                                              ; preds = %807
+  %810 = load i32, ptr %29, align 8, !tbaa !31
+  %811 = load ptr, ptr %808, align 8, !tbaa !77
+  %812 = getelementptr inbounds nuw i8, ptr %808, i64 8
+  %813 = load i64, ptr %812, align 8, !tbaa !39
+  %814 = call i64 @pwrite(i32 noundef %810, ptr noundef %811, i64 noundef %813, i64 noundef %794) #15
   br label %uv__fs_write.exit.i
 
-814:                                              ; preds = %806
+815:                                              ; preds = %807
   %.b.i.i121 = load i1, ptr @uv__fs_write.no_pwritev, align 4
-  br i1 %.b.i.i121, label %815, label %823
+  br i1 %.b.i.i121, label %816, label %824
 
-815:                                              ; preds = %830, %814
-  %816 = phi ptr [ %807, %814 ], [ %.pre.i130, %830 ]
-  %817 = phi i64 [ %793, %814 ], [ %.pre.i.i, %830 ]
-  %818 = load i32, ptr %29, align 8, !tbaa !31
-  %819 = load ptr, ptr %816, align 8, !tbaa !77
-  %820 = getelementptr inbounds nuw i8, ptr %816, i64 8
-  %821 = load i64, ptr %820, align 8, !tbaa !39
-  %822 = call i64 @pwrite(i32 noundef %818, ptr noundef %819, i64 noundef %821, i64 noundef %817) #15
+816:                                              ; preds = %831, %815
+  %817 = phi ptr [ %808, %815 ], [ %.pre.i130, %831 ]
+  %818 = phi i64 [ %794, %815 ], [ %.pre.i.i, %831 ]
+  %819 = load i32, ptr %29, align 8, !tbaa !31
+  %820 = load ptr, ptr %817, align 8, !tbaa !77
+  %821 = getelementptr inbounds nuw i8, ptr %817, i64 8
+  %822 = load i64, ptr %821, align 8, !tbaa !39
+  %823 = call i64 @pwrite(i32 noundef %819, ptr noundef %820, i64 noundef %822, i64 noundef %818) #15
   br label %uv__fs_write.exit.i
 
-823:                                              ; preds = %814
-  %824 = load i32, ptr %29, align 8, !tbaa !31
-  %825 = call i64 @uv__pwritev(i32 noundef %824, ptr noundef %807, i32 noundef %792, i64 noundef %793) #15
-  %826 = icmp eq i64 %825, -1
-  br i1 %826, label %827, label %uv__fs_write.exit.i
+824:                                              ; preds = %815
+  %825 = load i32, ptr %29, align 8, !tbaa !31
+  %826 = call i64 @uv__pwritev(i32 noundef %825, ptr noundef %808, i32 noundef %793, i64 noundef %794) #15
+  %827 = icmp eq i64 %826, -1
+  br i1 %827, label %828, label %uv__fs_write.exit.i
 
-827:                                              ; preds = %823
-  %828 = load i32, ptr %25, align 4, !tbaa !27
-  %829 = icmp eq i32 %828, 38
-  br i1 %829, label %830, label %uv__fs_write.exit.thread.i
+828:                                              ; preds = %824
+  %829 = load i32, ptr %25, align 4, !tbaa !27
+  %830 = icmp eq i32 %829, 38
+  br i1 %830, label %831, label %uv__fs_write.exit.thread.i
 
-830:                                              ; preds = %827
+831:                                              ; preds = %828
   store i1 true, ptr @uv__fs_write.no_pwritev, align 4
   %.pre.i.i = load i64, ptr %28, align 8, !tbaa !38
   %.pre.i130 = load ptr, ptr %27, align 8, !tbaa !22
-  br label %815
+  br label %816
 
-uv__fs_write.exit.i:                              ; preds = %823, %815, %808, %804, %799
-  %.0.i.i122 = phi i64 [ %803, %799 ], [ %805, %804 ], [ %813, %808 ], [ %822, %815 ], [ %825, %823 ]
-  %831 = icmp slt i64 %.0.i.i122, 0
-  br i1 %831, label %uv__fs_write.exit.uv__fs_write.exit.thread_crit_edge.i, label %.critedge.i123
+uv__fs_write.exit.i:                              ; preds = %824, %816, %809, %805, %800
+  %.0.i.i122 = phi i64 [ %804, %800 ], [ %806, %805 ], [ %814, %809 ], [ %823, %816 ], [ %826, %824 ]
+  %832 = icmp slt i64 %.0.i.i122, 0
+  br i1 %832, label %uv__fs_write.exit.uv__fs_write.exit.thread_crit_edge.i, label %.critedge.i123
 
 uv__fs_write.exit.uv__fs_write.exit.thread_crit_edge.i: ; preds = %uv__fs_write.exit.i
-  %.pr68.i = load i32, ptr %25, align 4, !tbaa !27
+  %.pr78.i = load i32, ptr %25, align 4, !tbaa !27
   br label %uv__fs_write.exit.thread.i
 
-uv__fs_write.exit.thread.i:                       ; preds = %uv__fs_write.exit.uv__fs_write.exit.thread_crit_edge.i, %827
-  %832 = phi i32 [ %.pr68.i, %uv__fs_write.exit.uv__fs_write.exit.thread_crit_edge.i ], [ %828, %827 ]
-  %.0.i41.i = phi i64 [ %.0.i.i122, %uv__fs_write.exit.uv__fs_write.exit.thread_crit_edge.i ], [ -1, %827 ]
-  %833 = icmp eq i32 %832, 4
-  br i1 %833, label %thread-pre-split.i128, label %.critedge.thread.i127, !llvm.loop !119
+uv__fs_write.exit.thread.i:                       ; preds = %uv__fs_write.exit.uv__fs_write.exit.thread_crit_edge.i, %828
+  %833 = phi i32 [ %.pr78.i, %uv__fs_write.exit.uv__fs_write.exit.thread_crit_edge.i ], [ %829, %828 ]
+  %.0.i41.i = phi i64 [ %.0.i.i122, %uv__fs_write.exit.uv__fs_write.exit.thread_crit_edge.i ], [ -1, %828 ]
+  %834 = icmp eq i32 %833, 4
+  br i1 %834, label %thread-pre-split.i128, label %.critedge.thread.i127, !llvm.loop !119
 
 .critedge.i123:                                   ; preds = %uv__fs_write.exit.i
-  %834 = icmp eq i64 %.0.i.i122, 0
-  br i1 %834, label %.critedge.thread.i127, label %836
+  %835 = icmp eq i64 %.0.i.i122, 0
+  br i1 %835, label %.critedge.thread.i127, label %837
 
 .critedge.thread.i127:                            ; preds = %.critedge.i123, %uv__fs_write.exit.thread.i
   %.0.i4043.i = phi i64 [ %.0.i41.i, %uv__fs_write.exit.thread.i ], [ 0, %.critedge.i123 ]
-  %835 = icmp eq i64 %.03155.i, 0
-  %spec.select38.i = select i1 %835, i64 %.0.i4043.i, i64 %.03155.i
+  %836 = icmp eq i64 %.03155.i, 0
+  %spec.select38.i = select i1 %836, i64 %.0.i4043.i, i64 %.03155.i
   br label %.loopexit.i
 
-836:                                              ; preds = %.critedge.i123
-  %837 = load i64, ptr %28, align 8, !tbaa !38
-  %838 = icmp sgt i64 %837, -1
-  br i1 %838, label %839, label %841
+837:                                              ; preds = %.critedge.i123
+  %838 = load i64, ptr %28, align 8, !tbaa !38
+  %839 = icmp sgt i64 %838, -1
+  br i1 %839, label %840, label %842
 
-839:                                              ; preds = %836
-  %840 = add nuw nsw i64 %837, %.0.i.i122
-  store i64 %840, ptr %28, align 8, !tbaa !38
-  br label %841
+840:                                              ; preds = %837
+  %841 = add nuw nsw i64 %838, %.0.i.i122
+  store i64 %841, ptr %28, align 8, !tbaa !38
+  br label %842
 
-841:                                              ; preds = %839, %836
-  %842 = load ptr, ptr %27, align 8, !tbaa !22
-  br label %843
+842:                                              ; preds = %840, %837
+  %843 = load ptr, ptr %27, align 8, !tbaa !22
+  br label %844
 
-843:                                              ; preds = %846, %841
-  %.023.i.i = phi i64 [ 0, %841 ], [ %848, %846 ]
-  %.01522.i.i = phi i64 [ %.0.i.i122, %841 ], [ %847, %846 ]
-  %844 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %842, i64 %.023.i.i, i32 1
-  %845 = load i64, ptr %844, align 8, !tbaa !39
-  %.not17.i.i = icmp ugt i64 %845, %.01522.i.i
-  br i1 %.not17.i.i, label %.critedge.i.i, label %846
+844:                                              ; preds = %847, %842
+  %.023.i.i = phi i64 [ 0, %842 ], [ %849, %847 ]
+  %.01522.i.i = phi i64 [ %.0.i.i122, %842 ], [ %848, %847 ]
+  %845 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %843, i64 %.023.i.i, i32 1
+  %846 = load i64, ptr %845, align 8, !tbaa !39
+  %.not17.i.i = icmp ugt i64 %846, %.01522.i.i
+  br i1 %.not17.i.i, label %.critedge.i.i, label %847
 
-846:                                              ; preds = %843
-  %847 = sub nuw i64 %.01522.i.i, %845
-  %848 = add i64 %.023.i.i, 1
-  %.not.i.i124 = icmp eq i64 %847, 0
-  br i1 %.not.i.i124, label %uv__fs_buf_offset.exit.i, label %843, !llvm.loop !120
+847:                                              ; preds = %844
+  %848 = sub nuw nsw i64 %.01522.i.i, %846
+  %849 = add i64 %.023.i.i, 1
+  %.not.i.i124 = icmp eq i64 %848, 0
+  br i1 %.not.i.i124, label %uv__fs_buf_offset.exit.i, label %844, !llvm.loop !120
 
-.critedge.i.i:                                    ; preds = %843
-  %849 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %842, i64 %.023.i.i
-  %850 = load ptr, ptr %849, align 8, !tbaa !77
-  %851 = getelementptr inbounds nuw i8, ptr %850, i64 %.01522.i.i
-  store ptr %851, ptr %849, align 8, !tbaa !77
-  %852 = getelementptr inbounds nuw i8, ptr %849, i64 8
-  %853 = sub nuw i64 %845, %.01522.i.i
-  store i64 %853, ptr %852, align 8, !tbaa !39
+.critedge.i.i:                                    ; preds = %844
+  %850 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %843, i64 %.023.i.i
+  %851 = load ptr, ptr %850, align 8, !tbaa !77
+  %852 = getelementptr inbounds nuw i8, ptr %851, i64 %.01522.i.i
+  store ptr %852, ptr %850, align 8, !tbaa !77
+  %853 = getelementptr inbounds nuw i8, ptr %850, i64 8
+  %854 = sub nuw i64 %846, %.01522.i.i
+  store i64 %854, ptr %853, align 8, !tbaa !39
   br label %uv__fs_buf_offset.exit.i
 
-uv__fs_buf_offset.exit.i:                         ; preds = %846, %.critedge.i.i
-  %.020.i.i = phi i64 [ %.023.i.i, %.critedge.i.i ], [ %848, %846 ]
-  %854 = trunc i64 %.020.i.i to i32
-  store i32 %854, ptr %26, align 4, !tbaa !76
-  %855 = and i64 %.020.i.i, 4294967295
-  %856 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %842, i64 %855
-  store ptr %856, ptr %27, align 8, !tbaa !22
-  %857 = sub i32 %.056.i119, %854
-  %858 = add nuw nsw i64 %.0.i.i122, %.03155.i
-  %.not.i125 = icmp eq i32 %857, 0
+uv__fs_buf_offset.exit.i:                         ; preds = %847, %.critedge.i.i
+  %.020.i.i = phi i64 [ %.023.i.i, %.critedge.i.i ], [ %849, %847 ]
+  %855 = trunc i64 %.020.i.i to i32
+  store i32 %855, ptr %26, align 4, !tbaa !76
+  %856 = and i64 %.020.i.i, 4294967295
+  %857 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %843, i64 %856
+  store ptr %857, ptr %27, align 8, !tbaa !22
+  %858 = sub i32 %.056.i119, %855
+  %859 = add nuw nsw i64 %.0.i.i122, %.03155.i
+  %.not.i125 = icmp eq i32 %858, 0
   br i1 %.not.i125, label %.loopexit.i, label %.lr.ph.i118, !llvm.loop !121
 
-.loopexit.i:                                      ; preds = %uv__fs_buf_offset.exit.i, %.critedge.thread.i127, %787
-  %.1.i126 = phi i64 [ %spec.select38.i, %.critedge.thread.i127 ], [ 0, %787 ], [ %858, %uv__fs_buf_offset.exit.i ]
-  %.not37.i = icmp eq ptr %790, %30
-  br i1 %.not37.i, label %uv__fs_write_all.exit, label %859
+.loopexit.i:                                      ; preds = %uv__fs_buf_offset.exit.i, %.critedge.thread.i127, %788
+  %.1.i126 = phi i64 [ %spec.select38.i, %.critedge.thread.i127 ], [ 0, %788 ], [ %859, %uv__fs_buf_offset.exit.i ]
+  %.not37.i = icmp eq ptr %791, %30
+  br i1 %.not37.i, label %uv__fs_write_all.exit, label %860
 
-859:                                              ; preds = %.loopexit.i
-  call void @uv__free(ptr noundef %790) #15
+860:                                              ; preds = %.loopexit.i
+  call void @uv__free(ptr noundef %791) #15
   br label %uv__fs_write_all.exit
 
-uv__fs_write_all.exit:                            ; preds = %.loopexit.i, %859
+uv__fs_write_all.exit:                            ; preds = %.loopexit.i, %860
   store ptr null, ptr %27, align 8, !tbaa !22
   store i32 0, ptr %26, align 4, !tbaa !76
   br label %uv__fs_readlink.exit
 
-860:                                              ; preds = %136
+861:                                              ; preds = %136
   call void @abort() #18
   unreachable
 
 .thread160:                                       ; preds = %599, %597, %uv__fs_closedir.exit
-  %.lcssa374.sink = phi ptr [ %.0.i101, %597 ], [ null, %uv__fs_closedir.exit ], [ %601, %599 ]
-  store ptr %.lcssa374.sink, ptr %42, align 8, !tbaa !81
-  %861 = getelementptr inbounds i8, ptr %0, i64 -248
-  store i64 0, ptr %861, align 8, !tbaa !26
-  br label %871
+  %.lcssa418.sink = phi ptr [ %.0.i101, %597 ], [ null, %uv__fs_closedir.exit ], [ %601, %599 ]
+  store ptr %.lcssa418.sink, ptr %42, align 8, !tbaa !81
+  %862 = getelementptr inbounds i8, ptr %0, i64 -248
+  store i64 0, ptr %862, align 8, !tbaa !26
+  br label %872
 
-uv__fs_readlink.exit:                             ; preds = %138, %143, %148, %uv__fs_close.exit, %uv__fs_copyfile.exit, %248, %253, %259, %265, %uv__fs_fstat.exit, %295, %298, %303, %331, %uv__fs_lstat.exit, %386, %391, %396, %uv__fs_mkstemp.exit, %438, %uv__fs_read.exit, %uv__fs_scandir.exit, %uv__fs_opendir.exit, %uv__fs_readdir.exit, %603, %608, %uv__fs_sendfile.exit, %uv__fs_stat.exit, %uv__fs_statfs.exit, %750, %755, %759, %uv__fs_write_all.exit
-  %.0 = phi i64 [ %142, %138 ], [ %147, %143 ], [ %153, %148 ], [ %161, %uv__fs_close.exit ], [ %.053.i, %uv__fs_copyfile.exit ], [ %252, %248 ], [ %258, %253 ], [ %264, %259 ], [ %267, %265 ], [ %294, %uv__fs_fstat.exit ], [ %297, %295 ], [ %302, %298 ], [ %330, %303 ], [ %358, %331 ], [ %385, %uv__fs_lstat.exit ], [ %390, %386 ], [ %395, %391 ], [ %398, %396 ], [ %437, %uv__fs_mkstemp.exit ], [ %444, %438 ], [ %.0.i92, %uv__fs_read.exit ], [ %.0.i94, %uv__fs_scandir.exit ], [ %.0.i96, %uv__fs_opendir.exit ], [ %571, %uv__fs_readdir.exit ], [ %607, %603 ], [ %611, %608 ], [ %.0.i103, %uv__fs_sendfile.exit ], [ %728, %uv__fs_stat.exit ], [ %.0.i109, %uv__fs_statfs.exit ], [ %754, %750 ], [ %758, %755 ], [ %786, %759 ], [ %.1.i126, %uv__fs_write_all.exit ]
-  %862 = icmp eq i64 %.0, -1
-  br i1 %862, label %uv__fs_readlink.exit.thread, label %868
+uv__fs_readlink.exit:                             ; preds = %138, %143, %148, %uv__fs_close.exit, %uv__fs_copyfile.exit, %248, %253, %259, %265, %uv__fs_fstat.exit, %295, %298, %303, %331, %uv__fs_lstat.exit, %386, %391, %396, %uv__fs_mkstemp.exit, %438, %uv__fs_read.exit, %uv__fs_scandir.exit, %uv__fs_opendir.exit, %uv__fs_readdir.exit, %603, %608, %uv__fs_sendfile.exit, %uv__fs_stat.exit, %uv__fs_statfs.exit, %751, %756, %760, %uv__fs_write_all.exit
+  %.0 = phi i64 [ %142, %138 ], [ %147, %143 ], [ %153, %148 ], [ %161, %uv__fs_close.exit ], [ %.053.i, %uv__fs_copyfile.exit ], [ %252, %248 ], [ %258, %253 ], [ %264, %259 ], [ %267, %265 ], [ %294, %uv__fs_fstat.exit ], [ %297, %295 ], [ %302, %298 ], [ %330, %303 ], [ %358, %331 ], [ %385, %uv__fs_lstat.exit ], [ %390, %386 ], [ %395, %391 ], [ %398, %396 ], [ %437, %uv__fs_mkstemp.exit ], [ %444, %438 ], [ %.0.i92, %uv__fs_read.exit ], [ %.0.i94, %uv__fs_scandir.exit ], [ %.0.i96, %uv__fs_opendir.exit ], [ %571, %uv__fs_readdir.exit ], [ %607, %603 ], [ %611, %608 ], [ %.0.i103, %uv__fs_sendfile.exit ], [ %729, %uv__fs_stat.exit ], [ %.0.i109, %uv__fs_statfs.exit ], [ %755, %751 ], [ %759, %756 ], [ %787, %760 ], [ %.1.i126, %uv__fs_write_all.exit ]
+  %863 = icmp eq i64 %.0, -1
+  br i1 %863, label %uv__fs_readlink.exit.thread, label %869
 
 uv__fs_readlink.exit.thread:                      ; preds = %599, %593, %590, %585, %uv__fs_readlink.exit
-  %863 = load i32, ptr %25, align 4, !tbaa !27
-  %864 = icmp eq i32 %863, 4
-  %or.cond = and i1 %spec.select, %864
+  %864 = load i32, ptr %25, align 4, !tbaa !27
+  %865 = icmp eq i32 %864, 4
+  %or.cond = and i1 %spec.select, %865
   br i1 %or.cond, label %136, label %.thread158, !llvm.loop !122
 
 .thread158:                                       ; preds = %uv__fs_readlink.exit.thread
-  %865 = sub nsw i32 0, %863
-  %866 = sext i32 %865 to i64
-  %867 = getelementptr inbounds i8, ptr %0, i64 -248
-  store i64 %866, ptr %867, align 8, !tbaa !26
-  br label %874
+  %866 = sub nsw i32 0, %864
+  %867 = sext i32 %866 to i64
+  %868 = getelementptr inbounds i8, ptr %0, i64 -248
+  store i64 %867, ptr %868, align 8, !tbaa !26
+  br label %875
 
-868:                                              ; preds = %uv__fs_readlink.exit
-  %869 = getelementptr inbounds i8, ptr %0, i64 -248
-  store i64 %.0, ptr %869, align 8, !tbaa !26
-  %870 = icmp eq i64 %.0, 0
-  br i1 %870, label %871, label %874
+869:                                              ; preds = %uv__fs_readlink.exit
+  %870 = getelementptr inbounds i8, ptr %0, i64 -248
+  store i64 %.0, ptr %870, align 8, !tbaa !26
+  %871 = icmp eq i64 %.0, 0
+  br i1 %871, label %872, label %875
 
-871:                                              ; preds = %.thread160, %868
-  %872 = load i32, ptr %22, align 8, !tbaa !18
-  %.off = add i32 %872, -6
+872:                                              ; preds = %.thread160, %869
+  %873 = load i32, ptr %22, align 8, !tbaa !18
+  %.off = add i32 %873, -6
   %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %873, label %874
+  br i1 %switch, label %874, label %875
 
-873:                                              ; preds = %871
+874:                                              ; preds = %872
   store ptr %43, ptr %42, align 8, !tbaa !81
-  br label %874
+  br label %875
 
-874:                                              ; preds = %.thread158, %871, %873, %868
+875:                                              ; preds = %.thread158, %872, %874, %869
   ret void
 }
 

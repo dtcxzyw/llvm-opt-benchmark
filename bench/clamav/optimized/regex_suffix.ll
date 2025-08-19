@@ -82,7 +82,7 @@ define i32 @cli_regex2suffix(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %27 = call fastcc ptr @parse_regex(ptr noundef %0, i64 noundef %26, ptr noundef %8)
   %.not33 = icmp eq ptr %27, null
-  br i1 %.not33, label %.thread42, label %28
+  br i1 %.not33, label %.thread49, label %28
 
 28:                                               ; preds = %25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -92,18 +92,18 @@ define i32 @cli_regex2suffix(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %30 = call fastcc i32 @build_suffixtree_descend(ptr noundef nonnull %27, ptr noundef %6, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %.pre = load ptr, ptr %5, align 8, !tbaa !13
   %.not35 = icmp eq ptr %.pre, null
-  br i1 %.not35, label %.thread, label %.thread42
+  br i1 %.not35, label %.thread, label %.thread49
 
-.thread42:                                        ; preds = %25, %28
-  %.02646 = phi i32 [ %30, %28 ], [ 12, %25 ]
+.thread49:                                        ; preds = %25, %28
+  %.02653 = phi i32 [ %30, %28 ], [ 12, %25 ]
   %31 = phi ptr [ %.pre, %28 ], [ %22, %25 ]
   call void @free(ptr noundef nonnull %31) #9
   store ptr null, ptr %5, align 8, !tbaa !13
   br label %.thread
 
-.thread:                                          ; preds = %24, %10, %28, %.thread42
-  %.02541 = phi ptr [ %27, %28 ], [ %27, %.thread42 ], [ null, %10 ], [ null, %24 ]
-  %.02640 = phi i32 [ %30, %28 ], [ %.02646, %.thread42 ], [ 16, %10 ], [ 12, %24 ]
+.thread:                                          ; preds = %24, %10, %28, %.thread49
+  %.02548 = phi ptr [ %27, %28 ], [ %27, %.thread49 ], [ null, %10 ], [ null, %24 ]
+  %.02647 = phi i32 [ %30, %28 ], [ %.02653, %.thread49 ], [ 16, %10 ], [ 12, %24 ]
   %32 = load ptr, ptr %6, align 8, !tbaa !18
   %.not36 = icmp eq ptr %32, null
   br i1 %.not36, label %34, label %33
@@ -113,11 +113,11 @@ define i32 @cli_regex2suffix(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   br label %34
 
 34:                                               ; preds = %33, %.thread
-  call fastcc void @destroy_tree(ptr noundef %.02541)
+  call fastcc void @destroy_tree(ptr noundef %.02548)
   br label %35
 
 35:                                               ; preds = %17, %19, %34
-  %.0 = phi i32 [ %.02640, %34 ], [ %13, %19 ], [ %13, %17 ]
+  %.0 = phi i32 [ %.02647, %34 ], [ %13, %19 ], [ %13, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -425,12 +425,12 @@ make_node.exit113:                                ; preds = %77
 
 .preheader:                                       ; preds = %99, %98
   %.ph = phi i8 [ %.pre.pre.i, %98 ], [ %93, %99 ]
-  %.ph335 = phi i64 [ %96, %98 ], [ %87, %99 ]
+  %.ph361 = phi i64 [ %96, %98 ], [ %87, %99 ]
   br label %100
 
 100:                                              ; preds = %.preheader, %.loopexit.i
   %101 = phi i8 [ %155, %.loopexit.i ], [ %.ph, %.preheader ]
-  %102 = phi i64 [ %156, %.loopexit.i ], [ %.ph335, %.preheader ]
+  %102 = phi i64 [ %156, %.loopexit.i ], [ %.ph361, %.preheader ]
   %.0105.i = phi i8 [ %.1106.i, %.loopexit.i ], [ 0, %.preheader ]
   %.0102.i = phi i32 [ %.2104.i, %.loopexit.i ], [ 0, %.preheader ]
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 %102

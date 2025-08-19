@@ -839,10 +839,10 @@ pmix_pointer_array_get_item.exit380:              ; preds = %315
   br label %pmix_pointer_array_get_item.exit380.thread.sink.split
 
 pmix_pointer_array_get_item.exit380.thread.sink.split: ; preds = %306, %323
-  %.sink539 = phi ptr [ %325, %323 ], [ %308, %306 ]
+  %.sink603 = phi ptr [ %325, %323 ], [ %308, %306 ]
   %326 = load ptr, ptr %9, align 8, !tbaa !43
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 488
-  store ptr %.sink539, ptr %327, align 8, !tbaa !78
+  store ptr %.sink603, ptr %327, align 8, !tbaa !78
   br label %pmix_pointer_array_get_item.exit380.thread
 
 pmix_pointer_array_get_item.exit380.thread:       ; preds = %pmix_pointer_array_get_item.exit380.thread.sink.split, %310, %315, %pmix_pointer_array_get_item.exit380, %302, %301

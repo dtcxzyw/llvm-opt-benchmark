@@ -754,8 +754,8 @@ for.body:                                         ; preds = %for.cond.cleanup116
   %conv36.sink = sext i16 %conv36.sink.in to i32
   %Z38.val = load i16, ptr %Z38, align 4
   %Z6.val = load i16, ptr %Z6, align 8
-  %.sink40 = select i1 %cmp2.not, i16 %Z38.val, i16 %Z6.val
-  %conv39 = sext i16 %.sink40 to i32
+  %.sink41 = select i1 %cmp2.not, i16 %Z38.val, i16 %Z6.val
+  %conv39 = sext i16 %.sink41 to i32
   %call40 = tail call noundef i32 @_ZN12PseudoRandom5rangeEii(ptr noundef nonnull align 4 dereferenceable(4) %random, i32 noundef %conv36.sink, i32 noundef %conv39)
   %Y46.val = load i16, ptr %Y46, align 4
   %Y.val = load i16, ptr %Y, align 8
@@ -1091,7 +1091,7 @@ if.else278:                                       ; preds = %land.lhs.true, %if.
   br label %if.end315
 
 if.end315:                                        ; preds = %land.lhs.true, %if.else278
-  %.sink41.in = phi ptr [ %Z38, %if.else278 ], [ %Z6, %land.lhs.true ]
+  %.sink42.in = phi ptr [ %Z38, %if.else278 ], [ %Z6, %land.lhs.true ]
   %conv283.sink.in.in = phi ptr [ %Z35, %if.else278 ], [ %Z, %land.lhs.true ]
   %.sink581.in = phi ptr [ %Y46, %if.else278 ], [ %Y, %land.lhs.true ]
   %Y50.sink580 = phi ptr [ %Y50, %if.else278 ], [ %Y17, %land.lhs.true ]
@@ -1099,8 +1099,8 @@ if.end315:                                        ; preds = %land.lhs.true, %if.
   %conv307.sink.in.in = phi ptr [ %room_size_min, %if.else278 ], [ %room_size_large_min, %land.lhs.true ]
   %conv283.sink.in = load i16, ptr %conv283.sink.in.in, align 2, !tbaa !31
   %conv283.sink = sext i16 %conv283.sink.in to i32
-  %.sink41 = load i16, ptr %.sink41.in, align 4, !tbaa !31
-  %conv287 = sext i16 %.sink41 to i32
+  %.sink42 = load i16, ptr %.sink42.in, align 4, !tbaa !31
+  %conv287 = sext i16 %.sink42 to i32
   %call288 = tail call noundef i32 @_ZN12PseudoRandom5rangeEii(ptr noundef nonnull align 4 dereferenceable(4) %random, i32 noundef %conv283.sink, i32 noundef %conv287)
   %.sink581 = load i16, ptr %.sink581.in, align 4, !tbaa !31
   %conv295 = sext i16 %.sink581 to i32
@@ -1530,8 +1530,8 @@ for.cond155.preheader.thread.thread946:           ; preds = %for.cond63.preheade
 for.cond63.preheader.thread:                      ; preds = %entry
   %cmp67886941 = icmp sgt i16 %roomsize.sroa.0.0.extract.trunc, 0
   %cmp75884961 = icmp sgt i16 %roomsize.sroa.5.0.extract.trunc, 0
-  %or.cond37 = and i1 %cmp67886941, %cmp75884961
-  br i1 %or.cond37, label %for.cond71.preheader.lr.ph.thread959.for.cond71.preheader.us.preheader_crit_edge, label %for.cond.cleanup253
+  %or.cond43 = and i1 %cmp67886941, %cmp75884961
+  br i1 %or.cond43, label %for.cond71.preheader.lr.ph.thread959.for.cond71.preheader.us.preheader_crit_edge, label %for.cond.cleanup253
 
 for.cond71.preheader.lr.ph:                       ; preds = %for.cond63.preheader
   %tr.sh.diff.i477 = trunc nuw i48 %roomplace.sroa.8.0.extract.shift to i32

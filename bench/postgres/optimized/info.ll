@@ -98,33 +98,33 @@ define dso_local ptr @gen_db_file_maps(ptr noundef readonly captures(none) %0, p
   %.062.ph = phi i1 [ %.062, %create_rel_filename_map.exit ], [ true, %5 ]
   %.060.ph = phi i32 [ %94, %create_rel_filename_map.exit ], [ 0, %5 ]
   %.0.ph = phi i32 [ %93, %create_rel_filename_map.exit ], [ 0, %5 ]
-  br label %.outer83
+  br label %.outer87
 
-.outer83:                                         ; preds = %.outer83.backedge, %.outer
-  %.062.ph84 = phi i1 [ %.062.ph, %.outer ], [ %.062.ph84.be, %.outer83.backedge ]
-  %.060.ph85 = phi i32 [ %.060.ph, %.outer ], [ %.060.ph85.be, %.outer83.backedge ]
-  %.0.ph86 = phi i32 [ %.0.ph, %.outer ], [ %.0.ph86.be, %.outer83.backedge ]
-  %15 = sext i32 %.060.ph85 to i64
+.outer87:                                         ; preds = %.outer87.backedge, %.outer
+  %.062.ph88 = phi i1 [ %.062.ph, %.outer ], [ %.062.ph88.be, %.outer87.backedge ]
+  %.060.ph89 = phi i32 [ %.060.ph, %.outer ], [ %.060.ph89.be, %.outer87.backedge ]
+  %.0.ph90 = phi i32 [ %.0.ph, %.outer ], [ %.0.ph90.be, %.outer87.backedge ]
+  %15 = sext i32 %.060.ph89 to i64
   br label %16
 
-16:                                               ; preds = %.backedge, %.outer83
-  %.062 = phi i1 [ %.062.ph84, %.outer83 ], [ false, %.backedge ]
-  %.0 = phi i32 [ %.0.ph86, %.outer83 ], [ %.0.be, %.backedge ]
+16:                                               ; preds = %.backedge, %.outer87
+  %.062 = phi i1 [ %.062.ph88, %.outer87 ], [ false, %.backedge ]
+  %.0 = phi i32 [ %.0.ph90, %.outer87 ], [ %.0.be, %.backedge ]
   %17 = load i32, ptr %7, align 8
   %18 = icmp slt i32 %.0, %17
   br i1 %18, label %.critedge, label %19
 
 19:                                               ; preds = %16
   %20 = load i32, ptr %12, align 8
-  %21 = icmp slt i32 %.060.ph85, %20
-  br i1 %21, label %.thread79, label %95
+  %21 = icmp slt i32 %.060.ph89, %20
+  br i1 %21, label %.thread83, label %95
 
 .critedge:                                        ; preds = %16
   %22 = load ptr, ptr %6, align 8
   %23 = sext i32 %.0 to i64
   %24 = getelementptr inbounds %struct.RelInfo, ptr %22, i64 %23
   %.pre = load i32, ptr %12, align 8
-  %25 = icmp slt i32 %.060.ph85, %.pre
+  %25 = icmp slt i32 %.060.ph89, %.pre
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %.critedge
@@ -133,35 +133,35 @@ define dso_local ptr @gen_db_file_maps(ptr noundef readonly captures(none) %0, p
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %.thread, label %31
 
-.thread79:                                        ; preds = %19
+.thread83:                                        ; preds = %19
   %29 = load ptr, ptr %13, align 8
-  %.not80 = icmp eq ptr %29, null
-  br i1 %.not80, label %.thread, label %.thread81.split.loop.exit
+  %.not84 = icmp eq ptr %29, null
+  br i1 %.not84, label %.thread, label %.thread85.split.loop.exit
 
-.thread:                                          ; preds = %.thread79, %.critedge, %26
-  %30 = phi ptr [ %24, %.critedge ], [ %24, %26 ], [ null, %.thread79 ]
+.thread:                                          ; preds = %.thread83, %.critedge, %26
+  %30 = phi ptr [ %24, %.critedge ], [ %24, %26 ], [ null, %.thread83 ]
   tail call fastcc void @report_unmatched_relation(ptr noundef %30, ptr noundef nonnull %0, i1 noundef zeroext false)
   br label %.backedge
 
 31:                                               ; preds = %26
   %.not70 = icmp eq ptr %22, null
-  br i1 %.not70, label %.thread81, label %38
+  br i1 %.not70, label %.thread85, label %38
 
-.thread81.split.loop.exit:                        ; preds = %.thread79
-  %32 = sext i32 %.060.ph85 to i64
+.thread85.split.loop.exit:                        ; preds = %.thread83
+  %32 = sext i32 %.060.ph89 to i64
   %33 = getelementptr inbounds %struct.RelInfo, ptr %29, i64 %32
-  br label %.thread81
+  br label %.thread85
 
-.thread81:                                        ; preds = %31, %.thread81.split.loop.exit
-  %34 = phi ptr [ %33, %.thread81.split.loop.exit ], [ %28, %31 ]
+.thread85:                                        ; preds = %31, %.thread85.split.loop.exit
+  %34 = phi ptr [ %33, %.thread85.split.loop.exit ], [ %28, %31 ]
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(9) @.str) #8
   %.not71 = icmp eq i32 %36, 0
-  br i1 %.not71, label %.outer83.backedge, label %37
+  br i1 %.not71, label %.outer87.backedge, label %37
 
-37:                                               ; preds = %.thread81
+37:                                               ; preds = %.thread85
   tail call fastcc void @report_unmatched_relation(ptr noundef nonnull %34, ptr noundef nonnull %1, i1 noundef zeroext true)
-  br label %.outer83.backedge
+  br label %.outer87.backedge
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -187,17 +187,17 @@ define dso_local ptr @gen_db_file_maps(ptr noundef readonly captures(none) %0, p
   %48 = load ptr, ptr %28, align 8
   %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(9) @.str) #8
   %.not74 = icmp eq i32 %49, 0
-  br i1 %.not74, label %.outer83.backedge, label %50
+  br i1 %.not74, label %.outer87.backedge, label %50
 
 50:                                               ; preds = %47
   tail call fastcc void @report_unmatched_relation(ptr noundef nonnull %28, ptr noundef nonnull %1, i1 noundef zeroext true)
-  br label %.outer83.backedge
+  br label %.outer87.backedge
 
-.outer83.backedge:                                ; preds = %47, %50, %.thread81, %37, %._crit_edge
-  %.062.ph84.be = phi i1 [ false, %._crit_edge ], [ false, %37 ], [ %.062, %.thread81 ], [ false, %50 ], [ %.062, %47 ]
-  %.0.ph86.be = phi i32 [ %62, %._crit_edge ], [ %.0, %37 ], [ %.0, %.thread81 ], [ %.0, %50 ], [ %.0, %47 ]
-  %.060.ph85.be = add nsw i32 %.060.ph85, 1
-  br label %.outer83, !llvm.loop !4
+.outer87.backedge:                                ; preds = %47, %50, %.thread85, %37, %._crit_edge
+  %.062.ph88.be = phi i1 [ false, %._crit_edge ], [ false, %37 ], [ %.062, %.thread85 ], [ false, %50 ], [ %.062, %47 ]
+  %.0.ph90.be = phi i32 [ %62, %._crit_edge ], [ %.0, %37 ], [ %.0, %.thread85 ], [ %.0, %50 ], [ %.0, %47 ]
+  %.060.ph89.be = add nsw i32 %.060.ph89, 1
+  br label %.outer87, !llvm.loop !4
 
 51:                                               ; preds = %45
   %52 = load ptr, ptr %24, align 8
@@ -219,7 +219,7 @@ define dso_local ptr @gen_db_file_maps(ptr noundef readonly captures(none) %0, p
   %61 = load ptr, ptr %14, align 8
   tail call void (i32, ptr, ...) @pg_log(i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %40, ptr noundef %61, ptr noundef nonnull %52, ptr noundef %56, ptr noundef nonnull %53, ptr noundef %58) #7
   %62 = add nsw i32 %.0, 1
-  br label %.outer83.backedge
+  br label %.outer87.backedge
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -279,7 +279,7 @@ create_rel_filename_map.exit:                     ; preds = %79, %80
   store ptr %90, ptr %91, align 8
   %92 = add i32 %.064.ph, 1
   %93 = add nsw i32 %.0, 1
-  %94 = add nsw i32 %.060.ph85, 1
+  %94 = add nsw i32 %.060.ph89, 1
   br label %.outer
 
 95:                                               ; preds = %19
@@ -356,17 +356,17 @@ define internal fastcc void @report_unmatched_relation(ptr noundef readonly capt
   br i1 %.03861, label %40, label %.loopexit53.thread
 
 .loopexit53.thread:                               ; preds = %33, %.loopexit53
-  %.284 = phi ptr [ %.2, %.loopexit53 ], [ %0, %33 ]
+  %.288 = phi ptr [ %.2, %.loopexit53 ], [ %0, %33 ]
   %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 %34
   %36 = sub i64 1000, %34
-  %37 = getelementptr inbounds nuw i8, ptr %.284, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.288, i64 24
   %38 = load i32, ptr %37, align 8
   %39 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %35, i64 noundef %36, ptr noundef nonnull @.str.10, i32 noundef %38) #7
   br label %40
 
 40:                                               ; preds = %.loopexit53, %.loopexit53.thread, %3
-  %.0 = phi ptr [ %.284, %.loopexit53.thread ], [ %.2, %.loopexit53 ], [ %0, %3 ]
+  %.0 = phi ptr [ %.288, %.loopexit53.thread ], [ %.2, %.loopexit53 ], [ %0, %3 ]
   %41 = getelementptr inbounds nuw i8, ptr %.0, i64 28
   %42 = load i32, ptr %41, align 4
   %.not41 = icmp eq i32 %42, 0

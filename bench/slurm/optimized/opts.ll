@@ -1017,7 +1017,7 @@ _print_options.exit:                              ; preds = %354, %351, %103
 429:                                              ; preds = %372
   %430 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 64), align 8
   %431 = icmp eq ptr %430, null
-  br i1 %431, label %432, label %.thread38.i
+  br i1 %431, label %432, label %.thread40.i
 
 432:                                              ; preds = %429
   %433 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.93) #12
@@ -1032,13 +1032,13 @@ _print_options.exit:                              ; preds = %354, %351, %103
   %or.cond9.i = select i1 %436, i1 %368, i1 false
   br i1 %or.cond9.i, label %439, label %441
 
-.thread38.i:                                      ; preds = %429
+.thread40.i:                                      ; preds = %429
   %437 = or i8 %381, %379
   %438 = icmp ne i8 %437, 0
-  %or.cond939.i = select i1 %438, i1 %368, i1 false
-  br i1 %or.cond939.i, label %439, label %.thread40.i
+  %or.cond941.i = select i1 %438, i1 %368, i1 false
+  br i1 %or.cond941.i, label %439, label %.thread42.i
 
-439:                                              ; preds = %.thread38.i, %434
+439:                                              ; preds = %.thread40.i, %434
   %440 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.94) #12
   call void @exit(i32 noundef 1) #14
   unreachable
@@ -1046,20 +1046,20 @@ _print_options.exit:                              ; preds = %354, %351, %103
 441:                                              ; preds = %434
   %442 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 64), align 8
   %443 = icmp eq ptr %442, null
-  br i1 %443, label %.thread32.i, label %.thread40.i
+  br i1 %443, label %.thread32.i, label %.thread42.i
 
-.thread40.i:                                      ; preds = %441, %.thread38.i
-  %444 = phi ptr [ %442, %441 ], [ %430, %.thread38.i ]
+.thread42.i:                                      ; preds = %441, %.thread40.i
+  %444 = phi ptr [ %442, %441 ], [ %430, %.thread40.i ]
   %445 = load i8, ptr %444, align 1
   %.not26.i = icmp eq i8 %445, 47
   br i1 %.not26.i, label %448, label %446
 
-446:                                              ; preds = %.thread40.i
+446:                                              ; preds = %.thread42.i
   %447 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.95) #12
   call void @exit(i32 noundef 1) #14
   unreachable
 
-448:                                              ; preds = %.thread40.i
+448:                                              ; preds = %.thread42.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %449 = call ptr @xstrdup(ptr noundef nonnull %444) #12

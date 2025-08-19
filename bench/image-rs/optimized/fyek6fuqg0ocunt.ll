@@ -4017,7 +4017,7 @@ switch.lookup:
   %49 = icmp eq i64 %3, %spec.select.i
   br i1 %49, label %51, label %50
 
-default.unreachable210:                           ; preds = %64
+default.unreachable233:                           ; preds = %64
   unreachable
 
 50:                                               ; preds = %switch.lookup
@@ -4107,7 +4107,7 @@ default.unreachable210:                           ; preds = %64
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5148.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5148.sroa.8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
-  switch i64 %.sroa.5148.sroa.5.0, label %default.unreachable210 [
+  switch i64 %.sroa.5148.sroa.5.0, label %default.unreachable233 [
     i64 0, label %66
     i64 1, label %116
     i64 2, label %133
@@ -4800,7 +4800,7 @@ switch.lookup:
   %49 = icmp eq i64 %3, %spec.select.i
   br i1 %49, label %51, label %50
 
-default.unreachable210:                           ; preds = %64
+default.unreachable233:                           ; preds = %64
   unreachable
 
 50:                                               ; preds = %switch.lookup
@@ -4890,7 +4890,7 @@ default.unreachable210:                           ; preds = %64
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5148.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5148.sroa.8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
-  switch i64 %.sroa.5148.sroa.5.0, label %default.unreachable210 [
+  switch i64 %.sroa.5148.sroa.5.0, label %default.unreachable233 [
     i64 0, label %66
     i64 1, label %116
     i64 2, label %133
@@ -29166,7 +29166,7 @@ define void @_ZN5image8dynimage12DynamicImage9to_rgb32f17h6f4717a70d10f31fE(ptr 
   %13 = load i64, ptr %1, align 8, !range !11, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  switch i64 %13, label %default.unreachable129 [
+  switch i64 %13, label %default.unreachable177 [
     i64 0, label %16
     i64 1, label %62
     i64 2, label %113
@@ -29179,7 +29179,7 @@ define void @_ZN5image8dynimage12DynamicImage9to_rgb32f17h6f4717a70d10f31fE(ptr 
     i64 9, label %473
   ]
 
-default.unreachable129:                           ; preds = %2
+default.unreachable177:                           ; preds = %2
   unreachable
 
 16:                                               ; preds = %2
@@ -30640,7 +30640,7 @@ default.unreachable1:                             ; preds = %2
 define void @_ZN5image8dynimage12DynamicImage8to_luma817h0ccbb6eab6e4885cE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = load i64, ptr %1, align 8, !range !11, !noundef !4
-  switch i64 %4, label %default.unreachable1 [
+  switch i64 %4, label %default.unreachable3 [
     i64 0, label %5
     i64 1, label %37
     i64 2, label %39
@@ -30653,7 +30653,7 @@ define void @_ZN5image8dynimage12DynamicImage8to_luma817h0ccbb6eab6e4885cE(ptr n
     i64 9, label %53
   ]
 
-default.unreachable1:                             ; preds = %2
+default.unreachable3:                             ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -30792,7 +30792,7 @@ define void @_ZN5image8dynimage12DynamicImage9to_luma1617h0d926b1551aec745E(ptr 
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %5 = load i64, ptr %1, align 8, !range !11, !noundef !4
-  switch i64 %5, label %default.unreachable9 [
+  switch i64 %5, label %default.unreachable15 [
     i64 0, label %6
     i64 1, label %40
     i64 2, label %42
@@ -30805,7 +30805,7 @@ define void @_ZN5image8dynimage12DynamicImage9to_luma1617h0d926b1551aec745E(ptr 
     i64 9, label %86
   ]
 
-default.unreachable9:                             ; preds = %2
+default.unreachable15:                            ; preds = %2
   unreachable
 
 6:                                                ; preds = %2
@@ -31031,7 +31031,7 @@ define void @_ZN5image8dynimage12DynamicImage10to_luma32f17hdfb51b8148cb2a55E(pt
   %13 = load i64, ptr %1, align 8, !range !11, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  switch i64 %13, label %default.unreachable135 [
+  switch i64 %13, label %default.unreachable181 [
     i64 0, label %16
     i64 1, label %48
     i64 2, label %88
@@ -31044,7 +31044,7 @@ define void @_ZN5image8dynimage12DynamicImage10to_luma32f17hdfb51b8148cb2a55E(pt
     i64 9, label %363
   ]
 
-default.unreachable135:                           ; preds = %2
+default.unreachable181:                           ; preds = %2
   unreachable
 
 16:                                               ; preds = %2
@@ -32262,7 +32262,7 @@ define void @_ZN5image8dynimage12DynamicImage16to_luma_alpha32f17h834e93fa69d157
   %13 = load i64, ptr %1, align 8, !range !11, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  switch i64 %13, label %default.unreachable131 [
+  switch i64 %13, label %default.unreachable177 [
     i64 0, label %16
     i64 1, label %57
     i64 2, label %100
@@ -32275,7 +32275,7 @@ define void @_ZN5image8dynimage12DynamicImage16to_luma_alpha32f17h834e93fa69d157
     i64 9, label %427
   ]
 
-default.unreachable131:                           ; preds = %2
+default.unreachable177:                           ; preds = %2
   unreachable
 
 16:                                               ; preds = %2
@@ -35007,7 +35007,7 @@ define { ptr, i64 } @_ZN5image8dynimage12DynamicImage11inner_bytes17hac4907108c7
   %2 = load i64, ptr %0, align 8, !range !11, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  switch i64 %2, label %default.unreachable29 [
+  switch i64 %2, label %default.unreachable57 [
     i64 0, label %5
     i64 1, label %15
     i64 2, label %30
@@ -35020,7 +35020,7 @@ define { ptr, i64 } @_ZN5image8dynimage12DynamicImage11inner_bytes17hac4907108c7
     i64 9, label %130
   ]
 
-default.unreachable29:                            ; preds = %1
+default.unreachable57:                            ; preds = %1
   unreachable
 
 5:                                                ; preds = %1
@@ -35312,7 +35312,7 @@ define void @_ZN5image8dynimage12DynamicImage10into_bytes17h79945752eeac4080E(pt
   %14 = alloca { { i64, ptr }, i64 }, align 8
   %15 = load i64, ptr %1, align 8, !range !11, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i64 %15, label %default.unreachable212 [
+  switch i64 %15, label %default.unreachable217 [
     i64 0, label %17
     i64 1, label %22
     i64 2, label %23
@@ -35325,7 +35325,7 @@ define void @_ZN5image8dynimage12DynamicImage10into_bytes17h79945752eeac4080E(pt
     i64 9, label %128
   ]
 
-default.unreachable212:                           ; preds = %2
+default.unreachable217:                           ; preds = %2
   unreachable
 
 17:                                               ; preds = %2
@@ -35941,7 +35941,7 @@ default.unreachable9:                             ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5image8dynimage12DynamicImage6invert17h5a06b8d91e9ca859E(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !11, !noundef !4
-  switch i64 %2, label %default.unreachable35 [
+  switch i64 %2, label %default.unreachable42 [
     i64 0, label %3
     i64 1, label %5
     i64 2, label %7
@@ -35954,7 +35954,7 @@ define void @_ZN5image8dynimage12DynamicImage6invert17h5a06b8d91e9ca859E(ptr noa
     i64 9, label %41
   ]
 
-default.unreachable35:                            ; preds = %1
+default.unreachable42:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -39088,7 +39088,7 @@ define i32 @"_ZN80_$LT$image..dynimage..DynamicImage$u20$as$u20$image..image..Ge
   %46 = alloca { [4 x float] }, align 4
   %47 = alloca { [4 x float] }, align 4
   %48 = load i64, ptr %0, align 8, !range !11, !noundef !4
-  switch i64 %48, label %default.unreachable92 [
+  switch i64 %48, label %default.unreachable145 [
     i64 0, label %49
     i64 1, label %80
     i64 2, label %120
@@ -39101,7 +39101,7 @@ define i32 @"_ZN80_$LT$image..dynimage..DynamicImage$u20$as$u20$image..image..Ge
     i64 9, label %411
   ]
 
-default.unreachable92:                            ; preds = %3
+default.unreachable145:                           ; preds = %3
   unreachable
 
 49:                                               ; preds = %3
@@ -40008,7 +40008,7 @@ define void @"_ZN76_$LT$image..dynimage..DynamicImage$u20$as$u20$image..image..G
   %48 = lshr i32 %3, 8
   %49 = lshr i32 %3, 16
   %50 = lshr i32 %3, 24
-  switch i64 %46, label %default.unreachable70 [
+  switch i64 %46, label %default.unreachable123 [
     i64 0, label %51
     i64 1, label %82
     i64 2, label %120
@@ -40021,7 +40021,7 @@ define void @"_ZN76_$LT$image..dynimage..DynamicImage$u20$as$u20$image..image..G
     i64 9, label %391
   ]
 
-default.unreachable70:                            ; preds = %4
+default.unreachable123:                           ; preds = %4
   unreachable
 
 51:                                               ; preds = %4
@@ -40560,15 +40560,15 @@ default.unreachable70:                            ; preds = %4
   %.mask = and i32 %3, 255
   %narrow = mul nuw nsw i32 %.mask, 257
   %.sroa.0.0.insert.ext.i46 = zext nneg i32 %narrow to i64
-  %.mask71 = and i32 %48, 255
-  %.mask72 = and i32 %49, 255
-  %310 = zext nneg i32 %.mask72 to i64
+  %.mask124 = and i32 %48, 255
+  %.mask125 = and i32 %49, 255
+  %310 = zext nneg i32 %.mask125 to i64
   %311 = zext nneg i32 %50 to i64
   %.sroa.7.0.insert.shift.i = mul nuw i64 %311, 72339069014638592
   %.sroa.6.0.insert.shift.i47 = mul nuw nsw i64 %310, 1103806595072
   %.sroa.6.0.insert.insert.i = or disjoint i64 %.sroa.7.0.insert.shift.i, %.sroa.6.0.insert.shift.i47
-  %narrow74 = mul nuw i32 %.mask71, 16842752
-  %.sroa.5.0.insert.shift.i48 = zext i32 %narrow74 to i64
+  %narrow127 = mul nuw i32 %.mask124, 16842752
+  %.sroa.5.0.insert.shift.i48 = zext i32 %narrow127 to i64
   %.sroa.5.0.insert.insert.i49 = or disjoint i64 %.sroa.6.0.insert.insert.i, %.sroa.5.0.insert.shift.i48
   %.sroa.0.0.insert.insert.i50 = or disjoint i64 %.sroa.5.0.insert.insert.i49, %.sroa.0.0.insert.ext.i46
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6931)
@@ -40884,7 +40884,7 @@ define void @"_ZN76_$LT$image..dynimage..DynamicImage$u20$as$u20$image..image..G
   %53 = lshr i32 %3, 8
   %54 = lshr i32 %3, 16
   %55 = lshr i32 %3, 24
-  switch i64 %51, label %default.unreachable64 [
+  switch i64 %51, label %default.unreachable117 [
     i64 0, label %56
     i64 1, label %87
     i64 2, label %125
@@ -40897,7 +40897,7 @@ define void @"_ZN76_$LT$image..dynimage..DynamicImage$u20$as$u20$image..image..G
     i64 9, label %396
   ]
 
-default.unreachable64:                            ; preds = %4
+default.unreachable117:                           ; preds = %4
   unreachable
 
 56:                                               ; preds = %4
@@ -41446,15 +41446,15 @@ default.unreachable64:                            ; preds = %4
   %.mask = and i32 %3, 255
   %narrow = mul nuw nsw i32 %.mask, 257
   %.sroa.0.0.insert.ext.i43 = zext nneg i32 %narrow to i64
-  %.mask65 = and i32 %53, 255
-  %.mask66 = and i32 %54, 255
-  %315 = zext nneg i32 %.mask66 to i64
+  %.mask118 = and i32 %53, 255
+  %.mask119 = and i32 %54, 255
+  %315 = zext nneg i32 %.mask119 to i64
   %316 = zext nneg i32 %55 to i64
   %.sroa.7.0.insert.shift.i = mul nuw i64 %316, 72339069014638592
   %.sroa.6.0.insert.shift.i44 = mul nuw nsw i64 %315, 1103806595072
   %.sroa.6.0.insert.insert.i = or disjoint i64 %.sroa.7.0.insert.shift.i, %.sroa.6.0.insert.shift.i44
-  %narrow68 = mul nuw i32 %.mask65, 16842752
-  %.sroa.5.0.insert.shift.i45 = zext i32 %narrow68 to i64
+  %narrow121 = mul nuw i32 %.mask118, 16842752
+  %.sroa.5.0.insert.shift.i45 = zext i32 %narrow121 to i64
   %.sroa.5.0.insert.insert.i46 = or disjoint i64 %.sroa.6.0.insert.insert.i, %.sroa.5.0.insert.shift.i45
   %.sroa.0.0.insert.insert.i47 = or disjoint i64 %.sroa.5.0.insert.insert.i46, %.sroa.0.0.insert.ext.i43
   store i64 %.sroa.0.0.insert.insert.i47, ptr %46, align 8

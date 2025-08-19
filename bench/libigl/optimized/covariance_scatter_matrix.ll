@@ -1083,7 +1083,7 @@ _ZN5Eigen8internal15unary_evaluatorINS_9TransposeINS_12SparseMatrixIdLi0EiEEEENS
   br i1 %95, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge76:                                    ; preds = %.lr.ph75, %._crit_edge72
-  %.sroa.049.097 = phi ptr [ null, %._crit_edge72 ], [ %74, %.lr.ph75 ]
+  %.sroa.049.0107 = phi ptr [ null, %._crit_edge72 ], [ %74, %.lr.ph75 ]
   %.032.lcssa = phi i32 [ 0, %._crit_edge72 ], [ %136, %.lr.ph75 ]
   %96 = getelementptr inbounds i32, ptr %calloc, i64 %7
   store i32 %.032.lcssa, ptr %96, align 4, !tbaa !31
@@ -1142,7 +1142,7 @@ _ZN5Eigen8internal15unary_evaluatorINS_9TransposeINS_12SparseMatrixIdLi0EiEEEENS
   %121 = getelementptr inbounds i32, ptr %104, i64 %.sroa.8.077.us
   %122 = load i32, ptr %121, align 4, !tbaa !31
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i32, ptr %.sroa.049.097, i64 %123
+  %124 = getelementptr inbounds i32, ptr %.sroa.049.0107, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !31
   %126 = add nsw i32 %125, 1
   store i32 %126, ptr %124, align 4, !tbaa !31
@@ -1173,7 +1173,7 @@ _ZN5Eigen8internal15unary_evaluatorINS_9TransposeINS_12SparseMatrixIdLi0EiEEEENS
 138:                                              ; preds = %._crit_edge76
   %139 = landingpad { ptr, i32 }
           cleanup
-  call void @free(ptr noundef %.sroa.049.097) #19
+  call void @free(ptr noundef %.sroa.049.0107) #19
   br label %.body42
 
 _ZN5Eigen8internal15unary_evaluatorINS_9TransposeINS_12SparseMatrixIdLi0EiEEEENS0_13IteratorBasedEdE13InnerIteratorC2ERKS7_l.exit45: ; preds = %.lr.ph81, %._crit_edge79
@@ -1202,7 +1202,7 @@ _ZN5Eigen8internal15unary_evaluatorINS_9TransposeINS_12SparseMatrixIdLi0EiEEEENS
   %149 = getelementptr inbounds i32, ptr %104, i64 %.sroa.8.077
   %150 = load i32, ptr %149, align 4, !tbaa !31
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds i32, ptr %.sroa.049.097, i64 %151
+  %152 = getelementptr inbounds i32, ptr %.sroa.049.0107, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !31
   %154 = add nsw i32 %153, 1
   store i32 %154, ptr %152, align 4, !tbaa !31
@@ -1260,7 +1260,7 @@ _ZN5Eigen8internal15unary_evaluatorINS_9TransposeINS_12SparseMatrixIdLi0EiEEEENS
   %187 = load i64, ptr %185, align 8, !tbaa !43
   store i64 %187, ptr %184, align 8, !tbaa !43
   store i64 %186, ptr %185, align 8, !tbaa !43
-  call void @free(ptr noundef %.sroa.049.097) #19
+  call void @free(ptr noundef %.sroa.049.0107) #19
   call void @free(ptr noundef %164) #19
   %188 = load ptr, ptr %20, align 8, !tbaa !28
   call void @free(ptr noundef %188) #19

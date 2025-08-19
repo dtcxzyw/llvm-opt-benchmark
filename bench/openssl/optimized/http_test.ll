@@ -1012,9 +1012,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @http_bio_cb_ex(ptr nound
   br i1 %103, label %mock_http_server.exit, label %104
 
 104:                                              ; preds = %100, %96
-  %lhsv10 = load i32, ptr %10, align 4
-  %.not11 = icmp eq i32 %lhsv10, 3750195
-  br i1 %.not11, label %105, label %109
+  %lhsv17 = load i32, ptr %10, align 4
+  %.not18 = icmp eq i32 %lhsv17, 3750195
+  br i1 %.not18, label %105, label %109
 
 105:                                              ; preds = %104
   %106 = call i32 @BIO_puts(ptr noundef nonnull %15, ptr noundef nonnull @.str.138) #9

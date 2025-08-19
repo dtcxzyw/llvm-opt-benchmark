@@ -668,11 +668,11 @@ _ZN4core3ops8function6FnOnce9call_once17h20318f7d23f82dc8E.exit: ; preds = %22, 
           to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h12e4a00688b0b4fcE.exit.thread" unwind label %126
 
 "_ZN4core3ptr88drop_in_place$LT$grep_cli..process..StderrReader..async..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc8c553b0413624deE.exit": ; preds = %121, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h12e4a00688b0b4fcE.exit.thread", %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h12e4a00688b0b4fcE.exit"
-  %.pn62125136 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h12e4a00688b0b4fcE.exit" ], [ %.pn62125139, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h12e4a00688b0b4fcE.exit.thread" ], [ %122, %121 ]
+  %.pn62125136 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h12e4a00688b0b4fcE.exit" ], [ %.pn62125146, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h12e4a00688b0b4fcE.exit.thread" ], [ %122, %121 ]
   resume { ptr, i32 } %.pn62125136
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h12e4a00688b0b4fcE.exit.thread": ; preds = %145, %.thread94.thread, %148, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h12e4a00688b0b4fcE.exit"
-  %.pn62125139 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h12e4a00688b0b4fcE.exit" ], [ %.pn62126, %148 ], [ %.pn62126, %.thread94.thread ], [ %.pn62126, %145 ]
+  %.pn62125146 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h12e4a00688b0b4fcE.exit" ], [ %.pn62126, %148 ], [ %.pn62126, %.thread94.thread ], [ %.pn62126, %145 ]
   %149 = invoke noundef i32 @close(i32 noundef %2)
           to label %"_ZN4core3ptr88drop_in_place$LT$grep_cli..process..StderrReader..async..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc8c553b0413624deE.exit" unwind label %126
 }
@@ -716,8 +716,8 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = alloca ptr, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
-  %.sink99.i.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink99.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink106.i.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink106.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = invoke { ptr, i64 } @_ZN3std6thread6Thread5cname17h4e93ddb7f27a6ad6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
           to label %10 unwind label %.thread.i
 
@@ -784,7 +784,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 29:                                               ; preds = %28
   %.sroa.0.0.copyload32.i = load i64, ptr %4, align 8, !noalias !125
-  %.sroa.3.0.copyload34.i = load ptr, ptr %.sink99.i.sroa.gep, align 8, !noalias !125
+  %.sroa.3.0.copyload34.i = load ptr, ptr %.sink106.i.sroa.gep, align 8, !noalias !125
   br label %34
 
 30:                                               ; preds = %28
@@ -797,10 +797,10 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   br label %34
 
 34:                                               ; preds = %30, %29
-  %.sink99.i.sroa.phi = phi ptr [ %.sink99.i.sroa.gep, %30 ], [ %.sink99.i.sroa.gep1, %29 ]
+  %.sink106.i.sroa.phi = phi ptr [ %.sink106.i.sroa.gep, %30 ], [ %.sink106.i.sroa.gep1, %29 ]
   %.sroa.3.0.i = phi ptr [ %33, %30 ], [ %.sroa.3.0.copyload34.i, %29 ]
   %.sroa.0.0.i = phi i64 [ -9223372036854775807, %30 ], [ %.sroa.0.0.copyload32.i, %29 ]
-  %35 = load ptr, ptr %.sink99.i.sroa.phi, align 8, !noalias !125
+  %35 = load ptr, ptr %.sink106.i.sroa.phi, align 8, !noalias !125
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !135
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8, !alias.scope !125, !nonnull !4, !noundef !4

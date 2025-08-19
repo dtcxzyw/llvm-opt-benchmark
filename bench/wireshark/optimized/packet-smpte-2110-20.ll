@@ -91,7 +91,7 @@ declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_st2110_20(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
+define internal noundef i32 @dissect_st2110_20(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [3 x i16], align 2
   %7 = alloca [3 x ptr], align 16
@@ -239,51 +239,46 @@ proto_item_set_generated.exit96:                  ; preds = %54, %61, %64
   %88 = add nuw nsw i32 %.0103, 6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not90.not = icmp slt i16 %83, 0
-  br i1 %.not90.not, label %53, label %.split.loop.exit117
+  br i1 %.not90.not, label %53, label %.split.loop.exit125
 
-.split.loop.exit117:                              ; preds = %77
-  %indvars.le = trunc i64 %indvars.iv.next to i8
+.split.loop.exit125:                              ; preds = %77
+  %indvars.le = trunc nuw nsw i64 %indvars.iv.next to i8
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %53, %.split.loop.exit117
-  %.lcssa108 = phi i32 [ %88, %.split.loop.exit117 ], [ 20, %53 ]
-  %.lcssa107 = phi i8 [ %indvars.le, %.split.loop.exit117 ], [ 3, %53 ]
+.split.loop.exit:                                 ; preds = %53, %.split.loop.exit125
+  %.lcssa108 = phi i32 [ %88, %.split.loop.exit125 ], [ 20, %53 ]
+  %.lcssa107 = phi i8 [ %indvars.le, %.split.loop.exit125 ], [ 3, %53 ]
   %89 = load i32, ptr @hf_st2110_srd_rows, align 4
   %90 = zext i8 %.lcssa107 to i32
   %91 = call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %89, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %90)
   %.not.i97 = icmp eq ptr %91, null
-  br i1 %.not.i97, label %proto_item_set_generated.exit99, label %92
+  br i1 %.not.i97, label %.lr.ph.preheader, label %92
 
 92:                                               ; preds = %.split.loop.exit
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 40
   %94 = load ptr, ptr %93, align 8
   %.not5.i98 = icmp eq ptr %94, null
-  br i1 %.not5.i98, label %proto_item_set_generated.exit99, label %95
+  br i1 %.not5.i98, label %.lr.ph.preheader, label %95
 
 95:                                               ; preds = %92
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 28
   %97 = load i32, ptr %96, align 4
   %98 = or i32 %97, 2
   store i32 %98, ptr %96, align 4
-  br label %proto_item_set_generated.exit99
+  br label %.lr.ph.preheader
 
-proto_item_set_generated.exit99:                  ; preds = %.split.loop.exit, %92, %95
-  %.not106 = icmp eq i8 %.lcssa107, 0
-  br i1 %.not106, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %proto_item_set_generated.exit99
+.lr.ph.preheader:                                 ; preds = %95, %92, %.split.loop.exit
   %wide.trip.count = zext i8 %.lcssa107 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %proto_item_set_generated.exit99
-  %.2.lcssa = phi i32 [ %.lcssa108, %proto_item_set_generated.exit99 ], [ %108, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph
   %99 = load ptr, ptr %11, align 8
   %100 = zext i16 %.in to i32
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %99, i32 noundef 25, ptr noundef nonnull @.str.31, i32 noundef %26, i32 noundef %32, i32 noundef %100, i32 noundef %90)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.2.lcssa
+  ret i32 %108
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv112 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next113, %.lr.ph ]

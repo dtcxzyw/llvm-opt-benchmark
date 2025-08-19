@@ -685,10 +685,10 @@ define internal i32 @adler32_x86_avx2_vnni(i32 noundef %0, ptr noundef %1, i64 n
   %.7 = phi ptr [ %118, %113 ], [ %.5, %101 ]
   store <4 x i64> zeroinitializer, ptr %4, align 32, !tbaa !11
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %4, ptr align 1 %.7, i64 %.3139, i1 false)
-  %.0..0..0..0.2385429487 = load <8 x i32>, ptr %4, align 32, !tbaa !11
-  %122 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> %.pre-phi, <8 x i32> %.0..0..0..0.2385429487, <8 x i32> splat (i32 16843009))
+  %.0..0..0..0.2385432490 = load <8 x i32>, ptr %4, align 32, !tbaa !11
+  %122 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> %.pre-phi, <8 x i32> %.0..0..0..0.2385432490, <8 x i32> splat (i32 16843009))
   %123 = bitcast <32 x i8> %.0140.in to <8 x i32>
-  %124 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> %.4150.in, <8 x i32> %.0..0..0..0.2385429487, <8 x i32> %123)
+  %124 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> %.4150.in, <8 x i32> %.0..0..0..0.2385432490, <8 x i32> %123)
   %125 = getelementptr inbounds nuw i8, ptr %.7, i64 %.3139
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %126
@@ -776,17 +776,17 @@ define internal i32 @adler32_x86_avx2(i32 noundef %0, ptr noundef %1, i64 nounde
   %23 = tail call i64 @llvm.umin.i64(i64 %.287253, i64 5504)
   %24 = sub i64 %.287253, %23
   %25 = icmp ugt i64 %.287253, 63
-  br i1 %25, label %.preheader307, label %87
+  br i1 %25, label %.preheader311, label %87
 
-.preheader307:                                    ; preds = %.lr.ph256, %.preheader307
-  %26 = phi <8 x i32> [ %53, %.preheader307 ], [ zeroinitializer, %.lr.ph256 ]
-  %27 = phi <8 x i32> [ %35, %.preheader307 ], [ zeroinitializer, %.lr.ph256 ]
-  %28 = phi <16 x i16> [ %38, %.preheader307 ], [ zeroinitializer, %.lr.ph256 ]
-  %29 = phi <16 x i16> [ %41, %.preheader307 ], [ zeroinitializer, %.lr.ph256 ]
-  %30 = phi <16 x i16> [ %44, %.preheader307 ], [ zeroinitializer, %.lr.ph256 ]
-  %31 = phi <16 x i16> [ %47, %.preheader307 ], [ zeroinitializer, %.lr.ph256 ]
-  %.088 = phi i64 [ %55, %.preheader307 ], [ %23, %.lr.ph256 ]
-  %.3 = phi ptr [ %54, %.preheader307 ], [ %.2254, %.lr.ph256 ]
+.preheader311:                                    ; preds = %.lr.ph256, %.preheader311
+  %26 = phi <8 x i32> [ %53, %.preheader311 ], [ zeroinitializer, %.lr.ph256 ]
+  %27 = phi <8 x i32> [ %35, %.preheader311 ], [ zeroinitializer, %.lr.ph256 ]
+  %28 = phi <16 x i16> [ %38, %.preheader311 ], [ zeroinitializer, %.lr.ph256 ]
+  %29 = phi <16 x i16> [ %41, %.preheader311 ], [ zeroinitializer, %.lr.ph256 ]
+  %30 = phi <16 x i16> [ %44, %.preheader311 ], [ zeroinitializer, %.lr.ph256 ]
+  %31 = phi <16 x i16> [ %47, %.preheader311 ], [ zeroinitializer, %.lr.ph256 ]
+  %.088 = phi i64 [ %55, %.preheader311 ], [ %23, %.lr.ph256 ]
+  %.3 = phi ptr [ %54, %.preheader311 ], [ %.2254, %.lr.ph256 ]
   %32 = load <32 x i8>, ptr %.3, align 1, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %.3, i64 32
   %34 = load <32 x i8>, ptr %33, align 1, !tbaa !11
@@ -812,9 +812,9 @@ define internal i32 @adler32_x86_avx2(i32 noundef %0, ptr noundef %1, i64 nounde
   %54 = getelementptr inbounds nuw i8, ptr %.3, i64 64
   %55 = add i64 %.088, -64
   %56 = icmp ugt i64 %55, 63
-  br i1 %56, label %.preheader307, label %57
+  br i1 %56, label %.preheader311, label %57
 
-57:                                               ; preds = %.preheader307
+57:                                               ; preds = %.preheader311
   %58 = trunc nuw nsw i64 %23 to i32
   %59 = and i32 %58, 8128
   %60 = mul nuw nsw i32 %59, %.2212252
@@ -990,17 +990,17 @@ define internal i32 @adler32_x86_sse2(i32 noundef %0, ptr noundef %1, i64 nounde
   %23 = tail call i64 @llvm.umin.i64(i64 %.287164, i64 4096)
   %24 = sub i64 %.287164, %23
   %25 = icmp ugt i64 %.287164, 31
-  br i1 %25, label %.preheader218, label %81
+  br i1 %25, label %.preheader222, label %81
 
-.preheader218:                                    ; preds = %.lr.ph167, %.preheader218
-  %26 = phi <4 x i32> [ %53, %.preheader218 ], [ zeroinitializer, %.lr.ph167 ]
-  %27 = phi <4 x i32> [ %35, %.preheader218 ], [ zeroinitializer, %.lr.ph167 ]
-  %28 = phi <8 x i16> [ %38, %.preheader218 ], [ zeroinitializer, %.lr.ph167 ]
-  %29 = phi <8 x i16> [ %41, %.preheader218 ], [ zeroinitializer, %.lr.ph167 ]
-  %30 = phi <8 x i16> [ %44, %.preheader218 ], [ zeroinitializer, %.lr.ph167 ]
-  %31 = phi <8 x i16> [ %47, %.preheader218 ], [ zeroinitializer, %.lr.ph167 ]
-  %.088 = phi i64 [ %55, %.preheader218 ], [ %23, %.lr.ph167 ]
-  %.3 = phi ptr [ %54, %.preheader218 ], [ %.2165, %.lr.ph167 ]
+.preheader222:                                    ; preds = %.lr.ph167, %.preheader222
+  %26 = phi <4 x i32> [ %53, %.preheader222 ], [ zeroinitializer, %.lr.ph167 ]
+  %27 = phi <4 x i32> [ %35, %.preheader222 ], [ zeroinitializer, %.lr.ph167 ]
+  %28 = phi <8 x i16> [ %38, %.preheader222 ], [ zeroinitializer, %.lr.ph167 ]
+  %29 = phi <8 x i16> [ %41, %.preheader222 ], [ zeroinitializer, %.lr.ph167 ]
+  %30 = phi <8 x i16> [ %44, %.preheader222 ], [ zeroinitializer, %.lr.ph167 ]
+  %31 = phi <8 x i16> [ %47, %.preheader222 ], [ zeroinitializer, %.lr.ph167 ]
+  %.088 = phi i64 [ %55, %.preheader222 ], [ %23, %.lr.ph167 ]
+  %.3 = phi ptr [ %54, %.preheader222 ], [ %.2165, %.lr.ph167 ]
   %32 = load <16 x i8>, ptr %.3, align 1, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %.3, i64 16
   %34 = load <16 x i8>, ptr %33, align 1, !tbaa !11
@@ -1026,9 +1026,9 @@ define internal i32 @adler32_x86_sse2(i32 noundef %0, ptr noundef %1, i64 nounde
   %54 = getelementptr inbounds nuw i8, ptr %.3, i64 32
   %55 = add i64 %.088, -32
   %56 = icmp ugt i64 %55, 31
-  br i1 %56, label %.preheader218, label %57
+  br i1 %56, label %.preheader222, label %57
 
-57:                                               ; preds = %.preheader218
+57:                                               ; preds = %.preheader222
   %58 = trunc nuw nsw i64 %23 to i32
   %59 = and i32 %58, 8160
   %60 = mul nuw nsw i32 %59, %.2129162

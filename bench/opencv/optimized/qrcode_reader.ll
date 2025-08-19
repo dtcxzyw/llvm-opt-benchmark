@@ -1199,12 +1199,12 @@ _ZN5zxing12ErrorHandlerD2Ev.exit281:              ; preds = %_ZNKSt7__cxx1112bas
 237:                                              ; preds = %186
   %238 = getelementptr inbounds nuw i8, ptr %125, i64 56
   %239 = load i32, ptr %238, align 8, !tbaa !65
-  %switch.tableidx3011 = add i32 %239, -10
-  %240 = icmp ult i32 %switch.tableidx3011, 3
+  %switch.tableidx3295 = add i32 %239, -10
+  %240 = icmp ult i32 %switch.tableidx3295, 3
   br i1 %240, label %.sink.split.i282, label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector13DetectorStateE.exit284
 
 .sink.split.i282:                                 ; preds = %237
-  store i32 %switch.tableidx3011, ptr %82, align 4, !tbaa !22
+  store i32 %switch.tableidx3295, ptr %82, align 4, !tbaa !22
   br label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector13DetectorStateE.exit284
 
 _ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector13DetectorStateE.exit284: ; preds = %237, %.sink.split.i282
@@ -1311,11 +1311,11 @@ _ZN5zxing6qrcode8Detector20getFinderPatternInfoEi.exit: ; preds = %256, %.prehea
 
 296:                                              ; preds = %294
   %297 = icmp ult i32 %286, 35
-  %.2713 = select i1 %297, i32 5, i32 6
+  %.2997 = select i1 %297, i32 5, i32 6
   br label %_ZN5zxing6qrcode12QRCodeReader27setPossibleAPCountByVersionEj.exit
 
 _ZN5zxing6qrcode12QRCodeReader27setPossibleAPCountByVersionEj.exit: ; preds = %296, %294, %292, %290, %288, %276
-  %.sink = phi i32 [ 0, %276 ], [ 1, %288 ], [ 2, %290 ], [ 3, %292 ], [ 4, %294 ], [ %.2713, %296 ]
+  %.sink = phi i32 [ 0, %276 ], [ 1, %288 ], [ 2, %290 ], [ 3, %292 ], [ 4, %294 ], [ %.2997, %296 ]
   store i32 %.sink, ptr %86, align 8, !tbaa !97
   %.not.i.i285 = icmp eq i32 %271, 0
   br i1 %.not.i.i285, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %298
@@ -1340,7 +1340,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit666:          ; preds = %298
   br label %.lr.ph
 
 .preheader1061:                                   ; preds = %1152
-  br i1 %.299, label %.loopexit2350, label %.lr.ph1835
+  br i1 %.299, label %.loopexit2634, label %.lr.ph1835
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %1152
   %.91817 = phi i1 [ %.11, %1152 ], [ %.5851838, %.lr.ph.preheader ]
@@ -1662,8 +1662,8 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit: ; preds = %_ZNSt6vecto
   br i1 %434, label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit.sink.split, label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit
 
 _ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit.sink.split: ; preds = %432, %429, %426, %423, %420, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit
-  %.sink2709 = phi i32 [ 3, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit ], [ 4, %420 ], [ 5, %423 ], [ 6, %426 ], [ 7, %429 ], [ 8, %432 ]
-  store i32 %.sink2709, ptr %82, align 4, !tbaa !22
+  %.sink2993 = phi i32 [ 3, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit ], [ 4, %420 ], [ 5, %423 ], [ 6, %426 ], [ 7, %429 ], [ 8, %432 ]
+  store i32 %.sink2993, ptr %82, align 4, !tbaa !22
   br label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit
 
 _ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit: ; preds = %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit.sink.split, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit, %420, %423, %426, %429, %432
@@ -2131,8 +2131,8 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit324: ; preds = %_ZNSt6ve
   br i1 %632, label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit325.sink.split, label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit325
 
 _ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit325.sink.split: ; preds = %630, %627, %624, %621, %618, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit324
-  %.sink2710 = phi i32 [ 3, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit324 ], [ 4, %618 ], [ 5, %621 ], [ 6, %624 ], [ 7, %627 ], [ 8, %630 ]
-  store i32 %.sink2710, ptr %82, align 4, !tbaa !22
+  %.sink2994 = phi i32 [ 3, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit324 ], [ 4, %618 ], [ 5, %621 ], [ 6, %624 ], [ 7, %627 ], [ 8, %630 ]
+  store i32 %.sink2994, ptr %82, align 4, !tbaa !22
   br label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit325
 
 _ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit325: ; preds = %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit325.sink.split, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit324, %618, %621, %624, %627, %630
@@ -2630,8 +2630,8 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit363: ; preds = %_ZNSt6ve
   br i1 %837, label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit364.sink.split, label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit364
 
 _ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit364.sink.split: ; preds = %835, %832, %829, %826, %823, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit363
-  %.sink2711 = phi i32 [ 3, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit363 ], [ 4, %823 ], [ 5, %826 ], [ 6, %829 ], [ 7, %832 ], [ 8, %835 ]
-  store i32 %.sink2711, ptr %82, align 4, !tbaa !22
+  %.sink2995 = phi i32 [ 3, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit363 ], [ 4, %823 ], [ 5, %826 ], [ 6, %829 ], [ 7, %832 ], [ 8, %835 ]
+  store i32 %.sink2995, ptr %82, align 4, !tbaa !22
   br label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit364
 
 _ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit364: ; preds = %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit364.sink.split, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit363, %823, %826, %829, %832, %835
@@ -3461,7 +3461,7 @@ _ZN5zxing3RefINS_14DetectorResultEED2Ev.exit:     ; preds = %1131, %1133, %1138
 
 _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit433: ; preds = %_ZN5zxing3RefINS_14DetectorResultEED2Ev.exit, %1143, %1148
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  switch i32 %.7144, label %.loopexit2350 [
+  switch i32 %.7144, label %.loopexit2634 [
     i32 0, label %1152
     i32 10, label %1152
   ]
@@ -3581,21 +3581,21 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit441: ; preds = %1185, %1
   br label %.body
 
 1196:                                             ; preds = %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit639.thread, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit639
-  %.1010723242331 = phi i1 [ false, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit639.thread ], [ %.7104990, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit639 ]
-  %.2323252330 = phi i1 [ %.151834, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit639.thread ], [ %.19992, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit639 ]
+  %.1010726082615 = phi i1 [ false, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit639.thread ], [ %.7104990, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit639 ]
+  %.2326092614 = phi i1 [ %.151834, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit639.thread ], [ %.19992, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit639 ]
   %1197 = add nuw nsw i32 %.0881832, 1
   %1198 = icmp sge i32 %1197, %271
-  %or.cond264 = select i1 %1198, i1 true, i1 %.1010723242331
-  br i1 %or.cond264, label %.loopexit2350, label %.lr.ph1835, !llvm.loop !150
+  %or.cond264 = select i1 %1198, i1 true, i1 %.1010726082615
+  br i1 %or.cond264, label %.loopexit2634, label %.lr.ph1835, !llvm.loop !150
 
 .lr.ph1835:                                       ; preds = %.preheader1061, %1196
-  %.151834 = phi i1 [ %.2323252330, %1196 ], [ %.11, %.preheader1061 ]
+  %.151834 = phi i1 [ %.2326092614, %1196 ], [ %.11, %.preheader1061 ]
   %.0881832 = phi i32 [ %1197, %1196 ], [ 0, %.preheader1061 ]
   %1199 = load ptr, ptr %5, align 8, !tbaa !8
   %1200 = getelementptr inbounds nuw i8, ptr %1199, i64 56
   %1201 = load ptr, ptr %1200, align 8
   invoke void %1201(ptr noundef nonnull align 8 dereferenceable(48) %5)
-          to label %1202 unwind label %.thread2341
+          to label %1202 unwind label %.thread2625
 
 1202:                                             ; preds = %.lr.ph1835
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
@@ -3632,7 +3632,7 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit639.thread: ; preds = %1
   %1217 = icmp ugt i64 %1216, 4
   br i1 %1217, label %.lr.ph1824, label %_ZN5zxing3RefINS_14DetectorResultEED2Ev.exit628._crit_edge
 
-.thread2341:                                      ; preds = %.lr.ph1835
+.thread2625:                                      ; preds = %.lr.ph1835
   %1218 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4917,8 +4917,8 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit548: ; preds = %_ZNSt6ve
   br i1 %1733, label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit549.sink.split, label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit549
 
 _ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit549.sink.split: ; preds = %1731, %1728, %1725, %1722, %1719, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit548
-  %.sink2712 = phi i32 [ 3, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit548 ], [ 4, %1719 ], [ 5, %1722 ], [ 6, %1725 ], [ 7, %1728 ], [ 8, %1731 ]
-  store i32 %.sink2712, ptr %82, align 4, !tbaa !22
+  %.sink2996 = phi i32 [ 3, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit548 ], [ 4, %1719 ], [ 5, %1722 ], [ 6, %1725 ], [ 7, %1728 ], [ 8, %1731 ]
+  store i32 %.sink2996, ptr %82, align 4, !tbaa !22
   br label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit549
 
 _ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit549: ; preds = %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit549.sink.split, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit548, %1719, %1722, %1725, %1728, %1731
@@ -5917,17 +5917,17 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit641: ; preds = %_ZNSt6ve
 2103:                                             ; preds = %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit639
   %cond3 = icmp eq i32 %2078, 11
   %spec.select1023 = select i1 %cond3, i32 0, i32 %2078
-  br label %.loopexit2350
+  br label %.loopexit2634
 
-.loopexit2350:                                    ; preds = %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit433, %1196, %2103, %.preheader1061
+.loopexit2634:                                    ; preds = %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit433, %1196, %2103, %.preheader1061
   %.10147.ph = phi i32 [ 0, %.preheader1061 ], [ %spec.select1023, %2103 ], [ 0, %1196 ], [ %.7144, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit433 ]
-  %.14.ph = phi i1 [ %.11, %.preheader1061 ], [ %.19992, %2103 ], [ %.2323252330, %1196 ], [ %.11, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit433 ]
+  %.14.ph = phi i1 [ %.11, %.preheader1061 ], [ %.19992, %2103 ], [ %.2326092614, %1196 ], [ %.11, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit433 ]
   call void @_ZdlPv(ptr noundef %302) #21
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
-_ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZN5zxing6qrcode12QRCodeReader27setPossibleAPCountByVersionEj.exit, %263, %272, %.loopexit2350
-  %.4141 = phi i32 [ 7, %263 ], [ 7, %272 ], [ %.10147.ph, %.loopexit2350 ], [ 0, %_ZN5zxing6qrcode12QRCodeReader27setPossibleAPCountByVersionEj.exit ]
-  %.7 = phi i1 [ %.5851838, %263 ], [ %.5851838, %272 ], [ %.14.ph, %.loopexit2350 ], [ %.5851838, %_ZN5zxing6qrcode12QRCodeReader27setPossibleAPCountByVersionEj.exit ]
+_ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZN5zxing6qrcode12QRCodeReader27setPossibleAPCountByVersionEj.exit, %263, %272, %.loopexit2634
+  %.4141 = phi i32 [ 7, %263 ], [ 7, %272 ], [ %.10147.ph, %.loopexit2634 ], [ 0, %_ZN5zxing6qrcode12QRCodeReader27setPossibleAPCountByVersionEj.exit ]
+  %.7 = phi i1 [ %.5851838, %263 ], [ %.5851838, %272 ], [ %.14.ph, %.loopexit2634 ], [ %.5851838, %_ZN5zxing6qrcode12QRCodeReader27setPossibleAPCountByVersionEj.exit ]
   %2104 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %2105 = load i32, ptr %2104, align 8, !tbaa !3
   %2106 = add i32 %2105, -1
@@ -5954,13 +5954,13 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit: ; preds = %_ZNSt13_Bvect
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit, label %.preheader1063, !llvm.loop !169
 
-.body:                                            ; preds = %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit441, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit641, %.thread2341
-  %.pn244.pn.pn.pn.pn.pn.pn2348 = phi { ptr, i32 } [ %1218, %.thread2341 ], [ %.pn221.pn.pn, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit441 ], [ %.pn244.pn.pn.pn, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit641 ]
+.body:                                            ; preds = %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit441, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit641, %.thread2625
+  %.pn244.pn.pn.pn.pn.pn.pn2632 = phi { ptr, i32 } [ %1218, %.thread2625 ], [ %.pn221.pn.pn, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit441 ], [ %.pn244.pn.pn.pn, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit641 ]
   call void @_ZdlPv(ptr noundef %302) #21
   br i1 %.not.i.i.i, label %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit650, label %.body.thread
 
 .body.thread:                                     ; preds = %267, %274, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit666, %.body
-  %.pn244.pn.pn.pn.pn.pn.pn.pn.pn.pn1002 = phi { ptr, i32 } [ %.pn244.pn.pn.pn.pn.pn.pn2348, %.body ], [ %303, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit666 ], [ %275, %274 ], [ %268, %267 ]
+  %.pn244.pn.pn.pn.pn.pn.pn.pn.pn.pn1002 = phi { ptr, i32 } [ %.pn244.pn.pn.pn.pn.pn.pn2632, %.body ], [ %303, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit666 ], [ %275, %274 ], [ %268, %267 ]
   %2113 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %2114 = load i32, ptr %2113, align 8, !tbaa !3
   %2115 = add i32 %2114, -1
@@ -6005,7 +6005,7 @@ _ZN5zxing3RefINS_6qrcode8DetectorEED2Ev.exit:     ; preds = %_ZNSt7__cxx1112basi
   ]
 
 _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit650: ; preds = %227, %_ZN5zxing12ErrorHandlerD2Ev.exit281, %2117, %.body.thread, %.body
-  %.pn258 = phi { ptr, i32 } [ %228, %227 ], [ %.pn256, %_ZN5zxing12ErrorHandlerD2Ev.exit281 ], [ %.pn244.pn.pn.pn.pn.pn.pn2348, %.body ], [ %.pn244.pn.pn.pn.pn.pn.pn.pn.pn.pn1002, %.body.thread ], [ %.pn244.pn.pn.pn.pn.pn.pn.pn.pn.pn1002, %2117 ]
+  %.pn258 = phi { ptr, i32 } [ %228, %227 ], [ %.pn256, %_ZN5zxing12ErrorHandlerD2Ev.exit281 ], [ %.pn244.pn.pn.pn.pn.pn.pn2632, %.body ], [ %.pn244.pn.pn.pn.pn.pn.pn.pn.pn.pn1002, %.body.thread ], [ %.pn244.pn.pn.pn.pn.pn.pn.pn.pn.pn1002, %2117 ]
   %2129 = load i32, ptr %154, align 8, !tbaa !3
   %2130 = add i32 %2129, -1
   store i32 %2130, ptr %154, align 8, !tbaa !3
@@ -7003,7 +7003,7 @@ define hidden noundef i32 @_ZN5zxing6qrcode12QRCodeReader6smoothEPjNS_3RefINS_9B
   %34 = sext i32 %31 to i64
   %invariant.gep = getelementptr i32, ptr %0, i64 %32
   %35 = getelementptr i32, ptr %0, i64 %32
-  %invariant.gep91 = getelementptr i32, ptr %0, i64 %34
+  %invariant.gep93 = getelementptr i32, ptr %0, i64 %34
   br label %36
 
 36:                                               ; preds = %.lr.ph.us, %.thread.us
@@ -7017,8 +7017,8 @@ define hidden noundef i32 @_ZN5zxing6qrcode12QRCodeReader6smoothEPjNS_3RefINS_9B
   %41 = sext i32 %38 to i64
   %42 = getelementptr i32, ptr %35, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !155
-  %gep92 = getelementptr i32, ptr %invariant.gep91, i64 %39
-  %44 = load i32, ptr %gep92, align 4, !tbaa !155
+  %gep94 = getelementptr i32, ptr %invariant.gep93, i64 %39
+  %44 = load i32, ptr %gep94, align 4, !tbaa !155
   %45 = add nsw i32 %38, %31
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i32, ptr %0, i64 %46
@@ -7244,7 +7244,7 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader12initIntegralEPjNS_3RefINS_9B
   %12 = tail call noundef ptr @_ZN5zxing9BitMatrix13getRowBoolPtrEi(ptr noundef nonnull align 8 dereferenceable(346) %3, i32 noundef %.03041.us)
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, %11
   %invariant.gep = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv52
-  %invariant.gep57 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next53
+  %invariant.gep59 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next53
   br label %13
 
 13:                                               ; preds = %.lr.ph39.us, %13
@@ -7257,8 +7257,8 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader12initIntegralEPjNS_3RefINS_9B
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv47
   %18 = load i32, ptr %gep, align 4, !tbaa !155
   %19 = add i32 %17, %18
-  %gep58 = getelementptr inbounds nuw i32, ptr %invariant.gep57, i64 %indvars.iv47
-  store i32 %19, ptr %gep58, align 4, !tbaa !155
+  %gep60 = getelementptr inbounds nuw i32, ptr %invariant.gep59, i64 %indvars.iv47
+  store i32 %19, ptr %gep60, align 4, !tbaa !155
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %11
   br i1 %exitcond51.not, label %._crit_edge.us, label %13, !llvm.loop !196

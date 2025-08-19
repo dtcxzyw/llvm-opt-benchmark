@@ -814,7 +814,7 @@ define internal void @_menuitem_preferences(ptr readnone captures(none) %0, ptr 
   %66 = call ptr @g_type_check_instance_cast(ptr noundef %26, i64 noundef %65) #14
   call void @gtk_container_add(ptr noundef %66, ptr noundef %40) #14
   call void @gtk_widget_show_all(ptr noundef %19) #14
-  br label %.loopexit120
+  br label %.loopexit124
 
 67:                                               ; preds = %2, %81
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %81 ]
@@ -847,7 +847,7 @@ define internal void @_menuitem_preferences(ptr readnone captures(none) %0, ptr 
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond.not, label %39, label %67
 
-.loopexit120:                                     ; preds = %92, %39
+.loopexit124:                                     ; preds = %92, %39
   %82 = call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %20) #14
   %83 = call i32 @gtk_dialog_run(ptr noundef %82) #14
   switch i32 %83, label %.loopexit [
@@ -855,7 +855,7 @@ define internal void @_menuitem_preferences(ptr readnone captures(none) %0, ptr 
     i32 -3, label %94
   ]
 
-84:                                               ; preds = %.loopexit120
+84:                                               ; preds = %.loopexit124
   %85 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %38, ptr noundef nonnull %3) #14
   br label %86
 
@@ -875,9 +875,9 @@ define internal void @_menuitem_preferences(ptr readnone captures(none) %0, ptr 
 92:                                               ; preds = %88, %86
   %93 = add nuw nsw i32 %.093111, 1
   %exitcond117.not = icmp eq i32 %93, 9
-  br i1 %exitcond117.not, label %.loopexit120, label %86
+  br i1 %exitcond117.not, label %.loopexit124, label %86
 
-94:                                               ; preds = %.loopexit120
+94:                                               ; preds = %.loopexit124
   %95 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %38, ptr noundef nonnull %3) #14
   %.not112 = icmp eq i32 %95, 0
   br i1 %.not112, label %.loopexit, label %.lr.ph
@@ -978,7 +978,7 @@ define internal void @_menuitem_preferences(ptr readnone captures(none) %0, ptr 
   call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %138, i32 noundef 11, i32 noundef %126) #14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit120, %94, %._crit_edge, %137
+.loopexit:                                        ; preds = %.loopexit124, %94, %._crit_edge, %137
   %139 = getelementptr i8, ptr %1, i64 280
   %.val = load ptr, ptr %139, align 8, !tbaa !6
   call fastcc void @_update_layout(ptr %.val)

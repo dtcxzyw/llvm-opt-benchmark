@@ -1941,12 +1941,12 @@ pagetable_iterate.exit:                           ; preds = %59
 
 78:                                               ; preds = %76, %74
   %.033.sink = phi i32 [ %.033, %76 ], [ %.0, %74 ]
-  %.sink49.in = phi ptr [ %14, %76 ], [ %27, %74 ]
+  %.sink53.in = phi ptr [ %14, %76 ], [ %27, %74 ]
   %.134 = phi i32 [ %77, %76 ], [ %.033, %74 ]
   %.1 = phi i32 [ %.0, %76 ], [ %75, %74 ]
-  %.sink49 = load ptr, ptr %.sink49.in, align 8
+  %.sink53 = load ptr, ptr %.sink53.in, align 8
   %79 = sext i32 %.033.sink to i64
-  %80 = getelementptr inbounds ptr, ptr %.sink49, i64 %79
+  %80 = getelementptr inbounds ptr, ptr %.sink53, i64 %79
   store ptr %62, ptr %80, align 8
   %.pre = load ptr, ptr %40, align 8
   br label %53, !llvm.loop !18
@@ -2144,9 +2144,9 @@ pagetable_iterate.exit:                           ; preds = %63
   %.085.pn = phi ptr [ %.085, %84 ], [ %.086, %82 ]
   %.182 = phi i32 [ %85, %84 ], [ %.081, %82 ]
   %.1 = phi i32 [ %.0, %84 ], [ %83, %82 ]
-  %.sink133 = getelementptr inbounds nuw i8, ptr %.085.pn, i64 4
+  %.sink141 = getelementptr inbounds nuw i8, ptr %.085.pn, i64 4
   %87 = sext i32 %.081.sink to i64
-  %88 = getelementptr inbounds [0 x i32], ptr %.sink133, i64 0, i64 %87
+  %88 = getelementptr inbounds [0 x i32], ptr %.sink141, i64 0, i64 %87
   store i32 %78, ptr %88, align 4
   %.pre = load ptr, ptr %42, align 8
   br label %57, !llvm.loop !19

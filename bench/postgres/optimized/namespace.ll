@@ -241,9 +241,9 @@ define dso_local i32 @RangeVarGetRelidExtended(ptr noundef %0, i32 noundef %1, i
   br i1 %.not18.i, label %56, label %RelnameGetRelid.exit
 
 RelnameGetRelid.exit.sink.split:                  ; preds = %46, %35, %37
-  %.sink125 = phi i32 [ %38, %37 ], [ %34, %35 ], [ %47, %46 ]
+  %.sink134 = phi i32 [ %38, %37 ], [ %34, %35 ], [ %47, %46 ]
   %64 = load ptr, ptr %26, align 8
-  %65 = tail call i32 @get_relname_relid(ptr noundef %64, i32 noundef %.sink125) #19
+  %65 = tail call i32 @get_relname_relid(ptr noundef %64, i32 noundef %.sink134) #19
   br label %RelnameGetRelid.exit
 
 RelnameGetRelid.exit:                             ; preds = %.lr.ph33.i, %56, %RelnameGetRelid.exit.sink.split, %.lr.ph.split.i, %49, %46, %33
@@ -914,18 +914,18 @@ preprocessNamespacePath.exit.i:                   ; preds = %66, %.lr.ph.i.i, %2
   br label %.critedge.thread.i.i
 
 .critedge.thread.i.i:                             ; preds = %105, %.critedge.i.i, %.lr.ph.i19.i, %81
-  %.0.lcssa35.i.i = phi ptr [ %.1.i.i, %105 ], [ null, %.critedge.i.i ], [ null, %81 ], [ null, %.lr.ph.i19.i ]
+  %.0.lcssa36.i.i = phi ptr [ %.1.i.i, %105 ], [ null, %.critedge.i.i ], [ null, %81 ], [ null, %.lr.ph.i19.i ]
   %storemerge.i.i = phi i32 [ %107, %105 ], [ 0, %.critedge.i.i ], [ 0, %81 ], [ 0, %.lr.ph.i19.i ]
   store i32 %storemerge.i.i, ptr %85, align 4
-  %108 = call zeroext i1 @list_member_oid(ptr noundef %.0.lcssa35.i.i, i32 noundef 11) #19
+  %108 = call zeroext i1 @list_member_oid(ptr noundef %.0.lcssa36.i.i, i32 noundef 11) #19
   br i1 %108, label %111, label %109
 
 109:                                              ; preds = %.critedge.thread.i.i
-  %110 = call ptr @lcons_oid(i32 noundef 11, ptr noundef %.0.lcssa35.i.i) #19
+  %110 = call ptr @lcons_oid(i32 noundef 11, ptr noundef %.0.lcssa36.i.i) #19
   br label %111
 
 111:                                              ; preds = %109, %.critedge.thread.i.i
-  %.2.i.i = phi ptr [ %.0.lcssa35.i.i, %.critedge.thread.i.i ], [ %110, %109 ]
+  %.2.i.i = phi ptr [ %.0.lcssa36.i.i, %.critedge.thread.i.i ], [ %110, %109 ]
   %112 = load i32, ptr @myTempNamespace, align 4
   %.not23.i.i = icmp eq i32 %112, 0
   br i1 %.not23.i.i, label %finalNamespacePath.exit.i, label %113
@@ -2176,7 +2176,7 @@ MatchNamedCall.exit:                              ; preds = %192, %.critedge.thr
   %240 = add i32 %reass.sub, 1
   %241 = getelementptr inbounds nuw i8, ptr %219, i64 24
   store i32 %240, ptr %241, align 8
-  %242 = add i32 %.0216, -1
+  %242 = add nsw i32 %.0216, -1
   %243 = getelementptr inbounds nuw i8, ptr %219, i64 40
   %244 = sext i32 %242 to i64
   br label %245
@@ -2417,10 +2417,10 @@ list_length.exit.thread:                          ; preds = %3, %list_length.exi
   unreachable
 
 .sink.split:                                      ; preds = %6, %8
-  %.sink20.in = phi ptr [ %13, %8 ], [ %.val, %6 ]
+  %.sink21.in = phi ptr [ %13, %8 ], [ %.val, %6 ]
   %.014.ph = phi ptr [ %12, %8 ], [ null, %6 ]
-  %.sink20 = load ptr, ptr %.sink20.in, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %.sink20, i64 8
+  %.sink21 = load ptr, ptr %.sink21.in, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %.sink21, i64 8
   %40 = load ptr, ptr %39, align 8
   br label %41
 
@@ -7085,8 +7085,8 @@ define internal fastcc i32 @spcachekey_hash(ptr %0, i32 %1) unnamed_addr #13 {
 
 72:                                               ; preds = %65, %._crit_edge.i.i
   %73 = phi i64 [ %71, %65 ], [ 0, %._crit_edge.i.i ]
-  %sext15 = shl i64 %.0.copyload.i.i.i.in, 56
-  %74 = ashr exact i64 %sext15, 56
+  %sext19 = shl i64 %.0.copyload.i.i.i.in, 56
+  %74 = ashr exact i64 %sext19, 56
   %75 = or i64 %73, %74
   br label %.sink.split.i.i.i
 

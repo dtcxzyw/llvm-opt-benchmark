@@ -169,8 +169,8 @@ stbi_load_from_memory.exit:                       ; preds = %56
   %73 = icmp eq i32 %72, %0
   %.pre = load i32, ptr %20, align 4
   %74 = icmp eq i32 %.pre, %1
-  %or.cond37 = select i1 %73, i1 %74, i1 false
-  br i1 %or.cond37, label %75, label %78
+  %or.cond41 = select i1 %73, i1 %74, i1 false
+  br i1 %or.cond41, label %75, label %78
 
 75:                                               ; preds = %71
   %76 = shl nsw i32 %0, 2
@@ -1666,8 +1666,8 @@ stbi__jpeg_get_bit.exit190.thread.i.us.i.i.i:     ; preds = %681, %677, %675, %6
 
 stbi__jpeg_huff_decode.exit.i.us.i.i.i:           ; preds = %763, %739
   %767 = phi i32 [ %764, %763 ], [ %741, %739 ]
-  %.pn272.i.us.i.i.i = phi i64 [ %766, %763 ], [ %733, %739 ]
-  %.1.i.in.in.i.us.i.i.i = getelementptr inbounds nuw [256 x i8], ptr %691, i64 0, i64 %.pn272.i.us.i.i.i
+  %.pn305.i.us.i.i.i = phi i64 [ %766, %763 ], [ %733, %739 ]
+  %.1.i.in.in.i.us.i.i.i = getelementptr inbounds nuw [256 x i8], ptr %691, i64 0, i64 %.pn305.i.us.i.i.i
   %.1.i.in.i.us.i.i.i = load i8, ptr %.1.i.in.in.i.us.i.i.i, align 1
   %.1.i.i.us.i.i.i = zext i8 %.1.i.in.i.us.i.i.i to i32
   %768 = and i32 %.1.i.i.us.i.i.i, 15
@@ -1785,8 +1785,8 @@ stbi__jpeg_get_bits.exit.i.us.i.i.i:              ; preds = %814, %811
   br i1 %.not229.us.i.i.i, label %.loopexit385.i, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i
 
 stbi__jpeg_decode_block_prog_ac.exit.thread.us.sink.split.i.i.i: ; preds = %stbi__jpeg_get_bits.exit.i.us.i.i.i, %806, %689
-  %.sink375.i.i.i = phi i32 [ %533, %689 ], [ %807, %806 ], [ %825, %stbi__jpeg_get_bits.exit.i.us.i.i.i ]
-  %831 = add nsw i32 %.sink375.i.i.i, -1
+  %.sink446.i.i.i = phi i32 [ %533, %689 ], [ %807, %806 ], [ %825, %stbi__jpeg_get_bits.exit.i.us.i.i.i ]
+  %831 = add nsw i32 %.sink446.i.i.i, -1
   store i32 %831, ptr %44, align 4
   br label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i
 
@@ -2888,8 +2888,8 @@ output_jpeg_nv12.exit.i:                          ; preds = %1299, %._crit_edge.
 1374:                                             ; preds = %1350
   %switch.selectcmp.i = icmp eq i32 %1359, 2
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @stbi__resample_row_v_2, ptr @stbi__resample_row_generic
-  %switch.selectcmp570.i = icmp eq i32 %1359, 1
-  %switch.select571.i = select i1 %switch.selectcmp570.i, ptr @resample_row_1, ptr %switch.select.i
+  %switch.selectcmp698.i = icmp eq i32 %1359, 1
+  %switch.select699.i = select i1 %switch.selectcmp698.i, ptr @resample_row_1, ptr %switch.select.i
   br label %.thread372.i
 
 1375:                                             ; preds = %1350
@@ -2910,7 +2910,7 @@ output_jpeg_nv12.exit.i:                          ; preds = %1299, %._crit_edge.
   br label %1613
 
 .thread372.i:                                     ; preds = %.thread370.i, %1376, %1375, %1374
-  %stbi__resample_row_v_2.sink.i = phi ptr [ %1377, %1376 ], [ @stbi__resample_row_generic, %.thread370.i ], [ %switch.select571.i, %1374 ], [ @stbi__resample_row_h_2, %1375 ]
+  %stbi__resample_row_v_2.sink.i = phi ptr [ %1377, %1376 ], [ @stbi__resample_row_generic, %.thread370.i ], [ %switch.select699.i, %1374 ], [ @stbi__resample_row_h_2, %1375 ]
   store ptr %stbi__resample_row_v_2.sink.i, ptr %1322, align 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -5190,7 +5190,7 @@ stbi__get8.exit166:                               ; preds = %242, %245, %stbi__r
   br i1 %exitcond.not.i, label %stbi__build_fast_ac.exit, label %282, !llvm.loop !58
 
 stbi__build_fast_ac.exit:                         ; preds = %315, %._crit_edge
-  %316 = sub i32 %223, %219
+  %316 = sub nsw i32 %223, %219
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %317 = icmp sgt i32 %316, 0
   br i1 %317, label %135, label %._crit_edge199, !llvm.loop !59
@@ -6016,16 +6016,16 @@ stbi__get8.exit220:                               ; preds = %208, %stbi__refill_
   br label %.loopexit
 
 ._crit_edge253:                                   ; preds = %256, %.preheader228
-  %.0175.lcssa287 = phi i32 [ 1, %.preheader228 ], [ %.1, %256 ]
-  %.0176.lcssa285 = phi i32 [ 1, %.preheader228 ], [ %spec.select, %256 ]
+  %.0175.lcssa301 = phi i32 [ 1, %.preheader228 ], [ %.1, %256 ]
+  %.0176.lcssa299 = phi i32 [ 1, %.preheader228 ], [ %spec.select, %256 ]
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 18056
-  store i32 %.0176.lcssa285, ptr %270, align 8
+  store i32 %.0176.lcssa299, ptr %270, align 8
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 18060
-  store i32 %.0175.lcssa287, ptr %271, align 4
-  %272 = shl nsw i32 %.0176.lcssa285, 3
+  store i32 %.0175.lcssa301, ptr %271, align 4
+  %272 = shl nsw i32 %.0176.lcssa299, 3
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 18072
   store i32 %272, ptr %273, align 8
-  %274 = shl nsw i32 %.0175.lcssa287, 3
+  %274 = shl nsw i32 %.0175.lcssa301, 3
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 18076
   store i32 %274, ptr %275, align 4
   %276 = load i32, ptr %2, align 8
@@ -6046,8 +6046,8 @@ stbi__get8.exit220:                               ; preds = %208, %stbi__refill_
 
 .lr.ph256:                                        ; preds = %._crit_edge253
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 18080
-  %289 = add nsw i32 %.0176.lcssa285, -1
-  %290 = add nsw i32 %.0175.lcssa287, -1
+  %289 = add nsw i32 %.0176.lcssa299, -1
+  %290 = add nsw i32 %.0175.lcssa301, -1
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 18480
   br label %292
 
@@ -6059,7 +6059,7 @@ stbi__get8.exit220:                               ; preds = %208, %stbi__refill_
   %296 = load i32, ptr %295, align 4
   %297 = mul i32 %296, %293
   %298 = add i32 %289, %297
-  %299 = udiv i32 %298, %.0176.lcssa285
+  %299 = udiv i32 %298, %.0176.lcssa299
   %300 = getelementptr inbounds nuw i8, ptr %294, i64 28
   store i32 %299, ptr %300, align 4
   %301 = load i32, ptr %49, align 4
@@ -6067,7 +6067,7 @@ stbi__get8.exit220:                               ; preds = %208, %stbi__refill_
   %303 = load i32, ptr %302, align 8
   %304 = mul i32 %303, %301
   %305 = add i32 %290, %304
-  %306 = udiv i32 %305, %.0175.lcssa287
+  %306 = udiv i32 %305, %.0175.lcssa301
   %307 = getelementptr inbounds nuw i8, ptr %294, i64 32
   store i32 %306, ptr %307, align 8
   %308 = load i32, ptr %280, align 8
@@ -6519,15 +6519,15 @@ stbi__addints_valid.exit.thread:                  ; preds = %stbi__extend_receiv
 100:                                              ; preds = %98
   %101 = udiv i16 32767, %97
   %.zext = zext nneg i16 %101 to i32
-  %.not128 = icmp samesign ugt i32 %96, %.zext
-  br i1 %.not128, label %.thread118.sink.split, label %stbi__mul2shorts_valid.exit.thread
+  %.not150 = icmp samesign ugt i32 %96, %.zext
+  br i1 %.not150, label %.thread118.sink.split, label %stbi__mul2shorts_valid.exit.thread
 
 stbi__mul2shorts_valid.exit:                      ; preds = %98
   %102 = udiv i16 -32768, %97
   %.zext122 = zext i16 %102 to i32
   %.neg.i = sub nsw i32 0, %.zext122
-  %.not127 = icmp slt i32 %96, %.neg.i
-  br i1 %.not127, label %.thread118.sink.split, label %stbi__mul2shorts_valid.exit.thread
+  %.not149 = icmp slt i32 %96, %.neg.i
+  br i1 %.not149, label %.thread118.sink.split, label %stbi__mul2shorts_valid.exit.thread
 
 stbi__mul2shorts_valid.exit.thread:               ; preds = %100, %stbi__addints_valid.exit.thread, %stbi__mul2shorts_valid.exit
   %103 = trunc i32 %96 to i16
@@ -7221,8 +7221,8 @@ stbi__addints_valid.exit.thread:                  ; preds = %stbi__extend_receiv
 
 116:                                              ; preds = %stbi__addints_valid.exit.thread
   %117 = lshr i32 32767, %112
-  %.not52 = icmp sgt i32 %110, %117
-  br i1 %.not52, label %123, label %stbi__mul2shorts_valid.exit.thread
+  %.not62 = icmp sgt i32 %110, %117
+  br i1 %.not62, label %123, label %stbi__mul2shorts_valid.exit.thread
 
 118:                                              ; preds = %stbi__addints_valid.exit.thread
   %119 = icmp eq i32 %112, 31
@@ -7235,8 +7235,8 @@ stbi__addints_valid.exit.thread:                  ; preds = %stbi__extend_receiv
 stbi__mul2shorts_valid.exit:                      ; preds = %118
   %122 = lshr i32 32768, %112
   %.neg.i = sub nsw i32 0, %122
-  %.not51 = icmp slt i32 %110, %.neg.i
-  br i1 %.not51, label %123, label %stbi__mul2shorts_valid.exit.thread
+  %.not61 = icmp slt i32 %110, %.neg.i
+  br i1 %.not61, label %123, label %stbi__mul2shorts_valid.exit.thread
 
 123:                                              ; preds = %120, %116, %stbi__mul2shorts_valid.exit
   %124 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6) #11

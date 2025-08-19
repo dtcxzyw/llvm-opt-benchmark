@@ -651,14 +651,14 @@ define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Optio
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !229)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i8 %3, label %default.unreachable1.i [
+  switch i8 %3, label %default.unreachable [
     i8 0, label %21
     i8 1, label %29
     i8 2, label %30
     i8 3, label %7
   ]
 
-default.unreachable1.i:                           ; preds = %5
+default.unreachable:                              ; preds = %5
   unreachable
 
 7:                                                ; preds = %5
@@ -1498,7 +1498,7 @@ define internal fastcc void @_ZN9uv_pep5086marker5parse17parse_marker_expr17ha0c
   %.sroa.4197.0.copyload.i = load i8, ptr %.sroa.4197.0..sroa_idx.i, align 1, !noalias !386
   br i1 %98, label %100, label %_ZN9uv_pep5086marker5parse25parse_marker_key_op_value17h026e3121c56a154aE.exit.thread123
 
-default.unreachable263.i:                         ; preds = %251
+default.unreachable271.i:                         ; preds = %251
   unreachable
 
 default.unreachable.i:                            ; preds = %245
@@ -2252,7 +2252,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.thre
   %252 = icmp ne ptr %.sroa.6199.0.copyload.i, null
   call void @llvm.assume(i1 %252)
   store ptr %.sroa.6199.0.copyload.i, ptr %36, align 8, !noalias !386
-  switch i8 %.sroa.726.i.sroa.0.0.copyload96, label %default.unreachable263.i [
+  switch i8 %.sroa.726.i.sroa.0.0.copyload96, label %default.unreachable271.i [
     i8 0, label %318
     i8 1, label %322
     i8 2, label %324

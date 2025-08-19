@@ -1558,8 +1558,8 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   br i1 %183, label %.sink.split, label %185
 
 .sink.split:                                      ; preds = %182, %.preheader32
-  %.sink71 = phi i32 [ 268, %.preheader32 ], [ 276, %182 ]
-  %184 = or i32 %177, %.sink71
+  %.sink92 = phi i32 [ 268, %.preheader32 ], [ 276, %182 ]
+  %184 = or i32 %177, %.sink92
   store i32 %184, ptr %176, align 16
   br label %185
 
@@ -1597,19 +1597,19 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   %204 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %205 = load i32, ptr %204, align 8
   %206 = icmp slt i32 %205, 6
-  br i1 %206, label %.sink.split72, label %207
+  br i1 %206, label %.sink.split93, label %207
 
 207:                                              ; preds = %.preheader30
   %208 = icmp eq i32 %205, 6
-  br i1 %208, label %.sink.split72, label %210
+  br i1 %208, label %.sink.split93, label %210
 
-.sink.split72:                                    ; preds = %207, %.preheader30
-  %.sink73 = phi i32 [ 268, %.preheader30 ], [ 276, %207 ]
-  %209 = or i32 %202, %.sink73
+.sink.split93:                                    ; preds = %207, %.preheader30
+  %.sink94 = phi i32 [ 268, %.preheader30 ], [ 276, %207 ]
+  %209 = or i32 %202, %.sink94
   store i32 %209, ptr %201, align 16
   br label %210
 
-210:                                              ; preds = %.sink.split72, %207
+210:                                              ; preds = %.sink.split93, %207
   %211 = tail call ptr @ata_link_next(ptr noundef nonnull %200, ptr noundef %4, i32 noundef 0) #9
   %212 = icmp eq ptr %211, null
   br i1 %212, label %.thread26, label %.preheader30, !llvm.loop !30

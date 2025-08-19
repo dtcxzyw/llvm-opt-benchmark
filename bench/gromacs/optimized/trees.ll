@@ -1303,7 +1303,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5284, 5292)) %0
   br i1 %15, label %.lr.ph142, label %.lr.ph147
 
 .lr.ph142:                                        ; preds = %2, %.preheader131
-  %.086.lcssa162 = phi i32 [ %.1, %.preheader131 ], [ -1, %2 ]
+  %.086.lcssa196 = phi i32 [ %.1, %.preheader131 ], [ -1, %2 ]
   %16 = phi i32 [ %.pre, %.preheader131 ], [ 0, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2992
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 5292
@@ -1345,7 +1345,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5284, 5292)) %0
 
 34:                                               ; preds = %.lr.ph142, %52
   %35 = phi i32 [ %16, %.lr.ph142 ], [ %53, %52 ]
-  %.2141 = phi i32 [ %.086.lcssa162, %.lr.ph142 ], [ %spec.select, %52 ]
+  %.2141 = phi i32 [ %.086.lcssa196, %.lr.ph142 ], [ %spec.select, %52 ]
   %36 = icmp slt i32 %.2141, 2
   %37 = add nsw i32 %.2141, 1
   %spec.select = select i1 %36, i32 %37, i32 %.2141

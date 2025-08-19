@@ -104,7 +104,7 @@ define hidden i32 @EVP_BytesToKey(ptr noundef readonly captures(none) %0, ptr no
   %44 = load i32, ptr %11, align 4, !tbaa !6
   %45 = zext i32 %44 to i64
   %46 = icmp eq i64 %indvars.iv, %45
-  br i1 %46, label %.loopexit79.loopexit.split.loop.exit88, label %47
+  br i1 %46, label %.loopexit79.loopexit.split.loop.exit94, label %47
 
 47:                                               ; preds = %.preheader78
   %.not72 = icmp eq ptr %.257, null
@@ -124,14 +124,14 @@ define hidden i32 @EVP_BytesToKey(ptr noundef readonly captures(none) %0, ptr no
   %.old2 = icmp eq i32 %53, 0
   br i1 %.old2, label %.loopexit79, label %.preheader78
 
-.loopexit79.loopexit.split.loop.exit88:           ; preds = %.preheader78
+.loopexit79.loopexit.split.loop.exit94:           ; preds = %.preheader78
   %54 = trunc nuw i64 %indvars.iv to i32
   br label %.loopexit79
 
-.loopexit79:                                      ; preds = %52, %.loopexit79.loopexit.split.loop.exit88, %._crit_edge
-  %.156 = phi ptr [ %.055, %._crit_edge ], [ %.257, %.loopexit79.loopexit.split.loop.exit88 ], [ %.358, %52 ]
-  %.146 = phi i32 [ 0, %._crit_edge ], [ %.247, %.loopexit79.loopexit.split.loop.exit88 ], [ 0, %52 ]
-  %.1 = phi i32 [ 0, %._crit_edge ], [ %54, %.loopexit79.loopexit.split.loop.exit88 ], [ %.045, %52 ]
+.loopexit79:                                      ; preds = %52, %.loopexit79.loopexit.split.loop.exit94, %._crit_edge
+  %.156 = phi ptr [ %.055, %._crit_edge ], [ %.257, %.loopexit79.loopexit.split.loop.exit94 ], [ %.358, %52 ]
+  %.146 = phi i32 [ 0, %._crit_edge ], [ %.247, %.loopexit79.loopexit.split.loop.exit94 ], [ 0, %52 ]
+  %.1 = phi i32 [ 0, %._crit_edge ], [ %54, %.loopexit79.loopexit.split.loop.exit94 ], [ %.045, %52 ]
   %.not73 = icmp eq i32 %.048, 0
   br i1 %.not73, label %.loopexit, label %55
 

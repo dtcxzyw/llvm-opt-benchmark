@@ -333,11 +333,11 @@ CORD__call_oom_fn.exit102:                        ; preds = %61, %63
   br i1 %70, label %.sink.split, label %75
 
 .sink.split:                                      ; preds = %26, %30, %34, %66, %54
-  %.176124.sink = phi ptr [ %40, %66 ], [ %0, %54 ], [ %0, %34 ], [ %0, %30 ], [ %0, %26 ]
+  %.176137.sink = phi ptr [ %40, %66 ], [ %0, %54 ], [ %0, %34 ], [ %0, %30 ], [ %0, %26 ]
   %.288.ph = phi i64 [ %69, %66 ], [ %28, %54 ], [ %28, %34 ], [ %28, %30 ], [ %28, %26 ]
   %.181.ph = phi i64 [ %55, %66 ], [ %2, %54 ], [ %2, %34 ], [ %2, %30 ], [ %2, %26 ]
   %.279.ph = phi ptr [ %59, %66 ], [ %1, %54 ], [ %1, %34 ], [ %1, %30 ], [ %1, %26 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.176124.sink, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %.176137.sink, i64 2
   %72 = load i8, ptr %71, align 2, !tbaa !18
   %73 = sext i8 %72 to i32
   %74 = add nsw i32 %73, 1
@@ -348,7 +348,7 @@ CORD__call_oom_fn.exit102:                        ; preds = %61, %63
   %.285 = phi i32 [ 1, %66 ], [ %74, %.sink.split ]
   %.181 = phi i64 [ %55, %66 ], [ %.181.ph, %.sink.split ]
   %.279 = phi ptr [ %59, %66 ], [ %.279.ph, %.sink.split ]
-  %.2 = phi ptr [ %40, %66 ], [ %.176124.sink, %.sink.split ]
+  %.2 = phi ptr [ %40, %66 ], [ %.176137.sink, %.sink.split ]
   %76 = add i64 %.181, %.288
   br label %77
 
@@ -2118,13 +2118,13 @@ define void @CORD__next(ptr noundef %0) local_unnamed_addr #2 {
   %45 = getelementptr inbounds i8, ptr %.04661, i64 -16
   %46 = add nsw i32 %39, -1
   %47 = icmp sgt i32 %39, 1
-  br i1 %47, label %.lr.ph, label %.critedge.thread68, !llvm.loop !58
+  br i1 %47, label %.lr.ph, label %.critedge.thread70, !llvm.loop !58
 
 .critedge:                                        ; preds = %.critedge59
   %48 = icmp eq i32 %5, 0
-  br i1 %48, label %.critedge.thread68, label %.critedge.thread
+  br i1 %48, label %.critedge.thread70, label %.critedge.thread
 
-.critedge.thread68:                               ; preds = %44, %.critedge
+.critedge.thread70:                               ; preds = %44, %.critedge
   store i32 1431655765, ptr %4, align 8, !tbaa !47
   br label %51
 
@@ -2135,7 +2135,7 @@ define void @CORD__next(ptr noundef %0) local_unnamed_addr #2 {
   tail call fastcc void @CORD_extend_path(ptr noundef nonnull %0)
   br label %51
 
-51:                                               ; preds = %._crit_edge, %.critedge.thread, %.critedge.thread68
+51:                                               ; preds = %._crit_edge, %.critedge.thread, %.critedge.thread70
   ret void
 }
 

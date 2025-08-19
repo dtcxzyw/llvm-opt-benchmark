@@ -1031,7 +1031,7 @@ _ZN5boost6nowide4test8test_monEv.exit113:         ; preds = %306, %304, %301
   %316 = invoke ptr @freopen(ptr noundef %315, ptr noundef nonnull @.str.2, ptr noundef %241)
           to label %319 unwind label %317
 
-317:                                              ; preds = %.invoke299, %.noexc285, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i280, %.noexc283, %417, %.noexc274, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i269, %.noexc272, %332, %404, %319, %366, %356, %346, %314, %311
+317:                                              ; preds = %.invoke337, %.noexc285, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i280, %.noexc283, %417, %.noexc274, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i269, %.noexc272, %332, %404, %319, %366, %356, %346, %314, %311
   %318 = landingpad { ptr, i32 }
           cleanup
   br label %675
@@ -1049,7 +1049,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit115: ; preds = %319
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 240
   %326 = load ptr, ptr %325, align 8, !tbaa !21
   %.not.i.i.i266 = icmp eq ptr %326, null
-  br i1 %.not.i.i.i266, label %.invoke299, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i267
+  br i1 %.not.i.i.i266, label %.invoke337, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i267
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i267: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit115
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 56
@@ -1290,13 +1290,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit133: ; preds = %404
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 240
   %411 = load ptr, ptr %410, align 8, !tbaa !21
   %.not.i.i.i277 = icmp eq ptr %411, null
-  br i1 %.not.i.i.i277, label %.invoke299, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i278
+  br i1 %.not.i.i.i277, label %.invoke337, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i278
 
-.invoke299:                                       ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit133, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit115
+.invoke337:                                       ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit133, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit115
   invoke void @_ZSt16__throw_bad_castv() #24
-          to label %.cont300 unwind label %317
+          to label %.cont338 unwind label %317
 
-.cont300:                                         ; preds = %.invoke299
+.cont338:                                         ; preds = %.invoke337
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i278: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit133

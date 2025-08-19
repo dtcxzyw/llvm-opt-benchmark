@@ -22,7 +22,7 @@ define internal i32 @truehd_core_filter(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = tail call i32 @ff_bsf_get_packet_ref(ptr noundef %0, ptr noundef %1) #7
   %9 = icmp slt i32 %8, 0
-  br i1 %9, label %.thread155, label %10
+  br i1 %9, label %.thread162, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -197,7 +197,7 @@ define internal i32 @truehd_core_filter(ptr noundef %0, ptr noundef %1) #0 {
   %108 = ashr i32 %.val, 3
   %109 = add nsw i32 %.0106.lcssa, %108
   %110 = icmp slt i32 %109, %21
-  br i1 %110, label %111, label %.thread155
+  br i1 %110, label %111, label %.thread162
 
 111:                                              ; preds = %._crit_edge
   %112 = add i32 %.0112.lcssa, %.0114
@@ -244,9 +244,9 @@ define internal i32 @truehd_core_filter(ptr noundef %0, ptr noundef %1) #0 {
   store i32 %139, ptr %11, align 8, !tbaa !14
   %140 = call i32 @av_packet_make_writable(ptr noundef nonnull %1) #7
   %141 = icmp slt i32 %140, 0
-  br i1 %141, label %.thread157, label %142
+  br i1 %141, label %.thread164, label %142
 
-.thread157:                                       ; preds = %135
+.thread164:                                       ; preds = %135
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
@@ -350,14 +350,14 @@ define internal i32 @truehd_core_filter(ptr noundef %0, ptr noundef %1) #0 {
 
 210:                                              ; preds = %207, %._crit_edge145
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread155
+  br label %.thread162
 
-.thread:                                          ; preds = %.thread157, %53, %14, %10, %50, %24
-  %.0101129 = phi i32 [ -1094995529, %53 ], [ -1094995529, %14 ], [ -1094995529, %10 ], [ %51, %50 ], [ -1094995529, %24 ], [ %140, %.thread157 ]
+.thread:                                          ; preds = %.thread164, %53, %14, %10, %50, %24
+  %.0101129 = phi i32 [ -1094995529, %53 ], [ -1094995529, %14 ], [ -1094995529, %10 ], [ %51, %50 ], [ -1094995529, %24 ], [ %140, %.thread164 ]
   call void @av_packet_unref(ptr noundef nonnull %1) #7
-  br label %.thread155
+  br label %.thread162
 
-.thread155:                                       ; preds = %210, %._crit_edge, %.thread, %2
+.thread162:                                       ; preds = %210, %._crit_edge, %.thread, %2
   %.0 = phi i32 [ %8, %2 ], [ %.0101129, %.thread ], [ %140, %210 ], [ %.1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

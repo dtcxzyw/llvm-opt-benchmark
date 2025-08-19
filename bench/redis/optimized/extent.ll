@@ -2561,7 +2561,7 @@ extent_coalesce.exit51.thread:                    ; preds = %26
   %.v.i.i.i50 = select i1 %.not.i.i.i49, i64 112, i64 9768
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 %.v.i.i.i50
   tail call void @je_eset_insert(ptr noundef nonnull %30, ptr noundef nonnull %25) #9
-  br i1 %.040, label %11, label %.loopexit69, !llvm.loop !69
+  br i1 %.040, label %11, label %.loopexit70, !llvm.loop !69
 
 extent_coalesce.exit51:                           ; preds = %26
   %31 = load i8, ptr %10, align 8, !tbaa !37, !range !38, !noundef !39
@@ -2571,22 +2571,22 @@ extent_coalesce.exit51:                           ; preds = %26
 .loopexit:                                        ; preds = %22, %extent_coalesce.exit51
   %.343.ph = phi i1 [ true, %extent_coalesce.exit51 ], [ %.040, %22 ]
   %.339.ph = phi ptr [ %25, %extent_coalesce.exit51 ], [ %.036.ph, %22 ]
-  br i1 %.343.ph, label %.outer, label %.loopexit69, !llvm.loop !69
+  br i1 %.343.ph, label %.outer, label %.loopexit70, !llvm.loop !69
 
-.loopexit69:                                      ; preds = %.loopexit, %extent_coalesce.exit51.thread
-  %.339.ph68 = phi ptr [ %.036.ph, %extent_coalesce.exit51.thread ], [ %.339.ph, %.loopexit ]
+.loopexit70:                                      ; preds = %.loopexit, %extent_coalesce.exit51.thread
+  %.339.ph69 = phi ptr [ %.036.ph, %extent_coalesce.exit51.thread ], [ %.339.ph, %.loopexit ]
   %33 = load i8, ptr %10, align 8, !tbaa !37, !range !38, !noundef !39
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %.sink.split, label %35
 
-.sink.split:                                      ; preds = %extent_coalesce.exit51, %extent_coalesce.exit, %.loopexit69
-  %.sink = phi i8 [ 0, %.loopexit69 ], [ 1, %extent_coalesce.exit ], [ 1, %extent_coalesce.exit51 ]
-  %.3.ph = phi ptr [ %.339.ph68, %.loopexit69 ], [ %.036.ph, %extent_coalesce.exit ], [ %25, %extent_coalesce.exit51 ]
+.sink.split:                                      ; preds = %extent_coalesce.exit51, %extent_coalesce.exit, %.loopexit70
+  %.sink = phi i8 [ 0, %.loopexit70 ], [ 1, %extent_coalesce.exit ], [ 1, %extent_coalesce.exit51 ]
+  %.3.ph = phi ptr [ %.339.ph69, %.loopexit70 ], [ %.036.ph, %extent_coalesce.exit ], [ %25, %extent_coalesce.exit51 ]
   store i8 %.sink, ptr %5, align 1, !tbaa !4
   br label %35
 
-35:                                               ; preds = %.sink.split, %.loopexit69
-  %.3 = phi ptr [ %.339.ph68, %.loopexit69 ], [ %.3.ph, %.sink.split ]
+35:                                               ; preds = %.sink.split, %.loopexit70
+  %.3 = phi ptr [ %.339.ph69, %.loopexit70 ], [ %.3.ph, %.sink.split ]
   ret ptr %.3
 }
 

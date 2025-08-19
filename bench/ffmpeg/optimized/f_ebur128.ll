@@ -1165,8 +1165,8 @@ thread-pre-split:                                 ; preds = %42
 
 445:                                              ; preds = %447
   %446 = add nsw i32 %.3467609.i, -1
-  %.not770.i = icmp eq i32 %.3467609.i, 0
-  br i1 %.not770.i, label %.loopexit.loopexit.i, label %447, !llvm.loop !120
+  %.not790.i = icmp eq i32 %.3467609.i, 0
+  br i1 %.not790.i, label %.loopexit.loopexit.i, label %447, !llvm.loop !120
 
 447:                                              ; preds = %445, %.loopexit555.i
   %.3467609.i = phi i32 [ 8000, %.loopexit555.i ], [ %446, %445 ]
@@ -1636,12 +1636,12 @@ get_graph_color.exit548.i:                        ; preds = %581, %.lr.ph621.i
   %721 = phi i32 [ %709, %708 ], [ %.pre759.i, %._crit_edge638.i ]
   %722 = and i32 %721, 4
   %.not539.i = icmp eq i32 %722, 0
-  br i1 %.not539.i, label %.thread772.i, label %723
+  br i1 %.not539.i, label %.thread792.i, label %723
 
 723:                                              ; preds = %720
   %724 = load i32, ptr %163, align 8, !tbaa !20
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %49, i32 noundef %724, ptr noundef nonnull @.str.105) #13
-  br i1 %103, label %.lr.ph641.i, label %.loopexit776.i
+  br i1 %103, label %.lr.ph641.i, label %.loopexit796.i
 
 .lr.ph641.i:                                      ; preds = %723, %.lr.ph641.i
   %indvars.iv740.i = phi i64 [ %indvars.iv.next741.i, %.lr.ph641.i ], [ 0, %723 ]
@@ -1654,17 +1654,17 @@ get_graph_color.exit548.i:                        ; preds = %581, %.lr.ph621.i
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %49, i32 noundef %725, ptr noundef nonnull @.str.103, double noundef %730) #13
   %indvars.iv.next741.i = add nuw nsw i64 %indvars.iv740.i, 1
   %exitcond744.not.i = icmp eq i64 %indvars.iv.next741.i, %wide.trip.count681.i
-  br i1 %exitcond744.not.i, label %.loopexit776.i, label %.lr.ph641.i, !llvm.loop !144
+  br i1 %exitcond744.not.i, label %.loopexit796.i, label %.lr.ph641.i, !llvm.loop !144
 
-.loopexit776.i:                                   ; preds = %.lr.ph641.i, %723
+.loopexit796.i:                                   ; preds = %.lr.ph641.i, %723
   %731 = load i32, ptr %163, align 8, !tbaa !20
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %49, i32 noundef %731, ptr noundef nonnull @.str.104) #13
   %.pre760.i = load i32, ptr %57, align 8, !tbaa !48
   %.pre761.i = and i32 %.pre760.i, 4
   %732 = icmp eq i32 %.pre761.i, 0
-  br i1 %732, label %.thread772.i, label %733
+  br i1 %732, label %.thread792.i, label %733
 
-733:                                              ; preds = %.loopexit776.i
+733:                                              ; preds = %.loopexit796.i
   %734 = load i32, ptr %163, align 8, !tbaa !20
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %49, i32 noundef %734, ptr noundef nonnull @.str.106) #13
   br i1 %103, label %.lr.ph645.i, label %._crit_edge646.i
@@ -1685,15 +1685,15 @@ get_graph_color.exit548.i:                        ; preds = %581, %.lr.ph621.i
 ._crit_edge646.i:                                 ; preds = %.lr.ph645.i, %733
   %741 = load i32, ptr %163, align 8, !tbaa !20
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %49, i32 noundef %741, ptr noundef nonnull @.str.104) #13
-  br label %.thread772.i
+  br label %.thread792.i
 
-.thread772.i:                                     ; preds = %._crit_edge646.i, %.loopexit776.i, %720
+.thread792.i:                                     ; preds = %._crit_edge646.i, %.loopexit796.i, %720
   %742 = load i32, ptr %163, align 8, !tbaa !20
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %49, i32 noundef %742, ptr noundef nonnull @.str.88) #13
   br label %.thread.i
 
-.thread.i:                                        ; preds = %.thread772.i, %687, %294
-  %743 = phi ptr [ %688, %.thread772.i ], [ %168, %294 ], [ %688, %687 ]
+.thread.i:                                        ; preds = %.thread792.i, %687, %294
+  %743 = phi ptr [ %688, %.thread792.i ], [ %168, %294 ], [ %688, %687 ]
   %indvars.iv.next751.i = add nsw i64 %indvars.iv750.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next751.i to i32
   %exitcond753.not.i = icmp eq i32 %55, %lftr.wideiv.i

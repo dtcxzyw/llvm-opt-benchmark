@@ -852,8 +852,8 @@ define internal fastcc void @do_print_sigalgs(ptr noundef %0, ptr noundef %1, i3
   %20 = icmp sgt i32 %.0344246, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %18, %.thread57
-  %.03552 = phi i32 [ %72, %.thread57 ], [ 0, %18 ]
+.lr.ph:                                           ; preds = %18, %.thread61
+  %.03552 = phi i32 [ %72, %.thread61 ], [ 0, %18 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -894,32 +894,32 @@ define internal fastcc void @do_print_sigalgs(ptr noundef %0, ptr noundef %1, i3
 
 34:                                               ; preds = %28
   %35 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.136) #6
-  br label %.thread57
+  br label %.thread61
 
 36:                                               ; preds = %28
   %37 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.137) #6
-  br label %.thread57
+  br label %.thread61
 
 38:                                               ; preds = %28
   %39 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.138) #6
-  br label %.thread57
+  br label %.thread61
 
 40:                                               ; preds = %28
   %41 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.139) #6
-  br label %.thread57
+  br label %.thread61
 
 42:                                               ; preds = %28
   %43 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.140) #6
-  br label %.thread57
+  br label %.thread61
 
 44:                                               ; preds = %28
   %45 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.141) #6
-  br label %.thread57
+  br label %.thread61
 
 46:                                               ; preds = %28
   %47 = load i32, ptr %5, align 4, !tbaa !22
   switch i32 %47, label %get_sigtype.exit [
-    i32 6, label %.thread53
+    i32 6, label %.thread57
     i32 912, label %48
     i32 116, label %49
     i32 408, label %50
@@ -931,33 +931,33 @@ define internal fastcc void @do_print_sigalgs(ptr noundef %0, ptr noundef %1, i3
   ]
 
 48:                                               ; preds = %46
-  br label %.thread53
+  br label %.thread57
 
 49:                                               ; preds = %46
-  br label %.thread53
+  br label %.thread57
 
 50:                                               ; preds = %46
-  br label %.thread53
+  br label %.thread57
 
 51:                                               ; preds = %46
-  br label %.thread53
+  br label %.thread57
 
 52:                                               ; preds = %46
-  br label %.thread53
+  br label %.thread57
 
 53:                                               ; preds = %46
-  br label %.thread53
+  br label %.thread57
 
 54:                                               ; preds = %46
-  br label %.thread53
+  br label %.thread57
 
 55:                                               ; preds = %46
-  br label %.thread53
+  br label %.thread57
 
 get_sigtype.exit:                                 ; preds = %46
   %56 = call ptr @OBJ_nid2sn(i32 noundef %47) #6
   %.not39 = icmp eq ptr %56, null
-  br i1 %.not39, label %57, label %.thread53
+  br i1 %.not39, label %57, label %.thread57
 
 57:                                               ; preds = %get_sigtype.exit
   %58 = load i8, ptr %7, align 1, !tbaa !15
@@ -967,26 +967,26 @@ get_sigtype.exit:                                 ; preds = %46
   %.not40 = icmp eq i32 %61, 0
   br i1 %.not40, label %68, label %64
 
-.thread53:                                        ; preds = %get_sigtype.exit, %48, %49, %50, %51, %52, %53, %54, %55, %46
+.thread57:                                        ; preds = %get_sigtype.exit, %48, %49, %50, %51, %52, %53, %54, %55, %46
   %.0.i49 = phi ptr [ %56, %get_sigtype.exit ], [ @.str.145, %46 ], [ @.str.153, %55 ], [ @.str.152, %54 ], [ @.str.151, %53 ], [ @.str.150, %52 ], [ @.str.149, %51 ], [ @.str.148, %50 ], [ @.str.147, %49 ], [ @.str.146, %48 ]
   %62 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0.i49) #6
   %63 = load i32, ptr %4, align 4, !tbaa !22
-  %.not4055 = icmp eq i32 %63, 0
-  br i1 %.not4055, label %.thread57, label %64
+  %.not4059 = icmp eq i32 %63, 0
+  br i1 %.not4059, label %.thread61, label %64
 
-64:                                               ; preds = %.thread53, %57
-  %65 = phi i32 [ %63, %.thread53 ], [ %61, %57 ]
+64:                                               ; preds = %.thread57, %57
+  %65 = phi i32 [ %63, %.thread57 ], [ %61, %57 ]
   %66 = call ptr @OBJ_nid2sn(i32 noundef %65) #6
   %67 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.143, ptr noundef %66) #6
-  br label %.thread57
+  br label %.thread61
 
 68:                                               ; preds = %57
   %69 = load i8, ptr %6, align 1, !tbaa !15
   %70 = zext i8 %69 to i32
   %71 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.144, i32 noundef %70) #6
-  br label %.thread57
+  br label %.thread61
 
-.thread57:                                        ; preds = %.thread53, %64, %68, %44, %42, %40, %38, %36, %34
+.thread61:                                        ; preds = %.thread57, %64, %68, %44, %42, %40, %38, %36, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -995,7 +995,7 @@ get_sigtype.exit:                                 ; preds = %46
   %exitcond.not = icmp eq i32 %72, %.0344246
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %.thread57, %18
+._crit_edge:                                      ; preds = %.thread61, %18
   %73 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.1) #6
   br label %74
 
@@ -1553,7 +1553,7 @@ lookup.exit:                                      ; preds = %.lr.ph.i, %7, %.loo
   %19 = load i8, ptr %18, align 1, !tbaa !15
   %20 = zext i8 %19 to i32
   %21 = icmp eq i8 %19, 0
-  br i1 %21, label %lookup.exit71.thread112, label %.lr.ph99
+  br i1 %21, label %lookup.exit71.thread122, label %.lr.ph99
 
 .lr.ph99:                                         ; preds = %.lr.ph.i67.preheader, %.lr.ph.i67
   %.069.i6898 = phi ptr [ %22, %.lr.ph.i67 ], [ @alert_types, %.lr.ph.i67.preheader ]
@@ -1580,7 +1580,7 @@ lookup.exit71.thread83:                           ; preds = %27
   %29 = load i8, ptr %3, align 1, !tbaa !15
   %30 = zext i8 %29 to i32
   %31 = icmp eq i8 %29, 0
-  br i1 %31, label %lookup.exit71.thread112, label %.lr.ph95
+  br i1 %31, label %lookup.exit71.thread122, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %.lr.ph.i73.preheader, %.lr.ph.i73
   %.069.i7494 = phi ptr [ %32, %.lr.ph.i73 ], [ @handshakes, %.lr.ph.i73.preheader ]
@@ -1618,11 +1618,11 @@ lookup.exit71.thread83:                           ; preds = %27
 .lookup.exit71.loopexit90_crit_edge:              ; preds = %.lr.ph95
   br label %lookup.exit71, !llvm.loop !18
 
-lookup.exit71.thread112:                          ; preds = %.lr.ph.i73.preheader, %.lr.ph.i67.preheader
-  %.1.ph109 = phi ptr [ @.str.196, %.lr.ph.i73.preheader ], [ %switch.select65, %.lr.ph.i67.preheader ]
-  %.058.ph110 = phi ptr [ @.str.53, %.lr.ph.i73.preheader ], [ @.str.162, %.lr.ph.i67.preheader ]
-  %.057.ph111 = phi ptr [ @.str.61, %.lr.ph.i73.preheader ], [ @.str.56, %.lr.ph.i67.preheader ]
-  %44 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.67, ptr noundef nonnull %9, ptr noundef nonnull %.0.i, ptr noundef nonnull %.057.ph111, i64 noundef %4, ptr noundef %.1.ph109, ptr noundef nonnull %.058.ph110) #6
+lookup.exit71.thread122:                          ; preds = %.lr.ph.i73.preheader, %.lr.ph.i67.preheader
+  %.1.ph119 = phi ptr [ @.str.196, %.lr.ph.i73.preheader ], [ %switch.select65, %.lr.ph.i67.preheader ]
+  %.058.ph120 = phi ptr [ @.str.53, %.lr.ph.i73.preheader ], [ @.str.162, %.lr.ph.i67.preheader ]
+  %.057.ph121 = phi ptr [ @.str.61, %.lr.ph.i73.preheader ], [ @.str.56, %.lr.ph.i67.preheader ]
+  %44 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.67, ptr noundef nonnull %9, ptr noundef nonnull %.0.i, ptr noundef nonnull %.057.ph121, i64 noundef %4, ptr noundef %.1.ph119, ptr noundef nonnull %.058.ph120) #6
   br label %.lr.ph103.preheader
 
 lookup.exit71:                                    ; preds = %.lr.ph.i73, %.lr.ph.i67, %.lookup.exit71.loopexit90_crit_edge, %.lookup.exit71.loopexit_crit_edge, %lookup.exit, %37, %38, %39, %40, %15, %42
@@ -1634,7 +1634,7 @@ lookup.exit71:                                    ; preds = %.lr.ph.i73, %.lr.ph
   %.not63 = icmp eq i64 %4, 0
   br i1 %.not63, label %59, label %.lr.ph103.preheader
 
-.lr.ph103.preheader:                              ; preds = %lookup.exit71, %lookup.exit71.thread112
+.lr.ph103.preheader:                              ; preds = %lookup.exit71, %lookup.exit71.thread122
   %46 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.68) #6
   br label %.lr.ph103
 

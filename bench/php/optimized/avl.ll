@@ -181,8 +181,8 @@ lexbor_avl_node_make.exit:                        ; preds = %9, %11
   br i1 %29, label %._crit_edge, label %.lr.ph
 
 .lr.ph56.preheader:                               ; preds = %23, %19
-  %.sink67 = phi i64 [ 24, %19 ], [ 32, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.04152, i64 %.sink67
+  %.sink75 = phi i64 [ 24, %19 ], [ 32, %23 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.04152, i64 %.sink75
   store ptr %8, ptr %30, align 8, !tbaa !16
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %.04152, ptr %31, align 8, !tbaa !19
@@ -856,9 +856,9 @@ define hidden ptr @lexbor_avl_remove(ptr noundef captures(none) %0, ptr noundef 
   br i1 %.not65.i, label %37, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %35, %17
-  %.sink72.i = phi ptr [ %23, %17 ], [ %30, %35 ]
+  %.sink82.i = phi ptr [ %23, %17 ], [ %30, %35 ]
   %.0.ph.i = phi ptr [ %..i, %17 ], [ %.0.i, %35 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sink72.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.sink82.i, i64 40
   store ptr %.0.i, ptr %36, align 8, !tbaa !19
   br label %37
 
@@ -1021,9 +1021,9 @@ define hidden void @lexbor_avl_remove_by_node(ptr noundef captures(none) %0, ptr
   br i1 %.not65.i, label %34, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %32, %14
-  %.sink72.i = phi ptr [ %20, %14 ], [ %27, %32 ]
+  %.sink82.i = phi ptr [ %20, %14 ], [ %27, %32 ]
   %.0.ph.i = phi ptr [ %..i, %14 ], [ %.0.i, %32 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.sink72.i, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %.sink82.i, i64 40
   store ptr %.0.i, ptr %33, align 8, !tbaa !19
   br label %34
 
@@ -1188,7 +1188,7 @@ define hidden i32 @lexbor_avl_foreach(ptr noundef %0, ptr noundef %1, ptr nounde
 21:                                               ; preds = %.thread
   %22 = load ptr, ptr %1, align 8, !tbaa !16
   %.not79 = icmp eq ptr %22, %.155
-  br i1 %.not79, label %.loopexit96, label %23
+  br i1 %.not79, label %.loopexit105, label %23
 
 23:                                               ; preds = %21
   %24 = icmp eq ptr %22, null
@@ -1197,18 +1197,18 @@ define hidden i32 @lexbor_avl_foreach(ptr noundef %0, ptr noundef %1, ptr nounde
 25:                                               ; preds = %23
   %26 = load ptr, ptr %11, align 8, !tbaa !4
   %27 = icmp eq ptr %26, %22
-  br i1 %27, label %.loopexit96, label %.loopexit.outer.backedge
+  br i1 %27, label %.loopexit105, label %.loopexit.outer.backedge
 
 28:                                               ; preds = %16
   %29 = load ptr, ptr %17, align 8, !tbaa !17
   %.not72 = icmp eq ptr %29, %.155
-  br i1 %.not72, label %.loopexit96, label %30
+  br i1 %.not72, label %.loopexit105, label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %32 = load ptr, ptr %31, align 8, !tbaa !18
   %.not73 = icmp eq ptr %32, %.155
-  br i1 %.not73, label %.loopexit96, label %33
+  br i1 %.not73, label %.loopexit105, label %33
 
 33:                                               ; preds = %30
   br i1 %.not92, label %34, label %38
@@ -1225,18 +1225,18 @@ define hidden i32 @lexbor_avl_foreach(ptr noundef %0, ptr noundef %1, ptr nounde
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !18
   %.not78 = icmp eq ptr %37, null
-  br i1 %.not78, label %.loopexit.backedge, label %.loopexit96
+  br i1 %.not78, label %.loopexit.backedge, label %.loopexit105
 
 38:                                               ; preds = %33
   %.not75 = icmp eq ptr %32, null
-  br i1 %.not75, label %.loopexit96, label %39
+  br i1 %.not75, label %.loopexit105, label %39
 
 39:                                               ; preds = %38
   %40 = load ptr, ptr %11, align 8, !tbaa !4
   %.not76 = icmp eq ptr %32, %40
-  br i1 %.not76, label %.loopexit96, label %.loopexit.backedge
+  br i1 %.not76, label %.loopexit105, label %.loopexit.backedge
 
-.loopexit96:                                      ; preds = %38, %35, %39, %30, %28, %25, %21
+.loopexit105:                                     ; preds = %38, %35, %39, %30, %28, %25, %21
   %.256 = phi ptr [ %.155, %21 ], [ %22, %25 ], [ %13, %38 ], [ %29, %35 ], [ %.155, %28 ], [ %.155, %30 ], [ %32, %39 ]
   %.1 = phi ptr [ %.0.ph, %21 ], [ %22, %25 ], [ %.0.ph, %28 ], [ %.0.ph, %30 ], [ %.0.ph, %39 ], [ %.0.ph, %35 ], [ %.0.ph, %38 ]
   %41 = getelementptr inbounds nuw i8, ptr %.256, i64 32
@@ -1244,16 +1244,16 @@ define hidden i32 @lexbor_avl_foreach(ptr noundef %0, ptr noundef %1, ptr nounde
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.thread86, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit96, %.preheader
-  %.4 = phi ptr [ %45, %.preheader ], [ %42, %.loopexit96 ]
+.preheader:                                       ; preds = %.loopexit105, %.preheader
+  %.4 = phi ptr [ %45, %.preheader ], [ %42, %.loopexit105 ]
   %44 = getelementptr inbounds nuw i8, ptr %.4, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !17
   %.not80 = icmp eq ptr %45, null
   br i1 %.not80, label %.loopexit.outer.backedge, label %.preheader
 
-.thread86:                                        ; preds = %.loopexit, %.loopexit96
-  %.191 = phi ptr [ %.1, %.loopexit96 ], [ %.0.ph, %.loopexit ]
-  %.25690 = phi ptr [ %.256, %.loopexit96 ], [ %.155, %.loopexit ]
+.thread86:                                        ; preds = %.loopexit, %.loopexit105
+  %.191 = phi ptr [ %.1, %.loopexit105 ], [ %.0.ph, %.loopexit ]
+  %.25690 = phi ptr [ %.256, %.loopexit105 ], [ %.155, %.loopexit ]
   %46 = getelementptr inbounds nuw i8, ptr %.191, i64 40
   %47 = load ptr, ptr %46, align 8, !tbaa !19
   %48 = icmp eq ptr %13, %47

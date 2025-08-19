@@ -3318,18 +3318,18 @@ _init_l_Vector_lex___at_Vector_instDecidableLTOfDecidableEq___spec__1___rarg___c
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Vector_lex___at_Vector_instDecidableLTOfDecidableEq___spec__1___rarg___closed__2.exit, %3
-  %.sink33 = phi ptr [ %4, %3 ], [ %87, %_init_l_Vector_lex___at_Vector_instDecidableLTOfDecidableEq___spec__1___rarg___closed__2.exit ]
-  %90 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
-  store i32 1, ptr %.sink33, align 4, !tbaa !4
+  %.sink48 = phi ptr [ %4, %3 ], [ %87, %_init_l_Vector_lex___at_Vector_instDecidableLTOfDecidableEq___spec__1___rarg___closed__2.exit ]
+  %90 = getelementptr inbounds nuw i8, ptr %.sink48, i64 4
+  store i32 1, ptr %.sink48, align 4, !tbaa !4
   store i32 131096, ptr %90, align 4
-  %91 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.sink48, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %91, align 8, !tbaa !10
-  %92 = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.sink48, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %92, align 8, !tbaa !10
   br label %93
 
 93:                                               ; preds = %.sink.split, %lean_dec_ref.exit20, %lean_dec_ref.exit18, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit18 ], [ %38, %lean_dec_ref.exit20 ], [ %.sink33, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit18 ], [ %38, %lean_dec_ref.exit20 ], [ %.sink48, %.sink.split ]
   ret ptr %.0
 }
 

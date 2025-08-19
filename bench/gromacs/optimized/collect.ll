@@ -241,12 +241,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %101 = phi ptr [ %78, %._crit_edge.thread.i ], [ %89, %._crit_edge.i ]
   %102 = phi ptr [ %77, %._crit_edge.thread.i ], [ %88, %._crit_edge.i ]
   %103 = phi ptr [ %76, %._crit_edge.thread.i ], [ %87, %._crit_edge.i ]
-  %.082.lcssa170.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %86, %._crit_edge.i ]
-  %104 = icmp ugt i64 %99, %.082.lcssa170.i
+  %.082.lcssa180.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %86, %._crit_edge.i ]
+  %104 = icmp ugt i64 %99, %.082.lcssa180.i
   br i1 %104, label %105, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 105:                                              ; preds = %98
-  %106 = getelementptr inbounds nuw i32, ptr %100, i64 %.082.lcssa170.i
+  %106 = getelementptr inbounds nuw i32, ptr %100, i64 %.082.lcssa180.i
   %.not.i.i.i = icmp eq ptr %101, %106
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i, label %107
 
@@ -256,9 +256,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %107, %105, %98, %96
   %108 = phi ptr [ %87, %96 ], [ %103, %98 ], [ %103, %105 ], [ %103, %107 ]
-  %.082.lcssa171.i = phi i64 [ %86, %96 ], [ %.082.lcssa170.i, %98 ], [ %.082.lcssa170.i, %105 ], [ %.082.lcssa170.i, %107 ]
+  %.082.lcssa181.i = phi i64 [ %86, %96 ], [ %.082.lcssa180.i, %98 ], [ %.082.lcssa180.i, %105 ], [ %.082.lcssa180.i, %107 ]
   %109 = getelementptr inbounds nuw i8, ptr %63, i64 144
-  call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %109, i64 noundef %.082.lcssa171.i)
+  call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %109, i64 noundef %.082.lcssa181.i)
   %110 = load i32, ptr %0, align 8, !tbaa !200
   %111 = icmp sgt i32 %110, 0
   br i1 %111, label %.lr.ph138.i, label %._crit_edge139.i
@@ -290,8 +290,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %107, %105, %98, %96
   %120 = load ptr, ptr %63, align 8, !tbaa !206
   %121 = getelementptr inbounds nuw %"struct.AtomDistribution::DomainAtomGroups", ptr %120, i64 %indvars.iv149.i
   %122 = load ptr, ptr %112, align 8, !tbaa !199
-  %.idx168.i = shl nuw nsw i64 %indvars.iv149.i, 3
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 %.idx168.i
+  %.idx178.i = shl nuw nsw i64 %indvars.iv149.i, 3
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 %.idx178.i
   %124 = load i32, ptr %123, align 4, !tbaa !189
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %126 = load i32, ptr %125, align 4, !tbaa !189
@@ -979,7 +979,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br i1 %.not28.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = mul i64 %12, 12
+  %22 = mul nuw nsw i64 %12, 12
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !228
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
@@ -1097,13 +1097,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !189
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !189
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

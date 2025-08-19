@@ -2055,9 +2055,9 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %27
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %98 = load i8, ptr %97, align 8, !tbaa !136, !range !102, !noundef !103
   %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %.invoke487, label %102
+  br i1 %99, label %.invoke517, label %102
 
-100:                                              ; preds = %.invoke487, %144, %102
+100:                                              ; preds = %.invoke517, %144, %102
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
@@ -2076,7 +2076,7 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %27
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %110 = load i8, ptr %109, align 8, !tbaa !136, !range !102, !noundef !103
   %111 = trunc nuw i8 %110 to i1
-  br i1 %111, label %.invoke487, label %112
+  br i1 %111, label %.invoke517, label %112
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2161,11 +2161,11 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %27
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %146 = load ptr, ptr %145, align 8, !tbaa !144
   invoke void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %146)
-          to label %.invoke487 unwind label %100
+          to label %.invoke517 unwind label %100
 
-.invoke487:                                       ; preds = %144, %108, %96
-  %.sink488 = phi i64 [ 280, %96 ], [ 280, %108 ], [ 64, %144 ]
-  %147 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink488
+.invoke517:                                       ; preds = %144, %108, %96
+  %.sink518 = phi i64 [ 280, %96 ], [ 280, %108 ], [ 64, %144 ]
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink518
   %148 = load ptr, ptr %147, align 8, !tbaa !46
   invoke void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %148)
           to label %_ZN4Luau3getINS_24TypeFunctionInstanceTypeEEEPKT_PKNS_4TypeE.exit.thread unwind label %100
@@ -2384,7 +2384,7 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %27
           to label %246 unwind label %252
 
 246:                                              ; preds = %.lr.ph472
-  %247 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %1)
+  %247 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef nonnull %1)
           to label %248 unwind label %252
 
 248:                                              ; preds = %246
@@ -2402,7 +2402,7 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %27
   br label %common.resume
 
 .thread407:                                       ; preds = %249, %248
-  invoke void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %1)
+  invoke void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull %1)
           to label %_ZN4Luau3getINS_24TypeFunctionInstanceTypeEEEPKT_PKNS_4TypeE.exit.thread unwind label %254
 
 254:                                              ; preds = %.thread407
@@ -2444,7 +2444,7 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %27
           to label %270 unwind label %276
 
 270:                                              ; preds = %.lr.ph468
-  %271 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %1)
+  %271 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef nonnull %1)
           to label %272 unwind label %276
 
 272:                                              ; preds = %270
@@ -2462,7 +2462,7 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %27
   br label %common.resume
 
 .thread415:                                       ; preds = %273, %272
-  invoke void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %1)
+  invoke void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull %1)
           to label %_ZN4Luau3getINS_24TypeFunctionInstanceTypeEEEPKT_PKNS_4TypeE.exit.thread unwind label %278
 
 278:                                              ; preds = %.thread415
@@ -2697,7 +2697,7 @@ _ZN4Luau3getINS_24TypeFunctionInstanceTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %27
   store i32 %377, ptr %344, align 8, !tbaa !4
   br label %common.resume
 
-_ZN4Luau3getINS_24TypeFunctionInstanceTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %331, %265, %241, %27, %.invoke487, %.invoke, %._crit_edge460, %261, %237, %26, %40, %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit, %107, %._crit_edge482, %210, %217, %165, %_ZN4Luau3getINS_12NoRefineTypeEEEPKT_PKNS_4TypeE.exit, %260, %.thread415, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit, %313, %.loopexit, %339, %340, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_11BlockedTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_8LazyTypeEEEPKT_PKNS_4TypeE.exit, %282, %.thread407, %236, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit, %153, %156, %84, %88, %_ZN4Luau3getINS_9Unifiable5ErrorIPKNS_4TypeEEEEEPKT_S5_.exit, %56, %59, %49, %60, %20
+_ZN4Luau3getINS_24TypeFunctionInstanceTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %331, %265, %241, %27, %.invoke517, %.invoke, %._crit_edge460, %261, %237, %26, %40, %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit, %107, %._crit_edge482, %210, %217, %165, %_ZN4Luau3getINS_12NoRefineTypeEEEPKT_PKNS_4TypeE.exit, %260, %.thread415, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit, %313, %.loopexit, %339, %340, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_11BlockedTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_8LazyTypeEEEPKT_PKNS_4TypeE.exit, %282, %.thread407, %236, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit, %153, %156, %84, %88, %_ZN4Luau3getINS_9Unifiable5ErrorIPKNS_4TypeEEEEEPKT_S5_.exit, %56, %59, %49, %60, %20
   %378 = load i32, ptr %3, align 4, !tbaa !4
   %379 = add nsw i32 %378, -1
   store i32 %379, ptr %3, align 4, !tbaa !4

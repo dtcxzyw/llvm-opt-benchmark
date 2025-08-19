@@ -895,9 +895,9 @@ lv_obj_get_ext_draw_size.exit:                    ; preds = %3, %6
   br label %.sink.split
 
 .sink.split:                                      ; preds = %lv_obj_get_ext_draw_size.exit, %13
-  %.sink13 = phi ptr [ %15, %13 ], [ %10, %lv_obj_get_ext_draw_size.exit ]
+  %.sink15 = phi ptr [ %15, %13 ], [ %10, %lv_obj_get_ext_draw_size.exit ]
   %.sink = phi i32 [ %14, %13 ], [ %11, %lv_obj_get_ext_draw_size.exit ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sink13, i64 60
+  %16 = getelementptr inbounds nuw i8, ptr %.sink15, i64 60
   store i32 %.sink, ptr %16, align 4, !tbaa !88
   br label %17
 

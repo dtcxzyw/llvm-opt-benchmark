@@ -133,14 +133,14 @@ define noalias noundef ptr @Amap_CreateRulesPrime(ptr noundef %0, ptr noundef re
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %58, %60, %50, %52
-  %.sink74 = phi ptr [ %51, %50 ], [ %53, %52 ], [ %59, %58 ], [ %61, %60 ]
+  %.sink78 = phi ptr [ %51, %50 ], [ %53, %52 ], [ %59, %58 ], [ %61, %60 ]
   %.sink = phi i32 [ 16, %50 ], [ 16, %52 ], [ %55, %58 ], [ %55, %60 ]
-  store ptr %.sink74, ptr %17, align 8, !tbaa !20
+  store ptr %.sink78, ptr %17, align 8, !tbaa !20
   store i32 %.sink, ptr %14, align 8, !tbaa !19
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %42
-  %.pre.i67 = phi ptr [ %35, %42 ], [ %.sink74, %Vec_IntPush.exit.sink.split ]
+  %.pre.i67 = phi ptr [ %35, %42 ], [ %.sink78, %Vec_IntPush.exit.sink.split ]
   %62 = add nsw i32 %44, 1
   store i32 %62, ptr %15, align 4, !tbaa !16
   %63 = sext i32 %44 to i64
@@ -841,13 +841,13 @@ Vec_PtrPush.exit118:                              ; preds = %.Vec_PtrGrow.exit11
 
 192:                                              ; preds = %Vec_PtrPush.exit111, %Vec_PtrPush.exit118
   %.sink = phi i32 [ %135, %Vec_PtrPush.exit111 ], [ %136, %Vec_PtrPush.exit118 ]
-  %.sink181 = phi ptr [ %165, %Vec_PtrPush.exit111 ], [ %190, %Vec_PtrPush.exit118 ]
+  %.sink200 = phi ptr [ %165, %Vec_PtrPush.exit111 ], [ %190, %Vec_PtrPush.exit118 ]
   %193 = phi i32 [ %133, %Vec_PtrPush.exit111 ], [ %189, %Vec_PtrPush.exit118 ]
   %194 = phi i32 [ %164, %Vec_PtrPush.exit111 ], [ %134, %Vec_PtrPush.exit118 ]
   %195 = phi i32 [ %166, %Vec_PtrPush.exit111 ], [ %135, %Vec_PtrPush.exit118 ]
   %196 = phi i32 [ %136, %Vec_PtrPush.exit111 ], [ %191, %Vec_PtrPush.exit118 ]
   %197 = sext i32 %.sink to i64
-  %198 = getelementptr inbounds ptr, ptr %.sink181, i64 %197
+  %198 = getelementptr inbounds ptr, ptr %.sink200, i64 %197
   store ptr %138, ptr %198, align 8, !tbaa !33
   %199 = icmp samesign ugt i64 %indvars.iv169, 1
   br i1 %199, label %.lr.ph145, label %.critedge4, !llvm.loop !39

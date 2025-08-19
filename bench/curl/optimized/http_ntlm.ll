@@ -238,24 +238,24 @@ define hidden i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) local
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %. = select i1 %1, i64 5008, i64 4936
-  %.96 = select i1 %1, i64 5016, i64 4992
-  %.97 = select i1 %1, i64 5024, i64 5000
-  %.98 = select i1 %1, i64 2000, i64 1896
-  %.99 = select i1 %1, i64 240, i64 104
-  %.100 = select i1 %1, i64 1064, i64 1040
-  %.101 = select i1 %1, i64 1036, i64 1032
-  %.102 = select i1 %1, i64 3416, i64 3384
+  %.100 = select i1 %1, i64 5016, i64 4992
+  %.101 = select i1 %1, i64 5024, i64 5000
+  %.102 = select i1 %1, i64 2000, i64 1896
+  %.103 = select i1 %1, i64 240, i64 104
+  %.104 = select i1 %1, i64 1064, i64 1040
+  %.105 = select i1 %1, i64 1036, i64 1032
+  %.106 = select i1 %1, i64 3416, i64 3384
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.96
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.97
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.98
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.100
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.101
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.102
   %12 = load ptr, ptr %11, align 8, !tbaa !78
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 %.99
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 %.100
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 %.101
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 %.103
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 %.104
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 %.105
   %.062 = load ptr, ptr %10, align 8, !tbaa !78
   %.063 = load ptr, ptr %9, align 8, !tbaa !78
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.102
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.106
   %.060 = load ptr, ptr %13, align 8, !tbaa !78
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i8, ptr %17, align 8
@@ -347,8 +347,8 @@ define hidden i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) local
   br label %62
 
 56:                                               ; preds = %2, %.thread
-  %.103 = select i1 %1, i64 5096, i64 5104
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 %.103
+  %.107 = select i1 %1, i64 5096, i64 5104
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 %.107
   store i64 8, ptr %57, align 8, !tbaa !79
   %58 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
   %59 = load ptr, ptr %8, align 8, !tbaa !78

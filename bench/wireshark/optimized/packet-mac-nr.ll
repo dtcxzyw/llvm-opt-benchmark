@@ -2127,12 +2127,12 @@ define internal void @lcid_drb_mappings_lcid_set_cb(ptr noundef writeonly captur
 
 .lr.ph.preheader:                                 ; preds = %5
   %10 = tail call i32 @g_str_equal(ptr noundef nonnull %9, ptr noundef %7)
-  %.not1320 = icmp eq i32 %10, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %10, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %11 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %11 = add i32 %.01622, 1
   %12 = zext i32 %11 to i64
   %13 = getelementptr %struct._value_string, ptr %3, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -2140,10 +2140,10 @@ define internal void @lcid_drb_mappings_lcid_set_cb(ptr noundef writeonly captur
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %16 = tail call i32 @g_str_equal(ptr noundef nonnull %15, ptr noundef %7)
   %.not13 = icmp eq i32 %16, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !10
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !10
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %13, %.lr.ph ]
@@ -2152,7 +2152,7 @@ define internal void @lcid_drb_mappings_lcid_set_cb(ptr noundef writeonly captur
   store i32 %18, ptr %0, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -2168,11 +2168,11 @@ define internal void @lcid_drb_mappings_lcid_tostr_cb(ptr noundef readonly captu
   %8 = load i32, ptr %0, align 4
   %9 = load i32, ptr %3, align 8
   %10 = icmp eq i32 %9, %8
-  br i1 %10, label %._crit_edge21, label %.lr.ph20
+  br i1 %10, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %16
-  %.01519 = phi i32 [ %11, %16 ], [ 0, %.lr.ph ]
-  %11 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %16
+  %.01520 = phi i32 [ %11, %16 ], [ 0, %.lr.ph ]
+  %11 = add i32 %.01520, 1
   %12 = zext i32 %11 to i64
   %13 = getelementptr %struct._value_string, ptr %3, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -2180,12 +2180,12 @@ define internal void @lcid_drb_mappings_lcid_tostr_cb(ptr noundef readonly captu
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %16, !llvm.loop !11
 
-16:                                               ; preds = %.lr.ph20
+16:                                               ; preds = %.lr.ph21
   %17 = load i32, ptr %13, align 8
   %18 = icmp eq i32 %17, %8
-  br i1 %18, label %._crit_edge21, label %.lr.ph20, !llvm.loop !11
+  br i1 %18, label %._crit_edge22, label %.lr.ph21, !llvm.loop !11
 
-._crit_edge21:                                    ; preds = %16, %.lr.ph
+._crit_edge22:                                    ; preds = %16, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %15, %16 ]
   %19 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %19, ptr %1, align 8
@@ -2193,13 +2193,13 @@ define internal void @lcid_drb_mappings_lcid_tostr_cb(ptr noundef readonly captu
   %21 = trunc i64 %20 to i32
   br label %23
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %22 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1163)
   store ptr %22, ptr %1, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 6, %._crit_edge ], [ %21, %._crit_edge21 ]
+23:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 6, %._crit_edge ], [ %21, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -2242,12 +2242,12 @@ define internal void @lcid_drb_mappings_bearer_type_ul_set_cb(ptr noundef writeo
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2255,10 +2255,10 @@ define internal void @lcid_drb_mappings_bearer_type_ul_set_cb(ptr noundef writeo
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !12
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !12
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -2266,7 +2266,7 @@ define internal void @lcid_drb_mappings_bearer_type_ul_set_cb(ptr noundef writeo
   store i32 %18, ptr %8, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -2283,11 +2283,11 @@ define internal void @lcid_drb_mappings_bearer_type_ul_tostr_cb(ptr noundef read
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
-  br i1 %11, label %._crit_edge21, label %.lr.ph20
+  br i1 %11, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %17
-  %.01519 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
-  %12 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %17
+  %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
+  %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2295,12 +2295,12 @@ define internal void @lcid_drb_mappings_bearer_type_ul_tostr_cb(ptr noundef read
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !13
 
-17:                                               ; preds = %.lr.ph20
+17:                                               ; preds = %.lr.ph21
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !13
+  br i1 %19, label %._crit_edge22, label %.lr.ph21, !llvm.loop !13
 
-._crit_edge21:                                    ; preds = %17, %.lr.ph
+._crit_edge22:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
@@ -2308,13 +2308,13 @@ define internal void @lcid_drb_mappings_bearer_type_ul_tostr_cb(ptr noundef read
   %22 = trunc i64 %21 to i32
   br label %24
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1195)
   store ptr %23, ptr %1, align 8
   br label %24
 
-24:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 2, %._crit_edge ], [ %22, %._crit_edge21 ]
+24:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 2, %._crit_edge ], [ %22, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -2332,12 +2332,12 @@ define internal void @lcid_drb_mappings_bearer_type_dl_set_cb(ptr noundef writeo
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2345,10 +2345,10 @@ define internal void @lcid_drb_mappings_bearer_type_dl_set_cb(ptr noundef writeo
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !14
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !14
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -2356,7 +2356,7 @@ define internal void @lcid_drb_mappings_bearer_type_dl_set_cb(ptr noundef writeo
   store i32 %18, ptr %8, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -2373,11 +2373,11 @@ define internal void @lcid_drb_mappings_bearer_type_dl_tostr_cb(ptr noundef read
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
-  br i1 %11, label %._crit_edge21, label %.lr.ph20
+  br i1 %11, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %17
-  %.01519 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
-  %12 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %17
+  %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
+  %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2385,12 +2385,12 @@ define internal void @lcid_drb_mappings_bearer_type_dl_tostr_cb(ptr noundef read
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !15
 
-17:                                               ; preds = %.lr.ph20
+17:                                               ; preds = %.lr.ph21
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !15
+  br i1 %19, label %._crit_edge22, label %.lr.ph21, !llvm.loop !15
 
-._crit_edge21:                                    ; preds = %17, %.lr.ph
+._crit_edge22:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
@@ -2398,13 +2398,13 @@ define internal void @lcid_drb_mappings_bearer_type_dl_tostr_cb(ptr noundef read
   %22 = trunc i64 %21 to i32
   br label %24
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1195)
   store ptr %23, ptr %1, align 8
   br label %24
 
-24:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 2, %._crit_edge ], [ %22, %._crit_edge21 ]
+24:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 2, %._crit_edge ], [ %22, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -3362,7 +3362,7 @@ define internal fastcc i32 @dissect_ulsch_or_dlsch(ptr noundef %0, ptr noundef %
   %61 = add i32 %60, 1
   %62 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %61, i32 noundef 0)
   %63 = zext i16 %62 to i32
-  br label %.thread.thread695
+  br label %.thread.thread724
 
 64:                                               ; preds = %50
   %65 = load i32, ptr %8, align 4
@@ -3375,31 +3375,31 @@ define internal fastcc i32 @dissect_ulsch_or_dlsch(ptr noundef %0, ptr noundef %
 
 71:                                               ; preds = %64
   switch i8 %67, label %.thread [
-    i8 -25, label %.thread.thread695
-    i8 -18, label %.thread.thread695
-    i8 -14, label %.thread.thread695
-    i8 -13, label %.thread.thread695
-    i8 -12, label %.thread.thread695
-    i8 -11, label %.thread.thread695
-    i8 -9, label %.thread.thread695
-    i8 -4, label %.thread.thread695
-    i8 -3, label %.thread.thread695
-    i8 -2, label %.thread.thread695
+    i8 -25, label %.thread.thread724
+    i8 -18, label %.thread.thread724
+    i8 -14, label %.thread.thread724
+    i8 -13, label %.thread.thread724
+    i8 -12, label %.thread.thread724
+    i8 -11, label %.thread.thread724
+    i8 -9, label %.thread.thread724
+    i8 -4, label %.thread.thread724
+    i8 -3, label %.thread.thread724
+    i8 -2, label %.thread.thread724
   ]
 
 72:                                               ; preds = %64
   switch i8 %67, label %.thread [
-    i8 -26, label %.thread.thread695
-    i8 -20, label %.thread.thread695
-    i8 -19, label %.thread.thread695
-    i8 -14, label %.thread.thread695
-    i8 -13, label %.thread.thread695
-    i8 -12, label %.thread.thread695
-    i8 -9, label %.thread.thread695
-    i8 -5, label %.thread.thread695
-    i8 -4, label %.thread.thread695
-    i8 -2, label %.thread.thread695
-    i8 -1, label %.thread.thread695
+    i8 -26, label %.thread.thread724
+    i8 -20, label %.thread.thread724
+    i8 -19, label %.thread.thread724
+    i8 -14, label %.thread.thread724
+    i8 -13, label %.thread.thread724
+    i8 -12, label %.thread.thread724
+    i8 -9, label %.thread.thread724
+    i8 -5, label %.thread.thread724
+    i8 -4, label %.thread.thread724
+    i8 -2, label %.thread.thread724
+    i8 -1, label %.thread.thread724
   ]
 
 73:                                               ; preds = %50
@@ -3409,18 +3409,18 @@ define internal fastcc i32 @dissect_ulsch_or_dlsch(ptr noundef %0, ptr noundef %
 
 76:                                               ; preds = %73
   switch i8 %58, label %.thread [
-    i8 0, label %.thread.thread695
-    i8 35, label %.thread.thread695
-    i8 36, label %.thread.thread695
-    i8 52, label %.thread.thread695
-    i8 44, label %.thread.thread695
-    i8 53, label %.thread.thread695
-    i8 55, label %.thread.thread695
-    i8 57, label %.thread.thread695
-    i8 58, label %.thread.thread695
-    i8 59, label %.thread.thread695
-    i8 61, label %.thread.thread695
-    i8 63, label %.thread.thread695
+    i8 0, label %.thread.thread724
+    i8 35, label %.thread.thread724
+    i8 36, label %.thread.thread724
+    i8 52, label %.thread.thread724
+    i8 44, label %.thread.thread724
+    i8 53, label %.thread.thread724
+    i8 55, label %.thread.thread724
+    i8 57, label %.thread.thread724
+    i8 58, label %.thread.thread724
+    i8 59, label %.thread.thread724
+    i8 61, label %.thread.thread724
+    i8 63, label %.thread.thread724
   ]
 
 77:                                               ; preds = %73
@@ -3432,9 +3432,9 @@ switch.hole_check:                                ; preds = %77
   %switch.maskindex = zext nneg i8 %switch.tableidx to i32
   %switch.shifted = lshr i32 2139996163, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %.thread.thread695, label %.thread
+  br i1 %switch.lobit, label %.thread.thread724, label %.thread
 
-.thread.thread695:                                ; preds = %switch.hole_check, %76, %76, %76, %76, %76, %76, %76, %76, %76, %76, %76, %76, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %.thread.thread
+.thread.thread724:                                ; preds = %switch.hole_check, %76, %76, %76, %76, %76, %76, %76, %76, %76, %76, %76, %76, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %.thread.thread
   %.0549653659 = phi i32 [ %63, %.thread.thread ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ -1, %switch.hole_check ]
   %79 = load i32, ptr @hf_mac_nr_subheader_reserved, align 4
   %80 = load i32, ptr %8, align 4
@@ -3453,9 +3453,9 @@ switch.hole_check:                                ; preds = %77
   %89 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %55, i32 noundef %87, ptr noundef %0, i32 noundef %88, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
   br label %90
 
-90:                                               ; preds = %.thread, %.thread.thread695
-  %91 = phi i1 [ false, %.thread ], [ true, %.thread.thread695 ]
-  %.0549653658 = phi i32 [ %.0549653, %.thread ], [ %.0549653659, %.thread.thread695 ]
+90:                                               ; preds = %.thread, %.thread.thread724
+  %91 = phi i1 [ false, %.thread ], [ true, %.thread.thread724 ]
+  %.0549653658 = phi i32 [ %.0549653, %.thread ], [ %.0549653659, %.thread.thread724 ]
   %92 = load i8, ptr %38, align 1
   %93 = icmp eq i8 %92, 0
   %94 = load i32, ptr @hf_mac_nr_ulsch_lcid, align 4
@@ -3516,19 +3516,19 @@ proto_item_set_hidden.exit:                       ; preds = %90, %102, %105
   br label %.sink.split
 
 .sink.split:                                      ; preds = %111, %121
-  %.sink701 = phi i32 [ 1, %121 ], [ 2, %111 ]
+  %.sink730 = phi i32 [ 1, %121 ], [ 2, %111 ]
   %.1550.ph = phi i32 [ %123, %121 ], [ %113, %111 ]
   %131 = load i32, ptr %8, align 4
-  %132 = add i32 %131, %.sink701
+  %132 = add i32 %131, %.sink730
   store i32 %132, ptr %8, align 4
   br label %133
 
 133:                                              ; preds = %.sink.split, %proto_item_set_hidden.exit
   %134 = phi i32 [ %110, %proto_item_set_hidden.exit ], [ %132, %.sink.split ]
   %.1550 = phi i32 [ %.0549653658, %proto_item_set_hidden.exit ], [ %.1550.ph, %.sink.split ]
-  br i1 %91, label %141, label %.sink.split702
+  br i1 %91, label %141, label %.sink.split731
 
-.sink.split702:                                   ; preds = %133
+.sink.split731:                                   ; preds = %133
   %135 = load i8, ptr %9, align 1, !range !8, !noundef !9
   %136 = trunc nuw i8 %135 to i1
   %. = select i1 %136, i32 2, i32 1
@@ -3541,8 +3541,8 @@ proto_item_set_hidden.exit:                       ; preds = %90, %102, %105
   store i32 %140, ptr %8, align 4
   br label %141
 
-141:                                              ; preds = %.sink.split702, %133
-  %142 = phi i32 [ %134, %133 ], [ %140, %.sink.split702 ]
+141:                                              ; preds = %.sink.split731, %133
+  %142 = phi i32 [ %134, %133 ], [ %140, %.sink.split731 ]
   %143 = icmp samesign ult i8 %58, 33
   %.pr = load i8, ptr %38, align 1
   %144 = icmp eq i8 %.pr, 0
@@ -3562,8 +3562,8 @@ proto_item_set_hidden.exit:                       ; preds = %90, %102, %105
   br i1 %144, label %.thread655, label %154
 
 .thread655:                                       ; preds = %147
-  %cond698 = icmp eq i8 %58, 0
-  br i1 %cond698, label %148, label %.thread655._crit_edge
+  %cond727 = icmp eq i8 %58, 0
+  br i1 %cond727, label %148, label %.thread655._crit_edge
 
 .thread655._crit_edge:                            ; preds = %.thread655
   %.pre693 = load i32, ptr %10, align 4

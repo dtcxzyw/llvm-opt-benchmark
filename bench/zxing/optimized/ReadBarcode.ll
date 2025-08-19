@@ -1457,12 +1457,12 @@ _ZNSt10unique_ptrIN5ZXing12BinaryBitmapESt14default_deleteIS1_EED2Ev.exit: ; pre
   br label %.loopexit223
 
 .body:                                            ; preds = %.body165.thread, %.body165, %70
-  %eh.lpad-body166274 = phi { ptr, i32 } [ %69, %.body165.thread ], [ %64, %.body165 ], [ %64, %70 ]
+  %eh.lpad-body166333 = phi { ptr, i32 } [ %69, %.body165.thread ], [ %64, %.body165 ], [ %64, %70 ]
   call void @_ZN5ZXing6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(211) %7) #20
   br label %.loopexit223
 
 .loopexit223:                                     ; preds = %.body, %148
-  %.pn109 = phi { ptr, i32 } [ %149, %148 ], [ %eh.lpad-body166274, %.body ]
+  %.pn109 = phi { ptr, i32 } [ %149, %148 ], [ %eh.lpad-body166333, %.body ]
   call void @_ZN5ZXing6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(211) %8) #20
   br label %_ZNSt10unique_ptrIN5ZXing12BinaryBitmapESt14default_deleteIS1_EED2Ev.exit130
 
@@ -1526,7 +1526,7 @@ _ZNSt10unique_ptrIN5ZXing12BinaryBitmapESt14default_deleteIS1_EED2Ev.exit130: ; 
   br label %_ZNSt10unique_ptrIN5ZXing17MultiFormatReaderESt14default_deleteIS1_EED2Ev.exit158
 
 180:                                              ; preds = %.lr.ph260, %175
-  %.083258 = phi i32 [ %spec.select216, %.lr.ph260 ], [ %.588.lcssa277, %175 ]
+  %.083258 = phi i32 [ %spec.select216, %.lr.ph260 ], [ %.588.lcssa336, %175 ]
   %.090257 = phi i1 [ false, %.lr.ph260 ], [ %.393, %175 ]
   %.sroa.0182.0256 = phi ptr [ %164, %.lr.ph260 ], [ %176, %175 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1556,7 +1556,7 @@ _ZNSt10unique_ptrIN5ZXing12BinaryBitmapESt14default_deleteIS1_EED2Ev.exit130: ; 
 191:                                              ; preds = %.thread197.preheader, %188
   %.not102 = phi i1 [ true, %.thread197.preheader ], [ false, %188 ]
   %.074253 = phi i32 [ 0, %.thread197.preheader ], [ 1, %188 ]
-  %.386252 = phi i32 [ %.083258, %.thread197.preheader ], [ %.588.lcssa277, %188 ]
+  %.386252 = phi i32 [ %.083258, %.thread197.preheader ], [ %.588.lcssa336, %188 ]
   %.pre = load ptr, ptr %11, align 8, !tbaa !132
   br i1 %.not102, label %194, label %192
 
@@ -1666,9 +1666,9 @@ _ZSt8_DestroyIPN5ZXing6ResultES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds
   br label %_ZSt8_DestroyIPN5ZXing6ResultES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN5ZXing6ResultES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %195, %_ZSt8_DestroyIPN5ZXing6ResultES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %._crit_edge
-  %.588.lcssa277 = phi i32 [ %.689, %_ZSt8_DestroyIPN5ZXing6ResultES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.689, %._crit_edge ], [ %.386252, %195 ]
+  %.588.lcssa336 = phi i32 [ %.689, %_ZSt8_DestroyIPN5ZXing6ResultES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.689, %._crit_edge ], [ %.386252, %195 ]
   %233 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5ZXing6ResultES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre270, %._crit_edge ], [ %196, %195 ]
-  %234 = icmp slt i32 %.588.lcssa277, 1
+  %234 = icmp slt i32 %.588.lcssa336, 1
   %.not.i.i.i131 = icmp eq ptr %233, null
   br i1 %.not.i.i.i131, label %_ZNSt6vectorIN5ZXing6ResultESaIS1_EED2Ev.exit, label %235
 
@@ -2099,11 +2099,11 @@ _ZSt8_DestroyIPN5ZXing8LumImageES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_De
   br label %.thread212thread-pre-split
 
 .thread212thread-pre-split:                       ; preds = %175, %407, %408
-  %.pr278 = load ptr, ptr %163, align 8, !tbaa !165
+  %.pr337 = load ptr, ptr %163, align 8, !tbaa !165
   br label %.thread212
 
 .thread212:                                       ; preds = %.thread212thread-pre-split, %162
-  %409 = phi ptr [ %.pr278, %.thread212thread-pre-split ], [ %164, %162 ]
+  %409 = phi ptr [ %.pr337, %.thread212thread-pre-split ], [ %164, %162 ]
   %.not.i.i.i.i141 = icmp eq ptr %409, null
   br i1 %.not.i.i.i.i141, label %_ZNSt6vectorIN5ZXing9ImageViewESaIS1_EED2Ev.exit.i142, label %410
 

@@ -137,7 +137,7 @@ define dso_local zeroext i1 @gistnospace(ptr noundef %0, ptr noundef readonly ca
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = zext i16 %3 to i64
   %16 = add nsw i64 %15, -1
-  %17 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %14, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %14, i64 0, i64 %16
   %.val17 = load i32, ptr %17, align 4
   %18 = and i32 %.val17, 32767
   %19 = zext nneg i32 %18 to i64
@@ -385,10 +385,10 @@ define dso_local void @gistMakeUnionItVec(ptr noundef %0, ptr noundef readonly c
   br label %40
 
 40:                                               ; preds = %._crit_edge.us, %36
-  %.sink57 = phi i64 [ %39, %36 ], [ 0, %._crit_edge.us ]
+  %.sink60 = phi i64 [ %39, %36 ], [ 0, %._crit_edge.us ]
   %.sink = phi i8 [ 0, %36 ], [ 1, %._crit_edge.us ]
   %41 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv51
-  store i64 %.sink57, ptr %41, align 8
+  store i64 %.sink60, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv51
   store i8 %.sink, ptr %42, align 1
   %43 = load ptr, ptr %12, align 8
@@ -1351,9 +1351,9 @@ gistDeCompressAtt.exit40:                         ; preds = %gistdentryinit.exit
   %126 = or i8 %119, %116
   %brmerge.i.not = icmp eq i8 %126, 0
   %. = select i1 %117, ptr %125, ptr %114
-  %.sink54 = select i1 %brmerge.i.not, ptr %114, ptr %.
+  %.sink60 = select i1 %brmerge.i.not, ptr %114, ptr %.
   %.sink = select i1 %brmerge.i.not, ptr %125, ptr %.
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull readonly align 16 dereferenceable(32) %.sink54, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull readonly align 16 dereferenceable(32) %.sink60, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull readonly align 16 dereferenceable(32) %.sink, i64 32, i1 false)
   store i8 0, ptr %121, align 1
   %127 = getelementptr inbounds nuw [32 x %struct.FmgrInfo], ptr %107, i64 0, i64 %indvars.iv

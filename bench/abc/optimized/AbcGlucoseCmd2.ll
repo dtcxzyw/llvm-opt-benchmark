@@ -40,17 +40,17 @@ define internal noundef range(i32 0, 2) i32 @_ZL18Abc_CommandGlucoseP12Abc_Frame
 
 .outer:                                           ; preds = %18, %3
   %.023.ph = phi i32 [ %19, %18 ], [ 1, %3 ]
-  %.021.ph = phi i32 [ %.021.ph64, %18 ], [ 0, %3 ]
+  %.021.ph = phi i32 [ %.021.ph68, %18 ], [ 0, %3 ]
   %.020.ph = phi i32 [ %.020, %18 ], [ 0, %3 ]
-  br label %.outer63
+  br label %.outer67
 
-.outer63:                                         ; preds = %.outer, %20
-  %.021.ph64 = phi i32 [ %.021.ph, %.outer ], [ %21, %20 ]
-  %.020.ph65 = phi i32 [ %.020.ph, %.outer ], [ %.020, %20 ]
+.outer67:                                         ; preds = %.outer, %20
+  %.021.ph68 = phi i32 [ %.021.ph, %.outer ], [ %21, %20 ]
+  %.020.ph69 = phi i32 [ %.020.ph, %.outer ], [ %.020, %20 ]
   br label %5
 
-5:                                                ; preds = %.outer63, %10
-  %.020 = phi i32 [ %15, %10 ], [ %.020.ph65, %.outer63 ]
+5:                                                ; preds = %.outer67, %10
+  %.020 = phi i32 [ %15, %10 ], [ %.020.ph69, %.outer67 ]
   %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2) #10
   switch i32 %6, label %.loopexit [
     i32 -1, label %22
@@ -84,11 +84,11 @@ define internal noundef range(i32 0, 2) i32 @_ZL18Abc_CommandGlucoseP12Abc_Frame
   br label %.outer, !llvm.loop !10
 
 20:                                               ; preds = %5
-  %21 = xor i32 %.021.ph64, 1
-  br label %.outer63, !llvm.loop !10
+  %21 = xor i32 %.021.ph68, 1
+  br label %.outer67, !llvm.loop !10
 
 22:                                               ; preds = %5
-  %.sroa.2.0.insert.ext.i = zext nneg i32 %.021.ph64 to i64
+  %.sroa.2.0.insert.ext.i = zext nneg i32 %.021.ph68 to i64
   %.sroa.2.0.insert.shift.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext nneg i32 %.023.ph to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
@@ -136,7 +136,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL18Abc_CommandGlucoseP12Abc_Frame
   tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.6)
   tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.7, i32 noundef %.1)
   tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.8, i32 noundef %.023.ph)
-  tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.9, i32 noundef %.021.ph64)
+  tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.9, i32 noundef %.021.ph68)
   tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.10)
   tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.11)
   br label %41

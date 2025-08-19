@@ -541,7 +541,7 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
 .lr.ph.i.i.preheader:                             ; preds = %.thread, %83
   %86 = phi ptr [ %10, %.thread ], [ %spec.select26, %83 ]
   %87 = phi ptr [ %74, %.thread ], [ %.phi.trans.insert.i, %83 ]
-  %.sink.i.pre-phi.i2731.i40 = phi i64 [ 3, %.thread ], [ %.pre67.i.i, %83 ]
+  %.sink.i.pre-phi.i3236.i55 = phi i64 [ 3, %.thread ], [ %.pre67.i.i, %83 ]
   %88 = phi ptr [ %74, %.thread ], [ %spec.select, %83 ]
   %89 = phi i64 [ 0, %.thread ], [ %.pre, %83 ]
   br label %.lr.ph.i.i
@@ -550,7 +550,7 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   %90 = phi ptr [ %spec.select26, %83 ], [ %86, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef1d0dac9ce0d1aE.exit.i.i" ]
   %91 = phi ptr [ %.phi.trans.insert.i, %83 ], [ %87, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef1d0dac9ce0d1aE.exit.i.i" ]
   %.sroa.0.0.lcssa.i.i = phi ptr [ %70, %83 ], [ %95, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef1d0dac9ce0d1aE.exit.i.i" ]
-  %storemerge.lcssa.i.i = phi i64 [ %.pre, %83 ], [ %.sink.i.pre-phi.i2731.i40, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef1d0dac9ce0d1aE.exit.i.i" ]
+  %storemerge.lcssa.i.i = phi i64 [ %.pre, %83 ], [ %.sink.i.pre-phi.i3236.i55, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef1d0dac9ce0d1aE.exit.i.i" ]
   store i64 %storemerge.lcssa.i.i, ptr %90, align 8, !alias.scope !73, !noalias !70
   %92 = icmp eq ptr %.sroa.0.0.lcssa.i.i, %73
   br i1 %92, label %.loopexit, label %.lr.ph59.i.i
@@ -650,7 +650,7 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   %129 = getelementptr inbounds ptr, ptr %88, i64 %storemerge55.i.i
   store ptr %96, ptr %129, align 8, !noalias !70
   %130 = add i64 %storemerge55.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %130, %.sink.i.pre-phi.i2731.i40
+  %exitcond.not.i.i = icmp eq i64 %130, %.sink.i.pre-phi.i3236.i55
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 131:                                              ; preds = %.lr.ph.i.i
@@ -9400,14 +9400,14 @@ common.resume:                                    ; preds = %33, %17
   br label %48
 
 46:                                               ; preds = %40, %39
-  %.sink50 = phi ptr [ %41, %40 ], [ %32, %39 ]
+  %.sink52 = phi ptr [ %41, %40 ], [ %32, %39 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink50, ptr %47, align 8
+  store ptr %.sink52, ptr %47, align 8
   br label %48
 
 48:                                               ; preds = %37, %46, %42
-  %.sink52 = phi i8 [ 1, %37 ], [ 1, %46 ], [ 0, %42 ]
-  store i8 %.sink52, ptr %0, align 8
+  %.sink54 = phi i8 [ 1, %37 ], [ 1, %46 ], [ 0, %42 ]
+  store i8 %.sink54, ptr %0, align 8
   ret void
 }
 
@@ -9533,14 +9533,14 @@ common.resume:                                    ; preds = %79, %57, %36
   %common.resume.op = phi { ptr, i32 } [ %37, %36 ], [ %58, %57 ], [ %80, %79 ]
   resume { ptr, i32 } %common.resume.op
 
-default.unreachable136:                           ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h9d09dd45513deb06E.exit"
+default.unreachable139:                           ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h9d09dd45513deb06E.exit"
   unreachable
 
 "_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h9d09dd45513deb06E.exit": ; preds = %.noexc6.i.i.i, %31, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1349
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1321
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1316
-  switch i8 %.sink.i.i4.i.i.i.i.i.i.i, label %default.unreachable136 [
+  switch i8 %.sink.i.i4.i.i.i.i.i.i.i, label %default.unreachable139 [
     i8 2, label %45
     i8 0, label %41
     i8 1, label %43
@@ -9580,7 +9580,7 @@ default.unreachable136:                           ; preds = %"_ZN54_$LT$$RF$mut$
   %48 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17hb4a100ef05a6e8edE(ptr noalias noundef nonnull readonly align 1 @anon.5da1846a7b14a5146a21ea5fcb647658.74, i64 noundef 12)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %48, ptr %49, align 8
-  br label %102
+  br label %100
 
 50:                                               ; preds = %41
   call void @llvm.experimental.noalias.scope.decl(metadata !1373)
@@ -9632,7 +9632,7 @@ default.unreachable136:                           ; preds = %"_ZN54_$LT$$RF$mut$
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1379
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.872.390, ptr %64, align 8
-  br label %102
+  br label %100
 
 65:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hff6b377c71a208aaE.exit.thread", %83, %61
   %.sroa.012.1 = phi i8 [ %.sroa.012.0131, %61 ], [ %84, %83 ], [ %.sroa.012.0131, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hff6b377c71a208aaE.exit.thread" ]
@@ -9646,7 +9646,7 @@ default.unreachable136:                           ; preds = %"_ZN54_$LT$$RF$mut$
   %70 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17hb4a100ef05a6e8edE(ptr noalias noundef nonnull readonly align 1 @anon.5da1846a7b14a5146a21ea5fcb647658.75, i64 noundef 13)
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %70, ptr %71, align 8
-  br label %102
+  br label %100
 
 72:                                               ; preds = %43
   call void @llvm.experimental.noalias.scope.decl(metadata !1403)
@@ -9698,19 +9698,19 @@ default.unreachable136:                           ; preds = %"_ZN54_$LT$$RF$mut$
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1409
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.876.3104, ptr %86, align 8
-  br label %102
+  br label %100
 
 87:                                               ; preds = %45
   %88 = call noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$6custom17hae5d0149cd4291a0E"(ptr noalias noundef nonnull readonly align 1 @anon.5da1846a7b14a5146a21ea5fcb647658.44, i64 noundef 16), !noalias !1365
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %88, ptr %89, align 8
-  br label %102
+  br label %100
 
 "_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h9d09dd45513deb06E.exit.thread.thread": ; preds = %2, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h9d09dd45513deb06E.exit.thread"
   %90 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error13missing_field17haa398ab5a7af9102E(ptr noalias noundef nonnull readonly align 1 @anon.5da1846a7b14a5146a21ea5fcb647658.74, i64 noundef 12), !noalias !1428
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %90, ptr %91, align 8
-  br label %102
+  br label %100
 
 92:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h9d09dd45513deb06E.exit.thread"
   %93 = icmp eq i8 %.sroa.012.0.lcssa, 2
@@ -9720,18 +9720,16 @@ default.unreachable136:                           ; preds = %"_ZN54_$LT$$RF$mut$
   %95 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error13missing_field17haa398ab5a7af9102E(ptr noalias noundef nonnull readonly align 1 @anon.5da1846a7b14a5146a21ea5fcb647658.75, i64 noundef 13), !noalias !1431
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %95, ptr %96, align 8
-  br label %102
+  br label %100
 
 97:                                               ; preds = %92
-  %98 = and i8 %.sroa.06.0.lcssa, 1
-  %99 = and i8 %.sroa.012.0.lcssa, 1
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %98, ptr %100, align 1
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %99, ptr %101, align 2
-  br label %102
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.06.0.lcssa, ptr %98, align 1
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %.sroa.012.0.lcssa, ptr %99, align 2
+  br label %100
 
-102:                                              ; preds = %87, %85, %69, %63, %47, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h9d09dd45513deb06E.exit.thread.thread", %94, %97
+100:                                              ; preds = %87, %85, %69, %63, %47, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h9d09dd45513deb06E.exit.thread.thread", %94, %97
   %.sink = phi i8 [ 1, %87 ], [ 1, %85 ], [ 1, %69 ], [ 1, %63 ], [ 1, %47 ], [ 1, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h9d09dd45513deb06E.exit.thread.thread" ], [ 1, %94 ], [ 0, %97 ]
   store i8 %.sink, ptr %0, align 8
   ret void
@@ -9946,14 +9944,14 @@ define hidden void @"_ZN179_$LT$call..call_settings.._..$LT$impl$u20$serde..de..
   br label %44
 
 42:                                               ; preds = %37, %34
-  %.sink51 = phi ptr [ %38, %37 ], [ %36, %34 ]
+  %.sink53 = phi ptr [ %38, %37 ], [ %36, %34 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink51, ptr %43, align 8
+  store ptr %.sink53, ptr %43, align 8
   br label %44
 
 44:                                               ; preds = %32, %42, %39
-  %.sink53 = phi i8 [ 1, %32 ], [ 1, %42 ], [ 0, %39 ]
-  store i8 %.sink53, ptr %0, align 8
+  %.sink55 = phi i8 [ 1, %32 ], [ 1, %42 ], [ 0, %39 ]
+  store i8 %.sink55, ptr %0, align 8
   ret void
 }
 
@@ -10006,12 +10004,12 @@ define hidden void @"_ZN179_$LT$call..call_settings.._..$LT$impl$u20$serde..de..
   %21 = icmp eq i8 %.sroa.06.1, 3
   %spec.select = select i1 %21, i8 2, i8 %.sroa.06.1
   %22 = icmp eq i8 %.sroa.012.1, 3
-  %spec.select133 = select i1 %22, i8 2, i8 %.sroa.012.1
+  %spec.select134 = select i1 %22, i8 2, i8 %.sroa.012.1
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %2
   %23 = phi i8 [ 2, %2 ], [ %spec.select, %._crit_edge ]
-  %24 = phi i8 [ 2, %2 ], [ %spec.select133, %._crit_edge ]
+  %24 = phi i8 [ 2, %2 ], [ %spec.select134, %._crit_edge ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %23, ptr %25, align 1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2

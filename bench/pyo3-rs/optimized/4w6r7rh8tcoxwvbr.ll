@@ -1460,13 +1460,13 @@ default.unreachable:                              ; preds = %300, %276, %258, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   switch i8 %.sroa.0.0.ph, label %default.unreachable [
-    i8 0, label %.thread360
+    i8 0, label %.thread366
     i8 1, label %260
     i8 2, label %261
     i8 3, label %266
   ]
 
-.thread360:                                       ; preds = %258
+.thread366:                                       ; preds = %258
   %259 = load i64, ptr %.sroa.361.0..sroa_idx, align 8, !noalias !7
   store i64 %259, ptr %80, align 8, !noalias !7
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
@@ -1574,8 +1574,8 @@ default.unreachable:                              ; preds = %300, %276, %258, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   switch i8 %.sroa.0.0.ph, label %default.unreachable [
-    i8 0, label %.thread363
-    i8 1, label %.thread363
+    i8 0, label %.thread369
+    i8 1, label %.thread369
     i8 2, label %277
     i8 3, label %282
   ]
@@ -1626,7 +1626,7 @@ default.unreachable:                              ; preds = %300, %276, %258, %2
   invoke void @_ZN3syn5error5Error3new17hc9c89320e0d504a2E(ptr nonnull sret([24 x i8]) align 8 %31, i32 %275, ptr nonnull align 8 %30)
           to label %.noexc153 unwind label %.loopexit.loopexit.split-lp
 
-.thread363:                                       ; preds = %276, %276
+.thread369:                                       ; preds = %276, %276
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
@@ -1640,9 +1640,9 @@ default.unreachable:                              ; preds = %300, %276, %258, %2
   br label %.outer.backedge
 
 .noexc153:                                        ; preds = %.noexc154, %.noexc152
-  %.sink417 = phi ptr [ %36, %.noexc152 ], [ %31, %.noexc154 ]
+  %.sink422 = phi ptr [ %36, %.noexc152 ], [ %31, %.noexc154 ]
   %.sroa.5.0..sroa_idx191.sink = phi ptr [ %.sroa.5.0..sroa_idx192, %.noexc152 ], [ %.sroa.5.0..sroa_idx191, %.noexc154 ]
-  %.sroa.0188.0.copyload189 = load i64, ptr %.sink417, align 8
+  %.sroa.0188.0.copyload189 = load i64, ptr %.sink422, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx191.sink, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
@@ -1719,7 +1719,7 @@ default.unreachable:                              ; preds = %300, %276, %258, %2
 .noexc159:                                        ; preds = %301
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false), !noalias !13
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf40bf1811cbd929aE"(ptr nonnull align 8 %82)
-          to label %.thread366 unwind label %314, !noalias !13
+          to label %.thread372 unwind label %314, !noalias !13
 
 302:                                              ; preds = %300
   invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17hfd5ff26c87af572dE(ptr nonnull sret([32 x i8]) align 8 %13, ptr nonnull align 8 %192)
@@ -1785,7 +1785,7 @@ default.unreachable:                              ; preds = %300, %276, %258, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false), !noalias !13
   br label %.body164
 
-.thread366:                                       ; preds = %.noexc159
+.thread372:                                       ; preds = %.noexc159
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false), !noalias !13
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -1825,9 +1825,9 @@ default.unreachable:                              ; preds = %300, %276, %258, %2
   br label %.sink.split
 
 .noexc167:                                        ; preds = %.noexc168, %.noexc166
-  %.sink418 = phi ptr [ %24, %.noexc166 ], [ %19, %.noexc168 ]
+  %.sink423 = phi ptr [ %24, %.noexc166 ], [ %19, %.noexc168 ]
   %.sroa.5196.0..sroa_idx197.sink = phi ptr [ %.sroa.5196.0..sroa_idx198, %.noexc166 ], [ %.sroa.5196.0..sroa_idx197, %.noexc168 ]
-  %.sroa.0193.0.copyload194 = load i64, ptr %.sink418, align 8
+  %.sroa.0193.0.copyload194 = load i64, ptr %.sink423, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5196, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5196.0..sroa_idx197.sink, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -1898,7 +1898,7 @@ default.unreachable:                              ; preds = %300, %276, %258, %2
 .noexc172:                                        ; preds = %332
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !16
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf40bf1811cbd929aE"(ptr nonnull align 8 %84)
-          to label %.thread369 unwind label %339, !noalias !16
+          to label %.thread375 unwind label %339, !noalias !16
 
 333:                                              ; preds = %331
   invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h2358643e452b4a4aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %194)
@@ -1935,7 +1935,7 @@ default.unreachable:                              ; preds = %300, %276, %258, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !16
   br label %.body164
 
-.thread369:                                       ; preds = %.noexc172
+.thread375:                                       ; preds = %.noexc172
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1947,8 +1947,8 @@ default.unreachable:                              ; preds = %300, %276, %258, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %.thread369, %.thread366, %.thread363, %.thread360, %.noexc141, %.noexc153, %.noexc167, %343
-  %.sroa.0.0.ph.be = phi i8 [ %.sroa.0.0.ph, %343 ], [ %.sroa.0.0.ph, %.noexc167 ], [ %.sroa.0.0.ph, %.noexc153 ], [ %.sroa.0.0.ph, %.noexc141 ], [ 1, %.thread360 ], [ 2, %.thread363 ], [ 2, %.thread366 ], [ 3, %.thread369 ]
+.outer.backedge:                                  ; preds = %.thread375, %.thread372, %.thread369, %.thread366, %.noexc141, %.noexc153, %.noexc167, %343
+  %.sroa.0.0.ph.be = phi i8 [ 3, %343 ], [ %.sroa.0.0.ph, %.noexc167 ], [ %.sroa.0.0.ph, %.noexc153 ], [ %.sroa.0.0.ph, %.noexc141 ], [ 1, %.thread366 ], [ 2, %.thread369 ], [ 2, %.thread372 ], [ 3, %.thread375 ]
   br label %.outer
 
 .noexc177:                                        ; preds = %.noexc174

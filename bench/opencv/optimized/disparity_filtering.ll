@@ -2582,9 +2582,9 @@ _ZN2cv3PtrINS_13StereoMatcherEEC2INS_10StereoSGBMEEERKNS0_IT_EE.exit928: ; preds
   br label %956
 
 956:                                              ; preds = %950, %952, %954, %948
-  %.sink1284 = phi ptr [ %83, %948 ], [ %82, %954 ], [ %82, %952 ], [ %82, %950 ]
+  %.sink1397 = phi ptr [ %83, %948 ], [ %82, %954 ], [ %82, %952 ], [ %82, %950 ]
   %.pn492.pn = phi { ptr, i32 } [ %949, %948 ], [ %955, %954 ], [ %953, %952 ], [ %951, %950 ]
-  call void @_ZNSt12__shared_ptrIN2cv13StereoMatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1284) #18
+  call void @_ZNSt12__shared_ptrIN2cv13StereoMatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1397) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %957
 
@@ -3201,9 +3201,9 @@ _ZN2cv3PtrINS_13StereoMatcherEEC2INS_8StereoBMEEERKNS0_IT_EE.exit937: ; preds = 
   br label %1181
 
 1181:                                             ; preds = %1171, %1173, %1175, %1177, %1179, %1169
-  %.sink1285 = phi ptr [ %111, %1169 ], [ %110, %1179 ], [ %110, %1177 ], [ %110, %1175 ], [ %110, %1173 ], [ %110, %1171 ]
+  %.sink1398 = phi ptr [ %111, %1169 ], [ %110, %1179 ], [ %110, %1177 ], [ %110, %1175 ], [ %110, %1173 ], [ %110, %1171 ]
   %.pn448.pn = phi { ptr, i32 } [ %1170, %1169 ], [ %1180, %1179 ], [ %1178, %1177 ], [ %1176, %1175 ], [ %1174, %1173 ], [ %1172, %1171 ]
-  call void @_ZNSt12__shared_ptrIN2cv13StereoMatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1285) #18
+  call void @_ZNSt12__shared_ptrIN2cv13StereoMatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1398) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %110)
   br label %1182
 
@@ -3461,9 +3461,9 @@ _ZN2cv3PtrINS_13StereoMatcherEEC2INS_10StereoSGBMEEERKNS0_IT_EE.exit943: ; preds
   br label %1288
 
 1288:                                             ; preds = %1282, %1284, %1286, %1280
-  %.sink1286 = phi ptr [ %126, %1280 ], [ %125, %1286 ], [ %125, %1284 ], [ %125, %1282 ]
+  %.sink1399 = phi ptr [ %126, %1280 ], [ %125, %1286 ], [ %125, %1284 ], [ %125, %1282 ]
   %.pn429.pn = phi { ptr, i32 } [ %1281, %1280 ], [ %1287, %1286 ], [ %1285, %1284 ], [ %1283, %1282 ]
-  call void @_ZNSt12__shared_ptrIN2cv13StereoMatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1286) #18
+  call void @_ZNSt12__shared_ptrIN2cv13StereoMatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1399) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %125)
   br label %1289
 

@@ -541,15 +541,15 @@ Vec_IntGrow.exit.i300:                            ; preds = %239, %237
   br label %.thread405.sink.split
 
 .thread405.sink.split:                            ; preds = %251, %Vec_IntGrow.exit.i300, %.Vec_IntGrow.exit10_crit_edge.i295, %186, %Vec_IntGrow.exit.i, %.Vec_IntGrow.exit10_crit_edge.i
-  %.sink564 = phi ptr [ %.pre.i286, %.Vec_IntGrow.exit10_crit_edge.i ], [ %187, %186 ], [ %176, %Vec_IntGrow.exit.i ], [ %.pre.i297, %.Vec_IntGrow.exit10_crit_edge.i295 ], [ %252, %251 ], [ %241, %Vec_IntGrow.exit.i300 ]
+  %.sink634 = phi ptr [ %.pre.i286, %.Vec_IntGrow.exit10_crit_edge.i ], [ %187, %186 ], [ %176, %Vec_IntGrow.exit.i ], [ %.pre.i297, %.Vec_IntGrow.exit10_crit_edge.i295 ], [ %252, %251 ], [ %241, %Vec_IntGrow.exit.i300 ]
   %.sink = phi i32 [ 114, %.Vec_IntGrow.exit10_crit_edge.i ], [ 114, %186 ], [ 114, %Vec_IntGrow.exit.i ], [ 101, %.Vec_IntGrow.exit10_crit_edge.i295 ], [ 101, %251 ], [ 101, %Vec_IntGrow.exit.i300 ]
-  %.sink558 = phi i32 [ 65535, %.Vec_IntGrow.exit10_crit_edge.i ], [ 65535, %186 ], [ 65535, %Vec_IntGrow.exit.i ], [ -65536, %.Vec_IntGrow.exit10_crit_edge.i295 ], [ -65536, %251 ], [ -65536, %Vec_IntGrow.exit.i300 ]
-  %.sink557 = phi i32 [ 65536, %.Vec_IntGrow.exit10_crit_edge.i ], [ 65536, %186 ], [ 65536, %Vec_IntGrow.exit.i ], [ 1, %.Vec_IntGrow.exit10_crit_edge.i295 ], [ 1, %251 ], [ 1, %Vec_IntGrow.exit.i300 ]
+  %.sink628 = phi i32 [ 65535, %.Vec_IntGrow.exit10_crit_edge.i ], [ 65535, %186 ], [ 65535, %Vec_IntGrow.exit.i ], [ -65536, %.Vec_IntGrow.exit10_crit_edge.i295 ], [ -65536, %251 ], [ -65536, %Vec_IntGrow.exit.i300 ]
+  %.sink627 = phi i32 [ 65536, %.Vec_IntGrow.exit10_crit_edge.i ], [ 65536, %186 ], [ 65536, %Vec_IntGrow.exit.i ], [ 1, %.Vec_IntGrow.exit10_crit_edge.i295 ], [ 1, %251 ], [ 1, %Vec_IntGrow.exit.i300 ]
   %253 = load i32, ptr %13, align 4, !tbaa !28
   %254 = add nsw i32 %253, 1
   store i32 %254, ptr %13, align 4, !tbaa !28
   %255 = sext i32 %253 to i64
-  %256 = getelementptr inbounds i32, ptr %.sink564, i64 %255
+  %256 = getelementptr inbounds i32, ptr %.sink634, i64 %255
   store i32 %.sink, ptr %256, align 4, !tbaa !51
   %257 = load ptr, ptr @pManMR, align 8, !tbaa !31
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 112
@@ -559,8 +559,8 @@ Vec_IntGrow.exit.i300:                            ; preds = %239, %237
   %261 = zext i32 %.val225 to i64
   %262 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %259, i64 %261, i32 2
   %263 = load i32, ptr %262, align 8
-  %264 = and i32 %263, %.sink558
-  %265 = or disjoint i32 %264, %.sink557
+  %264 = and i32 %263, %.sink628
+  %265 = or disjoint i32 %264, %.sink627
   store i32 %265, ptr %262, align 8
   br label %.thread405
 
@@ -3138,7 +3138,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %231 = add nuw nsw i32 %.1.i, 1
   %232 = icmp sgt i32 %.1.i, 29998
   %spec.store.select.i = select i1 %232, i32 0, i32 %231
-  %233 = shl nuw nsw i32 %spec.store.select.i, 16
+  %233 = shl i32 %spec.store.select.i, 16
   %234 = and i32 %170, 65535
   %235 = or disjoint i32 %233, %234
   store i32 %235, ptr %169, align 8
@@ -3167,9 +3167,9 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   br label %dfsfast_r_retreat.exit
 
 .loopexit.sink.split:                             ; preds = %55, %68
-  %.sink138 = phi ptr [ %75, %68 ], [ %.pre120, %55 ]
+  %.sink144 = phi ptr [ %75, %68 ], [ %.pre120, %55 ]
   %.val97.sink = load i32, ptr %27, align 8, !tbaa !40
-  %251 = getelementptr inbounds nuw i8, ptr %.sink138, i64 112
+  %251 = getelementptr inbounds nuw i8, ptr %.sink144, i64 112
   %252 = load ptr, ptr %251, align 8, !tbaa !43
   %253 = zext i32 %.val97.sink to i64
   %254 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %252, i64 %253, i32 1

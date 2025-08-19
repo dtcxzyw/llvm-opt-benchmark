@@ -463,61 +463,61 @@ define hidden i32 @internal_exr_alloc_context(ptr noundef writeonly captures(non
 48:                                               ; preds = %31
   %49 = icmp sgt i32 %46, 0
   %50 = call i32 @llvm.smin.i32(i32 %44, i32 %46)
-  %spec.select163 = select i1 %49, i32 %50, i32 %44
+  %spec.select178 = select i1 %49, i32 %50, i32 %44
   br label %.thread
 
 .thread:                                          ; preds = %48, %31
-  %storemerge = phi i32 [ %spec.select163, %48 ], [ %46, %31 ]
+  %storemerge = phi i32 [ %spec.select178, %48 ], [ %46, %31 ]
   store i32 %storemerge, ptr %47, align 8, !tbaa !68
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %52 = load i32, ptr %51, align 4, !tbaa !69
   %53 = icmp slt i32 %52, 1
   %54 = load i32, ptr %6, align 4
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 108
-  br i1 %53, label %.thread153, label %56
+  br i1 %53, label %.thread168, label %56
 
 56:                                               ; preds = %.thread
   %57 = icmp sgt i32 %54, 0
   %58 = call i32 @llvm.smin.i32(i32 %52, i32 %54)
-  %spec.select164 = select i1 %57, i32 %58, i32 %52
-  br label %.thread153
+  %spec.select179 = select i1 %57, i32 %58, i32 %52
+  br label %.thread168
 
-.thread153:                                       ; preds = %56, %.thread
-  %storemerge148 = phi i32 [ %54, %.thread ], [ %spec.select164, %56 ]
-  store i32 %storemerge148, ptr %55, align 4, !tbaa !70
+.thread168:                                       ; preds = %56, %.thread
+  %storemerge163 = phi i32 [ %54, %.thread ], [ %spec.select179, %56 ]
+  store i32 %storemerge163, ptr %55, align 4, !tbaa !70
   call void @exr_get_default_maximum_tile_size(ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %60 = load i32, ptr %59, align 8, !tbaa !71
   %61 = icmp slt i32 %60, 1
   %62 = load i32, ptr %5, align 4
   %63 = getelementptr inbounds nuw i8, ptr %16, i64 112
-  br i1 %61, label %.thread156, label %64
+  br i1 %61, label %.thread171, label %64
 
-64:                                               ; preds = %.thread153
+64:                                               ; preds = %.thread168
   %65 = icmp sgt i32 %62, 0
   %66 = call i32 @llvm.smin.i32(i32 %60, i32 %62)
-  %spec.select165 = select i1 %65, i32 %66, i32 %60
-  br label %.thread156
+  %spec.select180 = select i1 %65, i32 %66, i32 %60
+  br label %.thread171
 
-.thread156:                                       ; preds = %64, %.thread153
-  %storemerge149 = phi i32 [ %62, %.thread153 ], [ %spec.select165, %64 ]
-  store i32 %storemerge149, ptr %63, align 8, !tbaa !72
+.thread171:                                       ; preds = %64, %.thread168
+  %storemerge164 = phi i32 [ %62, %.thread168 ], [ %spec.select180, %64 ]
+  store i32 %storemerge164, ptr %63, align 8, !tbaa !72
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %68 = load i32, ptr %67, align 4, !tbaa !73
   %69 = icmp slt i32 %68, 1
   %70 = load i32, ptr %6, align 4
   %71 = getelementptr inbounds nuw i8, ptr %16, i64 116
-  br i1 %69, label %.thread159, label %72
+  br i1 %69, label %.thread174, label %72
 
-72:                                               ; preds = %.thread156
+72:                                               ; preds = %.thread171
   %73 = icmp sgt i32 %70, 0
   %74 = call i32 @llvm.smin.i32(i32 %68, i32 %70)
-  %spec.select166 = select i1 %73, i32 %74, i32 %68
-  br label %.thread159
+  %spec.select181 = select i1 %73, i32 %74, i32 %68
+  br label %.thread174
 
-.thread159:                                       ; preds = %72, %.thread156
-  %storemerge150 = phi i32 [ %70, %.thread156 ], [ %spec.select166, %72 ]
-  store i32 %storemerge150, ptr %71, align 4, !tbaa !74
+.thread174:                                       ; preds = %72, %.thread171
+  %storemerge165 = phi i32 [ %70, %.thread171 ], [ %spec.select181, %72 ]
+  store i32 %storemerge165, ptr %71, align 4, !tbaa !74
   %75 = getelementptr inbounds nuw i8, ptr %16, i64 120
   call void @exr_get_default_zip_compression_level(ptr noundef nonnull %75) #12
   %76 = getelementptr inbounds nuw i8, ptr %16, i64 124
@@ -527,11 +527,11 @@ define hidden i32 @internal_exr_alloc_context(ptr noundef writeonly captures(non
   %79 = icmp sgt i32 %78, -1
   br i1 %79, label %80, label %81
 
-80:                                               ; preds = %.thread159
+80:                                               ; preds = %.thread174
   store i32 %78, ptr %75, align 8, !tbaa !34
   br label %81
 
-81:                                               ; preds = %80, %.thread159
+81:                                               ; preds = %80, %.thread174
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %83 = load float, ptr %82, align 4, !tbaa !76
   %84 = fcmp ult float %83, 0.000000e+00

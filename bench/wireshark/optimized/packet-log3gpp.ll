@@ -1043,11 +1043,11 @@ bsearch.exit.i189:                                ; preds = %295
   br i1 %.not.i190, label %update_dissector_name.exit92, label %update_dissector_name.exit92.sink.split
 
 update_dissector_name.exit92.sink.split:          ; preds = %bsearch.exit.i189, %bsearch.exit.i89
-  %.sink429 = phi ptr [ %152, %bsearch.exit.i89 ], [ %300, %bsearch.exit.i189 ]
+  %.sink476 = phi ptr [ %152, %bsearch.exit.i89 ], [ %300, %bsearch.exit.i189 ]
   %.str.20.sink = phi ptr [ @.str.13, %bsearch.exit.i89 ], [ @.str.20, %bsearch.exit.i189 ]
-  %301 = getelementptr inbounds nuw i8, ptr %.sink429, i64 32
+  %301 = getelementptr inbounds nuw i8, ptr %.sink476, i64 32
   store ptr null, ptr %301, align 8
-  %302 = getelementptr inbounds nuw i8, ptr %.sink429, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %.sink476, i64 16
   store ptr %.str.20.sink, ptr %302, align 8
   br label %update_dissector_name.exit92
 
@@ -1203,11 +1203,11 @@ bsearch.exit.i229:                                ; preds = %354
   br i1 %.not.i230, label %update_dissector_name.exit212, label %update_dissector_name.exit212.sink.split
 
 update_dissector_name.exit212.sink.split:         ; preds = %bsearch.exit.i229, %bsearch.exit.i209
-  %.sink431 = phi ptr [ %331, %bsearch.exit.i209 ], [ %359, %bsearch.exit.i229 ]
+  %.sink478 = phi ptr [ %331, %bsearch.exit.i209 ], [ %359, %bsearch.exit.i229 ]
   %.str.23.sink = phi ptr [ @.str.22, %bsearch.exit.i209 ], [ @.str.23, %bsearch.exit.i229 ]
-  %360 = getelementptr inbounds nuw i8, ptr %.sink431, i64 32
+  %360 = getelementptr inbounds nuw i8, ptr %.sink478, i64 32
   store ptr null, ptr %360, align 8
-  %361 = getelementptr inbounds nuw i8, ptr %.sink431, i64 16
+  %361 = getelementptr inbounds nuw i8, ptr %.sink478, i64 16
   store ptr %.str.23.sink, ptr %361, align 8
   br label %update_dissector_name.exit212
 
@@ -1626,9 +1626,9 @@ define internal noundef zeroext i1 @lte_pdcp_pseudo_hdr(ptr noundef %0, ptr noun
   br i1 %36, label %37, label %45
 
 37:                                               ; preds = %34, %31
-  %.sink23 = phi i8 [ 7, %31 ], [ 12, %34 ]
+  %.sink25 = phi i8 [ 7, %31 ], [ 12, %34 ]
   %38 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i8 %.sink23, ptr %38, align 8
+  store i8 %.sink25, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i8 0, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -1759,8 +1759,8 @@ sub_151:                                          ; preds = %sub_0
   br i1 %56, label %57, label %.tail49.thread
 
 57:                                               ; preds = %.tail49, %.tail44, %.tail39, %.tail
-  %.sink72 = phi i8 [ 1, %.tail ], [ 2, %.tail39 ], [ 4, %.tail44 ], [ 8, %.tail49 ]
-  store i8 %.sink72, ptr %18, align 4
+  %.sink76 = phi i8 [ 1, %.tail ], [ 2, %.tail39 ], [ 4, %.tail44 ], [ 8, %.tail49 ]
+  store i8 %.sink76, ptr %18, align 4
   %58 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.172) #8
   %.not38 = icmp eq ptr %58, null
   br i1 %.not38, label %66, label %59
@@ -1776,9 +1776,9 @@ sub_151:                                          ; preds = %sub_0
   br i1 %64, label %.sink.split, label %66
 
 .sink.split:                                      ; preds = %62, %59
-  %.sink73 = phi i8 [ 5, %59 ], [ 10, %62 ]
+  %.sink77 = phi i8 [ 5, %59 ], [ 10, %62 ]
   %65 = getelementptr inbounds nuw i8, ptr %18, i64 3
-  store i8 %.sink73, ptr %65, align 1
+  store i8 %.sink77, ptr %65, align 1
   br label %66
 
 66:                                               ; preds = %.sink.split, %62, %57

@@ -1146,11 +1146,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit16
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.sink.split: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i24, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
-  %.sink35 = phi ptr [ %38, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i ], [ %92, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i24 ]
-  %116 = load ptr, ptr %.sink35, align 8
+  %.sink44 = phi ptr [ %38, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i ], [ %92, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i24 ]
+  %116 = load ptr, ptr %.sink44, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8
-  call void %118(ptr noundef nonnull align 8 dereferenceable(12) %.sink35) #18
+  call void %118(ptr noundef nonnull align 8 dereferenceable(12) %.sink44) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.sink.split, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i24, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit22, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %36
@@ -4024,23 +4024,23 @@ _ZN32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_16SdfPathKeyPolicyE
   br label %225
 
 .sink.split.sink.split.sink.split:                ; preds = %100, %184
-  %.sink55 = phi ptr [ %178, %184 ], [ %94, %100 ]
+  %.sink60 = phi ptr [ %178, %184 ], [ %94, %100 ]
   %.sink.ph.ph = phi ptr [ %13, %184 ], [ %11, %100 ]
-  %208 = getelementptr inbounds nuw i8, ptr %.sink55, i64 12
+  %208 = getelementptr inbounds nuw i8, ptr %.sink60, i64 12
   store i32 0, ptr %208, align 4
-  %209 = load ptr, ptr %.sink55, align 8
+  %209 = load ptr, ptr %.sink60, align 8
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 16
   %211 = load ptr, ptr %210, align 8
-  call void %211(ptr noundef nonnull align 8 dereferenceable(16) %.sink55) #18
+  call void %211(ptr noundef nonnull align 8 dereferenceable(16) %.sink60) #18
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %.sink.split.sink.split.sink.split, %204, %120
-  %.sink48 = phi ptr [ %94, %120 ], [ %178, %204 ], [ %.sink55, %.sink.split.sink.split.sink.split ]
+  %.sink53 = phi ptr [ %94, %120 ], [ %178, %204 ], [ %.sink60, %.sink.split.sink.split.sink.split ]
   %.sink.ph = phi ptr [ %11, %120 ], [ %13, %204 ], [ %.sink.ph.ph, %.sink.split.sink.split.sink.split ]
-  %212 = load ptr, ptr %.sink48, align 8
+  %212 = load ptr, ptr %.sink53, align 8
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 24
   %214 = load ptr, ptr %213, align 8
-  call void %214(ptr noundef nonnull align 8 dereferenceable(16) %.sink48) #18
+  call void %214(ptr noundef nonnull align 8 dereferenceable(16) %.sink53) #18
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %204, %191, %_ZN32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_16SdfPathKeyPolicyEEaSEOS2_.exit33, %120, %107, %_ZN32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_16SdfPathKeyPolicyEEaSEOS2_.exit

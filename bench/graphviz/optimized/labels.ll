@@ -575,7 +575,7 @@ gv_recalloc.exit:                                 ; preds = %19, %26, %28
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @make_label(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define nonnull ptr @make_label(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call noalias dereferenceable_or_null(112) ptr @calloc(i64 noundef 1, i64 noundef 112) #20
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %gv_alloc.exit

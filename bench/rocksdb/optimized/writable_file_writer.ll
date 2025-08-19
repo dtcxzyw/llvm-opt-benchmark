@@ -1824,10 +1824,10 @@ _ZN7rocksdb18WritableFileWriter13use_direct_ioEv.exit148: ; preds = %_ZNK7rocksd
   br i1 %288, label %291, label %290
 
 290:                                              ; preds = %_ZN7rocksdb18WritableFileWriter13use_direct_ioEv.exit148
-  br i1 %289, label %344, label %.thread250
+  br i1 %289, label %344, label %.thread299
 
 291:                                              ; preds = %_ZN7rocksdb18WritableFileWriter13use_direct_ioEv.exit148
-  br i1 %289, label %.preheader, label %.thread250
+  br i1 %289, label %.preheader, label %.thread299
 
 .preheader:                                       ; preds = %291
   %292 = getelementptr inbounds nuw i8, ptr %1, i64 252
@@ -1843,11 +1843,11 @@ _ZN7rocksdb18WritableFileWriter13use_direct_ioEv.exit148: ; preds = %_ZNK7rocksd
   %301 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %314
 
-.thread250:                                       ; preds = %290, %291
+.thread299:                                       ; preds = %290, %291
   %.not.i150 = icmp eq i64 %.080, 0
   br i1 %.not.i150, label %_ZN7rocksdb13AlignedBuffer6AppendEPKcm.exit151, label %302
 
-302:                                              ; preds = %.thread250
+302:                                              ; preds = %.thread299
   %303 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %304 = load ptr, ptr %303, align 8, !tbaa !198
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 %.pre245
@@ -1862,7 +1862,7 @@ _ZN7rocksdb18WritableFileWriter13use_direct_ioEv.exit148: ; preds = %_ZNK7rocksd
           cleanup
   br label %586
 
-_ZN7rocksdb13AlignedBuffer6AppendEPKcm.exit151:   ; preds = %302, %.thread250
+_ZN7rocksdb13AlignedBuffer6AppendEPKcm.exit151:   ; preds = %302, %.thread299
   %310 = getelementptr inbounds nuw i8, ptr %1, i64 252
   %311 = load i32, ptr %310, align 4, !tbaa !121
   %312 = invoke noundef i32 @_ZN7rocksdb6crc32c13Crc32cCombineEjjm(i32 noundef %311, i32 noundef %4, i64 noundef %.080)
@@ -5991,9 +5991,9 @@ _ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread191: ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %42 = load ptr, ptr %41, align 8, !tbaa !150
   %.not193 = icmp eq ptr %42, null
-  br i1 %.not193, label %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread.thread, label %.thread222
+  br i1 %.not193, label %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread.thread, label %.thread283
 
-.thread222:                                       ; preds = %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread191
+.thread283:                                       ; preds = %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread191
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %46
 
@@ -6007,7 +6007,7 @@ _ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread191: ; preds = %32
   %45 = trunc nuw i8 %.pre to i1
   br i1 %45, label %46, label %48
 
-46:                                               ; preds = %.thread222, %44
+46:                                               ; preds = %.thread283, %44
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %50
 
@@ -6113,7 +6113,7 @@ _ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread: ; preds = %_ZNSt10unique_ptrI
   br i1 %94, label %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread.thread, label %_ZN7rocksdb8IOStatusC2EOS0_.exit.thread
 
 _ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread.thread: ; preds = %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread191, %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit, %36, %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread
-  %.sroa.19220.1227 = phi ptr [ %64, %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread ], [ null, %36 ], [ null, %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit ], [ null, %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread191 ]
+  %.sroa.19220.1288 = phi ptr [ %64, %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread ], [ null, %36 ], [ null, %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit ], [ null, %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread191 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !272)
   store i8 5, ptr %0, align 8, !tbaa !27, !alias.scope !272
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -6129,7 +6129,7 @@ _ZN7rocksdb8IOStatusC2EOS0_.exit:                 ; preds = %_ZNK7rocksdb17FSWri
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 65
   store i8 0, ptr %99, align 1, !tbaa !17, !noalias !272
   store ptr %98, ptr %97, align 8, !tbaa !39, !alias.scope !272
-  %.not.i.i49 = icmp eq ptr %.sroa.19220.1227, null
+  %.not.i.i49 = icmp eq ptr %.sroa.19220.1288, null
   br i1 %.not.i.i49, label %_ZN7rocksdb6StatusD2Ev.exit51, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i50
 
 _ZN7rocksdb8IOStatusC2EOS0_.exit.thread:          ; preds = %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread
@@ -6149,18 +6149,18 @@ _ZN7rocksdb8IOStatusC2EOS0_.exit.thread:          ; preds = %_ZNK7rocksdb17FSWri
   br label %_ZN7rocksdb6StatusD2Ev.exit51
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i50: ; preds = %_ZN7rocksdb8IOStatusC2EOS0_.exit
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.19220.1227) #24
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.19220.1288) #24
   br label %_ZN7rocksdb6StatusD2Ev.exit51
 
 .body:                                            ; preds = %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread.thread
   %106 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %97, align 8, !tbaa !39, !alias.scope !272
-  %.not.i.i52 = icmp eq ptr %.sroa.19220.1227, null
+  %.not.i.i52 = icmp eq ptr %.sroa.19220.1288, null
   br i1 %.not.i.i52, label %_ZN7rocksdb6StatusD2Ev.exit54, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i53
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i53: ; preds = %.body
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.19220.1227) #24
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.19220.1288) #24
   br label %_ZN7rocksdb6StatusD2Ev.exit54
 
 107:                                              ; preds = %3

@@ -2582,12 +2582,12 @@ define internal void @nodeid_profile_parse_uat() #2 {
 
 copy_address_wmem.exit:                           ; preds = %49, %38, %32
   %.sink = phi ptr [ %37, %32 ], [ %41, %38 ], [ %41, %49 ]
-  %epl_profiles_by_address.sink40 = phi ptr [ @epl_profiles_by_nodeid, %32 ], [ @epl_profiles_by_address, %38 ], [ @epl_profiles_by_address, %49 ]
+  %epl_profiles_by_address.sink43 = phi ptr [ @epl_profiles_by_nodeid, %32 ], [ @epl_profiles_by_address, %38 ], [ @epl_profiles_by_address, %49 ]
   %55 = getelementptr inbounds nuw i8, ptr %.02534, i64 88
   store ptr %.sink, ptr %55, align 8
-  %56 = load ptr, ptr %epl_profiles_by_address.sink40, align 8
+  %56 = load ptr, ptr %epl_profiles_by_address.sink43, align 8
   %57 = tail call ptr @wmem_map_insert(ptr noundef %56, ptr noundef %.sink, ptr noundef nonnull %.02534)
-  %58 = load ptr, ptr %epl_profiles_by_address.sink40, align 8
+  %58 = load ptr, ptr %epl_profiles_by_address.sink43, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.02534, i64 64
   store ptr %58, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.02534, i64 80
@@ -2784,8 +2784,8 @@ define internal fastcc i32 @dissect_eplpdu(ptr noundef %0, ptr noundef %1, ptr n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %45, %40
-  %.sink159 = phi i8 [ %44, %40 ], [ %49, %45 ]
-  %50 = zext i8 %.sink159 to i32
+  %.sink165 = phi i8 [ %44, %40 ], [ %49, %45 ]
+  %50 = zext i8 %.sink165 to i32
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 284
   store i32 %50, ptr %51, align 4
   br label %52
@@ -2843,29 +2843,29 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %75 = load i32, ptr @ett_epl, align 4
   %76 = call ptr @proto_item_add_subtree(ptr noundef %74, i32 noundef %75)
   %77 = load i8, ptr %5, align 1
-  %switch.tableidx164 = add i8 %77, -1
-  %78 = icmp ult i8 %switch.tableidx164, 13
-  br i1 %78, label %switch.hole_check165, label %.thread
+  %switch.tableidx170 = add i8 %77, -1
+  %78 = icmp ult i8 %switch.tableidx170, 13
+  br i1 %78, label %switch.hole_check171, label %.thread
 
-switch.hole_check165:                             ; preds = %72
-  %switch.maskindex167 = zext nneg i8 %switch.tableidx164 to i16
-  %switch.shifted168 = lshr i16 4221, %switch.maskindex167
-  %switch.lobit169 = trunc i16 %switch.shifted168 to i1
-  br i1 %switch.lobit169, label %switch.lookup166, label %.thread
+switch.hole_check171:                             ; preds = %72
+  %switch.maskindex173 = zext nneg i8 %switch.tableidx170 to i16
+  %switch.shifted174 = lshr i16 4221, %switch.maskindex173
+  %switch.lobit175 = trunc i16 %switch.shifted174 to i1
+  br i1 %switch.lobit175, label %switch.lookup172, label %.thread
 
-switch.lookup166:                                 ; preds = %switch.hole_check165
-  %79 = zext nneg i8 %switch.tableidx164 to i64
-  %switch.gep170 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.dissect_eplpdu.3, i64 0, i64 %79
-  %switch.load171 = load ptr, ptr %switch.gep170, align 8
-  %80 = zext nneg i8 %switch.tableidx164 to i64
-  %switch.gep172 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.dissect_eplpdu.4, i64 0, i64 %80
-  %switch.load173 = load i64, ptr %switch.gep172, align 8
-  %81 = load i32, ptr %switch.load171, align 4
-  %82 = call ptr @proto_tree_add_boolean(ptr noundef %76, i32 noundef %81, ptr noundef %0, i32 noundef 0, i32 noundef 1, i64 noundef %switch.load173)
+switch.lookup172:                                 ; preds = %switch.hole_check171
+  %79 = zext nneg i8 %switch.tableidx170 to i64
+  %switch.gep176 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.dissect_eplpdu.3, i64 0, i64 %79
+  %switch.load177 = load ptr, ptr %switch.gep176, align 8
+  %80 = zext nneg i8 %switch.tableidx170 to i64
+  %switch.gep178 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.dissect_eplpdu.4, i64 0, i64 %80
+  %switch.load179 = load i64, ptr %switch.gep178, align 8
+  %81 = load i32, ptr %switch.load177, align 4
+  %82 = call ptr @proto_tree_add_boolean(ptr noundef %76, i32 noundef %81, ptr noundef %0, i32 noundef 0, i32 noundef 1, i64 noundef %switch.load179)
   %.not.i145 = icmp eq ptr %82, null
   br i1 %.not.i145, label %.thread, label %83
 
-83:                                               ; preds = %switch.lookup166
+83:                                               ; preds = %switch.lookup172
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %85 = load ptr, ptr %84, align 8
   %.not5.i = icmp eq ptr %85, null
@@ -2878,7 +2878,7 @@ switch.lookup166:                                 ; preds = %switch.hole_check16
   store i32 %89, ptr %87, align 4
   br label %.thread
 
-.thread:                                          ; preds = %switch.hole_check165, %72, %86, %83, %switch.lookup166
+.thread:                                          ; preds = %switch.hole_check171, %72, %86, %83, %switch.lookup172
   %90 = load i32, ptr @hf_epl_mtyp, align 4
   %91 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %90, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648)
   br i1 %3, label %.thread154, label %92
@@ -3035,9 +3035,9 @@ define internal fastcc ptr @epl_get_convo(ptr noundef %0, i32 noundef range(i32 
   %3 = and i32 %1, 2
   %.not = icmp eq i32 %3, 0
   %. = select i1 %.not, i64 284, i64 288
-  %.65 = select i1 %.not, i64 112, i64 136
+  %.67 = select i1 %.not, i64 112, i64 136
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.65
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.67
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 1
   %spec.select59 = select i1 %7, ptr %5, ptr @epl_placeholder_mac
@@ -5063,7 +5063,7 @@ define internal fastcc i32 @dissect_epl_sdo_command(ptr noundef %0, ptr noundef 
   %58 = icmp eq i8 %11, 1
   %59 = add i8 %11, -1
   %or.cond4 = icmp ult i8 %59, 2
-  br i1 %or.cond4, label %60, label %.sink.split242
+  br i1 %or.cond4, label %60, label %.sink.split277
 
 60:                                               ; preds = %57
   %.not = icmp eq i8 %9, 3
@@ -5088,16 +5088,16 @@ define internal fastcc i32 @dissect_epl_sdo_command(ptr noundef %0, ptr noundef 
   call void @fragment_add_seq_offset(ptr noundef nonnull @epl_reassembly_table, ptr noundef %2, i32 noundef %68, ptr noundef null, i32 noundef 0)
   %first_write.first_read = select i1 %58, ptr @first_write, ptr @first_read
   store i1 true, ptr %first_write.first_read, align 1
-  br label %.sink.split242
+  br label %.sink.split277
 
-.sink.split242:                                   ; preds = %57, %61
+.sink.split277:                                   ; preds = %57, %61
   %71 = load i32, ptr @hf_epl_asnd_sdo_cmd_data_size, align 4
   %72 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %71, ptr noundef %1, i32 noundef %47, i32 noundef 4, i32 noundef -2147483648)
   %73 = add nuw nsw i32 %3, 12
   br label %74
 
-74:                                               ; preds = %.sink.split242, %55
-  %.1163 = phi i32 [ %47, %55 ], [ %73, %.sink.split242 ]
+74:                                               ; preds = %.sink.split277, %55
+  %.1163 = phi i32 [ %47, %55 ], [ %73, %.sink.split277 ]
   br i1 %15, label %75, label %100
 
 75:                                               ; preds = %74

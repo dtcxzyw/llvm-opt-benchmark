@@ -801,8 +801,8 @@ _ZSt10_ConstructIN4YAML5RegExEJRKS1_EEvPT_DpOT0_.exit.i: ; preds = %.lr.ph.i
   %27 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i, i64 8
   tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
   %28 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i, i64 32
-  %.not.i.i.i13 = icmp eq ptr %28, %.014.i
-  br i1 %.not.i.i.i13, label %_ZSt8_DestroyIPN4YAML5RegExEEvT_S3_.exit.i, label %.lr.ph.i.i, !llvm.loop !25
+  %.not.i.i.i14 = icmp eq ptr %28, %.014.i
+  br i1 %.not.i.i.i14, label %_ZSt8_DestroyIPN4YAML5RegExEEvT_S3_.exit.i, label %.lr.ph.i.i, !llvm.loop !25
 
 _ZSt8_DestroyIPN4YAML5RegExEEvT_S3_.exit.i:       ; preds = %.lr.ph.i.i, %23
   invoke void @__cxa_rethrow() #15

@@ -87,8 +87,8 @@ define dso_local void @old_9_6_invalidate_hash_indexes(ptr noundef %0, i1 nounde
 
 .lr.ph63.split:                                   ; preds = %.lr.ph63, %.sink.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.sink.split ], [ 0, %.lr.ph63 ]
-  %.03860 = phi ptr [ %.1.lcssa75.ph, %.sink.split ], [ null, %.lr.ph63 ]
-  %.03959 = phi i1 [ %.140.lcssa74.ph, %.sink.split ], [ false, %.lr.ph63 ]
+  %.03860 = phi ptr [ %.1.lcssa77.ph, %.sink.split ], [ null, %.lr.ph63 ]
+  %.03959 = phi i1 [ %.140.lcssa76.ph, %.sink.split ], [ false, %.lr.ph63 ]
   %20 = load ptr, ptr %7, align 8
   %21 = getelementptr inbounds nuw %struct.DbInfo, ptr %20, i64 %indvars.iv, i32 1
   %22 = load ptr, ptr %21, align 8
@@ -148,8 +148,8 @@ define dso_local void @old_9_6_invalidate_hash_indexes(ptr noundef %0, i1 nounde
 
 .sink.split:                                      ; preds = %.lr.ph63.split, %._crit_edge.split
   %.sink = phi ptr [ %46, %._crit_edge.split ], [ %24, %.lr.ph63.split ]
-  %.1.lcssa75.ph = phi ptr [ %.2, %._crit_edge.split ], [ %.03860, %.lr.ph63.split ]
-  %.140.lcssa74.ph = phi i1 [ true, %._crit_edge.split ], [ %.03959, %.lr.ph63.split ]
+  %.1.lcssa77.ph = phi ptr [ %.2, %._crit_edge.split ], [ %.03860, %.lr.ph63.split ]
+  %.140.lcssa76.ph = phi i1 [ true, %._crit_edge.split ], [ %.03959, %.lr.ph63.split ]
   call void @PQclear(ptr noundef %.sink) #7
   call void @PQfinish(ptr noundef %23) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -162,15 +162,15 @@ define dso_local void @old_9_6_invalidate_hash_indexes(ptr noundef %0, i1 nounde
   br i1 %spec.select, label %53, label %._crit_edge64.thread.thread
 
 ._crit_edge64:                                    ; preds = %.sink.split
-  %.not46 = icmp eq ptr %.1.lcssa75.ph, null
+  %.not46 = icmp eq ptr %.1.lcssa77.ph, null
   br i1 %.not46, label %52, label %50
 
 50:                                               ; preds = %._crit_edge64
-  %51 = call i32 @fclose(ptr noundef nonnull %.1.lcssa75.ph)
-  br i1 %.140.lcssa74.ph, label %53, label %._crit_edge64.thread.thread
+  %51 = call i32 @fclose(ptr noundef nonnull %.1.lcssa77.ph)
+  br i1 %.140.lcssa76.ph, label %53, label %._crit_edge64.thread.thread
 
 52:                                               ; preds = %._crit_edge64
-  br i1 %.140.lcssa74.ph, label %53, label %._crit_edge64.thread.thread
+  br i1 %.140.lcssa76.ph, label %53, label %._crit_edge64.thread.thread
 
 53:                                               ; preds = %50, %._crit_edge64.thread, %52
   call void (i32, ptr, ...) @report_status(i32 noundef 4, ptr noundef nonnull @.str.9) #7

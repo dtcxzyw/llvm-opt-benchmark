@@ -4215,11 +4215,11 @@ strbuf_setlen.exit50:                             ; preds = %54, %56
   %61 = call i32 @lstat_cache_aware_rmdir(ptr noundef %60) #19
   %.not41 = icmp eq i32 %61, 0
   %62 = and i32 %.134, -3
-  %spec.select59 = select i1 %.not41, i32 %.134, i32 %62
+  %spec.select63 = select i1 %.not41, i32 %.134, i32 %62
   br label %select.unfold
 
 select.unfold:                                    ; preds = %59, %strbuf_setlen.exit50
-  %.235 = phi i32 [ %.134, %strbuf_setlen.exit50 ], [ %spec.select59, %59 ]
+  %.235 = phi i32 [ %.134, %strbuf_setlen.exit50 ], [ %spec.select63, %59 ]
   %.not = icmp eq i32 %.235, 0
   br i1 %.not, label %63, label %.preheader, !llvm.loop !160
 
@@ -6104,11 +6104,11 @@ strbuf_setlen.exit.i:                             ; preds = %116, %112
   br i1 %.not11.i58, label %parse_loose_ref_contents.exit.sink.split, label %parse_loose_ref_contents.exit
 
 parse_loose_ref_contents.exit.sink.split:         ; preds = %118, %123, %strbuf_setlen.exit.i
-  %.sink89 = phi i32 [ 1, %strbuf_setlen.exit.i ], [ 4, %123 ], [ 4, %118 ]
+  %.sink96 = phi i32 [ 1, %strbuf_setlen.exit.i ], [ 4, %123 ], [ 4, %118 ]
   %.4.ph = phi i32 [ %.073, %strbuf_setlen.exit.i ], [ 22, %123 ], [ 22, %118 ]
   %.0.i.ph = phi i32 [ 0, %strbuf_setlen.exit.i ], [ -1, %123 ], [ -1, %118 ]
   %128 = load i32, ptr %4, align 4, !tbaa !16
-  %129 = or i32 %128, %.sink89
+  %129 = or i32 %128, %.sink96
   store i32 %129, ptr %4, align 4, !tbaa !16
   br label %parse_loose_ref_contents.exit
 
@@ -6127,7 +6127,7 @@ parse_loose_ref_contents.exit:                    ; preds = %parse_loose_ref_con
   br i1 %or.cond6, label %.thread61, label %132
 
 132:                                              ; preds = %.loopexit
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 579, ptr noundef nonnull @.str.108, i32 noundef %.044) #20
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 579, ptr noundef nonnull @.str.108, i32 noundef -1) #20
   unreachable
 
 .thread61:                                        ; preds = %.backedge, %81, %63, %.loopexit

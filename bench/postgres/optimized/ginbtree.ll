@@ -891,9 +891,9 @@ BufferGetPage.exit157:                            ; preds = %49, %43, %39
 
 169:                                              ; preds = %.critedge, %144
   %.0.i.i.sink = phi ptr [ %.0.i.i, %.critedge ], [ %.0148, %144 ]
-  %.sink183 = phi i32 [ %168, %.critedge ], [ %163, %144 ]
+  %.sink199 = phi i32 [ %168, %.critedge ], [ %163, %144 ]
   %170 = getelementptr inbounds nuw i8, ptr %.0.i.i.sink, i64 4
-  store i32 %.sink183, ptr %170, align 4
+  store i32 %.sink199, ptr %170, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %171
@@ -1129,13 +1129,13 @@ BufferGetPage.exit165:                            ; preds = %307, %313
   br i1 %.not154, label %328, label %.sink.split
 
 .sink.split:                                      ; preds = %BufferGetPage.exit165, %279
-  %.sink188 = phi i32 [ %283, %279 ], [ %305, %BufferGetPage.exit165 ]
+  %.sink204 = phi i32 [ %283, %279 ], [ %305, %BufferGetPage.exit165 ]
   %.0146.ph = phi i32 [ %214, %279 ], [ 0, %BufferGetPage.exit165 ]
   %.0145.ph = phi ptr [ %242, %279 ], [ null, %BufferGetPage.exit165 ]
-  %.sink185 = load ptr, ptr %175, align 8
-  %326 = call i32 @BufferGetBlockNumber(i32 noundef %.sink188) #6
+  %.sink201 = load ptr, ptr %175, align 8
+  %326 = call i32 @BufferGetBlockNumber(i32 noundef %.sink204) #6
   %327 = call i32 @BufferGetBlockNumber(i32 noundef %177) #6
-  call void @PredicateLockPageSplit(ptr noundef %.sink185, i32 noundef %326, i32 noundef %327) #6
+  call void @PredicateLockPageSplit(ptr noundef %.sink201, i32 noundef %326, i32 noundef %327) #6
   br label %328
 
 328:                                              ; preds = %.sink.split, %BufferGetPage.exit165, %BufferGetPage.exit161
@@ -1769,13 +1769,13 @@ ginFinishOldSplit.exit79:                         ; preds = %193, %195
   br label %87
 
 ginFindParents.exit:                              ; preds = %._crit_edge130, %202
-  %.lcssa150 = phi i16 [ %205, %202 ], [ %127, %._crit_edge130 ]
-  %.1.i.lcssa149 = phi i32 [ %160, %202 ], [ %.068.i, %._crit_edge130 ]
-  %.170.i.lcssa148 = phi i32 [ %133, %202 ], [ %.069.i, %._crit_edge130 ]
-  store i32 %.170.i.lcssa148, ptr %83, align 8
-  store i32 %.1.i.lcssa149, ptr %84, align 4
+  %.lcssa168 = phi i16 [ %205, %202 ], [ %127, %._crit_edge130 ]
+  %.1.i.lcssa167 = phi i32 [ %160, %202 ], [ %.068.i, %._crit_edge130 ]
+  %.170.i.lcssa166 = phi i32 [ %133, %202 ], [ %.069.i, %._crit_edge130 ]
+  store i32 %.170.i.lcssa166, ptr %83, align 8
+  store i32 %.1.i.lcssa167, ptr %84, align 4
   store ptr %.067.i.lcssa, ptr %85, align 8
-  store i16 %.lcssa150, ptr %86, align 8
+  store i16 %.lcssa168, ptr %86, align 8
   store ptr %83, ptr %9, align 8
   br label %.loopexit
 

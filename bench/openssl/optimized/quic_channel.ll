@@ -1636,7 +1636,7 @@ bio_addr_eq.exit.i.i:                             ; preds = %219, %217
 
 228:                                              ; preds = %224
   %.not149.i.i = icmp eq i32 %227, 5
-  br i1 %.not149.i.i, label %.thread166.i.i, label %229
+  br i1 %.not149.i.i, label %.thread170.i.i, label %229
 
 229:                                              ; preds = %228
   %230 = getelementptr inbounds nuw i8, ptr %.pre154.i.i, i64 29
@@ -1667,7 +1667,7 @@ ossl_quic_conn_id_eq.exit.i.i:                    ; preds = %229
 
 241:                                              ; preds = %238, %._crit_edge162.i.i
   %242 = icmp eq i32 %227, 6
-  br i1 %242, label %243, label %.thread166.i.i
+  br i1 %242, label %243, label %.thread170.i.i
 
 243:                                              ; preds = %241
   %244 = getelementptr inbounds nuw i8, ptr %.pre154.i.i, i64 4
@@ -1719,7 +1719,7 @@ PACKET_buf_init.exit.i.i:                         ; preds = %257, %PACKET_buf_in
   %273 = zext i8 %272 to i32
   %274 = or disjoint i32 %270, %273
   %275 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 4
-  %276 = add i64 %.sroa.5.0.i.i, -4
+  %276 = add nsw i64 %.sroa.5.0.i.i, -4
   %277 = icmp eq i32 %274, 16777216
   br i1 %277, label %278, label %PACKET_buf_init.exit.i.i, !llvm.loop !195
 
@@ -1739,7 +1739,7 @@ PACKET_buf_init.exit.i.i:                         ; preds = %257, %PACKET_buf_in
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 2, i64 noundef 0, ptr noundef nonnull @.str.99, ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2412, ptr noundef nonnull @__func__.ch_rx_handle_packet)
   br label %ch_rx_handle_packet.exit.i
 
-.thread166.i.i:                                   ; preds = %241, %228
+.thread170.i.i:                                   ; preds = %241, %228
   %284 = or i64 %225, 16
   store i64 %284, ptr %17, align 8
   %285 = load ptr, ptr %.pre153.i.i, align 8, !tbaa !185
@@ -1751,11 +1751,11 @@ PACKET_buf_init.exit.i.i:                         ; preds = %257, %PACKET_buf_in
   %or.cond145.i.i = or i1 %switch.selectcmp.i128.not.i.i, %.not96.i.i
   br i1 %or.cond145.i.i, label %290, label %289
 
-289:                                              ; preds = %.thread166.i.i
+289:                                              ; preds = %.thread170.i.i
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 10, i64 noundef 0, ptr noundef nonnull @.str.100, ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2426, ptr noundef nonnull @__func__.ch_rx_handle_packet)
   br label %ch_rx_handle_packet.exit.i
 
-290:                                              ; preds = %.thread166.i.i
+290:                                              ; preds = %.thread170.i.i
   %291 = getelementptr inbounds nuw i8, ptr %285, i64 80
   %292 = load ptr, ptr %291, align 8, !tbaa !194
   store ptr %292, ptr %14, align 8, !tbaa !196
@@ -2075,7 +2075,7 @@ PACKET_buf_init.exit.i33.i:                       ; preds = %429, %PACKET_buf_in
   %445 = zext i8 %444 to i64
   %446 = or disjoint i64 %442, %445
   %447 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 4
-  %448 = add i64 %.sroa.5.1.i.i, -4
+  %448 = add nsw i64 %.sroa.5.1.i.i, -4
   %449 = icmp eq i64 %446, 1
   br i1 %449, label %ch_rx_handle_packet.exit.i, label %PACKET_buf_init.exit.i33.i, !llvm.loop !207
 
@@ -2421,8 +2421,8 @@ txku_allowed.exit.i.i.i:                          ; preds = %585, %580, %578
   %.pre37.i = load i64, ptr %17, align 8
   %604 = and i64 %.pre37.i, 25769803776
   %or.cond.i.i = icmp eq i64 %604, 0
-  %or.cond41.i = select i1 %.not.i.i.i98, i1 %or.cond.i.i, i1 false
-  br i1 %or.cond41.i, label %605, label %ch_maybe_trigger_spontaneous_txku.exit.i
+  %or.cond43.i = select i1 %.not.i.i.i98, i1 %or.cond.i.i, i1 false
+  br i1 %or.cond43.i, label %605, label %ch_maybe_trigger_spontaneous_txku.exit.i
 
 605:                                              ; preds = %599
   %606 = getelementptr inbounds nuw i8, ptr %0, i64 1056
@@ -2501,8 +2501,8 @@ ch_maybe_trigger_spontaneous_txku.exit.i:         ; preds = %624, %623, %605, %5
   %.pre39.i = load i64, ptr %17, align 8
   %650 = and i64 %.pre39.i, 536870912
   %.not30.i = icmp eq i64 %650, 0
-  %or.cond42.i = select i1 %.not29.i, i1 %.not30.i, i1 false
-  br i1 %or.cond42.i, label %651, label %669
+  %or.cond44.i = select i1 %.not29.i, i1 %.not30.i, i1 false
+  br i1 %or.cond44.i, label %651, label %669
 
 651:                                              ; preds = %642
   %652 = load ptr, ptr %0, align 8, !tbaa !3
@@ -5668,7 +5668,7 @@ define internal i32 @ch_on_crypto_recv_record(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not31, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %19
-  %11 = phi i64 [ %.fr43, %19 ], [ %8, %3 ]
+  %11 = phi i64 [ %.fr46, %19 ], [ %8, %3 ]
   %.030 = phi i32 [ %21, %19 ], [ 0, %3 ]
   %.not = icmp eq i32 %.030, 1
   br i1 %.not, label %19, label %12
@@ -5719,9 +5719,9 @@ crypto_ensure_empty.exit._crit_edge:              ; preds = %crypto_ensure_empty
 
 19:                                               ; preds = %crypto_ensure_empty.exit._crit_edge, %crypto_ensure_empty.exit.thread24, %.lr.ph
   %20 = phi i64 [ %.pre, %crypto_ensure_empty.exit._crit_edge ], [ %11, %crypto_ensure_empty.exit.thread24 ], [ %11, %.lr.ph ]
-  %.fr43 = freeze i64 %20
+  %.fr46 = freeze i64 %20
   %21 = add nuw nsw i32 %.030, 1
-  %22 = trunc i64 %.fr43 to i32
+  %22 = trunc i64 %.fr46 to i32
   %23 = lshr i32 %22, 17
   %24 = and i32 %23, 7
   %25 = icmp samesign ult i32 %21, %24
@@ -5731,11 +5731,11 @@ crypto_ensure_empty.exit._crit_edge:              ; preds = %crypto_ensure_empty
   %switch.selectcmp.i18 = icmp eq i32 %24, 2
   %spec.select = select i1 %switch.selectcmp.i18, i64 1, i64 2
   %switch.selectcmp2.i20 = icmp eq i32 %24, 0
-  %spec.select41 = select i1 %switch.selectcmp2.i20, i64 0, i64 %spec.select
+  %spec.select44 = select i1 %switch.selectcmp2.i20, i64 0, i64 %spec.select
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %3
-  %26 = phi i64 [ 0, %3 ], [ %spec.select41, %._crit_edge ]
+  %26 = phi i64 [ 0, %3 ], [ %spec.select44, %._crit_edge ]
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 1120
   %28 = getelementptr inbounds nuw [3 x ptr], ptr %27, i64 0, i64 %26
   %29 = load ptr, ptr %28, align 8, !tbaa !118

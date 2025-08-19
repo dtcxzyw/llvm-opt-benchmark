@@ -1168,7 +1168,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter
   %16 = lshr exact i64 %10, 1
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
   %18 = or disjoint i64 %10, 1
-  %19 = getelementptr inbounds i32, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %18
   %20 = getelementptr inbounds nuw i32, ptr %0, i64 %16
   br label %21
 

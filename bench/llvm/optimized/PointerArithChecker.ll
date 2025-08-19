@@ -1324,8 +1324,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.thread
   %58 = phi i32 [ %52, %.thread ], [ %56, %.lr.ph.i ]
   %.07.lcssa.i = phi ptr [ %.02392, %.thread ], [ %54, %.lr.ph.i ]
-  %.not27.i = icmp eq i32 %58, 24
-  br i1 %.not27.i, label %59, label %62
+  %.not30.i = icmp eq i32 %58, 24
+  br i1 %.not30.i, label %59, label %62
 
 59:                                               ; preds = %._crit_edge.i
   %60 = getelementptr inbounds nuw i8, ptr %.07.lcssa.i, i64 48
@@ -1414,8 +1414,8 @@ _ZNK12_GLOBAL__N_119PointerArithChecker14getArrayRegionEPKN5clang4ento9MemRegion
 
 85:                                               ; preds = %84
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i6.i = load i64, ptr %86, align 8
-  %87 = and i64 %.0.copyload.i.i.i.i6.i, -8
+  %.0.copyload.i.i.i.i7.i = load i64, ptr %86, align 8
+  %87 = and i64 %.0.copyload.i.i.i.i7.i, -8
   %88 = inttoptr i64 %87 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %89 = load ptr, ptr %19, align 8, !tbaa !64
@@ -1522,8 +1522,8 @@ _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED
 
 130:                                              ; preds = %127, %.critedge
   %131 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i6.i46 = load i64, ptr %131, align 8
-  %132 = and i64 %.0.copyload.i.i.i.i6.i46, -8
+  %.0.copyload.i.i.i.i7.i46 = load i64, ptr %131, align 8
+  %132 = and i64 %.0.copyload.i.i.i.i7.i46, -8
   %133 = inttoptr i64 %132 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %134 = load ptr, ptr %19, align 8, !tbaa !64
@@ -1977,17 +1977,17 @@ _ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL_
   br label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit
 
 _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19AllocKindEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19AllocKindEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit, %39
-  %.1.i10 = phi i32 [ %37, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19AllocKindEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit ], [ %37, %39 ], [ %35, %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19AllocKindEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit ]
+  %.1.i12 = phi i32 [ %37, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19AllocKindEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit ], [ %37, %39 ], [ %35, %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19AllocKindEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %.1.i10, ptr %40, align 8, !tbaa !165
+  store i32 %.1.i12, ptr %40, align 8, !tbaa !165
   %41 = load i32, ptr %3, align 8
   %42 = or i32 %41, 536870912
   store i32 %42, ptr %3, align 8
   br label %43
 
 43:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %5
-  %.0 = phi i32 [ %7, %5 ], [ %.1.i10, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ]
+  %.0 = phi i32 [ %7, %5 ], [ %.1.i12, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ]
   ret i32 %.0
 }
 

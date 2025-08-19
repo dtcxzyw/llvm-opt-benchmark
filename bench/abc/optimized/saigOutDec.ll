@@ -256,8 +256,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.pre = add nuw nsw i64 %indvars.iv183, 1
   %128 = sext i32 %.val115191 to i64
   %129 = icmp slt i64 %.pre, %128
-  %or.cond202 = select i1 %.not, i1 %129, i1 false
-  br i1 %or.cond202, label %.lr.ph171, label %.critedge4
+  %or.cond218 = select i1 %.not, i1 %129, i1 false
+  br i1 %or.cond218, label %.lr.ph171, label %.critedge4
 
 .lr.ph171:                                        ; preds = %122
   %130 = getelementptr i8, ptr %126, i64 36

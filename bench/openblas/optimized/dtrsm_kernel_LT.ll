@@ -57,7 +57,8 @@ define noundef i32 @dtrsm_kernel_LT(i64 noundef %0, i64 noundef %1, i64 noundef 
   br i1 %26, label %.lr.ph.us.i, label %.split.i
 
 .lr.ph.us.i:                                      ; preds = %22, %._crit_edge.us.i
-  %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %._crit_edge.us.i ], [ 0, %22 ]
+  %exitcond63.not.i = phi i1 [ true, %._crit_edge.us.i ], [ false, %22 ]
+  %indvars.iv60.i = phi i64 [ 1, %._crit_edge.us.i ], [ 0, %22 ]
   %.144.us.i = phi ptr [ %37, %._crit_edge.us.i ], [ %.03748.i, %22 ]
   %27 = mul nuw nsw i64 %indvars.iv60.i, %7
   %28 = getelementptr inbounds double, ptr %25, i64 %27
@@ -83,8 +84,6 @@ define noundef i32 @dtrsm_kernel_LT(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 ._crit_edge.us.i:                                 ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %.144.us.i, i64 8
-  %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
-  %exitcond63.not.i = icmp eq i64 %indvars.iv.next61.i, 2
   br i1 %exitcond63.not.i, label %.split47.us.i, label %.lr.ph.us.i, !llvm.loop !9
 
 .split.i:                                         ; preds = %22, %.split.i
@@ -159,7 +158,8 @@ solve.exit:                                       ; preds = %.split47.us.i
   br i1 %62, label %.lr.ph.us.i174, label %.split.i165
 
 .lr.ph.us.i174:                                   ; preds = %58, %._crit_edge.us.i182
-  %indvars.iv60.i175 = phi i64 [ %indvars.iv.next61.i183, %._crit_edge.us.i182 ], [ 0, %58 ]
+  %exitcond63.not.i184 = phi i1 [ true, %._crit_edge.us.i182 ], [ false, %58 ]
+  %indvars.iv60.i175 = phi i64 [ 1, %._crit_edge.us.i182 ], [ 0, %58 ]
   %.144.us.i176 = phi ptr [ %73, %._crit_edge.us.i182 ], [ %.03748.i163, %58 ]
   %63 = mul nuw nsw i64 %indvars.iv60.i175, %7
   %64 = getelementptr inbounds double, ptr %61, i64 %63
@@ -185,8 +185,6 @@ solve.exit:                                       ; preds = %.split47.us.i
 
 ._crit_edge.us.i182:                              ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %.144.us.i176, i64 8
-  %indvars.iv.next61.i183 = add nuw nsw i64 %indvars.iv60.i175, 1
-  %exitcond63.not.i184 = icmp eq i64 %indvars.iv.next61.i183, 2
   br i1 %exitcond63.not.i184, label %.split47.us.i170, label %.lr.ph.us.i174, !llvm.loop !9
 
 .split.i165:                                      ; preds = %58, %.split.i165

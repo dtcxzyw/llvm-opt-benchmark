@@ -396,7 +396,7 @@ define dso_local i32 @storeutl_main(i32 noundef %0, ptr noundef %1) local_unname
   br i1 %.not140, label %.loopexit, label %117
 
 117:                                              ; preds = %114
-  switch i32 %.0104, label %default.unreachable748 [
+  switch i32 %.0104, label %default.unreachable757 [
     i32 0, label %145
     i32 1, label %118
     i32 2, label %123
@@ -456,7 +456,7 @@ define dso_local i32 @storeutl_main(i32 noundef %0, ptr noundef %1) local_unname
   call void @ERR_print_errors(ptr noundef %144) #5
   br label %.loopexit159
 
-default.unreachable748:                           ; preds = %117
+default.unreachable757:                           ; preds = %117
   unreachable
 
 145:                                              ; preds = %117, %118, %129, %134, %140

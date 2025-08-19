@@ -440,11 +440,11 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 149:                                              ; preds = %143, %140
   %.sink = phi i32 [ %148, %143 ], [ %13, %140 ]
-  %.sink152 = phi i32 [ %146, %143 ], [ %142, %140 ]
-  %.sink150 = phi i32 [ %148, %143 ], [ %142, %140 ]
+  %.sink158 = phi i32 [ %146, %143 ], [ %142, %140 ]
+  %.sink156 = phi i32 [ %148, %143 ], [ %142, %140 ]
   %150 = add i32 %.sink, -1
-  %151 = add i32 %150, %.sink152
-  %152 = sub i32 0, %.sink150
+  %151 = add i32 %150, %.sink158
+  %152 = sub i32 0, %.sink156
   %153 = and i32 %151, %152
   %154 = load i32, ptr %132, align 8, !tbaa !28
   %155 = icmp eq i32 %154, 0

@@ -3239,8 +3239,8 @@ _ZNK20SharedClassPathEntry4nameEv.exit.i:         ; preds = %98, %92
   %105 = tail call noundef zeroext i1 @_ZN2os10same_filesEPKcS1_(ptr noundef %.0.i.i, ptr noundef %104) #25
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond.not.i = icmp ne i64 %indvars.iv.next22.i, %wide.trip.count.i
-  %or.cond53.not = select i1 %105, i1 %exitcond.not.i, i1 false
-  br i1 %or.cond53.not, label %.preheader.i, label %._crit_edge.loopexit.i, !llvm.loop !23
+  %or.cond57.not = select i1 %105, i1 %exitcond.not.i, i1 false
+  br i1 %or.cond57.not, label %.preheader.i, label %._crit_edge.loopexit.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i:                           ; preds = %_ZNK20SharedClassPathEntry4nameEv.exit.i
   %.lcssa16.ph.i = xor i1 %105, true
@@ -3963,12 +3963,12 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo26validate_shared_path_tableEv
   br i1 %78, label %94, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %28, %._crit_edge
-  %.019.lcssa45 = phi i32 [ %.2, %._crit_edge ], [ 0, %28 ]
+  %.019.lcssa49 = phi i32 [ %.2, %._crit_edge ], [ 0, %28 ]
   %79 = tail call noundef zeroext i1 @_ZN11FileMapInfo25validate_boot_class_pathsEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %._crit_edge.thread
-  %81 = tail call noundef zeroext i1 @_ZN11FileMapInfo24validate_app_class_pathsEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.019.lcssa45)
+  %81 = tail call noundef zeroext i1 @_ZN11FileMapInfo24validate_app_class_pathsEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.019.lcssa49)
   br i1 %81, label %._crit_edge40, label %82
 
 ._crit_edge40:                                    ; preds = %80
@@ -5652,7 +5652,7 @@ define hidden noundef i64 @_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHea
   br i1 %.not36.i.i.i, label %15, label %20, !llvm.loop !34
 
 20:                                               ; preds = %16
-  %21 = shl i64 %17, 6
+  %21 = shl nuw i64 %17, 6
   br label %22
 
 22:                                               ; preds = %20, %9
@@ -5711,7 +5711,7 @@ define hidden noundef ptr @_ZN11FileMapInfo19write_bitmap_regionEP11CHeapBitMapS
   br i1 %.not36.i.i.i.i, label %18, label %23, !llvm.loop !34
 
 23:                                               ; preds = %19
-  %24 = shl i64 %20, 6
+  %24 = shl nuw i64 %20, 6
   br label %25
 
 25:                                               ; preds = %23, %12
@@ -5763,7 +5763,7 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit: ; preds = %8,
   br i1 %.not36.i.i.i.i50, label %41, label %46, !llvm.loop !34
 
 46:                                               ; preds = %42
-  %47 = shl i64 %43, 6
+  %47 = shl nuw i64 %43, 6
   br label %48
 
 48:                                               ; preds = %46, %35
@@ -5839,7 +5839,7 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit51: ; preds = %
   br i1 %.not36.i.i.i.i60, label %82, label %87, !llvm.loop !34
 
 87:                                               ; preds = %83
-  %88 = shl i64 %84, 6
+  %88 = shl nuw i64 %84, 6
   br label %89
 
 89:                                               ; preds = %87, %76
@@ -5892,7 +5892,7 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit61: ; preds = %
   br i1 %.not36.i.i.i.i70, label %106, label %111, !llvm.loop !34
 
 111:                                              ; preds = %107
-  %112 = shl i64 %108, 6
+  %112 = shl nuw i64 %108, 6
   br label %113
 
 113:                                              ; preds = %111, %100
@@ -6665,7 +6665,7 @@ _ZN11FileMapInfo11ptrmap_viewEi.exit27:           ; preds = %_ZN11FileMapInfo11p
   br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %104, !llvm.loop !34
 
 104:                                              ; preds = %101
-  %105 = shl i64 %99, 6
+  %105 = shl nuw i64 %99, 6
   br label %106
 
 106:                                              ; preds = %104, %97
@@ -6727,7 +6727,7 @@ _ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit: ; preds = %106, %_ZNK6BitM
   br i1 %.not36.i.i.i.i.i40, label %.preheader.i.i.i38, label %132, !llvm.loop !34
 
 132:                                              ; preds = %129
-  %133 = shl i64 %127, 6
+  %133 = shl nuw i64 %127, 6
   br label %134
 
 134:                                              ; preds = %132, %125

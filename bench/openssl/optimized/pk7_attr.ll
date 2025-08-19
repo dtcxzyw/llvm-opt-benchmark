@@ -154,11 +154,11 @@ define range(i32 0, 2) i32 @PKCS7_simple_smimecap(ptr noundef %0, i32 noundef %1
   br i1 %.not19, label %27, label %28
 
 27:                                               ; preds = %25, %18, %15, %11
-  %.sink20 = phi i32 [ 71, %11 ], [ 75, %15 ], [ 79, %18 ], [ 87, %25 ]
+  %.sink23 = phi i32 [ 71, %11 ], [ 75, %15 ], [ 79, %18 ], [ 87, %25 ]
   %.sink = phi i32 [ 524301, %11 ], [ 524301, %15 ], [ 524301, %18 ], [ 524303, %25 ]
   %.1 = phi ptr [ null, %11 ], [ null, %15 ], [ %16, %18 ], [ null, %25 ]
   tail call void @ERR_new() #3
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink20, ptr noundef nonnull @__func__.PKCS7_simple_smimecap) #3
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink23, ptr noundef nonnull @__func__.PKCS7_simple_smimecap) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef %.sink, ptr noundef null) #3
   tail call void @ASN1_INTEGER_free(ptr noundef %.1) #3
   tail call void @X509_ALGOR_free(ptr noundef nonnull %4) #3

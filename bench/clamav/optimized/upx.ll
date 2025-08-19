@@ -268,12 +268,12 @@ doubleebx.exit192.thread:                         ; preds = %98
   br label %doubleebx.exit199
 
 doubleebx.exit199:                                ; preds = %doubleebx.exit192.thread, %doubleebx.exit192, %121
-  %.0.i187311 = phi i32 [ %.9247, %121 ], [ %.9247, %doubleebx.exit192 ], [ %108, %doubleebx.exit192.thread ]
+  %.0.i187316 = phi i32 [ %.9247, %121 ], [ %.9247, %doubleebx.exit192 ], [ %108, %doubleebx.exit192.thread ]
   %.13251 = phi i32 [ %124, %121 ], [ %106, %doubleebx.exit192 ], [ %112, %doubleebx.exit192.thread ]
   %.14 = phi i32 [ %125, %121 ], [ %.3, %doubleebx.exit192 ], [ %111, %doubleebx.exit192.thread ]
   %.0.i194 = phi i32 [ %122, %121 ], [ %105, %doubleebx.exit192 ], [ %110, %doubleebx.exit192.thread ]
   %126 = lshr i32 %.0.i194, 31
-  %127 = lshr i32 %.0.i187311, 30
+  %127 = lshr i32 %.0.i187316, 30
   %128 = and i32 %127, 2
   %129 = or disjoint i32 %126, %128
   %.not157 = icmp eq i32 %129, 0
@@ -585,7 +585,7 @@ define internal fastcc range(i32 0, 2) i32 @pefromupx(ptr noundef %0, i32 nounde
 
 59:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %.in = phi i32 [ %27, %._crit_edge.thread ], [ %57, %._crit_edge ]
-  %.lcssa502598 = phi i32 [ %23, %._crit_edge.thread ], [ %.lcssa502, %._crit_edge ]
+  %.lcssa502642 = phi i32 [ %23, %._crit_edge.thread ], [ %.lcssa502, %._crit_edge ]
   %60 = zext i32 %4 to i64
   %61 = zext i32 %6 to i64
   %62 = sub nsw i64 %60, %61
@@ -658,7 +658,7 @@ define internal fastcc range(i32 0, 2) i32 @pefromupx(ptr noundef %0, i32 nounde
 
 .loopexit:                                        ; preds = %.loopexit.loopexit578, %91
   %.pre-phi = phi i64 [ %.pre, %.loopexit.loopexit578 ], [ %78, %91 ]
-  %102 = phi i32 [ %29, %.loopexit.loopexit578 ], [ %.lcssa502598, %91 ]
+  %102 = phi i32 [ %29, %.loopexit.loopexit578 ], [ %.lcssa502642, %91 ]
   %.0441 = phi i32 [ %28, %.loopexit.loopexit578 ], [ %96, %91 ]
   %103 = icmp ne i32 %.0441, 0
   %104 = icmp ugt i32 %1, 3
@@ -855,7 +855,7 @@ checkpe.exit:                                     ; preds = %.critedge.thread, %
   br label %.thread453
 
 .thread453:                                       ; preds = %97, %73, %._crit_edge, %64, %59, %checkpe.exit, %122, %112, %105, %.loopexit
-  %.1446 = phi i32 [ %102, %105 ], [ %.6451, %checkpe.exit ], [ %102, %122 ], [ %102, %112 ], [ %102, %.loopexit ], [ %.lcssa502598, %59 ], [ %.lcssa502598, %64 ], [ %.lcssa502, %._crit_edge ], [ %.lcssa502598, %73 ], [ %.lcssa502598, %97 ]
+  %.1446 = phi i32 [ %102, %105 ], [ %.6451, %checkpe.exit ], [ %102, %122 ], [ %102, %112 ], [ %102, %.loopexit ], [ %.lcssa502642, %59 ], [ %.lcssa502642, %64 ], [ %.lcssa502, %._crit_edge ], [ %.lcssa502642, %73 ], [ %.lcssa502642, %97 ]
   %.1 = phi i32 [ %.0441, %105 ], [ %.5443, %checkpe.exit ], [ %.0441, %122 ], [ %.0441, %112 ], [ %.0441, %.loopexit ], [ 0, %59 ], [ 0, %64 ], [ 0, %._crit_edge ], [ 0, %73 ], [ 0, %97 ]
   %.0288 = phi i32 [ 0, %105 ], [ %120, %checkpe.exit ], [ %120, %122 ], [ 0, %112 ], [ 0, %.loopexit ], [ 0, %59 ], [ 0, %64 ], [ 0, %._crit_edge ], [ 0, %73 ], [ 0, %97 ]
   %.0280 = phi ptr [ null, %105 ], [ %spec.select, %checkpe.exit ], [ null, %122 ], [ null, %112 ], [ null, %.loopexit ], [ null, %59 ], [ null, %64 ], [ null, %._crit_edge ], [ null, %73 ], [ null, %97 ]

@@ -6759,14 +6759,14 @@ define internal void @"_ZN160_$LT$ockam_vault..software..vault_for_signing..vaul
   %37 = alloca { i8, [32 x i8] }, align 1
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %39 = load i8, ptr %38, align 8, !range !16, !noundef !17
-  switch i8 %39, label %default.unreachable147 [
+  switch i8 %39, label %default.unreachable154 [
     i8 0, label %42
     i8 1, label %47
     i8 2, label %48
     i8 3, label %40
   ]
 
-default.unreachable147:                           ; preds = %3
+default.unreachable154:                           ; preds = %3
   unreachable
 
 40:                                               ; preds = %3
@@ -7553,14 +7553,14 @@ define internal void @"_ZN160_$LT$ockam_vault..software..vault_for_signing..vaul
   %23 = alloca { i64, [3 x i64] }, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %25 = load i8, ptr %24, align 8, !range !16, !noundef !17
-  switch i8 %25, label %default.unreachable80 [
+  switch i8 %25, label %default.unreachable88 [
     i8 0, label %26
     i8 1, label %82
     i8 2, label %83
     i8 3, label %84
   ]
 
-default.unreachable80:                            ; preds = %84, %3
+default.unreachable88:                            ; preds = %84, %3
   unreachable
 
 26:                                               ; preds = %3
@@ -7699,7 +7699,7 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
 
 "_ZN4core3ptr55drop_in_place$LT$ed25519_dalek..signing..SigningKey$GT$17h6b33b0e3ee57d442E.exit": ; preds = %53
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.thread81
+  br label %.thread89
 
 57:                                               ; preds = %.body43, %79, %69, %51, %.body
   %58 = landingpad { ptr, i32 }
@@ -7813,9 +7813,9 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   fence syncscope("singlethread") seq_cst
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %.thread81
+  br label %.thread89
 
-.thread81:                                        ; preds = %"_ZN4core3ptr55drop_in_place$LT$ed25519_dalek..signing..SigningKey$GT$17h6b33b0e3ee57d442E.exit", %77
+.thread89:                                        ; preds = %"_ZN4core3ptr55drop_in_place$LT$ed25519_dalek..signing..SigningKey$GT$17h6b33b0e3ee57d442E.exit", %77
   %.sroa.059.0 = phi i8 [ 0, %"_ZN4core3ptr55drop_in_place$LT$ed25519_dalek..signing..SigningKey$GT$17h6b33b0e3ee57d442E.exit" ], [ 1, %77 ]
   %.sroa.3.0 = phi <32 x i8> [ %.val, %"_ZN4core3ptr55drop_in_place$LT$ed25519_dalek..signing..SigningKey$GT$17h6b33b0e3ee57d442E.exit" ], [ %.val27, %77 ]
   %.sroa.756.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -7858,7 +7858,7 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   %.pre = load i8, ptr %.phi.trans.insert, align 4, !range !16, !noalias !2069
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.962)
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 156
-  switch i8 %.pre, label %default.unreachable80 [
+  switch i8 %.pre, label %default.unreachable88 [
     i8 0, label %86
     i8 1, label %.invoke
     i8 2, label %139
@@ -7872,8 +7872,8 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   %.pre91.i = load ptr, ptr %.phi.trans.insert90.i, align 8, !alias.scope !2073, !noalias !2078
   br label %142
 
-86:                                               ; preds = %.thread81, %84
-  %87 = phi ptr [ %78, %.thread81 ], [ %85, %84 ]
+86:                                               ; preds = %.thread89, %84
+  %87 = phi ptr [ %78, %.thread89 ], [ %85, %84 ]
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 155
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %90 = load ptr, ptr %89, align 8, !noalias !2069, !nonnull !17, !align !256, !noundef !17
@@ -8360,14 +8360,14 @@ define internal void @"_ZN160_$LT$ockam_vault..software..vault_for_signing..vaul
   %8 = alloca { i8, [32 x i8] }, align 1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load i8, ptr %9, align 8, !range !16, !noundef !17
-  switch i8 %10, label %default.unreachable42 [
+  switch i8 %10, label %default.unreachable46 [
     i8 0, label %12
     i8 1, label %17
     i8 2, label %18
     i8 3, label %11
   ]
 
-default.unreachable42:                            ; preds = %3
+default.unreachable46:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -8726,7 +8726,7 @@ define internal void @"_ZN160_$LT$ockam_vault..software..vault_for_signing..vaul
   %9 = alloca { i8, [39 x i8] }, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %11 = load i8, ptr %10, align 8, !range !16, !noundef !17
-  switch i8 %11, label %default.unreachable45 [
+  switch i8 %11, label %default.unreachable54 [
     i8 0, label %14
     i8 1, label %41
     i8 2, label %42
@@ -8740,7 +8740,7 @@ define internal void @"_ZN160_$LT$ockam_vault..software..vault_for_signing..vaul
   %.val27.pre = load ptr, ptr %.phi.trans.insert43, align 8, !alias.scope !1759
   br label %43
 
-default.unreachable45:                            ; preds = %3
+default.unreachable54:                            ; preds = %3
   unreachable
 
 12:                                               ; preds = %114, %37

@@ -1540,12 +1540,12 @@ thread-pre-split:                                 ; preds = %.loopexit61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   br label %193
 
-.loopexit87:                                      ; preds = %268, %262
+.loopexit122:                                     ; preds = %268, %262
   %.ph = phi ptr [ %269, %268 ], [ null, %262 ]
   br label %193
 
-193:                                              ; preds = %.loopexit87, %188
-  %194 = phi ptr [ null, %188 ], [ %.ph, %.loopexit87 ]
+193:                                              ; preds = %.loopexit122, %188
+  %194 = phi ptr [ null, %188 ], [ %.ph, %.loopexit122 ]
   %195 = icmp eq ptr %194, null
   br i1 %195, label %196, label %199
 
@@ -1689,7 +1689,7 @@ thread-pre-split:                                 ; preds = %.loopexit61
   %265 = phi i64 [ %261, %.thread50 ], [ %266, %268 ]
   %266 = add i64 %265, -1
   %267 = icmp slt i64 %266, 1
-  br i1 %267, label %.loopexit87, label %268, !llvm.loop !54
+  br i1 %267, label %.loopexit122, label %268, !llvm.loop !54
 
 268:                                              ; preds = %262
   %269 = getelementptr i8, ptr %264, i64 8
@@ -1697,7 +1697,7 @@ thread-pre-split:                                 ; preds = %.loopexit61
   store i64 %270, ptr %2, align 8
   %271 = load ptr, ptr %269, align 8
   %272 = icmp eq ptr %271, null
-  br i1 %272, label %262, label %.loopexit87, !prof !9, !llvm.loop !54
+  br i1 %272, label %262, label %.loopexit122, !prof !9, !llvm.loop !54
 
 273:                                              ; preds = %196
   call void @__rcu_read_unlock() #17
@@ -3004,12 +3004,12 @@ define dso_local i32 @i915_gem_context_setparam_ioctl(ptr noundef readnone captu
   br i1 %65, label %68, label %67
 
 67:                                               ; preds = %64
-  br i1 %66, label %.thread20, label %.thread33
+  br i1 %66, label %.thread20, label %.thread45
 
 68:                                               ; preds = %64
-  br i1 %66, label %70, label %.thread33
+  br i1 %66, label %70, label %.thread45
 
-.thread33:                                        ; preds = %67, %68
+.thread45:                                        ; preds = %67, %68
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 176
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %69, i32 4, ptr nonnull elementtype(i8) %69) #17, !srcloc !11
   br label %.thread20
@@ -3284,8 +3284,8 @@ define dso_local i32 @i915_gem_context_setparam_ioctl(ptr noundef readnone captu
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %207, i32 -17, ptr nonnull elementtype(i8) %207) #17, !srcloc !28
   br label %.thread20
 
-.thread20:                                        ; preds = %109, %104, %98, %92, %228, %224, %219, %218, %214, %203, %199, %197, %.loopexit, %90, %86, %84, %76, %74, %70, %.thread33, %67, %60, %59, %58, %49, %38
-  %229 = phi i32 [ %198, %197 ], [ 0, %90 ], [ 0, %84 ], [ 0, %.thread33 ], [ 0, %74 ], [ 0, %58 ], [ 0, %59 ], [ -22, %49 ], [ -22, %60 ], [ -1, %67 ], [ -1, %70 ], [ -22, %76 ], [ -1, %86 ], [ -22, %38 ], [ 0, %.loopexit ], [ -22, %199 ], [ 0, %203 ], [ -22, %214 ], [ -19, %219 ], [ -19, %224 ], [ 0, %228 ], [ 0, %218 ], [ -1, %109 ], [ -22, %104 ], [ -19, %98 ], [ -22, %92 ]
+.thread20:                                        ; preds = %109, %104, %98, %92, %228, %224, %219, %218, %214, %203, %199, %197, %.loopexit, %90, %86, %84, %76, %74, %70, %.thread45, %67, %60, %59, %58, %49, %38
+  %229 = phi i32 [ %198, %197 ], [ 0, %90 ], [ 0, %84 ], [ 0, %.thread45 ], [ 0, %74 ], [ 0, %58 ], [ 0, %59 ], [ -22, %49 ], [ -22, %60 ], [ -1, %67 ], [ -1, %70 ], [ -22, %76 ], [ -1, %86 ], [ -22, %38 ], [ 0, %.loopexit ], [ -22, %199 ], [ 0, %203 ], [ -22, %214 ], [ -19, %219 ], [ -19, %224 ], [ 0, %228 ], [ 0, %218 ], [ -1, %109 ], [ -22, %104 ], [ -19, %98 ], [ -22, %92 ]
   %230 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 -1, ptr nonnull elementtype(i32) %15) #17, !srcloc !25
   %231 = icmp eq i32 %230, 1
   br i1 %231, label %235, label %232
@@ -3369,12 +3369,12 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   br i1 %28, label %31, label %30
 
 30:                                               ; preds = %27
-  br i1 %29, label %.thread, label %.thread33
+  br i1 %29, label %.thread, label %.thread49
 
 31:                                               ; preds = %27
-  br i1 %29, label %35, label %.thread33
+  br i1 %29, label %35, label %.thread49
 
-.thread33:                                        ; preds = %30, %31
+.thread49:                                        ; preds = %30, %31
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = or i64 %33, 4
@@ -3778,9 +3778,9 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   br label %273
 
 .thread17:                                        ; preds = %240, %262
-  %.lcssa36.sink = phi ptr [ %269, %262 ], [ %242, %240 ]
+  %.lcssa52.sink = phi ptr [ %269, %262 ], [ %242, %240 ]
   %.ph16 = phi i32 [ -2, %262 ], [ -14, %240 ]
-  call void @kfree(ptr noundef %.lcssa36.sink) #17
+  call void @kfree(ptr noundef %.lcssa52.sink) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %297
 
@@ -3918,8 +3918,8 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   %354 = tail call i32 @intel_pxp_start(ptr noundef %353) #17
   br label %.thread
 
-.thread:                                          ; preds = %80, %75, %69, %63, %352, %345, %340, %336, %334, %325, %321, %316, %312, %308, %299, %297, %189, %.thread14, %161, %156, %152, %.critedge, %82, %59, %55, %51, %43, %39, %35, %.thread33, %30, %23, %21, %19, %9, %3
-  %355 = phi i32 [ %298, %297 ], [ %151, %.critedge ], [ 0, %82 ], [ 0, %59 ], [ 0, %51 ], [ 0, %.thread33 ], [ 0, %39 ], [ 0, %19 ], [ 0, %21 ], [ -22, %9 ], [ -22, %23 ], [ -1, %30 ], [ -1, %35 ], [ -22, %43 ], [ -1, %55 ], [ -22, %299 ], [ -22, %3 ], [ 0, %.thread14 ], [ -22, %152 ], [ -19, %156 ], [ -2, %161 ], [ -2, %189 ], [ -22, %308 ], [ -19, %316 ], [ -19, %321 ], [ 0, %325 ], [ 0, %312 ], [ 0, %345 ], [ %354, %352 ], [ 0, %334 ], [ -19, %336 ], [ -1, %340 ], [ -1, %80 ], [ -22, %75 ], [ -19, %69 ], [ -22, %63 ]
+.thread:                                          ; preds = %80, %75, %69, %63, %352, %345, %340, %336, %334, %325, %321, %316, %312, %308, %299, %297, %189, %.thread14, %161, %156, %152, %.critedge, %82, %59, %55, %51, %43, %39, %35, %.thread49, %30, %23, %21, %19, %9, %3
+  %355 = phi i32 [ %298, %297 ], [ %151, %.critedge ], [ 0, %82 ], [ 0, %59 ], [ 0, %51 ], [ 0, %.thread49 ], [ 0, %39 ], [ 0, %19 ], [ 0, %21 ], [ -22, %9 ], [ -22, %23 ], [ -1, %30 ], [ -1, %35 ], [ -22, %43 ], [ -1, %55 ], [ -22, %299 ], [ -22, %3 ], [ 0, %.thread14 ], [ -22, %152 ], [ -19, %156 ], [ -2, %161 ], [ -2, %189 ], [ -22, %308 ], [ -19, %316 ], [ -19, %321 ], [ 0, %325 ], [ 0, %312 ], [ 0, %345 ], [ %354, %352 ], [ 0, %334 ], [ -19, %336 ], [ -1, %340 ], [ -1, %80 ], [ -22, %75 ], [ -19, %69 ], [ -22, %63 ]
   ret i32 %355
 }
 

@@ -1356,7 +1356,7 @@ define internal fastcc void @_ZN6parser9lexed_str9Converter12extend_token17hc606
   %13 = alloca { ptr, i64 }, align 8
   %14 = alloca i8, align 1
   %15 = load i8, ptr %1, align 4, !range !101, !noundef !5
-  switch i8 %15, label %default.unreachable64 [
+  switch i8 %15, label %default.unreachable105 [
     i8 0, label %.split
     i8 1, label %16
     i8 2, label %20
@@ -1397,7 +1397,7 @@ define internal fastcc void @_ZN6parser9lexed_str9Converter12extend_token17hc606
     i8 37, label %383
   ]
 
-default.unreachable64:                            ; preds = %26, %4
+default.unreachable105:                           ; preds = %26, %4
   unreachable
 
 16:                                               ; preds = %4
@@ -1436,7 +1436,7 @@ default.unreachable64:                            ; preds = %26, %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !199)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
   %28 = load i8, ptr %27, align 1, !range !204, !alias.scope !202, !noalias !199, !noundef !5
-  switch i8 %28, label %default.unreachable64 [
+  switch i8 %28, label %default.unreachable105 [
     i8 0, label %29
     i8 1, label %33
     i8 2, label %37
@@ -3076,13 +3076,13 @@ _ZN6parser9shortcuts7Builder11eat_trivias17hbd61413dc3adee8fE.exit: ; preds = %_
   call void @llvm.experimental.noalias.scope.decl(metadata !412)
   %68 = load i8, ptr %13, align 8, !range !76, !alias.scope !412, !noundef !5
   store i8 2, ptr %13, align 8, !alias.scope !412
-  switch i8 %68, label %default.unreachable37 [
+  switch i8 %68, label %default.unreachable42 [
     i8 0, label %69
     i8 1, label %_ZN6parser9shortcuts7Builder4exit17h8e6d44809751d2f1E.exit
     i8 2, label %70
   ]
 
-default.unreachable37:                            ; preds = %67
+default.unreachable42:                            ; preds = %67
   unreachable
 
 69:                                               ; preds = %67

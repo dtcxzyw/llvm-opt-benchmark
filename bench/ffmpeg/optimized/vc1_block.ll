@@ -360,7 +360,7 @@ define internal fastcc void @vc1_decode_i_blocks_adv(ptr noundef %0) unnamed_add
   %22 = load i32, ptr %21, align 8, !tbaa !85
   switch i32 %22, label %30 [
     i32 0, label %23
-    i32 1, label %.sink.split308
+    i32 1, label %.sink.split327
     i32 2, label %28
   ]
 
@@ -369,18 +369,18 @@ define internal fastcc void @vc1_decode_i_blocks_adv(ptr noundef %0) unnamed_add
   %25 = load i32, ptr %24, align 8, !tbaa !83
   %26 = icmp slt i32 %25, 9
   %27 = select i1 %26, i32 7, i32 3
-  br label %.sink.split308
+  br label %.sink.split327
 
 28:                                               ; preds = %20
-  br label %.sink.split308
+  br label %.sink.split327
 
-.sink.split308:                                   ; preds = %20, %23, %28
-  %.sink309 = phi i32 [ 5, %28 ], [ %27, %23 ], [ %22, %20 ]
+.sink.split327:                                   ; preds = %20, %23, %28
+  %.sink328 = phi i32 [ 5, %28 ], [ %27, %23 ], [ %22, %20 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 6884
-  store i32 %.sink309, ptr %29, align 4, !tbaa !86
+  store i32 %.sink328, ptr %29, align 4, !tbaa !86
   br label %30
 
-30:                                               ; preds = %.sink.split308, %20
+30:                                               ; preds = %.sink.split327, %20
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 3360
   store i32 1, ptr %31, align 8, !tbaa !87
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4140
@@ -1459,11 +1459,11 @@ ff_vc1_pred_dc.exit:                              ; preds = %690, %.thread130.i,
 744:                                              ; preds = %738
   %745 = load i32, ptr %107, align 4, !tbaa !124
   %.not275.i = icmp eq i32 %745, 1
-  %.375.i = select i1 %.not275.i, i64 10260, i64 6614
+  %.386.i = select i1 %.not275.i, i64 10260, i64 6614
   br label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %744, %743, %740
-  %.sink.i = phi i64 [ 10260, %740 ], [ %..i, %743 ], [ %.375.i, %744 ]
+  %.sink.i = phi i64 [ 10260, %740 ], [ %..i, %743 ], [ %.386.i, %744 ]
   %746 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
   br label %.lr.ph.i
 
@@ -1915,7 +1915,7 @@ define internal fastcc void @vc1_decode_i_blocks(ptr noundef initializes((8, 12)
   %16 = load i32, ptr %15, align 8, !tbaa !85
   switch i32 %16, label %24 [
     i32 0, label %17
-    i32 1, label %.sink.split187
+    i32 1, label %.sink.split190
     i32 2, label %22
   ]
 
@@ -1924,18 +1924,18 @@ define internal fastcc void @vc1_decode_i_blocks(ptr noundef initializes((8, 12)
   %19 = load i32, ptr %18, align 8, !tbaa !83
   %20 = icmp slt i32 %19, 9
   %21 = select i1 %20, i32 7, i32 3
-  br label %.sink.split187
+  br label %.sink.split190
 
 22:                                               ; preds = %14
-  br label %.sink.split187
+  br label %.sink.split190
 
-.sink.split187:                                   ; preds = %14, %17, %22
-  %.sink188 = phi i32 [ 5, %22 ], [ %21, %17 ], [ %16, %14 ]
+.sink.split190:                                   ; preds = %14, %17, %22
+  %.sink191 = phi i32 [ 5, %22 ], [ %21, %17 ], [ %16, %14 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 6884
-  store i32 %.sink188, ptr %23, align 4, !tbaa !86
+  store i32 %.sink191, ptr %23, align 4, !tbaa !86
   br label %24
 
-24:                                               ; preds = %.sink.split187, %14
+24:                                               ; preds = %.sink.split190, %14
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 6548
   %26 = load i8, ptr %25, align 4, !tbaa !45
   %27 = zext i8 %26 to i64
@@ -2795,8 +2795,8 @@ vc1_decode_i_block.exit:                          ; preds = %.split.us.i, %521, 
   br i1 %exitcond183.not, label %.loopexit150, label %.preheader, !llvm.loop !154
 
 .loopexit150:                                     ; preds = %547, %563, %548, %533
-  %.sink190 = phi i32 [ 1, %533 ], [ 0, %548 ], [ 0, %563 ], [ 1, %547 ]
-  tail call fastcc void @vc1_put_blocks_clamped(ptr noundef %0, i32 noundef %.sink190)
+  %.sink193 = phi i32 [ 1, %533 ], [ 0, %548 ], [ 0, %563 ], [ 1, %547 ]
+  tail call fastcc void @vc1_put_blocks_clamped(ptr noundef %0, i32 noundef %.sink193)
   %564 = load i32, ptr %81, align 4, !tbaa !48
   %.not137 = icmp eq i32 %564, 0
   br i1 %.not137, label %566, label %565
@@ -4711,9 +4711,9 @@ get_vlc2.exit465.i:                               ; preds = %1230, %1220
   br label %1251
 
 1251:                                             ; preds = %get_vlc2.exit465.i, %get_vlc2.exit469.i
-  %.sink659.i = phi i32 [ %1250, %get_vlc2.exit465.i ], [ %1219, %get_vlc2.exit469.i ]
+  %.sink673.i = phi i32 [ %1250, %get_vlc2.exit465.i ], [ %1219, %get_vlc2.exit469.i ]
   %.0376.i = phi i32 [ %.062.i463.i, %get_vlc2.exit465.i ], [ %.062.i467.i, %get_vlc2.exit469.i ]
-  %1252 = call i32 @llvm.umin.i32(i32 %1180, i32 %.sink659.i)
+  %1252 = call i32 @llvm.umin.i32(i32 %1180, i32 %.sink673.i)
   store i32 %1252, ptr %61, align 8, !tbaa !80
   %1253 = sext i32 %1177 to i64
   %1254 = getelementptr inbounds [2 x [15 x [4 x i8]]], ptr @ff_vc1_mbmode_intfrp, i64 0, i64 %1253
@@ -4723,20 +4723,20 @@ get_vlc2.exit465.i:                               ; preds = %1230, %1220
   %1258 = icmp ult i8 %1257, 5
   %switch.shifted = lshr i8 27, %1257
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond292 = select i1 %1258, i1 %switch.lobit, i1 false
-  br i1 %or.cond292, label %switch.lookup, label %1275
+  %or.cond336 = select i1 %1258, i1 %switch.lobit, i1 false
+  br i1 %or.cond336, label %switch.lookup, label %1275
 
 switch.lookup:                                    ; preds = %1251
   %1259 = shl nuw nsw i8 %1257, 3
   %switch.shiftamt = zext nneg i8 %1259 to i40
   %switch.downshift = lshr i40 16777472, %switch.shiftamt
   %switch.masked = trunc i40 %switch.downshift to i8
-  %switch.cast284 = trunc nuw i8 %1257 to i5
-  %switch.downshift286 = lshr i5 3, %switch.cast284
-  %switch.masked287 = trunc i5 %switch.downshift286 to i1
-  %switch.cast288 = trunc nuw i8 %1257 to i5
-  %switch.downshift290 = lshr i5 -7, %switch.cast288
-  %switch.masked291 = trunc i5 %switch.downshift290 to i1
+  %switch.cast328 = trunc nuw i8 %1257 to i5
+  %switch.downshift330 = lshr i5 3, %switch.cast328
+  %switch.masked331 = trunc i5 %switch.downshift330 to i1
+  %switch.cast332 = trunc nuw i8 %1257 to i5
+  %switch.downshift334 = lshr i5 -7, %switch.cast332
+  %switch.masked335 = trunc i5 %switch.downshift334 to i1
   %1260 = load ptr, ptr %74, align 8, !tbaa !199
   %1261 = sext i32 %158 to i64
   %1262 = getelementptr inbounds i8, ptr %1260, i64 %1261
@@ -4766,8 +4766,8 @@ switch.lookup:                                    ; preds = %1251
 1275:                                             ; preds = %1251, %switch.lookup
   %.pre-phi = phi i64 [ %.phi.trans.insert, %switch.lookup ], [ %1253, %1251 ]
   %1276 = phi i8 [ %.pre239, %switch.lookup ], [ %1257, %1251 ]
-  %.not412.i = phi i1 [ %switch.masked287, %switch.lookup ], [ true, %1251 ]
-  %.not413.i = phi i1 [ %switch.masked291, %switch.lookup ], [ true, %1251 ]
+  %.not412.i = phi i1 [ %switch.masked331, %switch.lookup ], [ true, %1251 ]
+  %.not413.i = phi i1 [ %switch.masked335, %switch.lookup ], [ true, %1251 ]
   %1277 = icmp eq i8 %1276, 5
   br i1 %1277, label %.preheader.i, label %1557
 
@@ -7497,8 +7497,8 @@ get_vlc2.exit744.i:                               ; preds = %2991, %2972
   %.pr838.pre.i = load i32, ptr %69, align 8, !tbaa !87
   %3122 = icmp eq i32 %.pr838.pre.i, 0
   %or.cond11.i163 = and i1 %2725, %3122
-  %or.cond957.i = select i1 %.not686.i, i1 %or.cond11.i163, i1 false
-  br i1 %or.cond957.i, label %3123, label %thread-pre-split837.i
+  %or.cond970.i = select i1 %.not686.i, i1 %or.cond11.i163, i1 false
+  br i1 %or.cond970.i, label %3123, label %thread-pre-split837.i
 
 3123:                                             ; preds = %3117
   %3124 = load i32, ptr %98, align 8, !tbaa !192
@@ -7561,12 +7561,12 @@ thread-pre-split837.i:                            ; preds = %3117
   br i1 %3122, label %3169, label %.preheader
 
 3169:                                             ; preds = %thread-pre-split837.i, %thread-pre-split837.thread.i
-  %.0609956.i = phi i32 [ %.062.i738.i, %thread-pre-split837.thread.i ], [ %195, %thread-pre-split837.i ]
+  %.0609969.i = phi i32 [ %.062.i738.i, %thread-pre-split837.thread.i ], [ %195, %thread-pre-split837.i ]
   call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #10
   br label %.preheader
 
 .preheader:                                       ; preds = %3169, %thread-pre-split837.i
-  %.1610909.i.ph = phi i32 [ %195, %thread-pre-split837.i ], [ %.0609956.i, %3169 ]
+  %.1610909.i.ph = phi i32 [ %195, %thread-pre-split837.i ], [ %.0609969.i, %3169 ]
   br label %3170
 
 3170:                                             ; preds = %.preheader, %3284
@@ -8399,7 +8399,7 @@ get_vlc2.exit732.i:                               ; preds = %3385, %3361
   %3694 = load i8, ptr %97, align 4, !tbaa !191
   %3695 = icmp eq i8 %3694, 0
   %or.cond33.i = select i1 %3695, i1 %3530, i1 false
-  br i1 %or.cond33.i, label %3696, label %.preheader293
+  br i1 %or.cond33.i, label %3696, label %.preheader337
 
 3696:                                             ; preds = %.critedge.i
   %3697 = load i32, ptr %98, align 8, !tbaa !192
@@ -8456,19 +8456,19 @@ get_vlc2.exit.i157:                               ; preds = %3720, %3696
   %3740 = add i32 %.0.i.i160, %.064.i.i158
   %3741 = call i32 @llvm.umin.i32(i32 %3702, i32 %3740)
   store i32 %3741, ptr %61, align 8, !tbaa !80
-  br label %.preheader293
+  br label %.preheader337
 
-.preheader293:                                    ; preds = %get_vlc2.exit.i157, %.critedge.i
+.preheader337:                                    ; preds = %get_vlc2.exit.i157, %.critedge.i
   %.4613901.i.ph = phi i32 [ %195, %.critedge.i ], [ %.062.i.i159, %get_vlc2.exit.i157 ]
   br label %3742
 
-3742:                                             ; preds = %.preheader293, %3851
-  %indvars.iv928.i = phi i64 [ %indvars.iv.next929.i, %3851 ], [ 0, %.preheader293 ]
-  %.3905.i = phi i32 [ %.4.i156, %3851 ], [ 0, %.preheader293 ]
-  %.3585904.i = phi i32 [ %.4586.i, %3851 ], [ 0, %.preheader293 ]
-  %.1591903.i = phi i32 [ %3745, %3851 ], [ 0, %.preheader293 ]
-  %.2594902.i = phi i32 [ %.3595.i, %3851 ], [ 1, %.preheader293 ]
-  %.4613901.i = phi i32 [ %.5614.i, %3851 ], [ %.4613901.i.ph, %.preheader293 ]
+3742:                                             ; preds = %.preheader337, %3851
+  %indvars.iv928.i = phi i64 [ %indvars.iv.next929.i, %3851 ], [ 0, %.preheader337 ]
+  %.3905.i = phi i32 [ %.4.i156, %3851 ], [ 0, %.preheader337 ]
+  %.3585904.i = phi i32 [ %.4586.i, %3851 ], [ 0, %.preheader337 ]
+  %.1591903.i = phi i32 [ %3745, %3851 ], [ 0, %.preheader337 ]
+  %.2594902.i = phi i32 [ %.3595.i, %3851 ], [ 1, %.preheader337 ]
+  %.4613901.i = phi i32 [ %.5614.i, %3851 ], [ %.4613901.i.ph, %.preheader337 ]
   %3743 = trunc i64 %indvars.iv928.i to i32
   %3744 = lshr i32 %3743, 2
   %3745 = add nuw nsw i32 %.1591903.i, %3744
@@ -11582,8 +11582,8 @@ get_vlc2.exit915.i:                               ; preds = %1563, %1545
   %1776 = shl nuw nsw i64 %indvars.iv1212.i, 2
   %1777 = and i64 %1776, 8
   %1778 = lshr i64 %indvars.iv1212.i, 1
-  %.sink1230.i = select i1 %.not899.i, i64 %1777, i64 %1778
-  %1779 = mul nsw i64 %1772, %.sink1230.i
+  %.sink1249.i = select i1 %.not899.i, i64 %1777, i64 %1778
+  %1779 = mul nsw i64 %1772, %.sink1249.i
   %1780 = add nsw i64 %1779, %1775
   %sext900.i = shl i64 %1780, 32
   %1781 = ashr exact i64 %sext900.i, 32
@@ -11613,7 +11613,7 @@ get_vlc2.exit915.i:                               ; preds = %1563, %1545
 1793:                                             ; preds = %._crit_edge.i, %.thread.i
   %.pn.i = phi i64 [ %1453, %.thread.i ], [ %.0799.i, %._crit_edge.i ]
   %1794 = phi i1 [ true, %.thread.i ], [ false, %._crit_edge.i ]
-  %.not8461223.i = phi i1 [ false, %.thread.i ], [ true, %._crit_edge.i ]
+  %.not8461242.i = phi i1 [ false, %.thread.i ], [ true, %._crit_edge.i ]
   %1795 = getelementptr inbounds [15 x [4 x i8]], ptr @ff_vc1_mbmode_intfrp, i64 0, i64 %.pn.i
   %1796 = load ptr, ptr %62, align 8, !tbaa !177
   %1797 = load i32, ptr %28, align 4, !tbaa !65
@@ -11785,7 +11785,7 @@ scale_mv.exit983.i:                               ; preds = %1894, %1890
   %sext845.i = shl i32 %.09.i982.i, 16
   %1899 = ashr exact i32 %sext845.i, 16
   store i32 %1899, ptr %93, align 4, !tbaa !73
-  br i1 %.not8461223.i, label %.preheader1149.i, label %1900
+  br i1 %.not8461242.i, label %.preheader1149.i, label %1900
 
 1900:                                             ; preds = %scale_mv.exit983.i
   %1901 = load i32, ptr %40, align 4, !tbaa !73
@@ -12208,7 +12208,7 @@ get_vlc2.exit911.i:                               ; preds = %2093, %2072
   br i1 %.not1138.i, label %2180, label %2176
 
 2176:                                             ; preds = %2170
-  br i1 %.not8461223.i, label %2179, label %.preheader1145.i
+  br i1 %.not8461242.i, label %2179, label %.preheader1145.i
 
 .preheader1145.i:                                 ; preds = %2176, %.preheader1145.i
   %.51159.i = phi i32 [ %2177, %.preheader1145.i ], [ 0, %2176 ]
@@ -14619,14 +14619,14 @@ get_vlc2.exit527.i:                               ; preds = %3742, %3718
 .sink.split.i:                                    ; preds = %3841, %3765
   %.sink.i152 = phi i32 [ %3858, %3841 ], [ %3791, %3765 ]
   %.ph.i = phi i32 [ %3852, %3841 ], [ %3793, %3765 ]
-  %.ph677.i = phi i32 [ %3828, %3841 ], [ %3778, %3765 ]
+  %.ph686.i = phi i32 [ %3828, %3841 ], [ %3778, %3765 ]
   store i32 %.sink.i152, ptr %3, align 4, !tbaa !73
   br label %3859
 
 3859:                                             ; preds = %.sink.split.i, %3827
   %3860 = phi i32 [ %3829, %3827 ], [ %.ph.i, %.sink.split.i ]
   %3861 = phi i32 [ %3833, %3827 ], [ %.sink.i152, %.sink.split.i ]
-  %3862 = phi i32 [ %3828, %3827 ], [ %.ph677.i, %.sink.split.i ]
+  %3862 = phi i32 [ %3828, %3827 ], [ %.ph686.i, %.sink.split.i ]
   store i32 %3862, ptr %120, align 4, !tbaa !73
   store i32 %3861, ptr %119, align 4, !tbaa !73
   br label %3863
@@ -16204,8 +16204,8 @@ define internal fastcc void @vc1_put_blocks_clamped(ptr noundef readonly %0, i32
   %47 = load i64, ptr %15, align 8, !tbaa !75
   %48 = mul nsw i64 %47, %46
   %49 = getelementptr inbounds i8, ptr %42, i64 %48
-  %indvars.iv.tr249 = trunc i64 %indvars.iv to i32
-  %50 = shl i32 %indvars.iv.tr249, 3
+  %indvars.iv.tr250 = trunc i64 %indvars.iv to i32
+  %50 = shl i32 %indvars.iv.tr250, 3
   %51 = or i32 %50, -16
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i8, ptr %49, i64 %52
@@ -16464,8 +16464,8 @@ define internal fastcc void @vc1_put_blocks_clamped(ptr noundef readonly %0, i32
 
 216:                                              ; preds = %213, %210
   %217 = load ptr, ptr %195, align 8, !tbaa !59
-  %indvars.iv240.tr253 = trunc i64 %indvars.iv240 to i32
-  %218 = shl i32 %indvars.iv240.tr253, 3
+  %indvars.iv240.tr254 = trunc i64 %indvars.iv240 to i32
+  %218 = shl i32 %indvars.iv240.tr254, 3
   %219 = or i32 %218, -16
   %220 = sext i32 %219 to i64
   br i1 %.not218, label %225, label %221
@@ -16473,8 +16473,8 @@ define internal fastcc void @vc1_put_blocks_clamped(ptr noundef readonly %0, i32
 221:                                              ; preds = %216
   %222 = load i64, ptr %196, align 8, !tbaa !75
   %223 = and i64 %indvars.iv240, 2
-  %.not251 = icmp eq i64 %223, 0
-  %224 = select i1 %.not251, i64 0, i64 %222
+  %.not252 = icmp eq i64 %223, 0
+  %224 = select i1 %.not252, i64 0, i64 %222
   br label %230
 
 225:                                              ; preds = %216
@@ -16485,9 +16485,9 @@ define internal fastcc void @vc1_put_blocks_clamped(ptr noundef readonly %0, i32
   br label %230
 
 230:                                              ; preds = %225, %221
-  %.sink255 = phi i64 [ %229, %225 ], [ %224, %221 ]
+  %.sink256 = phi i64 [ %229, %225 ], [ %224, %221 ]
   %231 = phi i64 [ %228, %225 ], [ %222, %221 ]
-  %232 = getelementptr inbounds i8, ptr %217, i64 %.sink255
+  %232 = getelementptr inbounds i8, ptr %217, i64 %.sink256
   %233 = getelementptr inbounds i8, ptr %232, i64 %220
   %234 = load ptr, ptr %198, align 8, !tbaa !91
   %235 = load i32, ptr %199, align 8, !tbaa !53
@@ -16617,8 +16617,8 @@ define internal fastcc void @vc1_put_blocks_clamped(ptr noundef readonly %0, i32
 312:                                              ; preds = %308
   %313 = load i64, ptr %294, align 8, !tbaa !75
   %314 = and i64 %indvars.iv244, 2
-  %.not254 = icmp eq i64 %314, 0
-  %315 = select i1 %.not254, i64 0, i64 %313
+  %.not255 = icmp eq i64 %314, 0
+  %315 = select i1 %.not255, i64 0, i64 %313
   br label %321
 
 316:                                              ; preds = %308
@@ -16629,9 +16629,9 @@ define internal fastcc void @vc1_put_blocks_clamped(ptr noundef readonly %0, i32
   br label %321
 
 321:                                              ; preds = %316, %312
-  %.sink256 = phi i64 [ %320, %316 ], [ %315, %312 ]
+  %.sink257 = phi i64 [ %320, %316 ], [ %315, %312 ]
   %322 = phi i64 [ %319, %316 ], [ %313, %312 ]
-  %323 = getelementptr inbounds i8, ptr %309, i64 %.sink256
+  %323 = getelementptr inbounds i8, ptr %309, i64 %.sink257
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 %311
   %325 = load ptr, ptr %296, align 8, !tbaa !91
   %326 = load i32, ptr %297, align 4, !tbaa !52
@@ -17100,13 +17100,13 @@ get_unary.exit:                                   ; preds = %.preheader, %292
 
 .sink.split:                                      ; preds = %get_unary.exit, %270
   %.sink = phi i32 [ %281, %270 ], [ %294, %get_unary.exit ]
-  %.ph104 = phi i32 [ %280, %270 ], [ %spec.select.i.i99, %get_unary.exit ]
+  %.ph106 = phi i32 [ %280, %270 ], [ %spec.select.i.i99, %get_unary.exit ]
   store i32 %.sink, ptr %249, align 8, !tbaa !4
   br label %295
 
 295:                                              ; preds = %.sink.split, %259
   %296 = phi i32 [ %267, %259 ], [ %.sink, %.sink.split ]
-  %297 = phi i32 [ %269, %259 ], [ %.ph104, %.sink.split ]
+  %297 = phi i32 [ %269, %259 ], [ %.ph106, %.sink.split ]
   %298 = lshr i32 %297, 3
   %299 = zext nneg i32 %298 to i64
   %300 = getelementptr inbounds nuw i8, ptr %14, i64 %299
@@ -17164,12 +17164,12 @@ get_unary.exit:                                   ; preds = %.preheader, %292
   br label %345
 
 345:                                              ; preds = %310, %227, %93
-  %.sink105 = phi i32 [ %344, %310 ], [ %spec.select.i97, %227 ], [ %spec.select.i, %93 ]
+  %.sink107 = phi i32 [ %344, %310 ], [ %spec.select.i97, %227 ], [ %spec.select.i, %93 ]
   %.079 = phi i32 [ %322, %310 ], [ %.281, %227 ], [ %84, %93 ]
   %.076 = phi i32 [ %342, %310 ], [ %.278, %227 ], [ %87, %93 ]
   %.073 = phi i32 [ %248, %310 ], [ %197, %227 ], [ %94, %93 ]
   %.071.in.in = phi i32 [ %333, %310 ], [ %236, %227 ], [ %103, %93 ]
-  store i32 %.sink105, ptr %10, align 8, !tbaa !80
+  store i32 %.sink107, ptr %10, align 8, !tbaa !80
   %.071.in = lshr i32 %.071.in.in, 7
   %.071 = and i32 %.071.in, 1
   store i32 %.073, ptr %1, align 4, !tbaa !73
@@ -17691,11 +17691,11 @@ ff_vc1_pred_dc.exit:                              ; preds = %256, %.thread130.i,
   br label %338
 
 338:                                              ; preds = %336, %334, %332, %323
-  %.sink519.in = phi ptr [ %337, %336 ], [ %335, %334 ], [ %333, %332 ], [ %326, %323 ]
+  %.sink535.in = phi ptr [ %337, %336 ], [ %335, %334 ], [ %333, %332 ], [ %326, %323 ]
   %.sink.in = phi i32 [ %329, %336 ], [ %329, %334 ], [ %329, %332 ], [ %324, %323 ]
   %.sink = trunc i32 %.sink.in to i16
-  %.sink519 = load i8, ptr %.sink519.in, align 1, !tbaa !101
-  %339 = zext i8 %.sink519 to i64
+  %.sink535 = load i8, ptr %.sink535.in, align 1, !tbaa !101
+  %339 = zext i8 %.sink535 to i64
   %340 = getelementptr inbounds nuw i16, ptr %1, i64 %339
   store i16 %.sink, ptr %340, align 2, !tbaa !98
   %341 = add nsw i32 %318, 1
@@ -18603,8 +18603,8 @@ thread-pre-split344:                              ; preds = %277, %271
   %284 = getelementptr inbounds nuw i16, ptr %1, i64 %253
   %.16.v = select i1 %281, i64 5664, i64 5632
   %.16 = getelementptr inbounds nuw i8, ptr %0, i64 %.16.v
-  %.sink442 = load ptr, ptr %.16, align 8, !tbaa !282
-  tail call void %.sink442(ptr noundef %283, i64 noundef %245, ptr noundef %284) #10
+  %.sink454 = load ptr, ptr %.16, align 8, !tbaa !282
+  tail call void %.sink454(ptr noundef %283, i64 noundef %245, ptr noundef %284) #10
   br label %._crit_edge390.thread
 
 ._crit_edge390.thread:                            ; preds = %._crit_edge390, %247
@@ -18702,8 +18702,8 @@ thread-pre-split357:                              ; preds = %326, %319
   %332 = getelementptr inbounds nuw i16, ptr %1, i64 %301
   %.17.v = select i1 %330, i64 5672, i64 5640
   %.17 = getelementptr inbounds nuw i8, ptr %0, i64 %.17.v
-  %.sink443 = load ptr, ptr %.17, align 8, !tbaa !282
-  tail call void %.sink443(ptr noundef %331, i64 noundef %294, ptr noundef %332) #10
+  %.sink455 = load ptr, ptr %.17, align 8, !tbaa !282
+  tail call void %.sink455(ptr noundef %331, i64 noundef %294, ptr noundef %332) #10
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %295

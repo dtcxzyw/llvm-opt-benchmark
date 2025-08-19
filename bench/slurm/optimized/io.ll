@@ -1914,7 +1914,7 @@ io_get_file_flags.exit.i:                         ; preds = %30, %29, %24
   %77 = load ptr, ptr %16, align 8
   %78 = call ptr @getenvp(ptr noundef %77, ptr noundef nonnull @.str.119) #11
   %.not54.i.i = icmp eq ptr %78, null
-  br i1 %.not54.i.i, label %79, label %.thread55.i.i
+  br i1 %.not54.i.i, label %79, label %.thread65.i.i
 
 79:                                               ; preds = %76
   %80 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.120) #11
@@ -1923,17 +1923,17 @@ io_get_file_flags.exit.i:                         ; preds = %30, %29, %24
   %.not53.i.i = icmp eq ptr %82, null
   br i1 %.not53.i.i, label %.thread.i.i, label %106
 
-.thread55.i.i:                                    ; preds = %76
+.thread65.i.i:                                    ; preds = %76
   %83 = load ptr, ptr %16, align 8
   %84 = call ptr @getenvp(ptr noundef %83, ptr noundef nonnull @.str.121) #11
-  %.not5356.i.i = icmp eq ptr %84, null
-  br i1 %.not5356.i.i, label %.thread.i.i, label %.thread57.i.i
+  %.not5366.i.i = icmp eq ptr %84, null
+  br i1 %.not5366.i.i, label %.thread.i.i, label %.thread67.i.i
 
-.thread.i.i:                                      ; preds = %.thread55.i.i, %79
+.thread.i.i:                                      ; preds = %.thread65.i.i, %79
   %85 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.122) #11
   br label %106
 
-.thread57.i.i:                                    ; preds = %.thread55.i.i
+.thread67.i.i:                                    ; preds = %.thread65.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %86 = call i64 @strtol(ptr noundef nonnull captures(none) %78, ptr noundef null, i32 noundef 10) #11
   %87 = trunc i64 %86 to i16
@@ -1945,7 +1945,7 @@ io_get_file_flags.exit.i:                         ; preds = %30, %29, %24
   %91 = icmp sgt i32 %90, 4
   br i1 %91, label %92, label %97
 
-92:                                               ; preds = %.thread57.i.i
+92:                                               ; preds = %.thread67.i.i
   %93 = trunc i64 %88 to i32
   %94 = and i32 %93, 65535
   %95 = trunc i64 %86 to i32
@@ -1953,7 +1953,7 @@ io_get_file_flags.exit.i:                         ; preds = %30, %29, %24
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.123, i32 noundef %94, i32 noundef %96) #11
   br label %97
 
-97:                                               ; preds = %92, %.thread57.i.i
+97:                                               ; preds = %92, %.thread67.i.i
   %98 = load i32, ptr %51, align 4
   %99 = call i32 (i32, i64, ...) @ioctl(i32 noundef %98, i64 noundef 21524, ptr noundef nonnull %3) #11
   %.not45.i.i = icmp eq i32 %99, 0
@@ -3648,23 +3648,23 @@ define dso_local void @io_find_filename_pattern(ptr noundef readonly captures(no
   br i1 %39, label %._crit_edge.thread, label %40
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge
-  %.0123.lcssa251 = phi i1 [ %38, %._crit_edge ], [ true, %4 ]
-  %.0125.lcssa249 = phi i32 [ %.1126, %._crit_edge ], [ 0, %4 ]
-  %.0127.lcssa247 = phi i32 [ %.1128, %._crit_edge ], [ 0, %4 ]
-  %.0129.lcssa245 = phi i32 [ %.1130, %._crit_edge ], [ 0, %4 ]
-  %.0131.lcssa243 = phi i32 [ %.1132, %._crit_edge ], [ 0, %4 ]
+  %.0123.lcssa270 = phi i1 [ %38, %._crit_edge ], [ true, %4 ]
+  %.0125.lcssa268 = phi i32 [ %.1126, %._crit_edge ], [ 0, %4 ]
+  %.0127.lcssa266 = phi i32 [ %.1128, %._crit_edge ], [ 0, %4 ]
+  %.0129.lcssa264 = phi i32 [ %.1130, %._crit_edge ], [ 0, %4 ]
+  %.0131.lcssa262 = phi i32 [ %.1132, %._crit_edge ], [ 0, %4 ]
   store i32 0, ptr %1, align 4
   %.pre233 = load i32, ptr %5, align 4
   br label %40
 
 40:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.0123.lcssa250 = phi i1 [ %.0123.lcssa251, %._crit_edge.thread ], [ %38, %._crit_edge ]
-  %.0125.lcssa248 = phi i32 [ %.0125.lcssa249, %._crit_edge.thread ], [ %.1126, %._crit_edge ]
-  %.0127.lcssa246 = phi i32 [ %.0127.lcssa247, %._crit_edge.thread ], [ %.1128, %._crit_edge ]
-  %.0129.lcssa244 = phi i32 [ %.0129.lcssa245, %._crit_edge.thread ], [ %.1130, %._crit_edge ]
-  %.0131.lcssa242 = phi i32 [ %.0131.lcssa243, %._crit_edge.thread ], [ %.1132, %._crit_edge ]
+  %.0123.lcssa269 = phi i1 [ %.0123.lcssa270, %._crit_edge.thread ], [ %38, %._crit_edge ]
+  %.0125.lcssa267 = phi i32 [ %.0125.lcssa268, %._crit_edge.thread ], [ %.1126, %._crit_edge ]
+  %.0127.lcssa265 = phi i32 [ %.0127.lcssa266, %._crit_edge.thread ], [ %.1128, %._crit_edge ]
+  %.0129.lcssa263 = phi i32 [ %.0129.lcssa264, %._crit_edge.thread ], [ %.1130, %._crit_edge ]
+  %.0131.lcssa261 = phi i32 [ %.0131.lcssa262, %._crit_edge.thread ], [ %.1132, %._crit_edge ]
   %41 = phi i32 [ %.pre233, %._crit_edge.thread ], [ %35, %._crit_edge ]
-  %42 = icmp eq i32 %.0129.lcssa244, %41
+  %42 = icmp eq i32 %.0129.lcssa263, %41
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %40
@@ -3672,13 +3672,13 @@ define dso_local void @io_find_filename_pattern(ptr noundef readonly captures(no
   br label %44
 
 44:                                               ; preds = %43, %40
-  %45 = icmp eq i32 %.0131.lcssa242, 1
+  %45 = icmp eq i32 %.0131.lcssa261, 1
   br i1 %45, label %46, label %51
 
 46:                                               ; preds = %44
   %47 = load i32, ptr %5, align 4
   %48 = add i32 %47, -1
-  %49 = icmp eq i32 %.0127.lcssa246, %48
+  %49 = icmp eq i32 %.0127.lcssa265, %48
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %46
@@ -3686,13 +3686,13 @@ define dso_local void @io_find_filename_pattern(ptr noundef readonly captures(no
   br label %51
 
 51:                                               ; preds = %50, %46, %44
-  %52 = icmp eq i32 %.0129.lcssa244, 1
+  %52 = icmp eq i32 %.0129.lcssa263, 1
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %51
   %54 = load i32, ptr %5, align 4
   %55 = add i32 %54, -1
-  %56 = icmp eq i32 %.0125.lcssa248, %55
+  %56 = icmp eq i32 %.0125.lcssa267, %55
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %53
@@ -3722,7 +3722,7 @@ define dso_local void @io_find_filename_pattern(ptr noundef readonly captures(no
 68:                                               ; preds = %65
   %69 = load i32, ptr %2, align 4
   %70 = icmp eq i32 %69, 1
-  %or.cond = select i1 %70, i1 %.0123.lcssa250, i1 false
+  %or.cond = select i1 %70, i1 %.0123.lcssa269, i1 false
   br i1 %or.cond, label %71, label %thread-pre-split
 
 71:                                               ; preds = %68
@@ -3824,29 +3824,29 @@ thread-pre-split:                                 ; preds = %68, %.thread
 ._crit_edge194.thread.thread:                     ; preds = %73
   %109 = load i32, ptr %1, align 4
   %110 = icmp eq i32 %109, 4
-  br i1 %110, label %.thread267, label %.thread269
+  br i1 %110, label %.thread286, label %.thread288
 
-.thread267:                                       ; preds = %._crit_edge194.thread.thread
+.thread286:                                       ; preds = %._crit_edge194.thread.thread
   store i32 3, ptr %1, align 4
-  br label %.thread269
+  br label %.thread288
 
 111:                                              ; preds = %._crit_edge194.thread
   store i32 3, ptr %1, align 4
-  br i1 %.1118, label %.thread269, label %116
+  br i1 %.1118, label %.thread288, label %116
 
 112:                                              ; preds = %._crit_edge194.thread, %._crit_edge194
-  br i1 %.1118, label %.thread269, label %116
+  br i1 %.1118, label %.thread288, label %116
 
-.thread269:                                       ; preds = %._crit_edge194.thread.thread, %.thread267, %111, %112
+.thread288:                                       ; preds = %._crit_edge194.thread.thread, %.thread286, %111, %112
   %113 = load i32, ptr %2, align 4
   %114 = icmp eq i32 %113, 4
   br i1 %114, label %115, label %116
 
-115:                                              ; preds = %.thread269
+115:                                              ; preds = %.thread288
   store i32 3, ptr %2, align 4
   br label %116
 
-116:                                              ; preds = %111, %115, %.thread269, %112
+116:                                              ; preds = %111, %115, %.thread288, %112
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %118, align 8
@@ -3973,14 +3973,14 @@ thread-pre-split:                                 ; preds = %68, %.thread
   br i1 %175, label %._crit_edge210.thread, label %176
 
 ._crit_edge210.thread:                            ; preds = %133, %._crit_edge210
-  %.0.lcssa264 = phi i8 [ %.1.lcssa, %._crit_edge210 ], [ 1, %133 ]
+  %.0.lcssa283 = phi i8 [ %.1.lcssa, %._crit_edge210 ], [ 1, %133 ]
   store i32 2, ptr %1, align 4
   br label %176
 
 176:                                              ; preds = %._crit_edge210.thread, %._crit_edge210
-  %.0.lcssa263 = phi i8 [ %.0.lcssa264, %._crit_edge210.thread ], [ %.1.lcssa, %._crit_edge210 ]
-  %.0114.lcssa261 = phi i8 [ 1, %._crit_edge210.thread ], [ 0, %._crit_edge210 ]
-  %177 = trunc nuw i8 %.0.lcssa263 to i1
+  %.0.lcssa282 = phi i8 [ %.0.lcssa283, %._crit_edge210.thread ], [ %.1.lcssa, %._crit_edge210 ]
+  %.0114.lcssa280 = phi i8 [ 1, %._crit_edge210.thread ], [ 0, %._crit_edge210 ]
+  %177 = trunc nuw i8 %.0.lcssa282 to i1
   br i1 %177, label %178, label %179
 
 178:                                              ; preds = %176
@@ -3988,7 +3988,7 @@ thread-pre-split:                                 ; preds = %68, %.thread
   br label %179
 
 179:                                              ; preds = %178, %176
-  %180 = and i8 %.0.lcssa263, %.0114.lcssa261
+  %180 = and i8 %.0.lcssa282, %.0114.lcssa280
   %or.cond.not = icmp eq i8 %180, 0
   br i1 %or.cond.not, label %.loopexit, label %181
 

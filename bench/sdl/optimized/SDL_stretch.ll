@@ -294,8 +294,8 @@ thread-pre-split:                                 ; preds = %131, %139
   %.1116 = phi ptr [ %7, %139 ], [ %3, %131 ]
   %146 = icmp slt i32 %145, 1
   %147 = icmp slt i32 %144, 1
-  %or.cond199 = select i1 %146, i1 true, i1 %147
-  br i1 %or.cond199, label %183, label %148
+  %or.cond215 = select i1 %146, i1 true, i1 %147
+  br i1 %or.cond215, label %183, label %148
 
 148:                                              ; preds = %thread-pre-split
   %149 = icmp sgt i32 %118, 65535

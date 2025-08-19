@@ -538,7 +538,7 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %24, label %..critedge2_crit_edge.us, label %.lr.ph.split.us121.preheader
 
 .lr.ph.split.us121.preheader:                     ; preds = %.lr.ph.us
-  %.sink154 = trunc i64 %indvars.iv133 to i32
+  %.sink159 = trunc i64 %indvars.iv133 to i32
   br label %.lr.ph.split.us121
 
 .lr.ph.split.us121:                               ; preds = %.lr.ph.split.us121.preheader, %101
@@ -643,7 +643,7 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
   store i8 %95, ptr %96, align 1, !tbaa !28
   %97 = trunc nuw nsw i64 %indvars.iv to i32
   %98 = shl i32 %97, 16
-  %99 = or i32 %98, %.sink154
+  %99 = or i32 %98, %.sink159
   %100 = getelementptr inbounds nuw [65536 x i32], ptr @Lpk_ComposeSets.Parents, i64 0, i64 %76
   store i32 %99, ptr %100, align 4, !tbaa !15
   br label %101
@@ -1024,9 +1024,9 @@ Lpk_PrintSets.exit95:                             ; preds = %Lpk_PrintSetOne.exi
   %putchar = tail call i32 @putchar(i32 10)
   %70 = load i32, ptr %6, align 4, !tbaa !15
   %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %.lr.ph101.preheader, label %.thread115.thread116
+  br i1 %71, label %.lr.ph101.preheader, label %.thread125.thread126
 
-.thread115.thread116:                             ; preds = %69
+.thread125.thread126:                             ; preds = %69
   store ptr null, ptr @Lpk_MapSuppRedDecSelect.pSetBest, align 8, !tbaa !63
   br label %91
 
@@ -1051,7 +1051,7 @@ Lpk_PrintSets.exit95:                             ; preds = %Lpk_PrintSetOne.exi
   %.pre = load i32, ptr %6, align 4, !tbaa !15
   store ptr null, ptr @Lpk_MapSuppRedDecSelect.pSetBest, align 8, !tbaa !63
   %74 = icmp sgt i32 %.pre, 0
-  br i1 %74, label %.lr.ph104, label %.thread115.thread
+  br i1 %74, label %.lr.ph104, label %.thread125.thread
 
 .lr.ph104:                                        ; preds = %.critedge77.thread, %.critedge77
   %75 = phi i32 [ %70, %.critedge77.thread ], [ %.pre, %.critedge77 ]
@@ -1088,14 +1088,14 @@ Lpk_PrintSets.exit95:                             ; preds = %Lpk_PrintSetOne.exi
 89:                                               ; preds = %87
   store ptr %81, ptr @Lpk_MapSuppRedDecSelect.pSet, align 8, !tbaa !63
   %90 = icmp eq ptr %88, null
-  br i1 %90, label %.thread115, label %92
+  br i1 %90, label %.thread125, label %92
 
-.thread115:                                       ; preds = %89
-  br i1 %.not, label %.thread115.thread, label %91
+.thread125:                                       ; preds = %89
+  br i1 %.not, label %.thread125.thread, label %91
 
-91:                                               ; preds = %.thread115.thread116, %.thread115
+91:                                               ; preds = %.thread125.thread126, %.thread125
   %puts71 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  br label %.thread115.thread
+  br label %.thread125.thread
 
 92:                                               ; preds = %89
   br i1 %.not, label %.critedge79, label %93
@@ -1149,10 +1149,10 @@ Kit_WordFindFirstBit.exit:                        ; preds = %111, %114
   %119 = load i32, ptr %100, align 4, !tbaa !32
   %120 = and i32 %119, 65535
   %121 = or disjoint i32 %120, %118
-  br label %.thread115.thread
+  br label %.thread125.thread
 
-.thread115.thread:                                ; preds = %.critedge77, %.thread115, %91, %Kit_WordFindFirstBit.exit
-  %.0 = phi i32 [ %121, %Kit_WordFindFirstBit.exit ], [ 0, %91 ], [ 0, %.thread115 ], [ 0, %.critedge77 ]
+.thread125.thread:                                ; preds = %.critedge77, %.thread125, %91, %Kit_WordFindFirstBit.exit
+  %.0 = phi i32 [ %121, %Kit_WordFindFirstBit.exit ], [ 0, %91 ], [ 0, %.thread125 ], [ 0, %.critedge77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

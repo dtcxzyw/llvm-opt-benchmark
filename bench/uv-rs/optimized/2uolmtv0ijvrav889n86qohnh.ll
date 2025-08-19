@@ -1831,9 +1831,9 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4a02232e5b
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %"_ZN112_$LT$itertools..adaptors..map..MapSpecialCase$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e316a3997c484f7E.exit.i.thread", %"_ZN112_$LT$itertools..adaptors..map..MapSpecialCase$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e316a3997c484f7E.exit.i"
-  %.sroa.0.0.copyload20 = phi i64 [ 8, %"_ZN112_$LT$itertools..adaptors..map..MapSpecialCase$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e316a3997c484f7E.exit.i.thread" ], [ %.sroa.0.0.copyload.pre, %"_ZN112_$LT$itertools..adaptors..map..MapSpecialCase$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e316a3997c484f7E.exit.i" ]
+  %.sroa.0.0.copyload24 = phi i64 [ 8, %"_ZN112_$LT$itertools..adaptors..map..MapSpecialCase$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e316a3997c484f7E.exit.i.thread" ], [ %.sroa.0.0.copyload.pre, %"_ZN112_$LT$itertools..adaptors..map..MapSpecialCase$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e316a3997c484f7E.exit.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1035
-  store i64 %.sroa.0.0.copyload20, ptr %4, align 8, !noalias !1040
+  store i64 %.sroa.0.0.copyload24, ptr %4, align 8, !noalias !1040
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %.sroa.9.0..sroa_idx17, ptr noundef nonnull align 8 dereferenceable(352) %.sroa.9, i64 352, i1 false), !noalias !1040
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1040
   call void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h32f522942427cde7E.llvm.2372211309796609374"(ptr noalias noundef nonnull sret([360 x i8]) align 8 captures(none) dereferenceable(360) %8, ptr noalias noundef nonnull align 8 dereferenceable(16) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(360) %4), !noalias !1041
@@ -2161,9 +2161,9 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf36db6ecc9
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %"_ZN112_$LT$itertools..adaptors..map..MapSpecialCase$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53cd04d586542a62E.exit.i.thread", %"_ZN112_$LT$itertools..adaptors..map..MapSpecialCase$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53cd04d586542a62E.exit.i"
-  %.sroa.0.0.copyload20 = phi i64 [ 8, %"_ZN112_$LT$itertools..adaptors..map..MapSpecialCase$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53cd04d586542a62E.exit.i.thread" ], [ %.sroa.0.0.copyload.pre, %"_ZN112_$LT$itertools..adaptors..map..MapSpecialCase$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53cd04d586542a62E.exit.i" ]
+  %.sroa.0.0.copyload24 = phi i64 [ 8, %"_ZN112_$LT$itertools..adaptors..map..MapSpecialCase$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53cd04d586542a62E.exit.i.thread" ], [ %.sroa.0.0.copyload.pre, %"_ZN112_$LT$itertools..adaptors..map..MapSpecialCase$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53cd04d586542a62E.exit.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1285
-  store i64 %.sroa.0.0.copyload20, ptr %4, align 8, !noalias !1290
+  store i64 %.sroa.0.0.copyload24, ptr %4, align 8, !noalias !1290
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %.sroa.9.0..sroa_idx17, ptr noundef nonnull align 8 dereferenceable(352) %.sroa.9, i64 352, i1 false), !noalias !1290
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1290
   call void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc517461d4a318a73E.llvm.2372211309796609374"(ptr noalias noundef nonnull sret([360 x i8]) align 8 captures(none) dereferenceable(360) %8, ptr noalias noundef nonnull align 8 dereferenceable(16) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(360) %4), !noalias !1291
@@ -4705,8 +4705,8 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h4e86a5b6d
           cleanup
   br label %71
 
-.loopexit.split-lp:                               ; preds = %.loopexit136, %100, %65, %107, %121, %125
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %125 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %107 ], [ 1, %65 ], [ %.sroa.03.2, %.loopexit136 ], [ %.sroa.03.2, %100 ]
+.loopexit.split-lp:                               ; preds = %.loopexit143, %100, %65, %107, %121, %125
+  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %125 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %107 ], [ 1, %65 ], [ %.sroa.03.2, %.loopexit143 ], [ %.sroa.03.2, %100 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -4801,9 +4801,9 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h4e86a5b6d
 96:                                               ; preds = %94
   %.not40 = icmp eq ptr %95, null
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  br i1 %.not40, label %.loopexit136, label %84
+  br i1 %.not40, label %.loopexit143, label %84
 
-.loopexit136:                                     ; preds = %96, %99
+.loopexit143:                                     ; preds = %96, %99
   %.sroa.03.2 = phi i8 [ 0, %99 ], [ 1, %96 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h303c24df2bc9b995E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %42)
@@ -4819,9 +4819,9 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h4e86a5b6d
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !2185
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  br label %.loopexit136
+  br label %.loopexit143
 
-100:                                              ; preds = %.loopexit136
+100:                                              ; preds = %.loopexit143
   %101 = invoke noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hfbb9e03f14501d00E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %69, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %37)
           to label %102 unwind label %.loopexit.split-lp
 
@@ -5031,10 +5031,10 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h4e86a5b6d
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   invoke void @_ZN8schemars6schema6Schema7new_ref17h39c1f0f3a873d6a2E(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %28)
-          to label %198 unwind label %.body.thread133
+          to label %198 unwind label %.body.thread140
 
-.body.thread133:                                  ; preds = %160
-  %lpad.thr_comm.split-lp117135 = landingpad { ptr, i32 }
+.body.thread140:                                  ; preds = %160
+  %lpad.thr_comm.split-lp117142 = landingpad { ptr, i32 }
           cleanup
   br label %218
 
@@ -5281,8 +5281,8 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h4e86a5b6d
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hea92ff9fbf58d847E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #24
           to label %150 unwind label %144
 
-218:                                              ; preds = %.body.thread133, %.thread106, %150
-  %.pn43109 = phi { ptr, i32 } [ %151, %.thread106 ], [ %eh.lpad-body114, %150 ], [ %lpad.thr_comm.split-lp117135, %.body.thread133 ]
+218:                                              ; preds = %.body.thread140, %.thread106, %150
+  %.pn43109 = phi { ptr, i32 } [ %151, %.thread106 ], [ %eh.lpad-body114, %150 ], [ %lpad.thr_comm.split-lp117142, %.body.thread140 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hea92ff9fbf58d847E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44) #24
           to label %.thread unwind label %144
 
@@ -5428,8 +5428,8 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h5319b5600
           cleanup
   br label %71
 
-.loopexit.split-lp:                               ; preds = %.loopexit134, %100, %66, %107, %121, %125
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %125 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %107 ], [ 1, %66 ], [ %.sroa.03.2, %.loopexit134 ], [ %.sroa.03.2, %100 ]
+.loopexit.split-lp:                               ; preds = %.loopexit141, %100, %66, %107, %121, %125
+  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %125 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %107 ], [ 1, %66 ], [ %.sroa.03.2, %.loopexit141 ], [ %.sroa.03.2, %100 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -5524,9 +5524,9 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h5319b5600
 96:                                               ; preds = %94
   %.not40 = icmp eq ptr %95, null
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  br i1 %.not40, label %.loopexit134, label %84
+  br i1 %.not40, label %.loopexit141, label %84
 
-.loopexit134:                                     ; preds = %96, %99
+.loopexit141:                                     ; preds = %96, %99
   %.sroa.03.2 = phi i8 [ 0, %99 ], [ 1, %96 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h303c24df2bc9b995E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %42)
@@ -5542,9 +5542,9 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h5319b5600
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !2326
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  br label %.loopexit134
+  br label %.loopexit141
 
-100:                                              ; preds = %.loopexit134
+100:                                              ; preds = %.loopexit141
   %101 = invoke noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hfbb9e03f14501d00E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %67, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %37)
           to label %102 unwind label %.loopexit.split-lp
 
@@ -5754,10 +5754,10 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h5319b5600
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   invoke void @_ZN8schemars6schema6Schema7new_ref17h39c1f0f3a873d6a2E(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %28)
-          to label %198 unwind label %.body.thread131
+          to label %198 unwind label %.body.thread138
 
-.body.thread131:                                  ; preds = %160
-  %lpad.thr_comm.split-lp117133 = landingpad { ptr, i32 }
+.body.thread138:                                  ; preds = %160
+  %lpad.thr_comm.split-lp117140 = landingpad { ptr, i32 }
           cleanup
   br label %218
 
@@ -6004,8 +6004,8 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h5319b5600
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hea92ff9fbf58d847E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #24
           to label %150 unwind label %144
 
-218:                                              ; preds = %.body.thread131, %.thread106, %150
-  %.pn43109 = phi { ptr, i32 } [ %151, %.thread106 ], [ %eh.lpad-body114, %150 ], [ %lpad.thr_comm.split-lp117133, %.body.thread131 ]
+218:                                              ; preds = %.body.thread138, %.thread106, %150
+  %.pn43109 = phi { ptr, i32 } [ %151, %.thread106 ], [ %eh.lpad-body114, %150 ], [ %lpad.thr_comm.split-lp117140, %.body.thread138 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hea92ff9fbf58d847E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44) #24
           to label %.thread unwind label %144
 
@@ -6231,8 +6231,8 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h882c7a4b0
           cleanup
   br label %71
 
-.loopexit.split-lp:                               ; preds = %.loopexit134, %100, %66, %107, %121, %125
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %125 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %107 ], [ 1, %66 ], [ %.sroa.03.2, %.loopexit134 ], [ %.sroa.03.2, %100 ]
+.loopexit.split-lp:                               ; preds = %.loopexit141, %100, %66, %107, %121, %125
+  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %125 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %107 ], [ 1, %66 ], [ %.sroa.03.2, %.loopexit141 ], [ %.sroa.03.2, %100 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -6327,9 +6327,9 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h882c7a4b0
 96:                                               ; preds = %94
   %.not40 = icmp eq ptr %95, null
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  br i1 %.not40, label %.loopexit134, label %84
+  br i1 %.not40, label %.loopexit141, label %84
 
-.loopexit134:                                     ; preds = %96, %99
+.loopexit141:                                     ; preds = %96, %99
   %.sroa.03.2 = phi i8 [ 0, %99 ], [ 1, %96 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h303c24df2bc9b995E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %42)
@@ -6345,9 +6345,9 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h882c7a4b0
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !2491
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  br label %.loopexit134
+  br label %.loopexit141
 
-100:                                              ; preds = %.loopexit134
+100:                                              ; preds = %.loopexit141
   %101 = invoke noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hfbb9e03f14501d00E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %67, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %37)
           to label %102 unwind label %.loopexit.split-lp
 
@@ -6557,10 +6557,10 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h882c7a4b0
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   invoke void @_ZN8schemars6schema6Schema7new_ref17h39c1f0f3a873d6a2E(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %28)
-          to label %198 unwind label %.body.thread131
+          to label %198 unwind label %.body.thread138
 
-.body.thread131:                                  ; preds = %160
-  %lpad.thr_comm.split-lp117133 = landingpad { ptr, i32 }
+.body.thread138:                                  ; preds = %160
+  %lpad.thr_comm.split-lp117140 = landingpad { ptr, i32 }
           cleanup
   br label %218
 
@@ -6807,8 +6807,8 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h882c7a4b0
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hea92ff9fbf58d847E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #24
           to label %150 unwind label %144
 
-218:                                              ; preds = %.body.thread131, %.thread106, %150
-  %.pn43109 = phi { ptr, i32 } [ %151, %.thread106 ], [ %eh.lpad-body114, %150 ], [ %lpad.thr_comm.split-lp117133, %.body.thread131 ]
+218:                                              ; preds = %.body.thread138, %.thread106, %150
+  %.pn43109 = phi { ptr, i32 } [ %151, %.thread106 ], [ %eh.lpad-body114, %150 ], [ %lpad.thr_comm.split-lp117140, %.body.thread138 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hea92ff9fbf58d847E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44) #24
           to label %.thread unwind label %144
 
@@ -6954,8 +6954,8 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hc5d09d59b
           cleanup
   br label %71
 
-.loopexit.split-lp:                               ; preds = %.loopexit134, %100, %66, %107, %121, %125
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %125 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %107 ], [ 1, %66 ], [ %.sroa.03.2, %.loopexit134 ], [ %.sroa.03.2, %100 ]
+.loopexit.split-lp:                               ; preds = %.loopexit141, %100, %66, %107, %121, %125
+  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %125 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %107 ], [ 1, %66 ], [ %.sroa.03.2, %.loopexit141 ], [ %.sroa.03.2, %100 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -7050,9 +7050,9 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hc5d09d59b
 96:                                               ; preds = %94
   %.not40 = icmp eq ptr %95, null
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  br i1 %.not40, label %.loopexit134, label %84
+  br i1 %.not40, label %.loopexit141, label %84
 
-.loopexit134:                                     ; preds = %96, %99
+.loopexit141:                                     ; preds = %96, %99
   %.sroa.03.2 = phi i8 [ 0, %99 ], [ 1, %96 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h303c24df2bc9b995E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %42)
@@ -7068,9 +7068,9 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hc5d09d59b
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !2631
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  br label %.loopexit134
+  br label %.loopexit141
 
-100:                                              ; preds = %.loopexit134
+100:                                              ; preds = %.loopexit141
   %101 = invoke noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hfbb9e03f14501d00E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %67, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %37)
           to label %102 unwind label %.loopexit.split-lp
 
@@ -7280,10 +7280,10 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hc5d09d59b
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   invoke void @_ZN8schemars6schema6Schema7new_ref17h39c1f0f3a873d6a2E(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %28)
-          to label %198 unwind label %.body.thread131
+          to label %198 unwind label %.body.thread138
 
-.body.thread131:                                  ; preds = %160
-  %lpad.thr_comm.split-lp117133 = landingpad { ptr, i32 }
+.body.thread138:                                  ; preds = %160
+  %lpad.thr_comm.split-lp117140 = landingpad { ptr, i32 }
           cleanup
   br label %218
 
@@ -7530,8 +7530,8 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hc5d09d59b
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hea92ff9fbf58d847E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #24
           to label %150 unwind label %144
 
-218:                                              ; preds = %.body.thread131, %.thread106, %150
-  %.pn43109 = phi { ptr, i32 } [ %151, %.thread106 ], [ %eh.lpad-body114, %150 ], [ %lpad.thr_comm.split-lp117133, %.body.thread131 ]
+218:                                              ; preds = %.body.thread138, %.thread106, %150
+  %.pn43109 = phi { ptr, i32 } [ %151, %.thread106 ], [ %eh.lpad-body114, %150 ], [ %lpad.thr_comm.split-lp117140, %.body.thread138 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hea92ff9fbf58d847E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44) #24
           to label %.thread unwind label %144
 
@@ -7694,8 +7694,8 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hdb37eae25
           cleanup
   br label %73
 
-.loopexit.split-lp:                               ; preds = %.loopexit138, %102, %67, %109, %123, %127
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %127 ], [ %.sroa.03.2, %123 ], [ %.sroa.03.2, %109 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit138 ], [ %.sroa.03.2, %102 ]
+.loopexit.split-lp:                               ; preds = %.loopexit145, %102, %67, %109, %123, %127
+  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %127 ], [ %.sroa.03.2, %123 ], [ %.sroa.03.2, %109 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit145 ], [ %.sroa.03.2, %102 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %73
@@ -7790,9 +7790,9 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hdb37eae25
 98:                                               ; preds = %96
   %.not40 = icmp eq ptr %97, null
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  br i1 %.not40, label %.loopexit138, label %86
+  br i1 %.not40, label %.loopexit145, label %86
 
-.loopexit138:                                     ; preds = %98, %101
+.loopexit145:                                     ; preds = %98, %101
   %.sroa.03.2 = phi i8 [ 0, %101 ], [ 1, %98 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h303c24df2bc9b995E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %42)
@@ -7808,9 +7808,9 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hdb37eae25
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !2787
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  br label %.loopexit138
+  br label %.loopexit145
 
-102:                                              ; preds = %.loopexit138
+102:                                              ; preds = %.loopexit145
   %103 = invoke noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hfbb9e03f14501d00E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %71, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %37)
           to label %104 unwind label %.loopexit.split-lp
 
@@ -8020,10 +8020,10 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hdb37eae25
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   invoke void @_ZN8schemars6schema6Schema7new_ref17h39c1f0f3a873d6a2E(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %28)
-          to label %200 unwind label %.body.thread135
+          to label %200 unwind label %.body.thread142
 
-.body.thread135:                                  ; preds = %162
-  %lpad.thr_comm.split-lp119137 = landingpad { ptr, i32 }
+.body.thread142:                                  ; preds = %162
+  %lpad.thr_comm.split-lp119144 = landingpad { ptr, i32 }
           cleanup
   br label %220
 
@@ -8270,8 +8270,8 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hdb37eae25
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hea92ff9fbf58d847E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #24
           to label %152 unwind label %146
 
-220:                                              ; preds = %.body.thread135, %.thread108, %152
-  %.pn43111 = phi { ptr, i32 } [ %153, %.thread108 ], [ %eh.lpad-body116, %152 ], [ %lpad.thr_comm.split-lp119137, %.body.thread135 ]
+220:                                              ; preds = %.body.thread142, %.thread108, %152
+  %.pn43111 = phi { ptr, i32 } [ %153, %.thread108 ], [ %eh.lpad-body116, %152 ], [ %lpad.thr_comm.split-lp119144, %.body.thread142 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hea92ff9fbf58d847E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44) #24
           to label %.thread unwind label %146
 
@@ -9219,13 +9219,13 @@ define void @"_ZN13uv_pypi_types10direct_url109_$LT$impl$u20$core..convert..TryF
   %49 = alloca [88 x i8], align 8
   %50 = alloca [88 x i8], align 8
   %51 = load i8, ptr %1, align 8, !range !3262, !noundef !47
-  switch i8 %51, label %default.unreachable172 [
+  switch i8 %51, label %default.unreachable184 [
     i8 0, label %52
     i8 1, label %63
     i8 2, label %74
   ]
 
-default.unreachable172:                           ; preds = %2
+default.unreachable184:                           ; preds = %2
   unreachable
 
 52:                                               ; preds = %2

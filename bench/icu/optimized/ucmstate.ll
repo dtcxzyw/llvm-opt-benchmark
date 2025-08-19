@@ -918,8 +918,8 @@ define void @ucm_processStates(ptr noundef captures(none) %0, i8 noundef signext
   br i1 %exitcond144.not, label %.loopexit, label %87, !llvm.loop !29
 
 ._crit_edge120:                                   ; preds = %.loopexit
-  %.not163 = icmp eq i32 %81, 1
-  br i1 %.not163, label %._crit_edge120.thread, label %116
+  %.not172 = icmp eq i32 %81, 1
+  br i1 %.not172, label %._crit_edge120.thread, label %116
 
 116:                                              ; preds = %._crit_edge120
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 131076
@@ -1034,8 +1034,8 @@ define internal fastcc noundef range(i32 0, -1) i32 @_ZL11sumUpStatesP9UCMStates
 .lr.ph101:                                        ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 131072
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 131584
-  %.not127 = icmp eq i32 %3, 0
-  br i1 %.not127, label %._crit_edge109.sink.split, label %.lr.ph101.split
+  %.not132 = icmp eq i32 %3, 0
+  br i1 %.not132, label %._crit_edge109.sink.split, label %.lr.ph101.split
 
 .lr.ph101.split:                                  ; preds = %.lr.ph101, %._crit_edge
   %.07399 = phi i32 [ %49, %._crit_edge ], [ %3, %.lr.ph101 ]
@@ -1424,9 +1424,9 @@ define void @ucm_optimizeStates(ptr noundef captures(none) %0, ptr noundef captu
   br i1 %exitcond.not.i.us.i, label %ucm_findFallback.exit.us.sink.split.i, label %.lr.ph.i.us.i, !llvm.loop !41
 
 ucm_findFallback.exit.us.sink.split.i:            ; preds = %86, %67
-  %.sink313.i = phi i16 [ 2, %67 ], [ 1, %86 ]
+  %.sink325.i = phi i16 [ 2, %67 ], [ 1, %86 ]
   %87 = load i16, ptr %62, align 2, !tbaa !44
-  %88 = add i16 %87, %.sink313.i
+  %88 = add i16 %87, %.sink325.i
   store i16 %88, ptr %62, align 2, !tbaa !44
   br label %ucm_findFallback.exit.us.i
 
@@ -1467,9 +1467,9 @@ ucm_findFallback.exit.us.i:                       ; preds = %ucm_findFallback.ex
   br i1 %108, label %ucm_findFallback.exit.sink.split.i, label %.split220.us.thread.i
 
 ucm_findFallback.exit.sink.split.i:               ; preds = %101, %93
-  %.sink315.i = phi i16 [ 1, %93 ], [ 2, %101 ]
+  %.sink327.i = phi i16 [ 1, %93 ], [ 2, %101 ]
   %109 = load i16, ptr %62, align 2, !tbaa !44
-  %110 = add i16 %109, %.sink315.i
+  %110 = add i16 %109, %.sink327.i
   store i16 %110, ptr %62, align 2, !tbaa !44
   br label %ucm_findFallback.exit.i
 
@@ -1974,7 +1974,7 @@ define i32 @ucm_countChars(ptr noundef readonly captures(none) %0, ptr noundef r
 7:                                                ; preds = %3
   %8 = load ptr, ptr @stderr, align 8, !tbaa !8
   %9 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 42, i64 1, ptr %8) #19
-  br label %.thread75
+  br label %.thread77
 
 10:                                               ; preds = %3
   %11 = icmp eq i32 %2, 2
@@ -1989,17 +1989,17 @@ define i32 @ucm_countChars(ptr noundef readonly captures(none) %0, ptr noundef r
 
 15:                                               ; preds = %10
   %16 = icmp sgt i32 %2, 0
-  br i1 %16, label %.lr.ph.preheader, label %.thread75
+  br i1 %16, label %.lr.ph.preheader, label %.thread77
 
 .lr.ph.preheader:                                 ; preds = %.thread, %15
-  %.057 = phi i64 [ %spec.select, %.thread ], [ 0, %15 ]
+  %.059 = phi i64 [ %spec.select, %.thread ], [ 0, %15 ]
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph.outer
 
-.lr.ph.outer:                                     ; preds = %.thread62, %.lr.ph.preheader
-  %indvars.iv.ph = phi i64 [ %indvars.iv.next66, %.thread62 ], [ 0, %.lr.ph.preheader ]
-  %.150.ph = phi i64 [ %46, %.thread62 ], [ %.057, %.lr.ph.preheader ]
-  %.02649.ph = phi i32 [ %43, %.thread62 ], [ 0, %.lr.ph.preheader ]
+.lr.ph.outer:                                     ; preds = %.thread64, %.lr.ph.preheader
+  %indvars.iv.ph = phi i64 [ %indvars.iv.next68, %.thread64 ], [ 0, %.lr.ph.preheader ]
+  %.150.ph = phi i64 [ %46, %.thread64 ], [ %.059, %.lr.ph.preheader ]
+  %.02649.ph = phi i32 [ %43, %.thread64 ], [ 0, %.lr.ph.preheader ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %38
@@ -2022,30 +2022,30 @@ define i32 @ucm_countChars(ptr noundef readonly captures(none) %0, ptr noundef r
   switch i32 %27, label %34 [
     i32 7, label %28
     i32 8, label %31
-    i32 6, label %.thread62
-    i32 2, label %.thread62
-    i32 0, label %.thread62
-    i32 3, label %.thread62
-    i32 1, label %.thread62
-    i32 4, label %.thread62
-    i32 5, label %.thread62
+    i32 6, label %.thread64
+    i32 2, label %.thread64
+    i32 0, label %.thread64
+    i32 3, label %.thread64
+    i32 1, label %.thread64
+    i32 4, label %.thread64
+    i32 5, label %.thread64
   ]
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr @stderr, align 8, !tbaa !8
   %30 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 47, i64 1, ptr %29) #19
-  br label %.thread75
+  br label %.thread77
 
 31:                                               ; preds = %25
   %32 = load ptr, ptr @stderr, align 8, !tbaa !8
   %33 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 51, i64 1, ptr %32) #19
-  br label %.thread75
+  br label %.thread77
 
 34:                                               ; preds = %25
   %35 = load ptr, ptr @stderr, align 8, !tbaa !8
   %36 = sext i32 %23 to i64
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.49, i64 noundef %36) #15
-  br label %.thread75
+  br label %.thread77
 
 38:                                               ; preds = %.lr.ph
   %39 = lshr i32 %23, 24
@@ -2056,45 +2056,45 @@ define i32 @ucm_countChars(ptr noundef readonly captures(none) %0, ptr noundef r
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
-.thread62:                                        ; preds = %25, %25, %25, %25, %25, %25, %25
+.thread64:                                        ; preds = %25, %25, %25, %25, %25, %25, %25
   %43 = add nuw nsw i32 %.02649.ph, 1
   %44 = lshr i32 %23, 24
   %45 = and i32 %44, 127
   %46 = zext nneg i32 %45 to i64
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not67 = icmp eq i64 %indvars.iv.next66, %wide.trip.count
-  br i1 %exitcond.not67, label %._crit_edge.thread71, label %.lr.ph.outer, !llvm.loop !63
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not69 = icmp eq i64 %indvars.iv.next68, %wide.trip.count
+  br i1 %exitcond.not69, label %._crit_edge.thread73, label %.lr.ph.outer, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %38
   %47 = icmp eq i32 %42, 0
-  br i1 %47, label %._crit_edge.thread71, label %48
+  br i1 %47, label %._crit_edge.thread73, label %48
 
 48:                                               ; preds = %._crit_edge
   %49 = load ptr, ptr @stderr, align 8, !tbaa !8
   %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.50, i32 noundef %39) #15
-  br label %.thread75
+  br label %.thread77
 
-._crit_edge.thread71:                             ; preds = %.thread62, %._crit_edge
-  %.026.lcssa61 = phi i32 [ %.02649.ph, %._crit_edge ], [ %43, %.thread62 ]
-  %51 = icmp sgt i32 %.026.lcssa61, 1
-  br i1 %51, label %52, label %.thread75
+._crit_edge.thread73:                             ; preds = %.thread64, %._crit_edge
+  %.026.lcssa63 = phi i32 [ %.02649.ph, %._crit_edge ], [ %43, %.thread64 ]
+  %51 = icmp sgt i32 %.026.lcssa63, 1
+  br i1 %51, label %52, label %.thread77
 
-52:                                               ; preds = %._crit_edge.thread71
+52:                                               ; preds = %._crit_edge.thread73
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 132113
   %54 = load i8, ptr %53, align 1, !tbaa !24
   %55 = icmp ne i8 %54, 12
-  %56 = shl nuw nsw i32 %.026.lcssa61, 1
+  %56 = shl nuw nsw i32 %.026.lcssa63, 1
   %.not35 = icmp eq i32 %2, %56
   %or.cond = select i1 %55, i1 true, i1 %.not35
-  br i1 %or.cond, label %.thread75, label %57
+  br i1 %or.cond, label %.thread77, label %57
 
 57:                                               ; preds = %52
   %58 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.51, i32 noundef %.026.lcssa61) #15
-  br label %.thread75
+  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.51, i32 noundef %.026.lcssa63) #15
+  br label %.thread77
 
-.thread75:                                        ; preds = %15, %._crit_edge.thread71, %52, %57, %48, %34, %31, %28, %7
-  %.028 = phi i32 [ -1, %7 ], [ -1, %34 ], [ -1, %28 ], [ -1, %31 ], [ -1, %48 ], [ -1, %57 ], [ %.026.lcssa61, %52 ], [ %.026.lcssa61, %._crit_edge.thread71 ], [ 0, %15 ]
+.thread77:                                        ; preds = %15, %._crit_edge.thread73, %52, %57, %48, %34, %31, %28, %7
+  %.028 = phi i32 [ -1, %7 ], [ -1, %34 ], [ -1, %28 ], [ -1, %31 ], [ -1, %48 ], [ -1, %57 ], [ %.026.lcssa63, %52 ], [ %.026.lcssa63, %._crit_edge.thread73 ], [ 0, %15 ]
   ret i32 %.028
 }
 
@@ -2186,8 +2186,8 @@ define internal fastcc noundef i32 @_ZL14findUnassignedP9UCMStatesPtP16_MBCSToUF
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %44 ], [ 0, %41 ]
   %42 = getelementptr inbounds nuw %struct._MBCSToUFallback, ptr %2, i64 %indvars.iv.i
   %43 = load i32, ptr %42, align 4, !tbaa !39
-  %.not62 = icmp eq i32 %36, %43
-  br i1 %.not62, label %ucm_findFallback.exit, label %44
+  %.not64 = icmp eq i32 %36, %43
+  br i1 %.not64, label %ucm_findFallback.exit, label %44
 
 44:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

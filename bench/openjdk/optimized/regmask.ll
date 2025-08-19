@@ -512,7 +512,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 76:                                               ; preds = %74
   %77 = shl nuw i64 3, %75
   %.not24.i = icmp eq i64 %77, %73
-  br i1 %.not24.i, label %.preheader78, label %_ZNK7RegMask12is_bound_setEj.exit
+  br i1 %.not24.i, label %.preheader92, label %_ZNK7RegMask12is_bound_setEj.exit
 
 78:                                               ; preds = %74
   %79 = add i32 %.01732.i, 1
@@ -524,14 +524,14 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   %83 = getelementptr inbounds nuw [11 x i64], ptr %0, i64 0, i64 %82
   %84 = load i64, ptr %83, align 8
   %.not23.i = icmp eq i64 %84, 1
-  br i1 %.not23.i, label %.preheader78, label %_ZNK7RegMask12is_bound_setEj.exit
+  br i1 %.not23.i, label %.preheader92, label %_ZNK7RegMask12is_bound_setEj.exit
 
-.preheader78:                                     ; preds = %81, %76
+.preheader92:                                     ; preds = %81, %76
   %.2.in.i12.ph = phi i32 [ %79, %81 ], [ %.01732.i, %76 ]
   br label %85
 
-85:                                               ; preds = %.preheader78, %86
-  %.2.in.i12 = phi i32 [ %.2.i13, %86 ], [ %.2.in.i12.ph, %.preheader78 ]
+85:                                               ; preds = %.preheader92, %86
+  %.2.in.i12 = phi i32 [ %.2.i13, %86 ], [ %.2.in.i12.ph, %.preheader92 ]
   %.2.i13 = add i32 %.2.in.i12, 1
   %.not25.i = icmp ugt i32 %.2.i13, %59
   br i1 %.not25.i, label %_ZNK7RegMask12is_bound_setEj.exit, label %86

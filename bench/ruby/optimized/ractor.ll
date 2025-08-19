@@ -1788,10 +1788,10 @@ rb_vm_lock.exit18:                                ; preds = %rb_vm_unlock.exit, 
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 1, ptr %33, align 8, !tbaa !127
   %39 = load i32, ptr %34, align 8, !tbaa !72
-  %cond.i.i.i34 = icmp eq i32 %39, 3
-  br i1 %cond.i.i.i34, label %._crit_edge35, label %rb_vm_ractor_blocking_cnt_inc.exit
+  %cond.i.i.i38 = icmp eq i32 %39, 3
+  br i1 %cond.i.i.i38, label %._crit_edge39, label %rb_vm_ractor_blocking_cnt_inc.exit
 
-._crit_edge35:                                    ; preds = %.backedge, %.lr.ph
+._crit_edge39:                                    ; preds = %.backedge, %.lr.ph
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
   unreachable
 
@@ -1873,7 +1873,7 @@ ractor_terminal_interrupt_all.exit31.loopexit:    ; preds = %rb_ractor_terminate
   store i8 1, ptr %33, align 8, !tbaa !127
   %66 = load i32, ptr %34, align 8, !tbaa !72
   %cond.i.i.i = icmp eq i32 %66, 3
-  br i1 %cond.i.i.i, label %._crit_edge35, label %rb_vm_ractor_blocking_cnt_inc.exit, !llvm.loop !131
+  br i1 %cond.i.i.i, label %._crit_edge39, label %rb_vm_ractor_blocking_cnt_inc.exit, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %rb_vm_ractor_blocking_cnt_dec.exit, %ractor_terminal_interrupt_all.exit31.loopexit, %rb_vm_lock.exit18
   %67 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !39
@@ -3700,11 +3700,11 @@ rb_current_ractor.exit.i:                         ; preds = %rb_ractor_main_p.ex
   %21 = call i32 @rb_st_lookup(ptr noundef nonnull %18, i64 noundef %20, ptr noundef nonnull %2) #18
   %.not9.i = icmp eq i32 %21, 0
   %.pre = load ptr, ptr %2, align 8
-  %spec.select3 = select i1 %.not9.i, ptr null, ptr %.pre
+  %spec.select5 = select i1 %.not9.i, ptr null, ptr %.pre
   br label %ractor_local_ref.exit
 
 ractor_local_ref.exit:                            ; preds = %19, %rb_ractor_main_p.exit.thread.i, %rb_current_ractor.exit.i
-  %22 = phi ptr [ null, %rb_current_ractor.exit.i ], [ %spec.select, %rb_ractor_main_p.exit.thread.i ], [ %spec.select3, %19 ]
+  %22 = phi ptr [ null, %rb_current_ractor.exit.i ], [ %spec.select, %rb_ractor_main_p.exit.thread.i ], [ %spec.select5, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %22
 }

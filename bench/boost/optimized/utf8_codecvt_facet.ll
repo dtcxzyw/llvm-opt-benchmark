@@ -61,7 +61,7 @@ define noundef range(i32 0, 3) i32 @_ZNK5boost7archive6detail18utf8_codecvt_face
   br i1 %11, label %.lr.ph77, label %._crit_edge78
 
 .lr.ph77:                                         ; preds = %8, %50
-  %.04875 = phi ptr [ %.149.lcssa103, %50 ], [ %2, %8 ]
+  %.04875 = phi ptr [ %.149.lcssa110, %50 ], [ %2, %8 ]
   %.05074 = phi ptr [ %51, %50 ], [ %5, %8 ]
   %12 = load i8, ptr %.04875, align 1, !tbaa !6
   %or.cond.i = icmp slt i8 %12, -64
@@ -80,7 +80,7 @@ define noundef range(i32 0, 3) i32 @_ZNK5boost7archive6detail18utf8_codecvt_face
 
 ._crit_edge.thread:                               ; preds = %15
   %17 = zext nneg i8 %12 to i32
-  %.1496796 = getelementptr inbounds nuw i8, ptr %.04875, i64 1
+  %.14967103 = getelementptr inbounds nuw i8, ptr %.04875, i64 1
   br label %50
 
 18:                                               ; preds = %15
@@ -162,18 +162,18 @@ _ZN5boost7archive6detail18utf8_codecvt_facet20get_cont_octet_countEh.exit: ; pre
   br label %.thread
 
 50:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.149.lcssa103 = phi ptr [ %.1496796, %._crit_edge.thread ], [ %.149.lcssa, %._crit_edge ]
-  %.045.lcssa102 = phi i32 [ %17, %._crit_edge.thread ], [ %.045.lcssa, %._crit_edge ]
+  %.149.lcssa110 = phi ptr [ %.14967103, %._crit_edge.thread ], [ %.149.lcssa, %._crit_edge ]
+  %.045.lcssa109 = phi i32 [ %17, %._crit_edge.thread ], [ %.045.lcssa, %._crit_edge ]
   %51 = getelementptr inbounds nuw i8, ptr %.05074, i64 4
-  store i32 %.045.lcssa102, ptr %.05074, align 4, !tbaa !10
-  %52 = icmp ne ptr %.149.lcssa103, %3
+  store i32 %.045.lcssa109, ptr %.05074, align 4, !tbaa !10
+  %52 = icmp ne ptr %.149.lcssa110, %3
   %53 = icmp ne ptr %51, %6
   %54 = select i1 %52, i1 %53, i1 false
   br i1 %54, label %.lr.ph77, label %._crit_edge78, !llvm.loop !14
 
 ._crit_edge78:                                    ; preds = %50, %8
   %.050.lcssa = phi ptr [ %5, %8 ], [ %51, %50 ]
-  %.048.lcssa = phi ptr [ %2, %8 ], [ %.149.lcssa103, %50 ]
+  %.048.lcssa = phi ptr [ %2, %8 ], [ %.149.lcssa110, %50 ]
   store ptr %.048.lcssa, ptr %4, align 8, !tbaa !8
   store ptr %.050.lcssa, ptr %7, align 8, !tbaa !8
   %55 = icmp ne ptr %.048.lcssa, %3

@@ -153,10 +153,10 @@ define void @Aig_ManTransferRepr(ptr noundef captures(none) %0, ptr noundef read
   %59 = icmp slt i32 %56, %58
   %60 = load ptr, ptr %33, align 8, !tbaa !21
   %..i = tail call i32 @llvm.smax.i32(i32 %56, i32 %58)
-  %.16.i = select i1 %59, ptr %54, ptr %53
+  %.19.i = select i1 %59, ptr %54, ptr %53
   %61 = sext i32 %..i to i64
   %62 = getelementptr inbounds ptr, ptr %60, i64 %61
-  store ptr %.16.i, ptr %62, align 8, !tbaa !23
+  store ptr %.19.i, ptr %62, align 8, !tbaa !23
   br label %Aig_ObjSetRepr_.exit
 
 Aig_ObjSetRepr_.exit:                             ; preds = %.sink.split.i, %43, %34, %38
@@ -784,10 +784,10 @@ Aig_ObjFindReprTransitive.exit:                   ; preds = %.preheader.i
 .sink.split.i:                                    ; preds = %Aig_ObjFindReprTransitive.exit
   %27 = icmp slt i32 %.val21, %.1.val.i
   %..i = tail call i32 @llvm.smax.i32(i32 %.val21, i32 %.1.val.i)
-  %.16.i = select i1 %27, ptr %10, ptr %.1.i
+  %.19.i = select i1 %27, ptr %10, ptr %.1.i
   %28 = sext i32 %..i to i64
   %29 = getelementptr inbounds ptr, ptr %.val20, i64 %28
-  store ptr %.16.i, ptr %29, align 8, !tbaa !23
+  store ptr %.19.i, ptr %29, align 8, !tbaa !23
   %.pre = load i64, ptr %13, align 8
   br label %Aig_ObjSetRepr_.exit
 
@@ -999,10 +999,10 @@ Aig_ObjFindReprTransitive.exit.i:                 ; preds = %.preheader.i.i
 .sink.split.i.i:                                  ; preds = %Aig_ObjFindReprTransitive.exit.i
   %28 = icmp slt i32 %.val21.i, %.1.val.i.i
   %..i.i = tail call i32 @llvm.smax.i32(i32 %.val21.i, i32 %.1.val.i.i)
-  %.16.i.i = select i1 %28, ptr %11, ptr %.1.i.i
+  %.19.i.i = select i1 %28, ptr %11, ptr %.1.i.i
   %29 = sext i32 %..i.i to i64
   %30 = getelementptr inbounds ptr, ptr %.val20.i, i64 %29
-  store ptr %.16.i.i, ptr %30, align 8, !tbaa !23
+  store ptr %.19.i.i, ptr %30, align 8, !tbaa !23
   %.pre.i = load i64, ptr %14, align 8
   br label %Aig_ObjSetRepr_.exit.i
 
@@ -1240,10 +1240,10 @@ Aig_ManObj.exit25:                                ; preds = %24
   %45 = icmp slt i32 %42, %44
   %46 = load ptr, ptr %12, align 8, !tbaa !21
   %..i = tail call i32 @llvm.smax.i32(i32 %42, i32 %44)
-  %.16.i = select i1 %45, ptr %31, ptr %39
+  %.19.i = select i1 %45, ptr %31, ptr %39
   %47 = sext i32 %..i to i64
   %48 = getelementptr inbounds ptr, ptr %46, i64 %47
-  store ptr %.16.i, ptr %48, align 8, !tbaa !23
+  store ptr %.19.i, ptr %48, align 8, !tbaa !23
   br label %Aig_ObjSetRepr_.exit
 
 Aig_ObjSetRepr_.exit:                             ; preds = %24, %.sink.split.i, %Aig_ManObj.exit25, %13, %17

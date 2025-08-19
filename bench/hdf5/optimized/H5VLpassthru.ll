@@ -644,8 +644,8 @@ define internal i32 @H5VL_pass_through_dataset_read(i64 noundef %0, ptr noundef 
   br i1 %14, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %11
-  %.pre43 = load ptr, ptr %1, align 8, !tbaa !14
-  %.pre4044 = load i64, ptr %.pre43, align 8, !tbaa !18
+  %.pre48 = load ptr, ptr %1, align 8, !tbaa !14
+  %.pre4049 = load i64, ptr %.pre48, align 8, !tbaa !18
   br label %.lr.ph
 
 15:                                               ; preds = %8
@@ -655,8 +655,8 @@ define internal i32 @H5VL_pass_through_dataset_read(i64 noundef %0, ptr noundef 
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %15
-  %.pre4047 = phi i64 [ %.pre4044, %.thread ], [ %.pre40, %15 ]
-  %.03045 = phi ptr [ %13, %.thread ], [ %9, %15 ]
+  %.pre4052 = phi i64 [ %.pre4049, %.thread ], [ %.pre40, %15 ]
+  %.03050 = phi ptr [ %13, %.thread ], [ %9, %15 ]
   br label %18
 
 16:                                               ; preds = %18
@@ -670,16 +670,16 @@ define internal i32 @H5VL_pass_through_dataset_read(i64 noundef %0, ptr noundef 
   %20 = load ptr, ptr %19, align 8, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !16
-  %23 = getelementptr inbounds nuw ptr, ptr %.03045, i64 %.02938
+  %23 = getelementptr inbounds nuw ptr, ptr %.03050, i64 %.02938
   store ptr %22, ptr %23, align 8, !tbaa !14
   %24 = load i64, ptr %20, align 8, !tbaa !18
-  %.not37 = icmp eq i64 %24, %.pre4047
+  %.not37 = icmp eq i64 %24, %.pre4052
   br i1 %.not37, label %16, label %.loopexit
 
 ._crit_edge:                                      ; preds = %16, %15
-  %.pre4048 = phi i64 [ %.pre40, %15 ], [ %.pre4047, %16 ]
-  %.03046 = phi ptr [ %9, %15 ], [ %.03045, %16 ]
-  %25 = call i32 @H5VLdataset_read(i64 noundef %0, ptr noundef nonnull %.03046, i64 noundef %.pre4048, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #10
+  %.pre4053 = phi i64 [ %.pre40, %15 ], [ %.pre4052, %16 ]
+  %.03051 = phi ptr [ %9, %15 ], [ %.03050, %16 ]
+  %25 = call i32 @H5VLdataset_read(i64 noundef %0, ptr noundef nonnull %.03051, i64 noundef %.pre4053, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #10
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %34, label %26
 
@@ -700,11 +700,11 @@ define internal i32 @H5VL_pass_through_dataset_read(i64 noundef %0, ptr noundef 
   br label %34
 
 34:                                               ; preds = %28, %26, %._crit_edge
-  %.not36 = icmp eq ptr %.03046, %9
+  %.not36 = icmp eq ptr %.03051, %9
   br i1 %.not36, label %.loopexit, label %35
 
 35:                                               ; preds = %34
-  call void @free(ptr noundef nonnull %.03046) #10
+  call void @free(ptr noundef nonnull %.03051) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %34, %35, %11
@@ -727,8 +727,8 @@ define internal i32 @H5VL_pass_through_dataset_write(i64 noundef %0, ptr noundef
   br i1 %14, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %11
-  %.pre43 = load ptr, ptr %1, align 8, !tbaa !14
-  %.pre4044 = load i64, ptr %.pre43, align 8, !tbaa !18
+  %.pre48 = load ptr, ptr %1, align 8, !tbaa !14
+  %.pre4049 = load i64, ptr %.pre48, align 8, !tbaa !18
   br label %.lr.ph
 
 15:                                               ; preds = %8
@@ -738,8 +738,8 @@ define internal i32 @H5VL_pass_through_dataset_write(i64 noundef %0, ptr noundef
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %15
-  %.pre4047 = phi i64 [ %.pre4044, %.thread ], [ %.pre40, %15 ]
-  %.03045 = phi ptr [ %13, %.thread ], [ %9, %15 ]
+  %.pre4052 = phi i64 [ %.pre4049, %.thread ], [ %.pre40, %15 ]
+  %.03050 = phi ptr [ %13, %.thread ], [ %9, %15 ]
   br label %18
 
 16:                                               ; preds = %18
@@ -753,16 +753,16 @@ define internal i32 @H5VL_pass_through_dataset_write(i64 noundef %0, ptr noundef
   %20 = load ptr, ptr %19, align 8, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !16
-  %23 = getelementptr inbounds nuw ptr, ptr %.03045, i64 %.02938
+  %23 = getelementptr inbounds nuw ptr, ptr %.03050, i64 %.02938
   store ptr %22, ptr %23, align 8, !tbaa !14
   %24 = load i64, ptr %20, align 8, !tbaa !18
-  %.not37 = icmp eq i64 %24, %.pre4047
+  %.not37 = icmp eq i64 %24, %.pre4052
   br i1 %.not37, label %16, label %.loopexit
 
 ._crit_edge:                                      ; preds = %16, %15
-  %.pre4048 = phi i64 [ %.pre40, %15 ], [ %.pre4047, %16 ]
-  %.03046 = phi ptr [ %9, %15 ], [ %.03045, %16 ]
-  %25 = call i32 @H5VLdataset_write(i64 noundef %0, ptr noundef nonnull %.03046, i64 noundef %.pre4048, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #10
+  %.pre4053 = phi i64 [ %.pre40, %15 ], [ %.pre4052, %16 ]
+  %.03051 = phi ptr [ %9, %15 ], [ %.03050, %16 ]
+  %25 = call i32 @H5VLdataset_write(i64 noundef %0, ptr noundef nonnull %.03051, i64 noundef %.pre4053, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #10
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %34, label %26
 
@@ -783,11 +783,11 @@ define internal i32 @H5VL_pass_through_dataset_write(i64 noundef %0, ptr noundef
   br label %34
 
 34:                                               ; preds = %28, %26, %._crit_edge
-  %.not36 = icmp eq ptr %.03046, %9
+  %.not36 = icmp eq ptr %.03051, %9
   br i1 %.not36, label %.loopexit, label %35
 
 35:                                               ; preds = %34
-  call void @free(ptr noundef nonnull %.03046) #10
+  call void @free(ptr noundef nonnull %.03051) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %34, %35, %11

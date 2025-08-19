@@ -6332,7 +6332,7 @@ _ZN5arrow6StatusD2Ev.exit39.preheader.i:          ; preds = %_ZN5arrow6StatusD2E
   br i1 %1343, label %_ZN5arrow6StatusD2Ev.exit39._crit_edge.i, label %.lr.ph13.split.i.preheader
 
 .lr.ph13.split.i.preheader:                       ; preds = %.lr.ph13.i
-  %.sroa.02.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx1695 = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i.i, i64 4
+  %.sroa.02.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx2271 = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i.i, i64 4
   %.sroa.02.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i.i, i64 4
   %.sroa.02.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i.i, i64 8
   br label %.lr.ph13.split.i
@@ -6396,7 +6396,7 @@ _ZN5arrow6StatusD2Ev.exit39.i362:                 ; preds = %_ZN5arrow6StatusD2E
 
 1376:                                             ; preds = %1354
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02.i.i.i.i.i.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.02.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx1695, i8 0, i64 12, i1 false), !noalias !623
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.02.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx2271, i8 0, i64 12, i1 false), !noalias !623
   store i32 %1375, ptr %.sroa.02.i.i.i.i.i.i, align 8, !tbaa !184, !noalias !623
   %sext.i.i.i.i.i = shl i64 %1360, 32
   %1377 = ashr exact i64 %sext.i.i.i.i.i, 32
@@ -6864,7 +6864,7 @@ _ZN5arrow6StatusD2Ev.exit39.preheader.i418:       ; preds = %_ZN5arrow6StatusD2E
   br i1 %1612, label %_ZN5arrow6StatusD2Ev.exit39._crit_edge.i419, label %.lr.ph13.split.i424.preheader
 
 .lr.ph13.split.i424.preheader:                    ; preds = %.lr.ph13.i420
-  %.sroa.02.i.i.i.i.i.i406.4.i.i.i.i.i.i406.4.i.i.i.i.i.i406.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx1696 = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i.i406, i64 4
+  %.sroa.02.i.i.i.i.i.i406.4.i.i.i.i.i.i406.4.i.i.i.i.i.i406.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx2272 = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i.i406, i64 4
   %.sroa.02.i.i.i.i.i.i406.4.i.i.i.i.i.i406.4.i.i.i.i.i.i406.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i.i406, i64 4
   %.sroa.02.i.i.i.i.i.i406.8.i.i.i.i.i.i406.8.i.i.i.i.i.i406.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i.i406, i64 8
   br label %.lr.ph13.split.i424
@@ -6928,7 +6928,7 @@ _ZN5arrow6StatusD2Ev.exit39.i432:                 ; preds = %_ZN5arrow6StatusD2E
 
 1645:                                             ; preds = %1623
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02.i.i.i.i.i.i406)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.02.i.i.i.i.i.i406.4.i.i.i.i.i.i406.4.i.i.i.i.i.i406.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx1696, i8 0, i64 12, i1 false), !noalias !697
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.02.i.i.i.i.i.i406.4.i.i.i.i.i.i406.4.i.i.i.i.i.i406.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx2272, i8 0, i64 12, i1 false), !noalias !697
   store i32 %1644, ptr %.sroa.02.i.i.i.i.i.i406, align 8, !tbaa !184, !noalias !697
   %sext.i.i.i.i.i446 = shl i64 %1629, 32
   %1646 = ashr exact i64 %sext.i.i.i.i.i446, 32
@@ -7709,9 +7709,9 @@ _ZN5arrow6StatusD2Ev.exit17.i.i532:               ; preds = %_ZN5arrow6StatusD2E
   br label %_ZN5arrow22FixedSizeBinaryBuilder12UnsafeAppendERKSt10shared_ptrINS_6BufferEE.exit.sink.split.i.i
 
 _ZN5arrow22FixedSizeBinaryBuilder12UnsafeAppendERKSt10shared_ptrINS_6BufferEE.exit.sink.split.i.i: ; preds = %2022, %2017
-  %.sink8.i.i = phi i64 [ %2018, %2017 ], [ %2042, %2022 ]
+  %.sink17.i.i = phi i64 [ %2018, %2017 ], [ %2042, %2022 ]
   %2046 = load i64, ptr %1983, align 8, !tbaa !364, !noalias !809
-  %2047 = add nsw i64 %2046, %.sink8.i.i
+  %2047 = add nsw i64 %2046, %.sink17.i.i
   store i64 %2047, ptr %1983, align 8, !tbaa !364, !noalias !809
   br label %_ZN5arrow22FixedSizeBinaryBuilder12UnsafeAppendERKSt10shared_ptrINS_6BufferEE.exit.i.i
 
@@ -13717,8 +13717,8 @@ _ZN5arrow6StatusD2Ev.exit91.i:                    ; preds = %_ZN5arrow6StatusD2E
   %4900 = ptrtoint ptr %4898 to i64
   %4901 = ptrtoint ptr %4899 to i64
   %4902 = sub i64 %4900, %4901
-  %sext171.i = shl i64 %4902, 28
-  %4903 = ashr i64 %sext171.i, 32
+  %sext184.i = shl i64 %4902, 28
+  %4903 = ashr i64 %sext184.i, 32
   %.not61.i1244 = icmp slt i64 %indvars.iv.next169.i, %4903
   br i1 %.not61.i1244, label %4875, label %.critedge70.i1231, !llvm.loop !1437
 
@@ -17415,7 +17415,7 @@ _ZN5arrow6StatusD2Ev.exit37.preheader.i:          ; preds = %_ZN5arrow6StatusD2E
   %1261 = getelementptr inbounds nuw i8, ptr %1215, i64 256
   %1262 = getelementptr inbounds nuw i8, ptr %1215, i64 264
   %.val288.pre.i = load ptr, ptr %1213, align 8, !tbaa !200, !noalias !1901
-  %.sroa.02.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx1906 = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i.i, i64 4
+  %.sroa.02.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx2386 = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i.i, i64 4
   %.sroa.02.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i.i, i64 4
   %.sroa.02.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i.i, i64 8
   br label %1263
@@ -17481,7 +17481,7 @@ _ZN5arrow6StatusD2Ev.exit37.i432:                 ; preds = %_ZN5arrow6StatusD2E
 
 1295:                                             ; preds = %1273
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02.i.i.i.i.i.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.02.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx1906, i8 0, i64 12, i1 false), !noalias !1901
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.02.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx2386, i8 0, i64 12, i1 false), !noalias !1901
   store i32 %1294, ptr %.sroa.02.i.i.i.i.i.i, align 8, !tbaa !184, !noalias !1901
   %sext.i.i.i.i.i = shl i64 %1279, 32
   %1296 = ashr exact i64 %sext.i.i.i.i.i, 32
@@ -17946,7 +17946,7 @@ _ZN5arrow6StatusD2Ev.exit37.preheader.i496:       ; preds = %_ZN5arrow6StatusD2E
   %1520 = getelementptr inbounds nuw i8, ptr %1474, i64 256
   %1521 = getelementptr inbounds nuw i8, ptr %1474, i64 264
   %.val288.pre.i499 = load ptr, ptr %1472, align 8, !tbaa !200, !noalias !1964
-  %.sroa.02.i.i.i.i.i.i482.4.i.i.i.i.i.i482.4.i.i.i.i.i.i482.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx1907 = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i.i482, i64 4
+  %.sroa.02.i.i.i.i.i.i482.4.i.i.i.i.i.i482.4.i.i.i.i.i.i482.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx2387 = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i.i482, i64 4
   %.sroa.02.i.i.i.i.i.i482.4.i.i.i.i.i.i482.4.i.i.i.i.i.i482.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i.i482, i64 4
   %.sroa.02.i.i.i.i.i.i482.8.i.i.i.i.i.i482.8.i.i.i.i.i.i482.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i.i482, i64 8
   br label %1522
@@ -18012,7 +18012,7 @@ _ZN5arrow6StatusD2Ev.exit37.i512:                 ; preds = %_ZN5arrow6StatusD2E
 
 1554:                                             ; preds = %1532
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02.i.i.i.i.i.i482)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.02.i.i.i.i.i.i482.4.i.i.i.i.i.i482.4.i.i.i.i.i.i482.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx1907, i8 0, i64 12, i1 false), !noalias !1964
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.02.i.i.i.i.i.i482.4.i.i.i.i.i.i482.4.i.i.i.i.i.i482.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx2387, i8 0, i64 12, i1 false), !noalias !1964
   store i32 %1553, ptr %.sroa.02.i.i.i.i.i.i482, align 8, !tbaa !184, !noalias !1964
   %sext.i.i.i.i.i527 = shl i64 %1538, 32
   %1555 = ashr exact i64 %sext.i.i.i.i.i527, 32
@@ -18795,9 +18795,9 @@ _ZN5arrow6StatusD2Ev.exit17.i.i627:               ; preds = %_ZN5arrow6StatusD2E
   br label %_ZN5arrow22FixedSizeBinaryBuilder12UnsafeAppendERKSt10shared_ptrINS_6BufferEE.exit.sink.split.i.i
 
 _ZN5arrow22FixedSizeBinaryBuilder12UnsafeAppendERKSt10shared_ptrINS_6BufferEE.exit.sink.split.i.i: ; preds = %1915, %1910
-  %.sink10.i.i = phi i64 [ %1911, %1910 ], [ %1935, %1915 ]
+  %.sink17.i.i = phi i64 [ %1911, %1910 ], [ %1935, %1915 ]
   %1939 = load i64, ptr %1879, align 8, !tbaa !364, !noalias !2076
-  %1940 = add nsw i64 %1939, %.sink10.i.i
+  %1940 = add nsw i64 %1939, %.sink17.i.i
   store i64 %1940, ptr %1879, align 8, !tbaa !364, !noalias !2076
   br label %_ZN5arrow22FixedSizeBinaryBuilder12UnsafeAppendERKSt10shared_ptrINS_6BufferEE.exit.i.i
 
@@ -24815,8 +24815,8 @@ _ZN5arrow6StatusD2Ev.exit90.i:                    ; preds = %_ZN5arrow6StatusD2E
   %4686 = ptrtoint ptr %4684 to i64
   %4687 = ptrtoint ptr %4685 to i64
   %4688 = sub i64 %4686, %4687
-  %sext175.i = shl i64 %4688, 28
-  %4689 = ashr i64 %sext175.i, 32
+  %sext186.i = shl i64 %4688, 28
+  %4689 = ashr i64 %sext186.i, 32
   %.not56.i = icmp slt i64 %indvars.iv.next171.i, %4689
   br i1 %.not56.i, label %4661, label %.critedge65.i1440, !llvm.loop !2661
 

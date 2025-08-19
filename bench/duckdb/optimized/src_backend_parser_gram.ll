@@ -3466,11 +3466,11 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5306: ; preds = %897
   br label %1100
 
 1100:                                             ; preds = %1099, %1096
-  %.sink5444 = phi i64 [ 24, %1099 ], [ 16, %1096 ]
-  %.sink5442.in = phi ptr [ %.45153, %1099 ], [ %1098, %1096 ]
-  %.sink5442 = load ptr, ptr %.sink5442.in, align 8, !tbaa !9
-  %1101 = getelementptr inbounds nuw i8, ptr %1080, i64 %.sink5444
-  store ptr %.sink5442, ptr %1101, align 8, !tbaa !141
+  %.sink5484 = phi i64 [ 24, %1099 ], [ 16, %1096 ]
+  %.sink5482.in = phi ptr [ %.45153, %1099 ], [ %1098, %1096 ]
+  %.sink5482 = load ptr, ptr %.sink5482.in, align 8, !tbaa !9
+  %1101 = getelementptr inbounds nuw i8, ptr %1080, i64 %.sink5484
+  store ptr %.sink5482, ptr %1101, align 8, !tbaa !141
   %1102 = load ptr, ptr %7, align 8, !tbaa !142
   %1103 = icmp eq ptr %1102, %9
   br i1 %1103, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -8534,8 +8534,8 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5314: ; preds = %102
   br label %4229
 
 4229:                                             ; preds = %4225, %4228
-  %.sink5446 = phi i64 [ 40, %4228 ], [ 32, %4225 ]
-  %4230 = getelementptr inbounds nuw i8, ptr %4213, i64 %.sink5446
+  %.sink5486 = phi i64 [ 40, %4228 ], [ 32, %4225 ]
+  %4230 = getelementptr inbounds nuw i8, ptr %4213, i64 %.sink5486
   store ptr %4224, ptr %4230, align 8, !tbaa !141
   %4231 = getelementptr inbounds i8, ptr %.45166, i64 -12
   %4232 = load i32, ptr %4231, align 4, !tbaa !7
@@ -8570,8 +8570,8 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5314: ; preds = %102
   br label %4249
 
 4249:                                             ; preds = %4245, %4248
-  %.sink5448 = phi i64 [ 40, %4248 ], [ 32, %4245 ]
-  %4250 = getelementptr inbounds nuw i8, ptr %4235, i64 %.sink5448
+  %.sink5488 = phi i64 [ 40, %4248 ], [ 32, %4245 ]
+  %4250 = getelementptr inbounds nuw i8, ptr %4235, i64 %.sink5488
   store ptr %4244, ptr %4250, align 8, !tbaa !141
   %4251 = getelementptr inbounds i8, ptr %.45166, i64 -8
   %4252 = load i32, ptr %4251, align 4, !tbaa !7
@@ -8652,8 +8652,8 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5314: ; preds = %102
   br label %4299
 
 4299:                                             ; preds = %4295, %4298
-  %.sink5450 = phi i64 [ 40, %4298 ], [ 32, %4295 ]
-  %4300 = getelementptr inbounds nuw i8, ptr %4283, i64 %.sink5450
+  %.sink5490 = phi i64 [ 40, %4298 ], [ 32, %4295 ]
+  %4300 = getelementptr inbounds nuw i8, ptr %4283, i64 %.sink5490
   store ptr %4294, ptr %4300, align 8, !tbaa !141
   %4301 = getelementptr inbounds i8, ptr %.45166, i64 -16
   %4302 = load i32, ptr %4301, align 4, !tbaa !7
@@ -8688,8 +8688,8 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5314: ; preds = %102
   br label %4319
 
 4319:                                             ; preds = %4315, %4318
-  %.sink5452 = phi i64 [ 40, %4318 ], [ 32, %4315 ]
-  %4320 = getelementptr inbounds nuw i8, ptr %4305, i64 %.sink5452
+  %.sink5492 = phi i64 [ 40, %4318 ], [ 32, %4315 ]
+  %4320 = getelementptr inbounds nuw i8, ptr %4305, i64 %.sink5492
   store ptr %4314, ptr %4320, align 8, !tbaa !141
   %4321 = getelementptr inbounds i8, ptr %.45166, i64 -12
   %4322 = load i32, ptr %4321, align 4, !tbaa !7
@@ -8745,8 +8745,8 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5314: ; preds = %102
   br label %4352
 
 4352:                                             ; preds = %4348, %4351
-  %.sink5454 = phi i64 [ 40, %4351 ], [ 32, %4348 ]
-  %4353 = getelementptr inbounds nuw i8, ptr %4338, i64 %.sink5454
+  %.sink5494 = phi i64 [ 40, %4351 ], [ 32, %4348 ]
+  %4353 = getelementptr inbounds nuw i8, ptr %4338, i64 %.sink5494
   store ptr %4347, ptr %4353, align 8, !tbaa !141
   %4354 = getelementptr inbounds i8, ptr %.45166, i64 -12
   %4355 = load i32, ptr %4354, align 4, !tbaa !7
@@ -8781,8 +8781,8 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5314: ; preds = %102
   br label %4372
 
 4372:                                             ; preds = %4368, %4371
-  %.sink5456 = phi i64 [ 40, %4371 ], [ 32, %4368 ]
-  %4373 = getelementptr inbounds nuw i8, ptr %4358, i64 %.sink5456
+  %.sink5496 = phi i64 [ 40, %4371 ], [ 32, %4368 ]
+  %4373 = getelementptr inbounds nuw i8, ptr %4358, i64 %.sink5496
   store ptr %4367, ptr %4373, align 8, !tbaa !141
   %4374 = getelementptr inbounds i8, ptr %.45166, i64 -12
   %4375 = load i32, ptr %4374, align 4, !tbaa !7
@@ -9707,8 +9707,8 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5314: ; preds = %102
 4945:                                             ; preds = %102
   %4946 = load i8, ptr %.45153, align 8, !tbaa !9, !range !183, !noundef !71
   %4947 = trunc nuw i8 %4946 to i1
-  %.str.69..str.705459 = select i1 %4947, ptr @.str.69, ptr @.str.70
-  %4948 = call noundef ptr @_ZN17duckdb_libpgquery14SystemTypeNameEPKc(ptr noundef nonnull %.str.69..str.705459)
+  %.str.69..str.705499 = select i1 %4947, ptr @.str.69, ptr @.str.70
+  %4948 = call noundef ptr @_ZN17duckdb_libpgquery14SystemTypeNameEPKc(ptr noundef nonnull %.str.69..str.705499)
   %4949 = getelementptr inbounds i8, ptr %.45166, i64 -4
   %4950 = load i32, ptr %4949, align 4, !tbaa !7
   %4951 = getelementptr inbounds nuw i8, ptr %4948, i64 48
@@ -9744,8 +9744,8 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5314: ; preds = %102
 4970:                                             ; preds = %102
   %4971 = load i8, ptr %.45153, align 8, !tbaa !9, !range !183, !noundef !71
   %4972 = trunc nuw i8 %4971 to i1
-  %.str.71..str.725460 = select i1 %4972, ptr @.str.71, ptr @.str.72
-  %4973 = call noundef ptr @_ZN17duckdb_libpgquery14SystemTypeNameEPKc(ptr noundef nonnull %.str.71..str.725460)
+  %.str.71..str.725500 = select i1 %4972, ptr @.str.71, ptr @.str.72
+  %4973 = call noundef ptr @_ZN17duckdb_libpgquery14SystemTypeNameEPKc(ptr noundef nonnull %.str.71..str.725500)
   %4974 = getelementptr inbounds i8, ptr %.45166, i64 -4
   %4975 = load i32, ptr %4974, align 4, !tbaa !7
   %4976 = getelementptr inbounds nuw i8, ptr %4973, i64 48
@@ -13706,8 +13706,8 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5326: ; preds = %7406
   br label %7593
 
 7593:                                             ; preds = %7586, %7590
-  %.pn5429 = phi ptr [ %7592, %7590 ], [ %7587, %7586 ]
-  %.sink.in = getelementptr inbounds nuw i8, ptr %.pn5429, i64 24
+  %.pn5469 = phi ptr [ %7592, %7590 ], [ %7587, %7586 ]
+  %.sink.in = getelementptr inbounds nuw i8, ptr %.pn5469, i64 24
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !73
   %7594 = getelementptr inbounds nuw i8, ptr %7574, i64 16
   store ptr %.sink, ptr %7594, align 8, !tbaa !497
@@ -13751,8 +13751,8 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5326: ; preds = %7406
   br label %7618
 
 7618:                                             ; preds = %7611, %7615
-  %.pn5428 = phi ptr [ %7617, %7615 ], [ %7612, %7611 ]
-  %.sink5416.in = getelementptr inbounds nuw i8, ptr %.pn5428, i64 24
+  %.pn5468 = phi ptr [ %7617, %7615 ], [ %7612, %7611 ]
+  %.sink5416.in = getelementptr inbounds nuw i8, ptr %.pn5468, i64 24
   %.sink5416 = load ptr, ptr %.sink5416.in, align 8, !tbaa !73
   %7619 = getelementptr inbounds nuw i8, ptr %7599, i64 16
   store ptr %.sink5416, ptr %7619, align 8, !tbaa !497
@@ -16544,11 +16544,11 @@ _ZN17duckdb_libpgqueryL17check_indirectionEPNS_6PGListEPv.exit44: ; preds = %41,
   br label %59
 
 59:                                               ; preds = %_ZN17duckdb_libpgqueryL17check_indirectionEPNS_6PGListEPv.exit, %_ZN17duckdb_libpgqueryL17check_indirectionEPNS_6PGListEPv.exit44, %._crit_edge
-  %.sink53 = phi ptr [ %5, %._crit_edge ], [ %12, %_ZN17duckdb_libpgqueryL17check_indirectionEPNS_6PGListEPv.exit44 ], [ %12, %_ZN17duckdb_libpgqueryL17check_indirectionEPNS_6PGListEPv.exit ]
+  %.sink61 = phi ptr [ %5, %._crit_edge ], [ %12, %_ZN17duckdb_libpgqueryL17check_indirectionEPNS_6PGListEPv.exit44 ], [ %12, %_ZN17duckdb_libpgqueryL17check_indirectionEPNS_6PGListEPv.exit ]
   %.sink = phi ptr [ %58, %._crit_edge ], [ %5, %_ZN17duckdb_libpgqueryL17check_indirectionEPNS_6PGListEPv.exit44 ], [ %5, %_ZN17duckdb_libpgqueryL17check_indirectionEPNS_6PGListEPv.exit ]
-  %60 = getelementptr inbounds nuw i8, ptr %.sink53, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.sink61, i64 8
   store ptr %.sink, ptr %60, align 8, !tbaa !141
-  ret ptr %.sink53
+  ret ptr %.sink61
 }
 
 ; Function Attrs: mustprogress uwtable

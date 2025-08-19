@@ -1318,12 +1318,12 @@ define hidden noundef align 8 ptr @"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde.
   br i1 %exitcond.not, label %24, label %17, !prof !177
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.032.lcssa56 = phi i64 [ %21, %._crit_edge ], [ %5, %2 ]
-  %.035.lcssa55 = phi i64 [ %22, %._crit_edge ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw [10 x i8], ptr %4, i64 0, i64 %.035.lcssa55
-  %9 = trunc nuw nsw i64 %.032.lcssa56 to i8
+  %.032.lcssa58 = phi i64 [ %21, %._crit_edge ], [ %5, %2 ]
+  %.035.lcssa57 = phi i64 [ %22, %._crit_edge ], [ 0, %2 ]
+  %8 = getelementptr inbounds nuw [10 x i8], ptr %4, i64 0, i64 %.035.lcssa57
+  %9 = trunc nuw nsw i64 %.032.lcssa58 to i8
   store i8 %9, ptr %8, align 1
-  %umin = add nuw nsw i64 %.035.lcssa55, 1
+  %umin = add nuw nsw i64 %.035.lcssa57, 1
   br label %11
 
 10:                                               ; preds = %._crit_edge
@@ -6175,21 +6175,21 @@ common.resume:                                    ; preds = %30, %17
   resume { ptr, i32 } %common.resume.op
 
 22:                                               ; preds = %19
-  %.sroa.0.0.copyload18 = load ptr, ptr %6, align 8
-  %.sroa.5.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx20, i64 16, i1 false)
+  %.sroa.0.0.copyload19 = load ptr, ptr %6, align 8
+  %.sroa.5.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx21, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !815
   call void @"_ZN4core3ptr89drop_in_place$LT$ockam_core..flow_control..flow_controls..producer_info..ProducerInfo$GT$17hfd24a0a3f9b93871E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %7), !noalias !812
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %.not = icmp eq ptr %.sroa.0.0.copyload18, null
+  %.not = icmp eq ptr %.sroa.0.0.copyload19, null
   br i1 %.not, label %51, label %23
 
 23:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store ptr %.sroa.0.0.copyload18, ptr %11, align 8
-  %.sroa.5.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx19, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
+  store ptr %.sroa.0.0.copyload19, ptr %11, align 8
+  %.sroa.5.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx20, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = load i8, ptr %24, align 8, !noundef !14

@@ -441,25 +441,25 @@ define internal void @_ZN12_GLOBAL__N_133EncodeUTF8Char_BasicFunction_Test8TestB
   br i1 %82, label %.lr.ph, label %.critedge
 
 83:                                               ; preds = %91
-  %indvars.iv.next = add nsw i64 %indvars.iv.next276, -1
+  %indvars.iv.next = add nsw i64 %indvars.iv.next332, -1
   %84 = getelementptr inbounds [7 x i8], ptr %4, i64 0, i64 %indvars.iv.next
   %85 = load i8, ptr %84, align 1, !tbaa !27
   %86 = icmp eq i8 %85, 0
   br i1 %86, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !30
 
 .lr.ph:                                           ; preds = %80, %83
-  %indvars.iv.next276 = phi i64 [ %indvars.iv.next, %83 ], [ 6, %80 ]
-  %87 = phi i64 [ %indvars.iv.next276, %83 ], [ 7, %80 ]
-  %88 = getelementptr inbounds [7 x i8], ptr %5, i64 0, i64 %indvars.iv.next276
+  %indvars.iv.next332 = phi i64 [ %indvars.iv.next, %83 ], [ 6, %80 ]
+  %87 = phi i64 [ %indvars.iv.next332, %83 ], [ 7, %80 ]
+  %88 = getelementptr inbounds [7 x i8], ptr %5, i64 0, i64 %indvars.iv.next332
   %89 = load i8, ptr %88, align 1, !tbaa !27
   %90 = icmp eq i8 %89, -1
   br i1 %90, label %91, label %.critedge.loopexit
 
 91:                                               ; preds = %.lr.ph
-  %92 = trunc nuw nsw i64 %indvars.iv.next276 to i32
+  %92 = trunc nuw nsw i64 %indvars.iv.next332 to i32
   store i32 %92, ptr %6, align 4, !tbaa !29
-  %93 = icmp eq i64 %indvars.iv.next276, 0
-  br i1 %93, label %..critedge_crit_edge277, label %83, !llvm.loop !30
+  %93 = icmp eq i64 %indvars.iv.next332, 0
+  br i1 %93, label %..critedge_crit_edge333, label %83, !llvm.loop !30
 
 94:                                               ; preds = %74
   %95 = landingpad { ptr, i32 }
@@ -471,17 +471,17 @@ define internal void @_ZN12_GLOBAL__N_133EncodeUTF8Char_BasicFunction_Test8TestB
           cleanup
   br label %382
 
-..critedge_crit_edge277:                          ; preds = %91
+..critedge_crit_edge333:                          ; preds = %91
   br label %.critedge, !llvm.loop !30
 
 .critedge.loopexit:                               ; preds = %83, %.lr.ph
-  %.ph = phi i64 [ %87, %.lr.ph ], [ %indvars.iv.next276, %83 ]
+  %.ph = phi i64 [ %87, %.lr.ph ], [ %indvars.iv.next332, %83 ]
   %98 = shl i64 %.ph, 32
   %99 = ashr exact i64 %98, 32
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %..critedge_crit_edge277, %80
-  %sext = phi i64 [ 0, %..critedge_crit_edge277 ], [ 7, %80 ], [ %99, %.critedge.loopexit ]
+.critedge:                                        ; preds = %.critedge.loopexit, %..critedge_crit_edge333, %80
+  %sext = phi i64 [ 0, %..critedge_crit_edge333 ], [ 7, %80 ], [ %99, %.critedge.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %76, ptr %8, align 8, !tbaa !32

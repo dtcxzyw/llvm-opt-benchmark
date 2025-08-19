@@ -227,7 +227,7 @@ define internal range(i32 -2147483648, 1) i32 @ifv_read_packet(ptr noundef reado
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %32 = load i32, ptr %31, align 4, !tbaa !33
   %33 = icmp ult i32 %30, %32
-  br i1 %33, label %34, label %.thread116
+  br i1 %33, label %34, label %.thread122
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -273,14 +273,14 @@ define internal range(i32 -2147483648, 1) i32 @ifv_read_packet(ptr noundef reado
   %.not108 = icmp eq ptr %.092, null
   br i1 %.not108, label %60, label %116
 
-.thread116:                                       ; preds = %28
-  %.not108119 = icmp eq ptr %.092, null
-  br i1 %.not108119, label %.thread123, label %.thread126
+.thread122:                                       ; preds = %28
+  %.not108125 = icmp eq ptr %.092, null
+  br i1 %.not108125, label %.thread129, label %.thread132
 
 60:                                               ; preds = %59
-  br i1 %or.cond, label %95, label %.thread123
+  br i1 %or.cond, label %95, label %.thread129
 
-.thread123:                                       ; preds = %.thread116, %60
+.thread129:                                       ; preds = %.thread122, %60
   store i32 %7, ptr %4, align 4, !tbaa !55
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %62 = load i32, ptr %61, align 4, !tbaa !33
@@ -306,7 +306,7 @@ define internal range(i32 -2147483648, 1) i32 @ifv_read_packet(ptr noundef reado
   %or.cond3 = select i1 %79, i1 true, i1 %80
   br i1 %or.cond3, label %.thread, label %81
 
-81:                                               ; preds = %.thread123
+81:                                               ; preds = %.thread129
   %82 = trunc nuw nsw i64 %72 to i32
   store i32 %82, ptr %6, align 4, !tbaa !32
   %83 = trunc nuw nsw i64 %78 to i32
@@ -363,24 +363,24 @@ define internal range(i32 -2147483648, 1) i32 @ifv_read_packet(ptr noundef reado
 
 116:                                              ; preds = %95, %59
   %.not112 = icmp eq ptr %.2, null
-  br i1 %.not112, label %.thread, label %.thread126
+  br i1 %.not112, label %.thread, label %.thread132
 
-.thread126:                                       ; preds = %.thread116, %116
-  %.2121129 = phi ptr [ %.2, %116 ], [ %.092, %.thread116 ]
+.thread132:                                       ; preds = %.thread122, %116
+  %.2127135 = phi ptr [ %.2, %116 ], [ %.092, %.thread122 ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %118 = load ptr, ptr %117, align 8, !tbaa !26
-  %119 = load i64, ptr %.2121129, align 8, !tbaa !75
+  %119 = load i64, ptr %.2127135, align 8, !tbaa !75
   %120 = tail call i64 @avio_seek(ptr noundef %118, i64 noundef %119, i32 noundef 0) #4
   %121 = load ptr, ptr %117, align 8, !tbaa !26
-  %122 = getelementptr inbounds nuw i8, ptr %.2121129, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %.2127135, i64 16
   %123 = load i32, ptr %122, align 8
   %124 = ashr i32 %123, 2
   %125 = tail call i32 @av_get_packet(ptr noundef %121, ptr noundef %1, i32 noundef %124) #4
   %126 = icmp slt i32 %125, 0
   br i1 %126, label %.thread, label %127
 
-127:                                              ; preds = %.thread126
-  %128 = icmp eq ptr %.2121129, %.092
+127:                                              ; preds = %.thread132
+  %128 = icmp eq ptr %.2127135, %.092
   br i1 %128, label %129, label %132
 
 129:                                              ; preds = %127
@@ -397,22 +397,22 @@ define internal range(i32 -2147483648, 1) i32 @ifv_read_packet(ptr noundef reado
   br label %136
 
 136:                                              ; preds = %132, %129
-  %.sink130 = phi i64 [ 36, %132 ], [ 32, %129 ]
-  %137 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink130
+  %.sink136 = phi i64 [ 36, %132 ], [ 32, %129 ]
+  %137 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink136
   %.sink = load i32, ptr %137, align 4, !tbaa !50
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %.sink, ptr %138, align 4, !tbaa !76
-  %139 = getelementptr inbounds nuw i8, ptr %.2121129, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %.2127135, i64 8
   %140 = load i64, ptr %139, align 8, !tbaa !73
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %140, ptr %141, align 8, !tbaa !77
-  %142 = load i64, ptr %.2121129, align 8, !tbaa !75
+  %142 = load i64, ptr %.2127135, align 8, !tbaa !75
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 %142, ptr %143, align 8, !tbaa !78
   br label %.thread
 
-.thread:                                          ; preds = %113, %107, %96, %92, %88, %81, %.thread123, %.thread126, %116, %136
-  %.1 = phi i32 [ 0, %136 ], [ -541478725, %116 ], [ %125, %.thread126 ], [ %115, %113 ], [ -541478725, %107 ], [ -1094995529, %96 ], [ %94, %92 ], [ %90, %88 ], [ -541478725, %81 ], [ -1094995529, %.thread123 ]
+.thread:                                          ; preds = %113, %107, %96, %92, %88, %81, %.thread129, %.thread132, %116, %136
+  %.1 = phi i32 [ 0, %136 ], [ -541478725, %116 ], [ %125, %.thread132 ], [ %115, %113 ], [ -541478725, %107 ], [ -1094995529, %96 ], [ %94, %92 ], [ %90, %88 ], [ -541478725, %81 ], [ -1094995529, %.thread129 ]
   ret i32 %.1
 }
 
@@ -490,9 +490,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_index(ptr noundef rea
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !57
   %. = select i1 %6, i64 8, i64 12
-  %.36 = select i1 %6, i64 32, i64 36
+  %.39 = select i1 %6, i64 32, i64 36
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 %.36
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 %.39
   %11 = load i32, ptr %10, align 4, !tbaa !50
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds ptr, ptr %8, i64 %12

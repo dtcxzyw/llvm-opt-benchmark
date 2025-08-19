@@ -645,7 +645,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_ph64(ptr noundef %0, ptr no
 .split.us.preheader:                              ; preds = %43
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %.not157202 = icmp eq i8 %4, 0
+  %.not157213 = icmp eq i8 %4, 0
   %wide.trip.count199 = zext nneg i16 %7 to i64
   br label %.split.us
 
@@ -781,10 +781,10 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
   br i1 %exitcond.not, label %.lr.ph.i, label %.split
 
 .lr.ph.i:                                         ; preds = %106, %59
-  %.not157203 = phi i1 [ %.not157202, %59 ], [ %.not157, %106 ]
+  %.not157214 = phi i1 [ %.not157213, %59 ], [ %.not157, %106 ]
   %108 = phi ptr [ %45, %59 ], [ %47, %106 ]
   %109 = phi i64 [ %44, %59 ], [ %46, %106 ]
-  br i1 %.not157203, label %.lr.ph.split.us.i, label %.thread.i
+  br i1 %.not157214, label %.lr.ph.split.us.i, label %.thread.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %117
   %indvars.iv125.i = phi i64 [ %indvars.iv.next126.i, %117 ], [ 0, %.lr.ph.i ]
@@ -996,7 +996,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_ph32(ptr noundef %0, ptr no
 .split.us.preheader:                              ; preds = %43
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %.not125170 = icmp eq i8 %4, 0
+  %.not125183 = icmp eq i8 %4, 0
   %wide.trip.count167 = zext nneg i16 %7 to i64
   br label %.split.us
 
@@ -1134,10 +1134,10 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
   br i1 %exitcond.not, label %.lr.ph.i, label %.split
 
 .lr.ph.i:                                         ; preds = %108, %60
-  %.not125171 = phi i1 [ %.not125170, %60 ], [ %.not125, %108 ]
+  %.not125184 = phi i1 [ %.not125183, %60 ], [ %.not125, %108 ]
   %110 = phi ptr [ %45, %60 ], [ %47, %108 ]
   %111 = phi i64 [ %44, %60 ], [ %46, %108 ]
-  br i1 %.not125171, label %.lr.ph.split.us.i, label %.thread.i
+  br i1 %.not125184, label %.lr.ph.split.us.i, label %.thread.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %119
   %indvars.iv85.i = phi i64 [ %indvars.iv.next86.i, %119 ], [ 0, %.lr.ph.i ]
@@ -1510,8 +1510,8 @@ fmap_readn.exit.thread:                           ; preds = %57, %54, %fmap_read
   br i1 %exitcond.not, label %._crit_edge, label %54
 
 ._crit_edge:                                      ; preds = %132, %45
-  %.0186228 = phi ptr [ null, %45 ], [ %48, %132 ]
-  tail call void @free(ptr noundef %.0186228) #9
+  %.0186235 = phi ptr [ null, %45 ], [ %48, %132 ]
+  tail call void @free(ptr noundef %.0186235) #9
   br label %133
 
 133:                                              ; preds = %70, %67, %33, %29, %._crit_edge, %49, %44, %32, %15, %11
@@ -1777,8 +1777,8 @@ fmap_readn.exit.thread:                           ; preds = %58, %54, %fmap_read
   br i1 %exitcond.not, label %._crit_edge, label %54
 
 ._crit_edge:                                      ; preds = %127, %45
-  %.0138180 = phi ptr [ null, %45 ], [ %48, %127 ]
-  tail call void @free(ptr noundef %.0138180) #9
+  %.0138188 = phi ptr [ null, %45 ], [ %48, %127 ]
+  tail call void @free(ptr noundef %.0138188) #9
   br label %128
 
 128:                                              ; preds = %71, %68, %33, %29, %._crit_edge, %49, %44, %32, %15, %11
@@ -1855,9 +1855,9 @@ define i32 @cli_unpackelf(ptr noundef %0) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8, !tbaa !85
   %3 = tail call ptr @cli_bytecode_context_alloc() #9
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %.thread47, label %4
+  br i1 %.not, label %.thread51, label %4
 
-.thread47:                                        ; preds = %1
+.thread51:                                        ; preds = %1
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.24) #9
   br label %32
 
@@ -1871,7 +1871,7 @@ define i32 @cli_unpackelf(ptr noundef %0) local_unnamed_addr #0 {
   %9 = tail call i32 @cli_bytecode_runhook(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %3, i32 noundef 261, ptr noundef %8) #9
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.26) #9
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %.thread43
+  br i1 %10, label %11, label %.thread47
 
 11:                                               ; preds = %4
   %12 = call i32 @cli_bytecode_context_getresult_file(ptr noundef nonnull %3, ptr noundef nonnull %2) #9
@@ -1903,7 +1903,7 @@ define i32 @cli_unpackelf(ptr noundef %0) local_unnamed_addr #0 {
   %22 = phi ptr [ %.pre, %20 ], [ %14, %19 ]
   %.032 = phi i32 [ %.038, %20 ], [ 0, %19 ]
   %.not27 = icmp eq ptr %22, null
-  br i1 %.not27, label %.thread43, label %23
+  br i1 %.not27, label %.thread47, label %23
 
 23:                                               ; preds = %.thread
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1921,17 +1921,17 @@ define i32 @cli_unpackelf(ptr noundef %0) local_unnamed_addr #0 {
 30:                                               ; preds = %28, %23
   %31 = phi ptr [ %.pre39, %28 ], [ %22, %23 ]
   call void @free(ptr noundef %31) #9
-  br label %.thread43
+  br label %.thread47
 
-.thread43:                                        ; preds = %.thread, %30, %4
-  %.0324245 = phi i32 [ %9, %4 ], [ %.032, %30 ], [ %.032, %.thread ]
+.thread47:                                        ; preds = %.thread, %30, %4
+  %.0324649 = phi i32 [ %9, %4 ], [ %.032, %30 ], [ %.032, %.thread ]
   call void @cli_bytecode_context_destroy(ptr noundef nonnull %3) #9
   br label %32
 
-32:                                               ; preds = %.thread47, %.thread43
-  %.0324246 = phi i32 [ %.0324245, %.thread43 ], [ 20, %.thread47 ]
+32:                                               ; preds = %.thread51, %.thread47
+  %.0324650 = phi i32 [ %.0324649, %.thread47 ], [ 20, %.thread51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.0324246
+  ret i32 %.0324650
 }
 
 declare ptr @cli_bytecode_context_alloc() local_unnamed_addr #1

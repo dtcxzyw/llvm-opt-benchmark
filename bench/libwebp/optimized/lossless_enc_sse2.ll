@@ -855,7 +855,7 @@ define internal i32 @VectorMismatch_SSE2(ptr noundef readonly captures(none) %0,
   %56 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !17
   %58 = icmp eq i32 %55, %57
-  br i1 %58, label %59, label %.critedge.loopexit.split.loop.exit59
+  br i1 %58, label %59, label %.critedge.loopexit.split.loop.exit60
 
 59:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -863,12 +863,12 @@ define internal i32 @VectorMismatch_SSE2(ptr noundef readonly captures(none) %0,
   %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !32
 
-.critedge.loopexit.split.loop.exit59:             ; preds = %.lr.ph
+.critedge.loopexit.split.loop.exit60:             ; preds = %.lr.ph
   %60 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %59, %.critedge.loopexit.split.loop.exit59, %.thread
-  %.4.lcssa = phi i32 [ %.3, %.thread ], [ %60, %.critedge.loopexit.split.loop.exit59 ], [ %2, %59 ]
+.critedge:                                        ; preds = %59, %.critedge.loopexit.split.loop.exit60, %.thread
+  %.4.lcssa = phi i32 [ %.3, %.thread ], [ %60, %.critedge.loopexit.split.loop.exit60 ], [ %2, %59 ]
   ret i32 %.4.lcssa
 }
 

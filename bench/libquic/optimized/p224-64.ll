@@ -3107,8 +3107,8 @@ flip_endian.exit.loopexit.i189:                   ; preds = %131
   br i1 %.not160, label %flip_endian.exit203, label %171
 
 171:                                              ; preds = %166, %168
-  %.sink288 = phi ptr [ %38, %168 ], [ %2, %166 ]
-  %172 = call i64 @BN_bn2bin(ptr noundef nonnull %.sink288, ptr noundef nonnull %22) #10
+  %.sink308 = phi ptr [ %38, %168 ], [ %2, %166 ]
+  %172 = call i64 @BN_bn2bin(ptr noundef nonnull %.sink308, ptr noundef nonnull %22) #10
   %.not.i199 = icmp eq i64 %172, 0
   br i1 %.not.i199, label %flip_endian.exit203.thread, label %.lr.ph.i200
 
@@ -3257,7 +3257,7 @@ get_bit.exit81.i:                                 ; preds = %254, %253
   %256 = lshr i64 %255, 3
   %257 = getelementptr inbounds nuw i8, ptr %180, i64 %256
   %258 = load i8, ptr %257, align 1, !tbaa !6
-  %259 = trunc nuw i64 %.066.i to i8
+  %259 = trunc nuw nsw i64 %.066.i to i8
   %260 = and i8 %259, 7
   %261 = lshr i8 %258, %260
   %262 = shl i8 %261, 3

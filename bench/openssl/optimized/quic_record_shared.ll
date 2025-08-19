@@ -143,8 +143,8 @@ ossl_qrl_enc_level_set_get.exit:
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %28 = load i8, ptr %27, align 8, !tbaa !4
   %29 = icmp eq i8 %28, 1
-  %or.cond128 = select i1 %26, i1 %29, i1 false
-  br i1 %or.cond128, label %.thread, label %._crit_edge
+  %or.cond138 = select i1 %26, i1 %29, i1 false
+  br i1 %or.cond138, label %.thread, label %._crit_edge
 
 .thread:                                          ; preds = %25
   tail call void @ossl_qrl_enc_level_set_discard(ptr noundef %0, i32 noundef 0)
@@ -614,12 +614,12 @@ ossl_qrl_enc_level_set_has_keyslot.exit:          ; preds = %ossl_qrl_enc_level_
   br label %69
 
 .sink.split:                                      ; preds = %63, %55, %59, %52, %47
-  %.sink61 = phi i32 [ 160, %47 ], [ 165, %52 ], [ 171, %59 ], [ 171, %55 ], [ 177, %63 ]
+  %.sink65 = phi i32 [ 160, %47 ], [ 165, %52 ], [ 171, %59 ], [ 171, %55 ], [ 177, %63 ]
   %.sink = phi i32 [ 524294, %47 ], [ 524294, %52 ], [ 786691, %59 ], [ 786691, %55 ], [ 524294, %63 ]
   %.046.ph = phi ptr [ null, %47 ], [ %50, %52 ], [ %50, %59 ], [ %50, %55 ], [ %50, %63 ]
   %.0.ph = phi ptr [ null, %47 ], [ null, %52 ], [ %53, %59 ], [ %53, %55 ], [ %53, %63 ]
   call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink61, ptr noundef nonnull @__func__.el_setup_keyslot) #6
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink65, ptr noundef nonnull @__func__.el_setup_keyslot) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #6
   br label %68
 

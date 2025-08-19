@@ -1731,8 +1731,8 @@ define noundef i32 @_ZN6LibRaw12raw2image_exEi(ptr noundef nonnull align 8 deref
 270:                                              ; preds = %267
   %271 = load i16, ptr %185, align 2, !tbaa !95
   %.not174 = icmp ne i16 %271, 0
-  %brmerge.not274 = and i1 %.not174, %or.cond186.not
-  br i1 %brmerge.not274, label %272, label %.invoke
+  %brmerge.not288 = and i1 %.not174, %or.cond186.not
+  br i1 %brmerge.not288, label %272, label %.invoke
 
 272:                                              ; preds = %270
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 381648
@@ -1791,9 +1791,9 @@ define noundef i32 @_ZN6LibRaw12raw2image_exEi(ptr noundef nonnull align 8 deref
   br label %301
 
 301:                                              ; preds = %294, %290
-  %.pn275 = phi i32 [ %292, %290 ], [ %297, %294 ]
+  %.pn289 = phi i32 [ %292, %290 ], [ %297, %294 ]
   %.0120 = phi i32 [ %293, %290 ], [ %300, %294 ]
-  %.0121 = add i32 %.pn275, %289
+  %.0121 = add i32 %.pn289, %289
   %302 = load i16, ptr %242, align 8, !tbaa !92
   %303 = zext i16 %302 to i32
   %304 = add nuw nsw i32 %.0123217, %303
@@ -2135,9 +2135,9 @@ _ZN6LibRaw3FCFEii.exit:                           ; preds = %314, %317
     i32 11, label %479
     i32 1, label %482
     i32 10, label %483
-    i32 2, label %.invoke273
-    i32 3, label %.invoke273
-    i32 9, label %.invoke273
+    i32 2, label %.invoke287
+    i32 3, label %.invoke287
+    i32 9, label %.invoke287
     i32 4, label %484
     i32 5, label %484
     i32 6, label %485
@@ -2149,7 +2149,7 @@ _ZN6LibRaw3FCFEii.exit:                           ; preds = %314, %317
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %488 unwind label %480
 
-480:                                              ; preds = %.invoke273, %487, %486, %485, %484, %483, %482, %479
+480:                                              ; preds = %.invoke287, %487, %486, %485, %484, %483, %482, %479
   %481 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_end_catch() #13
@@ -2163,7 +2163,7 @@ _ZN6LibRaw3FCFEii.exit:                           ; preds = %314, %317
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %488 unwind label %480
 
-.invoke273:                                       ; preds = %476, %476, %476
+.invoke287:                                       ; preds = %476, %476, %476
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %488 unwind label %480
 
@@ -2183,8 +2183,8 @@ _ZN6LibRaw3FCFEii.exit:                           ; preds = %314, %317
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %488 unwind label %480
 
-488:                                              ; preds = %.invoke273, %476, %487, %486, %485, %484, %483, %482, %479
-  %.3 = phi i32 [ -100013, %479 ], [ -100007, %482 ], [ -100012, %483 ], [ -100009, %484 ], [ -100010, %485 ], [ -100011, %486 ], [ -2, %487 ], [ -1, %476 ], [ -100008, %.invoke273 ]
+488:                                              ; preds = %.invoke287, %476, %487, %486, %485, %484, %483, %482, %479
+  %.3 = phi i32 [ -100013, %479 ], [ -100007, %482 ], [ -100012, %483 ], [ -100009, %484 ], [ -100010, %485 ], [ -100011, %486 ], [ -2, %487 ], [ -1, %476 ], [ -100008, %.invoke287 ]
   call void @__cxa_end_catch() #13
   br label %489
 

@@ -6576,11 +6576,11 @@ _ZN2v814PersistentBaseINS_11ArrayBufferEE3NewEPNS_7IsolateEPS1_.exit: ; preds = 
 
 _ZN2v814PersistentBaseINS_11ArrayBufferEE3NewEPNS_7IsolateEPS1_.exit.thread: ; preds = %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit
   store ptr null, ptr %ref.tmp10, align 8
-  %cmp.i.not26 = icmp eq ptr %buffer_, %ref.tmp10
-  br i1 %cmp.i.not26, label %_ZN2v814PersistentBaseINS_11ArrayBufferEE5ResetEv.exit, label %if.then.i
+  %cmp.i.not30 = icmp eq ptr %buffer_, %ref.tmp10
+  br i1 %cmp.i.not30, label %_ZN2v814PersistentBaseINS_11ArrayBufferEE5ResetEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN2v814PersistentBaseINS_11ArrayBufferEE3NewEPNS_7IsolateEPS1_.exit.thread, %_ZN2v814PersistentBaseINS_11ArrayBufferEE3NewEPNS_7IsolateEPS1_.exit
-  %.pr2127 = phi ptr [ null, %_ZN2v814PersistentBaseINS_11ArrayBufferEE3NewEPNS_7IsolateEPS1_.exit.thread ], [ %call2.i, %_ZN2v814PersistentBaseINS_11ArrayBufferEE3NewEPNS_7IsolateEPS1_.exit ]
+  %.pr2131 = phi ptr [ null, %_ZN2v814PersistentBaseINS_11ArrayBufferEE3NewEPNS_7IsolateEPS1_.exit.thread ], [ %call2.i, %_ZN2v814PersistentBaseINS_11ArrayBufferEE3NewEPNS_7IsolateEPS1_.exit ]
   %33 = load ptr, ptr %buffer_, align 8
   %cmp.i.i53 = icmp eq ptr %33, null
   br i1 %cmp.i.i53, label %_ZN2v814PersistentBaseINS_11ArrayBufferEE5ResetEv.exit57, label %if.end.i54
@@ -6591,11 +6591,11 @@ if.end.i54:                                       ; preds = %if.then.i
   br label %_ZN2v814PersistentBaseINS_11ArrayBufferEE5ResetEv.exit57
 
 _ZN2v814PersistentBaseINS_11ArrayBufferEE5ResetEv.exit57: ; preds = %if.then.i, %if.end.i54
-  %cmp.i.i = icmp eq ptr %.pr2127, null
+  %cmp.i.i = icmp eq ptr %.pr2131, null
   br i1 %cmp.i.i, label %_ZN2v814PersistentBaseINS_11ArrayBufferEE5ResetEv.exit, label %_ZN2v86GlobalINS_11ArrayBufferEEaSIS1_EERS2_ONS0_IT_EE.exit.thread
 
 _ZN2v86GlobalINS_11ArrayBufferEEaSIS1_EERS2_ONS0_IT_EE.exit.thread: ; preds = %_ZN2v814PersistentBaseINS_11ArrayBufferEE5ResetEv.exit57
-  store ptr %.pr2127, ptr %buffer_, align 8
+  store ptr %.pr2131, ptr %buffer_, align 8
   call void @_ZN2v812api_internal19MoveGlobalReferenceEPPmS2_(ptr noundef nonnull %ref.tmp10, ptr noundef nonnull %buffer_) #22
   br label %_ZN2v814PersistentBaseINS_11ArrayBufferEE5ResetEv.exit.sink.split
 
@@ -6843,11 +6843,11 @@ _ZN2v814PersistentBaseINS_11ArrayBufferEE3NewEPNS_7IsolateEPS1_.exit: ; preds = 
 
 _ZN2v814PersistentBaseINS_11ArrayBufferEE3NewEPNS_7IsolateEPS1_.exit.thread: ; preds = %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit
   store ptr null, ptr %ref.tmp10, align 8
-  %cmp.i.not26 = icmp eq ptr %buffer_, %ref.tmp10
-  br i1 %cmp.i.not26, label %_ZN2v814PersistentBaseINS_11ArrayBufferEE5ResetEv.exit, label %if.then.i
+  %cmp.i.not30 = icmp eq ptr %buffer_, %ref.tmp10
+  br i1 %cmp.i.not30, label %_ZN2v814PersistentBaseINS_11ArrayBufferEE5ResetEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN2v814PersistentBaseINS_11ArrayBufferEE3NewEPNS_7IsolateEPS1_.exit.thread, %_ZN2v814PersistentBaseINS_11ArrayBufferEE3NewEPNS_7IsolateEPS1_.exit
-  %.pr2127 = phi ptr [ null, %_ZN2v814PersistentBaseINS_11ArrayBufferEE3NewEPNS_7IsolateEPS1_.exit.thread ], [ %call2.i, %_ZN2v814PersistentBaseINS_11ArrayBufferEE3NewEPNS_7IsolateEPS1_.exit ]
+  %.pr2131 = phi ptr [ null, %_ZN2v814PersistentBaseINS_11ArrayBufferEE3NewEPNS_7IsolateEPS1_.exit.thread ], [ %call2.i, %_ZN2v814PersistentBaseINS_11ArrayBufferEE3NewEPNS_7IsolateEPS1_.exit ]
   %33 = load ptr, ptr %buffer_, align 8
   %cmp.i.i53 = icmp eq ptr %33, null
   br i1 %cmp.i.i53, label %_ZN2v814PersistentBaseINS_11ArrayBufferEE5ResetEv.exit57, label %if.end.i54
@@ -6858,11 +6858,11 @@ if.end.i54:                                       ; preds = %if.then.i
   br label %_ZN2v814PersistentBaseINS_11ArrayBufferEE5ResetEv.exit57
 
 _ZN2v814PersistentBaseINS_11ArrayBufferEE5ResetEv.exit57: ; preds = %if.then.i, %if.end.i54
-  %cmp.i.i = icmp eq ptr %.pr2127, null
+  %cmp.i.i = icmp eq ptr %.pr2131, null
   br i1 %cmp.i.i, label %_ZN2v814PersistentBaseINS_11ArrayBufferEE5ResetEv.exit, label %_ZN2v86GlobalINS_11ArrayBufferEEaSIS1_EERS2_ONS0_IT_EE.exit.thread
 
 _ZN2v86GlobalINS_11ArrayBufferEEaSIS1_EERS2_ONS0_IT_EE.exit.thread: ; preds = %_ZN2v814PersistentBaseINS_11ArrayBufferEE5ResetEv.exit57
-  store ptr %.pr2127, ptr %buffer_, align 8
+  store ptr %.pr2131, ptr %buffer_, align 8
   call void @_ZN2v812api_internal19MoveGlobalReferenceEPPmS2_(ptr noundef nonnull %ref.tmp10, ptr noundef nonnull %buffer_) #22
   br label %_ZN2v814PersistentBaseINS_11ArrayBufferEE5ResetEv.exit.sink.split
 
@@ -7967,10 +7967,10 @@ if.else:                                          ; preds = %_ZNSt13unordered_ma
   br i1 %cmp.i80, label %nrvo.skipdtor, label %if.end.i81
 
 if.else.thread:                                   ; preds = %for.body.i.i
-  %second41134 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 56
-  %34 = load ptr, ptr %second41134, align 8
-  %cmp.i80135 = icmp eq ptr %34, null
-  br i1 %cmp.i80135, label %nrvo.skipdtor, label %_ZNK4node17BaseObjectPtrImplINS_4quic7SessionELb0EE12pointer_dataEv.exit.i.i.i87
+  %second41148 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 56
+  %34 = load ptr, ptr %second41148, align 8
+  %cmp.i80149 = icmp eq ptr %34, null
+  br i1 %cmp.i80149, label %nrvo.skipdtor, label %_ZNK4node17BaseObjectPtrImplINS_4quic7SessionELb0EE12pointer_dataEv.exit.i.i.i87
 
 if.end.i81:                                       ; preds = %if.else
   %cmp.not.i.i82 = icmp eq ptr %.pre, null
@@ -10186,11 +10186,11 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %or.cond, label %if.then.i.i.i.i14, label %if.end11
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i33 = getelementptr inbounds i8, ptr %1, i64 -8
-  %7 = load ptr, ptr %incdec.ptr.i.i.i.i33, align 8
-  %cmp34 = icmp ne ptr %7, null
-  %or.cond35 = and i1 %subtract_from_self, %cmp34
-  br i1 %or.cond35, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end11
+  %incdec.ptr.i.i.i.i35 = getelementptr inbounds i8, ptr %1, i64 -8
+  %7 = load ptr, ptr %incdec.ptr.i.i.i.i35, align 8
+  %cmp36 = icmp ne ptr %7, null
+  %or.cond37 = and i1 %subtract_from_self, %cmp36
+  br i1 %or.cond37, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end11
 
 if.then.i.i.i.i14:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -10296,11 +10296,11 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %or.cond, label %if.then.i.i.i.i14, label %if.end11
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i33 = getelementptr inbounds i8, ptr %1, i64 -8
-  %7 = load ptr, ptr %incdec.ptr.i.i.i.i33, align 8
-  %cmp34 = icmp ne ptr %7, null
-  %or.cond35 = and i1 %subtract_from_self, %cmp34
-  br i1 %or.cond35, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end11
+  %incdec.ptr.i.i.i.i35 = getelementptr inbounds i8, ptr %1, i64 -8
+  %7 = load ptr, ptr %incdec.ptr.i.i.i.i35, align 8
+  %cmp36 = icmp ne ptr %7, null
+  %or.cond37 = and i1 %subtract_from_self, %cmp36
+  br i1 %or.cond37, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end11
 
 if.then.i.i.i.i14:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -10406,11 +10406,11 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %or.cond, label %if.then.i.i.i.i14, label %if.end11
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i33 = getelementptr inbounds i8, ptr %1, i64 -8
-  %7 = load ptr, ptr %incdec.ptr.i.i.i.i33, align 8
-  %cmp34 = icmp ne ptr %7, null
-  %or.cond35 = and i1 %subtract_from_self, %cmp34
-  br i1 %or.cond35, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end11
+  %incdec.ptr.i.i.i.i35 = getelementptr inbounds i8, ptr %1, i64 -8
+  %7 = load ptr, ptr %incdec.ptr.i.i.i.i35, align 8
+  %cmp36 = icmp ne ptr %7, null
+  %or.cond37 = and i1 %subtract_from_self, %cmp36
+  br i1 %or.cond37, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end11
 
 if.then.i.i.i.i14:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -10939,10 +10939,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %cmp.not, label %cleanup, label %if.then.i.i.i.i13
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i59 = getelementptr inbounds i8, ptr %12, i64 -8
-  %18 = load ptr, ptr %incdec.ptr.i.i.i.i59, align 8
-  %cmp.not60 = icmp eq ptr %18, null
-  br i1 %cmp.not60, label %cleanup, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit17
+  %incdec.ptr.i.i.i.i65 = getelementptr inbounds i8, ptr %12, i64 -8
+  %18 = load ptr, ptr %incdec.ptr.i.i.i.i65, align 8
+  %cmp.not66 = icmp eq ptr %18, null
+  br i1 %cmp.not66, label %cleanup, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit17
 
 if.then.i.i.i.i13:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -11200,10 +11200,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %cmp.not, label %if.end19, label %if.then.i.i.i.i19
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i41 = getelementptr inbounds i8, ptr %16, i64 -8
-  %22 = load ptr, ptr %incdec.ptr.i.i.i.i41, align 8
-  %cmp.not42 = icmp eq ptr %22, null
-  br i1 %cmp.not42, label %if.end19, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit23
+  %incdec.ptr.i.i.i.i45 = getelementptr inbounds i8, ptr %16, i64 -8
+  %22 = load ptr, ptr %incdec.ptr.i.i.i.i45, align 8
+  %cmp.not46 = icmp eq ptr %22, null
+  br i1 %cmp.not46, label %if.end19, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit23
 
 if.then.i.i.i.i19:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -12579,10 +12579,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i: ; preds = %if.end.i.i.i
   br i1 %cmp.not.i3.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i: ; preds = %if.end.i.i.i
-  %incdec.ptr.i.i.i.i19.i.i = getelementptr inbounds i8, ptr %5, i64 -8
-  %11 = load ptr, ptr %incdec.ptr.i.i.i.i19.i.i, align 8
-  %cmp.not20.i.i = icmp eq ptr %11, null
-  br i1 %cmp.not20.i.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
+  %incdec.ptr.i.i.i.i20.i.i = getelementptr inbounds i8, ptr %5, i64 -8
+  %11 = load ptr, ptr %incdec.ptr.i.i.i.i20.i.i, align 8
+  %cmp.not21.i.i = icmp eq ptr %11, null
+  br i1 %cmp.not21.i.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i
   %12 = phi ptr [ %11, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i ], [ %10, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i ]
@@ -17581,11 +17581,11 @@ entry:
   br i1 %cmp6, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
-  %sub.ptr.div10 = udiv exact i64 %sub.ptr.sub, 40
+  %sub.ptr.div12 = udiv exact i64 %sub.ptr.sub, 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN4node4quic5StoreaSERKS1_.exit
-  %__n.09 = phi i64 [ %dec, %_ZN4node4quic5StoreaSERKS1_.exit ], [ %sub.ptr.div10, %for.body.preheader ]
+  %__n.09 = phi i64 [ %dec, %_ZN4node4quic5StoreaSERKS1_.exit ], [ %sub.ptr.div12, %for.body.preheader ]
   %__result.addr.08 = phi ptr [ %incdec.ptr1, %_ZN4node4quic5StoreaSERKS1_.exit ], [ %__result, %for.body.preheader ]
   %__first.addr.07 = phi ptr [ %incdec.ptr, %_ZN4node4quic5StoreaSERKS1_.exit ], [ %__first, %for.body.preheader ]
   %store_.i = getelementptr inbounds nuw i8, ptr %__result.addr.08, i64 8
@@ -17725,11 +17725,11 @@ entry:
   br i1 %cmp6, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
-  %sub.ptr.div10 = udiv exact i64 %sub.ptr.sub, 40
+  %sub.ptr.div12 = udiv exact i64 %sub.ptr.sub, 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN4node4quic5StoreaSERKS1_.exit
-  %__n.09 = phi i64 [ %dec, %_ZN4node4quic5StoreaSERKS1_.exit ], [ %sub.ptr.div10, %for.body.preheader ]
+  %__n.09 = phi i64 [ %dec, %_ZN4node4quic5StoreaSERKS1_.exit ], [ %sub.ptr.div12, %for.body.preheader ]
   %__result.addr.08 = phi ptr [ %incdec.ptr1, %_ZN4node4quic5StoreaSERKS1_.exit ], [ %__result, %for.body.preheader ]
   %__first.addr.07 = phi ptr [ %incdec.ptr, %_ZN4node4quic5StoreaSERKS1_.exit ], [ %__first, %for.body.preheader ]
   %store_.i = getelementptr inbounds nuw i8, ptr %__result.addr.08, i64 8
@@ -18021,8 +18021,8 @@ if.end.i:                                         ; preds = %if.else
 
 if.end13.thread:                                  ; preds = %if.end.i
   %16 = load ptr, ptr %14, align 8
-  %tobool.not.i1642 = icmp eq ptr %16, null
-  br i1 %tobool.not.i1642, label %if.end.i.i, label %cond.end.i
+  %tobool.not.i1650 = icmp eq ptr %16, null
+  br i1 %tobool.not.i1650, label %if.end.i.i, label %cond.end.i
 
 for.cond.i:                                       ; preds = %lor.lhs.false.i
   %cmp.i.i.i.i = icmp eq ptr %9, %18
@@ -18064,34 +18064,34 @@ cond.end.i:                                       ; preds = %if.end13.thread, %i
   %24 = phi i64 [ %11, %if.end13.thread ], [ %20, %if.then.i ]
   %25 = phi ptr [ %13, %if.end13.thread ], [ %21, %if.then.i ]
   %26 = phi ptr [ %12, %if.end13.thread ], [ %22, %if.then.i ]
-  %__n.04453 = phi ptr [ %14, %if.end13.thread ], [ %__n.0, %if.then.i ]
-  %__bkt.04551 = phi i64 [ %rem.i.i.i11, %if.end13.thread ], [ %__bkt.0, %if.then.i ]
-  %__prev_n.04749 = phi ptr [ %13, %if.end13.thread ], [ %__prev_n.0, %if.then.i ]
+  %__n.05261 = phi ptr [ %14, %if.end13.thread ], [ %__n.0, %if.then.i ]
+  %__bkt.05359 = phi i64 [ %rem.i.i.i11, %if.end13.thread ], [ %__bkt.0, %if.then.i ]
+  %__prev_n.05557 = phi ptr [ %13, %if.end13.thread ], [ %__prev_n.0, %if.then.i ]
   %27 = phi ptr [ %16, %if.end13.thread ], [ %23, %if.then.i ]
   %add.ptr.i19 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %28 = load ptr, ptr %add.ptr.i19, align 8
   %29 = ptrtoint ptr %28 to i64
   %rem.i.i.i.i21 = urem i64 %29, %24
-  %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i21, %__bkt.04551
+  %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i21, %__bkt.05359
   br i1 %cmp.not.i.i, label %if.end15.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %cond.end.i
   %arrayidx5.i.i = getelementptr inbounds ptr, ptr %26, i64 %rem.i.i.i.i21
   store ptr %25, ptr %arrayidx5.i.i, align 8
   %.pre.i = load ptr, ptr %this, align 8
-  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %__bkt.04551
+  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %__bkt.05359
   %.pre23.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end13.thread, %if.then3.i.i, %if.then.i
-  %__n.04454 = phi ptr [ %__n.0, %if.then.i ], [ %__n.04453, %if.then3.i.i ], [ %14, %if.end13.thread ]
-  %__bkt.04552 = phi i64 [ %__bkt.0, %if.then.i ], [ %__bkt.04551, %if.then3.i.i ], [ %rem.i.i.i11, %if.end13.thread ]
-  %__prev_n.04750 = phi ptr [ %__prev_n.0, %if.then.i ], [ %__prev_n.04749, %if.then3.i.i ], [ %13, %if.end13.thread ]
+  %__n.05262 = phi ptr [ %__n.0, %if.then.i ], [ %__n.05261, %if.then3.i.i ], [ %14, %if.end13.thread ]
+  %__bkt.05360 = phi i64 [ %__bkt.0, %if.then.i ], [ %__bkt.05359, %if.then3.i.i ], [ %rem.i.i.i11, %if.end13.thread ]
+  %__prev_n.05558 = phi ptr [ %__prev_n.0, %if.then.i ], [ %__prev_n.05557, %if.then3.i.i ], [ %13, %if.end13.thread ]
   %30 = phi ptr [ null, %if.then.i ], [ %27, %if.then3.i.i ], [ null, %if.end13.thread ]
   %31 = phi ptr [ %21, %if.then.i ], [ %.pre23.i, %if.then3.i.i ], [ %13, %if.end13.thread ]
   %32 = phi ptr [ %22, %if.then.i ], [ %.pre.i, %if.then3.i.i ], [ %12, %if.end13.thread ]
   %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %arrayidx7.i.i = getelementptr inbounds ptr, ptr %32, i64 %__bkt.04552
+  %arrayidx7.i.i = getelementptr inbounds ptr, ptr %32, i64 %__bkt.05360
   %cmp8.i.i = icmp eq ptr %_M_before_begin.i.i, %31
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end11.i.i
 
@@ -18120,11 +18120,11 @@ if.then11.i:                                      ; preds = %if.then6.i
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then11.i, %if.then6.i, %if.else.i, %if.end11.i.i, %cond.end.i
-  %__prev_n.046 = phi ptr [ %__prev_n.0, %if.then11.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.04750, %if.end11.i.i ], [ %__prev_n.04749, %cond.end.i ]
-  %__n.043 = phi ptr [ %__n.0, %if.then11.i ], [ %__n.0, %if.then6.i ], [ %__n.0, %if.else.i ], [ %__n.04454, %if.end11.i.i ], [ %__n.04453, %cond.end.i ]
-  %35 = load ptr, ptr %__n.043, align 8
-  store ptr %35, ptr %__prev_n.046, align 8
-  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.043, i64 16
+  %__prev_n.054 = phi ptr [ %__prev_n.0, %if.then11.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.05558, %if.end11.i.i ], [ %__prev_n.05557, %cond.end.i ]
+  %__n.051 = phi ptr [ %__n.0, %if.then11.i ], [ %__n.0, %if.then6.i ], [ %__n.0, %if.else.i ], [ %__n.05262, %if.end11.i.i ], [ %__n.05261, %cond.end.i ]
+  %35 = load ptr, ptr %__n.051, align 8
+  store ptr %35, ptr %__prev_n.054, align 8
+  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.051, i64 16
   %36 = load ptr, ptr %second.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt10_HashtableIPN4node4quic8EndpointESt4pairIKS3_NS0_17BaseObjectPtrImplINS0_10BaseObjectELb0EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSB_15_Hash_node_baseEPNSB_10_Hash_nodeIS9_Lb0EEE.exit, label %if.then.i.i.i.i.i.i
@@ -18134,7 +18134,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end15.i
   br label %_ZNSt10_HashtableIPN4node4quic8EndpointESt4pairIKS3_NS0_17BaseObjectPtrImplINS0_10BaseObjectELb0EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSB_15_Hash_node_baseEPNSB_10_Hash_nodeIS9_Lb0EEE.exit
 
 _ZNSt10_HashtableIPN4node4quic8EndpointESt4pairIKS3_NS0_17BaseObjectPtrImplINS0_10BaseObjectELb0EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSB_15_Hash_node_baseEPNSB_10_Hash_nodeIS9_Lb0EEE.exit: ; preds = %if.end15.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__n.043) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %__n.051) #24
   %37 = load i64, ptr %_M_element_count.i, align 8
   %dec.i = add i64 %37, -1
   store i64 %dec.i, ptr %_M_element_count.i, align 8
@@ -18207,10 +18207,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i:   ; preds = %if.end.i.i
   br i1 %cmp.not.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i: ; preds = %if.end.i.i
-  %incdec.ptr.i.i.i.i19.i = getelementptr inbounds i8, ptr %4, i64 -8
-  %10 = load ptr, ptr %incdec.ptr.i.i.i.i19.i, align 8
-  %cmp.not20.i = icmp eq ptr %10, null
-  br i1 %cmp.not20.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
+  %incdec.ptr.i.i.i.i20.i = getelementptr inbounds i8, ptr %4, i64 -8
+  %10 = load ptr, ptr %incdec.ptr.i.i.i.i20.i, align 8
+  %cmp.not21.i = icmp eq ptr %10, null
+  br i1 %cmp.not21.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i
   %11 = phi ptr [ %10, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i ], [ %9, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i ]

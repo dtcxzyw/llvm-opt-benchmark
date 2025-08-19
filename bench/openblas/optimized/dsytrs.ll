@@ -197,7 +197,7 @@ define void @dsytrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %106 = add nuw i32 %103, 1
   %wide.trip.count = zext i32 %106 to i64
   %invariant.gep = getelementptr double, ptr %18, i64 %104
-  %invariant.gep523 = getelementptr double, ptr %18, i64 %105
+  %invariant.gep541 = getelementptr double, ptr %18, i64 %105
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -206,8 +206,8 @@ define void @dsytrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %gep = getelementptr double, ptr %invariant.gep, i64 %107
   %108 = load double, ptr %gep, align 8, !tbaa !7
   %109 = fdiv double %108, %91
-  %gep524 = getelementptr double, ptr %invariant.gep523, i64 %107
-  %110 = load double, ptr %gep524, align 8, !tbaa !7
+  %gep542 = getelementptr double, ptr %invariant.gep541, i64 %107
+  %110 = load double, ptr %gep542, align 8, !tbaa !7
   %111 = fdiv double %110, %91
   %112 = fneg double %111
   %113 = call double @llvm.fmuladd.f64(double %101, double %109, double %112)
@@ -216,7 +216,7 @@ define void @dsytrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %115 = fneg double %109
   %116 = call double @llvm.fmuladd.f64(double %96, double %111, double %115)
   %117 = fdiv double %116, %102
-  store double %117, ptr %gep524, align 8, !tbaa !7
+  store double %117, ptr %gep542, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit476, label %.lr.ph, !llvm.loop !9
@@ -274,16 +274,16 @@ define void @dsytrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %.sink.split
 
 .sink.split:                                      ; preds = %133, %146
-  %.sink533 = phi i32 [ %147, %146 ], [ %134, %133 ]
-  %.sink529.ph = phi i32 [ 2, %146 ], [ 1, %133 ]
-  %148 = sext i32 %.sink533 to i64
+  %.sink551 = phi i32 [ %147, %146 ], [ %134, %133 ]
+  %.sink547.ph = phi i32 [ 2, %146 ], [ 1, %133 ]
+  %148 = sext i32 %.sink551 to i64
   %149 = getelementptr inbounds double, ptr %18, i64 %148
   call void @dswap_(ptr noundef nonnull %2, ptr noundef %130, ptr noundef nonnull %7, ptr noundef %149, ptr noundef nonnull %7) #5
   br label %150
 
 150:                                              ; preds = %.sink.split, %135, %131
-  %.sink529 = phi i32 [ 1, %131 ], [ 2, %135 ], [ %.sink529.ph, %.sink.split ]
-  %151 = add nsw i32 %.2482, %.sink529
+  %.sink547 = phi i32 [ 1, %131 ], [ 2, %135 ], [ %.sink547.ph, %.sink.split ]
+  %151 = add nsw i32 %.2482, %.sink547
   %152 = load i32, ptr %1, align 4, !tbaa !3
   %153 = icmp sgt i32 %151, %152
   br i1 %153, label %.loopexit, label %.lr.ph483
@@ -437,27 +437,27 @@ define void @dsytrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %246 = sext i32 %194 to i64
   %247 = add nuw i32 %245, 1
   %wide.trip.count497 = zext i32 %247 to i64
-  %invariant.gep525 = getelementptr double, ptr %18, i64 %157
-  %invariant.gep527 = getelementptr double, ptr %18, i64 %246
+  %invariant.gep543 = getelementptr double, ptr %18, i64 %157
+  %invariant.gep545 = getelementptr double, ptr %18, i64 %246
   br label %.lr.ph486
 
 .lr.ph486:                                        ; preds = %.lr.ph486.preheader, %.lr.ph486
   %indvars.iv494 = phi i64 [ 1, %.lr.ph486.preheader ], [ %indvars.iv.next495, %.lr.ph486 ]
   %248 = mul nsw i64 %indvars.iv494, %44
-  %gep526 = getelementptr double, ptr %invariant.gep525, i64 %248
-  %249 = load double, ptr %gep526, align 8, !tbaa !7
+  %gep544 = getelementptr double, ptr %invariant.gep543, i64 %248
+  %249 = load double, ptr %gep544, align 8, !tbaa !7
   %250 = fdiv double %249, %233
-  %gep528 = getelementptr double, ptr %invariant.gep527, i64 %248
-  %251 = load double, ptr %gep528, align 8, !tbaa !7
+  %gep546 = getelementptr double, ptr %invariant.gep545, i64 %248
+  %251 = load double, ptr %gep546, align 8, !tbaa !7
   %252 = fdiv double %251, %233
   %253 = fneg double %252
   %254 = call double @llvm.fmuladd.f64(double %243, double %250, double %253)
   %255 = fdiv double %254, %244
-  store double %255, ptr %gep526, align 8, !tbaa !7
+  store double %255, ptr %gep544, align 8, !tbaa !7
   %256 = fneg double %250
   %257 = call double @llvm.fmuladd.f64(double %238, double %252, double %256)
   %258 = fdiv double %257, %244
-  store double %258, ptr %gep528, align 8, !tbaa !7
+  store double %258, ptr %gep546, align 8, !tbaa !7
   %indvars.iv.next495 = add nuw nsw i64 %indvars.iv494, 1
   %exitcond498.not = icmp eq i64 %indvars.iv.next495, %wide.trip.count497
   br i1 %exitcond498.not, label %._crit_edge, label %.lr.ph486, !llvm.loop !11
@@ -510,7 +510,7 @@ define void @dsytrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 285:                                              ; preds = %283
   %286 = add nsw i32 %284, %16
-  br label %.sink.split534
+  br label %.sink.split552
 
 287:                                              ; preds = %.lr.ph490
   br i1 %268, label %288, label %311
@@ -553,22 +553,22 @@ define void @dsytrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 314:                                              ; preds = %311
   %315 = sub nsw i32 %16, %312
-  br label %.sink.split534
+  br label %.sink.split552
 
-.sink.split534:                                   ; preds = %285, %314
-  %.sink538 = phi i32 [ %315, %314 ], [ %286, %285 ]
-  %.sink530.ph = phi i32 [ -2, %314 ], [ -1, %285 ]
+.sink.split552:                                   ; preds = %285, %314
+  %.sink556 = phi i32 [ %315, %314 ], [ %286, %285 ]
+  %.sink548.ph = phi i32 [ -2, %314 ], [ -1, %285 ]
   %.pn.in = add nsw i32 %.6489, %16
   %.pn = sext i32 %.pn.in to i64
-  %.sink535 = getelementptr inbounds double, ptr %18, i64 %.pn
-  %316 = sext i32 %.sink538 to i64
+  %.sink553 = getelementptr inbounds double, ptr %18, i64 %.pn
+  %316 = sext i32 %.sink556 to i64
   %317 = getelementptr inbounds double, ptr %18, i64 %316
-  call void @dswap_(ptr noundef nonnull %2, ptr noundef %.sink535, ptr noundef nonnull %7, ptr noundef %317, ptr noundef nonnull %7) #5
+  call void @dswap_(ptr noundef nonnull %2, ptr noundef %.sink553, ptr noundef nonnull %7, ptr noundef %317, ptr noundef nonnull %7) #5
   br label %318
 
-318:                                              ; preds = %.sink.split534, %311, %283
-  %.sink530 = phi i32 [ -1, %283 ], [ -2, %311 ], [ %.sink530.ph, %.sink.split534 ]
-  %319 = add nsw i32 %.6489, %.sink530
+318:                                              ; preds = %.sink.split552, %311, %283
+  %.sink548 = phi i32 [ -1, %283 ], [ -2, %311 ], [ %.sink548.ph, %.sink.split552 ]
+  %319 = add nsw i32 %.6489, %.sink548
   %320 = icmp slt i32 %319, 1
   br i1 %320, label %.loopexit, label %.lr.ph490
 

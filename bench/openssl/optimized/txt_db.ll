@@ -93,7 +93,7 @@ define ptr @TXT_DB_read(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %36 = sext i32 %35 to i64
   %37 = tail call i64 @BUF_MEM_grow_clean(ptr noundef nonnull %3, i64 noundef %36) #5
   %.not104 = icmp eq i64 %37, 0
-  br i1 %.not104, label %.loopexit165, label %38
+  br i1 %.not104, label %.loopexit173, label %38
 
 38:                                               ; preds = %34, %.backedge
   %.192 = phi i32 [ %35, %34 ], [ %.091, %.backedge ]
@@ -141,7 +141,7 @@ define ptr @TXT_DB_read(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %65 = sext i32 %64 to i64
   %66 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %65, ptr noundef nonnull @.str, i32 noundef 73) #5
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %.loopexit165, label %68
+  br i1 %67, label %.loopexit173, label %68
 
 68:                                               ; preds = %62
   %69 = getelementptr inbounds i8, ptr %66, i64 %32
@@ -242,12 +242,12 @@ define ptr @TXT_DB_read(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @BUF_MEM_free(ptr noundef %3) #5
   br label %101
 
-.loopexit165:                                     ; preds = %62, %34
+.loopexit173:                                     ; preds = %62, %34
   tail call void @BUF_MEM_free(ptr noundef nonnull %3) #5
   br label %97
 
-97:                                               ; preds = %.loopexit165, %.thread
-  %98 = phi ptr [ %.ph, %.loopexit165 ], [ %.pre, %.thread ]
+97:                                               ; preds = %.loopexit173, %.thread
+  %98 = phi ptr [ %.ph, %.loopexit173 ], [ %.pre, %.thread ]
   tail call void @OPENSSL_sk_free(ptr noundef %98) #5
   %99 = load ptr, ptr %11, align 8, !tbaa !14
   tail call void @CRYPTO_free(ptr noundef %99, ptr noundef nonnull @.str, i32 noundef 120) #5
@@ -717,8 +717,8 @@ define range(i32 0, 2) i32 @TXT_DB_insert(ptr noundef captures(none) %0, ptr nou
   %.163 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %59, %.loopexit61.loopexit ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 1, ptr %60, align 8, !tbaa !26
-  %.not94 = icmp eq i32 %.163, 0
-  br i1 %.not94, label %.loopexit, label %.lr.ph69
+  %.not102 = icmp eq i32 %.163, 0
+  br i1 %.not102, label %.loopexit, label %.lr.ph69
 
 .lr.ph69:                                         ; preds = %.loopexit61
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16

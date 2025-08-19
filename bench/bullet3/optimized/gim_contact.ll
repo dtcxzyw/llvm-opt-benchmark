@@ -47,7 +47,7 @@ _ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit:        ; preds = %3, %_ZN9gim_arrayI1
   br label %_ZN9gim_arrayI11GIM_CONTACTE9push_backERKS0_.exit
 
 16:                                               ; preds = %12
-  store i32 %15, ptr %6, align 8, !tbaa !4
+  store i32 0, ptr %6, align 8, !tbaa !4
   %17 = tail call noundef ptr @_Z9gim_allocm(i64 noundef 192)
   store ptr %17, ptr %0, align 8, !tbaa !11
   store i32 4, ptr %14, align 4, !tbaa !12
@@ -84,15 +84,15 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENEC2Ej.exit:        ; preds = %24
   store i32 %10, ptr %26, align 4, !tbaa !21
   %.pre = load i32, ptr %9, align 8, !tbaa !4
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.not110 = icmp eq i32 %.pre, 0
-  br i1 %.not110, label %._crit_edge, label %31
+  %.not122 = icmp eq i32 %.pre, 0
+  br i1 %.not122, label %._crit_edge, label %31
 
 31:                                               ; preds = %_ZN9gim_arrayI15GIM_RSORT_TOKENEC2Ej.exit
   %32 = icmp ult i32 %10, %.pre
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  br i1 %32, label %34, label %_ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit.thread118
+  br i1 %32, label %34, label %_ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit.thread128
 
-_ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit.thread118: ; preds = %31
+_ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit.thread128: ; preds = %31
   store i32 %.pre, ptr %30, align 8, !tbaa !22
   br label %.lr.ph
 
@@ -110,11 +110,11 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit: ; preds = %34
   %.not = icmp eq i32 %.pre102.pre.pre, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit.thread118, %_ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit
-  %38 = phi ptr [ %29, %_ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit.thread118 ], [ %37, %_ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit ]
-  %.pre102121 = phi i32 [ %.pre, %_ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit.thread118 ], [ %.pre102.pre.pre, %_ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit ]
+.lr.ph:                                           ; preds = %_ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit.thread128, %_ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit
+  %38 = phi ptr [ %29, %_ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit.thread128 ], [ %37, %_ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit ]
+  %.pre102131 = phi i32 [ %.pre, %_ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit.thread128 ], [ %.pre102.pre.pre, %_ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit ]
   %39 = load ptr, ptr %1, align 8, !tbaa !11
-  %wide.trip.count = zext i32 %.pre102121 to i64
+  %wide.trip.count = zext i32 %.pre102131 to i64
   br label %40
 
 40:                                               ; preds = %.lr.ph, %40
@@ -685,7 +685,7 @@ _ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit:        ; preds = %2, %_ZN9gim_arrayI1
   br label %_ZN9gim_arrayI11GIM_CONTACTE9push_backERKS0_.exit
 
 13:                                               ; preds = %9
-  store i32 %12, ptr %3, align 8, !tbaa !4
+  store i32 0, ptr %3, align 8, !tbaa !4
   %14 = tail call noundef ptr @_Z9gim_allocm(i64 noundef 192)
   store ptr %14, ptr %0, align 8, !tbaa !11
   store i32 4, ptr %11, align 4, !tbaa !12

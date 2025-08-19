@@ -1172,7 +1172,7 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr noundef re
 35:                                               ; preds = %28, %25
   %.1 = phi i32 [ %27, %25 ], [ -1, %28 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #12
-  br label %.sink.split79
+  br label %.sink.split81
 
 36:                                               ; preds = %4
   store i64 0, ptr %7, align 16, !tbaa !22
@@ -1202,8 +1202,8 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr noundef re
   br label %.sink.split
 
 .sink.split:                                      ; preds = %40, %43, %44
-  %.sink78 = phi i64 [ 3, %44 ], [ 2, %43 ], [ 1, %40 ]
-  %45 = or disjoint i64 %41, %.sink78
+  %.sink80 = phi i64 [ 3, %44 ], [ 2, %43 ], [ 1, %40 ]
+  %45 = or disjoint i64 %41, %.sink80
   store i64 %45, ptr %7, align 16, !tbaa !22
   br label %46
 
@@ -1261,7 +1261,7 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr noundef re
   %.2 = phi i32 [ %62, %60 ], [ -1, %65 ], [ -2, %46 ], [ 0, %63 ], [ -2, %56 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #12
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #12
-  br label %.sink.split79
+  br label %.sink.split81
 
 73:                                               ; preds = %4
   %74 = tail call noalias ptr @_emalloc_40() #12
@@ -1279,7 +1279,7 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr noundef re
   store ptr %74, ptr %5, align 8, !tbaa !22
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 262, ptr %80, align 8, !tbaa !22
-  switch i32 %2, label %.sink.split79 [
+  switch i32 %2, label %.sink.split81 [
     i32 0, label %81
     i32 1, label %85
   ]
@@ -1290,12 +1290,12 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr noundef re
   %84 = call zeroext i1 @zend_is_callable_ex(ptr noundef nonnull %5, ptr noundef %83, i32 noundef 2, ptr noundef null, ptr noundef null, ptr noundef null) #12
   %not.77 = xor i1 %84, true
   %. = sext i1 %not.77 to i32
-  br label %.sink.split79
+  br label %.sink.split81
 
 85:                                               ; preds = %73
   %86 = load i64, ptr %3, align 8, !tbaa !21
   %87 = icmp sgt i64 %86, -1
-  br i1 %87, label %88, label %.sink.split79
+  br i1 %87, label %88, label %.sink.split81
 
 88:                                               ; preds = %85
   store i64 %86, ptr %7, align 16, !tbaa !22
@@ -1345,7 +1345,7 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr noundef re
   %.4 = phi i32 [ %98, %96 ], [ -2, %99 ], [ -2, %106 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #12
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #12
-  br label %.sink.split79
+  br label %.sink.split81
 
 114:                                              ; preds = %4, %4, %4, %4
   %115 = tail call noalias ptr @_emalloc_48() #12
@@ -1445,16 +1445,16 @@ default.unreachable:                              ; preds = %114
   call void @zval_ptr_dtor(ptr noundef nonnull %126) #12
   call void @zval_ptr_dtor(ptr noundef nonnull %124) #12
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #12
-  br label %.sink.split79
+  br label %.sink.split81
 
-.sink.split79:                                    ; preds = %73, %81, %85, %113, %35, %72, %149
+.sink.split81:                                    ; preds = %73, %81, %85, %113, %35, %72, %149
   %.sink = phi ptr [ %5, %149 ], [ %7, %72 ], [ %5, %35 ], [ %5, %113 ], [ %5, %85 ], [ %5, %81 ], [ %5, %73 ]
   %.0.ph = phi i32 [ %.6, %149 ], [ %.2, %72 ], [ %.1, %35 ], [ %.4, %113 ], [ -1, %85 ], [ %., %81 ], [ -2, %73 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %.sink) #12
   br label %150
 
-150:                                              ; preds = %.sink.split79, %4
-  %.0 = phi i32 [ -2, %4 ], [ %.0.ph, %.sink.split79 ]
+150:                                              ; preds = %.sink.split81, %4
+  %.0 = phi i32 [ -2, %4 ], [ %.0.ph, %.sink.split81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

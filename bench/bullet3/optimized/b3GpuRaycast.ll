@@ -732,8 +732,8 @@ _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %._crit_edge164
 
 20:                                               ; preds = %.lr.ph163, %._crit_edge.thread
   %indvars.iv166 = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next167, %._crit_edge.thread ]
-  %.sroa.6117.0160 = phi <2 x float> [ undef, %.lr.ph163 ], [ %.sroa.6117.1.lcssa176, %._crit_edge.thread ]
-  %.sroa.0116.0159 = phi <2 x float> [ undef, %.lr.ph163 ], [ %.sroa.0116.1.lcssa175, %._crit_edge.thread ]
+  %.sroa.6117.0160 = phi <2 x float> [ undef, %.lr.ph163 ], [ %.sroa.6117.1.lcssa184, %._crit_edge.thread ]
+  %.sroa.0116.0159 = phi <2 x float> [ undef, %.lr.ph163 ], [ %.sroa.0116.1.lcssa183, %._crit_edge.thread ]
   %21 = load ptr, ptr %12, align 8, !tbaa !82
   %22 = getelementptr inbounds nuw %struct.b3RayInfo, ptr %21, i64 %indvars.iv166
   %.sroa.0127.0.copyload = load float, ptr %22, align 16
@@ -1119,8 +1119,8 @@ _ZN13b3ProfileZoneD2Ev.exit82:                    ; preds = %231
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %20, %236, %._crit_edge
-  %.sroa.6117.1.lcssa176 = phi <2 x float> [ %.sroa.6117.3, %236 ], [ %.sroa.6117.3, %._crit_edge ], [ %.sroa.6117.0160, %20 ]
-  %.sroa.0116.1.lcssa175 = phi <2 x float> [ %.sroa.0116.3, %236 ], [ %.sroa.0116.3, %._crit_edge ], [ %.sroa.0116.0159, %20 ]
+  %.sroa.6117.1.lcssa184 = phi <2 x float> [ %.sroa.6117.3, %236 ], [ %.sroa.6117.3, %._crit_edge ], [ %.sroa.6117.0160, %20 ]
+  %.sroa.0116.1.lcssa183 = phi <2 x float> [ %.sroa.0116.3, %236 ], [ %.sroa.0116.3, %._crit_edge ], [ %.sroa.0116.0159, %20 ]
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %266 = load i32, ptr %9, align 4, !tbaa !78
   %267 = sext i32 %266 to i64

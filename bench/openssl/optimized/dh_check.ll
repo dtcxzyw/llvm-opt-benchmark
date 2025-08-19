@@ -464,9 +464,9 @@ define range(i32 0, 2) i32 @DH_check(ptr noundef %0, ptr noundef captures(none) 
   br i1 %.not80, label %.critedge, label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %68, %24
-  %.sink86 = phi i32 [ 32, %24 ], [ 64, %68 ]
+  %.sink93 = phi i32 [ 32, %24 ], [ 64, %68 ]
   %70 = load i32, ptr %1, align 4, !tbaa !3
-  %71 = or i32 %70, %.sink86
+  %71 = or i32 %70, %.sink93
   store i32 %71, ptr %1, align 4, !tbaa !3
   br label %.critedge
 
@@ -478,7 +478,7 @@ define range(i32 0, 2) i32 @DH_check(ptr noundef %0, ptr noundef captures(none) 
 
 75:                                               ; preds = %.critedge
   %.not81 = icmp eq i32 %73, 0
-  br i1 %.not81, label %.sink.split87, label %76
+  br i1 %.not81, label %.sink.split94, label %76
 
 76:                                               ; preds = %75
   %77 = load ptr, ptr %22, align 8, !tbaa !23
@@ -498,17 +498,17 @@ define range(i32 0, 2) i32 @DH_check(ptr noundef %0, ptr noundef captures(none) 
 
 85:                                               ; preds = %82
   %.not83 = icmp eq i32 %83, 0
-  br i1 %.not83, label %.sink.split87, label %88
+  br i1 %.not83, label %.sink.split94, label %88
 
-.sink.split87:                                    ; preds = %85, %75
-  %.sink89 = phi i32 [ 1, %75 ], [ 2, %85 ]
+.sink.split94:                                    ; preds = %85, %75
+  %.sink96 = phi i32 [ 1, %75 ], [ 2, %85 ]
   %86 = load i32, ptr %1, align 4, !tbaa !3
-  %87 = or i32 %86, %.sink89
+  %87 = or i32 %86, %.sink96
   store i32 %87, ptr %1, align 4, !tbaa !3
   br label %88
 
-88:                                               ; preds = %.sink.split87, %85, %76, %82, %79, %.critedge, %56, %48, %39, %17, %12
-  %.063 = phi i32 [ 0, %12 ], [ 0, %17 ], [ 0, %48 ], [ 0, %.critedge ], [ 0, %82 ], [ 0, %79 ], [ 0, %56 ], [ 0, %39 ], [ 1, %76 ], [ 1, %85 ], [ 1, %.sink.split87 ]
+88:                                               ; preds = %.sink.split94, %85, %76, %82, %79, %.critedge, %56, %48, %39, %17, %12
+  %.063 = phi i32 [ 0, %12 ], [ 0, %17 ], [ 0, %48 ], [ 0, %.critedge ], [ 0, %82 ], [ 0, %79 ], [ 0, %56 ], [ 0, %39 ], [ 1, %76 ], [ 1, %85 ], [ 1, %.sink.split94 ]
   tail call void @BN_CTX_end(ptr noundef %15) #3
   tail call void @BN_CTX_free(ptr noundef %15) #3
   br label %89

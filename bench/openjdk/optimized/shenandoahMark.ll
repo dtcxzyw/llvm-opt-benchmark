@@ -1225,7 +1225,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds ptr, ptr %211, i64 %209
   %213 = load ptr, ptr %212, align 8
-  %.not.i.i.us212 = icmp ult ptr %188, %213
+  %.not.i.i.us259 = icmp ult ptr %188, %213
   br i1 %206, label %262, label %232
 
 _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us: ; preds = %190
@@ -1257,11 +1257,11 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   br i1 %222, label %262, label %232
 
 232:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread, %220
-  %.not.i.i.us213 = phi i1 [ %.not.i.i.us212, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %.not.i.i.us, %220 ]
+  %.not.i.i.us260 = phi i1 [ %.not.i.i.us259, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %.not.i.i.us, %220 ]
   %233 = phi i64 [ %207, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %225, %220 ]
   %234 = phi ptr [ %203, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %224, %220 ]
   %235 = phi ptr [ %204, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %223, %220 ]
-  br i1 %.not.i.i.us213, label %236, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit.us
+  br i1 %.not.i.i.us260, label %236, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit.us
 
 236:                                              ; preds = %232
   %237 = getelementptr inbounds nuw i8, ptr %235, i64 8
@@ -1300,11 +1300,11 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   br label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i.us
 
 262:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread, %220
-  %.not.i.i.us214 = phi i1 [ %.not.i.i.us212, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %.not.i.i.us, %220 ]
+  %.not.i.i.us261 = phi i1 [ %.not.i.i.us259, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %.not.i.i.us, %220 ]
   %263 = phi i64 [ %207, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %225, %220 ]
   %264 = phi ptr [ %203, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %224, %220 ]
   %265 = phi ptr [ %204, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %223, %220 ]
-  br i1 %.not.i.i.us214, label %266, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit.us
+  br i1 %.not.i.i.us261, label %266, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit.us
 
 266:                                              ; preds = %262
   %267 = getelementptr inbounds nuw i8, ptr %265, i64 8
@@ -2107,7 +2107,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %699 = load ptr, ptr %698, align 8
   %700 = getelementptr inbounds ptr, ptr %699, i64 %697
   %701 = load ptr, ptr %700, align 8
-  %.not.i.i140.us217 = icmp ult ptr %676, %701
+  %.not.i.i140.us264 = icmp ult ptr %676, %701
   br i1 %694, label %750, label %720
 
 _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i106.us: ; preds = %678
@@ -2139,11 +2139,11 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   br i1 %710, label %750, label %720
 
 720:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i106.us.thread, %708
-  %.not.i.i140.us218 = phi i1 [ %.not.i.i140.us217, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i106.us.thread ], [ %.not.i.i140.us, %708 ]
+  %.not.i.i140.us265 = phi i1 [ %.not.i.i140.us264, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i106.us.thread ], [ %.not.i.i140.us, %708 ]
   %721 = phi i64 [ %695, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i106.us.thread ], [ %713, %708 ]
   %722 = phi ptr [ %691, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i106.us.thread ], [ %712, %708 ]
   %723 = phi ptr [ %692, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i106.us.thread ], [ %711, %708 ]
-  br i1 %.not.i.i140.us218, label %724, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit167.us
+  br i1 %.not.i.i140.us265, label %724, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit167.us
 
 724:                                              ; preds = %720
   %725 = getelementptr inbounds nuw i8, ptr %723, i64 8
@@ -2182,11 +2182,11 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   br label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i144.us
 
 750:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i106.us.thread, %708
-  %.not.i.i140.us219 = phi i1 [ %.not.i.i140.us217, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i106.us.thread ], [ %.not.i.i140.us, %708 ]
+  %.not.i.i140.us266 = phi i1 [ %.not.i.i140.us264, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i106.us.thread ], [ %.not.i.i140.us, %708 ]
   %751 = phi i64 [ %695, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i106.us.thread ], [ %713, %708 ]
   %752 = phi ptr [ %691, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i106.us.thread ], [ %712, %708 ]
   %753 = phi ptr [ %692, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i106.us.thread ], [ %711, %708 ]
-  br i1 %.not.i.i140.us219, label %754, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit167.us
+  br i1 %.not.i.i140.us266, label %754, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit167.us
 
 754:                                              ; preds = %750
   %755 = getelementptr inbounds nuw i8, ptr %753, i64 8
@@ -3923,272 +3923,268 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark22do_chunked_array_startI31S
   br i1 %34, label %35, label %.lr.ph
 
 35:                                               ; preds = %29
-  %36 = add nsw i32 %spec.select, -1
-  %37 = ptrtoint ptr %3 to i64
+  %36 = ptrtoint ptr %3 to i64
   %.1.i.i.v = select i1 %4, i64 3, i64 1
-  %38 = zext nneg i32 %36 to i64
-  %39 = shl nuw nsw i64 %38, 49
-  %.1.i.i = or i64 %.1.i.i.v, %37
-  %40 = or i64 %.1.i.i, %39
-  %41 = or i64 %40, 18014398509481984
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 712
-  %43 = load i8, ptr %42, align 8
-  %44 = trunc i8 %43 to i1
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 720
-  br i1 %44, label %46, label %47
+  %.1.i.i = or i64 %.1.i.i.v, %36
+  %37 = or i64 %.1.i.i, 34902897112121344
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 712
+  %39 = load i8, ptr %38, align 8
+  %40 = trunc i8 %39 to i1
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 720
+  br i1 %40, label %42, label %43
 
-46:                                               ; preds = %35
-  store i64 %41, ptr %45, align 8
-  store i8 0, ptr %42, align 8
+42:                                               ; preds = %35
+  store i64 %37, ptr %41, align 8
+  store i8 0, ptr %38, align 8
   br label %.lr.ph
 
-47:                                               ; preds = %35
-  %.sroa.0.0.copyload.i = load i64, ptr %45, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %49 = load volatile i32, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %51 = load volatile i32, ptr %50, align 8
-  %52 = sub i32 %49, %51
-  %53 = and i32 %52, 131070
-  %.not.i.i = icmp eq i32 %53, 131070
+43:                                               ; preds = %35
+  %.sroa.0.0.copyload.i = load i64, ptr %41, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %45 = load volatile i32, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %47 = load volatile i32, ptr %46, align 8
+  %48 = sub i32 %45, %47
+  %49 = and i32 %48, 131070
+  %.not.i.i = icmp eq i32 %49, 131070
   br i1 %.not.i.i, label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i
 
-_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i: ; preds = %47
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %55 = load ptr, ptr %54, align 8
-  %56 = zext i32 %49 to i64
-  %57 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %55, i64 %56
-  store i64 %.sroa.0.0.copyload.i, ptr %57, align 8
-  %58 = add i32 %49, 1
-  %59 = and i32 %58, 131071
+_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i: ; preds = %43
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  %51 = load ptr, ptr %50, align 8
+  %52 = zext i32 %45 to i64
+  %53 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %51, i64 %52
+  store i64 %.sroa.0.0.copyload.i, ptr %53, align 8
+  %54 = add i32 %45, 1
+  %55 = and i32 %54, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %59, ptr %48, align 8
+  store volatile i32 %55, ptr %44, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
 
-_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %47
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 640
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 648
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 672
-  %63 = load i64, ptr %62, align 8
-  %64 = load i64, ptr %61, align 8
-  %65 = icmp eq i64 %63, %64
-  br i1 %65, label %66, label %._crit_edge.i.i.i
+_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %43
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 640
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 648
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 672
+  %59 = load i64, ptr %58, align 8
+  %60 = load i64, ptr %57, align 8
+  %61 = icmp eq i64 %59, %60
+  br i1 %61, label %62, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 696
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE4pushES0_.exit.i.i
 
-66:                                               ; preds = %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 688
-  %68 = load i64, ptr %67, align 8
-  %.not.i.i.i.i = icmp eq i64 %68, 0
-  br i1 %.not.i.i.i.i, label %76, label %69
+62:                                               ; preds = %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 688
+  %64 = load i64, ptr %63, align 8
+  %.not.i.i.i.i = icmp eq i64 %64, 0
+  br i1 %.not.i.i.i.i, label %72, label %65
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 704
-  %71 = load ptr, ptr %70, align 8
-  %72 = shl i64 %63, 3
-  %73 = getelementptr inbounds i8, ptr %71, i64 %72
-  %74 = load ptr, ptr %73, align 8
-  store ptr %74, ptr %70, align 8
-  %75 = add i64 %68, -1
-  store i64 %75, ptr %67, align 8
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 704
+  %67 = load ptr, ptr %66, align 8
+  %68 = shl i64 %59, 3
+  %69 = getelementptr inbounds i8, ptr %67, i64 %68
+  %70 = load ptr, ptr %69, align 8
+  store ptr %70, ptr %66, align 8
+  %71 = add i64 %64, -1
+  store i64 %71, ptr %63, align 8
   br label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i
 
-76:                                               ; preds = %66
-  %77 = shl i64 %63, 3
-  %78 = add i64 %77, 8
-  %79 = load ptr, ptr %60, align 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = tail call noundef ptr %80(ptr noundef nonnull align 8 dereferenceable(72) %60, i64 noundef %78) #10
-  %.pre.i.i.i.i = load i64, ptr %61, align 8
+72:                                               ; preds = %62
+  %73 = shl i64 %59, 3
+  %74 = add i64 %73, 8
+  %75 = load ptr, ptr %56, align 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = tail call noundef ptr %76(ptr noundef nonnull align 8 dereferenceable(72) %56, i64 noundef %74) #10
+  %.pre.i.i.i.i = load i64, ptr %57, align 8
   %.pre2.i.i.i.i = shl i64 %.pre.i.i.i.i, 3
   br label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i
 
-_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i: ; preds = %76, %69
-  %.pre-phi.i.i.i.i = phi i64 [ %.pre2.i.i.i.i, %76 ], [ %72, %69 ]
-  %.0.i.i.i.i = phi ptr [ %81, %76 ], [ %71, %69 ]
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 696
-  %83 = load ptr, ptr %82, align 8
-  %84 = icmp eq ptr %83, null
-  %85 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 %.pre-phi.i.i.i.i
-  store ptr %83, ptr %85, align 8
-  store ptr %.0.i.i.i.i, ptr %82, align 8
-  %86 = load i64, ptr %61, align 8
-  %spec.select.i.i.i.i = select i1 %84, i64 0, i64 %86
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 680
-  %88 = load i64, ptr %87, align 8
-  %89 = add i64 %88, %spec.select.i.i.i.i
-  store i64 %89, ptr %87, align 8
+_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i: ; preds = %72, %65
+  %.pre-phi.i.i.i.i = phi i64 [ %.pre2.i.i.i.i, %72 ], [ %68, %65 ]
+  %.0.i.i.i.i = phi ptr [ %77, %72 ], [ %67, %65 ]
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 696
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp eq ptr %79, null
+  %81 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 %.pre-phi.i.i.i.i
+  store ptr %79, ptr %81, align 8
+  store ptr %.0.i.i.i.i, ptr %78, align 8
+  %82 = load i64, ptr %57, align 8
+  %spec.select.i.i.i.i = select i1 %80, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 680
+  %84 = load i64, ptr %83, align 8
+  %85 = add i64 %84, %spec.select.i.i.i.i
+  store i64 %85, ptr %83, align 8
   br label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE4pushES0_.exit.i.i
 
 _ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE4pushES0_.exit.i.i: ; preds = %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i, %._crit_edge.i.i.i
-  %90 = phi ptr [ %.0.i.i.i.i, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i ], [ %.pre.i.i.i, %._crit_edge.i.i.i ]
-  %.0.i.i.i = phi i64 [ 0, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i ], [ %63, %._crit_edge.i.i.i ]
-  %91 = getelementptr inbounds %class.ShenandoahMarkTask, ptr %90, i64 %.0.i.i.i
-  store i64 %.sroa.0.0.copyload.i, ptr %91, align 8
-  %92 = add i64 %.0.i.i.i, 1
-  store i64 %92, ptr %62, align 8
+  %86 = phi ptr [ %.0.i.i.i.i, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i ], [ %.pre.i.i.i, %._crit_edge.i.i.i ]
+  %.0.i.i.i = phi i64 [ 0, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i ], [ %59, %._crit_edge.i.i.i ]
+  %87 = getelementptr inbounds %class.ShenandoahMarkTask, ptr %86, i64 %.0.i.i.i
+  store i64 %.sroa.0.0.copyload.i, ptr %87, align 8
+  %88 = add i64 %.0.i.i.i, 1
+  store i64 %88, ptr %58, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
 
 _ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i: ; preds = %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i
-  store i64 %41, ptr %45, align 8
+  store i64 %37, ptr %41, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %29, %46, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
-  %.048 = phi i32 [ %spec.select, %29 ], [ 30, %46 ], [ 30, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i ]
-  %.045 = phi i32 [ 1, %29 ], [ 2, %46 ], [ 2, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i ]
-  %.044 = phi i32 [ 0, %29 ], [ 1073741824, %46 ], [ 1073741824, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i ]
-  %93 = ptrtoint ptr %3 to i64
+.lr.ph:                                           ; preds = %29, %42, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
+  %.048 = phi i32 [ %spec.select, %29 ], [ 30, %42 ], [ 30, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i ]
+  %.045 = phi i32 [ 1, %29 ], [ 2, %42 ], [ 2, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i ]
+  %.044 = phi i32 [ 0, %29 ], [ 1073741824, %42 ], [ 1073741824, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i ]
+  %89 = ptrtoint ptr %3 to i64
   %.1.i.i56.v = select i1 %4, i64 3, i64 1
-  %.1.i.i56 = or i64 %.1.i.i56.v, %93
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 712
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 720
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 640
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 648
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 672
+  %.1.i.i56 = or i64 %.1.i.i56.v, %89
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 712
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 720
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 640
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 648
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 672
   %.phi.trans.insert.i.i.i63 = getelementptr inbounds nuw i8, ptr %1, i64 696
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 688
-  %103 = getelementptr inbounds nuw i8, ptr %1, i64 704
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 680
-  br label %105
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 688
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 704
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 680
+  br label %101
 
-105:                                              ; preds = %.lr.ph, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit74
+101:                                              ; preds = %.lr.ph, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit74
   %.178 = phi i32 [ %.044, %.lr.ph ], [ %.2, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit74 ]
   %.14677 = phi i32 [ %.045, %.lr.ph ], [ %.247, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit74 ]
-  %.14976 = phi i32 [ %.048, %.lr.ph ], [ %109, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit74 ]
-  %106 = shl nsw i32 %.14677, 1
-  %107 = icmp slt i32 %.14677, 512
-  br i1 %107, label %108, label %.critedge
+  %.14976 = phi i32 [ %.048, %.lr.ph ], [ %105, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit74 ]
+  %102 = shl nsw i32 %.14677, 1
+  %103 = icmp slt i32 %.14677, 512
+  br i1 %103, label %104, label %.critedge
 
-108:                                              ; preds = %105
-  %109 = add nsw i32 %.14976, -1
-  %110 = add nsw i32 %106, -1
-  %111 = shl i32 %110, %109
-  %112 = icmp slt i32 %111, %10
-  br i1 %112, label %113, label %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit74
+104:                                              ; preds = %101
+  %105 = add nsw i32 %.14976, -1
+  %106 = add nsw i32 %102, -1
+  %107 = shl i32 %106, %105
+  %108 = icmp slt i32 %107, %10
+  br i1 %108, label %109, label %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit74
 
-113:                                              ; preds = %108
-  %114 = zext i32 %110 to i64
-  %115 = shl i64 %114, 54
-  %116 = zext i32 %109 to i64
-  %117 = shl i64 %116, 49
-  %118 = or i64 %.1.i.i56, %117
-  %119 = or i64 %118, %115
-  %120 = load i8, ptr %94, align 8
-  %121 = trunc i8 %120 to i1
-  br i1 %121, label %122, label %123
+109:                                              ; preds = %104
+  %110 = zext i32 %106 to i64
+  %111 = shl i64 %110, 54
+  %112 = zext i32 %105 to i64
+  %113 = shl i64 %112, 49
+  %114 = or i64 %.1.i.i56, %113
+  %115 = or i64 %114, %111
+  %116 = load i8, ptr %90, align 8
+  %117 = trunc i8 %116 to i1
+  br i1 %117, label %118, label %119
 
-122:                                              ; preds = %113
-  store i64 %119, ptr %95, align 8
-  store i8 0, ptr %94, align 8
+118:                                              ; preds = %109
+  store i64 %115, ptr %91, align 8
+  store i8 0, ptr %90, align 8
   br label %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit74
 
-123:                                              ; preds = %113
-  %.sroa.0.0.copyload.i57 = load i64, ptr %95, align 8
-  %124 = load volatile i32, ptr %96, align 8
-  %125 = load volatile i32, ptr %97, align 8
-  %126 = sub i32 %124, %125
-  %127 = and i32 %126, 131070
-  %.not.i.i58 = icmp eq i32 %127, 131070
+119:                                              ; preds = %109
+  %.sroa.0.0.copyload.i57 = load i64, ptr %91, align 8
+  %120 = load volatile i32, ptr %92, align 8
+  %121 = load volatile i32, ptr %93, align 8
+  %122 = sub i32 %120, %121
+  %123 = and i32 %122, 131070
+  %.not.i.i58 = icmp eq i32 %123, 131070
   br i1 %.not.i.i58, label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i61, label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i59
 
-_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i59: ; preds = %123
-  %128 = load ptr, ptr %98, align 8
-  %129 = zext i32 %124 to i64
-  %130 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %128, i64 %129
-  store i64 %.sroa.0.0.copyload.i57, ptr %130, align 8
-  %131 = add i32 %124, 1
-  %132 = and i32 %131, 131071
+_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i59: ; preds = %119
+  %124 = load ptr, ptr %94, align 8
+  %125 = zext i32 %120 to i64
+  %126 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %124, i64 %125
+  store i64 %.sroa.0.0.copyload.i57, ptr %126, align 8
+  %127 = add i32 %120, 1
+  %128 = and i32 %127, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %132, ptr %96, align 8
+  store volatile i32 %128, ptr %92, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i60
 
-_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i61: ; preds = %123
-  %133 = load i64, ptr %101, align 8
-  %134 = load i64, ptr %100, align 8
-  %135 = icmp eq i64 %133, %134
-  br i1 %135, label %136, label %._crit_edge.i.i.i62
+_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i61: ; preds = %119
+  %129 = load i64, ptr %97, align 8
+  %130 = load i64, ptr %96, align 8
+  %131 = icmp eq i64 %129, %130
+  br i1 %131, label %132, label %._crit_edge.i.i.i62
 
 ._crit_edge.i.i.i62:                              ; preds = %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i61
   %.pre.i.i.i64 = load ptr, ptr %.phi.trans.insert.i.i.i63, align 8
   br label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE4pushES0_.exit.i.i65
 
-136:                                              ; preds = %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i61
-  %137 = load i64, ptr %102, align 8
-  %.not.i.i.i.i67 = icmp eq i64 %137, 0
-  br i1 %.not.i.i.i.i67, label %144, label %138
+132:                                              ; preds = %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i61
+  %133 = load i64, ptr %98, align 8
+  %.not.i.i.i.i67 = icmp eq i64 %133, 0
+  br i1 %.not.i.i.i.i67, label %140, label %134
 
-138:                                              ; preds = %136
-  %139 = load ptr, ptr %103, align 8
-  %140 = shl i64 %133, 3
-  %141 = getelementptr inbounds i8, ptr %139, i64 %140
-  %142 = load ptr, ptr %141, align 8
-  store ptr %142, ptr %103, align 8
-  %143 = add i64 %137, -1
-  store i64 %143, ptr %102, align 8
+134:                                              ; preds = %132
+  %135 = load ptr, ptr %99, align 8
+  %136 = shl i64 %129, 3
+  %137 = getelementptr inbounds i8, ptr %135, i64 %136
+  %138 = load ptr, ptr %137, align 8
+  store ptr %138, ptr %99, align 8
+  %139 = add i64 %133, -1
+  store i64 %139, ptr %98, align 8
   br label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i68
 
-144:                                              ; preds = %136
-  %145 = shl i64 %133, 3
-  %146 = add i64 %145, 8
-  %147 = load ptr, ptr %99, align 8
-  %148 = load ptr, ptr %147, align 8
-  %149 = tail call noundef ptr %148(ptr noundef nonnull align 8 dereferenceable(72) %99, i64 noundef %146) #10
-  %.pre.i.i.i.i72 = load i64, ptr %100, align 8
+140:                                              ; preds = %132
+  %141 = shl i64 %129, 3
+  %142 = add i64 %141, 8
+  %143 = load ptr, ptr %95, align 8
+  %144 = load ptr, ptr %143, align 8
+  %145 = tail call noundef ptr %144(ptr noundef nonnull align 8 dereferenceable(72) %95, i64 noundef %142) #10
+  %.pre.i.i.i.i72 = load i64, ptr %96, align 8
   %.pre2.i.i.i.i73 = shl i64 %.pre.i.i.i.i72, 3
   br label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i68
 
-_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i68: ; preds = %144, %138
-  %.pre-phi.i.i.i.i69 = phi i64 [ %.pre2.i.i.i.i73, %144 ], [ %140, %138 ]
-  %.0.i.i.i.i70 = phi ptr [ %149, %144 ], [ %139, %138 ]
-  %150 = load ptr, ptr %.phi.trans.insert.i.i.i63, align 8
-  %151 = icmp eq ptr %150, null
-  %152 = getelementptr inbounds i8, ptr %.0.i.i.i.i70, i64 %.pre-phi.i.i.i.i69
-  store ptr %150, ptr %152, align 8
+_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i68: ; preds = %140, %134
+  %.pre-phi.i.i.i.i69 = phi i64 [ %.pre2.i.i.i.i73, %140 ], [ %136, %134 ]
+  %.0.i.i.i.i70 = phi ptr [ %145, %140 ], [ %135, %134 ]
+  %146 = load ptr, ptr %.phi.trans.insert.i.i.i63, align 8
+  %147 = icmp eq ptr %146, null
+  %148 = getelementptr inbounds i8, ptr %.0.i.i.i.i70, i64 %.pre-phi.i.i.i.i69
+  store ptr %146, ptr %148, align 8
   store ptr %.0.i.i.i.i70, ptr %.phi.trans.insert.i.i.i63, align 8
-  %153 = load i64, ptr %100, align 8
-  %spec.select.i.i.i.i71 = select i1 %151, i64 0, i64 %153
-  %154 = load i64, ptr %104, align 8
-  %155 = add i64 %154, %spec.select.i.i.i.i71
-  store i64 %155, ptr %104, align 8
+  %149 = load i64, ptr %96, align 8
+  %spec.select.i.i.i.i71 = select i1 %147, i64 0, i64 %149
+  %150 = load i64, ptr %100, align 8
+  %151 = add i64 %150, %spec.select.i.i.i.i71
+  store i64 %151, ptr %100, align 8
   br label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE4pushES0_.exit.i.i65
 
 _ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE4pushES0_.exit.i.i65: ; preds = %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i68, %._crit_edge.i.i.i62
-  %156 = phi ptr [ %.0.i.i.i.i70, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i68 ], [ %.pre.i.i.i64, %._crit_edge.i.i.i62 ]
-  %.0.i.i.i66 = phi i64 [ 0, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i68 ], [ %133, %._crit_edge.i.i.i62 ]
-  %157 = getelementptr inbounds %class.ShenandoahMarkTask, ptr %156, i64 %.0.i.i.i66
-  store i64 %.sroa.0.0.copyload.i57, ptr %157, align 8
-  %158 = add i64 %.0.i.i.i66, 1
-  store i64 %158, ptr %101, align 8
+  %152 = phi ptr [ %.0.i.i.i.i70, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i68 ], [ %.pre.i.i.i64, %._crit_edge.i.i.i62 ]
+  %.0.i.i.i66 = phi i64 [ 0, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i68 ], [ %129, %._crit_edge.i.i.i62 ]
+  %153 = getelementptr inbounds %class.ShenandoahMarkTask, ptr %152, i64 %.0.i.i.i66
+  store i64 %.sroa.0.0.copyload.i57, ptr %153, align 8
+  %154 = add i64 %.0.i.i.i66, 1
+  store i64 %154, ptr %97, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i60
 
 _ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i60: ; preds = %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE4pushES0_.exit.i.i65, %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i59
-  store i64 %119, ptr %95, align 8
+  store i64 %115, ptr %91, align 8
   br label %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit74
 
-_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit74: ; preds = %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i60, %122, %108
-  %.247 = phi i32 [ %110, %108 ], [ %106, %122 ], [ %106, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i60 ]
-  %.2 = phi i32 [ %.178, %108 ], [ %111, %122 ], [ %111, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i60 ]
-  %159 = shl nuw i32 1, %109
-  %160 = icmp sgt i32 %159, 2048
-  br i1 %160, label %105, label %.critedge, !llvm.loop !27
+_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit74: ; preds = %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i60, %118, %104
+  %.247 = phi i32 [ %106, %104 ], [ %102, %118 ], [ %102, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i60 ]
+  %.2 = phi i32 [ %.178, %104 ], [ %107, %118 ], [ %107, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i60 ]
+  %155 = shl nuw i32 1, %105
+  %156 = icmp sgt i32 %155, 2048
+  br i1 %156, label %101, label %.critedge, !llvm.loop !27
 
-.critedge:                                        ; preds = %105, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit74
-  %.1.lcssa.ph = phi i32 [ %.2, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit74 ], [ %.178, %105 ]
-  %161 = icmp slt i32 %.1.lcssa.ph, %10
-  br i1 %161, label %.sink.split, label %162
+.critedge:                                        ; preds = %101, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit74
+  %.1.lcssa.ph = phi i32 [ %.178, %101 ], [ %.2, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit74 ]
+  %157 = icmp slt i32 %.1.lcssa.ph, %10
+  br i1 %157, label %.sink.split, label %158
 
 .sink.split:                                      ; preds = %.critedge, %24
   %.1.lcssa.ph.sink = phi i32 [ 0, %24 ], [ %.1.lcssa.ph, %.critedge ]
   tail call void @_ZN15objArrayOopDesc17oop_iterate_rangeI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEEEvPT_ii(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %2, i32 noundef %.1.lcssa.ph.sink, i32 noundef %10)
-  br label %162
+  br label %158
 
-162:                                              ; preds = %.sink.split, %.critedge
+158:                                              ; preds = %.sink.split, %.critedge
   ret void
 }
 
@@ -5127,343 +5123,339 @@ _ZNK7oopDesc5klassEv.exit7.i:                     ; preds = %29
   br i1 %76, label %77, label %.lr.ph
 
 77:                                               ; preds = %71
-  %78 = add nsw i32 %spec.select, -1
-  %79 = ptrtoint ptr %3 to i64
+  %78 = ptrtoint ptr %3 to i64
   %.1.i.i.v = select i1 %4, i64 3, i64 1
-  %80 = zext nneg i32 %78 to i64
-  %81 = shl nuw nsw i64 %80, 49
-  %.1.i.i = or i64 %.1.i.i.v, %79
-  %82 = or i64 %.1.i.i, %81
-  %83 = or i64 %82, 18014398509481984
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 712
-  %85 = load i8, ptr %84, align 8
-  %86 = trunc i8 %85 to i1
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 720
-  br i1 %86, label %88, label %89
+  %.1.i.i = or i64 %.1.i.i.v, %78
+  %79 = or i64 %.1.i.i, 34902897112121344
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 712
+  %81 = load i8, ptr %80, align 8
+  %82 = trunc i8 %81 to i1
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 720
+  br i1 %82, label %84, label %85
 
-88:                                               ; preds = %77
-  store i64 %83, ptr %87, align 8
-  store i8 0, ptr %84, align 8
+84:                                               ; preds = %77
+  store i64 %79, ptr %83, align 8
+  store i8 0, ptr %80, align 8
   br label %.lr.ph
 
-89:                                               ; preds = %77
-  %.sroa.0.0.copyload.i = load i64, ptr %87, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %91 = load volatile i32, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %93 = load volatile i32, ptr %92, align 8
-  %94 = sub i32 %91, %93
-  %95 = and i32 %94, 131070
-  %.not.i.i = icmp eq i32 %95, 131070
+85:                                               ; preds = %77
+  %.sroa.0.0.copyload.i = load i64, ptr %83, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %87 = load volatile i32, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %89 = load volatile i32, ptr %88, align 8
+  %90 = sub i32 %87, %89
+  %91 = and i32 %90, 131070
+  %.not.i.i = icmp eq i32 %91, 131070
   br i1 %.not.i.i, label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i
 
-_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i: ; preds = %89
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %97 = load ptr, ptr %96, align 8
-  %98 = zext i32 %91 to i64
-  %99 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %97, i64 %98
-  store i64 %.sroa.0.0.copyload.i, ptr %99, align 8
-  %100 = add i32 %91, 1
-  %101 = and i32 %100, 131071
+_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i: ; preds = %85
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  %93 = load ptr, ptr %92, align 8
+  %94 = zext i32 %87 to i64
+  %95 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %93, i64 %94
+  store i64 %.sroa.0.0.copyload.i, ptr %95, align 8
+  %96 = add i32 %87, 1
+  %97 = and i32 %96, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %101, ptr %90, align 8
+  store volatile i32 %97, ptr %86, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
 
-_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %89
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 640
-  %103 = getelementptr inbounds nuw i8, ptr %1, i64 648
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 672
-  %105 = load i64, ptr %104, align 8
-  %106 = load i64, ptr %103, align 8
-  %107 = icmp eq i64 %105, %106
-  br i1 %107, label %108, label %._crit_edge.i.i.i
+_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %85
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 640
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 648
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 672
+  %101 = load i64, ptr %100, align 8
+  %102 = load i64, ptr %99, align 8
+  %103 = icmp eq i64 %101, %102
+  br i1 %103, label %104, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 696
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE4pushES0_.exit.i.i
 
-108:                                              ; preds = %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 688
-  %110 = load i64, ptr %109, align 8
-  %.not.i.i.i.i = icmp eq i64 %110, 0
-  br i1 %.not.i.i.i.i, label %118, label %111
+104:                                              ; preds = %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 688
+  %106 = load i64, ptr %105, align 8
+  %.not.i.i.i.i = icmp eq i64 %106, 0
+  br i1 %.not.i.i.i.i, label %114, label %107
 
-111:                                              ; preds = %108
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 704
-  %113 = load ptr, ptr %112, align 8
-  %114 = shl i64 %105, 3
-  %115 = getelementptr inbounds i8, ptr %113, i64 %114
-  %116 = load ptr, ptr %115, align 8
-  store ptr %116, ptr %112, align 8
-  %117 = add i64 %110, -1
-  store i64 %117, ptr %109, align 8
+107:                                              ; preds = %104
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 704
+  %109 = load ptr, ptr %108, align 8
+  %110 = shl i64 %101, 3
+  %111 = getelementptr inbounds i8, ptr %109, i64 %110
+  %112 = load ptr, ptr %111, align 8
+  store ptr %112, ptr %108, align 8
+  %113 = add i64 %106, -1
+  store i64 %113, ptr %105, align 8
   br label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i
 
-118:                                              ; preds = %108
-  %119 = shl i64 %105, 3
-  %120 = add i64 %119, 8
-  %121 = load ptr, ptr %102, align 8
-  %122 = load ptr, ptr %121, align 8
-  %123 = tail call noundef ptr %122(ptr noundef nonnull align 8 dereferenceable(72) %102, i64 noundef %120) #10
-  %.pre.i.i.i.i = load i64, ptr %103, align 8
+114:                                              ; preds = %104
+  %115 = shl i64 %101, 3
+  %116 = add i64 %115, 8
+  %117 = load ptr, ptr %98, align 8
+  %118 = load ptr, ptr %117, align 8
+  %119 = tail call noundef ptr %118(ptr noundef nonnull align 8 dereferenceable(72) %98, i64 noundef %116) #10
+  %.pre.i.i.i.i = load i64, ptr %99, align 8
   %.pre2.i.i.i.i = shl i64 %.pre.i.i.i.i, 3
   br label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i
 
-_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i: ; preds = %118, %111
-  %.pre-phi.i.i.i.i = phi i64 [ %.pre2.i.i.i.i, %118 ], [ %114, %111 ]
-  %.0.i.i.i.i = phi ptr [ %123, %118 ], [ %113, %111 ]
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 696
-  %125 = load ptr, ptr %124, align 8
-  %126 = icmp eq ptr %125, null
-  %127 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 %.pre-phi.i.i.i.i
-  store ptr %125, ptr %127, align 8
-  store ptr %.0.i.i.i.i, ptr %124, align 8
-  %128 = load i64, ptr %103, align 8
-  %spec.select.i.i.i.i = select i1 %126, i64 0, i64 %128
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 680
-  %130 = load i64, ptr %129, align 8
-  %131 = add i64 %130, %spec.select.i.i.i.i
-  store i64 %131, ptr %129, align 8
+_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i: ; preds = %114, %107
+  %.pre-phi.i.i.i.i = phi i64 [ %.pre2.i.i.i.i, %114 ], [ %110, %107 ]
+  %.0.i.i.i.i = phi ptr [ %119, %114 ], [ %109, %107 ]
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 696
+  %121 = load ptr, ptr %120, align 8
+  %122 = icmp eq ptr %121, null
+  %123 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 %.pre-phi.i.i.i.i
+  store ptr %121, ptr %123, align 8
+  store ptr %.0.i.i.i.i, ptr %120, align 8
+  %124 = load i64, ptr %99, align 8
+  %spec.select.i.i.i.i = select i1 %122, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 680
+  %126 = load i64, ptr %125, align 8
+  %127 = add i64 %126, %spec.select.i.i.i.i
+  store i64 %127, ptr %125, align 8
   br label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE4pushES0_.exit.i.i
 
 _ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE4pushES0_.exit.i.i: ; preds = %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i, %._crit_edge.i.i.i
-  %132 = phi ptr [ %.0.i.i.i.i, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i ], [ %.pre.i.i.i, %._crit_edge.i.i.i ]
-  %.0.i.i.i55 = phi i64 [ 0, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i ], [ %105, %._crit_edge.i.i.i ]
-  %133 = getelementptr inbounds %class.ShenandoahMarkTask, ptr %132, i64 %.0.i.i.i55
-  store i64 %.sroa.0.0.copyload.i, ptr %133, align 8
-  %134 = add i64 %.0.i.i.i55, 1
-  store i64 %134, ptr %104, align 8
+  %128 = phi ptr [ %.0.i.i.i.i, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i ], [ %.pre.i.i.i, %._crit_edge.i.i.i ]
+  %.0.i.i.i55 = phi i64 [ 0, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i ], [ %101, %._crit_edge.i.i.i ]
+  %129 = getelementptr inbounds %class.ShenandoahMarkTask, ptr %128, i64 %.0.i.i.i55
+  store i64 %.sroa.0.0.copyload.i, ptr %129, align 8
+  %130 = add i64 %.0.i.i.i55, 1
+  store i64 %130, ptr %100, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
 
 _ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i: ; preds = %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i
-  store i64 %83, ptr %87, align 8
+  store i64 %79, ptr %83, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %71, %88, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
-  %.048 = phi i32 [ %spec.select, %71 ], [ 30, %88 ], [ 30, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i ]
-  %.045 = phi i32 [ 1, %71 ], [ 2, %88 ], [ 2, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i ]
-  %.044 = phi i32 [ 0, %71 ], [ 1073741824, %88 ], [ 1073741824, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i ]
-  %135 = ptrtoint ptr %3 to i64
+.lr.ph:                                           ; preds = %71, %84, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
+  %.048 = phi i32 [ %spec.select, %71 ], [ 30, %84 ], [ 30, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i ]
+  %.045 = phi i32 [ 1, %71 ], [ 2, %84 ], [ 2, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i ]
+  %.044 = phi i32 [ 0, %71 ], [ 1073741824, %84 ], [ 1073741824, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i ]
+  %131 = ptrtoint ptr %3 to i64
   %.1.i.i57.v = select i1 %4, i64 3, i64 1
-  %.1.i.i57 = or i64 %.1.i.i57.v, %135
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 712
-  %137 = getelementptr inbounds nuw i8, ptr %1, i64 720
-  %138 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %140 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %141 = getelementptr inbounds nuw i8, ptr %1, i64 640
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 648
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 672
+  %.1.i.i57 = or i64 %.1.i.i57.v, %131
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 712
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 720
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 640
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 648
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 672
   %.phi.trans.insert.i.i.i64 = getelementptr inbounds nuw i8, ptr %1, i64 696
-  %144 = getelementptr inbounds nuw i8, ptr %1, i64 688
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 704
-  %146 = getelementptr inbounds nuw i8, ptr %1, i64 680
-  br label %147
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 688
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 704
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 680
+  br label %143
 
-147:                                              ; preds = %.lr.ph, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit75
+143:                                              ; preds = %.lr.ph, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit75
   %.194 = phi i32 [ %.044, %.lr.ph ], [ %.2, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit75 ]
   %.14693 = phi i32 [ %.045, %.lr.ph ], [ %.247, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit75 ]
-  %.14992 = phi i32 [ %.048, %.lr.ph ], [ %151, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit75 ]
-  %148 = shl nsw i32 %.14693, 1
-  %149 = icmp slt i32 %.14693, 512
-  br i1 %149, label %150, label %.critedge
+  %.14992 = phi i32 [ %.048, %.lr.ph ], [ %147, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit75 ]
+  %144 = shl nsw i32 %.14693, 1
+  %145 = icmp slt i32 %.14693, 512
+  br i1 %145, label %146, label %.critedge
 
-150:                                              ; preds = %147
-  %151 = add nsw i32 %.14992, -1
-  %152 = add nsw i32 %148, -1
-  %153 = shl i32 %152, %151
-  %154 = icmp slt i32 %153, %10
-  br i1 %154, label %155, label %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit75
+146:                                              ; preds = %143
+  %147 = add nsw i32 %.14992, -1
+  %148 = add nsw i32 %144, -1
+  %149 = shl i32 %148, %147
+  %150 = icmp slt i32 %149, %10
+  br i1 %150, label %151, label %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit75
 
-155:                                              ; preds = %150
-  %156 = zext i32 %152 to i64
-  %157 = shl i64 %156, 54
-  %158 = zext i32 %151 to i64
-  %159 = shl i64 %158, 49
-  %160 = or i64 %.1.i.i57, %159
-  %161 = or i64 %160, %157
-  %162 = load i8, ptr %136, align 8
-  %163 = trunc i8 %162 to i1
-  br i1 %163, label %164, label %165
+151:                                              ; preds = %146
+  %152 = zext i32 %148 to i64
+  %153 = shl i64 %152, 54
+  %154 = zext i32 %147 to i64
+  %155 = shl i64 %154, 49
+  %156 = or i64 %.1.i.i57, %155
+  %157 = or i64 %156, %153
+  %158 = load i8, ptr %132, align 8
+  %159 = trunc i8 %158 to i1
+  br i1 %159, label %160, label %161
 
-164:                                              ; preds = %155
-  store i64 %161, ptr %137, align 8
-  store i8 0, ptr %136, align 8
+160:                                              ; preds = %151
+  store i64 %157, ptr %133, align 8
+  store i8 0, ptr %132, align 8
   br label %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit75
 
-165:                                              ; preds = %155
-  %.sroa.0.0.copyload.i58 = load i64, ptr %137, align 8
-  %166 = load volatile i32, ptr %138, align 8
-  %167 = load volatile i32, ptr %139, align 8
-  %168 = sub i32 %166, %167
-  %169 = and i32 %168, 131070
-  %.not.i.i59 = icmp eq i32 %169, 131070
+161:                                              ; preds = %151
+  %.sroa.0.0.copyload.i58 = load i64, ptr %133, align 8
+  %162 = load volatile i32, ptr %134, align 8
+  %163 = load volatile i32, ptr %135, align 8
+  %164 = sub i32 %162, %163
+  %165 = and i32 %164, 131070
+  %.not.i.i59 = icmp eq i32 %165, 131070
   br i1 %.not.i.i59, label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i62, label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i60
 
-_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i60: ; preds = %165
-  %170 = load ptr, ptr %140, align 8
-  %171 = zext i32 %166 to i64
-  %172 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %170, i64 %171
-  store i64 %.sroa.0.0.copyload.i58, ptr %172, align 8
-  %173 = add i32 %166, 1
-  %174 = and i32 %173, 131071
+_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i60: ; preds = %161
+  %166 = load ptr, ptr %136, align 8
+  %167 = zext i32 %162 to i64
+  %168 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %166, i64 %167
+  store i64 %.sroa.0.0.copyload.i58, ptr %168, align 8
+  %169 = add i32 %162, 1
+  %170 = and i32 %169, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %174, ptr %138, align 8
+  store volatile i32 %170, ptr %134, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i61
 
-_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i62: ; preds = %165
-  %175 = load i64, ptr %143, align 8
-  %176 = load i64, ptr %142, align 8
-  %177 = icmp eq i64 %175, %176
-  br i1 %177, label %178, label %._crit_edge.i.i.i63
+_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i62: ; preds = %161
+  %171 = load i64, ptr %139, align 8
+  %172 = load i64, ptr %138, align 8
+  %173 = icmp eq i64 %171, %172
+  br i1 %173, label %174, label %._crit_edge.i.i.i63
 
 ._crit_edge.i.i.i63:                              ; preds = %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i62
   %.pre.i.i.i65 = load ptr, ptr %.phi.trans.insert.i.i.i64, align 8
   br label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE4pushES0_.exit.i.i66
 
-178:                                              ; preds = %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i62
-  %179 = load i64, ptr %144, align 8
-  %.not.i.i.i.i68 = icmp eq i64 %179, 0
-  br i1 %.not.i.i.i.i68, label %186, label %180
+174:                                              ; preds = %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i62
+  %175 = load i64, ptr %140, align 8
+  %.not.i.i.i.i68 = icmp eq i64 %175, 0
+  br i1 %.not.i.i.i.i68, label %182, label %176
 
-180:                                              ; preds = %178
-  %181 = load ptr, ptr %145, align 8
-  %182 = shl i64 %175, 3
-  %183 = getelementptr inbounds i8, ptr %181, i64 %182
-  %184 = load ptr, ptr %183, align 8
-  store ptr %184, ptr %145, align 8
-  %185 = add i64 %179, -1
-  store i64 %185, ptr %144, align 8
+176:                                              ; preds = %174
+  %177 = load ptr, ptr %141, align 8
+  %178 = shl i64 %171, 3
+  %179 = getelementptr inbounds i8, ptr %177, i64 %178
+  %180 = load ptr, ptr %179, align 8
+  store ptr %180, ptr %141, align 8
+  %181 = add i64 %175, -1
+  store i64 %181, ptr %140, align 8
   br label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i69
 
-186:                                              ; preds = %178
-  %187 = shl i64 %175, 3
-  %188 = add i64 %187, 8
-  %189 = load ptr, ptr %141, align 8
-  %190 = load ptr, ptr %189, align 8
-  %191 = tail call noundef ptr %190(ptr noundef nonnull align 8 dereferenceable(72) %141, i64 noundef %188) #10
-  %.pre.i.i.i.i73 = load i64, ptr %142, align 8
+182:                                              ; preds = %174
+  %183 = shl i64 %171, 3
+  %184 = add i64 %183, 8
+  %185 = load ptr, ptr %137, align 8
+  %186 = load ptr, ptr %185, align 8
+  %187 = tail call noundef ptr %186(ptr noundef nonnull align 8 dereferenceable(72) %137, i64 noundef %184) #10
+  %.pre.i.i.i.i73 = load i64, ptr %138, align 8
   %.pre2.i.i.i.i74 = shl i64 %.pre.i.i.i.i73, 3
   br label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i69
 
-_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i69: ; preds = %186, %180
-  %.pre-phi.i.i.i.i70 = phi i64 [ %.pre2.i.i.i.i74, %186 ], [ %182, %180 ]
-  %.0.i.i.i.i71 = phi ptr [ %191, %186 ], [ %181, %180 ]
-  %192 = load ptr, ptr %.phi.trans.insert.i.i.i64, align 8
-  %193 = icmp eq ptr %192, null
-  %194 = getelementptr inbounds i8, ptr %.0.i.i.i.i71, i64 %.pre-phi.i.i.i.i70
-  store ptr %192, ptr %194, align 8
+_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i69: ; preds = %182, %176
+  %.pre-phi.i.i.i.i70 = phi i64 [ %.pre2.i.i.i.i74, %182 ], [ %178, %176 ]
+  %.0.i.i.i.i71 = phi ptr [ %187, %182 ], [ %177, %176 ]
+  %188 = load ptr, ptr %.phi.trans.insert.i.i.i64, align 8
+  %189 = icmp eq ptr %188, null
+  %190 = getelementptr inbounds i8, ptr %.0.i.i.i.i71, i64 %.pre-phi.i.i.i.i70
+  store ptr %188, ptr %190, align 8
   store ptr %.0.i.i.i.i71, ptr %.phi.trans.insert.i.i.i64, align 8
-  %195 = load i64, ptr %142, align 8
-  %spec.select.i.i.i.i72 = select i1 %193, i64 0, i64 %195
-  %196 = load i64, ptr %146, align 8
-  %197 = add i64 %196, %spec.select.i.i.i.i72
-  store i64 %197, ptr %146, align 8
+  %191 = load i64, ptr %138, align 8
+  %spec.select.i.i.i.i72 = select i1 %189, i64 0, i64 %191
+  %192 = load i64, ptr %142, align 8
+  %193 = add i64 %192, %spec.select.i.i.i.i72
+  store i64 %193, ptr %142, align 8
   br label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE4pushES0_.exit.i.i66
 
 _ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE4pushES0_.exit.i.i66: ; preds = %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i69, %._crit_edge.i.i.i63
-  %198 = phi ptr [ %.0.i.i.i.i71, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i69 ], [ %.pre.i.i.i65, %._crit_edge.i.i.i63 ]
-  %.0.i.i.i67 = phi i64 [ 0, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i69 ], [ %175, %._crit_edge.i.i.i63 ]
-  %199 = getelementptr inbounds %class.ShenandoahMarkTask, ptr %198, i64 %.0.i.i.i67
-  store i64 %.sroa.0.0.copyload.i58, ptr %199, align 8
-  %200 = add i64 %.0.i.i.i67, 1
-  store i64 %200, ptr %143, align 8
+  %194 = phi ptr [ %.0.i.i.i.i71, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i69 ], [ %.pre.i.i.i65, %._crit_edge.i.i.i63 ]
+  %.0.i.i.i67 = phi i64 [ 0, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i69 ], [ %171, %._crit_edge.i.i.i63 ]
+  %195 = getelementptr inbounds %class.ShenandoahMarkTask, ptr %194, i64 %.0.i.i.i67
+  store i64 %.sroa.0.0.copyload.i58, ptr %195, align 8
+  %196 = add i64 %.0.i.i.i67, 1
+  store i64 %196, ptr %139, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i61
 
 _ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i61: ; preds = %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE4pushES0_.exit.i.i66, %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i60
-  store i64 %161, ptr %137, align 8
+  store i64 %157, ptr %133, align 8
   br label %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit75
 
-_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit75: ; preds = %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i61, %164, %150
-  %.247 = phi i32 [ %152, %150 ], [ %148, %164 ], [ %148, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i61 ]
-  %.2 = phi i32 [ %.194, %150 ], [ %153, %164 ], [ %153, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i61 ]
-  %201 = shl nuw i32 1, %151
-  %202 = icmp sgt i32 %201, 2048
-  br i1 %202, label %147, label %.critedge, !llvm.loop !36
+_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit75: ; preds = %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i61, %160, %146
+  %.247 = phi i32 [ %148, %146 ], [ %144, %160 ], [ %144, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i61 ]
+  %.2 = phi i32 [ %.194, %146 ], [ %149, %160 ], [ %149, %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i61 ]
+  %197 = shl nuw i32 1, %147
+  %198 = icmp sgt i32 %197, 2048
+  br i1 %198, label %143, label %.critedge, !llvm.loop !36
 
-.critedge:                                        ; preds = %147, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit75
-  %.1.lcssa.ph = phi i32 [ %.2, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit75 ], [ %.194, %147 ]
-  %203 = icmp slt i32 %.1.lcssa.ph, %10
-  br i1 %203, label %204, label %_ZN15objArrayOopDesc17oop_iterate_rangeI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEEEvPT_ii.exit
+.critedge:                                        ; preds = %143, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit75
+  %.1.lcssa.ph = phi i32 [ %.194, %143 ], [ %.2, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit75 ]
+  %199 = icmp slt i32 %.1.lcssa.ph, %10
+  br i1 %199, label %200, label %_ZN15objArrayOopDesc17oop_iterate_rangeI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEEEvPT_ii.exit
 
-204:                                              ; preds = %.critedge
-  %205 = load i8, ptr @UseCompressedOops, align 1
-  %206 = trunc i8 %205 to i1
-  %207 = load i8, ptr @UseCompressedClassPointers, align 1
-  %208 = trunc i8 %207 to i1
-  %spec.select.i76 = select i1 %208, i64 12, i64 16
-  %209 = ptrtoint ptr %3 to i64
-  %210 = sext i32 %.1.lcssa.ph to i64
-  %211 = zext nneg i32 %10 to i64
-  %212 = getelementptr inbounds nuw i8, ptr %3, i64 %spec.select.i76
-  %213 = load i32, ptr %212, align 4
-  %214 = sext i32 %213 to i64
-  br i1 %206, label %_ZNK7oopDesc5klassEv.exit.i82, label %_ZNK7oopDesc5klassEv.exit7.i77
+200:                                              ; preds = %.critedge
+  %201 = load i8, ptr @UseCompressedOops, align 1
+  %202 = trunc i8 %201 to i1
+  %203 = load i8, ptr @UseCompressedClassPointers, align 1
+  %204 = trunc i8 %203 to i1
+  %spec.select.i76 = select i1 %204, i64 12, i64 16
+  %205 = ptrtoint ptr %3 to i64
+  %206 = sext i32 %.1.lcssa.ph to i64
+  %207 = zext nneg i32 %10 to i64
+  %208 = getelementptr inbounds nuw i8, ptr %3, i64 %spec.select.i76
+  %209 = load i32, ptr %208, align 4
+  %210 = sext i32 %209 to i64
+  br i1 %202, label %_ZNK7oopDesc5klassEv.exit.i82, label %_ZNK7oopDesc5klassEv.exit7.i77
 
-_ZNK7oopDesc5klassEv.exit.i82:                    ; preds = %204
-  %spec.select13.i83 = select i1 %208, i64 16, i64 20
-  %215 = add nsw i64 %spec.select13.i83, %209
-  %216 = inttoptr i64 %215 to ptr
-  %217 = getelementptr inbounds i32, ptr %216, i64 %210
-  %218 = getelementptr inbounds nuw i32, ptr %216, i64 %211
-  %219 = getelementptr inbounds i32, ptr %216, i64 %214
-  %220 = icmp ugt ptr %217, %216
-  %spec.select.i.i.i = select i1 %220, ptr %217, ptr %216
-  %221 = icmp ugt ptr %219, %218
-  %.0.i.i.i84 = select i1 %221, ptr %218, ptr %219
-  %222 = icmp ult ptr %spec.select.i.i.i, %.0.i.i.i84
-  br i1 %222, label %.lr.ph.i.i.i85, label %_ZN15objArrayOopDesc17oop_iterate_rangeI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEEEvPT_ii.exit
+_ZNK7oopDesc5klassEv.exit.i82:                    ; preds = %200
+  %spec.select13.i83 = select i1 %204, i64 16, i64 20
+  %211 = add nsw i64 %spec.select13.i83, %205
+  %212 = inttoptr i64 %211 to ptr
+  %213 = getelementptr inbounds i32, ptr %212, i64 %206
+  %214 = getelementptr inbounds nuw i32, ptr %212, i64 %207
+  %215 = getelementptr inbounds i32, ptr %212, i64 %210
+  %216 = icmp ugt ptr %213, %212
+  %spec.select.i.i.i = select i1 %216, ptr %213, ptr %212
+  %217 = icmp ugt ptr %215, %214
+  %.0.i.i.i84 = select i1 %217, ptr %214, ptr %215
+  %218 = icmp ult ptr %spec.select.i.i.i, %.0.i.i.i84
+  br i1 %218, label %.lr.ph.i.i.i85, label %_ZN15objArrayOopDesc17oop_iterate_rangeI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEEEvPT_ii.exit
 
 .lr.ph.i.i.i85:                                   ; preds = %_ZNK7oopDesc5klassEv.exit.i82
-  %223 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %224 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %225 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  br label %226
+  %219 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %220 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %221 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  br label %222
 
-226:                                              ; preds = %226, %.lr.ph.i.i.i85
-  %.121.i.i.i86 = phi ptr [ %spec.select.i.i.i, %.lr.ph.i.i.i85 ], [ %231, %226 ]
-  %227 = load ptr, ptr %223, align 8
-  %228 = load ptr, ptr %224, align 8
-  %229 = load i8, ptr %225, align 8
-  %230 = trunc i8 %229 to i1
-  tail call void @_ZN14ShenandoahMark16mark_through_refI9narrowOopL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb(ptr noundef %.121.i.i.i86, ptr noundef %227, ptr noundef %228, i1 noundef zeroext %230)
-  %231 = getelementptr inbounds nuw i8, ptr %.121.i.i.i86, i64 4
-  %232 = icmp ult ptr %231, %.0.i.i.i84
-  br i1 %232, label %226, label %_ZN15objArrayOopDesc17oop_iterate_rangeI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEEEvPT_ii.exit, !llvm.loop !34
+222:                                              ; preds = %222, %.lr.ph.i.i.i85
+  %.121.i.i.i86 = phi ptr [ %spec.select.i.i.i, %.lr.ph.i.i.i85 ], [ %227, %222 ]
+  %223 = load ptr, ptr %219, align 8
+  %224 = load ptr, ptr %220, align 8
+  %225 = load i8, ptr %221, align 8
+  %226 = trunc i8 %225 to i1
+  tail call void @_ZN14ShenandoahMark16mark_through_refI9narrowOopL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb(ptr noundef %.121.i.i.i86, ptr noundef %223, ptr noundef %224, i1 noundef zeroext %226)
+  %227 = getelementptr inbounds nuw i8, ptr %.121.i.i.i86, i64 4
+  %228 = icmp ult ptr %227, %.0.i.i.i84
+  br i1 %228, label %222, label %_ZN15objArrayOopDesc17oop_iterate_rangeI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEEEvPT_ii.exit, !llvm.loop !34
 
-_ZNK7oopDesc5klassEv.exit7.i77:                   ; preds = %204
-  %spec.select15.i78 = select i1 %208, i64 16, i64 24
-  %233 = add nsw i64 %spec.select15.i78, %209
-  %234 = inttoptr i64 %233 to ptr
-  %235 = getelementptr inbounds ptr, ptr %234, i64 %210
-  %236 = getelementptr inbounds nuw ptr, ptr %234, i64 %211
-  %237 = getelementptr inbounds ptr, ptr %234, i64 %214
-  %238 = icmp ugt ptr %235, %234
-  %spec.select.i.i9.i = select i1 %238, ptr %235, ptr %234
-  %239 = icmp ugt ptr %237, %236
-  %.0.i.i10.i79 = select i1 %239, ptr %236, ptr %237
-  %240 = icmp ult ptr %spec.select.i.i9.i, %.0.i.i10.i79
-  br i1 %240, label %.lr.ph.i.i11.i80, label %_ZN15objArrayOopDesc17oop_iterate_rangeI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEEEvPT_ii.exit
+_ZNK7oopDesc5klassEv.exit7.i77:                   ; preds = %200
+  %spec.select15.i78 = select i1 %204, i64 16, i64 24
+  %229 = add nsw i64 %spec.select15.i78, %205
+  %230 = inttoptr i64 %229 to ptr
+  %231 = getelementptr inbounds ptr, ptr %230, i64 %206
+  %232 = getelementptr inbounds nuw ptr, ptr %230, i64 %207
+  %233 = getelementptr inbounds ptr, ptr %230, i64 %210
+  %234 = icmp ugt ptr %231, %230
+  %spec.select.i.i9.i = select i1 %234, ptr %231, ptr %230
+  %235 = icmp ugt ptr %233, %232
+  %.0.i.i10.i79 = select i1 %235, ptr %232, ptr %233
+  %236 = icmp ult ptr %spec.select.i.i9.i, %.0.i.i10.i79
+  br i1 %236, label %.lr.ph.i.i11.i80, label %_ZN15objArrayOopDesc17oop_iterate_rangeI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEEEvPT_ii.exit
 
 .lr.ph.i.i11.i80:                                 ; preds = %_ZNK7oopDesc5klassEv.exit7.i77
-  %241 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %242 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %243 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  br label %244
+  %237 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %238 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %239 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  br label %240
 
-244:                                              ; preds = %244, %.lr.ph.i.i11.i80
-  %.121.i.i12.i81 = phi ptr [ %spec.select.i.i9.i, %.lr.ph.i.i11.i80 ], [ %249, %244 ]
-  %245 = load ptr, ptr %241, align 8
-  %246 = load ptr, ptr %242, align 8
-  %247 = load i8, ptr %243, align 8
-  %248 = trunc i8 %247 to i1
-  tail call void @_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb(ptr noundef %.121.i.i12.i81, ptr noundef %245, ptr noundef %246, i1 noundef zeroext %248)
-  %249 = getelementptr inbounds nuw i8, ptr %.121.i.i12.i81, i64 8
-  %250 = icmp ult ptr %249, %.0.i.i10.i79
-  br i1 %250, label %244, label %_ZN15objArrayOopDesc17oop_iterate_rangeI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEEEvPT_ii.exit, !llvm.loop !35
+240:                                              ; preds = %240, %.lr.ph.i.i11.i80
+  %.121.i.i12.i81 = phi ptr [ %spec.select.i.i9.i, %.lr.ph.i.i11.i80 ], [ %245, %240 ]
+  %241 = load ptr, ptr %237, align 8
+  %242 = load ptr, ptr %238, align 8
+  %243 = load i8, ptr %239, align 8
+  %244 = trunc i8 %243 to i1
+  tail call void @_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb(ptr noundef %.121.i.i12.i81, ptr noundef %241, ptr noundef %242, i1 noundef zeroext %244)
+  %245 = getelementptr inbounds nuw i8, ptr %.121.i.i12.i81, i64 8
+  %246 = icmp ult ptr %245, %.0.i.i10.i79
+  br i1 %246, label %240, label %_ZN15objArrayOopDesc17oop_iterate_rangeI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEEEvPT_ii.exit, !llvm.loop !35
 
-_ZN15objArrayOopDesc17oop_iterate_rangeI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEEEvPT_ii.exit: ; preds = %244, %226, %64, %48, %_ZNK7oopDesc5klassEv.exit7.i77, %_ZNK7oopDesc5klassEv.exit.i82, %_ZNK7oopDesc5klassEv.exit7.i, %_ZNK7oopDesc5klassEv.exit.i, %.critedge
+_ZN15objArrayOopDesc17oop_iterate_rangeI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEEEvPT_ii.exit: ; preds = %240, %222, %64, %48, %_ZNK7oopDesc5klassEv.exit7.i77, %_ZNK7oopDesc5klassEv.exit.i82, %_ZNK7oopDesc5klassEv.exit7.i, %_ZNK7oopDesc5klassEv.exit.i, %.critedge
   ret void
 }
 
@@ -5870,9 +5862,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpda
   %46 = getelementptr inbounds i8, ptr %45, i64 %43
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 1
-  br i1 %48, label %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit, label %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread37
+  br i1 %48, label %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit, label %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread46
 
-_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread37: ; preds = %36
+_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread46: ; preds = %36
   %49 = load ptr, ptr %22, align 8
   %50 = load ptr, ptr %23, align 8
   %51 = load i8, ptr %24, align 8
@@ -5884,7 +5876,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i.i38 = icmp ult ptr %34, %59
+  %.not.i.i47 = icmp ult ptr %34, %59
   br i1 %52, label %78, label %108
 
 _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit: ; preds = %36
@@ -5915,12 +5907,12 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %.not.i.i = icmp ult ptr %.0.i.i.i.i.i.i.i.i.i, %77
   br i1 %68, label %78, label %108
 
-78:                                               ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread37, %66
-  %.not.i.i39 = phi i1 [ %.not.i.i38, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread37 ], [ %.not.i.i, %66 ]
-  %79 = phi i64 [ %53, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread37 ], [ %71, %66 ]
-  %80 = phi ptr [ %49, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread37 ], [ %70, %66 ]
-  %81 = phi ptr [ %50, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread37 ], [ %69, %66 ]
-  br i1 %.not.i.i39, label %82, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit
+78:                                               ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread46, %66
+  %.not.i.i48 = phi i1 [ %.not.i.i47, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread46 ], [ %.not.i.i, %66 ]
+  %79 = phi i64 [ %53, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread46 ], [ %71, %66 ]
+  %80 = phi ptr [ %49, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread46 ], [ %70, %66 ]
+  %81 = phi ptr [ %50, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread46 ], [ %69, %66 ]
+  br i1 %.not.i.i48, label %82, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -5958,12 +5950,12 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %107 = icmp eq i64 %106, %.020.i.i.i
   br i1 %107, label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i, label %100, !llvm.loop !13
 
-108:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread37, %66
-  %.not.i.i40 = phi i1 [ %.not.i.i38, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread37 ], [ %.not.i.i, %66 ]
-  %109 = phi i64 [ %53, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread37 ], [ %71, %66 ]
-  %110 = phi ptr [ %49, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread37 ], [ %70, %66 ]
-  %111 = phi ptr [ %50, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread37 ], [ %69, %66 ]
-  br i1 %.not.i.i40, label %112, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit
+108:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread46, %66
+  %.not.i.i49 = phi i1 [ %.not.i.i47, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread46 ], [ %.not.i.i, %66 ]
+  %109 = phi i64 [ %53, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread46 ], [ %71, %66 ]
+  %110 = phi ptr [ %49, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread46 ], [ %70, %66 ]
+  %111 = phi ptr [ %50, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread46 ], [ %69, %66 ]
+  br i1 %.not.i.i49, label %112, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
@@ -7502,14 +7494,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #10, !srcloc !9
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #10, !srcloc !9
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -8056,14 +8048,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #10, !srcloc !9
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #10, !srcloc !9
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -8148,9 +8140,9 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDes
   %47 = getelementptr inbounds i8, ptr %46, i64 %44
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 1
-  br i1 %49, label %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit, label %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread39
+  br i1 %49, label %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit, label %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread48
 
-_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread39: ; preds = %37
+_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread48: ; preds = %37
   %50 = load ptr, ptr %23, align 8
   %51 = load ptr, ptr %24, align 8
   %52 = load i8, ptr %25, align 8
@@ -8162,7 +8154,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds ptr, ptr %58, i64 %56
   %60 = load ptr, ptr %59, align 8
-  %.not.i.i40 = icmp ult ptr %35, %60
+  %.not.i.i49 = icmp ult ptr %35, %60
   br i1 %53, label %79, label %109
 
 _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit: ; preds = %37
@@ -8193,12 +8185,12 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %.not.i.i = icmp ult ptr %.0.i.i.i.i.i.i.i.i.i, %78
   br i1 %69, label %79, label %109
 
-79:                                               ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread39, %67
-  %.not.i.i41 = phi i1 [ %.not.i.i40, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread39 ], [ %.not.i.i, %67 ]
-  %80 = phi i64 [ %54, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread39 ], [ %72, %67 ]
-  %81 = phi ptr [ %50, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread39 ], [ %71, %67 ]
-  %82 = phi ptr [ %51, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread39 ], [ %70, %67 ]
-  br i1 %.not.i.i41, label %83, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit
+79:                                               ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread48, %67
+  %.not.i.i50 = phi i1 [ %.not.i.i49, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread48 ], [ %.not.i.i, %67 ]
+  %80 = phi i64 [ %54, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread48 ], [ %72, %67 ]
+  %81 = phi ptr [ %50, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread48 ], [ %71, %67 ]
+  %82 = phi ptr [ %51, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread48 ], [ %70, %67 ]
+  br i1 %.not.i.i50, label %83, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit
 
 83:                                               ; preds = %79
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -8236,12 +8228,12 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %108 = icmp eq i64 %107, %.020.i.i.i
   br i1 %108, label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i, label %101, !llvm.loop !13
 
-109:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread39, %67
-  %.not.i.i42 = phi i1 [ %.not.i.i40, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread39 ], [ %.not.i.i, %67 ]
-  %110 = phi i64 [ %54, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread39 ], [ %72, %67 ]
-  %111 = phi ptr [ %50, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread39 ], [ %71, %67 ]
-  %112 = phi ptr [ %51, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread39 ], [ %70, %67 ]
-  br i1 %.not.i.i42, label %113, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit
+109:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread48, %67
+  %.not.i.i51 = phi i1 [ %.not.i.i49, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread48 ], [ %.not.i.i, %67 ]
+  %110 = phi i64 [ %54, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread48 ], [ %72, %67 ]
+  %111 = phi ptr [ %50, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread48 ], [ %71, %67 ]
+  %112 = phi ptr [ %51, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread48 ], [ %70, %67 ]
+  br i1 %.not.i.i51, label %113, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit
 
 113:                                              ; preds = %109
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
@@ -9003,9 +8995,9 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oop
   %46 = getelementptr inbounds i8, ptr %45, i64 %43
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 1
-  br i1 %48, label %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit, label %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread52
+  br i1 %48, label %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit, label %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread65
 
-_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread52: ; preds = %36
+_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread65: ; preds = %36
   %49 = load ptr, ptr %22, align 8
   %50 = load ptr, ptr %23, align 8
   %51 = load i8, ptr %24, align 8
@@ -9017,7 +9009,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i.i53 = icmp ult ptr %34, %59
+  %.not.i.i66 = icmp ult ptr %34, %59
   br i1 %52, label %78, label %108
 
 _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit: ; preds = %36
@@ -9048,12 +9040,12 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %.not.i.i = icmp ult ptr %.0.i.i.i.i.i.i.i.i.i, %77
   br i1 %68, label %78, label %108
 
-78:                                               ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread52, %66
-  %.not.i.i54 = phi i1 [ %.not.i.i53, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread52 ], [ %.not.i.i, %66 ]
-  %79 = phi i64 [ %53, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread52 ], [ %71, %66 ]
-  %80 = phi ptr [ %49, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread52 ], [ %70, %66 ]
-  %81 = phi ptr [ %50, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread52 ], [ %69, %66 ]
-  br i1 %.not.i.i54, label %82, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit
+78:                                               ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread65, %66
+  %.not.i.i67 = phi i1 [ %.not.i.i66, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread65 ], [ %.not.i.i, %66 ]
+  %79 = phi i64 [ %53, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread65 ], [ %71, %66 ]
+  %80 = phi ptr [ %49, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread65 ], [ %70, %66 ]
+  %81 = phi ptr [ %50, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread65 ], [ %69, %66 ]
+  br i1 %.not.i.i67, label %82, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -9091,12 +9083,12 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %107 = icmp eq i64 %106, %.020.i.i.i
   br i1 %107, label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i, label %100, !llvm.loop !13
 
-108:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread52, %66
-  %.not.i.i55 = phi i1 [ %.not.i.i53, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread52 ], [ %.not.i.i, %66 ]
-  %109 = phi i64 [ %53, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread52 ], [ %71, %66 ]
-  %110 = phi ptr [ %49, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread52 ], [ %70, %66 ]
-  %111 = phi ptr [ %50, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread52 ], [ %69, %66 ]
-  br i1 %.not.i.i55, label %112, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit
+108:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread65, %66
+  %.not.i.i68 = phi i1 [ %.not.i.i66, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread65 ], [ %.not.i.i, %66 ]
+  %109 = phi i64 [ %53, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread65 ], [ %71, %66 ]
+  %110 = phi ptr [ %49, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread65 ], [ %70, %66 ]
+  %111 = phi ptr [ %50, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread65 ], [ %69, %66 ]
+  br i1 %.not.i.i68, label %112, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
@@ -9547,9 +9539,9 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %46 = getelementptr inbounds i8, ptr %45, i64 %43
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 1
-  br i1 %48, label %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit, label %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread44
+  br i1 %48, label %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit, label %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread54
 
-_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread44: ; preds = %36
+_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread54: ; preds = %36
   %49 = load ptr, ptr %22, align 8
   %50 = load ptr, ptr %23, align 8
   %51 = load i8, ptr %24, align 8
@@ -9561,7 +9553,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i.i45 = icmp ult ptr %34, %59
+  %.not.i.i55 = icmp ult ptr %34, %59
   br i1 %52, label %78, label %108
 
 _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit: ; preds = %36
@@ -9592,12 +9584,12 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %.not.i.i = icmp ult ptr %.0.i.i.i.i.i.i.i.i.i, %77
   br i1 %68, label %78, label %108
 
-78:                                               ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread44, %66
-  %.not.i.i46 = phi i1 [ %.not.i.i45, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread44 ], [ %.not.i.i, %66 ]
-  %79 = phi i64 [ %53, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread44 ], [ %71, %66 ]
-  %80 = phi ptr [ %49, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread44 ], [ %70, %66 ]
-  %81 = phi ptr [ %50, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread44 ], [ %69, %66 ]
-  br i1 %.not.i.i46, label %82, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit
+78:                                               ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread54, %66
+  %.not.i.i56 = phi i1 [ %.not.i.i55, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread54 ], [ %.not.i.i, %66 ]
+  %79 = phi i64 [ %53, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread54 ], [ %71, %66 ]
+  %80 = phi ptr [ %49, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread54 ], [ %70, %66 ]
+  %81 = phi ptr [ %50, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread54 ], [ %69, %66 ]
+  br i1 %.not.i.i56, label %82, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -9635,12 +9627,12 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %107 = icmp eq i64 %106, %.020.i.i.i
   br i1 %107, label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i, label %100, !llvm.loop !13
 
-108:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread44, %66
-  %.not.i.i47 = phi i1 [ %.not.i.i45, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread44 ], [ %.not.i.i, %66 ]
-  %109 = phi i64 [ %53, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread44 ], [ %71, %66 ]
-  %110 = phi ptr [ %49, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread44 ], [ %70, %66 ]
-  %111 = phi ptr [ %50, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread44 ], [ %69, %66 ]
-  br i1 %.not.i.i47, label %112, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit
+108:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread54, %66
+  %.not.i.i57 = phi i1 [ %.not.i.i55, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread54 ], [ %.not.i.i, %66 ]
+  %109 = phi i64 [ %53, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread54 ], [ %71, %66 ]
+  %110 = phi ptr [ %49, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread54 ], [ %70, %66 ]
+  %111 = phi ptr [ %50, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.thread54 ], [ %69, %66 ]
+  br i1 %.not.i.i57, label %112, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
@@ -10176,7 +10168,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br i1 %.not36.i.i, label %.preheader, label %23, !llvm.loop !63
 
 23:                                               ; preds = %20
-  %24 = shl i64 %18, 6
+  %24 = shl nuw i64 %18, 6
   br label %25
 
 25:                                               ; preds = %23, %16
@@ -10569,7 +10561,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br i1 %.not36.i.i, label %.preheader, label %23, !llvm.loop !63
 
 23:                                               ; preds = %20
-  %24 = shl i64 %18, 6
+  %24 = shl nuw i64 %18, 6
   br label %25
 
 25:                                               ; preds = %23, %16
@@ -12947,7 +12939,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %46, !llvm.loop !63
 
 46:                                               ; preds = %43
-  %47 = shl i64 %41, 6
+  %47 = shl nuw i64 %41, 6
   br label %48
 
 48:                                               ; preds = %46, %39
@@ -13169,7 +13161,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %46, !llvm.loop !63
 
 46:                                               ; preds = %43
-  %47 = shl i64 %41, 6
+  %47 = shl nuw i64 %41, 6
   br label %48
 
 48:                                               ; preds = %46, %39
@@ -13835,7 +13827,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds ptr, ptr %211, i64 %209
   %213 = load ptr, ptr %212, align 8
-  %.not.i.i.us213 = icmp ult ptr %188, %213
+  %.not.i.i.us260 = icmp ult ptr %188, %213
   br i1 %206, label %262, label %232
 
 _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us: ; preds = %190
@@ -13867,11 +13859,11 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   br i1 %222, label %262, label %232
 
 232:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread, %220
-  %.not.i.i.us214 = phi i1 [ %.not.i.i.us213, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %.not.i.i.us, %220 ]
+  %.not.i.i.us261 = phi i1 [ %.not.i.i.us260, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %.not.i.i.us, %220 ]
   %233 = phi i64 [ %207, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %225, %220 ]
   %234 = phi ptr [ %203, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %224, %220 ]
   %235 = phi ptr [ %204, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %223, %220 ]
-  br i1 %.not.i.i.us214, label %236, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit.us
+  br i1 %.not.i.i.us261, label %236, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit.us
 
 236:                                              ; preds = %232
   %237 = getelementptr inbounds nuw i8, ptr %235, i64 8
@@ -13910,11 +13902,11 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   br label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i.us
 
 262:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread, %220
-  %.not.i.i.us215 = phi i1 [ %.not.i.i.us213, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %.not.i.i.us, %220 ]
+  %.not.i.i.us262 = phi i1 [ %.not.i.i.us260, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %.not.i.i.us, %220 ]
   %263 = phi i64 [ %207, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %225, %220 ]
   %264 = phi ptr [ %203, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %224, %220 ]
   %265 = phi ptr [ %204, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %223, %220 ]
-  br i1 %.not.i.i.us215, label %266, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit.us
+  br i1 %.not.i.i.us262, label %266, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit.us
 
 266:                                              ; preds = %262
   %267 = getelementptr inbounds nuw i8, ptr %265, i64 8
@@ -14722,7 +14714,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %700 = load ptr, ptr %699, align 8
   %701 = getelementptr inbounds ptr, ptr %700, i64 %698
   %702 = load ptr, ptr %701, align 8
-  %.not.i.i141.us218 = icmp ult ptr %677, %702
+  %.not.i.i141.us265 = icmp ult ptr %677, %702
   br i1 %695, label %751, label %721
 
 _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i107.us: ; preds = %679
@@ -14754,11 +14746,11 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   br i1 %711, label %751, label %721
 
 721:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i107.us.thread, %709
-  %.not.i.i141.us219 = phi i1 [ %.not.i.i141.us218, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i107.us.thread ], [ %.not.i.i141.us, %709 ]
+  %.not.i.i141.us266 = phi i1 [ %.not.i.i141.us265, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i107.us.thread ], [ %.not.i.i141.us, %709 ]
   %722 = phi i64 [ %696, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i107.us.thread ], [ %714, %709 ]
   %723 = phi ptr [ %692, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i107.us.thread ], [ %713, %709 ]
   %724 = phi ptr [ %693, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i107.us.thread ], [ %712, %709 ]
-  br i1 %.not.i.i141.us219, label %725, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit168.us
+  br i1 %.not.i.i141.us266, label %725, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit168.us
 
 725:                                              ; preds = %721
   %726 = getelementptr inbounds nuw i8, ptr %724, i64 8
@@ -14797,11 +14789,11 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   br label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i145.us
 
 751:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i107.us.thread, %709
-  %.not.i.i141.us220 = phi i1 [ %.not.i.i141.us218, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i107.us.thread ], [ %.not.i.i141.us, %709 ]
+  %.not.i.i141.us267 = phi i1 [ %.not.i.i141.us265, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i107.us.thread ], [ %.not.i.i141.us, %709 ]
   %752 = phi i64 [ %696, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i107.us.thread ], [ %714, %709 ]
   %753 = phi ptr [ %692, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i107.us.thread ], [ %713, %709 ]
   %754 = phi ptr [ %693, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i107.us.thread ], [ %712, %709 ]
-  br i1 %.not.i.i141.us220, label %755, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit168.us
+  br i1 %.not.i.i141.us267, label %755, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit168.us
 
 755:                                              ; preds = %751
   %756 = getelementptr inbounds nuw i8, ptr %754, i64 8
@@ -18300,7 +18292,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %212 = load ptr, ptr %211, align 8
   %213 = getelementptr inbounds ptr, ptr %212, i64 %210
   %214 = load ptr, ptr %213, align 8
-  %.not.i.i.us206 = icmp ult ptr %189, %214
+  %.not.i.i.us253 = icmp ult ptr %189, %214
   br i1 %207, label %263, label %233
 
 _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us: ; preds = %191
@@ -18332,11 +18324,11 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   br i1 %223, label %263, label %233
 
 233:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread, %221
-  %.not.i.i.us207 = phi i1 [ %.not.i.i.us206, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %.not.i.i.us, %221 ]
+  %.not.i.i.us254 = phi i1 [ %.not.i.i.us253, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %.not.i.i.us, %221 ]
   %234 = phi i64 [ %208, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %226, %221 ]
   %235 = phi ptr [ %204, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %225, %221 ]
   %236 = phi ptr [ %205, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %224, %221 ]
-  br i1 %.not.i.i.us207, label %237, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit.us
+  br i1 %.not.i.i.us254, label %237, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit.us
 
 237:                                              ; preds = %233
   %238 = getelementptr inbounds nuw i8, ptr %236, i64 8
@@ -18375,11 +18367,11 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   br label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i.us
 
 263:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread, %221
-  %.not.i.i.us208 = phi i1 [ %.not.i.i.us206, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %.not.i.i.us, %221 ]
+  %.not.i.i.us255 = phi i1 [ %.not.i.i.us253, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %.not.i.i.us, %221 ]
   %264 = phi i64 [ %208, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %226, %221 ]
   %265 = phi ptr [ %204, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %225, %221 ]
   %266 = phi ptr [ %205, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %224, %221 ]
-  br i1 %.not.i.i.us208, label %267, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit.us
+  br i1 %.not.i.i.us255, label %267, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit.us
 
 267:                                              ; preds = %263
   %268 = getelementptr inbounds nuw i8, ptr %266, i64 8
@@ -19118,7 +19110,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %665 = load ptr, ptr %664, align 8
   %666 = getelementptr inbounds ptr, ptr %665, i64 %663
   %667 = load ptr, ptr %666, align 8
-  %.not.i.i137.us211 = icmp ult ptr %642, %667
+  %.not.i.i137.us258 = icmp ult ptr %642, %667
   br i1 %660, label %716, label %686
 
 _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i103.us: ; preds = %644
@@ -19150,11 +19142,11 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   br i1 %676, label %716, label %686
 
 686:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i103.us.thread, %674
-  %.not.i.i137.us212 = phi i1 [ %.not.i.i137.us211, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i103.us.thread ], [ %.not.i.i137.us, %674 ]
+  %.not.i.i137.us259 = phi i1 [ %.not.i.i137.us258, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i103.us.thread ], [ %.not.i.i137.us, %674 ]
   %687 = phi i64 [ %661, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i103.us.thread ], [ %679, %674 ]
   %688 = phi ptr [ %657, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i103.us.thread ], [ %678, %674 ]
   %689 = phi ptr [ %658, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i103.us.thread ], [ %677, %674 ]
-  br i1 %.not.i.i137.us212, label %690, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit164.us
+  br i1 %.not.i.i137.us259, label %690, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit164.us
 
 690:                                              ; preds = %686
   %691 = getelementptr inbounds nuw i8, ptr %689, i64 8
@@ -19193,11 +19185,11 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   br label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i141.us
 
 716:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i103.us.thread, %674
-  %.not.i.i137.us213 = phi i1 [ %.not.i.i137.us211, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i103.us.thread ], [ %.not.i.i137.us, %674 ]
+  %.not.i.i137.us260 = phi i1 [ %.not.i.i137.us258, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i103.us.thread ], [ %.not.i.i137.us, %674 ]
   %717 = phi i64 [ %661, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i103.us.thread ], [ %679, %674 ]
   %718 = phi ptr [ %657, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i103.us.thread ], [ %678, %674 ]
   %719 = phi ptr [ %658, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i103.us.thread ], [ %677, %674 ]
-  br i1 %.not.i.i137.us213, label %720, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit164.us
+  br i1 %.not.i.i137.us260, label %720, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit164.us
 
 720:                                              ; preds = %716
   %721 = getelementptr inbounds nuw i8, ptr %719, i64 8
@@ -20654,7 +20646,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %212 = load ptr, ptr %211, align 8
   %213 = getelementptr inbounds ptr, ptr %212, i64 %210
   %214 = load ptr, ptr %213, align 8
-  %.not.i.i.us222 = icmp ult ptr %189, %214
+  %.not.i.i.us273 = icmp ult ptr %189, %214
   br i1 %207, label %263, label %233
 
 _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us: ; preds = %191
@@ -20686,11 +20678,11 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   br i1 %223, label %263, label %233
 
 233:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread, %221
-  %.not.i.i.us223 = phi i1 [ %.not.i.i.us222, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %.not.i.i.us, %221 ]
+  %.not.i.i.us274 = phi i1 [ %.not.i.i.us273, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %.not.i.i.us, %221 ]
   %234 = phi i64 [ %208, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %226, %221 ]
   %235 = phi ptr [ %204, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %225, %221 ]
   %236 = phi ptr [ %205, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %224, %221 ]
-  br i1 %.not.i.i.us223, label %237, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit.us
+  br i1 %.not.i.i.us274, label %237, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit.us
 
 237:                                              ; preds = %233
   %238 = getelementptr inbounds nuw i8, ptr %236, i64 8
@@ -20729,11 +20721,11 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   br label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i.us
 
 263:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread, %221
-  %.not.i.i.us224 = phi i1 [ %.not.i.i.us222, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %.not.i.i.us, %221 ]
+  %.not.i.i.us275 = phi i1 [ %.not.i.i.us273, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %.not.i.i.us, %221 ]
   %264 = phi i64 [ %208, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %226, %221 ]
   %265 = phi ptr [ %204, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %225, %221 ]
   %266 = phi ptr [ %205, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i.us.thread ], [ %224, %221 ]
-  br i1 %.not.i.i.us224, label %267, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit.us
+  br i1 %.not.i.i.us275, label %267, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit.us
 
 267:                                              ; preds = %263
   %268 = getelementptr inbounds nuw i8, ptr %266, i64 8
@@ -21562,7 +21554,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   %721 = load ptr, ptr %720, align 8
   %722 = getelementptr inbounds ptr, ptr %721, i64 %719
   %723 = load ptr, ptr %722, align 8
-  %.not.i.i151.us227 = icmp ult ptr %698, %723
+  %.not.i.i151.us278 = icmp ult ptr %698, %723
   br i1 %716, label %772, label %742
 
 _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i117.us: ; preds = %700
@@ -21594,11 +21586,11 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   br i1 %732, label %772, label %742
 
 742:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i117.us.thread, %730
-  %.not.i.i151.us228 = phi i1 [ %.not.i.i151.us227, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i117.us.thread ], [ %.not.i.i151.us, %730 ]
+  %.not.i.i151.us279 = phi i1 [ %.not.i.i151.us278, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i117.us.thread ], [ %.not.i.i151.us, %730 ]
   %743 = phi i64 [ %717, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i117.us.thread ], [ %735, %730 ]
   %744 = phi ptr [ %713, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i117.us.thread ], [ %734, %730 ]
   %745 = phi ptr [ %714, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i117.us.thread ], [ %733, %730 ]
-  br i1 %.not.i.i151.us228, label %746, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit178.us
+  br i1 %.not.i.i151.us279, label %746, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit178.us
 
 746:                                              ; preds = %742
   %747 = getelementptr inbounds nuw i8, ptr %745, i64 8
@@ -21637,11 +21629,11 @@ _ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerat
   br label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i155.us
 
 772:                                              ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i117.us.thread, %730
-  %.not.i.i151.us229 = phi i1 [ %.not.i.i151.us227, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i117.us.thread ], [ %.not.i.i151.us, %730 ]
+  %.not.i.i151.us280 = phi i1 [ %.not.i.i151.us278, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i117.us.thread ], [ %.not.i.i151.us, %730 ]
   %773 = phi i64 [ %717, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i117.us.thread ], [ %735, %730 ]
   %774 = phi ptr [ %713, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i117.us.thread ], [ %734, %730 ]
   %775 = phi ptr [ %714, %_ZN13Devirtualizer6do_oopI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEP7oopDescEEvPT_PT0_.exit.i.i.i117.us.thread ], [ %733, %730 ]
-  br i1 %.not.i.i151.us229, label %776, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit178.us
+  br i1 %.not.i.i151.us280, label %776, label %_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb.exit178.us
 
 776:                                              ; preds = %772
   %777 = getelementptr inbounds nuw i8, ptr %775, i64 8

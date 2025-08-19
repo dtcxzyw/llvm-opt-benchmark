@@ -861,15 +861,16 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %94 = load ptr, ptr %6, align 8, !tbaa !95
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %96 = load i64, ptr %95, align 8, !tbaa !100
-  %97 = zext nneg i32 %74 to i64
-  %switch.gep80 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %97
-  %switch.load81 = load i64, ptr %switch.gep80, align 8
-  %98 = zext nneg i32 %74 to i64
-  %switch.gep82 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %98
-  %switch.load83 = load ptr, ptr %switch.gep82, align 8
-  store ptr %switch.load83, ptr %7, align 8
+  %switch.tableidx = add nsw i32 %74, -1
+  %97 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep94 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.29, i64 0, i64 %97
+  %switch.load95 = load i64, ptr %switch.gep94, align 8
+  %98 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.30, i64 0, i64 %98
+  %switch.load97 = load ptr, ptr %switch.gep96, align 8
+  store ptr %switch.load97, ptr %7, align 8
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %switch.load81, ptr %99, align 8
+  store i64 %switch.load95, ptr %99, align 8
   %100 = load ptr, ptr %87, align 8, !tbaa !101
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 72
   %102 = load ptr, ptr %101, align 8
@@ -934,16 +935,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
   %.0174.i40 = phi ptr [ %128, %.thread.i43 ], [ %.val30, %120 ]
   %125 = load i32, ptr %.0174.i40, align 4, !tbaa !72
   %126 = icmp ult i32 %125, 3
-  br i1 %126, label %switch.lookup84, label %.thread.i43
+  br i1 %126, label %switch.lookup98, label %.thread.i43
 
-switch.lookup84:                                  ; preds = %.lr.ph.i39
+switch.lookup98:                                  ; preds = %.lr.ph.i39
   %127 = zext nneg i32 %125 to i64
-  %switch.gep85 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %127
-  %switch.load86 = load i32, ptr %switch.gep85, align 4
-  %.not18.i42 = icmp eq i32 %switch.load86, %118
+  %switch.gep99 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %127
+  %switch.load100 = load i32, ptr %switch.gep99, align 4
+  %.not18.i42 = icmp eq i32 %switch.load100, %118
   br i1 %.not18.i42, label %_ZL17isCallableInStatePKN5clang16CallableWhenAttrENS_8consumed13ConsumedStateE.exit, label %.thread.i43
 
-.thread.i43:                                      ; preds = %.lr.ph.i39, %switch.lookup84
+.thread.i43:                                      ; preds = %.lr.ph.i39, %switch.lookup98
   %128 = getelementptr inbounds nuw i8, ptr %.0174.i40, i64 4
   %.not.not.i44 = icmp eq ptr %128, %124
   br i1 %.not.not.i44, label %.critedge27, label %.lr.ph.i39
@@ -958,16 +959,17 @@ switch.lookup84:                                  ; preds = %.lr.ph.i39
   %133 = load ptr, ptr %8, align 8, !tbaa !95
   %134 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %135 = load i64, ptr %134, align 8, !tbaa !100
-  %136 = zext nneg i32 %118 to i64
-  %switch.gep88 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %136
-  %switch.load89 = load i64, ptr %switch.gep88, align 8
-  %137 = zext nneg i32 %118 to i64
-  %switch.gep90 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %137
-  %switch.load91 = load ptr, ptr %switch.gep90, align 8
+  %switch.tableidx102 = add nsw i32 %118, -1
+  %136 = zext nneg i32 %switch.tableidx102 to i64
+  %switch.gep103 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.29, i64 0, i64 %136
+  %switch.load104 = load i64, ptr %switch.gep103, align 8
+  %137 = zext nneg i32 %switch.tableidx102 to i64
+  %switch.gep105 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.30, i64 0, i64 %137
+  %switch.load106 = load ptr, ptr %switch.gep105, align 8
   %138 = load ptr, ptr %131, align 8, !tbaa !101
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 64
   %140 = load ptr, ptr %139, align 8
-  call void %140(ptr noundef nonnull align 8 dereferenceable(8) %131, ptr %133, i64 %135, ptr nonnull %switch.load91, i64 %switch.load89, i32 %3) #15
+  call void %140(ptr noundef nonnull align 8 dereferenceable(8) %131, ptr %133, i64 %135, ptr nonnull %switch.load106, i64 %switch.load104, i32 %3) #15
   %141 = load ptr, ptr %8, align 8, !tbaa !95
   %142 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %143 = icmp eq ptr %141, %142
@@ -989,7 +991,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL17isCallableInStatePKN5clang16CallableWhenAttrENS_8consumed13ConsumedStateE.exit
 
-_ZL17isCallableInStatePKN5clang16CallableWhenAttrENS_8consumed13ConsumedStateE.exit: ; preds = %23, %switch.lookup84, %switch.lookup, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit.i, %12, %_ZN5clangneENS_22specific_attr_iteratorINS_16CallableWhenAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54, %117, %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit
+_ZL17isCallableInStatePKN5clang16CallableWhenAttrENS_8consumed13ConsumedStateE.exit: ; preds = %23, %switch.lookup98, %switch.lookup, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit.i, %12, %_ZN5clangneENS_22specific_attr_iteratorINS_16CallableWhenAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54, %117, %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit
   ret void
 }
 
@@ -1284,21 +1286,21 @@ switch.lookup:                                    ; preds = %_ZNK5clang4Decl7get
   %145 = call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %144) #17
   %switch.tableidx = add nsw i32 %switch.load, -1
   %146 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep238 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.29, i64 0, i64 %146
-  %switch.load239 = load i64, ptr %switch.gep238, align 8
+  %switch.gep258 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.29, i64 0, i64 %146
+  %switch.load259 = load i64, ptr %switch.gep258, align 8
   %147 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep240 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.30, i64 0, i64 %147
-  %switch.load241 = load ptr, ptr %switch.gep240, align 8
+  %switch.gep260 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.30, i64 0, i64 %147
+  %switch.load261 = load ptr, ptr %switch.gep260, align 8
   %148 = zext nneg i32 %128 to i64
-  %switch.gep252 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %148
-  %switch.load253 = load i64, ptr %switch.gep252, align 8
+  %switch.gep272 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %148
+  %switch.load273 = load i64, ptr %switch.gep272, align 8
   %149 = zext nneg i32 %128 to i64
-  %switch.gep254 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %149
-  %switch.load255 = load ptr, ptr %switch.gep254, align 8
+  %switch.gep274 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %149
+  %switch.load275 = load ptr, ptr %switch.gep274, align 8
   %150 = load ptr, ptr %133, align 8, !tbaa !101
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
   %152 = load ptr, ptr %151, align 8
-  call void %152(ptr noundef nonnull align 8 dereferenceable(8) %133, i32 %145, ptr nonnull %switch.load241, i64 %switch.load239, ptr nonnull %switch.load255, i64 %switch.load253) #15
+  call void %152(ptr noundef nonnull align 8 dereferenceable(8) %133, i32 %145, ptr nonnull %switch.load261, i64 %switch.load259, ptr nonnull %switch.load275, i64 %switch.load273) #15
   br label %_ZNK5clang4Decl7getAttrINS_18ParamTypestateAttrEEEPT_v.exit.thread
 
 _ZNK5clang4Decl7getAttrINS_18ParamTypestateAttrEEEPT_v.exit.thread: ; preds = %113, %102, %_ZN5clangneENS_22specific_attr_iteratorINS_18ParamTypestateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %98, %_ZNK5clang4Decl7getAttrINS_18ParamTypestateAttrEEEPT_v.exit, %switch.lookup
@@ -1363,8 +1365,8 @@ _ZNK5clang4Decl7getAttrINS_19ReturnTypestateAttrEEEPT_v.exit: ; preds = %.lr.ph.
   %184 = getelementptr i8, ptr %182, i64 36
   %.val61 = load i32, ptr %184, align 4, !tbaa !156
   %185 = zext nneg i32 %.val61 to i64
-  %switch.gep243 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %185
-  %switch.load244 = load i32, ptr %switch.gep243, align 4
+  %switch.gep263 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %185
+  %switch.load264 = load i32, ptr %switch.gep263, align 4
   %.val58 = load i32, ptr %13, align 8, !tbaa !37
   %.val59 = load ptr, ptr %34, align 8
   %186 = icmp eq i32 %.val58, 4
@@ -1375,7 +1377,7 @@ _ZNK5clang4Decl7getAttrINS_19ReturnTypestateAttrEEEPT_v.exit: ; preds = %.lr.ph.
   store ptr %.val59, ptr %12, align 8, !tbaa !38
   %188 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %189 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %188, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  store i32 %switch.load244, ptr %189, align 4, !tbaa !40
+  store i32 %switch.load264, ptr %189, align 4, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZL19setStateForVarOrTmpPN5clang8consumed16ConsumedStateMapERKNS0_15PropagationInfoENS0_13ConsumedStateE.exit
 
@@ -1384,7 +1386,7 @@ _ZNK5clang4Decl7getAttrINS_19ReturnTypestateAttrEEEPT_v.exit: ; preds = %.lr.ph.
   store ptr %.val59, ptr %11, align 8, !tbaa !42
   %191 = getelementptr inbounds nuw i8, ptr %183, i64 40
   %192 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang20CXXBindTemporaryExprENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %191, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  store i32 %switch.load244, ptr %192, align 4, !tbaa !40
+  store i32 %switch.load264, ptr %192, align 4, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZL19setStateForVarOrTmpPN5clang8consumed16ConsumedStateMapERKNS0_15PropagationInfoENS0_13ConsumedStateE.exit
 
@@ -1711,11 +1713,11 @@ _ZNK5clang4Decl7getAttrINS_16SetTypestateAttrEEEPT_v.exit: ; preds = %.lr.ph.i.i
   %346 = phi ptr [ %336, %335 ], [ %342, %.lr.ph.i.i.i.i124 ]
   %347 = load i32, ptr %14, align 8, !tbaa !37
   switch i32 %347, label %.sink.split [
-    i32 4, label %switch.lookup245
-    i32 5, label %switch.lookup248
+    i32 4, label %switch.lookup265
+    i32 5, label %switch.lookup268
   ]
 
-switch.lookup245:                                 ; preds = %_ZNK5clang4Decl7getAttrINS_16SetTypestateAttrEEEPT_v.exit
+switch.lookup265:                                 ; preds = %_ZNK5clang4Decl7getAttrINS_16SetTypestateAttrEEEPT_v.exit
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %349 = load ptr, ptr %348, align 8, !tbaa !33
   %350 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1723,17 +1725,17 @@ switch.lookup245:                                 ; preds = %_ZNK5clang4Decl7get
   %352 = getelementptr i8, ptr %346, i64 36
   %.val64 = load i32, ptr %352, align 4, !tbaa !167
   %353 = zext nneg i32 %.val64 to i64
-  %switch.gep246 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %353
-  %switch.load247 = load i32, ptr %switch.gep246, align 4
+  %switch.gep266 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %353
+  %switch.load267 = load i32, ptr %switch.gep266, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %351, ptr %6, align 8, !tbaa !38
   %354 = getelementptr inbounds nuw i8, ptr %349, i64 16
   %355 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %354, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store i32 %switch.load247, ptr %355, align 4, !tbaa !40
+  store i32 %switch.load267, ptr %355, align 4, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.sink.split
 
-switch.lookup248:                                 ; preds = %_ZNK5clang4Decl7getAttrINS_16SetTypestateAttrEEEPT_v.exit
+switch.lookup268:                                 ; preds = %_ZNK5clang4Decl7getAttrINS_16SetTypestateAttrEEEPT_v.exit
   %356 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %357 = load ptr, ptr %356, align 8, !tbaa !33
   %358 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1741,13 +1743,13 @@ switch.lookup248:                                 ; preds = %_ZNK5clang4Decl7get
   %360 = getelementptr i8, ptr %346, i64 36
   %.val65 = load i32, ptr %360, align 4, !tbaa !167
   %361 = zext nneg i32 %.val65 to i64
-  %switch.gep249 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %361
-  %switch.load250 = load i32, ptr %switch.gep249, align 4
+  %switch.gep269 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %361
+  %switch.load270 = load i32, ptr %switch.gep269, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %359, ptr %5, align 8, !tbaa !42
   %362 = getelementptr inbounds nuw i8, ptr %357, i64 40
   %363 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang20CXXBindTemporaryExprENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %362, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store i32 %switch.load250, ptr %363, align 4, !tbaa !40
+  store i32 %switch.load270, ptr %363, align 4, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.sink.split
 
@@ -1836,8 +1838,8 @@ _ZL8testsForPKN5clang12FunctionDeclE.exit:        ; preds = %.lr.ph.i.i.i.i.i140
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %377, %switch.lookup245, %switch.lookup248, %_ZL17isTestingFunctionPKN5clang12FunctionDeclE.exit, %_ZL8testsForPKN5clang12FunctionDeclE.exit, %.loopexit, %366, %_ZNK5clang4Decl7getAttrINS_16SetTypestateAttrEEEPT_v.exit
-  %.0.ph = phi i1 [ false, %_ZNK5clang4Decl7getAttrINS_16SetTypestateAttrEEEPT_v.exit ], [ false, %366 ], [ false, %.loopexit ], [ false, %_ZL8testsForPKN5clang12FunctionDeclE.exit ], [ false, %_ZL17isTestingFunctionPKN5clang12FunctionDeclE.exit ], [ true, %switch.lookup248 ], [ true, %switch.lookup245 ], [ false, %377 ]
+.sink.split:                                      ; preds = %377, %switch.lookup265, %switch.lookup268, %_ZL17isTestingFunctionPKN5clang12FunctionDeclE.exit, %_ZL8testsForPKN5clang12FunctionDeclE.exit, %.loopexit, %366, %_ZNK5clang4Decl7getAttrINS_16SetTypestateAttrEEEPT_v.exit
+  %.0.ph = phi i1 [ false, %_ZNK5clang4Decl7getAttrINS_16SetTypestateAttrEEEPT_v.exit ], [ false, %366 ], [ false, %.loopexit ], [ false, %_ZL8testsForPKN5clang12FunctionDeclE.exit ], [ false, %_ZL17isTestingFunctionPKN5clang12FunctionDeclE.exit ], [ true, %switch.lookup268 ], [ true, %switch.lookup265 ], [ false, %377 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %405
 
@@ -2057,20 +2059,20 @@ _ZN5clangneENS_22specific_attr_iteratorINS_19ReturnTypestateAttrEN4llvm11SmallVe
   br i1 %104, label %_ZL27mapReturnTypestateAttrStatePKN5clang19ReturnTypestateAttrE.exit, label %.lr.ph.i.i.i.i.i15, !llvm.loop !175
 
 _ZL27mapReturnTypestateAttrStatePKN5clang19ReturnTypestateAttrE.exit: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i.i15, %.loopexit, %75
-  %.sink45 = phi ptr [ %76, %75 ], [ %95, %.loopexit ], [ %101, %.lr.ph.i.i.i.i.i15 ], [ %82, %.lr.ph.i.i.i.i ]
+  %.sink48 = phi ptr [ %76, %75 ], [ %95, %.loopexit ], [ %101, %.lr.ph.i.i.i.i.i15 ], [ %82, %.lr.ph.i.i.i.i ]
   %switch.table._ZN5clang8consumed19ConsumedStmtVisitor19propagateReturnTypeEPKNS_4ExprEPKNS_12FunctionDeclE.22.sink = phi ptr [ @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, %75 ], [ @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, %.loopexit ], [ @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, %.lr.ph.i.i.i.i.i15 ], [ @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, %.lr.ph.i.i.i.i ]
-  %105 = getelementptr i8, ptr %.sink45, i64 36
+  %105 = getelementptr i8, ptr %.sink48, i64 36
   %106 = load i32, ptr %105, align 4, !tbaa !32
   %107 = zext nneg i32 %106 to i64
-  %switch.gep42 = getelementptr inbounds nuw [3 x i32], ptr %switch.table._ZN5clang8consumed19ConsumedStmtVisitor19propagateReturnTypeEPKNS_4ExprEPKNS_12FunctionDeclE.22.sink, i64 0, i64 %107
-  %switch.load43 = load i32, ptr %switch.gep42, align 4
+  %switch.gep45 = getelementptr inbounds nuw [3 x i32], ptr %switch.table._ZN5clang8consumed19ConsumedStmtVisitor19propagateReturnTypeEPKNS_4ExprEPKNS_12FunctionDeclE.22.sink, i64 0, i64 %107
+  %switch.load46 = load i32, ptr %switch.gep45, align 4
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !26
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %109, align 8, !tbaa !31
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %switch.load43, ptr %.sroa.418.0..sroa_idx, align 8
+  store i32 %switch.load46, ptr %.sroa.418.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_8consumed15PropagationInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS5_S7_S9_SC_Lb0EEEbEOS5_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.52") align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) %108, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(56) %109)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2820,15 +2822,15 @@ _ZNK5clang4Decl7getAttrINS_14ConsumableAttrEEEPT_v.exit.i: ; preds = %.lr.ph.i.i
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 36
   %170 = load i32, ptr %169, align 4, !tbaa !186
   %171 = zext nneg i32 %170 to i64
-  %switch.gep72 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %171
-  %switch.load73 = load i32, ptr %switch.gep72, align 4
+  %switch.gep78 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %171
+  %switch.load79 = load i32, ptr %switch.gep78, align 4
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %1, ptr %9, align 8, !tbaa !26
   %173 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 1, ptr %173, align 8, !tbaa !31
   %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %switch.load73, ptr %.sroa.436.0..sroa_idx, align 8
+  store i32 %switch.load79, ptr %.sroa.436.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_8consumed15PropagationInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS5_S7_S9_SC_Lb0EEEbEOS5_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.52") align 8 %10, ptr noundef nonnull align 1 dereferenceable(1) %172, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(56) %173)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -3744,17 +3746,17 @@ _ZL16isConsumableTypeRKN5clang8QualTypeE.exit66:  ; preds = %.lr.ph.i.i.i.i.i.i6
   br i1 %.not91, label %_ZL26mapParamTypestateAttrStatePKN5clang18ParamTypestateAttrE.exit, label %183
 
 .sink.split:                                      ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i.i22, %.lr.ph.i.i.i.i.i46, %118, %60, %21
-  %.sink123 = phi ptr [ %22, %21 ], [ %70, %60 ], [ %132, %118 ], [ %138, %.lr.ph.i.i.i.i.i46 ], [ %76, %.lr.ph.i.i.i.i.i22 ], [ %28, %.lr.ph.i.i.i.i ]
+  %.sink129 = phi ptr [ %22, %21 ], [ %70, %60 ], [ %132, %118 ], [ %138, %.lr.ph.i.i.i.i.i46 ], [ %76, %.lr.ph.i.i.i.i.i22 ], [ %28, %.lr.ph.i.i.i.i ]
   %switch.table._ZN5clang8consumed19ConsumedStmtVisitor16VisitParmVarDeclEPKNS_11ParmVarDeclE.25.sink = phi ptr [ @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, %21 ], [ @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, %60 ], [ @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, %118 ], [ @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, %.lr.ph.i.i.i.i.i46 ], [ @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, %.lr.ph.i.i.i.i.i22 ], [ @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, %.lr.ph.i.i.i.i ]
-  %180 = getelementptr i8, ptr %.sink123, i64 36
+  %180 = getelementptr i8, ptr %.sink129, i64 36
   %181 = load i32, ptr %180, align 4, !tbaa !32
   %182 = zext nneg i32 %181 to i64
-  %switch.gep120 = getelementptr inbounds nuw [3 x i32], ptr %switch.table._ZN5clang8consumed19ConsumedStmtVisitor16VisitParmVarDeclEPKNS_11ParmVarDeclE.25.sink, i64 0, i64 %182
-  %switch.load121 = load i32, ptr %switch.gep120, align 4
+  %switch.gep126 = getelementptr inbounds nuw [3 x i32], ptr %switch.table._ZN5clang8consumed19ConsumedStmtVisitor16VisitParmVarDeclEPKNS_11ParmVarDeclE.25.sink, i64 0, i64 %182
+  %switch.load127 = load i32, ptr %switch.gep126, align 4
   br label %183
 
 183:                                              ; preds = %.sink.split, %_ZL16isConsumableTypeRKN5clang8QualTypeE.exit66
-  %.0.ph = phi i32 [ 1, %_ZL16isConsumableTypeRKN5clang8QualTypeE.exit66 ], [ %switch.load121, %.sink.split ]
+  %.0.ph = phi i32 [ 1, %_ZL16isConsumableTypeRKN5clang8QualTypeE.exit66 ], [ %switch.load127, %.sink.split ]
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %185 = load ptr, ptr %184, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3863,22 +3865,23 @@ switch.lookup:                                    ; preds = %48
   %54 = load ptr, ptr %53, align 8, !tbaa !75
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %55, align 4, !tbaa !185
-  %56 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %56
+  %switch.tableidx = add nsw i32 %5, -1
+  %56 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.29, i64 0, i64 %56
   %switch.load = load i64, ptr %switch.gep, align 8
-  %57 = zext nneg i32 %5 to i64
-  %switch.gep25 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %57
-  %switch.load26 = load ptr, ptr %switch.gep25, align 8
-  %58 = zext nneg i32 %52 to i64
-  %switch.gep28 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %58
-  %switch.load29 = load i64, ptr %switch.gep28, align 8
-  %59 = zext nneg i32 %52 to i64
-  %switch.gep30 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %59
+  %57 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep30 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.30, i64 0, i64 %57
   %switch.load31 = load ptr, ptr %switch.gep30, align 8
+  %58 = zext nneg i32 %52 to i64
+  %switch.gep33 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %58
+  %switch.load34 = load i64, ptr %switch.gep33, align 8
+  %59 = zext nneg i32 %52 to i64
+  %switch.gep35 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %59
+  %switch.load36 = load ptr, ptr %switch.gep35, align 8
   %60 = load ptr, ptr %54, align 8, !tbaa !101
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 56
   %62 = load ptr, ptr %61, align 8
-  tail call void %62(ptr noundef nonnull align 8 dereferenceable(8) %54, i32 %.sroa.0.0.copyload.i, ptr nonnull %switch.load26, i64 %switch.load, ptr nonnull %switch.load31, i64 %switch.load29) #15
+  tail call void %62(ptr noundef nonnull align 8 dereferenceable(8) %54, i32 %.sroa.0.0.copyload.i, ptr nonnull %switch.load31, i64 %switch.load, ptr nonnull %switch.load36, i64 %switch.load34) #15
   %.pre = load ptr, ptr %0, align 8, !tbaa !74
   br label %63
 
@@ -4021,24 +4024,24 @@ switch.lookup:                                    ; preds = %_ZNK5clang4Decl7get
   %60 = load i64, ptr %21, align 8, !tbaa !100
   %switch.tableidx = add nsw i32 %switch.load, -1
   %61 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep35 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.29, i64 0, i64 %61
-  %switch.load36 = load i64, ptr %switch.gep35, align 8
+  %switch.gep43 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.29, i64 0, i64 %61
+  %switch.load44 = load i64, ptr %switch.gep43, align 8
   %62 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep37 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.30, i64 0, i64 %62
-  %switch.load38 = load ptr, ptr %switch.gep37, align 8
+  %switch.gep45 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.30, i64 0, i64 %62
+  %switch.load46 = load ptr, ptr %switch.gep45, align 8
   %63 = load i32, ptr %56, align 8, !tbaa !61
   %64 = zext nneg i32 %63 to i64
-  %switch.gep40 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %64
-  %switch.load41 = load i64, ptr %switch.gep40, align 8
+  %switch.gep48 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %64
+  %switch.load49 = load i64, ptr %switch.gep48, align 8
   %65 = zext nneg i32 %63 to i64
-  %switch.gep42 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %65
-  %switch.load43 = load ptr, ptr %switch.gep42, align 8
-  store ptr %switch.load43, ptr %5, align 8
-  store i64 %switch.load41, ptr %22, align 8
+  %switch.gep50 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %65
+  %switch.load51 = load ptr, ptr %switch.gep50, align 8
+  store ptr %switch.load51, ptr %5, align 8
+  store i64 %switch.load49, ptr %22, align 8
   %66 = load ptr, ptr %2, align 8, !tbaa !101
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = load ptr, ptr %67, align 8
-  call void %68(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 %1, ptr %59, i64 %60, ptr nonnull %switch.load38, i64 %switch.load36, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5) #15
+  call void %68(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 %1, ptr %59, i64 %60, ptr nonnull %switch.load46, i64 %switch.load44, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5) #15
   %69 = load ptr, ptr %4, align 8, !tbaa !95
   %70 = icmp eq ptr %69, %23
   br i1 %70, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -4196,9 +4199,9 @@ _ZN5clang8consumed19ConsumedStmtVisitor8findInfoEPKNS_4ExprE.exit: ; preds = %37
   %62 = load ptr, ptr %61, align 8, !tbaa !32, !noalias !209
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 24
   %64 = load i32, ptr %63, align 8, !tbaa !32, !noalias !209
-  br i1 %switch, label %switch.lookup, label %switch.lookup13
+  br i1 %switch, label %switch.lookup, label %switch.lookup16
 
-switch.lookup13:                                  ; preds = %60
+switch.lookup16:                                  ; preds = %60
   %65 = icmp eq i32 %64, 0
   %66 = zext i1 %65 to i32
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 32
@@ -4206,8 +4209,8 @@ switch.lookup13:                                  ; preds = %60
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !32, !noalias !209
   %71 = zext nneg i32 %70 to i64
-  %switch.gep14 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %71
-  %switch.load15 = load i32, ptr %switch.gep14, align 4
+  %switch.gep17 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %71
+  %switch.load18 = load i32, ptr %switch.gep17, align 4
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 48
   %73 = load ptr, ptr %72, align 8, !tbaa !32, !noalias !209
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 56
@@ -4219,13 +4222,13 @@ switch.lookup13:                                  ; preds = %60
     i32 1, label %77
   ]
 
-76:                                               ; preds = %switch.lookup13
+76:                                               ; preds = %switch.lookup16
   br label %_ZNK5clang8consumed15PropagationInfo10invertTestEv.exit
 
-77:                                               ; preds = %switch.lookup13, %switch.lookup13
+77:                                               ; preds = %switch.lookup16, %switch.lookup16
   br label %_ZNK5clang8consumed15PropagationInfo10invertTestEv.exit
 
-78:                                               ; preds = %switch.lookup13
+78:                                               ; preds = %switch.lookup16
   unreachable
 
 switch.lookup:                                    ; preds = %60
@@ -4234,13 +4237,13 @@ switch.lookup:                                    ; preds = %60
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK5clang8consumed15PropagationInfo10invertTestEv.exit
 
-_ZNK5clang8consumed15PropagationInfo10invertTestEv.exit: ; preds = %switch.lookup, %switch.lookup13, %76, %77
-  %.sroa.8.0 = phi i32 [ %66, %77 ], [ %66, %76 ], [ %66, %switch.lookup13 ], [ %switch.load, %switch.lookup ]
-  %.sroa.104.0 = phi ptr [ %68, %77 ], [ %68, %76 ], [ %68, %switch.lookup13 ], [ undef, %switch.lookup ]
-  %.sroa.11.0 = phi i32 [ %switch.load15, %77 ], [ %switch.load15, %76 ], [ %switch.load15, %switch.lookup13 ], [ undef, %switch.lookup ]
-  %.sroa.125.0 = phi ptr [ %73, %77 ], [ %73, %76 ], [ %73, %switch.lookup13 ], [ undef, %switch.lookup ]
-  %.sroa.13.0 = phi i32 [ %75, %77 ], [ 2, %76 ], [ 3, %switch.lookup13 ], [ undef, %switch.lookup ]
-  %.sroa.0.0 = phi i32 [ 3, %77 ], [ 3, %76 ], [ 3, %switch.lookup13 ], [ 2, %switch.lookup ]
+_ZNK5clang8consumed15PropagationInfo10invertTestEv.exit: ; preds = %switch.lookup, %switch.lookup16, %76, %77
+  %.sroa.8.0 = phi i32 [ %66, %77 ], [ %66, %76 ], [ %66, %switch.lookup16 ], [ %switch.load, %switch.lookup ]
+  %.sroa.104.0 = phi ptr [ %68, %77 ], [ %68, %76 ], [ %68, %switch.lookup16 ], [ undef, %switch.lookup ]
+  %.sroa.11.0 = phi i32 [ %switch.load18, %77 ], [ %switch.load18, %76 ], [ %switch.load18, %switch.lookup16 ], [ undef, %switch.lookup ]
+  %.sroa.125.0 = phi ptr [ %73, %77 ], [ %73, %76 ], [ %73, %switch.lookup16 ], [ undef, %switch.lookup ]
+  %.sroa.13.0 = phi i32 [ %75, %77 ], [ 2, %76 ], [ 3, %switch.lookup16 ], [ undef, %switch.lookup ]
+  %.sroa.0.0 = phi i32 [ 3, %77 ], [ 3, %76 ], [ 3, %switch.lookup16 ], [ 2, %switch.lookup ]
   store ptr %1, ptr %5, align 8, !tbaa !26
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sroa.0.0, ptr %80, align 8, !tbaa !31
@@ -5303,8 +5306,8 @@ _ZL15getFirstStmtLocPKN5clang8CFGBlockE.exit.thread.i: ; preds = %58, %48, %_ZL1
   br i1 %.not24.i, label %_ZL14getLastStmtLocPKN5clang8CFGBlockE.exit, label %tailrecurse.i
 
 .thread.sink.split.i:                             ; preds = %tailrecurse.i, %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.thread33.i
-  %.sink52.i = phi i64 [ %23, %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.thread33.i ], [ %8, %tailrecurse.i ]
-  %74 = inttoptr i64 %.sink52.i to ptr
+  %.sink59.i = phi i64 [ %23, %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.thread33.i ], [ %8, %tailrecurse.i ]
+  %74 = inttoptr i64 %.sink59.i to ptr
   %75 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %74) #17
   br label %_ZL14getLastStmtLocPKN5clang8CFGBlockE.exit
 
@@ -6214,12 +6217,12 @@ _ZNK5clang4Decl7getAttrINS_14ConsumableAttrEEEPT_v.exit.i: ; preds = %.lr.ph.i.i
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 36
   %199 = load i32, ptr %198, align 4, !tbaa !186
   %200 = zext nneg i32 %199 to i64
-  %switch.gep85 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %200
-  %switch.load86 = load i32, ptr %switch.gep85, align 4
+  %switch.gep95 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %200
+  %switch.load96 = load i32, ptr %switch.gep95, align 4
   br label %_ZL27mapReturnTypestateAttrStatePKN5clang19ReturnTypestateAttrE.exit
 
 _ZL27mapReturnTypestateAttrStatePKN5clang19ReturnTypestateAttrE.exit: ; preds = %149, %_ZNK5clang4Decl7getAttrINS_14ConsumableAttrEEEPT_v.exit.i, %switch.lookup, %_ZL16isConsumableTypeRKN5clang8QualTypeE.exit, %.loopexit, %132, %134, %138, %_ZL14isAutoCastTypeRKN5clang8QualTypeE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.sink = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %_ZL14isAutoCastTypeRKN5clang8QualTypeE.exit ], [ 0, %138 ], [ 0, %134 ], [ 0, %132 ], [ 0, %.loopexit ], [ 0, %_ZL16isConsumableTypeRKN5clang8QualTypeE.exit ], [ %switch.load, %switch.lookup ], [ %switch.load86, %_ZNK5clang4Decl7getAttrINS_14ConsumableAttrEEEPT_v.exit.i ], [ 0, %149 ]
+  %.sink = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %_ZL14isAutoCastTypeRKN5clang8QualTypeE.exit ], [ 0, %138 ], [ 0, %134 ], [ 0, %132 ], [ 0, %.loopexit ], [ 0, %_ZL16isConsumableTypeRKN5clang8QualTypeE.exit ], [ %switch.load, %switch.lookup ], [ %switch.load96, %_ZNK5clang4Decl7getAttrINS_14ConsumableAttrEEEPT_v.exit.i ], [ 0, %149 ]
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %.sink, ptr %201, align 8, !tbaa !202
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -6533,13 +6536,13 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS2_8consumed13ConsumedSt
   %161 = zext i32 %137 to i64
   %162 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.90", ptr %135, i64 %161
   %.not.i.i74 = icmp eq ptr %.sroa.0.1.i.i.i73, %162
-  br i1 %.not.i.i74, label %switch.lookup401, label %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit.i
+  br i1 %.not.i.i74, label %switch.lookup439, label %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit.i
 
 _ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit.i.i
   %163 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i73, i64 8
   %164 = load i32, ptr %163, align 8, !tbaa !61
   %165 = icmp eq i32 %164, 1
-  br i1 %165, label %switch.lookup, label %switch.lookup401
+  br i1 %165, label %switch.lookup, label %switch.lookup439
 
 switch.lookup:                                    ; preds = %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -6557,19 +6560,19 @@ switch.lookup:                                    ; preds = %_ZNK5clang8consumed
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %427
 
-switch.lookup401:                                 ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit.i.i, %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit.i
+switch.lookup439:                                 ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit.i.i, %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit.i
   %.0.i2.i = phi i32 [ %164, %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit.i ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit.i.i ]
   %169 = zext nneg i32 %.sroa.19.0 to i64
-  %switch.gep402 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %169
-  %switch.load403 = load i32, ptr %switch.gep402, align 4
-  %170 = icmp eq i32 %.0.i2.i, %switch.load403
+  %switch.gep440 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %169
+  %switch.load441 = load i32, ptr %switch.gep440, align 4
+  %170 = icmp eq i32 %.0.i2.i, %switch.load441
   br i1 %170, label %171, label %172
 
-171:                                              ; preds = %switch.lookup401
+171:                                              ; preds = %switch.lookup439
   tail call void @_ZN5clang8consumed16ConsumedStateMap15markUnreachableEv(ptr noundef nonnull align 8 dereferenceable(64) %132)
   br label %427
 
-172:                                              ; preds = %switch.lookup401
+172:                                              ; preds = %switch.lookup439
   %173 = icmp eq i32 %.0.i2.i, %.sroa.19.0
   br i1 %173, label %174, label %427
 
@@ -6712,7 +6715,7 @@ _ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit70.i: ; preds 
   br i1 %247, label %249, label %263
 
 249:                                              ; preds = %246
-  br i1 %248, label %250, label %switch.lookup404
+  br i1 %248, label %250, label %switch.lookup442
 
 250:                                              ; preds = %249
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -6723,18 +6726,18 @@ _ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit70.i: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %276
 
-switch.lookup404:                                 ; preds = %249
+switch.lookup442:                                 ; preds = %249
   %253 = zext nneg i32 %.sroa.29.0 to i64
-  %switch.gep405 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %253
-  %switch.load406 = load i32, ptr %switch.gep405, align 4
-  %254 = icmp eq i32 %211, %switch.load406
+  %switch.gep443 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %253
+  %switch.load444 = load i32, ptr %switch.gep443, align 4
+  %254 = icmp eq i32 %211, %switch.load444
   br i1 %254, label %255, label %256
 
-255:                                              ; preds = %switch.lookup404
+255:                                              ; preds = %switch.lookup442
   tail call void @_ZN5clang8consumed16ConsumedStateMap15markUnreachableEv(ptr noundef nonnull align 8 dereferenceable(64) %176)
   br label %276
 
-256:                                              ; preds = %switch.lookup404
+256:                                              ; preds = %switch.lookup442
   %257 = icmp eq i32 %211, %.sroa.29.0
   %258 = and i32 %245, -2
   %switch.i.i = icmp eq i32 %258, 2
@@ -6754,38 +6757,38 @@ switch.lookup404:                                 ; preds = %249
   br label %276
 
 263:                                              ; preds = %246
-  br i1 %248, label %switch.lookup407, label %266
+  br i1 %248, label %switch.lookup445, label %266
 
-switch.lookup407:                                 ; preds = %263
+switch.lookup445:                                 ; preds = %263
   %264 = zext nneg i32 %.sroa.29.0 to i64
-  %switch.gep408 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %264
-  %switch.load409 = load i32, ptr %switch.gep408, align 4
+  %switch.gep446 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %264
+  %switch.load447 = load i32, ptr %switch.gep446, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %.sroa.28195.0, ptr %8, align 8, !tbaa !38
   %265 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  store i32 %switch.load409, ptr %265, align 4, !tbaa !40
+  store i32 %switch.load447, ptr %265, align 4, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %276
 
 266:                                              ; preds = %263
   %267 = icmp eq i32 %211, %.sroa.29.0
-  br i1 %267, label %268, label %switch.lookup410
+  br i1 %267, label %268, label %switch.lookup448
 
 268:                                              ; preds = %266
   tail call void @_ZN5clang8consumed16ConsumedStateMap15markUnreachableEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
   br label %276
 
-switch.lookup410:                                 ; preds = %266
+switch.lookup448:                                 ; preds = %266
   %269 = zext nneg i32 %.sroa.29.0 to i64
-  %switch.gep411 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %269
-  %switch.load412 = load i32, ptr %switch.gep411, align 4
-  %270 = icmp eq i32 %211, %switch.load412
+  %switch.gep449 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %269
+  %switch.load450 = load i32, ptr %switch.gep449, align 4
+  %270 = icmp eq i32 %211, %switch.load450
   %271 = and i32 %245, -2
   %switch.i76.i = icmp eq i32 %271, 2
   %or.cond81.i = select i1 %270, i1 %switch.i76.i, i1 false
   br i1 %or.cond81.i, label %272, label %276
 
-272:                                              ; preds = %switch.lookup410
+272:                                              ; preds = %switch.lookup448
   %273 = icmp eq i32 %245, %.sroa.32.0
   br i1 %273, label %274, label %275
 
@@ -6797,7 +6800,7 @@ switch.lookup410:                                 ; preds = %266
   tail call void @_ZN5clang8consumed16ConsumedStateMap15markUnreachableEv(ptr noundef nonnull align 8 dereferenceable(64) %176)
   br label %276
 
-276:                                              ; preds = %275, %274, %switch.lookup410, %268, %switch.lookup407, %262, %261, %256, %255, %250, %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit70.i
+276:                                              ; preds = %275, %274, %switch.lookup448, %268, %switch.lookup445, %262, %261, %256, %255, %250, %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit70.i
   br i1 %.not57.i, label %427, label %277
 
 277:                                              ; preds = %276
@@ -6806,7 +6809,7 @@ switch.lookup410:                                 ; preds = %266
   br i1 %278, label %280, label %287
 
 280:                                              ; preds = %277
-  br i1 %279, label %281, label %switch.lookup413
+  br i1 %279, label %281, label %switch.lookup451
 
 281:                                              ; preds = %280
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -6817,28 +6820,28 @@ switch.lookup410:                                 ; preds = %266
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %427
 
-switch.lookup413:                                 ; preds = %280
+switch.lookup451:                                 ; preds = %280
   %284 = zext nneg i32 %.sroa.32.0 to i64
-  %switch.gep414 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %284
-  %switch.load415 = load i32, ptr %switch.gep414, align 4
-  %285 = icmp eq i32 %245, %switch.load415
+  %switch.gep452 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %284
+  %switch.load453 = load i32, ptr %switch.gep452, align 4
+  %285 = icmp eq i32 %245, %switch.load453
   br i1 %285, label %286, label %427
 
-286:                                              ; preds = %switch.lookup413
+286:                                              ; preds = %switch.lookup451
   call void @_ZN5clang8consumed16ConsumedStateMap15markUnreachableEv(ptr noundef nonnull align 8 dereferenceable(64) %176)
   br label %427
 
 287:                                              ; preds = %277
-  br i1 %279, label %switch.lookup416, label %290
+  br i1 %279, label %switch.lookup454, label %290
 
-switch.lookup416:                                 ; preds = %287
+switch.lookup454:                                 ; preds = %287
   %288 = zext nneg i32 %.sroa.32.0 to i64
-  %switch.gep417 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %288
-  %switch.load418 = load i32, ptr %switch.gep417, align 4
+  %switch.gep455 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %288
+  %switch.load456 = load i32, ptr %switch.gep455, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %.sroa.30214.0, ptr %6, align 8, !tbaa !38
   %289 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store i32 %switch.load418, ptr %289, align 4, !tbaa !40
+  store i32 %switch.load456, ptr %289, align 4, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %427
 
@@ -7083,13 +7086,13 @@ _ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit.thread: ; pre
   %412 = lshr i32 %411, 19
   %413 = and i32 %412, 63
   switch i32 %413, label %427 [
-    i32 19, label %switch.lookup419
+    i32 19, label %switch.lookup457
     i32 20, label %.thread344
   ]
 
 414:                                              ; preds = %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit
   %415 = icmp eq i32 %407, 1
-  br i1 %415, label %416, label %switch.lookup419
+  br i1 %415, label %416, label %switch.lookup457
 
 416:                                              ; preds = %414
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -7099,30 +7102,30 @@ _ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit.thread: ; pre
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %427
 
-switch.lookup419:                                 ; preds = %414, %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit.thread
+switch.lookup457:                                 ; preds = %414, %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit.thread
   %.0.i337340 = phi i32 [ %407, %414 ], [ 0, %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit.thread ]
   %418 = zext nneg i32 %.sroa.19.1 to i64
-  %switch.gep420 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %418
-  %switch.load421 = load i32, ptr %switch.gep420, align 4
-  %419 = icmp eq i32 %.0.i337340, %switch.load421
+  %switch.gep458 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %418
+  %switch.load459 = load i32, ptr %switch.gep458, align 4
+  %419 = icmp eq i32 %.0.i337340, %switch.load459
   br i1 %419, label %420, label %427
 
-420:                                              ; preds = %switch.lookup419
+420:                                              ; preds = %switch.lookup457
   tail call void @_ZN5clang8consumed16ConsumedStateMap15markUnreachableEv(ptr noundef nonnull align 8 dereferenceable(64) %375)
   br label %427
 
 421:                                              ; preds = %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit
   %422 = icmp eq i32 %407, 1
-  br i1 %422, label %switch.lookup422, label %.thread344
+  br i1 %422, label %switch.lookup460, label %.thread344
 
-switch.lookup422:                                 ; preds = %421
+switch.lookup460:                                 ; preds = %421
   %423 = zext nneg i32 %.sroa.19.1 to i64
-  %switch.gep423 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %423
-  %switch.load424 = load i32, ptr %switch.gep423, align 4
+  %switch.gep461 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %423
+  %switch.load462 = load i32, ptr %switch.gep461, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.12162.1, ptr %4, align 8, !tbaa !38
   %424 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  store i32 %switch.load424, ptr %424, align 4, !tbaa !40
+  store i32 %switch.load462, ptr %424, align 4, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %427
 
@@ -7135,7 +7138,7 @@ switch.lookup422:                                 ; preds = %421
   tail call void @_ZN5clang8consumed16ConsumedStateMap15markUnreachableEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
   br label %427
 
-427:                                              ; preds = %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit.thread, %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit, %.thread344, %426, %switch.lookup422, %416, %420, %switch.lookup419, %292, %290, %switch.lookup416, %286, %switch.lookup413, %281, %276, %174, %172, %171, %switch.lookup
+427:                                              ; preds = %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit.thread, %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit, %.thread344, %426, %switch.lookup460, %416, %420, %switch.lookup457, %292, %290, %switch.lookup454, %286, %switch.lookup451, %281, %276, %174, %172, %171, %switch.lookup
   %428 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %429 = load ptr, ptr %428, align 8, !tbaa !224
   %430 = load ptr, ptr %429, align 8, !tbaa !226
@@ -8972,13 +8975,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_8consumed15PropagationInf
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %63, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %62, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %63, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %62, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %64 = zext i32 %.sink28 to i64
-  %65 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink26, i64 %64
-  store ptr %.sink25, ptr %0, align 8
+  %64 = zext i32 %.sink32 to i64
+  %65 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %64
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %65, ptr %.sroa.4.0..sroa_idx, align 8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16

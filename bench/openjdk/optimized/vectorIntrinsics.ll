@@ -1335,7 +1335,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i32, ptr %52, align 8
-  %.not189 = icmp eq i32 %53, 21
+  %.not203 = icmp eq i32 %53, 21
   %54 = add i32 %13, 3
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw ptr, ptr %15, i64 %55
@@ -1586,7 +1586,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   br i1 %243, label %244, label %290
 
 244:                                              ; preds = %216
-  br i1 %.not189, label %245, label %249
+  br i1 %.not203, label %245, label %249
 
 245:                                              ; preds = %244
   %246 = getelementptr inbounds nuw i8, ptr %51, i64 48
@@ -5544,7 +5544,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
   br i1 %501, label %.thread216, label %521
 
 .thread216:                                       ; preds = %491, %.thread215
-  %.sink227 = phi i32 [ 8, %.thread215 ], [ 9, %491 ]
+  %.sink241 = phi i32 [ 8, %.thread215 ], [ 9, %491 ]
   %502 = load ptr, ptr @tty, align 8
   %503 = load ptr, ptr %6, align 8
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 56
@@ -5553,7 +5553,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
   %507 = load i32, ptr %506, align 8
   %508 = getelementptr inbounds nuw i8, ptr %505, i64 32
   %509 = load i32, ptr %508, align 8
-  %510 = add i32 %507, %.sink227
+  %510 = add i32 %507, %.sink241
   %511 = add i32 %510, %509
   %512 = getelementptr inbounds nuw i8, ptr %503, i64 8
   %513 = load ptr, ptr %512, align 8
@@ -5951,7 +5951,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_gather_scat
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i32, ptr %41, align 8
-  %.not216 = icmp eq i32 %42, 21
+  %.not233 = icmp eq i32 %42, 21
   %43 = add i32 %14, 2
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds nuw ptr, ptr %16, i64 %44
@@ -6252,7 +6252,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit187.thread: ; preds = %191, %_ZL20i
   br i1 %.not, label %258, label %319
 
 258:                                              ; preds = %231
-  br i1 %.not216, label %259, label %263
+  br i1 %.not233, label %259, label %263
 
 259:                                              ; preds = %258
   %260 = getelementptr inbounds nuw i8, ptr %40, i64 48
@@ -6538,8 +6538,8 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %3
   %453 = load i32, ptr %452, align 8
   %454 = getelementptr inbounds nuw i8, ptr %447, i64 8
   %455 = load ptr, ptr %454, align 8
-  %.214 = select i1 %1, i32 10, i32 9
-  %456 = add i32 %451, %.214
+  %.231 = select i1 %1, i32 10, i32 9
+  %456 = add i32 %451, %.231
   %457 = add i32 %456, %453
   %458 = zext i32 %457 to i64
   %459 = getelementptr inbounds nuw ptr, ptr %455, i64 %458
@@ -6567,8 +6567,8 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %3
   %477 = load i32, ptr %476, align 8
   %478 = getelementptr inbounds nuw i8, ptr %471, i64 8
   %479 = load ptr, ptr %478, align 8
-  %.215 = select i1 %1, i32 10, i32 9
-  %480 = add i32 %475, %.215
+  %.232 = select i1 %1, i32 10, i32 9
+  %480 = add i32 %475, %.232
   %481 = add i32 %480, %477
   %482 = zext i32 %481 to i64
   %483 = getelementptr inbounds nuw ptr, ptr %479, i64 %482
@@ -9061,7 +9061,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_rearrangeEv
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
-  %.not121 = icmp eq i32 %52, 21
+  %.not129 = icmp eq i32 %52, 21
   %53 = add i32 %12, 3
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds nuw ptr, ptr %14, i64 %54
@@ -9360,7 +9360,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread: ; preds = %189, %_ZL20i
   br i1 %.not, label %.thread, label %261
 
 261:                                              ; preds = %241
-  br i1 %.not121, label %262, label %268
+  br i1 %.not129, label %262, label %268
 
 262:                                              ; preds = %261
   %263 = getelementptr inbounds nuw i8, ptr %50, i64 48

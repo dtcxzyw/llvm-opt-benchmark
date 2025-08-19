@@ -2446,8 +2446,8 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L29_Dir
   %29 = icmp ugt i64 %28, 7
   %30 = add nuw i64 %.024, 1
   %exitcond.not = icmp ne i64 %30, %21
-  %or.cond28.not = select i1 %29, i1 %exitcond.not, i1 false
-  br i1 %or.cond28.not, label %24, label %.loopexit, !llvm.loop !19
+  %or.cond30.not = select i1 %29, i1 %exitcond.not, i1 false
+  br i1 %or.cond30.not, label %24, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %24, %11
   %switch = phi i1 [ false, %11 ], [ %29, %24 ]
@@ -2908,8 +2908,8 @@ define linkonce_odr void @_ZN3tbb6detail2d126enumerable_thread_specificISt6vecto
 
 29:                                               ; preds = %.noexc.i.i, %.loopexit1
   %.07.i.i.i.i = phi i64 [ %28, %.loopexit1 ], [ %30, %.noexc.i.i ]
-  %30 = add i64 %.07.i.i.i.i, -1
-  %31 = getelementptr inbounds %"struct.std::atomic.209", ptr %.0.i.i.i.i.i.i, i64 %30
+  %30 = add nsw i64 %.07.i.i.i.i, -1
+  %31 = getelementptr inbounds nuw %"struct.std::atomic.209", ptr %.0.i.i.i.i.i.i, i64 %30
   %32 = load atomic i64, ptr %31 monotonic, align 8
   %.not6.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not6.i.i.i.i, label %.noexc.i.i, label %33

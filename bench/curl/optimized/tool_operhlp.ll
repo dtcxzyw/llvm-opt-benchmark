@@ -341,18 +341,18 @@ define dso_local range(i32 0, 44) i32 @get_url_file_name(ptr noundef %0, ptr nou
   br label %.preheader, !llvm.loop !32
 
 .thread:                                          ; preds = %.preheader
-  br i1 %11, label %.preheader.backedge, label %.thread45
+  br i1 %11, label %.preheader.backedge, label %.thread47
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1
   br label %25
 
-.thread45:                                        ; preds = %.thread
+.thread47:                                        ; preds = %.thread
   call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6) #8
   br label %25
 
-25:                                               ; preds = %.thread45, %23
-  %.2 = phi ptr [ %24, %23 ], [ @.str.6, %.thread45 ]
+25:                                               ; preds = %.thread47, %23
+  %.2 = phi ptr [ %24, %23 ], [ @.str.6, %.thread47 ]
   %26 = call noalias ptr @strdup(ptr noundef nonnull %.2) #8
   store ptr %26, ptr %1, align 8, !tbaa !30
   %27 = load ptr, ptr %4, align 8, !tbaa !30

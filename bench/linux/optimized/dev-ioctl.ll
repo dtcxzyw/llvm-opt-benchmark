@@ -102,25 +102,25 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr rea
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !6
   %16 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %5, i64 noundef 24) #10
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %.thread27
+  br i1 %17, label %18, label %.thread32
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
   %22 = icmp ult i32 %20, 24
-  br i1 %22, label %.thread27, label %23
+  br i1 %22, label %.thread32, label %23
 
 23:                                               ; preds = %18
   %24 = icmp ugt i32 %20, 4120
-  br i1 %24, label %.thread27, label %25
+  br i1 %24, label %.thread32, label %25
 
 25:                                               ; preds = %23
   %26 = call ptr @memdup_user(ptr noundef %5, i64 noundef %21) #10
   %27 = icmp ugt ptr %26, inttoptr (i64 -4096 to ptr)
-  br i1 %27, label %.thread27, label %31
+  br i1 %27, label %.thread32, label %31
 
-.thread27:                                        ; preds = %23, %18, %15, %25
+.thread32:                                        ; preds = %23, %18, %15, %25
   %28 = phi ptr [ %26, %25 ], [ inttoptr (i64 -36 to ptr), %23 ], [ inttoptr (i64 -22 to ptr), %18 ], [ inttoptr (i64 -14 to ptr), %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = ptrtoint ptr %28 to i64
@@ -297,8 +297,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr rea
   call void @kfree(ptr noundef %26) #10
   br label %133
 
-133:                                              ; preds = %.thread15, %.thread27, %13, %3
-  %134 = phi i32 [ %30, %.thread27 ], [ %132, %.thread15 ], [ -25, %3 ], [ -1, %13 ]
+133:                                              ; preds = %.thread15, %.thread32, %13, %3
+  %134 = phi i32 [ %30, %.thread32 ], [ %132, %.thread15 ], [ -25, %3 ], [ -1, %13 ]
   %135 = sext i32 %134 to i64
   ret i64 %135
 }
@@ -962,7 +962,7 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone captures
 .thread10.sink.split:                             ; preds = %55, %110
   %.sink = phi ptr [ %114, %110 ], [ %59, %55 ]
   %.ph = phi i32 [ %106, %110 ], [ %68, %55 ]
-  %.ph12 = phi i32 [ %107, %110 ], [ 1, %55 ]
+  %.ph19 = phi i32 [ %107, %110 ], [ 1, %55 ]
   %115 = getelementptr inbounds nuw i8, ptr %.sink, i64 96
   %116 = load i64, ptr %115, align 32
   %117 = trunc i64 %116 to i32
@@ -971,7 +971,7 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone captures
 .thread10:                                        ; preds = %.thread10.sink.split, %99, %55
   %118 = phi i32 [ %68, %55 ], [ %106, %99 ], [ %.ph, %.thread10.sink.split ]
   %119 = phi i32 [ 0, %55 ], [ 0, %99 ], [ %117, %.thread10.sink.split ]
-  %120 = phi i32 [ 0, %55 ], [ %107, %99 ], [ %.ph12, %.thread10.sink.split ]
+  %120 = phi i32 [ 0, %55 ], [ %107, %99 ], [ %.ph19, %.thread10.sink.split ]
   store i32 %118, ptr %8, align 8
   store i32 %119, ptr %10, align 4
   call void @path_put(ptr noundef nonnull %6) #10

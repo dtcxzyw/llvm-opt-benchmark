@@ -3937,11 +3937,11 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %2575 = add <4 x i32> %2574, %.lcssa7625
   %2576 = load i32, ptr %15, align 4, !tbaa !4
   switch i32 %2576, label %2582 [
-    i32 4, label %.thread10404
+    i32 4, label %.thread10532
     i32 1, label %2579
   ]
 
-.thread10404:                                     ; preds = %._crit_edge8380
+.thread10532:                                     ; preds = %._crit_edge8380
   store <4 x i32> %2571, ptr %.335108396, align 16, !tbaa !37
   %2577 = getelementptr inbounds nuw i8, ptr %.335108396, i64 16
   store <4 x i32> %2575, ptr %2577, align 16, !tbaa !37
@@ -3955,8 +3955,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %2581 = getelementptr inbounds nuw i8, ptr %.335108396, i64 8
   br label %2582
 
-2582:                                             ; preds = %._crit_edge8380, %.thread10404, %2579
-  %.53512 = phi ptr [ %2581, %2579 ], [ %2578, %.thread10404 ], [ %.335108396, %._crit_edge8380 ]
+2582:                                             ; preds = %._crit_edge8380, %.thread10532, %2579
+  %.53512 = phi ptr [ %2581, %2579 ], [ %2578, %.thread10532 ], [ %.335108396, %._crit_edge8380 ]
   %2583 = add nuw nsw i32 %.135178395, 2
   %2584 = or disjoint i32 %2583, 1
   %2585 = icmp slt i32 %2584, %1519
@@ -5649,12 +5649,12 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %3658 = add <4 x i32> %3656, %3657
   %shift = shufflevector <4 x i32> %3655, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = add nsw <4 x i32> %3655, %shift
-  %shift10849 = shufflevector <4 x i32> %3655, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
-  %foldExtExtBinop10850 = add nsw <4 x i32> %3655, %shift10849
-  %shift10852 = shufflevector <4 x i32> %3658, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop10853 = add nsw <4 x i32> %3658, %shift10852
-  %shift10855 = shufflevector <4 x i32> %3658, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
-  %foldExtExtBinop10856 = add nsw <4 x i32> %3658, %shift10855
+  %shift10977 = shufflevector <4 x i32> %3655, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
+  %foldExtExtBinop10978 = add nsw <4 x i32> %3655, %shift10977
+  %shift10980 = shufflevector <4 x i32> %3658, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop10981 = add nsw <4 x i32> %3658, %shift10980
+  %shift10983 = shufflevector <4 x i32> %3658, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
+  %foldExtExtBinop10984 = add nsw <4 x i32> %3658, %shift10983
   %3659 = or disjoint i32 %.03818.lcssa, 7
   %3660 = icmp slt i32 %3659, %3540
   br i1 %3660, label %.noexc4353.lr.ph, label %._crit_edge8771
@@ -5795,16 +5795,16 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %3739 = add <4 x i32> %3737, %3738
   %3740 = shufflevector <4 x i32> %3739, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %3741 = add <4 x i32> %3740, %3739
-  %foldExtExtBinop10858 = add nsw <4 x i32> %foldExtExtBinop, %3741
-  %3742 = extractelement <4 x i32> %foldExtExtBinop10858, i64 0
+  %foldExtExtBinop10986 = add nsw <4 x i32> %foldExtExtBinop, %3741
+  %3742 = extractelement <4 x i32> %foldExtExtBinop10986, i64 0
   %3743 = shufflevector <8 x i32> %3735, <8 x i32> poison, <4 x i32> <i32 6, i32 7, i32 6, i32 7>
   %3744 = shufflevector <8 x i32> %3735, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %3745 = add <4 x i32> %3743, %3744
   %3746 = shufflevector <4 x i32> %3745, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %3747 = add <4 x i32> %3746, %3745
-  %shift10860 = shufflevector <4 x i32> %foldExtExtBinop10850, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop10861 = add nsw <4 x i32> %shift10860, %3747
-  %3748 = extractelement <4 x i32> %foldExtExtBinop10861, i64 0
+  %shift10988 = shufflevector <4 x i32> %foldExtExtBinop10978, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop10989 = add nsw <4 x i32> %shift10988, %3747
+  %3748 = extractelement <4 x i32> %foldExtExtBinop10989, i64 0
   %3749 = shufflevector <8 x i32> %3736, <8 x i32> poison, <4 x i32> <i32 2, i32 3, i32 2, i32 3>
   %3750 = shufflevector <8 x i32> %3736, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %3751 = add <4 x i32> %3749, %3750
@@ -5815,11 +5815,11 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %3756 = add <4 x i32> %3754, %3755
   %3757 = shufflevector <4 x i32> %3756, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %3758 = add <4 x i32> %3757, %3756
-  %foldExtExtBinop10863 = add nsw <4 x i32> %foldExtExtBinop10853, %3753
-  %3759 = extractelement <4 x i32> %foldExtExtBinop10863, i64 0
-  %shift10865 = shufflevector <4 x i32> %foldExtExtBinop10856, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop10866 = add nsw <4 x i32> %shift10865, %3758
-  %3760 = extractelement <4 x i32> %foldExtExtBinop10866, i64 0
+  %foldExtExtBinop10991 = add nsw <4 x i32> %foldExtExtBinop10981, %3753
+  %3759 = extractelement <4 x i32> %foldExtExtBinop10991, i64 0
+  %shift10993 = shufflevector <4 x i32> %foldExtExtBinop10984, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop10994 = add nsw <4 x i32> %shift10993, %3758
+  %3760 = extractelement <4 x i32> %foldExtExtBinop10994, i64 0
   %3761 = or disjoint i32 %.13819.lcssa, 1
   %3762 = icmp slt i32 %3761, %3540
   br i1 %3762, label %.noexc4357.lr.ph, label %.preheader7546
@@ -6209,10 +6209,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %3974 = shufflevector <8 x i32> %3973, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %3975 = shufflevector <8 x i32> %3973, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %3976 = add <4 x i32> %3974, %3975
-  %shift10868 = shufflevector <4 x i32> %3976, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop10869 = add nsw <4 x i32> %3976, %shift10868
-  %shift10871 = shufflevector <4 x i32> %3976, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
-  %foldExtExtBinop10872 = add nsw <4 x i32> %3976, %shift10871
+  %shift10996 = shufflevector <4 x i32> %3976, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop10997 = add nsw <4 x i32> %3976, %shift10996
+  %shift10999 = shufflevector <4 x i32> %3976, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
+  %foldExtExtBinop11000 = add nsw <4 x i32> %3976, %shift10999
   %3977 = or disjoint i32 %.03705.lcssa, 7
   %3978 = icmp slt i32 %3977, %3897
   br i1 %3978, label %.noexc4369.lr.ph, label %._crit_edge8924
@@ -6331,11 +6331,11 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %4040 = add <4 x i32> %4038, %4039
   %4041 = shufflevector <4 x i32> %4040, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %4042 = add <4 x i32> %4041, %4040
-  %foldExtExtBinop10874 = add nsw <4 x i32> %foldExtExtBinop10869, %4037
-  %4043 = extractelement <4 x i32> %foldExtExtBinop10874, i64 0
-  %shift10876 = shufflevector <4 x i32> %foldExtExtBinop10872, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop10877 = add nsw <4 x i32> %shift10876, %4042
-  %4044 = extractelement <4 x i32> %foldExtExtBinop10877, i64 0
+  %foldExtExtBinop11002 = add nsw <4 x i32> %foldExtExtBinop10997, %4037
+  %4043 = extractelement <4 x i32> %foldExtExtBinop11002, i64 0
+  %shift11004 = shufflevector <4 x i32> %foldExtExtBinop11000, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop11005 = add nsw <4 x i32> %shift11004, %4042
+  %4044 = extractelement <4 x i32> %foldExtExtBinop11005, i64 0
   %4045 = or disjoint i32 %.13706.lcssa, 1
   %4046 = icmp slt i32 %4045, %3897
   br i1 %4046, label %.noexc4371.lr.ph, label %.preheader7545
@@ -7703,10 +7703,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge9418, %4
   %4861 = add <4 x i32> %4860, %4855
   %4862 = shufflevector <4 x i32> %4861, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %4863 = add <4 x i32> %4862, %4861
-  %foldExtExtBinop10879 = add nsw <4 x i32> %4859, %4777
-  %4864 = extractelement <4 x i32> %foldExtExtBinop10879, i64 0
-  %foldExtExtBinop10881 = add nsw <4 x i32> %4863, %4781
-  %4865 = extractelement <4 x i32> %foldExtExtBinop10881, i64 0
+  %foldExtExtBinop11007 = add nsw <4 x i32> %4859, %4777
+  %4864 = extractelement <4 x i32> %foldExtExtBinop11007, i64 0
+  %foldExtExtBinop11009 = add nsw <4 x i32> %4863, %4781
+  %4865 = extractelement <4 x i32> %foldExtExtBinop11009, i64 0
   %4866 = or disjoint i32 %.13440.lcssa, 1
   %4867 = icmp slt i32 %4866, %4667
   br i1 %4867, label %.noexc4419.lr.ph, label %.preheader7541
@@ -8165,8 +8165,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge9418, %4
   %5111 = add <4 x i32> %5110, %5109
   %5112 = shufflevector <4 x i32> %5111, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %5113 = add <4 x i32> %5112, %5111
-  %foldExtExtBinop10883 = add nsw <4 x i32> %5113, %5055
-  %5114 = extractelement <4 x i32> %foldExtExtBinop10883, i64 0
+  %foldExtExtBinop11011 = add nsw <4 x i32> %5113, %5055
+  %5114 = extractelement <4 x i32> %foldExtExtBinop11011, i64 0
   %5115 = or disjoint i32 %.13347.lcssa, 1
   %5116 = icmp slt i32 %5115, %4978
   br i1 %5116, label %.noexc4433.lr.ph, label %.preheader
@@ -12685,22 +12685,22 @@ _ZN17FastDivider_epu32C2Ej.exit1744.i.i:          ; preds = %694, %_ZN17FastDivi
   %1207 = mul <8 x i32> %1206, %752
   %1208 = mul <8 x i32> %1204, %754
   %1209 = add <8 x i32> %1207, %1208
-  %shift449 = shufflevector <8 x i32> %1208, <8 x i32> poison, <8 x i32> <i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %1210 = icmp eq <8 x i32> %1208, %shift449
+  %shift466 = shufflevector <8 x i32> %1208, <8 x i32> poison, <8 x i32> <i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %1210 = icmp eq <8 x i32> %1208, %shift466
   %1211 = extractelement <8 x i1> %1210, i64 0
   %or.cond3.i.i = and i1 %19, %1211
   br i1 %or.cond3.i.i, label %1212, label %1360
 
 1212:                                             ; preds = %1186
-  %foldExtExtBinop444 = add nsw <8 x i32> %1207, %1208
-  %1213 = extractelement <8 x i32> %foldExtExtBinop444, i64 0
+  %foldExtExtBinop461 = add nsw <8 x i32> %1207, %1208
+  %1213 = extractelement <8 x i32> %foldExtExtBinop461, i64 0
   br i1 %755, label %.preheader152.i.i, label %.loopexit150.i.i
 
 .preheader152.i.i:                                ; preds = %1212
   br i1 %756, label %.lr.ph231.i.i, label %.preheader151.i.i
 
 .lr.ph231.i.i:                                    ; preds = %.preheader152.i.i
-  %1214 = shufflevector <8 x i32> %foldExtExtBinop444, <8 x i32> poison, <4 x i32> zeroinitializer
+  %1214 = shufflevector <8 x i32> %foldExtExtBinop461, <8 x i32> poison, <4 x i32> zeroinitializer
   br label %1217
 
 .preheader151.i.i:                                ; preds = %1217, %.preheader152.i.i
@@ -13168,22 +13168,22 @@ _ZN17FastDivider_epu32C2Ej.exit1744.i.i:          ; preds = %694, %_ZN17FastDivi
   %1575 = mul <4 x i32> %1574, %1161
   %1576 = mul <4 x i32> %1572, %1163
   %1577 = add <4 x i32> %1575, %1576
-  %shift448 = shufflevector <4 x i32> %1576, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %1578 = icmp eq <4 x i32> %1576, %shift448
+  %shift465 = shufflevector <4 x i32> %1576, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %1578 = icmp eq <4 x i32> %1576, %shift465
   %1579 = extractelement <4 x i1> %1578, i64 0
   %or.cond5.i.i = and i1 %19, %1579
   br i1 %or.cond5.i.i, label %1580, label %1737
 
 1580:                                             ; preds = %1554
-  %foldExtExtBinop446 = add nsw <4 x i32> %1575, %1576
-  %1581 = extractelement <4 x i32> %foldExtExtBinop446, i64 0
+  %foldExtExtBinop463 = add nsw <4 x i32> %1575, %1576
+  %1581 = extractelement <4 x i32> %foldExtExtBinop463, i64 0
   br i1 %1164, label %.preheader139.i.i, label %.loopexit137.i.i
 
 .preheader139.i.i:                                ; preds = %1580
   br i1 %1165, label %.lr.ph272.i.i, label %.preheader138.i.i
 
 .lr.ph272.i.i:                                    ; preds = %.preheader139.i.i
-  %1582 = shufflevector <4 x i32> %foldExtExtBinop446, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1582 = shufflevector <4 x i32> %foldExtExtBinop463, <4 x i32> poison, <4 x i32> zeroinitializer
   br label %1585
 
 .preheader138.i.i:                                ; preds = %1585, %.preheader139.i.i
@@ -15470,12 +15470,12 @@ _ZN4ncnn3MatD2Ev.exit325.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %251 = icmp slt i32 %250, %248
   %252 = add nsw i32 %242, 3
   %253 = icmp slt i32 %252, %248
-  %invariant.op496 = sub nsw i64 %225, %240
+  %invariant.op500 = sub nsw i64 %225, %240
   br label %293
 
 254:                                              ; preds = %325
-  %.idx495 = shl nuw nsw i64 %indvars.iv469, 2
-  %255 = getelementptr inbounds nuw i8, ptr %234, i64 %.idx495
+  %.idx499 = shl nuw nsw i64 %indvars.iv469, 2
+  %255 = getelementptr inbounds nuw i8, ptr %234, i64 %.idx499
   %256 = getelementptr inbounds nuw i16, ptr %255, i64 %215
   %257 = getelementptr inbounds nuw i16, ptr %255, i64 %217
   %258 = getelementptr inbounds nuw i16, ptr %255, i64 %219
@@ -15539,7 +15539,7 @@ _ZN4ncnn3MatD2Ev.exit325.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
 293:                                              ; preds = %325, %_ZN4ncnn3MatD2Ev.exit325.us
   %indvars.iv461 = phi i64 [ %indvars.iv.next462, %325 ], [ 0, %_ZN4ncnn3MatD2Ev.exit325.us ]
   %.0319404.us = phi ptr [ %350, %325 ], [ %244, %_ZN4ncnn3MatD2Ev.exit325.us ]
-  %294 = icmp slt i64 %indvars.iv461, %invariant.op496
+  %294 = icmp slt i64 %indvars.iv461, %invariant.op500
   br i1 %294, label %295, label %325
 
 295:                                              ; preds = %293
@@ -15721,7 +15721,7 @@ _ZN4ncnn3MatD2Ev.exit.us:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %402 = icmp slt i32 %401, %399
   %403 = add nsw i32 %395, 3
   %404 = icmp slt i32 %403, %399
-  %invariant.op497 = sub nsw i64 %379, %393
+  %invariant.op501 = sub nsw i64 %379, %393
   br label %428
 
 405:                                              ; preds = %444
@@ -15769,7 +15769,7 @@ _ZN4ncnn3MatD2Ev.exit.us:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 428:                                              ; preds = %444, %_ZN4ncnn3MatD2Ev.exit.us
   %indvars.iv479 = phi i64 [ %indvars.iv.next480, %444 ], [ 0, %_ZN4ncnn3MatD2Ev.exit.us ]
   %.0279425.us = phi ptr [ %460, %444 ], [ %397, %_ZN4ncnn3MatD2Ev.exit.us ]
-  %429 = icmp slt i64 %indvars.iv479, %invariant.op497
+  %429 = icmp slt i64 %indvars.iv479, %invariant.op501
   br i1 %429, label %430, label %444
 
 430:                                              ; preds = %428
@@ -16541,8 +16541,8 @@ _ZN4ncnn3MatD2Ev.exit544.us.i:                    ; preds = %215
 
 260:                                              ; preds = %288, %.lr.ph.us688.i
   %indvars.iv777.i = phi i64 [ 0, %.lr.ph.us688.i ], [ %indvars.iv.next778.i, %288 ]
-  %.idx836.i = shl nsw i64 %indvars.iv777.i, 5
-  %261 = getelementptr inbounds nuw i8, ptr %259, i64 %.idx836.i
+  %.idx841.i = shl nsw i64 %indvars.iv777.i, 5
+  %261 = getelementptr inbounds nuw i8, ptr %259, i64 %.idx841.i
   %262 = getelementptr inbounds nuw i32, ptr %261, i64 %237
   %263 = getelementptr inbounds nuw i32, ptr %261, i64 %238
   %264 = getelementptr inbounds nuw i32, ptr %261, i64 %240
@@ -16739,8 +16739,8 @@ _ZN4ncnn3MatD2Ev.exit543.us.i:                    ; preds = %326
 
 369:                                              ; preds = %.split.us, %.lr.ph.us704.i
   %indvars.iv792.i = phi i64 [ 0, %.lr.ph.us704.i ], [ %indvars.iv.next793.i, %.split.us ]
-  %.idx837.i = shl nsw i64 %indvars.iv792.i, 4
-  %370 = getelementptr inbounds nuw i8, ptr %368, i64 %.idx837.i
+  %.idx842.i = shl nsw i64 %indvars.iv792.i, 4
+  %370 = getelementptr inbounds nuw i8, ptr %368, i64 %.idx842.i
   %371 = getelementptr inbounds nuw i32, ptr %370, i64 %348
   %372 = getelementptr inbounds nuw i32, ptr %370, i64 %350
   %373 = getelementptr inbounds nuw i32, ptr %370, i64 %352
@@ -16953,8 +16953,8 @@ _ZN4ncnn3MatD2Ev.exit542.us.i.split:              ; preds = %_ZN4ncnn3MatD2Ev.ex
 
 479:                                              ; preds = %.split154.us, %.lr.ph.us720.i
   %indvars.iv808.i = phi i64 [ 0, %.lr.ph.us720.i ], [ %indvars.iv.next809.i, %.split154.us ]
-  %.idx838.i = shl nuw nsw i64 %indvars.iv808.i, 3
-  %480 = getelementptr inbounds nuw i8, ptr %476, i64 %.idx838.i
+  %.idx843.i = shl nuw nsw i64 %indvars.iv808.i, 3
+  %480 = getelementptr inbounds nuw i8, ptr %476, i64 %.idx843.i
   %481 = getelementptr inbounds nuw i32, ptr %480, i64 %458
   %482 = getelementptr inbounds nuw i32, ptr %480, i64 %460
   %483 = getelementptr inbounds nuw i32, ptr %480, i64 %462
@@ -24193,12 +24193,12 @@ _ZN4ncnn3MatD2Ev.exit554.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %338 = icmp slt i32 %337, %331
   %339 = add nsw i32 %325, 5
   %340 = icmp slt i32 %339, %331
-  %invariant.op739 = sub nsw i64 %308, %323
+  %invariant.op743 = sub nsw i64 %308, %323
   br label %426
 
 341:                                              ; preds = %476
-  %.idx738 = shl nuw nsw i64 %indvars.iv712, 2
-  %342 = getelementptr inbounds nuw i8, ptr %317, i64 %.idx738
+  %.idx742 = shl nuw nsw i64 %indvars.iv712, 2
+  %342 = getelementptr inbounds nuw i8, ptr %317, i64 %.idx742
   %343 = getelementptr inbounds nuw i16, ptr %342, i64 %294
   %344 = getelementptr inbounds nuw i16, ptr %342, i64 %296
   %345 = getelementptr inbounds nuw i16, ptr %342, i64 %298
@@ -24318,7 +24318,7 @@ _ZN4ncnn3MatD2Ev.exit554.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
 426:                                              ; preds = %476, %_ZN4ncnn3MatD2Ev.exit554.us
   %indvars.iv704 = phi i64 [ %indvars.iv.next705, %476 ], [ 0, %_ZN4ncnn3MatD2Ev.exit554.us ]
   %.0508644.us = phi ptr [ %529, %476 ], [ %327, %_ZN4ncnn3MatD2Ev.exit554.us ]
-  %427 = icmp slt i64 %indvars.iv704, %invariant.op739
+  %427 = icmp slt i64 %indvars.iv704, %invariant.op743
   br i1 %427, label %428, label %476
 
 428:                                              ; preds = %426
@@ -24582,7 +24582,7 @@ _ZN4ncnn3MatD2Ev.exit.us:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %591 = icmp slt i32 %590, %584
   %592 = add nsw i32 %580, 5
   %593 = icmp slt i32 %592, %584
-  %invariant.op740 = sub nsw i64 %564, %578
+  %invariant.op744 = sub nsw i64 %564, %578
   br label %641
 
 594:                                              ; preds = %665
@@ -24660,7 +24660,7 @@ _ZN4ncnn3MatD2Ev.exit.us:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 641:                                              ; preds = %665, %_ZN4ncnn3MatD2Ev.exit.us
   %indvars.iv722 = phi i64 [ %indvars.iv.next723, %665 ], [ 0, %_ZN4ncnn3MatD2Ev.exit.us ]
   %.0497666.us = phi ptr [ %698, %665 ], [ %582, %_ZN4ncnn3MatD2Ev.exit.us ]
-  %642 = icmp slt i64 %indvars.iv722, %invariant.op740
+  %642 = icmp slt i64 %indvars.iv722, %invariant.op744
   br i1 %642, label %643, label %665
 
 643:                                              ; preds = %641
@@ -25686,8 +25686,8 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnnL47conv3x3s
 
 422:                                              ; preds = %429, %.lr.ph.us160.i
   %indvars.iv378.i = phi i64 [ 0, %.lr.ph.us160.i ], [ %indvars.iv.next379.i, %429 ]
-  %.idx437.i = shl nsw i64 %indvars.iv378.i, 5
-  %423 = getelementptr inbounds nuw i8, ptr %418, i64 %.idx437.i
+  %.idx442.i = shl nsw i64 %indvars.iv378.i, 5
+  %423 = getelementptr inbounds nuw i8, ptr %418, i64 %.idx442.i
   %424 = getelementptr inbounds nuw i32, ptr %423, i64 %394
   %425 = getelementptr inbounds nuw i32, ptr %423, i64 %396
   %426 = getelementptr inbounds nuw i32, ptr %423, i64 %398
@@ -26025,8 +26025,8 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnnL47conv3x3s
 
 631:                                              ; preds = %638, %.lr.ph.us212.i
   %indvars.iv394.i = phi i64 [ 0, %.lr.ph.us212.i ], [ %indvars.iv.next395.i, %638 ]
-  %.idx438.i = shl nsw i64 %indvars.iv394.i, 4
-  %632 = getelementptr inbounds nuw i8, ptr %627, i64 %.idx438.i
+  %.idx443.i = shl nsw i64 %indvars.iv394.i, 4
+  %632 = getelementptr inbounds nuw i8, ptr %627, i64 %.idx443.i
   %633 = getelementptr inbounds nuw i32, ptr %632, i64 %605
   %634 = getelementptr inbounds nuw i32, ptr %632, i64 %607
   %635 = getelementptr inbounds nuw i32, ptr %632, i64 %609
@@ -26319,8 +26319,8 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnnL47conv3x3s
 
 814:                                              ; preds = %821, %.lr.ph.us261.i
   %indvars.iv411.i = phi i64 [ 0, %.lr.ph.us261.i ], [ %indvars.iv.next412.i, %821 ]
-  %.idx439.i = shl nuw nsw i64 %indvars.iv411.i, 3
-  %815 = getelementptr inbounds nuw i8, ptr %811, i64 %.idx439.i
+  %.idx444.i = shl nuw nsw i64 %indvars.iv411.i, 3
+  %815 = getelementptr inbounds nuw i8, ptr %811, i64 %.idx444.i
   %816 = getelementptr inbounds nuw i32, ptr %815, i64 %789
   %817 = getelementptr inbounds nuw i32, ptr %815, i64 %791
   %818 = getelementptr inbounds nuw i32, ptr %815, i64 %793

@@ -1067,7 +1067,7 @@ define range(i32 -1, 1) i32 @H5P__decode_uint64_t(ptr noundef captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5P__decode(ptr noundef %0) local_unnamed_addr #2 {
+define range(i64 -1, -9223372036854775808) i64 @H5P__decode(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.H5_user_cb_state_t, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1274,7 +1274,7 @@ define i64 @H5P__decode(ptr noundef %0) local_unnamed_addr #2 {
   br label %.thread94.thread
 
 .thread94.thread:                                 ; preds = %12, %18, %29, %36, %1, %108, %111, %.thread94
-  %.053 = phi i64 [ -1, %111 ], [ %.157100, %108 ], [ %.157100, %.thread94 ], [ -1, %1 ], [ -1, %36 ], [ -1, %29 ], [ -1, %18 ], [ -1, %12 ]
+  %.053 = phi i64 [ -1, %111 ], [ -1, %108 ], [ %.157100, %.thread94 ], [ -1, %1 ], [ -1, %36 ], [ -1, %29 ], [ -1, %18 ], [ -1, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.053
 }

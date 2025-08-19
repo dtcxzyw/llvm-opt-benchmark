@@ -699,14 +699,14 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   %78 = phi i32 [ %68, %.lr.ph209.thread ], [ %77, %.lr.ph209 ]
   %79 = phi i32 [ %65, %.lr.ph209.thread ], [ %74, %.lr.ph209 ]
   %80 = phi i64 [ %62, %.lr.ph209.thread ], [ %71, %.lr.ph209 ]
-  %.0153.lcssa228237 = phi i32 [ %.1154.us, %.lr.ph209.thread ], [ %.0153.lcssa, %.lr.ph209 ]
-  %.0144.lcssa229236 = phi i32 [ %.1145.us, %.lr.ph209.thread ], [ %.0144.lcssa, %.lr.ph209 ]
-  %.0.lcssa230235 = phi i32 [ %.1.us, %.lr.ph209.thread ], [ %.0.lcssa, %.lr.ph209 ]
+  %.0153.lcssa231240 = phi i32 [ %.1154.us, %.lr.ph209.thread ], [ %.0153.lcssa, %.lr.ph209 ]
+  %.0144.lcssa232239 = phi i32 [ %.1145.us, %.lr.ph209.thread ], [ %.0144.lcssa, %.lr.ph209 ]
+  %.0.lcssa233238 = phi i32 [ %.1.us, %.lr.ph209.thread ], [ %.0.lcssa, %.lr.ph209 ]
   br label %.critedge.us
 
 .critedge.us:                                     ; preds = %.critedge.us.preheader, %.critedge.us
-  %.2208.us = phi i32 [ %.3.us, %.critedge.us ], [ %.0.lcssa230235, %.critedge.us.preheader ]
-  %.2146207.us = phi i32 [ %.3147.us, %.critedge.us ], [ %.0144.lcssa229236, %.critedge.us.preheader ]
+  %.2208.us = phi i32 [ %.3.us, %.critedge.us ], [ %.0.lcssa233238, %.critedge.us.preheader ]
+  %.2146207.us = phi i32 [ %.3147.us, %.critedge.us ], [ %.0144.lcssa232239, %.critedge.us.preheader ]
   %.0150206.us = phi i32 [ %107, %.critedge.us ], [ %25, %.critedge.us.preheader ]
   %.0151205.us = phi i32 [ %.1152.us, %.critedge.us ], [ 0, %.critedge.us.preheader ]
   %81 = add nsw i32 %.0150206.us, %24
@@ -837,13 +837,13 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   br i1 %exitcond.not, label %._crit_edge, label %136, !llvm.loop !81
 
 .critedge._crit_edge:                             ; preds = %._crit_edge202, %.critedge.us, %.critedge.preheader..critedge._crit_edge_crit_edge
-  %.0153.lcssa227 = phi i32 [ %.0153.lcssa, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.0153.lcssa228237, %.critedge.us ], [ %.0153.lcssa, %._crit_edge202 ]
+  %.0153.lcssa230 = phi i32 [ %.0153.lcssa, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.0153.lcssa231240, %.critedge.us ], [ %.0153.lcssa, %._crit_edge202 ]
   %.pre-phi = phi i64 [ %.pre, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %80, %.critedge.us ], [ %71, %._crit_edge202 ]
   %.0151.lcssa = phi i32 [ 0, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.1152.us, %.critedge.us ], [ %.1152, %._crit_edge202 ]
   %.2.lcssa = phi i32 [ %.0.lcssa, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.3.us, %.critedge.us ], [ %.3, %._crit_edge202 ]
   %.not163 = icmp eq i32 %.2.lcssa, 0
   %171 = add nsw i32 %.0151.lcssa, %24
-  %172 = select i1 %.not163, i32 %171, i32 %.0153.lcssa227
+  %172 = select i1 %.not163, i32 %171, i32 %.0153.lcssa230
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %174 = sext i32 %16 to i64
   %175 = getelementptr inbounds [3 x ptr], ptr %173, i64 0, i64 %174
@@ -1063,14 +1063,14 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %82 = phi i32 [ %71, %.lr.ph209.thread ], [ %81, %.lr.ph209 ]
   %83 = phi i32 [ %68, %.lr.ph209.thread ], [ %78, %.lr.ph209 ]
   %84 = phi i64 [ %65, %.lr.ph209.thread ], [ %75, %.lr.ph209 ]
-  %.0153.lcssa228237 = phi i32 [ %.1154.us, %.lr.ph209.thread ], [ %.0153.lcssa, %.lr.ph209 ]
-  %.0144.lcssa229236 = phi i64 [ %.1145.us, %.lr.ph209.thread ], [ %.0144.lcssa, %.lr.ph209 ]
-  %.0.lcssa230235 = phi i64 [ %.1.us, %.lr.ph209.thread ], [ %.0.lcssa, %.lr.ph209 ]
+  %.0153.lcssa231240 = phi i32 [ %.1154.us, %.lr.ph209.thread ], [ %.0153.lcssa, %.lr.ph209 ]
+  %.0144.lcssa232239 = phi i64 [ %.1145.us, %.lr.ph209.thread ], [ %.0144.lcssa, %.lr.ph209 ]
+  %.0.lcssa233238 = phi i64 [ %.1.us, %.lr.ph209.thread ], [ %.0.lcssa, %.lr.ph209 ]
   br label %.critedge.us
 
 .critedge.us:                                     ; preds = %.critedge.us.preheader, %.critedge.us
-  %.2208.us = phi i64 [ %.3.us, %.critedge.us ], [ %.0.lcssa230235, %.critedge.us.preheader ]
-  %.2146207.us = phi i64 [ %.3147.us, %.critedge.us ], [ %.0144.lcssa229236, %.critedge.us.preheader ]
+  %.2208.us = phi i64 [ %.3.us, %.critedge.us ], [ %.0.lcssa233238, %.critedge.us.preheader ]
+  %.2146207.us = phi i64 [ %.3147.us, %.critedge.us ], [ %.0144.lcssa232239, %.critedge.us.preheader ]
   %.0150206.us = phi i32 [ %113, %.critedge.us ], [ %25, %.critedge.us.preheader ]
   %.0151205.us = phi i32 [ %.1152.us, %.critedge.us ], [ 0, %.critedge.us.preheader ]
   %85 = add nsw i32 %.0150206.us, %24
@@ -1208,13 +1208,13 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond.not, label %._crit_edge, label %144, !llvm.loop !87
 
 .critedge._crit_edge:                             ; preds = %._crit_edge202, %.critedge.us, %.critedge.preheader..critedge._crit_edge_crit_edge
-  %.0153.lcssa227 = phi i32 [ %.0153.lcssa, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.0153.lcssa228237, %.critedge.us ], [ %.0153.lcssa, %._crit_edge202 ]
+  %.0153.lcssa230 = phi i32 [ %.0153.lcssa, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.0153.lcssa231240, %.critedge.us ], [ %.0153.lcssa, %._crit_edge202 ]
   %.pre-phi = phi i64 [ %.pre, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %84, %.critedge.us ], [ %75, %._crit_edge202 ]
   %.0151.lcssa = phi i32 [ 0, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.1152.us, %.critedge.us ], [ %.1152, %._crit_edge202 ]
   %.2.lcssa = phi i64 [ %.0.lcssa, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.3.us, %.critedge.us ], [ %.3, %._crit_edge202 ]
   %.not163 = icmp eq i64 %.2.lcssa, 0
   %182 = add nsw i32 %.0151.lcssa, %24
-  %183 = select i1 %.not163, i32 %182, i32 %.0153.lcssa227
+  %183 = select i1 %.not163, i32 %182, i32 %.0153.lcssa230
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %185 = sext i32 %16 to i64
   %186 = getelementptr inbounds [3 x ptr], ptr %184, i64 0, i64 %185

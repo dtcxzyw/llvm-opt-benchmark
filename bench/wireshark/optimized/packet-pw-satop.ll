@@ -215,9 +215,9 @@ define internal fastcc void @dissect_pw_satop(ptr noundef %0, ptr noundef %1, pt
   br label %185
 
 19:                                               ; preds = %7
-  %.223 = select i1 %trunc, i32 14, i32 2
-  %.224 = select i1 %trunc, i32 0, i32 4
-  %20 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %.223, i32 noundef 0)
+  %.230 = select i1 %trunc, i32 14, i32 2
+  %.231 = select i1 %trunc, i32 0, i32 4
+  %20 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %.230, i32 noundef 0)
   %21 = load i8, ptr @pref_has_rtp_header, align 1, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %37, label %23
@@ -228,18 +228,18 @@ define internal fastcc void @dissect_pw_satop(ptr noundef %0, ptr noundef %1, pt
   br i1 %25, label %26, label %38
 
 26:                                               ; preds = %23
-  %27 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.224)
+  %27 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.231)
   %28 = icmp eq i8 %27, -128
   br i1 %28, label %29, label %38
 
 29:                                               ; preds = %26
-  %30 = or disjoint i32 %.224, 1
+  %30 = or disjoint i32 %.231, 1
   %31 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %30)
   %32 = icmp sgt i8 %31, -1
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %29
-  %34 = or disjoint i32 %.224, 2
+  %34 = or disjoint i32 %.231, 2
   %35 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %34)
   %36 = icmp eq i16 %35, %20
   br i1 %36, label %37, label %38

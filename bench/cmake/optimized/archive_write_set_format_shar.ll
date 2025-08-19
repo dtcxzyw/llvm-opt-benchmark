@@ -206,8 +206,8 @@ sub_1157:                                         ; preds = %.tail
   br label %51
 
 51:                                               ; preds = %47, %45, %41
-  %.sink23.i = phi i64 [ 1, %45 ], [ 1, %47 ], [ %40, %41 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %.sink23.i
+  %.sink27.i = phi i64 [ 1, %45 ], [ 1, %47 ], [ %40, %41 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %.sink27.i
   %53 = load i8, ptr %52, align 1, !tbaa !30
   %.not.i = icmp eq i8 %53, 0
   br i1 %.not.i, label %shar_quote.exit, label %.lr.ph.split.i, !llvm.loop !31
@@ -288,8 +288,8 @@ sub_0160:                                         ; preds = %61
   br label %86
 
 86:                                               ; preds = %82, %80, %76
-  %.sink23.i128 = phi i64 [ 1, %80 ], [ 1, %82 ], [ %75, %76 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.020.i126, i64 %.sink23.i128
+  %.sink27.i128 = phi i64 [ 1, %80 ], [ 1, %82 ], [ %75, %76 ]
+  %87 = getelementptr inbounds nuw i8, ptr %.020.i126, i64 %.sink27.i128
   %88 = load i8, ptr %87, align 1, !tbaa !30
   %.not.i129 = icmp eq i8 %88, 0
   br i1 %.not.i129, label %shar_quote.exit130, label %.lr.ph.split.i125, !llvm.loop !31
@@ -355,8 +355,8 @@ shar_quote.exit130:                               ; preds = %86, %71
   br label %117
 
 117:                                              ; preds = %113, %111, %107
-  %.sink23.i136 = phi i64 [ 1, %111 ], [ 1, %113 ], [ %106, %107 ]
-  %118 = getelementptr inbounds nuw i8, ptr %.020.i134, i64 %.sink23.i136
+  %.sink27.i136 = phi i64 [ 1, %111 ], [ 1, %113 ], [ %106, %107 ]
+  %118 = getelementptr inbounds nuw i8, ptr %.020.i134, i64 %.sink27.i136
   %119 = load i8, ptr %118, align 1, !tbaa !30
   %.not.i137 = icmp eq i8 %119, 0
   br i1 %.not.i137, label %shar_quote.exit138, label %.lr.ph.split.i133, !llvm.loop !31
@@ -409,8 +409,8 @@ shar_quote.exit138:                               ; preds = %117, %102
   br label %140
 
 140:                                              ; preds = %136, %134, %130
-  %.sink23.i144 = phi i64 [ 1, %134 ], [ 1, %136 ], [ %129, %130 ]
-  %141 = getelementptr inbounds nuw i8, ptr %.020.i142, i64 %.sink23.i144
+  %.sink27.i144 = phi i64 [ 1, %134 ], [ 1, %136 ], [ %129, %130 ]
+  %141 = getelementptr inbounds nuw i8, ptr %.020.i142, i64 %.sink27.i144
   %142 = load i8, ptr %141, align 1, !tbaa !30
   %.not.i145 = icmp eq i8 %142, 0
   br i1 %.not.i145, label %shar_quote.exit146, label %.lr.ph.split.i141, !llvm.loop !31
@@ -457,8 +457,8 @@ shar_quote.exit146:                               ; preds = %140, %125
   br label %161
 
 161:                                              ; preds = %157, %155, %151
-  %.sink23.i152 = phi i64 [ 1, %155 ], [ 1, %157 ], [ %150, %151 ]
-  %162 = getelementptr inbounds nuw i8, ptr %.020.i150, i64 %.sink23.i152
+  %.sink27.i152 = phi i64 [ 1, %155 ], [ 1, %157 ], [ %150, %151 ]
+  %162 = getelementptr inbounds nuw i8, ptr %.020.i150, i64 %.sink27.i152
   %163 = load i8, ptr %162, align 1, !tbaa !30
   %.not.i153 = icmp eq i8 %163, 0
   br i1 %.not.i153, label %shar_quote.exit154, label %.lr.ph.split.i149, !llvm.loop !31
@@ -823,8 +823,8 @@ define internal range(i32 -30, 1) i32 @archive_write_shar_finish_entry(ptr nound
   br label %42
 
 42:                                               ; preds = %38, %36, %32
-  %.sink23.i = phi i64 [ 1, %36 ], [ 1, %38 ], [ %31, %32 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %.sink23.i
+  %.sink27.i = phi i64 [ 1, %36 ], [ 1, %38 ], [ %31, %32 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %.sink27.i
   %44 = load i8, ptr %43, align 1, !tbaa !30
   %.not.i = icmp eq i8 %44, 0
   br i1 %.not.i, label %shar_quote.exit, label %.lr.ph.split.i, !llvm.loop !31
@@ -875,8 +875,8 @@ shar_quote.exit:                                  ; preds = %42, %22
   br label %68
 
 68:                                               ; preds = %64, %62, %58
-  %.sink23.i71 = phi i64 [ 1, %62 ], [ 1, %64 ], [ %57, %58 ]
-  %69 = getelementptr inbounds nuw i8, ptr %.020.i69, i64 %.sink23.i71
+  %.sink27.i71 = phi i64 [ 1, %62 ], [ 1, %64 ], [ %57, %58 ]
+  %69 = getelementptr inbounds nuw i8, ptr %.020.i69, i64 %.sink27.i71
   %70 = load i8, ptr %69, align 1, !tbaa !30
   %.not.i72 = icmp eq i8 %70, 0
   br i1 %.not.i72, label %shar_quote.exit73, label %.lr.ph.split.i68, !llvm.loop !31
@@ -916,8 +916,8 @@ shar_quote.exit73:                                ; preds = %68, %54, %52
   br label %86
 
 86:                                               ; preds = %82, %80, %76
-  %.sink23.i79 = phi i64 [ 1, %80 ], [ 1, %82 ], [ %75, %76 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.020.i77, i64 %.sink23.i79
+  %.sink27.i79 = phi i64 [ 1, %80 ], [ 1, %82 ], [ %75, %76 ]
+  %87 = getelementptr inbounds nuw i8, ptr %.020.i77, i64 %.sink27.i79
   %88 = load i8, ptr %87, align 1, !tbaa !30
   %.not.i80 = icmp eq i8 %88, 0
   br i1 %.not.i80, label %shar_quote.exit81, label %.lr.ph.split.i76, !llvm.loop !31
@@ -956,8 +956,8 @@ shar_quote.exit81:                                ; preds = %86, %71, %shar_quot
   br label %105
 
 105:                                              ; preds = %101, %99, %95
-  %.sink23.i87 = phi i64 [ 1, %99 ], [ 1, %101 ], [ %94, %95 ]
-  %106 = getelementptr inbounds nuw i8, ptr %.020.i85, i64 %.sink23.i87
+  %.sink27.i87 = phi i64 [ 1, %99 ], [ 1, %101 ], [ %94, %95 ]
+  %106 = getelementptr inbounds nuw i8, ptr %.020.i85, i64 %.sink27.i87
   %107 = load i8, ptr %106, align 1, !tbaa !30
   %.not.i88 = icmp eq i8 %107, 0
   br i1 %.not.i88, label %shar_quote.exit89, label %.lr.ph.split.i84, !llvm.loop !31
@@ -1006,8 +1006,8 @@ shar_quote.exit89:                                ; preds = %105, %shar_quote.ex
   br label %128
 
 128:                                              ; preds = %124, %122, %118
-  %.sink23.i95 = phi i64 [ 1, %122 ], [ 1, %124 ], [ %117, %118 ]
-  %129 = getelementptr inbounds nuw i8, ptr %.020.i93, i64 %.sink23.i95
+  %.sink27.i95 = phi i64 [ 1, %122 ], [ 1, %124 ], [ %117, %118 ]
+  %129 = getelementptr inbounds nuw i8, ptr %.020.i93, i64 %.sink27.i95
   %130 = load i8, ptr %129, align 1, !tbaa !30
   %.not.i96 = icmp eq i8 %130, 0
   br i1 %.not.i96, label %shar_quote.exit97, label %.lr.ph.split.i92, !llvm.loop !31
@@ -1297,8 +1297,8 @@ define internal fastcc void @shar_quote(ptr noundef %0, ptr noundef %1, i32 noun
   br label %32
 
 32:                                               ; preds = %26, %28, %22
-  %.sink23 = phi i64 [ 1, %26 ], [ 1, %28 ], [ %21, %22 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.020, i64 %.sink23
+  %.sink27 = phi i64 [ 1, %26 ], [ 1, %28 ], [ %21, %22 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.020, i64 %.sink27
   %34 = load i8, ptr %33, align 1, !tbaa !30
   %.not = icmp eq i8 %34, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !31
@@ -1427,15 +1427,15 @@ define internal fastcc range(i32 -30, 1) i32 @_uuencode_line(ptr noundef %0, ptr
   br i1 %.not, label %85, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %12, %._crit_edge
-  %.029.lcssa50 = phi ptr [ %55, %._crit_edge ], [ %19, %12 ]
-  %.030.lcssa49 = phi i64 [ %53, %._crit_edge ], [ %3, %12 ]
-  %.031.lcssa48 = phi ptr [ %54, %._crit_edge ], [ %2, %12 ]
-  %57 = load i8, ptr %.031.lcssa48, align 1, !tbaa !30
-  %58 = icmp eq i64 %.030.lcssa49, 1
+  %.029.lcssa54 = phi ptr [ %55, %._crit_edge ], [ %19, %12 ]
+  %.030.lcssa53 = phi i64 [ %53, %._crit_edge ], [ %3, %12 ]
+  %.031.lcssa52 = phi ptr [ %54, %._crit_edge ], [ %2, %12 ]
+  %57 = load i8, ptr %.031.lcssa52, align 1, !tbaa !30
+  %58 = icmp eq i64 %.030.lcssa53, 1
   br i1 %58, label %64, label %59
 
 59:                                               ; preds = %._crit_edge.thread
-  %60 = getelementptr inbounds nuw i8, ptr %.031.lcssa48, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %.031.lcssa52, i64 1
   %61 = load i8, ptr %60, align 1, !tbaa !30
   %62 = zext i8 %61 to i32
   %63 = shl nuw nsw i32 %62, 8
@@ -1450,14 +1450,14 @@ define internal fastcc range(i32 -30, 1) i32 @_uuencode_line(ptr noundef %0, ptr
   %68 = lshr i8 %57, 2
   %69 = add nuw nsw i8 %68, 32
   %70 = select i1 %.not.i33, i8 96, i8 %69
-  store i8 %70, ptr %.029.lcssa50, align 1, !tbaa !30
+  store i8 %70, ptr %.029.lcssa54, align 1, !tbaa !30
   %71 = lshr i32 %67, 12
   %72 = and i32 %71, 63
   %.not17.i34 = icmp eq i32 %72, 0
   %73 = trunc nuw nsw i32 %72 to i8
   %74 = add nuw nsw i8 %73, 32
   %75 = select i1 %.not17.i34, i8 96, i8 %74
-  %76 = getelementptr inbounds nuw i8, ptr %.029.lcssa50, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.029.lcssa54, i64 1
   store i8 %75, ptr %76, align 1, !tbaa !30
   %77 = lshr exact i32 %.sroa.4.0, 6
   %78 = and i32 %77, 60
@@ -1465,11 +1465,11 @@ define internal fastcc range(i32 -30, 1) i32 @_uuencode_line(ptr noundef %0, ptr
   %79 = trunc nuw nsw i32 %78 to i8
   %80 = add nuw nsw i8 %79, 32
   %81 = select i1 %.not18.i35, i8 96, i8 %80
-  %82 = getelementptr inbounds nuw i8, ptr %.029.lcssa50, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %.029.lcssa54, i64 2
   store i8 %81, ptr %82, align 1, !tbaa !30
-  %83 = getelementptr inbounds nuw i8, ptr %.029.lcssa50, i64 3
+  %83 = getelementptr inbounds nuw i8, ptr %.029.lcssa54, i64 3
   store i8 96, ptr %83, align 1, !tbaa !30
-  %84 = getelementptr inbounds nuw i8, ptr %.029.lcssa50, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.029.lcssa54, i64 4
   br label %85
 
 85:                                               ; preds = %64, %._crit_edge

@@ -300,16 +300,16 @@ xorbufout.exit.i:                                 ; preds = %.lr.ph52.i.i, %.loo
 
 .lr.ph.i.i63.preheader.i:                         ; preds = %._crit_edge.i57.i, %.preheader.i56.i
   %87 = phi i32 [ %86, %._crit_edge.i57.i ], [ 8, %.preheader.i56.i ]
-  %.1.lcssa.i61214.i = phi ptr [ %81, %._crit_edge.i57.i ], [ %5, %.preheader.i56.i ]
-  %.127.lcssa.i60213.i = phi ptr [ %79, %._crit_edge.i57.i ], [ %.1172.i, %.preheader.i56.i ]
-  %.129.lcssa.i59212.i = phi ptr [ %84, %._crit_edge.i57.i ], [ %.138168.i, %.preheader.i56.i ]
-  %.132.lcssa.i58210.i = phi i32 [ %85, %._crit_edge.i57.i ], [ 64, %.preheader.i56.i ]
+  %.1.lcssa.i61221.i = phi ptr [ %81, %._crit_edge.i57.i ], [ %5, %.preheader.i56.i ]
+  %.127.lcssa.i60220.i = phi ptr [ %79, %._crit_edge.i57.i ], [ %.1172.i, %.preheader.i56.i ]
+  %.129.lcssa.i59219.i = phi ptr [ %84, %._crit_edge.i57.i ], [ %.138168.i, %.preheader.i56.i ]
+  %.132.lcssa.i58217.i = phi i32 [ %85, %._crit_edge.i57.i ], [ 64, %.preheader.i56.i ]
   br label %.lr.ph.i.i63.i
 
 .lr.ph.i.i63.i:                                   ; preds = %.lr.ph.i.i63.i, %.lr.ph.i.i63.preheader.i
-  %.sroa.039.0.i64.i = phi ptr [ %93, %.lr.ph.i.i63.i ], [ %.129.lcssa.i59212.i, %.lr.ph.i.i63.preheader.i ]
-  %.sroa.037.0.i65.i = phi ptr [ %88, %.lr.ph.i.i63.i ], [ %.127.lcssa.i60213.i, %.lr.ph.i.i63.preheader.i ]
-  %.sroa.0.0.i66.i = phi ptr [ %90, %.lr.ph.i.i63.i ], [ %.1.lcssa.i61214.i, %.lr.ph.i.i63.preheader.i ]
+  %.sroa.039.0.i64.i = phi ptr [ %93, %.lr.ph.i.i63.i ], [ %.129.lcssa.i59219.i, %.lr.ph.i.i63.preheader.i ]
+  %.sroa.037.0.i65.i = phi ptr [ %88, %.lr.ph.i.i63.i ], [ %.127.lcssa.i60220.i, %.lr.ph.i.i63.preheader.i ]
+  %.sroa.0.0.i66.i = phi ptr [ %90, %.lr.ph.i.i63.i ], [ %.1.lcssa.i61221.i, %.lr.ph.i.i63.preheader.i ]
   %.05.i.i67.i = phi i32 [ %94, %.lr.ph.i.i63.i ], [ 0, %.lr.ph.i.i63.preheader.i ]
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.037.0.i65.i, i64 8
   %89 = load i64, ptr %.sroa.037.0.i65.i, align 8, !tbaa !12
@@ -323,11 +323,11 @@ xorbufout.exit.i:                                 ; preds = %.lr.ph52.i.i, %.loo
   br i1 %exitcond.not.i.i68.i, label %.loopexit146.i, label %.lr.ph.i.i63.i, !llvm.loop !14
 
 .loopexit146.i:                                   ; preds = %.lr.ph.i.i63.i, %._crit_edge.i57.i
-  %.132.lcssa.i58211.i = phi i32 [ %85, %._crit_edge.i57.i ], [ %.132.lcssa.i58210.i, %.lr.ph.i.i63.i ]
+  %.132.lcssa.i58218.i = phi i32 [ %85, %._crit_edge.i57.i ], [ %.132.lcssa.i58217.i, %.lr.ph.i.i63.i ]
   %.sroa.039.1.i70.i = phi ptr [ %84, %._crit_edge.i57.i ], [ %93, %.lr.ph.i.i63.i ]
   %.sroa.037.1.i71.i = phi ptr [ %79, %._crit_edge.i57.i ], [ %88, %.lr.ph.i.i63.i ]
   %.sroa.0.1.i72.i = phi ptr [ %81, %._crit_edge.i57.i ], [ %90, %.lr.ph.i.i63.i ]
-  %95 = and i32 %.132.lcssa.i58211.i, 7
+  %95 = and i32 %.132.lcssa.i58218.i, 7
   %.not.i49.i = icmp eq i32 %95, 0
   br i1 %.not.i49.i, label %xorbufout.exit78.i, label %.lr.ph52.preheader.i50.i
 

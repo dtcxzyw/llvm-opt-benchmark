@@ -357,15 +357,15 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %_ZNSt6vectorIhSaIhE
   %59 = sext i32 %5 to i64
   %60 = sext i32 %1 to i64
   %wide.trip.count67 = zext nneg i32 %2 to i64
-  %invariant.gep77 = getelementptr i8, ptr %53, i64 %60
+  %invariant.gep87 = getelementptr i8, ptr %53, i64 %60
   br label %.lr.ph56.split.us
 
 .lr.ph56.split.us:                                ; preds = %.lr.ph56.split.us.preheader, %_ZN5ZXing10DataMatrixL4multEhh.exit.us
   %indvars.iv64 = phi i64 [ 0, %.lr.ph56.split.us.preheader ], [ %indvars.iv.next65, %_ZN5ZXing10DataMatrixL4multEhh.exit.us ]
   %61 = load i8, ptr %52, align 1, !tbaa !16
   %62 = mul nsw i64 %indvars.iv64, %59
-  %gep78 = getelementptr i8, ptr %invariant.gep77, i64 %62
-  %63 = load i8, ptr %gep78, align 1, !tbaa !16
+  %gep88 = getelementptr i8, ptr %invariant.gep87, i64 %62
+  %63 = load i8, ptr %gep88, align 1, !tbaa !16
   %64 = load ptr, ptr %.1.i.i, align 8, !tbaa !3
   %65 = load i8, ptr %64, align 1, !tbaa !16
   %66 = icmp eq i8 %61, %63

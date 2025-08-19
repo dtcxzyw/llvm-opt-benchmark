@@ -96,8 +96,8 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr noundef readonly captures(none) 
   br i1 %4, label %42, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %.not102 = icmp eq i32 %5, 31
-  br i1 %.not102, label %.thread67, label %.lr.ph.us.preheader
+  %.not103 = icmp eq i32 %5, 31
+  br i1 %.not103, label %.thread67, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %.preheader
   %wide.trip.count95 = zext nneg i32 %6 to i64

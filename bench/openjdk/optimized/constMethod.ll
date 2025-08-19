@@ -3263,7 +3263,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i: ; preds = %183, %181, 
   %.pre121 = sext i32 %.pre to i64
   %.pre123 = zext nneg i32 %.pre120 to i64
   %.pre125 = sub nsw i64 0, %.pre123
-  %.not14.i130 = icmp eq i32 %.pre102, 0
+  %.not14.i132 = icmp eq i32 %.pre102, 0
   %203 = getelementptr inbounds i64, ptr %0, i64 %.pre121
   %204 = getelementptr inbounds ptr, ptr %203, i64 %.pre125
   br i1 %.not95, label %222, label %205
@@ -3272,7 +3272,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i: ; preds = %183, %181, 
   br i1 %.not93, label %212, label %206
 
 206:                                              ; preds = %205
-  %..i.i.i.i3.i = select i1 %.not14.i130, i64 -2, i64 -4
+  %..i.i.i.i3.i = select i1 %.not14.i132, i64 -2, i64 -4
   %207 = getelementptr inbounds i8, ptr %204, i64 %..i.i.i.i3.i
   %208 = load i16, ptr %207, align 2
   %209 = zext i16 %208 to i64
@@ -3282,7 +3282,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i: ; preds = %183, %181, 
   br label %_ZNK11ConstMethod24checked_exceptions_startEv.exit.i71
 
 212:                                              ; preds = %205
-  br i1 %.not14.i130, label %215, label %213
+  br i1 %.not14.i132, label %215, label %213
 
 213:                                              ; preds = %212
   %214 = getelementptr inbounds i8, ptr %204, i64 -4
@@ -3305,7 +3305,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i71: ; preds = %215, %213, %2
   br i1 %.not93, label %229, label %223
 
 223:                                              ; preds = %222
-  %..i.i.i72 = select i1 %.not14.i130, i64 -2, i64 -4
+  %..i.i.i72 = select i1 %.not14.i132, i64 -2, i64 -4
   %224 = getelementptr inbounds i8, ptr %204, i64 %..i.i.i72
   %225 = load i16, ptr %224, align 2
   %226 = zext i16 %225 to i64
@@ -3315,7 +3315,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i71: ; preds = %215, %213, %2
   br label %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit
 
 229:                                              ; preds = %222
-  br i1 %.not14.i130, label %232, label %230
+  br i1 %.not14.i132, label %232, label %230
 
 230:                                              ; preds = %229
   %231 = getelementptr inbounds i8, ptr %204, i64 -4
@@ -3336,7 +3336,7 @@ _ZNK11ConstMethod31localvariable_table_length_addrEv.exit: ; preds = %_ZNK11Cons
   br i1 %or.cond57, label %277, label %242
 
 _ZNK11ConstMethod31localvariable_table_length_addrEv.exit.thread: ; preds = %_ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i, %191, %198, %200
-  %.not14.i133 = phi i1 [ %.not14.i, %_ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i ], [ %.not14.i, %191 ], [ false, %198 ], [ true, %200 ]
+  %.not14.i135 = phi i1 [ %.not14.i, %_ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i ], [ %.not14.i, %191 ], [ false, %198 ], [ true, %200 ]
   %.0.i.i.i66 = phi ptr [ %189, %_ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i ], [ %196, %191 ], [ %199, %198 ], [ %201, %200 ]
   %236 = load i16, ptr %.0.i.i.i66, align 2
   %237 = zext i16 %236 to i64
@@ -3344,12 +3344,12 @@ _ZNK11ConstMethod31localvariable_table_length_addrEv.exit.thread: ; preds = %_ZN
   %238 = getelementptr inbounds i8, ptr %.0.i.i.i66, i64 %.idx.i.i67
   %239 = getelementptr inbounds i8, ptr %238, i64 -2
   %240 = load i16, ptr %239, align 2
-  %.not48136 = icmp ne i16 %240, 0
-  %.not49137 = icmp uge ptr %239, %.0
-  %or.cond56.not101138 = and i1 %.not49137, %.not48136
+  %.not48138 = icmp ne i16 %240, 0
+  %.not49139 = icmp uge ptr %239, %.0
+  %or.cond56.not101140 = and i1 %.not49139, %.not48138
   %241 = icmp ult ptr %239, %31
-  %or.cond57139 = and i1 %241, %or.cond56.not101138
-  br i1 %or.cond57139, label %.thread141, label %242
+  %or.cond57141 = and i1 %241, %or.cond56.not101140
+  br i1 %or.cond57141, label %.thread143, label %242
 
 242:                                              ; preds = %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit.thread, %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit
   %243 = load ptr, ptr @g_assert_poison, align 8
@@ -3357,14 +3357,14 @@ _ZNK11ConstMethod31localvariable_table_length_addrEv.exit.thread: ; preds = %_ZN
   call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.10, i32 noundef 509, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.14) #14
   unreachable
 
-.thread141:                                       ; preds = %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit.thread
+.thread143:                                       ; preds = %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit.thread
   br i1 %.not95, label %261, label %244
 
-244:                                              ; preds = %.thread141
+244:                                              ; preds = %.thread143
   br i1 %.not93, label %251, label %245
 
 245:                                              ; preds = %244
-  %..i.i.i.i.i.i.i.i = select i1 %.not14.i133, i64 -2, i64 -4
+  %..i.i.i.i.i.i.i.i = select i1 %.not14.i135, i64 -2, i64 -4
   %246 = getelementptr inbounds i8, ptr %172, i64 %..i.i.i.i.i.i.i.i
   %247 = load i16, ptr %246, align 2
   %248 = zext i16 %247 to i64
@@ -3374,7 +3374,7 @@ _ZNK11ConstMethod31localvariable_table_length_addrEv.exit.thread: ; preds = %_ZN
   br label %_ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i.i
 
 251:                                              ; preds = %244
-  br i1 %.not14.i133, label %254, label %252
+  br i1 %.not14.i135, label %254, label %252
 
 252:                                              ; preds = %251
   %253 = getelementptr inbounds i8, ptr %172, i64 -4
@@ -3393,11 +3393,11 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i.i: ; preds = %254, %252
   %260 = getelementptr inbounds i8, ptr %259, i64 -2
   br label %_ZNK11ConstMethod21exception_table_startEv.exit.i.i
 
-261:                                              ; preds = %.thread141
+261:                                              ; preds = %.thread143
   br i1 %.not93, label %268, label %262
 
 262:                                              ; preds = %261
-  %..i.i.i.i.i.i = select i1 %.not14.i133, i64 -2, i64 -4
+  %..i.i.i.i.i.i = select i1 %.not14.i135, i64 -2, i64 -4
   %263 = getelementptr inbounds i8, ptr %172, i64 %..i.i.i.i.i.i
   %264 = load i16, ptr %263, align 2
   %265 = zext i16 %264 to i64
@@ -3407,7 +3407,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i.i: ; preds = %254, %252
   br label %_ZNK11ConstMethod21exception_table_startEv.exit.i.i
 
 268:                                              ; preds = %261
-  br i1 %.not14.i133, label %271, label %269
+  br i1 %.not14.i135, label %271, label %269
 
 269:                                              ; preds = %268
   %270 = getelementptr inbounds i8, ptr %172, i64 -4
@@ -3433,7 +3433,7 @@ _ZNK11ConstMethod21exception_table_startEv.exit.i.i: ; preds = %271, %269, %262,
   br i1 %.not93, label %285, label %279
 
 279:                                              ; preds = %278
-  %..i.i.i.i3.i.i = select i1 %.not14.i130, i64 -2, i64 -4
+  %..i.i.i.i3.i.i = select i1 %.not14.i132, i64 -2, i64 -4
   %280 = getelementptr inbounds i8, ptr %204, i64 %..i.i.i.i3.i.i
   %281 = load i16, ptr %280, align 2
   %282 = zext i16 %281 to i64
@@ -3443,7 +3443,7 @@ _ZNK11ConstMethod21exception_table_startEv.exit.i.i: ; preds = %271, %269, %262,
   br label %_ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i
 
 285:                                              ; preds = %278
-  br i1 %.not14.i130, label %288, label %286
+  br i1 %.not14.i132, label %288, label %286
 
 286:                                              ; preds = %285
   %287 = getelementptr inbounds i8, ptr %204, i64 -4
@@ -3466,7 +3466,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i: ; preds = %288, %286, %2
   br i1 %.not93, label %302, label %296
 
 296:                                              ; preds = %295
-  %..i.i.i.i = select i1 %.not14.i130, i64 -2, i64 -4
+  %..i.i.i.i = select i1 %.not14.i132, i64 -2, i64 -4
   %297 = getelementptr inbounds i8, ptr %204, i64 %..i.i.i.i
   %298 = load i16, ptr %297, align 2
   %299 = zext i16 %298 to i64
@@ -3476,7 +3476,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i: ; preds = %288, %286, %2
   br label %_ZNK11ConstMethod25localvariable_table_startEv.exit
 
 302:                                              ; preds = %295
-  br i1 %.not14.i130, label %305, label %303
+  br i1 %.not14.i132, label %305, label %303
 
 303:                                              ; preds = %302
   %304 = getelementptr inbounds i8, ptr %204, i64 -4

@@ -631,9 +631,9 @@ Abc_NtkCheckPos.exit:                             ; preds = %.critedge.i151
   br i1 %.not214, label %Abc_NtkCheckNames.exit.thread, label %.preheader219
 
 Abc_NtkCheckPos.exit.thread:                      ; preds = %.critedge.preheader.i148
-  %.val117330 = load i32, ptr %6, align 4, !tbaa !26
-  %.not214331 = icmp eq i32 %.val117330, 6
-  br i1 %.not214331, label %Abc_NtkCheckNames.exit.thread, label %.critedge
+  %.val117336 = load i32, ptr %6, align 4, !tbaa !26
+  %.not214337 = icmp eq i32 %.val117336, 6
+  br i1 %.not214337, label %Abc_NtkCheckNames.exit.thread, label %.critedge
 
 .preheader219:                                    ; preds = %Abc_NtkCheckPos.exit
   %264 = icmp sgt i32 %.val.i152, 0
@@ -1096,15 +1096,15 @@ Abc_NtkCheckNode.exit:                            ; preds = %374, %356, %355, %3
   %.phi.trans.insert12.i = getelementptr i8, ptr %.val.val.pre.i, i64 8
   %.val.val.val.pre.i = load ptr, ptr %.phi.trans.insert12.i, align 8, !tbaa !38
   %469 = getelementptr i8, ptr %405, i64 48
-  %.val27.i184336 = load ptr, ptr %469, align 8, !tbaa !43
-  %.val27.val.i337 = load i32, ptr %.val27.i184336, align 4, !tbaa !29
-  %470 = sext i32 %.val27.val.i337 to i64
+  %.val27.i184342 = load ptr, ptr %469, align 8, !tbaa !43
+  %.val27.val.i343 = load i32, ptr %.val27.i184342, align 4, !tbaa !29
+  %470 = sext i32 %.val27.val.i343 to i64
   %471 = getelementptr inbounds ptr, ptr %.val.val.val.pre.i, i64 %470
   %472 = load ptr, ptr %471, align 8, !tbaa !39
   %473 = getelementptr i8, ptr %472, i64 28
-  %.val48.i185338 = load i32, ptr %473, align 4, !tbaa !53
-  %.not26.i339 = icmp eq i32 %.val48.i185338, 1
-  br i1 %.not26.i339, label %Abc_NtkCheckNames.exit.thread, label %Abc_NtkCheckLatch.exit.thread
+  %.val48.i185344 = load i32, ptr %473, align 4, !tbaa !53
+  %.not26.i345 = icmp eq i32 %.val48.i185344, 1
+  br i1 %.not26.i345, label %Abc_NtkCheckNames.exit.thread, label %Abc_NtkCheckLatch.exit.thread
 
 Abc_NtkCheckLatch.exit.thread.loopexit:           ; preds = %454
   %474 = getelementptr i8, ptr %405, i64 48
@@ -2026,7 +2026,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %Vec_PtrSort.exit
 
 Vec_PtrSort.exit:                                 ; preds = %Vec_PtrAlloc.exit, %.critedge, %50
-  %.pre.pre51 = phi ptr [ %.pre.pre.pre, %.critedge ], [ %.pre.pre.pre, %50 ], [ %11, %Vec_PtrAlloc.exit ]
+  %.pre.pre54 = phi ptr [ %.pre.pre.pre, %.critedge ], [ %.pre.pre.pre, %50 ], [ %11, %Vec_PtrAlloc.exit ]
   %.val35 = phi ptr [ %.val23, %.critedge ], [ %.val35.pre, %50 ], [ %.val24, %Vec_PtrAlloc.exit ]
   %52 = getelementptr i8, ptr %.val35, i64 4
   %.val.val36 = load i32, ptr %52, align 4, !tbaa !30
@@ -2037,7 +2037,7 @@ Vec_PtrSort.exit:                                 ; preds = %Vec_PtrAlloc.exit, 
   %.val46 = phi ptr [ %.val, %61 ], [ %.val35, %Vec_PtrSort.exit ]
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %61 ], [ 1, %Vec_PtrSort.exit ]
   %.038 = phi i32 [ %.1, %61 ], [ 1, %Vec_PtrSort.exit ]
-  %54 = getelementptr ptr, ptr %.pre.pre51, i64 %indvars.iv41
+  %54 = getelementptr ptr, ptr %.pre.pre54, i64 %indvars.iv41
   %55 = getelementptr i8, ptr %54, i64 -8
   %56 = load ptr, ptr %55, align 8, !tbaa !39
   %57 = load ptr, ptr %54, align 8, !tbaa !39
@@ -2061,18 +2061,18 @@ Vec_PtrSort.exit:                                 ; preds = %Vec_PtrAlloc.exit, 
   br i1 %64, label %.lr.ph39, label %._crit_edge.thread, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %Vec_PtrSort.exit
-  %.not.i30 = icmp eq ptr %.pre.pre51, null
+  %.not.i30 = icmp eq ptr %.pre.pre54, null
   br i1 %.not.i30, label %Vec_PtrFree.exit, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %61, %._crit_edge
-  %.0.lcssa54 = phi i32 [ 1, %._crit_edge ], [ %.1, %61 ]
-  tail call void @free(ptr noundef nonnull %.pre.pre51) #11
+  %.0.lcssa57 = phi i32 [ 1, %._crit_edge ], [ %.1, %61 ]
+  tail call void @free(ptr noundef nonnull %.pre.pre54) #11
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %._crit_edge.thread
-  %.0.lcssa55 = phi i32 [ 1, %._crit_edge ], [ %.0.lcssa54, %._crit_edge.thread ]
+  %.0.lcssa58 = phi i32 [ 1, %._crit_edge ], [ %.0.lcssa57, %._crit_edge.thread ]
   tail call void @free(ptr noundef nonnull %4) #11
-  ret i32 %.0.lcssa55
+  ret i32 %.0.lcssa58
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2194,7 +2194,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %Vec_PtrSort.exit
 
 Vec_PtrSort.exit:                                 ; preds = %Vec_PtrAlloc.exit, %.critedge, %50
-  %.pre.pre51 = phi ptr [ %.pre.pre.pre, %.critedge ], [ %.pre.pre.pre, %50 ], [ %11, %Vec_PtrAlloc.exit ]
+  %.pre.pre54 = phi ptr [ %.pre.pre.pre, %.critedge ], [ %.pre.pre.pre, %50 ], [ %11, %Vec_PtrAlloc.exit ]
   %.val35 = phi ptr [ %.val23, %.critedge ], [ %.val35.pre, %50 ], [ %.val24, %Vec_PtrAlloc.exit ]
   %52 = getelementptr i8, ptr %.val35, i64 4
   %.val.val36 = load i32, ptr %52, align 4, !tbaa !30
@@ -2205,7 +2205,7 @@ Vec_PtrSort.exit:                                 ; preds = %Vec_PtrAlloc.exit, 
   %.val46 = phi ptr [ %.val, %61 ], [ %.val35, %Vec_PtrSort.exit ]
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %61 ], [ 1, %Vec_PtrSort.exit ]
   %.038 = phi i32 [ %.1, %61 ], [ 1, %Vec_PtrSort.exit ]
-  %54 = getelementptr ptr, ptr %.pre.pre51, i64 %indvars.iv41
+  %54 = getelementptr ptr, ptr %.pre.pre54, i64 %indvars.iv41
   %55 = getelementptr i8, ptr %54, i64 -8
   %56 = load ptr, ptr %55, align 8, !tbaa !39
   %57 = load ptr, ptr %54, align 8, !tbaa !39
@@ -2229,18 +2229,18 @@ Vec_PtrSort.exit:                                 ; preds = %Vec_PtrAlloc.exit, 
   br i1 %64, label %.lr.ph39, label %._crit_edge.thread, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %Vec_PtrSort.exit
-  %.not.i30 = icmp eq ptr %.pre.pre51, null
+  %.not.i30 = icmp eq ptr %.pre.pre54, null
   br i1 %.not.i30, label %Vec_PtrFree.exit, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %61, %._crit_edge
-  %.0.lcssa54 = phi i32 [ 1, %._crit_edge ], [ %.1, %61 ]
-  tail call void @free(ptr noundef nonnull %.pre.pre51) #11
+  %.0.lcssa57 = phi i32 [ 1, %._crit_edge ], [ %.1, %61 ]
+  tail call void @free(ptr noundef nonnull %.pre.pre54) #11
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %._crit_edge.thread
-  %.0.lcssa55 = phi i32 [ 1, %._crit_edge ], [ %.0.lcssa54, %._crit_edge.thread ]
+  %.0.lcssa58 = phi i32 [ 1, %._crit_edge ], [ %.0.lcssa57, %._crit_edge.thread ]
   tail call void @free(ptr noundef nonnull %4) #11
-  ret i32 %.0.lcssa55
+  ret i32 %.0.lcssa58
 }
 
 ; Function Attrs: nounwind uwtable

@@ -593,8 +593,8 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %177, %162, %hwloc__
   %.not164 = select i1 %.not163, i1 true, i1 %.0139.lcssa
   %259 = load i32, ptr %5, align 4
   %.not257 = icmp eq i32 %259, 0
-  %or.cond288 = select i1 %.not164, i1 true, i1 %.not257
-  br i1 %or.cond288, label %._crit_edge250.thread, label %.lr.ph249
+  %or.cond303 = select i1 %.not164, i1 true, i1 %.not257
+  br i1 %or.cond303, label %._crit_edge250.thread, label %.lr.ph249
 
 .lr.ph249:                                        ; preds = %._crit_edge, %300
   %.2248 = phi i32 [ %301, %300 ], [ 0, %._crit_edge ]

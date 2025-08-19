@@ -1968,8 +1968,8 @@ _ZN5Bytes11put_Java_u2EPht.exit48:                ; preds = %111, %112
 .thread:                                          ; preds = %57
   %119 = load i32, ptr %20, align 4
   %120 = and i32 %119, -2
-  %switch58 = icmp eq i32 %120, 230
-  br i1 %switch58, label %141, label %_ZN5Bytes11put_Java_u2EPht.exit
+  %switch62 = icmp eq i32 %120, 230
+  br i1 %switch62, label %141, label %_ZN5Bytes11put_Java_u2EPht.exit
 
 121:                                              ; preds = %116
   %.0.i.i49 = load i16, ptr %62, align 1
@@ -3782,7 +3782,7 @@ _ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit: ; preds = %12
 
 ._crit_edge:                                      ; preds = %1, %12, %._crit_edge.loopexit, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit
   %34 = phi i1 [ false, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit ], [ true, %._crit_edge.loopexit ], [ false, %12 ], [ false, %1 ]
-  %.0.i63 = phi i32 [ %17, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit ], [ %17, %._crit_edge.loopexit ], [ 0, %12 ], [ 0, %1 ]
+  %.0.i69 = phi i32 [ %17, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit ], [ %17, %._crit_edge.loopexit ], [ 0, %12 ], [ 0, %1 ]
   %.0.lcssa = phi i32 [ 33554432, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit ], [ %33, %._crit_edge.loopexit ], [ 33554432, %12 ], [ 33554432, %1 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %36 = load ptr, ptr %35, align 8
@@ -3826,7 +3826,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i: ; preds = %45, %._
   br label %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
 
 _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %55, %56
-  %57 = trunc i32 %.0.i63 to i16
+  %57 = trunc i32 %.0.i69 to i16
   %58 = load ptr, ptr %35, align 8
   %59 = load ptr, ptr %37, align 8
   %60 = ptrtoint ptr %58 to i64
@@ -3870,7 +3870,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %76, %77
   br i1 %34, label %.lr.ph53.preheader, label %._crit_edge54
 
 .lr.ph53.preheader:                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
-  %wide.trip.count60 = zext nneg i32 %.0.i63 to i64
+  %wide.trip.count60 = zext nneg i32 %.0.i69 to i64
   br label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %.lr.ph53.preheader, %._crit_edge51

@@ -502,7 +502,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %270 = getelementptr inbounds i32, ptr %47, i64 %258
   %271 = load i32, ptr %270, align 4, !tbaa !3
   store i32 %271, ptr %28, align 4, !tbaa !3
-  br i1 %237, label %272, label %.thread1045
+  br i1 %237, label %272, label %.thread1067
 
 272:                                              ; preds = %.thread, %._crit_edge856
   %273 = phi i1 [ %219, %.thread ], [ true, %._crit_edge856 ]
@@ -553,7 +553,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %301, ptr %37, align 8, !tbaa !7
   br i1 %.not, label %322, label %327
 
-.thread1045:                                      ; preds = %._crit_edge856
+.thread1067:                                      ; preds = %._crit_edge856
   %302 = getelementptr inbounds double, ptr %51, i64 %.pre1040
   %303 = load double, ptr %302, align 8, !tbaa !7
   %304 = getelementptr inbounds double, ptr %50, i64 %.pre1040
@@ -574,7 +574,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %319 = call double @llvm.fmuladd.f64(double %145, double %318, double %315)
   %320 = fcmp ole double %217, %319
   %321 = select i1 %320, double %217, double %319
-  br label %.thread1058
+  br label %.thread1080
 
 322:                                              ; preds = %283
   store i32 1, ptr %27, align 4, !tbaa !3
@@ -586,41 +586,41 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %335
 
 327:                                              ; preds = %283
-  br i1 %273, label %328, label %.thread1058
+  br i1 %273, label %328, label %.thread1080
 
 328:                                              ; preds = %327
   %329 = call double @llvm.fmuladd.f64(double %301, double 2.500000e-01, double %290)
   br label %335
 
-.thread1058:                                      ; preds = %.thread1045, %327
-  %.171679510501066 = phi i32 [ %.1716796, %327 ], [ %.2717.lcssa, %.thread1045 ]
-  %.173879310511065 = phi i32 [ %.1738794, %327 ], [ %239, %.thread1045 ]
-  %.070410521064 = phi double [ %290, %327 ], [ %312, %.thread1045 ]
-  %.070310551063 = phi double [ %300, %327 ], [ %321, %.thread1045 ]
+.thread1080:                                      ; preds = %.thread1067, %327
+  %.171679510721088 = phi i32 [ %.1716796, %327 ], [ %.2717.lcssa, %.thread1067 ]
+  %.173879310731087 = phi i32 [ %.1738794, %327 ], [ %239, %.thread1067 ]
+  %.070410741086 = phi double [ %290, %327 ], [ %312, %.thread1067 ]
+  %.070310771085 = phi double [ %300, %327 ], [ %321, %.thread1067 ]
   %330 = load double, ptr %3, align 8, !tbaa !7
-  %.inv813 = fcmp ole double %.070310551063, %330
-  %..0703 = select i1 %.inv813, double %.070310551063, double %330
+  %.inv813 = fcmp ole double %.070310771085, %330
+  %..0703 = select i1 %.inv813, double %.070310771085, double %330
   %331 = load double, ptr %2, align 8, !tbaa !7
-  %.inv814 = fcmp oge double %.070410521064, %331
-  %332 = select i1 %.inv814, double %.070410521064, double %331
+  %.inv814 = fcmp oge double %.070410741086, %331
+  %332 = select i1 %.inv814, double %.070410741086, double %331
   %333 = fsub double %..0703, %332
   store double %333, ptr %40, align 8, !tbaa !7
   %334 = call double @llvm.fmuladd.f64(double %333, double 2.500000e-01, double %332)
   br label %335
 
-335:                                              ; preds = %328, %.thread1058, %322
-  %.sink1086 = phi double [ %329, %328 ], [ %334, %.thread1058 ], [ %326, %322 ]
-  %.sink = phi double [ %301, %328 ], [ %333, %.thread1058 ], [ %301, %322 ]
-  %.sink1085 = phi double [ %300, %328 ], [ %..0703, %.thread1058 ], [ %300, %322 ]
-  %.07031056 = phi double [ %300, %328 ], [ %.070310551063, %.thread1058 ], [ %300, %322 ]
-  %.07041053 = phi double [ %290, %328 ], [ %.070410521064, %.thread1058 ], [ %290, %322 ]
-  %.2739 = phi i32 [ %.1738794, %328 ], [ %.173879310511065, %.thread1058 ], [ %325, %322 ]
-  %.3718 = phi i32 [ %.1716796, %328 ], [ %.171679510501066, %.thread1058 ], [ %323, %322 ]
-  %.not770 = phi i1 [ false, %328 ], [ true, %.thread1058 ], [ false, %322 ]
-  %.2707 = phi i32 [ 1, %328 ], [ 0, %.thread1058 ], [ 1, %322 ]
-  store double %.sink1086, ptr %31, align 8, !tbaa !7
+335:                                              ; preds = %328, %.thread1080, %322
+  %.sink1108 = phi double [ %329, %328 ], [ %334, %.thread1080 ], [ %326, %322 ]
+  %.sink = phi double [ %301, %328 ], [ %333, %.thread1080 ], [ %301, %322 ]
+  %.sink1107 = phi double [ %300, %328 ], [ %..0703, %.thread1080 ], [ %300, %322 ]
+  %.07031078 = phi double [ %300, %328 ], [ %.070310771085, %.thread1080 ], [ %300, %322 ]
+  %.07041075 = phi double [ %290, %328 ], [ %.070410741086, %.thread1080 ], [ %290, %322 ]
+  %.2739 = phi i32 [ %.1738794, %328 ], [ %.173879310731087, %.thread1080 ], [ %325, %322 ]
+  %.3718 = phi i32 [ %.1716796, %328 ], [ %.171679510721088, %.thread1080 ], [ %323, %322 ]
+  %.not770 = phi i1 [ false, %328 ], [ true, %.thread1080 ], [ false, %322 ]
+  %.2707 = phi i32 [ 1, %328 ], [ 0, %.thread1080 ], [ 1, %322 ]
+  store double %.sink1108, ptr %31, align 8, !tbaa !7
   %336 = fneg double %.sink
-  %337 = call double @llvm.fmuladd.f64(double %336, double 2.500000e-01, double %.sink1085)
+  %337 = call double @llvm.fmuladd.f64(double %336, double 2.500000e-01, double %.sink1107)
   store double %337, ptr %32, align 8, !tbaa !7
   %338 = icmp sgt i32 %.3718, 1
   br i1 %338, label %.thread797, label %340
@@ -653,8 +653,8 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 352:                                              ; preds = %351
   %353 = load double, ptr %33, align 8, !tbaa !7
-  %354 = fcmp oge double %.07041053, %353
-  %355 = select i1 %354, double %.07041053, double %353
+  %354 = fcmp oge double %.07041075, %353
+  %355 = select i1 %354, double %.07041075, double %353
   br label %367
 
 356:                                              ; preds = %351
@@ -662,8 +662,8 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 357:                                              ; preds = %356
   %358 = load double, ptr %2, align 8, !tbaa !7
-  %.inv815 = fcmp oge double %.07041053, %358
-  %..0704 = select i1 %.inv815, double %.07041053, double %358
+  %.inv815 = fcmp oge double %.07041075, %358
+  %..0704 = select i1 %.inv815, double %.07041075, double %358
   br label %.thread798
 
 359:                                              ; preds = %344
@@ -671,8 +671,8 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 360:                                              ; preds = %359
   %361 = load double, ptr %36, align 8, !tbaa !7
-  %362 = fcmp ole double %.07031056, %361
-  %363 = select i1 %362, double %.07031056, double %361
+  %362 = fcmp ole double %.07031078, %361
+  %363 = select i1 %362, double %.07031078, double %361
   br label %367
 
 364:                                              ; preds = %359
@@ -680,8 +680,8 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 365:                                              ; preds = %364
   %366 = load double, ptr %3, align 8, !tbaa !7
-  %.inv816 = fcmp ole double %.07031056, %366
-  %..0703788 = select i1 %.inv816, double %.07031056, double %366
+  %.inv816 = fcmp ole double %.07031078, %366
+  %..0703788 = select i1 %.inv816, double %.07031078, double %366
   br label %.thread798
 
 367:                                              ; preds = %360, %352, %342
@@ -691,7 +691,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .thread808:                                       ; preds = %356, %364, %367
   %.0711812 = phi double [ %.0711, %367 ], [ -1.000000e+00, %364 ], [ 1.000000e+00, %356 ]
-  %.0723811 = phi double [ %.0723, %367 ], [ %.07031056, %364 ], [ %.07041053, %356 ]
+  %.0723811 = phi double [ %.0723, %367 ], [ %.07031078, %364 ], [ %.07041075, %356 ]
   %368 = load double, ptr %37, align 8, !tbaa !7
   %369 = fmul double %68, %368
   %370 = load i32, ptr %1, align 4, !tbaa !3
@@ -784,7 +784,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %437 = add i32 %424, 1
   %wide.trip.count975 = zext nneg i32 %424 to i64
   %invariant.gep = getelementptr double, ptr %45, i64 %435
-  %invariant.gep1076 = getelementptr double, ptr %45, i64 %436
+  %invariant.gep1098 = getelementptr double, ptr %45, i64 %436
   %wide.trip.count980 = zext i32 %437 to i64
   br label %438
 
@@ -811,8 +811,8 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %446 = getelementptr inbounds double, ptr %54, i64 %indvars.iv968
   %447 = load double, ptr %446, align 8, !tbaa !7
   %448 = fmul double %445, %447
-  %gep1077 = getelementptr double, ptr %invariant.gep1076, i64 %indvars.iv970
-  store double %448, ptr %gep1077, align 8, !tbaa !7
+  %gep1099 = getelementptr double, ptr %invariant.gep1098, i64 %indvars.iv970
+  store double %448, ptr %gep1099, align 8, !tbaa !7
   %indvars.iv.next969 = add nsw i64 %indvars.iv968, 1
   %449 = getelementptr double, ptr %6, i64 %indvars.iv968
   %450 = load double, ptr %449, align 8, !tbaa !7
@@ -860,7 +860,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %467, label %.split.loop.exit, label %468
 
 .loopexit:                                        ; preds = %461
-  br i1 %462, label %468, label %.split.loop.exit1078
+  br i1 %462, label %468, label %.split.loop.exit1100
 
 468:                                              ; preds = %..loopexit_crit_edge, %.loopexit
   %469 = icmp eq i32 %.0736875, 5
@@ -899,13 +899,13 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 2, ptr %24, align 4, !tbaa !3
   br label %.loopexit820
 
-.split.loop.exit1078:                             ; preds = %.loopexit
+.split.loop.exit1100:                             ; preds = %.loopexit
   %487 = sext i1 %or.cond15 to i32
   %.mux.le = add nsw i32 %424, %487
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %..loopexit_crit_edge, %.split.loop.exit1078
-  %488 = phi i32 [ %.mux.le, %.split.loop.exit1078 ], [ %424, %..loopexit_crit_edge ]
+.split.loop.exit:                                 ; preds = %..loopexit_crit_edge, %.split.loop.exit1100
+  %488 = phi i32 [ %.mux.le, %.split.loop.exit1100 ], [ %424, %..loopexit_crit_edge ]
   store i32 %488, ptr %26, align 4, !tbaa !3
   store double %.3726876, ptr %197, align 8, !tbaa !7
   call void @dcopy_(ptr noundef nonnull %34, ptr noundef nonnull %22, ptr noundef nonnull @c__1, ptr noundef nonnull %199, ptr noundef nonnull @c__1) #5
@@ -946,7 +946,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %502 = add nsw i32 %.0713932, -1
   %503 = zext nneg i32 %501 to i64
   %wide.trip.count990 = zext nneg i32 %501 to i64
-  %invariant.gep1082 = getelementptr inbounds nuw double, ptr %45, i64 %503
+  %invariant.gep1104 = getelementptr inbounds nuw double, ptr %45, i64 %503
   br label %504
 
 504:                                              ; preds = %.lr.ph882, %504
@@ -961,8 +961,8 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %512 = load double, ptr %511, align 8, !tbaa !7
   %513 = fmul double %512, %507
   store double %513, ptr %511, align 8, !tbaa !7
-  %gep1083 = getelementptr inbounds nuw double, ptr %invariant.gep1082, i64 %indvars.iv987
-  %514 = load double, ptr %gep1083, align 8, !tbaa !7
+  %gep1105 = getelementptr inbounds nuw double, ptr %invariant.gep1104, i64 %indvars.iv987
+  %514 = load double, ptr %gep1105, align 8, !tbaa !7
   %515 = call double @llvm.fmuladd.f64(double %149, double %514, double 1.000000e+00)
   %516 = getelementptr inbounds double, ptr %54, i64 %510
   %517 = load double, ptr %516, align 8, !tbaa !7
@@ -1118,8 +1118,8 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %593 = fcmp oge double %592, 0.000000e+00
   %594 = fneg double %592
   %595 = select i1 %593, double %592, double %594
-  %sext1042 = shl i64 %indvars.iv994, 33
-  %596 = ashr exact i64 %sext1042, 29
+  %sext1064 = shl i64 %indvars.iv994, 33
+  %596 = ashr exact i64 %sext1064, 29
   %597 = getelementptr i8, ptr %45, i64 %596
   %598 = getelementptr i8, ptr %597, i64 -8
   store double %595, ptr %598, align 8, !tbaa !7
@@ -1127,8 +1127,8 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %600 = load double, ptr %599, align 8, !tbaa !7
   %601 = fmul double %600, %600
   %602 = fmul double %595, %601
-  %.idx1043 = shl nuw i64 %indvars.iv994, 4
-  %603 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx1043
+  %.idx1065 = shl nuw i64 %indvars.iv994, 4
+  %603 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx1065
   store double %602, ptr %603, align 8, !tbaa !7
   %indvars.iv.next993 = add nsw i64 %indvars.iv992, 1
   %indvars.iv.next995 = add nuw nsw i64 %indvars.iv994, 1

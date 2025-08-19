@@ -2708,7 +2708,7 @@ match_token.exit:                                 ; preds = %12
 match_token.exit38:                               ; preds = %12
   %23 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %.02761, ptr noundef nonnull dereferenceable(5) @.str.226, i64 noundef 4) #17
   %.not.i37.not = icmp eq i32 %23, 0
-  br i1 %.not.i37.not, label %24, label %match_token.exit51.thread.thread69
+  br i1 %.not.i37.not, label %24, label %match_token.exit51.thread.thread70
 
 24:                                               ; preds = %match_token.exit38
   call void @list_all_main_cmds(ptr noundef nonnull %2) #16
@@ -2762,7 +2762,7 @@ match_token.exit44:                               ; preds = %12
 match_token.exit48:                               ; preds = %12
   %42 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %.02761, ptr noundef nonnull dereferenceable(6) @.str.229, i64 noundef 5) #17
   %.not.i47.not = icmp eq i32 %42, 0
-  br i1 %.not.i47.not, label %43, label %match_token.exit51.thread.thread69
+  br i1 %.not.i47.not, label %43, label %match_token.exit51.thread.thread70
 
 43:                                               ; preds = %match_token.exit48
   call void @list_aliases(ptr noundef nonnull %2) #16
@@ -2779,12 +2779,12 @@ match_token.exit51:                               ; preds = %match_token.exit41
 
 match_token.exit51.thread:                        ; preds = %12
   %46 = icmp sgt i32 %17, 5
-  br i1 %46, label %match_token.exit51.thread.thread, label %match_token.exit51.thread.thread69
+  br i1 %46, label %match_token.exit51.thread.thread, label %match_token.exit51.thread.thread70
 
 match_token.exit51.thread.thread:                 ; preds = %match_token.exit51, %match_token.exit, %match_token.exit44, %match_token.exit51.thread
   %47 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.02761, ptr noundef nonnull dereferenceable(6) @.str.230, i64 noundef 5) #17
   %.not35 = icmp eq i32 %47, 0
-  br i1 %.not35, label %48, label %match_token.exit51.thread.thread69
+  br i1 %.not35, label %48, label %match_token.exit51.thread.thread70
 
 48:                                               ; preds = %match_token.exit51.thread.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2799,7 +2799,7 @@ match_token.exit51.thread.thread:                 ; preds = %match_token.exit51,
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %list_builtins.exit
 
-match_token.exit51.thread.thread69:               ; preds = %match_token.exit38, %match_token.exit48, %match_token.exit51.thread.thread, %match_token.exit51.thread
+match_token.exit51.thread.thread70:               ; preds = %match_token.exit38, %match_token.exit48, %match_token.exit51.thread.thread, %match_token.exit51.thread
   %53 = call fastcc ptr @_(ptr noundef nonnull @.str.231)
   call void (ptr, ...) @die(ptr noundef %53, ptr noundef nonnull %.02761) #18
   unreachable

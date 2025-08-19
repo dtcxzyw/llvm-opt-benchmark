@@ -126,25 +126,25 @@ define void @_ZN3gmx14reportGpuUsageERKNS_8MDLoggerENS_8ArrayRefIKSt6vectorINS_1
   br i1 %43, label %._crit_edge.thread.i.i.i.i, label %48
 
 ._crit_edge.thread.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i, %.lr.ph.i
-  %.019.lcssa28.i.i.i.i = phi ptr [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ], [ %23, %.lr.ph.i ]
+  %.019.lcssa29.i.i.i.i = phi ptr [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ], [ %23, %.lr.ph.i ]
   %44 = load ptr, ptr %25, align 8, !tbaa !13
-  %45 = icmp eq ptr %.019.lcssa28.i.i.i.i, %44
+  %45 = icmp eq ptr %.019.lcssa29.i.i.i.i, %44
   br i1 %45, label %select.unfold.i.i.i, label %46
 
 46:                                               ; preds = %._crit_edge.thread.i.i.i.i
-  %47 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i) #15
+  %47 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i) #15
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %47, i64 32
   %.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !19
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i.i
   %49 = phi i32 [ %.pre.i.i.i, %46 ], [ %42, %._crit_edge.i.i.i.i ]
-  %.019.lcssa29.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %46 ], [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.019.lcssa28.i.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %46 ], [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ]
   %50 = icmp slt i32 %49, %.pre.i.pre.pre.i.i.i
   br i1 %50, label %select.unfold.i.i.i, label %61
 
 select.unfold.i.i.i:                              ; preds = %48, %._crit_edge.thread.i.i.i.i
-  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa29.i.i.i.i, %48 ]
+  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa28.i.i.i.i, %48 ]
   %51 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %23
   br i1 %51, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i, label %52
 

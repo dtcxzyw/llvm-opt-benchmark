@@ -1384,10 +1384,10 @@ if.then13.i:                                      ; preds = %if.end5.i
   br i1 %cmp.not2.i.i, label %uv__signal_tree_s_RB_INSERT_COLOR.exit.i, label %land.rhs.i.i43
 
 if.end26.i.thread:                                ; preds = %if.end22
-  %tree_entry619.i = getelementptr inbounds nuw i8, ptr %handle, i64 112
-  %rbe_color22.i = getelementptr inbounds nuw i8, ptr %handle, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tree_entry619.i, i8 0, i64 24, i1 false)
-  store i32 1, ptr %rbe_color22.i, align 8
+  %tree_entry635.i = getelementptr inbounds nuw i8, ptr %handle, i64 112
+  %rbe_color38.i = getelementptr inbounds nuw i8, ptr %handle, i64 136
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tree_entry635.i, i8 0, i64 24, i1 false)
+  store i32 1, ptr %rbe_color38.i, align 8
   store ptr %handle, ptr @uv__signal_tree.0, align 8
   br label %uv__signal_tree_s_RB_INSERT_COLOR.exit.i
 
@@ -1450,8 +1450,8 @@ do.body22.i.i:                                    ; preds = %if.end.i21.i
   br i1 %cmp29.not.i.i, label %do.end37.thread.i.i, label %do.end37.i.i
 
 do.end37.thread.i.i:                              ; preds = %do.body22.i.i
-  %rbe_parent415.i.i = getelementptr inbounds nuw i8, ptr %26, i64 128
-  store ptr %20, ptr %rbe_parent415.i.i, align 8
+  %rbe_parent4117.i.i = getelementptr inbounds nuw i8, ptr %26, i64 128
+  store ptr %20, ptr %rbe_parent4117.i.i, align 8
   %.pre16.i = load ptr, ptr %rbe_parent4.i.i, align 8
   br label %if.then43.i.i
 
@@ -1573,8 +1573,8 @@ do.body159.i.i:                                   ; preds = %if.end154.i.i
   br i1 %cmp166.not.i.i, label %do.end174.thread.i.i, label %do.end174.i.i
 
 do.end174.thread.i.i:                             ; preds = %do.body159.i.i
-  %rbe_parent1787.i.i = getelementptr inbounds nuw i8, ptr %38, i64 128
-  store ptr %20, ptr %rbe_parent1787.i.i, align 8
+  %rbe_parent17819.i.i = getelementptr inbounds nuw i8, ptr %38, i64 128
+  store ptr %20, ptr %rbe_parent17819.i.i, align 8
   %.pre.i45 = load ptr, ptr %rbe_parent4.i.i, align 8
   br label %if.then180.i.i
 
@@ -2117,16 +2117,16 @@ uv__signal_first_handle.exit.thread:              ; preds = %if.end, %uv__signal
 land.rhs.lr.ph:                                   ; preds = %land.lhs.true.i
   call void @llvm.lifetime.end.p0(ptr nonnull %lookup.i)
   %signum6 = getelementptr inbounds nuw i8, ptr %msg, i64 8
-  %signum445 = getelementptr inbounds nuw i8, ptr %retval.0.i9.i, i64 104
-  %9 = load i32, ptr %signum445, align 8
-  %cmp546 = icmp eq i32 %9, %signum
-  br i1 %cmp546, label %for.body, label %for.end
+  %signum448 = getelementptr inbounds nuw i8, ptr %retval.0.i9.i, i64 104
+  %9 = load i32, ptr %signum448, align 8
+  %cmp549 = icmp eq i32 %9, %signum
+  br i1 %cmp549, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.rhs.lr.ph, %uv__signal_tree_s_RB_NEXT.exit
-  %handle.02747 = phi ptr [ %elm.addr.1.i, %uv__signal_tree_s_RB_NEXT.exit ], [ %retval.0.i9.i, %land.rhs.lr.ph ]
+  %handle.02750 = phi ptr [ %elm.addr.1.i, %uv__signal_tree_s_RB_NEXT.exit ], [ %retval.0.i9.i, %land.rhs.lr.ph ]
   store i32 %signum, ptr %signum6, align 8
-  store ptr %handle.02747, ptr %msg, align 8
-  %loop = getelementptr inbounds nuw i8, ptr %handle.02747, i64 8
+  store ptr %handle.02750, ptr %msg, align 8
+  %loop = getelementptr inbounds nuw i8, ptr %handle.02750, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs11, %for.body
@@ -2144,14 +2144,14 @@ land.rhs11:                                       ; preds = %do.body
   br i1 %cmp13, label %do.body, label %for.inc
 
 if.then18:                                        ; preds = %do.body
-  %caught_signals = getelementptr inbounds nuw i8, ptr %handle.02747, i64 144
+  %caught_signals = getelementptr inbounds nuw i8, ptr %handle.02750, i64 144
   %14 = load i32, ptr %caught_signals, align 8
   %inc = add i32 %14, 1
   store i32 %inc, ptr %caught_signals, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %land.rhs11, %if.then18
-  %rbe_right.i = getelementptr inbounds nuw i8, ptr %handle.02747, i64 120
+  %rbe_right.i = getelementptr inbounds nuw i8, ptr %handle.02750, i64 120
   %15 = load ptr, ptr %rbe_right.i, align 8
   %tobool.not.i = icmp eq ptr %15, null
   br i1 %tobool.not.i, label %if.else.i, label %while.cond.i
@@ -2164,7 +2164,7 @@ while.cond.i:                                     ; preds = %for.inc, %while.con
   br i1 %tobool4.not.i, label %uv__signal_tree_s_RB_NEXT.exit, label %while.cond.i
 
 if.else.i:                                        ; preds = %for.inc
-  %rbe_parent.i = getelementptr inbounds nuw i8, ptr %handle.02747, i64 128
+  %rbe_parent.i = getelementptr inbounds nuw i8, ptr %handle.02750, i64 128
   %17 = load ptr, ptr %rbe_parent.i, align 8
   %tobool8.not.i = icmp eq ptr %17, null
   br i1 %tobool8.not.i, label %while.cond17.i.preheader, label %land.lhs.true.i11
@@ -2172,14 +2172,14 @@ if.else.i:                                        ; preds = %for.inc
 land.lhs.true.i11:                                ; preds = %if.else.i
   %tree_entry11.i = getelementptr inbounds nuw i8, ptr %17, i64 112
   %18 = load ptr, ptr %tree_entry11.i, align 8
-  %cmp.i = icmp eq ptr %handle.02747, %18
+  %cmp.i = icmp eq ptr %handle.02750, %18
   br i1 %cmp.i, label %uv__signal_tree_s_RB_NEXT.exit, label %while.cond17.i.preheader
 
 while.cond17.i.preheader:                         ; preds = %land.lhs.true.i11, %if.else.i
   br label %while.cond17.i
 
 while.cond17.i:                                   ; preds = %while.cond17.i.preheader, %land.rhs.i12
-  %elm.addr.2.i = phi ptr [ %19, %land.rhs.i12 ], [ %handle.02747, %while.cond17.i.preheader ]
+  %elm.addr.2.i = phi ptr [ %19, %land.rhs.i12 ], [ %handle.02750, %while.cond17.i.preheader ]
   %rbe_parent19.i = getelementptr inbounds nuw i8, ptr %elm.addr.2.i, i64 128
   %19 = load ptr, ptr %rbe_parent19.i, align 8
   %tobool20.not.i = icmp eq ptr %19, null

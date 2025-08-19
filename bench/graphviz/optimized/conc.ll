@@ -1190,8 +1190,8 @@ infuse.exit132:                                   ; preds = %70, %78
   br label %204
 
 204:                                              ; preds = %._crit_edge155.thread, %._crit_edge155
-  %.0104.lcssa185 = phi i32 [ -1, %._crit_edge155.thread ], [ %.0104.lcssa, %._crit_edge155 ]
-  %205 = add nsw i32 %.0104.lcssa185, 1
+  %.0104.lcssa199 = phi i32 [ -1, %._crit_edge155.thread ], [ %.0104.lcssa, %._crit_edge155 ]
+  %205 = add nsw i32 %.0104.lcssa199, 1
   %206 = load ptr, ptr %2, align 8, !tbaa !3
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 264
   %208 = load ptr, ptr %207, align 8, !tbaa !33

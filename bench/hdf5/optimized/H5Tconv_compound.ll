@@ -917,7 +917,7 @@ thread-pre-split.thread:                          ; preds = %88, %.lr.ph238, %11
   %224 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 2, ptr %224, align 4, !tbaa !67
   %225 = icmp ult i32 %17, %21
-  br i1 %225, label %.thread, label %.thread281
+  br i1 %225, label %.thread, label %.thread294
 
 .thread:                                          ; preds = %._crit_edge241.thread
   %226 = getelementptr inbounds nuw i8, ptr %.0171, i64 48
@@ -968,7 +968,7 @@ thread-pre-split.thread:                          ; preds = %88, %.lr.ph238, %11
 
 .thread221:                                       ; preds = %.lr.ph248, %232, %243
   store i32 0, ptr %227, align 8, !tbaa !68
-  br label %.thread281
+  br label %.thread294
 
 ._crit_edge249:                                   ; preds = %228, %.thread
   %250 = load ptr, ptr %14, align 8, !tbaa !17
@@ -984,11 +984,11 @@ thread-pre-split.thread:                          ; preds = %88, %.lr.ph238, %11
   %260 = add i64 %259, %257
   %261 = getelementptr inbounds nuw i8, ptr %.0171, i64 56
   store i64 %260, ptr %261, align 8, !tbaa !71
-  br label %.thread281
+  br label %.thread294
 
 262:                                              ; preds = %._crit_edge241
   %263 = icmp ult i32 %21, %17
-  br i1 %263, label %264, label %.thread281
+  br i1 %263, label %264, label %.thread294
 
 264:                                              ; preds = %262
   %265 = getelementptr inbounds nuw i8, ptr %.0171, i64 48
@@ -1038,7 +1038,7 @@ thread-pre-split.thread:                          ; preds = %88, %.lr.ph238, %11
 
 .thread224:                                       ; preds = %.lr.ph244, %270, %281
   store i32 0, ptr %265, align 8, !tbaa !68
-  br label %.thread281
+  br label %.thread294
 
 ._crit_edge245:                                   ; preds = %266, %264
   %288 = load ptr, ptr %18, align 8, !tbaa !17
@@ -1054,15 +1054,15 @@ thread-pre-split.thread:                          ; preds = %88, %.lr.ph238, %11
   %298 = add i64 %297, %295
   %299 = getelementptr inbounds nuw i8, ptr %.0171, i64 56
   store i64 %298, ptr %299, align 8, !tbaa !71
-  br label %.thread281
+  br label %.thread294
 
-.thread281:                                       ; preds = %._crit_edge241.thread, %.thread224, %.thread221, %._crit_edge245, %262, %._crit_edge249
+.thread294:                                       ; preds = %._crit_edge241.thread, %.thread224, %.thread221, %._crit_edge245, %262, %._crit_edge249
   %300 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 0, ptr %300, align 8, !tbaa !31
   br label %.critedge202
 
-.critedge202:                                     ; preds = %115, %99, %166, %191, %212, %4, %.thread281, %142, %68, %61, %53, %43, %34, %25
-  %.0 = phi i32 [ -1, %142 ], [ 0, %.thread281 ], [ -1, %25 ], [ -1, %34 ], [ -1, %43 ], [ -1, %53 ], [ -1, %61 ], [ -1, %68 ], [ 0, %4 ], [ -1, %166 ], [ -1, %191 ], [ -1, %212 ], [ -1, %99 ], [ -1, %115 ]
+.critedge202:                                     ; preds = %115, %99, %166, %191, %212, %4, %.thread294, %142, %68, %61, %53, %43, %34, %25
+  %.0 = phi i32 [ -1, %142 ], [ 0, %.thread294 ], [ -1, %25 ], [ -1, %34 ], [ -1, %43 ], [ -1, %53 ], [ -1, %61 ], [ -1, %68 ], [ 0, %4 ], [ -1, %166 ], [ -1, %191 ], [ -1, %212 ], [ -1, %99 ], [ -1, %115 ]
   ret i32 %.0
 }
 
@@ -1166,9 +1166,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_struct_free(ptr noundef %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %48, %53
-  %.sink59 = phi i64 [ %58, %53 ], [ %51, %48 ]
+  %.sink60 = phi i64 [ %58, %53 ], [ %51, %48 ]
   %.7.ph = phi i32 [ %spec.select52, %53 ], [ %spec.select51, %48 ]
-  %59 = getelementptr inbounds ptr, ptr %6, i64 %.sink59
+  %59 = getelementptr inbounds ptr, ptr %6, i64 %.sink60
   store ptr null, ptr %59, align 8, !tbaa !50
   br label %60
 

@@ -471,8 +471,8 @@ define hidden void @_ZN11polars_core13chunked_array7struct_11constructor17h50240
   %35 = icmp eq ptr %4, %3
   br i1 %35, label %36, label %76
 
-.thread81:                                        ; preds = %76, %79, %92
-  %lpad.thr_comm80 = landingpad { ptr, i32 }
+.thread83:                                        ; preds = %76, %79, %92
+  %lpad.thr_comm82 = landingpad { ptr, i32 }
           cleanup
   br label %.thread72
 
@@ -633,7 +633,7 @@ define hidden void @_ZN11polars_core13chunked_array7struct_11constructor17h50240
 
 76:                                               ; preds = %5
   %77 = invoke noundef zeroext i1 @_ZN12polars_utils9itertools9Itertools9all_equal17h6a242fb695dcde12E(ptr noundef nonnull %3, ptr noundef %4)
-          to label %78 unwind label %.thread81
+          to label %78 unwind label %.thread83
 
 78:                                               ; preds = %76
   br i1 %77, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h608884995b609e37E.exit", label %79
@@ -641,7 +641,7 @@ define hidden void @_ZN11polars_core13chunked_array7struct_11constructor17h50240
 79:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17he1d2a04df9d29e9fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %22, ptr noundef nonnull %3, ptr noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3b9c530dc353242722ac1ea174d62f0a.68)
-          to label %_ZN4core4iter6traits8iterator8Iterator7collect17h8bf6f3a50e649d45E.exit unwind label %.thread81
+          to label %_ZN4core4iter6traits8iterator8Iterator7collect17h8bf6f3a50e649d45E.exit unwind label %.thread83
 
 _ZN4core4iter6traits8iterator8Iterator7collect17h8bf6f3a50e649d45E.exit: ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -682,7 +682,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h8bf6f3a50e649d45E.exit: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hb13ba030f0303e8dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, ptr noundef nonnull %3, ptr noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3b9c530dc353242722ac1ea174d62f0a.68)
-          to label %_ZN4core4iter6traits8iterator8Iterator7collect17h8d856595b4d38460E.exit unwind label %.thread81
+          to label %_ZN4core4iter6traits8iterator8Iterator7collect17h8d856595b4d38460E.exit unwind label %.thread83
 
 _ZN4core4iter6traits8iterator8Iterator7collect17h8d856595b4d38460E.exit: ; preds = %92
   %93 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -867,8 +867,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h9f55feb200660421E.exit: ; preds
   %.pn17.pn.pn69 = phi { ptr, i32 } [ %.pn17.pn.pn75, %.thread72 ], [ %.pn17.pn.pn, %132 ], [ %86, %85 ]
   resume { ptr, i32 } %.pn17.pn.pn69
 
-.thread72:                                        ; preds = %.thread81, %89, %.thread, %132
-  %.pn17.pn.pn75 = phi { ptr, i32 } [ %.pn17.pn.pn, %132 ], [ %90, %89 ], [ %.pn17.pn39, %.thread ], [ %lpad.thr_comm80, %.thread81 ]
+.thread72:                                        ; preds = %.thread83, %89, %.thread, %132
+  %.pn17.pn.pn75 = phi { ptr, i32 } [ %.pn17.pn.pn, %132 ], [ %90, %89 ], [ %.pn17.pn39, %.thread ], [ %lpad.thr_comm82, %.thread83 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17hb6116c9cdc00a838E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #29
           to label %.thread66 unwind label %72
 }
@@ -898,7 +898,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
   %18 = alloca [2 x i8], align 2
   store i16 %2, ptr %18, align 2
   %19 = load i8, ptr %1, align 16, !range !40, !noundef !4
-  switch i8 %19, label %default.unreachable126 [
+  switch i8 %19, label %default.unreachable128 [
     i8 0, label %20
     i8 1, label %22
     i8 2, label %24
@@ -929,7 +929,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
     i8 27, label %109
   ], !prof !41
 
-default.unreachable126:                           ; preds = %109, %3
+default.unreachable128:                           ; preds = %109, %3
   unreachable
 
 20:                                               ; preds = %3
@@ -1222,7 +1222,7 @@ common.resume:                                    ; preds = %146, %97, %83
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %111 = load i128, ptr %110, align 16, !range !66, !noundef !4
   %112 = trunc nuw nsw i128 %111 to i64
-  switch i64 %112, label %default.unreachable126 [
+  switch i64 %112, label %default.unreachable128 [
     i64 0, label %141
     i64 1, label %156
     i64 2, label %144
@@ -4588,14 +4588,14 @@ define hidden void @_ZN11polars_plan5plans7visitor8visitors10TreeWalker7rewrite1
 
 35:                                               ; preds = %31
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !434
-  switch i8 %34, label %default.unreachable66.i [
+  switch i8 %34, label %default.unreachable68.i [
     i8 0, label %.noexc
     i8 1, label %.noexc2
     i8 2, label %44
     i8 3, label %.noexc3
   ]
 
-default.unreachable66.i:                          ; preds = %35
+default.unreachable68.i:                          ; preds = %35
   unreachable
 
 .noexc:                                           ; preds = %35
@@ -10423,14 +10423,14 @@ define internal void @"_ZN4core3ptr64drop_in_place$LT$polars_plan..dsl..scan_sou
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$polars_plan..plans..lit..DynListLiteralValue$GT$17hb166f1019453a19fE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !889, !noundef !4
-  switch i64 %2, label %default.unreachable15 [
+  switch i64 %2, label %default.unreachable21 [
     i64 0, label %28
     i64 1, label %52
     i64 2, label %58
     i64 3, label %3
   ]
 
-default.unreachable15:                            ; preds = %1
+default.unreachable21:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -10487,10 +10487,10 @@ default.unreachable15:                            ; preds = %1
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17h530161d4fba862f8E.exit8.i", %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE.exit8.i.i", %15, %39
-  %.sink20 = phi i64 [ %.val1, %39 ], [ %7, %15 ], [ %.val1, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE.exit8.i.i" ], [ %7, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17h530161d4fba862f8E.exit8.i" ]
+  %.sink26 = phi i64 [ %.val1, %39 ], [ %7, %15 ], [ %.val1, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE.exit8.i.i" ], [ %7, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17h530161d4fba862f8E.exit8.i" ]
   %.sink = phi ptr [ %.val, %39 ], [ %5, %15 ], [ %.val, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE.exit8.i.i" ], [ %5, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17h530161d4fba862f8E.exit8.i" ]
   %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %16, %15 ], [ %40, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE.exit8.i.i" ], [ %16, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17h530161d4fba862f8E.exit8.i" ]
-  %26 = mul nuw nsw i64 %.sink20, 24
+  %26 = mul nuw nsw i64 %.sink26, 24
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.sink, i64 noundef range(i64 1, -9223372036854775808) %26, i64 noundef 8) #32
   resume { ptr, i32 } %common.resume.op
 
@@ -16003,7 +16003,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %5 = alloca [24 x i8], align 8
   %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !40, !noundef !4
-  switch i8 %6, label %default.unreachable23 [
+  switch i8 %6, label %default.unreachable25 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -16034,7 +16034,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
     i8 27, label %74
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable25:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -16380,14 +16380,14 @@ define internal fastcc void @"_ZN84_$LT$polars_plan..dsl..options..sink..FileSin
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2291
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  switch i64 %33, label %default.unreachable1.i.i [
+  switch i64 %33, label %default.unreachable [
     i64 0, label %37
     i64 1, label %38
     i64 2, label %39
     i64 3, label %40
   ]
 
-default.unreachable1.i.i:                         ; preds = %34
+default.unreachable:                              ; preds = %34
   unreachable
 
 37:                                               ; preds = %34
@@ -16630,7 +16630,7 @@ define internal fastcc void @"_ZN89_$LT$polars_plan..dsl..options..sink..Partiti
     i8 2, label %54
   ]
 
-default.unreachable:                              ; preds = %43
+default.unreachable:                              ; preds = %71, %43
   unreachable
 
 47:                                               ; preds = %43
@@ -16698,15 +16698,12 @@ default.unreachable:                              ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2326
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  switch i64 %70, label %default.unreachable1.i.i [
+  switch i64 %70, label %default.unreachable [
     i64 0, label %74
     i64 1, label %75
     i64 2, label %76
     i64 3, label %77
   ]
-
-default.unreachable1.i.i:                         ; preds = %71
-  unreachable
 
 74:                                               ; preds = %71
   invoke void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7be33d5eaaf7dc5dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %72, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3b9c530dc353242722ac1ea174d62f0a.241)
@@ -17111,7 +17108,7 @@ define internal fastcc void @"_ZN92_$LT$polars_plan..dsl..function_expr..range..
   %.sroa.06 = alloca [23 x i8], align 8
   %.sroa.02 = alloca [23 x i8], align 8
   %5 = load i8, ptr %1, align 16, !range !6, !noundef !4
-  switch i8 %5, label %default.unreachable26 [
+  switch i8 %5, label %default.unreachable27 [
     i8 0, label %6
     i8 1, label %12
     i8 2, label %13
@@ -17124,7 +17121,7 @@ define internal fastcc void @"_ZN92_$LT$polars_plan..dsl..function_expr..range..
     i8 9, label %46
   ]
 
-default.unreachable26:                            ; preds = %2
+default.unreachable27:                            ; preds = %2
   unreachable
 
 6:                                                ; preds = %2
@@ -18574,7 +18571,7 @@ define internal fastcc void @"_ZN98_$LT$polars_plan..dsl..function_expr..datetim
   %.sroa.03 = alloca [23 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 8, !range !1933, !noundef !4
-  switch i8 %6, label %default.unreachable20 [
+  switch i8 %6, label %default.unreachable21 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -18621,7 +18618,7 @@ define internal fastcc void @"_ZN98_$LT$polars_plan..dsl..function_expr..datetim
     i8 43, label %59
   ]
 
-default.unreachable20:                            ; preds = %2
+default.unreachable21:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -32239,17 +32236,17 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
           cleanup
   br label %.body145.i
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %.invoke555.i, %.invoke.i
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %.invoke574.i, %.invoke.i
   %lpad.loopexit.split-lp376.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread288.i
 
 215:                                              ; preds = %_ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348de07a9feb6c6E.exit147.thread.i, %_ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348de07a9feb6c6E.exit147.i
-  %.sroa.056.0506.i = phi i64 [ %.pre.i, %_ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348de07a9feb6c6E.exit147.thread.i ], [ %.sroa.5498.0.copyload.i, %_ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348de07a9feb6c6E.exit147.i ]
+  %.sroa.056.0526.i = phi i64 [ %.pre.i, %_ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348de07a9feb6c6E.exit147.thread.i ], [ %.sroa.5498.0.copyload.i, %_ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348de07a9feb6c6E.exit147.i ]
   %216 = phi i64 [ %213, %_ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348de07a9feb6c6E.exit147.thread.i ], [ %.pre.i, %_ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348de07a9feb6c6E.exit147.i ]
   %217 = add i32 %.sroa.01.0429.i, 1
   %218 = load ptr, ptr %78, align 8, !alias.scope !3570, !noalias !3582, !nonnull !4, !noundef !4
-  %219 = getelementptr inbounds nuw { i64, [39 x i64] }, ptr %218, i64 %.sroa.056.0506.i
+  %219 = getelementptr inbounds nuw { i64, [39 x i64] }, ptr %218, i64 %.sroa.056.0526.i
   %220 = load i64, ptr %219, align 16, !range !449, !noalias !3591, !noundef !4
   %221 = add nsw i64 %220, -4
   %222 = icmp ult i64 %221, 21
@@ -32427,7 +32424,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %310 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %309, i64 %304
   store i64 0, ptr %310, align 8, !noalias !3591
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
-  store i64 %.sroa.056.0506.i, ptr %311, align 8, !noalias !3591
+  store i64 %.sroa.056.0526.i, ptr %311, align 8, !noalias !3591
   %312 = add i64 %304, 1
   store i64 %312, ptr %123, align 8, !alias.scope !3625, !noalias !3628
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !3592
@@ -32500,7 +32497,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %336 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %335, i64 %330
   store i64 1, ptr %336, align 8, !noalias !3591
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
-  store i64 %.sroa.056.0506.i, ptr %337, align 8, !noalias !3591
+  store i64 %.sroa.056.0526.i, ptr %337, align 8, !noalias !3591
   %338 = add i64 %330, 1
   store i64 %338, ptr %123, align 8, !alias.scope !3642, !noalias !3645
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !3592
@@ -32570,12 +32567,12 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
 366:                                              ; preds = %365, %361
   %367 = load ptr, ptr %137, align 8, !alias.scope !3659, !noalias !3662, !nonnull !4, !noundef !4
   %368 = getelementptr inbounds nuw i64, ptr %367, i64 %362
-  store i64 %.sroa.056.0506.i, ptr %368, align 8, !noalias !3591
+  store i64 %.sroa.056.0526.i, ptr %368, align 8, !noalias !3591
   %369 = add i64 %362, 1
   store i64 %369, ptr %136, align 8, !alias.scope !3659, !noalias !3662
   %370 = load i64, ptr %118, align 8, !noalias !3592, !noundef !4
   %371 = icmp ult i64 %.sroa.6499.0.copyload.i, %370
-  br i1 %371, label %372, label %.invoke555.i
+  br i1 %371, label %372, label %.invoke574.i
 
 372:                                              ; preds = %366
   %373 = load ptr, ptr %117, align 8, !noalias !3592, !nonnull !4, !noundef !4
@@ -32627,12 +32624,12 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
 394:                                              ; preds = %393, %389
   %395 = load ptr, ptr %137, align 8, !alias.scope !3671, !noalias !3674, !nonnull !4, !noundef !4
   %396 = getelementptr inbounds nuw i64, ptr %395, i64 %390
-  store i64 %.sroa.056.0506.i, ptr %396, align 8, !noalias !3591
+  store i64 %.sroa.056.0526.i, ptr %396, align 8, !noalias !3591
   %397 = add i64 %390, 1
   store i64 %397, ptr %136, align 8, !alias.scope !3671, !noalias !3674
   %398 = load i64, ptr %118, align 8, !noalias !3592, !noundef !4
   %399 = icmp ult i64 %.sroa.6499.0.copyload.i, %398
-  br i1 %399, label %400, label %.invoke555.i
+  br i1 %399, label %400, label %.invoke574.i
 
 400:                                              ; preds = %394
   %401 = load ptr, ptr %117, align 8, !noalias !3592, !nonnull !4, !noundef !4
@@ -32676,7 +32673,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %419 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %418, i64 %242
   store i64 1, ptr %419, align 8, !noalias !3591
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 8
-  store i64 %.sroa.056.0506.i, ptr %420, align 8, !noalias !3591
+  store i64 %.sroa.056.0526.i, ptr %420, align 8, !noalias !3591
   %421 = add i64 %242, 1
   store i64 %421, ptr %123, align 8, !alias.scope !3615, !noalias !3618
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !3592
@@ -32732,7 +32729,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %443 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %442, i64 %437
   store i64 1, ptr %443, align 8, !noalias !3591
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 8
-  store i64 %.sroa.056.0506.i, ptr %444, align 8, !noalias !3591
+  store i64 %.sroa.056.0526.i, ptr %444, align 8, !noalias !3591
   %445 = add i64 %437, 1
   store i64 %445, ptr %123, align 8, !alias.scope !3695, !noalias !3698
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !3592
@@ -32802,7 +32799,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %475 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %474, i64 %469
   store i64 0, ptr %475, align 8, !noalias !3591
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 8
-  store i64 %.sroa.056.0506.i, ptr %476, align 8, !noalias !3591
+  store i64 %.sroa.056.0526.i, ptr %476, align 8, !noalias !3591
   %477 = add i64 %469, 1
   store i64 %477, ptr %123, align 8, !alias.scope !3712, !noalias !3715
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !3592
@@ -33053,7 +33050,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %589 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %588, i64 %575
   store i64 0, ptr %589, align 8, !noalias !3591
   %590 = getelementptr inbounds nuw i8, ptr %589, i64 8
-  store i64 %.sroa.056.0506.i, ptr %590, align 8, !noalias !3591
+  store i64 %.sroa.056.0526.i, ptr %590, align 8, !noalias !3591
   %591 = add i64 %575, 1
   store i64 %591, ptr %123, align 8, !alias.scope !3758, !noalias !3761
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !3592
@@ -33122,7 +33119,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %617 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %616, i64 %609
   store i64 2, ptr %617, align 8, !noalias !3591
   %618 = getelementptr inbounds nuw i8, ptr %617, i64 8
-  store i64 %.sroa.056.0506.i, ptr %618, align 8, !noalias !3591
+  store i64 %.sroa.056.0526.i, ptr %618, align 8, !noalias !3591
   %619 = add i64 %609, 1
   store i64 %619, ptr %152, align 8, !alias.scope !3779, !noalias !3782
   %620 = load i64, ptr %155, align 8, !alias.scope !3784, !noalias !3787, !noundef !4
@@ -33139,7 +33136,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %626 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %625, i64 %620
   store i64 0, ptr %626, align 8, !noalias !3591
   %627 = getelementptr inbounds nuw i8, ptr %626, i64 8
-  store i64 %.sroa.056.0506.i, ptr %627, align 8, !noalias !3591
+  store i64 %.sroa.056.0526.i, ptr %627, align 8, !noalias !3591
   %628 = add i64 %620, 1
   store i64 %628, ptr %155, align 8, !alias.scope !3784, !noalias !3787
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !3592
@@ -33248,7 +33245,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %661 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %660, i64 %655
   store i64 1, ptr %661, align 8, !noalias !3591
   %662 = getelementptr inbounds nuw i8, ptr %661, i64 8
-  store i64 %.sroa.056.0506.i, ptr %662, align 8, !noalias !3591
+  store i64 %.sroa.056.0526.i, ptr %662, align 8, !noalias !3591
   %663 = add i64 %655, 1
   store i64 %663, ptr %123, align 8, !alias.scope !3813, !noalias !3816
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !3592
@@ -33310,7 +33307,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %689 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %688, i64 %683
   store i64 0, ptr %689, align 8, !noalias !3591
   %690 = getelementptr inbounds nuw i8, ptr %689, i64 8
-  store i64 %.sroa.056.0506.i, ptr %690, align 8, !noalias !3591
+  store i64 %.sroa.056.0526.i, ptr %690, align 8, !noalias !3591
   %691 = add i64 %683, 1
   store i64 %691, ptr %123, align 8, !alias.scope !3830, !noalias !3833
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !3592
@@ -33412,7 +33409,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %731 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %730, i64 %725
   store i64 1, ptr %731, align 8, !noalias !3591
   %732 = getelementptr inbounds nuw i8, ptr %731, i64 8
-  store i64 %.sroa.056.0506.i, ptr %732, align 8, !noalias !3591
+  store i64 %.sroa.056.0526.i, ptr %732, align 8, !noalias !3591
   %733 = add i64 %725, 1
   store i64 %733, ptr %123, align 8, !alias.scope !3859, !noalias !3862
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !3592
@@ -33615,7 +33612,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %814 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %813, i64 %807
   store i64 3, ptr %814, align 8, !noalias !3591
   %815 = getelementptr inbounds nuw i8, ptr %814, i64 8
-  store i64 %.sroa.056.0506.i, ptr %815, align 8, !noalias !3591
+  store i64 %.sroa.056.0526.i, ptr %815, align 8, !noalias !3591
   %816 = add i64 %807, 1
   store i64 %816, ptr %131, align 8, !alias.scope !3893, !noalias !3896
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !3592
@@ -33665,12 +33662,12 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
 833:                                              ; preds = %787, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hefe49691876cf801E.exit.i"
   %834 = load ptr, ptr %137, align 8, !alias.scope !3880, !noalias !3883, !nonnull !4, !noundef !4
   %835 = getelementptr inbounds nuw i64, ptr %834, i64 %784
-  store i64 %.sroa.056.0506.i, ptr %835, align 8, !noalias !3591
+  store i64 %.sroa.056.0526.i, ptr %835, align 8, !noalias !3591
   %836 = add i64 %784, 1
   store i64 %836, ptr %136, align 8, !alias.scope !3880, !noalias !3883
   %837 = load i64, ptr %118, align 8, !noalias !3592, !noundef !4
   %838 = icmp ult i64 %.sroa.6499.0.copyload.i, %837
-  br i1 %838, label %839, label %.invoke555.i
+  br i1 %838, label %839, label %.invoke574.i
 
 839:                                              ; preds = %833
   %840 = load ptr, ptr %117, align 8, !noalias !3592, !nonnull !4, !noundef !4
@@ -33699,13 +33696,13 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31, !noalias !3591
   unreachable
 
-.invoke555.i:                                     ; preds = %833, %394, %366
+.invoke574.i:                                     ; preds = %833, %394, %366
   %851 = phi i64 [ %370, %366 ], [ %398, %394 ], [ %837, %833 ]
   %852 = phi ptr [ @anon.3b9c530dc353242722ac1ea174d62f0a.380, %366 ], [ @anon.3b9c530dc353242722ac1ea174d62f0a.383, %394 ], [ @anon.3b9c530dc353242722ac1ea174d62f0a.407, %833 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %.sroa.6499.0.copyload.i, i64 noundef %851, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %852) #30
-          to label %.cont556.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !3591
+          to label %.cont575.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !3591
 
-.cont556.i:                                       ; preds = %.invoke555.i
+.cont575.i:                                       ; preds = %.invoke574.i
   unreachable
 
 853:                                              ; preds = %846, %839
@@ -33723,7 +33720,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %860 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %859, i64 %299
   store i64 0, ptr %860, align 8, !noalias !3591
   %861 = getelementptr inbounds nuw i8, ptr %860, i64 8
-  store i64 %.sroa.056.0506.i, ptr %861, align 8, !noalias !3591
+  store i64 %.sroa.056.0526.i, ptr %861, align 8, !noalias !3591
   %862 = add i64 %299, 1
   store i64 %862, ptr %123, align 8, !alias.scope !3620, !noalias !3623
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !3592
@@ -33970,9 +33967,9 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   ret void
 
 917:                                              ; preds = %915, %61
-  %.sink192 = phi i64 [ 16, %915 ], [ 8, %61 ]
+  %.sink213 = phi i64 [ 16, %915 ], [ 8, %61 ]
   %.sroa.10.0.sink = phi i64 [ %.sroa.10.0, %915 ], [ %60, %61 ]
-  %.sroa.337.sroa.2.0..sroa.337.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink192
+  %.sroa.337.sroa.2.0..sroa.337.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink213
   store i64 %.sroa.10.0.sink, ptr %.sroa.337.sroa.2.0..sroa.337.0..sroa_idx.sroa_idx, align 8
   %918 = getelementptr inbounds nuw i8, ptr %1, i64 320
   call void @llvm.experimental.noalias.scope.decl(metadata !3938)
@@ -34284,10 +34281,10 @@ default.unreachable:                              ; preds = %36
   ], !prof !3959
 
 .sink.split:                                      ; preds = %87, %89
-  %.sink220 = phi i32 [ 2048, %89 ], [ 1024, %87 ]
+  %.sink225 = phi i32 [ 2048, %89 ], [ 1024, %87 ]
   %.sroa.4.0..sroa_idx141 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx141, align 8
-  %.sink.i128 = or i32 %.sroa.4.0.copyload, %.sink220
+  %.sink.i128 = or i32 %.sroa.4.0.copyload, %.sink225
   store i32 %.sink.i128, ptr %.sroa.4.0..sroa_idx141, align 8
   br label %88
 
@@ -39981,14 +39978,14 @@ define void @_ZN11polars_lazy5frame11JoinBuilder10join_where17h566b5ea06cad03fcE
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 192
   %269 = getelementptr inbounds nuw i8, ptr %264, i64 384
   %270 = load i8, ptr %131, align 2, !range !5, !noundef !4
-  switch i8 %270, label %default.unreachable266 [
+  switch i8 %270, label %default.unreachable270 [
     i8 0, label %271
     i8 1, label %272
     i8 2, label %273
     i8 3, label %274
   ]
 
-default.unreachable266:                           ; preds = %267
+default.unreachable270:                           ; preds = %267
   unreachable
 
 271:                                              ; preds = %267

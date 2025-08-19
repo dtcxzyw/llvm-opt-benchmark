@@ -28,8 +28,8 @@ define hidden noundef zeroext i1 @_ZNK16LogSelectionList17verify_selectionsEP12o
   %.018.us = phi i64 [ %9, %8 ], [ 0, %.lr.ph ]
   %6 = getelementptr inbounds [320 x %class.LogSelection], ptr %4, i64 0, i64 %.018.us
   %7 = tail call noundef i64 @_ZNK12LogSelection17tag_sets_selectedEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #4
-  %.not24.not = icmp ne i64 %7, 0
-  br i1 %.not24.not, label %8, label %._crit_edge
+  %.not26.not = icmp ne i64 %7, 0
+  br i1 %.not26.not, label %8, label %._crit_edge
 
 8:                                                ; preds = %.lr.ph.split.us
   %9 = add nuw i64 %.018.us, 1
@@ -62,7 +62,7 @@ define hidden noundef zeroext i1 @_ZNK16LogSelectionList17verify_selectionsEP12o
   br i1 %19, label %.lr.ph.split, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %16, %.lr.ph.split.us, %8, %2
-  %.015 = phi i1 [ true, %2 ], [ %.not24.not, %8 ], [ %.not24.not, %.lr.ph.split.us ], [ %.1, %16 ]
+  %.015 = phi i1 [ true, %2 ], [ %.not26.not, %8 ], [ %.not26.not, %.lr.ph.split.us ], [ %.1, %16 ]
   ret i1 %.015
 }
 

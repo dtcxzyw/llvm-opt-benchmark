@@ -619,8 +619,8 @@ define internal fastcc range(i32 0, 2) i32 @opj_tcd_init_tile(ptr noundef readon
   %167 = load i32, ptr %.0462635, align 8, !tbaa !88
   %168 = sext i32 %167 to i64
   %169 = zext i32 %166 to i64
-  %notmask699 = shl nsw i64 -1, %169
-  %170 = xor i64 %notmask699, -1
+  %notmask731 = shl nsw i64 -1, %169
+  %170 = xor i64 %notmask731, -1
   %171 = add i64 %170, %168
   %172 = ashr i64 %171, %169
   %173 = trunc i64 %172 to i32
@@ -672,8 +672,8 @@ define internal fastcc range(i32 0, 2) i32 @opj_tcd_init_tile(ptr noundef readon
   br label %.critedge
 
 212:                                              ; preds = %165
-  %sext700 = shl i64 %189, 32
-  %213 = ashr exact i64 %sext700, 32
+  %sext732 = shl i64 %189, 32
+  %213 = ashr exact i64 %sext732, 32
   %214 = zext i32 %196 to i64
   %notmask = shl nsw i64 -1, %214
   %215 = xor i64 %notmask, -1
@@ -806,23 +806,23 @@ define internal fastcc range(i32 0, 2) i32 @opj_tcd_init_tile(ptr noundef readon
   br label %300
 
 300:                                              ; preds = %280, %271
-  %.sink746 = phi i64 [ %289, %280 ], [ %170, %271 ]
-  %.sink745 = phi i64 [ %262, %280 ], [ %169, %271 ]
-  %.sink743 = phi i64 [ %297, %280 ], [ %170, %271 ]
+  %.sink778 = phi i64 [ %289, %280 ], [ %170, %271 ]
+  %.sink777 = phi i64 [ %262, %280 ], [ %169, %271 ]
+  %.sink775 = phi i64 [ %297, %280 ], [ %170, %271 ]
   %301 = phi i32 [ %281, %280 ], [ 0, %271 ]
   %.in = phi i64 [ %291, %280 ], [ %275, %271 ]
-  %.in701 = phi i64 [ %299, %280 ], [ %279, %271 ]
+  %.in733 = phi i64 [ %299, %280 ], [ %279, %271 ]
   %302 = load i32, ptr %96, align 8, !tbaa !91
   %303 = sext i32 %302 to i64
-  %304 = add i64 %.sink746, %303
-  %305 = ashr i64 %304, %.sink745
+  %304 = add i64 %.sink778, %303
+  %305 = ashr i64 %304, %.sink777
   %306 = load i32, ptr %102, align 4, !tbaa !92
   %307 = sext i32 %306 to i64
-  %308 = add i64 %.sink743, %307
-  %309 = ashr i64 %308, %.sink745
+  %308 = add i64 %.sink775, %307
+  %309 = ashr i64 %308, %.sink777
   %310 = trunc i64 %309 to i32
   %311 = trunc i64 %305 to i32
-  %312 = trunc i64 %.in701 to i32
+  %312 = trunc i64 %.in733 to i32
   %313 = trunc i64 %.in to i32
   %314 = getelementptr inbounds nuw i8, ptr %.0466620, i64 16
   store i32 %301, ptr %314, align 8, !tbaa !107
@@ -838,15 +838,15 @@ define internal fastcc range(i32 0, 2) i32 @opj_tcd_init_tile(ptr noundef readon
 318:                                              ; preds = %300
   %319 = icmp eq i32 %311, %313
   %.not577 = icmp eq i32 %310, %312
-  %or.cond748 = select i1 %319, i1 true, i1 %.not577
-  br i1 %or.cond748, label %opj_tcd_is_band_empty.exit.thread, label %323
+  %or.cond780 = select i1 %319, i1 true, i1 %.not577
+  br i1 %or.cond780, label %opj_tcd_is_band_empty.exit.thread, label %323
 
 .critedge544:                                     ; preds = %300
   %320 = load i32, ptr %162, align 4, !tbaa !112
   %321 = icmp eq i32 %320, 0
   %322 = icmp eq i32 %301, 0
-  %or.cond749 = select i1 %321, i1 true, i1 %322
-  br i1 %or.cond749, label %327, label %324
+  %or.cond781 = select i1 %321, i1 true, i1 %322
+  br i1 %or.cond781, label %327, label %324
 
 323:                                              ; preds = %318
   %.old = icmp eq i32 %301, 0
@@ -889,13 +889,13 @@ define internal fastcc range(i32 0, 2) i32 @opj_tcd_init_tile(ptr noundef readon
   %350 = tail call ptr @opj_malloc(i64 noundef %265) #16
   store ptr %350, ptr %346, align 8, !tbaa !37
   %.not529 = icmp eq ptr %350, null
-  br i1 %.not529, label %351, label %.thread704
+  br i1 %.not529, label %351, label %.thread736
 
 351:                                              ; preds = %349
   %352 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %4, i32 noundef 1, ptr noundef nonnull @.str.7) #16
   br label %.critedge
 
-.thread704:                                       ; preds = %349
+.thread736:                                       ; preds = %349
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %350, i8 0, i64 %265, i1 false)
   %353 = getelementptr inbounds nuw i8, ptr %.0466620, i64 32
   store i32 %243, ptr %353, align 8, !tbaa !41
@@ -934,7 +934,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_tcd_init_tile(ptr noundef readon
 368:                                              ; preds = %362, %354
   br i1 %.not645, label %opj_tcd_is_band_empty.exit.thread, label %.lr.ph618
 
-.lr.ph618:                                        ; preds = %.thread704, %368
+.lr.ph618:                                        ; preds = %.thread736, %368
   %369 = load ptr, ptr %346, align 8, !tbaa !37
   br label %370
 
@@ -1392,11 +1392,11 @@ define hidden i32 @opj_tcd_get_decoded_tile_size(ptr noundef readonly captures(n
 
 42:                                               ; preds = %37, %31
   %.sink = phi i64 [ -180, %37 ], [ -4, %31 ]
-  %.sink71 = phi i64 [ -188, %37 ], [ -12, %31 ]
+  %.sink73 = phi i64 [ -188, %37 ], [ -12, %31 ]
   %.041 = phi i32 [ %41, %37 ], [ %36, %31 ]
   %43 = getelementptr inbounds i8, ptr %27, i64 %.sink
   %44 = load i32, ptr %43, align 4, !tbaa !101
-  %45 = getelementptr inbounds i8, ptr %27, i64 %.sink71
+  %45 = getelementptr inbounds i8, ptr %27, i64 %.sink73
   %46 = load i32, ptr %45, align 4, !tbaa !101
   %47 = sub i32 %44, %46
   %.not54 = icmp eq i32 %44, %46
@@ -4689,12 +4689,12 @@ define hidden range(i32 0, 2) i32 @opj_tcd_copy_tile_data(ptr noundef readonly c
 
 opj_tcd_get_encoder_input_buffer_size.exit:       ; preds = %3
   %.not = icmp eq i64 %2, 0
-  %spec.select144 = zext i1 %.not to i32
+  %spec.select146 = zext i1 %.not to i32
   br label %.loopexit85
 
 opj_tcd_get_encoder_input_buffer_size.exit.thread: ; preds = %.lr.ph.i
-  %.not134 = icmp eq i64 %35, %2
-  br i1 %.not134, label %.lr.ph113.preheader, label %.loopexit85
+  %.not136 = icmp eq i64 %35, %2
+  br i1 %.not136, label %.lr.ph113.preheader, label %.loopexit85
 
 .lr.ph113.preheader:                              ; preds = %opj_tcd_get_encoder_input_buffer_size.exit.thread
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -4851,7 +4851,7 @@ opj_tcd_get_encoder_input_buffer_size.exit.thread: ; preds = %.lr.ph.i
   br i1 %105, label %.lr.ph113, label %.loopexit85, !llvm.loop !269
 
 .loopexit85:                                      ; preds = %.loopexit, %opj_tcd_get_encoder_input_buffer_size.exit, %opj_tcd_get_encoder_input_buffer_size.exit.thread
-  %.065 = phi i32 [ 0, %opj_tcd_get_encoder_input_buffer_size.exit.thread ], [ %spec.select144, %opj_tcd_get_encoder_input_buffer_size.exit ], [ 1, %.loopexit ]
+  %.065 = phi i32 [ 0, %opj_tcd_get_encoder_input_buffer_size.exit.thread ], [ %spec.select146, %opj_tcd_get_encoder_input_buffer_size.exit ], [ 1, %.loopexit ]
   ret i32 %.065
 }
 
@@ -5446,10 +5446,10 @@ opj_tcd_is_band_empty.exit:                       ; preds = %26
   br label %96
 
 96:                                               ; preds = %91, %89
-  %.sink63 = phi i1 [ %95, %91 ], [ %90, %89 ]
+  %.sink73 = phi i1 [ %95, %91 ], [ %90, %89 ]
   %97 = add nuw nsw i64 %indvars.iv, 1
   %98 = trunc nuw i64 %97 to i32
-  %.4 = select i1 %.sink63, i32 %98, i32 %.13
+  %.4 = select i1 %.sink73, i32 %98, i32 %.13
   %exitcond.not = icmp eq i64 %97, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %70, !llvm.loop !275
 

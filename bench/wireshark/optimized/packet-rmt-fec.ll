@@ -75,7 +75,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @fec_decode_ext_fti(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = icmp eq i8 %4, 6
   %7 = add i32 %3, 2
-  br i1 %6, label %.thread84, label %8
+  br i1 %6, label %30, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef %7)
@@ -94,74 +94,69 @@ define hidden void @fec_decode_ext_fti(ptr noundef %0, ptr noundef %1, ptr nound
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef %1, i32 noundef %18, i32 noundef 0, ptr noundef %16)
   br label %._crit_edge
 
-.thread84:                                        ; preds = %5
-  %19 = tail call i64 @tvb_get_ntoh40(ptr noundef %0, i32 noundef %7)
-  %20 = load i32, ptr @hf_fti_transfer_length, align 4
-  %21 = tail call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %7, i32 noundef 5, i64 noundef %19)
-  %.pre = add i32 %3, 8
-  br label %33
-
 ._crit_edge:                                      ; preds = %8, %12
-  %22 = load i32, ptr @hf_fti_transfer_length, align 4
-  %23 = tail call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef %7, i32 noundef 6, i64 noundef %9)
-  %24 = load i32, ptr @hf_instance_id, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef %11, i32 noundef 2, i32 noundef 0)
+  %19 = load i32, ptr @hf_fti_transfer_length, align 4
+  %20 = tail call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %7, i32 noundef 6, i64 noundef %9)
+  %21 = load i32, ptr @hf_instance_id, align 4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %11, i32 noundef 2, i32 noundef 0)
   %or.cond = icmp sgt i8 %4, 0
-  br i1 %or.cond, label %26, label %28
+  br i1 %or.cond, label %23, label %25
 
-26:                                               ; preds = %._crit_edge
-  %27 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %25, ptr noundef nonnull @ei_fec_encoding_id)
-  br label %28
+23:                                               ; preds = %._crit_edge
+  %24 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_fec_encoding_id)
+  br label %25
 
-28:                                               ; preds = %._crit_edge, %26
+25:                                               ; preds = %._crit_edge, %23
   switch i8 %4, label %46 [
-    i8 1, label %29
-    i8 6, label %33
+    i8 1, label %26
+    i8 -124, label %36
     i8 0, label %.sink.split
     i8 2, label %.sink.split
     i8 -128, label %.sink.split
     i8 -126, label %.sink.split
     i8 -127, label %.sink.split.sink.split
-    i8 -124, label %36
   ]
 
-29:                                               ; preds = %28
-  %30 = load i32, ptr @hf_fti_encoding_symbol_length, align 4
-  %31 = add i32 %3, 10
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef %31, i32 noundef 2, i32 noundef 0)
+26:                                               ; preds = %25
+  %27 = load i32, ptr @hf_fti_encoding_symbol_length, align 4
+  %28 = add i32 %3, 10
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef 0)
   br label %.sink.split.sink.split
 
-33:                                               ; preds = %.thread84, %28
-  %.pre-phi = phi i32 [ %.pre, %.thread84 ], [ %11, %28 ]
+30:                                               ; preds = %5
+  %31 = tail call i64 @tvb_get_ntoh40(ptr noundef %0, i32 noundef %7)
+  %32 = load i32, ptr @hf_fti_transfer_length, align 4
+  %33 = tail call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef %7, i32 noundef 5, i64 noundef %31)
+  %.pre = add i32 %3, 8
   %34 = load i32, ptr @hf_fti_encoding_symbol_length, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef 2, i32 noundef 0)
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %.pre, i32 noundef 2, i32 noundef 0)
   br label %.sink.split.sink.split
 
-36:                                               ; preds = %28
+36:                                               ; preds = %25
   br label %.sink.split.sink.split
 
-.sink.split.sink.split:                           ; preds = %28, %36, %33, %29
-  %hf_fti_num_blocks.sink = phi ptr [ @hf_fti_num_blocks, %29 ], [ @hf_fti_num_blocks, %33 ], [ @hf_fti_encoding_symbol_length, %36 ], [ @hf_fti_encoding_symbol_length, %28 ]
-  %.sink95 = phi i32 [ 12, %29 ], [ 10, %33 ], [ 10, %36 ], [ 10, %28 ]
-  %.sink94 = phi i32 [ 2, %29 ], [ 1, %33 ], [ 2, %36 ], [ 2, %28 ]
-  %hf_fti_max_source_block_length.sink.ph = phi ptr [ @hf_fti_num_subblocks, %29 ], [ @hf_fti_num_subblocks, %33 ], [ @hf_fti_max_source_block_length, %36 ], [ @hf_fti_max_source_block_length, %28 ]
-  %.sink92.ph = phi i32 [ 14, %29 ], [ 11, %33 ], [ 12, %36 ], [ 12, %28 ]
-  %.sink91.ph = phi i32 [ 1, %29 ], [ 2, %33 ], [ 4, %36 ], [ 2, %28 ]
-  %hf_fti_max_number_encoding_symbols.sink.ph = phi ptr [ @hf_fti_alignment, %29 ], [ @hf_fti_alignment, %33 ], [ @hf_fti_max_number_encoding_symbols, %36 ], [ @hf_fti_max_number_encoding_symbols, %28 ]
-  %.sink89.ph = phi i32 [ 15, %29 ], [ 13, %33 ], [ 16, %36 ], [ 14, %28 ]
-  %.sink88.ph = phi i32 [ 1, %29 ], [ 1, %33 ], [ 4, %36 ], [ 2, %28 ]
+.sink.split.sink.split:                           ; preds = %25, %36, %30, %26
+  %hf_fti_num_blocks.sink = phi ptr [ @hf_fti_num_blocks, %26 ], [ @hf_fti_num_blocks, %30 ], [ @hf_fti_encoding_symbol_length, %36 ], [ @hf_fti_encoding_symbol_length, %25 ]
+  %.sink95 = phi i32 [ 12, %26 ], [ 10, %30 ], [ 10, %36 ], [ 10, %25 ]
+  %.sink94 = phi i32 [ 2, %26 ], [ 1, %30 ], [ 2, %36 ], [ 2, %25 ]
+  %hf_fti_max_source_block_length.sink.ph = phi ptr [ @hf_fti_num_subblocks, %26 ], [ @hf_fti_num_subblocks, %30 ], [ @hf_fti_max_source_block_length, %36 ], [ @hf_fti_max_source_block_length, %25 ]
+  %.sink92.ph = phi i32 [ 14, %26 ], [ 11, %30 ], [ 12, %36 ], [ 12, %25 ]
+  %.sink91.ph = phi i32 [ 1, %26 ], [ 2, %30 ], [ 4, %36 ], [ 2, %25 ]
+  %hf_fti_max_number_encoding_symbols.sink.ph = phi ptr [ @hf_fti_alignment, %26 ], [ @hf_fti_alignment, %30 ], [ @hf_fti_max_number_encoding_symbols, %36 ], [ @hf_fti_max_number_encoding_symbols, %25 ]
+  %.sink89.ph = phi i32 [ 15, %26 ], [ 13, %30 ], [ 16, %36 ], [ 14, %25 ]
+  %.sink88.ph = phi i32 [ 1, %26 ], [ 1, %30 ], [ 4, %36 ], [ 2, %25 ]
   %37 = load i32, ptr %hf_fti_num_blocks.sink, align 4
   %38 = add i32 %3, %.sink95
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef %38, i32 noundef %.sink94, i32 noundef 0)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %28, %28, %28, %28
-  %hf_fti_max_source_block_length.sink = phi ptr [ @hf_fti_encoding_symbol_length, %28 ], [ @hf_fti_encoding_symbol_length, %28 ], [ @hf_fti_encoding_symbol_length, %28 ], [ @hf_fti_encoding_symbol_length, %28 ], [ %hf_fti_max_source_block_length.sink.ph, %.sink.split.sink.split ]
-  %.sink92 = phi i32 [ 10, %28 ], [ 10, %28 ], [ 10, %28 ], [ 10, %28 ], [ %.sink92.ph, %.sink.split.sink.split ]
-  %.sink91 = phi i32 [ 2, %28 ], [ 2, %28 ], [ 2, %28 ], [ 2, %28 ], [ %.sink91.ph, %.sink.split.sink.split ]
-  %hf_fti_max_number_encoding_symbols.sink = phi ptr [ @hf_fti_max_source_block_length, %28 ], [ @hf_fti_max_source_block_length, %28 ], [ @hf_fti_max_source_block_length, %28 ], [ @hf_fti_max_source_block_length, %28 ], [ %hf_fti_max_number_encoding_symbols.sink.ph, %.sink.split.sink.split ]
-  %.sink89 = phi i32 [ 12, %28 ], [ 12, %28 ], [ 12, %28 ], [ 12, %28 ], [ %.sink89.ph, %.sink.split.sink.split ]
-  %.sink88 = phi i32 [ 4, %28 ], [ 4, %28 ], [ 4, %28 ], [ 4, %28 ], [ %.sink88.ph, %.sink.split.sink.split ]
+.sink.split:                                      ; preds = %.sink.split.sink.split, %25, %25, %25, %25
+  %hf_fti_max_source_block_length.sink = phi ptr [ @hf_fti_encoding_symbol_length, %25 ], [ @hf_fti_encoding_symbol_length, %25 ], [ @hf_fti_encoding_symbol_length, %25 ], [ @hf_fti_encoding_symbol_length, %25 ], [ %hf_fti_max_source_block_length.sink.ph, %.sink.split.sink.split ]
+  %.sink92 = phi i32 [ 10, %25 ], [ 10, %25 ], [ 10, %25 ], [ 10, %25 ], [ %.sink92.ph, %.sink.split.sink.split ]
+  %.sink91 = phi i32 [ 2, %25 ], [ 2, %25 ], [ 2, %25 ], [ 2, %25 ], [ %.sink91.ph, %.sink.split.sink.split ]
+  %hf_fti_max_number_encoding_symbols.sink = phi ptr [ @hf_fti_max_source_block_length, %25 ], [ @hf_fti_max_source_block_length, %25 ], [ @hf_fti_max_source_block_length, %25 ], [ @hf_fti_max_source_block_length, %25 ], [ %hf_fti_max_number_encoding_symbols.sink.ph, %.sink.split.sink.split ]
+  %.sink89 = phi i32 [ 12, %25 ], [ 12, %25 ], [ 12, %25 ], [ 12, %25 ], [ %.sink89.ph, %.sink.split.sink.split ]
+  %.sink88 = phi i32 [ 4, %25 ], [ 4, %25 ], [ 4, %25 ], [ 4, %25 ], [ %.sink88.ph, %.sink.split.sink.split ]
   %40 = load i32, ptr %hf_fti_max_source_block_length.sink, align 4
   %41 = add i32 %3, %.sink92
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %41, i32 noundef %.sink91, i32 noundef 0)
@@ -170,7 +165,7 @@ define hidden void @fec_decode_ext_fti(ptr noundef %0, ptr noundef %1, ptr nound
   %45 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef %44, i32 noundef %.sink88, i32 noundef 0)
   br label %46
 
-46:                                               ; preds = %.sink.split, %28
+46:                                               ; preds = %.sink.split, %25
   ret void
 }
 

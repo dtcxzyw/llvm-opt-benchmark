@@ -725,8 +725,8 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i115:   ; preds = %261
   br i1 %.not.i.i.i116, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i121, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i121.sink.split
 
 _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i121.sink.split: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i115, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i121.loopexit
-  %.sink230 = phi ptr [ %266, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i121.loopexit ], [ %263, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i115 ]
-  call void @llvm.memset.p0.i64(ptr align 8 %.sink230, i8 0, i64 %247, i1 false), !tbaa !87
+  %.sink246 = phi ptr [ %266, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i121.loopexit ], [ %263, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i115 ]
+  call void @llvm.memset.p0.i64(ptr align 8 %.sink246, i8 0, i64 %247, i1 false), !tbaa !87
   br label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i121
 
 _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i121:  ; preds = %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i121.sink.split, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i115
@@ -1225,8 +1225,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm14SmallBitVector4testERK
   %.not12.not.i.not = icmp ne i64 %43, 0
   %44 = add i32 %.123.i, 1
   %.not11.i = icmp eq i32 %44, %25
-  %or.cond112 = or i1 %.not12.not.i.not, %.not11.i
-  br i1 %or.cond112, label %_ZNK4llvm9BitVector4testERKS0_.exit, label %40, !llvm.loop !116
+  %or.cond118 = or i1 %.not12.not.i.not, %.not11.i
+  br i1 %or.cond118, label %_ZNK4llvm9BitVector4testERKS0_.exit, label %40, !llvm.loop !116
 
 45:                                               ; preds = %7
   %46 = lshr i64 %3, 58
@@ -1398,8 +1398,8 @@ _ZNK4llvm14SmallBitVector4sizeEv.exit27:          ; preds = %._crit_edge
 _ZNK4llvm14SmallBitVector4sizeEv.exit27.thread:   ; preds = %._crit_edge
   %120 = lshr i64 %3, 58
   %121 = trunc nuw nsw i64 %120 to i32
-  %.not186193 = icmp eq i32 %.0.lcssa, %121
-  br i1 %.not186193, label %_ZNK4llvm9BitVector4testERKS0_.exit, label %_ZNK4llvm14SmallBitVector4testEj.exit31.preheader
+  %.not186199 = icmp eq i32 %.0.lcssa, %121
+  br i1 %.not186199, label %_ZNK4llvm9BitVector4testERKS0_.exit, label %_ZNK4llvm14SmallBitVector4testEj.exit31.preheader
 
 _ZNK4llvm14SmallBitVector4testEj.exit31.preheader: ; preds = %_ZNK4llvm14SmallBitVector4sizeEv.exit27.thread
   %122 = lshr i64 %3, 1
@@ -1427,8 +1427,8 @@ _ZNK4llvm14SmallBitVector4testEj.exit31.us:       ; preds = %_ZNK4llvm14SmallBit
   %.0.i.i30.not.us.not = icmp ne i64 %136, 0
   %137 = add i32 %.162.us, 1
   %.not18.us = icmp eq i32 %137, %119
-  %or.cond113 = or i1 %.0.i.i30.not.us.not, %.not18.us
-  br i1 %or.cond113, label %_ZNK4llvm9BitVector4testERKS0_.exit, label %_ZNK4llvm14SmallBitVector4testEj.exit31.us, !llvm.loop !118
+  %or.cond119 = or i1 %.0.i.i30.not.us.not, %.not18.us
+  br i1 %or.cond119, label %_ZNK4llvm9BitVector4testERKS0_.exit, label %_ZNK4llvm14SmallBitVector4testEj.exit31.us, !llvm.loop !118
 
 _ZNK4llvm14SmallBitVector4testEj.exit31:          ; preds = %_ZNK4llvm14SmallBitVector4testEj.exit31, %_ZNK4llvm14SmallBitVector4testEj.exit31.preheader
   %.162 = phi i32 [ %.0.lcssa, %_ZNK4llvm14SmallBitVector4testEj.exit31.preheader ], [ %141, %_ZNK4llvm14SmallBitVector4testEj.exit31 ]
@@ -1438,8 +1438,8 @@ _ZNK4llvm14SmallBitVector4testEj.exit31:          ; preds = %_ZNK4llvm14SmallBit
   %.0.i.i30.not.not = icmp ne i64 %140, 0
   %141 = add i32 %.162, 1
   %.not18 = icmp eq i32 %141, %121
-  %or.cond114 = or i1 %.0.i.i30.not.not, %.not18
-  br i1 %or.cond114, label %_ZNK4llvm9BitVector4testERKS0_.exit, label %_ZNK4llvm14SmallBitVector4testEj.exit31, !llvm.loop !118
+  %or.cond120 = or i1 %.0.i.i30.not.not, %.not18
+  br i1 %or.cond120, label %_ZNK4llvm9BitVector4testERKS0_.exit, label %_ZNK4llvm14SmallBitVector4testEj.exit31, !llvm.loop !118
 
 _ZNK4llvm9BitVector4testERKS0_.exit:              ; preds = %_ZNK4llvm14SmallBitVector4testEj.exit, %_ZNK4llvm14SmallBitVector4testEj.exit25.us54, %_ZNK4llvm14SmallBitVector4testEj.exit25.us, %_ZNK4llvm14SmallBitVector4testEj.exit25.us.us, %_ZNK4llvm14SmallBitVector4testEj.exit31, %_ZNK4llvm14SmallBitVector4testEj.exit31.us, %32, %40, %_ZNK4llvm14SmallBitVector4sizeEv.exit27.thread, %_ZNK4llvm14SmallBitVector4sizeEv.exit27, %.preheader.i, %8
   %.016 = phi i1 [ %19, %8 ], [ false, %.preheader.i ], [ false, %_ZNK4llvm14SmallBitVector4sizeEv.exit27 ], [ false, %_ZNK4llvm14SmallBitVector4sizeEv.exit27.thread ], [ %.not12.not.i.not, %40 ], [ true, %32 ], [ %.0.i.i30.not.us.not, %_ZNK4llvm14SmallBitVector4testEj.exit31.us ], [ %.0.i.i30.not.not, %_ZNK4llvm14SmallBitVector4testEj.exit31 ], [ true, %_ZNK4llvm14SmallBitVector4testEj.exit25.us.us ], [ true, %_ZNK4llvm14SmallBitVector4testEj.exit25.us ], [ true, %_ZNK4llvm14SmallBitVector4testEj.exit25.us54 ], [ true, %_ZNK4llvm14SmallBitVector4testEj.exit ]

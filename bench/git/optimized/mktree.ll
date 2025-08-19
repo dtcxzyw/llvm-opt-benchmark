@@ -137,7 +137,7 @@ define dso_local noundef i32 @cmd_mktree(i32 noundef %0, ptr noundef %1, ptr nou
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.preheader
 
-.preheader:                                       ; preds = %4, %.loopexit95
+.preheader:                                       ; preds = %4, %.loopexit106
   %58 = load ptr, ptr @stdin, align 8, !tbaa !21
   %59 = call i32 %52(ptr noundef nonnull %12, ptr noundef %58) #12, !callees !23
   %60 = icmp eq i32 %59, -1
@@ -393,11 +393,11 @@ mktree_line.exit:                                 ; preds = %st_add.exit18._crit
 
 .thread:                                          ; preds = %.loopexit
   store i32 0, ptr @used, align 4, !tbaa !4
-  br label %.loopexit96
+  br label %.loopexit107
 
 165:                                              ; preds = %.loopexit.thread, %.loopexit
   %166 = phi i32 [ %66, %.loopexit.thread ], [ %163, %.loopexit ]
-  %.not892 = phi i1 [ true, %.loopexit.thread ], [ false, %.loopexit ]
+  %.not8103 = phi i1 [ true, %.loopexit.thread ], [ false, %.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %167 = icmp ugt i32 %166, 1
   br i1 %167, label %168, label %sane_qsort.exit.i
@@ -438,7 +438,7 @@ sane_qsort.exit.i:                                ; preds = %168, %165
   call void @strbuf_init(ptr noundef nonnull %5, i64 noundef %.0.lcssa.i) #12
   %182 = load i32, ptr @used, align 4, !tbaa !4
   %183 = icmp sgt i32 %182, 0
-  br i1 %183, label %.lr.ph16.i, label %.loopexit95
+  br i1 %183, label %.lr.ph16.i, label %.loopexit106
 
 .lr.ph16.i:                                       ; preds = %._crit_edge.i, %.lr.ph16.i
   %indvars.iv19.i = phi i64 [ %indvars.iv.next20.i, %.lr.ph16.i ], [ 0, %._crit_edge.i ]
@@ -459,9 +459,9 @@ sane_qsort.exit.i:                                ; preds = %168, %165
   %195 = load i32, ptr @used, align 4, !tbaa !4
   %196 = sext i32 %195 to i64
   %197 = icmp slt i64 %indvars.iv.next20.i, %196
-  br i1 %197, label %.lr.ph16.i, label %.loopexit95, !llvm.loop !63
+  br i1 %197, label %.lr.ph16.i, label %.loopexit106, !llvm.loop !63
 
-.loopexit95:                                      ; preds = %.lr.ph16.i, %._crit_edge.i
+.loopexit106:                                     ; preds = %.lr.ph16.i, %._crit_edge.i
   %198 = load ptr, ptr %56, align 8, !tbaa !24
   %199 = load i64, ptr %57, align 8, !tbaa !64
   %200 = call i32 @write_object_file_flags(ptr noundef %198, i64 noundef %199, i32 noundef 2, ptr noundef nonnull %13, ptr noundef null, i32 noundef 0) #12
@@ -472,9 +472,9 @@ sane_qsort.exit.i:                                ; preds = %168, %165
   %203 = load ptr, ptr @stdout, align 8, !tbaa !21
   %204 = call i32 @fflush(ptr noundef %203)
   store i32 0, ptr @used, align 4, !tbaa !4
-  br i1 %.not892, label %.preheader, label %.loopexit96, !llvm.loop !65
+  br i1 %.not8103, label %.preheader, label %.loopexit107, !llvm.loop !65
 
-.loopexit96:                                      ; preds = %.loopexit95, %.thread
+.loopexit107:                                     ; preds = %.loopexit106, %.thread
   call void @strbuf_release(ptr noundef nonnull %12) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)

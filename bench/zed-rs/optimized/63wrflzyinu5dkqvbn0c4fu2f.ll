@@ -351,7 +351,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
           to label %255 unwind label %.thread125.loopexit
 
 76:                                               ; preds = %90, %85, %79, %71
-  %77 = add i64 %.sroa.0.0183, 1
+  %77 = add nuw i64 %.sroa.0.0183, 1
   %78 = icmp ult i64 %77, %16
   br i1 %78, label %136, label %134
 
@@ -361,7 +361,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   br i1 %81, label %82, label %76
 
 82:                                               ; preds = %79
-  %83 = add i64 %.sroa.0.0183, 1
+  %83 = add nuw i64 %.sroa.0.0183, 1
   %84 = icmp ult i64 %83, %16
   br i1 %84, label %85, label %89
 
@@ -421,7 +421,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   %114 = getelementptr inbounds i8, ptr %97, i64 %.sroa.0.0183
   %115 = load i8, ptr %114, align 1, !alias.scope !75, !noundef !8
   %116 = icmp sgt i8 %115, -65
-  br i1 %116, label %.thread209, label %.invoke
+  br i1 %116, label %.thread225, label %.invoke
 
 117:                                              ; preds = %111
   %118 = icmp eq i64 %.sroa.0.0183, %98
@@ -430,9 +430,9 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
 119:                                              ; preds = %103, %117
   %120 = icmp ne ptr %97, null
   call void @llvm.assume(i1 %120)
-  br label %.thread209
+  br label %.thread225
 
-.thread209:                                       ; preds = %113, %119
+.thread225:                                       ; preds = %113, %119
   %121 = getelementptr inbounds i8, ptr %97, i64 %.sroa.031.0182
   %gepdiff153 = sub nsw i64 %.sroa.0.0183, %.sroa.031.0182
   %122 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !78, !noundef !8
@@ -441,7 +441,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   %125 = icmp ugt i64 %gepdiff153, %124
   br i1 %125, label %126, label %127
 
-126:                                              ; preds = %.thread209
+126:                                              ; preds = %.thread225
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h0385e6d250f39388E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %122, i64 noundef %gepdiff153)
           to label %.noexc74 unwind label %.thread125.loopexit
 
@@ -449,8 +449,8 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   %.pre.i73 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !78
   br label %127
 
-127:                                              ; preds = %.noexc74, %.thread209
-  %128 = phi i64 [ %.pre.i73, %.noexc74 ], [ %122, %.thread209 ]
+127:                                              ; preds = %.noexc74, %.thread225
+  %128 = phi i64 [ %.pre.i73, %.noexc74 ], [ %122, %.thread225 ]
   %129 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !78, !nonnull !8, !noundef !8
   %130 = getelementptr inbounds i8, ptr %129, i64 %128
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %130, ptr nonnull readonly align 1 %121, i64 %gepdiff153, i1 false)
@@ -515,7 +515,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   %161 = getelementptr inbounds i8, ptr %144, i64 %.sroa.0.0183
   %162 = load i8, ptr %161, align 1, !alias.scope !81, !noundef !8
   %163 = icmp sgt i8 %162, -65
-  br i1 %163, label %.thread210, label %.invoke
+  br i1 %163, label %.thread226, label %.invoke
 
 164:                                              ; preds = %158
   %165 = icmp eq i64 %.sroa.0.0183, %145
@@ -524,9 +524,9 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
 166:                                              ; preds = %150, %164
   %167 = icmp ne ptr %144, null
   call void @llvm.assume(i1 %167)
-  br label %.thread210
+  br label %.thread226
 
-.thread210:                                       ; preds = %160, %166
+.thread226:                                       ; preds = %160, %166
   %168 = getelementptr inbounds i8, ptr %144, i64 %.sroa.031.0182
   %gepdiff152 = sub nsw i64 %.sroa.0.0183, %.sroa.031.0182
   %169 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !84, !noundef !8
@@ -535,7 +535,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   %172 = icmp ugt i64 %gepdiff152, %171
   br i1 %172, label %173, label %174
 
-173:                                              ; preds = %.thread210
+173:                                              ; preds = %.thread226
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h0385e6d250f39388E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %169, i64 noundef %gepdiff152)
           to label %.noexc81 unwind label %.thread125.loopexit
 
@@ -543,8 +543,8 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   %.pre.i80 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !84
   br label %174
 
-174:                                              ; preds = %.noexc81, %.thread210
-  %175 = phi i64 [ %.pre.i80, %.noexc81 ], [ %169, %.thread210 ]
+174:                                              ; preds = %.noexc81, %.thread226
+  %175 = phi i64 [ %.pre.i80, %.noexc81 ], [ %169, %.thread226 ]
   %176 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !84, !nonnull !8, !noundef !8
   %177 = getelementptr inbounds i8, ptr %176, i64 %175
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %177, ptr nonnull readonly align 1 %168, i64 %gepdiff152, i1 false)
@@ -633,7 +633,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   %212 = getelementptr inbounds i8, ptr %195, i64 %.sroa.0.0183
   %213 = load i8, ptr %212, align 1, !alias.scope !91, !noundef !8
   %214 = icmp sgt i8 %213, -65
-  br i1 %214, label %.thread211, label %.thread143
+  br i1 %214, label %.thread227, label %.thread143
 
 215:                                              ; preds = %209
   %216 = icmp eq i64 %.sroa.0.0183, %196
@@ -642,13 +642,13 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
 217:                                              ; preds = %201, %215
   %218 = icmp ne ptr %195, null
   call void @llvm.assume(i1 %218)
-  br label %.thread211
+  br label %.thread227
 
 .thread143:                                       ; preds = %211, %203, %194, %207, %215
   invoke void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %195, i64 noundef %196, i64 noundef %.sroa.031.0182, i64 noundef %.sroa.0.0183, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fec1c8d1056d8ae94c251e46172e4e47.9) #13
           to label %49 unwind label %.loopexit.split-lp
 
-.thread211:                                       ; preds = %211, %217
+.thread227:                                       ; preds = %211, %217
   %219 = getelementptr inbounds i8, ptr %195, i64 %.sroa.031.0182
   %gepdiff151 = sub nsw i64 %.sroa.0.0183, %.sroa.031.0182
   %220 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !94, !noundef !8
@@ -657,7 +657,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   %223 = icmp ugt i64 %gepdiff151, %222
   br i1 %223, label %224, label %225
 
-224:                                              ; preds = %.thread211
+224:                                              ; preds = %.thread227
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h0385e6d250f39388E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %220, i64 noundef %gepdiff151)
           to label %.noexc92 unwind label %.loopexit
 
@@ -665,8 +665,8 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   %.pre.i91 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !94
   br label %225
 
-225:                                              ; preds = %.noexc92, %.thread211
-  %226 = phi i64 [ %.pre.i91, %.noexc92 ], [ %220, %.thread211 ]
+225:                                              ; preds = %.noexc92, %.thread227
+  %226 = phi i64 [ %.pre.i91, %.noexc92 ], [ %220, %.thread227 ]
   %227 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !94, !nonnull !8, !noundef !8
   %228 = getelementptr inbounds i8, ptr %227, i64 %226
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %228, ptr nonnull readonly align 1 %219, i64 %gepdiff151, i1 false)
@@ -771,7 +771,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   %273 = getelementptr inbounds i8, ptr %256, i64 %.sroa.0.0183
   %274 = load i8, ptr %273, align 1, !alias.scope !103, !noundef !8
   %275 = icmp sgt i8 %274, -65
-  br i1 %275, label %.thread212, label %.invoke
+  br i1 %275, label %.thread228, label %.invoke
 
 276:                                              ; preds = %270
   %277 = icmp eq i64 %.sroa.0.0183, %257
@@ -780,9 +780,9 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
 278:                                              ; preds = %262, %276
   %279 = icmp ne ptr %256, null
   call void @llvm.assume(i1 %279)
-  br label %.thread212
+  br label %.thread228
 
-.thread212:                                       ; preds = %272, %278
+.thread228:                                       ; preds = %272, %278
   %280 = getelementptr inbounds i8, ptr %256, i64 %.sroa.031.0182
   %gepdiff = sub nsw i64 %.sroa.0.0183, %.sroa.031.0182
   %281 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !106, !noundef !8
@@ -791,7 +791,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   %284 = icmp ugt i64 %gepdiff, %283
   br i1 %284, label %285, label %286
 
-285:                                              ; preds = %.thread212
+285:                                              ; preds = %.thread228
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h0385e6d250f39388E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %281, i64 noundef %gepdiff)
           to label %.noexc106 unwind label %.thread125.loopexit
 
@@ -799,8 +799,8 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   %.pre.i105 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !106
   br label %286
 
-286:                                              ; preds = %.noexc106, %.thread212
-  %287 = phi i64 [ %.pre.i105, %.noexc106 ], [ %281, %.thread212 ]
+286:                                              ; preds = %.noexc106, %.thread228
+  %287 = phi i64 [ %.pre.i105, %.noexc106 ], [ %281, %.thread228 ]
   %288 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !106, !nonnull !8, !noundef !8
   %289 = getelementptr inbounds i8, ptr %288, i64 %287
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %289, ptr nonnull readonly align 1 %280, i64 %gepdiff, i1 false)

@@ -144,7 +144,7 @@ Curl_pp_state_timeout.exit:                       ; preds = %16, %30
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %51 = load i64, ptr %50, align 8, !tbaa !84
   %.not36 = icmp eq i64 %51, 0
-  br i1 %.not36, label %52, label %.thread48
+  br i1 %.not36, label %52, label %.thread52
 
 52:                                               ; preds = %49
   %53 = tail call zeroext i1 @Curl_conn_data_pending(ptr noundef nonnull %0, i32 noundef 0) #10
@@ -154,18 +154,18 @@ Curl_pp_state_timeout.exit:                       ; preds = %16, %30
   %.pre = load i64, ptr %50, align 8, !tbaa !84
   %.pre.fr = freeze i64 %.pre
   %55 = icmp eq i64 %.pre.fr, 0
-  %spec.select53 = select i1 %55, i32 %8, i32 -1
-  %spec.select54 = select i1 %55, i32 -1, i32 %8
-  br label %.thread48
+  %spec.select57 = select i1 %55, i32 %8, i32 -1
+  %spec.select58 = select i1 %55, i32 -1, i32 %8
+  br label %.thread52
 
-.thread48:                                        ; preds = %54, %49
-  %56 = phi i32 [ -1, %49 ], [ %spec.select53, %54 ]
-  %57 = phi i32 [ %8, %49 ], [ %spec.select54, %54 ]
+.thread52:                                        ; preds = %54, %49
+  %56 = phi i32 [ -1, %49 ], [ %spec.select57, %54 ]
+  %57 = phi i32 [ %8, %49 ], [ %spec.select58, %54 ]
   %58 = tail call i32 @Curl_socket_check(i32 noundef %56, i32 noundef -1, i32 noundef %57, i64 noundef %.034) #10
   br label %59
 
-59:                                               ; preds = %52, %46, %44, %.thread48
-  %.032 = phi i32 [ %58, %.thread48 ], [ 1, %44 ], [ 1, %46 ], [ 1, %52 ]
+59:                                               ; preds = %52, %46, %44, %.thread52
+  %.032 = phi i32 [ %58, %.thread52 ], [ 1, %44 ], [ 1, %46 ], [ 1, %52 ]
   br i1 %2, label %60, label %67
 
 60:                                               ; preds = %59
@@ -379,7 +379,7 @@ define dso_local i32 @Curl_pp_readresp(ptr noundef %0, i32 noundef %1, ptr nound
 24:                                               ; preds = %22
   %25 = call i32 @Curl_conn_recv(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %7, i64 noundef 900, ptr noundef nonnull %6) #10
   switch i32 %25, label %.thread87 [
-    i32 81, label %.thread87.loopexit137
+    i32 81, label %.thread87.loopexit143
     i32 0, label %26
   ]
 
@@ -486,11 +486,11 @@ define dso_local i32 @Curl_pp_readresp(ptr noundef %0, i32 noundef %1, ptr nound
   store i8 0, ptr %75, align 8, !tbaa !88
   br label %.thread87
 
-.thread87.loopexit137:                            ; preds = %24
+.thread87.loopexit143:                            ; preds = %24
   br label %.thread87
 
-.thread87:                                        ; preds = %32, %.lr.ph, %24, %.thread87.loopexit137, %.loopexit, %29
-  %.1 = phi i32 [ 0, %.loopexit ], [ 56, %29 ], [ %25, %24 ], [ %51, %.lr.ph ], [ %33, %32 ], [ 0, %.thread87.loopexit137 ]
+.thread87:                                        ; preds = %32, %.lr.ph, %24, %.thread87.loopexit143, %.loopexit, %29
+  %.1 = phi i32 [ 0, %.loopexit ], [ 56, %29 ], [ %25, %24 ], [ %51, %.lr.ph ], [ %33, %32 ], [ 0, %.thread87.loopexit143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1

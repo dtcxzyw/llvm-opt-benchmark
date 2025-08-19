@@ -294,26 +294,26 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco19DecodeTaggedSymbolsINS_17RAns
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %31 = zext i32 %1 to i64
   %32 = shl nuw nsw i64 %31, 2
-  %.not42.not94.not = icmp eq i32 %0, 0
-  br i1 %.not42.not94.not, label %.critedge, label %.lr.ph98
+  %.not42.not101.not = icmp eq i32 %0, 0
+  br i1 %.not42.not101.not, label %.critedge, label %.lr.ph105
 
-.lr.ph98:                                         ; preds = %.preheader
-  %.promoted82 = load i32, ptr %20, align 8
-  %.promoted81 = load i32, ptr %21, align 4
+.lr.ph105:                                        ; preds = %.preheader
+  %.promoted89 = load i32, ptr %20, align 8
+  %.promoted88 = load i32, ptr %21, align 4
   br label %33
 
-33:                                               ; preds = %.lr.ph98, %._crit_edge
-  %.02697 = phi i32 [ 0, %.lr.ph98 ], [ %95, %._crit_edge ]
-  %.02796 = phi i32 [ 0, %.lr.ph98 ], [ %.128.lcssa, %._crit_edge ]
-  %34 = phi i32 [ %.promoted81, %.lr.ph98 ], [ %62, %._crit_edge ]
-  %indvars.i.i8695 = phi i32 [ %.promoted82, %.lr.ph98 ], [ %indvars.i.i83, %._crit_edge ]
+33:                                               ; preds = %.lr.ph105, %._crit_edge
+  %.026104 = phi i32 [ 0, %.lr.ph105 ], [ %95, %._crit_edge ]
+  %.027103 = phi i32 [ 0, %.lr.ph105 ], [ %.128.lcssa, %._crit_edge ]
+  %34 = phi i32 [ %.promoted88, %.lr.ph105 ], [ %62, %._crit_edge ]
+  %indvars.i.i93102 = phi i32 [ %.promoted89, %.lr.ph105 ], [ %indvars.i.i90, %._crit_edge ]
   %35 = icmp ult i32 %34, 16384
-  %36 = icmp sgt i32 %indvars.i.i8695, 0
-  %or.cond99 = select i1 %35, i1 %36, i1 false
-  br i1 %or.cond99, label %.lr.ph89, label %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit
+  %36 = icmp sgt i32 %indvars.i.i93102, 0
+  %or.cond106 = select i1 %35, i1 %36, i1 false
+  br i1 %or.cond106, label %.lr.ph96, label %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit
 
-.lr.ph89:                                         ; preds = %33
-  %37 = zext nneg i32 %indvars.i.i8695 to i64
+.lr.ph96:                                         ; preds = %33
+  %37 = zext nneg i32 %indvars.i.i93102 to i64
   br label %41
 
 38:                                               ; preds = %41
@@ -321,11 +321,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco19DecodeTaggedSymbolsINS_17RAns
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit, !llvm.loop !15
 
-41:                                               ; preds = %.lr.ph89, %38
-  %42 = phi i32 [ %34, %.lr.ph89 ], [ %48, %38 ]
-  %indvars.iv.i.i88 = phi i64 [ %37, %.lr.ph89 ], [ %indvars.iv.next.i.i, %38 ]
+41:                                               ; preds = %.lr.ph96, %38
+  %42 = phi i32 [ %34, %.lr.ph96 ], [ %48, %38 ]
+  %indvars.iv.i.i95 = phi i64 [ %37, %.lr.ph96 ], [ %indvars.iv.next.i.i, %38 ]
   %43 = shl nuw nsw i32 %42, 8
-  %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i88, -1
+  %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i95, -1
   %indvars.i.i = trunc i64 %indvars.iv.next.i.i to i32
   store i32 %indvars.i.i, ptr %20, align 8, !tbaa !17
   %44 = and i64 %indvars.iv.next.i.i, 4294967295
@@ -341,7 +341,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco19DecodeTaggedSymbolsINS_17RAns
   br label %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit, !llvm.loop !15
 
 _ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit: ; preds = %38, %._ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit.loopexit_crit_edge, %33
-  %indvars.i.i83 = phi i32 [ %indvars.i.i8695, %33 ], [ %indvars.i.i, %._ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit.loopexit_crit_edge ], [ %indvars.i.i, %38 ]
+  %indvars.i.i90 = phi i32 [ %indvars.i.i93102, %33 ], [ %indvars.i.i, %._ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit.loopexit_crit_edge ], [ %indvars.i.i, %38 ]
   %.lcssa.i.i = phi i32 [ %34, %33 ], [ %48, %._ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit.loopexit_crit_edge ], [ %48, %38 ]
   %50 = lshr i32 %.lcssa.i.i, 12
   %51 = and i32 %.lcssa.i.i, 4095
@@ -371,18 +371,18 @@ _ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit: ; preds = %38, %._ZN5dr
   br i1 %.not.i.i, label %.preheader.i.i.us.preheader, label %.lr.ph.split.split.split
 
 .preheader.i.i.us.preheader:                      ; preds = %.lr.ph.split.split
-  %66 = sext i32 %.02796 to i64
+  %66 = sext i32 %.027103 to i64
   %67 = shl nsw i64 %66, 2
   %scevgep = getelementptr i8, ptr %3, i64 %67
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %32, i1 false), !tbaa !33
-  %68 = add i32 %1, %.02796
+  %68 = add i32 %1, %.027103
   br label %._crit_edge
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   %69 = load ptr, ptr %28, align 8, !tbaa !40
   %70 = load ptr, ptr %30, align 8, !tbaa !41
   %.promoted = load i64, ptr %29, align 8, !tbaa !42
-  %71 = sext i32 %.02796 to i64
+  %71 = sext i32 %.027103 to i64
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.split.split.split, %.loopexit
@@ -435,8 +435,8 @@ _ZN5draco13DecoderBuffer10BitDecoder6GetBitEv.exit.i.i: ; preds = %79, %73
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit71, %.preheader.i.i.us.preheader, %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit
-  %.128.lcssa = phi i32 [ %.02796, %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit ], [ %68, %.preheader.i.i.us.preheader ], [ %94, %._crit_edge.loopexit71 ]
-  %95 = add i32 %.02697, %1
+  %.128.lcssa = phi i32 [ %.027103, %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit ], [ %68, %.preheader.i.i.us.preheader ], [ %94, %._crit_edge.loopexit71 ]
+  %95 = add i32 %.026104, %1
   %.not42.not = icmp ult i32 %95, %0
   br i1 %.not42.not, label %33, label %.critedge, !llvm.loop !45
 
@@ -1193,13 +1193,13 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !33
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !33
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -1303,7 +1303,7 @@ define linkonce_odr void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_app
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN5draco8rans_symEmS1_ET_S3_T0_RSaIT1_E.exit, label %23
 

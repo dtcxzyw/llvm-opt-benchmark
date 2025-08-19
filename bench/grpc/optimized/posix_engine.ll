@@ -13420,12 +13420,12 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br label %31
 
 .critedge21:                                      ; preds = %.lr.ph, %.thread
-  %.sink71 = phi i64 [ %52, %.thread ], [ %39, %.lr.ph ]
+  %.sink73 = phi i64 [ %52, %.thread ], [ %39, %.lr.ph ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.lr.ph ]
   %56 = load ptr, ptr %4, align 8, !tbaa !59, !nonnull !77, !noundef !77
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.sink71
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.sink73
   %.sroa.0.0.copyload.i.i.i.i22 = load ptr, ptr %30, align 8, !tbaa !59
-  %58 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", ptr %.sroa.0.0.copyload.i.i.i.i22, i64 %.sink71
+  %58 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", ptr %.sroa.0.0.copyload.i.i.i.i22, i64 %.sink73
   store ptr %57, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %58, ptr %.sroa.4.0..sroa_idx, align 8

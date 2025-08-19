@@ -1792,8 +1792,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h35c6f25c0b25aa
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %15 = call noundef i32 @"_ZN80_$LT$ruff_python_semantic..model..Modules$u20$as$u20$bitflags..traits..Flags$GT$4bits17h2cd3ef259a7c13a6E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14)
   store i32 %15, ptr %3, align 4
-  %.not711 = icmp eq i32 %15, 0
-  br i1 %.not711, label %16, label %.thread
+  %.not712 = icmp eq i32 %15, 0
+  br i1 %.not712, label %16, label %.thread
 
 16:                                               ; preds = %._crit_edge.thread, %._crit_edge, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1882,8 +1882,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h4d3f802c694850
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 25
   %15 = call noundef i8 @"_ZN83_$LT$ruff_python_semantic..scope..ScopeFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h1cbc5e2ee6ad5c95E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %14)
   store i8 %15, ptr %3, align 1
-  %.not711 = icmp eq i8 %15, 0
-  br i1 %.not711, label %16, label %.thread
+  %.not712 = icmp eq i8 %15, 0
+  br i1 %.not712, label %16, label %.thread
 
 16:                                               ; preds = %._crit_edge.thread, %._crit_edge, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1972,8 +1972,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h6240bc41bd745f
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 26
   %15 = call noundef i16 @"_ZN87_$LT$ruff_python_semantic..binding..BindingFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb5a6c492703fd9ccE"(ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %14)
   store i16 %15, ptr %3, align 2
-  %.not711 = icmp eq i16 %15, 0
-  br i1 %.not711, label %16, label %.thread
+  %.not712 = icmp eq i16 %15, 0
+  br i1 %.not712, label %16, label %.thread
 
 16:                                               ; preds = %._crit_edge.thread, %._crit_edge, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2062,8 +2062,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17ha2494362b96caa
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 25
   %15 = call noundef i8 @"_ZN85_$LT$ruff_python_semantic..binding..Exceptions$u20$as$u20$bitflags..traits..Flags$GT$4bits17h84e23dca929e9ebcE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %14)
   store i8 %15, ptr %3, align 1
-  %.not711 = icmp eq i8 %15, 0
-  br i1 %.not711, label %16, label %.thread
+  %.not712 = icmp eq i8 %15, 0
+  br i1 %.not712, label %16, label %.thread
 
 16:                                               ; preds = %._crit_edge.thread, %._crit_edge, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2152,8 +2152,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17ha7e2fe8a05a025
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %15 = call noundef i32 @"_ZN91_$LT$ruff_python_semantic..model..SemanticModelFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17ha726f0c027765d89E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14)
   store i32 %15, ptr %3, align 4
-  %.not711 = icmp eq i32 %15, 0
-  br i1 %.not711, label %16, label %.thread
+  %.not712 = icmp eq i32 %15, 0
+  br i1 %.not712, label %16, label %.thread
 
 16:                                               ; preds = %._crit_edge.thread, %._crit_edge, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2242,8 +2242,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hef4453f2172cac
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 25
   %15 = call noundef i8 @"_ZN92_$LT$ruff_python_semantic..model..all..DunderAllFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h0812f03c6e296c7dE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %14)
   store i8 %15, ptr %3, align 1
-  %.not711 = icmp eq i8 %15, 0
-  br i1 %.not711, label %16, label %.thread
+  %.not712 = icmp eq i8 %15, 0
+  br i1 %.not712, label %16, label %.thread
 
 16:                                               ; preds = %._crit_edge.thread, %._crit_edge, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2332,8 +2332,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hf0fe9e04b4125e
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 25
   %15 = call noundef i8 @"_ZN101_$LT$ruff_python_semantic..reference..UnresolvedReferenceFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd08b2823955b8a6eE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %14)
   store i8 %15, ptr %3, align 1
-  %.not711 = icmp eq i8 %15, 0
-  br i1 %.not711, label %16, label %.thread
+  %.not712 = icmp eq i8 %15, 0
+  br i1 %.not712, label %16, label %.thread
 
 16:                                               ; preds = %._crit_edge.thread, %._crit_edge, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2999,7 +2999,7 @@ define void @_ZN20ruff_python_semantic10definition11Definitions7resolve17hd3c6ce
 
 38:                                               ; preds = %35
   %39 = load i64, ptr %.sroa.7.0..sroa_idx, align 8, !range !306, !noundef !7
-  switch i64 %39, label %default.unreachable88 [
+  switch i64 %39, label %default.unreachable102 [
     i64 0, label %50
     i64 1, label %56
     i64 2, label %62
@@ -3038,7 +3038,7 @@ define void @_ZN20ruff_python_semantic10definition11Definitions7resolve17hd3c6ce
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hf1944e8806fd0d27E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b27f016919c7892712294132c98eff88.1)
           to label %136 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-default.unreachable88:                            ; preds = %38
+default.unreachable102:                           ; preds = %38
   unreachable
 
 50:                                               ; preds = %38

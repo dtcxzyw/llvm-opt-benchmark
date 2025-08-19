@@ -124,9 +124,9 @@ mbc_enc_len.exit:                                 ; preds = %13
   br label %.preheader
 
 .preheader:                                       ; preds = %15, %11, %mbc_enc_len.exit
-  %.0.i30 = phi i32 [ %26, %mbc_enc_len.exit ], [ %22, %15 ], [ -1, %11 ]
+  %.0.i32 = phi i32 [ %26, %mbc_enc_len.exit ], [ %22, %15 ], [ -1, %11 ]
   %27 = zext i8 %5 to i32
-  %28 = icmp sgt i32 %.0.i30, 1
+  %28 = icmp sgt i32 %.0.i32, 1
   %.not23 = icmp ult ptr %4, %1
   %or.cond24 = select i1 %28, i1 %.not23, i1 false
   br i1 %or.cond24, label %.lr.ph, label %.loopexit
@@ -141,7 +141,7 @@ mbc_enc_len.exit:                                 ; preds = %13
   %32 = or disjoint i32 %31, %30
   %33 = add nuw nsw i32 %.01825, 1
   %.019 = getelementptr inbounds nuw i8, ptr %.01927, i64 1
-  %34 = icmp slt i32 %33, %.0.i30
+  %34 = icmp slt i32 %33, %.0.i32
   %.not = icmp ult ptr %.019, %1
   %or.cond = select i1 %34, i1 %.not, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit, !llvm.loop !11
@@ -257,9 +257,9 @@ mbc_enc_len.exit.i:                               ; preds = %24
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %26, %mbc_enc_len.exit.i
-  %.0.i30.i = phi i32 [ %36, %mbc_enc_len.exit.i ], [ %33, %26 ]
+  %.0.i32.i = phi i32 [ %36, %mbc_enc_len.exit.i ], [ %33, %26 ]
   %37 = zext i8 %7 to i32
-  %38 = icmp sgt i32 %.0.i30.i, 1
+  %38 = icmp sgt i32 %.0.i32.i, 1
   %.not23.i = icmp ult ptr %16, %2
   %or.cond24.i = select i1 %38, i1 %.not23.i, i1 false
   br i1 %or.cond24.i, label %.lr.ph.i, label %mbc_to_code.exit
@@ -274,7 +274,7 @@ mbc_enc_len.exit.i:                               ; preds = %24
   %42 = or disjoint i32 %41, %40
   %43 = add nuw nsw i32 %.01825.i, 1
   %.019.i = getelementptr inbounds nuw i8, ptr %.01927.i, i64 1
-  %44 = icmp slt i32 %43, %.0.i30.i
+  %44 = icmp slt i32 %43, %.0.i32.i
   %.not.i = icmp ult ptr %.019.i, %2
   %or.cond.i = select i1 %44, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %.lr.ph.i, label %mbc_to_code.exit, !llvm.loop !11
@@ -382,9 +382,9 @@ mbc_enc_len.exit.i:                               ; preds = %13
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %15, %mbc_enc_len.exit.i
-  %.0.i30.i = phi i32 [ %25, %mbc_enc_len.exit.i ], [ %22, %15 ]
+  %.0.i32.i = phi i32 [ %25, %mbc_enc_len.exit.i ], [ %22, %15 ]
   %26 = zext i8 %7 to i32
-  %27 = icmp sgt i32 %.0.i30.i, 1
+  %27 = icmp sgt i32 %.0.i32.i, 1
   %.not23.i = icmp ult ptr %6, %2
   %or.cond24.i = select i1 %27, i1 %.not23.i, i1 false
   br i1 %or.cond24.i, label %.lr.ph.i, label %mbc_to_code.exit
@@ -399,7 +399,7 @@ mbc_enc_len.exit.i:                               ; preds = %13
   %31 = or disjoint i32 %30, %29
   %32 = add nuw nsw i32 %.01825.i, 1
   %.019.i = getelementptr inbounds nuw i8, ptr %.01927.i, i64 1
-  %33 = icmp slt i32 %32, %.0.i30.i
+  %33 = icmp slt i32 %32, %.0.i32.i
   %.not.i = icmp ult ptr %.019.i, %2
   %or.cond.i = select i1 %33, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %.lr.ph.i, label %mbc_to_code.exit, !llvm.loop !11
@@ -415,7 +415,7 @@ mbc_to_code.exit.thread:                          ; preds = %5
 
 36:                                               ; preds = %mbc_to_code.exit.thread, %mbc_to_code.exit
   %37 = tail call i32 @onigenc_ascii_get_case_fold_codes_by_str(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #7
-  br label %93
+  br label %86
 
 .thread:                                          ; preds = %mbc_to_code.exit.thread
   %38 = zext i8 %7 to i32
@@ -444,97 +444,82 @@ mbc_to_code.exit.thread:                          ; preds = %5
   br label %mbc_enc_len.exit
 
 mbc_enc_len.exit:                                 ; preds = %.thread, %43, %47
-  %.017.i4446 = phi i32 [ %38, %.thread ], [ %.017.i, %43 ], [ %.017.i, %47 ]
+  %.017.i4750 = phi i32 [ %38, %.thread ], [ %.017.i, %43 ], [ %.017.i, %47 ]
   %.0.i = phi i32 [ %40, %.thread ], [ %46, %43 ], [ %54, %47 ]
-  %55 = add i32 %.017.i4446, -33376
+  %55 = add i32 %.017.i4750, -33376
   %56 = icmp ult i32 %55, 26
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %mbc_enc_len.exit
-  %58 = add nuw nsw i32 %.017.i4446, 33
+  %58 = add nuw nsw i32 %.017.i4750, 33
   br label %get_lower_case.exit.thread.thread
 
 59:                                               ; preds = %mbc_enc_len.exit
-  %60 = add i32 %.017.i4446, -33695
+  %60 = add i32 %.017.i4750, -33695
   %61 = icmp ult i32 %60, 24
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %59
-  %63 = add nuw nsw i32 %.017.i4446, 32
+  %63 = add nuw nsw i32 %.017.i4750, 32
   br label %get_lower_case.exit.thread.thread
 
 64:                                               ; preds = %59
-  %65 = add i32 %.017.i4446, -33856
+  %65 = add i32 %.017.i4750, -33856
   %66 = icmp ult i32 %65, 33
   br i1 %66, label %67, label %get_lower_case.exit
 
 67:                                               ; preds = %64
-  %68 = icmp samesign ugt i32 %.017.i4446, 33870
+  %68 = icmp samesign ugt i32 %.017.i4750, 33870
   %69 = select i1 %68, i32 49, i32 48
-  %70 = add nuw nsw i32 %69, %.017.i4446
+  %70 = add nuw nsw i32 %69, %.017.i4750
   br label %get_lower_case.exit.thread.thread
 
 get_lower_case.exit:                              ; preds = %64
-  %71 = add i32 %.017.i4446, -33409
+  %71 = add i32 %.017.i4750, -33409
   %72 = icmp ult i32 %71, 26
-  br i1 %72, label %73, label %get_lower_case.exit.thread
-
-73:                                               ; preds = %get_lower_case.exit
-  %74 = add nsw i32 %.017.i4446, -33
-  br label %get_upper_case.exit
+  br i1 %72, label %get_upper_case.exit.thread.thread, label %get_lower_case.exit.thread
 
 get_lower_case.exit.thread:                       ; preds = %get_lower_case.exit
-  %75 = add i32 %.017.i4446, -33727
-  %76 = icmp ult i32 %75, 24
-  br i1 %76, label %77, label %get_lower_case.exit.thread.thread
-
-77:                                               ; preds = %get_lower_case.exit.thread
-  %78 = add nsw i32 %.017.i4446, -32
-  br label %get_upper_case.exit
+  %73 = add i32 %.017.i4750, -33727
+  %74 = icmp ult i32 %73, 24
+  br i1 %74, label %get_upper_case.exit.thread.thread, label %get_lower_case.exit.thread.thread
 
 get_lower_case.exit.thread.thread:                ; preds = %57, %62, %67, %get_lower_case.exit.thread
-  %.0.i324042 = phi i32 [ %.017.i4446, %get_lower_case.exit.thread ], [ %58, %57 ], [ %63, %62 ], [ %70, %67 ]
-  %79 = add i32 %.017.i4446, -33904
-  %80 = icmp ult i32 %79, 15
-  %81 = add i32 %.017.i4446, -33920
-  %82 = icmp ult i32 %81, 18
-  %or.cond.i33 = or i1 %80, %82
-  br i1 %or.cond.i33, label %83, label %get_upper_case.exit
+  %.0.i324042 = phi i32 [ %.017.i4750, %get_lower_case.exit.thread ], [ %58, %57 ], [ %63, %62 ], [ %70, %67 ]
+  %.not = icmp eq i32 %.017.i4750, %.0.i324042
+  br i1 %.not, label %get_upper_case.exit.thread, label %75
 
-83:                                               ; preds = %get_lower_case.exit.thread.thread
-  %84 = icmp samesign ugt i32 %.017.i4446, 33919
-  %.neg.i = select i1 %84, i32 -47, i32 -48
-  %85 = add nsw i32 %.neg.i, %.017.i4446
-  br label %get_upper_case.exit
-
-get_upper_case.exit:                              ; preds = %73, %77, %get_lower_case.exit.thread.thread, %83
-  %.0.i3239 = phi i32 [ %.017.i4446, %73 ], [ %.017.i4446, %77 ], [ %.0.i324042, %83 ], [ %.0.i324042, %get_lower_case.exit.thread.thread ]
-  %.0.i34 = phi i32 [ %74, %73 ], [ %78, %77 ], [ %85, %83 ], [ %.017.i4446, %get_lower_case.exit.thread.thread ]
-  %.not = icmp eq i32 %.017.i4446, %.0.i3239
-  br i1 %.not, label %89, label %86
-
-86:                                               ; preds = %get_upper_case.exit
+75:                                               ; preds = %get_lower_case.exit.thread.thread
   store i32 %.0.i, ptr %3, align 4, !tbaa !16
-  %87 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 1, ptr %87, align 4, !tbaa !18
-  %88 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %.0.i3239, ptr %88, align 4, !tbaa !9
-  br label %93
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 1, ptr %76, align 4, !tbaa !18
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %.0.i324042, ptr %77, align 4, !tbaa !9
+  br label %86
 
-89:                                               ; preds = %get_upper_case.exit
-  %.not31 = icmp eq i32 %.017.i4446, %.0.i34
-  br i1 %.not31, label %93, label %90
+get_upper_case.exit.thread:                       ; preds = %get_lower_case.exit.thread.thread
+  %78 = add i32 %.017.i4750, -33919
+  %79 = icmp ult i32 %78, -15
+  %80 = add i32 %.017.i4750, -33938
+  %81 = icmp ult i32 %80, -18
+  %or.cond.i33.not = and i1 %79, %81
+  %82 = icmp samesign ugt i32 %.017.i4750, 33919
+  %.neg.i = select i1 %82, i32 -47, i32 -48
+  %83 = select i1 %or.cond.i33.not, i32 0, i32 %.neg.i
+  br i1 %or.cond.i33.not, label %86, label %get_upper_case.exit.thread.thread
 
-90:                                               ; preds = %89
+get_upper_case.exit.thread.thread:                ; preds = %get_lower_case.exit.thread, %get_lower_case.exit, %get_upper_case.exit.thread
+  %.pn = phi i32 [ %83, %get_upper_case.exit.thread ], [ -33, %get_lower_case.exit ], [ -32, %get_lower_case.exit.thread ]
+  %.0.i345761 = add nsw i32 %.017.i4750, %.pn
   store i32 %.0.i, ptr %3, align 4, !tbaa !16
-  %91 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 1, ptr %91, align 4, !tbaa !18
-  %92 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %.0.i34, ptr %92, align 4, !tbaa !9
-  br label %93
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 1, ptr %84, align 4, !tbaa !18
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %.0.i345761, ptr %85, align 4, !tbaa !9
+  br label %86
 
-93:                                               ; preds = %89, %90, %86, %36
-  %.0 = phi i32 [ %37, %36 ], [ 1, %86 ], [ 1, %90 ], [ 0, %89 ]
+86:                                               ; preds = %get_upper_case.exit.thread, %get_upper_case.exit.thread.thread, %75, %36
+  %.0 = phi i32 [ %37, %36 ], [ 1, %75 ], [ 1, %get_upper_case.exit.thread.thread ], [ 0, %get_upper_case.exit.thread ]
   ret i32 %.0
 }
 

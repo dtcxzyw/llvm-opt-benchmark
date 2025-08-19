@@ -2418,19 +2418,19 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit404: ; preds = %_ZN4cvc58internal1
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %1167
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %1060, %1049
-  %.sink603 = phi i32 [ %1054, %1049 ], [ %1064, %1060 ]
+  %.sink681 = phi i32 [ %1054, %1049 ], [ %1064, %1060 ]
   %.sink = phi i64 [ %1051, %1049 ], [ %1061, %1060 ]
-  %.sink598 = phi ptr [ %1050, %1049 ], [ %1047, %1060 ]
-  %1070 = add nuw nsw i32 %.sink603, 1
+  %.sink676 = phi ptr [ %1050, %1049 ], [ %1047, %1060 ]
+  %1070 = add nuw nsw i32 %.sink681, 1
   %1071 = zext nneg i32 %1070 to i64
   %1072 = shl nuw nsw i64 %1071, 40
   %1073 = and i64 %.sink, -1152920405095219201
   %1074 = or i64 %1072, %1073
-  store i64 %1074, ptr %.sink598, align 8
+  store i64 %1074, ptr %.sink676, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %1066, %1068, %1056, %1058
-  %1075 = phi ptr [ %1047, %1066 ], [ %1047, %1068 ], [ %1050, %1056 ], [ %1050, %1058 ], [ %.sink598, %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split ]
+  %1075 = phi ptr [ %1047, %1066 ], [ %1047, %1068 ], [ %1050, %1056 ], [ %1050, %1058 ], [ %.sink676, %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %1076 = load ptr, ptr %2, align 8, !tbaa !6
   store ptr %1076, ptr %29, align 8, !tbaa !11

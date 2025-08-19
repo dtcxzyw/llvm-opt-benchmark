@@ -47,11 +47,11 @@ define range(i32 0, 2) i32 @LAPACKE_str_nancheck(i32 noundef %0, i8 noundef sign
 .lr.ph80:                                         ; preds = %.preheader75
   %24 = tail call i32 @llvm.smin.i32(i32 %3, i32 %5)
   %25 = zext i1 %.not67 to i64
-  %.neg112 = sext i1 %.not67 to i64
+  %.neg115 = sext i1 %.not67 to i64
   %26 = sext i32 %24 to i64
   %27 = sext i32 %5 to i64
   %wide.trip.count93 = zext nneg i32 %22 to i64
-  %invariant.op = add nsw i64 %.neg112, %26
+  %invariant.op = add nsw i64 %.neg115, %26
   %wide.trip.count = zext i32 %24 to i64
   br label %39
 
@@ -85,7 +85,7 @@ define range(i32 0, 2) i32 @LAPACKE_str_nancheck(i32 noundef %0, i8 noundef sign
   %smin = tail call i32 @llvm.smin.i32(i32 %5, i32 %indvars.iv98)
   %34 = mul nsw i64 %indvars.iv102, %30
   %wide.trip.count100 = zext i32 %smin to i64
-  %invariant.gep110 = getelementptr float, ptr %4, i64 %34
+  %invariant.gep113 = getelementptr float, ptr %4, i64 %34
   br label %36
 
 35:                                               ; preds = %36
@@ -95,8 +95,8 @@ define range(i32 0, 2) i32 @LAPACKE_str_nancheck(i32 noundef %0, i8 noundef sign
 
 36:                                               ; preds = %.lr.ph82, %35
   %indvars.iv95 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next96, %35 ]
-  %gep111 = getelementptr float, ptr %invariant.gep110, i64 %indvars.iv95
-  %37 = load float, ptr %gep111, align 4, !tbaa !6
+  %gep114 = getelementptr float, ptr %invariant.gep113, i64 %indvars.iv95
+  %37 = load float, ptr %gep114, align 4, !tbaa !6
   %38 = fcmp uno float %37, 0.000000e+00
   br i1 %38, label %.loopexit71, label %35
 

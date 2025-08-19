@@ -507,8 +507,8 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern.
   %4 = alloca [4 x i8], align 4
   %5 = icmp ult i32 %0, 128
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %.sink.sroa.gep8 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %.sink.sroa.gep9 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  %.sink.sroa.gep10 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %.sink.sroa.gep11 = getelementptr inbounds nuw i8, ptr %4, i64 3
   br i1 %5, label %43, label %6
 
 6:                                                ; preds = %3
@@ -562,7 +562,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern.
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.5112204137213319250.exit
 
 _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.5112204137213319250.exit: ; preds = %10, %14, %23
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %10 ], [ %.sink.sroa.gep8, %14 ], [ %.sink.sroa.gep9, %23 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %10 ], [ %.sink.sroa.gep10, %14 ], [ %.sink.sroa.gep11, %23 ]
   %38 = phi i64 [ 2, %10 ], [ 3, %14 ], [ 4, %23 ]
   %39 = trunc i32 %0 to i8
   %40 = and i8 %39, 63
@@ -688,7 +688,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   unreachable
 
 "_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17hd4570c52fe120214E.exit.i.i": ; preds = %42
-  %46 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %43
+  %46 = getelementptr inbounds nuw [0 x i8], ptr %0, i64 0, i64 %43
   %47 = load i8, ptr %46, align 1, !alias.scope !56, !noalias !70, !noundef !5
   %.not.i.not.i.i = icmp eq i8 %47, %34
   br i1 %.not.i.not.i.i, label %39, label %48
@@ -756,7 +756,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   %74 = shl nuw nsw i64 %.sroa.022.0143.i, 4
   %75 = getelementptr i8, ptr %71, i64 %74
   %.0.copyload.i.i = load <16 x i8>, ptr %75, align 1, !alias.scope !59, !noalias !72
-  %76 = getelementptr inbounds i8, ptr %75, i64 %storemerge128131.i
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 %storemerge128131.i
   %.0.copyload2.i.i = load <16 x i8>, ptr %76, align 1, !alias.scope !59, !noalias !72
   %77 = icmp eq <16 x i8> %.0.copyload.i.i, %60
   %78 = icmp eq <16 x i8> %.0.copyload2.i.i, %61
@@ -805,7 +805,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   %99 = add i64 %98, -16
   %100 = getelementptr inbounds i8, ptr %2, i64 %99
   %.0.copyload.i84.i = load <16 x i8>, ptr %100, align 1, !alias.scope !59, !noalias !75
-  %101 = getelementptr inbounds i8, ptr %100, i64 %storemerge128131.i
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 %storemerge128131.i
   %.0.copyload2.i85.i = load <16 x i8>, ptr %101, align 1, !alias.scope !59, !noalias !75
   %102 = icmp eq <16 x i8> %.0.copyload.i84.i, %60
   %103 = icmp eq <16 x i8> %.0.copyload2.i85.i, %61
@@ -818,7 +818,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   %.166150.i = phi i64 [ %115, %114 ], [ %.065.lcssa.i, %.preheader.i ]
   %107 = getelementptr inbounds i8, ptr %2, i64 %.166150.i
   %.0.copyload.i86.i = load <16 x i8>, ptr %107, align 1, !alias.scope !59, !noalias !78
-  %108 = getelementptr inbounds i8, ptr %107, i64 %storemerge128131.i
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 %storemerge128131.i
   %.0.copyload2.i87.i = load <16 x i8>, ptr %108, align 1, !alias.scope !59, !noalias !78
   %109 = icmp eq <16 x i8> %.0.copyload.i86.i, %60
   %110 = icmp eq <16 x i8> %.0.copyload2.i87.i, %61
@@ -1046,7 +1046,7 @@ _ZN4core3str11validations15next_code_point17h111f1ff751556898E.exit.thread.i.i: 
   br label %221
 
 221:                                              ; preds = %.sink.split.i, %.lr.ph.i50
-  %222 = phi i64 [ %.promoted.i46, %.lr.ph.i50 ], [ %.ph83.i, %.sink.split.i ]
+  %222 = phi i64 [ %.promoted.i46, %.lr.ph.i50 ], [ %.ph90.i, %.sink.split.i ]
   %223 = phi i64 [ %201, %.lr.ph.i50 ], [ %.sink.i, %.sink.split.i ]
   %224 = phi i64 [ %214, %.lr.ph.i50 ], [ %235, %.sink.split.i ]
   %225 = getelementptr inbounds i8, ptr %204, i64 %224
@@ -1068,8 +1068,8 @@ _ZN4core3str11validations15next_code_point17h111f1ff751556898E.exit.thread.i.i: 
 
 .sink.split.i:                                    ; preds = %265, %252, %232
   %.sink.i = phi i64 [ %220, %252 ], [ 0, %265 ], [ 0, %232 ]
-  %.ph83.i = phi i64 [ %253, %252 ], [ %267, %265 ], [ %233, %232 ]
-  %235 = add i64 %.ph83.i, %212
+  %.ph90.i = phi i64 [ %253, %252 ], [ %267, %265 ], [ %233, %232 ]
+  %235 = add i64 %.ph90.i, %212
   %.not37.i56 = icmp ult i64 %235, %206
   br i1 %.not37.i56, label %221, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit"
 
@@ -1433,8 +1433,8 @@ define hidden void @"_ZN6uu_ptx10WordFilter3new28_$u7b$$u7b$closure$u7d$$u7d$17h
   %58 = trunc i32 %2 to i8
   %59 = and i8 %58, 63
   %60 = or disjoint i8 %59, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %60, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx14, align 1, !alias.scope !175, !noalias !174
+  %.sroa.0.i.1.i.1.i.1..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %60, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx15, align 1, !alias.scope !175, !noalias !174
   br label %"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h30cc80c750be000fE.llvm.5112204137213319250.exit"
 
 61:                                               ; preds = %52
@@ -1451,8 +1451,8 @@ define hidden void @"_ZN6uu_ptx10WordFilter3new28_$u7b$$u7b$closure$u7d$$u7d$17h
   %69 = trunc i32 %2 to i8
   %70 = and i8 %69, 63
   %71 = or disjoint i8 %70, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %71, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx15, align 2, !alias.scope !175, !noalias !174
+  %.sroa.0.i.2.i.2.i.2..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %71, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx16, align 2, !alias.scope !175, !noalias !174
   br label %"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h30cc80c750be000fE.llvm.5112204137213319250.exit"
 
 72:                                               ; preds = %52
@@ -1464,8 +1464,8 @@ define hidden void @"_ZN6uu_ptx10WordFilter3new28_$u7b$$u7b$closure$u7d$$u7d$17h
   %77 = trunc i32 %76 to i8
   %78 = and i8 %77, 63
   %79 = or disjoint i8 %78, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %79, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx13, align 1, !alias.scope !175, !noalias !174
+  %.sroa.0.i.1.i.1.i.1..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %79, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx14, align 1, !alias.scope !175, !noalias !174
   %80 = lshr i32 %2, 6
   %81 = trunc i32 %80 to i8
   %82 = and i8 %81, 63

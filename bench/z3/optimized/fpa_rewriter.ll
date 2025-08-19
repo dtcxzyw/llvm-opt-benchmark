@@ -5019,9 +5019,9 @@ _ZN8fpa_util10is_numeralEP4exprR3mpf.exit:        ; preds = %3
   br label %19
 
 19:                                               ; preds = %18, %14
-  %.sink5 = phi i64 [ 864, %14 ], [ %spec.select, %18 ]
+  %.sink7 = phi i64 [ 864, %14 ], [ %spec.select, %18 ]
   %20 = load ptr, ptr %0, align 8, !tbaa !37
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink5
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink7
   %22 = load ptr, ptr %21, align 8, !tbaa !79
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %26, label %_ZN11ast_manager7inc_refEP3ast.exit.i
@@ -5649,7 +5649,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit103: ; preds = %_ZN15_scoped_n
           cleanup
   br label %419
 
-144:                                              ; preds = %.invoke168, %.invoke, %_ZN8fpa_util8mk_valueERK3mpf.exit155.invoke, %330, %325, %321, %309, %297, %_ZNK17arith_recognizers7is_realEPK4expr.exit.thread, %290, %285, %281, %269, %257, %252, %201, %161, %156, %56, %350, %345, %_ZNK17arith_recognizers6is_intEPK4expr.exit144.thread, %246, %239, %62
+144:                                              ; preds = %.invoke180, %.invoke, %_ZN8fpa_util8mk_valueERK3mpf.exit155.invoke, %330, %325, %321, %309, %297, %_ZNK17arith_recognizers7is_realEPK4expr.exit.thread, %290, %285, %281, %269, %257, %252, %201, %161, %156, %56, %350, %345, %_ZNK17arith_recognizers6is_intEPK4expr.exit144.thread, %246, %239, %62
   %145 = landingpad { ptr, i32 }
           cleanup
   br label %419
@@ -6003,7 +6003,7 @@ _ZN8fpa_util13is_rm_numeralEP4exprR17mpf_rounding_mode.exit133: ; preds = %281
 
 293:                                              ; preds = %290
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %292, label %.invoke168, label %399
+  br i1 %292, label %.invoke180, label %399
 
 _ZNK17arith_recognizers7is_realEPK4expr.exit.thread: ; preds = %.noexc131, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i130, %.noexc129, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %_ZNK17arith_recognizers6is_intEPK4expr.exit, %_ZNK17arith_recognizers7is_realEPK4expr.exit, %_ZN8fpa_util13is_rm_numeralEP4exprR17mpf_rounding_mode.exit128
   %294 = load ptr, ptr %3, align 8, !tbaa !46
@@ -6088,9 +6088,9 @@ _ZN8fpa_util13is_rm_numeralEP4exprR17mpf_rounding_mode.exit149: ; preds = %321
 
 333:                                              ; preds = %330
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %332, label %.invoke168, label %399
+  br i1 %332, label %.invoke180, label %399
 
-.invoke168:                                       ; preds = %333, %293
+.invoke180:                                       ; preds = %333, %293
   %334 = phi ptr [ %14, %293 ], [ %13, %333 ]
   %335 = phi ptr [ %13, %293 ], [ %14, %333 ]
   %336 = load ptr, ptr %25, align 8, !tbaa !47
@@ -6098,8 +6098,8 @@ _ZN8fpa_util13is_rm_numeralEP4exprR17mpf_rounding_mode.exit149: ; preds = %321
   invoke void @_ZN11mpf_manager3setER3mpfjj17mpf_rounding_modeRK3mpzRK3mpq(ptr noundef nonnull align 8 dereferenceable(840) %336, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef %53, i32 noundef %61, i32 noundef %337, ptr noundef nonnull align 8 dereferenceable(16) %334, ptr noundef nonnull align 8 dereferenceable(32) %335)
           to label %.invoke unwind label %144
 
-.invoke:                                          ; preds = %.invoke168, %246
-  %.in = phi ptr [ %158, %246 ], [ %254, %.invoke168 ]
+.invoke:                                          ; preds = %.invoke180, %246
+  %.in = phi ptr [ %158, %246 ], [ %254, %.invoke180 ]
   %338 = load ptr, ptr %.in, align 8, !tbaa !3
   %339 = invoke noundef ptr @_ZN15fpa_decl_plugin10mk_numeralERK3mpf(ptr noundef nonnull align 8 dereferenceable(1008) %338, ptr noundef nonnull align 8 dereferenceable(32) %27)
           to label %_ZN8fpa_util8mk_valueERK3mpf.exit155.invoke unwind label %144
@@ -7418,23 +7418,23 @@ _ZNK14bv_recognizers10is_extractEPK4expr.exit71:  ; preds = %98
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load i8, ptr %125, align 8, !tbaa !147
   %.not.i.i.i.i.i75 = icmp eq i8 %126, 0
-  br i1 %.not.i.i.i.i.i75, label %127, label %.invoke127
+  br i1 %.not.i.i.i.i.i75, label %127, label %.invoke146
 
 127:                                              ; preds = %119
   %128 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %129 = load i8, ptr %128, align 8, !tbaa !147
   %.not.i.i.i.i.i78 = icmp eq i8 %129, 0
-  br i1 %.not.i.i.i.i.i78, label %132, label %.invoke127
+  br i1 %.not.i.i.i.i.i78, label %132, label %.invoke146
 
-.invoke127:                                       ; preds = %127, %119
+.invoke146:                                       ; preds = %127, %119
   %130 = call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %130, align 8, !tbaa !149
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store ptr @.str.5, ptr %131, align 8, !tbaa !151
   invoke void @__cxa_throw(ptr nonnull %130, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #17
-          to label %.cont128 unwind label %194
+          to label %.cont147 unwind label %194
 
-.cont128:                                         ; preds = %.invoke127
+.cont147:                                         ; preds = %.invoke146
   unreachable
 
 132:                                              ; preds = %127
@@ -7446,23 +7446,23 @@ _ZNK14bv_recognizers10is_extractEPK4expr.exit71:  ; preds = %98
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load i8, ptr %138, align 8, !tbaa !147
   %.not.i.i.i.i.i81 = icmp eq i8 %139, 0
-  br i1 %.not.i.i.i.i.i81, label %140, label %.invoke129
+  br i1 %.not.i.i.i.i.i81, label %140, label %.invoke148
 
 140:                                              ; preds = %132
   %141 = getelementptr inbounds nuw i8, ptr %137, i64 24
   %142 = load i8, ptr %141, align 8, !tbaa !147
   %.not.i.i.i.i.i84 = icmp eq i8 %142, 0
-  br i1 %.not.i.i.i.i.i84, label %145, label %.invoke129
+  br i1 %.not.i.i.i.i.i84, label %145, label %.invoke148
 
-.invoke129:                                       ; preds = %140, %132
+.invoke148:                                       ; preds = %140, %132
   %143 = call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %143, align 8, !tbaa !149
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store ptr @.str.5, ptr %144, align 8, !tbaa !151
   invoke void @__cxa_throw(ptr nonnull %143, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #17
-          to label %.cont130 unwind label %196
+          to label %.cont149 unwind label %196
 
-.cont130:                                         ; preds = %.invoke129
+.cont149:                                         ; preds = %.invoke148
   unreachable
 
 145:                                              ; preds = %140
@@ -7566,12 +7566,12 @@ _ZN11ast_manager7inc_refEP3ast.exit.i98:          ; preds = %177
           cleanup
   br label %279
 
-194:                                              ; preds = %.invoke127
+194:                                              ; preds = %.invoke146
   %195 = landingpad { ptr, i32 }
           cleanup
   br label %279
 
-196:                                              ; preds = %.invoke129
+196:                                              ; preds = %.invoke148
   %197 = landingpad { ptr, i32 }
           cleanup
   br label %279
@@ -7689,7 +7689,7 @@ _ZNK14bv_recognizers10is_extractEPK4expr.exit.thread: ; preds = %82, %77, %66, %
   br i1 %.not.i.i106, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit107, label %_ZNK14bv_recognizers10is_extractEPK4expr.exit.thread.thread
 
 _ZNK14bv_recognizers10is_extractEPK4expr.exit.thread.thread: ; preds = %98, %93, %_ZNK14bv_recognizers10is_extractEPK4expr.exit71, %158, %.critedge, %_ZNK14bv_recognizers10is_extractEPK4expr.exit.thread
-  %switch125 = phi i1 [ true, %_ZNK14bv_recognizers10is_extractEPK4expr.exit.thread ], [ true, %98 ], [ true, %93 ], [ true, %_ZNK14bv_recognizers10is_extractEPK4expr.exit71 ], [ true, %158 ], [ false, %.critedge ]
+  %switch144 = phi i1 [ true, %_ZNK14bv_recognizers10is_extractEPK4expr.exit.thread ], [ true, %98 ], [ true, %93 ], [ true, %_ZNK14bv_recognizers10is_extractEPK4expr.exit71 ], [ true, %158 ], [ false, %.critedge ]
   %236 = phi ptr [ %235, %_ZNK14bv_recognizers10is_extractEPK4expr.exit.thread ], [ %56, %98 ], [ %56, %93 ], [ %56, %_ZNK14bv_recognizers10is_extractEPK4expr.exit71 ], [ %56, %158 ], [ %56, %.critedge ]
   %237 = load ptr, ptr %42, align 8, !tbaa !45
   %238 = getelementptr inbounds nuw i8, ptr %236, i64 8
@@ -7711,7 +7711,7 @@ _ZNK14bv_recognizers10is_extractEPK4expr.exit.thread.thread: ; preds = %98, %93,
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit107:      ; preds = %_ZNK14bv_recognizers10is_extractEPK4expr.exit.thread, %_ZNK14bv_recognizers10is_extractEPK4expr.exit.thread.thread, %242
-  %switch126 = phi i1 [ true, %_ZNK14bv_recognizers10is_extractEPK4expr.exit.thread ], [ %switch125, %_ZNK14bv_recognizers10is_extractEPK4expr.exit.thread.thread ], [ %switch125, %242 ]
+  %switch145 = phi i1 [ true, %_ZNK14bv_recognizers10is_extractEPK4expr.exit.thread ], [ %switch144, %_ZNK14bv_recognizers10is_extractEPK4expr.exit.thread.thread ], [ %switch144, %242 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %246 = load ptr, ptr %7, align 8, !tbaa !42
   %.not.i.i108 = icmp eq ptr %246, null
@@ -7792,7 +7792,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit111:      ; preds = %_ZN7obj_refI4expr11
 _ZN7obj_refI4sort11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit111, %269, %275
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %switch126, label %_Z9is_app_ofPK4exprii.exit.thread, label %280
+  br i1 %switch145, label %_Z9is_app_ofPK4exprii.exit.thread, label %280
 
 279:                                              ; preds = %192, %196, %200, %198, %194
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %193, %192 ], [ %195, %194 ], [ %197, %196 ], [ %201, %200 ], [ %199, %198 ]

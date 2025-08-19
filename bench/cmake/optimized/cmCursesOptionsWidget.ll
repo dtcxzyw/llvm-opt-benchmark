@@ -252,9 +252,9 @@ _ZN21cmCursesOptionsWidget10NextOptionEv.exit18:  ; preds = %10, %10
   %63 = ashr exact i64 %62, 5
   %64 = add nsw i64 %63, -1
   %65 = icmp ugt i64 %59, %64
-  %spec.select19 = select i1 %65, i64 0, i64 %59
-  store i64 %spec.select19, ptr %57, align 8, !tbaa !31
-  %66 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %spec.select19
+  %spec.select24 = select i1 %65, i64 0, i64 %59
+  store i64 %spec.select24, ptr %57, align 8, !tbaa !31
+  %66 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %spec.select24
   %67 = load ptr, ptr %0, align 8, !tbaa !4
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %69 = load ptr, ptr %68, align 8

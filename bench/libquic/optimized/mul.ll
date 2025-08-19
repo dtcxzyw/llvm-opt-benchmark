@@ -332,7 +332,7 @@ define internal fastcc void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %
 
 .preheader275:                                    ; preds = %82, %91
   %.0258 = phi i32 [ %87, %91 ], [ %56, %82 ]
-  %87 = lshr i32 %.0258, 1
+  %87 = sdiv i32 %.0258, 2
   %or.cond270 = icmp slt i32 %87, %.
   br i1 %or.cond270, label %88, label %91
 

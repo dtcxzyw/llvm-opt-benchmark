@@ -2317,15 +2317,15 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntG
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %124, %126, %116, %118
-  %.sink153 = phi ptr [ %117, %116 ], [ %119, %118 ], [ %125, %124 ], [ %127, %126 ]
+  %.sink162 = phi ptr [ %117, %116 ], [ %119, %118 ], [ %125, %124 ], [ %127, %126 ]
   %.sink = phi i32 [ 16, %116 ], [ 16, %118 ], [ %121, %124 ], [ %121, %126 ]
-  store ptr %.sink153, ptr %16, align 8, !tbaa !42
+  store ptr %.sink162, ptr %16, align 8, !tbaa !42
   store i32 %.sink, ptr %8, align 8, !tbaa !41
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %106
-  %.val82150 = phi ptr [ %.val82151, %106 ], [ %.sink153, %Vec_IntPush.exit.sink.split ]
-  %.pre.i145 = phi ptr [ %100, %106 ], [ %.sink153, %Vec_IntPush.exit.sink.split ]
+  %.val82150 = phi ptr [ %.val82151, %106 ], [ %.sink162, %Vec_IntPush.exit.sink.split ]
+  %.pre.i145 = phi ptr [ %100, %106 ], [ %.sink162, %Vec_IntPush.exit.sink.split ]
   %128 = add nsw i32 %110, 1
   store i32 %128, ptr %10, align 4, !tbaa !40
   %129 = sext i32 %110 to i64
@@ -3552,9 +3552,9 @@ Vec_IntPush.exit.sink.split:                      ; preds = %239
   %243 = shl nuw nsw i32 %.0.val, 1
   %244 = zext nneg i32 %243 to i64
   %245 = shl nuw nsw i64 %244, 2
-  %.sink270 = select i1 %242, i64 64, i64 %245
+  %.sink287 = select i1 %242, i64 64, i64 %245
   %.sink = select i1 %242, i32 16, i32 %243
-  %246 = tail call ptr @realloc(ptr noundef nonnull %.0.val132, i64 noundef %.sink270) #19
+  %246 = tail call ptr @realloc(ptr noundef nonnull %.0.val132, i64 noundef %.sink287) #19
   store ptr %246, ptr %141, align 8, !tbaa !42
   store i32 %.sink, ptr %.0, align 8, !tbaa !41
   br label %Vec_IntPush.exit
@@ -3603,11 +3603,11 @@ Vec_IntPush.exit178.sink.split:                   ; preds = %255
   %271 = shl nuw nsw i32 %267, 1
   %272 = zext nneg i32 %271 to i64
   %273 = shl nuw nsw i64 %272, 2
-  %.sink273 = select i1 %270, i64 64, i64 %273
-  %.sink271 = select i1 %270, i32 16, i32 %271
-  %274 = tail call ptr @realloc(ptr noundef nonnull %256, i64 noundef %.sink273) #19
+  %.sink290 = select i1 %270, i64 64, i64 %273
+  %.sink288 = select i1 %270, i32 16, i32 %271
+  %274 = tail call ptr @realloc(ptr noundef nonnull %256, i64 noundef %.sink290) #19
   store ptr %274, ptr %141, align 8, !tbaa !42
-  store i32 %.sink271, ptr %.0, align 8, !tbaa !41
+  store i32 %.sink288, ptr %.0, align 8, !tbaa !41
   br label %Vec_IntPush.exit178
 
 Vec_IntPush.exit178:                              ; preds = %Vec_IntPush.exit178.sink.split, %255
@@ -3641,11 +3641,11 @@ Vec_IntPush.exit185.sink.split:                   ; preds = %.critedge8
   %286 = shl nuw nsw i32 %282, 1
   %287 = zext nneg i32 %286 to i64
   %288 = shl nuw nsw i64 %287, 2
-  %.sink277 = select i1 %285, i64 64, i64 %288
-  %.sink275 = select i1 %285, i32 16, i32 %286
-  %289 = tail call ptr @realloc(ptr noundef nonnull %281, i64 noundef %.sink277) #19
+  %.sink294 = select i1 %285, i64 64, i64 %288
+  %.sink292 = select i1 %285, i32 16, i32 %286
+  %289 = tail call ptr @realloc(ptr noundef nonnull %281, i64 noundef %.sink294) #19
   store ptr %289, ptr %141, align 8, !tbaa !42
-  store i32 %.sink275, ptr %.0, align 8, !tbaa !41
+  store i32 %.sink292, ptr %.0, align 8, !tbaa !41
   br label %Vec_IntPush.exit185
 
 Vec_IntPush.exit185:                              ; preds = %Vec_IntPush.exit185.sink.split, %.critedge8
@@ -3668,9 +3668,9 @@ Vec_IntPush.exit185:                              ; preds = %Vec_IntPush.exit185
   br label %302
 
 302:                                              ; preds = %295, %161
-  %.sink278 = phi i32 [ %301, %295 ], [ %198, %161 ]
+  %.sink295 = phi i32 [ %301, %295 ], [ %198, %161 ]
   %303 = getelementptr inbounds nuw i8, ptr %150, i64 64
-  store i32 %.sink278, ptr %303, align 8, !tbaa !3
+  store i32 %.sink295, ptr %303, align 8, !tbaa !3
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
   %.val121 = load i32, ptr %136, align 4, !tbaa !35
   %304 = sext i32 %.val121 to i64

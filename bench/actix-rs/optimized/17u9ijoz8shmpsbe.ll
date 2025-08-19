@@ -432,7 +432,7 @@ define internal void @"_ZN96_$LT$actix_multipart..form..tempfile..TempFile$u20$a
   %.sroa.8.sroa.8 = alloca [20 x i8], align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %19 = load i8, ptr %18, align 8, !range !11, !noundef !4
-  switch i8 %19, label %default.unreachable276 [
+  switch i8 %19, label %default.unreachable285 [
     i8 0, label %20
     i8 1, label %147
     i8 2, label %148
@@ -446,7 +446,7 @@ define internal void @"_ZN96_$LT$actix_multipart..form..tempfile..TempFile$u20$a
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !77, !noalias !80
   br label %187
 
-default.unreachable276:                           ; preds = %3
+default.unreachable285:                           ; preds = %3
   unreachable
 
 20:                                               ; preds = %3

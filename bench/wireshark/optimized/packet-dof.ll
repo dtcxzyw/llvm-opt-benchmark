@@ -4116,8 +4116,8 @@ switch.early.test167.i:                           ; preds = %27
 60:                                               ; preds = %57, %55, %51
   %61 = phi i32 [ %52, %51 ], [ %56, %55 ], [ %59, %57 ]
   %62 = or i32 %61, %45
-  %.fr204.i = freeze i32 %62
-  %63 = add i32 %.fr204.i, %33
+  %.fr211.i = freeze i32 %62
+  %63 = add i32 %.fr211.i, %33
   %64 = add i32 %25, 2
   store i32 %64, ptr %3, align 8
   %65 = zext i32 %64 to i64
@@ -4158,9 +4158,9 @@ switch.early.test167.i:                           ; preds = %27
 
 80:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
   %81 = phi i32 [ %22, %._crit_edge.thread.i ], [ %78, %._crit_edge.i ]
-  %.0112.lcssa191.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %63, %._crit_edge.i ]
+  %.0112.lcssa198.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %63, %._crit_edge.i ]
   %82 = phi i8 [ 1, %._crit_edge.thread.i ], [ %spec.select.i, %._crit_edge.i ]
-  %83 = icmp ugt i32 %.0112.lcssa191.i, 16383
+  %83 = icmp ugt i32 %.0112.lcssa198.i, 16383
   %84 = zext i1 %83 to i8
   %85 = add nuw nsw i8 %82, %84
   %86 = icmp samesign ugt i8 %85, 2
@@ -4199,50 +4199,50 @@ switch.early.test167.i:                           ; preds = %27
   ]
 
 99:                                               ; preds = %98
-  %100 = lshr i32 %.0112.lcssa191.i, 24
+  %100 = lshr i32 %.0112.lcssa198.i, 24
   %101 = trunc nuw i32 %100 to i8
   %102 = or i8 %101, -64
   %103 = getelementptr i8, ptr %97, i64 1
   store i8 %102, ptr %97, align 1
-  %104 = lshr i32 %.0112.lcssa191.i, 16
+  %104 = lshr i32 %.0112.lcssa198.i, 16
   %105 = trunc i32 %104 to i8
   %106 = getelementptr i8, ptr %97, i64 2
   store i8 %105, ptr %103, align 1
-  %107 = lshr i32 %.0112.lcssa191.i, 8
+  %107 = lshr i32 %.0112.lcssa198.i, 8
   %108 = trunc i32 %107 to i8
   %109 = getelementptr i8, ptr %97, i64 3
   store i8 %108, ptr %106, align 1
-  %110 = trunc i32 %.0112.lcssa191.i to i8
+  %110 = trunc i32 %.0112.lcssa198.i to i8
   store i8 %110, ptr %109, align 1
   br label %.loopexit.sink.split.i
 
 111:                                              ; preds = %98
-  %112 = lshr i32 %.0112.lcssa191.i, 16
+  %112 = lshr i32 %.0112.lcssa198.i, 16
   %113 = trunc i32 %112 to i8
   %114 = or i8 %113, -64
   %115 = getelementptr i8, ptr %97, i64 1
   store i8 %114, ptr %97, align 1
-  %116 = lshr i32 %.0112.lcssa191.i, 8
+  %116 = lshr i32 %.0112.lcssa198.i, 8
   %117 = trunc i32 %116 to i8
   %118 = getelementptr i8, ptr %97, i64 2
   store i8 %117, ptr %115, align 1
-  %119 = trunc i32 %.0112.lcssa191.i to i8
+  %119 = trunc i32 %.0112.lcssa198.i to i8
   store i8 %119, ptr %118, align 1
   br label %.loopexit.sink.split.i
 
 120:                                              ; preds = %98
-  %121 = lshr i32 %.0112.lcssa191.i, 8
+  %121 = lshr i32 %.0112.lcssa198.i, 8
   %122 = trunc i32 %121 to i8
   %123 = and i8 %122, 63
   %124 = or disjoint i8 %123, -128
   store i8 %124, ptr %97, align 1
   %125 = getelementptr i8, ptr %97, i64 1
-  %126 = trunc i32 %.0112.lcssa191.i to i8
+  %126 = trunc i32 %.0112.lcssa198.i to i8
   store i8 %126, ptr %125, align 1
   br label %.loopexit.sink.split.i
 
 127:                                              ; preds = %98
-  %128 = trunc i32 %.0112.lcssa191.i to i8
+  %128 = trunc i32 %.0112.lcssa198.i to i8
   %129 = and i8 %128, 127
   store i8 %129, ptr %97, align 1
   br label %.loopexit.sink.split.i
@@ -4275,14 +4275,14 @@ default.unreachable:                              ; preds = %160, %98
 
 .critedge.i:                                      ; preds = %.lr.ph177.i
   %142 = icmp ugt i32 %136, 127
-  %spec.select199.i = select i1 %142, i8 2, i8 1
+  %spec.select206.i = select i1 %142, i8 2, i8 1
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %.critedge.i, %130, %15
   %143 = phi i32 [ %10, %130 ], [ %10, %15 ], [ %137, %.critedge.i ]
-  %.0.lcssa196.i = phi i32 [ 0, %130 ], [ 0, %15 ], [ %136, %.critedge.i ]
-  %144 = phi i8 [ 1, %130 ], [ 1, %15 ], [ %spec.select199.i, %.critedge.i ]
-  %145 = icmp ugt i32 %.0.lcssa196.i, 16383
+  %.0.lcssa203.i = phi i32 [ 0, %130 ], [ 0, %15 ], [ %136, %.critedge.i ]
+  %144 = phi i8 [ 1, %130 ], [ 1, %15 ], [ %spec.select206.i, %.critedge.i ]
+  %145 = icmp ugt i32 %.0.lcssa203.i, 16383
   %146 = zext i1 %145 to i8
   %147 = add nuw nsw i8 %144, %146
   %148 = icmp samesign ugt i8 %147, 2
@@ -4321,50 +4321,50 @@ default.unreachable:                              ; preds = %160, %98
   ]
 
 161:                                              ; preds = %160
-  %162 = lshr i32 %.0.lcssa196.i, 24
+  %162 = lshr i32 %.0.lcssa203.i, 24
   %163 = trunc nuw i32 %162 to i8
   %164 = or i8 %163, -64
   %165 = getelementptr i8, ptr %159, i64 1
   store i8 %164, ptr %159, align 1
-  %166 = lshr i32 %.0.lcssa196.i, 16
+  %166 = lshr i32 %.0.lcssa203.i, 16
   %167 = trunc i32 %166 to i8
   %168 = getelementptr i8, ptr %159, i64 2
   store i8 %167, ptr %165, align 1
-  %169 = lshr i32 %.0.lcssa196.i, 8
+  %169 = lshr i32 %.0.lcssa203.i, 8
   %170 = trunc i32 %169 to i8
   %171 = getelementptr i8, ptr %159, i64 3
   store i8 %170, ptr %168, align 1
-  %172 = trunc i32 %.0.lcssa196.i to i8
+  %172 = trunc i32 %.0.lcssa203.i to i8
   store i8 %172, ptr %171, align 1
   br label %.loopexit.sink.split.i
 
 173:                                              ; preds = %160
-  %174 = lshr i32 %.0.lcssa196.i, 16
+  %174 = lshr i32 %.0.lcssa203.i, 16
   %175 = trunc i32 %174 to i8
   %176 = or i8 %175, -64
   %177 = getelementptr i8, ptr %159, i64 1
   store i8 %176, ptr %159, align 1
-  %178 = lshr i32 %.0.lcssa196.i, 8
+  %178 = lshr i32 %.0.lcssa203.i, 8
   %179 = trunc i32 %178 to i8
   %180 = getelementptr i8, ptr %159, i64 2
   store i8 %179, ptr %177, align 1
-  %181 = trunc i32 %.0.lcssa196.i to i8
+  %181 = trunc i32 %.0.lcssa203.i to i8
   store i8 %181, ptr %180, align 1
   br label %.loopexit.sink.split.i
 
 182:                                              ; preds = %160
-  %183 = lshr i32 %.0.lcssa196.i, 8
+  %183 = lshr i32 %.0.lcssa203.i, 8
   %184 = trunc i32 %183 to i8
   %185 = and i8 %184, 63
   %186 = or disjoint i8 %185, -128
   store i8 %186, ptr %159, align 1
   %187 = getelementptr i8, ptr %159, i64 1
-  %188 = trunc i32 %.0.lcssa196.i to i8
+  %188 = trunc i32 %.0.lcssa203.i to i8
   store i8 %188, ptr %187, align 1
   br label %.loopexit.sink.split.i
 
 189:                                              ; preds = %160
-  %190 = trunc i32 %.0.lcssa196.i to i8
+  %190 = trunc i32 %.0.lcssa203.i to i8
   %191 = and i8 %190, 127
   store i8 %191, ptr %159, align 1
   br label %.loopexit.sink.split.i
@@ -6857,9 +6857,9 @@ OALMarshal_UncompressValue.exit:                  ; preds = %.lr.ph.i
 
 22:                                               ; preds = %OALMarshal_UncompressValue.exit.thread, %OALMarshal_UncompressValue.exit
   %23 = phi i32 [ 2, %OALMarshal_UncompressValue.exit.thread ], [ %21, %OALMarshal_UncompressValue.exit ]
-  %.020.i85 = phi i32 [ %13, %OALMarshal_UncompressValue.exit.thread ], [ %20, %OALMarshal_UncompressValue.exit ]
-  %.06584 = phi i32 [ 1, %OALMarshal_UncompressValue.exit.thread ], [ %.017.i, %OALMarshal_UncompressValue.exit ]
-  %24 = zext nneg i32 %.06584 to i64
+  %.020.i88 = phi i32 [ %13, %OALMarshal_UncompressValue.exit.thread ], [ %20, %OALMarshal_UncompressValue.exit ]
+  %.06587 = phi i32 [ 1, %OALMarshal_UncompressValue.exit.thread ], [ %.017.i, %OALMarshal_UncompressValue.exit ]
+  %24 = zext nneg i32 %.06587 to i64
   %25 = getelementptr i8, ptr %1, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = and i8 %26, 64
@@ -6868,7 +6868,7 @@ OALMarshal_UncompressValue.exit:                  ; preds = %.lr.ph.i
 
 28:                                               ; preds = %22
   %29 = and i8 %26, 63
-  %30 = icmp eq i32 %.020.i85, 0
+  %30 = icmp eq i32 %.020.i88, 0
   %31 = icmp ne i8 %29, 0
   %or.cond6 = and i1 %30, %31
   br i1 %or.cond6, label %.thread, label %32
@@ -6954,7 +6954,7 @@ define internal fastcc i32 @ObjectID_ToStringLength(ptr noundef nonnull readonly
 
 11:                                               ; preds = %10, %2
   %.017.i.i.i.i = phi i32 [ 4, %10 ], [ 2, %2 ]
-  %spec.select4.i.i.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i, i32 %7)
+  %spec.select5.i.i.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i, i32 %7)
   br label %DOFObjectID_GetDataSize.exit.i
 
 .thread.i.i.i.i:                                  ; preds = %2
@@ -6963,7 +6963,7 @@ define internal fastcc i32 @ObjectID_ToStringLength(ptr noundef nonnull readonly
   br label %DOFObjectID_GetDataSize.exit.i
 
 DOFObjectID_GetDataSize.exit.i:                   ; preds = %.thread.i.i.i.i, %11
-  %.0.i.i.i = phi i32 [ %spec.select.i.i.i, %.thread.i.i.i.i ], [ %spec.select4.i.i.i, %11 ]
+  %.0.i.i.i = phi i32 [ %spec.select.i.i.i, %.thread.i.i.i.i ], [ %spec.select5.i.i.i, %11 ]
   %13 = zext nneg i32 %.0.i.i.i to i64
   %14 = getelementptr i8, ptr %4, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -6982,7 +6982,7 @@ DOFObjectID_GetDataSize.exit.i:                   ; preds = %.thread.i.i.i.i, %1
 
 19:                                               ; preds = %18, %17
   %.017.i.i.i = phi i32 [ 4, %18 ], [ 2, %17 ]
-  %spec.select4.i.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i, i32 %7)
+  %spec.select5.i.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i, i32 %7)
   br label %DOFObjectID_GetClassSize.exit.i
 
 .thread.i.i.i:                                    ; preds = %17
@@ -6991,7 +6991,7 @@ DOFObjectID_GetDataSize.exit.i:                   ; preds = %.thread.i.i.i.i, %1
   br label %DOFObjectID_GetClassSize.exit.i
 
 DOFObjectID_GetClassSize.exit.i:                  ; preds = %.thread.i.i.i, %19
-  %.0.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ %spec.select4.i.i, %19 ]
+  %.0.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ %spec.select5.i.i, %19 ]
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = getelementptr i8, ptr %4, i64 %21
   %23 = getelementptr i8, ptr %22, i64 1
@@ -7009,7 +7009,7 @@ DOFObjectID_GetData.exit:                         ; preds = %DOFObjectID_GetData
 
 25:                                               ; preds = %24, %DOFObjectID_GetData.exit
   %.017.i.i.i41 = phi i32 [ 4, %24 ], [ 2, %DOFObjectID_GetData.exit ]
-  %spec.select4.i.i42 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i41, i32 %7)
+  %spec.select5.i.i42 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i41, i32 %7)
   br label %DOFObjectID_GetDataSize.exit
 
 .thread.i.i.i45:                                  ; preds = %DOFObjectID_GetData.exit
@@ -7018,7 +7018,7 @@ DOFObjectID_GetData.exit:                         ; preds = %DOFObjectID_GetData
   br label %DOFObjectID_GetDataSize.exit
 
 DOFObjectID_GetDataSize.exit:                     ; preds = %25, %.thread.i.i.i45
-  %.0.i.i44 = phi i32 [ %spec.select.i.i46, %.thread.i.i.i45 ], [ %spec.select4.i.i42, %25 ]
+  %.0.i.i44 = phi i32 [ %spec.select.i.i46, %.thread.i.i.i45 ], [ %spec.select5.i.i42, %25 ]
   %27 = zext nneg i32 %.0.i.i44 to i64
   %28 = getelementptr i8, ptr %4, i64 %27
   %29 = load i8, ptr %28, align 1
@@ -7073,8 +7073,8 @@ DOFObjectID_GetDataSize.exit:                     ; preds = %25, %.thread.i.i.i4
   br i1 %41, label %.thread.i, label %43
 
 .thread.i:                                        ; preds = %DOFObjectID_GetDataSize.exit, %._crit_edge.i
-  %.0.lcssa122125.i = phi i32 [ %.1.i, %._crit_edge.i ], [ 0, %DOFObjectID_GetDataSize.exit ]
-  %42 = add i32 %.0.lcssa122125.i, %31
+  %.0.lcssa125128.i = phi i32 [ %.1.i, %._crit_edge.i ], [ 0, %DOFObjectID_GetDataSize.exit ]
+  %42 = add i32 %.0.lcssa125128.i, %31
   br label %ObjectID_DataToString.exit
 
 43:                                               ; preds = %._crit_edge.i
@@ -7120,7 +7120,7 @@ DOFObjectID_GetIDClass.exit:                      ; preds = %.lr.ph.i.i
 
 DOFObjectID_GetIDClass.exit.thread:               ; preds = %DOFObjectID_GetIDClass.exit
   %switch = icmp eq i8 %9, 2
-  %spec.select150 = select i1 %switch, i64 2, i64 4
+  %spec.select153 = select i1 %switch, i64 2, i64 4
   br label %.lr.ph.i.i49
 
 .lr.ph.i.i49:                                     ; preds = %.lr.ph.i.i49, %DOFObjectID_GetIDClass.exit.thread
@@ -7132,7 +7132,7 @@ DOFObjectID_GetIDClass.exit.thread:               ; preds = %DOFObjectID_GetIDCl
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = or disjoint i32 %56, %59
-  %exitcond.not.i.i53 = icmp eq i64 %indvars.iv.next.i.i52, %spec.select150
+  %exitcond.not.i.i53 = icmp eq i64 %indvars.iv.next.i.i52, %spec.select153
   br i1 %exitcond.not.i.i53, label %DOFObjectID_GetIDClass.exit56, label %.lr.ph.i.i49, !llvm.loop !38
 
 DOFObjectID_GetIDClass.exit56:                    ; preds = %.lr.ph.i.i49
@@ -7199,7 +7199,7 @@ DOFObjectID_GetIDClass.exit66:                    ; preds = %ObjectID_DataToStri
 
 82:                                               ; preds = %81, %76
   %.017.i.i.i67 = phi i32 [ 4, %81 ], [ 2, %76 ]
-  %spec.select4.i.i68 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i67, i32 %78)
+  %spec.select5.i.i68 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i67, i32 %78)
   br label %DOFObjectID_HasAttributes.exit
 
 .thread.i.i.i71:                                  ; preds = %76
@@ -7208,7 +7208,7 @@ DOFObjectID_GetIDClass.exit66:                    ; preds = %ObjectID_DataToStri
   br label %DOFObjectID_HasAttributes.exit
 
 DOFObjectID_HasAttributes.exit:                   ; preds = %82, %.thread.i.i.i71
-  %.0.i.i70 = phi i32 [ %spec.select.i.i72, %.thread.i.i.i71 ], [ %spec.select4.i.i68, %82 ]
+  %.0.i.i70 = phi i32 [ %spec.select.i.i72, %.thread.i.i.i71 ], [ %spec.select5.i.i68, %82 ]
   %84 = zext nneg i32 %.0.i.i70 to i64
   %85 = getelementptr i8, ptr %4, i64 %84
   %86 = load i8, ptr %85, align 1
@@ -7226,7 +7226,7 @@ DOFObjectID_HasAttributes.exit:                   ; preds = %82, %.thread.i.i.i7
 
 90:                                               ; preds = %89, %88
   %.017.i.i.i.i73 = phi i32 [ 4, %89 ], [ 2, %88 ]
-  %spec.select4.i.i.i74 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i73, i32 %78)
+  %spec.select5.i.i.i74 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i73, i32 %78)
   br label %DOFObjectID_HasAttributes.exit.i
 
 .thread.i.i.i.i78:                                ; preds = %88
@@ -7235,7 +7235,7 @@ DOFObjectID_HasAttributes.exit:                   ; preds = %82, %.thread.i.i.i7
   br label %DOFObjectID_HasAttributes.exit.i
 
 DOFObjectID_HasAttributes.exit.i:                 ; preds = %.thread.i.i.i.i78, %90
-  %.0.i.i.i75 = phi i32 [ %spec.select.i.i.i79, %.thread.i.i.i.i78 ], [ %spec.select4.i.i.i74, %90 ]
+  %.0.i.i.i75 = phi i32 [ %spec.select.i.i.i79, %.thread.i.i.i.i78 ], [ %spec.select5.i.i.i74, %90 ]
   %92 = zext nneg i32 %.0.i.i.i75 to i64
   %93 = getelementptr i8, ptr %4, i64 %92
   %94 = load i8, ptr %93, align 1
@@ -7257,7 +7257,7 @@ DOFObjectID_GetAttributeCount.exit.thread:        ; preds = %DOFObjectID_HasAttr
 
 99:                                               ; preds = %98, %97
   %.017.i.i.i11.i = phi i32 [ 4, %98 ], [ 2, %97 ]
-  %spec.select4.i.i12.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i11.i, i32 %78)
+  %spec.select5.i.i12.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i11.i, i32 %78)
   br label %DOFObjectID_GetClassSize.exit.i.i
 
 .thread.i.i.i14.i:                                ; preds = %97
@@ -7266,7 +7266,7 @@ DOFObjectID_GetAttributeCount.exit.thread:        ; preds = %DOFObjectID_HasAttr
   br label %DOFObjectID_GetClassSize.exit.i.i
 
 DOFObjectID_GetClassSize.exit.i.i:                ; preds = %.thread.i.i.i14.i, %99
-  %.0.i.i13.i = phi i32 [ %spec.select.i.i15.i, %.thread.i.i.i14.i ], [ %spec.select4.i.i12.i, %99 ]
+  %.0.i.i13.i = phi i32 [ %spec.select.i.i15.i, %.thread.i.i.i14.i ], [ %spec.select5.i.i12.i, %99 ]
   switch i8 %80, label %.thread.i.i.i.i.i [
     i8 2, label %102
     i8 3, label %101
@@ -7277,7 +7277,7 @@ DOFObjectID_GetClassSize.exit.i.i:                ; preds = %.thread.i.i.i14.i, 
 
 102:                                              ; preds = %101, %DOFObjectID_GetClassSize.exit.i.i
   %.017.i.i.i.i.i = phi i32 [ 4, %101 ], [ 2, %DOFObjectID_GetClassSize.exit.i.i ]
-  %spec.select4.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i.i, i32 %78)
+  %spec.select5.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i.i, i32 %78)
   br label %DOFObjectID_GetBaseSize.exit.i
 
 .thread.i.i.i.i.i:                                ; preds = %DOFObjectID_GetClassSize.exit.i.i
@@ -7286,7 +7286,7 @@ DOFObjectID_GetClassSize.exit.i.i:                ; preds = %.thread.i.i.i14.i, 
   br label %DOFObjectID_GetBaseSize.exit.i
 
 DOFObjectID_GetBaseSize.exit.i:                   ; preds = %.thread.i.i.i.i.i, %102
-  %.0.i.i.i.i = phi i32 [ %spec.select.i.i.i.i, %.thread.i.i.i.i.i ], [ %spec.select4.i.i.i.i, %102 ]
+  %.0.i.i.i.i = phi i32 [ %spec.select.i.i.i.i, %.thread.i.i.i.i.i ], [ %spec.select5.i.i.i.i, %102 ]
   %104 = zext nneg i32 %.0.i.i.i.i to i64
   %105 = getelementptr i8, ptr %4, i64 %104
   %106 = load i8, ptr %105, align 1
@@ -7298,9 +7298,9 @@ DOFObjectID_GetBaseSize.exit.i:                   ; preds = %.thread.i.i.i.i.i, 
   %112 = getelementptr i8, ptr %4, i64 %111
   %113 = load i8, ptr %112, align 1
   %.not16.i = icmp sgt i8 %113, -1
-  br i1 %.not16.i, label %DOFObjectID_GetAttributeCount.exit.thread142, label %.lr.ph.i76
+  br i1 %.not16.i, label %DOFObjectID_GetAttributeCount.exit.thread145, label %.lr.ph.i76
 
-DOFObjectID_GetAttributeCount.exit.thread142:     ; preds = %DOFObjectID_GetBaseSize.exit.i
+DOFObjectID_GetAttributeCount.exit.thread145:     ; preds = %DOFObjectID_GetBaseSize.exit.i
   %114 = add i32 %.032, 2
   br label %.lr.ph.preheader
 
@@ -7322,10 +7322,10 @@ DOFObjectID_GetAttributeCount.exit:               ; preds = %.lr.ph.i76
   %.not132 = icmp eq i8 %115, 0
   br i1 %.not132, label %.critedge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %DOFObjectID_GetAttributeCount.exit.thread142, %DOFObjectID_GetAttributeCount.exit
-  %123 = phi i32 [ %114, %DOFObjectID_GetAttributeCount.exit.thread142 ], [ %122, %DOFObjectID_GetAttributeCount.exit ]
-  %.09.i145 = phi i8 [ 0, %DOFObjectID_GetAttributeCount.exit.thread142 ], [ %.117.i, %DOFObjectID_GetAttributeCount.exit ]
-  %umin = tail call i8 @llvm.umin.i8(i8 %.09.i145, i8 127)
+.lr.ph.preheader:                                 ; preds = %DOFObjectID_GetAttributeCount.exit.thread145, %DOFObjectID_GetAttributeCount.exit
+  %123 = phi i32 [ %114, %DOFObjectID_GetAttributeCount.exit.thread145 ], [ %122, %DOFObjectID_GetAttributeCount.exit ]
+  %.09.i148 = phi i8 [ 0, %DOFObjectID_GetAttributeCount.exit.thread145 ], [ %.117.i, %DOFObjectID_GetAttributeCount.exit ]
+  %umin = tail call i8 @llvm.umin.i8(i8 %.09.i148, i8 127)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %186
@@ -7345,7 +7345,7 @@ DOFObjectID_GetAttributeCount.exit:               ; preds = %.lr.ph.i76
 
 129:                                              ; preds = %128, %.lr.ph
   %.017.i.i.i.i80 = phi i32 [ 4, %128 ], [ 2, %.lr.ph ]
-  %spec.select4.i.i.i81 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i80, i32 %125)
+  %spec.select5.i.i.i81 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i80, i32 %125)
   br label %DOFObjectID_HasAttributes.exit.i82
 
 .thread.i.i.i.i94:                                ; preds = %.lr.ph
@@ -7354,7 +7354,7 @@ DOFObjectID_GetAttributeCount.exit:               ; preds = %.lr.ph.i76
   br label %DOFObjectID_HasAttributes.exit.i82
 
 DOFObjectID_HasAttributes.exit.i82:               ; preds = %.thread.i.i.i.i94, %129
-  %.0.i.i.i83 = phi i32 [ %spec.select.i.i.i95, %.thread.i.i.i.i94 ], [ %spec.select4.i.i.i81, %129 ]
+  %.0.i.i.i83 = phi i32 [ %spec.select.i.i.i95, %.thread.i.i.i.i94 ], [ %spec.select5.i.i.i81, %129 ]
   %131 = zext nneg i32 %.0.i.i.i83 to i64
   %132 = getelementptr i8, ptr %4, i64 %131
   %133 = load i8, ptr %132, align 1
@@ -7372,7 +7372,7 @@ DOFObjectID_HasAttributes.exit.i82:               ; preds = %.thread.i.i.i.i94, 
 
 137:                                              ; preds = %136, %135
   %.017.i.i.i17.i = phi i32 [ 4, %136 ], [ 2, %135 ]
-  %spec.select4.i.i18.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i17.i, i32 %125)
+  %spec.select5.i.i18.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i17.i, i32 %125)
   br label %DOFObjectID_GetClassSize.exit.i.i84
 
 .thread.i.i.i20.i:                                ; preds = %135
@@ -7381,7 +7381,7 @@ DOFObjectID_HasAttributes.exit.i82:               ; preds = %.thread.i.i.i.i94, 
   br label %DOFObjectID_GetClassSize.exit.i.i84
 
 DOFObjectID_GetClassSize.exit.i.i84:              ; preds = %.thread.i.i.i20.i, %137
-  %.0.i.i19.i = phi i32 [ %spec.select.i.i21.i, %.thread.i.i.i20.i ], [ %spec.select4.i.i18.i, %137 ]
+  %.0.i.i19.i = phi i32 [ %spec.select.i.i21.i, %.thread.i.i.i20.i ], [ %spec.select5.i.i18.i, %137 ]
   switch i8 %127, label %.thread.i.i.i.i.i92 [
     i8 2, label %140
     i8 3, label %139
@@ -7392,7 +7392,7 @@ DOFObjectID_GetClassSize.exit.i.i84:              ; preds = %.thread.i.i.i20.i, 
 
 140:                                              ; preds = %139, %DOFObjectID_GetClassSize.exit.i.i84
   %.017.i.i.i.i.i85 = phi i32 [ 4, %139 ], [ 2, %DOFObjectID_GetClassSize.exit.i.i84 ]
-  %spec.select4.i.i.i.i86 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i.i85, i32 %125)
+  %spec.select5.i.i.i.i86 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i.i85, i32 %125)
   br label %DOFObjectID_GetBaseSize.exit.i87
 
 .thread.i.i.i.i.i92:                              ; preds = %DOFObjectID_GetClassSize.exit.i.i84
@@ -7401,7 +7401,7 @@ DOFObjectID_GetClassSize.exit.i.i84:              ; preds = %.thread.i.i.i20.i, 
   br label %DOFObjectID_GetBaseSize.exit.i87
 
 DOFObjectID_GetBaseSize.exit.i87:                 ; preds = %.thread.i.i.i.i.i92, %140
-  %.0.i.i.i.i88 = phi i32 [ %spec.select.i.i.i.i93, %.thread.i.i.i.i.i92 ], [ %spec.select4.i.i.i.i86, %140 ]
+  %.0.i.i.i.i88 = phi i32 [ %spec.select.i.i.i.i93, %.thread.i.i.i.i.i92 ], [ %spec.select5.i.i.i.i86, %140 ]
   %142 = zext nneg i32 %.0.i.i.i.i88 to i64
   %143 = getelementptr i8, ptr %4, i64 %142
   %144 = load i8, ptr %143, align 1
@@ -7503,8 +7503,8 @@ DOFObjectID_GetBaseSize.exit.i87:                 ; preds = %.thread.i.i.i.i.i92
   br i1 %181, label %.thread.i113, label %183
 
 .thread.i113:                                     ; preds = %171, %._crit_edge.i110
-  %.0.lcssa122125.i112 = phi i32 [ %.1.i107, %._crit_edge.i110 ], [ 0, %171 ]
-  %182 = add i32 %.0.lcssa122125.i112, %155
+  %.0.lcssa125128.i112 = phi i32 [ %.1.i107, %._crit_edge.i110 ], [ 0, %171 ]
+  %182 = add i32 %.0.lcssa125128.i112, %155
   br label %186
 
 183:                                              ; preds = %._crit_edge.i110
@@ -7671,7 +7671,7 @@ DOFObjectID_GetIDClass.exit:                      ; preds = %.lr.ph.i.i
 
 82:                                               ; preds = %81, %60
   %.017.i.i.i.i = phi i32 [ 4, %81 ], [ 2, %60 ]
-  %spec.select4.i.i.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i, i32 %78)
+  %spec.select5.i.i.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i, i32 %78)
   br label %DOFObjectID_GetDataSize.exit.i
 
 .thread.i.i.i.i:                                  ; preds = %60
@@ -7680,7 +7680,7 @@ DOFObjectID_GetIDClass.exit:                      ; preds = %.lr.ph.i.i
   br label %DOFObjectID_GetDataSize.exit.i
 
 DOFObjectID_GetDataSize.exit.i:                   ; preds = %.thread.i.i.i.i, %82
-  %.0.i.i.i = phi i32 [ %spec.select.i.i.i, %.thread.i.i.i.i ], [ %spec.select4.i.i.i, %82 ]
+  %.0.i.i.i = phi i32 [ %spec.select.i.i.i, %.thread.i.i.i.i ], [ %spec.select5.i.i.i, %82 ]
   %84 = zext nneg i32 %.0.i.i.i to i64
   %85 = getelementptr i8, ptr %6, i64 %84
   %86 = load i8, ptr %85, align 1
@@ -7699,7 +7699,7 @@ DOFObjectID_GetDataSize.exit.i:                   ; preds = %.thread.i.i.i.i, %8
 
 90:                                               ; preds = %89, %88
   %.017.i.i.i = phi i32 [ 4, %89 ], [ 2, %88 ]
-  %spec.select4.i.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i, i32 %78)
+  %spec.select5.i.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i, i32 %78)
   br label %DOFObjectID_GetClassSize.exit.i
 
 .thread.i.i.i:                                    ; preds = %88
@@ -7708,7 +7708,7 @@ DOFObjectID_GetDataSize.exit.i:                   ; preds = %.thread.i.i.i.i, %8
   br label %DOFObjectID_GetClassSize.exit.i
 
 DOFObjectID_GetClassSize.exit.i:                  ; preds = %.thread.i.i.i, %90
-  %.0.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ %spec.select4.i.i, %90 ]
+  %.0.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ %spec.select5.i.i, %90 ]
   %92 = zext nneg i32 %.0.i.i to i64
   %93 = getelementptr i8, ptr %6, i64 %92
   %94 = getelementptr i8, ptr %93, i64 1
@@ -7726,7 +7726,7 @@ DOFObjectID_GetData.exit:                         ; preds = %DOFObjectID_GetData
 
 96:                                               ; preds = %95, %DOFObjectID_GetData.exit
   %.017.i.i.i97 = phi i32 [ 4, %95 ], [ 2, %DOFObjectID_GetData.exit ]
-  %spec.select4.i.i98 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i97, i32 %78)
+  %spec.select5.i.i98 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i97, i32 %78)
   br label %DOFObjectID_GetDataSize.exit
 
 .thread.i.i.i101:                                 ; preds = %DOFObjectID_GetData.exit
@@ -7735,7 +7735,7 @@ DOFObjectID_GetData.exit:                         ; preds = %DOFObjectID_GetData
   br label %DOFObjectID_GetDataSize.exit
 
 DOFObjectID_GetDataSize.exit:                     ; preds = %96, %.thread.i.i.i101
-  %.0.i.i100 = phi i32 [ %spec.select.i.i102, %.thread.i.i.i101 ], [ %spec.select4.i.i98, %96 ]
+  %.0.i.i100 = phi i32 [ %spec.select.i.i102, %.thread.i.i.i101 ], [ %spec.select5.i.i98, %96 ]
   %98 = zext nneg i32 %.0.i.i100 to i64
   %99 = getelementptr i8, ptr %6, i64 %98
   %100 = load i8, ptr %99, align 1
@@ -7759,7 +7759,7 @@ DOFObjectID_GetDataSize.exit:                     ; preds = %96, %.thread.i.i.i1
 
 112:                                              ; preds = %111, %DOFObjectID_GetDataSize.exit
   %.017.i.i.i103 = phi i32 [ 4, %111 ], [ 2, %DOFObjectID_GetDataSize.exit ]
-  %spec.select4.i.i104 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i103, i32 %108)
+  %spec.select5.i.i104 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i103, i32 %108)
   br label %DOFObjectID_HasAttributes.exit
 
 .thread.i.i.i107:                                 ; preds = %DOFObjectID_GetDataSize.exit
@@ -7768,7 +7768,7 @@ DOFObjectID_GetDataSize.exit:                     ; preds = %96, %.thread.i.i.i1
   br label %DOFObjectID_HasAttributes.exit
 
 DOFObjectID_HasAttributes.exit:                   ; preds = %112, %.thread.i.i.i107
-  %.0.i.i106 = phi i32 [ %spec.select.i.i108, %.thread.i.i.i107 ], [ %spec.select4.i.i104, %112 ]
+  %.0.i.i106 = phi i32 [ %spec.select.i.i108, %.thread.i.i.i107 ], [ %spec.select5.i.i104, %112 ]
   %114 = zext nneg i32 %.0.i.i106 to i64
   %115 = getelementptr i8, ptr %6, i64 %114
   %116 = load i8, ptr %115, align 1
@@ -7786,7 +7786,7 @@ DOFObjectID_HasAttributes.exit:                   ; preds = %112, %.thread.i.i.i
 
 120:                                              ; preds = %119, %118
   %.017.i.i.i.i109 = phi i32 [ 4, %119 ], [ 2, %118 ]
-  %spec.select4.i.i.i110 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i109, i32 %108)
+  %spec.select5.i.i.i110 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i109, i32 %108)
   br label %DOFObjectID_HasAttributes.exit.i
 
 .thread.i.i.i.i113:                               ; preds = %118
@@ -7795,7 +7795,7 @@ DOFObjectID_HasAttributes.exit:                   ; preds = %112, %.thread.i.i.i
   br label %DOFObjectID_HasAttributes.exit.i
 
 DOFObjectID_HasAttributes.exit.i:                 ; preds = %.thread.i.i.i.i113, %120
-  %.0.i.i.i111 = phi i32 [ %spec.select.i.i.i114, %.thread.i.i.i.i113 ], [ %spec.select4.i.i.i110, %120 ]
+  %.0.i.i.i111 = phi i32 [ %spec.select.i.i.i114, %.thread.i.i.i.i113 ], [ %spec.select5.i.i.i110, %120 ]
   %122 = zext nneg i32 %.0.i.i.i111 to i64
   %123 = getelementptr i8, ptr %6, i64 %122
   %124 = load i8, ptr %123, align 1
@@ -7820,7 +7820,7 @@ DOFObjectID_GetAttributeCount.exit.thread:        ; preds = %DOFObjectID_HasAttr
 
 131:                                              ; preds = %130, %129
   %.017.i.i.i11.i = phi i32 [ 4, %130 ], [ 2, %129 ]
-  %spec.select4.i.i12.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i11.i, i32 %108)
+  %spec.select5.i.i12.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i11.i, i32 %108)
   br label %DOFObjectID_GetClassSize.exit.i.i
 
 .thread.i.i.i14.i:                                ; preds = %129
@@ -7829,7 +7829,7 @@ DOFObjectID_GetAttributeCount.exit.thread:        ; preds = %DOFObjectID_HasAttr
   br label %DOFObjectID_GetClassSize.exit.i.i
 
 DOFObjectID_GetClassSize.exit.i.i:                ; preds = %.thread.i.i.i14.i, %131
-  %.0.i.i13.i = phi i32 [ %spec.select.i.i15.i, %.thread.i.i.i14.i ], [ %spec.select4.i.i12.i, %131 ]
+  %.0.i.i13.i = phi i32 [ %spec.select.i.i15.i, %.thread.i.i.i14.i ], [ %spec.select5.i.i12.i, %131 ]
   switch i8 %110, label %.thread.i.i.i.i.i [
     i8 2, label %134
     i8 3, label %133
@@ -7840,7 +7840,7 @@ DOFObjectID_GetClassSize.exit.i.i:                ; preds = %.thread.i.i.i14.i, 
 
 134:                                              ; preds = %133, %DOFObjectID_GetClassSize.exit.i.i
   %.017.i.i.i.i.i = phi i32 [ 4, %133 ], [ 2, %DOFObjectID_GetClassSize.exit.i.i ]
-  %spec.select4.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i.i, i32 %108)
+  %spec.select5.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i.i, i32 %108)
   br label %DOFObjectID_GetBaseSize.exit.i
 
 .thread.i.i.i.i.i:                                ; preds = %DOFObjectID_GetClassSize.exit.i.i
@@ -7849,7 +7849,7 @@ DOFObjectID_GetClassSize.exit.i.i:                ; preds = %.thread.i.i.i14.i, 
   br label %DOFObjectID_GetBaseSize.exit.i
 
 DOFObjectID_GetBaseSize.exit.i:                   ; preds = %.thread.i.i.i.i.i, %134
-  %.0.i.i.i.i = phi i32 [ %spec.select.i.i.i.i, %.thread.i.i.i.i.i ], [ %spec.select4.i.i.i.i, %134 ]
+  %.0.i.i.i.i = phi i32 [ %spec.select.i.i.i.i, %.thread.i.i.i.i.i ], [ %spec.select5.i.i.i.i, %134 ]
   %136 = zext nneg i32 %.0.i.i.i.i to i64
   %137 = getelementptr i8, ptr %6, i64 %136
   %138 = load i8, ptr %137, align 1
@@ -7861,9 +7861,9 @@ DOFObjectID_GetBaseSize.exit.i:                   ; preds = %.thread.i.i.i.i.i, 
   %144 = getelementptr i8, ptr %6, i64 %143
   %145 = load i8, ptr %144, align 1
   %.not16.i = icmp sgt i8 %145, -1
-  br i1 %.not16.i, label %DOFObjectID_GetAttributeCount.exit.thread176, label %.lr.ph.i
+  br i1 %.not16.i, label %DOFObjectID_GetAttributeCount.exit.thread179, label %.lr.ph.i
 
-DOFObjectID_GetAttributeCount.exit.thread176:     ; preds = %DOFObjectID_GetBaseSize.exit.i
+DOFObjectID_GetAttributeCount.exit.thread179:     ; preds = %DOFObjectID_GetBaseSize.exit.i
   %146 = add i32 %106, 1
   %147 = zext i32 %106 to i64
   %148 = getelementptr i8, ptr %1, i64 %147
@@ -7891,9 +7891,9 @@ DOFObjectID_GetAttributeCount.exit:               ; preds = %.lr.ph.i
   %.not170 = icmp eq i8 %149, 0
   br i1 %.not170, label %DOFObjectID_GetAttributeAtIndex.exit._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %DOFObjectID_GetAttributeCount.exit.thread176, %DOFObjectID_GetAttributeCount.exit
-  %159 = phi i32 [ %146, %DOFObjectID_GetAttributeCount.exit.thread176 ], [ %156, %DOFObjectID_GetAttributeCount.exit ]
-  %.09.i179 = phi i8 [ 1, %DOFObjectID_GetAttributeCount.exit.thread176 ], [ %149, %DOFObjectID_GetAttributeCount.exit ]
+.lr.ph.preheader:                                 ; preds = %DOFObjectID_GetAttributeCount.exit.thread179, %DOFObjectID_GetAttributeCount.exit
+  %159 = phi i32 [ %146, %DOFObjectID_GetAttributeCount.exit.thread179 ], [ %156, %DOFObjectID_GetAttributeCount.exit ]
+  %.09.i182 = phi i8 [ 1, %DOFObjectID_GetAttributeCount.exit.thread179 ], [ %149, %DOFObjectID_GetAttributeCount.exit ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %247
@@ -7917,7 +7917,7 @@ DOFObjectID_GetAttributeCount.exit:               ; preds = %.lr.ph.i
 
 167:                                              ; preds = %166, %161
   %.017.i.i.i.i115 = phi i32 [ 4, %166 ], [ 2, %161 ]
-  %spec.select4.i.i.i116 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i115, i32 %163)
+  %spec.select5.i.i.i116 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i115, i32 %163)
   br label %DOFObjectID_HasAttributes.exit.i117
 
 .thread.i.i.i.i128:                               ; preds = %161
@@ -7926,7 +7926,7 @@ DOFObjectID_GetAttributeCount.exit:               ; preds = %.lr.ph.i
   br label %DOFObjectID_HasAttributes.exit.i117
 
 DOFObjectID_HasAttributes.exit.i117:              ; preds = %.thread.i.i.i.i128, %167
-  %.0.i.i.i118 = phi i32 [ %spec.select.i.i.i129, %.thread.i.i.i.i128 ], [ %spec.select4.i.i.i116, %167 ]
+  %.0.i.i.i118 = phi i32 [ %spec.select.i.i.i129, %.thread.i.i.i.i128 ], [ %spec.select5.i.i.i116, %167 ]
   %169 = zext nneg i32 %.0.i.i.i118 to i64
   %170 = getelementptr i8, ptr %6, i64 %169
   %171 = load i8, ptr %170, align 1
@@ -7944,7 +7944,7 @@ DOFObjectID_HasAttributes.exit.i117:              ; preds = %.thread.i.i.i.i128,
 
 175:                                              ; preds = %174, %173
   %.017.i.i.i17.i = phi i32 [ 4, %174 ], [ 2, %173 ]
-  %spec.select4.i.i18.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i17.i, i32 %163)
+  %spec.select5.i.i18.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i17.i, i32 %163)
   br label %DOFObjectID_GetClassSize.exit.i.i119
 
 .thread.i.i.i20.i:                                ; preds = %173
@@ -7953,7 +7953,7 @@ DOFObjectID_HasAttributes.exit.i117:              ; preds = %.thread.i.i.i.i128,
   br label %DOFObjectID_GetClassSize.exit.i.i119
 
 DOFObjectID_GetClassSize.exit.i.i119:             ; preds = %.thread.i.i.i20.i, %175
-  %.0.i.i19.i = phi i32 [ %spec.select.i.i21.i, %.thread.i.i.i20.i ], [ %spec.select4.i.i18.i, %175 ]
+  %.0.i.i19.i = phi i32 [ %spec.select.i.i21.i, %.thread.i.i.i20.i ], [ %spec.select5.i.i18.i, %175 ]
   switch i8 %165, label %.thread.i.i.i.i.i126 [
     i8 2, label %178
     i8 3, label %177
@@ -7964,7 +7964,7 @@ DOFObjectID_GetClassSize.exit.i.i119:             ; preds = %.thread.i.i.i20.i, 
 
 178:                                              ; preds = %177, %DOFObjectID_GetClassSize.exit.i.i119
   %.017.i.i.i.i.i120 = phi i32 [ 4, %177 ], [ 2, %DOFObjectID_GetClassSize.exit.i.i119 ]
-  %spec.select4.i.i.i.i121 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i.i120, i32 %163)
+  %spec.select5.i.i.i.i121 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i.i120, i32 %163)
   br label %DOFObjectID_GetBaseSize.exit.i122
 
 .thread.i.i.i.i.i126:                             ; preds = %DOFObjectID_GetClassSize.exit.i.i119
@@ -7973,7 +7973,7 @@ DOFObjectID_GetClassSize.exit.i.i119:             ; preds = %.thread.i.i.i20.i, 
   br label %DOFObjectID_GetBaseSize.exit.i122
 
 DOFObjectID_GetBaseSize.exit.i122:                ; preds = %.thread.i.i.i.i.i126, %178
-  %.0.i.i.i.i123 = phi i32 [ %spec.select.i.i.i.i127, %.thread.i.i.i.i.i126 ], [ %spec.select4.i.i.i.i121, %178 ]
+  %.0.i.i.i.i123 = phi i32 [ %spec.select.i.i.i.i127, %.thread.i.i.i.i.i126 ], [ %spec.select5.i.i.i.i121, %178 ]
   %180 = zext nneg i32 %.0.i.i.i.i123 to i64
   %181 = getelementptr i8, ptr %6, i64 %180
   %182 = load i8, ptr %181, align 1
@@ -8093,7 +8093,7 @@ DOFObjectID_GetAttributeAtIndex.exit:             ; preds = %.lr.ph.i124, %.lr.p
   %.pn = phi i32 [ %242, %239 ], [ %246, %243 ]
   %.8 = add i32 %.pn, %233
   %248 = add nuw i8 %.089166, 1
-  %exitcond.not = icmp eq i8 %248, %.09.i179
+  %exitcond.not = icmp eq i8 %248, %.09.i182
   br i1 %exitcond.not, label %DOFObjectID_GetAttributeAtIndex.exit._crit_edge, label %.lr.ph, !llvm.loop !47
 
 DOFObjectID_GetAttributeAtIndex.exit._crit_edge:  ; preds = %247, %DOFObjectID_GetAttributeAtIndex.exit, %DOFObjectID_GetAttributeCount.exit.thread, %DOFObjectID_GetAttributeCount.exit
@@ -8168,8 +8168,8 @@ define internal fastcc i32 @ObjectID_DataToString(ptr noundef readonly captures(
   br i1 %.not87, label %26, label %.lr.ph100.preheader
 
 .thread:                                          ; preds = %3
-  %.not87124 = icmp eq ptr %2, null
-  br i1 %.not87124, label %26, label %.loopexit
+  %.not87127 = icmp eq ptr %2, null
+  br i1 %.not87127, label %26, label %.loopexit
 
 .lr.ph100.preheader:                              ; preds = %14
   %wide.trip.count118 = zext nneg i32 %1 to i64
@@ -8200,11 +8200,11 @@ define internal fastcc i32 @ObjectID_DataToString(ptr noundef readonly captures(
   br label %22
 
 22:                                               ; preds = %.lr.ph100, %17
-  %.sink129 = phi i32 [ 2, %17 ], [ 1, %.lr.ph100 ]
-  %.sink128 = phi i32 [ %18, %17 ], [ %.07998, %.lr.ph100 ]
+  %.sink132 = phi i32 [ 2, %17 ], [ 1, %.lr.ph100 ]
+  %.sink131 = phi i32 [ %18, %17 ], [ %.07998, %.lr.ph100 ]
   %.sink = phi i8 [ %21, %17 ], [ %16, %.lr.ph100 ]
-  %23 = add i32 %.07998, %.sink129
-  %24 = zext i32 %.sink128 to i64
+  %23 = add i32 %.07998, %.sink132
+  %24 = zext i32 %.sink131 to i64
   %25 = getelementptr i8, ptr %2, i64 %24
   store i8 %.sink, ptr %25, align 1
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
@@ -8212,8 +8212,8 @@ define internal fastcc i32 @ObjectID_DataToString(ptr noundef readonly captures(
   br i1 %exitcond119.not, label %.loopexit, label %.lr.ph100, !llvm.loop !48
 
 26:                                               ; preds = %.thread, %14
-  %.0.lcssa122125 = phi i32 [ 0, %.thread ], [ %.1, %14 ]
-  %27 = add i32 %.0.lcssa122125, %1
+  %.0.lcssa125128 = phi i32 [ 0, %.thread ], [ %.1, %14 ]
+  %27 = add i32 %.0.lcssa125128, %1
   br label %.loopexit
 
 28:                                               ; preds = %._crit_edge
@@ -8433,9 +8433,9 @@ define internal i32 @dissect_dnp_1(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 37:                                               ; preds = %._crit_edge, %34
   %38 = phi i32 [ %.0108167.ph, %34 ], [ %33, %._crit_edge ]
-  %.0111166183188 = phi i32 [ %.0111166.ph, %34 ], [ %17, %._crit_edge ]
+  %.0111166191196 = phi i32 [ %.0111166.ph, %34 ], [ %17, %._crit_edge ]
   %.1113 = phi i32 [ %36, %34 ], [ %31, %._crit_edge ]
-  %39 = and i32 %.0111166183188, 4
+  %39 = and i32 %.0111166191196, 4
   %.not125 = icmp eq i32 %39, 0
   br i1 %.not125, label %63, label %40
 
@@ -8515,7 +8515,7 @@ proto_item_set_generated.exit:                    ; preds = %69, %66, %63, %vali
   %.0161 = phi i32 [ %.022.lcssa.i, %validate_c3.exit ], [ 0, %63 ], [ 0, %66 ], [ 0, %69 ]
   %.0114 = phi i32 [ %62, %validate_c3.exit ], [ %.1113, %63 ], [ %.1113, %66 ], [ %.1113, %69 ]
   %.1 = phi i32 [ %.023.lcssa.i, %validate_c3.exit ], [ %38, %63 ], [ %38, %66 ], [ %38, %69 ]
-  %73 = and i32 %.0111166183188, 8
+  %73 = and i32 %.0111166191196, 8
   %.not126 = icmp eq i32 %73, 0
   br i1 %.not126, label %97, label %74
 
@@ -8712,9 +8712,9 @@ define internal i32 @determine_packet_length_1(ptr noundef %0, ptr readnone capt
   br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %19, %8, %.preheader
-  %.03438 = phi i32 [ %15, %.preheader ], [ 2, %8 ], [ %15, %19 ]
+  %.03539 = phi i32 [ %15, %.preheader ], [ 2, %8 ], [ %15, %19 ]
   %.1.lcssa = phi i32 [ 0, %.preheader ], [ 0, %8 ], [ %24, %19 ]
-  %25 = add i32 %.1.lcssa, %.03438
+  %25 = add i32 %.1.lcssa, %.03539
   br label %26
 
 26:                                               ; preds = %11, %4, %._crit_edge
@@ -9154,7 +9154,7 @@ proto_item_set_generated.exit527:                 ; preds = %176, %173, %dof_oid
   %213 = lshr i32 %184, 5
   %214 = and i32 %213, 3
   %215 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  switch i32 %214, label %default.unreachable680 [
+  switch i32 %214, label %default.unreachable724 [
     i32 0, label %.thread608
     i32 1, label %242
     i32 2, label %216
@@ -9164,7 +9164,7 @@ proto_item_set_generated.exit527:                 ; preds = %176, %173, %dof_oid
 216:                                              ; preds = %210
   br label %242
 
-default.unreachable680:                           ; preds = %210
+default.unreachable724:                           ; preds = %210
   unreachable
 
 .thread608:                                       ; preds = %210
@@ -9213,12 +9213,12 @@ default.unreachable680:                           ; preds = %210
   br label %proto_item_set_generated.exit530
 
 242:                                              ; preds = %210, %216
-  %.sink693.in = phi ptr [ %143, %216 ], [ %105, %210 ]
+  %.sink737.in = phi ptr [ %143, %216 ], [ %105, %210 ]
   %.sink.in = phi ptr [ %153, %216 ], [ %115, %210 ]
   store i8 1, ptr %215, align 8
-  %.sink693 = load i32, ptr %.sink693.in, align 4
+  %.sink737 = load i32, ptr %.sink737.in, align 4
   %243 = getelementptr inbounds nuw i8, ptr %15, i64 88
-  store i32 %.sink693, ptr %243, align 8
+  store i32 %.sink737, ptr %243, align 8
   %.sink = load ptr, ptr %.sink.in, align 8
   %244 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store ptr %.sink, ptr %244, align 8
@@ -11110,8 +11110,8 @@ read_c2.exit:                                     ; preds = %84, %91
   br label %.critedge372
 
 .critedge365.sink.split:                          ; preds = %129, %136
-  %.sink404 = phi ptr [ %137, %136 ], [ %131, %129 ]
-  call void @gcry_cipher_close(ptr noundef %.sink404)
+  %.sink423 = phi ptr [ %137, %136 ], [ %131, %129 ]
+  call void @gcry_cipher_close(ptr noundef %.sink423)
   br label %.critedge365
 
 .critedge365:                                     ; preds = %.critedge365.sink.split, %127
@@ -11119,8 +11119,8 @@ read_c2.exit:                                     ; preds = %84, %91
   br label %.critedge372
 
 .critedge.sink.split:                             ; preds = %101, %113
-  %.sink405 = phi ptr [ %114, %113 ], [ %108, %101 ]
-  call void @gcry_cipher_close(ptr noundef %.sink405)
+  %.sink424 = phi ptr [ %114, %113 ], [ %108, %101 ]
+  call void @gcry_cipher_close(ptr noundef %.sink424)
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %99
@@ -11317,10 +11317,10 @@ read_c2.exit:                                     ; preds = %84, %91
   br label %449
 
 .sink.split:                                      ; preds = %255, %250, %260, %256, %251
-  %.sink408 = phi i64 [ 4, %251 ], [ 4, %256 ], [ 8, %260 ], [ 4, %250 ], [ 4, %255 ]
-  %.sink406 = phi i32 [ %254, %251 ], [ %259, %256 ], [ %267, %260 ], [ 0, %250 ], [ 0, %255 ]
-  %271 = getelementptr inbounds nuw i8, ptr %241, i64 %.sink408
-  store i32 %.sink406, ptr %271, align 4
+  %.sink427 = phi i64 [ 4, %251 ], [ 4, %256 ], [ 8, %260 ], [ 4, %250 ], [ 4, %255 ]
+  %.sink425 = phi i32 [ %254, %251 ], [ %259, %256 ], [ %267, %260 ], [ 0, %250 ], [ 0, %255 ]
+  %271 = getelementptr inbounds nuw i8, ptr %241, i64 %.sink427
+  store i32 %.sink425, ptr %271, align 4
   br label %272
 
 272:                                              ; preds = %.sink.split, %212
@@ -12554,8 +12554,8 @@ oap_1_tree_add_alias.exit:                        ; preds = %275
   %312 = getelementptr inbounds nuw i8, ptr %293, i64 8
   store i16 %311, ptr %312, align 8
   %313 = call ptr @wmem_file_scope()
-  %.mask515 = and i32 %310, 65535
-  %314 = zext nneg i32 %.mask515 to i64
+  %.mask530 = and i32 %310, 65535
+  %314 = zext nneg i32 %.mask530 to i64
   %315 = call noalias ptr @wmem_alloc0(ptr noundef %313, i64 noundef %314) #24
   store ptr %315, ptr %293, align 8
   %316 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %315, i32 noundef %284, i64 noundef %314)
@@ -14245,7 +14245,7 @@ proto_item_set_generated.exit:                    ; preds = %45, %62, %65
   %233 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %79, i64 noundef 64)
   %234 = call i32 @gcry_cipher_open(ptr noundef nonnull %9, i32 noundef 7, i32 noundef 1, i32 noundef 0)
   %.not368 = icmp eq i32 %234, 0
-  br i1 %.not368, label %235, label %.preheader423
+  br i1 %.not368, label %235, label %.preheader449
 
 235:                                              ; preds = %232
   %236 = load ptr, ptr %9, align 8
@@ -14265,13 +14265,13 @@ proto_item_set_generated.exit:                    ; preds = %45, %62, %65
 245:                                              ; preds = %240, %235
   %246 = load ptr, ptr %9, align 8
   call void @gcry_cipher_close(ptr noundef %246)
-  br label %.preheader423
+  br label %.preheader449
 
-.preheader423:                                    ; preds = %245, %232
+.preheader449:                                    ; preds = %245, %232
   br label %247
 
-247:                                              ; preds = %.preheader423, %247
-  %indvars.iv = phi i64 [ %indvars.iv.next, %247 ], [ 0, %.preheader423 ]
+247:                                              ; preds = %.preheader449, %247
+  %indvars.iv = phi i64 [ %indvars.iv.next, %247 ], [ 0, %.preheader449 ]
   %248 = or disjoint i64 %indvars.iv, 32
   %249 = getelementptr [64 x i8], ptr %8, i64 0, i64 %248
   %250 = load i8, ptr %249, align 1

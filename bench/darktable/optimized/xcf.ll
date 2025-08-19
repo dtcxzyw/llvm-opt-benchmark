@@ -289,8 +289,8 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br label %137
 
 137:                                              ; preds = %124, %132
-  %.sink272 = phi ptr [ %136, %132 ], [ %131, %124 ]
-  %138 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef nonnull %44, i32 noundef 3, ptr noundef %.sink272) #17
+  %.sink293 = phi ptr [ %136, %132 ], [ %131, %124 ]
+  %138 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef nonnull %44, i32 noundef 3, ptr noundef %.sink293) #17
   %139 = load i32, ptr %54, align 4, !tbaa !17
   switch i32 %139, label %.thread235 [
     i32 8, label %140

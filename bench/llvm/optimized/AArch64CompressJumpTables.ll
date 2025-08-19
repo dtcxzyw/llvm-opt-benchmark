@@ -663,19 +663,19 @@ _ZN4llvm15SmallVectorImplISt4pairIjPNS_8MCSymbolEEE7reserveEm.exit.i.i.i33.i: ; 
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %153, %159, %.sink.split.i.i.i40.i, %127, %133, %.sink.split.i.i.i.i
-  %.sink66.in.i = phi ptr [ %129, %.sink.split.i.i.i.i ], [ %129, %133 ], [ %129, %127 ], [ %155, %.sink.split.i.i.i40.i ], [ %155, %159 ], [ %155, %153 ]
-  %.sink64.i = phi i32 [ 1, %.sink.split.i.i.i.i ], [ 1, %133 ], [ 1, %127 ], [ 2, %.sink.split.i.i.i40.i ], [ 2, %159 ], [ 2, %153 ]
+  %.sink74.in.i = phi ptr [ %129, %.sink.split.i.i.i.i ], [ %129, %133 ], [ %129, %127 ], [ %155, %.sink.split.i.i.i40.i ], [ %155, %159 ], [ %155, %153 ]
+  %.sink72.i = phi i32 [ 1, %.sink.split.i.i.i.i ], [ 1, %133 ], [ 1, %127 ], [ 2, %.sink.split.i.i.i40.i ], [ 2, %159 ], [ 2, %153 ]
   %.sink.i = phi ptr [ %128, %.sink.split.i.i.i.i ], [ %128, %133 ], [ %128, %127 ], [ %154, %.sink.split.i.i.i40.i ], [ %154, %159 ], [ %154, %153 ]
-  %.sink60.i = phi i64 [ -27456, %.sink.split.i.i.i.i ], [ -27456, %133 ], [ -27456, %127 ], [ -27392, %.sink.split.i.i.i40.i ], [ -27392, %159 ], [ -27392, %153 ]
-  %.sink66.i = load ptr, ptr %.sink66.in.i, align 8, !tbaa !28
-  %177 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink66.i, i64 %100
-  store i32 %.sink64.i, ptr %177, align 8, !tbaa !372
+  %.sink68.i = phi i64 [ -27456, %.sink.split.i.i.i.i ], [ -27456, %133 ], [ -27456, %127 ], [ -27392, %.sink.split.i.i.i40.i ], [ -27392, %159 ], [ -27392, %153 ]
+  %.sink74.i = load ptr, ptr %.sink74.in.i, align 8, !tbaa !28
+  %177 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink74.i, i64 %100
+  store i32 %.sink72.i, ptr %177, align 8, !tbaa !372
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   store ptr %.sink.i, ptr %178, align 8, !tbaa !374
   %179 = load ptr, ptr %7, align 8, !tbaa !158
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load ptr, ptr %180, align 8, !tbaa !376
-  %182 = getelementptr inbounds i8, ptr %181, i64 %.sink60.i
+  %182 = getelementptr inbounds i8, ptr %181, i64 %.sink68.i
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.021.036, ptr noundef nonnull align 8 dereferenceable(32) %182) #13
   br label %_ZN12_GLOBAL__N_125AArch64CompressJumpTables17compressJumpTableERN4llvm12MachineInstrEi.exit
 

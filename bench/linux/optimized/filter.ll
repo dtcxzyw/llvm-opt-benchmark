@@ -6706,9 +6706,9 @@ define dso_local range(i64 -2147483648, 1) i64 @bpf_skb_adjust_room(i64 noundef 
   br i1 %74, label %82, label %155
 
 82:                                               ; preds = %72
-  br i1 %81, label %385, label %.thread29
+  br i1 %81, label %385, label %.thread37
 
-.thread29:                                        ; preds = %82
+.thread37:                                        ; preds = %82
   %83 = lshr i64 %3, 56
   %84 = trunc nuw nsw i64 %83 to i16
   %85 = and i64 %3, 6
@@ -6830,13 +6830,13 @@ define dso_local range(i64 -2147483648, 1) i64 @bpf_skb_adjust_room(i64 noundef 
   %161 = getelementptr i8, ptr %50, i64 %77
   br i1 %81, label %180, label %162
 
-162:                                              ; preds = %.thread29, %155
-  %163 = phi ptr [ %88, %.thread29 ], [ %161, %155 ]
-  %164 = phi ptr [ %87, %.thread29 ], [ %160, %155 ]
-  %165 = phi i1 [ %86, %.thread29 ], [ %159, %155 ]
-  %166 = phi i64 [ %85, %.thread29 ], [ %158, %155 ]
-  %167 = phi i16 [ %84, %.thread29 ], [ %157, %155 ]
-  %168 = phi i64 [ %83, %.thread29 ], [ %156, %155 ]
+162:                                              ; preds = %.thread37, %155
+  %163 = phi ptr [ %88, %.thread37 ], [ %161, %155 ]
+  %164 = phi ptr [ %87, %.thread37 ], [ %160, %155 ]
+  %165 = phi i1 [ %86, %.thread37 ], [ %159, %155 ]
+  %166 = phi i64 [ %85, %.thread37 ], [ %158, %155 ]
+  %167 = phi i16 [ %84, %.thread37 ], [ %157, %155 ]
+  %168 = phi i64 [ %83, %.thread37 ], [ %156, %155 ]
   %169 = getelementptr i8, ptr %50, i64 %77
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
   %171 = load i32, ptr %170, align 8
@@ -13113,7 +13113,7 @@ define dso_local noundef i64 @bpf_sock_ops_store_hdr_opt(i64 noundef %0, i64 nou
 
 32:                                               ; preds = %29
   %33 = icmp ult i8 %20, 4
-  br i1 %33, label %.thread.thread, label %.thread28
+  br i1 %33, label %.thread.thread, label %.thread39
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -13124,9 +13124,9 @@ define dso_local noundef i64 @bpf_sock_ops_store_hdr_opt(i64 noundef %0, i64 nou
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %41 = load ptr, ptr %40, align 8
   %42 = icmp ult ptr %39, %41
-  br i1 %42, label %.split.us.preheader, label %.thread.thread32
+  br i1 %42, label %.split.us.preheader, label %.thread.thread43
 
-.thread28:                                        ; preds = %32
+.thread39:                                        ; preds = %32
   %43 = getelementptr i8, ptr %7, i64 2
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %45 = load ptr, ptr %44, align 8
@@ -13136,9 +13136,9 @@ define dso_local noundef i64 @bpf_sock_ops_store_hdr_opt(i64 noundef %0, i64 nou
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %50 = load ptr, ptr %49, align 8
   %51 = icmp ult ptr %48, %50
-  br i1 %51, label %.split.preheader, label %.thread.thread32
+  br i1 %51, label %.split.preheader, label %.thread.thread43
 
-.split.preheader:                                 ; preds = %.thread28
+.split.preheader:                                 ; preds = %.thread39
   %52 = ptrtoint ptr %50 to i64
   br label %.split
 
@@ -13177,7 +13177,7 @@ define dso_local noundef i64 @bpf_sock_ops_store_hdr_opt(i64 noundef %0, i64 nou
   %70 = phi i64 [ %63, %67 ], [ 1, %.split.us ]
   %71 = getelementptr i8, ptr %54, i64 %70
   %72 = icmp ult ptr %71, %41
-  br i1 %72, label %.split.us, label %.thread.thread32, !llvm.loop !143
+  br i1 %72, label %.split.us, label %.thread.thread43, !llvm.loop !143
 
 .split:                                           ; preds = %.split.preheader, %75
   %73 = phi ptr [ %77, %75 ], [ %48, %.split.preheader ]
@@ -13191,7 +13191,7 @@ define dso_local noundef i64 @bpf_sock_ops_store_hdr_opt(i64 noundef %0, i64 nou
   %76 = phi i64 [ %86, %94 ], [ %86, %90 ], [ 1, %.split ]
   %77 = getelementptr i8, ptr %73, i64 %76
   %78 = icmp ult ptr %77, %50
-  br i1 %78, label %.split, label %.thread.thread32, !llvm.loop !143
+  br i1 %78, label %.split, label %.thread.thread43, !llvm.loop !143
 
 79:                                               ; preds = %.split
   %80 = ptrtoint ptr %73 to i64
@@ -13214,7 +13214,7 @@ define dso_local noundef i64 @bpf_sock_ops_store_hdr_opt(i64 noundef %0, i64 nou
 
 92:                                               ; preds = %90
   %93 = icmp ult i8 %85, 4
-  br i1 %93, label %.thread.thread32, label %94
+  br i1 %93, label %.thread.thread43, label %94
 
 94:                                               ; preds = %92
   %95 = getelementptr i8, ptr %73, i64 2
@@ -13232,11 +13232,11 @@ define dso_local noundef i64 @bpf_sock_ops_store_hdr_opt(i64 noundef %0, i64 nou
 .thread:                                          ; preds = %.split16.us
   %101 = ptrtoint ptr %.us-phi17 to i64
   %.not = icmp eq ptr %.us-phi17, inttoptr (i64 -42 to ptr)
-  br i1 %.not, label %.thread.thread32, label %.thread.thread
+  br i1 %.not, label %.thread.thread43, label %.thread.thread
 
-.thread.thread32:                                 ; preds = %92, %75, %69, %.thread28, %34, %.thread
-  %102 = phi ptr [ %98, %.thread ], [ %49, %.thread28 ], [ %40, %34 ], [ %40, %69 ], [ %49, %75 ], [ %49, %92 ]
-  %103 = phi ptr [ %99, %.thread ], [ %50, %.thread28 ], [ %41, %34 ], [ %41, %69 ], [ %50, %75 ], [ %50, %92 ]
+.thread.thread43:                                 ; preds = %92, %75, %69, %.thread39, %34, %.thread
+  %102 = phi ptr [ %98, %.thread ], [ %49, %.thread39 ], [ %40, %34 ], [ %40, %69 ], [ %49, %75 ], [ %49, %92 ]
+  %103 = phi ptr [ %99, %.thread ], [ %50, %.thread39 ], [ %41, %34 ], [ %41, %69 ], [ %50, %75 ], [ %50, %92 ]
   %104 = zext i8 %20 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %103, ptr align 1 %7, i64 %104, i1 false)
   %105 = load i8, ptr %26, align 2
@@ -13247,8 +13247,8 @@ define dso_local noundef i64 @bpf_sock_ops_store_hdr_opt(i64 noundef %0, i64 nou
   store ptr %108, ptr %102, align 8
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %.split, %83, %79, %60, %56, %.split.us, %.thread.thread32, %.thread, %.split16.us, %32, %25, %16, %12, %5
-  %109 = phi i64 [ 0, %.thread.thread32 ], [ -1, %5 ], [ -22, %12 ], [ -22, %16 ], [ -28, %25 ], [ -22, %32 ], [ -17, %.split16.us ], [ %101, %.thread ], [ -28, %.split.us ], [ -14, %60 ], [ -14, %56 ], [ -28, %.split ], [ -14, %83 ], [ -14, %79 ]
+.thread.thread:                                   ; preds = %.split, %83, %79, %60, %56, %.split.us, %.thread.thread43, %.thread, %.split16.us, %32, %25, %16, %12, %5
+  %109 = phi i64 [ 0, %.thread.thread43 ], [ -1, %5 ], [ -22, %12 ], [ -22, %16 ], [ -28, %25 ], [ -22, %32 ], [ -17, %.split16.us ], [ %101, %.thread ], [ -28, %.split.us ], [ -14, %60 ], [ -14, %56 ], [ -28, %.split ], [ -14, %83 ], [ -14, %79 ]
   ret i64 %109
 }
 
@@ -18537,8 +18537,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre238 = lshr i8 %263, 4
   %326 = zext nneg i8 %.pre238 to i32
   %327 = icmp eq i32 %269, %326
-  %or.cond263 = select i1 %271, i1 true, i1 %327
-  %328 = sext i1 %or.cond263 to i32
+  %or.cond333 = select i1 %271, i1 true, i1 %327
+  %328 = sext i1 %or.cond333 to i32
   %329 = add nsw i32 %269, %328
   %330 = icmp eq i8 %264, %.pre238
   br i1 %330, label %331, label %339
@@ -18667,8 +18667,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre239 = lshr i8 %397, 4
   %406 = zext nneg i8 %.pre239 to i32
   %407 = icmp eq i32 %403, %406
-  %or.cond265 = select i1 %405, i1 true, i1 %407
-  %408 = sext i1 %or.cond265 to i32
+  %or.cond335 = select i1 %405, i1 true, i1 %407
+  %408 = sext i1 %or.cond335 to i32
   %409 = add nsw i32 %403, %408
   %410 = icmp eq i8 %398, %.pre239
   br i1 %410, label %411, label %419
@@ -18797,8 +18797,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre240 = lshr i8 %477, 4
   %486 = zext nneg i8 %.pre240 to i32
   %487 = icmp eq i32 %483, %486
-  %or.cond267 = select i1 %485, i1 true, i1 %487
-  %488 = sext i1 %or.cond267 to i32
+  %or.cond337 = select i1 %485, i1 true, i1 %487
+  %488 = sext i1 %or.cond337 to i32
   %489 = add nsw i32 %483, %488
   %490 = icmp eq i8 %478, %.pre240
   br i1 %490, label %491, label %499
@@ -18927,8 +18927,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre241 = lshr i8 %557, 4
   %566 = zext nneg i8 %.pre241 to i32
   %567 = icmp eq i32 %563, %566
-  %or.cond269 = select i1 %565, i1 true, i1 %567
-  %568 = sext i1 %or.cond269 to i32
+  %or.cond339 = select i1 %565, i1 true, i1 %567
+  %568 = sext i1 %or.cond339 to i32
   %569 = add nsw i32 %563, %568
   %570 = icmp eq i8 %558, %.pre241
   br i1 %570, label %571, label %579
@@ -19057,8 +19057,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre242 = lshr i8 %637, 4
   %646 = zext nneg i8 %.pre242 to i32
   %647 = icmp eq i32 %643, %646
-  %or.cond271 = select i1 %645, i1 true, i1 %647
-  %648 = sext i1 %or.cond271 to i32
+  %or.cond341 = select i1 %645, i1 true, i1 %647
+  %648 = sext i1 %or.cond341 to i32
   %649 = add nsw i32 %643, %648
   %650 = icmp eq i8 %638, %.pre242
   br i1 %650, label %651, label %659
@@ -19187,8 +19187,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre243 = lshr i8 %717, 4
   %726 = zext nneg i8 %.pre243 to i32
   %727 = icmp eq i32 %723, %726
-  %or.cond273 = select i1 %725, i1 true, i1 %727
-  %728 = sext i1 %or.cond273 to i32
+  %or.cond343 = select i1 %725, i1 true, i1 %727
+  %728 = sext i1 %or.cond343 to i32
   %729 = add nsw i32 %723, %728
   %730 = icmp eq i8 %718, %.pre243
   br i1 %730, label %731, label %739
@@ -19317,8 +19317,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre244 = lshr i8 %797, 4
   %806 = zext nneg i8 %.pre244 to i32
   %807 = icmp eq i32 %803, %806
-  %or.cond275 = select i1 %805, i1 true, i1 %807
-  %808 = sext i1 %or.cond275 to i32
+  %or.cond345 = select i1 %805, i1 true, i1 %807
+  %808 = sext i1 %or.cond345 to i32
   %809 = add nsw i32 %803, %808
   %810 = icmp eq i8 %798, %.pre244
   br i1 %810, label %811, label %819
@@ -19447,8 +19447,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre245 = lshr i8 %877, 4
   %886 = zext nneg i8 %.pre245 to i32
   %887 = icmp eq i32 %883, %886
-  %or.cond277 = select i1 %885, i1 true, i1 %887
-  %888 = sext i1 %or.cond277 to i32
+  %or.cond347 = select i1 %885, i1 true, i1 %887
+  %888 = sext i1 %or.cond347 to i32
   %889 = add nsw i32 %883, %888
   %890 = icmp eq i8 %878, %.pre245
   br i1 %890, label %891, label %899
@@ -19577,8 +19577,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre246 = lshr i8 %957, 4
   %966 = zext nneg i8 %.pre246 to i32
   %967 = icmp eq i32 %963, %966
-  %or.cond279 = select i1 %965, i1 true, i1 %967
-  %968 = sext i1 %or.cond279 to i32
+  %or.cond349 = select i1 %965, i1 true, i1 %967
+  %968 = sext i1 %or.cond349 to i32
   %969 = add nsw i32 %963, %968
   %970 = icmp eq i8 %958, %.pre246
   br i1 %970, label %971, label %979
@@ -19707,8 +19707,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre247 = lshr i8 %1037, 4
   %1046 = zext nneg i8 %.pre247 to i32
   %1047 = icmp eq i32 %1043, %1046
-  %or.cond281 = select i1 %1045, i1 true, i1 %1047
-  %1048 = sext i1 %or.cond281 to i32
+  %or.cond351 = select i1 %1045, i1 true, i1 %1047
+  %1048 = sext i1 %or.cond351 to i32
   %1049 = add nsw i32 %1043, %1048
   %1050 = icmp eq i8 %1038, %.pre247
   br i1 %1050, label %1051, label %1059
@@ -19837,8 +19837,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre248 = lshr i8 %1117, 4
   %1126 = zext nneg i8 %.pre248 to i32
   %1127 = icmp eq i32 %1123, %1126
-  %or.cond283 = select i1 %1125, i1 true, i1 %1127
-  %1128 = sext i1 %or.cond283 to i32
+  %or.cond353 = select i1 %1125, i1 true, i1 %1127
+  %1128 = sext i1 %or.cond353 to i32
   %1129 = add nsw i32 %1123, %1128
   %1130 = icmp eq i8 %1118, %.pre248
   br i1 %1130, label %1131, label %1139
@@ -19967,8 +19967,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre249 = lshr i8 %1197, 4
   %1206 = zext nneg i8 %.pre249 to i32
   %1207 = icmp eq i32 %1203, %1206
-  %or.cond285 = select i1 %1205, i1 true, i1 %1207
-  %1208 = sext i1 %or.cond285 to i32
+  %or.cond355 = select i1 %1205, i1 true, i1 %1207
+  %1208 = sext i1 %or.cond355 to i32
   %1209 = add nsw i32 %1203, %1208
   %1210 = icmp eq i8 %1198, %.pre249
   br i1 %1210, label %1211, label %1219
@@ -20097,8 +20097,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre250 = lshr i8 %1277, 4
   %1286 = zext nneg i8 %.pre250 to i32
   %1287 = icmp eq i32 %1283, %1286
-  %or.cond287 = select i1 %1285, i1 true, i1 %1287
-  %1288 = sext i1 %or.cond287 to i32
+  %or.cond357 = select i1 %1285, i1 true, i1 %1287
+  %1288 = sext i1 %or.cond357 to i32
   %1289 = add nsw i32 %1283, %1288
   %1290 = icmp eq i8 %1278, %.pre250
   br i1 %1290, label %1291, label %1299
@@ -20227,8 +20227,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre251 = lshr i8 %1357, 4
   %1366 = zext nneg i8 %.pre251 to i32
   %1367 = icmp eq i32 %1363, %1366
-  %or.cond289 = select i1 %1365, i1 true, i1 %1367
-  %1368 = sext i1 %or.cond289 to i32
+  %or.cond359 = select i1 %1365, i1 true, i1 %1367
+  %1368 = sext i1 %or.cond359 to i32
   %1369 = add nsw i32 %1363, %1368
   %1370 = icmp eq i8 %1358, %.pre251
   br i1 %1370, label %1371, label %1379
@@ -20357,8 +20357,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre252 = lshr i8 %1437, 4
   %1446 = zext nneg i8 %.pre252 to i32
   %1447 = icmp eq i32 %1443, %1446
-  %or.cond291 = select i1 %1445, i1 true, i1 %1447
-  %1448 = sext i1 %or.cond291 to i32
+  %or.cond361 = select i1 %1445, i1 true, i1 %1447
+  %1448 = sext i1 %or.cond361 to i32
   %1449 = add nsw i32 %1443, %1448
   %1450 = icmp eq i8 %1438, %.pre252
   br i1 %1450, label %1451, label %1459
@@ -20487,8 +20487,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre253 = lshr i8 %1517, 4
   %1526 = zext nneg i8 %.pre253 to i32
   %1527 = icmp eq i32 %1523, %1526
-  %or.cond293 = select i1 %1525, i1 true, i1 %1527
-  %1528 = sext i1 %or.cond293 to i32
+  %or.cond363 = select i1 %1525, i1 true, i1 %1527
+  %1528 = sext i1 %or.cond363 to i32
   %1529 = add nsw i32 %1523, %1528
   %1530 = icmp eq i8 %1518, %.pre253
   br i1 %1530, label %1531, label %1539
@@ -20617,8 +20617,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre254 = lshr i8 %1597, 4
   %1606 = zext nneg i8 %.pre254 to i32
   %1607 = icmp eq i32 %1603, %1606
-  %or.cond295 = select i1 %1605, i1 true, i1 %1607
-  %1608 = sext i1 %or.cond295 to i32
+  %or.cond365 = select i1 %1605, i1 true, i1 %1607
+  %1608 = sext i1 %or.cond365 to i32
   %1609 = add nsw i32 %1603, %1608
   %1610 = icmp eq i8 %1598, %.pre254
   br i1 %1610, label %1611, label %1619
@@ -20747,8 +20747,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre255 = lshr i8 %1677, 4
   %1686 = zext nneg i8 %.pre255 to i32
   %1687 = icmp eq i32 %1683, %1686
-  %or.cond297 = select i1 %1685, i1 true, i1 %1687
-  %1688 = sext i1 %or.cond297 to i32
+  %or.cond367 = select i1 %1685, i1 true, i1 %1687
+  %1688 = sext i1 %or.cond367 to i32
   %1689 = add nsw i32 %1683, %1688
   %1690 = icmp eq i8 %1678, %.pre255
   br i1 %1690, label %1691, label %1699
@@ -20877,8 +20877,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre256 = lshr i8 %1757, 4
   %1766 = zext nneg i8 %.pre256 to i32
   %1767 = icmp eq i32 %1763, %1766
-  %or.cond299 = select i1 %1765, i1 true, i1 %1767
-  %1768 = sext i1 %or.cond299 to i32
+  %or.cond369 = select i1 %1765, i1 true, i1 %1767
+  %1768 = sext i1 %or.cond369 to i32
   %1769 = add nsw i32 %1763, %1768
   %1770 = icmp eq i8 %1758, %.pre256
   br i1 %1770, label %1771, label %1779
@@ -21007,8 +21007,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre257 = lshr i8 %1837, 4
   %1846 = zext nneg i8 %.pre257 to i32
   %1847 = icmp eq i32 %1843, %1846
-  %or.cond301 = select i1 %1845, i1 true, i1 %1847
-  %1848 = sext i1 %or.cond301 to i32
+  %or.cond371 = select i1 %1845, i1 true, i1 %1847
+  %1848 = sext i1 %or.cond371 to i32
   %1849 = add nsw i32 %1843, %1848
   %1850 = icmp eq i8 %1838, %.pre257
   br i1 %1850, label %1851, label %1859
@@ -21137,8 +21137,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre258 = lshr i8 %1917, 4
   %1926 = zext nneg i8 %.pre258 to i32
   %1927 = icmp eq i32 %1923, %1926
-  %or.cond303 = select i1 %1925, i1 true, i1 %1927
-  %1928 = sext i1 %or.cond303 to i32
+  %or.cond373 = select i1 %1925, i1 true, i1 %1927
+  %1928 = sext i1 %or.cond373 to i32
   %1929 = add nsw i32 %1923, %1928
   %1930 = icmp eq i8 %1918, %.pre258
   br i1 %1930, label %1931, label %1939
@@ -21267,8 +21267,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre259 = lshr i8 %1997, 4
   %2006 = zext nneg i8 %.pre259 to i32
   %2007 = icmp eq i32 %2003, %2006
-  %or.cond305 = select i1 %2005, i1 true, i1 %2007
-  %2008 = sext i1 %or.cond305 to i32
+  %or.cond375 = select i1 %2005, i1 true, i1 %2007
+  %2008 = sext i1 %or.cond375 to i32
   %2009 = add nsw i32 %2003, %2008
   %2010 = icmp eq i8 %1998, %.pre259
   br i1 %2010, label %2011, label %2019
@@ -21397,8 +21397,8 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %.pre260 = lshr i8 %2077, 4
   %2086 = zext nneg i8 %.pre260 to i32
   %2087 = icmp eq i32 %2083, %2086
-  %or.cond307 = select i1 %2085, i1 true, i1 %2087
-  %2088 = sext i1 %or.cond307 to i32
+  %or.cond377 = select i1 %2085, i1 true, i1 %2087
+  %2088 = sext i1 %or.cond377 to i32
   %2089 = add nsw i32 %2083, %2088
   %2090 = icmp eq i8 %2078, %.pre260
   br i1 %2090, label %2091, label %2099
@@ -24421,8 +24421,8 @@ define internal fastcc range(i32 -22, 1) i32 @bpf_convert_filter(ptr noundef non
 
 63:                                               ; preds = %.preheader, %.backedge
   %64 = phi i64 [ %.be, %.backedge ], [ 0, %.preheader ]
-  %65 = phi ptr [ %.be54, %.backedge ], [ %.ph, %.preheader ]
-  %66 = phi ptr [ %.be55, %.backedge ], [ %0, %.preheader ]
+  %65 = phi ptr [ %.be67, %.backedge ], [ %.ph, %.preheader ]
+  %66 = phi ptr [ %.be68, %.backedge ], [ %0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -25053,8 +25053,8 @@ thread-pre-split:                                 ; preds = %206
   br label %342
 
 342:                                              ; preds = %339, %341, %340
-  %.sink62 = phi i8 [ -91, %341 ], [ -75, %340 ], [ 85, %339 ]
-  %343 = or disjoint i8 %295, %.sink62
+  %.sink75 = phi i8 [ -91, %341 ], [ -75, %340 ], [ 85, %339 ]
+  %343 = or disjoint i8 %295, %.sink75
   store i8 %343, ptr %294, align 4
   %344 = load i8, ptr %296, align 1
   %345 = zext i8 %344 to i32
@@ -25414,8 +25414,8 @@ thread-pre-split:                                 ; preds = %206
 
 .backedge:                                        ; preds = %543, %.thread
   %.be = phi i64 [ %548, %543 ], [ %556, %.thread ]
-  %.be54 = phi ptr [ %547, %543 ], [ %555, %.thread ]
-  %.be55 = getelementptr i8, ptr %66, i64 8
+  %.be67 = phi ptr [ %547, %543 ], [ %555, %.thread ]
+  %.be68 = getelementptr i8, ptr %66, i64 8
   br label %63, !llvm.loop !148
 
 .thread:                                          ; preds = %539, %.thread23
@@ -25431,10 +25431,10 @@ thread-pre-split:                                 ; preds = %206
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %556 = add nuw nsw i64 %64, 1
   %557 = icmp eq i64 %556, %55
-  br i1 %557, label %.thread53, label %.backedge
+  br i1 %557, label %.thread66, label %.backedge
 
 558:                                              ; preds = %543
-  br i1 %12, label %559, label %.thread53
+  br i1 %12, label %559, label %.thread66
 
 559:                                              ; preds = %558
   %560 = ptrtoint ptr %547 to i64
@@ -25451,7 +25451,7 @@ thread-pre-split:                                 ; preds = %206
   store i32 %567, ptr %3, align 4
   br label %582
 
-.thread53:                                        ; preds = %.thread, %558
+.thread66:                                        ; preds = %.thread, %558
   %568 = phi ptr [ %547, %558 ], [ %555, %.thread ]
   %569 = sext i32 %58 to i64
   %570 = ptrtoint ptr %568 to i64
@@ -25460,13 +25460,13 @@ thread-pre-split:                                 ; preds = %206
   %573 = icmp eq i64 %572, %569
   br i1 %573, label %578, label %574
 
-574:                                              ; preds = %.thread53
+574:                                              ; preds = %.thread66
   %575 = add nuw nsw i32 %57, 1
   %576 = trunc i64 %572 to i32
   %577 = icmp eq i32 %575, 3
   br i1 %577, label %.loopexit, label %56
 
-578:                                              ; preds = %.thread53
+578:                                              ; preds = %.thread66
   call void @kfree(ptr noundef %20) #34
   %579 = load i32, ptr %3, align 4
   %580 = icmp eq i32 %579, %58
@@ -27580,12 +27580,12 @@ define internal fastcc noundef range(i32 -19, 9) i32 @bpf_ipv4_fib_lookup(ptr no
   %22 = icmp eq i32 %21, 0
   %23 = load i32, ptr %8, align 4
   %. = select i1 %22, i32 %23, i32 1
-  %.13 = select i1 %22, i32 0, i32 %23
+  %.22 = select i1 %22, i32 0, i32 %23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false), !annotation !7
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %., ptr %24, align 4
-  store i32 %.13, ptr %6, align 8
+  store i32 %.22, ptr %6, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %26 = load i8, ptr %25, align 4
   %27 = and i8 %26, 28
@@ -27933,12 +27933,12 @@ define internal fastcc noundef range(i32 -19, 10) i32 @bpf_ipv6_fib_lookup(ptr n
   %32 = icmp eq i32 %31, 0
   %33 = load i32, ptr %18, align 4
   %. = select i1 %32, i32 %33, i32 1
-  %.7 = select i1 %32, i32 0, i32 %33
-  %.8 = select i1 %32, i32 4, i32 0
+  %.13 = select i1 %32, i32 0, i32 %33
+  %.14 = select i1 %32, i32 4, i32 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, i8 0, i64 80, i1 false), !annotation !7
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %., ptr %34, align 4
-  store i32 %.7, ptr %6, align 8
+  store i32 %.13, ptr %6, align 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 72
@@ -27993,7 +27993,7 @@ define internal fastcc noundef range(i32 -19, 10) i32 @bpf_ipv6_fib_lookup(ptr n
   %68 = load ptr, ptr @ipv6_stub, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %70 = load ptr, ptr %69, align 8
-  %71 = call i32 %70(ptr noundef %0, ptr noundef nonnull %65, i32 noundef %33, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %.8) #34
+  %71 = call i32 %70(ptr noundef %0, ptr noundef nonnull %65, i32 noundef %33, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %.14) #34
   br label %81
 
 72:                                               ; preds = %30
@@ -28008,7 +28008,7 @@ define internal fastcc noundef range(i32 -19, 10) i32 @bpf_ipv6_fib_lookup(ptr n
   %77 = load ptr, ptr @ipv6_stub, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 40
   %79 = load ptr, ptr %78, align 8
-  %80 = call i32 %79(ptr noundef %0, i32 noundef %33, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %.8) #34
+  %80 = call i32 %79(ptr noundef %0, i32 noundef %33, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %.14) #34
   br label %81
 
 81:                                               ; preds = %67, %72
@@ -28055,7 +28055,7 @@ define internal fastcc noundef range(i32 -19, 10) i32 @bpf_ipv6_fib_lookup(ptr n
   %103 = load ptr, ptr %102, align 8
   %104 = load i32, ptr %6, align 8
   %105 = icmp ne i32 %104, 0
-  call void %103(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %104, i1 noundef zeroext %105, ptr noundef null, i32 noundef %.8) #34
+  call void %103(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %104, i1 noundef zeroext %105, ptr noundef null, i32 noundef %.14) #34
   br i1 %3, label %106, label %117
 
 106:                                              ; preds = %100

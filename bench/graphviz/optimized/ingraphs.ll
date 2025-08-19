@@ -204,18 +204,18 @@ define noundef ptr @newIng(ptr noundef captures(address_is_null, ret: address, p
   br label %new_ing.exit
 
 9:                                                ; preds = %4, %3
-  %.sink31.i = phi ptr [ %5, %4 ], [ %0, %3 ]
-  %.sink29.i = phi i8 [ 1, %4 ], [ 0, %3 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 32
-  store i8 %.sink29.i, ptr %10, align 8, !tbaa !24
-  %11 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 12
+  %.sink35.i = phi ptr [ %5, %4 ], [ %0, %3 ]
+  %.sink33.i = phi i8 [ 1, %4 ], [ 0, %3 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.sink35.i, i64 32
+  store i8 %.sink33.i, ptr %10, align 8, !tbaa !24
+  %11 = getelementptr inbounds nuw i8, ptr %.sink35.i, i64 12
   store i32 0, ptr %11, align 4, !tbaa !3
-  store ptr %1, ptr %.sink31.i, align 8, !tbaa !10
-  %12 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 8
+  store ptr %1, ptr %.sink35.i, align 8, !tbaa !10
+  %12 = getelementptr inbounds nuw i8, ptr %.sink35.i, i64 8
   store i32 0, ptr %12, align 8, !tbaa !11
-  %13 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %.sink35.i, i64 36
   store i32 0, ptr %13, align 4, !tbaa !22
-  %14 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.sink35.i, i64 16
   store ptr null, ptr %14, align 8, !tbaa !14
   %.not28.i = icmp eq ptr %2, null
   br i1 %.not28.i, label %15, label %20
@@ -224,7 +224,7 @@ define noundef ptr @newIng(ptr noundef captures(address_is_null, ret: address, p
   br i1 %.not.i, label %16, label %17
 
 16:                                               ; preds = %15
-  tail call void @free(ptr noundef nonnull %.sink31.i) #8
+  tail call void @free(ptr noundef nonnull %.sink35.i) #8
   br label %17
 
 17:                                               ; preds = %16, %15
@@ -233,12 +233,12 @@ define noundef ptr @newIng(ptr noundef captures(address_is_null, ret: address, p
   br label %new_ing.exit
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.sink35.i, i64 24
   store ptr %2, ptr %21, align 8, !tbaa !15
   br label %new_ing.exit
 
 new_ing.exit:                                     ; preds = %6, %17, %20
-  %.0.i = phi ptr [ %.sink31.i, %20 ], [ null, %17 ], [ null, %6 ]
+  %.0.i = phi ptr [ %.sink35.i, %20 ], [ null, %17 ], [ null, %6 ]
   ret ptr %.0.i
 }
 
@@ -258,20 +258,20 @@ define noundef ptr @newIngGraphs(ptr noundef captures(address_is_null, ret: addr
   br label %new_ing.exit
 
 9:                                                ; preds = %4, %3
-  %.sink31.i = phi ptr [ %5, %4 ], [ %0, %3 ]
-  %.sink29.i = phi i8 [ 1, %4 ], [ 0, %3 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 32
-  store i8 %.sink29.i, ptr %10, align 8, !tbaa !24
+  %.sink35.i = phi ptr [ %5, %4 ], [ %0, %3 ]
+  %.sink33.i = phi i8 [ 1, %4 ], [ 0, %3 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.sink35.i, i64 32
+  store i8 %.sink33.i, ptr %10, align 8, !tbaa !24
   %.not27.i = icmp ne ptr %1, null
   %.sink.i = zext i1 %.not27.i to i32
-  %11 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %.sink35.i, i64 12
   store i32 %.sink.i, ptr %11, align 4, !tbaa !3
-  store ptr %1, ptr %.sink31.i, align 8, !tbaa !10
-  %12 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 8
+  store ptr %1, ptr %.sink35.i, align 8, !tbaa !10
+  %12 = getelementptr inbounds nuw i8, ptr %.sink35.i, i64 8
   store i32 0, ptr %12, align 8, !tbaa !11
-  %13 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %.sink35.i, i64 36
   store i32 0, ptr %13, align 4, !tbaa !22
-  %14 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.sink35.i, i64 16
   store ptr null, ptr %14, align 8, !tbaa !14
   %.not28.i = icmp eq ptr %2, null
   br i1 %.not28.i, label %15, label %20
@@ -280,7 +280,7 @@ define noundef ptr @newIngGraphs(ptr noundef captures(address_is_null, ret: addr
   br i1 %.not.i, label %16, label %17
 
 16:                                               ; preds = %15
-  tail call void @free(ptr noundef nonnull %.sink31.i) #8
+  tail call void @free(ptr noundef nonnull %.sink35.i) #8
   br label %17
 
 17:                                               ; preds = %16, %15
@@ -289,12 +289,12 @@ define noundef ptr @newIngGraphs(ptr noundef captures(address_is_null, ret: addr
   br label %new_ing.exit
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.sink35.i, i64 24
   store ptr %2, ptr %21, align 8, !tbaa !15
   br label %new_ing.exit
 
 new_ing.exit:                                     ; preds = %6, %17, %20
-  %.0.i = phi ptr [ %.sink31.i, %20 ], [ null, %17 ], [ null, %6 ]
+  %.0.i = phi ptr [ %.sink35.i, %20 ], [ null, %17 ], [ null, %6 ]
   ret ptr %.0.i
 }
 
@@ -314,25 +314,25 @@ define noundef ptr @newIngraph(ptr noundef writeonly captures(address_is_null, r
   br label %newIng.exit
 
 8:                                                ; preds = %3, %2
-  %.sink31.i.i = phi ptr [ %4, %3 ], [ %0, %2 ]
-  %.sink29.i.i = phi i8 [ 1, %3 ], [ 0, %2 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sink31.i.i, i64 32
-  store i8 %.sink29.i.i, ptr %9, align 8, !tbaa !24
-  %10 = getelementptr inbounds nuw i8, ptr %.sink31.i.i, i64 12
+  %.sink35.i.i = phi ptr [ %4, %3 ], [ %0, %2 ]
+  %.sink33.i.i = phi i8 [ 1, %3 ], [ 0, %2 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 32
+  store i8 %.sink33.i.i, ptr %9, align 8, !tbaa !24
+  %10 = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 12
   store i32 0, ptr %10, align 4, !tbaa !3
-  store ptr %1, ptr %.sink31.i.i, align 8, !tbaa !10
-  %11 = getelementptr inbounds nuw i8, ptr %.sink31.i.i, i64 8
+  store ptr %1, ptr %.sink35.i.i, align 8, !tbaa !10
+  %11 = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 8
   store i32 0, ptr %11, align 8, !tbaa !11
-  %12 = getelementptr inbounds nuw i8, ptr %.sink31.i.i, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 36
   store i32 0, ptr %12, align 4, !tbaa !22
-  %13 = getelementptr inbounds nuw i8, ptr %.sink31.i.i, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 16
   store ptr null, ptr %13, align 8, !tbaa !14
-  %14 = getelementptr inbounds nuw i8, ptr %.sink31.i.i, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 24
   store ptr @dflt_read, ptr %14, align 8, !tbaa !15
   br label %newIng.exit
 
 newIng.exit:                                      ; preds = %5, %8
-  %.0.i.i = phi ptr [ %.sink31.i.i, %8 ], [ null, %5 ]
+  %.0.i.i = phi ptr [ %.sink35.i.i, %8 ], [ null, %5 ]
   ret ptr %.0.i.i
 }
 

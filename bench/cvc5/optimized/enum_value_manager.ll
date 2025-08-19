@@ -1284,11 +1284,11 @@ _ZSt11make_uniqueIN4cvc58internal6theory11quantifiers15SygusEnumeratorEJRNS1_3En
   br label %1237
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit323.sink.split: ; preds = %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers15SygusEnumeratorEJRNS1_3EnvERPNS3_11TermDbSygusEPNS3_23SygusEnumeratorCallbackEPNS3_15SygusStatisticsEbRKbRKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers21SygusRandomEnumeratorEJRNS1_3EnvERPNS3_11TermDbSygusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers18EnumStreamConcreteEJRNS1_3EnvERPNS3_11TermDbSygusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %.sink1093 = phi ptr [ %258, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers18EnumStreamConcreteEJRNS1_3EnvERPNS3_11TermDbSygusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %278, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers21SygusRandomEnumeratorEJRNS1_3EnvERPNS3_11TermDbSygusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %329, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers15SygusEnumeratorEJRNS1_3EnvERPNS3_11TermDbSygusEPNS3_23SygusEnumeratorCallbackEPNS3_15SygusStatisticsEbRKbRKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
-  %332 = load ptr, ptr %.sink1093, align 8, !tbaa !3
+  %.sink1176 = phi ptr [ %258, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers18EnumStreamConcreteEJRNS1_3EnvERPNS3_11TermDbSygusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %278, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers21SygusRandomEnumeratorEJRNS1_3EnvERPNS3_11TermDbSygusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %329, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers15SygusEnumeratorEJRNS1_3EnvERPNS3_11TermDbSygusEPNS3_23SygusEnumeratorCallbackEPNS3_15SygusStatisticsEbRKbRKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
+  %332 = load ptr, ptr %.sink1176, align 8, !tbaa !3
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %334 = load ptr, ptr %333, align 8
-  call void %334(ptr noundef nonnull align 8 dereferenceable(16) %.sink1093) #21
+  call void %334(ptr noundef nonnull align 8 dereferenceable(16) %.sink1176) #21
   br label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit323
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit323: ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit323.sink.split, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers15SygusEnumeratorEJRNS1_3EnvERPNS3_11TermDbSygusEPNS3_23SygusEnumeratorCallbackEPNS3_15SygusStatisticsEbRKbRKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers21SygusRandomEnumeratorEJRNS1_3EnvERPNS3_11TermDbSygusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers18EnumStreamConcreteEJRNS1_3EnvERPNS3_11TermDbSygusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
@@ -1549,11 +1549,11 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit379: ; preds = %443
   br i1 %459, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !12
 
 .invoke:                                          ; preds = %458, %144
-  %.sink1096 = phi i64 [ %133, %144 ], [ %447, %458 ]
-  %.sink1095 = phi ptr [ %132, %144 ], [ %446, %458 ]
-  %460 = or i64 %.sink1096, 1152920405095219200
-  store i64 %460, ptr %.sink1095, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink1095)
+  %.sink1179 = phi i64 [ %133, %144 ], [ %447, %458 ]
+  %.sink1178 = phi ptr [ %132, %144 ], [ %446, %458 ]
+  %460 = or i64 %.sink1179, 1152920405095219200
+  store i64 %460, ptr %.sink1178, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink1178)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %146
 
 461:                                              ; preds = %443

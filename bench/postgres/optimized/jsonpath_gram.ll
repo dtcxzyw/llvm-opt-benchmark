@@ -2026,8 +2026,8 @@ makeItemType.exit:                                ; preds = %5, %10
   br label %jspConvertRegexFlags.exit
 
 40:                                               ; preds = %.lr.ph55, %26, %27, %28, %29
-  %.sink66 = phi i32 [ 2, %26 ], [ 4, %27 ], [ 8, %28 ], [ 16, %29 ], [ 1, %.lr.ph55 ]
-  %41 = or i32 %22, %.sink66
+  %.sink68 = phi i32 [ 2, %26 ], [ 4, %27 ], [ 8, %28 ], [ 16, %29 ], [ 1, %.lr.ph55 ]
+  %41 = or i32 %22, %.sink68
   store i32 %41, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i32, ptr %19, align 8

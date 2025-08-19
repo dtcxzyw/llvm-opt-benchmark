@@ -518,9 +518,9 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17hf427646917f0
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
   %18 = icmp ugt i64 %1, %17
-  br i1 %18, label %21, label %.thread28
+  br i1 %18, label %21, label %.thread31
 
-.thread28:                                        ; preds = %3
+.thread31:                                        ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
@@ -544,8 +544,8 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17hf427646917f0
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.f8c792ed9dd53316948c4ac1287b26a0.1, i64 noundef 47, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f8c792ed9dd53316948c4ac1287b26a0.3) #23
           to label %49 unwind label %62
 
-23:                                               ; preds = %.thread28, %19
-  %24 = phi i64 [ %15, %.thread28 ], [ %.pre, %19 ]
+23:                                               ; preds = %.thread31, %19
+  %24 = phi i64 [ %15, %.thread31 ], [ %.pre, %19 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
   %27 = getelementptr inbounds ptr, ptr %26, i64 %24

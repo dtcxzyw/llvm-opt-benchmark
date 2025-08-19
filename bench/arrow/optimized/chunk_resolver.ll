@@ -406,11 +406,11 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc1
   br label %.loopexit
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i.i
-  %.idx13.i.pre-phi = phi i64 [ %.idx.i.i.i.i.i.i.i.i, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %.pre, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i.i ]
+  %.idx15.i.pre-phi = phi i64 [ %.idx.i.i.i.i.i.i.i.i, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %.pre, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i.i ]
   %.ph.i = phi ptr [ %8, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i.i ]
   %.0.i.i.i.i.i.ph.i = phi ptr [ %14, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i.i ]
   store ptr %.0.i.i.i.i.i.ph.i, ptr %6, align 8, !tbaa !45, !alias.scope !79
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx13.i.pre-phi
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx15.i.pre-phi
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i

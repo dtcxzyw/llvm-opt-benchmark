@@ -4059,8 +4059,8 @@ invoke.cont10:                                    ; preds = %.noexc, %_ZNKSt7__c
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %10, i64 %add.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !44
   %11 = load i8, ptr %add.ptr.i, align 1, !tbaa !44
-  %cmp14 = icmp eq i8 %11, 41
-  %spec.select = select i1 %cmp14, i8 0, i8 %inside_colorize.0147
+  %cmp14 = icmp ne i8 %11, 41
+  %spec.select = zext i1 %cmp14 to i8
   br label %if.end38
 
 lpad9:                                            ; preds = %if.then.i.i109, %if.then22, %if.then.i.i70

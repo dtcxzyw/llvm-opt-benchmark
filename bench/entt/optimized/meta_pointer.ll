@@ -49399,7 +49399,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %480 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %481 = load ptr, ptr %480, align 8, !tbaa !46, !noalias !798
   %.not.i = icmp eq ptr %481, null
-  br i1 %.not.i, label %.critedge185, label %482
+  br i1 %.not.i, label %.critedge242, label %482
 
 482:                                              ; preds = %473
   %483 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -49602,7 +49602,7 @@ _ZN7testing7MessageD2Ev.exit146:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %629
 
-.critedge185:                                     ; preds = %473
+.critedge242:                                     ; preds = %473
   store i8 1, ptr %16, align 8, !tbaa !52
   %552 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr null, ptr %552, align 8, !tbaa !62
@@ -49610,7 +49610,7 @@ _ZN7testing7MessageD2Ev.exit146:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %553
 
-553:                                              ; preds = %.critedge185, %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i._ZNK4entt8meta_anydeEv.exit_crit_edge
+553:                                              ; preds = %.critedge242, %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i._ZNK4entt8meta_anydeEv.exit_crit_edge
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.pre179 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !34, !noalias !801
   %.phi.trans.insert180 = getelementptr inbounds nuw i8, ptr %5, i64 184
@@ -51978,13 +51978,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorImSaImEE17_M_default_appendEm(pt
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 8, !tbaa !845
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !845
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

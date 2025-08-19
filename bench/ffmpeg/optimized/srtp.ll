@@ -943,8 +943,8 @@ create_iv.exit:                                   ; preds = %.preheader.i
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 %.v106
   %111 = tail call i32 @av_aes_init(ptr noundef %109, ptr noundef nonnull %110, i32 noundef 128, i32 noundef 0) #9
   %112 = load ptr, ptr %0, align 8, !tbaa !14
-  %.not120 = icmp eq i32 %.090, 0
-  br i1 %.not120, label %encrypt_counter.exit, label %.lr.ph.i
+  %.not123 = icmp eq i32 %.090, 0
+  br i1 %.not123, label %encrypt_counter.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %create_iv.exit
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 14
@@ -992,10 +992,10 @@ encrypt_counter.exit:                             ; preds = %127, %create_iv.exi
   %132 = trunc i64 %.097 to i32
   %133 = or i32 %132, -2147483648
   %134 = call i32 @llvm.bswap.i32(i32 %133)
-  %135 = sext i32 %.090 to i64
-  %136 = getelementptr inbounds i8, ptr %.093, i64 %135
+  %135 = zext nneg i32 %.090 to i64
+  %136 = getelementptr inbounds nuw i8, ptr %.093, i64 %135
   store i32 %134, ptr %136, align 1, !tbaa !15
-  %137 = add nsw i32 %.090, 4
+  %137 = add nuw nsw i32 %.090, 4
   br label %138
 
 138:                                              ; preds = %131, %encrypt_counter.exit

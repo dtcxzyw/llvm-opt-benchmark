@@ -1220,8 +1220,8 @@ define void @_ZN6icu_7734SimpleFilteredBreakIteratorBuilderC2ERKNS_6LocaleER10UE
   %.not = icmp eq ptr %52, null
   %.pre54 = load i32, ptr %6, align 4
   %57 = icmp sgt i32 %.pre54, 0
-  %or.cond71 = select i1 %.not, i1 true, i1 %57
-  br i1 %or.cond71, label %thread-pre-split.thread, label %58
+  %or.cond77 = select i1 %.not, i1 true, i1 %57
+  br i1 %or.cond77, label %thread-pre-split.thread, label %58
 
 58:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1303,7 +1303,7 @@ define void @_ZN6icu_7734SimpleFilteredBreakIteratorBuilderC2ERKNS_6LocaleER10UE
   br label %115
 
 thread-pre-split.thread:                          ; preds = %56
-  %.not4658 = icmp eq ptr %52, null
+  %.not4664 = icmp eq ptr %52, null
   br label %.critedge
 
 thread-pre-split:                                 ; preds = %77
@@ -1314,7 +1314,7 @@ thread-pre-split:                                 ; preds = %77
   br i1 %86, label %.critedge, label %50, !llvm.loop !51
 
 .critedge:                                        ; preds = %thread-pre-split, %thread-pre-split.thread
-  %.not4660 = phi i1 [ %.not4658, %thread-pre-split.thread ], [ false, %thread-pre-split ]
+  %.not4666 = phi i1 [ %.not4664, %thread-pre-split.thread ], [ false, %thread-pre-split ]
   %87 = phi i32 [ %.pre54, %thread-pre-split.thread ], [ %.pre.pre, %thread-pre-split ]
   %88 = icmp slt i32 %87, 1
   %89 = icmp eq i32 %87, 8
@@ -1329,7 +1329,7 @@ thread-pre-split:                                 ; preds = %77
   br label %93
 
 93:                                               ; preds = %92, %.critedge
-  br i1 %.not4660, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, label %94
+  br i1 %.not4666, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, label %94
 
 94:                                               ; preds = %93
   invoke void @ures_close_77(ptr noundef nonnull %52)
@@ -1590,7 +1590,7 @@ _ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEEC2EPS1_R10UErrorCode.exit: ; pr
 _ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEEC2EPS1_R10UErrorCode.exit136: ; preds = %17
   %.pre = load i32, ptr %2, align 4, !tbaa !28
   %22 = icmp slt i32 %.pre, 1
-  br i1 %22, label %27, label %.thread252
+  br i1 %22, label %27, label %.thread273
 
 23:                                               ; preds = %10
   %24 = landingpad { ptr, i32 }
@@ -2124,20 +2124,20 @@ _ZN6icu_7711LocalMemoryIiED2Ev.exit:              ; preds = %_ZN6icu_7712LocalPo
 
 239:                                              ; preds = %.loopexit.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread252
+  br label %.thread273
 
-.thread252:                                       ; preds = %239, %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEEC2EPS1_R10UErrorCode.exit136
-  %.0256 = phi ptr [ %.4, %239 ], [ null, %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEEC2EPS1_R10UErrorCode.exit136 ]
-  %.sroa.0170.0255 = phi ptr [ %.sroa.0170.4, %239 ], [ %1, %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEEC2EPS1_R10UErrorCode.exit136 ]
+.thread273:                                       ; preds = %239, %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEEC2EPS1_R10UErrorCode.exit136
+  %.0277 = phi ptr [ %.4, %239 ], [ null, %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEEC2EPS1_R10UErrorCode.exit136 ]
+  %.sroa.0170.0276 = phi ptr [ %.sroa.0170.4, %239 ], [ %1, %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEEC2EPS1_R10UErrorCode.exit136 ]
   %240 = load ptr, ptr %15, align 8, !tbaa !3
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %242 = load ptr, ptr %241, align 8
   call void %242(ptr noundef nonnull align 8 dereferenceable(112) %15) #14
   br label %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit148
 
-_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit148: ; preds = %21, %18, %.thread252
-  %.0251 = phi ptr [ %.0256, %.thread252 ], [ null, %18 ], [ null, %21 ]
-  %.sroa.0170.0250 = phi ptr [ %.sroa.0170.0255, %.thread252 ], [ %1, %18 ], [ %1, %21 ]
+_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit148: ; preds = %21, %18, %.thread273
+  %.0272 = phi ptr [ %.0277, %.thread273 ], [ null, %18 ], [ null, %21 ]
+  %.sroa.0170.0271 = phi ptr [ %.sroa.0170.0276, %.thread273 ], [ %1, %18 ], [ %1, %21 ]
   br i1 %9, label %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit149, label %243
 
 243:                                              ; preds = %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit148
@@ -2148,18 +2148,18 @@ _ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit148: ; preds = %21, %1
   br label %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit149
 
 _ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit149: ; preds = %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit148, %243
-  %247 = icmp eq ptr %.sroa.0170.0250, null
+  %247 = icmp eq ptr %.sroa.0170.0271, null
   br i1 %247, label %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit, label %248
 
 248:                                              ; preds = %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit149
-  %249 = load ptr, ptr %.sroa.0170.0250, align 8, !tbaa !3
+  %249 = load ptr, ptr %.sroa.0170.0271, align 8, !tbaa !3
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
   %251 = load ptr, ptr %250, align 8
-  call void %251(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0170.0250) #14
+  call void %251(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0170.0271) #14
   br label %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit
 
 _ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit: ; preds = %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit149, %248
-  ret ptr %.0251
+  ret ptr %.0272
 
 _ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit: ; preds = %.thread178, %25
   %.sroa.0170.2 = phi ptr [ %1, %25 ], [ %.sroa.0170.3, %.thread178 ]

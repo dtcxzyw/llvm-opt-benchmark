@@ -114,8 +114,8 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 92
   %37 = icmp eq i8 %28, 10
-  %or.cond84 = and i1 %36, %37
-  br i1 %or.cond84, label %38, label %.thread
+  %or.cond97 = and i1 %36, %37
+  br i1 %or.cond97, label %38, label %.thread
 
 .thread:                                          ; preds = %23, %31, %30
   br label %38
@@ -151,8 +151,8 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
   br i1 %cond, label %.backedge, label %42, !llvm.loop !11
 
 .critedge:                                        ; preds = %42
-  %cond76 = icmp eq i8 %43, 35
-  br i1 %cond76, label %.backedge, label %51
+  %cond89 = icmp eq i8 %43, 35
+  br i1 %cond89, label %.backedge, label %51
 
 51:                                               ; preds = %.critedge
   %52 = call ptr @strtok_r(ptr noundef nonnull %.03961, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #9
@@ -581,8 +581,8 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr nou
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 92
   %51 = icmp eq i8 %42, 10
-  %or.cond159 = and i1 %50, %51
-  br i1 %or.cond159, label %52, label %.thread
+  %or.cond171 = and i1 %50, %51
+  br i1 %or.cond171, label %52, label %.thread
 
 .thread:                                          ; preds = %37, %45, %44
   br label %52
@@ -618,8 +618,8 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr nou
   br i1 %cond, label %.backedge, label %56, !llvm.loop !18
 
 .critedge:                                        ; preds = %56
-  %cond134 = icmp eq i8 %57, 35
-  br i1 %cond134, label %.backedge, label %65
+  %cond146 = icmp eq i8 %57, 35
+  br i1 %cond146, label %.backedge, label %65
 
 65:                                               ; preds = %.critedge
   %66 = call ptr @strtok_r(ptr noundef nonnull %.054102, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #9

@@ -19435,7 +19435,6 @@ call1.i.noexc:                                    ; preds = %_ZNKSt9basic_iosIcS
           to label %if.end11 unwind label %lpad.loopexit
 
 if.end11:                                         ; preds = %call1.i.noexc, %invoke.cont7, %call.i.noexc, %if.end
-  %header_printed.1 = phi i8 [ %header_printed.0126, %if.end ], [ 1, %call1.i.noexc ], [ 1, %invoke.cont7 ], [ 1, %call.i.noexc ]
   br i1 %.not, label %_ZTW7dstream.exit47, label %17
 
 17:                                               ; preds = %if.end11
@@ -19561,7 +19560,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %invoke.cont
-  %header_printed.2 = phi i8 [ %header_printed.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %header_printed.0126, %invoke.cont ]
+  %header_printed.2 = phi i8 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %header_printed.0126, %invoke.cont ]
   call void @llvm.lifetime.end.p0(ptr nonnull %val)
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0125, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1

@@ -5615,7 +5615,7 @@ common.resume:                                    ; preds = %126, %135, %139
   store atomic ptr %109, ptr %102 monotonic, align 8, !noalias !745
   store ptr null, ptr %104, align 8, !noalias !745
   %110 = icmp eq ptr %103, null
-  br i1 %110, label %.thread2.i.i, label %111
+  br i1 %110, label %.thread4.i.i, label %111
 
 111:                                              ; preds = %95
   %112 = getelementptr inbounds nuw i8, ptr %103, i64 32
@@ -5623,15 +5623,15 @@ common.resume:                                    ; preds = %126, %135, %139
   %113 = icmp eq ptr %105, null
   br i1 %113, label %116, label %.thread.i.i
 
-.thread2.i.i:                                     ; preds = %95
+.thread4.i.i:                                     ; preds = %95
   %114 = icmp eq ptr %105, null
-  br i1 %114, label %.thread3.i.i, label %.thread.i.i
+  br i1 %114, label %.thread5.i.i, label %.thread.i.i
 
-.thread3.i.i:                                     ; preds = %.thread2.i.i
+.thread5.i.i:                                     ; preds = %.thread4.i.i
   store ptr null, ptr %28, align 8, !alias.scope !744, !noalias !733
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h9c0fcfd7b1b10ae9E.exit.i"
 
-.thread.i.i:                                      ; preds = %.thread2.i.i, %111
+.thread.i.i:                                      ; preds = %.thread4.i.i, %111
   %115 = getelementptr inbounds nuw i8, ptr %105, i64 24
   store atomic ptr %103, ptr %115 monotonic, align 8, !noalias !745
   br label %117
@@ -5646,7 +5646,7 @@ common.resume:                                    ; preds = %126, %135, %139
   store i64 %101, ptr %119, align 8, !noalias !745
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h9c0fcfd7b1b10ae9E.exit.i"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h9c0fcfd7b1b10ae9E.exit.i": ; preds = %117, %.thread3.i.i
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h9c0fcfd7b1b10ae9E.exit.i": ; preds = %117, %.thread5.i.i
   %120 = getelementptr inbounds i8, ptr %.sroa.09.0.i.i, i64 -16
   store ptr %120, ptr %4, align 8, !noalias !734
   %121 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i, i64 56
@@ -6245,7 +6245,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -6253,15 +6253,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -6276,7 +6276,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -9645,7 +9645,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   br i1 %25, label %26, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h74e7113475c7724dE.exit.thread.i.i"
 
 26:                                               ; preds = %24
-  switch i8 %8, label %default.unreachable63.i.i.i.i.i.i [
+  switch i8 %8, label %default.unreachable [
     i8 0, label %27
     i8 1, label %32
     i8 2, label %36
@@ -9654,7 +9654,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
     i8 5, label %47
   ]
 
-default.unreachable63.i.i.i.i.i.i:                ; preds = %26
+default.unreachable:                              ; preds = %26
   unreachable
 
 27:                                               ; preds = %26
@@ -10361,7 +10361,7 @@ define hidden void @_ZN4core5slice4sort8unstable8heapsort8heapsort17h7a5b49ddd64
   %5 = add nsw i64 %.sroa.4.022, -1
   %6 = icmp ult i64 %5, %1
   tail call void @llvm.assume(i1 %6)
-  %7 = shl i64 %5, 1
+  %7 = shl nuw i64 %5, 1
   %8 = or disjoint i64 %7, 1
   %.not1.i = icmp ult i64 %8, %1
   br i1 %.not1.i, label %.lr.ph.i, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit
@@ -10408,12 +10408,12 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit: ; pred
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit.preheader": ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit
   %26 = add i64 %1, -1
   %27 = getelementptr inbounds [0 x i64], ptr %0, i64 0, i64 %26
-  %.sroa.0.0.copyload.i.i25 = load i64, ptr %0, align 8, !alias.scope !1790
+  %.sroa.0.0.copyload.i.i33 = load i64, ptr %0, align 8, !alias.scope !1790
   %28 = load i64, ptr %27, align 8, !alias.scope !1790
   store i64 %28, ptr %0, align 8, !alias.scope !1790
-  store i64 %.sroa.0.0.copyload.i.i25, ptr %27, align 8, !alias.scope !1790
-  %.not1.i1126 = icmp ugt i64 %26, 1
-  br i1 %.not1.i1126, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20.thread
+  store i64 %.sroa.0.0.copyload.i.i33, ptr %27, align 8, !alias.scope !1790
+  %.not1.i1134 = icmp ugt i64 %26, 1
+  br i1 %.not1.i1134, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20.thread
 
 _ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20.thread: ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit.preheader"
   ret void
@@ -18903,7 +18903,7 @@ define hidden { i64, ptr } @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(240) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h0784312821c16837E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(240) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h0784312821c16837E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -18936,7 +18936,7 @@ define hidden noundef align 8 dereferenceable(240) ptr @"_ZN84_$LT$gpui..app..en
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(544) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h8041c55eb72c1511E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(544) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h8041c55eb72c1511E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -18969,7 +18969,7 @@ define hidden noundef align 8 dereferenceable(544) ptr @"_ZN84_$LT$gpui..app..en
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(696) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h90f6609e2f94d952E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(696) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h90f6609e2f94d952E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -19002,7 +19002,7 @@ define hidden noundef align 8 dereferenceable(696) ptr @"_ZN84_$LT$gpui..app..en
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(344) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf1434361e33c70a7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(344) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf1434361e33c70a7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null

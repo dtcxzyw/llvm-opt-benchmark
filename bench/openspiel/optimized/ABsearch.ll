@@ -798,7 +798,7 @@ _Z8EvaluatePK3posiPK10ThreadData.exit:            ; preds = %91, %114, %119
   %188 = icmp ne i32 %187, 1
   %189 = load i8, ptr %8, align 1
   %190 = trunc i8 %189 to i1
-  %spec.select285 = xor i1 %188, %190
+  %spec.select293 = xor i1 %188, %190
   br label %.loopexit
 
 .preheader233:                                    ; preds = %153, %142
@@ -1017,7 +1017,7 @@ _Z8EvaluatePK3posiPK10ThreadData.exit:            ; preds = %91, %114, %119
   br label %.loopexit
 
 .loopexit:                                        ; preds = %186, %63, %_Z8EvaluatePK3posiPK10ThreadData.exit, %139, %133, %71, %68, %325, %137, %131
-  %.0 = phi i1 [ %132, %131 ], [ %.1224, %325 ], [ %138, %137 ], [ true, %68 ], [ false, %71 ], [ false, %133 ], [ true, %139 ], [ %121, %_Z8EvaluatePK3posiPK10ThreadData.exit ], [ %spec.select, %63 ], [ %spec.select285, %186 ]
+  %.0 = phi i1 [ %132, %131 ], [ %.1224, %325 ], [ %138, %137 ], [ true, %68 ], [ false, %71 ], [ false, %133 ], [ true, %139 ], [ %121, %_Z8EvaluatePK3posiPK10ThreadData.exit ], [ %spec.select, %63 ], [ %spec.select293, %186 ]
   ret i1 %.0
 }
 

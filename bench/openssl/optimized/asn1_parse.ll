@@ -394,7 +394,7 @@ split:                                            ; preds = %134, %.preheader318
     i32 12, label %163
     i32 6, label %175
     i32 1, label %188
-    i32 30, label %.thread533
+    i32 30, label %.thread557
     i32 4, label %199
     i32 2, label %247
     i32 10, label %284
@@ -408,7 +408,7 @@ split:                                            ; preds = %134, %.preheader318
 166:                                              ; preds = %163
   %167 = load i64, ptr %11, align 8, !tbaa !10
   %168 = icmp sgt i64 %167, 0
-  br i1 %168, label %169, label %.thread533
+  br i1 %168, label %169, label %.thread557
 
 169:                                              ; preds = %166
   %170 = load ptr, ptr %9, align 8, !tbaa !3
@@ -417,7 +417,7 @@ split:                                            ; preds = %134, %.preheader318
   %173 = load i64, ptr %11, align 8, !tbaa !10
   %174 = trunc i64 %173 to i32
   %.not242 = icmp eq i32 %172, %174
-  br i1 %.not242, label %.thread533, label %.thread265
+  br i1 %.not242, label %.thread557, label %.thread265
 
 175:                                              ; preds = %161
   store ptr %31, ptr %10, align 8, !tbaa !3
@@ -435,7 +435,7 @@ split:                                            ; preds = %134, %.preheader318
 182:                                              ; preds = %179
   %183 = load ptr, ptr %14, align 8, !tbaa !8
   %184 = call i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %183) #5
-  br label %.thread533
+  br label %.thread557
 
 185:                                              ; preds = %175
   %186 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.37) #5
@@ -471,12 +471,12 @@ split:                                            ; preds = %134, %.preheader318
   %201 = add nsw i64 %200, %41
   %202 = call ptr @d2i_ASN1_OCTET_STRING(ptr noundef null, ptr noundef nonnull %10, i64 noundef %201) #5
   %.not234 = icmp eq ptr %202, null
-  br i1 %.not234, label %.thread544, label %203
+  br i1 %.not234, label %.thread568, label %203
 
 203:                                              ; preds = %199
   %204 = load i32, ptr %202, align 8, !tbaa !17
   %205 = icmp sgt i32 %204, 0
-  br i1 %205, label %206, label %.thread544
+  br i1 %205, label %206, label %.thread568
 
 206:                                              ; preds = %203
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 8
@@ -519,7 +519,7 @@ switch.early.test:                                ; preds = %209
   %219 = load i32, ptr %202, align 8, !tbaa !17
   %220 = call i32 @BIO_write(ptr noundef %0, ptr noundef %218, i32 noundef %219) #5
   %221 = icmp slt i32 %220, 1
-  br i1 %221, label %.thread265, label %.thread544
+  br i1 %221, label %.thread265, label %.thread568
 
 222:                                              ; preds = %213, %switch.early.test
   br i1 %.not239, label %223, label %238
@@ -532,14 +532,14 @@ switch.early.test:                                ; preds = %209
 .preheader314:                                    ; preds = %223
   %226 = load i32, ptr %202, align 8, !tbaa !17
   %227 = icmp sgt i32 %226, 0
-  br i1 %227, label %.lr.ph349, label %.thread544
+  br i1 %227, label %.lr.ph349, label %.thread568
 
 228:                                              ; preds = %.lr.ph349
   %indvars.iv.next522 = add nuw nsw i64 %indvars.iv521, 1
   %229 = load i32, ptr %202, align 8, !tbaa !17
   %230 = sext i32 %229 to i64
   %231 = icmp slt i64 %indvars.iv.next522, %230
-  br i1 %231, label %.lr.ph349, label %.thread544, !llvm.loop !21
+  br i1 %231, label %.lr.ph349, label %.thread568, !llvm.loop !21
 
 .lr.ph349:                                        ; preds = %.preheader314, %228
   %indvars.iv521 = phi i64 [ %indvars.iv.next522, %228 ], [ 0, %.preheader314 ]
@@ -709,7 +709,7 @@ switch.early.test:                                ; preds = %209
   %322 = load i64, ptr %11, align 8, !tbaa !10
   %323 = icmp sgt i64 %322, 0
   %or.cond17 = and i1 %28, %323
-  br i1 %or.cond17, label %324, label %.thread533
+  br i1 %or.cond17, label %324, label %.thread557
 
 324:                                              ; preds = %321
   %325 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef 1) #5
@@ -725,12 +725,12 @@ switch.early.test:                                ; preds = %209
   %332 = select i1 %or.cond493, i32 %331, i32 %6
   %333 = call i32 @BIO_dump_indent(ptr noundef %0, ptr noundef %328, i32 noundef %332, i32 noundef 6) #5
   %334 = icmp slt i32 %333, 1
-  br i1 %334, label %.thread265, label %.thread540
+  br i1 %334, label %.thread265, label %.thread564
 
 335:                                              ; preds = %320, %283, %.thread267
   %.2185 = phi i32 [ %.3186269, %.thread267 ], [ %.5188, %283 ], [ %.7, %320 ]
   %.not243 = icmp eq i32 %.2185, 0
-  br i1 %.not243, label %.thread533, label %.thread291
+  br i1 %.not243, label %.thread557, label %.thread291
 
 .thread291:                                       ; preds = %185, %193, %335
   %336 = getelementptr inbounds i8, ptr %31, i64 %41
@@ -761,22 +761,22 @@ switch.early.test:                                ; preds = %209
 ._crit_edge352:                                   ; preds = %341, %.preheader
   %349 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.47) #5
   %350 = icmp slt i32 %349, 1
-  br i1 %350, label %.thread265, label %.thread533
+  br i1 %350, label %.thread265, label %.thread557
 
-.thread544:                                       ; preds = %228, %217, %203, %199, %.preheader314
+.thread568:                                       ; preds = %228, %217, %203, %199, %.preheader314
   call void @ASN1_OCTET_STRING_free(ptr noundef %202) #5
-  br label %.thread533
+  br label %.thread557
 
 351:                                              ; preds = %241
   call void @ASN1_OCTET_STRING_free(ptr noundef nonnull %202) #5
-  br label %.thread540
+  br label %.thread564
 
-.thread533:                                       ; preds = %169, %166, %182, %321, %161, %._crit_edge352, %335, %.thread544
+.thread557:                                       ; preds = %169, %166, %182, %321, %161, %._crit_edge352, %335, %.thread568
   %352 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef 1) #5
   %353 = icmp slt i32 %352, 1
-  br i1 %353, label %.thread265, label %.thread540
+  br i1 %353, label %.thread265, label %.thread564
 
-.thread540:                                       ; preds = %327, %351, %.thread533
+.thread564:                                       ; preds = %327, %351, %.thread557
   %354 = load i64, ptr %11, align 8, !tbaa !10
   %355 = load ptr, ptr %9, align 8, !tbaa !3
   %356 = getelementptr inbounds i8, ptr %355, i64 %354
@@ -788,17 +788,17 @@ switch.early.test:                                ; preds = %209
   %or.cond19 = select i1 %358, i1 %360, i1 false
   br i1 %or.cond19, label %.thread265, label %.loopexit321
 
-.loopexit321:                                     ; preds = %149, %.preheader320, %split, %155, %.thread540
+.loopexit321:                                     ; preds = %149, %.preheader320, %split, %155, %.thread564
   %361 = load i64, ptr %11, align 8, !tbaa !10
   %362 = sub nsw i64 %42, %361
   %363 = icmp sgt i64 %362, 0
   br i1 %363, label %30, label %.thread265, !llvm.loop !26
 
-.thread265:                                       ; preds = %asn1_print_info.exit, %155, %163, %169, %179, %185, %190, %324, %327, %.thread533, %.thread540, %.loopexit321, %112, %.critedge, %217, %223, %238, %241, %251, %258, %277, %280, %288, %295, %314, %317, %.thread291, %._crit_edge352, %.lr.ph, %.preheader318, %306, %269, %.lr.ph349, %.lr.ph351, %18, %121, %asn1_print_info.exit.thread, %34
-  %.0205 = phi i32 [ 0, %34 ], [ 0, %asn1_print_info.exit.thread ], [ 0, %121 ], [ 1, %18 ], [ 0, %.lr.ph351 ], [ 0, %.lr.ph349 ], [ 0, %269 ], [ 0, %306 ], [ %133, %.preheader318 ], [ 0, %.lr.ph ], [ 0, %asn1_print_info.exit ], [ 0, %155 ], [ 0, %163 ], [ 0, %169 ], [ 0, %179 ], [ 0, %185 ], [ 0, %190 ], [ 0, %324 ], [ 0, %327 ], [ 0, %.thread533 ], [ 2, %.thread540 ], [ 1, %.loopexit321 ], [ 0, %112 ], [ 0, %.critedge ], [ 0, %217 ], [ 0, %223 ], [ 0, %238 ], [ 0, %241 ], [ 0, %251 ], [ 0, %258 ], [ 0, %277 ], [ 0, %280 ], [ 0, %288 ], [ 0, %295 ], [ 0, %314 ], [ 0, %317 ], [ 0, %.thread291 ], [ 0, %._crit_edge352 ]
-  %.1201 = phi ptr [ null, %34 ], [ null, %asn1_print_info.exit.thread ], [ null, %121 ], [ null, %18 ], [ null, %.lr.ph351 ], [ %202, %.lr.ph349 ], [ null, %269 ], [ null, %306 ], [ null, %.preheader318 ], [ null, %.lr.ph ], [ null, %asn1_print_info.exit ], [ null, %155 ], [ null, %163 ], [ null, %169 ], [ null, %179 ], [ null, %185 ], [ null, %190 ], [ null, %324 ], [ null, %327 ], [ null, %.thread533 ], [ null, %.thread540 ], [ null, %.loopexit321 ], [ null, %112 ], [ %202, %.critedge ], [ %202, %217 ], [ %202, %223 ], [ %202, %238 ], [ %202, %241 ], [ null, %251 ], [ null, %258 ], [ null, %277 ], [ null, %280 ], [ null, %288 ], [ null, %295 ], [ null, %314 ], [ null, %317 ], [ null, %.thread291 ], [ null, %._crit_edge352 ]
-  %.1196 = phi ptr [ null, %34 ], [ null, %asn1_print_info.exit.thread ], [ null, %121 ], [ null, %18 ], [ null, %.lr.ph351 ], [ null, %.lr.ph349 ], [ %250, %269 ], [ null, %306 ], [ null, %.preheader318 ], [ null, %.lr.ph ], [ null, %asn1_print_info.exit ], [ null, %155 ], [ null, %163 ], [ null, %169 ], [ null, %179 ], [ null, %185 ], [ null, %190 ], [ null, %324 ], [ null, %327 ], [ null, %.thread533 ], [ null, %.thread540 ], [ null, %.loopexit321 ], [ null, %112 ], [ null, %.critedge ], [ null, %217 ], [ null, %223 ], [ null, %238 ], [ null, %241 ], [ %250, %251 ], [ %250, %258 ], [ %250, %277 ], [ null, %280 ], [ null, %288 ], [ null, %295 ], [ null, %314 ], [ null, %317 ], [ null, %.thread291 ], [ null, %._crit_edge352 ]
-  %.1191 = phi ptr [ null, %34 ], [ null, %asn1_print_info.exit.thread ], [ null, %121 ], [ null, %18 ], [ null, %.lr.ph351 ], [ null, %.lr.ph349 ], [ null, %269 ], [ %287, %306 ], [ null, %.preheader318 ], [ null, %.lr.ph ], [ null, %asn1_print_info.exit ], [ null, %155 ], [ null, %163 ], [ null, %169 ], [ null, %179 ], [ null, %185 ], [ null, %190 ], [ null, %324 ], [ null, %327 ], [ null, %.thread533 ], [ null, %.thread540 ], [ null, %.loopexit321 ], [ null, %112 ], [ null, %.critedge ], [ null, %217 ], [ null, %223 ], [ null, %238 ], [ null, %241 ], [ null, %251 ], [ null, %258 ], [ null, %277 ], [ null, %280 ], [ %287, %288 ], [ %287, %295 ], [ %287, %314 ], [ null, %317 ], [ null, %.thread291 ], [ null, %._crit_edge352 ]
+.thread265:                                       ; preds = %asn1_print_info.exit, %155, %163, %169, %179, %185, %190, %324, %327, %.thread557, %.thread564, %.loopexit321, %112, %.critedge, %217, %223, %238, %241, %251, %258, %277, %280, %288, %295, %314, %317, %.thread291, %._crit_edge352, %.lr.ph, %.preheader318, %306, %269, %.lr.ph349, %.lr.ph351, %18, %121, %asn1_print_info.exit.thread, %34
+  %.0205 = phi i32 [ 0, %34 ], [ 0, %asn1_print_info.exit.thread ], [ 0, %121 ], [ 1, %18 ], [ 0, %.lr.ph351 ], [ 0, %.lr.ph349 ], [ 0, %269 ], [ 0, %306 ], [ %133, %.preheader318 ], [ 0, %.lr.ph ], [ 0, %asn1_print_info.exit ], [ 0, %155 ], [ 0, %163 ], [ 0, %169 ], [ 0, %179 ], [ 0, %185 ], [ 0, %190 ], [ 0, %324 ], [ 0, %327 ], [ 0, %.thread557 ], [ 2, %.thread564 ], [ 1, %.loopexit321 ], [ 0, %112 ], [ 0, %.critedge ], [ 0, %217 ], [ 0, %223 ], [ 0, %238 ], [ 0, %241 ], [ 0, %251 ], [ 0, %258 ], [ 0, %277 ], [ 0, %280 ], [ 0, %288 ], [ 0, %295 ], [ 0, %314 ], [ 0, %317 ], [ 0, %.thread291 ], [ 0, %._crit_edge352 ]
+  %.1201 = phi ptr [ null, %34 ], [ null, %asn1_print_info.exit.thread ], [ null, %121 ], [ null, %18 ], [ null, %.lr.ph351 ], [ %202, %.lr.ph349 ], [ null, %269 ], [ null, %306 ], [ null, %.preheader318 ], [ null, %.lr.ph ], [ null, %asn1_print_info.exit ], [ null, %155 ], [ null, %163 ], [ null, %169 ], [ null, %179 ], [ null, %185 ], [ null, %190 ], [ null, %324 ], [ null, %327 ], [ null, %.thread557 ], [ null, %.thread564 ], [ null, %.loopexit321 ], [ null, %112 ], [ %202, %.critedge ], [ %202, %217 ], [ %202, %223 ], [ %202, %238 ], [ %202, %241 ], [ null, %251 ], [ null, %258 ], [ null, %277 ], [ null, %280 ], [ null, %288 ], [ null, %295 ], [ null, %314 ], [ null, %317 ], [ null, %.thread291 ], [ null, %._crit_edge352 ]
+  %.1196 = phi ptr [ null, %34 ], [ null, %asn1_print_info.exit.thread ], [ null, %121 ], [ null, %18 ], [ null, %.lr.ph351 ], [ null, %.lr.ph349 ], [ %250, %269 ], [ null, %306 ], [ null, %.preheader318 ], [ null, %.lr.ph ], [ null, %asn1_print_info.exit ], [ null, %155 ], [ null, %163 ], [ null, %169 ], [ null, %179 ], [ null, %185 ], [ null, %190 ], [ null, %324 ], [ null, %327 ], [ null, %.thread557 ], [ null, %.thread564 ], [ null, %.loopexit321 ], [ null, %112 ], [ null, %.critedge ], [ null, %217 ], [ null, %223 ], [ null, %238 ], [ null, %241 ], [ %250, %251 ], [ %250, %258 ], [ %250, %277 ], [ null, %280 ], [ null, %288 ], [ null, %295 ], [ null, %314 ], [ null, %317 ], [ null, %.thread291 ], [ null, %._crit_edge352 ]
+  %.1191 = phi ptr [ null, %34 ], [ null, %asn1_print_info.exit.thread ], [ null, %121 ], [ null, %18 ], [ null, %.lr.ph351 ], [ null, %.lr.ph349 ], [ null, %269 ], [ %287, %306 ], [ null, %.preheader318 ], [ null, %.lr.ph ], [ null, %asn1_print_info.exit ], [ null, %155 ], [ null, %163 ], [ null, %169 ], [ null, %179 ], [ null, %185 ], [ null, %190 ], [ null, %324 ], [ null, %327 ], [ null, %.thread557 ], [ null, %.thread564 ], [ null, %.loopexit321 ], [ null, %112 ], [ null, %.critedge ], [ null, %217 ], [ null, %223 ], [ null, %238 ], [ null, %241 ], [ null, %251 ], [ null, %258 ], [ null, %277 ], [ null, %280 ], [ %287, %288 ], [ %287, %295 ], [ %287, %314 ], [ null, %317 ], [ null, %.thread291 ], [ null, %._crit_edge352 ]
   %364 = load ptr, ptr %14, align 8, !tbaa !8
   call void @ASN1_OBJECT_free(ptr noundef %364) #5
   call void @ASN1_OCTET_STRING_free(ptr noundef %.1201) #5

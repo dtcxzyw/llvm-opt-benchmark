@@ -387,8 +387,8 @@ default_mt.exit:                                  ; preds = %default_rand.exit.i
 38:                                               ; preds = %31, %.loopexit28.i
   %.1.i = phi i64 [ %36, %31 ], [ %.02332.i, %.loopexit28.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %.not36.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not36.i, label %limited_rand.exit, label %.loopexit28.i.backedge
+  %.not38.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not38.i, label %limited_rand.exit, label %.loopexit28.i.backedge
 
 .loopexit28.i.backedge:                           ; preds = %38, %31
   %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %38 ], [ 1, %31 ]
@@ -514,14 +514,14 @@ default_rand.exit:                                ; preds = %4, %8
   unreachable
 
 rand_start.exit.sink.split:                       ; preds = %22, %default_rand.exit
-  %.sink15 = phi ptr [ %.0.i, %default_rand.exit ], [ %21, %22 ]
+  %.sink19 = phi ptr [ %.0.i, %default_rand.exit ], [ %21, %22 ]
   %29 = tail call i64 @random_seed(i64 poison)
-  %30 = tail call fastcc i64 @rand_init(ptr noundef nonnull @random_mt_if, ptr noundef nonnull %.sink15, i64 noundef %29)
-  store i64 %29, ptr %.sink15, align 8, !tbaa !19
+  %30 = tail call fastcc i64 @rand_init(ptr noundef nonnull @random_mt_if, ptr noundef nonnull %.sink19, i64 noundef %29)
+  store i64 %29, ptr %.sink19, align 8, !tbaa !19
   br label %rand_start.exit
 
 rand_start.exit:                                  ; preds = %rand_start.exit.sink.split, %22, %default_rand.exit, %25, %13
-  %.0 = phi ptr [ null, %13 ], [ %21, %25 ], [ %.0.i, %default_rand.exit ], [ %21, %22 ], [ %.sink15, %rand_start.exit.sink.split ]
+  %.0 = phi ptr [ null, %13 ], [ %21, %25 ], [ %.0.i, %default_rand.exit ], [ %21, %22 ], [ %.sink19, %rand_start.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -959,8 +959,8 @@ try_rand_if.exit:                                 ; preds = %default_rand.exit.i
 69:                                               ; preds = %61, %.loopexit28.i
   %.1.i = phi i64 [ %67, %61 ], [ %.02332.i, %.loopexit28.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %.not36.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not36.i, label %limited_rand.exit, label %.loopexit28.i.backedge
+  %.not38.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not38.i, label %limited_rand.exit, label %.loopexit28.i.backedge
 
 .loopexit28.i.backedge:                           ; preds = %69, %61
   %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %69 ], [ 1, %61 ]
@@ -1316,9 +1316,9 @@ define hidden void @Init_RandomSeedCore() local_unnamed_addr #0 {
   %4 = alloca [4 x i32], align 16
   %5 = load i32, ptr @fill_random_bytes_syscall.try_syscall, align 4, !tbaa !22
   %.not.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i, label %.preheader30, label %.preheader
+  br i1 %.not.i.i, label %.preheader35, label %.preheader
 
-.preheader30:                                     ; preds = %.thread.i.i, %0
+.preheader35:                                     ; preds = %.thread.i.i, %0
   br label %13
 
 .preheader:                                       ; preds = %0, %10
@@ -1333,16 +1333,16 @@ define hidden void @Init_RandomSeedCore() local_unnamed_addr #0 {
 
 .thread.i.i:                                      ; preds = %.preheader
   store atomic volatile i32 0, ptr @fill_random_bytes_syscall.try_syscall seq_cst, align 4
-  br label %.preheader30
+  br label %.preheader35
 
 10:                                               ; preds = %.preheader
   %11 = add i64 %9, %.013.i.i
   %12 = icmp ult i64 %11, 24
   br i1 %12, label %.preheader, label %ruby_fill_random_bytes.exit.thread, !llvm.loop !27
 
-13:                                               ; preds = %.preheader30, %14
-  %.014.i.i = phi i64 [ %18, %14 ], [ 24, %.preheader30 ]
-  %.012.i.i = phi ptr [ %17, %14 ], [ @hash_salt, %.preheader30 ]
+13:                                               ; preds = %.preheader35, %14
+  %.014.i.i = phi i64 [ %18, %14 ], [ 24, %.preheader35 ]
+  %.012.i.i = phi ptr [ %17, %14 ], [ @hash_salt, %.preheader35 ]
   %.not.i8.i = icmp eq i64 %.014.i.i, 0
   br i1 %.not.i8.i, label %ruby_fill_random_bytes.exit.thread, label %14
 
@@ -2001,8 +2001,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   %32 = icmp ne i64 %29, 5
   %33 = and i64 %28, 49152
   %.not.i = icmp eq i64 %33, 0
-  %or.cond8.i = or i1 %32, %.not.i
-  br i1 %or.cond8.i, label %rb_check_frozen_inline.exit, label %34, !prof !76
+  %or.cond9.i = or i1 %32, %.not.i
+  br i1 %or.cond9.i, label %rb_check_frozen_inline.exit, label %34, !prof !76
 
 34:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   tail call void @rb_str_modify(i64 noundef %2) #23
@@ -2680,9 +2680,9 @@ RSTRING_PTR.exit:                                 ; preds = %10, %15
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %15 ], [ %14, %10 ]
   %16 = load i32, ptr @fill_random_bytes_syscall.try_syscall, align 4, !tbaa !22
   %.not.i.i9 = icmp eq i32 %16, 0
-  br i1 %.not.i.i9, label %.preheader17, label %.preheader
+  br i1 %.not.i.i9, label %.preheader18, label %.preheader
 
-.preheader17:                                     ; preds = %.thread.i.i, %RSTRING_PTR.exit
+.preheader18:                                     ; preds = %.thread.i.i, %RSTRING_PTR.exit
   br label %24
 
 .preheader:                                       ; preds = %RSTRING_PTR.exit, %21
@@ -2697,16 +2697,16 @@ RSTRING_PTR.exit:                                 ; preds = %10, %15
 
 .thread.i.i:                                      ; preds = %.preheader
   store atomic volatile i32 0, ptr @fill_random_bytes_syscall.try_syscall seq_cst, align 4
-  br label %.preheader17
+  br label %.preheader18
 
 21:                                               ; preds = %.preheader
   %22 = add i64 %20, %.013.i.i
   %23 = icmp ult i64 %22, %.0.i
   br i1 %23, label %.preheader, label %ruby_fill_random_bytes.exit.thread, !llvm.loop !27
 
-24:                                               ; preds = %.preheader17, %25
-  %.014.i.i = phi i64 [ %29, %25 ], [ %.0.i, %.preheader17 ]
-  %.012.i.i = phi ptr [ %28, %25 ], [ %.sroa.2.0.i, %.preheader17 ]
+24:                                               ; preds = %.preheader18, %25
+  %.014.i.i = phi i64 [ %29, %25 ], [ %.0.i, %.preheader18 ]
+  %.012.i.i = phi ptr [ %28, %25 ], [ %.sroa.2.0.i, %.preheader18 ]
   %.not.i8.i = icmp eq i64 %.014.i.i, 0
   br i1 %.not.i8.i, label %ruby_fill_random_bytes.exit.thread, label %25
 
@@ -3537,8 +3537,8 @@ rb_float_new_inline.exit.thread:                  ; preds = %rb_float_new_inline
   %.not117 = icmp eq i64 %166, 0
   %167 = and i64 %164, 1
   %.not118 = icmp eq i64 %167, 0
-  %or.cond125 = select i1 %.not117, i1 true, i1 %.not118
-  br i1 %or.cond125, label %178, label %168
+  %or.cond138 = select i1 %.not117, i1 true, i1 %.not118
+  br i1 %or.cond138, label %178, label %168
 
 168:                                              ; preds = %rb_float_new_inline.exit.thread
   %169 = ashr i64 %165, 1
@@ -3950,8 +3950,8 @@ try_rand_if.exit:                                 ; preds = %45, %default_rand.e
 76:                                               ; preds = %68, %.loopexit28.i
   %.1.i = phi i64 [ %74, %68 ], [ %.02332.i, %.loopexit28.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %.not36.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not36.i, label %limited_rand.exit, label %.loopexit28.i.backedge
+  %.not38.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not38.i, label %limited_rand.exit, label %.loopexit28.i.backedge
 
 .loopexit28.i.backedge:                           ; preds = %76, %68
   %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %76 ], [ 1, %68 ]
@@ -4155,17 +4155,17 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %11
   %19 = getelementptr i32, ptr %18, i64 %5
   %20 = call i32 @rb_integer_pack(i64 noundef %2, ptr noundef nonnull %18, i64 noundef %5, i64 noundef 4, i64 noundef 0, i32 noundef 66) #23
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.03447 = add i64 %5, -1
-  %22 = icmp sgt i64 %.03447, -1
+  %.03449 = add i64 %5, -1
+  %22 = icmp sgt i64 %.03449, -1
   br i1 %22, label %.lr.ph, label %.loopexit._crit_edge
 
 .lr.ph:                                           ; preds = %17, %.lr.ph.backedge
-  %.03450 = phi i64 [ %.03450.be, %.lr.ph.backedge ], [ %.03447, %17 ]
-  %.03249 = phi i32 [ %.03249.be, %.lr.ph.backedge ], [ 0, %17 ]
-  %.03548 = phi i32 [ %.03548.be, %.lr.ph.backedge ], [ 1, %17 ]
-  %23 = getelementptr i32, ptr %18, i64 %.03450
+  %.03452 = phi i64 [ %.03452.be, %.lr.ph.backedge ], [ %.03449, %17 ]
+  %.03251 = phi i32 [ %.03251.be, %.lr.ph.backedge ], [ 0, %17 ]
+  %.03550 = phi i32 [ %.03550.be, %.lr.ph.backedge ], [ 1, %17 ]
+  %23 = getelementptr i32, ptr %18, i64 %.03452
   %24 = load i32, ptr %23, align 4, !tbaa !22
-  %.not = icmp eq i32 %.03249, 0
+  %.not = icmp eq i32 %.03251, 0
   br i1 %.not, label %25, label %.thread
 
 25:                                               ; preds = %.lr.ph
@@ -4189,7 +4189,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %11
   %39 = load ptr, ptr %21, align 8, !tbaa !39
   %40 = call i32 %39(ptr noundef nonnull %1) #23
   %41 = and i32 %40, %38
-  %.not42 = icmp eq i32 %.03548, 0
+  %.not42 = icmp eq i32 %.03550, 0
   br i1 %.not42, label %46, label %42
 
 42:                                               ; preds = %.thread
@@ -4203,18 +4203,18 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %11
 
 46:                                               ; preds = %25, %.thread, %44
   %47 = phi i32 [ %38, %.thread ], [ 0, %25 ], [ %38, %44 ]
-  %.1 = phi i32 [ 0, %.thread ], [ %.03548, %25 ], [ %spec.select, %44 ]
+  %.1 = phi i32 [ 0, %.thread ], [ %.03550, %25 ], [ %spec.select, %44 ]
   %.033 = phi i32 [ %41, %.thread ], [ 0, %25 ], [ %41, %44 ]
-  %48 = getelementptr i32, ptr %19, i64 %.03450
+  %48 = getelementptr i32, ptr %19, i64 %.03452
   store i32 %.033, ptr %48, align 4, !tbaa !22
-  %.034 = add nsw i64 %.03450, -1
-  %49 = icmp sgt i64 %.03450, 0
+  %.034 = add nsw i64 %.03452, -1
+  %49 = icmp sgt i64 %.03452, 0
   br i1 %49, label %.lr.ph.backedge, label %.loopexit._crit_edge
 
 .lr.ph.backedge:                                  ; preds = %46, %42
-  %.03450.be = phi i64 [ %.034, %46 ], [ %.03447, %42 ]
-  %.03249.be = phi i32 [ %47, %46 ], [ 0, %42 ]
-  %.03548.be = phi i32 [ %.1, %46 ], [ 1, %42 ]
+  %.03452.be = phi i64 [ %.034, %46 ], [ %.03449, %42 ]
+  %.03251.be = phi i32 [ %47, %46 ], [ 0, %42 ]
+  %.03550.be = phi i32 [ %.1, %46 ], [ 1, %42 ]
   br label %.lr.ph, !llvm.loop !99
 
 .loopexit._crit_edge:                             ; preds = %46, %17
@@ -4271,7 +4271,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %2
   %19 = call ptr @rb_errno_ptr() #23
   store i32 0, ptr %19, align 4, !tbaa !22
   %20 = getelementptr i8, ptr %16, i64 %.013.i.i.i
-  %21 = sub i64 %17, %.013.i.i.i
+  %21 = sub nsw i64 %17, %.013.i.i.i
   %22 = call i64 @getrandom(ptr noundef %20, i64 noundef %21, i32 noundef 1) #23
   %.not17.i.i.i = icmp eq i64 %22, -1
   br i1 %.not17.i.i.i, label %.thread.i.i.i, label %23

@@ -94,13 +94,13 @@ define internal { i64, ptr } @"_ZN15live_kit_client4test21LocalTrackPublication8
   %8 = alloca [8 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %10 = load i8, ptr %9, align 1, !range !4, !noundef !5
-  switch i8 %10, label %default.unreachable51 [
+  switch i8 %10, label %default.unreachable56 [
     i8 0, label %11
     i8 1, label %109
     i8 2, label %110
   ]
 
-default.unreachable51:                            ; preds = %2
+default.unreachable56:                            ; preds = %2
   unreachable
 
 11:                                               ; preds = %2
@@ -19694,8 +19694,8 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %.sroa.4359.0.copyload.i = load ptr, ptr %.sroa.4359.0..sroa_idx.i, align 8, !alias.scope !3061, !noalias !3072, !nonnull !5, !noundef !5
   %.sroa.5360.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %104, i64 88
   %.sroa.5360.0.copyload.i = load i64, ptr %.sroa.5360.0..sroa_idx.i, align 8, !alias.scope !3061, !noalias !3072
-  %.idx1024.i = mul nsw i64 %.sroa.5360.0.copyload.i, 72
-  %255 = getelementptr inbounds i8, ptr %.sroa.4359.0.copyload.i, i64 %.idx1024.i
+  %.idx1072.i = mul nsw i64 %.sroa.5360.0.copyload.i, 72
+  %255 = getelementptr inbounds i8, ptr %.sroa.4359.0.copyload.i, i64 %.idx1072.i
   %256 = icmp ne ptr %.sroa.5.0.copyload.i, null
   call void @llvm.assume(i1 %256)
   %257 = getelementptr inbounds ptr, ptr %.sroa.5.0.copyload.i, i64 %.sroa.6.0.copyload.i
@@ -27832,9 +27832,9 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
 
 210:                                              ; preds = %._crit_edge229.i, %215
   %211 = phi ptr [ %.pre230.i, %._crit_edge229.i ], [ %207, %215 ]
-  %.sroa.016.6.i = phi i1 [ %.sroa.016.7239.i, %._crit_edge229.i ], [ true, %215 ]
+  %.sroa.016.6.i = phi i1 [ %.sroa.016.7248.i, %._crit_edge229.i ], [ true, %215 ]
   %.sroa.017.7.i = phi i1 [ false, %._crit_edge229.i ], [ true, %215 ]
-  %.pn62.pn.pn.i = phi { ptr, i32 } [ %.pn62.pn240.i, %._crit_edge229.i ], [ %216, %215 ]
+  %.pn62.pn.pn.i = phi { ptr, i32 } [ %.pn62.pn249.i, %._crit_edge229.i ], [ %216, %215 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4635)
   call void @llvm.experimental.noalias.scope.decl(metadata !4638)
   %212 = atomicrmw sub ptr %211, i64 1 release, align 8, !noalias !4641
@@ -27865,7 +27865,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !4579
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !4579
   invoke void @"_ZN70_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..clone..Clone$GT$5clone17h13db8591b4f63891E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %173)
-          to label %229 unwind label %.thread236.i, !noalias !4580
+          to label %229 unwind label %.thread245.i, !noalias !4580
 
 219:                                              ; preds = %368
   %.pre.i = load ptr, ptr %30, align 8, !alias.scope !4642, !noalias !4579
@@ -27883,7 +27883,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hfbdbd62b0e20e3c4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
           to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$remote..ssh_session..SshRemoteClient$GT$$GT$$GT$17he4bceaaaf1575362E.exit.i" unwind label %355, !noalias !4580
 
-.thread236.i:                                     ; preds = %217
+.thread245.i:                                     ; preds = %217
   %225 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$remote..ssh_session..SshRemoteClient$GT$$GT$$GT$17he4bceaaaf1575362E.exit.i"
@@ -28365,9 +28365,9 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   invoke void @"_ZN4core3ptr100drop_in_place$LT$gpui..app..entity_map..Model$LT$project..project_settings..SettingsObserver$GT$$GT$17h4e5b1771b460ddb1E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #27
           to label %219 unwind label %355, !noalias !4580
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$remote..ssh_session..SshRemoteClient$GT$$GT$$GT$17he4bceaaaf1575362E.exit.i": ; preds = %.thread236.i, %224, %221, %219
-  %.pn62.pn240.i = phi { ptr, i32 } [ %225, %.thread236.i ], [ %.pn62.i, %221 ], [ %.pn62.i, %219 ], [ %.pn62.i, %224 ]
-  %.sroa.016.7239.i = phi i1 [ true, %.thread236.i ], [ %.sroa.016.8.i, %221 ], [ %.sroa.016.8.i, %219 ], [ %.sroa.016.8.i, %224 ]
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$remote..ssh_session..SshRemoteClient$GT$$GT$$GT$17he4bceaaaf1575362E.exit.i": ; preds = %.thread245.i, %224, %221, %219
+  %.pn62.pn249.i = phi { ptr, i32 } [ %225, %.thread245.i ], [ %.pn62.i, %221 ], [ %.pn62.i, %219 ], [ %.pn62.i, %224 ]
+  %.sroa.016.7248.i = phi i1 [ true, %.thread245.i ], [ %.sroa.016.8.i, %221 ], [ %.sroa.016.8.i, %219 ], [ %.sroa.016.8.i, %224 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4686)
   call void @llvm.experimental.noalias.scope.decl(metadata !4689)
   %369 = load ptr, ptr %31, align 8, !alias.scope !4692, !noalias !4579, !nonnull !5, !noundef !5
@@ -29140,8 +29140,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %17 = trunc i32 %16 to i8
   %18 = and i8 %17, 63
   %19 = or disjoint i8 %18, -128
-  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %19, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8, align 1, !alias.scope !4757, !noalias !4754
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %19, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx9, align 1, !alias.scope !4757, !noalias !4754
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 20:                                               ; preds = %6
@@ -29154,14 +29154,14 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %26 = trunc i32 %25 to i8
   %27 = and i8 %26, 63
   %28 = or disjoint i8 %27, -128
-  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %28, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx7, align 1, !alias.scope !4757, !noalias !4754
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %28, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8, align 1, !alias.scope !4757, !noalias !4754
   %29 = lshr i32 %1, 6
   %30 = trunc i32 %29 to i8
   %31 = and i8 %30, 63
   %32 = or disjoint i8 %31, -128
-  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %32, ptr %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx9, align 2, !alias.scope !4757, !noalias !4754
+  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %32, ptr %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx10, align 2, !alias.scope !4757, !noalias !4754
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i: ; preds = %20, %12, %8

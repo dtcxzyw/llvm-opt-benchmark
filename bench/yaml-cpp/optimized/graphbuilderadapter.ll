@@ -681,8 +681,8 @@ _ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3po
 
 _ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit.thread, %30
   %32 = phi ptr [ %8, %30 ], [ %17, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit.thread ]
-  %storemerge.i.i35 = phi ptr [ %7, %30 ], [ %23, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit.thread ]
-  %33 = getelementptr inbounds i8, ptr %storemerge.i.i35, i64 -16
+  %storemerge.i.i57 = phi ptr [ %7, %30 ], [ %23, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit.thread ]
+  %33 = getelementptr inbounds i8, ptr %storemerge.i.i57, i64 -16
   br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
 
 34:                                               ; preds = %30
@@ -697,7 +697,7 @@ _ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3to
 _ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i: ; preds = %34, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
   %41 = phi ptr [ %8, %34 ], [ %32, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
   %.in.i = phi ptr [ %39, %34 ], [ %33, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
-  %42 = phi ptr [ %40, %34 ], [ %storemerge.i.i35, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
+  %42 = phi ptr [ %40, %34 ], [ %storemerge.i.i57, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
   %43 = load ptr, ptr %.in.i, align 8, !tbaa !17
   %44 = getelementptr inbounds i8, ptr %42, i64 -8
   %45 = load ptr, ptr %44, align 8, !tbaa !43
@@ -897,8 +897,8 @@ _ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3po
 _ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit.thread, %36
   %38 = phi ptr [ %11, %36 ], [ %23, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit.thread ]
   %39 = phi ptr [ %8, %36 ], [ %20, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit.thread ]
-  %storemerge.i.i46 = phi ptr [ %7, %36 ], [ %29, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit.thread ]
-  %40 = getelementptr inbounds i8, ptr %storemerge.i.i46, i64 -16
+  %storemerge.i.i68 = phi ptr [ %7, %36 ], [ %29, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit.thread ]
+  %40 = getelementptr inbounds i8, ptr %storemerge.i.i68, i64 -16
   br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
 
 41:                                               ; preds = %36
@@ -914,7 +914,7 @@ _ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3to
   %48 = phi ptr [ %11, %41 ], [ %38, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
   %49 = phi ptr [ %8, %41 ], [ %39, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
   %.in.i = phi ptr [ %46, %41 ], [ %40, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
-  %50 = phi ptr [ %47, %41 ], [ %storemerge.i.i46, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
+  %50 = phi ptr [ %47, %41 ], [ %storemerge.i.i68, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
   %51 = load ptr, ptr %.in.i, align 8, !tbaa !17
   %52 = getelementptr inbounds i8, ptr %50, i64 -8
   %53 = load ptr, ptr %52, align 8, !tbaa !43
@@ -1308,13 +1308,13 @@ define linkonce_odr void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr nound
 19:                                               ; preds = %3
   store ptr null, ptr %5, align 8, !tbaa !38
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !38
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

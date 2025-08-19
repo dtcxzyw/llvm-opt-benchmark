@@ -589,25 +589,25 @@ define void @lv_obj_clean(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.preheader:                                 ; preds = %11
   tail call fastcc void @obj_delete_core(ptr noundef %13)
-  %.val1855 = load ptr, ptr %3, align 8, !tbaa !37
-  %17 = icmp eq ptr %.val1855, null
-  br i1 %17, label %._crit_edge, label %.lr.ph57
+  %.val1859 = load ptr, ptr %3, align 8, !tbaa !37
+  %17 = icmp eq ptr %.val1859, null
+  br i1 %17, label %._crit_edge, label %.lr.ph61
 
 .lr.ph.loopexit:                                  ; preds = %23
   tail call fastcc void @obj_delete_core(ptr noundef %25)
   %.val18 = load ptr, ptr %3, align 8, !tbaa !37
   %18 = icmp eq ptr %.val18, null
-  br i1 %18, label %._crit_edge, label %.lr.ph57, !llvm.loop !61
+  br i1 %18, label %._crit_edge, label %.lr.ph61, !llvm.loop !61
 
-.lr.ph57:                                         ; preds = %.lr.ph.preheader, %.lr.ph.loopexit
-  %.val1856 = phi ptr [ %.val18, %.lr.ph.loopexit ], [ %.val1855, %.lr.ph.preheader ]
-  %19 = getelementptr inbounds nuw i8, ptr %.val1856, i64 64
+.lr.ph61:                                         ; preds = %.lr.ph.preheader, %.lr.ph.loopexit
+  %.val1860 = phi ptr [ %.val18, %.lr.ph.loopexit ], [ %.val1859, %.lr.ph.preheader ]
+  %19 = getelementptr inbounds nuw i8, ptr %.val1860, i64 64
   %20 = load i16, ptr %19, align 8, !tbaa !38
   %.not4.i21 = icmp eq i16 %20, 0
   br i1 %.not4.i21, label %._crit_edge, label %.lr.ph.i22
 
-.lr.ph.i22:                                       ; preds = %.lr.ph57
-  %21 = load ptr, ptr %.val1856, align 8, !tbaa !42
+.lr.ph.i22:                                       ; preds = %.lr.ph61
+  %21 = load ptr, ptr %.val1860, align 8, !tbaa !42
   %wide.trip.count.i23 = zext i16 %20 to i64
   br label %23
 
@@ -626,9 +626,9 @@ define void @lv_obj_clean(ptr noundef %0) local_unnamed_addr #0 {
   %.not.i25 = icmp eq i16 %28, 0
   br i1 %.not.i25, label %.lr.ph.loopexit, label %22
 
-._crit_edge:                                      ; preds = %10, %.lr.ph.loopexit, %.lr.ph57, %22, %.lr.ph.preheader, %2, %6
-  %.0.i35.shrunk41.shrunk = phi i16 [ 0, %6 ], [ 0, %2 ], [ %8, %.lr.ph.preheader ], [ %8, %22 ], [ %8, %.lr.ph57 ], [ %8, %.lr.ph.loopexit ], [ %8, %10 ]
-  %.0.i35.shrunk41 = zext i16 %.0.i35.shrunk41.shrunk to i32
+._crit_edge:                                      ; preds = %10, %.lr.ph.loopexit, %.lr.ph61, %22, %.lr.ph.preheader, %2, %6
+  %.0.i35.shrunk45.shrunk = phi i16 [ 0, %6 ], [ 0, %2 ], [ %8, %.lr.ph.preheader ], [ %8, %22 ], [ %8, %.lr.ph61 ], [ %8, %.lr.ph.loopexit ], [ %8, %10 ]
+  %.0.i35.shrunk45 = zext i16 %.0.i35.shrunk45.shrunk to i32
   tail call void @lv_obj_scroll_to(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #6
   %29 = load ptr, ptr %3, align 8, !tbaa !37
   %.not17 = icmp eq ptr %29, null
@@ -646,7 +646,7 @@ define void @lv_obj_clean(ptr noundef %0) local_unnamed_addr #0 {
 
 lv_obj_get_child_count.exit33:                    ; preds = %._crit_edge, %30
   %.0.i31 = phi i32 [ %35, %30 ], [ 0, %._crit_edge ]
-  %36 = icmp samesign ult i32 %.0.i31, %.0.i35.shrunk41
+  %36 = icmp samesign ult i32 %.0.i31, %.0.i35.shrunk45
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %lv_obj_get_child_count.exit33
@@ -819,7 +819,7 @@ lv_obj_get_parent.exit.i:                         ; preds = %4
 
 .lr.ph67:                                         ; preds = %.lr.ph.split.split
   %24 = add nsw i32 %22, -1
-  %wide.trip.count = zext i32 %24 to i64
+  %wide.trip.count = zext nneg i32 %24 to i64
   br label %lv_obj_get_child_count.exit
 
 .preheader.i50:                                   ; preds = %lv_obj_get_parent.exit.i, %.preheader.i50
@@ -1034,8 +1034,7 @@ lv_obj_get_parent.exit:                           ; preds = %2
 
 .preheader49:                                     ; preds = %27
   %31 = load ptr, ptr %7, align 8, !tbaa !42
-  %sext = shl i64 %indvars.iv.i, 32
-  %32 = ashr exact i64 %sext, 32
+  %32 = and i64 %indvars.iv.i, 4294967295
   %33 = zext nneg i32 %spec.select to i64
   br label %34
 
@@ -1457,7 +1456,7 @@ lv_obj_get_parent.exit.i:                         ; preds = %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %lv_obj_get_index_by_type.exit.thread21, label %.preheader27.i
+  br i1 %6, label %lv_obj_get_index_by_type.exit.thread27, label %.preheader27.i
 
 .preheader27.i:                                   ; preds = %lv_obj_get_parent.exit.i
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1501,7 +1500,7 @@ lv_obj_get_index_by_type.exit:                    ; preds = %17, %21
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %lv_obj_get_child_by_type.exit, label %.thread
 
-lv_obj_get_index_by_type.exit.thread21:           ; preds = %lv_obj_get_parent.exit.i
+lv_obj_get_index_by_type.exit.thread27:           ; preds = %lv_obj_get_parent.exit.i
   %24 = icmp slt i32 %1, 1
   br i1 %24, label %lv_obj_get_child_by_type.exit, label %.preheader.i19
 
@@ -1510,7 +1509,7 @@ lv_obj_get_index_by_type.exit.thread:             ; preds = %.preheader27.i
   %26 = icmp slt i32 %1, 1
   br i1 %26, label %lv_obj_get_child_by_type.exit, label %.thread
 
-.preheader.i19:                                   ; preds = %lv_obj_get_index_by_type.exit.thread21, %.preheader.i19
+.preheader.i19:                                   ; preds = %lv_obj_get_index_by_type.exit.thread27, %.preheader.i19
   br label %.preheader.i19
 
 .thread:                                          ; preds = %lv_obj_get_index_by_type.exit, %lv_obj_get_index_by_type.exit.thread
@@ -1554,8 +1553,8 @@ lv_obj_get_index_by_type.exit.thread:             ; preds = %.preheader27.i
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next53.i, %wide.trip.count.i17
   br i1 %exitcond.not.i18, label %lv_obj_get_child_by_type.exit, label %34, !llvm.loop !69
 
-lv_obj_get_child_by_type.exit:                    ; preds = %43, %39, %lv_obj_get_index_by_type.exit.thread21, %lv_obj_get_index_by_type.exit.thread, %.preheader33.i, %.thread, %lv_obj_get_index_by_type.exit
-  %.0 = phi ptr [ null, %lv_obj_get_index_by_type.exit ], [ null, %.thread ], [ null, %.preheader33.i ], [ null, %lv_obj_get_index_by_type.exit.thread ], [ null, %lv_obj_get_index_by_type.exit.thread21 ], [ %36, %39 ], [ null, %43 ]
+lv_obj_get_child_by_type.exit:                    ; preds = %43, %39, %lv_obj_get_index_by_type.exit.thread27, %lv_obj_get_index_by_type.exit.thread, %.preheader33.i, %.thread, %lv_obj_get_index_by_type.exit
+  %.0 = phi ptr [ null, %lv_obj_get_index_by_type.exit ], [ null, %.thread ], [ null, %.preheader33.i ], [ null, %lv_obj_get_index_by_type.exit.thread ], [ null, %lv_obj_get_index_by_type.exit.thread27 ], [ %36, %39 ], [ null, %43 ]
   ret ptr %.0
 }
 

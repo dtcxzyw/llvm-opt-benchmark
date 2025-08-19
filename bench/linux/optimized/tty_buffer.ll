@@ -398,9 +398,9 @@ define dso_local i64 @__tty_insert_flip_string_flags(ptr noundef %0, ptr noundef
 .split:                                           ; preds = %5
   %34 = load i8, ptr %2, align 1
   %.fr4 = freeze i8 %34
-  %.not16 = icmp eq i8 %.fr4, 0
+  %.not23 = icmp eq i8 %.fr4, 0
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  br i1 %.not16, label %.split.split, label %.split.split.us, !prof !13
+  br i1 %.not23, label %.split.split, label %.split.split.us, !prof !13
 
 .split.split.us:                                  ; preds = %.split, %62
   %36 = phi i64 [ %65, %62 ], [ 0, %.split ]

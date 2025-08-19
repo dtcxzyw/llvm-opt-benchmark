@@ -402,7 +402,7 @@ define internal i32 @dissect_ppi_sensor(ptr noundef %0, ptr noundef %1, ptr noun
 
 99:                                               ; preds = %85, %97, %89, %70
   %100 = phi i32 [ %72, %70 ], [ %87, %85 ], [ %93, %89 ], [ %98, %97 ]
-  switch i32 %100, label %.thread358 [
+  switch i32 %100, label %.thread361 [
     i32 0, label %101
     i32 1, label %114
     i32 30, label %241
@@ -702,7 +702,7 @@ base_10_expt.exit339:                             ; preds = %193, %203, %205
   %247 = add nsw i32 %.0259354, -60
   br label %249
 
-.thread358:                                       ; preds = %99
+.thread361:                                       ; preds = %99
   %248 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %37, ptr noundef nonnull @ei_ppi_sensor_present_bit, ptr noundef nonnull @.str.95, i32 noundef %100)
   br label %._crit_edge
 
@@ -715,7 +715,7 @@ base_10_expt.exit339:                             ; preds = %193, %203, %205
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %._crit_edge, label %40, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %249, %.thread358, %34
+._crit_edge:                                      ; preds = %249, %.thread361, %34
   %250 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %251
 

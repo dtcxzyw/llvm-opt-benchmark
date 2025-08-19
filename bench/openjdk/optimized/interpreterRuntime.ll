@@ -1205,7 +1205,7 @@ _ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %_ZNK17LastFrameAcce
   br i1 %.not37, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %70
-  %.042 = phi ptr [ %69, %.thread ], [ %5, %70 ]
+  %.045 = phi ptr [ %69, %.thread ], [ %5, %70 ]
   %wide.trip.count = zext i8 %54 to i64
   br label %.lr.ph
 
@@ -1217,18 +1217,18 @@ _ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %_ZNK17LastFrameAcce
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds i32, ptr %1, i64 %74
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds nuw i32, ptr %.042, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i32, ptr %.045, i64 %indvars.iv
   store i32 %76, ptr %77, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %70
-  %.043 = phi ptr [ %5, %70 ], [ %.042, %.lr.ph ]
+  %.046 = phi ptr [ %5, %70 ], [ %.045, %.lr.ph ]
   %78 = load ptr, ptr %48, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 328
   %80 = load ptr, ptr %79, align 8
-  %81 = call noundef ptr %80(ptr noundef nonnull align 8 dereferenceable(216) %48, i32 noundef %55, ptr noundef nonnull %.043, ptr noundef nonnull %0) #14
+  %81 = call noundef ptr %80(ptr noundef nonnull align 8 dereferenceable(216) %48, i32 noundef %55, ptr noundef nonnull %.046, ptr noundef nonnull %0) #14
   %82 = load ptr, ptr %49, align 8
   %.not35 = icmp eq ptr %82, null
   br i1 %.not35, label %83, label %85

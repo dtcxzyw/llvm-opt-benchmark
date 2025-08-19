@@ -2305,7 +2305,7 @@ common.resume:                                    ; preds = %.thread236, %126, %
 .lr.ph.i55.us.i.i:                                ; preds = %201, %.sink.split.i.us.i.i
   %202 = phi i64 [ %.sink.i.us.i.i, %.sink.split.i.us.i.i ], [ %.sroa.3079.0.us.i.i, %201 ]
   %203 = phi i64 [ %243, %.sink.split.i.us.i.i ], [ %199, %201 ]
-  %204 = phi i64 [ %.ph69.i.us.i.i, %.sink.split.i.us.i.i ], [ %.sroa.18.0.us.i.i, %201 ]
+  %204 = phi i64 [ %.ph76.i.us.i.i, %.sink.split.i.us.i.i ], [ %.sroa.18.0.us.i.i, %201 ]
   %205 = getelementptr inbounds i8, ptr %.sroa.12114.0.copyload.i.i, i64 %203
   %206 = load i8, ptr %205, align 1, !alias.scope !271, !noalias !276, !noundef !4
   %207 = and i8 %206, 63
@@ -2377,8 +2377,8 @@ common.resume:                                    ; preds = %.thread236, %126, %
 
 .sink.split.i.us.i.i:                             ; preds = %241, %238, %227
   %.sink.i.us.i.i = phi i64 [ %195, %227 ], [ 0, %238 ], [ 0, %241 ]
-  %.ph69.i.us.i.i = phi i64 [ %228, %227 ], [ %240, %238 ], [ %242, %241 ]
-  %243 = add i64 %.ph69.i.us.i.i, %194
+  %.ph76.i.us.i.i = phi i64 [ %228, %227 ], [ %240, %238 ], [ %242, %241 ]
+  %243 = add i64 %.ph76.i.us.i.i, %194
   %244 = icmp ult i64 %243, %.sroa.13115.0.copyload.i.i
   br i1 %244, label %.lr.ph.i55.us.i.i, label %.critedge.i.i
 
@@ -2917,13 +2917,13 @@ _ZN3std4path4Path4join17h53ba53907a6981e7E.exit:  ; preds = %430
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !345
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
   %450 = load i8, ptr %0, align 1, !range !360, !noundef !4
-  switch i8 %450, label %default.unreachable368 [
+  switch i8 %450, label %default.unreachable403 [
     i8 0, label %451
     i8 1, label %452
     i8 2, label %453
   ]
 
-default.unreachable368:                           ; preds = %449
+default.unreachable403:                           ; preds = %449
   unreachable
 
 451:                                              ; preds = %449
@@ -2945,8 +2945,8 @@ default.unreachable368:                           ; preds = %449
 
 454:                                              ; preds = %451
   %455 = load i64, ptr %66, align 8, !range !21, !noundef !4
-  %.not418 = icmp eq i64 %455, -9223372036854775808
-  br i1 %.not418, label %460, label %456
+  %.not453 = icmp eq i64 %455, -9223372036854775808
+  br i1 %.not453, label %460, label %456
 
 456:                                              ; preds = %454
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
@@ -3440,8 +3440,8 @@ default.unreachable368:                           ; preds = %449
 597:                                              ; preds = %452
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
   %598 = load i64, ptr %84, align 8, !range !21, !noundef !4
-  %.not417 = icmp eq i64 %598, -9223372036854775808
-  br i1 %.not417, label %602, label %599
+  %.not452 = icmp eq i64 %598, -9223372036854775808
+  br i1 %.not452, label %602, label %599
 
 599:                                              ; preds = %597
   call void @llvm.lifetime.start.p0(ptr nonnull %82)

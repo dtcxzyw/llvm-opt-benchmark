@@ -5236,7 +5236,7 @@ _ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread: ; preds = %97, %._ZStneIlSaIlE
   br i1 %.not.i.i.i40, label %_ZNSt6vectorIlSaIlEED2Ev.exit41, label %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread.thread
 
 _ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread.thread: ; preds = %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit39, %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread
-  %.010104 = phi i32 [ %.010, %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread ], [ %spec.select, %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit39 ]
+  %.010109 = phi i32 [ %.010, %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread ], [ %spec.select, %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit39 ]
   %105 = phi ptr [ %104, %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread ], [ %.pre101, %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit39 ]
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %107 = load ptr, ptr %106, align 8, !tbaa !139
@@ -5247,7 +5247,7 @@ _ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread.thread: ; preds = %_ZStneIlSaIl
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit41
 
 _ZNSt6vectorIlSaIlEED2Ev.exit41:                  ; preds = %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread.thread
-  %.010105 = phi i32 [ %.010, %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread ], [ %.010104, %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread.thread ]
+  %.010110 = phi i32 [ %.010, %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread ], [ %.010109, %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i.i.i42 = icmp eq ptr %77, null
   br i1 %.not.i.i.i42, label %_ZNSt6vectorIhSaIhEED2Ev.exit50, label %111
@@ -5271,7 +5271,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit50:                  ; preds = %_ZNSt6vectorIlSaIlE
   %118 = load ptr, ptr %117, align 8
   call void %118(ptr noundef nonnull align 8 dereferenceable(240) %20) #20
   call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 4000) #21
-  ret i32 %.010105
+  ret i32 %.010110
 
 119:                                              ; preds = %94
   %120 = getelementptr inbounds nuw i8, ptr %5, i64 16

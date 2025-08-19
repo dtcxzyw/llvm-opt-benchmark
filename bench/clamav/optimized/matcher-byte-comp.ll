@@ -633,11 +633,11 @@ cli_bcomp_freemeta.exit288:                       ; preds = %91, %._crit_edge.i2
   br label %329
 
 276:                                              ; preds = %264, %271
-  %.sink321 = phi i32 [ 2, %271 ], [ 1, %264 ]
+  %.sink349 = phi i32 [ 2, %271 ], [ 1, %264 ]
   %277 = phi i64 [ 2, %271 ], [ 1, %264 ]
   %.0196 = phi ptr [ %265, %271 ], [ %262, %264 ]
   %278 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  store i32 %.sink321, ptr %278, align 8, !tbaa !32
+  store i32 %.sink349, ptr %278, align 8, !tbaa !32
   %279 = load ptr, ptr %15, align 8, !tbaa !9
   %280 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %281 = call ptr @mpool_calloc(ptr noundef %279, i64 noundef %277, i64 noundef 8) #14

@@ -2815,11 +2815,11 @@ _ZN6bufferIcLb0ELj16EE6expandEv.exit.i100:        ; preds = %.noexc105, %._crit_
   br label %169
 
 169:                                              ; preds = %.sink.split, %160, %149
-  %.sink218 = phi i32 [ %151, %149 ], [ %162, %160 ], [ %.pre2.i117, %.sink.split ]
-  %.sink216 = phi ptr [ %145, %149 ], [ %145, %160 ], [ %.pre.i115, %.sink.split ]
+  %.sink252 = phi i32 [ %151, %149 ], [ %162, %160 ], [ %.pre2.i117, %.sink.split ]
+  %.sink250 = phi ptr [ %145, %149 ], [ %145, %160 ], [ %.pre.i115, %.sink.split ]
   %.sink = phi i8 [ %148, %149 ], [ %159, %160 ], [ %.sink.ph, %.sink.split ]
-  %170 = zext i32 %.sink218 to i64
-  %171 = getelementptr inbounds nuw i8, ptr %.sink216, i64 %170
+  %170 = zext i32 %.sink252 to i64
+  %171 = getelementptr inbounds nuw i8, ptr %.sink250, i64 %170
   store i8 %.sink, ptr %171, align 1, !tbaa !177
   %172 = load ptr, ptr %5, align 8, !tbaa !215
   %173 = getelementptr inbounds i8, ptr %172, i64 -4
@@ -3046,12 +3046,12 @@ _ZN6bufferIcLb0ELj16EE6expandEv.exit.i169:        ; preds = %.noexc174, %._crit_
   br label %243
 
 237:                                              ; preds = %._crit_edge.i171, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169, %._crit_edge.i134, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i132
-  %.sink223 = phi i32 [ %181, %._crit_edge.i134 ], [ %.pre2.i133, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i132 ], [ %37, %._crit_edge.i171 ], [ %.pre2.i170, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169 ]
-  %.sink221 = phi ptr [ %.pre.i135, %._crit_edge.i134 ], [ %186, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i132 ], [ %.pre.i172, %._crit_edge.i171 ], [ %227, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169 ]
-  %.sink219 = phi i8 [ 125, %._crit_edge.i134 ], [ 125, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i132 ], [ %222, %._crit_edge.i171 ], [ %222, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169 ]
-  %238 = zext i32 %.sink223 to i64
-  %239 = getelementptr inbounds nuw i8, ptr %.sink221, i64 %238
-  store i8 %.sink219, ptr %239, align 1, !tbaa !177
+  %.sink257 = phi i32 [ %181, %._crit_edge.i134 ], [ %.pre2.i133, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i132 ], [ %37, %._crit_edge.i171 ], [ %.pre2.i170, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169 ]
+  %.sink255 = phi ptr [ %.pre.i135, %._crit_edge.i134 ], [ %186, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i132 ], [ %.pre.i172, %._crit_edge.i171 ], [ %227, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169 ]
+  %.sink253 = phi i8 [ 125, %._crit_edge.i134 ], [ 125, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i132 ], [ %222, %._crit_edge.i171 ], [ %222, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169 ]
+  %238 = zext i32 %.sink257 to i64
+  %239 = getelementptr inbounds nuw i8, ptr %.sink255, i64 %238
+  store i8 %.sink253, ptr %239, align 1, !tbaa !177
   %storemerge.in = load i32, ptr %24, align 8, !tbaa !214
   %storemerge = add i32 %storemerge.in, 1
   store i32 %storemerge, ptr %24, align 8, !tbaa !214
@@ -4948,8 +4948,8 @@ define noundef ptr @Z3_mk_seq_extract(ptr noundef %0, ptr noundef %1, ptr nounde
   %26 = add nsw i32 %25, -3
   %27 = icmp ult i32 %26, 2
   %28 = icmp eq ptr %3, null
-  %or.cond53 = or i1 %27, %28
-  br i1 %or.cond53, label %.invoke, label %29
+  %or.cond56 = or i1 %27, %28
+  br i1 %or.cond56, label %.invoke, label %29
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5120,8 +5120,8 @@ define noundef ptr @Z3_mk_seq_replace(ptr noundef %0, ptr noundef %1, ptr nounde
   %26 = add nsw i32 %25, -3
   %27 = icmp ult i32 %26, 2
   %28 = icmp eq ptr %3, null
-  %or.cond53 = or i1 %27, %28
-  br i1 %or.cond53, label %.invoke, label %29
+  %or.cond56 = or i1 %27, %28
+  br i1 %or.cond56, label %.invoke, label %29
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5760,8 +5760,8 @@ define noundef ptr @Z3_mk_seq_index(ptr noundef %0, ptr noundef %1, ptr noundef 
   %26 = add nsw i32 %25, -3
   %27 = icmp ult i32 %26, 2
   %28 = icmp eq ptr %3, null
-  %or.cond53 = or i1 %27, %28
-  br i1 %or.cond53, label %.invoke, label %29
+  %or.cond56 = or i1 %27, %28
+  br i1 %or.cond56, label %.invoke, label %29
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -9682,8 +9682,8 @@ define noundef ptr @Z3_mk_seq_mapi(ptr noundef %0, ptr noundef %1, ptr noundef %
   %26 = add nsw i32 %25, -3
   %27 = icmp ult i32 %26, 2
   %28 = icmp eq ptr %3, null
-  %or.cond53 = or i1 %27, %28
-  br i1 %or.cond53, label %.invoke, label %29
+  %or.cond56 = or i1 %27, %28
+  br i1 %or.cond56, label %.invoke, label %29
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -9854,8 +9854,8 @@ define noundef ptr @Z3_mk_seq_foldl(ptr noundef %0, ptr noundef %1, ptr noundef 
   %26 = add nsw i32 %25, -3
   %27 = icmp ult i32 %26, 2
   %28 = icmp eq ptr %3, null
-  %or.cond53 = or i1 %27, %28
-  br i1 %or.cond53, label %.invoke, label %29
+  %or.cond56 = or i1 %27, %28
+  br i1 %or.cond56, label %.invoke, label %29
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -10026,8 +10026,8 @@ define noundef ptr @Z3_mk_seq_foldli(ptr noundef %0, ptr noundef %1, ptr noundef
   %27 = add nsw i32 %26, -3
   %28 = icmp ult i32 %27, 2
   %29 = icmp eq ptr %3, null
-  %or.cond59 = or i1 %28, %29
-  br i1 %or.cond59, label %.invoke, label %30
+  %or.cond63 = or i1 %28, %29
+  br i1 %or.cond63, label %.invoke, label %30
 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -10036,8 +10036,8 @@ define noundef ptr @Z3_mk_seq_foldli(ptr noundef %0, ptr noundef %1, ptr noundef
   %34 = add nsw i32 %33, -3
   %35 = icmp ult i32 %34, 2
   %36 = icmp eq ptr %4, null
-  %or.cond60 = or i1 %35, %36
-  br i1 %or.cond60, label %.invoke, label %37
+  %or.cond64 = or i1 %35, %36
+  br i1 %or.cond64, label %.invoke, label %37
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 4

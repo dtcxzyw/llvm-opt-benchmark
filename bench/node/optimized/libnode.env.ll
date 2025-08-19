@@ -2578,7 +2578,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp8.not.i, label %if.else.i, label %_ZSt27__uninitialized_default_n_aIPN2v85LocalINS0_6ObjectEEEmS3_ET_S5_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPN2v85LocalINS0_6ObjectEEEmS3_ET_S5_T0_RSaIT1_E.exit.i: ; preds = %if.then
-  %3 = shl nuw i64 %sub, 3
+  %3 = shl nuw nsw i64 %sub, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %3, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %0, i64 %3
   store ptr %scevgep.i.i.i.i, ptr %_M_finish.i, align 8
@@ -2626,7 +2626,7 @@ if.then.i24.i:                                    ; preds = %_ZNSt6vectorIN2v85L
 
 _ZNSt12_Vector_baseIN2v85LocalINS0_6ObjectEEESaIS3_EE13_M_deallocateEPS3_m.exit.i: ; preds = %if.then.i24.i, %_ZNSt6vectorIN2v85LocalINS0_6ObjectEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr34.i = getelementptr inbounds %"class.v8::Local.256", ptr %add.ptr.i, i64 %sub
+  %add.ptr34.i = getelementptr inbounds nuw %"class.v8::Local.256", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr34.i, ptr %_M_finish.i, align 8
   %add.ptr37.i = getelementptr inbounds nuw %"class.v8::Local.256", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
@@ -3068,13 +3068,13 @@ if.end10.i.i.i.i:                                 ; preds = %if.end.i.i6.i.i
   %incdec.ptr.i11.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.051.i.i.i.i, i64 16
   %call.val.i12.i.i.i.i = load ptr, ptr %incdec.ptr.i11.i.i.i.i, align 8
   %cmp.i.i.i13.i.i.i.i = icmp eq ptr %call.val.i12.i.i.i.i, null
-  br i1 %cmp.i.i.i13.i.i.i.i, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit70", label %if.end16.i.i.i.i
+  br i1 %cmp.i.i.i13.i.i.i.i, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit81", label %if.end16.i.i.i.i
 
 if.end16.i.i.i.i:                                 ; preds = %if.end10.i.i.i.i
   %incdec.ptr.i14.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.051.i.i.i.i, i64 24
   %call.val.i15.i.i.i.i = load ptr, ptr %incdec.ptr.i14.i.i.i.i, align 8
   %cmp.i.i.i16.i.i.i.i = icmp eq ptr %call.val.i15.i.i.i.i, null
-  br i1 %cmp.i.i.i16.i.i.i.i, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit72", label %if.end22.i.i.i.i
+  br i1 %cmp.i.i.i16.i.i.i.i, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit83", label %if.end22.i.i.i.i
 
 if.end22.i.i.i.i:                                 ; preds = %if.end16.i.i.i.i
   %incdec.ptr.i17.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.051.i.i.i.i, i64 32
@@ -3127,16 +3127,16 @@ sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %
   %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.051.i.i.i.i, i64 8
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i"
 
-"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit70": ; preds = %if.end10.i.i.i.i
+"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit81": ; preds = %if.end10.i.i.i.i
   %incdec.ptr.i11.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.051.i.i.i.i, i64 16
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i"
 
-"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit72": ; preds = %if.end16.i.i.i.i
+"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit83": ; preds = %if.end16.i.i.i.i
   %incdec.ptr.i14.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.051.i.i.i.i, i64 24
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i"
 
-"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i": ; preds = %for.body.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit70", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit72", %sw.bb38.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i11.i.i.i.i.le, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit70" ], [ %incdec.ptr.i14.i.i.i.i.le, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit72" ], [ %__first.sroa.0.051.i.i.i.i, %for.body.i.i.i.i ]
+"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i": ; preds = %for.body.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit81", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit83", %sw.bb38.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i11.i.i.i.i.le, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit81" ], [ %incdec.ptr.i14.i.i.i.i.le, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.loopexit.split.loop.exit83" ], [ %__first.sroa.0.051.i.i.i.i, %for.body.i.i.i.i ]
   %cmp.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %2
   %__first.sroa.0.031.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, i64 8
   %cmp.i8.not32.i.i = icmp eq ptr %__first.sroa.0.031.i.i, %2
@@ -3250,9 +3250,9 @@ if.end.i:                                         ; preds = %if.then
   br label %_ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit
 
 _ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit: ; preds = %for.body.us.us, %if.then, %if.end.i
-  %.us-phi64 = phi ptr [ %.us-phi.ph, %if.then ], [ %.us-phi.ph, %if.end.i ], [ %it.sroa.0.031.us.us, %for.body.us.us ]
+  %.us-phi75 = phi ptr [ %.us-phi.ph, %if.then ], [ %.us-phi.ph, %if.end.i ], [ %it.sroa.0.031.us.us, %for.body.us.us ]
   %18 = load ptr, ptr %contexts_, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %.us-phi64 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %.us-phi75 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %18, i64 %sub.ptr.sub.i.i
@@ -37544,9 +37544,9 @@ if.end8632:                                       ; preds = %if.then8624, %if.th
   br i1 %2258, label %land.lhs.true8639, label %if.end10552
 
 land.lhs.true8639:                                ; preds = %land.lhs.true8607, %if.end8632
-  %i.24703 = phi i64 [ %inc8631, %if.end8632 ], [ %i.1, %land.lhs.true8607 ]
+  %i.24705 = phi i64 [ %inc8631, %if.end8632 ], [ %i.1, %land.lhs.true8607 ]
   %2259 = phi ptr [ %.pre4342, %if.end8632 ], [ %2250, %land.lhs.true8607 ]
-  %add.ptr.i3803 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2259, i64 %i.24703
+  %add.ptr.i3803 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2259, i64 %i.24705
   %id8641 = getelementptr inbounds nuw i8, ptr %add.ptr.i3803, i64 32
   %2260 = load i32, ptr %id8641, align 8
   %cmp8642 = icmp eq i32 %2260, 2
@@ -37570,7 +37570,7 @@ if.end8664:                                       ; preds = %if.then8656, %if.th
   %2265 = load ptr, ptr %isolate_, align 8
   %call8.i.i3806 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2265, ptr noundef %call.i18548) #24
   store ptr %call8.i.i3806, ptr %binding_data_default_template_.i, align 8
-  %inc8663 = add nuw nsw i64 %i.24703, 1
+  %inc8663 = add nuw nsw i64 %i.24705, 1
   %.pre4343 = load ptr, ptr %_M_finish.i, align 8
   %.pre4344 = load ptr, ptr %template_values, align 8
   %.pre4465 = ptrtoint ptr %.pre4343 to i64
@@ -37581,9 +37581,9 @@ if.end8664:                                       ; preds = %if.then8656, %if.th
   br i1 %2266, label %land.lhs.true8671, label %if.end10552
 
 land.lhs.true8671:                                ; preds = %land.lhs.true8639, %if.end8664
-  %i.34712 = phi i64 [ %inc8663, %if.end8664 ], [ %i.24703, %land.lhs.true8639 ]
+  %i.34714 = phi i64 [ %inc8663, %if.end8664 ], [ %i.24705, %land.lhs.true8639 ]
   %2267 = phi ptr [ %.pre4344, %if.end8664 ], [ %2259, %land.lhs.true8639 ]
-  %add.ptr.i3812 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2267, i64 %i.34712
+  %add.ptr.i3812 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2267, i64 %i.34714
   %id8673 = getelementptr inbounds nuw i8, ptr %add.ptr.i3812, i64 32
   %2268 = load i32, ptr %id8673, align 8
   %cmp8674 = icmp eq i32 %2268, 3
@@ -37607,7 +37607,7 @@ if.end8696:                                       ; preds = %if.then8688, %if.th
   %2273 = load ptr, ptr %isolate_, align 8
   %call8.i.i3815 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2273, ptr noundef %call.i17911) #24
   store ptr %call8.i.i3815, ptr %blob_constructor_template_.i, align 8
-  %inc8695 = add nuw nsw i64 %i.34712, 1
+  %inc8695 = add nuw nsw i64 %i.34714, 1
   %.pre4345 = load ptr, ptr %_M_finish.i, align 8
   %.pre4346 = load ptr, ptr %template_values, align 8
   %.pre4469 = ptrtoint ptr %.pre4345 to i64
@@ -37618,9 +37618,9 @@ if.end8696:                                       ; preds = %if.then8688, %if.th
   br i1 %2274, label %land.lhs.true8703, label %if.end10552
 
 land.lhs.true8703:                                ; preds = %land.lhs.true8671, %if.end8696
-  %i.44719 = phi i64 [ %inc8695, %if.end8696 ], [ %i.34712, %land.lhs.true8671 ]
+  %i.44721 = phi i64 [ %inc8695, %if.end8696 ], [ %i.34714, %land.lhs.true8671 ]
   %2275 = phi ptr [ %.pre4346, %if.end8696 ], [ %2267, %land.lhs.true8671 ]
-  %add.ptr.i3821 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2275, i64 %i.44719
+  %add.ptr.i3821 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2275, i64 %i.44721
   %id8705 = getelementptr inbounds nuw i8, ptr %add.ptr.i3821, i64 32
   %2276 = load i32, ptr %id8705, align 8
   %cmp8706 = icmp eq i32 %2276, 4
@@ -37644,7 +37644,7 @@ if.end8728:                                       ; preds = %if.then8720, %if.th
   %2281 = load ptr, ptr %isolate_, align 8
   %call8.i.i3824 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2281, ptr noundef %call.i17899) #24
   store ptr %call8.i.i3824, ptr %blob_reader_constructor_template_.i, align 8
-  %inc8727 = add nuw nsw i64 %i.44719, 1
+  %inc8727 = add nuw nsw i64 %i.44721, 1
   %.pre4347 = load ptr, ptr %_M_finish.i, align 8
   %.pre4348 = load ptr, ptr %template_values, align 8
   %.pre4473 = ptrtoint ptr %.pre4347 to i64
@@ -37655,9 +37655,9 @@ if.end8728:                                       ; preds = %if.then8720, %if.th
   br i1 %2282, label %land.lhs.true8735, label %if.end10552
 
 land.lhs.true8735:                                ; preds = %land.lhs.true8703, %if.end8728
-  %i.54726 = phi i64 [ %inc8727, %if.end8728 ], [ %i.44719, %land.lhs.true8703 ]
+  %i.54728 = phi i64 [ %inc8727, %if.end8728 ], [ %i.44721, %land.lhs.true8703 ]
   %2283 = phi ptr [ %.pre4348, %if.end8728 ], [ %2275, %land.lhs.true8703 ]
-  %add.ptr.i3830 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2283, i64 %i.54726
+  %add.ptr.i3830 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2283, i64 %i.54728
   %id8737 = getelementptr inbounds nuw i8, ptr %add.ptr.i3830, i64 32
   %2284 = load i32, ptr %id8737, align 8
   %cmp8738 = icmp eq i32 %2284, 5
@@ -37681,7 +37681,7 @@ if.end8760:                                       ; preds = %if.then8752, %if.th
   %2289 = load ptr, ptr %isolate_, align 8
   %call8.i.i3833 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2289, ptr noundef %call.i17887) #24
   store ptr %call8.i.i3833, ptr %blocklist_constructor_template_.i, align 8
-  %inc8759 = add nuw nsw i64 %i.54726, 1
+  %inc8759 = add nuw nsw i64 %i.54728, 1
   %.pre4349 = load ptr, ptr %_M_finish.i, align 8
   %.pre4350 = load ptr, ptr %template_values, align 8
   %.pre4477 = ptrtoint ptr %.pre4349 to i64
@@ -37692,9 +37692,9 @@ if.end8760:                                       ; preds = %if.then8752, %if.th
   br i1 %2290, label %land.lhs.true8767, label %if.end10552
 
 land.lhs.true8767:                                ; preds = %land.lhs.true8735, %if.end8760
-  %i.64733 = phi i64 [ %inc8759, %if.end8760 ], [ %i.54726, %land.lhs.true8735 ]
+  %i.64735 = phi i64 [ %inc8759, %if.end8760 ], [ %i.54728, %land.lhs.true8735 ]
   %2291 = phi ptr [ %.pre4350, %if.end8760 ], [ %2283, %land.lhs.true8735 ]
-  %add.ptr.i3839 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2291, i64 %i.64733
+  %add.ptr.i3839 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2291, i64 %i.64735
   %id8769 = getelementptr inbounds nuw i8, ptr %add.ptr.i3839, i64 32
   %2292 = load i32, ptr %id8769, align 8
   %cmp8770 = icmp eq i32 %2292, 6
@@ -37718,7 +37718,7 @@ if.end8792:                                       ; preds = %if.then8784, %if.th
   %2297 = load ptr, ptr %isolate_, align 8
   %call8.i.i3842 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2297, ptr noundef %call.i18536) #24
   store ptr %call8.i.i3842, ptr %contextify_global_template_.i, align 8
-  %inc8791 = add nuw nsw i64 %i.64733, 1
+  %inc8791 = add nuw nsw i64 %i.64735, 1
   %.pre4351 = load ptr, ptr %_M_finish.i, align 8
   %.pre4352 = load ptr, ptr %template_values, align 8
   %.pre4481 = ptrtoint ptr %.pre4351 to i64
@@ -37729,9 +37729,9 @@ if.end8792:                                       ; preds = %if.then8784, %if.th
   br i1 %2298, label %land.lhs.true8799, label %if.end10552
 
 land.lhs.true8799:                                ; preds = %land.lhs.true8767, %if.end8792
-  %i.74740 = phi i64 [ %inc8791, %if.end8792 ], [ %i.64733, %land.lhs.true8767 ]
+  %i.74742 = phi i64 [ %inc8791, %if.end8792 ], [ %i.64735, %land.lhs.true8767 ]
   %2299 = phi ptr [ %.pre4352, %if.end8792 ], [ %2291, %land.lhs.true8767 ]
-  %add.ptr.i3848 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2299, i64 %i.74740
+  %add.ptr.i3848 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2299, i64 %i.74742
   %id8801 = getelementptr inbounds nuw i8, ptr %add.ptr.i3848, i64 32
   %2300 = load i32, ptr %id8801, align 8
   %cmp8802 = icmp eq i32 %2300, 7
@@ -37755,7 +37755,7 @@ if.end8824:                                       ; preds = %if.then8816, %if.th
   %2305 = load ptr, ptr %isolate_, align 8
   %call8.i.i3851 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2305, ptr noundef %call.i18524) #24
   store ptr %call8.i.i3851, ptr %contextify_wrapper_template_.i, align 8
-  %inc8823 = add nuw nsw i64 %i.74740, 1
+  %inc8823 = add nuw nsw i64 %i.74742, 1
   %.pre4353 = load ptr, ptr %_M_finish.i, align 8
   %.pre4354 = load ptr, ptr %template_values, align 8
   %.pre4485 = ptrtoint ptr %.pre4353 to i64
@@ -37766,9 +37766,9 @@ if.end8824:                                       ; preds = %if.then8816, %if.th
   br i1 %2306, label %land.lhs.true8831, label %if.end10552
 
 land.lhs.true8831:                                ; preds = %land.lhs.true8799, %if.end8824
-  %i.84747 = phi i64 [ %inc8823, %if.end8824 ], [ %i.74740, %land.lhs.true8799 ]
+  %i.84749 = phi i64 [ %inc8823, %if.end8824 ], [ %i.74742, %land.lhs.true8799 ]
   %2307 = phi ptr [ %.pre4354, %if.end8824 ], [ %2299, %land.lhs.true8799 ]
-  %add.ptr.i3857 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2307, i64 %i.84747
+  %add.ptr.i3857 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2307, i64 %i.84749
   %id8833 = getelementptr inbounds nuw i8, ptr %add.ptr.i3857, i64 32
   %2308 = load i32, ptr %id8833, align 8
   %cmp8834 = icmp eq i32 %2308, 8
@@ -37792,7 +37792,7 @@ if.end8856:                                       ; preds = %if.then8848, %if.th
   %2313 = load ptr, ptr %isolate_, align 8
   %call8.i.i3860 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2313, ptr noundef %call.i17875) #24
   store ptr %call8.i.i3860, ptr %crypto_key_object_handle_constructor_.i, align 8
-  %inc8855 = add nuw nsw i64 %i.84747, 1
+  %inc8855 = add nuw nsw i64 %i.84749, 1
   %.pre4355 = load ptr, ptr %_M_finish.i, align 8
   %.pre4356 = load ptr, ptr %template_values, align 8
   %.pre4489 = ptrtoint ptr %.pre4355 to i64
@@ -37803,9 +37803,9 @@ if.end8856:                                       ; preds = %if.then8848, %if.th
   br i1 %2314, label %land.lhs.true8863, label %if.end10552
 
 land.lhs.true8863:                                ; preds = %land.lhs.true8831, %if.end8856
-  %i.94754 = phi i64 [ %inc8855, %if.end8856 ], [ %i.84747, %land.lhs.true8831 ]
+  %i.94756 = phi i64 [ %inc8855, %if.end8856 ], [ %i.84749, %land.lhs.true8831 ]
   %2315 = phi ptr [ %.pre4356, %if.end8856 ], [ %2307, %land.lhs.true8831 ]
-  %add.ptr.i3866 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2315, i64 %i.94754
+  %add.ptr.i3866 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2315, i64 %i.94756
   %id8865 = getelementptr inbounds nuw i8, ptr %add.ptr.i3866, i64 32
   %2316 = load i32, ptr %id8865, align 8
   %cmp8866 = icmp eq i32 %2316, 9
@@ -37829,7 +37829,7 @@ if.end8888:                                       ; preds = %if.then8880, %if.th
   %2321 = load ptr, ptr %isolate_, align 8
   %call8.i.i3869 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2321, ptr noundef %call.i18512) #24
   store ptr %call8.i.i3869, ptr %env_proxy_template_.i, align 8
-  %inc8887 = add nuw nsw i64 %i.94754, 1
+  %inc8887 = add nuw nsw i64 %i.94756, 1
   %.pre4357 = load ptr, ptr %_M_finish.i, align 8
   %.pre4358 = load ptr, ptr %template_values, align 8
   %.pre4493 = ptrtoint ptr %.pre4357 to i64
@@ -37840,9 +37840,9 @@ if.end8888:                                       ; preds = %if.then8880, %if.th
   br i1 %2322, label %land.lhs.true8895, label %if.end10552
 
 land.lhs.true8895:                                ; preds = %land.lhs.true8863, %if.end8888
-  %i.104761 = phi i64 [ %inc8887, %if.end8888 ], [ %i.94754, %land.lhs.true8863 ]
+  %i.104763 = phi i64 [ %inc8887, %if.end8888 ], [ %i.94756, %land.lhs.true8863 ]
   %2323 = phi ptr [ %.pre4358, %if.end8888 ], [ %2315, %land.lhs.true8863 ]
-  %add.ptr.i3875 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2323, i64 %i.104761
+  %add.ptr.i3875 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2323, i64 %i.104763
   %id8897 = getelementptr inbounds nuw i8, ptr %add.ptr.i3875, i64 32
   %2324 = load i32, ptr %id8897, align 8
   %cmp8898 = icmp eq i32 %2324, 10
@@ -37866,7 +37866,7 @@ if.end8920:                                       ; preds = %if.then8912, %if.th
   %2329 = load ptr, ptr %isolate_, align 8
   %call8.i.i3878 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2329, ptr noundef %call.i17863) #24
   store ptr %call8.i.i3878, ptr %env_proxy_ctor_template_.i, align 8
-  %inc8919 = add nuw nsw i64 %i.104761, 1
+  %inc8919 = add nuw nsw i64 %i.104763, 1
   %.pre4359 = load ptr, ptr %_M_finish.i, align 8
   %.pre4360 = load ptr, ptr %template_values, align 8
   %.pre4497 = ptrtoint ptr %.pre4359 to i64
@@ -37877,9 +37877,9 @@ if.end8920:                                       ; preds = %if.then8912, %if.th
   br i1 %2330, label %land.lhs.true8927, label %if.end10552
 
 land.lhs.true8927:                                ; preds = %land.lhs.true8895, %if.end8920
-  %i.114768 = phi i64 [ %inc8919, %if.end8920 ], [ %i.104761, %land.lhs.true8895 ]
+  %i.114770 = phi i64 [ %inc8919, %if.end8920 ], [ %i.104763, %land.lhs.true8895 ]
   %2331 = phi ptr [ %.pre4360, %if.end8920 ], [ %2323, %land.lhs.true8895 ]
-  %add.ptr.i3884 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2331, i64 %i.114768
+  %add.ptr.i3884 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2331, i64 %i.114770
   %id8929 = getelementptr inbounds nuw i8, ptr %add.ptr.i3884, i64 32
   %2332 = load i32, ptr %id8929, align 8
   %cmp8930 = icmp eq i32 %2332, 11
@@ -37903,7 +37903,7 @@ if.end8952:                                       ; preds = %if.then8944, %if.th
   %2337 = load ptr, ptr %isolate_, align 8
   %call8.i.i3887 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2337, ptr noundef %call.i18500) #24
   store ptr %call8.i.i3887, ptr %dir_instance_template_.i, align 8
-  %inc8951 = add nuw nsw i64 %i.114768, 1
+  %inc8951 = add nuw nsw i64 %i.114770, 1
   %.pre4361 = load ptr, ptr %_M_finish.i, align 8
   %.pre4362 = load ptr, ptr %template_values, align 8
   %.pre4501 = ptrtoint ptr %.pre4361 to i64
@@ -37914,9 +37914,9 @@ if.end8952:                                       ; preds = %if.then8944, %if.th
   br i1 %2338, label %land.lhs.true8959, label %if.end10552
 
 land.lhs.true8959:                                ; preds = %land.lhs.true8927, %if.end8952
-  %i.124775 = phi i64 [ %inc8951, %if.end8952 ], [ %i.114768, %land.lhs.true8927 ]
+  %i.124777 = phi i64 [ %inc8951, %if.end8952 ], [ %i.114770, %land.lhs.true8927 ]
   %2339 = phi ptr [ %.pre4362, %if.end8952 ], [ %2331, %land.lhs.true8927 ]
-  %add.ptr.i3893 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2339, i64 %i.124775
+  %add.ptr.i3893 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2339, i64 %i.124777
   %id8961 = getelementptr inbounds nuw i8, ptr %add.ptr.i3893, i64 32
   %2340 = load i32, ptr %id8961, align 8
   %cmp8962 = icmp eq i32 %2340, 12
@@ -37940,7 +37940,7 @@ if.end8984:                                       ; preds = %if.then8976, %if.th
   %2345 = load ptr, ptr %isolate_, align 8
   %call8.i.i3896 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2345, ptr noundef %call.i18488) #24
   store ptr %call8.i.i3896, ptr %fd_constructor_template_.i, align 8
-  %inc8983 = add nuw nsw i64 %i.124775, 1
+  %inc8983 = add nuw nsw i64 %i.124777, 1
   %.pre4363 = load ptr, ptr %_M_finish.i, align 8
   %.pre4364 = load ptr, ptr %template_values, align 8
   %.pre4505 = ptrtoint ptr %.pre4363 to i64
@@ -37951,9 +37951,9 @@ if.end8984:                                       ; preds = %if.then8976, %if.th
   br i1 %2346, label %land.lhs.true8991, label %if.end10552
 
 land.lhs.true8991:                                ; preds = %land.lhs.true8959, %if.end8984
-  %i.134782 = phi i64 [ %inc8983, %if.end8984 ], [ %i.124775, %land.lhs.true8959 ]
+  %i.134784 = phi i64 [ %inc8983, %if.end8984 ], [ %i.124777, %land.lhs.true8959 ]
   %2347 = phi ptr [ %.pre4364, %if.end8984 ], [ %2339, %land.lhs.true8959 ]
-  %add.ptr.i3902 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2347, i64 %i.134782
+  %add.ptr.i3902 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2347, i64 %i.134784
   %id8993 = getelementptr inbounds nuw i8, ptr %add.ptr.i3902, i64 32
   %2348 = load i32, ptr %id8993, align 8
   %cmp8994 = icmp eq i32 %2348, 13
@@ -37977,7 +37977,7 @@ if.end9016:                                       ; preds = %if.then9008, %if.th
   %2353 = load ptr, ptr %isolate_, align 8
   %call8.i.i3905 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2353, ptr noundef %call.i18476) #24
   store ptr %call8.i.i3905, ptr %fdclose_constructor_template_.i, align 8
-  %inc9015 = add nuw nsw i64 %i.134782, 1
+  %inc9015 = add nuw nsw i64 %i.134784, 1
   %.pre4365 = load ptr, ptr %_M_finish.i, align 8
   %.pre4366 = load ptr, ptr %template_values, align 8
   %.pre4509 = ptrtoint ptr %.pre4365 to i64
@@ -37988,9 +37988,9 @@ if.end9016:                                       ; preds = %if.then9008, %if.th
   br i1 %2354, label %land.lhs.true9023, label %if.end10552
 
 land.lhs.true9023:                                ; preds = %land.lhs.true8991, %if.end9016
-  %i.144789 = phi i64 [ %inc9015, %if.end9016 ], [ %i.134782, %land.lhs.true8991 ]
+  %i.144791 = phi i64 [ %inc9015, %if.end9016 ], [ %i.134784, %land.lhs.true8991 ]
   %2355 = phi ptr [ %.pre4366, %if.end9016 ], [ %2347, %land.lhs.true8991 ]
-  %add.ptr.i3911 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2355, i64 %i.144789
+  %add.ptr.i3911 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2355, i64 %i.144791
   %id9025 = getelementptr inbounds nuw i8, ptr %add.ptr.i3911, i64 32
   %2356 = load i32, ptr %id9025, align 8
   %cmp9026 = icmp eq i32 %2356, 14
@@ -38014,7 +38014,7 @@ if.end9048:                                       ; preds = %if.then9040, %if.th
   %2361 = load ptr, ptr %isolate_, align 8
   %call8.i.i3914 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2361, ptr noundef %call.i17851) #24
   store ptr %call8.i.i3914, ptr %fdentry_constructor_template_.i, align 8
-  %inc9047 = add nuw nsw i64 %i.144789, 1
+  %inc9047 = add nuw nsw i64 %i.144791, 1
   %.pre4367 = load ptr, ptr %_M_finish.i, align 8
   %.pre4368 = load ptr, ptr %template_values, align 8
   %.pre4513 = ptrtoint ptr %.pre4367 to i64
@@ -38025,9 +38025,9 @@ if.end9048:                                       ; preds = %if.then9040, %if.th
   br i1 %2362, label %land.lhs.true9055, label %if.end10552
 
 land.lhs.true9055:                                ; preds = %land.lhs.true9023, %if.end9048
-  %i.154796 = phi i64 [ %inc9047, %if.end9048 ], [ %i.144789, %land.lhs.true9023 ]
+  %i.154798 = phi i64 [ %inc9047, %if.end9048 ], [ %i.144791, %land.lhs.true9023 ]
   %2363 = phi ptr [ %.pre4368, %if.end9048 ], [ %2355, %land.lhs.true9023 ]
-  %add.ptr.i3920 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2363, i64 %i.154796
+  %add.ptr.i3920 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2363, i64 %i.154798
   %id9057 = getelementptr inbounds nuw i8, ptr %add.ptr.i3920, i64 32
   %2364 = load i32, ptr %id9057, align 8
   %cmp9058 = icmp eq i32 %2364, 15
@@ -38051,7 +38051,7 @@ if.end9080:                                       ; preds = %if.then9072, %if.th
   %2369 = load ptr, ptr %isolate_, align 8
   %call8.i.i3923 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2369, ptr noundef %call.i18464) #24
   store ptr %call8.i.i3923, ptr %filehandlereadwrap_template_.i, align 8
-  %inc9079 = add nuw nsw i64 %i.154796, 1
+  %inc9079 = add nuw nsw i64 %i.154798, 1
   %.pre4369 = load ptr, ptr %_M_finish.i, align 8
   %.pre4370 = load ptr, ptr %template_values, align 8
   %.pre4517 = ptrtoint ptr %.pre4369 to i64
@@ -38062,9 +38062,9 @@ if.end9080:                                       ; preds = %if.then9072, %if.th
   br i1 %2370, label %land.lhs.true9087, label %if.end10552
 
 land.lhs.true9087:                                ; preds = %land.lhs.true9055, %if.end9080
-  %i.164803 = phi i64 [ %inc9079, %if.end9080 ], [ %i.154796, %land.lhs.true9055 ]
+  %i.164805 = phi i64 [ %inc9079, %if.end9080 ], [ %i.154798, %land.lhs.true9055 ]
   %2371 = phi ptr [ %.pre4370, %if.end9080 ], [ %2363, %land.lhs.true9055 ]
-  %add.ptr.i3929 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2371, i64 %i.164803
+  %add.ptr.i3929 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2371, i64 %i.164805
   %id9089 = getelementptr inbounds nuw i8, ptr %add.ptr.i3929, i64 32
   %2372 = load i32, ptr %id9089, align 8
   %cmp9090 = icmp eq i32 %2372, 16
@@ -38088,7 +38088,7 @@ if.end9112:                                       ; preds = %if.then9104, %if.th
   %2377 = load ptr, ptr %isolate_, align 8
   %call8.i.i3932 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2377, ptr noundef %call.i18452) #24
   store ptr %call8.i.i3932, ptr %fsreqpromise_constructor_template_.i, align 8
-  %inc9111 = add nuw nsw i64 %i.164803, 1
+  %inc9111 = add nuw nsw i64 %i.164805, 1
   %.pre4371 = load ptr, ptr %_M_finish.i, align 8
   %.pre4372 = load ptr, ptr %template_values, align 8
   %.pre4521 = ptrtoint ptr %.pre4371 to i64
@@ -38099,9 +38099,9 @@ if.end9112:                                       ; preds = %if.then9104, %if.th
   br i1 %2378, label %land.lhs.true9119, label %if.end10552
 
 land.lhs.true9119:                                ; preds = %land.lhs.true9087, %if.end9112
-  %i.174810 = phi i64 [ %inc9111, %if.end9112 ], [ %i.164803, %land.lhs.true9087 ]
+  %i.174812 = phi i64 [ %inc9111, %if.end9112 ], [ %i.164805, %land.lhs.true9087 ]
   %2379 = phi ptr [ %.pre4372, %if.end9112 ], [ %2371, %land.lhs.true9087 ]
-  %add.ptr.i3938 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2379, i64 %i.174810
+  %add.ptr.i3938 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2379, i64 %i.174812
   %id9121 = getelementptr inbounds nuw i8, ptr %add.ptr.i3938, i64 32
   %2380 = load i32, ptr %id9121, align 8
   %cmp9122 = icmp eq i32 %2380, 17
@@ -38125,7 +38125,7 @@ if.end9144:                                       ; preds = %if.then9136, %if.th
   %2385 = load ptr, ptr %isolate_, align 8
   %call8.i.i3941 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2385, ptr noundef %call.i17839) #24
   store ptr %call8.i.i3941, ptr %handle_wrap_ctor_template_.i, align 8
-  %inc9143 = add nuw nsw i64 %i.174810, 1
+  %inc9143 = add nuw nsw i64 %i.174812, 1
   %.pre4373 = load ptr, ptr %_M_finish.i, align 8
   %.pre4374 = load ptr, ptr %template_values, align 8
   %.pre4525 = ptrtoint ptr %.pre4373 to i64
@@ -38136,9 +38136,9 @@ if.end9144:                                       ; preds = %if.then9136, %if.th
   br i1 %2386, label %land.lhs.true9151, label %if.end10552
 
 land.lhs.true9151:                                ; preds = %land.lhs.true9119, %if.end9144
-  %i.184817 = phi i64 [ %inc9143, %if.end9144 ], [ %i.174810, %land.lhs.true9119 ]
+  %i.184819 = phi i64 [ %inc9143, %if.end9144 ], [ %i.174812, %land.lhs.true9119 ]
   %2387 = phi ptr [ %.pre4374, %if.end9144 ], [ %2379, %land.lhs.true9119 ]
-  %add.ptr.i3947 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2387, i64 %i.184817
+  %add.ptr.i3947 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2387, i64 %i.184819
   %id9153 = getelementptr inbounds nuw i8, ptr %add.ptr.i3947, i64 32
   %2388 = load i32, ptr %id9153, align 8
   %cmp9154 = icmp eq i32 %2388, 18
@@ -38162,7 +38162,7 @@ if.end9176:                                       ; preds = %if.then9168, %if.th
   %2393 = load ptr, ptr %isolate_, align 8
   %call8.i.i3950 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2393, ptr noundef %call.i17827) #24
   store ptr %call8.i.i3950, ptr %histogram_ctor_template_.i, align 8
-  %inc9175 = add nuw nsw i64 %i.184817, 1
+  %inc9175 = add nuw nsw i64 %i.184819, 1
   %.pre4375 = load ptr, ptr %_M_finish.i, align 8
   %.pre4376 = load ptr, ptr %template_values, align 8
   %.pre4529 = ptrtoint ptr %.pre4375 to i64
@@ -38173,9 +38173,9 @@ if.end9176:                                       ; preds = %if.then9168, %if.th
   br i1 %2394, label %land.lhs.true9183, label %if.end10552
 
 land.lhs.true9183:                                ; preds = %land.lhs.true9151, %if.end9176
-  %i.194824 = phi i64 [ %inc9175, %if.end9176 ], [ %i.184817, %land.lhs.true9151 ]
+  %i.194826 = phi i64 [ %inc9175, %if.end9176 ], [ %i.184819, %land.lhs.true9151 ]
   %2395 = phi ptr [ %.pre4376, %if.end9176 ], [ %2387, %land.lhs.true9151 ]
-  %add.ptr.i3956 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2395, i64 %i.194824
+  %add.ptr.i3956 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2395, i64 %i.194826
   %id9185 = getelementptr inbounds nuw i8, ptr %add.ptr.i3956, i64 32
   %2396 = load i32, ptr %id9185, align 8
   %cmp9186 = icmp eq i32 %2396, 19
@@ -38199,7 +38199,7 @@ if.end9208:                                       ; preds = %if.then9200, %if.th
   %2401 = load ptr, ptr %isolate_, align 8
   %call8.i.i3959 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2401, ptr noundef %call.i18440) #24
   store ptr %call8.i.i3959, ptr %http2settings_constructor_template_.i, align 8
-  %inc9207 = add nuw nsw i64 %i.194824, 1
+  %inc9207 = add nuw nsw i64 %i.194826, 1
   %.pre4377 = load ptr, ptr %_M_finish.i, align 8
   %.pre4378 = load ptr, ptr %template_values, align 8
   %.pre4533 = ptrtoint ptr %.pre4377 to i64
@@ -38210,9 +38210,9 @@ if.end9208:                                       ; preds = %if.then9200, %if.th
   br i1 %2402, label %land.lhs.true9215, label %if.end10552
 
 land.lhs.true9215:                                ; preds = %land.lhs.true9183, %if.end9208
-  %i.204831 = phi i64 [ %inc9207, %if.end9208 ], [ %i.194824, %land.lhs.true9183 ]
+  %i.204833 = phi i64 [ %inc9207, %if.end9208 ], [ %i.194826, %land.lhs.true9183 ]
   %2403 = phi ptr [ %.pre4378, %if.end9208 ], [ %2395, %land.lhs.true9183 ]
-  %add.ptr.i3965 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2403, i64 %i.204831
+  %add.ptr.i3965 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2403, i64 %i.204833
   %id9217 = getelementptr inbounds nuw i8, ptr %add.ptr.i3965, i64 32
   %2404 = load i32, ptr %id9217, align 8
   %cmp9218 = icmp eq i32 %2404, 20
@@ -38236,7 +38236,7 @@ if.end9240:                                       ; preds = %if.then9232, %if.th
   %2409 = load ptr, ptr %isolate_, align 8
   %call8.i.i3968 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2409, ptr noundef %call.i18428) #24
   store ptr %call8.i.i3968, ptr %http2stream_constructor_template_.i, align 8
-  %inc9239 = add nuw nsw i64 %i.204831, 1
+  %inc9239 = add nuw nsw i64 %i.204833, 1
   %.pre4379 = load ptr, ptr %_M_finish.i, align 8
   %.pre4380 = load ptr, ptr %template_values, align 8
   %.pre4537 = ptrtoint ptr %.pre4379 to i64
@@ -38247,9 +38247,9 @@ if.end9240:                                       ; preds = %if.then9232, %if.th
   br i1 %2410, label %land.lhs.true9247, label %if.end10552
 
 land.lhs.true9247:                                ; preds = %land.lhs.true9215, %if.end9240
-  %i.214838 = phi i64 [ %inc9239, %if.end9240 ], [ %i.204831, %land.lhs.true9215 ]
+  %i.214840 = phi i64 [ %inc9239, %if.end9240 ], [ %i.204833, %land.lhs.true9215 ]
   %2411 = phi ptr [ %.pre4380, %if.end9240 ], [ %2403, %land.lhs.true9215 ]
-  %add.ptr.i3974 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2411, i64 %i.214838
+  %add.ptr.i3974 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2411, i64 %i.214840
   %id9249 = getelementptr inbounds nuw i8, ptr %add.ptr.i3974, i64 32
   %2412 = load i32, ptr %id9249, align 8
   %cmp9250 = icmp eq i32 %2412, 21
@@ -38273,7 +38273,7 @@ if.end9272:                                       ; preds = %if.then9264, %if.th
   %2417 = load ptr, ptr %isolate_, align 8
   %call8.i.i3977 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2417, ptr noundef %call.i18416) #24
   store ptr %call8.i.i3977, ptr %http2ping_constructor_template_.i, align 8
-  %inc9271 = add nuw nsw i64 %i.214838, 1
+  %inc9271 = add nuw nsw i64 %i.214840, 1
   %.pre4381 = load ptr, ptr %_M_finish.i, align 8
   %.pre4382 = load ptr, ptr %template_values, align 8
   %.pre4541 = ptrtoint ptr %.pre4381 to i64
@@ -38284,9 +38284,9 @@ if.end9272:                                       ; preds = %if.then9264, %if.th
   br i1 %2418, label %land.lhs.true9279, label %if.end10552
 
 land.lhs.true9279:                                ; preds = %land.lhs.true9247, %if.end9272
-  %i.224845 = phi i64 [ %inc9271, %if.end9272 ], [ %i.214838, %land.lhs.true9247 ]
+  %i.224847 = phi i64 [ %inc9271, %if.end9272 ], [ %i.214840, %land.lhs.true9247 ]
   %2419 = phi ptr [ %.pre4382, %if.end9272 ], [ %2411, %land.lhs.true9247 ]
-  %add.ptr.i3983 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2419, i64 %i.224845
+  %add.ptr.i3983 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2419, i64 %i.224847
   %id9281 = getelementptr inbounds nuw i8, ptr %add.ptr.i3983, i64 32
   %2420 = load i32, ptr %id9281, align 8
   %cmp9282 = icmp eq i32 %2420, 22
@@ -38310,7 +38310,7 @@ if.end9304:                                       ; preds = %if.then9296, %if.th
   %2425 = load ptr, ptr %isolate_, align 8
   %call8.i.i3986 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2425, ptr noundef %call.i18404) #24
   store ptr %call8.i.i3986, ptr %i18n_converter_template_.i, align 8
-  %inc9303 = add nuw nsw i64 %i.224845, 1
+  %inc9303 = add nuw nsw i64 %i.224847, 1
   %.pre4383 = load ptr, ptr %_M_finish.i, align 8
   %.pre4384 = load ptr, ptr %template_values, align 8
   %.pre4545 = ptrtoint ptr %.pre4383 to i64
@@ -38321,9 +38321,9 @@ if.end9304:                                       ; preds = %if.then9296, %if.th
   br i1 %2426, label %land.lhs.true9311, label %if.end10552
 
 land.lhs.true9311:                                ; preds = %land.lhs.true9279, %if.end9304
-  %i.234852 = phi i64 [ %inc9303, %if.end9304 ], [ %i.224845, %land.lhs.true9279 ]
+  %i.234854 = phi i64 [ %inc9303, %if.end9304 ], [ %i.224847, %land.lhs.true9279 ]
   %2427 = phi ptr [ %.pre4384, %if.end9304 ], [ %2419, %land.lhs.true9279 ]
-  %add.ptr.i3992 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2427, i64 %i.234852
+  %add.ptr.i3992 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2427, i64 %i.234854
   %id9313 = getelementptr inbounds nuw i8, ptr %add.ptr.i3992, i64 32
   %2428 = load i32, ptr %id9313, align 8
   %cmp9314 = icmp eq i32 %2428, 23
@@ -38347,7 +38347,7 @@ if.end9336:                                       ; preds = %if.then9328, %if.th
   %2433 = load ptr, ptr %isolate_, align 8
   %call8.i.i3995 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2433, ptr noundef %call.i17815) #24
   store ptr %call8.i.i3995, ptr %intervalhistogram_constructor_template_.i, align 8
-  %inc9335 = add nuw nsw i64 %i.234852, 1
+  %inc9335 = add nuw nsw i64 %i.234854, 1
   %.pre4385 = load ptr, ptr %_M_finish.i, align 8
   %.pre4386 = load ptr, ptr %template_values, align 8
   %.pre4549 = ptrtoint ptr %.pre4385 to i64
@@ -38358,9 +38358,9 @@ if.end9336:                                       ; preds = %if.then9328, %if.th
   br i1 %2434, label %land.lhs.true9343, label %if.end10552
 
 land.lhs.true9343:                                ; preds = %land.lhs.true9311, %if.end9336
-  %i.244859 = phi i64 [ %inc9335, %if.end9336 ], [ %i.234852, %land.lhs.true9311 ]
+  %i.244861 = phi i64 [ %inc9335, %if.end9336 ], [ %i.234854, %land.lhs.true9311 ]
   %2435 = phi ptr [ %.pre4386, %if.end9336 ], [ %2427, %land.lhs.true9311 ]
-  %add.ptr.i4001 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2435, i64 %i.244859
+  %add.ptr.i4001 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2435, i64 %i.244861
   %id9345 = getelementptr inbounds nuw i8, ptr %add.ptr.i4001, i64 32
   %2436 = load i32, ptr %id9345, align 8
   %cmp9346 = icmp eq i32 %2436, 24
@@ -38384,7 +38384,7 @@ if.end9368:                                       ; preds = %if.then9360, %if.th
   %2441 = load ptr, ptr %isolate_, align 8
   %call8.i.i4004 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2441, ptr noundef %call.i17803) #24
   store ptr %call8.i.i4004, ptr %js_transferable_constructor_template_.i, align 8
-  %inc9367 = add nuw nsw i64 %i.244859, 1
+  %inc9367 = add nuw nsw i64 %i.244861, 1
   %.pre4387 = load ptr, ptr %_M_finish.i, align 8
   %.pre4388 = load ptr, ptr %template_values, align 8
   %.pre4553 = ptrtoint ptr %.pre4387 to i64
@@ -38395,9 +38395,9 @@ if.end9368:                                       ; preds = %if.then9360, %if.th
   br i1 %2442, label %land.lhs.true9375, label %if.end10552
 
 land.lhs.true9375:                                ; preds = %land.lhs.true9343, %if.end9368
-  %i.254866 = phi i64 [ %inc9367, %if.end9368 ], [ %i.244859, %land.lhs.true9343 ]
+  %i.254868 = phi i64 [ %inc9367, %if.end9368 ], [ %i.244861, %land.lhs.true9343 ]
   %2443 = phi ptr [ %.pre4388, %if.end9368 ], [ %2435, %land.lhs.true9343 ]
-  %add.ptr.i4010 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2443, i64 %i.254866
+  %add.ptr.i4010 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2443, i64 %i.254868
   %id9377 = getelementptr inbounds nuw i8, ptr %add.ptr.i4010, i64 32
   %2444 = load i32, ptr %id9377, align 8
   %cmp9378 = icmp eq i32 %2444, 25
@@ -38421,7 +38421,7 @@ if.end9400:                                       ; preds = %if.then9392, %if.th
   %2449 = load ptr, ptr %isolate_, align 8
   %call8.i.i4013 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2449, ptr noundef %call.i17791) #24
   store ptr %call8.i.i4013, ptr %libuv_stream_wrap_ctor_template_.i, align 8
-  %inc9399 = add nuw nsw i64 %i.254866, 1
+  %inc9399 = add nuw nsw i64 %i.254868, 1
   %.pre4389 = load ptr, ptr %_M_finish.i, align 8
   %.pre4390 = load ptr, ptr %template_values, align 8
   %.pre4557 = ptrtoint ptr %.pre4389 to i64
@@ -38432,9 +38432,9 @@ if.end9400:                                       ; preds = %if.then9392, %if.th
   br i1 %2450, label %land.lhs.true9407, label %if.end10552
 
 land.lhs.true9407:                                ; preds = %land.lhs.true9375, %if.end9400
-  %i.264873 = phi i64 [ %inc9399, %if.end9400 ], [ %i.254866, %land.lhs.true9375 ]
+  %i.264875 = phi i64 [ %inc9399, %if.end9400 ], [ %i.254868, %land.lhs.true9375 ]
   %2451 = phi ptr [ %.pre4390, %if.end9400 ], [ %2443, %land.lhs.true9375 ]
-  %add.ptr.i4019 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2451, i64 %i.264873
+  %add.ptr.i4019 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2451, i64 %i.264875
   %id9409 = getelementptr inbounds nuw i8, ptr %add.ptr.i4019, i64 32
   %2452 = load i32, ptr %id9409, align 8
   %cmp9410 = icmp eq i32 %2452, 26
@@ -38458,7 +38458,7 @@ if.end9432:                                       ; preds = %if.then9424, %if.th
   %2457 = load ptr, ptr %isolate_, align 8
   %call8.i.i4022 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2457, ptr noundef %call.i17779) #24
   store ptr %call8.i.i4022, ptr %message_port_constructor_template_.i, align 8
-  %inc9431 = add nuw nsw i64 %i.264873, 1
+  %inc9431 = add nuw nsw i64 %i.264875, 1
   %.pre4391 = load ptr, ptr %_M_finish.i, align 8
   %.pre4392 = load ptr, ptr %template_values, align 8
   %.pre4561 = ptrtoint ptr %.pre4391 to i64
@@ -38469,9 +38469,9 @@ if.end9432:                                       ; preds = %if.then9424, %if.th
   br i1 %2458, label %land.lhs.true9439, label %if.end10552
 
 land.lhs.true9439:                                ; preds = %land.lhs.true9407, %if.end9432
-  %i.274880 = phi i64 [ %inc9431, %if.end9432 ], [ %i.264873, %land.lhs.true9407 ]
+  %i.274882 = phi i64 [ %inc9431, %if.end9432 ], [ %i.264875, %land.lhs.true9407 ]
   %2459 = phi ptr [ %.pre4392, %if.end9432 ], [ %2451, %land.lhs.true9407 ]
-  %add.ptr.i4028 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2459, i64 %i.274880
+  %add.ptr.i4028 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2459, i64 %i.274882
   %id9441 = getelementptr inbounds nuw i8, ptr %add.ptr.i4028, i64 32
   %2460 = load i32, ptr %id9441, align 8
   %cmp9442 = icmp eq i32 %2460, 27
@@ -38495,7 +38495,7 @@ if.end9464:                                       ; preds = %if.then9456, %if.th
   %2465 = load ptr, ptr %isolate_, align 8
   %call8.i.i4031 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2465, ptr noundef %call.i17767) #24
   store ptr %call8.i.i4031, ptr %microtask_queue_ctor_template_.i, align 8
-  %inc9463 = add nuw nsw i64 %i.274880, 1
+  %inc9463 = add nuw nsw i64 %i.274882, 1
   %.pre4393 = load ptr, ptr %_M_finish.i, align 8
   %.pre4394 = load ptr, ptr %template_values, align 8
   %.pre4565 = ptrtoint ptr %.pre4393 to i64
@@ -38506,9 +38506,9 @@ if.end9464:                                       ; preds = %if.then9456, %if.th
   br i1 %2466, label %land.lhs.true9471, label %if.end10552
 
 land.lhs.true9471:                                ; preds = %land.lhs.true9439, %if.end9464
-  %i.284887 = phi i64 [ %inc9463, %if.end9464 ], [ %i.274880, %land.lhs.true9439 ]
+  %i.284889 = phi i64 [ %inc9463, %if.end9464 ], [ %i.274882, %land.lhs.true9439 ]
   %2467 = phi ptr [ %.pre4394, %if.end9464 ], [ %2459, %land.lhs.true9439 ]
-  %add.ptr.i4037 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2467, i64 %i.284887
+  %add.ptr.i4037 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2467, i64 %i.284889
   %id9473 = getelementptr inbounds nuw i8, ptr %add.ptr.i4037, i64 32
   %2468 = load i32, ptr %id9473, align 8
   %cmp9474 = icmp eq i32 %2468, 28
@@ -38532,7 +38532,7 @@ if.end9496:                                       ; preds = %if.then9488, %if.th
   %2473 = load ptr, ptr %isolate_, align 8
   %call8.i.i4040 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2473, ptr noundef %call.i17755) #24
   store ptr %call8.i.i4040, ptr %pipe_constructor_template_.i, align 8
-  %inc9495 = add nuw nsw i64 %i.284887, 1
+  %inc9495 = add nuw nsw i64 %i.284889, 1
   %.pre4395 = load ptr, ptr %_M_finish.i, align 8
   %.pre4396 = load ptr, ptr %template_values, align 8
   %.pre4569 = ptrtoint ptr %.pre4395 to i64
@@ -38543,9 +38543,9 @@ if.end9496:                                       ; preds = %if.then9488, %if.th
   br i1 %2474, label %land.lhs.true9503, label %if.end10552
 
 land.lhs.true9503:                                ; preds = %land.lhs.true9471, %if.end9496
-  %i.294894 = phi i64 [ %inc9495, %if.end9496 ], [ %i.284887, %land.lhs.true9471 ]
+  %i.294896 = phi i64 [ %inc9495, %if.end9496 ], [ %i.284889, %land.lhs.true9471 ]
   %2475 = phi ptr [ %.pre4396, %if.end9496 ], [ %2467, %land.lhs.true9471 ]
-  %add.ptr.i4046 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2475, i64 %i.294894
+  %add.ptr.i4046 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2475, i64 %i.294896
   %id9505 = getelementptr inbounds nuw i8, ptr %add.ptr.i4046, i64 32
   %2476 = load i32, ptr %id9505, align 8
   %cmp9506 = icmp eq i32 %2476, 29
@@ -38569,7 +38569,7 @@ if.end9528:                                       ; preds = %if.then9520, %if.th
   %2481 = load ptr, ptr %isolate_, align 8
   %call8.i.i4049 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2481, ptr noundef %call.i18392) #24
   store ptr %call8.i.i4049, ptr %promise_wrap_template_.i, align 8
-  %inc9527 = add nuw nsw i64 %i.294894, 1
+  %inc9527 = add nuw nsw i64 %i.294896, 1
   %.pre4397 = load ptr, ptr %_M_finish.i, align 8
   %.pre4398 = load ptr, ptr %template_values, align 8
   %.pre4573 = ptrtoint ptr %.pre4397 to i64
@@ -38580,9 +38580,9 @@ if.end9528:                                       ; preds = %if.then9520, %if.th
   br i1 %2482, label %land.lhs.true9535, label %if.end10552
 
 land.lhs.true9535:                                ; preds = %land.lhs.true9503, %if.end9528
-  %i.304901 = phi i64 [ %inc9527, %if.end9528 ], [ %i.294894, %land.lhs.true9503 ]
+  %i.304903 = phi i64 [ %inc9527, %if.end9528 ], [ %i.294896, %land.lhs.true9503 ]
   %2483 = phi ptr [ %.pre4398, %if.end9528 ], [ %2475, %land.lhs.true9503 ]
-  %add.ptr.i4055 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2483, i64 %i.304901
+  %add.ptr.i4055 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2483, i64 %i.304903
   %id9537 = getelementptr inbounds nuw i8, ptr %add.ptr.i4055, i64 32
   %2484 = load i32, ptr %id9537, align 8
   %cmp9538 = icmp eq i32 %2484, 30
@@ -38606,7 +38606,7 @@ if.end9560:                                       ; preds = %if.then9552, %if.th
   %2489 = load ptr, ptr %isolate_, align 8
   %call8.i.i4058 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2489, ptr noundef %call.i17743) #24
   store ptr %call8.i.i4058, ptr %sab_lifetimepartner_constructor_template_.i, align 8
-  %inc9559 = add nuw nsw i64 %i.304901, 1
+  %inc9559 = add nuw nsw i64 %i.304903, 1
   %.pre4399 = load ptr, ptr %_M_finish.i, align 8
   %.pre4400 = load ptr, ptr %template_values, align 8
   %.pre4577 = ptrtoint ptr %.pre4399 to i64
@@ -38617,9 +38617,9 @@ if.end9560:                                       ; preds = %if.then9552, %if.th
   br i1 %2490, label %land.lhs.true9567, label %if.end10552
 
 land.lhs.true9567:                                ; preds = %land.lhs.true9535, %if.end9560
-  %i.314908 = phi i64 [ %inc9559, %if.end9560 ], [ %i.304901, %land.lhs.true9535 ]
+  %i.314910 = phi i64 [ %inc9559, %if.end9560 ], [ %i.304903, %land.lhs.true9535 ]
   %2491 = phi ptr [ %.pre4400, %if.end9560 ], [ %2483, %land.lhs.true9535 ]
-  %add.ptr.i4064 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2491, i64 %i.314908
+  %add.ptr.i4064 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2491, i64 %i.314910
   %id9569 = getelementptr inbounds nuw i8, ptr %add.ptr.i4064, i64 32
   %2492 = load i32, ptr %id9569, align 8
   %cmp9570 = icmp eq i32 %2492, 31
@@ -38643,7 +38643,7 @@ if.end9592:                                       ; preds = %if.then9584, %if.th
   %2497 = load ptr, ptr %isolate_, align 8
   %call8.i.i4067 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2497, ptr noundef %call.i17731) #24
   store ptr %call8.i.i4067, ptr %script_context_constructor_template_.i, align 8
-  %inc9591 = add nuw nsw i64 %i.314908, 1
+  %inc9591 = add nuw nsw i64 %i.314910, 1
   %.pre4401 = load ptr, ptr %_M_finish.i, align 8
   %.pre4402 = load ptr, ptr %template_values, align 8
   %.pre4581 = ptrtoint ptr %.pre4401 to i64
@@ -38654,9 +38654,9 @@ if.end9592:                                       ; preds = %if.then9584, %if.th
   br i1 %2498, label %land.lhs.true9599, label %if.end10552
 
 land.lhs.true9599:                                ; preds = %land.lhs.true9567, %if.end9592
-  %i.324915 = phi i64 [ %inc9591, %if.end9592 ], [ %i.314908, %land.lhs.true9567 ]
+  %i.324917 = phi i64 [ %inc9591, %if.end9592 ], [ %i.314910, %land.lhs.true9567 ]
   %2499 = phi ptr [ %.pre4402, %if.end9592 ], [ %2491, %land.lhs.true9567 ]
-  %add.ptr.i4073 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2499, i64 %i.324915
+  %add.ptr.i4073 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2499, i64 %i.324917
   %id9601 = getelementptr inbounds nuw i8, ptr %add.ptr.i4073, i64 32
   %2500 = load i32, ptr %id9601, align 8
   %cmp9602 = icmp eq i32 %2500, 32
@@ -38680,7 +38680,7 @@ if.end9624:                                       ; preds = %if.then9616, %if.th
   %2505 = load ptr, ptr %isolate_, align 8
   %call8.i.i4076 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2505, ptr noundef %call.i17719) #24
   store ptr %call8.i.i4076, ptr %secure_context_constructor_template_.i, align 8
-  %inc9623 = add nuw nsw i64 %i.324915, 1
+  %inc9623 = add nuw nsw i64 %i.324917, 1
   %.pre4403 = load ptr, ptr %_M_finish.i, align 8
   %.pre4404 = load ptr, ptr %template_values, align 8
   %.pre4585 = ptrtoint ptr %.pre4403 to i64
@@ -38691,9 +38691,9 @@ if.end9624:                                       ; preds = %if.then9616, %if.th
   br i1 %2506, label %land.lhs.true9631, label %if.end10552
 
 land.lhs.true9631:                                ; preds = %land.lhs.true9599, %if.end9624
-  %i.334922 = phi i64 [ %inc9623, %if.end9624 ], [ %i.324915, %land.lhs.true9599 ]
+  %i.334924 = phi i64 [ %inc9623, %if.end9624 ], [ %i.324917, %land.lhs.true9599 ]
   %2507 = phi ptr [ %.pre4404, %if.end9624 ], [ %2499, %land.lhs.true9599 ]
-  %add.ptr.i4082 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2507, i64 %i.334922
+  %add.ptr.i4082 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2507, i64 %i.334924
   %id9633 = getelementptr inbounds nuw i8, ptr %add.ptr.i4082, i64 32
   %2508 = load i32, ptr %id9633, align 8
   %cmp9634 = icmp eq i32 %2508, 33
@@ -38717,7 +38717,7 @@ if.end9656:                                       ; preds = %if.then9648, %if.th
   %2513 = load ptr, ptr %isolate_, align 8
   %call8.i.i4085 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2513, ptr noundef %call.i18380) #24
   store ptr %call8.i.i4085, ptr %shutdown_wrap_template_.i, align 8
-  %inc9655 = add nuw nsw i64 %i.334922, 1
+  %inc9655 = add nuw nsw i64 %i.334924, 1
   %.pre4405 = load ptr, ptr %_M_finish.i, align 8
   %.pre4406 = load ptr, ptr %template_values, align 8
   %.pre4589 = ptrtoint ptr %.pre4405 to i64
@@ -38728,9 +38728,9 @@ if.end9656:                                       ; preds = %if.then9648, %if.th
   br i1 %2514, label %land.lhs.true9663, label %if.end10552
 
 land.lhs.true9663:                                ; preds = %land.lhs.true9631, %if.end9656
-  %i.344929 = phi i64 [ %inc9655, %if.end9656 ], [ %i.334922, %land.lhs.true9631 ]
+  %i.344931 = phi i64 [ %inc9655, %if.end9656 ], [ %i.334924, %land.lhs.true9631 ]
   %2515 = phi ptr [ %.pre4406, %if.end9656 ], [ %2507, %land.lhs.true9631 ]
-  %add.ptr.i4091 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2515, i64 %i.344929
+  %add.ptr.i4091 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2515, i64 %i.344931
   %id9665 = getelementptr inbounds nuw i8, ptr %add.ptr.i4091, i64 32
   %2516 = load i32, ptr %id9665, align 8
   %cmp9666 = icmp eq i32 %2516, 34
@@ -38754,7 +38754,7 @@ if.end9688:                                       ; preds = %if.then9680, %if.th
   %2521 = load ptr, ptr %isolate_, align 8
   %call8.i.i4094 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2521, ptr noundef %call.i17707) #24
   store ptr %call8.i.i4094, ptr %socketaddress_constructor_template_.i, align 8
-  %inc9687 = add nuw nsw i64 %i.344929, 1
+  %inc9687 = add nuw nsw i64 %i.344931, 1
   %.pre4407 = load ptr, ptr %_M_finish.i, align 8
   %.pre4408 = load ptr, ptr %template_values, align 8
   %.pre4593 = ptrtoint ptr %.pre4407 to i64
@@ -38765,9 +38765,9 @@ if.end9688:                                       ; preds = %if.then9680, %if.th
   br i1 %2522, label %land.lhs.true9695, label %if.end10552
 
 land.lhs.true9695:                                ; preds = %land.lhs.true9663, %if.end9688
-  %i.354936 = phi i64 [ %inc9687, %if.end9688 ], [ %i.344929, %land.lhs.true9663 ]
+  %i.354938 = phi i64 [ %inc9687, %if.end9688 ], [ %i.344931, %land.lhs.true9663 ]
   %2523 = phi ptr [ %.pre4408, %if.end9688 ], [ %2515, %land.lhs.true9663 ]
-  %add.ptr.i4100 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2523, i64 %i.354936
+  %add.ptr.i4100 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2523, i64 %i.354938
   %id9697 = getelementptr inbounds nuw i8, ptr %add.ptr.i4100, i64 32
   %2524 = load i32, ptr %id9697, align 8
   %cmp9698 = icmp eq i32 %2524, 35
@@ -38791,7 +38791,7 @@ if.end9720:                                       ; preds = %if.then9712, %if.th
   %2529 = load ptr, ptr %isolate_, align 8
   %call8.i.i4103 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2529, ptr noundef %call.i17695) #24
   store ptr %call8.i.i4103, ptr %streambaseentry_ctor_template_.i, align 8
-  %inc9719 = add nuw nsw i64 %i.354936, 1
+  %inc9719 = add nuw nsw i64 %i.354938, 1
   %.pre4409 = load ptr, ptr %_M_finish.i, align 8
   %.pre4410 = load ptr, ptr %template_values, align 8
   %.pre4597 = ptrtoint ptr %.pre4409 to i64
@@ -38802,9 +38802,9 @@ if.end9720:                                       ; preds = %if.then9712, %if.th
   br i1 %2530, label %land.lhs.true9727, label %if.end10552
 
 land.lhs.true9727:                                ; preds = %land.lhs.true9695, %if.end9720
-  %i.364943 = phi i64 [ %inc9719, %if.end9720 ], [ %i.354936, %land.lhs.true9695 ]
+  %i.364945 = phi i64 [ %inc9719, %if.end9720 ], [ %i.354938, %land.lhs.true9695 ]
   %2531 = phi ptr [ %.pre4410, %if.end9720 ], [ %2523, %land.lhs.true9695 ]
-  %add.ptr.i4109 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2531, i64 %i.364943
+  %add.ptr.i4109 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2531, i64 %i.364945
   %id9729 = getelementptr inbounds nuw i8, ptr %add.ptr.i4109, i64 32
   %2532 = load i32, ptr %id9729, align 8
   %cmp9730 = icmp eq i32 %2532, 36
@@ -38828,7 +38828,7 @@ if.end9752:                                       ; preds = %if.then9744, %if.th
   %2537 = load ptr, ptr %isolate_, align 8
   %call8.i.i4112 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2537, ptr noundef %call.i18368) #24
   store ptr %call8.i.i4112, ptr %streambaseoutputstream_constructor_template_.i, align 8
-  %inc9751 = add nuw nsw i64 %i.364943, 1
+  %inc9751 = add nuw nsw i64 %i.364945, 1
   %.pre4411 = load ptr, ptr %_M_finish.i, align 8
   %.pre4412 = load ptr, ptr %template_values, align 8
   %.pre4601 = ptrtoint ptr %.pre4411 to i64
@@ -38839,9 +38839,9 @@ if.end9752:                                       ; preds = %if.then9744, %if.th
   br i1 %2538, label %land.lhs.true9759, label %if.end10552
 
 land.lhs.true9759:                                ; preds = %land.lhs.true9727, %if.end9752
-  %i.374950 = phi i64 [ %inc9751, %if.end9752 ], [ %i.364943, %land.lhs.true9727 ]
+  %i.374952 = phi i64 [ %inc9751, %if.end9752 ], [ %i.364945, %land.lhs.true9727 ]
   %2539 = phi ptr [ %.pre4412, %if.end9752 ], [ %2531, %land.lhs.true9727 ]
-  %add.ptr.i4118 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2539, i64 %i.374950
+  %add.ptr.i4118 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2539, i64 %i.374952
   %id9761 = getelementptr inbounds nuw i8, ptr %add.ptr.i4118, i64 32
   %2540 = load i32, ptr %id9761, align 8
   %cmp9762 = icmp eq i32 %2540, 37
@@ -38865,7 +38865,7 @@ if.end9784:                                       ; preds = %if.then9776, %if.th
   %2545 = load ptr, ptr %isolate_, align 8
   %call8.i.i4121 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2545, ptr noundef %call.i17683) #24
   store ptr %call8.i.i4121, ptr %streamentry_ctor_template_.i, align 8
-  %inc9783 = add nuw nsw i64 %i.374950, 1
+  %inc9783 = add nuw nsw i64 %i.374952, 1
   %.pre4413 = load ptr, ptr %_M_finish.i, align 8
   %.pre4414 = load ptr, ptr %template_values, align 8
   %.pre4605 = ptrtoint ptr %.pre4413 to i64
@@ -38876,9 +38876,9 @@ if.end9784:                                       ; preds = %if.then9776, %if.th
   br i1 %2546, label %land.lhs.true9791, label %if.end10552
 
 land.lhs.true9791:                                ; preds = %land.lhs.true9759, %if.end9784
-  %i.384957 = phi i64 [ %inc9783, %if.end9784 ], [ %i.374950, %land.lhs.true9759 ]
+  %i.384959 = phi i64 [ %inc9783, %if.end9784 ], [ %i.374952, %land.lhs.true9759 ]
   %2547 = phi ptr [ %.pre4414, %if.end9784 ], [ %2539, %land.lhs.true9759 ]
-  %add.ptr.i4127 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2547, i64 %i.384957
+  %add.ptr.i4127 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2547, i64 %i.384959
   %id9793 = getelementptr inbounds nuw i8, ptr %add.ptr.i4127, i64 32
   %2548 = load i32, ptr %id9793, align 8
   %cmp9794 = icmp eq i32 %2548, 38
@@ -38902,7 +38902,7 @@ if.end9816:                                       ; preds = %if.then9808, %if.th
   %2553 = load ptr, ptr %isolate_, align 8
   %call8.i.i4130 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2553, ptr noundef %call.i17671) #24
   store ptr %call8.i.i4130, ptr %streamentry_opaque_ctor_template_.i, align 8
-  %inc9815 = add nuw nsw i64 %i.384957, 1
+  %inc9815 = add nuw nsw i64 %i.384959, 1
   %.pre4415 = load ptr, ptr %_M_finish.i, align 8
   %.pre4416 = load ptr, ptr %template_values, align 8
   %.pre4609 = ptrtoint ptr %.pre4415 to i64
@@ -38913,9 +38913,9 @@ if.end9816:                                       ; preds = %if.then9808, %if.th
   br i1 %2554, label %land.lhs.true9823, label %if.end10552
 
 land.lhs.true9823:                                ; preds = %land.lhs.true9791, %if.end9816
-  %i.394964 = phi i64 [ %inc9815, %if.end9816 ], [ %i.384957, %land.lhs.true9791 ]
+  %i.394966 = phi i64 [ %inc9815, %if.end9816 ], [ %i.384959, %land.lhs.true9791 ]
   %2555 = phi ptr [ %.pre4416, %if.end9816 ], [ %2547, %land.lhs.true9791 ]
-  %add.ptr.i4136 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2555, i64 %i.394964
+  %add.ptr.i4136 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2555, i64 %i.394966
   %id9825 = getelementptr inbounds nuw i8, ptr %add.ptr.i4136, i64 32
   %2556 = load i32, ptr %id9825, align 8
   %cmp9826 = icmp eq i32 %2556, 39
@@ -38939,7 +38939,7 @@ if.end9848:                                       ; preds = %if.then9840, %if.th
   %2561 = load ptr, ptr %isolate_, align 8
   %call8.i.i4139 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2561, ptr noundef %call.i18356) #24
   store ptr %call8.i.i4139, ptr %qlogoutputstream_constructor_template_.i, align 8
-  %inc9847 = add nuw nsw i64 %i.394964, 1
+  %inc9847 = add nuw nsw i64 %i.394966, 1
   %.pre4417 = load ptr, ptr %_M_finish.i, align 8
   %.pre4418 = load ptr, ptr %template_values, align 8
   %.pre4613 = ptrtoint ptr %.pre4417 to i64
@@ -38950,9 +38950,9 @@ if.end9848:                                       ; preds = %if.then9840, %if.th
   br i1 %2562, label %land.lhs.true9855, label %if.end10552
 
 land.lhs.true9855:                                ; preds = %land.lhs.true9823, %if.end9848
-  %i.404971 = phi i64 [ %inc9847, %if.end9848 ], [ %i.394964, %land.lhs.true9823 ]
+  %i.404973 = phi i64 [ %inc9847, %if.end9848 ], [ %i.394966, %land.lhs.true9823 ]
   %2563 = phi ptr [ %.pre4418, %if.end9848 ], [ %2555, %land.lhs.true9823 ]
-  %add.ptr.i4145 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2563, i64 %i.404971
+  %add.ptr.i4145 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2563, i64 %i.404973
   %id9857 = getelementptr inbounds nuw i8, ptr %add.ptr.i4145, i64 32
   %2564 = load i32, ptr %id9857, align 8
   %cmp9858 = icmp eq i32 %2564, 40
@@ -38976,7 +38976,7 @@ if.end9880:                                       ; preds = %if.then9872, %if.th
   %2569 = load ptr, ptr %isolate_, align 8
   %call8.i.i4148 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2569, ptr noundef %call.i17659) #24
   store ptr %call8.i.i4148, ptr %tcp_constructor_template_.i, align 8
-  %inc9879 = add nuw nsw i64 %i.404971, 1
+  %inc9879 = add nuw nsw i64 %i.404973, 1
   %.pre4419 = load ptr, ptr %_M_finish.i, align 8
   %.pre4420 = load ptr, ptr %template_values, align 8
   %.pre4617 = ptrtoint ptr %.pre4419 to i64
@@ -38987,9 +38987,9 @@ if.end9880:                                       ; preds = %if.then9872, %if.th
   br i1 %2570, label %land.lhs.true9887, label %if.end10552
 
 land.lhs.true9887:                                ; preds = %land.lhs.true9855, %if.end9880
-  %i.414978 = phi i64 [ %inc9879, %if.end9880 ], [ %i.404971, %land.lhs.true9855 ]
+  %i.414980 = phi i64 [ %inc9879, %if.end9880 ], [ %i.404973, %land.lhs.true9855 ]
   %2571 = phi ptr [ %.pre4420, %if.end9880 ], [ %2563, %land.lhs.true9855 ]
-  %add.ptr.i4154 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2571, i64 %i.414978
+  %add.ptr.i4154 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2571, i64 %i.414980
   %id9889 = getelementptr inbounds nuw i8, ptr %add.ptr.i4154, i64 32
   %2572 = load i32, ptr %id9889, align 8
   %cmp9890 = icmp eq i32 %2572, 41
@@ -39013,7 +39013,7 @@ if.end9912:                                       ; preds = %if.then9904, %if.th
   %2577 = load ptr, ptr %isolate_, align 8
   %call8.i.i4157 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2577, ptr noundef %call.i17647) #24
   store ptr %call8.i.i4157, ptr %tty_constructor_template_.i, align 8
-  %inc9911 = add nuw nsw i64 %i.414978, 1
+  %inc9911 = add nuw nsw i64 %i.414980, 1
   %.pre4421 = load ptr, ptr %_M_finish.i, align 8
   %.pre4422 = load ptr, ptr %template_values, align 8
   %.pre4621 = ptrtoint ptr %.pre4421 to i64
@@ -39024,9 +39024,9 @@ if.end9912:                                       ; preds = %if.then9904, %if.th
   br i1 %2578, label %land.lhs.true9919, label %if.end10552
 
 land.lhs.true9919:                                ; preds = %land.lhs.true9887, %if.end9912
-  %i.424985 = phi i64 [ %inc9911, %if.end9912 ], [ %i.414978, %land.lhs.true9887 ]
+  %i.424987 = phi i64 [ %inc9911, %if.end9912 ], [ %i.414980, %land.lhs.true9887 ]
   %2579 = phi ptr [ %.pre4422, %if.end9912 ], [ %2571, %land.lhs.true9887 ]
-  %add.ptr.i4163 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2579, i64 %i.424985
+  %add.ptr.i4163 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2579, i64 %i.424987
   %id9921 = getelementptr inbounds nuw i8, ptr %add.ptr.i4163, i64 32
   %2580 = load i32, ptr %id9921, align 8
   %cmp9922 = icmp eq i32 %2580, 42
@@ -39050,7 +39050,7 @@ if.end9944:                                       ; preds = %if.then9936, %if.th
   %2585 = load ptr, ptr %isolate_, align 8
   %call8.i.i4166 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2585, ptr noundef %call.i18344) #24
   store ptr %call8.i.i4166, ptr %write_wrap_template_.i, align 8
-  %inc9943 = add nuw nsw i64 %i.424985, 1
+  %inc9943 = add nuw nsw i64 %i.424987, 1
   %.pre4423 = load ptr, ptr %_M_finish.i, align 8
   %.pre4424 = load ptr, ptr %template_values, align 8
   %.pre4625 = ptrtoint ptr %.pre4423 to i64
@@ -39061,9 +39061,9 @@ if.end9944:                                       ; preds = %if.then9936, %if.th
   br i1 %2586, label %land.lhs.true9951, label %if.end10552
 
 land.lhs.true9951:                                ; preds = %land.lhs.true9919, %if.end9944
-  %i.434992 = phi i64 [ %inc9943, %if.end9944 ], [ %i.424985, %land.lhs.true9919 ]
+  %i.434994 = phi i64 [ %inc9943, %if.end9944 ], [ %i.424987, %land.lhs.true9919 ]
   %2587 = phi ptr [ %.pre4424, %if.end9944 ], [ %2579, %land.lhs.true9919 ]
-  %add.ptr.i4172 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2587, i64 %i.434992
+  %add.ptr.i4172 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2587, i64 %i.434994
   %id9953 = getelementptr inbounds nuw i8, ptr %add.ptr.i4172, i64 32
   %2588 = load i32, ptr %id9953, align 8
   %cmp9954 = icmp eq i32 %2588, 43
@@ -39087,7 +39087,7 @@ if.end9976:                                       ; preds = %if.then9968, %if.th
   %2593 = load ptr, ptr %isolate_, align 8
   %call8.i.i4175 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2593, ptr noundef %call.i18332) #24
   store ptr %call8.i.i4175, ptr %worker_heap_snapshot_taker_template_.i, align 8
-  %inc9975 = add nuw nsw i64 %i.434992, 1
+  %inc9975 = add nuw nsw i64 %i.434994, 1
   %.pre4425 = load ptr, ptr %_M_finish.i, align 8
   %.pre4426 = load ptr, ptr %template_values, align 8
   %.pre4629 = ptrtoint ptr %.pre4425 to i64
@@ -39098,9 +39098,9 @@ if.end9976:                                       ; preds = %if.then9968, %if.th
   br i1 %2594, label %land.lhs.true9983, label %if.end10552
 
 land.lhs.true9983:                                ; preds = %land.lhs.true9951, %if.end9976
-  %i.444999 = phi i64 [ %inc9975, %if.end9976 ], [ %i.434992, %land.lhs.true9951 ]
+  %i.445001 = phi i64 [ %inc9975, %if.end9976 ], [ %i.434994, %land.lhs.true9951 ]
   %2595 = phi ptr [ %.pre4426, %if.end9976 ], [ %2587, %land.lhs.true9951 ]
-  %add.ptr.i4181 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2595, i64 %i.444999
+  %add.ptr.i4181 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2595, i64 %i.445001
   %id9985 = getelementptr inbounds nuw i8, ptr %add.ptr.i4181, i64 32
   %2596 = load i32, ptr %id9985, align 8
   %cmp9986 = icmp eq i32 %2596, 44
@@ -39124,7 +39124,7 @@ if.end10008:                                      ; preds = %if.then10000, %if.t
   %2601 = load ptr, ptr %isolate_, align 8
   %call8.i.i4184 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2601, ptr noundef %call.i17636) #24
   store ptr %call8.i.i4184, ptr %x509_constructor_template_.i, align 8
-  %inc10007 = add nuw nsw i64 %i.444999, 1
+  %inc10007 = add nuw nsw i64 %i.445001, 1
   %.pre4427 = load ptr, ptr %_M_finish.i, align 8
   %.pre4428 = load ptr, ptr %template_values, align 8
   %.pre4633 = ptrtoint ptr %.pre4427 to i64
@@ -39135,9 +39135,9 @@ if.end10008:                                      ; preds = %if.then10000, %if.t
   br i1 %2602, label %land.lhs.true10015, label %if.end10552
 
 land.lhs.true10015:                               ; preds = %land.lhs.true9983, %if.end10008
-  %i.455006 = phi i64 [ %inc10007, %if.end10008 ], [ %i.444999, %land.lhs.true9983 ]
+  %i.455008 = phi i64 [ %inc10007, %if.end10008 ], [ %i.445001, %land.lhs.true9983 ]
   %2603 = phi ptr [ %.pre4428, %if.end10008 ], [ %2595, %land.lhs.true9983 ]
-  %add.ptr.i4190 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2603, i64 %i.455006
+  %add.ptr.i4190 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2603, i64 %i.455008
   %id10017 = getelementptr inbounds nuw i8, ptr %add.ptr.i4190, i64 32
   %2604 = load i32, ptr %id10017, align 8
   %cmp10018 = icmp eq i32 %2604, 45
@@ -39161,7 +39161,7 @@ if.end10040:                                      ; preds = %if.then10032, %if.t
   %2609 = load ptr, ptr %isolate_, align 8
   %call8.i.i4193 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2609, ptr noundef %call.i18320) #24
   store ptr %call8.i.i4193, ptr %async_wrap_binding_template_.i, align 8
-  %inc10039 = add nuw nsw i64 %i.455006, 1
+  %inc10039 = add nuw nsw i64 %i.455008, 1
   %.pre4429 = load ptr, ptr %_M_finish.i, align 8
   %.pre4430 = load ptr, ptr %template_values, align 8
   %.pre4637 = ptrtoint ptr %.pre4429 to i64
@@ -39172,9 +39172,9 @@ if.end10040:                                      ; preds = %if.then10032, %if.t
   br i1 %2610, label %land.lhs.true10047, label %if.end10552
 
 land.lhs.true10047:                               ; preds = %land.lhs.true10015, %if.end10040
-  %i.465013 = phi i64 [ %inc10039, %if.end10040 ], [ %i.455006, %land.lhs.true10015 ]
+  %i.465015 = phi i64 [ %inc10039, %if.end10040 ], [ %i.455008, %land.lhs.true10015 ]
   %2611 = phi ptr [ %.pre4430, %if.end10040 ], [ %2603, %land.lhs.true10015 ]
-  %add.ptr.i4199 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2611, i64 %i.465013
+  %add.ptr.i4199 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2611, i64 %i.465015
   %id10049 = getelementptr inbounds nuw i8, ptr %add.ptr.i4199, i64 32
   %2612 = load i32, ptr %id10049, align 8
   %cmp10050 = icmp eq i32 %2612, 46
@@ -39198,7 +39198,7 @@ if.end10072:                                      ; preds = %if.then10064, %if.t
   %2617 = load ptr, ptr %isolate_, align 8
   %call8.i.i4202 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2617, ptr noundef %call.i18308) #24
   store ptr %call8.i.i4202, ptr %blob_binding_template_.i, align 8
-  %inc10071 = add nuw nsw i64 %i.465013, 1
+  %inc10071 = add nuw nsw i64 %i.465015, 1
   %.pre4431 = load ptr, ptr %_M_finish.i, align 8
   %.pre4432 = load ptr, ptr %template_values, align 8
   %.pre4641 = ptrtoint ptr %.pre4431 to i64
@@ -39209,9 +39209,9 @@ if.end10072:                                      ; preds = %if.then10064, %if.t
   br i1 %2618, label %land.lhs.true10079, label %if.end10552
 
 land.lhs.true10079:                               ; preds = %land.lhs.true10047, %if.end10072
-  %i.475020 = phi i64 [ %inc10071, %if.end10072 ], [ %i.465013, %land.lhs.true10047 ]
+  %i.475022 = phi i64 [ %inc10071, %if.end10072 ], [ %i.465015, %land.lhs.true10047 ]
   %2619 = phi ptr [ %.pre4432, %if.end10072 ], [ %2611, %land.lhs.true10047 ]
-  %add.ptr.i4208 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2619, i64 %i.475020
+  %add.ptr.i4208 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2619, i64 %i.475022
   %id10081 = getelementptr inbounds nuw i8, ptr %add.ptr.i4208, i64 32
   %2620 = load i32, ptr %id10081, align 8
   %cmp10082 = icmp eq i32 %2620, 47
@@ -39235,7 +39235,7 @@ if.end10104:                                      ; preds = %if.then10096, %if.t
   %2625 = load ptr, ptr %isolate_, align 8
   %call8.i.i4211 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2625, ptr noundef %call.i18296) #24
   store ptr %call8.i.i4211, ptr %builtins_binding_template_.i, align 8
-  %inc10103 = add nuw nsw i64 %i.475020, 1
+  %inc10103 = add nuw nsw i64 %i.475022, 1
   %.pre4433 = load ptr, ptr %_M_finish.i, align 8
   %.pre4434 = load ptr, ptr %template_values, align 8
   %.pre4645 = ptrtoint ptr %.pre4433 to i64
@@ -39246,9 +39246,9 @@ if.end10104:                                      ; preds = %if.then10096, %if.t
   br i1 %2626, label %land.lhs.true10111, label %if.end10552
 
 land.lhs.true10111:                               ; preds = %land.lhs.true10079, %if.end10104
-  %i.485027 = phi i64 [ %inc10103, %if.end10104 ], [ %i.475020, %land.lhs.true10079 ]
+  %i.485029 = phi i64 [ %inc10103, %if.end10104 ], [ %i.475022, %land.lhs.true10079 ]
   %2627 = phi ptr [ %.pre4434, %if.end10104 ], [ %2619, %land.lhs.true10079 ]
-  %add.ptr.i4217 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2627, i64 %i.485027
+  %add.ptr.i4217 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2627, i64 %i.485029
   %id10113 = getelementptr inbounds nuw i8, ptr %add.ptr.i4217, i64 32
   %2628 = load i32, ptr %id10113, align 8
   %cmp10114 = icmp eq i32 %2628, 48
@@ -39272,7 +39272,7 @@ if.end10136:                                      ; preds = %if.then10128, %if.t
   %2633 = load ptr, ptr %isolate_, align 8
   %call8.i.i4220 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2633, ptr noundef %call.i18284) #24
   store ptr %call8.i.i4220, ptr %contextify_binding_template_.i, align 8
-  %inc10135 = add nuw nsw i64 %i.485027, 1
+  %inc10135 = add nuw nsw i64 %i.485029, 1
   %.pre4435 = load ptr, ptr %_M_finish.i, align 8
   %.pre4436 = load ptr, ptr %template_values, align 8
   %.pre4649 = ptrtoint ptr %.pre4435 to i64
@@ -39283,9 +39283,9 @@ if.end10136:                                      ; preds = %if.then10128, %if.t
   br i1 %2634, label %land.lhs.true10143, label %if.end10552
 
 land.lhs.true10143:                               ; preds = %land.lhs.true10111, %if.end10136
-  %i.495034 = phi i64 [ %inc10135, %if.end10136 ], [ %i.485027, %land.lhs.true10111 ]
+  %i.495036 = phi i64 [ %inc10135, %if.end10136 ], [ %i.485029, %land.lhs.true10111 ]
   %2635 = phi ptr [ %.pre4436, %if.end10136 ], [ %2627, %land.lhs.true10111 ]
-  %add.ptr.i4226 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2635, i64 %i.495034
+  %add.ptr.i4226 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2635, i64 %i.495036
   %id10145 = getelementptr inbounds nuw i8, ptr %add.ptr.i4226, i64 32
   %2636 = load i32, ptr %id10145, align 8
   %cmp10146 = icmp eq i32 %2636, 49
@@ -39309,7 +39309,7 @@ if.end10168:                                      ; preds = %if.then10160, %if.t
   %2641 = load ptr, ptr %isolate_, align 8
   %call8.i.i4229 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2641, ptr noundef %call.i18272) #24
   store ptr %call8.i.i4229, ptr %encoding_binding_binding_template_.i, align 8
-  %inc10167 = add nuw nsw i64 %i.495034, 1
+  %inc10167 = add nuw nsw i64 %i.495036, 1
   %.pre4437 = load ptr, ptr %_M_finish.i, align 8
   %.pre4438 = load ptr, ptr %template_values, align 8
   %.pre4653 = ptrtoint ptr %.pre4437 to i64
@@ -39320,9 +39320,9 @@ if.end10168:                                      ; preds = %if.then10160, %if.t
   br i1 %2642, label %land.lhs.true10175, label %if.end10552
 
 land.lhs.true10175:                               ; preds = %land.lhs.true10143, %if.end10168
-  %i.505041 = phi i64 [ %inc10167, %if.end10168 ], [ %i.495034, %land.lhs.true10143 ]
+  %i.505043 = phi i64 [ %inc10167, %if.end10168 ], [ %i.495036, %land.lhs.true10143 ]
   %2643 = phi ptr [ %.pre4438, %if.end10168 ], [ %2635, %land.lhs.true10143 ]
-  %add.ptr.i4235 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2643, i64 %i.505041
+  %add.ptr.i4235 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2643, i64 %i.505043
   %id10177 = getelementptr inbounds nuw i8, ptr %add.ptr.i4235, i64 32
   %2644 = load i32, ptr %id10177, align 8
   %cmp10178 = icmp eq i32 %2644, 50
@@ -39346,7 +39346,7 @@ if.end10200:                                      ; preds = %if.then10192, %if.t
   %2649 = load ptr, ptr %isolate_, align 8
   %call8.i.i4238 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2649, ptr noundef %call.i18260) #24
   store ptr %call8.i.i4238, ptr %fs_binding_template_.i, align 8
-  %inc10199 = add nuw nsw i64 %i.505041, 1
+  %inc10199 = add nuw nsw i64 %i.505043, 1
   %.pre4439 = load ptr, ptr %_M_finish.i, align 8
   %.pre4440 = load ptr, ptr %template_values, align 8
   %.pre4657 = ptrtoint ptr %.pre4439 to i64
@@ -39357,9 +39357,9 @@ if.end10200:                                      ; preds = %if.then10192, %if.t
   br i1 %2650, label %land.lhs.true10207, label %if.end10552
 
 land.lhs.true10207:                               ; preds = %land.lhs.true10175, %if.end10200
-  %i.515048 = phi i64 [ %inc10199, %if.end10200 ], [ %i.505041, %land.lhs.true10175 ]
+  %i.515050 = phi i64 [ %inc10199, %if.end10200 ], [ %i.505043, %land.lhs.true10175 ]
   %2651 = phi ptr [ %.pre4440, %if.end10200 ], [ %2643, %land.lhs.true10175 ]
-  %add.ptr.i4244 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2651, i64 %i.515048
+  %add.ptr.i4244 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2651, i64 %i.515050
   %id10209 = getelementptr inbounds nuw i8, ptr %add.ptr.i4244, i64 32
   %2652 = load i32, ptr %id10209, align 8
   %cmp10210 = icmp eq i32 %2652, 51
@@ -39383,7 +39383,7 @@ if.end10232:                                      ; preds = %if.then10224, %if.t
   %2657 = load ptr, ptr %isolate_, align 8
   %call8.i.i4247 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2657, ptr noundef %call.i18248) #24
   store ptr %call8.i.i4247, ptr %fs_dir_binding_template_.i, align 8
-  %inc10231 = add nuw nsw i64 %i.515048, 1
+  %inc10231 = add nuw nsw i64 %i.515050, 1
   %.pre4441 = load ptr, ptr %_M_finish.i, align 8
   %.pre4442 = load ptr, ptr %template_values, align 8
   %.pre4661 = ptrtoint ptr %.pre4441 to i64
@@ -39394,9 +39394,9 @@ if.end10232:                                      ; preds = %if.then10224, %if.t
   br i1 %2658, label %land.lhs.true10239, label %if.end10552
 
 land.lhs.true10239:                               ; preds = %land.lhs.true10207, %if.end10232
-  %i.525055 = phi i64 [ %inc10231, %if.end10232 ], [ %i.515048, %land.lhs.true10207 ]
+  %i.525057 = phi i64 [ %inc10231, %if.end10232 ], [ %i.515050, %land.lhs.true10207 ]
   %2659 = phi ptr [ %.pre4442, %if.end10232 ], [ %2651, %land.lhs.true10207 ]
-  %add.ptr.i4253 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2659, i64 %i.525055
+  %add.ptr.i4253 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2659, i64 %i.525057
   %id10241 = getelementptr inbounds nuw i8, ptr %add.ptr.i4253, i64 32
   %2660 = load i32, ptr %id10241, align 8
   %cmp10242 = icmp eq i32 %2660, 52
@@ -39420,7 +39420,7 @@ if.end10264:                                      ; preds = %if.then10256, %if.t
   %2665 = load ptr, ptr %isolate_, align 8
   %call8.i.i4256 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2665, ptr noundef %call.i18236) #24
   store ptr %call8.i.i4256, ptr %messaging_binding_template_.i, align 8
-  %inc10263 = add nuw nsw i64 %i.525055, 1
+  %inc10263 = add nuw nsw i64 %i.525057, 1
   %.pre4443 = load ptr, ptr %_M_finish.i, align 8
   %.pre4444 = load ptr, ptr %template_values, align 8
   %.pre4665 = ptrtoint ptr %.pre4443 to i64
@@ -39431,9 +39431,9 @@ if.end10264:                                      ; preds = %if.then10256, %if.t
   br i1 %2666, label %land.lhs.true10271, label %if.end10552
 
 land.lhs.true10271:                               ; preds = %land.lhs.true10239, %if.end10264
-  %i.535062 = phi i64 [ %inc10263, %if.end10264 ], [ %i.525055, %land.lhs.true10239 ]
+  %i.535064 = phi i64 [ %inc10263, %if.end10264 ], [ %i.525057, %land.lhs.true10239 ]
   %2667 = phi ptr [ %.pre4444, %if.end10264 ], [ %2659, %land.lhs.true10239 ]
-  %add.ptr.i4262 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2667, i64 %i.535062
+  %add.ptr.i4262 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2667, i64 %i.535064
   %id10273 = getelementptr inbounds nuw i8, ptr %add.ptr.i4262, i64 32
   %2668 = load i32, ptr %id10273, align 8
   %cmp10274 = icmp eq i32 %2668, 53
@@ -39457,7 +39457,7 @@ if.end10296:                                      ; preds = %if.then10288, %if.t
   %2673 = load ptr, ptr %isolate_, align 8
   %call8.i.i4265 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2673, ptr noundef %call.i18224) #24
   store ptr %call8.i.i4265, ptr %mksnapshot_binding_template_.i, align 8
-  %inc10295 = add nuw nsw i64 %i.535062, 1
+  %inc10295 = add nuw nsw i64 %i.535064, 1
   %.pre4445 = load ptr, ptr %_M_finish.i, align 8
   %.pre4446 = load ptr, ptr %template_values, align 8
   %.pre4669 = ptrtoint ptr %.pre4445 to i64
@@ -39468,9 +39468,9 @@ if.end10296:                                      ; preds = %if.then10288, %if.t
   br i1 %2674, label %land.lhs.true10303, label %if.end10552
 
 land.lhs.true10303:                               ; preds = %land.lhs.true10271, %if.end10296
-  %i.545069 = phi i64 [ %inc10295, %if.end10296 ], [ %i.535062, %land.lhs.true10271 ]
+  %i.545071 = phi i64 [ %inc10295, %if.end10296 ], [ %i.535064, %land.lhs.true10271 ]
   %2675 = phi ptr [ %.pre4446, %if.end10296 ], [ %2667, %land.lhs.true10271 ]
-  %add.ptr.i4271 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2675, i64 %i.545069
+  %add.ptr.i4271 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2675, i64 %i.545071
   %id10305 = getelementptr inbounds nuw i8, ptr %add.ptr.i4271, i64 32
   %2676 = load i32, ptr %id10305, align 8
   %cmp10306 = icmp eq i32 %2676, 54
@@ -39494,7 +39494,7 @@ if.end10328:                                      ; preds = %if.then10320, %if.t
   %2681 = load ptr, ptr %isolate_, align 8
   %call8.i.i4274 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2681, ptr noundef %call.i18212) #24
   store ptr %call8.i.i4274, ptr %modules_binding_template_.i, align 8
-  %inc10327 = add nuw nsw i64 %i.545069, 1
+  %inc10327 = add nuw nsw i64 %i.545071, 1
   %.pre4447 = load ptr, ptr %_M_finish.i, align 8
   %.pre4448 = load ptr, ptr %template_values, align 8
   %.pre4673 = ptrtoint ptr %.pre4447 to i64
@@ -39505,9 +39505,9 @@ if.end10328:                                      ; preds = %if.then10320, %if.t
   br i1 %2682, label %land.lhs.true10335, label %if.end10552
 
 land.lhs.true10335:                               ; preds = %land.lhs.true10303, %if.end10328
-  %i.555076 = phi i64 [ %inc10327, %if.end10328 ], [ %i.545069, %land.lhs.true10303 ]
+  %i.555078 = phi i64 [ %inc10327, %if.end10328 ], [ %i.545071, %land.lhs.true10303 ]
   %2683 = phi ptr [ %.pre4448, %if.end10328 ], [ %2675, %land.lhs.true10303 ]
-  %add.ptr.i4280 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2683, i64 %i.555076
+  %add.ptr.i4280 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2683, i64 %i.555078
   %id10337 = getelementptr inbounds nuw i8, ptr %add.ptr.i4280, i64 32
   %2684 = load i32, ptr %id10337, align 8
   %cmp10338 = icmp eq i32 %2684, 55
@@ -39531,7 +39531,7 @@ if.end10360:                                      ; preds = %if.then10352, %if.t
   %2689 = load ptr, ptr %isolate_, align 8
   %call8.i.i4283 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2689, ptr noundef %call.i18200) #24
   store ptr %call8.i.i4283, ptr %module_wrap_binding_template_.i, align 8
-  %inc10359 = add nuw nsw i64 %i.555076, 1
+  %inc10359 = add nuw nsw i64 %i.555078, 1
   %.pre4449 = load ptr, ptr %_M_finish.i, align 8
   %.pre4450 = load ptr, ptr %template_values, align 8
   %.pre4677 = ptrtoint ptr %.pre4449 to i64
@@ -39542,9 +39542,9 @@ if.end10360:                                      ; preds = %if.then10352, %if.t
   br i1 %2690, label %land.lhs.true10367, label %if.end10552
 
 land.lhs.true10367:                               ; preds = %land.lhs.true10335, %if.end10360
-  %i.565083 = phi i64 [ %inc10359, %if.end10360 ], [ %i.555076, %land.lhs.true10335 ]
+  %i.565085 = phi i64 [ %inc10359, %if.end10360 ], [ %i.555078, %land.lhs.true10335 ]
   %2691 = phi ptr [ %.pre4450, %if.end10360 ], [ %2683, %land.lhs.true10335 ]
-  %add.ptr.i4289 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2691, i64 %i.565083
+  %add.ptr.i4289 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2691, i64 %i.565085
   %id10369 = getelementptr inbounds nuw i8, ptr %add.ptr.i4289, i64 32
   %2692 = load i32, ptr %id10369, align 8
   %cmp10370 = icmp eq i32 %2692, 56
@@ -39568,7 +39568,7 @@ if.end10392:                                      ; preds = %if.then10384, %if.t
   %2697 = load ptr, ptr %isolate_, align 8
   %call8.i.i4292 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2697, ptr noundef %call.i18188) #24
   store ptr %call8.i.i4292, ptr %performance_binding_template_.i, align 8
-  %inc10391 = add nuw nsw i64 %i.565083, 1
+  %inc10391 = add nuw nsw i64 %i.565085, 1
   %.pre4451 = load ptr, ptr %_M_finish.i, align 8
   %.pre4452 = load ptr, ptr %template_values, align 8
   %.pre4681 = ptrtoint ptr %.pre4451 to i64
@@ -39579,9 +39579,9 @@ if.end10392:                                      ; preds = %if.then10384, %if.t
   br i1 %2698, label %land.lhs.true10399, label %if.end10552
 
 land.lhs.true10399:                               ; preds = %land.lhs.true10367, %if.end10392
-  %i.575090 = phi i64 [ %inc10391, %if.end10392 ], [ %i.565083, %land.lhs.true10367 ]
+  %i.575092 = phi i64 [ %inc10391, %if.end10392 ], [ %i.565085, %land.lhs.true10367 ]
   %2699 = phi ptr [ %.pre4452, %if.end10392 ], [ %2691, %land.lhs.true10367 ]
-  %add.ptr.i4298 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2699, i64 %i.575090
+  %add.ptr.i4298 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2699, i64 %i.575092
   %id10401 = getelementptr inbounds nuw i8, ptr %add.ptr.i4298, i64 32
   %2700 = load i32, ptr %id10401, align 8
   %cmp10402 = icmp eq i32 %2700, 57
@@ -39605,7 +39605,7 @@ if.end10424:                                      ; preds = %if.then10416, %if.t
   %2705 = load ptr, ptr %isolate_, align 8
   %call8.i.i4301 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2705, ptr noundef %call.i18176) #24
   store ptr %call8.i.i4301, ptr %process_methods_binding_template_.i, align 8
-  %inc10423 = add nuw nsw i64 %i.575090, 1
+  %inc10423 = add nuw nsw i64 %i.575092, 1
   %.pre4453 = load ptr, ptr %_M_finish.i, align 8
   %.pre4454 = load ptr, ptr %template_values, align 8
   %.pre4685 = ptrtoint ptr %.pre4453 to i64
@@ -39616,9 +39616,9 @@ if.end10424:                                      ; preds = %if.then10416, %if.t
   br i1 %2706, label %land.lhs.true10431, label %if.end10552
 
 land.lhs.true10431:                               ; preds = %land.lhs.true10399, %if.end10424
-  %i.585097 = phi i64 [ %inc10423, %if.end10424 ], [ %i.575090, %land.lhs.true10399 ]
+  %i.585099 = phi i64 [ %inc10423, %if.end10424 ], [ %i.575092, %land.lhs.true10399 ]
   %2707 = phi ptr [ %.pre4454, %if.end10424 ], [ %2699, %land.lhs.true10399 ]
-  %add.ptr.i4307 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2707, i64 %i.585097
+  %add.ptr.i4307 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2707, i64 %i.585099
   %id10433 = getelementptr inbounds nuw i8, ptr %add.ptr.i4307, i64 32
   %2708 = load i32, ptr %id10433, align 8
   %cmp10434 = icmp eq i32 %2708, 58
@@ -39642,7 +39642,7 @@ if.end10456:                                      ; preds = %if.then10448, %if.t
   %2713 = load ptr, ptr %isolate_, align 8
   %call8.i.i4310 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2713, ptr noundef %call.i18164) #24
   store ptr %call8.i.i4310, ptr %timers_binding_template_.i, align 8
-  %inc10455 = add nuw nsw i64 %i.585097, 1
+  %inc10455 = add nuw nsw i64 %i.585099, 1
   %.pre4455 = load ptr, ptr %_M_finish.i, align 8
   %.pre4456 = load ptr, ptr %template_values, align 8
   %.pre4689 = ptrtoint ptr %.pre4455 to i64
@@ -39653,9 +39653,9 @@ if.end10456:                                      ; preds = %if.then10448, %if.t
   br i1 %2714, label %land.lhs.true10463, label %if.end10552
 
 land.lhs.true10463:                               ; preds = %land.lhs.true10431, %if.end10456
-  %i.595104 = phi i64 [ %inc10455, %if.end10456 ], [ %i.585097, %land.lhs.true10431 ]
+  %i.595106 = phi i64 [ %inc10455, %if.end10456 ], [ %i.585099, %land.lhs.true10431 ]
   %2715 = phi ptr [ %.pre4456, %if.end10456 ], [ %2707, %land.lhs.true10431 ]
-  %add.ptr.i4316 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2715, i64 %i.595104
+  %add.ptr.i4316 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2715, i64 %i.595106
   %id10465 = getelementptr inbounds nuw i8, ptr %add.ptr.i4316, i64 32
   %2716 = load i32, ptr %id10465, align 8
   %cmp10466 = icmp eq i32 %2716, 59
@@ -39679,7 +39679,7 @@ if.end10488:                                      ; preds = %if.then10480, %if.t
   %2721 = load ptr, ptr %isolate_, align 8
   %call8.i.i4319 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2721, ptr noundef %call.i18152) #24
   store ptr %call8.i.i4319, ptr %url_binding_template_.i, align 8
-  %inc10487 = add nuw nsw i64 %i.595104, 1
+  %inc10487 = add nuw nsw i64 %i.595106, 1
   %.pre4457 = load ptr, ptr %_M_finish.i, align 8
   %.pre4458 = load ptr, ptr %template_values, align 8
   %.pre4693 = ptrtoint ptr %.pre4457 to i64
@@ -39690,9 +39690,9 @@ if.end10488:                                      ; preds = %if.then10480, %if.t
   br i1 %2722, label %land.lhs.true10495, label %if.end10552
 
 land.lhs.true10495:                               ; preds = %land.lhs.true10463, %if.end10488
-  %i.605111 = phi i64 [ %inc10487, %if.end10488 ], [ %i.595104, %land.lhs.true10463 ]
+  %i.605113 = phi i64 [ %inc10487, %if.end10488 ], [ %i.595106, %land.lhs.true10463 ]
   %2723 = phi ptr [ %.pre4458, %if.end10488 ], [ %2715, %land.lhs.true10463 ]
-  %add.ptr.i4325 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2723, i64 %i.605111
+  %add.ptr.i4325 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2723, i64 %i.605113
   %id10497 = getelementptr inbounds nuw i8, ptr %add.ptr.i4325, i64 32
   %2724 = load i32, ptr %id10497, align 8
   %cmp10498 = icmp eq i32 %2724, 60
@@ -39716,7 +39716,7 @@ if.end10520:                                      ; preds = %if.then10512, %if.t
   %2729 = load ptr, ptr %isolate_, align 8
   %call8.i.i4328 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2729, ptr noundef %call.i18140) #24
   store ptr %call8.i.i4328, ptr %worker_binding_template_.i, align 8
-  %inc10519 = add nuw nsw i64 %i.605111, 1
+  %inc10519 = add nuw nsw i64 %i.605113, 1
   %.pre4459 = load ptr, ptr %_M_finish.i, align 8
   %.pre4460 = load ptr, ptr %template_values, align 8
   %.pre4697 = ptrtoint ptr %.pre4459 to i64
@@ -39727,9 +39727,9 @@ if.end10520:                                      ; preds = %if.then10512, %if.t
   br i1 %2730, label %land.lhs.true10527, label %if.end10552
 
 land.lhs.true10527:                               ; preds = %land.lhs.true10495, %if.end10520
-  %i.615118 = phi i64 [ %inc10519, %if.end10520 ], [ %i.605111, %land.lhs.true10495 ]
+  %i.615120 = phi i64 [ %inc10519, %if.end10520 ], [ %i.605113, %land.lhs.true10495 ]
   %2731 = phi ptr [ %.pre4460, %if.end10520 ], [ %2723, %land.lhs.true10495 ]
-  %add.ptr.i4334 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2731, i64 %i.615118
+  %add.ptr.i4334 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2731, i64 %i.615120
   %id10529 = getelementptr inbounds nuw i8, ptr %add.ptr.i4334, i64 32
   %2732 = load i32, ptr %id10529, align 8
   %cmp10530 = icmp eq i32 %2732, 61
@@ -61988,10 +61988,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i: ; preds = %if.end.i.i.i
   br i1 %cmp.not.i3.i, label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i: ; preds = %if.end.i.i.i
-  %incdec.ptr.i.i.i.i19.i.i = getelementptr inbounds i8, ptr %3305, i64 -8
-  %3311 = load ptr, ptr %incdec.ptr.i.i.i.i19.i.i, align 8
-  %cmp.not20.i.i = icmp eq ptr %3311, null
-  br i1 %cmp.not20.i.i, label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
+  %incdec.ptr.i.i.i.i20.i.i = getelementptr inbounds i8, ptr %3305, i64 -8
+  %3311 = load ptr, ptr %incdec.ptr.i.i.i.i20.i.i, align 8
+  %cmp.not21.i.i = icmp eq ptr %3311, null
+  br i1 %cmp.not21.i.i, label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i
   %3312 = phi ptr [ %3311, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i ], [ %3310, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i ]
@@ -62064,10 +62064,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i7210: ; preds = %if.end.i.i.i720
   br i1 %cmp.not.i3.i7214, label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit7215, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i7207
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i7204: ; preds = %if.end.i.i.i7201
-  %incdec.ptr.i.i.i.i19.i.i7205 = getelementptr inbounds i8, ptr %3319, i64 -8
-  %3325 = load ptr, ptr %incdec.ptr.i.i.i.i19.i.i7205, align 8
-  %cmp.not20.i.i7206 = icmp eq ptr %3325, null
-  br i1 %cmp.not20.i.i7206, label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit7215, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i7207
+  %incdec.ptr.i.i.i.i20.i.i7205 = getelementptr inbounds i8, ptr %3319, i64 -8
+  %3325 = load ptr, ptr %incdec.ptr.i.i.i.i20.i.i7205, align 8
+  %cmp.not21.i.i7206 = icmp eq ptr %3325, null
+  br i1 %cmp.not21.i.i7206, label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit7215, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i7207
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i7207: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i7204, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i7210
   %3326 = phi ptr [ %3325, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i7204 ], [ %3324, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i7210 ]
@@ -62112,11 +62112,11 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %or.cond, label %if.then.i.i.i.i16, label %if.end7
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i30 = getelementptr inbounds i8, ptr %0, i64 -8
-  %6 = load ptr, ptr %incdec.ptr.i.i.i.i30, align 8
-  %cmp431 = icmp ne ptr %6, null
-  %or.cond32 = and i1 %subtract_from_self, %cmp431
-  br i1 %or.cond32, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit20, label %if.end7
+  %incdec.ptr.i.i.i.i34 = getelementptr inbounds i8, ptr %0, i64 -8
+  %6 = load ptr, ptr %incdec.ptr.i.i.i.i34, align 8
+  %cmp435 = icmp ne ptr %6, null
+  %or.cond36 = and i1 %subtract_from_self, %cmp435
+  br i1 %or.cond36, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit20, label %if.end7
 
 if.then.i.i.i.i16:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -63218,8 +63218,8 @@ _ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit.thread: ; preds = %if.end77
 
 _ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit.thread: ; preds = %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit.thread
   store ptr %29, ptr %agg.tmp79, align 8, !alias.scope !944
-  %_M_refcount.i.i.i116498 = getelementptr inbounds nuw i8, ptr %agg.tmp79, i64 8
-  store ptr null, ptr %_M_refcount.i.i.i116498, align 8, !alias.scope !944
+  %_M_refcount.i.i.i116539 = getelementptr inbounds nuw i8, ptr %agg.tmp79, i64 8
+  store ptr null, ptr %_M_refcount.i.i.i116539, align 8, !alias.scope !944
   br label %_ZN4node11Environment8env_varsEv.exit
 
 if.then4.i.i.i.i:                                 ; preds = %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit
@@ -63240,15 +63240,15 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then4.i.i.i.i
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %.pr.i.i.i.i = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp6.not.i.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %cmp6.not.i.i.i.i, label %_ZN4node11Environment12set_env_varsESt10shared_ptrINS_7KVStoreEE.exit.thread496, label %if.then7.i.i.i.i
+  br i1 %cmp6.not.i.i.i.i, label %_ZN4node11Environment12set_env_varsESt10shared_ptrINS_7KVStoreEE.exit.thread537, label %if.then7.i.i.i.i
 
-_ZN4node11Environment12set_env_varsESt10shared_ptrINS_7KVStoreEE.exit.thread496: ; preds = %if.end.i.i.i.i
+_ZN4node11Environment12set_env_varsESt10shared_ptrINS_7KVStoreEE.exit.thread537: ; preds = %if.end.i.i.i.i
   store ptr %30, ptr %_M_refcount.i.i.i, align 8
   br label %if.then.i.i.i106
 
 if.then7.i.i.i.i:                                 ; preds = %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit.thread, %if.end.i.i.i.i
   %39 = phi ptr [ %.pr.i.i.i.i, %if.end.i.i.i.i ], [ %35, %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit.thread ]
-  %_M_refcount.i.i.i473476491 = phi ptr [ %_M_refcount.i.i.i, %if.end.i.i.i.i ], [ %_M_refcount.i.i.i471, %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit.thread ]
+  %_M_refcount.i.i.i473476532 = phi ptr [ %_M_refcount.i.i.i, %if.end.i.i.i.i ], [ %_M_refcount.i.i.i471, %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit.thread ]
   %_M_use_count.i5.i.i.i.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   %40 = load atomic i64, ptr %_M_use_count.i5.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %40, 4294967297
@@ -63317,19 +63317,19 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN4node11Environment12set_env_varsESt10shared_ptrINS_7KVStoreEE.exit
 
 _ZN4node11Environment12set_env_varsESt10shared_ptrINS_7KVStoreEE.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  store ptr %30, ptr %_M_refcount.i.i.i473476491, align 8
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit.thread502, label %if.then.i.i.i106
+  store ptr %30, ptr %_M_refcount.i.i.i473476532, align 8
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit.thread543, label %if.then.i.i.i106
 
-_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit.thread502: ; preds = %_ZN4node11Environment12set_env_varsESt10shared_ptrINS_7KVStoreEE.exit
-  %.pre505 = load ptr, ptr %env_vars_, align 8, !noalias !947
+_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit.thread543: ; preds = %_ZN4node11Environment12set_env_varsESt10shared_ptrINS_7KVStoreEE.exit
+  %.pre546 = load ptr, ptr %env_vars_, align 8, !noalias !947
   call void @llvm.experimental.noalias.scope.decl(metadata !947)
-  store ptr %.pre505, ptr %agg.tmp79, align 8, !alias.scope !947
-  %_M_refcount.i.i.i116506 = getelementptr inbounds nuw i8, ptr %agg.tmp79, i64 8
-  store ptr %30, ptr %_M_refcount.i.i.i116506, align 8, !alias.scope !947
+  store ptr %.pre546, ptr %agg.tmp79, align 8, !alias.scope !947
+  %_M_refcount.i.i.i116547 = getelementptr inbounds nuw i8, ptr %agg.tmp79, i64 8
+  store ptr %30, ptr %_M_refcount.i.i.i116547, align 8, !alias.scope !947
   br label %_ZN4node11Environment8env_varsEv.exit
 
-if.then.i.i.i106:                                 ; preds = %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit, %_ZN4node11Environment12set_env_varsESt10shared_ptrINS_7KVStoreEE.exit.thread496, %_ZN4node11Environment12set_env_varsESt10shared_ptrINS_7KVStoreEE.exit
-  %_M_refcount.i.i.i474494 = phi ptr [ %_M_refcount.i.i.i473476491, %_ZN4node11Environment12set_env_varsESt10shared_ptrINS_7KVStoreEE.exit ], [ %_M_refcount.i.i.i, %_ZN4node11Environment12set_env_varsESt10shared_ptrINS_7KVStoreEE.exit.thread496 ], [ %_M_refcount.i.i.i, %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit ]
+if.then.i.i.i106:                                 ; preds = %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit, %_ZN4node11Environment12set_env_varsESt10shared_ptrINS_7KVStoreEE.exit.thread537, %_ZN4node11Environment12set_env_varsESt10shared_ptrINS_7KVStoreEE.exit
+  %_M_refcount.i.i.i474535 = phi ptr [ %_M_refcount.i.i.i473476532, %_ZN4node11Environment12set_env_varsESt10shared_ptrINS_7KVStoreEE.exit ], [ %_M_refcount.i.i.i, %_ZN4node11Environment12set_env_varsESt10shared_ptrINS_7KVStoreEE.exit.thread537 ], [ %_M_refcount.i.i.i, %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit ]
   %_M_use_count.i.i.i.i107 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %50 = load atomic i64, ptr %_M_use_count.i.i.i.i107 acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %50, 4294967297
@@ -63398,7 +63398,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit
 
 _ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit:      ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %.pr479.pr = load ptr, ptr %_M_refcount.i.i.i474494, align 8, !noalias !949
+  %.pr479.pr = load ptr, ptr %_M_refcount.i.i.i474535, align 8, !noalias !949
   %.pre = load ptr, ptr %env_vars_, align 8, !noalias !949
   call void @llvm.experimental.noalias.scope.decl(metadata !949)
   store ptr %.pre, ptr %agg.tmp79, align 8, !alias.scope !949
@@ -63423,10 +63423,10 @@ if.else.i.i.i.i.i.i124:                           ; preds = %if.then.i.i.i.i119
   %62 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i120, i32 1 acq_rel, align 4, !noalias !949
   br label %_ZN4node11Environment8env_varsEv.exit
 
-_ZN4node11Environment8env_varsEv.exit:            ; preds = %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit.thread502, %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit.thread, %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit, %if.then.i.i.i.i.i.i122, %if.else.i.i.i.i.i.i124
-  %_M_refcount.i.i.i116500 = phi ptr [ %_M_refcount.i.i.i116498, %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit.thread ], [ %_M_refcount.i.i.i116, %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit ], [ %_M_refcount.i.i.i116, %if.then.i.i.i.i.i.i122 ], [ %_M_refcount.i.i.i116, %if.else.i.i.i.i.i.i124 ], [ %_M_refcount.i.i.i116506, %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit.thread502 ]
+_ZN4node11Environment8env_varsEv.exit:            ; preds = %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit.thread543, %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit.thread, %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit, %if.then.i.i.i.i.i.i122, %if.else.i.i.i.i.i.i124
+  %_M_refcount.i.i.i116541 = phi ptr [ %_M_refcount.i.i.i116539, %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit.thread ], [ %_M_refcount.i.i.i116, %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit ], [ %_M_refcount.i.i.i116, %if.then.i.i.i.i.i.i122 ], [ %_M_refcount.i.i.i116, %if.else.i.i.i.i.i.i124 ], [ %_M_refcount.i.i.i116547, %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit.thread543 ]
   call void @_ZN4node16EnabledDebugList5ParseESt10shared_ptrINS_7KVStoreEEPN2v87IsolateE(ptr noundef nonnull align 1 dereferenceable(75) %enabled_debug_list_, ptr noundef nonnull %agg.tmp79, ptr noundef %isolate) #24
-  %63 = load ptr, ptr %_M_refcount.i.i.i116500, align 8
+  %63 = load ptr, ptr %_M_refcount.i.i.i116541, align 8
   %cmp.not.i.i.i126 = icmp eq ptr %63, null
   br i1 %cmp.not.i.i.i126, label %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit156, label %if.then.i.i.i127
 
@@ -67024,11 +67024,11 @@ if.else.i.i:                                      ; preds = %if.end
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, label %if.end.sink.split.i.i
 
 if.end.sink.split.i.i:                            ; preds = %if.else.i.i, %if.then.i.i
-  %.sink4.i.i = phi ptr [ %3, %if.then.i.i ], [ %4, %if.else.i.i ]
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %.sink4.i.i, align 8
+  %.sink6.i.i = phi ptr [ %3, %if.then.i.i ], [ %4, %if.else.i.i ]
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %.sink6.i.i, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(24) %.sink4.i.i) #24
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(24) %.sink6.i.i) #24
   br label %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i: ; preds = %if.end.sink.split.i.i, %if.else.i.i, %if.then.i.i
@@ -67376,11 +67376,11 @@ if.else.i:                                        ; preds = %if.then24
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE10ConcatMoveEOS3_.exit, label %if.end.sink.split.i
 
 if.end.sink.split.i:                              ; preds = %if.else.i, %if.then.i
-  %.sink8.i = phi ptr [ %27, %if.then.i ], [ %29, %if.else.i ]
-  %vtable.i.i.i.i.i.i = load ptr, ptr %.sink8.i, align 8
+  %.sink10.i = phi ptr [ %27, %if.then.i ], [ %29, %if.else.i ]
+  %vtable.i.i.i.i.i.i = load ptr, ptr %.sink10.i, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %30 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(24) %.sink8.i) #24
+  call void %30(ptr noundef nonnull align 8 dereferenceable(24) %.sink10.i) #24
   br label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE10ConcatMoveEOS3_.exit
 
 _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE10ConcatMoveEOS3_.exit: ; preds = %if.then.i, %if.else.i, %if.end.sink.split.i
@@ -68008,11 +68008,11 @@ if.else.i:                                        ; preds = %while.body
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE10ConcatMoveEOS3_.exit, label %if.end.sink.split.i
 
 if.end.sink.split.i:                              ; preds = %if.else.i, %if.then.i
-  %.sink8.i = phi ptr [ %6, %if.then.i ], [ %8, %if.else.i ]
-  %vtable.i.i.i.i.i.i = load ptr, ptr %.sink8.i, align 8
+  %.sink10.i = phi ptr [ %6, %if.then.i ], [ %8, %if.else.i ]
+  %vtable.i.i.i.i.i.i = load ptr, ptr %.sink10.i, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(24) %.sink8.i) #24
+  call void %9(ptr noundef nonnull align 8 dereferenceable(24) %.sink10.i) #24
   br label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE10ConcatMoveEOS3_.exit
 
 _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE10ConcatMoveEOS3_.exit: ; preds = %if.then.i, %if.else.i, %if.end.sink.split.i
@@ -69827,8 +69827,8 @@ if.end42:                                         ; preds = %if.then, %if.else
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %16 = load ptr, ptr %_M_finish.i, align 8
   %17 = load ptr, ptr %native_execution_async_resources_, align 8
-  %cmp.i.not35 = icmp eq ptr %16, %17
-  br i1 %cmp.i.not35, label %do.body63, label %_ZNSt6vectorImSaImEE6resizeEm.exit
+  %cmp.i.not36 = icmp eq ptr %16, %17
+  br i1 %cmp.i.not36, label %do.body63, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %if.end42
   %sub.ptr.rhs.cast.i = ptrtoint ptr %17 to i64
@@ -70276,11 +70276,11 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %or.cond, label %if.then.i.i.i.i16, label %if.end7
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i30 = getelementptr inbounds i8, ptr %0, i64 -8
-  %6 = load ptr, ptr %incdec.ptr.i.i.i.i30, align 8
-  %cmp431 = icmp ne ptr %6, null
-  %or.cond32 = and i1 %subtract_from_self, %cmp431
-  br i1 %or.cond32, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit20, label %if.end7
+  %incdec.ptr.i.i.i.i34 = getelementptr inbounds i8, ptr %0, i64 -8
+  %6 = load ptr, ptr %incdec.ptr.i.i.i.i34, align 8
+  %cmp435 = icmp ne ptr %6, null
+  %or.cond36 = and i1 %subtract_from_self, %cmp435
+  br i1 %or.cond36, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit20, label %if.end7
 
 if.then.i.i.i.i16:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -70456,20 +70456,20 @@ _ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit: ; preds =
 
 _ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread: ; preds = %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit
   store ptr null, ptr %ref.tmp, align 8
-  %js_array_12 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %cmp.i.not13 = icmp eq ptr %js_array_12, %ref.tmp
-  br i1 %cmp.i.not13, label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit, label %if.then.i40
+  %js_array_13 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %cmp.i.not14 = icmp eq ptr %js_array_13, %ref.tmp
+  br i1 %cmp.i.not14, label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit, label %if.then.i40
 
 if.then.i40:                                      ; preds = %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit
-  %js_array_14 = phi ptr [ %js_array_12, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread ], [ %js_array_, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit ]
+  %js_array_15 = phi ptr [ %js_array_13, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread ], [ %js_array_, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit ]
   %7 = phi ptr [ null, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread ], [ %call2.i, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit ]
-  %8 = load ptr, ptr %js_array_14, align 8
+  %8 = load ptr, ptr %js_array_15, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i40
   call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %8) #24
-  store ptr null, ptr %js_array_14, align 8
+  store ptr null, ptr %js_array_15, align 8
   br label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.i
 
 _ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.i: ; preds = %if.then.i40, %if.end.i.i
@@ -70477,8 +70477,8 @@ _ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.i: ; preds = %if.then.i4
   br i1 %cmp.i.i43, label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.i
-  store ptr %7, ptr %js_array_14, align 8
-  call void @_ZN2v812api_internal19MoveGlobalReferenceEPPmS2_(ptr noundef nonnull %ref.tmp, ptr noundef nonnull %js_array_14) #24
+  store ptr %7, ptr %js_array_15, align 8
+  call void @_ZN2v812api_internal19MoveGlobalReferenceEPPmS2_(ptr noundef nonnull %ref.tmp, ptr noundef nonnull %js_array_15) #24
   br label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.sink.split
 
 _ZN2v86GlobalINS_12Float64ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit: ; preds = %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit
@@ -71472,10 +71472,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %cmp.not, label %cleanup, label %if.then.i.i.i.i13
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i59 = getelementptr inbounds i8, ptr %12, i64 -8
-  %18 = load ptr, ptr %incdec.ptr.i.i.i.i59, align 8
-  %cmp.not60 = icmp eq ptr %18, null
-  br i1 %cmp.not60, label %cleanup, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit17
+  %incdec.ptr.i.i.i.i65 = getelementptr inbounds i8, ptr %12, i64 -8
+  %18 = load ptr, ptr %incdec.ptr.i.i.i.i65, align 8
+  %cmp.not66 = icmp eq ptr %18, null
+  br i1 %cmp.not66, label %cleanup, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit17
 
 if.then.i.i.i.i13:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -73384,11 +73384,11 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %or.cond, label %if.then.i.i.i.i14, label %if.end9
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i33 = getelementptr inbounds i8, ptr %2, i64 -8
-  %8 = load ptr, ptr %incdec.ptr.i.i.i.i33, align 8
-  %cmp34 = icmp ne ptr %8, null
-  %or.cond35 = and i1 %subtract_from_self, %cmp34
-  br i1 %or.cond35, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end9
+  %incdec.ptr.i.i.i.i37 = getelementptr inbounds i8, ptr %2, i64 -8
+  %8 = load ptr, ptr %incdec.ptr.i.i.i.i37, align 8
+  %cmp38 = icmp ne ptr %8, null
+  %or.cond39 = and i1 %subtract_from_self, %cmp38
+  br i1 %or.cond39, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end9
 
 if.then.i.i.i.i14:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -73523,11 +73523,11 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %or.cond, label %if.then.i.i.i.i14, label %if.end9
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i32 = getelementptr inbounds i8, ptr %2, i64 -8
-  %8 = load ptr, ptr %incdec.ptr.i.i.i.i32, align 8
-  %cmp33 = icmp ne ptr %8, null
-  %or.cond34 = and i1 %subtract_from_self, %cmp33
-  br i1 %or.cond34, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end9
+  %incdec.ptr.i.i.i.i35 = getelementptr inbounds i8, ptr %2, i64 -8
+  %8 = load ptr, ptr %incdec.ptr.i.i.i.i35, align 8
+  %cmp36 = icmp ne ptr %8, null
+  %or.cond37 = and i1 %subtract_from_self, %cmp36
+  br i1 %or.cond37, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end9
 
 if.then.i.i.i.i14:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -73634,11 +73634,11 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %or.cond, label %if.then.i.i.i.i14, label %if.end11
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i47 = getelementptr inbounds i8, ptr %1, i64 -8
-  %7 = load ptr, ptr %incdec.ptr.i.i.i.i47, align 8
-  %cmp48 = icmp ne ptr %7, null
-  %or.cond49 = and i1 %subtract_from_self, %cmp48
-  br i1 %or.cond49, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end11
+  %incdec.ptr.i.i.i.i53 = getelementptr inbounds i8, ptr %1, i64 -8
+  %7 = load ptr, ptr %incdec.ptr.i.i.i.i53, align 8
+  %cmp54 = icmp ne ptr %7, null
+  %or.cond55 = and i1 %subtract_from_self, %cmp54
+  br i1 %or.cond55, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end11
 
 if.then.i.i.i.i14:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -74978,8 +74978,8 @@ if.end.i:                                         ; preds = %if.else
 
 if.end13.thread:                                  ; preds = %if.end.i
   %16 = load ptr, ptr %14, align 8
-  %tobool.not.i1642 = icmp eq ptr %16, null
-  br i1 %tobool.not.i1642, label %if.end.i.i, label %cond.end.i
+  %tobool.not.i1649 = icmp eq ptr %16, null
+  br i1 %tobool.not.i1649, label %if.end.i.i, label %cond.end.i
 
 for.cond.i:                                       ; preds = %lor.lhs.false.i
   %cmp.i.i.i.i = icmp eq ptr %9, %18
@@ -75021,34 +75021,34 @@ cond.end.i:                                       ; preds = %if.end13.thread, %i
   %24 = phi i64 [ %11, %if.end13.thread ], [ %20, %if.then.i ]
   %25 = phi ptr [ %13, %if.end13.thread ], [ %21, %if.then.i ]
   %26 = phi ptr [ %12, %if.end13.thread ], [ %22, %if.then.i ]
-  %__n.04453 = phi ptr [ %14, %if.end13.thread ], [ %__n.0, %if.then.i ]
-  %__bkt.04551 = phi i64 [ %rem.i.i.i11, %if.end13.thread ], [ %__bkt.0, %if.then.i ]
-  %__prev_n.04749 = phi ptr [ %13, %if.end13.thread ], [ %__prev_n.0, %if.then.i ]
+  %__n.05160 = phi ptr [ %14, %if.end13.thread ], [ %__n.0, %if.then.i ]
+  %__bkt.05258 = phi i64 [ %rem.i.i.i11, %if.end13.thread ], [ %__bkt.0, %if.then.i ]
+  %__prev_n.05456 = phi ptr [ %13, %if.end13.thread ], [ %__prev_n.0, %if.then.i ]
   %27 = phi ptr [ %16, %if.end13.thread ], [ %23, %if.then.i ]
   %add.ptr.i19 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %28 = load ptr, ptr %add.ptr.i19, align 8
   %29 = ptrtoint ptr %28 to i64
   %rem.i.i.i.i21 = urem i64 %29, %24
-  %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i21, %__bkt.04551
+  %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i21, %__bkt.05258
   br i1 %cmp.not.i.i, label %_ZNSt10_HashtableIPN4node6worker6WorkerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb0EEE.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %cond.end.i
   %arrayidx5.i.i = getelementptr inbounds ptr, ptr %26, i64 %rem.i.i.i.i21
   store ptr %25, ptr %arrayidx5.i.i, align 8
   %.pre.i = load ptr, ptr %this, align 8
-  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %__bkt.04551
+  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %__bkt.05258
   %.pre23.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end13.thread, %if.then3.i.i, %if.then.i
-  %__n.04454 = phi ptr [ %__n.0, %if.then.i ], [ %__n.04453, %if.then3.i.i ], [ %14, %if.end13.thread ]
-  %__bkt.04552 = phi i64 [ %__bkt.0, %if.then.i ], [ %__bkt.04551, %if.then3.i.i ], [ %rem.i.i.i11, %if.end13.thread ]
-  %__prev_n.04750 = phi ptr [ %__prev_n.0, %if.then.i ], [ %__prev_n.04749, %if.then3.i.i ], [ %13, %if.end13.thread ]
+  %__n.05161 = phi ptr [ %__n.0, %if.then.i ], [ %__n.05160, %if.then3.i.i ], [ %14, %if.end13.thread ]
+  %__bkt.05259 = phi i64 [ %__bkt.0, %if.then.i ], [ %__bkt.05258, %if.then3.i.i ], [ %rem.i.i.i11, %if.end13.thread ]
+  %__prev_n.05457 = phi ptr [ %__prev_n.0, %if.then.i ], [ %__prev_n.05456, %if.then3.i.i ], [ %13, %if.end13.thread ]
   %30 = phi ptr [ null, %if.then.i ], [ %27, %if.then3.i.i ], [ null, %if.end13.thread ]
   %31 = phi ptr [ %21, %if.then.i ], [ %.pre23.i, %if.then3.i.i ], [ %13, %if.end13.thread ]
   %32 = phi ptr [ %22, %if.then.i ], [ %.pre.i, %if.then3.i.i ], [ %12, %if.end13.thread ]
   %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %arrayidx7.i.i = getelementptr inbounds ptr, ptr %32, i64 %__bkt.04552
+  %arrayidx7.i.i = getelementptr inbounds ptr, ptr %32, i64 %__bkt.05259
   %cmp8.i.i = icmp eq ptr %_M_before_begin.i.i, %31
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end11.i.i
 
@@ -75077,11 +75077,11 @@ if.then11.i:                                      ; preds = %if.then6.i
   br label %_ZNSt10_HashtableIPN4node6worker6WorkerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb0EEE.exit
 
 _ZNSt10_HashtableIPN4node6worker6WorkerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb0EEE.exit: ; preds = %cond.end.i, %if.end11.i.i, %if.else.i, %if.then6.i, %if.then11.i
-  %__prev_n.046 = phi ptr [ %__prev_n.04749, %cond.end.i ], [ %__prev_n.04750, %if.end11.i.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.then11.i ]
-  %__n.043 = phi ptr [ %__n.04453, %cond.end.i ], [ %__n.04454, %if.end11.i.i ], [ %__n.0, %if.else.i ], [ %__n.0, %if.then6.i ], [ %__n.0, %if.then11.i ]
-  %35 = load ptr, ptr %__n.043, align 8
-  store ptr %35, ptr %__prev_n.046, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %__n.043) #27
+  %__prev_n.053 = phi ptr [ %__prev_n.05456, %cond.end.i ], [ %__prev_n.05457, %if.end11.i.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.then11.i ]
+  %__n.050 = phi ptr [ %__n.05160, %cond.end.i ], [ %__n.05161, %if.end11.i.i ], [ %__n.0, %if.else.i ], [ %__n.0, %if.then6.i ], [ %__n.0, %if.then11.i ]
+  %35 = load ptr, ptr %__n.050, align 8
+  store ptr %35, ptr %__prev_n.053, align 8
+  tail call void @_ZdlPv(ptr noundef nonnull %__n.050) #27
   %36 = load i64, ptr %_M_element_count.i, align 8
   %dec.i = add i64 %36, -1
   store i64 %dec.i, ptr %_M_element_count.i, align 8
@@ -75219,10 +75219,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %cmp.not, label %if.end19, label %if.then.i.i.i.i19
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i41 = getelementptr inbounds i8, ptr %16, i64 -8
-  %22 = load ptr, ptr %incdec.ptr.i.i.i.i41, align 8
-  %cmp.not42 = icmp eq ptr %22, null
-  br i1 %cmp.not42, label %if.end19, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit23
+  %incdec.ptr.i.i.i.i45 = getelementptr inbounds i8, ptr %16, i64 -8
+  %22 = load ptr, ptr %incdec.ptr.i.i.i.i45, align 8
+  %cmp.not46 = icmp eq ptr %22, null
+  br i1 %cmp.not46, label %if.end19, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit23
 
 if.then.i.i.i.i19:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -76199,7 +76199,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp8.not, label %if.else, label %_ZSt27__uninitialized_default_n_aIPN2v86GlobalINS0_7ContextEEEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN2v86GlobalINS0_7ContextEEEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %if.then
-  %3 = shl nuw i64 %__n, 3
+  %3 = shl nuw nsw i64 %__n, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %3, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %3
   store ptr %scevgep.i.i.i, ptr %_M_finish.i, align 8
@@ -76270,7 +76270,7 @@ if.then.i27:                                      ; preds = %_ZSt8_DestroyIPN2v8
 
 _ZNSt12_Vector_baseIN2v86GlobalINS0_7ContextEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN2v86GlobalINS0_7ContextEEES3_EvT_S5_RSaIT0_E.exit, %if.then.i27
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr36 = getelementptr inbounds %"class.v8::Global.251", ptr %add.ptr, i64 %__n
+  %add.ptr36 = getelementptr inbounds nuw %"class.v8::Global.251", ptr %add.ptr, i64 %__n
   store ptr %add.ptr36, ptr %_M_finish.i, align 8
   %add.ptr39 = getelementptr inbounds nuw %"class.v8::Global.251", ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr39, ptr %_M_end_of_storage, align 8
@@ -76594,8 +76594,8 @@ if.end.i:                                         ; preds = %if.else
 
 if.end13.thread:                                  ; preds = %if.end.i
   %16 = load ptr, ptr %14, align 8
-  %tobool.not.i1642 = icmp eq ptr %16, null
-  br i1 %tobool.not.i1642, label %if.end.i.i, label %cond.end.i
+  %tobool.not.i1649 = icmp eq ptr %16, null
+  br i1 %tobool.not.i1649, label %if.end.i.i, label %cond.end.i
 
 for.cond.i:                                       ; preds = %lor.lhs.false.i
   %cmp.i.i.i.i = icmp eq ptr %9, %18
@@ -76637,34 +76637,34 @@ cond.end.i:                                       ; preds = %if.end13.thread, %i
   %24 = phi i64 [ %11, %if.end13.thread ], [ %20, %if.then.i ]
   %25 = phi ptr [ %13, %if.end13.thread ], [ %21, %if.then.i ]
   %26 = phi ptr [ %12, %if.end13.thread ], [ %22, %if.then.i ]
-  %__n.04453 = phi ptr [ %14, %if.end13.thread ], [ %__n.0, %if.then.i ]
-  %__bkt.04551 = phi i64 [ %rem.i.i.i11, %if.end13.thread ], [ %__bkt.0, %if.then.i ]
-  %__prev_n.04749 = phi ptr [ %13, %if.end13.thread ], [ %__prev_n.0, %if.then.i ]
+  %__n.05160 = phi ptr [ %14, %if.end13.thread ], [ %__n.0, %if.then.i ]
+  %__bkt.05258 = phi i64 [ %rem.i.i.i11, %if.end13.thread ], [ %__bkt.0, %if.then.i ]
+  %__prev_n.05456 = phi ptr [ %13, %if.end13.thread ], [ %__prev_n.0, %if.then.i ]
   %27 = phi ptr [ %16, %if.end13.thread ], [ %23, %if.then.i ]
   %add.ptr.i19 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %28 = load ptr, ptr %add.ptr.i19, align 8
   %29 = ptrtoint ptr %28 to i64
   %rem.i.i.i.i21 = urem i64 %29, %24
-  %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i21, %__bkt.04551
+  %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i21, %__bkt.05258
   br i1 %cmp.not.i.i, label %_ZNSt10_HashtableIPN4node12shadow_realm11ShadowRealmES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb0EEE.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %cond.end.i
   %arrayidx5.i.i = getelementptr inbounds ptr, ptr %26, i64 %rem.i.i.i.i21
   store ptr %25, ptr %arrayidx5.i.i, align 8
   %.pre.i = load ptr, ptr %this, align 8
-  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %__bkt.04551
+  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %__bkt.05258
   %.pre23.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end13.thread, %if.then3.i.i, %if.then.i
-  %__n.04454 = phi ptr [ %__n.0, %if.then.i ], [ %__n.04453, %if.then3.i.i ], [ %14, %if.end13.thread ]
-  %__bkt.04552 = phi i64 [ %__bkt.0, %if.then.i ], [ %__bkt.04551, %if.then3.i.i ], [ %rem.i.i.i11, %if.end13.thread ]
-  %__prev_n.04750 = phi ptr [ %__prev_n.0, %if.then.i ], [ %__prev_n.04749, %if.then3.i.i ], [ %13, %if.end13.thread ]
+  %__n.05161 = phi ptr [ %__n.0, %if.then.i ], [ %__n.05160, %if.then3.i.i ], [ %14, %if.end13.thread ]
+  %__bkt.05259 = phi i64 [ %__bkt.0, %if.then.i ], [ %__bkt.05258, %if.then3.i.i ], [ %rem.i.i.i11, %if.end13.thread ]
+  %__prev_n.05457 = phi ptr [ %__prev_n.0, %if.then.i ], [ %__prev_n.05456, %if.then3.i.i ], [ %13, %if.end13.thread ]
   %30 = phi ptr [ null, %if.then.i ], [ %27, %if.then3.i.i ], [ null, %if.end13.thread ]
   %31 = phi ptr [ %21, %if.then.i ], [ %.pre23.i, %if.then3.i.i ], [ %13, %if.end13.thread ]
   %32 = phi ptr [ %22, %if.then.i ], [ %.pre.i, %if.then3.i.i ], [ %12, %if.end13.thread ]
   %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %arrayidx7.i.i = getelementptr inbounds ptr, ptr %32, i64 %__bkt.04552
+  %arrayidx7.i.i = getelementptr inbounds ptr, ptr %32, i64 %__bkt.05259
   %cmp8.i.i = icmp eq ptr %_M_before_begin.i.i, %31
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end11.i.i
 
@@ -76693,11 +76693,11 @@ if.then11.i:                                      ; preds = %if.then6.i
   br label %_ZNSt10_HashtableIPN4node12shadow_realm11ShadowRealmES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb0EEE.exit
 
 _ZNSt10_HashtableIPN4node12shadow_realm11ShadowRealmES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb0EEE.exit: ; preds = %cond.end.i, %if.end11.i.i, %if.else.i, %if.then6.i, %if.then11.i
-  %__prev_n.046 = phi ptr [ %__prev_n.04749, %cond.end.i ], [ %__prev_n.04750, %if.end11.i.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.then11.i ]
-  %__n.043 = phi ptr [ %__n.04453, %cond.end.i ], [ %__n.04454, %if.end11.i.i ], [ %__n.0, %if.else.i ], [ %__n.0, %if.then6.i ], [ %__n.0, %if.then11.i ]
-  %35 = load ptr, ptr %__n.043, align 8
-  store ptr %35, ptr %__prev_n.046, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %__n.043) #27
+  %__prev_n.053 = phi ptr [ %__prev_n.05456, %cond.end.i ], [ %__prev_n.05457, %if.end11.i.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.then11.i ]
+  %__n.050 = phi ptr [ %__n.05160, %cond.end.i ], [ %__n.05161, %if.end11.i.i ], [ %__n.0, %if.else.i ], [ %__n.0, %if.then6.i ], [ %__n.0, %if.then11.i ]
+  %35 = load ptr, ptr %__n.050, align 8
+  store ptr %35, ptr %__prev_n.053, align 8
+  tail call void @_ZdlPv(ptr noundef nonnull %__n.050) #27
   %36 = load i64, ptr %_M_element_count.i, align 8
   %dec.i = add i64 %36, -1
   store i64 %dec.i, ptr %_M_element_count.i, align 8
@@ -77170,10 +77170,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i:   ; preds = %if.end.i.i
   br i1 %cmp.not.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i: ; preds = %if.end.i.i
-  %incdec.ptr.i.i.i.i19.i = getelementptr inbounds i8, ptr %4, i64 -8
-  %10 = load ptr, ptr %incdec.ptr.i.i.i.i19.i, align 8
-  %cmp.not20.i = icmp eq ptr %10, null
-  br i1 %cmp.not20.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
+  %incdec.ptr.i.i.i.i20.i = getelementptr inbounds i8, ptr %4, i64 -8
+  %10 = load ptr, ptr %incdec.ptr.i.i.i.i20.i, align 8
+  %cmp.not21.i = icmp eq ptr %10, null
+  br i1 %cmp.not21.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i
   %11 = phi ptr [ %10, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i ], [ %9, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i ]
@@ -78931,16 +78931,16 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store i64 0, ptr %0, align 8
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 3
-  %4 = add i64 %3, -8
+  %3 = shl nuw nsw i64 %__n, 3
+  %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false)
-  %add.ptr.idx.i.i.i.i.i = shl nsw i64 %sub.i.i.i, 3
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -78992,7 +78992,7 @@ if.then.i30:                                      ; preds = %_ZNSt6vectorImSaImE
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit: ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit, %if.then.i30
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr34 = getelementptr inbounds i64, ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw i64, ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8
   %add.ptr37 = getelementptr inbounds nuw i64, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8
@@ -79638,8 +79638,8 @@ if.end.i:                                         ; preds = %if.else
 
 if.end13.thread:                                  ; preds = %if.end.i
   %14 = load ptr, ptr %12, align 8
-  %tobool.not.i1643 = icmp eq ptr %14, null
-  br i1 %tobool.not.i1643, label %if.end.i.i, label %cond.end.i
+  %tobool.not.i1650 = icmp eq ptr %14, null
+  br i1 %tobool.not.i1650, label %if.end.i.i, label %cond.end.i
 
 for.cond.i:                                       ; preds = %lor.lhs.false.i
   %cmp.i.i.i.i = icmp eq i32 %8, %16
@@ -79681,34 +79681,34 @@ cond.end.i:                                       ; preds = %if.end13.thread, %i
   %21 = phi i64 [ %9, %if.end13.thread ], [ %17, %if.then.i ]
   %22 = phi ptr [ %11, %if.end13.thread ], [ %18, %if.then.i ]
   %23 = phi ptr [ %10, %if.end13.thread ], [ %19, %if.then.i ]
-  %__n.04554 = phi ptr [ %12, %if.end13.thread ], [ %__n.0, %if.then.i ]
-  %__bkt.04652 = phi i64 [ %rem.i.i.i11, %if.end13.thread ], [ %__bkt.0, %if.then.i ]
-  %__prev_n.04850 = phi ptr [ %11, %if.end13.thread ], [ %__prev_n.0, %if.then.i ]
+  %__n.05261 = phi ptr [ %12, %if.end13.thread ], [ %__n.0, %if.then.i ]
+  %__bkt.05359 = phi i64 [ %rem.i.i.i11, %if.end13.thread ], [ %__bkt.0, %if.then.i ]
+  %__prev_n.05557 = phi ptr [ %11, %if.end13.thread ], [ %__prev_n.0, %if.then.i ]
   %24 = phi ptr [ %14, %if.end13.thread ], [ %20, %if.then.i ]
   %add.ptr.i19 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %25 = load i32, ptr %add.ptr.i19, align 4
   %conv.i.i.i.i.i21 = sext i32 %25 to i64
   %rem.i.i.i.i22 = urem i64 %conv.i.i.i.i.i21, %21
-  %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i22, %__bkt.04652
+  %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i22, %__bkt.05359
   br i1 %cmp.not.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeIiLb0EEE.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %cond.end.i
   %arrayidx5.i.i = getelementptr inbounds ptr, ptr %23, i64 %rem.i.i.i.i22
   store ptr %22, ptr %arrayidx5.i.i, align 8
   %.pre.i = load ptr, ptr %this, align 8
-  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %__bkt.04652
+  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %__bkt.05359
   %.pre24.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end13.thread, %if.then3.i.i, %if.then.i
-  %__n.04555 = phi ptr [ %__n.0, %if.then.i ], [ %__n.04554, %if.then3.i.i ], [ %12, %if.end13.thread ]
-  %__bkt.04653 = phi i64 [ %__bkt.0, %if.then.i ], [ %__bkt.04652, %if.then3.i.i ], [ %rem.i.i.i11, %if.end13.thread ]
-  %__prev_n.04851 = phi ptr [ %__prev_n.0, %if.then.i ], [ %__prev_n.04850, %if.then3.i.i ], [ %11, %if.end13.thread ]
+  %__n.05262 = phi ptr [ %__n.0, %if.then.i ], [ %__n.05261, %if.then3.i.i ], [ %12, %if.end13.thread ]
+  %__bkt.05360 = phi i64 [ %__bkt.0, %if.then.i ], [ %__bkt.05359, %if.then3.i.i ], [ %rem.i.i.i11, %if.end13.thread ]
+  %__prev_n.05558 = phi ptr [ %__prev_n.0, %if.then.i ], [ %__prev_n.05557, %if.then3.i.i ], [ %11, %if.end13.thread ]
   %26 = phi ptr [ null, %if.then.i ], [ %24, %if.then3.i.i ], [ null, %if.end13.thread ]
   %27 = phi ptr [ %18, %if.then.i ], [ %.pre24.i, %if.then3.i.i ], [ %11, %if.end13.thread ]
   %28 = phi ptr [ %19, %if.then.i ], [ %.pre.i, %if.then3.i.i ], [ %10, %if.end13.thread ]
   %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %arrayidx7.i.i = getelementptr inbounds ptr, ptr %28, i64 %__bkt.04653
+  %arrayidx7.i.i = getelementptr inbounds ptr, ptr %28, i64 %__bkt.05360
   %cmp8.i.i = icmp eq ptr %_M_before_begin.i.i, %27
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end11.i.i
 
@@ -79737,11 +79737,11 @@ if.then11.i:                                      ; preds = %if.then6.i
   br label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeIiLb0EEE.exit
 
 _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeIiLb0EEE.exit: ; preds = %cond.end.i, %if.end11.i.i, %if.else.i, %if.then6.i, %if.then11.i
-  %__prev_n.047 = phi ptr [ %__prev_n.04850, %cond.end.i ], [ %__prev_n.04851, %if.end11.i.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.then11.i ]
-  %__n.044 = phi ptr [ %__n.04554, %cond.end.i ], [ %__n.04555, %if.end11.i.i ], [ %__n.0, %if.else.i ], [ %__n.0, %if.then6.i ], [ %__n.0, %if.then11.i ]
-  %30 = load ptr, ptr %__n.044, align 8
-  store ptr %30, ptr %__prev_n.047, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %__n.044) #27
+  %__prev_n.054 = phi ptr [ %__prev_n.05557, %cond.end.i ], [ %__prev_n.05558, %if.end11.i.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.then11.i ]
+  %__n.051 = phi ptr [ %__n.05261, %cond.end.i ], [ %__n.05262, %if.end11.i.i ], [ %__n.0, %if.else.i ], [ %__n.0, %if.then6.i ], [ %__n.0, %if.then11.i ]
+  %30 = load ptr, ptr %__n.051, align 8
+  store ptr %30, ptr %__prev_n.054, align 8
+  tail call void @_ZdlPv(ptr noundef nonnull %__n.051) #27
   %31 = load i64, ptr %_M_element_count.i, align 8
   %dec.i = add i64 %31, -1
   store i64 %dec.i, ptr %_M_element_count.i, align 8
@@ -81991,10 +81991,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i: ; preds = %if.end.i.i.i
   br i1 %cmp.not.i3.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i: ; preds = %if.end.i.i.i
-  %incdec.ptr.i.i.i.i19.i.i = getelementptr inbounds i8, ptr %4, i64 -8
-  %10 = load ptr, ptr %incdec.ptr.i.i.i.i19.i.i, align 8
-  %cmp.not20.i.i = icmp eq ptr %10, null
-  br i1 %cmp.not20.i.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
+  %incdec.ptr.i.i.i.i20.i.i = getelementptr inbounds i8, ptr %4, i64 -8
+  %10 = load ptr, ptr %incdec.ptr.i.i.i.i20.i.i, align 8
+  %cmp.not21.i.i = icmp eq ptr %10, null
+  br i1 %cmp.not21.i.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i
   %11 = phi ptr [ %10, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i ], [ %9, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i ]

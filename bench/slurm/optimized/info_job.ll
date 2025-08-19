@@ -607,20 +607,20 @@ define dso_local void @scontrol_print_completing_job(ptr noundef %0, ptr noundef
   %29 = add nsw i64 %.039, %28
   %30 = load i32, ptr %21, align 8
   %31 = trunc nsw i64 %29 to i32
-  %.not5167 = icmp ugt i32 %30, %31
-  br i1 %.not5167, label %.lr.ph69, label %._crit_edge
+  %.not5172 = icmp ugt i32 %30, %31
+  br i1 %.not5172, label %.lr.ph74, label %._crit_edge
 
 .lr.ph:                                           ; preds = %47
-  %indvars.iv.next = add nsw i64 %indvars.iv68, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv73, 1
   %32 = add nsw i64 %indvars.iv.next, %.039
   %33 = load i32, ptr %21, align 8
   %34 = trunc nsw i64 %32 to i32
   %.not51 = icmp ugt i32 %33, %34
-  br i1 %.not51, label %.lr.ph69, label %._crit_edge, !llvm.loop !11
+  br i1 %.not51, label %.lr.ph74, label %._crit_edge, !llvm.loop !11
 
-.lr.ph69:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph74:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %35 = phi i64 [ %32, %.lr.ph ], [ %29, %.lr.ph.preheader ]
-  %indvars.iv68 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %28, %.lr.ph.preheader ]
+  %indvars.iv73 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %28, %.lr.ph.preheader ]
   %36 = load ptr, ptr %22, align 8
   %37 = getelementptr inbounds %struct.node_info, ptr %36, i64 %35
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 208
@@ -629,13 +629,13 @@ define dso_local void @scontrol_print_completing_job(ptr noundef %0, ptr noundef
   %.not52 = icmp eq i32 %40, 0
   br i1 %.not52, label %41, label %.sink.split
 
-41:                                               ; preds = %.lr.ph69
+41:                                               ; preds = %.lr.ph74
   %42 = and i32 %39, 15
   %43 = icmp eq i32 %42, 1
   br i1 %43, label %.sink.split, label %47
 
-.sink.split:                                      ; preds = %41, %.lr.ph69
-  %.sink = phi ptr [ %5, %.lr.ph69 ], [ %6, %41 ]
+.sink.split:                                      ; preds = %41, %.lr.ph74
+  %.sink = phi ptr [ %5, %.lr.ph74 ], [ %6, %41 ]
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 176
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 @hostlist_push_host(ptr noundef %.sink, ptr noundef %45) #16
@@ -647,7 +647,7 @@ define dso_local void @scontrol_print_completing_job(ptr noundef %0, ptr noundef
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
-  %.not50.not = icmp slt i64 %indvars.iv68, %52
+  %.not50.not = icmp slt i64 %indvars.iv73, %52
   br i1 %.not50.not, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !11
 
 .._crit_edge.loopexit_crit_edge:                  ; preds = %47
@@ -1972,9 +1972,9 @@ _sprint_range.exit594.i.i:                        ; preds = %428, %426
   store ptr null, ptr %4, align 8
   %565 = load ptr, ptr @old_node_info_ptr, align 8
   %.not.i.i.i.i = icmp eq ptr %565, null
-  br i1 %.not.i.i.i.i, label %566, label %_get_node_info_for_jobs.exit.thread29.i.i.i
+  br i1 %.not.i.i.i.i, label %566, label %_get_node_info_for_jobs.exit.thread32.i.i.i
 
-_get_node_info_for_jobs.exit.thread29.i.i.i:      ; preds = %564
+_get_node_info_for_jobs.exit.thread32.i.i.i:      ; preds = %564
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader.i.i.i
 
@@ -2010,15 +2010,15 @@ _get_node_info_for_jobs.exit.i.i.i:               ; preds = %566
   %.not19.i.i.i = icmp eq ptr %574, null
   br i1 %.not19.i.i.i, label %_threads_per_core.exit.i.i, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %_get_node_info_for_jobs.exit.i.i.i, %_get_node_info_for_jobs.exit.thread29.i.i.i
-  %.05.i32.i.i.i = phi ptr [ %565, %_get_node_info_for_jobs.exit.thread29.i.i.i ], [ %574, %_get_node_info_for_jobs.exit.i.i.i ]
-  %575 = getelementptr inbounds nuw i8, ptr %.05.i32.i.i.i, i64 8
+.preheader.i.i.i:                                 ; preds = %_get_node_info_for_jobs.exit.i.i.i, %_get_node_info_for_jobs.exit.thread32.i.i.i
+  %.05.i35.i.i.i = phi ptr [ %565, %_get_node_info_for_jobs.exit.thread32.i.i.i ], [ %574, %_get_node_info_for_jobs.exit.i.i.i ]
+  %575 = getelementptr inbounds nuw i8, ptr %.05.i35.i.i.i, i64 8
   %576 = load i32, ptr %575, align 8
   %.not26.i.i.i = icmp eq i32 %576, 0
   br i1 %.not26.i.i.i, label %_threads_per_core.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i
-  %577 = getelementptr inbounds nuw i8, ptr %.05.i32.i.i.i, i64 16
+  %577 = getelementptr inbounds nuw i8, ptr %.05.i35.i.i.i, i64 16
   br label %578
 
 578:                                              ; preds = %590, %.lr.ph.i.i.i
@@ -3302,8 +3302,8 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
 
 .loopexit.thread:                                 ; preds = %135
   %174 = load ptr, ptr @mime_type, align 8
-  %.not133182 = icmp eq ptr %174, null
-  br i1 %.not133182, label %._crit_edge, label %175
+  %.not133200 = icmp eq ptr %174, null
+  br i1 %.not133200, label %._crit_edge, label %175
 
 175:                                              ; preds = %.loopexit.thread, %.loopexit
   %176 = phi ptr [ %174, %.loopexit.thread ], [ %173, %.loopexit ]
@@ -3386,8 +3386,8 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
 
 ._crit_edge:                                      ; preds = %.loopexit.thread, %.preheader, %201, %199
   %208 = load ptr, ptr @mime_type, align 8
-  %.not189 = icmp eq ptr %208, null
-  br i1 %.not189, label %209, label %._crit_edge.thread
+  %.not207 = icmp eq ptr %208, null
+  br i1 %.not207, label %209, label %._crit_edge.thread
 
 209:                                              ; preds = %._crit_edge
   %.not142 = icmp eq ptr %.073, null
@@ -3946,7 +3946,7 @@ _parse_stepid.exit:                               ; preds = %74
   %119 = add nuw nsw i32 %.0.ph47.i, 1
   %120 = call ptr @list_next(ptr noundef %100) #16
   %.not3644.i = icmp eq ptr %120, null
-  br i1 %.not3644.i, label %.critedge55.i, label %.lr.ph.i34, !llvm.loop !23
+  br i1 %.not3644.i, label %.critedge59.i, label %.lr.ph.i34, !llvm.loop !23
 
 .outer._crit_edge.loopexit.i:                     ; preds = %.backedge.i
   %121 = icmp eq i32 %.0.ph47.i, 0
@@ -3981,12 +3981,12 @@ _parse_stepid.exit:                               ; preds = %74
   store i32 1, ptr @exit_code, align 4
   br label %_list_pids_all_steps.exit
 
-.critedge55.i:                                    ; preds = %.outer.i
+.critedge59.i:                                    ; preds = %.outer.i
   call void @list_iterator_destroy(ptr noundef %100) #16
   call void @list_destroy(ptr noundef nonnull %85) #16
   br label %_list_pids_all_steps.exit
 
-_list_pids_all_steps.exit:                        ; preds = %83, %98, %.outer._crit_edge.loopexit.i, %133, %.critedge55.i
+_list_pids_all_steps.exit:                        ; preds = %83, %98, %.outer._crit_edge.loopexit.i, %133, %.critedge59.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_list_pids_all_jobs.exit
 

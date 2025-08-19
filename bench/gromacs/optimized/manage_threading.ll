@@ -152,7 +152,7 @@ _ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i: ; preds = %47
   br i1 %55, label %.preheader115.i, label %65
 
 .preheader115.i:                                  ; preds = %.thread.i, %_ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i, %47
-  %.291107160.i = phi i64 [ %.291.i, %.thread.i ], [ %48, %_ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i ], [ %48, %47 ]
+  %.291107176.i = phi i64 [ %.291.i, %.thread.i ], [ %48, %_ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i ], [ %48, %47 ]
   br i1 %.not100119.i, label %.loopexit116.i, label %.lr.ph123.i
 
 .lr.ph123.i:                                      ; preds = %.preheader115.i
@@ -197,8 +197,8 @@ _ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i: ; preds = %47
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %77 = sext i32 %73 to i64
-  %sext165.i = shl i64 %38, 30
-  %78 = ashr i64 %sext165.i, 32
+  %sext181.i = shl i64 %38, 30
+  %78 = ashr i64 %sext181.i, 32
   br label %.lr.ph.split.i
 
 .critedge.us.i:                                   ; preds = %.critedge.us.i, %.critedge.us.preheader.i
@@ -290,7 +290,7 @@ _ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i: ; preds = %47
 
 .loopexit116.i:                                   ; preds = %.critedge.us.i, %.critedge.i, %58, %114, %72, %.preheader115.i, %23
   %126 = phi i8 [ %24, %23 ], [ %66, %114 ], [ %24, %.preheader115.i ], [ %66, %72 ], [ %24, %58 ], [ %66, %.critedge.i ], [ %66, %.critedge.us.i ]
-  %.190.i = phi i64 [ %.089127.i, %23 ], [ %.291.i, %114 ], [ %.291107160.i, %.preheader115.i ], [ %.291.i, %72 ], [ %.291107160.i, %58 ], [ %.291.i, %.critedge.i ], [ %.291.i, %.critedge.us.i ]
+  %.190.i = phi i64 [ %.089127.i, %23 ], [ %.291.i, %114 ], [ %.291107176.i, %.preheader115.i ], [ %.291.i, %72 ], [ %.291107176.i, %58 ], [ %.291.i, %.critedge.i ], [ %.291.i, %.critedge.us.i ]
   %.1.i = phi i32 [ %.085128.i, %23 ], [ %125, %114 ], [ %.085128.i, %.preheader115.i ], [ %.085128.i, %72 ], [ %.085128.i, %58 ], [ %.085128.i, %.critedge.i ], [ %.085128.i, %.critedge.us.i ]
   %indvars.iv.next144.i = add nuw nsw i64 %indvars.iv143.i, 1
   %exitcond147.not.i = icmp eq i64 %indvars.iv.next144.i, 95
@@ -660,7 +660,7 @@ define internal void @_Z22setup_bonded_threadingP18bonded_threading_tibRK22Inter
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 72
   %43 = sext i32 %39 to i64
-  %invariant.gep50.i = getelementptr i32, ptr %40, i64 %indvars.iv
+  %invariant.gep51.i = getelementptr i32, ptr %40, i64 %indvars.iv
   br label %45
 
 44:                                               ; preds = %.loopexit.i
@@ -694,9 +694,9 @@ define internal void @_Z22setup_bonded_threadingP18bonded_threading_tibRK22Inter
   %64 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv44.i, i32 2
   %65 = load i32, ptr %64, align 16, !tbaa !60
   %66 = mul nsw i64 %indvars.iv44.i, %43
-  %gep51.i = getelementptr i32, ptr %invariant.gep50.i, i64 %66
-  %67 = load i32, ptr %gep51.i, align 4, !tbaa !9
-  %68 = getelementptr i8, ptr %gep51.i, i64 4
+  %gep52.i = getelementptr i32, ptr %invariant.gep51.i, i64 %66
+  %67 = load i32, ptr %gep52.i, align 4, !tbaa !9
+  %68 = getelementptr i8, ptr %gep52.i, i64 4
   %69 = load i32, ptr %68, align 4, !tbaa !9
   %70 = icmp sge i32 %67, %69
   %.not35.i = icmp slt i32 %65, 1
@@ -721,7 +721,7 @@ define internal void @_Z22setup_bonded_threadingP18bonded_threading_tibRK22Inter
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.preheader.lr.ph.split.i
   %indvars.iv41.i = phi i64 [ %79, %.preheader.lr.ph.split.i ], [ %indvars.iv.next42.i, %._crit_edge.i ]
-  %invariant.gep48.i = getelementptr i32, ptr %56, i64 %indvars.iv41.i
+  %invariant.gep49.i = getelementptr i32, ptr %56, i64 %indvars.iv41.i
   br label %83
 
 ._crit_edge.i:                                    ; preds = %83
@@ -731,8 +731,8 @@ define internal void @_Z22setup_bonded_threadingP18bonded_threading_tibRK22Inter
 
 83:                                               ; preds = %83, %.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next.i, %83 ]
-  %gep49.i = getelementptr i32, ptr %invariant.gep48.i, i64 %indvars.iv.i
-  %84 = load i32, ptr %gep49.i, align 4, !tbaa !9
+  %gep50.i = getelementptr i32, ptr %invariant.gep49.i, i64 %indvars.iv.i
+  %84 = load i32, ptr %gep50.i, align 4, !tbaa !9
   %85 = ashr i32 %84, 5
   %86 = sext i32 %85 to i64
   %gep.i = getelementptr %"struct.std::array.73", ptr %invariant.gep.i, i64 %86

@@ -2026,18 +2026,18 @@ define internal fastcc i32 @rhashtable_lookup_insert_fast(ptr noundef %0, ptr no
   %79 = icmp ult i8 %78, 2
   call void @llvm.assume(i1 %79)
   %80 = icmp eq i8 %78, 0
-  br i1 %80, label %.preheader52, label %81, !prof !6
+  br i1 %80, label %.preheader57, label %81, !prof !6
 
 81:                                               ; preds = %.preheader
   %82 = call i64 @llvm.read_register.i64(metadata !0)
   %83 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %82) #16, !srcloc !33
   call void @llvm.write_register.i64(metadata !0, i64 %83)
-  br label %.preheader52
+  br label %.preheader57
 
-.preheader52:                                     ; preds = %81, %.preheader
+.preheader57:                                     ; preds = %81, %.preheader
   br label %84
 
-84:                                               ; preds = %.preheader52, %84
+84:                                               ; preds = %.preheader57, %84
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !34
   %85 = load volatile i64, ptr %71, align 8
   %86 = and i64 %85, 1
@@ -2432,18 +2432,18 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
   %68 = icmp ult i8 %67, 2
   call void @llvm.assume(i1 %68)
   %69 = icmp eq i8 %67, 0
-  br i1 %69, label %.preheader63, label %70, !prof !6
+  br i1 %69, label %.preheader69, label %70, !prof !6
 
 70:                                               ; preds = %.preheader
   %71 = call i64 @llvm.read_register.i64(metadata !0)
   %72 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %71) #16, !srcloc !33
   call void @llvm.write_register.i64(metadata !0, i64 %72)
-  br label %.preheader63
+  br label %.preheader69
 
-.preheader63:                                     ; preds = %70, %.preheader
+.preheader69:                                     ; preds = %70, %.preheader
   br label %73
 
-73:                                               ; preds = %.preheader63, %73
+73:                                               ; preds = %.preheader69, %73
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !34
   %74 = load volatile i64, ptr %60, align 8
   %75 = and i64 %74, 1
@@ -2477,8 +2477,8 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
   br i1 %92, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %90
-  %.lcssa16.in44 = and i64 %63, 512
-  %.lcssa1645 = icmp eq i64 %.lcssa16.in44, 0
+  %.lcssa16.in50 = and i64 %63, 512
+  %.lcssa1651 = icmp eq i64 %.lcssa16.in50, 0
   %93 = load ptr, ptr %1, align 8
   br label %107
 
@@ -2520,7 +2520,7 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
 
 107:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %108 = phi ptr [ %93, %._crit_edge.thread ], [ %96, %._crit_edge ]
-  %.lcssa1646 = phi i1 [ %.lcssa1645, %._crit_edge.thread ], [ %.lcssa16, %._crit_edge ]
+  %.lcssa1652 = phi i1 [ %.lcssa1651, %._crit_edge.thread ], [ %.lcssa16, %._crit_edge ]
   %109 = ptrtoint ptr %108 to i64
   %110 = and i64 %109, 1
   %111 = icmp eq i64 %110, 0
@@ -2541,7 +2541,7 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
   br label %119
 
 119:                                              ; preds = %116, %107
-  br i1 %.lcssa1646, label %136, label %120
+  br i1 %.lcssa1652, label %136, label %120
 
 120:                                              ; preds = %119
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !43

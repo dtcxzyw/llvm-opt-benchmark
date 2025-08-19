@@ -158,14 +158,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %37
 
 37:                                               ; preds = %._crit_edge, %._crit_edge.thread
-  %.014.lcssa28 = phi i64 [ 0, %._crit_edge.thread ], [ %45, %._crit_edge ]
+  %.014.lcssa30 = phi i64 [ 0, %._crit_edge.thread ], [ %45, %._crit_edge ]
   %38 = phi i64 [ 0, %._crit_edge.thread ], [ %spec.select, %._crit_edge ]
   %39 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %38) #28
   store ptr %39, ptr %3, align 8, !tbaa !4
-  %40 = icmp ugt i64 %.014.lcssa28, 4611686018427387903
-  %41 = shl i64 %.014.lcssa28, 2
-  %spec.select31 = select i1 %40, i64 -1, i64 %41
-  %42 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select31) #28
+  %40 = icmp ugt i64 %.014.lcssa30, 4611686018427387903
+  %41 = shl i64 %.014.lcssa30, 2
+  %spec.select33 = select i1 %40, i64 -1, i64 %41
+  %42 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select33) #28
   store ptr %42, ptr %7, align 8, !tbaa !12
   ret void
 
@@ -175,8 +175,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %43 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8, !tbaa !15
   store i64 %.01419, ptr %43, align 8, !tbaa !15
-  %.fr32 = freeze i64 %44
-  %45 = add i64 %.fr32, %.01419
+  %.fr34 = freeze i64 %44
+  %45 = add i64 %.fr34, %.01419
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i64, ptr %10, align 8, !tbaa !13
   %47 = icmp ugt i64 %46, %indvars.iv.next

@@ -3982,7 +3982,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit628:            ; preds = %_ZN4cvc58internal8R
 
 1759:                                             ; preds = %1696, %1702
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %56)
-          to label %.sink.split769 unwind label %1760
+          to label %.sink.split841 unwind label %1760
 
 1760:                                             ; preds = %1759
   %1761 = landingpad { ptr, i32 }
@@ -4017,7 +4017,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit628:            ; preds = %_ZN4cvc58internal8R
 
 .critedge339:                                     ; preds = %1676
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %56)
-          to label %.sink.split769 unwind label %1768
+          to label %.sink.split841 unwind label %1768
 
 1768:                                             ; preds = %.critedge339
   %1769 = landingpad { ptr, i32 }
@@ -4026,15 +4026,15 @@ _ZN4cvc58internal7IntegerD2Ev.exit628:            ; preds = %_ZN4cvc58internal8R
   call void @__clang_call_terminate(ptr %1770) #23
   unreachable
 
-.sink.split769:                                   ; preds = %.critedge339, %1759
+.sink.split841:                                   ; preds = %.critedge339, %1759
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   call void @_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %55) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %1771
 
-1771:                                             ; preds = %.sink.split769, %1661
-  %switch340 = phi i1 [ true, %1661 ], [ %1678, %.sink.split769 ]
+1771:                                             ; preds = %.sink.split841, %1661
+  %switch340 = phi i1 [ true, %1661 ], [ %1678, %.sink.split841 ]
   %1772 = load ptr, ptr %1654, align 8, !tbaa !20
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_19RealAlgebraicNumberEESt10_Select1stIS7_ENS1_6theory5arith8rewriter14TermComparatorESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef %1772)
           to label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_19RealAlgebraicNumberENS1_6theory5arith8rewriter14TermComparatorESaISt4pairIKS3_S4_EEED2Ev.exit635 unwind label %1773
@@ -20410,7 +20410,7 @@ _ZNSt14_Optional_baseIN4cvc58internal12NodeTemplateILb0EEELb0ELb0EED2Ev.exit70: 
   %.val.val.i16.i.i.i.i.i = load i64, ptr %124, align 8
   %125 = and i64 %.val.val.i16.i.i.i.i.i, 1023
   %126 = icmp eq i64 %125, 39
-  br i1 %126, label %.loopexit160.loopexit.split.loop.exit207, label %127
+  br i1 %126, label %.loopexit160.loopexit.split.loop.exit246, label %127
 
 127:                                              ; preds = %121
   %128 = getelementptr inbounds nuw i8, ptr %.sroa.031.050.i.i.i.i.i, i64 16
@@ -20419,7 +20419,7 @@ _ZNSt14_Optional_baseIN4cvc58internal12NodeTemplateILb0EEELb0ELb0EED2Ev.exit70: 
   %.val.val.i17.i.i.i.i.i = load i64, ptr %130, align 8
   %131 = and i64 %.val.val.i17.i.i.i.i.i, 1023
   %132 = icmp eq i64 %131, 39
-  br i1 %132, label %.loopexit160.loopexit.split.loop.exit205, label %133
+  br i1 %132, label %.loopexit160.loopexit.split.loop.exit244, label %133
 
 133:                                              ; preds = %127
   %134 = getelementptr inbounds nuw i8, ptr %.sroa.031.050.i.i.i.i.i, i64 24
@@ -20490,16 +20490,16 @@ _ZNSt14_Optional_baseIN4cvc58internal12NodeTemplateILb0EEELb0ELb0EED2Ev.exit70: 
   %163 = getelementptr inbounds nuw i8, ptr %.sroa.031.050.i.i.i.i.i, i64 24
   br label %.loopexit160
 
-.loopexit160.loopexit.split.loop.exit205:         ; preds = %127
+.loopexit160.loopexit.split.loop.exit244:         ; preds = %127
   %164 = getelementptr inbounds nuw i8, ptr %.sroa.031.050.i.i.i.i.i, i64 16
   br label %.loopexit160
 
-.loopexit160.loopexit.split.loop.exit207:         ; preds = %121
+.loopexit160.loopexit.split.loop.exit246:         ; preds = %121
   %165 = getelementptr inbounds nuw i8, ptr %.sroa.031.050.i.i.i.i.i, i64 8
   br label %.loopexit160
 
-.loopexit160:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit160.loopexit.split.loop.exit, %.loopexit160.loopexit.split.loop.exit205, %.loopexit160.loopexit.split.loop.exit207, %158, %151, %144
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i, %144 ], [ %.sroa.031.1.i.i.i.i.i, %151 ], [ %spec.select.i.i.i.i.i, %158 ], [ %163, %.loopexit160.loopexit.split.loop.exit ], [ %164, %.loopexit160.loopexit.split.loop.exit205 ], [ %165, %.loopexit160.loopexit.split.loop.exit207 ], [ %.sroa.031.050.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+.loopexit160:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit160.loopexit.split.loop.exit, %.loopexit160.loopexit.split.loop.exit244, %.loopexit160.loopexit.split.loop.exit246, %158, %151, %144
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i, %144 ], [ %.sroa.031.1.i.i.i.i.i, %151 ], [ %spec.select.i.i.i.i.i, %158 ], [ %163, %.loopexit160.loopexit.split.loop.exit ], [ %164, %.loopexit160.loopexit.split.loop.exit244 ], [ %165, %.loopexit160.loopexit.split.loop.exit246 ], [ %.sroa.031.050.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not = icmp eq ptr %110, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br i1 %.not, label %.thread, label %166
 
@@ -34684,11 +34684,11 @@ _ZN4cvc58internal7IntegerD2Ev.exit129:            ; preds = %_ZN4cvc58internal7I
   br i1 %342, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, !prof !36
 
 .invoke:                                          ; preds = %341, %321
-  %.sink263 = phi i64 [ %310, %321 ], [ %330, %341 ]
-  %.sink262 = phi ptr [ %309, %321 ], [ %329, %341 ]
-  %343 = or i64 %.sink263, 1152920405095219200
-  store i64 %343, ptr %.sink262, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink262)
+  %.sink293 = phi i64 [ %310, %321 ], [ %330, %341 ]
+  %.sink292 = phi ptr [ %309, %321 ], [ %329, %341 ]
+  %343 = or i64 %.sink293, 1152920405095219200
+  store i64 %343, ptr %.sink292, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink292)
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit unwind label %719
 
 344:                                              ; preds = %323
@@ -37172,7 +37172,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4expr9algorithm1
   %45 = trunc i64 %44 to i32
   %46 = and i32 %45, 1023
   %47 = icmp eq i32 %46, %19
-  br i1 %47, label %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit15, label %48
+  br i1 %47, label %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit16, label %48
 
 48:                                               ; preds = %40
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i.i.i, i64 24
@@ -37182,7 +37182,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4expr9algorithm1
   %53 = trunc i64 %52 to i32
   %54 = and i32 %53, 1023
   %55 = icmp eq i32 %54, %19
-  br i1 %55, label %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit17, label %56
+  br i1 %55, label %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit18, label %56
 
 56:                                               ; preds = %48
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i.i.i, i64 32
@@ -37247,16 +37247,16 @@ _ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZ
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i.i.i, i64 8
   br label %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit
 
-_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit15: ; preds = %40
+_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit16: ; preds = %40
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i.i.i, i64 16
   br label %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit
 
-_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit17: ; preds = %48
+_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit18: ; preds = %48
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i.i.i, i64 24
   br label %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit
 
-_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit, %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit15, %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit17, %._crit_edge.i.i.i.i.i, %61, %70, %79
-  %.sroa.010.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i.i.i, %61 ], [ %.sroa.034.1.i.i.i.i.i, %70 ], [ %17, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %79 ], [ %86, %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit ], [ %87, %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit15 ], [ %88, %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit17 ], [ %.sroa.034.051.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit, %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit16, %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit18, %._crit_edge.i.i.i.i.i, %61, %70, %79
+  %.sroa.010.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i.i.i, %61 ], [ %.sroa.034.1.i.i.i.i.i, %70 ], [ %17, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %79 ], [ %86, %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit ], [ %87, %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit16 ], [ %88, %_ZSt6any_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS2_9algorithm10canFlattenIJEEEbS6_DpT_EUlS6_E_EbT_SD_T0_.exit.loopexit.split.loop.exit18 ], [ %.sroa.034.051.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %89 = icmp ne ptr %17, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i
   ret i1 %89
 }

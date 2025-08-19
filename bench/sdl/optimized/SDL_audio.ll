@@ -1063,9 +1063,9 @@ select.unfold..critedge2_crit_edge:               ; preds = %select.unfold
   br label %55
 
 55:                                               ; preds = %54, %68
-  %.6124146 = phi i1 [ false, %54 ], [ %.7, %68 ]
-  %indvars.iv129145 = phi i64 [ 0, %54 ], [ %indvars.iv.next130, %68 ]
-  %56 = getelementptr inbounds nuw [4 x ptr], ptr @bootstrap, i64 0, i64 %indvars.iv129145
+  %.6124156 = phi i1 [ false, %54 ], [ %.7, %68 ]
+  %indvars.iv129155 = phi i64 [ 0, %54 ], [ %indvars.iv.next130, %68 ]
+  %56 = getelementptr inbounds nuw [4 x ptr], ptr @bootstrap, i64 0, i64 %indvars.iv129155
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load i8, ptr %58, align 8, !range !6, !noundef !7
@@ -1091,8 +1091,8 @@ select.unfold..critedge2_crit_edge:               ; preds = %select.unfold
   br label %.critedge2.thread
 
 68:                                               ; preds = %61, %55
-  %.7 = phi i1 [ %.6124146, %55 ], [ true, %61 ]
-  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129145, 1
+  %.7 = phi i1 [ %.6124156, %55 ], [ true, %61 ]
+  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129155, 1
   %.not82 = icmp eq i64 %indvars.iv.next130, 3
   br i1 %.not82, label %.critedge2.thread107, label %55, !llvm.loop !11
 
@@ -2137,7 +2137,7 @@ define internal fastcc ptr @GetAudioDevices(ptr noundef writeonly captures(addre
   %12 = shl nsw i64 %11, 2
   %13 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %12) #14
   %.not15 = icmp eq ptr %13, null
-  br i1 %.not15, label %14, label %.thread29
+  br i1 %.not15, label %14, label %.thread30
 
 14:                                               ; preds = %6
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
@@ -2145,7 +2145,7 @@ define internal fastcc ptr @GetAudioDevices(ptr noundef writeonly captures(addre
   %.not16 = icmp eq ptr %0, null
   br i1 %.not16, label %27, label %.sink.split
 
-.thread29:                                        ; preds = %6
+.thread30:                                        ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -2165,22 +2165,22 @@ define internal fastcc ptr @GetAudioDevices(ptr noundef writeonly captures(addre
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
   call void @SDL_UnlockRWLock_REAL(ptr noundef %25) #14
-  %.not1630 = icmp eq ptr %0, null
-  br i1 %.not1630, label %27, label %.sink.split
+  %.not1631 = icmp eq ptr %0, null
+  br i1 %.not1631, label %27, label %.sink.split
 
 .thread:                                          ; preds = %2
   %26 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.10) #14
   %.not1620 = icmp eq ptr %0, null
   br i1 %.not1620, label %27, label %.sink.split
 
-.sink.split:                                      ; preds = %.thread, %14, %.thread29
-  %.sink = phi i32 [ %9, %.thread29 ], [ 0, %14 ], [ 0, %.thread ]
-  %.01222.ph = phi ptr [ %13, %.thread29 ], [ null, %14 ], [ null, %.thread ]
+.sink.split:                                      ; preds = %.thread, %14, %.thread30
+  %.sink = phi i32 [ %9, %.thread30 ], [ 0, %14 ], [ 0, %.thread ]
+  %.01222.ph = phi ptr [ %13, %.thread30 ], [ null, %14 ], [ null, %.thread ]
   store i32 %.sink, ptr %0, align 4
   br label %27
 
-27:                                               ; preds = %.sink.split, %.thread29, %.thread, %14
-  %.01222 = phi ptr [ null, %.thread ], [ %13, %14 ], [ %13, %.thread29 ], [ %.01222.ph, %.sink.split ]
+27:                                               ; preds = %.sink.split, %.thread30, %.thread, %14
+  %.01222 = phi ptr [ null, %.thread ], [ %13, %14 ], [ %13, %.thread30 ], [ %.01222.ph, %.sink.split ]
   ret ptr %.01222
 }
 
@@ -3403,25 +3403,25 @@ define internal fastcc void @UpdateAudioStreamFormatsPhysical(ptr noundef captur
   br i1 %5, label %22, label %8
 
 8:                                                ; preds = %2
-  br i1 %.not3544, label %.thread65, label %9
+  br i1 %.not3544, label %.thread67, label %9
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %.043.pre, i64 80
   %11 = load ptr, ptr %10, align 8
   %.not6.i = icmp eq ptr %11, null
-  br i1 %.not6.i, label %12, label %.lr.ph48.thread69
+  br i1 %.not6.i, label %12, label %.lr.ph48.thread71
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %.043.pre, i64 64
   %14 = load ptr, ptr %13, align 8
   %.not7.i = icmp eq ptr %14, null
-  br i1 %.not7.i, label %15, label %.lr.ph48.thread69
+  br i1 %.not7.i, label %15, label %.lr.ph48.thread71
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %.043.pre, i64 24
   %17 = load ptr, ptr %16, align 8
   %.not8.i = icmp eq ptr %17, null
-  br i1 %.not8.i, label %.lr.ph48.thread69, label %.lr.ph48.thread
+  br i1 %.not8.i, label %.lr.ph48.thread71, label %.lr.ph48.thread
 
 .lr.ph48.thread:                                  ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 200
@@ -3437,18 +3437,18 @@ define internal fastcc void @UpdateAudioStreamFormatsPhysical(ptr noundef captur
 22:                                               ; preds = %2
   br i1 %.not3544, label %.loopexit, label %.lr.ph48.split.us.preheader
 
-.thread65:                                        ; preds = %8
+.thread67:                                        ; preds = %8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 149
   store i8 0, ptr %23, align 1
   br label %.loopexit
 
-.lr.ph48.thread69:                                ; preds = %9, %12, %15
+.lr.ph48.thread71:                                ; preds = %9, %12, %15
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 149
   store i8 0, ptr %24, align 1
   br label %.lr.ph48.split.preheader
 
-.lr.ph48.split.preheader:                         ; preds = %.lr.ph48.thread69, %.lr.ph48.thread
-  %.sroa.0.05661 = phi i32 [ %spec.select, %.lr.ph48.thread ], [ 33056, %.lr.ph48.thread69 ]
+.lr.ph48.split.preheader:                         ; preds = %.lr.ph48.thread71, %.lr.ph48.thread
+  %.sroa.0.05863 = phi i32 [ %spec.select, %.lr.ph48.thread ], [ 33056, %.lr.ph48.thread71 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %.lr.ph48.split
 
@@ -3521,7 +3521,7 @@ define internal fastcc void @UpdateAudioStreamFormatsPhysical(ptr noundef captur
   %48 = getelementptr inbounds nuw i8, ptr %.03342, i64 80
   %49 = load ptr, ptr %.03342, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %49) #14
-  store i32 %.sroa.0.05661, ptr %47, align 4
+  store i32 %.sroa.0.05863, ptr %47, align 4
   %.sroa.7.0..0.1.sroa_idx = getelementptr inbounds nuw i8, ptr %.03342, i64 64
   store i64 %7, ptr %.sroa.7.0..0.1.sroa_idx, align 8
   %50 = load ptr, ptr %25, align 8
@@ -3534,7 +3534,7 @@ define internal fastcc void @UpdateAudioStreamFormatsPhysical(ptr noundef captur
   %.not37 = icmp eq ptr %.033, null
   br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
-.loopexit:                                        ; preds = %._crit_edge, %._crit_edge.us, %.thread65, %22, %1
+.loopexit:                                        ; preds = %._crit_edge, %._crit_edge.us, %.thread67, %22, %1
   ret void
 }
 

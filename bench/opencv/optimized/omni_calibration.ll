@@ -3406,8 +3406,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i244.i: ; preds 
   %1177 = ptrtoint ptr %1175 to i64
   %1178 = sub i64 %1176, %1177
   %1179 = sdiv exact i64 %1178, 24
-  %sext332.i = shl i64 %1179, 32
-  %1180 = ashr exact i64 %sext332.i, 32
+  %sext372.i = shl i64 %1179, 32
+  %1180 = ashr exact i64 %sext372.i, 32
   %1181 = icmp slt i64 %indvars.iv.next327.i, %1180
   br i1 %1181, label %1156, label %.noexc.i.i249.i, !llvm.loop !112
 
@@ -3840,8 +3840,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i298.i: ; preds 
   %1322 = ptrtoint ptr %1320 to i64
   %1323 = sub i64 %1321, %1322
   %1324 = sdiv exact i64 %1323, 96
-  %sext333.i = shl i64 %1324, 32
-  %1325 = ashr exact i64 %sext333.i, 32
+  %sext373.i = shl i64 %1324, 32
+  %1325 = ashr exact i64 %sext373.i, 32
   %1326 = icmp slt i64 %indvars.iv.next330.i, %1325
   br i1 %1326, label %1309, label %._crit_edge.i.i.i296.i, !llvm.loop !120
 

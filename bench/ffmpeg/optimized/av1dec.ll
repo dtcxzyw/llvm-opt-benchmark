@@ -870,8 +870,8 @@ select.unfold.i.i.i:                              ; preds = %361, %358
   br label %376
 
 376:                                              ; preds = %369, %select.unfold.i.i.i
-  %.sink39.i.i.i.i = phi ptr [ %375, %369 ], [ %336, %select.unfold.i.i.i ]
-  %377 = getelementptr inbounds nuw [8 x [6 x i32]], ptr %.sink39.i.i.i.i, i64 0, i64 %indvars.iv117.i.i.i, i64 2
+  %.sink43.i.i.i.i = phi ptr [ %375, %369 ], [ %336, %select.unfold.i.i.i ]
+  %377 = getelementptr inbounds nuw [8 x [6 x i32]], ptr %.sink43.i.i.i.i, i64 0, i64 %indvars.iv117.i.i.i, i64 2
   %.0.i.i.i.i = load i32, ptr %377, align 4, !tbaa !121
   %378 = ashr i32 %.0.i.i.i.i, 1
   %379 = getelementptr inbounds nuw i8, ptr %365, i64 812
@@ -893,7 +893,7 @@ select.unfold.i.i.i:                              ; preds = %361, %358
   br i1 %.not.i.i.i.i.i.i.i, label %393, label %389
 
 389:                                              ; preds = %387
-  %390 = add i32 %382, 1
+  %390 = add nuw i32 %382, 1
   %391 = lshr exact i32 %390, 1
   %392 = sub i32 %383, %391
   br label %read_global_param.exit.i.i.i
@@ -950,8 +950,8 @@ read_global_param.exit.i.i.i:                     ; preds = %inverse_recenter.ex
   br label %421
 
 421:                                              ; preds = %414, %read_global_param.exit.i.i.i
-  %.sink39.i65.i.i.i = phi ptr [ %420, %414 ], [ %336, %read_global_param.exit.i.i.i ]
-  %422 = getelementptr inbounds nuw [8 x [6 x i32]], ptr %.sink39.i65.i.i.i, i64 0, i64 %indvars.iv117.i.i.i, i64 3
+  %.sink43.i65.i.i.i = phi ptr [ %420, %414 ], [ %336, %read_global_param.exit.i.i.i ]
+  %422 = getelementptr inbounds nuw [8 x [6 x i32]], ptr %.sink43.i65.i.i.i, i64 0, i64 %indvars.iv117.i.i.i, i64 3
   %.0.i66.i.i.i = load i32, ptr %422, align 4, !tbaa !121
   %423 = ashr i32 %.0.i66.i.i.i, 1
   %424 = getelementptr inbounds nuw i8, ptr %380, i64 12
@@ -971,7 +971,7 @@ read_global_param.exit.i.i.i:                     ; preds = %inverse_recenter.ex
   br i1 %.not.i.i.i.i68.i.i.i, label %436, label %432
 
 432:                                              ; preds = %430
-  %433 = add i32 %425, 1
+  %433 = add nuw i32 %425, 1
   %434 = lshr exact i32 %433, 1
   %435 = sub i32 %426, %434
   br label %read_global_param.exit73.i.i.i
@@ -1030,8 +1030,8 @@ read_global_param.exit73.i.i.i:                   ; preds = %inverse_recenter.ex
   br label %464
 
 464:                                              ; preds = %457, %456
-  %.sink39.i75.i.i.i = phi ptr [ %463, %457 ], [ %336, %456 ]
-  %465 = getelementptr inbounds nuw [8 x [6 x i32]], ptr %.sink39.i75.i.i.i, i64 0, i64 %indvars.iv117.i.i.i, i64 4
+  %.sink43.i75.i.i.i = phi ptr [ %463, %457 ], [ %336, %456 ]
+  %465 = getelementptr inbounds nuw [8 x [6 x i32]], ptr %.sink43.i75.i.i.i, i64 0, i64 %indvars.iv117.i.i.i, i64 4
   %.0.i76.i.i.i = load i32, ptr %465, align 4, !tbaa !121
   %466 = ashr i32 %.0.i76.i.i.i, 1
   %467 = getelementptr inbounds nuw i8, ptr %380, i64 16
@@ -1051,7 +1051,7 @@ read_global_param.exit73.i.i.i:                   ; preds = %inverse_recenter.ex
   br i1 %.not.i.i.i.i78.i.i.i, label %479, label %475
 
 475:                                              ; preds = %473
-  %476 = add i32 %468, 1
+  %476 = add nuw i32 %468, 1
   %477 = lshr exact i32 %476, 1
   %478 = sub i32 %469, %477
   br label %read_global_param.exit83.i.i.i
@@ -1107,8 +1107,8 @@ read_global_param.exit83.i.i.i:                   ; preds = %inverse_recenter.ex
   br label %506
 
 506:                                              ; preds = %499, %read_global_param.exit83.i.i.i
-  %.sink39.i85.i.i.i = phi ptr [ %505, %499 ], [ %336, %read_global_param.exit83.i.i.i ]
-  %507 = getelementptr inbounds nuw [8 x [6 x i32]], ptr %.sink39.i85.i.i.i, i64 0, i64 %indvars.iv117.i.i.i, i64 5
+  %.sink43.i85.i.i.i = phi ptr [ %505, %499 ], [ %336, %read_global_param.exit83.i.i.i ]
+  %507 = getelementptr inbounds nuw [8 x [6 x i32]], ptr %.sink43.i85.i.i.i, i64 0, i64 %indvars.iv117.i.i.i, i64 5
   %.0.i86.i.i.i = load i32, ptr %507, align 4, !tbaa !121
   %508 = ashr i32 %.0.i86.i.i.i, 1
   %509 = getelementptr inbounds nuw i8, ptr %380, i64 20
@@ -1128,7 +1128,7 @@ read_global_param.exit83.i.i.i:                   ; preds = %inverse_recenter.ex
   br i1 %.not.i.i.i.i88.i.i.i, label %521, label %517
 
 517:                                              ; preds = %515
-  %518 = add i32 %510, 1
+  %518 = add nuw i32 %510, 1
   %519 = lshr exact i32 %518, 1
   %520 = sub i32 %511, %519
   br label %read_global_param.exit93.i.i.i
@@ -2127,15 +2127,15 @@ get_tiles_info.exit.i:                            ; preds = %112
   %1045 = load i32, ptr %43, align 8, !tbaa !78
   %1046 = sext i32 %1045 to i64
   %1047 = icmp slt i64 %indvars.iv.next.i, %1046
-  br i1 %1047, label %67, label %get_tiles_info.exit.thread252.loopexit526.split.loop.exit632.i, !llvm.loop !198
+  br i1 %1047, label %67, label %get_tiles_info.exit.thread252.loopexit603.split.loop.exit709.i, !llvm.loop !198
 
-get_tiles_info.exit.thread252.loopexit526.split.loop.exit632.i: ; preds = %1044
+get_tiles_info.exit.thread252.loopexit603.split.loop.exit709.i: ; preds = %1044
   %indvars.le.i = trunc i64 %indvars.iv.next.i to i32
   br label %get_tiles_info.exit.thread252.i
 
-get_tiles_info.exit.thread252.i:                  ; preds = %81, %954, %948, %get_tiles_info.exit.thread252.loopexit526.split.loop.exit632.i, %1043, %1040, %1038, %1035, %.thread.i, %988, %907, %902, %.loopexit, %183, %182, %125, %99, %78, %39
-  %.8.i = phi i32 [ %.4177.ph.i, %.thread.i ], [ -1094995529, %125 ], [ -1094995529, %907 ], [ %986, %988 ], [ %900, %902 ], [ %.0.i.ph.i, %.loopexit ], [ 0, %183 ], [ %180, %182 ], [ %97, %99 ], [ -1163346256, %78 ], [ 0, %1038 ], [ 0, %1040 ], [ %1041, %1043 ], [ %1033, %1035 ], [ -11, %39 ], [ -11, %get_tiles_info.exit.thread252.loopexit526.split.loop.exit632.i ], [ -1094995529, %948 ], [ -1094995529, %954 ], [ %84, %81 ]
-  %.4172.i = phi i32 [ %75, %.thread.i ], [ %75, %125 ], [ %75, %907 ], [ %75, %988 ], [ %75, %902 ], [ %75, %.loopexit ], [ %184, %183 ], [ %75, %182 ], [ %75, %99 ], [ %75, %78 ], [ %1026, %1038 ], [ %1026, %1040 ], [ %75, %1043 ], [ %75, %1035 ], [ %42, %39 ], [ %indvars.le.i, %get_tiles_info.exit.thread252.loopexit526.split.loop.exit632.i ], [ %75, %948 ], [ %75, %954 ], [ %75, %81 ]
+get_tiles_info.exit.thread252.i:                  ; preds = %81, %954, %948, %get_tiles_info.exit.thread252.loopexit603.split.loop.exit709.i, %1043, %1040, %1038, %1035, %.thread.i, %988, %907, %902, %.loopexit, %183, %182, %125, %99, %78, %39
+  %.8.i = phi i32 [ %.4177.ph.i, %.thread.i ], [ -1094995529, %125 ], [ -1094995529, %907 ], [ %986, %988 ], [ %900, %902 ], [ %.0.i.ph.i, %.loopexit ], [ 0, %183 ], [ %180, %182 ], [ %97, %99 ], [ -1163346256, %78 ], [ 0, %1038 ], [ 0, %1040 ], [ %1041, %1043 ], [ %1033, %1035 ], [ -11, %39 ], [ -11, %get_tiles_info.exit.thread252.loopexit603.split.loop.exit709.i ], [ -1094995529, %948 ], [ -1094995529, %954 ], [ %84, %81 ]
+  %.4172.i = phi i32 [ %75, %.thread.i ], [ %75, %125 ], [ %75, %907 ], [ %75, %988 ], [ %75, %902 ], [ %75, %.loopexit ], [ %184, %183 ], [ %75, %182 ], [ %75, %99 ], [ %75, %78 ], [ %1026, %1038 ], [ %1026, %1040 ], [ %75, %1043 ], [ %75, %1035 ], [ %42, %39 ], [ %indvars.le.i, %get_tiles_info.exit.thread252.loopexit603.split.loop.exit709.i ], [ %75, %948 ], [ %75, %954 ], [ %75, %81 ]
   %1048 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %1049 = load i32, ptr %43, align 8, !tbaa !78
   %.not221.i = icmp sgt i32 %.4172.i, %1049
@@ -2535,7 +2535,7 @@ define internal fastcc range(i32 -1, 169) i32 @get_sw_pixel_format(ptr noundef %
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 577
   %19 = load i8, ptr %18, align 1, !tbaa !229
   %.not32 = icmp eq i8 %19, 0
-  br i1 %.not32, label %20, label %switch.lookup47
+  br i1 %.not32, label %20, label %switch.lookup48
 
 20:                                               ; preds = %.thread
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 583
@@ -2562,33 +2562,33 @@ switch.lookup:                                    ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 584
   %30 = load i8, ptr %29, align 1, !tbaa !231
   switch i8 %30, label %.thread38 [
-    i8 0, label %switch.lookup39
-    i8 1, label %switch.lookup43
+    i8 0, label %switch.lookup40
+    i8 1, label %switch.lookup44
   ]
 
-switch.lookup39:                                  ; preds = %28
-  %switch.tableidx40 = add nsw i32 %.027, -8
-  %31 = zext nneg i32 %switch.tableidx40 to i64
-  %switch.gep41 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.get_sw_pixel_format.5, i64 0, i64 %31
-  %switch.load42 = load i32, ptr %switch.gep41, align 4
+switch.lookup40:                                  ; preds = %28
+  %switch.tableidx41 = add nsw i32 %.027, -8
+  %31 = zext nneg i32 %switch.tableidx41 to i64
+  %switch.gep42 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.get_sw_pixel_format.5, i64 0, i64 %31
+  %switch.load43 = load i32, ptr %switch.gep42, align 4
   br label %.thread38
 
-switch.lookup43:                                  ; preds = %28
-  %switch.tableidx44 = add nsw i32 %.027, -8
-  %32 = zext nneg i32 %switch.tableidx44 to i64
-  %switch.gep45 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.get_sw_pixel_format.6, i64 0, i64 %32
-  %switch.load46 = load i32, ptr %switch.gep45, align 4
+switch.lookup44:                                  ; preds = %28
+  %switch.tableidx45 = add nsw i32 %.027, -8
+  %32 = zext nneg i32 %switch.tableidx45 to i64
+  %switch.gep46 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.get_sw_pixel_format.6, i64 0, i64 %32
+  %switch.load47 = load i32, ptr %switch.gep46, align 4
   br label %.thread38
 
-switch.lookup47:                                  ; preds = %.thread
-  %switch.tableidx48 = add nsw i32 %.027, -8
-  %33 = zext nneg i32 %switch.tableidx48 to i64
-  %switch.gep49 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.get_sw_pixel_format.7, i64 0, i64 %33
-  %switch.load50 = load i32, ptr %switch.gep49, align 4
+switch.lookup48:                                  ; preds = %.thread
+  %switch.tableidx49 = add nsw i32 %.027, -8
+  %33 = zext nneg i32 %switch.tableidx49 to i64
+  %switch.gep50 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.get_sw_pixel_format.7, i64 0, i64 %33
+  %switch.load51 = load i32, ptr %switch.gep50, align 4
   br label %.thread38
 
-.thread38:                                        ; preds = %switch.lookup47, %switch.lookup43, %switch.lookup39, %switch.lookup, %28, %20, %23, %16
-  %.028 = phi i32 [ -1, %16 ], [ -1, %23 ], [ -1, %20 ], [ -1, %28 ], [ %switch.load, %switch.lookup ], [ %switch.load42, %switch.lookup39 ], [ %switch.load46, %switch.lookup43 ], [ %switch.load50, %switch.lookup47 ]
+.thread38:                                        ; preds = %switch.lookup48, %switch.lookup44, %switch.lookup40, %switch.lookup, %28, %20, %23, %16
+  %.028 = phi i32 [ -1, %16 ], [ -1, %23 ], [ -1, %20 ], [ -1, %28 ], [ %switch.load, %switch.lookup ], [ %switch.load43, %switch.lookup40 ], [ %switch.load47, %switch.lookup44 ], [ %switch.load51, %switch.lookup48 ]
   ret i32 %.028
 }
 
@@ -3450,9 +3450,9 @@ define internal fastcc void @read_global_param(ptr noundef captures(none) %0, i3
   br label %20
 
 20:                                               ; preds = %12, %10
-  %.sink39 = phi ptr [ %19, %12 ], [ %11, %10 ]
+  %.sink43 = phi ptr [ %19, %12 ], [ %11, %10 ]
   %21 = sext i32 %2 to i64
-  %22 = getelementptr inbounds [8 x [6 x i32]], ptr %.sink39, i64 0, i64 %21
+  %22 = getelementptr inbounds [8 x [6 x i32]], ptr %.sink43, i64 0, i64 %21
   %23 = zext nneg i32 %3 to i64
   %24 = getelementptr inbounds nuw [6 x i32], ptr %22, i64 0, i64 %23
   %.0 = load i32, ptr %24, align 4, !tbaa !121
@@ -3507,7 +3507,7 @@ define internal fastcc void @read_global_param(ptr noundef captures(none) %0, i3
   br i1 %.not.i.i.i, label %58, label %54
 
 54:                                               ; preds = %52
-  %55 = add i32 %45, 1
+  %55 = add nuw i32 %45, 1
   %56 = lshr exact i32 %55, 1
   %57 = sub i32 %48, %56
   br label %decode_signed_subexp_with_ref.exit

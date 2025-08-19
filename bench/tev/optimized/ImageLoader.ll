@@ -177,7 +177,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11Im
   %23 = ashr exact i64 %22, 3
   %24 = add nsw i64 %23, 1
   %25 = icmp ugt i64 %24, 2305843009213693951
-  br i1 %25, label %.invoke12, label %_ZNKSt3__16vectorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE11__recommendB8ne190000Em.exit.i.i14
+  br i1 %25, label %.invoke31, label %_ZNKSt3__16vectorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE11__recommendB8ne190000Em.exit.i.i14
 
 _ZNKSt3__16vectorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE11__recommendB8ne190000Em.exit.i.i14: ; preds = %18
   %26 = ptrtoint ptr %14 to i64
@@ -239,7 +239,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11Im
   %51 = ashr exact i64 %50, 3
   %52 = add nsw i64 %51, 1
   %53 = icmp ugt i64 %52, 2305843009213693951
-  br i1 %53, label %.invoke12, label %_ZNKSt3__16vectorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE11__recommendB8ne190000Em.exit.i.i24
+  br i1 %53, label %.invoke31, label %_ZNKSt3__16vectorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE11__recommendB8ne190000Em.exit.i.i24
 
 _ZNKSt3__16vectorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE11__recommendB8ne190000Em.exit.i.i24: ; preds = %46
   %54 = ptrtoint ptr %42 to i64
@@ -301,7 +301,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11Im
   %79 = ashr exact i64 %78, 3
   %80 = add nsw i64 %79, 1
   %81 = icmp ugt i64 %80, 2305843009213693951
-  br i1 %81, label %.invoke12, label %_ZNKSt3__16vectorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE11__recommendB8ne190000Em.exit.i.i34
+  br i1 %81, label %.invoke31, label %_ZNKSt3__16vectorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE11__recommendB8ne190000Em.exit.i.i34
 
 _ZNKSt3__16vectorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE11__recommendB8ne190000Em.exit.i.i34: ; preds = %74
   %82 = ptrtoint ptr %70 to i64
@@ -363,13 +363,13 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11Im
   %107 = ashr exact i64 %106, 3
   %108 = add nsw i64 %107, 1
   %109 = icmp ugt i64 %108, 2305843009213693951
-  br i1 %109, label %.invoke12, label %_ZNKSt3__16vectorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE11__recommendB8ne190000Em.exit.i.i44
+  br i1 %109, label %.invoke31, label %_ZNKSt3__16vectorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE11__recommendB8ne190000Em.exit.i.i44
 
-.invoke12:                                        ; preds = %102, %74, %46, %18
+.invoke31:                                        ; preds = %102, %74, %46, %18
   invoke void @_ZNKSt3__16vectorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders) #18
-          to label %.cont13 unwind label %123
+          to label %.cont32 unwind label %123
 
-.cont13:                                          ; preds = %.invoke12
+.cont32:                                          ; preds = %.invoke31
   unreachable
 
 _ZNKSt3__16vectorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE11__recommendB8ne190000Em.exit.i.i44: ; preds = %102
@@ -414,7 +414,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11Im
   tail call void @_ZdlPv(ptr noundef nonnull %103) #17
   br label %125
 
-123:                                              ; preds = %.invoke12, %.invoke, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i48, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i38, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i28, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i18, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i8, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i, %95, %67, %39, %7, %3, %0
+123:                                              ; preds = %.invoke31, %.invoke, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i48, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i38, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i28, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i18, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i8, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i, %95, %67, %39, %7, %3, %0
   %124 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt3__16vectorINS_10unique_ptrIN3tev11ImageLoaderENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN3tev11ImageLoader10getLoadersEvE12imageLoaders) #15

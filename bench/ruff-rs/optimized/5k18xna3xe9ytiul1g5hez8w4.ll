@@ -355,7 +355,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h89d7302b29db0566E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h8cb7fda763f86355E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h0f6b73805fd84822E.exit.i": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h47c22ae1eccb186fE.exit.i.i.i, %.preheader28.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha39f07a9ecba179eE.exit.i", %46, %25
-  %.sroa.0.0.i2427.i = phi i64 [ %.sroa.0.0.i.i, %46 ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha39f07a9ecba179eE.exit.i" ], [ %22, %25 ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i525962.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h47c22ae1eccb186fE.exit.i.i.i ]
+  %.sroa.0.0.i2427.i = phi i64 [ %.sroa.0.0.i.i, %46 ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha39f07a9ecba179eE.exit.i" ], [ %22, %25 ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i576467.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h47c22ae1eccb186fE.exit.i.i.i ]
   %52 = shl i64 %.sroa.0.0.i2427.i, 1
   %53 = or disjoint i64 %52, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h8cb7fda763f86355E.exit
@@ -369,8 +369,8 @@ _ZN4core5slice4sort6shared17find_existing_run17h89d7302b29db0566E.exit.i: ; pred
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.preheader.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha39f07a9ecba179eE.exit.i"
   %55 = phi i64 [ %54, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha39f07a9ecba179eE.exit.i" ], [ 1, %.preheader.i ]
-  %.sroa.0.0.i525962.i = phi i64 [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha39f07a9ecba179eE.exit.i" ], [ 2, %.preheader.i ]
-  %56 = getelementptr inbounds nuw { i32, { i32, i32 }, { i32, i32 } }, ptr %23, i64 %.sroa.0.0.i525962.i
+  %.sroa.0.0.i576467.i = phi i64 [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha39f07a9ecba179eE.exit.i" ], [ 2, %.preheader.i ]
+  %56 = getelementptr inbounds nuw { i32, { i32, i32 }, { i32, i32 } }, ptr %23, i64 %.sroa.0.0.i576467.i
   br label %57
 
 57:                                               ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h47c22ae1eccb186fE.exit.i.i.i, %.lr.ph.preheader.i.i.i

@@ -2395,15 +2395,15 @@ define internal range(i32 -99, 1) i32 @rawv6_bind(ptr noundef %0, ptr noundef %1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %select.unfold, label %.thread6
+  br i1 %46, label %select.unfold, label %.thread12
 
 47:                                               ; preds = %29
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %48 = icmp eq i32 %.pre, 0
-  br i1 %48, label %54, label %.thread6
+  br i1 %48, label %54, label %.thread12
 
-.thread6:                                         ; preds = %43, %47
+.thread12:                                        ; preds = %43, %47
   %49 = phi i32 [ %.pre, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %51 = load ptr, ptr %50, align 8
@@ -2411,8 +2411,8 @@ define internal range(i32 -99, 1) i32 @rawv6_bind(ptr noundef %0, ptr noundef %1
   %53 = icmp eq ptr %52, null
   br i1 %53, label %select.unfold, label %54
 
-54:                                               ; preds = %.thread6, %47
-  %55 = phi ptr [ %52, %.thread6 ], [ null, %47 ]
+54:                                               ; preds = %.thread12, %47
+  %55 = phi ptr [ %52, %.thread12 ], [ null, %47 ]
   %56 = and i32 %21, 2
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %.thread
@@ -2466,8 +2466,8 @@ select.unfold.sink.split:                         ; preds = %79, %.thread
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %.sink, ptr noundef nonnull align 4 dereferenceable(16) %20, i64 16, i1 false)
   br label %select.unfold
 
-select.unfold:                                    ; preds = %select.unfold.sink.split, %73, %43, %.thread6
-  %83 = phi i32 [ -22, %43 ], [ -19, %.thread6 ], [ -99, %73 ], [ 0, %select.unfold.sink.split ]
+select.unfold:                                    ; preds = %select.unfold.sink.split, %73, %43, %.thread12
+  %83 = phi i32 [ -22, %43 ], [ -19, %.thread12 ], [ -99, %73 ], [ 0, %select.unfold.sink.split ]
   tail call void @__rcu_read_unlock() #13
   br label %84
 

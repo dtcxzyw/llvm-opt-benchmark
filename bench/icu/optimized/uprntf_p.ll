@@ -20,21 +20,21 @@ define i32 @u_printf_parse_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %.preheader504, label %10
+  br i1 %.not, label %.preheader528, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !3
   %13 = icmp sgt i32 %12, -1
-  br i1 %13, label %.preheader504, label %_ZL14parseArgumentsPKDsP13__va_list_tagP10UErrorCode.exit.thread
+  br i1 %13, label %.preheader528, label %_ZL14parseArgumentsPKDsP13__va_list_tagP10UErrorCode.exit.thread
 
-.preheader504:                                    ; preds = %10, %7
+.preheader528:                                    ; preds = %10, %7
   br label %14
 
-14:                                               ; preds = %.preheader504, %35
-  %.0174.i = phi i32 [ %spec.select.i, %35 ], [ 0, %.preheader504 ]
-  %.0167.i = phi i32 [ %.2169.lcssa.i, %35 ], [ 0, %.preheader504 ]
-  %.0166.i = phi ptr [ %.3.lcssa.i, %35 ], [ %1, %.preheader504 ]
+14:                                               ; preds = %.preheader528, %35
+  %.0174.i = phi i32 [ %spec.select.i, %35 ], [ 0, %.preheader528 ]
+  %.0167.i = phi i32 [ %.2169.lcssa.i, %35 ], [ 0, %.preheader528 ]
+  %.0166.i = phi ptr [ %.3.lcssa.i, %35 ], [ %1, %.preheader528 ]
   br label %15
 
 15:                                               ; preds = %17, %14
@@ -1212,9 +1212,9 @@ thread-pre-split337:                              ; preds = %.loopexit342, %324,
   br label %523
 
 523:                                              ; preds = %505, %507, %515
-  %.sink449 = phi i32 [ %506, %505 ], [ %514, %507 ], [ %522, %515 ]
+  %.sink473 = phi i32 [ %506, %505 ], [ %514, %507 ], [ %522, %515 ]
   %524 = load i32, ptr %5, align 4, !tbaa !30
-  %525 = add nsw i32 %524, %.sink449
+  %525 = add nsw i32 %524, %.sink473
   store i32 %525, ptr %5, align 4, !tbaa !30
   br label %203, !llvm.loop !63
 

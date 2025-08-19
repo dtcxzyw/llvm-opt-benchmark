@@ -1504,8 +1504,8 @@ _ZN4ncnn3MatD2Ev.exit167:                         ; preds = %398
   %411 = sext i32 %.pre492 to i64
   %412 = mul i64 %.pre493, %411
   %413 = icmp eq i64 %412, 0
-  %or.cond526 = select i1 %410, i1 true, i1 %413
-  br i1 %or.cond526, label %_ZNK4ncnn3Mat5emptyEv.exit157.thread, label %434
+  %or.cond592 = select i1 %410, i1 true, i1 %413
+  br i1 %or.cond592, label %_ZNK4ncnn3Mat5emptyEv.exit157.thread, label %434
 
 _ZNK4ncnn3Mat5emptyEv.exit157.thread:             ; preds = %408
   store ptr %409, ptr %0, align 8, !tbaa !15
@@ -1657,8 +1657,8 @@ _ZN4ncnn3Mat6addrefEv.exit185:                    ; preds = %470, %448, %432, %_
   %487 = sext i32 %.pre518 to i64
   %488 = mul i64 %.pre519, %487
   %489 = icmp eq i64 %488, 0
-  %or.cond529 = select i1 %486, i1 true, i1 %489
-  br i1 %or.cond529, label %_ZNK4ncnn3Mat5emptyEv.exit158.thread, label %512
+  %or.cond595 = select i1 %486, i1 true, i1 %489
+  br i1 %or.cond595, label %_ZNK4ncnn3Mat5emptyEv.exit158.thread, label %512
 
 _ZNK4ncnn3Mat5emptyEv.exit158.thread:             ; preds = %484
   store ptr %485, ptr %0, align 8, !tbaa !15
@@ -1933,8 +1933,8 @@ _ZN4ncnn3MatD2Ev.exit169:                         ; preds = %590
   %603 = sext i32 %.pre520 to i64
   %604 = mul i64 %.pre521, %603
   %605 = icmp eq i64 %604, 0
-  %or.cond532 = select i1 %602, i1 true, i1 %605
-  br i1 %or.cond532, label %_ZNK4ncnn3Mat5emptyEv.exit159.thread, label %626
+  %or.cond598 = select i1 %602, i1 true, i1 %605
+  br i1 %or.cond598, label %_ZNK4ncnn3Mat5emptyEv.exit159.thread, label %626
 
 _ZNK4ncnn3Mat5emptyEv.exit159.thread:             ; preds = %600
   store ptr %601, ptr %0, align 8, !tbaa !15
@@ -2146,8 +2146,8 @@ _ZN4ncnn3MatD2Ev.exit171:                         ; preds = %688
   %701 = sext i32 %.pre to i64
   %702 = mul i64 %.pre480, %701
   %703 = icmp eq i64 %702, 0
-  %or.cond535 = select i1 %700, i1 true, i1 %703
-  br i1 %or.cond535, label %_ZNK4ncnn3Mat5emptyEv.exit160.thread, label %724
+  %or.cond601 = select i1 %700, i1 true, i1 %703
+  br i1 %or.cond601, label %_ZNK4ncnn3Mat5emptyEv.exit160.thread, label %724
 
 _ZNK4ncnn3Mat5emptyEv.exit160.thread:             ; preds = %698
   store ptr %699, ptr %0, align 8, !tbaa !15

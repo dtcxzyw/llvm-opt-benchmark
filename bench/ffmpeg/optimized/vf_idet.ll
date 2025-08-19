@@ -823,24 +823,24 @@ switch.lookup:                                    ; preds = %183
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.filter.2, i64 0, i64 %215
   %switch.load = load ptr, ptr %switch.gep, align 8
   %216 = zext nneg i32 %.0169 to i64
-  %switch.gep256 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.filter.5, i64 0, i64 %216
-  %switch.load257 = load ptr, ptr %switch.gep256, align 8
+  %switch.gep260 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.filter.5, i64 0, i64 %216
+  %switch.load261 = load ptr, ptr %switch.gep260, align 8
   %217 = icmp ult i32 %174, 4
-  br i1 %217, label %switch.lookup246, label %type2str.exit189
+  br i1 %217, label %switch.lookup250, label %type2str.exit189
 
-switch.lookup246:                                 ; preds = %switch.lookup
+switch.lookup250:                                 ; preds = %switch.lookup
   %218 = zext nneg i32 %174 to i64
-  %switch.gep247 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.filter.5, i64 0, i64 %218
-  %switch.load248 = load ptr, ptr %switch.gep247, align 8
+  %switch.gep251 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.filter.5, i64 0, i64 %218
+  %switch.load252 = load ptr, ptr %switch.gep251, align 8
   br label %type2str.exit189
 
-type2str.exit189:                                 ; preds = %switch.lookup, %switch.lookup246
-  %.0.i188 = phi ptr [ %switch.load248, %switch.lookup246 ], [ null, %switch.lookup ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.4, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load257, ptr noundef %.0.i188) #12
+type2str.exit189:                                 ; preds = %switch.lookup, %switch.lookup250
+  %.0.i188 = phi ptr [ %switch.load252, %switch.lookup250 ], [ null, %switch.lookup ]
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.4, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load261, ptr noundef %.0.i188) #12
   %219 = zext nneg i32 %.0179 to i64
-  %switch.gep250 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.filter.2, i64 0, i64 %219
-  %switch.load251 = load ptr, ptr %switch.gep250, align 8
-  %220 = tail call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.5, ptr noundef nonnull %switch.load251, i32 noundef 0) #12
+  %switch.gep254 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.filter.2, i64 0, i64 %219
+  %switch.load255 = load ptr, ptr %switch.gep254, align 8
+  %220 = tail call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.5, ptr noundef nonnull %switch.load255, i32 noundef 0) #12
   %221 = load i64, ptr %175, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %222 = tail call i64 @av_rescale(i64 noundef %221, i64 noundef 100, i64 noundef 1048576) #13
@@ -868,9 +868,9 @@ type2str.exit189:                                 ; preds = %switch.lookup, %swi
   %240 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.8, ptr noundef nonnull %10, i32 noundef 0) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %241 = zext nneg i32 %.0169 to i64
-  %switch.gep259 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.filter.5, i64 0, i64 %241
-  %switch.load260 = load ptr, ptr %switch.gep259, align 8
-  %242 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.9, ptr noundef nonnull %switch.load260, i32 noundef 0) #12
+  %switch.gep263 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.filter.5, i64 0, i64 %241
+  %switch.load264 = load ptr, ptr %switch.gep263, align 8
+  %242 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.9, ptr noundef nonnull %switch.load264, i32 noundef 0) #12
   %243 = load i64, ptr %177, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %244 = call i64 @av_rescale(i64 noundef %243, i64 noundef 100, i64 noundef 1048576) #13
@@ -908,16 +908,16 @@ type2str.exit189:                                 ; preds = %switch.lookup, %swi
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %270 = load i32, ptr %173, align 8, !tbaa !32
   %271 = icmp ult i32 %270, 4
-  br i1 %271, label %switch.lookup252, label %type2str.exit196
+  br i1 %271, label %switch.lookup256, label %type2str.exit196
 
-switch.lookup252:                                 ; preds = %type2str.exit189
+switch.lookup256:                                 ; preds = %type2str.exit189
   %272 = zext nneg i32 %270 to i64
-  %switch.gep253 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.filter.5, i64 0, i64 %272
-  %switch.load254 = load ptr, ptr %switch.gep253, align 8
+  %switch.gep257 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.filter.5, i64 0, i64 %272
+  %switch.load258 = load ptr, ptr %switch.gep257, align 8
   br label %type2str.exit196
 
-type2str.exit196:                                 ; preds = %type2str.exit189, %switch.lookup252
-  %.0.i195 = phi ptr [ %switch.load254, %switch.lookup252 ], [ null, %type2str.exit189 ]
+type2str.exit196:                                 ; preds = %type2str.exit189, %switch.lookup256
+  %.0.i195 = phi ptr [ %switch.load258, %switch.lookup256 ], [ null, %type2str.exit189 ]
   %273 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.14, ptr noundef %.0.i195, i32 noundef 0) #12
   %274 = load i64, ptr %178, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

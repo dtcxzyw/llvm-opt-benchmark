@@ -116,7 +116,7 @@ define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetch(ptr n
 
 27:                                               ; preds = %26
   %28 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !10
-  %29 = add i64 %.0.i, -1
+  %29 = add nsw i64 %.0.i, -1
   %30 = getelementptr inbounds nuw [24 x ptr], ptr %7, i64 0, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !10
   invoke void %28(ptr noundef %31)

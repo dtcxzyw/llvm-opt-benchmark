@@ -733,7 +733,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   br i1 %.not.i47, label %_ZNSt14_Function_baseD2Ev.exit48, label %261
 
 261:                                              ; preds = %.body.thread, %.body
-  %eh.lpad-body97 = phi { ptr, i32 } [ %40, %.body.thread ], [ %.pn.i, %.body ]
+  %eh.lpad-body143 = phi { ptr, i32 } [ %40, %.body.thread ], [ %.pn.i, %.body ]
   %262 = phi ptr [ @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZ4mainE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", %.body.thread ], [ %.pre, %.body ]
   %263 = invoke noundef zeroext i1 %262(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit48 unwind label %264
@@ -746,7 +746,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit48:                 ; preds = %261, %.body, %259
-  %.pn = phi { ptr, i32 } [ %260, %259 ], [ %.pn.i, %.body ], [ %eh.lpad-body97, %261 ]
+  %.pn = phi { ptr, i32 } [ %260, %259 ], [ %.pn.i, %.body ], [ %eh.lpad-body143, %261 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %293
 

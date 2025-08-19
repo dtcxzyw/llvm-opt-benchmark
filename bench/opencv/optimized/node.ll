@@ -381,13 +381,13 @@ define hidden void @_ZN3ade4Node12removeInEdgeEPNS_4EdgeE(ptr noundef nonnull al
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = icmp eq ptr %22, %1
-  br i1 %23, label %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit14, label %24
+  br i1 %23, label %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit15, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !24
   %27 = icmp eq ptr %26, %1
-  br i1 %27, label %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit16, label %28
+  br i1 %27, label %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit17, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 32
@@ -440,16 +440,16 @@ _ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7d
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 8
   br label %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit
 
-_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit14: ; preds = %20
+_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit15: ; preds = %20
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 16
   br label %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit
 
-_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit16: ; preds = %24
+_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit17: ; preds = %24
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 24
   br label %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit
 
-_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit: ; preds = %13, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit14, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit16, %._crit_edge.i.i.i.i, %33, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %33 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %6, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %44, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit ], [ %45, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit14 ], [ %46, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit16 ], [ %.sroa.032.051.i.i.i.i, %13 ]
+_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit: ; preds = %13, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit15, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit17, %._crit_edge.i.i.i.i, %33, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %33 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %6, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %44, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit ], [ %45, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit15 ], [ %46, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit17 ], [ %.sroa.032.051.i.i.i.i, %13 ]
   %47 = getelementptr inbounds i8, ptr %6, i64 -8
   %48 = load ptr, ptr %47, align 8, !tbaa !24
   store ptr %48, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, align 8, !tbaa !24
@@ -560,13 +560,13 @@ define hidden void @_ZN3ade4Node13removeOutEdgeEPNS_4EdgeE(ptr noundef nonnull a
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = icmp eq ptr %22, %1
-  br i1 %23, label %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit14, label %24
+  br i1 %23, label %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit15, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !24
   %27 = icmp eq ptr %26, %1
-  br i1 %27, label %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit16, label %28
+  br i1 %27, label %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit17, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 32
@@ -619,16 +619,16 @@ _ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7d
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 8
   br label %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit
 
-_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit14: ; preds = %20
+_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit15: ; preds = %20
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 16
   br label %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit
 
-_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit16: ; preds = %24
+_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit17: ; preds = %24
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 24
   br label %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit
 
-_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit: ; preds = %13, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit14, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit16, %._crit_edge.i.i.i.i, %33, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %33 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %6, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %44, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit ], [ %45, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit14 ], [ %46, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit16 ], [ %.sroa.032.051.i.i.i.i, %13 ]
+_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit: ; preds = %13, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit15, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit17, %._crit_edge.i.i.i.i, %33, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %33 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %6, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %44, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit ], [ %45, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit15 ], [ %46, %_ZN3ade4util4findIRSt6vectorIPNS_4EdgeESaIS4_EES4_EEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOS8_RKT0_.exit.loopexit.split.loop.exit17 ], [ %.sroa.032.051.i.i.i.i, %13 ]
   %47 = getelementptr inbounds i8, ptr %6, i64 -8
   %48 = load ptr, ptr %47, align 8, !tbaa !24
   store ptr %48, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, align 8, !tbaa !24

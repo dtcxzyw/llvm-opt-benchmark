@@ -237,16 +237,16 @@ keymatch.exit37:                                  ; preds = %57, %keymatch.exit
   unreachable
 
 ._crit_edge.thread:                               ; preds = %keymatch.exit37, %76
-  %.020.lcssa7885 = phi i32 [ %.020.lcssa, %76 ], [ %.121, %keymatch.exit37 ]
-  %.0.lcssa7982 = phi i32 [ %.0.lcssa, %76 ], [ %.1, %keymatch.exit37 ]
+  %.020.lcssa8289 = phi i32 [ %.020.lcssa, %76 ], [ %.121, %keymatch.exit37 ]
+  %.0.lcssa8386 = phi i32 [ %.0.lcssa, %76 ], [ %.1, %keymatch.exit37 ]
   %88 = load ptr, ptr @stdin, align 8, !tbaa !20
   store ptr %88, ptr @infile, align 8, !tbaa !20
   br label %89
 
 89:                                               ; preds = %77, %._crit_edge.thread
-  %.020.lcssa7884 = phi i32 [ %.020.lcssa, %77 ], [ %.020.lcssa7885, %._crit_edge.thread ]
-  %.0.lcssa7981 = phi i32 [ %.0.lcssa, %77 ], [ %.0.lcssa7982, %._crit_edge.thread ]
-  tail call fastcc void @scan_JPEG_header(i32 noundef %.020.lcssa7884, i32 noundef %.0.lcssa7981)
+  %.020.lcssa8288 = phi i32 [ %.020.lcssa, %77 ], [ %.020.lcssa8289, %._crit_edge.thread ]
+  %.0.lcssa8385 = phi i32 [ %.0.lcssa, %77 ], [ %.0.lcssa8386, %._crit_edge.thread ]
+  tail call fastcc void @scan_JPEG_header(i32 noundef %.020.lcssa8288, i32 noundef %.0.lcssa8385)
   tail call void @exit(i32 noundef 0) #13
   unreachable
 }

@@ -609,12 +609,12 @@ if.end:                                           ; preds = %if.then.i.i, %_ZNSt
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
 
 invoke.cont40:                                    ; preds = %invoke.cont5, %call.i.noexc, %for.cond.cleanup
-  %sub.ptr.div.i452 = phi i64 [ 0, %for.cond.cleanup ], [ %sub.ptr.div.i, %call.i.noexc ], [ 0, %invoke.cont5 ]
+  %sub.ptr.div.i505 = phi i64 [ 0, %for.cond.cleanup ], [ %sub.ptr.div.i, %call.i.noexc ], [ 0, %invoke.cont5 ]
   %ref.tmp36.sroa.0.0 = phi ptr [ null, %for.cond.cleanup ], [ %call.i59, %call.i.noexc ], [ null, %invoke.cont5 ]
   %47 = load ptr, ptr %dividendValues_, align 8, !tbaa !69
   store ptr %ref.tmp36.sroa.0.0, ptr %dividendValues_, align 8, !tbaa !69
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store i64 %sub.ptr.div.i452, ptr %n_.i.i, align 8, !tbaa !8
+  store i64 %sub.ptr.div.i505, ptr %n_.i.i, align 8, !tbaa !8
   %cmp.not.i.i74 = icmp eq ptr %47, null
   br i1 %cmp.not.i.i74, label %_ZN8QuantLib5ArrayD2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
@@ -5521,13 +5521,13 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store double 0.000000e+00, ptr %0, align 8, !tbaa !73
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 3
-  %4 = add i64 %3, -8
+  %3 = shl nuw nsw i64 %__n, 3
+  %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !73
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i

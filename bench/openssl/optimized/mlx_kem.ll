@@ -569,13 +569,13 @@ define internal range(i32 0, 2) i32 @mlx_kem_decapsulate(ptr noundef readonly ca
 
 .sink.split:                                      ; preds = %105, %62
   %.sink = phi i32 [ 296, %62 ], [ 318, %105 ]
-  %.sink75.in = phi ptr [ %14, %62 ], [ %9, %105 ]
+  %.sink82.in = phi ptr [ %14, %62 ], [ %9, %105 ]
   %.061.ph = phi ptr [ %54, %62 ], [ %84, %105 ]
   %.060.ph = phi ptr [ null, %62 ], [ %87, %105 ]
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.mlx_kem_decapsulate) #4
-  %.sink75 = load ptr, ptr %.sink75.in, align 8, !tbaa !35
-  %110 = load ptr, ptr %.sink75, align 8, !tbaa !36
+  %.sink82 = load ptr, ptr %.sink82.in, align 8, !tbaa !35
+  %110 = load ptr, ptr %.sink82, align 8, !tbaa !36
   %111 = load i64, ptr %6, align 8, !tbaa !28
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 786691, ptr noundef nonnull @.str.7, ptr noundef %110, i64 noundef %111) #4
   br label %112

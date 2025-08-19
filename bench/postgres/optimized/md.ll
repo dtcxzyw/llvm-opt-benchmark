@@ -167,13 +167,13 @@ define dso_local void @mdclose(ptr noundef captures(none) %0, i32 noundef %1) lo
   %9 = getelementptr inbounds [4 x ptr], ptr %8, i64 0, i64 %4
   %10 = zext nneg i32 %6 to i64
   %11 = load ptr, ptr %9, align 8
-  %indvars.iv.next14 = add nsw i64 %10, -1
-  %12 = getelementptr inbounds nuw %struct._MdfdVec, ptr %11, i64 %indvars.iv.next14
+  %indvars.iv.next15 = add nsw i64 %10, -1
+  %12 = getelementptr inbounds nuw %struct._MdfdVec, ptr %11, i64 %indvars.iv.next15
   %13 = load i32, ptr %12, align 4
   tail call void @FileClose(i32 noundef %13) #15
-  %14 = icmp eq i64 %indvars.iv.next14, 0
+  %14 = icmp eq i64 %indvars.iv.next15, 0
   %15 = load i32, ptr %5, align 4
-  br i1 %14, label %._crit_edge, label %.lr.ph16
+  br i1 %14, label %._crit_edge, label %.lr.ph17
 
 ._crit_edge:                                      ; preds = %_fdvec_resize.exit, %.lr.ph
   %.lcssa = phi i32 [ %15, %.lr.ph ], [ %37, %_fdvec_resize.exit ]
@@ -186,26 +186,26 @@ define dso_local void @mdclose(ptr noundef captures(none) %0, i32 noundef %1) lo
   store ptr null, ptr %9, align 8
   br label %.loopexit.loopexit
 
-.lr.ph16:                                         ; preds = %.lr.ph, %_fdvec_resize.exit
+.lr.ph17:                                         ; preds = %.lr.ph, %_fdvec_resize.exit
   %19 = phi i32 [ %37, %_fdvec_resize.exit ], [ %15, %.lr.ph ]
-  %indvars.iv.next15 = phi i64 [ %indvars.iv.next, %_fdvec_resize.exit ], [ %indvars.iv.next14, %.lr.ph ]
+  %indvars.iv.next16 = phi i64 [ %indvars.iv.next, %_fdvec_resize.exit ], [ %indvars.iv.next15, %.lr.ph ]
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %25
 
-21:                                               ; preds = %.lr.ph16
+21:                                               ; preds = %.lr.ph17
   %22 = load ptr, ptr @MdCxt, align 8
-  %23 = shl nuw nsw i64 %indvars.iv.next15, 3
+  %23 = shl nuw nsw i64 %indvars.iv.next16, 3
   %24 = tail call ptr @MemoryContextAlloc(ptr noundef %22, i64 noundef %23) #15
   br label %_fdvec_resize.exit.sink.split
 
-25:                                               ; preds = %.lr.ph16
+25:                                               ; preds = %.lr.ph17
   %26 = sext i32 %19 to i64
-  %27 = icmp sgt i64 %indvars.iv.next15, %26
+  %27 = icmp sgt i64 %indvars.iv.next16, %26
   br i1 %27, label %28, label %_fdvec_resize.exit
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %9, align 8
-  %30 = shl nuw nsw i64 %indvars.iv.next15, 3
+  %30 = shl nuw nsw i64 %indvars.iv.next16, 3
   %31 = tail call ptr @repalloc(ptr noundef %29, i64 noundef %30) #15
   br label %_fdvec_resize.exit.sink.split
 
@@ -215,16 +215,16 @@ _fdvec_resize.exit.sink.split:                    ; preds = %28, %21
   br label %_fdvec_resize.exit
 
 _fdvec_resize.exit:                               ; preds = %_fdvec_resize.exit.sink.split, %25
-  %32 = trunc nuw nsw i64 %indvars.iv.next15 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv.next16 to i32
   store i32 %32, ptr %5, align 4
   %33 = load ptr, ptr %9, align 8
-  %indvars.iv.next = add nsw i64 %indvars.iv.next15, -1
+  %indvars.iv.next = add nsw i64 %indvars.iv.next16, -1
   %34 = getelementptr inbounds nuw %struct._MdfdVec, ptr %33, i64 %indvars.iv.next
   %35 = load i32, ptr %34, align 4
   tail call void @FileClose(i32 noundef %35) #15
   %36 = icmp eq i64 %indvars.iv.next, 0
   %37 = load i32, ptr %5, align 4
-  br i1 %36, label %._crit_edge, label %.lr.ph16, !llvm.loop !6
+  br i1 %36, label %._crit_edge, label %.lr.ph17, !llvm.loop !6
 
 .loopexit.loopexit:                               ; preds = %._crit_edge, %17
   store i32 0, ptr %5, align 4
@@ -603,8 +603,8 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
   store i32 %26, ptr %17, align 4
   %32 = icmp slt i32 %15, 0
   %.not = icmp eq i32 %26, 2
-  %or.cond106 = select i1 %32, i1 %.not, i1 false
-  br i1 %or.cond106, label %.thread90.thread, label %.thread
+  %or.cond110 = select i1 %32, i1 %.not, i1 false
+  br i1 %or.cond110, label %.thread90.thread, label %.thread
 
 .thread:                                          ; preds = %13, %._crit_edge95
   %33 = call i32 @unlink(ptr noundef %8) #15
@@ -619,15 +619,15 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
 
 38:                                               ; preds = %35
   %39 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
-  br i1 %39, label %40, label %.thread90.thread101
+  br i1 %39, label %40, label %.thread90.thread105
 
 40:                                               ; preds = %38
   %41 = call i32 @errcode_for_file_access() #15
   %42 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %8) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 373, ptr noundef nonnull @__func__.mdunlinkfork) #15
-  br label %.thread90.thread101
+  br label %.thread90.thread105
 
-.thread90.thread101:                              ; preds = %38, %40
+.thread90.thread105:                              ; preds = %38, %40
   store i32 %37, ptr %36, align 4
   br label %.thread92
 
@@ -671,10 +671,10 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
   store i32 %55, ptr %46, align 4
   %59 = icmp slt i32 %44, 0
   %.not79 = icmp eq i32 %55, 2
-  %or.cond107 = select i1 %59, i1 %.not79, i1 false
-  br i1 %or.cond107, label %.thread90.thread, label %.thread92
+  %or.cond111 = select i1 %59, i1 %.not79, i1 false
+  br i1 %or.cond111, label %.thread90.thread, label %.thread92
 
-.thread92:                                        ; preds = %.thread90.thread101, %.thread, %._crit_edge
+.thread92:                                        ; preds = %.thread90.thread105, %.thread, %._crit_edge
   %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #18
   %61 = add i64 %60, 12
   %62 = call ptr @palloc(i64 noundef %61) #15
@@ -1396,7 +1396,7 @@ buffers_to_iovec.exit._crit_edge:                 ; preds = %77, %buffers_to_iov
 
 .lr.ph84.preheader:                               ; preds = %58
   %62 = and i64 %59, 4294967295
-  %wide.trip.count = zext i32 %4 to i64
+  %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.lr.ph84

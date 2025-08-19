@@ -213,9 +213,9 @@ softfloat_shiftRightJam64.exit:                   ; preds = %92, %85, %100, %101
   br label %116
 
 116:                                              ; preds = %110, %108
-  %.sink226 = phi i64 [ %111, %110 ], [ %.sroa.045.1, %108 ]
+  %.sink240 = phi i64 [ %111, %110 ], [ %.sroa.045.1, %108 ]
   %.sink = phi i64 [ %115, %110 ], [ %109, %108 ]
-  %117 = icmp ne i64 %.sink226, 0
+  %117 = icmp ne i64 %.sink240, 0
   %118 = zext i1 %117 to i64
   %119 = or i64 %.sink, %118
   %120 = icmp ult i64 %.sink, 4611686018427387904

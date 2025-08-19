@@ -425,7 +425,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZN7rocksdb6StatusD2Ev.exit30.i.i, %64
-  %eh.lpad-body.i = phi { ptr, i32 } [ %65, %64 ], [ %.pn38.i.i, %_ZN7rocksdb6StatusD2Ev.exit30.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %65, %64 ], [ %.pn47.i.i, %_ZN7rocksdb6StatusD2Ev.exit30.i.i ]
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !107, !noalias !73
   %.not.i.i8.i = icmp eq ptr %67, null
@@ -605,7 +605,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit30.i.i
 
 _ZN7rocksdb6StatusD2Ev.exit30.i.i:                ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i29.i.i, %126, %.thread.i.i
-  %.pn38.i.i = phi { ptr, i32 } [ %99, %.thread.i.i ], [ %127, %126 ], [ %127, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i29.i.i ]
+  %.pn47.i.i = phi { ptr, i32 } [ %99, %.thread.i.i ], [ %127, %126 ], [ %127, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i29.i.i ]
   store ptr null, ptr %72, align 8, !tbaa !107, !alias.scope !111
   br label %.body.i
 

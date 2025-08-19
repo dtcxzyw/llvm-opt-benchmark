@@ -862,10 +862,10 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %24, %43, %50, %78, %70
-  %.sink105 = phi i64 [ 8, %70 ], [ 8, %78 ], [ 72, %50 ], [ 28, %43 ], [ 28, %24 ]
+  %.sink109 = phi i64 [ 8, %70 ], [ 8, %78 ], [ 72, %50 ], [ 28, %43 ], [ 28, %24 ]
   %.sink = phi i32 [ %73, %70 ], [ %68, %78 ], [ 115, %50 ], [ 223, %43 ], [ 223, %24 ]
   %.074.ph = phi i32 [ 1, %70 ], [ 1, %78 ], [ 4, %50 ], [ 2, %43 ], [ 2, %24 ]
-  %80 = getelementptr i8, ptr %6, i64 %.sink105
+  %80 = getelementptr i8, ptr %6, i64 %.sink109
   store i32 %.sink, ptr %80, align 4, !tbaa !30
   br label %.loopexit
 

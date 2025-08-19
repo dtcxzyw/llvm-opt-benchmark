@@ -20462,8 +20462,8 @@ thread-pre-split.i:                               ; preds = %6
   %.idx.i = zext i1 %9 to i64
   %18 = getelementptr inbounds nuw i8, ptr %.022.i, i64 %.idx.i
   %19 = load i8, ptr %18, align 1
-  %.not60.i = icmp eq i8 %19, 0
-  br i1 %.not60.i, label %.critedge.sink.split.i, label %.preheader.i, !llvm.loop !3
+  %.not64.i = icmp eq i8 %19, 0
+  br i1 %.not64.i, label %.critedge.sink.split.i, label %.preheader.i, !llvm.loop !3
 
 .critedge.sink.split.i:                           ; preds = %17, %._crit_edge.thread.i, %.preheader42.i
   %.str.3.sink.i = phi ptr [ @.str.3, %.preheader42.i ], [ @.str.4, %._crit_edge.thread.i ], [ @.str.3, %17 ]

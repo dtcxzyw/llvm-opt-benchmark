@@ -3175,9 +3175,9 @@ cond.end15:                                       ; preds = %invoke.cont
   br i1 %cmp.i38.not, label %cond.false24, label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %invoke.cont, %cond.end15
-  %.pr148198 = phi ptr [ %.pr148.pre, %cond.end15 ], [ %0, %invoke.cont ]
+  %.pr148227 = phi ptr [ %.pr148.pre, %cond.end15 ], [ %0, %invoke.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
-  %n_.i.i44 = getelementptr inbounds nuw i8, ptr %.pr148198, i64 96
+  %n_.i.i44 = getelementptr inbounds nuw i8, ptr %.pr148227, i64 96
   %10 = load i64, ptr %n_.i.i44, align 8, !tbaa !20, !noalias !92
   %cmp.not.i.i45 = icmp eq i64 %10, 0
   br i1 %cmp.not.i.i45, label %cond.end.i.i49, label %if.then.i.i.i.i.i.i.i46
@@ -3194,7 +3194,7 @@ if.then.i.i.i.i.i.i.i46:                          ; preds = %invoke.cont20
           to label %call.i.i47.noexc unwind label %lpad19
 
 call.i.i47.noexc:                                 ; preds = %if.then.i.i.i.i.i.i.i46
-  %l2_.i = getelementptr inbounds nuw i8, ptr %.pr148198, i64 88
+  %l2_.i = getelementptr inbounds nuw i8, ptr %.pr148227, i64 88
   store ptr %call.i.i4750, ptr %agg.tmp16, align 8, !tbaa !28, !alias.scope !92
   %n_46.i.i48 = getelementptr inbounds nuw i8, ptr %agg.tmp16, i64 8
   store i64 %10, ptr %n_46.i.i48, align 8, !tbaa !20, !alias.scope !92
@@ -3203,12 +3203,12 @@ call.i.i47.noexc:                                 ; preds = %if.then.i.i.i.i.i.i
   br label %cond.end28
 
 cond.false24:                                     ; preds = %cond.end15.thread, %cond.end15
-  %cond146193 = phi i1 [ true, %cond.end15.thread ], [ %loadedv.i, %cond.end15 ]
+  %cond146222 = phi i1 [ true, %cond.end15.thread ], [ %loadedv.i, %cond.end15 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp16, i8 0, i64 16, i1 false)
   br label %cond.end28
 
 cond.end28:                                       ; preds = %call.i.i47.noexc, %cond.end.i.i49, %cond.false24
-  %cond146192 = phi i1 [ %cond146193, %cond.false24 ], [ %loadedv.i, %cond.end.i.i49 ], [ %loadedv.i, %call.i.i47.noexc ]
+  %cond146221 = phi i1 [ %cond146222, %cond.false24 ], [ %loadedv.i, %cond.end.i.i49 ], [ %loadedv.i, %call.i.i47.noexc ]
   %cmp.i38150 = phi i1 [ false, %cond.false24 ], [ true, %cond.end.i.i49 ], [ true, %call.i.i47.noexc ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp30)
   invoke void @_ZN8QuantLib12NoConstraintC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp30)
@@ -3222,7 +3222,7 @@ invoke.cont32:                                    ; preds = %cond.end28
   %16 = load ptr, ptr %pn3.i.i52, align 8, !tbaa !16
   store ptr %16, ptr %pn.i.i51, align 8, !tbaa !16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp30, i8 0, i64 16, i1 false)
-  invoke void @_ZN8QuantLib23FittedBondDiscountCurve13FittingMethodC2EbRKNS_5ArrayEN5boost10shared_ptrINS_18OptimizationMethodEEES2_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(176) %this, i1 noundef zeroext %cond146192, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp16, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr noundef nonnull %agg.tmp29)
+  invoke void @_ZN8QuantLib23FittedBondDiscountCurve13FittingMethodC2EbRKNS_5ArrayEN5boost10shared_ptrINS_18OptimizationMethodEEES2_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(176) %this, i1 noundef zeroext %cond146221, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp16, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr noundef nonnull %agg.tmp29)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont32

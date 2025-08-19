@@ -3030,8 +3030,8 @@ _ZN3syn6buffer6Cursor5ident17he943c8405b28ecffE.exit: ; preds = %37
 41:                                               ; preds = %_ZN3syn6buffer6Cursor5ident17he943c8405b28ecffE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %.sroa.07.0.i, ptr %8, align 8
-  %.sroa.5.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %.sroa.59.0.i, ptr %.sroa.5.0..sroa_idx39, align 8
+  %.sroa.5.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 %.sroa.59.0.i, ptr %.sroa.5.0..sroa_idx44, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -3065,16 +3065,16 @@ _ZN3syn6buffer6Cursor5ident17he943c8405b28ecffE.exit: ; preds = %37
 
 .thread:                                          ; preds = %49
   store i64 %.sroa.07.0.i, ptr %0, align 8
-  %.sroa.5.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.59.0.i, ptr %.sroa.5.0..sroa_idx40, align 8
-  %.sroa.6.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx42, align 4
-  %.sroa.7.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx44, align 8
-  %.sroa.8.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.0..sroa_idx46, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8, i64 7, i1 false)
-  %.sroa.9.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.sroa.813.0.i, ptr %.sroa.9.0..sroa_idx47, align 8
+  %.sroa.5.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sroa.59.0.i, ptr %.sroa.5.0..sroa_idx45, align 8
+  %.sroa.6.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx47, align 4
+  %.sroa.7.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx49, align 8
+  %.sroa.8.0..sroa_idx51 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.0..sroa_idx51, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8, i64 7, i1 false)
+  %.sroa.9.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 %.sroa.813.0.i, ptr %.sroa.9.0..sroa_idx52, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.0.i.i.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40

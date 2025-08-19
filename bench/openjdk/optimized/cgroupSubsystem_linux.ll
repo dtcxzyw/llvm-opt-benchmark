@@ -676,17 +676,17 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
 121:                                              ; preds = %119
   %122 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not214 = icmp eq ptr %122, null
-  br i1 %.not214, label %.preheader301, label %123
+  br i1 %.not214, label %.preheader323, label %123
 
 123:                                              ; preds = %121
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.20)
-  br label %.preheader301
+  br label %.preheader323
 
-.preheader301:                                    ; preds = %121, %123
+.preheader323:                                    ; preds = %121, %123
   br label %124
 
-124:                                              ; preds = %.preheader301, %124
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %124 ], [ 0, %.preheader301 ]
+124:                                              ; preds = %.preheader323, %124
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %124 ], [ 0, %.preheader323 ]
   %125 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv.i
   %126 = load ptr, ptr %125, align 8
   call void @_ZN2os4freeEPv(ptr noundef %126) #14
@@ -726,20 +726,20 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
 143:                                              ; preds = %133
   %144 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not225 = icmp eq ptr %144, null
-  br i1 %.not225, label %.preheader295, label %145
+  br i1 %.not225, label %.preheader317, label %145
 
 145:                                              ; preds = %143
   %146 = tail call ptr @__errno_location() #16
   %147 = load i32, ptr %146, align 4
   %148 = call noundef ptr @_ZN2os8strerrorEi(i32 noundef %147) #14
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef %2, ptr noundef %148)
-  br label %.preheader295
+  br label %.preheader317
 
-.preheader295:                                    ; preds = %143, %145
+.preheader317:                                    ; preds = %143, %145
   br label %149
 
-149:                                              ; preds = %.preheader295, %149
-  %indvars.iv.i161 = phi i64 [ %indvars.iv.next.i162, %149 ], [ 0, %.preheader295 ]
+149:                                              ; preds = %.preheader317, %149
+  %indvars.iv.i161 = phi i64 [ %indvars.iv.next.i162, %149 ], [ 0, %.preheader317 ]
   %150 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv.i161
   %151 = load ptr, ptr %150, align 8
   call void @_ZN2os4freeEPv(ptr noundef %151) #14
@@ -771,21 +771,21 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
 
 .lr.ph242.preheader:                              ; preds = %.preheader232
   %165 = call ptr @strsep(ptr noundef nonnull %17, ptr noundef nonnull @.str.23) #14
-  %.not148293 = icmp eq ptr %165, null
-  br i1 %.not148293, label %.backedge235, label %.lr.ph294
+  %.not148315 = icmp eq ptr %165, null
+  br i1 %.not148315, label %.backedge235, label %.lr.ph316
 
-.lr.ph294:                                        ; preds = %.lr.ph242.preheader, %.lr.ph242
+.lr.ph316:                                        ; preds = %.lr.ph242.preheader, %.lr.ph242
   %166 = phi ptr [ %191, %.lr.ph242 ], [ %165, %.lr.ph242.preheader ]
   %167 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(7) @.str.7) #15
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %169, label %171
 
-169:                                              ; preds = %.lr.ph294
+169:                                              ; preds = %.lr.ph316
   %170 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %162, i8 noundef zeroext 9) #14
   store ptr %170, ptr %142, align 8
   br label %.lr.ph242
 
-171:                                              ; preds = %.lr.ph294
+171:                                              ; preds = %.lr.ph316
   %172 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(7) @.str.8) #15
   %173 = icmp eq i32 %172, 0
   br i1 %173, label %174, label %176
@@ -828,7 +828,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
 .lr.ph242:                                        ; preds = %174, %184, %189, %186, %179, %169
   %191 = call ptr @strsep(ptr noundef nonnull %17, ptr noundef nonnull @.str.23) #14
   %.not148 = icmp eq ptr %191, null
-  br i1 %.not148, label %.backedge235, label %.lr.ph294
+  br i1 %.not148, label %.backedge235, label %.lr.ph316
 
 .critedge160:                                     ; preds = %.preheader232
   %.not149 = icmp eq i32 %160, 0
@@ -873,20 +873,20 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
 205:                                              ; preds = %._crit_edge246
   %206 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not224 = icmp eq ptr %206, null
-  br i1 %.not224, label %.preheader296, label %207
+  br i1 %.not224, label %.preheader318, label %207
 
 207:                                              ; preds = %205
   %208 = tail call ptr @__errno_location() #16
   %209 = load i32, ptr %208, align 4
   %210 = call noundef ptr @_ZN2os8strerrorEi(i32 noundef %209) #14
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef %3, ptr noundef %210)
-  br label %.preheader296
+  br label %.preheader318
 
-.preheader296:                                    ; preds = %205, %207
+.preheader318:                                    ; preds = %205, %207
   br label %211
 
-211:                                              ; preds = %.preheader296, %211
-  %indvars.iv.i165 = phi i64 [ %indvars.iv.next.i166, %211 ], [ 0, %.preheader296 ]
+211:                                              ; preds = %.preheader318, %211
+  %indvars.iv.i165 = phi i64 [ %indvars.iv.next.i166, %211 ], [ 0, %.preheader318 ]
   %212 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv.i165
   %213 = load ptr, ptr %212, align 8
   call void @_ZN2os4freeEPv(ptr noundef %213) #14
@@ -1214,17 +1214,17 @@ _ZL11find_ro_optPc.exit208:                       ; preds = %sub_2.i207, %.backe
 312:                                              ; preds = %.critedge, %._crit_edge279
   %313 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not215 = icmp eq ptr %313, null
-  br i1 %.not215, label %.preheader298, label %314
+  br i1 %.not215, label %.preheader320, label %314
 
 314:                                              ; preds = %312
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.27)
-  br label %.preheader298
+  br label %.preheader320
 
-.preheader298:                                    ; preds = %312, %314
+.preheader320:                                    ; preds = %312, %314
   br label %315
 
-315:                                              ; preds = %.preheader298, %315
-  %indvars.iv.i209 = phi i64 [ %indvars.iv.next.i210, %315 ], [ 0, %.preheader298 ]
+315:                                              ; preds = %.preheader320, %315
+  %indvars.iv.i209 = phi i64 [ %indvars.iv.next.i210, %315 ], [ 0, %.preheader320 ]
   %316 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv.i209
   %317 = load ptr, ptr %316, align 8
   call void @_ZN2os4freeEPv(ptr noundef %317) #14

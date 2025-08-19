@@ -5683,19 +5683,19 @@ define dso_local void @rcu_init_geometry() local_unnamed_addr #1 align 16 {
   store i32 %74, ptr %75, align 4
   %76 = add nuw nsw i64 %67, 1
   %77 = icmp eq i64 %76, %65
-  br i1 %77, label %.preheader12, label %66, !llvm.loop !242
+  br i1 %77, label %.preheader15, label %66, !llvm.loop !242
 
-.preheader12:                                     ; preds = %66, %.preheader12
-  %78 = phi i64 [ %83, %.preheader12 ], [ 0, %66 ]
-  %79 = phi i32 [ %82, %.preheader12 ], [ 0, %66 ]
+.preheader15:                                     ; preds = %66, %.preheader15
+  %78 = phi i64 [ %83, %.preheader15 ], [ 0, %66 ]
+  %79 = phi i32 [ %82, %.preheader15 ], [ 0, %66 ]
   %80 = getelementptr [2 x i32], ptr @num_rcu_lvl, i64 0, i64 %78
   %81 = load i32, ptr %80, align 4
   %82 = add i32 %81, %79
   %83 = add nuw nsw i64 %78, 1
   %84 = icmp eq i64 %83, %65
-  br i1 %84, label %85, label %.preheader12, !llvm.loop !243
+  br i1 %84, label %85, label %.preheader15, !llvm.loop !243
 
-85:                                               ; preds = %.preheader12
+85:                                               ; preds = %.preheader15
   store i32 %82, ptr @rcu_num_nodes, align 4
   br label %86
 
@@ -5808,8 +5808,8 @@ define internal fastcc void @kfree_rcu_batch_init() unnamed_addr #8 section ".in
 .preheader:                                       ; preds = %3, %0
   br label %7
 
-7:                                                ; preds = %.preheader, %.critedge5
-  %8 = phi i64 [ %40, %.critedge5 ], [ 0, %.preheader ]
+7:                                                ; preds = %.preheader, %.critedge8
+  %8 = phi i64 [ %40, %.critedge8 ], [ 0, %.preheader ]
   %9 = load i64, ptr @__cpu_possible_mask, align 8
   %10 = shl nsw i64 -1, %8
   %11 = and i64 %9, %10
@@ -5831,7 +5831,7 @@ define internal fastcc void @kfree_rcu_batch_init() unnamed_addr #8 section ".in
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   br label %.critedge
 
-.critedge5:                                       ; preds = %.critedge
+.critedge8:                                       ; preds = %.critedge
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store volatile ptr %24, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -5888,9 +5888,9 @@ define internal fastcc void @kfree_rcu_batch_init() unnamed_addr #8 section ".in
   store volatile ptr %51, ptr %51, align 8
   %52 = getelementptr i8, ptr %44, i64 104
   store volatile ptr %51, ptr %52, align 8
-  br i1 %42, label %.critedge, label %.critedge5, !llvm.loop !256
+  br i1 %42, label %.critedge, label %.critedge8, !llvm.loop !256
 
-.thread:                                          ; preds = %7, %.critedge5, %13
+.thread:                                          ; preds = %7, %.critedge8, %13
   %53 = tail call ptr (i32, ptr, ...) @shrinker_alloc(i32 noundef 0, ptr noundef nonnull @.str.166) #29
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %57
@@ -8675,7 +8675,7 @@ define dso_local void @rcu_note_context_switch(i1 noundef zeroext %0) #1 align 1
   br label %144
 
 144:                                              ; preds = %143, %131
-  switch i32 %119, label %default.unreachable4 [
+  switch i32 %119, label %default.unreachable7 [
     i32 0, label %145
     i32 4, label %145
     i32 6, label %145
@@ -8718,7 +8718,7 @@ define dso_local void @rcu_note_context_switch(i1 noundef zeroext %0) #1 align 1
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   br label %161
 
-default.unreachable4:                             ; preds = %144
+default.unreachable7:                             ; preds = %144
   unreachable
 
 161:                                              ; preds = %157, %153, %149, %145
@@ -8796,23 +8796,23 @@ default.unreachable4:                             ; preds = %144
   br i1 %116, label %198, label %202
 
 198:                                              ; preds = %194
-  br i1 %197, label %.thread5, label %199
+  br i1 %197, label %.thread8, label %199
 
 199:                                              ; preds = %198
   store volatile i8 0, ptr %195, align 1
   %200 = load ptr, ptr %44, align 8
   %201 = load i64, ptr %47, align 8
   tail call fastcc void @rcu_report_exp_cpu_mult(ptr noundef %200, i64 noundef %201, i1 noundef zeroext true)
-  br label %.thread5
+  br label %.thread8
 
 202:                                              ; preds = %194
-  br i1 %197, label %.thread5, label %203, !prof !350
+  br i1 %197, label %.thread8, label %203, !prof !350
 
 203:                                              ; preds = %202
   tail call void asm sideeffect "1390: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1390b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1390) #29, !srcloc !351
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.44, i32 266, i32 2307, i64 12) #29, !srcloc !352
   tail call void asm sideeffect "1391: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1391b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1391) #29, !srcloc !353
-  br label %.thread5
+  br label %.thread8
 
 204:                                              ; preds = %39, %.thread
   %205 = tail call i8 asm "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @rcu_data, i64 17)) #28, !srcloc !20
@@ -8823,12 +8823,12 @@ default.unreachable4:                             ; preds = %144
   %208 = getelementptr inbounds nuw i8, ptr %4, i64 1016
   %209 = load volatile i32, ptr %208, align 8
   %210 = icmp eq i32 %209, 0
-  br i1 %210, label %.thread5, label %211
+  br i1 %210, label %.thread8, label %211
 
 211:                                              ; preds = %207, %204
   %212 = load volatile i32, ptr %36, align 4
   %213 = icmp eq i32 %212, 0
-  br i1 %213, label %214, label %.thread5
+  br i1 %213, label %214, label %.thread8
 
 214:                                              ; preds = %211
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -8838,14 +8838,14 @@ default.unreachable4:                             ; preds = %144
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !23
   call fastcc void @rcu_preempt_deferred_qs_irqrestore(ptr noundef %4, i64 noundef %215)
-  br label %.thread5
+  br label %.thread8
 
-.thread5:                                         ; preds = %198, %214, %211, %207, %203, %202, %199
+.thread8:                                         ; preds = %198, %214, %211, %207, %203, %202, %199
   %216 = call i8 asm "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @rcu_data, i64 16)) #28, !srcloc !6
   %217 = icmp eq i8 %216, 0
   br i1 %217, label %rcu_qs.exit, label %218
 
-218:                                              ; preds = %.thread5
+218:                                              ; preds = %.thread8
   %219 = load ptr, ptr @rcu_qs.___tp_str, align 8
   %220 = call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @rcu_data) #28, !srcloc !7
   %221 = load ptr, ptr @rcu_qs.___tp_str.246, align 8
@@ -8895,7 +8895,7 @@ default.unreachable4:                             ; preds = %144
   store volatile i8 0, ptr %243, align 1
   br label %rcu_qs.exit
 
-rcu_qs.exit:                                      ; preds = %.thread5, %242
+rcu_qs.exit:                                      ; preds = %.thread8, %242
   %244 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %245 = load i8, ptr %244, align 1
   %246 = icmp eq i8 %245, 0
@@ -13661,9 +13661,9 @@ rcu_cleanup_dead_rnp.exit:                        ; preds = %234, %231, %218, %2
   %662 = load i32, ptr @rcu_num_lvls, align 4
   %663 = add i32 %662, -1
   %664 = icmp eq i32 %663, %661
-  br i1 %664, label %.thread19.i.i, label %667, !prof !15
+  br i1 %664, label %.thread33.i.i, label %667, !prof !15
 
-.thread19.i.i:                                    ; preds = %658
+.thread33.i.i:                                    ; preds = %658
   %665 = getelementptr inbounds nuw i8, ptr %639, i64 112
   %666 = load i32, ptr %665, align 16
   br label %671
@@ -13678,10 +13678,10 @@ rcu_cleanup_dead_rnp.exit:                        ; preds = %234, %231, %218, %2
   %670 = icmp eq i64 %.pre.i.i, 0
   br i1 %670, label %677, label %671
 
-671:                                              ; preds = %667, %.thread19.i.i
-  %672 = phi i32 [ %666, %.thread19.i.i ], [ %669, %667 ]
-  %673 = phi ptr [ %665, %.thread19.i.i ], [ %668, %667 ]
-  %674 = phi i64 [ %653, %.thread19.i.i ], [ %.pre.i.i, %667 ]
+671:                                              ; preds = %667, %.thread33.i.i
+  %672 = phi i32 [ %666, %.thread33.i.i ], [ %669, %667 ]
+  %673 = phi ptr [ %665, %.thread33.i.i ], [ %668, %667 ]
+  %674 = phi i64 [ %653, %.thread33.i.i ], [ %.pre.i.i, %667 ]
   %675 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %674) #28, !srcloc !127
   %676 = trunc i64 %675 to i32
   br label %677
@@ -16235,9 +16235,9 @@ define internal fastcc void @rcu_core() unnamed_addr #1 align 16 {
   br i1 %446, label %.sink.split, label %448
 
 .sink.split:                                      ; preds = %._crit_edge, %441
-  %.sink21 = phi i64 [ 256, %441 ], [ 240, %._crit_edge ]
+  %.sink34 = phi i64 [ 256, %441 ], [ 240, %._crit_edge ]
   %.sink = phi i64 [ %442, %441 ], [ %429, %._crit_edge ]
-  %447 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink21
+  %447 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink34
   store i64 %.sink, ptr %447, align 8
   br label %448
 
@@ -16660,16 +16660,16 @@ define internal void @kfree_rcu_monitor(ptr noundef %0) #1 align 16 {
   %65 = phi i32 [ 0, %61 ], [ 1, %.loopexit13 ]
   %66 = load ptr, ptr %.sroa.phi16, align 16
   %67 = icmp eq ptr %66, %.sroa.phi16
-  br i1 %67, label %.loopexit13, label %.preheader19
+  br i1 %67, label %.loopexit13, label %.preheader28
 
-.preheader19:                                     ; preds = %63, %.preheader19
-  %68 = phi ptr [ %69, %.preheader19 ], [ %66, %63 ]
+.preheader28:                                     ; preds = %63, %.preheader28
+  %68 = phi ptr [ %69, %.preheader28 ], [ %66, %63 ]
   %69 = load ptr, ptr %68, align 8
   call fastcc void @kvfree_rcu_bulk(ptr noundef %47, ptr noundef %68, i32 noundef %65)
   %70 = icmp eq ptr %69, %.sroa.phi16
-  br i1 %70, label %.loopexit13, label %.preheader19, !llvm.loop !567
+  br i1 %70, label %.loopexit13, label %.preheader28, !llvm.loop !567
 
-.loopexit13:                                      ; preds = %.preheader19, %63
+.loopexit13:                                      ; preds = %.preheader28, %63
   br i1 %64, label %63, label %71, !llvm.loop !568
 
 71:                                               ; preds = %.loopexit13

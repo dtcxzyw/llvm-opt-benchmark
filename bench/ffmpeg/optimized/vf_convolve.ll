@@ -852,7 +852,7 @@ define internal noundef i32 @fft_vertical(ptr noundef readonly captures(none) %0
   %indvars.iv57 = phi i64 [ %34, %.preheader.us.preheader ], [ %indvars.iv.next58, %._crit_edge.us ]
   %35 = mul nsw i64 %indvars.iv57, %33
   %invariant.gep = getelementptr %struct.AVComplexFloat, ptr %6, i64 %indvars.iv57
-  %invariant.gep63 = getelementptr %struct.AVComplexFloat, ptr %8, i64 %35
+  %invariant.gep65 = getelementptr %struct.AVComplexFloat, ptr %8, i64 %35
   br label %36
 
 36:                                               ; preds = %.preheader.us, %36
@@ -860,11 +860,11 @@ define internal noundef i32 @fft_vertical(ptr noundef readonly captures(none) %0
   %37 = mul nuw nsw i64 %indvars.iv53, %33
   %gep = getelementptr %struct.AVComplexFloat, ptr %invariant.gep, i64 %37
   %38 = load float, ptr %gep, align 4, !tbaa !86
-  %gep64 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep63, i64 %indvars.iv53
-  store float %38, ptr %gep64, align 4, !tbaa !86
+  %gep66 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep65, i64 %indvars.iv53
+  store float %38, ptr %gep66, align 4, !tbaa !86
   %39 = getelementptr inbounds nuw i8, ptr %gep, i64 4
   %40 = load float, ptr %39, align 4, !tbaa !88
-  %41 = getelementptr inbounds nuw i8, ptr %gep64, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %gep66, i64 4
   store float %40, ptr %41, align 4, !tbaa !88
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
@@ -952,7 +952,7 @@ define internal noundef i32 @ifft_vertical(ptr noundef readonly captures(none) %
   %39 = getelementptr inbounds %struct.AVComplexFloat, ptr %10, i64 %37
   tail call void %35(ptr noundef %36, ptr noundef %38, ptr noundef %39, i64 noundef 8) #14
   %invariant.gep = getelementptr %struct.AVComplexFloat, ptr %8, i64 %37
-  %invariant.gep66 = getelementptr %struct.AVComplexFloat, ptr %6, i64 %indvars.iv60
+  %invariant.gep67 = getelementptr %struct.AVComplexFloat, ptr %6, i64 %indvars.iv60
   br label %40
 
 40:                                               ; preds = %.lr.ph.us, %40
@@ -960,11 +960,11 @@ define internal noundef i32 @ifft_vertical(ptr noundef readonly captures(none) %
   %gep = getelementptr %struct.AVComplexFloat, ptr %invariant.gep, i64 %indvars.iv56
   %41 = load float, ptr %gep, align 4, !tbaa !86
   %42 = mul nuw nsw i64 %indvars.iv56, %33
-  %gep67 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep66, i64 %42
-  store float %41, ptr %gep67, align 4, !tbaa !86
+  %gep68 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep67, i64 %42
+  store float %41, ptr %gep68, align 4, !tbaa !86
   %43 = getelementptr inbounds nuw i8, ptr %gep, i64 4
   %44 = load float, ptr %43, align 4, !tbaa !88
-  %45 = getelementptr inbounds nuw i8, ptr %gep67, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %gep68, i64 4
   store float %44, ptr %45, align 4, !tbaa !88
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
@@ -1307,8 +1307,8 @@ define internal void @get_input(ptr noundef readonly captures(none) %0, ptr noun
   %32 = sext i32 %10 to i64
   %wide.trip.count298 = zext nneg i32 %4 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
-  %invariant.gep362 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %32
-  %invariant.gep364 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %32
+  %invariant.gep366 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %32
+  %invariant.gep368 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %32
   %wide.trip.count290 = zext nneg i32 %10 to i64
   br label %103
 
@@ -1334,8 +1334,8 @@ define internal void @get_input(ptr noundef readonly captures(none) %0, ptr noun
   %48 = sext i32 %10 to i64
   %wide.trip.count334 = zext nneg i32 %4 to i64
   %wide.trip.count321 = zext nneg i32 %3 to i64
-  %invariant.gep378 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %48
-  %invariant.gep380 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %48
+  %invariant.gep382 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %48
+  %invariant.gep384 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %48
   %wide.trip.count326 = zext nneg i32 %10 to i64
   br label %58
 
@@ -1350,22 +1350,22 @@ define internal void @get_input(ptr noundef readonly captures(none) %0, ptr noun
   %52 = zext nneg i32 %51 to i64
   %53 = zext nneg i32 %5 to i64
   %wide.trip.count344 = zext nneg i32 %12 to i64
-  %invariant.gep382 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %1, i64 %52
+  %invariant.gep386 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %1, i64 %52
   br label %.preheader232.us
 
 .preheader232.us:                                 ; preds = %.preheader232.us.preheader, %._crit_edge274.us
   %indvars.iv341 = phi i64 [ 0, %.preheader232.us.preheader ], [ %indvars.iv.next342, %._crit_edge274.us ]
   %54 = mul nuw nsw i64 %indvars.iv341, %53
-  %invariant.gep384 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %1, i64 %54
+  %invariant.gep388 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %1, i64 %54
   br label %55
 
 55:                                               ; preds = %.preheader232.us, %55
   %indvars.iv336 = phi i64 [ 0, %.preheader232.us ], [ %indvars.iv.next337, %55 ]
-  %gep383 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %invariant.gep382, i64 %indvars.iv336
-  %56 = load float, ptr %gep383, align 4, !tbaa !86
-  %gep385 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %invariant.gep384, i64 %indvars.iv336
-  store float %56, ptr %gep385, align 4, !tbaa !86
-  %57 = getelementptr inbounds nuw i8, ptr %gep385, i64 4
+  %gep387 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %invariant.gep386, i64 %indvars.iv336
+  %56 = load float, ptr %gep387, align 4, !tbaa !86
+  %gep389 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %invariant.gep388, i64 %indvars.iv336
+  store float %56, ptr %gep389, align 4, !tbaa !86
+  %57 = getelementptr inbounds nuw i8, ptr %gep389, i64 4
   store float 0.000000e+00, ptr %57, align 4, !tbaa !88
   %indvars.iv.next337 = add nuw nsw i64 %indvars.iv336, 1
   %exitcond340.not = icmp eq i64 %indvars.iv.next337, %53
@@ -1385,7 +1385,7 @@ define internal void @get_input(ptr noundef readonly captures(none) %0, ptr noun
 .lr.ph262:                                        ; preds = %58
   %61 = add nsw i64 %indvars.iv331, %47
   %62 = mul nsw i64 %61, %45
-  %gep379 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep378, i64 %62
+  %gep383 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep382, i64 %62
   br label %65
 
 .preheader234:                                    ; preds = %65, %58
@@ -1394,9 +1394,9 @@ define internal void @get_input(ptr noundef readonly captures(none) %0, ptr noun
 .lr.ph264:                                        ; preds = %.preheader234
   %63 = add nsw i64 %indvars.iv331, %47
   %64 = mul nsw i64 %63, %45
-  %gep381 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep380, i64 %64
-  %.pre355 = load float, ptr %gep381, align 4, !tbaa !86
-  %invariant.gep374 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %64
+  %gep385 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep384, i64 %64
+  %.pre355 = load float, ptr %gep385, align 4, !tbaa !86
+  %invariant.gep378 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %64
   br label %72
 
 65:                                               ; preds = %.lr.ph262, %65
@@ -1405,7 +1405,7 @@ define internal void @get_input(ptr noundef readonly captures(none) %0, ptr noun
   %67 = load i8, ptr %66, align 1, !tbaa !57
   %68 = uitofp i8 %67 to float
   %69 = fmul nsz float %7, %68
-  %70 = getelementptr %struct.AVComplexFloat, ptr %gep379, i64 %indvars.iv318
+  %70 = getelementptr %struct.AVComplexFloat, ptr %gep383, i64 %indvars.iv318
   store float %69, ptr %70, align 4, !tbaa !86
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store float 0.000000e+00, ptr %71, align 4, !tbaa !88
@@ -1415,9 +1415,9 @@ define internal void @get_input(ptr noundef readonly captures(none) %0, ptr noun
 
 72:                                               ; preds = %.lr.ph264, %72
   %indvars.iv323 = phi i64 [ 0, %.lr.ph264 ], [ %indvars.iv.next324, %72 ]
-  %gep375 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep374, i64 %indvars.iv323
-  store float %.pre355, ptr %gep375, align 4, !tbaa !86
-  %73 = getelementptr inbounds nuw i8, ptr %gep375, i64 4
+  %gep379 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep378, i64 %indvars.iv323
+  store float %.pre355, ptr %gep379, align 4, !tbaa !86
+  %73 = getelementptr inbounds nuw i8, ptr %gep379, i64 4
   store float 0.000000e+00, ptr %73, align 4, !tbaa !88
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
   %exitcond327.not = icmp eq i64 %indvars.iv.next324, %wide.trip.count326
@@ -1431,14 +1431,14 @@ define internal void @get_input(ptr noundef readonly captures(none) %0, ptr noun
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds %struct.AVComplexFloat, ptr %1, i64 %78
   %.pre356 = load float, ptr %79, align 4, !tbaa !86
-  %invariant.gep376 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %75
+  %invariant.gep380 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %75
   br label %80
 
 80:                                               ; preds = %.lr.ph268, %80
   %indvars.iv328 = phi i64 [ %44, %.lr.ph268 ], [ %indvars.iv.next329, %80 ]
-  %gep377 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep376, i64 %indvars.iv328
-  store float %.pre356, ptr %gep377, align 4, !tbaa !86
-  %81 = getelementptr inbounds nuw i8, ptr %gep377, i64 4
+  %gep381 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep380, i64 %indvars.iv328
+  store float %.pre356, ptr %gep381, align 4, !tbaa !86
+  %81 = getelementptr inbounds nuw i8, ptr %gep381, i64 4
   store float 0.000000e+00, ptr %81, align 4, !tbaa !88
   %indvars.iv.next329 = add nsw i64 %indvars.iv328, 1
   %82 = icmp slt i64 %indvars.iv.next329, %45
@@ -1460,22 +1460,22 @@ define internal void @get_input(ptr noundef readonly captures(none) %0, ptr noun
   %87 = sext i32 %83 to i64
   %88 = zext nneg i32 %5 to i64
   %wide.trip.count349 = zext nneg i32 %5 to i64
-  %invariant.gep386 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %86
+  %invariant.gep390 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %86
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge279.us
   %indvars.iv351 = phi i64 [ %87, %.preheader.us.preheader ], [ %indvars.iv.next352, %._crit_edge279.us ]
   %89 = mul nsw i64 %indvars.iv351, %88
-  %invariant.gep388 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %89
+  %invariant.gep392 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %89
   br label %90
 
 90:                                               ; preds = %.preheader.us, %90
   %indvars.iv346 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next347, %90 ]
-  %gep387 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep386, i64 %indvars.iv346
-  %91 = load float, ptr %gep387, align 4, !tbaa !86
-  %gep389 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep388, i64 %indvars.iv346
-  store float %91, ptr %gep389, align 4, !tbaa !86
-  %92 = getelementptr inbounds nuw i8, ptr %gep389, i64 4
+  %gep391 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep390, i64 %indvars.iv346
+  %91 = load float, ptr %gep391, align 4, !tbaa !86
+  %gep393 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep392, i64 %indvars.iv346
+  store float %91, ptr %gep393, align 4, !tbaa !86
+  %92 = getelementptr inbounds nuw i8, ptr %gep393, i64 4
   store float 0.000000e+00, ptr %92, align 4, !tbaa !88
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %exitcond350.not = icmp eq i64 %indvars.iv.next347, %wide.trip.count349
@@ -1489,30 +1489,30 @@ define internal void @get_input(ptr noundef readonly captures(none) %0, ptr noun
 .preheader239:                                    ; preds = %._crit_edge248, %.preheader241
   %94 = icmp sgt i32 %11, 1
   %95 = icmp sgt i32 %5, 0
-  %or.cond391 = and i1 %94, %95
-  br i1 %or.cond391, label %.preheader238.us.preheader, label %.loopexit
+  %or.cond395 = and i1 %94, %95
+  br i1 %or.cond395, label %.preheader238.us.preheader, label %.loopexit
 
 .preheader238.us.preheader:                       ; preds = %.preheader239
   %96 = mul nuw nsw i32 %12, %5
   %97 = zext nneg i32 %96 to i64
   %98 = zext nneg i32 %5 to i64
   %wide.trip.count308 = zext nneg i32 %12 to i64
-  %invariant.gep366 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %1, i64 %97
+  %invariant.gep370 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %1, i64 %97
   br label %.preheader238.us
 
 .preheader238.us:                                 ; preds = %.preheader238.us.preheader, %._crit_edge253.us
   %indvars.iv305 = phi i64 [ 0, %.preheader238.us.preheader ], [ %indvars.iv.next306, %._crit_edge253.us ]
   %99 = mul nuw nsw i64 %indvars.iv305, %98
-  %invariant.gep368 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %1, i64 %99
+  %invariant.gep372 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %1, i64 %99
   br label %100
 
 100:                                              ; preds = %.preheader238.us, %100
   %indvars.iv300 = phi i64 [ 0, %.preheader238.us ], [ %indvars.iv.next301, %100 ]
-  %gep367 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %invariant.gep366, i64 %indvars.iv300
-  %101 = load float, ptr %gep367, align 4, !tbaa !86
-  %gep369 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %invariant.gep368, i64 %indvars.iv300
-  store float %101, ptr %gep369, align 4, !tbaa !86
-  %102 = getelementptr inbounds nuw i8, ptr %gep369, i64 4
+  %gep371 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %invariant.gep370, i64 %indvars.iv300
+  %101 = load float, ptr %gep371, align 4, !tbaa !86
+  %gep373 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %invariant.gep372, i64 %indvars.iv300
+  store float %101, ptr %gep373, align 4, !tbaa !86
+  %102 = getelementptr inbounds nuw i8, ptr %gep373, i64 4
   store float 0.000000e+00, ptr %102, align 4, !tbaa !88
   %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
   %exitcond304.not = icmp eq i64 %indvars.iv.next301, %98
@@ -1532,7 +1532,7 @@ define internal void @get_input(ptr noundef readonly captures(none) %0, ptr noun
 .lr.ph:                                           ; preds = %103
   %106 = add nsw i64 %indvars.iv295, %31
   %107 = mul nsw i64 %106, %29
-  %gep363 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep362, i64 %107
+  %gep367 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep366, i64 %107
   br label %110
 
 .preheader240:                                    ; preds = %110, %103
@@ -1541,8 +1541,8 @@ define internal void @get_input(ptr noundef readonly captures(none) %0, ptr noun
 .lr.ph244:                                        ; preds = %.preheader240
   %108 = add nsw i64 %indvars.iv295, %31
   %109 = mul nsw i64 %108, %29
-  %gep365 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep364, i64 %109
-  %.pre = load float, ptr %gep365, align 4, !tbaa !86
+  %gep369 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep368, i64 %109
+  %.pre = load float, ptr %gep369, align 4, !tbaa !86
   %invariant.gep = getelementptr %struct.AVComplexFloat, ptr %1, i64 %109
   br label %117
 
@@ -1552,7 +1552,7 @@ define internal void @get_input(ptr noundef readonly captures(none) %0, ptr noun
   %112 = load i16, ptr %111, align 2, !tbaa !98
   %113 = uitofp i16 %112 to float
   %114 = fmul nsz float %7, %113
-  %115 = getelementptr %struct.AVComplexFloat, ptr %gep363, i64 %indvars.iv
+  %115 = getelementptr %struct.AVComplexFloat, ptr %gep367, i64 %indvars.iv
   store float %114, ptr %115, align 4, !tbaa !86
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   store float 0.000000e+00, ptr %116, align 4, !tbaa !88
@@ -1578,14 +1578,14 @@ define internal void @get_input(ptr noundef readonly captures(none) %0, ptr noun
   %123 = sext i32 %122 to i64
   %124 = getelementptr inbounds %struct.AVComplexFloat, ptr %1, i64 %123
   %.pre354 = load float, ptr %124, align 4, !tbaa !86
-  %invariant.gep360 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %120
+  %invariant.gep364 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %120
   br label %125
 
 125:                                              ; preds = %.lr.ph247, %125
   %indvars.iv292 = phi i64 [ %28, %.lr.ph247 ], [ %indvars.iv.next293, %125 ]
-  %gep361 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep360, i64 %indvars.iv292
-  store float %.pre354, ptr %gep361, align 4, !tbaa !86
-  %126 = getelementptr inbounds nuw i8, ptr %gep361, i64 4
+  %gep365 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep364, i64 %indvars.iv292
+  store float %.pre354, ptr %gep365, align 4, !tbaa !86
+  %126 = getelementptr inbounds nuw i8, ptr %gep365, i64 4
   store float 0.000000e+00, ptr %126, align 4, !tbaa !88
   %indvars.iv.next293 = add nsw i64 %indvars.iv292, 1
   %127 = icmp slt i64 %indvars.iv.next293, %29
@@ -1607,22 +1607,22 @@ define internal void @get_input(ptr noundef readonly captures(none) %0, ptr noun
   %132 = sext i32 %128 to i64
   %133 = zext nneg i32 %5 to i64
   %wide.trip.count313 = zext nneg i32 %5 to i64
-  %invariant.gep370 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %131
+  %invariant.gep374 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %131
   br label %.preheader236.us
 
 .preheader236.us:                                 ; preds = %.preheader236.us.preheader, %._crit_edge258.us
   %indvars.iv315 = phi i64 [ %132, %.preheader236.us.preheader ], [ %indvars.iv.next316, %._crit_edge258.us ]
   %134 = mul nsw i64 %indvars.iv315, %133
-  %invariant.gep372 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %134
+  %invariant.gep376 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %134
   br label %135
 
 135:                                              ; preds = %.preheader236.us, %135
   %indvars.iv310 = phi i64 [ 0, %.preheader236.us ], [ %indvars.iv.next311, %135 ]
-  %gep371 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep370, i64 %indvars.iv310
-  %136 = load float, ptr %gep371, align 4, !tbaa !86
-  %gep373 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep372, i64 %indvars.iv310
-  store float %136, ptr %gep373, align 4, !tbaa !86
-  %137 = getelementptr inbounds nuw i8, ptr %gep373, i64 4
+  %gep375 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep374, i64 %indvars.iv310
+  %136 = load float, ptr %gep375, align 4, !tbaa !86
+  %gep377 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep376, i64 %indvars.iv310
+  store float %136, ptr %gep377, align 4, !tbaa !86
+  %137 = getelementptr inbounds nuw i8, ptr %gep377, i64 4
   store float 0.000000e+00, ptr %137, align 4, !tbaa !88
   %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
   %exitcond314.not = icmp eq i64 %indvars.iv.next311, %wide.trip.count313
@@ -2380,7 +2380,7 @@ define internal void @get_zeropadded_input(ptr noundef readonly captures(none) %
 
 .lr.ph268:                                        ; preds = %93
   %101 = mul nsw i64 %indvars.iv352, %83
-  %invariant.gep389 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %101
+  %invariant.gep397 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %101
   br label %102
 
 .preheader205:                                    ; preds = %102, %93
@@ -2397,9 +2397,9 @@ define internal void @get_zeropadded_input(ptr noundef readonly captures(none) %
   %105 = uitofp i8 %104 to float
   %106 = fsub nsz float %105, %66
   %107 = fmul nsz float %68, %106
-  %gep390 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep389, i64 %indvars.iv343
-  store float %107, ptr %gep390, align 4, !tbaa !86
-  %108 = getelementptr inbounds nuw i8, ptr %gep390, i64 4
+  %gep398 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep397, i64 %indvars.iv343
+  store float %107, ptr %gep398, align 4, !tbaa !86
+  %108 = getelementptr inbounds nuw i8, ptr %gep398, i64 4
   store float 0.000000e+00, ptr %108, align 4, !tbaa !88
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %exitcond347.not = icmp eq i64 %indvars.iv.next344, %wide.trip.count346
@@ -2461,9 +2461,9 @@ define internal void @get_zeropadded_input(ptr noundef readonly captures(none) %
   br label %.lr.ph236
 
 .lr.ph236:                                        ; preds = %._crit_edge225, %._crit_edge225.thread
-  %.sink397 = phi float [ %131, %._crit_edge225 ], [ %130, %._crit_edge225.thread ]
+  %.sink405 = phi float [ %131, %._crit_edge225 ], [ %130, %._crit_edge225.thread ]
   %132 = phi float [ %111, %._crit_edge225 ], [ %129, %._crit_edge225.thread ]
-  %133 = tail call nsz float @llvm.sqrt.f32(float %.sink397)
+  %133 = tail call nsz float @llvm.sqrt.f32(float %.sink405)
   %134 = fdiv nsz float %7, %133
   %135 = sext i32 %6 to i64
   %136 = getelementptr inbounds [8 x ptr], ptr %2, i64 0, i64 %135
@@ -2487,8 +2487,8 @@ define internal void @get_zeropadded_input(ptr noundef readonly captures(none) %
 .preheader208:                                    ; preds = %._crit_edge, %.preheader211
   %150 = icmp slt i32 %4, %5
   %151 = icmp sgt i32 %5, 0
-  %or.cond391 = and i1 %150, %151
-  br i1 %or.cond391, label %.preheader207.us.preheader, label %.loopexit
+  %or.cond399 = and i1 %150, %151
+  br i1 %or.cond399, label %.preheader207.us.preheader, label %.loopexit
 
 .preheader207.us.preheader:                       ; preds = %.preheader208
   %152 = zext nneg i32 %5 to i64
@@ -2643,13 +2643,13 @@ define internal void @get_xoutput(ptr noundef readonly captures(none) %0, ptr no
   %46 = mul nsw i64 %indvars.iv68, %45
   %47 = getelementptr inbounds i8, ptr %43, i64 %46
   %48 = mul nsw i64 %indvars.iv68, %42
-  %invariant.gep74 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %48
+  %invariant.gep76 = getelementptr %struct.AVComplexFloat, ptr %1, i64 %48
   br label %49
 
 49:                                               ; preds = %.lr.ph.us52, %49
   %indvars.iv63 = phi i64 [ 0, %.lr.ph.us52 ], [ %indvars.iv.next64, %49 ]
-  %gep75 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep74, i64 %indvars.iv63
-  %50 = load float, ptr %gep75, align 4, !tbaa !86
+  %gep77 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep76, i64 %indvars.iv63
+  %50 = load float, ptr %gep77, align 4, !tbaa !86
   %51 = fmul nsz float %14, %50
   %52 = fptosi float %51 to i32
   %.not.i.us = icmp ult i32 %52, 256

@@ -2057,25 +2057,25 @@ define internal i32 @dissect_pcep_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %50
 
 50:                                               ; preds = %.thread.i.i, %40
-  %.sink98.i.i = phi ptr [ %48, %.thread.i.i ], [ %44, %40 ]
+  %.sink100.i.i = phi ptr [ %48, %.thread.i.i ], [ %44, %40 ]
   %hf_pcep_object_type.sink.i.i = phi ptr [ @hf_pcep_object_type, %.thread.i.i ], [ %.sroa.7.0.copyload.i.i, %40 ]
   %51 = phi i1 [ false, %.thread.i.i ], [ true, %40 ]
   %.sroa.9.088.i.i = phi ptr [ %.sroa.9.089.i.i, %.thread.i.i ], [ %.sroa.9.0.copyload.i.i, %40 ]
   %.0.i.i = phi ptr [ %46, %.thread.i.i ], [ %42, %40 ]
   %52 = load i32, ptr @hf_PCEPF_OBJECT_CLASS, align 4
-  %53 = tail call ptr @proto_tree_add_uint(ptr noundef %.sink98.i.i, i32 noundef %52, ptr noundef %0, i32 noundef %.08190.i.i, i32 noundef 1, i32 noundef %35)
+  %53 = tail call ptr @proto_tree_add_uint(ptr noundef %.sink100.i.i, i32 noundef %52, ptr noundef %0, i32 noundef %.08190.i.i, i32 noundef 1, i32 noundef %35)
   %54 = load i32, ptr %hf_pcep_object_type.sink.i.i, align 4
   %55 = add i32 %.08190.i.i, 1
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %.sink98.i.i, i32 noundef %54, ptr noundef %0, i32 noundef %55, i32 noundef 1, i32 noundef 0)
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %.sink100.i.i, i32 noundef %54, ptr noundef %0, i32 noundef %55, i32 noundef 1, i32 noundef 0)
   %57 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %55)
   %58 = lshr i8 %57, 4
   %59 = zext nneg i8 %58 to i32
   %60 = load i32, ptr @hf_pcep_hdr_obj_flags, align 4
   %61 = load i32, ptr @ett_pcep_hdr, align 4
-  %62 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.sink98.i.i, ptr noundef %0, i32 noundef %55, i32 noundef %60, i32 noundef %61, ptr noundef nonnull @dissect_pcep_obj_tree.pcep_hdr_obj_flags, i32 noundef 0)
+  %62 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.sink100.i.i, ptr noundef %0, i32 noundef %55, i32 noundef %60, i32 noundef %61, ptr noundef nonnull @dissect_pcep_obj_tree.pcep_hdr_obj_flags, i32 noundef 0)
   %63 = load i32, ptr @hf_pcep_object_length, align 4
   %64 = add i32 %.08190.i.i, 2
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef %.sink98.i.i, i32 noundef %63, ptr noundef %0, i32 noundef %64, i32 noundef 2, i32 noundef 0)
+  %65 = tail call ptr @proto_tree_add_item(ptr noundef %.sink100.i.i, i32 noundef %63, ptr noundef %0, i32 noundef %64, i32 noundef 2, i32 noundef 0)
   %66 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %64)
   %67 = zext i16 %66 to i32
   tail call void @proto_item_set_len(ptr noundef %.0.i.i, i32 noundef %67)
@@ -2083,7 +2083,7 @@ define internal i32 @dissect_pcep_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %50
-  %70 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.sink98.i.i, ptr noundef nonnull @ei_pcep_object_length, ptr noundef nonnull @.str.1136, i32 noundef %67)
+  %70 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.sink100.i.i, ptr noundef nonnull @ei_pcep_object_length, ptr noundef nonnull @.str.1136, i32 noundef %67)
   br label %dissect_pcep_msg_tree.exit
 
 71:                                               ; preds = %50
@@ -2093,12 +2093,12 @@ define internal i32 @dissect_pcep_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %or.cond5.i.i, label %74, label %75
 
 74:                                               ; preds = %71
-  tail call void %.sroa.9.088.i.i(ptr noundef %.sink98.i.i, ptr noundef %1, ptr noundef %0, i32 noundef %73, i32 noundef %67, i32 noundef %35, i32 noundef %59)
+  tail call void %.sroa.9.088.i.i(ptr noundef %.sink100.i.i, ptr noundef %1, ptr noundef %0, i32 noundef %73, i32 noundef %67, i32 noundef %35, i32 noundef %59)
   br label %78
 
 75:                                               ; preds = %71
   %76 = add nsw i32 %67, -4
-  %77 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.sink98.i.i, ptr noundef %1, ptr noundef nonnull @ei_pcep_pcep_object_body_non_defined, ptr noundef %0, i32 noundef %73, i32 noundef %76, ptr noundef nonnull @.str.1137, i32 noundef %59)
+  %77 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.sink100.i.i, ptr noundef %1, ptr noundef nonnull @ei_pcep_pcep_object_body_non_defined, ptr noundef %0, i32 noundef %73, i32 noundef %76, ptr noundef nonnull @.str.1137, i32 noundef %59)
   br label %78
 
 78:                                               ; preds = %75, %74
@@ -3621,7 +3621,7 @@ define internal void @dissect_pcep_obj_unreach_destination(ptr noundef %0, ptr n
   %19 = load i32, ptr @hf_pcep_unreach_destination_obj_ipv6_address, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %19, ptr noundef %2, i32 noundef %.03441.us46, i32 noundef 16, i32 noundef 0)
   %21 = add i32 %.03441.us46, %switch.select
-  %22 = sub nsw i32 %.042.us45, %switch.select
+  %22 = sub nuw nsw i32 %.042.us45, %switch.select
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %.loopexit, label %.lr.ph.split.us44, !llvm.loop !17
 
@@ -3875,12 +3875,12 @@ define internal void @dissect_pcep_association_obj(ptr noundef %0, ptr noundef %
 
 39:                                               ; preds = %17, %35
   %hf_pcep_association_source_ipv6.sink = phi ptr [ @hf_pcep_association_source_ipv6, %35 ], [ @hf_pcep_association_source_ipv4, %17 ]
-  %.sink66 = phi i32 [ 16, %35 ], [ 4, %17 ]
-  %.sink64 = phi i32 [ 24, %35 ], [ 12, %17 ]
+  %.sink67 = phi i32 [ 16, %35 ], [ 4, %17 ]
+  %.sink65 = phi i32 [ 24, %35 ], [ 12, %17 ]
   %.sink = phi i32 [ -28, %35 ], [ -16, %17 ]
   %40 = load i32, ptr %hf_pcep_association_source_ipv6.sink, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %40, ptr noundef %2, i32 noundef %34, i32 noundef %.sink66, i32 noundef 0)
-  %42 = add i32 %3, %.sink64
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %40, ptr noundef %2, i32 noundef %34, i32 noundef %.sink67, i32 noundef 0)
+  %42 = add i32 %3, %.sink65
   %43 = add i32 %4, %.sink
   %44 = load i32, ptr @ett_pcep_obj_association, align 4
   tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %42, i32 noundef %43, i32 noundef %44, i16 noundef zeroext %30)

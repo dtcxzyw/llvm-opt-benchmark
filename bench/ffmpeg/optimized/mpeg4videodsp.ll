@@ -23,7 +23,7 @@ define void @ff_gmc_c(ptr noundef writeonly captures(none) %0, ptr noundef reado
   %.0131 = phi i32 [ %4, %.preheader.lr.ph ], [ %117, %116 ]
   %.0109130 = phi i32 [ %5, %.preheader.lr.ph ], [ %118, %116 ]
   %22 = mul nsw i64 %indvars.iv133, %21
-  %invariant.gep137.sink = getelementptr i8, ptr %0, i64 %22
+  %invariant.gep143.sink = getelementptr i8, ptr %0, i64 %22
   br label %23
 
 23:                                               ; preds = %.preheader, %113
@@ -141,8 +141,8 @@ define void @ff_gmc_c(ptr noundef writeonly captures(none) %0, ptr noundef reado
 
 113:                                              ; preds = %86, %106, %33, %65
   %.sink = phi i8 [ %105, %86 ], [ %112, %106 ], [ %64, %33 ], [ %83, %65 ]
-  %gep138 = getelementptr i8, ptr %invariant.gep137.sink, i64 %indvars.iv
-  store i8 %.sink, ptr %gep138, align 1, !tbaa !4
+  %gep144 = getelementptr i8, ptr %invariant.gep143.sink, i64 %indvars.iv
+  store i8 %.sink, ptr %gep144, align 1, !tbaa !4
   %114 = add nsw i32 %.0112126, %6
   %115 = add nsw i32 %.0111127, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

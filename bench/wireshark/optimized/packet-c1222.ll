@@ -2112,11 +2112,11 @@ define internal fastcc zeroext i1 @decrypt_packet(ptr noundef %0, i32 noundef %1
 30:                                               ; preds = %.thread.i
   %31 = getelementptr inbounds nuw i8, ptr %.03135.i, i64 2
   %32 = load i8, ptr %31, align 2
-  %33 = add i32 %.0, 1
-  %34 = zext i32 %.0 to i64
+  %33 = add nuw nsw i32 %.0, 1
+  %34 = zext nneg i32 %.0 to i64
   %35 = getelementptr i8, ptr %4, i64 %34
   store i8 %32, ptr %35, align 1
-  %36 = zext i32 %33 to i64
+  %36 = zext nneg i32 %33 to i64
   %37 = getelementptr i8, ptr %4, i64 %36
   %38 = icmp ugt i32 %17, 127
   %spec.select.i.i.i = select i1 %38, i32 2, i32 1
@@ -2167,7 +2167,7 @@ define internal fastcc zeroext i1 @decrypt_packet(ptr noundef %0, i32 noundef %1
 
 encode_ber_len.exit.i:                            ; preds = %.lr.ph.i.i, %51, %48, %30
   %.0.i.i = phi i32 [ 0, %30 ], [ 1, %48 ], [ %.3.i.i.i, %51 ], [ %.3.i.i.i, %.lr.ph.i.i ]
-  %60 = add i32 %.0.i.i, %33
+  %60 = add nuw nsw i32 %.0.i.i, %33
   br label %61
 
 61:                                               ; preds = %encode_ber_len.exit.i, %.thread.i
@@ -2202,7 +2202,7 @@ encode_ber_len.exit.i:                            ; preds = %.lr.ph.i.i, %51, %4
   br i1 %or.cond.i, label %canonify_unencrypted_header.exit.thread, label %79
 
 79:                                               ; preds = %75
-  %80 = zext i32 %.1 to i64
+  %80 = zext nneg i32 %.1 to i64
   %81 = getelementptr i8, ptr %4, i64 %80
   %82 = load ptr, ptr %14, align 8
   %83 = zext i32 %.030.i to i64

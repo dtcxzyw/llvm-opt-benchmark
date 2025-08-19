@@ -455,9 +455,9 @@ define dso_local range(i32 -1, 1) i32 @anetResolve(ptr noundef captures(address_
   %33 = load ptr, ptr %32, align 8, !tbaa !25
   %34 = trunc i64 %3 to i32
   %. = select i1 %31, i64 4, i64 8
-  %.30 = select i1 %31, i32 2, i32 10
+  %.32 = select i1 %31, i32 2, i32 10
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %.
-  %36 = call ptr @inet_ntop(i32 noundef %.30, ptr noundef nonnull %35, ptr noundef %2, i32 noundef %34) #11
+  %36 = call ptr @inet_ntop(i32 noundef %.32, ptr noundef nonnull %35, ptr noundef %2, i32 noundef %34) #11
   %37 = load ptr, ptr %7, align 8, !tbaa !24
   call void @freeaddrinfo(ptr noundef %37) #11
   br label %38
@@ -749,9 +749,9 @@ anetNonBlock.exit.thread:                         ; preds = %16, %14, %7
   br i1 %brmerge, label %.sink.split, label %30
 
 .sink.split:                                      ; preds = %24, %19
-  %.sink17 = phi i32 [ %21, %19 ], [ %26, %24 ]
+  %.sink19 = phi i32 [ %21, %19 ], [ %26, %24 ]
   %.str.9.sink = phi ptr [ %.str.1.sink.i.i, %19 ], [ @.str.9, %24 ]
-  %28 = call ptr @strerror(i32 noundef %.sink17) #11
+  %28 = call ptr @strerror(i32 noundef %.sink19) #11
   call void (ptr, ptr, ...) @anetSetError(ptr noundef %0, ptr noundef nonnull %.str.9.sink, ptr noundef %28)
   %29 = call i32 @close(i32 noundef %5) #11
   br label %30

@@ -1614,9 +1614,9 @@ define dso_local noundef i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed
   br label %52
 
 52:                                               ; preds = %50, %48, %45, %19
-  %.sink166.i = phi ptr [ %51, %50 ], [ null, %48 ], [ null, %45 ], [ null, %19 ]
+  %.sink186.i = phi ptr [ %51, %50 ], [ null, %48 ], [ null, %45 ], [ null, %19 ]
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  store ptr %.sink166.i, ptr %53, align 8
+  store ptr %.sink186.i, ptr %53, align 8
   %54 = load ptr, ptr %12, align 8
   %.not142.i = icmp eq ptr %54, null
   br i1 %.not142.i, label %62, label %55
@@ -1637,9 +1637,9 @@ define dso_local noundef i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed
   br label %62
 
 62:                                               ; preds = %60, %58, %55, %52
-  %.sink168.i = phi ptr [ %61, %60 ], [ null, %58 ], [ null, %55 ], [ null, %52 ]
+  %.sink188.i = phi ptr [ %61, %60 ], [ null, %58 ], [ null, %55 ], [ null, %52 ]
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  store ptr %.sink168.i, ptr %63, align 8
+  store ptr %.sink188.i, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %65 = load ptr, ptr %64, align 8
   %.not145.i = icmp eq ptr %65, null
@@ -1661,9 +1661,9 @@ define dso_local noundef i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed
   br label %73
 
 73:                                               ; preds = %71, %69, %66, %62
-  %.sink170.i = phi ptr [ %72, %71 ], [ null, %69 ], [ null, %66 ], [ null, %62 ]
+  %.sink190.i = phi ptr [ %72, %71 ], [ null, %69 ], [ null, %66 ], [ null, %62 ]
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  store ptr %.sink170.i, ptr %74, align 8
+  store ptr %.sink190.i, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %76 = load i32, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -1747,9 +1747,9 @@ define dso_local noundef i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed
   br label %123
 
 123:                                              ; preds = %120, %99
-  %.sink172.i = phi i64 [ %122, %120 ], [ %101, %99 ]
+  %.sink192.i = phi i64 [ %122, %120 ], [ %101, %99 ]
   %124 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i64 %.sink172.i, ptr %124, align 8
+  store i64 %.sink192.i, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %126 = load ptr, ptr %125, align 8
   %127 = tail call ptr @slurm_xstrdup(ptr noundef %126) #10
@@ -1772,9 +1772,9 @@ define dso_local noundef i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed
   br label %138
 
 138:                                              ; preds = %135, %132, %123
-  %.sink174.i = phi i32 [ %137, %135 ], [ -2, %132 ], [ %130, %123 ]
+  %.sink194.i = phi i32 [ %137, %135 ], [ -2, %132 ], [ %130, %123 ]
   %139 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 %.sink174.i, ptr %139, align 8
+  store i32 %.sink194.i, ptr %139, align 8
   %140 = load ptr, ptr %12, align 8
   %.not152.i = icmp eq ptr %140, null
   br i1 %.not152.i, label %146, label %141
@@ -1845,9 +1845,9 @@ define dso_local noundef i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed
   br label %178
 
 178:                                              ; preds = %176, %174, %169
-  %.sink176.i = phi ptr [ %177, %176 ], [ null, %174 ], [ null, %169 ]
+  %.sink196.i = phi ptr [ %177, %176 ], [ null, %174 ], [ null, %169 ]
   %179 = getelementptr inbounds nuw i8, ptr %6, i64 184
-  store ptr %.sink176.i, ptr %179, align 8
+  store ptr %.sink196.i, ptr %179, align 8
   %180 = load ptr, ptr %12, align 8
   %.not158.i = icmp eq ptr %180, null
   br i1 %.not158.i, label %184, label %181

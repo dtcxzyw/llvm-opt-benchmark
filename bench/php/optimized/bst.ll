@@ -725,9 +725,9 @@ define hidden void @lexbor_bst_serialize_entry(ptr noundef readonly captures(add
   %21 = call i32 %1(ptr noundef nonnull @.str, i64 noundef 1, ptr noundef %2) #6
   %22 = add nuw i64 %.05564, 1
   %exitcond78.not = icmp eq i64 %22, %3
-  br i1 %exitcond78.not, label %.loopexit62.thread81, label %.lr.ph66
+  br i1 %exitcond78.not, label %.loopexit62.thread84, label %.lr.ph66
 
-.loopexit62.thread81:                             ; preds = %.lr.ph66
+.loopexit62.thread84:                             ; preds = %.lr.ph66
   %23 = call i32 %1(ptr noundef nonnull @.str.4, i64 noundef 8, ptr noundef %2) #6
   br label %.lr.ph69.preheader
 
@@ -736,7 +736,7 @@ define hidden void @lexbor_bst_serialize_entry(ptr noundef readonly captures(add
   %25 = tail call i32 %1(ptr noundef nonnull @.str.4, i64 noundef 8, ptr noundef %2) #6
   br i1 %.not74, label %._crit_edge70, label %.lr.ph69.preheader
 
-.lr.ph69.preheader:                               ; preds = %.loopexit62.thread81, %.loopexit62
+.lr.ph69.preheader:                               ; preds = %.loopexit62.thread84, %.loopexit62
   br label %.lr.ph69
 
 ._crit_edge70:                                    ; preds = %.lr.ph69, %.loopexit62.thread, %.loopexit62

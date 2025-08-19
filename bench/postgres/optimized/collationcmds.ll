@@ -116,16 +116,16 @@ define dso_local { i64, i32 } @DefineCollation(ptr noundef %0, ptr noundef %1, p
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %smax = call i32 @llvm.smax.i32(i32 %22, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
-  %exitcond.not241 = icmp slt i32 %22, 1
-  br i1 %exitcond.not241, label %.critedge, label %.lr.ph243.preheader
+  %exitcond.not246 = icmp slt i32 %22, 1
+  br i1 %exitcond.not246, label %.critedge, label %.lr.ph248.preheader
 
-.lr.ph243.preheader:                              ; preds = %.lr.ph
+.lr.ph248.preheader:                              ; preds = %.lr.ph
   %24 = load ptr, ptr %23, align 8
-  br label %.lr.ph243
+  br label %.lr.ph248
 
-.lr.ph243:                                        ; preds = %.lr.ph243.preheader, %64
-  %indvars.iv242 = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.lr.ph243.preheader ]
-  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv242
+.lr.ph248:                                        ; preds = %.lr.ph248.preheader, %64
+  %indvars.iv247 = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.lr.ph248.preheader ]
+  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv247
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
@@ -138,7 +138,7 @@ define dso_local { i64, i32 } @DefineCollation(ptr noundef %0, ptr noundef %1, p
   %.not161 = icmp eq ptr %.0..0..0..0.143.pre, null
   br i1 %.not161, label %73, label %65
 
-31:                                               ; preds = %.lr.ph243
+31:                                               ; preds = %.lr.ph248
   %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(7) @.str.1) #12
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %61, label %34
@@ -186,8 +186,8 @@ define dso_local { i64, i32 } @DefineCollation(ptr noundef %0, ptr noundef %1, p
   call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 112, ptr noundef nonnull @__func__.DefineCollation) #11
   unreachable
 
-61:                                               ; preds = %49, %46, %43, %40, %37, %34, %31, %.lr.ph243
-  %.0109 = phi ptr [ %6, %.lr.ph243 ], [ %7, %31 ], [ %8, %34 ], [ %9, %37 ], [ %10, %40 ], [ %11, %43 ], [ %12, %46 ], [ %13, %49 ]
+61:                                               ; preds = %49, %46, %43, %40, %37, %34, %31, %.lr.ph248
+  %.0109 = phi ptr [ %6, %.lr.ph248 ], [ %7, %31 ], [ %8, %34 ], [ %9, %37 ], [ %10, %40 ], [ %11, %43 ], [ %12, %46 ], [ %13, %49 ]
   %62 = load ptr, ptr %.0109, align 8
   %.not182 = icmp eq ptr %62, null
   br i1 %.not182, label %64, label %63
@@ -198,9 +198,9 @@ define dso_local { i64, i32 } @DefineCollation(ptr noundef %0, ptr noundef %1, p
 
 64:                                               ; preds = %61
   store ptr %26, ptr %.0109, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv242, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv247, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph243
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph248
 
 65:                                               ; preds = %.critedge
   %.0..0..0..0.140 = load ptr, ptr %8, align 8
@@ -225,9 +225,9 @@ define dso_local { i64, i32 } @DefineCollation(ptr noundef %0, ptr noundef %1, p
   br i1 %.not162, label %133, label %list_length.exit
 
 .thread:                                          ; preds = %20
-  %.0..0..0..0.148229 = load ptr, ptr %6, align 8
-  %.not162230 = icmp eq ptr %.0..0..0..0.148229, null
-  br i1 %.not162230, label %133, label %list_length.exit.thread
+  %.0..0..0..0.148234 = load ptr, ptr %6, align 8
+  %.not162235 = icmp eq ptr %.0..0..0..0.148234, null
+  br i1 %.not162235, label %133, label %list_length.exit.thread
 
 list_length.exit:                                 ; preds = %73
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -339,8 +339,8 @@ list_length.exit.thread:                          ; preds = %.thread, %list_leng
   br label %237
 
 133:                                              ; preds = %.thread, %73
-  %.0..0..0.143225232 = phi ptr [ null, %.thread ], [ %.0..0..0..0.143.pre, %73 ]
-  %.not161226231 = phi i1 [ true, %.thread ], [ %.not161, %73 ]
+  %.0..0..0.143230237 = phi ptr [ null, %.thread ], [ %.0..0..0..0.143.pre, %73 ]
+  %.not161231236 = phi i1 [ true, %.thread ], [ %.not161, %73 ]
   %.0..0..0..0.135 = load ptr, ptr %10, align 8
   %.not165 = icmp eq ptr %.0..0..0..0.135, null
   br i1 %.not165, label %136, label %134
@@ -413,14 +413,14 @@ list_length.exit.thread:                          ; preds = %.thread, %list_leng
   %162 = phi i1 [ false, %146 ], [ true, %149 ], [ false, %152 ], [ false, %145 ]
   %163 = phi i1 [ true, %146 ], [ false, %149 ], [ true, %152 ], [ true, %145 ]
   %.1126 = phi i8 [ 98, %146 ], [ 105, %149 ], [ 99, %152 ], [ 99, %145 ]
-  br i1 %.not161226231, label %168, label %164
+  br i1 %.not161231236, label %168, label %164
 
 164:                                              ; preds = %159
-  %165 = call ptr @defGetString(ptr noundef nonnull %.0..0..0.143225232) #11
+  %165 = call ptr @defGetString(ptr noundef nonnull %.0..0..0.143230237) #11
   br i1 %160, label %166, label %168
 
 166:                                              ; preds = %164
-  %167 = call ptr @defGetString(ptr noundef nonnull %.0..0..0.143225232) #11
+  %167 = call ptr @defGetString(ptr noundef nonnull %.0..0..0.143230237) #11
   br label %168
 
 168:                                              ; preds = %164, %166, %159
@@ -1019,17 +1019,17 @@ define dso_local i64 @pg_collation_actual_version(ptr noundef captures(none) %0)
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 76
   %39 = load i8, ptr %38, align 4
   %40 = icmp eq i8 %39, 99
-  %.41 = select i1 %40, i16 8, i16 10
-  %41 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 16, ptr noundef nonnull %27, i16 noundef signext %.41) #11
+  %.45 = select i1 %40, i16 8, i16 10
+  %41 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 16, ptr noundef nonnull %27, i16 noundef signext %.45) #11
   br label %42
 
 42:                                               ; preds = %32, %15
-  %.sink40 = phi i64 [ %41, %32 ], [ %24, %15 ]
-  %.sink38 = phi ptr [ %27, %32 ], [ %9, %15 ]
+  %.sink44 = phi i64 [ %41, %32 ], [ %24, %15 ]
+  %.sink42 = phi ptr [ %27, %32 ], [ %9, %15 ]
   %.025 = phi i8 [ %39, %32 ], [ %22, %15 ]
-  %43 = inttoptr i64 %.sink40 to ptr
+  %43 = inttoptr i64 %.sink44 to ptr
   %44 = tail call ptr @text_to_cstring(ptr noundef %43) #11
-  tail call void @ReleaseSysCache(ptr noundef nonnull %.sink38) #11
+  tail call void @ReleaseSysCache(ptr noundef nonnull %.sink42) #11
   %45 = tail call ptr @get_collation_actual_version(i8 noundef signext %.025, ptr noundef %44) #11
   %.not32 = icmp eq ptr %45, null
   br i1 %.not32, label %49, label %46
@@ -1294,7 +1294,7 @@ create_collation_from_locale.exit.thread:         ; preds = %60, %56, %58, %50, 
   br i1 %101, label %.lr.ph111.preheader, label %._crit_edge112
 
 .lr.ph111.preheader:                              ; preds = %.thread, %100
-  %.058.lcssa127134 = phi i64 [ %99, %.thread ], [ 1, %100 ]
+  %.058.lcssa133140 = phi i64 [ %99, %.thread ], [ 1, %100 ]
   br label %.lr.ph111
 
 .lr.ph111:                                        ; preds = %.lr.ph111.preheader, %113
@@ -1320,7 +1320,7 @@ create_collation_from_locale.exit.thread:         ; preds = %60, %56, %58, %50, 
 113:                                              ; preds = %111, %.lr.ph111
   %.391 = phi i32 [ %.290108, %.lr.ph111 ], [ %112, %111 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %.058.lcssa127134
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %.058.lcssa133140
   br i1 %exitcond.not, label %._crit_edge112, label %.lr.ph111, !llvm.loop !10
 
 ._crit_edge112:                                   ; preds = %113, %100
@@ -1328,7 +1328,7 @@ create_collation_from_locale.exit.thread:         ; preds = %60, %56, %58, %50, 
   br i1 %95, label %114, label %118
 
 114:                                              ; preds = %._crit_edge112.thread, %._crit_edge112
-  %.290.lcssa146 = phi i32 [ 0, %._crit_edge112.thread ], [ %.290.lcssa, %._crit_edge112 ]
+  %.290.lcssa152 = phi i32 [ 0, %._crit_edge112.thread ], [ %.290.lcssa, %._crit_edge112 ]
   %115 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
   br i1 %115, label %116, label %118
 
@@ -1338,7 +1338,7 @@ create_collation_from_locale.exit.thread:         ; preds = %60, %56, %58, %50, 
   br label %118
 
 118:                                              ; preds = %114, %116, %._crit_edge112
-  %.290.lcssa145 = phi i32 [ %.290.lcssa146, %114 ], [ %.290.lcssa146, %116 ], [ %.290.lcssa, %._crit_edge112 ]
+  %.290.lcssa151 = phi i32 [ %.290.lcssa152, %114 ], [ %.290.lcssa152, %116 ], [ %.290.lcssa, %._crit_edge112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %119 = call i32 @uloc_countAvailable_70() #11
   %120 = icmp sgt i32 %119, -1
@@ -1346,7 +1346,7 @@ create_collation_from_locale.exit.thread:         ; preds = %60, %56, %58, %50, 
 
 .lr.ph117:                                        ; preds = %118, %157
   %.066115 = phi i32 [ %158, %157 ], [ -1, %118 ]
-  %.4114 = phi i32 [ %.5, %157 ], [ %.290.lcssa145, %118 ]
+  %.4114 = phi i32 [ %.5, %157 ], [ %.290.lcssa151, %118 ]
   %121 = icmp eq i32 %.066115, -1
   br i1 %121, label %124, label %122
 
@@ -1450,7 +1450,7 @@ get_icu_locale_comment.exit:                      ; preds = %.preheader.i78
   br i1 %160, label %.lr.ph117, label %._crit_edge118, !llvm.loop !13
 
 ._crit_edge118:                                   ; preds = %157, %118
-  %.4.lcssa = phi i32 [ %.290.lcssa145, %118 ], [ %.5, %157 ]
+  %.4.lcssa = phi i32 [ %.290.lcssa151, %118 ], [ %.5, %157 ]
   %161 = sext i32 %.4.lcssa to i64
   ret i64 %161
 }

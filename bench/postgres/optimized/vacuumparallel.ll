@@ -50,8 +50,8 @@ define dso_local ptr @parallel_vacuum_init(ptr noundef %0, ptr noundef %1, i32 n
   %13 = icmp ne i32 %12, 0
   %or.cond.not.i = select i1 %11, i1 %13, i1 false
   %14 = icmp sgt i32 %2, 0
-  %or.cond48.i = and i1 %14, %or.cond.not.i
-  br i1 %or.cond48.i, label %.lr.ph.preheader.i, label %parallel_vacuum_compute_workers.exit.thread
+  %or.cond50.i = and i1 %14, %or.cond.not.i
+  br i1 %or.cond50.i, label %.lr.ph.preheader.i, label %parallel_vacuum_compute_workers.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %7
   %wide.trip.count.i = zext nneg i32 %2 to i64

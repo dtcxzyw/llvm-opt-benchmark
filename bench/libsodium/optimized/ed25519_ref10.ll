@@ -4993,8 +4993,8 @@ slide_vartime.exit54:                             ; preds = %.loopexit56.i32
 
 503:                                              ; preds = %500
   %504 = add nsw i32 %.0173, -1
-  %.not186 = icmp eq i32 %.0173, 0
-  br i1 %.not186, label %._crit_edge, label %496, !llvm.loop !25
+  %.not194 = icmp eq i32 %.0173, 0
+  br i1 %.not194, label %._crit_edge, label %496, !llvm.loop !25
 
 505:                                              ; preds = %496, %500
   %506 = icmp sgt i32 %.0173, -1

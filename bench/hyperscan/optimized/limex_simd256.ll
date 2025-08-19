@@ -7517,7 +7517,7 @@ limexRunReports.exit.i98:                         ; preds = %178, %172
   br label %.thread
 
 .thread:                                          ; preds = %184, %limexRunReports.exit.i98, %156
-  %.3132 = phi i32 [ %.1130, %156 ], [ %.1130, %limexRunReports.exit.i98 ], [ %spec.select, %184 ]
+  %.3132 = phi i32 [ %.1130, %156 ], [ 0, %limexRunReports.exit.i98 ], [ %spec.select, %184 ]
   %.sroa.4120.6 = phi ptr [ %.sroa.4120.3, %156 ], [ %.sroa.4120.3, %limexRunReports.exit.i98 ], [ %spec.select188, %184 ]
   %186 = load <4 x i64>, ptr %34, align 32
   %187 = getelementptr inbounds nuw i8, ptr %169, i64 32

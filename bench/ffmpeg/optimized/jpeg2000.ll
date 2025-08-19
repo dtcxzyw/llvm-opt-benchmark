@@ -1354,11 +1354,11 @@ define void @ff_jpeg2000_cleanup(ptr noundef %0, ptr noundef readonly captures(n
   br i1 %26, label %._crit_edge54, label %.lr.ph53.split
 
 .lr.ph53.splitthread-pre-split:                   ; preds = %46
-  %.pr77 = load ptr, ptr %24, align 8, !tbaa !78
+  %.pr82 = load ptr, ptr %24, align 8, !tbaa !78
   br label %.lr.ph53.split
 
 .lr.ph53.split:                                   ; preds = %.lr.ph53, %.lr.ph53.splitthread-pre-split
-  %27 = phi ptr [ %.pr77, %.lr.ph53.splitthread-pre-split ], [ %25, %.lr.ph53 ]
+  %27 = phi ptr [ %.pr82, %.lr.ph53.splitthread-pre-split ], [ %25, %.lr.ph53 ]
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.lr.ph53.splitthread-pre-split ], [ 0, %.lr.ph53 ]
   %.not48 = icmp eq ptr %27, null
   br i1 %.not48, label %46, label %28
@@ -1505,8 +1505,8 @@ tag_tree_size.exit:                               ; preds = %12
 
 tag_tree_size.exit.thread:                        ; preds = %2
   %23 = tail call noalias ptr @av_calloc(i64 noundef 1, i64 noundef 16) #8
-  %.not55 = icmp eq ptr %23, null
-  br i1 %.not55, label %51, label %._crit_edge
+  %.not56 = icmp eq ptr %23, null
+  br i1 %.not56, label %51, label %._crit_edge
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph
   %24 = icmp sgt i32 %28, 1

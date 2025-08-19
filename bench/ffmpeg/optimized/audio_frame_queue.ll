@@ -240,16 +240,16 @@ ff_samples_to_time_base.exit:                     ; preds = %19, %21
 45:                                               ; preds = %42, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not73 = icmp eq i32 %38, 0
-  br i1 %.not73, label %.critedge.split.loop.exit117, label %32, !llvm.loop !47
+  br i1 %.not73, label %.critedge.split.loop.exit123, label %32, !llvm.loop !47
 
-.critedge.split.loop.exit117:                     ; preds = %45
+.critedge.split.loop.exit123:                     ; preds = %45
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %32, %.critedge.split.loop.exit117
-  %.060.lcssa = phi i32 [ %39, %.critedge.split.loop.exit117 ], [ %.06091, %32 ]
-  %.059.lcssa = phi i32 [ %indvars.le, %.critedge.split.loop.exit117 ], [ %30, %32 ]
-  %.0.lcssa = phi i32 [ 0, %.critedge.split.loop.exit117 ], [ %.093, %32 ]
+.critedge:                                        ; preds = %32, %.critedge.split.loop.exit123
+  %.060.lcssa = phi i32 [ %39, %.critedge.split.loop.exit123 ], [ %.06091, %32 ]
+  %.059.lcssa = phi i32 [ %indvars.le, %.critedge.split.loop.exit123 ], [ %30, %32 ]
+  %.0.lcssa = phi i32 [ 0, %.critedge.split.loop.exit123 ], [ %.093, %32 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %47 = load i32, ptr %46, align 4, !tbaa !32
   %48 = sub nsw i32 %47, %.060.lcssa
@@ -259,9 +259,9 @@ ff_samples_to_time_base.exit:                     ; preds = %19, %21
 
 .critedge._crit_edge:                             ; preds = %.critedge.thread, %.critedge
   %49 = phi ptr [ %29, %.critedge.thread ], [ %46, %.critedge ]
-  %.not73.lcssa116 = phi i1 [ true, %.critedge.thread ], [ %exitcond.not.not.not.not, %.critedge ]
-  %.0.lcssa114 = phi i32 [ 0, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
-  %.060.lcssa110 = phi i32 [ 0, %.critedge.thread ], [ %.060.lcssa, %.critedge ]
+  %.not73.lcssa122 = phi i1 [ true, %.critedge.thread ], [ %exitcond.not.not.not.not, %.critedge ]
+  %.0.lcssa120 = phi i32 [ 0, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
+  %.060.lcssa116 = phi i32 [ 0, %.critedge.thread ], [ %.060.lcssa, %.critedge ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !34
   br label %59
@@ -280,9 +280,9 @@ ff_samples_to_time_base.exit:                     ; preds = %19, %21
 
 59:                                               ; preds = %.critedge._crit_edge, %50
   %60 = phi ptr [ %49, %.critedge._crit_edge ], [ %46, %50 ]
-  %.not73.lcssa115 = phi i1 [ %.not73.lcssa116, %.critedge._crit_edge ], [ %exitcond.not.not.not.not, %50 ]
-  %.0.lcssa113 = phi i32 [ %.0.lcssa114, %.critedge._crit_edge ], [ %.0.lcssa, %50 ]
-  %.060.lcssa109 = phi i32 [ %.060.lcssa110, %.critedge._crit_edge ], [ %.060.lcssa, %50 ]
+  %.not73.lcssa121 = phi i1 [ %.not73.lcssa122, %.critedge._crit_edge ], [ %exitcond.not.not.not.not, %50 ]
+  %.0.lcssa119 = phi i32 [ %.0.lcssa120, %.critedge._crit_edge ], [ %.0.lcssa, %50 ]
+  %.060.lcssa115 = phi i32 [ %.060.lcssa116, %.critedge._crit_edge ], [ %.060.lcssa, %50 ]
   %61 = phi ptr [ %.pre, %.critedge._crit_edge ], [ %52, %50 ]
   %62 = phi i32 [ 0, %.critedge._crit_edge ], [ %58, %50 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -296,7 +296,7 @@ ff_samples_to_time_base.exit:                     ; preds = %19, %21
   %70 = load i32, ptr %5, align 8, !tbaa !33
   %71 = sub i32 %70, %62
   store i32 %71, ptr %5, align 8, !tbaa !33
-  br i1 %.not73.lcssa115, label %89, label %72
+  br i1 %.not73.lcssa121, label %89, label %72
 
 72:                                               ; preds = %59
   %.not76 = icmp eq i32 %70, %62
@@ -330,14 +330,14 @@ ff_samples_to_time_base.exit:                     ; preds = %19, %21
   br i1 %.not78, label %87, label %84
 
 84:                                               ; preds = %82
-  %85 = sext i32 %.0.lcssa113 to i64
+  %85 = sext i32 %.0.lcssa119 to i64
   %86 = add nsw i64 %83, %85
   store i64 %86, ptr %81, align 8, !tbaa !44
   br label %87
 
 87:                                               ; preds = %84, %82, %80
   %88 = load ptr, ptr %0, align 8, !tbaa !4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %88, i32 noundef 48, ptr noundef nonnull @.str.7, i32 noundef %.0.lcssa113) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %88, i32 noundef 48, ptr noundef nonnull @.str.7, i32 noundef %.0.lcssa119) #8
   br label %89
 
 89:                                               ; preds = %87, %59
@@ -346,7 +346,7 @@ ff_samples_to_time_base.exit:                     ; preds = %19, %21
 
 90:                                               ; preds = %89
   %91 = load ptr, ptr %0, align 8, !tbaa !4
-  %92 = sext i32 %.060.lcssa109 to i64
+  %92 = sext i32 %.060.lcssa115 to i64
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 344
   %94 = load i32, ptr %93, align 8, !tbaa !43
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 84

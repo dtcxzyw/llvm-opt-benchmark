@@ -110,8 +110,8 @@ modnn.exit39:                                     ; preds = %.lr.ph.i37, %37
   %storemerge = phi i8 [ %48, %modnn.exit39 ], [ 0, %.preheader.preheader ]
   store i8 %storemerge, ptr %5, align 1
   %indvars.iv.next54 = add nsw i64 %indvars.iv53, -1
-  %.not56 = icmp eq i64 %indvars.iv53, 0
-  br i1 %.not56, label %50, label %6, !llvm.loop !9
+  %.not62 = icmp eq i64 %indvars.iv53, 0
+  br i1 %.not62, label %50, label %6, !llvm.loop !9
 
 50:                                               ; preds = %49
   ret i32 0
@@ -1060,7 +1060,7 @@ modnn.exit297:                                    ; preds = %.lr.ph.i295, %301
   br i1 %exitcond485.not, label %.loopexit, label %.lr.ph381, !llvm.loop !34
 
 .loopexit:                                        ; preds = %298, %.lr.ph381, %246, %217, %49, %.loopexit299
-  %.0183493 = phi i32 [ %spec.select, %.loopexit299 ], [ %spec.select, %246 ], [ -1, %217 ], [ 0, %49 ], [ %spec.select, %.lr.ph381 ], [ -1, %298 ]
+  %.0183543 = phi i32 [ %spec.select, %.loopexit299 ], [ %spec.select, %246 ], [ -1, %217 ], [ 0, %49 ], [ %spec.select, %.lr.ph381 ], [ -1, %298 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1069,7 +1069,7 @@ modnn.exit297:                                    ; preds = %.lr.ph.i295, %301
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.0183493
+  ret i32 %.0183543
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

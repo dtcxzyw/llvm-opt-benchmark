@@ -149,12 +149,12 @@ define noundef zeroext i1 @_ZN5folly3ssl12OpenSSLUtils15getTLSMasterKeyESt10shar
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %6 = load ptr, ptr %0, align 8, !tbaa !10, !noalias !7
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread21, label %8
+  br i1 %7, label %_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread27, label %8
 
 8:                                                ; preds = %3
   %9 = tail call ptr @__dynamic_cast(ptr nonnull %6, ptr nonnull @_ZTIN5folly3ssl10SSLSessionE, ptr nonnull @_ZTIN5folly3ssl6detail14OpenSSLSessionE, i64 0) #24, !noalias !7
   %.not.not.i = icmp eq ptr %9, null
-  br i1 %.not.not.i, label %_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread21, label %10
+  br i1 %.not.not.i, label %_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread27, label %10
 
 10:                                               ; preds = %8
   store ptr %9, ptr %4, align 8, !tbaa !18, !alias.scope !7
@@ -177,7 +177,7 @@ define noundef zeroext i1 @_ZN5folly3ssl12OpenSSLUtils15getTLSMasterKeyESt10shar
   store i32 %19, ptr %15, align 4, !tbaa !23, !noalias !7
   br label %_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread
 
-_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread21: ; preds = %3, %8
+_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread27: ; preds = %3, %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !7
   br label %42
 
@@ -260,8 +260,8 @@ _ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SS
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 
-42:                                               ; preds = %_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread21, %_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exit, %_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev.exit, %_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev.exit.thread
-  %.1 = phi i1 [ %.07.ph, %_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev.exit.thread ], [ false, %_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev.exit ], [ false, %_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ false, %_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread21 ]
+42:                                               ; preds = %_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread27, %_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exit, %_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev.exit, %_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev.exit.thread
+  %.1 = phi i1 [ %.07.ph, %_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev.exit.thread ], [ false, %_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev.exit ], [ false, %_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ false, %_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread27 ]
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !21
   %.not.i.i = icmp eq ptr %44, null
@@ -759,7 +759,7 @@ _ZNSolsEm.exit.us.us:                             ; preds = %_ZStlsISt11char_tra
   %58 = load ptr, ptr %57, align 8, !tbaa !44
   %bcmp.us.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %58, ptr noundef nonnull dereferenceable(16) %37, i64 16)
   %59 = icmp eq i32 %bcmp.us.us, 0
-  br i1 %59, label %.loopexit130, label %.critedge.us.us
+  br i1 %59, label %.loopexit132, label %.critedge.us.us
 
 .critedge.us.us:                                  ; preds = %45, %56, %_ZNSolsEm.exit.us.us, %42
   %60 = add nuw nsw i32 %.056.us.us, 1
@@ -840,7 +840,7 @@ _ZNSolsEm.exit.us.us110:                          ; preds = %_ZStlsISt11char_tra
   %85 = load ptr, ptr %84, align 8, !tbaa !44
   %bcmp70.us.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %85, ptr noundef nonnull dereferenceable(4) %24, i64 4)
   %86 = icmp eq i32 %bcmp70.us.us, 0
-  br i1 %86, label %.loopexit130, label %.critedge.us.us111
+  br i1 %86, label %.loopexit132, label %.critedge.us.us111
 
 .critedge.us.us111:                               ; preds = %72, %83, %_ZNSolsEm.exit.us.us110, %69
   %87 = add nuw nsw i32 %.056.us.us106, 1
@@ -919,7 +919,7 @@ _ZNSolsEm.exit.us.us110:                          ; preds = %_ZStlsISt11char_tra
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit87: ; preds = %101
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.loopexit130
+  br label %.loopexit132
 
 103:                                              ; preds = %.critedge80
   %104 = landingpad { ptr, i32 }
@@ -942,22 +942,22 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit87: ; preds = %101
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl12OpenSSLUtils21validatePeerCertNamesEP7x509_stPK8sockaddrjE3$_0Lb1EED2Ev.exit"
 
-.loopexit130:                                     ; preds = %56, %83, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit87
+.loopexit132:                                     ; preds = %56, %83, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit87
   %.0.ph = phi i1 [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit87 ], [ true, %83 ], [ true, %56 ]
   invoke void @OPENSSL_sk_pop_free(ptr noundef nonnull %9, ptr noundef nonnull @GENERAL_NAME_free)
           to label %"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl12OpenSSLUtils21validatePeerCertNamesEP7x509_stPK8sockaddrjE3$_0Lb1EED2Ev.exit" unwind label %108
 
-108:                                              ; preds = %.loopexit130
+108:                                              ; preds = %.loopexit132
   %109 = landingpad { ptr, i32 }
           catch ptr null
   %110 = extractvalue { ptr, i32 } %109, 0
   call void @__clang_call_terminate(ptr %110) #25
   unreachable
 
-"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl12OpenSSLUtils21validatePeerCertNamesEP7x509_stPK8sockaddrjE3$_0Lb1EED2Ev.exit": ; preds = %.critedge79, %.loopexit130
-  %.0126 = phi i1 [ false, %.critedge79 ], [ %.0.ph, %.loopexit130 ]
+"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl12OpenSSLUtils21validatePeerCertNamesEP7x509_stPK8sockaddrjE3$_0Lb1EED2Ev.exit": ; preds = %.critedge79, %.loopexit132
+  %.0128 = phi i1 [ false, %.critedge79 ], [ %.0.ph, %.loopexit132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %.0126
+  ret i1 %.0128
 
 .split92.us:                                      ; preds = %.split94, %.split94.us.split.split.us, %.split94.us.split.us, %.split92, %.split92.us.split.split.us, %.split92.us.split.us, %33, %107, %.split97.us, %20
   %.pn75.pn = phi { ptr, i32 } [ %.pn75, %20 ], [ %.pn72, %107 ], [ %34, %33 ], [ %.pn, %.split97.us ], [ %94, %.split92 ], [ %61, %.split92.us.split.us ], [ %88, %.split92.us.split.split.us ], [ %98, %.split94 ], [ %62, %.split94.us.split.us ], [ %89, %.split94.us.split.split.us ]
@@ -2259,20 +2259,20 @@ define internal fastcc void @_ZN5folly3sslL22getSubjectNamesFromBIOEP6bio_st(ptr
 
 12:                                               ; preds = %.noexc
   invoke void @ERR_clear_error()
-          to label %48 unwind label %.loopexit.split-lp7.i
+          to label %48 unwind label %.loopexit.split-lp11.i
 
-.loopexit6.i:                                     ; preds = %.noexc.i, %13
-  %lpad.loopexit8.i = landingpad { ptr, i32 }
+.loopexit10.i:                                    ; preds = %.noexc.i, %13
+  %lpad.loopexit12.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.loopexit.split-lp7.i:                            ; preds = %12
-  %lpad.loopexit.split-lp9.i = landingpad { ptr, i32 }
+.loopexit.split-lp11.i:                           ; preds = %12
+  %lpad.loopexit.split-lp13.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.body.i:                                          ; preds = %38, %.loopexit.split-lp7.i, %.loopexit6.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.phi.i, %38 ], [ %lpad.loopexit8.i, %.loopexit6.i ], [ %lpad.loopexit.split-lp9.i, %.loopexit.split-lp7.i ]
+.body.i:                                          ; preds = %38, %.loopexit.split-lp11.i, %.loopexit10.i
+  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.phi.i, %38 ], [ %lpad.loopexit12.i, %.loopexit10.i ], [ %lpad.loopexit.split-lp13.i, %.loopexit.split-lp11.i ]
   call void @_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.body
@@ -2280,11 +2280,11 @@ define internal fastcc void @_ZN5folly3sslL22getSubjectNamesFromBIOEP6bio_st(ptr
 13:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = invoke ptr @X509_get_subject_name(ptr noundef nonnull %11)
-          to label %.noexc.i unwind label %.loopexit6.i
+          to label %.noexc.i unwind label %.loopexit10.i
 
 .noexc.i:                                         ; preds = %13
   %15 = invoke ptr @X509_NAME_dup(ptr noundef %14)
-          to label %.noexc4.i unwind label %.loopexit6.i
+          to label %.noexc4.i unwind label %.loopexit10.i
 
 .noexc4.i:                                        ; preds = %.noexc.i
   store ptr %15, ptr %3, align 8, !tbaa !94

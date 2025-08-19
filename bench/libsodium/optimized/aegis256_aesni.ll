@@ -555,8 +555,8 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   %.4.lcssa = phi i64 [ 0, %.preheader145 ], [ %115, %.lr.ph197 ]
   store <2 x i64> %.lcssa188, ptr %13, align 16
   %131 = and i64 %2, 15
-  %.not68269 = icmp eq i64 %131, 0
-  br i1 %.not68269, label %171, label %.thread
+  %.not68277 = icmp eq i64 %131, 0
+  br i1 %.not68277, label %171, label %.thread
 
 132:                                              ; preds = %.loopexit
   %133 = getelementptr i8, ptr %0, i64 %.3

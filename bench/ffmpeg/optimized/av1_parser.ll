@@ -206,21 +206,21 @@ switch.lookup:                                    ; preds = %73
   %79 = getelementptr inbounds nuw i8, ptr %33, i64 577
   %80 = load i8, ptr %79, align 1, !tbaa !72
   %.not103 = icmp eq i8 %80, 0
-  br i1 %.not103, label %.sink.split114.sink.split, label %.sink.split114
+  br i1 %.not103, label %.sink.split117.sink.split, label %.sink.split117
 
 81:                                               ; preds = %._crit_edge
   %82 = getelementptr inbounds nuw i8, ptr %33, i64 577
   %83 = load i8, ptr %82, align 1, !tbaa !72
   %.not102 = icmp eq i8 %83, 0
-  br i1 %.not102, label %.sink.split114.sink.split, label %.sink.split114
+  br i1 %.not102, label %.sink.split117.sink.split, label %.sink.split117
 
 84:                                               ; preds = %._crit_edge
   %85 = getelementptr inbounds nuw i8, ptr %33, i64 577
   %86 = load i8, ptr %85, align 1, !tbaa !72
   %.not101 = icmp eq i8 %86, 0
-  br i1 %.not101, label %.sink.split114.sink.split, label %.sink.split114
+  br i1 %.not101, label %.sink.split117.sink.split, label %.sink.split117
 
-.sink.split114.sink.split:                        ; preds = %84, %81, %78
+.sink.split117.sink.split:                        ; preds = %84, %81, %78
   %pix_fmts_12bit.sink = phi ptr [ @pix_fmts_8bit, %78 ], [ @pix_fmts_10bit, %81 ], [ @pix_fmts_12bit, %84 ]
   %87 = getelementptr inbounds nuw i8, ptr %33, i64 583
   %88 = load i8, ptr %87, align 1, !tbaa !74
@@ -231,15 +231,15 @@ switch.lookup:                                    ; preds = %73
   %93 = zext i8 %92 to i64
   %94 = getelementptr inbounds nuw [2 x i32], ptr %90, i64 0, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !26
-  br label %.sink.split114
+  br label %.sink.split117
 
-.sink.split114:                                   ; preds = %.sink.split114.sink.split, %84, %81, %78
-  %.sink115 = phi i32 [ 8, %78 ], [ 168, %81 ], [ 166, %84 ], [ %95, %.sink.split114.sink.split ]
+.sink.split117:                                   ; preds = %.sink.split117.sink.split, %84, %81, %78
+  %.sink118 = phi i32 [ 8, %78 ], [ 168, %81 ], [ 166, %84 ], [ %95, %.sink.split117.sink.split ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store i32 %.sink115, ptr %96, align 8, !tbaa !76
+  store i32 %.sink118, ptr %96, align 8, !tbaa !76
   br label %97
 
-97:                                               ; preds = %.sink.split114, %._crit_edge
+97:                                               ; preds = %.sink.split117, %._crit_edge
   %98 = getelementptr inbounds nuw i8, ptr %33, i64 583
   %99 = load i8, ptr %98, align 1, !tbaa !74
   %.not104 = icmp eq i8 %99, 0

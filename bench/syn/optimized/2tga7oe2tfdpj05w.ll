@@ -1210,12 +1210,12 @@ define hidden void @_ZN3syn3lit5value11backslash_x17h30b20d110248e6c5E(ptr noali
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %.thread31, label %_ZN3syn3lit5value4byte17h974d316fd1183218E.exit
+  br i1 %.not, label %.thread34, label %_ZN3syn3lit5value4byte17h974d316fd1183218E.exit
 
 _ZN3syn3lit5value4byte17h974d316fd1183218E.exit:  ; preds = %3
   %6 = load i8, ptr %1, align 1, !alias.scope !248, !noundef !7
-  %.not35 = icmp eq i64 %2, 1
-  br i1 %.not35, label %_ZN3syn3lit5value4byte17h974d316fd1183218E.exit17, label %7
+  %.not38 = icmp eq i64 %2, 1
+  br i1 %.not38, label %_ZN3syn3lit5value4byte17h974d316fd1183218E.exit17, label %7
 
 7:                                                ; preds = %_ZN3syn3lit5value4byte17h974d316fd1183218E.exit
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -1236,13 +1236,13 @@ _ZN3syn3lit5value4byte17h974d316fd1183218E.exit17: ; preds = %_ZN3syn3lit5value4
 13:                                               ; preds = %11
   %14 = add i8 %6, -65
   %or.cond2 = icmp ult i8 %14, 6
-  br i1 %or.cond2, label %21, label %.thread31
+  br i1 %or.cond2, label %21, label %.thread34
 
 15:                                               ; preds = %11
   %16 = add nsw i8 %6, -87
   br label %23
 
-.thread31:                                        ; preds = %3, %13
+.thread34:                                        ; preds = %3, %13
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @anon.0d61064958a3722eac33af85cae8cb19.30, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1325,12 +1325,12 @@ define hidden void @_ZN3syn3lit5value11backslash_x17h8daabd9b93eb5a50E(ptr noali
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %.thread31, label %_ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit
+  br i1 %.not, label %.thread34, label %_ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit
 
 _ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit:  ; preds = %3
   %6 = load i8, ptr %1, align 1, !alias.scope !259, !noundef !7
-  %.not35 = icmp eq i64 %2, 1
-  br i1 %.not35, label %_ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit17, label %7
+  %.not38 = icmp eq i64 %2, 1
+  br i1 %.not38, label %_ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit17, label %7
 
 7:                                                ; preds = %_ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -1351,13 +1351,13 @@ _ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit17: ; preds = %_ZN3syn3lit5value4
 13:                                               ; preds = %11
   %14 = add i8 %6, -65
   %or.cond2 = icmp ult i8 %14, 6
-  br i1 %or.cond2, label %21, label %.thread31
+  br i1 %or.cond2, label %21, label %.thread34
 
 15:                                               ; preds = %11
   %16 = add nsw i8 %6, -87
   br label %23
 
-.thread31:                                        ; preds = %3, %13
+.thread34:                                        ; preds = %3, %13
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @anon.0d61064958a3722eac33af85cae8cb19.30, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3428,11 +3428,11 @@ common.resume:                                    ; preds = %152, %.body, %.body
   br label %146
 
 .critedge:                                        ; preds = %120, %117
-  %.sink131 = phi i64 [ %96, %120 ], [ %112, %117 ]
+  %.sink140 = phi i64 [ %96, %120 ], [ %112, %117 ]
   %.sink = phi i32 [ %99, %120 ], [ %115, %117 ]
   %.sroa.352.sink = phi ptr [ %.sroa.352, %120 ], [ %.sroa.359, %117 ]
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink131, ptr %150, align 8
+  store i64 %.sink140, ptr %150, align 8
   %.sroa.251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sink, ptr %.sroa.251.0..sroa_idx, align 8
   %.sroa.352.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20

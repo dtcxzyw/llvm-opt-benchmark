@@ -744,13 +744,13 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef nonnull %0) unnam
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %14 = load i32, ptr %11, align 4
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph34, label %.critedge
+  br i1 %15, label %.lr.ph35, label %.critedge
 
-.lr.ph34:                                         ; preds = %.lr.ph, %55
-  %.12633 = phi i64 [ %53, %55 ], [ 0, %.lr.ph ]
-  %indvars.iv32 = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.lr.ph ]
+.lr.ph35:                                         ; preds = %.lr.ph, %55
+  %.12634 = phi i64 [ %53, %55 ], [ 0, %.lr.ph ]
+  %indvars.iv33 = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.lr.ph ]
   %16 = load ptr, ptr %12, align 8
-  %17 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv32
+  %17 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv33
   %18 = load i32, ptr %17, align 8
   %19 = call ptr @relation_open(i32 noundef %18, i32 noundef 1) #9
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 28
@@ -763,9 +763,9 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef nonnull %0) unnam
   call void @list_free(ptr noundef %10) #9
   br label %59
 
-23:                                               ; preds = %.lr.ph34, %calculate_relation_size.exit
-  %.024 = phi i32 [ 0, %.lr.ph34 ], [ %54, %calculate_relation_size.exit ]
-  %.223 = phi i64 [ %.12633, %.lr.ph34 ], [ %53, %calculate_relation_size.exit ]
+23:                                               ; preds = %.lr.ph35, %calculate_relation_size.exit
+  %.024 = phi i32 [ 0, %.lr.ph35 ], [ %54, %calculate_relation_size.exit ]
+  %.223 = phi i64 [ %.12634, %.lr.ph35 ], [ %53, %calculate_relation_size.exit ]
   %24 = load i32, ptr %20, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %25 = load i32, ptr %21, align 4
@@ -834,11 +834,11 @@ calculate_relation_size.exit:                     ; preds = %41
 
 55:                                               ; preds = %calculate_relation_size.exit
   call void @relation_close(ptr noundef nonnull %19, i32 noundef 1) #9
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv32, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv33, 1
   %56 = load i32, ptr %11, align 4
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph34, label %.critedge
+  br i1 %58, label %.lr.ph35, label %.critedge
 
 59:                                               ; preds = %.critedge, %1
   %.017 = phi i64 [ %.1.lcssa, %.critedge ], [ 0, %1 ]
@@ -1244,8 +1244,8 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
 
 .preheader:                                       ; preds = %111
   %106 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %.1.lcssa, ptr noundef nonnull @.str.29) #9
-  %.not125 = icmp eq i32 %106, 0
-  br i1 %.not125, label %.thread95.thread, label %.thread95
+  %.not128 = icmp eq i32 %106, 0
+  br i1 %.not128, label %.thread95.thread, label %.thread95
 
 107:                                              ; preds = %105, %111
   %108 = phi ptr [ @.str.22, %105 ], [ %113, %111 ]

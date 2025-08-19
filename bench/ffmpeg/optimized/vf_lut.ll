@@ -204,7 +204,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not58, label %43, label %32
 
 32:                                               ; preds = %30
-  br i1 %31, label %33, label %.thread69
+  br i1 %31, label %33, label %.thread70
 
 33:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -226,7 +226,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %77
 
 43:                                               ; preds = %30
-  br i1 %31, label %44, label %.thread67
+  br i1 %31, label %44, label %.thread68
 
 44:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -248,9 +248,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %77
 
 54:                                               ; preds = %25
-  br i1 %.not58, label %.thread67, label %.thread69
+  br i1 %.not58, label %.thread68, label %.thread70
 
-.thread69:                                        ; preds = %32, %54
+.thread70:                                        ; preds = %32, %54
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8, !tbaa !46
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -271,7 +271,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %77
 
-.thread67:                                        ; preds = %43, %54
+.thread68:                                        ; preds = %43, %54
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8, !tbaa !46
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -292,7 +292,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %77
 
-77:                                               ; preds = %44, %.thread67, %.thread69, %33
+77:                                               ; preds = %44, %.thread68, %.thread70, %33
   br i1 %.not, label %78, label %79
 
 78:                                               ; preds = %77

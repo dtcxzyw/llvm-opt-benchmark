@@ -420,24 +420,24 @@ define internal i32 @dissect_aprs(ptr noundef %0, ptr noundef readonly captures(
 
 .sink.split.sink.split:                           ; preds = %.sink.split.sink.split.sink.split, %12, %15
   %.str.211.sink = phi ptr [ @.str.209, %15 ], [ @.str.211, %12 ], [ @.str.210, %.sink.split.sink.split.sink.split ]
-  %.sink265 = phi i32 [ 1, %15 ], [ 1, %12 ], [ 9, %.sink.split.sink.split.sink.split ]
-  %.sink263 = phi i32 [ 10, %15 ], [ 10, %12 ], [ 17, %.sink.split.sink.split.sink.split ]
-  %.sink261 = phi i32 [ 9, %15 ], [ 9, %12 ], [ 8, %.sink.split.sink.split.sink.split ]
-  %.sink259 = phi i32 [ 19, %15 ], [ 19, %12 ], [ 18, %.sink.split.sink.split.sink.split ]
+  %.sink268 = phi i32 [ 1, %15 ], [ 1, %12 ], [ 9, %.sink.split.sink.split.sink.split ]
+  %.sink266 = phi i32 [ 10, %15 ], [ 10, %12 ], [ 17, %.sink.split.sink.split.sink.split ]
+  %.sink264 = phi i32 [ 9, %15 ], [ 9, %12 ], [ 8, %.sink.split.sink.split.sink.split ]
+  %.sink262 = phi i32 [ 19, %15 ], [ 19, %12 ], [ 18, %.sink.split.sink.split.sink.split ]
   tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull %.str.211.sink)
   %20 = load ptr, ptr %9, align 8
-  %21 = tail call ptr @tvb_format_text(ptr noundef %20, ptr noundef %0, i32 noundef %.sink265, i32 noundef 8)
+  %21 = tail call ptr @tvb_format_text(ptr noundef %20, ptr noundef %0, i32 noundef %.sink268, i32 noundef 8)
   tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %21)
   tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.210)
   %22 = load ptr, ptr %9, align 8
-  %23 = tail call ptr @tvb_format_text(ptr noundef %22, ptr noundef %0, i32 noundef %.sink263, i32 noundef 9)
+  %23 = tail call ptr @tvb_format_text(ptr noundef %22, ptr noundef %0, i32 noundef %.sink266, i32 noundef 9)
   tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %23)
   tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.210)
   %24 = load ptr, ptr %9, align 8
-  %25 = tail call ptr @tvb_format_text(ptr noundef %24, ptr noundef %0, i32 noundef %.sink261, i32 noundef 1)
+  %25 = tail call ptr @tvb_format_text(ptr noundef %24, ptr noundef %0, i32 noundef %.sink264, i32 noundef 1)
   tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %25)
   %26 = load ptr, ptr %9, align 8
-  %27 = tail call ptr @tvb_format_text(ptr noundef %26, ptr noundef %0, i32 noundef %.sink259, i32 noundef 1)
+  %27 = tail call ptr @tvb_format_text(ptr noundef %26, ptr noundef %0, i32 noundef %.sink262, i32 noundef 1)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %15
@@ -950,10 +950,10 @@ define internal fastcc noundef i32 @dissect_aprs_weather(ptr noundef %0, i32 nou
 
 44:                                               ; preds = %.lr.ph, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26
   %hf_aprs_weather_raw_rain.sink = phi ptr [ @hf_aprs_weather_raw_rain, %36 ], [ @hf_aprs_weather_snow, %35 ], [ @hf_aprs_weather_luminosity, %34 ], [ @hf_aprs_weather_press, %33 ], [ @hf_aprs_weather_humidty, %32 ], [ @hf_aprs_weather_rain, %31 ], [ @hf_aprs_weather_rain_24, %30 ], [ @hf_aprs_weather_rain_1, %29 ], [ @hf_aprs_weather_temp, %28 ], [ @hf_aprs_weather_peak, %27 ], [ @hf_aprs_weather_spd, %26 ], [ @hf_aprs_weather_dir, %.lr.ph ]
-  %.sink5 = phi i32 [ 4, %36 ], [ 4, %35 ], [ 4, %34 ], [ 6, %33 ], [ 3, %32 ], [ 4, %31 ], [ 4, %30 ], [ 4, %29 ], [ 4, %28 ], [ 4, %27 ], [ 4, %26 ], [ 4, %.lr.ph ]
+  %.sink6 = phi i32 [ 4, %36 ], [ 4, %35 ], [ 4, %34 ], [ 6, %33 ], [ 3, %32 ], [ 4, %31 ], [ 4, %30 ], [ 4, %29 ], [ 4, %28 ], [ 4, %27 ], [ 4, %26 ], [ 4, %.lr.ph ]
   %45 = load i32, ptr %hf_aprs_weather_raw_rain.sink, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %45, ptr noundef %0, i32 noundef %.11, i32 noundef %.sink5, i32 noundef 0)
-  %47 = add i32 %.11, %.sink5
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %45, ptr noundef %0, i32 noundef %.11, i32 noundef %.sink6, i32 noundef 0)
+  %47 = add i32 %.11, %.sink6
   %48 = icmp slt i32 %47, %5
   br i1 %48, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
@@ -1407,16 +1407,16 @@ define internal fastcc i32 @aprs_position(ptr noundef readonly captures(none) %0
 
 95:                                               ; preds = %88, %85, %72, %59, %55, %48
   %.0.i = phi i32 [ %54, %48 ], [ %26, %55 ], [ %69, %59 ], [ %82, %72 ], [ %26, %85 ], [ %92, %88 ]
-  br i1 %.not107, label %dissect_aprs_msg.exit, label %dissect_aprs_msg.exit.thread109
+  br i1 %.not107, label %dissect_aprs_msg.exit, label %dissect_aprs_msg.exit.thread111
 
-dissect_aprs_msg.exit.thread109:                  ; preds = %95
+dissect_aprs_msg.exit.thread111:                  ; preds = %95
   %96 = load i32, ptr @hf_aprs_msg_brg, align 4
   %97 = tail call ptr @proto_tree_add_item(ptr noundef %.076.i, i32 noundef %96, ptr noundef %2, i32 noundef %.0.i, i32 noundef 3, i32 noundef 0)
   %98 = add i32 %.0.i, 4
   %99 = load i32, ptr @hf_aprs_msg_nrq, align 4
   %100 = tail call ptr @proto_tree_add_item(ptr noundef %.076.i, i32 noundef %99, ptr noundef %2, i32 noundef %98, i32 noundef 3, i32 noundef 0)
   %101 = add i32 %.0.i, 7
-  br label %.thread113
+  br label %.thread115
 
 102:                                              ; preds = %5
   %103 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %3)
@@ -1569,7 +1569,7 @@ dissect_aprs_msg.exit.thread:                     ; preds = %dissect_aprs_compre
   %215 = load i32, ptr @hf_aprs_msg_brg, align 4
   %216 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %215, ptr noundef %2, i32 noundef %212, i32 noundef 8, i32 noundef 0)
   %217 = add i32 %211, 9
-  br label %.thread113
+  br label %.thread115
 
 dissect_aprs_msg.exit:                            ; preds = %95, %dissect_aprs_compression_type.exit, %34
   %.086 = phi i32 [ %26, %34 ], [ %212, %dissect_aprs_compression_type.exit ], [ %.0.i, %95 ]
@@ -1580,7 +1580,7 @@ dissect_aprs_msg.exit:                            ; preds = %95, %dissect_aprs_c
 
 219:                                              ; preds = %dissect_aprs_msg.exit
   %220 = tail call fastcc i32 @dissect_aprs_weather(ptr noundef %2, i32 noundef %.086, ptr noundef %1)
-  br label %.thread113
+  br label %.thread115
 
 221:                                              ; preds = %dissect_aprs_msg.exit
   %222 = icmp eq i8 %.085, 47
@@ -1588,7 +1588,7 @@ dissect_aprs_msg.exit:                            ; preds = %95, %dissect_aprs_c
   %224 = icmp eq i8 %.085, 92
   %or.cond9108 = or i1 %222, %224
   %or.cond87 = and i1 %223, %or.cond9108
-  br i1 %or.cond87, label %225, label %.thread113
+  br i1 %or.cond87, label %225, label %.thread115
 
 225:                                              ; preds = %221
   %226 = load i32, ptr @hf_aprs_storm, align 4
@@ -1622,10 +1622,10 @@ dissect_aprs_msg.exit:                            ; preds = %95, %dissect_aprs_c
   %254 = load i32, ptr @hf_aprs_storm_rwg, align 4
   %255 = tail call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %254, ptr noundef %2, i32 noundef %253, i32 noundef 4, i32 noundef 0)
   %256 = add i32 %.086, 35
-  br label %.thread113
+  br label %.thread115
 
-.thread113:                                       ; preds = %dissect_aprs_msg.exit.thread109, %dissect_aprs_msg.exit.thread, %219, %221, %225
-  %.2 = phi i32 [ %256, %225 ], [ %.086, %221 ], [ %101, %dissect_aprs_msg.exit.thread109 ], [ %217, %dissect_aprs_msg.exit.thread ], [ %220, %219 ]
+.thread115:                                       ; preds = %dissect_aprs_msg.exit.thread111, %dissect_aprs_msg.exit.thread, %219, %221, %225
+  %.2 = phi i32 [ %256, %225 ], [ %.086, %221 ], [ %101, %dissect_aprs_msg.exit.thread111 ], [ %217, %dissect_aprs_msg.exit.thread ], [ %220, %219 ]
   ret i32 %.2
 }
 

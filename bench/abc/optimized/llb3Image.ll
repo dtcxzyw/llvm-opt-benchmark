@@ -2272,9 +2272,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not.i99, label %Vec_PtrFree.exit, label %Vec_PtrFree.exit.sink.split
 
 Vec_PtrFree.exit.sink.split:                      ; preds = %.critedge8, %.critedge4
-  %.sink142 = phi ptr [ %70, %.critedge4 ], [ %145, %.critedge8 ]
+  %.sink148 = phi ptr [ %70, %.critedge4 ], [ %145, %.critedge8 ]
   %.076.ph = phi ptr [ null, %.critedge4 ], [ %74, %.critedge8 ]
-  tail call void @free(ptr noundef nonnull %.sink142) #20
+  tail call void @free(ptr noundef nonnull %.sink148) #20
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %Vec_PtrFree.exit.sink.split, %.critedge8, %.critedge4

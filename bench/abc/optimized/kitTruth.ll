@@ -134,10 +134,10 @@ define void @Kit_TruthSwapAdjacentVars(ptr noundef writeonly captures(none) %0, 
 
 53:                                               ; preds = %.preheader85.us, %53
   %indvars.iv152 = phi i64 [ 0, %.preheader85.us ], [ %indvars.iv.next153, %53 ]
-  %gep177 = getelementptr i32, ptr %invariant.gep176, i64 %indvars.iv152
-  %54 = load i32, ptr %gep177, align 4, !tbaa !3
-  %gep179 = getelementptr i32, ptr %invariant.gep178, i64 %indvars.iv152
-  store i32 %54, ptr %gep179, align 4, !tbaa !3
+  %gep180 = getelementptr i32, ptr %invariant.gep179, i64 %indvars.iv152
+  %54 = load i32, ptr %gep180, align 4, !tbaa !3
+  %gep182 = getelementptr i32, ptr %invariant.gep181, i64 %indvars.iv152
+  store i32 %54, ptr %gep182, align 4, !tbaa !3
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count149
   br i1 %exitcond157.not, label %.lr.ph95.us, label %53, !llvm.loop !11
@@ -146,8 +146,8 @@ define void @Kit_TruthSwapAdjacentVars(ptr noundef writeonly captures(none) %0, 
   %indvars.iv145 = phi i64 [ 0, %.lr.ph91.us.preheader ], [ %indvars.iv.next146, %.lr.ph91.us ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv145
   %55 = load i32, ptr %gep, align 4, !tbaa !3
-  %gep175 = getelementptr i32, ptr %invariant.gep174, i64 %indvars.iv145
-  store i32 %55, ptr %gep175, align 4, !tbaa !3
+  %gep178 = getelementptr i32, ptr %invariant.gep177, i64 %indvars.iv145
+  store i32 %55, ptr %gep178, align 4, !tbaa !3
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count149
   br i1 %exitcond150.not, label %.preheader85.us, label %.lr.ph91.us, !llvm.loop !12
@@ -163,13 +163,13 @@ define void @Kit_TruthSwapAdjacentVars(ptr noundef writeonly captures(none) %0, 
   br i1 %exitcond.not, label %.lr.ph91.us.preheader, label %.lr.ph.us, !llvm.loop !13
 
 .preheader85.us:                                  ; preds = %.lr.ph91.us
-  %invariant.gep176 = getelementptr i32, ptr %.07797.us, i64 %43
-  %invariant.gep178 = getelementptr i32, ptr %.098.us, i64 %42
+  %invariant.gep179 = getelementptr i32, ptr %.07797.us, i64 %43
+  %invariant.gep181 = getelementptr i32, ptr %.098.us, i64 %42
   br label %53
 
 .lr.ph91.us.preheader:                            ; preds = %.lr.ph.us
   %invariant.gep = getelementptr i32, ptr %.07797.us, i64 %42
-  %invariant.gep174 = getelementptr i32, ptr %.098.us, i64 %43
+  %invariant.gep177 = getelementptr i32, ptr %.098.us, i64 %43
   br label %.lr.ph91.us
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -369,7 +369,7 @@ define void @Kit_TruthSwapAdjacentVars2(ptr noundef readonly captures(none) %0, 
 
 .lr.ph133.preheader:                              ; preds = %.lr.ph131
   %invariant.gep = getelementptr i32, ptr %.0140, i64 %74
-  %invariant.gep199 = getelementptr i32, ptr %.0106138, i64 %75
+  %invariant.gep200 = getelementptr i32, ptr %.0106138, i64 %75
   br label %.lr.ph133
 
 .lr.ph131:                                        ; preds = %.preheader110, %.lr.ph131
@@ -383,26 +383,26 @@ define void @Kit_TruthSwapAdjacentVars2(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond172.not, label %.lr.ph133.preheader, label %.lr.ph131, !llvm.loop !20
 
 .lr.ph135.preheader:                              ; preds = %.lr.ph133
-  %invariant.gep201 = getelementptr i32, ptr %.0140, i64 %75
-  %invariant.gep203 = getelementptr i32, ptr %.0106138, i64 %74
+  %invariant.gep202 = getelementptr i32, ptr %.0140, i64 %75
+  %invariant.gep204 = getelementptr i32, ptr %.0106138, i64 %74
   br label %.lr.ph135
 
 .lr.ph133:                                        ; preds = %.lr.ph133.preheader, %.lr.ph133
   %indvars.iv174 = phi i64 [ 0, %.lr.ph133.preheader ], [ %indvars.iv.next175, %.lr.ph133 ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv174
   %80 = load i32, ptr %gep, align 4, !tbaa !3
-  %gep200 = getelementptr i32, ptr %invariant.gep199, i64 %indvars.iv174
-  store i32 %80, ptr %gep200, align 4, !tbaa !3
+  %gep201 = getelementptr i32, ptr %invariant.gep200, i64 %indvars.iv174
+  store i32 %80, ptr %gep201, align 4, !tbaa !3
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count178
   br i1 %exitcond179.not, label %.lr.ph135.preheader, label %.lr.ph133, !llvm.loop !21
 
 .lr.ph135:                                        ; preds = %.lr.ph135.preheader, %.lr.ph135
   %indvars.iv181 = phi i64 [ 0, %.lr.ph135.preheader ], [ %indvars.iv.next182, %.lr.ph135 ]
-  %gep202 = getelementptr i32, ptr %invariant.gep201, i64 %indvars.iv181
-  %81 = load i32, ptr %gep202, align 4, !tbaa !3
-  %gep204 = getelementptr i32, ptr %invariant.gep203, i64 %indvars.iv181
-  store i32 %81, ptr %gep204, align 4, !tbaa !3
+  %gep203 = getelementptr i32, ptr %invariant.gep202, i64 %indvars.iv181
+  %81 = load i32, ptr %gep203, align 4, !tbaa !3
+  %gep205 = getelementptr i32, ptr %invariant.gep204, i64 %indvars.iv181
+  store i32 %81, ptr %gep205, align 4, !tbaa !3
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count185
   br i1 %exitcond186.not, label %.lr.ph137, label %.lr.ph135, !llvm.loop !22
@@ -561,10 +561,10 @@ define void @Kit_TruthStretch(ptr noundef captures(none) %0, ptr noundef capture
 
 63:                                               ; preds = %.preheader85.us.i, %63
   %indvars.iv152.i = phi i64 [ 0, %.preheader85.us.i ], [ %indvars.iv.next153.i, %63 ]
-  %gep177.i = getelementptr i32, ptr %invariant.gep176.i, i64 %indvars.iv152.i
-  %64 = load i32, ptr %gep177.i, align 4, !tbaa !3
-  %gep179.i = getelementptr i32, ptr %invariant.gep178.i, i64 %indvars.iv152.i
-  store i32 %64, ptr %gep179.i, align 4, !tbaa !3
+  %gep180.i = getelementptr i32, ptr %invariant.gep179.i, i64 %indvars.iv152.i
+  %64 = load i32, ptr %gep180.i, align 4, !tbaa !3
+  %gep182.i = getelementptr i32, ptr %invariant.gep181.i, i64 %indvars.iv152.i
+  store i32 %64, ptr %gep182.i, align 4, !tbaa !3
   %indvars.iv.next153.i = add nuw nsw i64 %indvars.iv152.i, 1
   %exitcond157.not.i = icmp eq i64 %indvars.iv.next153.i, %wide.trip.count.i
   br i1 %exitcond157.not.i, label %.lr.ph95.us.i, label %63, !llvm.loop !11
@@ -573,8 +573,8 @@ define void @Kit_TruthStretch(ptr noundef captures(none) %0, ptr noundef capture
   %indvars.iv145.i = phi i64 [ 0, %.lr.ph91.us.preheader.i ], [ %indvars.iv.next146.i, %.lr.ph91.us.i ]
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv145.i
   %65 = load i32, ptr %gep.i, align 4, !tbaa !3
-  %gep175.i = getelementptr i32, ptr %invariant.gep174.i, i64 %indvars.iv145.i
-  store i32 %65, ptr %gep175.i, align 4, !tbaa !3
+  %gep178.i = getelementptr i32, ptr %invariant.gep177.i, i64 %indvars.iv145.i
+  store i32 %65, ptr %gep178.i, align 4, !tbaa !3
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %exitcond150.not.i = icmp eq i64 %indvars.iv.next146.i, %wide.trip.count.i
   br i1 %exitcond150.not.i, label %.preheader85.us.i, label %.lr.ph91.us.i, !llvm.loop !12
@@ -590,13 +590,13 @@ define void @Kit_TruthStretch(ptr noundef captures(none) %0, ptr noundef capture
   br i1 %exitcond.not.i, label %.lr.ph91.us.preheader.i, label %.lr.ph.us.i, !llvm.loop !13
 
 .preheader85.us.i:                                ; preds = %.lr.ph91.us.i
-  %invariant.gep176.i = getelementptr i32, ptr %.07797.us.i, i64 %53
-  %invariant.gep178.i = getelementptr i32, ptr %.098.us.i, i64 %52
+  %invariant.gep179.i = getelementptr i32, ptr %.07797.us.i, i64 %53
+  %invariant.gep181.i = getelementptr i32, ptr %.098.us.i, i64 %52
   br label %63
 
 .lr.ph91.us.preheader.i:                          ; preds = %.lr.ph.us.i
   %invariant.gep.i = getelementptr i32, ptr %.07797.us.i, i64 %52
-  %invariant.gep174.i = getelementptr i32, ptr %.098.us.i, i64 %53
+  %invariant.gep177.i = getelementptr i32, ptr %.098.us.i, i64 %53
   br label %.lr.ph91.us.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
@@ -810,10 +810,10 @@ define void @Kit_TruthShrink(ptr noundef captures(none) %0, ptr noundef captures
 
 60:                                               ; preds = %.preheader85.us.i, %60
   %indvars.iv152.i = phi i64 [ 0, %.preheader85.us.i ], [ %indvars.iv.next153.i, %60 ]
-  %gep177.i = getelementptr i32, ptr %invariant.gep176.i, i64 %indvars.iv152.i
-  %61 = load i32, ptr %gep177.i, align 4, !tbaa !3
-  %gep179.i = getelementptr i32, ptr %invariant.gep178.i, i64 %indvars.iv152.i
-  store i32 %61, ptr %gep179.i, align 4, !tbaa !3
+  %gep180.i = getelementptr i32, ptr %invariant.gep179.i, i64 %indvars.iv152.i
+  %61 = load i32, ptr %gep180.i, align 4, !tbaa !3
+  %gep182.i = getelementptr i32, ptr %invariant.gep181.i, i64 %indvars.iv152.i
+  store i32 %61, ptr %gep182.i, align 4, !tbaa !3
   %indvars.iv.next153.i = add nuw nsw i64 %indvars.iv152.i, 1
   %exitcond157.not.i = icmp eq i64 %indvars.iv.next153.i, %wide.trip.count.i
   br i1 %exitcond157.not.i, label %.lr.ph95.us.i, label %60, !llvm.loop !11
@@ -822,8 +822,8 @@ define void @Kit_TruthShrink(ptr noundef captures(none) %0, ptr noundef captures
   %indvars.iv145.i = phi i64 [ 0, %.lr.ph91.us.preheader.i ], [ %indvars.iv.next146.i, %.lr.ph91.us.i ]
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv145.i
   %62 = load i32, ptr %gep.i, align 4, !tbaa !3
-  %gep175.i = getelementptr i32, ptr %invariant.gep174.i, i64 %indvars.iv145.i
-  store i32 %62, ptr %gep175.i, align 4, !tbaa !3
+  %gep178.i = getelementptr i32, ptr %invariant.gep177.i, i64 %indvars.iv145.i
+  store i32 %62, ptr %gep178.i, align 4, !tbaa !3
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %exitcond150.not.i = icmp eq i64 %indvars.iv.next146.i, %wide.trip.count.i
   br i1 %exitcond150.not.i, label %.preheader85.us.i, label %.lr.ph91.us.i, !llvm.loop !12
@@ -839,13 +839,13 @@ define void @Kit_TruthShrink(ptr noundef captures(none) %0, ptr noundef captures
   br i1 %exitcond.not.i, label %.lr.ph91.us.preheader.i, label %.lr.ph.us.i, !llvm.loop !13
 
 .preheader85.us.i:                                ; preds = %.lr.ph91.us.i
-  %invariant.gep176.i = getelementptr i32, ptr %.07797.us.i, i64 %50
-  %invariant.gep178.i = getelementptr i32, ptr %.098.us.i, i64 %49
+  %invariant.gep179.i = getelementptr i32, ptr %.07797.us.i, i64 %50
+  %invariant.gep181.i = getelementptr i32, ptr %.098.us.i, i64 %49
   br label %60
 
 .lr.ph91.us.preheader.i:                          ; preds = %.lr.ph.us.i
   %invariant.gep.i = getelementptr i32, ptr %.07797.us.i, i64 %49
-  %invariant.gep174.i = getelementptr i32, ptr %.098.us.i, i64 %50
+  %invariant.gep177.i = getelementptr i32, ptr %.098.us.i, i64 %50
   br label %.lr.ph91.us.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
@@ -1015,30 +1015,30 @@ define void @Kit_TruthPermute(ptr noundef captures(none) %0, ptr noundef capture
 
 .lr.ph91.us.preheader.i.us:                       ; preds = %.lr.ph.us.i.us
   %invariant.gep.i.us = getelementptr i32, ptr %.07797.us.i.us, i64 %31
-  %invariant.gep174.i.us = getelementptr i32, ptr %.098.us.i.us, i64 %32
+  %invariant.gep177.i.us = getelementptr i32, ptr %.098.us.i.us, i64 %32
   br label %.lr.ph91.us.i.us
 
 .lr.ph91.us.i.us:                                 ; preds = %.lr.ph91.us.i.us, %.lr.ph91.us.preheader.i.us
   %indvars.iv145.i.us = phi i64 [ 0, %.lr.ph91.us.preheader.i.us ], [ %indvars.iv.next146.i.us, %.lr.ph91.us.i.us ]
   %gep.i.us = getelementptr i32, ptr %invariant.gep.i.us, i64 %indvars.iv145.i.us
   %37 = load i32, ptr %gep.i.us, align 4, !tbaa !3
-  %gep175.i.us = getelementptr i32, ptr %invariant.gep174.i.us, i64 %indvars.iv145.i.us
-  store i32 %37, ptr %gep175.i.us, align 4, !tbaa !3
+  %gep178.i.us = getelementptr i32, ptr %invariant.gep177.i.us, i64 %indvars.iv145.i.us
+  store i32 %37, ptr %gep178.i.us, align 4, !tbaa !3
   %indvars.iv.next146.i.us = add nuw nsw i64 %indvars.iv145.i.us, 1
   %exitcond150.not.i.us = icmp eq i64 %indvars.iv.next146.i.us, %wide.trip.count.i.us
   br i1 %exitcond150.not.i.us, label %.preheader85.us.i.us, label %.lr.ph91.us.i.us, !llvm.loop !12
 
 .preheader85.us.i.us:                             ; preds = %.lr.ph91.us.i.us
-  %invariant.gep176.i.us = getelementptr i32, ptr %.07797.us.i.us, i64 %32
-  %invariant.gep178.i.us = getelementptr i32, ptr %.098.us.i.us, i64 %31
+  %invariant.gep179.i.us = getelementptr i32, ptr %.07797.us.i.us, i64 %32
+  %invariant.gep181.i.us = getelementptr i32, ptr %.098.us.i.us, i64 %31
   br label %38
 
 38:                                               ; preds = %38, %.preheader85.us.i.us
   %indvars.iv152.i.us = phi i64 [ 0, %.preheader85.us.i.us ], [ %indvars.iv.next153.i.us, %38 ]
-  %gep177.i.us = getelementptr i32, ptr %invariant.gep176.i.us, i64 %indvars.iv152.i.us
-  %39 = load i32, ptr %gep177.i.us, align 4, !tbaa !3
-  %gep179.i.us = getelementptr i32, ptr %invariant.gep178.i.us, i64 %indvars.iv152.i.us
-  store i32 %39, ptr %gep179.i.us, align 4, !tbaa !3
+  %gep180.i.us = getelementptr i32, ptr %invariant.gep179.i.us, i64 %indvars.iv152.i.us
+  %39 = load i32, ptr %gep180.i.us, align 4, !tbaa !3
+  %gep182.i.us = getelementptr i32, ptr %invariant.gep181.i.us, i64 %indvars.iv152.i.us
+  store i32 %39, ptr %gep182.i.us, align 4, !tbaa !3
   %indvars.iv.next153.i.us = add nuw nsw i64 %indvars.iv152.i.us, 1
   %exitcond157.not.i.us = icmp eq i64 %indvars.iv.next153.i.us, %wide.trip.count.i.us
   br i1 %exitcond157.not.i.us, label %.lr.ph95.us.i.us, label %38, !llvm.loop !11
@@ -5328,8 +5328,8 @@ define void @Kit_TruthCountOnesInCofs(ptr noundef readonly captures(none) %0, i3
   %35 = shl nuw i32 1, %34
   %36 = and i32 %35, %31
   %.not.us = icmp eq i32 %36, 0
-  %.idx113 = shl nuw nsw i64 %indvars.iv, 3
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx113
+  %.idx114 = shl nuw nsw i64 %indvars.iv, 3
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx114
   br i1 %.not.us, label %42, label %38
 
 38:                                               ; preds = %32
@@ -5887,8 +5887,8 @@ define void @Kit_TruthCountOnesInCofs0(ptr noundef readonly captures(none) %0, i
   br i1 %4, label %43, label %.preheader61
 
 .preheader61:                                     ; preds = %3
-  %.not79 = icmp eq i32 %5, 31
-  br i1 %.not79, label %.thread59, label %.lr.ph.us.preheader
+  %.not80 = icmp eq i32 %5, 31
+  br i1 %.not80, label %.thread59, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %.preheader61
   %wide.trip.count76 = zext nneg i32 %6 to i64
@@ -6558,30 +6558,30 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
 
 .lr.ph91.us.preheader.i.us:                       ; preds = %.lr.ph.us.i.us
   %invariant.gep.i.us = getelementptr i32, ptr %.07797.us.i.us, i64 %86
-  %invariant.gep174.i.us = getelementptr i32, ptr %.098.us.i.us, i64 %87
+  %invariant.gep177.i.us = getelementptr i32, ptr %.098.us.i.us, i64 %87
   br label %.lr.ph91.us.i.us
 
 .lr.ph91.us.i.us:                                 ; preds = %.lr.ph91.us.i.us, %.lr.ph91.us.preheader.i.us
   %indvars.iv145.i.us = phi i64 [ 0, %.lr.ph91.us.preheader.i.us ], [ %indvars.iv.next146.i.us, %.lr.ph91.us.i.us ]
   %gep.i.us = getelementptr i32, ptr %invariant.gep.i.us, i64 %indvars.iv145.i.us
   %92 = load i32, ptr %gep.i.us, align 4, !tbaa !3
-  %gep175.i.us = getelementptr i32, ptr %invariant.gep174.i.us, i64 %indvars.iv145.i.us
-  store i32 %92, ptr %gep175.i.us, align 4, !tbaa !3
+  %gep178.i.us = getelementptr i32, ptr %invariant.gep177.i.us, i64 %indvars.iv145.i.us
+  store i32 %92, ptr %gep178.i.us, align 4, !tbaa !3
   %indvars.iv.next146.i.us = add nuw nsw i64 %indvars.iv145.i.us, 1
   %exitcond150.not.i.us = icmp eq i64 %indvars.iv.next146.i.us, %wide.trip.count.i.us
   br i1 %exitcond150.not.i.us, label %.preheader85.us.i.us, label %.lr.ph91.us.i.us, !llvm.loop !12
 
 .preheader85.us.i.us:                             ; preds = %.lr.ph91.us.i.us
-  %invariant.gep176.i.us = getelementptr i32, ptr %.07797.us.i.us, i64 %87
-  %invariant.gep178.i.us = getelementptr i32, ptr %.098.us.i.us, i64 %86
+  %invariant.gep179.i.us = getelementptr i32, ptr %.07797.us.i.us, i64 %87
+  %invariant.gep181.i.us = getelementptr i32, ptr %.098.us.i.us, i64 %86
   br label %93
 
 93:                                               ; preds = %93, %.preheader85.us.i.us
   %indvars.iv152.i.us = phi i64 [ 0, %.preheader85.us.i.us ], [ %indvars.iv.next153.i.us, %93 ]
-  %gep177.i.us = getelementptr i32, ptr %invariant.gep176.i.us, i64 %indvars.iv152.i.us
-  %94 = load i32, ptr %gep177.i.us, align 4, !tbaa !3
-  %gep179.i.us = getelementptr i32, ptr %invariant.gep178.i.us, i64 %indvars.iv152.i.us
-  store i32 %94, ptr %gep179.i.us, align 4, !tbaa !3
+  %gep180.i.us = getelementptr i32, ptr %invariant.gep179.i.us, i64 %indvars.iv152.i.us
+  %94 = load i32, ptr %gep180.i.us, align 4, !tbaa !3
+  %gep182.i.us = getelementptr i32, ptr %invariant.gep181.i.us, i64 %indvars.iv152.i.us
+  store i32 %94, ptr %gep182.i.us, align 4, !tbaa !3
   %indvars.iv.next153.i.us = add nuw nsw i64 %indvars.iv152.i.us, 1
   %exitcond157.not.i.us = icmp eq i64 %indvars.iv.next153.i.us, %wide.trip.count.i.us
   br i1 %exitcond157.not.i.us, label %.lr.ph95.us.i.us, label %93, !llvm.loop !11
@@ -6721,9 +6721,9 @@ select.unfold.i110:                               ; preds = %.split.us, %select.
   br i1 %153, label %select.unfold.i110, label %Kit_TruthCopy.exit, !llvm.loop !27
 
 Kit_TruthCopy.exit:                               ; preds = %select.unfold.i110, %Kit_TruthNot.exit, %.preheader, %.split.us
-  %.us-phi137160 = phi i32 [ %.5.us, %.split.us ], [ %.2, %.preheader ], [ %.0, %Kit_TruthNot.exit ], [ %.5.us, %select.unfold.i110 ]
+  %.us-phi137168 = phi i32 [ %.5.us, %.split.us ], [ %.2, %.preheader ], [ %.0, %Kit_TruthNot.exit ], [ %.5.us, %select.unfold.i110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.us-phi137160
+  ret i32 %.us-phi137168
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -6848,8 +6848,8 @@ define i32 @Kit_TruthCountMinterms(ptr noundef readonly captures(address) %0, i3
   br i1 %72, label %.preheader64.us, label %.preheader, !llvm.loop !169
 
 .preheader:                                       ; preds = %._crit_edge72.us, %4
-  %.283 = phi i32 [ 0, %4 ], [ %.2, %._crit_edge72.us ]
-  ret i32 %.283
+  %.286 = phi i32 [ 0, %4 ], [ %.2, %._crit_edge72.us ]
+  ret i32 %.286
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -7111,8 +7111,8 @@ define void @Kit_TruthPrintProfile_int(ptr noundef readonly captures(address) %0
   %wide.trip.count.i245 = zext nneg i32 %44 to i64
   %46 = zext nneg i32 %38 to i64
   %wide.trip.count618 = zext nneg i32 %1 to i64
-  %wide.trip.count597 = zext i32 %38 to i64
-  %wide.trip.count614 = zext i32 %38 to i64
+  %wide.trip.count597 = zext nneg i32 %38 to i64
+  %wide.trip.count614 = zext nneg i32 %38 to i64
   br label %47
 
 47:                                               ; preds = %.lr.ph518, %._crit_edge509
@@ -7209,7 +7209,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %4
   %.07896.us.i = phi i32 [ %90, %._crit_edge.us.i ], [ 0, %.preheader87.us.preheader.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.098.us.i, ptr noundef nonnull align 4 dereferenceable(1) %.07797.us.i, i64 %87, i1 false), !tbaa !3
   %invariant.gep.i = getelementptr i32, ptr %.07797.us.i, i64 %84
-  %invariant.gep174.i = getelementptr i32, ptr %.098.us.i, i64 %85
+  %invariant.gep177.i = getelementptr i32, ptr %.098.us.i, i64 %85
   br label %.lr.ph91.us.i
 
 ._crit_edge.us.i:                                 ; preds = %.lr.ph95.us.i
@@ -7232,10 +7232,10 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %4
 
 96:                                               ; preds = %.preheader85.us.i, %96
   %indvars.iv152.i = phi i64 [ 0, %.preheader85.us.i ], [ %indvars.iv.next153.i, %96 ]
-  %gep177.i = getelementptr i32, ptr %invariant.gep176.i, i64 %indvars.iv152.i
-  %97 = load i32, ptr %gep177.i, align 4, !tbaa !3
-  %gep179.i = getelementptr i32, ptr %invariant.gep178.i, i64 %indvars.iv152.i
-  store i32 %97, ptr %gep179.i, align 4, !tbaa !3
+  %gep180.i = getelementptr i32, ptr %invariant.gep179.i, i64 %indvars.iv152.i
+  %97 = load i32, ptr %gep180.i, align 4, !tbaa !3
+  %gep182.i = getelementptr i32, ptr %invariant.gep181.i, i64 %indvars.iv152.i
+  store i32 %97, ptr %gep182.i, align 4, !tbaa !3
   %indvars.iv.next153.i = add nuw nsw i64 %indvars.iv152.i, 1
   %exitcond157.not.i = icmp eq i64 %indvars.iv.next153.i, %wide.trip.count.i
   br i1 %exitcond157.not.i, label %.lr.ph95.us.i, label %96, !llvm.loop !11
@@ -7244,15 +7244,15 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %4
   %indvars.iv145.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next146.i, %.lr.ph91.us.i ]
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv145.i
   %98 = load i32, ptr %gep.i, align 4, !tbaa !3
-  %gep175.i = getelementptr i32, ptr %invariant.gep174.i, i64 %indvars.iv145.i
-  store i32 %98, ptr %gep175.i, align 4, !tbaa !3
+  %gep178.i = getelementptr i32, ptr %invariant.gep177.i, i64 %indvars.iv145.i
+  store i32 %98, ptr %gep178.i, align 4, !tbaa !3
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %exitcond150.not.i = icmp eq i64 %indvars.iv.next146.i, %wide.trip.count.i
   br i1 %exitcond150.not.i, label %.preheader85.us.i, label %.lr.ph91.us.i, !llvm.loop !12
 
 .preheader85.us.i:                                ; preds = %.lr.ph91.us.i
-  %invariant.gep176.i = getelementptr i32, ptr %.07797.us.i, i64 %85
-  %invariant.gep178.i = getelementptr i32, ptr %.098.us.i, i64 %84
+  %invariant.gep179.i = getelementptr i32, ptr %.07797.us.i, i64 %85
+  %invariant.gep181.i = getelementptr i32, ptr %.098.us.i, i64 %84
   br label %96
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
@@ -8180,8 +8180,8 @@ Kit_TruthXorCount.exit417:                        ; preds = %Kit_TruthXorCount.e
   %putchar229.c = tail call i32 @putchar(i32 10)
   %putchar230.c = tail call i32 @putchar(i32 10)
   %puts.c = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %puts231670 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %puts232671 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
+  %puts231685 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
+  %puts232686 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   br label %._crit_edge557
 
 .lr.ph536.us:                                     ; preds = %._crit_edge533, %._crit_edge537.us

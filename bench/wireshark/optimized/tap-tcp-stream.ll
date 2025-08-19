@@ -184,22 +184,22 @@ copy_address.exit103:                             ; preds = %59, %67
   br i1 %83, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %copy_address.exit103, %copy_address.exit
-  %.sink117 = phi i32 [ %55, %copy_address.exit ], [ %80, %copy_address.exit103 ]
-  %.sink115 = phi ptr [ %57, %copy_address.exit ], [ %82, %copy_address.exit103 ]
-  %.sink108.ph = phi i64 [ 30, %copy_address.exit ], [ 28, %copy_address.exit103 ]
-  %84 = sext i32 %.sink117 to i64
-  %85 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %.sink115, i64 noundef %84) #16
+  %.sink122 = phi i32 [ %55, %copy_address.exit ], [ %80, %copy_address.exit103 ]
+  %.sink120 = phi ptr [ %57, %copy_address.exit ], [ %82, %copy_address.exit103 ]
+  %.sink113.ph = phi i64 [ 30, %copy_address.exit ], [ 28, %copy_address.exit103 ]
+  %84 = sext i32 %.sink122 to i64
+  %85 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %.sink120, i64 noundef %84) #16
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %85, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %85, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  store i32 %.sink117, ptr %88, align 4
+  store i32 %.sink122, ptr %88, align 4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %copy_address.exit103, %copy_address.exit
-  %.sink108 = phi i64 [ 30, %copy_address.exit ], [ 28, %copy_address.exit103 ], [ %.sink108.ph, %.sink.split.sink.split ]
-  %89 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink108
+  %.sink113 = phi i64 [ 30, %copy_address.exit ], [ 28, %copy_address.exit103 ], [ %.sink113.ph, %.sink.split.sink.split ]
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink113
   %.sink = load i16, ptr %89, align 2
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i16 %.sink, ptr %90, align 8
@@ -1298,11 +1298,11 @@ define hidden void @rtt_delete_unack_from_list(ptr noundef captures(none) %0, pt
   br i1 %10, label %.loopexit.sink.split, label %.preheader, !llvm.loop !16
 
 .loopexit.sink.split:                             ; preds = %8, %6
-  %.sink25 = phi ptr [ %3, %6 ], [ %9, %8 ]
-  %.sink24 = phi ptr [ %0, %6 ], [ %.0, %8 ]
+  %.sink28 = phi ptr [ %3, %6 ], [ %9, %8 ]
+  %.sink27 = phi ptr [ %0, %6 ], [ %.0, %8 ]
   %.sink = phi ptr [ %3, %6 ], [ %1, %8 ]
-  %11 = load ptr, ptr %.sink25, align 8
-  store ptr %11, ptr %.sink24, align 8
+  %11 = load ptr, ptr %.sink28, align 8
+  store ptr %11, ptr %.sink27, align 8
   tail call void @g_free(ptr noundef nonnull %.sink)
   br label %.loopexit
 

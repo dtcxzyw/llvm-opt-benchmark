@@ -416,10 +416,10 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i:             ; preds = %34
   br i1 %.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i, label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.thread
 
 _ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.thread:      ; preds = %34, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i
-  %.pre-phi14 = phi i64 [ %.pre11, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i ], [ %35, %34 ]
+  %.pre-phi18 = phi i64 [ %.pre11, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i ], [ %35, %34 ]
   %37 = load ptr, ptr %26, align 8, !tbaa !33
   %38 = load ptr, ptr %19, align 8, !tbaa !33
-  %gepdiff.i = shl nuw nsw i64 %.pre-phi14, 3
+  %gepdiff.i = shl nuw nsw i64 %.pre-phi18, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr align 8 %37, i64 %gepdiff.i, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i
 
@@ -1149,17 +1149,17 @@ _ZN4llvm9BitVector6resizeEjb.exit51:              ; preds = %_ZN4llvm15SmallVect
 
 _ZN4llvm9BitVector5resetEjj.exit.sink.split:      ; preds = %182, %153
   %.sink = phi i32 [ %150, %153 ], [ %185, %182 ]
-  %.sink95 = phi ptr [ %135, %153 ], [ %136, %182 ]
-  %.sink94 = phi i64 [ %160, %153 ], [ %notmask.i, %182 ]
+  %.sink120 = phi ptr [ %135, %153 ], [ %136, %182 ]
+  %.sink119 = phi i64 [ %160, %153 ], [ %notmask.i, %182 ]
   %186 = zext nneg i32 %.sink to i64
-  %187 = getelementptr inbounds nuw i64, ptr %.sink95, i64 %186
+  %187 = getelementptr inbounds nuw i64, ptr %.sink120, i64 %186
   %188 = load i64, ptr %187, align 8, !tbaa !36
-  %189 = and i64 %188, %.sink94
+  %189 = and i64 %188, %.sink119
   store i64 %189, ptr %187, align 8, !tbaa !36
   br label %_ZN4llvm9BitVector5resetEjj.exit
 
 _ZN4llvm9BitVector5resetEjj.exit:                 ; preds = %_ZN4llvm9BitVector5resetEjj.exit.sink.split, %._crit_edge.i
-  %190 = phi ptr [ %136, %._crit_edge.i ], [ %.sink95, %_ZN4llvm9BitVector5resetEjj.exit.sink.split ]
+  %190 = phi ptr [ %136, %._crit_edge.i ], [ %.sink120, %_ZN4llvm9BitVector5resetEjj.exit.sink.split ]
   %191 = load i32, ptr %35, align 4, !tbaa !31
   %192 = add i32 %191, %.02472
   %193 = icmp ult i32 %192, %101
@@ -1292,8 +1292,8 @@ _ZNK4llvm9BitVector9find_nextEj.exit:             ; preds = %263, %_ZNK4llvm9Bit
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZNK4llvm9BitVector10find_firstEv.exit, !llvm.loop !96
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK4llvm9BitVector9find_nextEj.exit, %5, %25
-  %.sink97 = phi ptr [ %26, %25 ], [ null, %5 ], [ null, %_ZNK4llvm9BitVector9find_nextEj.exit ]
-  store ptr %.sink97, ptr %0, align 8, !tbaa !75
+  %.sink122 = phi ptr [ %26, %25 ], [ null, %5 ], [ null, %_ZNK4llvm9BitVector9find_nextEj.exit ]
+  store ptr %.sink122, ptr %0, align 8, !tbaa !75
   ret void
 }
 
@@ -2437,7 +2437,7 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   br i1 %.not23.i81, label %206, label %_ZSt27__uninitialized_default_n_aIPN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEEmS7_ET_S9_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEEmS7_ET_S9_T0_RSaIT1_E.exit.i: ; preds = %195
-  %205 = shl nuw i64 %196, 4
+  %205 = shl nuw nsw i64 %196, 4
   call void @llvm.memset.p0.i64(ptr align 8 %188, i8 0, i64 %205, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %188, i64 %205
   store ptr %scevgep.i.i.i.i, ptr %187, align 8, !tbaa !161
@@ -2724,10 +2724,10 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i:             ; preds = %324
   br i1 %.not.i.i.i85, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i, label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.thread
 
 _ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.thread:      ; preds = %324, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i
-  %.pre-phi135 = phi i64 [ %.pre124, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i ], [ %325, %324 ]
+  %.pre-phi177 = phi i64 [ %.pre124, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i ], [ %325, %324 ]
   %327 = load ptr, ptr %22, align 8, !tbaa !33
   %328 = load ptr, ptr %315, align 8, !tbaa !33
-  %gepdiff.i = shl nuw nsw i64 %.pre-phi135, 3
+  %gepdiff.i = shl nuw nsw i64 %.pre-phi177, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %328, ptr align 8 %327, i64 %gepdiff.i, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i
 

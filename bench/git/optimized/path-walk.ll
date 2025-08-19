@@ -1008,7 +1008,7 @@ define internal fastcc i32 @walk_path(ptr noundef nonnull %0, ptr noundef %1) un
   br i1 %65, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %47, %.thread71
-  %.05382 = phi i32 [ %64, %.thread71 ], [ 0, %47 ]
+  %.05390 = phi i32 [ %64, %.thread71 ], [ 0, %47 ]
   %66 = load i64, ptr %11, align 8, !tbaa !102
   %.not76 = icmp eq i64 %66, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph
@@ -1025,7 +1025,7 @@ define internal fastcc i32 @walk_path(ptr noundef nonnull %0, ptr noundef %1) un
 
 74:                                               ; preds = %.lr.ph, %add_tree_entries.exit
   %.075 = phi i64 [ 0, %.lr.ph ], [ %168, %add_tree_entries.exit ]
-  %.274 = phi i32 [ %.05382, %.lr.ph ], [ %167, %add_tree_entries.exit ]
+  %.274 = phi i32 [ %.05390, %.lr.ph ], [ %167, %add_tree_entries.exit ]
   %75 = load ptr, ptr %10, align 8, !tbaa !116
   %76 = getelementptr inbounds nuw %struct.object_id, ptr %75, i64 %.075
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1254,7 +1254,7 @@ add_tree_entries.exit:                            ; preds = %_.exit.i, %87, %.th
   br i1 %170, label %74, label %.loopexit, !llvm.loop !129
 
 .loopexit:                                        ; preds = %add_tree_entries.exit, %.critedge, %51, %55, %.preheader, %.thread71
-  %.1 = phi i32 [ %64, %.thread71 ], [ %.05382, %.preheader ], [ 0, %55 ], [ 0, %51 ], [ 0, %.critedge ], [ %167, %add_tree_entries.exit ]
+  %.1 = phi i32 [ %64, %.thread71 ], [ %.05390, %.preheader ], [ 0, %55 ], [ 0, %51 ], [ 0, %.critedge ], [ %167, %add_tree_entries.exit ]
   call void @oid_array_clear(ptr noundef nonnull %10) #13
   call void @strmap_remove(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1) #13
   br label %.critedge.thread

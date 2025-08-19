@@ -2409,10 +2409,10 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.i41:  ; preds = %358, %_ZL15inhomoge
 _ZL8usingPmeRK22CoulombInteractionType.exit.i78.i: ; preds = %384
   %.val.i77.i = load i32, ptr %40, align 4, !tbaa !151
   %396 = icmp ult i32 %.val.i77.i, 16
-  %switch.cast82 = trunc i32 %.val.i77.i to i16
-  %switch.downshift84 = lshr i16 -8152, %switch.cast82
-  %switch.masked85 = trunc i16 %switch.downshift84 to i1
-  %397 = select i1 %396, i1 %switch.masked85, i1 false
+  %switch.cast152 = trunc i32 %.val.i77.i to i16
+  %switch.downshift154 = lshr i16 -8152, %switch.cast152
+  %switch.masked155 = trunc i16 %switch.downshift154 to i1
+  %397 = select i1 %396, i1 %switch.masked155, i1 false
   %398 = icmp eq i32 %.val.i77.i, 4
   %or.cond.i79.i = or i1 %398, %397
   %399 = load i32, ptr %325, align 8
@@ -2430,7 +2430,7 @@ _ZL15inhomogeneous_zRK10t_inputrec.exit81.i:      ; preds = %_ZL8usingPmeRK22Cou
 _ZL15inhomogeneous_zRK10t_inputrec.exit81.thread.i: ; preds = %_ZL15inhomogeneous_zRK10t_inputrec.exit81.i, %_ZL8usingPmeRK22CoulombInteractionType.exit.i78.i, %384
   %.051.i = phi i32 [ %spec.store.select.i, %384 ], [ %spec.store.select.i, %_ZL8usingPmeRK22CoulombInteractionType.exit.i78.i ], [ %spec.select.i, %_ZL15inhomogeneous_zRK10t_inputrec.exit81.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %403 = trunc i64 %indvars.iv.i to i32
+  %403 = trunc nuw nsw i64 %indvars.iv.i to i32
   %404 = or i32 %403, 88
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %22, ptr noundef nonnull @.str.31, i32 noundef %404, i32 noundef %.051.i)
           to label %405 unwind label %419
@@ -3103,8 +3103,8 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
 
 .preheader90:                                     ; preds = %._crit_edge106, %.preheader90.lr.ph
   %.084107 = phi i32 [ %27, %.preheader90.lr.ph ], [ %73, %._crit_edge106 ]
-  %.not115 = icmp eq i32 %.084107, 0
-  br i1 %.not115, label %._crit_edge, label %.lr.ph.preheader
+  %.not118 = icmp eq i32 %.084107, 0
+  br i1 %.not118, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader90
   %.pre = load i32, ptr %11, align 4, !tbaa !8
@@ -3127,7 +3127,7 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !240
 
 .preheader89:                                     ; preds = %.preheader, %._crit_edge
-  br i1 %.not115, label %.loopexit, label %.lr.ph105.preheader
+  br i1 %.not118, label %.loopexit, label %.lr.ph105.preheader
 
 .lr.ph105.preheader:                              ; preds = %.preheader89
   %.pre114 = load i32, ptr %11, align 4, !tbaa !8
@@ -3759,7 +3759,7 @@ _Z13comm_box_fracRKN3gmx11BasicVectorIiEEfRK11gmx_ddbox_t.exit: ; preds = %.loop
   br label %293
 
 262:                                              ; preds = %343
-  %263 = add i32 %.sroa.7.0, -1
+  %263 = add nsw i32 %.sroa.7.0, -1
   %264 = sitofp i32 %263 to float
   %265 = sitofp i32 %.sroa.7.0 to float
   %266 = fmul float %265, %264
@@ -3895,7 +3895,7 @@ _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit: ; preds = %303, %._crit_
   %349 = load i32, ptr %12, align 8
   %.not211 = icmp eq i32 %349, 2
   %or.cond227 = select i1 %348, i1 true, i1 %.not211
-  br i1 %or.cond227, label %358, label %.thread340
+  br i1 %or.cond227, label %358, label %.thread349
 
 .thread235:                                       ; preds = %262
   %350 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -3909,18 +3909,18 @@ _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit: ; preds = %303, %._crit_
   %.not213 = icmp ne i32 %354, 0
   %355 = icmp eq i32 %145, 1
   %or.cond258 = select i1 %.not213, i1 %355, i1 false
-  br i1 %or.cond258, label %.thread237, label %.thread340
+  br i1 %or.cond258, label %.thread237, label %.thread349
 
 .thread237:                                       ; preds = %352, %.thread235
   %356 = fmul float %6, 0x3FC99999A0000000
   br label %358
 
-.thread340:                                       ; preds = %346, %352
+.thread349:                                       ; preds = %346, %352
   %357 = fmul float %6, 0x3FB99999A0000000
   br label %358
 
-358:                                              ; preds = %.thread237, %.thread340, %346
-  %.0 = phi float [ %356, %.thread237 ], [ %357, %.thread340 ], [ 0.000000e+00, %346 ]
+358:                                              ; preds = %.thread237, %.thread349, %346
+  %.0 = phi float [ %356, %.thread237 ], [ %357, %.thread349 ], [ 0.000000e+00, %346 ]
   %359 = load ptr, ptr @debug, align 8, !tbaa !227
   %.not214 = icmp eq ptr %359, null
   br i1 %.not214, label %._crit_edge, label %360

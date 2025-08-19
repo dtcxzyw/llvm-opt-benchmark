@@ -1765,7 +1765,7 @@ GetResult.exit:                                   ; preds = %185, %183, %Py_DECR
   br label %.lr.ph135.preheader
 
 .lr.ph135.preheader:                              ; preds = %41, %54, %.split.us, %.lr.ph135.preheader.critedge, %188, %152, %139, %_call_function_pointer.exit.thread, %GetResult.exit
-  %.097147 = phi ptr [ null, %.split.us ], [ %.097, %GetResult.exit ], [ null, %_call_function_pointer.exit.thread ], [ %142, %139 ], [ %154, %152 ], [ %180, %188 ], [ null, %41 ], [ null, %54 ], [ null, %.lr.ph135.preheader.critedge ]
+  %.097163 = phi ptr [ null, %.split.us ], [ %.097, %GetResult.exit ], [ null, %_call_function_pointer.exit.thread ], [ %142, %139 ], [ %154, %152 ], [ %180, %188 ], [ null, %41 ], [ null, %54 ], [ null, %.lr.ph135.preheader.critedge ]
   br label %.lr.ph135
 
 .lr.ph135:                                        ; preds = %.lr.ph135.preheader, %Py_XDECREF.exit
@@ -1796,7 +1796,7 @@ Py_XDECREF.exit:                                  ; preds = %.lr.ph135, %193, %1
   br i1 %exitcond146.not, label %.loopexit, label %.lr.ph135, !llvm.loop !49
 
 .loopexit:                                        ; preds = %Py_XDECREF.exit, %188, %152, %139, %_call_function_pointer.exit.thread, %GetResult.exit, %12
-  %.0 = phi ptr [ null, %12 ], [ %.097, %GetResult.exit ], [ null, %_call_function_pointer.exit.thread ], [ %142, %139 ], [ %154, %152 ], [ %180, %188 ], [ %.097147, %Py_XDECREF.exit ]
+  %.0 = phi ptr [ null, %12 ], [ %.097, %GetResult.exit ], [ null, %_call_function_pointer.exit.thread ], [ %142, %139 ], [ %154, %152 ], [ %180, %188 ], [ %.097163, %Py_XDECREF.exit ]
   ret ptr %.0
 }
 
@@ -3449,24 +3449,24 @@ is_literal_char.exit.thread:                      ; preds = %switch.early.test, 
 75:                                               ; preds = %73
   %76 = zext nneg i8 %3 to i32
   %77 = tail call i32 @_PyUnicode_IsPrintable(i32 noundef %76) #10
-  %.fr50 = freeze i32 %77
-  %78 = icmp eq i32 %.fr50, 0
+  %.fr55 = freeze i32 %77
+  %78 = icmp eq i32 %.fr55, 0
   %.pre48 = load i8, ptr %2, align 8, !tbaa !20
-  br i1 %78, label %is_literal_char.exit36.thread, label %switch.early.test49
+  br i1 %78, label %is_literal_char.exit36.thread, label %switch.early.test54
 
-switch.early.test49:                              ; preds = %75
+switch.early.test54:                              ; preds = %75
   switch i8 %3, label %79 [
     i8 92, label %is_literal_char.exit36.thread
     i8 39, label %is_literal_char.exit36.thread
   ]
 
-79:                                               ; preds = %switch.early.test49
+79:                                               ; preds = %switch.early.test54
   %80 = zext i8 %.pre48 to i32
   %81 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.41, i32 noundef %80, ptr noundef nonnull %0) #10
   br label %Py_DECREF.exit
 
-is_literal_char.exit36.thread:                    ; preds = %switch.early.test49, %switch.early.test49, %75, %73
-  %82 = phi i8 [ %3, %73 ], [ %.pre48, %switch.early.test49 ], [ %.pre48, %75 ], [ %.pre48, %switch.early.test49 ]
+is_literal_char.exit36.thread:                    ; preds = %switch.early.test54, %switch.early.test54, %75, %73
+  %82 = phi i8 [ %3, %73 ], [ %.pre48, %switch.early.test54 ], [ %.pre48, %75 ], [ %.pre48, %switch.early.test54 ]
   %83 = zext i8 %82 to i32
   %84 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.42, i32 noundef %83, ptr noundef nonnull %0) #10
   br label %Py_DECREF.exit

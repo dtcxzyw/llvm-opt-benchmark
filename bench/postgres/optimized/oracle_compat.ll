@@ -790,12 +790,12 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   %40 = icmp ult i32 %.0149216, 2147483647
   %41 = icmp ult i32 %.0148220, 2147483647
   %42 = and i1 %40, %41
-  %or.cond311 = and i1 %42, %4
-  br i1 %or.cond311, label %.lr.ph229.us.preheader, label %.loopexit
+  %or.cond315 = and i1 %42, %4
+  br i1 %or.cond315, label %.lr.ph229.us.preheader, label %.loopexit
 
 .lr.ph229.us.preheader:                           ; preds = %._crit_edge225
   %wide.trip.count285 = zext nneg i32 %21 to i64
-  %wide.trip.count280 = zext i32 %35 to i64
+  %wide.trip.count280 = zext nneg i32 %35 to i64
   br label %.lr.ph229.us
 
 .lr.ph229.us:                                     ; preds = %.lr.ph229.us.preheader, %57
@@ -849,12 +849,12 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   %62 = icmp sgt i32 %.0143, 0
   %or.cond6 = select i1 %5, i1 %62, i1 false
   %63 = icmp ult i32 %.0148220, 2147483647
-  %or.cond312 = and i1 %or.cond6, %63
-  br i1 %or.cond312, label %.lr.ph246.us.preheader, label %.thread165
+  %or.cond316 = and i1 %or.cond6, %63
+  br i1 %or.cond316, label %.lr.ph246.us.preheader, label %.thread165
 
 .lr.ph246.us.preheader:                           ; preds = %.loopexit
   %64 = zext nneg i32 %.0143 to i64
-  %wide.trip.count290 = zext i32 %35 to i64
+  %wide.trip.count290 = zext nneg i32 %35 to i64
   br label %.lr.ph246.us
 
 .lr.ph246.us:                                     ; preds = %.lr.ph246.us.preheader, %81
@@ -1175,8 +1175,8 @@ define internal fastcc noundef ptr @dobyteatrim(ptr noundef readonly captures(re
   %not. = xor i1 %3, true
   %or.cond6 = select i1 %not., i1 true, i1 %75
   %.not88112 = icmp ugt ptr %59, %62
-  %or.cond130 = select i1 %or.cond6, i1 true, i1 %.not88112
-  br i1 %or.cond130, label %.thread93, label %.lr.ph114
+  %or.cond136 = select i1 %or.cond6, i1 true, i1 %.not88112
+  br i1 %or.cond136, label %.thread93, label %.lr.ph114
 
 .lr.ph114:                                        ; preds = %.thread, %82
   %.pn = phi ptr [ %.070, %82 ], [ %57, %.thread ]
@@ -1769,10 +1769,10 @@ define dso_local i64 @translate(ptr noundef readonly captures(none) %0) local_un
   br i1 %.not113.us, label %._crit_edge.us.thread, label %142
 
 ._crit_edge.us.thread:                            ; preds = %.preheader.us, %._crit_edge.us
-  %.0.lcssa.us145 = phi ptr [ %148, %._crit_edge.us ], [ %86, %.preheader.us ]
-  %138 = tail call i32 @pg_mblen(ptr noundef %.0.lcssa.us145) #8
+  %.0.lcssa.us152 = phi ptr [ %148, %._crit_edge.us ], [ %86, %.preheader.us ]
+  %138 = tail call i32 @pg_mblen(ptr noundef %.0.lcssa.us152) #8
   %139 = sext i32 %138 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.094131.us, ptr align 1 %.0.lcssa.us145, i64 %139, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.094131.us, ptr align 1 %.0.lcssa.us152, i64 %139, i1 false)
   %140 = getelementptr inbounds i8, ptr %.094131.us, i64 %139
   %141 = add i32 %138, %.091133.us
   br label %142

@@ -694,10 +694,10 @@ define internal fastcc ptr @extract_jsp_query(ptr noundef %0, i16 noundef zeroex
   %12 = trunc nuw nsw i32 %.lobit to i8
   store i8 %12, ptr %11, align 8
   %spec.select = select i1 %2, ptr @jsonb_path_ops__add_path_item, ptr @jsonb_ops__add_path_item
-  %spec.select15 = select i1 %2, ptr @jsonb_path_ops__extract_nodes, ptr @jsonb_ops__extract_nodes
+  %spec.select17 = select i1 %2, ptr @jsonb_path_ops__extract_nodes, ptr @jsonb_ops__extract_nodes
   store ptr %spec.select, ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %spec.select15, ptr %13, align 8
+  store ptr %spec.select17, ptr %13, align 8
   call void @jspInit(ptr noundef nonnull %7, ptr noundef nonnull %0) #8
   %14 = icmp eq i16 %1, 15
   br i1 %14, label %15, label %17
@@ -1087,14 +1087,14 @@ init_gin_entries.exit:                            ; preds = %1
   %.sroa.13.0.ph = phi i32 [ %.sroa.13.2, %add_gin_entry.exit ], [ %17, %init_gin_entries.exit ]
   %.sroa.8.0.ph = phi i32 [ %41, %add_gin_entry.exit ], [ 0, %init_gin_entries.exit ]
   %.sroa.0.0.ph = phi ptr [ %.sroa.0.2, %add_gin_entry.exit ], [ %20, %init_gin_entries.exit ]
-  %.0.ph = phi ptr [ %.0.ph49, %add_gin_entry.exit ], [ %4, %init_gin_entries.exit ]
-  br label %.outer48
+  %.0.ph = phi ptr [ %.0.ph51, %add_gin_entry.exit ], [ %4, %init_gin_entries.exit ]
+  br label %.outer50
 
-.outer48:                                         ; preds = %.outer48.backedge, %.outer
-  %.0.ph49 = phi ptr [ %.0.ph, %.outer ], [ %.0.ph49.be, %.outer48.backedge ]
+.outer50:                                         ; preds = %.outer50.backedge, %.outer
+  %.0.ph51 = phi ptr [ %.0.ph, %.outer ], [ %.0.ph51.be, %.outer50.backedge ]
   br label %23
 
-23:                                               ; preds = %.outer48, %29
+23:                                               ; preds = %.outer50, %29
   %24 = call i32 @JsonbIteratorNext(ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false) #8
   switch i32 %24, label %55 [
     i32 0, label %58
@@ -1109,23 +1109,23 @@ init_gin_entries.exit:                            ; preds = %1
 
 25:                                               ; preds = %23, %23
   %26 = call ptr @palloc(i64 noundef 16) #8
-  %27 = load i32, ptr %.0.ph49, align 8
+  %27 = load i32, ptr %.0.ph51, align 8
   store i32 %27, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr %.0.ph49, ptr %28, align 8
-  br label %.outer48.backedge
+  store ptr %.0.ph51, ptr %28, align 8
+  br label %.outer50.backedge
 
-.outer48.backedge:                                ; preds = %25, %54, %52
-  %.0.ph49.be = phi ptr [ %49, %52 ], [ %49, %54 ], [ %26, %25 ]
-  br label %.outer48, !llvm.loop !15
+.outer50.backedge:                                ; preds = %25, %54, %52
+  %.0.ph51.be = phi ptr [ %49, %52 ], [ %49, %54 ], [ %26, %25 ]
+  br label %.outer50, !llvm.loop !15
 
 29:                                               ; preds = %23
-  call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef nonnull %.0.ph49) #8
+  call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef nonnull %.0.ph51) #8
   br label %23, !llvm.loop !15
 
 30:                                               ; preds = %23, %23
-  call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef nonnull %.0.ph49) #8
-  %31 = load i32, ptr %.0.ph49, align 8
+  call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef nonnull %.0.ph51) #8
+  %31 = load i32, ptr %.0.ph51, align 8
   %32 = zext i32 %31 to i64
   %.not.i32 = icmp slt i32 %.sroa.8.0.ph, %.sroa.13.0.ph
   br i1 %.not.i32, label %add_gin_entry.exit, label %33
@@ -1152,16 +1152,16 @@ add_gin_entry.exit:                               ; preds = %30, %34, %39
   %42 = sext i32 %.sroa.8.0.ph to i64
   %43 = getelementptr inbounds i64, ptr %.sroa.0.2, i64 %42
   store i64 %32, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %.0.ph49, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.0.ph51, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr %45, align 8
-  store i32 %46, ptr %.0.ph49, align 8
+  store i32 %46, ptr %.0.ph51, align 8
   br label %.outer, !llvm.loop !15
 
 47:                                               ; preds = %23, %23
-  %48 = getelementptr inbounds nuw i8, ptr %.0.ph49, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.0.ph51, i64 8
   %49 = load ptr, ptr %48, align 8
-  call void @pfree(ptr noundef nonnull %.0.ph49) #8
+  call void @pfree(ptr noundef nonnull %.0.ph51) #8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not31 = icmp eq ptr %51, null
@@ -1170,11 +1170,11 @@ add_gin_entry.exit:                               ; preds = %30, %34, %39
 52:                                               ; preds = %47
   %53 = load i32, ptr %51, align 8
   store i32 %53, ptr %49, align 8
-  br label %.outer48.backedge
+  br label %.outer50.backedge
 
 54:                                               ; preds = %47
   store i32 0, ptr %49, align 8
-  br label %.outer48.backedge
+  br label %.outer50.backedge
 
 55:                                               ; preds = %23
   %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -1849,7 +1849,7 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
   %45 = phi i32 [ %42, %41 ], [ %39, %38 ]
   %.046 = phi ptr [ %8, %41 ], [ %9, %38 ]
   %.0.sroa.phi61 = phi ptr [ %.0.sroa.gep54, %41 ], [ %.0.sroa.gep53, %38 ]
-  switch i32 %45, label %default.unreachable [
+  switch i32 %45, label %default.unreachable68 [
     i32 0, label %46
     i32 3, label %47
     i32 2, label %53
@@ -1888,7 +1888,7 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
   store i32 %61, ptr %58, align 8
   br label %62
 
-default.unreachable:                              ; preds = %44
+default.unreachable68:                            ; preds = %44
   unreachable
 
 62:                                               ; preds = %56, %53, %47, %46

@@ -1975,7 +1975,7 @@ define i32 @av_channel_layout_index_from_channel(ptr noundef readonly captures(n
   %12 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %10, i64 %indvars.iv
   %13 = load i32, ptr %12, align 8, !tbaa !21
   %14 = icmp eq i32 %13, %1
-  br i1 %14, label %.loopexit.loopexit.split.loop.exit35, label %15
+  br i1 %14, label %.loopexit.loopexit.split.loop.exit37, label %15
 
 15:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2084,12 +2084,12 @@ define i32 @av_channel_layout_index_from_channel(ptr noundef readonly captures(n
   %103 = add nsw i32 %102, %55
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit35:             ; preds = %11
+.loopexit.loopexit.split.loop.exit37:             ; preds = %11
   %104 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %15, %.loopexit.loopexit.split.loop.exit35, %.preheader, %4, %66, %58, %62, %60, %2
-  %.0 = phi i32 [ -22, %2 ], [ %103, %66 ], [ %., %58 ], [ -22, %62 ], [ -22, %60 ], [ -22, %4 ], [ -22, %.preheader ], [ %104, %.loopexit.loopexit.split.loop.exit35 ], [ -22, %15 ]
+.loopexit:                                        ; preds = %15, %.loopexit.loopexit.split.loop.exit37, %.preheader, %4, %66, %58, %62, %60, %2
+  %.0 = phi i32 [ -22, %2 ], [ %103, %66 ], [ %., %58 ], [ -22, %62 ], [ -22, %60 ], [ -22, %4 ], [ -22, %.preheader ], [ %104, %.loopexit.loopexit.split.loop.exit37 ], [ -22, %15 ]
   ret i32 %.0
 }
 
@@ -2163,10 +2163,10 @@ define range(i32 0, 2) i32 @av_channel_layout_check(ptr noundef readonly capture
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %48 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %47, i64 %indvars.iv
   %49 = load i32, ptr %48, align 8, !tbaa !21
-  %.not21 = icmp ne i32 %49, -1
+  %.not22 = icmp ne i32 %49, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond.not = select i1 %.not21, i1 %exitcond.not, i1 false
+  %or.cond.not = select i1 %.not22, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !45
 
 50:                                               ; preds = %5
@@ -2213,7 +2213,7 @@ define range(i32 0, 2) i32 @av_channel_layout_check(ptr noundef readonly capture
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %45, %1, %88, %50, %7
-  %.014.shrunk = phi i1 [ false, %88 ], [ %44, %7 ], [ %87, %50 ], [ false, %1 ], [ false, %45 ], [ true, %5 ], [ %.not21, %.lr.ph ]
+  %.014.shrunk = phi i1 [ false, %88 ], [ %44, %7 ], [ %87, %50 ], [ false, %1 ], [ false, %45 ], [ true, %5 ], [ %.not22, %.lr.ph ]
   %.014 = zext i1 %.014.shrunk to i32
   ret i32 %.014
 }
@@ -2357,9 +2357,9 @@ define range(i32 -38, 2) i32 @av_channel_layout_retype(ptr noundef %0, i32 nound
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !20
   %.not1011.i.i = icmp sgt i32 %10, 0
-  br i1 %.not1011.i.i, label %.lr.ph.i.i, label %.thread190
+  br i1 %.not1011.i.i, label %.lr.ph.i.i, label %.thread210
 
-.thread190:                                       ; preds = %.preheader.i.i
+.thread210:                                       ; preds = %.preheader.i.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !20
   br label %.preheader
@@ -2469,9 +2469,9 @@ canonical_order.exit:                             ; preds = %16, %29, %44, %40, 
   %51 = icmp eq i32 %.pr.pre, 2
   br i1 %51, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.thread190, %48
-  %52 = phi i32 [ %12, %.thread190 ], [ %50, %48 ]
-  %53 = phi ptr [ %11, %.thread190 ], [ %49, %48 ]
+.preheader:                                       ; preds = %.thread210, %48
+  %52 = phi i32 [ %12, %.thread210 ], [ %50, %48 ]
+  %53 = phi ptr [ %11, %.thread210 ], [ %49, %48 ]
   %54 = icmp sgt i32 %52, 0
   br i1 %54, label %.lr.ph175, label %.thread
 

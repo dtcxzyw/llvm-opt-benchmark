@@ -1197,8 +1197,8 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit355:       ; preds = %_ZL13gmx_snew_implI
   %494 = phi float [ %463, %.preheader553 ], [ %486, %481 ]
   %495 = phi float [ %464, %.preheader553 ], [ %485, %481 ]
   %indvars.iv.next721 = add nsw i64 %indvars.iv720, -1
-  %.not807 = icmp eq i64 %indvars.iv720, 0
-  br i1 %.not807, label %.loopexit557, label %.preheader554, !llvm.loop !51
+  %.not906 = icmp eq i64 %indvars.iv720, 0
+  br i1 %.not906, label %.loopexit557, label %.preheader554, !llvm.loop !51
 
 .loopexit557:                                     ; preds = %._crit_edge617, %427
   %indvars.iv.next724 = add nuw nsw i64 %indvars.iv723, 1

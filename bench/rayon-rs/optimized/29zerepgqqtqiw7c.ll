@@ -58,8 +58,8 @@ define void @"_ZN99_$LT$rayon..iter..extend..ListStringFolder$u20$as$u20$rayon..
   %13 = trunc i32 %2 to i8
   %14 = and i8 %13, 63
   %15 = or disjoint i8 %14, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %15, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx9, align 1, !alias.scope !7, !noalias !4
+  %.sroa.0.i.1.i.1.i.1..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %15, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx12, align 1, !alias.scope !7, !noalias !4
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
 
 16:                                               ; preds = %7
@@ -71,13 +71,13 @@ define void @"_ZN99_$LT$rayon..iter..extend..ListStringFolder$u20$as$u20$rayon..
   %21 = trunc i32 %20 to i8
   %22 = and i8 %21, 63
   %23 = or disjoint i8 %22, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %23, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !7, !noalias !4
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %23, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !7, !noalias !4
   %24 = trunc i32 %2 to i8
   %25 = and i8 %24, 63
   %26 = or disjoint i8 %25, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %26, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx10, align 2, !alias.scope !7, !noalias !4
+  %.sroa.0.i.2.i.2.i.2..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %26, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx13, align 2, !alias.scope !7, !noalias !4
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
 
 27:                                               ; preds = %7

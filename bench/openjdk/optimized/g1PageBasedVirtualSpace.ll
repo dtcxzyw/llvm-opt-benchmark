@@ -335,7 +335,7 @@ define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace17is_area_committ
 
 27:                                               ; preds = %24
   %28 = xor i64 %26, -1
-  %29 = shl i64 %22, 6
+  %29 = shl nuw i64 %22, 6
   br label %30
 
 30:                                               ; preds = %27, %16
@@ -394,7 +394,7 @@ define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace19is_area_uncommi
   br i1 %.not36.i.i, label %20, label %26, !llvm.loop !8
 
 26:                                               ; preds = %23
-  %27 = shl i64 %21, 6
+  %27 = shl nuw i64 %21, 6
   br label %28
 
 28:                                               ; preds = %26, %15
@@ -615,7 +615,7 @@ define hidden noundef zeroext i1 @_ZN23G1PageBasedVirtualSpace6commitEmm(ptr nou
   br i1 %.not36.i.i.i, label %20, label %26, !llvm.loop !8
 
 26:                                               ; preds = %23
-  %27 = shl i64 %21, 6
+  %27 = shl nuw i64 %21, 6
   br label %28
 
 28:                                               ; preds = %26, %15
@@ -676,7 +676,7 @@ _ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread18: ; preds = %
   br i1 %.not36.i.i, label %52, label %58, !llvm.loop !8
 
 58:                                               ; preds = %55
-  %59 = shl i64 %53, 6
+  %59 = shl nuw i64 %53, 6
   br label %60
 
 60:                                               ; preds = %58, %47
@@ -781,7 +781,7 @@ define hidden void @_ZN23G1PageBasedVirtualSpace8uncommitEmm(ptr noundef nonnull
 
 27:                                               ; preds = %24
   %28 = xor i64 %26, -1
-  %29 = shl i64 %22, 6
+  %29 = shl nuw i64 %22, 6
   br label %30
 
 30:                                               ; preds = %27, %16

@@ -522,27 +522,27 @@ define dso_local void @log_oom(ptr noundef %0, i32 noundef %1, ptr noundef %2) #
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not7 = icmp eq ptr %7, null
-  br i1 %.not7, label %.thread12, label %8
+  br i1 %.not7, label %.thread13, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.10, ptr noundef %0, i32 noundef %1, ptr noundef %2) #20
   %.pr.pre = load ptr, ptr @log, align 8
   %.not8 = icmp eq ptr %.pr.pre, null
-  br i1 %.not8, label %.thread, label %.thread12
+  br i1 %.not8, label %.thread, label %.thread13
 
-.thread12:                                        ; preds = %5, %8
-  %.pr15 = phi ptr [ %.pr.pre, %8 ], [ %4, %5 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.pr15, i64 44
+.thread13:                                        ; preds = %5, %8
+  %.pr16 = phi ptr [ %.pr.pre, %8 ], [ %4, %5 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.pr16, i64 44
   %11 = load i32, ptr %10, align 4
   %.not9 = icmp eq i32 %11, 0
   br i1 %.not9, label %14, label %.thread
 
-.thread:                                          ; preds = %3, %.thread12, %8
+.thread:                                          ; preds = %3, %.thread13, %8
   %12 = load ptr, ptr @stderr, align 8
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.10, ptr noundef %0, i32 noundef %1, ptr noundef %2) #23
   br label %14
 
-14:                                               ; preds = %.thread, %.thread12
+14:                                               ; preds = %.thread, %.thread13
   ret void
 }
 
@@ -1499,14 +1499,14 @@ define internal fastcc i32 @_sched_log_init(ptr noundef %0, ptr noundef readonly
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8
   %.not44 = icmp eq ptr %77, null
-  br i1 %.not44, label %.thread57, label %78
+  br i1 %.not44, label %.thread64, label %78
 
 78:                                               ; preds = %74
   %79 = tail call i32 @fclose(ptr noundef nonnull %77)
   %.pre = load ptr, ptr @sched_log, align 8
-  br label %.thread57
+  br label %.thread64
 
-.thread57:                                        ; preds = %78, %74
+.thread64:                                        ; preds = %78, %74
   %80 = phi ptr [ %75, %74 ], [ %.pre, %78 ]
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store ptr %66, ptr %81, align 8
@@ -1522,8 +1522,8 @@ define internal fastcc i32 @_sched_log_init(ptr noundef %0, ptr noundef readonly
   %.not45 = icmp eq ptr %.pre55, null
   br i1 %.not45, label %91, label %85
 
-85:                                               ; preds = %.thread57, %84
-  %86 = phi ptr [ %66, %.thread57 ], [ %.pre55, %84 ]
+85:                                               ; preds = %.thread64, %84
+  %86 = phi ptr [ %66, %.thread64 ], [ %.pre55, %84 ]
   %87 = tail call i32 @fileno(ptr noundef nonnull %86) #20
   %88 = icmp slt i32 %87, 0
   %.pre56 = load ptr, ptr @sched_log, align 8
@@ -2448,7 +2448,7 @@ thread-pre-split:                                 ; preds = %switch.lookup, %218
 
 .preheader:                                       ; preds = %.thread, %250
   %253 = phi ptr [ %249, %.thread ], [ %252, %250 ]
-  %.not142259 = phi i1 [ true, %.thread ], [ %.not142, %250 ]
+  %.not142283 = phi i1 [ true, %.thread ], [ %.not142, %250 ]
   %254 = phi ptr [ %12, %.thread ], [ %251, %250 ]
   %255 = load i8, ptr %254, align 1
   %.not139214 = icmp eq i8 %255, 0
@@ -2476,7 +2476,7 @@ thread-pre-split:                                 ; preds = %switch.lookup, %218
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %257, %.preheader, %.critedge2
-  br i1 %.not142259, label %264, label %263
+  br i1 %.not142283, label %264, label %263
 
 263:                                              ; preds = %.critedge2.thread
   call void @slurm_xfree(ptr noundef nonnull %11) #20

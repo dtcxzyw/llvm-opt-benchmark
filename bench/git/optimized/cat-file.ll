@@ -857,10 +857,10 @@ switch.early.test:                                ; preds = %253
   store ptr %336, ptr %337, align 8, !tbaa !60
   %338 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %339 = load i32, ptr %338, align 8, !tbaa !25
-  %.not3067.i = icmp eq i32 %339, 0
-  br i1 %.not3067.i, label %.thread68.i, label %341
+  %.not3073.i = icmp eq i32 %339, 0
+  br i1 %.not3073.i, label %.thread74.i, label %341
 
-.thread68.i:                                      ; preds = %.thread.i
+.thread74.i:                                      ; preds = %.thread.i
   %340 = load i32, ptr @warn_on_object_refname_ambiguity, align 4, !tbaa !4
   store i32 0, ptr @warn_on_object_refname_ambiguity, align 4, !tbaa !4
   br label %.preheader41.i
@@ -937,8 +937,8 @@ switch.early.test:                                ; preds = %253
   %368 = icmp eq i32 %331, 2
   br i1 %368, label %377, label %.preheader41.i
 
-.preheader41.i:                                   ; preds = %366, %.thread68.i
-  %369 = phi i32 [ %340, %.thread68.i ], [ %367, %366 ]
+.preheader41.i:                                   ; preds = %366, %.thread74.i
+  %369 = phi i32 [ %340, %.thread74.i ], [ %367, %366 ]
   %370 = load ptr, ptr @stdin, align 8, !tbaa !70
   %371 = load i8, ptr %293, align 4, !tbaa !30
   %372 = sext i8 %371 to i32
@@ -1253,8 +1253,8 @@ free_cmds.exit72.i.i:                             ; preds = %._crit_edge.i.i
   br i1 %exitcond148.not.i.i, label %batch_objects_command.exit.i, label %.lr.ph.i74.i.i, !llvm.loop !86
 
 batch_objects_command.exit.i:                     ; preds = %.lr.ph.i74.i.i, %.lr.ph.i70.i.i, %free_cmds.exit72.i.i, %377
-  %.040.lcssa156.i.i = phi ptr [ %.141.i.i, %free_cmds.exit72.i.i ], [ null, %377 ], [ %.141.i.i, %.lr.ph.i70.i.i ], [ %.141.i.i, %.lr.ph.i74.i.i ]
-  call void @free(ptr noundef %.040.lcssa156.i.i) #14
+  %.040.lcssa157.i.i = phi ptr [ %.141.i.i, %free_cmds.exit72.i.i ], [ null, %377 ], [ %.141.i.i, %.lr.ph.i70.i.i ], [ %.141.i.i, %.lr.ph.i74.i.i ]
+  call void @free(ptr noundef %.040.lcssa157.i.i) #14
   call void @strbuf_release(ptr noundef nonnull %19) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.loopexit.i

@@ -2356,9 +2356,9 @@ g_string_append_c_inline.exit:                    ; preds = %45, %51
   br label %.sink.split
 
 .sink.split:                                      ; preds = %72, %82
-  %.0.ph56.sink = phi i32 [ %8, %82 ], [ %.0.ph, %72 ]
+  %.0.ph59.sink = phi i32 [ %8, %82 ], [ %.0.ph, %72 ]
   %90 = load i32, ptr @curr_offset, align 4
-  %91 = sub i32 %90, %.0.ph56.sink
+  %91 = sub i32 %90, %.0.ph59.sink
   store i32 %91, ptr @curr_offset, align 4
   br label %92
 
@@ -2513,8 +2513,8 @@ switch.lookup:                                    ; preds = %9
   br i1 %.b42.pr, label %.thread, label %66
 
 .thread.sink.split:                               ; preds = %45, %44, %43, %42, %39
-  %.sink47 = phi i32 [ %41, %39 ], [ 17, %42 ], [ 6, %43 ], [ 132, %44 ], [ 132, %45 ]
-  store i32 %.sink47, ptr @hdr_ip_proto, align 4
+  %.sink50 = phi i32 [ %41, %39 ], [ 17, %42 ], [ 6, %43 ], [ 132, %44 ], [ 132, %45 ]
+  store i32 %.sink50, ptr @hdr_ip_proto, align 4
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %47
@@ -2785,8 +2785,8 @@ define hidden noundef i32 @text_import_pre_open(ptr noundef captures(none) %0, i
   br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge.thread:                               ; preds = %54, %._crit_edge
-  %.lcssa66 = phi i32 [ %60, %._crit_edge ], [ %55, %54 ]
-  %62 = trunc i32 %.lcssa66 to i8
+  %.lcssa70 = phi i32 [ %60, %._crit_edge ], [ %55, %54 ]
+  %62 = trunc i32 %.lcssa70 to i8
   %63 = call i32 @wtap_block_add_uint8_option(ptr noundef %39, i32 noundef 9, i8 noundef zeroext %62)
   br label %65
 

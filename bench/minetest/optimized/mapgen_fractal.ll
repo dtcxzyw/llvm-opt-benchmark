@@ -4166,7 +4166,7 @@ if.then36:                                        ; preds = %if.then33
   br label %cleanup
 
 for.inc:                                          ; preds = %if.then33, %if.else, %for.body
-  %solid_below.1 = phi i8 [ %solid_below.064, %if.then33 ], [ 0, %if.else ], [ 1, %for.body ]
+  %solid_below.1 = phi i8 [ 1, %if.then33 ], [ 0, %if.else ], [ 1, %for.body ]
   %air_count.1 = phi i8 [ %inc, %if.then33 ], [ %air_count.065, %if.else ], [ 0, %for.body ]
   %inc41 = add i16 %y.066, 1
   %conv25 = sext i16 %inc41 to i32

@@ -1105,17 +1105,17 @@ unicode_to_bytes.exit288.i:                       ; preds = %372
 
 unicode_to_bytes.exit270.i:                       ; preds = %389, %343
   %.4.i293.lcssa.sink.i = phi i32 [ %.4.i266.i, %343 ], [ %.4.i293.i, %389 ]
-  %.sink417.i = phi ptr [ %336, %343 ], [ %382, %389 ]
+  %.sink443.i = phi ptr [ %336, %343 ], [ %382, %389 ]
   %hf_srvloc_socket.sink.i = phi ptr [ @hf_srvloc_port, %343 ], [ @hf_srvloc_socket, %389 ]
-  %.sink412.i = phi i32 [ %334, %343 ], [ %380, %389 ]
+  %.sink438.i = phi i32 [ %334, %343 ], [ %380, %389 ]
   %.1387.i = phi i32 [ %.1386.i, %343 ], [ %295, %389 ]
   %390 = sext i32 %.4.i293.lcssa.sink.i to i64
-  %391 = getelementptr i8, ptr %.sink417.i, i64 %390
+  %391 = getelementptr i8, ptr %.sink443.i, i64 %390
   store i8 0, ptr %391, align 1
-  %392 = tail call i64 @strtoul(ptr noundef captures(none) %.sink417.i, ptr noundef null, i32 noundef 16) #8
+  %392 = tail call i64 @strtoul(ptr noundef captures(none) %.sink443.i, ptr noundef null, i32 noundef 16) #8
   %393 = trunc i64 %392 to i32
   %394 = load i32, ptr %hf_srvloc_socket.sink.i, align 4
-  %395 = tail call ptr @proto_tree_add_uint(ptr noundef %244, i32 noundef %394, ptr noundef %0, i32 noundef %.sink412.i, i32 noundef 4, i32 noundef %393)
+  %395 = tail call ptr @proto_tree_add_uint(ptr noundef %244, i32 noundef %394, ptr noundef %0, i32 noundef %.sink438.i, i32 noundef 4, i32 noundef %393)
   tail call void @proto_item_set_len(ptr noundef %395, i32 noundef 8)
   %396 = add i32 %.0244398.i, 1
   %397 = add i32 %.1387.i, 59
@@ -1216,9 +1216,9 @@ unicode_to_bytes.exit306.i:                       ; preds = %.loopexit.i.i, %408
   %437 = load i32, ptr @hf_srvloc_service_type, align 4
   %438 = tail call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %437, ptr noundef %0, i32 noundef %435, i32 noundef 1, i32 noundef 0)
   %439 = load i32, ptr @hf_srvloc_communication_type, align 4
-  %440 = add i32 %.2397.i, 3
+  %440 = add nsw i32 %.2397.i, 3
   %441 = tail call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %439, ptr noundef %0, i32 noundef %440, i32 noundef 1, i32 noundef 0)
-  %442 = add i32 %.2397.i, 5
+  %442 = add nsw i32 %.2397.i, 5
   %443 = icmp eq i8 %436, 50
   br i1 %443, label %444, label %461
 
@@ -1230,7 +1230,7 @@ unicode_to_bytes.exit306.i:                       ; preds = %.loopexit.i.i, %408
 .thread388.i:                                     ; preds = %444
   %447 = load i32, ptr @hf_srvloc_protocol, align 4
   %448 = tail call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %447, ptr noundef %0, i32 noundef %442, i32 noundef 1, i32 noundef 0)
-  %449 = add i32 %.2397.i, 6
+  %449 = add nsw i32 %.2397.i, 6
   br label %479
 
 450:                                              ; preds = %444
@@ -1240,7 +1240,8 @@ unicode_to_bytes.exit306.i:                       ; preds = %.loopexit.i.i, %408
   br label %.lr.ph.i307.i
 
 .lr.ph.i307.i:                                    ; preds = %460, %450
-  %indvars.iv.i308.i = phi i64 [ 0, %450 ], [ %indvars.iv.next.i312.i, %460 ]
+  %exitcond.not.i313.i = phi i1 [ false, %450 ], [ true, %460 ]
+  %indvars.iv.i308.i = phi i64 [ 0, %450 ], [ 1, %460 ]
   %.358.i309.i = phi i32 [ 0, %450 ], [ %.4.i311.i, %460 ]
   %454 = getelementptr i8, ptr %452, i64 %indvars.iv.i308.i
   %455 = load i8, ptr %454, align 1
@@ -1256,8 +1257,6 @@ unicode_to_bytes.exit306.i:                       ; preds = %.loopexit.i.i, %408
 
 460:                                              ; preds = %456, %.lr.ph.i307.i
   %.4.i311.i = phi i32 [ %459, %456 ], [ %.358.i309.i, %.lr.ph.i307.i ]
-  %indvars.iv.next.i312.i = add nuw nsw i64 %indvars.iv.i308.i, 1
-  %exitcond.not.i313.i = icmp eq i64 %indvars.iv.next.i312.i, 2
   br i1 %exitcond.not.i313.i, label %unicode_to_bytes.exit317.i, label %.lr.ph.i307.i, !llvm.loop !8
 
 461:                                              ; preds = %.lr.ph.i
@@ -1289,17 +1288,17 @@ unicode_to_bytes.exit306.i:                       ; preds = %.loopexit.i.i, %408
 
 unicode_to_bytes.exit317.i:                       ; preds = %471, %460
   %.4.i311.lcssa.sink.i = phi i32 [ %.4.i311.i, %460 ], [ %.4.i322.i, %471 ]
-  %.sink426.i = phi ptr [ %453, %460 ], [ %464, %471 ]
-  %.sink421.i = phi i32 [ 2, %460 ], [ 4, %471 ]
-  %.sink419.i = phi i32 [ 7, %460 ], [ 9, %471 ]
+  %.sink452.i = phi ptr [ %453, %460 ], [ %464, %471 ]
+  %.sink447.i = phi i32 [ 2, %460 ], [ 4, %471 ]
+  %.sink445.i = phi i32 [ 7, %460 ], [ 9, %471 ]
   %472 = sext i32 %.4.i311.lcssa.sink.i to i64
-  %473 = getelementptr i8, ptr %.sink426.i, i64 %472
+  %473 = getelementptr i8, ptr %.sink452.i, i64 %472
   store i8 0, ptr %473, align 1
-  %474 = tail call i64 @strtoul(ptr noundef captures(none) %.sink426.i, ptr noundef null, i32 noundef 10) #8
+  %474 = tail call i64 @strtoul(ptr noundef captures(none) %.sink452.i, ptr noundef null, i32 noundef 10) #8
   %475 = trunc i64 %474 to i32
   %476 = load i32, ptr @hf_srvloc_protocol, align 4
-  %477 = tail call ptr @proto_tree_add_uint(ptr noundef %434, i32 noundef %476, ptr noundef %0, i32 noundef %442, i32 noundef %.sink421.i, i32 noundef %475)
-  %478 = add i32 %.sink419.i, %.2397.i
+  %477 = tail call ptr @proto_tree_add_uint(ptr noundef %434, i32 noundef %476, ptr noundef %0, i32 noundef %442, i32 noundef %.sink447.i, i32 noundef %475)
+  %478 = add nsw i32 %.sink445.i, %.2397.i
   br i1 %443, label %479, label %527
 
 479:                                              ; preds = %unicode_to_bytes.exit317.i, %.thread388.i
@@ -1365,10 +1364,10 @@ unicode_to_bytes.exit340.i:                       ; preds = %506, %492
   %511 = tail call i64 @strtoul(ptr noundef captures(none) %482, ptr noundef null, i32 noundef 16) #8
   %512 = trunc i64 %511 to i32
   %513 = load i32, ptr @hf_srvloc_add_ref_ip, align 4
-  %514 = add i32 %.3390.i, 1
+  %514 = add nsw i32 %.3390.i, 1
   %515 = tail call ptr @proto_tree_add_ipv4(ptr noundef %434, i32 noundef %513, ptr noundef %0, i32 noundef %514, i32 noundef 8, i32 noundef %512)
   %516 = load ptr, ptr %409, align 8
-  %517 = add i32 %.3390.i, 9
+  %517 = add nsw i32 %.3390.i, 9
   %518 = tail call ptr @tvb_get_string_enc(ptr noundef %516, ptr noundef %0, i32 noundef %517, i32 noundef 4, i32 noundef 0)
   %519 = tail call noalias dereferenceable_or_null(5) ptr @wmem_alloc(ptr noundef %516, i64 noundef 5) #7
   br label %.lr.ph.i341.i
@@ -1396,7 +1395,7 @@ unicode_to_bytes.exit340.i:                       ; preds = %506, %492
 
 527:                                              ; preds = %unicode_to_bytes.exit317.i
   %528 = load ptr, ptr %409, align 8
-  %529 = add i32 %478, 1
+  %529 = add nsw i32 %478, 1
   %530 = tail call ptr @tvb_get_string_enc(ptr noundef %528, ptr noundef %0, i32 noundef %529, i32 noundef 8, i32 noundef 0)
   %531 = tail call noalias dereferenceable_or_null(9) ptr @wmem_alloc(ptr noundef %528, i64 noundef 9) #7
   br label %.lr.ph.i352.i
@@ -1432,7 +1431,7 @@ unicode_to_bytes.exit362.i:                       ; preds = %538
   %544 = tail call ptr @proto_tree_add_uint(ptr noundef %434, i32 noundef %543, ptr noundef %0, i32 noundef %529, i32 noundef 4, i32 noundef %542)
   tail call void @proto_item_set_len(ptr noundef %544, i32 noundef 8)
   %545 = load ptr, ptr %409, align 8
-  %546 = add i32 %478, 9
+  %546 = add nsw i32 %478, 9
   %547 = tail call ptr @tvb_get_string_enc(ptr noundef %545, ptr noundef %0, i32 noundef %546, i32 noundef 12, i32 noundef 0)
   %548 = tail call noalias dereferenceable_or_null(13) ptr @wmem_alloc(ptr noundef %545, i64 noundef 13) #7
   br label %.lr.ph.i363.i
@@ -1468,7 +1467,7 @@ unicode_to_bytes.exit373.i:                       ; preds = %555
   %561 = tail call ptr @proto_tree_add_uint(ptr noundef %434, i32 noundef %560, ptr noundef %0, i32 noundef %546, i32 noundef 4, i32 noundef %559)
   tail call void @proto_item_set_len(ptr noundef %561, i32 noundef 12)
   %562 = load ptr, ptr %409, align 8
-  %563 = add i32 %478, 21
+  %563 = add nsw i32 %478, 21
   %564 = tail call ptr @tvb_get_string_enc(ptr noundef %562, ptr noundef %0, i32 noundef %563, i32 noundef 4, i32 noundef 0)
   %565 = tail call noalias dereferenceable_or_null(5) ptr @wmem_alloc(ptr noundef %562, i64 noundef 5) #7
   br label %.lr.ph.i374.i
@@ -1496,19 +1495,19 @@ unicode_to_bytes.exit373.i:                       ; preds = %555
 
 unicode_to_bytes.exit351.i:                       ; preds = %572, %526
   %.4.i378.lcssa.sink.i = phi i32 [ %.4.i345.i, %526 ], [ %.4.i378.i, %572 ]
-  %.sink435.i = phi ptr [ %519, %526 ], [ %565, %572 ]
-  %hf_srvloc_socket.sink431.i = phi ptr [ @hf_srvloc_port, %526 ], [ @hf_srvloc_socket, %572 ]
-  %.sink429.i = phi i32 [ %517, %526 ], [ %563, %572 ]
+  %.sink461.i = phi ptr [ %519, %526 ], [ %565, %572 ]
+  %hf_srvloc_socket.sink457.i = phi ptr [ @hf_srvloc_port, %526 ], [ @hf_srvloc_socket, %572 ]
+  %.sink455.i = phi i32 [ %517, %526 ], [ %563, %572 ]
   %.3391.i = phi i32 [ %.3390.i, %526 ], [ %478, %572 ]
   %573 = sext i32 %.4.i378.lcssa.sink.i to i64
-  %574 = getelementptr i8, ptr %.sink435.i, i64 %573
+  %574 = getelementptr i8, ptr %.sink461.i, i64 %573
   store i8 0, ptr %574, align 1
-  %575 = tail call i64 @strtoul(ptr noundef captures(none) %.sink435.i, ptr noundef null, i32 noundef 16) #8
+  %575 = tail call i64 @strtoul(ptr noundef captures(none) %.sink461.i, ptr noundef null, i32 noundef 16) #8
   %576 = trunc i64 %575 to i32
-  %577 = load i32, ptr %hf_srvloc_socket.sink431.i, align 4
-  %578 = tail call ptr @proto_tree_add_uint(ptr noundef %434, i32 noundef %577, ptr noundef %0, i32 noundef %.sink429.i, i32 noundef 4, i32 noundef %576)
+  %577 = load i32, ptr %hf_srvloc_socket.sink457.i, align 4
+  %578 = tail call ptr @proto_tree_add_uint(ptr noundef %434, i32 noundef %577, ptr noundef %0, i32 noundef %.sink455.i, i32 noundef 4, i32 noundef %576)
   %579 = add i32 %.1245396.i, 1
-  %580 = add i32 %.3391.i, 29
+  %580 = add nsw i32 %.3391.i, 29
   %581 = icmp slt i32 %580, %204
   br i1 %581, label %.lr.ph.i, label %attr_list.exit, !llvm.loop !12
 

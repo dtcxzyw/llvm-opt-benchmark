@@ -165,9 +165,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %19
   %31 = load i32, ptr %30, align 8, !tbaa !28
   %32 = icmp eq i32 %31, 0
   %or.cond = select i1 %29, i1 %32, i1 false
-  br i1 %or.cond, label %.thread97, label %._crit_edge
+  br i1 %or.cond, label %.thread99, label %._crit_edge
 
-.thread97:                                        ; preds = %26
+.thread99:                                        ; preds = %26
   store i32 %1, ptr %30, align 8, !tbaa !28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %49
@@ -223,8 +223,8 @@ _ZNSolsEj.exit62:                                 ; preds = %_ZStlsISt11char_tra
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %174
 
-49:                                               ; preds = %.thread97, %._crit_edge
-  %50 = phi ptr [ %33, %.thread97 ], [ %34, %._crit_edge ]
+49:                                               ; preds = %.thread99, %._crit_edge
+  %50 = phi ptr [ %33, %.thread99 ], [ %34, %._crit_edge ]
   %51 = icmp eq i32 %1, 0
   br i1 %51, label %52, label %62
 
@@ -307,9 +307,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit64: ; preds = %54
   %79 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %80 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %.critedge101
+  br label %.critedge103
 
-.critedge101:                                     ; preds = %.critedge101.backedge, %.preheader
+.critedge103:                                     ; preds = %.critedge103.backedge, %.preheader
   %82 = load i32, ptr %27, align 8, !tbaa !6
   switch i32 %82, label %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exitthread-pre-split [
     i32 0, label %91
@@ -340,7 +340,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit64: ; preds = %54
           cleanup
   br label %170
 
-91:                                               ; preds = %.critedge101
+91:                                               ; preds = %.critedge103
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %92 = invoke noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPc(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 4, ptr noundef nonnull %7)
@@ -386,7 +386,7 @@ _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.e
           cleanup
   br label %170
 
-108:                                              ; preds = %.critedge101
+108:                                              ; preds = %.critedge103
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %109 = invoke noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPc(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 4, ptr noundef nonnull %6)
@@ -415,7 +415,7 @@ _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.e
   store i32 4, ptr %15, align 4, !tbaa !29
   br label %.loopexit
 
-115:                                              ; preds = %.critedge101
+115:                                              ; preds = %.critedge103
   %116 = load i32, ptr %78, align 4, !tbaa !34
   %117 = zext i32 %116 to i64
   %118 = invoke noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPNS_23SpdyPinnableBufferPieceE(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %117, ptr noundef nonnull %12)
@@ -428,7 +428,7 @@ _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.e
   store i32 1, ptr %15, align 4, !tbaa !29
   br label %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread
 
-121:                                              ; preds = %.critedge101
+121:                                              ; preds = %.critedge103
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %122 = invoke noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPc(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 4, ptr noundef nonnull %5)
@@ -457,7 +457,7 @@ _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.e
   store i32 4, ptr %15, align 4, !tbaa !29
   br label %.loopexit
 
-128:                                              ; preds = %.critedge101
+128:                                              ; preds = %.critedge103
   %129 = load i32, ptr %78, align 4, !tbaa !34
   %130 = zext i32 %129 to i64
   %131 = invoke noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPNS_23SpdyPinnableBufferPieceE(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %130, ptr noundef nonnull %13)
@@ -482,7 +482,7 @@ _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.e
   invoke void %142(ptr noundef nonnull align 8 dereferenceable(8) %135, ptr %136, i64 %137, ptr %138, i64 %139)
           to label %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exitthread-pre-split unwind label %106
 
-143:                                              ; preds = %.critedge101
+143:                                              ; preds = %.critedge103
   %144 = load i32, ptr %76, align 8, !tbaa !26
   %145 = add i32 %144, -1
   store i32 %145, ptr %76, align 8, !tbaa !26
@@ -511,9 +511,9 @@ _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.e
   store i32 2, ptr %15, align 4, !tbaa !29
   br label %.loopexit
 
-_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exitthread-pre-split: ; preds = %.critedge101, %119, %134, %154, %143, %101
-  %.ph = phi i1 [ false, %101 ], [ false, %143 ], [ true, %154 ], [ false, %134 ], [ false, %119 ], [ false, %.critedge101 ]
-  %.030.ph = phi i32 [ 1, %101 ], [ 1, %143 ], [ 0, %154 ], [ 5, %134 ], [ 3, %119 ], [ 5, %.critedge101 ]
+_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exitthread-pre-split: ; preds = %.critedge103, %119, %134, %154, %143, %101
+  %.ph = phi i1 [ false, %101 ], [ false, %143 ], [ true, %154 ], [ false, %134 ], [ false, %119 ], [ false, %.critedge103 ]
+  %.030.ph = phi i32 [ 1, %101 ], [ 1, %143 ], [ 0, %154 ], [ 5, %134 ], [ 3, %119 ], [ 5, %.critedge103 ]
   %.pr = load i32, ptr %15, align 4, !tbaa !29
   br label %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit
 
@@ -528,7 +528,7 @@ _ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReader
 
 158:                                              ; preds = %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit
   store i32 %.030, ptr %27, align 8, !tbaa !6
-  br i1 %157, label %.thread92, label %.critedge101.backedge
+  br i1 %157, label %.thread92, label %.critedge103.backedge
 
 .thread92:                                        ; preds = %158
   store i64 0, ptr %63, align 8, !tbaa !25
@@ -562,10 +562,10 @@ _ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReader
 ._ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread90_crit_edge: ; preds = %167
   %.pre96 = load i32, ptr %15, align 4
   %168 = icmp eq i32 %.pre96, 0
-  br i1 %168, label %.critedge101.backedge, label %.loopexit
+  br i1 %168, label %.critedge103.backedge, label %.loopexit
 
-.critedge101.backedge:                            ; preds = %._ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread90_crit_edge, %158
-  br label %.critedge101
+.critedge103.backedge:                            ; preds = %._ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread90_crit_edge, %158
+  br label %.critedge103
 
 .loopexit:                                        ; preds = %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit, %._ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread90_crit_edge, %127, %114, %100, %155, %.thread92, %75
   %169 = phi i1 [ true, %.thread92 ], [ false, %75 ], [ false, %155 ], [ false, %100 ], [ false, %114 ], [ false, %127 ], [ false, %._ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread90_crit_edge ], [ false, %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit ]

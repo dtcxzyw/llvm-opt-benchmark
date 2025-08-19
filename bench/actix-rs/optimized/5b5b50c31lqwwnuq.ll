@@ -1243,7 +1243,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1caa876bf058f9dcE.exit.i1.i.i.i: ; pred
   %94 = icmp eq i8 %.pre.i.i.i.i.i, 2
   br i1 %94, label %100, label %95
 
-95:                                               ; preds = %.critedge29, %93
+95:                                               ; preds = %.critedge35, %93
   %96 = invoke { ptr, i64 } @"_ZN121_$LT$actix_router..resource..ResourceDef..pattern_iter..PatternIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h997d76bdd4e62f33E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %85)
           to label %.noexc unwind label %.loopexit
 
@@ -1268,7 +1268,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1caa876bf058f9dcE.exit.i1.i.i.i: ; pred
 .noexc6:                                          ; preds = %103
   %105 = extractvalue { ptr, i64 } %104, 0
   %106 = icmp eq ptr %105, null
-  br i1 %106, label %107, label %.critedge29
+  br i1 %106, label %107, label %.critedge35
 
 107:                                              ; preds = %.noexc6
   store i8 2, ptr %86, align 8, !alias.scope !341, !noalias !346
@@ -1288,7 +1288,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1caa876bf058f9dcE.exit.i1.i.i.i: ; pred
   %113 = icmp eq ptr %112, null
   br i1 %113, label %.loopexit15, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd4ced53b5e7843eE.exit.i.i"
 
-.critedge29:                                      ; preds = %.noexc6
+.critedge35:                                      ; preds = %.noexc6
   %114 = extractvalue { ptr, i64 } %104, 1
   %115 = load ptr, ptr %8, align 8, !alias.scope !354, !noalias !363, !nonnull !7, !align !245, !noundef !7
   store ptr %105, ptr %83, align 8, !alias.scope !370, !noalias !371

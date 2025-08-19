@@ -339,7 +339,8 @@ Vec_StrPush.exit.i95:                             ; preds = %124, %Vec_StrGrow.e
   br label %.lr.ph.i102
 
 .lr.ph.i102:                                      ; preds = %.lr.ph.i102.preheader, %Vec_StrPush.exit.i108
-  %indvars.iv.i105 = phi i64 [ %indvars.iv.next.i109, %Vec_StrPush.exit.i108 ], [ 0, %.lr.ph.i102.preheader ]
+  %exitcond.not.i110 = phi i1 [ true, %Vec_StrPush.exit.i108 ], [ false, %.lr.ph.i102.preheader ]
+  %indvars.iv.i105 = phi i64 [ 1, %Vec_StrPush.exit.i108 ], [ 0, %.lr.ph.i102.preheader ]
   %131 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %indvars.iv.i105
   %132 = load i8, ptr %131, align 1, !tbaa !12
   %133 = load i32, ptr %2, align 4, !tbaa !3
@@ -403,8 +404,6 @@ Vec_StrPush.exit.i108:                            ; preds = %153, %Vec_StrGrow.e
   %158 = sext i32 %156 to i64
   %159 = getelementptr inbounds i8, ptr %155, i64 %158
   store i8 %132, ptr %159, align 1, !tbaa !12
-  %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i105, 1
-  %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, 2
   br i1 %exitcond.not.i110, label %Vec_StrPrintStr.exit114, label %.lr.ph.i102, !llvm.loop !13
 
 Vec_StrPrintStr.exit114:                          ; preds = %Vec_StrPush.exit.i108
@@ -1453,9 +1452,9 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 
 36:                                               ; preds = %2
   %37 = icmp slt i32 %1, 0
-  br i1 %37, label %38, label %.preheader40
+  br i1 %37, label %38, label %.preheader49
 
-.preheader40:                                     ; preds = %Vec_StrPush.exit23, %36
+.preheader49:                                     ; preds = %Vec_StrPush.exit23, %36
   %.11531.ph = phi i32 [ %1, %36 ], [ %69, %Vec_StrPush.exit23 ]
   br label %71
 
@@ -1526,17 +1525,17 @@ Vec_StrPush.exit23:                               ; preds = %.Vec_StrGrow.exit10
   %68 = getelementptr inbounds i8, ptr %64, i64 %67
   store i8 45, ptr %68, align 1, !tbaa !12
   %69 = sub nsw i32 0, %1
-  br label %.preheader40
+  br label %.preheader49
 
 .preheader:                                       ; preds = %71
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.phi.trans.insert.i25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %76
 
-71:                                               ; preds = %.preheader40, %71
-  %indvars.iv35 = phi i64 [ %indvars.iv.next36, %71 ], [ 1, %.preheader40 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %.preheader40 ]
-  %.11531 = phi i32 [ %75, %71 ], [ %.11531.ph, %.preheader40 ]
+71:                                               ; preds = %.preheader49, %71
+  %indvars.iv35 = phi i64 [ %indvars.iv.next36, %71 ], [ 1, %.preheader49 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %.preheader49 ]
+  %.11531 = phi i32 [ %75, %71 ], [ %.11531.ph, %.preheader49 ]
   %72 = urem i32 %.11531, 10
   %73 = trunc nuw nsw i32 %72 to i8
   %74 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %indvars.iv

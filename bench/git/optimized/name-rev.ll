@@ -599,8 +599,8 @@ commit_is_before_cutoff.exit.thread.i.i:          ; preds = %commit_is_before_cu
   %250 = zext nneg i32 %233 to i64
   %251 = getelementptr inbounds nuw ptr, ptr %241, i64 %250
   %252 = load ptr, ptr %251, align 8, !tbaa !49
-  %.not355.i.i.i.i = icmp eq ptr %252, null
-  br i1 %.not355.i.i.i.i, label %commit_rev_name_at.exit.i.i, label %commit_rev_name_at.exit.thread.i.i
+  %.not357.i.i.i.i = icmp eq ptr %252, null
+  br i1 %.not357.i.i.i.i, label %commit_rev_name_at.exit.i.i, label %commit_rev_name_at.exit.thread.i.i
 
 commit_rev_name_at.exit.thread.i.i:               ; preds = %.thread.i.i.i.i, %246
   %.ph.i.i = phi ptr [ %252, %.thread.i.i.i.i ], [ %249, %246 ]
@@ -708,16 +708,16 @@ create_or_update_name.exit.i:                     ; preds = %commit_rev_name_at.
   br label %299
 
 .loopexit.i.i:                                    ; preds = %.lr.ph121.i.i, %.preheader.i.i, %get_commit_rev_name.exit.i.i
-  %.1.lcssa132.i.i = phi ptr [ %.2.i.i, %.preheader.i.i ], [ %.055124.i.i, %get_commit_rev_name.exit.i.i ], [ %.2.i.i, %.lr.ph121.i.i ]
-  %.163.lcssa131.i.i = phi i64 [ %.264.i.i, %.preheader.i.i ], [ %.062123.i.i, %get_commit_rev_name.exit.i.i ], [ %.264.i.i, %.lr.ph121.i.i ]
+  %.1.lcssa149.i.i = phi ptr [ %.2.i.i, %.preheader.i.i ], [ %.055124.i.i, %get_commit_rev_name.exit.i.i ], [ %.2.i.i, %.lr.ph121.i.i ]
+  %.163.lcssa148.i.i = phi i64 [ %.264.i.i, %.preheader.i.i ], [ %.062123.i.i, %get_commit_rev_name.exit.i.i ], [ %.264.i.i, %.lr.ph121.i.i ]
   %298 = call ptr @prio_queue_get(ptr noundef nonnull %7) #16
   %.not74.i.i = icmp eq ptr %298, null
   br i1 %.not74.i.i, label %._crit_edge.i.i, label %299, !llvm.loop !58
 
 299:                                              ; preds = %.loopexit.i.i, %.lr.ph125.i.i
   %300 = phi ptr [ %297, %.lr.ph125.i.i ], [ %298, %.loopexit.i.i ]
-  %.055124.i.i = phi ptr [ null, %.lr.ph125.i.i ], [ %.1.lcssa132.i.i, %.loopexit.i.i ]
-  %.062123.i.i = phi i64 [ 0, %.lr.ph125.i.i ], [ %.163.lcssa131.i.i, %.loopexit.i.i ]
+  %.055124.i.i = phi ptr [ null, %.lr.ph125.i.i ], [ %.1.lcssa149.i.i, %.loopexit.i.i ]
+  %.062123.i.i = phi i64 [ 0, %.lr.ph125.i.i ], [ %.163.lcssa148.i.i, %.loopexit.i.i ]
   %301 = getelementptr i8, ptr %300, i64 64
   %.val81.i.i = load i32, ptr %301, align 8, !tbaa !48
   %302 = udiv i32 %.val81.i.i, 16383
@@ -801,10 +801,10 @@ commit_is_before_cutoff.exit85.thread.i.i:        ; preds = %commit_is_before_cu
   br label %335
 
 335:                                              ; preds = %332, %commit_is_before_cutoff.exit85.thread.i.i
-  %.sink133.i.i = phi i32 [ 1, %332 ], [ 65535, %commit_is_before_cutoff.exit85.thread.i.i ]
+  %.sink150.i.i = phi i32 [ 1, %332 ], [ 65535, %commit_is_before_cutoff.exit85.thread.i.i ]
   %.054.i.i = phi i32 [ %334, %332 ], [ 0, %commit_is_before_cutoff.exit85.thread.i.i ]
   %336 = load i32, ptr %315, align 4, !tbaa !54
-  %337 = add nsw i32 %336, %.sink133.i.i
+  %337 = add nsw i32 %336, %.sink150.i.i
   %338 = getelementptr i8, ptr %317, i64 64
   %.val80.i.i = load i32, ptr %338, align 8, !tbaa !48
   %339 = udiv i32 %.val80.i.i, 16383
@@ -846,8 +846,8 @@ commit_is_before_cutoff.exit85.thread.i.i:        ; preds = %commit_is_before_cu
   %356 = zext nneg i32 %339 to i64
   %357 = getelementptr inbounds nuw ptr, ptr %347, i64 %356
   %358 = load ptr, ptr %357, align 8, !tbaa !49
-  %.not355.i.i.i.i.i = icmp eq ptr %358, null
-  br i1 %.not355.i.i.i.i.i, label %commit_rev_name_at.exit.i.i.i, label %commit_rev_name_at.exit.thread.i.i.i
+  %.not357.i.i.i.i.i = icmp eq ptr %358, null
+  br i1 %.not357.i.i.i.i.i, label %commit_rev_name_at.exit.i.i.i, label %commit_rev_name_at.exit.thread.i.i.i
 
 commit_rev_name_at.exit.thread.i.i.i:             ; preds = %.thread.i.i.i.i.i, %352
   %.ph.i.i.i = phi ptr [ %358, %.thread.i.i.i.i.i ], [ %355, %352 ]
@@ -970,8 +970,8 @@ get_parent_name.exit.i.i:                         ; preds = %412, %410, %create_
   br i1 %415, label %416, label %423
 
 416:                                              ; preds = %get_parent_name.exit.i.i
-  %417 = mul i64 %.163111.i.i, 3
-  %418 = add i64 %417, 48
+  %417 = mul nuw nsw i64 %.163111.i.i, 3
+  %418 = add nuw nsw i64 %417, 48
   %419 = lshr i64 %418, 1
   %..i.i = call i64 @llvm.umax.i64(i64 %419, i64 %414)
   %mul.ov.i.i.i = icmp ugt i64 %..i.i, 2305843009213693951
@@ -1013,7 +1013,7 @@ create_or_update_name.exit.thread.i.i:            ; preds = %423, %create_or_upd
   br i1 %.not76.i.i, label %.loopexit.i.i, label %.lr.ph121.i.i, !llvm.loop !64
 
 ._crit_edge.i.i:                                  ; preds = %.loopexit.i.i, %296
-  %.055.lcssa.i.i = phi ptr [ null, %296 ], [ %.1.lcssa132.i.i, %.loopexit.i.i ]
+  %.055.lcssa.i.i = phi ptr [ null, %296 ], [ %.1.lcssa149.i.i, %.loopexit.i.i ]
   call void @clear_prio_queue(ptr noundef nonnull %7) #16
   call void @free(ptr noundef %.055.lcssa.i.i) #16
   br label %name_rev.exit.i
@@ -1852,9 +1852,9 @@ sane_qsort.exit.i:                                ; preds = %13, %11
   br i1 %.not35.i.i.i, label %get_exact_ref_match.exit, label %is_valid_rev_name.exit.i
 
 is_valid_rev_name.exit.i:                         ; preds = %32
-  %.b20 = load i1, ptr @rev_names.1, align 4
+  %.b27 = load i1, ptr @rev_names.1, align 4
   %36 = zext nneg i32 %30 to i64
-  %37 = select i1 %.b20, i64 %36, i64 0
+  %37 = select i1 %.b27, i64 %36, i64 0
   %38 = getelementptr inbounds nuw %struct.rev_name, ptr %35, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !52
   %.fr.i = freeze ptr %39

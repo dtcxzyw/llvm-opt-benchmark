@@ -920,11 +920,11 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
 .lr.ph894.preheader:                              ; preds = %200
   %211 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 3)
   %212 = icmp sgt i32 %211, 2
-  br i1 %212, label %.lr.ph992, label %classify_lg8979_packet.exit.sink.split
+  br i1 %212, label %.lr.ph997, label %classify_lg8979_packet.exit.sink.split
 
-.lr.ph992:                                        ; preds = %.lr.ph894.preheader, %.loopexit
-  %.4785893991 = phi i32 [ %.6787, %.loopexit ], [ 3, %.lr.ph894.preheader ]
-  %213 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.4785893991)
+.lr.ph997:                                        ; preds = %.lr.ph894.preheader, %.loopexit
+  %.4785893996 = phi i32 [ %.6787, %.loopexit ], [ 3, %.lr.ph894.preheader ]
+  %213 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.4785893996)
   %214 = and i8 %213, 127
   %215 = load ptr, ptr %5, align 8
   %216 = zext nneg i8 %214 to i32
@@ -932,16 +932,16 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   tail call void @col_append_sep_str(ptr noundef %215, i32 noundef 25, ptr noundef null, ptr noundef %217)
   %218 = load i32, ptr @ett_lg8979_funccode, align 4
   %219 = tail call ptr @val_to_str_const(i32 noundef %216, ptr noundef nonnull @lg8979_funccode_vals, ptr noundef nonnull @.str.308)
-  %220 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %11, ptr noundef %0, i32 noundef %.4785893991, i32 noundef 1, i32 noundef %218, ptr noundef null, ptr noundef nonnull @.str.309, ptr noundef %219, i32 noundef %216)
+  %220 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %11, ptr noundef %0, i32 noundef %.4785893996, i32 noundef 1, i32 noundef %218, ptr noundef null, ptr noundef nonnull @.str.309, ptr noundef %219, i32 noundef %216)
   %221 = load i32, ptr @hf_lg8979_lastblock, align 4
-  %222 = tail call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %221, ptr noundef %0, i32 noundef %.4785893991, i32 noundef 1, i32 noundef 0)
+  %222 = tail call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %221, ptr noundef %0, i32 noundef %.4785893996, i32 noundef 1, i32 noundef 0)
   %223 = load i32, ptr @hf_lg8979_funccode, align 4
-  %224 = tail call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %223, ptr noundef %0, i32 noundef %.4785893991, i32 noundef 1, i32 noundef 0)
-  %225 = add i32 %.4785893991, 1
+  %224 = tail call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %223, ptr noundef %0, i32 noundef %.4785893996, i32 noundef 1, i32 noundef 0)
+  %225 = add i32 %.4785893996, 1
   %226 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %225)
   %227 = load i32, ptr @hf_lg8979_length, align 4
   %228 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %227, ptr noundef %0, i32 noundef %225, i32 noundef 1, i32 noundef 0)
-  %229 = add i32 %.4785893991, 2
+  %229 = add i32 %.4785893996, 2
   switch i8 %214, label %.loopexit [
     i8 0, label %230
     i8 2, label %230
@@ -963,7 +963,7 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
     i8 63, label %628
   ]
 
-230:                                              ; preds = %.lr.ph992, %.lr.ph992
+230:                                              ; preds = %.lr.ph997, %.lr.ph997
   %231 = udiv i8 %226, 3
   %232 = zext nneg i8 %231 to i32
   %.not901 = icmp ult i8 %226, 3
@@ -995,11 +995,11 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %exitcond939.not = icmp eq i32 %252, %232
   br i1 %exitcond939.not, label %.loopexit, label %.lr.ph891, !llvm.loop !12
 
-253:                                              ; preds = %.lr.ph992
+253:                                              ; preds = %.lr.ph997
   %254 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %229)
   %255 = load i32, ptr @hf_lg8979_start_ptnum16, align 4
   %256 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %255, ptr noundef %0, i32 noundef %229, i32 noundef 2, i32 noundef -2147483648)
-  %257 = add i32 %.4785893991, 4
+  %257 = add i32 %.4785893996, 4
   %258 = zext i8 %226 to i16
   %.lhs.trunc = add nsw i16 %258, -2
   %259 = srem i16 %.lhs.trunc, 3
@@ -1014,12 +1014,12 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   br label %.lr.ph887
 
 264:                                              ; preds = %253
-  %.not969 = icmp ult i8 %226, 5
-  br i1 %.not969, label %.loopexit, label %.lr.ph887
+  %.not974 = icmp ult i8 %226, 5
+  br i1 %.not974, label %.loopexit, label %.lr.ph887
 
 .lr.ph887:                                        ; preds = %.thread, %264
-  %.0774941 = phi i32 [ %263, %.thread ], [ %262, %264 ]
-  %265 = add nsw i32 %.0774941, -1
+  %.0774946 = phi i32 [ %263, %.thread ], [ %262, %264 ]
+  %265 = add nsw i32 %.0774946, -1
   br label %266
 
 266:                                              ; preds = %.lr.ph887, %294
@@ -1064,16 +1064,16 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %.8789 = phi i32 [ %293, %283 ], [ %spec.select, %271 ]
   %295 = add i16 %.1776885, 1
   %296 = add nuw nsw i32 %.4886, 1
-  %exitcond938.not = icmp eq i32 %296, %.0774941
+  %exitcond938.not = icmp eq i32 %296, %.0774946
   br i1 %exitcond938.not, label %.loopexit, label %266, !llvm.loop !13
 
-297:                                              ; preds = %.lr.ph992
+297:                                              ; preds = %.lr.ph997
   %298 = load i32, ptr @hf_lg8979_start_ptnum16, align 4
   %299 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %298, ptr noundef %0, i32 noundef %229, i32 noundef 2, i32 noundef -2147483648)
-  %300 = add i32 %.4785893991, 4
+  %300 = add i32 %.4785893996, 4
   %301 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %300)
   %302 = zext i8 %301 to i32
-  %303 = add i32 %.4785893991, 5
+  %303 = add i32 %.4785893996, 5
   %304 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %303)
   %305 = and i8 %304, 15
   %306 = zext nneg i8 %305 to i32
@@ -1084,17 +1084,17 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %311 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %303)
   %312 = lshr i8 %311, 4
   %313 = zext nneg i8 %312 to i32
-  %314 = add i32 %.4785893991, 6
+  %314 = add i32 %.4785893996, 6
   %315 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %314)
   %316 = zext i8 %315 to i32
   %317 = shl nuw nsw i32 %316, 4
   %318 = or disjoint i32 %317, %313
   %319 = load i32, ptr @hf_lg8979_adc_ref_neg90, align 4
   %320 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %319, ptr noundef %0, i32 noundef %303, i32 noundef 2, i32 noundef %318)
-  %321 = add i32 %.4785893991, 7
+  %321 = add i32 %.4785893996, 7
   %322 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %321)
   %323 = zext i8 %322 to i32
-  %324 = add i32 %.4785893991, 8
+  %324 = add i32 %.4785893996, 8
   %325 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %324)
   %326 = and i8 %325, 15
   %327 = zext nneg i8 %326 to i32
@@ -1102,10 +1102,10 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %329 = or disjoint i32 %328, %323
   %330 = load i32, ptr @hf_lg8979_adc_ref_pos90, align 4
   %331 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %330, ptr noundef %0, i32 noundef %321, i32 noundef 2, i32 noundef %329)
-  %332 = add i32 %.4785893991, 9
+  %332 = add i32 %.4785893996, 9
   br label %.loopexit
 
-333:                                              ; preds = %.lr.ph992
+333:                                              ; preds = %.lr.ph997
   %334 = lshr i8 %226, 1
   %335 = zext nneg i8 %334 to i32
   %.not900 = icmp ult i8 %226, 2
@@ -1138,11 +1138,11 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %exitcond937.not = icmp eq i32 %354, %335
   br i1 %exitcond937.not, label %.loopexit, label %.lr.ph882, !llvm.loop !14
 
-355:                                              ; preds = %.lr.ph992
+355:                                              ; preds = %.lr.ph997
   %356 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %229)
   %357 = load i32, ptr @hf_lg8979_start_ptnum16, align 4
   %358 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %357, ptr noundef %0, i32 noundef %229, i32 noundef 2, i32 noundef -2147483648)
-  %359 = add i32 %.4785893991, 4
+  %359 = add i32 %.4785893996, 4
   %360 = icmp ugt i8 %226, 3
   br i1 %360, label %.lr.ph878.preheader, label %.loopexit
 
@@ -1200,7 +1200,7 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %exitcond936.not = icmp eq i32 %402, %smax935
   br i1 %exitcond936.not, label %.loopexit, label %.lr.ph878, !llvm.loop !15
 
-403:                                              ; preds = %.lr.ph992
+403:                                              ; preds = %.lr.ph997
   %404 = lshr i8 %226, 1
   %405 = zext nneg i8 %404 to i32
   %.not899 = icmp ult i8 %226, 2
@@ -1233,11 +1233,11 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %exitcond934.not = icmp eq i32 %424, %405
   br i1 %exitcond934.not, label %.loopexit, label %.lr.ph873, !llvm.loop !16
 
-425:                                              ; preds = %.lr.ph992
+425:                                              ; preds = %.lr.ph997
   %426 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %229)
   %427 = load i32, ptr @hf_lg8979_start_ptnum16, align 4
   %428 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %427, ptr noundef %0, i32 noundef %229, i32 noundef 2, i32 noundef -2147483648)
-  %429 = add i32 %.4785893991, 4
+  %429 = add i32 %.4785893996, 4
   %430 = icmp ugt i8 %226, 3
   br i1 %430, label %.lr.ph869.preheader, label %.loopexit
 
@@ -1295,11 +1295,11 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %exitcond933.not = icmp eq i32 %472, %smax932
   br i1 %exitcond933.not, label %.loopexit, label %.lr.ph869, !llvm.loop !17
 
-473:                                              ; preds = %.lr.ph992
+473:                                              ; preds = %.lr.ph997
   %474 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %229)
   %475 = load i32, ptr @hf_lg8979_start_ptnum8, align 4
   %476 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %475, ptr noundef %0, i32 noundef %229, i32 noundef 1, i32 noundef -2147483648)
-  %477 = add i32 %.4785893991, 3
+  %477 = add i32 %.4785893996, 3
   %478 = icmp ugt i8 %226, 2
   br i1 %478, label %.lr.ph864.preheader, label %.loopexit
 
@@ -1354,11 +1354,11 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %exitcond931.not = icmp eq i32 %517, %.sext817
   br i1 %exitcond931.not, label %.loopexit, label %.lr.ph864, !llvm.loop !18
 
-518:                                              ; preds = %.lr.ph992, %.lr.ph992
+518:                                              ; preds = %.lr.ph997, %.lr.ph997
   %519 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %229)
   %520 = load i32, ptr @hf_lg8979_start_ptnum8, align 4
   %521 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %520, ptr noundef %0, i32 noundef %229, i32 noundef 1, i32 noundef -2147483648)
-  %522 = add i32 %.4785893991, 3
+  %522 = add i32 %.4785893996, 3
   %523 = icmp ugt i8 %226, 2
   br i1 %523, label %.lr.ph859.preheader, label %.loopexit
 
@@ -1382,7 +1382,7 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %exitcond929.not = icmp eq i32 %530, %.sext819
   br i1 %exitcond929.not, label %.loopexit, label %.lr.ph859, !llvm.loop !19
 
-531:                                              ; preds = %.lr.ph992
+531:                                              ; preds = %.lr.ph997
   %532 = udiv i8 %226, 9
   %533 = zext nneg i8 %532 to i32
   %.not898 = icmp ult i8 %226, 9
@@ -1441,9 +1441,9 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %exitcond928.not = icmp eq i32 %579, %533
   br i1 %exitcond928.not, label %.loopexit, label %.lr.ph854, !llvm.loop !20
 
-580:                                              ; preds = %.lr.ph992
+580:                                              ; preds = %.lr.ph997
   %581 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %229)
-  %582 = add i32 %.4785893991, 3
+  %582 = add i32 %.4785893996, 3
   %583 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %582)
   %584 = lshr i8 %583, 7
   %585 = load i32, ptr @ett_lg8979_point, align 4
@@ -1460,24 +1460,24 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %595 = tail call ptr @proto_tree_add_item(ptr noundef %589, i32 noundef %594, ptr noundef %0, i32 noundef %582, i32 noundef 1, i32 noundef -2147483648)
   %596 = load i32, ptr @hf_lg8979_sbo_timercnt, align 4
   %597 = tail call ptr @proto_tree_add_item(ptr noundef %589, i32 noundef %596, ptr noundef %0, i32 noundef %582, i32 noundef 1, i32 noundef -2147483648)
-  %598 = add i32 %.4785893991, 4
+  %598 = add i32 %.4785893996, 4
   br label %.loopexit
 
-599:                                              ; preds = %.lr.ph992
+599:                                              ; preds = %.lr.ph997
   %600 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %229)
   %601 = load ptr, ptr %5, align 8
   %602 = zext i8 %600 to i32
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %601, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.313, i32 noundef %602)
   %603 = load i32, ptr @hf_lg8979_start_ptnum8, align 4
   %604 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %603, ptr noundef %0, i32 noundef %229, i32 noundef 1, i32 noundef -2147483648)
-  %605 = add i32 %.4785893991, 3
+  %605 = add i32 %.4785893996, 3
   br label %.loopexit
 
-606:                                              ; preds = %.lr.ph992
+606:                                              ; preds = %.lr.ph997
   %607 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %229)
   %608 = load i32, ptr @hf_lg8979_rtucfg_num_chassis, align 4
   %609 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %608, ptr noundef %0, i32 noundef %229, i32 noundef 1, i32 noundef -2147483648)
-  %610 = add i32 %.4785893991, 3
+  %610 = add i32 %.4785893996, 3
   %611 = zext i8 %607 to i32
   %.not897 = icmp eq i8 %607, 0
   br i1 %.not897, label %.loopexit, label %.lr.ph850
@@ -1506,24 +1506,24 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %exitcond927.not = icmp eq i32 %619, %611
   br i1 %exitcond927.not, label %.loopexit, label %.lr.ph850, !llvm.loop !22
 
-620:                                              ; preds = %.lr.ph992
+620:                                              ; preds = %.lr.ph997
   %621 = load i32, ptr @hf_lg8979_timebias_proctime, align 4
   %622 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %621, ptr noundef %0, i32 noundef %229, i32 noundef 1, i32 noundef -2147483648)
-  %623 = add i32 %.4785893991, 3
+  %623 = add i32 %.4785893996, 3
   br label %.loopexit
 
-624:                                              ; preds = %.lr.ph992
+624:                                              ; preds = %.lr.ph997
   %625 = load i32, ptr @hf_lg8979_firmware_ver, align 4
   %626 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %625, ptr noundef %0, i32 noundef %229, i32 noundef 2, i32 noundef -2147483648)
-  %627 = add i32 %.4785893991, 4
+  %627 = add i32 %.4785893996, 4
   br label %.loopexit
 
-628:                                              ; preds = %.lr.ph992
+628:                                              ; preds = %.lr.ph997
   %629 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %229)
   %630 = load i32, ptr @hf_lg8979_exprpt_code, align 4
   %631 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %630, ptr noundef %0, i32 noundef %229, i32 noundef 1, i32 noundef -2147483648)
   %632 = load i32, ptr @hf_lg8979_exprpt_parm, align 4
-  %633 = add i32 %.4785893991, 3
+  %633 = add i32 %.4785893996, 3
   %634 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %632, ptr noundef %0, i32 noundef %633, i32 noundef 1, i32 noundef -2147483648)
   %635 = icmp eq i8 %629, 14
   br i1 %635, label %636, label %proto_item_set_generated.exit
@@ -1548,14 +1548,14 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %642, %639, %636, %628
-  %646 = add i32 %.4785893991, 4
+  %646 = add i32 %.4785893996, 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %618, %.lr.ph854, %.lr.ph859, %.lr.ph864, %.lr.ph869, %.lr.ph873, %.lr.ph878, %.lr.ph882, %294, %.lr.ph891, %606, %531, %518, %473, %425, %403, %355, %333, %264, %230, %.lr.ph992, %proto_item_set_generated.exit, %624, %620, %599, %580, %297
-  %.6787 = phi i32 [ %229, %.lr.ph992 ], [ %332, %297 ], [ %598, %580 ], [ %605, %599 ], [ %623, %620 ], [ %627, %624 ], [ %646, %proto_item_set_generated.exit ], [ %229, %230 ], [ %257, %264 ], [ %229, %333 ], [ %359, %355 ], [ %229, %403 ], [ %429, %425 ], [ %477, %473 ], [ %522, %518 ], [ %229, %531 ], [ %610, %606 ], [ %251, %.lr.ph891 ], [ %.8789, %294 ], [ %353, %.lr.ph882 ], [ %400, %.lr.ph878 ], [ %423, %.lr.ph873 ], [ %470, %.lr.ph869 ], [ %516, %.lr.ph864 ], [ %528, %.lr.ph859 ], [ %578, %.lr.ph854 ], [ %.17, %618 ]
+.loopexit:                                        ; preds = %618, %.lr.ph854, %.lr.ph859, %.lr.ph864, %.lr.ph869, %.lr.ph873, %.lr.ph878, %.lr.ph882, %294, %.lr.ph891, %606, %531, %518, %473, %425, %403, %355, %333, %264, %230, %.lr.ph997, %proto_item_set_generated.exit, %624, %620, %599, %580, %297
+  %.6787 = phi i32 [ %229, %.lr.ph997 ], [ %332, %297 ], [ %598, %580 ], [ %605, %599 ], [ %623, %620 ], [ %627, %624 ], [ %646, %proto_item_set_generated.exit ], [ %229, %230 ], [ %257, %264 ], [ %229, %333 ], [ %359, %355 ], [ %229, %403 ], [ %429, %425 ], [ %477, %473 ], [ %522, %518 ], [ %229, %531 ], [ %610, %606 ], [ %251, %.lr.ph891 ], [ %.8789, %294 ], [ %353, %.lr.ph882 ], [ %400, %.lr.ph878 ], [ %423, %.lr.ph873 ], [ %470, %.lr.ph869 ], [ %516, %.lr.ph864 ], [ %528, %.lr.ph859 ], [ %578, %.lr.ph854 ], [ %.17, %618 ]
   %647 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.6787)
   %648 = icmp sgt i32 %647, 2
-  br i1 %648, label %.lr.ph992, label %classify_lg8979_packet.exit.sink.split
+  br i1 %648, label %.lr.ph997, label %classify_lg8979_packet.exit.sink.split
 
 .critedge800:                                     ; preds = %200
   %649 = load ptr, ptr %5, align 8

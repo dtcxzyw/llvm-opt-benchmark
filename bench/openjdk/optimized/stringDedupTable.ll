@@ -495,8 +495,8 @@ _ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEv.exit.i.i: ; preds = %20, %18
   br label %.preheader15.i.i
 
 .preheader15.i.i:                                 ; preds = %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEv.exit.i.i.thread, %.preheader15.loopexit.i.i, %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEv.exit.i.i
-  %.0.i.i.i.i27 = phi ptr [ %.0.i.i.i.i, %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEv.exit.i.i ], [ %.0.i.i.i.i, %.preheader15.loopexit.i.i ], [ null, %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEv.exit.i.i.thread ]
-  %.0.i161926 = phi i32 [ %16, %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEv.exit.i.i ], [ %16, %.preheader15.loopexit.i.i ], [ 0, %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEv.exit.i.i.thread ]
+  %.0.i.i.i.i31 = phi ptr [ %.0.i.i.i.i, %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEv.exit.i.i ], [ %.0.i.i.i.i, %.preheader15.loopexit.i.i ], [ null, %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEv.exit.i.i.thread ]
+  %.0.i161930 = phi i32 [ %16, %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEv.exit.i.i ], [ %16, %.preheader15.loopexit.i.i ], [ 0, %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEv.exit.i.i.thread ]
   %.0.lcssa.i.i = phi i32 [ 0, %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEv.exit.i.i ], [ %25, %.preheader15.loopexit.i.i ], [ 0, %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEv.exit.i.i.thread ]
   %26 = load i32, ptr %3, align 4
   %27 = icmp slt i32 %.0.lcssa.i.i, %26
@@ -527,7 +527,7 @@ _ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEv.exit.i.i: ; preds = %20, %18
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
   %indvars.iv20.i.i = phi i64 [ %28, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %39 = getelementptr inbounds nuw i32, ptr %.0.i.i.i.i27, i64 %indvars.iv20.i.i
+  %39 = getelementptr inbounds nuw i32, ptr %.0.i.i.i.i31, i64 %indvars.iv20.i.i
   store i32 0, ptr %39, align 4
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %40 = load i32, ptr %3, align 4
@@ -540,11 +540,11 @@ _ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEv.exit.i.i: ; preds = %20, %18
   br label %_ZN26GrowableArrayWithAllocatorIj18GrowableArrayCHeapIjL8MEMFLAGS25EEE9expand_toEi.exit.i
 
 _ZN26GrowableArrayWithAllocatorIj18GrowableArrayCHeapIjL8MEMFLAGS25EEE9expand_toEi.exit.i: ; preds = %43, %.preheader.i.i
-  store ptr %.0.i.i.i.i27, ptr %37, align 8
+  store ptr %.0.i.i.i.i31, ptr %37, align 8
   br label %_ZN26GrowableArrayWithAllocatorIj18GrowableArrayCHeapIjL8MEMFLAGS25EEE7reserveEi.exit
 
 _ZN26GrowableArrayWithAllocatorIj18GrowableArrayCHeapIjL8MEMFLAGS25EEE7reserveEi.exit: ; preds = %_ZN11StringDedup5Table6Bucket15needed_capacityEi.exit, %_ZN26GrowableArrayWithAllocatorIj18GrowableArrayCHeapIjL8MEMFLAGS25EEE9expand_toEi.exit.i
-  %.0.i17 = phi i32 [ %16, %_ZN11StringDedup5Table6Bucket15needed_capacityEi.exit ], [ %.0.i161926, %_ZN26GrowableArrayWithAllocatorIj18GrowableArrayCHeapIjL8MEMFLAGS25EEE9expand_toEi.exit.i ]
+  %.0.i17 = phi i32 [ %16, %_ZN11StringDedup5Table6Bucket15needed_capacityEi.exit ], [ %.0.i161930, %_ZN26GrowableArrayWithAllocatorIj18GrowableArrayCHeapIjL8MEMFLAGS25EEE9expand_toEi.exit.i ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %46 = load i32, ptr %45, align 4
@@ -660,13 +660,13 @@ _ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEv.exit.i: ; preds = %6
   br i1 %.not.i, label %15, label %.loopexit.thread.i
 
 .loopexit.thread.i:                               ; preds = %11, %.loopexit.i
-  %.01826.i = phi ptr [ null, %.loopexit.i ], [ %10, %11 ]
+  %.01827.i = phi ptr [ null, %.loopexit.i ], [ %10, %11 ]
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %8) #14
   br label %15
 
 15:                                               ; preds = %.loopexit.thread.i, %.loopexit.i
-  %.01827.i = phi ptr [ %.01826.i, %.loopexit.thread.i ], [ null, %.loopexit.i ]
-  store ptr %.01827.i, ptr %7, align 8
+  %.01828.i = phi ptr [ %.01827.i, %.loopexit.thread.i ], [ null, %.loopexit.i ]
+  store ptr %.01828.i, ptr %7, align 8
   br label %_ZN26GrowableArrayWithAllocatorIj18GrowableArrayCHeapIjL8MEMFLAGS25EEE13shrink_to_fitEv.exit
 
 _ZN26GrowableArrayWithAllocatorIj18GrowableArrayCHeapIjL8MEMFLAGS25EEE13shrink_to_fitEv.exit: ; preds = %1, %15
@@ -704,13 +704,13 @@ _ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EE8allocateEv.exit.i: ; preds = 
   br i1 %.not.i2, label %30, label %.loopexit.thread.i3
 
 .loopexit.thread.i3:                              ; preds = %26, %.loopexit.i1
-  %.01826.i4 = phi ptr [ null, %.loopexit.i1 ], [ %25, %26 ]
+  %.01827.i4 = phi ptr [ null, %.loopexit.i1 ], [ %25, %26 ]
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %23) #14
   br label %30
 
 30:                                               ; preds = %.loopexit.thread.i3, %.loopexit.i1
-  %.01827.i5 = phi ptr [ %.01826.i4, %.loopexit.thread.i3 ], [ null, %.loopexit.i1 ]
-  store ptr %.01827.i5, ptr %22, align 8
+  %.01828.i5 = phi ptr [ %.01827.i4, %.loopexit.thread.i3 ], [ null, %.loopexit.i1 ]
+  store ptr %.01828.i5, ptr %22, align 8
   br label %_ZN26GrowableArrayWithAllocatorI10WeakHandle18GrowableArrayCHeapIS0_L8MEMFLAGS25EEE13shrink_to_fitEv.exit
 
 _ZN26GrowableArrayWithAllocatorI10WeakHandle18GrowableArrayCHeapIS0_L8MEMFLAGS25EEE13shrink_to_fitEv.exit: ; preds = %_ZN26GrowableArrayWithAllocatorIj18GrowableArrayCHeapIjL8MEMFLAGS25EEE13shrink_to_fitEv.exit, %30
@@ -3639,14 +3639,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #14, !srcloc !23
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #14, !srcloc !23
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -5565,14 +5565,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #14, !srcloc !23
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #14, !srcloc !23
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -5706,14 +5706,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i18.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i19.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i18 = or i64 %.0.i.i18.in, 48
+  %.0.i.i19 = or i64 %.0.i.i19.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i17.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #14, !srcloc !23
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i19, i64 %.0.i17.i, ptr nonnull %0) #14, !srcloc !23
   %71 = icmp eq i64 %70, %.0.i17.i
   br i1 %71, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %72
 

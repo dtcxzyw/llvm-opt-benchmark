@@ -863,7 +863,7 @@ define internal fastcc noundef ptr @test_setallocators(i32 noundef range(i32 0, 
   call void @PyMem_SetAllocator(i32 noundef %0, ptr noundef nonnull %3) #4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr null, ptr %8, align 8, !tbaa !31
-  switch i32 %0, label %default.unreachable58 [
+  switch i32 %0, label %default.unreachable60 [
     i32 0, label %9
     i32 1, label %11
     i32 2, label %13
@@ -881,7 +881,7 @@ define internal fastcc noundef ptr @test_setallocators(i32 noundef range(i32 0, 
   %14 = call ptr @PyObject_Malloc(i64 noundef 42) #4
   br label %15
 
-default.unreachable58:                            ; preds = %63, %47, %38, %22, %1
+default.unreachable60:                            ; preds = %63, %47, %38, %22, %1
   unreachable
 
 15:                                               ; preds = %13, %11, %9
@@ -902,7 +902,7 @@ default.unreachable58:                            ; preds = %63, %47, %38, %22, 
   br i1 %.not44, label %22, label %76
 
 22:                                               ; preds = %19
-  switch i32 %0, label %default.unreachable58 [
+  switch i32 %0, label %default.unreachable60 [
     i32 0, label %23
     i32 1, label %25
     i32 2, label %27
@@ -942,7 +942,7 @@ default.unreachable58:                            ; preds = %63, %47, %38, %22, 
   br i1 %or.cond, label %38, label %76
 
 38:                                               ; preds = %33
-  switch i32 %0, label %default.unreachable58 [
+  switch i32 %0, label %default.unreachable60 [
     i32 0, label %39
     i32 1, label %40
     i32 2, label %41
@@ -973,7 +973,7 @@ default.unreachable58:                            ; preds = %63, %47, %38, %22, 
   br i1 %.not49, label %47, label %76
 
 47:                                               ; preds = %44
-  switch i32 %0, label %default.unreachable58 [
+  switch i32 %0, label %default.unreachable60 [
     i32 0, label %48
     i32 1, label %50
     i32 2, label %52
@@ -1014,7 +1014,7 @@ default.unreachable58:                            ; preds = %63, %47, %38, %22, 
 
 63:                                               ; preds = %58
   store ptr null, ptr %45, align 8, !tbaa !35
-  switch i32 %0, label %default.unreachable58 [
+  switch i32 %0, label %default.unreachable60 [
     i32 0, label %64
     i32 1, label %65
     i32 2, label %66

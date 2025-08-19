@@ -1043,8 +1043,8 @@ _ZNK4ncnn3Mat5emptyEv.exit166:                    ; preds = %44
   %53 = icmp slt i32 %19, 1
   %54 = icmp slt i32 %39, 1
   %55 = icmp slt i32 %13, 1
-  %or.cond207.not211 = select i1 %53, i1 true, i1 %55
-  %brmerge = or i1 %or.cond207.not211, %54
+  %or.cond241.not245 = select i1 %53, i1 true, i1 %55
+  %brmerge = or i1 %or.cond241.not245, %54
   br i1 %brmerge, label %.split.us, label %.preheader171.us.us.us.us.us.preheader
 
 .preheader171.us.us.us.us.us.preheader:           ; preds = %.preheader172
@@ -1066,15 +1066,15 @@ _ZNK4ncnn3Mat5emptyEv.exit166:                    ; preds = %44
   %63 = add nuw nsw i64 %indvars.iv194, %59
   %64 = mul nuw nsw i64 %63, %57
   %invariant.gep = getelementptr inbounds nuw float, ptr %52, i64 %62
-  %invariant.gep205 = getelementptr inbounds nuw float, ptr %45, i64 %64
+  %invariant.gep239 = getelementptr inbounds nuw float, ptr %45, i64 %64
   br label %65
 
 65:                                               ; preds = %65, %.preheader.us.us.us.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %65 ], [ 0, %.preheader.us.us.us.us.us.us ]
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
   %66 = load float, ptr %gep, align 4, !tbaa !63
-  %gep206 = getelementptr inbounds nuw float, ptr %invariant.gep205, i64 %indvars.iv
-  store float %66, ptr %gep206, align 4, !tbaa !63
+  %gep240 = getelementptr inbounds nuw float, ptr %invariant.gep239, i64 %indvars.iv
+  store float %66, ptr %gep240, align 4, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %57
   br i1 %exitcond.not, label %._crit_edge.us.us.us.us.us.us, label %65, !llvm.loop !65
@@ -1854,10 +1854,10 @@ _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %75, %90, %91, %86, 
   br label %_ZN4ncnn3MataSERKS0_.exit.invoke
 
 _ZN4ncnn3MataSERKS0_.exit.invoke:                 ; preds = %73, %_ZN4ncnn3Mat7releaseEv.exit.i, %4, %64
-  %.sink54 = phi i64 [ 16, %64 ], [ 16, %4 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %73 ]
+  %.sink66 = phi i64 [ 16, %64 ], [ 16, %4 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %73 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %113 = load i32, ptr %112, align 8, !tbaa !18
-  %114 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink54
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink66
   %115 = load ptr, ptr %114, align 8, !tbaa !69
   invoke void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %33, i32 noundef %41, i32 noundef %113, i64 noundef %11, ptr noundef %115)
           to label %116 unwind label %71
@@ -2179,8 +2179,8 @@ define hidden void @_ZNK4ncnn13Deconvolution11cut_paddingERKNS_3MatERS1_RKNS_6Op
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 240
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !41
   %8 = icmp sgt i32 %.pre, 0
-  %or.cond35 = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond35, label %._crit_edge, label %9
+  %or.cond46 = select i1 %7, i1 true, i1 %8
+  br i1 %or.cond46, label %._crit_edge, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 244
@@ -2484,13 +2484,13 @@ _ZN4ncnn3Mat4fillEf.exit:                         ; preds = %.lr.ph, %_ZNK4ncnn3
   %91 = load i32, ptr %6, align 4
   %92 = sext i32 %90 to i64
   %93 = sext i32 %91 to i64
-  %factor.op.mul176 = mul i64 %67, %93
+  %factor.op.mul188 = mul i64 %67, %93
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv162 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next163, %._crit_edge.us ]
-  %.reass177 = mul i64 %indvars.iv162, %factor.op.mul176
-  %94 = getelementptr inbounds nuw i8, ptr %76, i64 %.reass177
+  %.reass189 = mul i64 %indvars.iv162, %factor.op.mul188
+  %94 = getelementptr inbounds nuw i8, ptr %76, i64 %.reass189
   %95 = load i32, ptr %59, align 4
   %96 = load ptr, ptr %5, align 8
   %97 = load i64, ptr %69, align 8

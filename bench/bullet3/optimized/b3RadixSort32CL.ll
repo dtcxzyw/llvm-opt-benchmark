@@ -1272,8 +1272,8 @@ _ZN13b3OpenCLArrayI10b3SortDataE19copyFromOpenCLArrayERKS1_.exit: ; preds = %22,
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %49 = load ptr, ptr %48, align 8, !tbaa !39
   %50 = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayI10b3SortDataE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %49, i64 noundef 0, i1 noundef zeroext true)
-  %sext152 = shl i64 %19, 32
-  %.pre = ashr exact i64 %sext152, 32
+  %sext178 = shl i64 %19, 32
+  %.pre = ashr exact i64 %sext178, 32
   br label %51
 
 51:                                               ; preds = %47, %_ZN13b3OpenCLArrayI10b3SortDataE19copyFromOpenCLArrayERKS1_.exit
@@ -2044,8 +2044,8 @@ _ZN13b3OpenCLArrayIjE19copyFromOpenCLArrayERKS0_.exit: ; preds = %21, %_ZNK13b3O
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %47 = load ptr, ptr %46, align 8, !tbaa !40
   %48 = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayIjE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %47, i64 noundef 0, i1 noundef zeroext true)
-  %sext154 = shl i64 %18, 32
-  %.pre = ashr exact i64 %sext154, 32
+  %sext180 = shl i64 %18, 32
+  %.pre = ashr exact i64 %sext180, 32
   br label %49
 
 49:                                               ; preds = %45, %_ZN13b3OpenCLArrayIjE19copyFromOpenCLArrayERKS0_.exit

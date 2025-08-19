@@ -589,8 +589,8 @@ _ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEE6assignERKS3_.exit.i.i: ; preds =
 while.end186.thread:                              ; preds = %cleanup.done
   store i8 0, ptr %hasValue.i.i.i.i, align 16
   store i8 0, ptr %agg.tmp187, align 8
-  %hasValue.i.i66101 = getelementptr inbounds nuw i8, ptr %agg.tmp187, i64 8
-  store i8 0, ptr %hasValue.i.i66101, align 8
+  %hasValue.i.i66103 = getelementptr inbounds nuw i8, ptr %agg.tmp187, i64 8
+  store i8 0, ptr %hasValue.i.i66103, align 8
   br label %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_.exit
 
 common.resume:                                    ; preds = %lpad.i.i, %lpad
@@ -872,12 +872,12 @@ invoke.cont2.i:                                   ; preds = %while.end186
   br label %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_.exit
 
 _ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_.exit: ; preds = %while.end186.thread, %while.end186, %invoke.cont2.i
-  %parsedTot.085103 = phi i64 [ %parsedTot.092, %while.end186.thread ], [ %parsedTot.085, %while.end186 ], [ %parsedTot.085, %invoke.cont2.i ]
+  %parsedTot.085105 = phi i64 [ %parsedTot.092, %while.end186.thread ], [ %parsedTot.085, %while.end186 ], [ %parsedTot.085, %invoke.cont2.i ]
   %call189 = call noundef zeroext i1 @_ZN8proxygen2hq13HQFramedCodec20checkConnectionErrorEN5folly8OptionalINS_5HTTP39ErrorCodeEEEPKNS2_5IOBufE(ptr noundef nonnull align 16 dereferenceable(160) %this, ptr noundef nonnull %agg.tmp187, ptr noundef nonnull %buf)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_.exit
-  %retval.0 = phi i64 [ %parsedTot.085103, %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_.exit ], [ 0, %entry ]
+  %retval.0 = phi i64 [ %parsedTot.085105, %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_.exit ], [ 0, %entry ]
   ret i64 %retval.0
 }
 
@@ -1368,12 +1368,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %crtBegin_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %absolutePos_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %remainingLen_.i.promoted = load i64, ptr %remainingLen_.i, align 8
-  %next_.i.i55 = getelementptr inbounds nuw i8, ptr %this.promoted, i64 32
-  %1 = load ptr, ptr %next_.i.i55, align 8
-  %cmp.i56 = icmp eq ptr %1, %0
-  %cmp2.i57 = icmp eq i64 %remainingLen_.i.promoted, 0
-  %or.cond58 = select i1 %cmp.i56, i1 true, i1 %cmp2.i57
-  br i1 %or.cond58, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE16tryAdvanceBufferEv.exit, label %if.end.i.lr.ph
+  %next_.i.i59 = getelementptr inbounds nuw i8, ptr %this.promoted, i64 32
+  %1 = load ptr, ptr %next_.i.i59, align 8
+  %cmp.i60 = icmp eq ptr %1, %0
+  %cmp2.i61 = icmp eq i64 %remainingLen_.i.promoted, 0
+  %or.cond62 = select i1 %cmp.i60, i1 true, i1 %cmp2.i61
+  br i1 %or.cond62, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE16tryAdvanceBufferEv.exit, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %for.body.lr.ph
   %absolutePos_.i.promoted = load i64, ptr %absolutePos_.i, align 8
@@ -1381,7 +1381,7 @@ if.end.i.lr.ph:                                   ; preds = %for.body.lr.ph
   br label %if.end.i
 
 for.body:                                         ; preds = %if.end
-  %add = add i64 %sub.ptr.sub.i, %add64
+  %add = add i64 %sub.ptr.sub.i, %add68
   %next_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %2 = load ptr, ptr %next_.i.i, align 8
   %cmp.i = icmp eq ptr %2, %0
@@ -1391,16 +1391,16 @@ for.body:                                         ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %for.body
   %3 = phi ptr [ %1, %if.end.i.lr.ph ], [ %2, %for.body ]
-  %add64 = phi i64 [ %sub.ptr.sub.i31, %if.end.i.lr.ph ], [ %add, %for.body ]
-  %len.addr.03463 = phi i64 [ %len, %if.end.i.lr.ph ], [ %sub, %for.body ]
-  %sub.ptr.lhs.cast.i3662 = phi i64 [ %sub.ptr.lhs.cast.i29, %if.end.i.lr.ph ], [ %sub.ptr.lhs.cast.i, %for.body ]
-  %sub.ptr.sub.i3761 = phi i64 [ %sub.ptr.sub.i31, %if.end.i.lr.ph ], [ %sub.ptr.sub.i, %for.body ]
-  %sub.i4460 = phi i64 [ %remainingLen_.i.promoted, %if.end.i.lr.ph ], [ %sub.i43, %for.body ]
+  %add68 = phi i64 [ %sub.ptr.sub.i31, %if.end.i.lr.ph ], [ %add, %for.body ]
+  %len.addr.03467 = phi i64 [ %len, %if.end.i.lr.ph ], [ %sub, %for.body ]
+  %sub.ptr.lhs.cast.i3666 = phi i64 [ %sub.ptr.lhs.cast.i29, %if.end.i.lr.ph ], [ %sub.ptr.lhs.cast.i, %for.body ]
+  %sub.ptr.sub.i3765 = phi i64 [ %sub.ptr.sub.i31, %if.end.i.lr.ph ], [ %sub.ptr.sub.i, %for.body ]
+  %sub.i4464 = phi i64 [ %remainingLen_.i.promoted, %if.end.i.lr.ph ], [ %sub.i43, %for.body ]
   %4 = phi ptr [ %crtBegin_.i.promoted, %if.end.i.lr.ph ], [ %5, %for.body ]
-  %add.i4559 = phi i64 [ %absolutePos_.i.promoted, %if.end.i.lr.ph ], [ %add.i, %for.body ]
+  %add.i4563 = phi i64 [ %absolutePos_.i.promoted, %if.end.i.lr.ph ], [ %add.i, %for.body ]
   %sub.ptr.rhs.cast.i8 = ptrtoint ptr %4 to i64
-  %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i3662, %sub.ptr.rhs.cast.i8
-  %add.i = add i64 %sub.ptr.sub.i9, %add.i4559
+  %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i3666, %sub.ptr.rhs.cast.i8
+  %add.i = add i64 %sub.ptr.sub.i9, %add.i4563
   store i64 %add.i, ptr %absolutePos_.i, align 8
   store ptr %3, ptr %this, align 8
   %data_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1411,18 +1411,18 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %fo
   %7 = load i64, ptr %3, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %7
   store ptr %add.ptr.i.i, ptr %crtEnd_.i, align 8
-  %cmp.i.not.i = icmp eq i64 %sub.i4460, -1
+  %cmp.i.not.i = icmp eq i64 %sub.i4464, -1
   %.pre = ptrtoint ptr %5 to i64
   br i1 %cmp.i.not.i, label %if.end, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end.i
-  %add16.i = add i64 %sub.i4460, %.pre
+  %add16.i = add i64 %sub.i4464, %.pre
   %8 = ptrtoint ptr %add.ptr.i.i to i64
   %cmp18.i = icmp ult i64 %add16.i, %8
   br i1 %cmp18.i, label %if.then19.i, label %if.end23.i
 
 if.then19.i:                                      ; preds = %if.then13.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %sub.i4460
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %sub.i4464
   store ptr %add.ptr.i, ptr %crtEnd_.i, align 8
   %.pre.i = ptrtoint ptr %add.ptr.i to i64
   br label %if.end23.i
@@ -1443,7 +1443,7 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE16tryAdvanceBufferEv.exi
 if.end:                                           ; preds = %if.end.i, %if.end23.i
   %sub.i43 = phi i64 [ %sub.i, %if.end23.i ], [ -1, %if.end.i ]
   %add.ptr.i.i28 = phi ptr [ %add.ptr.i.i27, %if.end23.i ], [ %add.ptr.i.i, %if.end.i ]
-  %sub = sub i64 %len.addr.03463, %sub.ptr.sub.i3761
+  %sub = sub i64 %len.addr.03467, %sub.ptr.sub.i3765
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i.i28 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %.pre
   %cmp = icmp ult i64 %sub.ptr.sub.i, %sub
@@ -1451,7 +1451,7 @@ if.end:                                           ; preds = %if.end.i, %if.end23
 
 for.end:                                          ; preds = %if.end, %entry
   %len.addr.0.lcssa = phi i64 [ %len, %entry ], [ %sub, %if.end ]
-  %skipped.0.lcssa = phi i64 [ 0, %entry ], [ %add64, %if.end ]
+  %skipped.0.lcssa = phi i64 [ 0, %entry ], [ %add68, %if.end ]
   %.lcssa21 = phi ptr [ %crtEnd_.i.promoted, %entry ], [ %add.ptr.i.i28, %if.end ]
   %.lcssa = phi ptr [ %crtPos_.i.promoted, %entry ], [ %5, %if.end ]
   %add.ptr = getelementptr inbounds i8, ptr %.lcssa, i64 %len.addr.0.lcssa

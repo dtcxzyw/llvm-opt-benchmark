@@ -1284,15 +1284,15 @@ define internal range(i32 0, 2) i32 @f5eth_tmmdist_stats_tree_packet(ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %38
-  %.str.282.sink74.sink = phi ptr [ %.str.281..str.282, %38 ], [ @.str.283, %8 ]
-  %.str.281.sink73.sink = phi ptr [ %.str.282..str.281, %38 ], [ @.str.282, %8 ]
-  %.str.283.sink75 = phi ptr [ @.str.283, %38 ], [ @.str.281, %8 ]
-  %42 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.str.282.sink74.sink, i32 noundef %25, i1 noundef zeroext false, i32 noundef 1)
-  %43 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.str.282.sink74.sink, i32 noundef %26, i1 noundef zeroext false, i32 noundef %22)
-  %44 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.str.281.sink73.sink, i32 noundef %25, i1 noundef zeroext false, i32 noundef 0)
-  %45 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.str.281.sink73.sink, i32 noundef %26, i1 noundef zeroext false, i32 noundef 0)
-  %46 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.str.283.sink75, i32 noundef %25, i1 noundef zeroext false, i32 noundef 0)
-  %47 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.str.283.sink75, i32 noundef %26, i1 noundef zeroext false, i32 noundef 0)
+  %.str.282.sink75.sink = phi ptr [ %.str.281..str.282, %38 ], [ @.str.283, %8 ]
+  %.str.281.sink74.sink = phi ptr [ %.str.282..str.281, %38 ], [ @.str.282, %8 ]
+  %.str.283.sink76 = phi ptr [ @.str.283, %38 ], [ @.str.281, %8 ]
+  %42 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.str.282.sink75.sink, i32 noundef %25, i1 noundef zeroext false, i32 noundef 1)
+  %43 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.str.282.sink75.sink, i32 noundef %26, i1 noundef zeroext false, i32 noundef %22)
+  %44 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.str.281.sink74.sink, i32 noundef %25, i1 noundef zeroext false, i32 noundef 0)
+  %45 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.str.281.sink74.sink, i32 noundef %26, i1 noundef zeroext false, i32 noundef 0)
+  %46 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.str.283.sink76, i32 noundef %25, i1 noundef zeroext false, i32 noundef 0)
+  %47 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.str.283.sink76, i32 noundef %26, i1 noundef zeroext false, i32 noundef 0)
   br label %48
 
 48:                                               ; preds = %.sink.split, %5
@@ -2129,23 +2129,23 @@ proto_item_set_hidden.exit152.i.i.i:              ; preds = %331, %328, %325
   br label %.thread.sink.split.i.i.i
 
 .thread.sink.split.i.i.i:                         ; preds = %395, %377, %359
-  %.sink271.i.i.i = phi i8 [ %397, %395 ], [ %379, %377 ], [ %361, %359 ]
-  %.sink268.i.i.i = phi i32 [ 44, %395 ], [ 40, %377 ], [ 39, %359 ]
-  %.sink267.i.i.i = phi i32 [ %386, %395 ], [ %368, %377 ], [ %350, %359 ]
+  %.sink282.i.i.i = phi i8 [ %397, %395 ], [ %379, %377 ], [ %361, %359 ]
+  %.sink279.i.i.i = phi i32 [ 44, %395 ], [ 40, %377 ], [ 39, %359 ]
+  %.sink278.i.i.i = phi i32 [ %386, %395 ], [ %368, %377 ], [ %350, %359 ]
   %.sink.i100.i.i = phi ptr [ %396, %395 ], [ %378, %377 ], [ %360, %359 ]
-  %398 = and i8 %.sink271.i.i.i, 1
+  %398 = and i8 %.sink282.i.i.i, 1
   %.not231.i.i.i = icmp eq i8 %398, 0
   %399 = select i1 %.not231.i.i.i, ptr @.str.258, ptr @.str.298
   %400 = load ptr, ptr %58, align 8
-  %401 = add i32 %.sink268.i.i.i, %.079132.i.i
-  %402 = add nsw i32 %.sink267.i.i.i, -9
+  %401 = add i32 %.sink279.i.i.i, %.079132.i.i
+  %402 = add nsw i32 %.sink278.i.i.i, -9
   %403 = call ptr @tvb_get_string_enc(ptr noundef %400, ptr noundef %73, i32 noundef %401, i32 noundef %402, i32 noundef 0)
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %.sink.i100.i.i, i32 noundef 25, ptr noundef nonnull @.str.296, ptr noundef nonnull @.str.297, ptr noundef nonnull %399, ptr noundef %403)
   br label %.thread.i96.i.i
 
 .thread.i96.i.i:                                  ; preds = %.thread.sink.split.i.i.i, %389, %388, %371, %370, %353, %352, %343, %343, %343
   %.0220.shrunk.i.i.i = phi i8 [ -1, %343 ], [ %355, %353 ], [ %373, %371 ], [ %391, %389 ], [ -1, %343 ], [ -1, %343 ], [ -1, %352 ], [ -1, %370 ], [ -1, %388 ], [ 0, %.thread.sink.split.i.i.i ]
-  %.0219.i.i.i = phi i32 [ 0, %343 ], [ %350, %353 ], [ %368, %371 ], [ %386, %389 ], [ 0, %343 ], [ 0, %343 ], [ 0, %352 ], [ 0, %370 ], [ 0, %388 ], [ %.sink267.i.i.i, %.thread.sink.split.i.i.i ]
+  %.0219.i.i.i = phi i32 [ 0, %343 ], [ %350, %353 ], [ %368, %371 ], [ %386, %389 ], [ 0, %343 ], [ 0, %343 ], [ 0, %352 ], [ 0, %370 ], [ 0, %388 ], [ %.sink278.i.i.i, %.thread.sink.split.i.i.i ]
   %404 = load i8, ptr @pref_perform_analysis, align 1, !range !6, !noundef !7
   %405 = icmp eq i8 %404, 0
   %406 = icmp eq ptr %342, null
@@ -2573,9 +2573,9 @@ proto_item_set_hidden.exit116.i.i.i:              ; preds = %633, %630, %proto_i
   br i1 %.not5.i121.i.i.i, label %proto_item_set_hidden.exit119.i.i.i, label %proto_item_set_hidden.exit119.sink.split.i.i.i
 
 proto_item_set_hidden.exit119.sink.split.i.i.i:   ; preds = %653, %647
-  %.sink139.i.i.i = phi ptr [ %649, %647 ], [ %655, %653 ]
+  %.sink161.i.i.i = phi ptr [ %649, %647 ], [ %655, %653 ]
   %.0.ph.i.i.i = phi i8 [ 6, %647 ], [ 17, %653 ]
-  %656 = getelementptr inbounds nuw i8, ptr %.sink139.i.i.i, i64 28
+  %656 = getelementptr inbounds nuw i8, ptr %.sink161.i.i.i, i64 28
   %657 = load i32, ptr %656, align 4
   %658 = or i32 %657, 1
   store i32 %658, ptr %656, align 4
@@ -2640,8 +2640,8 @@ proto_item_set_hidden.exit125.i.i.i:              ; preds = %666, %663, %proto_i
   br i1 %.not5.i130.i.i.i, label %proto_item_set_hidden.exit128.i.i.i, label %proto_item_set_hidden.exit128.sink.split.i.i.i
 
 proto_item_set_hidden.exit128.sink.split.i.i.i:   ; preds = %683, %677
-  %.sink142.i.i.i = phi ptr [ %679, %677 ], [ %685, %683 ]
-  %686 = getelementptr inbounds nuw i8, ptr %.sink142.i.i.i, i64 28
+  %.sink164.i.i.i = phi ptr [ %679, %677 ], [ %685, %683 ]
+  %686 = getelementptr inbounds nuw i8, ptr %.sink164.i.i.i, i64 28
   %687 = load i32, ptr %686, align 4
   %688 = or i32 %687, 1
   store i32 %688, ptr %686, align 4
@@ -2674,15 +2674,15 @@ dissect_low_trailer.exit.thread.i.i:              ; preds = %545, %382, %380, %3
   br label %dissect_dpt_trailer.exit.i
 
 dissect_low_trailer.exit.thread111.i.i:           ; preds = %696, %693, %proto_item_set_hidden.exit128.i.i.i, %569, %552, %521, %513, %511, %498, %.thread.i96.i.i, %.thread155.i.i.i, %.thread.i.i.i, %313, %258, %255
-  %.sink147.i.i = phi i32 [ 35, %258 ], [ 35, %.thread.i.i.i ], [ %173, %255 ], [ %173, %313 ], [ %173, %.thread155.i.i.i ], [ %173, %.thread.i96.i.i ], [ %173, %498 ], [ %173, %511 ], [ %173, %513 ], [ %173, %521 ], [ 42, %569 ], [ 42, %552 ], [ 42, %proto_item_set_hidden.exit128.i.i.i ], [ 42, %693 ], [ 42, %696 ]
-  %.sink145.i.i = phi i8 [ 1, %258 ], [ 1, %.thread.i.i.i ], [ 1, %255 ], [ 1, %313 ], [ 1, %.thread155.i.i.i ], [ 2, %.thread.i96.i.i ], [ 2, %498 ], [ 2, %511 ], [ 2, %513 ], [ 2, %521 ], [ 4, %569 ], [ 4, %552 ], [ 4, %proto_item_set_hidden.exit128.i.i.i ], [ 4, %693 ], [ 4, %696 ]
+  %.sink186.i.i = phi i32 [ 35, %258 ], [ 35, %.thread.i.i.i ], [ %173, %255 ], [ %173, %313 ], [ %173, %.thread155.i.i.i ], [ %173, %.thread.i96.i.i ], [ %173, %498 ], [ %173, %511 ], [ %173, %513 ], [ %173, %521 ], [ 42, %569 ], [ 42, %552 ], [ 42, %proto_item_set_hidden.exit128.i.i.i ], [ 42, %693 ], [ 42, %696 ]
+  %.sink184.i.i = phi i8 [ 1, %258 ], [ 1, %.thread.i.i.i ], [ 1, %255 ], [ 1, %313 ], [ 1, %.thread155.i.i.i ], [ 2, %.thread.i96.i.i ], [ 2, %498 ], [ 2, %511 ], [ 2, %513 ], [ 2, %521 ], [ 4, %569 ], [ 4, %552 ], [ 4, %proto_item_set_hidden.exit128.i.i.i ], [ 4, %693 ], [ 4, %696 ]
   %700 = load i32, ptr %164, align 4
-  %701 = add i32 %700, %.sink147.i.i
+  %701 = add i32 %700, %.sink186.i.i
   store i32 %701, ptr %164, align 4
   %702 = load i8, ptr %165, align 4
-  %703 = or i8 %702, %.sink145.i.i
+  %703 = or i8 %702, %.sink184.i.i
   store i8 %703, ptr %165, align 4
-  %704 = add i32 %.sink147.i.i, %.079132.i.i
+  %704 = add i32 %.sink186.i.i, %.079132.i.i
   %705 = call i32 @tvb_reported_length_remaining(ptr noundef %73, i32 noundef %704)
   %706 = icmp sgt i32 %705, 6
   br i1 %706, label %169, label %dissect_dpt_trailer.exit.i, !llvm.loop !12
@@ -2840,7 +2840,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_dpt_trailer_noise_low(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_noise_low(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %6
 
@@ -3471,8 +3471,8 @@ proto_item_set_hidden.exit118:                    ; preds = %proto_item_set_hidd
   br i1 %.not5.i123, label %proto_item_set_hidden.exit121, label %proto_item_set_hidden.exit121.sink.split
 
 proto_item_set_hidden.exit121.sink.split:         ; preds = %101, %95
-  %.sink139 = phi ptr [ %97, %95 ], [ %103, %101 ]
-  %104 = getelementptr inbounds nuw i8, ptr %.sink139, i64 28
+  %.sink161 = phi ptr [ %97, %95 ], [ %103, %101 ]
+  %104 = getelementptr inbounds nuw i8, ptr %.sink161, i64 28
   %105 = load i32, ptr %104, align 4
   %106 = or i32 %105, 1
   store i32 %106, ptr %104, align 4
@@ -3535,8 +3535,8 @@ proto_item_set_hidden.exit127:                    ; preds = %proto_item_set_hidd
   br i1 %.not5.i132, label %proto_item_set_hidden.exit130, label %proto_item_set_hidden.exit130.sink.split
 
 proto_item_set_hidden.exit130.sink.split:         ; preds = %130, %124
-  %.sink142 = phi ptr [ %126, %124 ], [ %132, %130 ]
-  %133 = getelementptr inbounds nuw i8, ptr %.sink142, i64 28
+  %.sink164 = phi ptr [ %126, %124 ], [ %132, %130 ]
+  %133 = getelementptr inbounds nuw i8, ptr %.sink164, i64 28
   %134 = load i32, ptr %133, align 4
   %135 = or i32 %134, 1
   store i32 %135, ptr %133, align 4
@@ -4418,7 +4418,7 @@ define internal noundef zeroext i1 @dissect_f5fileinfo(ptr noundef %0, ptr nound
   br i1 %125, label %128, label %129
 
 128:                                              ; preds = %123
-  %f5eth_set_info_col_inout.f5eth_set_info_col_slot11.i = select i1 %or.cond5.i, ptr @f5eth_set_info_col_inout, ptr @f5eth_set_info_col_slot
+  %f5eth_set_info_col_inout.f5eth_set_info_col_slot12.i = select i1 %or.cond5.i, ptr @f5eth_set_info_col_inout, ptr @f5eth_set_info_col_slot
   br label %f5eth_process_f5info.exit
 
 129:                                              ; preds = %123
@@ -4426,7 +4426,7 @@ define internal noundef zeroext i1 @dissect_f5fileinfo(ptr noundef %0, ptr nound
   br label %f5eth_process_f5info.exit
 
 f5eth_process_f5info.exit:                        ; preds = %120, %128, %129
-  %f5eth_set_info_col_inout.sink.i = phi ptr [ %f5eth_set_info_col_inout.f5eth_set_info_col_slot.i, %120 ], [ %f5eth_set_info_col_inout.f5eth_set_info_col_slot11.i, %128 ], [ %f5eth_set_info_col_inout.f5eth_set_info_col_noslot.i, %129 ]
+  %f5eth_set_info_col_inout.sink.i = phi ptr [ %f5eth_set_info_col_inout.f5eth_set_info_col_slot.i, %120 ], [ %f5eth_set_info_col_inout.f5eth_set_info_col_slot12.i, %128 ], [ %f5eth_set_info_col_inout.f5eth_set_info_col_noslot.i, %129 ]
   store ptr %f5eth_set_info_col_inout.sink.i, ptr @f5eth_set_info_col, align 8
   br label %.thread
 
@@ -4495,9 +4495,9 @@ define internal void @f5eth_set_info_col_slot(ptr noundef readonly captures(none
   unreachable
 
 15:                                               ; preds = %12, %9
-  %.sink13 = phi ptr [ %10, %9 ], [ %13, %12 ]
+  %.sink14 = phi ptr [ %10, %9 ], [ %13, %12 ]
   %16 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_prepend_fence_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull %.sink13, i32 noundef %2, i32 noundef %3)
+  tail call void (ptr, i32, ptr, ...) @col_prepend_fence_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull %.sink14, i32 noundef %2, i32 noundef %3)
   %17 = load ptr, ptr %5, align 8
   tail call void @col_set_writable(ptr noundef %17, i32 noundef 25, i1 noundef zeroext %7)
   ret void

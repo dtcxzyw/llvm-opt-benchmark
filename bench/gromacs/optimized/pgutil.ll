@@ -90,13 +90,13 @@ define i64 @_Z11search_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE(ptr noundef %0,
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i, i64 8
   %40 = load i32, ptr %39, align 4, !tbaa !24
   %41 = icmp eq i32 %40, %19
-  br i1 %41, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit301, label %42
+  br i1 %41, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit314, label %42
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i, i64 12
   %44 = load i32, ptr %43, align 4, !tbaa !24
   %45 = icmp eq i32 %44, %19
-  br i1 %45, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit303, label %46
+  br i1 %45, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit316, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i, i64 16
@@ -149,16 +149,16 @@ _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit:
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i, i64 4
   br label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit
 
-_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit301: ; preds = %38
+_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit314: ; preds = %38
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i, i64 8
   br label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit
 
-_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit303: ; preds = %42
+_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit316: ; preds = %42
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i, i64 12
   br label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit
 
-_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit: ; preds = %31, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit301, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit303, %51, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge57.i.i.i
-  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %51 ], [ %.sroa.034.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %62, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit ], [ %63, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit301 ], [ %64, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit303 ], [ %.sroa.034.051.i.i.i, %31 ]
+_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit: ; preds = %31, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit314, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit316, %51, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge57.i.i.i
+  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %51 ], [ %.sroa.034.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %62, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit ], [ %63, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit314 ], [ %64, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit316 ], [ %.sroa.034.051.i.i.i, %31 ]
   %.not197 = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i, %.sroa.0.0.copyload.i
   br i1 %.not197, label %.critedge95, label %65
 
@@ -265,10 +265,10 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %76, %69, %77
   br i1 %exitcond270.not, label %.critedge2, label %.lr.ph234, !llvm.loop !33
 
 .critedge2:                                       ; preds = %84, %98, %.critedge96
-  %.0278 = phi ptr [ %.0, %.critedge96 ], [ %.0, %98 ], [ %21, %84 ]
-  %.085276 = phi i32 [ %.085, %.critedge96 ], [ %.085, %98 ], [ %9, %84 ]
-  %.0171275 = phi i32 [ %.0171, %.critedge96 ], [ %.0171, %98 ], [ %19, %84 ]
-  %.pre = sext i32 %.085276 to i64
+  %.0291 = phi ptr [ %.0, %.critedge96 ], [ %.0, %98 ], [ %21, %84 ]
+  %.085289 = phi i32 [ %.085, %.critedge96 ], [ %.085, %98 ], [ %9, %84 ]
+  %.0171288 = phi i32 [ %.0171, %.critedge96 ], [ %.0171, %98 ], [ %19, %84 ]
+  %.pre = sext i32 %.085289 to i64
   br i1 %.not89, label %.critedge2.thread, label %99
 
 99:                                               ; preds = %.critedge2
@@ -282,18 +282,18 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %76, %69, %77
   br i1 %106, label %.loopexit, label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %88, %.critedge2, %99
-  %.0277 = phi ptr [ %.0278, %99 ], [ %.0278, %.critedge2 ], [ %.0, %88 ]
-  %.0171274 = phi i32 [ %.0171275, %99 ], [ %.0171275, %.critedge2 ], [ %.0171, %88 ]
+  %.0290 = phi ptr [ %.0291, %99 ], [ %.0291, %.critedge2 ], [ %.0, %88 ]
+  %.0171287 = phi i32 [ %.0171288, %99 ], [ %.0171288, %.critedge2 ], [ %.0171, %88 ]
   %.pre-phi = phi i64 [ %.pre, %99 ], [ %.pre, %.critedge2 ], [ %87, %88 ]
   %107 = getelementptr inbounds %struct.t_atom, ptr %11, i64 %.pre-phi, i32 7
   %108 = load i32, ptr %107, align 4, !tbaa !19
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %110 = load ptr, ptr %109, align 8, !tbaa !34
-  %111 = sext i32 %.0171274 to i64
+  %111 = sext i32 %.0171287 to i64
   %112 = getelementptr inbounds %struct.t_resinfo, ptr %110, i64 %111
   %113 = load ptr, ptr %112, align 8, !tbaa !35
   %114 = load ptr, ptr %113, align 8, !tbaa !31
-  tail call fastcc void @_ZL14atom_not_foundiPKciS0_iS0_S0_b(i32 noundef 156, ptr noundef nonnull %.0277, i32 noundef %108, ptr noundef %114, ptr noundef %3, i1 noundef zeroext %4)
+  tail call fastcc void @_ZL14atom_not_foundiPKciS0_iS0_S0_b(i32 noundef 156, ptr noundef nonnull %.0290, i32 noundef %108, ptr noundef %114, ptr noundef %3, i1 noundef zeroext %4)
   br label %.loopexit
 
 115:                                              ; preds = %6
@@ -337,13 +337,13 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %76, %69, %77
   %137 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i122, i64 8
   %138 = load i32, ptr %137, align 4, !tbaa !24
   %139 = icmp eq i32 %138, %119
-  br i1 %139, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit293, label %140
+  br i1 %139, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit306, label %140
 
 140:                                              ; preds = %136
   %141 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i122, i64 12
   %142 = load i32, ptr %141, align 4, !tbaa !24
   %143 = icmp eq i32 %142, %119
-  br i1 %143, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit295, label %144
+  br i1 %143, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit308, label %144
 
 144:                                              ; preds = %140
   %145 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i122, i64 16
@@ -396,16 +396,16 @@ _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.ex
   %160 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i122, i64 4
   br label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129
 
-_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit293: ; preds = %136
+_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit306: ; preds = %136
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i122, i64 8
   br label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129
 
-_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit295: ; preds = %140
+_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit308: ; preds = %140
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i122, i64 12
   br label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129
 
-_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129: ; preds = %129, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit293, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit295, %149, %._crit_edge._crit_edge.i.i.i116, %._crit_edge._crit_edge57.i.i.i111
-  %.sroa.010.0.in.sroa.speculated.i.i.i115 = phi ptr [ %.sroa.034.0.lcssa.i.i.i110, %149 ], [ %.sroa.034.1.i.i.i118, %._crit_edge._crit_edge.i.i.i116 ], [ %spec.select.i.i.i114, %._crit_edge._crit_edge57.i.i.i111 ], [ %160, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit ], [ %161, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit293 ], [ %162, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit295 ], [ %.sroa.034.051.i.i.i122, %129 ]
+_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129: ; preds = %129, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit306, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit308, %149, %._crit_edge._crit_edge.i.i.i116, %._crit_edge._crit_edge57.i.i.i111
+  %.sroa.010.0.in.sroa.speculated.i.i.i115 = phi ptr [ %.sroa.034.0.lcssa.i.i.i110, %149 ], [ %.sroa.034.1.i.i.i118, %._crit_edge._crit_edge.i.i.i116 ], [ %spec.select.i.i.i114, %._crit_edge._crit_edge57.i.i.i111 ], [ %160, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit ], [ %161, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit306 ], [ %162, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit308 ], [ %.sroa.034.051.i.i.i122, %129 ]
   %.not196 = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i115, %.sroa.0.0.copyload.i105
   br i1 %.not196, label %.critedge98, label %163
 

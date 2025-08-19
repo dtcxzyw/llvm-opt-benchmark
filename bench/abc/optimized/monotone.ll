@@ -119,14 +119,14 @@ define noalias ptr @findHintOutputs(ptr noundef readonly captures(none) %0) loca
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %28, %30, %20, %22
-  %.sink23 = phi ptr [ %21, %20 ], [ %23, %22 ], [ %29, %28 ], [ %31, %30 ]
+  %.sink25 = phi ptr [ %21, %20 ], [ %23, %22 ], [ %29, %28 ], [ %31, %30 ]
   %.sink = phi i32 [ 16, %20 ], [ 16, %22 ], [ %25, %28 ], [ %25, %30 ]
-  store ptr %.sink23, ptr %.phi.trans.insert.i, align 8, !tbaa !30
+  store ptr %.sink25, ptr %.phi.trans.insert.i, align 8, !tbaa !30
   store i32 %.sink, ptr %calloc.i, align 8, !tbaa !29
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %13
-  %.pre.i22 = phi ptr [ %7, %13 ], [ %.sink23, %Vec_IntPush.exit.sink.split ]
+  %.pre.i22 = phi ptr [ %7, %13 ], [ %.sink25, %Vec_IntPush.exit.sink.split ]
   %32 = add nsw i32 %14, 1
   store i32 %32, ptr %5, align 4, !tbaa !28
   %33 = sext i32 %14 to i64
@@ -973,16 +973,16 @@ Vec_PtrPush.exit302:                              ; preds = %.Vec_PtrGrow.exit11
   br label %Vec_PtrPush.exit280
 
 Vec_PtrPush.exit280:                              ; preds = %288, %Vec_PtrGrow.exit.i279, %.Vec_PtrGrow.exit11_crit_edge.i274, %Vec_PtrPush.exit302
-  %.sink395 = phi i32 [ %234, %Vec_PtrPush.exit302 ], [ %237, %.Vec_PtrGrow.exit11_crit_edge.i274 ], [ %237, %Vec_PtrGrow.exit.i279 ], [ %237, %288 ]
-  %.sink393 = phi ptr [ %351, %Vec_PtrPush.exit302 ], [ %.pre.i276, %.Vec_PtrGrow.exit11_crit_edge.i274 ], [ %278, %Vec_PtrGrow.exit.i279 ], [ %289, %288 ]
+  %.sink419 = phi i32 [ %234, %Vec_PtrPush.exit302 ], [ %237, %.Vec_PtrGrow.exit11_crit_edge.i274 ], [ %237, %Vec_PtrGrow.exit.i279 ], [ %237, %288 ]
+  %.sink417 = phi ptr [ %351, %Vec_PtrPush.exit302 ], [ %.pre.i276, %.Vec_PtrGrow.exit11_crit_edge.i274 ], [ %278, %Vec_PtrGrow.exit.i279 ], [ %289, %288 ]
   %.sink = phi ptr [ %303, %Vec_PtrPush.exit302 ], [ %259, %.Vec_PtrGrow.exit11_crit_edge.i274 ], [ %259, %Vec_PtrGrow.exit.i279 ], [ %259, %288 ]
   %353 = phi i32 [ %350, %Vec_PtrPush.exit302 ], [ %233, %.Vec_PtrGrow.exit11_crit_edge.i274 ], [ %233, %Vec_PtrGrow.exit.i279 ], [ %233, %288 ]
   %354 = phi i32 [ %352, %Vec_PtrPush.exit302 ], [ %234, %.Vec_PtrGrow.exit11_crit_edge.i274 ], [ %234, %Vec_PtrGrow.exit.i279 ], [ %234, %288 ]
   %355 = phi i32 [ %325, %Vec_PtrPush.exit302 ], [ %235, %.Vec_PtrGrow.exit11_crit_edge.i274 ], [ 16, %Vec_PtrGrow.exit.i279 ], [ %280, %288 ]
   %356 = phi i32 [ %325, %Vec_PtrPush.exit302 ], [ %236, %.Vec_PtrGrow.exit11_crit_edge.i274 ], [ 16, %Vec_PtrGrow.exit.i279 ], [ %280, %288 ]
   %357 = add nuw nsw i32 %237, 1
-  %358 = sext i32 %.sink395 to i64
-  %359 = getelementptr inbounds ptr, ptr %.sink393, i64 %358
+  %358 = sext i32 %.sink419 to i64
+  %359 = getelementptr inbounds ptr, ptr %.sink417, i64 %358
   store ptr %.sink, ptr %359, align 8, !tbaa !27
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
   %.val228 = load i32, ptr %50, align 4, !tbaa !28
@@ -1242,14 +1242,14 @@ define noalias ptr @findNewMonotone(ptr noundef readonly captures(none) %0, ptr 
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %53, %55, %45, %47
-  %.sink47 = phi ptr [ %46, %45 ], [ %48, %47 ], [ %54, %53 ], [ %56, %55 ]
+  %.sink49 = phi ptr [ %46, %45 ], [ %48, %47 ], [ %54, %53 ], [ %56, %55 ]
   %.sink = phi i32 [ 16, %45 ], [ 16, %47 ], [ %50, %53 ], [ %50, %55 ]
-  store ptr %.sink47, ptr %.phi.trans.insert.i, align 8, !tbaa !30
+  store ptr %.sink49, ptr %.phi.trans.insert.i, align 8, !tbaa !30
   store i32 %.sink, ptr %calloc.i, align 8, !tbaa !29
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %34
-  %.pre.i45 = phi ptr [ %23, %34 ], [ %.sink47, %Vec_IntPush.exit.sink.split ]
+  %.pre.i45 = phi ptr [ %23, %34 ], [ %.sink49, %Vec_IntPush.exit.sink.split ]
   %57 = add nsw i32 %39, 1
   store i32 %57, ptr %20, align 4, !tbaa !28
   %58 = sext i32 %39 to i64
@@ -1378,14 +1378,14 @@ Vec_IntFind.exit.thread:                          ; preds = %24, %13
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %39, %41, %31, %33
-  %.sink26 = phi ptr [ %32, %31 ], [ %34, %33 ], [ %40, %39 ], [ %42, %41 ]
+  %.sink29 = phi ptr [ %32, %31 ], [ %34, %33 ], [ %40, %39 ], [ %42, %41 ]
   %.sink = phi i32 [ 16, %31 ], [ 16, %33 ], [ %36, %39 ], [ %36, %41 ]
-  store ptr %.sink26, ptr %.phi.trans.insert.i, align 8, !tbaa !30
+  store ptr %.sink29, ptr %.phi.trans.insert.i, align 8, !tbaa !30
   store i32 %.sink, ptr %calloc.i, align 8, !tbaa !29
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %Vec_IntFind.exit.thread
-  %.pre.i23 = phi ptr [ %14, %Vec_IntFind.exit.thread ], [ %.sink26, %Vec_IntPush.exit.sink.split ]
+  %.pre.i23 = phi ptr [ %14, %Vec_IntFind.exit.thread ], [ %.sink29, %Vec_IntPush.exit.sink.split ]
   %43 = add nsw i32 %25, 1
   store i32 %43, ptr %12, align 4, !tbaa !28
   %44 = sext i32 %25 to i64

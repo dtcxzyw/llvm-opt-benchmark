@@ -1493,13 +1493,13 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115XMLParserHelperD2Ev.exit: ; preds = %_ZN
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit48
 
 _ZNSt6vectorIfSaIfEED2Ev.exit48:                  ; preds = %.body31.thread, %.body31, %452
-  %.pn63 = phi { ptr, i32 } [ %.pn44.pn.i, %.body31.thread ], [ %.pn, %.body31 ], [ %.pn, %452 ]
+  %.pn97 = phi { ptr, i32 } [ %.pn44.pn.i, %.body31.thread ], [ %.pn, %.body31 ], [ %.pn, %452 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call fastcc void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_115LocalCachedFileELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull %179) #26
   br label %.body
 
 .body:                                            ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit48, %187, %419, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i17
-  %.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i17 ], [ %.pn63, %_ZNSt6vectorIfSaIfEED2Ev.exit48 ], [ %420, %419 ], [ %188, %187 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i17 ], [ %.pn97, %_ZNSt6vectorIfSaIfEED2Ev.exit48 ], [ %420, %419 ], [ %188, %187 ]
   call fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115XMLParserHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %common.resume
@@ -3282,7 +3282,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %_ZN
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 55
   %61 = load i8, ptr %60, align 1, !tbaa !140, !range !120, !noundef !121
   %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %._crit_edge.i.i74.thread, label %.thread334
+  br i1 %62, label %._crit_edge.i.i74.thread, label %.thread419
 
 ._crit_edge.i.i74.thread:                         ; preds = %.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -3710,13 +3710,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %_Z
   %212 = trunc nuw i8 %211 to i1
   br i1 %212, label %219, label %437
 
-.thread334:                                       ; preds = %.thread
+.thread419:                                       ; preds = %.thread
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %214 = load i8, ptr %213, align 8, !tbaa !141, !range !120, !noundef !121
   %215 = trunc nuw i8 %214 to i1
   br i1 %215, label %._crit_edge.i.i122.thread, label %437
 
-._crit_edge.i.i122.thread:                        ; preds = %.thread334
+._crit_edge.i.i122.thread:                        ; preds = %.thread419
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %216 = zext nneg i32 %2 to i64
   %217 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -4379,7 +4379,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %438
 
-437:                                              ; preds = %.thread334, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit214, %209, %54, %30
+437:                                              ; preds = %.thread419, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit214, %209, %54, %30
   ret void
 
 438:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72, %28

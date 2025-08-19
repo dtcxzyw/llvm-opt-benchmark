@@ -1436,7 +1436,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr noundef readonly 
 613:                                              ; preds = %616, %608
   %614 = call ptr @i915_gem_engines_iter_next(ptr noundef nonnull %7) #20
   %615 = icmp eq ptr %614, null
-  br i1 %615, label %.thread228, label %616
+  br i1 %615, label %.thread334, label %616
 
 616:                                              ; preds = %613
   %617 = getelementptr inbounds nuw i8, ptr %614, i64 16
@@ -1445,7 +1445,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr noundef readonly 
   %620 = icmp eq ptr %618, %619
   br i1 %620, label %621, label %613, !llvm.loop !33
 
-.thread228:                                       ; preds = %613
+.thread334:                                       ; preds = %613
   call void @mutex_unlock(ptr noundef nonnull %609) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1518,8 +1518,8 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr noundef readonly 
   %650 = icmp ugt ptr %649, inttoptr (i64 -4096 to ptr)
   br i1 %650, label %651, label %655
 
-651:                                              ; preds = %.thread228, %648
-  %652 = phi ptr [ inttoptr (i64 -19 to ptr), %.thread228 ], [ %649, %648 ]
+651:                                              ; preds = %.thread334, %648
+  %652 = phi ptr [ inttoptr (i64 -19 to ptr), %.thread334 ], [ %649, %648 ]
   %653 = ptrtoint ptr %652 to i64
   %654 = trunc i64 %653 to i32
   br label %966
@@ -1717,19 +1717,19 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr noundef readonly 
   %777 = load ptr, ptr %488, align 8
   %778 = load ptr, ptr %777, align 8
   %779 = icmp eq ptr %778, null
-  br i1 %779, label %.thread229, label %780
+  br i1 %779, label %.thread335, label %780
 
 780:                                              ; preds = %776
   %781 = getelementptr inbounds nuw i8, ptr %778, i64 8
   %782 = load ptr, ptr %781, align 8
-  br label %.thread229
+  br label %.thread335
 
-.thread229:                                       ; preds = %776, %780
+.thread335:                                       ; preds = %776, %780
   %783 = phi ptr [ %782, %780 ], [ null, %776 ]
   %784 = load ptr, ptr %566, align 8
   %785 = getelementptr inbounds nuw i8, ptr %784, i64 24
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %783, ptr noundef nonnull @.str.63, ptr noundef nonnull %785) #23
-  %.pre222230 = load ptr, ptr %488, align 8
+  %.pre222336 = load ptr, ptr %488, align 8
   br label %969
 
 786:                                              ; preds = %772, %660, %655
@@ -2035,10 +2035,10 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr noundef readonly 
   %.pre225 = load ptr, ptr %566, align 8
   br label %978
 
-969:                                              ; preds = %.thread229, %966
-  %.pre222231 = phi ptr [ %.pre222230, %.thread229 ], [ %.pre222, %966 ]
-  %970 = phi i32 [ -19, %.thread229 ], [ %967, %966 ]
-  %971 = load ptr, ptr %.pre222231, align 8
+969:                                              ; preds = %.thread335, %966
+  %.pre222337 = phi ptr [ %.pre222336, %.thread335 ], [ %.pre222, %966 ]
+  %970 = phi i32 [ -19, %.thread335 ], [ %967, %966 ]
+  %971 = load ptr, ptr %.pre222337, align 8
   %972 = icmp eq ptr %971, null
   br i1 %972, label %976, label %973
 
@@ -2395,20 +2395,20 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr noundef readonly 
   %1213 = zext i8 %1212 to i32
   %1214 = or disjoint i32 %1211, %1213
   %1215 = icmp samesign ugt i32 %1214, 3121
-  br i1 %1215, label %1216, label %.preheader302
+  br i1 %1215, label %1216, label %.preheader408
 
 1216:                                             ; preds = %1190
   %1217 = getelementptr i8, ptr %1192, i64 16
   store i32 8388608, ptr %1208, align 4
-  br label %.preheader302
+  br label %.preheader408
 
-.preheader302:                                    ; preds = %1216, %1190
+.preheader408:                                    ; preds = %1216, %1190
   %.ph = phi ptr [ %1217, %1216 ], [ %1208, %1190 ]
   br label %1218
 
-1218:                                             ; preds = %.preheader302, %1250
-  %1219 = phi ptr [ %1247, %1250 ], [ %.ph, %.preheader302 ]
-  %1220 = phi i32 [ %1251, %1250 ], [ 0, %.preheader302 ]
+1218:                                             ; preds = %.preheader408, %1250
+  %1219 = phi ptr [ %1247, %1250 ], [ %.ph, %.preheader408 ]
+  %1220 = phi i32 [ %1251, %1250 ], [ 0, %.preheader408 ]
   %1221 = shl nuw nsw i32 %1220, 3
   %1222 = add i32 %1221, %1019
   %1223 = add nuw nsw i32 %1221, 4096
@@ -2613,7 +2613,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr noundef readonly 
   store volatile ptr null, ptr %506, align 8
   %1338 = getelementptr inbounds nuw i8, ptr %0, i64 9232
   %1339 = load ptr, ptr %1338, align 8
-  call void %1339(ptr noundef %488) #20
+  call void %1339(ptr noundef nonnull %488) #20
   %1340 = getelementptr inbounds nuw i8, ptr %488, i64 224
   call void @i915_vma_unpin_and_release(ptr noundef nonnull %1340, i32 noundef 1) #20
   %1341 = getelementptr inbounds nuw i8, ptr %488, i64 232
@@ -2634,7 +2634,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr noundef readonly 
   call void @intel_uncore_forcewake_put(ptr noundef %1348, i32 noundef 65535) #20
   %1349 = load ptr, ptr %566, align 8
   call fastcc void @intel_engine_pm_put(ptr noundef %1349)
-  call fastcc void @free_oa_configs(ptr noundef %488)
+  call fastcc void @free_oa_configs(ptr noundef nonnull %488)
   br label %1350
 
 1350:                                             ; preds = %1346, %1311
@@ -3576,14 +3576,14 @@ define dso_local noundef range(i32 -12, 1) i32 @i915_perf_init(ptr noundef initi
   switch i8 %24, label %30 [
     i8 8, label %.thread.sink.split
     i8 9, label %25
-    i8 11, label %.thread25
+    i8 11, label %.thread31
     i8 12, label %.thread12
   ]
 
 25:                                               ; preds = %20
   br label %.thread.sink.split
 
-.thread25:                                        ; preds = %20
+.thread31:                                        ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 9188
   store i32 292, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 9192
@@ -3612,13 +3612,13 @@ define dso_local noundef range(i32 -12, 1) i32 @i915_perf_init(ptr noundef initi
   br i1 %34, label %.thread, label %44
 
 .thread.sink.split:                               ; preds = %20, %25
-  %.sink30 = phi i32 [ 296, %25 ], [ 288, %20 ]
-  %.sink28 = phi i32 [ 990, %25 ], [ 718, %20 ]
+  %.sink36 = phi i32 [ 296, %25 ], [ 288, %20 ]
+  %.sink34 = phi i32 [ 990, %25 ], [ 718, %20 ]
   %.sink = phi i32 [ 65536, %25 ], [ 33554432, %20 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 9188
-  store i32 %.sink30, ptr %35, align 4
+  store i32 %.sink36, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 9192
-  store i32 %.sink28, ptr %36, align 8
+  store i32 %.sink34, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 9196
   store i32 %.sink, ptr %37, align 4
   br label %.thread
@@ -3648,7 +3648,7 @@ define dso_local noundef range(i32 -12, 1) i32 @i915_perf_init(ptr noundef initi
   %.pre = load ptr, ptr %14, align 8
   br label %48
 
-45:                                               ; preds = %.thread25, %44
+45:                                               ; preds = %.thread31, %44
   store ptr @gen7_is_valid_b_counter_addr, ptr %21, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 9208
   store ptr @gen11_is_valid_mux_addr, ptr %46, align 8
@@ -3758,13 +3758,13 @@ define dso_local noundef range(i32 -12, 1) i32 @i915_perf_init(ptr noundef initi
 .backedge.outer:                                  ; preds = %213, %87
   %.pre1619.ph = phi ptr [ %.pre16.pre, %213 ], [ %0, %87 ]
   %.ph = phi i1 [ false, %213 ], [ true, %87 ]
-  %.ph32 = phi i64 [ 1, %213 ], [ 0, %87 ]
+  %.ph38 = phi i64 [ 1, %213 ], [ 0, %87 ]
   %106 = getelementptr inbounds nuw i8, ptr %.pre1619.ph, i64 9304
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.outer, %214
   %107 = phi i1 [ false, %214 ], [ %.ph, %.backedge.outer ]
-  %108 = phi i64 [ 1, %214 ], [ %.ph32, %.backedge.outer ]
+  %108 = phi i64 [ 1, %214 ], [ %.ph38, %.backedge.outer ]
   %109 = getelementptr [2 x ptr], ptr %106, i64 0, i64 %108
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, null
@@ -4929,9 +4929,9 @@ define internal range(i32 -28, 1) i32 @gen8_oa_read(ptr noundef %0, ptr noundef 
   br label %203
 
 203:                                              ; preds = %200, %198
-  %.sink23 = phi i64 [ 8, %200 ], [ 16, %198 ]
+  %.sink32 = phi i64 [ 8, %200 ], [ 16, %198 ]
   %204 = phi i64 [ %202, %200 ], [ %199, %198 ]
-  %205 = getelementptr i8, ptr %193, i64 %.sink23
+  %205 = getelementptr i8, ptr %193, i64 %.sink32
   %206 = load i32, ptr %205, align 4
   %207 = load i32, ptr %180, align 4
   %208 = and i32 %207, %206

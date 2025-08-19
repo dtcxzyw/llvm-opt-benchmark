@@ -1556,9 +1556,9 @@ _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %3, %10, %1
   br i1 %50, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds = %46, %33
-  %.sink9.i = phi i32 [ %34, %33 ], [ %47, %46 ]
+  %.sink11.i = phi i32 [ %34, %33 ], [ %47, %46 ]
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 448
-  %52 = zext nneg i32 %.sink9.i to i64
+  %52 = zext nneg i32 %.sink11.i to i64
   %53 = load ptr, ptr %51, align 8, !tbaa !277
   %54 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %53, i64 %52
   %55 = load i64, ptr %54, align 8, !tbaa !167
@@ -1774,9 +1774,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder12buildUnmergeENS_3LLTE
   br i1 %30, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds = %26, %13
-  %.sink9.i = phi i32 [ %14, %13 ], [ %27, %26 ]
+  %.sink11.i = phi i32 [ %14, %13 ], [ %27, %26 ]
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 448
-  %32 = zext nneg i32 %.sink9.i to i64
+  %32 = zext nneg i32 %.sink11.i to i64
   %33 = load ptr, ptr %31, align 8, !tbaa !277
   %34 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %33, i64 %32
   %35 = load i64, ptr %34, align 8, !tbaa !167
@@ -2080,9 +2080,9 @@ _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i: ; preds = %36, %31,
   br i1 %65, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i: ; preds = %61, %48
-  %.sink9.i.i = phi i32 [ %49, %48 ], [ %62, %61 ]
+  %.sink11.i.i = phi i32 [ %49, %48 ], [ %62, %61 ]
   %66 = getelementptr inbounds nuw i8, ptr %21, i64 448
-  %67 = zext nneg i32 %.sink9.i.i to i64
+  %67 = zext nneg i32 %.sink11.i.i to i64
   %68 = load ptr, ptr %66, align 8, !tbaa !277
   %69 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %68, i64 %67
   %70 = load i64, ptr %69, align 8, !tbaa !167
@@ -2202,9 +2202,9 @@ _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %3, %10, %1
   br i1 %50, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.thread
 
 _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %33, %46
-  %.sink9.i = phi i32 [ %34, %33 ], [ %47, %46 ]
+  %.sink11.i = phi i32 [ %34, %33 ], [ %47, %46 ]
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 448
-  %52 = zext nneg i32 %.sink9.i to i64
+  %52 = zext nneg i32 %.sink11.i to i64
   %53 = load ptr, ptr %51, align 8, !tbaa !277
   %54 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %53, i64 %52
   %55 = load i64, ptr %54, align 8, !tbaa !167
@@ -3661,9 +3661,9 @@ _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %5, %15, %1
   br i1 %63, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds = %59, %46
-  %.sink9.i = phi i32 [ %47, %46 ], [ %60, %59 ]
+  %.sink11.i = phi i32 [ %47, %46 ], [ %60, %59 ]
   %64 = getelementptr inbounds nuw i8, ptr %41, i64 448
-  %65 = zext nneg i32 %.sink9.i to i64
+  %65 = zext nneg i32 %.sink11.i to i64
   %66 = load ptr, ptr %64, align 8, !tbaa !277
   %67 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %66, i64 %65
   %68 = load i64, ptr %67, align 8, !tbaa !167
@@ -3854,9 +3854,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildStoreERKNS_5SrcO
   br i1 %31, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds = %27, %14
-  %.sink9.i = phi i32 [ %15, %14 ], [ %28, %27 ]
+  %.sink11.i = phi i32 [ %15, %14 ], [ %28, %27 ]
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 448
-  %33 = zext nneg i32 %.sink9.i to i64
+  %33 = zext nneg i32 %.sink11.i to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !277
   %35 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %34, i64 %33
   %36 = load i64, ptr %35, align 8, !tbaa !167
@@ -4332,9 +4332,9 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %38, %40
   br i1 %71, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds = %67, %54
-  %.sink9.i = phi i32 [ %55, %54 ], [ %68, %67 ]
+  %.sink11.i = phi i32 [ %55, %54 ], [ %68, %67 ]
   %72 = getelementptr inbounds nuw i8, ptr %49, i64 448
-  %73 = zext nneg i32 %.sink9.i to i64
+  %73 = zext nneg i32 %.sink11.i to i64
   %74 = load ptr, ptr %72, align 8, !tbaa !277
   %75 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %74, i64 %73
   %76 = load i64, ptr %75, align 8, !tbaa !167
@@ -4506,9 +4506,9 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit54:            ; preds = %123, %125
   br i1 %155, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i58, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit60
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i58: ; preds = %151, %138
-  %.sink9.i59 = phi i32 [ %139, %138 ], [ %152, %151 ]
+  %.sink11.i59 = phi i32 [ %139, %138 ], [ %152, %151 ]
   %156 = getelementptr inbounds nuw i8, ptr %134, i64 448
-  %157 = zext nneg i32 %.sink9.i59 to i64
+  %157 = zext nneg i32 %.sink11.i59 to i64
   %158 = load ptr, ptr %156, align 8, !tbaa !277
   %159 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %158, i64 %157
   %160 = load i64, ptr %159, align 8, !tbaa !167
@@ -4627,9 +4627,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildCastERKNS_5DstOpE
   br i1 %27, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds = %23, %10
-  %.sink9.i = phi i32 [ %11, %10 ], [ %24, %23 ]
+  %.sink11.i = phi i32 [ %11, %10 ], [ %24, %23 ]
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 448
-  %29 = zext nneg i32 %.sink9.i to i64
+  %29 = zext nneg i32 %.sink11.i to i64
   %30 = load ptr, ptr %28, align 8, !tbaa !277
   %31 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %30, i64 %29
   %32 = load i64, ptr %31, align 8, !tbaa !167
@@ -4750,9 +4750,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder12buildExtractERKNS_5Ds
   br i1 %30, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds = %26, %13
-  %.sink9.i = phi i32 [ %14, %13 ], [ %27, %26 ]
+  %.sink11.i = phi i32 [ %14, %13 ], [ %27, %26 ]
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 448
-  %32 = zext nneg i32 %.sink9.i to i64
+  %32 = zext nneg i32 %.sink11.i to i64
   %33 = load ptr, ptr %31, align 8, !tbaa !277
   %34 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %33, i64 %32
   %35 = load i64, ptr %34, align 8, !tbaa !167
@@ -5105,9 +5105,9 @@ _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %4, %16, %2
   br i1 %50, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds = %46, %33
-  %.sink9.i = phi i32 [ %34, %33 ], [ %47, %46 ]
+  %.sink11.i = phi i32 [ %34, %33 ], [ %47, %46 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 448
-  %52 = zext nneg i32 %.sink9.i to i64
+  %52 = zext nneg i32 %.sink11.i to i64
   %53 = load ptr, ptr %51, align 8, !tbaa !277
   %54 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %53, i64 %52
   %55 = load i64, ptr %54, align 8, !tbaa !167
@@ -5213,9 +5213,9 @@ _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i: ; preds = %21, %16,
   br i1 %50, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i: ; preds = %46, %33
-  %.sink9.i.i = phi i32 [ %34, %33 ], [ %47, %46 ]
+  %.sink11.i.i = phi i32 [ %34, %33 ], [ %47, %46 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 448
-  %52 = zext nneg i32 %.sink9.i.i to i64
+  %52 = zext nneg i32 %.sink11.i.i to i64
   %53 = load ptr, ptr %51, align 8, !tbaa !277
   %54 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %53, i64 %52
   %55 = load i64, ptr %54, align 8, !tbaa !167
@@ -5357,9 +5357,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder12buildUnmergeENS_19Mac
   br i1 %31, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds = %27, %14
-  %.sink9.i = phi i32 [ %15, %14 ], [ %28, %27 ]
+  %.sink11.i = phi i32 [ %15, %14 ], [ %28, %27 ]
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 448
-  %33 = zext nneg i32 %.sink9.i to i64
+  %33 = zext nneg i32 %.sink11.i to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !277
   %35 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %34, i64 %33
   %36 = load i64, ptr %35, align 8, !tbaa !167
@@ -5937,9 +5937,9 @@ _ZN4llvm11SmallVectorINS_5SrcOpELj8EEC2INS_8RegisterEvEENS_8ArrayRefIT_EE.exit: 
   br i1 %43, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds = %39, %26
-  %.sink9.i = phi i32 [ %27, %26 ], [ %40, %39 ]
+  %.sink11.i = phi i32 [ %27, %26 ], [ %40, %39 ]
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 448
-  %45 = zext nneg i32 %.sink9.i to i64
+  %45 = zext nneg i32 %.sink11.i to i64
   %46 = load ptr, ptr %44, align 8, !tbaa !277
   %47 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %46, i64 %45
   %48 = load i64, ptr %47, align 8, !tbaa !167
@@ -6558,9 +6558,9 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %36, %38
   br i1 %67, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds = %63, %50
-  %.sink9.i = phi i32 [ %51, %50 ], [ %64, %63 ]
+  %.sink11.i = phi i32 [ %51, %50 ], [ %64, %63 ]
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 448
-  %69 = zext nneg i32 %.sink9.i to i64
+  %69 = zext nneg i32 %.sink11.i to i64
   %70 = load ptr, ptr %68, align 8, !tbaa !277
   %71 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %70, i64 %69
   %72 = load i64, ptr %71, align 8, !tbaa !167

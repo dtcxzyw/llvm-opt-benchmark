@@ -501,18 +501,18 @@ Abc_NtkFraigEquiv.exit:                           ; preds = %.outer._crit_edge.i
   br i1 %.not7811.i.i, label %.preheader2.i.i, label %.lr.ph14.i.i
 
 .lr.ph.i.i:                                       ; preds = %.critedge.i76, %.lr.ph.i.i
-  %.sink41.i.i = phi ptr [ %226, %.lr.ph.i.i ], [ %224, %.critedge.i76 ]
+  %.sink49.i.i = phi ptr [ %226, %.lr.ph.i.i ], [ %224, %.critedge.i76 ]
   %.0707.i.i = phi ptr [ %.171.i.i, %.lr.ph.i.i ], [ null, %.critedge.i76 ]
   %.0726.i.i = phi ptr [ %.173.i.i, %.lr.ph.i.i ], [ null, %.critedge.i76 ]
-  %225 = getelementptr inbounds nuw i8, ptr %.sink41.i.i, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %.sink49.i.i, i64 8
   %226 = load ptr, ptr %225, align 8, !tbaa !31
-  %227 = getelementptr inbounds nuw i8, ptr %.sink41.i.i, i64 20
+  %227 = getelementptr inbounds nuw i8, ptr %.sink49.i.i, i64 20
   %228 = load i32, ptr %227, align 4
   %229 = and i32 %228, 128
   %.not85.i.i = icmp eq i32 %229, 0
   %.0726.sink.i.i = select i1 %.not85.i.i, ptr %.0707.i.i, ptr %.0726.i.i
-  %.173.i.i = select i1 %.not85.i.i, ptr %.0726.i.i, ptr %.sink41.i.i
-  %.171.i.i = select i1 %.not85.i.i, ptr %.sink41.i.i, ptr %.0707.i.i
+  %.173.i.i = select i1 %.not85.i.i, ptr %.0726.i.i, ptr %.sink49.i.i
+  %.171.i.i = select i1 %.not85.i.i, ptr %.sink49.i.i, ptr %.0707.i.i
   store ptr %.0726.sink.i.i, ptr %225, align 8, !tbaa !31
   %.not86.i.i = icmp eq ptr %226, null
   br i1 %.not86.i.i, label %.preheader4.i.i, label %.lr.ph.i.i, !llvm.loop !58
@@ -1037,9 +1037,9 @@ Vec_PtrPush.exit101.sink.split:                   ; preds = %103
   %106 = shl nuw nsw i32 %72, 1
   %107 = zext nneg i32 %106 to i64
   %108 = shl nuw nsw i64 %107, 3
-  %.sink136 = select i1 %105, i64 128, i64 %108
+  %.sink151 = select i1 %105, i64 128, i64 %108
   %.sink = select i1 %105, i32 16, i32 %106
-  %109 = tail call ptr @realloc(ptr noundef nonnull %74, i64 noundef %.sink136) #13
+  %109 = tail call ptr @realloc(ptr noundef nonnull %74, i64 noundef %.sink151) #13
   store ptr %109, ptr %18, align 8, !tbaa !28
   store i32 %.sink, ptr %15, align 8, !tbaa !71
   br label %Vec_PtrPush.exit101
@@ -1071,15 +1071,15 @@ Vec_PtrPush.exit108.sink.split:                   ; preds = %121
   %124 = shl nuw nsw i32 %116, 1
   %125 = zext nneg i32 %124 to i64
   %126 = shl nuw nsw i64 %125, 3
-  %.sink141 = select i1 %123, i64 128, i64 %126
-  %.sink139 = select i1 %123, i32 16, i32 %124
-  %127 = tail call ptr @realloc(ptr noundef nonnull %115, i64 noundef %.sink141) #13
+  %.sink156 = select i1 %123, i64 128, i64 %126
+  %.sink154 = select i1 %123, i32 16, i32 %124
+  %127 = tail call ptr @realloc(ptr noundef nonnull %115, i64 noundef %.sink156) #13
   store ptr %127, ptr %18, align 8, !tbaa !28
-  store i32 %.sink139, ptr %15, align 8, !tbaa !71
+  store i32 %.sink154, ptr %15, align 8, !tbaa !71
   br label %Vec_PtrPush.exit108
 
 Vec_PtrPush.exit108:                              ; preds = %Vec_PtrPush.exit108.sink.split, %121
-  %128 = phi i32 [ %116, %121 ], [ %.sink139, %Vec_PtrPush.exit108.sink.split ]
+  %128 = phi i32 [ %116, %121 ], [ %.sink154, %Vec_PtrPush.exit108.sink.split ]
   %129 = phi ptr [ %115, %121 ], [ %127, %Vec_PtrPush.exit108.sink.split ]
   %130 = add nuw nsw i32 %118, 1
   %131 = zext nneg i32 %118 to i64
@@ -2004,7 +2004,7 @@ tailrecurse:                                      ; preds = %15, %14
   br i1 %.not17, label %common.ret, label %27
 
 common.ret:                                       ; preds = %tailrecurse._crit_edge, %6, %8, %25, %.lr.ph, %27
-  %common.ret.op = phi i32 [ %switch.select40, %27 ], [ -1, %tailrecurse._crit_edge ], [ 0, %6 ], [ %., %8 ], [ -1, %25 ], [ -1, %.lr.ph ]
+  %common.ret.op = phi i32 [ %switch.select41, %27 ], [ -1, %tailrecurse._crit_edge ], [ 0, %6 ], [ %., %8 ], [ -1, %25 ], [ -1, %.lr.ph ]
   ret i32 %common.ret.op
 
 27:                                               ; preds = %25
@@ -2022,8 +2022,8 @@ common.ret:                                       ; preds = %tailrecurse._crit_e
   %34 = tail call i32 @Abc_NtkCheckConstant_rec(ptr noundef %33)
   %switch.selectcmp = icmp ne i32 %34, 1
   %switch.select = sext i1 %switch.selectcmp to i32
-  %switch.selectcmp39 = icmp eq i32 %34, 0
-  %switch.select40 = select i1 %switch.selectcmp39, i32 1, i32 %switch.select
+  %switch.selectcmp40 = icmp eq i32 %34, 0
+  %switch.select41 = select i1 %switch.selectcmp40, i32 1, i32 %switch.select
   br label %common.ret
 }
 
@@ -2760,21 +2760,21 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %203, %._crit_edge.i
   br i1 %exitcond.not, label %.critedge4.thread, label %203, !llvm.loop !97
 
 .critedge4:                                       ; preds = %1, %Vec_PtrUniqify.exit
-  %.val4396 = phi i32 [ %.val43, %Vec_PtrUniqify.exit ], [ 0, %1 ]
-  %.pre.pre9295 = phi ptr [ %.pre.pre.pre, %Vec_PtrUniqify.exit ], [ %4, %1 ]
-  %.not.i72 = icmp eq ptr %.pre.pre9295, null
+  %.val43116 = phi i32 [ %.val43, %Vec_PtrUniqify.exit ], [ 0, %1 ]
+  %.pre.pre112115 = phi ptr [ %.pre.pre.pre, %Vec_PtrUniqify.exit ], [ %4, %1 ]
+  %.not.i72 = icmp eq ptr %.pre.pre112115, null
   br i1 %.not.i72, label %Vec_PtrFree.exit, label %.critedge4.thread
 
 .critedge4.thread:                                ; preds = %Abc_NodeSetTravIdCurrent.exit, %.critedge4
-  %.pre.pre9295102 = phi ptr [ %.pre.pre9295, %.critedge4 ], [ %.pre.pre.pre, %Abc_NodeSetTravIdCurrent.exit ]
-  %.val4396100 = phi i32 [ %.val4396, %.critedge4 ], [ %.val43, %Abc_NodeSetTravIdCurrent.exit ]
-  tail call void @free(ptr noundef nonnull %.pre.pre9295102) #11
+  %.pre.pre112115122 = phi ptr [ %.pre.pre112115, %.critedge4 ], [ %.pre.pre.pre, %Abc_NodeSetTravIdCurrent.exit ]
+  %.val43116120 = phi i32 [ %.val43116, %.critedge4 ], [ %.val43, %Abc_NodeSetTravIdCurrent.exit ]
+  tail call void @free(ptr noundef nonnull %.pre.pre112115122) #11
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge4, %.critedge4.thread
-  %.val4396101 = phi i32 [ %.val4396, %.critedge4 ], [ %.val4396100, %.critedge4.thread ]
+  %.val43116121 = phi i32 [ %.val43116, %.critedge4 ], [ %.val43116120, %.critedge4.thread ]
   tail call void @free(ptr noundef nonnull %2) #11
-  ret i32 %.val4396101
+  ret i32 %.val43116121
 }
 
 declare i32 @Abc_ObjPointerCompare(ptr noundef, ptr noundef) #1

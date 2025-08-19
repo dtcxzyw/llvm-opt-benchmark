@@ -257,7 +257,7 @@ define dso_local range(i32 0, 2) i32 @crl2pkcs7_main(i32 noundef %0, ptr noundef
 .split20.preheader.i:                             ; preds = %87
   %90 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %88) #3
   %.not27.i = icmp eq i32 %90, 0
-  br i1 %.not27.i, label %.critedge137, label %.lr.ph.i
+  br i1 %.not27.i, label %.critedge149, label %.lr.ph.i
 
 91:                                               ; preds = %87
   %92 = load ptr, ptr @bio_err, align 8, !tbaa !10
@@ -296,27 +296,27 @@ add_certs_from_file.exit.loopexit:                ; preds = %.split.i
   %102 = icmp slt i32 %.1.i, 0
   %103 = call i32 @BIO_free(ptr noundef nonnull %82) #3
   call void @OPENSSL_sk_free(ptr noundef nonnull %88) #3
-  br i1 %102, label %.loopexit138, label %109
+  br i1 %102, label %.loopexit150, label %109
 
 .critedge:                                        ; preds = %98, %91, %84
   %.0.i.ph = phi ptr [ %88, %98 ], [ null, %91 ], [ null, %84 ]
   %104 = call i32 @BIO_free(ptr noundef %82) #3
   call void @OPENSSL_sk_free(ptr noundef %.0.i.ph) #3
-  br label %.loopexit138
+  br label %.loopexit150
 
-.loopexit138:                                     ; preds = %add_certs_from_file.exit.loopexit, %.critedge
+.loopexit150:                                     ; preds = %add_certs_from_file.exit.loopexit, %.critedge
   %105 = load ptr, ptr @bio_err, align 8, !tbaa !10
   %106 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %105, ptr noundef nonnull @.str.28) #3
   %107 = load ptr, ptr @bio_err, align 8, !tbaa !10
   call void @ERR_print_errors(ptr noundef %107) #3
   br label %.loopexit90
 
-.critedge137:                                     ; preds = %.split20.preheader.i
+.critedge149:                                     ; preds = %.split20.preheader.i
   %108 = call i32 @BIO_free(ptr noundef nonnull %82) #3
   call void @OPENSSL_sk_free(ptr noundef nonnull %88) #3
   br label %109
 
-109:                                              ; preds = %.critedge137, %add_certs_from_file.exit.loopexit
+109:                                              ; preds = %.critedge149, %add_certs_from_file.exit.loopexit
   %110 = add nuw nsw i32 %.149106, 1
   %111 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.059) #3
   %112 = icmp slt i32 %110, %111
@@ -356,13 +356,13 @@ add_certs_from_file.exit.loopexit:                ; preds = %.split.i
   call void @ERR_print_errors(ptr noundef %126) #3
   br label %.loopexit90
 
-.loopexit90:                                      ; preds = %30, %27, %24, %122, %.loopexit, %74, %70, %67, %56, %53, %50, %35, %123, %.loopexit138, %.thread, %10, %.loopexit89
-  %.261 = phi ptr [ %.059, %.loopexit89 ], [ %.059, %10 ], [ %.059, %50 ], [ %.059, %53 ], [ %.059, %67 ], [ %.059, %74 ], [ %.059, %.loopexit138 ], [ %.059, %.loopexit ], [ %.059, %123 ], [ %.059, %70 ], [ %.059, %56 ], [ %.059, %35 ], [ %.059, %.thread ], [ %.059, %122 ], [ %.059, %30 ], [ %.362, %27 ], [ null, %24 ]
-  %.056 = phi ptr [ null, %.loopexit89 ], [ null, %10 ], [ %.157, %50 ], [ %.157, %53 ], [ %.157, %67 ], [ null, %74 ], [ null, %.loopexit138 ], [ null, %.loopexit ], [ null, %123 ], [ %.157, %70 ], [ %.157, %56 ], [ null, %35 ], [ null, %.thread ], [ null, %122 ], [ null, %24 ], [ null, %27 ], [ null, %30 ]
-  %.051 = phi ptr [ null, %.loopexit89 ], [ null, %10 ], [ null, %50 ], [ %51, %53 ], [ %51, %67 ], [ %51, %74 ], [ %51, %.loopexit138 ], [ %51, %.loopexit ], [ %51, %123 ], [ %51, %70 ], [ %51, %56 ], [ null, %35 ], [ null, %.thread ], [ %51, %122 ], [ null, %24 ], [ null, %27 ], [ null, %30 ]
-  %.050 = phi ptr [ null, %.loopexit89 ], [ null, %10 ], [ null, %50 ], [ null, %53 ], [ null, %67 ], [ null, %74 ], [ null, %.loopexit138 ], [ null, %.loopexit ], [ %114, %123 ], [ null, %70 ], [ null, %56 ], [ null, %35 ], [ null, %.thread ], [ %114, %122 ], [ null, %24 ], [ null, %27 ], [ null, %30 ]
-  %.047 = phi i32 [ 1, %.loopexit89 ], [ 0, %10 ], [ 1, %50 ], [ 1, %53 ], [ 1, %67 ], [ 1, %74 ], [ 1, %.loopexit138 ], [ 1, %.loopexit ], [ 1, %123 ], [ 1, %70 ], [ 1, %56 ], [ 1, %35 ], [ 1, %.thread ], [ 0, %122 ], [ 1, %24 ], [ 1, %27 ], [ 1, %30 ]
-  %.0 = phi ptr [ null, %.loopexit89 ], [ null, %10 ], [ %.1, %50 ], [ %.1, %53 ], [ %.1, %67 ], [ %.1, %74 ], [ %.1, %.loopexit138 ], [ %.1, %.loopexit ], [ %.1, %123 ], [ %.1, %70 ], [ %.1, %56 ], [ null, %35 ], [ %37, %.thread ], [ %.1, %122 ], [ null, %24 ], [ null, %27 ], [ null, %30 ]
+.loopexit90:                                      ; preds = %30, %27, %24, %122, %.loopexit, %74, %70, %67, %56, %53, %50, %35, %123, %.loopexit150, %.thread, %10, %.loopexit89
+  %.261 = phi ptr [ %.059, %.loopexit89 ], [ %.059, %10 ], [ %.059, %50 ], [ %.059, %53 ], [ %.059, %67 ], [ %.059, %74 ], [ %.059, %.loopexit150 ], [ %.059, %.loopexit ], [ %.059, %123 ], [ %.059, %70 ], [ %.059, %56 ], [ %.059, %35 ], [ %.059, %.thread ], [ %.059, %122 ], [ %.059, %30 ], [ %.362, %27 ], [ null, %24 ]
+  %.056 = phi ptr [ null, %.loopexit89 ], [ null, %10 ], [ %.157, %50 ], [ %.157, %53 ], [ %.157, %67 ], [ null, %74 ], [ null, %.loopexit150 ], [ null, %.loopexit ], [ null, %123 ], [ %.157, %70 ], [ %.157, %56 ], [ null, %35 ], [ null, %.thread ], [ null, %122 ], [ null, %24 ], [ null, %27 ], [ null, %30 ]
+  %.051 = phi ptr [ null, %.loopexit89 ], [ null, %10 ], [ null, %50 ], [ %51, %53 ], [ %51, %67 ], [ %51, %74 ], [ %51, %.loopexit150 ], [ %51, %.loopexit ], [ %51, %123 ], [ %51, %70 ], [ %51, %56 ], [ null, %35 ], [ null, %.thread ], [ %51, %122 ], [ null, %24 ], [ null, %27 ], [ null, %30 ]
+  %.050 = phi ptr [ null, %.loopexit89 ], [ null, %10 ], [ null, %50 ], [ null, %53 ], [ null, %67 ], [ null, %74 ], [ null, %.loopexit150 ], [ null, %.loopexit ], [ %114, %123 ], [ null, %70 ], [ null, %56 ], [ null, %35 ], [ null, %.thread ], [ %114, %122 ], [ null, %24 ], [ null, %27 ], [ null, %30 ]
+  %.047 = phi i32 [ 1, %.loopexit89 ], [ 0, %10 ], [ 1, %50 ], [ 1, %53 ], [ 1, %67 ], [ 1, %74 ], [ 1, %.loopexit150 ], [ 1, %.loopexit ], [ 1, %123 ], [ 1, %70 ], [ 1, %56 ], [ 1, %35 ], [ 1, %.thread ], [ 0, %122 ], [ 1, %24 ], [ 1, %27 ], [ 1, %30 ]
+  %.0 = phi ptr [ null, %.loopexit89 ], [ null, %10 ], [ %.1, %50 ], [ %.1, %53 ], [ %.1, %67 ], [ %.1, %74 ], [ %.1, %.loopexit150 ], [ %.1, %.loopexit ], [ %.1, %123 ], [ %.1, %70 ], [ %.1, %56 ], [ null, %35 ], [ %37, %.thread ], [ %.1, %122 ], [ null, %24 ], [ null, %27 ], [ null, %30 ]
   call void @OPENSSL_sk_free(ptr noundef %.261) #3
   %127 = call i32 @BIO_free(ptr noundef %.0) #3
   call void @BIO_free_all(ptr noundef %.050) #3

@@ -557,9 +557,9 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr noundef readonly captures
   %245 = load i32, ptr %4, align 4
   %246 = and i32 %245, 3840
   %247 = icmp eq i32 %246, 768
-  br i1 %247, label %.preheader45, label %248
+  br i1 %247, label %.preheader60, label %248
 
-.preheader45:                                     ; preds = %248, %239
+.preheader60:                                     ; preds = %248, %239
   br label %258
 
 248:                                              ; preds = %239
@@ -570,7 +570,7 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr noundef readonly captures
   %252 = load i32, ptr %4, align 4
   %253 = and i32 %252, 3840
   %254 = icmp eq i32 %253, 768
-  br i1 %254, label %.preheader45, label %255
+  br i1 %254, label %.preheader60, label %255
 
 255:                                              ; preds = %248
   %256 = load ptr, ptr %186, align 8
@@ -580,9 +580,9 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr noundef readonly captures
 257:                                              ; preds = %258, %268
   br i1 %259, label %258, label %.loopexit, !llvm.loop !16
 
-258:                                              ; preds = %.preheader45, %257
-  %259 = phi i1 [ false, %257 ], [ true, %.preheader45 ]
-  %260 = phi i64 [ 1, %257 ], [ 0, %.preheader45 ]
+258:                                              ; preds = %.preheader60, %257
+  %259 = phi i1 [ false, %257 ], [ true, %.preheader60 ]
+  %260 = phi i64 [ 1, %257 ], [ 0, %.preheader60 ]
   %261 = getelementptr [0 x ptr], ptr %191, i64 0, i64 %260
   %262 = load ptr, ptr %261, align 8
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
@@ -658,12 +658,12 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr noundef readonly captures
 
 .preheader:                                       ; preds = %301, %.preheader.backedge
   %304 = phi ptr [ %.be, %.preheader.backedge ], [ %302, %301 ]
-  %305 = phi i32 [ %.be44, %.preheader.backedge ], [ 0, %301 ]
+  %305 = phi i32 [ %.be59, %.preheader.backedge ], [ 0, %301 ]
   %306 = call i32 @pci_read_config_word(ptr noundef nonnull %304, i32 noundef 65, ptr noundef nonnull %3) #13
   %307 = getelementptr inbounds nuw i8, ptr %304, i64 72
   %308 = load i8, ptr %307, align 8
   %309 = icmp eq i8 %308, 0
-  br i1 %309, label %.thread32, label %310
+  br i1 %309, label %.thread47, label %310
 
 310:                                              ; preds = %.preheader
   %311 = load i16, ptr %3, align 2
@@ -671,21 +671,21 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr noundef readonly captures
   %313 = icmp ne i16 %312, 0
   %314 = icmp ult i8 %308, 5
   %315 = and i1 %314, %313
-  %.fr40 = freeze i1 %315
-  %316 = select i1 %.fr40, i32 2, i32 %305
+  %.fr55 = freeze i1 %315
+  %316 = select i1 %.fr55, i32 2, i32 %305
   %317 = call ptr @pci_get_device(i32 noundef 32902, i32 noundef 33995, ptr noundef nonnull %304) #13
   %318 = icmp eq ptr %317, null
   br i1 %318, label %321, label %.preheader.backedge
 
-.preheader.backedge:                              ; preds = %310, %.thread32
-  %.be = phi ptr [ %317, %310 ], [ %319, %.thread32 ]
-  %.be44 = phi i32 [ %316, %310 ], [ 1, %.thread32 ]
+.preheader.backedge:                              ; preds = %310, %.thread47
+  %.be = phi ptr [ %317, %310 ], [ %319, %.thread47 ]
+  %.be59 = phi i32 [ %316, %310 ], [ 1, %.thread47 ]
   br label %.preheader, !llvm.loop !17
 
-.thread32:                                        ; preds = %.preheader
+.thread47:                                        ; preds = %.preheader
   %319 = call ptr @pci_get_device(i32 noundef 32902, i32 noundef 33995, ptr noundef nonnull %304) #13
   %320 = icmp eq ptr %319, null
-  br i1 %320, label %.thread34, label %.preheader.backedge
+  br i1 %320, label %.thread49, label %.preheader.backedge
 
 321:                                              ; preds = %310
   %322 = icmp eq i32 %316, 0
@@ -694,10 +694,10 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr noundef readonly captures
 323:                                              ; preds = %321
   %324 = icmp eq i32 %316, 2
   %spec.select = select i1 %324, ptr @.str.26, ptr @.str.27
-  br label %.thread34
+  br label %.thread49
 
-.thread34:                                        ; preds = %.thread32, %323
-  %325 = phi ptr [ %spec.select, %323 ], [ @.str.27, %.thread32 ]
+.thread49:                                        ; preds = %.thread47, %323
+  %325 = phi ptr [ %spec.select, %323 ], [ @.str.27, %.thread47 ]
   call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %11, ptr noundef nonnull @.str.25, ptr noundef nonnull %325) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %326 = load ptr, ptr %10, align 8
@@ -722,8 +722,8 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr noundef readonly captures
   %.pre31 = load ptr, ptr %10, align 8
   br label %337
 
-337:                                              ; preds = %.thread24, %.thread34
-  %338 = phi ptr [ %.pre31, %.thread24 ], [ %326, %.thread34 ]
+337:                                              ; preds = %.thread24, %.thread49
+  %338 = phi ptr [ %.pre31, %.thread24 ], [ %326, %.thread49 ]
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 48
   %340 = load i64, ptr %339, align 8
   %341 = or i64 %340, 4

@@ -316,14 +316,14 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE, i64 0, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %9 = zext nneg i32 %1 to i64
-  %switch.gep50 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE.3, i64 0, i64 %9
-  %switch.load51 = load ptr, ptr %switch.gep50, align 8
+  %switch.gep52 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE.3, i64 0, i64 %9
+  %switch.load53 = load ptr, ptr %switch.gep52, align 8
   %10 = load ptr, ptr %0, align 8, !tbaa !13
   store ptr @.str.1, ptr %2, align 8, !tbaa !153
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 5, ptr %11, align 8, !tbaa !155
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %12 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr nonnull %switch.load51, i64 %switch.load, ptr nonnull @.str, i64 7, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %2, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %3) #12
+  %12 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr nonnull %switch.load53, i64 %switch.load, ptr nonnull @.str, i64 7, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %2, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %3) #12
   br i1 %12, label %_ZNK5clang22ProfileSpecialCaseList9hasPrefixEN4llvm9StringRefE.exit, label %13
 
 13:                                               ; preds = %switch.lookup
@@ -332,7 +332,7 @@ switch.lookup:
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 4, ptr %15, align 8, !tbaa !155
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %16 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr nonnull %switch.load51, i64 %switch.load, ptr nonnull @.str, i64 7, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5) #12
+  %16 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr nonnull %switch.load53, i64 %switch.load, ptr nonnull @.str, i64 7, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5) #12
   br i1 %16, label %_ZNK5clang22ProfileSpecialCaseList9hasPrefixEN4llvm9StringRefE.exit, label %17
 
 17:                                               ; preds = %13
@@ -341,7 +341,7 @@ switch.lookup:
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 6, ptr %19, align 8, !tbaa !155
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %20 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr nonnull %switch.load51, i64 %switch.load, ptr nonnull @.str, i64 7, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7) #12
+  %20 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr nonnull %switch.load53, i64 %switch.load, ptr nonnull @.str, i64 7, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7) #12
   br i1 %20, label %_ZNK5clang22ProfileSpecialCaseList9hasPrefixEN4llvm9StringRefE.exit, label %21
 
 21:                                               ; preds = %17

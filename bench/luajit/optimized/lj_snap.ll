@@ -1191,12 +1191,12 @@ snap_useuv.exit:                                  ; preds = %.loopexit.i, %34, %
 .lr.ph57.preheader:                               ; preds = %._crit_edge.thread, %._crit_edge
   %92 = phi i32 [ %69, %._crit_edge.thread ], [ %91, %._crit_edge ]
   %93 = phi ptr [ %66, %._crit_edge.thread ], [ %88, %._crit_edge ]
-  %.047.lcssa68 = phi i32 [ 0, %._crit_edge.thread ], [ %.148, %._crit_edge ]
+  %.047.lcssa73 = phi i32 [ 0, %._crit_edge.thread ], [ %.148, %._crit_edge ]
   br label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %.lr.ph57.preheader, %.lr.ph57
   %.155 = phi i32 [ %94, %.lr.ph57 ], [ %17, %.lr.ph57.preheader ]
-  %.254 = phi i32 [ %98, %.lr.ph57 ], [ %.047.lcssa68, %.lr.ph57.preheader ]
+  %.254 = phi i32 [ %98, %.lr.ph57 ], [ %.047.lcssa73, %.lr.ph57.preheader ]
   %94 = add i32 %.155, 1
   %95 = zext i32 %.155 to i64
   %96 = getelementptr inbounds nuw i32, ptr %14, i64 %95
@@ -2530,10 +2530,10 @@ snap_sunk_store.exit300.thread:                   ; preds = %465, %469, %snap_su
   br i1 %621, label %.sink.split, label %623
 
 .sink.split:                                      ; preds = %619, %snap_pref.exit414.thread448
-  %.sink555 = phi i16 [ %614, %snap_pref.exit414.thread448 ], [ 23040, %619 ]
+  %.sink576 = phi i16 [ %614, %snap_pref.exit414.thread448 ], [ 23040, %619 ]
   %.4270.sink = phi i16 [ %.4270, %snap_pref.exit414.thread448 ], [ 0, %619 ]
   %.sink = phi i16 [ %615, %snap_pref.exit414.thread448 ], [ 0, %619 ]
-  store i16 %.sink555, ptr %104, align 4, !tbaa !40
+  store i16 %.sink576, ptr %104, align 4, !tbaa !40
   store i16 %.4270.sink, ptr %103, align 8, !tbaa !40
   store i16 %.sink, ptr %105, align 2, !tbaa !40
   %622 = tail call i32 @lj_opt_fold(ptr noundef %0) #10
@@ -2545,8 +2545,8 @@ snap_sunk_store.exit300.thread:                   ; preds = %465, %469, %snap_su
   br i1 %624, label %458, label %.loopexit, !llvm.loop !99
 
 .loopexit.sink.split:                             ; preds = %450, %360
-  %.sink556 = phi i32 [ %363, %360 ], [ %452, %450 ]
-  store i32 %.sink556, ptr %358, align 4, !tbaa !4
+  %.sink577 = phi i32 [ %363, %360 ], [ %452, %450 ]
+  store i32 %.sink577, ptr %358, align 4, !tbaa !4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %623, %.loopexit.sink.split, %453, %345
@@ -3252,10 +3252,10 @@ snap_unsink.exit:                                 ; preds = %snap_sunk_store.exi
 
 347:                                              ; preds = %345, %336
   %.sink.in = phi ptr [ %346, %345 ], [ %344, %336 ]
-  %.sink116 = phi ptr [ %100, %345 ], [ %329, %336 ]
+  %.sink119 = phi ptr [ %100, %345 ], [ %329, %336 ]
   %.sink = load i8, ptr %.sink.in, align 1, !tbaa !40
   %348 = zext i8 %.sink to i64
-  %349 = getelementptr inbounds nuw %union.TValue, ptr %.sink116, i64 %348
+  %349 = getelementptr inbounds nuw %union.TValue, ptr %.sink119, i64 %348
   %350 = getelementptr inbounds nuw i8, ptr %53, i64 40
   store ptr %349, ptr %350, align 8, !tbaa !57
   ret ptr %51

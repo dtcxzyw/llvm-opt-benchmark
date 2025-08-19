@@ -876,8 +876,8 @@ do.end:                                           ; preds = %entry
 
 _ZN8QuantLib5ArrayC2Em.exit.thread:               ; preds = %do.end
   store ptr null, ptr %agg.result, align 8, !tbaa !20
-  %n_.i3962 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %0, ptr %n_.i3962, align 8, !tbaa !7
+  %n_.i3970 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i64 %0, ptr %n_.i3970, align 8, !tbaa !7
   br label %_ZSt9transformIPKdS1_PdSt5minusIvEET1_T_S6_T0_S5_T2_.exit
 
 for.body.i.preheader:                             ; preds = %do.end
@@ -2049,8 +2049,8 @@ invoke.cont203:                                   ; preds = %if.then198
   %.pre349 = load double, ptr %factor, align 8, !tbaa !3
   %118 = call double @llvm.fabs.f64(double %.pre349)
   %cmp208 = fcmp ogt double %118, 0x3CB0000000000000
-  %or.cond364 = select i1 %cmp205, i1 %cmp208, i1 false
-  br i1 %or.cond364, label %for.body214, label %if.end250
+  %or.cond406 = select i1 %cmp205, i1 %cmp208, i1 false
+  br i1 %or.cond406, label %for.body214, label %if.end250
 
 lpad200:                                          ; preds = %if.then198
   %119 = landingpad { ptr, i32 }
@@ -2666,8 +2666,8 @@ do.end:                                           ; preds = %entry
 
 _ZN8QuantLib5ArrayC2Em.exit.thread:               ; preds = %do.end
   store ptr null, ptr %agg.result, align 8, !tbaa !20
-  %n_.i3962 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %0, ptr %n_.i3962, align 8, !tbaa !7
+  %n_.i3970 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i64 %0, ptr %n_.i3970, align 8, !tbaa !7
   br label %_ZSt9transformIPKdS1_PdSt4plusIvEET1_T_S6_T0_S5_T2_.exit
 
 for.body.i.preheader:                             ; preds = %do.end

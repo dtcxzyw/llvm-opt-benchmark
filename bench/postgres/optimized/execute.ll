@@ -2143,8 +2143,8 @@ quote_postgres.exit:                              ; preds = %381
 
 487:                                              ; preds = %.thread562
   %488 = icmp sgt i64 %42, 1
-  %.str.6..str.5752 = select i1 %488, ptr @.str.6, ptr @.str.5
-  %489 = tail call ptr @ecpg_strdup(ptr noundef nonnull %.str.6..str.5752, i32 noundef %0) #14
+  %.str.6..str.5790 = select i1 %488, ptr @.str.6, ptr @.str.5
+  %489 = tail call ptr @ecpg_strdup(ptr noundef nonnull %.str.6..str.5790, i32 noundef %0) #14
   %.not502 = icmp eq ptr %489, null
   br i1 %.not502, label %.critedge550, label %.preheader585
 
@@ -2271,8 +2271,8 @@ quote_postgres.exit553.thread:                    ; preds = %496, %quote_postgre
 
 540:                                              ; preds = %.thread562
   %541 = icmp sgt i64 %42, 1
-  %.str.6..str.5753 = select i1 %541, ptr @.str.6, ptr @.str.5
-  %542 = tail call ptr @ecpg_strdup(ptr noundef nonnull %.str.6..str.5753, i32 noundef %0) #14
+  %.str.6..str.5791 = select i1 %541, ptr @.str.6, ptr @.str.5
+  %542 = tail call ptr @ecpg_strdup(ptr noundef nonnull %.str.6..str.5791, i32 noundef %0) #14
   %.not497 = icmp eq ptr %542, null
   br i1 %.not497, label %.critedge550, label %.preheader586
 
@@ -2400,8 +2400,8 @@ quote_postgres.exit556.thread:                    ; preds = %550, %quote_postgre
 
 594:                                              ; preds = %.thread562
   %595 = icmp sgt i64 %42, 1
-  %.str.6..str.5754 = select i1 %595, ptr @.str.6, ptr @.str.5
-  %596 = tail call ptr @ecpg_strdup(ptr noundef nonnull %.str.6..str.5754, i32 noundef %0) #14
+  %.str.6..str.5792 = select i1 %595, ptr @.str.6, ptr @.str.5
+  %596 = tail call ptr @ecpg_strdup(ptr noundef nonnull %.str.6..str.5792, i32 noundef %0) #14
   %.not493 = icmp eq ptr %596, null
   br i1 %.not493, label %.critedge550, label %.preheader587
 
@@ -3018,8 +3018,8 @@ store_input_from_desc.exit:                       ; preds = %93, %94
   %120 = sext i16 %119 to i32
   %121 = icmp slt i16 %119, 1
   %122 = add nsw i32 %120, -1
-  %.not390 = icmp ugt i32 %.0191359, %122
-  %or.cond = select i1 %121, i1 true, i1 %.not390
+  %.not405 = icmp ugt i32 %.0191359, %122
+  %or.cond = select i1 %121, i1 true, i1 %.not405
   br i1 %or.cond, label %.loopexit317, label %123
 
 123:                                              ; preds = %117
@@ -3044,8 +3044,8 @@ store_input_from_desc.exit:                       ; preds = %93, %94
   br label %134
 
 134:                                              ; preds = %123, %132
-  %storemerge391 = phi i64 [ %133, %132 ], [ 0, %123 ]
-  store i64 %storemerge391, ptr %34, align 8
+  %storemerge406 = phi i64 [ %133, %132 ], [ 0, %123 ]
+  store i64 %storemerge406, ptr %34, align 8
   store i64 1, ptr %35, align 8
   store i64 0, ptr %36, align 8
   %135 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %125, i64 %126, i32 3
@@ -3116,9 +3116,9 @@ store_input_from_desc.exit:                       ; preds = %93, %94
   %156 = sext i16 %155 to i32
   %157 = icmp slt i16 %155, 1
   %158 = add nsw i32 %156, -1
-  %.not389 = icmp ugt i32 %.0191359, %158
-  %or.cond404 = select i1 %157, i1 true, i1 %.not389
-  br i1 %or.cond404, label %.loopexit318, label %159
+  %.not404 = icmp ugt i32 %.0191359, %158
+  %or.cond419 = select i1 %157, i1 true, i1 %.not404
+  br i1 %or.cond419, label %.loopexit318, label %159
 
 159:                                              ; preds = %152
   %160 = getelementptr inbounds nuw i8, ptr %114, i64 32
@@ -4611,14 +4611,14 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   br i1 %.0158, label %182, label %184
 
 182:                                              ; preds = %170, %138, %111, %26, %171, %181
-  %.0168247 = phi i8 [ 0, %171 ], [ %.0168, %181 ], [ 0, %26 ], [ 0, %111 ], [ 1, %138 ], [ 0, %170 ]
+  %.0168260 = phi i8 [ 0, %171 ], [ %.0168, %181 ], [ 0, %26 ], [ 0, %111 ], [ 1, %138 ], [ 0, %170 ]
   %183 = load ptr, ptr %11, align 8
   call void @PQclear(ptr noundef %183) #14
   store ptr null, ptr %11, align 8
   br label %184
 
 184:                                              ; preds = %170, %138, %111, %26, %171, %182, %181
-  %.0168246 = phi i8 [ 0, %171 ], [ %.0168247, %182 ], [ %.0168, %181 ], [ 0, %26 ], [ 0, %111 ], [ 1, %138 ], [ 0, %170 ]
+  %.0168259 = phi i8 [ 0, %171 ], [ %.0168260, %182 ], [ %.0168, %181 ], [ 0, %26 ], [ 0, %111 ], [ 1, %138 ], [ 0, %170 ]
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
@@ -4651,7 +4651,7 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   br i1 %.not194, label %._crit_edge241, label %.lr.ph240, !llvm.loop !40
 
 ._crit_edge241:                                   ; preds = %.lr.ph240, %184
-  %207 = trunc nuw i8 %.0168246 to i1
+  %207 = trunc nuw i8 %.0168259 to i1
   br label %208
 
 208:                                              ; preds = %._crit_edge241, %100, %6
@@ -5122,10 +5122,10 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
   br label %233
 
 233:                                              ; preds = %221, %228, %231
-  %.sink195.in = phi ptr [ %232, %231 ], [ %182, %228 ], [ %182, %221 ]
-  %.sink195 = load ptr, ptr %.sink195.in, align 8
+  %.sink214.in = phi ptr [ %232, %231 ], [ %182, %228 ], [ %182, %221 ]
+  %.sink214 = load ptr, ptr %.sink214.in, align 8
   %234 = getelementptr inbounds nuw i8, ptr %75, i64 56
-  store ptr %.sink195, ptr %234, align 8
+  store ptr %.sink214, ptr %234, align 8
   %235 = icmp slt i64 %.pre.pre, 0
   br i1 %235, label %236, label %237
 

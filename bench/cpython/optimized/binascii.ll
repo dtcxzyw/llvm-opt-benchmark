@@ -746,7 +746,7 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
   br label %77
 
 64:                                               ; preds = %53
-  %65 = shl i8 %.07434.us.i, 2
+  %65 = shl nuw i8 %.07434.us.i, 2
   %66 = lshr i8 %51, 4
   %67 = or disjoint i8 %66, %65
   %68 = getelementptr i8, ptr %.08432.us.i, i64 1
@@ -871,7 +871,7 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
   br label %127
 
 111:                                              ; preds = %109
-  %112 = shl i8 %.07434.i, 2
+  %112 = shl nuw i8 %.07434.i, 2
   %113 = lshr i8 %99, 4
   %114 = or disjoint i8 %113, %112
   %115 = getelementptr i8, ptr %.08432.i, i64 1
@@ -2396,10 +2396,10 @@ switch.early.test310.i:                           ; preds = %148, %145
   %.7.i = phi i32 [ 0, %233 ], [ %.423011.i, %222 ], [ %.423011.i, %221 ]
   %237 = add i32 %.7.i, 1
   %238 = icmp eq i8 %.pre.i, 32
-  %or.cond25.i = select i1 %.not278.i, i1 %238, i1 false
+  %or.cond32.i = select i1 %.not278.i, i1 %238, i1 false
   %239 = add i64 %.6237.i, 1
   %240 = getelementptr i8, ptr %122, i64 %.6237.i
-  br i1 %or.cond25.i, label %241, label %242
+  br i1 %or.cond32.i, label %241, label %242
 
 241:                                              ; preds = %236
   store i8 95, ptr %240, align 1, !tbaa !11

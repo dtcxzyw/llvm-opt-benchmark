@@ -3289,7 +3289,7 @@ define internal void @"_ZN83_$LT$wasi_common..sync..net..TcpListener$u20$as$u20$
   %4 = alloca { i32, [9 x i32] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %6 = load i8, ptr %5, align 2, !range !35, !noundef !4
-  switch i8 %6, label %default.unreachable51 [
+  switch i8 %6, label %default.unreachable54 [
     i8 0, label %9
     i8 1, label %40
     i8 2, label %41
@@ -3302,7 +3302,7 @@ define internal void @"_ZN83_$LT$wasi_common..sync..net..TcpListener$u20$as$u20$
   %.pre50 = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !347, !noalias !352
   br label %42
 
-default.unreachable51:                            ; preds = %3
+default.unreachable54:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf852f32293bfdb5eE.exit", %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h33a25ed2a47c122aE.exit"
@@ -3731,13 +3731,13 @@ define internal { i64, ptr } @"_ZN83_$LT$wasi_common..sync..net..TcpListener$u20
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4, !range !417, !noundef !4
-  switch i8 %7, label %default.unreachable21 [
+  switch i8 %7, label %default.unreachable23 [
     i8 0, label %9
     i8 1, label %46
     i8 2, label %47
   ]
 
-default.unreachable21:                            ; preds = %2
+default.unreachable23:                            ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit": ; preds = %42, %_ZN11wasi_common9snapshots9preview_15types5Error7context17hd3507375539a111bE.exit, %35, %_ZN7cap_std3net12tcp_listener11TcpListener15set_nonblocking17h7bacab022b3c76c4E.exit15, %_ZN7cap_std3net12tcp_listener11TcpListener15set_nonblocking17h7bacab022b3c76c4E.exit
@@ -3942,7 +3942,7 @@ define internal void @"_ZN84_$LT$wasi_common..sync..net..UnixListener$u20$as$u20
   %4 = alloca { i32, [29 x i32] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %6 = load i8, ptr %5, align 2, !range !35, !noundef !4
-  switch i8 %6, label %default.unreachable45 [
+  switch i8 %6, label %default.unreachable49 [
     i8 0, label %9
     i8 1, label %40
     i8 2, label %41
@@ -3955,7 +3955,7 @@ define internal void @"_ZN84_$LT$wasi_common..sync..net..UnixListener$u20$as$u20
   %.pre44 = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !443, !noalias !448
   br label %42
 
-default.unreachable45:                            ; preds = %3
+default.unreachable49:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf852f32293bfdb5eE.exit", %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h33a25ed2a47c122aE.exit"
@@ -4382,13 +4382,13 @@ define internal { i64, ptr } @"_ZN84_$LT$wasi_common..sync..net..UnixListener$u2
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4, !range !417, !noundef !4
-  switch i8 %7, label %default.unreachable21 [
+  switch i8 %7, label %default.unreachable23 [
     i8 0, label %9
     i8 1, label %46
     i8 2, label %47
   ]
 
-default.unreachable21:                            ; preds = %2
+default.unreachable23:                            ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit": ; preds = %42, %_ZN11wasi_common9snapshots9preview_15types5Error7context17hd3507375539a111bE.exit, %35, %_ZN7cap_std2os4unix3net13unix_listener12UnixListener15set_nonblocking17h7aa32208a643fbcbE.exit15, %_ZN7cap_std2os4unix3net13unix_listener12UnixListener15set_nonblocking17h7aa32208a643fbcbE.exit
@@ -4716,13 +4716,13 @@ define internal { i64, ptr } @"_ZN81_$LT$wasi_common..sync..net..TcpStream$u20$a
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4, !range !417, !noundef !4
-  switch i8 %7, label %default.unreachable21 [
+  switch i8 %7, label %default.unreachable23 [
     i8 0, label %9
     i8 1, label %46
     i8 2, label %47
   ]
 
-default.unreachable21:                            ; preds = %2
+default.unreachable23:                            ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit": ; preds = %42, %_ZN11wasi_common9snapshots9preview_15types5Error7context17hd3507375539a111bE.exit, %35, %_ZN7cap_std3net10tcp_stream9TcpStream15set_nonblocking17h34aad82ec95133ebE.exit15, %_ZN7cap_std3net10tcp_stream9TcpStream15set_nonblocking17h34aad82ec95133ebE.exit
@@ -5783,13 +5783,13 @@ define { ptr, ptr } @"_ZN81_$LT$wasi_common..sync..net..TcpStream$u20$as$u20$was
 define internal { i64, ptr } @"_ZN81_$LT$wasi_common..sync..net..TcpStream$u20$as$u20$wasi_common..file..WasiFile$GT$13sock_shutdown28_$u7b$$u7b$closure$u7d$$u7d$17h186cefad864726f9E"(ptr noundef nonnull align 8 captures(none) %0, ptr noalias readnone align 8 captures(none) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i8, ptr %3, align 4, !range !417, !noundef !4
-  switch i8 %4, label %default.unreachable18 [
+  switch i8 %4, label %default.unreachable19 [
     i8 0, label %6
     i8 1, label %24
     i8 2, label %25
   ]
 
-default.unreachable18:                            ; preds = %2
+default.unreachable19:                            ; preds = %2
   unreachable
 
 "_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$16invalid_argument17h5be9b1a0b40b1e9dE.exit": ; preds = %19, %_ZN7cap_std3net10tcp_stream9TcpStream8shutdown17hca93a0f92eca50caE.exit, %10
@@ -6044,13 +6044,13 @@ define internal { i64, ptr } @"_ZN82_$LT$wasi_common..sync..net..UnixStream$u20$
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4, !range !417, !noundef !4
-  switch i8 %7, label %default.unreachable21 [
+  switch i8 %7, label %default.unreachable23 [
     i8 0, label %9
     i8 1, label %46
     i8 2, label %47
   ]
 
-default.unreachable21:                            ; preds = %2
+default.unreachable23:                            ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit": ; preds = %42, %_ZN11wasi_common9snapshots9preview_15types5Error7context17hd3507375539a111bE.exit, %35, %_ZN7cap_std2os4unix3net11unix_stream10UnixStream15set_nonblocking17h67238c47c171d5f9E.exit15, %_ZN7cap_std2os4unix3net11unix_stream10UnixStream15set_nonblocking17h67238c47c171d5f9E.exit
@@ -7111,13 +7111,13 @@ define { ptr, ptr } @"_ZN82_$LT$wasi_common..sync..net..UnixStream$u20$as$u20$wa
 define internal { i64, ptr } @"_ZN82_$LT$wasi_common..sync..net..UnixStream$u20$as$u20$wasi_common..file..WasiFile$GT$13sock_shutdown28_$u7b$$u7b$closure$u7d$$u7d$17h55a35cd3e1ca151bE"(ptr noundef nonnull align 8 captures(none) %0, ptr noalias readnone align 8 captures(none) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i8, ptr %3, align 4, !range !417, !noundef !4
-  switch i8 %4, label %default.unreachable18 [
+  switch i8 %4, label %default.unreachable19 [
     i8 0, label %6
     i8 1, label %24
     i8 2, label %25
   ]
 
-default.unreachable18:                            ; preds = %2
+default.unreachable19:                            ; preds = %2
   unreachable
 
 "_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$16invalid_argument17h5be9b1a0b40b1e9dE.exit": ; preds = %19, %_ZN7cap_std2os4unix3net11unix_stream10UnixStream8shutdown17ha57fca7ae6fd117aE.exit, %10

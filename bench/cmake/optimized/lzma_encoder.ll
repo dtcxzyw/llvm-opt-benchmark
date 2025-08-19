@@ -508,8 +508,8 @@ literal_matched.exit.i.i:                         ; preds = %185
   br i1 %.not.i38.i.i.i, label %rc_bittree.exit.i.i.i, label %310, !llvm.loop !32
 
 rc_bittree.exit.i.i.i:                            ; preds = %310, %296, %276
-  %.lcssa44.sink.i.i.i = phi i64 [ %285, %276 ], [ %305, %296 ], [ %319, %310 ]
-  store i64 %.lcssa44.sink.i.i.i, ptr %70, align 8, !tbaa !26
+  %.lcssa45.sink.i.i.i = phi i64 [ %285, %276 ], [ %305, %296 ], [ %319, %310 ]
+  store i64 %.lcssa45.sink.i.i.i, ptr %70, align 8, !tbaa !26
   br i1 %268, label %rep_match.exit.i, label %322
 
 322:                                              ; preds = %rc_bittree.exit.i.i.i
@@ -525,10 +525,10 @@ rc_bittree.exit.i.i.i:                            ; preds = %310, %296, %276
   br label %rep_match.exit.i
 
 rep_match.exit.i:                                 ; preds = %327, %322, %rc_bittree.exit.i.i.i, %263
-  %.sink58.i.i = phi i32 [ 9, %263 ], [ 8, %rc_bittree.exit.i.i.i ], [ 8, %322 ], [ 8, %327 ]
+  %.sink61.i.i = phi i32 [ 9, %263 ], [ 8, %rc_bittree.exit.i.i.i ], [ 8, %322 ], [ 8, %327 ]
   %328 = load i32, ptr %68, align 8, !tbaa !40
   %329 = icmp ult i32 %328, 7
-  %330 = select i1 %329, i32 %.sink58.i.i, i32 11
+  %330 = select i1 %329, i32 %.sink61.i.i, i32 11
   store i32 %330, ptr %68, align 8, !tbaa !40
   br label %encode_symbol.exit
 
@@ -658,8 +658,8 @@ encode_symbol.exit:                               ; preds = %rc_bittree.exit.i.i
 .preheader.i35.preheader.i:                       ; preds = %.preheader.i
   %385 = sub i64 %335, %.25484.i
   %386 = add i64 %.25783.i, -1
-  %.not90.i = icmp ugt i64 %385, %386
-  br i1 %.not90.i, label %.preheader.i35.preheader.split.i, label %.thread
+  %.not91.i = icmp ugt i64 %385, %386
+  br i1 %.not91.i, label %.preheader.i35.preheader.split.i, label %.thread
 
 .preheader.i35.preheader.split.i:                 ; preds = %.preheader.i35.preheader.i
   %387 = add i64 %.25783.i, %.25484.i
@@ -707,7 +707,7 @@ rc_encode_dummy.exit:                             ; preds = %.loopexit.i, %encod
   %402 = load i8, ptr %401, align 1, !tbaa !52, !range !16, !noundef !17
   %403 = trunc nuw i8 %402 to i1
   %.promoted.i.pre85 = load i64, ptr %70, align 8, !tbaa !26
-  br i1 %403, label %404, label %.preheader105
+  br i1 %403, label %404, label %.preheader113
 
 404:                                              ; preds = %400
   %405 = load i64, ptr %65, align 8, !tbaa !34
@@ -735,15 +735,15 @@ rc_encode_dummy.exit:                             ; preds = %.loopexit.i, %encod
   store i64 %422, ptr %70, align 8, !tbaa !26
   call fastcc void @match(ptr noundef nonnull %0, i32 noundef %408, i32 noundef -1, i32 noundef 2)
   %.promoted.i.pre = load i64, ptr %70, align 8, !tbaa !26
-  br label %.preheader105
+  br label %.preheader113
 
-.preheader105:                                    ; preds = %404, %400
+.preheader113:                                    ; preds = %404, %400
   %.ph = phi i64 [ %.promoted.i.pre85, %400 ], [ %.promoted.i.pre, %404 ]
   br label %423
 
-423:                                              ; preds = %.preheader105, %423
-  %.03.i = phi i64 [ %427, %423 ], [ 0, %.preheader105 ]
-  %424 = phi i64 [ %425, %423 ], [ %.ph, %.preheader105 ]
+423:                                              ; preds = %.preheader113, %423
+  %.03.i = phi i64 [ %427, %423 ], [ 0, %.preheader113 ]
+  %424 = phi i64 [ %425, %423 ], [ %.ph, %.preheader113 ]
   %425 = add i64 %424, 1
   %426 = getelementptr inbounds nuw [53 x i32], ptr %69, i64 0, i64 %424
   store i32 4, ptr %426, align 4, !tbaa !27
@@ -1771,8 +1771,8 @@ define internal fastcc void @match(ptr noundef %0, i32 noundef %1, i32 noundef r
   br i1 %.not.i38.i, label %rc_bittree.exit.i, label %64, !llvm.loop !32
 
 rc_bittree.exit.i:                                ; preds = %64, %49, %26
-  %.lcssa44.sink.i = phi i64 [ %35, %26 ], [ %58, %49 ], [ %73, %64 ]
-  store i64 %.lcssa44.sink.i, ptr %16, align 8, !tbaa !26
+  %.lcssa45.sink.i = phi i64 [ %35, %26 ], [ %58, %49 ], [ %73, %64 ]
+  store i64 %.lcssa45.sink.i, ptr %16, align 8, !tbaa !26
   br i1 %12, label %length.exit, label %76
 
 76:                                               ; preds = %rc_bittree.exit.i

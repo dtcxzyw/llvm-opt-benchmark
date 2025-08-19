@@ -649,7 +649,7 @@ cleanup:                                          ; preds = %for.inc
   ]
 
 if.then.i.i:                                      ; preds = %invoke.cont1, %cleanup
-  %success.0.lcssa36 = phi i1 [ %success.1, %cleanup ], [ true, %invoke.cont1 ]
+  %success.0.lcssa45 = phi i1 [ %success.1, %cleanup ], [ true, %invoke.cont1 ]
   %27 = load ptr, ptr %1, align 8
   %28 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %27, %28
@@ -696,7 +696,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then4.i.i
   br label %_ZN5folly3TryISt6vectorISt4pairINS_5RangeIPKcEES1_IS2_IS6_S6_ESaIS7_EEESaISA_EEED2Ev.exit
 
 _ZN5folly3TryISt6vectorISt4pairINS_5RangeIPKcEES1_IS2_IS6_S6_ESaIS7_EEESaISA_EEED2Ev.exit: ; preds = %cleanup, %invoke.cont.i.i.i, %if.then.i.i.i.i.i, %if.then4.i.i, %if.then.i.i.i.i
-  %retval.019 = phi i1 [ %success.1, %cleanup ], [ %success.0.lcssa36, %invoke.cont.i.i.i ], [ %success.0.lcssa36, %if.then.i.i.i.i.i ], [ %retval.018, %if.then4.i.i ], [ %retval.018, %if.then.i.i.i.i ]
+  %retval.019 = phi i1 [ %success.1, %cleanup ], [ %success.0.lcssa45, %invoke.cont.i.i.i ], [ %success.0.lcssa45, %if.then.i.i.i.i.i ], [ %retval.018, %if.then4.i.i ], [ %retval.018, %if.then.i.i.i.i ]
   ret i1 %retval.019
 
 ehcleanup:                                        ; preds = %lpad8, %lpad.loopexit, %lpad.loopexit.split-lp
@@ -1109,7 +1109,7 @@ if.then.i.i.i74:                                  ; preds = %cleanup
   br label %_ZNSt6vectorISt4pairIN5folly5RangeIPKcEES5_ESaIS6_EED2Ev.exit75
 
 _ZNSt6vectorISt4pairIN5folly5RangeIPKcEES5_ESaIS6_EED2Ev.exit75: ; preds = %cleanup.thread, %cleanup, %if.then.i.i.i74
-  %cmp.i30.not123133 = phi i1 [ true, %cleanup.thread ], [ %cmp.i30.not124, %cleanup ], [ %cmp.i30.not124, %if.then.i.i.i74 ]
+  %cmp.i30.not123153 = phi i1 [ true, %cleanup.thread ], [ %cmp.i30.not124, %cleanup ], [ %cmp.i30.not124, %if.then.i.i.i74 ]
   %38 = load ptr, ptr %secondLevelTokens, align 8
   %tobool.not.i.i.i76 = icmp eq ptr %38, null
   br i1 %tobool.not.i.i.i76, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EED2Ev.exit, label %if.then.i.i.i77
@@ -1119,7 +1119,7 @@ if.then.i.i.i77:                                  ; preds = %_ZNSt6vectorISt4pai
   br label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIN5folly5RangeIPKcEES5_ESaIS6_EED2Ev.exit75, %if.then.i.i.i77
-  br i1 %cmp.i30.not123133, label %for.cond, label %cleanup59
+  br i1 %cmp.i30.not123153, label %for.cond, label %cleanup59
 
 ehcleanup:                                        ; preds = %lpad8.loopexit, %lpad8.loopexit.split-lp, %if.then.i.i.i, %lpad26
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad26 ], [ %lpad.phi, %if.then.i.i.i ], [ %lpad.loopexit114, %lpad8.loopexit ], [ %lpad.loopexit.split-lp115, %lpad8.loopexit.split-lp ]
@@ -1184,11 +1184,11 @@ _ZN5folly3TryISt6vectorISt4pairINS_5RangeIPKcEES1_IS2_IS6_S6_ESaIS7_EEESaISA_EEE
   br label %cleanup59
 
 cleanup59.critedge:                               ; preds = %invoke.cont13, %invoke.cont23
-  %agg.tmp12.sink134 = phi ptr [ %agg.tmp12, %invoke.cont13 ], [ %agg.tmp22, %invoke.cont23 ]
+  %agg.tmp12.sink154 = phi ptr [ %agg.tmp12, %invoke.cont13 ], [ %agg.tmp22, %invoke.cont23 ]
   store i32 1, ptr %agg.result, align 8
-  %43 = load i64, ptr %agg.tmp12.sink134, align 8, !noalias !69
+  %43 = load i64, ptr %agg.tmp12.sink154, align 8, !noalias !69
   store i64 %43, ptr %3, align 8
-  store i64 0, ptr %agg.tmp12.sink134, align 8, !noalias !69
+  store i64 0, ptr %agg.tmp12.sink154, align 8, !noalias !69
   %44 = load ptr, ptr %secondLevelTokens, align 8
   %tobool.not.i.i.i88 = icmp eq ptr %44, null
   br i1 %tobool.not.i.i.i88, label %cleanup59, label %if.then.i.i.i89

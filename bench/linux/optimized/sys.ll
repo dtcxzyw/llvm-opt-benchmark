@@ -175,7 +175,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_setprior
   %13 = tail call i32 @llvm.smax.i32(i32 %12, i32 -20)
   %14 = tail call i32 @llvm.smin.i32(i32 %13, i32 19)
   tail call void @__rcu_read_lock() #13
-  switch i32 %4, label %default.unreachable [
+  switch i32 %4, label %default.unreachable43 [
     i32 0, label %15
     i32 1, label %52
     i32 2, label %126
@@ -482,7 +482,7 @@ set_one_prio.exit11:                              ; preds = %194, %191, %188, %1
   tail call void @free_uid(ptr noundef %139) #13
   br label %set_one_prio.exit
 
-default.unreachable:                              ; preds = %11
+default.unreachable43:                            ; preds = %11
   unreachable
 
 set_one_prio.exit:                                ; preds = %50, %47, %44, %35, %205, %.loopexit17, %134, %.loopexit13, %19
@@ -534,7 +534,7 @@ define internal fastcc range(i64 -22, 2147483669) i64 @__se_sys_getpriority(i64 
 
 10:                                               ; preds = %2
   tail call void @__rcu_read_lock() #13
-  switch i32 %3, label %default.unreachable [
+  switch i32 %3, label %default.unreachable32 [
     i32 0, label %11
     i32 1, label %25
     i32 2, label %69
@@ -717,7 +717,7 @@ define internal fastcc range(i64 -22, 2147483669) i64 @__se_sys_getpriority(i64 
   tail call void @free_uid(ptr noundef %82) #13
   br label %125
 
-default.unreachable:                              ; preds = %10
+default.unreachable32:                            ; preds = %10
   unreachable
 
 125:                                              ; preds = %124, %.loopexit15, %77, %.loopexit11, %18, %15

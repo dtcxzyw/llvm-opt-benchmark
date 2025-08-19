@@ -2092,11 +2092,11 @@ define noundef i32 @N_VScaleAddMulti_Serial(i32 noundef %0, ptr noundef readonly
   %16 = icmp eq ptr %3, %4
   %17 = icmp sgt i32 %0, 0
   %18 = icmp sgt i64 %13, 0
-  %or.cond70 = select i1 %17, i1 %18, i1 false
+  %or.cond74 = select i1 %17, i1 %18, i1 false
   br i1 %16, label %.preheader, label %.preheader48
 
 .preheader48:                                     ; preds = %11
-  br i1 %or.cond70, label %.lr.ph.us.preheader, label %.loopexit
+  br i1 %or.cond74, label %.lr.ph.us.preheader, label %.loopexit
 
 .lr.ph.us.preheader:                              ; preds = %.preheader48
   %wide.trip.count = zext nneg i32 %0 to i64
@@ -2137,7 +2137,7 @@ define noundef i32 @N_VScaleAddMulti_Serial(i32 noundef %0, ptr noundef readonly
   br i1 %exitcond62.not, label %.loopexit, label %.lr.ph.us
 
 .preheader:                                       ; preds = %11
-  br i1 %or.cond70, label %.lr.ph.us56.preheader, label %.loopexit
+  br i1 %or.cond74, label %.lr.ph.us56.preheader, label %.loopexit
 
 .lr.ph.us56.preheader:                            ; preds = %.preheader
   %wide.trip.count67 = zext nneg i32 %0 to i64
@@ -2368,8 +2368,8 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
   %106 = load i64, ptr %105, align 8, !tbaa !55
   %107 = icmp sgt i32 %0, 0
   %108 = icmp sgt i64 %106, 0
-  %or.cond146 = select i1 %107, i1 %108, i1 false
-  br i1 %or.cond146, label %.lr.ph.us.preheader, label %VSumVectorArray_Serial.exit
+  %or.cond153 = select i1 %107, i1 %108, i1 false
+  br i1 %or.cond153, label %.lr.ph.us.preheader, label %VSumVectorArray_Serial.exit
 
 .lr.ph.us.preheader:                              ; preds = %103
   %wide.trip.count = zext nneg i32 %0 to i64
@@ -2470,11 +2470,11 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1)
   %29 = fcmp oeq double %1, -1.000000e+00
   %30 = icmp sgt i32 %0, 0
   %31 = icmp sgt i64 %7, 0
-  %or.cond88 = select i1 %30, i1 %31, i1 false
+  %or.cond92 = select i1 %30, i1 %31, i1 false
   br i1 %29, label %.preheader49, label %.preheader51
 
 .preheader51:                                     ; preds = %28
-  br i1 %or.cond88, label %.lr.ph.us.preheader, label %.loopexit
+  br i1 %or.cond92, label %.lr.ph.us.preheader, label %.loopexit
 
 .lr.ph.us.preheader:                              ; preds = %.preheader51
   %wide.trip.count = zext nneg i32 %0 to i64
@@ -2512,7 +2512,7 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1)
   br i1 %exitcond72.not, label %.loopexit, label %.lr.ph.us
 
 .preheader49:                                     ; preds = %28
-  br i1 %or.cond88, label %.lr.ph.us59.preheader, label %.loopexit
+  br i1 %or.cond92, label %.lr.ph.us59.preheader, label %.loopexit
 
 .lr.ph.us59.preheader:                            ; preds = %.preheader49
   %wide.trip.count77 = zext nneg i32 %0 to i64
@@ -2885,11 +2885,11 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef reado
   %56 = icmp eq ptr %2, %3
   %57 = icmp sgt i32 %0, 0
   %58 = icmp sgt i64 %55, 0
-  %or.cond76 = select i1 %57, i1 %58, i1 false
+  %or.cond85 = select i1 %57, i1 %58, i1 false
   br i1 %56, label %.preheader, label %.preheader46
 
 .preheader46:                                     ; preds = %52
-  br i1 %or.cond76, label %.lr.ph.us.preheader, label %N_VScale_Serial.exit
+  br i1 %or.cond85, label %.lr.ph.us.preheader, label %N_VScale_Serial.exit
 
 .lr.ph.us.preheader:                              ; preds = %.preheader46
   %wide.trip.count = zext nneg i32 %0 to i64
@@ -2928,7 +2928,7 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef reado
   br i1 %exitcond64.not, label %N_VScale_Serial.exit, label %.lr.ph.us
 
 .preheader:                                       ; preds = %52
-  br i1 %or.cond76, label %.lr.ph.us54.preheader, label %N_VScale_Serial.exit
+  br i1 %or.cond85, label %.lr.ph.us54.preheader, label %N_VScale_Serial.exit
 
 .lr.ph.us54.preheader:                            ; preds = %.preheader
   %wide.trip.count69 = zext nneg i32 %0 to i64
@@ -3362,11 +3362,11 @@ define noundef i32 @N_VScaleAddMultiVectorArray_Serial(i32 noundef %0, i32 nound
   %34 = load ptr, ptr %33, align 8, !tbaa !61
   %35 = icmp eq ptr %20, %21
   %36 = icmp sgt i64 %32, 0
-  %or.cond70.i = select i1 %22, i1 %36, i1 false
+  %or.cond74.i = select i1 %22, i1 %36, i1 false
   br i1 %35, label %.preheader.i, label %.preheader48.i
 
 .preheader48.i:                                   ; preds = %._crit_edge
-  br i1 %or.cond70.i, label %.lr.ph.us.preheader.i, label %N_VScaleAddMulti_Serial.exit
+  br i1 %or.cond74.i, label %.lr.ph.us.preheader.i, label %N_VScaleAddMulti_Serial.exit
 
 .lr.ph.us.preheader.i:                            ; preds = %.preheader48.i
   %wide.trip.count.i = zext nneg i32 %1 to i64
@@ -3407,7 +3407,7 @@ define noundef i32 @N_VScaleAddMultiVectorArray_Serial(i32 noundef %0, i32 nound
   br i1 %exitcond62.not.i, label %N_VScaleAddMulti_Serial.exit, label %.lr.ph.us.i
 
 .preheader.i:                                     ; preds = %._crit_edge
-  br i1 %or.cond70.i, label %.lr.ph.us56.preheader.i, label %N_VScaleAddMulti_Serial.exit
+  br i1 %or.cond74.i, label %.lr.ph.us56.preheader.i, label %N_VScaleAddMulti_Serial.exit
 
 .lr.ph.us56.preheader.i:                          ; preds = %.preheader.i
   %wide.trip.count67.i = zext nneg i32 %1 to i64
@@ -3462,13 +3462,13 @@ N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %
   %80 = icmp eq ptr %4, %5
   %81 = icmp sgt i32 %0, 0
   %82 = icmp sgt i32 %1, 0
-  %or.cond149 = and i1 %81, %82
+  %or.cond159 = and i1 %81, %82
   %83 = icmp sgt i64 %79, 0
-  %or.cond150 = select i1 %or.cond149, i1 %83, i1 false
+  %or.cond160 = select i1 %or.cond159, i1 %83, i1 false
   br i1 %80, label %.preheader, label %.preheader92
 
 .preheader92:                                     ; preds = %77
-  br i1 %or.cond150, label %.lr.ph97.us.us.preheader, label %.loopexit
+  br i1 %or.cond160, label %.lr.ph97.us.us.preheader, label %.loopexit
 
 .lr.ph97.us.us.preheader:                         ; preds = %.preheader92
   %wide.trip.count128 = zext nneg i32 %0 to i64
@@ -3528,7 +3528,7 @@ N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %
   br i1 %exitcond129.not, label %.loopexit, label %.lr.ph97.us.us
 
 .preheader:                                       ; preds = %77
-  br i1 %or.cond150, label %.lr.ph107.us.us.preheader, label %.loopexit
+  br i1 %or.cond160, label %.lr.ph107.us.us.preheader, label %.loopexit
 
 .lr.ph107.us.us.preheader:                        ; preds = %.preheader
   %wide.trip.count139 = zext nneg i32 %0 to i64
@@ -3809,8 +3809,8 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   %105 = icmp sgt i32 %1, 1
   %or.cond = and i1 %102, %105
   %106 = icmp sgt i64 %94, 0
-  %or.cond251 = select i1 %or.cond, i1 %106, i1 false
-  br i1 %or.cond251, label %.lr.ph183.us.us.preheader, label %N_VScale_Serial.exit
+  %or.cond264 = select i1 %or.cond, i1 %106, i1 false
+  br i1 %or.cond264, label %.lr.ph183.us.us.preheader, label %N_VScale_Serial.exit
 
 .lr.ph183.us.us.preheader:                        ; preds = %.preheader
   %wide.trip.count238 = zext nneg i32 %0 to i64

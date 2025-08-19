@@ -600,11 +600,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4lean10expr_eq_fnILb0EE5applyE
   br i1 %152, label %tailrecurse.backedge.sink.split, label %_ZN4leaneqERKNS_3natES2_.exit
 
 tailrecurse.backedge.sink.split:                  ; preds = %147, %166
-  %.sink295 = phi i64 [ 32, %166 ], [ 24, %147 ]
+  %.sink300 = phi i64 [ 32, %166 ], [ 24, %147 ]
   %153 = load ptr, ptr %.tr95157, align 8, !tbaa !33
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 %.sink295
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 %.sink300
   %155 = load ptr, ptr %.tr96158, align 8, !tbaa !33
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 %.sink295
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 %.sink300
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %.preheader, %tailrecurse.backedge.sink.split

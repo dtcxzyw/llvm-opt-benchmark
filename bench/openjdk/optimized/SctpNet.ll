@@ -893,9 +893,9 @@ define void @Java_sun_nio_ch_sctp_SctpNet_setIntOption0(ptr noundef %0, ptr noun
   %20 = icmp sgt i32 %4, -1
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %. = zext i1 %20 to i32
-  %.17 = select i1 %20, i32 %4, i32 0
+  %.19 = select i1 %20, i32 %4, i32 0
   store i32 %., ptr %7, align 4
-  store i32 %.17, ptr %21, align 4
+  store i32 %.19, ptr %21, align 4
   br label %22
 
 22:                                               ; preds = %.sink.split, %14

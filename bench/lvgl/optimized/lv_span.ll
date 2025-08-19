@@ -1622,7 +1622,7 @@ define void @lv_spangroup_set_mode(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %4, label %31, label %5
 
 5:                                                ; preds = %3
-  switch i32 %1, label %default.unreachable [
+  switch i32 %1, label %default.unreachable18 [
     i32 1, label %6
     i32 2, label %7
     i32 0, label %14
@@ -1670,7 +1670,7 @@ define void @lv_spangroup_set_mode(ptr noundef %0, i32 noundef %1) local_unnamed
   tail call void @lv_obj_set_content_height(ptr noundef nonnull %0, i32 noundef 100) #9
   br label %26
 
-default.unreachable:                              ; preds = %5
+default.unreachable18:                            ; preds = %5
   unreachable
 
 26:                                               ; preds = %13, %20, %25, %6

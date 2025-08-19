@@ -112,8 +112,8 @@ av_cmp_q.exit.i:                                  ; preds = %av_timecode_adjust_
 42:                                               ; preds = %40
   %43 = icmp ugt i64 %.fr.i, 4294967295
   %or.cond.i21 = icmp sgt i32 %.sroa.011.0.extract.trunc.i.i, 0
-  %or.cond61.i = or i1 %43, %or.cond.i21
-  %spec.select.i = select i1 %or.cond61.i, i32 128, i32 8388608
+  %or.cond63.i = or i1 %43, %or.cond.i21
+  %spec.select.i = select i1 %or.cond63.i, i32 128, i32 8388608
   br label %av_cmp_q.exit41.thread.i
 
 av_cmp_q.exit41.thread.i:                         ; preds = %42, %40, %37
@@ -207,8 +207,8 @@ av_cmp_q.exit:                                    ; preds = %6
 18:                                               ; preds = %16
   %19 = icmp ugt i64 %.fr, 4294967295
   %or.cond = icmp sgt i32 %.sroa.011.0.extract.trunc.i, 0
-  %or.cond61 = or i1 %19, %or.cond
-  %spec.select = select i1 %or.cond61, i32 128, i32 8388608
+  %or.cond63 = or i1 %19, %or.cond
+  %spec.select = select i1 %or.cond63, i32 128, i32 8388608
   br label %av_cmp_q.exit41.thread
 
 av_cmp_q.exit41.thread:                           ; preds = %18, %16, %13

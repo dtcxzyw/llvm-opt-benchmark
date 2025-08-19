@@ -925,8 +925,8 @@ define internal noundef ptr @_curses_panel_panel_move(ptr noundef readonly captu
   br i1 %.not.i.i28, label %_curses_panel_panel_move_impl.exit.sink.split, label %_curses_panel_panel_move_impl.exit
 
 _curses_panel_panel_move_impl.exit.sink.split:    ; preds = %.split22, %.split
-  %.sink32 = phi ptr [ %23, %.split ], [ %29, %.split22 ]
-  %33 = load ptr, ptr %.sink32, align 8, !tbaa !9
+  %.sink35 = phi ptr [ %23, %.split ], [ %29, %.split22 ]
+  %33 = load ptr, ptr %.sink35, align 8, !tbaa !9
   %34 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %33, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.36) #4
   br label %_curses_panel_panel_move_impl.exit
 

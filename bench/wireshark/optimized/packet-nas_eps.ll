@@ -3890,7 +3890,7 @@ define internal noundef zeroext i16 @de_emm_trac_area_id_lst(ptr noundef %0, ptr
 25:                                               ; preds = %.lr.ph147, %21
   %.0109 = phi i32 [ %22, %21 ], [ 16, %.lr.ph147 ]
   %26 = add i32 %.0110146, 1
-  switch i8 %16, label %default.unreachable165 [
+  switch i8 %16, label %default.unreachable171 [
     i8 3, label %27
     i8 0, label %30
     i8 1, label %42
@@ -3985,7 +3985,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %52, %55
   %exitcond.not = icmp eq i32 %69, %.0109
   br i1 %exitcond.not, label %.loopexit, label %.preheader123, !llvm.loop !10
 
-default.unreachable165:                           ; preds = %25
+default.unreachable171:                           ; preds = %25
   unreachable
 
 .loopexit:                                        ; preds = %.preheader123, %proto_item_set_generated.exit, %.preheader, %42

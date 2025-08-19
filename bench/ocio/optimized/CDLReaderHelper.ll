@@ -211,8 +211,8 @@ _ZN19OpenColorIO_v2_5dev19XmlReaderComplexEltC2ERKNSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev21XmlReaderContainerEltELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %29
 
 29:                                               ; preds = %_ZN19OpenColorIO_v2_5dev19XmlReaderComplexEltC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_21XmlReaderContainerEltEEjS8_.exit.thread, %_ZN19OpenColorIO_v2_5dev19XmlReaderComplexEltC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_21XmlReaderContainerEltEEjS8_.exit
-  %.pr14 = phi ptr [ %22, %_ZN19OpenColorIO_v2_5dev19XmlReaderComplexEltC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_21XmlReaderContainerEltEEjS8_.exit.thread ], [ %.pr.pre, %_ZN19OpenColorIO_v2_5dev19XmlReaderComplexEltC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_21XmlReaderContainerEltEEjS8_.exit ]
-  %30 = getelementptr inbounds nuw i8, ptr %.pr14, i64 8
+  %.pr15 = phi ptr [ %22, %_ZN19OpenColorIO_v2_5dev19XmlReaderComplexEltC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_21XmlReaderContainerEltEEjS8_.exit.thread ], [ %.pr.pre, %_ZN19OpenColorIO_v2_5dev19XmlReaderComplexEltC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_21XmlReaderContainerEltEEjS8_.exit ]
+  %30 = getelementptr inbounds nuw i8, ptr %.pr15, i64 8
   %31 = load atomic i64, ptr %30 acquire, align 8
   %32 = icmp eq i64 %31, 4294967297
   %33 = trunc i64 %31 to i32
@@ -220,16 +220,16 @@ _ZN19OpenColorIO_v2_5dev19XmlReaderComplexEltC2ERKNSt7__cxx1112basic_stringIcSt1
 
 34:                                               ; preds = %29
   store i32 0, ptr %30, align 8, !tbaa !20
-  %35 = getelementptr inbounds nuw i8, ptr %.pr14, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %.pr15, i64 12
   store i32 0, ptr %35, align 4, !tbaa !22
-  %36 = load ptr, ptr %.pr14, align 8, !tbaa !18
+  %36 = load ptr, ptr %.pr15, align 8, !tbaa !18
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  tail call void %38(ptr noundef nonnull align 8 dereferenceable(16) %.pr14) #22
-  %39 = load ptr, ptr %.pr14, align 8, !tbaa !18
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(16) %.pr15) #22
+  %39 = load ptr, ptr %.pr15, align 8, !tbaa !18
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %.pr14) #22
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %.pr15) #22
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev21XmlReaderContainerEltELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 42:                                               ; preds = %29
@@ -252,7 +252,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %46, %44
   br i1 %48, label %49, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev21XmlReaderContainerEltELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !23
 
 49:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr14) #22
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr15) #22
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev21XmlReaderContainerEltELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev21XmlReaderContainerEltELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc, %_ZN19OpenColorIO_v2_5dev19XmlReaderComplexEltC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_21XmlReaderContainerEltEEjS8_.exit, %34, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %49

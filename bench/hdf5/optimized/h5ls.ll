@@ -1146,8 +1146,8 @@ sub_1:                                            ; preds = %38
 
 237:                                              ; preds = %.critedge
   %.b56.i = load i1, ptr @recursive_g, align 1
-  %.b668 = load i1, ptr @grp_literal_g, align 1
-  %or.cond.i285 = select i1 %.b56.i, i1 %.b668, i1 false
+  %.b684 = load i1, ptr @grp_literal_g, align 1
+  %or.cond.i285 = select i1 %.b56.i, i1 %.b684, i1 false
   br i1 %or.cond.i285, label %239, label %238
 
 238:                                              ; preds = %237
@@ -1672,8 +1672,8 @@ define internal noundef i32 @dataset_list2(i64 noundef %0, ptr readnone captures
   %22 = call ptr @h5tools_str_reset(ptr noundef nonnull %17) #20
   %23 = load i32, ptr @verbose_g, align 4, !tbaa !17
   %24 = icmp sgt i32 %23, 0
-  %.sink52.i.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 216
-  %.sink52.i.sroa.gep111 = getelementptr inbounds nuw i8, ptr %8, i64 192
+  %.sink56.i.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 216
+  %.sink56.i.sroa.gep111 = getelementptr inbounds nuw i8, ptr %8, i64 192
   br i1 %24, label %25, label %191
 
 25:                                               ; preds = %2
@@ -2066,9 +2066,9 @@ print_string.exit:                                ; preds = %.preheader112
   br label %207
 
 207:                                              ; preds = %205, %197
-  %.sink52.i.sroa.phi = phi ptr [ %.sink52.i.sroa.gep, %205 ], [ %.sink52.i.sroa.gep111, %197 ]
+  %.sink56.i.sroa.phi = phi ptr [ %.sink56.i.sroa.gep, %205 ], [ %.sink56.i.sroa.gep111, %197 ]
   %.str.50.sink.i = phi ptr [ @.str.50, %205 ], [ @.str.232, %197 ]
-  store ptr %.str.50.sink.i, ptr %.sink52.i.sroa.phi, align 8, !tbaa !19
+  store ptr %.str.50.sink.i, ptr %.sink56.i.sroa.phi, align 8, !tbaa !19
   %208 = getelementptr inbounds nuw i8, ptr %8, i64 200
   store ptr @.str.82, ptr %208, align 8, !tbaa !83
   %209 = getelementptr inbounds nuw i8, ptr %8, i64 280
@@ -2097,7 +2097,7 @@ print_string.exit:                                ; preds = %.preheader112
   br i1 %.b40.i, label %218, label %219
 
 218:                                              ; preds = %217
-  store ptr @.str.232, ptr %.sink52.i.sroa.gep111, align 8, !tbaa !86
+  store ptr @.str.232, ptr %.sink56.i.sroa.gep111, align 8, !tbaa !86
   br label %219
 
 219:                                              ; preds = %218, %217
@@ -3155,7 +3155,7 @@ print_obj_name.exit:                              ; preds = %27, %28
   br i1 %.b6984, label %58, label %86
 
 58:                                               ; preds = %50
-  %.b98 = load i1, ptr @grp_literal_g, align 1
+  %.b101 = load i1, ptr @grp_literal_g, align 1
   %59 = call ptr @h5tools_str_reset(ptr noundef nonnull %6) #20
   %60 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.82) #20
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -3196,7 +3196,7 @@ print_obj_name.exit:                              ; preds = %27, %28
 83:                                               ; preds = %82, %80
   %84 = load i64, ptr %38, align 8, !tbaa !40
   %85 = call fastcc i32 @visit_obj(i64 noundef %84, ptr noundef %0, ptr noundef nonnull %2)
-  store i1 %.b98, ptr @grp_literal_g, align 1
+  store i1 %.b101, ptr @grp_literal_g, align 1
   br label %select.unfold
 
 86:                                               ; preds = %50
@@ -5350,8 +5350,8 @@ define internal noundef i32 @list_attr(i64 noundef %0, ptr noundef %1, ptr readn
   %19 = call fastcc i32 @print_string(ptr noundef nonnull %13, ptr noundef %1, i1 noundef zeroext true)
   %20 = call i64 @H5Aopen(i64 noundef %0, ptr noundef %1, i64 noundef 0) #20
   %21 = icmp sgt i64 %20, -1
-  %.sink52.i.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 216
-  %.sink52.i.sroa.gep29 = getelementptr inbounds nuw i8, ptr %10, i64 192
+  %.sink56.i.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 216
+  %.sink56.i.sroa.gep29 = getelementptr inbounds nuw i8, ptr %10, i64 192
   br i1 %21, label %22, label %199
 
 22:                                               ; preds = %4
@@ -5456,9 +5456,9 @@ define internal noundef i32 @list_attr(i64 noundef %0, ptr noundef %1, ptr readn
   br label %65
 
 65:                                               ; preds = %63, %55
-  %.sink52.i.sroa.phi = phi ptr [ %.sink52.i.sroa.gep, %63 ], [ %.sink52.i.sroa.gep29, %55 ]
+  %.sink56.i.sroa.phi = phi ptr [ %.sink56.i.sroa.gep, %63 ], [ %.sink56.i.sroa.gep29, %55 ]
   %.str.50.sink.i = phi ptr [ @.str.50, %63 ], [ @.str.232, %55 ]
-  store ptr %.str.50.sink.i, ptr %.sink52.i.sroa.phi, align 8, !tbaa !19
+  store ptr %.str.50.sink.i, ptr %.sink56.i.sroa.phi, align 8, !tbaa !19
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 200
   store ptr @.str.82, ptr %66, align 8, !tbaa !83
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 280
@@ -5487,7 +5487,7 @@ define internal noundef i32 @list_attr(i64 noundef %0, ptr noundef %1, ptr readn
   br i1 %.b40.i, label %76, label %77
 
 76:                                               ; preds = %75
-  store ptr @.str.232, ptr %.sink52.i.sroa.gep29, align 8, !tbaa !86
+  store ptr @.str.232, ptr %.sink56.i.sroa.gep29, align 8, !tbaa !86
   br label %77
 
 77:                                               ; preds = %76, %75

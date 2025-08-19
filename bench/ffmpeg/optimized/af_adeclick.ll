@@ -1048,7 +1048,7 @@ define internal i32 @detect_clips(ptr noundef readonly captures(none) %0, ptr no
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
-  %.not101 = phi i1 [ %44, %._crit_edge.loopexit ], [ true, %19 ]
+  %.not107 = phi i1 [ %44, %._crit_edge.loopexit ], [ true, %19 ]
   %45 = load i32, ptr %14, align 4, !tbaa !115
   %46 = zext i32 %45 to i64
   br label %47
@@ -1083,7 +1083,7 @@ define internal i32 @detect_clips(ptr noundef readonly captures(none) %0, ptr no
   %66 = sitofp i32 %45 to double
   %67 = fdiv nsz double %65, %66
   %68 = fcmp nsz ule double %67, 0.000000e+00
-  %brmerge = or i1 %68, %.not101
+  %brmerge = or i1 %68, %.not107
   br i1 %brmerge, label %.thread, label %.lr.ph78
 
 .lr.ph78:                                         ; preds = %63, %.lr.ph78
@@ -1258,8 +1258,8 @@ define internal i32 @detect_clicks(ptr noundef readonly captures(none) %0, ptr r
   %55 = add nuw nsw i32 %.084, 1
   %56 = zext nneg i32 %55 to i64
   %57 = icmp samesign ugt i64 %indvars.iv106, %56
-  %or.cond116 = select i1 %53, i1 %57, i1 false
-  br i1 %or.cond116, label %58, label %.loopexit
+  %or.cond120 = select i1 %53, i1 %57, i1 false
+  br i1 %or.cond120, label %58, label %.loopexit
 
 58:                                               ; preds = %52
   %59 = load i32, ptr %34, align 8, !tbaa !90
@@ -1706,7 +1706,7 @@ autocorrelation.exit.i139:                        ; preds = %autocorrelation.exi
   %175 = mul nuw nsw i64 %indvars.iv.i140, %153
   %176 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv.i140
   %177 = load i32, ptr %176, align 4, !tbaa !117
-  %invariant.gep139.sink.i = getelementptr inbounds nuw double, ptr %149, i64 %indvars.iv.i140
+  %invariant.gep147.sink.i = getelementptr inbounds nuw double, ptr %149, i64 %indvars.iv.i140
   %invariant.gep.sink.i = getelementptr inbounds nuw double, ptr %149, i64 %175
   br label %178
 
@@ -1726,12 +1726,12 @@ autocorrelation.exit.i139:                        ; preds = %autocorrelation.exi
   br label %187
 
 187:                                              ; preds = %183, %178
-  %.sink146.i = phi double [ %186, %183 ], [ 0.000000e+00, %178 ]
+  %.sink154.i = phi double [ %186, %183 ], [ 0.000000e+00, %178 ]
   %gep.i = getelementptr inbounds nuw double, ptr %invariant.gep.sink.i, i64 %indvars.iv116.i
-  store double %.sink146.i, ptr %gep.i, align 8, !tbaa !65
+  store double %.sink154.i, ptr %gep.i, align 8, !tbaa !65
   %188 = mul nuw nsw i64 %indvars.iv116.i, %153
-  %gep140.i = getelementptr inbounds nuw double, ptr %invariant.gep139.sink.i, i64 %188
-  store double %.sink146.i, ptr %gep140.i, align 8, !tbaa !65
+  %gep148.i = getelementptr inbounds nuw double, ptr %invariant.gep147.sink.i, i64 %188
+  store double %.sink154.i, ptr %gep148.i, align 8, !tbaa !65
   %indvars.iv.next117.i = add nuw nsw i64 %indvars.iv116.i, 1
   %exitcond.not.i141 = icmp eq i64 %indvars.iv.next117.i, %153
   br i1 %exitcond.not.i141, label %189, label %178, !llvm.loop !138
@@ -1983,15 +1983,15 @@ factorization.exit.i.i:                           ; preds = %._crit_edge80.i.i.i
   br i1 %284, label %.lr.ph70.i.i, label %.loopexit.i.i
 
 .lr.ph70.i.i:                                     ; preds = %.preheader.i96.i
-  %invariant.gep96.i.i = getelementptr double, ptr %149, i64 %indvars.iv.next86.i.i
+  %invariant.gep98.i.i = getelementptr double, ptr %149, i64 %indvars.iv.next86.i.i
   br label %285
 
 285:                                              ; preds = %285, %.lr.ph70.i.i
   %indvars.iv87.i.i = phi i64 [ %indvars.iv85.i.i, %.lr.ph70.i.i ], [ %indvars.iv.next88.i.i, %285 ]
   %286 = phi double [ %282, %.lr.ph70.i.i ], [ %292, %285 ]
   %287 = mul nuw nsw i64 %indvars.iv87.i.i, %153
-  %gep97.i.i = getelementptr double, ptr %invariant.gep96.i.i, i64 %287
-  %288 = load double, ptr %gep97.i.i, align 8, !tbaa !65
+  %gep99.i.i = getelementptr double, ptr %invariant.gep98.i.i, i64 %287
+  %288 = load double, ptr %gep99.i.i, align 8, !tbaa !65
   %289 = getelementptr inbounds nuw double, ptr %124, i64 %indvars.iv87.i.i
   %290 = load double, ptr %289, align 8, !tbaa !65
   %291 = fneg nsz double %288

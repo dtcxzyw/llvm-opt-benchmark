@@ -128,24 +128,24 @@ define dso_local i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph150.preheader:                              ; preds = %.lr.ph.split.us.split
   %12 = icmp slt i32 %10, 0
-  br i1 %12, label %.lr.ph445.preheader, label %.split113.us
+  br i1 %12, label %.lr.ph465.preheader, label %.split113.us
 
-.lr.ph445.preheader:                              ; preds = %.lr.ph150.preheader
+.lr.ph465.preheader:                              ; preds = %.lr.ph150.preheader
   %13 = tail call ptr @__errno_location() #8
-  br label %.lr.ph445
+  br label %.lr.ph465
 
 .lr.ph150:                                        ; preds = %16
   %14 = icmp slt i32 %18, 0
-  br i1 %14, label %.lr.ph445, label %.split113.us
+  br i1 %14, label %.lr.ph465, label %.split113.us
 
-.lr.ph445:                                        ; preds = %.lr.ph445.preheader, %.lr.ph150
+.lr.ph465:                                        ; preds = %.lr.ph465.preheader, %.lr.ph150
   %15 = load i32, ptr %13, align 4
   switch i32 %15, label %.split116.us [
     i32 11, label %16
     i32 4, label %16
   ]
 
-16:                                               ; preds = %.lr.ph445, %.lr.ph445
+16:                                               ; preds = %.lr.ph465, %.lr.ph465
   %17 = call i64 @read(i32 noundef %0, ptr noundef %.065.ph152, i64 noundef %.064.ph154) #7
   %18 = trunc i64 %17 to i32
   %19 = icmp eq i32 %18, 0
@@ -159,11 +159,11 @@ define dso_local i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph135.preheader.preheader:                    ; preds = %.lr.ph.split.split
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.lr.ph446.preheader, label %.split113.us
+  br i1 %23, label %.lr.ph466.preheader, label %.split113.us
 
-.lr.ph446.preheader:                              ; preds = %.lr.ph135.preheader.preheader
+.lr.ph466.preheader:                              ; preds = %.lr.ph135.preheader.preheader
   %24 = tail call ptr @__errno_location() #8
-  br label %.lr.ph446
+  br label %.lr.ph466
 
 .split119.us:                                     ; preds = %.lr.ph.split.split, %37
   %25 = tail call i32 @slurm_get_log_level() #7
@@ -195,23 +195,23 @@ define dso_local i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph135.preheader:                              ; preds = %37
   %35 = icmp slt i32 %39, 0
-  br i1 %35, label %.lr.ph446, label %.split113.us
+  br i1 %35, label %.lr.ph466, label %.split113.us
 
-.lr.ph446:                                        ; preds = %.lr.ph446.preheader, %.lr.ph135.preheader
+.lr.ph466:                                        ; preds = %.lr.ph466.preheader, %.lr.ph135.preheader
   %36 = load i32, ptr %24, align 4
   switch i32 %36, label %.split116.us [
     i32 11, label %37
     i32 4, label %37
   ]
 
-37:                                               ; preds = %.lr.ph446, %.lr.ph446
+37:                                               ; preds = %.lr.ph466, %.lr.ph466
   %38 = call i64 @read(i32 noundef %0, ptr noundef %.065.ph152, i64 noundef 4) #7
   %39 = trunc i64 %38 to i32
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %.split119.us, label %.lr.ph135.preheader
 
-.split116.us:                                     ; preds = %.lr.ph445, %.lr.ph446
-  %.064.ph154328 = phi i64 [ 4, %.lr.ph446 ], [ %.064.ph154, %.lr.ph445 ]
+.split116.us:                                     ; preds = %.lr.ph465, %.lr.ph466
+  %.064.ph154328 = phi i64 [ 4, %.lr.ph466 ], [ %.064.ph154, %.lr.ph465 ]
   %41 = tail call i32 @slurm_get_log_level() #7
   %42 = icmp sgt i32 %41, 4
   br i1 %42, label %43, label %.thread
@@ -259,24 +259,24 @@ define dso_local i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph201.preheader:                              ; preds = %.lr.ph157.split.us.split
   %57 = icmp slt i32 %55, 0
-  br i1 %57, label %.lr.ph448.preheader, label %.split163.us
+  br i1 %57, label %.lr.ph468.preheader, label %.split163.us
 
-.lr.ph448.preheader:                              ; preds = %.lr.ph201.preheader
+.lr.ph468.preheader:                              ; preds = %.lr.ph201.preheader
   %58 = tail call ptr @__errno_location() #8
-  br label %.lr.ph448
+  br label %.lr.ph468
 
 .lr.ph201:                                        ; preds = %61
   %59 = icmp slt i32 %63, 0
-  br i1 %59, label %.lr.ph448, label %.split163.us
+  br i1 %59, label %.lr.ph468, label %.split163.us
 
-.lr.ph448:                                        ; preds = %.lr.ph448.preheader, %.lr.ph201
+.lr.ph468:                                        ; preds = %.lr.ph468.preheader, %.lr.ph201
   %60 = load i32, ptr %58, align 4
   switch i32 %60, label %.split166.us [
     i32 11, label %61
     i32 4, label %61
   ]
 
-61:                                               ; preds = %.lr.ph448, %.lr.ph448
+61:                                               ; preds = %.lr.ph468, %.lr.ph468
   %62 = call i64 @read(i32 noundef %0, ptr noundef %.061.ph206, i64 noundef %.062.ph204) #7
   %63 = trunc i64 %62 to i32
   %64 = icmp eq i32 %63, 0
@@ -290,11 +290,11 @@ define dso_local i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph186.preheader.preheader:                    ; preds = %.lr.ph157.split.split
   %68 = icmp slt i32 %66, 0
-  br i1 %68, label %.lr.ph450.preheader, label %.split163.us
+  br i1 %68, label %.lr.ph470.preheader, label %.split163.us
 
-.lr.ph450.preheader:                              ; preds = %.lr.ph186.preheader.preheader
+.lr.ph470.preheader:                              ; preds = %.lr.ph186.preheader.preheader
   %69 = tail call ptr @__errno_location() #8
-  br label %.lr.ph450
+  br label %.lr.ph470
 
 .split170.us:                                     ; preds = %.lr.ph157.split.split, %82
   %70 = tail call i32 @slurm_get_log_level() #7
@@ -326,23 +326,23 @@ define dso_local i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph186.preheader:                              ; preds = %82
   %80 = icmp slt i32 %84, 0
-  br i1 %80, label %.lr.ph450, label %.split163.us
+  br i1 %80, label %.lr.ph470, label %.split163.us
 
-.lr.ph450:                                        ; preds = %.lr.ph450.preheader, %.lr.ph186.preheader
+.lr.ph470:                                        ; preds = %.lr.ph470.preheader, %.lr.ph186.preheader
   %81 = load i32, ptr %69, align 4
   switch i32 %81, label %.split166.us [
     i32 11, label %82
     i32 4, label %82
   ]
 
-82:                                               ; preds = %.lr.ph450, %.lr.ph450
+82:                                               ; preds = %.lr.ph470, %.lr.ph470
   %83 = call i64 @read(i32 noundef %0, ptr noundef %.061.ph206, i64 noundef 2) #7
   %84 = trunc i64 %83 to i32
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %.split170.us, label %.lr.ph186.preheader
 
-.split166.us:                                     ; preds = %.lr.ph448, %.lr.ph450
-  %.062.ph204310 = phi i64 [ 2, %.lr.ph450 ], [ %.062.ph204, %.lr.ph448 ]
+.split166.us:                                     ; preds = %.lr.ph468, %.lr.ph470
+  %.062.ph204310 = phi i64 [ 2, %.lr.ph470 ], [ %.062.ph204, %.lr.ph468 ]
   %86 = tail call i32 @slurm_get_log_level() #7
   %87 = icmp sgt i32 %86, 4
   br i1 %87, label %88, label %.thread
@@ -405,24 +405,24 @@ define dso_local i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph253.preheader:                              ; preds = %.lr.ph209.split.us.split
   %110 = icmp slt i32 %108, 0
-  br i1 %110, label %.lr.ph452.preheader, label %.split215.us
+  br i1 %110, label %.lr.ph472.preheader, label %.split215.us
 
-.lr.ph452.preheader:                              ; preds = %.lr.ph253.preheader
+.lr.ph472.preheader:                              ; preds = %.lr.ph253.preheader
   %111 = tail call ptr @__errno_location() #8
-  br label %.lr.ph452
+  br label %.lr.ph472
 
 .lr.ph253:                                        ; preds = %114
   %112 = icmp slt i32 %116, 0
-  br i1 %112, label %.lr.ph452, label %.split215.us
+  br i1 %112, label %.lr.ph472, label %.split215.us
 
-.lr.ph452:                                        ; preds = %.lr.ph452.preheader, %.lr.ph253
+.lr.ph472:                                        ; preds = %.lr.ph472.preheader, %.lr.ph253
   %113 = load i32, ptr %111, align 4
   switch i32 %113, label %.split218.us [
     i32 11, label %114
     i32 4, label %114
   ]
 
-114:                                              ; preds = %.lr.ph452, %.lr.ph452
+114:                                              ; preds = %.lr.ph472, %.lr.ph472
   %115 = tail call i64 @read(i32 noundef %0, ptr noundef %.059.ph259, i64 noundef %.060.ph257) #7
   %116 = trunc i64 %115 to i32
   %117 = icmp eq i32 %116, 0
@@ -436,11 +436,11 @@ define dso_local i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph238.preheader.preheader:                    ; preds = %.lr.ph209.split.split
   %121 = icmp slt i32 %119, 0
-  br i1 %121, label %.lr.ph454.preheader, label %.split215.us
+  br i1 %121, label %.lr.ph474.preheader, label %.split215.us
 
-.lr.ph454.preheader:                              ; preds = %.lr.ph238.preheader.preheader
+.lr.ph474.preheader:                              ; preds = %.lr.ph238.preheader.preheader
   %122 = tail call ptr @__errno_location() #8
-  br label %.lr.ph454
+  br label %.lr.ph474
 
 .split222.us:                                     ; preds = %.lr.ph209.split.split, %135
   %123 = tail call i32 @slurm_get_log_level() #7
@@ -472,23 +472,23 @@ define dso_local i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph238.preheader:                              ; preds = %135
   %133 = icmp slt i32 %137, 0
-  br i1 %133, label %.lr.ph454, label %.split215.us
+  br i1 %133, label %.lr.ph474, label %.split215.us
 
-.lr.ph454:                                        ; preds = %.lr.ph454.preheader, %.lr.ph238.preheader
+.lr.ph474:                                        ; preds = %.lr.ph474.preheader, %.lr.ph238.preheader
   %134 = load i32, ptr %122, align 4
   switch i32 %134, label %.split218.us [
     i32 11, label %135
     i32 4, label %135
   ]
 
-135:                                              ; preds = %.lr.ph454, %.lr.ph454
+135:                                              ; preds = %.lr.ph474, %.lr.ph474
   %136 = tail call i64 @read(i32 noundef %0, ptr noundef %.059.ph259, i64 noundef %105) #7
   %137 = trunc i64 %136 to i32
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %.split222.us, label %.lr.ph238.preheader
 
-.split218.us:                                     ; preds = %.lr.ph452, %.lr.ph454
-  %.060.ph257292 = phi i64 [ %105, %.lr.ph454 ], [ %.060.ph257, %.lr.ph452 ]
+.split218.us:                                     ; preds = %.lr.ph472, %.lr.ph474
+  %.060.ph257292 = phi i64 [ %105, %.lr.ph474 ], [ %.060.ph257, %.lr.ph472 ]
   %139 = tail call i32 @slurm_get_log_level() #7
   %140 = icmp sgt i32 %139, 4
   br i1 %140, label %141, label %.thread
@@ -648,24 +648,24 @@ define dso_local range(i32 -1, 1) i32 @tree_msg_to_srun_with_resp(i32 noundef %0
 
 .lr.ph118.preheader:                              ; preds = %.lr.ph.split.us.split
   %18 = icmp slt i32 %16, 0
-  br i1 %18, label %.lr.ph299.preheader, label %.split81.us
+  br i1 %18, label %.lr.ph312.preheader, label %.split81.us
 
-.lr.ph299.preheader:                              ; preds = %.lr.ph118.preheader
+.lr.ph312.preheader:                              ; preds = %.lr.ph118.preheader
   %19 = tail call ptr @__errno_location() #8
-  br label %.lr.ph299
+  br label %.lr.ph312
 
 .lr.ph118:                                        ; preds = %22
   %20 = icmp slt i32 %24, 0
-  br i1 %20, label %.lr.ph299, label %.split81.us
+  br i1 %20, label %.lr.ph312, label %.split81.us
 
-.lr.ph299:                                        ; preds = %.lr.ph299.preheader, %.lr.ph118
+.lr.ph312:                                        ; preds = %.lr.ph312.preheader, %.lr.ph118
   %21 = load i32, ptr %19, align 4
   switch i32 %21, label %.split84.us [
     i32 11, label %22
     i32 4, label %22
   ]
 
-22:                                               ; preds = %.lr.ph299, %.lr.ph299
+22:                                               ; preds = %.lr.ph312, %.lr.ph312
   %23 = call i64 @read(i32 noundef %7, ptr noundef %.047.ph122, i64 noundef %.048.ph120) #7
   %24 = trunc i64 %23 to i32
   %25 = icmp eq i32 %24, 0
@@ -679,11 +679,11 @@ define dso_local range(i32 -1, 1) i32 @tree_msg_to_srun_with_resp(i32 noundef %0
 
 .lr.ph103.preheader.preheader:                    ; preds = %.lr.ph.split.split
   %29 = icmp slt i32 %27, 0
-  br i1 %29, label %.lr.ph300.preheader, label %.split81.us
+  br i1 %29, label %.lr.ph313.preheader, label %.split81.us
 
-.lr.ph300.preheader:                              ; preds = %.lr.ph103.preheader.preheader
+.lr.ph313.preheader:                              ; preds = %.lr.ph103.preheader.preheader
   %30 = tail call ptr @__errno_location() #8
-  br label %.lr.ph300
+  br label %.lr.ph313
 
 .split87.us:                                      ; preds = %.lr.ph.split.split, %43
   %31 = tail call i32 @slurm_get_log_level() #7
@@ -715,23 +715,23 @@ define dso_local range(i32 -1, 1) i32 @tree_msg_to_srun_with_resp(i32 noundef %0
 
 .lr.ph103.preheader:                              ; preds = %43
   %41 = icmp slt i32 %45, 0
-  br i1 %41, label %.lr.ph300, label %.split81.us
+  br i1 %41, label %.lr.ph313, label %.split81.us
 
-.lr.ph300:                                        ; preds = %.lr.ph300.preheader, %.lr.ph103.preheader
+.lr.ph313:                                        ; preds = %.lr.ph313.preheader, %.lr.ph103.preheader
   %42 = load i32, ptr %30, align 4
   switch i32 %42, label %.split84.us [
     i32 11, label %43
     i32 4, label %43
   ]
 
-43:                                               ; preds = %.lr.ph300, %.lr.ph300
+43:                                               ; preds = %.lr.ph313, %.lr.ph313
   %44 = call i64 @read(i32 noundef %7, ptr noundef %.047.ph122, i64 noundef 4) #7
   %45 = trunc i64 %44 to i32
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %.split87.us, label %.lr.ph103.preheader
 
-.split84.us:                                      ; preds = %.lr.ph299, %.lr.ph300
-  %.048.ph120221 = phi i64 [ 4, %.lr.ph300 ], [ %.048.ph120, %.lr.ph299 ]
+.split84.us:                                      ; preds = %.lr.ph312, %.lr.ph313
+  %.048.ph120221 = phi i64 [ 4, %.lr.ph313 ], [ %.048.ph120, %.lr.ph312 ]
   %47 = tail call i32 @slurm_get_log_level() #7
   %48 = icmp sgt i32 %47, 4
   br i1 %48, label %49, label %.thread
@@ -783,24 +783,24 @@ define dso_local range(i32 -1, 1) i32 @tree_msg_to_srun_with_resp(i32 noundef %0
 
 .lr.ph169.preheader:                              ; preds = %.lr.ph125.split.us.split
   %65 = icmp slt i32 %63, 0
-  br i1 %65, label %.lr.ph302.preheader, label %.split131.us
+  br i1 %65, label %.lr.ph315.preheader, label %.split131.us
 
-.lr.ph302.preheader:                              ; preds = %.lr.ph169.preheader
+.lr.ph315.preheader:                              ; preds = %.lr.ph169.preheader
   %66 = tail call ptr @__errno_location() #8
-  br label %.lr.ph302
+  br label %.lr.ph315
 
 .lr.ph169:                                        ; preds = %69
   %67 = icmp slt i32 %71, 0
-  br i1 %67, label %.lr.ph302, label %.split131.us
+  br i1 %67, label %.lr.ph315, label %.split131.us
 
-.lr.ph302:                                        ; preds = %.lr.ph302.preheader, %.lr.ph169
+.lr.ph315:                                        ; preds = %.lr.ph315.preheader, %.lr.ph169
   %68 = load i32, ptr %66, align 4
   switch i32 %68, label %.split134.us [
     i32 11, label %69
     i32 4, label %69
   ]
 
-69:                                               ; preds = %.lr.ph302, %.lr.ph302
+69:                                               ; preds = %.lr.ph315, %.lr.ph315
   %70 = tail call i64 @read(i32 noundef %7, ptr noundef %.044.ph175, i64 noundef %.045.ph173) #7
   %71 = trunc i64 %70 to i32
   %72 = icmp eq i32 %71, 0
@@ -814,11 +814,11 @@ define dso_local range(i32 -1, 1) i32 @tree_msg_to_srun_with_resp(i32 noundef %0
 
 .lr.ph154.preheader.preheader:                    ; preds = %.lr.ph125.split.split
   %76 = icmp slt i32 %74, 0
-  br i1 %76, label %.lr.ph304.preheader, label %.split131.us
+  br i1 %76, label %.lr.ph317.preheader, label %.split131.us
 
-.lr.ph304.preheader:                              ; preds = %.lr.ph154.preheader.preheader
+.lr.ph317.preheader:                              ; preds = %.lr.ph154.preheader.preheader
   %77 = tail call ptr @__errno_location() #8
-  br label %.lr.ph304
+  br label %.lr.ph317
 
 .split138.us:                                     ; preds = %.lr.ph125.split.split, %90
   %78 = tail call i32 @slurm_get_log_level() #7
@@ -850,23 +850,23 @@ define dso_local range(i32 -1, 1) i32 @tree_msg_to_srun_with_resp(i32 noundef %0
 
 .lr.ph154.preheader:                              ; preds = %90
   %88 = icmp slt i32 %92, 0
-  br i1 %88, label %.lr.ph304, label %.split131.us
+  br i1 %88, label %.lr.ph317, label %.split131.us
 
-.lr.ph304:                                        ; preds = %.lr.ph304.preheader, %.lr.ph154.preheader
+.lr.ph317:                                        ; preds = %.lr.ph317.preheader, %.lr.ph154.preheader
   %89 = load i32, ptr %77, align 4
   switch i32 %89, label %.split134.us [
     i32 11, label %90
     i32 4, label %90
   ]
 
-90:                                               ; preds = %.lr.ph304, %.lr.ph304
+90:                                               ; preds = %.lr.ph317, %.lr.ph317
   %91 = tail call i64 @read(i32 noundef %7, ptr noundef %.044.ph175, i64 noundef %59) #7
   %92 = trunc i64 %91 to i32
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %.split138.us, label %.lr.ph154.preheader
 
-.split134.us:                                     ; preds = %.lr.ph302, %.lr.ph304
-  %.045.ph173203 = phi i64 [ %59, %.lr.ph304 ], [ %.045.ph173, %.lr.ph302 ]
+.split134.us:                                     ; preds = %.lr.ph315, %.lr.ph317
+  %.045.ph173203 = phi i64 [ %59, %.lr.ph317 ], [ %.045.ph173, %.lr.ph315 ]
   %94 = tail call i32 @slurm_get_log_level() #7
   %95 = icmp sgt i32 %94, 4
   br i1 %95, label %96, label %.thread
@@ -1721,7 +1721,7 @@ define internal range(i32 -1, -2147483648) i32 @_handle_name_lookup(i32 noundef 
 
 25:                                               ; preds = %.thread, %21, %19
   %26 = phi ptr [ %20, %21 ], [ %20, %19 ], [ %11, %.thread ]
-  %.01624 = phi i32 [ 0, %21 ], [ 0, %19 ], [ -1, %.thread ]
+  %.01625 = phi i32 [ 0, %21 ], [ 0, %19 ], [ -1, %.thread ]
   %27 = phi ptr [ %.sink, %21 ], [ null, %19 ], [ null, %.thread ]
   %.0 = phi i32 [ %24, %21 ], [ 0, %19 ], [ 0, %.thread ]
   call void @slurm_packmem(ptr noundef %27, i32 noundef %.0, ptr noundef %26) #7
@@ -1744,7 +1744,7 @@ define internal range(i32 -1, -2147483648) i32 @_handle_name_lookup(i32 noundef 
 
 37:                                               ; preds = %25, %36
   %38 = trunc i64 %33 to i32
-  %39 = call i32 @llvm.smax.i32(i32 %.01624, i32 %38)
+  %39 = call i32 @llvm.smax.i32(i32 %.01625, i32 %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %39

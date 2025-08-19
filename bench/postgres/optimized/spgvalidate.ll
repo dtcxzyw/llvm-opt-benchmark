@@ -302,7 +302,7 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %139 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %140 = load i32, ptr %138, align 4
   %141 = icmp sgt i32 %140, 0
-  br i1 %141, label %.lr.ph231, label %.critedge168
+  br i1 %141, label %.lr.ph234, label %.critedge168
 
 142:                                              ; preds = %.lr.ph194, %195
   %indvars.iv212 = phi i64 [ 0, %.lr.ph194 ], [ %indvars.iv.next213, %195 ]
@@ -396,12 +396,12 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %198 = icmp slt i64 %indvars.iv.next213, %197
   br i1 %198, label %142, label %.preheader179, !llvm.loop !6
 
-.lr.ph231:                                        ; preds = %.lr.ph201, %.loopexit
-  %.0121199230 = phi ptr [ %.1122, %.loopexit ], [ null, %.lr.ph201 ]
-  %.10200229 = phi i1 [ %.12, %.loopexit ], [ %.6.lcssa, %.lr.ph201 ]
-  %indvars.iv217228 = phi i64 [ %indvars.iv.next218, %.loopexit ], [ 0, %.lr.ph201 ]
+.lr.ph234:                                        ; preds = %.lr.ph201, %.loopexit
+  %.0121199233 = phi ptr [ %.1122, %.loopexit ], [ null, %.lr.ph201 ]
+  %.10200232 = phi i1 [ %.12, %.loopexit ], [ %.6.lcssa, %.lr.ph201 ]
+  %indvars.iv217231 = phi i64 [ %indvars.iv.next218, %.loopexit ], [ 0, %.lr.ph201 ]
   %199 = load ptr, ptr %139, align 8
-  %200 = getelementptr inbounds nuw %union.ListCell, ptr %199, i64 %indvars.iv217228
+  %200 = getelementptr inbounds nuw %union.ListCell, ptr %199, i64 %indvars.iv217231
   %201 = load ptr, ptr %200, align 8
   %202 = load i32, ptr %201, align 8
   %203 = icmp eq i32 %202, %18
@@ -416,15 +416,15 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %.0121199.lcssa = phi i1 [ %204, %..critedge168_crit_edge ], [ true, %.lr.ph201 ]
   br i1 %.0121199.lcssa, label %.critedge168.thread, label %250
 
-205:                                              ; preds = %.lr.ph231
+205:                                              ; preds = %.lr.ph234
   %206 = getelementptr inbounds nuw i8, ptr %201, i64 4
   %207 = load i32, ptr %206, align 4
   %208 = icmp eq i32 %207, %18
-  %spec.select = select i1 %208, ptr %201, ptr %.0121199230
+  %spec.select = select i1 %208, ptr %201, ptr %.0121199233
   br label %209
 
-209:                                              ; preds = %205, %.lr.ph231
-  %.1122 = phi ptr [ %.0121199230, %.lr.ph231 ], [ %spec.select, %205 ]
+209:                                              ; preds = %205, %.lr.ph234
+  %.1122 = phi ptr [ %.0121199233, %.lr.ph234 ], [ %spec.select, %205 ]
   %210 = getelementptr inbounds nuw i8, ptr %201, i64 8
   %211 = load i64, ptr %210, align 8
   %212 = icmp eq i64 %211, 0
@@ -446,7 +446,7 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %223
 
 223:                                              ; preds = %213, %215, %209
-  %.11 = phi i1 [ %.10200229, %209 ], [ false, %215 ], [ false, %213 ]
+  %.11 = phi i1 [ %.10200232, %209 ], [ false, %215 ], [ false, %213 ]
   %224 = load i32, ptr %201, align 8
   %225 = getelementptr inbounds nuw i8, ptr %201, i64 4
   %226 = load i32, ptr %225, align 4
@@ -489,11 +489,11 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %242, %223
   %.12 = phi i1 [ %.11, %223 ], [ %.14, %242 ]
-  %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217228, 1
+  %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217231, 1
   %243 = load i32, ptr %138, align 4
   %244 = sext i32 %243 to i64
   %245 = icmp slt i64 %indvars.iv.next218, %244
-  br i1 %245, label %.lr.ph231, label %..critedge168_crit_edge
+  br i1 %245, label %.lr.ph234, label %..critedge168_crit_edge
 
 .critedge168.thread:                              ; preds = %.preheader179, %.critedge168
   %246 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #6

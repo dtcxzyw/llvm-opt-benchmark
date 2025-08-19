@@ -1053,13 +1053,13 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit.i39: ; preds =
   br label %_ZN12_GLOBAL__N_127_getDisplayNameForComponentEPKcS1_PDsiPFN6icu_7710CharStringESt17basic_string_viewIcSt11char_traitsIcEER10UErrorCodeES1_SA_.exit40
 
 92:                                               ; preds = %.thread, %63
-  %.1.i4345 = phi i32 [ 0, %.thread ], [ %.2.i, %63 ]
+  %.1.i4350 = phi i32 [ 0, %.thread ], [ %.2.i, %63 ]
   %93 = phi i32 [ 1, %.thread ], [ %39, %63 ]
   store i32 %93, ptr %4, align 4, !tbaa !13
   br label %_ZN12_GLOBAL__N_127_getDisplayNameForComponentEPKcS1_PDsiPFN6icu_7710CharStringESt17basic_string_viewIcSt11char_traitsIcEER10UErrorCodeES1_SA_.exit40
 
 _ZN12_GLOBAL__N_127_getDisplayNameForComponentEPKcS1_PDsiPFN6icu_7710CharStringESt17basic_string_viewIcSt11char_traitsIcEER10UErrorCodeES1_SA_.exit40: ; preds = %91, %65, %92, %_ZN12_GLOBAL__N_127_getDisplayNameForComponentEPKcS1_PDsiPFN6icu_7710CharStringESt17basic_string_viewIcSt11char_traitsIcEER10UErrorCodeES1_SA_.exit32
-  %.1 = phi i32 [ %62, %_ZN12_GLOBAL__N_127_getDisplayNameForComponentEPKcS1_PDsiPFN6icu_7710CharStringESt17basic_string_viewIcSt11char_traitsIcEER10UErrorCodeES1_SA_.exit32 ], [ %.1.i4345, %92 ], [ %.1.i37, %91 ], [ 0, %65 ]
+  %.1 = phi i32 [ %62, %_ZN12_GLOBAL__N_127_getDisplayNameForComponentEPKcS1_PDsiPFN6icu_7710CharStringESt17basic_string_viewIcSt11char_traitsIcEER10UErrorCodeES1_SA_.exit32 ], [ %.1.i4350, %92 ], [ %.1.i37, %91 ], [ 0, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %94
 
@@ -2764,7 +2764,7 @@ thread-pre-split:                                 ; preds = %21, %17
 
 _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit: ; preds = %thread-pre-split, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %thread-pre-split59
+  br label %thread-pre-split62
 
 29:                                               ; preds = %15
   %30 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(10) @_ZN12_GLOBAL__N_111_kLanguagesE, i64 noundef 9) #17
@@ -2799,7 +2799,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
 42:                                               ; preds = %38
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %12) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %thread-pre-split59
+  br label %thread-pre-split62
 
 43:                                               ; preds = %38
   %44 = landingpad { ptr, i32 }
@@ -2808,14 +2808,14 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %62
 
-thread-pre-split59:                               ; preds = %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, %42
+thread-pre-split62:                               ; preds = %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, %42
   %.1.ph = phi ptr [ %41, %42 ], [ %.050, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit ]
   %.pr = load i32, ptr %8, align 4, !tbaa !13
   br label %45
 
-45:                                               ; preds = %thread-pre-split59, %34
-  %46 = phi i32 [ %.pr, %thread-pre-split59 ], [ %36, %34 ]
-  %.1 = phi ptr [ %.1.ph, %thread-pre-split59 ], [ %35, %34 ]
+45:                                               ; preds = %thread-pre-split62, %34
+  %46 = phi i32 [ %.pr, %thread-pre-split62 ], [ %36, %34 ]
+  %.1 = phi ptr [ %.1.ph, %thread-pre-split62 ], [ %35, %34 ]
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %55, label %48
 

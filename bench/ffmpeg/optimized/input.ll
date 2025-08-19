@@ -11260,10 +11260,10 @@ define internal void @monoblack2Y_c(ptr noundef writeonly captures(none) %0, ptr
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !34
   %26 = zext i8 %25 to i32
-  %27 = shl nsw i32 %.0.lcssa, 3
+  %27 = shl nuw nsw i32 %.0.lcssa, 3
   %28 = zext nneg i32 %27 to i64
   %wide.trip.count38 = zext nneg i32 %21 to i64
-  %invariant.gep40 = getelementptr inbounds nuw i16, ptr %0, i64 %28
+  %invariant.gep41 = getelementptr inbounds nuw i16, ptr %0, i64 %28
   br label %29
 
 29:                                               ; preds = %22, %29
@@ -11273,8 +11273,8 @@ define internal void @monoblack2Y_c(ptr noundef writeonly captures(none) %0, ptr
   %32 = lshr i32 %26, %31
   %33 = trunc i32 %32 to i1
   %34 = select i1 %33, i16 16383, i16 0
-  %gep41 = getelementptr inbounds nuw i16, ptr %invariant.gep40, i64 %indvars.iv35
-  store i16 %34, ptr %gep41, align 2, !tbaa !43
+  %gep42 = getelementptr inbounds nuw i16, ptr %invariant.gep41, i64 %indvars.iv35
+  store i16 %34, ptr %gep42, align 2, !tbaa !43
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
   br i1 %exitcond39.not, label %.loopexit, label %29, !llvm.loop !121
@@ -11334,10 +11334,10 @@ define internal void @monowhite2Y_c(ptr noundef writeonly captures(none) %0, ptr
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !34
   %27 = zext i8 %26 to i32
-  %28 = shl nsw i32 %.0.lcssa, 3
+  %28 = shl nuw nsw i32 %.0.lcssa, 3
   %29 = zext nneg i32 %28 to i64
   %wide.trip.count40 = zext nneg i32 %22 to i64
-  %invariant.gep42 = getelementptr inbounds nuw i16, ptr %0, i64 %29
+  %invariant.gep43 = getelementptr inbounds nuw i16, ptr %0, i64 %29
   br label %30
 
 30:                                               ; preds = %23, %30
@@ -11349,8 +11349,8 @@ define internal void @monowhite2Y_c(ptr noundef writeonly captures(none) %0, ptr
   %34 = and i16 %33, 1
   %35 = xor i16 %34, 1
   %36 = mul nuw nsw i16 %35, 16383
-  %gep43 = getelementptr inbounds nuw i16, ptr %invariant.gep42, i64 %indvars.iv37
-  store i16 %36, ptr %gep43, align 2, !tbaa !43
+  %gep44 = getelementptr inbounds nuw i16, ptr %invariant.gep43, i64 %indvars.iv37
+  store i16 %36, ptr %gep44, align 2, !tbaa !43
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count40
   br i1 %exitcond41.not, label %.loopexit, label %30, !llvm.loop !124

@@ -289,7 +289,7 @@ define i32 @H5_checksum_lookup3(ptr noundef readonly captures(none) %0, i64 noun
   %.0141.lcssa = phi i32 [ %13, %10 ], [ %90, %.lr.ph ]
   %.0132.lcssa = phi i32 [ %13, %10 ], [ %94, %.lr.ph ]
   %.1.lcssa = phi i32 [ %13, %10 ], [ %93, %.lr.ph ]
-  switch i64 %.0147.lcssa, label %default.unreachable [
+  switch i64 %.0147.lcssa, label %default.unreachable163 [
     i64 12, label %98
     i64 11, label %104
     i64 10, label %110
@@ -409,7 +409,7 @@ define i32 @H5_checksum_lookup3(ptr noundef readonly captures(none) %0, i64 noun
   %161 = add i32 %160, %.2143
   br label %162
 
-default.unreachable:                              ; preds = %._crit_edge
+default.unreachable163:                           ; preds = %._crit_edge
   unreachable
 
 162:                                              ; preds = %._crit_edge, %156

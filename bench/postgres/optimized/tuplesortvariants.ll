@@ -965,7 +965,7 @@ ApplySortComparator.exit.thread106:               ; preds = %81, %ApplySortCompa
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 264
   %109 = load ptr, ptr %108, align 8
   %.not83 = icmp eq ptr %109, null
-  br i1 %.not83, label %.thread143, label %110
+  br i1 %.not83, label %.thread147, label %110
 
 110:                                              ; preds = %105
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 40
@@ -975,15 +975,15 @@ ApplySortComparator.exit.thread106:               ; preds = %81, %ApplySortCompa
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 264
   %.pre141 = load ptr, ptr %.phi.trans.insert, align 8
   %.not84 = icmp eq ptr %.pre141, null
-  br i1 %.not84, label %.thread143, label %115
+  br i1 %.not84, label %.thread147, label %115
 
-.thread143:                                       ; preds = %105, %110
+.thread147:                                       ; preds = %105, %110
   %113 = phi ptr [ %.pre, %110 ], [ %107, %105 ]
   %114 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %113) #12
   br label %115
 
-115:                                              ; preds = %110, %.thread143
-  %116 = phi ptr [ %114, %.thread143 ], [ %.pre141, %110 ]
+115:                                              ; preds = %110, %.thread147
+  %116 = phi ptr [ %114, %.thread147 ], [ %.pre141, %110 ]
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8
   %119 = call ptr @ExecStoreHeapTuple(ptr noundef %14, ptr noundef %118, i1 noundef zeroext false) #12

@@ -391,12 +391,12 @@ define internal fastcc range(i32 2, 6) i32 @mk_fvalue_from_val_string(ptr nounde
 .lr.ph67.preheader:                               ; preds = %._crit_edge
   %13 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 64
   %14 = load ptr, ptr %13, align 8
-  %.not5281 = icmp eq ptr %14, null
-  br i1 %.not5281, label %.critedge, label %.lr.ph83
+  %.not5284 = icmp eq ptr %14, null
+  br i1 %.not5284, label %.critedge, label %.lr.ph86
 
-.lr.ph83:                                         ; preds = %.lr.ph67.preheader, %select.unfold
+.lr.ph86:                                         ; preds = %.lr.ph67.preheader, %select.unfold
   %15 = phi ptr [ %25, %select.unfold ], [ %14, %.lr.ph67.preheader ]
-  %.0466482 = phi i32 [ %.147, %select.unfold ], [ %12, %.lr.ph67.preheader ]
+  %.0466485 = phi i32 [ %.147, %select.unfold ], [ %12, %.lr.ph67.preheader ]
   %16 = load i64, ptr %5, align 8
   %17 = call fastcc i32 @mk_fvalue_from_hfinfo(ptr noundef nonnull %15, ptr noundef %2, ptr noundef nonnull %5)
   switch i32 %17, label %._crit_edge68 [
@@ -407,16 +407,16 @@ define internal fastcc range(i32 2, 6) i32 @mk_fvalue_from_val_string(ptr nounde
     i32 4, label %22
   ]
 
-18:                                               ; preds = %.lr.ph83, %.lr.ph83, %.lr.ph83
-  %19 = icmp ugt i32 %.0466482, 2
+18:                                               ; preds = %.lr.ph86, %.lr.ph86, %.lr.ph86
+  %19 = icmp ugt i32 %.0466485, 2
   br i1 %19, label %._crit_edge68, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @llvm.umax.i32(i32 %17, i32 %.0466482)
+  %21 = tail call i32 @llvm.umax.i32(i32 %17, i32 %.0466485)
   br label %select.unfold
 
-22:                                               ; preds = %.lr.ph83, %.lr.ph83
-  %.not54 = icmp eq i32 %.0466482, %17
+22:                                               ; preds = %.lr.ph86, %.lr.ph86
+  %.not54 = icmp eq i32 %.0466485, %17
   %23 = load i64, ptr %5, align 8
   %.not55 = icmp eq i64 %23, %16
   %or.cond = select i1 %.not54, i1 %.not55, i1 false
@@ -427,13 +427,13 @@ select.unfold:                                    ; preds = %22, %20
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %25 = load ptr, ptr %24, align 8
   %.not52 = icmp eq ptr %25, null
-  br i1 %.not52, label %.critedge, label %.lr.ph83, !llvm.loop !8
+  br i1 %.not52, label %.critedge, label %.lr.ph86, !llvm.loop !8
 
 .critedge:                                        ; preds = %select.unfold, %.lr.ph67.preheader
   %.165.lcssa = phi ptr [ %.0.lcssa, %.lr.ph67.preheader ], [ %15, %select.unfold ]
   %.04664.lcssa = phi i32 [ %12, %.lr.ph67.preheader ], [ %.147, %select.unfold ]
   %26 = getelementptr inbounds nuw i8, ptr %.165.lcssa, i64 64
-  switch i32 %.04664.lcssa, label %default.unreachable [
+  switch i32 %.04664.lcssa, label %default.unreachable73 [
     i32 3, label %27
     i32 4, label %32
     i32 2, label %42
@@ -455,7 +455,7 @@ select.unfold:                                    ; preds = %22, %20
   tail call void @fvalue_set_uinteger64(ptr noundef %34, i64 noundef %33)
   br label %66
 
-._crit_edge68:                                    ; preds = %22, %18, %.lr.ph83, %._crit_edge
+._crit_edge68:                                    ; preds = %22, %18, %.lr.ph86, %._crit_edge
   %35 = tail call ptr @fvalue_new(i32 noundef 26)
   tail call void @fvalue_set_string(ptr noundef %35, ptr noundef %2)
   br label %66
@@ -515,7 +515,7 @@ select.unfold:                                    ; preds = %22, %20
   tail call void @stnode_replace(ptr noundef %3, i32 noundef 9, ptr noundef nonnull %.045)
   br label %.thread
 
-default.unreachable:                              ; preds = %.critedge
+default.unreachable73:                            ; preds = %.critedge
   unreachable
 
 .thread:                                          ; preds = %.critedge, %60, %49, %36, %67, %66
@@ -3399,7 +3399,7 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
 .lr.ph.split.split.us:                            ; preds = %.lr.ph
   %75 = add i32 %36, -28
   %76 = icmp ult i32 %75, -2
-  br i1 %76, label %.critedge9.us182, label %.critedge.thread213
+  br i1 %76, label %.critedge9.us182, label %.critedge.thread214
 
 .critedge9.us182:                                 ; preds = %.lr.ph.split.split.us, %.critedge9.us182
   %77 = phi i32 [ %82, %.critedge9.us182 ], [ %64, %.lr.ph.split.split.us ]
@@ -3417,21 +3417,21 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
 .critedge:                                        ; preds = %.critedge9.us182, %.preheader
   %.0157.lcssa = phi i32 [ %36, %.preheader ], [ %80, %.critedge9.us182 ]
   %.0.lcssa = phi ptr [ %15, %.preheader ], [ %78, %.critedge9.us182 ]
-  br i1 %62, label %.critedge.thread213, label %.critedge.thread
+  br i1 %62, label %.critedge.thread214, label %.critedge.thread
 
-.critedge.thread213:                              ; preds = %.lr.ph.split.split.us, %.critedge
-  %.0.lcssa217 = phi ptr [ %.0.lcssa, %.critedge ], [ %15, %.lr.ph.split.split.us ]
-  %.0157.lcssa216 = phi i32 [ %.0157.lcssa, %.critedge ], [ %36, %.lr.ph.split.split.us ]
-  %85 = tail call zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef %.0157.lcssa216, ptr noundef %6, ptr noundef %.0.lcssa217)
+.critedge.thread214:                              ; preds = %.lr.ph.split.split.us, %.critedge
+  %.0.lcssa218 = phi ptr [ %.0.lcssa, %.critedge ], [ %15, %.lr.ph.split.split.us ]
+  %.0157.lcssa217 = phi i32 [ %.0157.lcssa, %.critedge ], [ %36, %.lr.ph.split.split.us ]
+  %85 = tail call zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef %.0157.lcssa217, ptr noundef %6, ptr noundef %.0.lcssa218)
   br i1 %85, label %87, label %op_is_equality.exit.thread
 
 .critedge.thread:                                 ; preds = %.critedge9.us, %.lr.ph.split.us, %.critedge
-  %.0.lcssa212 = phi ptr [ %.0.lcssa, %.critedge ], [ %15, %.lr.ph.split.us ], [ %68, %.critedge9.us ]
-  %.0157.lcssa211 = phi i32 [ %.0157.lcssa, %.critedge ], [ %36, %.lr.ph.split.us ], [ %70, %.critedge9.us ]
-  %86 = tail call zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 noundef %.0157.lcssa211, ptr noundef %6, i1 noundef zeroext %3, ptr noundef %.0.lcssa212)
+  %.0.lcssa213 = phi ptr [ %.0.lcssa, %.critedge ], [ %15, %.lr.ph.split.us ], [ %68, %.critedge9.us ]
+  %.0157.lcssa212 = phi i32 [ %.0157.lcssa, %.critedge ], [ %36, %.lr.ph.split.us ], [ %70, %.critedge9.us ]
+  %86 = tail call zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 noundef %.0157.lcssa212, ptr noundef %6, i1 noundef zeroext %3, ptr noundef %.0.lcssa213)
   br i1 %86, label %87, label %op_is_equality.exit.thread
 
-87:                                               ; preds = %.critedge.thread213, %.critedge.thread
+87:                                               ; preds = %.critedge.thread214, %.critedge.thread
   tail call void @sttype_field_set_value_string(ptr noundef %5, i1 noundef zeroext true)
   switch i32 %1, label %op_is_equality.exit [
     i32 4, label %op_is_equality.exit.thread
@@ -3631,7 +3631,7 @@ is_bytes_type.exit:                               ; preds = %111, %111, %111, %1
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1146, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %164) #7
   unreachable
 
-op_is_equality.exit.thread:                       ; preds = %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %87, %87, %87, %87, %87, %87, %.critedge.thread213, %61, %.critedge.thread, %93, %138, %155, %123, %92, %56, %57
+op_is_equality.exit.thread:                       ; preds = %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %87, %87, %87, %87, %87, %87, %.critedge.thread214, %61, %.critedge.thread, %93, %138, %155, %123, %92, %56, %57
   ret void
 }
 

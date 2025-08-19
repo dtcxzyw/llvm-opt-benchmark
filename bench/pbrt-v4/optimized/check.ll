@@ -147,9 +147,9 @@ define dso_local void @_ZN4pbrt15PrintStackTraceEv() local_unnamed_addr #3 {
 19:                                               ; preds = %.critedge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) @.str, i64 10, i1 false) #24
   %20 = getelementptr inbounds nuw i8, ptr %.038, i64 2
-  br label %.preheader53
+  br label %.preheader55
 
-.preheader53:                                     ; preds = %.thread, %19
+.preheader55:                                     ; preds = %.thread, %19
   %.4.ph = phi ptr [ %25, %.thread ], [ %20, %19 ]
   br label %29
 
@@ -176,16 +176,16 @@ define dso_local void @_ZN4pbrt15PrintStackTraceEv() local_unnamed_addr #3 {
 
 .thread:                                          ; preds = %.critedge2
   %25 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  br label %.preheader53
+  br label %.preheader55
 
 26:                                               ; preds = %.critedge2
   %27 = load ptr, ptr @stderr, align 8, !tbaa !15
   %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.1, ptr noundef %10) #25
   br label %44
 
-29:                                               ; preds = %.preheader53, %31
-  %.4 = phi ptr [ %32, %31 ], [ %.4.ph, %.preheader53 ]
-  %.0 = phi ptr [ %33, %31 ], [ %4, %.preheader53 ]
+29:                                               ; preds = %.preheader55, %31
+  %.4 = phi ptr [ %32, %31 ], [ %.4.ph, %.preheader55 ]
+  %.0 = phi ptr [ %33, %31 ], [ %4, %.preheader55 ]
   %30 = load i8, ptr %.4, align 1, !tbaa !11
   switch i8 %30, label %31 [
     i8 0, label %.critedge4

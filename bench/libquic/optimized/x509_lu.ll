@@ -420,8 +420,8 @@ X509_LOOKUP_shutdown.exit:                        ; preds = %15
   br i1 %.not.i18, label %X509_LOOKUP_free.exit, label %X509_LOOKUP_shutdown.exit.thread
 
 X509_LOOKUP_shutdown.exit.thread:                 ; preds = %15, %X509_LOOKUP_shutdown.exit
-  %.pr25 = phi ptr [ %.pr.pre, %X509_LOOKUP_shutdown.exit ], [ %13, %15 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.pr25, i64 16
+  %.pr30 = phi ptr [ %.pr.pre, %X509_LOOKUP_shutdown.exit ], [ %13, %15 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.pr30, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !19
   %.not8.i = icmp eq ptr %20, null
   br i1 %.not8.i, label %X509_LOOKUP_free.exit, label %21

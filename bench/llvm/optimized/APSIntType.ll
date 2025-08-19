@@ -38,7 +38,7 @@ _ZNK4llvm6APSInt10isNegativeEv.exit:              ; preds = %3
   br i1 %2, label %25, label %74
 
 .thread:                                          ; preds = %_ZNK4llvm6APSInt10isNegativeEv.exit
-  br i1 %2, label %25, label %.thread39
+  br i1 %2, label %25, label %.thread44
 
 25:                                               ; preds = %.thread, %24
   %26 = or i8 %8, %5
@@ -126,9 +126,9 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %66, %71
   br label %119
 
 74:                                               ; preds = %24
-  br i1 %9, label %108, label %.thread39
+  br i1 %9, label %108, label %.thread44
 
-.thread39:                                        ; preds = %.thread, %74
+.thread44:                                        ; preds = %.thread, %74
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %76 = load i32, ptr %75, align 8, !tbaa !11
   %77 = add i32 %76, -1
@@ -147,12 +147,12 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %66, %71
   %88 = ptrtoint ptr %82 to i64
   br i1 %.not.i.i21, label %101, label %89
 
-89:                                               ; preds = %.thread39
+89:                                               ; preds = %.thread44
   br i1 %81, label %90, label %99
 
 90:                                               ; preds = %89
   %91 = icmp eq i32 %76, 0
-  br i1 %91, label %.thread40, label %92, !prof !14
+  br i1 %91, label %.thread45, label %92, !prof !14
 
 92:                                               ; preds = %90
   %93 = sub nuw nsw i32 64, %76
@@ -161,13 +161,13 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %66, %71
   %96 = xor i64 %95, -1
   %97 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %96, i1 false)
   %98 = trunc nuw nsw i64 %97 to i32
-  br label %.thread40
+  br label %.thread45
 
 99:                                               ; preds = %89
   %100 = tail call noundef i32 @_ZNK4llvm5APInt24countLeadingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #3
-  br label %.thread40
+  br label %.thread45
 
-101:                                              ; preds = %.thread39
+101:                                              ; preds = %.thread44
   br i1 %81, label %102, label %106
 
 102:                                              ; preds = %101
@@ -175,11 +175,11 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %66, %71
   %103 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %88, i1 false)
   %104 = trunc nuw nsw i64 %103 to i32
   %105 = add nsw i32 %.neg.i.i.i22, %104
-  br label %.thread40
+  br label %.thread45
 
 106:                                              ; preds = %101
   %107 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #3
-  br label %.thread40
+  br label %.thread45
 
 108:                                              ; preds = %74
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -193,11 +193,11 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %66, %71
   %114 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %113, i1 false)
   %115 = trunc nuw nsw i64 %114 to i32
   %116 = add nsw i32 %.neg.i.i25, %115
-  br label %.thread44
+  br label %.thread49
 
 117:                                              ; preds = %108
   %118 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #3
-  br label %.thread44
+  br label %.thread49
 
 119:                                              ; preds = %_ZNK4llvm5APInt18getSignificantBitsEv.exit, %_ZNK4llvm5APInt13getActiveBitsEv.exit
   %.0 = phi i32 [ %73, %_ZNK4llvm5APInt13getActiveBitsEv.exit ], [ %63, %_ZNK4llvm5APInt18getSignificantBitsEv.exit ]
@@ -205,31 +205,31 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %66, %71
   %.not16 = icmp ugt i32 %.0, %120
   br i1 %.not16, label %131, label %144
 
-.thread44:                                        ; preds = %117, %112
+.thread49:                                        ; preds = %117, %112
   %.0.i.i24 = phi i32 [ %116, %112 ], [ %118, %117 ]
   %121 = xor i8 %5, 1
   %122 = zext nneg i8 %121 to i32
   %123 = add i32 %110, %122
   %124 = sub i32 %123, %.0.i.i24
   %125 = load i32, ptr %0, align 4, !tbaa !15
-  %.not1646 = icmp ugt i32 %124, %125
-  br i1 %.not1646, label %.thread47, label %144
+  %.not1651 = icmp ugt i32 %124, %125
+  br i1 %.not1651, label %.thread52, label %144
 
-.thread40:                                        ; preds = %106, %102, %99, %92, %90
+.thread45:                                        ; preds = %106, %102, %99, %92, %90
   %126 = phi i32 [ %98, %92 ], [ %100, %99 ], [ 0, %90 ], [ %105, %102 ], [ %107, %106 ]
   %127 = xor i8 %5, 1
   %.neg37 = zext nneg i8 %127 to i32
   %128 = add i32 %76, %.neg37
   %129 = sub i32 %128, %126
   %130 = load i32, ptr %0, align 4, !tbaa !15
-  %.not1642 = icmp ugt i32 %129, %130
-  br i1 %.not1642, label %_ZNK4llvm6APSInt10isNegativeEv.exit28, label %144
+  %.not1647 = icmp ugt i32 %129, %130
+  br i1 %.not1647, label %_ZNK4llvm6APSInt10isNegativeEv.exit28, label %144
 
 131:                                              ; preds = %119
-  br i1 %9, label %.thread47, label %_ZNK4llvm6APSInt10isNegativeEv.exit28
+  br i1 %9, label %.thread52, label %_ZNK4llvm6APSInt10isNegativeEv.exit28
 
-_ZNK4llvm6APSInt10isNegativeEv.exit28:            ; preds = %.thread40, %131
-  %132 = phi i32 [ %28, %131 ], [ %76, %.thread40 ]
+_ZNK4llvm6APSInt10isNegativeEv.exit28:            ; preds = %.thread45, %131
+  %132 = phi i32 [ %28, %131 ], [ %76, %.thread45 ]
   %133 = add i32 %132, -1
   %134 = and i32 %133, 63
   %135 = zext nneg i32 %134 to i64
@@ -243,13 +243,13 @@ _ZNK4llvm6APSInt10isNegativeEv.exit28:            ; preds = %.thread40, %131
   %142 = load i64, ptr %.in.i.i.i.i27, align 8, !tbaa !13
   %143 = and i64 %136, %142
   %.not35 = icmp eq i64 %143, 0
-  br i1 %.not35, label %.thread47, label %144
+  br i1 %.not35, label %.thread52, label %144
 
-.thread47:                                        ; preds = %.thread44, %_ZNK4llvm6APSInt10isNegativeEv.exit28, %131
+.thread52:                                        ; preds = %.thread49, %_ZNK4llvm6APSInt10isNegativeEv.exit28, %131
   br label %144
 
-144:                                              ; preds = %.thread44, %.thread40, %.thread47, %119, %_ZNK4llvm6APSInt10isNegativeEv.exit28, %_ZNK4llvm6APSInt10isNegativeEv.exit
-  %.015 = phi i32 [ -1, %_ZNK4llvm6APSInt10isNegativeEv.exit ], [ 1, %.thread47 ], [ 0, %119 ], [ -1, %_ZNK4llvm6APSInt10isNegativeEv.exit28 ], [ 0, %.thread40 ], [ 0, %.thread44 ]
+144:                                              ; preds = %.thread49, %.thread45, %.thread52, %119, %_ZNK4llvm6APSInt10isNegativeEv.exit28, %_ZNK4llvm6APSInt10isNegativeEv.exit
+  %.015 = phi i32 [ -1, %_ZNK4llvm6APSInt10isNegativeEv.exit ], [ 1, %.thread52 ], [ 0, %119 ], [ -1, %_ZNK4llvm6APSInt10isNegativeEv.exit28 ], [ 0, %.thread45 ], [ 0, %.thread49 ]
   ret i32 %.015
 }
 

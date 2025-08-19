@@ -1091,8 +1091,8 @@ rsa_generate_signature_aid.exit:                  ; preds = %88
   br i1 %.not74, label %.critedge86, label %.critedge84
 
 .lr.ph:                                           ; preds = %.preheader, %109
-  %indvars.iv101 = phi i64 [ %indvars.iv.next, %109 ], [ 0, %.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv101, 1
+  %indvars.iv115 = phi i64 [ %indvars.iv.next, %109 ], [ 0, %.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv115, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond, label %.thread, label %109, !llvm.loop !39
 
@@ -1305,8 +1305,8 @@ ossl_param_is_empty.exit:                         ; preds = %14
   br i1 %39, label %46, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv127 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv127, 1
+  %indvars.iv140 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv140, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond, label %thread-pre-split, label %.preheader, !llvm.loop !48
 
@@ -2587,10 +2587,10 @@ define internal fastcc range(i32 0, 2) i32 @rsa_setup_mgf1_md(ptr noundef nonnul
   br i1 %.not17.i, label %29, label %31
 
 29:                                               ; preds = %16, %25, %19
-  %.sink18.i = phi i32 [ 189, %19 ], [ 198, %25 ], [ 183, %16 ]
+  %.sink20.i = phi i32 [ 189, %19 ], [ 198, %25 ], [ 183, %16 ]
   %.sink.i = phi i32 [ 170, %19 ], [ 174, %25 ], [ 168, %16 ]
   tail call void @ERR_new() #11
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink18.i, ptr noundef nonnull @__func__.rsa_check_padding) #11
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink20.i, ptr noundef nonnull @__func__.rsa_check_padding) #11
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink.i, ptr noundef null) #11
   br label %30
 
@@ -2713,10 +2713,10 @@ define internal fastcc range(i32 0, 2) i32 @rsa_setup_md(ptr noundef %0, ptr nou
   br i1 %.not15.i, label %rsa_check_padding.exit, label %35
 
 rsa_check_padding.exit:                           ; preds = %25, %31, %22
-  %.sink18.i = phi i32 [ 189, %25 ], [ 198, %31 ], [ 183, %22 ]
+  %.sink20.i = phi i32 [ 189, %25 ], [ 198, %31 ], [ 183, %22 ]
   %.sink.i = phi i32 [ 170, %25 ], [ 174, %31 ], [ 168, %22 ]
   tail call void @ERR_new() #11
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink18.i, ptr noundef nonnull @__func__.rsa_check_padding) #11
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink20.i, ptr noundef nonnull @__func__.rsa_check_padding) #11
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink.i, ptr noundef null) #11
   br label %67
 
@@ -2899,10 +2899,10 @@ define internal fastcc range(i32 0, 2) i32 @rsa_check_padding(ptr noundef readon
   br i1 %.not17, label %.sink.split, label %26
 
 .sink.split:                                      ; preds = %17, %22, %10, %7
-  %.sink18 = phi i32 [ 183, %7 ], [ 189, %10 ], [ 198, %22 ], [ 198, %17 ]
+  %.sink20 = phi i32 [ 183, %7 ], [ 189, %10 ], [ 198, %22 ], [ 198, %17 ]
   %.sink = phi i32 [ 168, %7 ], [ 170, %10 ], [ 174, %22 ], [ 174, %17 ]
   tail call void @ERR_new() #11
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink18, ptr noundef nonnull @__func__.rsa_check_padding) #11
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink20, ptr noundef nonnull @__func__.rsa_check_padding) #11
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #11
   br label %26
 

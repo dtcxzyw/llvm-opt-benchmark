@@ -1112,8 +1112,8 @@ thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE
   br label %_ZN12mpff_manager6expandEv.exit
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.backedge, %thread-pre-split.i.i.preheader
-  %19 = phi ptr [ %9, %thread-pre-split.i.i.preheader ], [ %.be4, %thread-pre-split.i.i.backedge ]
-  %20 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be4, %thread-pre-split.i.i.backedge ]
+  %19 = phi ptr [ %9, %thread-pre-split.i.i.preheader ], [ %.be18, %thread-pre-split.i.i.backedge ]
+  %20 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be18, %thread-pre-split.i.i.backedge ]
   %21 = icmp eq ptr %20, null
   br i1 %21, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
 
@@ -1243,7 +1243,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br label %thread-pre-split.i.i.backedge
 
 thread-pre-split.i.i.backedge:                    ; preds = %69, %26
-  %.be4 = phi ptr [ %29, %26 ], [ %72, %69 ]
+  %.be18 = phi ptr [ %29, %26 ], [ %72, %69 ]
   br label %thread-pre-split.i.i, !llvm.loop !22
 
 73:                                               ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
@@ -2739,9 +2739,9 @@ _ZNK12mpff_manager18to_buffer_shiftingEjRK4mpff.exit: ; preds = %.lr.ph.i63, %_Z
   %164 = load i8, ptr %163, align 4, !tbaa !20, !range !50, !noundef !51
   %165 = zext nneg i8 %164 to i32
   %.not61 = icmp eq i32 %162, %165
-  br i1 %.not61, label %.thread81, label %169
+  br i1 %.not61, label %.thread95, label %169
 
-.thread81:                                        ; preds = %160
+.thread95:                                        ; preds = %160
   %166 = zext i32 %161 to i64
   %167 = add nsw i64 %116, %166
   %168 = load i32, ptr %0, align 8, !tbaa !13
@@ -2750,9 +2750,9 @@ _ZNK12mpff_manager18to_buffer_shiftingEjRK4mpff.exit: ; preds = %.lr.ph.i63, %_Z
 
 169:                                              ; preds = %160
   %170 = tail call noundef zeroext i1 @_Z23has_one_at_first_k_bitsjPKjj(i32 noundef %137, ptr noundef %136, i32 noundef %161)
-  br i1 %170, label %.thread80, label %174
+  br i1 %170, label %.thread94, label %174
 
-.thread80:                                        ; preds = %169
+.thread94:                                        ; preds = %169
   %171 = zext i32 %161 to i64
   %172 = add nsw i64 %116, %171
   %173 = load i32, ptr %0, align 8, !tbaa !13
@@ -2784,9 +2784,9 @@ _ZNK12mpff_manager18to_buffer_shiftingEjRK4mpff.exit: ; preds = %.lr.ph.i63, %_Z
 
 .thread:                                          ; preds = %179
   %188 = icmp ult i32 %150, %158
-  br i1 %188, label %190, label %.thread79
+  br i1 %188, label %190, label %.thread93
 
-.thread79:                                        ; preds = %.thread
+.thread93:                                        ; preds = %.thread
   %189 = load i32, ptr %0, align 8, !tbaa !13
   tail call void @_Z4copyjPKjjPj(i32 noundef %137, ptr noundef %136, i32 noundef %189, ptr noundef %157)
   br label %_ZN12mpff_manager15inc_significandEPjRl.exit
@@ -2806,8 +2806,8 @@ _ZNK12mpff_manager18to_buffer_shiftingEjRK4mpff.exit: ; preds = %.lr.ph.i63, %_Z
   tail call void @_Z4copyjPKjjPj(i32 noundef %137, ptr noundef %136, i32 noundef %198, ptr noundef %157)
   br i1 %185, label %_ZN12mpff_manager15inc_significandEPjRl.exit, label %199
 
-199:                                              ; preds = %.thread80, %190, %174, %197
-  %.07178 = phi i64 [ %177, %174 ], [ %116, %197 ], [ %195, %190 ], [ %172, %.thread80 ]
+199:                                              ; preds = %.thread94, %190, %174, %197
+  %.07192 = phi i64 [ %177, %174 ], [ %116, %197 ], [ %195, %190 ], [ %172, %.thread94 ]
   %200 = load i32, ptr %0, align 8, !tbaa !13
   %201 = tail call noundef zeroext i1 @_Z3incjPj(i32 noundef %200, ptr noundef %157)
   br i1 %201, label %_ZN12mpff_manager15inc_significandEPjRl.exit, label %202
@@ -2818,11 +2818,11 @@ _ZNK12mpff_manager18to_buffer_shiftingEjRK4mpff.exit: ; preds = %.lr.ph.i63, %_Z
   %205 = zext i32 %204 to i64
   %206 = getelementptr inbounds nuw i32, ptr %157, i64 %205
   store i32 -2147483648, ptr %206, align 4, !tbaa !21
-  %207 = add nsw i64 %.07178, 1
+  %207 = add nsw i64 %.07192, 1
   br label %_ZN12mpff_manager15inc_significandEPjRl.exit
 
-_ZN12mpff_manager15inc_significandEPjRl.exit:     ; preds = %.thread81, %.thread79, %190, %174, %202, %199, %197
-  %.1 = phi i64 [ %116, %197 ], [ %.07178, %199 ], [ %207, %202 ], [ %177, %174 ], [ %195, %190 ], [ %116, %.thread79 ], [ %167, %.thread81 ]
+_ZN12mpff_manager15inc_significandEPjRl.exit:     ; preds = %.thread95, %.thread93, %190, %174, %202, %199, %197
+  %.1 = phi i64 [ %116, %197 ], [ %.07192, %199 ], [ %207, %202 ], [ %177, %174 ], [ %195, %190 ], [ %116, %.thread93 ], [ %167, %.thread95 ]
   %208 = add nsw i64 %.1, -2147483648
   %or.cond.i66 = icmp ult i64 %208, -4294967296
   br i1 %or.cond.i66, label %209, label %210
@@ -5988,18 +5988,18 @@ _ZN12mpff_manager18allocate_if_neededER4mpff.exit: ; preds = %20, %_ZN12mpff_man
   br label %63
 
 63:                                               ; preds = %56, %49
-  %.pn132.in = phi i32 [ %53, %49 ], [ %60, %56 ]
-  %.pn134.in = phi i32 [ %50, %49 ], [ %57, %56 ]
+  %.pn142.in = phi i32 [ %53, %49 ], [ %60, %56 ]
+  %.pn144.in = phi i32 [ %50, %49 ], [ %57, %56 ]
   %.0104 = phi i32 [ %44, %49 ], [ %42, %56 ]
   %.0103 = phi i32 [ %42, %49 ], [ %44, %56 ]
   %.0102 = phi i8 [ %spec.select, %49 ], [ %62, %56 ]
   %.0 = phi i8 [ %52, %49 ], [ %spec.select128, %56 ]
-  %.pn134 = lshr i32 %.pn134.in, 1
-  %.pn133.in = mul i32 %47, %.pn134
-  %.pn133 = zext i32 %.pn133.in to i64
-  %.0105 = getelementptr inbounds nuw i32, ptr %46, i64 %.pn133
-  %.pn132 = lshr i32 %.pn132.in, 1
-  %.pn.in = mul i32 %47, %.pn132
+  %.pn144 = lshr i32 %.pn144.in, 1
+  %.pn143.in = mul i32 %47, %.pn144
+  %.pn143 = zext i32 %.pn143.in to i64
+  %.0105 = getelementptr inbounds nuw i32, ptr %46, i64 %.pn143
+  %.pn142 = lshr i32 %.pn142.in, 1
+  %.pn.in = mul i32 %47, %.pn142
   %.pn = zext i32 %.pn.in to i64
   %.0107 = getelementptr inbounds nuw i32, ptr %46, i64 %.pn
   %64 = icmp sgt i32 %.0103, %.0104
@@ -9567,14 +9567,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit306: ; preds = %_ZSt
   br i1 %.not117, label %322, label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %310, %.critedge2
-  %.0.lcssa374 = phi i32 [ %318, %.critedge2 ], [ 0, %310 ]
+  %.0.lcssa412 = phi i32 [ %318, %.critedge2 ], [ 0, %310 ]
   %319 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.11, i64 noundef 1)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit310 unwind label %316
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit310: ; preds = %.critedge2.thread
   %320 = load ptr, ptr %7, align 8, !tbaa !120
   %321 = load ptr, ptr %6, align 8, !tbaa !120
-  invoke void @_Z4copyjPKjjPj(i32 noundef %.0.lcssa374, ptr noundef %320, i32 noundef %.0.lcssa374, ptr noundef %321)
+  invoke void @_Z4copyjPKjjPj(i32 noundef %.0.lcssa412, ptr noundef %320, i32 noundef %.0.lcssa412, ptr noundef %321)
           to label %.critedge4 unwind label %316
 
 322:                                              ; preds = %.critedge2
@@ -9612,7 +9612,7 @@ _ZNSolsEj.exit:                                   ; preds = %_ZNSolsEj.exit.preh
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit310
-  %.2 = phi i32 [ %.0.lcssa374, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit310 ], [ %338, %.critedge4.loopexit ]
+  %.2 = phi i32 [ %.0.lcssa412, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit310 ], [ %338, %.critedge4.loopexit ]
   %.not114 = icmp eq i32 %.2, 0
   br i1 %.not114, label %.critedge136, label %298, !llvm.loop !136
 

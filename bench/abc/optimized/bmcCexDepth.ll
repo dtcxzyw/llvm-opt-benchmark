@@ -89,9 +89,9 @@ Abc_UtilStrsav.exit137..preheader140_crit_edge:   ; preds = %Abc_UtilStrsav.exit
   br i1 %29, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader141
-  %.val112210 = load ptr, ptr %21, align 8, !tbaa !30
-  %.not99211 = icmp eq ptr %.val112210, null
-  br i1 %.not99211, label %.critedge, label %.lr.ph213
+  %.val112222 = load ptr, ptr %21, align 8, !tbaa !30
+  %.not99223 = icmp eq ptr %.val112222, null
+  br i1 %.not99223, label %.critedge, label %.lr.ph225
 
 .preheader140:                                    ; preds = %.critedge, %Abc_UtilStrsav.exit137..preheader140_crit_edge
   %.val120149 = phi i32 [ %.val120149.pre, %Abc_UtilStrsav.exit137..preheader140_crit_edge ], [ %.val101143190, %.critedge ]
@@ -106,10 +106,10 @@ Abc_UtilStrsav.exit137..preheader140_crit_edge:   ; preds = %Abc_UtilStrsav.exit
 .lr.ph:                                           ; preds = %Gia_ManAppendCi.exit
   %.val112 = load ptr, ptr %21, align 8, !tbaa !30
   %.not99 = icmp eq ptr %.val112, null
-  br i1 %.not99, label %.critedge, label %.lr.ph213, !llvm.loop !36
+  br i1 %.not99, label %.critedge, label %.lr.ph225, !llvm.loop !36
 
-.lr.ph213:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.084146212 = phi i32 [ %80, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph225:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.084146224 = phi i32 [ %80, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %33 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %4)
   %34 = load i64, ptr %33, align 4
   %35 = or i64 %34, 2684354559
@@ -131,12 +131,12 @@ Abc_UtilStrsav.exit137..preheader140_crit_edge:   ; preds = %Abc_UtilStrsav.exit
   %47 = icmp eq i32 %45, %46
   br i1 %47, label %48, label %.Vec_IntGrow.exit10_crit_edge.i.i
 
-.Vec_IntGrow.exit10_crit_edge.i.i:                ; preds = %.lr.ph213
+.Vec_IntGrow.exit10_crit_edge.i.i:                ; preds = %.lr.ph225
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !39
   br label %Gia_ManAppendCi.exit
 
-48:                                               ; preds = %.lr.ph213
+48:                                               ; preds = %.lr.ph225
   %49 = icmp slt i32 %45, 16
   br i1 %49, label %50, label %58
 
@@ -196,7 +196,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %78 = sext i32 %76 to i64
   %79 = getelementptr inbounds i32, ptr %70, i64 %78
   store i32 %75, ptr %79, align 4, !tbaa !40
-  %80 = add nuw nsw i32 %.084146212, 1
+  %80 = add nuw nsw i32 %.084146224, 1
   %.val101 = load i32, ptr %24, align 8, !tbaa !33
   %.val102 = load ptr, ptr %25, align 8, !tbaa !34
   %81 = getelementptr i8, ptr %.val102, i64 4
@@ -907,32 +907,32 @@ define ptr @Bmc_CexBuildNetwork2(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %67, label %.lr.ph202.preheader, label %.critedge2
 
 .lr.ph202.preheader:                              ; preds = %.preheader
-  %.val165232 = load ptr, ptr %6, align 8, !tbaa !30
-  %.not143233 = icmp eq ptr %.val165232, null
-  br i1 %.not143233, label %.critedge2, label %.lr.ph238
+  %.val165235 = load ptr, ptr %6, align 8, !tbaa !30
+  %.not143236 = icmp eq ptr %.val165235, null
+  br i1 %.not143236, label %.critedge2, label %.lr.ph241
 
-.lr.ph202:                                        ; preds = %.lr.ph238
+.lr.ph202:                                        ; preds = %.lr.ph241
   %.val165 = load ptr, ptr %6, align 8, !tbaa !30
   %.not143 = icmp eq ptr %.val165, null
-  br i1 %.not143, label %.critedge2, label %.lr.ph238, !llvm.loop !56
+  br i1 %.not143, label %.critedge2, label %.lr.ph241, !llvm.loop !56
 
-.lr.ph238:                                        ; preds = %.lr.ph202.preheader, %.lr.ph202
-  %.val165237 = phi ptr [ %.val165, %.lr.ph202 ], [ %.val165232, %.lr.ph202.preheader ]
-  %.1199236 = phi i32 [ %73, %.lr.ph202 ], [ %.0222, %.lr.ph202.preheader ]
-  %.val159201235 = phi ptr [ %.val159, %.lr.ph202 ], [ %.val159196, %.lr.ph202.preheader ]
-  %indvars.iv234 = phi i64 [ %indvars.iv.next, %.lr.ph202 ], [ 0, %.lr.ph202.preheader ]
-  %68 = getelementptr i8, ptr %.val159201235, i64 8
+.lr.ph241:                                        ; preds = %.lr.ph202.preheader, %.lr.ph202
+  %.val165240 = phi ptr [ %.val165, %.lr.ph202 ], [ %.val165235, %.lr.ph202.preheader ]
+  %.1199239 = phi i32 [ %73, %.lr.ph202 ], [ %.0222, %.lr.ph202.preheader ]
+  %.val159201238 = phi ptr [ %.val159, %.lr.ph202 ], [ %.val159196, %.lr.ph202.preheader ]
+  %indvars.iv237 = phi i64 [ %indvars.iv.next, %.lr.ph202 ], [ 0, %.lr.ph202.preheader ]
+  %68 = getelementptr i8, ptr %.val159201238, i64 8
   %.val166.val = load ptr, ptr %68, align 8, !tbaa !39
-  %69 = getelementptr inbounds nuw i32, ptr %.val166.val, i64 %indvars.iv234
+  %69 = getelementptr inbounds nuw i32, ptr %.val166.val, i64 %indvars.iv237
   %70 = load i32, ptr %69, align 4, !tbaa !40
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val165237, i64 %71
-  %73 = add nsw i32 %.1199236, 1
-  %74 = ashr i32 %.1199236, 5
+  %72 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val165240, i64 %71
+  %73 = add nsw i32 %.1199239, 1
+  %74 = ashr i32 %.1199239, 5
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i32, ptr %63, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !40
-  %78 = and i32 %.1199236, 31
+  %78 = and i32 %.1199239, 31
   %79 = lshr i32 %77, %78
   %80 = load i64, ptr %72, align 4
   %81 = shl i32 %79, 30
@@ -944,7 +944,7 @@ define ptr @Bmc_CexBuildNetwork2(ptr noundef readonly captures(none) %0, ptr nou
   store i64 %86, ptr %72, align 4
   %87 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i32 -1, ptr %87, align 4, !tbaa !31
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv234, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv237, 1
   %.val158 = load i32, ptr %12, align 8, !tbaa !33
   %.val159 = load ptr, ptr %55, align 8, !tbaa !34
   %88 = getelementptr i8, ptr %.val159, i64 4
@@ -954,7 +954,7 @@ define ptr @Bmc_CexBuildNetwork2(ptr noundef readonly captures(none) %0, ptr nou
   %91 = icmp slt i64 %indvars.iv.next, %90
   br i1 %91, label %.lr.ph202, label %..critedge2.loopexit_crit_edge, !llvm.loop !56
 
-..critedge2.loopexit_crit_edge:                   ; preds = %.lr.ph238
+..critedge2.loopexit_crit_edge:                   ; preds = %.lr.ph241
   br label %.critedge2, !llvm.loop !56
 
 .critedge2:                                       ; preds = %.lr.ph202, %.lr.ph202.preheader, %..critedge2.loopexit_crit_edge, %.preheader
@@ -1141,7 +1141,7 @@ define ptr @Bmc_CexBuildNetwork2(ptr noundef readonly captures(none) %0, ptr nou
   %204 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %128, i64 %203, i32 1
   %205 = load i32, ptr %204, align 4, !tbaa !31
   %206 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %4, i32 noundef %200, i32 noundef %205) #17
-  br label %.sink.split230
+  br label %.sink.split233
 
 207:                                              ; preds = %194
   %208 = icmp ne i32 %139, %142
@@ -1160,7 +1160,7 @@ define ptr @Bmc_CexBuildNetwork2(ptr noundef readonly captures(none) %0, ptr nou
   %218 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %128, i64 %217, i32 1
   %219 = load i32, ptr %218, align 4, !tbaa !31
   %220 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %4, i32 noundef %214, i32 noundef %219) #17
-  br label %.sink.split230
+  br label %.sink.split233
 
 221:                                              ; preds = %207
   br i1 %208, label %227, label %222
@@ -1170,7 +1170,7 @@ define ptr @Bmc_CexBuildNetwork2(ptr noundef readonly captures(none) %0, ptr nou
   %224 = sub nsw i64 0, %223
   %225 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %128, i64 %224, i32 1
   %226 = load i32, ptr %225, align 4, !tbaa !31
-  br label %.sink.split230
+  br label %.sink.split233
 
 227:                                              ; preds = %221
   br i1 %209, label %234, label %228
@@ -1181,14 +1181,14 @@ define ptr @Bmc_CexBuildNetwork2(ptr noundef readonly captures(none) %0, ptr nou
   %231 = sub nsw i64 0, %230
   %232 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %128, i64 %231, i32 1
   %233 = load i32, ptr %232, align 4, !tbaa !31
-  br label %.sink.split230
+  br label %.sink.split233
 
-.sink.split230:                                   ; preds = %196, %222, %228, %210
-  %.sink231 = phi i32 [ %220, %210 ], [ %233, %228 ], [ %226, %222 ], [ %206, %196 ]
-  store i32 %.sink231, ptr %192, align 4, !tbaa !31
+.sink.split233:                                   ; preds = %196, %222, %228, %210
+  %.sink234 = phi i32 [ %220, %210 ], [ %233, %228 ], [ %226, %222 ], [ %206, %196 ]
+  store i32 %.sink234, ptr %192, align 4, !tbaa !31
   br label %234
 
-234:                                              ; preds = %.sink.split230, %129, %227, %190
+234:                                              ; preds = %.sink.split233, %129, %227, %190
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %235 = load i32, ptr %65, align 8, !tbaa !3
   %236 = sext i32 %235 to i64
@@ -1384,32 +1384,32 @@ define ptr @Bmc_CexBuildNetwork2_(ptr noundef readonly captures(none) %0, ptr no
   br i1 %65, label %.lr.ph173.preheader, label %.critedge2
 
 .lr.ph173.preheader:                              ; preds = %.preheader
-  %.val136202 = load ptr, ptr %6, align 8, !tbaa !30
-  %.not117203 = icmp eq ptr %.val136202, null
-  br i1 %.not117203, label %.critedge2, label %.lr.ph208
+  %.val136205 = load ptr, ptr %6, align 8, !tbaa !30
+  %.not117206 = icmp eq ptr %.val136205, null
+  br i1 %.not117206, label %.critedge2, label %.lr.ph211
 
-.lr.ph173:                                        ; preds = %.lr.ph208
+.lr.ph173:                                        ; preds = %.lr.ph211
   %.val136 = load ptr, ptr %6, align 8, !tbaa !30
   %.not117 = icmp eq ptr %.val136, null
-  br i1 %.not117, label %.critedge2, label %.lr.ph208, !llvm.loop !63
+  br i1 %.not117, label %.critedge2, label %.lr.ph211, !llvm.loop !63
 
-.lr.ph208:                                        ; preds = %.lr.ph173.preheader, %.lr.ph173
-  %.val136207 = phi ptr [ %.val136, %.lr.ph173 ], [ %.val136202, %.lr.ph173.preheader ]
-  %.1170206 = phi i32 [ %71, %.lr.ph173 ], [ %.0193, %.lr.ph173.preheader ]
-  %.val130172205 = phi ptr [ %.val130, %.lr.ph173 ], [ %.val130167, %.lr.ph173.preheader ]
-  %indvars.iv204 = phi i64 [ %indvars.iv.next, %.lr.ph173 ], [ 0, %.lr.ph173.preheader ]
-  %66 = getelementptr i8, ptr %.val130172205, i64 8
+.lr.ph211:                                        ; preds = %.lr.ph173.preheader, %.lr.ph173
+  %.val136210 = phi ptr [ %.val136, %.lr.ph173 ], [ %.val136205, %.lr.ph173.preheader ]
+  %.1170209 = phi i32 [ %71, %.lr.ph173 ], [ %.0193, %.lr.ph173.preheader ]
+  %.val130172208 = phi ptr [ %.val130, %.lr.ph173 ], [ %.val130167, %.lr.ph173.preheader ]
+  %indvars.iv207 = phi i64 [ %indvars.iv.next, %.lr.ph173 ], [ 0, %.lr.ph173.preheader ]
+  %66 = getelementptr i8, ptr %.val130172208, i64 8
   %.val137.val = load ptr, ptr %66, align 8, !tbaa !39
-  %67 = getelementptr inbounds nuw i32, ptr %.val137.val, i64 %indvars.iv204
+  %67 = getelementptr inbounds nuw i32, ptr %.val137.val, i64 %indvars.iv207
   %68 = load i32, ptr %67, align 4, !tbaa !40
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val136207, i64 %69
-  %71 = add nsw i32 %.1170206, 1
-  %72 = ashr i32 %.1170206, 5
+  %70 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val136210, i64 %69
+  %71 = add nsw i32 %.1170209, 1
+  %72 = ashr i32 %.1170209, 5
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i32, ptr %61, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !40
-  %76 = and i32 %.1170206, 31
+  %76 = and i32 %.1170209, 31
   %77 = lshr i32 %75, %76
   %78 = load i64, ptr %70, align 4
   %79 = shl i32 %77, 30
@@ -1420,7 +1420,7 @@ define ptr @Bmc_CexBuildNetwork2_(ptr noundef readonly captures(none) %0, ptr no
   store i64 %83, ptr %70, align 4
   %84 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i32 1, ptr %84, align 4, !tbaa !31
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv204, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv207, 1
   %.val129 = load i32, ptr %10, align 8, !tbaa !33
   %.val130 = load ptr, ptr %53, align 8, !tbaa !34
   %85 = getelementptr i8, ptr %.val130, i64 4
@@ -1430,7 +1430,7 @@ define ptr @Bmc_CexBuildNetwork2_(ptr noundef readonly captures(none) %0, ptr no
   %88 = icmp slt i64 %indvars.iv.next, %87
   br i1 %88, label %.lr.ph173, label %..critedge2.loopexit_crit_edge, !llvm.loop !63
 
-..critedge2.loopexit_crit_edge:                   ; preds = %.lr.ph208
+..critedge2.loopexit_crit_edge:                   ; preds = %.lr.ph211
   br label %.critedge2, !llvm.loop !63
 
 .critedge2:                                       ; preds = %.lr.ph173, %.lr.ph173.preheader, %..critedge2.loopexit_crit_edge, %.preheader

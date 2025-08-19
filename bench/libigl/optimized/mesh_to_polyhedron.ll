@@ -2145,7 +2145,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4CGAL8internal22In_place_list_
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIPN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEEmSI_ET_SK_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEEmSI_ET_SK_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = shl nuw i64 %12, 3
+  %21 = shl nuw nsw i64 %12, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %21, i1 false), !tbaa !149
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !91
@@ -3174,8 +3174,8 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit10.thread: ; preds = %_ZN4CGAL32Polyhe
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %104 = load ptr, ptr %103, align 8
   %105 = icmp ne ptr %104, null
-  %or.cond111 = select i1 %102, i1 %105, i1 false
-  br i1 %or.cond111, label %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.split, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit28
+  %or.cond116 = select i1 %102, i1 %105, i1 false
+  br i1 %or.cond116, label %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.split, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit28
 
 _ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.us.split.preheader: ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit10
   %106 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.34, i64 noundef 43)
@@ -3505,8 +3505,8 @@ _ZN4CGAL15Verbose_ostreamlsIA28_cEERS0_RKT_.exit.thread: ; preds = %_ZN4CGAL15Ve
   %39 = load ptr, ptr %0, align 8, !tbaa !62
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !64
-  %.sroa.0378.0.in486737 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  %.sroa.0378.0487738 = load ptr, ptr %.sroa.0378.0.in486737, align 8, !tbaa !67
+  %.sroa.0378.0.in486762 = getelementptr inbounds nuw i8, ptr %41, i64 48
+  %.sroa.0378.0487763 = load ptr, ptr %.sroa.0378.0.in486762, align 8, !tbaa !67
   br i1 %38, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit150, label %.lr.ph
 
 42:                                               ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit
@@ -3550,8 +3550,8 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit191: ; preds = %5
   %63 = load ptr, ptr %0, align 8, !tbaa !62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %65 = load ptr, ptr %64, align 8, !tbaa !64
-  %.sroa.0378.0.in486734 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  %.sroa.0378.0487735 = load ptr, ptr %.sroa.0378.0.in486734, align 8, !tbaa !67
+  %.sroa.0378.0.in486759 = getelementptr inbounds nuw i8, ptr %65, i64 48
+  %.sroa.0378.0487760 = load ptr, ptr %.sroa.0378.0.in486759, align 8, !tbaa !67
   br i1 %32, label %.critedge.thread, label %.lr.ph
 
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120:    ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit.thread, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit
@@ -3564,21 +3564,21 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120:    ; preds = %_ZN4CGAL15Verbose_o
   br i1 %66, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4CGAL15Verbose_ostreamlsIA28_cEERS0_RKT_.exit.thread, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit191, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120
-  %.sroa.0378.0487736 = phi ptr [ %.sroa.0378.0487735, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit191 ], [ %.sroa.0378.0487, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120 ], [ %.sroa.0378.0487738, %_ZN4CGAL15Verbose_ostreamlsIA28_cEERS0_RKT_.exit.thread ]
+  %.sroa.0378.0487761 = phi ptr [ %.sroa.0378.0487760, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit191 ], [ %.sroa.0378.0487, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120 ], [ %.sroa.0378.0487763, %_ZN4CGAL15Verbose_ostreamlsIA28_cEERS0_RKT_.exit.thread ]
   %70 = phi ptr [ %65, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit191 ], [ %69, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120 ], [ %41, %_ZN4CGAL15Verbose_ostreamlsIA28_cEERS0_RKT_.exit.thread ]
   %71 = icmp sgt i32 %2, 0
-  %.not422995 = icmp eq ptr %.sroa.0378.0487736, %70
-  br i1 %.not422995, label %.critedge, label %.lr.ph999
+  %.not4221020 = icmp eq ptr %.sroa.0378.0487761, %70
+  br i1 %.not4221020, label %.critedge, label %.lr.ph1024
 
-.lr.ph999:                                        ; preds = %.lr.ph, %248
-  %.0404488998 = phi i64 [ %250, %248 ], [ 0, %.lr.ph ]
-  %.089489997 = phi i64 [ %spec.select, %248 ], [ 0, %.lr.ph ]
-  %.sroa.0378.0490996 = phi ptr [ %.sroa.0378.0, %248 ], [ %.sroa.0378.0487736, %.lr.ph ]
+.lr.ph1024:                                       ; preds = %.lr.ph, %248
+  %.04044881023 = phi i64 [ %250, %248 ], [ 0, %.lr.ph ]
+  %.0894891022 = phi i64 [ %spec.select, %248 ], [ 0, %.lr.ph ]
+  %.sroa.0378.04901021 = phi ptr [ %.sroa.0378.0, %248 ], [ %.sroa.0378.0487761, %.lr.ph ]
   br i1 %1, label %72, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit121.thread
 
-72:                                               ; preds = %.lr.ph999
+72:                                               ; preds = %.lr.ph1024
   %73 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.37, i64 noundef 9)
-  %74 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %.0404488998)
+  %74 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %.04044881023)
   %75 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
   %76 = getelementptr i8, ptr %75, i64 -24
   %77 = load i64, ptr %76, align 8
@@ -3615,13 +3615,13 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit121:    ; preds = %87, %84
   %.0.i.i.i195 = phi i8 [ %86, %84 ], [ %91, %87 ]
   %92 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i195)
   %93 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %92)
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.0378.0490996, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.0378.04901021, i64 32
   %95 = load ptr, ptr %94, align 8, !tbaa !151
   %96 = icmp eq ptr %95, null
   br i1 %96, label %98, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit122
 
-_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit121.thread: ; preds = %.lr.ph999
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.0378.0490996, i64 32
+_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit121.thread: ; preds = %.lr.ph1024
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.0378.04901021, i64 32
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit122
 
 98:                                               ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit121
@@ -3666,13 +3666,13 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit201: ; preds = %1
 
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit122:    ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit121.thread, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit201, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit121
   %119 = phi ptr [ %94, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit201 ], [ %94, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit121 ], [ %97, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit121.thread ]
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.0378.0490996, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.0378.04901021, i64 8
   %.sroa.0.0.copyload.i = load ptr, ptr %120, align 8, !tbaa !54
   %.not423 = icmp eq ptr %.sroa.0.0.copyload.i, null
   br i1 %.not423, label %.critedge103, label %121
 
 121:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit122
-  %.sroa.0.0.copyload.i123 = load ptr, ptr %.sroa.0378.0490996, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i123 = load ptr, ptr %.sroa.0378.04901021, align 8, !tbaa !54
   %.not424 = icmp eq ptr %.sroa.0.0.copyload.i123, null
   br i1 %.not424, label %.critedge103, label %143
 
@@ -3720,12 +3720,12 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit206: ; preds = %1
   br label %.critedge.thread
 
 143:                                              ; preds = %121
-  %.not425 = icmp eq ptr %.sroa.0.0.copyload.i123, %.sroa.0378.0490996
+  %.not425 = icmp eq ptr %.sroa.0.0.copyload.i123, %.sroa.0378.04901021
   br i1 %.not425, label %.critedge105, label %144
 
 144:                                              ; preds = %143
   %.sroa.0.0.copyload.i127 = load ptr, ptr %.sroa.0.0.copyload.i123, align 8, !tbaa !54
-  %145 = icmp eq ptr %.sroa.0.0.copyload.i127, %.sroa.0378.0490996
+  %145 = icmp eq ptr %.sroa.0.0.copyload.i127, %.sroa.0378.04901021
   br i1 %145, label %167, label %.critedge105
 
 .critedge105:                                     ; preds = %143, %144
@@ -3774,7 +3774,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit211: ; preds = %1
 167:                                              ; preds = %144
   %168 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 16
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %168, align 8, !tbaa !54
-  %169 = icmp eq ptr %.sroa.0.0.copyload.i.i.i, %.sroa.0378.0490996
+  %169 = icmp eq ptr %.sroa.0.0.copyload.i.i.i, %.sroa.0378.04901021
   br i1 %169, label %192, label %170
 
 170:                                              ; preds = %167
@@ -3828,7 +3828,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit216: ; preds = %1
   br label %248
 
 193:                                              ; preds = %192
-  %194 = getelementptr inbounds nuw i8, ptr %.sroa.0378.0490996, i64 24
+  %194 = getelementptr inbounds nuw i8, ptr %.sroa.0378.04901021, i64 24
   %.sroa.0.0.copyload.i.i.i133 = load ptr, ptr %194, align 8, !tbaa !53
   %.not426 = icmp eq ptr %.sroa.0.0.copyload.i.i.i133, null
   br i1 %.not426, label %195, label %199
@@ -3943,29 +3943,29 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit226: ; preds = %2
 
 248:                                              ; preds = %._crit_edge, %.critedge109
   %249 = phi ptr [ %.pre, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i142, %.critedge109 ]
-  %250 = add i64 %.0404488998, 1
+  %250 = add i64 %.04044881023, 1
   %251 = icmp eq ptr %249, null
   %252 = zext i1 %251 to i64
-  %spec.select = add i64 %.089489997, %252
-  %.sroa.0378.0.in = getelementptr inbounds nuw i8, ptr %.sroa.0378.0490996, i64 48
+  %spec.select = add i64 %.0894891022, %252
+  %.sroa.0378.0.in = getelementptr inbounds nuw i8, ptr %.sroa.0378.04901021, i64 48
   %.sroa.0378.0 = load ptr, ptr %.sroa.0378.0.in, align 8, !tbaa !67
   %.not422 = icmp eq ptr %.sroa.0378.0, %70
-  br i1 %.not422, label %.critedge, label %.lr.ph999, !llvm.loop !176
+  br i1 %.not422, label %.critedge, label %.lr.ph1024, !llvm.loop !176
 
 .critedge:                                        ; preds = %248, %.lr.ph, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120
   %.0404485 = phi i64 [ 0, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120 ], [ 0, %.lr.ph ], [ %250, %248 ]
   %.089476 = phi i64 [ 0, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120 ], [ 0, %.lr.ph ], [ %spec.select, %248 ]
-  %.sroa.0378.0467 = phi ptr [ %.sroa.0378.0487, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120 ], [ %.sroa.0378.0487736, %.lr.ph ], [ %.sroa.0378.0, %248 ]
+  %.sroa.0378.0467 = phi ptr [ %.sroa.0378.0487, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120 ], [ %.sroa.0378.0487761, %.lr.ph ], [ %.sroa.0378.0, %248 ]
   %.1 = phi i1 [ false, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120 ], [ true, %.lr.ph ], [ true, %248 ]
   br i1 %1, label %.critedge.thread, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit148
 
 .critedge.thread:                                 ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit206, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit211, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit216, %196, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit221, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit226, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit191, %.critedge
-  %.1752 = phi i1 [ %.1, %.critedge ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit191 ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit226 ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit221 ], [ false, %196 ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit216 ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit211 ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit206 ]
-  %.sroa.0378.0467750 = phi ptr [ %.sroa.0378.0467, %.critedge ], [ %.sroa.0378.0487735, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit191 ], [ %.sroa.0378.0490996, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit226 ], [ %.sroa.0378.0490996, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit221 ], [ %.sroa.0378.0490996, %196 ], [ %.sroa.0378.0490996, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit216 ], [ %.sroa.0378.0490996, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit211 ], [ %.sroa.0378.0490996, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit206 ]
-  %.089476748 = phi i64 [ %.089476, %.critedge ], [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit191 ], [ %.089489997, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit226 ], [ %.089489997, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit221 ], [ %.089489997, %196 ], [ %.089489997, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit216 ], [ %.089489997, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit211 ], [ %.089489997, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit206 ]
-  %.0404485746 = phi i64 [ %.0404485, %.critedge ], [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit191 ], [ %.0404488998, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit226 ], [ %.0404488998, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit221 ], [ %.0404488998, %196 ], [ %.0404488998, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit216 ], [ %.0404488998, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit211 ], [ %.0404488998, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit206 ]
+  %.1777 = phi i1 [ %.1, %.critedge ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit191 ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit226 ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit221 ], [ false, %196 ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit216 ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit211 ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit206 ]
+  %.sroa.0378.0467775 = phi ptr [ %.sroa.0378.0467, %.critedge ], [ %.sroa.0378.0487760, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit191 ], [ %.sroa.0378.04901021, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit226 ], [ %.sroa.0378.04901021, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit221 ], [ %.sroa.0378.04901021, %196 ], [ %.sroa.0378.04901021, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit216 ], [ %.sroa.0378.04901021, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit211 ], [ %.sroa.0378.04901021, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit206 ]
+  %.089476773 = phi i64 [ %.089476, %.critedge ], [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit191 ], [ %.0894891022, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit226 ], [ %.0894891022, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit221 ], [ %.0894891022, %196 ], [ %.0894891022, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit216 ], [ %.0894891022, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit211 ], [ %.0894891022, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit206 ]
+  %.0404485771 = phi i64 [ %.0404485, %.critedge ], [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit191 ], [ %.04044881023, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit226 ], [ %.04044881023, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit221 ], [ %.04044881023, %196 ], [ %.04044881023, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit216 ], [ %.04044881023, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit211 ], [ %.04044881023, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit206 ]
   %253 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.54, i64 noundef 30)
-  %254 = shl i64 %.089476748, 1
+  %254 = shl i64 %.089476773, 1
   %255 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %254)
   %256 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
   %257 = getelementptr i8, ptr %256, i64 -24
@@ -4003,7 +4003,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit231: ; preds = %2
   %.0.i.i.i230 = phi i8 [ %267, %265 ], [ %272, %268 ]
   %273 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i230)
   %274 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %273)
-  br i1 %.1752, label %275, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit150
+  br i1 %.1777, label %275, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit150
 
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit148:    ; preds = %.critedge
   br i1 %.1, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit149, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit150
@@ -4012,9 +4012,9 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit148:    ; preds = %.critedge
   %276 = load ptr, ptr %0, align 8, !tbaa !62
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 48
   %278 = load i64, ptr %277, align 8, !tbaa !69
-  %.not = icmp ne i64 %.0404485746, %278
-  %brmerge928.not = and i1 %.not, %1
-  br i1 %brmerge928.not, label %279, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit149
+  %.not = icmp ne i64 %.0404485771, %278
+  %brmerge953.not = and i1 %.not, %1
+  br i1 %brmerge953.not, label %279, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit149
 
 279:                                              ; preds = %275
   %280 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.40, i64 noundef 26)
@@ -4057,9 +4057,9 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit236: ; preds = %2
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit149
 
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit149:    ; preds = %275, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit148, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit236
-  %.sroa.0378.0467749767778790803 = phi ptr [ %.sroa.0378.0467750, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit236 ], [ %.sroa.0378.0467750, %275 ], [ %.sroa.0378.0467, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit148 ]
-  %.089476747768776791801 = phi i64 [ %.089476748, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit236 ], [ %.089476748, %275 ], [ %.089476, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit148 ]
-  %.0404485745769774792799 = phi i64 [ %.0404485746, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit236 ], [ %.0404485746, %275 ], [ %.0404485, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit148 ]
+  %.sroa.0378.0467774792803815828 = phi ptr [ %.sroa.0378.0467775, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit236 ], [ %.sroa.0378.0467775, %275 ], [ %.sroa.0378.0467, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit148 ]
+  %.089476772793801816826 = phi i64 [ %.089476773, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit236 ], [ %.089476773, %275 ], [ %.089476, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit148 ]
+  %.0404485770794799817824 = phi i64 [ %.0404485771, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit236 ], [ %.0404485771, %275 ], [ %.0404485, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit148 ]
   %300 = icmp sgt i32 %2, 3
   br i1 %300, label %301, label %_ZN4CGAL15Verbose_ostreamlsIA34_cEERS0_RKT_.exit
 
@@ -4067,9 +4067,9 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit149:    ; preds = %275, %_ZN4CGAL15Ver
   %302 = load ptr, ptr %0, align 8, !tbaa !62
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 80
   %304 = load i64, ptr %303, align 8, !tbaa !177
-  %.not97 = icmp ne i64 %.089476747768776791801, %304
-  %brmerge930.not = and i1 %.not97, %1
-  br i1 %brmerge930.not, label %305, label %_ZN4CGAL15Verbose_ostreamlsIA34_cEERS0_RKT_.exit
+  %.not97 = icmp ne i64 %.089476772793801816826, %304
+  %brmerge955.not = and i1 %.not97, %1
+  br i1 %brmerge955.not, label %305, label %_ZN4CGAL15Verbose_ostreamlsIA34_cEERS0_RKT_.exit
 
 305:                                              ; preds = %301
   %306 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.55, i64 noundef 33)
@@ -4119,7 +4119,7 @@ _ZN4CGAL15Verbose_ostreamlsIA34_cEERS0_RKT_.exit: ; preds = %301, %_ZSt4endlIcSt
   %327 = load ptr, ptr %0, align 8, !tbaa !62
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 48
   %329 = load i64, ptr %328, align 8, !tbaa !69
-  %330 = icmp eq i64 %.0404485745769774792799, %329
+  %330 = icmp eq i64 %.0404485770794799817824, %329
   br i1 %330, label %331, label %.critedge115.thread
 
 331:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsIA34_cEERS0_RKT_.exit
@@ -4129,7 +4129,7 @@ _ZN4CGAL15Verbose_ostreamlsIA34_cEERS0_RKT_.exit: ; preds = %301, %_ZSt4endlIcSt
 .critedge111:                                     ; preds = %331
   %333 = getelementptr inbounds nuw i8, ptr %327, i64 80
   %334 = load i64, ptr %333, align 8, !tbaa !177
-  %335 = icmp eq i64 %.089476747768776791801, %334
+  %335 = icmp eq i64 %.089476772793801816826, %334
   br i1 %335, label %.lr.ph531, label %.critedge115.thread.thread
 
 .lr.ph531:                                        ; preds = %331, %.critedge111
@@ -4137,20 +4137,20 @@ _ZN4CGAL15Verbose_ostreamlsIA34_cEERS0_RKT_.exit: ; preds = %301, %_ZSt4endlIcSt
   %.in = getelementptr inbounds nuw i8, ptr %327, i64 16
   %337 = load ptr, ptr %.in, align 8, !tbaa !83
   %338 = icmp sgt i32 %2, 1
-  %.sroa.0340.0530.in1002 = getelementptr inbounds nuw i8, ptr %337, i64 40
-  %.sroa.0340.05301003 = load ptr, ptr %.sroa.0340.0530.in1002, align 8, !tbaa !94
-  %.not4281004 = icmp eq ptr %.sroa.0340.05301003, %337
-  br i1 %.not4281004, label %.critedge3, label %.lr.ph1008
+  %.sroa.0340.0530.in1027 = getelementptr inbounds nuw i8, ptr %337, i64 40
+  %.sroa.0340.05301028 = load ptr, ptr %.sroa.0340.0530.in1027, align 8, !tbaa !94
+  %.not4281029 = icmp eq ptr %.sroa.0340.05301028, %337
+  br i1 %.not4281029, label %.critedge3, label %.lr.ph1033
 
-.lr.ph1008:                                       ; preds = %.lr.ph531, %.critedge7
-  %.sroa.0340.05301007 = phi ptr [ %.sroa.0340.0530, %.critedge7 ], [ %.sroa.0340.05301003, %.lr.ph531 ]
-  %.04115281006 = phi i64 [ %439, %.critedge7 ], [ 0, %.lr.ph531 ]
-  %.14055291005 = phi i64 [ %.2406, %.critedge7 ], [ 0, %.lr.ph531 ]
+.lr.ph1033:                                       ; preds = %.lr.ph531, %.critedge7
+  %.sroa.0340.05301032 = phi ptr [ %.sroa.0340.0530, %.critedge7 ], [ %.sroa.0340.05301028, %.lr.ph531 ]
+  %.04115281031 = phi i64 [ %439, %.critedge7 ], [ 0, %.lr.ph531 ]
+  %.14055291030 = phi i64 [ %.2406, %.critedge7 ], [ 0, %.lr.ph531 ]
   br i1 %1, label %339, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit152
 
-339:                                              ; preds = %.lr.ph1008
+339:                                              ; preds = %.lr.ph1033
   %340 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.56, i64 noundef 7)
-  %341 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %.04115281006)
+  %341 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %.04115281031)
   %342 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
   %343 = getelementptr i8, ptr %342, i64 -24
   %344 = load i64, ptr %343, align 8
@@ -4189,15 +4189,15 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit246: ; preds = %3
   %360 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %359)
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit152
 
-_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit152:    ; preds = %.lr.ph1008, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit246
-  %.sroa.0.0.copyload.i.i.i153 = load ptr, ptr %.sroa.0340.05301007, align 8, !tbaa !54
+_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit152:    ; preds = %.lr.ph1033, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit246
+  %.sroa.0.0.copyload.i.i.i153 = load ptr, ptr %.sroa.0340.05301032, align 8, !tbaa !54
   %.not429 = icmp eq ptr %.sroa.0.0.copyload.i.i.i153, null
   br i1 %.not429, label %.thread, label %361
 
 361:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit152
   %362 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i153, i64 24
   %.sroa.0.0.copyload.i.i.i155 = load ptr, ptr %362, align 8, !tbaa !53
-  %363 = icmp eq ptr %.sroa.0.0.copyload.i.i.i155, %.sroa.0340.05301007
+  %363 = icmp eq ptr %.sroa.0.0.copyload.i.i.i155, %.sroa.0340.05301032
   br i1 %363, label %385, label %.thread
 
 .thread:                                          ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit152, %361
@@ -4241,7 +4241,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit251: ; preds = %3
   %.0.i.i.i250 = phi i8 [ %377, %375 ], [ %382, %378 ]
   %383 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i250)
   %384 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %383)
-  br i1 %336, label %.thread839, label %.sink.split
+  br i1 %336, label %.thread864, label %.sink.split
 
 385:                                              ; preds = %361
   br i1 %338, label %.preheader435, label %.critedge7
@@ -4251,7 +4251,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit251: ; preds = %3
 
 _ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit159.us: ; preds = %.preheader435, %.critedge113.us
   %.sroa.0329.0.us = phi ptr [ %.sroa.0.0.copyload.i162.us, %.critedge113.us ], [ %.sroa.0.0.copyload.i.i.i153, %.preheader435 ]
-  %.3407.us = phi i64 [ %410, %.critedge113.us ], [ %.14055291005, %.preheader435 ]
+  %.3407.us = phi i64 [ %410, %.critedge113.us ], [ %.14055291030, %.preheader435 ]
   %386 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.58, i64 noundef 13)
   %387 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %.3407.us)
   %388 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
@@ -4308,7 +4308,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit256.us: ; preds =
 
 _ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit: ; preds = %.preheader435.split.split.split, %.critedge113
   %.sroa.0329.0 = phi ptr [ %.sroa.0.0.copyload.i162, %.critedge113 ], [ %.sroa.0.0.copyload.i.i.i153, %.preheader435.split.split.split ]
-  %.3407 = phi i64 [ %437, %.critedge113 ], [ %.14055291005, %.preheader435.split.split.split ]
+  %.3407 = phi i64 [ %437, %.critedge113 ], [ %.14055291030, %.preheader435.split.split.split ]
   %415 = icmp ult i64 %.3407, %414
   br i1 %415, label %.critedge113, label %.split500.us
 
@@ -4357,7 +4357,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit261: ; preds = %4
   %.0.i.i.i260 = phi i8 [ %429, %427 ], [ %434, %430 ]
   %435 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i260)
   %436 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %435)
-  br i1 %336, label %.thread839, label %.sink.split
+  br i1 %336, label %.thread864, label %.sink.split
 
 .critedge113:                                     ; preds = %_ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit
   %437 = add i64 %.3407, 1
@@ -4368,12 +4368,12 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit261: ; preds = %4
   br i1 %.not434, label %.critedge7, label %_ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit, !llvm.loop !180
 
 .critedge7:                                       ; preds = %.critedge113, %.critedge113.us, %385
-  %.2406 = phi i64 [ %.14055291005, %385 ], [ %410, %.critedge113.us ], [ %437, %.critedge113 ]
-  %439 = add i64 %.04115281006, 1
-  %.sroa.0340.0530.in = getelementptr inbounds nuw i8, ptr %.sroa.0340.05301007, i64 40
+  %.2406 = phi i64 [ %.14055291030, %385 ], [ %410, %.critedge113.us ], [ %437, %.critedge113 ]
+  %439 = add i64 %.04115281031, 1
+  %.sroa.0340.0530.in = getelementptr inbounds nuw i8, ptr %.sroa.0340.05301032, i64 40
   %.sroa.0340.0530 = load ptr, ptr %.sroa.0340.0530.in, align 8, !tbaa !94
   %.not428 = icmp eq ptr %.sroa.0340.0530, %337
-  br i1 %.not428, label %.critedge3, label %.lr.ph1008, !llvm.loop !181
+  br i1 %.not428, label %.critedge3, label %.lr.ph1033, !llvm.loop !181
 
 .critedge3:                                       ; preds = %.critedge7, %.lr.ph531
   %.1405529.lcssa = phi i64 [ 0, %.lr.ph531 ], [ %.2406, %.critedge7 ]
@@ -4382,8 +4382,8 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit261: ; preds = %4
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 24
   %442 = load i64, ptr %441, align 8, !tbaa !74
   %.not98 = icmp ne i64 %.0411528.lcssa, %442
-  %brmerge932.not = and i1 %.not98, %1
-  br i1 %brmerge932.not, label %443, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit165
+  %brmerge957.not = and i1 %.not98, %1
+  br i1 %brmerge957.not, label %443, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit165
 
 443:                                              ; preds = %.critedge3
   %444 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.60, i64 noundef 25)
@@ -4433,8 +4433,8 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit165:    ; preds = %.critedge3, %_ZSt4e
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 48
   %467 = load i64, ptr %466, align 8, !tbaa !69
   %.not99 = icmp ne i64 %.1405529.lcssa, %467
-  %brmerge934.not = and i1 %.not99, %1
-  br i1 %brmerge934.not, label %468, label %_ZN4CGAL15Verbose_ostreamlsIA40_cEERS0_RKT_.exit166
+  %brmerge959.not = and i1 %.not99, %1
+  br i1 %brmerge959.not, label %468, label %_ZN4CGAL15Verbose_ostreamlsIA40_cEERS0_RKT_.exit166
 
 468:                                              ; preds = %464
   %469 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.61, i64 noundef 39)
@@ -4488,8 +4488,8 @@ _ZN4CGAL15Verbose_ostreamlsIA40_cEERS0_RKT_.exit166: ; preds = %464, %_ZN4CGAL15
   br i1 %494, label %.lr.ph565, label %.critedge115
 
 .critedge115.thread:                              ; preds = %_ZN4CGAL15Verbose_ostreamlsIA40_cEERS0_RKT_.exit166, %.thread, %.split500.us, %_ZN4CGAL15Verbose_ostreamlsIA34_cEERS0_RKT_.exit
-  %.ph827 = phi i1 [ %336, %.split500.us ], [ %336, %.thread ], [ %336, %_ZN4CGAL15Verbose_ostreamlsIA40_cEERS0_RKT_.exit166 ], [ %300, %_ZN4CGAL15Verbose_ostreamlsIA34_cEERS0_RKT_.exit ]
-  br i1 %.ph827, label %.critedge115.thread.thread, label %691
+  %.ph852 = phi i1 [ %336, %.split500.us ], [ %336, %.thread ], [ %336, %_ZN4CGAL15Verbose_ostreamlsIA40_cEERS0_RKT_.exit166 ], [ %300, %_ZN4CGAL15Verbose_ostreamlsIA34_cEERS0_RKT_.exit ]
+  br i1 %.ph852, label %.critedge115.thread.thread, label %691
 
 .critedge115:                                     ; preds = %493
   %495 = getelementptr inbounds nuw i8, ptr %489, i64 48
@@ -4498,25 +4498,25 @@ _ZN4CGAL15Verbose_ostreamlsIA40_cEERS0_RKT_.exit166: ; preds = %464, %_ZN4CGAL15
   br i1 %497, label %.lr.ph565, label %.critedge119
 
 .lr.ph565:                                        ; preds = %493, %.critedge115
-  %.pn943 = load ptr, ptr %0, align 8, !tbaa !62
-  %.in942 = getelementptr inbounds nuw i8, ptr %.pn943, i64 64
-  %498 = load ptr, ptr %.in942, align 8, !tbaa !145
-  %499 = getelementptr inbounds nuw i8, ptr %.sroa.0378.0467749767778790803, i64 32
+  %.pn968 = load ptr, ptr %0, align 8, !tbaa !62
+  %.in967 = getelementptr inbounds nuw i8, ptr %.pn968, i64 64
+  %498 = load ptr, ptr %.in967, align 8, !tbaa !145
+  %499 = getelementptr inbounds nuw i8, ptr %.sroa.0378.0467774792803815828, i64 32
   %500 = icmp slt i32 %2, 3
-  %.sroa.0323.0564.in1011 = getelementptr inbounds nuw i8, ptr %498, i64 16
-  %.sroa.0323.05641012 = load ptr, ptr %.sroa.0323.0564.in1011, align 8, !tbaa !146
-  %.not4311013 = icmp eq ptr %.sroa.0323.05641012, %498
-  br i1 %.not4311013, label %.critedge11, label %.lr.ph1017
+  %.sroa.0323.0564.in1036 = getelementptr inbounds nuw i8, ptr %498, i64 16
+  %.sroa.0323.05641037 = load ptr, ptr %.sroa.0323.0564.in1036, align 8, !tbaa !146
+  %.not4311038 = icmp eq ptr %.sroa.0323.05641037, %498
+  br i1 %.not4311038, label %.critedge11, label %.lr.ph1042
 
-.lr.ph1017:                                       ; preds = %.lr.ph565, %.critedge15
-  %.sroa.0323.05641016 = phi ptr [ %.sroa.0323.0564, %.critedge15 ], [ %.sroa.0323.05641012, %.lr.ph565 ]
-  %.04125621015 = phi i64 [ %605, %.critedge15 ], [ 0, %.lr.ph565 ]
-  %.44085631014 = phi i64 [ %.5409, %.critedge15 ], [ 0, %.lr.ph565 ]
+.lr.ph1042:                                       ; preds = %.lr.ph565, %.critedge15
+  %.sroa.0323.05641041 = phi ptr [ %.sroa.0323.0564, %.critedge15 ], [ %.sroa.0323.05641037, %.lr.ph565 ]
+  %.04125621040 = phi i64 [ %605, %.critedge15 ], [ 0, %.lr.ph565 ]
+  %.44085631039 = phi i64 [ %.5409, %.critedge15 ], [ 0, %.lr.ph565 ]
   br i1 %1, label %501, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit169
 
-501:                                              ; preds = %.lr.ph1017
+501:                                              ; preds = %.lr.ph1042
   %502 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.62, i64 noundef 5)
-  %503 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %.04125621015)
+  %503 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %.04125621040)
   %504 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
   %505 = getelementptr i8, ptr %504, i64 -24
   %506 = load i64, ptr %505, align 8
@@ -4555,15 +4555,15 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit276: ; preds = %5
   %522 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %521)
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit169
 
-_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit169:    ; preds = %.lr.ph1017, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit276
-  %.sroa.0.0.copyload.i.i.i170 = load ptr, ptr %.sroa.0323.05641016, align 8, !tbaa !54
+_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit169:    ; preds = %.lr.ph1042, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit276
+  %.sroa.0.0.copyload.i.i.i170 = load ptr, ptr %.sroa.0323.05641041, align 8, !tbaa !54
   %.not432 = icmp eq ptr %.sroa.0.0.copyload.i.i.i170, null
   br i1 %.not432, label %526, label %523
 
 523:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit169
   %524 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i170, i64 32
   %.sroa.0.0.copyload.i.i.i172 = load ptr, ptr %524, align 8, !tbaa !55
-  %525 = icmp eq ptr %.sroa.0.0.copyload.i.i.i172, %.sroa.0323.05641016
+  %525 = icmp eq ptr %.sroa.0.0.copyload.i.i.i172, %.sroa.0323.05641041
   br i1 %525, label %551, label %529
 
 526:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit169
@@ -4612,7 +4612,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit281: ; preds = %5
   %.0.i.i.i280 = phi i8 [ %543, %541 ], [ %548, %544 ]
   %549 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i280)
   %550 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %549)
-  br i1 %336, label %.thread839, label %.sink.split
+  br i1 %336, label %.thread864, label %.sink.split
 
 551:                                              ; preds = %523
   br i1 %500, label %.critedge15, label %.preheader
@@ -4622,7 +4622,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit281: ; preds = %5
 
 _ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit177.us: ; preds = %.preheader, %.critedge117.us
   %.sroa.0313.0.us = phi ptr [ %.sroa.0.0.copyload.i179.us, %.critedge117.us ], [ %.sroa.0.0.copyload.i.i.i170, %.preheader ]
-  %.6410.us = phi i64 [ %576, %.critedge117.us ], [ %.44085631014, %.preheader ]
+  %.6410.us = phi i64 [ %576, %.critedge117.us ], [ %.44085631039, %.preheader ]
   %552 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.58, i64 noundef 13)
   %553 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %.6410.us)
   %554 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
@@ -4678,7 +4678,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit286.us: ; preds =
 
 _ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit176: ; preds = %.preheader.split.split.split, %.critedge117
   %.sroa.0313.0 = phi ptr [ %.sroa.0.0.copyload.i179, %.critedge117 ], [ %.sroa.0.0.copyload.i.i.i170, %.preheader.split.split.split ]
-  %.6410 = phi i64 [ %603, %.critedge117 ], [ %.44085631014, %.preheader.split.split.split ]
+  %.6410 = phi i64 [ %603, %.critedge117 ], [ %.44085631039, %.preheader.split.split.split ]
   %581 = icmp ult i64 %.6410, %580
   br i1 %581, label %.critedge117, label %.split534.us
 
@@ -4727,7 +4727,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit291: ; preds = %5
   %.0.i.i.i290 = phi i8 [ %595, %593 ], [ %600, %596 ]
   %601 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i290)
   %602 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %601)
-  br i1 %336, label %.thread839, label %.sink.split
+  br i1 %336, label %.thread864, label %.sink.split
 
 .critedge117:                                     ; preds = %_ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit176
   %603 = add i64 %.6410, 1
@@ -4737,12 +4737,12 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit291: ; preds = %5
   br i1 %.not433, label %.critedge15, label %_ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit176, !llvm.loop !182
 
 .critedge15:                                      ; preds = %.critedge117, %.critedge117.us, %526, %551
-  %.5409 = phi i64 [ %.44085631014, %551 ], [ %.44085631014, %526 ], [ %576, %.critedge117.us ], [ %603, %.critedge117 ]
-  %605 = add i64 %.04125621015, 1
-  %.sroa.0323.0564.in = getelementptr inbounds nuw i8, ptr %.sroa.0323.05641016, i64 16
+  %.5409 = phi i64 [ %.44085631039, %551 ], [ %.44085631039, %526 ], [ %576, %.critedge117.us ], [ %603, %.critedge117 ]
+  %605 = add i64 %.04125621040, 1
+  %.sroa.0323.0564.in = getelementptr inbounds nuw i8, ptr %.sroa.0323.05641041, i64 16
   %.sroa.0323.0564 = load ptr, ptr %.sroa.0323.0564.in, align 8, !tbaa !146
   %.not431 = icmp eq ptr %.sroa.0323.0564, %498
-  br i1 %.not431, label %.critedge11, label %.lr.ph1017, !llvm.loop !183
+  br i1 %.not431, label %.critedge11, label %.lr.ph1042, !llvm.loop !183
 
 .critedge11:                                      ; preds = %.critedge15, %.lr.ph565
   %.4408563.lcssa = phi i64 [ 0, %.lr.ph565 ], [ %.5409, %.critedge15 ]
@@ -4751,8 +4751,8 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit291: ; preds = %5
   %607 = getelementptr inbounds nuw i8, ptr %606, i64 72
   %608 = load i64, ptr %607, align 8, !tbaa !77
   %.not100 = icmp ne i64 %.0412562.lcssa, %608
-  %brmerge936.not = and i1 %.not100, %1
-  br i1 %brmerge936.not, label %609, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit182
+  %brmerge961.not = and i1 %.not100, %1
+  br i1 %brmerge961.not, label %609, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit182
 
 609:                                              ; preds = %.critedge11
   %610 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.65, i64 noundef 22)
@@ -4799,13 +4799,13 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit182:    ; preds = %.critedge11, %_ZSt4
   br i1 %630, label %631, label %_ZN4CGAL15Verbose_ostreamlsIA37_cEERS0_RKT_.exit183
 
 631:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit182
-  %632 = add i64 %.4408563.lcssa, %.089476747768776791801
+  %632 = add i64 %.4408563.lcssa, %.089476772793801816826
   %633 = load ptr, ptr %0, align 8, !tbaa !62
   %634 = getelementptr inbounds nuw i8, ptr %633, i64 48
   %635 = load i64, ptr %634, align 8, !tbaa !69
   %.not101 = icmp ne i64 %632, %635
-  %brmerge938.not = and i1 %.not101, %1
-  br i1 %brmerge938.not, label %636, label %_ZN4CGAL15Verbose_ostreamlsIA37_cEERS0_RKT_.exit183
+  %brmerge963.not = and i1 %.not101, %1
+  br i1 %brmerge963.not, label %636, label %_ZN4CGAL15Verbose_ostreamlsIA37_cEERS0_RKT_.exit183
 
 636:                                              ; preds = %631
   %637 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.66, i64 noundef 36)
@@ -4852,12 +4852,12 @@ _ZN4CGAL15Verbose_ostreamlsIA37_cEERS0_RKT_.exit183: ; preds = %631, %_ZN4CGAL15
   %658 = getelementptr inbounds nuw i8, ptr %657, i64 72
   %659 = load i64, ptr %658, align 8, !tbaa !77
   %660 = icmp ne i64 %.0412562.lcssa, %659
-  %brmerge940 = or i1 %660, %500
+  %brmerge965 = or i1 %660, %500
   %not. = xor i1 %660, true
-  br i1 %brmerge940, label %.critedge119, label %661
+  br i1 %brmerge965, label %.critedge119, label %661
 
 661:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsIA37_cEERS0_RKT_.exit183
-  %662 = add i64 %.4408563.lcssa, %.089476747768776791801
+  %662 = add i64 %.4408563.lcssa, %.089476772793801816826
   %663 = getelementptr inbounds nuw i8, ptr %657, i64 48
   %664 = load i64, ptr %663, align 8, !tbaa !69
   %665 = icmp eq i64 %662, %664
@@ -4869,9 +4869,9 @@ _ZN4CGAL15Verbose_ostreamlsIA37_cEERS0_RKT_.exit183: ; preds = %631, %_ZN4CGAL15
 
 .critedge115.thread.thread:                       ; preds = %.critedge111, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit150, %.critedge115.thread, %661, %.critedge119
   %667 = phi i1 [ %665, %661 ], [ %666, %.critedge119 ], [ false, %.critedge115.thread ], [ false, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit150 ], [ false, %.critedge111 ]
-  br i1 %1, label %.thread839, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit185
+  br i1 %1, label %.thread864, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit185
 
-.thread839:                                       ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit261, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit251, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit281, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit291, %.critedge115.thread.thread
+.thread864:                                       ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit261, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit251, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit281, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit291, %.critedge115.thread.thread
   %668 = phi i1 [ %667, %.critedge115.thread.thread ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit291 ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit281 ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit251 ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit261 ]
   %669 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.67, i64 noundef 52)
   %670 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
@@ -4883,11 +4883,11 @@ _ZN4CGAL15Verbose_ostreamlsIA37_cEERS0_RKT_.exit183: ; preds = %631, %_ZN4CGAL15
   %.not.i.i.i302 = icmp eq ptr %675, null
   br i1 %.not.i.i.i302, label %676, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i303
 
-676:                                              ; preds = %.thread839
+676:                                              ; preds = %.thread864
   tail call void @_ZSt16__throw_bad_castv() #19
   unreachable
 
-_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i303: ; preds = %.thread839
+_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i303: ; preds = %.thread864
   %677 = getelementptr inbounds nuw i8, ptr %675, i64 56
   %678 = load i8, ptr %677, align 8, !tbaa !125
   %.not.i1.i.i304 = icmp eq i8 %678, 0
@@ -4937,7 +4937,7 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit185:    ; preds = %.critedge115.thread
 
 696:                                              ; preds = %694, %.sink.split, %692
   %697 = phi ptr [ @.str.42, %692 ], [ @.str.43, %694 ], [ @.str.43, %.sink.split ]
-  %.13844852857 = phi i1 [ true, %692 ], [ false, %694 ], [ false, %.sink.split ]
+  %.13869877882 = phi i1 [ true, %692 ], [ false, %694 ], [ false, %.sink.split ]
   %698 = phi i64 [ 6, %692 ], [ 10, %694 ], [ 10, %.sink.split ]
   %699 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull %697, i64 noundef %698)
   %700 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
@@ -4979,8 +4979,8 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit311: ; preds = %7
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit186
 
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit186:    ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit185, %691, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit311
-  %.13843848861 = phi i1 [ %.13844852857, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit311 ], [ %cond.fr, %691 ], [ false, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit185 ]
-  ret i1 %.13843848861
+  %.13868873886 = phi i1 [ %.13869877882, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit311 ], [ %cond.fr, %691 ], [ false, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit185 ]
+  ret i1 %.13868873886
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #11
@@ -5366,7 +5366,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit30: ; preds = %18
 
 190:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit16, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit30
   %191 = phi ptr [ @.str.43, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit30 ], [ @.str.42, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit16 ]
-  %.0126174176 = phi i1 [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit30 ], [ true, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit16 ]
+  %.0126184186 = phi i1 [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit30 ], [ true, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit16 ]
   %192 = phi i64 [ 10, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit30 ], [ 6, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit16 ]
   %193 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.77, i64 noundef 89)
   %194 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull %191, i64 noundef %192)
@@ -5409,7 +5409,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit55: ; preds = %20
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit20
 
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit20:     ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit16.thread, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit7.thread, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit55
-  %.0125133139142 = phi i1 [ %.0126174176, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit55 ], [ false, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit7.thread ], [ %.not150, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit16.thread ]
+  %.0125133139142 = phi i1 [ %.0126184186, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit55 ], [ false, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit7.thread ], [ %.not150, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit16.thread ]
   ret i1 %.0125133139142
 }
 

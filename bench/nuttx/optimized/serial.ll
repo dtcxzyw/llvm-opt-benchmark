@@ -459,7 +459,7 @@ select.unfold:                                    ; preds = %47, %42
   %storemerge = phi i8 [ %85, %84 ], [ 2, %54 ]
   store i8 %storemerge, ptr %22, align 1
   %56 = icmp ult i64 %51, %2
-  br i1 %56, label %.lr.ph, label %.loopexit.loopexit295.split.loop.exit328, !llvm.loop !11
+  br i1 %56, label %.lr.ph, label %.loopexit.loopexit304.split.loop.exit337, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer.backedge
   %.075.ph233 = phi i64 [ %.075.ph.ph241, %.lr.ph.lr.ph ], [ %51, %.outer.backedge ]
@@ -843,18 +843,18 @@ uart_putxmitchar.exit:                            ; preds = %.split178, %up_irq_
   %211 = icmp ult i64 %.2, %2
   br i1 %211, label %.lr.ph.lr.ph, label %.loopexit, !llvm.loop !11
 
-.loopexit.loopexit295.split.loop.exit328:         ; preds = %.outer.backedge
+.loopexit.loopexit304.split.loop.exit337:         ; preds = %.outer.backedge
   %212 = add nuw i64 %.075.ph.ph241, 1
   %umax.le = call i64 @llvm.umax.i64(i64 %2, i64 %212)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %uart_putxmitchar.exit, %.lr.ph.split.us.split.us, %174, %177, %60, %.loopexit.loopexit295.split.loop.exit328
-  %.073.ph.ph164 = phi i1 [ %.073.ph.ph242, %.loopexit.loopexit295.split.loop.exit328 ], [ %.073.ph.ph242, %60 ], [ %.073.ph.ph242, %177 ], [ %.073.ph.ph242, %174 ], [ %.073.ph.ph242, %.lr.ph.split.us.split.us ], [ %.174, %uart_putxmitchar.exit ]
-  %.176 = phi i64 [ %umax.le, %.loopexit.loopexit295.split.loop.exit328 ], [ %.075.ph233, %60 ], [ -77, %174 ], [ -11, %177 ], [ %.075.ph233, %.lr.ph.split.us.split.us ], [ %.2, %uart_putxmitchar.exit ]
+.loopexit:                                        ; preds = %uart_putxmitchar.exit, %.lr.ph.split.us.split.us, %174, %177, %60, %.loopexit.loopexit304.split.loop.exit337
+  %.073.ph.ph164 = phi i1 [ %.073.ph.ph242, %.loopexit.loopexit304.split.loop.exit337 ], [ %.073.ph.ph242, %60 ], [ %.073.ph.ph242, %177 ], [ %.073.ph.ph242, %174 ], [ %.073.ph.ph242, %.lr.ph.split.us.split.us ], [ %.174, %uart_putxmitchar.exit ]
+  %.176 = phi i64 [ %umax.le, %.loopexit.loopexit304.split.loop.exit337 ], [ %.075.ph233, %60 ], [ -77, %174 ], [ -11, %177 ], [ %.075.ph233, %.lr.ph.split.us.split.us ], [ %.2, %uart_putxmitchar.exit ]
   br i1 %.073.ph.ph164, label %213, label %.loopexit.thread
 
 213:                                              ; preds = %202, %.loopexit
-  %.176290 = phi i64 [ %spec.select95, %202 ], [ %.176, %.loopexit ]
+  %.176299 = phi i64 [ %spec.select95, %202 ], [ %.176, %.loopexit ]
   %214 = getelementptr inbounds nuw i8, ptr %11, i64 272
   %215 = load ptr, ptr %214, align 8
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 72
@@ -863,7 +863,7 @@ uart_putxmitchar.exit:                            ; preds = %.split178, %up_irq_
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader, %202, %213, %.loopexit
-  %.176289 = phi i64 [ %.176290, %213 ], [ %.176, %.loopexit ], [ %spec.select95, %202 ], [ 0, %.preheader ]
+  %.176298 = phi i64 [ %.176299, %213 ], [ %.176, %.loopexit ], [ %spec.select95, %202 ], [ 0, %.preheader ]
   %218 = getelementptr inbounds nuw i8, ptr %11, i64 272
   %219 = load ptr, ptr %218, align 8
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 48
@@ -873,7 +873,7 @@ uart_putxmitchar.exit:                            ; preds = %.split178, %up_irq_
   br label %223
 
 223:                                              ; preds = %.loopexit.thread, %29
-  %.077 = phi i64 [ %30, %29 ], [ %.176289, %.loopexit.thread ]
+  %.077 = phi i64 [ %30, %29 ], [ %.176298, %.loopexit.thread ]
   ret i64 %.077
 }
 

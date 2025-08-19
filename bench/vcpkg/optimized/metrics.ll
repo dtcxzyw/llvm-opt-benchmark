@@ -10897,18 +10897,18 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt8_Rb_treeIN5vcpkg10StringViewES1
   br i1 %7, label %._crit_edge.thread.i, label %13
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %2
-  %.025.lcssa34.i = phi ptr [ %.02630.i, %._crit_edge.i ], [ %4, %2 ]
+  %.025.lcssa35.i = phi ptr [ %.02630.i, %._crit_edge.i ], [ %4, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !215
-  %10 = icmp eq ptr %.025.lcssa34.i, %9
+  %10 = icmp eq ptr %.025.lcssa35.i, %9
   br i1 %10, label %select.unfold, label %11
 
 11:                                               ; preds = %._crit_edge.thread.i
-  %12 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa34.i) #22
+  %12 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa35.i) #22
   br label %13
 
 13:                                               ; preds = %11, %._crit_edge.i
-  %.025.lcssa35.i = phi ptr [ %.025.lcssa34.i, %11 ], [ %.02630.i, %._crit_edge.i ]
+  %.025.lcssa34.i = phi ptr [ %.025.lcssa35.i, %11 ], [ %.02630.i, %._crit_edge.i ]
   %.sroa.011.0.i = phi ptr [ %12, %11 ], [ %.02630.i, %._crit_edge.i ]
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.011.0.i, i64 32
   %.sroa.01.0.copyload.i5.i = load ptr, ptr %14, align 8, !tbaa !46
@@ -10921,7 +10921,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt8_Rb_treeIN5vcpkg10StringViewES1
   br i1 %15, label %select.unfold, label %26
 
 select.unfold:                                    ; preds = %13, %._crit_edge.thread.i
-  %.sroa.4.0.i.ph = phi ptr [ %.025.lcssa34.i, %._crit_edge.thread.i ], [ %.025.lcssa35.i, %13 ]
+  %.sroa.4.0.i.ph = phi ptr [ %.025.lcssa35.i, %._crit_edge.thread.i ], [ %.025.lcssa34.i, %13 ]
   %16 = icmp eq ptr %.sroa.4.0.i.ph, %4
   br i1 %16, label %_ZNSt8_Rb_treeIN5vcpkg10StringViewES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit, label %17
 

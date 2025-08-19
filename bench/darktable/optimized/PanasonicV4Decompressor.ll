@@ -877,7 +877,7 @@ _ZNSt5arrayIiLm2EE4fillERKi.exit:
   br i1 %or.cond75, label %118, label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 118:                                              ; preds = %109
-  %119 = trunc nuw i64 %indvars.iv to i32
+  %119 = trunc nuw nsw i64 %indvars.iv to i32
   %120 = or i32 %37, %119
   %121 = load ptr, ptr %38, align 8, !tbaa !171
   %122 = load ptr, ptr %39, align 8, !tbaa !172

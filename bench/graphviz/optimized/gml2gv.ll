@@ -208,9 +208,9 @@ initargs.exit:                                    ; preds = %52, %54
   store i32 %77, ptr @getFile.cnt, align 4, !tbaa !4
   %78 = call noalias ptr @fopen(ptr noundef nonnull %75, ptr noundef nonnull @.str.7)
   %.not6.i = icmp eq ptr %78, null
-  br i1 %.not6.i, label %79, label %getFile.exit.thread55
+  br i1 %.not6.i, label %79, label %getFile.exit.thread69
 
-getFile.exit.thread55:                            ; preds = %.lr.ph.i
+getFile.exit.thread69:                            ; preds = %.lr.ph.i
   store ptr %78, ptr @getFile.savef, align 8, !tbaa !11
   br label %.preheader.preheader
 
@@ -241,8 +241,8 @@ getFile.exit:                                     ; preds = %61
   %.not = icmp eq ptr %93, null
   br i1 %.not, label %.loopexit37, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %getFile.exit.thread55, %getFile.exit
-  %.0.i58 = phi ptr [ %78, %getFile.exit.thread55 ], [ %93, %getFile.exit ]
+.preheader.preheader:                             ; preds = %getFile.exit.thread69, %getFile.exit
+  %.0.i72 = phi ptr [ %78, %getFile.exit.thread69 ], [ %93, %getFile.exit ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %149
@@ -376,7 +376,7 @@ agxbclear.exit.thread.i.i:                        ; preds = %agxbputc.exit.i.i, 
 
 nameOf.exit:                                      ; preds = %.preheader, %agxbclear.exit.thread.i.i, %134
   %.0.i23 = phi ptr [ %94, %.preheader ], [ %135, %134 ], [ %4, %agxbclear.exit.thread.i.i ]
-  %136 = call ptr @gml_to_gv(ptr noundef %.0.i23, ptr noundef nonnull %.0.i58, i32 noundef %.0, ptr noundef nonnull %3) #19
+  %136 = call ptr @gml_to_gv(ptr noundef %.0.i23, ptr noundef nonnull %.0.i72, i32 noundef %.0, ptr noundef nonnull %3) #19
   %.not18 = icmp eq ptr %136, null
   br i1 %.not18, label %.loopexit, label %137, !llvm.loop !19
 

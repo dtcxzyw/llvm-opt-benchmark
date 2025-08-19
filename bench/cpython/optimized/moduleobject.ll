@@ -1687,8 +1687,8 @@ check_api_version.exit:                           ; preds = %22, %21, %21
   br i1 %65, label %check_api_version.exit.thread, label %72
 
 .critedge.thread:                                 ; preds = %.critedge.loopexit, %31, %.critedge
-  %.067.lcssa166 = phi i1 [ %59, %.critedge ], [ true, %31 ], [ %59, %.critedge.loopexit ]
-  %.076.lcssa164 = phi ptr [ %.076.lcssa.ph, %.critedge ], [ null, %31 ], [ %.076.lcssa.ph, %.critedge.loopexit ]
+  %.067.lcssa177 = phi i1 [ %59, %.critedge ], [ true, %31 ], [ %59, %.critedge.loopexit ]
+  %.076.lcssa175 = phi ptr [ %.076.lcssa.ph, %.critedge ], [ null, %31 ], [ %.076.lcssa.ph, %.critedge.loopexit ]
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %67 = load i32, ptr %66, align 8, !tbaa !200
   %.not91 = icmp eq i32 %67, 0
@@ -1703,13 +1703,13 @@ check_api_version.exit:                           ; preds = %22, %21, %21
   br i1 %71, label %check_api_version.exit.thread, label %72
 
 72:                                               ; preds = %.critedge, %.critedge.thread, %69, %61, %63
-  %.067.lcssa165 = phi i1 [ %59, %.critedge ], [ %.067.lcssa166, %.critedge.thread ], [ %.067.lcssa166, %69 ], [ %59, %61 ], [ %59, %63 ]
-  %.076.lcssa163 = phi ptr [ %.076.lcssa.ph, %.critedge ], [ %.076.lcssa164, %.critedge.thread ], [ %.076.lcssa164, %69 ], [ %.076.lcssa.ph, %61 ], [ %.076.lcssa.ph, %63 ]
-  %.not94 = icmp eq ptr %.076.lcssa163, null
+  %.067.lcssa176 = phi i1 [ %59, %.critedge ], [ %.067.lcssa177, %.critedge.thread ], [ %.067.lcssa177, %69 ], [ %59, %61 ], [ %59, %63 ]
+  %.076.lcssa174 = phi ptr [ %.076.lcssa.ph, %.critedge ], [ %.076.lcssa175, %.critedge.thread ], [ %.076.lcssa175, %69 ], [ %.076.lcssa.ph, %61 ], [ %.076.lcssa.ph, %63 ]
+  %.not94 = icmp eq ptr %.076.lcssa174, null
   br i1 %.not94, label %85, label %73
 
 73:                                               ; preds = %72
-  %74 = tail call ptr %.076.lcssa163(ptr noundef %1, ptr noundef %0) #8
+  %74 = tail call ptr %.076.lcssa174(ptr noundef %1, ptr noundef %0) #8
   %75 = icmp eq ptr %74, null
   %76 = tail call ptr @PyErr_Occurred() #8
   %.not105 = icmp eq ptr %76, null
@@ -1784,7 +1784,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %88, %PyObject_TypeC
   br label %check_api_version.exit.thread
 
 108:                                              ; preds = %102
-  br i1 %.067.lcssa165, label %112, label %109
+  br i1 %.067.lcssa176, label %112, label %109
 
 109:                                              ; preds = %108
   %110 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !24

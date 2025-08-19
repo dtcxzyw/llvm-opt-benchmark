@@ -388,13 +388,13 @@ define hidden range(i32 -1, -2147483648) i32 @fcgi_listen(ptr noundef %0, i32 no
 
 is_port_number.exit.thread:                       ; preds = %.loopexit118
   store i8 0, ptr %5, align 16, !tbaa !22
-  %.077124 = trunc i64 %24 to i16
+  %.077135 = trunc i64 %24 to i16
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %25, align 4
   store i16 2, ptr %6, align 4, !tbaa !22
-  %rev.i125 = tail call noundef i16 @llvm.bswap.i16(i16 %.077124)
+  %rev.i136 = tail call noundef i16 @llvm.bswap.i16(i16 %.077135)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i16 %rev.i125, ptr %26, align 2, !tbaa !22
+  store i16 %rev.i136, ptr %26, align 2, !tbaa !22
   br label %31
 
 is_port_number.exit:                              ; preds = %12
@@ -1940,21 +1940,21 @@ safe_read.exit162.thread.i:                       ; preds = %241, %safe_read.exi
 
 258:                                              ; preds = %252
   %259 = call fastcc ptr @fcgi_hash_set(ptr noundef nonnull %22, i32 noundef 1793, ptr noundef nonnull @.str.13, i32 noundef 9, ptr noundef nonnull @.str.14, i32 noundef 9)
-  br label %.preheader318
+  br label %.preheader343
 
 260:                                              ; preds = %252
   %261 = call fastcc ptr @fcgi_hash_set(ptr noundef nonnull %22, i32 noundef 1793, ptr noundef nonnull @.str.13, i32 noundef 9, ptr noundef nonnull @.str.15, i32 noundef 10)
-  br label %.preheader318
+  br label %.preheader343
 
 262:                                              ; preds = %252
   %263 = call fastcc ptr @fcgi_hash_set(ptr noundef nonnull %22, i32 noundef 1793, ptr noundef nonnull @.str.13, i32 noundef 9, ptr noundef nonnull @.str.16, i32 noundef 6)
-  br label %.preheader318
+  br label %.preheader343
 
-.preheader318:                                    ; preds = %262, %260, %258
+.preheader343:                                    ; preds = %262, %260, %258
   br label %264
 
-264:                                              ; preds = %.preheader318, %280
-  %.0.i163.i = phi i64 [ %.1.i166.i, %280 ], [ 0, %.preheader318 ]
+264:                                              ; preds = %.preheader343, %280
+  %.0.i163.i = phi i64 [ %.1.i166.i, %280 ], [ 0, %.preheader343 ]
   store i32 0, ptr %149, align 4, !tbaa !4
   %265 = load i32, ptr %8, align 8, !tbaa !40
   %266 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i163.i
@@ -3565,9 +3565,9 @@ fcgi_hash_strndup.exit57:                         ; preds = %fcgi_hash_strndup.e
   br label %91
 
 91:                                               ; preds = %fcgi_hash_strndup.exit57, %22
-  %.sink65 = phi ptr [ %39, %fcgi_hash_strndup.exit57 ], [ %.05361, %22 ]
+  %.sink66 = phi ptr [ %39, %fcgi_hash_strndup.exit57 ], [ %.05361, %22 ]
   %.sink = phi ptr [ %85, %fcgi_hash_strndup.exit57 ], [ %24, %22 ]
-  %92 = getelementptr inbounds nuw i8, ptr %.sink65, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %.sink66, i64 24
   store ptr %.sink, ptr %92, align 8, !tbaa !87
   ret ptr %.sink
 }

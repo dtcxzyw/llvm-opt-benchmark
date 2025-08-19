@@ -98,16 +98,16 @@ _ZnamRKN5clang10ASTContextEm.exit.i.i:            ; preds = %20
   br label %_ZSt18uninitialized_copyIPKmPmET0_T_S4_S3_.exit.i
 
 _ZSt18uninitialized_copyIPKmPmET0_T_S4_S3_.exit.i: ; preds = %_ZnamRKN5clang10ASTContextEm.exit.i.i, %_ZnamRKN5clang10ASTContextEm.exit.i.i.thread
-  %.0.i.i.i.i.i.i10 = phi ptr [ %40, %_ZnamRKN5clang10ASTContextEm.exit.i.i.thread ], [ %41, %_ZnamRKN5clang10ASTContextEm.exit.i.i ]
-  store ptr %.0.i.i.i.i.i.i10, ptr %15, align 8, !tbaa !44
-  store ptr %.0.i.i.i.i.i.i10, ptr %22, align 8, !tbaa !45
-  %42 = getelementptr inbounds nuw i64, ptr %.0.i.i.i.i.i.i10, i64 %18
+  %.0.i.i.i.i.i.i12 = phi ptr [ %40, %_ZnamRKN5clang10ASTContextEm.exit.i.i.thread ], [ %41, %_ZnamRKN5clang10ASTContextEm.exit.i.i ]
+  store ptr %.0.i.i.i.i.i.i12, ptr %15, align 8, !tbaa !44
+  store ptr %.0.i.i.i.i.i.i12, ptr %22, align 8, !tbaa !45
+  %42 = getelementptr inbounds nuw i64, ptr %.0.i.i.i.i.i.i12, i64 %18
   %.0.copyload.i.i.i.i9.i = load i64, ptr %21, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = and i64 %.0.copyload.i.i.i.i9.i, 7
   %45 = or i64 %44, %43
   store i64 %45, ptr %21, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i.i10, ptr align 8 %16, i64 %.idx, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i.i12, ptr align 8 %16, i64 %.idx, i1 false)
   %46 = load ptr, ptr %22, align 8, !tbaa !45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   store ptr %47, ptr %22, align 8, !tbaa !45

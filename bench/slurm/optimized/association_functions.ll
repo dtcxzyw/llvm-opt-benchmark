@@ -1205,12 +1205,12 @@ define dso_local void @sacctmgr_print_assoc_rec(ptr noundef %0, ptr noundef %1, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %65, %62
-  %.sink186 = phi ptr [ %64, %62 ], [ %66, %65 ]
-  store ptr %.sink186, ptr %5, align 8
+  %.sink191 = phi ptr [ %64, %62 ], [ %66, %65 ]
+  store ptr %.sink191, ptr %5, align 8
   br label %67
 
 67:                                               ; preds = %.sink.split, %60
-  %68 = phi ptr [ %61, %60 ], [ %.sink186, %.sink.split ]
+  %68 = phi ptr [ %61, %60 ], [ %.sink191, %.sink.split ]
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = zext i1 %3 to i32

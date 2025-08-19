@@ -627,30 +627,29 @@ define internal fastcc i32 @async_read_internal(ptr noundef readonly captures(no
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  br label %16
+  %16 = load ptr, ptr %4, align 8, !tbaa !9
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 240
+  %18 = load i32, ptr %17, align 8, !tbaa !35
+  %.not.i87 = icmp eq i32 %18, 0
+  br i1 %.not.i87, label %.lr.ph91, label %.thread
 
-16:                                               ; preds = %.lr.ph, %62
-  %.03867 = phi ptr [ %1, %.lr.ph ], [ %.3, %62 ]
-  %.03966 = phi i32 [ %2, %.lr.ph ], [ %.241, %62 ]
-  %.04265 = phi i32 [ 0, %.lr.ph ], [ %.345, %62 ]
-  %17 = load ptr, ptr %4, align 8, !tbaa !9
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 240
-  %19 = load i32, ptr %18, align 8, !tbaa !35
-  %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %20, label %.thread
-
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 248
+.lr.ph91:                                         ; preds = %.lr.ph, %62
+  %19 = phi ptr [ %66, %62 ], [ %17, %.lr.ph ]
+  %20 = phi ptr [ %65, %62 ], [ %16, %.lr.ph ]
+  %.0426590 = phi i32 [ %.345, %62 ], [ 0, %.lr.ph ]
+  %.0396689 = phi i32 [ %.241, %62 ], [ %2, %.lr.ph ]
+  %.0386788 = phi ptr [ %.3, %62 ], [ %1, %.lr.ph ]
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 248
   %22 = tail call i32 @ff_check_interrupt(ptr noundef nonnull %21) #7
   %.not6.i = icmp eq i32 %22, 0
   br i1 %.not6.i, label %async_check_interrupt.exit, label %23
 
-23:                                               ; preds = %20
-  store i32 1, ptr %18, align 8, !tbaa !35
+23:                                               ; preds = %.lr.ph91
+  store i32 1, ptr %19, align 8, !tbaa !35
   br label %.thread
 
-async_check_interrupt.exit:                       ; preds = %20
-  %.pre.i = load i32, ptr %18, align 8, !tbaa !35
+async_check_interrupt.exit:                       ; preds = %.lr.ph91
+  %.pre.i = load i32, ptr %19, align 8, !tbaa !35
   %.not49 = icmp eq i32 %.pre.i, 0
   br i1 %.not49, label %24, label %.thread
 
@@ -660,19 +659,19 @@ async_check_interrupt.exit:                       ; preds = %20
   %27 = load i32, ptr %10, align 4, !tbaa !32
   %28 = trunc i64 %26 to i32
   %29 = sub i32 %28, %27
-  %30 = tail call i32 @llvm.smin.i32(i32 %.03966, i32 %29)
+  %30 = tail call i32 @llvm.smin.i32(i32 %.0396689, i32 %29)
   %31 = icmp sgt i32 %29, 0
   br i1 %31, label %32, label %55
 
 32:                                               ; preds = %24
-  %.not.i53 = icmp eq ptr %.03867, null
+  %.not.i53 = icmp eq ptr %.0386788, null
   br i1 %.not.i53, label %38, label %33
 
 33:                                               ; preds = %32
   %34 = load ptr, ptr %6, align 8, !tbaa !18
   %35 = zext nneg i32 %30 to i64
   %36 = sext i32 %27 to i64
-  %37 = tail call i32 @av_fifo_peek(ptr noundef %34, ptr noundef nonnull %.03867, i64 noundef %35, i64 noundef %36) #7
+  %37 = tail call i32 @av_fifo_peek(ptr noundef %34, ptr noundef nonnull %.0386788, i64 noundef %35, i64 noundef %36) #7
   %.pre = load i32, ptr %10, align 4, !tbaa !32
   br label %38
 
@@ -695,12 +694,12 @@ async_check_interrupt.exit:                       ; preds = %20
 
 ring_read.exit:                                   ; preds = %38, %43
   %48 = zext nneg i32 %30 to i64
-  %49 = getelementptr inbounds nuw i8, ptr %.03867, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0386788, i64 %48
   %.2 = select i1 %.not.i53, ptr null, ptr %49
   %50 = load i64, ptr %13, align 8, !tbaa !31
   %51 = add nsw i64 %50, %48
   store i64 %51, ptr %13, align 8, !tbaa !31
-  %52 = sub nsw i32 %.03966, %30
+  %52 = sub nsw i32 %.0396689, %30
   %53 = sub nsw i32 %2, %52
   %54 = icmp sgt i32 %52, 0
   %or.cond = and i1 %.not, %54
@@ -712,7 +711,7 @@ ring_read.exit:                                   ; preds = %38, %43
   br i1 %.not50, label %62, label %57
 
 57:                                               ; preds = %55
-  %58 = icmp slt i32 %.04265, 1
+  %58 = icmp slt i32 %.0426590, 1
   br i1 %58, label %59, label %.thread
 
 59:                                               ; preds = %57
@@ -723,19 +722,22 @@ ring_read.exit:                                   ; preds = %38, %43
   br label %.thread
 
 62:                                               ; preds = %ring_read.exit, %55
-  %.345 = phi i32 [ %53, %ring_read.exit ], [ %.04265, %55 ]
-  %.241 = phi i32 [ %52, %ring_read.exit ], [ %.03966, %55 ]
-  %.3 = phi ptr [ %.2, %ring_read.exit ], [ %.03867, %55 ]
+  %.345 = phi i32 [ %53, %ring_read.exit ], [ %.0426590, %55 ]
+  %.241 = phi i32 [ %52, %ring_read.exit ], [ %.0396689, %55 ]
+  %.3 = phi ptr [ %.2, %ring_read.exit ], [ %.0386788, %55 ]
   %63 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %14) #7
   %64 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %15, ptr noundef nonnull %7) #7
-  %65 = icmp sgt i32 %.241, 0
-  br i1 %65, label %16, label %.thread
+  %65 = load ptr, ptr %4, align 8, !tbaa !9
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 240
+  %67 = load i32, ptr %66, align 8, !tbaa !35
+  %.not.i = icmp eq i32 %67, 0
+  br i1 %.not.i, label %.lr.ph91, label %.thread
 
-.thread:                                          ; preds = %62, %async_check_interrupt.exit, %ring_read.exit, %16, %3, %23, %57, %59
-  %.143 = phi i32 [ %., %59 ], [ %.04265, %57 ], [ -1414092869, %23 ], [ 0, %3 ], [ %.345, %62 ], [ -1414092869, %async_check_interrupt.exit ], [ %53, %ring_read.exit ], [ -1414092869, %16 ]
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 144
-  %67 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %66) #7
-  %68 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #7
+.thread:                                          ; preds = %62, %ring_read.exit, %async_check_interrupt.exit, %.lr.ph, %3, %23, %57, %59
+  %.143 = phi i32 [ %., %59 ], [ %.0426590, %57 ], [ -1414092869, %23 ], [ 0, %3 ], [ -1414092869, %.lr.ph ], [ -1414092869, %async_check_interrupt.exit ], [ %53, %ring_read.exit ], [ -1414092869, %62 ]
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 144
+  %69 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %68) #7
+  %70 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #7
   ret i32 %.143
 }
 

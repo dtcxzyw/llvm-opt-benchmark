@@ -1698,10 +1698,10 @@ _ZN4lean4kindERKNS_5levelE.exit44.thread:         ; preds = %71, %_ZN4lean4kindE
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %85, %90
-  %.sink64 = phi i64 [ 16, %85 ], [ 8, %90 ]
+  %.sink65 = phi i64 [ 16, %85 ], [ 8, %90 ]
   %.tr.be = phi ptr [ %87, %85 ], [ %91, %90 ]
   %88 = load ptr, ptr %.tr47, align 8, !tbaa !3
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %.sink64
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %.sink65
   br label %tailrecurse
 
 90:                                               ; preds = %_ZN4lean4kindERKNS_5levelE.exit44
@@ -4876,7 +4876,7 @@ _ZN4lean4kindERKNS_5levelE.exit.i:                ; preds = %.loopexit288, %tail
   %.val.i.i.i = load i32, ptr %200, align 4
   %201 = lshr i32 %.val.i.i.i, 24
   %trunc.i = trunc nuw i32 %201 to i8
-  switch i8 %trunc.i, label %.invoke347 [
+  switch i8 %trunc.i, label %.invoke420 [
     i8 0, label %_ZN4lean11is_explicitERKNS_5levelE.exit
     i8 4, label %_ZN4lean11is_explicitERKNS_5levelE.exit.thread
     i8 5, label %_ZN4lean11is_explicitERKNS_5levelE.exit.thread
@@ -4915,7 +4915,7 @@ _ZN4lean4kindERKNS_5levelE.exit.i133:             ; preds = %.lr.ph305, %tailrec
   %.val.i.i.i134 = load i32, ptr %215, align 4
   %216 = lshr i32 %.val.i.i.i134, 24
   %trunc.i135 = trunc nuw i32 %216 to i8
-  switch i8 %trunc.i135, label %.invoke347 [
+  switch i8 %trunc.i135, label %.invoke420 [
     i8 0, label %_ZN4lean11is_explicitERKNS_5levelE.exit140
     i8 4, label %.critedge
     i8 5, label %.critedge
@@ -4932,7 +4932,7 @@ tailrecurse.i136:                                 ; preds = %_ZN4lean4kindERKNS_
   %.not.i.i.i137 = icmp eq i64 %220, 0
   br i1 %.not.i.i.i137, label %_ZN4lean4kindERKNS_5levelE.exit.i133, label %_ZN4lean11is_explicitERKNS_5levelE.exit140
 
-.invoke347:                                       ; preds = %_ZN4lean4kindERKNS_5levelE.exit.i, %_ZN4lean4kindERKNS_5levelE.exit.i133
+.invoke420:                                       ; preds = %_ZN4lean4kindERKNS_5levelE.exit.i, %_ZN4lean4kindERKNS_5levelE.exit.i133
   %221 = call ptr @__cxa_allocate_exception(i64 40) #19
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %223 = getelementptr inbounds nuw i8, ptr %221, i64 24
@@ -4942,9 +4942,9 @@ tailrecurse.i136:                                 ; preds = %_ZN4lean4kindERKNS_
   store i8 0, ptr %223, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %221, align 8, !tbaa !19
   invoke void @__cxa_throw(ptr nonnull %221, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
-          to label %.cont348 unwind label %228
+          to label %.cont421 unwind label %228
 
-.cont348:                                         ; preds = %.invoke347
+.cont421:                                         ; preds = %.invoke420
   unreachable
 
 _ZN4lean11is_explicitERKNS_5levelE.exit140:       ; preds = %_ZN4lean4kindERKNS_5levelE.exit.i133, %tailrecurse.i136, %.lr.ph305
@@ -4953,7 +4953,7 @@ _ZN4lean11is_explicitERKNS_5levelE.exit140:       ; preds = %_ZN4lean4kindERKNS_
   %227 = icmp ugt i64 %206, %226
   br i1 %227, label %.lr.ph305, label %.critedge, !llvm.loop !102
 
-228:                                              ; preds = %.invoke347, %351, %337
+228:                                              ; preds = %.invoke420, %351, %337
   %229 = landingpad { ptr, i32 }
           cleanup
   br label %658
@@ -5719,10 +5719,10 @@ _ZN4lean3incEP11lean_object.exit.i.i.i206:        ; preds = %497, %496, %494, %4
   br label %._crit_edge338.sink.split
 
 ._crit_edge338.sink.split:                        ; preds = %.noexc222, %527, %525, %516, %.noexc203, %474, %472, %463
-  %.sink349 = phi i64 [ %464, %463 ], [ %464, %472 ], [ %464, %474 ], [ %.pre2.i201, %.noexc203 ], [ %517, %516 ], [ %517, %525 ], [ %517, %527 ], [ %.pre2.i220, %.noexc222 ]
+  %.sink422 = phi i64 [ %464, %463 ], [ %464, %472 ], [ %464, %474 ], [ %.pre2.i201, %.noexc203 ], [ %517, %516 ], [ %517, %525 ], [ %517, %527 ], [ %.pre2.i220, %.noexc222 ]
   %.pre-phi.ph = phi i64 [ %418, %463 ], [ %418, %472 ], [ %418, %474 ], [ %418, %.noexc203 ], [ %490, %516 ], [ %490, %525 ], [ %490, %527 ], [ %490, %.noexc222 ]
   %.ph = phi ptr [ %.pre336, %463 ], [ %.pre336, %472 ], [ %.pre336, %474 ], [ %.pre336, %.noexc203 ], [ %489, %516 ], [ %489, %525 ], [ %489, %527 ], [ %489, %.noexc222 ]
-  %529 = add i64 %.sink349, 1
+  %529 = add i64 %.sink422, 1
   store i64 %529, ptr %136, align 8, !tbaa !84
   br label %._crit_edge338
 
@@ -6402,7 +6402,7 @@ _ZN4lean4kindERKNS_5levelE.exit44:                ; preds = %74, %73
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
   br label %144
 
-88:                                               ; preds = %.invoke60, %.invoke, %100, %93, %_ZN4lean10object_refD2Ev.exit36
+88:                                               ; preds = %.invoke69, %.invoke, %100, %93, %_ZN4lean10object_refD2Ev.exit36
   %89 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt4pairIN4lean5levelEjED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #19
@@ -6439,9 +6439,9 @@ _ZN4leanltERKNS_4nameES2_.exit:                   ; preds = %93
   %101 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %102 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %103 = invoke noundef zeroext i1 @_ZN4leaneqERKNS_5levelES2_(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef nonnull align 8 dereferenceable(8) %102)
-          to label %.invoke60 unwind label %88
+          to label %.invoke69 unwind label %88
 
-.invoke60:                                        ; preds = %100
+.invoke69:                                        ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %105 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %106 = select i1 %103, ptr %104, ptr %101
@@ -6474,10 +6474,10 @@ _ZN4leanltERKNS_4nameES2_.exit:                   ; preds = %93
   %.pre59 = ptrtoint ptr %.pre to i64
   br label %_ZN4lean4kindERKNS_5levelE.exit47
 
-_ZN4lean4kindERKNS_5levelE.exit47:                ; preds = %.invoke60, %_ZN4lean4kindERKNS_5levelE.exit44, %78, %_ZN4leanltERKNS_4nameES2_.exit, %113
-  %.pre-phi = phi i64 [ %67, %_ZN4lean4kindERKNS_5levelE.exit44 ], [ %67, %78 ], [ %67, %_ZN4leanltERKNS_4nameES2_.exit ], [ %.pre59, %113 ], [ %67, %.invoke60 ]
-  %119 = phi ptr [ %66, %_ZN4lean4kindERKNS_5levelE.exit44 ], [ %66, %78 ], [ %66, %_ZN4leanltERKNS_4nameES2_.exit ], [ %.pre, %113 ], [ %66, %.invoke60 ]
-  %.1 = phi i1 [ false, %_ZN4lean4kindERKNS_5levelE.exit44 ], [ %81, %78 ], [ %99, %_ZN4leanltERKNS_4nameES2_.exit ], [ %118, %113 ], [ %108, %.invoke60 ]
+_ZN4lean4kindERKNS_5levelE.exit47:                ; preds = %.invoke69, %_ZN4lean4kindERKNS_5levelE.exit44, %78, %_ZN4leanltERKNS_4nameES2_.exit, %113
+  %.pre-phi = phi i64 [ %67, %_ZN4lean4kindERKNS_5levelE.exit44 ], [ %67, %78 ], [ %67, %_ZN4leanltERKNS_4nameES2_.exit ], [ %.pre59, %113 ], [ %67, %.invoke69 ]
+  %119 = phi ptr [ %66, %_ZN4lean4kindERKNS_5levelE.exit44 ], [ %66, %78 ], [ %66, %_ZN4leanltERKNS_4nameES2_.exit ], [ %.pre, %113 ], [ %66, %.invoke69 ]
+  %.1 = phi i1 [ false, %_ZN4lean4kindERKNS_5levelE.exit44 ], [ %81, %78 ], [ %99, %_ZN4leanltERKNS_4nameES2_.exit ], [ %118, %113 ], [ %108, %.invoke69 ]
   %120 = and i64 %.pre-phi, 1
   %.not.i.i.i54 = icmp eq i64 %120, 0
   br i1 %.not.i.i.i54, label %121, label %_ZNSt4pairIN4lean5levelEjED2Ev.exit
@@ -7585,9 +7585,9 @@ _ZNK4lean10object_ref10to_obj_argEv.exit.i:       ; preds = %.noexc, %36, %34, %
 
 55:                                               ; preds = %51
   %.not.i.i.i.i.i18 = icmp eq i32 %.val.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i18, label %.thread40, label %57
+  br i1 %.not.i.i.i.i.i18, label %.thread50, label %57
 
-.thread40:                                        ; preds = %55
+.thread50:                                        ; preds = %55
   %56 = add i64 %46, 1
   store i64 %56, ptr %7, align 8, !tbaa !84
   br label %_ZN4lean10object_refD2Ev.exit
@@ -7603,20 +7603,20 @@ _ZNK4lean10object_ref10to_obj_argEv.exit.i:       ; preds = %.noexc, %36, %34, %
 
 60:                                               ; preds = %57
   %.pre2.i = load i64, ptr %7, align 8, !tbaa !84
-  %.pr36 = load i32, ptr %39, align 4, !tbaa !8
+  %.pr46 = load i32, ptr %39, align 4, !tbaa !8
   %61 = add i64 %.pre2.i, 1
   store i64 %61, ptr %7, align 8, !tbaa !84
-  %62 = icmp sgt i32 %.pr36, 1
+  %62 = icmp sgt i32 %.pr46, 1
   br i1 %62, label %63, label %66, !prof !116
 
 63:                                               ; preds = %.thread, %60
-  %64 = phi i32 [ %53, %.thread ], [ %.pr36, %60 ]
+  %64 = phi i32 [ %53, %.thread ], [ %.pr46, %60 ]
   %65 = add nsw i32 %64, -1
   store i32 %65, ptr %39, align 4, !tbaa !8
   br label %_ZN4lean10object_refD2Ev.exit
 
 66:                                               ; preds = %60
-  %.not.i.i.i22 = icmp eq i32 %.pr36, 0
+  %.not.i.i.i22 = icmp eq i32 %.pr46, 0
   br i1 %.not.i.i.i22, label %_ZN4lean10object_refD2Ev.exit, label %67
 
 67:                                               ; preds = %66
@@ -7630,7 +7630,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit.i:       ; preds = %.noexc, %36, %34, %
   call void @__clang_call_terminate(ptr %70) #21
   unreachable
 
-_ZN4lean10object_refD2Ev.exit:                    ; preds = %.thread40, %58, %63, %66, %67
+_ZN4lean10object_refD2Ev.exit:                    ; preds = %.thread50, %58, %63, %66, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.026.033, i64 16
   %.sroa.026.0 = load ptr, ptr %71, align 8, !tbaa !41

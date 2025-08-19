@@ -448,8 +448,8 @@ if.end.i14:                                       ; preds = %while.body
 if.then.i.i:                                      ; preds = %if.end.i14
   %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %begin8.0158, i64 1
   %4 = load i8, ptr %arrayidx2.i.i, align 1
-  %conv382.i.i = zext i8 %4 to i32
-  %and4.i.i = and i32 %conv382.i.i, 192
+  %conv386.i.i = zext i8 %4 to i32
+  %and4.i.i = and i32 %conv386.i.i, 192
   %cmp5.not.i.i = icmp eq i32 %and4.i.i, 128
   br i1 %cmp5.not.i.i, label %if.end.i.i, label %if.then7.i.i
 
@@ -598,7 +598,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit.i.i:              ; preds = %if.else68.i.i
   unreachable
 
 "_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit": ; preds = %if.end.i.i
-  %and10.i.i = and i32 %conv382.i.i, 63
+  %and10.i.i = and i32 %conv386.i.i, 63
   %or.i.i = or disjoint i32 %and10.i.i, %shl.i.i
   %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %begin8.0158, i64 2
   br label %if.then

@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [39 x i8] c"internal error: deflate stream corrupt\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MOZ_Z_gzwrite(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @MOZ_Z_gzwrite(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %gz_zero.exit.thread, label %5
 
@@ -707,7 +707,7 @@ gz_zero.exit.thread:                              ; preds = %37, %20, %72, %5, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MOZ_Z_gzputs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @MOZ_Z_gzputs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %4 = trunc i64 %3 to i32
   %5 = tail call i32 @MOZ_Z_gzwrite(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4)

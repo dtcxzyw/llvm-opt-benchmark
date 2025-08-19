@@ -784,22 +784,22 @@ define dso_local noundef ptr @_ZN6snappy8internal26CompressFragmentDoubleHashEPK
   %18 = getelementptr inbounds i8, ptr %10, i64 -8
   %19 = trunc i64 %17 to i32
   %20 = icmp slt i64 %1, 17
-  br i1 %20, label %.thread355, label %.lr.ph553.lr.ph, !prof !27
+  br i1 %20, label %.thread355, label %.lr.ph603.lr.ph, !prof !27
 
-.lr.ph553.lr.ph:                                  ; preds = %12
+.lr.ph603.lr.ph:                                  ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  br label %.lr.ph553
+  br label %.lr.ph603
 
 .loopexit.loopexit:                               ; preds = %369
   %22 = getelementptr inbounds nuw i8, ptr %223, i64 2
   %23 = icmp ugt ptr %22, %13
-  br i1 %23, label %.thread355, label %.lr.ph553, !prof !38
+  br i1 %23, label %.thread355, label %.lr.ph603, !prof !38
 
-.lr.ph553:                                        ; preds = %.lr.ph553.lr.ph, %.loopexit.loopexit
-  %24 = phi ptr [ %21, %.lr.ph553.lr.ph ], [ %22, %.loopexit.loopexit ]
-  %.0175558 = phi ptr [ %2, %.lr.ph553.lr.ph ], [ %.4, %.loopexit.loopexit ]
-  %.0176557 = phi ptr [ %0, %.lr.ph553.lr.ph ], [ %223, %.loopexit.loopexit ]
-  %25 = getelementptr inbounds nuw i8, ptr %.0176557, i64 1
+.lr.ph603:                                        ; preds = %.lr.ph603.lr.ph, %.loopexit.loopexit
+  %24 = phi ptr [ %21, %.lr.ph603.lr.ph ], [ %22, %.loopexit.loopexit ]
+  %.0175609 = phi ptr [ %2, %.lr.ph603.lr.ph ], [ %.4, %.loopexit.loopexit ]
+  %.0176607 = phi ptr [ %0, %.lr.ph603.lr.ph ], [ %223, %.loopexit.loopexit ]
+  %25 = getelementptr inbounds nuw i8, ptr %.0176607, i64 1
   br label %32
 
 26:                                               ; preds = %77
@@ -810,11 +810,11 @@ define dso_local noundef ptr @_ZN6snappy8internal26CompressFragmentDoubleHashEPK
   %31 = icmp ugt ptr %30, %13
   br i1 %31, label %.thread355, label %32, !prof !28
 
-32:                                               ; preds = %.lr.ph553, %26
-  %33 = phi ptr [ %24, %.lr.ph553 ], [ %30, %26 ]
-  %34 = phi i32 [ 513, %.lr.ph553 ], [ %28, %26 ]
-  %.1177552 = phi ptr [ %25, %.lr.ph553 ], [ %33, %26 ]
-  %.0183 = load i64, ptr %.1177552, align 1
+32:                                               ; preds = %.lr.ph603, %26
+  %33 = phi ptr [ %24, %.lr.ph603 ], [ %30, %26 ]
+  %34 = phi i32 [ 513, %.lr.ph603 ], [ %28, %26 ]
+  %.1177602 = phi ptr [ %25, %.lr.ph603 ], [ %33, %26 ]
+  %.0183 = load i64, ptr %.1177602, align 1
   %35 = mul i64 %.0183, 58295818150454627
   %36 = lshr i64 %35, 49
   %37 = trunc nuw nsw i64 %36 to i32
@@ -825,7 +825,7 @@ define dso_local noundef ptr @_ZN6snappy8internal26CompressFragmentDoubleHashEPK
   %42 = load i16, ptr %41, align 2, !tbaa !21
   %43 = zext i16 %42 to i64
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 %43
-  %45 = ptrtoint ptr %.1177552 to i64
+  %45 = ptrtoint ptr %.1177602 to i64
   %46 = sub i64 %45, %15
   %47 = trunc i64 %46 to i16
   store i16 %47, ptr %41, align 2, !tbaa !21
@@ -837,7 +837,7 @@ define dso_local noundef ptr @_ZN6snappy8internal26CompressFragmentDoubleHashEPK
 50:                                               ; preds = %32
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 %43
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %53 = getelementptr inbounds nuw i8, ptr %.1177552, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %.1177602, i64 4
   %.not34.i = icmp ugt ptr %53, %18
   br i1 %.not34.i, label %.critedge28.preheader.i, label %.lr.ph.i
 
@@ -925,7 +925,7 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit: ; preds = %.critedge2
 88:                                               ; preds = %77
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 %85
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
-  %91 = getelementptr inbounds nuw i8, ptr %.1177552, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.1177602, i64 4
   %.not34.i220 = icmp ugt ptr %91, %18
   br i1 %.not34.i220, label %.critedge28.preheader.i231, label %.lr.ph.i221
 
@@ -993,7 +993,7 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit: ; preds = %.critedge2
 _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit243: ; preds = %.critedge28.i240, %.critedge28.preheader.i231, %.critedge.i226, %.critedge2.loopexit.split.loop.exit.i239
   %.127.i227 = phi i32 [ %107, %.critedge.i226 ], [ %.026.lcssa.i232, %.critedge28.preheader.i231 ], [ %113, %.critedge2.loopexit.split.loop.exit.i239 ], [ %97, %.critedge28.i240 ]
   %114 = add i32 %.127.i227, 4
-  %115 = getelementptr inbounds nuw i8, ptr %.1177552, i64 1
+  %115 = getelementptr inbounds nuw i8, ptr %.1177602, i64 1
   %.0.copyload.i244 = load i64, ptr %115, align 1
   %116 = mul i64 %.0.copyload.i244, 58295818150454627
   %117 = lshr i64 %116, 49
@@ -1083,8 +1083,8 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = %.crited
 .preheader:                                       ; preds = %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit, %151, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268
   %.2203.ph = phi i32 [ %114, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ], [ %.127.i252, %151 ], [ %76, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ]
   %.2194.ph = phi ptr [ %89, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ], [ %125, %151 ], [ %51, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ]
-  %.2178.ph = phi ptr [ %.1177552, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ], [ %115, %151 ], [ %.1177552, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ]
-  %152 = icmp ugt ptr %.2178.ph, %.0176557
+  %.2178.ph = phi ptr [ %.1177602, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ], [ %115, %151 ], [ %.1177602, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ]
+  %152 = icmp ugt ptr %.2178.ph, %.0176607
   %153 = icmp ugt ptr %.2194.ph, %0
   %or.cond412 = select i1 %152, i1 %153, i1 false
   br i1 %or.cond412, label %.lr.ph, label %.critedge
@@ -1102,7 +1102,7 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = %.crited
 
 159:                                              ; preds = %.lr.ph
   %160 = add i32 %.6207413, 1
-  %161 = icmp ugt ptr %154, %.0176557
+  %161 = icmp ugt ptr %154, %.0176607
   %162 = icmp ugt ptr %156, %0
   %or.cond = and i1 %161, %162
   br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !41
@@ -1144,7 +1144,7 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = %.crited
   %188 = add i64 %187, %16
   %189 = inttoptr i64 %188 to ptr
   store i16 %166, ptr %189, align 2, !tbaa !21
-  %190 = ptrtoint ptr %.0176557 to i64
+  %190 = ptrtoint ptr %.0176607 to i64
   %191 = sub i64 %163, %190
   %192 = icmp sgt i64 %191, 0
   br i1 %192, label %193, label %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader
@@ -1158,9 +1158,9 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = %.crited
 197:                                              ; preds = %193
   %.tr37.i = trunc i32 %195 to i8
   %198 = shl i8 %.tr37.i, 2
-  %199 = getelementptr inbounds nuw i8, ptr %.0175558, i64 1
-  store i8 %198, ptr %.0175558, align 1, !tbaa !4
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %199, ptr noundef nonnull readonly align 1 dereferenceable(16) %.0176557, i64 16, i1 false)
+  %199 = getelementptr inbounds nuw i8, ptr %.0175609, i64 1
+  store i8 %198, ptr %.0175609, align 1, !tbaa !4
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %199, ptr noundef nonnull readonly align 1 dereferenceable(16) %.0176607, i64 16, i1 false)
   %sext = shl i64 %191, 32
   %200 = ashr exact i64 %sext, 32
   %201 = getelementptr inbounds i8, ptr %199, i64 %200
@@ -1182,7 +1182,7 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = %.crited
   %.tr38.i = trunc nuw nsw i32 %209 to i8
   %210 = shl nuw nsw i8 %.tr38.i, 2
   %211 = or disjoint i8 %210, -16
-  %212 = getelementptr inbounds nuw i8, ptr %.0175558, i64 1
+  %212 = getelementptr inbounds nuw i8, ptr %.0175609, i64 1
   store i32 %195, ptr %212, align 1
   %213 = zext nneg i32 %209 to i64
   %214 = getelementptr i8, ptr %212, i64 %213
@@ -1190,8 +1190,8 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = %.crited
 
 215:                                              ; preds = %206, %204
   %.sink.i = phi i8 [ %205, %204 ], [ %211, %206 ]
-  %.pn.i = phi ptr [ %.0175558, %204 ], [ %214, %206 ]
-  store i8 %.sink.i, ptr %.0175558, align 1, !tbaa !4
+  %.pn.i = phi ptr [ %.0175609, %204 ], [ %214, %206 ]
+  store i8 %.sink.i, ptr %.0175609, align 1, !tbaa !4
   %.032.i = getelementptr i8, ptr %.pn.i, i64 1
   %216 = and i64 %191, 2147483647
   %217 = getelementptr inbounds nuw i8, ptr %.032.i, i64 %216
@@ -1199,7 +1199,7 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = %.crited
 
 218:                                              ; preds = %218, %215
   %.031.i = phi ptr [ %.032.i, %215 ], [ %219, %218 ]
-  %.030.i = phi ptr [ %.0176557, %215 ], [ %220, %218 ]
+  %.030.i = phi ptr [ %.0176607, %215 ], [ %220, %218 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.031.i, ptr noundef nonnull align 1 dereferenceable(16) %.030.i, i64 16, i1 false)
   %219 = getelementptr inbounds nuw i8, ptr %.031.i, i64 16
   %220 = getelementptr inbounds nuw i8, ptr %.030.i, i64 16
@@ -1207,7 +1207,7 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = %.crited
   br i1 %221, label %218, label %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader, !llvm.loop !29
 
 _ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader: ; preds = %218, %197, %.critedge
-  %.3.ph = phi ptr [ %.0175558, %.critedge ], [ %201, %197 ], [ %217, %218 ]
+  %.3.ph = phi ptr [ %.0175609, %.critedge ], [ %201, %197 ], [ %217, %218 ]
   br label %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit
 
 _ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit:    ; preds = %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit308
@@ -1563,8 +1563,8 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit308: ; preds = %.crited
   br label %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit
 
 .thread355:                                       ; preds = %.loopexit.loopexit, %26, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit, %12, %7
-  %.8 = phi ptr [ %0, %7 ], [ %0, %12 ], [ %223, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0176557, %26 ], [ %223, %.loopexit.loopexit ]
-  %.5 = phi ptr [ %2, %7 ], [ %2, %12 ], [ %.4, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0175558, %26 ], [ %.4, %.loopexit.loopexit ]
+  %.8 = phi ptr [ %0, %7 ], [ %0, %12 ], [ %223, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0176607, %26 ], [ %223, %.loopexit.loopexit ]
+  %.5 = phi ptr [ %2, %7 ], [ %2, %12 ], [ %.4, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0175609, %26 ], [ %.4, %.loopexit.loopexit ]
   %405 = icmp ult ptr %.8, %10
   br i1 %405, label %406, label %426
 
@@ -3741,21 +3741,21 @@ _ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge: ; preds = %46, %128,
   %154 = lshr i32 %.0.copyload.i131, %142
   %155 = load ptr, ptr %14, align 8, !tbaa !121
   %.not156 = icmp ult ptr %153, %155
-  br i1 %.not156, label %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge, label %.thread175, !prof !127
+  br i1 %.not156, label %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge, label %.thread188, !prof !127
 
 156:                                              ; preds = %131
   %157 = getelementptr inbounds nuw i8, ptr %.1, i64 5
   %.pre = load ptr, ptr %14, align 8, !tbaa !121
   %158 = icmp ult ptr %157, %.pre
-  br i1 %158, label %168, label %.thread175, !prof !128
+  br i1 %158, label %168, label %.thread188, !prof !128
 
-.thread175:                                       ; preds = %151, %156
-  %.13178 = phi ptr [ %157, %156 ], [ %153, %151 ]
-  store ptr %.13178, ptr %5, align 8, !tbaa !43
+.thread188:                                       ; preds = %151, %156
+  %.13191 = phi ptr [ %157, %156 ], [ %153, %151 ]
+  store ptr %.13191, ptr %5, align 8, !tbaa !43
   %159 = call noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
   br i1 %159, label %160, label %.thread150, !prof !20
 
-160:                                              ; preds = %.thread175
+160:                                              ; preds = %.thread188
   %161 = load ptr, ptr %5, align 8, !tbaa !43
   %162 = load ptr, ptr %7, align 8, !tbaa !47
   %163 = ptrtoint ptr %162 to i64
@@ -3773,7 +3773,7 @@ _ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge: ; preds = %46, %128,
   %170 = zext i8 %169 to i32
   br label %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge
 
-.thread150:                                       ; preds = %131, %118, %._crit_edge, %137, %.thread175, %.lr.ph, %76, %.thread, %15
+.thread150:                                       ; preds = %131, %118, %._crit_edge, %137, %.thread188, %.lr.ph, %76, %.thread, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -5839,8 +5839,8 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE14AppendFromSelfEmmP
   br i1 %201, label %211, label %.thread, !prof !128
 
 .thread:                                          ; preds = %194, %199
-  %.13214 = phi ptr [ %200, %199 ], [ %196, %194 ]
-  store ptr %.13214, ptr %5, align 8, !tbaa !43
+  %.13232 = phi ptr [ %200, %199 ], [ %196, %194 ]
+  store ptr %.13232, ptr %5, align 8, !tbaa !43
   %202 = call noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
   br i1 %202, label %203, label %.thread181, !prof !20
 

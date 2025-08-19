@@ -225,20 +225,20 @@ zend_string_alloc.exit:
   %.032.lcssa = phi ptr [ %0, %zend_string_alloc.exit ], [ %25, %20 ]
   %.031.lcssa = phi i64 [ %1, %zend_string_alloc.exit ], [ %28, %20 ]
   %.not.i111131151 = icmp eq i64 %.031.lcssa, 0
-  br i1 %.not.i111131151, label %.thread226, label %.lr.ph113.lr.ph.lr.ph
+  br i1 %.not.i111131151, label %.thread234, label %.lr.ph113.lr.ph.lr.ph
 
 .lr.ph113.lr.ph.lr.ph:                            ; preds = %.lr.ph, %.thread
-  %.031.lcssa218 = phi i64 [ %.031.lcssa, %.thread ], [ %.031103, %.lr.ph ]
-  %.032.lcssa217 = phi ptr [ %.032.lcssa, %.thread ], [ %.032102, %.lr.ph ]
-  %.065.lcssa216 = phi i64 [ %.065.lcssa, %.thread ], [ %.065100, %.lr.ph ]
-  %30 = add i64 %.031.lcssa218, -1
+  %.031.lcssa226 = phi i64 [ %.031.lcssa, %.thread ], [ %.031103, %.lr.ph ]
+  %.032.lcssa225 = phi ptr [ %.032.lcssa, %.thread ], [ %.032102, %.lr.ph ]
+  %.065.lcssa224 = phi i64 [ %.065.lcssa, %.thread ], [ %.065100, %.lr.ph ]
+  %30 = add i64 %.031.lcssa226, -1
   br i1 %2, label %.lr.ph113.lr.ph.us, label %.lr.ph113.lr.ph
 
 .lr.ph113.lr.ph.us:                               ; preds = %.lr.ph113.lr.ph.lr.ph, %.outer.us
   %31 = phi i64 [ %61, %.outer.us ], [ %30, %.lr.ph113.lr.ph.lr.ph ]
-  %.0.i.ph155.us = phi i64 [ %.1.i.us, %.outer.us ], [ %.065.lcssa216, %.lr.ph113.lr.ph.lr.ph ]
+  %.0.i.ph155.us = phi i64 [ %.1.i.us, %.outer.us ], [ %.065.lcssa224, %.lr.ph113.lr.ph.lr.ph ]
   %.046.i.ph153.us = phi i64 [ %60, %.outer.us ], [ 0, %.lr.ph113.lr.ph.lr.ph ]
-  %.048.i.ph152.us = phi ptr [ %65, %.outer.us ], [ %.032.lcssa217, %.lr.ph113.lr.ph.lr.ph ]
+  %.048.i.ph152.us = phi ptr [ %65, %.outer.us ], [ %.032.lcssa225, %.lr.ph113.lr.ph.lr.ph ]
   br label %.lr.ph113.us.us
 
 32:                                               ; preds = %.split122.us.split.us.us
@@ -344,10 +344,10 @@ default.unreachable:                              ; preds = %.loopexit77
 
 .lr.ph113.lr.ph:                                  ; preds = %.lr.ph113.lr.ph.lr.ph, %.outer
   %79 = phi i64 [ %123, %.outer ], [ %30, %.lr.ph113.lr.ph.lr.ph ]
-  %.0.i.ph155 = phi i64 [ %.1.i, %.outer ], [ %.065.lcssa216, %.lr.ph113.lr.ph.lr.ph ]
+  %.0.i.ph155 = phi i64 [ %.1.i, %.outer ], [ %.065.lcssa224, %.lr.ph113.lr.ph.lr.ph ]
   %.045.i.ph154 = phi i64 [ %.045.i.ph81133, %.outer ], [ 0, %.lr.ph113.lr.ph.lr.ph ]
   %.046.i.ph153 = phi i64 [ %122, %.outer ], [ 0, %.lr.ph113.lr.ph.lr.ph ]
-  %.048.i.ph152 = phi ptr [ %83, %.outer ], [ %.032.lcssa217, %.lr.ph113.lr.ph.lr.ph ]
+  %.048.i.ph152 = phi ptr [ %83, %.outer ], [ %.032.lcssa225, %.lr.ph113.lr.ph.lr.ph ]
   br label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %.lr.ph113.lr.ph, %.split
@@ -451,7 +451,7 @@ default.unreachable:                              ; preds = %.loopexit77
 126:                                              ; preds = %.outer78._crit_edge
   %127 = icmp ne i64 %.045.i.ph81.lcssa94, 0
   %or.cond3.i = select i1 %2, i1 %127, i1 false
-  br i1 %or.cond3.i, label %128, label %.thread226
+  br i1 %or.cond3.i, label %128, label %.thread234
 
 128:                                              ; preds = %126
   %129 = icmp ugt i64 %.045.i.ph81.lcssa94, 2
@@ -461,21 +461,21 @@ default.unreachable:                              ; preds = %.loopexit77
   %131 = add i64 %.045.i.ph81.lcssa94, %.046.i.ph.lcssa99
   %132 = and i64 %131, 3
   %.not52.i = icmp eq i64 %132, 0
-  br i1 %.not52.i, label %.thread226, label %.loopexit
+  br i1 %.not52.i, label %.thread234, label %.loopexit
 
 .loopexit:                                        ; preds = %.split122.us.split.us.us, %.outer78._crit_edge, %128, %130
   tail call void @_efree(ptr noundef nonnull %5) #11
   br label %134
 
-.thread226:                                       ; preds = %.thread, %130, %126
-  %.0.i.ph.lcssa97224231 = phi i64 [ %.0.i.ph.lcssa97, %130 ], [ %.0.i.ph.lcssa97, %126 ], [ %.065.lcssa, %.thread ]
-  %133 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i.ph.lcssa97224231
+.thread234:                                       ; preds = %.thread, %130, %126
+  %.0.i.ph.lcssa97232239 = phi i64 [ %.0.i.ph.lcssa97, %130 ], [ %.0.i.ph.lcssa97, %126 ], [ %.065.lcssa, %.thread ]
+  %133 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i.ph.lcssa97232239
   store i8 0, ptr %133, align 1, !tbaa !9
-  store i64 %.0.i.ph.lcssa97224231, ptr %8, align 8, !tbaa !13
+  store i64 %.0.i.ph.lcssa97232239, ptr %8, align 8, !tbaa !13
   br label %134
 
-134:                                              ; preds = %.thread226, %.loopexit
-  %.0 = phi ptr [ %5, %.thread226 ], [ null, %.loopexit ]
+134:                                              ; preds = %.thread234, %.loopexit
+  %.0 = phi ptr [ %5, %.thread234 ], [ null, %.loopexit ]
   ret ptr %.0
 }
 
@@ -722,20 +722,20 @@ zend_string_alloc.exit:
   %.040.lcssa = phi ptr [ %0, %zend_string_alloc.exit ], [ %38, %27 ]
   %.039.lcssa = phi i64 [ %1, %zend_string_alloc.exit ], [ %41, %27 ]
   %.not.i150170190 = icmp eq i64 %.039.lcssa, 0
-  br i1 %.not.i150170190, label %.thread265, label %.lr.ph152.lr.ph.lr.ph
+  br i1 %.not.i150170190, label %.thread273, label %.lr.ph152.lr.ph.lr.ph
 
 .lr.ph152.lr.ph.lr.ph:                            ; preds = %.lr.ph, %.thread
-  %.039.lcssa257 = phi i64 [ %.039.lcssa, %.thread ], [ %.039142, %.lr.ph ]
-  %.040.lcssa256 = phi ptr [ %.040.lcssa, %.thread ], [ %.040141, %.lr.ph ]
-  %.0104.lcssa255 = phi i64 [ %.0104.lcssa, %.thread ], [ %.0104139, %.lr.ph ]
-  %43 = add i64 %.039.lcssa257, -1
+  %.039.lcssa265 = phi i64 [ %.039.lcssa, %.thread ], [ %.039142, %.lr.ph ]
+  %.040.lcssa264 = phi ptr [ %.040.lcssa, %.thread ], [ %.040141, %.lr.ph ]
+  %.0104.lcssa263 = phi i64 [ %.0104.lcssa, %.thread ], [ %.0104139, %.lr.ph ]
+  %43 = add i64 %.039.lcssa265, -1
   br i1 %2, label %.lr.ph152.lr.ph.us, label %.lr.ph152.lr.ph
 
 .lr.ph152.lr.ph.us:                               ; preds = %.lr.ph152.lr.ph.lr.ph, %.outer.us
   %44 = phi i64 [ %74, %.outer.us ], [ %43, %.lr.ph152.lr.ph.lr.ph ]
-  %.0.i.ph194.us = phi i64 [ %.1.i.us, %.outer.us ], [ %.0104.lcssa255, %.lr.ph152.lr.ph.lr.ph ]
+  %.0.i.ph194.us = phi i64 [ %.1.i.us, %.outer.us ], [ %.0104.lcssa263, %.lr.ph152.lr.ph.lr.ph ]
   %.046.i.ph192.us = phi i64 [ %73, %.outer.us ], [ 0, %.lr.ph152.lr.ph.lr.ph ]
-  %.048.i.ph191.us = phi ptr [ %78, %.outer.us ], [ %.040.lcssa256, %.lr.ph152.lr.ph.lr.ph ]
+  %.048.i.ph191.us = phi ptr [ %78, %.outer.us ], [ %.040.lcssa264, %.lr.ph152.lr.ph.lr.ph ]
   br label %.lr.ph152.us.us
 
 45:                                               ; preds = %.split161.us.split.us.us
@@ -841,10 +841,10 @@ default.unreachable:                              ; preds = %.loopexit116
 
 .lr.ph152.lr.ph:                                  ; preds = %.lr.ph152.lr.ph.lr.ph, %.outer
   %92 = phi i64 [ %136, %.outer ], [ %43, %.lr.ph152.lr.ph.lr.ph ]
-  %.0.i.ph194 = phi i64 [ %.1.i, %.outer ], [ %.0104.lcssa255, %.lr.ph152.lr.ph.lr.ph ]
+  %.0.i.ph194 = phi i64 [ %.1.i, %.outer ], [ %.0104.lcssa263, %.lr.ph152.lr.ph.lr.ph ]
   %.045.i.ph193 = phi i64 [ %.045.i.ph120172, %.outer ], [ 0, %.lr.ph152.lr.ph.lr.ph ]
   %.046.i.ph192 = phi i64 [ %135, %.outer ], [ 0, %.lr.ph152.lr.ph.lr.ph ]
-  %.048.i.ph191 = phi ptr [ %96, %.outer ], [ %.040.lcssa256, %.lr.ph152.lr.ph.lr.ph ]
+  %.048.i.ph191 = phi ptr [ %96, %.outer ], [ %.040.lcssa264, %.lr.ph152.lr.ph.lr.ph ]
   br label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %.lr.ph152.lr.ph, %.split
@@ -948,7 +948,7 @@ default.unreachable:                              ; preds = %.loopexit116
 139:                                              ; preds = %.outer117._crit_edge
   %140 = icmp ne i64 %.045.i.ph120.lcssa133, 0
   %or.cond3.i = select i1 %2, i1 %140, i1 false
-  br i1 %or.cond3.i, label %141, label %.thread265
+  br i1 %or.cond3.i, label %141, label %.thread273
 
 141:                                              ; preds = %139
   %142 = icmp ugt i64 %.045.i.ph120.lcssa133, 2
@@ -958,21 +958,21 @@ default.unreachable:                              ; preds = %.loopexit116
   %144 = add i64 %.045.i.ph120.lcssa133, %.046.i.ph.lcssa138
   %145 = and i64 %144, 3
   %.not52.i = icmp eq i64 %145, 0
-  br i1 %.not52.i, label %.thread265, label %.loopexit
+  br i1 %.not52.i, label %.thread273, label %.loopexit
 
 .loopexit:                                        ; preds = %.split161.us.split.us.us, %.outer117._crit_edge, %141, %143
   tail call void @_efree(ptr noundef nonnull %5) #11
   br label %147
 
-.thread265:                                       ; preds = %.thread, %143, %139
-  %.0.i.ph.lcssa136263270 = phi i64 [ %.0.i.ph.lcssa136, %143 ], [ %.0.i.ph.lcssa136, %139 ], [ %.0104.lcssa, %.thread ]
-  %146 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i.ph.lcssa136263270
+.thread273:                                       ; preds = %.thread, %143, %139
+  %.0.i.ph.lcssa136271278 = phi i64 [ %.0.i.ph.lcssa136, %143 ], [ %.0.i.ph.lcssa136, %139 ], [ %.0104.lcssa, %.thread ]
+  %146 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i.ph.lcssa136271278
   store i8 0, ptr %146, align 1, !tbaa !9
-  store i64 %.0.i.ph.lcssa136263270, ptr %8, align 8, !tbaa !13
+  store i64 %.0.i.ph.lcssa136271278, ptr %8, align 8, !tbaa !13
   br label %147
 
-147:                                              ; preds = %.thread265, %.loopexit
-  %.0 = phi ptr [ %5, %.thread265 ], [ null, %.loopexit ]
+147:                                              ; preds = %.thread273, %.loopexit
+  %.0 = phi ptr [ %5, %.thread273 ], [ null, %.loopexit ]
   ret ptr %.0
 }
 
@@ -1405,20 +1405,20 @@ zend_string_alloc.exit:
   %.035.lcssa = phi ptr [ %0, %zend_string_alloc.exit ], [ %35, %23 ]
   %.033.lcssa = phi i64 [ %1, %zend_string_alloc.exit ], [ %38, %23 ]
   %.not.i129149169 = icmp eq i64 %.033.lcssa, 0
-  br i1 %.not.i129149169, label %.thread244, label %.lr.ph131.lr.ph.lr.ph
+  br i1 %.not.i129149169, label %.thread252, label %.lr.ph131.lr.ph.lr.ph
 
 .lr.ph131.lr.ph.lr.ph:                            ; preds = %.lr.ph, %.thread
-  %.033.lcssa236 = phi i64 [ %.033.lcssa, %.thread ], [ %.033121, %.lr.ph ]
-  %.035.lcssa235 = phi ptr [ %.035.lcssa, %.thread ], [ %.035120, %.lr.ph ]
-  %.083.lcssa234 = phi i64 [ %.083.lcssa, %.thread ], [ %.083118, %.lr.ph ]
-  %40 = add i64 %.033.lcssa236, -1
+  %.033.lcssa244 = phi i64 [ %.033.lcssa, %.thread ], [ %.033121, %.lr.ph ]
+  %.035.lcssa243 = phi ptr [ %.035.lcssa, %.thread ], [ %.035120, %.lr.ph ]
+  %.083.lcssa242 = phi i64 [ %.083.lcssa, %.thread ], [ %.083118, %.lr.ph ]
+  %40 = add i64 %.033.lcssa244, -1
   br i1 %2, label %.lr.ph131.lr.ph.us, label %.lr.ph131.lr.ph
 
 .lr.ph131.lr.ph.us:                               ; preds = %.lr.ph131.lr.ph.lr.ph, %.outer.us
   %41 = phi i64 [ %71, %.outer.us ], [ %40, %.lr.ph131.lr.ph.lr.ph ]
-  %.0.i.ph173.us = phi i64 [ %.1.i.us, %.outer.us ], [ %.083.lcssa234, %.lr.ph131.lr.ph.lr.ph ]
+  %.0.i.ph173.us = phi i64 [ %.1.i.us, %.outer.us ], [ %.083.lcssa242, %.lr.ph131.lr.ph.lr.ph ]
   %.046.i.ph171.us = phi i64 [ %70, %.outer.us ], [ 0, %.lr.ph131.lr.ph.lr.ph ]
-  %.048.i.ph170.us = phi ptr [ %75, %.outer.us ], [ %.035.lcssa235, %.lr.ph131.lr.ph.lr.ph ]
+  %.048.i.ph170.us = phi ptr [ %75, %.outer.us ], [ %.035.lcssa243, %.lr.ph131.lr.ph.lr.ph ]
   br label %.lr.ph131.us.us
 
 42:                                               ; preds = %.split140.us.split.us.us
@@ -1524,10 +1524,10 @@ default.unreachable:                              ; preds = %.loopexit95
 
 .lr.ph131.lr.ph:                                  ; preds = %.lr.ph131.lr.ph.lr.ph, %.outer
   %89 = phi i64 [ %133, %.outer ], [ %40, %.lr.ph131.lr.ph.lr.ph ]
-  %.0.i.ph173 = phi i64 [ %.1.i, %.outer ], [ %.083.lcssa234, %.lr.ph131.lr.ph.lr.ph ]
+  %.0.i.ph173 = phi i64 [ %.1.i, %.outer ], [ %.083.lcssa242, %.lr.ph131.lr.ph.lr.ph ]
   %.045.i.ph172 = phi i64 [ %.045.i.ph99151, %.outer ], [ 0, %.lr.ph131.lr.ph.lr.ph ]
   %.046.i.ph171 = phi i64 [ %132, %.outer ], [ 0, %.lr.ph131.lr.ph.lr.ph ]
-  %.048.i.ph170 = phi ptr [ %93, %.outer ], [ %.035.lcssa235, %.lr.ph131.lr.ph.lr.ph ]
+  %.048.i.ph170 = phi ptr [ %93, %.outer ], [ %.035.lcssa243, %.lr.ph131.lr.ph.lr.ph ]
   br label %.lr.ph131
 
 .lr.ph131:                                        ; preds = %.lr.ph131.lr.ph, %.split
@@ -1631,7 +1631,7 @@ default.unreachable:                              ; preds = %.loopexit95
 136:                                              ; preds = %.outer96._crit_edge
   %137 = icmp ne i64 %.045.i.ph99.lcssa112, 0
   %or.cond3.i = select i1 %2, i1 %137, i1 false
-  br i1 %or.cond3.i, label %138, label %.thread244
+  br i1 %or.cond3.i, label %138, label %.thread252
 
 138:                                              ; preds = %136
   %139 = icmp ugt i64 %.045.i.ph99.lcssa112, 2
@@ -1641,21 +1641,21 @@ default.unreachable:                              ; preds = %.loopexit95
   %141 = add i64 %.045.i.ph99.lcssa112, %.046.i.ph.lcssa117
   %142 = and i64 %141, 3
   %.not52.i = icmp eq i64 %142, 0
-  br i1 %.not52.i, label %.thread244, label %.loopexit
+  br i1 %.not52.i, label %.thread252, label %.loopexit
 
 .loopexit:                                        ; preds = %.split140.us.split.us.us, %.outer96._crit_edge, %138, %140
   tail call void @_efree(ptr noundef nonnull %5) #11
   br label %144
 
-.thread244:                                       ; preds = %.thread, %140, %136
-  %.0.i.ph.lcssa115242249 = phi i64 [ %.0.i.ph.lcssa115, %140 ], [ %.0.i.ph.lcssa115, %136 ], [ %.083.lcssa, %.thread ]
-  %143 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i.ph.lcssa115242249
+.thread252:                                       ; preds = %.thread, %140, %136
+  %.0.i.ph.lcssa115250257 = phi i64 [ %.0.i.ph.lcssa115, %140 ], [ %.0.i.ph.lcssa115, %136 ], [ %.083.lcssa, %.thread ]
+  %143 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i.ph.lcssa115250257
   store i8 0, ptr %143, align 1, !tbaa !9
-  store i64 %.0.i.ph.lcssa115242249, ptr %8, align 8, !tbaa !13
+  store i64 %.0.i.ph.lcssa115250257, ptr %8, align 8, !tbaa !13
   br label %144
 
-144:                                              ; preds = %.thread244, %.loopexit
-  %.0 = phi ptr [ %5, %.thread244 ], [ null, %.loopexit ]
+144:                                              ; preds = %.thread252, %.loopexit
+  %.0 = phi ptr [ %5, %.thread252 ], [ null, %.loopexit ]
   ret ptr %.0
 }
 
@@ -1719,20 +1719,20 @@ zend_string_alloc.exit:
   %.035.lcssa = phi ptr [ %0, %zend_string_alloc.exit ], [ %33, %23 ]
   %.033.lcssa = phi i64 [ %1, %zend_string_alloc.exit ], [ %36, %23 ]
   %.not.i89109129 = icmp eq i64 %.033.lcssa, 0
-  br i1 %.not.i89109129, label %.thread204, label %.lr.ph91.lr.ph.lr.ph
+  br i1 %.not.i89109129, label %.thread212, label %.lr.ph91.lr.ph.lr.ph
 
 .lr.ph91.lr.ph.lr.ph:                             ; preds = %.lr.ph, %.thread
-  %.033.lcssa196 = phi i64 [ %.033.lcssa, %.thread ], [ %.03381, %.lr.ph ]
-  %.035.lcssa195 = phi ptr [ %.035.lcssa, %.thread ], [ %.03580, %.lr.ph ]
-  %.043.lcssa194 = phi i64 [ %.043.lcssa, %.thread ], [ %.04378, %.lr.ph ]
-  %38 = add i64 %.033.lcssa196, -1
+  %.033.lcssa204 = phi i64 [ %.033.lcssa, %.thread ], [ %.03381, %.lr.ph ]
+  %.035.lcssa203 = phi ptr [ %.035.lcssa, %.thread ], [ %.03580, %.lr.ph ]
+  %.043.lcssa202 = phi i64 [ %.043.lcssa, %.thread ], [ %.04378, %.lr.ph ]
+  %38 = add i64 %.033.lcssa204, -1
   br i1 %2, label %.lr.ph91.lr.ph.us, label %.lr.ph91.lr.ph
 
 .lr.ph91.lr.ph.us:                                ; preds = %.lr.ph91.lr.ph.lr.ph, %.outer.us
   %39 = phi i64 [ %69, %.outer.us ], [ %38, %.lr.ph91.lr.ph.lr.ph ]
-  %.0.i.ph133.us = phi i64 [ %.1.i.us, %.outer.us ], [ %.043.lcssa194, %.lr.ph91.lr.ph.lr.ph ]
+  %.0.i.ph133.us = phi i64 [ %.1.i.us, %.outer.us ], [ %.043.lcssa202, %.lr.ph91.lr.ph.lr.ph ]
   %.046.i.ph131.us = phi i64 [ %68, %.outer.us ], [ 0, %.lr.ph91.lr.ph.lr.ph ]
-  %.048.i.ph130.us = phi ptr [ %73, %.outer.us ], [ %.035.lcssa195, %.lr.ph91.lr.ph.lr.ph ]
+  %.048.i.ph130.us = phi ptr [ %73, %.outer.us ], [ %.035.lcssa203, %.lr.ph91.lr.ph.lr.ph ]
   br label %.lr.ph91.us.us
 
 40:                                               ; preds = %.split100.us.split.us.us
@@ -1838,10 +1838,10 @@ default.unreachable:                              ; preds = %.loopexit55
 
 .lr.ph91.lr.ph:                                   ; preds = %.lr.ph91.lr.ph.lr.ph, %.outer
   %87 = phi i64 [ %131, %.outer ], [ %38, %.lr.ph91.lr.ph.lr.ph ]
-  %.0.i.ph133 = phi i64 [ %.1.i, %.outer ], [ %.043.lcssa194, %.lr.ph91.lr.ph.lr.ph ]
+  %.0.i.ph133 = phi i64 [ %.1.i, %.outer ], [ %.043.lcssa202, %.lr.ph91.lr.ph.lr.ph ]
   %.045.i.ph132 = phi i64 [ %.045.i.ph59111, %.outer ], [ 0, %.lr.ph91.lr.ph.lr.ph ]
   %.046.i.ph131 = phi i64 [ %130, %.outer ], [ 0, %.lr.ph91.lr.ph.lr.ph ]
-  %.048.i.ph130 = phi ptr [ %91, %.outer ], [ %.035.lcssa195, %.lr.ph91.lr.ph.lr.ph ]
+  %.048.i.ph130 = phi ptr [ %91, %.outer ], [ %.035.lcssa203, %.lr.ph91.lr.ph.lr.ph ]
   br label %.lr.ph91
 
 .lr.ph91:                                         ; preds = %.lr.ph91.lr.ph, %.split
@@ -1945,7 +1945,7 @@ default.unreachable:                              ; preds = %.loopexit55
 134:                                              ; preds = %.outer56._crit_edge
   %135 = icmp ne i64 %.045.i.ph59.lcssa72, 0
   %or.cond3.i = select i1 %2, i1 %135, i1 false
-  br i1 %or.cond3.i, label %136, label %.thread204
+  br i1 %or.cond3.i, label %136, label %.thread212
 
 136:                                              ; preds = %134
   %137 = icmp ugt i64 %.045.i.ph59.lcssa72, 2
@@ -1955,21 +1955,21 @@ default.unreachable:                              ; preds = %.loopexit55
   %139 = add i64 %.045.i.ph59.lcssa72, %.046.i.ph.lcssa77
   %140 = and i64 %139, 3
   %.not52.i = icmp eq i64 %140, 0
-  br i1 %.not52.i, label %.thread204, label %.loopexit
+  br i1 %.not52.i, label %.thread212, label %.loopexit
 
 .loopexit:                                        ; preds = %.split100.us.split.us.us, %.outer56._crit_edge, %136, %138
   tail call void @_efree(ptr noundef nonnull %5) #11
   br label %142
 
-.thread204:                                       ; preds = %.thread, %138, %134
-  %.0.i.ph.lcssa75202209 = phi i64 [ %.0.i.ph.lcssa75, %138 ], [ %.0.i.ph.lcssa75, %134 ], [ %.043.lcssa, %.thread ]
-  %141 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i.ph.lcssa75202209
+.thread212:                                       ; preds = %.thread, %138, %134
+  %.0.i.ph.lcssa75210217 = phi i64 [ %.0.i.ph.lcssa75, %138 ], [ %.0.i.ph.lcssa75, %134 ], [ %.043.lcssa, %.thread ]
+  %141 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i.ph.lcssa75210217
   store i8 0, ptr %141, align 1, !tbaa !9
-  store i64 %.0.i.ph.lcssa75202209, ptr %8, align 8, !tbaa !13
+  store i64 %.0.i.ph.lcssa75210217, ptr %8, align 8, !tbaa !13
   br label %142
 
-142:                                              ; preds = %.thread204, %.loopexit
-  %.0 = phi ptr [ %5, %.thread204 ], [ null, %.loopexit ]
+142:                                              ; preds = %.thread212, %.loopexit
+  %.0 = phi ptr [ %5, %.thread212 ], [ null, %.loopexit ]
   ret ptr %.0
 }
 
@@ -2362,10 +2362,10 @@ default.unreachable:                              ; preds = %.loopexit13
   br label %114
 
 .thread:                                          ; preds = %zend_string_alloc.exit, %110, %106
-  %.0.i.ph.lcssa33141147 = phi i64 [ %.0.i.ph.lcssa33, %110 ], [ %.0.i.ph.lcssa33, %106 ], [ 0, %zend_string_alloc.exit ]
-  %113 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i.ph.lcssa33141147
+  %.0.i.ph.lcssa33147153 = phi i64 [ %.0.i.ph.lcssa33, %110 ], [ %.0.i.ph.lcssa33, %106 ], [ 0, %zend_string_alloc.exit ]
+  %113 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i.ph.lcssa33147153
   store i8 0, ptr %113, align 1, !tbaa !9
-  store i64 %.0.i.ph.lcssa33141147, ptr %8, align 8, !tbaa !13
+  store i64 %.0.i.ph.lcssa33147153, ptr %8, align 8, !tbaa !13
   br label %114
 
 114:                                              ; preds = %.thread, %.loopexit

@@ -664,9 +664,9 @@ for.body.i.i.i.i.i.i.i.i.i.i285:                  ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond351.not, label %if.end85, label %for.body.i.i.i.i.i.i.i.i.i.i285, !llvm.loop !7
 
 if.end85:                                         ; preds = %for.body.i.i.i.i.i.i.i.i.i.i285, %for.body.i.i.i.i.i.i.i.i.i.i197
-  %.sink358 = phi i32 [ 20, %for.body.i.i.i.i.i.i.i.i.i.i197 ], [ 16, %for.body.i.i.i.i.i.i.i.i.i.i285 ]
+  %.sink365 = phi i32 [ 20, %for.body.i.i.i.i.i.i.i.i.i.i197 ], [ 16, %for.body.i.i.i.i.i.i.i.i.i.i285 ]
   %.pre13.i.i295 = load i32, ptr %Size.i.i.i.i.i.i76, align 8
-  %conv.i12.i.i296 = add i32 %.pre13.i.i295, %.sink358
+  %conv.i12.i.i296 = add i32 %.pre13.i.i295, %.sink365
   store i32 %conv.i12.i.i296, ptr %Size.i.i.i.i.i.i76, align 8
   %76 = load ptr, ptr %strBuf33, align 8
   %conv.i.i305 = zext i32 %conv.i12.i.i296 to i64

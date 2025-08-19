@@ -1751,9 +1751,9 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %294 = icmp ne ptr %192, null
   %295 = icmp ult ptr %192, %157
   %296 = and i1 %294, %295
-  br i1 %296, label %.preheader177, label %.loopexit86
+  br i1 %296, label %.preheader217, label %.loopexit86
 
-.preheader177:                                    ; preds = %.thread61, %357
+.preheader217:                                    ; preds = %.thread61, %357
   %297 = phi i32 [ %360, %357 ], [ 0, %.thread61 ]
   %298 = phi ptr [ %359, %357 ], [ %12, %.thread61 ]
   %299 = phi ptr [ %361, %357 ], [ %192, %.thread61 ]
@@ -1770,13 +1770,13 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
     i16 61, label %306
   ]
 
-302:                                              ; preds = %.preheader177
+302:                                              ; preds = %.preheader217
   %303 = load ptr, ptr %196, align 8
   %304 = call i32 %303(i16 noundef zeroext %301, ptr noundef nonnull %14, i32 noundef 6) #17
   %305 = icmp slt i32 %304, 1
   br i1 %305, label %308, label %310
 
-306:                                              ; preds = %.preheader177, %.preheader177, %.preheader177, %.preheader177, %.preheader177, %.preheader177
+306:                                              ; preds = %.preheader217, %.preheader217, %.preheader217, %.preheader217, %.preheader217, %.preheader217
   %307 = and i8 %300, -5
   store i8 95, ptr %14, align 1
   br label %338
@@ -1825,7 +1825,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %335 = and i8 %300, -4
   br label %338
 
-336:                                              ; preds = %.preheader177, %.preheader177
+336:                                              ; preds = %.preheader217, %.preheader217
   %337 = and i8 %300, -5
   br label %357
 
@@ -1867,7 +1867,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %360 = phi i32 [ %297, %336 ], [ %339, %351 ]
   %361 = getelementptr i8, ptr %299, i64 2
   %362 = icmp ult ptr %361, %157
-  br i1 %362, label %.preheader177, label %.loopexit86.loopexit, !llvm.loop !16
+  br i1 %362, label %.preheader217, label %.loopexit86.loopexit, !llvm.loop !16
 
 .loopexit86.loopexit:                             ; preds = %338, %357
   %.ph120 = phi i8 [ %.ph64, %338 ], [ %358, %357 ]

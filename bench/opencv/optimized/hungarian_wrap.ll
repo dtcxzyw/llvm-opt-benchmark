@@ -1090,16 +1090,16 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %41
 
 .preheader389:                                    ; preds = %114, %.preheader393, %.preheader396.thread, %.preheader396, %.preheader390
   %110 = phi i1 [ false, %.preheader390 ], [ false, %.preheader396 ], [ false, %.preheader396.thread ], [ false, %.preheader393 ], [ true, %114 ]
-  %.lcssa407590 = phi i32 [ %106, %.preheader390 ], [ %31, %.preheader396 ], [ %31, %.preheader396.thread ], [ %70, %.preheader393 ], [ %106, %114 ]
+  %.lcssa407612 = phi i32 [ %106, %.preheader390 ], [ %31, %.preheader396 ], [ %31, %.preheader396.thread ], [ %70, %.preheader393 ], [ %106, %114 ]
   %111 = phi i32 [ %107, %.preheader390 ], [ %18, %.preheader396 ], [ %18, %.preheader396.thread ], [ %69, %.preheader393 ], [ %107, %114 ]
   %112 = icmp sgt i32 %111, 0
   br i1 %112, label %.lr.ph439, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit269
 
 .lr.ph439:                                        ; preds = %.preheader389
-  %113 = icmp sgt i32 %.lcssa407590, 1
+  %113 = icmp sgt i32 %.lcssa407612, 1
   %wide.trip.count533 = zext nneg i32 %111 to i64
-  %wide.trip.count523 = zext nneg i32 %.lcssa407590 to i64
-  %wide.trip.count528 = zext nneg i32 %.lcssa407590 to i64
+  %wide.trip.count523 = zext nneg i32 %.lcssa407612 to i64
+  %wide.trip.count528 = zext nneg i32 %.lcssa407612 to i64
   br label %116
 
 114:                                              ; preds = %.lr.ph425, %114
@@ -1184,7 +1184,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %41
 .preheader388:                                    ; preds = %._crit_edge440
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %144 = load i32, ptr %143, align 8
-  %145 = zext i32 %.lcssa407590 to i64
+  %145 = zext i32 %.lcssa407612 to i64
   %146 = shl nuw nsw i64 %145, 2
   %wide.trip.count574 = zext nneg i32 %111 to i64
   br label %.loopexit385
@@ -1260,8 +1260,8 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %41
   store i32 0, ptr %156, align 4, !tbaa !50
   %176 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv535
   store i32 %150, ptr %176, align 4, !tbaa !50
-  %177 = add nsw i32 %.5194443.us, 1
-  %178 = sext i32 %.5194443.us to i64
+  %177 = add nuw nsw i32 %.5194443.us, 1
+  %178 = zext nneg i32 %.5194443.us to i64
   %179 = getelementptr inbounds nuw i32, ptr %24, i64 %178
   store i32 %173, ptr %179, align 4, !tbaa !50
   br label %.thread.us
@@ -1283,13 +1283,13 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %41
   br i1 %110, label %.lr.ph460, label %.preheader383
 
 .preheader383:                                    ; preds = %.lr.ph460, %.lr.ph452, %._crit_edge453
-  %.4193.lcssa593 = phi i32 [ %.4193.lcssa, %._crit_edge453 ], [ %.3192, %.lr.ph452 ], [ %.4193.lcssa, %.lr.ph460 ]
+  %.4193.lcssa615 = phi i32 [ %.4193.lcssa, %._crit_edge453 ], [ %.3192, %.lr.ph452 ], [ %.4193.lcssa, %.lr.ph460 ]
   %.0170.lcssa = phi i32 [ %144, %._crit_edge453 ], [ %144, %.lr.ph452 ], [ %.1171, %.lr.ph460 ]
-  %182 = icmp sgt i32 %.4193.lcssa593, 0
+  %182 = icmp sgt i32 %.4193.lcssa615, 0
   br i1 %182, label %.lr.ph463.preheader, label %.preheader381
 
 .lr.ph463.preheader:                              ; preds = %.preheader383
-  %wide.trip.count551 = zext nneg i32 %.4193.lcssa593 to i64
+  %wide.trip.count551 = zext nneg i32 %.4193.lcssa615 to i64
   br label %.lr.ph463
 
 .lr.ph460:                                        ; preds = %._crit_edge453, %.lr.ph460
@@ -1305,11 +1305,11 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %41
   br i1 %exitcond547.not, label %.preheader383, label %.lr.ph460, !llvm.loop !79
 
 .preheader381:                                    ; preds = %.lr.ph463, %.preheader383
-  %.3184.lcssa = phi i32 [ 0, %.preheader383 ], [ %.4193.lcssa593, %.lr.ph463 ]
+  %.3184.lcssa = phi i32 [ 0, %.preheader383 ], [ %.4193.lcssa615, %.lr.ph463 ]
   br i1 %110, label %.lr.ph467, label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %222, %.preheader381
-  %.3192.be = phi i32 [ %.4193.lcssa593, %.preheader381 ], [ %.13, %222 ]
+  %.3192.be = phi i32 [ %.4193.lcssa615, %.preheader381 ], [ %.13, %222 ]
   br label %.loopexit
 
 .lr.ph463:                                        ; preds = %.lr.ph463.preheader, %.lr.ph463
@@ -1328,7 +1328,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %41
 .lr.ph467:                                        ; preds = %.preheader381, %222
   %indvars.iv558 = phi i64 [ %indvars.iv.next559, %222 ], [ 1, %.preheader381 ]
   %indvars.iv553 = phi i64 [ %indvars.iv.next554, %222 ], [ 0, %.preheader381 ]
-  %.12465 = phi i32 [ %.13, %222 ], [ %.4193.lcssa593, %.preheader381 ]
+  %.12465 = phi i32 [ %.13, %222 ], [ %.4193.lcssa615, %.preheader381 ]
   %192 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv553
   %193 = load i32, ptr %192, align 4, !tbaa !50
   %.not240 = icmp eq i32 %193, 0
@@ -1351,7 +1351,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %41
 .loopexit382:                                     ; preds = %197
   %203 = trunc nuw nsw i64 %indvars.iv553 to i32
   %.0168469 = add nuw nsw i32 %203, 1
-  %204 = icmp slt i32 %.0168469, %.lcssa407590
+  %204 = icmp slt i32 %.0168469, %.lcssa407612
   br i1 %204, label %.lr.ph471, label %.thread361
 
 .lr.ph471:                                        ; preds = %.loopexit382, %212
@@ -1481,8 +1481,8 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %41
   %252 = icmp sgt i32 %262, 0
   %253 = load i32, ptr %30, align 4
   %254 = icmp sgt i32 %253, 0
-  %or.cond612 = select i1 %252, i1 %254, i1 false
-  br i1 %or.cond612, label %.preheader, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit269
+  %or.cond634 = select i1 %252, i1 %254, i1 false
+  br i1 %or.cond634, label %.preheader, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit269
 
 255:                                              ; preds = %.lr.ph481, %255
   %indvars.iv576 = phi i64 [ 0, %.lr.ph481 ], [ %indvars.iv.next577, %255 ]
@@ -1830,7 +1830,7 @@ define linkonce_odr void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(p
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !53

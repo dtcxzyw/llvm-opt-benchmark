@@ -787,9 +787,9 @@ deregister_user_data.exit:                        ; preds = %16, %18
   br label %92
 
 92:                                               ; preds = %70, %54
-  %.sink80.in = phi ptr [ %91, %70 ], [ %69, %54 ]
-  %.sink80 = load ptr, ptr %.sink80.in, align 8
-  %93 = call noalias ptr @g_strdup(ptr noundef %.sink80)
+  %.sink82.in = phi ptr [ %91, %70 ], [ %69, %54 ]
+  %.sink82 = load ptr, ptr %.sink82.in, align 8
+  %93 = call noalias ptr @g_strdup(ptr noundef %.sink82)
   %94 = load ptr, ptr @dynamic_hf, align 8
   %95 = getelementptr %struct.hf_register_info, ptr %94, i64 %indvars.iv, i32 1, i32 6
   store ptr %93, ptr %95, align 8
@@ -1026,14 +1026,14 @@ switch.lookup:                                    ; preds = %23
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.148, i32 noundef %.066)
   %47 = load i32, ptr @g_autosar_nm_pos_sni, align 4
   %.not81 = icmp eq i32 %47, -1
-  br i1 %.not81, label %53, label %.sink.split98
+  br i1 %.not81, label %53, label %.sink.split102
 
 48:                                               ; preds = %40
   %49 = load i32, ptr @g_autosar_nm_pos_sni, align 4
   %.not80 = icmp eq i32 %49, -1
-  br i1 %.not80, label %53, label %.sink.split98
+  br i1 %.not80, label %53, label %.sink.split102
 
-.sink.split98:                                    ; preds = %48, %45
+.sink.split102:                                   ; preds = %48, %45
   %.str.151.sink = phi ptr [ @.str.149, %45 ], [ @.str.151, %48 ]
   %50 = load ptr, ptr %7, align 8
   %51 = load i32, ptr %6, align 4
@@ -1042,7 +1042,7 @@ switch.lookup:                                    ; preds = %23
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.150, i32 noundef %52)
   br label %53
 
-53:                                               ; preds = %.sink.split98, %48, %45
+53:                                               ; preds = %.sink.split102, %48, %45
   %54 = load ptr, ptr %7, align 8
   call void @col_append_str(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.152)
   %55 = load i32, ptr @hf_autosar_nm_user_data, align 4

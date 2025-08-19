@@ -6698,8 +6698,8 @@ dissect_artnet_rdm_sub.exit:                      ; preds = %921, %954
   br i1 %.not5.i131.i, label %proto_item_set_generated.exit.i574, label %proto_item_set_generated.exit.sink.split.i
 
 proto_item_set_generated.exit.sink.split.i:       ; preds = %1107, %1098, %1092
-  %.sink135.i = phi ptr [ %1094, %1092 ], [ %1100, %1098 ], [ %1109, %1107 ]
-  %1110 = getelementptr inbounds nuw i8, ptr %.sink135.i, i64 28
+  %.sink141.i = phi ptr [ %1094, %1092 ], [ %1100, %1098 ], [ %1109, %1107 ]
+  %1110 = getelementptr inbounds nuw i8, ptr %.sink141.i, i64 28
   %1111 = load i32, ptr %1110, align 4
   %1112 = or i32 %1111, 2
   store i32 %1112, ptr %1110, align 4

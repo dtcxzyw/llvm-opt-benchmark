@@ -4608,12 +4608,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_12For
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.04, label %.sink.split41, label %72
+  br i1 %.04, label %.sink.split44, label %72
 
 .sink.split:                                      ; preds = %.thread, %.thread29
   %.pn17.pn28.ph = phi { ptr, i32 } [ %17, %.thread29 ], [ %16, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.sink.split41
+  br label %.sink.split44
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -4661,13 +4661,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_12For
 .thread32:                                        ; preds = %34
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split40
+  br label %.sink.split43
 
 .thread37:                                        ; preds = %36
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
-  br label %.sink.split40
+  br label %.sink.split43
 
 42:                                               ; preds = %37, %39
   %.0 = phi i1 [ false, %39 ], [ true, %37 ]
@@ -4678,12 +4678,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_12For
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.0, label %.sink.split41, label %72
+  br i1 %.0, label %.sink.split44, label %72
 
-.sink.split40:                                    ; preds = %.thread32, %.thread37
+.sink.split43:                                    ; preds = %.thread32, %.thread37
   %.pn.pn36.ph = phi { ptr, i32 } [ %41, %.thread37 ], [ %40, %.thread32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.sink.split41
+  br label %.sink.split44
 
 44:                                               ; preds = %20
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -4751,14 +4751,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_12Forc
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_12ForceElementEEEERS2_DpOT_.exit: ; preds = %50, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_12ForceElementEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split41:                                    ; preds = %42, %.sink.split40, %18, %.sink.split
-  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split40 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split40 ], [ %43, %42 ]
+.sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
-72:                                               ; preds = %.sink.split41, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split41 ]
+72:                                               ; preds = %.sink.split44, %42, %18
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -4824,12 +4824,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_19Sta
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.04, label %.sink.split41, label %72
+  br i1 %.04, label %.sink.split44, label %72
 
 .sink.split:                                      ; preds = %.thread, %.thread29
   %.pn17.pn28.ph = phi { ptr, i32 } [ %17, %.thread29 ], [ %16, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.sink.split41
+  br label %.sink.split44
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -4877,13 +4877,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_19Sta
 .thread32:                                        ; preds = %34
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split40
+  br label %.sink.split43
 
 .thread37:                                        ; preds = %36
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
-  br label %.sink.split40
+  br label %.sink.split43
 
 42:                                               ; preds = %37, %39
   %.0 = phi i1 [ false, %39 ], [ true, %37 ]
@@ -4894,12 +4894,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_19Sta
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.0, label %.sink.split41, label %72
+  br i1 %.0, label %.sink.split44, label %72
 
-.sink.split40:                                    ; preds = %.thread32, %.thread37
+.sink.split43:                                    ; preds = %.thread32, %.thread37
   %.pn.pn36.ph = phi { ptr, i32 } [ %41, %.thread37 ], [ %40, %.thread32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.sink.split41
+  br label %.sink.split44
 
 44:                                               ; preds = %20
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -4967,14 +4967,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_19Stat
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_19StatePropagatorData7ElementEEEERS2_DpOT_.exit: ; preds = %50, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_19StatePropagatorData7ElementEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split41:                                    ; preds = %42, %.sink.split40, %18, %.sink.split
-  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split40 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split40 ], [ %43, %42 ]
+.sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
-72:                                               ; preds = %.sink.split41, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split41 ]
+72:                                               ; preds = %.sink.split44, %42, %18
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -5040,12 +5040,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_34Vel
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.08, label %.sink.split45, label %78
+  br i1 %.08, label %.sink.split48, label %78
 
 .sink.split:                                      ; preds = %.thread, %.thread33
   %.pn21.pn32.ph = phi { ptr, i32 } [ %21, %.thread33 ], [ %20, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split45
+  br label %.sink.split48
 
 24:                                               ; preds = %5
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -5096,13 +5096,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_34Vel
 .thread36:                                        ; preds = %40
   %46 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split44
+  br label %.sink.split47
 
 .thread41:                                        ; preds = %42
   %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #23
-  br label %.sink.split44
+  br label %.sink.split47
 
 48:                                               ; preds = %43, %45
   %.0 = phi i1 [ false, %45 ], [ true, %43 ]
@@ -5113,12 +5113,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_34Vel
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %.0, label %.sink.split45, label %78
+  br i1 %.0, label %.sink.split48, label %78
 
-.sink.split44:                                    ; preds = %.thread36, %.thread41
+.sink.split47:                                    ; preds = %.thread36, %.thread41
   %.pn.pn40.ph = phi { ptr, i32 } [ %47, %.thread41 ], [ %46, %.thread36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.sink.split45
+  br label %.sink.split48
 
 50:                                               ; preds = %24
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -5186,14 +5186,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_34Velo
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_34VelocityScalingTemperatureCouplingEEEERS2_DpOT_.exit: ; preds = %56, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_34VelocityScalingTemperatureCouplingEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split45:                                    ; preds = %48, %.sink.split44, %22, %.sink.split
-  %.sink = phi ptr [ %15, %.sink.split ], [ %15, %22 ], [ %41, %.sink.split44 ], [ %41, %48 ]
-  %.pn21.pn.pn.ph = phi { ptr, i32 } [ %.pn21.pn32.ph, %.sink.split ], [ %23, %22 ], [ %.pn.pn40.ph, %.sink.split44 ], [ %49, %48 ]
+.sink.split48:                                    ; preds = %48, %.sink.split47, %22, %.sink.split
+  %.sink = phi ptr [ %15, %.sink.split ], [ %15, %22 ], [ %41, %.sink.split47 ], [ %41, %48 ]
+  %.pn21.pn.pn.ph = phi { ptr, i32 } [ %.pn21.pn32.ph, %.sink.split ], [ %23, %22 ], [ %.pn.pn40.ph, %.sink.split47 ], [ %49, %48 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %78
 
-78:                                               ; preds = %.sink.split45, %48, %22
-  %.pn21.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %49, %48 ], [ %.pn21.pn.pn.ph, %.sink.split45 ]
+78:                                               ; preds = %.sink.split48, %48, %22
+  %.pn21.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %49, %48 ], [ %.pn21.pn.pn.ph, %.sink.split48 ]
   resume { ptr, i32 } %.pn21.pn.pn
 
 79:                                               ; preds = %45, %19
@@ -5259,12 +5259,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Pro
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.06, label %.sink.split43, label %74
+  br i1 %.06, label %.sink.split46, label %74
 
 .sink.split:                                      ; preds = %.thread, %.thread31
   %.pn19.pn30.ph = phi { ptr, i32 } [ %19, %.thread31 ], [ %18, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.sink.split43
+  br label %.sink.split46
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -5313,13 +5313,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Pro
 .thread34:                                        ; preds = %36
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split42
+  br label %.sink.split45
 
 .thread39:                                        ; preds = %38
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
-  br label %.sink.split42
+  br label %.sink.split45
 
 44:                                               ; preds = %39, %41
   %.0 = phi i1 [ false, %41 ], [ true, %39 ]
@@ -5330,12 +5330,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Pro
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.0, label %.sink.split43, label %74
+  br i1 %.0, label %.sink.split46, label %74
 
-.sink.split42:                                    ; preds = %.thread34, %.thread39
+.sink.split45:                                    ; preds = %.thread34, %.thread39
   %.pn.pn38.ph = phi { ptr, i32 } [ %43, %.thread39 ], [ %42, %.thread34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.sink.split43
+  br label %.sink.split46
 
 46:                                               ; preds = %22
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -5403,14 +5403,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10Prop
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10PropagatorILNS0_16IntegrationStageE2EEEEEERS2_DpOT_.exit: ; preds = %52, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10PropagatorILNS0_16IntegrationStageE2EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split43:                                    ; preds = %44, %.sink.split42, %20, %.sink.split
-  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %37, %.sink.split42 ], [ %37, %44 ]
-  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %.pn19.pn30.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split42 ], [ %45, %44 ]
+.sink.split46:                                    ; preds = %44, %.sink.split45, %20, %.sink.split
+  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %37, %.sink.split45 ], [ %37, %44 ]
+  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %.pn19.pn30.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split45 ], [ %45, %44 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %74
 
-74:                                               ; preds = %.sink.split43, %44, %20
-  %.pn19.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %45, %44 ], [ %.pn19.pn.pn.ph, %.sink.split43 ]
+74:                                               ; preds = %.sink.split46, %44, %20
+  %.pn19.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %45, %44 ], [ %.pn19.pn.pn.ph, %.sink.split46 ]
   resume { ptr, i32 } %.pn19.pn.pn
 
 75:                                               ; preds = %41, %17
@@ -5476,12 +5476,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_18Con
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.04, label %.sink.split41, label %72
+  br i1 %.04, label %.sink.split44, label %72
 
 .sink.split:                                      ; preds = %.thread, %.thread29
   %.pn17.pn28.ph = phi { ptr, i32 } [ %17, %.thread29 ], [ %16, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.sink.split41
+  br label %.sink.split44
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -5529,13 +5529,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_18Con
 .thread32:                                        ; preds = %34
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split40
+  br label %.sink.split43
 
 .thread37:                                        ; preds = %36
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
-  br label %.sink.split40
+  br label %.sink.split43
 
 42:                                               ; preds = %37, %39
   %.0 = phi i1 [ false, %39 ], [ true, %37 ]
@@ -5546,12 +5546,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_18Con
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.0, label %.sink.split41, label %72
+  br i1 %.0, label %.sink.split44, label %72
 
-.sink.split40:                                    ; preds = %.thread32, %.thread37
+.sink.split43:                                    ; preds = %.thread32, %.thread37
   %.pn.pn36.ph = phi { ptr, i32 } [ %41, %.thread37 ], [ %40, %.thread32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.sink.split41
+  br label %.sink.split44
 
 44:                                               ; preds = %20
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -5619,14 +5619,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_18Cons
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_18ConstraintsElementILNS0_18ConstraintVariableE0EEEEEERS2_DpOT_.exit: ; preds = %50, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_18ConstraintsElementILNS0_18ConstraintVariableE0EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split41:                                    ; preds = %42, %.sink.split40, %18, %.sink.split
-  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split40 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split40 ], [ %43, %42 ]
+.sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
-72:                                               ; preds = %.sink.split41, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split41 ]
+72:                                               ; preds = %.sink.split44, %42, %18
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -5692,12 +5692,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_11Pul
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.04, label %.sink.split41, label %72
+  br i1 %.04, label %.sink.split44, label %72
 
 .sink.split:                                      ; preds = %.thread, %.thread29
   %.pn17.pn28.ph = phi { ptr, i32 } [ %17, %.thread29 ], [ %16, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.sink.split41
+  br label %.sink.split44
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -5745,13 +5745,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_11Pul
 .thread32:                                        ; preds = %34
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split40
+  br label %.sink.split43
 
 .thread37:                                        ; preds = %36
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
-  br label %.sink.split40
+  br label %.sink.split43
 
 42:                                               ; preds = %37, %39
   %.0 = phi i1 [ false, %39 ], [ true, %37 ]
@@ -5762,12 +5762,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_11Pul
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.0, label %.sink.split41, label %72
+  br i1 %.0, label %.sink.split44, label %72
 
-.sink.split40:                                    ; preds = %.thread32, %.thread37
+.sink.split43:                                    ; preds = %.thread32, %.thread37
   %.pn.pn36.ph = phi { ptr, i32 } [ %41, %.thread37 ], [ %40, %.thread32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.sink.split41
+  br label %.sink.split44
 
 44:                                               ; preds = %20
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -5835,14 +5835,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_11Pull
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_11PullElementEEEERS2_DpOT_.exit: ; preds = %50, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_11PullElementEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split41:                                    ; preds = %42, %.sink.split40, %18, %.sink.split
-  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split40 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split40 ], [ %43, %42 ]
+.sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
-72:                                               ; preds = %.sink.split41, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split41 ]
+72:                                               ; preds = %.sink.split44, %42, %18
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -5908,12 +5908,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_21Com
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.04, label %.sink.split41, label %72
+  br i1 %.04, label %.sink.split44, label %72
 
 .sink.split:                                      ; preds = %.thread, %.thread29
   %.pn17.pn28.ph = phi { ptr, i32 } [ %17, %.thread29 ], [ %16, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.sink.split41
+  br label %.sink.split44
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -5961,13 +5961,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_21Com
 .thread32:                                        ; preds = %34
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split40
+  br label %.sink.split43
 
 .thread37:                                        ; preds = %36
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
-  br label %.sink.split40
+  br label %.sink.split43
 
 42:                                               ; preds = %37, %39
   %.0 = phi i1 [ false, %39 ], [ true, %37 ]
@@ -5978,12 +5978,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_21Com
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.0, label %.sink.split41, label %72
+  br i1 %.0, label %.sink.split44, label %72
 
-.sink.split40:                                    ; preds = %.thread32, %.thread37
+.sink.split43:                                    ; preds = %.thread32, %.thread37
   %.pn.pn36.ph = phi { ptr, i32 } [ %41, %.thread37 ], [ %40, %.thread32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.sink.split41
+  br label %.sink.split44
 
 44:                                               ; preds = %20
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -6051,14 +6051,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_21Comp
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE0EEEEEERS2_DpOT_.exit: ; preds = %50, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE0EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split41:                                    ; preds = %42, %.sink.split40, %18, %.sink.split
-  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split40 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split40 ], [ %43, %42 ]
+.sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
-72:                                               ; preds = %.sink.split41, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split41 ]
+72:                                               ; preds = %.sink.split44, %42, %18
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -6124,12 +6124,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_24Par
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.06, label %.sink.split43, label %74
+  br i1 %.06, label %.sink.split46, label %74
 
 .sink.split:                                      ; preds = %.thread, %.thread31
   %.pn19.pn30.ph = phi { ptr, i32 } [ %19, %.thread31 ], [ %18, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.sink.split43
+  br label %.sink.split46
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -6178,13 +6178,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_24Par
 .thread34:                                        ; preds = %36
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split42
+  br label %.sink.split45
 
 .thread39:                                        ; preds = %38
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
-  br label %.sink.split42
+  br label %.sink.split45
 
 44:                                               ; preds = %39, %41
   %.0 = phi i1 [ false, %41 ], [ true, %39 ]
@@ -6195,12 +6195,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_24Par
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.0, label %.sink.split43, label %74
+  br i1 %.0, label %.sink.split46, label %74
 
-.sink.split42:                                    ; preds = %.thread34, %.thread39
+.sink.split45:                                    ; preds = %.thread34, %.thread39
   %.pn.pn38.ph = phi { ptr, i32 } [ %43, %.thread39 ], [ %42, %.thread34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.sink.split43
+  br label %.sink.split46
 
 46:                                               ; preds = %22
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -6268,14 +6268,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_24Parr
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_24ParrinelloRahmanBarostatEEEERS2_DpOT_.exit: ; preds = %52, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_24ParrinelloRahmanBarostatEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split43:                                    ; preds = %44, %.sink.split42, %20, %.sink.split
-  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %37, %.sink.split42 ], [ %37, %44 ]
-  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %.pn19.pn30.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split42 ], [ %45, %44 ]
+.sink.split46:                                    ; preds = %44, %.sink.split45, %20, %.sink.split
+  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %37, %.sink.split45 ], [ %37, %44 ]
+  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %.pn19.pn30.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split45 ], [ %45, %44 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %74
 
-74:                                               ; preds = %.sink.split43, %44, %20
-  %.pn19.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %45, %44 ], [ %.pn19.pn.pn.ph, %.sink.split43 ]
+74:                                               ; preds = %.sink.split46, %44, %20
+  %.pn19.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %45, %44 ], [ %.pn19.pn.pn.ph, %.sink.split46 ]
   resume { ptr, i32 } %.pn19.pn.pn
 
 75:                                               ; preds = %41, %17
@@ -6341,12 +6341,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_26Fir
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.06, label %.sink.split43, label %76
+  br i1 %.06, label %.sink.split46, label %76
 
 .sink.split:                                      ; preds = %.thread, %.thread31
   %.pn19.pn30.ph = phi { ptr, i32 } [ %19, %.thread31 ], [ %18, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.sink.split43
+  br label %.sink.split46
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -6396,13 +6396,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_26Fir
 .thread34:                                        ; preds = %38
   %44 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split42
+  br label %.sink.split45
 
 .thread39:                                        ; preds = %40
   %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
-  br label %.sink.split42
+  br label %.sink.split45
 
 46:                                               ; preds = %41, %43
   %.0 = phi i1 [ false, %43 ], [ true, %41 ]
@@ -6413,12 +6413,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_26Fir
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.0, label %.sink.split43, label %76
+  br i1 %.0, label %.sink.split46, label %76
 
-.sink.split42:                                    ; preds = %.thread34, %.thread39
+.sink.split45:                                    ; preds = %.thread34, %.thread39
   %.pn.pn38.ph = phi { ptr, i32 } [ %45, %.thread39 ], [ %44, %.thread34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.sink.split43
+  br label %.sink.split46
 
 48:                                               ; preds = %22
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -6486,14 +6486,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_26Firs
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_26FirstOrderPressureCouplingEEEERS2_DpOT_.exit: ; preds = %54, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_26FirstOrderPressureCouplingEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split43:                                    ; preds = %46, %.sink.split42, %20, %.sink.split
-  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %39, %.sink.split42 ], [ %39, %46 ]
-  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %.pn19.pn30.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split42 ], [ %47, %46 ]
+.sink.split46:                                    ; preds = %46, %.sink.split45, %20, %.sink.split
+  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %39, %.sink.split45 ], [ %39, %46 ]
+  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %.pn19.pn30.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split45 ], [ %47, %46 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %76
 
-76:                                               ; preds = %.sink.split43, %46, %20
-  %.pn19.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %47, %46 ], [ %.pn19.pn.pn.ph, %.sink.split43 ]
+76:                                               ; preds = %.sink.split46, %46, %20
+  %.pn19.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %47, %46 ], [ %.pn19.pn.pn.ph, %.sink.split46 ]
   resume { ptr, i32 } %.pn19.pn.pn
 
 77:                                               ; preds = %43, %17
@@ -6559,12 +6559,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Pro
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.06, label %.sink.split43, label %74
+  br i1 %.06, label %.sink.split46, label %74
 
 .sink.split:                                      ; preds = %.thread, %.thread31
   %.pn19.pn30.ph = phi { ptr, i32 } [ %19, %.thread31 ], [ %18, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.sink.split43
+  br label %.sink.split46
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -6613,13 +6613,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Pro
 .thread34:                                        ; preds = %36
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split42
+  br label %.sink.split45
 
 .thread39:                                        ; preds = %38
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
-  br label %.sink.split42
+  br label %.sink.split45
 
 44:                                               ; preds = %39, %41
   %.0 = phi i1 [ false, %41 ], [ true, %39 ]
@@ -6630,12 +6630,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Pro
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.0, label %.sink.split43, label %74
+  br i1 %.0, label %.sink.split46, label %74
 
-.sink.split42:                                    ; preds = %.thread34, %.thread39
+.sink.split45:                                    ; preds = %.thread34, %.thread39
   %.pn.pn38.ph = phi { ptr, i32 } [ %43, %.thread39 ], [ %42, %.thread34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.sink.split43
+  br label %.sink.split46
 
 46:                                               ; preds = %22
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -6703,14 +6703,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10Prop
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10PropagatorILNS0_16IntegrationStageE1EEEEEERS2_DpOT_.exit: ; preds = %52, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10PropagatorILNS0_16IntegrationStageE1EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split43:                                    ; preds = %44, %.sink.split42, %20, %.sink.split
-  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %37, %.sink.split42 ], [ %37, %44 ]
-  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %.pn19.pn30.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split42 ], [ %45, %44 ]
+.sink.split46:                                    ; preds = %44, %.sink.split45, %20, %.sink.split
+  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %37, %.sink.split45 ], [ %37, %44 ]
+  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %.pn19.pn30.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split45 ], [ %45, %44 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %74
 
-74:                                               ; preds = %.sink.split43, %44, %20
-  %.pn19.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %45, %44 ], [ %.pn19.pn.pn.ph, %.sink.split43 ]
+74:                                               ; preds = %.sink.split46, %44, %20
+  %.pn19.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %45, %44 ], [ %.pn19.pn.pn.ph, %.sink.split46 ]
   resume { ptr, i32 } %.pn19.pn.pn
 
 75:                                               ; preds = %41, %17
@@ -6776,12 +6776,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_18Con
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.04, label %.sink.split41, label %72
+  br i1 %.04, label %.sink.split44, label %72
 
 .sink.split:                                      ; preds = %.thread, %.thread29
   %.pn17.pn28.ph = phi { ptr, i32 } [ %17, %.thread29 ], [ %16, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.sink.split41
+  br label %.sink.split44
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -6829,13 +6829,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_18Con
 .thread32:                                        ; preds = %34
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split40
+  br label %.sink.split43
 
 .thread37:                                        ; preds = %36
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
-  br label %.sink.split40
+  br label %.sink.split43
 
 42:                                               ; preds = %37, %39
   %.0 = phi i1 [ false, %39 ], [ true, %37 ]
@@ -6846,12 +6846,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_18Con
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.0, label %.sink.split41, label %72
+  br i1 %.0, label %.sink.split44, label %72
 
-.sink.split40:                                    ; preds = %.thread32, %.thread37
+.sink.split43:                                    ; preds = %.thread32, %.thread37
   %.pn.pn36.ph = phi { ptr, i32 } [ %41, %.thread37 ], [ %40, %.thread32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.sink.split41
+  br label %.sink.split44
 
 44:                                               ; preds = %20
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -6919,14 +6919,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_18Cons
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_18ConstraintsElementILNS0_18ConstraintVariableE1EEEEEERS2_DpOT_.exit: ; preds = %50, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_18ConstraintsElementILNS0_18ConstraintVariableE1EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split41:                                    ; preds = %42, %.sink.split40, %18, %.sink.split
-  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split40 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split40 ], [ %43, %42 ]
+.sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
-72:                                               ; preds = %.sink.split41, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split41 ]
+72:                                               ; preds = %.sink.split44, %42, %18
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -6992,12 +6992,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_21Com
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.04, label %.sink.split41, label %72
+  br i1 %.04, label %.sink.split44, label %72
 
 .sink.split:                                      ; preds = %.thread, %.thread29
   %.pn17.pn28.ph = phi { ptr, i32 } [ %17, %.thread29 ], [ %16, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.sink.split41
+  br label %.sink.split44
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -7045,13 +7045,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_21Com
 .thread32:                                        ; preds = %34
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split40
+  br label %.sink.split43
 
 .thread37:                                        ; preds = %36
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
-  br label %.sink.split40
+  br label %.sink.split43
 
 42:                                               ; preds = %37, %39
   %.0 = phi i1 [ false, %39 ], [ true, %37 ]
@@ -7062,12 +7062,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_21Com
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.0, label %.sink.split41, label %72
+  br i1 %.0, label %.sink.split44, label %72
 
-.sink.split40:                                    ; preds = %.thread32, %.thread37
+.sink.split43:                                    ; preds = %.thread32, %.thread37
   %.pn.pn36.ph = phi { ptr, i32 } [ %41, %.thread37 ], [ %40, %.thread32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.sink.split41
+  br label %.sink.split44
 
 44:                                               ; preds = %20
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -7135,14 +7135,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_21Comp
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEEEERS2_DpOT_.exit: ; preds = %50, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split41:                                    ; preds = %42, %.sink.split40, %18, %.sink.split
-  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split40 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split40 ], [ %43, %42 ]
+.sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
-72:                                               ; preds = %.sink.split41, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split41 ]
+72:                                               ; preds = %.sink.split44, %42, %18
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -7208,12 +7208,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_23Exp
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.04, label %.sink.split41, label %72
+  br i1 %.04, label %.sink.split44, label %72
 
 .sink.split:                                      ; preds = %.thread, %.thread29
   %.pn17.pn28.ph = phi { ptr, i32 } [ %17, %.thread29 ], [ %16, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.sink.split41
+  br label %.sink.split44
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -7261,13 +7261,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_23Exp
 .thread32:                                        ; preds = %34
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split40
+  br label %.sink.split43
 
 .thread37:                                        ; preds = %36
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
-  br label %.sink.split40
+  br label %.sink.split43
 
 42:                                               ; preds = %37, %39
   %.0 = phi i1 [ false, %39 ], [ true, %37 ]
@@ -7278,12 +7278,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_23Exp
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.0, label %.sink.split41, label %72
+  br i1 %.0, label %.sink.split44, label %72
 
-.sink.split40:                                    ; preds = %.thread32, %.thread37
+.sink.split43:                                    ; preds = %.thread32, %.thread37
   %.pn.pn36.ph = phi { ptr, i32 } [ %41, %.thread37 ], [ %40, %.thread32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.sink.split41
+  br label %.sink.split44
 
 44:                                               ; preds = %20
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -7351,14 +7351,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_23Expa
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_23ExpandedEnsembleElementEEEERS2_DpOT_.exit: ; preds = %50, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_23ExpandedEnsembleElementEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split41:                                    ; preds = %42, %.sink.split40, %18, %.sink.split
-  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split40 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split40 ], [ %43, %42 ]
+.sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
-72:                                               ; preds = %.sink.split41, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split41 ]
+72:                                               ; preds = %.sink.split44, %42, %18
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -7424,12 +7424,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_27And
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.04, label %.sink.split41, label %72
+  br i1 %.04, label %.sink.split44, label %72
 
 .sink.split:                                      ; preds = %.thread, %.thread29
   %.pn17.pn28.ph = phi { ptr, i32 } [ %17, %.thread29 ], [ %16, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.sink.split41
+  br label %.sink.split44
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -7477,13 +7477,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_27And
 .thread32:                                        ; preds = %34
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split40
+  br label %.sink.split43
 
 .thread37:                                        ; preds = %36
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
-  br label %.sink.split40
+  br label %.sink.split43
 
 42:                                               ; preds = %37, %39
   %.0 = phi i1 [ false, %39 ], [ true, %37 ]
@@ -7494,12 +7494,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_27And
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.0, label %.sink.split41, label %72
+  br i1 %.0, label %.sink.split44, label %72
 
-.sink.split40:                                    ; preds = %.thread32, %.thread37
+.sink.split43:                                    ; preds = %.thread32, %.thread37
   %.pn.pn36.ph = phi { ptr, i32 } [ %41, %.thread37 ], [ %40, %.thread32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.sink.split41
+  br label %.sink.split44
 
 44:                                               ; preds = %20
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -7567,14 +7567,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_27Ande
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_27AndersenTemperatureCouplingEEEERS2_DpOT_.exit: ; preds = %50, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_27AndersenTemperatureCouplingEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split41:                                    ; preds = %42, %.sink.split40, %18, %.sink.split
-  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split40 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split40 ], [ %43, %42 ]
+.sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
-72:                                               ; preds = %.sink.split41, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split41 ]
+72:                                               ; preds = %.sink.split44, %42, %18
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -7640,12 +7640,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Pro
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.06, label %.sink.split43, label %74
+  br i1 %.06, label %.sink.split46, label %74
 
 .sink.split:                                      ; preds = %.thread, %.thread31
   %.pn19.pn30.ph = phi { ptr, i32 } [ %19, %.thread31 ], [ %18, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.sink.split43
+  br label %.sink.split46
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -7694,13 +7694,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Pro
 .thread34:                                        ; preds = %36
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split42
+  br label %.sink.split45
 
 .thread39:                                        ; preds = %38
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
-  br label %.sink.split42
+  br label %.sink.split45
 
 44:                                               ; preds = %39, %41
   %.0 = phi i1 [ false, %41 ], [ true, %39 ]
@@ -7711,12 +7711,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Pro
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.0, label %.sink.split43, label %74
+  br i1 %.0, label %.sink.split46, label %74
 
-.sink.split42:                                    ; preds = %.thread34, %.thread39
+.sink.split45:                                    ; preds = %.thread34, %.thread39
   %.pn.pn38.ph = phi { ptr, i32 } [ %43, %.thread39 ], [ %42, %.thread34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.sink.split43
+  br label %.sink.split46
 
 46:                                               ; preds = %22
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -7784,14 +7784,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10Prop
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10PropagatorILNS0_16IntegrationStageE3EEEEEERS2_DpOT_.exit: ; preds = %52, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10PropagatorILNS0_16IntegrationStageE3EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split43:                                    ; preds = %44, %.sink.split42, %20, %.sink.split
-  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %37, %.sink.split42 ], [ %37, %44 ]
-  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %.pn19.pn30.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split42 ], [ %45, %44 ]
+.sink.split46:                                    ; preds = %44, %.sink.split45, %20, %.sink.split
+  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %37, %.sink.split45 ], [ %37, %44 ]
+  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %.pn19.pn30.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split45 ], [ %45, %44 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %74
 
-74:                                               ; preds = %.sink.split43, %44, %20
-  %.pn19.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %45, %44 ], [ %.pn19.pn.pn.ph, %.sink.split43 ]
+74:                                               ; preds = %.sink.split46, %44, %20
+  %.pn19.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %45, %44 ], [ %.pn19.pn.pn.ph, %.sink.split46 ]
   resume { ptr, i32 } %.pn19.pn.pn
 
 75:                                               ; preds = %41, %17
@@ -7857,12 +7857,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Pro
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.05, label %.sink.split42, label %73
+  br i1 %.05, label %.sink.split45, label %73
 
 .sink.split:                                      ; preds = %.thread, %.thread30
   %.pn18.pn29.ph = phi { ptr, i32 } [ %18, %.thread30 ], [ %17, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.sink.split42
+  br label %.sink.split45
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -7910,13 +7910,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Pro
 .thread33:                                        ; preds = %35
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split41
+  br label %.sink.split44
 
 .thread38:                                        ; preds = %37
   %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
-  br label %.sink.split41
+  br label %.sink.split44
 
 43:                                               ; preds = %38, %40
   %.0 = phi i1 [ false, %40 ], [ true, %38 ]
@@ -7927,12 +7927,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Pro
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.0, label %.sink.split42, label %73
+  br i1 %.0, label %.sink.split45, label %73
 
-.sink.split41:                                    ; preds = %.thread33, %.thread38
+.sink.split44:                                    ; preds = %.thread33, %.thread38
   %.pn.pn37.ph = phi { ptr, i32 } [ %42, %.thread38 ], [ %41, %.thread33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split42
+  br label %.sink.split45
 
 45:                                               ; preds = %21
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -8000,14 +8000,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10Prop
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10PropagatorILNS0_16IntegrationStageE4EEEEEERS2_DpOT_.exit: ; preds = %51, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10PropagatorILNS0_16IntegrationStageE4EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split42:                                    ; preds = %43, %.sink.split41, %19, %.sink.split
-  %.sink = phi ptr [ %12, %.sink.split ], [ %12, %19 ], [ %36, %.sink.split41 ], [ %36, %43 ]
-  %.pn18.pn.pn.ph = phi { ptr, i32 } [ %.pn18.pn29.ph, %.sink.split ], [ %20, %19 ], [ %.pn.pn37.ph, %.sink.split41 ], [ %44, %43 ]
+.sink.split45:                                    ; preds = %43, %.sink.split44, %19, %.sink.split
+  %.sink = phi ptr [ %12, %.sink.split ], [ %12, %19 ], [ %36, %.sink.split44 ], [ %36, %43 ]
+  %.pn18.pn.pn.ph = phi { ptr, i32 } [ %.pn18.pn29.ph, %.sink.split ], [ %20, %19 ], [ %.pn.pn37.ph, %.sink.split44 ], [ %44, %43 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %73
 
-73:                                               ; preds = %.sink.split42, %43, %19
-  %.pn18.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %44, %43 ], [ %.pn18.pn.pn.ph, %.sink.split42 ]
+73:                                               ; preds = %.sink.split45, %43, %19
+  %.pn18.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %44, %43 ], [ %.pn18.pn.pn.ph, %.sink.split45 ]
   resume { ptr, i32 } %.pn18.pn.pn
 
 74:                                               ; preds = %40, %16
@@ -8073,12 +8073,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_11Mtt
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.07, label %.sink.split44, label %76
+  br i1 %.07, label %.sink.split47, label %76
 
 .sink.split:                                      ; preds = %.thread, %.thread32
   %.pn20.pn31.ph = phi { ptr, i32 } [ %20, %.thread32 ], [ %19, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.sink.split44
+  br label %.sink.split47
 
 23:                                               ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -8128,13 +8128,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_11Mtt
 .thread35:                                        ; preds = %38
   %44 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split43
+  br label %.sink.split46
 
 .thread40:                                        ; preds = %40
   %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #23
-  br label %.sink.split43
+  br label %.sink.split46
 
 46:                                               ; preds = %41, %43
   %.0 = phi i1 [ false, %43 ], [ true, %41 ]
@@ -8145,12 +8145,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_11Mtt
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.0, label %.sink.split44, label %76
+  br i1 %.0, label %.sink.split47, label %76
 
-.sink.split43:                                    ; preds = %.thread35, %.thread40
+.sink.split46:                                    ; preds = %.thread35, %.thread40
   %.pn.pn39.ph = phi { ptr, i32 } [ %45, %.thread40 ], [ %44, %.thread35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.sink.split44
+  br label %.sink.split47
 
 48:                                               ; preds = %23
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -8218,14 +8218,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_11Mttk
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_11MttkElementEEEERS2_DpOT_.exit: ; preds = %54, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_11MttkElementEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split44:                                    ; preds = %46, %.sink.split43, %21, %.sink.split
-  %.sink = phi ptr [ %14, %.sink.split ], [ %14, %21 ], [ %39, %.sink.split43 ], [ %39, %46 ]
-  %.pn20.pn.pn.ph = phi { ptr, i32 } [ %.pn20.pn31.ph, %.sink.split ], [ %22, %21 ], [ %.pn.pn39.ph, %.sink.split43 ], [ %47, %46 ]
+.sink.split47:                                    ; preds = %46, %.sink.split46, %21, %.sink.split
+  %.sink = phi ptr [ %14, %.sink.split ], [ %14, %21 ], [ %39, %.sink.split46 ], [ %39, %46 ]
+  %.pn20.pn.pn.ph = phi { ptr, i32 } [ %.pn20.pn31.ph, %.sink.split ], [ %22, %21 ], [ %.pn.pn39.ph, %.sink.split46 ], [ %47, %46 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %76
 
-76:                                               ; preds = %.sink.split44, %46, %21
-  %.pn20.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %47, %46 ], [ %.pn20.pn.pn.ph, %.sink.split44 ]
+76:                                               ; preds = %.sink.split47, %46, %21
+  %.pn20.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %47, %46 ], [ %.pn20.pn.pn.ph, %.sink.split47 ]
   resume { ptr, i32 } %.pn20.pn.pn
 
 77:                                               ; preds = %43, %18
@@ -8291,12 +8291,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_23Nos
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.09, label %.sink.split46, label %80
+  br i1 %.09, label %.sink.split49, label %80
 
 .sink.split:                                      ; preds = %.thread, %.thread34
   %.pn22.pn33.ph = phi { ptr, i32 } [ %22, %.thread34 ], [ %21, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.sink.split46
+  br label %.sink.split49
 
 25:                                               ; preds = %6
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -8348,13 +8348,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_23Nos
 .thread37:                                        ; preds = %42
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split45
+  br label %.sink.split48
 
 .thread42:                                        ; preds = %44
   %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #23
-  br label %.sink.split45
+  br label %.sink.split48
 
 50:                                               ; preds = %45, %47
   %.0 = phi i1 [ false, %47 ], [ true, %45 ]
@@ -8365,12 +8365,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_23Nos
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %.0, label %.sink.split46, label %80
+  br i1 %.0, label %.sink.split49, label %80
 
-.sink.split45:                                    ; preds = %.thread37, %.thread42
+.sink.split48:                                    ; preds = %.thread37, %.thread42
   %.pn.pn41.ph = phi { ptr, i32 } [ %49, %.thread42 ], [ %48, %.thread37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.sink.split46
+  br label %.sink.split49
 
 52:                                               ; preds = %25
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -8438,14 +8438,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_23Nose
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_23NoseHooverChainsElementEEEERS2_DpOT_.exit: ; preds = %58, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_23NoseHooverChainsElementEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split46:                                    ; preds = %50, %.sink.split45, %23, %.sink.split
-  %.sink = phi ptr [ %16, %.sink.split ], [ %16, %23 ], [ %43, %.sink.split45 ], [ %43, %50 ]
-  %.pn22.pn.pn.ph = phi { ptr, i32 } [ %.pn22.pn33.ph, %.sink.split ], [ %24, %23 ], [ %.pn.pn41.ph, %.sink.split45 ], [ %51, %50 ]
+.sink.split49:                                    ; preds = %50, %.sink.split48, %23, %.sink.split
+  %.sink = phi ptr [ %16, %.sink.split ], [ %16, %23 ], [ %43, %.sink.split48 ], [ %43, %50 ]
+  %.pn22.pn.pn.ph = phi { ptr, i32 } [ %.pn22.pn33.ph, %.sink.split ], [ %24, %23 ], [ %.pn.pn41.ph, %.sink.split48 ], [ %51, %50 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %80
 
-80:                                               ; preds = %.sink.split46, %50, %23
-  %.pn22.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %51, %50 ], [ %.pn22.pn.pn.ph, %.sink.split46 ]
+80:                                               ; preds = %.sink.split49, %50, %23
+  %.pn22.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %51, %50 ], [ %.pn22.pn.pn.ph, %.sink.split49 ]
   resume { ptr, i32 } %.pn22.pn.pn
 
 81:                                               ; preds = %47, %20
@@ -8511,12 +8511,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_23Nos
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.09, label %.sink.split46, label %80
+  br i1 %.09, label %.sink.split49, label %80
 
 .sink.split:                                      ; preds = %.thread, %.thread34
   %.pn22.pn33.ph = phi { ptr, i32 } [ %22, %.thread34 ], [ %21, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.sink.split46
+  br label %.sink.split49
 
 25:                                               ; preds = %6
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -8568,13 +8568,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_23Nos
 .thread37:                                        ; preds = %42
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split45
+  br label %.sink.split48
 
 .thread42:                                        ; preds = %44
   %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #23
-  br label %.sink.split45
+  br label %.sink.split48
 
 50:                                               ; preds = %45, %47
   %.0 = phi i1 [ false, %47 ], [ true, %45 ]
@@ -8585,12 +8585,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_23Nos
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %.0, label %.sink.split46, label %80
+  br i1 %.0, label %.sink.split49, label %80
 
-.sink.split45:                                    ; preds = %.thread37, %.thread42
+.sink.split48:                                    ; preds = %.thread37, %.thread42
   %.pn.pn41.ph = phi { ptr, i32 } [ %49, %.thread42 ], [ %48, %.thread37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.sink.split46
+  br label %.sink.split49
 
 52:                                               ; preds = %25
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -8658,14 +8658,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_23Nose
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_23NoseHooverChainsElementEEEERS2_DpOT_.exit: ; preds = %58, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_23NoseHooverChainsElementEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split46:                                    ; preds = %50, %.sink.split45, %23, %.sink.split
-  %.sink = phi ptr [ %16, %.sink.split ], [ %16, %23 ], [ %43, %.sink.split45 ], [ %43, %50 ]
-  %.pn22.pn.pn.ph = phi { ptr, i32 } [ %.pn22.pn33.ph, %.sink.split ], [ %24, %23 ], [ %.pn.pn41.ph, %.sink.split45 ], [ %51, %50 ]
+.sink.split49:                                    ; preds = %50, %.sink.split48, %23, %.sink.split
+  %.sink = phi ptr [ %16, %.sink.split ], [ %16, %23 ], [ %43, %.sink.split48 ], [ %43, %50 ]
+  %.pn22.pn.pn.ph = phi { ptr, i32 } [ %.pn22.pn33.ph, %.sink.split ], [ %24, %23 ], [ %.pn.pn41.ph, %.sink.split48 ], [ %51, %50 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %80
 
-80:                                               ; preds = %.sink.split46, %50, %23
-  %.pn22.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %51, %50 ], [ %.pn22.pn.pn.ph, %.sink.split46 ]
+80:                                               ; preds = %.sink.split49, %50, %23
+  %.pn22.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %51, %50 ], [ %.pn22.pn.pn.ph, %.sink.split49 ]
   resume { ptr, i32 } %.pn22.pn.pn
 
 81:                                               ; preds = %47, %20
@@ -8731,12 +8731,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_23Nos
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.09, label %.sink.split46, label %80
+  br i1 %.09, label %.sink.split49, label %80
 
 .sink.split:                                      ; preds = %.thread, %.thread34
   %.pn22.pn33.ph = phi { ptr, i32 } [ %22, %.thread34 ], [ %21, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.sink.split46
+  br label %.sink.split49
 
 25:                                               ; preds = %6
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -8788,13 +8788,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_23Nos
 .thread37:                                        ; preds = %42
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split45
+  br label %.sink.split48
 
 .thread42:                                        ; preds = %44
   %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #23
-  br label %.sink.split45
+  br label %.sink.split48
 
 50:                                               ; preds = %45, %47
   %.0 = phi i1 [ false, %47 ], [ true, %45 ]
@@ -8805,12 +8805,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_23Nos
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %.0, label %.sink.split46, label %80
+  br i1 %.0, label %.sink.split49, label %80
 
-.sink.split45:                                    ; preds = %.thread37, %.thread42
+.sink.split48:                                    ; preds = %.thread37, %.thread42
   %.pn.pn41.ph = phi { ptr, i32 } [ %49, %.thread42 ], [ %48, %.thread37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.sink.split46
+  br label %.sink.split49
 
 52:                                               ; preds = %25
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -8878,14 +8878,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_23Nose
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_23NoseHooverChainsElementEEEERS2_DpOT_.exit: ; preds = %58, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_23NoseHooverChainsElementEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split46:                                    ; preds = %50, %.sink.split45, %23, %.sink.split
-  %.sink = phi ptr [ %16, %.sink.split ], [ %16, %23 ], [ %43, %.sink.split45 ], [ %43, %50 ]
-  %.pn22.pn.pn.ph = phi { ptr, i32 } [ %.pn22.pn33.ph, %.sink.split ], [ %24, %23 ], [ %.pn.pn41.ph, %.sink.split45 ], [ %51, %50 ]
+.sink.split49:                                    ; preds = %50, %.sink.split48, %23, %.sink.split
+  %.sink = phi ptr [ %16, %.sink.split ], [ %16, %23 ], [ %43, %.sink.split48 ], [ %43, %50 ]
+  %.pn22.pn.pn.ph = phi { ptr, i32 } [ %.pn22.pn33.ph, %.sink.split ], [ %24, %23 ], [ %.pn.pn41.ph, %.sink.split48 ], [ %51, %50 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %80
 
-80:                                               ; preds = %.sink.split46, %50, %23
-  %.pn22.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %51, %50 ], [ %.pn22.pn.pn.ph, %.sink.split46 ]
+80:                                               ; preds = %.sink.split49, %50, %23
+  %.pn22.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %51, %50 ], [ %.pn22.pn.pn.ph, %.sink.split49 ]
   resume { ptr, i32 } %.pn22.pn.pn
 
 81:                                               ; preds = %47, %20
@@ -8951,12 +8951,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_23Nos
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.09, label %.sink.split46, label %80
+  br i1 %.09, label %.sink.split49, label %80
 
 .sink.split:                                      ; preds = %.thread, %.thread34
   %.pn22.pn33.ph = phi { ptr, i32 } [ %22, %.thread34 ], [ %21, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.sink.split46
+  br label %.sink.split49
 
 25:                                               ; preds = %6
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -9008,13 +9008,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_23Nos
 .thread37:                                        ; preds = %42
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split45
+  br label %.sink.split48
 
 .thread42:                                        ; preds = %44
   %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #23
-  br label %.sink.split45
+  br label %.sink.split48
 
 50:                                               ; preds = %45, %47
   %.0 = phi i1 [ false, %47 ], [ true, %45 ]
@@ -9025,12 +9025,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_23Nos
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %.0, label %.sink.split46, label %80
+  br i1 %.0, label %.sink.split49, label %80
 
-.sink.split45:                                    ; preds = %.thread37, %.thread42
+.sink.split48:                                    ; preds = %.thread37, %.thread42
   %.pn.pn41.ph = phi { ptr, i32 } [ %49, %.thread42 ], [ %48, %.thread37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.sink.split46
+  br label %.sink.split49
 
 52:                                               ; preds = %25
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -9098,14 +9098,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_23Nose
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_23NoseHooverChainsElementEEEERS2_DpOT_.exit: ; preds = %58, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_23NoseHooverChainsElementEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split46:                                    ; preds = %50, %.sink.split45, %23, %.sink.split
-  %.sink = phi ptr [ %16, %.sink.split ], [ %16, %23 ], [ %43, %.sink.split45 ], [ %43, %50 ]
-  %.pn22.pn.pn.ph = phi { ptr, i32 } [ %.pn22.pn33.ph, %.sink.split ], [ %24, %23 ], [ %.pn.pn41.ph, %.sink.split45 ], [ %51, %50 ]
+.sink.split49:                                    ; preds = %50, %.sink.split48, %23, %.sink.split
+  %.sink = phi ptr [ %16, %.sink.split ], [ %16, %23 ], [ %43, %.sink.split48 ], [ %43, %50 ]
+  %.pn22.pn.pn.ph = phi { ptr, i32 } [ %.pn22.pn33.ph, %.sink.split ], [ %24, %23 ], [ %.pn.pn41.ph, %.sink.split48 ], [ %51, %50 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %80
 
-80:                                               ; preds = %.sink.split46, %50, %23
-  %.pn22.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %51, %50 ], [ %.pn22.pn.pn.ph, %.sink.split46 ]
+80:                                               ; preds = %.sink.split49, %50, %23
+  %.pn22.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %51, %50 ], [ %.pn22.pn.pn.ph, %.sink.split49 ]
   resume { ptr, i32 } %.pn22.pn.pn
 
 81:                                               ; preds = %47, %20
@@ -9171,12 +9171,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_11Mtt
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.07, label %.sink.split44, label %76
+  br i1 %.07, label %.sink.split47, label %76
 
 .sink.split:                                      ; preds = %.thread, %.thread32
   %.pn20.pn31.ph = phi { ptr, i32 } [ %20, %.thread32 ], [ %19, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.sink.split44
+  br label %.sink.split47
 
 23:                                               ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -9226,13 +9226,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_11Mtt
 .thread35:                                        ; preds = %38
   %44 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split43
+  br label %.sink.split46
 
 .thread40:                                        ; preds = %40
   %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #23
-  br label %.sink.split43
+  br label %.sink.split46
 
 46:                                               ; preds = %41, %43
   %.0 = phi i1 [ false, %43 ], [ true, %41 ]
@@ -9243,12 +9243,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_11Mtt
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.0, label %.sink.split44, label %76
+  br i1 %.0, label %.sink.split47, label %76
 
-.sink.split43:                                    ; preds = %.thread35, %.thread40
+.sink.split46:                                    ; preds = %.thread35, %.thread40
   %.pn.pn39.ph = phi { ptr, i32 } [ %45, %.thread40 ], [ %44, %.thread35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.sink.split44
+  br label %.sink.split47
 
 48:                                               ; preds = %23
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -9316,14 +9316,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_11Mttk
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_11MttkElementEEEERS2_DpOT_.exit: ; preds = %54, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_11MttkElementEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split44:                                    ; preds = %46, %.sink.split43, %21, %.sink.split
-  %.sink = phi ptr [ %14, %.sink.split ], [ %14, %21 ], [ %39, %.sink.split43 ], [ %39, %46 ]
-  %.pn20.pn.pn.ph = phi { ptr, i32 } [ %.pn20.pn31.ph, %.sink.split ], [ %22, %21 ], [ %.pn.pn39.ph, %.sink.split43 ], [ %47, %46 ]
+.sink.split47:                                    ; preds = %46, %.sink.split46, %21, %.sink.split
+  %.sink = phi ptr [ %14, %.sink.split ], [ %14, %21 ], [ %39, %.sink.split46 ], [ %39, %46 ]
+  %.pn20.pn.pn.ph = phi { ptr, i32 } [ %.pn20.pn31.ph, %.sink.split ], [ %22, %21 ], [ %.pn.pn39.ph, %.sink.split46 ], [ %47, %46 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %76
 
-76:                                               ; preds = %.sink.split44, %46, %21
-  %.pn20.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %47, %46 ], [ %.pn20.pn.pn.ph, %.sink.split44 ]
+76:                                               ; preds = %.sink.split47, %46, %21
+  %.pn20.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %47, %46 ], [ %.pn20.pn.pn.ph, %.sink.split47 ]
   resume { ptr, i32 } %.pn20.pn.pn
 
 77:                                               ; preds = %43, %18
@@ -9389,12 +9389,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Pro
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.05, label %.sink.split42, label %73
+  br i1 %.05, label %.sink.split45, label %73
 
 .sink.split:                                      ; preds = %.thread, %.thread30
   %.pn18.pn29.ph = phi { ptr, i32 } [ %18, %.thread30 ], [ %17, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.sink.split42
+  br label %.sink.split45
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -9442,13 +9442,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Pro
 .thread33:                                        ; preds = %35
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split41
+  br label %.sink.split44
 
 .thread38:                                        ; preds = %37
   %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
-  br label %.sink.split41
+  br label %.sink.split44
 
 43:                                               ; preds = %38, %40
   %.0 = phi i1 [ false, %40 ], [ true, %38 ]
@@ -9459,12 +9459,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Pro
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.0, label %.sink.split42, label %73
+  br i1 %.0, label %.sink.split45, label %73
 
-.sink.split41:                                    ; preds = %.thread33, %.thread38
+.sink.split44:                                    ; preds = %.thread33, %.thread38
   %.pn.pn37.ph = phi { ptr, i32 } [ %42, %.thread38 ], [ %41, %.thread33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split42
+  br label %.sink.split45
 
 45:                                               ; preds = %21
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -9532,14 +9532,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10Prop
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10PropagatorILNS0_16IntegrationStageE5EEEEEERS2_DpOT_.exit: ; preds = %51, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10PropagatorILNS0_16IntegrationStageE5EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split42:                                    ; preds = %43, %.sink.split41, %19, %.sink.split
-  %.sink = phi ptr [ %12, %.sink.split ], [ %12, %19 ], [ %36, %.sink.split41 ], [ %36, %43 ]
-  %.pn18.pn.pn.ph = phi { ptr, i32 } [ %.pn18.pn29.ph, %.sink.split ], [ %20, %19 ], [ %.pn.pn37.ph, %.sink.split41 ], [ %44, %43 ]
+.sink.split45:                                    ; preds = %43, %.sink.split44, %19, %.sink.split
+  %.sink = phi ptr [ %12, %.sink.split ], [ %12, %19 ], [ %36, %.sink.split44 ], [ %36, %43 ]
+  %.pn18.pn.pn.ph = phi { ptr, i32 } [ %.pn18.pn29.ph, %.sink.split ], [ %20, %19 ], [ %.pn.pn37.ph, %.sink.split44 ], [ %44, %43 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %73
 
-73:                                               ; preds = %.sink.split42, %43, %19
-  %.pn18.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %44, %43 ], [ %.pn18.pn.pn.ph, %.sink.split42 ]
+73:                                               ; preds = %.sink.split45, %43, %19
+  %.pn18.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %44, %43 ], [ %.pn18.pn.pn.ph, %.sink.split45 ]
   resume { ptr, i32 } %.pn18.pn.pn
 
 74:                                               ; preds = %40, %16
@@ -9605,12 +9605,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Pro
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.06, label %.sink.split43, label %74
+  br i1 %.06, label %.sink.split46, label %74
 
 .sink.split:                                      ; preds = %.thread, %.thread31
   %.pn19.pn30.ph = phi { ptr, i32 } [ %19, %.thread31 ], [ %18, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.sink.split43
+  br label %.sink.split46
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -9659,13 +9659,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Pro
 .thread34:                                        ; preds = %36
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split42
+  br label %.sink.split45
 
 .thread39:                                        ; preds = %38
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
-  br label %.sink.split42
+  br label %.sink.split45
 
 44:                                               ; preds = %39, %41
   %.0 = phi i1 [ false, %41 ], [ true, %39 ]
@@ -9676,12 +9676,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Pro
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.0, label %.sink.split43, label %74
+  br i1 %.0, label %.sink.split46, label %74
 
-.sink.split42:                                    ; preds = %.thread34, %.thread39
+.sink.split45:                                    ; preds = %.thread34, %.thread39
   %.pn.pn38.ph = phi { ptr, i32 } [ %43, %.thread39 ], [ %42, %.thread34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.sink.split43
+  br label %.sink.split46
 
 46:                                               ; preds = %22
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -9749,14 +9749,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10Prop
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10PropagatorILNS0_16IntegrationStageE0EEEEEERS2_DpOT_.exit: ; preds = %52, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10PropagatorILNS0_16IntegrationStageE0EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split43:                                    ; preds = %44, %.sink.split42, %20, %.sink.split
-  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %37, %.sink.split42 ], [ %37, %44 ]
-  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %.pn19.pn30.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split42 ], [ %45, %44 ]
+.sink.split46:                                    ; preds = %44, %.sink.split45, %20, %.sink.split
+  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %37, %.sink.split45 ], [ %37, %44 ]
+  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %.pn19.pn30.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split45 ], [ %45, %44 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %74
 
-74:                                               ; preds = %.sink.split43, %44, %20
-  %.pn19.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %45, %44 ], [ %.pn19.pn.pn.ph, %.sink.split43 ]
+74:                                               ; preds = %.sink.split46, %44, %20
+  %.pn19.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %45, %44 ], [ %.pn19.pn.pn.ph, %.sink.split46 ]
   resume { ptr, i32 } %.pn19.pn.pn
 
 75:                                               ; preds = %41, %17
@@ -9822,12 +9822,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_14Mtt
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.05, label %.sink.split42, label %73
+  br i1 %.05, label %.sink.split45, label %73
 
 .sink.split:                                      ; preds = %.thread, %.thread30
   %.pn18.pn29.ph = phi { ptr, i32 } [ %18, %.thread30 ], [ %17, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.sink.split42
+  br label %.sink.split45
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -9875,13 +9875,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_14Mtt
 .thread33:                                        ; preds = %35
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split41
+  br label %.sink.split44
 
 .thread38:                                        ; preds = %37
   %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
-  br label %.sink.split41
+  br label %.sink.split44
 
 43:                                               ; preds = %38, %40
   %.0 = phi i1 [ false, %40 ], [ true, %38 ]
@@ -9892,12 +9892,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_14Mtt
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.0, label %.sink.split42, label %73
+  br i1 %.0, label %.sink.split45, label %73
 
-.sink.split41:                                    ; preds = %.thread33, %.thread38
+.sink.split44:                                    ; preds = %.thread33, %.thread38
   %.pn.pn37.ph = phi { ptr, i32 } [ %42, %.thread38 ], [ %41, %.thread33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split42
+  br label %.sink.split45
 
 45:                                               ; preds = %21
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -9965,14 +9965,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_14Mttk
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_14MttkBoxScalingEEEERS2_DpOT_.exit: ; preds = %51, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_14MttkBoxScalingEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split42:                                    ; preds = %43, %.sink.split41, %19, %.sink.split
-  %.sink = phi ptr [ %12, %.sink.split ], [ %12, %19 ], [ %36, %.sink.split41 ], [ %36, %43 ]
-  %.pn18.pn.pn.ph = phi { ptr, i32 } [ %.pn18.pn29.ph, %.sink.split ], [ %20, %19 ], [ %.pn.pn37.ph, %.sink.split41 ], [ %44, %43 ]
+.sink.split45:                                    ; preds = %43, %.sink.split44, %19, %.sink.split
+  %.sink = phi ptr [ %12, %.sink.split ], [ %12, %19 ], [ %36, %.sink.split44 ], [ %36, %43 ]
+  %.pn18.pn.pn.ph = phi { ptr, i32 } [ %.pn18.pn29.ph, %.sink.split ], [ %20, %19 ], [ %.pn.pn37.ph, %.sink.split44 ], [ %44, %43 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %73
 
-73:                                               ; preds = %.sink.split42, %43, %19
-  %.pn18.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %44, %43 ], [ %.pn18.pn.pn.ph, %.sink.split42 ]
+73:                                               ; preds = %.sink.split45, %43, %19
+  %.pn18.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %44, %43 ], [ %.pn18.pn.pn.ph, %.sink.split45 ]
   resume { ptr, i32 } %.pn18.pn.pn
 
 74:                                               ; preds = %40, %16
@@ -10295,12 +10295,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Ene
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.04, label %.sink.split41, label %72
+  br i1 %.04, label %.sink.split44, label %72
 
 .sink.split:                                      ; preds = %.thread, %.thread29
   %.pn17.pn28.ph = phi { ptr, i32 } [ %17, %.thread29 ], [ %16, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.sink.split41
+  br label %.sink.split44
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -10348,13 +10348,13 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Ene
 .thread32:                                        ; preds = %34
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split40
+  br label %.sink.split43
 
 .thread37:                                        ; preds = %36
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
-  br label %.sink.split40
+  br label %.sink.split43
 
 42:                                               ; preds = %37, %39
   %.0 = phi i1 [ false, %39 ], [ true, %37 ]
@@ -10365,12 +10365,12 @@ define linkonce_odr void @_ZN3gmx32ModularSimulatorAlgorithmBuilder3addINS_10Ene
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.0, label %.sink.split41, label %72
+  br i1 %.0, label %.sink.split44, label %72
 
-.sink.split40:                                    ; preds = %.thread32, %.thread37
+.sink.split43:                                    ; preds = %.thread32, %.thread37
   %.pn.pn36.ph = phi { ptr, i32 } [ %41, %.thread37 ], [ %40, %.thread32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.sink.split41
+  br label %.sink.split44
 
 44:                                               ; preds = %20
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -10438,14 +10438,14 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10Ener
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10EnergyData7ElementEEEERS2_DpOT_.exit: ; preds = %50, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10EnergyData7ElementEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 
-.sink.split41:                                    ; preds = %42, %.sink.split40, %18, %.sink.split
-  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split40 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split40 ], [ %43, %42 ]
+.sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
-72:                                               ; preds = %.sink.split41, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split41 ]
+72:                                               ; preds = %.sink.split44, %42, %18
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -11026,8 +11026,8 @@ define noundef zeroext i1 @_ZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_i
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !85
   %20 = icmp eq i32 %19, 10
-  %or.cond230 = select i1 %15, i1 %20, i1 false
-  br i1 %or.cond230, label %21, label %._crit_edge
+  %or.cond233 = select i1 %15, i1 %20, i1 false
+  br i1 %or.cond233, label %21, label %._crit_edge
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 204

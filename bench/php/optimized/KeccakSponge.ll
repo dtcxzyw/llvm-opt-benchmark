@@ -175,8 +175,8 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %0, 
   %15 = icmp ne i32 %14, 0
   %16 = sub i64 %2, %.05872.us
   %.not64.us = icmp ult i64 %16, %10
-  %or.cond81 = select i1 %15, i1 true, i1 %.not64.us
-  br i1 %or.cond81, label %.lr.ph74.split.us._crit_edge, label %17
+  %or.cond86 = select i1 %15, i1 true, i1 %.not64.us
+  br i1 %or.cond86, label %.lr.ph74.split.us._crit_edge, label %17
 
 17:                                               ; preds = %.lr.ph74.split.us
   %18 = tail call i64 @KeccakF1600_FastLoop_Absorb(ptr noundef nonnull %0, i32 noundef %13, ptr noundef %.05573.us, i64 noundef %16) #4

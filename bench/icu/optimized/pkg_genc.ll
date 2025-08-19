@@ -835,7 +835,7 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
 
 95:                                               ; preds = %88
   %96 = load i32, ptr @_ZL7hexType, align 4, !tbaa !12
-  switch i32 %96, label %.preheader60 [
+  switch i32 %96, label %.preheader70 [
     i32 0, label %97
     i32 1, label %100
   ]
@@ -845,21 +845,21 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
   store i8 48, ptr %.028.i, align 1, !tbaa !23
   %99 = getelementptr inbounds nuw i8, ptr %.028.i, i64 2
   store i8 120, ptr %98, align 1, !tbaa !23
-  br label %.preheader60
+  br label %.preheader70
 
 100:                                              ; preds = %95
   %101 = getelementptr inbounds nuw i8, ptr %.028.i, i64 1
   store i8 48, ptr %.028.i, align 1, !tbaa !23
-  br label %.preheader60
+  br label %.preheader70
 
-.preheader60:                                     ; preds = %100, %97, %95
+.preheader70:                                     ; preds = %100, %97, %95
   %.333.i.ph = phi ptr [ %.028.i, %95 ], [ %99, %97 ], [ %101, %100 ]
   br label %102
 
-102:                                              ; preds = %.preheader60, %119
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %119 ], [ 3, %.preheader60 ]
-  %.02635.i = phi i32 [ %.1.i, %119 ], [ 0, %.preheader60 ]
-  %.333.i = phi ptr [ %.4.i, %119 ], [ %.333.i.ph, %.preheader60 ]
+102:                                              ; preds = %.preheader70, %119
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %119 ], [ 3, %.preheader70 ]
+  %.02635.i = phi i32 [ %.1.i, %119 ], [ 0, %.preheader70 ]
+  %.333.i = phi ptr [ %.4.i, %119 ], [ %.333.i.ph, %.preheader70 ]
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i
   %104 = load i8, ptr %103, align 1, !tbaa !23
   %105 = icmp ne i8 %104, 0

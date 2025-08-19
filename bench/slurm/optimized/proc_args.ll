@@ -1550,25 +1550,25 @@ thread-pre-split:                                 ; preds = %9, %9, %13
   %39 = load ptr, ptr %6, align 8
   %40 = load i8, ptr %39, align 1
   switch i8 %40, label %44 [
-    i8 107, label %thread-pre-split49
-    i8 75, label %thread-pre-split49
+    i8 107, label %thread-pre-split53
+    i8 75, label %thread-pre-split53
     i8 109, label %41
     i8 77, label %41
   ]
 
 41:                                               ; preds = %36, %36
-  br label %thread-pre-split49
+  br label %thread-pre-split53
 
-thread-pre-split49:                               ; preds = %36, %36, %41
-  %.sink52 = phi i64 [ 20, %41 ], [ 10, %36 ], [ 10, %36 ]
-  %42 = shl nsw i64 %38, %.sink52
+thread-pre-split53:                               ; preds = %36, %36, %41
+  %.sink56 = phi i64 [ 20, %41 ], [ 10, %36 ], [ 10, %36 ]
+  %42 = shl nsw i64 %38, %.sink56
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 1
-  %.pr51 = load i8, ptr %43, align 1
+  %.pr55 = load i8, ptr %43, align 1
   br label %44
 
-44:                                               ; preds = %thread-pre-split49, %36
-  %45 = phi i8 [ %.pr51, %thread-pre-split49 ], [ %40, %36 ]
-  %.1 = phi i64 [ %42, %thread-pre-split49 ], [ %38, %36 ]
+44:                                               ; preds = %thread-pre-split53, %36
+  %45 = phi i8 [ %.pr55, %thread-pre-split53 ], [ %40, %36 ]
+  %.1 = phi i64 [ %42, %thread-pre-split53 ], [ %38, %36 ]
   %.not46 = icmp eq i8 %45, 0
   br i1 %.not46, label %49, label %46
 
@@ -1611,8 +1611,8 @@ thread-pre-split49:                               ; preds = %36, %36, %41
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %59
-  %.sink53 = phi i32 [ %60, %59 ], [ 2147483647, %8 ]
-  store i32 %.sink53, ptr %3, align 4
+  %.sink57 = phi i32 [ %60, %59 ], [ 2147483647, %8 ]
+  store i32 %.sink57, ptr %3, align 4
   br label %61
 
 61:                                               ; preds = %.sink.split, %58, %55, %50, %31, %28, %23, %8
@@ -1685,24 +1685,24 @@ thread-pre-split:                                 ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %.151, i64 1
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 3
-  br i1 %exitcond63.not, label %.split.loop.exit67, label %.preheader, !llvm.loop !14
+  br i1 %exitcond63.not, label %.split.loop.exit68, label %.preheader, !llvm.loop !14
 
 .split.loop.exit:                                 ; preds = %.loopexit
   %23 = trunc nuw nsw i64 %indvars.iv60 to i32
-  br label %.split.loop.exit67
+  br label %.split.loop.exit68
 
-.split.loop.exit67:                               ; preds = %21, %.split.loop.exit
+.split.loop.exit68:                               ; preds = %21, %.split.loop.exit
   %.042.lcssa = phi i32 [ %23, %.split.loop.exit ], [ 3, %21 ]
   %.not48 = icmp eq ptr %4, null
   br i1 %.not48, label %30, label %24
 
-24:                                               ; preds = %.split.loop.exit67
+24:                                               ; preds = %.split.loop.exit68
   %25 = load i32, ptr %4, align 4
   %26 = and i32 %25, 14
   %.not49 = icmp eq i32 %26, 0
   %27 = icmp ult i32 %.042.lcssa, 3
-  %or.cond74 = select i1 %.not49, i1 %27, i1 false
-  br i1 %or.cond74, label %switch.lookup, label %30
+  %or.cond75 = select i1 %.not49, i1 %27, i1 false
+  br i1 %or.cond75, label %switch.lookup, label %30
 
 switch.lookup:                                    ; preds = %24
   %28 = zext nneg i32 %.042.lcssa to i64
@@ -1712,7 +1712,7 @@ switch.lookup:                                    ; preds = %24
   store i32 %29, ptr %4, align 4
   br label %30
 
-30:                                               ; preds = %switch.lookup, %24, %.split.loop.exit67
+30:                                               ; preds = %switch.lookup, %24, %.split.loop.exit68
   %31 = call zeroext i1 @get_resource_arg_range(ptr noundef nonnull %9, ptr noundef nonnull @.str.47, ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext true)
   %32 = load i32, ptr %1, align 4
   %33 = icmp eq i32 %32, 1
@@ -2481,19 +2481,19 @@ _accessible.exit45:                               ; preds = %54
   store ptr %60, ptr %10, align 8
   %61 = tail call i32 @get_log_level() #21
   %62 = icmp sgt i32 %61, 8
-  br i1 %62, label %.sink.split61, label %65
+  br i1 %62, label %.sink.split66, label %65
 
 _accessible.exit45.thread:                        ; preds = %59, %56, %_exists.exit43.thread, %40
   %63 = tail call i32 @get_log_level() #21
   %64 = icmp sgt i32 %63, 8
-  br i1 %64, label %.sink.split61, label %65
+  br i1 %64, label %.sink.split66, label %65
 
-.sink.split61:                                    ; preds = %_accessible.exit45.thread, %_accessible.exit45
+.sink.split66:                                    ; preds = %_accessible.exit45.thread, %_accessible.exit45
   %.str.76.sink = phi ptr [ @.str.75, %_accessible.exit45 ], [ @.str.76, %_accessible.exit45.thread ]
   tail call void (i32, ptr, ...) @log_var(i32 noundef 9, ptr noundef nonnull %.str.76.sink, ptr noundef nonnull @__func__.search_path, ptr noundef nonnull %1) #21
   br label %65
 
-65:                                               ; preds = %.sink.split61, %_accessible.exit45.thread, %_accessible.exit45
+65:                                               ; preds = %.sink.split66, %_accessible.exit45.thread, %_accessible.exit45
   %66 = load ptr, ptr %10, align 8
   br label %161
 
@@ -2871,8 +2871,8 @@ define dso_local range(i32 -1, 1) i32 @get_signal_opts(ptr noundef %0, ptr nound
 
 31:                                               ; preds = %27
   %32 = tail call i32 @sig_name2num(ptr noundef nonnull %spec.select)
-  %.mask39 = and i32 %32, 65535
-  %33 = icmp eq i32 %.mask39, 0
+  %.mask43 = and i32 %32, 65535
+  %33 = icmp eq i32 %.mask43, 0
   br i1 %33, label %47, label %36
 
 .thread:                                          ; preds = %27
@@ -2948,8 +2948,8 @@ define dso_local i32 @sig_name2num(ptr noundef %0) local_unnamed_addr #2 {
 17:                                               ; preds = %10
   %18 = tail call i32 @xstrncasecmp(ptr noundef nonnull %storemerge, ptr noundef nonnull @.str.88, i64 noundef 3) #21
   %19 = icmp eq i32 %18, 0
-  %spec.select28.idx = select i1 %19, i64 3, i64 0
-  %spec.select28 = getelementptr inbounds nuw i8, ptr %storemerge, i64 %spec.select28.idx
+  %spec.select30.idx = select i1 %19, i64 3, i64 0
+  %spec.select30 = getelementptr inbounds nuw i8, ptr %storemerge, i64 %spec.select30.idx
   br label %20
 
 20:                                               ; preds = %17, %33
@@ -2959,12 +2959,12 @@ define dso_local i32 @sig_name2num(ptr noundef %0) local_unnamed_addr #2 {
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #22
   %sext = shl i64 %23, 32
   %24 = ashr exact i64 %sext, 32
-  %25 = tail call i32 @xstrncasecmp(ptr noundef nonnull %spec.select28, ptr noundef nonnull %21, i64 noundef %24) #21
+  %25 = tail call i32 @xstrncasecmp(ptr noundef nonnull %spec.select30, ptr noundef nonnull %21, i64 noundef %24) #21
   %.not18 = icmp eq i32 %25, 0
   br i1 %.not18, label %26, label %33
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %spec.select28, i64 %24
+  %27 = getelementptr inbounds i8, ptr %spec.select30, i64 %24
   %28 = tail call zeroext i1 @xstring_is_whitespace(ptr noundef nonnull %27) #21
   br i1 %28, label %29, label %33
 
@@ -2997,28 +2997,28 @@ define dso_local ptr @signal_opts_to_cmdline(i16 noundef zeroext %0, i16 noundef
   %6 = zext i16 %2 to i64
   %7 = and i64 %6, 256
   %.not.not = icmp eq i64 %7, 0
-  br i1 %.not.not, label %8, label %.thread15
+  br i1 %.not.not, label %8, label %.thread16
 
 8:                                                ; preds = %3
   %9 = and i64 %6, 1
   %.not7 = icmp eq i64 %9, 0
   br i1 %.not7, label %11, label %.thread
 
-.thread15:                                        ; preds = %3
+.thread16:                                        ; preds = %3
   call void @_xstrcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.83) #21
   %10 = and i64 %6, 1
-  %.not716 = icmp eq i64 %10, 0
-  br i1 %.not716, label %.thread17, label %.thread
+  %.not717 = icmp eq i64 %10, 0
+  br i1 %.not717, label %.thread18, label %.thread
 
-.thread:                                          ; preds = %.thread15, %8
+.thread:                                          ; preds = %.thread16, %8
   call void @_xstrcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.85) #21
-  br label %.thread17
+  br label %.thread18
 
-.thread17:                                        ; preds = %.thread15, %.thread
+.thread18:                                        ; preds = %.thread16, %.thread
   call void @_xstrcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.86) #21
   br label %11
 
-11:                                               ; preds = %8, %.thread17
+11:                                               ; preds = %8, %.thread18
   %12 = zext i16 %0 to i32
   %13 = icmp eq i16 %0, 1
   br i1 %13, label %._crit_edge, label %.lr.ph
@@ -3328,7 +3328,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 
 35:                                               ; preds = %32
   %36 = icmp eq i32 %.1227, 2
-  %.270 = select i1 %36, i64 67108864, i64 33554432
+  %.271 = select i1 %36, i64 67108864, i64 33554432
   br label %139
 
 37:                                               ; preds = %32
@@ -3338,7 +3338,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 
 40:                                               ; preds = %37
   %41 = icmp eq i32 %.1227, 2
-  %.271 = select i1 %41, i64 128, i64 64
+  %.272 = select i1 %41, i64 128, i64 64
   br label %139
 
 42:                                               ; preds = %37
@@ -3348,7 +3348,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 
 45:                                               ; preds = %42
   %46 = icmp eq i32 %.1227, 2
-  %.272 = select i1 %46, i64 68719476736, i64 34359738368
+  %.273 = select i1 %46, i64 68719476736, i64 34359738368
   br label %139
 
 47:                                               ; preds = %42
@@ -3358,7 +3358,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 
 50:                                               ; preds = %47
   %51 = icmp eq i32 %.1227, 2
-  %.273 = select i1 %51, i64 8, i64 4
+  %.274 = select i1 %51, i64 8, i64 4
   br label %139
 
 52:                                               ; preds = %47
@@ -3368,7 +3368,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 
 55:                                               ; preds = %52
   %56 = icmp eq i32 %.1227, 2
-  %.274 = select i1 %56, i64 4194304, i64 2097152
+  %.275 = select i1 %56, i64 4194304, i64 2097152
   br label %139
 
 57:                                               ; preds = %52
@@ -3378,7 +3378,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 
 60:                                               ; preds = %57
   %61 = icmp eq i32 %.1227, 2
-  %.275 = select i1 %61, i64 16777216, i64 8388608
+  %.276 = select i1 %61, i64 16777216, i64 8388608
   br label %139
 
 62:                                               ; preds = %57
@@ -3388,7 +3388,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 
 65:                                               ; preds = %62
   %66 = icmp eq i32 %.1227, 2
-  %.276 = select i1 %66, i64 32, i64 16
+  %.277 = select i1 %66, i64 32, i64 16
   br label %139
 
 67:                                               ; preds = %62
@@ -3403,7 +3403,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 
 71:                                               ; preds = %69, %67
   %72 = icmp eq i32 %.1227, 2
-  %.277 = select i1 %72, i64 512, i64 256
+  %.278 = select i1 %72, i64 512, i64 256
   br label %139
 
 73:                                               ; preds = %69
@@ -3413,7 +3413,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 
 76:                                               ; preds = %73
   %77 = icmp eq i32 %.1227, 2
-  %.278 = select i1 %77, i64 2048, i64 1024
+  %.279 = select i1 %77, i64 2048, i64 1024
   br label %139
 
 78:                                               ; preds = %73
@@ -3425,7 +3425,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 
 83:                                               ; preds = %78
   %84 = icmp eq i32 %.1227, 2
-  %.279 = select i1 %84, i64 8192, i64 4096
+  %.280 = select i1 %84, i64 8192, i64 4096
   br label %139
 
 85:                                               ; preds = %78
@@ -3440,7 +3440,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 
 89:                                               ; preds = %87, %85
   %90 = icmp eq i32 %.1227, 2
-  %.280 = select i1 %90, i64 8589934592, i64 4294967296
+  %.281 = select i1 %90, i64 8589934592, i64 4294967296
   br label %139
 
 91:                                               ; preds = %87
@@ -3497,7 +3497,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
   %112 = sext i32 %.1221 to i64
   %113 = getelementptr inbounds i8, ptr %.1223, i64 %112
   %114 = icmp eq i32 %.1227, 2
-  %.281 = select i1 %114, i64 2147483648, i64 1048576
+  %.282 = select i1 %114, i64 2147483648, i64 1048576
   br label %139
 
 115:                                              ; preds = %91
@@ -3534,7 +3534,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 
 132:                                              ; preds = %130
   %133 = icmp eq i32 %.1227, 2
-  %.282 = select i1 %133, i64 1099511627776, i64 549755813888
+  %.283 = select i1 %133, i64 1099511627776, i64 549755813888
   br label %139
 
 134:                                              ; preds = %130
@@ -3548,7 +3548,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
   br label %151
 
 139:                                              ; preds = %134, %132, %127, %122, %119, %115, %111, %89, %83, %76, %71, %65, %60, %55, %50, %45, %40, %35, %26, %24
-  %.sink = phi i64 [ %., %24 ], [ 16384, %26 ], [ %.270, %35 ], [ %.271, %40 ], [ %.272, %45 ], [ %.273, %50 ], [ %.274, %55 ], [ %.275, %60 ], [ %.276, %65 ], [ %.277, %71 ], [ %.278, %76 ], [ %.279, %83 ], [ %.280, %89 ], [ %.281, %111 ], [ 131072, %115 ], [ 262144, %119 ], [ 1073741824, %122 ], [ 536870912, %127 ], [ %.282, %132 ], [ 4398046511104, %134 ]
+  %.sink = phi i64 [ %., %24 ], [ 16384, %26 ], [ %.271, %35 ], [ %.272, %40 ], [ %.273, %45 ], [ %.274, %50 ], [ %.275, %55 ], [ %.276, %60 ], [ %.277, %65 ], [ %.278, %71 ], [ %.279, %76 ], [ %.280, %83 ], [ %.281, %89 ], [ %.282, %111 ], [ 131072, %115 ], [ 262144, %119 ], [ 1073741824, %122 ], [ 536870912, %127 ], [ %.283, %132 ], [ 4398046511104, %134 ]
   %.2 = phi ptr [ %18, %24 ], [ %18, %26 ], [ %18, %35 ], [ %18, %40 ], [ %18, %45 ], [ %18, %50 ], [ %18, %55 ], [ %18, %60 ], [ %18, %65 ], [ %18, %71 ], [ %18, %76 ], [ %18, %83 ], [ %18, %89 ], [ %113, %111 ], [ %18, %115 ], [ %18, %119 ], [ %18, %122 ], [ %18, %127 ], [ %18, %132 ], [ %18, %134 ]
   %140 = or i64 %.0224, %.sink
   %141 = load i8, ptr %.2, align 1

@@ -1465,13 +1465,13 @@ _ZN3std4path4Path4join17h53ba53907a6981e7E.exit182: ; preds = %_ZN3std4path4Path
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
   %238 = load i8, ptr %0, align 1, !range !259, !noundef !4
-  switch i8 %238, label %default.unreachable306 [
+  switch i8 %238, label %default.unreachable330 [
     i8 0, label %239
     i8 1, label %240
     i8 2, label %241
   ]
 
-default.unreachable306:                           ; preds = %237
+default.unreachable330:                           ; preds = %237
   unreachable
 
 239:                                              ; preds = %237
@@ -1493,8 +1493,8 @@ default.unreachable306:                           ; preds = %237
 
 242:                                              ; preds = %239
   %243 = load i64, ptr %56, align 8, !range !5, !noundef !4
-  %.not320 = icmp eq i64 %243, -9223372036854775808
-  br i1 %.not320, label %248, label %244
+  %.not344 = icmp eq i64 %243, -9223372036854775808
+  br i1 %.not344, label %248, label %244
 
 244:                                              ; preds = %242
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
@@ -1988,8 +1988,8 @@ default.unreachable306:                           ; preds = %237
 385:                                              ; preds = %240
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   %386 = load i64, ptr %74, align 8, !range !5, !noundef !4
-  %.not319 = icmp eq i64 %386, -9223372036854775808
-  br i1 %.not319, label %390, label %387
+  %.not343 = icmp eq i64 %386, -9223372036854775808
+  br i1 %.not343, label %390, label %387
 
 387:                                              ; preds = %385
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
@@ -3118,10 +3118,10 @@ define internal fastcc void @_ZN6uv_dev26generate_options_reference10emit_field1
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
   %70 = icmp ugt i64 %5, 1
   %spec.select = select i1 %70, ptr @anon.47b466607b8275b91cd2c269838157c8.76, ptr @anon.47b466607b8275b91cd2c269838157c8.75
-  %spec.select385 = select i1 %70, i64 4, i64 3
+  %spec.select412 = select i1 %70, i64 4, i64 3
   store ptr %spec.select, ptr %67, align 8
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store i64 %spec.select385, ptr %71, align 8
+  store i64 %spec.select412, ptr %71, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   %72 = getelementptr inbounds { i64, [4 x i64] }, ptr %4, i64 %5

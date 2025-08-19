@@ -1467,18 +1467,18 @@ _init_l_StateCpsT_instMonadStateOf___closed__4.exit: ; preds = %_init_l_StateCps
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_StateCpsT_instMonadStateOf___closed__4.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %128, %_init_l_StateCpsT_instMonadStateOf___closed__4.exit ]
-  %131 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !4
+  %.sink26 = phi ptr [ %4, %3 ], [ %128, %_init_l_StateCpsT_instMonadStateOf___closed__4.exit ]
+  %131 = getelementptr inbounds nuw i8, ptr %.sink26, i64 4
+  store i32 1, ptr %.sink26, align 4, !tbaa !4
   store i32 131096, ptr %131, align 4
-  %132 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %132, align 8, !tbaa !9
-  %133 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %.sink26, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %133, align 8, !tbaa !9
   br label %134
 
 134:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink26, %.sink.split ]
   ret ptr %.0
 }
 

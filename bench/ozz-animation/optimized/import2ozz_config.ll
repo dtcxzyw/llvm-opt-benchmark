@@ -1172,7 +1172,7 @@ _ZN3ozz3log6LoggerlsIA25_cEERSoRKT_.exit:         ; preds = %327
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 240
   %335 = load ptr, ptr %334, align 8, !tbaa !16
   %.not.i.i.i185 = icmp eq ptr %335, null
-  br i1 %.not.i.i.i185, label %.invoke211, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i186
+  br i1 %.not.i.i.i185, label %.invoke250, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i186
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i186: ; preds = %_ZN3ozz3log6LoggerlsIA25_cEERSoRKT_.exit
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 56
@@ -1220,13 +1220,13 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 240
   %357 = load ptr, ptr %356, align 8, !tbaa !16
   %.not.i.i.i196 = icmp eq ptr %357, null
-  br i1 %.not.i.i.i196, label %.invoke211, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i197
+  br i1 %.not.i.i.i196, label %.invoke250, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i197
 
-.invoke211:                                       ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit102, %_ZN3ozz3log6LoggerlsIA25_cEERSoRKT_.exit
+.invoke250:                                       ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit102, %_ZN3ozz3log6LoggerlsIA25_cEERSoRKT_.exit
   invoke void @_ZSt16__throw_bad_castv() #20
-          to label %.cont212 unwind label %381
+          to label %.cont251 unwind label %381
 
-.cont212:                                         ; preds = %.invoke211
+.cont251:                                         ; preds = %.invoke250
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i197: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit102
@@ -1294,7 +1294,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107: ; preds = %_Z
           cleanup
   br label %383
 
-381:                                              ; preds = %.invoke211, %.noexc204, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i199, %.noexc202, %363, %.noexc193, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i188, %.noexc191, %341, %_ZNSolsEPFRSoS_E.exit100, %327
+381:                                              ; preds = %.invoke250, %.noexc204, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i199, %.noexc202, %363, %.noexc193, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i188, %.noexc191, %341, %_ZNSolsEPFRSoS_E.exit100, %327
   %382 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %19) #21
@@ -2220,16 +2220,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit77: ; preds = %_ZStl
 
 50:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit77
   %51 = icmp ult i32 %49, 8
-  br i1 %51, label %switch.lookup166, label %_ZN3ozz9animation7offline12_GLOBAL__N_116JsonTypeToStringEN4Json9ValueTypeE.exit79
+  br i1 %51, label %switch.lookup193, label %_ZN3ozz9animation7offline12_GLOBAL__N_116JsonTypeToStringEN4Json9ValueTypeE.exit79
 
-switch.lookup166:                                 ; preds = %50
+switch.lookup193:                                 ; preds = %50
   %52 = zext nneg i32 %49 to i64
-  %switch.gep167 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE.1, i64 0, i64 %52
-  %switch.load168 = load ptr, ptr %switch.gep167, align 8
+  %switch.gep194 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE.1, i64 0, i64 %52
+  %switch.load195 = load ptr, ptr %switch.gep194, align 8
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_116JsonTypeToStringEN4Json9ValueTypeE.exit79
 
-_ZN3ozz9animation7offline12_GLOBAL__N_116JsonTypeToStringEN4Json9ValueTypeE.exit79: ; preds = %50, %switch.lookup166
-  %.0.i78 = phi ptr [ %switch.load168, %switch.lookup166 ], [ @.str.135, %50 ]
+_ZN3ozz9animation7offline12_GLOBAL__N_116JsonTypeToStringEN4Json9ValueTypeE.exit79: ; preds = %50, %switch.lookup193
+  %.0.i78 = phi ptr [ %switch.load195, %switch.lookup193 ], [ @.str.135, %50 ]
   %53 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i78) #21
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull %.0.i78, i64 noundef %53)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit80 unwind label %75

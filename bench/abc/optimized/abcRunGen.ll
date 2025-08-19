@@ -259,8 +259,8 @@ Abc_TtClear.exit:                                 ; preds = %48, %.lr.ph.prehead
   br label %96
 
 68:                                               ; preds = %.loopexit
-  %69 = add nsw i32 %67, 1
-  %70 = shl nsw i32 %45, 1
+  %69 = add nuw nsw i32 %67, 1
+  %70 = shl nuw nsw i32 %45, 1
   %.not.i = icmp slt i32 %67, %70
   %.not.i.i.not.i = icmp sgt i32 %45, %67
   br i1 %.not.i, label %79, label %71
@@ -270,8 +270,8 @@ Abc_TtClear.exit:                                 ; preds = %48, %.lr.ph.prehead
 
 72:                                               ; preds = %71
   %.not9.i.i.i = icmp eq ptr %.val81118, null
-  %73 = sext i32 %69 to i64
-  %74 = shl nsw i64 %73, 2
+  %73 = zext nneg i32 %69 to i64
+  %74 = shl nuw nsw i64 %73, 2
   br i1 %.not9.i.i.i, label %77, label %75
 
 75:                                               ; preds = %72
@@ -287,8 +287,8 @@ Abc_TtClear.exit:                                 ; preds = %48, %.lr.ph.prehead
 
 80:                                               ; preds = %79
   %.not9.i21.i.i = icmp eq ptr %.val81118, null
-  %81 = sext i32 %70 to i64
-  %82 = shl nsw i64 %81, 2
+  %81 = zext nneg i32 %70 to i64
+  %82 = shl nuw nsw i64 %81, 2
   br i1 %.not9.i21.i.i, label %85, label %83
 
 83:                                               ; preds = %80
@@ -302,16 +302,16 @@ Abc_TtClear.exit:                                 ; preds = %48, %.lr.ph.prehead
 Vec_IntGrow.exit.i.i:                             ; preds = %77, %75, %85, %83, %79, %71
   %.val81116 = phi ptr [ %.val81118, %79 ], [ %.val81118, %71 ], [ %76, %75 ], [ %78, %77 ], [ %84, %83 ], [ %86, %85 ]
   %87 = phi i32 [ %45, %79 ], [ %45, %71 ], [ %69, %75 ], [ %69, %77 ], [ %70, %83 ], [ %70, %85 ]
-  %88 = sext i32 %.val to i64
-  %89 = shl nsw i64 %88, 2
+  %88 = zext nneg i32 %.val to i64
+  %89 = shl nuw nsw i64 %88, 2
   %scevgep.i.i = getelementptr i8, ptr %.val81116, i64 %89
-  %90 = sub i32 %67, %.val
+  %90 = sub nsw i32 %67, %.val
   %91 = zext i32 %90 to i64
   %92 = shl nuw nsw i64 %91, 2
   %93 = add nuw nsw i64 %92, 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i, i8 0, i64 %93, i1 false), !tbaa !3
-  %94 = sext i32 %67 to i64
-  %95 = getelementptr inbounds i32, ptr %.val81116, i64 %94
+  %94 = zext nneg i32 %67 to i64
+  %95 = getelementptr inbounds nuw i32, ptr %.val81116, i64 %94
   store i32 0, ptr %95, align 4, !tbaa !3
   br label %96
 

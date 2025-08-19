@@ -682,14 +682,14 @@ define noalias noundef ptr @Mpm_ManGetTruthWithCnf(i32 noundef %0) local_unnamed
   br label %Vec_WrdPush.exit.sink.split
 
 Vec_WrdPush.exit.sink.split:                      ; preds = %28, %30, %20, %22
-  %.sink11 = phi ptr [ %21, %20 ], [ %23, %22 ], [ %29, %28 ], [ %31, %30 ]
+  %.sink12 = phi ptr [ %21, %20 ], [ %23, %22 ], [ %29, %28 ], [ %31, %30 ]
   %.sink = phi i32 [ 16, %20 ], [ 16, %22 ], [ %25, %28 ], [ %25, %30 ]
-  store ptr %.sink11, ptr %5, align 8, !tbaa !11
+  store ptr %.sink12, ptr %5, align 8, !tbaa !11
   store i32 %.sink, ptr %2, align 8, !tbaa !10
   br label %Vec_WrdPush.exit
 
 Vec_WrdPush.exit:                                 ; preds = %Vec_WrdPush.exit.sink.split, %13
-  %.pre.i8 = phi ptr [ %7, %13 ], [ %.sink11, %Vec_WrdPush.exit.sink.split ]
+  %.pre.i8 = phi ptr [ %7, %13 ], [ %.sink12, %Vec_WrdPush.exit.sink.split ]
   %32 = phi i32 [ %8, %13 ], [ %.sink, %Vec_WrdPush.exit.sink.split ]
   %33 = add nsw i32 %9, 1
   store i32 %33, ptr %3, align 4, !tbaa !3
@@ -1477,9 +1477,9 @@ default.unreachable:                              ; preds = %Vec_IntFill.exit
   %.3145 = phi i32 [ %86, %85 ], [ %.2144193, %.preheader ]
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond233.not = icmp eq i64 %indvars.iv.next231, 6
-  br i1 %exitcond233.not, label %.preheader250, label %.preheader, !llvm.loop !73
+  br i1 %exitcond233.not, label %.preheader261, label %.preheader, !llvm.loop !73
 
-.preheader250:                                    ; preds = %90, %103
+.preheader261:                                    ; preds = %90, %103
   %.3141197 = phi i32 [ %104, %103 ], [ 0, %90 ]
   %.4146196 = phi i32 [ %.5, %103 ], [ 0, %90 ]
   %.2149195 = phi i32 [ %.3150, %103 ], [ %67, %90 ]
@@ -1489,7 +1489,7 @@ default.unreachable:                              ; preds = %Vec_IntFill.exit
   %94 = icmp eq i32 %93, 7
   br i1 %94, label %95, label %103
 
-95:                                               ; preds = %.preheader250
+95:                                               ; preds = %.preheader261
   %96 = add nsw i32 %.4146196, 1
   %97 = sext i32 %.4146196 to i64
   %98 = getelementptr inbounds i32, ptr %64, i64 %97
@@ -1499,12 +1499,12 @@ default.unreachable:                              ; preds = %Vec_IntFill.exit
   %102 = xor i32 %101, %.2149195
   br label %103
 
-103:                                              ; preds = %95, %.preheader250
-  %.3150 = phi i32 [ %102, %95 ], [ %.2149195, %.preheader250 ]
-  %.5 = phi i32 [ %96, %95 ], [ %.4146196, %.preheader250 ]
+103:                                              ; preds = %95, %.preheader261
+  %.3150 = phi i32 [ %102, %95 ], [ %.2149195, %.preheader261 ]
+  %.5 = phi i32 [ %96, %95 ], [ %.4146196, %.preheader261 ]
   %104 = add nuw nsw i32 %.3141197, 1
   %exitcond234.not = icmp eq i32 %104, 6
-  br i1 %exitcond234.not, label %105, label %.preheader250, !llvm.loop !74
+  br i1 %exitcond234.not, label %105, label %.preheader261, !llvm.loop !74
 
 105:                                              ; preds = %103
   %106 = load ptr, ptr %19, align 8, !tbaa !68

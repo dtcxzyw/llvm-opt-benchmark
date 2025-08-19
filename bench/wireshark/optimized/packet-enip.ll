@@ -4115,11 +4115,11 @@ define internal i32 @dissect_enip_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 12:                                               ; preds = %4
   %.not.i = icmp eq i32 %.pre.i, 44818
-  br i1 %.not.i, label %.thread13.i, label %classify_packet.exit
+  br i1 %.not.i, label %.thread15.i, label %classify_packet.exit
 
 13:                                               ; preds = %4
   %.not8.i = icmp eq i32 %.pre.i, 2221
-  br i1 %.not8.i, label %.thread13.i, label %classify_packet.exit
+  br i1 %.not8.i, label %.thread15.i, label %classify_packet.exit
 
 14:                                               ; preds = %4
   %switch.selectcmp.case1.i = icmp eq i32 %.pre.i, 44818
@@ -4128,11 +4128,11 @@ define internal i32 @dissect_enip_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %15 = select i1 %switch.selectcmp.i, i32 0, i32 2
   br label %classify_packet.exit
 
-.thread13.i:                                      ; preds = %13, %12
+.thread15.i:                                      ; preds = %13, %12
   br label %classify_packet.exit
 
-classify_packet.exit:                             ; preds = %12, %13, %14, %.thread13.i
-  %.0.i = phi i32 [ 2, %.thread13.i ], [ 1, %13 ], [ 1, %12 ], [ %15, %14 ]
+classify_packet.exit:                             ; preds = %12, %13, %14, %.thread15.i
+  %.0.i = phi i32 [ 2, %.thread15.i ], [ 1, %13 ], [ 1, %12 ], [ %15, %14 ]
   %switch.selectcmp = icmp eq i32 %.0.i, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.996, ptr @.str.997
   %switch.selectcmp92 = icmp eq i32 %.0.i, 0
@@ -4979,8 +4979,8 @@ proto_item_set_generated.exit46.i:                ; preds = %335, %332, %proto_i
   br i1 %.not5.i51.i, label %proto_item_set_generated.exit49.i, label %proto_item_set_generated.exit49.sink.split.i
 
 proto_item_set_generated.exit49.sink.split.i:     ; preds = %354, %345
-  %.sink60.i = phi ptr [ %347, %345 ], [ %356, %354 ]
-  %357 = getelementptr inbounds nuw i8, ptr %.sink60.i, i64 28
+  %.sink74.i = phi ptr [ %347, %345 ], [ %356, %354 ]
+  %357 = getelementptr inbounds nuw i8, ptr %.sink74.i, i64 28
   %358 = load i32, ptr %357, align 4
   %359 = or i32 %358, 2
   store i32 %359, ptr %357, align 4
@@ -5251,14 +5251,14 @@ enip_get_io_connid.exit.i.thread:                 ; preds = %507, %.thread.i.i15
   br label %dissect_item_sequenced_address.exit
 
 .sink.split.i159:                                 ; preds = %524, %519
-  %.sink239 = phi ptr [ %520, %519 ], [ %525, %524 ]
+  %.sink281 = phi ptr [ %520, %519 ], [ %525, %524 ]
   %storemerge.i.i206 = phi i32 [ 1, %519 ], [ 2, %524 ]
   %.str.1016.sink.i = phi ptr [ @.str.1015, %519 ], [ @.str.1016, %524 ]
-  %529 = getelementptr inbounds nuw i8, ptr %.sink239, i64 104
+  %529 = getelementptr inbounds nuw i8, ptr %.sink281, i64 104
   %530 = load i32, ptr %529, align 8
   %531 = load i32, ptr %31, align 4
   %532 = icmp ugt i32 %530, %531
-  %spec.select.i.i158205 = select i1 %532, ptr null, ptr %.sink239
+  %spec.select.i.i158205 = select i1 %532, ptr null, ptr %.sink281
   %533 = load ptr, ptr %29, align 8
   %534 = load i32, ptr %11, align 4
   %535 = load i32, ptr %12, align 4
@@ -5772,12 +5772,12 @@ define internal fastcc ptr @get_conversation_info_one_direction(ptr noundef read
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 2221
-  %spec.select35 = select i1 %21, i16 2221, i16 2222
+  %spec.select38 = select i1 %21, i16 2221, i16 2222
   br label %.sink.split
 
 .sink.split:                                      ; preds = %18, %14
-  %.sink33 = phi i16 [ 2221, %14 ], [ %spec.select35, %18 ]
-  store i16 %.sink33, ptr %7, align 8
+  %.sink36 = phi i16 [ 2221, %14 ], [ %spec.select38, %18 ]
+  store i16 %.sink36, ptr %7, align 8
   br label %22
 
 22:                                               ; preds = %.sink.split, %10
@@ -5842,10 +5842,10 @@ copy_address_wmem.exit:                           ; preds = %44, %.thread, %36
   store i64 0, ptr %51, align 8
   %52 = icmp eq i32 %50, 3
   %spec.select = select i1 %52, i32 3, i32 2
-  %spec.select34 = select i1 %52, i32 16, i32 4
+  %spec.select37 = select i1 %52, i32 16, i32 4
   store i32 %spec.select, ptr %6, align 8
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %spec.select34, ptr %53, align 4
+  store i32 %spec.select37, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 8

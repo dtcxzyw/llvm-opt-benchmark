@@ -255,8 +255,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_fminm_hP11
   %103 = and i64 %102, 31744
   %104 = icmp ne i64 %103, 31744
   %105 = and i64 %102, 1023
-  %.not226 = icmp eq i64 %105, 0
-  %or.cond = or i1 %104, %.not226
+  %.not228 = icmp eq i64 %105, 0
+  %or.cond = or i1 %104, %.not228
   br i1 %or.cond, label %.thread, label %.critedge.thread
 
 .thread208:                                       ; preds = %95
@@ -289,9 +289,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_fminm_hP11
   %123 = and i64 %122, 31744
   %124 = icmp ne i64 %123, 31744
   %125 = and i64 %122, 1023
-  %.not113231 = icmp eq i64 %125, 0
-  %or.cond237 = or i1 %124, %.not113231
-  br i1 %or.cond237, label %.critedge2.thread228, label %.critedge.thread
+  %.not113233 = icmp eq i64 %125, 0
+  %or.cond239 = or i1 %124, %.not113233
+  br i1 %or.cond239, label %.critedge2.thread230, label %.critedge.thread
 
 .thread212:                                       ; preds = %114, %.thread208
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -341,13 +341,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_fminm_hP11
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %150, i64 noundef 24576)
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-.critedge2.thread228:                             ; preds = %.thread
+.critedge2.thread230:                             ; preds = %.thread
   %151 = lshr i64 %1, 7
   %152 = and i64 %151, 31
   %.not.i154 = icmp eq i64 %152, 0
   br i1 %.not.i154, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %153
 
-153:                                              ; preds = %.critedge2.thread228
+153:                                              ; preds = %.critedge2.thread230
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %155 = lshr i64 %1, 15
   %156 = and i64 %155, 31
@@ -389,7 +389,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_fminm_hP11
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %176, i64 noundef 24576)
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %153, %.critedge2.thread228, %142, %.critedge.thread, %.critedge2.thread, %.critedge
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %153, %.critedge2.thread230, %142, %.critedge.thread, %.critedge2.thread, %.critedge
   %.not.i163 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
   br i1 %.not.i163, label %_ZTW24softfloat_exceptionFlags.exit, label %_ZTW24softfloat_exceptionFlags.exit.thread
 
@@ -397,9 +397,9 @@ _ZTW24softfloat_exceptionFlags.exit:              ; preds = %_ZN9regfile_tImLm32
   %177 = tail call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
   %178 = load i8, ptr %177, align 1, !tbaa !22
   %.not114 = icmp eq i8 %178, 0
-  br i1 %.not114, label %.thread233, label %187
+  br i1 %.not114, label %.thread235, label %187
 
-.thread233:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+.thread235:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
   %179 = shl i64 %2, 32
   %180 = add i64 %179, 17179869184
   %181 = ashr exact i64 %180, 32
@@ -451,9 +451,9 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %_ZN9regfile_tImLm32
   tail call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit167
 
-_ZTW24softfloat_exceptionFlags.exit167:           ; preds = %.thread233, %195, %205
-  %208 = phi i64 [ %204, %195 ], [ %206, %205 ], [ %181, %.thread233 ]
-  %209 = phi ptr [ %199, %195 ], [ %207, %205 ], [ %177, %.thread233 ]
+_ZTW24softfloat_exceptionFlags.exit167:           ; preds = %.thread235, %195, %205
+  %208 = phi i64 [ %204, %195 ], [ %206, %205 ], [ %181, %.thread235 ]
+  %209 = phi ptr [ %199, %195 ], [ %207, %205 ], [ %177, %.thread235 ]
   store i8 0, ptr %209, align 1, !tbaa !22
   ret i64 %208
 }
@@ -669,8 +669,8 @@ define noundef i64 @_Z18fast_rv64i_fminm_hP11processor_t6insn_tm(ptr noundef cap
   %103 = and i64 %102, 31744
   %104 = icmp ne i64 %103, 31744
   %105 = and i64 %102, 1023
-  %.not226 = icmp eq i64 %105, 0
-  %or.cond = or i1 %104, %.not226
+  %.not228 = icmp eq i64 %105, 0
+  %or.cond = or i1 %104, %.not228
   br i1 %or.cond, label %.thread, label %.critedge.thread
 
 .thread208:                                       ; preds = %95
@@ -703,9 +703,9 @@ define noundef i64 @_Z18fast_rv64i_fminm_hP11processor_t6insn_tm(ptr noundef cap
   %123 = and i64 %122, 31744
   %124 = icmp ne i64 %123, 31744
   %125 = and i64 %122, 1023
-  %.not113231 = icmp eq i64 %125, 0
-  %or.cond237 = or i1 %124, %.not113231
-  br i1 %or.cond237, label %.critedge2.thread228, label %.critedge.thread
+  %.not113233 = icmp eq i64 %125, 0
+  %or.cond239 = or i1 %124, %.not113233
+  br i1 %or.cond239, label %.critedge2.thread230, label %.critedge.thread
 
 .thread212:                                       ; preds = %114, %.thread208
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -755,13 +755,13 @@ define noundef i64 @_Z18fast_rv64i_fminm_hP11processor_t6insn_tm(ptr noundef cap
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %150, i64 noundef 24576)
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-.critedge2.thread228:                             ; preds = %.thread
+.critedge2.thread230:                             ; preds = %.thread
   %151 = lshr i64 %1, 7
   %152 = and i64 %151, 31
   %.not.i154 = icmp eq i64 %152, 0
   br i1 %.not.i154, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %153
 
-153:                                              ; preds = %.critedge2.thread228
+153:                                              ; preds = %.critedge2.thread230
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %155 = lshr i64 %1, 15
   %156 = and i64 %155, 31
@@ -803,7 +803,7 @@ define noundef i64 @_Z18fast_rv64i_fminm_hP11processor_t6insn_tm(ptr noundef cap
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %176, i64 noundef 24576)
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %153, %.critedge2.thread228, %142, %.critedge.thread, %.critedge2.thread, %.critedge
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %153, %.critedge2.thread230, %142, %.critedge.thread, %.critedge2.thread, %.critedge
   %.not.i163 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
   br i1 %.not.i163, label %_ZTW24softfloat_exceptionFlags.exit, label %_ZTW24softfloat_exceptionFlags.exit.thread
 
@@ -811,9 +811,9 @@ _ZTW24softfloat_exceptionFlags.exit:              ; preds = %_ZN9regfile_tImLm32
   %177 = tail call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
   %178 = load i8, ptr %177, align 1, !tbaa !22
   %.not114 = icmp eq i8 %178, 0
-  br i1 %.not114, label %.thread233, label %183
+  br i1 %.not114, label %.thread235, label %183
 
-.thread233:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+.thread235:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
   %179 = add i64 %2, 4
   br label %_ZTW24softfloat_exceptionFlags.exit167
 
@@ -859,9 +859,9 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %_ZN9regfile_tImLm32
   tail call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit167
 
-_ZTW24softfloat_exceptionFlags.exit167:           ; preds = %.thread233, %191, %199
-  %202 = phi i64 [ %198, %191 ], [ %200, %199 ], [ %179, %.thread233 ]
-  %203 = phi ptr [ %195, %191 ], [ %201, %199 ], [ %177, %.thread233 ]
+_ZTW24softfloat_exceptionFlags.exit167:           ; preds = %.thread235, %191, %199
+  %202 = phi i64 [ %198, %191 ], [ %200, %199 ], [ %179, %.thread235 ]
+  %203 = phi ptr [ %195, %191 ], [ %201, %199 ], [ %177, %.thread235 ]
   store i8 0, ptr %203, align 1, !tbaa !22
   ret i64 %202
 }
@@ -1055,8 +1055,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_fminm_hP
   %107 = and i64 %106, 31744
   %108 = icmp ne i64 %107, 31744
   %109 = and i64 %106, 1023
-  %.not239 = icmp eq i64 %109, 0
-  %or.cond = or i1 %108, %.not239
+  %.not241 = icmp eq i64 %109, 0
+  %or.cond = or i1 %108, %.not241
   br i1 %or.cond, label %.thread, label %.critedge.thread
 
 .thread221:                                       ; preds = %99
@@ -1089,9 +1089,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_fminm_hP
   %127 = and i64 %126, 31744
   %128 = icmp ne i64 %127, 31744
   %129 = and i64 %126, 1023
-  %.not122244 = icmp eq i64 %129, 0
-  %or.cond250 = or i1 %128, %.not122244
-  br i1 %or.cond250, label %.critedge2.thread241, label %.critedge.thread
+  %.not122246 = icmp eq i64 %129, 0
+  %or.cond252 = or i1 %128, %.not122246
+  br i1 %or.cond252, label %.critedge2.thread243, label %.critedge.thread
 
 .thread225:                                       ; preds = %118, %.thread221
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -1160,7 +1160,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_fminm_hP
   call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %161, i64 noundef 24576)
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-.critedge2.thread241:                             ; preds = %.thread
+.critedge2.thread243:                             ; preds = %.thread
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %163 = lshr i64 %1, 15
   %164 = and i64 %163, 31
@@ -1186,7 +1186,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_fminm_hP
   %.not.i163 = icmp eq i64 %172, 0
   br i1 %.not.i163, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %175
 
-175:                                              ; preds = %.critedge2.thread241
+175:                                              ; preds = %.critedge2.thread243
   %176 = getelementptr inbounds nuw [32 x i64], ptr %162, i64 0, i64 %172
   store i64 %169, ptr %176, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
@@ -1227,7 +1227,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_fminm_hP
   call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %194, i64 noundef 24576)
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %175, %.critedge2.thread241, %149, %.critedge.thread, %.critedge2.thread, %.critedge
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %175, %.critedge2.thread243, %149, %.critedge.thread, %.critedge2.thread, %.critedge
   %.not.i172 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
   br i1 %.not.i172, label %_ZTW24softfloat_exceptionFlags.exit, label %_ZTW24softfloat_exceptionFlags.exit.thread
 
@@ -1235,9 +1235,9 @@ _ZTW24softfloat_exceptionFlags.exit:              ; preds = %_ZN9regfile_tImLm32
   %195 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
   %196 = load i8, ptr %195, align 1, !tbaa !22
   %.not123 = icmp eq i8 %196, 0
-  br i1 %.not123, label %.thread246, label %205
+  br i1 %.not123, label %.thread248, label %205
 
-.thread246:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+.thread248:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
   %197 = shl i64 %2, 32
   %198 = add i64 %197, 17179869184
   %199 = ashr exact i64 %198, 32
@@ -1289,9 +1289,9 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %_ZN9regfile_tImLm32
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit176
 
-_ZTW24softfloat_exceptionFlags.exit176:           ; preds = %.thread246, %213, %223
-  %226 = phi i64 [ %222, %213 ], [ %224, %223 ], [ %199, %.thread246 ]
-  %227 = phi ptr [ %217, %213 ], [ %225, %223 ], [ %195, %.thread246 ]
+_ZTW24softfloat_exceptionFlags.exit176:           ; preds = %.thread248, %213, %223
+  %226 = phi i64 [ %222, %213 ], [ %224, %223 ], [ %199, %.thread248 ]
+  %227 = phi ptr [ %217, %213 ], [ %225, %223 ], [ %195, %.thread248 ]
   store i8 0, ptr %227, align 1, !tbaa !22
   ret i64 %226
 }
@@ -1571,8 +1571,8 @@ define noundef i64 @_Z20logged_rv64i_fminm_hP11processor_t6insn_tm(ptr noundef %
   %107 = and i64 %106, 31744
   %108 = icmp ne i64 %107, 31744
   %109 = and i64 %106, 1023
-  %.not239 = icmp eq i64 %109, 0
-  %or.cond = or i1 %108, %.not239
+  %.not241 = icmp eq i64 %109, 0
+  %or.cond = or i1 %108, %.not241
   br i1 %or.cond, label %.thread, label %.critedge.thread
 
 .thread221:                                       ; preds = %99
@@ -1605,9 +1605,9 @@ define noundef i64 @_Z20logged_rv64i_fminm_hP11processor_t6insn_tm(ptr noundef %
   %127 = and i64 %126, 31744
   %128 = icmp ne i64 %127, 31744
   %129 = and i64 %126, 1023
-  %.not122244 = icmp eq i64 %129, 0
-  %or.cond250 = or i1 %128, %.not122244
-  br i1 %or.cond250, label %.critedge2.thread241, label %.critedge.thread
+  %.not122246 = icmp eq i64 %129, 0
+  %or.cond252 = or i1 %128, %.not122246
+  br i1 %or.cond252, label %.critedge2.thread243, label %.critedge.thread
 
 .thread225:                                       ; preds = %118, %.thread221
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -1676,7 +1676,7 @@ define noundef i64 @_Z20logged_rv64i_fminm_hP11processor_t6insn_tm(ptr noundef %
   call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %161, i64 noundef 24576)
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-.critedge2.thread241:                             ; preds = %.thread
+.critedge2.thread243:                             ; preds = %.thread
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %163 = lshr i64 %1, 15
   %164 = and i64 %163, 31
@@ -1702,7 +1702,7 @@ define noundef i64 @_Z20logged_rv64i_fminm_hP11processor_t6insn_tm(ptr noundef %
   %.not.i163 = icmp eq i64 %172, 0
   br i1 %.not.i163, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %175
 
-175:                                              ; preds = %.critedge2.thread241
+175:                                              ; preds = %.critedge2.thread243
   %176 = getelementptr inbounds nuw [32 x i64], ptr %162, i64 0, i64 %172
   store i64 %169, ptr %176, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
@@ -1743,7 +1743,7 @@ define noundef i64 @_Z20logged_rv64i_fminm_hP11processor_t6insn_tm(ptr noundef %
   call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %194, i64 noundef 24576)
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %175, %.critedge2.thread241, %149, %.critedge.thread, %.critedge2.thread, %.critedge
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %175, %.critedge2.thread243, %149, %.critedge.thread, %.critedge2.thread, %.critedge
   %.not.i172 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
   br i1 %.not.i172, label %_ZTW24softfloat_exceptionFlags.exit, label %_ZTW24softfloat_exceptionFlags.exit.thread
 
@@ -1751,9 +1751,9 @@ _ZTW24softfloat_exceptionFlags.exit:              ; preds = %_ZN9regfile_tImLm32
   %195 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
   %196 = load i8, ptr %195, align 1, !tbaa !22
   %.not123 = icmp eq i8 %196, 0
-  br i1 %.not123, label %.thread246, label %201
+  br i1 %.not123, label %.thread248, label %201
 
-.thread246:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+.thread248:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
   %197 = add i64 %2, 4
   br label %_ZTW24softfloat_exceptionFlags.exit176
 
@@ -1799,9 +1799,9 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %_ZN9regfile_tImLm32
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit176
 
-_ZTW24softfloat_exceptionFlags.exit176:           ; preds = %.thread246, %209, %217
-  %220 = phi i64 [ %216, %209 ], [ %218, %217 ], [ %197, %.thread246 ]
-  %221 = phi ptr [ %213, %209 ], [ %219, %217 ], [ %195, %.thread246 ]
+_ZTW24softfloat_exceptionFlags.exit176:           ; preds = %.thread248, %209, %217
+  %220 = phi i64 [ %216, %209 ], [ %218, %217 ], [ %197, %.thread248 ]
+  %221 = phi ptr [ %213, %209 ], [ %219, %217 ], [ %195, %.thread248 ]
   store i8 0, ptr %221, align 1, !tbaa !22
   ret i64 %220
 }
@@ -1991,8 +1991,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_fminm_hP11
   %103 = and i64 %102, 31744
   %104 = icmp ne i64 %103, 31744
   %105 = and i64 %102, 1023
-  %.not237 = icmp eq i64 %105, 0
-  %or.cond = or i1 %104, %.not237
+  %.not239 = icmp eq i64 %105, 0
+  %or.cond = or i1 %104, %.not239
   br i1 %or.cond, label %.thread, label %.critedge.thread
 
 .thread219:                                       ; preds = %95
@@ -2025,9 +2025,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_fminm_hP11
   %123 = and i64 %122, 31744
   %124 = icmp ne i64 %123, 31744
   %125 = and i64 %122, 1023
-  %.not118242 = icmp eq i64 %125, 0
-  %or.cond248 = or i1 %124, %.not118242
-  br i1 %or.cond248, label %.critedge2.thread239, label %.critedge.thread
+  %.not118244 = icmp eq i64 %125, 0
+  %or.cond250 = or i1 %124, %.not118244
+  br i1 %or.cond250, label %.critedge2.thread241, label %.critedge.thread
 
 .thread223:                                       ; preds = %114, %.thread219
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -2093,13 +2093,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_fminm_hP11
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %157, i64 noundef 24576)
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-.critedge2.thread239:                             ; preds = %.thread
+.critedge2.thread241:                             ; preds = %.thread
   %158 = lshr i64 %1, 7
   %159 = and i64 %158, 31
   %160 = icmp samesign ugt i64 %159, 15
   br i1 %160, label %161, label %166, !prof !7
 
-161:                                              ; preds = %.critedge2.thread239
+161:                                              ; preds = %.critedge2.thread241
   %162 = tail call ptr @__cxa_allocate_exception(i64 32) #16
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store i64 2, ptr %163, align 8, !tbaa !8
@@ -2111,7 +2111,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_fminm_hP11
   tail call void @__cxa_throw(ptr nonnull %162, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #17
   unreachable
 
-166:                                              ; preds = %.critedge2.thread239
+166:                                              ; preds = %.critedge2.thread241
   %.not.i161 = icmp eq i64 %159, 0
   br i1 %.not.i161, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %167
 
@@ -2165,9 +2165,9 @@ _ZTW24softfloat_exceptionFlags.exit:              ; preds = %_ZN9regfile_tImLm32
   %191 = tail call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
   %192 = load i8, ptr %191, align 1, !tbaa !22
   %.not119 = icmp eq i8 %192, 0
-  br i1 %.not119, label %.thread244, label %201
+  br i1 %.not119, label %.thread246, label %201
 
-.thread244:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+.thread246:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
   %193 = shl i64 %2, 32
   %194 = add i64 %193, 17179869184
   %195 = ashr exact i64 %194, 32
@@ -2219,9 +2219,9 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %_ZN9regfile_tImLm32
   tail call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit174
 
-_ZTW24softfloat_exceptionFlags.exit174:           ; preds = %.thread244, %209, %219
-  %222 = phi i64 [ %218, %209 ], [ %220, %219 ], [ %195, %.thread244 ]
-  %223 = phi ptr [ %213, %209 ], [ %221, %219 ], [ %191, %.thread244 ]
+_ZTW24softfloat_exceptionFlags.exit174:           ; preds = %.thread246, %209, %219
+  %222 = phi i64 [ %218, %209 ], [ %220, %219 ], [ %195, %.thread246 ]
+  %223 = phi ptr [ %213, %209 ], [ %221, %219 ], [ %191, %.thread246 ]
   store i8 0, ptr %223, align 1, !tbaa !22
   ret i64 %222
 }
@@ -2411,8 +2411,8 @@ define noundef i64 @_Z18fast_rv64e_fminm_hP11processor_t6insn_tm(ptr noundef cap
   %103 = and i64 %102, 31744
   %104 = icmp ne i64 %103, 31744
   %105 = and i64 %102, 1023
-  %.not237 = icmp eq i64 %105, 0
-  %or.cond = or i1 %104, %.not237
+  %.not239 = icmp eq i64 %105, 0
+  %or.cond = or i1 %104, %.not239
   br i1 %or.cond, label %.thread, label %.critedge.thread
 
 .thread219:                                       ; preds = %95
@@ -2445,9 +2445,9 @@ define noundef i64 @_Z18fast_rv64e_fminm_hP11processor_t6insn_tm(ptr noundef cap
   %123 = and i64 %122, 31744
   %124 = icmp ne i64 %123, 31744
   %125 = and i64 %122, 1023
-  %.not118242 = icmp eq i64 %125, 0
-  %or.cond248 = or i1 %124, %.not118242
-  br i1 %or.cond248, label %.critedge2.thread239, label %.critedge.thread
+  %.not118244 = icmp eq i64 %125, 0
+  %or.cond250 = or i1 %124, %.not118244
+  br i1 %or.cond250, label %.critedge2.thread241, label %.critedge.thread
 
 .thread223:                                       ; preds = %114, %.thread219
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -2513,13 +2513,13 @@ define noundef i64 @_Z18fast_rv64e_fminm_hP11processor_t6insn_tm(ptr noundef cap
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %157, i64 noundef 24576)
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-.critedge2.thread239:                             ; preds = %.thread
+.critedge2.thread241:                             ; preds = %.thread
   %158 = lshr i64 %1, 7
   %159 = and i64 %158, 31
   %160 = icmp samesign ugt i64 %159, 15
   br i1 %160, label %161, label %166, !prof !7
 
-161:                                              ; preds = %.critedge2.thread239
+161:                                              ; preds = %.critedge2.thread241
   %162 = tail call ptr @__cxa_allocate_exception(i64 32) #16
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store i64 2, ptr %163, align 8, !tbaa !8
@@ -2531,7 +2531,7 @@ define noundef i64 @_Z18fast_rv64e_fminm_hP11processor_t6insn_tm(ptr noundef cap
   tail call void @__cxa_throw(ptr nonnull %162, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #17
   unreachable
 
-166:                                              ; preds = %.critedge2.thread239
+166:                                              ; preds = %.critedge2.thread241
   %.not.i161 = icmp eq i64 %159, 0
   br i1 %.not.i161, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %167
 
@@ -2585,9 +2585,9 @@ _ZTW24softfloat_exceptionFlags.exit:              ; preds = %_ZN9regfile_tImLm32
   %191 = tail call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
   %192 = load i8, ptr %191, align 1, !tbaa !22
   %.not119 = icmp eq i8 %192, 0
-  br i1 %.not119, label %.thread244, label %197
+  br i1 %.not119, label %.thread246, label %197
 
-.thread244:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+.thread246:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
   %193 = add i64 %2, 4
   br label %_ZTW24softfloat_exceptionFlags.exit174
 
@@ -2633,9 +2633,9 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %_ZN9regfile_tImLm32
   tail call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit174
 
-_ZTW24softfloat_exceptionFlags.exit174:           ; preds = %.thread244, %205, %213
-  %216 = phi i64 [ %212, %205 ], [ %214, %213 ], [ %193, %.thread244 ]
-  %217 = phi ptr [ %209, %205 ], [ %215, %213 ], [ %191, %.thread244 ]
+_ZTW24softfloat_exceptionFlags.exit174:           ; preds = %.thread246, %205, %213
+  %216 = phi i64 [ %212, %205 ], [ %214, %213 ], [ %193, %.thread246 ]
+  %217 = phi ptr [ %209, %205 ], [ %215, %213 ], [ %191, %.thread246 ]
   store i8 0, ptr %217, align 1, !tbaa !22
   ret i64 %216
 }
@@ -2829,8 +2829,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_fminm_hP
   %107 = and i64 %106, 31744
   %108 = icmp ne i64 %107, 31744
   %109 = and i64 %106, 1023
-  %.not250 = icmp eq i64 %109, 0
-  %or.cond = or i1 %108, %.not250
+  %.not252 = icmp eq i64 %109, 0
+  %or.cond = or i1 %108, %.not252
   br i1 %or.cond, label %.thread, label %.critedge.thread
 
 .thread232:                                       ; preds = %99
@@ -2863,9 +2863,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_fminm_hP
   %127 = and i64 %126, 31744
   %128 = icmp ne i64 %127, 31744
   %129 = and i64 %126, 1023
-  %.not127255 = icmp eq i64 %129, 0
-  %or.cond261 = or i1 %128, %.not127255
-  br i1 %or.cond261, label %.critedge2.thread252, label %.critedge.thread
+  %.not127257 = icmp eq i64 %129, 0
+  %or.cond263 = or i1 %128, %.not127257
+  br i1 %or.cond263, label %.critedge2.thread254, label %.critedge.thread
 
 .thread236:                                       ; preds = %118, %.thread232
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -2950,13 +2950,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_fminm_hP
   call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %168, i64 noundef 24576)
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-.critedge2.thread252:                             ; preds = %.thread
+.critedge2.thread254:                             ; preds = %.thread
   %169 = lshr i64 %1, 7
   %170 = and i64 %169, 31
   %171 = icmp samesign ugt i64 %170, 15
   br i1 %171, label %172, label %177, !prof !7
 
-172:                                              ; preds = %.critedge2.thread252
+172:                                              ; preds = %.critedge2.thread254
   %173 = tail call ptr @__cxa_allocate_exception(i64 32) #16
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   store i64 2, ptr %174, align 8, !tbaa !8
@@ -2968,7 +2968,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_fminm_hP
   tail call void @__cxa_throw(ptr nonnull %173, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #17
   unreachable
 
-177:                                              ; preds = %.critedge2.thread252
+177:                                              ; preds = %.critedge2.thread254
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %179 = lshr i64 %1, 15
   %180 = and i64 %179, 31
@@ -3041,9 +3041,9 @@ _ZTW24softfloat_exceptionFlags.exit:              ; preds = %_ZN9regfile_tImLm32
   %209 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
   %210 = load i8, ptr %209, align 1, !tbaa !22
   %.not128 = icmp eq i8 %210, 0
-  br i1 %.not128, label %.thread257, label %219
+  br i1 %.not128, label %.thread259, label %219
 
-.thread257:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+.thread259:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
   %211 = shl i64 %2, 32
   %212 = add i64 %211, 17179869184
   %213 = ashr exact i64 %212, 32
@@ -3095,9 +3095,9 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %_ZN9regfile_tImLm32
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit183
 
-_ZTW24softfloat_exceptionFlags.exit183:           ; preds = %.thread257, %227, %237
-  %240 = phi i64 [ %236, %227 ], [ %238, %237 ], [ %213, %.thread257 ]
-  %241 = phi ptr [ %231, %227 ], [ %239, %237 ], [ %209, %.thread257 ]
+_ZTW24softfloat_exceptionFlags.exit183:           ; preds = %.thread259, %227, %237
+  %240 = phi i64 [ %236, %227 ], [ %238, %237 ], [ %213, %.thread259 ]
+  %241 = phi ptr [ %231, %227 ], [ %239, %237 ], [ %209, %.thread259 ]
   store i8 0, ptr %241, align 1, !tbaa !22
   ret i64 %240
 }
@@ -3291,8 +3291,8 @@ define noundef i64 @_Z20logged_rv64e_fminm_hP11processor_t6insn_tm(ptr noundef %
   %107 = and i64 %106, 31744
   %108 = icmp ne i64 %107, 31744
   %109 = and i64 %106, 1023
-  %.not250 = icmp eq i64 %109, 0
-  %or.cond = or i1 %108, %.not250
+  %.not252 = icmp eq i64 %109, 0
+  %or.cond = or i1 %108, %.not252
   br i1 %or.cond, label %.thread, label %.critedge.thread
 
 .thread232:                                       ; preds = %99
@@ -3325,9 +3325,9 @@ define noundef i64 @_Z20logged_rv64e_fminm_hP11processor_t6insn_tm(ptr noundef %
   %127 = and i64 %126, 31744
   %128 = icmp ne i64 %127, 31744
   %129 = and i64 %126, 1023
-  %.not127255 = icmp eq i64 %129, 0
-  %or.cond261 = or i1 %128, %.not127255
-  br i1 %or.cond261, label %.critedge2.thread252, label %.critedge.thread
+  %.not127257 = icmp eq i64 %129, 0
+  %or.cond263 = or i1 %128, %.not127257
+  br i1 %or.cond263, label %.critedge2.thread254, label %.critedge.thread
 
 .thread236:                                       ; preds = %118, %.thread232
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -3412,13 +3412,13 @@ define noundef i64 @_Z20logged_rv64e_fminm_hP11processor_t6insn_tm(ptr noundef %
   call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %168, i64 noundef 24576)
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-.critedge2.thread252:                             ; preds = %.thread
+.critedge2.thread254:                             ; preds = %.thread
   %169 = lshr i64 %1, 7
   %170 = and i64 %169, 31
   %171 = icmp samesign ugt i64 %170, 15
   br i1 %171, label %172, label %177, !prof !7
 
-172:                                              ; preds = %.critedge2.thread252
+172:                                              ; preds = %.critedge2.thread254
   %173 = tail call ptr @__cxa_allocate_exception(i64 32) #16
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   store i64 2, ptr %174, align 8, !tbaa !8
@@ -3430,7 +3430,7 @@ define noundef i64 @_Z20logged_rv64e_fminm_hP11processor_t6insn_tm(ptr noundef %
   tail call void @__cxa_throw(ptr nonnull %173, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #17
   unreachable
 
-177:                                              ; preds = %.critedge2.thread252
+177:                                              ; preds = %.critedge2.thread254
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %179 = lshr i64 %1, 15
   %180 = and i64 %179, 31
@@ -3503,9 +3503,9 @@ _ZTW24softfloat_exceptionFlags.exit:              ; preds = %_ZN9regfile_tImLm32
   %209 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
   %210 = load i8, ptr %209, align 1, !tbaa !22
   %.not128 = icmp eq i8 %210, 0
-  br i1 %.not128, label %.thread257, label %215
+  br i1 %.not128, label %.thread259, label %215
 
-.thread257:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+.thread259:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
   %211 = add i64 %2, 4
   br label %_ZTW24softfloat_exceptionFlags.exit183
 
@@ -3551,9 +3551,9 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %_ZN9regfile_tImLm32
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit183
 
-_ZTW24softfloat_exceptionFlags.exit183:           ; preds = %.thread257, %223, %231
-  %234 = phi i64 [ %230, %223 ], [ %232, %231 ], [ %211, %.thread257 ]
-  %235 = phi ptr [ %227, %223 ], [ %233, %231 ], [ %209, %.thread257 ]
+_ZTW24softfloat_exceptionFlags.exit183:           ; preds = %.thread259, %223, %231
+  %234 = phi i64 [ %230, %223 ], [ %232, %231 ], [ %211, %.thread259 ]
+  %235 = phi ptr [ %227, %223 ], [ %233, %231 ], [ %209, %.thread259 ]
   store i8 0, ptr %235, align 1, !tbaa !22
   ret i64 %234
 }
@@ -3674,14 +3674,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !52
-  %25 = icmp eq ptr %.019.lcssa28.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #20
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #20
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81 = load i64, ptr %.phi.trans.insert80, align 8, !tbaa !3
   %.pre82 = load i64, ptr %2, align 8, !tbaa !3
@@ -3690,11 +3690,11 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 28:                                               ; preds = %26, %._crit_edge.i
   %29 = phi i64 [ %.pre82, %26 ], [ %18, %._crit_edge.i ]
   %30 = phi i64 [ %.pre81, %26 ], [ %21, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %26 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %26 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %27, %26 ], [ %.02024.i, %._crit_edge.i ]
   %31 = icmp ult i64 %30, %29
   %spec.select.i = select i1 %31, ptr null, ptr %.sroa.05.0.i
-  %spec.select21.i = select i1 %31, ptr %.019.lcssa29.i, ptr null
+  %spec.select21.i = select i1 %31, ptr %.019.lcssa28.i, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 32:                                               ; preds = %3
@@ -3746,23 +3746,23 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br i1 %54, label %._crit_edge.thread.i27, label %58
 
 ._crit_edge.thread.i27:                           ; preds = %._crit_edge.i18, %50
-  %.019.lcssa28.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
-  %55 = icmp eq ptr %.019.lcssa28.i28, %39
+  %.019.lcssa29.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
+  %55 = icmp eq ptr %.019.lcssa29.i28, %39
   br i1 %55, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #20
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i28) #20
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre79 = load i64, ptr %.phi.trans.insert78, align 8, !tbaa !3
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i18
   %59 = phi i64 [ %.pre79, %56 ], [ %53, %._crit_edge.i18 ]
-  %.019.lcssa29.i19 = phi ptr [ %.019.lcssa28.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
+  %.019.lcssa28.i19 = phi ptr [ %.019.lcssa29.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %.sroa.05.0.i20 = phi ptr [ %57, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %60 = icmp ult i64 %59, %34
   %spec.select.i21 = select i1 %60, ptr null, ptr %.sroa.05.0.i20
-  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa29.i19, ptr null
+  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa28.i19, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 61:                                               ; preds = %32
@@ -3811,30 +3811,30 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br i1 %80, label %._crit_edge.thread.i47, label %86
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
-  %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
+  %.019.lcssa29.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !52
-  %83 = icmp eq ptr %.019.lcssa28.i48, %82
+  %83 = icmp eq ptr %.019.lcssa29.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #20
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i48) #20
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !3
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i38
   %87 = phi i64 [ %.pre, %84 ], [ %79, %._crit_edge.i38 ]
-  %.019.lcssa29.i39 = phi ptr [ %.019.lcssa28.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
+  %.019.lcssa28.i39 = phi ptr [ %.019.lcssa29.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %.sroa.05.0.i40 = phi ptr [ %85, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %88 = icmp ult i64 %87, %34
   %spec.select.i41 = select i1 %88, ptr null, ptr %.sroa.05.0.i40
-  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa29.i39, ptr null
+  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa28.i39, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
   %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

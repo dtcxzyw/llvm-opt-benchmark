@@ -843,7 +843,7 @@ _ZN4Luau7CodeGen13getJumpTargetEjj.exit.thread:   ; preds = %52, %52, %52, %52, 
 
 63:                                               ; preds = %.lr.ph38
   %64 = invoke i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 0)
-          to label %65 unwind label %.thread47
+          to label %65 unwind label %.thread57
 
 65:                                               ; preds = %63
   %66 = lshr i32 %64, 4
@@ -853,7 +853,7 @@ _ZN4Luau7CodeGen13getJumpTargetEjj.exit.thread:   ; preds = %52, %52, %52, %52, 
   %.pre41 = load i32, ptr %5, align 8, !tbaa !117
   br label %70
 
-.thread47:                                        ; preds = %63
+.thread57:                                        ; preds = %63
   %69 = landingpad { ptr, i32 }
           cleanup
   br label %84
@@ -890,9 +890,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %74, %76
   %.not.i.i.i30 = icmp eq ptr %.pre42, null
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIhSaIhEED2Ev.exit31, label %84
 
-84:                                               ; preds = %.thread47, %82
-  %.pn50 = phi { ptr, i32 } [ %69, %.thread47 ], [ %83, %82 ]
-  %85 = phi ptr [ %25, %.thread47 ], [ %.pre42, %82 ]
+84:                                               ; preds = %.thread57, %82
+  %.pn60 = phi { ptr, i32 } [ %69, %.thread57 ], [ %83, %82 ]
+  %85 = phi ptr [ %25, %.thread57 ], [ %.pre42, %82 ]
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %87 = load ptr, ptr %86, align 8, !tbaa !162
   %88 = ptrtoint ptr %87 to i64
@@ -902,9 +902,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %74, %76
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit31
 
 _ZNSt6vectorIhSaIhEED2Ev.exit31:                  ; preds = %84, %82
-  %.pn51 = phi { ptr, i32 } [ %.pn50, %84 ], [ %83, %82 ]
+  %.pn61 = phi { ptr, i32 } [ %.pn60, %84 ], [ %83, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %.pn51
+  resume { ptr, i32 } %.pn61
 }
 
 declare void @_ZN4Luau7CodeGen20analyzeBytecodeTypesERNS0_10IrFunctionERKNS0_11HostIrHooksE(ptr noundef nonnull align 8 dereferenceable(624), ptr noundef nonnull align 1) local_unnamed_addr #2
@@ -3063,27 +3063,27 @@ _ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jE
   %98 = icmp eq i8 %92, %68
   %99 = icmp eq i64 %95, %64
   %100 = select i1 %98, i1 %99, i1 false
-  br i1 %100, label %_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE13insert_unsafeERS7_.exit, label %.lr.ph18
+  br i1 %100, label %_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE13insert_unsafeERS7_.exit, label %.lr.ph19
 
-._crit_edge:                                      ; preds = %.lr.ph18, %_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE14rehash_if_fullERS7_.exit
-  %.lcssa = phi ptr [ %91, %_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE14rehash_if_fullERS7_.exit ], [ %109, %.lr.ph18 ]
+._crit_edge:                                      ; preds = %.lr.ph19, %_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE14rehash_if_fullERS7_.exit
+  %.lcssa = phi ptr [ %91, %_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE14rehash_if_fullERS7_.exit ], [ %109, %.lr.ph19 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !192
   %101 = load i64, ptr %3, align 8, !tbaa !185
   %102 = add i64 %101, 1
   store i64 %102, ptr %3, align 8, !tbaa !185
   br label %_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE13insert_unsafeERS7_.exit
 
-.lr.ph:                                           ; preds = %.lr.ph18
+.lr.ph:                                           ; preds = %.lr.ph19
   %103 = icmp eq i8 %110, %68
   %104 = icmp eq i64 %113, %64
   %105 = select i1 %103, i1 %104, i1 false
-  br i1 %105, label %_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE13insert_unsafeERS7_.exit, label %.lr.ph18
+  br i1 %105, label %_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE13insert_unsafeERS7_.exit, label %.lr.ph19
 
-.lr.ph18:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02230.i517 = phi i64 [ %106, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.02329.i616 = phi i64 [ %108, %.lr.ph ], [ %85, %.lr.ph.preheader ]
-  %106 = add i64 %.02230.i517, 1
-  %107 = add i64 %106, %.02329.i616
+.lr.ph19:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.02230.i518 = phi i64 [ %106, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.02329.i617 = phi i64 [ %108, %.lr.ph ], [ %85, %.lr.ph.preheader ]
+  %106 = add i64 %.02230.i518, 1
+  %107 = add i64 %106, %.02329.i617
   %108 = and i64 %107, %62
   %.not.i3 = icmp ule i64 %106, %62
   tail call void @llvm.assume(i1 %.not.i3)
@@ -3641,24 +3641,24 @@ _ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jE
   %57 = icmp eq i8 %51, %21
   %58 = icmp eq i64 %54, %25
   %59 = select i1 %57, i1 %58, i1 false
-  br i1 %59, label %_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE13insert_unsafeERS7_.exit, label %.lr.ph47
+  br i1 %59, label %_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE13insert_unsafeERS7_.exit, label %.lr.ph50
 
-._crit_edge:                                      ; preds = %.lr.ph47, %29
-  %.lcssa = phi ptr [ %50, %29 ], [ %66, %.lr.ph47 ]
+._crit_edge:                                      ; preds = %.lr.ph50, %29
+  %.lcssa = phi ptr [ %50, %29 ], [ %66, %.lr.ph50 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !192
   br label %_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE13insert_unsafeERS7_.exit
 
-.lr.ph:                                           ; preds = %.lr.ph47
+.lr.ph:                                           ; preds = %.lr.ph50
   %60 = icmp eq i8 %67, %21
   %61 = icmp eq i64 %70, %25
   %62 = select i1 %60, i1 %61, i1 false
-  br i1 %62, label %_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE13insert_unsafeERS7_.exit, label %.lr.ph47
+  br i1 %62, label %_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE13insert_unsafeERS7_.exit, label %.lr.ph50
 
-.lr.ph47:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02230.i2946 = phi i64 [ %63, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.02329.i3045 = phi i64 [ %65, %.lr.ph ], [ %49, %.lr.ph.preheader ]
-  %63 = add i64 %.02230.i2946, 1
-  %64 = add i64 %63, %.02329.i3045
+.lr.ph50:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.02230.i2949 = phi i64 [ %63, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.02329.i3048 = phi i64 [ %65, %.lr.ph ], [ %49, %.lr.ph.preheader ]
+  %63 = add i64 %.02230.i2949, 1
+  %64 = add i64 %63, %.02329.i3048
   %65 = and i64 %64, %14
   %.not.i15 = icmp ule i64 %63, %14
   tail call void @llvm.assume(i1 %.not.i15)

@@ -54,9 +54,9 @@ thread-pre-split:                                 ; preds = %15, %.thread
   %26 = load i32, ptr %1, align 4, !tbaa !3
   %. = tail call i32 @llvm.smin.i32(i32 %25, i32 %26)
   %27 = icmp sgt i32 %., 0
-  br i1 %27, label %28, label %.thread200
+  br i1 %27, label %28, label %.thread203
 
-.thread200:                                       ; preds = %23
+.thread203:                                       ; preds = %23
   store i32 %25, ptr %11, align 4, !tbaa !3
   store i32 1, ptr %12, align 4, !tbaa !3
   br label %32
@@ -71,30 +71,30 @@ thread-pre-split:                                 ; preds = %15, %.thread
   %31 = icmp sgt i32 %29, %.pre197
   br i1 %31, label %34, label %32
 
-32:                                               ; preds = %.thread200, %28
-  %storemerge210 = phi i32 [ 1, %.thread200 ], [ %30, %28 ]
-  %.sink207 = phi i32 [ %25, %.thread200 ], [ %29, %28 ]
-  %33 = phi i32 [ %25, %.thread200 ], [ %.pre197, %28 ]
-  %.pr188.pre206 = phi i32 [ %26, %.thread200 ], [ %.pr188.pre.pre, %28 ]
-  %.not170 = icmp sgt i32 %.sink207, %.pr188.pre206
+32:                                               ; preds = %.thread203, %28
+  %storemerge213 = phi i32 [ 1, %.thread203 ], [ %30, %28 ]
+  %.sink210 = phi i32 [ %25, %.thread203 ], [ %29, %28 ]
+  %33 = phi i32 [ %25, %.thread203 ], [ %.pre197, %28 ]
+  %.pr188.pre209 = phi i32 [ %26, %.thread203 ], [ %.pr188.pre.pre, %28 ]
+  %.not170 = icmp sgt i32 %.sink210, %.pr188.pre209
   br i1 %.not170, label %36, label %34
 
 34:                                               ; preds = %32, %28
-  %storemerge208 = phi i32 [ %storemerge210, %32 ], [ %30, %28 ]
+  %storemerge211 = phi i32 [ %storemerge213, %32 ], [ %30, %28 ]
   %35 = phi i32 [ %33, %32 ], [ %.pre197, %28 ]
-  %.pr188.pre204 = phi i32 [ %.pr188.pre206, %32 ], [ %.pr188.pre.pre, %28 ]
+  %.pr188.pre207 = phi i32 [ %.pr188.pre209, %32 ], [ %.pr188.pre.pre, %28 ]
   store i32 %35, ptr %11, align 4, !tbaa !3
   br label %36
 
 36:                                               ; preds = %34, %32
-  %storemerge209 = phi i32 [ %storemerge208, %34 ], [ %storemerge210, %32 ]
+  %storemerge212 = phi i32 [ %storemerge211, %34 ], [ %storemerge213, %32 ]
   %37 = phi i32 [ %35, %34 ], [ %33, %32 ]
-  %.pr188.pre205 = phi i32 [ %.pr188.pre204, %34 ], [ %.pr188.pre206, %32 ]
-  %38 = phi i32 [ %35, %34 ], [ %.sink207, %32 ]
-  %.not171 = icmp sle i32 %37, %.pr188.pre205
-  %.182 = tail call i32 @llvm.smin.i32(i32 %37, i32 %.pr188.pre205)
-  %39 = icmp sgt i32 %storemerge209, %.182
-  %40 = icmp slt i32 %storemerge209, 1
+  %.pr188.pre208 = phi i32 [ %.pr188.pre207, %34 ], [ %.pr188.pre209, %32 ]
+  %38 = phi i32 [ %35, %34 ], [ %.sink210, %32 ]
+  %.not171 = icmp sle i32 %37, %.pr188.pre208
+  %.182 = tail call i32 @llvm.smin.i32(i32 %37, i32 %.pr188.pre208)
+  %39 = icmp sgt i32 %storemerge212, %.182
+  %40 = icmp slt i32 %storemerge212, 1
   %or.cond = or i1 %40, %39
   br i1 %or.cond, label %41, label %42
 
@@ -103,25 +103,25 @@ thread-pre-split:                                 ; preds = %15, %.thread
   br label %42
 
 42:                                               ; preds = %36, %41
-  %43 = phi i32 [ %storemerge209, %36 ], [ 1, %41 ]
-  %44 = add nsw i32 %.pr188.pre205, 5
-  %45 = icmp sle i32 %38, %.pr188.pre205
+  %43 = phi i32 [ %storemerge212, %36 ], [ 1, %41 ]
+  %44 = add nsw i32 %.pr188.pre208, 5
+  %45 = icmp sle i32 %38, %.pr188.pre208
   %brmerge = or i1 %.not171, %45
   br i1 %brmerge, label %53, label %46
 
 46:                                               ; preds = %42
-  %47 = sub nsw i32 %37, %.pr188.pre205
-  %48 = sub nsw i32 %38, %.pr188.pre205
+  %47 = sub nsw i32 %37, %.pr188.pre208
+  %48 = sub nsw i32 %38, %.pr188.pre208
   %49 = urem i32 %47, %48
   %50 = icmp ne i32 %49, 0
   %51 = udiv i32 %47, %48
   %52 = zext i1 %50 to i32
-  %spec.select217 = add nuw nsw i32 %51, %52
+  %spec.select220 = add nuw nsw i32 %51, %52
   br label %53
 
 53:                                               ; preds = %46, %42
-  %.0146 = phi i32 [ 1, %42 ], [ %spec.select217, %46 ]
-  %54 = mul nsw i32 %43, %.pr188.pre205
+  %.0146 = phi i32 [ 1, %42 ], [ %spec.select220, %46 ]
+  %54 = mul nsw i32 %43, %.pr188.pre208
   %55 = mul nsw i32 %54, %.0146
   %56 = load i32, ptr %5, align 4, !tbaa !3
   %57 = tail call i32 @llvm.smax.i32(i32 %55, i32 -4)
@@ -132,23 +132,23 @@ thread-pre-split:                                 ; preds = %15, %.thread
 
 60:                                               ; preds = %53
   %61 = icmp slt i32 %.pre198, %54
-  br i1 %61, label %.thread211, label %72
+  br i1 %61, label %.thread214, label %72
 
 62:                                               ; preds = %53
-  %.not172 = icmp slt i32 %.pre198, %.pr188.pre205
+  %.not172 = icmp slt i32 %.pre198, %.pr188.pre208
   %63 = icmp slt i32 %56, %44
   %or.cond3 = or i1 %24, %63
   %or.cond195 = select i1 %.not172, i1 true, i1 %or.cond3
   br i1 %or.cond195, label %72, label %65
 
-.thread211:                                       ; preds = %60
-  %.not172212 = icmp slt i32 %.pre198, %.pr188.pre205
+.thread214:                                       ; preds = %60
+  %.not172215 = icmp slt i32 %.pre198, %.pr188.pre208
   %64 = icmp slt i32 %56, %44
-  %or.cond3213 = or i1 %24, %64
-  %or.cond195214 = select i1 %.not172212, i1 true, i1 %or.cond3213
-  br i1 %or.cond195214, label %72, label %.thread215
+  %or.cond3216 = or i1 %24, %64
+  %or.cond195217 = select i1 %.not172215, i1 true, i1 %or.cond3216
+  br i1 %or.cond195217, label %72, label %.thread218
 
-.thread215:                                       ; preds = %.thread211
+.thread218:                                       ; preds = %.thread214
   store i32 1, ptr %10, align 4, !tbaa !3
   br label %66
 
@@ -158,11 +158,11 @@ thread-pre-split:                                 ; preds = %15, %.thread
   store i32 %37, ptr %11, align 4, !tbaa !3
   br label %66
 
-66:                                               ; preds = %.thread215, %65
-  %67 = phi i32 [ %37, %65 ], [ %38, %.thread215 ]
-  %68 = phi i32 [ 1, %65 ], [ %43, %.thread215 ]
-  %.1 = phi i32 [ 1, %65 ], [ 0, %.thread215 ]
-  %69 = mul nsw i32 %68, %.pr188.pre205
+66:                                               ; preds = %.thread218, %65
+  %67 = phi i32 [ %37, %65 ], [ %38, %.thread218 ]
+  %68 = phi i32 [ 1, %65 ], [ %43, %.thread218 ]
+  %.1 = phi i32 [ 1, %65 ], [ 0, %.thread218 ]
+  %69 = mul nsw i32 %68, %.pr188.pre208
   %70 = icmp slt i32 %.pre198, %69
   br i1 %70, label %71, label %72
 
@@ -170,15 +170,15 @@ thread-pre-split:                                 ; preds = %15, %.thread
   store i32 1, ptr %12, align 4, !tbaa !3
   br label %72
 
-72:                                               ; preds = %.thread211, %66, %71, %62, %60
-  %73 = phi i32 [ %67, %71 ], [ %67, %66 ], [ %38, %62 ], [ %38, %60 ], [ %38, %.thread211 ]
-  %74 = phi i32 [ 1, %71 ], [ %68, %66 ], [ %43, %62 ], [ %43, %60 ], [ %43, %.thread211 ]
-  %.0 = phi i32 [ 1, %71 ], [ %.1, %66 ], [ 0, %62 ], [ 0, %60 ], [ 0, %.thread211 ]
+72:                                               ; preds = %.thread214, %66, %71, %62, %60
+  %73 = phi i32 [ %67, %71 ], [ %67, %66 ], [ %38, %62 ], [ %38, %60 ], [ %38, %.thread214 ]
+  %74 = phi i32 [ 1, %71 ], [ %68, %66 ], [ %43, %62 ], [ %43, %60 ], [ %43, %.thread214 ]
+  %.0 = phi i32 [ 1, %71 ], [ %.1, %66 ], [ 0, %62 ], [ 0, %60 ], [ 0, %.thread214 ]
   %75 = icmp slt i32 %37, 0
   br i1 %75, label %.thread191.sink.split, label %76
 
 76:                                               ; preds = %72
-  %77 = icmp slt i32 %.pr188.pre205, 0
+  %77 = icmp slt i32 %.pr188.pre208, 0
   br i1 %77, label %.thread191.sink.split, label %78
 
 78:                                               ; preds = %76
@@ -188,7 +188,7 @@ thread-pre-split:                                 ; preds = %15, %.thread
   br i1 %80, label %.thread191.sink.split, label %81
 
 81:                                               ; preds = %78
-  %82 = mul nsw i32 %74, %.pr188.pre205
+  %82 = mul nsw i32 %74, %.pr188.pre208
   %83 = mul nsw i32 %82, %.0146
   %84 = tail call i32 @llvm.smax.i32(i32 %83, i32 -4)
   %85 = add nsw i32 %84, 5
@@ -212,7 +212,7 @@ thread-pre-split:                                 ; preds = %15, %.thread
 
 93:                                               ; preds = %91
   %94 = mul i32 %74, %.0146
-  %95 = mul i32 %94, %.pr188.pre205
+  %95 = mul i32 %94, %.pr188.pre208
   %96 = add nsw i32 %95, 5
   %storemerge174.in = select i1 %.0148, i32 %96, i32 %44
   %storemerge174 = sitofp i32 %storemerge174.in to double
@@ -223,15 +223,15 @@ thread-pre-split:                                 ; preds = %15, %.thread
   %99 = uitofp nneg i32 %74 to double
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double %99, ptr %100, align 8, !tbaa !7
-  %101 = icmp samesign ult i32 %.pr188.pre205, 2
-  %102 = uitofp nneg i32 %.pr188.pre205 to double
+  %101 = icmp samesign ult i32 %.pr188.pre208, 2
+  %102 = uitofp nneg i32 %.pr188.pre208 to double
   %spec.select184 = select i1 %101, double 1.000000e+00, double %102
   %103 = uitofp nneg i32 %89 to double
   %storemerge196 = select i1 %.not175, double %103, double %spec.select184
   store double %storemerge196, ptr %6, align 8, !tbaa !7
   %104 = icmp eq i32 %.182, 0
-  %or.cond216 = or i1 %24, %104
-  br i1 %or.cond216, label %120, label %108
+  %or.cond219 = or i1 %24, %104
+  br i1 %or.cond219, label %120, label %108
 
 .thread191.sink.split:                            ; preds = %88, %81, %78, %76, %72
   %.sink = phi i32 [ -1, %72 ], [ -2, %76 ], [ -4, %78 ], [ -6, %81 ], [ -8, %88 ]
@@ -246,11 +246,11 @@ thread-pre-split:                                 ; preds = %15, %.thread
   br label %120
 
 108:                                              ; preds = %93
-  %.not177 = icmp samesign ugt i32 %37, %.pr188.pre205
+  %.not177 = icmp samesign ugt i32 %37, %.pr188.pre208
   br i1 %.not177, label %109, label %110
 
 109:                                              ; preds = %108
-  %.not179 = icmp sgt i32 %73, %.pr188.pre205
+  %.not179 = icmp sgt i32 %73, %.pr188.pre208
   %.not180 = icmp slt i32 %73, %37
   %or.cond186 = and i1 %.not179, %.not180
   br i1 %or.cond186, label %112, label %110

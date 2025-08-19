@@ -4423,9 +4423,9 @@ define internal fastcc range(i32 0, 9437184) i32 @get_next_char(i32 noundef %0, 
   %.pre664 = load i8, ptr %.phi.trans.insert663, align 1, !tbaa !10
   %65 = icmp sgt i8 %.pre664, -1
   %66 = add nsw i8 %.pre664, 62
-  %or.cond578665 = icmp ult i8 %66, 51
-  %or.cond656666 = select i1 %65, i1 true, i1 %or.cond578665
-  br i1 %or.cond656666, label %67, label %.thread667
+  %or.cond578681 = icmp ult i8 %66, 51
+  %or.cond656682 = select i1 %65, i1 true, i1 %or.cond578681
+  br i1 %or.cond656682, label %67, label %.thread683
 
 67:                                               ; preds = %.thread.thread, %62, %.thread
   %68 = add i64 %6, 1
@@ -4440,9 +4440,9 @@ define internal fastcc range(i32 0, 9437184) i32 @get_next_char(i32 noundef %0, 
   %73 = add nsw i8 %71, 62
   %or.cond579 = icmp ult i8 %73, 51
   %or.cond657 = select i1 %72, i1 true, i1 %or.cond579
-  br i1 %or.cond657, label %.thread667, label %75
+  br i1 %or.cond657, label %.thread683, label %75
 
-.thread667:                                       ; preds = %.thread.thread, %69
+.thread683:                                       ; preds = %.thread.thread, %69
   %74 = add i64 %6, 2
   store i64 %74, ptr %3, align 8, !tbaa !4
   store i32 -1, ptr %4, align 4, !tbaa !8
@@ -5023,8 +5023,8 @@ define internal fastcc range(i32 0, 9437184) i32 @get_next_char(i32 noundef %0, 
   store i64 %.4481, ptr %3, align 8, !tbaa !4
   br label %.thread608
 
-.thread608:                                       ; preds = %323, %321, %315, %286, %292, %266, %272, %238, %252, %251, %258, %210, %222, %221, %227, %185, %198, %197, %142, %132, %130, %122, %113, %94, %85, %75, %.thread667, %67, %153, %26, %38, %45, %20, %333, %174, %163, %.thread613, %8
-  %.0 = phi i32 [ %.4503, %.thread613 ], [ 0, %8 ], [ 0, %163 ], [ 0, %174 ], [ 0, %333 ], [ 0, %20 ], [ 0, %45 ], [ 0, %38 ], [ 0, %26 ], [ 0, %153 ], [ 0, %67 ], [ 0, %.thread667 ], [ 0, %75 ], [ 0, %85 ], [ 0, %94 ], [ 0, %113 ], [ 0, %122 ], [ 0, %130 ], [ 0, %132 ], [ 0, %142 ], [ 0, %197 ], [ 0, %198 ], [ 0, %185 ], [ 0, %227 ], [ 0, %221 ], [ 0, %222 ], [ 0, %210 ], [ 0, %258 ], [ 0, %251 ], [ 0, %252 ], [ 0, %238 ], [ 0, %272 ], [ 0, %266 ], [ 0, %292 ], [ 0, %286 ], [ 0, %315 ], [ 0, %321 ], [ 0, %323 ]
+.thread608:                                       ; preds = %323, %321, %315, %286, %292, %266, %272, %238, %252, %251, %258, %210, %222, %221, %227, %185, %198, %197, %142, %132, %130, %122, %113, %94, %85, %75, %.thread683, %67, %153, %26, %38, %45, %20, %333, %174, %163, %.thread613, %8
+  %.0 = phi i32 [ %.4503, %.thread613 ], [ 0, %8 ], [ 0, %163 ], [ 0, %174 ], [ 0, %333 ], [ 0, %20 ], [ 0, %45 ], [ 0, %38 ], [ 0, %26 ], [ 0, %153 ], [ 0, %67 ], [ 0, %.thread683 ], [ 0, %75 ], [ 0, %85 ], [ 0, %94 ], [ 0, %113 ], [ 0, %122 ], [ 0, %130 ], [ 0, %132 ], [ 0, %142 ], [ 0, %197 ], [ 0, %198 ], [ 0, %185 ], [ 0, %227 ], [ 0, %221 ], [ 0, %222 ], [ 0, %210 ], [ 0, %258 ], [ 0, %251 ], [ 0, %252 ], [ 0, %238 ], [ 0, %272 ], [ 0, %266 ], [ 0, %292 ], [ 0, %286 ], [ 0, %315 ], [ 0, %321 ], [ 0, %323 ]
   ret i32 %.0
 }
 
@@ -5867,7 +5867,7 @@ determine_charset.exit:                           ; preds = %20, %22, %38, %39, 
   %65 = phi i1 [ %59, %52 ], [ %59, %60 ], [ %48, %.thread ]
   %66 = phi ptr [ %58, %52 ], [ %58, %60 ], [ %47, %.thread ]
   %67 = phi ptr [ %56, %52 ], [ %56, %60 ], [ %45, %.thread ]
-  %.0129383 = phi i1 [ %54, %52 ], [ %54, %60 ], [ true, %.thread ]
+  %.0129395 = phi i1 [ %54, %52 ], [ %54, %60 ], [ true, %.thread ]
   %.0145 = phi ptr [ null, %52 ], [ %63, %60 ], [ null, %.thread ]
   br i1 %5, label %unescape_inverse_map.exit, label %switch.lookup
 
@@ -6041,10 +6041,10 @@ zend_string_safe_realloc.exit:                    ; preds = %124, %111, %103, %9
   %143 = icmp eq i32 %93, 34
   %or.cond176 = and i1 %.not165, %143
   %or.cond368 = or i1 %or.cond, %or.cond176
-  br i1 %or.cond368, label %.thread397, label %144
+  br i1 %or.cond368, label %.thread409, label %144
 
 144:                                              ; preds = %141
-  br i1 %.0129383, label %205, label %145
+  br i1 %.0129395, label %205, label %145
 
 145:                                              ; preds = %144
   br i1 %.not167, label %158, label %146
@@ -6061,38 +6061,38 @@ zend_string_safe_realloc.exit:                    ; preds = %124, %111, %103, %9
   %155 = load i16, ptr %154, align 2, !tbaa !50
   %156 = zext i16 %155 to i32
   %157 = icmp eq i16 %155, -1
-  br i1 %157, label %.thread397, label %.thread384
+  br i1 %157, label %.thread409, label %.thread396
 
 158:                                              ; preds = %145
   %159 = icmp samesign ugt i32 %93, 122879
-  br i1 %159, label %find_entity_for_char.exit.thread, label %.thread384
+  br i1 %159, label %find_entity_for_char.exit.thread, label %.thread396
 
-.thread384:                                       ; preds = %146, %158
-  %.0289386 = phi i32 [ %93, %158 ], [ %156, %146 ]
-  %160 = lshr i32 %.0289386, 12
+.thread396:                                       ; preds = %146, %158
+  %.0289398 = phi i32 [ %93, %158 ], [ %156, %146 ]
+  %160 = lshr i32 %.0289398, 12
   %161 = zext nneg i32 %160 to i64
   %162 = getelementptr inbounds nuw ptr, ptr %67, i64 %161
   %163 = load ptr, ptr %162, align 8, !tbaa !52
-  %164 = lshr i32 %.0289386, 6
+  %164 = lshr i32 %.0289398, 6
   %165 = and i32 %164, 63
   %166 = zext nneg i32 %165 to i64
   %167 = getelementptr inbounds nuw ptr, ptr %163, i64 %166
   %168 = load ptr, ptr %167, align 8, !tbaa !52
-  %169 = and i32 %.0289386, 63
+  %169 = and i32 %.0289398, 63
   %170 = zext nneg i32 %169 to i64
   %171 = getelementptr inbounds nuw %struct.entity_stage3_row, ptr %168, i64 %170
   %172 = load i8, ptr %171, align 8, !tbaa !56
   %.not.i191 = icmp eq i8 %172, 0
   br i1 %.not.i191, label %173, label %178
 
-173:                                              ; preds = %.thread384
+173:                                              ; preds = %.thread396
   %174 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %175 = load ptr, ptr %174, align 8, !tbaa !10
   %176 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %177 = load i16, ptr %176, align 8, !tbaa !10
   br label %find_entity_for_char.exit
 
-178:                                              ; preds = %.thread384
+178:                                              ; preds = %.thread396
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %179 = icmp ult i64 %139, %1
   br i1 %179, label %180, label %.critedge45.i
@@ -6154,7 +6154,7 @@ zend_string_safe_realloc.exit:                    ; preds = %124, %111, %103, %9
   br label %find_entity_for_char.exit
 
 find_entity_for_char.exit:                        ; preds = %207, %201, %.critedge45.i, %173
-  %.1290 = phi i32 [ %.0289386, %173 ], [ %.0289386, %.critedge45.i ], [ %.0289386, %201 ], [ %93, %207 ]
+  %.1290 = phi i32 [ %.0289398, %173 ], [ %.0289398, %.critedge45.i ], [ %.0289398, %201 ], [ %93, %207 ]
   %.0286 = phi ptr [ %175, %173 ], [ %198, %.critedge45.i ], [ %202, %201 ], [ %210, %207 ]
   %.0284.in = phi i16 [ %177, %173 ], [ %200, %.critedge45.i ], [ %204, %201 ], [ %212, %207 ]
   %.not168 = icmp eq ptr %.0286, null
@@ -6177,7 +6177,7 @@ find_entity_for_char.exit:                        ; preds = %207, %201, %.crited
 find_entity_for_char.exit.thread:                 ; preds = %205, %158, %find_entity_for_char.exit
   %.1290296 = phi i32 [ %.1290, %find_entity_for_char.exit ], [ %93, %205 ], [ %93, %158 ]
   %.1290296.fr = freeze i32 %.1290296
-  br i1 %.not169, label %.thread397, label %221
+  br i1 %.not169, label %.thread409, label %221
 
 221:                                              ; preds = %find_entity_for_char.exit.thread
   br i1 %65, label %222, label %245
@@ -6207,8 +6207,8 @@ switch.early.test.i:                              ; preds = %223
   %or.cond9.i = icmp ult i32 %226, 55136
   %227 = add i32 %.1290296.fr, -57344
   %228 = icmp ult i32 %227, 1056768
-  %or.cond456 = or i1 %or.cond9.i, %228
-  br i1 %or.cond456, label %unicode_cp_is_allowed.exit.thread.thread, label %.thread397
+  %or.cond468 = or i1 %or.cond9.i, %228
+  br i1 %or.cond468, label %unicode_cp_is_allowed.exit.thread.thread, label %.thread409
 
 229:                                              ; preds = %222
   %230 = add nsw i32 %.1290296.fr, -32
@@ -6230,11 +6230,11 @@ switch.early.test.i:                              ; preds = %223
   %or.cond19.i = icmp ult i32 %236, 1056768
   %237 = and i32 %.1290296.fr, 65534
   %.not.i194 = icmp ne i32 %237, 65534
-  %or.cond65.i.not464 = and i1 %or.cond19.i, %.not.i194
+  %or.cond65.i.not476 = and i1 %or.cond19.i, %.not.i194
   %238 = add nsw i32 %.1290296.fr, -65008
   %239 = icmp ult i32 %238, -32
-  %or.cond458 = select i1 %or.cond65.i.not464, i1 %239, i1 false
-  br i1 %or.cond458, label %unicode_cp_is_allowed.exit.thread.thread, label %.thread397
+  %or.cond470 = select i1 %or.cond65.i.not476, i1 %239, i1 false
+  br i1 %or.cond470, label %unicode_cp_is_allowed.exit.thread.thread, label %.thread409
 
 240:                                              ; preds = %222, %222
   %241 = add nsw i32 %.1290296.fr, -32
@@ -6254,17 +6254,17 @@ unicode_cp_is_allowed.exit:                       ; preds = %switch.early.test66
   %243 = add nsw i32 %.1290296.fr, -65536
   %244 = icmp ult i32 %243, -2
   %spec.select.i = and i1 %244, %or.cond29.i
-  %cond.fr387 = freeze i1 %spec.select.i
-  br i1 %cond.fr387, label %unicode_cp_is_allowed.exit.thread.thread, label %.thread397
+  %cond.fr399 = freeze i1 %spec.select.i
+  br i1 %cond.fr399, label %unicode_cp_is_allowed.exit.thread.thread, label %.thread409
 
 unicode_cp_is_allowed.exit.thread.thread:         ; preds = %235, %unicode_cp_is_allowed.exit, %240, %switch.early.test66.i, %switch.early.test66.i, %switch.early.test66.i, %231, %229, %223, %225, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
-  br label %.thread397
+  br label %.thread409
 
 245:                                              ; preds = %221
   br i1 %.not167, label %281, label %246
 
 246:                                              ; preds = %245
-  br i1 %.0129383, label %247, label %258
+  br i1 %.0129395, label %247, label %258
 
 247:                                              ; preds = %246
   %248 = lshr i32 %.1290296.fr, 6
@@ -6306,8 +6306,8 @@ switch.early.test.i210:                           ; preds = %259
   %or.cond9.i211 = icmp ult i32 %262, 55136
   %263 = add i32 %.2291, -57344
   %264 = icmp ult i32 %263, 1056768
-  %or.cond460 = or i1 %or.cond9.i211, %264
-  br i1 %or.cond460, label %unicode_cp_is_allowed.exit212.thread.thread, label %.thread397
+  %or.cond472 = or i1 %or.cond9.i211, %264
+  br i1 %or.cond472, label %unicode_cp_is_allowed.exit212.thread.thread, label %.thread409
 
 265:                                              ; preds = %258
   %266 = add nsw i32 %.2291, -32
@@ -6329,11 +6329,11 @@ switch.early.test.i210:                           ; preds = %259
   %or.cond19.i206 = icmp ult i32 %272, 1056768
   %273 = and i32 %.2291, 65534
   %.not.i207 = icmp ne i32 %273, 65534
-  %or.cond65.i208.not463 = and i1 %or.cond19.i206, %.not.i207
+  %or.cond65.i208.not475 = and i1 %or.cond19.i206, %.not.i207
   %274 = add nsw i32 %.2291, -65008
   %275 = icmp ult i32 %274, -32
-  %or.cond462 = select i1 %or.cond65.i208.not463, i1 %275, i1 false
-  br i1 %or.cond462, label %unicode_cp_is_allowed.exit212.thread.thread, label %.thread397
+  %or.cond474 = select i1 %or.cond65.i208.not475, i1 %275, i1 false
+  br i1 %or.cond474, label %unicode_cp_is_allowed.exit212.thread.thread, label %.thread409
 
 276:                                              ; preds = %258, %258
   %277 = add nsw i32 %.2291, -32
@@ -6353,15 +6353,15 @@ unicode_cp_is_allowed.exit212:                    ; preds = %switch.early.test66
   %279 = add nsw i32 %.2291, -65536
   %280 = icmp ult i32 %279, -2
   %spec.select.i200 = and i1 %280, %or.cond29.i199
-  %cond.fr402 = freeze i1 %spec.select.i200
-  br i1 %cond.fr402, label %unicode_cp_is_allowed.exit212.thread.thread, label %.thread397
+  %cond.fr414 = freeze i1 %spec.select.i200
+  br i1 %cond.fr414, label %unicode_cp_is_allowed.exit212.thread.thread, label %.thread409
 
 unicode_cp_is_allowed.exit212.thread.thread:      ; preds = %271, %unicode_cp_is_allowed.exit212, %276, %switch.early.test66.i196, %switch.early.test66.i196, %switch.early.test66.i196, %267, %265, %259, %261, %switch.early.test.i210, %switch.early.test.i210, %switch.early.test.i210
-  br label %.thread397
+  br label %.thread409
 
 281:                                              ; preds = %245
   %282 = icmp ult i32 %.1290296.fr, 126
-  br i1 %282, label %283, label %.thread397
+  br i1 %282, label %283, label %.thread409
 
 283:                                              ; preds = %281
   switch i32 %87, label %default.unreachable [
@@ -6374,30 +6374,30 @@ unicode_cp_is_allowed.exit212.thread.thread:      ; preds = %271, %unicode_cp_is
 284:                                              ; preds = %283
   %285 = add nsw i32 %.1290296.fr, -32
   %or.cond.i227 = icmp ult i32 %285, 95
-  br i1 %or.cond.i227, label %.thread397, label %switch.early.test.i228
+  br i1 %or.cond.i227, label %.thread409, label %switch.early.test.i228
 
 switch.early.test.i228:                           ; preds = %284
-  switch i32 %.1290296.fr, label %.thread426 [
-    i32 13, label %.thread397
-    i32 10, label %.thread397
-    i32 9, label %.thread397
+  switch i32 %.1290296.fr, label %.thread438 [
+    i32 13, label %.thread409
+    i32 10, label %.thread409
+    i32 9, label %.thread409
   ]
 
 286:                                              ; preds = %283
   %287 = add nsw i32 %.1290296.fr, -32
   %or.cond11.i219 = icmp ult i32 %287, 95
-  br i1 %or.cond11.i219, label %.thread397, label %unicode_cp_is_allowed.exit230
+  br i1 %or.cond11.i219, label %.thread409, label %unicode_cp_is_allowed.exit230
 
 288:                                              ; preds = %283, %283
   %289 = add nsw i32 %.1290296.fr, -32
   %or.cond21.i213 = icmp ult i32 %289, 55264
-  br i1 %or.cond21.i213, label %.thread397, label %switch.early.test66.i214
+  br i1 %or.cond21.i213, label %.thread409, label %switch.early.test66.i214
 
 switch.early.test66.i214:                         ; preds = %288
-  switch i32 %.1290296.fr, label %.thread426 [
-    i32 13, label %.thread397
-    i32 10, label %.thread397
-    i32 9, label %.thread397
+  switch i32 %.1290296.fr, label %.thread438 [
+    i32 13, label %.thread409
+    i32 10, label %.thread409
+    i32 9, label %.thread409
   ]
 
 unicode_cp_is_allowed.exit230:                    ; preds = %286
@@ -6405,25 +6405,25 @@ unicode_cp_is_allowed.exit230:                    ; preds = %286
   %or.cond13.i220 = icmp ult i32 %290, -5
   %291 = icmp eq i32 %.1290296.fr, 11
   %or.cond15.i221.not = or i1 %291, %or.cond13.i220
-  br i1 %or.cond15.i221.not, label %.thread426, label %.thread397
+  br i1 %or.cond15.i221.not, label %.thread438, label %.thread409
 
-.thread426:                                       ; preds = %unicode_cp_is_allowed.exit230, %switch.early.test.i228, %switch.early.test66.i214
-  br label %.thread397
+.thread438:                                       ; preds = %unicode_cp_is_allowed.exit230, %switch.early.test.i228, %switch.early.test66.i214
+  br label %.thread409
 
-.thread397:                                       ; preds = %261, %225, %unicode_cp_is_allowed.exit230, %unicode_cp_is_allowed.exit212, %unicode_cp_is_allowed.exit, %switch.early.test.i228, %switch.early.test.i228, %switch.early.test.i228, %284, %286, %switch.early.test66.i214, %switch.early.test66.i214, %switch.early.test66.i214, %288, %271, %235, %.thread426, %unicode_cp_is_allowed.exit212.thread.thread, %unicode_cp_is_allowed.exit.thread.thread, %141, %find_entity_for_char.exit.thread, %281, %146
-  %.0131 = phi ptr [ %138, %146 ], [ %138, %281 ], [ %138, %find_entity_for_char.exit.thread ], [ %138, %141 ], [ %138, %unicode_cp_is_allowed.exit.thread.thread ], [ %138, %unicode_cp_is_allowed.exit212.thread.thread ], [ %.0143, %.thread426 ], [ %.0143, %235 ], [ %.0143, %271 ], [ %138, %288 ], [ %138, %switch.early.test66.i214 ], [ %138, %switch.early.test66.i214 ], [ %138, %switch.early.test66.i214 ], [ %138, %286 ], [ %138, %284 ], [ %138, %switch.early.test.i228 ], [ %138, %switch.early.test.i228 ], [ %138, %switch.early.test.i228 ], [ %.0143, %unicode_cp_is_allowed.exit ], [ %.0143, %unicode_cp_is_allowed.exit212 ], [ %138, %unicode_cp_is_allowed.exit230 ], [ %.0143, %225 ], [ %.0143, %261 ]
-  %.0130 = phi i64 [ %140, %146 ], [ %140, %281 ], [ %140, %find_entity_for_char.exit.thread ], [ %140, %141 ], [ %140, %unicode_cp_is_allowed.exit.thread.thread ], [ %140, %unicode_cp_is_allowed.exit212.thread.thread ], [ %.0142, %.thread426 ], [ %.0142, %235 ], [ %.0142, %271 ], [ %140, %288 ], [ %140, %switch.early.test66.i214 ], [ %140, %switch.early.test66.i214 ], [ %140, %switch.early.test66.i214 ], [ %140, %286 ], [ %140, %284 ], [ %140, %switch.early.test.i228 ], [ %140, %switch.early.test.i228 ], [ %140, %switch.early.test.i228 ], [ %.0142, %unicode_cp_is_allowed.exit ], [ %.0142, %unicode_cp_is_allowed.exit212 ], [ %140, %unicode_cp_is_allowed.exit230 ], [ %.0142, %225 ], [ %.0142, %261 ]
+.thread409:                                       ; preds = %261, %225, %unicode_cp_is_allowed.exit230, %unicode_cp_is_allowed.exit212, %unicode_cp_is_allowed.exit, %switch.early.test.i228, %switch.early.test.i228, %switch.early.test.i228, %284, %286, %switch.early.test66.i214, %switch.early.test66.i214, %switch.early.test66.i214, %288, %271, %235, %.thread438, %unicode_cp_is_allowed.exit212.thread.thread, %unicode_cp_is_allowed.exit.thread.thread, %141, %find_entity_for_char.exit.thread, %281, %146
+  %.0131 = phi ptr [ %138, %146 ], [ %138, %281 ], [ %138, %find_entity_for_char.exit.thread ], [ %138, %141 ], [ %138, %unicode_cp_is_allowed.exit.thread.thread ], [ %138, %unicode_cp_is_allowed.exit212.thread.thread ], [ %.0143, %.thread438 ], [ %.0143, %235 ], [ %.0143, %271 ], [ %138, %288 ], [ %138, %switch.early.test66.i214 ], [ %138, %switch.early.test66.i214 ], [ %138, %switch.early.test66.i214 ], [ %138, %286 ], [ %138, %284 ], [ %138, %switch.early.test.i228 ], [ %138, %switch.early.test.i228 ], [ %138, %switch.early.test.i228 ], [ %.0143, %unicode_cp_is_allowed.exit ], [ %.0143, %unicode_cp_is_allowed.exit212 ], [ %138, %unicode_cp_is_allowed.exit230 ], [ %.0143, %225 ], [ %.0143, %261 ]
+  %.0130 = phi i64 [ %140, %146 ], [ %140, %281 ], [ %140, %find_entity_for_char.exit.thread ], [ %140, %141 ], [ %140, %unicode_cp_is_allowed.exit.thread.thread ], [ %140, %unicode_cp_is_allowed.exit212.thread.thread ], [ %.0142, %.thread438 ], [ %.0142, %235 ], [ %.0142, %271 ], [ %140, %288 ], [ %140, %switch.early.test66.i214 ], [ %140, %switch.early.test66.i214 ], [ %140, %switch.early.test66.i214 ], [ %140, %286 ], [ %140, %284 ], [ %140, %switch.early.test.i228 ], [ %140, %switch.early.test.i228 ], [ %140, %switch.early.test.i228 ], [ %.0142, %unicode_cp_is_allowed.exit ], [ %.0142, %unicode_cp_is_allowed.exit212 ], [ %140, %unicode_cp_is_allowed.exit230 ], [ %.0142, %225 ], [ %.0142, %261 ]
   %292 = icmp ugt i64 %.0130, 1
   br i1 %292, label %293, label %297
 
-293:                                              ; preds = %.thread397
+293:                                              ; preds = %.thread409
   %294 = getelementptr inbounds nuw i8, ptr %.1147, i64 24
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 %.0136363
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %295, ptr align 1 %.0131, i64 %.0130, i1 false)
   %296 = add i64 %.0130, %.0136363
   br label %449
 
-297:                                              ; preds = %.thread397
+297:                                              ; preds = %.thread409
   %298 = load i8, ptr %.0131, align 1, !tbaa !10
   %299 = getelementptr inbounds nuw i8, ptr %.1147, i64 24
   %300 = add i64 %.0136363, 1
@@ -6545,11 +6545,11 @@ process_numeric_entity.exit.thread:               ; preds = %324, %315, %333
   %or.cond7.i = icmp ult i32 %351, 1113952
   %352 = and i32 %341, 65534
   %.not.i237 = icmp ne i32 %352, 65534
-  %or.cond23.i.not446 = and i1 %or.cond7.i, %.not.i237
+  %or.cond23.i.not458 = and i1 %or.cond7.i, %.not.i237
   %353 = add nsw i32 %341, -65008
   %354 = icmp ult i32 %353, -32
-  %or.cond445 = select i1 %or.cond23.i.not446, i1 %354, i1 false
-  br i1 %or.cond445, label %numeric_entity_is_allowed.exit.thread, label %.thread321
+  %or.cond457 = select i1 %or.cond23.i.not458, i1 %354, i1 false
+  br i1 %or.cond457, label %numeric_entity_is_allowed.exit.thread, label %.thread321
 
 355:                                              ; preds = %342, %342
   %356 = add i32 %341, -32
@@ -7512,9 +7512,9 @@ determine_charset.exit:                           ; preds = %46, %48, %64, %65
   %84 = icmp eq i64 %78, 0
   %85 = icmp ult i32 %.120.i, 2
   %or.cond3 = select i1 %84, i1 true, i1 %85
-  br i1 %or.cond3, label %89, label %.thread236
+  br i1 %or.cond3, label %89, label %.thread246
 
-.thread236:                                       ; preds = %determine_charset.exit
+.thread246:                                       ; preds = %determine_charset.exit
   %86 = zext i32 %.120.i to i64
   %87 = getelementptr inbounds nuw [14 x ptr], ptr @enc_to_uni_index, i64 0, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !52
@@ -7535,8 +7535,8 @@ determine_charset.exit:                           ; preds = %46, %48, %64, %65
 94:                                               ; preds = %89
   br i1 %85, label %95, label %.preheader212.preheader
 
-.preheader212.preheader:                          ; preds = %.thread236, %94
-  %.0204238 = phi ptr [ %88, %.thread236 ], [ null, %94 ]
+.preheader212.preheader:                          ; preds = %.thread246, %94
+  %.0204248 = phi ptr [ %88, %.thread246 ], [ null, %94 ]
   br label %.preheader212
 
 95:                                               ; preds = %94
@@ -7637,7 +7637,7 @@ determine_charset.exit:                           ; preds = %46, %48, %64, %65
 .split142:                                        ; preds = %129, %.preheader212
   %132 = lshr i32 %.0130215, 6
   %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr inbounds nuw [4 x ptr], ptr %.0204238, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw [4 x ptr], ptr %.0204248, i64 0, i64 %133
   %135 = load ptr, ptr %134, align 8, !tbaa !52
   %136 = and i32 %.0130215, 63
   %137 = zext nneg i32 %136 to i64
@@ -7651,7 +7651,7 @@ determine_charset.exit:                           ; preds = %46, %48, %64, %65
   br i1 %.not154, label %161, label %.split143
 
 .split143:                                        ; preds = %139
-  %142 = load ptr, ptr %.0204238, align 8, !tbaa !52
+  %142 = load ptr, ptr %.0204248, align 8, !tbaa !52
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 68
   br label %144
 

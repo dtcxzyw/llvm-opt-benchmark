@@ -422,21 +422,21 @@ _ZN14PhaseIdealLoop12lazy_replaceEP4NodeS1_.exit: ; preds = %124, %132
   %142 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %143 = load ptr, ptr %142, align 8
   %144 = icmp eq ptr %143, %10
-  br i1 %144, label %.loopexit169.loopexit.split.loop.exit183, label %145
+  br i1 %144, label %.loopexit169.loopexit.split.loop.exit209, label %145
 
 145:                                              ; preds = %141
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit169, label %141, !llvm.loop !6
 
-.loopexit169.loopexit.split.loop.exit183:         ; preds = %141
+.loopexit169.loopexit.split.loop.exit209:         ; preds = %141
   %146 = trunc nuw i64 %indvars.iv to i32
   br label %.loopexit169
 
-.loopexit169:                                     ; preds = %145, %.loopexit169.loopexit.split.loop.exit183, %.preheader, %_ZN14PhaseIdealLoop12lazy_replaceEP4NodeS1_.exit
-  %.098 = phi i32 [ 1, %_ZN14PhaseIdealLoop12lazy_replaceEP4NodeS1_.exit ], [ 1, %.preheader ], [ %146, %.loopexit169.loopexit.split.loop.exit183 ], [ %17, %145 ]
-  %.096 = phi ptr [ %.0.i.i.i, %_ZN14PhaseIdealLoop12lazy_replaceEP4NodeS1_.exit ], [ %11, %.preheader ], [ %11, %.loopexit169.loopexit.split.loop.exit183 ], [ %11, %145 ]
-  %.0 = phi ptr [ %76, %_ZN14PhaseIdealLoop12lazy_replaceEP4NodeS1_.exit ], [ %10, %.preheader ], [ %10, %.loopexit169.loopexit.split.loop.exit183 ], [ %10, %145 ]
+.loopexit169:                                     ; preds = %145, %.loopexit169.loopexit.split.loop.exit209, %.preheader, %_ZN14PhaseIdealLoop12lazy_replaceEP4NodeS1_.exit
+  %.098 = phi i32 [ 1, %_ZN14PhaseIdealLoop12lazy_replaceEP4NodeS1_.exit ], [ 1, %.preheader ], [ %146, %.loopexit169.loopexit.split.loop.exit209 ], [ %17, %145 ]
+  %.096 = phi ptr [ %.0.i.i.i, %_ZN14PhaseIdealLoop12lazy_replaceEP4NodeS1_.exit ], [ %11, %.preheader ], [ %11, %.loopexit169.loopexit.split.loop.exit209 ], [ %11, %145 ]
+  %.0 = phi ptr [ %76, %_ZN14PhaseIdealLoop12lazy_replaceEP4NodeS1_.exit ], [ %10, %.preheader ], [ %10, %.loopexit169.loopexit.split.loop.exit209 ], [ %10, %145 ]
   %147 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %148 = load ptr, ptr %147, align 8
   %149 = load ptr, ptr %148, align 8
@@ -4405,8 +4405,8 @@ define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop39loop_predication_should_f
   br i1 %19, label %.thread, label %_ZNK19BaseCountedLoopNode3phiEv.exit.thread
 
 .thread:                                          ; preds = %.lr.ph, %12
-  %.03150 = phi ptr [ %spec.select, %12 ], [ %.03046, %.lr.ph ]
-  %20 = getelementptr inbounds nuw i8, ptr %.03150, i64 90
+  %.03155 = phi ptr [ %spec.select, %12 ], [ %.03046, %.lr.ph ]
+  %20 = getelementptr inbounds nuw i8, ptr %.03155, i64 90
   %21 = load i8, ptr %20, align 2
   %22 = and i8 %21, 1
   %.not35 = icmp eq i8 %22, 0
@@ -4415,8 +4415,8 @@ define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop39loop_predication_should_f
 23:                                               ; preds = %.thread
   %24 = getelementptr inbounds nuw i8, ptr %.03046, i64 8
   %.030 = load ptr, ptr %24, align 8
-  %.not56 = icmp eq ptr %.030, null
-  br i1 %.not56, label %.critedge, label %.lr.ph, !llvm.loop !21
+  %.not61 = icmp eq ptr %.030, null
+  br i1 %.not61, label %.critedge, label %.lr.ph, !llvm.loop !21
 
 .critedge:                                        ; preds = %23, %6
   tail call void @_ZN13IdealLoopTree24compute_profile_trip_cntEP14PhaseIdealLoop(ptr noundef nonnull align 8 dereferenceable(113) %1, ptr noundef nonnull %0) #10
@@ -5424,9 +5424,9 @@ _ZN26GrowableArrayWithAllocatorIf13GrowableArrayIfEE11at_put_growEiRKfS4_.exit15
   br i1 %413, label %._crit_edge359.thread, label %801
 
 ._crit_edge359.thread:                            ; preds = %.critedge.thread, %._crit_edge359
-  %.0342.lcssa378 = phi float [ %.1343, %._crit_edge359 ], [ %56, %.critedge.thread ]
-  %414 = fcmp ogt float %.0342.lcssa378, 1.000000e+00
-  %415 = select i1 %414, float 1.000000e+00, float %.0342.lcssa378
+  %.0342.lcssa450 = phi float [ %.1343, %._crit_edge359 ], [ %56, %.critedge.thread ]
+  %414 = fcmp ogt float %.0342.lcssa450, 1.000000e+00
+  %415 = select i1 %414, float 1.000000e+00, float %.0342.lcssa450
   ret float %415
 
 416:                                              ; preds = %_ZN26GrowableArrayWithAllocatorIf13GrowableArrayIfEE7at_growEiRKf.exit

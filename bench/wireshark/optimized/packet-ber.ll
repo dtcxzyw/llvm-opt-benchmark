@@ -1454,8 +1454,8 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   %214 = call i32 @_setjmp(ptr noundef nonnull %213) #15
   %.not249 = icmp eq i32 %214, 0
   %215 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %.sink279 = select i1 %.not249, ptr null, ptr %215
-  store volatile ptr %.sink279, ptr %24, align 8
+  %.sink290 = select i1 %.not249, ptr null, ptr %215
+  store volatile ptr %.sink290, ptr %24, align 8
   %.0..0..0..0. = load volatile i32, ptr %25, align 4
   %216 = and i32 %.0..0..0..0., 1
   %.not250 = icmp eq i32 %216, 0
@@ -3396,8 +3396,8 @@ get_ber_identifier.exit313:                       ; preds = %.preheader.i309, %1
   %134 = load i32, ptr %133, align 8
   %135 = and i32 %134, 4
   %.not289 = icmp eq i32 %135, 0
-  %or.cond423 = select i1 %switch, i1 %.not289, i1 false
-  br i1 %or.cond423, label %136, label %._crit_edge
+  %or.cond432 = select i1 %switch, i1 %.not289, i1 false
+  br i1 %or.cond432, label %136, label %._crit_edge
 
 136:                                              ; preds = %130
   %137 = getelementptr inbounds nuw i8, ptr %.2260350, i64 12
@@ -3618,12 +3618,12 @@ get_ber_identifier.exit313:                       ; preds = %.preheader.i309, %1
   %273 = load i32, ptr %18, align 4
   %274 = icmp eq i32 %273, 0
   %275 = icmp ne i32 %272, 0
-  %or.cond11.not427 = select i1 %274, i1 true, i1 %275
+  %or.cond11.not436 = select i1 %274, i1 true, i1 %275
   %.pre388 = load i32, ptr %237, align 8
   %276 = and i32 %.pre388, 1
   %.not303 = icmp eq i32 %276, 0
-  %or.cond424 = select i1 %or.cond11.not427, i1 true, i1 %.not303
-  br i1 %or.cond424, label %283, label %.outer
+  %or.cond433 = select i1 %or.cond11.not436, i1 true, i1 %.not303
+  br i1 %or.cond433, label %283, label %.outer
 
 .outer:                                           ; preds = %266
   %277 = getelementptr i8, ptr %.2260350, i64 32
@@ -3993,12 +3993,12 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %94, 
   br label %150
 
 150:                                              ; preds = %138, %143
-  %.0216299.sink354 = phi i32 [ %149, %143 ], [ %.0216299, %138 ]
-  %.0216299.sink353 = phi i32 [ %145, %143 ], [ %.0216299, %138 ]
-  %151 = sub i32 %104, %.0216299.sink354
-  %152 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.0216299.sink353)
+  %.0216299.sink359 = phi i32 [ %149, %143 ], [ %.0216299, %138 ]
+  %.0216299.sink358 = phi i32 [ %145, %143 ], [ %.0216299, %138 ]
+  %151 = sub i32 %104, %.0216299.sink359
+  %152 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.0216299.sink358)
   %153 = call i32 @llvm.smin.i32(i32 %152, i32 %151)
-  %154 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %.0216299.sink353, i32 noundef %153)
+  %154 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %.0216299.sink358, i32 noundef %153)
   %155 = icmp eq ptr %154, null
   br i1 %155, label %156, label %157
 
@@ -4062,7 +4062,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %94, 
   %.2203261 = phi ptr [ %.2203259, %169 ], [ %.2203259, %165 ], [ %.2203260, %134 ], [ %.2203260, %.critedge245 ], [ %.0201302, %127 ], [ %.0201302, %123 ]
   %.1205256 = phi i8 [ %.1205257, %169 ], [ %.1205257, %165 ], [ 0, %134 ], [ 0, %.critedge245 ], [ 1, %127 ], [ 1, %123 ]
   %.2208255 = phi i8 [ %.2208253, %169 ], [ %.2208253, %165 ], [ %.2208254, %134 ], [ %.2208254, %.critedge245 ], [ %.1207300, %127 ], [ %.1207300, %123 ]
-  %.3219 = phi i32 [ %.0216299.sink353, %169 ], [ %.0216299.sink353, %165 ], [ %.0216299, %134 ], [ %.0216299, %.critedge245 ], [ %.0216299, %127 ], [ %.0216299, %123 ]
+  %.3219 = phi i32 [ %.0216299.sink358, %169 ], [ %.0216299.sink358, %165 ], [ %.0216299, %134 ], [ %.0216299, %.critedge245 ], [ %.0216299, %127 ], [ %.0216299, %123 ]
   %190 = getelementptr i8, ptr %.2203261, i64 32
   %191 = add i8 %.2208255, 1
   %192 = getelementptr i8, ptr %.2203261, i64 56
@@ -4073,7 +4073,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %94, 
   br i1 %196, label %117, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %119, %189, %173, %186, %181
-  %.1217 = phi i32 [ %.0216299.sink353, %173 ], [ %.0216299.sink353, %186 ], [ %.0216299.sink353, %181 ], [ %.3219, %189 ], [ %.0216299, %119 ]
+  %.1217 = phi i32 [ %.0216299.sink358, %173 ], [ %.0216299.sink358, %186 ], [ %.0216299.sink358, %181 ], [ %.3219, %189 ], [ %.0216299, %119 ]
   %.4214 = phi i32 [ %.5, %173 ], [ %.5, %186 ], [ %.5, %181 ], [ %.2212305, %189 ], [ %.2212305, %119 ]
   %.1202 = phi ptr [ %.2203259, %173 ], [ %.2203259, %186 ], [ %.2203259, %181 ], [ %190, %189 ], [ %5, %119 ]
   %.3 = phi i32 [ %104, %173 ], [ %104, %186 ], [ %104, %181 ], [ %102, %189 ], [ %102, %119 ]
@@ -7055,22 +7055,22 @@ define internal void @oid_users_syntax_set_cb(ptr noundef writeonly captures(non
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13, i32 1
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %16 = tail call i32 @g_str_equal(ptr noundef nonnull %15, ptr noundef %7)
   %.not13 = icmp eq i32 %16, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !30
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !30
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %9, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -7079,7 +7079,7 @@ define internal void @oid_users_syntax_set_cb(ptr noundef writeonly captures(non
   store ptr %18, ptr %8, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }

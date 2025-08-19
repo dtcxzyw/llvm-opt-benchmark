@@ -1369,12 +1369,12 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15option
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #25
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.016, label %.sink.split114, label %130
+  br i1 %.016, label %.sink.split121, label %130
 
 .sink.split:                                      ; preds = %.thread, %.thread77
   %.pn.pn76.ph = phi { ptr, i32 } [ %35, %.thread77 ], [ %34, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.sink.split114
+  br label %.sink.split121
 
 38:                                               ; preds = %21, %2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1414,13 +1414,13 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15option
 .thread80:                                        ; preds = %43
   %49 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split110
+  br label %.sink.split117
 
 .thread84:                                        ; preds = %45
   %50 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #25
-  br label %.sink.split110
+  br label %.sink.split117
 
 51:                                               ; preds = %46, %48
   %.013 = phi i1 [ false, %48 ], [ true, %46 ]
@@ -1431,12 +1431,12 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15option
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #25
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.013, label %.sink.split114, label %130
+  br i1 %.013, label %.sink.split121, label %130
 
-.sink.split110:                                   ; preds = %.thread80, %.thread84
+.sink.split117:                                   ; preds = %.thread80, %.thread84
   %.pn46.pn83.ph = phi { ptr, i32 } [ %50, %.thread84 ], [ %49, %.thread80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split114
+  br label %.sink.split121
 
 53:                                               ; preds = %38
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1474,13 +1474,13 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15option
 .thread87:                                        ; preds = %57
   %63 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split111
+  br label %.sink.split118
 
 .thread91:                                        ; preds = %59
   %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #25
-  br label %.sink.split111
+  br label %.sink.split118
 
 65:                                               ; preds = %60, %62
   %.010 = phi i1 [ false, %62 ], [ true, %60 ]
@@ -1491,12 +1491,12 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15option
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #25
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %.010, label %.sink.split114, label %130
+  br i1 %.010, label %.sink.split121, label %130
 
-.sink.split111:                                   ; preds = %.thread87, %.thread91
+.sink.split118:                                   ; preds = %.thread87, %.thread91
   %.pn43.pn90.ph = phi { ptr, i32 } [ %64, %.thread91 ], [ %63, %.thread87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.sink.split114
+  br label %.sink.split121
 
 67:                                               ; preds = %53
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1534,13 +1534,13 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15option
 .thread94:                                        ; preds = %71
   %77 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split112
+  br label %.sink.split119
 
 .thread98:                                        ; preds = %73
   %78 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #25
-  br label %.sink.split112
+  br label %.sink.split119
 
 79:                                               ; preds = %74, %76
   %.07 = phi i1 [ false, %76 ], [ true, %74 ]
@@ -1551,12 +1551,12 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15option
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #25
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %.07, label %.sink.split114, label %130
+  br i1 %.07, label %.sink.split121, label %130
 
-.sink.split112:                                   ; preds = %.thread94, %.thread98
+.sink.split119:                                   ; preds = %.thread94, %.thread98
   %.pn40.pn97.ph = phi { ptr, i32 } [ %78, %.thread98 ], [ %77, %.thread94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.sink.split114
+  br label %.sink.split121
 
 81:                                               ; preds = %67
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1606,13 +1606,13 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15option
 .thread101:                                       ; preds = %89
   %95 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split113
+  br label %.sink.split120
 
 .thread105:                                       ; preds = %91
   %96 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #25
-  br label %.sink.split113
+  br label %.sink.split120
 
 97:                                               ; preds = %92, %94
   %.0 = phi i1 [ false, %94 ], [ true, %92 ]
@@ -1623,12 +1623,12 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15option
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #25
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br i1 %.0, label %.sink.split114, label %130
+  br i1 %.0, label %.sink.split121, label %130
 
-.sink.split113:                                   ; preds = %.thread101, %.thread105
+.sink.split120:                                   ; preds = %.thread101, %.thread105
   %.pn37.pn104.ph = phi { ptr, i32 } [ %96, %.thread105 ], [ %95, %.thread101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %.sink.split114
+  br label %.sink.split121
 
 99:                                               ; preds = %.lr.ph, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
   %100 = phi ptr [ %.pre109, %.lr.ph ], [ %124, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ]
@@ -1703,14 +1703,14 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %102, %_ZNSt6vectorI
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit, %.preheader
   ret void
 
-.sink.split114:                                   ; preds = %97, %.sink.split113, %79, %.sink.split112, %65, %.sink.split111, %51, %.sink.split110, %36, %.sink.split
-  %.sink = phi ptr [ %29, %.sink.split ], [ %29, %36 ], [ %44, %.sink.split110 ], [ %44, %51 ], [ %58, %.sink.split111 ], [ %58, %65 ], [ %72, %.sink.split112 ], [ %72, %79 ], [ %90, %.sink.split113 ], [ %90, %97 ]
-  %.pn46.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn76.ph, %.sink.split ], [ %37, %36 ], [ %.pn46.pn83.ph, %.sink.split110 ], [ %52, %51 ], [ %.pn43.pn90.ph, %.sink.split111 ], [ %66, %65 ], [ %.pn40.pn97.ph, %.sink.split112 ], [ %80, %79 ], [ %.pn37.pn104.ph, %.sink.split113 ], [ %98, %97 ]
+.sink.split121:                                   ; preds = %97, %.sink.split120, %79, %.sink.split119, %65, %.sink.split118, %51, %.sink.split117, %36, %.sink.split
+  %.sink = phi ptr [ %29, %.sink.split ], [ %29, %36 ], [ %44, %.sink.split117 ], [ %44, %51 ], [ %58, %.sink.split118 ], [ %58, %65 ], [ %72, %.sink.split119 ], [ %72, %79 ], [ %90, %.sink.split120 ], [ %90, %97 ]
+  %.pn46.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn76.ph, %.sink.split ], [ %37, %36 ], [ %.pn46.pn83.ph, %.sink.split117 ], [ %52, %51 ], [ %.pn43.pn90.ph, %.sink.split118 ], [ %66, %65 ], [ %.pn40.pn97.ph, %.sink.split119 ], [ %80, %79 ], [ %.pn37.pn104.ph, %.sink.split120 ], [ %98, %97 ]
   call void @__cxa_free_exception(ptr %.sink) #25
   br label %130
 
-130:                                              ; preds = %.sink.split114, %97, %79, %65, %51, %36
-  %.pn46.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %66, %65 ], [ %80, %79 ], [ %98, %97 ], [ %37, %36 ], [ %.pn46.pn.pn.ph, %.sink.split114 ]
+130:                                              ; preds = %.sink.split121, %97, %79, %65, %51, %36
+  %.pn46.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %66, %65 ], [ %80, %79 ], [ %98, %97 ], [ %37, %36 ], [ %.pn46.pn.pn.ph, %.sink.split121 ]
   resume { ptr, i32 } %.pn46.pn.pn
 
 131:                                              ; preds = %94, %76, %62, %48, %33
@@ -1876,9 +1876,9 @@ _ZNSt6vectorISt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS2_
   %.0.lcssa.i.i.i.i = phi ptr [ %72, %.noexc73 ], [ %77, %.lr.ph.i.i.i.i ]
   %78 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %60, null
-  br i1 %.not.i23.i, label %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit.thread135, label %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit
+  br i1 %.not.i23.i, label %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit.thread158, label %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit.thread135: ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
+_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit.thread158: ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %72, ptr %29, align 8, !tbaa !96
   store ptr %78, ptr %30, align 8, !tbaa !97
   %79 = getelementptr inbounds nuw %"class.std::unique_ptr.73", ptr %72, i64 %70
@@ -1902,7 +1902,7 @@ _ZNKSt14default_deleteIN3gmx9SansDebyeEEclEPS1_.exit.i: ; preds = %_ZNSt10unique
   call void %83(ptr noundef nonnull align 8 dereferenceable(208) %.pre131.pre) #25
   br label %_ZNSt10unique_ptrIN3gmx9SansDebyeESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN3gmx9SansDebyeESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit.thread135, %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN3gmx9SansDebyeEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN3gmx9SansDebyeESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit.thread158, %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN3gmx9SansDebyeEEclEPS1_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %147
 
@@ -2022,9 +2022,9 @@ _ZNSt6vectorISt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS2_
   %.0.lcssa.i.i.i.i83 = phi ptr [ %114, %.noexc93 ], [ %119, %.lr.ph.i.i.i.i78 ]
   %120 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i83, i64 8
   %.not.i23.i91 = icmp eq ptr %102, null
-  br i1 %.not.i23.i91, label %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit46.thread139, label %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit46
+  br i1 %.not.i23.i91, label %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit46.thread162, label %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit46
 
-_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit46.thread139: ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i89
+_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit46.thread162: ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i89
   store ptr %114, ptr %29, align 8, !tbaa !96
   store ptr %120, ptr %30, align 8, !tbaa !97
   %121 = getelementptr inbounds nuw %"class.std::unique_ptr.73", ptr %114, i64 %112
@@ -2048,7 +2048,7 @@ _ZNKSt14default_deleteIN3gmx9SaxsDebyeEEclEPS1_.exit.i: ; preds = %_ZNSt10unique
   call void %125(ptr noundef nonnull align 8 dereferenceable(240) %.pre.pre) #25
   br label %_ZNSt10unique_ptrIN3gmx9SaxsDebyeESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN3gmx9SaxsDebyeESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit46.thread139, %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit46.thread, %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit46, %_ZNKSt14default_deleteIN3gmx9SaxsDebyeEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN3gmx9SaxsDebyeESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit46.thread162, %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit46.thread, %_ZNSt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS1_EED2Ev.exit46, %_ZNKSt14default_deleteIN3gmx9SaxsDebyeEEclEPS1_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %147
 

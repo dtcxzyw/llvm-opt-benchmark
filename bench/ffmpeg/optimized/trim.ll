@@ -279,16 +279,16 @@ define internal i32 @trim_filter_frame(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %.not45, label %select.unfold, label %.thread
 
 .thread:                                          ; preds = %15, %18
-  %.079 = phi i1 [ %.not44, %18 ], [ false, %15 ]
+  %.089 = phi i1 [ %.not44, %18 ], [ false, %15 ]
   %21 = phi i64 [ %.pre, %18 ], [ %17, %15 ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %23 = load i64, ptr %22, align 8, !tbaa !51
   %.not47 = icmp sge i64 %23, %21
-  %or.cond = select i1 %.not47, i1 true, i1 %.079
-  br i1 %or.cond, label %.thread65, label %.thread86
+  %or.cond = select i1 %.not47, i1 true, i1 %.089
+  br i1 %or.cond, label %.thread65, label %.thread96
 
 select.unfold:                                    ; preds = %18
-  br i1 %.not44, label %.thread65, label %.thread86
+  br i1 %.not44, label %.thread65, label %.thread96
 
 .thread65:                                        ; preds = %.thread, %select.unfold, %15
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -317,7 +317,7 @@ select.unfold:                                    ; preds = %18
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %37 = load i64, ptr %36, align 8, !tbaa !46
   %.not51 = icmp eq i64 %37, -9223372036854775808
-  br i1 %.not51, label %38, label %.thread68.thread82
+  br i1 %.not51, label %38, label %.thread68.thread92
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 104
@@ -333,21 +333,21 @@ select.unfold:                                    ; preds = %18
   %.phi.trans.insert74 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %.pre75 = load i64, ptr %.phi.trans.insert74, align 8, !tbaa !46
   %.not54 = icmp eq i64 %.pre75, -9223372036854775808
-  br i1 %.not54, label %.thread68.thread, label %.thread68.thread82
+  br i1 %.not54, label %.thread68.thread, label %.thread68.thread92
 
-.thread68.thread82:                               ; preds = %35, %.thread68
-  %.285 = phi i32 [ %spec.select60, %.thread68 ], [ 1, %35 ]
+.thread68.thread92:                               ; preds = %35, %.thread68
+  %.295 = phi i32 [ %spec.select60, %.thread68 ], [ 1, %35 ]
   %44 = phi i64 [ %.pre75, %.thread68 ], [ %37, %35 ]
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %46 = load i64, ptr %45, align 8, !tbaa !51
   %.not55 = icmp ne i64 %46, -9223372036854775808
   %47 = icmp slt i64 %46, %44
   %or.cond61 = and i1 %.not55, %47
-  %spec.select64 = select i1 %or.cond61, i32 0, i32 %.285
+  %spec.select64 = select i1 %or.cond61, i32 0, i32 %.295
   br label %.thread68.thread
 
-.thread68.thread:                                 ; preds = %38, %.thread68.thread82, %.thread68
-  %.3 = phi i32 [ %spec.select60, %.thread68 ], [ %spec.select64, %.thread68.thread82 ], [ 1, %38 ]
+.thread68.thread:                                 ; preds = %38, %.thread68.thread92, %.thread68
+  %.3 = phi i32 [ %spec.select60, %.thread68 ], [ %spec.select64, %.thread68.thread92 ], [ 1, %38 ]
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %49 = load i64, ptr %48, align 8, !tbaa !48
   %.not56 = icmp eq i64 %49, 0
@@ -392,13 +392,13 @@ select.unfold:                                    ; preds = %18
   tail call void @ff_avfilter_link_set_in_status(ptr noundef %67, i32 noundef -541478725, i64 noundef %69) #7
   %.pre76 = load i32, ptr %8, align 8, !tbaa !27
   %70 = icmp eq i32 %.pre76, 0
-  br i1 %70, label %.thread86, label %71
+  br i1 %70, label %.thread96, label %71
 
-.thread86:                                        ; preds = %select.unfold, %.thread, %64
+.thread96:                                        ; preds = %select.unfold, %.thread, %64
   tail call void @ff_filter_set_ready(ptr noundef nonnull %5, i32 noundef 100) #7
   br label %71
 
-71:                                               ; preds = %.thread86, %64
+71:                                               ; preds = %.thread96, %64
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %73 = load i64, ptr %72, align 8, !tbaa !50
   %74 = add nsw i64 %73, 1
@@ -488,18 +488,18 @@ define internal i32 @atrim_filter_frame(ptr noundef %0, ptr noundef %1) #1 {
 .thread:                                          ; preds = %32
   %45 = icmp ne i64 %.0111, -9223372036854775808
   %46 = icmp sgt i64 %27, %34
-  %or.cond158169 = select i1 %45, i1 %46, i1 false
-  br i1 %or.cond158169, label %.thread148, label %.thread176
+  %or.cond158180 = select i1 %45, i1 %46, i1 false
+  br i1 %or.cond158180, label %.thread148, label %.thread187
 
 .thread148:                                       ; preds = %.thread, %36
-  %.1107172 = phi i64 [ %26, %.thread ], [ %spec.select162, %36 ]
+  %.1107183 = phi i64 [ %26, %.thread ], [ %spec.select162, %36 ]
   %47 = phi i64 [ %34, %.thread ], [ %.pre, %36 ]
   %48 = sub nsw i64 %47, %.0111
-  %..1107 = tail call i64 @llvm.smin.i64(i64 %.1107172, i64 %48)
+  %..1107 = tail call i64 @llvm.smin.i64(i64 %.1107183, i64 %48)
   br label %50
 
 49:                                               ; preds = %36
-  br i1 %40, label %50, label %.thread176
+  br i1 %40, label %50, label %.thread187
 
 50:                                               ; preds = %.thread148, %32, %49
   %.0106 = phi i64 [ %spec.select162, %49 ], [ 0, %32 ], [ %..1107, %.thread148 ]
@@ -559,8 +559,8 @@ define internal i32 @atrim_filter_frame(ptr noundef %0, ptr noundef %1) #1 {
   %.not138 = icmp ne i64 %78, 0
   %79 = sub nsw i64 %.0111, %57
   %80 = icmp slt i64 %79, %78
-  %or.cond179 = select i1 %.not138, i1 %80, i1 false
-  br i1 %or.cond179, label %.thread153, label %83
+  %or.cond190 = select i1 %.not138, i1 %80, i1 false
+  br i1 %or.cond190, label %.thread153, label %83
 
 .thread153:                                       ; preds = %.thread152
   %81 = sub i64 %78, %.0111
@@ -583,7 +583,7 @@ define internal i32 @atrim_filter_frame(ptr noundef %0, ptr noundef %1) #1 {
   %.not140 = icmp sge i64 %88, %.0108.
   %.not141 = icmp eq i32 %25, 0
   %or.cond159 = select i1 %.not140, i1 true, i1 %.not141
-  br i1 %or.cond159, label %.thread176, label %89
+  br i1 %or.cond159, label %.thread187, label %89
 
 89:                                               ; preds = %84
   %.not142 = icmp slt i64 %.0106, 1
@@ -663,13 +663,13 @@ define internal i32 @atrim_filter_frame(ptr noundef %0, ptr noundef %1) #1 {
   tail call void @ff_avfilter_link_set_in_status(ptr noundef %132, i32 noundef -541478725, i64 noundef %133) #7
   %.pre165 = load i32, ptr %8, align 8, !tbaa !27
   %134 = icmp eq i32 %.pre165, 0
-  br i1 %134, label %.thread176, label %135
+  br i1 %134, label %.thread187, label %135
 
-.thread176:                                       ; preds = %.thread, %49, %84, %129
+.thread187:                                       ; preds = %.thread, %49, %84, %129
   tail call void @ff_filter_set_ready(ptr noundef nonnull %5, i32 noundef 100) #7
   br label %135
 
-135:                                              ; preds = %.thread176, %129
+135:                                              ; preds = %.thread187, %129
   %136 = load i32, ptr %24, align 8, !tbaa !59
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds nuw i8, ptr %7, i64 88

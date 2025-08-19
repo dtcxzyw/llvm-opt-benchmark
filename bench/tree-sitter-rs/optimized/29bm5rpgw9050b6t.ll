@@ -1828,8 +1828,8 @@ default.unreachable:                              ; preds = %48, %1
 161:                                              ; preds = %48
   %162 = load double, ptr %51, align 8, !alias.scope !444, !noalias !402, !noundef !5
   %163 = call double @llvm.fabs.f64(double %162)
-  %or.cond3.i.i.i.i.i = fcmp ueq double %163, 0x7FF0000000000000
-  br i1 %or.cond3.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %164
+  %or.cond4.i.i.i.i.i = fcmp ueq double %163, 0x7FF0000000000000
+  br i1 %or.cond4.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %164
 
 164:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !445

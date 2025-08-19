@@ -5686,8 +5686,8 @@ invoke.cont1142:                                  ; preds = %invoke.cont1138, %c
   %.pre2323 = load i64, ptr %effectiveDate, align 8, !tbaa !69
   %sub.i1323 = sub nsw i64 %call1139, %.pre2323
   %cmp1148 = icmp slt i64 %sub.i1323, 30
-  %or.cond2348 = select i1 %cmp1144, i1 %cmp1148, i1 false
-  br i1 %or.cond2348, label %if.then1149, label %if.end1165
+  %or.cond2590 = select i1 %cmp1144, i1 %cmp1148, i1 false
+  br i1 %or.cond2590, label %if.then1149, label %if.end1165
 
 if.then1149:                                      ; preds = %invoke.cont1142
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1151)
@@ -6718,12 +6718,12 @@ sw.epilog1395.sink.split.sink.split:              ; preds = %if.then.i1614, %if.
 
 sw.epilog1395.sink.split:                         ; preds = %sw.epilog1395.sink.split.sink.split, %if.then.i1614, %if.then.i704
   %retval.sroa.2.0.copyload.i5.i1613.sink = phi i32 [ %retval.sroa.2.0.copyload.i5.i, %if.then.i704 ], [ %retval.sroa.2.0.copyload.i5.i1613, %if.then.i1614 ], [ %retval.sroa.2.0.copyload.i5.i1613.sink.ph, %sw.epilog1395.sink.split.sink.split ]
-  %.sink2350 = phi ptr [ %374, %if.then.i704 ], [ %635, %if.then.i1614 ], [ %.sink, %sw.epilog1395.sink.split.sink.split ]
+  %.sink2592 = phi ptr [ %374, %if.then.i704 ], [ %635, %if.then.i1614 ], [ %.sink, %sw.epilog1395.sink.split.sink.split ]
   %sh_prom.i.i1618 = zext nneg i32 %retval.sroa.2.0.copyload.i5.i1613.sink to i64
   %shl.i.i1619 = shl nuw i64 1, %sh_prom.i.i1618
-  %666 = load i64, ptr %.sink2350, align 8, !tbaa !47
+  %666 = load i64, ptr %.sink2592, align 8, !tbaa !47
   %or.i.i1621 = or i64 %666, %shl.i.i1619
-  store i64 %or.i.i1621, ptr %.sink2350, align 8, !tbaa !47
+  store i64 %or.i.i1621, ptr %.sink2592, align 8, !tbaa !47
   br label %sw.epilog1395
 
 sw.epilog1395:                                    ; preds = %lor.rhs.i.i.i, %sw.epilog1395.sink.split, %if.else.i1624.invoke, %invoke.cont954, %invoke.cont1294, %invoke.cont1342

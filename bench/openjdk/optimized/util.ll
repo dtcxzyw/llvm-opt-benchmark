@@ -1765,8 +1765,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %jdwpTag.exit.i39.us
 
 jdwpTag.exit.i39.us:                              ; preds = %55, %57, %63, %switch.lookup
-  %.in65 = phi ptr [ %switch.gep, %switch.lookup ], [ %50, %63 ], [ %50, %57 ], [ %50, %55 ]
-  %65 = load i8, ptr %.in65, align 1
+  %.in78 = phi ptr [ %switch.gep, %switch.lookup ], [ %50, %63 ], [ %50, %57 ], [ %50, %55 ]
+  %65 = load i8, ptr %.in78, align 1
   call void @jvmtiDeallocate(ptr noundef nonnull %50)
   %66 = load ptr, ptr @gdata, align 8
   %.not.i73.i.us = icmp eq ptr %66, null
@@ -2090,27 +2090,27 @@ fieldSignature.exit.i:                            ; preds = %205, %202
 
 213:                                              ; preds = %210
   %214 = load i8, ptr %203, align 1
-  %switch.tableidx57 = add i8 %214, -66
-  %215 = icmp ult i8 %switch.tableidx57, 26
-  br i1 %215, label %switch.hole_check58, label %216
+  %switch.tableidx70 = add i8 %214, -66
+  %215 = icmp ult i8 %switch.tableidx70, 26
+  br i1 %215, label %switch.hole_check71, label %216
 
-216:                                              ; preds = %switch.hole_check58, %213
+216:                                              ; preds = %switch.hole_check71, %213
   call void @jdiAssertionFailed(ptr noundef nonnull @.str.148, i32 noundef 44, ptr noundef nonnull @.str.149) #14
   br label %jdwpTag.exit.i
 
-switch.hole_check58:                              ; preds = %213
-  %switch.maskindex60 = zext nneg i8 %switch.tableidx57 to i32
-  %switch.shifted61 = lshr i32 51512727, %switch.maskindex60
-  %switch.lobit62 = trunc i32 %switch.shifted61 to i1
-  br i1 %switch.lobit62, label %switch.lookup59, label %216
+switch.hole_check71:                              ; preds = %213
+  %switch.maskindex73 = zext nneg i8 %switch.tableidx70 to i32
+  %switch.shifted74 = lshr i32 51512727, %switch.maskindex73
+  %switch.lobit75 = trunc i32 %switch.shifted74 to i1
+  br i1 %switch.lobit75, label %switch.lookup72, label %216
 
-switch.lookup59:                                  ; preds = %switch.hole_check58
-  %217 = zext nneg i8 %switch.tableidx57 to i64
-  %switch.gep63 = getelementptr inbounds nuw [26 x i8], ptr @switch.table.sharedGetFieldValues.1, i64 0, i64 %217
+switch.lookup72:                                  ; preds = %switch.hole_check71
+  %217 = zext nneg i8 %switch.tableidx70 to i64
+  %switch.gep76 = getelementptr inbounds nuw [26 x i8], ptr @switch.table.sharedGetFieldValues.1, i64 0, i64 %217
   br label %jdwpTag.exit.i
 
-jdwpTag.exit.i:                                   ; preds = %208, %210, %216, %switch.lookup59
-  %.in = phi ptr [ %switch.gep63, %switch.lookup59 ], [ %203, %216 ], [ %203, %210 ], [ %203, %208 ]
+jdwpTag.exit.i:                                   ; preds = %208, %210, %216, %switch.lookup72
+  %.in = phi ptr [ %switch.gep76, %switch.lookup72 ], [ %203, %216 ], [ %203, %210 ], [ %203, %208 ]
   %218 = load i8, ptr %.in, align 1
   call void @jvmtiDeallocate(ptr noundef nonnull %203)
   %219 = load ptr, ptr @gdata, align 8

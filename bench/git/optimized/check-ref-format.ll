@@ -87,7 +87,7 @@ check_ref_format_branch.exit:                     ; preds = %22
 
 28:                                               ; preds = %8
   %29 = icmp sgt i32 %0, 1
-  br i1 %29, label %.lr.ph.preheader, label %.critedge.thread83
+  br i1 %29, label %.lr.ph.preheader, label %.critedge.thread86
 
 .lr.ph.preheader:                                 ; preds = %10, %28
   %wide.trip.count = zext nneg i32 %0 to i64
@@ -149,15 +149,15 @@ check_ref_format_branch.exit:                     ; preds = %22
   %.1 = phi i32 [ %49, %48 ], [ %45, %44 ], [ %41, %40 ], [ %.03961, %36 ], [ %.03961, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.thread83, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.critedge.thread86, label %.lr.ph, !llvm.loop !15
 
 .critedge:                                        ; preds = %.lr.ph
   %52 = trunc nuw nsw i64 %indvars.iv to i32
   %53 = add nsw i32 %0, -1
   %54 = icmp eq i32 %53, %52
-  br i1 %54, label %55, label %.critedge.thread83
+  br i1 %54, label %55, label %.critedge.thread86
 
-.critedge.thread83:                               ; preds = %51, %28, %.critedge
+.critedge.thread86:                               ; preds = %51, %28, %.critedge
   tail call void @usage(ptr noundef nonnull @builtin_check_ref_format_usage) #8
   unreachable
 

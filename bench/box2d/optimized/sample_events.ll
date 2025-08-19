@@ -842,21 +842,21 @@ _ZN12SensorFunnel14DestroyElementEi.exit:         ; preds = %54, %56
   %64 = fsub float %63, %61
   store float %64, ptr %62, align 4, !tbaa !51
   %65 = fcmp olt float %64, 0.000000e+00
-  br i1 %65, label %.preheader42, label %89
+  br i1 %65, label %.preheader45, label %89
 
-.preheader42:                                     ; preds = %60, %69
+.preheader45:                                     ; preds = %60, %69
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %69 ], [ 0, %60 ]
   %66 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 0, i64 %indvars.iv.i
   %67 = load i8, ptr %66, align 1, !tbaa !62, !range !13, !noundef !14
   %68 = icmp eq i8 %67, 0
   br i1 %68, label %70, label %69
 
-69:                                               ; preds = %.preheader42
+69:                                               ; preds = %.preheader45
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %_ZN12SensorFunnel13CreateElementEv.exit, label %.preheader42, !llvm.loop !63
+  br i1 %exitcond.not.i, label %_ZN12SensorFunnel13CreateElementEv.exit, label %.preheader45, !llvm.loop !63
 
-70:                                               ; preds = %.preheader42
+70:                                               ; preds = %.preheader45
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 12704
   %72 = load float, ptr %71, align 8, !tbaa !60
   %.sroa.011.4.vec.insert.i = insertelement <2 x float> <float poison, float 2.950000e+01>, float %72, i64 0
@@ -2020,8 +2020,8 @@ _ZNSt6vectorI9b2ShapeIdSaIS0_EE6resizeEm.exit:    ; preds = %_ZNSt6vectorI9b2Sha
   %86 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %87 = fmul float %86, 5.000000e-01
   %.sroa.01.0.vec.insert.i = insertelement <2 x float> poison, float %87, i64 0
-  %foldExtExtBinop61 = fadd <2 x float> %84, %85
-  %88 = extractelement <2 x float> %foldExtExtBinop61, i64 1
+  %foldExtExtBinop66 = fadd <2 x float> %84, %85
+  %88 = extractelement <2 x float> %foldExtExtBinop66, i64 1
   %89 = fmul float %88, 5.000000e-01
   %.sroa.01.4.vec.insert.i = insertelement <2 x float> %.sroa.01.0.vec.insert.i, float %89, i64 1
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.01.4.vec.insert.i, float noundef 1.000000e+01, i32 noundef 16777215)
@@ -2076,7 +2076,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI9b2ShapeIdSaIS0_EE17_M_default_
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIP9b2ShapeIdmS0_ET_S2_T0_RSaIT1_E.exit, label %23
 
@@ -3055,12 +3055,12 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit421: ; preds = %._ZNSt6vectorI
   %303 = fadd float %301, %302
   %304 = insertelement <2 x float> poison, float %303, i64 0
   %.sroa.010.0.vec.insert.i.i = insertelement <2 x float> %304, float %300, i64 1
-  %foldExtExtBinop557 = fsub <2 x float> %296, %295
-  %305 = extractelement <2 x float> %foldExtExtBinop557, i64 0
-  %foldExtExtBinop559 = fsub <2 x float> %296, %295
-  %306 = extractelement <2 x float> %foldExtExtBinop559, i64 1
-  %foldExtExtBinop561 = fmul <2 x float> %294, %foldExtExtBinop557
-  %307 = extractelement <2 x float> %foldExtExtBinop561, i64 0
+  %foldExtExtBinop576 = fsub <2 x float> %296, %295
+  %305 = extractelement <2 x float> %foldExtExtBinop576, i64 0
+  %foldExtExtBinop578 = fsub <2 x float> %296, %295
+  %306 = extractelement <2 x float> %foldExtExtBinop578, i64 1
+  %foldExtExtBinop580 = fmul <2 x float> %294, %foldExtExtBinop576
+  %307 = extractelement <2 x float> %foldExtExtBinop580, i64 0
   %308 = fmul float %.sroa.05.4.vec.extract.i.i, %306
   %309 = fadd float %307, %308
   %.sroa.010.0.vec.insert.i20.i = insertelement <2 x float> poison, float %309, i64 0
@@ -3636,7 +3636,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI13b2ContactDataSaIS0_EE17_M_def
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %5, i8 0, i64 128, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIP13b2ContactDatamS0_ET_S2_T0_RSaIT1_E.exit, label %23
 
@@ -4218,8 +4218,8 @@ define linkonce_odr dso_local void @_ZN10Platformer4StepER8Settings(ptr noundef 
   %39 = fcmp ogt float %38, 0x3FECCCCCC0000000
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond58 = select i1 %39, i1 true, i1 %exitcond.not
-  br i1 %or.cond58, label %._crit_edge, label %22, !llvm.loop !183
+  %or.cond60 = select i1 %39, i1 true, i1 %exitcond.not
+  br i1 %or.cond60, label %._crit_edge, label %22, !llvm.loop !183
 
 ._crit_edge:                                      ; preds = %35, %15
   %.lcssa = phi i1 [ false, %15 ], [ %39, %35 ]
@@ -4278,7 +4278,7 @@ define linkonce_odr dso_local void @_ZN10Platformer4StepER8Settings(ptr noundef 
   %62 = load ptr, ptr @g_mainWindow, align 8, !tbaa !108
   %63 = call i32 @glfwGetKey(ptr noundef %62, i32 noundef 32)
   %64 = icmp eq i32 %63, 1
-  br i1 %64, label %65, label %.sink.split55
+  br i1 %64, label %65, label %.sink.split57
 
 65:                                               ; preds = %61
   br i1 %.0, label %66, label %70
@@ -4290,15 +4290,15 @@ define linkonce_odr dso_local void @_ZN10Platformer4StepER8Settings(ptr noundef 
   %.sroa.03.4.vec.insert = insertelement <2 x float> <float 0.000000e+00, float poison>, float %68, i64 1
   call void @b2Body_ApplyLinearImpulseToCenter(i64 %.sroa.05.0.copyload, <2 x float> %.sroa.03.4.vec.insert, i1 noundef zeroext true)
   store float 5.000000e-01, ptr %7, align 8, !tbaa !172
-  br label %.sink.split55
+  br label %.sink.split57
 
-.sink.split55:                                    ; preds = %61, %66
-  %.sink56 = phi i8 [ 1, %66 ], [ 0, %61 ]
+.sink.split57:                                    ; preds = %61, %66
+  %.sink58 = phi i8 [ 1, %66 ], [ 0, %61 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i8 %.sink56, ptr %69, align 8, !tbaa !173
+  store i8 %.sink58, ptr %69, align 8, !tbaa !173
   br label %70
 
-70:                                               ; preds = %.sink.split55, %65
+70:                                               ; preds = %.sink.split57, %65
   call void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %4, i8 0, i64 128, i1 false)

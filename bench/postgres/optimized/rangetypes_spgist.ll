@@ -535,9 +535,9 @@ select.unfold180:                                 ; preds = %63, %59, %61, %67, 
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 6
   %101 = load i16, ptr %100, align 2
   %102 = icmp eq i16 %101, 16
-  br i1 %102, label %.thread335, label %106
+  br i1 %102, label %.thread342, label %106
 
-.thread335:                                       ; preds = %97
+.thread342:                                       ; preds = %97
   store i8 1, ptr %91, align 1
   store i8 0, ptr %92, align 8
   store i8 1, ptr %93, align 2
@@ -618,7 +618,7 @@ select.unfold180:                                 ; preds = %63, %59, %61, %67, 
   %131 = trunc nuw i8 %.pre to i1
   br i1 %131, label %.thread288.thread, label %.thread216.thread264
 
-.thread216.thread264:                             ; preds = %.thread335, %130
+.thread216.thread264:                             ; preds = %.thread342, %130
   %132 = and i32 %.3311, 30
   br label %162
 
@@ -816,7 +816,7 @@ getQuadrant.exit:                                 ; preds = %138, %146, %147
   %186 = call ptr @palloc(i64 noundef %185) #6
   %187 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %186, ptr %187, align 8
-  br i1 %.0149, label %188, label %.thread336
+  br i1 %.0149, label %188, label %.thread343
 
 188:                                              ; preds = %.thread185
   %189 = load i32, ptr %182, align 8
@@ -834,15 +834,15 @@ getQuadrant.exit:                                 ; preds = %138, %146, %147
   %.not165315 = icmp slt i32 %197, 1
   br i1 %.not165315, label %._crit_edge, label %.lr.ph317.split.us.preheader
 
-.thread336:                                       ; preds = %.thread185
+.thread343:                                       ; preds = %.thread185
   store i32 0, ptr %22, align 8
   %198 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %199 = load ptr, ptr %198, align 8
   %200 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %199, ptr @CurrentMemoryContext, align 8
   %201 = load i32, ptr %182, align 8
-  %.not165315337 = icmp slt i32 %201, 1
-  br i1 %.not165315337, label %._crit_edge, label %.lr.ph317.split
+  %.not165315344 = icmp slt i32 %201, 1
+  br i1 %.not165315344, label %._crit_edge, label %.lr.ph317.split
 
 .lr.ph317.split.us.preheader:                     ; preds = %188
   %202 = getelementptr inbounds nuw i8, ptr %19, i64 56
@@ -884,9 +884,9 @@ getQuadrant.exit:                                 ; preds = %138, %146, %147
   %.not165.us = icmp sgt i32 %224, %223
   br i1 %.not165.us, label %._crit_edge, label %.lr.ph317.split.us, !llvm.loop !13
 
-.lr.ph317.split:                                  ; preds = %.thread336, %236
-  %225 = phi i32 [ %237, %236 ], [ %201, %.thread336 ]
-  %.3147316 = phi i32 [ %238, %236 ], [ 1, %.thread336 ]
+.lr.ph317.split:                                  ; preds = %.thread343, %236
+  %225 = phi i32 [ %237, %236 ], [ %201, %.thread343 ]
+  %.3147316 = phi i32 [ %238, %236 ], [ 1, %.thread343 ]
   %226 = shl nuw i32 1, %.3147316
   %227 = and i32 %226, %.2
   %.not166 = icmp eq i32 %227, 0
@@ -911,8 +911,8 @@ getQuadrant.exit:                                 ; preds = %138, %146, %147
   %.not165 = icmp sgt i32 %238, %237
   br i1 %.not165, label %._crit_edge, label %.lr.ph317.split, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %236, %222, %.thread336, %188
-  %239 = phi ptr [ %200, %.thread336 ], [ %196, %188 ], [ %196, %222 ], [ %200, %236 ]
+._crit_edge:                                      ; preds = %236, %222, %.thread343, %188
+  %239 = phi ptr [ %200, %.thread343 ], [ %196, %188 ], [ %196, %222 ], [ %200, %236 ]
   store ptr %239, ptr @CurrentMemoryContext, align 8
   br label %.loopexit
 

@@ -7401,9 +7401,9 @@ _ZNSt6vectorIxSaIxEE5clearEv.exit:                ; preds = %72, %75
   %76 = phi ptr [ %74, %72 ], [ %73, %75 ]
   %77 = load i64, ptr %25, align 8, !tbaa !35
   %78 = icmp sgt i64 %77, 0
-  %brmerge.not234 = and i1 %78, %50
+  %brmerge.not299 = and i1 %78, %50
   %79 = icmp sgt i64 %71, 0
-  %or.cond = and i1 %brmerge.not234, %79
+  %or.cond = and i1 %brmerge.not299, %79
   br i1 %or.cond, label %.preheader177.us.us.preheader, label %._crit_edge
 
 .preheader177.us.us.preheader:                    ; preds = %_ZNSt6vectorIxSaIxEE5clearEv.exit
@@ -7758,8 +7758,8 @@ _ZNSt6vectorIxSaIxEE5clearEv.exit94:              ; preds = %193, %196
   %203 = phi i64 [ %246, %._crit_edge195 ], [ %199, %.preheader170.lr.ph ]
   %.039197 = phi i64 [ %247, %._crit_edge195 ], [ 0, %.preheader170.lr.ph ]
   %204 = icmp slt i64 %203, 1
-  %brmerge231 = or i1 %204, %198
-  br i1 %brmerge231, label %._crit_edge195, label %.preheader.us.preheader
+  %brmerge296 = or i1 %204, %198
+  br i1 %brmerge296, label %._crit_edge195, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader170
   %.pre212.pre = load ptr, ptr %169, align 8, !tbaa !198
@@ -8661,9 +8661,9 @@ _ZNSt6vectorIxSaIxEE5clearEv.exit:                ; preds = %72, %75
   %76 = phi ptr [ %74, %72 ], [ %73, %75 ]
   %77 = load i64, ptr %25, align 8, !tbaa !35
   %78 = icmp sgt i64 %77, 0
-  %brmerge.not234 = and i1 %78, %50
+  %brmerge.not299 = and i1 %78, %50
   %79 = icmp sgt i64 %71, 0
-  %or.cond = and i1 %brmerge.not234, %79
+  %or.cond = and i1 %brmerge.not299, %79
   br i1 %or.cond, label %.preheader177.us.us.preheader, label %._crit_edge
 
 .preheader177.us.us.preheader:                    ; preds = %_ZNSt6vectorIxSaIxEE5clearEv.exit
@@ -9018,8 +9018,8 @@ _ZNSt6vectorIxSaIxEE5clearEv.exit94:              ; preds = %193, %196
   %203 = phi i64 [ %246, %._crit_edge195 ], [ %199, %.preheader170.lr.ph ]
   %.039197 = phi i64 [ %247, %._crit_edge195 ], [ 0, %.preheader170.lr.ph ]
   %204 = icmp slt i64 %203, 1
-  %brmerge231 = or i1 %204, %198
-  br i1 %brmerge231, label %._crit_edge195, label %.preheader.us.preheader
+  %brmerge296 = or i1 %204, %198
+  br i1 %brmerge296, label %._crit_edge195, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader170
   %.pre212.pre = load ptr, ptr %169, align 8, !tbaa !198
@@ -13538,7 +13538,7 @@ _ZNSt12_Vector_baseIN6casadi8SparsityESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt6v
           to label %_ZSt10_ConstructIN6casadi8SparsityEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i unwind label %16
 
 _ZSt10_ConstructIN6casadi8SparsityEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %14 = add i64 %.01114.i.i.i.i.i, -1
+  %14 = add nsw i64 %.01114.i.i.i.i.i, -1
   %15 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq i64 %14, 0
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !295
@@ -14139,18 +14139,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !22
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #29
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #29
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !10
@@ -14184,7 +14184,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

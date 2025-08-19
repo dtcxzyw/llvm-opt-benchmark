@@ -4168,10 +4168,10 @@ define internal fastcc void @hsw_enable_pc8(ptr noundef %0) unnamed_addr #0 alig
   br label %.sink.split
 
 .sink.split:                                      ; preds = %375, %403
-  %.ph28 = phi i32 [ %405, %403 ], [ 1000, %375 ]
-  %.ph29 = phi i32 [ %401, %403 ], [ %381, %375 ]
+  %.ph49 = phi i32 [ %405, %403 ], [ 1000, %375 ]
+  %.ph50 = phi i32 [ %401, %403 ], [ %381, %375 ]
   %382 = tail call i64 @local_clock() #10
-  %383 = sext i32 %.ph28 to i64
+  %383 = sext i32 %.ph49 to i64
   br label %384
 
 384:                                              ; preds = %.sink.split, %400
@@ -4207,12 +4207,12 @@ define internal fastcc void @hsw_enable_pc8(ptr noundef %0) unnamed_addr #0 alig
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !204
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !212
   %401 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !213
-  %402 = icmp eq i32 %.ph29, %401
+  %402 = icmp eq i32 %.ph50, %401
   br i1 %402, label %384, label %403, !prof !25
 
 403:                                              ; preds = %400
   %404 = trunc i64 %398 to i32
-  %405 = sub i32 %.ph28, %404
+  %405 = sub i32 %.ph49, %404
   br label %.sink.split
 
 406:                                              ; preds = %397
@@ -4533,10 +4533,10 @@ define internal fastcc void @hsw_disable_pc8(ptr noundef %0) unnamed_addr #0 ali
   br label %.sink.split
 
 .sink.split:                                      ; preds = %67, %94
-  %.ph6 = phi i32 [ %96, %94 ], [ 1000, %67 ]
-  %.ph7 = phi i32 [ %92, %94 ], [ %72, %67 ]
+  %.ph9 = phi i32 [ %96, %94 ], [ 1000, %67 ]
+  %.ph10 = phi i32 [ %92, %94 ], [ %72, %67 ]
   %73 = tail call i64 @local_clock() #10
-  %74 = sext i32 %.ph6 to i64
+  %74 = sext i32 %.ph9 to i64
   br label %75
 
 75:                                               ; preds = %.sink.split, %91
@@ -4572,12 +4572,12 @@ define internal fastcc void @hsw_disable_pc8(ptr noundef %0) unnamed_addr #0 ali
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !204
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !220
   %92 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !221
-  %93 = icmp eq i32 %.ph7, %92
+  %93 = icmp eq i32 %.ph10, %92
   br i1 %93, label %75, label %94, !prof !25
 
 94:                                               ; preds = %91
   %95 = trunc i64 %89 to i32
-  %96 = sub i32 %.ph6, %95
+  %96 = sub i32 %.ph9, %95
   br label %.sink.split
 
 97:                                               ; preds = %88

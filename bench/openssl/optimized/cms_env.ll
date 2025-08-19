@@ -217,7 +217,7 @@ define ptr @ossl_cms_get0_env_enc_content(ptr noundef readonly captures(none) %0
   %switch.select.i.i = select i1 %switch.selectcmp.i.i, i32 2, i32 0
   %switch.selectcmp2.i.i = icmp eq i32 %2, 23
   %switch.select3.i.i = select i1 %switch.selectcmp2.i.i, i32 1, i32 %switch.select.i.i
-  switch i32 %switch.select3.i.i, label %default.unreachable8 [
+  switch i32 %switch.select3.i.i, label %default.unreachable10 [
     i32 0, label %cms_get_enveloped_type.exit.thread
     i32 1, label %3
     i32 2, label %10
@@ -251,7 +251,7 @@ cms_get_enveloped_type.exit.thread:               ; preds = %1
   %16 = load ptr, ptr %15, align 8, !tbaa !49
   br label %17
 
-default.unreachable8:                             ; preds = %1
+default.unreachable10:                            ; preds = %1
   unreachable
 
 17:                                               ; preds = %cms_get_enveloped_type.exit.thread, %14, %10, %7, %3

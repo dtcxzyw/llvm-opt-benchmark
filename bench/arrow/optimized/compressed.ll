@@ -2929,8 +2929,8 @@ define linkonce_odr hidden void @_ZN5arrow2io21CompressedInputStream4Impl4ReadEl
 
 .lr.ph:                                           ; preds = %4, %_ZN5arrow6ResultIbED2Ev.exit15
   %10 = phi i64 [ %44, %_ZN5arrow6ResultIbED2Ev.exit15 ], [ %2, %4 ]
-  %.027 = phi i64 [ %31, %_ZN5arrow6ResultIbED2Ev.exit15 ], [ 0, %4 ]
-  %11 = getelementptr inbounds i8, ptr %3, i64 %.027
+  %.032 = phi i64 [ %31, %_ZN5arrow6ResultIbED2Ev.exit15 ], [ 0, %4 ]
+  %11 = getelementptr inbounds i8, ptr %3, i64 %.032
   %12 = load ptr, ptr %6, align 8, !tbaa !119
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit, label %13
@@ -2960,8 +2960,8 @@ define linkonce_odr hidden void @_ZN5arrow2io21CompressedInputStream4Impl4ReadEl
   br label %_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit
 
 _ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit: ; preds = %.lr.ph, %13, %20
-  %.sroa.speculated.i21 = phi i64 [ %18, %13 ], [ %18, %20 ], [ 0, %.lr.ph ]
-  %31 = add nsw i64 %.sroa.speculated.i21, %.027
+  %.sroa.speculated.i26 = phi i64 [ %18, %13 ], [ %18, %20 ], [ 0, %.lr.ph ]
+  %31 = add nsw i64 %.sroa.speculated.i26, %.032
   %32 = icmp eq i64 %2, %31
   br i1 %32, label %_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit._crit_edge, label %33
 
@@ -3205,7 +3205,7 @@ _ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit: ; 
   br i1 %.not.i29, label %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit31, label %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i30
 
 _ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i30: ; preds = %.thread, %74
-  %.pn.pn35 = phi { ptr, i32 } [ %31, %.thread ], [ %.pn, %74 ]
+  %.pn.pn41 = phi { ptr, i32 } [ %31, %.thread ], [ %.pn, %74 ]
   %75 = phi ptr [ %.cast, %.thread ], [ %.pre, %74 ]
   %76 = load ptr, ptr %75, align 8, !tbaa !3
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -3214,11 +3214,11 @@ _ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i30: ; preds = %.t
   br label %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit31
 
 _ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit31: ; preds = %74, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i30
-  %.pn.pn36 = phi { ptr, i32 } [ %.pn, %74 ], [ %.pn.pn35, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i30 ]
+  %.pn.pn42 = phi { ptr, i32 } [ %.pn, %74 ], [ %.pn.pn41, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.pn.pn36
+  resume { ptr, i32 } %.pn.pn42
 
 79:                                               ; preds = %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit, %13
   %80 = load ptr, ptr %4, align 8, !tbaa !42

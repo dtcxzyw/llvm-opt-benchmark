@@ -1848,7 +1848,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   br label %._crit_edge202.thread
 
 ._crit_edge202.thread:                            ; preds = %34, %708, %._crit_edge202
-  %.052.lcssa228 = phi i1 [ true, %708 ], [ false, %._crit_edge202 ], [ false, %34 ]
+  %.052.lcssa279 = phi i1 [ true, %708 ], [ false, %._crit_edge202 ], [ false, %34 ]
   %712 = load ptr, ptr %20, align 8, !tbaa !286
   %713 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %714 = load i32, ptr %713, align 8, !tbaa !288
@@ -1938,7 +1938,7 @@ _ZN4llvm8DenseMapISt5tupleIJNS_9StringRefEjjmEENS_8DenseSetIPKNS_17MachineBasicB
   br label %753
 
 753:                                              ; preds = %_ZN4llvm8DenseMapISt5tupleIJNS_9StringRefEjjmEENS_8DenseSetIPKNS_17MachineBasicBlockENS_12DenseMapInfoIS7_vEEEENS8_IS3_vEENS_6detail12DenseMapPairIS3_SA_EEED2Ev.exit, %31, %2
-  %.0 = phi i1 [ false, %2 ], [ %.052.lcssa228, %_ZN4llvm8DenseMapISt5tupleIJNS_9StringRefEjjmEENS_8DenseSetIPKNS_17MachineBasicBlockENS_12DenseMapInfoIS7_vEEEENS8_IS3_vEENS_6detail12DenseMapPairIS3_SA_EEED2Ev.exit ], [ false, %31 ]
+  %.0 = phi i1 [ false, %2 ], [ %.052.lcssa279, %_ZN4llvm8DenseMapISt5tupleIJNS_9StringRefEjjmEENS_8DenseSetIPKNS_17MachineBasicBlockENS_12DenseMapInfoIS7_vEEEENS8_IS3_vEENS_6detail12DenseMapPairIS3_SA_EEED2Ev.exit ], [ false, %31 ]
   ret i1 %.0
 }
 

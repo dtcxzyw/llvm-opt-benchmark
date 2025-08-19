@@ -3310,9 +3310,9 @@ define internal range(i32 0, 65536) i32 @pci_oxsemi_tornado_get_divisor(ptr noun
   %8 = add i32 %6, %7
   %9 = udiv i32 %8, %1
   %10 = icmp eq i32 %1, 38400
-  br i1 %10, label %11, label %.preheader45
+  br i1 %10, label %11, label %.preheader55
 
-.preheader45:                                     ; preds = %11, %3
+.preheader55:                                     ; preds = %11, %3
   br label %28
 
 11:                                               ; preds = %3
@@ -3320,7 +3320,7 @@ define internal range(i32 0, 65536) i32 @pci_oxsemi_tornado_get_divisor(ptr noun
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 4144
   %15 = icmp eq i64 %14, 48
-  br i1 %15, label %16, label %.preheader45
+  br i1 %15, label %16, label %.preheader55
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -3336,12 +3336,12 @@ define internal range(i32 0, 65536) i32 @pci_oxsemi_tornado_get_divisor(ptr noun
   %27 = select i1 %26, i16 271, i16 %24
   br label %.loopexit
 
-28:                                               ; preds = %.preheader45, %59
-  %29 = phi i64 [ %64, %59 ], [ 0, %.preheader45 ]
-  %30 = phi i32 [ %63, %59 ], [ 65536, %.preheader45 ]
-  %31 = phi i32 [ %62, %59 ], [ 0, %.preheader45 ]
-  %32 = phi i16 [ %61, %59 ], [ 0, %.preheader45 ]
-  %33 = phi i8 [ %60, %59 ], [ 0, %.preheader45 ]
+28:                                               ; preds = %.preheader55, %59
+  %29 = phi i64 [ %64, %59 ], [ 0, %.preheader55 ]
+  %30 = phi i32 [ %63, %59 ], [ 65536, %.preheader55 ]
+  %31 = phi i32 [ %62, %59 ], [ 0, %.preheader55 ]
+  %32 = phi i16 [ %61, %59 ], [ 0, %.preheader55 ]
+  %33 = phi i8 [ %60, %59 ], [ 0, %.preheader55 ]
   %34 = getelementptr [134 x [2 x i8]], ptr @pci_oxsemi_tornado_get_divisor.p, i64 0, i64 %29
   %35 = load i8, ptr %34, align 2
   %36 = getelementptr i8, ptr %34, i64 1

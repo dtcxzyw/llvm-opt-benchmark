@@ -4132,10 +4132,10 @@ _ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i._ZSt4moveIPPKN5clang9F
 
 _ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i: ; preds = %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i._ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i_crit_edge, %344
   %347 = phi ptr [ %.pre, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i._ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i_crit_edge ], [ %338, %344 ]
-  %.pre65.pre6876.i = phi ptr [ %.pre65.pre68.pre.i, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i._ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i_crit_edge ], [ %.pre66.i, %344 ]
-  %.pre-phi75.i = phi i64 [ %.pre71.i, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i._ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i_crit_edge ], [ %345, %344 ]
-  %gepdiff.i.i = shl nuw nsw i64 %.pre-phi75.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %347, ptr align 8 %.pre65.pre6876.i, i64 %gepdiff.i.i, i1 false)
+  %.pre65.pre6893.i = phi ptr [ %.pre65.pre68.pre.i, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i._ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i_crit_edge ], [ %.pre66.i, %344 ]
+  %.pre-phi92.i = phi i64 [ %.pre71.i, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i._ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i_crit_edge ], [ %345, %344 ]
+  %gepdiff.i.i = shl nuw nsw i64 %.pre-phi92.i, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %347, ptr align 8 %.pre65.pre6893.i, i64 %gepdiff.i.i, i1 false)
   %.pre65.pre.i = load ptr, ptr %7, align 8, !tbaa !311, !noalias !315
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i.i
 
@@ -4463,8 +4463,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %33, %35
   %.masked = or disjoint i64 %70, %56
   %.masked.masked.masked.masked.masked.masked.masked.masked = or i64 %.masked, %58
   %.masked70.masked.masked.masked.masked.masked.masked.masked = or i64 %.masked.masked.masked.masked.masked.masked.masked.masked, %60
-  %.masked.masked.masked.masked.masked.masked78.masked = or i64 %.masked70.masked.masked.masked.masked.masked.masked.masked, %62
-  %.masked73.masked.masked.masked.masked.masked = or i64 %.masked.masked.masked.masked.masked.masked78.masked, %50
+  %.masked.masked.masked.masked.masked.masked87.masked = or i64 %.masked70.masked.masked.masked.masked.masked.masked.masked, %62
+  %.masked73.masked.masked.masked.masked.masked = or i64 %.masked.masked.masked.masked.masked.masked87.masked, %50
   %75 = or i64 %.masked73.masked.masked.masked.masked.masked, %66
   %76 = or i64 %75, %74
   %77 = xor i64 %76, 1615077378

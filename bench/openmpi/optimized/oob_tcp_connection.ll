@@ -340,7 +340,7 @@ pmix_obj_new_tma.exit306:                         ; preds = %63
   %123 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %122, i32 2
   %124 = load i32, ptr %123, align 4, !tbaa !32
   %125 = icmp sgt i32 %124, 6
-  br i1 %125, label %126, label %.thread443
+  br i1 %125, label %126, label %.thread481
 
 126:                                              ; preds = %121
   %127 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #15
@@ -349,26 +349,26 @@ pmix_obj_new_tma.exit306:                         ; preds = %63
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %120, ptr noundef nonnull @.str.4, ptr noundef %127, ptr noundef %129) #15
   %.pr.pre = load i32, ptr @prte_oob_base, align 8, !tbaa !60
   %or.cond8 = icmp ult i32 %.pr.pre, 64
-  br i1 %or.cond8, label %.thread443, label %.thread
+  br i1 %or.cond8, label %.thread481, label %.thread
 
-.thread443:                                       ; preds = %121, %126
-  %.pr446 = phi i32 [ %.pr.pre, %126 ], [ %120, %121 ]
-  %130 = zext nneg i32 %.pr446 to i64
+.thread481:                                       ; preds = %121, %126
+  %.pr484 = phi i32 [ %.pr.pre, %126 ], [ %120, %121 ]
+  %130 = zext nneg i32 %.pr484 to i64
   %131 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %130, i32 2
   %132 = load i32, ptr %131, align 4, !tbaa !32
   %133 = icmp sgt i32 %132, 6
   br i1 %133, label %134, label %.thread
 
-134:                                              ; preds = %.thread443
+134:                                              ; preds = %.thread481
   %135 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #15
   %136 = getelementptr inbounds nuw i8, ptr %51, i64 144
   %137 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull %136) #15
   %138 = getelementptr inbounds nuw i8, ptr %51, i64 416
   %139 = load i32, ptr %138, align 8, !tbaa !64
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %.pr446, ptr noundef nonnull @.str.5, ptr noundef %135, ptr noundef %137, i32 noundef %139) #15
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %.pr484, ptr noundef nonnull @.str.5, ptr noundef %135, ptr noundef %137, i32 noundef %139) #15
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %134, %.thread443, %126
+.thread:                                          ; preds = %._crit_edge, %134, %.thread481, %126
   %140 = icmp slt i32 %114, 1
   %141 = icmp slt i32 %117, 1
   %142 = getelementptr inbounds nuw i8, ptr %119, i64 128
@@ -386,16 +386,16 @@ pmix_obj_new_tma.exit306:                         ; preds = %63
   br i1 %brmerge, label %.critedge, label %.preheader.lr.ph.split.us
 
 .preheader.lr.ph.split.us:                        ; preds = %.thread, %.backedge
-  %.0245493 = phi i32 [ %.3.us, %.backedge ], [ 0, %.thread ]
-  %.0248492 = phi i32 [ %.3251.us, %.backedge ], [ 0, %.thread ]
+  %.0245531 = phi i32 [ %.3.us, %.backedge ], [ 0, %.thread ]
+  %.0248530 = phi i32 [ %.3251.us, %.backedge ], [ 0, %.thread ]
   %152 = load ptr, ptr %142, align 8, !tbaa !67
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge372.us, %.preheader.lr.ph.split.us
   %indvars.iv431 = phi i64 [ %indvars.iv.next432, %._crit_edge372.us ], [ 0, %.preheader.lr.ph.split.us ]
   %.0242377.us = phi i32 [ %.2244.us, %._crit_edge372.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %.1246376.us = phi i32 [ %.3.us, %._crit_edge372.us ], [ %.0245493, %.preheader.lr.ph.split.us ]
-  %.1249375.us = phi i32 [ %.3251.us, %._crit_edge372.us ], [ %.0248492, %.preheader.lr.ph.split.us ]
+  %.1246376.us = phi i32 [ %.3.us, %._crit_edge372.us ], [ %.0245531, %.preheader.lr.ph.split.us ]
+  %.1249375.us = phi i32 [ %.3251.us, %._crit_edge372.us ], [ %.0248530, %.preheader.lr.ph.split.us ]
   %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv431
   %154 = load ptr, ptr %153, align 8, !tbaa !70
   %155 = trunc nuw nsw i64 %indvars.iv431 to i32
@@ -2581,7 +2581,7 @@ define internal fastcc noundef zeroext i1 @tcp_peer_recv_blocking(ptr noundef %0
 
 82:                                               ; preds = %48
   %83 = and i64 %23, 2147483647
-  %84 = add i64 %83, %.04161
+  %84 = add nuw nsw i64 %83, %.04161
   br label %85
 
 85:                                               ; preds = %50, %50, %82

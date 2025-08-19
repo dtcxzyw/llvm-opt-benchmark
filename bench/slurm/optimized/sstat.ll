@@ -302,7 +302,7 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   br label %91
 
 91:                                               ; preds = %.outer._crit_edge.thread, %90, %.outer._crit_edge
-  %.051.ph.lcssa94 = phi i32 [ 0, %.outer._crit_edge.thread ], [ %.051.ph.lcssa, %90 ], [ %.051.ph.lcssa, %.outer._crit_edge ]
+  %.051.ph.lcssa98 = phi i32 [ 0, %.outer._crit_edge.thread ], [ %.051.ph.lcssa, %90 ], [ %.051.ph.lcssa, %.outer._crit_edge ]
   %92 = load ptr, ptr %8, align 8
   call void @slurm_job_step_pids_response_msg_free(ptr noundef %92) #5
   %93 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8, !range !12, !noundef !13
@@ -314,25 +314,25 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @step, i64 48), align 8
   %97 = call i64 @hostlist_ranged_string(ptr noundef %29, i64 noundef 16384, ptr noundef %96) #5
   call void @hostlist_destroy(ptr noundef %29) #5
-  %.not61 = icmp eq i32 %.051.ph.lcssa94, 0
+  %.not61 = icmp eq i32 %.051.ph.lcssa98, 0
   br i1 %.not61, label %106, label %98
 
 98:                                               ; preds = %95
-  %99 = sitofp i32 %.051.ph.lcssa94 to double
+  %99 = sitofp i32 %.051.ph.lcssa98 to double
   %100 = load double, ptr getelementptr inbounds nuw (i8, ptr @step, i64 104), align 8
   %101 = fdiv double %100, %99
   store double %101, ptr getelementptr inbounds nuw (i8, ptr @step, i64 104), align 8
   %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @step, i64 120), align 8
   store ptr %102, ptr %9, align 8
-  %103 = call ptr @slurmdb_ave_tres_usage(ptr noundef %102, i32 noundef %.051.ph.lcssa94) #5
+  %103 = call ptr @slurmdb_ave_tres_usage(ptr noundef %102, i32 noundef %.051.ph.lcssa98) #5
   store ptr %103, ptr getelementptr inbounds nuw (i8, ptr @step, i64 120), align 8
   call void @slurm_xfree(ptr noundef nonnull %9) #5
   %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @step, i64 184), align 8
   store ptr %104, ptr %9, align 8
-  %105 = call ptr @slurmdb_ave_tres_usage(ptr noundef %104, i32 noundef %.051.ph.lcssa94) #5
+  %105 = call ptr @slurmdb_ave_tres_usage(ptr noundef %104, i32 noundef %.051.ph.lcssa98) #5
   store ptr %105, ptr getelementptr inbounds nuw (i8, ptr @step, i64 184), align 8
   call void @slurm_xfree(ptr noundef nonnull %9) #5
-  store i32 %.051.ph.lcssa94, ptr getelementptr inbounds nuw (i8, ptr @step, i64 56), align 8
+  store i32 %.051.ph.lcssa98, ptr getelementptr inbounds nuw (i8, ptr @step, i64 56), align 8
   br label %106
 
 106:                                              ; preds = %98, %95

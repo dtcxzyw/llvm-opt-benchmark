@@ -298,7 +298,7 @@ _ZNSt6vectorItSaItEE9push_backERKt.exit:          ; preds = %82, %_ZNSt6vectorIt
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = ptrtoint ptr %.sroa.25.2 to i64
-  %.pre198 = sub i64 %.pre, %49
+  %.pre204 = sub i64 %.pre, %49
   br label %149
 
 .critedge:                                        ; preds = %._crit_edge160
@@ -391,10 +391,10 @@ _ZNSt6vectorItSaItEED2Ev.exit63:                  ; preds = %140, %144
   br label %_ZNSt6vectorItSaItEED2Ev.exit65
 
 149:                                              ; preds = %105, %.loopexit.split-lp126, %.loopexit125, %.loopexit.split-lp, %.loopexit
-  %.pre-phi199 = phi i64 [ %.pre198, %105 ], [ 9223372036854775806, %.loopexit.split-lp126 ], [ %61, %.loopexit125 ], [ 9223372036854775806, %.loopexit.split-lp ], [ %87, %.loopexit ]
+  %.pre-phi205 = phi i64 [ %.pre204, %105 ], [ 9223372036854775806, %.loopexit.split-lp126 ], [ %61, %.loopexit125 ], [ 9223372036854775806, %.loopexit.split-lp ], [ %87, %.loopexit ]
   %.sroa.072.0134 = phi ptr [ %.sroa.072.2, %105 ], [ %.sroa.072.0157, %.loopexit.split-lp126 ], [ %.sroa.072.0157, %.loopexit125 ], [ %.sroa.072.0157, %.loopexit.split-lp ], [ %.sroa.072.0157, %.loopexit ]
   %.pn.pn = phi { ptr, i32 } [ %106, %105 ], [ %lpad.loopexit.split-lp128, %.loopexit.split-lp126 ], [ %lpad.loopexit127, %.loopexit125 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.072.0134, i64 noundef %.pre-phi199) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.072.0134, i64 noundef %.pre-phi205) #16
   br label %_ZNSt6vectorItSaItEED2Ev.exit65
 
 _ZNSt6vectorItSaItEED2Ev.exit65:                  ; preds = %_ZNSt6vectorItSaItEED2Ev.exit63, %149

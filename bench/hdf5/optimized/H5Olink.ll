@@ -283,7 +283,7 @@ define internal ptr @H5O__link_decode(ptr noundef %0, ptr readnone captures(none
   %121 = phi ptr [ %109, %108 ], [ %97, %118 ]
   %122 = and i32 %47, 3
   %123 = icmp ugt ptr %121, %9
-  switch i32 %122, label %default.unreachable228 [
+  switch i32 %122, label %default.unreachable249 [
     i32 0, label %124
     i32 1, label %136
     i32 2, label %155
@@ -416,7 +416,7 @@ define internal ptr @H5O__link_decode(ptr noundef %0, ptr readnone captures(none
   %205 = getelementptr inbounds nuw i8, ptr %197, i64 7
   br label %206
 
-default.unreachable228:                           ; preds = %120
+default.unreachable249:                           ; preds = %120
   unreachable
 
 206:                                              ; preds = %204, %165, %146, %132
@@ -509,8 +509,8 @@ default.unreachable228:                           ; preds = %120
   %256 = ptrtoint ptr %235 to i64
   %257 = sub i64 %217, %256
   %258 = icmp ult i64 %257, 2
-  %or.cond234 = select i1 %255, i1 true, i1 %258
-  br i1 %or.cond234, label %259, label %263
+  %or.cond255 = select i1 %255, i1 true, i1 %258
+  br i1 %or.cond255, label %259, label %263
 
 259:                                              ; preds = %254
   %260 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
@@ -542,8 +542,8 @@ default.unreachable228:                           ; preds = %120
   %279 = ptrtoint ptr %271 to i64
   %280 = sub i64 %217, %279
   %281 = icmp ugt i64 %270, %280
-  %or.cond237 = select i1 %278, i1 true, i1 %281
-  br i1 %or.cond237, label %282, label %286
+  %or.cond258 = select i1 %278, i1 true, i1 %281
+  br i1 %or.cond258, label %282, label %286
 
 282:                                              ; preds = %277
   %283 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
@@ -587,8 +587,8 @@ default.unreachable228:                           ; preds = %120
   %305 = ptrtoint ptr %235 to i64
   %306 = sub i64 %217, %305
   %307 = icmp ult i64 %306, 2
-  %or.cond240 = select i1 %304, i1 true, i1 %307
-  br i1 %or.cond240, label %308, label %312
+  %or.cond261 = select i1 %304, i1 true, i1 %307
+  br i1 %or.cond261, label %308, label %312
 
 308:                                              ; preds = %303
   %309 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
@@ -629,8 +629,8 @@ default.unreachable228:                           ; preds = %120
   %332 = ptrtoint ptr %320 to i64
   %333 = sub i64 %217, %332
   %334 = icmp ugt i64 %319, %333
-  %or.cond243 = select i1 %331, i1 true, i1 %334
-  br i1 %or.cond243, label %335, label %339
+  %or.cond264 = select i1 %331, i1 true, i1 %334
+  br i1 %or.cond264, label %335, label %339
 
 335:                                              ; preds = %330
   %336 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
@@ -809,7 +809,7 @@ define internal noundef i32 @H5O__link_encode(ptr noundef %0, i1 zeroext %1, i64
 
 62:                                               ; preds = %58, %56
   %63 = and i32 %36, 3
-  switch i32 %63, label %default.unreachable84 [
+  switch i32 %63, label %default.unreachable85 [
     i32 0, label %64
     i32 1, label %68
     i32 2, label %75
@@ -874,7 +874,7 @@ define internal noundef i32 @H5O__link_encode(ptr noundef %0, i1 zeroext %1, i64
   %96 = getelementptr inbounds nuw i8, ptr %89, i64 8
   br label %97
 
-default.unreachable84:                            ; preds = %62
+default.unreachable85:                            ; preds = %62
   unreachable
 
 97:                                               ; preds = %95, %75, %68, %64

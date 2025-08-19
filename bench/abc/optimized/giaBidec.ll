@@ -1400,8 +1400,8 @@ define noundef ptr @Gia_ManPerformBidec(ptr noundef %0, i32 noundef %1) local_un
   %16 = tail call noalias dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #16
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %16, ptr %17, align 8, !tbaa !31
-  %calloc96 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %18 = getelementptr inbounds nuw i8, ptr %calloc96, i64 8
+  %calloc110 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
+  %18 = getelementptr inbounds nuw i8, ptr %calloc110, i64 8
   tail call void @Gia_ManCleanTruth(ptr noundef %0) #17
   tail call void @Gia_ManFillValue(ptr noundef %0) #17
   %19 = getelementptr i8, ptr %0, i64 32
@@ -1706,7 +1706,7 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   br i1 %.not, label %192, label %189
 
 189:                                              ; preds = %185
-  %190 = call i32 @Gia_ObjPerformBidec(ptr noundef %39, ptr noundef nonnull %22, ptr noundef nonnull %0, ptr noundef nonnull %48, ptr noundef nonnull %calloc, ptr noundef nonnull %14, ptr noundef nonnull %calloc96)
+  %190 = call i32 @Gia_ObjPerformBidec(ptr noundef %39, ptr noundef nonnull %22, ptr noundef nonnull %0, ptr noundef nonnull %48, ptr noundef nonnull %calloc, ptr noundef nonnull %14, ptr noundef nonnull %calloc110)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Gia_ManAppendCo.exit, %189, %Gia_ManAppendCi.exit
@@ -1802,7 +1802,7 @@ Vec_IntFree.exit91:                               ; preds = %Vec_IntFree.exit, %
   br label %Vec_IntFree.exit93
 
 Vec_IntFree.exit93:                               ; preds = %Vec_IntFree.exit91, %231
-  call void @free(ptr noundef nonnull %calloc96) #17
+  call void @free(ptr noundef nonnull %calloc110) #17
   br label %232
 
 232:                                              ; preds = %Vec_IntFree.exit93, %11, %8

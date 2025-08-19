@@ -135,7 +135,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IfEESt6vectorIS4_SaIS4_EEEE
 
 61:                                               ; preds = %59
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #15
-          to label %.noexc unwind label %.thread81
+          to label %.noexc unwind label %.thread94
 
 .noexc:                                           ; preds = %61
   unreachable
@@ -148,7 +148,7 @@ _ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %59
   %66 = select i1 %64, i64 1152921504606846975, i64 %65
   %67 = shl nuw nsw i64 %66, 3
   %68 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %67) #16
-          to label %.lr.ph.i.i.i.i.i.i.preheader unwind label %.thread81
+          to label %.lr.ph.i.i.i.i.i.i.preheader unwind label %.thread94
 
 .lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 %18
@@ -176,7 +176,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   store ptr %76, ptr %24, align 8, !tbaa !11
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit
 
-.thread81:                                        ; preds = %61, %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+.thread94:                                        ; preds = %61, %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %77 = landingpad { ptr, i32 }
           cleanup
   br label %125
@@ -347,28 +347,28 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit53:  ; preds = %_ZNSt6vectorIN2cv6P
   br i1 %.not.i.i.i54, label %124, label %122
 
 122:                                              ; preds = %.thread, %121
-  %.pn24.pn.pn.pn.pn.pn80 = phi { ptr, i32 } [ %116, %.thread ], [ %.pn24.pn.pn.pn.pn, %121 ]
+  %.pn24.pn.pn.pn.pn.pn93 = phi { ptr, i32 } [ %116, %.thread ], [ %.pn24.pn.pn.pn.pn, %121 ]
   %123 = phi ptr [ %78, %.thread ], [ %.pre, %121 ]
   call void @_ZdlPv(ptr noundef nonnull %123) #17
   br label %124
 
 124:                                              ; preds = %114, %121, %122
-  %.pn24.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %115, %114 ], [ %.pn24.pn.pn.pn.pn, %121 ], [ %.pn24.pn.pn.pn.pn.pn80, %122 ]
+  %.pn24.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %115, %114 ], [ %.pn24.pn.pn.pn.pn, %121 ], [ %.pn24.pn.pn.pn.pn.pn93, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre77 = load ptr, ptr %4, align 8, !tbaa !9
   %.not.i.i.i56 = icmp eq ptr %.pre77, null
   br i1 %.not.i.i.i56, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit57, label %125
 
-125:                                              ; preds = %.thread81, %124
-  %.pn24.pn.pn.pn.pn.pn.pn.pn.pn84 = phi { ptr, i32 } [ %77, %.thread81 ], [ %.pn24.pn.pn.pn.pn.pn.pn, %124 ]
-  %126 = phi ptr [ %21, %.thread81 ], [ %.pre77, %124 ]
+125:                                              ; preds = %.thread94, %124
+  %.pn24.pn.pn.pn.pn.pn.pn.pn.pn97 = phi { ptr, i32 } [ %77, %.thread94 ], [ %.pn24.pn.pn.pn.pn.pn.pn, %124 ]
+  %126 = phi ptr [ %21, %.thread94 ], [ %.pre77, %124 ]
   call void @_ZdlPv(ptr noundef nonnull %126) #17
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit57
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit57:  ; preds = %124, %125
-  %.pn24.pn.pn.pn.pn.pn.pn.pn.pn85 = phi { ptr, i32 } [ %.pn24.pn.pn.pn.pn.pn.pn, %124 ], [ %.pn24.pn.pn.pn.pn.pn.pn.pn.pn84, %125 ]
+  %.pn24.pn.pn.pn.pn.pn.pn.pn.pn98 = phi { ptr, i32 } [ %.pn24.pn.pn.pn.pn.pn.pn, %124 ], [ %.pn24.pn.pn.pn.pn.pn.pn.pn.pn97, %125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.pn24.pn.pn.pn.pn.pn.pn.pn.pn85
+  resume { ptr, i32 } %.pn24.pn.pn.pn.pn.pn.pn.pn.pn98
 }
 
 declare i32 @__gxx_personality_v0(...)

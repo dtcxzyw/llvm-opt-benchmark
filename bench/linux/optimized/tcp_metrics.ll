@@ -421,19 +421,19 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %56 = getelementptr %struct.tcpm_hash_bucket, ptr %54, i64 %55
   %57 = load volatile ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %.loopexit23, label %.preheader61
+  br i1 %58, label %.loopexit23, label %.preheader69
 
-.preheader61:                                     ; preds = %40, %94
+.preheader69:                                     ; preds = %40, %94
   %59 = phi ptr [ %96, %94 ], [ %57, %40 ]
   %60 = phi i32 [ %95, %94 ], [ 0, %40 ]
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %63 = load i16, ptr %62, align 4
   %64 = icmp eq i16 %63, %42
-  br i1 %64, label %.preheader60, label %94
+  br i1 %64, label %.preheader68, label %94
 
-.preheader60:                                     ; preds = %.preheader61, %.preheader60
-  %65 = phi i64 [ %71, %.preheader60 ], [ 0, %.preheader61 ]
+.preheader68:                                     ; preds = %.preheader69, %.preheader68
+  %65 = phi i64 [ %71, %.preheader68 ], [ 0, %.preheader69 ]
   %66 = getelementptr [4 x i32], ptr %61, i64 0, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = getelementptr [4 x i32], ptr %4, i64 0, i64 %65
@@ -442,9 +442,9 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %71 = add nuw nsw i64 %65, 1
   %72 = icmp ne i64 %71, %41
   %73 = select i1 %70, i1 %72, i1 false
-  br i1 %73, label %.preheader60, label %74, !llvm.loop !6
+  br i1 %73, label %.preheader68, label %74, !llvm.loop !6
 
-74:                                               ; preds = %.preheader60
+74:                                               ; preds = %.preheader68
   br i1 %70, label %75, label %94
 
 75:                                               ; preds = %74
@@ -452,10 +452,10 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %77 = getelementptr inbounds nuw i8, ptr %59, i64 52
   %78 = load i16, ptr %77, align 4
   %79 = icmp eq i16 %78, %42
-  br i1 %79, label %.preheader59, label %94
+  br i1 %79, label %.preheader67, label %94
 
-.preheader59:                                     ; preds = %75, %.preheader59
-  %80 = phi i64 [ %86, %.preheader59 ], [ 0, %75 ]
+.preheader67:                                     ; preds = %75, %.preheader67
+  %80 = phi i64 [ %86, %.preheader67 ], [ 0, %75 ]
   %81 = getelementptr [4 x i32], ptr %76, i64 0, i64 %80
   %82 = load i32, ptr %81, align 4
   %83 = getelementptr [4 x i32], ptr %5, i64 0, i64 %80
@@ -464,9 +464,9 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %86 = add nuw nsw i64 %80, 1
   %87 = icmp ne i64 %86, %41
   %88 = select i1 %85, i1 %87, i1 false
-  br i1 %88, label %.preheader59, label %89, !llvm.loop !6
+  br i1 %88, label %.preheader67, label %89, !llvm.loop !6
 
-89:                                               ; preds = %.preheader59
+89:                                               ; preds = %.preheader67
   br i1 %85, label %90, label %94
 
 90:                                               ; preds = %89
@@ -475,11 +475,11 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %93 = icmp eq ptr %92, %46
   br i1 %93, label %.loopexit23, label %94
 
-94:                                               ; preds = %90, %89, %75, %74, %.preheader61
+94:                                               ; preds = %90, %89, %75, %74, %.preheader69
   %95 = add i32 %60, 1
   %96 = load volatile ptr, ptr %59, align 8
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %98, label %.preheader61, !llvm.loop !9
+  br i1 %97, label %98, label %.preheader69, !llvm.loop !9
 
 98:                                               ; preds = %94
   %99 = icmp sgt i32 %95, 5
@@ -503,19 +503,19 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %111 = getelementptr %struct.tcpm_hash_bucket, ptr %110, i64 %55
   %112 = load volatile ptr, ptr %111, align 8
   %113 = icmp eq ptr %112, null
-  br i1 %113, label %.loopexit22.thread.thread, label %.preheader58
+  br i1 %113, label %.loopexit22.thread.thread, label %.preheader66
 
-.preheader58:                                     ; preds = %106, %149
+.preheader66:                                     ; preds = %106, %149
   %114 = phi ptr [ %151, %149 ], [ %112, %106 ]
   %115 = phi i32 [ %150, %149 ], [ 0, %106 ]
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 32
   %118 = load i16, ptr %117, align 4
   %119 = icmp eq i16 %118, %42
-  br i1 %119, label %.preheader57, label %149
+  br i1 %119, label %.preheader65, label %149
 
-.preheader57:                                     ; preds = %.preheader58, %.preheader57
-  %120 = phi i64 [ %126, %.preheader57 ], [ 0, %.preheader58 ]
+.preheader65:                                     ; preds = %.preheader66, %.preheader65
+  %120 = phi i64 [ %126, %.preheader65 ], [ 0, %.preheader66 ]
   %121 = getelementptr [4 x i32], ptr %116, i64 0, i64 %120
   %122 = load i32, ptr %121, align 4
   %123 = getelementptr [4 x i32], ptr %4, i64 0, i64 %120
@@ -524,9 +524,9 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %126 = add nuw nsw i64 %120, 1
   %127 = icmp ne i64 %126, %41
   %128 = select i1 %125, i1 %127, i1 false
-  br i1 %128, label %.preheader57, label %129, !llvm.loop !6
+  br i1 %128, label %.preheader65, label %129, !llvm.loop !6
 
-129:                                              ; preds = %.preheader57
+129:                                              ; preds = %.preheader65
   br i1 %125, label %130, label %149
 
 130:                                              ; preds = %129
@@ -534,10 +534,10 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %132 = getelementptr inbounds nuw i8, ptr %114, i64 52
   %133 = load i16, ptr %132, align 4
   %134 = icmp eq i16 %133, %42
-  br i1 %134, label %.preheader56, label %149
+  br i1 %134, label %.preheader64, label %149
 
-.preheader56:                                     ; preds = %130, %.preheader56
-  %135 = phi i64 [ %141, %.preheader56 ], [ 0, %130 ]
+.preheader64:                                     ; preds = %130, %.preheader64
+  %135 = phi i64 [ %141, %.preheader64 ], [ 0, %130 ]
   %136 = getelementptr [4 x i32], ptr %131, i64 0, i64 %135
   %137 = load i32, ptr %136, align 4
   %138 = getelementptr [4 x i32], ptr %5, i64 0, i64 %135
@@ -546,9 +546,9 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %141 = add nuw nsw i64 %135, 1
   %142 = icmp ne i64 %141, %41
   %143 = select i1 %140, i1 %142, i1 false
-  br i1 %143, label %.preheader56, label %144, !llvm.loop !6
+  br i1 %143, label %.preheader64, label %144, !llvm.loop !6
 
-144:                                              ; preds = %.preheader56
+144:                                              ; preds = %.preheader64
   br i1 %140, label %145, label %149
 
 145:                                              ; preds = %144
@@ -557,11 +557,11 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %148 = icmp eq ptr %147, %109
   br i1 %148, label %.loopexit22, label %149
 
-149:                                              ; preds = %145, %144, %130, %129, %.preheader58
+149:                                              ; preds = %145, %144, %130, %129, %.preheader66
   %150 = add i32 %115, 1
   %151 = load volatile ptr, ptr %114, align 8
   %152 = icmp eq ptr %151, null
-  br i1 %152, label %153, label %.preheader58, !llvm.loop !9
+  br i1 %152, label %153, label %.preheader66, !llvm.loop !9
 
 153:                                              ; preds = %149
   %154 = icmp sgt i32 %150, 5
@@ -900,10 +900,10 @@ define dso_local noundef zeroext i1 @tcp_peer_is_proven(ptr noundef readonly cap
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %52 = load i16, ptr %51, align 4
   %53 = icmp eq i16 %52, %10
-  br i1 %53, label %.preheader17, label %83
+  br i1 %53, label %.preheader20, label %83
 
-.preheader17:                                     ; preds = %48, %.preheader17
-  %54 = phi i64 [ %60, %.preheader17 ], [ 0, %48 ]
+.preheader20:                                     ; preds = %48, %.preheader20
+  %54 = phi i64 [ %60, %.preheader20 ], [ 0, %48 ]
   %55 = getelementptr [4 x i32], ptr %50, i64 0, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = getelementptr [4 x i32], ptr %3, i64 0, i64 %54
@@ -912,9 +912,9 @@ define dso_local noundef zeroext i1 @tcp_peer_is_proven(ptr noundef readonly cap
   %60 = add nuw nsw i64 %54, 1
   %61 = icmp ne i64 %60, %47
   %62 = select i1 %59, i1 %61, i1 false
-  br i1 %62, label %.preheader17, label %63, !llvm.loop !6
+  br i1 %62, label %.preheader20, label %63, !llvm.loop !6
 
-63:                                               ; preds = %.preheader17
+63:                                               ; preds = %.preheader20
   br i1 %59, label %64, label %83
 
 64:                                               ; preds = %63
@@ -1592,10 +1592,10 @@ define internal range(i32 -2147483648, 1) i32 @tcp_metrics_nl_cmd_get(ptr readno
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 52
   %96 = load i16, ptr %95, align 4
   %97 = icmp eq i16 %96, %36
-  br i1 %97, label %.preheader34, label %127
+  br i1 %97, label %.preheader45, label %127
 
-.preheader34:                                     ; preds = %.split.us, %.preheader34
-  %98 = phi i64 [ %104, %.preheader34 ], [ 0, %.split.us ]
+.preheader45:                                     ; preds = %.split.us, %.preheader45
+  %98 = phi i64 [ %104, %.preheader45 ], [ 0, %.split.us ]
   %99 = getelementptr [4 x i32], ptr %94, i64 0, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = getelementptr [4 x i32], ptr %6, i64 0, i64 %98
@@ -1604,9 +1604,9 @@ define internal range(i32 -2147483648, 1) i32 @tcp_metrics_nl_cmd_get(ptr readno
   %104 = add nuw nsw i64 %98, 1
   %105 = icmp ne i64 %104, %90
   %106 = select i1 %103, i1 %105, i1 false
-  br i1 %106, label %.preheader34, label %107, !llvm.loop !6
+  br i1 %106, label %.preheader45, label %107, !llvm.loop !6
 
-107:                                              ; preds = %.preheader34
+107:                                              ; preds = %.preheader45
   br i1 %103, label %108, label %127
 
 108:                                              ; preds = %107
@@ -1648,10 +1648,10 @@ define internal range(i32 -2147483648, 1) i32 @tcp_metrics_nl_cmd_get(ptr readno
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 52
   %133 = load i16, ptr %132, align 4
   %134 = icmp eq i16 %133, %36
-  br i1 %134, label %.preheader35, label %149
+  br i1 %134, label %.preheader46, label %149
 
-.preheader35:                                     ; preds = %.split, %.preheader35
-  %135 = phi i64 [ %141, %.preheader35 ], [ 0, %.split ]
+.preheader46:                                     ; preds = %.split, %.preheader46
+  %135 = phi i64 [ %141, %.preheader46 ], [ 0, %.split ]
   %136 = getelementptr [4 x i32], ptr %131, i64 0, i64 %135
   %137 = load i32, ptr %136, align 4
   %138 = getelementptr [4 x i32], ptr %6, i64 0, i64 %135
@@ -1660,9 +1660,9 @@ define internal range(i32 -2147483648, 1) i32 @tcp_metrics_nl_cmd_get(ptr readno
   %141 = add nuw nsw i64 %135, 1
   %142 = icmp ne i64 %141, %90
   %143 = select i1 %140, i1 %142, i1 false
-  br i1 %143, label %.preheader35, label %144, !llvm.loop !6
+  br i1 %143, label %.preheader46, label %144, !llvm.loop !6
 
-144:                                              ; preds = %.preheader35
+144:                                              ; preds = %.preheader46
   br i1 %140, label %145, label %149
 
 145:                                              ; preds = %144

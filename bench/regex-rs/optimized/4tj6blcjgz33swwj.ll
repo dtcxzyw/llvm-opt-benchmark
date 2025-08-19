@@ -207,9 +207,9 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
 
 74:                                               ; preds = %72, %68, %61
   %.sroa.0124.1 = phi i32 [ %.sroa.0124.0, %61 ], [ %.sroa.0124.0, %68 ], [ %.fca.1.extract.i.i, %72 ]
-  %.sink20.i.sroa.phi = phi ptr [ %.sroa.6126, %61 ], [ %.sroa.6126, %68 ], [ %.sroa.11128, %72 ]
+  %.sink21.i.sroa.phi = phi ptr [ %.sroa.6126, %61 ], [ %.sroa.6126, %68 ], [ %.sroa.11128, %72 ]
   %.sink.i = phi ptr [ null, %61 ], [ null, %68 ], [ %70, %72 ]
-  store ptr %.sink.i, ptr %.sink20.i.sroa.phi, align 8, !alias.scope !10, !noalias !13
+  store ptr %.sink.i, ptr %.sink21.i.sroa.phi, align 8, !alias.scope !10, !noalias !13
   %.sroa.6126.0..sroa.6126.0..sroa.6126.0..sroa.6126.8.127 = load ptr, ptr %.sroa.6126, align 8, !noundef !9
   %75 = icmp eq ptr %.sroa.6126.0..sroa.6126.0..sroa.6126.0..sroa.6126.8.127, null
   br i1 %75, label %76, label %247

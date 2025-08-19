@@ -891,8 +891,8 @@ define void @_ZNK7rocksdb8SortList5MergeERSt6vectorIiSaIiEES4_(ptr dead_on_unwin
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %8, align 8, !tbaa !18
   %12 = load ptr, ptr %3, align 8, !tbaa !15
-  %.not202 = icmp eq ptr %11, %12
-  br i1 %.not202, label %.critedge, label %.lr.ph187
+  %.not234 = icmp eq ptr %11, %12
+  br i1 %.not234, label %.critedge, label %.lr.ph219
 
 13:                                               ; preds = %96
   %14 = zext i32 %.127 to i64
@@ -903,14 +903,14 @@ define void @_ZNK7rocksdb8SortList5MergeERSt6vectorIiSaIiEES4_(ptr dead_on_unwin
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 2
   %21 = icmp ugt i64 %20, %14
-  br i1 %21, label %.lr.ph187, label %.critedge, !llvm.loop !46
+  br i1 %21, label %.lr.ph219, label %.critedge, !llvm.loop !46
 
-.lr.ph187:                                        ; preds = %.lr.ph, %13
+.lr.ph219:                                        ; preds = %.lr.ph, %13
   %22 = phi ptr [ %16, %13 ], [ %12, %.lr.ph ]
   %23 = phi i64 [ %14, %13 ], [ 0, %.lr.ph ]
   %24 = phi ptr [ %100, %13 ], [ null, %.lr.ph ]
-  %.02682186 = phi i32 [ %.127, %13 ], [ 0, %.lr.ph ]
-  %.083185 = phi i32 [ %.1, %13 ], [ 0, %.lr.ph ]
+  %.02682218 = phi i32 [ %.127, %13 ], [ 0, %.lr.ph ]
+  %.083217 = phi i32 [ %.1, %13 ], [ 0, %.lr.ph ]
   %25 = phi i64 [ %101, %13 ], [ 0, %.lr.ph ]
   %26 = phi ptr [ %103, %13 ], [ %7, %.lr.ph ]
   %27 = phi ptr [ %99, %13 ], [ null, %.lr.ph ]
@@ -923,7 +923,7 @@ define void @_ZNK7rocksdb8SortList5MergeERSt6vectorIiSaIiEES4_(ptr dead_on_unwin
   %34 = icmp slt i32 %31, %33
   br i1 %34, label %35, label %69
 
-35:                                               ; preds = %.lr.ph187
+35:                                               ; preds = %.lr.ph219
   %.not.i = icmp eq ptr %27, %29
   br i1 %.not.i, label %38, label %36
 
@@ -991,7 +991,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %57 = phi ptr [ %56, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %29, %36 ]
   %58 = phi ptr [ %54, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %37, %36 ]
   %59 = phi ptr [ %49, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %24, %36 ]
-  %60 = add i32 %.083185, 1
+  %60 = add i32 %.083217, 1
   br label %96
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i56
@@ -1036,7 +1036,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit.split-lp, %65
   resume { ptr, i32 } %lpad.phi
 
-69:                                               ; preds = %.lr.ph187
+69:                                               ; preds = %.lr.ph219
   %.not.i35 = icmp eq ptr %27, %28
   br i1 %.not.i35, label %72, label %70
 
@@ -1097,7 +1097,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit44:        ; preds = %_ZNSt6vectorIiSaIiE
   %92 = phi ptr [ %90, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i41 ], [ %28, %70 ]
   %93 = phi ptr [ %88, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i41 ], [ %71, %70 ]
   %94 = phi ptr [ %83, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i41 ], [ %24, %70 ]
-  %95 = add i32 %.02682186, 1
+  %95 = add i32 %.02682218, 1
   br label %96
 
 96:                                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit44, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
@@ -1105,8 +1105,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit44:        ; preds = %_ZNSt6vectorIiSaIiE
   %98 = phi ptr [ %57, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %92, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit44 ]
   %99 = phi ptr [ %58, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %93, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit44 ]
   %100 = phi ptr [ %59, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %94, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit44 ]
-  %.127 = phi i32 [ %.02682186, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %95, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit44 ]
-  %.1 = phi i32 [ %60, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.083185, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit44 ]
+  %.127 = phi i32 [ %.02682218, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %95, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit44 ]
+  %.1 = phi i32 [ %60, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.083217, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit44 ]
   %101 = zext i32 %.1 to i64
   %102 = load ptr, ptr %5, align 8, !tbaa !18
   %103 = load ptr, ptr %2, align 8, !tbaa !15

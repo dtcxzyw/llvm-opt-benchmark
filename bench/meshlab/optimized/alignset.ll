@@ -255,13 +255,13 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
   br i1 %23, label %._crit_edge.thread.i.i, label %28
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %18
-  %.019.lcssa28.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %6, %18 ]
+  %.019.lcssa29.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %6, %18 ]
   %24 = load ptr, ptr %8, align 8
-  %25 = icmp eq ptr %.019.lcssa28.i.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i.i, %24
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #25
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i) #25
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81.i = load i32, ptr %.phi.trans.insert80.i, align 4
   %.pre82.i = load i32, ptr %.08.i, align 4
@@ -270,12 +270,12 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 28:                                               ; preds = %26, %._crit_edge.i.i
   %29 = phi i32 [ %.pre82.i, %26 ], [ %19, %._crit_edge.i.i ]
   %30 = phi i32 [ %.pre81.i, %26 ], [ %22, %._crit_edge.i.i ]
-  %.019.lcssa29.i.i = phi ptr [ %.019.lcssa28.i.i, %26 ], [ %.02024.i.i, %._crit_edge.i.i ]
+  %.019.lcssa28.i.i = phi ptr [ %.019.lcssa29.i.i, %26 ], [ %.02024.i.i, %._crit_edge.i.i ]
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
-  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
+  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
@@ -3611,7 +3611,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit: ; preds = %.no
           cleanup
   br label %336
 
-.loopexit.split-lp:                               ; preds = %switch.lookup108, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, %50, %53, %65, %66, %70, %71, %75, %76, %77, %80, %84, %85, %87, %91, %92, %94, %97, %100, %103, %105, %108, %110, %112, %115, %117, %120, %123, %126, %130, %133, %138, %141, %146, %149, %154, %157, %159, %162, %164, %166, %169, %171, %174, %177, %181, %184, %186, %189, %191, %193, %196, %198, %201, %204, %208, %211, %213, %216, %218, %220, %223, %225, %228, %249, %252, %254, %255, %257, %259, %261, %262, %264, %265, %267, %268, %270, %271, %273, %274, %276, %282, %288, %289, %295, %297, %299, %300, %302, %306, %307, %310, %328, %_ZN7QStringD2Ev.exit, %54, %.noexc, %.noexc69, %.noexc70, %.noexc71, %.noexc72, %.noexc73, %.noexc74, %309, %.noexc76, %.noexc77, %.noexc78, %.noexc79, %.noexc80
+.loopexit.split-lp:                               ; preds = %switch.lookup109, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, %50, %53, %65, %66, %70, %71, %75, %76, %77, %80, %84, %85, %87, %91, %92, %94, %97, %100, %103, %105, %108, %110, %112, %115, %117, %120, %123, %126, %130, %133, %138, %141, %146, %149, %154, %157, %159, %162, %164, %166, %169, %171, %174, %177, %181, %184, %186, %189, %191, %193, %196, %198, %201, %204, %208, %211, %213, %216, %218, %220, %223, %225, %228, %249, %252, %254, %255, %257, %259, %261, %262, %264, %265, %267, %268, %270, %271, %273, %274, %276, %282, %288, %289, %295, %297, %299, %300, %302, %306, %307, %310, %328, %_ZN7QStringD2Ev.exit, %54, %.noexc, %.noexc69, %.noexc70, %.noexc71, %.noexc72, %.noexc73, %.noexc74, %309, %.noexc76, %.noexc77, %.noexc78, %.noexc79, %.noexc80
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %336
@@ -3620,22 +3620,22 @@ switch.lookup:                                    ; preds = %_ZN6GlShotIN3vcg4Sh
   %switch.cast = trunc nuw i32 %60 to i8
   %switch.downshift = lshr i8 -27, %switch.cast
   %switch.masked = trunc i8 %switch.downshift to i1
-  %switch.cast96 = trunc nuw i32 %60 to i8
-  %switch.downshift98 = lshr i8 -21, %switch.cast96
-  %switch.masked99 = trunc i8 %switch.downshift98 to i1
-  %switch.cast100 = trunc nuw i32 %60 to i8
-  %switch.downshift102 = lshr i8 64, %switch.cast100
-  %switch.masked103 = trunc i8 %switch.downshift102 to i1
-  %switch.cast104 = trunc nuw i32 %60 to i8
-  %switch.downshift106 = lshr exact i8 -128, %switch.cast104
-  %switch.masked107 = trunc i8 %switch.downshift106 to i1
+  %switch.cast97 = trunc nuw i32 %60 to i8
+  %switch.downshift99 = lshr i8 -21, %switch.cast97
+  %switch.masked100 = trunc i8 %switch.downshift99 to i1
+  %switch.cast101 = trunc nuw i32 %60 to i8
+  %switch.downshift103 = lshr i8 64, %switch.cast101
+  %switch.masked104 = trunc i8 %switch.downshift103 to i1
+  %switch.cast105 = trunc nuw i32 %60 to i8
+  %switch.downshift107 = lshr exact i8 -128, %switch.cast105
+  %switch.masked108 = trunc i8 %switch.downshift107 to i1
   br label %65
 
 65:                                               ; preds = %switch.lookup, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit
   %.059 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked, %switch.lookup ]
-  %.058 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked99, %switch.lookup ]
-  %.057 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked103, %switch.lookup ]
-  %.056 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked107, %switch.lookup ]
+  %.058 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked100, %switch.lookup ]
+  %.057 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked104, %switch.lookup ]
+  %.056 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked108, %switch.lookup ]
   invoke void @glDisable(i32 noundef 2896)
           to label %66 unwind label %.loopexit.split-lp
 
@@ -4119,9 +4119,9 @@ switch.lookup:                                    ; preds = %_ZN6GlShotIN3vcg4Sh
 
 290:                                              ; preds = %289
   %291 = icmp ult i32 %2, 4
-  br i1 %291, label %switch.lookup108, label %295
+  br i1 %291, label %switch.lookup109, label %295
 
-switch.lookup108:                                 ; preds = %290
+switch.lookup109:                                 ; preds = %290
   %switch.offset = add nuw nsw i32 %2, 6403
   %292 = load i32, ptr %0, align 8
   %293 = load i32, ptr %12, align 4
@@ -4129,7 +4129,7 @@ switch.lookup108:                                 ; preds = %290
   invoke void @glReadPixels(i32 noundef 0, i32 noundef 0, i32 noundef %292, i32 noundef %293, i32 noundef %switch.offset, i32 noundef 5121, ptr noundef %294)
           to label %295 unwind label %.loopexit.split-lp
 
-295:                                              ; preds = %290, %switch.lookup108
+295:                                              ; preds = %290, %switch.lookup109
   invoke void @glDisableClientState(i32 noundef 32884)
           to label %296 unwind label %.loopexit.split-lp
 
@@ -4819,8 +4819,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
           to label %_ZN10QByteArrayD2Ev.exit38 unwind label %79
 
 _ZN10QByteArrayD2Ev.exit38.sink.split:            ; preds = %128, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i59, %69, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i36
-  %.sink74 = phi ptr [ %.pre.i37, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i36 ], [ %70, %69 ], [ %.pre.i60, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i59 ], [ %129, %128 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %.sink74, i64 noundef 1, i64 noundef 8) #23
+  %.sink78 = phi ptr [ %.pre.i37, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i36 ], [ %70, %69 ], [ %.pre.i60, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i59 ], [ %129, %128 ]
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %.sink78, i64 noundef 1, i64 noundef 8) #23
   br label %_ZN10QByteArrayD2Ev.exit38
 
 _ZN10QByteArrayD2Ev.exit38:                       ; preds = %_ZN10QByteArrayD2Ev.exit38.sink.split, %_ZN9QtPrivate8RefCount5derefEv.exit.i57, %128, %_ZN9QtPrivate8RefCount5derefEv.exit.i34, %69, %136

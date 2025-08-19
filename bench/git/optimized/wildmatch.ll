@@ -147,23 +147,23 @@ sane_iscase.exit408.thread:                       ; preds = %25, %sane_iscase.ex
 54:                                               ; preds = %53
   %55 = getelementptr inbounds nuw i8, ptr %.3245, i64 2
   %56 = load i8, ptr %55, align 1, !tbaa !4
-  %.fr738 = freeze i8 %56
-  %57 = icmp eq i8 %.fr738, 47
+  %.fr758 = freeze i8 %56
+  %57 = icmp eq i8 %.fr758, 47
   %spec.select504 = zext i1 %57 to i32
-  br label %.thread451.thread646.thread
+  br label %.thread451.thread666.thread
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %.3245, i64 2
   %60 = tail call fastcc i32 @dowild(ptr noundef nonnull %59, ptr noundef nonnull %.0251548, i32 noundef %2)
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %.thread490, label %.thread451.thread646.thread
+  br i1 %61, label %.thread490, label %.thread451.thread666.thread
 
 .thread451:                                       ; preds = %37, %53, %49
   %.pr = phi i8 [ %42, %53 ], [ %42, %49 ], [ %39, %37 ]
   %.4286.ph = phi i32 [ 0, %53 ], [ 0, %49 ], [ %9, %37 ]
   %.4246.ph = phi ptr [ %41, %53 ], [ %41, %49 ], [ %38, %37 ]
   %62 = icmp eq i8 %.pr, 0
-  br i1 %62, label %64, label %.thread451.thread646
+  br i1 %62, label %64, label %.thread451.thread666
 
 .thread451.thread:                                ; preds = %44
   %63 = icmp eq i8 %42, 0
@@ -181,22 +181,22 @@ sane_iscase.exit408.thread:                       ; preds = %25, %sane_iscase.ex
 .thread501:                                       ; preds = %53, %.thread451.thread, %65, %64
   br label %.thread490
 
-.thread451.thread646.thread:                      ; preds = %58, %54
+.thread451.thread666.thread:                      ; preds = %58, %54
   %.4286499.ph = phi i32 [ 1, %58 ], [ %spec.select504, %54 ]
   %67 = icmp ne i32 %.4286499.ph, 0
   br label %.preheader
 
-.thread451.thread646:                             ; preds = %.thread451
+.thread451.thread666:                             ; preds = %.thread451
   %68 = icmp ne i32 %.4286.ph, 0
   %69 = icmp ne i8 %.pr, 47
   %or.cond360.not = or i1 %68, %69
   br i1 %or.cond360.not, label %.preheader, label %126
 
-.preheader:                                       ; preds = %.thread451.thread646, %.thread451.thread646.thread, %.thread451.thread
-  %70 = phi i1 [ true, %.thread451.thread ], [ %67, %.thread451.thread646.thread ], [ %68, %.thread451.thread646 ]
-  %.4286499.fr663 = phi i32 [ 1, %.thread451.thread ], [ %.4286499.ph, %.thread451.thread646.thread ], [ %.4286.ph, %.thread451.thread646 ]
-  %71 = phi i8 [ %42, %.thread451.thread ], [ %42, %.thread451.thread646.thread ], [ %.pr, %.thread451.thread646 ]
-  %.4246500662 = phi ptr [ %41, %.thread451.thread ], [ %41, %.thread451.thread646.thread ], [ %.4246.ph, %.thread451.thread646 ]
+.preheader:                                       ; preds = %.thread451.thread666, %.thread451.thread666.thread, %.thread451.thread
+  %70 = phi i1 [ true, %.thread451.thread ], [ %67, %.thread451.thread666.thread ], [ %68, %.thread451.thread666 ]
+  %.4286499.fr683 = phi i32 [ 1, %.thread451.thread ], [ %.4286499.ph, %.thread451.thread666.thread ], [ %.4286.ph, %.thread451.thread666 ]
+  %71 = phi i8 [ %42, %.thread451.thread ], [ %42, %.thread451.thread666.thread ], [ %.pr, %.thread451.thread666 ]
+  %.4246500682 = phi ptr [ %41, %.thread451.thread ], [ %41, %.thread451.thread666.thread ], [ %.4246.ph, %.thread451.thread666 ]
   %72 = icmp eq i8 %.0277.fr, 0
   br i1 %72, label %.thread490, label %.lr.ph563
 
@@ -208,15 +208,15 @@ sane_iscase.exit408.thread:                       ; preds = %25, %sane_iscase.ex
   %.not346 = icmp eq i8 %76, 0
   %77 = icmp slt i8 %71, 0
   %or.cond512.not = or i1 %77, %.not315
-  %78 = icmp eq i32 %.4286499.fr663, 0
+  %78 = icmp eq i32 %.4286499.fr683, 0
   br i1 %.not346, label %.lr.ph563.split.us.preheader, label %.lr.ph563.split
 
 .lr.ph563.split.us.preheader:                     ; preds = %.lr.ph563
   %79 = shl i8 %75, 3
   %80 = and i8 %79, 32
   %spec.select520.us = select i1 %or.cond512.not, i8 0, i8 %80
-  %spec.select737 = or i8 %71, %spec.select520.us
-  %81 = icmp eq i8 %spec.select737, 47
+  %spec.select757 = or i8 %71, %spec.select520.us
+  %81 = icmp eq i8 %spec.select757, 47
   %or.cond11.us = and i1 %78, %81
   br label %.lr.ph563.split.us
 
@@ -246,7 +246,7 @@ sane_iscase.exit408.thread:                       ; preds = %25, %sane_iscase.ex
 
 sane_iscase.exit422.thread.us570:                 ; preds = %87, %.lr.ph553.split.us579
   %.4281.us = phi i8 [ %85, %.lr.ph553.split.us579 ], [ %spec.select521.us, %87 ]
-  %93 = icmp eq i8 %.4281.us, %spec.select737
+  %93 = icmp eq i8 %.4281.us, %spec.select757
   br i1 %93, label %.critedge.us.thread, label %94
 
 94:                                               ; preds = %sane_iscase.exit422.thread.us570
@@ -261,12 +261,12 @@ sane_iscase.exit422.thread.us570:                 ; preds = %87, %.lr.ph553.spli
 .critedge.us:                                     ; preds = %94, %109, %.lr.ph563.split.us
   %.5256.lcssa.us = phi ptr [ %.3254562.us, %.lr.ph563.split.us ], [ %110, %109 ], [ %95, %94 ]
   %.3280.us = phi i8 [ %82, %.lr.ph563.split.us ], [ %111, %109 ], [ %96, %94 ]
-  %.not350.us = icmp eq i8 %.3280.us, %spec.select737
+  %.not350.us = icmp eq i8 %.3280.us, %spec.select757
   br i1 %.not350.us, label %.critedge.us.thread, label %.split.us
 
 .critedge.us.thread:                              ; preds = %sane_iscase.exit422.thread.us570, %sane_iscase.exit422.thread.us.us, %.critedge.us
-  %.5256.lcssa.us667 = phi ptr [ %.5256.lcssa.us, %.critedge.us ], [ %.5256552.us.us, %sane_iscase.exit422.thread.us.us ], [ %.5256552.us569, %sane_iscase.exit422.thread.us570 ]
-  %99 = tail call fastcc i32 @dowild(ptr noundef nonnull %.4246500662, ptr noundef nonnull %.5256.lcssa.us667, i32 noundef %2)
+  %.5256.lcssa.us687 = phi ptr [ %.5256.lcssa.us, %.critedge.us ], [ %.5256552.us.us, %sane_iscase.exit422.thread.us.us ], [ %.5256552.us569, %sane_iscase.exit422.thread.us570 ]
+  %99 = tail call fastcc i32 @dowild(ptr noundef nonnull %.4246500682, ptr noundef nonnull %.5256.lcssa.us687, i32 noundef %2)
   %.not351.us = icmp eq i32 %99, 1
   br i1 %.not351.us, label %102, label %100
 
@@ -279,7 +279,7 @@ sane_iscase.exit422.thread.us570:                 ; preds = %87, %.lr.ph553.spli
   br i1 %or.cond11.us, label %.thread490, label %103
 
 103:                                              ; preds = %102, %100
-  %104 = getelementptr inbounds nuw i8, ptr %.5256.lcssa.us667, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.5256.lcssa.us687, i64 1
   %105 = load i8, ptr %104, align 1, !tbaa !4
   %106 = icmp eq i8 %105, 0
   br i1 %106, label %.thread490, label %.lr.ph563.split.us
@@ -290,7 +290,7 @@ sane_iscase.exit422.thread.us570:                 ; preds = %87, %.lr.ph553.spli
 sane_iscase.exit422.thread.us.us:                 ; preds = %.lr.ph553.us, %109
   %107 = phi i8 [ %111, %109 ], [ %82, %.lr.ph553.us ]
   %.5256552.us.us = phi ptr [ %110, %109 ], [ %.3254562.us, %.lr.ph553.us ]
-  %108 = icmp eq i8 %107, %spec.select737
+  %108 = icmp eq i8 %107, %spec.select757
   br i1 %108, label %.critedge.us.thread, label %109
 
 109:                                              ; preds = %sane_iscase.exit422.thread.us.us
@@ -308,7 +308,7 @@ sane_iscase.exit422.thread.us.us:                 ; preds = %.lr.ph553.us, %109
 .lr.ph563.split.split.us.split:                   ; preds = %.lr.ph563.split, %117
   %.3254562.us583 = phi ptr [ %118, %117 ], [ %.0251548, %.lr.ph563.split ]
   %.1278561.us584 = phi i8 [ %119, %117 ], [ %.0277.fr, %.lr.ph563.split ]
-  %114 = tail call fastcc i32 @dowild(ptr noundef nonnull %.4246500662, ptr noundef nonnull %.3254562.us583, i32 noundef %2)
+  %114 = tail call fastcc i32 @dowild(ptr noundef nonnull %.4246500682, ptr noundef nonnull %.3254562.us583, i32 noundef %2)
   %.not351.us585 = icmp eq i32 %114, 1
   br i1 %.not351.us585, label %115, label %.thread490
 
@@ -324,7 +324,7 @@ sane_iscase.exit422.thread.us.us:                 ; preds = %.lr.ph553.us, %109
 
 .lr.ph563.split.split.split.us:                   ; preds = %.lr.ph563.split, %122
   %.3254562.us596 = phi ptr [ %123, %122 ], [ %.0251548, %.lr.ph563.split ]
-  %121 = tail call fastcc i32 @dowild(ptr noundef nonnull %.4246500662, ptr noundef nonnull %.3254562.us596, i32 noundef %2)
+  %121 = tail call fastcc i32 @dowild(ptr noundef nonnull %.4246500682, ptr noundef nonnull %.3254562.us596, i32 noundef %2)
   switch i32 %121, label %.thread490 [
     i32 1, label %122
     i32 -2, label %122
@@ -336,7 +336,7 @@ sane_iscase.exit422.thread.us.us:                 ; preds = %.lr.ph553.us, %109
   %125 = icmp eq i8 %124, 0
   br i1 %125, label %.thread490, label %.lr.ph563.split.split.split.us
 
-126:                                              ; preds = %.thread451.thread646
+126:                                              ; preds = %.thread451.thread666
   %127 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0251548, i32 noundef 47) #2
   %.not345.not = icmp eq ptr %127, null
   br i1 %.not345.not, label %.thread490, label %select.unfold486

@@ -101,7 +101,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_stack_init(ptr noundef %0) 
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 284
   %18 = load i32, ptr %17, align 4, !tbaa !36
   %.not52.i = icmp eq i32 %18, 0
-  br i1 %.not52.i, label %.thread74.i, label %19
+  br i1 %.not52.i, label %.thread76.i, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 280
@@ -121,13 +121,13 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_stack_init(ptr noundef %0) 
   %or.cond5.i = select i1 %25, i1 true, i1 %22
   br i1 %or.cond5.i, label %36, label %30
 
-.thread74.i:                                      ; preds = %15
+.thread76.i:                                      ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 288
   %29 = load ptr, ptr %28, align 8, !tbaa !38
-  %.not81.i = icmp eq ptr %29, null
-  br i1 %.not81.i, label %30, label %.thread76.i
+  %.not83.i = icmp eq ptr %29, null
+  br i1 %.not83.i, label %30, label %.thread78.i
 
-30:                                               ; preds = %.thread74.i, %27
+30:                                               ; preds = %.thread76.i, %27
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %32 = load i32, ptr %31, align 8, !tbaa !39
   %33 = icmp eq i32 %32, 2
@@ -144,7 +144,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_stack_init(ptr noundef %0) 
   br label %stack_init.exit.thread
 
 36:                                               ; preds = %27
-  br i1 %22, label %._crit_edge73.i, label %.thread76.i
+  br i1 %22, label %._crit_edge73.i, label %.thread78.i
 
 ._crit_edge73.i:                                  ; preds = %36
   %37 = mul nsw i32 %21, %18
@@ -154,28 +154,28 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_stack_init(ptr noundef %0) 
   %39 = phi i32 [ 2, %.critedge.i ], [ %37, %._crit_edge73.i ]
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 264
   store i32 %39, ptr %40, align 8, !tbaa !39
-  br label %.thread76.i
+  br label %.thread78.i
 
-.thread76.i:                                      ; preds = %38, %36, %.thread74.i
+.thread78.i:                                      ; preds = %38, %36, %.thread76.i
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 296
   %42 = load ptr, ptr %41, align 8, !tbaa !40
   %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(5) @.str.32) #10
   %.not54.i = icmp eq i32 %43, 0
   br i1 %.not54.i, label %48, label %44
 
-44:                                               ; preds = %.thread76.i
+44:                                               ; preds = %.thread78.i
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 244
   %46 = tail call i32 @av_parse_color(ptr noundef nonnull %45, ptr noundef nonnull %42, i32 noundef -1, ptr noundef nonnull %0) #11
   %47 = icmp sgt i32 %46, -1
   br i1 %47, label %49, label %48
 
-48:                                               ; preds = %44, %.thread76.i
+48:                                               ; preds = %44, %.thread78.i
   br label %49
 
 49:                                               ; preds = %48, %44, %9, %1
-  %.sink80.i = phi i64 [ 248, %48 ], [ 240, %1 ], [ 240, %9 ], [ 248, %44 ]
+  %.sink82.i = phi i64 [ 248, %48 ], [ 240, %1 ], [ 240, %9 ], [ 248, %44 ]
   %.sink.i = phi i32 [ 0, %48 ], [ 0, %1 ], [ 1, %9 ], [ 1, %44 ]
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink80.i
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink82.i
   store i32 %.sink.i, ptr %50, align 8, !tbaa !41
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %52 = load i32, ptr %51, align 8, !tbaa !39
@@ -512,8 +512,8 @@ define internal i32 @config_output(ptr noundef %0) #0 {
   %.0218.i = phi i32 [ %130, %126 ], [ %137, %133 ]
   %139 = icmp sgt i32 %125, 0
   %140 = icmp sgt i32 %122, 0
-  %or.cond393.i = and i1 %140, %139
-  br i1 %or.cond393.i, label %.preheader275.lr.ph.split.us.i, label %._crit_edge315.i
+  %or.cond415.i = and i1 %140, %139
+  br i1 %or.cond415.i, label %.preheader275.lr.ph.split.us.i, label %._crit_edge315.i
 
 .preheader275.lr.ph.split.us.i:                   ; preds = %138
   %141 = getelementptr inbounds nuw i8, ptr %56, i64 256

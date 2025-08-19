@@ -1106,13 +1106,13 @@ define hidden void @_ZN6parser7grammar5paths12path_segment17h4467060628ae9263E.l
   %17 = load i64, ptr %0, align 8, !alias.scope !135, !noalias !140, !noundef !11
   %18 = icmp eq i64 %16, %17
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink.sroa.gep115 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink.sroa.gep117 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink.sroa.gep118 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink.sroa.gep120 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink.sroa.gep121 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink.sroa.gep123 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink.sroa.gep124 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink.sroa.gep136 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink.sroa.gep138 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink.sroa.gep139 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink.sroa.gep141 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink.sroa.gep142 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink.sroa.gep144 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink.sroa.gep145 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %18, label %._crit_edge.i.i.i, label %_ZN6parser6parser6Parser5start17ha1a470a189718db9E.exit
 
 ._crit_edge.i.i.i:                                ; preds = %3
@@ -1172,7 +1172,7 @@ _ZN6parser6parser6Parser5start17ha1a470a189718db9E.exit: ; preds = %3, %._crit_e
   %.pre.i.i.i.i = load i64, ptr %15, align 8, !alias.scope !151, !noalias !156
   br label %37
 
-.thread95:                                        ; preds = %.invoke110, %.invoke, %191, %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit66, %_ZN6parser7grammar5paths17is_use_path_start17h51d7c3e4b42af499E.exit.thread, %134, %77, %27, %._crit_edge.i.i.i.i, %37, %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit, %._crit_edge.i.i.i.i28, %._crit_edge.i.i.i39, %124, %127, %.noexc57, %_ZN6parser7grammar5types5type_17he31e974934f144acE.exit, %._crit_edge.i.i.i.i62, %167, %_ZN6parser7grammar5paths17is_use_path_start17h51d7c3e4b42af499E.exit.thread108, %189, %128, %.noexc55, %121
+.thread95:                                        ; preds = %.invoke131, %.invoke, %191, %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit66, %_ZN6parser7grammar5paths17is_use_path_start17h51d7c3e4b42af499E.exit.thread, %134, %77, %27, %._crit_edge.i.i.i.i, %37, %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit, %._crit_edge.i.i.i.i28, %._crit_edge.i.i.i39, %124, %127, %.noexc57, %_ZN6parser7grammar5types5type_17he31e974934f144acE.exit, %._crit_edge.i.i.i.i62, %167, %_ZN6parser7grammar5paths17is_use_path_start17h51d7c3e4b42af499E.exit.thread108, %189, %128, %.noexc55, %121
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread88
@@ -1257,16 +1257,16 @@ _ZN6parser6parser6Parser7do_bump17h7d8f0bfaf2addffbE.llvm.6580822817679657170.ex
   br label %.invoke
 
 .invoke:                                          ; preds = %162, %68
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %162 ], [ %.sink.sroa.gep115, %68 ]
-  %.sink.sroa.phi116 = phi ptr [ %.sink.sroa.gep117, %162 ], [ %.sink.sroa.gep118, %68 ]
-  %.sink.sroa.phi119 = phi ptr [ %.sink.sroa.gep120, %162 ], [ %.sink.sroa.gep121, %68 ]
-  %.sink.sroa.phi122 = phi ptr [ %.sink.sroa.gep123, %162 ], [ %.sink.sroa.gep124, %68 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %162 ], [ %.sink.sroa.gep136, %68 ]
+  %.sink.sroa.phi137 = phi ptr [ %.sink.sroa.gep138, %162 ], [ %.sink.sroa.gep139, %68 ]
+  %.sink.sroa.phi140 = phi ptr [ %.sink.sroa.gep141, %162 ], [ %.sink.sroa.gep142, %68 ]
+  %.sink.sroa.phi143 = phi ptr [ %.sink.sroa.gep144, %162 ], [ %.sink.sroa.gep145, %68 ]
   %.sink = phi ptr [ %4, %162 ], [ %6, %68 ]
   store ptr @anon.b524e8eb8974857e663438d42e829098.18.llvm.6580822817679657170, ptr %.sink, align 8
   store i64 1, ptr %.sink.sroa.phi, align 8
-  store ptr null, ptr %.sink.sroa.phi116, align 8
-  store ptr @anon.b524e8eb8974857e663438d42e829098.3.llvm.6580822817679657170, ptr %.sink.sroa.phi119, align 8
-  store i64 0, ptr %.sink.sroa.phi122, align 8
+  store ptr null, ptr %.sink.sroa.phi137, align 8
+  store ptr @anon.b524e8eb8974857e663438d42e829098.3.llvm.6580822817679657170, ptr %.sink.sroa.phi140, align 8
+  store i64 0, ptr %.sink.sroa.phi143, align 8
   invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b524e8eb8974857e663438d42e829098.19.llvm.6580822817679657170) #9
           to label %.cont unwind label %.thread95
 
@@ -1439,7 +1439,7 @@ _ZN6parser6parser6Parser8bump_any17haad6ae469b0493f0E.exit: ; preds = %_ZN6parse
   switch i8 %1, label %120 [
     i8 0, label %_ZN6parser7grammar5paths18opt_path_type_args17h83ffdf5fc71ce255E.exit
     i8 1, label %121
-    i8 2, label %.invoke110
+    i8 2, label %.invoke131
   ]
 
 120:                                              ; preds = %119
@@ -1452,7 +1452,7 @@ _ZN6parser6parser6Parser8bump_any17haad6ae469b0493f0E.exit: ; preds = %_ZN6parse
 .noexc51:                                         ; preds = %121
   br i1 %122, label %124, label %.noexc55
 
-.invoke110:                                       ; preds = %.noexc54, %119
+.invoke131:                                       ; preds = %.noexc54, %119
   %123 = phi i1 [ true, %119 ], [ false, %.noexc54 ]
   invoke void @_ZN6parser7grammar12generic_args20opt_generic_arg_list17hba0b7838a95a3cd1E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i1 noundef zeroext %123)
           to label %_ZN6parser7grammar5paths18opt_path_type_args17h83ffdf5fc71ce255E.exit unwind label %.thread95
@@ -1469,7 +1469,7 @@ _ZN6parser6parser6Parser8bump_any17haad6ae469b0493f0E.exit: ; preds = %_ZN6parse
           to label %.noexc54 unwind label %.thread95
 
 .noexc54:                                         ; preds = %.noexc55
-  br i1 %126, label %128, label %.invoke110
+  br i1 %126, label %128, label %.invoke131
 
 127:                                              ; preds = %.noexc53
   invoke void @_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef 30)
@@ -1512,7 +1512,7 @@ _ZN6parser6parser6Parser8bump_any17haad6ae469b0493f0E.exit: ; preds = %_ZN6parse
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %138
 
-_ZN6parser7grammar5paths18opt_path_type_args17h83ffdf5fc71ce255E.exit: ; preds = %.invoke110, %119, %.noexc57, %115, %135, %206, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit
+_ZN6parser7grammar5paths18opt_path_type_args17h83ffdf5fc71ce255E.exit: ; preds = %.invoke131, %119, %.noexc57, %115, %135, %206, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false)
   %137 = call { i32, i16 } @_ZN6parser6parser6Marker8complete17h245dafe3ae51cd9dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef 239)
@@ -2105,18 +2105,18 @@ _ZN6parser6parser6Parser5start17ha1a470a189718db9E.exit: ; preds = %120, %._crit
   br i1 %134, label %135, label %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit
 
 135:                                              ; preds = %131
-  %switch.tableidx72 = add nsw i16 %133, -26
-  %136 = icmp ult i16 %switch.tableidx72, 28
-  br i1 %136, label %switch.lookup71, label %138
+  %switch.tableidx90 = add nsw i16 %133, -26
+  %136 = icmp ult i16 %switch.tableidx90, 28
+  br i1 %136, label %switch.lookup89, label %138
 
-switch.lookup71:                                  ; preds = %135
-  %137 = zext nneg i16 %switch.tableidx72 to i64
-  %switch.gep73 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %137
-  %switch.load74 = load i8, ptr %switch.gep73, align 1
+switch.lookup89:                                  ; preds = %135
+  %137 = zext nneg i16 %switch.tableidx90 to i64
+  %switch.gep91 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %137
+  %switch.load92 = load i8, ptr %switch.gep91, align 1
   br label %138
 
-138:                                              ; preds = %switch.lookup71, %135
-  %.0.i = phi i8 [ 1, %135 ], [ %switch.load74, %switch.lookup71 ]
+138:                                              ; preds = %switch.lookup89, %135
+  %.0.i = phi i8 [ 1, %135 ], [ %switch.load92, %switch.lookup89 ]
   %139 = zext nneg i8 %.0.i to i64
   %140 = load i64, ptr %26, align 8, !alias.scope !312, !noundef !11
   %141 = add i64 %140, %139
@@ -2336,18 +2336,18 @@ _ZN6parser6parser6Parser10push_event17h7660c48648b56afaE.exit: ; preds = %_ZN5al
   br i1 %215, label %216, label %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i13
 
 216:                                              ; preds = %.noexc
-  %switch.tableidx76 = add nsw i16 %214, -26
-  %217 = icmp ult i16 %switch.tableidx76, 28
-  br i1 %217, label %switch.lookup75, label %219
+  %switch.tableidx94 = add nsw i16 %214, -26
+  %217 = icmp ult i16 %switch.tableidx94, 28
+  br i1 %217, label %switch.lookup93, label %219
 
-switch.lookup75:                                  ; preds = %216
-  %218 = zext nneg i16 %switch.tableidx76 to i64
-  %switch.gep77 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %218
-  %switch.load78 = load i8, ptr %switch.gep77, align 1
+switch.lookup93:                                  ; preds = %216
+  %218 = zext nneg i16 %switch.tableidx94 to i64
+  %switch.gep95 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %218
+  %switch.load96 = load i8, ptr %switch.gep95, align 1
   br label %219
 
-219:                                              ; preds = %switch.lookup75, %216
-  %.0.i.i14 = phi i8 [ 1, %216 ], [ %switch.load78, %switch.lookup75 ]
+219:                                              ; preds = %switch.lookup93, %216
+  %.0.i.i14 = phi i8 [ 1, %216 ], [ %switch.load96, %switch.lookup93 ]
   %220 = zext nneg i8 %.0.i.i14 to i64
   %221 = load i64, ptr %26, align 8, !alias.scope !375, !noundef !11
   %222 = add i64 %221, %220
@@ -2623,18 +2623,18 @@ _ZN6parser6parser6Parser5start17ha1a470a189718db9E.exit: ; preds = %62, %._crit_
   br i1 %75, label %76, label %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit
 
 76:                                               ; preds = %73
-  %switch.tableidx38 = add nsw i16 %74, -26
-  %77 = icmp ult i16 %switch.tableidx38, 28
-  br i1 %77, label %switch.lookup37, label %79
+  %switch.tableidx52 = add nsw i16 %74, -26
+  %77 = icmp ult i16 %switch.tableidx52, 28
+  br i1 %77, label %switch.lookup51, label %79
 
-switch.lookup37:                                  ; preds = %76
-  %78 = zext nneg i16 %switch.tableidx38 to i64
-  %switch.gep39 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %78
-  %switch.load40 = load i8, ptr %switch.gep39, align 1
+switch.lookup51:                                  ; preds = %76
+  %78 = zext nneg i16 %switch.tableidx52 to i64
+  %switch.gep53 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %78
+  %switch.load54 = load i8, ptr %switch.gep53, align 1
   br label %79
 
-79:                                               ; preds = %switch.lookup37, %76
-  %.0.i = phi i8 [ 1, %76 ], [ %switch.load40, %switch.lookup37 ]
+79:                                               ; preds = %switch.lookup51, %76
+  %.0.i = phi i8 [ 1, %76 ], [ %switch.load54, %switch.lookup51 ]
   %80 = zext nneg i8 %.0.i to i64
   %81 = load i64, ptr %22, align 8, !alias.scope !441, !noundef !11
   %82 = add i64 %81, %80
@@ -2854,18 +2854,18 @@ _ZN6parser6parser6Parser10push_event17h7660c48648b56afaE.exit: ; preds = %_ZN5al
   br i1 %156, label %157, label %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i11
 
 157:                                              ; preds = %.noexc
-  %switch.tableidx42 = add nsw i16 %155, -26
-  %158 = icmp ult i16 %switch.tableidx42, 28
-  br i1 %158, label %switch.lookup41, label %160
+  %switch.tableidx56 = add nsw i16 %155, -26
+  %158 = icmp ult i16 %switch.tableidx56, 28
+  br i1 %158, label %switch.lookup55, label %160
 
-switch.lookup41:                                  ; preds = %157
-  %159 = zext nneg i16 %switch.tableidx42 to i64
-  %switch.gep43 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %159
-  %switch.load44 = load i8, ptr %switch.gep43, align 1
+switch.lookup55:                                  ; preds = %157
+  %159 = zext nneg i16 %switch.tableidx56 to i64
+  %switch.gep57 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %159
+  %switch.load58 = load i8, ptr %switch.gep57, align 1
   br label %160
 
-160:                                              ; preds = %switch.lookup41, %157
-  %.0.i.i12 = phi i8 [ 1, %157 ], [ %switch.load44, %switch.lookup41 ]
+160:                                              ; preds = %switch.lookup55, %157
+  %.0.i.i12 = phi i8 [ 1, %157 ], [ %switch.load58, %switch.lookup55 ]
   %161 = zext nneg i8 %.0.i.i12 to i64
   %162 = load i64, ptr %22, align 8, !alias.scope !503, !noundef !11
   %163 = add i64 %162, %161
@@ -3056,18 +3056,18 @@ _ZN6parser6parser6Parser5start17ha1a470a189718db9E.exit: ; preds = %45, %._crit_
   br i1 %58, label %59, label %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit
 
 59:                                               ; preds = %56
-  %switch.tableidx36 = add nsw i16 %57, -26
-  %60 = icmp ult i16 %switch.tableidx36, 28
-  br i1 %60, label %switch.lookup35, label %62
+  %switch.tableidx48 = add nsw i16 %57, -26
+  %60 = icmp ult i16 %switch.tableidx48, 28
+  br i1 %60, label %switch.lookup47, label %62
 
-switch.lookup35:                                  ; preds = %59
-  %61 = zext nneg i16 %switch.tableidx36 to i64
-  %switch.gep37 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %61
-  %switch.load38 = load i8, ptr %switch.gep37, align 1
+switch.lookup47:                                  ; preds = %59
+  %61 = zext nneg i16 %switch.tableidx48 to i64
+  %switch.gep49 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %61
+  %switch.load50 = load i8, ptr %switch.gep49, align 1
   br label %62
 
-62:                                               ; preds = %switch.lookup35, %59
-  %.0.i = phi i8 [ 1, %59 ], [ %switch.load38, %switch.lookup35 ]
+62:                                               ; preds = %switch.lookup47, %59
+  %.0.i = phi i8 [ 1, %59 ], [ %switch.load50, %switch.lookup47 ]
   %63 = zext nneg i8 %.0.i to i64
   %64 = load i64, ptr %20, align 8, !alias.scope !549, !noundef !11
   %65 = add i64 %64, %63
@@ -3291,18 +3291,18 @@ _ZN6parser6parser6Parser10push_event17h7660c48648b56afaE.exit: ; preds = %_ZN5al
   br i1 %139, label %140, label %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i8
 
 140:                                              ; preds = %.noexc
-  %switch.tableidx40 = add nsw i16 %138, -26
-  %141 = icmp ult i16 %switch.tableidx40, 28
-  br i1 %141, label %switch.lookup39, label %143
+  %switch.tableidx52 = add nsw i16 %138, -26
+  %141 = icmp ult i16 %switch.tableidx52, 28
+  br i1 %141, label %switch.lookup51, label %143
 
-switch.lookup39:                                  ; preds = %140
-  %142 = zext nneg i16 %switch.tableidx40 to i64
-  %switch.gep41 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %142
-  %switch.load42 = load i8, ptr %switch.gep41, align 1
+switch.lookup51:                                  ; preds = %140
+  %142 = zext nneg i16 %switch.tableidx52 to i64
+  %switch.gep53 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %142
+  %switch.load54 = load i8, ptr %switch.gep53, align 1
   br label %143
 
-143:                                              ; preds = %switch.lookup39, %140
-  %.0.i.i9 = phi i8 [ 1, %140 ], [ %switch.load42, %switch.lookup39 ]
+143:                                              ; preds = %switch.lookup51, %140
+  %.0.i.i9 = phi i8 [ 1, %140 ], [ %switch.load54, %switch.lookup51 ]
   %144 = zext nneg i8 %.0.i.i9 to i64
   %145 = load i64, ptr %20, align 8, !alias.scope !611, !noundef !11
   %146 = add i64 %145, %144
@@ -3552,18 +3552,18 @@ _ZN6parser6parser6Parser5start17ha1a470a189718db9E.exit: ; preds = %75, %._crit_
   br i1 %87, label %88, label %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit
 
 88:                                               ; preds = %"_ZN6parser7grammar5items8use_item13use_tree_list28_$u7b$$u7b$closure$u7d$$u7d$17h83122a61253b728dE.exit.thread"
-  %switch.tableidx42 = add nsw i16 %86, -26
-  %89 = icmp ult i16 %switch.tableidx42, 28
-  br i1 %89, label %switch.lookup41, label %91
+  %switch.tableidx56 = add nsw i16 %86, -26
+  %89 = icmp ult i16 %switch.tableidx56, 28
+  br i1 %89, label %switch.lookup55, label %91
 
-switch.lookup41:                                  ; preds = %88
-  %90 = zext nneg i16 %switch.tableidx42 to i64
-  %switch.gep43 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %90
-  %switch.load44 = load i8, ptr %switch.gep43, align 1
+switch.lookup55:                                  ; preds = %88
+  %90 = zext nneg i16 %switch.tableidx56 to i64
+  %switch.gep57 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %90
+  %switch.load58 = load i8, ptr %switch.gep57, align 1
   br label %91
 
-91:                                               ; preds = %switch.lookup41, %88
-  %.0.i3 = phi i8 [ 1, %88 ], [ %switch.load44, %switch.lookup41 ]
+91:                                               ; preds = %switch.lookup55, %88
+  %.0.i3 = phi i8 [ 1, %88 ], [ %switch.load58, %switch.lookup55 ]
   %92 = zext nneg i8 %.0.i3 to i64
   %93 = load i64, ptr %21, align 8, !alias.scope !672, !noundef !11
   %94 = add i64 %93, %92
@@ -3787,18 +3787,18 @@ _ZN6parser6parser6Parser10push_event17h7660c48648b56afaE.exit: ; preds = %_ZN5al
   br i1 %168, label %169, label %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i9
 
 169:                                              ; preds = %.noexc
-  %switch.tableidx46 = add nsw i16 %167, -26
-  %170 = icmp ult i16 %switch.tableidx46, 28
-  br i1 %170, label %switch.lookup45, label %172
+  %switch.tableidx60 = add nsw i16 %167, -26
+  %170 = icmp ult i16 %switch.tableidx60, 28
+  br i1 %170, label %switch.lookup59, label %172
 
-switch.lookup45:                                  ; preds = %169
-  %171 = zext nneg i16 %switch.tableidx46 to i64
-  %switch.gep47 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %171
-  %switch.load48 = load i8, ptr %switch.gep47, align 1
+switch.lookup59:                                  ; preds = %169
+  %171 = zext nneg i16 %switch.tableidx60 to i64
+  %switch.gep61 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %171
+  %switch.load62 = load i8, ptr %switch.gep61, align 1
   br label %172
 
-172:                                              ; preds = %switch.lookup45, %169
-  %.0.i.i10 = phi i8 [ 1, %169 ], [ %switch.load48, %switch.lookup45 ]
+172:                                              ; preds = %switch.lookup59, %169
+  %.0.i.i10 = phi i8 [ 1, %169 ], [ %switch.load62, %switch.lookup59 ]
   %173 = zext nneg i8 %.0.i.i10 to i64
   %174 = load i64, ptr %21, align 8, !alias.scope !734, !noundef !11
   %175 = add i64 %174, %173
@@ -3999,18 +3999,18 @@ _ZN6parser6parser6Parser5start17ha1a470a189718db9E.exit: ; preds = %48, %._crit_
   br i1 %61, label %62, label %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit
 
 62:                                               ; preds = %59
-  %switch.tableidx37 = add nsw i16 %60, -26
-  %63 = icmp ult i16 %switch.tableidx37, 28
-  br i1 %63, label %switch.lookup36, label %65
+  %switch.tableidx49 = add nsw i16 %60, -26
+  %63 = icmp ult i16 %switch.tableidx49, 28
+  br i1 %63, label %switch.lookup48, label %65
 
-switch.lookup36:                                  ; preds = %62
-  %64 = zext nneg i16 %switch.tableidx37 to i64
-  %switch.gep38 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %64
-  %switch.load39 = load i8, ptr %switch.gep38, align 1
+switch.lookup48:                                  ; preds = %62
+  %64 = zext nneg i16 %switch.tableidx49 to i64
+  %switch.gep50 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %64
+  %switch.load51 = load i8, ptr %switch.gep50, align 1
   br label %65
 
-65:                                               ; preds = %switch.lookup36, %62
-  %.0.i = phi i8 [ 1, %62 ], [ %switch.load39, %switch.lookup36 ]
+65:                                               ; preds = %switch.lookup48, %62
+  %.0.i = phi i8 [ 1, %62 ], [ %switch.load51, %switch.lookup48 ]
   %66 = zext nneg i8 %.0.i to i64
   %67 = load i64, ptr %22, align 8, !alias.scope !786, !noundef !11
   %68 = add i64 %67, %66
@@ -4234,18 +4234,18 @@ _ZN6parser6parser6Parser10push_event17h7660c48648b56afaE.exit: ; preds = %_ZN5al
   br i1 %142, label %143, label %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i8
 
 143:                                              ; preds = %.noexc
-  %switch.tableidx41 = add nsw i16 %141, -26
-  %144 = icmp ult i16 %switch.tableidx41, 28
-  br i1 %144, label %switch.lookup40, label %146
+  %switch.tableidx53 = add nsw i16 %141, -26
+  %144 = icmp ult i16 %switch.tableidx53, 28
+  br i1 %144, label %switch.lookup52, label %146
 
-switch.lookup40:                                  ; preds = %143
-  %145 = zext nneg i16 %switch.tableidx41 to i64
-  %switch.gep42 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %145
-  %switch.load43 = load i8, ptr %switch.gep42, align 1
+switch.lookup52:                                  ; preds = %143
+  %145 = zext nneg i16 %switch.tableidx53 to i64
+  %switch.gep54 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar9delimited17hfe37696f1330389aE.21, i64 0, i64 %145
+  %switch.load55 = load i8, ptr %switch.gep54, align 1
   br label %146
 
-146:                                              ; preds = %switch.lookup40, %143
-  %.0.i.i9 = phi i8 [ 1, %143 ], [ %switch.load43, %switch.lookup40 ]
+146:                                              ; preds = %switch.lookup52, %143
+  %.0.i.i9 = phi i8 [ 1, %143 ], [ %switch.load55, %switch.lookup52 ]
   %147 = zext nneg i8 %.0.i.i9 to i64
   %148 = load i64, ptr %22, align 8, !alias.scope !848, !noundef !11
   %149 = add i64 %148, %147

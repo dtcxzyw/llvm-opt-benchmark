@@ -358,10 +358,10 @@ define internal fastcc range(i32 -1, 2) i32 @x509_pubkey_decode(ptr noundef writ
   br label %.critedge
 
 .sink.split:                                      ; preds = %19, %17
-  %.sink24 = phi i32 [ 430, %17 ], [ 443, %19 ]
+  %.sink26 = phi i32 [ 430, %17 ], [ 443, %19 ]
   %.sink = phi i32 [ 111, %17 ], [ 124, %19 ]
   tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink24, ptr noundef nonnull @__func__.x509_pubkey_decode) #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink26, ptr noundef nonnull @__func__.x509_pubkey_decode) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #9
   br label %27
 

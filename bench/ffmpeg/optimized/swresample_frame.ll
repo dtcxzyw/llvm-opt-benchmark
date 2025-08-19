@@ -320,9 +320,9 @@ available_samples.exit:                           ; preds = %83, %91
   br i1 %.not39, label %convert_frame.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %105
-  %.28.i = call i32 @llvm.smax.i32(i32 %106, i32 0)
+  %.32.i = call i32 @llvm.smax.i32(i32 %106, i32 0)
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store i32 %.28.i, ptr %107, align 8, !tbaa !36
+  store i32 %.32.i, ptr %107, align 8, !tbaa !36
   br label %convert_frame.exit
 
 convert_frame.exit:                               ; preds = %105, %.sink.split.i

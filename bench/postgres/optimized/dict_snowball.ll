@@ -84,13 +84,13 @@ define i64 @dsnowball_init(ptr noundef readonly captures(none) %0) local_unnamed
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i32, ptr %6, align 4
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph58, label %.critedge
+  br i1 %12, label %.lr.ph61, label %.critedge
 
-.lr.ph58:                                         ; preds = %.lr.ph, %80
-  %.03257 = phi i1 [ %.1, %80 ], [ false, %.lr.ph ]
-  %indvars.iv56 = phi i64 [ %indvars.iv.next, %80 ], [ 0, %.lr.ph ]
+.lr.ph61:                                         ; preds = %.lr.ph, %80
+  %.03260 = phi i1 [ %.1, %80 ], [ false, %.lr.ph ]
+  %indvars.iv59 = phi i64 [ %indvars.iv.next, %80 ], [ 0, %.lr.ph ]
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv56
+  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv59
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
@@ -104,8 +104,8 @@ define i64 @dsnowball_init(ptr noundef readonly captures(none) %0) local_unnamed
   %.not21 = icmp eq ptr %21, null
   br i1 %.not21, label %84, label %88
 
-22:                                               ; preds = %.lr.ph58
-  br i1 %.03257, label %23, label %27
+22:                                               ; preds = %.lr.ph61
+  br i1 %.03260, label %23, label %27
 
 23:                                               ; preds = %22
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -120,7 +120,7 @@ define i64 @dsnowball_init(ptr noundef readonly captures(none) %0) local_unnamed
   tail call void @readstoplist(ptr noundef %28, ptr noundef nonnull %10, ptr noundef nonnull @str_tolower) #7
   br label %80
 
-29:                                               ; preds = %.lr.ph58
+29:                                               ; preds = %.lr.ph61
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(9) @.str.3) #8
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %74
@@ -195,12 +195,12 @@ define i64 @dsnowball_init(ptr noundef readonly captures(none) %0) local_unnamed
   unreachable
 
 locate_stem_module.exit:                          ; preds = %48, %58
-  %.128.lcssa.sink40.i = phi ptr [ %.128.i, %58 ], [ %.027.i, %48 ]
+  %.128.lcssa.sink42.i = phi ptr [ %.128.i, %58 ], [ %.027.i, %48 ]
   %.sink.i = phi i8 [ 1, %58 ], [ 0, %48 ]
-  %69 = getelementptr inbounds nuw i8, ptr %.128.lcssa.sink40.i, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.128.lcssa.sink42.i, i64 32
   %70 = load ptr, ptr %69, align 8
   store ptr %70, ptr %8, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %.128.lcssa.sink40.i, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.128.lcssa.sink42.i, i64 16
   %72 = load ptr, ptr %71, align 8
   %73 = tail call ptr %72() #7
   store ptr %73, ptr %4, align 8
@@ -218,12 +218,12 @@ locate_stem_module.exit:                          ; preds = %48, %58
   unreachable
 
 80:                                               ; preds = %locate_stem_module.exit, %27
-  %.1 = phi i1 [ true, %27 ], [ %.03257, %locate_stem_module.exit ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv56, 1
+  %.1 = phi i1 [ true, %27 ], [ %.03260, %locate_stem_module.exit ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv59, 1
   %81 = load i32, ptr %6, align 4
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %.lr.ph58, label %.critedge
+  br i1 %83, label %.lr.ph61, label %.critedge
 
 84:                                               ; preds = %.critedge
   %85 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9

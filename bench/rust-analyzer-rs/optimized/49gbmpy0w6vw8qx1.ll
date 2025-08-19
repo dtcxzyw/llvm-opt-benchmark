@@ -584,10 +584,10 @@ define hidden { i64, i64 } @_ZN8lz4_flex5block8compress17compress_internal17h01a
   %63 = icmp ult i64 %62, %1
   tail call void @llvm.assume(i1 %63)
   %64 = getelementptr inbounds i8, ptr %0, i64 %62
-  %65 = add i64 %.079, -1
+  %65 = add nsw i64 %.079, -1
   %66 = icmp ult i64 %65, %1
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds i8, ptr %0, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %65
   %68 = load i8, ptr %64, align 1, !alias.scope !102, !noalias !107, !noundef !9
   %69 = load i8, ptr %67, align 1, !alias.scope !105, !noalias !110, !noundef !9
   %70 = icmp eq i8 %68, %69
@@ -604,7 +604,7 @@ _ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit: ; preds =
   %.3 = phi i64 [ %.02794, %58 ], [ %.2, %.lr.ph.i ], [ %62, %71 ]
   %74 = sub i64 %.3, %.0102
   %75 = add i64 %.3, 4
-  %76 = add i64 %.180, 4
+  %76 = add nuw nsw i64 %.180, 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
   %77 = add i64 %.3, 10
@@ -612,7 +612,7 @@ _ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit: ; preds =
   %79 = sub i64 %1, %76
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %78, i64 %79)
   %80 = add i64 %.0.sroa.speculated.i.i, %75
-  %81 = getelementptr inbounds i8, ptr %0, i64 %76
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 %76
   %82 = add i64 %.3, 12
   %.not29.i = icmp ugt i64 %82, %80
   br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph.i50
@@ -974,10 +974,10 @@ define hidden { i64, i64 } @_ZN8lz4_flex5block8compress17compress_internal17h7b0
   %64 = icmp ult i64 %63, %1
   tail call void @llvm.assume(i1 %64)
   %65 = getelementptr inbounds i8, ptr %0, i64 %63
-  %66 = add i64 %.079, -1
+  %66 = add nsw i64 %.079, -1
   %67 = icmp ult i64 %66, %1
   tail call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds i8, ptr %0, i64 %66
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %66
   %69 = load i8, ptr %65, align 1, !alias.scope !156, !noalias !161, !noundef !9
   %70 = load i8, ptr %68, align 1, !alias.scope !159, !noalias !164, !noundef !9
   %71 = icmp eq i8 %69, %70
@@ -994,7 +994,7 @@ _ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit: ; preds =
   %.3 = phi i64 [ %.02794, %59 ], [ %.2, %.lr.ph.i ], [ %63, %72 ]
   %75 = sub i64 %.3, %.0102
   %76 = add i64 %.3, 4
-  %77 = add i64 %.180, 4
+  %77 = add nuw nsw i64 %.180, 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
   %78 = add i64 %.3, 10
@@ -1002,7 +1002,7 @@ _ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit: ; preds =
   %80 = sub i64 %1, %77
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %79, i64 %80)
   %81 = add i64 %.0.sroa.speculated.i.i, %76
-  %82 = getelementptr inbounds i8, ptr %0, i64 %77
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 %77
   %83 = add i64 %.3, 12
   %.not29.i = icmp ugt i64 %83, %81
   br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph.i50

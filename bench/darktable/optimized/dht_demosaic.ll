@@ -180,11 +180,11 @@ _ZN6LibRaw5COLOREii.exit.thread.us:               ; preds = %49, %_ZN6LibRaw5COL
   br label %_ZN6LibRaw3FCFEii.exit.i
 
 _ZN6LibRaw3FCFEii.exit.i:                         ; preds = %77, %81
-  %.sink78 = phi i32 [ %82, %81 ], [ %80, %77 ]
+  %.sink81 = phi i32 [ %82, %81 ], [ %80, %77 ]
   %.sink = phi i32 [ %50, %81 ], [ %51, %77 ]
   %.sink.i.i = phi i32 [ %80, %81 ], [ %50, %77 ]
   %.sink11.i.i = phi i32 [ %50, %81 ], [ %80, %77 ]
-  %83 = xor i32 %.sink78, -1
+  %83 = xor i32 %.sink81, -1
   %84 = add nsw i32 %.sink, %83
   %85 = zext i16 %76 to i32
   %86 = add i32 %84, %85
@@ -377,7 +377,7 @@ _ZN6LibRaw5COLOREii.exit:                         ; preds = %16
 45:                                               ; preds = %.thread, %41
   %46 = phi i32 [ %15, %.thread ], [ %.pre289, %41 ]
   %47 = phi ptr [ %13, %.thread ], [ %.pre, %41 ]
-  %.0.i296301 = phi i32 [ %37, %.thread ], [ %39, %41 ]
+  %.0.i308313 = phi i32 [ %37, %.thread ], [ %39, %41 ]
   %48 = phi i32 [ %38, %.thread ], [ %40, %41 ]
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 381494
   %50 = load i16, ptr %49, align 2, !tbaa !88
@@ -394,7 +394,7 @@ _ZN6LibRaw3FCFEii.exit.i261:                      ; preds = %45
   %56 = add nsw i32 %55, %54
   %.sink13.i.i262 = select i1 %.not.i.i260, i32 %53, i32 %56
   %.sink.i.i263 = select i1 %.not.i.i260, i32 %48, i32 %.0281
-  %.sink11.i.i264 = select i1 %.not.i.i260, i32 %.0281, i32 %.0.i296301
+  %.sink11.i.i264 = select i1 %.not.i.i260, i32 %.0281, i32 %.0.i308313
   %57 = zext i16 %50 to i32
   %58 = add nsw i32 %.sink13.i.i262, %57
   %59 = add nuw nsw i32 %.sink.i.i263, 1
@@ -728,8 +728,8 @@ _ZN6LibRaw5COLOREii.exit266:                      ; preds = %12, %_ZN6LibRaw5COL
   %307 = getelementptr inbounds [3 x float], ptr %306, i64 0, i64 %79
   %308 = fadd reassoc nsz arcp contract afn float %264, %252
   %309 = fadd reassoc nsz arcp contract afn float %292, %281
-  %.sink303 = select i1 %303, float %309, float %308
-  %310 = fmul reassoc nsz arcp contract afn float %.sink303, 5.000000e-01
+  %.sink315 = select i1 %303, float %309, float %308
+  %310 = fmul reassoc nsz arcp contract afn float %.sink315, 5.000000e-01
   store float %310, ptr %307, align 4, !tbaa !81
   br label %311
 
@@ -923,7 +923,7 @@ _ZN6LibRaw5COLOREii.exit266:                      ; preds = %12, %_ZN6LibRaw5COL
   %452 = fdiv reassoc nsz arcp contract afn float %449, %330
   %453 = select reassoc nsz arcp contract afn i1 %450, float %451, float %452
   %454 = fcmp reassoc nsz arcp contract afn ogt float %453, 6.400000e+01
-  br i1 %454, label %.sink.split304, label %538
+  br i1 %454, label %.sink.split316, label %538
 
 455:                                              ; preds = %467
   %456 = add nsw i32 %.0245276, 2
@@ -952,7 +952,7 @@ _ZN6LibRaw5COLOREii.exit266:                      ; preds = %12, %_ZN6LibRaw5COL
   %468 = icmp slt i64 %indvars.iv286, 1
   br i1 %468, label %458, label %455, !llvm.loop !100
 
-.sink.split304:                                   ; preds = %448
+.sink.split316:                                   ; preds = %448
   %469 = load ptr, ptr %11, align 8, !tbaa !78
   %470 = getelementptr inbounds i8, ptr %469, i64 %328
   %471 = load i8, ptr %470, align 1, !tbaa !96
@@ -1022,14 +1022,14 @@ _ZN6LibRaw5COLOREii.exit266:                      ; preds = %12, %_ZN6LibRaw5COL
   %534 = getelementptr inbounds [3 x float], ptr %473, i64 %533, i64 1
   %535 = fadd reassoc nsz arcp contract afn float %491, %479
   %536 = fadd reassoc nsz arcp contract afn float %519, %508
-  %.sink306 = select i1 %531, float %536, float %535
-  %537 = fmul reassoc nsz arcp contract afn float %.sink306, 5.000000e-01
+  %.sink318 = select i1 %531, float %536, float %535
+  %537 = fmul reassoc nsz arcp contract afn float %.sink318, 5.000000e-01
   store float %537, ptr %534, align 4, !tbaa !81
   br label %538
 
-538:                                              ; preds = %.sink.split304, %448, %437, %429, %421, %413, %406, %399, %392, %390
-  %539 = phi i32 [ %323, %448 ], [ %323, %437 ], [ %323, %429 ], [ %323, %421 ], [ %323, %413 ], [ %323, %406 ], [ %323, %399 ], [ %323, %392 ], [ %323, %390 ], [ %474, %.sink.split304 ]
-  %540 = phi ptr [ %324, %448 ], [ %324, %437 ], [ %324, %429 ], [ %324, %421 ], [ %324, %413 ], [ %324, %406 ], [ %324, %399 ], [ %324, %392 ], [ %324, %390 ], [ %473, %.sink.split304 ]
+538:                                              ; preds = %.sink.split316, %448, %437, %429, %421, %413, %406, %399, %392, %390
+  %539 = phi i32 [ %323, %448 ], [ %323, %437 ], [ %323, %429 ], [ %323, %421 ], [ %323, %413 ], [ %323, %406 ], [ %323, %399 ], [ %323, %392 ], [ %323, %390 ], [ %474, %.sink.split316 ]
+  %540 = phi ptr [ %324, %448 ], [ %324, %437 ], [ %324, %429 ], [ %324, %421 ], [ %324, %413 ], [ %324, %406 ], [ %324, %399 ], [ %324, %392 ], [ %324, %390 ], [ %473, %.sink.split316 ]
   %541 = add nuw nsw i32 %.0252277, 2
   %542 = icmp samesign ult i32 %541, %6
   br i1 %542, label %322, label %._crit_edge280, !llvm.loop !101
@@ -1120,11 +1120,11 @@ define void @_ZN3DHT12restore_hotsEv(ptr noundef nonnull readonly align 8 captur
   br label %_ZN6LibRaw3FCFEii.exit.i.us
 
 _ZN6LibRaw3FCFEii.exit.i.us:                      ; preds = %43, %47
-  %.sink38 = phi i32 [ %48, %47 ], [ %46, %43 ]
+  %.sink39 = phi i32 [ %48, %47 ], [ %46, %43 ]
   %.sink = phi i32 [ %13, %47 ], [ %14, %43 ]
   %.sink.i.i.us = phi i32 [ %46, %47 ], [ %13, %43 ]
   %.sink11.i.i.us = phi i32 [ %13, %47 ], [ %46, %43 ]
-  %49 = xor i32 %.sink38, -1
+  %49 = xor i32 %.sink39, -1
   %50 = add nsw i32 %.sink, %49
   %51 = zext i16 %42 to i32
   %52 = add i32 %50, %51
@@ -1313,7 +1313,7 @@ _ZN6LibRaw5COLOREii.exit:                         ; preds = %10
 39:                                               ; preds = %.thread, %35
   %40 = phi i32 [ %9, %.thread ], [ %.pre30, %35 ]
   %41 = phi ptr [ %4, %.thread ], [ %.pre, %35 ]
-  %.0.i3540 = phi i32 [ %31, %.thread ], [ %33, %35 ]
+  %.0.i3944 = phi i32 [ %31, %.thread ], [ %33, %35 ]
   %42 = phi i32 [ %32, %.thread ], [ %34, %35 ]
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 381494
   %44 = load i16, ptr %43, align 2, !tbaa !88
@@ -1330,7 +1330,7 @@ _ZN6LibRaw3FCFEii.exit.i23:                       ; preds = %39
   %50 = add nsw i32 %49, %48
   %.sink13.i.i24 = select i1 %.not.i.i22, i32 %47, i32 %50
   %.sink.i.i25 = select i1 %.not.i.i22, i32 %42, i32 %1
-  %.sink11.i.i26 = select i1 %.not.i.i22, i32 %1, i32 %.0.i3540
+  %.sink11.i.i26 = select i1 %.not.i.i22, i32 %1, i32 %.0.i3944
   %51 = zext i16 %44 to i32
   %52 = add i32 %.sink13.i.i24, %51
   %53 = add nsw i32 %.sink.i.i25, 1
@@ -1475,15 +1475,15 @@ _ZN6LibRaw5COLOREii.exit28:                       ; preds = %2, %_ZN6LibRaw5COLO
   br label %172
 
 172:                                              ; preds = %138, %90
-  %.sink47 = phi float [ %170, %138 ], [ %136, %90 ]
-  %.sink45 = phi float [ %171, %138 ], [ %137, %90 ]
-  %.sink41 = phi i1 [ %169, %138 ], [ %135, %90 ]
+  %.sink51 = phi float [ %170, %138 ], [ %136, %90 ]
+  %.sink49 = phi float [ %171, %138 ], [ %137, %90 ]
+  %.sink45 = phi i1 [ %169, %138 ], [ %135, %90 ]
   %.pre-phi = phi i64 [ %148, %138 ], [ %112, %90 ]
-  %173 = fcmp reassoc nsz arcp contract afn ogt float %.sink47, 0x3FF6666660000000
+  %173 = fcmp reassoc nsz arcp contract afn ogt float %.sink51, 0x3FF6666660000000
   %174 = select i1 %173, i8 40, i8 32
-  %175 = fcmp reassoc nsz arcp contract afn ogt float %.sink45, 0x3FF6666660000000
+  %175 = fcmp reassoc nsz arcp contract afn ogt float %.sink49, 0x3FF6666660000000
   %176 = select i1 %175, i8 24, i8 16
-  %177 = select i1 %.sink41, i8 %174, i8 %176
+  %177 = select i1 %.sink45, i8 %174, i8 %176
   %178 = load ptr, ptr %77, align 8, !tbaa !78
   %179 = getelementptr inbounds i8, ptr %178, i64 %.pre-phi
   %180 = load i8, ptr %179, align 1, !tbaa !96
@@ -1803,7 +1803,7 @@ _ZN6LibRaw5COLOREii.exit:                         ; preds = %10
 39:                                               ; preds = %.thread, %35
   %40 = phi i32 [ %9, %.thread ], [ %.pre30, %35 ]
   %41 = phi ptr [ %4, %.thread ], [ %.pre, %35 ]
-  %.0.i3338 = phi i32 [ %31, %.thread ], [ %33, %35 ]
+  %.0.i3742 = phi i32 [ %31, %.thread ], [ %33, %35 ]
   %42 = phi i32 [ %32, %.thread ], [ %34, %35 ]
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 381494
   %44 = load i16, ptr %43, align 2, !tbaa !88
@@ -1820,7 +1820,7 @@ _ZN6LibRaw3FCFEii.exit.i23:                       ; preds = %39
   %50 = add nsw i32 %49, %48
   %.sink13.i.i24 = select i1 %.not.i.i22, i32 %47, i32 %50
   %.sink.i.i25 = select i1 %.not.i.i22, i32 %42, i32 %1
-  %.sink11.i.i26 = select i1 %.not.i.i22, i32 %1, i32 %.0.i3338
+  %.sink11.i.i26 = select i1 %.not.i.i22, i32 %1, i32 %.0.i3742
   %51 = zext i16 %44 to i32
   %52 = add i32 %.sink13.i.i24, %51
   %53 = add nsw i32 %.sink.i.i25, 1
@@ -2522,14 +2522,14 @@ define void @_ZN3DHT16refine_diag_dirsEii(ptr noundef nonnull readonly align 8 c
   %57 = getelementptr inbounds i8, ptr %17, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !96
   %59 = and i8 %58, 16
-  %narrow99 = add nuw nsw i8 %narrow90, %59
+  %narrow101 = add nuw nsw i8 %narrow90, %59
   %60 = add nsw i32 %32, %38
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds i8, ptr %17, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !96
   %64 = and i8 %63, 16
-  %narrow103 = add nuw i8 %narrow99, %64
-  %65 = zext i8 %narrow103 to i32
+  %narrow105 = add nuw i8 %narrow101, %64
+  %65 = zext i8 %narrow105 to i32
   %66 = add nsw i32 %32, %44
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i8, ptr %17, i64 %67
@@ -2725,7 +2725,7 @@ _ZN6LibRaw5COLOREii.exit:                         ; preds = %10
 39:                                               ; preds = %.thread, %35
   %40 = phi i32 [ %9, %.thread ], [ %.pre171, %35 ]
   %41 = phi ptr [ %4, %.thread ], [ %.pre, %35 ]
-  %.0.i174180 = phi i32 [ %31, %.thread ], [ %33, %35 ]
+  %.0.i185191 = phi i32 [ %31, %.thread ], [ %33, %35 ]
   %42 = phi i32 [ %32, %.thread ], [ %34, %35 ]
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 381494
   %44 = load i16, ptr %43, align 2, !tbaa !88
@@ -2742,7 +2742,7 @@ _ZN6LibRaw3FCFEii.exit.i135:                      ; preds = %39
   %50 = add nsw i32 %49, %48
   %.sink13.i.i136 = select i1 %.not.i.i134, i32 %47, i32 %50
   %.sink.i.i137 = select i1 %.not.i.i134, i32 %42, i32 %1
-  %.sink11.i.i138 = select i1 %.not.i.i134, i32 %1, i32 %.0.i174180
+  %.sink11.i.i138 = select i1 %.not.i.i134, i32 %1, i32 %.0.i185191
   %51 = zext i16 %44 to i32
   %52 = add i32 %.sink13.i.i136, %51
   %53 = add nsw i32 %.sink.i.i137, 1
@@ -2768,7 +2768,7 @@ _ZN6LibRaw3FCFEii.exit.i135:                      ; preds = %39
 
 _ZN6LibRaw5COLOREii.exit140:                      ; preds = %2, %_ZN6LibRaw5COLOREii.exit, %37, %_ZN6LibRaw3FCFEii.exit.i135, %63
   %70 = phi i32 [ %34, %37 ], [ %34, %_ZN6LibRaw5COLOREii.exit ], [ %42, %_ZN6LibRaw3FCFEii.exit.i135 ], [ %42, %63 ], [ 0, %2 ]
-  %.0.i175 = phi i32 [ %33, %37 ], [ %33, %_ZN6LibRaw5COLOREii.exit ], [ %.0.i174180, %_ZN6LibRaw3FCFEii.exit.i135 ], [ %.0.i174180, %63 ], [ 6, %2 ]
+  %.0.i186 = phi i32 [ %33, %37 ], [ %33, %_ZN6LibRaw5COLOREii.exit ], [ %.0.i185191, %_ZN6LibRaw3FCFEii.exit.i135 ], [ %.0.i185191, %63 ], [ 6, %2 ]
   %.0.i139 = phi i32 [ %38, %37 ], [ 6, %_ZN6LibRaw5COLOREii.exit ], [ %62, %_ZN6LibRaw3FCFEii.exit.i135 ], [ %69, %63 ], [ 6, %2 ]
   %71 = icmp samesign ult i32 %70, %7
   br i1 %71, label %.lr.ph, label %._crit_edge
@@ -2800,7 +2800,7 @@ _ZN6LibRaw5COLOREii.exit140:                      ; preds = %2, %_ZN6LibRaw5COLO
   %90 = load i16, ptr %89, align 2, !tbaa !79
   %91 = uitofp i16 %90 to float
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %93 = and i32 %.0.i175, 1
+  %93 = and i32 %.0.i186, 1
   %94 = zext nneg i32 %93 to i64
   %95 = sext i32 %77 to i64
   %96 = sext i32 %81 to i64
@@ -2808,8 +2808,8 @@ _ZN6LibRaw5COLOREii.exit140:                      ; preds = %2, %_ZN6LibRaw5COLO
   %98 = sext i32 %86 to i64
   %99 = sext i32 %88 to i64
   %100 = zext i16 %6 to i64
-  %invariant.gep181 = getelementptr [3 x float], ptr %invariant.gep, i64 %97
-  %invariant.gep183 = getelementptr [3 x float], ptr %invariant.gep, i64 %99
+  %invariant.gep192 = getelementptr [3 x float], ptr %invariant.gep, i64 %97
+  %invariant.gep194 = getelementptr [3 x float], ptr %invariant.gep, i64 %99
   br label %101
 
 ._crit_edge:                                      ; preds = %228, %_ZN6LibRaw5COLOREii.exit140
@@ -2830,8 +2830,8 @@ _ZN6LibRaw5COLOREii.exit140:                      ; preds = %2, %_ZN6LibRaw5COLO
   %109 = getelementptr inbounds [3 x float], ptr %79, i64 %108, i64 1
   %110 = load float, ptr %109, align 4, !tbaa !81
   %111 = fmul reassoc nsz arcp contract afn float %110, 2.000000e+00
-  %gep182 = getelementptr [3 x float], ptr %invariant.gep181, i64 %102
-  %112 = load float, ptr %gep182, align 4, !tbaa !81
+  %gep193 = getelementptr [3 x float], ptr %invariant.gep192, i64 %102
+  %112 = load float, ptr %gep193, align 4, !tbaa !81
   %gep149 = getelementptr [3 x float], ptr %invariant.gep, i64 %103
   %113 = load float, ptr %gep149, align 4, !tbaa !81
   %114 = fadd reassoc nsz arcp contract afn float %113, %112
@@ -2840,7 +2840,7 @@ _ZN6LibRaw5COLOREii.exit140:                      ; preds = %2, %_ZN6LibRaw5COLO
   %117 = getelementptr inbounds [3 x float], ptr %79, i64 %116, i64 1
   %118 = load float, ptr %117, align 4, !tbaa !81
   %119 = fmul reassoc nsz arcp contract afn float %118, 2.000000e+00
-  %gep = getelementptr [3 x float], ptr %invariant.gep183, i64 %102
+  %gep = getelementptr [3 x float], ptr %invariant.gep194, i64 %102
   %120 = load float, ptr %gep, align 4, !tbaa !81
   %121 = fadd reassoc nsz arcp contract afn float %120, %113
   %122 = fdiv reassoc nsz arcp contract afn float %119, %121
@@ -3209,7 +3209,7 @@ _ZN6LibRaw5COLOREii.exit:                         ; preds = %10
 39:                                               ; preds = %.thread, %35
   %40 = phi i32 [ %9, %.thread ], [ %.pre141, %35 ]
   %41 = phi ptr [ %4, %.thread ], [ %.pre, %35 ]
-  %.0.i144150 = phi i32 [ %31, %.thread ], [ %33, %35 ]
+  %.0.i155161 = phi i32 [ %31, %.thread ], [ %33, %35 ]
   %42 = phi i32 [ %32, %.thread ], [ %34, %35 ]
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 381494
   %44 = load i16, ptr %43, align 2, !tbaa !88
@@ -3226,7 +3226,7 @@ _ZN6LibRaw3FCFEii.exit.i130:                      ; preds = %39
   %50 = add nsw i32 %49, %48
   %.sink13.i.i131 = select i1 %.not.i.i129, i32 %47, i32 %50
   %.sink.i.i132 = select i1 %.not.i.i129, i32 %42, i32 %1
-  %.sink11.i.i133 = select i1 %.not.i.i129, i32 %1, i32 %.0.i144150
+  %.sink11.i.i133 = select i1 %.not.i.i129, i32 %1, i32 %.0.i155161
   %51 = zext i16 %44 to i32
   %52 = add i32 %.sink13.i.i131, %51
   %53 = add nsw i32 %.sink.i.i132, 1
@@ -3252,7 +3252,7 @@ _ZN6LibRaw3FCFEii.exit.i130:                      ; preds = %39
 
 _ZN6LibRaw5COLOREii.exit135:                      ; preds = %2, %_ZN6LibRaw5COLOREii.exit, %37, %_ZN6LibRaw3FCFEii.exit.i130, %63
   %70 = phi i32 [ %34, %37 ], [ %34, %_ZN6LibRaw5COLOREii.exit ], [ %42, %_ZN6LibRaw3FCFEii.exit.i130 ], [ %42, %63 ], [ 0, %2 ]
-  %.0.i145 = phi i32 [ %33, %37 ], [ %33, %_ZN6LibRaw5COLOREii.exit ], [ %.0.i144150, %_ZN6LibRaw3FCFEii.exit.i130 ], [ %.0.i144150, %63 ], [ 6, %2 ]
+  %.0.i156 = phi i32 [ %33, %37 ], [ %33, %_ZN6LibRaw5COLOREii.exit ], [ %.0.i155161, %_ZN6LibRaw3FCFEii.exit.i130 ], [ %.0.i155161, %63 ], [ 6, %2 ]
   %.0.i134 = phi i32 [ %38, %37 ], [ 6, %_ZN6LibRaw5COLOREii.exit ], [ %62, %_ZN6LibRaw3FCFEii.exit.i130 ], [ %69, %63 ], [ 6, %2 ]
   %71 = icmp samesign ult i32 %70, %7
   br i1 %71, label %.lr.ph, label %._crit_edge
@@ -3276,7 +3276,7 @@ _ZN6LibRaw5COLOREii.exit135:                      ; preds = %2, %_ZN6LibRaw5COLO
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %87 = getelementptr inbounds [3 x float], ptr %86, i64 0, i64 %81
   %invariant.gep = getelementptr [3 x float], ptr %80, i64 0, i64 %81
-  %88 = and i32 %.0.i145, 1
+  %88 = and i32 %.0.i156, 1
   %89 = zext nneg i32 %88 to i64
   %90 = zext i16 %6 to i64
   br label %91

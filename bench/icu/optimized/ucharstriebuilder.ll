@@ -359,9 +359,9 @@ define noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7717UCharsTrieB
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load i32, ptr %15, align 8, !tbaa !35
   %17 = icmp eq i32 %14, %16
-  br i1 %17, label %21, label %.thread28
+  br i1 %17, label %21, label %.thread34
 
-.thread28:                                        ; preds = %12
+.thread34:                                        ; preds = %12
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !22
   %18 = add nsw i32 %14, 1
@@ -417,8 +417,8 @@ define noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7717UCharsTrieB
   %47 = icmp slt i32 %.pre26, 1
   br i1 %47, label %48, label %_ZN6icu_7717UCharsTrieElement5setToERKNS_13UnicodeStringEiRS1_R10UErrorCode.exit.thread
 
-48:                                               ; preds = %.thread28, %43
-  %49 = phi ptr [ %20, %.thread28 ], [ %46, %43 ]
+48:                                               ; preds = %.thread34, %43
+  %49 = phi ptr [ %20, %.thread34 ], [ %46, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %51 = load i16, ptr %50, align 8, !tbaa !7
   %52 = icmp slt i16 %51, 0
@@ -990,14 +990,14 @@ _ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit: ; preds = %39
 _ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit15: ; preds = %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit, %51
   %.0.i.i.i13 = phi i16 [ %54, %51 ], [ -1, %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit ]
   %55 = icmp eq i16 %.0.i.i.i11, %.0.i.i.i13
-  br i1 %55, label %37, label %.critedge.split.loop.exit18, !llvm.loop !50
+  br i1 %55, label %37, label %.critedge.split.loop.exit20, !llvm.loop !50
 
-.critedge.split.loop.exit18:                      ; preds = %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit15
+.critedge.split.loop.exit20:                      ; preds = %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit15
   %56 = trunc nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %37, %.critedge.split.loop.exit18
-  %.lcssa = phi i32 [ %56, %.critedge.split.loop.exit18 ], [ %smax, %37 ]
+.critedge:                                        ; preds = %37, %.critedge.split.loop.exit20
+  %.lcssa = phi i32 [ %56, %.critedge.split.loop.exit20 ], [ %smax, %37 ]
   ret i32 %.lcssa
 }
 

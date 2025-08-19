@@ -2574,7 +2574,7 @@ define void @_ZN7uu_shuf9find_seps17hde38a943776dc653E(ptr noalias noundef align
   %26 = getelementptr inbounds nuw [0 x i8], ptr %20, i64 0, i64 %.05.i
   %27 = load i8, ptr %26, align 1, !alias.scope !728, !noundef !4
   %28 = icmp eq i8 %27, %1
-  br i1 %28, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.thread107, label %29
+  br i1 %28, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.thread119, label %29
 
 29:                                               ; preds = %.lr.ph.i
   %30 = add nuw nsw i64 %.05.i, 1
@@ -2585,19 +2585,19 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit: ; preds = %17
   %31 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef %1, ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %22)
   %32 = extractvalue { i64, i64 } %31, 0
   %33 = icmp eq i64 %32, 1
-  br i1 %33, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.thread107, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.thread
+  br i1 %33, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.thread119, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.thread
 
-_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.thread107: ; preds = %.lr.ph.i, %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit
+_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.thread119: ; preds = %.lr.ph.i, %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !731)
   %34 = load i64, ptr %3, align 8, !alias.scope !731, !noundef !4
   %.not.i51 = icmp ult i64 %14, %34
   br i1 %.not.i51, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17h2e659cec1f7cab42E.exit", label %35
 
-35:                                               ; preds = %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.thread107
+35:                                               ; preds = %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.thread119
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove13assert_failed17h771641dec687b353E"(i64 noundef range(i64 0, -1) %14, i64 noundef %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff93c85321387851358d99b62d92e8d0.28) #19, !noalias !731
   unreachable
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17h2e659cec1f7cab42E.exit": ; preds = %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.thread107
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17h2e659cec1f7cab42E.exit": ; preds = %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.thread119
   %36 = load ptr, ptr %12, align 8, !alias.scope !731, !nonnull !4, !noundef !4
   %37 = getelementptr inbounds { ptr, i64 }, ptr %36, i64 %14
   %38 = load ptr, ptr %37, align 8, !noalias !731, !nonnull !4, !align !727, !noundef !4
@@ -2650,7 +2650,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.thread107: ; preds 
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd97bc09184c60bf5E.exit": ; preds = %58
   %62 = sub nuw nsw i64 %54, %.081
-  %63 = getelementptr inbounds i8, ptr %38, i64 %.081
+  %63 = getelementptr inbounds nuw i8, ptr %38, i64 %.081
   %64 = load i64, ptr %3, align 8, !alias.scope !743, !noalias !746, !noundef !4
   %65 = load i64, ptr %0, align 8, !alias.scope !743, !noalias !746, !noundef !4
   %66 = icmp eq i64 %64, %65

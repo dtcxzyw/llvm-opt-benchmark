@@ -1692,7 +1692,7 @@ _ZN4llvm5APIntC2Ejmbb.exit66:                     ; preds = %_ZNK4llvm25generic_
   %.pre = load i32, ptr %39, align 8, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %160 = icmp ult i32 %.pre, 65
-  br i1 %160, label %.thread114, label %_ZNK4llvm5APInt6isZeroEv.exit
+  br i1 %160, label %.thread123, label %_ZNK4llvm5APInt6isZeroEv.exit
 
 161:                                              ; preds = %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE26getSequentialElementStrideERKNS_10DataLayoutE.exit65
   %162 = and i64 %159, %spec.select.i
@@ -1701,15 +1701,15 @@ _ZN4llvm5APIntC2Ejmbb.exit66:                     ; preds = %_ZNK4llvm25generic_
   %163 = icmp eq i64 %162, 0
   br i1 %163, label %_ZN4llvm5APIntD2Ev.exit71, label %167
 
-.thread114:                                       ; preds = %_ZN4llvm5APIntC2Ejmbb.exit66
-  %.pr112 = load i64, ptr %15, align 8, !tbaa !18
-  %164 = icmp eq i64 %.pr112, 0
-  br i1 %164, label %_ZN4llvm5APIntD2Ev.exit71, label %.thread115
+.thread123:                                       ; preds = %_ZN4llvm5APIntC2Ejmbb.exit66
+  %.pr121 = load i64, ptr %15, align 8, !tbaa !18
+  %164 = icmp eq i64 %.pr121, 0
+  br i1 %164, label %_ZN4llvm5APIntD2Ev.exit71, label %.thread124
 
 _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %_ZN4llvm5APIntC2Ejmbb.exit66
   %165 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %15) #13
   %166 = icmp eq i32 %165, %.pre
-  br i1 %166, label %.thread, label %.thread115
+  br i1 %166, label %.thread, label %.thread124
 
 167:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -1717,7 +1717,7 @@ _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %_ZN4llvm5APIntC2Ejm
   store i64 0, ptr %18, align 8, !tbaa !18
   br label %_ZN4llvm5APIntC2Ejmbb.exit67
 
-.thread115:                                       ; preds = %_ZNK4llvm5APInt6isZeroEv.exit, %.thread114
+.thread124:                                       ; preds = %_ZNK4llvm5APInt6isZeroEv.exit, %.thread123
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %47, align 8, !tbaa !16
@@ -1726,9 +1726,9 @@ _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %_ZN4llvm5APIntC2Ejm
   %.pre111 = load i64, ptr %18, align 8
   br label %_ZN4llvm5APIntC2Ejmbb.exit67
 
-_ZN4llvm5APIntC2Ejmbb.exit67:                     ; preds = %167, %.thread115
-  %168 = phi i64 [ 0, %167 ], [ %.pre111, %.thread115 ]
-  %169 = phi i32 [ %2, %167 ], [ %.pre110, %.thread115 ]
+_ZN4llvm5APIntC2Ejmbb.exit67:                     ; preds = %167, %.thread124
+  %168 = phi i64 [ 0, %167 ], [ %.pre111, %.thread124 ]
+  %169 = phi i32 [ %2, %167 ], [ %.pre110, %.thread124 ]
   store ptr %71, ptr %17, align 8, !tbaa !68
   store i32 %169, ptr %49, align 8, !tbaa !16
   store i64 %168, ptr %48, align 8
@@ -1844,7 +1844,7 @@ _ZNSt4pairIPN4llvm5ValueENS0_5APIntEED2Ev.exit:   ; preds = %_ZN4llvm9MapVectorI
   call void @_ZdaPv(ptr noundef nonnull %216) #12
   br label %_ZN4llvm5APIntD2Ev.exit71
 
-_ZN4llvm5APIntD2Ev.exit71:                        ; preds = %.thread114, %161, %212, %.thread, %218
+_ZN4llvm5APIntD2Ev.exit71:                        ; preds = %.thread123, %161, %212, %.thread, %218
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZN4llvm5APIntD2Ev.exit49.thread
 
@@ -2646,13 +2646,13 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj4ENS_12DenseMapInfoIS3_v
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %15, %65
-  %.sink32 = phi i32 [ %74, %65 ], [ %13, %15 ], [ %13, %32 ]
-  %.sink30 = phi ptr [ %72, %65 ], [ %10, %15 ], [ %10, %32 ]
-  %.sink29 = phi ptr [ %54, %65 ], [ %24, %15 ], [ %38, %32 ]
+  %.sink36 = phi i32 [ %74, %65 ], [ %13, %15 ], [ %13, %32 ]
+  %.sink34 = phi ptr [ %72, %65 ], [ %10, %15 ], [ %10, %32 ]
+  %.sink33 = phi ptr [ %54, %65 ], [ %24, %15 ], [ %38, %32 ]
   %.sink = phi i8 [ 1, %65 ], [ 0, %15 ], [ 0, %32 ]
-  %75 = zext i32 %.sink32 to i64
-  %76 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %75
-  store ptr %.sink29, ptr %0, align 8
+  %75 = zext i32 %.sink36 to i64
+  %76 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink34, i64 %75
+  store ptr %.sink33, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %76, ptr %.sroa.4.0..sroa_idx, align 8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16

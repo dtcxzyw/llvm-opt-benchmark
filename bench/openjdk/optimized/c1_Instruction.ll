@@ -2532,7 +2532,7 @@ _ZN10StateSplit10substituteER9BlockListP10BlockBeginS3_.exit: ; preds = %16, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10BlockBegin20insert_block_betweenEPS_(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZN10BlockBegin20insert_block_betweenEPS_(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %4 = load i32, ptr %3, align 4
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -4148,10 +4148,10 @@ define hidden noundef ptr @_ZNK3Phi10operand_atEi(ptr noundef nonnull readonly a
   %27 = icmp slt i32 %26, 0
   %.sink = select i1 %27, i64 56, i64 32
   %.lobit = ashr i32 %26, 31
-  %.sink7 = xor i32 %26, %.lobit
+  %.sink8 = xor i32 %26, %.lobit
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink
   %29 = load ptr, ptr %28, align 8
-  %30 = zext nneg i32 %.sink7 to i64
+  %30 = zext nneg i32 %.sink8 to i64
   %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
   %.05 = load ptr, ptr %31, align 8
   ret ptr %.05

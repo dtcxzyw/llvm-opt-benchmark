@@ -58,14 +58,14 @@ define hidden void @_ZN7Strutil7vformatB5cxx11EPKcP13__va_list_tag(ptr dead_on_u
 
 13:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %14 = phi ptr [ %8, %._crit_edge.thread ], [ %9, %._crit_edge ]
-  %.lcssa80 = phi i32 [ %7, %._crit_edge.thread ], [ %68, %._crit_edge ]
-  %.022.lcssa79 = phi ptr [ %5, %._crit_edge.thread ], [ %.sroa.032.2, %._crit_edge ]
-  %.sroa.032.0.lcssa77 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.032.2, %._crit_edge ]
-  %.sroa.13.0.lcssa75 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.13.2, %._crit_edge ]
-  %15 = zext nneg i32 %.lcssa80 to i64
+  %.lcssa88 = phi i32 [ %7, %._crit_edge.thread ], [ %68, %._crit_edge ]
+  %.022.lcssa87 = phi ptr [ %5, %._crit_edge.thread ], [ %.sroa.032.2, %._crit_edge ]
+  %.sroa.032.0.lcssa85 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.032.2, %._crit_edge ]
+  %.sroa.13.0.lcssa83 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.13.2, %._crit_edge ]
+  %15 = zext nneg i32 %.lcssa88 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %15, ptr %4, align 8, !tbaa !10
-  %16 = icmp samesign ugt i32 %.lcssa80, 15
+  %16 = icmp samesign ugt i32 %.lcssa88, 15
   br i1 %16, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %13
@@ -80,23 +80,23 @@ define hidden void @_ZN7Strutil7vformatB5cxx11EPKcP13__va_list_tag(ptr dead_on_u
 
 ._crit_edge.i.i:                                  ; preds = %.noexc27, %13
   %19 = phi ptr [ %17, %.noexc27 ], [ %14, %13 ]
-  switch i32 %.lcssa80, label %22 [
+  switch i32 %.lcssa88, label %22 [
     i32 1, label %20
     i32 0, label %77
   ]
 
 20:                                               ; preds = %._crit_edge.i.i
-  %21 = load i8, ptr %.022.lcssa79, align 1, !tbaa !14
+  %21 = load i8, ptr %.022.lcssa87, align 1, !tbaa !14
   store i8 %21, ptr %19, align 1, !tbaa !14
   br label %77
 
 22:                                               ; preds = %._crit_edge.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %.022.lcssa79, i64 %15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %.022.lcssa87, i64 %15, i1 false)
   br label %77
 
 23:                                               ; preds = %.noexc.i, %12
-  %.sroa.032.0.lcssa78 = phi ptr [ %.sroa.032.0.lcssa77, %.noexc.i ], [ null, %12 ]
-  %.sroa.13.0.lcssa76 = phi ptr [ %.sroa.13.0.lcssa75, %.noexc.i ], [ %.sroa.13.2, %12 ]
+  %.sroa.032.0.lcssa86 = phi ptr [ %.sroa.032.0.lcssa85, %.noexc.i ], [ null, %12 ]
+  %.sroa.13.0.lcssa84 = phi ptr [ %.sroa.13.0.lcssa83, %.noexc.i ], [ %.sroa.13.2, %12 ]
   %24 = landingpad { ptr, i32 }
           cleanup
   br label %72
@@ -133,7 +133,7 @@ define hidden void @_ZN7Strutil7vformatB5cxx11EPKcP13__va_list_tag(ptr dead_on_u
 42:                                               ; preds = %35
   store i8 0, ptr %.sroa.9.058, align 1, !tbaa !14
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.9.058, i64 1
-  %44 = add i64 %36, -1
+  %44 = add nsw i64 %36, -1
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %67, label %46
 
@@ -227,8 +227,8 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %60, %_ZNSt
   br label %72
 
 72:                                               ; preds = %.loopexit, %.loopexit.split-lp, %23
-  %.sroa.13.055 = phi ptr [ %.sroa.13.0.lcssa76, %23 ], [ %.sroa.13.059, %.loopexit ], [ %.sroa.13.059, %.loopexit.split-lp ]
-  %.sroa.032.051 = phi ptr [ %.sroa.032.0.lcssa78, %23 ], [ %.sroa.032.060, %.loopexit ], [ %.sroa.032.060, %.loopexit.split-lp ]
+  %.sroa.13.055 = phi ptr [ %.sroa.13.0.lcssa84, %23 ], [ %.sroa.13.059, %.loopexit ], [ %.sroa.13.059, %.loopexit.split-lp ]
+  %.sroa.032.051 = phi ptr [ %.sroa.032.0.lcssa86, %23 ], [ %.sroa.032.060, %.loopexit ], [ %.sroa.032.060, %.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i.i.i = icmp eq ptr %.sroa.032.051, null
@@ -254,14 +254,14 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %72, %73
   store i8 0, ptr %81, align 1, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not.i.i.i30 = icmp eq ptr %.sroa.032.0.lcssa77, null
+  %.not.i.i.i30 = icmp eq ptr %.sroa.032.0.lcssa85, null
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIcSaIcEED2Ev.exit31, label %82
 
 82:                                               ; preds = %77
-  %83 = ptrtoint ptr %.sroa.13.0.lcssa75 to i64
-  %84 = ptrtoint ptr %.sroa.032.0.lcssa77 to i64
+  %83 = ptrtoint ptr %.sroa.13.0.lcssa83 to i64
+  %84 = ptrtoint ptr %.sroa.032.0.lcssa85 to i64
   %85 = sub i64 %83, %84
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.032.0.lcssa77, i64 noundef %85) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.032.0.lcssa85, i64 noundef %85) #18
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit31
 
 _ZNSt6vectorIcSaIcEED2Ev.exit31:                  ; preds = %77, %82

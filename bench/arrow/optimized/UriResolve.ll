@@ -127,7 +127,7 @@ define range(i32 0, 11) i32 @uriAddBaseUriExMmA(ptr noundef %0, ptr noundef %1, 
   br i1 %48, label %51, label %61
 
 51:                                               ; preds = %45
-  br i1 %.not87.i, label %52, label %.thread108.i
+  br i1 %.not87.i, label %52, label %.thread113.i
 
 52:                                               ; preds = %51
   %53 = tail call i32 @uriCopyPathA(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
@@ -151,14 +151,14 @@ define range(i32 0, 11) i32 @uriAddBaseUriExMmA(ptr noundef %0, ptr noundef %1, 
   br label %78
 
 61:                                               ; preds = %45
-  br i1 %.not87.i, label %67, label %.thread108.i
+  br i1 %.not87.i, label %67, label %.thread113.i
 
-.thread108.i:                                     ; preds = %61, %51
+.thread113.i:                                     ; preds = %61, %51
   %62 = tail call i32 @uriCopyPathA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
   %.not95.i = icmp eq i32 %62, 0
   br i1 %.not95.i, label %uriAddBaseUriImplA.exit, label %63
 
-63:                                               ; preds = %.thread108.i
+63:                                               ; preds = %.thread113.i
   %64 = tail call fastcc i32 @uriResolveAbsolutePathFlagA(ptr noundef %0, ptr noundef nonnull %.013)
   %.not96.i = icmp eq i32 %64, 0
   br i1 %.not96.i, label %65, label %uriAddBaseUriImplA.exit
@@ -208,8 +208,8 @@ define range(i32 0, 11) i32 @uriAddBaseUriExMmA(ptr noundef %0, ptr noundef %1, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !15
   br label %uriAddBaseUriImplA.exit.thread
 
-uriAddBaseUriImplA.exit:                          ; preds = %73, %71, %69, %67, %65, %63, %.thread108.i, %52, %43, %38, %36, %34, %27, %25, %23, %14, %11
-  %.0.i = phi i32 [ 3, %65 ], [ 2, %11 ], [ 5, %14 ], [ 3, %23 ], [ 3, %25 ], [ 3, %27 ], [ 3, %34 ], [ 3, %36 ], [ 3, %38 ], [ 3, %43 ], [ 3, %52 ], [ 3, %67 ], [ 3, %69 ], [ 3, %71 ], [ 3, %73 ], [ %64, %63 ], [ 3, %.thread108.i ]
+uriAddBaseUriImplA.exit:                          ; preds = %73, %71, %69, %67, %65, %63, %.thread113.i, %52, %43, %38, %36, %34, %27, %25, %23, %14, %11
+  %.0.i = phi i32 [ 3, %65 ], [ 2, %11 ], [ 5, %14 ], [ 3, %23 ], [ 3, %25 ], [ 3, %27 ], [ 3, %34 ], [ 3, %36 ], [ 3, %38 ], [ 3, %43 ], [ 3, %52 ], [ 3, %67 ], [ 3, %69 ], [ 3, %71 ], [ 3, %73 ], [ %64, %63 ], [ 3, %.thread113.i ]
   %83 = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
   br label %uriAddBaseUriImplA.exit.thread
 
@@ -340,7 +340,7 @@ define range(i32 0, 11) i32 @uriAddBaseUriExMmW(ptr noundef %0, ptr noundef %1, 
   br i1 %48, label %51, label %61
 
 51:                                               ; preds = %45
-  br i1 %.not87.i, label %52, label %.thread108.i
+  br i1 %.not87.i, label %52, label %.thread113.i
 
 52:                                               ; preds = %51
   %53 = tail call i32 @uriCopyPathW(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
@@ -364,14 +364,14 @@ define range(i32 0, 11) i32 @uriAddBaseUriExMmW(ptr noundef %0, ptr noundef %1, 
   br label %78
 
 61:                                               ; preds = %45
-  br i1 %.not87.i, label %67, label %.thread108.i
+  br i1 %.not87.i, label %67, label %.thread113.i
 
-.thread108.i:                                     ; preds = %61, %51
+.thread113.i:                                     ; preds = %61, %51
   %62 = tail call i32 @uriCopyPathW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
   %.not95.i = icmp eq i32 %62, 0
   br i1 %.not95.i, label %uriAddBaseUriImplW.exit, label %63
 
-63:                                               ; preds = %.thread108.i
+63:                                               ; preds = %.thread113.i
   %64 = tail call fastcc i32 @uriResolveAbsolutePathFlagW(ptr noundef %0, ptr noundef nonnull %.013)
   %.not96.i = icmp eq i32 %64, 0
   br i1 %.not96.i, label %65, label %uriAddBaseUriImplW.exit
@@ -421,8 +421,8 @@ define range(i32 0, 11) i32 @uriAddBaseUriExMmW(ptr noundef %0, ptr noundef %1, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !26
   br label %uriAddBaseUriImplW.exit.thread
 
-uriAddBaseUriImplW.exit:                          ; preds = %73, %71, %69, %67, %65, %63, %.thread108.i, %52, %43, %38, %36, %34, %27, %25, %23, %14, %11
-  %.0.i = phi i32 [ 3, %65 ], [ 2, %11 ], [ 5, %14 ], [ 3, %23 ], [ 3, %25 ], [ 3, %27 ], [ 3, %34 ], [ 3, %36 ], [ 3, %38 ], [ 3, %43 ], [ 3, %52 ], [ 3, %67 ], [ 3, %69 ], [ 3, %71 ], [ 3, %73 ], [ %64, %63 ], [ 3, %.thread108.i ]
+uriAddBaseUriImplW.exit:                          ; preds = %73, %71, %69, %67, %65, %63, %.thread113.i, %52, %43, %38, %36, %34, %27, %25, %23, %14, %11
+  %.0.i = phi i32 [ 3, %65 ], [ 2, %11 ], [ 5, %14 ], [ 3, %23 ], [ 3, %25 ], [ 3, %27 ], [ 3, %34 ], [ 3, %36 ], [ 3, %38 ], [ 3, %43 ], [ 3, %52 ], [ 3, %67 ], [ 3, %69 ], [ 3, %71 ], [ 3, %73 ], [ %64, %63 ], [ 3, %.thread113.i ]
   %83 = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
   br label %uriAddBaseUriImplW.exit.thread
 

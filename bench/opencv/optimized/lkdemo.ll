@@ -901,7 +901,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166: ; preds = %_Z
   br i1 %.not28.i.i, label %326, label %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i
 
 _ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i: ; preds = %316
-  %325 = shl nuw i64 %317, 3
+  %325 = shl nuw nsw i64 %317, 3
   call void @llvm.memset.p0.i64(ptr align 4 %306, i8 0, i64 %325, i1 false), !tbaa !68
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %306, i64 %325
   store ptr %scevgep.i.i.i.i.i, ptr %177, align 16, !tbaa !54
@@ -962,16 +962,16 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit
 
 ._crit_edge.thread:                               ; preds = %263, %._crit_edge
-  %.lcssa315 = phi i64 [ %311, %._crit_edge ], [ 0, %263 ]
-  %.lcssa271314 = phi ptr [ %305, %._crit_edge ], [ %265, %263 ]
-  %.lcssa273313 = phi ptr [ %306, %._crit_edge ], [ %264, %263 ]
-  %.064.lcssa312 = phi i64 [ %.165, %._crit_edge ], [ 0, %263 ]
-  %341 = icmp ult i64 %.064.lcssa312, %.lcssa315
+  %.lcssa349 = phi i64 [ %311, %._crit_edge ], [ 0, %263 ]
+  %.lcssa271348 = phi ptr [ %305, %._crit_edge ], [ %265, %263 ]
+  %.lcssa273347 = phi ptr [ %306, %._crit_edge ], [ %264, %263 ]
+  %.064.lcssa346 = phi i64 [ %.165, %._crit_edge ], [ 0, %263 ]
+  %341 = icmp ult i64 %.064.lcssa346, %.lcssa349
   br i1 %341, label %342, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit
 
 342:                                              ; preds = %._crit_edge.thread
-  %343 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.lcssa271314, i64 %.064.lcssa312
-  %.not.i4.i = icmp eq ptr %.lcssa273313, %343
+  %343 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.lcssa271348, i64 %.064.lcssa346
+  %.not.i4.i = icmp eq ptr %.lcssa273347, %343
   br i1 %.not.i4.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit, label %344
 
 344:                                              ; preds = %342

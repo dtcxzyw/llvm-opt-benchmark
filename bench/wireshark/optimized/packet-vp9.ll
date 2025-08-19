@@ -196,16 +196,16 @@ define internal i32 @dissect_vp9(ptr noundef %0, ptr noundef readonly captures(n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %48, %46
-  %.not151.sink173 = phi i1 [ %.not151, %48 ], [ %.not152, %46 ]
+  %.not151.sink176 = phi i1 [ %.not151, %48 ], [ %.not152, %46 ]
   %hf_vp9_pld_pg_bits.sink = phi ptr [ %hf_vp9_pld_pg_bits.hf_vp9_pld_pg_extended_bits, %48 ], [ %hf_vp9_pld_pid_bits.hf_vp9_pld_pid_extended_bits, %46 ]
-  %.171 = select i1 %.not151.sink173, i32 1, i32 2
-  %.172 = select i1 %.not151.sink173, i32 2, i32 3
+  %.174 = select i1 %.not151.sink176, i32 1, i32 2
+  %.175 = select i1 %.not151.sink176, i32 2, i32 3
   %49 = load i32, ptr %hf_vp9_pld_pg_bits.sink, align 4
-  %50 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %49, ptr noundef %0, i32 noundef 1, i32 noundef %.171, i32 noundef 0)
+  %50 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %49, ptr noundef %0, i32 noundef 1, i32 noundef %.174, i32 noundef 0)
   br label %51
 
 51:                                               ; preds = %.sink.split, %47, %45
-  %.0148 = phi i32 [ 1, %45 ], [ 1, %47 ], [ %.172, %.sink.split ]
+  %.0148 = phi i32 [ 1, %45 ], [ 1, %47 ], [ %.175, %.sink.split ]
   %.not153 = icmp eq i8 %19, 0
   br i1 %.not153, label %68, label %52
 

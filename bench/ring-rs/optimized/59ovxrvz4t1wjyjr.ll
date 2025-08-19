@@ -558,18 +558,18 @@ define void @_ZN4ring4test8TestCase22consume_optional_bytes17h2ea43aed47f4091eE(
   %.idx.i = mul nsw i64 %.val13.i, 56
   %34 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx.i
   %35 = icmp eq i64 %.val13.i, 0
-  %.sink206.sroa.gep = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %.sink206.sroa.gep229 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %.sink206.sroa.gep230 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %.sink206.sroa.gep232 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %.sink206.sroa.gep233 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %.sink206.sroa.gep234 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %.sink206.sroa.gep236 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %.sink206.sroa.gep237 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %.sink206.sroa.gep238 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %.sink206.sroa.gep240 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %.sink206.sroa.gep241 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %.sink206.sroa.gep242 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %.sink218.sroa.gep = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.sink218.sroa.gep241 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %.sink218.sroa.gep242 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %.sink218.sroa.gep244 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %.sink218.sroa.gep245 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %.sink218.sroa.gep246 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %.sink218.sroa.gep248 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %.sink218.sroa.gep249 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %.sink218.sroa.gep250 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %.sink218.sroa.gep252 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %.sink218.sroa.gep253 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %.sink218.sroa.gep254 = getelementptr inbounds nuw i8, ptr %23, i64 24
   br i1 %35, label %_ZN4ring4test8TestCase23consume_optional_string17h52d559269975975aE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit.backedge.i"
@@ -815,17 +815,17 @@ _ZN4ring4test8TestCase23consume_optional_string17h52d559269975975aE.exit: ; pred
   br label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread.invoke"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread.invoke": ; preds = %199, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit63.thread", %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread"
-  %.sink206.sroa.phi = phi ptr [ %.sink206.sroa.gep, %199 ], [ %.sink206.sroa.gep229, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit63.thread" ], [ %.sink206.sroa.gep230, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
-  %.sink206.sroa.phi231 = phi ptr [ %.sink206.sroa.gep232, %199 ], [ %.sink206.sroa.gep233, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit63.thread" ], [ %.sink206.sroa.gep234, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
-  %.sink206.sroa.phi235 = phi ptr [ %.sink206.sroa.gep236, %199 ], [ %.sink206.sroa.gep237, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit63.thread" ], [ %.sink206.sroa.gep238, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
-  %.sink206.sroa.phi239 = phi ptr [ %.sink206.sroa.gep240, %199 ], [ %.sink206.sroa.gep241, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit63.thread" ], [ %.sink206.sroa.gep242, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
-  %.sink206 = phi ptr [ %24, %199 ], [ %25, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit63.thread" ], [ %23, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
+  %.sink218.sroa.phi = phi ptr [ %.sink218.sroa.gep, %199 ], [ %.sink218.sroa.gep241, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit63.thread" ], [ %.sink218.sroa.gep242, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
+  %.sink218.sroa.phi243 = phi ptr [ %.sink218.sroa.gep244, %199 ], [ %.sink218.sroa.gep245, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit63.thread" ], [ %.sink218.sroa.gep246, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
+  %.sink218.sroa.phi247 = phi ptr [ %.sink218.sroa.gep248, %199 ], [ %.sink218.sroa.gep249, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit63.thread" ], [ %.sink218.sroa.gep250, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
+  %.sink218.sroa.phi251 = phi ptr [ %.sink218.sroa.gep252, %199 ], [ %.sink218.sroa.gep253, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit63.thread" ], [ %.sink218.sroa.gep254, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
+  %.sink218 = phi ptr [ %24, %199 ], [ %25, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit63.thread" ], [ %23, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
   %116 = phi ptr [ @anon.fe9d10851d3bca97daef2caa4a44cbf4.66, %199 ], [ @anon.fe9d10851d3bca97daef2caa4a44cbf4.63, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit63.thread" ], [ @anon.fe9d10851d3bca97daef2caa4a44cbf4.57, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
-  store i64 1, ptr %.sink206.sroa.phi, align 8
-  store ptr null, ptr %.sink206.sroa.phi231, align 8
-  store ptr @anon.fe9d10851d3bca97daef2caa4a44cbf4.2, ptr %.sink206.sroa.phi235, align 8
-  store i64 0, ptr %.sink206.sroa.phi239, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink206, ptr noalias noundef readonly align 8 dereferenceable(24) %116) #15
+  store i64 1, ptr %.sink218.sroa.phi, align 8
+  store ptr null, ptr %.sink218.sroa.phi243, align 8
+  store ptr @anon.fe9d10851d3bca97daef2caa4a44cbf4.2, ptr %.sink218.sroa.phi247, align 8
+  store i64 0, ptr %.sink218.sroa.phi251, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink218, ptr noalias noundef readonly align 8 dereferenceable(24) %116) #15
           to label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread.cont" unwind label %.loopexit.split-lp
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread.cont": ; preds = %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread.invoke"
@@ -1833,17 +1833,17 @@ define void @_ZN4ring4test15parse_test_case17h56558da9db1a9fdaE(ptr noalias noun
           to label %29 unwind label %.loopexit.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit.loopexit.split-lp, %.loopexit.split-lp, %.body
-  %.pn27 = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit148, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp149, %.loopexit.loopexit.split-lp ]
+  %.pn27 = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit157, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp158, %.loopexit.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr104drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$alloc..string..String$C$bool$RP$$GT$$GT$17he8427dc47d19a8daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #13
           to label %212 unwind label %99
 
 .loopexit.loopexit:                               ; preds = %27
-  %lpad.loopexit148 = landingpad { ptr, i32 }
+  %lpad.loopexit157 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
 .loopexit.loopexit.split-lp:                      ; preds = %111, %95, %89, %38, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfed42cf86ce202fbE.exit38.thread"
-  %lpad.loopexit.split-lp149 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp158 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
@@ -2212,7 +2212,7 @@ _ZN5alloc6string6String3pop17hda4727335b5a2109E.exit: ; preds = %157, %159, %161
   br i1 %164, label %.thread.i, label %_ZN5alloc6string6String3pop17hda4727335b5a2109E.exit.thread
 
 _ZN5alloc6string6String3pop17hda4727335b5a2109E.exit.thread: ; preds = %151, %_ZN5alloc6string6String3pop17hda4727335b5a2109E.exit
-  %.val9.i119 = phi i64 [ %163, %_ZN5alloc6string6String3pop17hda4727335b5a2109E.exit ], [ %117, %151 ]
+  %.val9.i129 = phi i64 [ %163, %_ZN5alloc6string6String3pop17hda4727335b5a2109E.exit ], [ %117, %151 ]
   %165 = load i8, ptr %118, align 1, !noalias !398, !noundef !8
   %166 = icmp sgt i8 %165, -1
   br i1 %166, label %_ZN5alloc6string6String6remove17h25efbbe12ee2d8ecE.exit, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b5fbdb0409945e9E.exit13.i.i"
@@ -2221,7 +2221,7 @@ _ZN5alloc6string6String3pop17hda4727335b5a2109E.exit.thread: ; preds = %151, %_Z
   %167 = getelementptr inbounds nuw i8, ptr %118, i64 1
   %168 = and i8 %165, 31
   %169 = zext nneg i8 %168 to i32
-  %170 = icmp ne i64 %.val9.i119, 1
+  %170 = icmp ne i64 %.val9.i129, 1
   call void @llvm.assume(i1 %170)
   %171 = load i8, ptr %167, align 1, !noalias !398, !noundef !8
   %172 = shl nuw nsw i32 %169, 6
@@ -2233,7 +2233,7 @@ _ZN5alloc6string6String3pop17hda4727335b5a2109E.exit.thread: ; preds = %151, %_Z
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b5fbdb0409945e9E.exit15.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b5fbdb0409945e9E.exit13.i.i"
   %177 = getelementptr inbounds nuw i8, ptr %118, i64 2
-  %178 = icmp ne i64 %.val9.i119, 2
+  %178 = icmp ne i64 %.val9.i129, 2
   call void @llvm.assume(i1 %178)
   %179 = load i8, ptr %177, align 1, !noalias !398, !noundef !8
   %180 = shl nuw nsw i32 %174, 6
@@ -2247,7 +2247,7 @@ _ZN5alloc6string6String3pop17hda4727335b5a2109E.exit.thread: ; preds = %151, %_Z
 
 187:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b5fbdb0409945e9E.exit15.i.i"
   %188 = getelementptr inbounds nuw i8, ptr %118, i64 3
-  %189 = icmp ne i64 %.val9.i119, 3
+  %189 = icmp ne i64 %.val9.i129, 3
   call void @llvm.assume(i1 %189)
   %190 = load i8, ptr %188, align 1, !noalias !398, !noundef !8
   %191 = shl nuw nsw i32 %169, 18
@@ -2294,7 +2294,7 @@ _ZN5alloc6string6String3pop17hda4727335b5a2109E.exit.thread: ; preds = %151, %_Z
 _ZN5alloc6string6String6remove17h25efbbe12ee2d8ecE.exit: ; preds = %_ZN5alloc6string6String3pop17hda4727335b5a2109E.exit.thread, %.thread13.i, %204, %206
   %.08.i = phi i64 [ 1, %.thread13.i ], [ %..i55, %206 ], [ 2, %204 ], [ 1, %_ZN5alloc6string6String3pop17hda4727335b5a2109E.exit.thread ]
   %208 = getelementptr inbounds nuw i8, ptr %118, i64 %.08.i
-  %209 = sub i64 %.val9.i119, %.08.i
+  %209 = sub i64 %.val9.i129, %.08.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %118, ptr nonnull align 1 %208, i64 %209, i1 false), !noalias !395
   store i64 %209, ptr %19, align 8, !alias.scope !395
   br label %.outer.backedge

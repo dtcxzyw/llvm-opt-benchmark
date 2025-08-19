@@ -227,16 +227,16 @@ _ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i: ; preds = %23, %switch.looku
 40:                                               ; preds = %20
   %41 = load ptr, ptr %8, align 8, !tbaa !18
   %42 = icmp ult i32 %0, 4
-  br i1 %42, label %switch.lookup25, label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit43.i
+  br i1 %42, label %switch.lookup28, label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit43.i
 
-switch.lookup25:                                  ; preds = %40
+switch.lookup28:                                  ; preds = %40
   %43 = zext nneg i32 %0 to i64
-  %switch.gep26 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 0, i64 %43
-  %switch.load27 = load ptr, ptr %switch.gep26, align 8
+  %switch.gep29 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 0, i64 %43
+  %switch.load30 = load ptr, ptr %switch.gep29, align 8
   br label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit43.i
 
-_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit43.i: ; preds = %40, %switch.lookup25
-  %.0.i42.i = phi ptr [ %switch.load27, %switch.lookup25 ], [ @.str.7, %40 ]
+_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit43.i: ; preds = %40, %switch.lookup28
+  %.0.i42.i = phi ptr [ %switch.load30, %switch.lookup28 ], [ @.str.7, %40 ]
   %44 = load i8, ptr %.0.i42.i, align 1, !tbaa !7
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 1
   store i8 %44, ptr %41, align 1, !tbaa !7

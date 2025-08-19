@@ -921,10 +921,10 @@ define dso_local range(i32 0, 7) i32 @curl_formadd(ptr noundef writeonly capture
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !18
   %443 = and i64 %.pre.i, 1
   %.not333.i = icmp ne i64 %443, 0
-  %or.cond524.i.not2 = select i1 %.not332.i, i1 %.not333.i, i1 false
+  %or.cond568.i.not2 = select i1 %.not332.i, i1 %.not333.i, i1 false
   %444 = and i64 %.pre.i, 9
   %or.cond397.not.i = icmp eq i64 %444, 9
-  %or.cond = select i1 %or.cond524.i.not2, i1 true, i1 %or.cond397.not.i
+  %or.cond = select i1 %or.cond568.i.not2, i1 true, i1 %or.cond397.not.i
   br i1 %or.cond, label %.lr.ph.preheader.i, label %445
 
 445:                                              ; preds = %440
@@ -1167,7 +1167,7 @@ AddHttpPost.exit.i:                               ; preds = %545, %541
   br i1 %.not330.i, label %.loopexit439.i, label %.preheader441.i, !llvm.loop !62
 
 .lr.ph.preheader.i:                               ; preds = %525, %522, %498, %thread-pre-split.i, %.thread425.i, %456, %445, %440, %439, %434, %.preheader440.i
-  %.15.ph506.i = phi i32 [ 3, %.preheader440.i ], [ 5, %440 ], [ 5, %445 ], [ 1, %525 ], [ 1, %522 ], [ 1, %498 ], [ 1, %456 ], [ 1, %thread-pre-split.i ], [ 5, %439 ], [ 5, %434 ], [ 1, %.thread425.i ]
+  %.15.ph550.i = phi i32 [ 3, %.preheader440.i ], [ 5, %440 ], [ 5, %445 ], [ 1, %525 ], [ 1, %522 ], [ 1, %498 ], [ 1, %456 ], [ 1, %thread-pre-split.i ], [ 5, %439 ], [ 5, %434 ], [ 1, %.thread425.i ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %580, %.lr.ph.preheader.i
@@ -1237,7 +1237,7 @@ AddHttpPost.exit.i:                               ; preds = %545, %541
   br i1 %.not363.i, label %.loopexit439.i, label %.lr.ph.i, !llvm.loop !63
 
 .loopexit439.i:                                   ; preds = %430, %AddHttpPost.exit.i, %580
-  %.13.i = phi i32 [ %.15.ph506.i, %580 ], [ 0, %AddHttpPost.exit.i ], [ %.0268.i, %430 ]
+  %.13.i = phi i32 [ %.15.ph550.i, %580 ], [ 0, %AddHttpPost.exit.i ], [ %.0268.i, %430 ]
   br label %583
 
 583:                                              ; preds = %583, %.loopexit439.i
@@ -1280,15 +1280,15 @@ define dso_local i32 @curl_formget(ptr noundef readonly captures(address_is_null
 .lr.ph.preheader:                                 ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = call i64 @Curl_mime_read(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 8192, ptr noundef nonnull %4) #7
-  %.not1534 = icmp eq i64 %9, 0
-  br i1 %.not1534, label %.loopexit.sink.split, label %.lr.ph35
+  %.not1535 = icmp eq i64 %9, 0
+  br i1 %.not1535, label %.loopexit.sink.split, label %.lr.ph36
 
-.lr.ph35:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph36:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %10 = phi i64 [ %14, %.lr.ph ], [ %9, %.lr.ph.preheader ]
   %11 = icmp ugt i64 %10, 8192
   br i1 %11, label %.loopexit.loopexit, label %12
 
-12:                                               ; preds = %.lr.ph35
+12:                                               ; preds = %.lr.ph36
   %13 = call i64 %2(ptr noundef %1, ptr noundef nonnull %5, i64 noundef %10) #7
   %.not16 = icmp eq i64 %13, %10
   br i1 %.not16, label %.lr.ph, label %.loopexit.loopexit
@@ -1298,9 +1298,9 @@ define dso_local i32 @curl_formget(ptr noundef readonly captures(address_is_null
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = call i64 @Curl_mime_read(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 8192, ptr noundef nonnull %4) #7
   %.not15 = icmp eq i64 %14, 0
-  br i1 %.not15, label %.loopexit.sink.split, label %.lr.ph35
+  br i1 %.not15, label %.loopexit.sink.split, label %.lr.ph36
 
-.loopexit.loopexit:                               ; preds = %.lr.ph35, %12
+.loopexit.loopexit:                               ; preds = %.lr.ph36, %12
   %15 = icmp eq i64 %10, 268435456
   %spec.store.select = select i1 %15, i32 42, i32 26
   br label %.loopexit.sink.split
@@ -1393,7 +1393,7 @@ setname.exit:                                     ; preds = %24, %20
   br i1 %.not101160, label %.lr.ph, label %._crit_edge168.thread
 
 .lr.ph:                                           ; preds = %.lr.ph167, %.thread
-  %.081183 = phi ptr [ %.081, %.thread ], [ %6, %.lr.ph167 ]
+  %.081197 = phi ptr [ %.081, %.thread ], [ %6, %.lr.ph167 ]
   %31 = getelementptr inbounds nuw i8, ptr %.086164, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %.086164, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %.086164, i64 80
@@ -1406,7 +1406,7 @@ setname.exit:                                     ; preds = %24, %20
 
 39:                                               ; preds = %.lr.ph, %.thread154
   %.082162 = phi ptr [ %.086164, %.lr.ph ], [ %106, %.thread154 ]
-  %40 = tail call ptr @curl_mime_addpart(ptr noundef %.081183) #7
+  %40 = tail call ptr @curl_mime_addpart(ptr noundef %.081197) #7
   %.not102.not = icmp eq ptr %40, null
   br i1 %.not102.not, label %.thread154, label %41
 
@@ -1584,12 +1584,12 @@ sub_0:                                            ; preds = %setname.exit132.thr
   br i1 %.not94, label %112, label %._crit_edge168.thread
 
 ._crit_edge168.thread:                            ; preds = %27, %22, %setname.exit, %.thread, %41, %48, %58, %setname.exit132, %76, %96, %5, %7, %._crit_edge168
-  %.2.lcssa194 = phi i32 [ %.15, %._crit_edge168 ], [ %8, %7 ], [ 27, %5 ], [ %.12, %96 ], [ %.13, %76 ], [ %.11, %setname.exit132 ], [ 27, %58 ], [ %49, %48 ], [ %44, %41 ], [ %.5, %setname.exit ], [ 27, %22 ], [ 27, %27 ], [ %.3, %.thread ]
+  %.2.lcssa208 = phi i32 [ %.15, %._crit_edge168 ], [ %8, %7 ], [ 27, %5 ], [ %.12, %96 ], [ %.13, %76 ], [ %.11, %setname.exit132 ], [ 27, %58 ], [ %49, %48 ], [ %44, %41 ], [ %.5, %setname.exit ], [ 27, %22 ], [ 27, %27 ], [ %.3, %.thread ]
   tail call void @Curl_mime_cleanpart(ptr noundef %1) #7
   br label %112
 
 112:                                              ; preds = %._crit_edge168, %._crit_edge168.thread, %4
-  %.085 = phi i32 [ 0, %4 ], [ %.2.lcssa194, %._crit_edge168.thread ], [ 0, %._crit_edge168 ]
+  %.085 = phi i32 [ 0, %4 ], [ %.2.lcssa208, %._crit_edge168.thread ], [ 0, %._crit_edge168 ]
   ret i32 %.085
 }
 

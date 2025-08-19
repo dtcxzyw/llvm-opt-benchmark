@@ -71,7 +71,7 @@ test_binary_op.exit:                              ; preds = %20
 
 27:                                               ; preds = %9
   %28 = load ptr, ptr @stderr, align 8, !tbaa !6
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef %8, i32 noundef %11, i32 noundef -1, i32 noundef %18) #3
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef %8, i32 noundef %11, i32 noundef -1, i32 noundef 0) #3
   %30 = add nsw i32 %.1107189, 1
   %31 = load ptr, ptr @stderr, align 8, !tbaa !6
   %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.2, i32 noundef %8, i32 noundef %11, i32 noundef 255, i32 noundef %18) #3
@@ -121,7 +121,7 @@ test_binary_op.exit130:                           ; preds = %49
 
 56:                                               ; preds = %test_binary_op_8.exit
   %57 = load ptr, ptr @stderr, align 8, !tbaa !6
-  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.2, i32 noundef %11, i32 noundef %8, i32 noundef -1, i32 noundef %47) #3
+  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.2, i32 noundef %11, i32 noundef %8, i32 noundef -1, i32 noundef 0) #3
   %59 = add nsw i32 %41, 1
   %60 = load ptr, ptr @stderr, align 8, !tbaa !6
   %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.2, i32 noundef %11, i32 noundef %8, i32 noundef 255, i32 noundef %47) #3
@@ -189,9 +189,9 @@ test_binary_op_8.exit142:                         ; preds = %77, %83, %85
 
 94:                                               ; preds = %test_binary_op_8.exit142
   %or.cond3.i144 = and i1 %42, %isnotneg.i167
-  br i1 %or.cond3.i144, label %.thread220, label %104
+  br i1 %or.cond3.i144, label %.thread237, label %104
 
-.thread220:                                       ; preds = %94
+.thread237:                                       ; preds = %94
   %95 = load ptr, ptr @stderr, align 8, !tbaa !6
   %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.3, i32 noundef %11, i32 noundef %8, i32 noundef 0, i32 noundef %92) #3
   %97 = add nsw i32 %91, 1
@@ -210,9 +210,9 @@ test_binary_op_8.exit142:                         ; preds = %77, %83, %85
   %.pre210 = and i1 %42, %isnotneg.i167
   br i1 %.pre210, label %106, label %test_binary_op_8.exit166
 
-106:                                              ; preds = %.thread220, %104
-  %107 = phi i32 [ %97, %.thread220 ], [ %91, %104 ]
-  %108 = phi i32 [ 255, %.thread220 ], [ %105, %104 ]
+106:                                              ; preds = %.thread237, %104
+  %107 = phi i32 [ %97, %.thread237 ], [ %91, %104 ]
+  %108 = phi i32 [ 255, %.thread237 ], [ %105, %104 ]
   %109 = load ptr, ptr @stderr, align 8, !tbaa !6
   %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.4, i32 noundef %11, i32 noundef %8, i32 noundef 0, i32 noundef %108) #3
   br label %test_binary_op_8.exit166

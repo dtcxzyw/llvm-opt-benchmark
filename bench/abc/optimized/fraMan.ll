@@ -432,9 +432,9 @@ Abc_UtilStrsav.exit52:                            ; preds = %Abc_UtilStrsav.exit
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %calloc, ptr %81, align 8, !tbaa !61
   %82 = shl nsw i64 %79, 2
-  %calloc62 = tail call ptr @calloc(i64 1, i64 %82)
+  %calloc64 = tail call ptr @calloc(i64 1, i64 %82)
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr %calloc62, ptr %83, align 8, !tbaa !64
+  store ptr %calloc64, ptr %83, align 8, !tbaa !64
   ret ptr %6
 }
 

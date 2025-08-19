@@ -2029,7 +2029,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_13CwiseBinaryOpINS_8internal18scala
   %161 = getelementptr i8, ptr %160, i64 %.idx.i68
   %162 = getelementptr inbounds i8, ptr %0, i64 %.idx.i68
   %163 = getelementptr inbounds i8, ptr %140, i64 %.idx.i68
-  %invariant.gep226 = getelementptr i8, ptr %131, i64 %.idx.i68
+  %invariant.gep239 = getelementptr i8, ptr %131, i64 %.idx.i68
   br label %164
 
 164:                                              ; preds = %.preheader201, %296
@@ -2047,8 +2047,8 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_13CwiseBinaryOpINS_8internal18scala
   br i1 %170, label %._crit_edge221, label %171
 
 ._crit_edge221:                                   ; preds = %164
-  %gep227 = getelementptr double, ptr %invariant.gep226, i64 %.064207
-  %.pre = load double, ptr %gep227, align 8
+  %gep240 = getelementptr double, ptr %invariant.gep239, i64 %.064207
+  %.pre = load double, ptr %gep240, align 8
   br label %175
 
 171:                                              ; preds = %164

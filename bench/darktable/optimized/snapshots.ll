@@ -414,15 +414,15 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %170, %188
-  %.sink203 = phi double [ %196, %188 ], [ %107, %170 ]
-  %.sink202 = phi double [ %108, %188 ], [ %178, %170 ]
-  %.sink200 = phi i32 [ 0, %188 ], [ 1, %170 ]
+  %.sink205 = phi double [ %196, %188 ], [ %107, %170 ]
+  %.sink204 = phi double [ %108, %188 ], [ %178, %170 ]
+  %.sink202 = phi i32 [ 0, %188 ], [ 1, %170 ]
   call void @cairo_close_path(ptr noundef %1) #14
   call void @cairo_fill(ptr noundef %1) #14
-  %201 = fptrunc reassoc nsz arcp contract afn double %.sink203 to float
-  %202 = fptrunc reassoc nsz arcp contract afn double %.sink202 to float
+  %201 = fptrunc reassoc nsz arcp contract afn double %.sink205 to float
+  %202 = fptrunc reassoc nsz arcp contract afn double %.sink204 to float
   %203 = load i32, ptr %109, align 8, !tbaa !62
-  call fastcc void @_draw_sym(ptr noundef %1, float noundef %201, float noundef %202, i32 noundef %.sink200, i32 noundef %203)
+  call fastcc void @_draw_sym(ptr noundef %1, float noundef %201, float noundef %202, i32 noundef %.sink202, i32 noundef %203)
   br label %204
 
 204:                                              ; preds = %.sink.split, %183, %165
@@ -1219,10 +1219,10 @@ define internal void @_lib_snapshots_add_button_clicked_callback(ptr readnone ca
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %25
-  %.sink61 = phi ptr [ %31, %25 ], [ %32, %.sink.split.sink.split ]
-  %.sink60 = phi i64 [ 64, %25 ], [ 56, %.sink.split.sink.split ]
-  %33 = tail call noalias ptr @g_strdup(ptr noundef %.sink61) #14
-  %34 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink60
+  %.sink63 = phi ptr [ %31, %25 ], [ %32, %.sink.split.sink.split ]
+  %.sink62 = phi i64 [ 64, %25 ], [ 56, %.sink.split.sink.split ]
+  %33 = tail call noalias ptr @g_strdup(ptr noundef %.sink63) #14
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink62
   store ptr %33, ptr %34, align 8, !tbaa !187
   br label %35
 
@@ -1804,7 +1804,7 @@ define internal void @_lib_snapshots_toggled_callback(ptr noundef %0, ptr nounde
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !171
   %23 = icmp eq ptr %13, %22
-  br i1 %23, label %._crit_edge.loopexit.split.loop.exit8.i, label %24
+  br i1 %23, label %._crit_edge.loopexit.split.loop.exit9.i, label %24
 
 24:                                               ; preds = %20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1815,12 +1815,12 @@ define internal void @_lib_snapshots_toggled_callback(ptr noundef %0, ptr nounde
   %25 = trunc nuw i64 %indvars.iv.i to i32
   br label %_lib_snapshots_get_activated.exit
 
-._crit_edge.loopexit.split.loop.exit8.i:          ; preds = %20
+._crit_edge.loopexit.split.loop.exit9.i:          ; preds = %20
   %26 = trunc nuw i64 %indvars.iv.i to i32
   br label %_lib_snapshots_get_activated.exit
 
-_lib_snapshots_get_activated.exit:                ; preds = %24, %11, %._crit_edge.loopexit.split.loop.exit.i, %._crit_edge.loopexit.split.loop.exit8.i
-  %spec.select.i = phi i32 [ -1, %11 ], [ %25, %._crit_edge.loopexit.split.loop.exit.i ], [ %26, %._crit_edge.loopexit.split.loop.exit8.i ], [ -1, %24 ]
+_lib_snapshots_get_activated.exit:                ; preds = %24, %11, %._crit_edge.loopexit.split.loop.exit.i, %._crit_edge.loopexit.split.loop.exit9.i
+  %spec.select.i = phi i32 [ -1, %11 ], [ %25, %._crit_edge.loopexit.split.loop.exit.i ], [ %26, %._crit_edge.loopexit.split.loop.exit9.i ], [ -1, %24 ]
   store i32 %spec.select.i, ptr %9, align 8, !tbaa !63
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %28 = load i32, ptr %27, align 4, !tbaa !159

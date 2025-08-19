@@ -1506,12 +1506,12 @@ _ZNSt6vectorIlSaIlEED2Ev.exit200:                 ; preds = %492, %.body188, %50
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit142
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit.sink.split: ; preds = %148, %275, %505
-  %.sink326 = phi ptr [ %507, %505 ], [ %276, %275 ], [ %150, %148 ]
-  %.sink325 = phi ptr [ %504, %505 ], [ %.pr.i, %275 ], [ %147, %148 ]
-  %516 = ptrtoint ptr %.sink326 to i64
-  %517 = ptrtoint ptr %.sink325 to i64
+  %.sink373 = phi ptr [ %507, %505 ], [ %276, %275 ], [ %150, %148 ]
+  %.sink372 = phi ptr [ %504, %505 ], [ %.pr.i, %275 ], [ %147, %148 ]
+  %516 = ptrtoint ptr %.sink373 to i64
+  %517 = ptrtoint ptr %.sink372 to i64
   %518 = sub i64 %516, %517
-  call void @_ZdlPvm(ptr noundef nonnull %.sink325, i64 noundef %518) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sink372, i64 noundef %518) #23
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit.sink.split, %503, %_ZSt8_DestroyIPSt6vectorISt4pairIldESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i, %._crit_edge282
@@ -2754,12 +2754,12 @@ _ZNSt6vectorIlSaIlEED2Ev.exit194:                 ; preds = %472, %.body182, %41
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit136
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit.sink.split: ; preds = %142, %264, %407
-  %.sink306 = phi ptr [ %409, %407 ], [ %265, %264 ], [ %144, %142 ]
-  %.sink305 = phi ptr [ %406, %407 ], [ %.pr.i, %264 ], [ %141, %142 ]
-  %486 = ptrtoint ptr %.sink306 to i64
-  %487 = ptrtoint ptr %.sink305 to i64
+  %.sink353 = phi ptr [ %409, %407 ], [ %265, %264 ], [ %144, %142 ]
+  %.sink352 = phi ptr [ %406, %407 ], [ %.pr.i, %264 ], [ %141, %142 ]
+  %486 = ptrtoint ptr %.sink353 to i64
+  %487 = ptrtoint ptr %.sink352 to i64
   %488 = sub i64 %486, %487
-  call void @_ZdlPvm(ptr noundef nonnull %.sink305, i64 noundef %488) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sink352, i64 noundef %488) #23
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit.sink.split, %_ZNSt6vectorIlSaIlEED2Ev.exit175, %_ZSt8_DestroyIPSt6vectorISt4pairIldESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i, %._crit_edge262
@@ -3001,8 +3001,8 @@ _ZNSt6vectorIPKN10open_spiel6PolicyESaIS3_EED2Ev.exit: ; preds = %25, %27
   br label %_ZNSt6vectorIPKN10open_spiel6PolicyESaIS3_EED2Ev.exit9
 
 _ZNSt6vectorIPKN10open_spiel6PolicyESaIS3_EED2Ev.exit9: ; preds = %.thread, %33, %35
-  %.pn12 = phi { ptr, i32 } [ %23, %.thread ], [ %34, %33 ], [ %34, %35 ]
-  resume { ptr, i32 } %.pn12
+  %.pn13 = phi { ptr, i32 } [ %23, %.thread ], [ %34, %33 ], [ %34, %35 ]
+  resume { ptr, i32 } %.pn13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -3775,16 +3775,16 @@ _ZNSt10unique_ptrIKN10open_spiel5StateESt14default_deleteIS2_EED2Ev.exit137: ; p
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %220, %312, %_ZNSt10unique_ptrIKN10open_spiel5StateESt14default_deleteIS2_EED2Ev.exit137
   %318 = phi i1 [ true, %312 ], [ true, %_ZNSt10unique_ptrIKN10open_spiel5StateESt14default_deleteIS2_EED2Ev.exit137 ], [ false, %220 ]
-  %.sroa.13.1246 = phi ptr [ %.sroa.13.1.ph, %312 ], [ %.sroa.13.1.ph, %_ZNSt10unique_ptrIKN10open_spiel5StateESt14default_deleteIS2_EED2Ev.exit137 ], [ %167, %220 ]
-  %.sroa.0160.1243 = phi ptr [ %.sroa.0160.1.ph, %312 ], [ %.sroa.0160.1.ph, %_ZNSt10unique_ptrIKN10open_spiel5StateESt14default_deleteIS2_EED2Ev.exit137 ], [ %165, %220 ]
-  %.not.i.i.i139 = icmp eq ptr %.sroa.0160.1243, null
+  %.sroa.13.1268 = phi ptr [ %.sroa.13.1.ph, %312 ], [ %.sroa.13.1.ph, %_ZNSt10unique_ptrIKN10open_spiel5StateESt14default_deleteIS2_EED2Ev.exit137 ], [ %167, %220 ]
+  %.sroa.0160.1265 = phi ptr [ %.sroa.0160.1.ph, %312 ], [ %.sroa.0160.1.ph, %_ZNSt10unique_ptrIKN10open_spiel5StateESt14default_deleteIS2_EED2Ev.exit137 ], [ %165, %220 ]
+  %.not.i.i.i139 = icmp eq ptr %.sroa.0160.1265, null
   br i1 %.not.i.i.i139, label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit140, label %319
 
 319:                                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
-  %320 = ptrtoint ptr %.sroa.13.1246 to i64
-  %321 = ptrtoint ptr %.sroa.0160.1243 to i64
+  %320 = ptrtoint ptr %.sroa.13.1268 to i64
+  %321 = ptrtoint ptr %.sroa.0160.1265 to i64
   %322 = sub i64 %320, %321
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0160.1243, i64 noundef %322) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0160.1265, i64 noundef %322) #23
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit140
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit140:     ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit, %319

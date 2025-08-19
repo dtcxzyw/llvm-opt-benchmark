@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @dts2pts_init(ptr noundef %0) #0 {
-.critedge52:
+.critedge54:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %1, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -35,7 +35,7 @@ define internal range(i32 -2147483648, 1) i32 @dts2pts_init(ptr noundef %0) #0 {
   %8 = icmp eq i32 %7, 27
   br i1 %8, label %9, label %.critedge, !llvm.loop !21
 
-9:                                                ; preds = %.critedge52
+9:                                                ; preds = %.critedge54
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @h264_init, ptr %10, align 8, !tbaa !23
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -97,8 +97,8 @@ define internal range(i32 -2147483648, 1) i32 @dts2pts_init(ptr noundef %0) #0 {
   tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %3) #9
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge52, %31, %28, %19, %16, %9, %40
-  %.039 = phi i32 [ 0, %40 ], [ -12, %9 ], [ -12, %16 ], [ %24, %19 ], [ %29, %28 ], [ 0, %31 ], [ -558323010, %.critedge52 ]
+.critedge:                                        ; preds = %.critedge54, %31, %28, %19, %16, %9, %40
+  %.039 = phi i32 [ 0, %40 ], [ -12, %9 ], [ -12, %16 ], [ %24, %19 ], [ %29, %28 ], [ 0, %31 ], [ -558323010, %.critedge54 ]
   ret i32 %.039
 }
 
@@ -140,9 +140,9 @@ define internal range(i32 -2147483648, 1) i32 @dts2pts_filter(ptr noundef %0, pt
 
 22:                                               ; preds = %18
   %.not50 = icmp eq i32 %20, -541478725
-  br i1 %.not50, label %.thread83, label %.loopexit
+  br i1 %.not50, label %.thread94, label %.loopexit
 
-.thread83:                                        ; preds = %22
+.thread94:                                        ; preds = %22
   store i32 1, ptr %11, align 8, !tbaa !39
   br label %.critedge
 
@@ -151,7 +151,7 @@ define internal range(i32 -2147483648, 1) i32 @dts2pts_filter(ptr noundef %0, pt
   %24 = icmp eq i32 %.pre, 0
   br i1 %24, label %15, label %.critedge, !llvm.loop !40
 
-.critedge:                                        ; preds = %15, %23, %.thread83, %2
+.critedge:                                        ; preds = %15, %23, %.thread94, %2
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !35
   %27 = tail call i64 @av_fifo_can_read(ptr noundef %26) #9
@@ -751,8 +751,8 @@ define internal i32 @h264_filter(ptr noundef %0) #0 {
   br label %138
 
 .thread213:                                       ; preds = %128, %131, %124
-  %storemerge243 = load i32, ptr %37, align 4, !tbaa !122
-  store i32 %storemerge243, ptr %23, align 8, !tbaa !84
+  %storemerge255 = load i32, ptr %37, align 4, !tbaa !122
+  store i32 %storemerge255, ptr %23, align 8, !tbaa !84
   %storemerge = load i32, ptr %42, align 8, !tbaa !128
   store i32 %storemerge, ptr %24, align 4, !tbaa !85
   %136 = load i32, ptr %43, align 4, !tbaa !133
@@ -783,7 +783,7 @@ define internal i32 @h264_filter(ptr noundef %0) #0 {
 
 148:                                              ; preds = %142
   store i32 0, ptr %45, align 8, !tbaa !134
-  br label %.thread244
+  br label %.thread256
 
 149:                                              ; preds = %142
   %150 = call i32 @llvm.abs.i32(i32 %139, i1 false)
@@ -791,16 +791,16 @@ define internal i32 @h264_filter(ptr noundef %0) #0 {
   %152 = load i32, ptr %45, align 8, !tbaa !134
   %153 = sext i32 %152 to i64
   %154 = icmp slt i64 %151, %153
-  br i1 %154, label %.thread244.thread, label %157
+  br i1 %154, label %.thread256.thread, label %157
 
-.thread244.thread:                                ; preds = %149
+.thread256.thread:                                ; preds = %149
   %155 = call i32 @llvm.abs.i32(i32 %139, i1 true)
   %156 = zext nneg i32 %155 to i64
   br label %162
 
 157:                                              ; preds = %149
   %.not149 = icmp eq i32 %152, 0
-  br i1 %.not149, label %.thread244, label %158
+  br i1 %.not149, label %.thread256, label %158
 
 158:                                              ; preds = %157
   %159 = sext i32 %152 to i64
@@ -809,15 +809,15 @@ define internal i32 @h264_filter(ptr noundef %0) #0 {
   %or.cond = and i1 %161, %160
   br i1 %or.cond, label %162, label %171
 
-.thread244:                                       ; preds = %148, %157
+.thread256:                                       ; preds = %148, %157
   %.old2 = icmp samesign ult i64 %146, 2147483648
   br i1 %.old2, label %162, label %171
 
-162:                                              ; preds = %.thread244.thread, %158, %.thread244
-  %.0247 = phi i64 [ %146, %158 ], [ %146, %.thread244 ], [ %156, %.thread244.thread ]
-  %163 = trunc nuw nsw i64 %.0247 to i32
+162:                                              ; preds = %.thread256.thread, %158, %.thread256
+  %.0259 = phi i64 [ %146, %158 ], [ %146, %.thread256 ], [ %156, %.thread256.thread ]
+  %163 = trunc nuw nsw i64 %.0259 to i32
   store i32 %163, ptr %45, align 8, !tbaa !134
-  %164 = icmp eq i64 %.0247, 1
+  %164 = icmp eq i64 %.0259, 1
   br i1 %164, label %165, label %171
 
 165:                                              ; preds = %162
@@ -834,8 +834,8 @@ define internal i32 @h264_filter(ptr noundef %0) #0 {
   %.pre = load i32, ptr %5, align 4, !tbaa !78
   br label %171
 
-171:                                              ; preds = %158, %.thread244, %167, %165, %162, %141
-  %172 = phi i32 [ %139, %158 ], [ %139, %.thread244 ], [ %.pre, %167 ], [ %139, %165 ], [ %139, %162 ], [ %139, %141 ]
+171:                                              ; preds = %158, %.thread256, %167, %165, %162, %141
+  %172 = phi i32 [ %139, %158 ], [ %139, %.thread256 ], [ %.pre, %167 ], [ %139, %165 ], [ %139, %162 ], [ %139, %141 ]
   store i32 %172, ptr %44, align 4, !tbaa !77
   %173 = load i32, ptr %47, align 8, !tbaa !71
   %. = call i32 @llvm.smax.i32(i32 %173, i32 %172)
@@ -952,13 +952,12 @@ define internal i32 @h264_filter(ptr noundef %0) #0 {
   br label %.thread186
 
 .thread186:                                       ; preds = %229, %223
-  %.5162.ph = phi i32 [ %.1159225, %223 ], [ 1, %229 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread178
 
 .thread178:                                       ; preds = %138, %48, %.thread186
-  %.4.ph = phi i32 [ %.5162.ph, %.thread186 ], [ %.1159225, %48 ], [ %.1159225, %138 ]
+  %.4.ph = phi i32 [ 1, %.thread186 ], [ %.1159225, %48 ], [ %.1159225, %138 ]
   %.5.ph = phi i32 [ 0, %.thread186 ], [ %.1227, %48 ], [ %116, %138 ]
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %234 = load i32, ptr %19, align 8, !tbaa !80

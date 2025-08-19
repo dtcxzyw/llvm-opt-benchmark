@@ -165,7 +165,7 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %53 = load i32, ptr %51, align 4
   %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %.lr.ph123, label %.critedge.thread165
+  br i1 %54, label %.lr.ph123, label %.critedge.thread173
 
 .lr.ph123:                                        ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ %indvars.iv.next, %65 ], [ 0, %.lr.ph ]
@@ -200,7 +200,7 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   %69 = icmp eq i32 %3, 1
   br i1 %69, label %114, label %.lr.ph127
 
-.critedge.thread165:                              ; preds = %.lr.ph
+.critedge.thread173:                              ; preds = %.lr.ph
   %70 = icmp eq i32 %3, 1
   br i1 %70, label %114, label %.lr.ph127
 
@@ -208,7 +208,7 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   %71 = icmp eq i32 %3, 1
   br i1 %71, label %114, label %.critedge112
 
-.lr.ph127:                                        ; preds = %.critedge, %.critedge.thread165
+.lr.ph127:                                        ; preds = %.critedge, %.critedge.thread173
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.not101 = icmp eq ptr %2, null
@@ -311,7 +311,7 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 298, ptr noundef nonnull @__func__.DefineQueryRewrite) #6
   unreachable
 
-114:                                              ; preds = %.critedge.thread165, %.critedge.thread, %.critedge
+114:                                              ; preds = %.critedge.thread173, %.critedge.thread, %.critedge
   %115 = load ptr, ptr %15, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 115
   %117 = load i8, ptr %116, align 1
@@ -915,13 +915,13 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly captures(a
   tail call void @llvm.assume(i1 %111)
   %112 = tail call i32 @errcode(i32 noundef 117833860) #6
   %.str.35..str.36 = select i1 %2, ptr @.str.35, ptr @.str.36
-  %.str.33..str.34249 = select i1 %2, ptr @.str.33, ptr @.str.34
+  %.str.33..str.34261 = select i1 %2, ptr @.str.33, ptr @.str.34
   %113 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.35..str.36, i32 noundef %.us-phi118, ptr noundef nonnull %.us-phi117) #6
   %114 = tail call ptr @format_type_with_typemod(i32 noundef %.us-phi116, i32 noundef %.us-phi115) #6
   %115 = load i32, ptr %109, align 4
   %116 = load i32, ptr %110, align 4
   %117 = tail call ptr @format_type_with_typemod(i32 noundef %115, i32 noundef %116) #6
-  %118 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull %.str.33..str.34249, ptr noundef %114, ptr noundef %117) #6
+  %118 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull %.str.33..str.34261, ptr noundef %114, ptr noundef %117) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 614, ptr noundef nonnull @__func__.checkRuleResultList) #6
   unreachable
 

@@ -484,11 +484,11 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br label %108
 
 108:                                              ; preds = %106, %104
-  %.sink123 = phi i64 [ %107, %106 ], [ %105, %104 ]
+  %.sink126 = phi i64 [ %107, %106 ], [ %105, %104 ]
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 54
-  %..i121 = call i64 @llvm.umin.i64(i64 %.sink123, i64 4294967295)
+  %..i121 = call i64 @llvm.umin.i64(i64 %.sink126, i64 4294967295)
   %110 = call fastcc i64 @format_hex_recursive(i64 noundef %..i121, ptr noundef nonnull %109, i32 noundef 8)
-  %.0.in = icmp ult i64 %.sink123, 4294967296
+  %.0.in = icmp ult i64 %.sink126, 4294967296
   br i1 %.0.in, label %112, label %111
 
 111:                                              ; preds = %108

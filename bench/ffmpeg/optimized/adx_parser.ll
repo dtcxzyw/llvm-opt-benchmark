@@ -23,7 +23,7 @@ define internal i32 @adx_parse(ptr noundef captures(none) %0, ptr noundef readon
 13:                                               ; preds = %6
   %14 = load i64, ptr %10, align 8, !tbaa !18
   %15 = icmp sgt i32 %5, 0
-  br i1 %15, label %.lr.ph.preheader, label %.loopexit93
+  br i1 %15, label %.lr.ph.preheader, label %.loopexit105
 
 .lr.ph.preheader:                                 ; preds = %13
   %wide.trip.count = zext nneg i32 %5 to i64
@@ -53,7 +53,7 @@ define internal i32 @adx_parse(ptr noundef captures(none) %0, ptr noundef readon
 .thread:                                          ; preds = %23, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit93, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit105, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %23
   %29 = trunc nuw nsw i64 %indvars.iv to i32
@@ -96,7 +96,7 @@ define internal i32 @adx_parse(ptr noundef captures(none) %0, ptr noundef readon
   store i32 %47, ptr %38, align 8, !tbaa !23
   br label %63
 
-.loopexit93:                                      ; preds = %.thread, %13
+.loopexit105:                                     ; preds = %.thread, %13
   %.1.ph = phi i64 [ %14, %13 ], [ %20, %.thread ]
   store i64 %.1.ph, ptr %10, align 8, !tbaa !18
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 356
@@ -104,7 +104,7 @@ define internal i32 @adx_parse(ptr noundef captures(none) %0, ptr noundef readon
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %51, label %63
 
-51:                                               ; preds = %.loopexit93
+51:                                               ; preds = %.loopexit105
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %53 = load i32, ptr %52, align 4, !tbaa !22
   %.not68 = icmp eq i32 %53, 0
@@ -133,8 +133,8 @@ define internal i32 @adx_parse(ptr noundef captures(none) %0, ptr noundef readon
   store i32 %62, ptr %58, align 8, !tbaa !23
   br label %63
 
-63:                                               ; preds = %.loopexit93, %61, %60, %45, %46
-  %.055 = phi i32 [ %44, %45 ], [ -100, %46 ], [ %spec.select, %60 ], [ -100, %61 ], [ -100, %.loopexit93 ]
+63:                                               ; preds = %.loopexit105, %61, %60, %45, %46
+  %.055 = phi i32 [ %44, %45 ], [ -100, %46 ], [ %spec.select, %60 ], [ -100, %61 ], [ -100, %.loopexit105 ]
   %64 = call i32 @ff_combine_frame(ptr noundef nonnull %9, i32 noundef %.055, ptr noundef nonnull %7, ptr noundef nonnull %8) #2
   %65 = icmp sgt i32 %64, -1
   %66 = load i32, ptr %8, align 4

@@ -219,8 +219,8 @@ php_dom_follow_spec_doc_ref.exit.i40:             ; preds = %50
   br i1 %56, label %59, label %dom_convert_number_unsigned.exit
 
 dom_convert_number_unsigned.exit:                 ; preds = %php_dom_follow_spec_doc_ref.exit.i40, %50, %php_dom_follow_spec_doc_ref.exit.i, %42
-  %.sink53 = phi ptr [ %44, %42 ], [ %44, %php_dom_follow_spec_doc_ref.exit.i ], [ %52, %50 ], [ %52, %php_dom_follow_spec_doc_ref.exit.i40 ]
-  %57 = call zeroext i1 @dom_get_strict_error(ptr noundef %.sink53) #8
+  %.sink60 = phi ptr [ %44, %42 ], [ %44, %php_dom_follow_spec_doc_ref.exit.i ], [ %52, %50 ], [ %52, %php_dom_follow_spec_doc_ref.exit.i40 ]
+  %57 = call zeroext i1 @dom_get_strict_error(ptr noundef %.sink60) #8
   call void @php_dom_throw_error(i32 noundef 1, i1 noundef zeroext %57) #8
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %58, align 8, !tbaa !5
@@ -787,8 +787,8 @@ php_dom_follow_spec_doc_ref.exit.i:               ; preds = %48
   br label %83
 
 58:                                               ; preds = %46, %php_dom_follow_spec_doc_ref.exit.i
-  %.not41 = icmp eq i64 %34, 0
-  br i1 %.not41, label %62, label %59
+  %.not47 = icmp eq i64 %34, 0
+  br i1 %.not47, label %62, label %59
 
 59:                                               ; preds = %58
   %60 = trunc nuw nsw i64 %34 to i32

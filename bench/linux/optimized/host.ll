@@ -1317,16 +1317,16 @@ define dso_local ptr @nlm_bind_host(ptr noundef %0) local_unnamed_addr #0 align 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, i8 0, i64 32, i1 false)
   %60 = load i8, ptr %59, align 2
   %61 = and i8 %60, 6
-  %.not2 = icmp eq i8 %61, 2
-  br i1 %.not2, label %66, label %62
+  %.not3 = icmp eq i8 %61, 2
+  br i1 %.not3, label %66, label %62
 
 62:                                               ; preds = %21
   %63 = and i8 %60, 4
-  %.not3 = icmp eq i8 %63, 0
+  %.not4 = icmp eq i8 %63, 0
   %64 = and i8 %60, 2
   %.not = icmp eq i8 %64, 0
   %65 = select i1 %.not, i64 2077, i64 2076
-  %simplifycfg.merge = select i1 %.not3, i64 2069, i64 %65
+  %simplifycfg.merge = select i1 %.not4, i64 2069, i64 %65
   store i64 %simplifycfg.merge, ptr %53, align 8
   br label %66
 
@@ -1537,14 +1537,14 @@ next_host_state.exit6.preheader:                  ; preds = %60, %64
   br i1 %70, label %39, label %next_host_state.exit6.thread, !llvm.loop !37
 
 next_host_state.exit:                             ; preds = %next_host_state.exit.backedge, %next_host_state.exit.preheader
-  %.lcssa52.sink = phi ptr [ %11, %next_host_state.exit.preheader ], [ %89, %next_host_state.exit.backedge ]
+  %.lcssa72.sink = phi ptr [ %11, %next_host_state.exit.preheader ], [ %89, %next_host_state.exit.backedge ]
   %71 = load volatile i64, ptr @jiffies, align 64
   %72 = add i64 %71, 300000
-  %73 = getelementptr inbounds nuw i8, ptr %.lcssa52.sink, i64 432
+  %73 = getelementptr inbounds nuw i8, ptr %.lcssa72.sink, i64 432
   store i64 %72, ptr %73, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @nlm_host_mutex) #9
-  tail call void @nlmsvc_free_host_resources(ptr noundef nonnull %.lcssa52.sink) #9
-  %74 = getelementptr inbounds nuw i8, ptr %.lcssa52.sink, i64 310
+  tail call void @nlmsvc_free_host_resources(ptr noundef nonnull %.lcssa72.sink) #9
+  %74 = getelementptr inbounds nuw i8, ptr %.lcssa72.sink, i64 310
   %75 = load i8, ptr %74, align 2
   %76 = and i8 %75, 2
   %77 = icmp eq i8 %76, 0
@@ -1557,7 +1557,7 @@ next_host_state.exit:                             ; preds = %next_host_state.exi
   br label %79
 
 79:                                               ; preds = %78, %next_host_state.exit
-  %80 = getelementptr inbounds nuw i8, ptr %.lcssa52.sink, i64 388
+  %80 = getelementptr inbounds nuw i8, ptr %.lcssa72.sink, i64 388
   %81 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %80, i32 -1, ptr nonnull elementtype(i32) %80) #9, !srcloc !35
   %82 = icmp slt i32 %81, 2
   br i1 %82, label %83, label %84, !prof !6
@@ -1627,14 +1627,14 @@ next_host_state.exit.backedge:                    ; preds = %106, %110
   br i1 %116, label %85, label %next_host_state.exit9.thread, !llvm.loop !37
 
 next_host_state.exit6:                            ; preds = %next_host_state.exit6.backedge, %next_host_state.exit6.preheader
-  %.lcssa44.sink = phi ptr [ %43, %next_host_state.exit6.preheader ], [ %124, %next_host_state.exit6.backedge ]
+  %.lcssa64.sink = phi ptr [ %43, %next_host_state.exit6.preheader ], [ %124, %next_host_state.exit6.backedge ]
   %117 = load volatile i64, ptr @jiffies, align 64
   %118 = add i64 %117, 300000
-  %119 = getelementptr inbounds nuw i8, ptr %.lcssa44.sink, i64 432
+  %119 = getelementptr inbounds nuw i8, ptr %.lcssa64.sink, i64 432
   store i64 %118, ptr %119, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @nlm_host_mutex) #9
-  tail call void @nlmclnt_recovery(ptr noundef nonnull %.lcssa44.sink) #9
-  tail call void @nlmclnt_release_host(ptr noundef nonnull %.lcssa44.sink)
+  tail call void @nlmclnt_recovery(ptr noundef nonnull %.lcssa64.sink) #9
+  tail call void @nlmclnt_release_host(ptr noundef nonnull %.lcssa64.sink)
   tail call void @mutex_lock(ptr noundef nonnull @nlm_host_mutex) #9
   br label %120
 

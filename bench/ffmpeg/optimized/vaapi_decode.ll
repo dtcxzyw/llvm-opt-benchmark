@@ -705,8 +705,8 @@ define internal fastcc range(i32 -38, 1) i32 @vaapi_decode_make_config(ptr nound
   %.phi.trans.insert154 = getelementptr inbounds nuw i8, ptr %79, i64 20
   %.pre155 = load i32, ptr %.phi.trans.insert154, align 4, !tbaa !92
   %86 = icmp slt i32 %.pre, %.pre155
-  %or.cond156 = select i1 %85, i1 true, i1 %86
-  br i1 %or.cond156, label %._crit_edge, label %87
+  %or.cond174 = select i1 %85, i1 true, i1 %86
+  br i1 %or.cond174, label %._crit_edge, label %87
 
 87:                                               ; preds = %80
   %88 = getelementptr inbounds nuw i8, ptr %79, i64 24

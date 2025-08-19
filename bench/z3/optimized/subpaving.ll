@@ -1665,12 +1665,12 @@ _ZN6vectorI3mpfLb0EjE7reserveEj.exit:             ; preds = %.noexc19, %_ZNK6vec
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %_ZNK6vectorI3mpfLb0EjE8capacityEv.exit.thread.i.i
-  %lpad.loopexit23 = landingpad { ptr, i32 }
+  %lpad.loopexit28 = landingpad { ptr, i32 }
           catch ptr @_ZTIN3f2nI11mpf_managerE9exceptionE
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %36, %._crit_edge
-  %lpad.loopexit.split-lp24 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp29 = landingpad { ptr, i32 }
           catch ptr @_ZTIN3f2nI11mpf_managerE9exceptionE
   br label %.loopexit.split-lp
 
@@ -1694,7 +1694,7 @@ _ZN6vectorI3mpfLb0EjE7reserveEj.exit:             ; preds = %.noexc19, %_ZNK6vec
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit, %29
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp24, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit28, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp29, %.loopexit.split-lp.loopexit.split-lp ]
   %.015 = extractvalue { ptr, i32 } %.pn, 1
   %31 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3f2nI11mpf_managerE9exceptionE) #20
   %32 = icmp eq i32 %.015, %31

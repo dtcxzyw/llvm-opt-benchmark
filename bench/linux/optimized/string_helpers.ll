@@ -111,7 +111,7 @@ define dso_local noundef i32 @string_get_size(i64 noundef %0, i64 noundef %1, i3
   %.phi.trans.insert24 = getelementptr [2 x i32], ptr @string_get_size.divisor, i64 0, i64 %.phi.trans.insert
   %.pre = load i32, ptr %.phi.trans.insert24, align 4
   %.pre25 = zext i32 %.pre to i64
-  br i1 %19, label %.loopexit, label %.preheader37
+  br i1 %19, label %.loopexit, label %.preheader43
 
 20:                                               ; preds = %20, %12
   %21 = phi i64 [ %1, %12 ], [ %23, %20 ]
@@ -121,17 +121,17 @@ define dso_local noundef i32 @string_get_size(i64 noundef %0, i64 noundef %1, i3
   %25 = icmp ult i64 %23, 4294967296
   br i1 %25, label %.loopexit7, label %20, !llvm.loop !6
 
-.preheader37:                                     ; preds = %.loopexit7, %.preheader37
-  %26 = phi i64 [ %28, %.preheader37 ], [ %0, %.loopexit7 ]
-  %27 = phi i32 [ %29, %.preheader37 ], [ %17, %.loopexit7 ]
+.preheader43:                                     ; preds = %.loopexit7, %.preheader43
+  %26 = phi i64 [ %28, %.preheader43 ], [ %0, %.loopexit7 ]
+  %27 = phi i32 [ %29, %.preheader43 ], [ %17, %.loopexit7 ]
   %28 = udiv i64 %26, %.pre25
   %29 = add i32 %27, 1
   %30 = icmp ult i64 %28, 4294967296
-  br i1 %30, label %.loopexit, label %.preheader37, !llvm.loop !9
+  br i1 %30, label %.loopexit, label %.preheader43, !llvm.loop !9
 
-.loopexit:                                        ; preds = %.preheader37, %.loopexit7
-  %31 = phi i32 [ %17, %.loopexit7 ], [ %29, %.preheader37 ]
-  %32 = phi i64 [ %0, %.loopexit7 ], [ %28, %.preheader37 ]
+.loopexit:                                        ; preds = %.preheader43, %.loopexit7
+  %31 = phi i32 [ %17, %.loopexit7 ], [ %29, %.preheader43 ]
+  %32 = phi i64 [ %0, %.loopexit7 ], [ %28, %.preheader43 ]
   %33 = mul nuw i64 %32, %18
   %34 = icmp ult i64 %33, %.pre25
   br i1 %34, label %43, label %.preheader
@@ -393,8 +393,8 @@ define dso_local noundef i32 @string_unescape(ptr noundef %0, ptr noundef %1, i6
 
 .thread6:                                         ; preds = %45
   %72 = icmp eq i8 %28, 120
-  %or.cond10 = and i1 %14, %72
-  br i1 %or.cond10, label %73, label %.thread7
+  %or.cond15 = and i1 %14, %72
+  br i1 %or.cond15, label %73, label %.thread7
 
 73:                                               ; preds = %.thread6
   %74 = getelementptr i8, ptr %21, i64 2

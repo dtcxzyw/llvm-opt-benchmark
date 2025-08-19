@@ -40,8 +40,8 @@ define range(i32 0, 2) i32 @unspack(ptr noundef %0, ptr noundef %1, ptr noundef 
 .loopexit.loopexit:                               ; preds = %.loopexit57
   %18 = udiv i8 %.1, 9
   %19 = zext nneg i8 %18 to i32
-  %.neg60 = mul i8 %18, -9
-  %20 = add i8 %.neg60, %.1
+  %.neg63 = mul i8 %18, -9
+  %20 = add i8 %.neg63, %.1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit57
@@ -162,14 +162,14 @@ define range(i32 0, 3) i32 @very_real_unpack(ptr noundef %0, i32 noundef %1, i32
 .outer:                                           ; preds = %get_byte.exit.thread, %24
   %.not344 = phi i1 [ false, %get_byte.exit.thread ], [ true, %24 ]
   %.1307582.ph = phi i32 [ %44, %get_byte.exit.thread ], [ 0, %24 ]
-  %.ph702 = phi i32 [ %43, %get_byte.exit.thread ], [ 0, %24 ]
-  %.ph703 = phi ptr [ %36, %get_byte.exit.thread ], [ %5, %24 ]
+  %.ph821 = phi i32 [ %43, %get_byte.exit.thread ], [ 0, %24 ]
+  %.ph822 = phi ptr [ %36, %get_byte.exit.thread ], [ %5, %24 ]
   br label %34
 
 34:                                               ; preds = %.outer, %get_byte.exit
   %.1307582 = phi i32 [ %42, %get_byte.exit ], [ %.1307582.ph, %.outer ]
-  %35 = phi i32 [ %41, %get_byte.exit ], [ %.ph702, %.outer ]
-  %36 = phi ptr [ %40, %get_byte.exit ], [ %.ph703, %.outer ]
+  %35 = phi i32 [ %41, %get_byte.exit ], [ %.ph821, %.outer ]
+  %36 = phi ptr [ %40, %get_byte.exit ], [ %.ph822, %.outer ]
   %37 = shl i32 %35, 8
   %.not.i = icmp ult ptr %36, %30
   br i1 %.not.i, label %get_byte.exit, label %get_byte.exit.thread
@@ -189,8 +189,8 @@ get_byte.exit.thread:                             ; preds = %34
   store i32 1, ptr %25, align 8, !tbaa !14
   %43 = or disjoint i32 %37, 255
   %44 = add nuw nsw i32 %.1307582, 1
-  %exitcond.not674 = icmp eq i32 %44, 5
-  br i1 %exitcond.not674, label %.thread551, label %.outer
+  %exitcond.not793 = icmp eq i32 %44, 5
+  br i1 %exitcond.not793, label %.thread551, label %.outer
 
 45:                                               ; preds = %get_byte.exit
   br i1 %.not344, label %.lr.ph, label %.thread551
@@ -1128,9 +1128,9 @@ getbit_from_table.exit399:                        ; preds = %get_byte.exit.i397,
   %506 = ptrtoint ptr %505 to i64
   %507 = add i64 %506, %504
   %508 = load ptr, ptr %31, align 8
-  br i1 %switch.i479, label %.thread692, label %.lr.ph.i
+  br i1 %switch.i479, label %.thread811, label %.lr.ph.i
 
-.thread692:                                       ; preds = %getbit_from_table.exit399
+.thread811:                                       ; preds = %getbit_from_table.exit399
   store i32 1, ptr %25, align 8, !tbaa !14
   br label %.preheader.i454
 
@@ -1393,21 +1393,21 @@ get_bb.exit:                                      ; preds = %getbit_from_table.e
   %635 = add i32 %633, %572
   br label %723
 
-.preheader.i454:                                  ; preds = %.thread692, %566
-  %636 = phi i32 [ poison, %.thread692 ], [ %572, %566 ]
-  %637 = phi i32 [ 8032, %.thread692 ], [ %569, %566 ]
-  %.promoted598687700 = phi ptr [ %.promoted588, %.thread692 ], [ %560, %566 ]
-  %.promoted597688699 = phi i32 [ %.promoted587, %.thread692 ], [ %561, %566 ]
-  %.promoted596689698 = phi i32 [ %.promoted586, %.thread692 ], [ %562, %566 ]
+.preheader.i454:                                  ; preds = %.thread811, %566
+  %636 = phi i32 [ poison, %.thread811 ], [ %572, %566 ]
+  %637 = phi i32 [ 8032, %.thread811 ], [ %569, %566 ]
+  %.promoted598806819 = phi ptr [ %.promoted588, %.thread811 ], [ %560, %566 ]
+  %.promoted597807818 = phi i32 [ %.promoted587, %.thread811 ], [ %561, %566 ]
+  %.promoted596808817 = phi i32 [ %.promoted586, %.thread811 ], [ %562, %566 ]
   %638 = add nsw i32 %637, -5
   br label %639
 
 639:                                              ; preds = %662, %.preheader.i454
-  %640 = phi ptr [ %.promoted598687700, %.preheader.i454 ], [ %.promoted595, %662 ]
+  %640 = phi ptr [ %.promoted598806819, %.preheader.i454 ], [ %.promoted595, %662 ]
   %.in.i = phi i32 [ %638, %.preheader.i454 ], [ %643, %662 ]
   %.023.i = phi i32 [ 0, %.preheader.i454 ], [ %.1.i, %662 ]
-  %641 = phi i32 [ %.promoted596689698, %.preheader.i454 ], [ %.promoted593, %662 ]
-  %642 = phi i32 [ %.promoted597688699, %.preheader.i454 ], [ %.promoted594, %662 ]
+  %641 = phi i32 [ %.promoted596808817, %.preheader.i454 ], [ %.promoted593, %662 ]
+  %642 = phi i32 [ %.promoted597807818, %.preheader.i454 ], [ %.promoted594, %662 ]
   %643 = add nsw i32 %.in.i, -1
   %644 = lshr i32 %641, 1
   store i32 %644, ptr %27, align 8, !tbaa !18
@@ -2176,7 +2176,7 @@ define i32 @get_bitmap(ptr noundef captures(none) %0, i32 noundef %1) local_unna
   %.023 = phi i32 [ 0, %.preheader ], [ %.1, %31 ]
   %9 = phi i32 [ %.promoted, %.preheader ], [ %33, %31 ]
   %10 = phi i32 [ %.promoted22, %.preheader ], [ %32, %31 ]
-  %11 = add i32 %.in, -1
+  %11 = add nsw i32 %.in, -1
   %12 = lshr i32 %9, 1
   store i32 %12, ptr %4, align 8, !tbaa !18
   %13 = shl i32 %.023, 1

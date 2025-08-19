@@ -2192,13 +2192,13 @@ _ZNSt10unique_ptrIN3gmx11BiasSharingESt14default_deleteIS1_EED2Ev.exit: ; preds 
 .thread305:                                       ; preds = %209
   %215 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split593
+  br label %.sink.split625
 
 .thread309:                                       ; preds = %211
   %216 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #27
-  br label %.sink.split593
+  br label %.sink.split625
 
 217:                                              ; preds = %212, %214
   %.0119 = phi i1 [ false, %214 ], [ true, %212 ]
@@ -2211,13 +2211,13 @@ _ZNSt10unique_ptrIN3gmx11BiasSharingESt14default_deleteIS1_EED2Ev.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %.0119, label %219, label %399
 
-.sink.split593:                                   ; preds = %.thread305, %.thread309
+.sink.split625:                                   ; preds = %.thread305, %.thread309
   %.pn145.pn308.ph = phi { ptr, i32 } [ %216, %.thread309 ], [ %215, %.thread305 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %219
 
-219:                                              ; preds = %.sink.split593, %217
-  %.pn145.pn308 = phi { ptr, i32 } [ %218, %217 ], [ %.pn145.pn308.ph, %.sink.split593 ]
+219:                                              ; preds = %.sink.split625, %217
+  %.pn145.pn308 = phi { ptr, i32 } [ %218, %217 ], [ %.pn145.pn308.ph, %.sink.split625 ]
   call void @__cxa_free_exception(ptr %210) #27
   br label %399
 
@@ -2264,13 +2264,13 @@ _ZNSt10unique_ptrIN3gmx11BiasSharingESt14default_deleteIS1_EED2Ev.exit: ; preds 
 .thread313:                                       ; preds = %231
   %237 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split594
+  br label %.sink.split626
 
 .thread317:                                       ; preds = %233
   %238 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #27
-  br label %.sink.split594
+  br label %.sink.split626
 
 239:                                              ; preds = %234, %236
   %.0115 = phi i1 [ false, %236 ], [ true, %234 ]
@@ -2283,13 +2283,13 @@ _ZNSt10unique_ptrIN3gmx11BiasSharingESt14default_deleteIS1_EED2Ev.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br i1 %.0115, label %241, label %399
 
-.sink.split594:                                   ; preds = %.thread313, %.thread317
+.sink.split626:                                   ; preds = %.thread313, %.thread317
   %.pn141.pn316.ph = phi { ptr, i32 } [ %238, %.thread317 ], [ %237, %.thread313 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %241
 
-241:                                              ; preds = %.sink.split594, %239
-  %.pn141.pn316 = phi { ptr, i32 } [ %240, %239 ], [ %.pn141.pn316.ph, %.sink.split594 ]
+241:                                              ; preds = %.sink.split626, %239
+  %.pn141.pn316 = phi { ptr, i32 } [ %240, %239 ], [ %.pn141.pn316.ph, %.sink.split626 ]
   call void @__cxa_free_exception(ptr %232) #27
   br label %399
 
@@ -2352,7 +2352,7 @@ _ZNSt10unique_ptrIN3gmx11BiasSharingESt14default_deleteIS1_EED2Ev.exit: ; preds 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %252
   %263 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split595
+  br label %.sink.split627
 
 264:                                              ; preds = %257
   %265 = landingpad { ptr, i32 }
@@ -2389,14 +2389,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread332: ; pred
   %276 = load i64, ptr %274, align 8, !tbaa !33
   %277 = add i64 %276, 1
   call void @_ZdlPvm(ptr noundef %273, i64 noundef %277) #26
-  br label %.sink.split595
+  br label %.sink.split627
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.thread: ; preds = %.thread323
   %278 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %279 = load i64, ptr %278, align 8, !tbaa !349
   %280 = icmp ult i64 %279, 16
   call void @llvm.assume(i1 %280)
-  br label %.sink.split595
+  br label %.sink.split627
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %268
   %281 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -2415,14 +2415,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %268
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br i1 %.3113, label %286, label %399
 
-.sink.split595:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread332
+.sink.split627:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread332
   %.pn136.pn.pn322.ph = phi { ptr, i32 } [ %272, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread332 ], [ %272, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.thread ], [ %263, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %286
 
-286:                                              ; preds = %.sink.split595, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn136.pn.pn322 = phi { ptr, i32 } [ %.pn136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn136, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %.pn136.pn.pn322.ph, %.sink.split595 ]
+286:                                              ; preds = %.sink.split627, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn136.pn.pn322 = phi { ptr, i32 } [ %.pn136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn136, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %.pn136.pn.pn322.ph, %.sink.split627 ]
   call void @__cxa_free_exception(ptr %254) #27
   br label %399
 
@@ -3094,13 +3094,13 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 128
   %.val1.i25.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %25, align 8, !tbaa !226
   %26 = icmp eq i32 %.val1.i25.i.i.i.i.i.i.i.i.i.i.i.i.i, %0
-  br i1 %26, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit98", label %27
+  br i1 %26, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit106", label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 192
   %.val1.i26.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %28, align 8, !tbaa !226
   %29 = icmp eq i32 %.val1.i26.i.i.i.i.i.i.i.i.i.i.i.i.i, %0
-  br i1 %29, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit100", label %30
+  br i1 %29, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit108", label %30
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 256
@@ -3153,16 +3153,16 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 64
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit98": ; preds = %24
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit106": ; preds = %24
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 128
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit100": ; preds = %27
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit108": ; preds = %27
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 192
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i": ; preds = %19, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit98", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit100", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i, %35, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, %35 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %15, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit" ], [ %44, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit98" ], [ %45, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit100" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i.i.i.i.i.i, %19 ]
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i": ; preds = %19, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit106", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit108", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i, %35, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, %35 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %15, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit" ], [ %44, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit106" ], [ %45, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit108" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i.i.i.i.i.i, %19 ]
   %.not210.i.i.i.i.i = icmp eq ptr %.val2.i.i.i.i.i.i, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %.not210.i.i.i.i.i, label %46, label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit"
 
@@ -3201,13 +3201,13 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i41.i.i.i.i.i, i64 128
   %.val1.i25.i.i.i.i.i.i.i.i44.i.i.i.i.i = load i32, ptr %62, align 8, !tbaa !226
   %63 = icmp eq i32 %.val1.i25.i.i.i.i.i.i.i.i44.i.i.i.i.i, %0
-  br i1 %63, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit106", label %64
+  br i1 %63, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit114", label %64
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i41.i.i.i.i.i, i64 192
   %.val1.i26.i.i.i.i.i.i.i.i45.i.i.i.i.i = load i32, ptr %65, align 8, !tbaa !226
   %66 = icmp eq i32 %.val1.i26.i.i.i.i.i.i.i.i45.i.i.i.i.i, %0
-  br i1 %66, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit108", label %67
+  br i1 %66, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit116", label %67
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i41.i.i.i.i.i, i64 256
@@ -3260,16 +3260,16 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i41.i.i.i.i.i, i64 64
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit106": ; preds = %61
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit114": ; preds = %61
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i41.i.i.i.i.i, i64 128
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit108": ; preds = %64
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit116": ; preds = %64
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i41.i.i.i.i.i, i64 192
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i": ; preds = %56, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit106", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit108", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i29.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i34.i.i.i.i.i, %72, %._crit_edge.i.i.i.i.i.i.i.i26.i.i.i.i.i
-  %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i33.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i28.i.i.i.i.i, %72 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i35.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i34.i.i.i.i.i ], [ %52, %._crit_edge.i.i.i.i.i.i.i.i26.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i32.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i29.i.i.i.i.i ], [ %80, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit" ], [ %81, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit106" ], [ %82, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit108" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i41.i.i.i.i.i, %56 ]
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i": ; preds = %56, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit114", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit116", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i29.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i34.i.i.i.i.i, %72, %._crit_edge.i.i.i.i.i.i.i.i26.i.i.i.i.i
+  %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i33.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i28.i.i.i.i.i, %72 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i35.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i34.i.i.i.i.i ], [ %52, %._crit_edge.i.i.i.i.i.i.i.i26.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i32.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i29.i.i.i.i.i ], [ %80, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit" ], [ %81, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit114" ], [ %82, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit116" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i41.i.i.i.i.i, %56 ]
   %.not211.i.i.i.i.i = icmp eq ptr %.val2.i25.i.i.i.i.i, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i33.i.i.i.i.i
   br i1 %.not211.i.i.i.i.i, label %83, label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit"
 
@@ -3308,13 +3308,13 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i70.i.i.i.i.i, i64 128
   %.val1.i25.i.i.i.i.i.i.i.i73.i.i.i.i.i = load i32, ptr %99, align 8, !tbaa !226
   %100 = icmp eq i32 %.val1.i25.i.i.i.i.i.i.i.i73.i.i.i.i.i, %0
-  br i1 %100, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit114", label %101
+  br i1 %100, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit122", label %101
 
 101:                                              ; preds = %98
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i70.i.i.i.i.i, i64 192
   %.val1.i26.i.i.i.i.i.i.i.i74.i.i.i.i.i = load i32, ptr %102, align 8, !tbaa !226
   %103 = icmp eq i32 %.val1.i26.i.i.i.i.i.i.i.i74.i.i.i.i.i, %0
-  br i1 %103, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit116", label %104
+  br i1 %103, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit124", label %104
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i70.i.i.i.i.i, i64 256
@@ -3367,18 +3367,18 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i70.i.i.i.i.i, i64 64
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit114": ; preds = %98
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit122": ; preds = %98
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i70.i.i.i.i.i, i64 128
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit116": ; preds = %101
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit124": ; preds = %101
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i70.i.i.i.i.i, i64 192
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i": ; preds = %93, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit114", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit116", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i58.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i63.i.i.i.i.i, %109, %._crit_edge.i.i.i.i.i.i.i.i55.i.i.i.i.i
-  %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i62.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i57.i.i.i.i.i, %109 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i64.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i63.i.i.i.i.i ], [ %89, %._crit_edge.i.i.i.i.i.i.i.i55.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i61.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i58.i.i.i.i.i ], [ %117, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit" ], [ %118, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit114" ], [ %119, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit116" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i70.i.i.i.i.i, %93 ]
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i": ; preds = %93, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit122", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit124", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i58.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i63.i.i.i.i.i, %109, %._crit_edge.i.i.i.i.i.i.i.i55.i.i.i.i.i
+  %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i62.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i57.i.i.i.i.i, %109 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i64.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i63.i.i.i.i.i ], [ %89, %._crit_edge.i.i.i.i.i.i.i.i55.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i61.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i58.i.i.i.i.i ], [ %117, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit" ], [ %118, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit122" ], [ %119, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit124" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i70.i.i.i.i.i, %93 ]
   %.not212.i.i.i.i.i = icmp eq ptr %.val2.i54.i.i.i.i.i, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i62.i.i.i.i.i
-  br i1 %.not212.i.i.i.i.i, label %120, label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit130"
+  br i1 %.not212.i.i.i.i.i, label %120, label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit138"
 
 120:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i"
   %121 = getelementptr inbounds nuw i8, ptr %.sroa.0201.0256.i.i.i.i.i, i64 288
@@ -3415,13 +3415,13 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
   %136 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i99.i.i.i.i.i, i64 128
   %.val1.i25.i.i.i.i.i.i.i.i102.i.i.i.i.i = load i32, ptr %136, align 8, !tbaa !226
   %137 = icmp eq i32 %.val1.i25.i.i.i.i.i.i.i.i102.i.i.i.i.i, %0
-  br i1 %137, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit122", label %138
+  br i1 %137, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit130", label %138
 
 138:                                              ; preds = %135
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i99.i.i.i.i.i, i64 192
   %.val1.i26.i.i.i.i.i.i.i.i103.i.i.i.i.i = load i32, ptr %139, align 8, !tbaa !226
   %140 = icmp eq i32 %.val1.i26.i.i.i.i.i.i.i.i103.i.i.i.i.i, %0
-  br i1 %140, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit124", label %141
+  br i1 %140, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit132", label %141
 
 141:                                              ; preds = %138
   %142 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i99.i.i.i.i.i, i64 256
@@ -3474,18 +3474,18 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
   %154 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i99.i.i.i.i.i, i64 64
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit122": ; preds = %135
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit130": ; preds = %135
   %155 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i99.i.i.i.i.i, i64 128
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit124": ; preds = %138
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit132": ; preds = %138
   %156 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i99.i.i.i.i.i, i64 192
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i": ; preds = %130, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit122", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit124", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i87.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i92.i.i.i.i.i, %146, %._crit_edge.i.i.i.i.i.i.i.i84.i.i.i.i.i
-  %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i91.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i86.i.i.i.i.i, %146 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i93.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i92.i.i.i.i.i ], [ %126, %._crit_edge.i.i.i.i.i.i.i.i84.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i90.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i87.i.i.i.i.i ], [ %154, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit" ], [ %155, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit122" ], [ %156, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit124" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i99.i.i.i.i.i, %130 ]
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i": ; preds = %130, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit130", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit132", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i87.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i92.i.i.i.i.i, %146, %._crit_edge.i.i.i.i.i.i.i.i84.i.i.i.i.i
+  %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i91.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i86.i.i.i.i.i, %146 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i93.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i92.i.i.i.i.i ], [ %126, %._crit_edge.i.i.i.i.i.i.i.i84.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i90.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i87.i.i.i.i.i ], [ %154, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit" ], [ %155, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit130" ], [ %156, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit132" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i99.i.i.i.i.i, %130 ]
   %.not213.i.i.i.i.i = icmp eq ptr %.val2.i83.i.i.i.i.i, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i91.i.i.i.i.i
-  br i1 %.not213.i.i.i.i.i, label %157, label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit132"
+  br i1 %.not213.i.i.i.i.i, label %157, label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit140"
 
 157:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i"
   %158 = getelementptr inbounds nuw i8, ptr %.sroa.0201.0256.i.i.i.i.i, i64 384
@@ -3542,13 +3542,13 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
   %177 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i128.i.i.i.i.i, i64 128
   %.val1.i25.i.i.i.i.i.i.i.i131.i.i.i.i.i = load i32, ptr %177, align 8, !tbaa !226
   %178 = icmp eq i32 %.val1.i25.i.i.i.i.i.i.i.i131.i.i.i.i.i, %0
-  br i1 %178, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit138", label %179
+  br i1 %178, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit146", label %179
 
 179:                                              ; preds = %176
   %180 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i128.i.i.i.i.i, i64 192
   %.val1.i26.i.i.i.i.i.i.i.i132.i.i.i.i.i = load i32, ptr %180, align 8, !tbaa !226
   %181 = icmp eq i32 %.val1.i26.i.i.i.i.i.i.i.i132.i.i.i.i.i, %0
-  br i1 %181, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit140", label %182
+  br i1 %181, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit148", label %182
 
 182:                                              ; preds = %179
   %183 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i128.i.i.i.i.i, i64 256
@@ -3601,16 +3601,16 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
   %195 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i128.i.i.i.i.i, i64 64
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit138": ; preds = %176
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit146": ; preds = %176
   %196 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i128.i.i.i.i.i, i64 128
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit140": ; preds = %179
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit148": ; preds = %179
   %197 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i128.i.i.i.i.i, i64 192
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i": ; preds = %171, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit138", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit140", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i116.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i121.i.i.i.i.i, %187, %._crit_edge.i.i.i.i.i.i.i.i113.i.i.i.i.i
-  %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i120.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i115.i.i.i.i.i, %187 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i122.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i121.i.i.i.i.i ], [ %167, %._crit_edge.i.i.i.i.i.i.i.i113.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i119.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i116.i.i.i.i.i ], [ %195, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit" ], [ %196, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit138" ], [ %197, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit140" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i128.i.i.i.i.i, %171 ]
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i": ; preds = %171, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit146", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit148", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i116.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i121.i.i.i.i.i, %187, %._crit_edge.i.i.i.i.i.i.i.i113.i.i.i.i.i
+  %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i120.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i115.i.i.i.i.i, %187 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i122.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i121.i.i.i.i.i ], [ %167, %._crit_edge.i.i.i.i.i.i.i.i113.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i119.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i116.i.i.i.i.i ], [ %195, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit" ], [ %196, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit146" ], [ %197, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit148" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i128.i.i.i.i.i, %171 ]
   %.not.i.i.i.i.i = icmp eq ptr %.val2.i112.i.i.i.i.i, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i120.i.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %198, label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit"
 
@@ -3653,13 +3653,13 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
   %214 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i157.i.i.i.i.i, i64 128
   %.val1.i25.i.i.i.i.i.i.i.i160.i.i.i.i.i = load i32, ptr %214, align 8, !tbaa !226
   %215 = icmp eq i32 %.val1.i25.i.i.i.i.i.i.i.i160.i.i.i.i.i, %0
-  br i1 %215, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit146", label %216
+  br i1 %215, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit154", label %216
 
 216:                                              ; preds = %213
   %217 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i157.i.i.i.i.i, i64 192
   %.val1.i26.i.i.i.i.i.i.i.i161.i.i.i.i.i = load i32, ptr %217, align 8, !tbaa !226
   %218 = icmp eq i32 %.val1.i26.i.i.i.i.i.i.i.i161.i.i.i.i.i, %0
-  br i1 %218, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit148", label %219
+  br i1 %218, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit156", label %219
 
 219:                                              ; preds = %216
   %220 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i157.i.i.i.i.i, i64 256
@@ -3712,16 +3712,16 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
   %232 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i157.i.i.i.i.i, i64 64
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit146": ; preds = %213
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit154": ; preds = %213
   %233 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i157.i.i.i.i.i, i64 128
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit148": ; preds = %216
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit156": ; preds = %216
   %234 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i157.i.i.i.i.i, i64 192
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i": ; preds = %208, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit146", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit148", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i145.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i150.i.i.i.i.i, %224, %._crit_edge.i.i.i.i.i.i.i.i142.i.i.i.i.i
-  %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i149.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i144.i.i.i.i.i, %224 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i151.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i150.i.i.i.i.i ], [ %204, %._crit_edge.i.i.i.i.i.i.i.i142.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i148.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i145.i.i.i.i.i ], [ %232, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit" ], [ %233, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit146" ], [ %234, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit148" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i157.i.i.i.i.i, %208 ]
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i": ; preds = %208, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit154", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit156", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i145.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i150.i.i.i.i.i, %224, %._crit_edge.i.i.i.i.i.i.i.i142.i.i.i.i.i
+  %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i149.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i144.i.i.i.i.i, %224 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i151.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i150.i.i.i.i.i ], [ %204, %._crit_edge.i.i.i.i.i.i.i.i142.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i148.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i145.i.i.i.i.i ], [ %232, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit" ], [ %233, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit154" ], [ %234, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit156" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i157.i.i.i.i.i, %208 ]
   %.not208.i.i.i.i.i = icmp eq ptr %.val2.i141.i.i.i.i.i, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i149.i.i.i.i.i
   br i1 %.not208.i.i.i.i.i, label %235, label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit"
 
@@ -3764,13 +3764,13 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
   %251 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i186.i.i.i.i.i, i64 128
   %.val1.i25.i.i.i.i.i.i.i.i189.i.i.i.i.i = load i32, ptr %251, align 8, !tbaa !226
   %252 = icmp eq i32 %.val1.i25.i.i.i.i.i.i.i.i189.i.i.i.i.i, %0
-  br i1 %252, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit154", label %253
+  br i1 %252, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit162", label %253
 
 253:                                              ; preds = %250
   %254 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i186.i.i.i.i.i, i64 192
   %.val1.i26.i.i.i.i.i.i.i.i190.i.i.i.i.i = load i32, ptr %254, align 8, !tbaa !226
   %255 = icmp eq i32 %.val1.i26.i.i.i.i.i.i.i.i190.i.i.i.i.i, %0
-  br i1 %255, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit156", label %256
+  br i1 %255, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit164", label %256
 
 256:                                              ; preds = %253
   %257 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i186.i.i.i.i.i, i64 256
@@ -3823,16 +3823,16 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
   %269 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i186.i.i.i.i.i, i64 64
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit154": ; preds = %250
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit162": ; preds = %250
   %270 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i186.i.i.i.i.i, i64 128
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit156": ; preds = %253
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit164": ; preds = %253
   %271 = getelementptr inbounds nuw i8, ptr %.sroa.040.057.i.i.i.i.i.i.i.i186.i.i.i.i.i, i64 192
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i": ; preds = %245, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit154", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit156", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i174.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i179.i.i.i.i.i, %261, %._crit_edge.i.i.i.i.i.i.i.i171.i.i.i.i.i
-  %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i178.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i173.i.i.i.i.i, %261 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i180.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i179.i.i.i.i.i ], [ %241, %._crit_edge.i.i.i.i.i.i.i.i171.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i177.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i174.i.i.i.i.i ], [ %269, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit" ], [ %270, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit154" ], [ %271, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit156" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i186.i.i.i.i.i, %245 ]
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i": ; preds = %245, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit162", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit164", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i174.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i179.i.i.i.i.i, %261, %._crit_edge.i.i.i.i.i.i.i.i171.i.i.i.i.i
+  %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i178.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i173.i.i.i.i.i, %261 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i180.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i179.i.i.i.i.i ], [ %241, %._crit_edge.i.i.i.i.i.i.i.i171.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i177.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i174.i.i.i.i.i ], [ %269, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit" ], [ %270, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit162" ], [ %271, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit164" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i186.i.i.i.i.i, %245 ]
   %.not209.i.i.i.i.i = icmp eq ptr %.val2.i170.i.i.i.i.i, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i178.i.i.i.i.i
   %spec.select.i.i.i.i.i = select i1 %.not209.i.i.i.i.i, ptr %5, ptr %.sroa.0201.2.i.i.i.i.i
   br label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit"
@@ -3841,16 +3841,16 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
   %272 = getelementptr inbounds nuw i8, ptr %.sroa.0201.0256.i.i.i.i.i, i64 96
   br label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit"
 
-"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit130": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i"
+"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit138": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i"
   %273 = getelementptr inbounds nuw i8, ptr %.sroa.0201.0256.i.i.i.i.i, i64 192
   br label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit"
 
-"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit132": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i"
+"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit140": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i"
   %274 = getelementptr inbounds nuw i8, ptr %.sroa.0201.0256.i.i.i.i.i, i64 288
   br label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit"
 
-"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i", %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit130", %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit132", %._crit_edge.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i"
-  %.sroa.010.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.0201.0.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i" ], [ %.sroa.0201.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i" ], [ %5, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i" ], [ %272, %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit" ], [ %273, %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit130" ], [ %274, %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit132" ], [ %.sroa.0201.0256.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i" ]
+"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i", %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit138", %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit140", %._crit_edge.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i"
+  %.sroa.010.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.0201.0.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i" ], [ %.sroa.0201.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i" ], [ %5, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i" ], [ %272, %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit" ], [ %273, %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit138" ], [ %274, %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit140" ], [ %.sroa.0201.0256.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i" ]
   %275 = icmp ne ptr %.8.val, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i
   ret i1 %275
 }
@@ -4484,16 +4484,16 @@ _ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE13_M_deallocateEPS1_m.exi
   %48 = extractvalue { ptr, i32 } %47, 0
   %49 = call ptr @__cxa_begin_catch(ptr %48) #27
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %.thread49, label %52
+  br i1 %.not, label %.thread56, label %52
 
-.thread49:                                        ; preds = %.body
+.thread56:                                        ; preds = %.body
   call void @_ZNSt16allocator_traitsISaIN3gmx19BiasCoupledToSystemEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %25) #27
   br label %_ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE13_M_deallocateEPS1_m.exit34
 
 .sink.split:                                      ; preds = %.body.thread, %.body.thread45
-  %.sink51 = phi { ptr, i32 } [ %31, %.body.thread45 ], [ %26, %.body.thread ]
+  %.sink58 = phi { ptr, i32 } [ %31, %.body.thread45 ], [ %26, %.body.thread ]
   %.0.lpad-body41.ph = phi ptr [ %29, %.body.thread45 ], [ %24, %.body.thread ]
-  %50 = extractvalue { ptr, i32 } %.sink51, 0
+  %50 = extractvalue { ptr, i32 } %.sink58, 0
   %51 = call ptr @__cxa_begin_catch(ptr %50) #27
   br label %52
 
@@ -4521,7 +4521,7 @@ _ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE13_M_deallocateEPS1_m.exi
   call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %59) #26
   br label %_ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE13_M_deallocateEPS1_m.exit34
 
-_ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE13_M_deallocateEPS1_m.exit34: ; preds = %.thread49, %.thread
+_ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE13_M_deallocateEPS1_m.exit34: ; preds = %.thread56, %.thread
   invoke void @__cxa_rethrow() #24
           to label %64 unwind label %53
 
@@ -5168,8 +5168,8 @@ _ZNK3gmx9DimParams15isPullDimensionEv.exit49:     ; preds = %188, %190
   %216 = ptrtoint ptr %213 to i64
   %217 = sub i64 %215, %216
   %218 = sdiv exact i64 %217, 40
-  %sext84 = shl i64 %218, 32
-  %219 = ashr exact i64 %sext84, 32
+  %sext92 = shl i64 %218, 32
+  %219 = ashr exact i64 %sext92, 32
   %220 = icmp slt i64 %indvars.iv.next79, %219
   br i1 %220, label %179, label %._crit_edge71, !llvm.loop !425
 
@@ -5654,7 +5654,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE17_M_defaul
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPN3gmx14AwhBiasHistoryEmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN3gmx14AwhBiasHistoryEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 112
+  %19 = mul nuw nsw i64 %1, 112
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !432
@@ -5759,7 +5759,7 @@ define void @_ZN3gmx3Awh23restoreStateFromHistoryEPKNS_10AwhHistoryE(ptr noundef
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %13 = load i32, ptr %12, align 8, !tbaa !360
   %14 = icmp sgt i32 %13, 1
-  br i1 %14, label %.thread33, label %15
+  br i1 %14, label %.thread35, label %15
 
 15:                                               ; preds = %11, %2
   %.not = icmp eq ptr %1, null
@@ -5854,16 +5854,16 @@ define void @_ZN3gmx3Awh23restoreStateFromHistoryEPKNS_10AwhHistoryE(ptr noundef
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 56
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !360
   %47 = icmp sgt i32 %.pre, 1
-  br i1 %47, label %.thread33, label %51
+  br i1 %47, label %.thread35, label %51
 
-.thread33:                                        ; preds = %11, %43
+.thread35:                                        ; preds = %11, %43
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %50 = load ptr, ptr %49, align 8, !tbaa !461
   tail call void @_Z9gmx_bcastmPvP10tmpi_comm_(i64 noundef 8, ptr noundef nonnull %48, ptr noundef %50)
   br label %51
 
-51:                                               ; preds = %.thread33, %43
+51:                                               ; preds = %.thread35, %43
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !362
   %54 = load ptr, ptr %0, align 8, !tbaa !366

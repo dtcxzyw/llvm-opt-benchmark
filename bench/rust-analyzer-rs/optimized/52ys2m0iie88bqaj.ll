@@ -79,14 +79,14 @@ define hidden void @"_ZN105_$LT$itertools..permutations..Permutations$LT$I$GT$$u
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %15, ptr %14, align 8
   %16 = load i64, ptr %1, align 8, !range !4, !noundef !5
-  switch i64 %16, label %default.unreachable183 [
+  switch i64 %16, label %default.unreachable197 [
     i64 0, label %17
     i64 1, label %21
     i64 2, label %27
     i64 3, label %37
   ]
 
-default.unreachable183:                           ; preds = %2
+default.unreachable197:                           ; preds = %2
   unreachable
 
 17:                                               ; preds = %2
@@ -273,7 +273,7 @@ common.resume:                                    ; preds = %117, %185, %"_ZN63_
   %.sroa.10.036.i = phi i64 [ %19, %83 ], [ %88, %111 ]
   %.sroa.016.035.i = phi ptr [ %69, %83 ], [ %91, %111 ]
   %.sroa.7.034.i = phi i64 [ 0, %83 ], [ %92, %111 ]
-  %88 = add i64 %.sroa.10.036.i, -1
+  %88 = add nsw i64 %.sroa.10.036.i, -1
   %89 = icmp eq ptr %.sroa.016.035.i, %86
   br i1 %89, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hbc5c01d23c54403bE.exit", label %90
 
@@ -3456,13 +3456,13 @@ define hidden void @_ZN3hir11term_search11term_search17h362ba4cadb965077E(ptr no
   store i16 %126, ptr %.sroa.06.sroa.6.0..sroa_idx, align 8
   store i64 %129, ptr %.sroa.06.sroa.8.0..sroa_idx, align 8
   %130 = icmp eq i64 %129, 0
-  br i1 %130, label %.thread, label %.lr.ph76
+  br i1 %130, label %.thread, label %.lr.ph79
 
-.lr.ph76:                                         ; preds = %117, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17hc582ef564dbabc64E.exit"
+.lr.ph79:                                         ; preds = %117, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17hc582ef564dbabc64E.exit"
   %131 = invoke noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h573e74a499f10a6dE.llvm.5748861218089033760"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
           to label %132 unwind label %.loopexit
 
-132:                                              ; preds = %.lr.ph76
+132:                                              ; preds = %.lr.ph79
   %133 = load i64, ptr %.sroa.06.sroa.8.0..sroa_idx, align 8, !alias.scope !893, !noundef !5
   %134 = add i64 %133, -1
   store i64 %134, ptr %.sroa.06.sroa.8.0..sroa_idx, align 8, !alias.scope !893
@@ -3505,9 +3505,9 @@ define hidden void @_ZN3hir11term_search11term_search17h362ba4cadb965077E(ptr no
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17hc582ef564dbabc64E.exit": ; preds = %.noexc46, %.noexc47
   %.pr = load i64, ptr %.sroa.06.sroa.8.0..sroa_idx, align 8, !alias.scope !893
   %144 = icmp eq i64 %.pr, 0
-  br i1 %144, label %.thread, label %.lr.ph76
+  br i1 %144, label %.thread, label %.lr.ph79
 
-.loopexit:                                        ; preds = %143, %.noexc45, %139, %.lr.ph76
+.loopexit:                                        ; preds = %143, %.noexc45, %139, %.lr.ph79
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -13311,7 +13311,7 @@ define internal fastcc void @"_ZN67_$LT$hir..term_search..expr..Expr$u20$as$u20$
   %18 = alloca { { i64, ptr, {} }, i64 }, align 8
   %19 = alloca { { i64, ptr, {} }, i64 }, align 8
   %20 = load i32, ptr %1, align 8, !range !1063, !noundef !5
-  switch i32 %20, label %default.unreachable38 [
+  switch i32 %20, label %default.unreachable40 [
     i32 0, label %21
     i32 1, label %25
     i32 2, label %29
@@ -13327,7 +13327,7 @@ define internal fastcc void @"_ZN67_$LT$hir..term_search..expr..Expr$u20$as$u20$
     i32 12, label %158
   ]
 
-default.unreachable38:                            ; preds = %2
+default.unreachable40:                            ; preds = %2
   unreachable
 
 21:                                               ; preds = %2

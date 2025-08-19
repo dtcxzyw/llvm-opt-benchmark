@@ -6274,8 +6274,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   %.lhs.trunc = trunc nuw nsw i32 %1 to i16
   %8 = urem i16 %.lhs.trunc, 100
   %9 = shl nuw nsw i16 %8, 1
-  %.lhs.trunc6 = trunc nuw nsw i32 %1 to i16
-  %10 = udiv i16 %.lhs.trunc6, 100
+  %.lhs.trunc11 = trunc nuw nsw i32 %1 to i16
+  %10 = udiv i16 %.lhs.trunc11, 100
   %11 = or disjoint i16 %9, 1
   %12 = zext nneg i16 %11 to i64
   %13 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %12

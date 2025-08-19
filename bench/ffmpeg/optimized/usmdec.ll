@@ -777,10 +777,10 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %308, %298
-  %.sink192.i = phi i64 [ 48, %308 ], [ 56, %298 ]
-  %.sink190.i = phi i64 [ %316, %308 ], [ %307, %298 ]
-  %317 = getelementptr inbounds nuw i8, ptr %288, i64 %.sink192.i
-  store i64 %.sink190.i, ptr %317, align 8, !tbaa !63
+  %.sink206.i = phi i64 [ 48, %308 ], [ 56, %298 ]
+  %.sink204.i = phi i64 [ %316, %308 ], [ %307, %298 ]
+  %317 = getelementptr inbounds nuw i8, ptr %288, i64 %.sink206.i
+  store i64 %.sink204.i, ptr %317, align 8, !tbaa !63
   br label %318
 
 318:                                              ; preds = %.sink.split.i, %289

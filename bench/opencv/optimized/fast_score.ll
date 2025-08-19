@@ -77,8 +77,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %25, label %.lr.ph33.preheader, label %._crit_edge
 
 .lr.ph33.preheader:                               ; preds = %.preheader30, %.preheader
-  %.0.lcssa41 = phi i32 [ %2, %.preheader ], [ 0, %.preheader30 ]
-  %26 = zext nneg i32 %.0.lcssa41 to i64
+  %.0.lcssa44 = phi i32 [ %2, %.preheader ], [ 0, %.preheader30 ]
+  %26 = zext nneg i32 %.0.lcssa44 to i64
   %27 = sext i32 %2 to i64
   br label %.lr.ph33
 

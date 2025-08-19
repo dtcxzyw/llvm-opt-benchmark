@@ -93,7 +93,7 @@ thread-pre-split:                                 ; preds = %30
 37:                                               ; preds = %thread-pre-split, %35
   %38 = phi i32 [ %.pr, %thread-pre-split ], [ %2, %35 ]
   %.not74 = icmp eq i32 %38, 144
-  br i1 %.not74, label %.preheader93, label %39
+  br i1 %.not74, label %.preheader99, label %39
 
 39:                                               ; preds = %37
   %40 = zext i32 %38 to i64
@@ -101,13 +101,13 @@ thread-pre-split:                                 ; preds = %30
   %42 = sub i32 144, %38
   %43 = zext i32 %42 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %41, i8 0, i64 %43, i1 false)
-  br label %.preheader93
+  br label %.preheader99
 
-.preheader93:                                     ; preds = %39, %37
+.preheader99:                                     ; preds = %39, %37
   br label %44
 
-44:                                               ; preds = %.preheader93, %44
-  %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %.preheader93 ]
+44:                                               ; preds = %.preheader99, %44
+  %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %.preheader99 ]
   %45 = getelementptr inbounds nuw [144 x i8], ptr %8, i64 0, i64 %indvars.iv
   %46 = load i8, ptr %45, align 1, !tbaa !14
   %47 = xor i8 %46, 54

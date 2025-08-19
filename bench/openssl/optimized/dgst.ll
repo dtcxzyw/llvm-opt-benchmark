@@ -927,7 +927,6 @@ define dso_local range(i32 0, 2) i32 @dgst_main(i32 noundef %0, ptr noundef %1) 
 .thread375:                                       ; preds = %79, %34, %256, %246, %.thread348, %.thread345, %.thread333, %89, %112, %146, %277, %281, %178, %139, %128, %115, %100, %97, %86, %.loopexit421, %.loopexit
   %.0202402 = phi ptr [ %.1203, %.loopexit ], [ %.1203, %.thread348 ], [ %.1203, %.thread345 ], [ %.1203, %.thread333 ], [ null, %89 ], [ null, %112 ], [ null, %146 ], [ %.1203, %277 ], [ %.1203, %281 ], [ %.1203, %178 ], [ null, %139 ], [ null, %128 ], [ null, %115 ], [ null, %100 ], [ null, %97 ], [ null, %86 ], [ null, %.loopexit421 ], [ %.1203, %246 ], [ %.1203, %256 ], [ null, %34 ], [ null, %79 ]
   %.0206400 = phi ptr [ %.1207368, %.loopexit ], [ null, %.thread348 ], [ null, %.thread345 ], [ null, %.thread333 ], [ null, %89 ], [ null, %112 ], [ null, %146 ], [ %.1207368, %277 ], [ %.1207368, %281 ], [ null, %178 ], [ null, %139 ], [ null, %128 ], [ null, %115 ], [ null, %100 ], [ null, %97 ], [ null, %86 ], [ null, %.loopexit421 ], [ null, %246 ], [ %252, %256 ], [ null, %34 ], [ null, %79 ]
-  %.0218398 = phi i32 [ %.0218, %.loopexit ], [ 1, %.thread348 ], [ 1, %.thread345 ], [ 1, %.thread333 ], [ 1, %89 ], [ 1, %112 ], [ 1, %146 ], [ 1, %277 ], [ 1, %281 ], [ 1, %178 ], [ 1, %139 ], [ 1, %128 ], [ 1, %115 ], [ 1, %100 ], [ 1, %97 ], [ 1, %86 ], [ 1, %.loopexit421 ], [ 1, %246 ], [ 1, %256 ], [ 1, %34 ], [ 1, %79 ]
   %.0231396 = phi ptr [ %102, %.loopexit ], [ %102, %.thread348 ], [ %102, %.thread345 ], [ %102, %.thread333 ], [ null, %89 ], [ %102, %112 ], [ %102, %146 ], [ %102, %277 ], [ %102, %281 ], [ %102, %178 ], [ %102, %139 ], [ %102, %128 ], [ %102, %115 ], [ %102, %100 ], [ null, %97 ], [ null, %86 ], [ null, %.loopexit421 ], [ %102, %246 ], [ %102, %256 ], [ null, %34 ], [ null, %79 ]
   %.3253394 = phi ptr [ %.0250, %.loopexit ], [ %.0250, %.thread348 ], [ %.0250, %.thread345 ], [ %.0250, %.thread333 ], [ %.0250, %89 ], [ %.0250, %112 ], [ %.0250, %146 ], [ %.0250, %277 ], [ %.0250, %281 ], [ %.0250, %178 ], [ %.0250, %139 ], [ %.0250, %128 ], [ %.0250, %115 ], [ %.0250, %100 ], [ %.0250, %97 ], [ %.0250, %86 ], [ %.2252, %.loopexit421 ], [ %.0250, %246 ], [ %.0250, %256 ], [ %.0250, %34 ], [ %.0250, %79 ]
   %.3258392 = phi ptr [ %.0255, %.loopexit ], [ %.0255, %.thread348 ], [ %.0255, %.thread345 ], [ %.0255, %.thread333 ], [ %.0255, %89 ], [ %.0255, %112 ], [ %.0255, %146 ], [ %.0255, %277 ], [ %.0255, %281 ], [ %.0255, %178 ], [ %.0255, %139 ], [ %.0255, %128 ], [ %.0255, %115 ], [ %.0255, %100 ], [ %.0255, %97 ], [ %.0255, %86 ], [ %.2257, %.loopexit421 ], [ %.0255, %246 ], [ %.0255, %256 ], [ %.0255, %34 ], [ %.0255, %79 ]
@@ -941,7 +940,7 @@ define dso_local range(i32 0, 2) i32 @dgst_main(i32 noundef %0, ptr noundef %1) 
 .thread405:                                       ; preds = %296, %25, %24, %.loopexit, %.thread375
   %.0202403 = phi ptr [ %.0202402, %.thread375 ], [ %.1203, %.loopexit ], [ null, %24 ], [ null, %25 ], [ %.1203, %296 ]
   %.0206401 = phi ptr [ %.0206400, %.thread375 ], [ %.1207368, %.loopexit ], [ null, %24 ], [ null, %25 ], [ %.1207368, %296 ]
-  %.0218399 = phi i32 [ %.0218398, %.thread375 ], [ 0, %.loopexit ], [ 0, %24 ], [ 0, %25 ], [ 0, %296 ]
+  %.0218399 = phi i32 [ 1, %.thread375 ], [ 0, %.loopexit ], [ 0, %24 ], [ 0, %25 ], [ 0, %296 ]
   %.0231397 = phi ptr [ %.0231396, %.thread375 ], [ %102, %.loopexit ], [ null, %24 ], [ null, %25 ], [ %102, %296 ]
   %.3253395 = phi ptr [ %.3253394, %.thread375 ], [ %.0250, %.loopexit ], [ %.0250, %24 ], [ %.0250, %25 ], [ %.0250, %296 ]
   %.3258393 = phi ptr [ %.3258392, %.thread375 ], [ %.0255, %.loopexit ], [ %.0255, %24 ], [ %.0255, %25 ], [ %.0255, %296 ]
@@ -1542,10 +1541,10 @@ newline_escape_filename.exit.thread:              ; preds = %14
   %34 = getelementptr i8, ptr %32, i64 1
   store i8 110, ptr %34, align 1, !tbaa !33
   %35 = add nuw i64 %.02933.i, 1
-  %exitcond40.not.i73 = icmp eq i64 %35, %15
-  br i1 %exitcond40.not.i73, label %newline_escape_filename.exit.thread76, label %.lr.ph36.i.outer, !llvm.loop !40
+  %exitcond40.not.i80 = icmp eq i64 %35, %15
+  br i1 %exitcond40.not.i80, label %newline_escape_filename.exit.thread83, label %.lr.ph36.i.outer, !llvm.loop !40
 
-newline_escape_filename.exit.thread76:            ; preds = %.thread
+newline_escape_filename.exit.thread83:            ; preds = %.thread
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 %33
   store i8 0, ptr %36, align 1, !tbaa !33
   br label %38
@@ -1555,7 +1554,7 @@ newline_escape_filename.exit:                     ; preds = %28
   store i8 0, ptr %37, align 1, !tbaa !33
   br i1 %.not51, label %40, label %38
 
-38:                                               ; preds = %newline_escape_filename.exit.thread76, %newline_escape_filename.exit
+38:                                               ; preds = %newline_escape_filename.exit.thread83, %newline_escape_filename.exit
   %39 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.109) #8
   br label %40
 

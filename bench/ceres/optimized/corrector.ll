@@ -202,8 +202,8 @@ define hidden void @_ZN5ceres8internal9Corrector15CorrectJacobianEiiPdS2_(ptr no
   %indvars.iv54 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next55, %12 ]
   %13 = load double, ptr %0, align 8, !tbaa !10
   %14 = mul nuw nsw i64 %indvars.iv54, %11
-  %gep66 = getelementptr inbounds nuw double, ptr %invariant.gep65, i64 %14
-  %15 = load double, ptr %gep66, align 8, !tbaa !4
+  %gep69 = getelementptr inbounds nuw double, ptr %invariant.gep68, i64 %14
+  %15 = load double, ptr %gep69, align 8, !tbaa !4
   %16 = load double, ptr %6, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv54
   %18 = load double, ptr %17, align 8, !tbaa !4
@@ -211,7 +211,7 @@ define hidden void @_ZN5ceres8internal9Corrector15CorrectJacobianEiiPdS2_(ptr no
   %20 = fmul double %16, %19
   %21 = tail call double @llvm.fmuladd.f64(double %20, double %27, double %15)
   %22 = fmul double %13, %21
-  store double %22, ptr %gep66, align 8, !tbaa !4
+  store double %22, ptr %gep69, align 8, !tbaa !4
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
   br i1 %exitcond58.not, label %._crit_edge.us, label %12, !llvm.loop !29
@@ -230,7 +230,7 @@ define hidden void @_ZN5ceres8internal9Corrector15CorrectJacobianEiiPdS2_(ptr no
   br i1 %exitcond.not, label %.preheader.us, label %.lr.ph.us, !llvm.loop !30
 
 .preheader.us:                                    ; preds = %.lr.ph.us
-  %invariant.gep65 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv59
+  %invariant.gep68 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv59
   br label %12
 
 ._crit_edge.us:                                   ; preds = %12

@@ -3685,8 +3685,8 @@ if.end.i:                                         ; preds = %if.else.i
 if.then18.i:                                      ; preds = %if.end.i
   %add19.i = add nsw i32 %conv11.i, 1
   %conv20.i = sext i32 %add19.i to i64
-  %gep35.i = getelementptr i64, ptr %invariant.gep.i, i64 %indvars.iv.i
-  store i64 %conv20.i, ptr %gep35.i, align 8
+  %gep37.i = getelementptr i64, ptr %invariant.gep.i, i64 %indvars.iv.i
+  store i64 %conv20.i, ptr %gep37.i, align 8
   br label %for.inc.i
 
 if.else22.i:                                      ; preds = %if.end.i

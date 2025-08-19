@@ -236,16 +236,16 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
 81:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbf2dc72581b32c1eE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   store i32 0, ptr %.sroa.4, align 4
-  %.sroa.4.4..sroa_idx20 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 4
-  store i32 0, ptr %.sroa.4.4..sroa_idx20, align 4
+  %.sroa.4.4..sroa_idx22 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 4
+  store i32 0, ptr %.sroa.4.4..sroa_idx22, align 4
   %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 8
   store i32 0, ptr %.sroa.4.8..sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.4, ptr nonnull align 1 %1, i64 %2, i1 false)
   %.sroa.4.0..sroa.4.0..sroa.4.0..sroa.3.4.copyload = load i32, ptr %.sroa.4, align 4
-  %.sroa.4.4..sroa_idx21 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 4
-  %.sroa.4.4..sroa.4.4..sroa.4.4..sroa.6.4.copyload = load i32, ptr %.sroa.4.4..sroa_idx21, align 4
-  %.sroa.4.8..sroa_idx22 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 8
-  %.sroa.4.8..sroa.4.8..sroa.4.8..sroa.7.4.copyload = load i32, ptr %.sroa.4.8..sroa_idx22, align 4
+  %.sroa.4.4..sroa_idx23 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 4
+  %.sroa.4.4..sroa.4.4..sroa.4.4..sroa.6.4.copyload = load i32, ptr %.sroa.4.4..sroa_idx23, align 4
+  %.sroa.4.8..sroa_idx24 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 8
+  %.sroa.4.8..sroa.4.8..sroa.4.8..sroa.7.4.copyload = load i32, ptr %.sroa.4.8..sroa_idx24, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   br label %70
 }
@@ -435,16 +435,16 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
 83:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbf2dc72581b32c1eE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   store i32 0, ptr %.sroa.4, align 4
-  %.sroa.4.4..sroa_idx20 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 4
-  store i32 0, ptr %.sroa.4.4..sroa_idx20, align 4
+  %.sroa.4.4..sroa_idx22 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 4
+  store i32 0, ptr %.sroa.4.4..sroa_idx22, align 4
   %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 8
   store i32 0, ptr %.sroa.4.8..sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.4, ptr nonnull align 1 %1, i64 %2, i1 false)
   %.sroa.4.0..sroa.4.0..sroa.4.0..sroa.3.4.copyload = load i32, ptr %.sroa.4, align 4
-  %.sroa.4.4..sroa_idx21 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 4
-  %.sroa.4.4..sroa.4.4..sroa.4.4..sroa.6.4.copyload = load i32, ptr %.sroa.4.4..sroa_idx21, align 4
-  %.sroa.4.8..sroa_idx22 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 8
-  %.sroa.4.8..sroa.4.8..sroa.4.8..sroa.7.4.copyload = load i32, ptr %.sroa.4.8..sroa_idx22, align 4
+  %.sroa.4.4..sroa_idx23 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 4
+  %.sroa.4.4..sroa.4.4..sroa.4.4..sroa.6.4.copyload = load i32, ptr %.sroa.4.4..sroa_idx23, align 4
+  %.sroa.4.8..sroa_idx24 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 8
+  %.sroa.4.8..sroa.4.8..sroa.4.8..sroa.7.4.copyload = load i32, ptr %.sroa.4.8..sroa_idx24, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   br label %_ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.exit
 }
@@ -2120,10 +2120,10 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcc94ffddd0343a5bE.exit.i.i", %137, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h5f2efd25a037877fE.exit", %139
-  %.sroa.0.035 = phi i64 [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h5f2efd25a037877fE.exit" ], [ %.sroa.0.0, %137 ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcc94ffddd0343a5bE.exit.i.i" ]
+  %.sroa.0.045 = phi i64 [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h5f2efd25a037877fE.exit" ], [ %.sroa.0.0, %137 ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcc94ffddd0343a5bE.exit.i.i" ]
   %.sroa.01.1 = phi i64 [ %143, %139 ], [ %.sroa.14.018, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h5f2efd25a037877fE.exit" ], [ %.sroa.14.018, %137 ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcc94ffddd0343a5bE.exit.i.i" ]
-  %144 = sub nuw i64 %.sroa.01.1, %.sroa.0.035
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.035
+  %144 = sub nuw i64 %.sroa.01.1, %.sroa.0.045
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.045
   %146 = insertvalue { ptr, i64 } poison, ptr %145, 0
   %147 = insertvalue { ptr, i64 } %146, i64 %144, 1
   ret { ptr, i64 } %147
@@ -3180,11 +3180,11 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %15 unwind label %145
 
 .thread51:                                        ; preds = %143, %.body.i, %203, %15
-  %.pn3654 = phi { ptr, i32 } [ %.pn3682, %203 ], [ %lpad.phi, %15 ], [ %144, %143 ], [ %eh.lpad-body.i, %.body.i ]
+  %.pn3654 = phi { ptr, i32 } [ %.pn3686, %203 ], [ %lpad.phi, %15 ], [ %144, %143 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %.pn3654
 
 203:                                              ; preds = %.thread, %15
-  %.pn3682 = phi { ptr, i32 } [ %lpad.phi, %15 ], [ %14, %.thread ]
+  %.pn3686 = phi { ptr, i32 } [ %lpad.phi, %15 ], [ %14, %.thread ]
   invoke void @"_ZN4core3ptr102drop_in_place$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$$u5b$u8$u5d$$GT$$GT$17hf93ea26309a87f43E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %13) #20
           to label %.thread51 unwind label %145
 }

@@ -56879,13 +56879,13 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17h1
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 125:                                              ; preds = %._crit_edge.i.i
-  %.not19 = icmp ult ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %112
-  %.sroa.0.0..sroa.06.0.i.i = select i1 %.not19, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel
+  %.not23 = icmp ult ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %112
+  %.sroa.0.0..sroa.06.0.i.i = select i1 %.not23, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel
   %126 = load i32, ptr %.sroa.0.0..sroa.06.0.i.i, align 4, !alias.scope !7354, !noalias !7306
   store i32 %126, ptr %118, align 4, !alias.scope !7306, !noalias !7354
-  %.sroa.sel18.idx.sroa.sel.idx = select i1 %.not19, i64 4, i64 0
+  %.sroa.sel18.idx.sroa.sel.idx = select i1 %.not23, i64 4, i64 0
   %.sroa.sel18.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel18.idx.sroa.sel.idx
-  %.sroa.sel.idx.sroa.sel.idx = select i1 %.not19, i64 0, i64 4
+  %.sroa.sel.idx.sroa.sel.idx = select i1 %.not23, i64 0, i64 4
   %.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel.idx.sroa.sel.idx
   br label %127
 
@@ -57708,10 +57708,10 @@ define hidden { ptr, i64 } @"_ZN54_$LT$I$u20$as$u20$alloc..sync..ToArcSlice$LT$T
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hca4e7273f313652bE.exit"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hca4e7273f313652bE.exit": ; preds = %19, %13, %12, %6
-  %.sink21.i = phi i64 [ %25, %19 ], [ %18, %13 ], [ %11, %6 ], [ 0, %12 ]
+  %.sink23.i = phi i64 [ %25, %19 ], [ %18, %13 ], [ %11, %6 ], [ 0, %12 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
-  %26 = call { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17ha041d062049bc7a8E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2, i64 noundef %.sink21.i)
+  %26 = call { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17ha041d062049bc7a8E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2, i64 noundef %.sink23.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret { ptr, i64 } %26
 }
@@ -57947,7 +57947,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !670, !noundef !6
-  switch i8 %23, label %default.unreachable61 [
+  switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -57989,7 +57989,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable61:                            ; preds = %2
+default.unreachable66:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2

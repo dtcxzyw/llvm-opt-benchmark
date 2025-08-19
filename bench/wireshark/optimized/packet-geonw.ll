@@ -3824,9 +3824,9 @@ define internal fastcc void @dissect_sec_payload(ptr noundef %0, ptr noundef cap
   br label %42
 
 42:                                               ; preds = %24, %26, %37, %32
-  %.sink56 = phi i32 [ %38, %37 ], [ %33, %32 ], [ %25, %26 ], [ %25, %24 ]
+  %.sink57 = phi i32 [ %38, %37 ], [ %33, %32 ], [ %25, %26 ], [ %25, %24 ]
   %43 = load i32, ptr %1, align 4
-  %44 = add i32 %43, %.sink56
+  %44 = add i32 %43, %.sink57
   store i32 %44, ptr %1, align 4
   tail call void @proto_item_set_end(ptr noundef %16, ptr noundef %0, i32 noundef %44)
   br label %45

@@ -347,7 +347,7 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit44:   ; preds = %_ZN7meshoptL16compu
 
 186:                                              ; preds = %185
   %187 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %188 = add i64 %.0.i, -1
+  %188 = add nsw i64 %.0.i, -1
   %189 = getelementptr inbounds nuw [24 x ptr], ptr %7, i64 0, i64 %188
   %190 = load ptr, ptr %189, align 8, !tbaa !4
   invoke void %187(ptr noundef %190)
@@ -553,7 +553,7 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit:     ; preds = %6
 
 87:                                               ; preds = %._crit_edge83
   %88 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %89 = add i64 %.0.i, -1
+  %89 = add nsw i64 %.0.i, -1
   %90 = getelementptr inbounds nuw [24 x ptr], ptr %7, i64 0, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !4
   invoke void %88(ptr noundef %91)

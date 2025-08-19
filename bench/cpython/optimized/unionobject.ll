@@ -368,8 +368,8 @@ merge.exit.thread:                                ; preds = %94, %58, %.split.us
   br label %120
 
 merge.exit:                                       ; preds = %_Py_NewRef.exit39.i, %.thread46.i
-  %.026.lcssa75.i = phi i64 [ %.228.us.i, %.thread46.i ], [ %115, %_Py_NewRef.exit39.i ]
-  %118 = call i32 @_PyTuple_Resize(ptr noundef nonnull %3, i64 noundef %.026.lcssa75.i) #5
+  %.026.lcssa91.i = phi i64 [ %.228.us.i, %.thread46.i ], [ %115, %_Py_NewRef.exit39.i ]
+  %118 = call i32 @_PyTuple_Resize(ptr noundef nonnull %3, i64 noundef %.026.lcssa91.i) #5
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %119 = icmp eq ptr %.pre.i, null

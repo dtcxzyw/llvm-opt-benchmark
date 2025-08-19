@@ -69,13 +69,13 @@ define range(i32 0, 2) i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr noundef captu
   %32 = icmp eq ptr %31, null
   %33 = icmp eq ptr %.pre, null
   %brmerge = select i1 %33, i1 true, i1 %32
-  br i1 %brmerge, label %.loopexit, label %.thread81
+  br i1 %brmerge, label %.loopexit, label %.thread90
 
 .thread:                                          ; preds = %25
   %34 = icmp eq ptr %26, null
-  br i1 %34, label %.loopexit, label %.thread81
+  br i1 %34, label %.loopexit, label %.thread90
 
-.thread81:                                        ; preds = %30, %.thread
+.thread90:                                        ; preds = %30, %.thread
   %35 = phi ptr [ %26, %.thread ], [ %.pre, %30 ]
   tail call void @BN_set_flags(ptr noundef nonnull %35, i32 noundef 4) #2
   %36 = load ptr, ptr %27, align 8, !tbaa !22
@@ -85,7 +85,7 @@ define range(i32 0, 2) i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr noundef captu
   %.not75 = icmp eq i32 %38, 0
   br i1 %.not75, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.thread81
+.preheader:                                       ; preds = %.thread90
   %39 = load ptr, ptr %27, align 8, !tbaa !22
   %40 = tail call i32 @ossl_bn_rsa_fips186_4_gen_prob_primes(ptr noundef %39, ptr noundef nonnull %15, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #2
   %.not7678 = icmp eq i32 %40, 0
@@ -124,9 +124,9 @@ define range(i32 0, 2) i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr noundef captu
   store i32 %57, ptr %55, align 8, !tbaa !23
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.backedge, %.lr.ph, %47, %30, %.thread, %.preheader, %.thread81, %12, %54
-  %.not77 = phi i1 [ false, %12 ], [ false, %30 ], [ true, %54 ], [ false, %.thread81 ], [ false, %.preheader ], [ false, %.thread ], [ false, %47 ], [ false, %.lr.ph ], [ false, %.backedge ]
-  %.067 = phi i32 [ 0, %12 ], [ 0, %30 ], [ 1, %54 ], [ 0, %.thread81 ], [ 0, %.preheader ], [ 0, %.thread ], [ 0, %47 ], [ 0, %.lr.ph ], [ 0, %.backedge ]
+.loopexit:                                        ; preds = %.backedge, %.lr.ph, %47, %30, %.thread, %.preheader, %.thread90, %12, %54
+  %.not77 = phi i1 [ false, %12 ], [ false, %30 ], [ true, %54 ], [ false, %.thread90 ], [ false, %.preheader ], [ false, %.thread ], [ false, %47 ], [ false, %.lr.ph ], [ false, %.backedge ]
+  %.067 = phi i32 [ 0, %12 ], [ 0, %30 ], [ 1, %54 ], [ 0, %.thread90 ], [ 0, %.preheader ], [ 0, %.thread ], [ 0, %47 ], [ 0, %.lr.ph ], [ 0, %.backedge ]
   tail call void @BN_clear(ptr noundef %14) #2
   tail call void @BN_clear(ptr noundef %15) #2
   tail call void @BN_clear(ptr noundef %13) #2

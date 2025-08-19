@@ -159,21 +159,21 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
   store i64 %29, ptr %38, align 16
   %.ptr36 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %39 = icmp eq i32 %1, 0
-  br i1 %39, label %.loopexit.sink.split, label %.preheader58
+  br i1 %39, label %.loopexit.sink.split, label %.preheader61
 
-.preheader58:                                     ; preds = %28, %40
+.preheader61:                                     ; preds = %28, %40
   %.idx = phi i64 [ %.add, %40 ], [ 8, %28 ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %38, i64 %.idx
   invoke void @_ZN13gmx_ana_pos_tC1Ev(ptr noundef nonnull align 8 dereferenceable(148) %.ptr.ptr)
           to label %40 unwind label %43
 
-40:                                               ; preds = %.preheader58
+40:                                               ; preds = %.preheader61
   %.add = add nuw nsw i64 %.idx, 152
   %41 = add nuw nsw i64 %.idx, 144
   %42 = icmp eq i64 %41, %32
-  br i1 %42, label %.loopexit.sink.split, label %.preheader58
+  br i1 %42, label %.loopexit.sink.split, label %.preheader61
 
-43:                                               ; preds = %.preheader58
+43:                                               ; preds = %.preheader61
   %44 = landingpad { ptr, i32 }
           cleanup
   %45 = icmp eq i64 %.idx, 8

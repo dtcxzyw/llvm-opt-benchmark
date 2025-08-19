@@ -191,9 +191,9 @@ define void @_Z24grpc_tcp_server_add_addrP15grpc_tcp_serverPK21grpc_resolved_add
   call void @_Z28grpc_create_dualstack_socketPK21grpc_resolved_addressiiP19grpc_dualstack_modePi(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %12, ptr noundef %2, i32 noundef 1, i32 noundef 0, ptr noundef %5, ptr noundef nonnull %8)
   %31 = load i64, ptr %12, align 8, !tbaa !10
   %32 = icmp eq i64 %31, 1
-  br i1 %32, label %35, label %.thread31
+  br i1 %32, label %35, label %.thread34
 
-.thread31:                                        ; preds = %30
+.thread34:                                        ; preds = %30
   store i64 %31, ptr %0, align 8, !tbaa !10
   br label %_ZN4absl12lts_202407226StatusD2Ev.exit
 
@@ -244,7 +244,7 @@ define void @_Z24grpc_tcp_server_add_addrP15grpc_tcp_serverPK21grpc_resolved_add
   call void @__clang_call_terminate(ptr %49) #23
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %.thread31, %43, %45
+_ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %.thread34, %43, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %50
@@ -897,11 +897,11 @@ _ZN4absl12lts_202407226StatusaSEOS1_.exit:        ; preds = %._ZN4absl12lts_2024
   unreachable
 
 thread-pre-split:                                 ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit, %64
-  %.pr132 = load i64, ptr %8, align 8, !tbaa !10
+  %.pr154 = load i64, ptr %8, align 8, !tbaa !10
   br label %_ZN4absl12lts_202407226StatusaSEOS1_.exit.thread
 
 _ZN4absl12lts_202407226StatusaSEOS1_.exit.thread: ; preds = %55, %thread-pre-split
-  %69 = phi i64 [ %.pr132, %thread-pre-split ], [ %54, %55 ]
+  %69 = phi i64 [ %.pr154, %thread-pre-split ], [ %54, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %70 = icmp eq i64 %69, 1
   br i1 %70, label %75, label %.critedge76
@@ -955,12 +955,12 @@ _ZN4absl12lts_202407226StatusaSEOS1_.exit83:      ; preds = %._ZN4absl12lts_2024
   %86 = phi i64 [ %.pre125, %._ZN4absl12lts_202407226StatusaSEOS1_.exit83_crit_edge ], [ %77, %76 ]
   %87 = and i64 %86, 1
   %.not.i.i84 = icmp eq i64 %87, 0
-  br i1 %.not.i.i84, label %88, label %thread-pre-split134
+  br i1 %.not.i.i84, label %88, label %thread-pre-split156
 
 88:                                               ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit83
   %89 = inttoptr i64 %86 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %89)
-          to label %thread-pre-split134 unwind label %90
+          to label %thread-pre-split156 unwind label %90
 
 90:                                               ; preds = %88
   %91 = landingpad { ptr, i32 }
@@ -969,12 +969,12 @@ _ZN4absl12lts_202407226StatusaSEOS1_.exit83:      ; preds = %._ZN4absl12lts_2024
   call void @__clang_call_terminate(ptr %92) #23
   unreachable
 
-thread-pre-split134:                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit83, %88
-  %.pr135 = load i64, ptr %8, align 8, !tbaa !10
+thread-pre-split156:                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit83, %88
+  %.pr157 = load i64, ptr %8, align 8, !tbaa !10
   br label %_ZN4absl12lts_202407226StatusaSEOS1_.exit83.thread
 
-_ZN4absl12lts_202407226StatusaSEOS1_.exit83.thread: ; preds = %79, %thread-pre-split134
-  %93 = phi i64 [ %.pr135, %thread-pre-split134 ], [ %78, %79 ]
+_ZN4absl12lts_202407226StatusaSEOS1_.exit83.thread: ; preds = %79, %thread-pre-split156
+  %93 = phi i64 [ %.pr157, %thread-pre-split156 ], [ %78, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %94 = icmp eq i64 %93, 1
   br i1 %94, label %.critedge74, label %95
@@ -1074,12 +1074,12 @@ _ZN4absl12lts_202407226StatusaSEOS1_.exit89:      ; preds = %._ZN4absl12lts_2024
   %123 = phi i64 [ %.pre126, %._ZN4absl12lts_202407226StatusaSEOS1_.exit89_crit_edge ], [ %114, %113 ]
   %124 = and i64 %123, 1
   %.not.i.i90 = icmp eq i64 %124, 0
-  br i1 %.not.i.i90, label %125, label %thread-pre-split137
+  br i1 %.not.i.i90, label %125, label %thread-pre-split159
 
 125:                                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit89
   %126 = inttoptr i64 %123 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %126)
-          to label %thread-pre-split137 unwind label %127
+          to label %thread-pre-split159 unwind label %127
 
 127:                                              ; preds = %125
   %128 = landingpad { ptr, i32 }
@@ -1088,12 +1088,12 @@ _ZN4absl12lts_202407226StatusaSEOS1_.exit89:      ; preds = %._ZN4absl12lts_2024
   call void @__clang_call_terminate(ptr %129) #23
   unreachable
 
-thread-pre-split137:                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit89, %125
-  %.pr138 = load i64, ptr %8, align 8, !tbaa !10
+thread-pre-split159:                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit89, %125
+  %.pr160 = load i64, ptr %8, align 8, !tbaa !10
   br label %_ZN4absl12lts_202407226StatusaSEOS1_.exit89.thread
 
-_ZN4absl12lts_202407226StatusaSEOS1_.exit89.thread: ; preds = %116, %thread-pre-split137
-  %130 = phi i64 [ %.pr138, %thread-pre-split137 ], [ %115, %116 ]
+_ZN4absl12lts_202407226StatusaSEOS1_.exit89.thread: ; preds = %116, %thread-pre-split159
+  %130 = phi i64 [ %.pr160, %thread-pre-split159 ], [ %115, %116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %131 = icmp eq i64 %130, 1
   br i1 %131, label %134, label %.critedge76
@@ -1142,12 +1142,12 @@ _ZN4absl12lts_202407226StatusaSEOS1_.exit94:      ; preds = %._ZN4absl12lts_2024
   %145 = phi i64 [ %.pre127, %._ZN4absl12lts_202407226StatusaSEOS1_.exit94_crit_edge ], [ %136, %135 ]
   %146 = and i64 %145, 1
   %.not.i.i95 = icmp eq i64 %146, 0
-  br i1 %.not.i.i95, label %147, label %thread-pre-split140
+  br i1 %.not.i.i95, label %147, label %thread-pre-split162
 
 147:                                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit94
   %148 = inttoptr i64 %145 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %148)
-          to label %thread-pre-split140 unwind label %149
+          to label %thread-pre-split162 unwind label %149
 
 149:                                              ; preds = %147
   %150 = landingpad { ptr, i32 }
@@ -1156,12 +1156,12 @@ _ZN4absl12lts_202407226StatusaSEOS1_.exit94:      ; preds = %._ZN4absl12lts_2024
   call void @__clang_call_terminate(ptr %151) #23
   unreachable
 
-thread-pre-split140:                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit94, %147
-  %.pr141 = load i64, ptr %8, align 8, !tbaa !10
+thread-pre-split162:                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit94, %147
+  %.pr163 = load i64, ptr %8, align 8, !tbaa !10
   br label %_ZN4absl12lts_202407226StatusaSEOS1_.exit94.thread
 
-_ZN4absl12lts_202407226StatusaSEOS1_.exit94.thread: ; preds = %138, %thread-pre-split140
-  %152 = phi i64 [ %.pr141, %thread-pre-split140 ], [ %137, %138 ]
+_ZN4absl12lts_202407226StatusaSEOS1_.exit94.thread: ; preds = %138, %thread-pre-split162
+  %152 = phi i64 [ %.pr163, %thread-pre-split162 ], [ %137, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %153 = icmp eq i64 %152, 1
   br i1 %153, label %156, label %.critedge76
@@ -1226,12 +1226,12 @@ _ZN4absl12lts_202407226StatusaSEOS1_.exit99:      ; preds = %._ZN4absl12lts_2024
   %173 = phi i64 [ %.pre128, %._ZN4absl12lts_202407226StatusaSEOS1_.exit99_crit_edge ], [ %164, %163 ]
   %174 = and i64 %173, 1
   %.not.i.i100 = icmp eq i64 %174, 0
-  br i1 %.not.i.i100, label %175, label %thread-pre-split143
+  br i1 %.not.i.i100, label %175, label %thread-pre-split165
 
 175:                                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit99
   %176 = inttoptr i64 %173 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %176)
-          to label %thread-pre-split143 unwind label %177
+          to label %thread-pre-split165 unwind label %177
 
 177:                                              ; preds = %175
   %178 = landingpad { ptr, i32 }
@@ -1240,12 +1240,12 @@ _ZN4absl12lts_202407226StatusaSEOS1_.exit99:      ; preds = %._ZN4absl12lts_2024
   call void @__clang_call_terminate(ptr %179) #23
   unreachable
 
-thread-pre-split143:                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit99, %175
-  %.pr144 = load i64, ptr %8, align 8, !tbaa !10
+thread-pre-split165:                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit99, %175
+  %.pr166 = load i64, ptr %8, align 8, !tbaa !10
   br label %_ZN4absl12lts_202407226StatusaSEOS1_.exit99.thread
 
-_ZN4absl12lts_202407226StatusaSEOS1_.exit99.thread: ; preds = %166, %thread-pre-split143
-  %180 = phi i64 [ %.pr144, %thread-pre-split143 ], [ %165, %166 ]
+_ZN4absl12lts_202407226StatusaSEOS1_.exit99.thread: ; preds = %166, %thread-pre-split165
+  %180 = phi i64 [ %.pr166, %thread-pre-split165 ], [ %165, %166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %181 = icmp eq i64 %180, 1
   br i1 %181, label %184, label %.critedge76
@@ -1354,12 +1354,12 @@ _ZN4absl12lts_202407226StatusaSEOS1_.exit104:     ; preds = %._ZN4absl12lts_2024
   %219 = phi i64 [ %.pre129, %._ZN4absl12lts_202407226StatusaSEOS1_.exit104_crit_edge ], [ %210, %209 ]
   %220 = and i64 %219, 1
   %.not.i.i105 = icmp eq i64 %220, 0
-  br i1 %.not.i.i105, label %221, label %thread-pre-split146
+  br i1 %.not.i.i105, label %221, label %thread-pre-split168
 
 221:                                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit104
   %222 = inttoptr i64 %219 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %222)
-          to label %thread-pre-split146 unwind label %223
+          to label %thread-pre-split168 unwind label %223
 
 223:                                              ; preds = %221
   %224 = landingpad { ptr, i32 }
@@ -1368,12 +1368,12 @@ _ZN4absl12lts_202407226StatusaSEOS1_.exit104:     ; preds = %._ZN4absl12lts_2024
   call void @__clang_call_terminate(ptr %225) #23
   unreachable
 
-thread-pre-split146:                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit104, %221
-  %.pr147 = load i64, ptr %8, align 8, !tbaa !10
+thread-pre-split168:                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit104, %221
+  %.pr169 = load i64, ptr %8, align 8, !tbaa !10
   br label %_ZN4absl12lts_202407226StatusaSEOS1_.exit104.thread
 
-_ZN4absl12lts_202407226StatusaSEOS1_.exit104.thread: ; preds = %212, %thread-pre-split146
-  %226 = phi i64 [ %.pr147, %thread-pre-split146 ], [ %211, %212 ]
+_ZN4absl12lts_202407226StatusaSEOS1_.exit104.thread: ; preds = %212, %thread-pre-split168
+  %226 = phi i64 [ %.pr169, %thread-pre-split168 ], [ %211, %212 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %227 = icmp eq i64 %226, 1
   br i1 %227, label %230, label %.critedge76
@@ -1423,12 +1423,12 @@ _ZN4absl12lts_202407226StatusaSEOS1_.exit109:     ; preds = %._ZN4absl12lts_2024
   %242 = phi i64 [ %.pre130, %._ZN4absl12lts_202407226StatusaSEOS1_.exit109_crit_edge ], [ %233, %232 ]
   %243 = and i64 %242, 1
   %.not.i.i110 = icmp eq i64 %243, 0
-  br i1 %.not.i.i110, label %244, label %thread-pre-split149
+  br i1 %.not.i.i110, label %244, label %thread-pre-split171
 
 244:                                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit109
   %245 = inttoptr i64 %242 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %245)
-          to label %thread-pre-split149 unwind label %246
+          to label %thread-pre-split171 unwind label %246
 
 246:                                              ; preds = %244
   %247 = landingpad { ptr, i32 }
@@ -1437,12 +1437,12 @@ _ZN4absl12lts_202407226StatusaSEOS1_.exit109:     ; preds = %._ZN4absl12lts_2024
   call void @__clang_call_terminate(ptr %248) #23
   unreachable
 
-thread-pre-split149:                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit109, %244
-  %.pr150 = load i64, ptr %8, align 8, !tbaa !10
+thread-pre-split171:                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit109, %244
+  %.pr172 = load i64, ptr %8, align 8, !tbaa !10
   br label %_ZN4absl12lts_202407226StatusaSEOS1_.exit109.thread
 
-_ZN4absl12lts_202407226StatusaSEOS1_.exit109.thread: ; preds = %235, %thread-pre-split149
-  %249 = phi i64 [ %.pr150, %thread-pre-split149 ], [ %234, %235 ]
+_ZN4absl12lts_202407226StatusaSEOS1_.exit109.thread: ; preds = %235, %thread-pre-split171
+  %249 = phi i64 [ %.pr172, %thread-pre-split171 ], [ %234, %235 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %250 = icmp eq i64 %249, 1
   br i1 %250, label %253, label %.critedge76

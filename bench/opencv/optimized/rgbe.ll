@@ -1247,12 +1247,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i46: ; preds = %_
   br i1 %79, label %.critedge.sink.split, label %.outer.backedge
 
 .critedge.sink.split:                             ; preds = %77, %74
-  %.sink69 = phi ptr [ %52, %74 ], [ %51, %77 ]
-  %.sink68 = phi i32 [ 2, %74 ], [ 4, %77 ]
+  %.sink73 = phi ptr [ %52, %74 ], [ %51, %77 ]
+  %.sink72 = phi i32 [ 2, %74 ], [ 4, %77 ]
   %80 = load float, ptr %8, align 4, !tbaa !30
-  store float %80, ptr %.sink69, align 4, !tbaa !30
+  store float %80, ptr %.sink73, align 4, !tbaa !30
   %81 = load i32, ptr %3, align 4, !tbaa !3
-  %82 = or i32 %81, %.sink68
+  %82 = or i32 %81, %.sink72
   store i32 %82, ptr %3, align 4, !tbaa !3
   br label %.outer.backedge
 
@@ -1572,8 +1572,8 @@ define hidden noundef i32 @_Z20RGBE_WritePixels_RLEP8_IO_FILEPfii(ptr noundef ca
   %35 = zext nneg i32 %31 to i64
   %36 = zext nneg i32 %32 to i64
   %invariant.gep = getelementptr inbounds nuw i8, ptr %22, i64 %34
-  %invariant.gep69 = getelementptr inbounds nuw i8, ptr %22, i64 %35
-  %invariant.gep71 = getelementptr inbounds nuw i8, ptr %22, i64 %36
+  %invariant.gep79 = getelementptr inbounds nuw i8, ptr %22, i64 %35
+  %invariant.gep81 = getelementptr inbounds nuw i8, ptr %22, i64 %36
   br label %41
 
 37:                                               ; preds = %19
@@ -1702,10 +1702,10 @@ _ZL10float2rgbePhfff.exit:                        ; preds = %.lr.ph, %70
   store i8 %.sink.i, ptr %86, align 1, !tbaa !17
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   store i8 %.sink28.i, ptr %gep, align 1, !tbaa !17
-  %gep70 = getelementptr inbounds nuw i8, ptr %invariant.gep69, i64 %indvars.iv
-  store i8 %.sink29.i, ptr %gep70, align 1, !tbaa !17
-  %gep72 = getelementptr inbounds nuw i8, ptr %invariant.gep71, i64 %indvars.iv
-  store i8 %.sink30.i, ptr %gep72, align 1, !tbaa !17
+  %gep80 = getelementptr inbounds nuw i8, ptr %invariant.gep79, i64 %indvars.iv
+  store i8 %.sink29.i, ptr %gep80, align 1, !tbaa !17
+  %gep82 = getelementptr inbounds nuw i8, ptr %invariant.gep81, i64 %indvars.iv
+  store i8 %.sink30.i, ptr %gep82, align 1, !tbaa !17
   %87 = getelementptr inbounds nuw i8, ptr %.14855, i64 12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %34
@@ -1774,7 +1774,7 @@ _ZL10float2rgbePhfff.exit:                        ; preds = %.lr.ph, %70
   br i1 %or.cond57.i, label %112, label %136
 
 112:                                              ; preds = %108
-  %113 = trunc nuw i32 %.04976.i to i8
+  %113 = trunc nuw nsw i32 %.04976.i to i8
   %114 = or disjoint i8 %113, -128
   store i8 %114, ptr %11, align 1, !tbaa !17
   %115 = sext i32 %.05180.i to i64
@@ -2058,7 +2058,7 @@ define hidden noundef i32 @_Z19RGBE_ReadPixels_RLEP8_IO_FILEPfii(ptr noundef cap
   br label %149
 
 25:                                               ; preds = %.lr.ph168, %._crit_edge
-  %.082167 = phi ptr [ null, %.lr.ph168 ], [ %.183228, %._crit_edge ]
+  %.082167 = phi ptr [ null, %.lr.ph168 ], [ %.183235, %._crit_edge ]
   %.084166 = phi i32 [ %3, %.lr.ph168 ], [ %147, %._crit_edge ]
   %.085165 = phi ptr [ %1, %.lr.ph168 ], [ %146, %._crit_edge ]
   %26 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 4, i64 noundef 1, ptr noundef %0)
@@ -2143,7 +2143,7 @@ _ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %36, %40
   br i1 %67, label %68, label %.preheader107.preheader
 
 .preheader107.preheader:                          ; preds = %63, %65
-  %.183228 = phi ptr [ %66, %65 ], [ %.082167, %63 ]
+  %.183235 = phi ptr [ %66, %65 ], [ %.082167, %63 ]
   br label %.preheader107
 
 68:                                               ; preds = %65
@@ -2156,17 +2156,17 @@ _ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %36, %40
   br i1 %exitcond.not, label %.lr.ph163.preheader, label %.preheader107, !llvm.loop !41
 
 .lr.ph163.preheader:                              ; preds = %.loopexit105
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %.183228, i64 %19
-  %invariant.gep266 = getelementptr inbounds nuw i8, ptr %.183228, i64 %20
-  %invariant.gep268 = getelementptr inbounds nuw i8, ptr %.183228, i64 %21
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %.183235, i64 %19
+  %invariant.gep273 = getelementptr inbounds nuw i8, ptr %.183235, i64 %20
+  %invariant.gep275 = getelementptr inbounds nuw i8, ptr %.183235, i64 %21
   br label %.lr.ph163
 
 .preheader107:                                    ; preds = %.preheader107.preheader, %.loopexit105
   %indvars.iv = phi i64 [ 0, %.preheader107.preheader ], [ %indvars.iv.next, %.loopexit105 ]
-  %.080159 = phi ptr [ %.183228, %.preheader107.preheader ], [ %.181.lcssa, %.loopexit105 ]
+  %.080159 = phi ptr [ %.183235, %.preheader107.preheader ], [ %.181.lcssa, %.loopexit105 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = mul nuw nsw i64 %indvars.iv.next, %19
-  %70 = getelementptr inbounds nuw i8, ptr %.183228, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %.183235, i64 %69
   %71 = icmp ult ptr %.080159, %70
   br i1 %71, label %.lr.ph157, label %.loopexit105
 
@@ -2181,7 +2181,7 @@ _ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %36, %40
   br i1 %75, label %76, label %87
 
 76:                                               ; preds = %73
-  tail call void @free(ptr noundef nonnull %.183228) #18
+  tail call void @free(ptr noundef nonnull %.183235) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %77, ptr %6, align 8, !tbaa !9
@@ -2240,7 +2240,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br label %.lr.ph
 
 97:                                               ; preds = %93
-  tail call void @free(ptr noundef nonnull %.183228) #18
+  tail call void @free(ptr noundef nonnull %.183235) #18
   tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 2, ptr noundef nonnull @.str.16)
   unreachable
 
@@ -2261,7 +2261,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br i1 %or.cond98, label %105, label %106
 
 105:                                              ; preds = %101
-  tail call void @free(ptr noundef nonnull %.183228) #18
+  tail call void @free(ptr noundef nonnull %.183235) #18
   tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 2, ptr noundef nonnull @.str.16)
   unreachable
 
@@ -2280,7 +2280,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br i1 %113, label %114, label %125
 
 114:                                              ; preds = %109
-  tail call void @free(ptr noundef nonnull %.183228) #18
+  tail call void @free(ptr noundef nonnull %.183235) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %115, ptr %5, align 8, !tbaa !9
@@ -2328,17 +2328,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i100: ; preds = %
 .lr.ph163:                                        ; preds = %.lr.ph163.preheader, %_ZL10rgbe2floatPfS_S_Ph.exit104
   %indvars.iv218 = phi i64 [ 0, %.lr.ph163.preheader ], [ %indvars.iv.next219, %_ZL10rgbe2floatPfS_S_Ph.exit104 ]
   %.186161 = phi ptr [ %.085165, %.lr.ph163.preheader ], [ %146, %_ZL10rgbe2floatPfS_S_Ph.exit104 ]
-  %128 = getelementptr inbounds nuw i8, ptr %.183228, i64 %indvars.iv218
+  %128 = getelementptr inbounds nuw i8, ptr %.183235, i64 %indvars.iv218
   %129 = load i8, ptr %128, align 1, !tbaa !17
   store i8 %129, ptr %7, align 1, !tbaa !17
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv218
   %130 = load i8, ptr %gep, align 1, !tbaa !17
   store i8 %130, ptr %11, align 1, !tbaa !17
-  %gep267 = getelementptr inbounds nuw i8, ptr %invariant.gep266, i64 %indvars.iv218
-  %131 = load i8, ptr %gep267, align 1, !tbaa !17
+  %gep274 = getelementptr inbounds nuw i8, ptr %invariant.gep273, i64 %indvars.iv218
+  %131 = load i8, ptr %gep274, align 1, !tbaa !17
   store i8 %131, ptr %12, align 1, !tbaa !17
-  %gep269 = getelementptr inbounds nuw i8, ptr %invariant.gep268, i64 %indvars.iv218
-  %132 = load i8, ptr %gep269, align 1, !tbaa !17
+  %gep276 = getelementptr inbounds nuw i8, ptr %invariant.gep275, i64 %indvars.iv218
+  %132 = load i8, ptr %gep276, align 1, !tbaa !17
   store i8 %132, ptr %13, align 1, !tbaa !17
   %133 = getelementptr inbounds nuw i8, ptr %.186161, i64 8
   %134 = getelementptr inbounds nuw i8, ptr %.186161, i64 4
@@ -2376,7 +2376,7 @@ _ZL10rgbe2floatPfS_S_Ph.exit104:                  ; preds = %.lr.ph163, %135
   br i1 %148, label %25, label %._crit_edge169, !llvm.loop !45
 
 ._crit_edge169:                                   ; preds = %._crit_edge, %.preheader108
-  %.082.lcssa = phi ptr [ null, %.preheader108 ], [ %.183228, %._crit_edge ]
+  %.082.lcssa = phi ptr [ null, %.preheader108 ], [ %.183235, %._crit_edge ]
   tail call void @free(ptr noundef %.082.lcssa) #18
   br label %149
 

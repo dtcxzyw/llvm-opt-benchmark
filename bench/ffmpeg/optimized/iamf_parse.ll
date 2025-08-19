@@ -480,9 +480,9 @@ define i32 @ff_iamfdec_read_descriptors(ptr noundef captures(none) %0, ptr nound
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.thread93.i, %112, %104
-  %.sink104.i = phi ptr [ %.070.ph97.i, %.thread93.i ], [ %56, %104 ], [ %56, %112 ]
+  %.sink111.i = phi ptr [ %.070.ph97.i, %.thread93.i ], [ %56, %104 ], [ %56, %112 ]
   %.069.ph.i = phi i32 [ %.068.ph98.i, %.thread93.i ], [ 0, %104 ], [ 0, %112 ]
-  call void @av_free(ptr noundef %.sink104.i) #10
+  call void @av_free(ptr noundef %.sink111.i) #10
   br label %codec_config_obu.exit
 
 codec_config_obu.exit:                            ; preds = %54, %.sink.split.i
@@ -1765,8 +1765,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @param_parse(ptr noundef %0
 
 .thread:                                          ; preds = %._crit_edge
   %38 = call ptr @av_iamf_param_definition_alloc(i32 noundef %3, i32 noundef 0, ptr noundef nonnull %7) #10
-  %.not128215 = icmp eq ptr %38, null
-  br i1 %.not128215, label %161, label %._crit_edge146.thread
+  %.not128222 = icmp eq ptr %38, null
+  br i1 %.not128222, label %161, label %._crit_edge146.thread
 
 .preheader:                                       ; preds = %36
   %.not167 = icmp eq i32 %.0109, 0
@@ -1790,7 +1790,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @param_parse(ptr noundef %0
   %wide.trip.count203 = zext i32 %.0109 to i64
   %.pre = load i32, ptr %39, align 8, !tbaa !116
   %46 = zext i32 %.pre to i64
-  %switch263 = icmp eq i32 %3, 1
+  %switch270 = icmp eq i32 %3, 1
   br label %.lr.ph145.split.us.split
 
 .lr.ph145.split.us.split.us.preheader:            ; preds = %.lr.ph145.split.us
@@ -1823,7 +1823,7 @@ av_iamf_param_definition_get_subblock.exit.us.us: ; preds = %.lr.ph145.split.us.
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
   br i1 %exitcond209.not, label %._crit_edge146, label %.lr.ph145.split.us.split.us, !llvm.loop !119
 
-default.unreachable210:                           ; preds = %av_iamf_param_definition_get_subblock.exit, %av_iamf_param_definition_get_subblock.exit.us156
+default.unreachable217:                           ; preds = %av_iamf_param_definition_get_subblock.exit, %av_iamf_param_definition_get_subblock.exit.us156
   unreachable
 
 .lr.ph145.split.us.split:                         ; preds = %.lr.ph145.split.us.split.preheader, %70
@@ -1842,7 +1842,7 @@ av_iamf_param_definition_get_subblock.exit.us:    ; preds = %.lr.ph145.split.us.
   %67 = mul i32 %30, %66
   %68 = sub i32 %27, %67
   %.0108.us = select i1 %65, i32 %68, i32 %30
-  br i1 %switch263, label %.split162.us, label %70
+  br i1 %switch270, label %.split162.us, label %70
 
 .split162.us:                                     ; preds = %av_iamf_param_definition_get_subblock.exit.us, %av_iamf_param_definition_get_subblock.exit.us.us
   %.us-phi163 = phi i32 [ %55, %av_iamf_param_definition_get_subblock.exit.us.us ], [ %.0108.us, %av_iamf_param_definition_get_subblock.exit.us ]
@@ -1888,7 +1888,7 @@ av_iamf_param_definition_get_subblock.exit.us156: ; preds = %.lr.ph145.split.spl
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 %79
   %81 = call i32 @ffio_read_leb(ptr noundef nonnull %2) #10
   %82 = add i32 %81, %.1116143.us155
-  switch i32 %3, label %default.unreachable210 [
+  switch i32 %3, label %default.unreachable217 [
     i32 0, label %94
     i32 1, label %85
     i32 2, label %83
@@ -1946,7 +1946,7 @@ av_iamf_param_definition_get_subblock.exit:       ; preds = %.lr.ph145.split.spl
   %107 = mul i32 %30, %106
   %108 = sub i32 %27, %107
   %.0108 = select i1 %105, i32 %108, i32 %30
-  switch i32 %3, label %default.unreachable210 [
+  switch i32 %3, label %default.unreachable217 [
     i32 0, label %109
     i32 1, label %111
     i32 2, label %120
@@ -1982,7 +1982,7 @@ av_iamf_param_definition_get_subblock.exit:       ; preds = %.lr.ph145.split.spl
   br i1 %exitcond194.not, label %._crit_edge146, label %.lr.ph145.split.split, !llvm.loop !119
 
 ._crit_edge146:                                   ; preds = %122, %96, %70, %56, %.preheader
-  %.0109217227 = phi i32 [ 0, %.preheader ], [ %.0109, %56 ], [ %.0109, %70 ], [ %.0109, %96 ], [ %.0109, %122 ]
+  %.0109224234 = phi i32 [ 0, %.preheader ], [ %.0109, %56 ], [ %.0109, %70 ], [ %.0109, %96 ], [ %.0109, %122 ]
   %.1116.lcssa = phi i32 [ %.0115, %.preheader ], [ %57, %56 ], [ %.0115, %70 ], [ %82, %96 ], [ %.0115, %122 ]
   %123 = icmp ne i32 %30, 0
   %.not129 = icmp eq i32 %.1116.lcssa, %27
@@ -1996,19 +1996,19 @@ av_iamf_param_definition_get_subblock.exit:       ; preds = %.lr.ph145.split.spl
 
 ._crit_edge146.thread:                            ; preds = %.thread, %._crit_edge146
   %125 = phi ptr [ %37, %._crit_edge146 ], [ %38, %.thread ]
-  %.0106219225237 = phi i32 [ %27, %._crit_edge146 ], [ 0, %.thread ]
-  %.0107218226236 = phi i32 [ %30, %._crit_edge146 ], [ 0, %.thread ]
-  %.0109217227235 = phi i32 [ %.0109217227, %._crit_edge146 ], [ 0, %.thread ]
+  %.0106226232244 = phi i32 [ %27, %._crit_edge146 ], [ 0, %.thread ]
+  %.0107225233243 = phi i32 [ %30, %._crit_edge146 ], [ 0, %.thread ]
+  %.0109224234242 = phi i32 [ %.0109224234, %._crit_edge146 ], [ 0, %.thread ]
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 32
   store i32 %8, ptr %126, align 8, !tbaa !114
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 36
   store i32 %23, ptr %127, align 4, !tbaa !128
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 40
-  store i32 %.0106219225237, ptr %128, align 8, !tbaa !129
+  store i32 %.0106226232244, ptr %128, align 8, !tbaa !129
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 44
-  store i32 %.0107218226236, ptr %129, align 4, !tbaa !130
+  store i32 %.0107225233243, ptr %129, align 4, !tbaa !130
   %130 = getelementptr inbounds nuw i8, ptr %125, i64 24
-  store i32 %.0109217227235, ptr %130, align 8, !tbaa !116
+  store i32 %.0109224234242, ptr %130, align 8, !tbaa !116
   %.not130 = icmp eq ptr %.0105, null
   br i1 %.not130, label %139, label %131
 
@@ -2233,12 +2233,12 @@ define internal fastcc range(i32 -1094995529, 1) i32 @scalable_channel_layout_co
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 128
   %75 = icmp sgt i32 %.08712, 0
   %spec.select = select i1 %75, i32 2, i32 1
-  %spec.select37 = select i1 %75, i64 3, i64 4
+  %spec.select43 = select i1 %75, i64 3, i64 4
   store i32 1, ptr %74, align 8, !tbaa !7
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 132
   store i32 %spec.select, ptr %76, align 4, !tbaa !7
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 136
-  store i64 %spec.select37, ptr %77, align 8, !tbaa !4
+  store i64 %spec.select43, ptr %77, align 8, !tbaa !4
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 144
   store ptr null, ptr %78, align 8, !tbaa !101
   %79 = load ptr, ptr %72, align 8, !tbaa !51
@@ -2440,12 +2440,12 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ambisonics_config(ptr noun
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 128
   %75 = icmp sgt i32 %.010013, 0
   %spec.select = select i1 %75, i32 2, i32 1
-  %spec.select45 = select i1 %75, i64 3, i64 4
+  %spec.select53 = select i1 %75, i64 3, i64 4
   store i32 1, ptr %74, align 8, !tbaa !7
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 132
   store i32 %spec.select, ptr %76, align 4, !tbaa !7
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 136
-  store i64 %spec.select45, ptr %77, align 8, !tbaa !4
+  store i64 %spec.select53, ptr %77, align 8, !tbaa !4
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 144
   store ptr null, ptr %78, align 8, !tbaa !101
   %79 = load ptr, ptr %72, align 8, !tbaa !51

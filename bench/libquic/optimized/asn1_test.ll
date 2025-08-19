@@ -107,16 +107,16 @@ _ZL13TestLargeTagsv.exit.thread:                  ; preds = %26
   br label %35
 
 .thread.sink.split.i:                             ; preds = %_ZNSt10unique_ptrI12asn1_type_st14OpenSSLDeleterIS0_XadL_Z14ASN1_TYPE_freeEEEE5resetEPS0_.exit.i, %0
-  %.sink15.i = phi ptr [ %3, %0 ], [ %6, %_ZNSt10unique_ptrI12asn1_type_st14OpenSSLDeleterIS0_XadL_Z14ASN1_TYPE_freeEEEE5resetEPS0_.exit.i ]
+  %.sink19.i = phi ptr [ %3, %0 ], [ %6, %_ZNSt10unique_ptrI12asn1_type_st14OpenSSLDeleterIS0_XadL_Z14ASN1_TYPE_freeEEEE5resetEPS0_.exit.i ]
   %.str.2.sink.i = phi ptr [ @.str.1, %0 ], [ @.str.2, %_ZNSt10unique_ptrI12asn1_type_st14OpenSSLDeleterIS0_XadL_Z14ASN1_TYPE_freeEEEE5resetEPS0_.exit.i ]
   %27 = load ptr, ptr @stderr, align 8, !tbaa !21
-  %28 = load i32, ptr %.sink15.i, align 8, !tbaa !13
+  %28 = load i32, ptr %.sink19.i, align 8, !tbaa !13
   %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull %.str.2.sink.i, i32 noundef %28) #10
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.sink.split.i, %26, %18
-  %.012.i = phi i1 [ false, %26 ], [ true, %18 ], [ false, %.thread.sink.split.i ]
-  %30 = phi ptr [ %11, %26 ], [ %11, %18 ], [ %.sink15.i, %.thread.sink.split.i ]
+  %.016.i = phi i1 [ false, %26 ], [ true, %18 ], [ false, %.thread.sink.split.i ]
+  %30 = phi ptr [ %11, %26 ], [ %11, %18 ], [ %.sink19.i, %.thread.sink.split.i ]
   invoke void @ASN1_TYPE_free(ptr noundef nonnull %30)
           to label %_ZL13TestLargeTagsv.exit unwind label %31
 
@@ -130,7 +130,7 @@ _ZL13TestLargeTagsv.exit.thread:                  ; preds = %26
 _ZL13TestLargeTagsv.exit:                         ; preds = %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br i1 %.012.i, label %34, label %35
+  br i1 %.016.i, label %34, label %35
 
 34:                                               ; preds = %_ZL13TestLargeTagsv.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)

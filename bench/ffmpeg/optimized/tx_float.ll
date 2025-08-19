@@ -3820,9 +3820,9 @@ define internal void @ff_tx_mdct_fwd_float_c(ptr noundef readonly captures(none)
   %invariant.gep = getelementptr inbounds nuw float, ptr %2, i64 %16
   %19 = getelementptr float, ptr %2, i64 %18
   %20 = getelementptr float, ptr %2, i64 %17
-  %invariant.gep125 = getelementptr inbounds nuw float, ptr %2, i64 %16
+  %invariant.gep129 = getelementptr inbounds nuw float, ptr %2, i64 %16
   %21 = getelementptr float, ptr %2, i64 %16
-  %invariant.gep127 = getelementptr inbounds nuw float, ptr %2, i64 %17
+  %invariant.gep131 = getelementptr inbounds nuw float, ptr %2, i64 %17
   %22 = getelementptr float, ptr %2, i64 %17
   br label %29
 
@@ -3850,13 +3850,13 @@ define internal void @ff_tx_mdct_fwd_float_c(ptr noundef readonly captures(none)
   br i1 %33, label %35, label %45
 
 35:                                               ; preds = %29
-  %gep126 = getelementptr inbounds nuw float, ptr %invariant.gep125, i64 %30
-  %36 = load float, ptr %gep126, align 4, !tbaa !27
+  %gep130 = getelementptr inbounds nuw float, ptr %invariant.gep129, i64 %30
+  %36 = load float, ptr %gep130, align 4, !tbaa !27
   %37 = getelementptr float, ptr %21, i64 %34
   %38 = load float, ptr %37, align 4, !tbaa !27
   %39 = fsub nsz float %38, %36
-  %gep128 = getelementptr inbounds nuw float, ptr %invariant.gep127, i64 %30
-  %40 = load float, ptr %gep128, align 4, !tbaa !27
+  %gep132 = getelementptr inbounds nuw float, ptr %invariant.gep131, i64 %30
+  %40 = load float, ptr %gep132, align 4, !tbaa !27
   %41 = getelementptr float, ptr %22, i64 %34
   %42 = load float, ptr %41, align 4, !tbaa !27
   %43 = fadd nsz float %40, %42
@@ -5700,8 +5700,8 @@ define internal void @ff_tx_mdct_pfa_15xM_fwd_float_c(ptr noundef readonly captu
 63:                                               ; preds = %57, %63
   %indvars.iv158 = phi i64 [ 0, %57 ], [ %indvars.iv.next159, %63 ]
   %64 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %5, i64 %indvars.iv158
-  %.idx175 = mul nuw nsw i64 %indvars.iv158, 24
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx175
+  %.idx179 = mul nuw nsw i64 %indvars.iv158, 24
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx179
   %.sroa.0.0.copyload.i.i = load float, ptr %65, align 8, !tbaa !27
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %65, i64 4
   %.sroa.6.0.copyload.i.i = load float, ptr %.sroa.6.0..sroa_idx.i.i, align 4, !tbaa !27
@@ -9068,7 +9068,7 @@ define internal i32 @ff_tx_dct_init_float_c(ptr noundef %0, ptr readnone capture
 .lr.ph54.preheader:                               ; preds = %.preheader
   %33 = zext nneg i32 %.043 to i64
   %wide.trip.count65 = zext nneg i32 %18 to i64
-  %invariant.gep68 = getelementptr inbounds nuw float, ptr %22, i64 %33
+  %invariant.gep69 = getelementptr inbounds nuw float, ptr %22, i64 %33
   br label %.lr.ph54
 
 34:                                               ; preds = %.lr.ph, %34
@@ -9111,8 +9111,8 @@ define internal i32 @ff_tx_dct_init_float_c(ptr noundef %0, ptr readnone capture
   %53 = fmul nsz double %27, %52
   %54 = call nsz double @llvm.cos.f64(double %53)
   %55 = fptrunc nsz double %54 to float
-  %gep69 = getelementptr inbounds nuw float, ptr %invariant.gep68, i64 %indvars.iv62
-  store float %55, ptr %gep69, align 4, !tbaa !27
+  %gep70 = getelementptr inbounds nuw float, ptr %invariant.gep69, i64 %indvars.iv62
+  store float %55, ptr %gep70, align 4, !tbaa !27
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
   br i1 %exitcond66.not, label %.loopexit, label %.lr.ph54, !llvm.loop !153

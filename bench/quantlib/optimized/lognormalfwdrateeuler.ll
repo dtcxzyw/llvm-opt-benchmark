@@ -1182,7 +1182,7 @@ for.body133.lr.ph:                                ; preds = %if.end.i.i.i.i.i.i.
   br label %for.body133
 
 for.cond.cleanup132:                              ; preds = %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit, %invoke.cont128
-  %__first.addr.0.i.i.i.i.i345504 = phi ptr [ null, %invoke.cont128 ], [ %__first.addr.0.i.i.i.i.i345.ph, %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit ]
+  %__first.addr.0.i.i.i.i.i345545 = phi ptr [ null, %invoke.cont128 ], [ %__first.addr.0.i.i.i.i.i345.ph, %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit ]
   %116 = phi ptr [ null, %invoke.cont128 ], [ %call5.i.i.i.i2.i.i351, %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit ]
   %117 = load ptr, ptr %_M_finish.i353, align 8, !tbaa !54
   %118 = load ptr, ptr %_M_end_of_storage.i.i284, align 8, !tbaa !52
@@ -1190,11 +1190,11 @@ for.cond.cleanup132:                              ; preds = %_ZSt13inner_product
   br i1 %cmp.not.i355, label %if.else.i359, label %if.then.i356
 
 if.then.i356:                                     ; preds = %for.cond.cleanup132
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__first.addr.0.i.i.i.i.i345504 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__first.addr.0.i.i.i.i.i345545 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %116 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, i8 0, i64 24, i1 false)
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %__first.addr.0.i.i.i.i.i345504, %116
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %__first.addr.0.i.i.i.i.i345545, %116
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %cond.true.i.i.i.i.i.i.i
 
 cond.true.i.i.i.i.i.i.i:                          ; preds = %if.then.i356

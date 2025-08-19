@@ -1117,7 +1117,7 @@ define linkonce_odr void @_ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryE
   br i1 %.not23, label %20, label %_ZSt27__uninitialized_default_n_aIPSt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEEmS4_ET_S6_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEEmS4_ET_S6_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 44
+  %19 = mul nuw nsw i64 %1, 44
   tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !18
@@ -1310,8 +1310,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm15SparseBitVectorILj128E
   %6 = icmp eq ptr %4, %1
   %or.cond = select i1 %5, i1 %6, i1 false
   %or.cond1819 = or i1 %6, %5
-  %or.cond23 = select i1 %or.cond, i1 true, i1 %or.cond1819
-  br i1 %or.cond23, label %.loopexit, label %.lr.ph
+  %or.cond29 = select i1 %or.cond, i1 true, i1 %or.cond1819
+  br i1 %or.cond29, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %30
   %.sroa.012.021 = phi ptr [ %.sroa.012.1, %30 ], [ %3, %2 ]

@@ -984,7 +984,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7
   %63 = load ptr, ptr %43, align 8, !tbaa !7
   %64 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %65 = icmp eq ptr %63, %64
-  br i1 %65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE.exit
   %66 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -995,13 +995,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %70 = icmp eq ptr %69, %39
   br i1 %70, label %73, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE.exit
   %71 = load ptr, ptr %13, align 8, !tbaa !7
   %72 = icmp eq ptr %71, %39
   br i1 %72, label %73, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-73:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %74 = phi ptr [ %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+73:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %74 = phi ptr [ %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %75 = load i64, ptr %40, align 8, !tbaa !14
   %76 = icmp ult i64 %75, 16
   call void @llvm.assume(i1 %76)
@@ -1041,7 +1041,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %86, ptr %64, align 8, !tbaa !37
   br label %92
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %87 = load i64, ptr %64, align 8, !tbaa !37
   store ptr %71, ptr %43, align 8, !tbaa !7
   %88 = load i64, ptr %40, align 8, !tbaa !14
@@ -1226,9 +1226,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers9IcuReg
   %37 = icmp sgt i32 %35, 0
   %38 = icmp ne ptr %3, null
   %or.cond = and i1 %38, %37
-  br i1 %or.cond, label %41, label %.thread27
+  br i1 %or.cond, label %41, label %.thread41
 
-.thread27:                                        ; preds = %36
+.thread41:                                        ; preds = %36
   %39 = load i32, ptr %6, align 4, !tbaa !25
   %40 = icmp slt i32 %39, 1
   br label %.thread
@@ -1271,7 +1271,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7
   %54 = load ptr, ptr %3, align 8, !tbaa !7
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %56 = icmp eq ptr %54, %55
-  br i1 %56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE.exit
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1282,13 +1282,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %61 = icmp eq ptr %60, %43
   br i1 %61, label %64, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE.exit
   %62 = load ptr, ptr %8, align 8, !tbaa !7
   %63 = icmp eq ptr %62, %43
   br i1 %63, label %64, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-64:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %65 = phi ptr [ %62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+64:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %65 = phi ptr [ %62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %66 = load i64, ptr %44, align 8, !tbaa !14
   %67 = icmp ult i64 %66, 16
   call void @llvm.assume(i1 %67)
@@ -1328,7 +1328,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %77, ptr %55, align 8, !tbaa !37
   br label %83
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %78 = load i64, ptr %55, align 8, !tbaa !37
   store ptr %62, ptr %3, align 8, !tbaa !7
   %79 = load i64, ptr %44, align 8, !tbaa !14
@@ -1393,15 +1393,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %97 = icmp eq ptr %.pre.pre, null
   br i1 %97, label %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit, label %.thread
 
-.thread:                                          ; preds = %26, %.thread27, %94
-  %.125 = phi i1 [ %96, %94 ], [ %40, %.thread27 ], [ false, %26 ]
-  %98 = phi ptr [ %.pre.pre, %94 ], [ %18, %.thread27 ], [ %18, %26 ]
+.thread:                                          ; preds = %26, %.thread41, %94
+  %.139 = phi i1 [ %96, %94 ], [ %40, %.thread41 ], [ false, %26 ]
+  %98 = phi ptr [ %.pre.pre, %94 ], [ %18, %.thread41 ], [ %18, %26 ]
   call void @_ZN6icu_7012RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %98) #17
   call void @_ZN6icu_707UMemorydlEPv(ptr noundef nonnull %98) #17
   br label %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit
 
 _ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit: ; preds = %94, %.thread
-  %.126 = phi i1 [ %96, %94 ], [ %.125, %.thread ]
+  %.140 = phi i1 [ %96, %94 ], [ %.139, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4i18n12phonenumbers14IcuRegExpInputE, i64 16), ptr %5, align 8, !tbaa !4
@@ -1424,7 +1424,7 @@ _ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit: ; preds = %94, %.thread
   resume { ptr, i32 } %.pn.pn.pn
 
 101:                                              ; preds = %4, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit
-  %.0 = phi i1 [ %.126, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit ], [ false, %4 ]
+  %.0 = phi i1 [ %.140, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -1673,13 +1673,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
   br i1 %83, label %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit, label %84
 
 84:                                               ; preds = %.thread, %82
-  %.11538 = phi i1 [ %.216, %.thread ], [ false, %82 ]
+  %.11542 = phi i1 [ %.216, %.thread ], [ false, %82 ]
   call void @_ZN6icu_7012RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %20) #17
   call void @_ZN6icu_707UMemorydlEPv(ptr noundef nonnull %20) #17
   br label %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit
 
 _ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit: ; preds = %82, %84
-  %.11539 = phi i1 [ false, %82 ], [ %.11538, %84 ]
+  %.11543 = phi i1 [ false, %82 ], [ %.11542, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4i18n12phonenumbers14IcuRegExpInputE, i64 16), ptr %5, align 8, !tbaa !4
@@ -1697,7 +1697,7 @@ _ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit: ; preds = %82, %84
   resume { ptr, i32 } %.pn24.pn.pn.pn
 
 86:                                               ; preds = %4, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit
-  %.014 = phi i1 [ %.11539, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit ], [ false, %4 ]
+  %.014 = phi i1 [ %.11543, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit ], [ false, %4 ]
   ret i1 %.014
 }
 

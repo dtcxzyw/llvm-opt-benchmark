@@ -663,11 +663,11 @@ define internal fastcc range(i32 -1, 1) i32 @random_seed(ptr noundef captures(no
   br label %13
 
 13:                                               ; preds = %13, %11
-  %store_forwarded91 = phi i32 [ 19650218, %11 ], [ %19, %13 ]
+  %store_forwarded102 = phi i32 [ 19650218, %11 ], [ %19, %13 ]
   %indvars.iv.i.i.i = phi i64 [ 1, %11 ], [ %indvars.iv.next.i.i.i, %13 ]
   %14 = getelementptr i32, ptr %12, i64 %indvars.iv.i.i.i
-  %15 = lshr i32 %store_forwarded91, 30
-  %16 = xor i32 %15, %store_forwarded91
+  %15 = lshr i32 %store_forwarded102, 30
+  %16 = xor i32 %15, %store_forwarded102
   %17 = mul i32 %16, 1812433253
   %18 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %19 = add i32 %17, %18
@@ -954,11 +954,11 @@ random_seed_time_pid.exit:                        ; preds = %116
   br label %157
 
 157:                                              ; preds = %157, %155
-  %store_forwarded93 = phi i32 [ 19650218, %155 ], [ %163, %157 ]
+  %store_forwarded104 = phi i32 [ 19650218, %155 ], [ %163, %157 ]
   %indvars.iv.i.i = phi i64 [ 1, %155 ], [ %indvars.iv.next.i.i, %157 ]
   %158 = getelementptr i32, ptr %156, i64 %indvars.iv.i.i
-  %159 = lshr i32 %store_forwarded93, 30
-  %160 = xor i32 %159, %store_forwarded93
+  %159 = lshr i32 %store_forwarded104, 30
+  %160 = xor i32 %159, %store_forwarded104
   %161 = mul i32 %160, 1812433253
   %162 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %163 = add i32 %161, %162

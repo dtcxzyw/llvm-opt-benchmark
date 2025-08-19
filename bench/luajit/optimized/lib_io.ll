@@ -1677,10 +1677,10 @@ define internal noundef i32 @lj_cf_io_lines(ptr noundef %0) #0 {
   br label %27
 
 27:                                               ; preds = %21, %13
-  %.sink15 = phi i64 [ %26, %21 ], [ %20, %13 ]
-  %.sink14 = phi ptr [ %10, %21 ], [ %18, %13 ]
-  %28 = or i64 %.sink15, -1829587348619264
-  store i64 %28, ptr %.sink14, align 8, !tbaa !14
+  %.sink17 = phi i64 [ %26, %21 ], [ %20, %13 ]
+  %.sink16 = phi ptr [ %10, %21 ], [ %18, %13 ]
+  %28 = or i64 %.sink17, -1829587348619264
+  store i64 %28, ptr %.sink16, align 8, !tbaa !14
   %29 = load ptr, ptr %4, align 8, !tbaa !4
   %30 = load ptr, ptr %2, align 8, !tbaa !25
   %31 = ptrtoint ptr %29 to i64

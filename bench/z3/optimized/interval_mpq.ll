@@ -8302,12 +8302,12 @@ _ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit254: ; pre
   br label %167
 
 167:                                              ; preds = %141, %161, %166
-  %.sink298 = phi ptr [ %143, %166 ], [ %142, %161 ], [ %142, %141 ]
-  %.sink296 = phi ptr [ %8, %166 ], [ %7, %161 ], [ %7, %141 ]
+  %.sink300 = phi ptr [ %143, %166 ], [ %142, %161 ], [ %142, %141 ]
+  %.sink298 = phi ptr [ %8, %166 ], [ %7, %161 ], [ %7, %141 ]
   %.sink = phi i1 [ %149, %166 ], [ %147, %161 ], [ %147, %141 ]
   %168 = load ptr, ptr %152, align 8, !tbaa !3
-  call void @_ZN11mpq_managerILb0EE4swapER3mpqS2_(ptr noundef nonnull align 8 dereferenceable(728) %168, ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %.sink298) #18
-  %169 = load i32, ptr %.sink296, align 4, !tbaa !43
+  call void @_ZN11mpq_managerILb0EE4swapER3mpqS2_(ptr noundef nonnull align 8 dereferenceable(728) %168, ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %.sink300) #18
+  %169 = load i32, ptr %.sink298, align 4, !tbaa !43
   store i32 %169, ptr %5, align 4, !tbaa !43
   %170 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %171 = zext i1 %.sink to i8

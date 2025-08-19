@@ -4938,8 +4938,8 @@ _ZN4llvm17PreservedAnalysesD2Ev.exit:             ; preds = %_ZN4llvm19SmallPtrS
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4llvm39getMachineFunctionPassPreservedAnalysesEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0) local_unnamed_addr #5 {
 .lr.ph.i.i.i.i.i15.preheader:
-  %.ptr20.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.ptr20.ptr, ptr %0, align 8, !tbaa !81
+  %.ptr22.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.ptr22.ptr, ptr %0, align 8, !tbaa !81
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %1, align 8, !tbaa !192
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -4959,7 +4959,7 @@ define dso_local void @_ZN4llvm39getMachineFunctionPassPreservedAnalysesEv(ptr d
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i8 1, ptr %10, align 4, !tbaa !80
   store i32 1, ptr %2, align 4, !tbaa !77, !noalias !238
-  store ptr @_ZN4llvm13AllAnalysesOnINS_6ModuleEE6SetKeyE, ptr %.ptr20.ptr, align 8, !tbaa !69, !noalias !238
+  store ptr @_ZN4llvm13AllAnalysesOnINS_6ModuleEE6SetKeyE, ptr %.ptr22.ptr, align 8, !tbaa !69, !noalias !238
   %.02937.i.i.i.i6.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %.02937.i.i.i.i6.ptr, align 8, !tbaa !69, !noalias !241
   %.not17.i.i.i.i7 = icmp eq ptr %11, @_ZN4llvm13AllAnalysesOnINS_8FunctionEE6SetKeyE
@@ -5838,13 +5838,13 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11AnalysisKeyEbLj8ENS_12DenseMapIn
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %15, %65
-  %.sink32 = phi i32 [ %74, %65 ], [ %13, %15 ], [ %13, %32 ]
-  %.sink30 = phi ptr [ %72, %65 ], [ %10, %15 ], [ %10, %32 ]
-  %.sink29 = phi ptr [ %54, %65 ], [ %24, %15 ], [ %38, %32 ]
+  %.sink36 = phi i32 [ %74, %65 ], [ %13, %15 ], [ %13, %32 ]
+  %.sink34 = phi ptr [ %72, %65 ], [ %10, %15 ], [ %10, %32 ]
+  %.sink33 = phi ptr [ %54, %65 ], [ %24, %15 ], [ %38, %32 ]
   %.sink = phi i8 [ 1, %65 ], [ 0, %15 ], [ 0, %32 ]
-  %75 = zext i32 %.sink32 to i64
-  %76 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.262", ptr %.sink30, i64 %75
-  store ptr %.sink29, ptr %0, align 8
+  %75 = zext i32 %.sink36 to i64
+  %76 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.262", ptr %.sink34, i64 %75
+  store ptr %.sink33, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %76, ptr %.sroa.4.0..sroa_idx, align 8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16

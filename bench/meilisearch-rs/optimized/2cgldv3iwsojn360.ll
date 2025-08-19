@@ -80,8 +80,8 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h97b2911324971dc4E(ptr no
   br label %7
 
 7:                                                ; preds = %.lr.ph, %35
-  %.sroa.0.017 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.125, %35 ]
-  %.sroa.4.016 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.124, %35 ]
+  %.sroa.0.017 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.126, %35 ]
+  %.sroa.4.016 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.125, %35 ]
   %8 = call { i64, ptr } @"_ZN69_$LT$std..sys..pal..unix..stdio..Stderr$u20$as$u20$std..io..Write$GT$5write17h609e4bed11db6468E"(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.017, i64 noundef %.sroa.4.016)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -163,9 +163,9 @@ _ZN3std2io5error5Error14is_interrupted17he394224dfe9e3211E.exit: ; preds = %14
   br label %35
 
 35:                                               ; preds = %.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit"
-  %.sroa.0.125 = phi ptr [ %31, %.thread ], [ %.sroa.0.017, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit" ]
-  %.sroa.4.124 = phi i64 [ %30, %.thread ], [ %.sroa.4.016, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit" ]
-  %36 = icmp eq i64 %.sroa.4.124, 0
+  %.sroa.0.126 = phi ptr [ %31, %.thread ], [ %.sroa.0.017, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit" ]
+  %.sroa.4.125 = phi i64 [ %30, %.thread ], [ %.sroa.4.016, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit" ]
+  %36 = icmp eq i64 %.sroa.4.125, 0
   br i1 %36, label %.loopexit, label %7
 }
 
@@ -762,14 +762,14 @@ define internal fastcc void @"_ZN4core3ptr53drop_in_place$LT$milli..criterion..C
   %5 = alloca [24 x i8], align 8
   %6 = load i64, ptr %0, align 8, !range !149, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i64 %6, label %default.unreachable4 [
+  switch i64 %6, label %default.unreachable11 [
     i64 0, label %18
     i64 1, label %28
     i64 2, label %38
     i64 3, label %8
   ]
 
-default.unreachable4:                             ; preds = %1
+default.unreachable11:                            ; preds = %1
   unreachable
 
 8:                                                ; preds = %1
@@ -1012,8 +1012,8 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !199, !noalias !196
+  %.sroa.0.i.1.i.1.i.1..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx9, align 1, !alias.scope !199, !noalias !196
   br label %_ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit.i
 
 15:                                               ; preds = %6
@@ -1025,13 +1025,13 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !199, !noalias !196
+  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !199, !noalias !196
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !199, !noalias !196
+  %.sroa.0.i.2.i.2.i.2..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx10, align 2, !alias.scope !199, !noalias !196
   br label %_ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit.i
 
 26:                                               ; preds = %6
@@ -3731,8 +3731,8 @@ default.unreachable:                              ; preds = %53
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit47": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit"
   %131 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.val = load ptr, ptr %131, align 8, !nonnull !5, !noundef !5
-  %lhsc73 = load i8, ptr %.val, align 1
-  %132 = icmp eq i8 %lhsc73, 57
+  %lhsc88 = load i8, ptr %.val, align 1
+  %132 = icmp eq i8 %lhsc88, 57
   br i1 %132, label %133, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit.thread"
 
 133:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit47"

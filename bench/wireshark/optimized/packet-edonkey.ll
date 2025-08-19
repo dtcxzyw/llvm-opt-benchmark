@@ -3525,8 +3525,8 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   %114 = getelementptr [16 x i8], ptr %11, i64 0, i64 %109
   store i8 %113, ptr %114, align 1
   %indvars.iv.next351 = add nsw i64 %indvars.iv350, -1
-  %.not374 = icmp eq i64 %indvars.iv350, 0
-  br i1 %.not374, label %115, label %108, !llvm.loop !17
+  %.not378 = icmp eq i64 %indvars.iv350, 0
+  br i1 %.not378, label %115, label %108, !llvm.loop !17
 
 115:                                              ; preds = %108
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
@@ -3551,14 +3551,14 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
 
 125:                                              ; preds = %118, %125
   %indvars.iv360 = phi i64 [ %indvars.iv358, %118 ], [ %indvars.iv.next361, %125 ]
-  %.0297340 = phi i32 [ %124, %118 ], [ %spec.select380, %125 ]
+  %.0297340 = phi i32 [ %124, %118 ], [ %spec.select384, %125 ]
   %.0299339 = phi i32 [ 128, %118 ], [ %128, %125 ]
   %.not308 = icmp slt i32 %.0297340, %.0299339
-  %spec.select379 = select i1 %.not308, i8 48, i8 49
+  %spec.select383 = select i1 %.not308, i8 48, i8 49
   %126 = select i1 %.not308, i32 0, i32 %.0299339
-  %spec.select380 = sub i32 %.0297340, %126
+  %spec.select384 = sub i32 %.0297340, %126
   %127 = getelementptr [129 x i8], ptr %12, i64 0, i64 %indvars.iv360
-  store i8 %spec.select379, ptr %127, align 1
+  store i8 %spec.select383, ptr %127, align 1
   %128 = sdiv i32 %.0299339, 2
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
   %exitcond365.not = icmp eq i64 %indvars.iv.next361, %indvars.iv366

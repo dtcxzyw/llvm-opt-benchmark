@@ -1866,11 +1866,11 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
   store i8 0, ptr %13, align 1, !tbaa !57
   %14 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %5, i32 noundef 0) #11
   %15 = icmp eq i32 %14, -1
-  br i1 %15, label %.thread307, label %16
+  br i1 %15, label %.thread322, label %16
 
-.thread307:                                       ; preds = %4
+.thread322:                                       ; preds = %4
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1169) #11
-  br label %.thread311
+  br label %.thread326
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2157,16 +2157,16 @@ switch.lookup:                                    ; preds = %166
   %.0118 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.1195, %166 ]
   %171 = load i8, ptr %42, align 1, !tbaa !57
   %172 = icmp ult i8 %171, 7
-  br i1 %172, label %switch.lookup340, label %174
+  br i1 %172, label %switch.lookup355, label %174
 
-switch.lookup340:                                 ; preds = %170
+switch.lookup355:                                 ; preds = %170
   %173 = zext nneg i8 %171 to i64
-  %switch.gep341 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.cli_extract_xlm_macros_and_images.1, i64 0, i64 %173
-  %switch.load342 = load ptr, ptr %switch.gep341, align 8
+  %switch.gep356 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.cli_extract_xlm_macros_and_images.1, i64 0, i64 %173
+  %switch.load357 = load ptr, ptr %switch.gep356, align 8
   br label %174
 
-174:                                              ; preds = %170, %switch.lookup340
-  %.0119 = phi ptr [ %switch.load342, %switch.lookup340 ], [ @.str.1200, %170 ]
+174:                                              ; preds = %170, %switch.lookup355
+  %.0119 = phi ptr [ %switch.load357, %switch.lookup355 ], [ @.str.1200, %170 ]
   %175 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %22, ptr noundef nonnull @.str.1201, ptr noundef nonnull %.0119, ptr noundef nonnull %.0118) #11
   %176 = icmp slt i32 %175, 0
   br i1 %176, label %177, label %.thread195
@@ -2364,56 +2364,56 @@ switch.lookup340:                                 ; preds = %170
   %253 = call i32 @close(i32 noundef %14) #11
   %.pre = load i32, ptr %6, align 4, !tbaa !8
   %.not181 = icmp eq i32 %.pre, -1
-  br i1 %.not181, label %.thread311, label %254
+  br i1 %.not181, label %.thread326, label %254
 
 254:                                              ; preds = %252
   %255 = call i32 @close(i32 noundef %.pre) #11
   store i32 -1, ptr %6, align 4, !tbaa !8
-  br label %.thread311
+  br label %.thread326
 
 256:                                              ; preds = %251, %.thread212, %248, %31, %27
   %.4209239.ph = phi i32 [ %.4, %251 ], [ %.4221, %.thread212 ], [ 0, %248 ], [ 14, %31 ], [ 20, %27 ]
   %257 = call i32 @close(i32 noundef %14) #11
   %258 = call i32 @fclose(ptr noundef nonnull %22)
   %.not182 = icmp eq ptr %25, null
-  br i1 %.not182, label %.thread311, label %259
+  br i1 %.not182, label %.thread326, label %259
 
 259:                                              ; preds = %256
   call void @free(ptr noundef nonnull %25) #11
-  br label %.thread311
+  br label %.thread326
 
-.thread311:                                       ; preds = %.thread307, %252, %254, %259, %256
-  %.4209240256315 = phi i32 [ %.4209239.ph, %259 ], [ %.4209239.ph, %256 ], [ 0, %.thread307 ], [ %19, %252 ], [ %19, %254 ]
+.thread326:                                       ; preds = %.thread322, %252, %254, %259, %256
+  %.4209240256330 = phi i32 [ %.4209239.ph, %259 ], [ %.4209239.ph, %256 ], [ 0, %.thread322 ], [ %19, %252 ], [ %19, %254 ]
   %260 = load ptr, ptr %7, align 8, !tbaa !3
   %.not183 = icmp eq ptr %260, null
   br i1 %.not183, label %.thread222, label %261
 
-261:                                              ; preds = %.thread311
+261:                                              ; preds = %.thread326
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %263 = load ptr, ptr %262, align 8, !tbaa !16
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 40
   %265 = load i32, ptr %264, align 8, !tbaa !31
   %.not184 = icmp eq i32 %265, 0
-  br i1 %.not184, label %266, label %.thread316
+  br i1 %.not184, label %266, label %.thread331
 
 266:                                              ; preds = %261
   %267 = call i32 @remove(ptr noundef nonnull %260) #11
   %.pr.pre = load ptr, ptr %7, align 8, !tbaa !3
   %.not185 = icmp eq ptr %.pr.pre, null
-  br i1 %.not185, label %.thread222, label %.thread316
+  br i1 %.not185, label %.thread222, label %.thread331
 
-.thread316:                                       ; preds = %261, %266
-  %.pr319 = phi ptr [ %.pr.pre, %266 ], [ %260, %261 ]
-  call void @free(ptr noundef nonnull %.pr319) #11
+.thread331:                                       ; preds = %261, %266
+  %.pr334 = phi ptr [ %.pr.pre, %266 ], [ %260, %261 ]
+  call void @free(ptr noundef nonnull %.pr334) #11
   br label %.thread222
 
-.thread222:                                       ; preds = %.thread311, %266, %.thread316
+.thread222:                                       ; preds = %.thread326, %266, %.thread331
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.4209240256315
+  ret i32 %.4209240256330
 }
 
 ; Function Attrs: nofree nounwind

@@ -398,11 +398,11 @@ default.unreachable:                              ; preds = %1
 
 .body130:                                         ; preds = %19
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h160d4f2c95ee9d36E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9, i64 noundef 8, i64 noundef 64)
-          to label %common.resume174 unwind label %28
+          to label %common.resume186 unwind label %28
 
-common.resume174:                                 ; preds = %39, %50, %55, %67, %84, %206, %213, %218, %291, %354, %359, %431, %.body130, %.body, %.body15, %.body26, %.body33, %.body134, %.body138, %.body45, %148, %.body52, %163, %.body59, %184, %.body71, %199, %"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$$u5b$ruff_python_ast..nodes..CmpOp$u5d$$GT$$GT$17h60fbe2dfa8c7223dE.exit82", %.body90, %.body96, %336, %.body104, %.body143, %.body148, %.body121, %.body.i173
-  %common.resume174.op = phi { ptr, i32 } [ %248, %.body.i173 ], [ %40, %39 ], [ %51, %50 ], [ %56, %55 ], [ %68, %67 ], [ %85, %84 ], [ %207, %206 ], [ %214, %213 ], [ %219, %218 ], [ %292, %291 ], [ %355, %354 ], [ %360, %359 ], [ %432, %431 ], [ %22, %.body130 ], [ %33, %.body ], [ %44, %.body15 ], [ %63, %.body26 ], [ %.pn.i, %.body33 ], [ %eh.lpad-body.i, %.body134 ], [ %129, %.body138 ], [ %141, %.body45 ], [ %149, %148 ], [ %156, %.body52 ], [ %164, %163 ], [ %.pn.i2, %.body59 ], [ %185, %184 ], [ %192, %.body71 ], [ %200, %199 ], [ %223, %"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$$u5b$ruff_python_ast..nodes..CmpOp$u5d$$GT$$GT$17h60fbe2dfa8c7223dE.exit82" ], [ %261, %.body90 ], [ %332, %.body96 ], [ %332, %336 ], [ %348, %.body104 ], [ %381, %.body143 ], [ %403, %.body148 ], [ %.pn.i5, %.body121 ]
-  resume { ptr, i32 } %common.resume174.op
+common.resume186:                                 ; preds = %39, %50, %55, %67, %84, %206, %213, %218, %291, %354, %359, %431, %.body130, %.body, %.body15, %.body26, %.body33, %.body134, %.body138, %.body45, %148, %.body52, %163, %.body59, %184, %.body71, %199, %"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$$u5b$ruff_python_ast..nodes..CmpOp$u5d$$GT$$GT$17h60fbe2dfa8c7223dE.exit82", %.body90, %.body96, %336, %.body104, %.body143, %.body148, %.body121, %.body.i185
+  %common.resume186.op = phi { ptr, i32 } [ %248, %.body.i185 ], [ %40, %39 ], [ %51, %50 ], [ %56, %55 ], [ %68, %67 ], [ %85, %84 ], [ %207, %206 ], [ %214, %213 ], [ %219, %218 ], [ %292, %291 ], [ %355, %354 ], [ %360, %359 ], [ %432, %431 ], [ %22, %.body130 ], [ %33, %.body ], [ %44, %.body15 ], [ %63, %.body26 ], [ %.pn.i, %.body33 ], [ %eh.lpad-body.i, %.body134 ], [ %129, %.body138 ], [ %141, %.body45 ], [ %149, %148 ], [ %156, %.body52 ], [ %164, %163 ], [ %.pn.i2, %.body59 ], [ %185, %184 ], [ %192, %.body71 ], [ %200, %199 ], [ %223, %"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$$u5b$ruff_python_ast..nodes..CmpOp$u5d$$GT$$GT$17h60fbe2dfa8c7223dE.exit82" ], [ %261, %.body90 ], [ %332, %.body96 ], [ %332, %336 ], [ %348, %.body104 ], [ %381, %.body143 ], [ %403, %.body148 ], [ %.pn.i5, %.body121 ]
+  resume { ptr, i32 } %common.resume186.op
 
 28:                                               ; preds = %.body130
   %29 = landingpad { ptr, i32 }
@@ -427,7 +427,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %32, i64 noundef 64, i64 noundef 8) #6, !noalias !53
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17hcb63c20a8a475e2bE"(ptr noalias noundef align 8 dereferenceable(8) %34) #7
-          to label %common.resume174 unwind label %35
+          to label %common.resume186 unwind label %35
 
 35:                                               ; preds = %.body
   %36 = landingpad { ptr, i32 }
@@ -447,7 +447,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   %40 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %38, i64 noundef 64, i64 noundef 8) #6, !noalias !56
-  br label %common.resume174
+  br label %common.resume186
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17hcb63c20a8a475e2bE.exit": ; preds = %"_ZN4core3ptr58drop_in_place$LT$ruff_python_ast..generated..ExprNamed$GT$17h2c005e984dd7e5abE.exit"
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %38, i64 noundef 64, i64 noundef 8) #6, !noalias !56
@@ -466,7 +466,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %43, i64 noundef 64, i64 noundef 8) #6, !noalias !59
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17hcb63c20a8a475e2bE"(ptr noalias noundef align 8 dereferenceable(8) %45) #7
-          to label %common.resume174 unwind label %46
+          to label %common.resume186 unwind label %46
 
 46:                                               ; preds = %.body15
   %47 = landingpad { ptr, i32 }
@@ -486,7 +486,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   %51 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %49, i64 noundef 64, i64 noundef 8) #6, !noalias !62
-  br label %common.resume174
+  br label %common.resume186
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17hcb63c20a8a475e2bE.exit12": ; preds = %"_ZN4core3ptr58drop_in_place$LT$ruff_python_ast..generated..ExprBinOp$GT$17h3f37fb1d887439d5E.exit"
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %49, i64 noundef 64, i64 noundef 8) #6, !noalias !62
@@ -503,7 +503,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   %56 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %54, i64 noundef 64, i64 noundef 8) #6, !noalias !65
-  br label %common.resume174
+  br label %common.resume186
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17hcb63c20a8a475e2bE.exit20": ; preds = %52
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %54, i64 noundef 64, i64 noundef 8) #6, !noalias !65
@@ -526,7 +526,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %60, i64 noundef 96, i64 noundef 8) #6, !noalias !71
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17hcb63c20a8a475e2bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %58) #7
-          to label %common.resume174 unwind label %64
+          to label %common.resume186 unwind label %64
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..nodes..Parameters$GT$$GT$17h7e23291ac898649cE.exit.i": ; preds = %62
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %60, i64 noundef 96, i64 noundef 8) #6, !noalias !71
@@ -548,7 +548,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   %68 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %66, i64 noundef 64, i64 noundef 8) #6, !noalias !74
-  br label %common.resume174
+  br label %common.resume186
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17hcb63c20a8a475e2bE.exit23": ; preds = %"_ZN4core3ptr59drop_in_place$LT$ruff_python_ast..generated..ExprLambda$GT$17hc9a1489572248202E.exit"
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %66, i64 noundef 64, i64 noundef 8) #6, !noalias !74
@@ -587,7 +587,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   %.pn.i = phi { ptr, i32 } [ %72, %.body38 ], [ %78, %77 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17hcb63c20a8a475e2bE"(ptr noalias noundef align 8 dereferenceable(8) %79) #7
-          to label %common.resume174 unwind label %80
+          to label %common.resume186 unwind label %80
 
 80:                                               ; preds = %.body33, %.body38
   %81 = landingpad { ptr, i32 }
@@ -607,7 +607,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   %85 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %83, i64 noundef 64, i64 noundef 8) #6, !noalias !83
-  br label %common.resume174
+  br label %common.resume186
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17hcb63c20a8a475e2bE.exit30": ; preds = %"_ZN4core3ptr55drop_in_place$LT$ruff_python_ast..generated..ExprIf$GT$17ha0742db3777758d4E.exit"
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %83, i64 noundef 64, i64 noundef 8) #6, !noalias !83
@@ -683,7 +683,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
 
 .body134:                                         ; preds = %104
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h160d4f2c95ee9d36E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %87, i64 noundef 8, i64 noundef 128)
-          to label %common.resume174 unwind label %113
+          to label %common.resume186 unwind label %113
 
 113:                                              ; preds = %.body134
   %114 = landingpad { ptr, i32 }
@@ -739,7 +739,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
 
 .body138:                                         ; preds = %126
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h160d4f2c95ee9d36E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %116, i64 noundef 8, i64 noundef 64)
-          to label %common.resume174 unwind label %135
+          to label %common.resume186 unwind label %135
 
 135:                                              ; preds = %.body138
   %136 = landingpad { ptr, i32 }
@@ -764,7 +764,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %140, i64 noundef 64, i64 noundef 8) #6, !noalias !104
   invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..nodes..Comprehension$GT$$GT$17h2cbc96427a5cf950E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %138) #7
-          to label %common.resume174 unwind label %142
+          to label %common.resume186 unwind label %142
 
 142:                                              ; preds = %.body45
   %143 = landingpad { ptr, i32 }
@@ -786,7 +786,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   %149 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h160d4f2c95ee9d36E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %138, i64 noundef 8, i64 noundef 168)
-          to label %common.resume174 unwind label %150
+          to label %common.resume186 unwind label %150
 
 150:                                              ; preds = %148
   %151 = landingpad { ptr, i32 }
@@ -811,7 +811,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %155, i64 noundef 64, i64 noundef 8) #6, !noalias !113
   invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..nodes..Comprehension$GT$$GT$17h2cbc96427a5cf950E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %153) #7
-          to label %common.resume174 unwind label %157
+          to label %common.resume186 unwind label %157
 
 157:                                              ; preds = %.body52
   %158 = landingpad { ptr, i32 }
@@ -833,7 +833,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   %164 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h160d4f2c95ee9d36E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %153, i64 noundef 8, i64 noundef 168)
-          to label %common.resume174 unwind label %165
+          to label %common.resume186 unwind label %165
 
 165:                                              ; preds = %163
   %166 = landingpad { ptr, i32 }
@@ -878,7 +878,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
 .body59:                                          ; preds = %176, %.body64
   %.pn.i2 = phi { ptr, i32 } [ %171, %.body64 ], [ %177, %176 ]
   invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..nodes..Comprehension$GT$$GT$17h2cbc96427a5cf950E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %168) #7
-          to label %common.resume174 unwind label %178
+          to label %common.resume186 unwind label %178
 
 178:                                              ; preds = %.body59, %.body64
   %179 = landingpad { ptr, i32 }
@@ -900,7 +900,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   %185 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h160d4f2c95ee9d36E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %168, i64 noundef 8, i64 noundef 168)
-          to label %common.resume174 unwind label %186
+          to label %common.resume186 unwind label %186
 
 186:                                              ; preds = %184
   %187 = landingpad { ptr, i32 }
@@ -925,7 +925,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %191, i64 noundef 64, i64 noundef 8) #6, !noalias !134
   invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..nodes..Comprehension$GT$$GT$17h2cbc96427a5cf950E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %189) #7
-          to label %common.resume174 unwind label %193
+          to label %common.resume186 unwind label %193
 
 193:                                              ; preds = %.body71
   %194 = landingpad { ptr, i32 }
@@ -947,7 +947,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   %200 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h160d4f2c95ee9d36E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %189, i64 noundef 8, i64 noundef 168)
-          to label %common.resume174 unwind label %201
+          to label %common.resume186 unwind label %201
 
 201:                                              ; preds = %199
   %202 = landingpad { ptr, i32 }
@@ -970,7 +970,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   %207 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %205, i64 noundef 64, i64 noundef 8) #6, !noalias !143
-  br label %common.resume174
+  br label %common.resume186
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17hcb63c20a8a475e2bE.exit76": ; preds = %203
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %205, i64 noundef 64, i64 noundef 8) #6, !noalias !143
@@ -991,7 +991,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   %214 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %210, i64 noundef 64, i64 noundef 8) #6, !noalias !149
-  br label %common.resume174
+  br label %common.resume186
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17hcb63c20a8a475e2bE.exit.i": ; preds = %212
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %210, i64 noundef 64, i64 noundef 8) #6, !noalias !149
@@ -1008,7 +1008,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   %219 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %217, i64 noundef 64, i64 noundef 8) #6, !noalias !152
-  br label %common.resume174
+  br label %common.resume186
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17hcb63c20a8a475e2bE.exit81": ; preds = %215
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %217, i64 noundef 64, i64 noundef 8) #6, !noalias !152
@@ -1052,7 +1052,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
 "_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$$u5b$ruff_python_ast..nodes..CmpOp$u5d$$GT$$GT$17h60fbe2dfa8c7223dE.exit82": ; preds = %226, %.body85
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke fastcc void @"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$LT$$u5b$ruff_python_ast..generated..Expr$u5d$$GT$$GT$17he02f4f09fa36f4a0E"(ptr noalias noundef align 8 dereferenceable(16) %233) #7
-          to label %common.resume174 unwind label %234
+          to label %common.resume186 unwind label %234
 
 234:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$$u5b$ruff_python_ast..nodes..CmpOp$u5d$$GT$$GT$17h60fbe2dfa8c7223dE.exit82"
   %235 = landingpad { ptr, i32 }
@@ -1082,7 +1082,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
 245:                                              ; preds = %249, %247
   %.sroa.0.1.i.i = phi i64 [ %244, %247 ], [ %251, %249 ]
   %246 = icmp eq i64 %.sroa.0.1.i.i, %239
-  br i1 %246, label %.body.i173, label %249
+  br i1 %246, label %.body.i185, label %249
 
 247:                                              ; preds = %242
   %248 = landingpad { ptr, i32 }
@@ -1101,10 +1101,10 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #8, !noalias !161
   unreachable
 
-.body.i173:                                       ; preds = %245
+.body.i185:                                       ; preds = %245
   %254 = shl nuw nsw i64 %239, 6
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %237, i64 noundef range(i64 1, 0) %254, i64 noundef 8) #6, !noalias !161
-  br label %common.resume174
+  br label %common.resume186
 
 "_ZN4core3ptr63drop_in_place$LT$$u5b$ruff_python_ast..generated..Expr$u5d$$GT$17h4d0fb40c9adbd154E.exit.i": ; preds = %240
   %255 = icmp eq i64 %239, 0
@@ -1128,7 +1128,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %260, i64 noundef 64, i64 noundef 8) #6, !noalias !164
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$ruff_python_ast..nodes..Arguments$GT$17hd32b2e1cce823cd5E"(ptr noalias noundef align 8 dereferenceable(40) %262) #7
-          to label %common.resume174 unwind label %263
+          to label %common.resume186 unwind label %263
 
 263:                                              ; preds = %.body90
   %264 = landingpad { ptr, i32 }
@@ -1216,7 +1216,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
           cleanup
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call fastcc void @"_ZN4core3ptr87drop_in_place$LT$std..sync..once_lock..OnceLock$LT$alloc..boxed..Box$LT$str$GT$$GT$$GT$17h2ddade201c423b30E"(ptr noalias noundef align 8 dereferenceable(24) %293) #7
-  br label %common.resume174
+  br label %common.resume186
 
 "_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..nodes..StringLiteral$GT$$GT$17hb1f131d724c295aeE.exit.i.i.i.i": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3ac204c569854522E.exit.i.i.i.i.i"
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1328,12 +1328,12 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 39
   %334 = load i8, ptr %333, align 1, !range !22, !alias.scope !232, !noundef !4
   %335 = icmp eq i8 %334, -40
-  br i1 %335, label %336, label %common.resume174, !prof !34
+  br i1 %335, label %336, label %common.resume186, !prof !34
 
 336:                                              ; preds = %.body96
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @"_ZN65_$LT$compact_str..repr..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop13outlined_drop17h8fba1d5ec11e66b5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %337)
-          to label %common.resume174 unwind label %338
+          to label %common.resume186 unwind label %338
 
 338:                                              ; preds = %336
   %339 = landingpad { ptr, i32 }
@@ -1366,7 +1366,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %347, i64 noundef 64, i64 noundef 8) #6, !noalias !254
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17hcb63c20a8a475e2bE"(ptr noalias noundef align 8 dereferenceable(8) %349) #7
-          to label %common.resume174 unwind label %350
+          to label %common.resume186 unwind label %350
 
 350:                                              ; preds = %.body104
   %351 = landingpad { ptr, i32 }
@@ -1386,7 +1386,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   %355 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %353, i64 noundef 64, i64 noundef 8) #6, !noalias !257
-  br label %common.resume174
+  br label %common.resume186
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17hcb63c20a8a475e2bE.exit101": ; preds = %"_ZN4core3ptr62drop_in_place$LT$ruff_python_ast..generated..ExprSubscript$GT$17ha2b7a294cebd865bE.exit"
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %353, i64 noundef 64, i64 noundef 8) #6, !noalias !257
@@ -1403,7 +1403,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   %360 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %358, i64 noundef 64, i64 noundef 8) #6, !noalias !260
-  br label %common.resume174
+  br label %common.resume186
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17hcb63c20a8a475e2bE.exit109": ; preds = %356
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %358, i64 noundef 64, i64 noundef 8) #6, !noalias !260
@@ -1464,7 +1464,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
 
 .body143:                                         ; preds = %378
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h160d4f2c95ee9d36E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %368, i64 noundef 8, i64 noundef 64)
-          to label %common.resume174 unwind label %387
+          to label %common.resume186 unwind label %387
 
 387:                                              ; preds = %.body143
   %388 = landingpad { ptr, i32 }
@@ -1520,7 +1520,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
 
 .body148:                                         ; preds = %400
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h160d4f2c95ee9d36E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %390, i64 noundef 8, i64 noundef 64)
-          to label %common.resume174 unwind label %409
+          to label %common.resume186 unwind label %409
 
 409:                                              ; preds = %.body148
   %410 = landingpad { ptr, i32 }
@@ -1580,7 +1580,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   %.pn.i5 = phi { ptr, i32 } [ %416, %.body127 ], [ %423, %422 ]
   %424 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$$GT$17hbd4a8ca7ae36190aE"(ptr noalias noundef align 8 dereferenceable(8) %424) #7
-          to label %common.resume174 unwind label %425
+          to label %common.resume186 unwind label %425
 
 425:                                              ; preds = %.body121, %.body127
   %426 = landingpad { ptr, i32 }
@@ -1603,7 +1603,7 @@ common.resume174:                                 ; preds = %39, %50, %55, %67, 
   %432 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %428, i64 noundef 64, i64 noundef 8) #6, !noalias !301
-  br label %common.resume174
+  br label %common.resume186
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17hcb63c20a8a475e2bE.exit.i115": ; preds = %430
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %428, i64 noundef 64, i64 noundef 8) #6, !noalias !301
@@ -3932,8 +3932,8 @@ common.resume:                                    ; preds = %common.resume.sink.
   unreachable
 
 "_ZN4core3ptr63drop_in_place$LT$ruff_python_ast..nodes..TypeParamParamSpec$GT$17hb291211771f7bff7E.exit.sink.split": ; preds = %58, %41, %19
-  %.sink10 = phi ptr [ %17, %19 ], [ %39, %41 ], [ %56, %58 ]
-  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.sink10, i64 noundef 64, i64 noundef 8) #6, !noalias !4
+  %.sink13 = phi ptr [ %17, %19 ], [ %39, %41 ], [ %56, %58 ]
+  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.sink13, i64 noundef 64, i64 noundef 8) #6, !noalias !4
   br label %"_ZN4core3ptr63drop_in_place$LT$ruff_python_ast..nodes..TypeParamParamSpec$GT$17hb291211771f7bff7E.exit"
 
 "_ZN4core3ptr63drop_in_place$LT$ruff_python_ast..nodes..TypeParamParamSpec$GT$17hb291211771f7bff7E.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$ruff_python_ast..nodes..TypeParamParamSpec$GT$17hb291211771f7bff7E.exit.sink.split", %"_ZN4core3ptr55drop_in_place$LT$ruff_python_ast..nodes..Identifier$GT$17he259ac1f7874e3e2E.exit.i5", %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$$GT$17hbd4a8ca7ae36190aE.exit.i", %"_ZN4core3ptr55drop_in_place$LT$ruff_python_ast..nodes..Identifier$GT$17he259ac1f7874e3e2E.exit.i"
@@ -4777,7 +4777,7 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$$u5b$ruff_python_as
 39:                                               ; preds = %"_ZN4core3ptr58drop_in_place$LT$ruff_python_ast..nodes..Comprehension$GT$17h1e6d46428a907200E.exit"
   ret void
 
-"_ZN4core3ptr58drop_in_place$LT$ruff_python_ast..nodes..Comprehension$GT$17h1e6d46428a907200E.exit50": ; preds = %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..generated..Expr$GT$$GT$17h6332cab35a12bf1bE.exit.i", %.body
+"_ZN4core3ptr58drop_in_place$LT$ruff_python_ast..nodes..Comprehension$GT$17h1e6d46428a907200E.exit51": ; preds = %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..generated..Expr$GT$$GT$17h6332cab35a12bf1bE.exit.i", %.body
   %.sroa.0.1 = phi i64 [ %6, %.body ], [ %45, %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..generated..Expr$GT$$GT$17h6332cab35a12bf1bE.exit.i" ]
   %40 = icmp eq i64 %.sroa.0.1, %1
   br i1 %40, label %78, label %43
@@ -4789,9 +4789,9 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$$u5b$ruff_python_as
 
 .body:                                            ; preds = %41, %.body9, %13
   %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %13 ], [ %42, %41 ], [ %29, %.body9 ]
-  br label %"_ZN4core3ptr58drop_in_place$LT$ruff_python_ast..nodes..Comprehension$GT$17h1e6d46428a907200E.exit50"
+  br label %"_ZN4core3ptr58drop_in_place$LT$ruff_python_ast..nodes..Comprehension$GT$17h1e6d46428a907200E.exit51"
 
-43:                                               ; preds = %"_ZN4core3ptr58drop_in_place$LT$ruff_python_ast..nodes..Comprehension$GT$17h1e6d46428a907200E.exit50"
+43:                                               ; preds = %"_ZN4core3ptr58drop_in_place$LT$ruff_python_ast..nodes..Comprehension$GT$17h1e6d46428a907200E.exit51"
   %44 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %0, i64 %.sroa.0.1
   %45 = add i64 %.sroa.0.1, 1
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 24
@@ -4812,7 +4812,7 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$$u5b$ruff_python_as
 
 52:                                               ; preds = %53, %47
   invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..generated..Expr$GT$$GT$17h6332cab35a12bf1bE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %44) #7
-          to label %.body48 unwind label %76
+          to label %.body49 unwind label %76
 
 53:                                               ; preds = %50
   %54 = landingpad { ptr, i32 }
@@ -4862,7 +4862,7 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$$u5b$ruff_python_as
 
 .body.i:                                          ; preds = %65
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h160d4f2c95ee9d36E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %44, i64 noundef 8, i64 noundef 64)
-          to label %.body48 unwind label %74
+          to label %.body49 unwind label %74
 
 74:                                               ; preds = %.body.i
   %75 = landingpad { ptr, i32 }
@@ -4872,7 +4872,7 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$$u5b$ruff_python_as
 
 "_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..generated..Expr$GT$$GT$17h6332cab35a12bf1bE.exit.i": ; preds = %60
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h160d4f2c95ee9d36E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %44, i64 noundef 8, i64 noundef 64)
-          to label %"_ZN4core3ptr58drop_in_place$LT$ruff_python_ast..nodes..Comprehension$GT$17h1e6d46428a907200E.exit50" unwind label %79
+          to label %"_ZN4core3ptr58drop_in_place$LT$ruff_python_ast..nodes..Comprehension$GT$17h1e6d46428a907200E.exit51" unwind label %79
 
 76:                                               ; preds = %52, %47
   %77 = landingpad { ptr, i32 }
@@ -4880,15 +4880,15 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$$u5b$ruff_python_as
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #8
   unreachable
 
-78:                                               ; preds = %"_ZN4core3ptr58drop_in_place$LT$ruff_python_ast..nodes..Comprehension$GT$17h1e6d46428a907200E.exit50"
+78:                                               ; preds = %"_ZN4core3ptr58drop_in_place$LT$ruff_python_ast..nodes..Comprehension$GT$17h1e6d46428a907200E.exit51"
   resume { ptr, i32 } %eh.lpad-body
 
 79:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..generated..Expr$GT$$GT$17h6332cab35a12bf1bE.exit.i"
   %80 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  br label %.body48
+  br label %.body49
 
-.body48:                                          ; preds = %52, %.body.i, %79
+.body49:                                          ; preds = %52, %.body.i, %79
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #8
   unreachable
 }

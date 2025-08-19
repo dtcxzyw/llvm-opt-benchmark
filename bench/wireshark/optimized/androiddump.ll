@@ -906,7 +906,7 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1055, ptr noundef nonnull @__func__.register_interfaces, ptr noundef nonnull @.str.74)
   br label %.backedge
 
-.backedge:                                        ; preds = %220, %.thread282, %.thread241, %.thread237, %213, %174, %.critedge, %170, %173, %258, %.thread258, %.thread262, %75, %152, %146, %161, %176, %212
+.backedge:                                        ; preds = %220, %.thread322, %.thread241, %.thread237, %213, %174, %.critedge, %170, %173, %258, %.thread258, %.thread262, %75, %152, %146, %161, %176, %212
   %76 = icmp ult ptr %73, %62
   br i1 %76, label %66, label %.loopexit, !llvm.loop !11
 
@@ -1002,8 +1002,8 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
 
 .thread.i:                                        ; preds = %113
   %116 = call ptr @strtok(ptr noundef nonnull %105, ptr noundef nonnull @.str.101) #23
-  %.not333741.i = icmp eq ptr %116, null
-  br i1 %.not333741.i, label %add_tcpdump_interfaces.exit, label %.lr.ph.split.i.preheader
+  %.not333748.i = icmp eq ptr %116, null
+  br i1 %.not333748.i, label %add_tcpdump_interfaces.exit, label %.lr.ph.split.i.preheader
 
 .lr.ph.split.i.preheader:                         ; preds = %.lr.ph.i215, %.thread.i
   %.02538.i.ph = phi ptr [ %116, %.thread.i ], [ %115, %.lr.ph.i215 ]
@@ -1011,8 +1011,8 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
 
 .lr.ph.i215:                                      ; preds = %114
   %strchr32.fr.i = freeze ptr %strchr32.i
-  %.not45.i = icmp eq ptr %strchr32.fr.i, null
-  br i1 %.not45.i, label %.lr.ph.split.i.preheader, label %.lr.ph.split.us.i
+  %.not52.i = icmp eq ptr %strchr32.fr.i, null
+  br i1 %.not52.i, label %.lr.ph.split.i.preheader, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i215, %130
   %.02538.us.i = phi ptr [ %132, %130 ], [ %115, %.lr.ph.i215 ]
@@ -1320,9 +1320,9 @@ add_tcpdump_interfaces.exit:                      ; preds = %130, %142, %114, %.
 239:                                              ; preds = %236
   %240 = call fastcc i32 @adb_connect_transport(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %11)
   %241 = icmp eq i32 %240, -1
-  br i1 %241, label %.thread282, label %242, !llvm.loop !11
+  br i1 %241, label %.thread322, label %242, !llvm.loop !11
 
-.thread282:                                       ; preds = %239
+.thread322:                                       ; preds = %239
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.backedge
 
@@ -2294,13 +2294,13 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   br i1 %.not234, label %._crit_edge361, label %.lr.ph338
 
 .thread.thread:                                   ; preds = %87, %56
-  %.lcssa443.sink = phi ptr [ %55, %56 ], [ %89, %87 ]
-  %.lcssa442.sink = phi i64 [ %47, %56 ], [ %80, %87 ]
+  %.lcssa459.sink = phi ptr [ %55, %56 ], [ %89, %87 ]
+  %.lcssa458.sink = phi i64 [ %47, %56 ], [ %80, %87 ]
   %.5197.ph = phi i32 [ %25, %56 ], [ %59, %87 ]
-  %92 = getelementptr i8, ptr %.lcssa443.sink, i64 1
+  %92 = getelementptr i8, ptr %.lcssa459.sink, i64 1
   %93 = ptrtoint ptr %92 to i64
   %.neg = sub i64 ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64), %93
-  %94 = add i64 %.neg, %.lcssa442.sink
+  %94 = add i64 %.neg, %.lcssa458.sink
   %95 = tail call ptr @__memmove_chk(ptr noundef nonnull @capture_android_bluetooth_hcidump.data, ptr noundef %92, i64 noundef %94, i64 noundef 65535) #23
   %.pr = load i32, ptr @endless_loop, align 4
   %.not242357 = icmp eq i32 %.pr, 0
@@ -2576,13 +2576,13 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 .backedge:                                        ; preds = %192, %.lr.ph347, %103
   %.0198.be.ph = phi i64 [ %.0198358, %103 ], [ %.1199344, %.lr.ph347 ], [ %.1199344, %192 ]
   %.8.be.ph = phi i64 [ %.8359, %103 ], [ %117, %.lr.ph347 ], [ %117, %192 ]
-  %.pr399 = load i32, ptr @endless_loop, align 4
-  %.not242 = icmp eq i32 %.pr399, 0
+  %.pr415 = load i32, ptr @endless_loop, align 4
+  %.not242 = icmp eq i32 %.pr415, 0
   br i1 %.not242, label %._crit_edge361, label %103, !llvm.loop !38
 
 ._crit_edge361:                                   ; preds = %.thread, %90, %.preheader, %.backedge, %._crit_edge, %.preheader284, %.preheader285, %.thread.thread
-  %.5197398 = phi i32 [ %.5197.ph, %.thread.thread ], [ %25, %.preheader285 ], [ %59, %.preheader284 ], [ %.5197.ph, %._crit_edge ], [ %.5197.ph, %.backedge ], [ %.5197.ph, %.preheader ], [ %59, %90 ], [ %25, %.thread ]
-  %241 = call i32 @close(i32 noundef %.5197398)
+  %.5197414 = phi i32 [ %.5197.ph, %.thread.thread ], [ %25, %.preheader285 ], [ %59, %.preheader284 ], [ %.5197.ph, %._crit_edge ], [ %.5197.ph, %.backedge ], [ %.5197.ph, %.preheader ], [ %59, %90 ], [ %25, %.thread ]
+  %241 = call i32 @close(i32 noundef %.5197414)
   br label %.thread261
 
 .thread261:                                       ; preds = %85, %77, %72, %.thread.thread278, %44, %39, %.thread.thread.thread, %get_serial_from_interface.exit, %._crit_edge361, %190, %179, %170, %157, %144, %135, %115, %109, %65, %31

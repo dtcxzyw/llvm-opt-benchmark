@@ -1231,10 +1231,10 @@ define void @_ZN19uv_requirements_txt11requirement26RequirementsTxtRequirement13
   br label %128
 
 128:                                              ; preds = %149, %148, %127
-  %.sink215 = phi i64 [ 3, %149 ], [ 4, %148 ], [ 2, %127 ]
+  %.sink217 = phi i64 [ 3, %149 ], [ 4, %148 ], [ 2, %127 ]
   %.sink = phi ptr [ %117, %149 ], [ %105, %148 ], [ %74, %127 ]
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink215, ptr %129, align 8
+  store i64 %.sink217, ptr %129, align 8
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink, ptr %.sroa.49.0..sroa_idx, align 8
   store i64 9, ptr %0, align 8
@@ -1740,9 +1740,9 @@ define void @_ZN19uv_requirements_txt11requirement26RequirementsTxtRequirement13
   br label %278
 
 278:                                              ; preds = %285, %284, %277
-  %.sink217 = phi i64 [ 6, %285 ], [ 7, %284 ], [ 5, %277 ]
+  %.sink219 = phi i64 [ 6, %285 ], [ 7, %284 ], [ 5, %277 ]
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink217, ptr %279, align 8
+  store i64 %.sink219, ptr %279, align 8
   store i64 9, ptr %0, align 8
   %280 = load i64, ptr %18, align 8, !range !114, !noundef !3
   %281 = icmp eq i64 %280, 3

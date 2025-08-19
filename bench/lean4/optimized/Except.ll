@@ -13798,18 +13798,18 @@ _init_l_tryFinally___rarg___closed__1.exit:       ; preds = %_init_l_instMonadCo
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_tryFinally___rarg___closed__1.exit, %3
-  %.sink25 = phi ptr [ %4, %3 ], [ %173, %_init_l_tryFinally___rarg___closed__1.exit ]
-  %176 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
-  store i32 1, ptr %.sink25, align 4, !tbaa !4
+  %.sink49 = phi ptr [ %4, %3 ], [ %173, %_init_l_tryFinally___rarg___closed__1.exit ]
+  %176 = getelementptr inbounds nuw i8, ptr %.sink49, i64 4
+  store i32 1, ptr %.sink49, align 4, !tbaa !4
   store i32 131096, ptr %176, align 4
-  %177 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %.sink49, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %177, align 8, !tbaa !9
-  %178 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %.sink49, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %178, align 8, !tbaa !9
   br label %179
 
 179:                                              ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit16, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink25, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink49, %.sink.split ]
   ret ptr %.0
 }
 

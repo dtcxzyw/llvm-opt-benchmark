@@ -588,8 +588,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
   %35 = load i8, ptr %34, align 1, !tbaa !28
   %36 = sext i8 %35 to i32
   %37 = tail call noundef i32 @isupper(i32 noundef %36) #7
-  %.not52 = icmp eq i32 %37, 0
-  br i1 %.not52, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit19", label %38
+  %.not55 = icmp eq i32 %37, 0
+  br i1 %.not55, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit19", label %38
 
 38:                                               ; preds = %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit14"
   %39 = add nuw i64 %.051, 2
@@ -601,8 +601,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
   %42 = load i8, ptr %41, align 1, !tbaa !28
   %43 = sext i8 %42 to i32
   %44 = tail call noundef i32 @islower(i32 noundef %43) #7
-  %.not53 = icmp eq i32 %44, 0
-  br i1 %.not53, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit19", label %45
+  %.not56 = icmp eq i32 %44, 0
+  br i1 %.not56, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit19", label %45
 
 45:                                               ; preds = %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit15"
   %46 = load i64, ptr %6, align 8, !tbaa !37
@@ -635,29 +635,29 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit18: ; pred
   %58 = load ptr, ptr %0, align 8, !tbaa !39
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %47
   store i8 0, ptr %59, align 1, !tbaa !28
-  %.pre56 = load i8, ptr %9, align 1, !tbaa !28
-  %.pre57 = sext i8 %.pre56 to i32
+  %.pre59 = load i8, ptr %9, align 1, !tbaa !28
+  %.pre60 = sext i8 %.pre59 to i32
   br label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit19"
 
 "_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit19": ; preds = %38, %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit18, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit15", %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit14", %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit"
-  %.pre-phi58 = phi i32 [ %29, %38 ], [ %29, %31 ], [ %.pre57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit18 ], [ %29, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit15" ], [ %29, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit14" ], [ %29, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit" ]
-  %60 = tail call noundef i32 @islower(i32 noundef %.pre-phi58) #7
-  %.not54 = icmp ne i32 %60, 0
-  %isdigittmp = add nsw i32 %.pre-phi58, -48
+  %.pre-phi61 = phi i32 [ %29, %38 ], [ %29, %31 ], [ %.pre60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit18 ], [ %29, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit15" ], [ %29, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit14" ], [ %29, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit" ]
+  %60 = tail call noundef i32 @islower(i32 noundef %.pre-phi61) #7
+  %.not57 = icmp ne i32 %60, 0
+  %isdigittmp = add nsw i32 %.pre-phi61, -48
   %isdigit = icmp ult i32 %isdigittmp, 10
-  %or.cond = select i1 %.not54, i1 true, i1 %isdigit
+  %or.cond = select i1 %.not57, i1 true, i1 %isdigit
   %61 = add nuw i64 %.051, 1
   %62 = icmp ult i64 %61, %2
-  %or.cond59 = select i1 %or.cond, i1 %62, i1 false
-  br i1 %or.cond59, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit21", label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit21.thread"
+  %or.cond65 = select i1 %or.cond, i1 %62, i1 false
+  br i1 %or.cond65, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit21", label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit21.thread"
 
 "_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit21": ; preds = %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit19"
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 %61
   %64 = load i8, ptr %63, align 1, !tbaa !28
   %65 = sext i8 %64 to i32
   %66 = tail call noundef i32 @isupper(i32 noundef %65) #7
-  %.not55 = icmp eq i32 %66, 0
-  br i1 %.not55, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit21.thread", label %67
+  %.not58 = icmp eq i32 %66, 0
+  br i1 %.not58, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit21.thread", label %67
 
 67:                                               ; preds = %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit21"
   %68 = load i64, ptr %6, align 8, !tbaa !37
@@ -888,11 +888,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit22: ; pred
   br label %84
 
 84:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit22
-  %.sink39 = phi i64 [ %60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit19 ], [ %73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit22 ]
+  %.sink40 = phi i64 [ %60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit19 ], [ %73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit22 ]
   %.1 = phi i64 [ %50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit19 ], [ %.032, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit22 ]
-  store i64 %.sink39, ptr %7, align 8, !tbaa !37
+  store i64 %.sink40, ptr %7, align 8, !tbaa !37
   %85 = load ptr, ptr %0, align 8, !tbaa !39
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %.sink39
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %.sink40
   store i8 0, ptr %86, align 1, !tbaa !28
   %87 = add i64 %.1, 1
   %88 = icmp ult i64 %87, %2

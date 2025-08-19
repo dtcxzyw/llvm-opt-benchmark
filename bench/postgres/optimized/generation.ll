@@ -724,8 +724,8 @@ define dso_local noundef zeroext i1 @GenerationIsEmpty(ptr noundef readonly capt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.not111217 = icmp eq ptr %4, %2
-  %.not1112 = select i1 %.not, i1 true, i1 %.not111217
+  %.not111218 = icmp eq ptr %4, %2
+  %.not1112 = select i1 %.not, i1 true, i1 %.not111218
   br i1 %.not1112, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %8
@@ -753,8 +753,8 @@ define dso_local void @GenerationStats(ptr noundef %0, ptr noundef readonly capt
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  %.not444762 = icmp eq ptr %9, %7
-  %.not4447 = select i1 %.not, i1 true, i1 %.not444762
+  %.not444764 = icmp eq ptr %9, %7
+  %.not4447 = select i1 %.not, i1 true, i1 %.not444764
   br i1 %.not4447, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %.lr.ph

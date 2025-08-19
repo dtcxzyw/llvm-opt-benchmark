@@ -1075,8 +1075,8 @@ read_record.exit:                                 ; preds = %206, %243, %246, %2
   br i1 %251, label %123, label %.loopexit, !llvm.loop !12
 
 .loopexit.sink.split:                             ; preds = %178, %124
-  %.sink150 = phi ptr [ %8, %124 ], [ %14, %178 ]
-  store volatile i8 1, ptr %.sink150, align 1
+  %.sink160 = phi ptr [ %8, %124 ], [ %14, %178 ]
+  store volatile i8 1, ptr %.sink160, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %read_record.exit, %181, %.loopexit.sink.split, %98
@@ -1875,14 +1875,14 @@ cf_callback_invoke.exit218:                       ; preds = %.lr.ph.i214, %172
 185:                                              ; preds = %183
   %186 = icmp ne ptr %.0168248, null
   %187 = icmp eq ptr %.0170250, null
-  %or.cond311 = select i1 %186, i1 %187, i1 false
-  %spec.select = select i1 %or.cond311, ptr %.0168248, ptr %.0170250
-  %spec.select312 = select i1 %or.cond311, i32 %.0161242, i32 %.0163244
+  %or.cond327 = select i1 %186, i1 %187, i1 false
+  %spec.select = select i1 %or.cond327, ptr %.0168248, ptr %.0170250
+  %spec.select328 = select i1 %or.cond327, i32 %.0161242, i32 %.0163244
   br label %select.unfold
 
 select.unfold:                                    ; preds = %185, %cf_callback_invoke.exit218
   %.0172 = phi ptr [ %58, %cf_callback_invoke.exit218 ], [ %spec.select, %185 ]
-  %.2 = phi i32 [ %.0165246, %cf_callback_invoke.exit218 ], [ %spec.select312, %185 ]
+  %.2 = phi i32 [ %.0165246, %cf_callback_invoke.exit218 ], [ %spec.select328, %185 ]
   switch i32 %.2, label %192 [
     i32 -1, label %188
     i32 0, label %.thread232
@@ -2994,14 +2994,14 @@ cf_read_record.exit:                              ; preds = %52
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %22, %67, %.loopexit
-  %.05379 = phi i32 [ %.053, %67 ], [ %.053, %.loopexit ], [ 0, %22 ]
+  %.05382 = phi i32 [ %.053, %67 ], [ %.053, %.loopexit ], [ 0, %22 ]
   call void @g_timer_destroy(ptr noundef %12)
   store i8 0, ptr %13, align 1
   call void @wtap_rec_cleanup(ptr noundef nonnull %10)
   br label %68
 
 68:                                               ; preds = %.loopexit.thread, %16
-  %.0 = phi i32 [ 2, %16 ], [ %.05379, %.loopexit.thread ]
+  %.0 = phi i32 [ 2, %16 ], [ %.05382, %.loopexit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
@@ -3310,11 +3310,11 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
   %161 = load ptr, ptr %1, align 8
   %162 = call zeroext i1 @destroy_print_stream(ptr noundef %161)
   %163 = select i1 %160, i1 %162, i1 false
-  %spec.select140 = select i1 %163, i32 0, i32 2
+  %spec.select146 = select i1 %163, i32 0, i32 2
   br label %164
 
 164:                                              ; preds = %159, %157, %._crit_edge.thread, %22
-  %.0 = phi i32 [ 0, %._crit_edge.thread ], [ 2, %157 ], [ 2, %22 ], [ %spec.select140, %159 ]
+  %.0 = phi i32 [ 0, %._crit_edge.thread ], [ 2, %157 ], [ 2, %22 ], [ %spec.select146, %159 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -5325,10 +5325,10 @@ cf_read_record.exit:                              ; preds = %4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %33 = load i32, ptr %32, align 8
   %.not76 = icmp eq i32 %33, 0
-  %or.cond111 = select i1 %.not, i1 %.not76, i1 false
+  %or.cond119 = select i1 %.not, i1 %.not76, i1 false
   %34 = add i32 %33, 1
   %35 = zext i32 %34 to i64
-  %.067.idx = select i1 %or.cond111, i64 0, i64 %35
+  %.067.idx = select i1 %or.cond119, i64 0, i64 %35
   %.067 = getelementptr i8, ptr %27, i64 %.067.idx
   %36 = icmp ult ptr %.067, %29
   br i1 %36, label %.lr.ph96, label %.loopexit
@@ -5928,10 +5928,10 @@ cf_read_record.exit:                              ; preds = %4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %33 = load i32, ptr %32, align 8
   %.not56 = icmp eq i32 %33, 0
-  %or.cond78 = select i1 %.not, i1 %.not56, i1 false
+  %or.cond84 = select i1 %.not, i1 %.not56, i1 false
   %34 = add i32 %33, 1
   %35 = zext i32 %34 to i64
-  %.050.idx = select i1 %or.cond78, i64 0, i64 %35
+  %.050.idx = select i1 %or.cond84, i64 0, i64 %35
   %.050 = getelementptr i8, ptr %27, i64 %.050.idx
   %36 = icmp ult ptr %.050, %29
   br i1 %36, label %.lr.ph68, label %.loopexit
@@ -6200,10 +6200,10 @@ cf_read_record.exit:                              ; preds = %4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %30 = load i32, ptr %29, align 8
   %.not77 = icmp eq i32 %30, 0
-  %or.cond110 = select i1 %.not, i1 %.not77, i1 false
+  %or.cond118 = select i1 %.not, i1 %.not77, i1 false
   %31 = add i32 %30, 1
   %32 = zext i32 %31 to i64
-  %.068.idx = select i1 %or.cond110, i64 0, i64 %32
+  %.068.idx = select i1 %or.cond118, i64 0, i64 %32
   %.068 = getelementptr i8, ptr %24, i64 %.068.idx
   %33 = icmp ult ptr %.068, %26
   br i1 %33, label %.lr.ph97, label %.loopexit
@@ -6722,10 +6722,10 @@ cf_read_record.exit:                              ; preds = %4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %30 = load i32, ptr %29, align 8
   %.not56 = icmp eq i32 %30, 0
-  %or.cond77 = select i1 %.not, i1 %.not56, i1 false
+  %or.cond83 = select i1 %.not, i1 %.not56, i1 false
   %31 = add i32 %30, 1
   %32 = zext i32 %31 to i64
-  %.050.idx = select i1 %or.cond77, i64 0, i64 %32
+  %.050.idx = select i1 %or.cond83, i64 0, i64 %32
   %.050 = getelementptr i8, ptr %24, i64 %.050.idx
   %33 = icmp ult ptr %.050, %26
   br i1 %33, label %.lr.ph68, label %.loopexit
@@ -8093,7 +8093,7 @@ cf_callback_invoke.exit136:                       ; preds = %.lr.ph.i132, %.crit
   br i1 %5, label %cf_callback_invoke.exit160, label %139
 
 139:                                              ; preds = %cf_callback_invoke.exit136
-  switch i32 %.1108167180, label %default.unreachable187 [
+  switch i32 %.1108167180, label %default.unreachable201 [
     i32 0, label %140
     i32 1, label %149
     i32 2, label %167
@@ -8588,7 +8588,7 @@ rescan_file.exit:                                 ; preds = %348
   call void @cf_close(ptr noundef %0)
   br label %cf_callback_invoke.exit143
 
-default.unreachable187:                           ; preds = %139
+default.unreachable201:                           ; preds = %139
   unreachable
 
 cf_callback_invoke.exit143:                       ; preds = %.lr.ph.i146, %.lr.ph.i139, %rescan_file.exit, %161, %140, %174, %176, %171, %352

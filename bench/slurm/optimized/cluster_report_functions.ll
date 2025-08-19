@@ -116,8 +116,8 @@ define internal fastcc ptr @_process_util_by_report(ptr noundef %0, ptr noundef 
   br i1 %switch, label %.lr.ph.split.us.split.us.preheader, label %.lr.ph.split.us.split.preheader
 
 .lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us
-  %slurmdb_destroy_report_user_rec.slurmdb_destroy_report_assoc_rec197 = select i1 %or.cond11, ptr @slurmdb_destroy_report_user_rec, ptr @slurmdb_destroy_report_assoc_rec
-  %.198 = select i1 %or.cond11, i64 32, i64 8
+  %slurmdb_destroy_report_user_rec.slurmdb_destroy_report_assoc_rec232 = select i1 %or.cond11, ptr @slurmdb_destroy_report_user_rec, ptr @slurmdb_destroy_report_assoc_rec
+  %.233 = select i1 %or.cond11, i64 32, i64 8
   br label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us.preheader:               ; preds = %.lr.ph.split.us
@@ -279,8 +279,8 @@ _process_assoc_type.exit.us.us:                   ; preds = %.backedge.us.i.us.u
 102:                                              ; preds = %100
   %103 = call ptr @slurmdb_cluster_rec_2_report(ptr noundef nonnull %98) #6
   call void @list_append(ptr noundef %9, ptr noundef %103) #6
-  %104 = call ptr @list_create(ptr noundef nonnull %slurmdb_destroy_report_user_rec.slurmdb_destroy_report_assoc_rec197) #6
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 %.198
+  %104 = call ptr @list_create(ptr noundef nonnull %slurmdb_destroy_report_user_rec.slurmdb_destroy_report_assoc_rec232) #6
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 %.233
   store ptr %104, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %98, i64 280
   %107 = load ptr, ptr %106, align 8
@@ -414,13 +414,13 @@ _process_assoc_type.exit.us:                      ; preds = %.backedge.us29.i.us
   br i1 %165, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split
-  %slurmdb_destroy_report_user_rec.slurmdb_destroy_report_assoc_rec201 = select i1 %or.cond11, ptr @slurmdb_destroy_report_user_rec, ptr @slurmdb_destroy_report_assoc_rec
-  %.202 = select i1 %or.cond11, i64 32, i64 8
+  %slurmdb_destroy_report_user_rec.slurmdb_destroy_report_assoc_rec236 = select i1 %or.cond11, ptr @slurmdb_destroy_report_user_rec, ptr @slurmdb_destroy_report_assoc_rec
+  %.237 = select i1 %or.cond11, i64 32, i64 8
   br label %.lr.ph.split.split
 
 .lr.ph.split.split.us.preheader:                  ; preds = %.lr.ph.split
-  %slurmdb_destroy_report_user_rec.slurmdb_destroy_report_assoc_rec199 = select i1 %or.cond11, ptr @slurmdb_destroy_report_user_rec, ptr @slurmdb_destroy_report_assoc_rec
-  %.200 = select i1 %or.cond11, i64 32, i64 8
+  %slurmdb_destroy_report_user_rec.slurmdb_destroy_report_assoc_rec234 = select i1 %or.cond11, ptr @slurmdb_destroy_report_user_rec, ptr @slurmdb_destroy_report_assoc_rec
+  %.235 = select i1 %or.cond11, i64 32, i64 8
   br label %.lr.ph.split.split.us
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %.backedge.us166
@@ -437,8 +437,8 @@ _process_assoc_type.exit.us:                      ; preds = %.backedge.us29.i.us
 170:                                              ; preds = %168
   %171 = call ptr @slurmdb_cluster_rec_2_report(ptr noundef nonnull %166) #6
   call void @list_append(ptr noundef %9, ptr noundef %171) #6
-  %172 = call ptr @list_create(ptr noundef nonnull %slurmdb_destroy_report_user_rec.slurmdb_destroy_report_assoc_rec199) #6
-  %173 = getelementptr inbounds nuw i8, ptr %171, i64 %.200
+  %172 = call ptr @list_create(ptr noundef nonnull %slurmdb_destroy_report_user_rec.slurmdb_destroy_report_assoc_rec234) #6
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 %.235
   store ptr %172, ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %166, i64 280
   %175 = load ptr, ptr %174, align 8
@@ -542,8 +542,8 @@ _process_assoc_type.exit.us165:                   ; preds = %.backedge.us.i123.u
 214:                                              ; preds = %211
   %215 = call ptr @slurmdb_cluster_rec_2_report(ptr noundef nonnull %209) #6
   call void @list_append(ptr noundef %9, ptr noundef %215) #6
-  %216 = call ptr @list_create(ptr noundef nonnull %slurmdb_destroy_report_user_rec.slurmdb_destroy_report_assoc_rec201) #6
-  %217 = getelementptr inbounds nuw i8, ptr %215, i64 %.202
+  %216 = call ptr @list_create(ptr noundef nonnull %slurmdb_destroy_report_user_rec.slurmdb_destroy_report_assoc_rec236) #6
+  %217 = getelementptr inbounds nuw i8, ptr %215, i64 %.237
   store ptr %216, ptr %217, align 8
   %218 = getelementptr inbounds nuw i8, ptr %209, i64 280
   %219 = load ptr, ptr %218, align 8
@@ -680,9 +680,9 @@ _process_assoc_type.exit:                         ; preds = %.backedge.i115, %21
   br i1 %.not108, label %.thread150, label %.thread150.sink.split
 
 .thread150.sink.split:                            ; preds = %269, %265, %264
-  %.sink196 = phi ptr [ %18, %264 ], [ %18, %265 ], [ %9, %269 ]
+  %.sink231 = phi ptr [ %18, %264 ], [ %18, %265 ], [ %9, %269 ]
   %.0.ph = phi ptr [ %9, %264 ], [ %9, %265 ], [ null, %269 ]
-  call void @list_destroy(ptr noundef nonnull %.sink196) #6
+  call void @list_destroy(ptr noundef nonnull %.sink231) #6
   br label %.thread150
 
 .thread150:                                       ; preds = %.thread150.sink.split, %269

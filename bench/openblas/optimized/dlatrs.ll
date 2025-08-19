@@ -548,8 +548,8 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %298
 
 .sink.split.sink.split.sink.split:                ; preds = %258, %270
-  %.sink728 = phi double [ %271, %270 ], [ %259, %258 ]
-  store double %.sink728, ptr %17, align 8, !tbaa !7
+  %.sink760 = phi double [ %271, %270 ], [ %259, %258 ]
+  store double %.sink760, ptr %17, align 8, !tbaa !7
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %.sink.split.sink.split.sink.split, %265
@@ -563,9 +563,9 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %262, %254
-  %.sink711 = phi double [ %235, %254 ], [ %235, %262 ], [ %.pre687, %.sink.split.sink.split ]
+  %.sink743 = phi double [ %235, %254 ], [ %235, %262 ], [ %.pre687, %.sink.split.sink.split ]
   %.2479.ph = phi double [ %.1478622, %254 ], [ %.1478622, %262 ], [ %279, %.sink.split.sink.split ]
-  %280 = fdiv double %.sink711, %.0485
+  %280 = fdiv double %.sink743, %.0485
   store double %280, ptr %234, align 8, !tbaa !7
   store double %280, ptr %15, align 8, !tbaa !7
   %281 = fcmp oge double %280, 0.000000e+00
@@ -596,7 +596,7 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %295 = load double, ptr %17, align 8, !tbaa !7
   %296 = load double, ptr %8, align 8, !tbaa !7
   %297 = fmul double %295, %296
-  br label %.sink.split712
+  br label %.sink.split744
 
 298:                                              ; preds = %.thread562, %284
   %.0452567 = phi double [ 1.000000e+00, %.thread562 ], [ %.0452, %284 ]
@@ -612,16 +612,16 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dscal_(ptr noundef nonnull %4, ptr noundef nonnull @c_b36, ptr noundef nonnull %7, ptr noundef nonnull @c__1) #6
   %305 = load double, ptr %8, align 8, !tbaa !7
   %306 = fmul double %305, 5.000000e-01
-  br label %.sink.split712
+  br label %.sink.split744
 
-.sink.split712:                                   ; preds = %293, %304
-  %.sink713 = phi double [ %306, %304 ], [ %297, %293 ]
+.sink.split744:                                   ; preds = %293, %304
+  %.sink745 = phi double [ %306, %304 ], [ %297, %293 ]
   %.2479565.ph = phi double [ %.2479566, %304 ], [ %.2479, %293 ]
-  store double %.sink713, ptr %8, align 8, !tbaa !7
+  store double %.sink745, ptr %8, align 8, !tbaa !7
   br label %307
 
-307:                                              ; preds = %.sink.split712, %298, %286
-  %.2479565 = phi double [ %.2479566, %298 ], [ %.2479, %286 ], [ %.2479565.ph, %.sink.split712 ]
+307:                                              ; preds = %.sink.split744, %298, %286
+  %.2479565 = phi double [ %.2479566, %298 ], [ %.2479, %286 ], [ %.2479565.ph, %.sink.split744 ]
   br i1 %.not.not.not, label %321, label %308
 
 308:                                              ; preds = %307
@@ -643,7 +643,7 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @daxpy_(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %319, ptr noundef nonnull @c__1, ptr noundef nonnull %7, ptr noundef nonnull @c__1) #6
   store i32 %311, ptr %14, align 4, !tbaa !3
   %320 = call i32 @idamax_(ptr noundef nonnull %14, ptr noundef nonnull %7, ptr noundef nonnull @c__1) #6
-  br label %.sink.split714
+  br label %.sink.split746
 
 321:                                              ; preds = %307
   %322 = load i32, ptr %4, align 4, !tbaa !3
@@ -671,11 +671,11 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %338, ptr %14, align 4, !tbaa !3
   %339 = call i32 @idamax_(ptr noundef nonnull %14, ptr noundef nonnull %336, ptr noundef nonnull @c__1) #6
   %340 = add nsw i32 %339, %.6623
-  br label %.sink.split714
+  br label %.sink.split746
 
-.sink.split714:                                   ; preds = %324, %310
-  %.sink723 = phi i32 [ %320, %310 ], [ %340, %324 ]
-  %341 = sext i32 %.sink723 to i64
+.sink.split746:                                   ; preds = %324, %310
+  %.sink755 = phi i32 [ %320, %310 ], [ %340, %324 ]
+  %341 = sext i32 %.sink755 to i64
   %342 = getelementptr inbounds double, ptr %21, i64 %341
   %343 = load double, ptr %342, align 8, !tbaa !7
   store double %343, ptr %15, align 8, !tbaa !7
@@ -684,8 +684,8 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %346 = select i1 %344, double %343, double %345
   br label %347
 
-347:                                              ; preds = %.sink.split714, %308, %321
-  %.5482 = phi double [ %.2479565, %308 ], [ %.2479565, %321 ], [ %346, %.sink.split714 ]
+347:                                              ; preds = %.sink.split746, %308, %321
+  %.5482 = phi double [ %.2479565, %308 ], [ %.2479565, %321 ], [ %346, %.sink.split746 ]
   %348 = load i32, ptr %13, align 4, !tbaa !3
   %349 = add nsw i32 %348, %.6623
   %350 = icmp slt i32 %348, 0
@@ -847,15 +847,15 @@ thread-pre-split568:                              ; preds = %379, %384
   %434 = mul nsw i32 %.7642, %18
   %435 = sext i32 %434 to i64
   %wide.trip.count682 = sext i32 %431 to i64
-  %invariant.gep702 = getelementptr double, ptr %20, i64 %435
+  %invariant.gep734 = getelementptr double, ptr %20, i64 %435
   br label %436
 
 436:                                              ; preds = %433, %436
   %indvars.iv679 = phi i64 [ %356, %433 ], [ %indvars.iv.next680, %436 ]
   %.2470632 = phi double [ 0.000000e+00, %433 ], [ %441, %436 ]
   %indvars.iv.next680 = add nsw i64 %indvars.iv679, 1
-  %gep703 = getelementptr double, ptr %invariant.gep702, i64 %indvars.iv.next680
-  %437 = load double, ptr %gep703, align 8, !tbaa !7
+  %gep735 = getelementptr double, ptr %invariant.gep734, i64 %indvars.iv.next680
+  %437 = load double, ptr %gep735, align 8, !tbaa !7
   %438 = fmul double %.0459, %437
   %439 = getelementptr double, ptr %7, i64 %indvars.iv679
   %440 = load double, ptr %439, align 8, !tbaa !7

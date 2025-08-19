@@ -103,8 +103,8 @@ GETENV_S.exit:                                    ; preds = %8
 
 14:                                               ; preds = %12, %7
   %lhsv = load i16, ptr %1, align 2
-  %.not29 = icmp eq i16 %lhsv, 49
-  br i1 %.not29, label %15, label %17
+  %.not32 = icmp eq i16 %lhsv, 49
+  br i1 %.not32, label %15, label %17
 
 15:                                               ; preds = %14
   %16 = and i32 %5, 8
@@ -136,9 +136,9 @@ GETENV_S.exit14:                                  ; preds = %21
   br label %30
 
 27:                                               ; preds = %25, %20
-  %lhsv30 = load i16, ptr %1, align 2
-  %.not31 = icmp eq i16 %lhsv30, 49
-  br i1 %.not31, label %28, label %30
+  %lhsv33 = load i16, ptr %1, align 2
+  %.not34 = icmp eq i16 %lhsv33, 49
+  br i1 %.not34, label %28, label %30
 
 28:                                               ; preds = %27
   %29 = and i32 %18, 128
@@ -169,9 +169,9 @@ GETENV_S.exit17:                                  ; preds = %33
   br label %41
 
 39:                                               ; preds = %37, %32
-  %lhsv32 = load i16, ptr %1, align 2
-  %.not33 = icmp eq i16 %lhsv32, 49
-  br i1 %.not33, label %40, label %41
+  %lhsv35 = load i16, ptr %1, align 2
+  %.not36 = icmp eq i16 %lhsv35, 49
+  br i1 %.not36, label %40, label %41
 
 40:                                               ; preds = %39
   store i32 0, ptr %2, align 4, !tbaa !3
@@ -197,9 +197,9 @@ GETENV_S.exit17:                                  ; preds = %33
   br label %50
 
 50:                                               ; preds = %48, %43
-  %lhsv34 = load i16, ptr %1, align 2
-  %.not35 = icmp eq i16 %lhsv34, 49
-  br i1 %.not35, label %51, label %GETENV_S.exit20
+  %lhsv37 = load i16, ptr %1, align 2
+  %.not38 = icmp eq i16 %lhsv37, 49
+  br i1 %.not38, label %51, label %GETENV_S.exit20
 
 51:                                               ; preds = %50
   %52 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @simd_huffman)

@@ -644,9 +644,9 @@ Vec_IntPush.exit97.i.sink.split:                  ; preds = %Vec_IntPush.exit90.
   %265 = shl nuw nsw i32 %261, 1
   %266 = zext nneg i32 %265 to i64
   %267 = shl nuw nsw i64 %266, 2
-  %.sink196 = select i1 %264, i64 64, i64 %267
+  %.sink229 = select i1 %264, i64 64, i64 %267
   %.sink = select i1 %264, i32 16, i32 %265
-  %268 = tail call ptr @realloc(ptr noundef nonnull %256, i64 noundef %.sink196) #20
+  %268 = tail call ptr @realloc(ptr noundef nonnull %256, i64 noundef %.sink229) #20
   store ptr %268, ptr %92, align 8, !tbaa !11
   store i32 %.sink, ptr %89, align 8, !tbaa !10
   br label %Vec_IntPush.exit97.i
@@ -679,11 +679,11 @@ Vec_IntPush.exit104.i.sink.split:                 ; preds = %.lr.ph129.i
   %282 = shl nuw nsw i32 %278, 1
   %283 = zext nneg i32 %282 to i64
   %284 = shl nuw nsw i64 %283, 2
-  %.sink199 = select i1 %281, i64 64, i64 %284
-  %.sink197 = select i1 %281, i32 16, i32 %282
-  %285 = tail call ptr @realloc(ptr noundef nonnull %275, i64 noundef %.sink199) #20
+  %.sink232 = select i1 %281, i64 64, i64 %284
+  %.sink230 = select i1 %281, i32 16, i32 %282
+  %285 = tail call ptr @realloc(ptr noundef nonnull %275, i64 noundef %.sink232) #20
   store ptr %285, ptr %92, align 8, !tbaa !11
-  store i32 %.sink197, ptr %89, align 8, !tbaa !10
+  store i32 %.sink230, ptr %89, align 8, !tbaa !10
   br label %Vec_IntPush.exit104.i
 
 Vec_IntPush.exit104.i:                            ; preds = %Vec_IntPush.exit104.i.sink.split, %.lr.ph129.i
@@ -718,11 +718,11 @@ Vec_IntPush.exit111.i.sink.split:                 ; preds = %294
   %299 = shl nuw nsw i32 %295, 1
   %300 = zext nneg i32 %299 to i64
   %301 = shl nuw nsw i64 %300, 2
-  %.sink202 = select i1 %298, i64 64, i64 %301
-  %.sink200 = select i1 %298, i32 16, i32 %299
-  %302 = tail call ptr @realloc(ptr noundef nonnull %292, i64 noundef %.sink202) #20
+  %.sink235 = select i1 %298, i64 64, i64 %301
+  %.sink233 = select i1 %298, i32 16, i32 %299
+  %302 = tail call ptr @realloc(ptr noundef nonnull %292, i64 noundef %.sink235) #20
   store ptr %302, ptr %92, align 8, !tbaa !11
-  store i32 %.sink200, ptr %89, align 8, !tbaa !10
+  store i32 %.sink233, ptr %89, align 8, !tbaa !10
   br label %Vec_IntPush.exit111.i
 
 Vec_IntPush.exit111.i:                            ; preds = %Vec_IntPush.exit111.i.sink.split, %294
@@ -1044,8 +1044,8 @@ define void @Fxch_CubesUnGruping(ptr noundef captures(none) %0) local_unnamed_ad
   br label %.lr.ph
 
 .preheader61:                                     ; preds = %.lr.ph
-  %.not86 = icmp eq i32 %47, 0
-  br i1 %.not86, label %.loopexit, label %.preheader
+  %.not95 = icmp eq i32 %47, 0
+  br i1 %.not95, label %.loopexit, label %.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]

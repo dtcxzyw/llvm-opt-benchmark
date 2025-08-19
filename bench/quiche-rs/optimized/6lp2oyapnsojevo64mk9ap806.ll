@@ -1506,9 +1506,9 @@ thread-pre-split:                                 ; preds = %520, %516, %490, %3
   br i1 %367, label %370, label %376
 
 368:                                              ; preds = %362, %357
-  %.sink431 = phi i64 [ 16, %357 ], [ 8, %362 ]
+  %.sink441 = phi i64 [ 16, %357 ], [ 8, %362 ]
   %.sink = phi i64 [ %360, %357 ], [ 3, %362 ]
-  %369 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink431
+  %369 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink441
   store i64 %.sink, ptr %369, align 8
   store i64 29, ptr %0, align 8
   br label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17h3a613914d17b4c33E.exit"
@@ -1594,10 +1594,10 @@ thread-pre-split:                                 ; preds = %520, %516, %490, %3
   br label %thread-pre-split
 
 394:                                              ; preds = %386, %396
-  %.sink440 = phi i64 [ 16, %396 ], [ 8, %386 ]
-  %.sink438 = phi i64 [ %398, %396 ], [ 1, %386 ]
-  %395 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink440
-  store i64 %.sink438, ptr %395, align 8
+  %.sink450 = phi i64 [ 16, %396 ], [ 8, %386 ]
+  %.sink448 = phi i64 [ %398, %396 ], [ 1, %386 ]
+  %395 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink450
+  store i64 %.sink448, ptr %395, align 8
   store i64 29, ptr %0, align 8
   call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -1672,10 +1672,10 @@ thread-pre-split:                                 ; preds = %520, %516, %490, %3
   br label %thread-pre-split
 
 424:                                              ; preds = %418, %413
-  %.sink434 = phi i64 [ 16, %413 ], [ 8, %418 ]
-  %.sink432 = phi i64 [ %416, %413 ], [ 1, %418 ]
-  %425 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink434
-  store i64 %.sink432, ptr %425, align 8
+  %.sink444 = phi i64 [ 16, %413 ], [ 8, %418 ]
+  %.sink442 = phi i64 [ %416, %413 ], [ 1, %418 ]
+  %425 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink444
+  store i64 %.sink442, ptr %425, align 8
   store i64 29, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17h3a613914d17b4c33E.exit"
@@ -1710,10 +1710,10 @@ thread-pre-split:                                 ; preds = %520, %516, %490, %3
   br label %thread-pre-split
 
 437:                                              ; preds = %431, %426
-  %.sink437 = phi i64 [ 16, %426 ], [ 8, %431 ]
-  %.sink435 = phi i64 [ %429, %426 ], [ 1, %431 ]
-  %438 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink437
-  store i64 %.sink435, ptr %438, align 8
+  %.sink447 = phi i64 [ 16, %426 ], [ 8, %431 ]
+  %.sink445 = phi i64 [ %429, %426 ], [ 1, %431 ]
+  %438 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink447
+  store i64 %.sink445, ptr %438, align 8
   store i64 29, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17h3a613914d17b4c33E.exit"
@@ -5601,7 +5601,7 @@ define internal fastcc void @_ZN6quiche5frame15parse_ack_frame17ha79e73649bb905f
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %.noexc53, %.invoke111.invoke, %71, %72, %111, %118, %124, %87, %.noexc54, %93
+.loopexit.split-lp:                               ; preds = %.noexc53, %.invoke116.invoke, %71, %72, %111, %118, %124, %87, %.noexc54, %93
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -5771,7 +5771,7 @@ _ZN6quiche6ranges8RangeSet5fixup17he0ee683f30d10b21E.exit: ; preds = %77, %.noex
   %115 = extractvalue { i64, i64 } %112, 0
   %116 = trunc nuw i64 %115 to i1
   %117 = extractvalue { i64, i64 } %112, 1
-  br i1 %116, label %.invoke111.invoke, label %118
+  br i1 %116, label %.invoke116.invoke, label %118
 
 118:                                              ; preds = %114
   %119 = invoke { i64, i64 } @_ZN6octets6Octets10get_varint17h0a843e9e8c0f8620E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
@@ -5781,7 +5781,7 @@ _ZN6quiche6ranges8RangeSet5fixup17he0ee683f30d10b21E.exit: ; preds = %77, %.noex
   %121 = extractvalue { i64, i64 } %119, 0
   %122 = trunc nuw i64 %121 to i1
   %123 = extractvalue { i64, i64 } %119, 1
-  br i1 %122, label %.invoke111.invoke, label %124
+  br i1 %122, label %.invoke116.invoke, label %124
 
 124:                                              ; preds = %120
   %125 = invoke { i64, i64 } @_ZN6octets6Octets10get_varint17h0a843e9e8c0f8620E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
@@ -5791,34 +5791,34 @@ _ZN6quiche6ranges8RangeSet5fixup17he0ee683f30d10b21E.exit: ; preds = %77, %.noex
   %127 = extractvalue { i64, i64 } %125, 0
   %128 = trunc nuw i64 %127 to i1
   %129 = extractvalue { i64, i64 } %125, 1
-  br i1 %128, label %.invoke111.invoke, label %113
+  br i1 %128, label %.invoke116.invoke, label %113
 
 130:                                              ; preds = %"_ZN4core3ptr45drop_in_place$LT$quiche..ranges..RangeSet$GT$17h62981c01feec814eE.exit", %113, %69, %55, %44, %33, %22
   ret void
 
-.sink.split:                                      ; preds = %.invoke111.invoke
+.sink.split:                                      ; preds = %.invoke116.invoke
   %131 = extractvalue { i64, i64 } %144, 0
   %132 = extractvalue { i64, i64 } %144, 1
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %131, ptr %133, align 8
-  br label %.loopexit112
+  br label %.loopexit117
 
-.loopexit112:                                     ; preds = %156, %145, %.sink.split
-  %.sink106 = phi i64 [ 16, %.sink.split ], [ 8, %145 ], [ 8, %156 ]
-  %.sink104 = phi i64 [ %132, %.sink.split ], [ 3, %145 ], [ 3, %156 ]
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink106
-  store i64 %.sink104, ptr %134, align 8
+.loopexit117:                                     ; preds = %156, %145, %.sink.split
+  %.sink111 = phi i64 [ 16, %.sink.split ], [ 8, %145 ], [ 8, %156 ]
+  %.sink109 = phi i64 [ %132, %.sink.split ], [ 3, %145 ], [ 3, %156 ]
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink111
+  store i64 %.sink109, ptr %134, align 8
   store i64 29, ptr %0, align 8
   %135 = load i64, ptr %17, align 8, !range !91, !alias.scope !239, !noundef !12
   %136 = icmp eq i64 %135, 0
   %137 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br i1 %136, label %138, label %139
 
-138:                                              ; preds = %.loopexit112
+138:                                              ; preds = %.loopexit117
   call void @"_ZN4core3ptr51drop_in_place$LT$quiche..ranges..InlineRangeSet$GT$17hdec940a9881feb91E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %137)
   br label %"_ZN4core3ptr45drop_in_place$LT$quiche..ranges..RangeSet$GT$17h62981c01feec814eE.exit"
 
-139:                                              ; preds = %.loopexit112
+139:                                              ; preds = %.loopexit117
   call void @"_ZN4core3ptr50drop_in_place$LT$quiche..ranges..BTreeRangeSet$GT$17h0dad9f62c982fbc2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %137)
   br label %"_ZN4core3ptr45drop_in_place$LT$quiche..ranges..RangeSet$GT$17h62981c01feec814eE.exit"
 
@@ -5830,16 +5830,16 @@ _ZN6quiche6ranges8RangeSet5fixup17he0ee683f30d10b21E.exit: ; preds = %77, %.noex
   %141 = extractvalue { i64, i64 } %110, 0
   %142 = trunc nuw i64 %141 to i1
   %143 = extractvalue { i64, i64 } %110, 1
-  br i1 %142, label %.invoke111.invoke, label %145
+  br i1 %142, label %.invoke116.invoke, label %145
 
-.invoke111.invoke:                                ; preds = %140, %152, %114, %120, %126
+.invoke116.invoke:                                ; preds = %140, %152, %114, %120, %126
   %144 = invoke { i64, i64 } @"_ZN88_$LT$quiche..Error$u20$as$u20$core..convert..From$LT$octets..BufferTooShortError$GT$$GT$4from17h70092d1a2571d82bE"()
           to label %.sink.split unwind label %.loopexit.split-lp
 
 145:                                              ; preds = %140
   %146 = add i64 %143, 2
   %147 = icmp ult i64 %.sroa.019.096, %146
-  br i1 %147, label %.loopexit112, label %148
+  br i1 %147, label %.loopexit117, label %148
 
 148:                                              ; preds = %145
   %149 = sub i64 %.sroa.019.096, %143
@@ -5851,11 +5851,11 @@ _ZN6quiche6ranges8RangeSet5fixup17he0ee683f30d10b21E.exit: ; preds = %77, %.noex
   %153 = extractvalue { i64, i64 } %151, 0
   %154 = trunc nuw i64 %153 to i1
   %155 = extractvalue { i64, i64 } %151, 1
-  br i1 %154, label %.invoke111.invoke, label %156
+  br i1 %154, label %.invoke116.invoke, label %156
 
 156:                                              ; preds = %152
   %157 = icmp ult i64 %150, %155
-  br i1 %157, label %.loopexit112, label %158
+  br i1 %157, label %.loopexit117, label %158
 
 158:                                              ; preds = %156
   %159 = sub nuw i64 %150, %155

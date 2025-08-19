@@ -574,8 +574,8 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit172:          ; preds = %161
   br label %172
 
 ._crit_edge260:                                   ; preds = %.loopexit
-  %.idx304 = shl nuw nsw i64 %167, 3
-  call void @_ZdlPvm(ptr noundef nonnull %165, i64 noundef %.idx304) #21
+  %.idx324 = shl nuw nsw i64 %167, 3
+  call void @_ZdlPvm(ptr noundef nonnull %165, i64 noundef %.idx324) #21
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
 170:                                              ; preds = %143

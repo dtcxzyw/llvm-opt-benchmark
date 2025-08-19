@@ -186,11 +186,11 @@ define dso_local void @_ZN35btSoftBodyConcaveCollisionAlgorithmC2ERK36btCollisio
   store i32 0, ptr %28, align 8, !tbaa !49
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %..i = select i1 %4, ptr %3, ptr %2
-  %.12.i = select i1 %4, ptr %2, ptr %3
+  %.15.i = select i1 %4, ptr %2, ptr %3
   %30 = getelementptr inbounds nuw i8, ptr %..i, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !50
   store ptr %31, ptr %29, align 8, !tbaa !55
-  %.in.i = getelementptr inbounds nuw i8, ptr %.12.i, i64 16
+  %.in.i = getelementptr inbounds nuw i8, ptr %.15.i, i64 16
   %32 = load ptr, ptr %.in.i, align 8, !tbaa !50
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %32, ptr %33, align 8, !tbaa !56
@@ -275,11 +275,11 @@ define dso_local void @_ZN26btSoftBodyTriangleCallbackC2EP12btDispatcherPK24btCo
   store i32 0, ptr %23, align 8, !tbaa !49
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %. = select i1 %4, ptr %3, ptr %2
-  %.12 = select i1 %4, ptr %2, ptr %3
+  %.15 = select i1 %4, ptr %2, ptr %3
   %25 = getelementptr inbounds nuw i8, ptr %., i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !50
   store ptr %26, ptr %24, align 8, !tbaa !55
-  %.in = getelementptr inbounds nuw i8, ptr %.12, i64 16
+  %.in = getelementptr inbounds nuw i8, ptr %.15, i64 16
   %27 = load ptr, ptr %.in, align 8, !tbaa !50
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !56
@@ -2972,8 +2972,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK15btTriangleShape8isInside
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %105 = add nuw nsw i32 %.01852, 1
   %exitcond = icmp ne i32 %105, 3
-  %or.cond53.not = select i1 %104, i1 %exitcond, i1 false
-  br i1 %or.cond53.not, label %68, label %.loopexit, !llvm.loop !252
+  %or.cond54.not = select i1 %104, i1 %exitcond, i1 false
+  br i1 %or.cond54.not, label %68, label %.loopexit, !llvm.loop !252
 
 .loopexit:                                        ; preds = %68, %3
   %.3 = phi i1 [ false, %3 ], [ %104, %68 ]
@@ -3094,14 +3094,14 @@ _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %_ZN20btAlignedObjec
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i8, ptr %25, align 8, !range !167
   %27 = trunc nuw i8 %26 to i1
-  %or.cond27.i = select i1 %.not.i5.i.i, i1 %27, i1 false
-  br i1 %or.cond27.i, label %28, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
+  %or.cond29.i = select i1 %.not.i5.i.i, i1 %27, i1 false
+  br i1 %or.cond29.i, label %28, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i: ; preds = %21
   %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.old25.i = load i8, ptr %.old.i, align 8, !tbaa !38, !range !167, !noundef !194
-  %.old26.i = trunc nuw i8 %.old25.i to i1
-  br i1 %.old26.i, label %28, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
+  %.old27.i = load i8, ptr %.old.i, align 8, !tbaa !38, !range !167, !noundef !194
+  %.old28.i = trunc nuw i8 %.old27.i to i1
+  br i1 %.old28.i, label %28, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
 
 28:                                               ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %20)
@@ -3177,14 +3177,14 @@ _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i30: ; preds = %_ZN20btAlignedObj
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = load i8, ptr %54, align 8, !range !167
   %56 = trunc nuw i8 %55 to i1
-  %or.cond27.i32 = select i1 %.not.i5.i.i31, i1 %56, i1 false
-  br i1 %or.cond27.i32, label %57, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i33
+  %or.cond29.i32 = select i1 %.not.i5.i.i31, i1 %56, i1 false
+  br i1 %or.cond29.i32, label %57, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i33
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i39: ; preds = %50
   %.old.i40 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.old25.i41 = load i8, ptr %.old.i40, align 8, !tbaa !38, !range !167, !noundef !194
-  %.old26.i42 = trunc nuw i8 %.old25.i41 to i1
-  br i1 %.old26.i42, label %57, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i33
+  %.old27.i41 = load i8, ptr %.old.i40, align 8, !tbaa !38, !range !167, !noundef !194
+  %.old28.i42 = trunc nuw i8 %.old27.i41 to i1
+  br i1 %.old28.i42, label %57, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i33
 
 57:                                               ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i39, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i30
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %49)

@@ -1250,9 +1250,9 @@ _ZNK2cv3PtrINS_6detail8tracking15contrib_feature18CvFeatureEvaluatorEE10staticCa
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %38, %35
   %40 = phi ptr [ %30, %35 ], [ %.pr.pre.i.i.i.i, %38 ]
   %.not8.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not8.i.i.i.i, label %_ZN2cv3PtrINS_6detail8tracking15contrib_feature15CvHaarEvaluatorEEaSERKS5_.exit.thread20, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.thread
+  br i1 %.not8.i.i.i.i, label %_ZN2cv3PtrINS_6detail8tracking15contrib_feature15CvHaarEvaluatorEEaSERKS5_.exit.thread26, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.thread
 
-_ZN2cv3PtrINS_6detail8tracking15contrib_feature15CvHaarEvaluatorEEaSERKS5_.exit.thread20: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
+_ZN2cv3PtrINS_6detail8tracking15contrib_feature15CvHaarEvaluatorEEaSERKS5_.exit.thread26: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
   store ptr %20, ptr %29, align 8, !tbaa !35
   br label %_ZN2cv3PtrINS_6detail8tracking15contrib_feature15CvHaarEvaluatorEEaSERKS5_.exit.thread
 
@@ -1306,7 +1306,7 @@ _ZN2cv3PtrINS_6detail8tracking15contrib_feature15CvHaarEvaluatorEEaSERKS5_.exit:
   store ptr %20, ptr %42, align 8, !tbaa !35
   br i1 %.not.i.i.i.i.i, label %_ZNSt12__shared_ptrIN2cv6detail8tracking15contrib_feature15CvHaarEvaluatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZN2cv3PtrINS_6detail8tracking15contrib_feature15CvHaarEvaluatorEEaSERKS5_.exit.thread
 
-_ZN2cv3PtrINS_6detail8tracking15contrib_feature15CvHaarEvaluatorEEaSERKS5_.exit.thread: ; preds = %_ZNK2cv3PtrINS_6detail8tracking15contrib_feature18CvFeatureEvaluatorEE10staticCastINS3_15CvHaarEvaluatorEEENS0_IT_EEv.exit, %_ZN2cv3PtrINS_6detail8tracking15contrib_feature15CvHaarEvaluatorEEaSERKS5_.exit.thread20, %_ZN2cv3PtrINS_6detail8tracking15contrib_feature15CvHaarEvaluatorEEaSERKS5_.exit
+_ZN2cv3PtrINS_6detail8tracking15contrib_feature15CvHaarEvaluatorEEaSERKS5_.exit.thread: ; preds = %_ZNK2cv3PtrINS_6detail8tracking15contrib_feature18CvFeatureEvaluatorEE10staticCastINS3_15CvHaarEvaluatorEEENS0_IT_EEv.exit, %_ZN2cv3PtrINS_6detail8tracking15contrib_feature15CvHaarEvaluatorEEaSERKS5_.exit.thread26, %_ZN2cv3PtrINS_6detail8tracking15contrib_feature15CvHaarEvaluatorEEaSERKS5_.exit
   %63 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %64 = load atomic i64, ptr %63 acquire, align 8
   %65 = icmp eq i64 %64, 4294967297

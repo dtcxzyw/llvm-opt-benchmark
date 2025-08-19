@@ -322,11 +322,11 @@ bytestream2_put_be32.exit177.thread:              ; preds = %117, %bytestream2_p
   br label %bytestream2_put_be32.exit179.preheader
 
 bytestream2_put_be32.exit179.preheader:           ; preds = %131, %bytestream2_put_be32.exit177.thread
-  %.ph404 = phi ptr [ %134, %bytestream2_put_be32.exit177.thread ], [ %133, %131 ]
+  %.ph425 = phi ptr [ %134, %bytestream2_put_be32.exit177.thread ], [ %133, %131 ]
   br label %bytestream2_put_be32.exit179
 
 bytestream2_put_be32.exit179:                     ; preds = %bytestream2_put_be32.exit179.preheader, %bytestream2_put_byte.exit170
-  %135 = phi ptr [ %147, %bytestream2_put_byte.exit170 ], [ %.ph404, %bytestream2_put_be32.exit179.preheader ]
+  %135 = phi ptr [ %147, %bytestream2_put_byte.exit170 ], [ %.ph425, %bytestream2_put_be32.exit179.preheader ]
   %.0139243 = phi i32 [ %148, %bytestream2_put_byte.exit170 ], [ 0, %bytestream2_put_be32.exit179.preheader ]
   %136 = load i32, ptr %46, align 8, !tbaa !39
   %.not.i169 = icmp eq i32 %136, 0
@@ -816,8 +816,8 @@ bytestream2_put_be32.exit183.us:                  ; preds = %332, %328
   %362 = getelementptr inbounds nuw i8, ptr %.05561.i.us, i64 %361
   %363 = load i16, ptr %362, align 1, !tbaa !40
   %364 = load i32, ptr %46, align 8, !tbaa !39
-  %.not.i78.i.us = icmp eq i32 %364, 0
-  br i1 %.not.i78.i.us, label %365, label %372
+  %.not.i82.i.us = icmp eq i32 %364, 0
+  br i1 %.not.i82.i.us, label %365, label %372
 
 365:                                              ; preds = %.lr.ph.split.i.us
   %366 = load ptr, ptr %45, align 8, !tbaa !38

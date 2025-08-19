@@ -1296,12 +1296,12 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   br label %53
 
 53:                                               ; preds = %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i.i, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i.i
-  %.0.i.i.i.i9.i.i = phi ptr [ %44, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i.i ], [ %52, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i.i ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i9.i.i, ptr align 1 %3, i64 %4, i1 false)
+  %.0.i.i.i.i12.i.i = phi ptr [ %44, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i.i ], [ %52, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i.i ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i12.i.i, ptr align 1 %3, i64 %4, i1 false)
   br label %_ZN4llvm15DIEInlineStringC2INS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEENS_9StringRefERT_.exit
 
 _ZN4llvm15DIEInlineStringC2INS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEENS_9StringRefERT_.exit: ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit, %53
-  %.sroa.0.0.i.i = phi ptr [ null, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit ], [ %.0.i.i.i.i9.i.i, %53 ]
+  %.sroa.0.0.i.i = phi ptr [ null, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit ], [ %.0.i.i.i.i12.i.i, %53 ]
   store ptr %.sroa.0.0.i.i, ptr %.0.i.i.i, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %4, ptr %54, align 8
@@ -3256,18 +3256,18 @@ define dso_local void @_ZN4llvm9DwarfUnit17addTemplateParamsERNS_3DIEENS_24MDTup
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
 
 _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit: ; preds = %8, %14
-  %.sroa.0.0.i.ph32 = phi ptr [ %18, %14 ], [ %10, %8 ]
+  %.sroa.0.0.i.ph33 = phi ptr [ %18, %14 ], [ %10, %8 ]
   %.sroa.3.0.i.i.i.i = phi i64 [ %24, %14 ], [ %13, %8 ]
   %.sroa.0.0.i.i.i.i = phi ptr [ %22, %14 ], [ %10, %8 ]
   %25 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i
-  %.not2529 = icmp eq ptr %.sroa.0.0.i.ph32, %25
+  %.not2529 = icmp eq ptr %.sroa.0.0.i.ph33, %25
   br i1 %.not2529, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %30, %3, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
   ret void
 
 .lr.ph:                                           ; preds = %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit, %30
-  %.sroa.017.030 = phi ptr [ %31, %30 ], [ %.sroa.0.0.i.ph32, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit ]
+  %.sroa.017.030 = phi ptr [ %31, %30 ], [ %.sroa.0.0.i.ph33, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit ]
   %26 = load ptr, ptr %.sroa.017.030, align 8, !tbaa !485
   %27 = load i8, ptr %26, align 4, !tbaa !243
   switch i8 %27, label %30 [
@@ -3855,11 +3855,11 @@ define dso_local void @_ZN4llvm9DwarfUnit14addThrownTypesERNS_3DIEENS_24MDTupleT
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
 
 _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit: ; preds = %8, %14
-  %.sroa.0.0.i.ph21 = phi ptr [ %18, %14 ], [ %10, %8 ]
+  %.sroa.0.0.i.ph24 = phi ptr [ %18, %14 ], [ %10, %8 ]
   %.sroa.3.0.i.i.i.i = phi i64 [ %24, %14 ], [ %13, %8 ]
   %.sroa.0.0.i.i.i.i = phi ptr [ %22, %14 ], [ %10, %8 ]
   %25 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i
-  %.not18 = icmp eq ptr %.sroa.0.0.i.ph21, %25
+  %.not18 = icmp eq ptr %.sroa.0.0.i.ph24, %25
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
@@ -3874,7 +3874,7 @@ _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit: ; preds = %8, %14
   ret void
 
 31:                                               ; preds = %.lr.ph, %_ZN4llvm9DwarfUnit15createAndAddDIEENS_5dwarf3TagERNS_3DIEEPKNS_6DINodeE.exit
-  %.sroa.010.019 = phi ptr [ %.sroa.0.0.i.ph21, %.lr.ph ], [ %65, %_ZN4llvm9DwarfUnit15createAndAddDIEENS_5dwarf3TagERNS_3DIEEPKNS_6DINodeE.exit ]
+  %.sroa.010.019 = phi ptr [ %.sroa.0.0.i.ph24, %.lr.ph ], [ %65, %_ZN4llvm9DwarfUnit15createAndAddDIEENS_5dwarf3TagERNS_3DIEEPKNS_6DINodeE.exit ]
   %32 = load ptr, ptr %.sroa.010.019, align 8, !tbaa !485
   %33 = load i64, ptr %27, align 8, !tbaa !475
   %34 = add i64 %33, 48
@@ -4766,8 +4766,8 @@ _ZNK4llvm7DIScope7getFileEv.exit.thread:          ; preds = %183
   %191 = getelementptr inbounds i8, ptr %1, i64 -32
   %192 = load ptr, ptr %191, align 8, !tbaa !23
   %193 = load ptr, ptr %192, align 8, !tbaa !485
-  %.not41162 = icmp eq ptr %193, null
-  br i1 %.not41162, label %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit, label %.thread
+  %.not41172 = icmp eq ptr %193, null
+  br i1 %.not41172, label %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit, label %.thread
 
 .thread:                                          ; preds = %_ZNK4llvm7DIScope7getFileEv.exit.thread
   %194 = getelementptr inbounds i8, ptr %1, i64 -32
@@ -5097,15 +5097,15 @@ _ZNK4llvm15DICompositeType17getTemplateParamsEv.exit: ; preds = %58, %61
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i
 
 _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i: ; preds = %78, %72
-  %.sroa.0.0.i.ph32.i = phi ptr [ %82, %78 ], [ %74, %72 ]
+  %.sroa.0.0.i.ph33.i = phi ptr [ %82, %78 ], [ %74, %72 ]
   %.sroa.3.0.i.i.i.i.i = phi i64 [ %84, %78 ], [ %77, %72 ]
   %.idx = shl nuw nsw i64 %.sroa.3.0.i.i.i.i.i, 3
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.ph32.i, i64 %.idx
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.ph33.i, i64 %.idx
   %.not2529.i = icmp eq i64 %.sroa.3.0.i.i.i.i.i, 0
   br i1 %.not2529.i, label %_ZN4llvm9DwarfUnit17addTemplateParamsERNS_3DIEENS_24MDTupleTypedArrayWrapperINS_6DINodeEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i, %90
-  %.sroa.017.030.i = phi ptr [ %91, %90 ], [ %.sroa.0.0.i.ph32.i, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i ]
+  %.sroa.017.030.i = phi ptr [ %91, %90 ], [ %.sroa.0.0.i.ph33.i, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i ]
   %86 = load ptr, ptr %.sroa.017.030.i, align 8, !tbaa !485
   %87 = load i8, ptr %86, align 4, !tbaa !243
   switch i8 %87, label %90 [
@@ -5181,11 +5181,11 @@ _ZNK4llvm15DICompositeType11getElementsEv.exit:   ; preds = %94, %97
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
 
 _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit: ; preds = %108, %114
-  %.sroa.0.0.i.ph434 = phi ptr [ %118, %114 ], [ %110, %108 ]
+  %.sroa.0.0.i.ph470 = phi ptr [ %118, %114 ], [ %110, %108 ]
   %.sroa.3.0.i.i.i.i = phi i64 [ %124, %114 ], [ %113, %108 ]
   %.sroa.0.0.i.i.i.i209 = phi ptr [ %122, %114 ], [ %110, %108 ]
   %125 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i.i.i209, i64 %.sroa.3.0.i.i.i.i
-  %.not409425 = icmp eq ptr %.sroa.0.0.i.ph434, %125
+  %.not409425 = icmp eq ptr %.sroa.0.0.i.ph470, %125
   br i1 %.not409425, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
@@ -5218,7 +5218,7 @@ _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit: ; preds = %108, %11
   br i1 %.not410, label %516, label %515
 
 148:                                              ; preds = %.lr.ph, %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit275
-  %.sroa.0372.0426 = phi ptr [ %.sroa.0.0.i.ph434, %.lr.ph ], [ %514, %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit275 ]
+  %.sroa.0372.0426 = phi ptr [ %.sroa.0.0.i.ph470, %.lr.ph ], [ %514, %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit275 ]
   %149 = load ptr, ptr %.sroa.0372.0426, align 8, !tbaa !485
   %.not185 = icmp eq ptr %149, null
   br i1 %.not185, label %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit275, label %150
@@ -8263,15 +8263,15 @@ _ZNK4llvm13DIDerivedType17getTemplateParamsEv.exit: ; preds = %182, %185
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i
 
 _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i: ; preds = %202, %196
-  %.sroa.0.0.i.ph32.i = phi ptr [ %206, %202 ], [ %198, %196 ]
+  %.sroa.0.0.i.ph33.i = phi ptr [ %206, %202 ], [ %198, %196 ]
   %.sroa.3.0.i.i.i.i.i = phi i64 [ %208, %202 ], [ %201, %196 ]
   %.idx = shl nuw nsw i64 %.sroa.3.0.i.i.i.i.i, 3
-  %209 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.ph32.i, i64 %.idx
+  %209 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.ph33.i, i64 %.idx
   %.not2529.i = icmp eq i64 %.sroa.3.0.i.i.i.i.i, 0
   br i1 %.not2529.i, label %_ZN4llvm9DwarfUnit17addTemplateParamsERNS_3DIEENS_24MDTupleTypedArrayWrapperINS_6DINodeEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i, %214
-  %.sroa.017.030.i = phi ptr [ %215, %214 ], [ %.sroa.0.0.i.ph32.i, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i ]
+  %.sroa.017.030.i = phi ptr [ %215, %214 ], [ %.sroa.0.0.i.ph33.i, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i ]
   %210 = load ptr, ptr %.sroa.017.030.i, align 8, !tbaa !485
   %211 = load i8, ptr %210, align 4, !tbaa !243
   switch i8 %211, label %214 [
@@ -8796,8 +8796,8 @@ _ZNK4llvm14DITypeRefArray4sizeEv.exit:            ; preds = %18
 _ZNK4llvm14DITypeRefArray4sizeEv.exit.thread:     ; preds = %18
   %23 = getelementptr inbounds i8, ptr %17, i64 -24
   %24 = load i32, ptr %23, align 8, !tbaa !24
-  %.not36 = icmp eq i32 %24, 0
-  br i1 %.not36, label %38, label %.thread
+  %.not38 = icmp eq i32 %24, 0
+  br i1 %.not38, label %38, label %.thread
 
 .thread:                                          ; preds = %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread
   %25 = getelementptr inbounds i8, ptr %17, i64 -32
@@ -8841,9 +8841,9 @@ _ZNK4llvm14DITypeRefArray4sizeEv.exit23.thread:   ; preds = %38
   %43 = getelementptr inbounds i8, ptr %17, i64 -24
   %44 = load i32, ptr %43, align 8, !tbaa !24
   %45 = icmp eq i32 %44, 2
-  br i1 %45, label %.thread37, label %.critedge
+  br i1 %45, label %.thread39, label %.critedge
 
-.thread37:                                        ; preds = %_ZNK4llvm14DITypeRefArray4sizeEv.exit23.thread
+.thread39:                                        ; preds = %_ZNK4llvm14DITypeRefArray4sizeEv.exit23.thread
   %46 = getelementptr inbounds i8, ptr %17, i64 -32
   %47 = load ptr, ptr %46, align 8, !tbaa !23
   br label %_ZNK4llvm14DITypeRefArrayixEj.exit26
@@ -8855,8 +8855,8 @@ _ZNK4llvm14DITypeRefArray4sizeEv.exit23.thread:   ; preds = %38
   %52 = getelementptr inbounds %"class.llvm::MDOperand", ptr %19, i64 %51
   br label %_ZNK4llvm14DITypeRefArrayixEj.exit26
 
-_ZNK4llvm14DITypeRefArrayixEj.exit26:             ; preds = %.thread37, %48
-  %.sroa.0.0.i.i.i25 = phi ptr [ %52, %48 ], [ %47, %.thread37 ]
+_ZNK4llvm14DITypeRefArrayixEj.exit26:             ; preds = %.thread39, %48
+  %.sroa.0.0.i.i.i25 = phi ptr [ %52, %48 ], [ %47, %.thread39 ]
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i25, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !485
   %.not17.not = icmp eq ptr %54, null
@@ -9915,18 +9915,18 @@ _ZNK4llvm15DICompositeType11getElementsEv.exit:   ; preds = %463, %466
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
 
 _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit: ; preds = %477, %483
-  %.sroa.0.0.i.ph202 = phi ptr [ %487, %483 ], [ %479, %477 ]
+  %.sroa.0.0.i.ph227 = phi ptr [ %487, %483 ], [ %479, %477 ]
   %.sroa.3.0.i.i.i.i = phi i64 [ %493, %483 ], [ %482, %477 ]
   %.sroa.0.0.i.i.i.i162 = phi ptr [ %491, %483 ], [ %479, %477 ]
   %494 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i.i.i162, i64 %.sroa.3.0.i.i.i.i
-  %.not198199 = icmp eq ptr %.sroa.0.0.i.ph202, %494
+  %.not198199 = icmp eq ptr %.sroa.0.0.i.ph227, %494
   br i1 %.not198199, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %504, %_ZNK4llvm15DICompositeType11getElementsEv.exit, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
   ret void
 
 .lr.ph:                                           ; preds = %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit, %504
-  %.sroa.0164.0200 = phi ptr [ %505, %504 ], [ %.sroa.0.0.i.ph202, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit ]
+  %.sroa.0164.0200 = phi ptr [ %505, %504 ], [ %.sroa.0.0.i.ph227, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit ]
   %495 = load ptr, ptr %.sroa.0164.0200, align 8, !tbaa !485
   %.not84 = icmp eq ptr %495, null
   br i1 %.not84, label %504, label %496
@@ -10116,11 +10116,11 @@ _ZNK4llvm15DICompositeType11getElementsEv.exit:   ; preds = %63, %66
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
 
 _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit: ; preds = %77, %83
-  %.sroa.0.0.i.ph61 = phi ptr [ %87, %83 ], [ %79, %77 ]
+  %.sroa.0.0.i.ph68 = phi ptr [ %87, %83 ], [ %79, %77 ]
   %.sroa.3.0.i.i.i.i = phi i64 [ %93, %83 ], [ %82, %77 ]
   %.sroa.0.0.i.i.i.i38 = phi ptr [ %91, %83 ], [ %79, %77 ]
   %94 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i.i.i38, i64 %.sroa.3.0.i.i.i.i
-  %.not5657 = icmp eq ptr %.sroa.0.0.i.ph61, %94
+  %.not5657 = icmp eq ptr %.sroa.0.0.i.ph68, %94
   br i1 %.not5657, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
@@ -10135,7 +10135,7 @@ _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit: ; preds = %77, %83
   ret void
 
 100:                                              ; preds = %.lr.ph, %_ZN4llvm16dyn_cast_or_nullINS_12DIEnumeratorEKNS_6DINodeEEEDaPT0_.exit.thread
-  %.sroa.042.058 = phi ptr [ %.sroa.0.0.i.ph61, %.lr.ph ], [ %154, %_ZN4llvm16dyn_cast_or_nullINS_12DIEnumeratorEKNS_6DINodeEEEDaPT0_.exit.thread ]
+  %.sroa.042.058 = phi ptr [ %.sroa.0.0.i.ph68, %.lr.ph ], [ %154, %_ZN4llvm16dyn_cast_or_nullINS_12DIEnumeratorEKNS_6DINodeEEEDaPT0_.exit.thread ]
   %101 = load ptr, ptr %.sroa.042.058, align 8, !tbaa !485
   %.not.i.i = icmp eq ptr %101, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_12DIEnumeratorEKNS_6DINodeEEEDaPT0_.exit.thread, label %102
@@ -11723,20 +11723,20 @@ _ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS
   %160 = load i64, ptr %159, align 8
   %161 = and i64 %160, 2
   %.not.i.i.i = icmp eq i64 %161, 0
-  br i1 %.not.i.i.i, label %_ZNK4llvm14DITypeRefArray4sizeEv.exit, label %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread214
+  br i1 %.not.i.i.i, label %_ZNK4llvm14DITypeRefArray4sizeEv.exit, label %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread226
 
 _ZNK4llvm14DITypeRefArray4sizeEv.exit:            ; preds = %158
   %162 = and i64 %160, 960
   %.not88 = icmp eq i64 %162, 0
   br i1 %.not88, label %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread, label %167
 
-_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread214:  ; preds = %158
+_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread226:  ; preds = %158
   %163 = getelementptr inbounds i8, ptr %133, i64 -24
   %164 = load i32, ptr %163, align 8, !tbaa !24
-  %.not88215 = icmp eq i32 %164, 0
-  br i1 %.not88215, label %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread, label %.thread216
+  %.not88227 = icmp eq i32 %164, 0
+  br i1 %.not88227, label %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread, label %.thread228
 
-.thread216:                                       ; preds = %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread214
+.thread228:                                       ; preds = %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread226
   %165 = getelementptr inbounds i8, ptr %133, i64 -32
   %166 = load ptr, ptr %165, align 8, !tbaa !23
   br label %_ZNK4llvm14DITypeRefArrayixEj.exit
@@ -11748,8 +11748,8 @@ _ZNK4llvm14DITypeRefArray4sizeEv.exit.thread214:  ; preds = %158
   %171 = getelementptr inbounds %"class.llvm::MDOperand", ptr %159, i64 %170
   br label %_ZNK4llvm14DITypeRefArrayixEj.exit
 
-_ZNK4llvm14DITypeRefArrayixEj.exit:               ; preds = %.thread216, %167
-  %.sroa.0.0.i.i.i = phi ptr [ %171, %167 ], [ %166, %.thread216 ]
+_ZNK4llvm14DITypeRefArrayixEj.exit:               ; preds = %.thread228, %167
+  %.sroa.0.0.i.i.i = phi ptr [ %171, %167 ], [ %166, %.thread228 ]
   %172 = load ptr, ptr %.sroa.0.0.i.i.i, align 8, !tbaa !485
   %.not89 = icmp eq ptr %172, null
   br i1 %.not89, label %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread, label %173
@@ -11762,8 +11762,8 @@ _ZNK4llvm14DITypeRefArrayixEj.exit:               ; preds = %.thread216, %167
   call void @_ZN4llvm9DwarfUnit11addDIEEntryERNS_3DIEENS_5dwarf9AttributeENS_8DIEEntryE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i16 noundef zeroext 73, ptr %177)
   br label %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread
 
-_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread:     ; preds = %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread214, %_ZNK4llvm12DISubprogram7getTypeEv.exit, %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit, %_ZNK4llvm14DITypeRefArrayixEj.exit, %173, %_ZNK4llvm14DITypeRefArray4sizeEv.exit
-  %.sroa.0168.0180183186 = phi ptr [ %133, %_ZNK4llvm14DITypeRefArrayixEj.exit ], [ %133, %173 ], [ %133, %_ZNK4llvm14DITypeRefArray4sizeEv.exit ], [ null, %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit ], [ null, %_ZNK4llvm12DISubprogram7getTypeEv.exit ], [ %133, %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread214 ]
+_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread:     ; preds = %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread226, %_ZNK4llvm12DISubprogram7getTypeEv.exit, %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit, %_ZNK4llvm14DITypeRefArrayixEj.exit, %173, %_ZNK4llvm14DITypeRefArray4sizeEv.exit
+  %.sroa.0168.0180183186 = phi ptr [ %133, %_ZNK4llvm14DITypeRefArrayixEj.exit ], [ %133, %173 ], [ %133, %_ZNK4llvm14DITypeRefArray4sizeEv.exit ], [ null, %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit ], [ null, %_ZNK4llvm12DISubprogram7getTypeEv.exit ], [ %133, %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread226 ]
   %178 = load i32, ptr %102, align 4, !tbaa !244
   %179 = and i32 %178, 3
   %.not90 = icmp eq i32 %179, 0
@@ -12405,10 +12405,10 @@ _ZNK4llvm14DITypeRefArray4sizeEv.exit55:          ; preds = %83
 _ZNK4llvm14DITypeRefArray4sizeEv.exit55.thread:   ; preds = %83
   %88 = getelementptr inbounds i8, ptr %70, i64 -24
   %89 = load i32, ptr %88, align 8, !tbaa !24
-  %.not36113 = icmp eq i32 %89, 0
-  br i1 %.not36113, label %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread, label %.thread114
+  %.not36127 = icmp eq i32 %89, 0
+  br i1 %.not36127, label %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread, label %.thread128
 
-.thread114:                                       ; preds = %_ZNK4llvm14DITypeRefArray4sizeEv.exit55.thread
+.thread128:                                       ; preds = %_ZNK4llvm14DITypeRefArray4sizeEv.exit55.thread
   %90 = getelementptr inbounds i8, ptr %70, i64 -32
   %91 = load ptr, ptr %90, align 8, !tbaa !23
   br label %_ZNK4llvm14DITypeRefArrayixEj.exit
@@ -12420,8 +12420,8 @@ _ZNK4llvm14DITypeRefArray4sizeEv.exit55.thread:   ; preds = %83
   %96 = getelementptr inbounds %"class.llvm::MDOperand", ptr %84, i64 %95
   br label %_ZNK4llvm14DITypeRefArrayixEj.exit
 
-_ZNK4llvm14DITypeRefArrayixEj.exit:               ; preds = %.thread114, %92
-  %.sroa.0.0.i.i.i = phi ptr [ %96, %92 ], [ %91, %.thread114 ]
+_ZNK4llvm14DITypeRefArrayixEj.exit:               ; preds = %.thread128, %92
+  %.sroa.0.0.i.i.i = phi ptr [ %96, %92 ], [ %91, %.thread128 ]
   %97 = load ptr, ptr %.sroa.0.0.i.i.i, align 8, !tbaa !485
   %.not37 = icmp eq ptr %97, null
   br i1 %.not37, label %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread, label %98
@@ -12730,15 +12730,15 @@ _ZNK4llvm12DISubprogram17getTemplateParamsEv.exit: ; preds = %.thread.i.i, %240
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i
 
 _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i: ; preds = %257, %251
-  %.sroa.0.0.i.ph32.i = phi ptr [ %261, %257 ], [ %253, %251 ]
+  %.sroa.0.0.i.ph33.i = phi ptr [ %261, %257 ], [ %253, %251 ]
   %.sroa.3.0.i.i.i.i.i = phi i64 [ %263, %257 ], [ %256, %251 ]
   %.idx = shl nuw nsw i64 %.sroa.3.0.i.i.i.i.i, 3
-  %264 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.ph32.i, i64 %.idx
+  %264 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.ph33.i, i64 %.idx
   %.not2529.i = icmp eq i64 %.sroa.3.0.i.i.i.i.i, 0
   br i1 %.not2529.i, label %_ZN4llvm9DwarfUnit17addTemplateParamsERNS_3DIEENS_24MDTupleTypedArrayWrapperINS_6DINodeEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i, %269
-  %.sroa.017.030.i = phi ptr [ %270, %269 ], [ %.sroa.0.0.i.ph32.i, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i ]
+  %.sroa.017.030.i = phi ptr [ %270, %269 ], [ %.sroa.0.0.i.ph33.i, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i ]
   %265 = load ptr, ptr %.sroa.017.030.i, align 8, !tbaa !485
   %266 = load i8, ptr %265, align 4, !tbaa !243
   switch i8 %266, label %269 [
@@ -14777,13 +14777,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_v
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %65 = zext i32 %.sink28 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.783", ptr %.sink26, i64 %65
-  store ptr %.sink25, ptr %0, align 8
+  %65 = zext i32 %.sink32 to i64
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.783", ptr %.sink30, i64 %65
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15400,13 +15400,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_3DIEEPKNS_6DINodeENS_12DenseMapInfoIS3_v
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %65 = zext i32 %.sink28 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink26, i64 %65
-  store ptr %.sink25, ptr %0, align 8
+  %65 = zext i32 %.sink32 to i64
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %65
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16

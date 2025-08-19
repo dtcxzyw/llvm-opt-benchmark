@@ -316,13 +316,13 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
   br i1 %23, label %._crit_edge.thread.i.i, label %28
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %18
-  %.019.lcssa28.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %6, %18 ]
+  %.019.lcssa29.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %6, %18 ]
   %24 = load ptr, ptr %8, align 8
-  %25 = icmp eq ptr %.019.lcssa28.i.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i.i, %24
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #30
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i) #30
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81.i = load i32, ptr %.phi.trans.insert80.i, align 4
   %.pre82.i = load i32, ptr %.08.i, align 4
@@ -331,12 +331,12 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 28:                                               ; preds = %26, %._crit_edge.i.i
   %29 = phi i32 [ %.pre82.i, %26 ], [ %19, %._crit_edge.i.i ]
   %30 = phi i32 [ %.pre81.i, %26 ], [ %22, %._crit_edge.i.i ]
-  %.019.lcssa29.i.i = phi ptr [ %.019.lcssa28.i.i, %26 ], [ %.02024.i.i, %._crit_edge.i.i ]
+  %.019.lcssa28.i.i = phi ptr [ %.019.lcssa29.i.i, %26 ], [ %.02024.i.i, %._crit_edge.i.i ]
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
-  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
+  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
@@ -1780,8 +1780,8 @@ tailrecurse.us13:                                 ; preds = %.split, %_ZN12MeshD
   %11 = icmp ne ptr %10, %.tr10.us14
   %.sroa.07.0.pre.i.us = load ptr, ptr %.sroa.07.015.i.us, align 8
   %.not11.i.us = icmp eq ptr %.sroa.07.0.pre.i.us, %5
-  %or.cond17.i.us = select i1 %11, i1 true, i1 %.not11.i.us
-  br i1 %or.cond17.i.us, label %12, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.loopexit.us
+  %or.cond18.i.us = select i1 %11, i1 true, i1 %.not11.i.us
+  br i1 %or.cond18.i.us, label %12, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.loopexit.us
 
 12:                                               ; preds = %.lr.ph.i.us
   br i1 %.not11.i.us, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread, label %.lr.ph.i.us, !llvm.loop !15
@@ -1804,8 +1804,8 @@ tailrecurse:                                      ; preds = %.split, %_ZN12MeshD
   %17 = icmp ne ptr %16, %.tr10
   %.sroa.07.0.pre.i = load ptr, ptr %.sroa.07.015.i, align 8
   %.not11.i = icmp eq ptr %.sroa.07.0.pre.i, %5
-  %or.cond17.i = select i1 %17, i1 true, i1 %.not11.i
-  br i1 %or.cond17.i, label %18, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit
+  %or.cond18.i = select i1 %17, i1 true, i1 %.not11.i
+  br i1 %or.cond18.i, label %18, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit
 
 18:                                               ; preds = %.lr.ph.i
   br i1 %.not11.i, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread, label %.lr.ph.i, !llvm.loop !15
@@ -1848,8 +1848,8 @@ define noundef ptr @_ZN12MeshDocument8nextMeshEP9MeshModel(ptr noundef nonnull r
   %11 = icmp ne ptr %10, %1
   %.sroa.07.0.pre = load ptr, ptr %.sroa.07.015, align 8
   %.not11 = icmp eq ptr %.sroa.07.0.pre, %6
-  %or.cond17 = select i1 %11, i1 true, i1 %.not11
-  br i1 %or.cond17, label %14, label %12
+  %or.cond18 = select i1 %11, i1 true, i1 %.not11
+  br i1 %or.cond18, label %14, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.pre, i64 16
@@ -1889,8 +1889,8 @@ define noundef ptr @_ZN12MeshDocument10nextRasterEP11RasterModel(ptr noundef non
   %11 = icmp ne ptr %10, %1
   %.sroa.07.0.pre = load ptr, ptr %.sroa.07.015, align 8
   %.not11 = icmp eq ptr %.sroa.07.0.pre, %6
-  %or.cond17 = select i1 %11, i1 true, i1 %.not11
-  br i1 %or.cond17, label %14, label %12
+  %or.cond18 = select i1 %11, i1 true, i1 %.not11
+  br i1 %or.cond18, label %14, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.pre, i64 16
@@ -4263,15 +4263,15 @@ define noundef zeroext i1 @_ZN12MeshDocument9delRasterEj(ptr noundef nonnull ali
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.not18 = icmp eq ptr %spec.select, %3
-  br i1 %.not18, label %._crit_edge.thread, label %9
+  %.not21 = icmp eq ptr %spec.select, %3
+  br i1 %.not21, label %._crit_edge.thread, label %9
 
 9:                                                ; preds = %._crit_edge
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
-  %.not19 = icmp eq ptr %11, %12
-  br i1 %.not19, label %13, label %22
+  %.not22 = icmp eq ptr %11, %12
+  br i1 %.not22, label %13, label %22
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 172

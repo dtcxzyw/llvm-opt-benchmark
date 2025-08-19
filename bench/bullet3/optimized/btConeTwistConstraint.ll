@@ -4763,10 +4763,10 @@ define linkonce_odr dso_local void @_ZN15btTransformUtil18integrateTransformERK1
   br label %51
 
 51:                                               ; preds = %46, %38
-  %.sink82 = phi float [ %50, %46 ], [ %45, %38 ]
-  %52 = fmul float %25, %.sink82
-  %53 = fmul float %27, %.sink82
-  %54 = fmul float %31, %.sink82
+  %.sink84 = phi float [ %50, %46 ], [ %45, %38 ]
+  %52 = fmul float %25, %.sink84
+  %53 = fmul float %27, %.sink84
+  %54 = fmul float %31, %.sink84
   %55 = fmul float %3, %.1
   %56 = fmul float %55, 5.000000e-01
   %57 = tail call noundef float @cosf(float noundef %56) #23, !tbaa !67

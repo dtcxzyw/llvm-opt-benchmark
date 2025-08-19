@@ -4308,14 +4308,14 @@ define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Optio
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !922)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i8 %3, label %default.unreachable1.i [
+  switch i8 %3, label %default.unreachable [
     i8 0, label %21
     i8 1, label %29
     i8 2, label %30
     i8 3, label %7
   ]
 
-default.unreachable1.i:                           ; preds = %5
+default.unreachable:                              ; preds = %5
   unreachable
 
 7:                                                ; preds = %5
@@ -4523,7 +4523,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
 
 "_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17ha168c8486374362dE.llvm.9846812117724834734.exit.i": ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h05a7de7d1b2c5a73E.exit.i.i", %42, %42, %42, %42, %42, %42
   %70 = icmp eq ptr %43, %3
-  br i1 %70, label %.thread52, label %.lr.ph.i
+  br i1 %70, label %.thread62, label %.lr.ph.i
 
 _ZN4core3str7pattern8Searcher11next_reject17h10d11aca411dc976E.llvm.9846812117724834734.exit: ; preds = %48, %50, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h05a7de7d1b2c5a73E.exit.i.i", %2
   %spec.select = phi i64 [ 0, %2 ], [ %4, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h05a7de7d1b2c5a73E.exit.i.i" ], [ %4, %50 ], [ %4, %48 ]
@@ -4658,21 +4658,21 @@ _ZN4core3str7pattern8Searcher11next_reject17h10d11aca411dc976E.llvm.984681211772
   %138 = ptrtoint ptr %.sroa.4.0 to i64
   %139 = sub i64 %.sroa.14.0, %138
   %140 = add i64 %139, %137
-  br label %.thread48
+  br label %.thread58
 
 141:                                              ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h05a7de7d1b2c5a73E.exit.i.i.i", %111, %111, %111, %111, %111, %111
   %142 = icmp eq ptr %.sroa.4.0, %112
   br i1 %142, label %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h9cd53f2635677bdcE.llvm.9846812117724834734.exit", label %.lr.ph.i.i
 
 "_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h9cd53f2635677bdcE.llvm.9846812117724834734.exit": ; preds = %141, %_ZN4core3str7pattern8Searcher11next_reject17h10d11aca411dc976E.llvm.9846812117724834734.exit
-  br i1 %.not, label %.thread52, label %.thread48
+  br i1 %.not, label %.thread62, label %.thread58
 
-.thread52:                                        ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17ha168c8486374362dE.llvm.9846812117724834734.exit.i", %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h9cd53f2635677bdcE.llvm.9846812117724834734.exit"
-  br label %.thread48
+.thread62:                                        ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17ha168c8486374362dE.llvm.9846812117724834734.exit.i", %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h9cd53f2635677bdcE.llvm.9846812117724834734.exit"
+  br label %.thread58
 
-.thread48:                                        ; preds = %136, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h9cd53f2635677bdcE.llvm.9846812117724834734.exit", %.thread52
-  %143 = phi i64 [ 0, %.thread52 ], [ %.sroa.47.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h9cd53f2635677bdcE.llvm.9846812117724834734.exit" ], [ %spec.select, %136 ]
-  %144 = phi i64 [ 0, %.thread52 ], [ %.sroa.6.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h9cd53f2635677bdcE.llvm.9846812117724834734.exit" ], [ %140, %136 ]
+.thread58:                                        ; preds = %136, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h9cd53f2635677bdcE.llvm.9846812117724834734.exit", %.thread62
+  %143 = phi i64 [ 0, %.thread62 ], [ %.sroa.47.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h9cd53f2635677bdcE.llvm.9846812117724834734.exit" ], [ %spec.select, %136 ]
+  %144 = phi i64 [ 0, %.thread62 ], [ %.sroa.6.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h9cd53f2635677bdcE.llvm.9846812117724834734.exit" ], [ %140, %136 ]
   %145 = sub nuw i64 %144, %143
   %146 = getelementptr inbounds i8, ptr %0, i64 %143
   %147 = insertvalue { ptr, i64 } poison, ptr %146, 0
@@ -14342,7 +14342,7 @@ _ZN9uv_pep5086cursor6Cursor10take_while17hadd8a5fcdd9c4304E.exit.i: ; preds = %"
   %.sroa.4200.0.copyload.i = load i8, ptr %.sroa.4200.0..sroa_idx.i, align 1, !noalias !2211
   br i1 %183, label %185, label %_ZN9uv_pep5086marker5parse25parse_marker_key_op_value17h6c264d22a3bc4662E.exit.thread123
 
-default.unreachable273.i:                         ; preds = %365
+default.unreachable282.i:                         ; preds = %365
   unreachable
 
 default.unreachable.i:                            ; preds = %359
@@ -15182,7 +15182,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.thre
   %366 = icmp ne ptr %.sroa.6202.0.copyload.i, null
   call void @llvm.assume(i1 %366)
   store ptr %.sroa.6202.0.copyload.i, ptr %36, align 8, !noalias !2211
-  switch i8 %.sroa.726.i.sroa.0.0.copyload96, label %default.unreachable273.i [
+  switch i8 %.sroa.726.i.sroa.0.0.copyload96, label %default.unreachable282.i [
     i8 0, label %432
     i8 1, label %436
     i8 2, label %438
@@ -16095,7 +16095,7 @@ _ZN9uv_pep5086cursor6Cursor10take_while17h575cb256783732b0E.exit.i: ; preds = %"
   %.sroa.4200.0.copyload.i = load i8, ptr %.sroa.4200.0..sroa_idx.i, align 1, !noalias !2344
   br i1 %183, label %185, label %_ZN9uv_pep5086marker5parse25parse_marker_key_op_value17hd6da61775a2568e6E.exit.thread123
 
-default.unreachable273.i:                         ; preds = %365
+default.unreachable282.i:                         ; preds = %365
   unreachable
 
 default.unreachable.i:                            ; preds = %359
@@ -16935,7 +16935,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.thre
   %366 = icmp ne ptr %.sroa.6202.0.copyload.i, null
   call void @llvm.assume(i1 %366)
   store ptr %.sroa.6202.0.copyload.i, ptr %36, align 8, !noalias !2344
-  switch i8 %.sroa.726.i.sroa.0.0.copyload96, label %default.unreachable273.i [
+  switch i8 %.sroa.726.i.sroa.0.0.copyload96, label %default.unreachable282.i [
     i8 0, label %432
     i8 1, label %436
     i8 2, label %438

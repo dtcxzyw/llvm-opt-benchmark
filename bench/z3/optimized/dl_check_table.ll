@@ -817,9 +817,9 @@ define hidden noundef ptr @_ZN7datalog18check_table_plugin11mk_union_fnERKNS_10t
   br i1 %15, label %.sink.split, label %17
 
 .sink.split:                                      ; preds = %12, %11
-  %.sink13 = phi ptr [ null, %11 ], [ %3, %12 ]
+  %.sink15 = phi ptr [ null, %11 ], [ %3, %12 ]
   %16 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  tail call void @_ZN7datalog18check_table_plugin8union_fnC2ERS0_RKNS_10table_baseES5_PS4_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef %.sink13)
+  tail call void @_ZN7datalog18check_table_plugin8union_fnC2ERS0_RKNS_10table_baseES5_PS4_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef %.sink15)
   br label %17
 
 17:                                               ; preds = %.sink.split, %4, %12

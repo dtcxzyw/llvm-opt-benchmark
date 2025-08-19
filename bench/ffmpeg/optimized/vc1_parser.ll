@@ -168,8 +168,8 @@ define internal i32 @vc1_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
   %64 = icmp ult i64 %.3130, 37
   %or.cond5 = or i1 %.lcssa, %64
   %65 = icmp sge i32 %.2108, %5
-  %or.cond234.not = select i1 %or.cond5, i1 true, i1 %65
-  br i1 %or.cond234.not, label %.loopexit, label %.lr.ph199
+  %or.cond236.not = select i1 %or.cond5, i1 true, i1 %65
+  br i1 %or.cond236.not, label %.loopexit, label %.lr.ph199
 
 .lr.ph199:                                        ; preds = %63, %85
   %.5198 = phi i8 [ %.6, %85 ], [ %.2, %63 ]

@@ -1084,7 +1084,7 @@ define internal fastcc ptr @pirq_find_routing_table() unnamed_addr #2 section ".
   store i16 %112, ptr %113, align 2
   %114 = load i8, ptr %107, align 1
   %115 = icmp eq i8 %114, 0
-  br i1 %115, label %.preheader60, label %116
+  br i1 %115, label %.preheader70, label %116
 
 116:                                              ; preds = %106
   %117 = getelementptr inbounds nuw i8, ptr %104, i64 32
@@ -1092,14 +1092,14 @@ define internal fastcc ptr @pirq_find_routing_table() unnamed_addr #2 section ".
   %119 = zext i8 %114 to i64
   %120 = shl nuw nsw i64 %119, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %117, ptr nonnull align 1 %118, i64 %120, i1 false)
-  br label %.preheader60
+  br label %.preheader70
 
-.preheader60:                                     ; preds = %116, %106
+.preheader70:                                     ; preds = %116, %106
   br label %121
 
-121:                                              ; preds = %.preheader60, %121
-  %122 = phi i64 [ %127, %121 ], [ 0, %.preheader60 ]
-  %123 = phi i8 [ %126, %121 ], [ 0, %.preheader60 ]
+121:                                              ; preds = %.preheader70, %121
+  %122 = phi i64 [ %127, %121 ], [ 0, %.preheader70 ]
+  %123 = phi i8 [ %126, %121 ], [ 0, %.preheader70 ]
   %124 = getelementptr i8, ptr %104, i64 %122
   %125 = load i8, ptr %124, align 1
   %126 = add i8 %125, %123

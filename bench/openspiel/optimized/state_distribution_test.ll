@@ -2095,8 +2095,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   unreachable
 
 735:                                              ; preds = %.lr.ph.i
-  %.not32.i.i = icmp eq ptr %727, %728
-  br i1 %.not32.i.i, label %_ZN4absl7debian27StrJoinISt6vectorIlSaIlEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_NS0_11string_viewE.exit.i.thread.i, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i
+  %.not41.i.i = icmp eq ptr %727, %728
+  br i1 %.not41.i.i, label %_ZN4absl7debian27StrJoinISt6vectorIlSaIlEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_NS0_11string_viewE.exit.i.thread.i, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i
 
 _ZN4absl7debian27StrJoinISt6vectorIlSaIlEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_NS0_11string_viewE.exit.i.thread.i: ; preds = %735
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #21
@@ -2288,8 +2288,8 @@ _ZNK10open_spiel5State13HistoryStringB5cxx11Ev.exit.i: ; preds = %_ZN4absl7debia
   unreachable
 
 803:                                              ; preds = %_ZNK10open_spiel5State13HistoryStringB5cxx11Ev.exit.i
-  %.not32.i287.i = icmp eq ptr %795, %796
-  br i1 %.not32.i287.i, label %_ZN4absl7debian27StrJoinISt6vectorIlSaIlEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_NS0_11string_viewE.exit.i115.thread.i, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i288.i
+  %.not41.i287.i = icmp eq ptr %795, %796
+  br i1 %.not41.i287.i, label %_ZN4absl7debian27StrJoinISt6vectorIlSaIlEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_NS0_11string_viewE.exit.i115.thread.i, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i288.i
 
 _ZN4absl7debian27StrJoinISt6vectorIlSaIlEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_NS0_11string_viewE.exit.i115.thread.i: ; preds = %803
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #21
@@ -8438,10 +8438,10 @@ _ZN4absl7debian211string_viewC2EPKc.exit32:       ; preds = %78
   br label %.body29
 
 _ZN4absl7debian27StrJoinISt6vectorISt4pairIldESaIS4_EENS0_16strings_internal17PairFormatterImplINS7_21AlphaNumFormatterImplEN10open_spiel18HexDoubleFormatterEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_NS0_11string_viewEOT0_.exit: ; preds = %91, %81
-  %.sink60 = phi ptr [ %19, %81 ], [ %21, %91 ]
+  %.sink64 = phi ptr [ %19, %81 ], [ %21, %91 ]
   %.sink = phi ptr [ %60, %81 ], [ %58, %91 ]
-  %97 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %.sink60) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink60) #21
+  %97 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %.sink64) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink64) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #21
   %98 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #21
   %99 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #21
@@ -9809,8 +9809,8 @@ define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_112CompareD
   unreachable
 
 89:                                               ; preds = %.lr.ph143
-  %.not32.i = icmp eq ptr %81, %82
-  br i1 %.not32.i, label %_ZNK10open_spiel5State7HistoryEv.exit, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i
+  %.not41.i = icmp eq ptr %81, %82
+  br i1 %.not41.i, label %_ZNK10open_spiel5State7HistoryEv.exit, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i: ; preds = %89
   %90 = ashr exact i64 %85, 1
@@ -9911,7 +9911,7 @@ _ZNSt6vectorIlSaIlEE9push_backERKl.exit.i:        ; preds = %_ZNSt6vectorIlSaIlE
   br label %common.resume
 
 common.resume:                                    ; preds = %61, %63, %211, %.body, %208, %.loopexit.split-lp.i, %123
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %123 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %64, %63 ], [ %62, %61 ], [ %212, %211 ], [ %lpad.phi.i43198, %.body ], [ %lpad.phi.i43198, %208 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %123 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %64, %63 ], [ %62, %61 ], [ %212, %211 ], [ %lpad.phi.i43219, %.body ], [ %lpad.phi.i43219, %208 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNK10open_spiel5State7HistoryEv.exit.loopexit:   ; preds = %_ZNSt6vectorIlSaIlEE9push_backERKl.exit.i
@@ -9945,8 +9945,8 @@ _ZNK10open_spiel5State7HistoryEv.exit:            ; preds = %_ZNK10open_spiel5St
   unreachable
 
 141:                                              ; preds = %_ZNK10open_spiel5State7HistoryEv.exit
-  %.not32.i39 = icmp eq ptr %133, %134
-  br i1 %.not32.i39, label %_ZNK10open_spiel5State7HistoryEv.exit69, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i40
+  %.not41.i39 = icmp eq ptr %133, %134
+  br i1 %.not41.i39, label %_ZNK10open_spiel5State7HistoryEv.exit69, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i40
 
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i40: ; preds = %141
   %142 = ashr exact i64 %137, 1
@@ -10128,7 +10128,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit71:                  ; preds = %_ZNSt6vectorIlSaIlE
   unreachable
 
 .body:                                            ; preds = %.loopexit.split-lp.i41.thread, %175, %.loopexit.split-lp.i41
-  %lpad.phi.i43198 = phi { ptr, i32 } [ %lpad.loopexit95, %.loopexit.split-lp.i41.thread ], [ %lpad.phi.i43, %175 ], [ %lpad.phi.i43, %.loopexit.split-lp.i41 ]
+  %lpad.phi.i43219 = phi { ptr, i32 } [ %lpad.loopexit95, %.loopexit.split-lp.i41.thread ], [ %lpad.phi.i43, %175 ], [ %lpad.phi.i43, %.loopexit.split-lp.i41 ]
   %.not.i.i.i74 = icmp eq ptr %.lcssa16.i, null
   br i1 %.not.i.i.i74, label %common.resume, label %208
 
@@ -10416,8 +10416,8 @@ define linkonce_odr dso_local void @_ZNK10open_spiel5State7HistoryEv(ptr dead_on
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not32 = icmp eq ptr %5, %6
-  br i1 %.not32, label %_ZNSt6vectorIlSaIlEE7reserveEm.exit, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i
+  %.not41 = icmp eq ptr %5, %6
+  br i1 %.not41, label %_ZNSt6vectorIlSaIlEE7reserveEm.exit, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i: ; preds = %13
   %15 = ashr exact i64 %9, 1

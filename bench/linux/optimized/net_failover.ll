@@ -1032,17 +1032,17 @@ define internal i32 @net_failover_slave_register(ptr noundef %0, ptr noundef %1)
   br i1 %74, label %.sink.split, label %80
 
 .sink.split:                                      ; preds = %68, %70, %58
-  %.sink10 = phi ptr [ %60, %58 ], [ %61, %70 ], [ %61, %68 ]
-  %75 = getelementptr inbounds nuw i8, ptr %.sink10, i64 352
+  %.sink13 = phi ptr [ %60, %58 ], [ %61, %70 ], [ %61, %68 ]
+  %75 = getelementptr inbounds nuw i8, ptr %.sink13, i64 352
   %76 = load volatile i64, ptr %75, align 8
   %77 = trunc i64 %76 to i8
   %78 = shl i8 %77, 1
   %79 = and i8 %78, 2
-  %spec.select4 = or disjoint i8 %79, %66
+  %spec.select7 = or disjoint i8 %79, %66
   br label %80
 
 80:                                               ; preds = %.sink.split, %70
-  %.sink = phi i8 [ %66, %70 ], [ %spec.select4, %.sink.split ]
+  %.sink = phi i8 [ %66, %70 ], [ %spec.select7, %.sink.split ]
   store i8 %.sink, ptr %3, align 1
   call void @netdev_lower_state_changed(ptr noundef %0, ptr noundef nonnull %3) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1244,17 +1244,17 @@ define internal noundef range(i32 -19, 1) i32 @net_failover_slave_link_change(pt
   br i1 %59, label %.sink.split, label %65
 
 .sink.split:                                      ; preds = %.loopexit, %55
-  %.sink8 = phi ptr [ %.mux, %.loopexit ], [ %7, %55 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.sink8, i64 352
+  %.sink9 = phi ptr [ %.mux, %.loopexit ], [ %7, %55 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.sink9, i64 352
   %61 = load volatile i64, ptr %60, align 8
   %62 = trunc i64 %61 to i8
   %63 = shl i8 %62, 1
   %64 = and i8 %63, 2
-  %spec.select2 = or disjoint i8 %64, %54
+  %spec.select3 = or disjoint i8 %64, %54
   br label %65
 
 65:                                               ; preds = %.sink.split, %55
-  %.sink = phi i8 [ %54, %55 ], [ %spec.select2, %.sink.split ]
+  %.sink = phi i8 [ %54, %55 ], [ %spec.select3, %.sink.split ]
   store i8 %.sink, ptr %3, align 1
   call void @netdev_lower_state_changed(ptr noundef %0, ptr noundef nonnull %3) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

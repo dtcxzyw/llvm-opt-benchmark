@@ -2810,7 +2810,6 @@ OBJ_nid2sn.exit.thread:                           ; preds = %OBJ_nid2ln.exit.thr
 
 .thread:                                          ; preds = %58, %60
   %.4121182 = phi ptr [ %.2119218, %60 ], [ %.5122, %58 ]
-  %.2125181 = phi i32 [ %.0123217, %60 ], [ 1, %58 ]
   %61 = call i32 @BN_lshift(ptr noundef %.4121182, ptr noundef %.4121182, i32 noundef 7) #10
   %.not161 = icmp eq i32 %61, 0
   br i1 %.not161, label %.thread183, label %64
@@ -2820,7 +2819,7 @@ OBJ_nid2sn.exit.thread:                           ; preds = %OBJ_nid2ln.exit.thr
   br label %64
 
 64:                                               ; preds = %.thread, %62
-  %.1124 = phi i32 [ 0, %62 ], [ %.2125181, %.thread ]
+  %.1124 = phi i32 [ 0, %62 ], [ 1, %.thread ]
   %.3120 = phi ptr [ %.2119218, %62 ], [ %.4121182, %.thread ]
   %.1112 = phi i64 [ %63, %62 ], [ %.2113, %.thread ]
   %65 = load i8, ptr %43, align 1, !tbaa !20

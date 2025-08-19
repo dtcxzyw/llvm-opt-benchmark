@@ -4508,19 +4508,19 @@ _ZN7testing7MessageD2Ev.exit707:                  ; preds = %1461, %_ZNKSt14defa
   br label %1470
 
 .critedge322.sink.split:                          ; preds = %1251, %1221
-  %.sink750 = phi ptr [ %1222, %1221 ], [ %1252, %1251 ]
-  %.sink740.ph = phi ptr [ %112, %1221 ], [ %117, %1251 ]
+  %.sink876 = phi ptr [ %1222, %1221 ], [ %1252, %1251 ]
+  %.sink866.ph = phi ptr [ %112, %1221 ], [ %117, %1251 ]
   %.sink.ph = phi ptr [ %111, %1221 ], [ %116, %1251 ]
-  %1467 = load ptr, ptr %.sink750, align 8
+  %1467 = load ptr, ptr %.sink876, align 8
   %1468 = getelementptr inbounds nuw i8, ptr %1467, i64 8
   %1469 = load ptr, ptr %1468, align 8
-  call void %1469(ptr noundef nonnull align 8 dereferenceable(128) %.sink750) #16
+  call void %1469(ptr noundef nonnull align 8 dereferenceable(128) %.sink876) #16
   br label %.critedge322
 
 .critedge322:                                     ; preds = %.critedge322.sink.split, %1251, %1221
-  %.sink740 = phi ptr [ %112, %1221 ], [ %117, %1251 ], [ %.sink740.ph, %.critedge322.sink.split ]
+  %.sink866 = phi ptr [ %112, %1221 ], [ %117, %1251 ], [ %.sink866.ph, %.critedge322.sink.split ]
   %.sink = phi ptr [ %111, %1221 ], [ %116, %1251 ], [ %.sink.ph, %.critedge322.sink.split ]
-  store ptr null, ptr %.sink740, align 8
+  store ptr null, ptr %.sink866, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #16
   call void @_ZN3nix10SQLiteStmt3UseD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %110) #16
   br label %1470
@@ -4648,21 +4648,21 @@ _ZN7testing7MessageD2Ev.exit707:                  ; preds = %1461, %_ZNKSt14defa
   br i1 %1528, label %_ZN3nix3refINS_16NarInfoDiskCacheEED2Ev.exit.sink.split, label %_ZN3nix3refINS_16NarInfoDiskCacheEED2Ev.exit
 
 _ZN3nix3refINS_16NarInfoDiskCacheEED2Ev.exit.sink.split.sink.split: ; preds = %881, %1478, %1507
-  %.sink757 = phi ptr [ %1501, %1507 ], [ %1472, %1478 ], [ %875, %881 ]
-  %1529 = getelementptr inbounds nuw i8, ptr %.sink757, i64 12
+  %.sink883 = phi ptr [ %1501, %1507 ], [ %1472, %1478 ], [ %875, %881 ]
+  %1529 = getelementptr inbounds nuw i8, ptr %.sink883, i64 12
   store i32 0, ptr %1529, align 4
-  %1530 = load ptr, ptr %.sink757, align 8
+  %1530 = load ptr, ptr %.sink883, align 8
   %1531 = getelementptr inbounds nuw i8, ptr %1530, i64 16
   %1532 = load ptr, ptr %1531, align 8
-  call void %1532(ptr noundef nonnull align 8 dereferenceable(16) %.sink757) #16
+  call void %1532(ptr noundef nonnull align 8 dereferenceable(16) %.sink883) #16
   br label %_ZN3nix3refINS_16NarInfoDiskCacheEED2Ev.exit.sink.split
 
 _ZN3nix3refINS_16NarInfoDiskCacheEED2Ev.exit.sink.split: ; preds = %_ZN3nix3refINS_16NarInfoDiskCacheEED2Ev.exit.sink.split.sink.split, %1527, %1498, %901
-  %.sink745 = phi ptr [ %875, %901 ], [ %1472, %1498 ], [ %1501, %1527 ], [ %.sink757, %_ZN3nix3refINS_16NarInfoDiskCacheEED2Ev.exit.sink.split.sink.split ]
-  %1533 = load ptr, ptr %.sink745, align 8
+  %.sink871 = phi ptr [ %875, %901 ], [ %1472, %1498 ], [ %1501, %1527 ], [ %.sink883, %_ZN3nix3refINS_16NarInfoDiskCacheEED2Ev.exit.sink.split.sink.split ]
+  %1533 = load ptr, ptr %.sink871, align 8
   %1534 = getelementptr inbounds nuw i8, ptr %1533, i64 24
   %1535 = load ptr, ptr %1534, align 8
-  call void %1535(ptr noundef nonnull align 8 dereferenceable(16) %.sink745) #16
+  call void %1535(ptr noundef nonnull align 8 dereferenceable(16) %.sink871) #16
   br label %_ZN3nix3refINS_16NarInfoDiskCacheEED2Ev.exit
 
 _ZN3nix3refINS_16NarInfoDiskCacheEED2Ev.exit:     ; preds = %_ZN3nix3refINS_16NarInfoDiskCacheEED2Ev.exit.sink.split, %1527, %1514, %.critedge306, %1498, %1485, %1470, %901, %888, %_ZN7testing15AssertionResultD2Ev.exit573

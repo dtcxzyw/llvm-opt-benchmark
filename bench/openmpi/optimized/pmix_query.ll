@@ -291,7 +291,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %15
 
 pmix_obj_run_constructors.exit151:                ; preds = %.lr.ph.i148, %71
   store i8 0, ptr %28, align 8, !tbaa !55
-  br i1 %.1118.lcssa, label %77, label %.sink.split251
+  br i1 %.1118.lcssa, label %77, label %.sink.split282
 
 77:                                               ; preds = %pmix_obj_run_constructors.exit151
   %78 = load i32, ptr %24, align 4, !tbaa !52
@@ -313,15 +313,15 @@ pmix_obj_run_constructors.exit151:                ; preds = %.lr.ph.i148, %71
 84:                                               ; preds = %82, %81
   %85 = phi i32 [ %.pre, %82 ], [ %78, %81 ]
   %86 = icmp eq i32 %85, -4
-  br i1 %86, label %.sink.split251, label %87
+  br i1 %86, label %.sink.split282, label %87
 
-.sink.split251:                                   ; preds = %84, %pmix_obj_run_constructors.exit151
-  %.sink252 = phi i32 [ -1, %pmix_obj_run_constructors.exit151 ], [ -2, %84 ]
-  store i32 %.sink252, ptr %24, align 4, !tbaa !52
+.sink.split282:                                   ; preds = %84, %pmix_obj_run_constructors.exit151
+  %.sink283 = phi i32 [ -1, %pmix_obj_run_constructors.exit151 ], [ -2, %84 ]
+  store i32 %.sink283, ptr %24, align 4, !tbaa !52
   br label %87
 
-87:                                               ; preds = %.sink.split251, %84, %77
-  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 4), %77 ], [ %7, %84 ], [ %7, %.sink.split251 ]
+87:                                               ; preds = %.sink.split282, %84, %77
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 4), %77 ], [ %7, %84 ], [ %7, %.sink.split282 ]
   store ptr %.sink, ptr %29, align 8, !tbaa !62
   %88 = load ptr, ptr %33, align 8, !tbaa !63
   %89 = load ptr, ptr %88, align 8, !tbaa !64

@@ -1610,7 +1610,7 @@ ClearOrSaveAllResults.exit198.thread:             ; preds = %ClearOrSaveAllResul
   br label %CloseGOutput.exit
 
 CloseGOutput.exit:                                ; preds = %87, %ClearOrSaveAllResults.exit198.thread, %407, %417
-  %.2318 = phi i8 [ %.2, %ClearOrSaveAllResults.exit198.thread ], [ %.2, %407 ], [ %.2, %417 ], [ 1, %87 ]
+  %.2330 = phi i8 [ %.2, %ClearOrSaveAllResults.exit198.thread ], [ %.2, %407 ], [ %.2, %417 ], [ 1, %87 ]
   %419 = call fastcc zeroext i1 @CheckConnection()
   br i1 %419, label %420, label %ClearOrSaveAllResults.exit
 
@@ -1621,7 +1621,7 @@ CloseGOutput.exit:                                ; preds = %87, %ClearOrSaveAll
   br i1 %or.cond27, label %ClearOrSaveAllResults.exit, label %423
 
 423:                                              ; preds = %420
-  %424 = trunc nuw i8 %.2318 to i1
+  %424 = trunc nuw i8 %.2330 to i1
   %425 = select i1 %424, i32 1, i32 -1
   br label %ClearOrSaveAllResults.exit
 

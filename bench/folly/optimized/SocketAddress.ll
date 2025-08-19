@@ -413,10 +413,10 @@ define void @_ZN5folly13SocketAddress16setFromLocalPortEt(ptr noundef nonnull al
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %10, %.lr.ph.i
-  %.0915.lcssa.sink21.i = phi ptr [ %.0915.i, %.lr.ph.i ], [ %6, %10 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink21.i, i64 24
+  %.0915.lcssa.sink22.i = phi ptr [ %.0915.i, %.lr.ph.i ], [ %6, %10 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink22.i, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !19
-  %15 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink21.i, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink22.i, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !26
   invoke void @_ZN5folly13SocketAddress15setFromSockaddrEPK8sockaddrj(ptr noundef nonnull align 8 dereferenceable(27) %0, ptr noundef %14, i32 noundef %16)
           to label %_ZN5folly13SocketAddress16setFromLocalAddrEPK8addrinfo.exit unwind label %17
@@ -451,10 +451,10 @@ define void @_ZN5folly13SocketAddress16setFromLocalAddrEPK8addrinfo(ptr noundef 
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %6, %.lr.ph, %2
-  %.0915.lcssa.sink21 = phi ptr [ %1, %2 ], [ %.0915, %.lr.ph ], [ %1, %6 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink21, i64 24
+  %.0915.lcssa.sink22 = phi ptr [ %1, %2 ], [ %.0915, %.lr.ph ], [ %1, %6 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink22, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !19
-  %11 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink21, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink22, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !26
   tail call void @_ZN5folly13SocketAddress15setFromSockaddrEPK8sockaddrj(ptr noundef nonnull align 8 dereferenceable(27) %0, ptr noundef %10, i32 noundef %12)
   ret void
@@ -481,10 +481,10 @@ define void @_ZN5folly13SocketAddress16setFromLocalPortEPKc(ptr noundef nonnull 
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %7, %.lr.ph.i
-  %.0915.lcssa.sink21.i = phi ptr [ %.0915.i, %.lr.ph.i ], [ %3, %7 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink21.i, i64 24
+  %.0915.lcssa.sink22.i = phi ptr [ %.0915.i, %.lr.ph.i ], [ %3, %7 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink22.i, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !19
-  %12 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink21.i, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink22.i, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !26
   invoke void @_ZN5folly13SocketAddress15setFromSockaddrEPK8sockaddrj(ptr noundef nonnull align 8 dereferenceable(27) %0, ptr noundef %11, i32 noundef %13)
           to label %_ZN5folly13SocketAddress16setFromLocalAddrEPK8addrinfo.exit unwind label %14
@@ -652,10 +652,10 @@ _ZN12_GLOBAL__N_111HostAndPortC2EPKcb.exit:       ; preds = %2, %9, %17, %21
   br i1 %.not.i8, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %28, %.lr.ph.i
-  %.0915.lcssa.sink21.i = phi ptr [ %.0915.i, %.lr.ph.i ], [ %23, %28 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink21.i, i64 24
+  %.0915.lcssa.sink22.i = phi ptr [ %.0915.i, %.lr.ph.i ], [ %23, %28 ]
+  %31 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink22.i, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !19
-  %33 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink21.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink22.i, i64 16
   %34 = load i32, ptr %33, align 8, !tbaa !26
   invoke void @_ZN5folly13SocketAddress15setFromSockaddrEPK8sockaddrj(ptr noundef nonnull align 8 dereferenceable(27) %0, ptr noundef %32, i32 noundef %34)
           to label %_ZN5folly13SocketAddress16setFromLocalAddrEPK8addrinfo.exit unwind label %37
@@ -1430,28 +1430,28 @@ define linkonce_odr void @_ZN5folly29InvalidAddressFamilyExceptionC2Et(ptr nound
   ]
 
 ._crit_edge.i.i.i:                                ; preds = %2
-  %.sink14.sroa.gep18 = getelementptr inbounds nuw i8, ptr %5, i64 23
+  %.sink24.sroa.gep28 = getelementptr inbounds nuw i8, ptr %5, i64 23
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %6, ptr %5, align 8, !tbaa !62, !alias.scope !63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %6, ptr noundef nonnull align 1 dereferenceable(7) @.str.3, i64 7, i1 false)
   br label %_ZN5folly6detail13familyNameStrB5cxx11Et.exit.sink.split
 
 ._crit_edge.i.i5.i:                               ; preds = %2
-  %.sink14.sroa.gep17 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink24.sroa.gep27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %5, align 8, !tbaa !62, !alias.scope !63
   store i64 3914830178632549953, ptr %7, align 8, !alias.scope !63
   br label %_ZN5folly6detail13familyNameStrB5cxx11Et.exit.sink.split
 
 ._crit_edge.i.i9.i:                               ; preds = %2
-  %.sink14.sroa.gep16 = getelementptr inbounds nuw i8, ptr %5, i64 25
+  %.sink24.sroa.gep26 = getelementptr inbounds nuw i8, ptr %5, i64 25
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %5, align 8, !tbaa !62, !alias.scope !63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 1 dereferenceable(9) @.str.6, i64 9, i1 false)
   br label %_ZN5folly6detail13familyNameStrB5cxx11Et.exit.sink.split
 
 ._crit_edge.i.i13.i:                              ; preds = %2
-  %.sink14.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 23
+  %.sink24.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 23
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %9, ptr %5, align 8, !tbaa !62, !alias.scope !63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %9, ptr noundef nonnull align 1 dereferenceable(7) @.str.5, i64 7, i1 false)
@@ -1463,10 +1463,10 @@ define linkonce_odr void @_ZN5folly29InvalidAddressFamilyExceptionC2Et(ptr nound
 
 _ZN5folly6detail13familyNameStrB5cxx11Et.exit.sink.split: ; preds = %._crit_edge.i.i.i, %._crit_edge.i.i5.i, %._crit_edge.i.i9.i, %._crit_edge.i.i13.i
   %.sink = phi i64 [ 7, %._crit_edge.i.i13.i ], [ 9, %._crit_edge.i.i9.i ], [ 8, %._crit_edge.i.i5.i ], [ 7, %._crit_edge.i.i.i ]
-  %.sink14.sroa.phi = phi ptr [ %.sink14.sroa.gep, %._crit_edge.i.i13.i ], [ %.sink14.sroa.gep16, %._crit_edge.i.i9.i ], [ %.sink14.sroa.gep17, %._crit_edge.i.i5.i ], [ %.sink14.sroa.gep18, %._crit_edge.i.i.i ]
+  %.sink24.sroa.phi = phi ptr [ %.sink24.sroa.gep, %._crit_edge.i.i13.i ], [ %.sink24.sroa.gep26, %._crit_edge.i.i9.i ], [ %.sink24.sroa.gep27, %._crit_edge.i.i5.i ], [ %.sink24.sroa.gep28, %._crit_edge.i.i.i ]
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sink, ptr %11, align 8, !tbaa !50, !alias.scope !63
-  store i8 0, ptr %.sink14.sroa.phi, align 1, !tbaa !31, !alias.scope !63
+  store i8 0, ptr %.sink24.sroa.phi, align 1, !tbaa !31, !alias.scope !63
   br label %_ZN5folly6detail13familyNameStrB5cxx11Et.exit
 
 _ZN5folly6detail13familyNameStrB5cxx11Et.exit:    ; preds = %_ZN5folly6detail13familyNameStrB5cxx11Et.exit.sink.split, %10

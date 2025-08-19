@@ -2278,7 +2278,7 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %249 = getelementptr i8, ptr %0, i64 8
   %.pre.i139 = load i64, ptr %248, align 8
-  br i1 %247, label %.preheader, label %.preheader264
+  br i1 %247, label %.preheader, label %.preheader307
 
 .preheader:                                       ; preds = %246, %291
   %250 = phi i64 [ %.pre.i151, %291 ], [ %.pre.i139, %246 ]
@@ -2437,14 +2437,14 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
   %.not84 = icmp eq i32 %344, 0
   br i1 %.not84, label %avifRWStreamWriteBits.exit.thread, label %avifRWStreamWriteBits.exit
 
-.preheader264:                                    ; preds = %246, %386
+.preheader307:                                    ; preds = %246, %386
   %345 = phi i64 [ %.pre.i175, %386 ], [ %.pre.i139, %246 ]
   %.02632.i164 = phi i64 [ %371, %386 ], [ 8, %246 ]
   %346 = icmp eq i64 %345, 0
   %.pre35.i165 = load i64, ptr %249, align 8
   br i1 %346, label %347, label %362
 
-347:                                              ; preds = %.preheader264
+347:                                              ; preds = %.preheader307
   %.val.i170 = load ptr, ptr %0, align 8
   %348 = getelementptr inbounds nuw i8, ptr %.val.i170, i64 8
   %349 = load i64, ptr %348, align 8
@@ -2469,9 +2469,9 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
   %.pre36.i173 = load i64, ptr %248, align 8
   br label %362
 
-362:                                              ; preds = %355, %.preheader264
-  %363 = phi i64 [ %.pre36.i173, %355 ], [ %345, %.preheader264 ]
-  %364 = phi i64 [ %361, %355 ], [ %.pre35.i165, %.preheader264 ]
+362:                                              ; preds = %355, %.preheader307
+  %363 = phi i64 [ %.pre36.i173, %355 ], [ %345, %.preheader307 ]
+  %364 = phi i64 [ %361, %355 ], [ %.pre35.i165, %.preheader307 ]
   %365 = load ptr, ptr %0, align 8
   %366 = load ptr, ptr %365, align 8
   %367 = getelementptr inbounds i8, ptr %366, i64 %364
@@ -2505,7 +2505,7 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 386:                                              ; preds = %385, %362
   %.pre.i175 = phi i64 [ 0, %385 ], [ %383, %362 ]
   %.not.i168 = icmp eq i64 %371, 0
-  br i1 %.not.i168, label %387, label %.preheader264, !llvm.loop !7
+  br i1 %.not.i168, label %387, label %.preheader307, !llvm.loop !7
 
 387:                                              ; preds = %386
   %388 = and i32 %1, 255

@@ -473,8 +473,8 @@ _str2op.exit.thread89:                            ; preds = %72, %_str2op.exit.t
   %84 = load i8, ptr %.011.i, align 1
   %85 = and i8 %84, -2
   %switch.i = icmp eq i8 %85, 40
-  %or.cond369 = select i1 %.not9.i, i1 true, i1 %switch.i
-  br i1 %or.cond369, label %_find_leaf_end.exit, label %86
+  %or.cond386 = select i1 %.not9.i, i1 true, i1 %switch.i
+  br i1 %or.cond386, label %_find_leaf_end.exit, label %86
 
 86:                                               ; preds = %.lr.ph.i79
   %87 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1

@@ -130,22 +130,22 @@ define hidden noundef ptr @_Z14luaF_findupvalP9lua_StateP10lua_TValue(ptr nounde
 .lr.ph.preheader:                                 ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !57
-  %.not3747 = icmp ult ptr %8, %1
-  br i1 %.not3747, label %.critedge, label %.lr.ph48
+  %.not3751 = icmp ult ptr %8, %1
+  br i1 %.not3751, label %.critedge, label %.lr.ph52
 
 .lr.ph:                                           ; preds = %14
   %9 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !57
   %.not37 = icmp ult ptr %10, %1
-  br i1 %.not37, label %.critedge.loopexit, label %.lr.ph48, !llvm.loop !58
+  br i1 %.not37, label %.critedge.loopexit, label %.lr.ph52, !llvm.loop !58
 
-.lr.ph48:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph52:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %11 = phi ptr [ %10, %.lr.ph ], [ %8, %.lr.ph.preheader ]
   %12 = phi ptr [ %16, %.lr.ph ], [ %6, %.lr.ph.preheader ]
   %13 = icmp eq ptr %11, %1
   br i1 %13, label %.loopexit, label %14
 
-14:                                               ; preds = %.lr.ph48
+14:                                               ; preds = %.lr.ph52
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !56
   %.not = icmp eq ptr %16, null
@@ -194,8 +194,8 @@ define hidden noundef ptr @_Z14luaF_findupvalP9lua_StateP10lua_TValue(ptr nounde
   store ptr %21, ptr %35, align 8, !tbaa !53
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph48, %.critedge
-  %.0 = phi ptr [ %21, %.critedge ], [ %12, %.lr.ph48 ]
+.loopexit:                                        ; preds = %.lr.ph52, %.critedge
+  %.0 = phi ptr [ %21, %.critedge ], [ %12, %.lr.ph52 ]
   ret ptr %.0
 }
 

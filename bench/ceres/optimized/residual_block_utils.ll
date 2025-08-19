@@ -719,8 +719,8 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal17IsEvaluationValidERKNS0_13
   %31 = tail call noundef zeroext i1 @_ZN5ceres8internal12IsArrayValidElPKd(i64 noundef %28, ptr noundef %30)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond28.not = select i1 %31, i1 %exitcond.not, i1 false
-  br i1 %or.cond28.not, label %21, label %.critedge, !llvm.loop !67
+  %or.cond30.not = select i1 %31, i1 %exitcond.not, i1 false
+  br i1 %or.cond30.not, label %21, label %.critedge, !llvm.loop !67
 
 .critedge:                                        ; preds = %21, %18, %4
   %.0 = phi i1 [ false, %4 ], [ true, %18 ], [ %31, %21 ]

@@ -555,8 +555,8 @@ define internal fastcc void @draw_overlay(ptr noundef %0, float noundef %1, floa
   br label %25
 
 25:                                               ; preds = %22, %19
-  %.sink92 = phi float [ %1, %22 ], [ %2, %19 ]
-  %26 = fpext reassoc nsz arcp contract afn float %.sink92 to double
+  %.sink99 = phi float [ %1, %22 ], [ %2, %19 ]
+  %26 = fpext reassoc nsz arcp contract afn float %.sink99 to double
   tail call void @cairo_arc(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %26, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #21
   tail call void @cairo_restore(ptr noundef %0) #21
   tail call void @cairo_stroke(ptr noundef %0) #21
@@ -577,8 +577,8 @@ define internal fastcc void @draw_overlay(ptr noundef %0, float noundef %1, floa
   br label %34
 
 34:                                               ; preds = %31, %28
-  %.sink93 = phi float [ %3, %31 ], [ %4, %28 ]
-  %35 = fpext reassoc nsz arcp contract afn float %.sink93 to double
+  %.sink100 = phi float [ %3, %31 ], [ %4, %28 ]
+  %35 = fpext reassoc nsz arcp contract afn float %.sink100 to double
   tail call void @cairo_arc(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %35, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #21
   tail call void @cairo_restore(ptr noundef %0) #21
   tail call void @cairo_stroke(ptr noundef %0) #21

@@ -502,7 +502,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4node11UDPWrapBase8listenerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull ptr @_ZNK4node11UDPWrapBase8listenerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %listener_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %listener_, align 8
@@ -5509,7 +5509,7 @@ declare noundef ptr @_ZN4node6Buffer4DataEN2v85LocalINS1_5ValueEEE(ptr) local_un
 declare noundef zeroext i1 @_ZNK2v85Value6IsTrueEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN4node7UDPWrap4SendEP8uv_buf_tmPK8sockaddr(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef %bufs_ptr, i64 noundef %count, ptr noundef %addr) unnamed_addr #3 align 2 {
+define dso_local noundef range(i64 -2147483648, 2147483649) i64 @_ZN4node7UDPWrap4SendEP8uv_buf_tmPK8sockaddr(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef %bufs_ptr, i64 noundef %count, ptr noundef %addr) unnamed_addr #3 align 2 {
 entry:
   %trigger_scope = alloca %"class.node::AsyncHooks::DefaultTriggerAsyncIdScope", align 8
   %state_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -5667,7 +5667,7 @@ land.rhs:                                         ; preds = %if.then12, %while.b
   br i1 %cmp16.not, label %if.end49, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %sub = sub nuw i64 %sent.062, %22
+  %sub = sub nuw nsw i64 %sent.062, %22
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %bufs_ptr.addr.161, i64 16
   %dec = add i64 %count.addr.160, -1
   %cmp14.not = icmp eq i64 %dec, 0
@@ -5683,7 +5683,7 @@ do.body41:                                        ; preds = %do.body33
   unreachable
 
 do.end44:                                         ; preds = %do.body33
-  %add45 = add i64 %msg_size.0.lcssa, 1
+  %add45 = add nuw nsw i64 %msg_size.0.lcssa, 1
   br label %return
 
 if.end49:                                         ; preds = %land.rhs
@@ -5801,7 +5801,7 @@ declare i32 @uv_udp_send(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr
 declare void @_ZN4node10AsyncHooks26DefaultTriggerAsyncIdScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @_ZThn88_N4node7UDPWrap4SendEP8uv_buf_tmPK8sockaddr(ptr noundef %this, ptr noundef %bufs_ptr, i64 noundef %count, ptr noundef %addr) unnamed_addr #12 align 2 {
+define dso_local noundef range(i64 -2147483648, 2147483649) i64 @_ZThn88_N4node7UDPWrap4SendEP8uv_buf_tmPK8sockaddr(ptr noundef %this, ptr noundef %bufs_ptr, i64 noundef %count, ptr noundef %addr) unnamed_addr #12 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -88
   %call = tail call noundef i64 @_ZN4node7UDPWrap4SendEP8uv_buf_tmPK8sockaddr(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %bufs_ptr, i64 noundef %count, ptr noundef %addr)
@@ -6388,10 +6388,10 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit33: ; pred
   br i1 %cmp.not.i34, label %if.end80, label %if.end80.sink.split
 
 if.end80.sink.split:                              ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit33, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit
-  %.sink147 = phi ptr [ %.pr, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit ], [ %32, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit33 ]
+  %.sink156 = phi ptr [ %.pr, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit ], [ %32, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit33 ]
   %ref.tmp.sink.ph = phi ptr [ %ref.tmp, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit ], [ %agg.tmp77, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit33 ]
-  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink147) #20
-  call void @_ZdlPv(ptr noundef nonnull %.sink147) #20
+  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink156) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sink156) #20
   br label %if.end80
 
 if.end80:                                         ; preds = %if.end80.sink.split, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit33, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit, %if.then62

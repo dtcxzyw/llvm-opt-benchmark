@@ -575,7 +575,7 @@ define internal fastcc range(i32 -22, 1) i32 @expr_count(ptr noundef readonly ca
   %or.cond = and i1 %5, %6
   %7 = icmp ne i32 %2, 0
   %or.cond3 = and i1 %or.cond, %7
-  br i1 %or.cond3, label %.preheader, label %.critedge42
+  br i1 %or.cond3, label %.preheader, label %.critedge49
 
 .preheader:                                       ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -585,35 +585,35 @@ define internal fastcc range(i32 -22, 1) i32 @expr_count(ptr noundef readonly ca
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %10 = load ptr, ptr %8, align 8, !tbaa !15
-  %.not38 = icmp eq ptr %10, null
-  br i1 %.not38, label %.critedge42, label %.lr.ph40
+  %.not45 = icmp eq ptr %10, null
+  br i1 %.not45, label %.critedge49, label %.lr.ph47
 
-.lr.ph:                                           ; preds = %.lr.ph40
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv39, 1
+.lr.ph:                                           ; preds = %.lr.ph47
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv46, 1
   %11 = getelementptr inbounds nuw [3 x ptr], ptr %8, i64 0, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.critedge42, label %.lr.ph40, !llvm.loop !42
+  br i1 %.not, label %.critedge49, label %.lr.ph47, !llvm.loop !42
 
-.lr.ph40:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph47:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %13 = phi ptr [ %12, %.lr.ph ], [ %10, %.lr.ph.preheader ]
-  %indvars.iv39 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %indvars.iv46 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %14 = tail call fastcc i32 @expr_count(ptr noundef nonnull %13, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3)
   %15 = load i32, ptr %0, align 8, !tbaa !39
   %16 = icmp ne i32 %15, %3
-  %17 = icmp samesign ult i64 %indvars.iv39, 2
+  %17 = icmp samesign ult i64 %indvars.iv46, 2
   %or.cond5 = select i1 %16, i1 %17, i1 false
   br i1 %or.cond5, label %.lr.ph, label %..critedge_crit_edge, !llvm.loop !42
 
-..critedge_crit_edge:                             ; preds = %.lr.ph40
+..critedge_crit_edge:                             ; preds = %.lr.ph47
   %18 = icmp eq i32 %15, %3
-  br i1 %18, label %.critedge.thread, label %.critedge42
+  br i1 %18, label %.critedge.thread, label %.critedge49
 
 .critedge.thread:                                 ; preds = %.preheader, %..critedge_crit_edge
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !43
   %21 = icmp slt i32 %20, %2
-  br i1 %21, label %22, label %.critedge42
+  br i1 %21, label %22, label %.critedge49
 
 22:                                               ; preds = %.critedge.thread
   %23 = sext i32 %20 to i64
@@ -621,9 +621,9 @@ define internal fastcc range(i32 -22, 1) i32 @expr_count(ptr noundef readonly ca
   %25 = load i32, ptr %24, align 4, !tbaa !44
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 4, !tbaa !44
-  br label %.critedge42
+  br label %.critedge49
 
-.critedge42:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge_crit_edge, %.critedge.thread, %22, %4
+.critedge49:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge_crit_edge, %.critedge.thread, %22, %4
   %.025 = phi i32 [ -22, %4 ], [ 0, %22 ], [ 0, %.critedge.thread ], [ 0, %..critedge_crit_edge ], [ 0, %.lr.ph.preheader ], [ 0, %.lr.ph ]
   ret i32 %.025
 }
@@ -710,7 +710,7 @@ define internal fastcc double @eval_expr(ptr noundef nonnull %0, ptr noundef rea
   %5 = load ptr, ptr %4, align 8, !tbaa !15
   %6 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %5)
   %7 = fcmp nsz une double %6, 0.000000e+00
-  br i1 %7, label %.lr.ph, label %common.ret519
+  br i1 %7, label %.lr.ph, label %common.ret535
 
 .lr.ph:                                           ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -719,7 +719,7 @@ define internal fastcc double @eval_expr(ptr noundef nonnull %0, ptr noundef rea
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load double, ptr %10, align 8, !tbaa !40
-  br label %common.ret519
+  br label %common.ret535
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -732,11 +732,11 @@ define internal fastcc double @eval_expr(ptr noundef nonnull %0, ptr noundef rea
   %20 = getelementptr inbounds double, ptr %16, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !49
   %22 = fmul nsz double %14, %21
-  br label %common.ret519
+  br label %common.ret535
 
-common.ret519:                                    ; preds = %638, %635, %627, %624, %619, %614, %600, %596, %591, %583, %578, %573, %567, %561, %555, %549, %543, %537, %531, %523, %512, %504, %208, %.loopexit, %split, %ff_sfc64_init.exit400, %ff_sfc64_init.exit, %271, %247, %205, %188, %12, %9, %.preheader, %388, %250, %222, %165, %157, %143, %135, %127, %119, %111, %101, %92, %77, %68, %60, %45, %33, %23
-  %common.ret519.op = phi double [ %32, %23 ], [ %44, %33 ], [ %59, %45 ], [ %67, %60 ], [ %76, %68 ], [ %91, %77 ], [ %100, %92 ], [ %110, %101 ], [ %118, %111 ], [ %126, %119 ], [ %134, %127 ], [ %142, %135 ], [ %156, %143 ], [ %164, %157 ], [ %173, %165 ], [ %230, %222 ], [ %261, %250 ], [ %11, %9 ], [ %22, %12 ], [ %190, %188 ], [ %207, %205 ], [ %249, %247 ], [ %265, %271 ], [ %325, %ff_sfc64_init.exit ], [ %387, %ff_sfc64_init.exit400 ], [ %.1358, %split ], [ %503, %.loopexit ], [ 0x7FF8000000000000, %208 ], [ 0x7FF8000000000000, %504 ], [ 0x7FF8000000000000, %635 ], [ %645, %638 ], [ 0x7FF8000000000000, %624 ], [ %634, %627 ], [ %623, %619 ], [ %618, %614 ], [ %613, %600 ], [ %599, %596 ], [ %595, %591 ], [ %590, %583 ], [ %582, %578 ], [ %577, %573 ], [ %572, %567 ], [ %566, %561 ], [ %560, %555 ], [ %554, %549 ], [ %548, %543 ], [ %542, %537 ], [ %536, %531 ], [ %530, %523 ], [ %522, %512 ], [ 0x7FF8000000000000, %.preheader ], [ %390, %388 ]
-  ret double %common.ret519.op
+common.ret535:                                    ; preds = %638, %635, %627, %624, %619, %614, %600, %596, %591, %583, %578, %573, %567, %561, %555, %549, %543, %537, %531, %523, %512, %504, %208, %.loopexit, %split, %ff_sfc64_init.exit400, %ff_sfc64_init.exit, %271, %247, %205, %188, %12, %9, %.preheader, %388, %250, %222, %165, %157, %143, %135, %127, %119, %111, %101, %92, %77, %68, %60, %45, %33, %23
+  %common.ret535.op = phi double [ %32, %23 ], [ %44, %33 ], [ %59, %45 ], [ %67, %60 ], [ %76, %68 ], [ %91, %77 ], [ %100, %92 ], [ %110, %101 ], [ %118, %111 ], [ %126, %119 ], [ %134, %127 ], [ %142, %135 ], [ %156, %143 ], [ %164, %157 ], [ %173, %165 ], [ %230, %222 ], [ %261, %250 ], [ %11, %9 ], [ %22, %12 ], [ %190, %188 ], [ %207, %205 ], [ %249, %247 ], [ %265, %271 ], [ %325, %ff_sfc64_init.exit ], [ %387, %ff_sfc64_init.exit400 ], [ %.1358, %split ], [ %503, %.loopexit ], [ 0x7FF8000000000000, %208 ], [ 0x7FF8000000000000, %504 ], [ 0x7FF8000000000000, %635 ], [ %645, %638 ], [ 0x7FF8000000000000, %624 ], [ %634, %627 ], [ %623, %619 ], [ %618, %614 ], [ %613, %600 ], [ %599, %596 ], [ %595, %591 ], [ %590, %583 ], [ %582, %578 ], [ %577, %573 ], [ %572, %567 ], [ %566, %561 ], [ %560, %555 ], [ %554, %549 ], [ %548, %543 ], [ %542, %537 ], [ %536, %531 ], [ %530, %523 ], [ %522, %512 ], [ 0x7FF8000000000000, %.preheader ], [ %390, %388 ]
+  ret double %common.ret535.op
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -748,7 +748,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
   %30 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %29)
   %31 = tail call nsz double %27(double noundef %30) #14
   %32 = fmul nsz double %25, %31
-  br label %common.ret519
+  br label %common.ret535
 
 33:                                               ; preds = %2
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -762,7 +762,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
   %42 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %41)
   %43 = tail call nsz double %37(ptr noundef %39, double noundef %42) #14
   %44 = fmul nsz double %35, %43
-  br label %common.ret519
+  br label %common.ret535
 
 45:                                               ; preds = %2
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -779,7 +779,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
   %57 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %56)
   %58 = tail call nsz double %49(ptr noundef %51, double noundef %54, double noundef %57) #14
   %59 = fmul nsz double %47, %58
-  br label %common.ret519
+  br label %common.ret535
 
 60:                                               ; preds = %2
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -789,7 +789,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
   %65 = tail call nsz double @llvm.exp.f64(double %64)
   %66 = fadd nsz double %65, 1.000000e+00
   %67 = fdiv nsz double 1.000000e+00, %66
-  br label %common.ret519
+  br label %common.ret535
 
 68:                                               ; preds = %2
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -800,7 +800,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
   %74 = fmul nsz double %73, 5.000000e-01
   %75 = tail call nsz double @llvm.exp.f64(double %74)
   %76 = fdiv nsz double %75, 0x40040D931FF62705
-  br label %common.ret519
+  br label %common.ret535
 
 77:                                               ; preds = %2
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -817,7 +817,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
   %89 = getelementptr inbounds nuw double, ptr %81, i64 %88
   %90 = load double, ptr %89, align 8, !tbaa !49
   %91 = fmul nsz double %79, %90
-  br label %common.ret519
+  br label %common.ret535
 
 92:                                               ; preds = %2
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -828,7 +828,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
   %98 = fcmp uno double %97, 0.000000e+00
   %99 = uitofp i1 %98 to double
   %100 = fmul nsz double %94, %99
-  br label %common.ret519
+  br label %common.ret535
 
 101:                                              ; preds = %2
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -840,7 +840,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
   %108 = fcmp nsz oeq double %107, 0x7FF0000000000000
   %109 = uitofp i1 %108 to double
   %110 = fmul nsz double %103, %109
-  br label %common.ret519
+  br label %common.ret535
 
 111:                                              ; preds = %2
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -850,7 +850,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
   %116 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %115)
   %117 = tail call nsz double @llvm.floor.f64(double %116)
   %118 = fmul nsz double %113, %117
-  br label %common.ret519
+  br label %common.ret535
 
 119:                                              ; preds = %2
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -860,7 +860,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
   %124 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %123)
   %125 = tail call nsz double @llvm.ceil.f64(double %124)
   %126 = fmul nsz double %121, %125
-  br label %common.ret519
+  br label %common.ret535
 
 127:                                              ; preds = %2
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -870,7 +870,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
   %132 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %131)
   %133 = tail call nsz double @llvm.trunc.f64(double %132)
   %134 = fmul nsz double %129, %133
-  br label %common.ret519
+  br label %common.ret535
 
 135:                                              ; preds = %2
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -880,7 +880,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
   %140 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %139)
   %141 = tail call nsz double @llvm.round.f64(double %140)
   %142 = fmul nsz double %137, %141
-  br label %common.ret519
+  br label %common.ret535
 
 143:                                              ; preds = %2
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -897,7 +897,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
   %154 = add nsw i32 %.neg, %150
   %155 = sitofp i32 %154 to double
   %156 = fmul nsz double %145, %155
-  br label %common.ret519
+  br label %common.ret535
 
 157:                                              ; preds = %2
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -907,7 +907,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
   %162 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %161)
   %163 = tail call nsz double @llvm.sqrt.f64(double %162)
   %164 = fmul nsz double %159, %163
-  br label %common.ret519
+  br label %common.ret535
 
 165:                                              ; preds = %2
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -918,7 +918,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
   %171 = fcmp nsz oeq double %170, 0.000000e+00
   %172 = uitofp i1 %171 to double
   %173 = fmul nsz double %167, %172
-  br label %common.ret519
+  br label %common.ret535
 
 174:                                              ; preds = %2
   %175 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -948,7 +948,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
 188:                                              ; preds = %.sink.split, %184
   %189 = phi nsz double [ 0.000000e+00, %184 ], [ %187, %.sink.split ]
   %190 = fmul nsz double %176, %189
-  br label %common.ret519
+  br label %common.ret535
 
 191:                                              ; preds = %2
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -962,23 +962,23 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
 198:                                              ; preds = %191
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %200 = load ptr, ptr %199, align 8, !tbaa !15
-  br label %.sink.split470
+  br label %.sink.split486
 
 201:                                              ; preds = %191
   %202 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %203 = load ptr, ptr %202, align 8, !tbaa !15
   %.not377 = icmp eq ptr %203, null
-  br i1 %.not377, label %205, label %.sink.split470
+  br i1 %.not377, label %205, label %.sink.split486
 
-.sink.split470:                                   ; preds = %201, %198
-  %.sink471 = phi ptr [ %200, %198 ], [ %203, %201 ]
-  %204 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %.sink471)
+.sink.split486:                                   ; preds = %201, %198
+  %.sink487 = phi ptr [ %200, %198 ], [ %203, %201 ]
+  %204 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %.sink487)
   br label %205
 
-205:                                              ; preds = %.sink.split470, %201
-  %206 = phi nsz double [ 0.000000e+00, %201 ], [ %204, %.sink.split470 ]
+205:                                              ; preds = %.sink.split486, %201
+  %206 = phi nsz double [ 0.000000e+00, %201 ], [ %204, %.sink.split486 ]
   %207 = fmul nsz double %193, %206
-  br label %common.ret519
+  br label %common.ret535
 
 208:                                              ; preds = %2
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -997,7 +997,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
   %or.cond380 = select i1 %or.cond379, i1 true, i1 %220
   %221 = fcmp nsz ogt double %214, %217
   %or.cond381 = select i1 %or.cond380, i1 true, i1 %221
-  br i1 %or.cond381, label %common.ret519, label %222
+  br i1 %or.cond381, label %common.ret535, label %222
 
 222:                                              ; preds = %208
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1009,7 +1009,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
   %229 = fcmp nsz ogt double %228, %217
   %..i397 = select nsz i1 %229, double %217, double %228
   %230 = fmul nsz double %224, %..i397
-  br label %common.ret519
+  br label %common.ret535
 
 231:                                              ; preds = %2
   %232 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1034,7 +1034,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
 247:                                              ; preds = %241, %231
   %248 = phi double [ 0.000000e+00, %231 ], [ %246, %241 ]
   %249 = fmul nsz double %236, %248
-  br label %common.ret519
+  br label %common.ret535
 
 250:                                              ; preds = %2
   %251 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1048,7 +1048,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
   %259 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %258)
   %260 = fsub nsz double %256, %253
   %261 = tail call nsz double @llvm.fmuladd.f64(double %260, double %259, double %253)
-  br label %common.ret519
+  br label %common.ret535
 
 262:                                              ; preds = %2
   %263 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1067,7 +1067,7 @@ common.ret519:                                    ; preds = %638, %635, %627, %6
 271:                                              ; preds = %262, %268
   %272 = phi i32 [ %270, %268 ], [ 32, %262 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef %272, ptr noundef nonnull @.str.63, double noundef %265) #14
-  br label %common.ret519
+  br label %common.ret535
 
 273:                                              ; preds = %2
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1147,7 +1147,7 @@ ff_sfc64_init.exit:                               ; preds = %294, %._crit_edge44
   %324 = getelementptr inbounds nuw double, ptr %308, i64 %282
   store double %323, ptr %324, align 8, !tbaa !49
   %325 = fmul nsz double %323, 0x3BF0000000000000
-  br label %common.ret519
+  br label %common.ret535
 
 326:                                              ; preds = %2
   %327 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1236,7 +1236,7 @@ ff_sfc64_init.exit400:                            ; preds = %353, %._crit_edge43
   %385 = fmul nsz double %384, %382
   %386 = fmul nsz double %385, 0x3BF0000000000000
   %387 = fadd nsz double %330, %386
-  br label %common.ret519
+  br label %common.ret535
 
 388:                                              ; preds = %.lr.ph, %388
   %389 = load ptr, ptr %8, align 8, !tbaa !15
@@ -1244,7 +1244,7 @@ ff_sfc64_init.exit400:                            ; preds = %353, %._crit_edge43
   %391 = load ptr, ptr %4, align 8, !tbaa !15
   %392 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %391)
   %393 = fcmp nsz une double %392, 0.000000e+00
-  br i1 %393, label %388, label %common.ret519, !llvm.loop !57
+  br i1 %393, label %388, label %common.ret535, !llvm.loop !57
 
 394:                                              ; preds = %2
   %395 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1305,7 +1305,7 @@ split:                                            ; preds = %413, %._crit_edge
   %.1358 = phi nsz double [ %419, %._crit_edge ], [ %.0357, %413 ]
   %427 = getelementptr inbounds nuw double, ptr %426, i64 %408
   store double %412, ptr %427, align 8, !tbaa !49
-  br label %common.ret519
+  br label %common.ret535
 
 428:                                              ; preds = %2
   %429 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1453,7 +1453,7 @@ split:                                            ; preds = %413, %._crit_edge
   %501 = fneg nsz double %.2344
   %502 = fcmp nsz ogt double %.2341, %501
   %503 = select nsz i1 %502, double %.1349, double %.1346
-  br label %common.ret519
+  br label %common.ret535
 
 504:                                              ; preds = %2
   %505 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1463,7 +1463,7 @@ split:                                            ; preds = %413, %._crit_edge
   %509 = load ptr, ptr %508, align 8, !tbaa !15
   %510 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %509)
   %511 = load i32, ptr %1, align 8, !tbaa !39
-  switch i32 %511, label %common.ret519 [
+  switch i32 %511, label %common.ret535 [
     i32 10, label %512
     i32 35, label %523
     i32 11, label %531
@@ -1496,7 +1496,7 @@ split:                                            ; preds = %413, %._crit_edge
   %520 = fneg nsz double %519
   %521 = tail call nsz double @llvm.fmuladd.f64(double %520, double %510, double %507)
   %522 = fmul nsz double %521, %514
-  br label %common.ret519
+  br label %common.ret535
 
 523:                                              ; preds = %504
   %524 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1506,7 +1506,7 @@ split:                                            ; preds = %413, %._crit_edge
   %528 = tail call i64 @av_gcd(i64 noundef %526, i64 noundef %527) #17
   %529 = sitofp i64 %528 to double
   %530 = fmul nsz double %525, %529
-  br label %common.ret519
+  br label %common.ret535
 
 531:                                              ; preds = %504
   %532 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1514,7 +1514,7 @@ split:                                            ; preds = %413, %._crit_edge
   %534 = fcmp nsz ogt double %507, %510
   %535 = select nsz i1 %534, double %507, double %510
   %536 = fmul nsz double %535, %533
-  br label %common.ret519
+  br label %common.ret535
 
 537:                                              ; preds = %504
   %538 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1522,7 +1522,7 @@ split:                                            ; preds = %413, %._crit_edge
   %540 = fcmp nsz olt double %507, %510
   %541 = select nsz i1 %540, double %507, double %510
   %542 = fmul nsz double %541, %539
-  br label %common.ret519
+  br label %common.ret535
 
 543:                                              ; preds = %504
   %544 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1530,7 +1530,7 @@ split:                                            ; preds = %413, %._crit_edge
   %546 = fcmp nsz oeq double %507, %510
   %547 = select nsz i1 %546, double 1.000000e+00, double 0.000000e+00
   %548 = fmul nsz double %547, %545
-  br label %common.ret519
+  br label %common.ret535
 
 549:                                              ; preds = %504
   %550 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1538,7 +1538,7 @@ split:                                            ; preds = %413, %._crit_edge
   %552 = fcmp nsz ogt double %507, %510
   %553 = select nsz i1 %552, double 1.000000e+00, double 0.000000e+00
   %554 = fmul nsz double %553, %551
-  br label %common.ret519
+  br label %common.ret535
 
 555:                                              ; preds = %504
   %556 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1546,7 +1546,7 @@ split:                                            ; preds = %413, %._crit_edge
   %558 = fcmp nsz oge double %507, %510
   %559 = select nsz i1 %558, double 1.000000e+00, double 0.000000e+00
   %560 = fmul nsz double %559, %557
-  br label %common.ret519
+  br label %common.ret535
 
 561:                                              ; preds = %504
   %562 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1554,7 +1554,7 @@ split:                                            ; preds = %413, %._crit_edge
   %564 = fcmp nsz olt double %507, %510
   %565 = select nsz i1 %564, double 1.000000e+00, double 0.000000e+00
   %566 = fmul nsz double %565, %563
-  br label %common.ret519
+  br label %common.ret535
 
 567:                                              ; preds = %504
   %568 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1562,21 +1562,21 @@ split:                                            ; preds = %413, %._crit_edge
   %570 = fcmp nsz ole double %507, %510
   %571 = select nsz i1 %570, double 1.000000e+00, double 0.000000e+00
   %572 = fmul nsz double %571, %569
-  br label %common.ret519
+  br label %common.ret535
 
 573:                                              ; preds = %504
   %574 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %575 = load double, ptr %574, align 8, !tbaa !40
   %576 = tail call nsz double @llvm.pow.f64(double %507, double %510)
   %577 = fmul nsz double %576, %575
-  br label %common.ret519
+  br label %common.ret535
 
 578:                                              ; preds = %504
   %579 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %580 = load double, ptr %579, align 8, !tbaa !40
   %581 = fmul nsz double %507, %510
   %582 = fmul nsz double %581, %580
-  br label %common.ret519
+  br label %common.ret535
 
 583:                                              ; preds = %504
   %584 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1586,20 +1586,20 @@ split:                                            ; preds = %413, %._crit_edge
   %588 = fmul nsz double %507, 0x7FF0000000000000
   %589 = select nsz i1 %586, double %587, double %588
   %590 = fmul nsz double %589, %585
-  br label %common.ret519
+  br label %common.ret535
 
 591:                                              ; preds = %504
   %592 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %593 = load double, ptr %592, align 8, !tbaa !40
   %594 = fadd nsz double %507, %510
   %595 = fmul nsz double %594, %593
-  br label %common.ret519
+  br label %common.ret535
 
 596:                                              ; preds = %504
   %597 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %598 = load double, ptr %597, align 8, !tbaa !40
   %599 = fmul nsz double %510, %598
-  br label %common.ret519
+  br label %common.ret535
 
 600:                                              ; preds = %504
   %601 = fptosi double %507 to i32
@@ -1617,27 +1617,27 @@ split:                                            ; preds = %413, %._crit_edge
   %612 = getelementptr inbounds nuw double, ptr %611, i64 %606
   store double %510, ptr %612, align 8, !tbaa !49
   %613 = fmul nsz double %510, %609
-  br label %common.ret519
+  br label %common.ret535
 
 614:                                              ; preds = %504
   %615 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %616 = load double, ptr %615, align 8, !tbaa !40
   %617 = tail call nsz double @hypot(double noundef %507, double noundef %510) #17
   %618 = fmul nsz double %616, %617
-  br label %common.ret519
+  br label %common.ret535
 
 619:                                              ; preds = %504
   %620 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %621 = load double, ptr %620, align 8, !tbaa !40
   %622 = tail call nsz double @llvm.atan2.f64(double %507, double %510)
   %623 = fmul nsz double %622, %621
-  br label %common.ret519
+  br label %common.ret535
 
 624:                                              ; preds = %504
   %625 = fcmp uno double %507, 0.000000e+00
   %626 = fcmp uno double %510, 0.000000e+00
   %or.cond385 = select i1 %625, i1 true, i1 %626
-  br i1 %or.cond385, label %common.ret519, label %627
+  br i1 %or.cond385, label %common.ret535, label %627
 
 627:                                              ; preds = %624
   %628 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1647,13 +1647,13 @@ split:                                            ; preds = %413, %._crit_edge
   %632 = and i64 %631, %630
   %633 = sitofp i64 %632 to double
   %634 = fmul nsz double %629, %633
-  br label %common.ret519
+  br label %common.ret535
 
 635:                                              ; preds = %504
   %636 = fcmp uno double %507, 0.000000e+00
   %637 = fcmp uno double %510, 0.000000e+00
   %or.cond386 = select i1 %636, i1 true, i1 %637
-  br i1 %or.cond386, label %common.ret519, label %638
+  br i1 %or.cond386, label %common.ret535, label %638
 
 638:                                              ; preds = %635
   %639 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1663,7 +1663,7 @@ split:                                            ; preds = %413, %._crit_edge
   %643 = or i64 %642, %641
   %644 = sitofp i64 %643 to double
   %645 = fmul nsz double %640, %644
-  br label %common.ret519
+  br label %common.ret535
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2035,16 +2035,16 @@ parse_dB.exit22:                                  ; preds = %57, %59
   br i1 %.not, label %93, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %86, %._crit_edge
-  %.lcssa4256 = phi ptr [ %.promoted, %._crit_edge ], [ %76, %86 ]
-  %90 = getelementptr inbounds nuw i8, ptr %.lcssa4256, i64 8
+  %.lcssa4262 = phi ptr [ %.promoted, %._crit_edge ], [ %76, %86 ]
+  %90 = getelementptr inbounds nuw i8, ptr %.lcssa4262, i64 8
   %91 = load double, ptr %90, align 8, !tbaa !40
   %92 = fmul nsz double %.128, %91
   store double %92, ptr %90, align 8, !tbaa !40
   br label %93
 
 93:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.lcssa4257 = phi ptr [ %.lcssa4256, %._crit_edge.thread ], [ null, %._crit_edge ]
-  store ptr %.lcssa4257, ptr %0, align 8, !tbaa !15
+  %.lcssa4263 = phi ptr [ %.lcssa4262, %._crit_edge.thread ], [ null, %._crit_edge ]
+  store ptr %.lcssa4263, ptr %0, align 8, !tbaa !15
   br label %94
 
 94:                                               ; preds = %parse_dB.exit, %93, %77, %73

@@ -234,7 +234,7 @@ define dso_local zeroext i1 @acpi_duplicate_processor_id(i32 noundef %0) local_u
   %4 = load i32, ptr @duplicate_processor_ids, align 16
   %5 = icmp ne i32 %4, %0
   %6 = select i1 %3, i1 %5, i1 false
-  br i1 %6, label %.preheader.preheader, label %.split.loop.exit2
+  br i1 %6, label %.preheader.preheader, label %.split.loop.exit3
 
 .preheader.preheader:                             ; preds = %1
   %7 = zext nneg i32 %2 to i64
@@ -244,7 +244,7 @@ define dso_local zeroext i1 @acpi_duplicate_processor_id(i32 noundef %0) local_u
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = icmp eq i64 %indvars.iv.next, %7
-  br i1 %8, label %.split.loop.exit2, label %9, !llvm.loop !6
+  br i1 %8, label %.split.loop.exit3, label %9, !llvm.loop !6
 
 9:                                                ; preds = %.preheader
   %10 = getelementptr [64 x i32], ptr @duplicate_processor_ids, i64 0, i64 %indvars.iv.next
@@ -255,9 +255,9 @@ define dso_local zeroext i1 @acpi_duplicate_processor_id(i32 noundef %0) local_u
 .split.loop.exit:                                 ; preds = %9
   %13 = trunc nuw nsw i64 %indvars.iv.next to i32
   %14 = icmp sgt i32 %2, %13
-  br label %.split.loop.exit2
+  br label %.split.loop.exit3
 
-.split.loop.exit2:                                ; preds = %.preheader, %.split.loop.exit, %1
+.split.loop.exit3:                                ; preds = %.preheader, %.split.loop.exit, %1
   %15 = phi i1 [ %3, %1 ], [ %14, %.split.loop.exit ], [ false, %.preheader ]
   ret i1 %15
 }

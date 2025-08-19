@@ -1632,9 +1632,9 @@ ehcleanup31:                                      ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 return:                                           ; preds = %sw.bb3, %sw.bb
-  %sub5.sink43 = phi double [ %sub5, %sw.bb3 ], [ %sub, %sw.bb ]
-  %cmp.i7 = fcmp olt double %sub5.sink43, 0.000000e+00
-  %.sroa.speculated = select i1 %cmp.i7, double 0.000000e+00, double %sub5.sink43
+  %sub5.sink50 = phi double [ %sub5, %sw.bb3 ], [ %sub, %sw.bb ]
+  %cmp.i7 = fcmp olt double %sub5.sink50, 0.000000e+00
+  %.sroa.speculated = select i1 %cmp.i7, double 0.000000e+00, double %sub5.sink50
   ret double %.sroa.speculated
 
 unreachable:                                      ; preds = %invoke.cont21
@@ -2026,9 +2026,9 @@ ehcleanup32:                                      ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 return:                                           ; preds = %sw.bb3, %sw.bb
-  %sub6.sink42 = phi double [ %sub6, %sw.bb3 ], [ %sub, %sw.bb ]
-  %cmp.i6 = fcmp olt double %sub6.sink42, 0.000000e+00
-  %.sroa.speculated = select i1 %cmp.i6, double 0.000000e+00, double %sub6.sink42
+  %sub6.sink49 = phi double [ %sub6, %sw.bb3 ], [ %sub, %sw.bb ]
+  %cmp.i6 = fcmp olt double %sub6.sink49, 0.000000e+00
+  %.sroa.speculated = select i1 %cmp.i6, double 0.000000e+00, double %sub6.sink49
   ret double %.sroa.speculated
 
 unreachable:                                      ; preds = %invoke.cont22
@@ -2242,9 +2242,9 @@ ehcleanup33:                                      ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %.pn2.pn.pn.pn
 
 return:                                           ; preds = %sw.bb3, %sw.bb
-  %sub6.sink43 = phi double [ %sub6, %sw.bb3 ], [ %sub, %sw.bb ]
-  %cmp.i7 = fcmp olt double %sub6.sink43, 0.000000e+00
-  %.sroa.speculated = select i1 %cmp.i7, double 0.000000e+00, double %sub6.sink43
+  %sub6.sink50 = phi double [ %sub6, %sw.bb3 ], [ %sub, %sw.bb ]
+  %cmp.i7 = fcmp olt double %sub6.sink50, 0.000000e+00
+  %.sroa.speculated = select i1 %cmp.i7, double 0.000000e+00, double %sub6.sink50
   %retval.0 = fmul double %price, %.sroa.speculated
   ret double %retval.0
 

@@ -287,7 +287,7 @@ define ptr @OPENSSL_utf82uni(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   br i1 %76, label %.lr.ph68, label %._crit_edge69, !llvm.loop !17
 
 ._crit_edge69:                                    ; preds = %73, %._crit_edge.thread
-  %.048.lcssa7274 = phi i32 [ 2, %._crit_edge.thread ], [ %41, %73 ]
+  %.048.lcssa8688 = phi i32 [ 2, %._crit_edge.thread ], [ %41, %73 ]
   %77 = phi ptr [ %45, %._crit_edge.thread ], [ %43, %73 ]
   %.049.lcssa = phi ptr [ %45, %._crit_edge.thread ], [ %.150, %73 ]
   %78 = getelementptr inbounds nuw i8, ptr %.049.lcssa, i64 1
@@ -297,7 +297,7 @@ define ptr @OPENSSL_utf82uni(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   br i1 %.not, label %80, label %79
 
 79:                                               ; preds = %._crit_edge69
-  store i32 %.048.lcssa7274, ptr %3, align 4, !tbaa !8
+  store i32 %.048.lcssa8688, ptr %3, align 4, !tbaa !8
   br label %80
 
 80:                                               ; preds = %79, %._crit_edge69
@@ -305,12 +305,12 @@ define ptr @OPENSSL_utf82uni(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   br i1 %.not61, label %OPENSSL_asc2uni.exit, label %OPENSSL_asc2uni.exit.sink.split
 
 OPENSSL_asc2uni.exit.sink.split:                  ; preds = %80, %33
-  %.sink75 = phi ptr [ %21, %33 ], [ %77, %80 ]
-  store ptr %.sink75, ptr %2, align 8, !tbaa !10
+  %.sink89 = phi ptr [ %21, %33 ], [ %77, %80 ]
+  store ptr %.sink89, ptr %2, align 8, !tbaa !10
   br label %OPENSSL_asc2uni.exit
 
 OPENSSL_asc2uni.exit:                             ; preds = %34, %OPENSSL_asc2uni.exit.sink.split, %._crit_edge.thread, %33, %17, %80, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ %77, %80 ], [ null, %17 ], [ %21, %33 ], [ null, %._crit_edge.thread ], [ %.sink75, %OPENSSL_asc2uni.exit.sink.split ], [ null, %34 ]
+  %.0 = phi ptr [ null, %._crit_edge ], [ %77, %80 ], [ null, %17 ], [ %21, %33 ], [ null, %._crit_edge.thread ], [ %.sink89, %OPENSSL_asc2uni.exit.sink.split ], [ null, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

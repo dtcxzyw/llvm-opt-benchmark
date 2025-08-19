@@ -445,7 +445,7 @@ _ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread: ; preds = %._ZNK8rawspeed14Cr
   %41 = phi i32 [ %.pre, %._ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread_crit_edge ], [ %31, %39 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.not122 = icmp eq i32 %41, 0
-  br i1 %.not122, label %.thread145, label %.lr.ph.preheader
+  br i1 %.not122, label %.thread166, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread
   %wide.trip.count = zext i32 %41 to i64
@@ -497,7 +497,7 @@ _ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread: ; preds = %._ZNK8rawspeed14Cr
   br i1 %52, label %62, label %111
 
 62:                                               ; preds = %60, %61
-  %.not52134135 = phi i1 [ false, %60 ], [ %.not52, %61 ]
+  %.not52155156 = phi i1 [ false, %60 ], [ %.not52, %61 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %64 = load ptr, ptr %63, align 8, !tbaa !6
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 56
@@ -510,7 +510,7 @@ _ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread: ; preds = %._ZNK8rawspeed14Cr
   unreachable
 
 69:                                               ; preds = %62
-  br i1 %.not52134135, label %71, label %70
+  br i1 %.not52155156, label %71, label %70
 
 70:                                               ; preds = %69
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2LJpegDecoder10decodeScanEv, i32 noundef %41) #14
@@ -531,7 +531,8 @@ _ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread: ; preds = %._ZNK8rawspeed14Cr
   br i1 %91, label %101, label %92
 
 80:                                               ; preds = %71, %90
-  %indvars.iv125 = phi i64 [ 1, %71 ], [ %indvars.iv.next126, %90 ]
+  %exitcond128.not = phi i1 [ false, %71 ], [ true, %90 ]
+  %indvars.iv125 = phi i64 [ 1, %71 ], [ 2, %90 ]
   %.040120 = phi i1 [ %78, %71 ], [ %91, %90 ]
   br i1 %.040120, label %81, label %90
 
@@ -550,8 +551,6 @@ _ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread: ; preds = %._ZNK8rawspeed14Cr
 
 90:                                               ; preds = %86, %81, %80
   %91 = phi i1 [ false, %81 ], [ false, %80 ], [ %89, %86 ]
-  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %exitcond128.not = icmp eq i64 %indvars.iv.next126, 3
   br i1 %exitcond128.not, label %79, label %80, !llvm.loop !133
 
 92:                                               ; preds = %79
@@ -594,12 +593,12 @@ _ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread: ; preds = %._ZNK8rawspeed14Cr
   br i1 %.not54, label %105, label %106
 
 111:                                              ; preds = %60, %61
-  switch i32 %41, label %.thread145 [
+  switch i32 %41, label %.thread166 [
     i32 2, label %_ZNSt12_Vector_baseIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS3_EEEEE18PerComponentRecipeESaIS8_EE11_M_allocateEm.exit.i
     i32 4, label %_ZNSt12_Vector_baseIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS3_EEEEE18PerComponentRecipeESaIS8_EE11_M_allocateEm.exit.i
   ]
 
-.thread145:                                       ; preds = %_ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread, %111
+.thread166:                                       ; preds = %_ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread, %111
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.9, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2LJpegDecoder10decodeScanEv, i32 noundef %41) #14
   unreachable
 
@@ -1206,8 +1205,8 @@ _ZSt6fill_nIPPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23Pref
 _ZNSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EED2Ev.exit: ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  %.idx30 = shl nuw nsw i64 %4, 3
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %.idx30) #24
+  %.idx33 = shl nuw nsw i64 %4, 3
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %.idx33) #24
   resume { ptr, i32 } %30
 }
 

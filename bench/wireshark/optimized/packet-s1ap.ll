@@ -15668,8 +15668,8 @@ s1ap_get_private_data.exit:                       ; preds = %24, %31
   %105 = call i32 @_setjmp(ptr noundef nonnull %104) #9
   %.not88 = icmp eq i32 %105, 0
   %106 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sink100 = select i1 %.not88, ptr null, ptr %106
-  store volatile ptr %.sink100, ptr %12, align 8
+  %.sink101 = select i1 %.not88, ptr null, ptr %106
+  store volatile ptr %.sink101, ptr %12, align 8
   %.0..0..0..0.21 = load volatile i32, ptr %13, align 4
   %107 = and i32 %.0..0..0..0.21, 1
   %.not89 = icmp eq i32 %107, 0
@@ -15798,8 +15798,8 @@ s1ap_get_private_data.exit:                       ; preds = %24, %31
   %160 = call i32 @_setjmp(ptr noundef nonnull %159) #9
   %.not83 = icmp eq i32 %160, 0
   %161 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %.sink101 = select i1 %.not83, ptr null, ptr %161
-  store volatile ptr %.sink101, ptr %16, align 8
+  %.sink102 = select i1 %.not83, ptr null, ptr %161
+  store volatile ptr %.sink102, ptr %16, align 8
   %.0..0..0..0. = load volatile i32, ptr %17, align 4
   %162 = and i32 %.0..0..0..0., 1
   %.not84 = icmp eq i32 %162, 0

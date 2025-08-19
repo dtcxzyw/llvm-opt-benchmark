@@ -76,8 +76,8 @@ stream_read_bit.exit47.thread.i:                  ; preds = %25
   %32 = lshr i64 %.pre.i, 1
   store i64 %32, ptr %20, align 8, !tbaa !19
   %33 = and i64 %.pre.i, 1
-  %.not4153.i = icmp eq i64 %33, 0
-  br i1 %.not4153.i, label %.thread.i, label %34
+  %.not4159.i = icmp eq i64 %33, 0
+  br i1 %.not4159.i, label %.thread.i, label %34
 
 34:                                               ; preds = %stream_read_bit.exit47.thread.i, %stream_read_bit.exit47.i
   %35 = load i32, ptr %0, align 8, !tbaa !22

@@ -93,26 +93,26 @@ _ZN5faiss10fvec_L2sqrEPKfS1_m.exit.us.preheader:  ; preds = %.lr.ph
 .lr.ph.i.preheader:                               ; preds = %.lr.ph.i.preheader.preheader, %_ZN5faiss10fvec_L2sqrEPKfS1_m.exit.loopexit
   %.011 = phi i64 [ %29, %_ZN5faiss10fvec_L2sqrEPKfS1_m.exit.loopexit ], [ 0, %.lr.ph.i.preheader.preheader ]
   %.0910 = phi ptr [ %28, %_ZN5faiss10fvec_L2sqrEPKfS1_m.exit.loopexit ], [ %2, %.lr.ph.i.preheader.preheader ]
-  br i1 %min.iters.check, label %.lr.ph.i.preheader17, label %vector.body
+  br i1 %min.iters.check, label %.lr.ph.i.preheader19, label %vector.body
 
 vector.body:                                      ; preds = %.lr.ph.i.preheader, %vector.body
   %index = phi i64 [ %index.next, %vector.body ], [ 0, %.lr.ph.i.preheader ]
   %vec.phi = phi <4 x float> [ %15, %vector.body ], [ zeroinitializer, %.lr.ph.i.preheader ]
-  %vec.phi13 = phi <4 x float> [ %16, %vector.body ], [ zeroinitializer, %.lr.ph.i.preheader ]
+  %vec.phi15 = phi <4 x float> [ %16, %vector.body ], [ zeroinitializer, %.lr.ph.i.preheader ]
   %7 = getelementptr inbounds nuw float, ptr %1, i64 %index
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %wide.load = load <4 x float>, ptr %7, align 4, !tbaa !4
-  %wide.load14 = load <4 x float>, ptr %8, align 4, !tbaa !4
+  %wide.load16 = load <4 x float>, ptr %8, align 4, !tbaa !4
   %9 = getelementptr inbounds nuw float, ptr %.0910, i64 %index
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %wide.load15 = load <4 x float>, ptr %9, align 4, !tbaa !4
-  %wide.load16 = load <4 x float>, ptr %10, align 4, !tbaa !4
-  %11 = fsub fast <4 x float> %wide.load, %wide.load15
-  %12 = fsub fast <4 x float> %wide.load14, %wide.load16
+  %wide.load17 = load <4 x float>, ptr %9, align 4, !tbaa !4
+  %wide.load18 = load <4 x float>, ptr %10, align 4, !tbaa !4
+  %11 = fsub fast <4 x float> %wide.load, %wide.load17
+  %12 = fsub fast <4 x float> %wide.load16, %wide.load18
   %13 = fmul fast <4 x float> %11, %11
   %14 = fmul fast <4 x float> %12, %12
   %15 = fadd fast <4 x float> %13, %vec.phi
-  %16 = fadd fast <4 x float> %14, %vec.phi13
+  %16 = fadd fast <4 x float> %14, %vec.phi15
   %index.next = add nuw i64 %index, 8
   %17 = icmp eq i64 %index.next, %n.vec
   br i1 %17, label %middle.block, label %vector.body, !llvm.loop !11
@@ -120,16 +120,16 @@ vector.body:                                      ; preds = %.lr.ph.i.preheader,
 middle.block:                                     ; preds = %vector.body
   %bin.rdx = fadd fast <4 x float> %16, %15
   %18 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx)
-  br i1 %cmp.n, label %_ZN5faiss10fvec_L2sqrEPKfS1_m.exit.loopexit, label %.lr.ph.i.preheader17
+  br i1 %cmp.n, label %_ZN5faiss10fvec_L2sqrEPKfS1_m.exit.loopexit, label %.lr.ph.i.preheader19
 
-.lr.ph.i.preheader17:                             ; preds = %.lr.ph.i.preheader, %middle.block
+.lr.ph.i.preheader19:                             ; preds = %.lr.ph.i.preheader, %middle.block
   %.012.i.ph = phi i64 [ 0, %.lr.ph.i.preheader ], [ %n.vec, %middle.block ]
   %.01011.i.ph = phi float [ 0.000000e+00, %.lr.ph.i.preheader ], [ %18, %middle.block ]
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader17, %.lr.ph.i
-  %.012.i = phi i64 [ %26, %.lr.ph.i ], [ %.012.i.ph, %.lr.ph.i.preheader17 ]
-  %.01011.i = phi float [ %25, %.lr.ph.i ], [ %.01011.i.ph, %.lr.ph.i.preheader17 ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader19, %.lr.ph.i
+  %.012.i = phi i64 [ %26, %.lr.ph.i ], [ %.012.i.ph, %.lr.ph.i.preheader19 ]
+  %.01011.i = phi float [ %25, %.lr.ph.i ], [ %.01011.i.ph, %.lr.ph.i.preheader19 ]
   %19 = getelementptr inbounds nuw float, ptr %1, i64 %.012.i
   %20 = load float, ptr %19, align 4, !tbaa !4
   %21 = getelementptr inbounds nuw float, ptr %.0910, i64 %.012.i
@@ -226,8 +226,8 @@ define void @_ZN5faiss30fvec_L2sqr_ny_y_transposed_refEPfPKfS2_S2_mmm(ptr nounde
   br i1 %.not40, label %._crit_edge39, label %.preheader
 
 .preheader31.thread:                              ; preds = %.lr.ph
-  %.not4048 = icmp eq i64 %6, 0
-  br i1 %.not4048, label %._crit_edge39, label %.preheader.us
+  %.not4050 = icmp eq i64 %6, 0
+  br i1 %.not4050, label %._crit_edge39, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader31.thread, %._crit_edge.us
   %.02738.us = phi i64 [ %22, %._crit_edge.us ], [ 0, %.preheader31.thread ]
@@ -317,21 +317,21 @@ _ZN5faiss10fvec_L2sqrEPKfS1_m.exit.us.preheader.i.i: ; preds = %.lr.ph.i.i
 vector.body:                                      ; preds = %.lr.ph.i.preheader.i.i, %vector.body
   %index = phi i64 [ %index.next, %vector.body ], [ 0, %.lr.ph.i.preheader.i.i ]
   %vec.phi = phi <4 x float> [ %15, %vector.body ], [ zeroinitializer, %.lr.ph.i.preheader.i.i ]
-  %vec.phi21 = phi <4 x float> [ %16, %vector.body ], [ zeroinitializer, %.lr.ph.i.preheader.i.i ]
+  %vec.phi24 = phi <4 x float> [ %16, %vector.body ], [ zeroinitializer, %.lr.ph.i.preheader.i.i ]
   %7 = getelementptr inbounds nuw float, ptr %1, i64 %index
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %wide.load = load <4 x float>, ptr %7, align 4, !tbaa !4
-  %wide.load22 = load <4 x float>, ptr %8, align 4, !tbaa !4
+  %wide.load25 = load <4 x float>, ptr %8, align 4, !tbaa !4
   %9 = getelementptr inbounds nuw float, ptr %.0910.i.i, i64 %index
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %wide.load23 = load <4 x float>, ptr %9, align 4, !tbaa !4
-  %wide.load24 = load <4 x float>, ptr %10, align 4, !tbaa !4
-  %11 = fsub fast <4 x float> %wide.load, %wide.load23
-  %12 = fsub fast <4 x float> %wide.load22, %wide.load24
+  %wide.load26 = load <4 x float>, ptr %9, align 4, !tbaa !4
+  %wide.load27 = load <4 x float>, ptr %10, align 4, !tbaa !4
+  %11 = fsub fast <4 x float> %wide.load, %wide.load26
+  %12 = fsub fast <4 x float> %wide.load25, %wide.load27
   %13 = fmul fast <4 x float> %11, %11
   %14 = fmul fast <4 x float> %12, %12
   %15 = fadd fast <4 x float> %13, %vec.phi
-  %16 = fadd fast <4 x float> %14, %vec.phi21
+  %16 = fadd fast <4 x float> %14, %vec.phi24
   %index.next = add nuw i64 %index, 8
   %17 = icmp eq i64 %index.next, %n.vec
   br i1 %17, label %middle.block, label %vector.body, !llvm.loop !21
@@ -415,21 +415,21 @@ _ZN5faiss10fvec_L2sqrEPKfS1_m.exit.us.preheader.i: ; preds = %.lr.ph.i
 vector.body:                                      ; preds = %.lr.ph.i.preheader.i, %vector.body
   %index = phi i64 [ %index.next, %vector.body ], [ 0, %.lr.ph.i.preheader.i ]
   %vec.phi = phi <4 x float> [ %15, %vector.body ], [ zeroinitializer, %.lr.ph.i.preheader.i ]
-  %vec.phi4 = phi <4 x float> [ %16, %vector.body ], [ zeroinitializer, %.lr.ph.i.preheader.i ]
+  %vec.phi6 = phi <4 x float> [ %16, %vector.body ], [ zeroinitializer, %.lr.ph.i.preheader.i ]
   %7 = getelementptr inbounds nuw float, ptr %1, i64 %index
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %wide.load = load <4 x float>, ptr %7, align 4, !tbaa !4
-  %wide.load5 = load <4 x float>, ptr %8, align 4, !tbaa !4
+  %wide.load7 = load <4 x float>, ptr %8, align 4, !tbaa !4
   %9 = getelementptr inbounds nuw float, ptr %.0910.i, i64 %index
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %wide.load6 = load <4 x float>, ptr %9, align 4, !tbaa !4
-  %wide.load7 = load <4 x float>, ptr %10, align 4, !tbaa !4
-  %11 = fsub fast <4 x float> %wide.load, %wide.load6
-  %12 = fsub fast <4 x float> %wide.load5, %wide.load7
+  %wide.load8 = load <4 x float>, ptr %9, align 4, !tbaa !4
+  %wide.load9 = load <4 x float>, ptr %10, align 4, !tbaa !4
+  %11 = fsub fast <4 x float> %wide.load, %wide.load8
+  %12 = fsub fast <4 x float> %wide.load7, %wide.load9
   %13 = fmul fast <4 x float> %11, %11
   %14 = fmul fast <4 x float> %12, %12
   %15 = fadd fast <4 x float> %13, %vec.phi
-  %16 = fadd fast <4 x float> %14, %vec.phi4
+  %16 = fadd fast <4 x float> %14, %vec.phi6
   %index.next = add nuw i64 %index, 8
   %17 = icmp eq i64 %index.next, %n.vec
   br i1 %17, label %middle.block, label %vector.body, !llvm.loop !24
@@ -481,8 +481,8 @@ define noundef i64 @_ZN5faiss38fvec_L2sqr_ny_nearest_y_transposed_refEPfPKfS2_S2
   br i1 %.not40.i, label %._crit_edge, label %.preheader.i
 
 .preheader31.thread.i:                            ; preds = %.lr.ph.i
-  %.not4048.i = icmp eq i64 %6, 0
-  br i1 %.not4048.i, label %._crit_edge, label %.preheader.us.i
+  %.not4050.i = icmp eq i64 %6, 0
+  br i1 %.not4050.i, label %._crit_edge, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.preheader31.thread.i, %._crit_edge.us.i
   %.02738.us.i = phi i64 [ %22, %._crit_edge.us.i ], [ 0, %.preheader31.thread.i ]
@@ -581,24 +581,24 @@ _ZN5faiss18fvec_inner_productEPKfS1_m.exit.us.preheader: ; preds = %.lr.ph
 .lr.ph.i.preheader:                               ; preds = %.lr.ph.i.preheader.preheader, %_ZN5faiss18fvec_inner_productEPKfS1_m.exit.loopexit
   %.011 = phi i64 [ %26, %_ZN5faiss18fvec_inner_productEPKfS1_m.exit.loopexit ], [ 0, %.lr.ph.i.preheader.preheader ]
   %.0910 = phi ptr [ %25, %_ZN5faiss18fvec_inner_productEPKfS1_m.exit.loopexit ], [ %2, %.lr.ph.i.preheader.preheader ]
-  br i1 %min.iters.check, label %.lr.ph.i.preheader17, label %vector.body
+  br i1 %min.iters.check, label %.lr.ph.i.preheader19, label %vector.body
 
 vector.body:                                      ; preds = %.lr.ph.i.preheader, %vector.body
   %index = phi i64 [ %index.next, %vector.body ], [ 0, %.lr.ph.i.preheader ]
   %vec.phi = phi <4 x float> [ %13, %vector.body ], [ zeroinitializer, %.lr.ph.i.preheader ]
-  %vec.phi13 = phi <4 x float> [ %14, %vector.body ], [ zeroinitializer, %.lr.ph.i.preheader ]
+  %vec.phi15 = phi <4 x float> [ %14, %vector.body ], [ zeroinitializer, %.lr.ph.i.preheader ]
   %7 = getelementptr inbounds nuw float, ptr %1, i64 %index
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %wide.load = load <4 x float>, ptr %7, align 4, !tbaa !4
-  %wide.load14 = load <4 x float>, ptr %8, align 4, !tbaa !4
+  %wide.load16 = load <4 x float>, ptr %8, align 4, !tbaa !4
   %9 = getelementptr inbounds nuw float, ptr %.0910, i64 %index
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %wide.load15 = load <4 x float>, ptr %9, align 4, !tbaa !4
-  %wide.load16 = load <4 x float>, ptr %10, align 4, !tbaa !4
-  %11 = fmul fast <4 x float> %wide.load15, %wide.load
-  %12 = fmul fast <4 x float> %wide.load16, %wide.load14
+  %wide.load17 = load <4 x float>, ptr %9, align 4, !tbaa !4
+  %wide.load18 = load <4 x float>, ptr %10, align 4, !tbaa !4
+  %11 = fmul fast <4 x float> %wide.load17, %wide.load
+  %12 = fmul fast <4 x float> %wide.load18, %wide.load16
   %13 = fadd fast <4 x float> %11, %vec.phi
-  %14 = fadd fast <4 x float> %12, %vec.phi13
+  %14 = fadd fast <4 x float> %12, %vec.phi15
   %index.next = add nuw i64 %index, 8
   %15 = icmp eq i64 %index.next, %n.vec
   br i1 %15, label %middle.block, label %vector.body, !llvm.loop !27
@@ -606,16 +606,16 @@ vector.body:                                      ; preds = %.lr.ph.i.preheader,
 middle.block:                                     ; preds = %vector.body
   %bin.rdx = fadd fast <4 x float> %14, %13
   %16 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx)
-  br i1 %cmp.n, label %_ZN5faiss18fvec_inner_productEPKfS1_m.exit.loopexit, label %.lr.ph.i.preheader17
+  br i1 %cmp.n, label %_ZN5faiss18fvec_inner_productEPKfS1_m.exit.loopexit, label %.lr.ph.i.preheader19
 
-.lr.ph.i.preheader17:                             ; preds = %.lr.ph.i.preheader, %middle.block
+.lr.ph.i.preheader19:                             ; preds = %.lr.ph.i.preheader, %middle.block
   %.011.i.ph = phi i64 [ 0, %.lr.ph.i.preheader ], [ %n.vec, %middle.block ]
   %.0810.i.ph = phi float [ 0.000000e+00, %.lr.ph.i.preheader ], [ %16, %middle.block ]
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader17, %.lr.ph.i
-  %.011.i = phi i64 [ %23, %.lr.ph.i ], [ %.011.i.ph, %.lr.ph.i.preheader17 ]
-  %.0810.i = phi float [ %22, %.lr.ph.i ], [ %.0810.i.ph, %.lr.ph.i.preheader17 ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader19, %.lr.ph.i
+  %.011.i = phi i64 [ %23, %.lr.ph.i ], [ %.011.i.ph, %.lr.ph.i.preheader19 ]
+  %.0810.i = phi float [ %22, %.lr.ph.i ], [ %.0810.i.ph, %.lr.ph.i.preheader19 ]
   %17 = getelementptr inbounds nuw float, ptr %1, i64 %.011.i
   %18 = load float, ptr %17, align 4, !tbaa !4
   %19 = getelementptr inbounds nuw float, ptr %.0910, i64 %.011.i
@@ -1040,8 +1040,8 @@ define void @_ZN5faiss24fvec_L2sqr_ny_transposedEPfPKfS2_S2_mmm(ptr noundef writ
   br i1 %.not40.i, label %_ZN5faiss30fvec_L2sqr_ny_y_transposed_refEPfPKfS2_S2_mmm.exit, label %.preheader.i
 
 .preheader31.thread.i:                            ; preds = %.lr.ph.i
-  %.not4048.i = icmp eq i64 %6, 0
-  br i1 %.not4048.i, label %_ZN5faiss30fvec_L2sqr_ny_y_transposed_refEPfPKfS2_S2_mmm.exit, label %.preheader.us.i
+  %.not4050.i = icmp eq i64 %6, 0
+  br i1 %.not4050.i, label %_ZN5faiss30fvec_L2sqr_ny_y_transposed_refEPfPKfS2_S2_mmm.exit, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.preheader31.thread.i, %._crit_edge.us.i
   %.02738.us.i = phi i64 [ %22, %._crit_edge.us.i ], [ 0, %.preheader31.thread.i ]
@@ -1125,21 +1125,21 @@ _ZN5faiss10fvec_L2sqrEPKfS1_m.exit.us.preheader.i.i.i: ; preds = %.lr.ph.i.i.i
 vector.body:                                      ; preds = %.lr.ph.i.preheader.i.i.i, %vector.body
   %index = phi i64 [ %index.next, %vector.body ], [ 0, %.lr.ph.i.preheader.i.i.i ]
   %vec.phi = phi <4 x float> [ %15, %vector.body ], [ zeroinitializer, %.lr.ph.i.preheader.i.i.i ]
-  %vec.phi4 = phi <4 x float> [ %16, %vector.body ], [ zeroinitializer, %.lr.ph.i.preheader.i.i.i ]
+  %vec.phi6 = phi <4 x float> [ %16, %vector.body ], [ zeroinitializer, %.lr.ph.i.preheader.i.i.i ]
   %7 = getelementptr inbounds nuw float, ptr %1, i64 %index
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %wide.load = load <4 x float>, ptr %7, align 4, !tbaa !4
-  %wide.load5 = load <4 x float>, ptr %8, align 4, !tbaa !4
+  %wide.load7 = load <4 x float>, ptr %8, align 4, !tbaa !4
   %9 = getelementptr inbounds nuw float, ptr %.0910.i.i.i, i64 %index
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %wide.load6 = load <4 x float>, ptr %9, align 4, !tbaa !4
-  %wide.load7 = load <4 x float>, ptr %10, align 4, !tbaa !4
-  %11 = fsub fast <4 x float> %wide.load, %wide.load6
-  %12 = fsub fast <4 x float> %wide.load5, %wide.load7
+  %wide.load8 = load <4 x float>, ptr %9, align 4, !tbaa !4
+  %wide.load9 = load <4 x float>, ptr %10, align 4, !tbaa !4
+  %11 = fsub fast <4 x float> %wide.load, %wide.load8
+  %12 = fsub fast <4 x float> %wide.load7, %wide.load9
   %13 = fmul fast <4 x float> %11, %11
   %14 = fmul fast <4 x float> %12, %12
   %15 = fadd fast <4 x float> %13, %vec.phi
-  %16 = fadd fast <4 x float> %14, %vec.phi4
+  %16 = fadd fast <4 x float> %14, %vec.phi6
   %index.next = add nuw i64 %index, 8
   %17 = icmp eq i64 %index.next, %n.vec
   br i1 %17, label %middle.block, label %vector.body, !llvm.loop !38
@@ -1208,8 +1208,8 @@ define noundef i64 @_ZN5faiss34fvec_L2sqr_ny_nearest_y_transposedEPfPKfS2_S2_mmm
   br i1 %.not40.i.i, label %_ZN5faiss38fvec_L2sqr_ny_nearest_y_transposed_refEPfPKfS2_S2_mmm.exit, label %.preheader.i.i
 
 .preheader31.thread.i.i:                          ; preds = %.lr.ph.i.i
-  %.not4048.i.i = icmp eq i64 %6, 0
-  br i1 %.not4048.i.i, label %_ZN5faiss38fvec_L2sqr_ny_nearest_y_transposed_refEPfPKfS2_S2_mmm.exit, label %.preheader.us.i.i
+  %.not4050.i.i = icmp eq i64 %6, 0
+  br i1 %.not4050.i.i, label %_ZN5faiss38fvec_L2sqr_ny_nearest_y_transposed_refEPfPKfS2_S2_mmm.exit, label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %.preheader31.thread.i.i, %._crit_edge.us.i.i
   %.02738.us.i.i = phi i64 [ %22, %._crit_edge.us.i.i ], [ 0, %.preheader31.thread.i.i ]
@@ -1310,19 +1310,19 @@ _ZN5faiss18fvec_inner_productEPKfS1_m.exit.us.preheader.i: ; preds = %.lr.ph.i
 vector.body:                                      ; preds = %.lr.ph.i.preheader.i, %vector.body
   %index = phi i64 [ %index.next, %vector.body ], [ 0, %.lr.ph.i.preheader.i ]
   %vec.phi = phi <4 x float> [ %13, %vector.body ], [ zeroinitializer, %.lr.ph.i.preheader.i ]
-  %vec.phi4 = phi <4 x float> [ %14, %vector.body ], [ zeroinitializer, %.lr.ph.i.preheader.i ]
+  %vec.phi6 = phi <4 x float> [ %14, %vector.body ], [ zeroinitializer, %.lr.ph.i.preheader.i ]
   %7 = getelementptr inbounds nuw float, ptr %1, i64 %index
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %wide.load = load <4 x float>, ptr %7, align 4, !tbaa !4
-  %wide.load5 = load <4 x float>, ptr %8, align 4, !tbaa !4
+  %wide.load7 = load <4 x float>, ptr %8, align 4, !tbaa !4
   %9 = getelementptr inbounds nuw float, ptr %.0910.i, i64 %index
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %wide.load6 = load <4 x float>, ptr %9, align 4, !tbaa !4
-  %wide.load7 = load <4 x float>, ptr %10, align 4, !tbaa !4
-  %11 = fmul fast <4 x float> %wide.load6, %wide.load
-  %12 = fmul fast <4 x float> %wide.load7, %wide.load5
+  %wide.load8 = load <4 x float>, ptr %9, align 4, !tbaa !4
+  %wide.load9 = load <4 x float>, ptr %10, align 4, !tbaa !4
+  %11 = fmul fast <4 x float> %wide.load8, %wide.load
+  %12 = fmul fast <4 x float> %wide.load9, %wide.load7
   %13 = fadd fast <4 x float> %11, %vec.phi
-  %14 = fadd fast <4 x float> %12, %vec.phi4
+  %14 = fadd fast <4 x float> %12, %vec.phi6
   %index.next = add nuw i64 %index, 8
   %15 = icmp eq i64 %index.next, %n.vec
   br i1 %15, label %middle.block, label %vector.body, !llvm.loop !40

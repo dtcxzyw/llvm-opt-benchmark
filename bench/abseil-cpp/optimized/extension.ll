@@ -164,7 +164,7 @@ define dso_local noundef zeroext i1 @_ZN4absl19str_format_internal14FormatSinkIm
   %26 = phi i64 [ %20, %.lr.ph.i ], [ 1024, %32 ]
   %27 = phi ptr [ %18, %.lr.ph.i ], [ %22, %32 ]
   %.010.i = phi i64 [ %9, %.lr.ph.i ], [ %28, %32 ]
-  %28 = sub nuw i64 %.010.i, %26
+  %28 = sub nuw nsw i64 %.010.i, %26
   %.not.i = icmp eq ptr %15, %27
   br i1 %.not.i, label %32, label %29
 
@@ -301,7 +301,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11
   %100 = phi i64 [ %94, %.lr.ph.i17 ], [ 1024, %106 ]
   %101 = phi ptr [ %92, %.lr.ph.i17 ], [ %96, %106 ]
   %.010.i18 = phi i64 [ %9, %.lr.ph.i17 ], [ %102, %106 ]
-  %102 = sub nuw i64 %.010.i18, %100
+  %102 = sub nuw nsw i64 %.010.i18, %100
   %.not.i19 = icmp eq ptr %89, %101
   br i1 %.not.i19, label %106, label %103
 

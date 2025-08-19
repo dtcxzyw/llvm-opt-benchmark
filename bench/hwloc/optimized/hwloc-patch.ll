@@ -86,15 +86,15 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
   br i1 %.not6091, label %.critedge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %16
-  %.05395138 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load ptr, ptr %.05395138, align 8, !tbaa !9
+  %.05395143 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %17 = load ptr, ptr %.05395143, align 8, !tbaa !9
   %18 = load i8, ptr %17, align 1, !tbaa !13
   %19 = icmp eq i8 %18, 45
   br i1 %19, label %sub_1, label %.critedge
 
 .lr.ph:                                           ; preds = %31
-  %20 = xor i64 %.05592140, 1
-  %.05395 = getelementptr inbounds nuw i8, ptr %.05395141, i64 8
+  %20 = xor i64 %.05592145, 1
+  %.05395 = getelementptr inbounds nuw i8, ptr %.05395146, i64 8
   %21 = load ptr, ptr %.05395, align 8, !tbaa !9
   %22 = load i8, ptr %21, align 1, !tbaa !13
   %23 = icmp eq i8 %22, 45
@@ -102,9 +102,9 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
 
 sub_1:                                            ; preds = %.lr.ph.preheader, %.lr.ph
   %24 = phi ptr [ %21, %.lr.ph ], [ %17, %.lr.ph.preheader ]
-  %.05395141 = phi ptr [ %.05395, %.lr.ph ], [ %.05395138, %.lr.ph.preheader ]
-  %.05592140 = phi i64 [ %20, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.05296139 = phi i32 [ %.052, %.lr.ph ], [ %.05290, %.lr.ph.preheader ]
+  %.05395146 = phi ptr [ %.05395, %.lr.ph ], [ %.05395143, %.lr.ph.preheader ]
+  %.05592145 = phi i64 [ %20, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.05296144 = phi i32 [ %.052, %.lr.ph ], [ %.05290, %.lr.ph.preheader ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %26 = load i8, ptr %25, align 1
   %.not98 = icmp eq i8 %26, 82
@@ -122,7 +122,7 @@ sub_1:                                            ; preds = %.lr.ph.preheader, %
   br i1 %.not67, label %31, label %32
 
 31:                                               ; preds = %.tail.thread, %.tail
-  %.052 = add nsw i32 %.05296139, -1
+  %.052 = add nsw i32 %.05296144, -1
   %.not60 = icmp eq i32 %.052, 0
   br i1 %.not60, label %.critedge.thread, label %.lr.ph, !llvm.loop !14
 
@@ -168,8 +168,8 @@ sub_174:                                          ; preds = %32
   unreachable
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader
-  %.052.in94.lcssa = phi i32 [ %0, %.lr.ph.preheader ], [ %.05296139, %.lr.ph ]
-  %.pn93.lcssa = phi ptr [ %1, %.lr.ph.preheader ], [ %.05395141, %.lr.ph ]
+  %.052.in94.lcssa = phi i32 [ %0, %.lr.ph.preheader ], [ %.05296144, %.lr.ph ]
+  %.pn93.lcssa = phi ptr [ %1, %.lr.ph.preheader ], [ %.05395146, %.lr.ph ]
   %.05592.lcssa = phi i64 [ 0, %.lr.ph.preheader ], [ %20, %.lr.ph ]
   %.lcssa = phi ptr [ %17, %.lr.ph.preheader ], [ %21, %.lr.ph ]
   %48 = icmp slt i32 %.052.in94.lcssa, 3

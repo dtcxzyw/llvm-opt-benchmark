@@ -157,9 +157,9 @@ define hidden noundef ptr @_ZN4ncnn13PoolAllocator10fastMallocEm(ptr noundef non
   br i1 %.not.i9, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %63, %56
-  %.sink76 = phi ptr [ %58, %56 ], [ %65, %63 ]
-  %.sroa.025.0.lcssa.sink73.ph = phi ptr [ %.sroa.025.0.lcssa, %56 ], [ %.sroa.029.0.lcssa, %63 ]
-  tail call void @free(ptr noundef nonnull %.sink76) #16
+  %.sink84 = phi ptr [ %58, %56 ], [ %65, %63 ]
+  %.sroa.025.0.lcssa.sink81.ph = phi ptr [ %.sroa.025.0.lcssa, %56 ], [ %.sroa.029.0.lcssa, %63 ]
+  tail call void @free(ptr noundef nonnull %.sink84) #16
   %.pre = load ptr, ptr %4, align 8, !tbaa !4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 112
   %.pre66 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !28
@@ -167,13 +167,13 @@ define hidden noundef ptr @_ZN4ncnn13PoolAllocator10fastMallocEm(ptr noundef non
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %63, %56
   %.sink = phi ptr [ %7, %56 ], [ %7, %63 ], [ %.pre, %.sink.split.sink.split ]
-  %.sink75 = phi i64 [ %49, %56 ], [ %49, %63 ], [ %.pre66, %.sink.split.sink.split ]
-  %.sroa.025.0.lcssa.sink73 = phi ptr [ %.sroa.025.0.lcssa, %56 ], [ %.sroa.029.0.lcssa, %63 ], [ %.sroa.025.0.lcssa.sink73.ph, %.sink.split.sink.split ]
+  %.sink83 = phi i64 [ %49, %56 ], [ %49, %63 ], [ %.pre66, %.sink.split.sink.split ]
+  %.sroa.025.0.lcssa.sink81 = phi ptr [ %.sroa.025.0.lcssa, %56 ], [ %.sroa.029.0.lcssa, %63 ], [ %.sroa.025.0.lcssa.sink81.ph, %.sink.split.sink.split ]
   %66 = getelementptr inbounds nuw i8, ptr %.sink, i64 112
-  %67 = add i64 %.sink75, -1
+  %67 = add i64 %.sink83, -1
   store i64 %67, ptr %66, align 8, !tbaa !28
-  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.025.0.lcssa.sink73) #16
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.0.lcssa.sink73, i64 noundef 32) #17
+  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.025.0.lcssa.sink81) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.0.lcssa.sink81, i64 noundef 32) #17
   br label %_ZN4ncnnL10fastMallocEm.exit
 
 _ZN4ncnnL10fastMallocEm.exit:                     ; preds = %.sink.split, %59, %._crit_edge
@@ -383,9 +383,9 @@ define hidden noundef ptr @_ZN4ncnn21UnlockedPoolAllocator10fastMallocEm(ptr nou
   br i1 %.not.i9, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %48, %41
-  %.sink81 = phi ptr [ %43, %41 ], [ %50, %48 ]
-  %.sroa.025.0.lcssa.sink73.ph = phi ptr [ %.sroa.025.0.lcssa, %41 ], [ %.sroa.029.0.lcssa, %48 ]
-  tail call void @free(ptr noundef nonnull %.sink81) #16
+  %.sink89 = phi ptr [ %43, %41 ], [ %50, %48 ]
+  %.sroa.025.0.lcssa.sink81.ph = phi ptr [ %.sroa.025.0.lcssa, %41 ], [ %.sroa.029.0.lcssa, %48 ]
+  tail call void @free(ptr noundef nonnull %.sink89) #16
   %.pre = load ptr, ptr %4, align 8, !tbaa !34
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %.pre66 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !28
@@ -393,13 +393,13 @@ define hidden noundef ptr @_ZN4ncnn21UnlockedPoolAllocator10fastMallocEm(ptr nou
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %48, %41
   %.sink = phi ptr [ %5, %41 ], [ %5, %48 ], [ %.pre, %.sink.split.sink.split ]
-  %.sink75 = phi i64 [ %34, %41 ], [ %34, %48 ], [ %.pre66, %.sink.split.sink.split ]
-  %.sroa.025.0.lcssa.sink73 = phi ptr [ %.sroa.025.0.lcssa, %41 ], [ %.sroa.029.0.lcssa, %48 ], [ %.sroa.025.0.lcssa.sink73.ph, %.sink.split.sink.split ]
+  %.sink83 = phi i64 [ %34, %41 ], [ %34, %48 ], [ %.pre66, %.sink.split.sink.split ]
+  %.sroa.025.0.lcssa.sink81 = phi ptr [ %.sroa.025.0.lcssa, %41 ], [ %.sroa.029.0.lcssa, %48 ], [ %.sroa.025.0.lcssa.sink81.ph, %.sink.split.sink.split ]
   %51 = getelementptr inbounds nuw i8, ptr %.sink, i64 32
-  %52 = add i64 %.sink75, -1
+  %52 = add i64 %.sink83, -1
   store i64 %52, ptr %51, align 8, !tbaa !28
-  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.025.0.lcssa.sink73) #16
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.0.lcssa.sink73, i64 noundef 32) #17
+  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.025.0.lcssa.sink81) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.0.lcssa.sink81, i64 noundef 32) #17
   br label %_ZN4ncnnL10fastMallocEm.exit
 
 _ZN4ncnnL10fastMallocEm.exit:                     ; preds = %.sink.split, %44, %._crit_edge
@@ -422,9 +422,9 @@ _ZN4ncnnL10fastMallocEm.exit:                     ; preds = %.sink.split, %44, %
   br label %60
 
 60:                                               ; preds = %23, %_ZN4ncnnL10fastMallocEm.exit
-  %.sink80 = phi ptr [ %29, %23 ], [ %56, %_ZN4ncnnL10fastMallocEm.exit ]
+  %.sink88 = phi ptr [ %29, %23 ], [ %56, %_ZN4ncnnL10fastMallocEm.exit ]
   %.2 = phi ptr [ %25, %23 ], [ %55, %_ZN4ncnnL10fastMallocEm.exit ]
-  %61 = getelementptr inbounds nuw i8, ptr %.sink80, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %.sink88, i64 56
   %62 = load i64, ptr %61, align 8, !tbaa !28
   %63 = add i64 %62, 1
   store i64 %63, ptr %61, align 8, !tbaa !28
@@ -637,14 +637,14 @@ _ZNSt7__cxx114listISt4pairImPvESaIS3_EE5clearEv.exit.loopexit.i: ; preds = %.lr.
   br i1 %37, label %48, label %._crit_edge..thread_crit_edge
 
 ._crit_edge..thread_crit_edge:                    ; preds = %24, %._crit_edge
-  %.lcssa19 = phi ptr [ %35, %._crit_edge ], [ %28, %24 ]
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.lcssa19, i64 120
+  %.lcssa27 = phi ptr [ %35, %._crit_edge ], [ %28, %24 ]
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.lcssa27, i64 120
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !11
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge..thread_crit_edge, %15
   %38 = phi ptr [ %.pre, %._crit_edge..thread_crit_edge ], [ %22, %15 ]
-  %39 = phi ptr [ %.lcssa19, %._crit_edge..thread_crit_edge ], [ %20, %15 ]
+  %39 = phi ptr [ %.lcssa27, %._crit_edge..thread_crit_edge ], [ %20, %15 ]
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 120
   %.not8.i.i.i3 = icmp eq ptr %38, %40
   br i1 %.not8.i.i.i3, label %_ZNSt7__cxx1110_List_baseISt4pairImPvESaIS3_EED2Ev.exit.i, label %.lr.ph.i.i.i4
@@ -933,14 +933,14 @@ _ZN4ncnn21UnlockedPoolAllocator5clearEv.exit:     ; preds = %_ZN4ncnn21UnlockedP
   br i1 %32, label %40, label %._crit_edge..thread_crit_edge
 
 ._crit_edge..thread_crit_edge:                    ; preds = %19, %._crit_edge
-  %.lcssa20 = phi ptr [ %30, %._crit_edge ], [ %23, %19 ]
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.lcssa20, i64 40
+  %.lcssa28 = phi ptr [ %30, %._crit_edge ], [ %23, %19 ]
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.lcssa28, i64 40
   %.pre18 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !11
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge..thread_crit_edge, %_ZN4ncnn21UnlockedPoolAllocator5clearEv.exit
   %33 = phi ptr [ %.pre18, %._crit_edge..thread_crit_edge ], [ %17, %_ZN4ncnn21UnlockedPoolAllocator5clearEv.exit ]
-  %34 = phi ptr [ %.lcssa20, %._crit_edge..thread_crit_edge ], [ %13, %_ZN4ncnn21UnlockedPoolAllocator5clearEv.exit ]
+  %34 = phi ptr [ %.lcssa28, %._crit_edge..thread_crit_edge ], [ %13, %_ZN4ncnn21UnlockedPoolAllocator5clearEv.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %.not8.i.i.i3 = icmp eq ptr %33, %35
   br i1 %.not8.i.i.i3, label %_ZNSt7__cxx1110_List_baseISt4pairImPvESaIS3_EED2Ev.exit.i, label %.lr.ph.i.i.i4

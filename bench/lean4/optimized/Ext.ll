@@ -2946,13 +2946,13 @@ lean_dec.exit241:                                 ; preds = %814, %813, %811, %l
   unreachable
 
 lean_alloc_ctor.exit545:                          ; preds = %lean_dec.exit271, %lean_alloc_ctor.exit544
-  %.sink963 = phi ptr [ %388, %lean_alloc_ctor.exit544 ], [ %521, %lean_dec.exit271 ]
+  %.sink1082 = phi ptr [ %388, %lean_alloc_ctor.exit544 ], [ %521, %lean_dec.exit271 ]
   %.0211772.sink = phi ptr [ %387, %lean_alloc_ctor.exit544 ], [ %.0211772, %lean_dec.exit271 ]
   %.5239 = phi ptr [ %365, %lean_alloc_ctor.exit544 ], [ %505, %lean_dec.exit271 ]
-  %818 = getelementptr inbounds nuw i8, ptr %.sink963, i64 4
-  store i32 1, ptr %.sink963, align 4, !tbaa !8
+  %818 = getelementptr inbounds nuw i8, ptr %.sink1082, i64 4
+  store i32 1, ptr %.sink1082, align 4, !tbaa !8
   store i32 16842768, ptr %818, align 4
-  %819 = getelementptr inbounds nuw i8, ptr %.sink963, i64 8
+  %819 = getelementptr inbounds nuw i8, ptr %.sink1082, i64 8
   store ptr %.0211772.sink, ptr %819, align 8, !tbaa !4
   %820 = ptrtoint ptr %.0211772.sink to i64
   %821 = and i64 %820, 1
@@ -2978,19 +2978,19 @@ lean_alloc_ctor.exit545:                          ; preds = %lean_dec.exit271, %
   br label %lean_inc.exit332
 
 lean_inc.exit332:                                 ; preds = %827, %826, %824, %lean_alloc_ctor.exit545
-  %828 = ptrtoint ptr %.sink963 to i64
+  %828 = ptrtoint ptr %.sink1082 to i64
   %829 = and i64 %828, 1
   %.not640 = icmp eq i64 %829, 0
   br i1 %.not640, label %830, label %837
 
 830:                                              ; preds = %lean_inc.exit332
-  %831 = load i32, ptr %.sink963, align 4, !tbaa !8
+  %831 = load i32, ptr %.sink1082, align 4, !tbaa !8
   %832 = icmp sgt i32 %831, 1
   br i1 %832, label %833, label %835, !prof !11
 
 833:                                              ; preds = %830
   %834 = add nsw i32 %831, -1
-  store i32 %834, ptr %.sink963, align 4, !tbaa !8
+  store i32 %834, ptr %.sink1082, align 4, !tbaa !8
   br label %837
 
 835:                                              ; preds = %830
@@ -2998,7 +2998,7 @@ lean_inc.exit332:                                 ; preds = %827, %826, %824, %l
   br i1 %.not.i439, label %837, label %836
 
 836:                                              ; preds = %835
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.sink963) #5
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.sink1082) #5
   br label %837
 
 837:                                              ; preds = %lean_inc.exit332, %833, %835, %836
@@ -3007,21 +3007,21 @@ lean_inc.exit332:                                 ; preds = %827, %826, %824, %l
   br i1 %exitcond.not, label %._crit_edge, label %82
 
 .thread583.sink.split:                            ; preds = %lean_dec.exit241, %lean_dec.exit250, %lean_dec.exit260, %lean_dec.exit275, %lean_dec.exit289
-  %.sink972 = phi ptr [ %79, %lean_dec.exit289 ], [ %479, %lean_dec.exit275 ], [ %626, %lean_dec.exit260 ], [ %724, %lean_dec.exit250 ], [ %815, %lean_dec.exit241 ]
-  %.sink969 = phi i32 [ 131096, %lean_dec.exit289 ], [ 16908312, %lean_dec.exit275 ], [ 16908312, %lean_dec.exit260 ], [ 16908312, %lean_dec.exit250 ], [ 16908312, %lean_dec.exit241 ]
-  %.sink966 = phi ptr [ %.0211.lcssa, %lean_dec.exit289 ], [ %453, %lean_dec.exit275 ], [ %600, %lean_dec.exit260 ], [ %698, %lean_dec.exit250 ], [ %789, %lean_dec.exit241 ]
+  %.sink1091 = phi ptr [ %79, %lean_dec.exit289 ], [ %479, %lean_dec.exit275 ], [ %626, %lean_dec.exit260 ], [ %724, %lean_dec.exit250 ], [ %815, %lean_dec.exit241 ]
+  %.sink1088 = phi i32 [ 131096, %lean_dec.exit289 ], [ 16908312, %lean_dec.exit275 ], [ 16908312, %lean_dec.exit260 ], [ 16908312, %lean_dec.exit250 ], [ 16908312, %lean_dec.exit241 ]
+  %.sink1085 = phi ptr [ %.0211.lcssa, %lean_dec.exit289 ], [ %453, %lean_dec.exit275 ], [ %600, %lean_dec.exit260 ], [ %698, %lean_dec.exit250 ], [ %789, %lean_dec.exit241 ]
   %.sink = phi ptr [ %.0214.lcssa, %lean_dec.exit289 ], [ %455, %lean_dec.exit275 ], [ %602, %lean_dec.exit260 ], [ %700, %lean_dec.exit250 ], [ %791, %lean_dec.exit241 ]
-  %839 = getelementptr inbounds nuw i8, ptr %.sink972, i64 4
-  store i32 1, ptr %.sink972, align 4, !tbaa !8
-  store i32 %.sink969, ptr %839, align 4
-  %840 = getelementptr inbounds nuw i8, ptr %.sink972, i64 8
-  store ptr %.sink966, ptr %840, align 8, !tbaa !4
-  %841 = getelementptr inbounds nuw i8, ptr %.sink972, i64 16
+  %839 = getelementptr inbounds nuw i8, ptr %.sink1091, i64 4
+  store i32 1, ptr %.sink1091, align 4, !tbaa !8
+  store i32 %.sink1088, ptr %839, align 4
+  %840 = getelementptr inbounds nuw i8, ptr %.sink1091, i64 8
+  store ptr %.sink1085, ptr %840, align 8, !tbaa !4
+  %841 = getelementptr inbounds nuw i8, ptr %.sink1091, i64 16
   store ptr %.sink, ptr %841, align 8, !tbaa !4
   br label %.thread583
 
 .thread583:                                       ; preds = %.thread583.sink.split, %lean_dec.exit251, %lean_dec.exit261, %lean_dec.exit276, %lean_dec.exit242
-  %.1.ph = phi ptr [ %129, %lean_dec.exit242 ], [ %203, %lean_dec.exit251 ], [ %271, %lean_dec.exit261 ], [ %343, %lean_dec.exit276 ], [ %.sink972, %.thread583.sink.split ]
+  %.1.ph = phi ptr [ %129, %lean_dec.exit242 ], [ %203, %lean_dec.exit251 ], [ %271, %lean_dec.exit261 ], [ %343, %lean_dec.exit276 ], [ %.sink1091, %.thread583.sink.split ]
   ret ptr %.1.ph
 }
 
@@ -7774,21 +7774,21 @@ lean_dec.exit:                                    ; preds = %151, %150, %148, %l
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit63
-  %.sink110 = phi ptr [ %69, %lean_dec.exit63 ], [ %152, %lean_dec.exit ]
-  %.sink107 = phi i32 [ 131096, %lean_dec.exit63 ], [ 16908312, %lean_dec.exit ]
-  %.sink104 = phi ptr [ %68, %lean_dec.exit63 ], [ %124, %lean_dec.exit ]
+  %.sink131 = phi ptr [ %69, %lean_dec.exit63 ], [ %152, %lean_dec.exit ]
+  %.sink128 = phi i32 [ 131096, %lean_dec.exit63 ], [ 16908312, %lean_dec.exit ]
+  %.sink125 = phi ptr [ %68, %lean_dec.exit63 ], [ %124, %lean_dec.exit ]
   %.sink = phi ptr [ %10, %lean_dec.exit63 ], [ %126, %lean_dec.exit ]
-  %155 = getelementptr inbounds nuw i8, ptr %.sink110, i64 4
-  store i32 1, ptr %.sink110, align 4, !tbaa !8
-  store i32 %.sink107, ptr %155, align 4
-  %156 = getelementptr inbounds nuw i8, ptr %.sink110, i64 8
-  store ptr %.sink104, ptr %156, align 8, !tbaa !4
-  %157 = getelementptr inbounds nuw i8, ptr %.sink110, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %.sink131, i64 4
+  store i32 1, ptr %.sink131, align 4, !tbaa !8
+  store i32 %.sink128, ptr %155, align 4
+  %156 = getelementptr inbounds nuw i8, ptr %.sink131, i64 8
+  store ptr %.sink125, ptr %156, align 8, !tbaa !4
+  %157 = getelementptr inbounds nuw i8, ptr %.sink131, i64 16
   store ptr %.sink, ptr %157, align 8, !tbaa !4
   br label %158
 
 158:                                              ; preds = %.sink.split, %lean_alloc_ctor.exit87
-  %.0 = phi ptr [ %120, %lean_alloc_ctor.exit87 ], [ %.sink110, %.sink.split ]
+  %.0 = phi ptr [ %120, %lean_alloc_ctor.exit87 ], [ %.sink131, %.sink.split ]
   ret ptr %.0
 }
 
@@ -9317,21 +9317,21 @@ lean_dec.exit:                                    ; preds = %553, %552, %550, %l
   br i1 %exitcond.not, label %._crit_edge, label %96
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit191, %lean_dec.exit202, %lean_dec.exit210
-  %.sink503 = phi ptr [ %93, %lean_dec.exit210 ], [ %296, %lean_dec.exit202 ], [ %465, %lean_dec.exit191 ], [ %554, %lean_dec.exit ]
+  %.sink584 = phi ptr [ %93, %lean_dec.exit210 ], [ %296, %lean_dec.exit202 ], [ %465, %lean_dec.exit191 ], [ %554, %lean_dec.exit ]
   %.sink = phi i32 [ 131096, %lean_dec.exit210 ], [ 16908312, %lean_dec.exit202 ], [ 16908312, %lean_dec.exit191 ], [ 16908312, %lean_dec.exit ]
   %.0166.lcssa.sink = phi ptr [ %.0166.lcssa, %lean_dec.exit210 ], [ %268, %lean_dec.exit202 ], [ %439, %lean_dec.exit191 ], [ %528, %lean_dec.exit ]
   %.0171.lcssa.sink = phi ptr [ %.0171.lcssa, %lean_dec.exit210 ], [ %270, %lean_dec.exit202 ], [ %441, %lean_dec.exit191 ], [ %530, %lean_dec.exit ]
-  %559 = getelementptr inbounds nuw i8, ptr %.sink503, i64 4
-  store i32 1, ptr %.sink503, align 4, !tbaa !8
+  %559 = getelementptr inbounds nuw i8, ptr %.sink584, i64 4
+  store i32 1, ptr %.sink584, align 4, !tbaa !8
   store i32 %.sink, ptr %559, align 4
-  %560 = getelementptr inbounds nuw i8, ptr %.sink503, i64 8
+  %560 = getelementptr inbounds nuw i8, ptr %.sink584, i64 8
   store ptr %.0166.lcssa.sink, ptr %560, align 8, !tbaa !4
-  %561 = getelementptr inbounds nuw i8, ptr %.sink503, i64 16
+  %561 = getelementptr inbounds nuw i8, ptr %.sink584, i64 16
   store ptr %.0171.lcssa.sink, ptr %561, align 8, !tbaa !4
   br label %562
 
 562:                                              ; preds = %.sink.split, %lean_dec.exit203, %lean_dec.exit192, %lean_dec.exit183
-  %.1.ph = phi ptr [ %146, %lean_dec.exit183 ], [ %331, %lean_dec.exit192 ], [ %236, %lean_dec.exit203 ], [ %.sink503, %.sink.split ]
+  %.1.ph = phi ptr [ %146, %lean_dec.exit183 ], [ %331, %lean_dec.exit192 ], [ %236, %lean_dec.exit203 ], [ %.sink584, %.sink.split ]
   ret ptr %.1.ph
 }
 
@@ -10856,21 +10856,21 @@ lean_dec.exit:                                    ; preds = %552, %551, %549, %l
   br i1 %exitcond.not, label %._crit_edge, label %95
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit191, %lean_dec.exit202, %lean_dec.exit210
-  %.sink503 = phi ptr [ %92, %lean_dec.exit210 ], [ %295, %lean_dec.exit202 ], [ %464, %lean_dec.exit191 ], [ %553, %lean_dec.exit ]
+  %.sink584 = phi ptr [ %92, %lean_dec.exit210 ], [ %295, %lean_dec.exit202 ], [ %464, %lean_dec.exit191 ], [ %553, %lean_dec.exit ]
   %.sink = phi i32 [ 131096, %lean_dec.exit210 ], [ 16908312, %lean_dec.exit202 ], [ 16908312, %lean_dec.exit191 ], [ 16908312, %lean_dec.exit ]
   %.0166.lcssa.sink = phi ptr [ %.0166.lcssa, %lean_dec.exit210 ], [ %267, %lean_dec.exit202 ], [ %438, %lean_dec.exit191 ], [ %527, %lean_dec.exit ]
   %.0171.lcssa.sink = phi ptr [ %.0171.lcssa, %lean_dec.exit210 ], [ %269, %lean_dec.exit202 ], [ %440, %lean_dec.exit191 ], [ %529, %lean_dec.exit ]
-  %558 = getelementptr inbounds nuw i8, ptr %.sink503, i64 4
-  store i32 1, ptr %.sink503, align 4, !tbaa !8
+  %558 = getelementptr inbounds nuw i8, ptr %.sink584, i64 4
+  store i32 1, ptr %.sink584, align 4, !tbaa !8
   store i32 %.sink, ptr %558, align 4
-  %559 = getelementptr inbounds nuw i8, ptr %.sink503, i64 8
+  %559 = getelementptr inbounds nuw i8, ptr %.sink584, i64 8
   store ptr %.0166.lcssa.sink, ptr %559, align 8, !tbaa !4
-  %560 = getelementptr inbounds nuw i8, ptr %.sink503, i64 16
+  %560 = getelementptr inbounds nuw i8, ptr %.sink584, i64 16
   store ptr %.0171.lcssa.sink, ptr %560, align 8, !tbaa !4
   br label %561
 
 561:                                              ; preds = %.sink.split, %lean_dec.exit203, %lean_dec.exit192, %lean_dec.exit183
-  %.1.ph = phi ptr [ %145, %lean_dec.exit183 ], [ %330, %lean_dec.exit192 ], [ %235, %lean_dec.exit203 ], [ %.sink503, %.sink.split ]
+  %.1.ph = phi ptr [ %145, %lean_dec.exit183 ], [ %330, %lean_dec.exit192 ], [ %235, %lean_dec.exit203 ], [ %.sink584, %.sink.split ]
   ret ptr %.1.ph
 }
 
@@ -11480,21 +11480,21 @@ lean_dec.exit98:                                  ; preds = %lean_inc.exit104, %
   br i1 %exitcond.not, label %._crit_edge, label %23
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit101
-  %.sink230 = phi ptr [ %20, %lean_dec.exit101 ], [ %221, %lean_dec.exit ]
+  %.sink257 = phi ptr [ %20, %lean_dec.exit101 ], [ %221, %lean_dec.exit ]
   %.sink = phi i32 [ 131096, %lean_dec.exit101 ], [ 16908312, %lean_dec.exit ]
   %.079.lcssa.sink = phi ptr [ %.079.lcssa, %lean_dec.exit101 ], [ %195, %lean_dec.exit ]
   %.083.lcssa.sink = phi ptr [ %.083.lcssa, %lean_dec.exit101 ], [ %197, %lean_dec.exit ]
-  %224 = getelementptr inbounds nuw i8, ptr %.sink230, i64 4
-  store i32 1, ptr %.sink230, align 4, !tbaa !8
+  %224 = getelementptr inbounds nuw i8, ptr %.sink257, i64 4
+  store i32 1, ptr %.sink257, align 4, !tbaa !8
   store i32 %.sink, ptr %224, align 4
-  %225 = getelementptr inbounds nuw i8, ptr %.sink230, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %.sink257, i64 8
   store ptr %.079.lcssa.sink, ptr %225, align 8, !tbaa !4
-  %226 = getelementptr inbounds nuw i8, ptr %.sink230, i64 16
+  %226 = getelementptr inbounds nuw i8, ptr %.sink257, i64 16
   store ptr %.083.lcssa.sink, ptr %226, align 8, !tbaa !4
   br label %227
 
 227:                                              ; preds = %.sink.split, %lean_dec.exit91
-  %.1.ph = phi ptr [ %60, %lean_dec.exit91 ], [ %.sink230, %.sink.split ]
+  %.1.ph = phi ptr [ %60, %lean_dec.exit91 ], [ %.sink257, %.sink.split ]
   ret ptr %.1.ph
 }
 
@@ -12045,21 +12045,21 @@ lean_dec.exit:                                    ; preds = %195, %194, %192, %l
   br i1 %.not, label %._crit_edge, label %19
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit71
-  %.sink179 = phi ptr [ %159, %lean_dec.exit71 ], [ %196, %lean_dec.exit ]
+  %.sink204 = phi ptr [ %159, %lean_dec.exit71 ], [ %196, %lean_dec.exit ]
   %.sink = phi i32 [ 16908312, %lean_dec.exit71 ], [ 131096, %lean_dec.exit ]
   %.059.lcssa.sink = phi ptr [ %133, %lean_dec.exit71 ], [ %.059.lcssa, %lean_dec.exit ]
   %.062.lcssa.sink = phi ptr [ %135, %lean_dec.exit71 ], [ %.062.lcssa, %lean_dec.exit ]
-  %202 = getelementptr inbounds nuw i8, ptr %.sink179, i64 4
-  store i32 1, ptr %.sink179, align 4, !tbaa !8
+  %202 = getelementptr inbounds nuw i8, ptr %.sink204, i64 4
+  store i32 1, ptr %.sink204, align 4, !tbaa !8
   store i32 %.sink, ptr %202, align 4
-  %203 = getelementptr inbounds nuw i8, ptr %.sink179, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %.sink204, i64 8
   store ptr %.059.lcssa.sink, ptr %203, align 8, !tbaa !4
-  %204 = getelementptr inbounds nuw i8, ptr %.sink179, i64 16
+  %204 = getelementptr inbounds nuw i8, ptr %.sink204, i64 16
   store ptr %.062.lcssa.sink, ptr %204, align 8, !tbaa !4
   br label %205
 
 205:                                              ; preds = %.sink.split, %lean_dec.exit72
-  %.3.ph = phi ptr [ %54, %lean_dec.exit72 ], [ %.sink179, %.sink.split ]
+  %.3.ph = phi ptr [ %54, %lean_dec.exit72 ], [ %.sink204, %.sink.split ]
   ret ptr %.3.ph
 }
 
@@ -12093,7 +12093,7 @@ define ptr @l_Lean_Elab_Tactic_Ext_mkExtIffType___lambda__2(ptr noundef %0, ptr 
   br label %lean_nat_add.exit
 
 24:                                               ; preds = %16
-  %25 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %18) #5
+  %25 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_nat_add.exit
 
 .critedge.i:                                      ; preds = %13
@@ -15177,7 +15177,7 @@ lean_dec.exit165:                                 ; preds = %371, %370, %368, %l
   br label %lean_dec.exit164
 
 380:                                              ; preds = %372
-  %381 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %374) #5
+  %381 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_dec.exit164
 
 382:                                              ; preds = %lean_dec.exit165
@@ -18457,16 +18457,16 @@ lean_alloc_ctor.exit110:                          ; preds = %lean_dec.exit
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exit110, %lean_dec.exit59, %lean_dec.exit63
-  %.sink128 = phi ptr [ %29, %lean_dec.exit63 ], [ %100, %lean_dec.exit59 ], [ %185, %lean_alloc_ctor.exit110 ]
+  %.sink151 = phi ptr [ %29, %lean_dec.exit63 ], [ %100, %lean_dec.exit59 ], [ %185, %lean_alloc_ctor.exit110 ]
   %.sink = phi ptr [ inttoptr (i64 1 to ptr), %lean_dec.exit63 ], [ %9, %lean_dec.exit59 ], [ %180, %lean_alloc_ctor.exit110 ]
-  %188 = getelementptr inbounds nuw i8, ptr %.sink128, i64 4
-  store i32 1, ptr %.sink128, align 4, !tbaa !8
+  %188 = getelementptr inbounds nuw i8, ptr %.sink151, i64 4
+  store i32 1, ptr %.sink151, align 4, !tbaa !8
   store i32 131096, ptr %188, align 4
-  %189 = getelementptr inbounds nuw i8, ptr %.sink128, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %.sink151, i64 8
   store ptr %.sink, ptr %189, align 8, !tbaa !4
-  %190 = getelementptr inbounds nuw i8, ptr %.sink128, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %.sink151, i64 16
   store ptr %7, ptr %190, align 8, !tbaa !4
-  ret ptr %.sink128
+  ret ptr %.sink151
 }
 
 declare ptr @l_Lean_Syntax_getRange_x3f(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
@@ -57060,21 +57060,21 @@ lean_dec.exit:                                    ; preds = %79, %78, %76, %lean
   unreachable
 
 .sink.split:                                      ; preds = %83, %lean_dec.exit
-  %.sink69 = phi ptr [ %80, %lean_dec.exit ], [ %85, %83 ]
-  %.sink66 = phi i32 [ 16908312, %lean_dec.exit ], [ 131096, %83 ]
-  %.sink63 = phi ptr [ %52, %lean_dec.exit ], [ %84, %83 ]
+  %.sink76 = phi ptr [ %80, %lean_dec.exit ], [ %85, %83 ]
+  %.sink73 = phi i32 [ 16908312, %lean_dec.exit ], [ 131096, %83 ]
+  %.sink70 = phi ptr [ %52, %lean_dec.exit ], [ %84, %83 ]
   %.sink = phi ptr [ %54, %lean_dec.exit ], [ %4, %83 ]
-  %88 = getelementptr inbounds nuw i8, ptr %.sink69, i64 4
-  store i32 1, ptr %.sink69, align 4, !tbaa !8
-  store i32 %.sink66, ptr %88, align 4
-  %89 = getelementptr inbounds nuw i8, ptr %.sink69, i64 8
-  store ptr %.sink63, ptr %89, align 8, !tbaa !4
-  %90 = getelementptr inbounds nuw i8, ptr %.sink69, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.sink76, i64 4
+  store i32 1, ptr %.sink76, align 4, !tbaa !8
+  store i32 %.sink73, ptr %88, align 4
+  %89 = getelementptr inbounds nuw i8, ptr %.sink76, i64 8
+  store ptr %.sink70, ptr %89, align 8, !tbaa !4
+  %90 = getelementptr inbounds nuw i8, ptr %.sink76, i64 16
   store ptr %.sink, ptr %90, align 8, !tbaa !4
   br label %91
 
 91:                                               ; preds = %.sink.split, %lean_alloc_ctor.exit49
-  %.1 = phi ptr [ %48, %lean_alloc_ctor.exit49 ], [ %.sink69, %.sink.split ]
+  %.1 = phi ptr [ %48, %lean_alloc_ctor.exit49 ], [ %.sink76, %.sink.split ]
   ret ptr %.1
 }
 
@@ -78908,18 +78908,18 @@ lean_inc.exit311:                                 ; preds = %lean_dec.exit292, %
   br i1 %exitcond.not, label %._crit_edge, label %96
 
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit, %lean_dec.exit274, %lean_alloc_ctor.exit510, %lean_alloc_ctor.exit504, %lean_dec.exit302
-  %.sink656 = phi ptr [ %93, %lean_dec.exit302 ], [ %501, %lean_alloc_ctor.exit504 ], [ %531, %lean_alloc_ctor.exit510 ], [ %640, %lean_dec.exit274 ], [ %693, %lean_dec.exit ]
+  %.sink751 = phi ptr [ %93, %lean_dec.exit302 ], [ %501, %lean_alloc_ctor.exit504 ], [ %531, %lean_alloc_ctor.exit510 ], [ %640, %lean_dec.exit274 ], [ %693, %lean_dec.exit ]
   %.sink = phi i32 [ 131096, %lean_dec.exit302 ], [ 131096, %lean_alloc_ctor.exit504 ], [ 131096, %lean_alloc_ctor.exit510 ], [ 16908312, %lean_dec.exit274 ], [ 16908312, %lean_dec.exit ]
   %.0220.lcssa.sink = phi ptr [ %.0220.lcssa, %lean_dec.exit302 ], [ %.6239, %lean_alloc_ctor.exit504 ], [ %525, %lean_alloc_ctor.exit510 ], [ %.6259, %lean_dec.exit274 ], [ %.6259, %lean_dec.exit ]
   %.0223.lcssa.sink = phi ptr [ %.0223.lcssa, %lean_dec.exit302 ], [ %.6248, %lean_alloc_ctor.exit504 ], [ %.6248, %lean_alloc_ctor.exit510 ], [ %.6266, %lean_dec.exit274 ], [ %.6266, %lean_dec.exit ]
-  %696 = getelementptr inbounds nuw i8, ptr %.sink656, i64 4
-  store i32 1, ptr %.sink656, align 4, !tbaa !8
+  %696 = getelementptr inbounds nuw i8, ptr %.sink751, i64 4
+  store i32 1, ptr %.sink751, align 4, !tbaa !8
   store i32 %.sink, ptr %696, align 4
-  %697 = getelementptr inbounds nuw i8, ptr %.sink656, i64 8
+  %697 = getelementptr inbounds nuw i8, ptr %.sink751, i64 8
   store ptr %.0220.lcssa.sink, ptr %697, align 8, !tbaa !4
-  %698 = getelementptr inbounds nuw i8, ptr %.sink656, i64 16
+  %698 = getelementptr inbounds nuw i8, ptr %.sink751, i64 16
   store ptr %.0223.lcssa.sink, ptr %698, align 8, !tbaa !4
-  ret ptr %.sink656
+  ret ptr %.sink751
 }
 
 declare ptr @l_Lean_Meta_withNewMCtxDepth___at_Lean_Meta_matchesInstance___spec__1___rarg(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -84014,22 +84014,22 @@ lean_dec.exit:                                    ; preds = %74, %73, %71, %67
   unreachable
 
 lean_alloc_closure.exit:                          ; preds = %lean_dec.exit, %lean_dec.exit30
-  %.sink68 = phi ptr [ %64, %lean_dec.exit30 ], [ %75, %lean_dec.exit ]
-  %.sink57 = phi ptr [ %0, %lean_dec.exit30 ], [ %3, %lean_dec.exit ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sink68, i64 4
-  store i32 1, ptr %.sink68, align 4, !tbaa !8
+  %.sink77 = phi ptr [ %64, %lean_dec.exit30 ], [ %75, %lean_dec.exit ]
+  %.sink66 = phi ptr [ %0, %lean_dec.exit30 ], [ %3, %lean_dec.exit ]
+  %78 = getelementptr inbounds nuw i8, ptr %.sink77, i64 4
+  store i32 1, ptr %.sink77, align 4, !tbaa !8
   store i32 -184549336, ptr %78, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %.sink68, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.sink77, i64 8
   store ptr @l_List_forIn_x27_loop___at_Lean_Elab_Tactic_Ext_tryIntros___spec__1___rarg___lambda__1___boxed, ptr %79, align 8, !tbaa !4
-  %80 = getelementptr inbounds nuw i8, ptr %.sink68, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %.sink77, i64 16
   store i16 3, ptr %80, align 8, !tbaa !15
-  %81 = getelementptr inbounds nuw i8, ptr %.sink68, i64 18
+  %81 = getelementptr inbounds nuw i8, ptr %.sink77, i64 18
   store i16 2, ptr %81, align 2, !tbaa !15
-  %82 = getelementptr inbounds nuw i8, ptr %.sink68, i64 24
-  store ptr %.sink57, ptr %82, align 8, !tbaa !4
-  %83 = getelementptr inbounds nuw i8, ptr %.sink68, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %.sink77, i64 24
+  store ptr %.sink66, ptr %82, align 8, !tbaa !4
+  %83 = getelementptr inbounds nuw i8, ptr %.sink77, i64 32
   store ptr %32, ptr %83, align 8, !tbaa !4
-  %84 = tail call ptr @lean_apply_4(ptr noundef %2, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %54, ptr noundef nonnull %.sink68) #5
+  %84 = tail call ptr @lean_apply_4(ptr noundef %2, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %54, ptr noundef nonnull %.sink77) #5
   ret ptr %84
 }
 
@@ -85713,7 +85713,7 @@ lean_dec.exit:                                    ; preds = %38, %37, %35, %lean
   br label %lean_nat_add.exit
 
 49:                                               ; preds = %41
-  %50 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %43) #5
+  %50 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_nat_add.exit
 
 .critedge.i:                                      ; preds = %lean_dec.exit
@@ -92115,21 +92115,21 @@ lean_dec.exit:                                    ; preds = %369, %368, %366, %l
   unreachable
 
 lean_dec.exit115.thread.sink.split:               ; preds = %lean_dec.exit, %lean_alloc_ctor.exit
-  %.sink307 = phi ptr [ %105, %lean_alloc_ctor.exit ], [ %370, %lean_dec.exit ]
-  %.sink304 = phi i32 [ 131096, %lean_alloc_ctor.exit ], [ 16908312, %lean_dec.exit ]
-  %.sink301 = phi ptr [ %99, %lean_alloc_ctor.exit ], [ %344, %lean_dec.exit ]
+  %.sink357 = phi ptr [ %105, %lean_alloc_ctor.exit ], [ %370, %lean_dec.exit ]
+  %.sink354 = phi i32 [ 131096, %lean_alloc_ctor.exit ], [ 16908312, %lean_dec.exit ]
+  %.sink351 = phi ptr [ %99, %lean_alloc_ctor.exit ], [ %344, %lean_dec.exit ]
   %.sink = phi ptr [ %.0101, %lean_alloc_ctor.exit ], [ %346, %lean_dec.exit ]
-  %373 = getelementptr inbounds nuw i8, ptr %.sink307, i64 4
-  store i32 1, ptr %.sink307, align 4, !tbaa !8
-  store i32 %.sink304, ptr %373, align 4
-  %374 = getelementptr inbounds nuw i8, ptr %.sink307, i64 8
-  store ptr %.sink301, ptr %374, align 8, !tbaa !4
-  %375 = getelementptr inbounds nuw i8, ptr %.sink307, i64 16
+  %373 = getelementptr inbounds nuw i8, ptr %.sink357, i64 4
+  store i32 1, ptr %.sink357, align 4, !tbaa !8
+  store i32 %.sink354, ptr %373, align 4
+  %374 = getelementptr inbounds nuw i8, ptr %.sink357, i64 8
+  store ptr %.sink351, ptr %374, align 8, !tbaa !4
+  %375 = getelementptr inbounds nuw i8, ptr %.sink357, i64 16
   store ptr %.sink, ptr %375, align 8, !tbaa !4
   br label %lean_dec.exit115.thread
 
 lean_dec.exit115.thread:                          ; preds = %lean_dec.exit115.thread.sink.split, %lean_dec.exit104
-  %.1 = phi ptr [ %184, %lean_dec.exit104 ], [ %.sink307, %lean_dec.exit115.thread.sink.split ]
+  %.1 = phi ptr [ %184, %lean_dec.exit104 ], [ %.sink357, %lean_dec.exit115.thread.sink.split ]
   ret ptr %.1
 }
 
@@ -93490,7 +93490,7 @@ lean_obj_tag.exit776:                             ; preds = %483, %486
   br label %lean_dec.exit451
 
 509:                                              ; preds = %501
-  %510 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %503) #5
+  %510 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_dec.exit451
 
 511:                                              ; preds = %498
@@ -93607,7 +93607,7 @@ lean_dec.exit450:                                 ; preds = %546, %545, %543, %l
   br label %lean_dec.exit449
 
 555:                                              ; preds = %547
-  %556 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %549) #5
+  %556 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_dec.exit449
 
 557:                                              ; preds = %lean_dec.exit450
@@ -93806,7 +93806,7 @@ lean_dec_ref.exit658:                             ; preds = %621, %620, %618, %6
   br label %lean_dec.exit447
 
 630:                                              ; preds = %622
-  %631 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %624) #5
+  %631 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_dec.exit447
 
 632:                                              ; preds = %lean_dec_ref.exit658
@@ -94735,7 +94735,7 @@ lean_dec_ref.exit654:                             ; preds = %957, %956, %954, %9
   br label %lean_dec.exit432
 
 966:                                              ; preds = %958
-  %967 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %960) #5
+  %967 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_dec.exit432
 
 968:                                              ; preds = %lean_dec_ref.exit654
@@ -96628,21 +96628,21 @@ lean_dec.exit:                                    ; preds = %369, %368, %366, %l
   unreachable
 
 lean_dec.exit115.thread.sink.split:               ; preds = %lean_dec.exit, %lean_alloc_ctor.exit
-  %.sink307 = phi ptr [ %105, %lean_alloc_ctor.exit ], [ %370, %lean_dec.exit ]
-  %.sink304 = phi i32 [ 131096, %lean_alloc_ctor.exit ], [ 16908312, %lean_dec.exit ]
-  %.sink301 = phi ptr [ %99, %lean_alloc_ctor.exit ], [ %344, %lean_dec.exit ]
+  %.sink357 = phi ptr [ %105, %lean_alloc_ctor.exit ], [ %370, %lean_dec.exit ]
+  %.sink354 = phi i32 [ 131096, %lean_alloc_ctor.exit ], [ 16908312, %lean_dec.exit ]
+  %.sink351 = phi ptr [ %99, %lean_alloc_ctor.exit ], [ %344, %lean_dec.exit ]
   %.sink = phi ptr [ %.0101, %lean_alloc_ctor.exit ], [ %346, %lean_dec.exit ]
-  %373 = getelementptr inbounds nuw i8, ptr %.sink307, i64 4
-  store i32 1, ptr %.sink307, align 4, !tbaa !8
-  store i32 %.sink304, ptr %373, align 4
-  %374 = getelementptr inbounds nuw i8, ptr %.sink307, i64 8
-  store ptr %.sink301, ptr %374, align 8, !tbaa !4
-  %375 = getelementptr inbounds nuw i8, ptr %.sink307, i64 16
+  %373 = getelementptr inbounds nuw i8, ptr %.sink357, i64 4
+  store i32 1, ptr %.sink357, align 4, !tbaa !8
+  store i32 %.sink354, ptr %373, align 4
+  %374 = getelementptr inbounds nuw i8, ptr %.sink357, i64 8
+  store ptr %.sink351, ptr %374, align 8, !tbaa !4
+  %375 = getelementptr inbounds nuw i8, ptr %.sink357, i64 16
   store ptr %.sink, ptr %375, align 8, !tbaa !4
   br label %lean_dec.exit115.thread
 
 lean_dec.exit115.thread:                          ; preds = %lean_dec.exit115.thread.sink.split, %lean_dec.exit104
-  %.1 = phi ptr [ %184, %lean_dec.exit104 ], [ %.sink307, %lean_dec.exit115.thread.sink.split ]
+  %.1 = phi ptr [ %184, %lean_dec.exit104 ], [ %.sink357, %lean_dec.exit115.thread.sink.split ]
   ret ptr %.1
 }
 
@@ -100483,16 +100483,16 @@ lean_alloc_ctor.exit119:                          ; preds = %lean_alloc_ctor.exi
   unreachable
 
 lean_alloc_ctor.exit107:                          ; preds = %lean_alloc_ctor.exit119, %lean_alloc_ctor.exit106
-  %.sink131 = phi ptr [ %75, %lean_alloc_ctor.exit106 ], [ %143, %lean_alloc_ctor.exit119 ]
-  %.sink124 = phi ptr [ %69, %lean_alloc_ctor.exit106 ], [ %137, %lean_alloc_ctor.exit119 ]
-  %146 = getelementptr inbounds nuw i8, ptr %.sink131, i64 4
-  store i32 1, ptr %.sink131, align 4, !tbaa !8
+  %.sink147 = phi ptr [ %75, %lean_alloc_ctor.exit106 ], [ %143, %lean_alloc_ctor.exit119 ]
+  %.sink140 = phi ptr [ %69, %lean_alloc_ctor.exit106 ], [ %137, %lean_alloc_ctor.exit119 ]
+  %146 = getelementptr inbounds nuw i8, ptr %.sink147, i64 4
+  store i32 1, ptr %.sink147, align 4, !tbaa !8
   store i32 134348824, ptr %146, align 4
-  %147 = getelementptr inbounds nuw i8, ptr %.sink131, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %.sink147, i64 8
   store ptr %15, ptr %147, align 8, !tbaa !4
-  %148 = getelementptr inbounds nuw i8, ptr %.sink131, i64 16
-  store ptr %.sink124, ptr %148, align 8, !tbaa !4
-  %149 = tail call ptr @l_Lean_logAt___at_Lean_Elab_Tactic_closeUsingOrAdmit___spec__2(ptr noundef %1, ptr noundef nonnull %.sink131, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #5
+  %148 = getelementptr inbounds nuw i8, ptr %.sink147, i64 16
+  store ptr %.sink140, ptr %148, align 8, !tbaa !4
+  %149 = tail call ptr @l_Lean_logAt___at_Lean_Elab_Tactic_closeUsingOrAdmit___spec__2(ptr noundef %1, ptr noundef nonnull %.sink147, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #5
   ret ptr %149
 }
 

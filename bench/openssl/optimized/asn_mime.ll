@@ -204,7 +204,7 @@ define range(i32 0, 2) i32 @SMIME_crlf_copy(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.old4.not.i.us, label %44, label %41
 
 39:                                               ; preds = %37
-  br i1 %.old4.not.i.us, label %.thread78, label %.thread
+  br i1 %.old4.not.i.us, label %.thread88, label %.thread
 
 .thread:                                          ; preds = %39
   %40 = call i32 @BIO_write(ptr noundef %14, ptr noundef nonnull %4, i32 noundef %.13647.i.us) #6
@@ -219,12 +219,12 @@ define range(i32 0, 2) i32 @SMIME_crlf_copy(ptr noundef %0, ptr noundef %1, i32 
   %45 = icmp sgt i32 %.13647.i.us, 1
   br i1 %45, label %.backedge, label %strip_eol.exit.us
 
-.backedge:                                        ; preds = %44, %.thread78
-  %.048.i.us.be = phi i32 [ 1, %44 ], [ 0, %.thread78 ]
+.backedge:                                        ; preds = %44, %.thread88
+  %.048.i.us.be = phi i32 [ 1, %44 ], [ 0, %.thread88 ]
   %.13647.i.us.be = add nsw i32 %.13647.i.us, -1
   br label %34, !llvm.loop !9
 
-.thread78:                                        ; preds = %39
+.thread88:                                        ; preds = %39
   %46 = icmp samesign ugt i32 %.13647.i.us, 1
   br i1 %46, label %.backedge, label %strip_eol.exit.us.thread
 
@@ -232,7 +232,7 @@ strip_eol.exit.us:                                ; preds = %44
   %47 = call i32 @BIO_write(ptr noundef %14, ptr noundef nonnull @.str.6, i32 noundef 2) #6
   br label %strip_eol.exit.us.thread
 
-strip_eol.exit.us.thread:                         ; preds = %.thread78, %.thread, %strip_eol.exit.us, %41
+strip_eol.exit.us.thread:                         ; preds = %.thread88, %.thread, %strip_eol.exit.us, %41
   %48 = call i32 @BIO_gets(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 1024) #6
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %.lr.ph.i.us, label %.loopexit47, !llvm.loop !10
@@ -463,7 +463,7 @@ define range(i32 0, 2) i32 @SMIME_write_ASN1_ex(ptr noundef %0, ptr noundef %1, 
     i32 673, label %61
     i32 674, label %63
     i32 809, label %.loopexit.sink.split.i.loopexit
-    i32 982, label %.loopexit.sink.split.i.loopexit106
+    i32 982, label %.loopexit.sink.split.i.loopexit115
     i32 983, label %.loopexit.sink.split.i
   ]
 
@@ -506,11 +506,11 @@ define range(i32 0, 2) i32 @SMIME_write_ASN1_ex(ptr noundef %0, ptr noundef %1, 
 .loopexit.sink.split.i.loopexit:                  ; preds = %.thread.i
   br label %.loopexit.sink.split.i
 
-.loopexit.sink.split.i.loopexit106:               ; preds = %.thread.i
+.loopexit.sink.split.i.loopexit115:               ; preds = %.thread.i
   br label %.loopexit.sink.split.i
 
-.loopexit.sink.split.i:                           ; preds = %.thread.i, %.loopexit.sink.split.i.loopexit106, %.loopexit.sink.split.i.loopexit
-  %.str.51.sink.i = phi ptr [ @.str.51, %.loopexit.sink.split.i.loopexit ], [ @.str.52, %.loopexit.sink.split.i.loopexit106 ], [ @.str.53, %.thread.i ]
+.loopexit.sink.split.i:                           ; preds = %.thread.i, %.loopexit.sink.split.i.loopexit115, %.loopexit.sink.split.i.loopexit
+  %.str.51.sink.i = phi ptr [ @.str.51, %.loopexit.sink.split.i.loopexit ], [ @.str.52, %.loopexit.sink.split.i.loopexit115 ], [ @.str.53, %.thread.i ]
   %72 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %.str.51.sink.i) #6
   br label %asn1_write_micalg.exit
 
@@ -1112,22 +1112,22 @@ define internal fastcc ptr @mime_parse_hdr(ptr noundef %0) unnamed_addr #0 {
   %10 = sext i8 %9 to i32
   %11 = call i32 @ossl_ctype_check(i32 noundef %10, i32 noundef 8) #6
   %.not88 = icmp eq i32 %11, 0
-  br i1 %.not88, label %12, label %.preheader360
+  br i1 %.not88, label %12, label %.preheader385
 
 12:                                               ; preds = %8, %7
-  br label %.preheader360
+  br label %.preheader385
 
-.preheader360:                                    ; preds = %8, %12
+.preheader385:                                    ; preds = %8, %12
   %.168.ph = phi i32 [ 1, %12 ], [ 3, %8 ]
   br label %13
 
-13:                                               ; preds = %.preheader360, %133
-  %.079 = phi ptr [ %.180, %133 ], [ %2, %.preheader360 ]
-  %.077 = phi ptr [ %.178, %133 ], [ null, %.preheader360 ]
-  %.175 = phi ptr [ %.276, %133 ], [ %.074, %.preheader360 ]
-  %.072 = phi ptr [ %134, %133 ], [ %2, %.preheader360 ]
-  %.168 = phi i32 [ %.269, %133 ], [ %.168.ph, %.preheader360 ]
-  %.1 = phi i32 [ %.2, %133 ], [ %.0, %.preheader360 ]
+13:                                               ; preds = %.preheader385, %133
+  %.079 = phi ptr [ %.180, %133 ], [ %2, %.preheader385 ]
+  %.077 = phi ptr [ %.178, %133 ], [ null, %.preheader385 ]
+  %.175 = phi ptr [ %.276, %133 ], [ %.074, %.preheader385 ]
+  %.072 = phi ptr [ %134, %133 ], [ %2, %.preheader385 ]
+  %.168 = phi i32 [ %.269, %133 ], [ %.168.ph, %.preheader385 ]
+  %.1 = phi i32 [ %.2, %133 ], [ %.0, %.preheader385 ]
   %14 = load i8, ptr %.072, align 1, !tbaa !6
   switch i8 %14, label %15 [
     i8 13, label %.critedge

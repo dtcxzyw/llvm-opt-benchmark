@@ -99,18 +99,18 @@ define internal zeroext i1 @policy_mt(ptr noundef readonly captures(none) %0, pt
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
   %35 = icmp eq i32 %.pre, %34
-  br i1 %35, label %.thread26, label %.loopexit9
+  br i1 %35, label %.thread32, label %.loopexit9
 
 36:                                               ; preds = %28
   %37 = add i32 %.pre, -1
   %38 = icmp sgt i32 %37, -1
   br i1 %38, label %.split.us, label %.loopexit12
 
-.thread26:                                        ; preds = %31
+.thread32:                                        ; preds = %31
   %39 = icmp sgt i32 %.pre, 0
   br i1 %39, label %.split.preheader, label %.loopexit12
 
-.split.preheader:                                 ; preds = %.thread26
+.split.preheader:                                 ; preds = %.thread32
   %40 = add nsw i32 %.pre, -1
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 306
   %42 = load i16, ptr %41, align 2
@@ -163,7 +163,7 @@ define internal zeroext i1 @policy_mt(ptr noundef readonly captures(none) %0, pt
   %69 = icmp sgt i64 %57, 0
   br i1 %69, label %.split, label %.loopexit12, !llvm.loop !5
 
-.loopexit12:                                      ; preds = %67, %54, %.thread26, %36
+.loopexit12:                                      ; preds = %67, %54, %.thread32, %36
   %70 = lshr exact i16 %29, 3
   %71 = zext nneg i16 %70 to i32
   br label %.loopexit9

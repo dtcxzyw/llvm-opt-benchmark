@@ -345,9 +345,9 @@ tailrecurse.i.i15:                                ; preds = %84, %174
   br label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit33
 
 common.resume:                                    ; preds = %478, %397, %230, %152
-  %.lcssa137.sink = phi ptr [ %457, %478 ], [ %376, %397 ], [ %209, %230 ], [ %131, %152 ]
+  %.lcssa165.sink = phi ptr [ %457, %478 ], [ %376, %397 ], [ %209, %230 ], [ %131, %152 ]
   %common.resume.op = phi { ptr, i32 } [ %479, %478 ], [ %398, %397 ], [ %231, %230 ], [ %153, %152 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %.lcssa137.sink, i64 noundef 64) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %.lcssa165.sink, i64 noundef 64) #19
   resume { ptr, i32 } %common.resume.op
 
 152:                                              ; preds = %tailrecurse.i.i15
@@ -1470,9 +1470,9 @@ define hidden void @_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextERNS_5PointES4_PNS
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %tailrecurse.outer.backedge
-  %.tr85.ph109 = phi ptr [ %5, %.lr.ph.lr.ph ], [ %.sink190, %tailrecurse.outer.backedge ]
+  %.tr85.ph109 = phi ptr [ %5, %.lr.ph.lr.ph ], [ %.sink194, %tailrecurse.outer.backedge ]
   %.tr84.ph108 = phi ptr [ %4, %.lr.ph.lr.ph ], [ %55, %tailrecurse.outer.backedge ]
-  %.tr83.ph107 = phi ptr [ %3, %.lr.ph.lr.ph ], [ %.sink190, %tailrecurse.outer.backedge ]
+  %.tr83.ph107 = phi ptr [ %3, %.lr.ph.lr.ph ], [ %.sink194, %tailrecurse.outer.backedge ]
   %10 = getelementptr inbounds nuw i8, ptr %.tr83.ph107, i64 8
   br label %15
 
@@ -1552,11 +1552,11 @@ _ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit:   ; preds = %40
   br i1 %spec.select.i, label %tailrecurse.outer.backedge, label %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit.thread
 
 tailrecurse.outer.backedge:                       ; preds = %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit80
-  %.sink190 = phi ptr [ %62, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit80 ], [ %23, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit ]
-  tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noundef nonnull align 8 dereferenceable(57) %.tr84106, ptr noundef nonnull %.tr83.ph107, ptr noundef nonnull %.sink190)
+  %.sink194 = phi ptr [ %62, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit80 ], [ %23, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit ]
+  tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noundef nonnull align 8 dereferenceable(57) %.tr84106, ptr noundef nonnull %.tr83.ph107, ptr noundef nonnull %.sink194)
   %53 = load ptr, ptr %9, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store ptr %.sink190, ptr %54, align 8
+  store ptr %.sink194, ptr %54, align 8
   %55 = tail call noundef ptr @_ZN3p2t8Triangle14NeighborAcrossERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %.tr84106, ptr noundef nonnull align 8 dereferenceable(40) %.tr85.ph109)
   %56 = icmp eq ptr %55, null
   br i1 %56, label %tailrecurse.outer._crit_edge, label %.lr.ph
@@ -2998,13 +2998,13 @@ tailrecurse:                                      ; preds = %.lr.ph
   br i1 %45, label %tailrecurse._crit_edge, label %.lr.ph
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %4
-  %.lcssa45 = phi ptr [ %.pre30, %4 ], [ %90, %tailrecurse ]
+  %.lcssa46 = phi ptr [ %.pre30, %4 ], [ %90, %tailrecurse ]
   %.lcssa = phi ptr [ %.pre, %4 ], [ %91, %tailrecurse ]
   %46 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %69, %tailrecurse._crit_edge
-  %47 = phi ptr [ %48, %69 ], [ %.lcssa45, %tailrecurse._crit_edge ]
+  %47 = phi ptr [ %48, %69 ], [ %.lcssa46, %tailrecurse._crit_edge ]
   tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(40) %47)
   %48 = load ptr, ptr %46, align 8
   %49 = load ptr, ptr %48, align 8
@@ -3305,13 +3305,13 @@ tailrecurse:                                      ; preds = %.lr.ph
   br i1 %47, label %tailrecurse._crit_edge, label %.lr.ph
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %4
-  %.lcssa45 = phi ptr [ %.pre30, %4 ], [ %94, %tailrecurse ]
+  %.lcssa46 = phi ptr [ %.pre30, %4 ], [ %94, %tailrecurse ]
   %.lcssa = phi ptr [ %.pre, %4 ], [ %95, %tailrecurse ]
   %48 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %72, %tailrecurse._crit_edge
-  %49 = phi ptr [ %50, %72 ], [ %.lcssa45, %tailrecurse._crit_edge ]
+  %49 = phi ptr [ %50, %72 ], [ %.lcssa46, %tailrecurse._crit_edge ]
   tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(40) %49)
   %50 = load ptr, ptr %48, align 8
   %51 = load ptr, ptr %50, align 8

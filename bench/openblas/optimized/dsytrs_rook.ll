@@ -222,7 +222,7 @@ define void @dsytrs_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %125 = add nuw i32 %122, 1
   %wide.trip.count = zext i32 %125 to i64
   %invariant.gep = getelementptr double, ptr %18, i64 %123
-  %invariant.gep588 = getelementptr double, ptr %18, i64 %124
+  %invariant.gep609 = getelementptr double, ptr %18, i64 %124
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -231,8 +231,8 @@ define void @dsytrs_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %gep = getelementptr double, ptr %invariant.gep, i64 %126
   %127 = load double, ptr %gep, align 8, !tbaa !7
   %128 = fdiv double %127, %110
-  %gep589 = getelementptr double, ptr %invariant.gep588, i64 %126
-  %129 = load double, ptr %gep589, align 8, !tbaa !7
+  %gep610 = getelementptr double, ptr %invariant.gep609, i64 %126
+  %129 = load double, ptr %gep610, align 8, !tbaa !7
   %130 = fdiv double %129, %110
   %131 = fneg double %130
   %132 = call double @llvm.fmuladd.f64(double %120, double %128, double %131)
@@ -241,7 +241,7 @@ define void @dsytrs_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %134 = fneg double %128
   %135 = call double @llvm.fmuladd.f64(double %115, double %130, double %134)
   %136 = fdiv double %135, %121
-  store double %136, ptr %gep589, align 8, !tbaa !7
+  store double %136, ptr %gep610, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -347,20 +347,20 @@ define void @dsytrs_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %157, %193
-  %.sink599 = phi i32 [ %194, %193 ], [ %158, %157 ]
-  %.pn605 = phi i32 [ %188, %193 ], [ %.2546, %157 ]
-  %.sink594.ph = phi i32 [ 2, %193 ], [ 1, %157 ]
-  %.pn.in = add nsw i32 %.pn605, %16
+  %.sink620 = phi i32 [ %194, %193 ], [ %158, %157 ]
+  %.pn626 = phi i32 [ %188, %193 ], [ %.2546, %157 ]
+  %.sink615.ph = phi i32 [ 2, %193 ], [ 1, %157 ]
+  %.pn.in = add nsw i32 %.pn626, %16
   %.pn = sext i32 %.pn.in to i64
-  %.sink596 = getelementptr inbounds double, ptr %18, i64 %.pn
-  %195 = sext i32 %.sink599 to i64
+  %.sink617 = getelementptr inbounds double, ptr %18, i64 %.pn
+  %195 = sext i32 %.sink620 to i64
   %196 = getelementptr inbounds double, ptr %18, i64 %195
-  call void @dswap_(ptr noundef nonnull %2, ptr noundef %.sink596, ptr noundef nonnull %7, ptr noundef %196, ptr noundef nonnull %7) #5
+  call void @dswap_(ptr noundef nonnull %2, ptr noundef %.sink617, ptr noundef nonnull %7, ptr noundef %196, ptr noundef nonnull %7) #5
   br label %197
 
 197:                                              ; preds = %.sink.split, %187, %155
-  %.sink594 = phi i32 [ 1, %155 ], [ 2, %187 ], [ %.sink594.ph, %.sink.split ]
-  %198 = add nsw i32 %.2546, %.sink594
+  %.sink615 = phi i32 [ 1, %155 ], [ 2, %187 ], [ %.sink615.ph, %.sink.split ]
+  %198 = add nsw i32 %.2546, %.sink615
   %199 = load i32, ptr %1, align 4, !tbaa !3
   %200 = icmp sgt i32 %198, %199
   br i1 %200, label %.loopexit, label %.lr.ph547
@@ -530,27 +530,27 @@ define void @dsytrs_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
 .lr.ph551.preheader:                              ; preds = %287
   %304 = add nuw i32 %303, 1
   %wide.trip.count563 = zext i32 %304 to i64
-  %invariant.gep590 = getelementptr double, ptr %18, i64 %203
-  %invariant.gep592 = getelementptr double, ptr %18, i64 %249
+  %invariant.gep611 = getelementptr double, ptr %18, i64 %203
+  %invariant.gep613 = getelementptr double, ptr %18, i64 %249
   br label %.lr.ph551
 
 .lr.ph551:                                        ; preds = %.lr.ph551.preheader, %.lr.ph551
   %indvars.iv560 = phi i64 [ 1, %.lr.ph551.preheader ], [ %indvars.iv.next561, %.lr.ph551 ]
   %305 = mul nsw i64 %indvars.iv560, %43
-  %gep591 = getelementptr double, ptr %invariant.gep590, i64 %305
-  %306 = load double, ptr %gep591, align 8, !tbaa !7
+  %gep612 = getelementptr double, ptr %invariant.gep611, i64 %305
+  %306 = load double, ptr %gep612, align 8, !tbaa !7
   %307 = fdiv double %306, %291
-  %gep593 = getelementptr double, ptr %invariant.gep592, i64 %305
-  %308 = load double, ptr %gep593, align 8, !tbaa !7
+  %gep614 = getelementptr double, ptr %invariant.gep613, i64 %305
+  %308 = load double, ptr %gep614, align 8, !tbaa !7
   %309 = fdiv double %308, %291
   %310 = fneg double %309
   %311 = call double @llvm.fmuladd.f64(double %301, double %307, double %310)
   %312 = fdiv double %311, %302
-  store double %312, ptr %gep591, align 8, !tbaa !7
+  store double %312, ptr %gep612, align 8, !tbaa !7
   %313 = fneg double %307
   %314 = call double @llvm.fmuladd.f64(double %296, double %309, double %313)
   %315 = fdiv double %314, %302
-  store double %315, ptr %gep593, align 8, !tbaa !7
+  store double %315, ptr %gep614, align 8, !tbaa !7
   %indvars.iv.next561 = add nuw nsw i64 %indvars.iv560, 1
   %exitcond564.not = icmp eq i64 %indvars.iv.next561, %wide.trip.count563
   br i1 %exitcond564.not, label %._crit_edge552, label %.lr.ph551, !llvm.loop !11
@@ -603,7 +603,7 @@ define void @dsytrs_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
 
 342:                                              ; preds = %340
   %343 = add nsw i32 %341, %16
-  br label %.sink.split600
+  br label %.sink.split621
 
 344:                                              ; preds = %.lr.ph556
   br i1 %325, label %345, label %368
@@ -665,23 +665,23 @@ define void @dsytrs_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
 
 384:                                              ; preds = %378
   %385 = sub nsw i32 %16, %382
-  br label %.sink.split600
+  br label %.sink.split621
 
-.sink.split600:                                   ; preds = %342, %384
-  %.sink604 = phi i32 [ %385, %384 ], [ %343, %342 ]
-  %.pn607 = phi i32 [ %379, %384 ], [ %.6555, %342 ]
-  %.sink595.ph = phi i32 [ -2, %384 ], [ -1, %342 ]
-  %.pn606.in = add nsw i32 %.pn607, %16
-  %.pn606 = sext i32 %.pn606.in to i64
-  %.sink601 = getelementptr inbounds double, ptr %18, i64 %.pn606
-  %386 = sext i32 %.sink604 to i64
+.sink.split621:                                   ; preds = %342, %384
+  %.sink625 = phi i32 [ %385, %384 ], [ %343, %342 ]
+  %.pn628 = phi i32 [ %379, %384 ], [ %.6555, %342 ]
+  %.sink616.ph = phi i32 [ -2, %384 ], [ -1, %342 ]
+  %.pn627.in = add nsw i32 %.pn628, %16
+  %.pn627 = sext i32 %.pn627.in to i64
+  %.sink622 = getelementptr inbounds double, ptr %18, i64 %.pn627
+  %386 = sext i32 %.sink625 to i64
   %387 = getelementptr inbounds double, ptr %18, i64 %386
-  call void @dswap_(ptr noundef nonnull %2, ptr noundef %.sink601, ptr noundef nonnull %7, ptr noundef %387, ptr noundef nonnull %7) #5
+  call void @dswap_(ptr noundef nonnull %2, ptr noundef %.sink622, ptr noundef nonnull %7, ptr noundef %387, ptr noundef nonnull %7) #5
   br label %388
 
-388:                                              ; preds = %.sink.split600, %378, %340
-  %.sink595 = phi i32 [ -1, %340 ], [ -2, %378 ], [ %.sink595.ph, %.sink.split600 ]
-  %389 = add nsw i32 %.6555, %.sink595
+388:                                              ; preds = %.sink.split621, %378, %340
+  %.sink616 = phi i32 [ -1, %340 ], [ -2, %378 ], [ %.sink616.ph, %.sink.split621 ]
+  %389 = add nsw i32 %.6555, %.sink616
   %390 = icmp slt i32 %389, 1
   br i1 %390, label %.loopexit, label %.lr.ph556
 

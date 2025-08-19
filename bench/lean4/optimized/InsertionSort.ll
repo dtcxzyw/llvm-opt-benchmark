@@ -585,7 +585,7 @@ lean_dec.exit47.backedge:                         ; preds = %69, %73, %79, %81, 
   br label %lean_dec.exit47
 
 73:                                               ; preds = %65
-  %74 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %67) #4
+  %74 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %lean_dec.exit47.backedge
 
 75:                                               ; preds = %lean_inc.exit
@@ -1209,18 +1209,18 @@ _init_l___auto____x40_Init_Data_Array_InsertionSort___hyg_14____closed__47.exit:
   unreachable
 
 .sink.split:                                      ; preds = %_init_l___auto____x40_Init_Data_Array_InsertionSort___hyg_14____closed__47.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %203, %_init_l___auto____x40_Init_Data_Array_InsertionSort___hyg_14____closed__47.exit ]
-  %206 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !9
+  %.sink24 = phi ptr [ %4, %3 ], [ %203, %_init_l___auto____x40_Init_Data_Array_InsertionSort___hyg_14____closed__47.exit ]
+  %206 = getelementptr inbounds nuw i8, ptr %.sink24, i64 4
+  store i32 1, ptr %.sink24, align 4, !tbaa !9
   store i32 131096, ptr %206, align 4
-  %207 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %.sink24, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %207, align 8, !tbaa !5
-  %208 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %.sink24, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %208, align 8, !tbaa !5
   br label %209
 
 209:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink24, %.sink.split ]
   ret ptr %.0
 }
 

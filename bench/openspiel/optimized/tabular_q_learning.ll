@@ -460,7 +460,7 @@ define { i64, i8 } @_ZN10open_spiel10algorithms22TabularQLearningSolver35SampleA
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %8, %10
-  br i1 %11, label %77, label %19
+  br i1 %11, label %76, label %19
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -472,7 +472,7 @@ define { i64, i8 } @_ZN10open_spiel10algorithms22TabularQLearningSolver35SampleA
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %49, %75
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %49, %74
   %lpad.loopexit.split-lp21 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -523,18 +523,18 @@ _ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveT
   %31 = add nsw i64 %reass.sub, 4602678819172646912
   %32 = bitcast i64 %31 to double
   %33 = fcmp uge double %32, 1.000000e+00
-  br i1 %33, label %.split.i.i, label %_ZN4absl7debian27UniformIdRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit.split.loop.exit26, !llvm.loop !15
+  br i1 %33, label %.split.i.i, label %_ZN4absl7debian27UniformIdRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit.split.loop.exit32, !llvm.loop !15
 
-_ZN4absl7debian27UniformIdRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit.split.loop.exit26: ; preds = %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
+_ZN4absl7debian27UniformIdRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit.split.loop.exit32: ; preds = %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
   %34 = fadd double %32, 0.000000e+00
   br label %_ZN4absl7debian27UniformIdRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit
 
-_ZN4absl7debian27UniformIdRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit: ; preds = %.noexc5, %_ZN4absl7debian27UniformIdRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit.split.loop.exit26
-  %.0.i.i.i.i.i25 = phi double [ %34, %_ZN4absl7debian27UniformIdRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit.split.loop.exit26 ], [ 0.000000e+00, %.noexc5 ]
+_ZN4absl7debian27UniformIdRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit: ; preds = %.noexc5, %_ZN4absl7debian27UniformIdRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit.split.loop.exit32
+  %.0.i.i.i.i.i31 = phi double [ %34, %_ZN4absl7debian27UniformIdRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit.split.loop.exit32 ], [ 0.000000e+00, %.noexc5 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load double, ptr %35, align 8
-  %37 = fcmp olt double %.0.i.i.i.i.i25, %36
-  br i1 %37, label %38, label %75
+  %37 = fcmp olt double %.0.i.i.i.i.i31, %36
+  br i1 %37, label %38, label %74
 
 38:                                               ; preds = %_ZN4absl7debian27UniformIdRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit
   %39 = load ptr, ptr %9, align 8
@@ -585,7 +585,7 @@ _ZN4absl7debian27UniformIdRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm
 
 .noexc7:                                          ; preds = %.lr.ph.i.i.i.i.i.i
   %66 = and i64 %65, 4294967295
-  %67 = mul nuw i64 %66, %58
+  %67 = mul nuw nsw i64 %66, %58
   %68 = trunc i64 %67 to i32
   %69 = icmp ugt i32 %63, %68
   br i1 %69, label %.lr.ph.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i, !llvm.loop !17
@@ -597,47 +597,45 @@ _ZN4absl7debian27UniformIdRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm
 
 _ZN4absl7debian215random_internal18DistributionCallerISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE4CallINS1_26UniformDistributionWrapperIiEEJRiS9_EEENT_11result_typeEPS4_DpOT0_.exit.i: ; preds = %.loopexit.i.i.i.i.i.i, %54
   %.0.i.i.in.i.i.i.i = phi i64 [ %55, %54 ], [ %70, %.loopexit.i.i.i.i.i.i ]
-  %sext = shl nuw i64 %.0.i.i.in.i.i.i.i, 32
-  %71 = ashr exact i64 %sext, 32
   %.pre = load ptr, ptr %4, align 8
   br label %.thread
 
 .thread:                                          ; preds = %38, %_ZN4absl7debian215random_internal18DistributionCallerISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE4CallINS1_26UniformDistributionWrapperIiEEJRiS9_EEENT_11result_typeEPS4_DpOT0_.exit.i
-  %72 = phi ptr [ %.pre, %_ZN4absl7debian215random_internal18DistributionCallerISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE4CallINS1_26UniformDistributionWrapperIiEEJRiS9_EEENT_11result_typeEPS4_DpOT0_.exit.i ], [ %40, %38 ]
-  %.0.i = phi i64 [ %71, %_ZN4absl7debian215random_internal18DistributionCallerISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE4CallINS1_26UniformDistributionWrapperIiEEJRiS9_EEENT_11result_typeEPS4_DpOT0_.exit.i ], [ 0, %38 ]
-  %73 = getelementptr inbounds i64, ptr %72, i64 %.0.i
-  %74 = load i64, ptr %73, align 8
-  br label %79
+  %71 = phi ptr [ %.pre, %_ZN4absl7debian215random_internal18DistributionCallerISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE4CallINS1_26UniformDistributionWrapperIiEEJRiS9_EEENT_11result_typeEPS4_DpOT0_.exit.i ], [ %40, %38 ]
+  %.0.i = phi i64 [ %.0.i.i.in.i.i.i.i, %_ZN4absl7debian215random_internal18DistributionCallerISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE4CallINS1_26UniformDistributionWrapperIiEEJRiS9_EEENT_11result_typeEPS4_DpOT0_.exit.i ], [ 0, %38 ]
+  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %.0.i
+  %73 = load i64, ptr %72, align 8
+  br label %78
 
-75:                                               ; preds = %_ZN4absl7debian27UniformIdRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit
-  %76 = invoke noundef i64 @_ZN10open_spiel10algorithms22TabularQLearningSolver13GetBestActionERKNS_5StateEd(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef nonnull align 8 dereferenceable(60) %1, double noundef %2)
+74:                                               ; preds = %_ZN4absl7debian27UniformIdRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit
+  %75 = invoke noundef i64 @_ZN10open_spiel10algorithms22TabularQLearningSolver13GetBestActionERKNS_5StateEd(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef nonnull align 8 dereferenceable(60) %1, double noundef %2)
           to label %thread-pre-split unwind label %.loopexit.split-lp.loopexit.split-lp
 
-thread-pre-split:                                 ; preds = %75
+thread-pre-split:                                 ; preds = %74
   %.pr = load ptr, ptr %4, align 8
-  br label %77
+  br label %76
 
-77:                                               ; preds = %thread-pre-split, %3
-  %78 = phi ptr [ %.pr, %thread-pre-split ], [ %8, %3 ]
-  %.sroa.0.0 = phi i64 [ %76, %thread-pre-split ], [ -1, %3 ]
-  %.not.i.i.i8 = icmp eq ptr %78, null
-  br i1 %.not.i.i.i8, label %_ZNSt6vectorIlSaIlEED2Ev.exit9, label %79
+76:                                               ; preds = %thread-pre-split, %3
+  %77 = phi ptr [ %.pr, %thread-pre-split ], [ %8, %3 ]
+  %.sroa.0.0 = phi i64 [ %75, %thread-pre-split ], [ -1, %3 ]
+  %.not.i.i.i8 = icmp eq ptr %77, null
+  br i1 %.not.i.i.i8, label %_ZNSt6vectorIlSaIlEED2Ev.exit9, label %78
 
-79:                                               ; preds = %.thread, %77
-  %.sroa.4.018 = phi i8 [ 1, %.thread ], [ 0, %77 ]
-  %.sroa.0.016 = phi i64 [ %74, %.thread ], [ %.sroa.0.0, %77 ]
-  %80 = phi ptr [ %72, %.thread ], [ %78, %77 ]
-  %81 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %82 = load ptr, ptr %81, align 8
-  %83 = ptrtoint ptr %82 to i64
-  %84 = ptrtoint ptr %80 to i64
-  %85 = sub i64 %83, %84
-  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %85) #19
+78:                                               ; preds = %.thread, %76
+  %.sroa.4.018 = phi i8 [ 1, %.thread ], [ 0, %76 ]
+  %.sroa.0.016 = phi i64 [ %73, %.thread ], [ %.sroa.0.0, %76 ]
+  %79 = phi ptr [ %71, %.thread ], [ %77, %76 ]
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %81 = load ptr, ptr %80, align 8
+  %82 = ptrtoint ptr %81 to i64
+  %83 = ptrtoint ptr %79 to i64
+  %84 = sub i64 %82, %83
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %84) #19
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit9
 
-_ZNSt6vectorIlSaIlEED2Ev.exit9:                   ; preds = %77, %79
-  %.sroa.4.019 = phi i8 [ 0, %77 ], [ %.sroa.4.018, %79 ]
-  %.sroa.0.017 = phi i64 [ %.sroa.0.0, %77 ], [ %.sroa.0.016, %79 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit9:                   ; preds = %76, %78
+  %.sroa.4.019 = phi i8 [ 0, %76 ], [ %.sroa.4.018, %78 ]
+  %.sroa.0.017 = phi i64 [ %.sroa.0.0, %76 ], [ %.sroa.0.016, %78 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.017, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.4.019, 1
   ret { i64, i8 } %.fca.1.insert
@@ -2760,7 +2758,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = add nsw i64 %2, -1
-  %43 = getelementptr inbounds i8, ptr %1, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %38 to i32
   %46 = zext i8 %41 to i32

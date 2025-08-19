@@ -903,7 +903,7 @@ define dso_local range(i32 0, 8) i32 @JsonbIteratorNext(ptr noundef captures(non
   br label %7
 
 7:                                                ; preds = %.backedge, %.preheader
-  %8 = phi ptr [ %.sink122, %.backedge ], [ %4, %.preheader ]
+  %8 = phi ptr [ %.sink130, %.backedge ], [ %4, %.preheader ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %10 = load i32, ptr %9, align 4
   switch i32 %10, label %218 [
@@ -1051,11 +1051,11 @@ switch.early.test:                                ; preds = %55
   unreachable
 
 .backedge:                                        ; preds = %83, %73, %210, %200
-  %.sink122 = phi ptr [ %191, %200 ], [ %191, %210 ], [ %64, %73 ], [ %64, %83 ]
+  %.sink130 = phi ptr [ %191, %200 ], [ %191, %210 ], [ %64, %73 ], [ %64, %83 ]
   %.sink.i.sink = phi i32 [ 0, %200 ], [ 2, %210 ], [ 0, %73 ], [ 2, %83 ]
-  %91 = getelementptr inbounds nuw i8, ptr %.sink122, i64 44
+  %91 = getelementptr inbounds nuw i8, ptr %.sink130, i64 44
   store i32 %.sink.i.sink, ptr %91, align 4
-  store ptr %.sink122, ptr %0, align 8
+  store ptr %.sink130, ptr %0, align 8
   br label %7
 
 92:                                               ; preds = %7
@@ -1177,8 +1177,8 @@ getJsonbOffset.exit:                              ; preds = %107, %110
   br label %165
 
 165:                                              ; preds = %140, %162
-  %.sink123 = phi i32 [ %164, %162 ], [ %160, %140 ]
-  store i32 %.sink123, ptr %161, align 4
+  %.sink131 = phi i32 [ %164, %162 ], [ %160, %140 ]
+  store i32 %.sink131, ptr %161, align 4
   %166 = load ptr, ptr %0, align 8
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %168 = load ptr, ptr %167, align 8
@@ -1201,8 +1201,8 @@ getJsonbOffset.exit:                              ; preds = %107, %110
   br label %182
 
 182:                                              ; preds = %165, %179
-  %.sink124 = phi i32 [ %181, %179 ], [ %177, %165 ]
-  store i32 %.sink124, ptr %178, align 8
+  %.sink132 = phi i32 [ %181, %179 ], [ %177, %165 ]
+  store i32 %.sink132, ptr %178, align 8
   %183 = load ptr, ptr %0, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 32
   %185 = load i32, ptr %184, align 8
@@ -1989,7 +1989,7 @@ appendKey.exit:                                   ; preds = %._crit_edge.i, %63
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 32
   %116 = load i32, ptr %115, align 8
   %117 = icmp eq i32 %116, 0
-  br i1 %117, label %118, label %.critedge.thread61.i
+  br i1 %117, label %118, label %.critedge.thread62.i
 
 118:                                              ; preds = %112
   %119 = getelementptr inbounds nuw i8, ptr %113, i64 72
@@ -2001,25 +2001,25 @@ appendKey.exit:                                   ; preds = %._crit_edge.i, %63
 
 .critedge.i:                                      ; preds = %.preheader.i
   %122 = icmp sgt i32 %.pr.pre.i, 0
-  br i1 %122, label %.thread62.i, label %uniqueifyJsonbObject.exit
+  br i1 %122, label %.thread63.i, label %uniqueifyJsonbObject.exit
 
-.critedge.thread61.i:                             ; preds = %112
+.critedge.thread62.i:                             ; preds = %112
   %123 = ptrtoint ptr %113 to i64
-  %.not59.i = icmp eq i32 %114, 1
-  br i1 %.not59.i, label %._crit_edge.i46, label %.lr.ph48.i
+  %.not60.i = icmp eq i32 %114, 1
+  br i1 %.not60.i, label %._crit_edge.i46, label %.lr.ph48.i
 
-.thread62.i:                                      ; preds = %.critedge.i
+.thread63.i:                                      ; preds = %.critedge.i
   %124 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %125 = load ptr, ptr %124, align 8
   %126 = ptrtoint ptr %125 to i64
-  %.not5963.i = icmp eq i32 %.pr.pre.i, 1
-  br i1 %.not5963.i, label %._crit_edge.i46, label %.lr.ph48.thread.i
+  %.not6064.i = icmp eq i32 %.pr.pre.i, 1
+  br i1 %.not6064.i, label %._crit_edge.i46, label %.lr.ph48.thread.i
 
-.lr.ph48.thread.i:                                ; preds = %.thread62.i
-  %.0314464.i = getelementptr inbounds nuw i8, ptr %125, i64 72
+.lr.ph48.thread.i:                                ; preds = %.thread63.i
+  %.0314465.i = getelementptr inbounds nuw i8, ptr %125, i64 72
   br label %.lr.ph48.split.i
 
-.lr.ph48.i:                                       ; preds = %.critedge.thread61.i
+.lr.ph48.i:                                       ; preds = %.critedge.thread62.i
   %.03144.i = getelementptr inbounds nuw i8, ptr %113, i64 72
   br label %.lr.ph48.split.us.i
 
@@ -2079,7 +2079,7 @@ lengthCompareJsonbStringValue.exit.thread.us.i:   ; preds = %lengthCompareJsonbS
 .lr.ph48.split.i:                                 ; preds = %159, %.lr.ph48.thread.i
   %149 = phi i32 [ %160, %159 ], [ %.pr.pre.i, %.lr.ph48.thread.i ]
   %150 = phi ptr [ %161, %159 ], [ %125, %.lr.ph48.thread.i ]
-  %.03147.i = phi ptr [ %.031.i, %159 ], [ %.0314464.i, %.lr.ph48.thread.i ]
+  %.03147.i = phi ptr [ %.031.i, %159 ], [ %.0314465.i, %.lr.ph48.thread.i ]
   %.046.i = phi ptr [ %.1.i, %159 ], [ %125, %.lr.ph48.thread.i ]
   %.pn45.i = phi ptr [ %.03147.i, %159 ], [ %125, %.lr.ph48.thread.i ]
   %151 = getelementptr i8, ptr %.pn45.i, i64 80
@@ -2123,9 +2123,9 @@ lengthCompareJsonbStringValue.exit.thread.i:      ; preds = %lengthCompareJsonbS
   %167 = icmp slt i64 %165, %166
   br i1 %167, label %.lr.ph48.split.i, label %._crit_edge.i46, !llvm.loop !16
 
-._crit_edge.i46:                                  ; preds = %159, %140, %.thread62.i, %.critedge.thread61.i
-  %.0.lcssa.i = phi ptr [ %113, %.critedge.thread61.i ], [ %125, %.thread62.i ], [ %.1.us.i, %140 ], [ %.1.i, %159 ]
-  %.lcssa.i = phi i64 [ %123, %.critedge.thread61.i ], [ %126, %.thread62.i ], [ %144, %140 ], [ %163, %159 ]
+._crit_edge.i46:                                  ; preds = %159, %140, %.thread63.i, %.critedge.thread62.i
+  %.0.lcssa.i = phi ptr [ %113, %.critedge.thread62.i ], [ %125, %.thread63.i ], [ %.1.us.i, %140 ], [ %.1.i, %159 ]
+  %.lcssa.i = phi i64 [ %123, %.critedge.thread62.i ], [ %126, %.thread63.i ], [ %144, %140 ], [ %163, %159 ]
   %168 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 72
   %169 = ptrtoint ptr %168 to i64
   %170 = sub i64 %169, %.lcssa.i
@@ -2467,18 +2467,18 @@ JsonbIteratorInit.exit87:                         ; preds = %76, %86
   br i1 %.not130, label %.critedge, label %.lr.ph105
 
 .lr.ph105:                                        ; preds = %._crit_edge, %132
-  %.261141 = phi i32 [ %.059111, %132 ], [ %.156, %._crit_edge ]
-  %.266139 = phi ptr [ %.064110, %132 ], [ %122, %._crit_edge ]
+  %.261147 = phi i32 [ %.059111, %132 ], [ %.156, %._crit_edge ]
+  %.266145 = phi ptr [ %.064110, %132 ], [ %122, %._crit_edge ]
   %133 = load ptr, ptr %110, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
-  %wide.trip.count = zext i32 %.261141 to i64
+  %wide.trip.count = zext i32 %.261147 to i64
   br label %135
 
 135:                                              ; preds = %.lr.ph105, %200
   %indvars.iv = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next, %200 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %136 = getelementptr inbounds nuw %struct.JsonbValue, ptr %.266139, i64 %indvars.iv, i32 1, i32 0, i32 1
+  %136 = getelementptr inbounds nuw %struct.JsonbValue, ptr %.266145, i64 %indvars.iv, i32 1, i32 0, i32 1
   %137 = load ptr, ptr %136, align 8
   %138 = tail call ptr @palloc0(i64 noundef 56) #13
   store ptr %137, ptr %138, align 8
@@ -2613,12 +2613,12 @@ JsonbIteratorInit.exit91:                         ; preds = %174, %184
 
 ._crit_edge106:                                   ; preds = %199
   %201 = trunc nuw i64 %indvars.iv to i32
-  %202 = icmp eq i32 %.261141, %201
+  %202 = icmp eq i32 %.261147, %201
   br i1 %202, label %.critedge, label %203
 
 203:                                              ; preds = %._crit_edge106, %113
-  %.165 = phi ptr [ %.064110, %113 ], [ %.266139, %._crit_edge106 ]
-  %.160 = phi i32 [ %.059111, %113 ], [ %.261141, %._crit_edge106 ]
+  %.165 = phi ptr [ %.064110, %113 ], [ %.266145, %._crit_edge106 ]
+  %.160 = phi i32 [ %.059111, %113 ], [ %.261147, %._crit_edge106 ]
   %204 = call i32 @JsonbIteratorNext(ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext true)
   %205 = icmp eq i32 %204, 5
   br i1 %205, label %.critedge, label %111

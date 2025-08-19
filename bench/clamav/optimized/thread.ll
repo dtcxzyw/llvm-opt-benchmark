@@ -48,9 +48,9 @@ define dso_local noalias noundef ptr @onas_scan_worker(ptr noundef captures(addr
   %13 = alloca %struct.stat, align 8
   %14 = alloca [2 x ptr], align 16
   %15 = icmp eq ptr %0, null
-  br i1 %15, label %.thread53, label %17
+  br i1 %15, label %.thread66, label %17
 
-.thread53:                                        ; preds = %1
+.thread66:                                        ; preds = %1
   %16 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str) #9
   br label %114
 
@@ -58,9 +58,9 @@ define dso_local noalias noundef ptr @onas_scan_worker(ptr noundef captures(addr
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 1, !tbaa !4
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.thread54, label %23
+  br i1 %20, label %.thread67, label %23
 
-.thread54:                                        ; preds = %17
+.thread67:                                        ; preds = %17
   %21 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str) #9
   %22 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.1) #9
   br label %.thread
@@ -95,9 +95,9 @@ define dso_local noalias noundef ptr @onas_scan_worker(ptr noundef captures(addr
   store ptr null, ptr %34, align 8, !tbaa !15
   %35 = call ptr @fts_open(ptr noundef nonnull %14, i32 noundef 84, ptr noundef null) #9
   %.not.i = icmp eq ptr %35, null
-  br i1 %.not.i, label %.thread55, label %.split13.i
+  br i1 %.not.i, label %.thread68, label %.split13.i
 
-.thread55:                                        ; preds = %30
+.thread68:                                        ; preds = %30
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -108,9 +108,9 @@ define dso_local noalias noundef ptr @onas_scan_worker(ptr noundef captures(addr
 .split13.i:                                       ; preds = %30
   %36 = call ptr @fts_read(ptr noundef nonnull %35) #9
   %.not1725.i = icmp eq ptr %36, null
-  br i1 %.not1725.i, label %.thread56, label %.lr.ph.i
+  br i1 %.not1725.i, label %.thread69, label %.lr.ph.i
 
-.thread56:                                        ; preds = %.split13.i
+.thread69:                                        ; preds = %.split13.i
   %37 = call i32 @fts_close(ptr noundef nonnull %35) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -289,7 +289,7 @@ onas_scan_thread_handle_file.exit52:              ; preds = %79, %94
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
-.thread:                                          ; preds = %104, %.thread56, %.thread55, %.thread54, %102, %onas_scan_thread_handle_file.exit52, %98, %95, %onas_scan_thread_handle_file.exit, %58
+.thread:                                          ; preds = %104, %.thread69, %.thread68, %.thread67, %102, %onas_scan_thread_handle_file.exit52, %98, %95, %onas_scan_thread_handle_file.exit, %58
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %107 = load ptr, ptr %106, align 1, !tbaa !4
   %.not44 = icmp eq ptr %107, null
@@ -314,7 +314,7 @@ onas_scan_thread_handle_file.exit52:              ; preds = %79, %94
   call void @free(ptr noundef nonnull %0) #9
   br label %114
 
-114:                                              ; preds = %.thread53, %113
+114:                                              ; preds = %.thread66, %113
   ret ptr null
 }
 

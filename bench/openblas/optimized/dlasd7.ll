@@ -281,29 +281,29 @@ define void @dlasd7_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %169 = load double, ptr %168, align 8, !tbaa !7
   %170 = tail call double @llvm.fabs.f64(double %169)
   %171 = fcmp ugt double %170, %167
-  br i1 %171, label %._crit_edge459, label %.lr.ph525
+  br i1 %171, label %._crit_edge459, label %.lr.ph536
 
-.lr.ph525:                                        ; preds = %.lr.ph458.preheader
+.lr.ph536:                                        ; preds = %.lr.ph458.preheader
   %172 = sext i32 %.pre-phi to i64
   br label %178
 
 .lr.ph458:                                        ; preds = %178
-  %indvars.iv.next499 = add nuw nsw i64 %indvars.iv498523, 1
-  %173 = getelementptr double, ptr %6, i64 %indvars.iv498523
+  %indvars.iv.next499 = add nuw nsw i64 %indvars.iv498534, 1
+  %173 = getelementptr double, ptr %6, i64 %indvars.iv498534
   %174 = load double, ptr %173, align 8, !tbaa !7
   %175 = tail call double @llvm.fabs.f64(double %174)
   %176 = fcmp ugt double %175, %167
   %177 = trunc nuw nsw i64 %indvars.iv.next499 to i32
   br i1 %176, label %.lr.ph458.._crit_edge459.loopexit_crit_edge, label %178
 
-178:                                              ; preds = %.lr.ph525, %.lr.ph458
-  %179 = phi i32 [ 2, %.lr.ph525 ], [ %177, %.lr.ph458 ]
-  %indvars.iv496524 = phi i64 [ %172, %.lr.ph525 ], [ %indvars.iv.next497, %.lr.ph458 ]
-  %indvars.iv498523 = phi i64 [ 2, %.lr.ph525 ], [ %indvars.iv.next499, %.lr.ph458 ]
-  %indvars.iv.next497 = add nsw i64 %indvars.iv496524, -1
+178:                                              ; preds = %.lr.ph536, %.lr.ph458
+  %179 = phi i32 [ 2, %.lr.ph536 ], [ %177, %.lr.ph458 ]
+  %indvars.iv496535 = phi i64 [ %172, %.lr.ph536 ], [ %indvars.iv.next497, %.lr.ph458 ]
+  %indvars.iv498534 = phi i64 [ 2, %.lr.ph536 ], [ %indvars.iv.next499, %.lr.ph458 ]
+  %indvars.iv.next497 = add nsw i64 %indvars.iv496535, -1
   %180 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv.next497
   store i32 %179, ptr %180, align 4, !tbaa !3
-  %181 = icmp eq i64 %indvars.iv498523, %158
+  %181 = icmp eq i64 %indvars.iv498534, %158
   br i1 %181, label %.loopexit430, label %.lr.ph458
 
 .lr.ph458.._crit_edge459.loopexit_crit_edge:      ; preds = %.lr.ph458

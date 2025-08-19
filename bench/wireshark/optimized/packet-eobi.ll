@@ -647,7 +647,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
 
 74:                                               ; preds = %73
   %75 = add i32 %.0471611, -1
-  %76 = sext i32 %.0461616 to i64
+  %76 = zext nneg i32 %.0461616 to i64
   %77 = getelementptr [279 x %struct.ETI_Field], ptr @dissect_eobi_message.fields, i64 0, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i16, ptr %78, align 4
@@ -665,7 +665,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %532
 
 91:                                               ; preds = %73
-  %92 = add nsw i32 %.0461616, 1
+  %92 = add nuw nsw i32 %.0461616, 1
   %93 = add nsw i32 %.0465614, -1
   br label %532
 

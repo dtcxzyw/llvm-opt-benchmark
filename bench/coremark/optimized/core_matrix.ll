@@ -724,15 +724,15 @@ define dso_local i32 @core_init_matrix(i32 noundef %0, ptr noundef %1, i32 nound
   %21 = phi ptr [ %9, %._crit_edge.thread ], [ %20, %._crit_edge ]
   %22 = phi i64 [ 1, %._crit_edge.thread ], [ %19, %._crit_edge ]
   %23 = phi ptr [ %8, %._crit_edge.thread ], [ %17, %._crit_edge ]
-  %.046.lcssa67 = phi i32 [ -1, %._crit_edge.thread ], [ %.04653, %._crit_edge ]
-  %wide.trip.count = zext i32 %.046.lcssa67 to i64
+  %.046.lcssa68 = phi i32 [ -1, %._crit_edge.thread ], [ %.04653, %._crit_edge ]
+  %wide.trip.count = zext i32 %.046.lcssa68 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %39
   %.14759 = phi i32 [ %40, %39 ], [ 0, %.preheader.preheader ]
   %.04858 = phi i32 [ %27, %39 ], [ %spec.store.select, %.preheader.preheader ]
   %.05057 = phi i32 [ %38, %39 ], [ 1, %.preheader.preheader ]
-  %24 = mul i32 %.14759, %.046.lcssa67
+  %24 = mul i32 %.14759, %.046.lcssa68
   br label %25
 
 25:                                               ; preds = %.preheader, %25
@@ -760,14 +760,14 @@ define dso_local i32 @core_init_matrix(i32 noundef %0, ptr noundef %1, i32 nound
 
 39:                                               ; preds = %25
   %40 = add nuw i32 %.14759, 1
-  %exitcond64.not = icmp eq i32 %40, %.046.lcssa67
+  %exitcond64.not = icmp eq i32 %40, %.046.lcssa68
   br i1 %exitcond64.not, label %._crit_edge60, label %.preheader, !llvm.loop !35
 
 ._crit_edge60:                                    ; preds = %39, %._crit_edge
   %41 = phi ptr [ %20, %._crit_edge ], [ %21, %39 ]
   %42 = phi i64 [ %19, %._crit_edge ], [ %22, %39 ]
   %43 = phi ptr [ %17, %._crit_edge ], [ %23, %39 ]
-  %.046.lcssa68 = phi i32 [ 0, %._crit_edge ], [ %.046.lcssa67, %39 ]
+  %.046.lcssa69 = phi i32 [ 0, %._crit_edge ], [ %.046.lcssa68, %39 ]
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %43, ptr %44, align 8, !tbaa !13
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -779,8 +779,8 @@ define dso_local i32 @core_init_matrix(i32 noundef %0, ptr noundef %1, i32 nound
   %50 = inttoptr i64 %49 to ptr
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %50, ptr %51, align 8, !tbaa !12
-  store i32 %.046.lcssa68, ptr %3, align 8, !tbaa !4
-  ret i32 %.046.lcssa68
+  store i32 %.046.lcssa69, ptr %3, align 8, !tbaa !4
+  ret i32 %.046.lcssa69
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

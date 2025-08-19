@@ -1340,13 +1340,13 @@ define dso_local ptr @pg_plan_queries(ptr noundef readonly captures(address_is_n
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %5, align 4
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph35, label %.critedge
+  br i1 %8, label %.lr.ph36, label %.critedge
 
-.lr.ph35:                                         ; preds = %.lr.ph, %pg_plan_query.exit
-  %.0242934 = phi ptr [ %50, %pg_plan_query.exit ], [ null, %.lr.ph ]
-  %indvars.iv33 = phi i64 [ %indvars.iv.next, %pg_plan_query.exit ], [ 0, %.lr.ph ]
+.lr.ph36:                                         ; preds = %.lr.ph, %pg_plan_query.exit
+  %.0242935 = phi ptr [ %50, %pg_plan_query.exit ], [ null, %.lr.ph ]
+  %indvars.iv34 = phi i64 [ %indvars.iv.next, %pg_plan_query.exit ], [ 0, %.lr.ph ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv33
+  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv34
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1357,7 +1357,7 @@ define dso_local ptr @pg_plan_queries(ptr noundef readonly captures(address_is_n
   %.024.lcssa = phi ptr [ null, %4 ], [ null, %.lr.ph ], [ %50, %pg_plan_query.exit ]
   ret ptr %.024.lcssa
 
-15:                                               ; preds = %.lr.ph35
+15:                                               ; preds = %.lr.ph36
   %16 = tail call noundef ptr @palloc0(i64 noundef 152) #22
   store i32 329, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -1384,7 +1384,7 @@ define dso_local ptr @pg_plan_queries(ptr noundef readonly captures(address_is_n
   store i64 %31, ptr %32, align 8
   br label %pg_plan_query.exit
 
-33:                                               ; preds = %.lr.ph35
+33:                                               ; preds = %.lr.ph36
   %34 = load i8, ptr @log_planner_stats, align 1, !range !5, !noundef !6
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %39
@@ -1417,12 +1417,12 @@ define dso_local ptr @pg_plan_queries(ptr noundef readonly captures(address_is_n
 
 pg_plan_query.exit:                               ; preds = %47, %44, %15
   %.0 = phi ptr [ %16, %15 ], [ %40, %44 ], [ %40, %47 ]
-  %50 = tail call ptr @lappend(ptr noundef %.0242934, ptr noundef %.0) #22
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv33, 1
+  %50 = tail call ptr @lappend(ptr noundef %.0242935, ptr noundef %.0) #22
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv34, 1
   %51 = load i32, ptr %5, align 4
   %52 = sext i32 %51 to i64
   %53 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %53, label %.lr.ph35, label %.critedge
+  br i1 %53, label %.lr.ph36, label %.critedge
 }
 
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -4712,8 +4712,8 @@ check_log_duration.exit160.thread220:             ; preds = %.critedge36.i144
   br label %.sink.split.i72
 
 .sink.split.i72:                                  ; preds = %959, %957, %955, %949, %940, %936
-  %.sink262.i = phi i32 [ 2064, %936 ], [ 2075, %940 ], [ 2075, %949 ], [ 2075, %955 ], [ 2075, %957 ], [ 2075, %959 ]
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink262.i, ptr noundef nonnull @__func__.exec_bind_message) #22
+  %.sink282.i = phi i32 [ 2064, %936 ], [ 2075, %940 ], [ 2075, %949 ], [ 2075, %955 ], [ 2075, %957 ], [ 2075, %959 ]
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink282.i, ptr noundef nonnull @__func__.exec_bind_message) #22
   br label %check_log_duration.exit160.thread
 
 check_log_duration.exit160.thread:                ; preds = %868, %check_log_duration.exit160.thread220, %.sink.split.i72, %939, %935
@@ -6247,12 +6247,12 @@ check_log_statement.exit.thread:                  ; preds = %pg_parse_query.exit
   %73 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %74 = icmp eq i32 %6, 2
   %75 = icmp sgt i32 %70, 0
-  br i1 %75, label %.lr.ph137, label %.critedge
+  br i1 %75, label %.lr.ph145, label %.critedge
 
-.lr.ph137:                                        ; preds = %.lr.ph, %178
-  %indvars.iv136 = phi i64 [ %indvars.iv.next, %178 ], [ 0, %.lr.ph ]
+.lr.ph145:                                        ; preds = %.lr.ph, %178
+  %indvars.iv144 = phi i64 [ %indvars.iv.next, %178 ], [ 0, %.lr.ph ]
   %76 = load ptr, ptr %73, align 8
-  %77 = getelementptr inbounds nuw %union.ListCell, ptr %76, i64 %indvars.iv136
+  %77 = getelementptr inbounds nuw %union.ListCell, ptr %76, i64 %indvars.iv144
   %78 = load ptr, ptr %77, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -6285,7 +6285,7 @@ disable_statement_timeout.exit.i:                 ; preds = %86, %.critedge
   store i1 false, ptr @xact_started, align 1
   br label %finish_xact_command.exit
 
-88:                                               ; preds = %.lr.ph137
+88:                                               ; preds = %.lr.ph145
   %89 = load ptr, ptr %79, align 8
   %.not.i89 = icmp eq ptr %89, null
   br i1 %.not.i89, label %IsTransactionExitStmt.exit, label %90
@@ -6312,7 +6312,7 @@ IsTransactionExitStmt.exit:                       ; preds = %93, %90, %88
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1137, ptr noundef nonnull @__func__.exec_simple_query) #22
   unreachable
 
-IsTransactionExitStmt.exit.thread:                ; preds = %93, %.lr.ph137
+IsTransactionExitStmt.exit.thread:                ; preds = %93, %.lr.ph145
   call fastcc void @start_xact_command()
   br i1 %71, label %100, label %101
 
@@ -6522,11 +6522,11 @@ finish_xact_command.exit93:                       ; preds = %176, %174, %173, %d
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv136, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv144, 1
   %179 = load i32, ptr %72, align 4
   %180 = sext i32 %179 to i64
   %181 = icmp slt i64 %indvars.iv.next, %180
-  br i1 %181, label %.lr.ph137, label %.critedge
+  br i1 %181, label %.lr.ph145, label %.critedge
 
 .critedge80:                                      ; preds = %check_log_statement.exit.thread, %check_log_statement.exit.thread.thread120
   %.0.i112117.ph = phi i1 [ false, %check_log_statement.exit.thread.thread120 ], [ %.0.i112, %check_log_statement.exit.thread ]
@@ -6551,9 +6551,9 @@ finish_xact_command.exit99:                       ; preds = %184, %disable_state
   br label %finish_xact_command.exit
 
 finish_xact_command.exit:                         ; preds = %87, %disable_statement_timeout.exit.i, %finish_xact_command.exit99
-  %.0.i112117132 = phi i1 [ %.0.i112116, %87 ], [ %.0.i112116, %disable_statement_timeout.exit.i ], [ %.0.i112117.ph, %finish_xact_command.exit99 ]
-  %.not.i88119130 = phi i1 [ false, %87 ], [ false, %disable_statement_timeout.exit.i ], [ true, %finish_xact_command.exit99 ]
-  %185 = call i32 @check_log_duration(ptr noundef nonnull %2, i1 noundef zeroext %.0.i112117132)
+  %.0.i112117140 = phi i1 [ %.0.i112116, %87 ], [ %.0.i112116, %disable_statement_timeout.exit.i ], [ %.0.i112117.ph, %finish_xact_command.exit99 ]
+  %.not.i88119138 = phi i1 [ false, %87 ], [ false, %disable_statement_timeout.exit.i ], [ true, %finish_xact_command.exit99 ]
+  %185 = call i32 @check_log_duration(ptr noundef nonnull %2, i1 noundef zeroext %.0.i112117140)
   switch i32 %185, label %220 [
     i32 1, label %186
     i32 2, label %191
@@ -6575,7 +6575,7 @@ finish_xact_command.exit:                         ; preds = %87, %disable_statem
 193:                                              ; preds = %191
   %194 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.129, ptr noundef nonnull %2, ptr noundef %0) #22
   %195 = call i32 @errhidestmt(i1 noundef zeroext true) #22
-  br i1 %.not.i88119130, label %.sink.split, label %.lr.ph.i101
+  br i1 %.not.i88119138, label %.sink.split, label %.lr.ph.i101
 
 .lr.ph.i101:                                      ; preds = %193
   %196 = getelementptr inbounds nuw i8, ptr %23, i64 4

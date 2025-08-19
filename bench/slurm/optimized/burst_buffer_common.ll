@@ -2954,9 +2954,9 @@ define dso_local void @bb_set_use_time(ptr noundef captures(none) initializes((2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph, %.critedge, %17, %26, %21, %32
-  %.sink65 = phi i64 [ 48, %32 ], [ 160, %21 ], [ 160, %26 ], [ 160, %17 ], [ 160, %.critedge ], [ 160, %.lr.ph ]
+  %.sink69 = phi i64 [ 48, %32 ], [ 160, %21 ], [ 160, %26 ], [ 160, %17 ], [ 160, %.critedge ], [ 160, %.lr.ph ]
   %.sink = phi i64 [ %34, %32 ], [ %6, %21 ], [ %30, %26 ], [ %6, %17 ], [ %3, %.critedge ], [ %2, %.lr.ph ]
-  %35 = getelementptr inbounds nuw i8, ptr %.04461, i64 %.sink65
+  %35 = getelementptr inbounds nuw i8, ptr %.04461, i64 %.sink69
   store i64 %.sink, ptr %35, align 8
   br label %36
 
@@ -2974,19 +2974,19 @@ define dso_local void @bb_set_use_time(ptr noundef captures(none) initializes((2
 
 42:                                               ; preds = %39
   %.not58 = icmp sgt i64 %38, %2
-  br i1 %.not58, label %43, label %.sink.split66
+  br i1 %.not58, label %43, label %.sink.split70
 
 43:                                               ; preds = %42
   %44 = load i64, ptr %4, align 8
   %45 = icmp sgt i64 %44, %38
-  br i1 %45, label %.sink.split66, label %46
+  br i1 %45, label %.sink.split70, label %46
 
-.sink.split66:                                    ; preds = %43, %42
-  %.sink67 = phi i64 [ %2, %42 ], [ %38, %43 ]
-  store i64 %.sink67, ptr %4, align 8
+.sink.split70:                                    ; preds = %43, %42
+  %.sink71 = phi i64 [ %2, %42 ], [ %38, %43 ]
+  store i64 %.sink71, ptr %4, align 8
   br label %46
 
-46:                                               ; preds = %.sink.split66, %43, %39, %36
+46:                                               ; preds = %.sink.split70, %43, %39, %36
   %47 = getelementptr inbounds nuw i8, ptr %.04461, i64 80
   %.044 = load ptr, ptr %47, align 8
   %.not = icmp eq ptr %.044, null
@@ -4585,8 +4585,8 @@ bb_granularity.exit:                              ; preds = %58, %60
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %71 = load i32, ptr %70, align 8
   %.not343 = icmp ne i32 %71, 0
-  %brmerge424.not = and i1 %.not343, %50
-  br i1 %brmerge424.not, label %.lr.ph300.split.us.preheader, label %._crit_edge301
+  %brmerge447.not = and i1 %.not343, %50
+  br i1 %brmerge447.not, label %.lr.ph300.split.us.preheader, label %._crit_edge301
 
 .lr.ph300.split.us.preheader:                     ; preds = %.loopexit282
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16

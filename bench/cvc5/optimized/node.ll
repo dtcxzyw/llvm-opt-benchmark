@@ -1921,8 +1921,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImNSt7__cxx1112basic_string
   %.02150.i.i.i = phi i64 [ %52, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.lr.ph.i.i.i ], [ %.2.i.i.i, %83 ]
   %.sroa.038.049.i.i.i = phi ptr [ %45, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.lr.ph.i.i.i ], [ %.sroa.038.1.i.i.i, %83 ]
   %53 = lshr i64 %.02150.i.i.i, 1
-  %.idx53 = mul nuw nsw i64 %53, 40
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.038.049.i.i.i, i64 %.idx53
+  %.idx59 = mul nuw nsw i64 %53, 40
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.038.049.i.i.i, i64 %.idx59
   %55 = load i64, ptr %54, align 8, !tbaa !175
   %56 = icmp ult i64 %55, %2
   br i1 %56, label %57, label %61
@@ -1960,7 +1960,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairImNSt7__cxx1112basic
   %.sroa.011.0.lcssa.i.i.i.i = phi ptr [ %.sroa.038.049.i.i.i, %.critedge.i.i.i ], [ %.sroa.011.1.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i.i.i.i ]
   %.idx = mul nuw nsw i64 %.02150.i.i.i, 40
   %71 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  %72 = add nuw nsw i64 %.idx53, 40
+  %72 = add nuw nsw i64 %.idx59, 40
   %gepdiff = sub nsw i64 %.idx, %72
   %73 = icmp sgt i64 %gepdiff, 0
   br i1 %73, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.lr.ph.i26.i.i.i, label %_ZNK4cvc58internal4expr4attr8AttrHashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5IdMap4findEm.exit

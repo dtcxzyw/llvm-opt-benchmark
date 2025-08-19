@@ -236,8 +236,8 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
   br label %189
 
 .thread:                                          ; preds = %33, %30, %70
-  %.ph2049 = phi i32 [ 0, %70 ], [ 623312896, %30 ], [ 623312896, %33 ]
-  %.ph1948 = phi i32 [ %71, %70 ], [ 0, %30 ], [ 0, %33 ]
+  %.ph2065 = phi i32 [ 0, %70 ], [ 623312896, %30 ], [ 623312896, %33 ]
+  %.ph1964 = phi i32 [ %71, %70 ], [ 0, %30 ], [ 0, %33 ]
   %98 = phi ptr [ %45, %70 ], [ null, %30 ], [ null, %33 ]
   %99 = phi i32 [ 0, %70 ], [ %28, %30 ], [ %28, %33 ]
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -263,7 +263,7 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
   br i1 %114, label %.thread26, label %115, !prof !6
 
 115:                                              ; preds = %111
-  %116 = icmp ne i32 %.ph1948, 0
+  %116 = icmp ne i32 %.ph1964, 0
   %117 = select i1 %29, i1 %116, i1 false
   br i1 %117, label %118, label %.thread38
 
@@ -361,7 +361,7 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
   %178 = phi i32 [ %176, %174 ], [ %164, %167 ]
   %179 = add nuw i32 %126, 1
   %180 = icmp eq i32 %178, 0
-  %181 = icmp ne i32 %179, %.ph1948
+  %181 = icmp ne i32 %179, %.ph1964
   %182 = select i1 %180, i1 %181, i1 false
   br i1 %182, label %125, label %183, !llvm.loop !21
 
@@ -374,7 +374,7 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
 
 .thread38:                                        ; preds = %.thread32, %125, %115, %.thread37, %183
   %185 = phi i32 [ %179, %183 ], [ 0, %115 ], [ %126, %.thread37 ], [ %126, %125 ], [ %126, %.thread32 ]
-  %186 = phi i32 [ %178, %183 ], [ %.ph2049, %115 ], [ 572981248, %.thread37 ], [ 572981248, %125 ], [ 572981248, %.thread32 ]
+  %186 = phi i32 [ %178, %183 ], [ %.ph2065, %115 ], [ 572981248, %.thread37 ], [ 572981248, %125 ], [ 572981248, %.thread32 ]
   store i32 %186, ptr %102, align 4
   %187 = call i32 @llvm.bswap.i32(i32 %185)
   store i32 %187, ptr %113, align 4

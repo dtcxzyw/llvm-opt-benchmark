@@ -338,8 +338,8 @@ define internal void @_GLOBAL__sub_I_flags.cc() #9 section ".text.startup" perso
   br i1 %.not.i.i, label %__cxx_global_var_init.exit, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i
 
 _ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i: ; preds = %14, %0
-  %.sink2.i = phi ptr [ %15, %14 ], [ %13, %0 ]
-  %16 = load i8, ptr %.sink2.i, align 1, !tbaa !14
+  %.sink3.i = phi ptr [ %15, %14 ], [ %13, %0 ]
+  %16 = load i8, ptr %.sink3.i, align 1, !tbaa !14
   %17 = sext i8 %16 to i32
   %18 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %17, i64 noundef 6) #13
   %19 = icmp ne ptr %18, null
@@ -363,8 +363,8 @@ __cxx_global_var_init.exit:                       ; preds = %14, %_ZN12_GLOBAL__
   br i1 %.not.i.i4, label %__cxx_global_var_init.8.exit, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i2
 
 _ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i2: ; preds = %24, %__cxx_global_var_init.exit
-  %.sink2.i3 = phi ptr [ %25, %24 ], [ %23, %__cxx_global_var_init.exit ]
-  %26 = load i8, ptr %.sink2.i3, align 1, !tbaa !14
+  %.sink3.i3 = phi ptr [ %25, %24 ], [ %23, %__cxx_global_var_init.exit ]
+  %26 = load i8, ptr %.sink3.i3, align 1, !tbaa !14
   %27 = sext i8 %26 to i32
   %28 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %27, i64 noundef 6) #13
   %29 = icmp ne ptr %28, null
@@ -388,8 +388,8 @@ __cxx_global_var_init.8.exit:                     ; preds = %24, %_ZN12_GLOBAL__
   br i1 %.not.i.i8, label %__cxx_global_var_init.15.exit, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i6
 
 _ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i6: ; preds = %34, %__cxx_global_var_init.8.exit
-  %.sink2.i7 = phi ptr [ %35, %34 ], [ %33, %__cxx_global_var_init.8.exit ]
-  %36 = load i8, ptr %.sink2.i7, align 1, !tbaa !14
+  %.sink3.i7 = phi ptr [ %35, %34 ], [ %33, %__cxx_global_var_init.8.exit ]
+  %36 = load i8, ptr %.sink3.i7, align 1, !tbaa !14
   %37 = sext i8 %36 to i32
   %38 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %37, i64 noundef 6) #13
   %39 = icmp ne ptr %38, null
@@ -451,8 +451,8 @@ __cxx_global_var_init.28.exit:                    ; preds = %__cxx_global_var_in
   br i1 %.not.i.i14, label %__cxx_global_var_init.34.exit, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i12
 
 _ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i12: ; preds = %62, %__cxx_global_var_init.28.exit
-  %.sink2.i13 = phi ptr [ %63, %62 ], [ %61, %__cxx_global_var_init.28.exit ]
-  %64 = load i8, ptr %.sink2.i13, align 1, !tbaa !14
+  %.sink3.i13 = phi ptr [ %63, %62 ], [ %61, %__cxx_global_var_init.28.exit ]
+  %64 = load i8, ptr %.sink3.i13, align 1, !tbaa !14
   %65 = sext i8 %64 to i32
   %66 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %65, i64 noundef 6) #13
   %67 = icmp ne ptr %66, null

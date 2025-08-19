@@ -4362,9 +4362,9 @@ runException64.exit80:                            ; preds = %650, %610, %606, %6
   br label %nfaExecLimEx64_Stream.exit
 
 nfaExecLimEx64_Stream.exit:                       ; preds = %675, %nfaExecLimEx64_Loop_No_Accel.exit, %nfaExecLimEx64_Loop_No_Accel.exit15.thread, %679, %.critedge.i
-  %.058.i406.lcssa438.sink = phi i64 [ %.058.i406, %nfaExecLimEx64_Loop_No_Accel.exit ], [ %.058.i9402, %nfaExecLimEx64_Loop_No_Accel.exit15.thread ], [ %2, %679 ], [ %.1218415, %.critedge.i ], [ %2, %675 ]
+  %.058.i406.lcssa458.sink = phi i64 [ %.058.i406, %nfaExecLimEx64_Loop_No_Accel.exit ], [ %.058.i9402, %nfaExecLimEx64_Loop_No_Accel.exit15.thread ], [ %2, %679 ], [ %.1218415, %.critedge.i ], [ %2, %675 ]
   %.3.i = phi i8 [ 0, %nfaExecLimEx64_Loop_No_Accel.exit ], [ 0, %nfaExecLimEx64_Loop_No_Accel.exit15.thread ], [ 1, %679 ], [ 0, %.critedge.i ], [ 0, %675 ]
-  store i64 %.058.i406.lcssa438.sink, ptr %5, align 8
+  store i64 %.058.i406.lcssa458.sink, ptr %5, align 8
   ret i8 %.3.i
 }
 
@@ -6697,7 +6697,7 @@ limexRunReports.exit.i84:                         ; preds = %135, %129
   br label %.thread
 
 .thread:                                          ; preds = %141, %limexRunReports.exit.i84, %118
-  %.3125 = phi i32 [ %.1123, %118 ], [ %.1123, %limexRunReports.exit.i84 ], [ %spec.select, %141 ]
+  %.3125 = phi i32 [ %.1123, %118 ], [ 0, %limexRunReports.exit.i84 ], [ %spec.select, %141 ]
   %.sroa.4106.6 = phi ptr [ %.sroa.4106.3, %118 ], [ %.sroa.4106.3, %limexRunReports.exit.i84 ], [ %spec.select185, %141 ]
   %143 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %144 = load i64, ptr %143, align 8

@@ -1046,10 +1046,10 @@ _ZNK2cv3Mat2atIfEERKT_i.exit81:                   ; preds = %145
   br label %_ZNK2cv3Mat2atIfEERKT_i.exit84
 
 _ZNK2cv3Mat2atIfEERKT_i.exit84:                   ; preds = %162, %157, %_ZNK2cv3Mat2atIfEERKT_i.exit81.thread88, %_ZNK2cv3Mat2atIfEERKT_i.exit81
-  %.sink95.in = phi ptr [ %152, %_ZNK2cv3Mat2atIfEERKT_i.exit81.thread88 ], [ %178, %_ZNK2cv3Mat2atIfEERKT_i.exit81 ], [ %177, %162 ], [ %161, %157 ]
-  %.sink95 = load float, ptr %.sink95.in, align 4, !tbaa !21
+  %.sink99.in = phi ptr [ %152, %_ZNK2cv3Mat2atIfEERKT_i.exit81.thread88 ], [ %178, %_ZNK2cv3Mat2atIfEERKT_i.exit81 ], [ %177, %162 ], [ %161, %157 ]
+  %.sink99 = load float, ptr %.sink99.in, align 4, !tbaa !21
   %179 = sitofp i32 %18 to float
-  %180 = tail call float @llvm.fmuladd.f32(float %.sink95, float %179, float %1)
+  %180 = tail call float @llvm.fmuladd.f32(float %.sink99, float %179, float %1)
   %181 = fneg float %180
   %182 = fdiv float %181, %143
   %183 = tail call noundef float @llvm.floor.f32(float %182)
@@ -1060,9 +1060,9 @@ _ZNK2cv3Mat2atIfEERKT_i.exit84:                   ; preds = %162, %157, %_ZNK2cv
   br i1 %or.cond63, label %186, label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNK2cv3Mat2atIfEERKT_i.exit84, %_ZNK2cv3Mat2atIfEERKT_i.exit75
-  %.sink98 = phi i32 [ %12, %_ZNK2cv3Mat2atIfEERKT_i.exit75 ], [ %184, %_ZNK2cv3Mat2atIfEERKT_i.exit84 ]
+  %.sink102 = phi i32 [ %12, %_ZNK2cv3Mat2atIfEERKT_i.exit75 ], [ %184, %_ZNK2cv3Mat2atIfEERKT_i.exit84 ]
   %.sink = phi i32 [ %141, %_ZNK2cv3Mat2atIfEERKT_i.exit75 ], [ %18, %_ZNK2cv3Mat2atIfEERKT_i.exit84 ]
-  store i32 %.sink98, ptr %3, align 4, !tbaa !72
+  store i32 %.sink102, ptr %3, align 4, !tbaa !72
   %185 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %.sink, ptr %185, align 4, !tbaa !74
   br label %186
@@ -1116,7 +1116,7 @@ define hidden noundef zeroext i1 @_Z17findPointsForLineRKN2cv3MatEfPNS_6Point_Ii
   %18 = zext nneg i32 %.01625 to i64
   %19 = getelementptr inbounds nuw %"class.cv::Point_", ptr %2, i64 %18
   %20 = invoke noundef zeroext i1 @_Z25findCrossPointWithBordersRKN2cv3MatEfRKSt4pairINS_6Point_IiEES5_ERS5_(ptr noundef nonnull align 8 dereferenceable(96) %0, float noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(8) %19)
-          to label %21 unwind label %.thread28
+          to label %21 unwind label %.thread30
 
 21:                                               ; preds = %.lr.ph
   %22 = zext i1 %20 to i32
@@ -1128,7 +1128,7 @@ define hidden noundef zeroext i1 @_Z17findPointsForLineRKN2cv3MatEfPNS_6Point_Ii
   %or.cond = select i1 %23, i1 %26, i1 false
   br i1 %or.cond, label %.lr.ph, label %.thread, !llvm.loop !75
 
-.thread28:                                        ; preds = %.lr.ph
+.thread30:                                        ; preds = %.lr.ph
   %27 = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -1152,16 +1152,16 @@ _ZNSt6vectorISt4pairIN2cv6Point_IiEES3_ESaIS4_EED2Ev.exit: ; preds = %._crit_edg
   %.not.i.i.i20 = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i20, label %_ZNSt6vectorISt4pairIN2cv6Point_IiEES3_ESaIS4_EED2Ev.exit21, label %30
 
-30:                                               ; preds = %.thread28, %28
-  %.pn31 = phi { ptr, i32 } [ %27, %.thread28 ], [ %29, %28 ]
-  %31 = phi ptr [ %11, %.thread28 ], [ %.pre, %28 ]
+30:                                               ; preds = %.thread30, %28
+  %.pn33 = phi { ptr, i32 } [ %27, %.thread30 ], [ %29, %28 ]
+  %31 = phi ptr [ %11, %.thread30 ], [ %.pre, %28 ]
   tail call void @_ZdlPv(ptr noundef nonnull %31) #22
   br label %_ZNSt6vectorISt4pairIN2cv6Point_IiEES3_ESaIS4_EED2Ev.exit21
 
 _ZNSt6vectorISt4pairIN2cv6Point_IiEES3_ESaIS4_EED2Ev.exit21: ; preds = %28, %30
-  %.pn32 = phi { ptr, i32 } [ %29, %28 ], [ %.pn31, %30 ]
+  %.pn34 = phi { ptr, i32 } [ %29, %28 ], [ %.pn33, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %.pn32
+  resume { ptr, i32 } %.pn34
 
 32:                                               ; preds = %5, %_ZNSt6vectorISt4pairIN2cv6Point_IiEES3_ESaIS4_EED2Ev.exit
   %.017 = xor i1 %7, true

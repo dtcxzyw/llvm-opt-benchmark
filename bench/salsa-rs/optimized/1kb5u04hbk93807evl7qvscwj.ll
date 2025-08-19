@@ -289,20 +289,20 @@ _ZN8hashlink15linked_hash_map17ensure_guard_node17h5dcffa0439269c9fE.exit.i.i.i:
   unreachable
 
 _ZN8hashlink15linked_hash_map13allocate_node17h653af9d63ece118bE.exit.i.i.i: ; preds = %61, %59
-  %.sink6.i.i.i.i = phi ptr [ %58, %59 ], [ %63, %61 ]
-  store ptr inttoptr (i64 8 to ptr), ptr %.sink6.i.i.i.i, align 8, !noalias !51
-  %.sroa.4.0..sroa_idx5.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i, i64 8
+  %.sink7.i.i.i.i = phi ptr [ %58, %59 ], [ %63, %61 ]
+  store ptr inttoptr (i64 8 to ptr), ptr %.sink7.i.i.i.i, align 8, !noalias !51
+  %.sroa.4.0..sroa_idx5.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink7.i.i.i.i, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx5.i.i.i.i, align 8, !noalias !51
-  %65 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.sink7.i.i.i.i, i64 16
   store i32 %1, ptr %65, align 8, !noalias !38
   %66 = load ptr, ptr %47, align 8, !alias.scope !11, !noalias !38, !noundef !3
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8, !noalias !38, !nonnull !3, !noundef !3
-  store ptr %66, ptr %.sink6.i.i.i.i, align 8, !noalias !38
+  store ptr %66, ptr %.sink7.i.i.i.i, align 8, !noalias !38
   store ptr %68, ptr %.sroa.4.0..sroa_idx5.i.i.i.i, align 8, !noalias !38
-  store ptr %.sink6.i.i.i.i, ptr %67, align 8, !noalias !38
+  store ptr %.sink7.i.i.i.i, ptr %67, align 8, !noalias !38
   %69 = load ptr, ptr %.sroa.4.0..sroa_idx5.i.i.i.i, align 8, !noalias !38, !nonnull !3, !noundef !3
-  store ptr %.sink6.i.i.i.i, ptr %69, align 8, !noalias !38
+  store ptr %.sink7.i.i.i.i, ptr %69, align 8, !noalias !38
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %.val.i.i.i.i = load ptr, ptr %10, align 8, !alias.scope !59, !noalias !60, !nonnull !3, !noundef !3
   %.val12.i.i.i.i = load i64, ptr %19, align 8, !alias.scope !59, !noalias !60, !noundef !3
@@ -444,7 +444,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hced2f16d6eea46a0E.exit.i.i.
   %141 = sub nsw i64 0, %.sroa.04.0.i.i.i7.i
   %142 = getelementptr inbounds ptr, ptr %126, i64 %141
   %143 = getelementptr inbounds i8, ptr %142, i64 -8
-  store ptr %.sink6.i.i.i.i, ptr %143, align 8, !noalias !65
+  store ptr %.sink7.i.i.i.i, ptr %143, align 8, !noalias !65
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !31
   br label %"_ZN8hashlink15linked_hash_map30LinkedHashMap$LT$K$C$V$C$S$GT$6insert17hbc98dc2e89e85921E.exit"
 

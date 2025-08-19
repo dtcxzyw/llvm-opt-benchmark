@@ -2564,16 +2564,16 @@ define internal noundef ptr @snbep_pcu_get_constraint(ptr noundef %0, ptr nounde
   %28 = xor i64 %27, %7
   %29 = and i64 %28, %21
   %30 = icmp eq i64 %29, 0
-  br i1 %30, label %._crit_edge, label %.lr.ph24
+  br i1 %30, label %._crit_edge, label %.lr.ph27
 
 .lr.ph:                                           ; preds = %49
   %31 = load i64, ptr %18, align 8
   %32 = xor i64 %31, %50
   %33 = and i64 %32, %53
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %._crit_edge, label %.lr.ph24
+  br i1 %34, label %._crit_edge, label %.lr.ph27
 
-.lr.ph24:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph27:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %35 = phi i32 [ %38, %.lr.ph ], [ %6, %.lr.ph.preheader ]
   %36 = phi i64 [ %54, %.lr.ph ], [ %22, %.lr.ph.preheader ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %4, i64 noundef %36) #20
@@ -2583,7 +2583,7 @@ define internal noundef ptr @snbep_pcu_get_constraint(ptr noundef %0, ptr nounde
   %40 = icmp eq i32 %38, %39
   br i1 %40, label %.loopexit, label %41
 
-41:                                               ; preds = %.lr.ph24
+41:                                               ; preds = %.lr.ph27
   %42 = load i64, ptr %3, align 8
   %43 = icmp slt i32 %39, %38
   br i1 %43, label %44, label %59
@@ -2675,8 +2675,8 @@ define internal noundef ptr @snbep_pcu_get_constraint(ptr noundef %0, ptr nounde
   store i32 1, ptr %95, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph24, %94, %._crit_edge, %12, %2
-  %96 = phi ptr [ null, %12 ], [ null, %2 ], [ null, %94 ], [ null, %._crit_edge ], [ @uncore_constraint_empty, %.lr.ph24 ]
+.loopexit:                                        ; preds = %.lr.ph27, %94, %._crit_edge, %12, %2
+  %96 = phi ptr [ null, %12 ], [ null, %2 ], [ null, %94 ], [ null, %._crit_edge ], [ @uncore_constraint_empty, %.lr.ph27 ]
   ret ptr %96
 }
 

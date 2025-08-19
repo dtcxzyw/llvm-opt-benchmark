@@ -836,7 +836,7 @@ define internal fastcc noundef ptr @_ZL18ucol_sit_readSpecsP12CollatorSpecPKcP11
   %13 = phi i8 [ %.pre, %.lr.ph ], [ %39, %.critedge2.loopexit ]
   %.027 = phi ptr [ %1, %.lr.ph ], [ %.1, %.critedge2.loopexit ]
   %.not17 = icmp eq i8 %13, 0
-  br i1 %.not17, label %.critedge.thread37, label %.preheader
+  br i1 %.not17, label %.critedge.thread42, label %.preheader
 
 14:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -912,18 +912,18 @@ _ZL19ucol_sit_readOptionPKcP12CollatorSpecP10UErrorCode.exit: ; preds = %_ZL19uc
   br i1 %cond, label %_ZL19ucol_sit_readOptionPKcP12CollatorSpecP10UErrorCode.exit, label %.critedge2.loopexit, !llvm.loop !34
 
 .critedge:                                        ; preds = %.critedge2.loopexit, %4
-  %.0.lcssa35 = phi ptr [ %1, %4 ], [ %.1, %.critedge2.loopexit ]
-  %41 = ptrtoint ptr %.0.lcssa35 to i64
+  %.0.lcssa40 = phi ptr [ %1, %4 ], [ %.1, %.critedge2.loopexit ]
+  %41 = ptrtoint ptr %.0.lcssa40 to i64
   %42 = ptrtoint ptr %1 to i64
   %43 = sub i64 %41, %42
   %44 = trunc i64 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %44, ptr %45, align 4, !tbaa !17
-  br label %.critedge.thread37
+  br label %.critedge.thread42
 
-.critedge.thread37:                               ; preds = %12, %.critedge
-  %.0.lcssa36 = phi ptr [ %.0.lcssa35, %.critedge ], [ %.027, %12 ]
-  ret ptr %.0.lcssa36
+.critedge.thread42:                               ; preds = %12, %.critedge
+  %.0.lcssa41 = phi ptr [ %.0.lcssa40, %.critedge ], [ %.027, %12 ]
+  ret ptr %.0.lcssa41
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1868,9 +1868,9 @@ define internal noundef ptr @_ZL19_processVariableTopP12CollatorSpecjPKcP10UErro
 .preheader:                                       ; preds = %4
   %.promoted = load i32, ptr %3, align 4, !tbaa !13
   %5 = icmp slt i32 %.promoted, 1
-  br i1 %5, label %.lr.ph, label %.critedge.thread68
+  br i1 %5, label %.lr.ph, label %.critedge.thread71
 
-.critedge.thread68:                               ; preds = %.preheader
+.critedge.thread71:                               ; preds = %.preheader
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 548
   store i32 0, ptr %6, align 4, !tbaa !36
   br label %.thread
@@ -1884,8 +1884,8 @@ define internal noundef ptr @_ZL19_processVariableTopP12CollatorSpecjPKcP10UErro
   %.03747 = phi ptr [ %2, %.lr.ph ], [ %22, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit ]
   %9 = load i8, ptr %.03747, align 1, !tbaa !22
   switch i8 %9, label %.lr.ph.i [
-    i8 0, label %.thread73
-    i8 95, label %.thread73
+    i8 0, label %.thread76
+    i8 95, label %.thread76
   ]
 
 .lr.ph.i:                                         ; preds = %8, %17
@@ -1928,7 +1928,7 @@ _ZL15readHexCodeUnitPPKcP10UErrorCode.exit.thread: ; preds = %._crit_edge.i, %15
   %.3 = phi ptr [ %.2, %15 ], [ %22, %._crit_edge.i ]
   %.027.ph.i = phi i16 [ 0, %15 ], [ %20, %._crit_edge.i ]
   store i32 1, ptr %3, align 4, !tbaa !13
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv, 1
   %27 = getelementptr inbounds nuw [32 x i16], ptr %7, i64 0, i64 %indvars.iv
   store i16 %.027.ph.i, ptr %27, align 2, !tbaa !18
   br label %.critedge
@@ -1940,24 +1940,24 @@ _ZL15readHexCodeUnitPPKcP10UErrorCode.exit:       ; preds = %._crit_edge.i
   %29 = icmp samesign ult i64 %indvars.iv, 31
   br i1 %29, label %8, label %.critedge, !llvm.loop !47
 
-.thread73:                                        ; preds = %8, %8
+.thread76:                                        ; preds = %8, %8
   %30 = trunc nuw nsw i64 %indvars.iv to i32
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 548
   store i32 %30, ptr %31, align 4, !tbaa !36
   br label %63
 
 .critedge:                                        ; preds = %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit.thread
-  %indvars.iv.next67 = phi i64 [ %indvars.iv.next64, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit.thread ], [ %indvars.iv.next, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit ]
-  %.466 = phi ptr [ %.3, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit.thread ], [ %22, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit ]
+  %indvars.iv.next70 = phi i64 [ %indvars.iv.next67, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit.thread ], [ %indvars.iv.next, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit ]
+  %.469 = phi ptr [ %.3, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit.thread ], [ %22, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit ]
   %32 = phi i32 [ 1, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit.thread ], [ %.promoted, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit ]
-  %33 = trunc nuw nsw i64 %indvars.iv.next67 to i32
+  %33 = trunc nuw nsw i64 %indvars.iv.next70 to i32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 548
   store i32 %33, ptr %34, align 4, !tbaa !36
-  %35 = icmp eq i64 %indvars.iv.next67, 32
+  %35 = icmp eq i64 %indvars.iv.next70, 32
   br i1 %35, label %36, label %60
 
 36:                                               ; preds = %.critedge
-  %37 = load i8, ptr %.466, align 1, !tbaa !22
+  %37 = load i8, ptr %.469, align 1, !tbaa !22
   switch i8 %37, label %38 [
     i8 0, label %60
     i8 95, label %60
@@ -2029,19 +2029,19 @@ _ZL15readHexCodeUnitPPKcP10UErrorCode.exit34:     ; preds = %._crit_edge.i33._ZL
 
 60:                                               ; preds = %36, %36, %.critedge, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit34
   %61 = phi i32 [ %32, %36 ], [ %32, %36 ], [ %32, %.critedge ], [ %.pre, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit34 ]
-  %.1 = phi ptr [ %.466, %36 ], [ %.466, %36 ], [ %.466, %.critedge ], [ %.7, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit34 ]
+  %.1 = phi ptr [ %.469, %36 ], [ %.469, %36 ], [ %.469, %.critedge ], [ %.7, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit34 ]
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %.thread, label %63
 
-63:                                               ; preds = %.thread73, %60
-  %.175 = phi ptr [ %.03747, %.thread73 ], [ %.1, %60 ]
+63:                                               ; preds = %.thread76, %60
+  %.178 = phi ptr [ %.03747, %.thread76 ], [ %.1, %60 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store i8 1, ptr %64, align 8, !tbaa !23
   br label %.thread
 
-.thread:                                          ; preds = %.critedge.thread68, %38, %63, %60
-  %.172 = phi ptr [ %.175, %63 ], [ %.1, %60 ], [ %2, %.critedge.thread68 ], [ %.466, %38 ]
-  ret ptr %.172
+.thread:                                          ; preds = %.critedge.thread71, %38, %63, %60
+  %.175 = phi ptr [ %.178, %63 ], [ %.1, %60 ], [ %2, %.critedge.thread71 ], [ %.469, %38 ]
+  ret ptr %.175
 }
 
 ; Function Attrs: mustprogress uwtable

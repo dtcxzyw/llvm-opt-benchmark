@@ -306,7 +306,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %12 = load i32, ptr @hf_rng_req_reserved, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %14 = icmp ugt i32 %7, 1
-  br i1 %14, label %.lr.ph353, label %.thread383
+  br i1 %14, label %.lr.ph353, label %.thread388
 
 .lr.ph353:                                        ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -612,12 +612,12 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 203:                                              ; preds = %.lr.ph
   %204 = call i32 @get_tlv_value_offset(ptr noundef nonnull %6)
   %switch.selectcmp = icmp eq i32 %195, 2
-  %switch.selectcmp390 = icmp eq i32 %195, 1
+  %switch.selectcmp395 = icmp eq i32 %195, 1
   %hf_rng_rsp_bs_random.val = load i32, ptr @hf_rng_rsp_bs_random, align 4
   %hf_rng_rsp_akid.val = load i32, ptr @hf_rng_rsp_akid, align 4
   %hf_tlv_type.val = load i32, ptr @hf_tlv_type, align 4
   %switch.select.val = select i1 %switch.selectcmp, i32 %hf_rng_rsp_akid.val, i32 %hf_tlv_type.val
-  %205 = select i1 %switch.selectcmp390, i32 %hf_rng_rsp_bs_random.val, i32 %switch.select.val
+  %205 = select i1 %switch.selectcmp395, i32 %hf_rng_rsp_bs_random.val, i32 %switch.select.val
   %206 = call ptr @add_tlv_subtree(ptr noundef nonnull %6, ptr noundef %192, i32 noundef %205, ptr noundef %0, i32 noundef %.0328346, i32 noundef 0)
   %207 = add i32 %196, %.0328346
   %208 = add i32 %207, %204
@@ -722,16 +722,16 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 258:                                              ; preds = %256
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0326344, ptr noundef nonnull @.str.189)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0322340, ptr noundef nonnull @.str.191)
-  br i1 %249, label %260, label %.thread383
+  br i1 %249, label %260, label %.thread388
 
 259:                                              ; preds = %256
-  br i1 %249, label %260, label %.thread383
+  br i1 %249, label %260, label %.thread388
 
-.thread383:                                       ; preds = %4, %258, %259
+.thread388:                                       ; preds = %4, %258, %259
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.192)
   br label %260
 
-260:                                              ; preds = %258, %.thread383, %259
+260:                                              ; preds = %258, %.thread388, %259
   %261 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

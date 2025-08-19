@@ -903,7 +903,7 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr noundef captures(none) %0, pt
   %.5.lcssa = phi i32 [ %.171, %53 ], [ %.171, %.lr.ph96.split ], [ %.594.us, %.lr.ph96.split.us ], [ %66, %61 ], [ %.594.us107, %.lr.ph96.split.us105 ], [ %.6.us110, %83 ]
   %.3.lcssa = phi i32 [ %.063120, %53 ], [ %.063120, %.lr.ph96.split ], [ %58, %.lr.ph96.split.us ], [ %57, %61 ], [ %68, %.lr.ph96.split.us105 ], [ %55, %83 ]
   %91 = icmp sgt i32 %.5.lcssa, -1
-  br i1 %91, label %92, label %._crit_edge.thread139
+  br i1 %91, label %92, label %._crit_edge.thread147
 
 92:                                               ; preds = %.critedge2
   %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.19) #18
@@ -914,18 +914,18 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr noundef captures(none) %0, pt
 
 ._crit_edge:                                      ; preds = %92
   %97 = icmp slt i32 %93, 0
-  br i1 %97, label %._crit_edge.thread139, label %._crit_edge.thread
+  br i1 %97, label %._crit_edge.thread147, label %._crit_edge.thread
 
-._crit_edge.thread139:                            ; preds = %.critedge2, %._crit_edge
+._crit_edge.thread147:                            ; preds = %.critedge2, %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZNSt10filesystem7__cxx114pathC2IA120_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 1 dereferenceable(120) @.str.1, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef 339, ptr noundef nonnull @.str.24) #17
           to label %98 unwind label %99
 
-98:                                               ; preds = %._crit_edge.thread139
+98:                                               ; preds = %._crit_edge.thread147
   unreachable
 
-99:                                               ; preds = %._crit_edge.thread139
+99:                                               ; preds = %._crit_edge.thread147
   %100 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #18

@@ -9771,16 +9771,16 @@ if.then.i56:                                      ; preds = %_ZNSt6vectorIS_IdSa
   unreachable
 
 if.end.i21:                                       ; preds = %if.end.i, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE7reserveEm.exit
-  %add3.pre-phi312 = phi i64 [ %.pre307, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE7reserveEm.exit ], [ %add, %if.end.i ]
-  %m_weights313 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %add3.pre-phi336 = phi i64 [ %.pre307, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE7reserveEm.exit ], [ %add, %if.end.i ]
+  %m_weights337 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_end_of_storage.i.i22 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %10 = load ptr, ptr %_M_end_of_storage.i.i22, align 8, !tbaa !268
-  %11 = load ptr, ptr %m_weights313, align 8, !tbaa !269
+  %11 = load ptr, ptr %m_weights337, align 8, !tbaa !269
   %sub.ptr.lhs.cast.i.i23 = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i24 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i25 = sub i64 %sub.ptr.lhs.cast.i.i23, %sub.ptr.rhs.cast.i.i24
   %sub.ptr.div.i.i26 = sdiv exact i64 %sub.ptr.sub.i.i25, 24
-  %cmp3.i27 = icmp ult i64 %sub.ptr.div.i.i26, %add3.pre-phi312
+  %cmp3.i27 = icmp ult i64 %sub.ptr.div.i.i26, %add3.pre-phi336
   br i1 %cmp3.i27, label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit.i28, label %if.end.i59
 
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit.i28: ; preds = %if.end.i21
@@ -9788,7 +9788,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit.i28: ; preds =
   %12 = load ptr, ptr %_M_finish.i.i29, align 8, !tbaa !270
   %sub.ptr.lhs.cast.i6.i30 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i8.i31 = sub i64 %sub.ptr.lhs.cast.i6.i30, %sub.ptr.rhs.cast.i.i24
-  %mul.i.i.i.i32 = mul nuw nsw i64 %add3.pre-phi312, 24
+  %mul.i.i.i.i32 = mul nuw nsw i64 %add3.pre-phi336, 24
   %call5.i.i.i.i33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i32) #40
   %cmp.not5.i.i.i.i34 = icmp eq ptr %11, %12
   br i1 %cmp.not5.i.i.i.i34, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i47, label %for.body.i.i.i.i35
@@ -9815,7 +9815,7 @@ for.body.i.i.i.i35:                               ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.not.i.i.i.i44, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.loopexit.i45, label %for.body.i.i.i.i35, !llvm.loop !280
 
 _ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.loopexit.i45: ; preds = %for.body.i.i.i.i35
-  %.pre.i46 = load ptr, ptr %m_weights313, align 8, !tbaa !269
+  %.pre.i46 = load ptr, ptr %m_weights337, align 8, !tbaa !269
   br label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i47
 
 _ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i47: ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.loopexit.i45, %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit.i28
@@ -9832,10 +9832,10 @@ if.then.i.i49:                                    ; preds = %_ZNSt6vectorIS_IdSa
   br label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE7reserveEm.exit57
 
 _ZNSt6vectorIS_IdSaIdEESaIS1_EE7reserveEm.exit57: ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i47, %if.then.i.i49
-  store ptr %call5.i.i.i.i33, ptr %m_weights313, align 8, !tbaa !269
+  store ptr %call5.i.i.i.i33, ptr %m_weights337, align 8, !tbaa !269
   %add.ptr.i54 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i33, i64 %sub.ptr.sub.i8.i31
   store ptr %add.ptr.i54, ptr %_M_finish.i.i29, align 8, !tbaa !270
-  %add.ptr21.i55 = getelementptr inbounds nuw %"class.std::vector.85", ptr %call5.i.i.i.i33, i64 %add3.pre-phi312
+  %add.ptr21.i55 = getelementptr inbounds nuw %"class.std::vector.85", ptr %call5.i.i.i.i33, i64 %add3.pre-phi336
   store ptr %add.ptr21.i55, ptr %_M_end_of_storage.i.i22, align 8, !tbaa !268
   %.pre306 = load i64, ptr %m_max_refinements, align 8, !tbaa !251
   %.pre308 = add i64 %.pre306, 1
@@ -9847,16 +9847,16 @@ if.then.i75:                                      ; preds = %_ZNSt6vectorIS_IdSa
   unreachable
 
 if.end.i59:                                       ; preds = %if.end.i21, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE7reserveEm.exit57
-  %add5.pre-phi318 = phi i64 [ %.pre308, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE7reserveEm.exit57 ], [ %add3.pre-phi312, %if.end.i21 ]
-  %m_first_complements319 = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %add5.pre-phi342 = phi i64 [ %.pre308, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE7reserveEm.exit57 ], [ %add3.pre-phi336, %if.end.i21 ]
+  %m_first_complements343 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_end_of_storage.i.i60 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %18 = load ptr, ptr %_M_end_of_storage.i.i60, align 8, !tbaa !267
-  %19 = load ptr, ptr %m_first_complements319, align 8, !tbaa !266
+  %19 = load ptr, ptr %m_first_complements343, align 8, !tbaa !266
   %sub.ptr.lhs.cast.i.i61 = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i.i62 = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i63 = sub i64 %sub.ptr.lhs.cast.i.i61, %sub.ptr.rhs.cast.i.i62
   %sub.ptr.div.i.i64 = ashr exact i64 %sub.ptr.sub.i.i63, 3
-  %cmp3.i65 = icmp ult i64 %sub.ptr.div.i.i64, %add5.pre-phi318
+  %cmp3.i65 = icmp ult i64 %sub.ptr.div.i.i64, %add5.pre-phi342
   br i1 %cmp3.i65, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i, label %_ZNSt6vectorImSaImEE7reserveEm.exit
 
 _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i: ; preds = %if.end.i59
@@ -9864,7 +9864,7 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i: ; preds = %if.end.i59
   %20 = load ptr, ptr %_M_finish.i.i66, align 8, !tbaa !286
   %sub.ptr.lhs.cast.i6.i67 = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i8.i68 = sub i64 %sub.ptr.lhs.cast.i6.i67, %sub.ptr.rhs.cast.i.i62
-  %mul.i.i.i.i69 = shl nuw nsw i64 %add5.pre-phi318, 3
+  %mul.i.i.i.i69 = shl nuw nsw i64 %add5.pre-phi342, 3
   %call5.i.i.i.i70 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i69) #40
   %cmp.i.i.i10.i = icmp sgt i64 %sub.ptr.sub.i8.i68, 0
   br i1 %cmp.i.i.i10.i, label %if.then.i.i.i11.i, label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i
@@ -9882,10 +9882,10 @@ if.then.i.i72:                                    ; preds = %_ZNSt6vectorImSaImE
   br label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %if.then.i.i72, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i
-  store ptr %call5.i.i.i.i70, ptr %m_first_complements319, align 8, !tbaa !266
+  store ptr %call5.i.i.i.i70, ptr %m_first_complements343, align 8, !tbaa !266
   %add.ptr.i73 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i70, i64 %sub.ptr.sub.i8.i68
   store ptr %add.ptr.i73, ptr %_M_finish.i.i66, align 8, !tbaa !286
-  %add.ptr21.i74 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i70, i64 %add5.pre-phi318
+  %add.ptr21.i74 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i70, i64 %add5.pre-phi342
   store ptr %add.ptr21.i74, ptr %_M_end_of_storage.i.i60, align 8, !tbaa !267
   br label %_ZNSt6vectorImSaImEE7reserveEm.exit
 
@@ -10123,7 +10123,7 @@ invoke.cont171:                                   ; preds = %invoke.cont163
   %_M_finish.i.i155 = getelementptr inbounds nuw i8, ptr %ref.tmp107, i64 176
   store ptr %add.ptr.i1.i153, ptr %_M_finish.i.i155, align 8, !tbaa !278
   %add.ptr.i.i158 = getelementptr inbounds nuw i8, ptr %ref.tmp107, i64 192
-  invoke void @_ZNSt6vectorIS_IdSaIdEESaIS1_EE13_M_assign_auxIPKS1_EEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %m_weights313, ptr noundef nonnull %ref.tmp107, ptr noundef nonnull %add.ptr.i.i158)
+  invoke void @_ZNSt6vectorIS_IdSaIdEESaIS1_EE13_M_assign_auxIPKS1_EEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %m_weights337, ptr noundef nonnull %ref.tmp107, ptr noundef nonnull %add.ptr.i.i158)
           to label %arraydestroy.body180 unwind label %lpad176
 
 arraydestroy.body180:                             ; preds = %invoke.cont171, %_ZNSt6vectorIdSaIdEED2Ev.exit166
@@ -10149,7 +10149,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit166:                 ; preds = %arraydestroy.body18
 arraydestroy.done184:                             ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit166
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp107)
   %25 = load ptr, ptr %_M_end_of_storage.i.i60, align 8, !tbaa !267
-  %26 = load ptr, ptr %m_first_complements319, align 8, !tbaa !266
+  %26 = load ptr, ptr %m_first_complements343, align 8, !tbaa !266
   %sub.ptr.lhs.cast.i.i272 = ptrtoint ptr %25 to i64
   %sub.ptr.rhs.cast.i.i273 = ptrtoint ptr %26 to i64
   %sub.ptr.sub.i.i274 = sub i64 %sub.ptr.lhs.cast.i.i272, %sub.ptr.rhs.cast.i.i273
@@ -10168,7 +10168,7 @@ if.then.i13.i:                                    ; preds = %if.then.i288
   br label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i291
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i291: ; preds = %if.then.i13.i, %if.then.i288
-  store ptr %call5.i.i.i.i.i, ptr %m_first_complements319, align 8, !tbaa !266
+  store ptr %call5.i.i.i.i.i, ptr %m_first_complements343, align 8, !tbaa !266
   %add.ptr.i292 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 64
   store ptr %add.ptr.i292, ptr %_M_finish.i289, align 8, !tbaa !286
   store ptr %add.ptr.i292, ptr %_M_end_of_storage.i.i60, align 8, !tbaa !267
@@ -10203,12 +10203,12 @@ _ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i:             ; preds = %_ZSt7advanceIPKmmEv
   br label %if.then.i.i.i.i.i.i.i.i.i287
 
 if.then.i.i.i.i.i.i.i.i.i287:                     ; preds = %_ZSt7advanceIPKmmEvRT_T0_.exit.i, %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i
-  %incdec.ptr4.sink.i.i45.i.idx324 = phi i64 [ %sub.ptr.sub.i16.i279, %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i ], [ 0, %_ZSt7advanceIPKmmEvRT_T0_.exit.i ]
+  %incdec.ptr4.sink.i.i45.i.idx348 = phi i64 [ %sub.ptr.sub.i16.i279, %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i ], [ 0, %_ZSt7advanceIPKmmEvRT_T0_.exit.i ]
   %28 = phi ptr [ %.pre49.i, %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i ], [ %27, %_ZSt7advanceIPKmmEvRT_T0_.exit.i ]
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i325 = sub nuw nsw i64 64, %sub.ptr.sub.i16.i279
-  %incdec.ptr4.sink.i.i45.i.ptr = getelementptr inbounds nuw i8, ptr @constinit.49, i64 %incdec.ptr4.sink.i.i45.i.idx324
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %28, ptr nonnull align 8 %incdec.ptr4.sink.i.i45.i.ptr, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i325, i1 false)
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i325
+  %sub.ptr.sub.i.i.i.i.i.i.i.i.i349 = sub nuw nsw i64 64, %sub.ptr.sub.i16.i279
+  %incdec.ptr4.sink.i.i45.i.ptr = getelementptr inbounds nuw i8, ptr @constinit.49, i64 %incdec.ptr4.sink.i.i45.i.idx348
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %28, ptr nonnull align 8 %incdec.ptr4.sink.i.i45.i.ptr, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i349, i1 false)
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i349
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i277, align 8, !tbaa !286
   br label %_ZNSt6vectorImSaImEE13_M_assign_auxIPKmEEvT_S5_St20forward_iterator_tag.exit
 
@@ -10276,7 +10276,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit:    ; preds = %if.then.i184, %if.e
   %add244 = add i64 %35, 1
   %_M_finish.i.i185 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %36 = load ptr, ptr %_M_finish.i.i185, align 8, !tbaa !270
-  %37 = load ptr, ptr %m_weights313, align 8, !tbaa !269
+  %37 = load ptr, ptr %m_weights337, align 8, !tbaa !269
   %sub.ptr.lhs.cast.i.i186 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i187 = ptrtoint ptr %37 to i64
   %sub.ptr.sub.i.i188 = sub i64 %sub.ptr.lhs.cast.i.i186, %sub.ptr.rhs.cast.i.i187
@@ -10286,7 +10286,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit:    ; preds = %if.then.i184, %if.e
 
 if.then.i208:                                     ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit
   %sub.i209 = sub nuw i64 %add244, %sub.ptr.div.i.i189
-  call void @_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_weights313, i64 noundef %sub.i209)
+  call void @_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_weights337, i64 noundef %sub.i209)
   br label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit210
 
 if.else.i191:                                     ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit
@@ -10327,7 +10327,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit210: ; preds = %if.then.i208, %if.e
   %add247 = add i64 %40, 1
   %_M_finish.i.i211 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %41 = load ptr, ptr %_M_finish.i.i211, align 8, !tbaa !286
-  %42 = load ptr, ptr %m_first_complements319, align 8, !tbaa !266
+  %42 = load ptr, ptr %m_first_complements343, align 8, !tbaa !266
   %sub.ptr.lhs.cast.i.i212 = ptrtoint ptr %41 to i64
   %sub.ptr.rhs.cast.i.i213 = ptrtoint ptr %42 to i64
   %sub.ptr.sub.i.i214 = sub i64 %sub.ptr.lhs.cast.i.i212, %sub.ptr.rhs.cast.i.i213
@@ -10337,7 +10337,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit210: ; preds = %if.then.i208, %if.e
 
 if.then.i223:                                     ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit210
   %sub.i224 = sub nuw i64 %add247, %sub.ptr.div.i.i215
-  call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_first_complements319, i64 noundef %sub.i224)
+  call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_first_complements343, i64 noundef %sub.i224)
   br label %if.end
 
 if.else.i217:                                     ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit210
@@ -10570,7 +10570,7 @@ for.cond.preheader.i:                             ; preds = %if.end
   br i1 %cmp361.not.i, label %_ZN5boost4math10quadrature6detail16tanh_sinh_detailIdNS0_8policies6policyINS4_14default_policyES6_S6_S6_S6_S6_S6_S6_S6_S6_S6_S6_S6_EEE23prune_to_min_complementERKd.exit, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %73 = load ptr, ptr %m_weights313, align 8
+  %73 = load ptr, ptr %m_weights337, align 8
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end.i266, %land.rhs.lr.ph.i
@@ -11216,7 +11216,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp8.not, label %if.else, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIdSaIdEEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIdSaIdEEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %if.then
-  %3 = mul nuw i64 %__n, 24
+  %3 = mul nuw nsw i64 %__n, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %3, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %3
   store ptr %scevgep.i.i.i, ptr %_M_finish.i, align 8, !tbaa !270
@@ -11316,13 +11316,13 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store i64 0, ptr %0, align 8, !tbaa !30
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 3
-  %4 = add i64 %3, -8
+  %3 = shl nuw nsw i64 %__n, 3
+  %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !30
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
@@ -11936,9 +11936,9 @@ while.body19:                                     ; preds = %land.rhs13
   br i1 %cmp12, label %land.rhs13, label %while.end21, !llvm.loop !302
 
 while.end21:                                      ; preds = %land.rhs13, %while.body19, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E_clESO_SO_.exit
-  %max_left_position.0.lcssa1116 = phi i64 [ %sub, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E_clESO_SO_.exit ], [ %max_left_position.0.lcssa, %while.body19 ], [ %max_left_position.0.lcssa, %land.rhs13 ]
+  %max_left_position.0.lcssa1119 = phi i64 [ %sub, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E_clESO_SO_.exit ], [ %max_left_position.0.lcssa, %while.body19 ], [ %max_left_position.0.lcssa, %land.rhs13 ]
   %max_right_position.0.lcssa = phi i64 [ %sub, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E_clESO_SO_.exit ], [ %max_right_position.0982, %land.rhs13 ], [ 1, %while.body19 ]
-  %add.ptr.i236 = getelementptr inbounds nuw double, ptr %9, i64 %max_left_position.0.lcssa1116
+  %add.ptr.i236 = getelementptr inbounds nuw double, ptr %9, i64 %max_left_position.0.lcssa1119
   %14 = load double, ptr %add.ptr.i236, align 8, !tbaa !55
   %sub26 = fsub double -1.000000e+00, %14
   %mul.i240 = fmul double %sub26, %sub26
@@ -12045,7 +12045,7 @@ _ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_polic
   %mul43 = fmul double %tolerance, %tolerance
   %cmp.i299 = fcmp ogt double %mul43, 0x3CB0000000000000
   %.sroa.speculated = select i1 %cmp.i299, double %mul43, double 0x3CB0000000000000
-  %tobool.not985 = icmp eq i64 %max_left_position.0.lcssa1116, 0
+  %tobool.not985 = icmp eq i64 %max_left_position.0.lcssa1119, 0
   %24 = call double @llvm.fabs.f64(double %mul15.i257)
   %25 = fcmp one double %24, 0x7FF0000000000000
   %or.cond879986 = select i1 %tobool.not985, i1 true, i1 %25
@@ -12053,7 +12053,7 @@ _ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_polic
 
 while.cond59.preheader:                           ; preds = %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E_clESO_SO_.exit331, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E_clESO_SO_.exit298
   %yp.0.lcssa = phi double [ %mul15.i257, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E_clESO_SO_.exit298 ], [ %mul15.i322, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E_clESO_SO_.exit331 ]
-  %max_left_position.1.lcssa = phi i64 [ %max_left_position.0.lcssa1116, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E_clESO_SO_.exit298 ], [ %dec48, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E_clESO_SO_.exit331 ]
+  %max_left_position.1.lcssa = phi i64 [ %max_left_position.0.lcssa1119, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E_clESO_SO_.exit298 ], [ %dec48, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E_clESO_SO_.exit331 ]
   %cmp60990 = icmp ugt i64 %max_left_position.1.lcssa, 1
   br i1 %cmp60990, label %while.body61.lr.ph, label %while.end81
 
@@ -12064,7 +12064,7 @@ while.body61.lr.ph:                               ; preds = %while.cond59.prehea
   br label %while.body61
 
 if.end:                                           ; preds = %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E_clESO_SO_.exit298, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E_clESO_SO_.exit331
-  %max_left_position.1987 = phi i64 [ %dec48, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E_clESO_SO_.exit331 ], [ %max_left_position.0.lcssa1116, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E_clESO_SO_.exit298 ]
+  %max_left_position.1987 = phi i64 [ %dec48, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E_clESO_SO_.exit331 ], [ %max_left_position.0.lcssa1119, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E_clESO_SO_.exit298 ]
   %dec48 = add i64 %max_left_position.1987, -1
   %27 = load ptr, ptr %this, align 8, !tbaa !269
   %28 = load ptr, ptr %27, align 8, !tbaa !276
@@ -13594,9 +13594,9 @@ while.body19:                                     ; preds = %land.rhs13
   br i1 %cmp12, label %land.rhs13, label %while.end21, !llvm.loop !312
 
 while.end21:                                      ; preds = %land.rhs13, %while.body19, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit
-  %max_left_position.0.lcssa1040 = phi i64 [ %sub, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit ], [ %max_left_position.0.lcssa, %while.body19 ], [ %max_left_position.0.lcssa, %land.rhs13 ]
+  %max_left_position.0.lcssa1043 = phi i64 [ %sub, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit ], [ %max_left_position.0.lcssa, %while.body19 ], [ %max_left_position.0.lcssa, %land.rhs13 ]
   %max_right_position.0.lcssa = phi i64 [ %sub, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit ], [ %max_right_position.0906, %land.rhs13 ], [ 1, %while.body19 ]
-  %add.ptr.i236 = getelementptr inbounds nuw double, ptr %11, i64 %max_left_position.0.lcssa1040
+  %add.ptr.i236 = getelementptr inbounds nuw double, ptr %11, i64 %max_left_position.0.lcssa1043
   %16 = load double, ptr %add.ptr.i236, align 8, !tbaa !55
   %sub26 = fsub double -1.000000e+00, %16
   %cmp.i240 = fcmp ogt double %sub26, -5.000000e-01
@@ -13688,7 +13688,7 @@ _ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_polic
   %mul43 = fmul double %tolerance, %tolerance
   %cmp.i289 = fcmp ogt double %mul43, 0x3CB0000000000000
   %.sroa.speculated = select i1 %cmp.i289, double %mul43, double 0x3CB0000000000000
-  %tobool.not909 = icmp eq i64 %max_left_position.0.lcssa1040, 0
+  %tobool.not909 = icmp eq i64 %max_left_position.0.lcssa1043, 0
   %31 = call double @llvm.fabs.f64(double %mul10.i257)
   %32 = fcmp one double %31, 0x7FF0000000000000
   %or.cond803910 = or i1 %tobool.not909, %32
@@ -13696,7 +13696,7 @@ _ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_polic
 
 while.cond59.preheader:                           ; preds = %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit316, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit288
   %yp.0.lcssa = phi double [ %mul10.i257, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit288 ], [ %mul10.i312, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit316 ]
-  %max_left_position.1.lcssa = phi i64 [ %max_left_position.0.lcssa1040, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit288 ], [ %dec48, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit316 ]
+  %max_left_position.1.lcssa = phi i64 [ %max_left_position.0.lcssa1043, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit288 ], [ %dec48, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit316 ]
   %cmp60914 = icmp ugt i64 %max_left_position.1.lcssa, 1
   br i1 %cmp60914, label %while.body61.lr.ph, label %while.end81
 
@@ -13707,7 +13707,7 @@ while.body61.lr.ph:                               ; preds = %while.cond59.prehea
   br label %while.body61
 
 if.end:                                           ; preds = %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit288, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit316
-  %max_left_position.1911 = phi i64 [ %dec48, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit316 ], [ %max_left_position.0.lcssa1040, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit288 ]
+  %max_left_position.1911 = phi i64 [ %dec48, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit316 ], [ %max_left_position.0.lcssa1043, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit288 ]
   %dec48 = add i64 %max_left_position.1911, -1
   %34 = load ptr, ptr %this, align 8, !tbaa !269
   %35 = load ptr, ptr %34, align 8, !tbaa !276
@@ -15129,9 +15129,9 @@ while.body19:                                     ; preds = %land.rhs13
   br i1 %cmp12, label %land.rhs13, label %while.end21, !llvm.loop !322
 
 while.end21:                                      ; preds = %land.rhs13, %while.body19, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit
-  %max_left_position.0.lcssa976 = phi i64 [ %sub, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit ], [ %max_left_position.0.lcssa, %while.body19 ], [ %max_left_position.0.lcssa, %land.rhs13 ]
+  %max_left_position.0.lcssa979 = phi i64 [ %sub, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit ], [ %max_left_position.0.lcssa, %while.body19 ], [ %max_left_position.0.lcssa, %land.rhs13 ]
   %max_right_position.0.lcssa = phi i64 [ %sub, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit ], [ %max_right_position.0842, %land.rhs13 ], [ 1, %while.body19 ]
-  %add.ptr.i236 = getelementptr inbounds nuw double, ptr %10, i64 %max_left_position.0.lcssa976
+  %add.ptr.i236 = getelementptr inbounds nuw double, ptr %10, i64 %max_left_position.0.lcssa979
   %15 = load double, ptr %add.ptr.i236, align 8, !tbaa !55
   %sub26 = fsub double -1.000000e+00, %15
   %cmp.i240 = fcmp ogt double %sub26, -5.000000e-01
@@ -15204,7 +15204,7 @@ _ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_polic
   %mul43 = fmul double %tolerance, %tolerance
   %cmp.i281 = fcmp ogt double %mul43, 0x3CB0000000000000
   %.sroa.speculated = select i1 %cmp.i281, double %mul43, double 0x3CB0000000000000
-  %tobool.not845 = icmp eq i64 %max_left_position.0.lcssa976, 0
+  %tobool.not845 = icmp eq i64 %max_left_position.0.lcssa979, 0
   %29 = call double @llvm.fabs.f64(double %mul9.i255)
   %30 = fcmp one double %29, 0x7FF0000000000000
   %or.cond739846 = select i1 %tobool.not845, i1 true, i1 %30
@@ -15212,7 +15212,7 @@ _ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_polic
 
 while.cond59.preheader:                           ; preds = %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit304, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit280
   %yp.0.lcssa = phi double [ %mul9.i255, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit280 ], [ %mul9.i302, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit304 ]
-  %max_left_position.1.lcssa = phi i64 [ %max_left_position.0.lcssa976, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit280 ], [ %dec48, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit304 ]
+  %max_left_position.1.lcssa = phi i64 [ %max_left_position.0.lcssa979, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit280 ], [ %dec48, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit304 ]
   %cmp60850 = icmp ugt i64 %max_left_position.1.lcssa, 1
   br i1 %cmp60850, label %while.body61.lr.ph, label %while.end81
 
@@ -15223,7 +15223,7 @@ while.body61.lr.ph:                               ; preds = %while.cond59.prehea
   br label %while.body61
 
 if.end:                                           ; preds = %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit280, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit304
-  %max_left_position.1847 = phi i64 [ %dec48, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit304 ], [ %max_left_position.0.lcssa976, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit280 ]
+  %max_left_position.1847 = phi i64 [ %dec48, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit304 ], [ %max_left_position.0.lcssa979, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit280 ]
   %dec48 = add i64 %max_left_position.1847, -1
   %32 = load ptr, ptr %this, align 8, !tbaa !269
   %33 = load ptr, ptr %32, align 8, !tbaa !276
@@ -16577,9 +16577,9 @@ while.body18:                                     ; preds = %land.rhs12
   br i1 %cmp11, label %land.rhs12, label %while.end20, !llvm.loop !338
 
 while.end20:                                      ; preds = %land.rhs12, %while.body18, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlddE_clEdd.exit
-  %max_left_position.0.lcssa564 = phi i64 [ %sub, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlddE_clEdd.exit ], [ %max_left_position.0.lcssa, %while.body18 ], [ %max_left_position.0.lcssa, %land.rhs12 ]
+  %max_left_position.0.lcssa567 = phi i64 [ %sub, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlddE_clEdd.exit ], [ %max_left_position.0.lcssa, %while.body18 ], [ %max_left_position.0.lcssa, %land.rhs12 ]
   %max_right_position.0.lcssa = phi i64 [ %sub, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlddE_clEdd.exit ], [ %max_right_position.0462, %land.rhs12 ], [ 1, %while.body18 ]
-  %add.ptr.i249 = getelementptr inbounds nuw double, ptr %24, i64 %max_left_position.0.lcssa564
+  %add.ptr.i249 = getelementptr inbounds nuw double, ptr %24, i64 %max_left_position.0.lcssa567
   %29 = load double, ptr %add.ptr.i249, align 8, !tbaa !55
   %sub24 = fsub double -1.000000e+00, %29
   %call28 = call noundef double @_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlddE_clEdd(ptr noundef nonnull align 8 dereferenceable(72) %f, double noundef %sub24, double noundef %29)
@@ -16595,7 +16595,7 @@ while.end20:                                      ; preds = %land.rhs12, %while.
   %mul38 = fmul double %tolerance, %tolerance
   %cmp.i = fcmp ogt double %mul38, 0x3CB0000000000000
   %.sroa.speculated = select i1 %cmp.i, double %mul38, double 0x3CB0000000000000
-  %tobool.not465 = icmp eq i64 %max_left_position.0.lcssa564, 0
+  %tobool.not465 = icmp eq i64 %max_left_position.0.lcssa567, 0
   %33 = call double @llvm.fabs.f64(double %call28)
   %34 = fcmp one double %33, 0x7FF0000000000000
   %or.cond408466 = or i1 %tobool.not465, %34
@@ -16603,7 +16603,7 @@ while.end20:                                      ; preds = %land.rhs12, %while.
 
 while.cond53.preheader:                           ; preds = %if.end, %while.end20
   %yp.0.lcssa = phi double [ %call28, %while.end20 ], [ %call51, %if.end ]
-  %max_left_position.1.lcssa = phi i64 [ %max_left_position.0.lcssa564, %while.end20 ], [ %dec43, %if.end ]
+  %max_left_position.1.lcssa = phi i64 [ %max_left_position.0.lcssa567, %while.end20 ], [ %dec43, %if.end ]
   %m_weights = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp54470 = icmp ugt i64 %max_left_position.1.lcssa, 1
   br i1 %cmp54470, label %while.body55.lr.ph, label %while.end74
@@ -16614,7 +16614,7 @@ while.body55.lr.ph:                               ; preds = %while.cond53.prehea
   br label %while.body55
 
 if.end:                                           ; preds = %while.end20, %if.end
-  %max_left_position.1467 = phi i64 [ %dec43, %if.end ], [ %max_left_position.0.lcssa564, %while.end20 ]
+  %max_left_position.1467 = phi i64 [ %dec43, %if.end ], [ %max_left_position.0.lcssa567, %while.end20 ]
   %dec43 = add i64 %max_left_position.1467, -1
   %36 = load ptr, ptr %this, align 8, !tbaa !269
   %37 = load ptr, ptr %36, align 8, !tbaa !276

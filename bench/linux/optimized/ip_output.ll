@@ -831,10 +831,10 @@ define internal i32 @ip_finish_output(ptr noundef %0, ptr noundef %1, ptr nounde
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 4
   %61 = icmp eq i32 %60, 0
-  %.not11 = and i1 %54, %61
+  %.not16 = and i1 %54, %61
   %62 = icmp ult i32 %49, 2
-  %or.cond8 = select i1 %.not11, i1 true, i1 %62
-  br i1 %or.cond8, label %70, label %63
+  %or.cond13 = select i1 %.not16, i1 true, i1 %62
+  br i1 %or.cond13, label %70, label %63
 
 .thread:                                          ; preds = %39
   %.old = icmp ult i32 %49, 2
@@ -2248,10 +2248,10 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, 4
   %68 = icmp eq i32 %67, 0
-  %.not79 = and i1 %61, %68
+  %.not98 = and i1 %61, %68
   %69 = icmp ult i32 %56, 2
-  %or.cond76 = select i1 %.not79, i1 true, i1 %69
-  br i1 %or.cond76, label %77, label %70
+  %or.cond95 = select i1 %.not98, i1 true, i1 %69
+  br i1 %or.cond95, label %77, label %70
 
 .thread:                                          ; preds = %43
   %.old = icmp ult i32 %56, 2
@@ -4258,7 +4258,7 @@ define internal fastcc i32 @__ip_append_data(ptr noundef %0, ptr noundef readonl
   %802 = phi i32 [ %801, %800 ], [ %520, %775 ]
   %803 = phi i32 [ %798, %800 ], [ %761, %775 ]
   %804 = add i32 %803, %519
-  %805 = sub i32 %518, %803
+  %805 = sub nsw i32 %518, %803
   %806 = icmp sgt i32 %805, 0
   br i1 %806, label %.split, label %.loopexit51, !llvm.loop !47
 

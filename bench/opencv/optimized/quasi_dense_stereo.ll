@@ -4316,7 +4316,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit48
 
 _ZNSt6vectorIfSaIfEED2Ev.exit48:                  ; preds = %.thread, %115, %117
-  %.pn36.pn.pn.pn.pn.pn.pn59 = phi { ptr, i32 } [ %74, %.thread ], [ %116, %115 ], [ %116, %117 ]
+  %.pn36.pn.pn.pn.pn.pn.pn66 = phi { ptr, i32 } [ %74, %.thread ], [ %116, %115 ], [ %116, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %118 = load ptr, ptr %6, align 8, !tbaa !132
   %.not.i.i.i49 = icmp eq ptr %118, null
@@ -4328,7 +4328,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit48:                  ; preds = %.thread, %115, %117
 
 _ZNSt6vectorIhSaIhEED2Ev.exit50:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit48, %119
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %.pn36.pn.pn.pn.pn.pn.pn59
+  resume { ptr, i32 } %.pn36.pn.pn.pn.pn.pn.pn66
 }
 
 ; Function Attrs: mustprogress uwtable

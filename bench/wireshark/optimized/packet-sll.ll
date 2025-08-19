@@ -755,14 +755,14 @@ define internal nonnull ptr @sll_conv_get_filter_type(ptr noundef readonly captu
 .thread8.sink.split:                              ; preds = %2, %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %switch.selectcmp12 = icmp eq i32 %4, 2
-  %switch.select13 = select i1 %switch.selectcmp12, ptr @.str.9, ptr @.str.59
-  %switch.selectcmp14 = icmp eq i32 %4, 1
-  %switch.select15 = select i1 %switch.selectcmp14, ptr @.str.7, ptr %switch.select13
+  %switch.selectcmp14 = icmp eq i32 %4, 2
+  %switch.select15 = select i1 %switch.selectcmp14, ptr @.str.9, ptr @.str.59
+  %switch.selectcmp16 = icmp eq i32 %4, 1
+  %switch.select17 = select i1 %switch.selectcmp16, ptr @.str.7, ptr %switch.select15
   br label %.thread8
 
 .thread8:                                         ; preds = %.thread8.sink.split, %2
-  %.0 = phi ptr [ @.str.59, %2 ], [ %switch.select15, %.thread8.sink.split ]
+  %.0 = phi ptr [ @.str.59, %2 ], [ %switch.select17, %.thread8.sink.split ]
   ret ptr %.0
 }
 
@@ -779,14 +779,14 @@ define internal nonnull ptr @sll_endpoint_get_filter_type(ptr noundef readonly c
 .thread8.sink.split:                              ; preds = %2, %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %switch.selectcmp12 = icmp eq i32 %4, 2
-  %switch.select13 = select i1 %switch.selectcmp12, ptr @.str.9, ptr @.str.59
-  %switch.selectcmp14 = icmp eq i32 %4, 1
-  %switch.select15 = select i1 %switch.selectcmp14, ptr @.str.7, ptr %switch.select13
+  %switch.selectcmp14 = icmp eq i32 %4, 2
+  %switch.select15 = select i1 %switch.selectcmp14, ptr @.str.9, ptr @.str.59
+  %switch.selectcmp16 = icmp eq i32 %4, 1
+  %switch.select17 = select i1 %switch.selectcmp16, ptr @.str.7, ptr %switch.select15
   br label %.thread8
 
 .thread8:                                         ; preds = %.thread8.sink.split, %2
-  %.0 = phi ptr [ @.str.59, %2 ], [ %switch.select15, %.thread8.sink.split ]
+  %.0 = phi ptr [ @.str.59, %2 ], [ %switch.select17, %.thread8.sink.split ]
   ret ptr %.0
 }
 

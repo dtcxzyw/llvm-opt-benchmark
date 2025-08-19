@@ -253,22 +253,22 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
 
 82:                                               ; preds = %71
   switch i32 %81, label %._crit_edge133 [
-    i32 6, label %.thread135
+    i32 6, label %.thread138
     i32 9, label %83
     i32 15, label %84
     i32 24, label %85
   ]
 
 83:                                               ; preds = %82
-  br label %.thread135
+  br label %.thread138
 
 84:                                               ; preds = %82
-  br label %.thread135
+  br label %.thread138
 
 85:                                               ; preds = %82
-  br label %.thread135
+  br label %.thread138
 
-.thread135:                                       ; preds = %82, %83, %84, %85
+.thread138:                                       ; preds = %82, %83, %84, %85
   %.sink = phi i32 [ 6, %83 ], [ 10, %84 ], [ 0, %85 ], [ 1, %82 ]
   store i32 %.sink, ptr %80, align 4
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -286,10 +286,10 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   store ptr %90, ptr %2, align 8
   br label %150
 
-91:                                               ; preds = %.thread135, %._crit_edge133
-  %92 = phi ptr [ %86, %.thread135 ], [ %87, %._crit_edge133 ]
-  %.2138 = phi i32 [ 2, %.thread135 ], [ %.1, %._crit_edge133 ]
-  %93 = phi i32 [ %.sink, %.thread135 ], [ %81, %._crit_edge133 ]
+91:                                               ; preds = %.thread138, %._crit_edge133
+  %92 = phi ptr [ %86, %.thread138 ], [ %87, %._crit_edge133 ]
+  %.2141 = phi i32 [ 2, %.thread138 ], [ %.1, %._crit_edge133 ]
+  %93 = phi i32 [ %.sink, %.thread138 ], [ %81, %._crit_edge133 ]
   %94 = and i32 %93, 65535
   %95 = call i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef %94)
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -328,7 +328,7 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   ]
 
 111:                                              ; preds = %108
-  %112 = icmp eq i32 %.2138, 7
+  %112 = icmp eq i32 %.2141, 7
   br i1 %112, label %113, label %.sink.split
 
 113:                                              ; preds = %111
@@ -358,16 +358,16 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   br i1 %126, label %128, label %150
 
 .sink.split:                                      ; preds = %108, %111, %113
-  %.2138.sink = phi i32 [ 0, %113 ], [ %.2138, %111 ], [ %.2138, %108 ]
+  %.2141.sink = phi i32 [ 0, %113 ], [ %.2141, %111 ], [ %.2141, %108 ]
   %127 = getelementptr inbounds nuw i8, ptr %52, i64 12
-  store i32 %.2138.sink, ptr %127, align 4
+  store i32 %.2141.sink, ptr %127, align 4
   br label %128
 
 128:                                              ; preds = %.sink.split, %125, %117
   %129 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %130 = load i32, ptr %129, align 4
   switch i32 %130, label %141 [
-    i32 0, label %.sink.split140
+    i32 0, label %.sink.split143
     i32 1, label %131
     i32 3, label %132
     i32 4, label %133
@@ -377,19 +377,19 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   ]
 
 131:                                              ; preds = %128
-  br label %.sink.split140
+  br label %.sink.split143
 
 132:                                              ; preds = %128
-  br label %.sink.split140
+  br label %.sink.split143
 
 133:                                              ; preds = %128
-  br label %.sink.split140
+  br label %.sink.split143
 
 134:                                              ; preds = %128
-  br label %.sink.split140
+  br label %.sink.split143
 
 135:                                              ; preds = %128
-  br label %.sink.split140
+  br label %.sink.split143
 
 136:                                              ; preds = %128
   %137 = load i32, ptr @pcap_nokia_file_type_subtype, align 4
@@ -409,17 +409,17 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.4, i32 noundef 7, ptr noundef nonnull @.str.5, i64 noundef 700, ptr noundef nonnull @__func__.libpcap_open, ptr noundef nonnull @.str.6) #9
   unreachable
 
-.sink.split140:                                   ; preds = %128, %131, %132, %133, %134, %135
+.sink.split143:                                   ; preds = %128, %131, %132, %133, %134, %135
   %pcap_aix_file_type_subtype.sink = phi ptr [ @pcap_aix_file_type_subtype, %135 ], [ @pcap_ss991029_file_type_subtype, %134 ], [ @pcap_ss990915_file_type_subtype, %133 ], [ @pcap_ss990417_file_type_subtype, %132 ], [ @pcap_nsec_file_type_subtype, %131 ], [ @pcap_file_type_subtype, %128 ]
-  %.sink141 = phi i32 [ 9, %135 ], [ 6, %134 ], [ 6, %133 ], [ 6, %132 ], [ 9, %131 ], [ 6, %128 ]
+  %.sink144 = phi i32 [ 9, %135 ], [ 6, %134 ], [ 6, %133 ], [ 6, %132 ], [ 9, %131 ], [ 6, %128 ]
   %142 = load i32, ptr %pcap_aix_file_type_subtype.sink, align 4
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %142, ptr %143, align 4
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 %.sink141, ptr %144, align 4
+  store i32 %.sink144, ptr %144, align 4
   br label %145
 
-145:                                              ; preds = %.sink.split140, %136
+145:                                              ; preds = %.sink.split143, %136
   %.pr = load i32, ptr %96, align 8
   %146 = icmp eq i32 %.pr, 98
   br i1 %146, label %147, label %149

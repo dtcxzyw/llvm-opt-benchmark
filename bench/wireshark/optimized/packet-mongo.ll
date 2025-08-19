@@ -1105,7 +1105,7 @@ define internal fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1,
 357:                                              ; preds = %.lr.ph.i65
   %358 = load i32, ptr @hf_mongo_msg_sections_section_body, align 4
   %359 = call fastcc i32 @dissect_bson_document(ptr noundef %0, ptr noundef %1, i32 noundef %348, ptr noundef %354, i32 noundef %358)
-  %.pre.i.i = add i32 %359, 1
+  %.pre.i.i = add nuw i32 %359, 1
   br label %dissect_op_msg_section.exit.i
 
 360:                                              ; preds = %.lr.ph.i65
@@ -1130,7 +1130,7 @@ define internal fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1,
   %.05253.i.i = phi i32 [ %377, %.lr.ph.i.i ], [ %369, %360 ]
   %375 = load i32, ptr @hf_mongo_document, align 4
   %376 = call fastcc i32 @dissect_bson_document(ptr noundef %0, ptr noundef %1, i32 noundef %.054.i.i, ptr noundef %373, i32 noundef %375)
-  %377 = sub i32 %.05253.i.i, %376
+  %377 = sub nsw i32 %.05253.i.i, %376
   %378 = add i32 %376, %.054.i.i
   %379 = icmp sgt i32 %377, 0
   br i1 %379, label %.lr.ph.i.i, label %dissect_op_msg_section.exit.i, !llvm.loop !11
@@ -1199,7 +1199,7 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 declare void @p_set_proto_depth(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @dissect_bson_document(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef range(i32 4, -2147483648) i32 @dissect_bson_document(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %2)
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef %7, i32 noundef 0)

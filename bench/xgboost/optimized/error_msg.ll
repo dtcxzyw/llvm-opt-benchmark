@@ -4052,11 +4052,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZN
 
 138:                                              ; preds = %136
   %139 = icmp samesign ult i32 %133, 10000
-  %spec.select191 = select i1 %139, i32 4, i32 5
+  %spec.select256 = select i1 %139, i32 4, i32 5
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i35
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i35:  ; preds = %138, %136, %.lr.ph.i.i32, %129
-  %.0.i.i36 = phi i32 [ 1, %129 ], [ 2, %.lr.ph.i.i32 ], [ 3, %136 ], [ %spec.select191, %138 ]
+  %.0.i.i36 = phi i32 [ 1, %129 ], [ 2, %.lr.ph.i.i32 ], [ 3, %136 ], [ %spec.select256, %138 ]
   %.lobit.i37 = lshr i32 %132, 31
   %140 = add nuw nsw i32 %.0.i.i36, %.lobit.i37
   %141 = zext nneg i32 %140 to i64
@@ -4313,11 +4313,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
 
 251:                                              ; preds = %249
   %252 = icmp samesign ult i32 %246, 10000
-  %spec.select192 = select i1 %252, i32 4, i32 5
+  %spec.select257 = select i1 %252, i32 4, i32 5
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i72
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i72:  ; preds = %251, %249, %.lr.ph.i.i69, %242
-  %.0.i.i73 = phi i32 [ 1, %242 ], [ 2, %.lr.ph.i.i69 ], [ 3, %249 ], [ %spec.select192, %251 ]
+  %.0.i.i73 = phi i32 [ 1, %242 ], [ 2, %.lr.ph.i.i69 ], [ 3, %249 ], [ %spec.select257, %251 ]
   %.lobit.i74 = lshr i32 %245, 31
   %253 = add nuw nsw i32 %.0.i.i73, %.lobit.i74
   %254 = zext nneg i32 %253 to i64
@@ -4574,11 +4574,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %_Z
 
 364:                                              ; preds = %362
   %365 = icmp samesign ult i32 %359, 10000
-  %spec.select193 = select i1 %365, i32 4, i32 5
+  %spec.select258 = select i1 %365, i32 4, i32 5
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i109
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i109: ; preds = %364, %362, %.lr.ph.i.i106, %355
-  %.0.i.i110 = phi i32 [ 1, %355 ], [ 2, %.lr.ph.i.i106 ], [ 3, %362 ], [ %spec.select193, %364 ]
+  %.0.i.i110 = phi i32 [ 1, %355 ], [ 2, %.lr.ph.i.i106 ], [ 3, %362 ], [ %spec.select258, %364 ]
   %.lobit.i111 = lshr i32 %358, 31
   %366 = add nuw nsw i32 %.0.i.i110, %.lobit.i111
   %367 = zext nneg i32 %366 to i64

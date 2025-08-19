@@ -168,19 +168,19 @@ b2UnwindLargeAngle.exit:                          ; preds = %.lr.ph7.i, %.prehea
   br label %27
 
 27:                                               ; preds = %17, %23, %9
-  %.sink52 = phi float [ %19, %17 ], [ %24, %23 ], [ %11, %9 ]
+  %.sink55 = phi float [ %19, %17 ], [ %24, %23 ], [ %11, %9 ]
   %.sink = phi float [ %22, %17 ], [ %26, %23 ], [ %14, %9 ]
-  %28 = fadd float %.sink52, 0x4023BD3CE0000000
+  %28 = fadd float %.sink55, 0x4023BD3CE0000000
   %29 = fdiv float %.sink, %28
   %30 = fcmp olt float %.1.lcssa.i, 0.000000e+00
   %31 = fmul float %.1.lcssa.i, 1.600000e+01
   %32 = fadd float %.1.lcssa.i, 0x400921FB60000000
   %33 = fmul float %32, -1.600000e+01
-  %.1.lcssa.i.sink60 = select i1 %30, float %32, float %.1.lcssa.i
-  %.sink58 = select i1 %30, float %33, float %31
-  %34 = fsub float 0x400921FB60000000, %.1.lcssa.i.sink60
-  %35 = fmul float %.sink58, %34
-  %36 = fmul float %.1.lcssa.i.sink60, 4.000000e+00
+  %.1.lcssa.i.sink63 = select i1 %30, float %32, float %.1.lcssa.i
+  %.sink61 = select i1 %30, float %33, float %31
+  %34 = fsub float 0x400921FB60000000, %.1.lcssa.i.sink63
+  %35 = fmul float %.sink61, %34
+  %36 = fmul float %.1.lcssa.i.sink63, 4.000000e+00
   %37 = fmul float %36, %34
   %38 = fsub float 0x4048AC8C20000000, %37
   %39 = fdiv float %35, %38

@@ -3945,11 +3945,11 @@ define hidden range(i32 -151, -133) i32 @psa_sign_hash_complete(ptr noundef capt
 7:                                                ; preds = %4
   %8 = and i8 %.pre, 1
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %psa_sign_hash_abort_internal.exit.thread75
+  br i1 %.not, label %9, label %psa_sign_hash_abort_internal.exit.thread77
 
 9:                                                ; preds = %7
   %10 = icmp eq i64 %2, 0
-  br i1 %10, label %psa_sign_hash_abort_internal.exit.thread75, label %15
+  br i1 %10, label %psa_sign_hash_abort_internal.exit.thread77, label %15
 
 psa_sign_hash_abort_internal.exit.thread:         ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3957,7 +3957,7 @@ psa_sign_hash_abort_internal.exit.thread:         ; preds = %4
   store i8 %12, ptr %11, align 4
   br label %psa_crypto_local_output_free.exit
 
-psa_sign_hash_abort_internal.exit.thread75:       ; preds = %7, %9
+psa_sign_hash_abort_internal.exit.thread77:       ; preds = %7, %9
   %.056.ph.ph = phi i32 [ -138, %9 ], [ -137, %7 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = or i8 %.pre, 1
@@ -3981,8 +3981,8 @@ psa_crypto_copy_output.exit.i:                    ; preds = %15
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 33, i64 %2, i1 false)
   br label %psa_crypto_local_output_free.exit
 
-psa_crypto_local_output_free.exit:                ; preds = %psa_sign_hash_abort_internal.exit.thread75, %psa_sign_hash_abort_internal.exit.thread, %psa_crypto_copy_output.exit.i, %15
-  %20 = phi i32 [ -151, %15 ], [ %spec.select.i, %psa_crypto_copy_output.exit.i ], [ -137, %psa_sign_hash_abort_internal.exit.thread ], [ %.056.ph.ph, %psa_sign_hash_abort_internal.exit.thread75 ]
+psa_crypto_local_output_free.exit:                ; preds = %psa_sign_hash_abort_internal.exit.thread77, %psa_sign_hash_abort_internal.exit.thread, %psa_crypto_copy_output.exit.i, %15
+  %20 = phi i32 [ -151, %15 ], [ %spec.select.i, %psa_crypto_copy_output.exit.i ], [ -137, %psa_sign_hash_abort_internal.exit.thread ], [ %.056.ph.ph, %psa_sign_hash_abort_internal.exit.thread77 ]
   ret i32 %20
 }
 
@@ -4458,8 +4458,8 @@ psa_cipher_abort.exit.thread:                     ; preds = %4
   %29 = icmp ne i8 %28, 2
   %30 = load i8, ptr @global_data, align 8
   %31 = icmp ne i8 %30, 7
-  %.not25.i83 = select i1 %29, i1 true, i1 %31
-  br i1 %.not25.i83, label %psa_crypto_local_output_alloc.exit.thread60thread-pre-split, label %.lr.ph.i
+  %.not25.i89 = select i1 %29, i1 true, i1 %31
+  br i1 %.not25.i89, label %psa_crypto_local_output_alloc.exit.thread60thread-pre-split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread, %34
   %.01328.i = phi i64 [ %35, %34 ], [ %14, %.thread ]
@@ -4481,34 +4481,34 @@ psa_generate_random_internal.exit:                ; preds = %.lr.ph.i
   br i1 %.not36, label %psa_generate_random_internal.exit.thread, label %psa_crypto_local_output_alloc.exit.thread60thread-pre-split
 
 psa_generate_random_internal.exit.thread:         ; preds = %34, %23, %psa_generate_random_internal.exit
-  %.sroa.0.1.ph8491 = phi ptr [ %1, %psa_generate_random_internal.exit ], [ null, %23 ], [ %1, %34 ]
-  %.sroa.6.1.ph8589 = phi ptr [ %21, %psa_generate_random_internal.exit ], [ null, %23 ], [ %21, %34 ]
+  %.sroa.0.1.ph9097 = phi ptr [ %1, %psa_generate_random_internal.exit ], [ null, %23 ], [ %1, %34 ]
+  %.sroa.6.1.ph9195 = phi ptr [ %21, %psa_generate_random_internal.exit ], [ null, %23 ], [ %21, %34 ]
   %38 = load i32, ptr %0, align 8, !tbaa !64
   %cond.i = icmp eq i32 %38, 1
   br i1 %cond.i, label %psa_crypto_local_output_alloc.exit, label %psa_crypto_local_output_alloc.exit.thread60
 
 psa_crypto_local_output_alloc.exit:               ; preds = %psa_generate_random_internal.exit.thread
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = tail call i32 @mbedtls_psa_cipher_set_iv(ptr noundef nonnull %39, ptr noundef %.sroa.6.1.ph8589, i64 noundef range(i64 0, 17) %14) #22
+  %40 = tail call i32 @mbedtls_psa_cipher_set_iv(ptr noundef nonnull %39, ptr noundef %.sroa.6.1.ph9195, i64 noundef range(i64 0, 17) %14) #22
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %49, label %psa_crypto_local_output_alloc.exit.thread60thread-pre-split
 
 psa_crypto_local_output_alloc.exit.thread60thread-pre-split: ; preds = %psa_crypto_local_output_alloc.exit, %psa_generate_random_internal.exit, %7, %11, %16, %20, %23, %.thread
   %.076.ph = phi i32 [ -137, %.thread ], [ -137, %23 ], [ %37, %psa_generate_random_internal.exit ], [ -137, %7 ], [ -138, %11 ], [ -132, %16 ], [ -141, %20 ], [ %40, %psa_crypto_local_output_alloc.exit ]
-  %.02774.ph = phi ptr [ %21, %.thread ], [ null, %23 ], [ %21, %psa_generate_random_internal.exit ], [ null, %7 ], [ null, %11 ], [ null, %16 ], [ null, %20 ], [ %.sroa.6.1.ph8589, %psa_crypto_local_output_alloc.exit ]
+  %.02774.ph = phi ptr [ %21, %.thread ], [ null, %23 ], [ %21, %psa_generate_random_internal.exit ], [ null, %7 ], [ null, %11 ], [ null, %16 ], [ null, %20 ], [ %.sroa.6.1.ph9195, %psa_crypto_local_output_alloc.exit ]
   %.02873.ph = phi i64 [ %14, %.thread ], [ 0, %23 ], [ %14, %psa_generate_random_internal.exit ], [ 0, %7 ], [ %14, %11 ], [ %14, %16 ], [ %14, %20 ], [ %14, %psa_crypto_local_output_alloc.exit ]
   %.sroa.11.072.ph = phi i64 [ %14, %.thread ], [ 0, %23 ], [ %14, %psa_generate_random_internal.exit ], [ 0, %7 ], [ 0, %11 ], [ 0, %16 ], [ 0, %20 ], [ %14, %psa_crypto_local_output_alloc.exit ]
-  %.sroa.0.068.ph = phi ptr [ %1, %.thread ], [ null, %23 ], [ %1, %psa_generate_random_internal.exit ], [ null, %7 ], [ null, %11 ], [ null, %16 ], [ null, %20 ], [ %.sroa.0.1.ph8491, %psa_crypto_local_output_alloc.exit ]
+  %.sroa.0.068.ph = phi ptr [ %1, %.thread ], [ null, %23 ], [ %1, %psa_generate_random_internal.exit ], [ null, %7 ], [ null, %11 ], [ null, %16 ], [ null, %20 ], [ %.sroa.0.1.ph9097, %psa_crypto_local_output_alloc.exit ]
   %.pr = load i32, ptr %0, align 8, !tbaa !64
   br label %psa_crypto_local_output_alloc.exit.thread60
 
 psa_crypto_local_output_alloc.exit.thread60:      ; preds = %psa_crypto_local_output_alloc.exit.thread60thread-pre-split, %psa_generate_random_internal.exit.thread
   %42 = phi i32 [ %.pr, %psa_crypto_local_output_alloc.exit.thread60thread-pre-split ], [ %38, %psa_generate_random_internal.exit.thread ]
   %.076 = phi i32 [ %.076.ph, %psa_crypto_local_output_alloc.exit.thread60thread-pre-split ], [ -135, %psa_generate_random_internal.exit.thread ]
-  %.02774 = phi ptr [ %.02774.ph, %psa_crypto_local_output_alloc.exit.thread60thread-pre-split ], [ %.sroa.6.1.ph8589, %psa_generate_random_internal.exit.thread ]
+  %.02774 = phi ptr [ %.02774.ph, %psa_crypto_local_output_alloc.exit.thread60thread-pre-split ], [ %.sroa.6.1.ph9195, %psa_generate_random_internal.exit.thread ]
   %.02873 = phi i64 [ %.02873.ph, %psa_crypto_local_output_alloc.exit.thread60thread-pre-split ], [ %14, %psa_generate_random_internal.exit.thread ]
   %.sroa.11.072 = phi i64 [ %.sroa.11.072.ph, %psa_crypto_local_output_alloc.exit.thread60thread-pre-split ], [ %14, %psa_generate_random_internal.exit.thread ]
-  %.sroa.0.068 = phi ptr [ %.sroa.0.068.ph, %psa_crypto_local_output_alloc.exit.thread60thread-pre-split ], [ %.sroa.0.1.ph8491, %psa_generate_random_internal.exit.thread ]
+  %.sroa.0.068 = phi ptr [ %.sroa.0.068.ph, %psa_crypto_local_output_alloc.exit.thread60thread-pre-split ], [ %.sroa.0.1.ph9097, %psa_generate_random_internal.exit.thread ]
   store i64 0, ptr %3, align 8, !tbaa !25
   switch i32 %42, label %psa_driver_wrapper_cipher_abort.exit.i [
     i32 0, label %psa_cipher_abort.exit
@@ -4530,9 +4530,9 @@ psa_driver_wrapper_cipher_abort.exit.i:           ; preds = %43, %psa_crypto_loc
 
 psa_cipher_abort.exit:                            ; preds = %psa_crypto_local_output_alloc.exit.thread60, %psa_driver_wrapper_cipher_abort.exit.i
   %.not37 = icmp eq ptr %.02774, null
-  br i1 %.not37, label %psa_crypto_local_output_free.exit, label %.thread113
+  br i1 %.not37, label %psa_crypto_local_output_free.exit, label %.thread119
 
-.thread113:                                       ; preds = %psa_cipher_abort.exit
+.thread119:                                       ; preds = %psa_cipher_abort.exit
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %.02774, i64 noundef %.02873) #22
   br label %53
 
@@ -4541,31 +4541,31 @@ psa_cipher_abort.exit:                            ; preds = %psa_crypto_local_ou
   %50 = load i8, ptr %8, align 4
   %51 = or i8 %50, 2
   store i8 %51, ptr %8, align 4
-  %52 = icmp eq ptr %.sroa.6.1.ph8589, null
+  %52 = icmp eq ptr %.sroa.6.1.ph9195, null
   br i1 %52, label %psa_crypto_local_output_free.exit, label %53
 
-53:                                               ; preds = %.thread113, %49
-  %.sroa.0.067121 = phi ptr [ %.sroa.0.068, %.thread113 ], [ %.sroa.0.1.ph8491, %49 ]
-  %.sroa.6.069120 = phi ptr [ %.02774, %.thread113 ], [ %.sroa.6.1.ph8589, %49 ]
-  %.sroa.11.071119 = phi i64 [ %.sroa.11.072, %.thread113 ], [ %14, %49 ]
-  %.075118 = phi i32 [ %.076, %.thread113 ], [ 0, %49 ]
-  %54 = icmp eq ptr %.sroa.0.067121, null
+53:                                               ; preds = %.thread119, %49
+  %.sroa.0.067127 = phi ptr [ %.sroa.0.068, %.thread119 ], [ %.sroa.0.1.ph9097, %49 ]
+  %.sroa.6.069126 = phi ptr [ %.02774, %.thread119 ], [ %.sroa.6.1.ph9195, %49 ]
+  %.sroa.11.071125 = phi i64 [ %.sroa.11.072, %.thread119 ], [ %14, %49 ]
+  %.075124 = phi i32 [ %.076, %.thread119 ], [ 0, %49 ]
+  %54 = icmp eq ptr %.sroa.0.067127, null
   br i1 %54, label %psa_crypto_local_output_free.exit, label %55
 
 55:                                               ; preds = %53
-  %.not.i.i = icmp eq i64 %.sroa.11.071119, 0
+  %.not.i.i = icmp eq i64 %.sroa.11.071125, 0
   br i1 %.not.i.i, label %psa_crypto_copy_output.exit.i, label %56
 
 56:                                               ; preds = %55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.067121, ptr nonnull readonly align 1 %.sroa.6.069120, i64 %.sroa.11.071119, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.067127, ptr nonnull readonly align 1 %.sroa.6.069126, i64 %.sroa.11.071125, i1 false)
   br label %psa_crypto_copy_output.exit.i
 
 psa_crypto_copy_output.exit.i:                    ; preds = %56, %55
-  tail call void @free(ptr noundef nonnull %.sroa.6.069120) #22
+  tail call void @free(ptr noundef nonnull %.sroa.6.069126) #22
   br label %psa_crypto_local_output_free.exit
 
 psa_crypto_local_output_free.exit:                ; preds = %psa_cipher_abort.exit.thread, %psa_cipher_abort.exit, %49, %psa_crypto_copy_output.exit.i, %53
-  %57 = phi i32 [ -151, %53 ], [ %.075118, %psa_crypto_copy_output.exit.i ], [ 0, %49 ], [ -137, %psa_cipher_abort.exit.thread ], [ %.076, %psa_cipher_abort.exit ]
+  %57 = phi i32 [ -151, %53 ], [ %.075124, %psa_crypto_copy_output.exit.i ], [ 0, %49 ], [ -137, %psa_cipher_abort.exit.thread ], [ %.076, %psa_cipher_abort.exit ]
   ret i32 %57
 }
 
@@ -6989,14 +6989,14 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %66 = icmp eq i8 %41, 0
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %switch.tableidx290 = add nsw i32 %34, -3
-  %67 = icmp ult i32 %switch.tableidx290, 16
-  %switch.maskindex293 = trunc nsw i32 %switch.tableidx290 to i16
-  %switch.shifted294 = lshr i16 -6169, %switch.maskindex293
-  %switch.lobit295 = trunc i16 %switch.shifted294 to i1
-  %or.cond = select i1 %67, i1 %switch.lobit295, i1 false
-  %68 = zext nneg i32 %switch.tableidx290 to i64
-  %switch.gep296 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %68
+  %switch.tableidx328 = add nsw i32 %34, -3
+  %67 = icmp ult i32 %switch.tableidx328, 16
+  %switch.maskindex331 = trunc nsw i32 %switch.tableidx328 to i16
+  %switch.shifted332 = lshr i16 -6169, %switch.maskindex331
+  %switch.lobit333 = trunc i16 %switch.shifted332 to i1
+  %or.cond = select i1 %67, i1 %switch.lobit333, i1 false
+  %68 = zext nneg i32 %switch.tableidx328 to i64
+  %switch.gep334 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %68
   br label %69
 
 69:                                               ; preds = %135, %47
@@ -7039,14 +7039,14 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %86 = load i8, ptr %60, align 1
   %87 = or i8 %86, 1
   store i8 %87, ptr %60, align 1
-  br i1 %or.cond, label %switch.lookup292, label %88
+  br i1 %or.cond, label %switch.lookup330, label %88
 
-switch.lookup292:                                 ; preds = %84
-  %switch.load297 = load i8, ptr %switch.gep296, align 1
+switch.lookup330:                                 ; preds = %84
+  %switch.load335 = load i8, ptr %switch.gep334, align 1
   br label %88
 
-88:                                               ; preds = %84, %switch.lookup292
-  %89 = phi i8 [ %switch.load297, %switch.lookup292 ], [ %62, %84 ]
+88:                                               ; preds = %84, %switch.lookup330
+  %89 = phi i8 [ %switch.load335, %switch.lookup330 ], [ %62, %84 ]
   store i8 %89, ptr %63, align 4, !tbaa !57
   %90 = call i32 @mbedtls_psa_mac_sign_setup(ptr noundef nonnull %65, ptr noundef nonnull %8, ptr noundef nonnull %54, i64 noundef %55, i32 noundef %64) #22
   %cond.i.i = icmp eq i32 %90, 0
@@ -7244,29 +7244,29 @@ psa_key_derivation_hkdf_read.exit:                ; preds = %69, %70, %80, %93, 
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %139 = and i32 %.0.i, 255
   %trunc.i59 = trunc i32 %.0.i to i8
-  %switch.tableidx299 = add i8 %trunc.i59, -3
-  %140 = icmp ult i8 %switch.tableidx299, 16
-  br i1 %140, label %switch.hole_check300, label %141
+  %switch.tableidx337 = add i8 %trunc.i59, -3
+  %140 = icmp ult i8 %switch.tableidx337, 16
+  br i1 %140, label %switch.hole_check338, label %141
 
-141:                                              ; preds = %switch.hole_check300, %137
+141:                                              ; preds = %switch.hole_check338, %137
   %142 = icmp eq i32 %139, 19
   %143 = select i1 %142, i8 64, i8 0
   br label %145
 
-switch.hole_check300:                             ; preds = %137
-  %switch.maskindex302 = zext nneg i8 %switch.tableidx299 to i16
-  %switch.shifted303 = lshr i16 -6169, %switch.maskindex302
-  %switch.lobit304 = trunc i16 %switch.shifted303 to i1
-  br i1 %switch.lobit304, label %switch.lookup301, label %141
+switch.hole_check338:                             ; preds = %137
+  %switch.maskindex340 = zext nneg i8 %switch.tableidx337 to i16
+  %switch.shifted341 = lshr i16 -6169, %switch.maskindex340
+  %switch.lobit342 = trunc i16 %switch.shifted341 to i1
+  br i1 %switch.lobit342, label %switch.lookup339, label %141
 
-switch.lookup301:                                 ; preds = %switch.hole_check300
-  %144 = zext nneg i8 %switch.tableidx299 to i64
-  %switch.gep305 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %144
-  %switch.load306 = load i8, ptr %switch.gep305, align 1
+switch.lookup339:                                 ; preds = %switch.hole_check338
+  %144 = zext nneg i8 %switch.tableidx337 to i64
+  %switch.gep343 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %144
+  %switch.load344 = load i8, ptr %switch.gep343, align 1
   br label %145
 
-145:                                              ; preds = %switch.lookup301, %141
-  %146 = phi i8 [ %143, %141 ], [ %switch.load306, %switch.lookup301 ]
+145:                                              ; preds = %switch.lookup339, %141
+  %146 = phi i8 [ %143, %141 ], [ %switch.load344, %switch.lookup339 ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %148 = load i32, ptr %147, align 4, !tbaa !83
   switch i32 %148, label %psa_crypto_local_output_alloc.exit.thread108 [
@@ -7303,29 +7303,29 @@ switch.lookup301:                                 ; preds = %switch.hole_check30
   br i1 %15, label %psa_crypto_local_output_alloc.exit.thread124, label %.outer.split.i.preheader.preheader
 
 .outer.split.i.preheader.preheader:               ; preds = %150
-  %switch.tableidx308 = add i8 %trunc.i59, -3
-  %170 = icmp ult i8 %switch.tableidx308, 16
-  %switch.maskindex311 = zext nneg i8 %switch.tableidx308 to i16
-  %switch.shifted312 = lshr i16 -6169, %switch.maskindex311
-  %switch.lobit313 = trunc i16 %switch.shifted312 to i1
-  %171 = zext nneg i8 %switch.tableidx308 to i64
-  %switch.gep314 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %171
-  %switch.tableidx317 = add nsw i32 %139, -3
-  %172 = icmp ult i32 %switch.tableidx317, 16
-  %switch.maskindex320 = trunc nsw i32 %switch.tableidx317 to i16
-  %switch.shifted321 = lshr i16 -6169, %switch.maskindex320
-  %switch.lobit322 = trunc i16 %switch.shifted321 to i1
-  %or.cond325 = select i1 %172, i1 %switch.lobit322, i1 false
-  %173 = zext nneg i32 %switch.tableidx317 to i64
-  %switch.gep323 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %173
-  %switch.tableidx327 = add nsw i32 %139, -3
-  %174 = icmp ult i32 %switch.tableidx327, 16
-  %switch.maskindex330 = trunc nsw i32 %switch.tableidx327 to i16
-  %switch.shifted331 = lshr i16 -6169, %switch.maskindex330
-  %switch.lobit332 = trunc i16 %switch.shifted331 to i1
-  %or.cond335 = select i1 %174, i1 %switch.lobit332, i1 false
-  %175 = zext nneg i32 %switch.tableidx327 to i64
-  %switch.gep333 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %175
+  %switch.tableidx346 = add i8 %trunc.i59, -3
+  %170 = icmp ult i8 %switch.tableidx346, 16
+  %switch.maskindex349 = zext nneg i8 %switch.tableidx346 to i16
+  %switch.shifted350 = lshr i16 -6169, %switch.maskindex349
+  %switch.lobit351 = trunc i16 %switch.shifted350 to i1
+  %171 = zext nneg i8 %switch.tableidx346 to i64
+  %switch.gep352 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %171
+  %switch.tableidx355 = add nsw i32 %139, -3
+  %172 = icmp ult i32 %switch.tableidx355, 16
+  %switch.maskindex358 = trunc nsw i32 %switch.tableidx355 to i16
+  %switch.shifted359 = lshr i16 -6169, %switch.maskindex358
+  %switch.lobit360 = trunc i16 %switch.shifted359 to i1
+  %or.cond363 = select i1 %172, i1 %switch.lobit360, i1 false
+  %173 = zext nneg i32 %switch.tableidx355 to i64
+  %switch.gep361 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %173
+  %switch.tableidx365 = add nsw i32 %139, -3
+  %174 = icmp ult i32 %switch.tableidx365, 16
+  %switch.maskindex368 = trunc nsw i32 %switch.tableidx365 to i16
+  %switch.shifted369 = lshr i16 -6169, %switch.maskindex368
+  %switch.lobit370 = trunc i16 %switch.shifted369 to i1
+  %or.cond373 = select i1 %174, i1 %switch.lobit370, i1 false
+  %175 = zext nneg i32 %switch.tableidx365 to i64
+  %switch.gep371 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %175
   br label %.outer.split.i.preheader
 
 .outer.split.i.preheader:                         ; preds = %.outer.split.i.preheader.preheader, %.outer.i
@@ -7340,16 +7340,16 @@ switch.lookup301:                                 ; preds = %switch.hole_check30
 
 178:                                              ; preds = %.outer.split.i
   %.not = xor i1 %170, true
-  %switch.lobit313.not = xor i1 %switch.lobit313, true
-  %brmerge = select i1 %.not, i1 true, i1 %switch.lobit313.not
-  br i1 %brmerge, label %179, label %switch.lookup310
+  %switch.lobit351.not = xor i1 %switch.lobit351, true
+  %brmerge = select i1 %.not, i1 true, i1 %switch.lobit351.not
+  br i1 %brmerge, label %179, label %switch.lookup348
 
-switch.lookup310:                                 ; preds = %178
-  %switch.load315 = load i8, ptr %switch.gep314, align 1
+switch.lookup348:                                 ; preds = %178
+  %switch.load353 = load i8, ptr %switch.gep352, align 1
   br label %179
 
-179:                                              ; preds = %178, %switch.lookup310
-  %180 = phi i8 [ %switch.load315, %switch.lookup310 ], [ %152, %178 ]
+179:                                              ; preds = %178, %switch.lookup348
+  %180 = phi i8 [ %switch.load353, %switch.lookup348 ], [ %152, %178 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %6, i8 0, i64 400, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -7378,14 +7378,14 @@ psa_key_derivation_tls12_prf_generate_next_block.exit.thread.i: ; preds = %179
   store i16 %spec.select.i.i.i.i, ptr %157, align 2, !tbaa !47
   store i32 5120, ptr %158, align 4, !tbaa !80
   store i8 1, ptr %159, align 1
-  br i1 %or.cond325, label %switch.lookup319, label %190
+  br i1 %or.cond363, label %switch.lookup357, label %190
 
-switch.lookup319:                                 ; preds = %183
-  %switch.load324 = load i8, ptr %switch.gep323, align 1
+switch.lookup357:                                 ; preds = %183
+  %switch.load362 = load i8, ptr %switch.gep361, align 1
   br label %190
 
-190:                                              ; preds = %183, %switch.lookup319
-  %191 = phi i8 [ %switch.load324, %switch.lookup319 ], [ %152, %183 ]
+190:                                              ; preds = %183, %switch.lookup357
+  %191 = phi i8 [ %switch.load362, %switch.lookup357 ], [ %152, %183 ]
   store i8 %191, ptr %160, align 4, !tbaa !57
   %192 = call i32 @mbedtls_psa_mac_sign_setup(ptr noundef nonnull %162, ptr noundef nonnull %5, ptr noundef %185, i64 noundef %186, i32 noundef %161) #22
   %cond.i.i.i63 = icmp eq i32 %192, 0
@@ -7599,14 +7599,14 @@ psa_mac_update.exit97.thread.i.i:                 ; preds = %psa_mac_update.exit
   %254 = load i8, ptr %159, align 1
   %255 = or i8 %254, 1
   store i8 %255, ptr %159, align 1
-  br i1 %or.cond335, label %switch.lookup329, label %256
+  br i1 %or.cond373, label %switch.lookup367, label %256
 
-switch.lookup329:                                 ; preds = %248
-  %switch.load334 = load i8, ptr %switch.gep333, align 1
+switch.lookup367:                                 ; preds = %248
+  %switch.load372 = load i8, ptr %switch.gep371, align 1
   br label %256
 
-256:                                              ; preds = %248, %switch.lookup329
-  %257 = phi i8 [ %switch.load334, %switch.lookup329 ], [ %152, %248 ]
+256:                                              ; preds = %248, %switch.lookup367
+  %257 = phi i8 [ %switch.load372, %switch.lookup367 ], [ %152, %248 ]
   store i8 %257, ptr %160, align 4, !tbaa !57
   %258 = call i32 @mbedtls_psa_mac_sign_setup(ptr noundef nonnull %162, ptr noundef nonnull %4, ptr noundef %249, i64 noundef %250, i32 noundef %161) #22
   %cond.i112.i.i = icmp eq i32 %258, 0
@@ -7779,9 +7779,9 @@ psa_crypto_local_output_alloc.exit.thread108:     ; preds = %psa_key_derivation_
   %306 = call i32 @psa_key_derivation_abort(ptr noundef nonnull %0)
   store i32 %305, ptr %0, align 8, !tbaa !74
   %.not54 = icmp eq ptr %.044121, null
-  br i1 %.not54, label %psa_crypto_local_output_free.exit, label %psa_crypto_local_output_alloc.exit.thread124.thread210
+  br i1 %.not54, label %psa_crypto_local_output_free.exit, label %psa_crypto_local_output_alloc.exit.thread124.thread248
 
-psa_crypto_local_output_alloc.exit.thread124.thread210: ; preds = %psa_crypto_local_output_alloc.exit.thread108
+psa_crypto_local_output_alloc.exit.thread124.thread248: ; preds = %psa_crypto_local_output_alloc.exit.thread108
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %.044121, i8 33, i64 %2, i1 false)
   br label %308
 
@@ -7789,28 +7789,28 @@ psa_crypto_local_output_alloc.exit.thread124:     ; preds = %.outer.i, %150, %ps
   %307 = icmp eq ptr %.sroa.8.0.ph, null
   br i1 %307, label %psa_crypto_local_output_free.exit, label %308
 
-308:                                              ; preds = %psa_crypto_local_output_alloc.exit.thread124.thread210, %psa_crypto_local_output_alloc.exit.thread124
-  %.sroa.16.0103116218 = phi i64 [ %.sroa.16.0103115, %psa_crypto_local_output_alloc.exit.thread124.thread210 ], [ %2, %psa_crypto_local_output_alloc.exit.thread124 ]
-  %.sroa.8.0102118217 = phi ptr [ %.044121, %psa_crypto_local_output_alloc.exit.thread124.thread210 ], [ %.sroa.8.0.ph, %psa_crypto_local_output_alloc.exit.thread124 ]
-  %.sroa.0.099120216 = phi ptr [ %.sroa.0.099119, %psa_crypto_local_output_alloc.exit.thread124.thread210 ], [ %.sroa.0.0.ph, %psa_crypto_local_output_alloc.exit.thread124 ]
-  %.043123215 = phi i32 [ %.043122, %psa_crypto_local_output_alloc.exit.thread124.thread210 ], [ 0, %psa_crypto_local_output_alloc.exit.thread124 ]
-  %309 = icmp eq ptr %.sroa.0.099120216, null
+308:                                              ; preds = %psa_crypto_local_output_alloc.exit.thread124.thread248, %psa_crypto_local_output_alloc.exit.thread124
+  %.sroa.16.0103116256 = phi i64 [ %.sroa.16.0103115, %psa_crypto_local_output_alloc.exit.thread124.thread248 ], [ %2, %psa_crypto_local_output_alloc.exit.thread124 ]
+  %.sroa.8.0102118255 = phi ptr [ %.044121, %psa_crypto_local_output_alloc.exit.thread124.thread248 ], [ %.sroa.8.0.ph, %psa_crypto_local_output_alloc.exit.thread124 ]
+  %.sroa.0.099120254 = phi ptr [ %.sroa.0.099119, %psa_crypto_local_output_alloc.exit.thread124.thread248 ], [ %.sroa.0.0.ph, %psa_crypto_local_output_alloc.exit.thread124 ]
+  %.043123253 = phi i32 [ %.043122, %psa_crypto_local_output_alloc.exit.thread124.thread248 ], [ 0, %psa_crypto_local_output_alloc.exit.thread124 ]
+  %309 = icmp eq ptr %.sroa.0.099120254, null
   br i1 %309, label %psa_crypto_local_output_free.exit, label %310
 
 310:                                              ; preds = %308
-  %.not.i.i76 = icmp eq i64 %.sroa.16.0103116218, 0
+  %.not.i.i76 = icmp eq i64 %.sroa.16.0103116256, 0
   br i1 %.not.i.i76, label %psa_crypto_copy_output.exit.i78, label %311
 
 311:                                              ; preds = %310
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.099120216, ptr nonnull readonly align 1 %.sroa.8.0102118217, i64 %.sroa.16.0103116218, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.099120254, ptr nonnull readonly align 1 %.sroa.8.0102118255, i64 %.sroa.16.0103116256, i1 false)
   br label %psa_crypto_copy_output.exit.i78
 
 psa_crypto_copy_output.exit.i78:                  ; preds = %311, %310
-  call void @free(ptr noundef nonnull %.sroa.8.0102118217) #22
+  call void @free(ptr noundef nonnull %.sroa.8.0102118255) #22
   br label %psa_crypto_local_output_free.exit
 
 psa_crypto_local_output_free.exit:                ; preds = %psa_crypto_local_output_alloc.exit.thread108, %308, %psa_crypto_copy_output.exit.i78, %psa_crypto_local_output_alloc.exit.thread124, %301, %psa_crypto_copy_output.exit.i, %299, %18, %3
-  %.0 = phi i32 [ -137, %3 ], [ -143, %18 ], [ -151, %301 ], [ -137, %psa_crypto_copy_output.exit.i ], [ -137, %299 ], [ -151, %308 ], [ %.043123215, %psa_crypto_copy_output.exit.i78 ], [ 0, %psa_crypto_local_output_alloc.exit.thread124 ], [ %.043122, %psa_crypto_local_output_alloc.exit.thread108 ]
+  %.0 = phi i32 [ -137, %3 ], [ -143, %18 ], [ -151, %301 ], [ -137, %psa_crypto_copy_output.exit.i ], [ -137, %299 ], [ -151, %308 ], [ %.043123253, %psa_crypto_copy_output.exit.i78 ], [ 0, %psa_crypto_local_output_alloc.exit.thread124 ], [ %.043122, %psa_crypto_local_output_alloc.exit.thread108 ]
   ret i32 %.0
 }
 
@@ -8116,10 +8116,10 @@ psa_generate_derived_ecc_key_weierstrass_helper.exit..thread_crit_edge.i: ; pred
 
 psa_generate_derived_ecc_key_montgomery_helper.exit.i: ; preds = %101, %95
   %104 = phi i8 [ %100, %95 ], [ %.pre.i, %101 ]
-  %.sink23.i.i = phi i64 [ 31, %95 ], [ 55, %101 ]
-  %.sink21.i.i = phi i8 [ 64, %95 ], [ -128, %101 ]
-  %105 = getelementptr inbounds nuw i8, ptr %90, i64 %.sink23.i.i
-  %106 = or i8 %.sink21.i.i, %104
+  %.sink25.i.i = phi i64 [ 31, %95 ], [ 55, %101 ]
+  %.sink23.i.i = phi i8 [ 64, %95 ], [ -128, %101 ]
+  %105 = getelementptr inbounds nuw i8, ptr %90, i64 %.sink25.i.i
+  %106 = or i8 %.sink23.i.i, %104
   store i8 %106, ptr %105, align 1, !tbaa !27
   br label %.thread.i
 
@@ -8670,8 +8670,8 @@ psa_key_derivation_start_hmac.exit.i:             ; preds = %44
 
 60:                                               ; preds = %59
   %trunc152.i = trunc i32 %.0.i to i8
-  %switch.tableidx55 = add i8 %trunc152.i, -3
-  %61 = icmp ult i8 %switch.tableidx55, 16
+  %switch.tableidx70 = add i8 %trunc152.i, -3
+  %61 = icmp ult i8 %switch.tableidx70, 16
   br i1 %61, label %switch.hole_check, label %62
 
 62:                                               ; preds = %switch.hole_check, %60
@@ -8680,19 +8680,19 @@ psa_key_derivation_start_hmac.exit.i:             ; preds = %44
   br label %66
 
 switch.hole_check:                                ; preds = %60
-  %switch.maskindex57 = zext nneg i8 %switch.tableidx55 to i16
-  %switch.shifted58 = lshr i16 -6169, %switch.maskindex57
-  %switch.lobit59 = trunc i16 %switch.shifted58 to i1
-  br i1 %switch.lobit59, label %switch.lookup56, label %62
+  %switch.maskindex72 = zext nneg i8 %switch.tableidx70 to i16
+  %switch.shifted73 = lshr i16 -6169, %switch.maskindex72
+  %switch.lobit74 = trunc i16 %switch.shifted73 to i1
+  br i1 %switch.lobit74, label %switch.lookup71, label %62
 
-switch.lookup56:                                  ; preds = %switch.hole_check
-  %65 = zext nneg i8 %switch.tableidx55 to i64
-  %switch.gep60 = getelementptr inbounds nuw [16 x i64], ptr @switch.table.psa_key_derivation_input_internal.33, i64 0, i64 %65
-  %switch.load61 = load i64, ptr %switch.gep60, align 8
+switch.lookup71:                                  ; preds = %switch.hole_check
+  %65 = zext nneg i8 %switch.tableidx70 to i64
+  %switch.gep75 = getelementptr inbounds nuw [16 x i64], ptr @switch.table.psa_key_derivation_input_internal.33, i64 0, i64 %65
+  %switch.load76 = load i64, ptr %switch.gep75, align 8
   br label %66
 
-66:                                               ; preds = %switch.lookup56, %62
-  %67 = phi i64 [ %64, %62 ], [ %switch.load61, %switch.lookup56 ]
+66:                                               ; preds = %switch.lookup71, %62
+  %67 = phi i64 [ %64, %62 ], [ %switch.load76, %switch.lookup71 ]
   %.not102.i = icmp eq i64 %4, %67
   br i1 %.not102.i, label %.thread.i, label %psa_hkdf_input.exit
 
@@ -8726,27 +8726,27 @@ switch.lookup56:                                  ; preds = %switch.hole_check
   %80 = load i8, ptr %79, align 1
   %81 = or i8 %80, 1
   store i8 %81, ptr %79, align 1
-  %switch.tableidx63 = add nsw i32 %21, -3
-  %82 = icmp ult i32 %switch.tableidx63, 16
-  %switch.maskindex66 = trunc nsw i32 %switch.tableidx63 to i16
-  %switch.shifted67 = lshr i16 -6169, %switch.maskindex66
-  %switch.lobit68 = trunc i16 %switch.shifted67 to i1
-  %or.cond71 = select i1 %82, i1 %switch.lobit68, i1 false
-  br i1 %or.cond71, label %switch.lookup65, label %83
+  %switch.tableidx78 = add nsw i32 %21, -3
+  %82 = icmp ult i32 %switch.tableidx78, 16
+  %switch.maskindex81 = trunc nsw i32 %switch.tableidx78 to i16
+  %switch.shifted82 = lshr i16 -6169, %switch.maskindex81
+  %switch.lobit83 = trunc i16 %switch.shifted82 to i1
+  %or.cond86 = select i1 %82, i1 %switch.lobit83, i1 false
+  br i1 %or.cond86, label %switch.lookup80, label %83
 
 83:                                               ; preds = %74
   %84 = icmp eq i32 %21, 19
   %85 = select i1 %84, i8 64, i8 0
   br label %87
 
-switch.lookup65:                                  ; preds = %74
-  %86 = zext nneg i32 %switch.tableidx63 to i64
-  %switch.gep69 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %86
-  %switch.load70 = load i8, ptr %switch.gep69, align 1
+switch.lookup80:                                  ; preds = %74
+  %86 = zext nneg i32 %switch.tableidx78 to i64
+  %switch.gep84 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %86
+  %switch.load85 = load i8, ptr %switch.gep84, align 1
   br label %87
 
-87:                                               ; preds = %switch.lookup65, %83
-  %88 = phi i8 [ %85, %83 ], [ %switch.load70, %switch.lookup65 ]
+87:                                               ; preds = %switch.lookup80, %83
+  %88 = phi i8 [ %85, %83 ], [ %switch.load85, %switch.lookup80 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i8 %88, ptr %89, align 4, !tbaa !57
   %90 = or disjoint i32 %21, 58720256
@@ -8861,29 +8861,29 @@ psa_mac_update.exit.thread.i:                     ; preds = %psa_mac_update.exit
 128:                                              ; preds = %122
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 35
   %trunc.i = trunc i32 %.0.i to i8
-  %switch.tableidx73 = add i8 %trunc.i, -3
-  %130 = icmp ult i8 %switch.tableidx73, 16
-  br i1 %130, label %switch.hole_check74, label %131
+  %switch.tableidx88 = add i8 %trunc.i, -3
+  %130 = icmp ult i8 %switch.tableidx88, 16
+  br i1 %130, label %switch.hole_check89, label %131
 
-131:                                              ; preds = %switch.hole_check74, %128
+131:                                              ; preds = %switch.hole_check89, %128
   %132 = icmp eq i32 %21, 19
   %133 = select i1 %132, i64 64, i64 0
   br label %135
 
-switch.hole_check74:                              ; preds = %128
-  %switch.maskindex76 = zext nneg i8 %switch.tableidx73 to i16
-  %switch.shifted77 = lshr i16 -6169, %switch.maskindex76
-  %switch.lobit78 = trunc i16 %switch.shifted77 to i1
-  br i1 %switch.lobit78, label %switch.lookup75, label %131
+switch.hole_check89:                              ; preds = %128
+  %switch.maskindex91 = zext nneg i8 %switch.tableidx88 to i16
+  %switch.shifted92 = lshr i16 -6169, %switch.maskindex91
+  %switch.lobit93 = trunc i16 %switch.shifted92 to i1
+  br i1 %switch.lobit93, label %switch.lookup90, label %131
 
-switch.lookup75:                                  ; preds = %switch.hole_check74
-  %134 = zext nneg i8 %switch.tableidx73 to i64
-  %switch.gep79 = getelementptr inbounds nuw [16 x i64], ptr @switch.table.psa_key_derivation_input_internal.33, i64 0, i64 %134
-  %switch.load80 = load i64, ptr %switch.gep79, align 8
+switch.lookup90:                                  ; preds = %switch.hole_check89
+  %134 = zext nneg i8 %switch.tableidx88 to i64
+  %switch.gep94 = getelementptr inbounds nuw [16 x i64], ptr @switch.table.psa_key_derivation_input_internal.33, i64 0, i64 %134
+  %switch.load95 = load i64, ptr %switch.gep94, align 8
   br label %135
 
-135:                                              ; preds = %switch.lookup75, %131
-  %136 = phi i64 [ %133, %131 ], [ %switch.load80, %switch.lookup75 ]
+135:                                              ; preds = %switch.lookup90, %131
+  %136 = phi i64 [ %133, %131 ], [ %switch.load95, %switch.lookup90 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr nonnull align 1 %120, i64 %136, i1 false)
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %137, align 8, !tbaa !77
@@ -8891,29 +8891,29 @@ switch.lookup75:                                  ; preds = %switch.hole_check74
 
 138:                                              ; preds = %._crit_edge155.i, %.thread.i
   %trunc153.pre-phi.i = phi i8 [ %.pre156.i, %._crit_edge155.i ], [ %trunc152.i, %.thread.i ]
-  %switch.tableidx82 = add i8 %trunc153.pre-phi.i, -3
-  %139 = icmp ult i8 %switch.tableidx82, 16
-  br i1 %139, label %switch.hole_check83, label %140
+  %switch.tableidx97 = add i8 %trunc153.pre-phi.i, -3
+  %139 = icmp ult i8 %switch.tableidx97, 16
+  br i1 %139, label %switch.hole_check98, label %140
 
-140:                                              ; preds = %switch.hole_check83, %138
+140:                                              ; preds = %switch.hole_check98, %138
   %141 = icmp eq i32 %21, 19
   %142 = select i1 %141, i8 64, i8 0
   br label %144
 
-switch.hole_check83:                              ; preds = %138
-  %switch.maskindex85 = zext nneg i8 %switch.tableidx82 to i16
-  %switch.shifted86 = lshr i16 -6169, %switch.maskindex85
-  %switch.lobit87 = trunc i16 %switch.shifted86 to i1
-  br i1 %switch.lobit87, label %switch.lookup84, label %140
+switch.hole_check98:                              ; preds = %138
+  %switch.maskindex100 = zext nneg i8 %switch.tableidx97 to i16
+  %switch.shifted101 = lshr i16 -6169, %switch.maskindex100
+  %switch.lobit102 = trunc i16 %switch.shifted101 to i1
+  br i1 %switch.lobit102, label %switch.lookup99, label %140
 
-switch.lookup84:                                  ; preds = %switch.hole_check83
-  %143 = zext nneg i8 %switch.tableidx82 to i64
-  %switch.gep88 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %143
-  %switch.load89 = load i8, ptr %switch.gep88, align 1
+switch.lookup99:                                  ; preds = %switch.hole_check98
+  %143 = zext nneg i8 %switch.tableidx97 to i64
+  %switch.gep103 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %143
+  %switch.load104 = load i8, ptr %switch.gep103, align 1
   br label %144
 
-144:                                              ; preds = %switch.lookup84, %140
-  %145 = phi i8 [ %142, %140 ], [ %switch.load89, %switch.lookup84 ]
+144:                                              ; preds = %switch.lookup99, %140
+  %145 = phi i8 [ %142, %140 ], [ %switch.load104, %switch.lookup99 ]
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %145, ptr %146, align 8, !tbaa !77
   br label %psa_hkdf_input.exit
@@ -9825,7 +9825,7 @@ define hidden i32 @psa_generate_key_custom(ptr noundef %0, ptr noundef readonly 
   %40 = zext i16 %33 to i32
   %41 = add nuw nsw i32 %40, 7
   %42 = lshr i32 %41, 3
-  br label %.thread85
+  br label %.thread94
 
 43:                                               ; preds = %36
   %44 = and i32 %37, 52992
@@ -9836,7 +9836,7 @@ define hidden i32 @psa_generate_key_custom(ptr noundef %0, ptr noundef readonly 
   %47 = zext i16 %33 to i32
   %48 = add nuw nsw i32 %47, 7
   %49 = lshr i32 %48, 3
-  br label %.thread85
+  br label %.thread94
 
 50:                                               ; preds = %43
   switch i16 %32, label %68 [
@@ -9854,31 +9854,31 @@ define hidden i32 @psa_generate_key_custom(ptr noundef %0, ptr noundef readonly 
   %54 = zext nneg i16 %narrow63 to i32
   %55 = mul nuw nsw i32 %54, 9
   %56 = add nuw nsw i32 %55, 14
-  br label %.thread85
+  br label %.thread94
 
 57:                                               ; preds = %50
   %58 = lshr i16 %33, 3
   %narrow61 = add nuw nsw i16 %58, 16
   %59 = zext nneg i16 %narrow61 to i32
-  br label %.thread85
+  br label %.thread94
 
 60:                                               ; preds = %50
   %61 = lshr i16 %33, 3
   %62 = mul nuw nsw i16 %61, 3
   %narrow59 = add nuw nsw i16 %62, 90
   %63 = zext nneg i16 %narrow59 to i32
-  br label %.thread85
+  br label %.thread94
 
 64:                                               ; preds = %50
   %65 = lshr i16 %33, 3
   %66 = mul nuw nsw i16 %65, 3
   %narrow = add nuw nsw i16 %66, 74
   %67 = zext nneg i16 %narrow to i32
-  br label %.thread85
+  br label %.thread94
 
 68:                                               ; preds = %50
   %trunc = and i16 %32, -256
-  switch i16 %trunc, label %.thread85 [
+  switch i16 %trunc, label %.thread94 [
     i16 28928, label %69
     i16 16640, label %73
   ]
@@ -9887,16 +9887,16 @@ define hidden i32 @psa_generate_key_custom(ptr noundef %0, ptr noundef readonly 
   %70 = zext i16 %33 to i32
   %71 = add nuw nsw i32 %70, 7
   %72 = lshr i32 %71, 3
-  br label %.thread85
+  br label %.thread94
 
 73:                                               ; preds = %68
   %74 = zext i16 %33 to i32
   %75 = add nuw nsw i32 %74, 7
   %76 = lshr i32 %75, 2
   %77 = or i32 %76, 1
-  br label %.thread85
+  br label %.thread94
 
-.thread85:                                        ; preds = %39, %51, %60, %69, %73, %64, %57, %46, %68
+.thread94:                                        ; preds = %39, %51, %60, %69, %73, %64, %57, %46, %68
   %78 = phi i32 [ %42, %39 ], [ %49, %46 ], [ %56, %51 ], [ %59, %57 ], [ %63, %60 ], [ %67, %64 ], [ %72, %69 ], [ %77, %73 ], [ 0, %68 ]
   %79 = zext nneg i32 %78 to i64
   store i64 %79, ptr %8, align 8, !tbaa !25
@@ -9915,9 +9915,9 @@ define hidden i32 @psa_generate_key_custom(ptr noundef %0, ptr noundef readonly 
   %83 = icmp eq ptr %.pre83, null
   br i1 %83, label %84, label %.thread.thread
 
-84:                                               ; preds = %.thread85, %82
-  %85 = phi ptr [ %23, %.thread85 ], [ %.pre, %82 ]
-  %86 = phi i64 [ %79, %.thread85 ], [ %.pre82, %82 ]
+84:                                               ; preds = %.thread94, %82
+  %85 = phi ptr [ %23, %.thread94 ], [ %.pre, %82 ]
+  %86 = phi i64 [ %79, %.thread94 ], [ %.pre82, %82 ]
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %88 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %86) #21
   store ptr %88, ptr %87, align 8, !tbaa !16
@@ -10009,7 +10009,7 @@ psa_finish_key_creation.exit:                     ; preds = %.thread.i
   br i1 %122, label %psa_fail_key_creation.exit, label %.thread.thread
 
 .thread.thread:                                   ; preds = %82, %.thread
-  %.1.ph88 = phi i32 [ %.1.ph.ph, %.thread ], [ -139, %82 ]
+  %.1.ph97 = phi i32 [ %.1.ph.ph, %.thread ], [ -139, %82 ]
   %123 = phi ptr [ %.pr, %.thread ], [ %.pre, %82 ]
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 40
   %125 = load ptr, ptr %124, align 8, !tbaa !16
@@ -10060,7 +10060,7 @@ psa_remove_key_data_from_memory.exit.i.i:         ; preds = %126, %.thread.threa
   br label %psa_fail_key_creation.exit
 
 psa_fail_key_creation.exit:                       ; preds = %141, %136, %131, %.thread.i.i, %.thread, %psa_finish_key_creation.exit, %19, %18, %11, %5
-  %.042 = phi i32 [ -135, %5 ], [ -135, %11 ], [ -135, %18 ], [ -135, %19 ], [ 0, %psa_finish_key_creation.exit ], [ %.1.ph.ph, %.thread ], [ %.1.ph88, %.thread.i.i ], [ %.1.ph88, %131 ], [ %.1.ph88, %136 ], [ %.1.ph88, %141 ]
+  %.042 = phi i32 [ -135, %5 ], [ -135, %11 ], [ -135, %18 ], [ -135, %19 ], [ 0, %psa_finish_key_creation.exit ], [ %.1.ph.ph, %.thread ], [ %.1.ph97, %.thread.i.i ], [ %.1.ph97, %131 ], [ %.1.ph97, %136 ], [ %.1.ph97, %141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -11820,7 +11820,7 @@ switch.early.test138:                             ; preds = %8
   %53 = and i32 %2, 62914560
   switch i32 %53, label %67 [
     i32 58720256, label %54
-    i32 62914560, label %.thread151
+    i32 62914560, label %.thread154
   ]
 
 54:                                               ; preds = %52
@@ -11838,7 +11838,7 @@ switch.early.test138:                             ; preds = %8
   %59 = select i1 %58, i32 64, i32 0
   br label %.thread
 
-.thread151:                                       ; preds = %52
+.thread154:                                       ; preds = %52
   %60 = zext i16 %0 to i32
   %61 = and i32 %60, 28672
   %62 = icmp eq i32 %61, 8192
@@ -11885,8 +11885,8 @@ switch.lookup:                                    ; preds = %54
   %74 = select i1 %73, i32 64, i32 0
   br label %84
 
-75:                                               ; preds = %.thread151, %67
-  %76 = phi i32 [ %66, %.thread151 ], [ %68, %67 ]
+75:                                               ; preds = %.thread154, %67
+  %76 = phi i32 [ %66, %.thread154 ], [ %68, %67 ]
   %77 = zext i16 %0 to i32
   %78 = and i32 %77, 28672
   %79 = icmp eq i32 %78, 8192
@@ -12187,13 +12187,13 @@ switch.lookup:                                    ; preds = %70
 
 92:                                               ; preds = %90
   %93 = and i32 %2, 33554687
-  %switch.tableidx243 = add nsw i32 %93, -33554435
-  %94 = icmp ult i32 %switch.tableidx243, 16
-  %switch.maskindex245 = trunc i32 %switch.tableidx243 to i16
-  %switch.shifted246 = lshr i16 -6169, %switch.maskindex245
-  %switch.lobit247 = trunc i16 %switch.shifted246 to i1
-  %or.cond250 = select i1 %94, i1 %switch.lobit247, i1 false
-  br i1 %or.cond250, label %switch.lookup244, label %95
+  %switch.tableidx250 = add nsw i32 %93, -33554435
+  %94 = icmp ult i32 %switch.tableidx250, 16
+  %switch.maskindex252 = trunc i32 %switch.tableidx250 to i16
+  %switch.shifted253 = lshr i16 -6169, %switch.maskindex252
+  %switch.lobit254 = trunc i16 %switch.shifted253 to i1
+  %or.cond257 = select i1 %94, i1 %switch.lobit254, i1 false
+  br i1 %or.cond257, label %switch.lookup251, label %95
 
 95:                                               ; preds = %92
   %96 = icmp eq i32 %93, 33554451
@@ -12210,14 +12210,14 @@ switch.lookup:                                    ; preds = %70
   %105 = select i1 %101, i32 %104, i32 0
   br label %107
 
-switch.lookup244:                                 ; preds = %92
-  %106 = zext nneg i32 %switch.tableidx243 to i64
-  %switch.gep248 = getelementptr inbounds nuw [16 x i32], ptr @switch.table.psa_key_policy_algorithm_intersection.35, i64 0, i64 %106
-  %switch.load249 = load i32, ptr %switch.gep248, align 4
+switch.lookup251:                                 ; preds = %92
+  %106 = zext nneg i32 %switch.tableidx250 to i64
+  %switch.gep255 = getelementptr inbounds nuw [16 x i32], ptr @switch.table.psa_key_policy_algorithm_intersection.35, i64 0, i64 %106
+  %switch.load256 = load i32, ptr %switch.gep255, align 4
   br label %107
 
-107:                                              ; preds = %switch.lookup244, %90, %95, %98, %88
-  %108 = phi i32 [ %89, %88 ], [ %97, %95 ], [ %105, %98 ], [ 0, %90 ], [ %switch.load249, %switch.lookup244 ]
+107:                                              ; preds = %switch.lookup251, %90, %95, %98, %88
+  %108 = phi i32 [ %89, %88 ], [ %97, %95 ], [ %105, %98 ], [ 0, %90 ], [ %switch.load256, %switch.lookup251 ]
   %109 = and i32 %2, 32768
   %.not157 = icmp eq i32 %109, 0
   %110 = and i32 %1, 32768
@@ -12310,7 +12310,7 @@ define internal fastcc range(i32 -135, 1) i32 @psa_mac_finalize_alg_and_key_vali
 
 17:                                               ; preds = %15
   %18 = lshr exact i32 %16, 16
-  br label %select.unfold4
+  br label %select.unfold6
 
 19:                                               ; preds = %15
   switch i32 %6, label %.thread3 [
@@ -12324,7 +12324,7 @@ define internal fastcc range(i32 -135, 1) i32 @psa_mac_finalize_alg_and_key_vali
 
 20:                                               ; preds = %19
   %21 = and i32 %0, 33554687
-  switch i32 %21, label %.thread5 [
+  switch i32 %21, label %.thread7 [
     i32 33554435, label %.thread
     i32 33554436, label %.fold.split
     i32 33554437, label %.fold.split
@@ -12337,7 +12337,7 @@ define internal fastcc range(i32 -135, 1) i32 @psa_mac_finalize_alg_and_key_vali
     i32 33554448, label %.fold.split58
     i32 33554449, label %.fold.split59
     i32 33554450, label %.fold.split60
-    i32 33554451, label %.thread10.sink.split
+    i32 33554451, label %.thread12.sink.split
   ]
 
 22:                                               ; preds = %19
@@ -12347,7 +12347,7 @@ define internal fastcc range(i32 -135, 1) i32 @psa_mac_finalize_alg_and_key_vali
   %26 = lshr i32 %23, 8
   %27 = and i32 %26, 7
   %28 = shl nuw nsw i32 1, %27
-  br i1 %25, label %select.unfold4, label %.thread5
+  br i1 %25, label %select.unfold6, label %.thread7
 
 .fold.split:                                      ; preds = %20, %20
   br label %.thread
@@ -12367,34 +12367,34 @@ define internal fastcc range(i32 -135, 1) i32 @psa_mac_finalize_alg_and_key_vali
 .thread:                                          ; preds = %20, %.fold.split, %.fold.split58, %.fold.split59, %.fold.split60, %.fold.split61
   %.ph = phi i32 [ 64, %.fold.split61 ], [ 48, %.fold.split60 ], [ 32, %.fold.split59 ], [ 28, %.fold.split58 ], [ 20, %.fold.split ], [ 16, %20 ]
   %29 = trunc nuw nsw i32 %.ph to i8
-  br label %.thread10.sink.split
+  br label %.thread12.sink.split
 
-.thread5:                                         ; preds = %20, %22
+.thread7:                                         ; preds = %20, %22
   store i8 0, ptr %1, align 1, !tbaa !27
   br label %psa_mac_key_can_do.exit
 
-select.unfold4:                                   ; preds = %22, %17
+select.unfold6:                                   ; preds = %22, %17
   %30 = phi i32 [ %18, %17 ], [ %28, %22 ]
   %31 = trunc nuw i32 %30 to i8
   store i8 %31, ptr %1, align 1, !tbaa !27
   %32 = icmp samesign ult i32 %30, 4
   br i1 %32, label %psa_mac_key_can_do.exit, label %33
 
-33:                                               ; preds = %select.unfold4
+33:                                               ; preds = %select.unfold6
   switch i32 %6, label %psa_mac_key_can_do.exit [
-    i32 58720256, label %.thread10
+    i32 58720256, label %.thread12
     i32 62914560, label %40
   ]
 
-.thread10.sink.split:                             ; preds = %20, %.thread
+.thread12.sink.split:                             ; preds = %20, %.thread
   %.sink = phi i8 [ %29, %.thread ], [ 64, %20 ]
-  %.ph13 = phi i32 [ %.ph, %.thread ], [ 64, %20 ]
+  %.ph15 = phi i32 [ %.ph, %.thread ], [ 64, %20 ]
   store i8 %.sink, ptr %1, align 1, !tbaa !27
-  br label %.thread10
+  br label %.thread12
 
-.thread10:                                        ; preds = %.thread10.sink.split, %33
-  %34 = phi i8 [ %31, %33 ], [ %.sink, %.thread10.sink.split ]
-  %35 = phi i32 [ %30, %33 ], [ %.ph13, %.thread10.sink.split ]
+.thread12:                                        ; preds = %.thread12.sink.split, %33
+  %34 = phi i8 [ %31, %33 ], [ %.sink, %.thread12.sink.split ]
+  %35 = phi i32 [ %30, %33 ], [ %.ph15, %.thread12.sink.split ]
   %36 = and i32 %0, 33554687
   switch i32 %36, label %37 [
     i32 33554435, label %48
@@ -12411,7 +12411,7 @@ select.unfold4:                                   ; preds = %22, %17
     i32 33554450, label %.fold.split71
   ]
 
-37:                                               ; preds = %.thread10
+37:                                               ; preds = %.thread12
   %38 = icmp eq i32 %36, 33554451
   %39 = select i1 %38, i32 64, i32 0
   br label %48
@@ -12426,25 +12426,25 @@ select.unfold4:                                   ; preds = %22, %17
   %47 = select i1 %43, i32 %46, i32 0
   br label %48
 
-.fold.split67:                                    ; preds = %.thread10, %.thread10
+.fold.split67:                                    ; preds = %.thread12, %.thread12
   br label %48
 
-.fold.split69:                                    ; preds = %.thread10, %.thread10, %.thread10
+.fold.split69:                                    ; preds = %.thread12, %.thread12, %.thread12
   br label %48
 
-.fold.split70:                                    ; preds = %.thread10, %.thread10, %.thread10
+.fold.split70:                                    ; preds = %.thread12, %.thread12, %.thread12
   br label %48
 
-.fold.split71:                                    ; preds = %.thread10, %.thread10
+.fold.split71:                                    ; preds = %.thread12, %.thread12
   br label %48
 
-.fold.split72:                                    ; preds = %.thread10
+.fold.split72:                                    ; preds = %.thread12
   br label %48
 
-48:                                               ; preds = %.thread10, %.fold.split72, %.fold.split71, %.fold.split70, %.fold.split69, %.fold.split67, %37, %40
-  %49 = phi i8 [ %34, %.thread10 ], [ %34, %37 ], [ %31, %40 ], [ %34, %.fold.split67 ], [ %34, %.fold.split69 ], [ %34, %.fold.split70 ], [ %34, %.fold.split71 ], [ %34, %.fold.split72 ]
-  %50 = phi i32 [ %35, %.thread10 ], [ %35, %37 ], [ %30, %40 ], [ %35, %.fold.split67 ], [ %35, %.fold.split69 ], [ %35, %.fold.split70 ], [ %35, %.fold.split71 ], [ %35, %.fold.split72 ]
-  %51 = phi i32 [ 16, %.thread10 ], [ %39, %37 ], [ %47, %40 ], [ 20, %.fold.split67 ], [ 28, %.fold.split69 ], [ 32, %.fold.split70 ], [ 48, %.fold.split71 ], [ 64, %.fold.split72 ]
+48:                                               ; preds = %.thread12, %.fold.split72, %.fold.split71, %.fold.split70, %.fold.split69, %.fold.split67, %37, %40
+  %49 = phi i8 [ %34, %.thread12 ], [ %34, %37 ], [ %31, %40 ], [ %34, %.fold.split67 ], [ %34, %.fold.split69 ], [ %34, %.fold.split70 ], [ %34, %.fold.split71 ], [ %34, %.fold.split72 ]
+  %50 = phi i32 [ %35, %.thread12 ], [ %35, %37 ], [ %30, %40 ], [ %35, %.fold.split67 ], [ %35, %.fold.split69 ], [ %35, %.fold.split70 ], [ %35, %.fold.split71 ], [ %35, %.fold.split72 ]
+  %51 = phi i32 [ 16, %.thread12 ], [ %39, %37 ], [ %47, %40 ], [ 20, %.fold.split67 ], [ 28, %.fold.split69 ], [ 32, %.fold.split70 ], [ 48, %.fold.split71 ], [ 64, %.fold.split72 ]
   %52 = icmp samesign ugt i32 %50, %51
   br i1 %52, label %psa_mac_key_can_do.exit, label %53
 
@@ -12453,8 +12453,8 @@ select.unfold4:                                   ; preds = %22, %17
   %. = select i1 %54, i32 -134, i32 0
   br label %psa_mac_key_can_do.exit
 
-psa_mac_key_can_do.exit:                          ; preds = %33, %.thread5, %.thread3, %9, %53, %48, %select.unfold4, %2
-  %.0 = phi i32 [ -135, %2 ], [ -134, %select.unfold4 ], [ -135, %48 ], [ %., %53 ], [ -135, %9 ], [ -134, %.thread3 ], [ -134, %.thread5 ], [ -135, %33 ]
+psa_mac_key_can_do.exit:                          ; preds = %33, %.thread7, %.thread3, %9, %53, %48, %select.unfold6, %2
+  %.0 = phi i32 [ -135, %2 ], [ -134, %select.unfold6 ], [ -135, %48 ], [ %., %53 ], [ -135, %9 ], [ -134, %.thread3 ], [ -134, %.thread7 ], [ -135, %33 ]
   ret i32 %.0
 }
 

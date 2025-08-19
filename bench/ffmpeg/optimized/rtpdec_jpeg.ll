@@ -406,8 +406,8 @@ bytestream2_put_buffer.exit52.i:                  ; preds = %184, %180
   %194 = ptrtoint ptr %.sroa.0.1.lcssa.i to i64
   %195 = sub i64 %161, %194
   %196 = icmp sgt i64 %195, 0
-  %or.cond694.i = select i1 %.not.i.i120.i, i1 %196, i1 false
-  br i1 %or.cond694.i, label %197, label %bytestream2_put_byte.exit21.i.i
+  %or.cond699.i = select i1 %.not.i.i120.i, i1 %196, i1 false
+  br i1 %or.cond699.i, label %197, label %bytestream2_put_byte.exit21.i.i
 
 197:                                              ; preds = %._crit_edge.i
   store i8 -1, ptr %.sroa.0.1.lcssa.i, align 1, !tbaa !4
@@ -762,8 +762,8 @@ jpeg_create_huffman_table.exit182.i:              ; preds = %bytestream2_put_byt
   %304 = ptrtoint ptr %.sroa.0.74.i to i64
   %305 = sub i64 %161, %304
   %306 = icmp sgt i64 %305, 0
-  %or.cond697.i = select i1 %.not.i.i183.i, i1 %306, i1 false
-  br i1 %or.cond697.i, label %307, label %456
+  %or.cond702.i = select i1 %.not.i.i183.i, i1 %306, i1 false
+  br i1 %or.cond702.i, label %307, label %456
 
 307:                                              ; preds = %jpeg_create_huffman_table.exit182.i
   store i8 -1, ptr %.sroa.0.74.i, align 1, !tbaa !4

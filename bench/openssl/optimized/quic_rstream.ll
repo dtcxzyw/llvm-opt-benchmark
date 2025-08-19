@@ -487,9 +487,9 @@ ring_buf_cpop_range.exit:                         ; preds = %101, %98, %68
   br i1 %.not71, label %.thread108, label %ring_buf_cpop_range.exit.thread
 
 ring_buf_cpop_range.exit.thread:                  ; preds = %6, %.thread115, %ring_buf_cpop_range.exit
-  %.143140 = phi i64 [ %.143, %ring_buf_cpop_range.exit ], [ %.143, %.thread115 ], [ 0, %6 ]
+  %.143152 = phi i64 [ %.143, %ring_buf_cpop_range.exit ], [ %.143, %.thread115 ], [ 0, %6 ]
   %.041123 = phi i32 [ %69, %ring_buf_cpop_range.exit ], [ 1, %.thread115 ], [ 1, %6 ]
-  store i64 %.143140, ptr %3, align 8, !tbaa !24
+  store i64 %.143152, ptr %3, align 8, !tbaa !24
   %102 = load i32, ptr %10, align 4, !tbaa !26
   store i32 %102, ptr %4, align 4, !tbaa !26
   br label %.thread108

@@ -52,9 +52,9 @@ set_erpic.exit:                                   ; preds = %1, %.critedge
   %28 = load ptr, ptr %27, align 8, !tbaa !47
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %26, i8 0, i64 72, i1 false)
   %.not.i16 = icmp eq ptr %28, null
-  br i1 %.not.i16, label %set_erpic.exit18, label %.critedge23
+  br i1 %.not.i16, label %set_erpic.exit18, label %.critedge25
 
-.critedge23:                                      ; preds = %set_erpic.exit
+.critedge25:                                      ; preds = %set_erpic.exit
   %29 = load ptr, ptr %28, align 8, !tbaa !36
   store ptr %29, ptr %26, align 8, !tbaa !39
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 144
@@ -86,15 +86,15 @@ set_erpic.exit:                                   ; preds = %1, %.critedge
   store i32 %48, ptr %49, align 8, !tbaa !46
   br label %set_erpic.exit18
 
-set_erpic.exit18:                                 ; preds = %set_erpic.exit, %.critedge23
+set_erpic.exit18:                                 ; preds = %set_erpic.exit, %.critedge25
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 4600
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %52 = load ptr, ptr %51, align 8, !tbaa !48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %50, i8 0, i64 72, i1 false)
   %.not.i19 = icmp eq ptr %52, null
-  br i1 %.not.i19, label %set_erpic.exit21, label %.critedge25
+  br i1 %.not.i19, label %set_erpic.exit21, label %.critedge27
 
-.critedge25:                                      ; preds = %set_erpic.exit18
+.critedge27:                                      ; preds = %set_erpic.exit18
   %53 = load ptr, ptr %52, align 8, !tbaa !36
   store ptr %53, ptr %50, align 8, !tbaa !39
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 144
@@ -126,7 +126,7 @@ set_erpic.exit18:                                 ; preds = %set_erpic.exit, %.c
   store i32 %72, ptr %73, align 8, !tbaa !46
   br label %set_erpic.exit21
 
-set_erpic.exit21:                                 ; preds = %set_erpic.exit18, %.critedge25
+set_erpic.exit21:                                 ; preds = %set_erpic.exit18, %.critedge27
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 4336
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 4080
   %76 = load i16, ptr %75, align 8, !tbaa !49

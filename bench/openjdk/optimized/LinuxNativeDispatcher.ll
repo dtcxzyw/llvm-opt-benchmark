@@ -254,7 +254,7 @@ define range(i32 -6, 1) i32 @Java_sun_nio_fs_LinuxNativeDispatcher_directCopy0(p
   %7 = select i1 %.not, i64 2147479552, i64 1048576
   %8 = load ptr, ptr @my_copy_file_range_func, align 8
   %.not29 = icmp eq ptr %8, null
-  br i1 %.not29, label %.split44.us.thread66, label %.preheader
+  br i1 %.not29, label %.split44.us.thread75, label %.preheader
 
 .preheader:                                       ; preds = %5
   br i1 %.not, label %.preheader.split.us, label %.preheader.split
@@ -286,14 +286,14 @@ define range(i32 -6, 1) i32 @Java_sun_nio_fs_LinuxNativeDispatcher_directCopy0(p
 .critedge.thread.us:                              ; preds = %13, %.critedge.us..critedge.thread.us_crit_edge
   %17 = phi i32 [ %.pr, %.critedge.us..critedge.thread.us_crit_edge ], [ %15, %13 ]
   switch i32 %17, label %.split.us [
-    i32 22, label %.split44.us.thread66
-    i32 38, label %.split44.us.thread66
-    i32 18, label %.split44.us.thread66
+    i32 22, label %.split44.us.thread75
+    i32 38, label %.split44.us.thread75
+    i32 18, label %.split44.us.thread75
   ]
 
 18:                                               ; preds = %.critedge.us
-  %.not84 = icmp eq i64 %10, 0
-  br i1 %.not84, label %throwUnixException.exit, label %.preheader.split.us.backedge
+  %.not93 = icmp eq i64 %10, 0
+  br i1 %.not93, label %throwUnixException.exit, label %.preheader.split.us.backedge
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split.backedge
   %19 = load ptr, ptr @my_copy_file_range_func, align 8
@@ -316,11 +316,11 @@ define range(i32 -6, 1) i32 @Java_sun_nio_fs_LinuxNativeDispatcher_directCopy0(p
 
 .critedge..critedge.thread_crit_edge:             ; preds = %.critedge
   %.pre62 = tail call ptr @__errno_location() #6
-  %.pr64 = load i32, ptr %.pre62, align 4
+  %.pr73 = load i32, ptr %.pre62, align 4
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %22, %.critedge..critedge.thread_crit_edge
-  %27 = phi i32 [ %.pr64, %.critedge..critedge.thread_crit_edge ], [ %24, %22 ]
+  %27 = phi i32 [ %.pr73, %.critedge..critedge.thread_crit_edge ], [ %24, %22 ]
   switch i32 %27, label %.split.us [
     i32 22, label %28
     i32 38, label %28
@@ -354,12 +354,12 @@ define range(i32 -6, 1) i32 @Java_sun_nio_fs_LinuxNativeDispatcher_directCopy0(p
 
 .split44.us:                                      ; preds = %37
   %39 = icmp eq i64 %20, 0
-  br i1 %39, label %throwUnixException.exit, label %.split44.us.thread66
+  br i1 %39, label %throwUnixException.exit, label %.split44.us.thread75
 
-.split44.us.thread66:                             ; preds = %.critedge.thread.us, %.critedge.thread.us, %.critedge.thread.us, %.split44.us, %5
+.split44.us.thread75:                             ; preds = %.critedge.thread.us, %.critedge.thread.us, %.critedge.thread.us, %.split44.us, %5
   br i1 %.not, label %.split45.us, label %.split45
 
-.split45.us:                                      ; preds = %.split44.us.thread66, %.split45.us.backedge
+.split45.us:                                      ; preds = %.split44.us.thread75, %.split45.us.backedge
   %40 = tail call i64 @sendfile64(i32 noundef %2, i32 noundef %3, ptr noundef null, i64 noundef %7) #5
   %41 = icmp eq i64 %40, -1
   br i1 %41, label %44, label %.critedge2.us
@@ -381,7 +381,7 @@ define range(i32 -6, 1) i32 @Java_sun_nio_fs_LinuxNativeDispatcher_directCopy0(p
 .split45.us.backedge:                             ; preds = %44, %43
   br label %.split45.us, !llvm.loop !9
 
-.split45:                                         ; preds = %.split44.us.thread66, %.split45.backedge
+.split45:                                         ; preds = %.split44.us.thread75, %.split45.backedge
   %48 = tail call i64 @sendfile64(i32 noundef %2, i32 noundef %3, ptr noundef null, i64 noundef %7) #5
   %49 = icmp eq i64 %48, -1
   br i1 %49, label %50, label %.critedge2

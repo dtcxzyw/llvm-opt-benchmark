@@ -8617,9 +8617,9 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %108, %34, %68
-  %.sink107 = phi i32 [ %70, %68 ], [ %38, %34 ], [ %110, %108 ]
+  %.sink117 = phi i32 [ %70, %68 ], [ %38, %34 ], [ %110, %108 ]
   %.sink = phi ptr [ %47, %68 ], [ %17, %34 ], [ %.0, %108 ]
-  store i32 %.sink107, ptr %4, align 4, !tbaa !20
+  store i32 %.sink117, ptr %4, align 4, !tbaa !20
   store ptr %.sink, ptr %1, align 8, !tbaa !93
   br label %.critedge
 

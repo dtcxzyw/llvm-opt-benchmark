@@ -4457,7 +4457,7 @@ Wayland_AdjustEventTimestampBase.exit:            ; preds = %Wayland_EventTimest
 
 29:                                               ; preds = %Wayland_AdjustEventTimestampBase.exit
   switch i32 %28, label %30 [
-    i32 -1, label %.thread78
+    i32 -1, label %.thread79
     i32 0, label %35
   ]
 
@@ -4468,7 +4468,7 @@ Wayland_AdjustEventTimestampBase.exit:            ; preds = %Wayland_EventTimest
   %34 = load float, ptr %33, align 4
   tail call void @SDL_SendPenMotion(i64 noundef %.0.i, i32 noundef %21, ptr noundef %23, float noundef %32, float noundef %34) #12
   tail call void @SDL_SendPenTouch(i64 noundef %.0.i, i32 noundef %21, ptr noundef %23, i1 noundef zeroext false, i1 noundef zeroext true) #12
-  br label %.thread79
+  br label %.thread80
 
 35:                                               ; preds = %29
   tail call void @SDL_SendPenTouch(i64 noundef %.0.i, i32 noundef %21, ptr noundef %23, i1 noundef zeroext false, i1 noundef zeroext false) #12
@@ -4477,28 +4477,28 @@ Wayland_AdjustEventTimestampBase.exit:            ; preds = %Wayland_EventTimest
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %39 = load float, ptr %38, align 4
   tail call void @SDL_SendPenMotion(i64 noundef %.0.i, i32 noundef %21, ptr noundef %23, float noundef %37, float noundef %39) #12
-  br label %.thread79
+  br label %.thread80
 
 40:                                               ; preds = %Wayland_AdjustEventTimestampBase.exit
   %.not65 = icmp eq i32 %28, -1
-  br i1 %.not65, label %.thread79, label %41
+  br i1 %.not65, label %.thread80, label %41
 
 41:                                               ; preds = %40
   %42 = icmp ne i32 %28, 0
   tail call void @SDL_SendPenTouch(i64 noundef %.0.i, i32 noundef %21, ptr noundef %23, i1 noundef zeroext false, i1 noundef zeroext %42) #12
   %.pre76 = load i8, ptr %24, align 8, !range !6
   %43 = trunc nuw i8 %.pre76 to i1
-  br i1 %43, label %.thread78, label %.thread79
+  br i1 %43, label %.thread79, label %.thread80
 
-.thread78:                                        ; preds = %29, %41
+.thread79:                                        ; preds = %29, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load float, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %47 = load float, ptr %46, align 4
   tail call void @SDL_SendPenMotion(i64 noundef %.0.i, i32 noundef %21, ptr noundef %23, float noundef %45, float noundef %47) #12
-  br label %.thread79
+  br label %.thread80
 
-.thread79:                                        ; preds = %40, %41, %.thread78, %30, %35
+.thread80:                                        ; preds = %40, %41, %.thread79, %30, %35
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 52
   br label %51
@@ -4507,8 +4507,8 @@ Wayland_AdjustEventTimestampBase.exit:            ; preds = %Wayland_EventTimest
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %62
 
-51:                                               ; preds = %.thread79, %59
-  %indvars.iv = phi i64 [ 0, %.thread79 ], [ %indvars.iv.next, %59 ]
+51:                                               ; preds = %.thread80, %59
+  %indvars.iv = phi i64 [ 0, %.thread80 ], [ %indvars.iv.next, %59 ]
   %52 = load i32, ptr %48, align 8
   %53 = trunc nuw nsw i64 %indvars.iv to i32
   %54 = shl nuw nsw i32 1, %53
@@ -4978,9 +4978,9 @@ switch.lookup:                                    ; preds = %Wayland_GetPointerT
   %switch.downshift = lshr i5 1, %switch.cast
   %switch.masked = trunc nuw i5 %switch.downshift to i1
   %33 = shl nuw nsw i32 %switch.tableidx, 3
-  %switch.shiftamt9 = zext nneg i32 %33 to i40
-  %switch.downshift10 = lshr i40 21542077185, %switch.shiftamt9
-  %switch.masked11 = trunc i40 %switch.downshift10 to i8
+  %switch.shiftamt12 = zext nneg i32 %33 to i40
+  %switch.downshift13 = lshr i40 21542077185, %switch.shiftamt12
+  %switch.masked14 = trunc i40 %switch.downshift13 to i8
   %.not.i6 = icmp eq ptr %30, null
   br i1 %.not.i6, label %pointer_handle_button_common.exit, label %34
 
@@ -5007,7 +5007,7 @@ switch.lookup:                                    ; preds = %Wayland_GetPointerT
   br label %Wayland_UpdateImplicitGrabSerial.exit.i
 
 Wayland_UpdateImplicitGrabSerial.exit.i:          ; preds = %39, %35
-  %46 = trunc i40 %switch.downshift10 to i32
+  %46 = trunc i40 %switch.downshift13 to i32
   %47 = and i32 %46, 7
   %48 = add nsw i32 %47, -1
   %49 = shl nuw nsw i32 1, %48
@@ -5018,7 +5018,7 @@ Wayland_UpdateImplicitGrabSerial.exit.i:          ; preds = %39, %35
   br label %62
 
 53:                                               ; preds = %34
-  %54 = trunc i40 %switch.downshift10 to i32
+  %54 = trunc i40 %switch.downshift13 to i32
   %55 = and i32 %54, 7
   %56 = add nsw i32 %55, -1
   %57 = shl nuw nsw i32 1, %56
@@ -5161,7 +5161,7 @@ Wayland_ProcessHitTest.exit.i:                    ; preds = %71, %66, %63, %62
   %130 = load ptr, ptr %30, align 8
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %132 = load i32, ptr %131, align 8
-  tail call void @SDL_SendMouseButton(i64 noundef %.0.i.i, ptr noundef %130, i32 noundef %132, i8 noundef zeroext %switch.masked11, i1 noundef zeroext %31) #12
+  tail call void @SDL_SendMouseButton(i64 noundef %.0.i.i, ptr noundef %130, i32 noundef %132, i8 noundef zeroext %switch.masked14, i1 noundef zeroext %31) #12
   br label %pointer_handle_button_common.exit
 
 pointer_handle_button_common.exit:                ; preds = %Wayland_GetPointerTimestamp.exit, %switch.lookup, %74, %78, %81, %88, %92, %95, %128, %129
@@ -7811,7 +7811,7 @@ define internal fastcc void @Wayland_ReconcileModifiers(ptr noundef captures(non
   %116 = and i16 %104, 192
   %.not100 = icmp eq i16 %116, 0
   %117 = or disjoint i16 %104, 192
-  %spec.select111 = select i1 %.not100, i16 %117, i16 %104
+  %spec.select114 = select i1 %.not100, i16 %117, i16 %104
   br label %120
 
 118:                                              ; preds = %103
@@ -7819,7 +7819,7 @@ define internal fastcc void @Wayland_ReconcileModifiers(ptr noundef captures(non
   br label %120
 
 120:                                              ; preds = %115, %112, %118
-  %121 = phi i16 [ %114, %112 ], [ %119, %118 ], [ %spec.select111, %115 ]
+  %121 = phi i16 [ %114, %112 ], [ %119, %118 ], [ %spec.select114, %115 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %123 = load i32, ptr %122, align 4
   %124 = and i32 %123, %85
@@ -7842,7 +7842,7 @@ define internal fastcc void @Wayland_ReconcileModifiers(ptr noundef captures(non
   %133 = and i16 %121, 768
   %.not103 = icmp eq i16 %133, 0
   %134 = or disjoint i16 %121, 768
-  %spec.select112 = select i1 %.not103, i16 %134, i16 %121
+  %spec.select115 = select i1 %.not103, i16 %134, i16 %121
   br label %137
 
 135:                                              ; preds = %120
@@ -7850,7 +7850,7 @@ define internal fastcc void @Wayland_ReconcileModifiers(ptr noundef captures(non
   br label %137
 
 137:                                              ; preds = %132, %129, %135
-  %138 = phi i16 [ %131, %129 ], [ %136, %135 ], [ %spec.select112, %132 ]
+  %138 = phi i16 [ %131, %129 ], [ %136, %135 ], [ %spec.select115, %132 ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %140 = load i32, ptr %139, align 8
   %141 = and i32 %140, %85
@@ -7873,7 +7873,7 @@ define internal fastcc void @Wayland_ReconcileModifiers(ptr noundef captures(non
   %150 = and i16 %138, 3072
   %.not106 = icmp eq i16 %150, 0
   %151 = or disjoint i16 %138, 3072
-  %spec.select113 = select i1 %.not106, i16 %151, i16 %138
+  %spec.select116 = select i1 %.not106, i16 %151, i16 %138
   br label %154
 
 152:                                              ; preds = %137
@@ -7881,7 +7881,7 @@ define internal fastcc void @Wayland_ReconcileModifiers(ptr noundef captures(non
   br label %154
 
 154:                                              ; preds = %149, %146, %152
-  %155 = phi i16 [ %148, %146 ], [ %153, %152 ], [ %spec.select113, %149 ]
+  %155 = phi i16 [ %148, %146 ], [ %153, %152 ], [ %spec.select116, %149 ]
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %157 = load i32, ptr %156, align 4
   %158 = and i32 %157, %85
@@ -7893,25 +7893,25 @@ define internal fastcc void @Wayland_ReconcileModifiers(ptr noundef captures(non
   %162 = load i32, ptr %161, align 8
   %163 = and i32 %162, %85
   %.not108 = icmp eq i32 %163, 0
-  %masksel115 = select i1 %.not108, i16 0, i16 16384
-  %164 = or disjoint i16 %160, %masksel115
+  %masksel118 = select i1 %.not108, i16 0, i16 16384
+  %164 = or disjoint i16 %160, %masksel118
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %166 = load i32, ptr %165, align 8
   %167 = and i32 %166, %85
   %.not109 = icmp eq i32 %167, 0
-  %masksel116 = select i1 %.not109, i16 0, i16 8192
-  %168 = or disjoint i16 %164, %masksel116
+  %masksel119 = select i1 %.not109, i16 0, i16 8192
+  %168 = or disjoint i16 %164, %masksel119
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %170 = load i32, ptr %169, align 4
   %171 = and i32 %170, %85
   %.not110 = icmp eq i32 %171, 0
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 178
-  %masksel117 = select i1 %.not110, i16 0, i16 4096
-  %.sink114 = or disjoint i16 %168, %masksel117
-  store i16 %.sink114, ptr %172, align 2
+  %masksel120 = select i1 %.not110, i16 0, i16 4096
+  %.sink117 = or disjoint i16 %168, %masksel120
+  store i16 %.sink117, ptr %172, align 2
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %174 = load i16, ptr %173, align 8
-  %175 = or i16 %.sink114, %174
+  %175 = or i16 %.sink117, %174
   tail call void @SDL_SetModState_REAL(i16 noundef zeroext %175) #12
   ret void
 }

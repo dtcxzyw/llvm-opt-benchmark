@@ -508,9 +508,9 @@ _ZL10outputCharcPcPiii.exit.us35.i:               ; preds = %145, %.loopexit.i.u
 149:                                              ; preds = %._crit_edge
   %150 = load i32, ptr %4, align 8
   %151 = icmp ult i32 %150, 41
-  br i1 %151, label %155, label %.thread612
+  br i1 %151, label %155, label %.thread660
 
-.thread612:                                       ; preds = %149
+.thread660:                                       ; preds = %149
   %152 = load ptr, ptr %9, align 8
   %153 = getelementptr i8, ptr %152, i64 8
   store ptr %153, ptr %9, align 8
@@ -535,8 +535,8 @@ _ZL10outputCharcPcPiii.exit.us35.i:               ; preds = %145, %.loopexit.i.u
   store i32 %166, ptr %4, align 8
   br label %171
 
-167:                                              ; preds = %.thread612, %155
-  %168 = phi ptr [ %154, %.thread612 ], [ %160, %155 ]
+167:                                              ; preds = %.thread660, %155
+  %168 = phi ptr [ %154, %.thread660 ], [ %160, %155 ]
   %169 = load ptr, ptr %9, align 8
   %170 = getelementptr i8, ptr %169, i64 8
   store ptr %170, ptr %9, align 8
@@ -871,9 +871,9 @@ _ZL10outputCharcPcPiii.exit211:                   ; preds = %.loopexit.i204, %31
   %spec.select = select i1 %.not159, i32 %51, i32 %327
   %328 = load i32, ptr %4, align 8
   %329 = icmp ult i32 %328, 41
-  br i1 %329, label %333, label %.thread613
+  br i1 %329, label %333, label %.thread661
 
-.thread613:                                       ; preds = %323
+.thread661:                                       ; preds = %323
   %330 = load ptr, ptr %9, align 8
   %331 = getelementptr i8, ptr %330, i64 8
   store ptr %331, ptr %9, align 8
@@ -898,8 +898,8 @@ _ZL10outputCharcPcPiii.exit211:                   ; preds = %.loopexit.i204, %31
   store i32 %344, ptr %4, align 8
   br label %349
 
-345:                                              ; preds = %.thread613, %333
-  %346 = phi ptr [ %332, %.thread613 ], [ %338, %333 ]
+345:                                              ; preds = %.thread661, %333
+  %346 = phi ptr [ %332, %.thread661 ], [ %338, %333 ]
   %347 = load ptr, ptr %9, align 8
   %348 = getelementptr i8, ptr %347, i64 8
   store ptr %348, ptr %9, align 8
@@ -1617,8 +1617,8 @@ _ZL14outputHexBytesliPcPii.exit341:               ; preds = %_ZL10outputCharcPcP
   br i1 %621, label %622, label %.loopexit.i345
 
 622:                                              ; preds = %620
-  %sext611 = shl i64 %indvars.iv.next589, 32
-  %623 = ashr exact i64 %sext611, 32
+  %sext659 = shl i64 %indvars.iv.next589, 32
+  %623 = ashr exact i64 %sext659, 32
   %624 = getelementptr i8, ptr %0, i64 %623
   %625 = getelementptr i8, ptr %624, i64 -1
   %626 = load i8, ptr %625, align 1, !tbaa !7

@@ -277,21 +277,21 @@ define range(i32 -1, 1) i32 @H5C__auto_adjust_cache_size(ptr noundef %0, i1 noun
   %122 = getelementptr inbounds nuw i8, ptr %9, i64 525016
   %123 = load i8, ptr %122, align 8, !tbaa !69, !range !39, !noundef !40
   %124 = trunc nuw i8 %123 to i1
-  br i1 %124, label %125, label %.thread133
+  br i1 %124, label %125, label %.thread139
 
 125:                                              ; preds = %116
   %126 = getelementptr inbounds nuw i8, ptr %9, i64 525024
   %127 = load i64, ptr %126, align 8, !tbaa !70
   %128 = add i64 %127, %spec.store.select104
   %129 = icmp ult i64 %128, %113
-  br i1 %129, label %130, label %.thread133
+  br i1 %129, label %130, label %.thread139
 
 130:                                              ; preds = %125
   %131 = sub i64 %113, %127
   store i64 %131, ptr %3, align 8, !tbaa !36
-  br label %.thread133
+  br label %.thread139
 
-.thread133:                                       ; preds = %130, %125, %116
+.thread139:                                       ; preds = %130, %125, %116
   %132 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %133 = load i64, ptr %132, align 8, !tbaa !56
   %134 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -394,11 +394,11 @@ define range(i32 -1, 1) i32 @H5C__auto_adjust_cache_size(ptr noundef %0, i1 noun
   store i8 0, ptr %185, align 2, !tbaa !58
   br label %192
 
-186:                                              ; preds = %.thread133, %173
-  %187 = phi i64 [ %141, %.thread133 ], [ %183, %173 ]
-  %188 = phi double [ %137, %.thread133 ], [ %179, %173 ]
-  %189 = phi i64 [ %135, %.thread133 ], [ %177, %173 ]
-  %190 = phi i64 [ %133, %.thread133 ], [ %175, %173 ]
+186:                                              ; preds = %.thread139, %173
+  %187 = phi i64 [ %141, %.thread139 ], [ %183, %173 ]
+  %188 = phi double [ %137, %.thread139 ], [ %179, %173 ]
+  %189 = phi i64 [ %135, %.thread139 ], [ %177, %173 ]
+  %190 = phi i64 [ %133, %.thread139 ], [ %175, %173 ]
   %191 = getelementptr inbounds nuw i8, ptr %9, i64 524859
   store i8 1, ptr %191, align 1, !tbaa !73
   br label %192
@@ -408,7 +408,7 @@ define range(i32 -1, 1) i32 @H5C__auto_adjust_cache_size(ptr noundef %0, i1 noun
   %194 = phi double [ %179, %173 ], [ %188, %186 ], [ %179, %184 ]
   %195 = phi i64 [ %177, %173 ], [ %189, %186 ], [ %177, %184 ]
   %196 = phi i64 [ %175, %173 ], [ %190, %186 ], [ %175, %184 ]
-  %.pr115132136 = phi i32 [ %.pr115.pr, %173 ], [ 3, %186 ], [ 1, %184 ]
+  %.pr115138142 = phi i32 [ %.pr115.pr, %173 ], [ 3, %186 ], [ 1, %184 ]
   %197 = getelementptr inbounds nuw i8, ptr %9, i64 524841
   %198 = load i8, ptr %197, align 1, !tbaa !74, !range !39, !noundef !40
   %199 = trunc nuw i8 %198 to i1
@@ -444,7 +444,7 @@ define range(i32 -1, 1) i32 @H5C__auto_adjust_cache_size(ptr noundef %0, i1 noun
   br label %230
 
 .thread105.thread:                                ; preds = %111, %107, %101, %192, %207, %.thread105
-  %217 = phi i32 [ %.pr115132136, %207 ], [ %.pr115132136, %192 ], [ %.pr115.pr, %.thread105 ], [ %.pr.pre117, %101 ], [ 7, %107 ], [ 5, %111 ]
+  %217 = phi i32 [ %.pr115138142, %207 ], [ %.pr115138142, %192 ], [ %.pr115.pr, %.thread105 ], [ %.pr.pre117, %101 ], [ 7, %107 ], [ 5, %111 ]
   %.088 = phi i64 [ %196, %207 ], [ %196, %192 ], [ 0, %.thread105 ], [ 0, %101 ], [ 0, %107 ], [ 0, %111 ]
   %.087 = phi i64 [ %193, %207 ], [ %193, %192 ], [ 0, %.thread105 ], [ 0, %101 ], [ 0, %107 ], [ 0, %111 ]
   %.086 = phi i64 [ %195, %207 ], [ %195, %192 ], [ 0, %.thread105 ], [ 0, %101 ], [ 0, %107 ], [ 0, %111 ]
@@ -694,10 +694,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout(ptr noundef
   %62 = getelementptr inbounds nuw i8, ptr %45, i64 524608
   br label %63
 
-63:                                               ; preds = %.thread109.i, %.lr.ph106.i
-  %.065105.i = phi ptr [ %59, %.lr.ph106.i ], [ %.166.i, %.thread109.i ]
-  %.073103.i = phi i8 [ 0, %.lr.ph106.i ], [ %.174.i, %.thread109.i ]
-  %.075102.i = phi i64 [ 0, %.lr.ph106.i ], [ %.277114.i, %.thread109.i ]
+63:                                               ; preds = %.thread113.i, %.lr.ph106.i
+  %.065105.i = phi ptr [ %59, %.lr.ph106.i ], [ %.166.i, %.thread113.i ]
+  %.073103.i = phi i8 [ 0, %.lr.ph106.i ], [ %.174.i, %.thread113.i ]
+  %.075102.i = phi i64 [ 0, %.lr.ph106.i ], [ %.277118.i, %.thread113.i ]
   %64 = getelementptr inbounds nuw i8, ptr %.065105.i, i64 40
   %65 = load ptr, ptr %64, align 8, !tbaa !94
   %66 = load i32, ptr %65, align 8, !tbaa !95
@@ -736,7 +736,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout(ptr noundef
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %85 = load i8, ptr %84, align 8, !tbaa !99, !range !39, !noundef !40
   %86 = trunc nuw i8 %85 to i1
-  br i1 %86, label %.thread109.i, label %87
+  br i1 %86, label %.thread113.i, label %87
 
 87:                                               ; preds = %83, %80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
@@ -753,18 +753,18 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout(ptr noundef
 94:                                               ; preds = %87
   %95 = load i64, ptr %61, align 8, !tbaa !104
   %96 = icmp sgt i64 %95, 1
-  br i1 %96, label %.thread115.i, label %97
+  br i1 %96, label %.thread119.i, label %97
 
 97:                                               ; preds = %94
   %98 = load ptr, ptr %62, align 8, !tbaa !105
   %99 = icmp eq ptr %98, %72
-  br i1 %99, label %.thread115.i, label %114
+  br i1 %99, label %.thread119.i, label %114
 
 100:                                              ; preds = %76
   %101 = getelementptr inbounds nuw i8, ptr %.065105.i, i64 216
   %102 = load i8, ptr %101, align 8, !tbaa !106, !range !39, !noundef !40
   %103 = trunc nuw i8 %102 to i1
-  br i1 %103, label %.thread109.i, label %104
+  br i1 %103, label %.thread113.i, label %104
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds nuw i8, ptr %.065105.i, i64 16
@@ -784,48 +784,48 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout(ptr noundef
   %.277.i = phi i64 [ %.075102.i, %97 ], [ %107, %104 ]
   br i1 %.not86.i, label %.critedge.i, label %115
 
-.thread115.i:                                     ; preds = %97, %94
-  br i1 %.not86.i, label %.critedge.i, label %.thread122.i
+.thread119.i:                                     ; preds = %97, %94
+  br i1 %.not86.i, label %.critedge.i, label %.thread126.i
 
 115:                                              ; preds = %114
   %116 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %117 = load i8, ptr %116, align 8, !tbaa !97, !range !39, !noundef !40
   %.not88.i = icmp eq i8 %117, %.174.i
-  br i1 %.not88.i, label %118, label %.thread122.i
+  br i1 %.not88.i, label %118, label %.thread126.i
 
 118:                                              ; preds = %115
   %119 = getelementptr inbounds nuw i8, ptr %72, i64 136
   %120 = load ptr, ptr %119, align 8, !tbaa !90
   %.not89.i = icmp eq ptr %120, %70
-  br i1 %.not89.i, label %121, label %.thread122.i
+  br i1 %.not89.i, label %121, label %.thread126.i
 
 121:                                              ; preds = %118
   %122 = getelementptr inbounds nuw i8, ptr %72, i64 50
   %123 = load i8, ptr %122, align 2, !tbaa !107, !range !39, !noundef !40
   %124 = trunc nuw i8 %123 to i1
-  br i1 %124, label %.thread122.i, label %125
+  br i1 %124, label %.thread126.i, label %125
 
 125:                                              ; preds = %121
   %126 = getelementptr inbounds nuw i8, ptr %72, i64 56
   %127 = load i8, ptr %126, align 8, !tbaa !108, !range !39, !noundef !40
   %128 = trunc nuw i8 %127 to i1
-  br i1 %128, label %.thread122.i, label %.thread109.i
+  br i1 %128, label %.thread126.i, label %.thread113.i
 
-.thread122.i:                                     ; preds = %125, %121, %118, %115, %.thread115.i
-  %.277120125.i = phi i64 [ %.277.i, %125 ], [ %.277.i, %121 ], [ %.277.i, %118 ], [ %.277.i, %115 ], [ %.075102.i, %.thread115.i ]
+.thread126.i:                                     ; preds = %125, %121, %118, %115, %.thread119.i
+  %.277124129.i = phi i64 [ %.277.i, %125 ], [ %.277.i, %121 ], [ %.277.i, %118 ], [ %.277.i, %115 ], [ %.075102.i, %.thread119.i ]
   %129 = load ptr, ptr %58, align 8, !tbaa !84
-  br label %.thread109.i
+  br label %.thread113.i
 
-.thread109.i:                                     ; preds = %.thread122.i, %125, %100, %83
-  %.277114.i = phi i64 [ %.277120125.i, %.thread122.i ], [ %.277.i, %125 ], [ %.075102.i, %83 ], [ %.075102.i, %100 ]
-  %.166.i = phi ptr [ %129, %.thread122.i ], [ %72, %125 ], [ %72, %83 ], [ %72, %100 ]
+.thread113.i:                                     ; preds = %.thread126.i, %125, %100, %83
+  %.277118.i = phi i64 [ %.277124129.i, %.thread126.i ], [ %.277.i, %125 ], [ %.075102.i, %83 ], [ %.075102.i, %100 ]
+  %.166.i = phi ptr [ %129, %.thread126.i ], [ %72, %125 ], [ %72, %83 ], [ %72, %100 ]
   %.not84.i = icmp eq ptr %.166.i, null
   br i1 %.not84.i, label %.critedge.i, label %63
 
 130:                                              ; preds = %52
   %.not83.i = icmp eq i64 %.078.fr.i, 0
-  %or.cond133.i = or i1 %.not84101.i, %.not83.i
-  br i1 %or.cond133.i, label %.critedge.i, label %.lr.ph.split.i
+  %or.cond137.i = or i1 %.not84101.i, %.not83.i
+  br i1 %or.cond137.i, label %.critedge.i, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %130, %151
   %.36899.i = phi ptr [ %136, %151 ], [ %59, %130 ]
@@ -864,7 +864,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout(ptr noundef
   %.not.i = icmp eq ptr %136, null
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.split.i, !llvm.loop !109
 
-.critedge.i:                                      ; preds = %151, %.lr.ph.split.i, %.thread109.i, %.thread115.i, %114, %63, %130, %60
+.critedge.i:                                      ; preds = %151, %.lr.ph.split.i, %.thread113.i, %.thread119.i, %114, %63, %130, %60
   %152 = load i64, ptr %57, align 8, !tbaa !110
   %153 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %154 = load i64, ptr %153, align 8, !tbaa !56
@@ -1593,7 +1593,7 @@ define range(i32 -1, 1) i32 @H5C__flush_invalidate_cache(ptr noundef %0, i32 nou
   %41 = getelementptr inbounds nuw [6 x i32], ptr %40, i64 0, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !37
   %.not135192.i = icmp eq i32 %42, 0
-  br i1 %.not135192.i, label %.preheader.thread213.i, label %.lr.ph195.i
+  br i1 %.not135192.i, label %.preheader.thread218.i, label %.lr.ph195.i
 
 .lr.ph195.i:                                      ; preds = %.preheader151.i
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 524625
@@ -1624,7 +1624,7 @@ define range(i32 -1, 1) i32 @H5C__flush_invalidate_cache(ptr noundef %0, i32 nou
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.lr.ph195.i
   %.0119194.i = phi i32 [ 0, %.lr.ph195.i ], [ %.3122.lcssa.i, %.backedge.i.backedge ]
-  %.2126193.i = phi i32 [ %.0124.lcssa.i, %.lr.ph195.i ], [ %.3127.lcssa218.i, %.backedge.i.backedge ]
+  %.2126193.i = phi i32 [ %.0124.lcssa.i, %.lr.ph195.i ], [ %.3127.lcssa223.i, %.backedge.i.backedge ]
   store i8 0, ptr %43, align 1, !tbaa !120
   br label %59
 
@@ -1899,7 +1899,7 @@ define range(i32 -1, 1) i32 @H5C__flush_invalidate_cache(ptr noundef %0, i32 nou
   br label %214
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader150.i
-  %.3127.lcssa218.i = phi i32 [ %spec.select149.i, %._crit_edge.i ], [ 0, %.preheader150.i ]
+  %.3127.lcssa223.i = phi i32 [ %spec.select149.i, %._crit_edge.i ], [ 0, %.preheader150.i ]
   %.not145.i = icmp eq i32 %.3122.lcssa.i, 0
   br i1 %.not145.i, label %.thread.i, label %196
 
@@ -1921,8 +1921,8 @@ define range(i32 -1, 1) i32 @H5C__flush_invalidate_cache(ptr noundef %0, i32 nou
 
 .thread.i:                                        ; preds = %._crit_edge.thread.i
   %205 = load i32, ptr %41, align 4, !tbaa !37
-  %.not135212.i = icmp eq i32 %205, 0
-  br i1 %.not135212.i, label %.preheader.thread213.i, label %.backedge.i.backedge
+  %.not135217.i = icmp eq i32 %205, 0
+  br i1 %.not135217.i, label %.preheader.thread218.i, label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %.thread.i, %203
   br label %.backedge.i, !llvm.loop !136
@@ -1933,12 +1933,12 @@ define range(i32 -1, 1) i32 @H5C__flush_invalidate_cache(ptr noundef %0, i32 nou
   %209 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__flush_invalidate_ring, i32 noundef 1543, i64 noundef %207, i64 noundef %208, ptr noundef nonnull @.str.37) #5
   br label %214
 
-.preheader.thread213.i:                           ; preds = %.thread.i, %.preheader151.i
-  %.2126.lcssa211.i = phi i32 [ %.0124.lcssa.i, %.preheader151.i ], [ %.3127.lcssa218.i, %.thread.i ]
-  %.not138.i = icmp eq i32 %.2126.lcssa211.i, 0
+.preheader.thread218.i:                           ; preds = %.thread.i, %.preheader151.i
+  %.2126.lcssa216.i = phi i32 [ %.0124.lcssa.i, %.preheader151.i ], [ %.3127.lcssa223.i, %.thread.i ]
+  %.not138.i = icmp eq i32 %.2126.lcssa216.i, 0
   br i1 %.not138.i, label %H5C__flush_invalidate_ring.exit, label %210
 
-210:                                              ; preds = %.preheader.thread213.i
+210:                                              ; preds = %.preheader.thread218.i
   %211 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !36
   %212 = load i64, ptr @H5E_CANTFLUSH_g, align 8, !tbaa !36
   %213 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__flush_invalidate_ring, i32 noundef 1545, i64 noundef %211, i64 noundef %212, ptr noundef nonnull @.str.38) #5
@@ -1950,7 +1950,7 @@ define range(i32 -1, 1) i32 @H5C__flush_invalidate_cache(ptr noundef %0, i32 nou
   %217 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__flush_invalidate_cache, i32 noundef 1052, i64 noundef %215, i64 noundef %216, ptr noundef nonnull @.str.16) #5
   br label %.loopexit
 
-H5C__flush_invalidate_ring.exit:                  ; preds = %.preheader.thread213.i, %190, %28
+H5C__flush_invalidate_ring.exit:                  ; preds = %.preheader.thread218.i, %190, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !137
@@ -2285,12 +2285,12 @@ define range(i32 -1, 1) i32 @H5C__make_space_in_cache(ptr noundef %0, i64 nounde
 81:                                               ; preds = %78
   %82 = load i64, ptr %31, align 8, !tbaa !104
   %83 = icmp sgt i64 %82, 1
-  br i1 %83, label %.thread96, label %84
+  br i1 %83, label %.thread98, label %84
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %32, align 8, !tbaa !105
   %86 = icmp eq ptr %85, %50
-  br i1 %86, label %.thread96, label %91
+  br i1 %86, label %.thread98, label %91
 
 87:                                               ; preds = %77
   br i1 %37, label %88, label %.thread
@@ -2303,43 +2303,43 @@ define range(i32 -1, 1) i32 @H5C__make_space_in_cache(ptr noundef %0, i64 nounde
 91:                                               ; preds = %88, %84
   br i1 %.not83, label %.thread, label %92
 
-.thread96:                                        ; preds = %81, %84
-  br i1 %.not83, label %.thread, label %.thread99
+.thread98:                                        ; preds = %81, %84
+  br i1 %.not83, label %.thread, label %.thread101
 
 92:                                               ; preds = %91
-  br i1 %.069, label %.thread99, label %93
+  br i1 %.069, label %.thread101, label %93
 
 93:                                               ; preds = %92
   %94 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %95 = load i8, ptr %94, align 8, !tbaa !97, !range !39, !noundef !40
   %.not86 = icmp eq i8 %95, %.174
-  br i1 %.not86, label %96, label %.thread99
+  br i1 %.not86, label %96, label %.thread101
 
 96:                                               ; preds = %93
   %97 = getelementptr inbounds nuw i8, ptr %50, i64 136
   %98 = load ptr, ptr %97, align 8, !tbaa !90
   %.not87 = icmp eq ptr %98, %48
-  br i1 %.not87, label %99, label %.thread99
+  br i1 %.not87, label %99, label %.thread101
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %50, i64 50
   %101 = load i8, ptr %100, align 2, !tbaa !107, !range !39, !noundef !40
   %102 = trunc nuw i8 %101 to i1
-  br i1 %102, label %.thread99, label %103
+  br i1 %102, label %.thread101, label %103
 
 103:                                              ; preds = %99
   %104 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %105 = load i8, ptr %104, align 8, !tbaa !108, !range !39, !noundef !40
   %106 = trunc nuw i8 %105 to i1
-  br i1 %106, label %.thread99, label %.thread
+  br i1 %106, label %.thread101, label %.thread
 
-.thread99:                                        ; preds = %.thread96, %103, %99, %96, %93, %92
+.thread101:                                       ; preds = %.thread98, %103, %99, %96, %93, %92
   %107 = load ptr, ptr %22, align 8, !tbaa !84
   br label %.thread
 
-.thread:                                          ; preds = %.thread96, %65, %69, %73, %87, %61, %91, %103, %.thread99
-  %.271 = phi i1 [ false, %.thread99 ], [ false, %103 ], [ %.069, %91 ], [ %.069, %61 ], [ %.069, %87 ], [ %.069, %73 ], [ %.069, %69 ], [ %.069, %65 ], [ true, %.thread96 ]
-  %.168 = phi ptr [ %107, %.thread99 ], [ %50, %103 ], [ null, %91 ], [ %50, %61 ], [ %50, %87 ], [ %50, %73 ], [ %50, %69 ], [ %50, %65 ], [ null, %.thread96 ]
+.thread:                                          ; preds = %.thread98, %65, %69, %73, %87, %61, %91, %103, %.thread101
+  %.271 = phi i1 [ false, %.thread101 ], [ false, %103 ], [ %.069, %91 ], [ %.069, %61 ], [ %.069, %87 ], [ %.069, %73 ], [ %.069, %69 ], [ %.069, %65 ], [ true, %.thread98 ]
+  %.168 = phi ptr [ %107, %.thread101 ], [ %50, %103 ], [ null, %91 ], [ %50, %61 ], [ %50, %87 ], [ %50, %73 ], [ %50, %69 ], [ %50, %65 ], [ null, %.thread98 ]
   %108 = add nuw i32 %.064, 1
   %109 = load i64, ptr %24, align 8, !tbaa !110
   %110 = load i64, ptr %26, align 8, !tbaa !56
@@ -2455,7 +2455,7 @@ define range(i32 -1, 1) i32 @H5C__serialize_cache(ptr noundef %0) local_unnamed_
 
 .loopexit48.i:                                    ; preds = %88
   %.256.pre.pre.i = load ptr, ptr %55, align 8, !tbaa !117
-  br i1 %.24663.i, label %.split55.i, label %.split.i, !llvm.loop !148
+  br i1 %.24664.i, label %.split55.i, label %.split.i, !llvm.loop !148
 
 .split.i:                                         ; preds = %48, %.loopexit48.i
   %.04350.i = phi ptr [ %.256.pre.pre.i, %.loopexit48.i ], [ %56, %48 ]
@@ -2465,7 +2465,7 @@ define range(i32 -1, 1) i32 @H5C__serialize_cache(ptr noundef %0) local_unnamed_
 
 .lr.ph.i:                                         ; preds = %.split.i, %88
   %.04353.i = phi ptr [ %.043.i, %88 ], [ %.04350.i, %.split.i ]
-  %.14552.i = phi i1 [ %.24663.i, %88 ], [ true, %.split.i ]
+  %.14552.i = phi i1 [ %.24664.i, %88 ], [ true, %.split.i ]
   %58 = getelementptr inbounds nuw i8, ptr %.04353.i, i64 58
   %59 = load i8, ptr %58, align 2, !tbaa !122, !range !39, !noundef !40
   %60 = trunc nuw i8 %59 to i1
@@ -2511,13 +2511,13 @@ define range(i32 -1, 1) i32 @H5C__serialize_cache(ptr noundef %0) local_unnamed_
   br i1 %82, label %85, label %.thread.i.thread
 
 .thread.i.thread:                                 ; preds = %.lr.ph.i, %65, %69, %61, %.thread.i
-  %.24665.i24 = phi i1 [ false, %.thread.i ], [ %.14552.i, %.lr.ph.i ], [ %.14552.i, %65 ], [ false, %69 ], [ %.14552.i, %61 ]
+  %.24666.i27 = phi i1 [ false, %.thread.i ], [ %.14552.i, %.lr.ph.i ], [ %.14552.i, %65 ], [ false, %69 ], [ %.14552.i, %61 ]
   %83 = load i64, ptr %54, align 8, !tbaa !132
   %84 = icmp sgt i64 %83, 0
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %.thread.i.thread, %.thread.i, %80
-  %.24664.i = phi i1 [ %.24665.i24, %.thread.i.thread ], [ false, %.thread.i ], [ false, %80 ]
+  %.24665.i = phi i1 [ %.24666.i27, %.thread.i.thread ], [ false, %.thread.i ], [ false, %80 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
   br label %88
 
@@ -2526,7 +2526,7 @@ define range(i32 -1, 1) i32 @H5C__serialize_cache(ptr noundef %0) local_unnamed_
   br label %88
 
 88:                                               ; preds = %86, %85
-  %.24663.i = phi i1 [ %.24664.i, %85 ], [ %.24665.i24, %86 ]
+  %.24664.i = phi i1 [ %.24665.i, %85 ], [ %.24666.i27, %86 ]
   %.1.in.i = phi ptr [ %55, %85 ], [ %87, %86 ]
   %.043.i = load ptr, ptr %.1.in.i, align 8, !tbaa !117
   %.not47.i = icmp eq ptr %.043.i, null

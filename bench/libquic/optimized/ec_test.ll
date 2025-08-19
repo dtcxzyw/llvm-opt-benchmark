@@ -142,7 +142,7 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 personal
 
 _ZL18DecodeECPrivateKeyPKhm.exit.thread.i:        ; preds = %0
   store ptr null, ptr %28, align 8, !tbaa !14, !alias.scope !6
-  br label %_ZL18DecodeECPrivateKeyPKhm.exit.thread92.i
+  br label %_ZL18DecodeECPrivateKeyPKhm.exit.thread105.i
 
 34:                                               ; preds = %0
   %35 = invoke i64 @CBS_len(ptr noundef nonnull %26)
@@ -167,7 +167,7 @@ common.resume:                                    ; preds = %219, %266, %144, %_
 39:                                               ; preds = %36
   store ptr null, ptr %28, align 8, !tbaa !14, !alias.scope !6
   invoke void @EC_KEY_free(ptr noundef nonnull %32)
-          to label %_ZL18DecodeECPrivateKeyPKhm.exit.thread92.i unwind label %40, !noalias !6
+          to label %_ZL18DecodeECPrivateKeyPKhm.exit.thread105.i unwind label %40, !noalias !6
 
 40:                                               ; preds = %39
   %41 = landingpad { ptr, i32 }
@@ -176,7 +176,7 @@ common.resume:                                    ; preds = %219, %266, %144, %_
   call void @__clang_call_terminate(ptr %42) #19, !noalias !6
   unreachable
 
-_ZL18DecodeECPrivateKeyPKhm.exit.thread92.i:      ; preds = %39, %_ZL18DecodeECPrivateKeyPKhm.exit.thread.i
+_ZL18DecodeECPrivateKeyPKhm.exit.thread105.i:     ; preds = %39, %_ZL18DecodeECPrivateKeyPKhm.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !6
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !6
   %43 = load ptr, ptr @stderr, align 8, !tbaa !16
@@ -185,11 +185,11 @@ _ZL18DecodeECPrivateKeyPKhm.exit.thread92.i:      ; preds = %39, %_ZL18DecodeECP
   invoke void @ERR_print_errors_fp(ptr noundef %45)
           to label %_ZL20Testd2i_ECPrivateKeyv.exit.thread unwind label %46
 
-_ZL20Testd2i_ECPrivateKeyv.exit.thread:           ; preds = %_ZL18DecodeECPrivateKeyPKhm.exit.thread92.i
+_ZL20Testd2i_ECPrivateKeyv.exit.thread:           ; preds = %_ZL18DecodeECPrivateKeyPKhm.exit.thread105.i
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %526
 
-46:                                               ; preds = %_ZL18DecodeECPrivateKeyPKhm.exit.thread92.i
+46:                                               ; preds = %_ZL18DecodeECPrivateKeyPKhm.exit.thread105.i
   %47 = landingpad { ptr, i32 }
           cleanup
   br label %137
@@ -395,14 +395,14 @@ _ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit35.thread71.i: ; preds = %_ZNSt10un
   br label %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit37.thread.i
 
 _ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit37.i: ; preds = %84
-  br i1 %.not.i38.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread98.i, label %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit37.thread.i
+  br i1 %.not.i38.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread111.i, label %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit37.thread.i
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread98.i: ; preds = %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit37.i
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread111.i: ; preds = %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit37.i
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i
 
 _ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit37.thread.i: ; preds = %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit37.i, %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit35.thread71.i, %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit35.thread75.i, %118, %95
-  %.396.i = phi i1 [ false, %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit37.i ], [ false, %118 ], [ false, %95 ], [ %.46474.i, %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit35.thread71.i ], [ false, %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit35.thread75.i ]
+  %.3109.i = phi i1 [ false, %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit37.i ], [ false, %118 ], [ false, %95 ], [ %.46474.i, %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit35.thread71.i ], [ false, %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit35.thread75.i ]
   invoke void @BN_free(ptr noundef nonnull %83)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i unwind label %119
 
@@ -418,7 +418,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i: ;
   br i1 %.not88.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i, label %122
 
 122:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread.i
-  %.38185.i = phi i1 [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread.i ], [ %.396.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i ]
+  %.38185.i = phi i1 [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread.i ], [ %.3109.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i ]
   invoke void @BN_free(ptr noundef nonnull %81)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i unwind label %123
 
@@ -429,8 +429,8 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i: ;
   call void @__clang_call_terminate(ptr %125) #19
   unreachable
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i: ; preds = %122, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread98.i
-  %.38186.i = phi i1 [ %.396.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i ], [ %.38185.i, %122 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread98.i ]
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i: ; preds = %122, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread111.i
+  %.38186.i = phi i1 [ %.3109.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i ], [ %.38185.i, %122 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread111.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %.thread.i
 
@@ -456,7 +456,7 @@ _ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit.i:  ; preds = %110, %108, %106, %9
   br i1 %.not.i.i.i41.i, label %133, label %.thread.i
 
 .thread.i:                                        ; preds = %128, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i, %75
-  %.1102.i = phi i1 [ false, %128 ], [ %.38186.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i ], [ false, %75 ]
+  %.1115.i = phi i1 [ false, %128 ], [ %.38186.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i ], [ false, %75 ]
   %130 = phi ptr [ %129, %128 ], [ %63, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i ], [ %63, %75 ]
   call void @_ZdlPv(ptr noundef nonnull %130) #22
   br label %133
@@ -476,7 +476,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit46.i:                ; preds = %132, %.body.i
   br label %137
 
 133:                                              ; preds = %.thread.i, %128
-  %.1103.i = phi i1 [ false, %128 ], [ %.1102.i, %.thread.i ]
+  %.1116.i = phi i1 [ false, %128 ], [ %.1115.i, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   invoke void @EC_KEY_free(ptr noundef nonnull %32)
           to label %_ZL20Testd2i_ECPrivateKeyv.exit unwind label %134
@@ -496,7 +496,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit46.i:                ; preds = %132, %.body.i
 
 _ZL20Testd2i_ECPrivateKeyv.exit:                  ; preds = %133
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br i1 %.1103.i, label %138, label %526
+  br i1 %.1116.i, label %138, label %526
 
 138:                                              ; preds = %_ZL20Testd2i_ECPrivateKeyv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -590,13 +590,13 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i.i6:        ; preds = %158
   %166 = ptrtoint ptr %164 to i64
   %167 = sub i64 %165, %166
   %168 = icmp eq i64 %167, 121
-  br i1 %168, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i7, label %.sink.split63.sink.split.i
+  br i1 %168, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i7, label %.sink.split68.sink.split.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit.i7:                 ; preds = %161
   %bcmp.i.i.i.i.i.i.i8 = call i32 @bcmp(ptr noundef nonnull dereferenceable(121) %159, ptr noundef nonnull dereferenceable(121) %164, i64 121)
   %.not9.i.i.i.i.i.i.not.i9 = icmp eq i32 %bcmp.i.i.i.i.i.i.i8, 0
   call void @_ZdlPv(ptr noundef nonnull %159) #22
-  br i1 %.not9.i.i.i.i.i.i.not.i9, label %169, label %.sink.split63.i
+  br i1 %.not9.i.i.i.i.i.i.not.i9, label %169, label %.sink.split68.i
 
 169:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit.i7
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !27
@@ -693,29 +693,29 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i24.i:       ; preds = %191
   %198 = ptrtoint ptr %196 to i64
   %199 = sub i64 %197, %198
   %200 = icmp eq i64 %199, 121
-  br i1 %200, label %_ZNSt6vectorIhSaIhEED2Ev.exit34.i, label %.sink.split63.sink.split.i
+  br i1 %200, label %_ZNSt6vectorIhSaIhEED2Ev.exit34.i, label %.sink.split68.sink.split.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit34.i:                ; preds = %194
   %bcmp.i.i.i.i.i.i29.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(121) %192, ptr noundef nonnull dereferenceable(121) %196, i64 121)
   %.not9.i.i.i.i.i.i30.not.i = icmp eq i32 %bcmp.i.i.i.i.i.i29.i, 0
   call void @_ZdlPv(ptr noundef nonnull %192) #22
-  br i1 %.not9.i.i.i.i.i.i30.not.i, label %203, label %.sink.split63.i
+  br i1 %.not9.i.i.i.i.i.i30.not.i, label %203, label %.sink.split68.i
 
-.sink.split63.sink.split.i:                       ; preds = %194, %161
+.sink.split68.sink.split.i:                       ; preds = %194, %161
   %.sink.i = phi ptr [ %159, %161 ], [ %192, %194 ]
   %.ph.ph.i = phi ptr [ %139, %161 ], [ %.pr59.i, %194 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink.i) #22
-  br label %.sink.split63.i
+  br label %.sink.split68.i
 
-.sink.split63.i:                                  ; preds = %.sink.split63.sink.split.i, %_ZNSt6vectorIhSaIhEED2Ev.exit34.i, %_ZNSt6vectorIhSaIhEED2Ev.exit.i7
-  %.ph.i = phi ptr [ %139, %_ZNSt6vectorIhSaIhEED2Ev.exit.i7 ], [ %.pr59.i, %_ZNSt6vectorIhSaIhEED2Ev.exit34.i ], [ %.ph.ph.i, %.sink.split63.sink.split.i ]
+.sink.split68.i:                                  ; preds = %.sink.split68.sink.split.i, %_ZNSt6vectorIhSaIhEED2Ev.exit34.i, %_ZNSt6vectorIhSaIhEED2Ev.exit.i7
+  %.ph.i = phi ptr [ %139, %_ZNSt6vectorIhSaIhEED2Ev.exit.i7 ], [ %.pr59.i, %_ZNSt6vectorIhSaIhEED2Ev.exit34.i ], [ %.ph.ph.i, %.sink.split68.sink.split.i ]
   %201 = load ptr, ptr @stderr, align 8, !tbaa !16
   %202 = call i64 @fwrite(ptr nonnull @.str.11, i64 36, i64 1, ptr %201) #20
   br label %203
 
-203:                                              ; preds = %.sink.split63.i, %_ZNSt6vectorIhSaIhEED2Ev.exit34.i, %187, %153
-  %204 = phi ptr [ %154, %153 ], [ %.pr59.i, %187 ], [ %.pr59.i, %_ZNSt6vectorIhSaIhEED2Ev.exit34.i ], [ %.ph.i, %.sink.split63.i ]
-  %.05.i = phi i1 [ false, %153 ], [ false, %187 ], [ true, %_ZNSt6vectorIhSaIhEED2Ev.exit34.i ], [ false, %.sink.split63.i ]
+203:                                              ; preds = %.sink.split68.i, %_ZNSt6vectorIhSaIhEED2Ev.exit34.i, %187, %153
+  %204 = phi ptr [ %154, %153 ], [ %.pr59.i, %187 ], [ %.pr59.i, %_ZNSt6vectorIhSaIhEED2Ev.exit34.i ], [ %.ph.i, %.sink.split68.i ]
+  %.05.i = phi i1 [ false, %153 ], [ false, %187 ], [ true, %_ZNSt6vectorIhSaIhEED2Ev.exit34.i ], [ false, %.sink.split68.i ]
   %205 = load ptr, ptr %25, align 8, !tbaa !18
   %.not.i.i.i38.i = icmp eq ptr %205, null
   br i1 %.not.i.i.i38.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit40.i, label %206
@@ -774,7 +774,7 @@ _ZL15TestZeroPaddingv.exit:                       ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZL18DecodeECPrivateKeyPKhm.exit.thread.i26:      ; preds = %213
   store ptr null, ptr %18, align 8, !tbaa !14, !alias.scope !30
-  br label %_ZL18DecodeECPrivateKeyPKhm.exit.thread26.i
+  br label %_ZL18DecodeECPrivateKeyPKhm.exit.thread30.i
 
 216:                                              ; preds = %213
   %217 = invoke i64 @CBS_len(ptr noundef nonnull %16)
@@ -795,7 +795,7 @@ _ZL18DecodeECPrivateKeyPKhm.exit.thread.i26:      ; preds = %213
 221:                                              ; preds = %218
   store ptr null, ptr %18, align 8, !tbaa !14, !alias.scope !30
   invoke void @EC_KEY_free(ptr noundef nonnull %214)
-          to label %_ZL18DecodeECPrivateKeyPKhm.exit.thread26.i unwind label %222, !noalias !30
+          to label %_ZL18DecodeECPrivateKeyPKhm.exit.thread30.i unwind label %222, !noalias !30
 
 222:                                              ; preds = %221
   %223 = landingpad { ptr, i32 }
@@ -804,18 +804,18 @@ _ZL18DecodeECPrivateKeyPKhm.exit.thread.i26:      ; preds = %213
   call void @__clang_call_terminate(ptr %224) #19, !noalias !30
   unreachable
 
-_ZL18DecodeECPrivateKeyPKhm.exit.thread26.i:      ; preds = %221, %_ZL18DecodeECPrivateKeyPKhm.exit.thread.i26
+_ZL18DecodeECPrivateKeyPKhm.exit.thread30.i:      ; preds = %221, %_ZL18DecodeECPrivateKeyPKhm.exit.thread.i26
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !30
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !30
   %225 = load ptr, ptr @stderr, align 8, !tbaa !16
   invoke void @ERR_print_errors_fp(ptr noundef %225)
           to label %_ZL18TestSpecifiedCurvev.exit.thread unwind label %226
 
-_ZL18TestSpecifiedCurvev.exit.thread:             ; preds = %_ZL18DecodeECPrivateKeyPKhm.exit.thread26.i
+_ZL18TestSpecifiedCurvev.exit.thread:             ; preds = %_ZL18DecodeECPrivateKeyPKhm.exit.thread30.i
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %526
 
-226:                                              ; preds = %230, %228, %_ZL18DecodeECPrivateKeyPKhm.exit.thread26.i
+226:                                              ; preds = %230, %228, %_ZL18DecodeECPrivateKeyPKhm.exit.thread30.i
   %227 = landingpad { ptr, i32 }
           cleanup
   br label %266
@@ -904,13 +904,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i23:                ; preds = %246
   br i1 %.not.i.i.i14.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit16.i, label %.thread.i20
 
 .thread.i20:                                      ; preds = %257, %_ZNSt6vectorIhSaIhEED2Ev.exit.i23
-  %.1630.i = phi i1 [ false, %257 ], [ true, %_ZNSt6vectorIhSaIhEED2Ev.exit.i23 ]
+  %.1634.i = phi i1 [ false, %257 ], [ true, %_ZNSt6vectorIhSaIhEED2Ev.exit.i23 ]
   %259 = phi ptr [ %258, %257 ], [ %249, %_ZNSt6vectorIhSaIhEED2Ev.exit.i23 ]
   call void @_ZdlPv(ptr noundef nonnull %259) #22
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit16.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit16.i:                ; preds = %.thread.i20, %257
-  %.1631.i = phi i1 [ false, %257 ], [ %.1630.i, %.thread.i20 ]
+  %.1635.i = phi i1 [ false, %257 ], [ %.1634.i, %.thread.i20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %262
 
@@ -929,7 +929,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit19.i:                ; preds = %261, %.body.i17
   br label %266
 
 262:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit16.i, %233
-  %.05.ph.i = phi i1 [ %.1631.i, %_ZNSt6vectorIhSaIhEED2Ev.exit16.i ], [ false, %233 ]
+  %.05.ph.i = phi i1 [ %.1635.i, %_ZNSt6vectorIhSaIhEED2Ev.exit16.i ], [ false, %233 ]
   invoke void @EC_KEY_free(ptr noundef nonnull %214)
           to label %_ZL18TestSpecifiedCurvev.exit unwind label %263
 
@@ -1501,7 +1501,7 @@ thread-pre-split.i:                               ; preds = %295, %294
   br i1 %.not.i.i28, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i29, label %thread-pre-split.thread.i
 
 thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i, %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit, %305
-  %.124104.i = phi i1 [ false, %thread-pre-split.i ], [ %.225.i46, %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit ], [ false, %305 ]
+  %.124119.i = phi i1 [ false, %thread-pre-split.i ], [ %.225.i46, %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit ], [ false, %305 ]
   invoke void @BN_free(ptr noundef nonnull %293)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i29 unwind label %481
 
@@ -1513,7 +1513,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i29: ; preds = %thread-pre-split.thread.i, %thread-pre-split.i
-  %.124105.i = phi i1 [ false, %thread-pre-split.i ], [ %.124104.i, %thread-pre-split.thread.i ]
+  %.124120.i = phi i1 [ false, %thread-pre-split.i ], [ %.124119.i, %thread-pre-split.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not.i61.i = icmp eq ptr %291, null
   br i1 %.not.i61.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit62.i, label %484
@@ -1681,7 +1681,7 @@ _ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.ex
   br label %525
 
 521:                                              ; preds = %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit.i, %275
-  %.023.ph.i = phi i1 [ false, %275 ], [ %.124105.i, %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit.i ]
+  %.023.ph.i = phi i1 [ false, %275 ], [ %.124120.i, %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit.i ]
   invoke void @EC_KEY_free(ptr noundef nonnull %272)
           to label %_ZL18TestArbitraryCurvev.exit unwind label %522
 
@@ -2336,7 +2336,7 @@ thread-pre-split48:                               ; preds = %29, %28
   br i1 %.not.i37, label %_ZNSt10unique_ptrI11ec_point_st14OpenSSLDeleterIS0_XadL_Z13EC_POINT_freeEEEED2Ev.exit, label %thread-pre-split48.thread
 
 thread-pre-split48.thread:                        ; preds = %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit, %51, %thread-pre-split48
-  %.22363 = phi i1 [ false, %thread-pre-split48 ], [ %.32447, %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit ], [ false, %51 ]
+  %.22371 = phi i1 [ false, %thread-pre-split48 ], [ %.32447, %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit ], [ false, %51 ]
   invoke void @EC_POINT_free(ptr noundef nonnull %27)
           to label %_ZNSt10unique_ptrI11ec_point_st14OpenSSLDeleterIS0_XadL_Z13EC_POINT_freeEEEED2Ev.exit unwind label %85
 
@@ -2348,7 +2348,7 @@ thread-pre-split48.thread:                        ; preds = %_ZNSt10unique_ptrI1
   unreachable
 
 _ZNSt10unique_ptrI11ec_point_st14OpenSSLDeleterIS0_XadL_Z13EC_POINT_freeEEEED2Ev.exit: ; preds = %thread-pre-split48, %thread-pre-split48.thread
-  %.22364 = phi i1 [ false, %thread-pre-split48 ], [ %.22363, %thread-pre-split48.thread ]
+  %.22372 = phi i1 [ false, %thread-pre-split48 ], [ %.22371, %thread-pre-split48.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i38 = icmp eq ptr %25, null
   br i1 %.not.i38, label %_ZNSt10unique_ptrI11ec_point_st14OpenSSLDeleterIS0_XadL_Z13EC_POINT_freeEEEED2Ev.exit39, label %88
@@ -2434,7 +2434,7 @@ _ZNSt10unique_ptrI11ec_point_st14OpenSSLDeleterIS0_XadL_Z13EC_POINT_freeEEEED2Ev
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 
 106:                                              ; preds = %14, %_ZNSt10unique_ptrI11ec_point_st14OpenSSLDeleterIS0_XadL_Z13EC_POINT_freeEEEED2Ev.exit43
-  %.021.ph = phi i1 [ false, %14 ], [ %.22364, %_ZNSt10unique_ptrI11ec_point_st14OpenSSLDeleterIS0_XadL_Z13EC_POINT_freeEEEED2Ev.exit43 ]
+  %.021.ph = phi i1 [ false, %14 ], [ %.22372, %_ZNSt10unique_ptrI11ec_point_st14OpenSSLDeleterIS0_XadL_Z13EC_POINT_freeEEEED2Ev.exit43 ]
   invoke void @EC_KEY_free(ptr noundef nonnull %8)
           to label %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit unwind label %107
 

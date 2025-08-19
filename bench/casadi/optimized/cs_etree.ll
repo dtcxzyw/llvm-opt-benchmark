@@ -162,9 +162,9 @@ define ptr @cs_etree(ptr noundef readonly captures(address_is_null) %0, i32 noun
   %76 = load i32, ptr %75, align 4, !tbaa !15
   store i32 %64, ptr %75, align 4, !tbaa !15
   %77 = icmp eq i32 %76, -1
-  br i1 %77, label %.thread100, label %79
+  br i1 %77, label %.thread112, label %79
 
-.thread100:                                       ; preds = %.lr.ph73
+.thread112:                                       ; preds = %.lr.ph73
   %78 = getelementptr inbounds i32, ptr %16, i64 %74
   store i32 %64, ptr %78, align 4, !tbaa !15
   br label %._crit_edge.loopexit
@@ -174,7 +174,7 @@ define ptr @cs_etree(ptr noundef readonly captures(address_is_null) %0, i32 noun
   %81 = icmp sgt i64 %indvars.iv91, %80
   br i1 %81, label %.lr.ph73, label %._crit_edge.loopexit, !llvm.loop !19
 
-._crit_edge.loopexit:                             ; preds = %79, %.thread100
+._crit_edge.loopexit:                             ; preds = %79, %.thread112
   %.pre96 = load i32, ptr %65, align 4, !tbaa !15
   %.pre97 = sext i32 %.pre96 to i64
   br label %._crit_edge

@@ -1483,11 +1483,11 @@ define hidden i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr noun
   call void %50(ptr noundef %51) #18
   br label %.thread129
 
-.preheader:                                       ; preds = %46, %.thread150
-  %.081 = phi ptr [ %66, %.thread150 ], [ %48, %46 ]
+.preheader:                                       ; preds = %46, %.thread167
+  %.081 = phi ptr [ %66, %.thread167 ], [ %48, %46 ]
   %52 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.081, ptr noundef nonnull dereferenceable(1) @.str.5) #19
   %.not142 = icmp eq ptr %52, null
-  br i1 %.not142, label %53, label %.thread149
+  br i1 %.not142, label %53, label %.thread166
 
 53:                                               ; preds = %.preheader
   %54 = load i64, ptr %5, align 8, !tbaa !14
@@ -1496,24 +1496,24 @@ define hidden i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr noun
   %57 = icmp eq i64 %54, %56
   br i1 %57, label %62, label %.thread127.loopexit
 
-.thread149:                                       ; preds = %.preheader
+.thread166:                                       ; preds = %.preheader
   store i8 0, ptr %52, align 1, !tbaa !11
   %58 = load i64, ptr %5, align 8, !tbaa !14
   %59 = getelementptr inbounds nuw i8, ptr %.081, i64 8
   %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #19
   %61 = icmp eq i64 %58, %60
-  br i1 %61, label %62, label %.thread150
+  br i1 %61, label %62, label %.thread167
 
-62:                                               ; preds = %.thread149, %53
-  %63 = phi ptr [ %59, %.thread149 ], [ %55, %53 ]
-  %64 = phi i64 [ %58, %.thread149 ], [ %54, %53 ]
+62:                                               ; preds = %.thread166, %53
+  %63 = phi ptr [ %59, %.thread166 ], [ %55, %53 ]
+  %64 = phi i64 [ %58, %.thread166 ], [ %54, %53 ]
   %65 = load ptr, ptr %6, align 8, !tbaa !4
   %bcmp = call i32 @bcmp(ptr %65, ptr nonnull %63, i64 %64)
   %.not107 = icmp eq i32 %bcmp, 0
   %brmerge = or i1 %.not142, %.not107
-  br i1 %brmerge, label %.thread127.split.loop.exit, label %.thread150
+  br i1 %brmerge, label %.thread127.split.loop.exit, label %.thread167
 
-.thread150:                                       ; preds = %.thread149, %62
+.thread167:                                       ; preds = %.thread166, %62
   store i8 59, ptr %52, align 1, !tbaa !11
   %66 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) @.str.3) #19
   %.not143 = icmp eq ptr %66, null
@@ -1529,7 +1529,7 @@ define hidden i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr noun
   %.mux.le = select i1 %.not107, i32 0, i32 90
   br label %.thread127
 
-.thread127.loopexit:                              ; preds = %53, %.thread150
+.thread127.loopexit:                              ; preds = %53, %.thread167
   %.pre = load ptr, ptr %6, align 8, !tbaa !4
   br label %.thread127
 
@@ -2002,11 +2002,11 @@ define hidden i32 @Curl_ssl_peer_init(ptr noundef initializes((32, 44)) %0, ptr 
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !195
   %. = select i1 %11, i64 240, i64 104
-  %.85 = select i1 %11, i64 248, i64 112
-  %.86 = select i1 %11, i64 256, i64 1392
+  %.91 = select i1 %11, i64 248, i64 112
+  %.92 = select i1 %11, i64 256, i64 1392
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %.85
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.86
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %.91
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.92
   %.051 = load ptr, ptr %15, align 8, !tbaa !4
   %.052 = load ptr, ptr %14, align 8, !tbaa !4
   %.sink = load i32, ptr %16, align 8, !tbaa !12
@@ -2029,14 +2029,14 @@ define hidden i32 @Curl_ssl_peer_init(ptr noundef initializes((32, 44)) %0, ptr 
 
 23:                                               ; preds = %20
   %.not58 = icmp eq ptr %.051, null
-  br i1 %.not58, label %.thread80, label %24
+  br i1 %.not58, label %.thread86, label %24
 
 24:                                               ; preds = %23
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.052, ptr noundef nonnull dereferenceable(1) %.051) #19
   %.not59 = icmp eq i32 %25, 0
-  br i1 %.not59, label %.thread80, label %27
+  br i1 %.not59, label %.thread86, label %27
 
-.thread80:                                        ; preds = %23, %24
+.thread86:                                        ; preds = %23, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %22, ptr %26, align 8, !tbaa !189
   br label %32
@@ -2054,8 +2054,8 @@ define hidden i32 @Curl_ssl_peer_init(ptr noundef initializes((32, 44)) %0, ptr 
   %.not.i = icmp eq ptr %.pre, null
   br i1 %.not.i, label %get_peer_type.exit.thread, label %32
 
-32:                                               ; preds = %.thread80, %31
-  %33 = phi ptr [ %22, %.thread80 ], [ %.pre, %31 ]
+32:                                               ; preds = %.thread86, %31
+  %33 = phi ptr [ %22, %.thread86 ], [ %.pre, %31 ]
   %34 = load i8, ptr %33, align 1, !tbaa !11
   %.not7.i = icmp eq i8 %34, 0
   br i1 %.not7.i, label %get_peer_type.exit.thread, label %35
@@ -3169,8 +3169,8 @@ define hidden i32 @Curl_ssl_cfilter_remove(ptr noundef %0, i32 noundef %1, i1 no
 
 28:                                               ; preds = %19
   %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_cft_ssl, i64 12), align 4, !tbaa !167
-  %.old62 = icmp sgt i32 %.old, 0
-  br i1 %.old62, label %29, label %30
+  %.old71 = icmp sgt i32 %.old, 0
+  br i1 %.old71, label %29, label %30
 
 29:                                               ; preds = %22, %28
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %0, ptr noundef nonnull %.04257, ptr noundef nonnull @.str.9) #18

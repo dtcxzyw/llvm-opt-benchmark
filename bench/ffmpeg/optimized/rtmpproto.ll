@@ -5607,9 +5607,9 @@ define internal fastcc range(i32 -12, 1) i32 @do_adobe_auth(ptr noundef %0, ptr 
   br i1 %.not34, label %21, label %.sink.split
 
 .sink.split:                                      ; preds = %19, %10
-  %.sink36 = phi ptr [ %3, %10 ], [ %4, %19 ]
-  %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink36) #12
-  call void @av_md5_update(ptr noundef nonnull %9, ptr noundef nonnull %.sink36, i64 noundef %20) #11
+  %.sink39 = phi ptr [ %3, %10 ], [ %4, %19 ]
+  %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink39) #12
+  call void @av_md5_update(ptr noundef nonnull %9, ptr noundef nonnull %.sink39, i64 noundef %20) #11
   br label %21
 
 21:                                               ; preds = %.sink.split, %19

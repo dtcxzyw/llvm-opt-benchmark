@@ -78,7 +78,7 @@ define dso_local noundef zeroext i1 @seg6_validate_srh(ptr noundef readonly capt
   %37 = phi i32 [ %48, %39 ], [ %34, %32 ]
   %38 = phi i32 [ %45, %39 ], [ %35, %32 ]
   switch i32 %38, label %39 [
-    i32 0, label %.critedge.loopexit6
+    i32 0, label %.critedge.loopexit11
     i32 1, label %.critedge
   ]
 
@@ -94,11 +94,11 @@ define dso_local noundef zeroext i1 @seg6_validate_srh(ptr noundef readonly capt
   %48 = add i32 %47, %37
   br i1 %46, label %.preheader, label %.critedge, !llvm.loop !5
 
-.critedge.loopexit6:                              ; preds = %.preheader
+.critedge.loopexit11:                             ; preds = %.preheader
   br label %.critedge
 
-.critedge:                                        ; preds = %39, %.preheader, %.critedge.loopexit6, %32, %25, %21, %15, %7, %3
-  %49 = phi i1 [ false, %3 ], [ false, %7 ], [ false, %15 ], [ false, %21 ], [ false, %25 ], [ false, %32 ], [ true, %.critedge.loopexit6 ], [ false, %.preheader ], [ false, %39 ]
+.critedge:                                        ; preds = %39, %.preheader, %.critedge.loopexit11, %32, %25, %21, %15, %7, %3
+  %49 = phi i1 [ false, %3 ], [ false, %7 ], [ false, %15 ], [ false, %21 ], [ false, %25 ], [ false, %32 ], [ true, %.critedge.loopexit11 ], [ false, %.preheader ], [ false, %39 ]
   ret i1 %49
 }
 
@@ -220,7 +220,7 @@ define dso_local ptr @seg6_get_srh(ptr noundef %0, i32 noundef %1) local_unnamed
   %68 = phi i32 [ %79, %70 ], [ %67, %.preheader.preheader ]
   %69 = phi i32 [ %76, %70 ], [ %65, %.preheader.preheader ]
   switch i32 %69, label %70 [
-    i32 0, label %.critedge.loopexit20
+    i32 0, label %.critedge.loopexit28
     i32 1, label %.critedge
   ]
 
@@ -236,11 +236,11 @@ define dso_local ptr @seg6_get_srh(ptr noundef %0, i32 noundef %1) local_unnamed
   %79 = add i32 %78, %68
   br i1 %77, label %.preheader, label %.critedge, !llvm.loop !5
 
-.critedge.loopexit20:                             ; preds = %.preheader
+.critedge.loopexit28:                             ; preds = %.preheader
   br label %.critedge
 
-.critedge:                                        ; preds = %70, %.preheader, %.critedge.loopexit20, %63, %56, %51, %47, %41, %37, %35, %18, %16, %2
-  %80 = phi ptr [ null, %2 ], [ null, %18 ], [ null, %37 ], [ null, %16 ], [ null, %35 ], [ null, %41 ], [ null, %47 ], [ null, %51 ], [ null, %56 ], [ null, %63 ], [ %43, %.critedge.loopexit20 ], [ null, %.preheader ], [ null, %70 ]
+.critedge:                                        ; preds = %70, %.preheader, %.critedge.loopexit28, %63, %56, %51, %47, %41, %37, %35, %18, %16, %2
+  %80 = phi ptr [ null, %2 ], [ null, %18 ], [ null, %37 ], [ null, %16 ], [ null, %35 ], [ null, %41 ], [ null, %47 ], [ null, %51 ], [ null, %56 ], [ null, %63 ], [ %43, %.critedge.loopexit28 ], [ null, %.preheader ], [ null, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %80
 }

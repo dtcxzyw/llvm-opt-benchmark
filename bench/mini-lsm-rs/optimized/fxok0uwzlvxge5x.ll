@@ -2445,8 +2445,8 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   %.sroa.672.0..sroa_idx73.i = getelementptr inbounds nuw i8, ptr %22, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.not849.not = icmp eq i64 %19, 0
-  br i1 %.not849.not, label %.loopexit, label %.lr.ph851
+  %.not851.not = icmp eq i64 %19, 0
+  br i1 %.not851.not, label %.loopexit, label %.lr.ph853
 
 .loopexit22.loopexit:                             ; preds = %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h9d327d53cb9d2819E.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %22, ptr noundef nonnull align 8 dereferenceable(80) %17, i64 80, i1 false), !noalias !970
@@ -2454,26 +2454,26 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.566.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i)
   %.not = icmp ult i64 %37, %19
-  br i1 %.not, label %.lr.ph851, label %.loopexit
+  br i1 %.not, label %.lr.ph853, label %.loopexit
 
-.lr.ph851:                                        ; preds = %4, %.loopexit22.loopexit
-  %.sroa.7.0850 = phi i64 [ %37, %.loopexit22.loopexit ], [ 0, %4 ]
-  %37 = add nuw i64 %.sroa.7.0850, 1
-  %38 = add i64 %.sroa.7.0850, %21
+.lr.ph853:                                        ; preds = %4, %.loopexit22.loopexit
+  %.sroa.7.0852 = phi i64 [ %37, %.loopexit22.loopexit ], [ 0, %4 ]
+  %37 = add nuw i64 %.sroa.7.0852, 1
+  %38 = add i64 %.sroa.7.0852, %21
   %39 = load i64, ptr %18, align 8, !noalias !973, !noundef !4
   %40 = add i64 %39, -1
   %41 = and i64 %40, %38
-  %.not652 = icmp eq i64 %39, 0
-  br i1 %.not652, label %50, label %44, !prof !768
+  %.not654 = icmp eq i64 %39, 0
+  br i1 %.not654, label %50, label %44, !prof !768
 
-.loopexit:                                        ; preds = %.loopexit22.loopexit, %44, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit", %4, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit.thread456"
-  %.sroa.4.0 = phi i64 [ %51, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit.thread456" ], [ undef, %4 ], [ %267, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit" ], [ %47, %44 ], [ %47, %.loopexit22.loopexit ]
-  %.sroa.0.0 = phi i64 [ 2, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit.thread456" ], [ 0, %4 ], [ 1, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit" ], [ 0, %.loopexit22.loopexit ], [ 1, %44 ]
+.loopexit:                                        ; preds = %.loopexit22.loopexit, %44, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit", %4, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit.thread458"
+  %.sroa.4.0 = phi i64 [ %51, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit.thread458" ], [ undef, %4 ], [ %267, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit" ], [ %47, %44 ], [ %47, %.loopexit22.loopexit ]
+  %.sroa.0.0 = phi i64 [ 2, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit.thread458" ], [ 0, %4 ], [ 1, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit" ], [ 0, %.loopexit22.loopexit ], [ 1, %44 ]
   %42 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %43 = insertvalue { i64, i64 } %42, i64 %.sroa.4.0, 1
   ret { i64, i64 } %43
 
-44:                                               ; preds = %.lr.ph851
+44:                                               ; preds = %.lr.ph853
   %45 = load ptr, ptr %0, align 8, !nonnull !4, !align !764, !noundef !4
   %46 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %45, i64 0, i64 %41
   %47 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17h31bf14352078a3c9E.llvm.8540189446595550310(ptr noundef nonnull align 8 %46, i8 noundef 2)
@@ -2481,7 +2481,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %.lr.ph, label %.loopexit
 
-50:                                               ; preds = %.lr.ph851
+50:                                               ; preds = %.lr.ph853
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %41, i64 noundef %39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6996e902589bb71d3794fd9fbe2f5542.32) #29
   unreachable
 
@@ -3077,14 +3077,14 @@ default.unreachable16.i.i:                        ; preds = %190
 .noexc47.thread.i:                                ; preds = %246, %245
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !970
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !970
-  br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit.thread456"
+  br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit.thread458"
 
 .noexc47.i:                                       ; preds = %251, %248
   %.pr.i = load i64, ptr %15, align 8, !noalias !970
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !970
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !970
   %.not107.i = icmp eq i64 %.pr.i, 0
-  br i1 %.not107.i, label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit.thread456", label %254
+  br i1 %.not107.i, label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit.thread458", label %254
 
 245:                                              ; preds = %.noexc44.i
   store i64 %.1.i, ptr %35, align 8, !alias.scope !1068, !noalias !1073
@@ -3141,7 +3141,7 @@ common.resume.i:                                  ; preds = %.thread79.i, %264, 
 
 "_ZN4core3ptr290drop_in_place$LT$crossbeam_epoch..atomic..Owned$LT$moka..cht..map..bucket..Bucket$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$$GT$$GT$17h1cbec41767c7644fE.exit.i": ; preds = %261, %254
   call void @__rust_dealloc(ptr noundef nonnull %257, i64 noundef 16, i64 noundef 8) #28, !noalias !1113
-  br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit.thread456"
+  br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit.thread458"
 
 264:                                              ; preds = %238
   invoke void @"_ZN4core3ptr290drop_in_place$LT$crossbeam_epoch..atomic..Owned$LT$moka..cht..map..bucket..Bucket$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$$GT$$GT$17h1cbec41767c7644fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %36) #26
@@ -3158,7 +3158,7 @@ common.resume.i:                                  ; preds = %.thread79.i, %264, 
   invoke void @"_ZN4core3ptr439drop_in_place$LT$moka..cht..map..bucket..InsertOrModifyState$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$C$moka..sync_base..base_cache..BaseCache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$..do_insert_with_hash..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9af047cedcbaf78bE.llvm.4598255899691141044"(ptr noalias noundef nonnull align 8 dereferenceable(80) %17) #26
           to label %common.resume.i unwind label %265, !noalias !970
 
-"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit.thread456": ; preds = %"_ZN4core3ptr290drop_in_place$LT$crossbeam_epoch..atomic..Owned$LT$moka..cht..map..bucket..Bucket$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$$GT$$GT$17h1cbec41767c7644fE.exit.i", %.noexc47.i, %.noexc47.thread.i
+"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit.thread458": ; preds = %"_ZN4core3ptr290drop_in_place$LT$crossbeam_epoch..atomic..Owned$LT$moka..cht..map..bucket..Bucket$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$$GT$$GT$17h1cbec41767c7644fE.exit.i", %.noexc47.i, %.noexc47.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !970
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.566.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i)
@@ -4295,22 +4295,22 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sink.i.sroa.gep5.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.not130.not = icmp eq i64 %11, 0
-  br i1 %.not130.not, label %.loopexit, label %.lr.ph
+  %.not131.not = icmp eq i64 %11, 0
+  br i1 %.not131.not, label %.loopexit, label %.lr.ph
 
 .loopexit24.loopexit:                             ; preds = %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17hdfc17c486937dc31E.exit"
   %.not = icmp ult i64 %15, %11
   br i1 %.not, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5, %.loopexit24.loopexit
-  %.sroa.7.0131 = phi i64 [ %15, %.loopexit24.loopexit ], [ 0, %5 ]
-  %15 = add nuw i64 %.sroa.7.0131, 1
-  %16 = add i64 %.sroa.7.0131, %13
+  %.sroa.7.0132 = phi i64 [ %15, %.loopexit24.loopexit ], [ 0, %5 ]
+  %15 = add nuw i64 %.sroa.7.0132, 1
+  %16 = add i64 %.sroa.7.0132, %13
   %17 = load i64, ptr %10, align 8, !noalias !1583, !noundef !4
   %18 = add i64 %17, -1
   %19 = and i64 %18, %16
-  %.not107 = icmp eq i64 %17, 0
-  br i1 %.not107, label %25, label %22, !prof !768
+  %.not108 = icmp eq i64 %17, 0
+  br i1 %.not108, label %25, label %22, !prof !768
 
 .loopexit:                                        ; preds = %.loopexit24.loopexit, %26, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17hdfc17c486937dc31E.exit", %5
   %.sroa.4.0 = phi i64 [ undef, %5 ], [ %27, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17hdfc17c486937dc31E.exit" ], [ %27, %26 ], [ undef, %.loopexit24.loopexit ]
@@ -4691,8 +4691,8 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   %.sroa.gep.i = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.not134.not = icmp eq i64 %11, 0
-  br i1 %.not134.not, label %.loopexit, label %.lr.ph
+  %.not135.not = icmp eq i64 %11, 0
+  br i1 %.not135.not, label %.loopexit, label %.lr.ph
 
 .loopexit23.loopexit:                             ; preds = %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17he13936337e230d63E.exit"
   %.not = icmp ult i64 %16, %11
@@ -4702,14 +4702,14 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
   unreachable
 
 .lr.ph:                                           ; preds = %5, %.loopexit23.loopexit
-  %.sroa.7.0135 = phi i64 [ %16, %.loopexit23.loopexit ], [ 0, %5 ]
-  %16 = add nuw i64 %.sroa.7.0135, 1
-  %17 = add i64 %.sroa.7.0135, %13
+  %.sroa.7.0136 = phi i64 [ %16, %.loopexit23.loopexit ], [ 0, %5 ]
+  %16 = add nuw i64 %.sroa.7.0136, 1
+  %17 = add i64 %.sroa.7.0136, %13
   %18 = load i64, ptr %10, align 8, !noalias !1668, !noundef !4
   %19 = add i64 %18, -1
   %20 = and i64 %19, %17
-  %.not109 = icmp eq i64 %18, 0
-  br i1 %.not109, label %26, label %23, !prof !768
+  %.not110 = icmp eq i64 %18, 0
+  br i1 %.not110, label %26, label %23, !prof !768
 
 .loopexit:                                        ; preds = %.loopexit23.loopexit, %27, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17he13936337e230d63E.exit", %5
   %.sroa.4.0 = phi i64 [ undef, %5 ], [ %28, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17he13936337e230d63E.exit" ], [ %28, %27 ], [ undef, %.loopexit23.loopexit ]
@@ -4754,13 +4754,13 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
   br i1 %.not.i, label %37, label %66
 
 37:                                               ; preds = %77, %34
-  switch i64 %.sroa.04.0.copyload.i, label %default.unreachable8.i.i [
+  switch i64 %.sroa.04.0.copyload.i, label %default.unreachable9.i.i [
     i64 0, label %38
     i64 1, label %"_ZN4moka3cht3map6bucket36InsertOrModifyState$LT$K$C$V$C$F$GT$18into_insert_bucket17heed6a63e13bfb1e1E.exit.i"
     i64 2, label %53
   ]
 
-default.unreachable8.i.i:                         ; preds = %37
+default.unreachable9.i.i:                         ; preds = %37
   unreachable
 
 38:                                               ; preds = %37
@@ -6458,8 +6458,8 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %90, %_ZN3
   %200 = load i64, ptr %80, align 8, !noalias !2075, !noundef !4
   %201 = add i64 %200, -1
   %202 = and i64 %201, %199
-  %.not29.i.us.i = icmp eq i64 %200, 0
-  br i1 %.not29.i.us.i, label %.invoke, label %.split.us.us.i, !prof !768
+  %.not30.i.us.i = icmp eq i64 %200, 0
+  br i1 %.not30.i.us.i, label %.invoke, label %.split.us.us.i, !prof !768
 
 .split.us.us.i:                                   ; preds = %.lr.ph.split.us.i
   %203 = load ptr, ptr %.01516.i, align 8, !nonnull !4, !align !764, !noundef !4
@@ -6551,8 +6551,8 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
   %230 = load i64, ptr %80, align 8, !noalias !2075, !noundef !4
   %231 = add i64 %230, -1
   %232 = and i64 %231, %229
-  %.not29.i.i = icmp eq i64 %230, 0
-  br i1 %.not29.i.i, label %.invoke, label %.split.i, !prof !768
+  %.not30.i.i = icmp eq i64 %230, 0
+  br i1 %.not30.i.i, label %.invoke, label %.split.i, !prof !768
 
 .split.i:                                         ; preds = %.lr.ph.split.i
   %233 = load ptr, ptr %.01516.i, align 8, !nonnull !4, !align !764, !noundef !4
@@ -6622,11 +6622,11 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
   ]
 
 .loopexit:                                        ; preds = %.loopexit3.i.loopexit.split.i, %.loopexit3.i.loopexit.split.us.us.i, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h943faf3c189d271bE.exit.i.i", %.noexc63, %.noexc60, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h943faf3c189d271bE.exit.i.us.us.i", %131
-  %.sroa.3.0.i22.i.i = phi i64 [ undef, %131 ], [ %202, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h943faf3c189d271bE.exit.i.us.us.i" ], [ %202, %.noexc60 ], [ %232, %.noexc63 ], [ %232, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h943faf3c189d271bE.exit.i.i" ], [ undef, %.loopexit3.i.loopexit.split.us.us.i ], [ undef, %.loopexit3.i.loopexit.split.i ]
+  %.sroa.3.0.i23.i.i = phi i64 [ undef, %131 ], [ %202, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h943faf3c189d271bE.exit.i.us.us.i" ], [ %202, %.noexc60 ], [ %232, %.noexc63 ], [ %232, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h943faf3c189d271bE.exit.i.i" ], [ undef, %.loopexit3.i.loopexit.split.us.us.i ], [ undef, %.loopexit3.i.loopexit.split.i ]
   %.sroa.0.0.i.i = phi i64 [ 2, %131 ], [ 3, %.noexc60 ], [ %.sroa.0.1.i.i.us.us.i, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h943faf3c189d271bE.exit.i.us.us.i" ], [ %.sroa.0.1.i.i.i, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h943faf3c189d271bE.exit.i.i" ], [ 3, %.noexc63 ], [ 2, %.loopexit3.i.loopexit.split.us.us.i ], [ 2, %.loopexit3.i.loopexit.split.i ]
   %257 = icmp eq i64 %.sroa.0.0.i.i, 1
   %.sroa.7.5 = select i1 %257, i64 %100, i64 %.sroa.7.1
-  %.sroa.6.5 = select i1 %257, i64 %.sroa.3.0.i22.i.i, i64 %.sroa.6.1
+  %.sroa.6.5 = select i1 %257, i64 %.sroa.3.0.i23.i.i, i64 %.sroa.6.1
   %.sroa.05.3 = zext i1 %257 to i64
   br label %.loopexit145
 
@@ -7337,8 +7337,8 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %90, %_ZN3
   %200 = load i64, ptr %80, align 8, !noalias !2162, !noundef !4
   %201 = add i64 %200, -1
   %202 = and i64 %201, %199
-  %.not29.i.us.i = icmp eq i64 %200, 0
-  br i1 %.not29.i.us.i, label %.invoke, label %.split.us.us.i, !prof !768
+  %.not30.i.us.i = icmp eq i64 %200, 0
+  br i1 %.not30.i.us.i, label %.invoke, label %.split.us.us.i, !prof !768
 
 .split.us.us.i:                                   ; preds = %.lr.ph.split.us.i
   %203 = load ptr, ptr %.01516.i, align 8, !nonnull !4, !align !764, !noundef !4
@@ -7430,8 +7430,8 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
   %230 = load i64, ptr %80, align 8, !noalias !2162, !noundef !4
   %231 = add i64 %230, -1
   %232 = and i64 %231, %229
-  %.not29.i.i = icmp eq i64 %230, 0
-  br i1 %.not29.i.i, label %.invoke, label %.split.i, !prof !768
+  %.not30.i.i = icmp eq i64 %230, 0
+  br i1 %.not30.i.i, label %.invoke, label %.split.i, !prof !768
 
 .split.i:                                         ; preds = %.lr.ph.split.i
   %233 = load ptr, ptr %.01516.i, align 8, !nonnull !4, !align !764, !noundef !4
@@ -7501,11 +7501,11 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
   ]
 
 .loopexit:                                        ; preds = %.loopexit3.i.loopexit.split.i, %.loopexit3.i.loopexit.split.us.us.i, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17ha730751772429acbE.exit.i.i", %.noexc63, %.noexc60, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17ha730751772429acbE.exit.i.us.us.i", %131
-  %.sroa.3.0.i22.i.i = phi i64 [ undef, %131 ], [ %202, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17ha730751772429acbE.exit.i.us.us.i" ], [ %202, %.noexc60 ], [ %232, %.noexc63 ], [ %232, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17ha730751772429acbE.exit.i.i" ], [ undef, %.loopexit3.i.loopexit.split.us.us.i ], [ undef, %.loopexit3.i.loopexit.split.i ]
+  %.sroa.3.0.i23.i.i = phi i64 [ undef, %131 ], [ %202, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17ha730751772429acbE.exit.i.us.us.i" ], [ %202, %.noexc60 ], [ %232, %.noexc63 ], [ %232, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17ha730751772429acbE.exit.i.i" ], [ undef, %.loopexit3.i.loopexit.split.us.us.i ], [ undef, %.loopexit3.i.loopexit.split.i ]
   %.sroa.0.0.i.i = phi i64 [ 2, %131 ], [ 3, %.noexc60 ], [ %.sroa.0.1.i.i.us.us.i, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17ha730751772429acbE.exit.i.us.us.i" ], [ %.sroa.0.1.i.i.i, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17ha730751772429acbE.exit.i.i" ], [ 3, %.noexc63 ], [ 2, %.loopexit3.i.loopexit.split.us.us.i ], [ 2, %.loopexit3.i.loopexit.split.i ]
   %257 = icmp eq i64 %.sroa.0.0.i.i, 1
   %.sroa.7.5 = select i1 %257, i64 %100, i64 %.sroa.7.1
-  %.sroa.6.5 = select i1 %257, i64 %.sroa.3.0.i22.i.i, i64 %.sroa.6.1
+  %.sroa.6.5 = select i1 %257, i64 %.sroa.3.0.i23.i.i, i64 %.sroa.6.1
   %.sroa.05.3 = zext i1 %257 to i64
   br label %.loopexit145
 
@@ -8209,7 +8209,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i: ; preds = %154, %152
   %.promoted22.i = load i64, ptr %.sroa.0.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !2257, !noalias !2262
   %.promoted23.i = load i64, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !2267, !noalias !2262
   %.promoted25.i = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !2267, !noalias !2262
-  %172 = getelementptr inbounds i8, ptr %5, i64 %.0.i92
+  %172 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.i92
   %.0.copyload.i = load i64, ptr %172, align 1, !alias.scope !2260, !noalias !2266
   %173 = xor i64 %.0.copyload.i, %.promoted22.i
   %174 = add i64 %.promoted23.i, %.promoted.i
@@ -8394,8 +8394,8 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit20.i: ; preds = %227, %229, 
   %306 = load i64, ptr %82, align 8, !noalias !2282, !noundef !4
   %307 = add i64 %306, -1
   %308 = and i64 %307, %305
-  %.not29.i.us.i = icmp eq i64 %306, 0
-  br i1 %.not29.i.us.i, label %.invoke, label %.split.us.us.i, !prof !768
+  %.not30.i.us.i = icmp eq i64 %306, 0
+  br i1 %.not30.i.us.i, label %.invoke, label %.split.us.us.i, !prof !768
 
 .split.us.us.i:                                   ; preds = %.lr.ph.split.us.i
   %309 = load ptr, ptr %.01516.i, align 8, !nonnull !4, !align !764, !noundef !4
@@ -8496,8 +8496,8 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
   %338 = load i64, ptr %82, align 8, !noalias !2282, !noundef !4
   %339 = add i64 %338, -1
   %340 = and i64 %339, %337
-  %.not29.i.i = icmp eq i64 %338, 0
-  br i1 %.not29.i.i, label %.invoke, label %.split.i, !prof !768
+  %.not30.i.i = icmp eq i64 %338, 0
+  br i1 %.not30.i.i, label %.invoke, label %.split.i, !prof !768
 
 .split.i:                                         ; preds = %.lr.ph.split.i
   %341 = load ptr, ptr %.01516.i, align 8, !nonnull !4, !align !764, !noundef !4
@@ -8576,11 +8576,11 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
   ]
 
 .loopexit:                                        ; preds = %.loopexit3.i.loopexit.split.i, %.loopexit3.i.loopexit.split.us.us.i, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h16b1c838f55d99fcE.exit.i.i", %.noexc63, %.noexc60, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h16b1c838f55d99fcE.exit.i.us.us.i", %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit20.i
-  %.sroa.3.0.i22.i.i = phi i64 [ undef, %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit20.i ], [ %308, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h16b1c838f55d99fcE.exit.i.us.us.i" ], [ %308, %.noexc60 ], [ %340, %.noexc63 ], [ %340, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h16b1c838f55d99fcE.exit.i.i" ], [ undef, %.loopexit3.i.loopexit.split.us.us.i ], [ undef, %.loopexit3.i.loopexit.split.i ]
+  %.sroa.3.0.i23.i.i = phi i64 [ undef, %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit20.i ], [ %308, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h16b1c838f55d99fcE.exit.i.us.us.i" ], [ %308, %.noexc60 ], [ %340, %.noexc63 ], [ %340, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h16b1c838f55d99fcE.exit.i.i" ], [ undef, %.loopexit3.i.loopexit.split.us.us.i ], [ undef, %.loopexit3.i.loopexit.split.i ]
   %.sroa.0.0.i.i = phi i64 [ 2, %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit20.i ], [ 3, %.noexc60 ], [ %.sroa.0.1.i.i.us.us.i, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h16b1c838f55d99fcE.exit.i.us.us.i" ], [ %.sroa.0.1.i.i.i, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h16b1c838f55d99fcE.exit.i.i" ], [ 3, %.noexc63 ], [ 2, %.loopexit3.i.loopexit.split.us.us.i ], [ 2, %.loopexit3.i.loopexit.split.i ]
   %367 = icmp eq i64 %.sroa.0.0.i.i, 1
   %.sroa.7.5 = select i1 %367, i64 %102, i64 %.sroa.7.1
-  %.sroa.6.5 = select i1 %367, i64 %.sroa.3.0.i22.i.i, i64 %.sroa.6.1
+  %.sroa.6.5 = select i1 %367, i64 %.sroa.3.0.i23.i.i, i64 %.sroa.6.1
   %.sroa.05.3 = zext i1 %367 to i64
   br label %.loopexit148
 
@@ -9217,13 +9217,13 @@ define internal fastcc noundef i64 @"_ZN4moka3cht3map6bucket36InsertOrModifyStat
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = load i64, ptr %0, align 8, !range !175, !noundef !4
-  switch i64 %6, label %default.unreachable10 [
+  switch i64 %6, label %default.unreachable11 [
     i64 0, label %7
     i64 1, label %12
     i64 2, label %38
   ]
 
-default.unreachable10:                            ; preds = %1
+default.unreachable11:                            ; preds = %1
   unreachable
 
 7:                                                ; preds = %1

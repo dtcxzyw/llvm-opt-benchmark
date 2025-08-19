@@ -713,8 +713,8 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i86: ; preds = %_ZNSt12_Vect
   br label %_ZNSt6vectorIfSaIfEE7reserveEm.exit89
 
 _ZNSt6vectorIfSaIfEE7reserveEm.exit89:            ; preds = %19, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i86
-  %.sroa.13156.3477 = phi ptr [ %21, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i86 ], [ null, %19 ]
-  %.sroa.22159.8476 = phi ptr [ %22, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i86 ], [ null, %19 ]
+  %.sroa.13156.3498 = phi ptr [ %21, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i86 ], [ null, %19 ]
+  %.sroa.22159.8497 = phi ptr [ %22, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i86 ], [ null, %19 ]
   %.sroa.0139.7 = phi ptr [ %24, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i86 ], [ null, %19 ]
   %.sroa.22.7 = phi ptr [ %25, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i86 ], [ null, %19 ]
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -738,8 +738,8 @@ _ZNSt6vectorIfSaIfEE7reserveEm.exit89:            ; preds = %19, %_ZNSt12_Vector
   %.pre-phi = phi i64 [ %.pre473, %._crit_edge373.loopexit ], [ %16, %_ZNSt6vectorIfSaIfEE7reserveEm.exit89 ]
   %.sroa.0139.2.lcssa = phi ptr [ %.sroa.0139.6.lcssa, %._crit_edge373.loopexit ], [ %.sroa.0139.7, %_ZNSt6vectorIfSaIfEE7reserveEm.exit89 ]
   %.sroa.22.2.lcssa = phi ptr [ %.sroa.22.6.lcssa, %._crit_edge373.loopexit ], [ %.sroa.22.7, %_ZNSt6vectorIfSaIfEE7reserveEm.exit89 ]
-  %.sroa.22159.2.lcssa = phi ptr [ %.sroa.22159.7.lcssa, %._crit_edge373.loopexit ], [ %.sroa.22159.8476, %_ZNSt6vectorIfSaIfEE7reserveEm.exit89 ]
-  %.sroa.0150.2.lcssa = phi ptr [ %.sroa.0150.7.lcssa, %._crit_edge373.loopexit ], [ %.sroa.13156.3477, %_ZNSt6vectorIfSaIfEE7reserveEm.exit89 ]
+  %.sroa.22159.2.lcssa = phi ptr [ %.sroa.22159.7.lcssa, %._crit_edge373.loopexit ], [ %.sroa.22159.8497, %_ZNSt6vectorIfSaIfEE7reserveEm.exit89 ]
+  %.sroa.0150.2.lcssa = phi ptr [ %.sroa.0150.7.lcssa, %._crit_edge373.loopexit ], [ %.sroa.13156.3498, %_ZNSt6vectorIfSaIfEE7reserveEm.exit89 ]
   %32 = invoke i32 @tng_particle_data_block_add(ptr noundef %12, i64 noundef 268435460, ptr noundef nonnull @.str.9, i8 noundef signext 2, i8 noundef signext 0, i64 noundef 1, i64 noundef 1, i64 noundef 1, i64 noundef 0, i64 noundef %.pre-phi, i64 noundef 3, ptr noundef %.sroa.0150.2.lcssa)
           to label %326 unwind label %33
 
@@ -753,9 +753,9 @@ _ZNSt6vectorIfSaIfEE7reserveEm.exit89:            ; preds = %19, %_ZNSt12_Vector
   br label %339
 
 35:                                               ; preds = %.lr.ph372, %._crit_edge
-  %.sroa.0150.2371 = phi ptr [ %.sroa.13156.3477, %.lr.ph372 ], [ %.sroa.0150.7.lcssa, %._crit_edge ]
-  %.sroa.13156.0370 = phi ptr [ %.sroa.13156.3477, %.lr.ph372 ], [ %.sroa.13156.2.lcssa, %._crit_edge ]
-  %.sroa.22159.2369 = phi ptr [ %.sroa.22159.8476, %.lr.ph372 ], [ %.sroa.22159.7.lcssa, %._crit_edge ]
+  %.sroa.0150.2371 = phi ptr [ %.sroa.13156.3498, %.lr.ph372 ], [ %.sroa.0150.7.lcssa, %._crit_edge ]
+  %.sroa.13156.0370 = phi ptr [ %.sroa.13156.3498, %.lr.ph372 ], [ %.sroa.13156.2.lcssa, %._crit_edge ]
+  %.sroa.22159.2369 = phi ptr [ %.sroa.22159.8497, %.lr.ph372 ], [ %.sroa.22159.7.lcssa, %._crit_edge ]
   %.sroa.0136.0368 = phi ptr [ %27, %.lr.ph372 ], [ %256, %._crit_edge ]
   %.sroa.22.2367 = phi ptr [ %.sroa.22.7, %.lr.ph372 ], [ %.sroa.22.6.lcssa, %._crit_edge ]
   %.sroa.13.0366 = phi ptr [ %.sroa.0139.7, %.lr.ph372 ], [ %.sroa.13.2.lcssa, %._crit_edge ]
@@ -1801,34 +1801,34 @@ _ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.threa
   br i1 %.not67, label %67, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread
 
 _ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread: ; preds = %39, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread
-  %.099 = phi i8 [ %.0, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ], [ 3, %39 ]
-  %.16397 = phi i32 [ %.163, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ], [ %36, %39 ]
-  %.16595 = phi i32 [ %.165, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ], [ %12, %39 ]
-  %.06694 = phi i32 [ %.066, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ], [ %10, %39 ]
-  %63 = sext i32 %.06694 to i64
-  %64 = tail call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %4, i64 noundef %63, i64 noundef 3, i64 noundef 268435457, ptr noundef nonnull @.str.15, i8 noundef signext 1, i8 noundef signext %.099)
-  %65 = icmp slt i32 %.06694, 1
-  %66 = select i1 %65, i32 -1, i32 %.06694
+  %.0119 = phi i8 [ %.0, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ], [ 3, %39 ]
+  %.163117 = phi i32 [ %.163, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ], [ %36, %39 ]
+  %.165115 = phi i32 [ %.165, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ], [ %12, %39 ]
+  %.066114 = phi i32 [ %.066, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ], [ %10, %39 ]
+  %63 = sext i32 %.066114 to i64
+  %64 = tail call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %4, i64 noundef %63, i64 noundef 3, i64 noundef 268435457, ptr noundef nonnull @.str.15, i8 noundef signext 1, i8 noundef signext %.0119)
+  %65 = icmp slt i32 %.066114, 1
+  %66 = select i1 %65, i32 -1, i32 %.066114
   br label %67
 
 67:                                               ; preds = %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread
-  %.0100 = phi i8 [ %.099, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread ], [ %.0, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ]
-  %.16398 = phi i32 [ %.16397, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread ], [ %.163, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ]
-  %.16596 = phi i32 [ %.16595, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread ], [ %.165, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ]
+  %.0120 = phi i8 [ %.0119, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread ], [ %.0, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ]
+  %.163118 = phi i32 [ %.163117, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread ], [ %.163, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ]
+  %.165116 = phi i32 [ %.165115, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread ], [ %.165, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ]
   %.059 = phi i32 [ %66, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread ], [ -1, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ]
-  %.058 = phi i32 [ %.06694, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread ], [ -1, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ]
-  %.not68 = icmp eq i32 %.16596, 0
+  %.058 = phi i32 [ %.066114, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread ], [ -1, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ]
+  %.not68 = icmp eq i32 %.165116, 0
   br i1 %.not68, label %90, label %68
 
 68:                                               ; preds = %67
-  %69 = sext i32 %.16596 to i64
-  %70 = tail call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %4, i64 noundef %69, i64 noundef 3, i64 noundef 268435458, ptr noundef nonnull @.str.16, i8 noundef signext 1, i8 noundef signext %.0100)
+  %69 = sext i32 %.165116 to i64
+  %70 = tail call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %4, i64 noundef %69, i64 noundef 3, i64 noundef 268435458, ptr noundef nonnull @.str.16, i8 noundef signext 1, i8 noundef signext %.0120)
   %71 = icmp slt i32 %.059, 1
-  %72 = icmp slt i32 %.16596, 1
+  %72 = icmp slt i32 %.165116, 1
   br i1 %71, label %73, label %75
 
 73:                                               ; preds = %68
-  %74 = select i1 %72, i32 -1, i32 %.16596
+  %74 = select i1 %72, i32 -1, i32 %.165116
   br label %_ZL35greatest_common_divisor_if_positiveii.exit
 
 75:                                               ; preds = %68
@@ -1837,8 +1837,8 @@ _ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.threa
 76:                                               ; preds = %75
   %77 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.059, i1 true)
   %78 = lshr exact i32 %.059, %77
-  %79 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.16596, i1 true)
-  %80 = lshr exact i32 %.16596, %79
+  %79 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.165116, i1 true)
+  %80 = lshr exact i32 %.165116, %79
   %81 = tail call i32 @llvm.umin.i32(i32 %77, i32 %79)
   %spec.select3334.i.i.i = tail call i32 @llvm.umin.i32(i32 %78, i32 %80)
   %82 = icmp eq i32 %78, %80
@@ -1864,25 +1864,25 @@ _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i: ; preds = %.lr.ph.i.i.
 _ZL35greatest_common_divisor_if_positiveii.exit:  ; preds = %73, %75, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i
   %.0.i73 = phi i32 [ %74, %73 ], [ %87, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i ], [ %.059, %75 ]
   %88 = icmp slt i32 %.058, 0
-  %89 = tail call i32 @llvm.smin.i32(i32 %.16596, i32 %.058)
-  %spec.select = select i1 %88, i32 %.16596, i32 %89
+  %89 = tail call i32 @llvm.smin.i32(i32 %.165116, i32 %.058)
+  %spec.select = select i1 %88, i32 %.165116, i32 %89
   br label %90
 
 90:                                               ; preds = %_ZL35greatest_common_divisor_if_positiveii.exit, %67
   %.160 = phi i32 [ %.059, %67 ], [ %.0.i73, %_ZL35greatest_common_divisor_if_positiveii.exit ]
   %.1 = phi i32 [ %.058, %67 ], [ %spec.select, %_ZL35greatest_common_divisor_if_positiveii.exit ]
-  %.not69 = icmp eq i32 %.16398, 0
+  %.not69 = icmp eq i32 %.163118, 0
   br i1 %.not69, label %113, label %91
 
 91:                                               ; preds = %90
-  %92 = sext i32 %.16398 to i64
+  %92 = sext i32 %.163118 to i64
   %93 = tail call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %4, i64 noundef %92, i64 noundef 3, i64 noundef 268435459, ptr noundef nonnull @.str.17, i8 noundef signext 1, i8 noundef signext 3)
   %94 = icmp slt i32 %.160, 1
-  %95 = icmp slt i32 %.16398, 1
+  %95 = icmp slt i32 %.163118, 1
   br i1 %94, label %96, label %98
 
 96:                                               ; preds = %91
-  %97 = select i1 %95, i32 -1, i32 %.16398
+  %97 = select i1 %95, i32 -1, i32 %.163118
   br label %_ZL35greatest_common_divisor_if_positiveii.exit84
 
 98:                                               ; preds = %91
@@ -1891,8 +1891,8 @@ _ZL35greatest_common_divisor_if_positiveii.exit:  ; preds = %73, %75, %_ZSt3gcdI
 99:                                               ; preds = %98
   %100 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.160, i1 true)
   %101 = lshr exact i32 %.160, %100
-  %102 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.16398, i1 true)
-  %103 = lshr exact i32 %.16398, %102
+  %102 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.163118, i1 true)
+  %103 = lshr exact i32 %.163118, %102
   %104 = tail call i32 @llvm.umin.i32(i32 %100, i32 %102)
   %spec.select3334.i.i.i74 = tail call i32 @llvm.umin.i32(i32 %101, i32 %103)
   %105 = icmp eq i32 %101, %103
@@ -1918,8 +1918,8 @@ _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81: ; preds = %.lr.ph.i.
 _ZL35greatest_common_divisor_if_positiveii.exit84: ; preds = %96, %98, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81
   %.0.i83 = phi i32 [ %97, %96 ], [ %110, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81 ], [ %.160, %98 ]
   %111 = icmp slt i32 %.1, 0
-  %112 = tail call i32 @llvm.smin.i32(i32 %.16398, i32 %.1)
-  %spec.select71 = select i1 %111, i32 %.16398, i32 %112
+  %112 = tail call i32 @llvm.smin.i32(i32 %.163118, i32 %.1)
+  %spec.select71 = select i1 %111, i32 %.163118, i32 %112
   br label %113
 
 113:                                              ; preds = %_ZL35greatest_common_divisor_if_positiveii.exit84, %90
@@ -2126,7 +2126,7 @@ _ZL18all_atoms_selectedPK10gmx_mtop_t23SimulationAtomGroupType.exit.i: ; preds =
 .preheader7.i:                                    ; preds = %.loopexit.i, %.preheader7.lr.ph.i
   %85 = phi i32 [ %.pre.i, %.preheader7.lr.ph.i ], [ %229, %.loopexit.i ]
   %.123.i = phi i32 [ %.010230.i, %.preheader7.lr.ph.i ], [ %230, %.loopexit.i ]
-  %.110422.i = phi i32 [ %.010329.i, %.preheader7.lr.ph.i ], [ %.2.lcssa51.i, %.loopexit.i ]
+  %.110422.i = phi i32 [ %.010329.i, %.preheader7.lr.ph.i ], [ %.2.lcssa66.i, %.loopexit.i ]
   %.010621.i = phi i32 [ 0, %.preheader7.lr.ph.i ], [ %231, %.loopexit.i ]
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %.lr.ph.preheader.i, label %.loopexit.i
@@ -2136,13 +2136,13 @@ _ZL18all_atoms_selectedPK10gmx_mtop_t23SimulationAtomGroupType.exit.i: ; preds =
   br label %.lr.ph.i.outer
 
 .lr.ph.i.outer:                                   ; preds = %.thread, %.lr.ph.preheader.i
-  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i20, %.thread ], [ 0, %.lr.ph.preheader.i ]
+  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i35, %.thread ], [ 0, %.lr.ph.preheader.i ]
   %.212.i.ph = phi i32 [ %127, %.thread ], [ %.110422.i, %.lr.ph.preheader.i ]
   %.010711.i.ph = phi i1 [ true, %.thread ], [ false, %.lr.ph.preheader.i ]
   br label %.lr.ph.i
 
 ._crit_edge24.i:                                  ; preds = %.loopexit.i, %.lr.ph31.i
-  %.1104.lcssa.i = phi i32 [ %.010329.i, %.lr.ph31.i ], [ %.2.lcssa51.i, %.loopexit.i ]
+  %.1104.lcssa.i = phi i32 [ %.010329.i, %.lr.ph31.i ], [ %.2.lcssa66.i, %.loopexit.i ]
   %.1.lcssa.i = phi i32 [ %.010230.i, %.lr.ph31.i ], [ %230, %.loopexit.i ]
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.01.028.i, i64 56
   %.not5.i = icmp eq ptr %88, %62
@@ -2213,11 +2213,11 @@ _ZL18all_atoms_selectedPK10gmx_mtop_t23SimulationAtomGroupType.exit.i: ; preds =
   %124 = load ptr, ptr %123, align 8, !tbaa !116
   %125 = add nsw i64 %indvars.iv.i, %87
   %126 = call i32 @tng_residue_atom_w_id_add(ptr noundef %.val, ptr noundef %116, ptr noundef %120, ptr noundef %124, i64 noundef %125, ptr noundef nonnull %8)
-  %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i, 1
   %127 = add nsw i32 %.212.i, 1
   %128 = load i32, ptr %73, align 8, !tbaa !122
   %129 = sext i32 %128 to i64
-  %130 = icmp slt i64 %indvars.iv.next.i20, %129
+  %130 = icmp slt i64 %indvars.iv.next.i35, %129
   br i1 %130, label %.lr.ph.i.outer, label %.preheader.i.preheader, !llvm.loop !252
 
 131:                                              ; preds = %_ZL11IS_CHEMBONDi.exit.thread.i
@@ -2362,7 +2362,7 @@ _ZL11IS_CHEMBONDi.exit.thread.i:                  ; preds = %181, %147, %_ZL11IS
   br i1 %228, label %.lr.ph20.i, label %.loopexit.i, !llvm.loop !255
 
 .loopexit.i:                                      ; preds = %219, %131, %._crit_edge.i, %.preheader7.i
-  %.2.lcssa51.i = phi i32 [ %89, %131 ], [ %112, %._crit_edge.i ], [ %.110422.i, %.preheader7.i ], [ %89, %219 ]
+  %.2.lcssa66.i = phi i32 [ %89, %131 ], [ %112, %._crit_edge.i ], [ %.110422.i, %.preheader7.i ], [ %89, %219 ]
   %229 = load i32, ptr %73, align 8, !tbaa !122
   %230 = add nsw i32 %229, %.123.i
   %231 = add nuw nsw i32 %.010621.i, 1
@@ -4208,8 +4208,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_127convert_array_to_real_arrayEPvPf
 .preheader65:                                     ; preds = %33
   %35 = icmp sgt i32 %3, 0
   %36 = icmp sgt i32 %4, 0
-  %or.cond113 = and i1 %35, %36
-  br i1 %or.cond113, label %.preheader.us.preheader, label %.loopexit
+  %or.cond119 = and i1 %35, %36
+  br i1 %or.cond119, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.preheader65
   %37 = zext nneg i32 %4 to i64

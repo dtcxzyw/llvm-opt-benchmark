@@ -1854,8 +1854,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %314 = and i32 %.pre121, 4095
   %315 = load i32, ptr %151, align 8
   %316 = icmp eq i32 %314, %315
-  %or.cond125 = select i1 %313, i1 %316, i1 false
-  br i1 %or.cond125, label %353, label %._crit_edge122
+  %or.cond143 = select i1 %313, i1 %316, i1 false
+  br i1 %or.cond143, label %353, label %._crit_edge122
 
 ._crit_edge122:                                   ; preds = %309
   %317 = icmp eq i32 %314, 0
@@ -2378,7 +2378,7 @@ define hidden noundef zeroext i1 @_ZN2cv11WebPEncoder5writeERKNS_3MatERKSt6vecto
   %.085 = phi i32 [ 3, %50 ], [ %40, %42 ]
   %.pn = phi ptr [ %4, %50 ], [ %1, %42 ]
   %.pn.sroa.phi = getelementptr inbounds nuw i8, ptr %.pn, i64 80
-  %.pn.sroa.phi182 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
+  %.pn.sroa.phi193 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !136
   br i1 %.066, label %54, label %67
@@ -2390,7 +2390,7 @@ define hidden noundef zeroext i1 @_ZN2cv11WebPEncoder5writeERKNS_3MatERKSt6vecto
   ]
 
 55:                                               ; preds = %54
-  %56 = load ptr, ptr %.pn.sroa.phi182, align 8, !tbaa !107
+  %56 = load ptr, ptr %.pn.sroa.phi193, align 8, !tbaa !107
   %57 = load i64, ptr %.pn.sroa.phi, align 8, !tbaa !106
   %58 = trunc i64 %57 to i32
   %59 = invoke i64 @WebPEncodeLosslessBGR(ptr noundef %56, i32 noundef %20, i32 noundef %22, i32 noundef %58, ptr noundef nonnull %7)
@@ -2402,7 +2402,7 @@ define hidden noundef zeroext i1 @_ZN2cv11WebPEncoder5writeERKNS_3MatERKSt6vecto
   br label %245
 
 62:                                               ; preds = %54
-  %63 = load ptr, ptr %.pn.sroa.phi182, align 8, !tbaa !107
+  %63 = load ptr, ptr %.pn.sroa.phi193, align 8, !tbaa !107
   %64 = load i64, ptr %.pn.sroa.phi, align 8, !tbaa !106
   %65 = trunc i64 %64 to i32
   %66 = invoke i64 @WebPEncodeLosslessBGRA(ptr noundef %63, i32 noundef %20, i32 noundef %22, i32 noundef %65, ptr noundef nonnull %7)
@@ -2415,14 +2415,14 @@ define hidden noundef zeroext i1 @_ZN2cv11WebPEncoder5writeERKNS_3MatERKSt6vecto
   ]
 
 68:                                               ; preds = %67
-  %69 = load ptr, ptr %.pn.sroa.phi182, align 8, !tbaa !107
+  %69 = load ptr, ptr %.pn.sroa.phi193, align 8, !tbaa !107
   %70 = load i64, ptr %.pn.sroa.phi, align 8, !tbaa !106
   %71 = trunc i64 %70 to i32
   %72 = invoke i64 @WebPEncodeBGR(ptr noundef %69, i32 noundef %20, i32 noundef %22, i32 noundef %71, float noundef %.086, ptr noundef nonnull %7)
           to label %78 unwind label %60
 
 73:                                               ; preds = %67
-  %74 = load ptr, ptr %.pn.sroa.phi182, align 8, !tbaa !107
+  %74 = load ptr, ptr %.pn.sroa.phi193, align 8, !tbaa !107
   %75 = load i64, ptr %.pn.sroa.phi, align 8, !tbaa !106
   %76 = trunc i64 %75 to i32
   %77 = invoke i64 @WebPEncodeBGRA(ptr noundef %74, i32 noundef %20, i32 noundef %22, i32 noundef %76, float noundef %.086, ptr noundef nonnull %7)
@@ -2923,7 +2923,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !177
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 

@@ -86,8 +86,8 @@ define noundef range(i64 0, 257) i64 @"_ZN5rayon15range_inclusive85_$LT$impl$u20
   br label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h17811fb508d3f4d3E.exit
 
 _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h17811fb508d3f4d3E.exit: ; preds = %1, %4, %9
-  %.sink11.i.i = phi i64 [ %12, %9 ], [ 0, %1 ], [ 0, %4 ]
-  ret i64 %.sink11.i.i
+  %.sink12.i.i = phi i64 [ %12, %9 ], [ 0, %1 ], [ 0, %4 ]
+  ret i64 %.sink12.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -158,8 +158,8 @@ define noundef range(i64 0, 65537) i64 @"_ZN5rayon15range_inclusive86_$LT$impl$u
   br label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha688b3e7a2bb5a4bE.exit
 
 _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha688b3e7a2bb5a4bE.exit: ; preds = %1, %5, %9
-  %.sink11.i.i = phi i64 [ %12, %9 ], [ 0, %1 ], [ 0, %5 ]
-  ret i64 %.sink11.i.i
+  %.sink12.i.i = phi i64 [ %12, %9 ], [ 0, %1 ], [ 0, %5 ]
+  ret i64 %.sink12.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -240,7 +240,7 @@ define noundef range(i64 -254, 257) i64 @"_ZN5rayon15range_inclusive85_$LT$impl$
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE.exit.i"
 
 "_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE.exit.i": ; preds = %12, %7, %1
-  %.sink11.i.i = phi i64 [ %16, %12 ], [ 0, %1 ], [ 0, %7 ]
+  %.sink12.i.i = phi i64 [ %16, %12 ], [ 0, %1 ], [ 0, %7 ]
   %.sroa.03.0.sink.i.i = phi i64 [ %.sroa.03.0.i.i, %12 ], [ 1, %1 ], [ 1, %7 ]
   %.sink.i.i = phi i64 [ %19, %12 ], [ 0, %1 ], [ 0, %7 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !53
@@ -249,10 +249,10 @@ define noundef range(i64 -254, 257) i64 @"_ZN5rayon15range_inclusive85_$LT$impl$
   store i64 %.sink.i.i, ptr %20, align 8, !noalias !53
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !53
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %.sink11.i.i, ptr %21, align 8, !noalias !53
+  store i64 %.sink12.i.i, ptr %21, align 8, !noalias !53
   store i64 1, ptr %3, align 8, !noalias !53
   %trunc.i = trunc nuw i64 %.sroa.03.0.sink.i.i to i1
-  %22 = icmp eq i64 %.sink.i.i, %.sink11.i.i
+  %22 = icmp eq i64 %.sink.i.i, %.sink12.i.i
   %.0.i = select i1 %trunc.i, i1 %22, i1 false
   br i1 %.0.i, label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h4be8c75358d8f93cE.exit, label %23
 
@@ -265,7 +265,7 @@ define noundef range(i64 -254, 257) i64 @"_ZN5rayon15range_inclusive85_$LT$impl$
 _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h4be8c75358d8f93cE.exit: ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !53
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !53
-  ret i64 %.sink11.i.i
+  ret i64 %.sink12.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -352,7 +352,7 @@ define noundef range(i64 -65534, 65537) i64 @"_ZN5rayon15range_inclusive86_$LT$i
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E.exit.i"
 
 "_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E.exit.i": ; preds = %12, %8, %1
-  %.sink11.i.i = phi i64 [ %16, %12 ], [ 0, %1 ], [ 0, %8 ]
+  %.sink12.i.i = phi i64 [ %16, %12 ], [ 0, %1 ], [ 0, %8 ]
   %.sroa.03.0.sink.i.i = phi i64 [ %.sroa.03.0.i.i, %12 ], [ 1, %1 ], [ 1, %8 ]
   %.sink.i.i = phi i64 [ %19, %12 ], [ 0, %1 ], [ 0, %8 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !73
@@ -361,10 +361,10 @@ define noundef range(i64 -65534, 65537) i64 @"_ZN5rayon15range_inclusive86_$LT$i
   store i64 %.sink.i.i, ptr %20, align 8, !noalias !73
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !73
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %.sink11.i.i, ptr %21, align 8, !noalias !73
+  store i64 %.sink12.i.i, ptr %21, align 8, !noalias !73
   store i64 1, ptr %3, align 8, !noalias !73
   %trunc.i = trunc nuw i64 %.sroa.03.0.sink.i.i to i1
-  %22 = icmp eq i64 %.sink.i.i, %.sink11.i.i
+  %22 = icmp eq i64 %.sink.i.i, %.sink12.i.i
   %.0.i = select i1 %trunc.i, i1 %22, i1 false
   br i1 %.0.i, label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h01ec6519ebae4e75E.exit, label %23
 
@@ -377,7 +377,7 @@ define noundef range(i64 -65534, 65537) i64 @"_ZN5rayon15range_inclusive86_$LT$i
 _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h01ec6519ebae4e75E.exit: ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !73
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !73
-  ret i64 %.sink11.i.i
+  ret i64 %.sink12.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

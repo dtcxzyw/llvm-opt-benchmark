@@ -616,8 +616,8 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit._crit_edge: ; preds = %_ZN7obj_r
   br i1 %.not.i.i15, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit17, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit17.sink.split
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit17.sink.split: ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit._crit_edge, %25
-  %.sink38 = phi ptr [ %29, %25 ], [ %34, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit._crit_edge ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sink38, i64 8
+  %.sink42 = phi ptr [ %29, %25 ], [ %34, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit._crit_edge ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sink42, i64 8
   %37 = load i32, ptr %36, align 4, !tbaa !18
   %38 = add i32 %37, 1
   store i32 %38, ptr %36, align 4, !tbaa !18
@@ -904,9 +904,9 @@ define hidden noundef zeroext i1 @_ZN3sls12basic_plugin14try_repair_iteEP3appj(p
   br i1 %63, label %.invoke, label %_ZN3sls12basic_plugin9set_valueEP4exprb.exitthread-pre-split
 
 .invoke:                                          ; preds = %.noexc34, %.noexc30
-  %.sink46 = phi i32 [ %45, %.noexc30 ], [ %56, %.noexc34 ]
+  %.sink55 = phi i32 [ %45, %.noexc30 ], [ %56, %.noexc34 ]
   %64 = load ptr, ptr %17, align 8, !tbaa !11
-  %65 = lshr i32 %.sink46, 1
+  %65 = lshr i32 %.sink55, 1
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !101
   %68 = load ptr, ptr %67, align 8, !tbaa !129
@@ -2035,8 +2035,8 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit._crit_edge.i: ; preds = %227, %_
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit17.sink.split.i: ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit._crit_edge.i, %243
   %252 = phi ptr [ %244, %243 ], [ %248, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit._crit_edge.i ]
-  %.sink38.i = phi ptr [ %246, %243 ], [ %250, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit._crit_edge.i ]
-  %253 = getelementptr inbounds nuw i8, ptr %.sink38.i, i64 8
+  %.sink42.i = phi ptr [ %246, %243 ], [ %250, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit._crit_edge.i ]
+  %253 = getelementptr inbounds nuw i8, ptr %.sink42.i, i64 8
   %254 = load i32, ptr %253, align 4, !tbaa !18, !noalias !154
   %255 = add i32 %254, 1
   store i32 %255, ptr %253, align 4, !tbaa !18, !noalias !154
@@ -2044,7 +2044,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit17.sink.split.i: ; preds = %_ZN7o
 
 _ZN3sls12basic_plugin13eval_distinctEP3app.exit:  ; preds = %243, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit._crit_edge.i, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit17.sink.split.i
   %256 = phi ptr [ %244, %243 ], [ %248, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit._crit_edge.i ], [ %252, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit17.sink.split.i ]
-  %257 = phi ptr [ null, %243 ], [ null, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit._crit_edge.i ], [ %.sink38.i, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit17.sink.split.i ]
+  %257 = phi ptr [ null, %243 ], [ null, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit._crit_edge.i ], [ %.sink42.i, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit17.sink.split.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %259 = load ptr, ptr %258, align 8, !tbaa !11

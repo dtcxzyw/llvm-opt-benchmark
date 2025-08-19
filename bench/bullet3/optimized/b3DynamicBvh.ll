@@ -429,7 +429,7 @@ define internal fastcc void @_ZL13b3FetchLeavesP12b3DynamicBvhP10b3DbvtNodeR20b3
   %or.cond = and i1 %8, %7
   br i1 %or.cond, label %9, label %16
 
-common.ret12:                                     ; preds = %9, %_ZN20b3AlignedObjectArrayIP10b3DbvtNodeE9push_backERKS1_.exit
+common.ret18:                                     ; preds = %9, %_ZN20b3AlignedObjectArrayIP10b3DbvtNodeE9push_backERKS1_.exit
   ret void
 
 9:                                                ; preds = %4
@@ -443,7 +443,7 @@ common.ret12:                                     ; preds = %9, %_ZN20b3AlignedO
   %15 = load ptr, ptr %14, align 8, !tbaa !29
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef %15)
   store ptr %1, ptr %14, align 8, !tbaa !29
-  br label %common.ret12
+  br label %common.ret18
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -532,7 +532,7 @@ _ZN20b3AlignedObjectArrayIP10b3DbvtNodeE9push_backERKS1_.exit: ; preds = %16, %2
   store ptr %1, ptr %49, align 8, !tbaa !38
   %50 = add nsw i32 %45, 1
   store i32 %50, ptr %17, align 4, !tbaa !36
-  br label %common.ret12
+  br label %common.ret18
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -608,9 +608,9 @@ _ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodePv.exit.i: ; preds = %18, %17
   %34 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i.i
   %35 = load float, ptr %34, align 4, !tbaa !42
   %36 = fcmp ogt float %33, %35
-  %.sink27.i.i = select i1 %36, float %33, float %35
+  %.sink30.i.i = select i1 %36, float %33, float %35
   %37 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv.i.i
-  store float %.sink27.i.i, ptr %37, align 4, !tbaa !42
+  store float %.sink30.i.i, ptr %37, align 4, !tbaa !42
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %exitcond.not.i.i, label %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmS5_Pv.exit, label %25, !llvm.loop !44
@@ -675,9 +675,9 @@ _ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmS5_Pv.exit: ; preds
   %64 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv.i.i41
   %65 = load float, ptr %64, align 4, !tbaa !42, !noalias !50
   %66 = fcmp ogt float %63, %65
-  %.sink27.i.i43 = select i1 %66, float %63, float %65
+  %.sink30.i.i43 = select i1 %66, float %63, float %65
   %67 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i41
-  store float %.sink27.i.i43, ptr %67, align 4, !tbaa !42, !noalias !50
+  store float %.sink30.i.i43, ptr %67, align 4, !tbaa !42, !noalias !50
   %indvars.iv.next.i.i44 = add nuw nsw i64 %indvars.iv.i.i41, 1
   %exitcond.not.i.i45 = icmp eq i64 %indvars.iv.next.i.i44, 3
   br i1 %exitcond.not.i.i45, label %_ZL7b3MergeRK12b3DbvtAabbMmS1_.exit, label %55, !llvm.loop !44
@@ -933,8 +933,8 @@ define internal fastcc noundef ptr @_ZL9b3TopDownP12b3DynamicBvhPP10b3DbvtNodeii
   %32 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i.i
   %33 = load float, ptr %32, align 4, !tbaa !42, !noalias !55
   %34 = fcmp ogt float %31, %33
-  %.sink27.i.i = select i1 %34, float %31, float %33
-  store float %.sink27.i.i, ptr %30, align 4, !tbaa !42, !noalias !55
+  %.sink30.i.i = select i1 %34, float %31, float %33
+  store float %.sink30.i.i, ptr %30, align 4, !tbaa !42, !noalias !55
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %exitcond.not.i.i, label %_Z7b3MergeRK12b3DbvtAabbMmS1_RS_.exit.i, label %24, !llvm.loop !44
@@ -1194,9 +1194,9 @@ _ZL7b3SplitPP10b3DbvtNodeiRK9b3Vector3S4_.exit:   ; preds = %.critedge2.i, %.cri
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %178, i8 0, i64 64, i1 false)
   br label %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmPv.exit
 
-common.ret155:                                    ; preds = %193, %191, %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmPv.exit
-  %common.ret155.op = phi ptr [ %.0.i.i, %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmPv.exit ], [ %192, %191 ], [ %194, %193 ]
-  ret ptr %common.ret155.op
+common.ret162:                                    ; preds = %193, %191, %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmPv.exit
+  %common.ret162.op = phi ptr [ %.0.i.i, %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmPv.exit ], [ %192, %191 ], [ %194, %193 ]
+  ret ptr %common.ret162.op
 
 _ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmPv.exit: ; preds = %176, %177
   %.0.i.i = phi ptr [ %175, %176 ], [ %178, %177 ]
@@ -1233,16 +1233,16 @@ _ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmPv.exit: ; preds = 
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 32
   store ptr %.0.i.i, ptr %190, align 16, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %common.ret155
+  br label %common.ret162
 
 191:                                              ; preds = %15
   tail call fastcc void @_ZL10b3BottomUpP12b3DynamicBvhPP10b3DbvtNodei(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %192 = load ptr, ptr %1, align 8, !tbaa !38
-  br label %common.ret155
+  br label %common.ret162
 
 193:                                              ; preds = %13
   %194 = load ptr, ptr %1, align 8, !tbaa !38
-  br label %common.ret155
+  br label %common.ret162
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1577,9 +1577,9 @@ _ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodePv.exit.i: ; preds = %85, %84
   %101 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv.i.i
   %102 = load float, ptr %101, align 4, !tbaa !42
   %103 = fcmp ogt float %100, %102
-  %.sink27.i.i = select i1 %103, float %100, float %102
+  %.sink30.i.i = select i1 %103, float %100, float %102
   %104 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv.i.i
-  store float %.sink27.i.i, ptr %104, align 4, !tbaa !42
+  store float %.sink30.i.i, ptr %104, align 4, !tbaa !42
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %exitcond.not.i.i, label %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmS5_Pv.exit, label %92, !llvm.loop !44
@@ -1678,9 +1678,9 @@ _ZNK12b3DbvtAabbMm7ContainERKS_.exit.thread:      ; preds = %115, %119, %125, %1
   %164 = getelementptr inbounds nuw float, ptr %153, i64 %indvars.iv.i
   %165 = load float, ptr %164, align 4, !tbaa !42
   %166 = fcmp ogt float %163, %165
-  %.sink27.i = select i1 %166, float %163, float %165
+  %.sink30.i = select i1 %166, float %163, float %165
   %167 = getelementptr inbounds nuw float, ptr %154, i64 %indvars.iv.i
-  store float %.sink27.i, ptr %167, align 4, !tbaa !42
+  store float %.sink30.i, ptr %167, align 4, !tbaa !42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %_Z7b3MergeRK12b3DbvtAabbMmS1_RS_.exit, label %155, !llvm.loop !44
@@ -1782,9 +1782,9 @@ define internal fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNod
   %44 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i
   %45 = load float, ptr %44, align 4, !tbaa !42
   %46 = fcmp ogt float %43, %45
-  %.sink27.i = select i1 %46, float %43, float %45
+  %.sink30.i = select i1 %46, float %43, float %45
   %47 = getelementptr inbounds nuw float, ptr %.sroa.639.0..033.sroa_idx, i64 %indvars.iv.i
-  store float %.sink27.i, ptr %47, align 4, !tbaa !42
+  store float %.sink30.i, ptr %47, align 4, !tbaa !42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %_Z7b3MergeRK12b3DbvtAabbMmS1_RS_.exit, label %35, !llvm.loop !44
@@ -1989,8 +1989,8 @@ _ZN12b3DbvtAabbMm12SignedExpandERK9b3Vector3.exit: ; preds = %56, %58
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %67 = load float, ptr %66, align 8, !tbaa !31
   %68 = fcmp ogt float %67, 0.000000e+00
-  %.sink15.i = select i1 %68, i64 24, i64 8
-  %69 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink15.i
+  %.sink19.i = select i1 %68, i64 24, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink19.i
   %70 = load float, ptr %69, align 8, !tbaa !31
   %71 = fadd float %67, %70
   store float %71, ptr %69, align 8, !tbaa !31
@@ -2112,8 +2112,8 @@ _ZN12b3DbvtAabbMm12SignedExpandERK9b3Vector3.exit: ; preds = %39, %43
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %52 = load float, ptr %51, align 8, !tbaa !31
   %53 = fcmp ogt float %52, 0.000000e+00
-  %.sink15.i = select i1 %53, i64 24, i64 8
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink15.i
+  %.sink19.i = select i1 %53, i64 24, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink19.i
   %55 = load float, ptr %54, align 8, !tbaa !31
   %56 = fadd float %52, %55
   store float %56, ptr %54, align 8, !tbaa !31
@@ -2655,7 +2655,7 @@ _ZN12b3DynamicBvh5clearEv.exit:                   ; preds = %7, %16
   store i32 0, ptr %19, align 8, !tbaa !27
   %20 = load ptr, ptr %0, align 8, !tbaa !28
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %145, label %21
+  br i1 %.not, label %144, label %21
 
 21:                                               ; preds = %_ZN12b3DynamicBvh5clearEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2688,11 +2688,11 @@ _ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i: ; pre
 
 .noexc24:                                         ; preds = %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i
   invoke void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.2)
-          to label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE7reserveEi.exit.thread96 unwind label %61
+          to label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE7reserveEi.exit.thread116 unwind label %61
 
-_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE7reserveEi.exit.thread96: ; preds = %.noexc24
+_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE7reserveEi.exit.thread116: ; preds = %.noexc24
   store i32 0, ptr %24, align 4, !tbaa !83
-  %.pre.pre98 = load ptr, ptr %0, align 8, !tbaa !28
+  %.pre.pre118 = load ptr, ptr %0, align 8, !tbaa !28
   store i8 1, ptr %22, align 8, !tbaa !78
   store ptr %31, ptr %23, align 8, !tbaa !82
   store i32 0, ptr %25, align 8, !tbaa !84
@@ -2702,8 +2702,8 @@ _ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE7reserveEi.exit: ; preds = %.
   %.pre.pre = load ptr, ptr %0, align 8, !tbaa !28
   br label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i
 
-_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE8allocateEi.exit.i.i: ; preds = %21, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE7reserveEi.exit.thread96
-  %33 = phi ptr [ %.pre.pre98, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE7reserveEi.exit.thread96 ], [ %20, %21 ]
+_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE8allocateEi.exit.i.i: ; preds = %21, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE7reserveEi.exit.thread116
+  %33 = phi ptr [ %.pre.pre118, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE7reserveEi.exit.thread116 ], [ %20, %21 ]
   %34 = invoke noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %.noexc30 unwind label %63
 
@@ -2720,24 +2720,24 @@ _ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i.i: ; p
           to label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i unwind label %63
 
 _ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i: ; preds = %.noexc30, %.noexc31, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE7reserveEi.exit
-  %.sink99 = phi ptr [ %31, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE7reserveEi.exit ], [ %34, %.noexc31 ], [ %34, %.noexc30 ]
+  %.sink119 = phi ptr [ %31, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE7reserveEi.exit ], [ %34, %.noexc31 ], [ %34, %.noexc30 ]
   %.sink = phi i32 [ %27, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE7reserveEi.exit ], [ 0, %.noexc31 ], [ 1, %.noexc30 ]
   %36 = phi ptr [ %.pre.pre, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE7reserveEi.exit ], [ %33, %.noexc31 ], [ %33, %.noexc30 ]
   store i8 1, ptr %22, align 8, !tbaa !78
-  store ptr %.sink99, ptr %23, align 8, !tbaa !82
+  store ptr %.sink119, ptr %23, align 8, !tbaa !82
   store i32 %.sink, ptr %25, align 8, !tbaa !84
-  store ptr %36, ptr %.sink99, align 8, !tbaa !38
-  %.sroa.587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink99, i64 8
+  store ptr %36, ptr %.sink119, align 8, !tbaa !38
+  %.sroa.587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink119, i64 8
   store ptr null, ptr %.sroa.587.0..sroa_idx, align 8, !tbaa !38
   store i32 1, ptr %24, align 4, !tbaa !83
   br label %37
 
 37:                                               ; preds = %thread-pre-split, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i
-  %38 = phi ptr [ %131, %thread-pre-split ], [ %.sink99, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i ]
-  %39 = phi i32 [ %132, %thread-pre-split ], [ %.sink, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i ]
-  %40 = phi i32 [ %133, %thread-pre-split ], [ %.sink, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i ]
-  %41 = phi ptr [ %134, %thread-pre-split ], [ %.sink99, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i ]
-  %42 = phi i32 [ %135, %thread-pre-split ], [ 1, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i ]
+  %38 = phi ptr [ %130, %thread-pre-split ], [ %.sink119, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i ]
+  %39 = phi i32 [ %131, %thread-pre-split ], [ %.sink, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i ]
+  %40 = phi i32 [ %132, %thread-pre-split ], [ %.sink, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i ]
+  %41 = phi ptr [ %133, %thread-pre-split ], [ %.sink119, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i ]
+  %42 = phi i32 [ %134, %thread-pre-split ], [ 1, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i ]
   %43 = add nsw i32 %42, -1
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr inbounds nuw %"struct.b3DynamicBvh::sStkCLN", ptr %41, i64 %44
@@ -2786,17 +2786,17 @@ _ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i: ; pr
 61:                                               ; preds = %.noexc24, %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE8allocateEi.exit.i
   %62 = landingpad { ptr, i32 }
           cleanup
-  br label %144
+  br label %143
 
 63:                                               ; preds = %.noexc31, %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i.i, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE8allocateEi.exit.i.i
   %64 = landingpad { ptr, i32 }
           cleanup
-  br label %144
+  br label %143
 
-65:                                               ; preds = %50, %127
+65:                                               ; preds = %50, %126
   %66 = landingpad { ptr, i32 }
           cleanup
-  br label %144
+  br label %143
 
 67:                                               ; preds = %52
   store ptr %.0.i.i35, ptr %1, align 8, !tbaa !28
@@ -2806,165 +2806,160 @@ _ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i: ; pr
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 48
   %70 = load ptr, ptr %69, align 8, !tbaa !31
   %.not88 = icmp eq ptr %70, null
-  br i1 %.not88, label %127, label %71
+  br i1 %.not88, label %126, label %71
 
 71:                                               ; preds = %68
   %72 = load ptr, ptr %46, align 8, !tbaa !31
   %73 = icmp eq i32 %43, %40
-  br i1 %73, label %74, label %90
+  br i1 %73, label %74, label %89
 
 74:                                               ; preds = %71
   %.not.i.i37 = icmp eq i32 %40, 0
-  %75 = shl nsw i32 %40, 1
+  %75 = shl nuw nsw i32 %40, 1
   %76 = select i1 %.not.i.i37, i32 1, i32 %75
   %77 = icmp slt i32 %40, %76
-  br i1 %77, label %78, label %90
+  br i1 %77, label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE8allocateEi.exit.i.i39, label %89
 
-78:                                               ; preds = %74
-  %.not.i.i.i38 = icmp eq i32 %76, 0
-  br i1 %.not.i.i.i38, label %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i.i53, label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE8allocateEi.exit.i.i39
-
-_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE8allocateEi.exit.i.i39: ; preds = %78
-  %79 = sext i32 %76 to i64
-  %80 = shl nsw i64 %79, 4
-  %81 = invoke noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %80, i32 noundef 16)
-          to label %.noexc54 unwind label %123
+_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE8allocateEi.exit.i.i39: ; preds = %74
+  %78 = zext nneg i32 %76 to i64
+  %79 = shl nuw nsw i64 %78, 4
+  %80 = invoke noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %79, i32 noundef 16)
+          to label %.noexc54 unwind label %122
 
 .noexc54:                                         ; preds = %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE8allocateEi.exit.i.i39
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i.i53, label %.split.i.i40
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i.i53, label %.split.i.i40
 
 .split.i.i40:                                     ; preds = %.noexc54
-  %83 = icmp sgt i32 %40, 0
-  br i1 %83, label %.lr.ph.i.i.i48, label %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i41
+  %82 = icmp sgt i32 %40, 0
+  br i1 %82, label %.lr.ph.i.i.i48, label %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i41
 
 .lr.ph.i.i.i48:                                   ; preds = %.split.i.i40
   %wide.trip.count.i.i.i49 = zext nneg i32 %40 to i64
-  br label %84
+  br label %83
 
-84:                                               ; preds = %84, %.lr.ph.i.i.i48
-  %indvars.iv.i.i.i50 = phi i64 [ 0, %.lr.ph.i.i.i48 ], [ %indvars.iv.next.i.i.i51, %84 ]
-  %85 = getelementptr inbounds nuw %"struct.b3DynamicBvh::sStkCLN", ptr %81, i64 %indvars.iv.i.i.i50
-  %86 = getelementptr inbounds nuw %"struct.b3DynamicBvh::sStkCLN", ptr %41, i64 %indvars.iv.i.i.i50
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false), !tbaa.struct !85
+83:                                               ; preds = %83, %.lr.ph.i.i.i48
+  %indvars.iv.i.i.i50 = phi i64 [ 0, %.lr.ph.i.i.i48 ], [ %indvars.iv.next.i.i.i51, %83 ]
+  %84 = getelementptr inbounds nuw %"struct.b3DynamicBvh::sStkCLN", ptr %80, i64 %indvars.iv.i.i.i50
+  %85 = getelementptr inbounds nuw %"struct.b3DynamicBvh::sStkCLN", ptr %41, i64 %indvars.iv.i.i.i50
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %85, i64 16, i1 false), !tbaa.struct !85
   %indvars.iv.next.i.i.i51 = add nuw nsw i64 %indvars.iv.i.i.i50, 1
   %exitcond.not.i.i.i52 = icmp eq i64 %indvars.iv.next.i.i.i51, %wide.trip.count.i.i.i49
-  br i1 %exitcond.not.i.i.i52, label %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i41, label %84, !llvm.loop !86
+  br i1 %exitcond.not.i.i.i52, label %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i41, label %83, !llvm.loop !86
 
-_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i.i53: ; preds = %.noexc54, %78
+_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i.i53: ; preds = %.noexc54
   invoke void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 301)
-          to label %.noexc55 unwind label %123
+          to label %.noexc55 unwind label %122
 
 .noexc55:                                         ; preds = %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i.i53
   invoke void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.2)
-          to label %.noexc56 unwind label %123
+          to label %.noexc56 unwind label %122
 
 .noexc56:                                         ; preds = %.noexc55
   store i32 0, ptr %24, align 4, !tbaa !83
   br label %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i41
 
-_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i41: ; preds = %84, %.noexc56, %.split.i.i40
-  %.pre.i4792 = phi i32 [ 0, %.noexc56 ], [ %40, %.split.i.i40 ], [ %40, %84 ]
-  %.0.i18.i.i42 = phi ptr [ null, %.noexc56 ], [ %81, %.split.i.i40 ], [ %81, %84 ]
-  %.0.i.i43 = phi i32 [ 0, %.noexc56 ], [ %76, %.split.i.i40 ], [ %76, %84 ]
-  %87 = load i8, ptr %22, align 8, !range !30
-  %88 = trunc nuw i8 %87 to i1
-  br i1 %88, label %89, label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46
+_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i41: ; preds = %83, %.noexc56, %.split.i.i40
+  %.pre.i4792 = phi i32 [ 0, %.noexc56 ], [ 0, %.split.i.i40 ], [ %40, %83 ]
+  %.0.i.i43 = phi i32 [ 0, %.noexc56 ], [ %76, %.split.i.i40 ], [ %76, %83 ]
+  %86 = load i8, ptr %22, align 8, !range !30
+  %87 = trunc nuw i8 %86 to i1
+  br i1 %87, label %88, label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46
 
-89:                                               ; preds = %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i41
+88:                                               ; preds = %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i41
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %41)
-          to label %._ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46_crit_edge unwind label %123
+          to label %._ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46_crit_edge unwind label %122
 
-._ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46_crit_edge: ; preds = %89
+._ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46_crit_edge: ; preds = %88
   %.pre.i47.pre = load i32, ptr %24, align 4, !tbaa !83
   br label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46
 
 _ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46: ; preds = %._ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46_crit_edge, %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i41
   %.pre.i47 = phi i32 [ %.pre.i47.pre, %._ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46_crit_edge ], [ %.pre.i4792, %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i41 ]
   store i8 1, ptr %22, align 8, !tbaa !78
-  store ptr %.0.i18.i.i42, ptr %23, align 8, !tbaa !82
+  store ptr %80, ptr %23, align 8, !tbaa !82
   store i32 %.0.i.i43, ptr %25, align 8, !tbaa !84
-  br label %90
+  br label %89
 
-90:                                               ; preds = %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46, %74, %71
-  %91 = phi ptr [ %.0.i18.i.i42, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46 ], [ %38, %74 ], [ %38, %71 ]
-  %92 = phi i32 [ %.0.i.i43, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46 ], [ %39, %74 ], [ %39, %71 ]
-  %93 = phi ptr [ %.0.i18.i.i42, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46 ], [ %41, %74 ], [ %41, %71 ]
-  %94 = phi i32 [ %.pre.i47, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46 ], [ %40, %74 ], [ %43, %71 ]
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds %"struct.b3DynamicBvh::sStkCLN", ptr %93, i64 %95
-  store ptr %72, ptr %96, align 8, !tbaa !38
-  %.sroa.585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 8
+89:                                               ; preds = %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46, %74, %71
+  %90 = phi ptr [ %80, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46 ], [ %38, %74 ], [ %38, %71 ]
+  %91 = phi i32 [ %.0.i.i43, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46 ], [ %39, %74 ], [ %39, %71 ]
+  %92 = phi ptr [ %80, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46 ], [ %41, %74 ], [ %41, %71 ]
+  %93 = phi i32 [ %.pre.i47, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i46 ], [ %40, %74 ], [ %43, %71 ]
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds %"struct.b3DynamicBvh::sStkCLN", ptr %92, i64 %94
+  store ptr %72, ptr %95, align 8, !tbaa !38
+  %.sroa.585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 8
   store ptr %.0.i.i35, ptr %.sroa.585.0..sroa_idx, align 8, !tbaa !38
-  %97 = add nsw i32 %94, 1
-  store i32 %97, ptr %24, align 4, !tbaa !83
-  %98 = load ptr, ptr %69, align 8, !tbaa !31
-  %99 = icmp eq i32 %97, %92
-  br i1 %99, label %100, label %116
+  %96 = add nsw i32 %93, 1
+  store i32 %96, ptr %24, align 4, !tbaa !83
+  %97 = load ptr, ptr %69, align 8, !tbaa !31
+  %98 = icmp eq i32 %96, %91
+  br i1 %98, label %99, label %115
 
-100:                                              ; preds = %90
-  %.not.i.i59 = icmp eq i32 %92, 0
-  %101 = shl nsw i32 %92, 1
-  %102 = select i1 %.not.i.i59, i32 1, i32 %101
-  %103 = icmp slt i32 %92, %102
-  br i1 %103, label %104, label %116
+99:                                               ; preds = %89
+  %.not.i.i59 = icmp eq i32 %91, 0
+  %100 = shl nsw i32 %91, 1
+  %101 = select i1 %.not.i.i59, i32 1, i32 %100
+  %102 = icmp slt i32 %91, %101
+  br i1 %102, label %103, label %115
 
-104:                                              ; preds = %100
-  %.not.i.i.i60 = icmp eq i32 %102, 0
+103:                                              ; preds = %99
+  %.not.i.i.i60 = icmp eq i32 %101, 0
   br i1 %.not.i.i.i60, label %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i.i75, label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE8allocateEi.exit.i.i61
 
-_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE8allocateEi.exit.i.i61: ; preds = %104
-  %105 = sext i32 %102 to i64
-  %106 = shl nsw i64 %105, 4
-  %107 = invoke noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %106, i32 noundef 16)
-          to label %.noexc76 unwind label %125
+_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE8allocateEi.exit.i.i61: ; preds = %103
+  %104 = sext i32 %101 to i64
+  %105 = shl nsw i64 %104, 4
+  %106 = invoke noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %105, i32 noundef 16)
+          to label %.noexc76 unwind label %124
 
 .noexc76:                                         ; preds = %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE8allocateEi.exit.i.i61
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i.i75, label %.split.i.i62
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i.i75, label %.split.i.i62
 
 .split.i.i62:                                     ; preds = %.noexc76
-  %109 = icmp sgt i32 %92, 0
-  br i1 %109, label %.lr.ph.i.i.i70, label %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i63
+  %108 = icmp sgt i32 %91, 0
+  br i1 %108, label %.lr.ph.i.i.i70, label %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i63
 
 .lr.ph.i.i.i70:                                   ; preds = %.split.i.i62
-  %wide.trip.count.i.i.i71 = zext nneg i32 %92 to i64
-  br label %110
+  %wide.trip.count.i.i.i71 = zext nneg i32 %91 to i64
+  br label %109
 
-110:                                              ; preds = %110, %.lr.ph.i.i.i70
-  %indvars.iv.i.i.i72 = phi i64 [ 0, %.lr.ph.i.i.i70 ], [ %indvars.iv.next.i.i.i73, %110 ]
-  %111 = getelementptr inbounds nuw %"struct.b3DynamicBvh::sStkCLN", ptr %107, i64 %indvars.iv.i.i.i72
-  %112 = getelementptr inbounds nuw %"struct.b3DynamicBvh::sStkCLN", ptr %93, i64 %indvars.iv.i.i.i72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %112, i64 16, i1 false), !tbaa.struct !85
+109:                                              ; preds = %109, %.lr.ph.i.i.i70
+  %indvars.iv.i.i.i72 = phi i64 [ 0, %.lr.ph.i.i.i70 ], [ %indvars.iv.next.i.i.i73, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.b3DynamicBvh::sStkCLN", ptr %106, i64 %indvars.iv.i.i.i72
+  %111 = getelementptr inbounds nuw %"struct.b3DynamicBvh::sStkCLN", ptr %92, i64 %indvars.iv.i.i.i72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(16) %111, i64 16, i1 false), !tbaa.struct !85
   %indvars.iv.next.i.i.i73 = add nuw nsw i64 %indvars.iv.i.i.i72, 1
   %exitcond.not.i.i.i74 = icmp eq i64 %indvars.iv.next.i.i.i73, %wide.trip.count.i.i.i71
-  br i1 %exitcond.not.i.i.i74, label %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i63, label %110, !llvm.loop !86
+  br i1 %exitcond.not.i.i.i74, label %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i63, label %109, !llvm.loop !86
 
-_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i.i75: ; preds = %.noexc76, %104
+_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i.i75: ; preds = %.noexc76, %103
   invoke void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 301)
-          to label %.noexc77 unwind label %125
+          to label %.noexc77 unwind label %124
 
 .noexc77:                                         ; preds = %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i.i75
   invoke void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.2)
-          to label %.noexc78 unwind label %125
+          to label %.noexc78 unwind label %124
 
 .noexc78:                                         ; preds = %.noexc77
   store i32 0, ptr %24, align 4, !tbaa !83
   br label %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i63
 
-_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i63: ; preds = %110, %.noexc78, %.split.i.i62
-  %.pre.i6994 = phi i32 [ 0, %.noexc78 ], [ %92, %.split.i.i62 ], [ %92, %110 ]
-  %.0.i18.i.i64 = phi ptr [ null, %.noexc78 ], [ %107, %.split.i.i62 ], [ %107, %110 ]
-  %.0.i.i65 = phi i32 [ 0, %.noexc78 ], [ %102, %.split.i.i62 ], [ %102, %110 ]
-  %113 = load i8, ptr %22, align 8, !range !30
-  %114 = trunc nuw i8 %113 to i1
-  br i1 %114, label %115, label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i68
+_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i63: ; preds = %109, %.noexc78, %.split.i.i62
+  %.pre.i6994 = phi i32 [ 0, %.noexc78 ], [ %91, %.split.i.i62 ], [ %91, %109 ]
+  %.0.i18.i.i64 = phi ptr [ null, %.noexc78 ], [ %106, %.split.i.i62 ], [ %106, %109 ]
+  %.0.i.i65 = phi i32 [ 0, %.noexc78 ], [ %101, %.split.i.i62 ], [ %101, %109 ]
+  %112 = load i8, ptr %22, align 8, !range !30
+  %113 = trunc nuw i8 %112 to i1
+  br i1 %113, label %114, label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i68
 
-115:                                              ; preds = %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i63
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %93)
-          to label %._ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i68_crit_edge unwind label %125
+114:                                              ; preds = %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit.i.i63
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %92)
+          to label %._ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i68_crit_edge unwind label %124
 
-._ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i68_crit_edge: ; preds = %115
+._ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i68_crit_edge: ; preds = %114
   %.pre.i69.pre = load i32, ptr %24, align 4, !tbaa !83
   br label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i68
 
@@ -2973,76 +2968,76 @@ _ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i68: ; 
   store i8 1, ptr %22, align 8, !tbaa !78
   store ptr %.0.i18.i.i64, ptr %23, align 8, !tbaa !82
   store i32 %.0.i.i65, ptr %25, align 8, !tbaa !84
-  br label %116
+  br label %115
 
-116:                                              ; preds = %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i68, %100, %90
-  %117 = phi ptr [ %.0.i18.i.i64, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i68 ], [ %91, %100 ], [ %91, %90 ]
-  %118 = phi i32 [ %.0.i.i65, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i68 ], [ %92, %100 ], [ %92, %90 ]
-  %119 = phi i32 [ %.pre.i69, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i68 ], [ %92, %100 ], [ %97, %90 ]
-  %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds %"struct.b3DynamicBvh::sStkCLN", ptr %117, i64 %120
-  store ptr %98, ptr %121, align 8, !tbaa !38
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 8
+115:                                              ; preds = %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i68, %99, %89
+  %116 = phi ptr [ %.0.i18.i.i64, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i68 ], [ %90, %99 ], [ %90, %89 ]
+  %117 = phi i32 [ %.0.i.i65, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i68 ], [ %91, %99 ], [ %91, %89 ]
+  %118 = phi i32 [ %.pre.i69, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i68 ], [ %91, %99 ], [ %96, %89 ]
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds %"struct.b3DynamicBvh::sStkCLN", ptr %116, i64 %119
+  store ptr %97, ptr %120, align 8, !tbaa !38
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %120, i64 8
   store ptr %.0.i.i35, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !38
-  %122 = add nsw i32 %119, 1
-  store i32 %122, ptr %24, align 4, !tbaa !83
+  %121 = add nsw i32 %118, 1
+  store i32 %121, ptr %24, align 4, !tbaa !83
   br label %thread-pre-split
 
-123:                                              ; preds = %89, %.noexc55, %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i.i53, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE8allocateEi.exit.i.i39
-  %124 = landingpad { ptr, i32 }
+122:                                              ; preds = %88, %.noexc55, %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i.i53, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE8allocateEi.exit.i.i39
+  %123 = landingpad { ptr, i32 }
           cleanup
-  br label %144
+  br label %143
 
-125:                                              ; preds = %115, %.noexc77, %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i.i75, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE8allocateEi.exit.i.i61
-  %126 = landingpad { ptr, i32 }
+124:                                              ; preds = %114, %.noexc77, %_ZNK20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE4copyEiiPS1_.exit15.i.i75, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE8allocateEi.exit.i.i61
+  %125 = landingpad { ptr, i32 }
           cleanup
-  br label %144
+  br label %143
 
-127:                                              ; preds = %68
-  %128 = load ptr, ptr %2, align 8, !tbaa !73
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  %130 = load ptr, ptr %129, align 8
-  invoke void %130(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %.0.i.i35)
+126:                                              ; preds = %68
+  %127 = load ptr, ptr %2, align 8, !tbaa !73
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
+  %129 = load ptr, ptr %128, align 8
+  invoke void %129(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %.0.i.i35)
           to label %thread-pre-split unwind label %65
 
-thread-pre-split:                                 ; preds = %127, %116
-  %131 = phi ptr [ %117, %116 ], [ %38, %127 ]
-  %132 = phi i32 [ %118, %116 ], [ %39, %127 ]
-  %133 = phi i32 [ %118, %116 ], [ %40, %127 ]
-  %134 = phi ptr [ %117, %116 ], [ %41, %127 ]
-  %135 = phi i32 [ %122, %116 ], [ %43, %127 ]
-  %136 = icmp sgt i32 %135, 0
-  br i1 %136, label %37, label %137, !llvm.loop !87
+thread-pre-split:                                 ; preds = %126, %115
+  %130 = phi ptr [ %116, %115 ], [ %38, %126 ]
+  %131 = phi i32 [ %117, %115 ], [ %39, %126 ]
+  %132 = phi i32 [ %117, %115 ], [ %40, %126 ]
+  %133 = phi ptr [ %116, %115 ], [ %41, %126 ]
+  %134 = phi i32 [ %121, %115 ], [ %43, %126 ]
+  %135 = icmp sgt i32 %134, 0
+  br i1 %135, label %37, label %136, !llvm.loop !87
 
-137:                                              ; preds = %thread-pre-split
-  %.not.i.i.i81 = icmp ne ptr %131, null
-  %138 = load i8, ptr %22, align 8, !range !30
-  %139 = trunc nuw i8 %138 to i1
-  %or.cond.i.i82 = select i1 %.not.i.i.i81, i1 %139, i1 false
-  br i1 %or.cond.i.i82, label %140, label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEED2Ev.exit
+136:                                              ; preds = %thread-pre-split
+  %.not.i.i.i81 = icmp ne ptr %130, null
+  %137 = load i8, ptr %22, align 8, !range !30
+  %138 = trunc nuw i8 %137 to i1
+  %or.cond.i.i82 = select i1 %.not.i.i.i81, i1 %138, i1 false
+  br i1 %or.cond.i.i82, label %139, label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEED2Ev.exit
 
-140:                                              ; preds = %137
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %131)
-          to label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEED2Ev.exit unwind label %141
+139:                                              ; preds = %136
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %130)
+          to label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEED2Ev.exit unwind label %140
 
-141:                                              ; preds = %140
-  %142 = landingpad { ptr, i32 }
+140:                                              ; preds = %139
+  %141 = landingpad { ptr, i32 }
           catch ptr null
-  %143 = extractvalue { ptr, i32 } %142, 0
-  tail call void @__clang_call_terminate(ptr %143) #18
+  %142 = extractvalue { ptr, i32 } %141, 0
+  tail call void @__clang_call_terminate(ptr %142) #18
   unreachable
 
-_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEED2Ev.exit: ; preds = %137, %140
+_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEED2Ev.exit: ; preds = %136, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %145
+  br label %144
 
-144:                                              ; preds = %65, %123, %125, %63, %61
-  %.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ], [ %126, %125 ], [ %124, %123 ], [ %66, %65 ]
+143:                                              ; preds = %65, %122, %124, %63, %61
+  %.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ], [ %125, %124 ], [ %123, %122 ], [ %66, %65 ]
   call void @_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn
 
-145:                                              ; preds = %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEED2Ev.exit, %_ZN12b3DynamicBvh5clearEv.exit
+144:                                              ; preds = %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEED2Ev.exit, %_ZN12b3DynamicBvh5clearEv.exit
   ret void
 }
 

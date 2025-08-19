@@ -531,9 +531,9 @@ define void @_ZN6icu_776number4impl14SymbolsWrapper10doCopyFromERKS2_(ptr nounde
   ret void
 
 26:                                               ; preds = %22, %12
-  %.sink17 = phi ptr [ %18, %22 ], [ %8, %12 ]
+  %.sink18 = phi ptr [ %18, %22 ], [ %8, %12 ]
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %13, %12 ]
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.sink17) #13
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.sink18) #13
   resume { ptr, i32 } %.pn
 }
 
@@ -602,11 +602,11 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_776number4impl14
   br i1 %13, label %_ZN6icu_776number4impl14SymbolsWrapper9doCleanupEv.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %10, %6
-  %.sink5.i = phi ptr [ %8, %6 ], [ %12, %10 ]
-  %14 = load ptr, ptr %.sink5.i, align 8, !tbaa !19
+  %.sink6.i = phi ptr [ %8, %6 ], [ %12, %10 ]
+  %14 = load ptr, ptr %.sink6.i, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(86) %.sink5.i) #13
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(86) %.sink6.i) #13
   br label %_ZN6icu_776number4impl14SymbolsWrapper9doCleanupEv.exit
 
 _ZN6icu_776number4impl14SymbolsWrapper9doCleanupEv.exit: ; preds = %4, %6, %10, %.sink.split.i
@@ -638,11 +638,11 @@ define void @_ZN6icu_776number4impl14SymbolsWrapper9doCleanupEv(ptr noundef nonn
   br i1 %10, label %14, label %.sink.split
 
 .sink.split:                                      ; preds = %7, %3
-  %.sink5 = phi ptr [ %5, %3 ], [ %9, %7 ]
-  %11 = load ptr, ptr %.sink5, align 8, !tbaa !19
+  %.sink6 = phi ptr [ %5, %3 ], [ %9, %7 ]
+  %11 = load ptr, ptr %.sink6, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(86) %.sink5) #13
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(86) %.sink6) #13
   br label %14
 
 14:                                               ; preds = %.sink.split, %7, %3, %1
@@ -674,11 +674,11 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_776number4impl14
   br i1 %13, label %_ZN6icu_776number4impl14SymbolsWrapper9doCleanupEv.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %10, %6
-  %.sink5.i = phi ptr [ %8, %6 ], [ %12, %10 ]
-  %14 = load ptr, ptr %.sink5.i, align 8, !tbaa !19
+  %.sink6.i = phi ptr [ %8, %6 ], [ %12, %10 ]
+  %14 = load ptr, ptr %.sink6.i, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(86) %.sink5.i) #13
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(86) %.sink6.i) #13
   br label %_ZN6icu_776number4impl14SymbolsWrapper9doCleanupEv.exit
 
 _ZN6icu_776number4impl14SymbolsWrapper9doCleanupEv.exit: ; preds = %4, %6, %10, %.sink.split.i
@@ -721,11 +721,11 @@ define void @_ZN6icu_776number4impl14SymbolsWrapperD2Ev(ptr noundef nonnull read
   br i1 %10, label %_ZN6icu_776number4impl14SymbolsWrapper9doCleanupEv.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %7, %3
-  %.sink5.i = phi ptr [ %5, %3 ], [ %9, %7 ]
-  %11 = load ptr, ptr %.sink5.i, align 8, !tbaa !19
+  %.sink6.i = phi ptr [ %5, %3 ], [ %9, %7 ]
+  %11 = load ptr, ptr %.sink6.i, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(86) %.sink5.i) #13
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(86) %.sink6.i) #13
   br label %_ZN6icu_776number4impl14SymbolsWrapper9doCleanupEv.exit
 
 _ZN6icu_776number4impl14SymbolsWrapper9doCleanupEv.exit: ; preds = %1, %3, %7, %.sink.split.i
@@ -753,11 +753,11 @@ define void @_ZN6icu_776number4impl14SymbolsWrapper5setToERKNS_20DecimalFormatSy
   br i1 %11, label %_ZN6icu_776number4impl14SymbolsWrapper9doCleanupEv.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %8, %4
-  %.sink5.i = phi ptr [ %6, %4 ], [ %10, %8 ]
-  %12 = load ptr, ptr %.sink5.i, align 8, !tbaa !19
+  %.sink6.i = phi ptr [ %6, %4 ], [ %10, %8 ]
+  %12 = load ptr, ptr %.sink6.i, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(86) %.sink5.i) #13
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(86) %.sink6.i) #13
   br label %_ZN6icu_776number4impl14SymbolsWrapper9doCleanupEv.exit
 
 _ZN6icu_776number4impl14SymbolsWrapper9doCleanupEv.exit: ; preds = %2, %4, %8, %.sink.split.i
@@ -811,11 +811,11 @@ define void @_ZN6icu_776number4impl14SymbolsWrapper5setToEPKNS_15NumberingSystem
   br i1 %11, label %_ZN6icu_776number4impl14SymbolsWrapper9doCleanupEv.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %8, %4
-  %.sink5.i = phi ptr [ %6, %4 ], [ %10, %8 ]
-  %12 = load ptr, ptr %.sink5.i, align 8, !tbaa !19
+  %.sink6.i = phi ptr [ %6, %4 ], [ %10, %8 ]
+  %12 = load ptr, ptr %.sink6.i, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(86) %.sink5.i) #13
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(86) %.sink6.i) #13
   br label %_ZN6icu_776number4impl14SymbolsWrapper9doCleanupEv.exit
 
 _ZN6icu_776number4impl14SymbolsWrapper9doCleanupEv.exit: ; preds = %2, %4, %8, %.sink.split.i

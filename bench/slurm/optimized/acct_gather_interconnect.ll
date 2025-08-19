@@ -520,16 +520,16 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 define internal noalias noundef ptr @_watch_node(ptr readnone captures(none) %0) #0 {
   %2 = tail call i32 (i32, ...) @prctl(i32 noundef 15, ptr noundef nonnull @.str.25, ptr noundef null, ptr noundef null, ptr noundef null) #7
   %3 = icmp slt i32 %2, 0
-  br i1 %3, label %4, label %.preheader65
+  br i1 %3, label %4, label %.preheader70
 
 4:                                                ; preds = %1
   %5 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.26, ptr noundef nonnull @__func__._watch_node, ptr noundef nonnull @.str.27) #7
-  br label %.preheader65
+  br label %.preheader70
 
-.preheader65:                                     ; preds = %4, %1
+.preheader70:                                     ; preds = %4, %1
   br label %6
 
-6:                                                ; preds = %.preheader65, %41
+6:                                                ; preds = %.preheader70, %41
   %.b19 = load i1, ptr @init_run, align 1
   br i1 %.b19, label %7, label %.critedge
 

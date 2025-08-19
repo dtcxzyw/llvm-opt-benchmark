@@ -1173,12 +1173,12 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderE
 
 .thread.i.i.i.i.i:                                ; preds = %412, %.lr.ph.split.i.i.i.i.i.i.i
   %416 = getelementptr inbounds nuw i8, ptr %.02632.i.i.i.i.i.i.i, i64 24
-  %.026.i.i24.i.i.i.i.i = load ptr, ptr %416, align 8
-  %.not.i.i325.i.i.i.i.i = icmp eq ptr %.026.i.i24.i.i.i.i.i, null
-  br i1 %.not.i.i325.i.i.i.i.i, label %._crit_edge.i.i.thread.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i.i.i.backedge
+  %.026.i.i26.i.i.i.i.i = load ptr, ptr %416, align 8
+  %.not.i.i327.i.i.i.i.i = icmp eq ptr %.026.i.i26.i.i.i.i.i, null
+  br i1 %.not.i.i327.i.i.i.i.i, label %._crit_edge.i.i.thread.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i.i.i.backedge
 
 .lr.ph.split.i.i.i.i.i.i.i.backedge:              ; preds = %.thread.i.i.i.i.i, %414
-  %.02632.i.i.i.i.i.i.i.be = phi ptr [ %.026.i.i.i.i.i.i.i, %414 ], [ %.026.i.i24.i.i.i.i.i, %.thread.i.i.i.i.i ]
+  %.02632.i.i.i.i.i.i.i.be = phi ptr [ %.026.i.i.i.i.i.i.i, %414 ], [ %.026.i.i26.i.i.i.i.i, %.thread.i.i.i.i.i ]
   br label %.lr.ph.split.i.i.i.i.i.i.i, !llvm.loop !62
 
 ._crit_edge.thread.i.i.i.i.i.i.i:                 ; preds = %414, %410
@@ -3483,8 +3483,8 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i:             ; preds = %293, %287
 
 _ZNSt6vectorIhSaIhEEC2ERKS1_.exit.i:              ; preds = %314, %.noexc73, %.thread.i
   %315 = phi ptr [ null, %.thread.i ], [ %311, %.noexc73 ], [ %311, %314 ]
-  %.pre-phi5968.i = phi i64 [ 0, %.thread.i ], [ 0, %.noexc73 ], [ %.pre58.i, %314 ]
-  %316 = getelementptr inbounds i8, ptr %315, i64 %.pre-phi5968.i
+  %.pre-phi5987.i = phi i64 [ 0, %.thread.i ], [ 0, %.noexc73 ], [ %.pre58.i, %314 ]
+  %316 = getelementptr inbounds i8, ptr %315, i64 %.pre-phi5987.i
   store ptr %316, ptr %35, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %317 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i.i.i, i64 88
@@ -3538,8 +3538,8 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i28.i: ; preds = %325
 
 331:                                              ; preds = %330, %.noexc31.i, %.noexc31.thread.i
   %332 = phi ptr [ null, %.noexc31.thread.i ], [ %327, %330 ], [ %327, %.noexc31.i ]
-  %.pre-phi6571.i = phi i64 [ 0, %.noexc31.thread.i ], [ %.pre64.i, %330 ], [ 0, %.noexc31.i ]
-  %333 = getelementptr inbounds i8, ptr %332, i64 %.pre-phi6571.i
+  %.pre-phi6590.i = phi i64 [ 0, %.noexc31.thread.i ], [ %.pre64.i, %330 ], [ 0, %.noexc31.i ]
+  %333 = getelementptr inbounds i8, ptr %332, i64 %.pre-phi6590.i
   store ptr %333, ptr %37, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.val.i = load ptr, ptr %59, align 8
@@ -5894,19 +5894,19 @@ _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %2
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.copyload, i64 240
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
-  %or.cond.i.not133 = select i1 %55, i1 %58, i1 false
+  %or.cond.i.not147 = select i1 %55, i1 %58, i1 false
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.copyload, i64 256
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
-  %or.cond5.i.not130 = select i1 %or.cond.i.not133, i1 %61, i1 false
+  %or.cond5.i.not144 = select i1 %or.cond.i.not147, i1 %61, i1 false
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.copyload, i64 272
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
-  %or.cond8.i.not128 = select i1 %or.cond5.i.not130, i1 %64, i1 false
+  %or.cond8.i.not142 = select i1 %or.cond5.i.not144, i1 %64, i1 false
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.07.0.copyload, i64 288
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not68 = icmp eq ptr %.pre, null
-  %or.cond = select i1 %or.cond8.i.not128, i1 %.not68, i1 false
+  %or.cond = select i1 %or.cond8.i.not142, i1 %.not68, i1 false
   br i1 %or.cond, label %217, label %_ZNK3ue214RoseSuffixInfocvbEv.exit.thread
 
 .lr.ph:                                           ; preds = %47, %203
@@ -5999,7 +5999,7 @@ _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %2
   %115 = load ptr, ptr %114, align 8
   %116 = icmp ne ptr %113, %115
   %.not4.i.i.i20.i.i.i.i = select i1 %111, i1 true, i1 %116
-  br i1 %.not4.i.i.i20.i.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit119", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit21.thread.i.i.i.i"
+  br i1 %.not4.i.i.i20.i.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit133", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit21.thread.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit21.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit21.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit18.thread.i.i.i.i"
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i, i64 432
@@ -6020,7 +6020,7 @@ _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %2
   %128 = load ptr, ptr %127, align 8
   %129 = icmp ne ptr %126, %128
   %.not4.i.i.i23.i.i.i.i = select i1 %124, i1 true, i1 %129
-  br i1 %.not4.i.i.i23.i.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit121", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit24.thread.i.i.i.i"
+  br i1 %.not4.i.i.i23.i.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit135", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit24.thread.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit24.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit24.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit21.thread.i.i.i.i"
   %130 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i, i64 576
@@ -6120,16 +6120,16 @@ _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %2
   %175 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i, i64 144
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit119": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit21.i.i.i.i"
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit133": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit21.i.i.i.i"
   %176 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i, i64 288
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit121": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit24.i.i.i.i"
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit135": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit24.i.i.i.i"
   %177 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i, i64 432
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i.i", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit119", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit121", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit33.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit33.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit30.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit27.i.i.i.i", %._crit_edge.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit27.i.i.i.i" ], [ %.sroa.036.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit30.i.i.i.i" ], [ %.sroa.036.2.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit33.i.i.i.i" ], [ %.val51, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit33.thread.i.i.i.i" ], [ %.val51, %._crit_edge.i.i.i.i ], [ %175, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit" ], [ %176, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit119" ], [ %177, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit121" ], [ %.sroa.036.055.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i.i" ]
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i.i", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit133", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit135", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit33.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit33.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit30.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit27.i.i.i.i", %._crit_edge.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit27.i.i.i.i" ], [ %.sroa.036.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit30.i.i.i.i" ], [ %.sroa.036.2.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit33.i.i.i.i" ], [ %.val51, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit33.thread.i.i.i.i" ], [ %.val51, %._crit_edge.i.i.i.i ], [ %175, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit" ], [ %176, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit133" ], [ %177, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i.loopexit.split.loop.exit135" ], [ %.sroa.036.055.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i.i" ]
   %178 = add i32 %.val52, -4
   %179 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, i64 32
   %180 = zext i32 %178 to i64
@@ -7218,7 +7218,7 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i.i:           ; preds = %111, %105
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 32
   %156 = load i32, ptr %155, align 8, !noalias !333
   %157 = icmp eq i32 %156, -1
-  br i1 %157, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit112", label %158
+  br i1 %157, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit123", label %158
 
 158:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L18isDirectHighlanderERKNS2_13RoseBuildImplEjRKNS2_17rose_literal_infoEE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit.i.i.i.i.i.i.i"
   %159 = getelementptr inbounds nuw i8, ptr %154, i64 8
@@ -7228,23 +7228,23 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i.i:           ; preds = %111, %105
   %162 = load i64, ptr %161, align 8, !noalias !333
   %163 = icmp eq i64 %162, 0
   %or.cond11.i.i.i16.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i15.i.i.i.i.i.i.i, i1 %163, i1 false
-  br i1 %or.cond11.i.i.i16.i.i.i.i.i.i.i, label %164, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit110"
+  br i1 %or.cond11.i.i.i16.i.i.i.i.i.i.i, label %164, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit121"
 
 164:                                              ; preds = %158
   %.val.i.i.i17.i.i.i.i.i.i.i = load i32, ptr %154, align 8, !noalias !333
   switch i32 %.val.i.i.i17.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L18isDirectHighlanderERKNS2_13RoseBuildImplEjRKNS2_17rose_literal_infoEE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit18.i.i.i.i.i.i.i" [
-    i32 2, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit108"
-    i32 3, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit108"
-    i32 4, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit108"
-    i32 5, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit108"
-    i32 6, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit108"
-    i32 7, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit108"
-    i32 8, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit108"
-    i32 9, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit108"
-    i32 10, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit108"
-    i32 14, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit108"
-    i32 15, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit108"
-    i32 16, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit108"
+    i32 2, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit119"
+    i32 3, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit119"
+    i32 4, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit119"
+    i32 5, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit119"
+    i32 6, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit119"
+    i32 7, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit119"
+    i32 8, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit119"
+    i32 9, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit119"
+    i32 10, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit119"
+    i32 14, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit119"
+    i32 15, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit119"
+    i32 16, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit119"
   ]
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L18isDirectHighlanderERKNS2_13RoseBuildImplEjRKNS2_17rose_literal_infoEE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit18.i.i.i.i.i.i.i": ; preds = %164
@@ -7255,7 +7255,7 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i.i:           ; preds = %111, %105
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 32
   %168 = load i32, ptr %167, align 8, !noalias !333
   %169 = icmp eq i32 %168, -1
-  br i1 %169, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit106", label %170
+  br i1 %169, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit117", label %170
 
 170:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L18isDirectHighlanderERKNS2_13RoseBuildImplEjRKNS2_17rose_literal_infoEE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit18.i.i.i.i.i.i.i"
   %171 = getelementptr inbounds nuw i8, ptr %166, i64 8
@@ -7265,23 +7265,23 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i.i:           ; preds = %111, %105
   %174 = load i64, ptr %173, align 8, !noalias !333
   %175 = icmp eq i64 %174, 0
   %or.cond11.i.i.i20.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i19.i.i.i.i.i.i.i, i1 %175, i1 false
-  br i1 %or.cond11.i.i.i20.i.i.i.i.i.i.i, label %176, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit104"
+  br i1 %or.cond11.i.i.i20.i.i.i.i.i.i.i, label %176, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit115"
 
 176:                                              ; preds = %170
   %.val.i.i.i21.i.i.i.i.i.i.i = load i32, ptr %166, align 8, !noalias !333
   switch i32 %.val.i.i.i21.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L18isDirectHighlanderERKNS2_13RoseBuildImplEjRKNS2_17rose_literal_infoEE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit22.i.i.i.i.i.i.i" [
-    i32 2, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit102"
-    i32 3, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit102"
-    i32 4, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit102"
-    i32 5, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit102"
-    i32 6, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit102"
-    i32 7, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit102"
-    i32 8, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit102"
-    i32 9, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit102"
-    i32 10, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit102"
-    i32 14, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit102"
-    i32 15, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit102"
-    i32 16, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit102"
+    i32 2, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit113"
+    i32 3, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit113"
+    i32 4, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit113"
+    i32 5, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit113"
+    i32 6, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit113"
+    i32 7, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit113"
+    i32 8, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit113"
+    i32 9, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit113"
+    i32 10, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit113"
+    i32 14, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit113"
+    i32 15, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit113"
+    i32 16, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit113"
   ]
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L18isDirectHighlanderERKNS2_13RoseBuildImplEjRKNS2_17rose_literal_infoEE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit22.i.i.i.i.i.i.i": ; preds = %176
@@ -7292,7 +7292,7 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i.i:           ; preds = %111, %105
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 32
   %180 = load i32, ptr %179, align 8, !noalias !333
   %181 = icmp eq i32 %180, -1
-  br i1 %181, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit100", label %182
+  br i1 %181, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit111", label %182
 
 182:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L18isDirectHighlanderERKNS2_13RoseBuildImplEjRKNS2_17rose_literal_infoEE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit22.i.i.i.i.i.i.i"
   %183 = getelementptr inbounds nuw i8, ptr %178, i64 8
@@ -7302,7 +7302,7 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i.i:           ; preds = %111, %105
   %186 = load i64, ptr %185, align 8, !noalias !333
   %187 = icmp eq i64 %186, 0
   %or.cond11.i.i.i24.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i23.i.i.i.i.i.i.i, i1 %187, i1 false
-  br i1 %or.cond11.i.i.i24.i.i.i.i.i.i.i, label %188, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit98"
+  br i1 %or.cond11.i.i.i24.i.i.i.i.i.i.i, label %188, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit109"
 
 188:                                              ; preds = %182
   %.val.i.i.i25.i.i.i.i.i.i.i = load i32, ptr %178, align 8, !noalias !333
@@ -7464,40 +7464,40 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i.i:           ; preds = %111, %105
   %231 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.i.i.i.i.i.i, i64 12
   br label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i"
 
-"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit98": ; preds = %182
+"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit109": ; preds = %182
   %232 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.i.i.i.i.i.i, i64 12
   br label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i"
 
-"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit100": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L18isDirectHighlanderERKNS2_13RoseBuildImplEjRKNS2_17rose_literal_infoEE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit22.i.i.i.i.i.i.i"
+"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit111": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L18isDirectHighlanderERKNS2_13RoseBuildImplEjRKNS2_17rose_literal_infoEE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit22.i.i.i.i.i.i.i"
   %233 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.i.i.i.i.i.i, i64 12
   br label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i"
 
-"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit102": ; preds = %176, %176, %176, %176, %176, %176, %176, %176, %176, %176, %176, %176
+"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit113": ; preds = %176, %176, %176, %176, %176, %176, %176, %176, %176, %176, %176, %176
   %234 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.i.i.i.i.i.i, i64 8
   br label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i"
 
-"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit104": ; preds = %170
+"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit115": ; preds = %170
   %235 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.i.i.i.i.i.i, i64 8
   br label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i"
 
-"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit106": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L18isDirectHighlanderERKNS2_13RoseBuildImplEjRKNS2_17rose_literal_infoEE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit18.i.i.i.i.i.i.i"
+"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit117": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L18isDirectHighlanderERKNS2_13RoseBuildImplEjRKNS2_17rose_literal_infoEE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit18.i.i.i.i.i.i.i"
   %236 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.i.i.i.i.i.i, i64 8
   br label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i"
 
-"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit108": ; preds = %164, %164, %164, %164, %164, %164, %164, %164, %164, %164, %164, %164
+"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit119": ; preds = %164, %164, %164, %164, %164, %164, %164, %164, %164, %164, %164, %164
   %237 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.i.i.i.i.i.i, i64 4
   br label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i"
 
-"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit110": ; preds = %158
+"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit121": ; preds = %158
   %238 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.i.i.i.i.i.i, i64 4
   br label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i"
 
-"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit112": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L18isDirectHighlanderERKNS2_13RoseBuildImplEjRKNS2_17rose_literal_infoEE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit.i.i.i.i.i.i.i"
+"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit123": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L18isDirectHighlanderERKNS2_13RoseBuildImplEjRKNS2_17rose_literal_infoEE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit.i.i.i.i.i.i.i"
   %239 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.i.i.i.i.i.i, i64 4
   br label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i"
 
-"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i": ; preds = %152, %152, %152, %152, %152, %152, %152, %152, %152, %152, %152, %152, %146, %.lr.ph.i.i.i.i.i.i.i, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit", %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit98", %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit100", %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit102", %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit104", %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit106", %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit108", %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit110", %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit112", %230, %230, %230, %230, %230, %230, %230, %230, %230, %230, %230, %230, %224, %219, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %211, %206, %204, %204, %204, %204, %204, %204, %204, %204, %204, %204, %204, %204, %198, %193
-  %.sink.i.i.i.i.i.i.i = phi ptr [ %.sroa.020.1.i.i.i.i.i.i, %193 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %198 ], [ %.sroa.020.2.i.i.i.i.i.i, %206 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %211 ], [ %.sroa.020.3.i.i.i.i.i.i, %219 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %224 ], [ %231, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit" ], [ %232, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit98" ], [ %233, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit100" ], [ %234, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit102" ], [ %235, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit104" ], [ %236, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit106" ], [ %237, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit108" ], [ %238, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit110" ], [ %239, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit112" ], [ %.sroa.020.0.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.020.0.i.i.i.i.i.i, %146 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ]
+"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i": ; preds = %152, %152, %152, %152, %152, %152, %152, %152, %152, %152, %152, %152, %146, %.lr.ph.i.i.i.i.i.i.i, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit", %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit109", %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit111", %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit113", %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit115", %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit117", %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit119", %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit121", %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit123", %230, %230, %230, %230, %230, %230, %230, %230, %230, %230, %230, %230, %224, %219, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %211, %206, %204, %204, %204, %204, %204, %204, %204, %204, %204, %204, %204, %204, %198, %193
+  %.sink.i.i.i.i.i.i.i = phi ptr [ %.sroa.020.1.i.i.i.i.i.i, %193 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %204 ], [ %.sroa.020.1.i.i.i.i.i.i, %198 ], [ %.sroa.020.2.i.i.i.i.i.i, %206 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %217 ], [ %.sroa.020.2.i.i.i.i.i.i, %211 ], [ %.sroa.020.3.i.i.i.i.i.i, %219 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %230 ], [ %.sroa.020.3.i.i.i.i.i.i, %224 ], [ %231, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit" ], [ %232, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit109" ], [ %233, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit111" ], [ %234, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit113" ], [ %235, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit115" ], [ %236, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit117" ], [ %237, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit119" ], [ %238, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit121" ], [ %239, %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.i.i.i.loopexit.split.loop.exit123" ], [ %.sroa.020.0.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.020.0.i.i.i.i.i.i, %146 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ], [ %.sroa.020.0.i.i.i.i.i.i, %152 ]
   %240 = icmp eq ptr %136, %.sink.i.i.i.i.i.i.i
   br i1 %240, label %"_ZSt6all_ofIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEZNS0_L18isDirectHighlanderERKNS0_13RoseBuildImplEjRKNS0_17rose_literal_infoEE3$_0EbT_SH_T0_.exit.thread.i.i.i", label %_ZN3ue2L18isDirectHighlanderERKNS_13RoseBuildImplEjRKNS_17rose_literal_infoE.exit.i.i
 
@@ -9870,7 +9870,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = icmp eq ptr %3, %4
-  br i1 %5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9882,14 +9882,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %15, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %2
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %2
   %12 = load ptr, ptr %1, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = icmp eq ptr %12, %13
   br i1 %14, label %15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-15:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %16 = phi ptr [ %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %9, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+15:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %16 = phi ptr [ %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %9, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = icmp ult i64 %18, 16
@@ -9931,7 +9931,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %30, ptr %4, align 8
   br label %37
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %31 = load i64, ptr %4, align 8
   store ptr %12, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11128,7 +11128,7 @@ _ZN3ue211hwlmLiteralC2EOS0_.exit:                 ; preds = %52, %_ZNKSt7__cxx11
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -88
   %79 = icmp eq ptr %77, %78
-  br i1 %79, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i
+  br i1 %79, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8: ; preds = %.lr.ph.i.i.i.i.i
   %80 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -96
@@ -11140,14 +11140,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8:
   %85 = icmp eq ptr %83, %84
   br i1 %85, label %89, label %.thread.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i: ; preds = %.lr.ph.i.i.i.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %86 = load ptr, ptr %75, align 8
   %87 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -88
   %88 = icmp eq ptr %86, %87
   br i1 %88, label %89, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i
 
-89:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i
-  %90 = phi ptr [ %86, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i ], [ %83, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8 ]
+89:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i
+  %90 = phi ptr [ %86, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i ], [ %83, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8 ]
   %91 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -96
   %92 = load i64, ptr %91, align 8
   %93 = icmp ult i64 %92, 16
@@ -11185,7 +11185,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i: ;
   store i64 %103, ptr %78, align 8
   br label %110
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i
   %104 = load i64, ptr %78, align 8
   store ptr %86, ptr %76, align 8
   %105 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -96
@@ -12458,7 +12458,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN3
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = icmp eq ptr %3, %4
-  br i1 %5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12470,14 +12470,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %15, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %2
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %2
   %12 = load ptr, ptr %1, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = icmp eq ptr %12, %13
   br i1 %14, label %15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-15:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %16 = phi ptr [ %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %9, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+15:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %16 = phi ptr [ %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %9, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = icmp ult i64 %18, 16
@@ -12519,7 +12519,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %30, ptr %4, align 8
   br label %37
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %31 = load i64, ptr %4, align 8
   store ptr %12, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13559,7 +13559,7 @@ _ZN3ue211AccelStringC2EOS0_.exit:                 ; preds = %40, %_ZNKSt7__cxx11
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -80
   %69 = icmp eq ptr %67, %68
-  br i1 %69, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i
+  br i1 %69, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8: ; preds = %.lr.ph.i.i.i.i.i
   %70 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -88
@@ -13571,14 +13571,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8:
   %75 = icmp eq ptr %73, %74
   br i1 %75, label %79, label %.thread.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i: ; preds = %.lr.ph.i.i.i.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %76 = load ptr, ptr %65, align 8
   %77 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -80
   %78 = icmp eq ptr %76, %77
   br i1 %78, label %79, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i
 
-79:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i
-  %80 = phi ptr [ %76, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i ], [ %73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8 ]
+79:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i
+  %80 = phi ptr [ %76, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i ], [ %73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8 ]
   %81 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -88
   %82 = load i64, ptr %81, align 8
   %83 = icmp ult i64 %82, 16
@@ -13616,7 +13616,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i: ;
   store i64 %93, ptr %68, align 8
   br label %100
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i
   %94 = load i64, ptr %68, align 8
   store ptr %76, ptr %66, align 8
   %95 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -88

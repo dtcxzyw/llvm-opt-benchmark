@@ -191,8 +191,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex19finalizeOrderedTagsEv(ptr n
   %41 = load float, ptr @_ZN10OpenSubdiv6v3_6_03Sdc6Crease18SHARPNESS_INFINITEE, align 4
   %42 = load float, ptr @_ZN10OpenSubdiv6v3_6_03Sdc6Crease16SHARPNESS_SMOOTHE, align 4
   %43 = lshr i8 %4, 4
-  %.lobit36 = and i8 %43, 1
-  %44 = zext nneg i8 %.lobit36 to i64
+  %.lobit38 = and i8 %43, 1
+  %44 = zext nneg i8 %.lobit38 to i64
   %wide.trip.count = zext nneg i32 %39 to i64
   br label %45
 
@@ -206,8 +206,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex19finalizeOrderedTagsEv(ptr n
   %48 = fcmp ult float %47, %41
   %.fr = freeze i1 %48
   %49 = fcmp ogt float %47, %42
-  %.fr51 = freeze i1 %49
-  %narrow = and i1 %.fr, %.fr51
+  %.fr53 = freeze i1 %49
+  %narrow = and i1 %.fr, %.fr53
   %spec.select = zext i1 %narrow to i32
   %.124 = add i32 %.02330, %spec.select
   %not. = xor i1 %.fr, true
@@ -218,26 +218,26 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex19finalizeOrderedTagsEv(ptr n
   br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %45
-  %.not50 = icmp eq i32 %.1, 0
-  %spec.select48 = select i1 %.not50, i16 0, i16 4
-  %.not52 = icmp eq i32 %.124, 0
-  %spec.select49 = select i1 %.not52, i16 0, i16 32
-  %51 = or disjoint i16 %spec.select48, %spec.select49
+  %.not52 = icmp eq i32 %.1, 0
+  %spec.select50 = select i1 %.not52, i16 0, i16 4
+  %.not54 = icmp eq i32 %.124, 0
+  %spec.select51 = select i1 %.not54, i16 0, i16 32
+  %51 = or disjoint i16 %spec.select50, %spec.select51
   br label %.thread
 
 .thread:                                          ; preds = %34, %._crit_edge
-  %.023.lcssa4147 = phi i32 [ %.124, %._crit_edge ], [ 0, %34 ]
-  %.0.lcssa4246 = phi i32 [ %.1, %._crit_edge ], [ 0, %34 ]
+  %.023.lcssa4349 = phi i32 [ %.124, %._crit_edge ], [ 0, %34 ]
+  %.0.lcssa4448 = phi i32 [ %.1, %._crit_edge ], [ 0, %34 ]
   %52 = phi i16 [ %51, %._crit_edge ], [ 0, %34 ]
   %53 = and i16 %35, -45
-  %54 = icmp eq i32 %.0.lcssa4246, 1
+  %54 = icmp eq i32 %.0.lcssa4448, 1
   %55 = and i1 %.not, %54
   %56 = select i1 %55, i16 8, i16 0
   %57 = or disjoint i16 %52, %56
   %58 = or disjoint i16 %57, %53
   store i16 %58, ptr %2, align 8
   %59 = shl nuw nsw i32 %36, 1
-  %60 = add nsw i32 %.0.lcssa4246, %59
+  %60 = add nsw i32 %.0.lcssa4448, %59
   %61 = icmp sgt i32 %60, 2
   br i1 %61, label %62, label %66
 
@@ -249,7 +249,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex19finalizeOrderedTagsEv(ptr n
   br label %._crit_edge35
 
 66:                                               ; preds = %.thread
-  %67 = add nsw i32 %60, %.023.lcssa4147
+  %67 = add nsw i32 %60, %.023.lcssa4349
   %68 = icmp sgt i32 %67, 2
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 159
   %70 = load i8, ptr %69, align 1
@@ -1819,7 +1819,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex22subsetHasInf
   %21 = sext i16 %20 to i32
   %22 = add nsw i32 %18, %21
   %23 = srem i32 %22, %21
-  br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit
+  br label %.lr.ph
 
 24:                                               ; preds = %7
   switch i16 %9, label %46 [
@@ -1835,7 +1835,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex22subsetHasInf
   %30 = getelementptr inbounds i16, ptr %27, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = sext i16 %31 to i32
-  br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit
+  br label %.lr.ph
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -1850,11 +1850,11 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex22subsetHasInf
   %43 = getelementptr inbounds i16, ptr %35, i64 %42
   %44 = load i16, ptr %43, align 2
   %45 = sext i16 %44 to i32
-  br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit
+  br label %.lr.ph
 
 46:                                               ; preds = %24
   %47 = icmp sgt i16 %9, 0
-  br i1 %47, label %.lr.ph.i.i, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit
+  br i1 %47, label %.lr.ph.i.i, label %.lr.ph
 
 .lr.ph.i.i:                                       ; preds = %46
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -1871,9 +1871,9 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex22subsetHasInf
   %.0.in.i.i = load i16, ptr %53, align 2
   %.0.i.i = sext i16 %.0.in.i.i to i32
   %55 = icmp samesign ugt i32 %.0813.i.i, 1
-  br i1 %55, label %50, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit, !llvm.loop !20
+  br i1 %55, label %50, label %.lr.ph, !llvm.loop !20
 
-_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit: ; preds = %50, %17, %25, %33, %46
+.lr.ph:                                           ; preds = %50, %46, %33, %25, %17
   %.09.i.i = phi i32 [ %23, %17 ], [ %32, %25 ], [ %45, %33 ], [ %16, %46 ], [ %.0.i.i, %50 ]
   %56 = load i16, ptr %1, align 4
   %57 = and i16 %56, 1
@@ -1892,9 +1892,9 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.
   %69 = sext i16 %sext.i to i32
   br i1 %.not.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us
-  %.014.us = phi i32 [ %76, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us ], [ %58, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
-  %.01013.us = phi i32 [ %.0.i.us, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us ], [ %.09.i.i, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us
+  %.014.us = phi i32 [ %76, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us ], [ %58, %.lr.ph ]
+  %.01013.us = phi i32 [ %.0.i.us, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us ], [ %.09.i.i, %.lr.ph ]
   %70 = shl nsw i32 %.01013.us, 1
   %71 = sext i32 %70 to i64
   %72 = getelementptr float, ptr %60, i64 %71
@@ -1911,9 +1911,9 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us: ; preds = %.lr.p
   %exitcond20.not = icmp eq i32 %76, %5
   br i1 %exitcond20.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !22
 
-.lr.ph.split:                                     ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit
-  %.014 = phi i32 [ %85, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %58, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
-  %.01013 = phi i32 [ %89, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %.09.i.i, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit
+  %.014 = phi i32 [ %85, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %58, %.lr.ph ]
+  %.01013 = phi i32 [ %89, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %.09.i.i, %.lr.ph ]
   %79 = shl nsw i32 %.01013, 1
   %80 = sext i32 %79 to i64
   %81 = getelementptr float, ptr %60, i64 %80
@@ -1964,7 +1964,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex23subsetHasSem
   %21 = sext i16 %20 to i32
   %22 = add nsw i32 %18, %21
   %23 = srem i32 %22, %21
-  br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit
+  br label %.lr.ph
 
 24:                                               ; preds = %7
   switch i16 %9, label %46 [
@@ -1980,7 +1980,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex23subsetHasSem
   %30 = getelementptr inbounds i16, ptr %27, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = sext i16 %31 to i32
-  br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit
+  br label %.lr.ph
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -1995,11 +1995,11 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex23subsetHasSem
   %43 = getelementptr inbounds i16, ptr %35, i64 %42
   %44 = load i16, ptr %43, align 2
   %45 = sext i16 %44 to i32
-  br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit
+  br label %.lr.ph
 
 46:                                               ; preds = %24
   %47 = icmp sgt i16 %9, 0
-  br i1 %47, label %.lr.ph.i.i, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit
+  br i1 %47, label %.lr.ph.i.i, label %.lr.ph
 
 .lr.ph.i.i:                                       ; preds = %46
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -2016,9 +2016,9 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex23subsetHasSem
   %.0.in.i.i = load i16, ptr %53, align 2
   %.0.i.i = sext i16 %.0.in.i.i to i32
   %55 = icmp samesign ugt i32 %.0813.i.i, 1
-  br i1 %55, label %50, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit, !llvm.loop !20
+  br i1 %55, label %50, label %.lr.ph, !llvm.loop !20
 
-_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit: ; preds = %50, %17, %25, %33, %46
+.lr.ph:                                           ; preds = %50, %46, %33, %25, %17
   %.09.i.i = phi i32 [ %23, %17 ], [ %32, %25 ], [ %45, %33 ], [ %16, %46 ], [ %.0.i.i, %50 ]
   %56 = load i16, ptr %1, align 4
   %57 = and i16 %56, 1
@@ -2038,9 +2038,9 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.
   %70 = sext i16 %sext.i to i32
   br i1 %.not.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us
-  %.014.us = phi i32 [ %79, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us ], [ %58, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
-  %.01013.us = phi i32 [ %.0.i.us, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us ], [ %.09.i.i, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us
+  %.014.us = phi i32 [ %79, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us ], [ %58, %.lr.ph ]
+  %.01013.us = phi i32 [ %.0.i.us, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us ], [ %.09.i.i, %.lr.ph ]
   %71 = shl nsw i32 %.01013.us, 1
   %72 = sext i32 %71 to i64
   %73 = getelementptr float, ptr %60, i64 %72
@@ -2059,9 +2059,9 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us: ; preds = %.lr.p
   %exitcond20.not = icmp eq i32 %79, %5
   br i1 %exitcond20.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !23
 
-.lr.ph.split:                                     ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit
-  %.014 = phi i32 [ %90, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %58, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
-  %.01013 = phi i32 [ %94, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %.09.i.i, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit
+  %.014 = phi i32 [ %90, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %58, %.lr.ph ]
+  %.01013 = phi i32 [ %94, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %.09.i.i, %.lr.ph ]
   %82 = shl nsw i32 %.01013, 1
   %83 = sext i32 %82 to i64
   %84 = getelementptr float, ptr %60, i64 %83
@@ -2325,10 +2325,10 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20createUnOrderedEdge
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexTrailingEiPKi.exit: ; preds = %54, %51, %44, %41
   %.sink = phi i32 [ %43, %41 ], [ %48, %44 ], [ %53, %51 ], [ %58, %54 ]
-  %.sink76 = phi i64 [ -4, %41 ], [ -4, %44 ], [ 4, %51 ], [ 4, %54 ]
+  %.sink82 = phi i64 [ -4, %41 ], [ -4, %44 ], [ 4, %51 ], [ 4, %54 ]
   %59 = sext i32 %.sink to i64
   %60 = getelementptr i32, ptr %3, i64 %59
-  %61 = getelementptr i8, ptr %60, i64 %.sink76
+  %61 = getelementptr i8, ptr %60, i64 %.sink82
   %62 = load i32, ptr %61, align 4
   store i32 %62, ptr %6, align 4
   %.not = icmp eq i32 %62, %25
@@ -2585,8 +2585,8 @@ define void @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex18markDuplicateEdgesEPNS2_4E
   br i1 %19, label %20, label %35
 
 20:                                               ; preds = %.lr.ph65
-  %.idx79 = shl nuw nsw i64 %indvars.iv73, 2
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx79
+  %.idx81 = shl nuw nsw i64 %indvars.iv73, 2
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx81
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i64
   %24 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertex::Edge", ptr %1, i64 %23, i32 1
@@ -2658,8 +2658,8 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit: ; preds = %39, %41
   br i1 %61, label %62, label %.loopexit54
 
 62:                                               ; preds = %58
-  %.idx78 = shl nuw nsw i64 %indvars.iv68, 2
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx78
+  %.idx80 = shl nuw nsw i64 %indvars.iv68, 2
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx80
   %64 = load i16, ptr %63, align 2
   %65 = sext i16 %64 to i64
   %66 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertex::Edge", ptr %1, i64 %65, i32 1
@@ -3132,14 +3132,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %.019.lcssa28.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #20
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #20
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81 = load i32, ptr %.phi.trans.insert80, align 4
   %.pre82 = load i32, ptr %2, align 4
@@ -3148,11 +3148,11 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_
 28:                                               ; preds = %26, %._crit_edge.i
   %29 = phi i32 [ %.pre82, %26 ], [ %18, %._crit_edge.i ]
   %30 = phi i32 [ %.pre81, %26 ], [ %21, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %26 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %26 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %27, %26 ], [ %.02024.i, %._crit_edge.i ]
   %31 = icmp slt i32 %30, %29
   %spec.select.i = select i1 %31, ptr null, ptr %.sroa.05.0.i
-  %spec.select21.i = select i1 %31, ptr %.019.lcssa29.i, ptr null
+  %spec.select21.i = select i1 %31, ptr %.019.lcssa28.i, ptr null
   br label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_.exit
 
 32:                                               ; preds = %3
@@ -3204,23 +3204,23 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_
   br i1 %54, label %._crit_edge.thread.i27, label %58
 
 ._crit_edge.thread.i27:                           ; preds = %._crit_edge.i18, %50
-  %.019.lcssa28.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
-  %55 = icmp eq ptr %.019.lcssa28.i28, %39
+  %.019.lcssa29.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
+  %55 = icmp eq ptr %.019.lcssa29.i28, %39
   br i1 %55, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #20
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i28) #20
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre79 = load i32, ptr %.phi.trans.insert78, align 4
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i18
   %59 = phi i32 [ %.pre79, %56 ], [ %53, %._crit_edge.i18 ]
-  %.019.lcssa29.i19 = phi ptr [ %.019.lcssa28.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
+  %.019.lcssa28.i19 = phi ptr [ %.019.lcssa29.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %.sroa.05.0.i20 = phi ptr [ %57, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %60 = icmp slt i32 %59, %34
   %spec.select.i21 = select i1 %60, ptr null, ptr %.sroa.05.0.i20
-  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa29.i19, ptr null
+  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa28.i19, ptr null
   br label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_.exit
 
 61:                                               ; preds = %32
@@ -3269,30 +3269,30 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_
   br i1 %80, label %._crit_edge.thread.i47, label %86
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
-  %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
+  %.019.lcssa29.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8
-  %83 = icmp eq ptr %.019.lcssa28.i48, %82
+  %83 = icmp eq ptr %.019.lcssa29.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #20
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i48) #20
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i38
   %87 = phi i32 [ %.pre, %84 ], [ %79, %._crit_edge.i38 ]
-  %.019.lcssa29.i39 = phi ptr [ %.019.lcssa28.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
+  %.019.lcssa28.i39 = phi ptr [ %.019.lcssa29.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %.sroa.05.0.i40 = phi ptr [ %85, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %88 = icmp slt i32 %87, %34
   %spec.select.i41 = select i1 %88, ptr null, ptr %.sroa.05.0.i40
-  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa29.i39, ptr null
+  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa28.i39, ptr null
   br label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
   %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -5333,9 +5333,9 @@ define noalias noundef ptr @dissect_bluetooth_common(ptr noundef %0, ptr noundef
   %8 = load ptr, ptr %4, align 8
   %switch.selectcmp = icmp eq i32 %7, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.1282, ptr @.str.1283
-  %switch.selectcmp115 = icmp eq i32 %7, 0
-  %switch.select116 = select i1 %switch.selectcmp115, ptr @.str.1281, ptr %switch.select
-  tail call void @col_set_str(ptr noundef %8, i32 noundef 25, ptr noundef nonnull %switch.select116)
+  %switch.selectcmp132 = icmp eq i32 %7, 0
+  %switch.select133 = select i1 %switch.selectcmp132, ptr @.str.1281, ptr %switch.select
+  tail call void @col_set_str(ptr noundef %8, i32 noundef 25, ptr noundef nonnull %switch.select133)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 11, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -5514,8 +5514,8 @@ proto_item_set_hidden.exit93:                     ; preds = %95, %100, %103
   br i1 %.not5.i95, label %.critedge, label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %110, %92
-  %.sink111 = phi ptr [ %94, %92 ], [ %112, %110 ]
-  %113 = getelementptr inbounds nuw i8, ptr %.sink111, i64 28
+  %.sink128 = phi ptr [ %94, %92 ], [ %112, %110 ]
+  %113 = getelementptr inbounds nuw i8, ptr %.sink128, i64 28
   %114 = load i32, ptr %113, align 4
   %115 = or i32 %114, 2
   store i32 %115, ptr %113, align 4
@@ -5601,8 +5601,8 @@ proto_item_set_hidden.exit105:                    ; preds = %136, %141, %144
   br i1 %.not5.i107, label %.critedge87, label %.critedge87.sink.split
 
 .critedge87.sink.split:                           ; preds = %151, %133
-  %.sink114 = phi ptr [ %135, %133 ], [ %153, %151 ]
-  %154 = getelementptr inbounds nuw i8, ptr %.sink114, i64 28
+  %.sink131 = phi ptr [ %135, %133 ], [ %153, %151 ]
+  %154 = getelementptr inbounds nuw i8, ptr %.sink131, i64 28
   %155 = load i32, ptr %154, align 4
   %156 = or i32 %155, 2
   store i32 %156, ptr %154, align 4

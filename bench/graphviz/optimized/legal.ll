@@ -99,7 +99,7 @@ define range(i32 0, 2) i32 @Plegal_arrangement(ptr noundef readonly captures(non
 
 .lr.ph111.preheader:                              ; preds = %29, %.thread.i72
   %36 = phi ptr [ %24, %.thread.i72 ], [ %30, %29 ]
-  %.061.lcssa145152 = phi i64 [ 0, %.thread.i72 ], [ %23, %29 ]
+  %.061.lcssa198205 = phi i64 [ 0, %.thread.i72 ], [ %23, %29 ]
   %wide.trip.count141 = zext nneg i32 %1 to i64
   br label %.lr.ph111
 
@@ -179,7 +179,7 @@ define range(i32 0, 2) i32 @Plegal_arrangement(ptr noundef readonly captures(non
   br i1 %exitcond137.not, label %._crit_edge103.loopexit, label %50, !llvm.loop !34
 
 ._crit_edge112:                                   ; preds = %._crit_edge103
-  br i1 %.not.i69, label %.thread, label %.thread159
+  br i1 %.not.i69, label %.thread, label %.thread212
 
 .thread:                                          ; preds = %.thread.i72.thread, %._crit_edge112
   %64 = phi ptr [ %11, %._crit_edge112 ], [ %17, %.thread.i72.thread ]
@@ -189,29 +189,29 @@ define range(i32 0, 2) i32 @Plegal_arrangement(ptr noundef readonly captures(non
   tail call void @free(ptr noundef %66) #16
   br i1 %.not.i.not, label %findInside.exit, label %.lr.ph107.preheader.i
 
-.thread159:                                       ; preds = %._crit_edge112
-  %67 = tail call noalias ptr @calloc(i64 noundef %.061.lcssa145152, i64 noundef 8) #15
+.thread212:                                       ; preds = %._crit_edge112
+  %67 = tail call noalias ptr @calloc(i64 noundef %.061.lcssa198205, i64 noundef 8) #15
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %.lr.ph.i
 
-69:                                               ; preds = %.thread159
+69:                                               ; preds = %.thread212
   %70 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %71 = shl nuw nsw i64 %.061.lcssa145152, 3
+  %71 = shl nuw nsw i64 %.061.lcssa198205, 3
   %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.1, i64 noundef %71) #13
   tail call fastcc void @graphviz_exit() #14
   unreachable
 
 .lr.ph147.preheader.i:                            ; preds = %.lr.ph.i
-  tail call void @qsort(ptr noundef nonnull %67, i64 noundef %.061.lcssa145152, i64 noundef 8, ptr noundef nonnull @gt) #16
+  tail call void @qsort(ptr noundef nonnull %67, i64 noundef %.061.lcssa198205, i64 noundef 8, ptr noundef nonnull @gt) #16
   br label %.lr.ph147.i
 
-.lr.ph.i:                                         ; preds = %.thread159, %.lr.ph.i
-  %.082132.i = phi i64 [ %75, %.lr.ph.i ], [ 0, %.thread159 ]
+.lr.ph.i:                                         ; preds = %.thread212, %.lr.ph.i
+  %.082132.i = phi i64 [ %75, %.lr.ph.i ], [ 0, %.thread212 ]
   %73 = getelementptr inbounds nuw %struct.vertex, ptr %36, i64 %.082132.i
   %74 = getelementptr inbounds nuw ptr, ptr %67, i64 %.082132.i
   store ptr %73, ptr %74, align 8, !tbaa !35
   %75 = add nuw nsw i64 %.082132.i, 1
-  %exitcond.not.i = icmp eq i64 %75, %.061.lcssa145152
+  %exitcond.not.i = icmp eq i64 %75, %.061.lcssa198205
   br i1 %exitcond.not.i, label %.lr.ph147.preheader.i, label %.lr.ph.i, !llvm.loop !36
 
 .lr.ph147.i:                                      ; preds = %523, %.lr.ph147.preheader.i
@@ -1174,7 +1174,7 @@ gt.exit.thread.i:                                 ; preds = %97, %90
 
 523:                                              ; preds = %521
   %524 = add nuw nsw i64 %.081145.i, 1
-  %exitcond169.not.i = icmp eq i64 %524, %.061.lcssa145152
+  %exitcond169.not.i = icmp eq i64 %524, %.061.lcssa198205
   br i1 %exitcond169.not.i, label %.loopexit.i, label %.lr.ph147.i, !llvm.loop !44
 
 .loopexit.i:                                      ; preds = %523, %find_intersection.exit.i
@@ -1245,8 +1245,8 @@ gt.exit.thread.i:                                 ; preds = %97, %90
   %549 = fcmp ugt double %545, %548
   %.pre.i = load double, ptr %546, align 8, !tbaa !47
   %550 = fcmp ult double %545, %.pre.i
-  %or.cond118.i = select i1 %549, i1 true, i1 %550
-  br i1 %or.cond118.i, label %573, label %551
+  %or.cond128.i = select i1 %549, i1 true, i1 %550
+  br i1 %or.cond128.i, label %573, label %551
 
 551:                                              ; preds = %542
   %552 = load double, ptr %538, align 8, !tbaa !49
@@ -1328,10 +1328,10 @@ gt.exit.thread.i:                                 ; preds = %97, %90
   br i1 %exitcond.not.i76, label %.loopexit.i74, label %542, !llvm.loop !51
 
 findInside.exit:                                  ; preds = %.loopexit.i74, %568, %592, %.loopexit, %.thread, %529
-  %.sink183 = phi ptr [ %11, %529 ], [ %11, %.loopexit ], [ %64, %.thread ], [ %530, %592 ], [ %530, %568 ], [ %530, %.loopexit.i74 ]
+  %.sink236 = phi ptr [ %11, %529 ], [ %11, %.loopexit ], [ %64, %.thread ], [ %530, %592 ], [ %530, %568 ], [ %530, %.loopexit.i74 ]
   %.sink = phi ptr [ %36, %529 ], [ %36, %.loopexit ], [ %65, %.thread ], [ %531, %592 ], [ %531, %568 ], [ %531, %.loopexit.i74 ]
   %.060 = phi i32 [ 0, %529 ], [ 0, %.loopexit ], [ 1, %.thread ], [ 0, %592 ], [ 0, %568 ], [ 1, %.loopexit.i74 ]
-  tail call void @free(ptr noundef %.sink183) #16
+  tail call void @free(ptr noundef %.sink236) #16
   tail call void @free(ptr noundef %.sink) #16
   ret i32 %.060
 }
@@ -1528,8 +1528,8 @@ define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly captur
 74:                                               ; preds = %71
   %75 = fcmp ule double %.sroa.065.0.copyload, %.sroa.046.0.copyload
   %76 = fcmp uge double %.sroa.046.0.copyload, %.sroa.05.0.copyload.i
-  %or.cond226.not = or i1 %75, %76
-  br i1 %or.cond226.not, label %online.exit.thread, label %77
+  %or.cond233.not = or i1 %75, %76
+  br i1 %or.cond233.not, label %online.exit.thread, label %77
 
 77:                                               ; preds = %74, %73
   br i1 %23, label %78, label %80
@@ -1566,14 +1566,14 @@ define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly captur
   br i1 %91, label %92, label %93
 
 92:                                               ; preds = %90
-  %or.cond227 = fcmp ogt double %.sroa.0.0.i127, %.sroa.05.0.copyload.i124
-  br i1 %or.cond227, label %96, label %online.exit136.thread
+  %or.cond234 = fcmp ogt double %.sroa.0.0.i127, %.sroa.05.0.copyload.i124
+  br i1 %or.cond234, label %96, label %online.exit136.thread
 
 93:                                               ; preds = %90
   %94 = fcmp ule double %.sroa.046.0.copyload, %.sroa.0.0.i127
   %95 = fcmp uge double %.sroa.0.0.i127, %.sroa.05.0.copyload.i124
-  %or.cond228.not = select i1 %94, i1 true, i1 %95
-  br i1 %or.cond228.not, label %online.exit136.thread, label %96
+  %or.cond235.not = select i1 %94, i1 true, i1 %95
+  br i1 %or.cond235.not, label %online.exit136.thread, label %96
 
 96:                                               ; preds = %93, %92
   br i1 %23, label %97, label %99
@@ -1603,8 +1603,8 @@ define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly captur
 
 108:                                              ; preds = %107
   %109 = fcmp ogt double %.sroa.065.0.copyload, %.sroa.05.0.copyload.i140
-  %cond.fr222 = freeze i1 %109
-  br i1 %cond.fr222, label %110, label %online.exit136.thread
+  %cond.fr229 = freeze i1 %109
+  br i1 %cond.fr229, label %110, label %online.exit136.thread
 
 online.exit153:                                   ; preds = %104
   %spec.select = and i1 %72, %.fr
@@ -1648,14 +1648,14 @@ online.exit.thread:                               ; preds = %68, %74, %73
   br i1 %124, label %125, label %126
 
 125:                                              ; preds = %123
-  %or.cond229 = fcmp ogt double %.sroa.0.0.i161, %.sroa.05.0.copyload.i157
-  br i1 %or.cond229, label %129, label %online.exit170.thread
+  %or.cond236 = fcmp ogt double %.sroa.0.0.i161, %.sroa.05.0.copyload.i157
+  br i1 %or.cond236, label %129, label %online.exit170.thread
 
 126:                                              ; preds = %123
   %127 = fcmp ule double %.sroa.065.0.copyload, %.sroa.0.0.i161
   %128 = fcmp uge double %.sroa.0.0.i161, %.sroa.05.0.copyload.i157
-  %or.cond230.not = select i1 %127, i1 true, i1 %128
-  br i1 %or.cond230.not, label %online.exit170.thread, label %129
+  %or.cond237.not = select i1 %127, i1 true, i1 %128
+  br i1 %or.cond237.not, label %online.exit170.thread, label %129
 
 129:                                              ; preds = %126, %125
   br i1 %12, label %130, label %132
@@ -1679,14 +1679,14 @@ online.exit.thread:                               ; preds = %68, %74, %73
   br i1 %138, label %139, label %140
 
 139:                                              ; preds = %137
-  %or.cond231 = fcmp ogt double %.sroa.046.0.copyload, %.sroa.05.0.copyload.i174
-  br i1 %or.cond231, label %143, label %online.exit136.thread
+  %or.cond238 = fcmp ogt double %.sroa.046.0.copyload, %.sroa.05.0.copyload.i174
+  br i1 %or.cond238, label %143, label %online.exit136.thread
 
 140:                                              ; preds = %137
   %141 = fcmp ule double %.sroa.065.0.copyload, %.sroa.046.0.copyload
   %142 = fcmp uge double %.sroa.046.0.copyload, %.sroa.05.0.copyload.i174
-  %or.cond232.not = or i1 %141, %142
-  br i1 %or.cond232.not, label %online.exit136.thread, label %143
+  %or.cond239.not = or i1 %141, %142
+  br i1 %or.cond239.not, label %online.exit136.thread, label %143
 
 143:                                              ; preds = %140, %139
   %144 = tail call fastcc i32 @online(ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef 0)
@@ -1717,14 +1717,14 @@ online.exit170.thread:                            ; preds = %121, %126, %125
   br i1 %154, label %155, label %156
 
 155:                                              ; preds = %153
-  %or.cond233 = fcmp ogt double %.sroa.065.0.copyload, %.sroa.05.0.copyload.i191
-  br i1 %or.cond233, label %online.exit136.thread, label %online.exit204.thread
+  %or.cond240 = fcmp ogt double %.sroa.065.0.copyload, %.sroa.05.0.copyload.i191
+  br i1 %or.cond240, label %online.exit136.thread, label %online.exit204.thread
 
 156:                                              ; preds = %153
   %157 = fcmp ule double %.sroa.046.0.copyload, %.sroa.065.0.copyload
   %158 = fcmp uge double %.sroa.065.0.copyload, %.sroa.05.0.copyload.i191
-  %or.cond234.not = or i1 %157, %158
-  br i1 %or.cond234.not, label %online.exit204.thread, label %online.exit136.thread
+  %or.cond241.not = or i1 %157, %158
+  br i1 %or.cond241.not, label %online.exit204.thread, label %online.exit136.thread
 
 online.exit136.thread:                            ; preds = %online.exit153, %108, %156, %155, %107, %101, %110, %134, %88, %140, %139, %93, %92, %143
   %.sroa.0.0 = phi double [ %.sroa.057.0.copyload..sroa.065.0.copyload119, %143 ], [ %.sroa.037.0.copyload, %92 ], [ %.sroa.037.0.copyload, %93 ], [ %.sroa.046.0.copyload, %139 ], [ %.sroa.046.0.copyload, %140 ], [ %.sroa.037.0.copyload, %88 ], [ %.sroa.046.0.copyload, %134 ], [ %.sroa.057.0.copyload, %110 ], [ %.sroa.065.0.copyload, %101 ], [ %.sroa.065.0.copyload, %107 ], [ %.sroa.057.0.copyload, %155 ], [ %.sroa.057.0.copyload, %156 ], [ %.sroa.065.0.copyload, %108 ], [ %.sroa.065.0.copyload, %online.exit153 ]

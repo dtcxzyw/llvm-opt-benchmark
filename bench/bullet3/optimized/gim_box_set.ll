@@ -115,9 +115,9 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN12GIM_BOX_TREE20_calc_splitting
   %72 = fmul float %69, %.sroa.14.0.lcssa
   %73 = fcmp olt float %70, %71
   %..i = select i1 %73, float %71, float %70
-  %.4.i = zext i1 %73 to i32
+  %.5.i = zext i1 %73 to i32
   %74 = fcmp olt float %..i, %72
-  %75 = select i1 %74, i32 2, i32 %.4.i
+  %75 = select i1 %74, i32 2, i32 %.5.i
   ret i32 %75
 }
 
@@ -248,7 +248,7 @@ common.ret:                                       ; preds = %4
   %22 = load ptr, ptr %9, align 8, !tbaa !30
   %23 = getelementptr inbounds nuw %struct.GIM_BOX_TREE_NODE, ptr %22, i64 %10, i32 4
   store i32 %21, ptr %23, align 4, !tbaa !36
-  br label %common.ret47
+  br label %common.ret50
 
 24:                                               ; preds = %4
   store float 0x47EFFFFFE0000000, ptr %12, align 4, !tbaa !11
@@ -389,7 +389,7 @@ common.ret:                                       ; preds = %4
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count.i
   br i1 %exitcond59.not.i, label %_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjjj.exit.loopexit, label %79, !llvm.loop !25
 
-common.ret47:                                     ; preds = %_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjjj.exit, %common.ret
+common.ret50:                                     ; preds = %_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjjj.exit, %common.ret
   ret void
 
 _ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjjj.exit.loopexit: ; preds = %96
@@ -424,7 +424,7 @@ _ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjj
   %114 = load ptr, ptr %9, align 8, !tbaa !30
   %115 = getelementptr inbounds nuw %struct.GIM_BOX_TREE_NODE, ptr %114, i64 %10, i32 3
   store i32 %113, ptr %115, align 4, !tbaa !34
-  br label %common.ret47
+  br label %common.ret50
 }
 
 ; Function Attrs: mustprogress uwtable

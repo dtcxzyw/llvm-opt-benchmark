@@ -316,9 +316,9 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i: ; preds = %._c
   br i1 %exitcond217.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit: ; preds = %.preheader181, %._crit_edge, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i
-  %.not.i.i.i.i251 = phi i1 [ true, %._crit_edge ], [ false, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i ], [ true, %.preheader181 ]
+  %.not.i.i.i.i267 = phi i1 [ true, %._crit_edge ], [ false, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i ], [ true, %.preheader181 ]
   %52 = phi i64 [ 0, %._crit_edge ], [ %37, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i ], [ 0, %.preheader181 ]
-  %.0176.lcssa250 = phi i32 [ 0, %._crit_edge ], [ %51, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i ], [ 0, %.preheader181 ]
+  %.0176.lcssa266 = phi i32 [ 0, %._crit_edge ], [ %51, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i ], [ 0, %.preheader181 ]
   %.sroa.0151.0 = phi ptr [ null, %._crit_edge ], [ %39, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i ], [ null, %.preheader181 ]
   %53 = sub nsw i64 %7, %52
   %54 = icmp sgt i64 %53, 0
@@ -372,7 +372,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i: ; preds = %63
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit: ; preds = %._crit_edge192, %.sink.split.i.i
   store i64 %7, ptr %61, align 8, !tbaa !34
-  br i1 %.not.i.i.i.i251, label %.preheader180, label %.lr.ph194
+  br i1 %.not.i.i.i.i267, label %.preheader180, label %.lr.ph194
 
 .lr.ph194:                                        ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit
   %68 = load ptr, ptr %4, align 8, !tbaa !36
@@ -506,7 +506,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS
   %126 = sext i32 %125 to i64
   %127 = getelementptr inbounds i32, ptr %85, i64 %126
   %128 = trunc i64 %indvars.iv226 to i32
-  %129 = add i32 %.0176.lcssa250, %128
+  %129 = add i32 %.0176.lcssa266, %128
   store i32 %129, ptr %127, align 4, !tbaa !26
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next227, %53
@@ -608,7 +608,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZN5Eigen15PlainObj
   br i1 %.not.i.i127, label %.body, label %168
 
 168:                                              ; preds = %.body104.thread, %.body104
-  %.pn101254 = phi { ptr, i32 } [ %43, %.body104.thread ], [ %.pn94.pn.pn, %.body104 ]
+  %.pn101270 = phi { ptr, i32 } [ %43, %.body104.thread ], [ %.pn94.pn.pn, %.body104 ]
   %169 = ptrtoint ptr %.sroa.29173.0 to i64
   %170 = ptrtoint ptr %.sroa.0166.0 to i64
   %171 = sub i64 %169, %170
@@ -619,8 +619,8 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZN5Eigen15PlainObj
   br label %.body
 
 .body:                                            ; preds = %168, %.body104
-  %.pn101255 = phi { ptr, i32 } [ %.pn101254, %168 ], [ %.pn94.pn.pn, %.body104 ]
-  resume { ptr, i32 } %.pn101255
+  %.pn101271 = phi { ptr, i32 } [ %.pn101270, %168 ], [ %.pn94.pn.pn, %.body104 ]
+  resume { ptr, i32 } %.pn101271
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

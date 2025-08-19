@@ -660,9 +660,9 @@ define i32 @ff_thread_video_encode_frame(ptr noundef readonly captures(none) %0,
   br i1 %.not, label %53, label %40
 
 40:                                               ; preds = %38
-  br i1 %39, label %42, label %.thread46
+  br i1 %39, label %42, label %.thread50
 
-.thread46:                                        ; preds = %40
+.thread50:                                        ; preds = %40
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 20
   br label %._crit_edge
 
@@ -700,8 +700,8 @@ define i32 @ff_thread_video_encode_frame(ptr noundef readonly captures(none) %0,
   %.not42 = icmp eq i32 %59, 0
   br i1 %.not42, label %57, label %._crit_edge, !llvm.loop !78
 
-._crit_edge:                                      ; preds = %57, %.thread46, %53
-  %60 = phi ptr [ %54, %53 ], [ %41, %.thread46 ], [ %55, %57 ]
+._crit_edge:                                      ; preds = %57, %.thread50, %53
+  %60 = phi ptr [ %54, %53 ], [ %41, %.thread50 ], [ %55, %57 ]
   %61 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %32) #7
   store i32 0, ptr %60, align 4, !tbaa !73
   %62 = getelementptr inbounds nuw i8, ptr %31, i64 8

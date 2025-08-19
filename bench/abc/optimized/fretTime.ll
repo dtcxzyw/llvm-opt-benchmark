@@ -1304,8 +1304,8 @@ Abc_NodeIsTravIdCurrent.exit333.i:                ; preds = %._crit_edge.i.i.i.i
   br label %.critedge20.sink.split.i
 
 .critedge20.sink.split.i:                         ; preds = %555, %549
-  %.sink465.i = phi i32 [ %556, %555 ], [ %554, %549 ]
-  store i32 %.sink465.i, ptr %537, align 4
+  %.sink496.i = phi i32 [ %556, %555 ], [ %554, %549 ]
+  store i32 %.sink496.i, ptr %537, align 4
   %.pre130 = load ptr, ptr %172, align 8, !tbaa !59
   br label %.critedge20.i
 
@@ -2681,8 +2681,8 @@ Abc_NodeIsTravIdCurrent.exit336.i:                ; preds = %._crit_edge.i.i.i.i
   br label %.critedge20.sink.split.i46
 
 .critedge20.sink.split.i46:                       ; preds = %1194, %1188
-  %.sink466.i = phi i32 [ %1195, %1194 ], [ %1193, %1188 ]
-  store i32 %.sink466.i, ptr %1176, align 4
+  %.sink501.i = phi i32 [ %1195, %1194 ], [ %1193, %1188 ]
+  store i32 %.sink501.i, ptr %1176, align 4
   %.pre132 = load ptr, ptr %803, align 8, !tbaa !59
   br label %.critedge20.i40
 

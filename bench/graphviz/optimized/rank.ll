@@ -604,10 +604,10 @@ makeXnode.exit.i.i:                               ; preds = %gv_calloc.exit.i.i.
   %231 = load ptr, ptr @Last_node, align 8, !tbaa !45
   %.not.i77.i.i = icmp eq ptr %231, null
   %..i.i.i = select i1 %.not.i77.i.i, ptr %12, ptr %231
-  %.18.i.i.i = select i1 %.not.i77.i.i, i64 256, i64 240
+  %.20.i.i.i = select i1 %.not.i77.i.i, i64 256, i64 240
   %232 = getelementptr inbounds nuw i8, ptr %..i.i.i, i64 16
   %233 = load ptr, ptr %232, align 8, !tbaa !3
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 %.18.i.i.i
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 %.20.i.i.i
   store ptr %214, ptr %234, align 8, !tbaa !45
   %235 = getelementptr inbounds nuw i8, ptr %216, i64 248
   store ptr %231, ptr %235, align 8, !tbaa !85
@@ -805,7 +805,7 @@ break_cycles.exit.i:                              ; preds = %.lr.ph18.i.i, %._cr
   br i1 %.not30.i.i, label %connect_components.exit.i, label %.lr.ph43.i.i, !llvm.loop !96
 
 connect_components.exit.i:                        ; preds = %322, %311, %._crit_edge38.i.i, %._crit_edge.i40.i
-  %.025.lcssa45.i.i = phi i32 [ %.126.i.i, %311 ], [ %.126.i.i, %._crit_edge38.i.i ], [ 0, %._crit_edge.i40.i ], [ %.126.i.i, %322 ]
+  %.025.lcssa49.i.i = phi i32 [ %.126.i.i, %311 ], [ %.126.i.i, %._crit_edge38.i.i ], [ 0, %._crit_edge.i40.i ], [ %.126.i.i, %322 ]
   %324 = call ptr @agfstnode(ptr noundef %12) #15
   %.not58.i.i = icmp eq ptr %324, null
   br i1 %.not58.i.i, label %add_fast_edges.exit.i, label %.lr.ph61.i.i
@@ -999,11 +999,11 @@ add_fast_edges.exit.i:                            ; preds = %._crit_edge.i43.i, 
   store i32 2147483647, ptr %440, align 8, !tbaa !12
   %441 = getelementptr inbounds nuw i8, ptr %439, i64 340
   store i32 -1, ptr %441, align 4, !tbaa !32
-  %442 = icmp sgt i32 %.025.lcssa45.i.i, 1
+  %442 = icmp sgt i32 %.025.lcssa49.i.i, 1
   br i1 %442, label %443, label %.loopexit85.i.i
 
 443:                                              ; preds = %437
-  %444 = add nuw i32 %.025.lcssa45.i.i, 1
+  %444 = add nuw i32 %.025.lcssa49.i.i, 1
   %445 = zext i32 %444 to i64
   %446 = call noalias ptr @calloc(i64 noundef range(i64 3, 2147483648) %445, i64 noundef 4) #16
   %447 = icmp eq ptr %446, null
@@ -1288,7 +1288,7 @@ edgelabel_ranks.exit:                             ; preds = %1, %._crit_edge22.i
   br i1 %28, label %minmax_edges.exit, label %.thread.i
 
 30:                                               ; preds = %edgelabel_ranks.exit
-  br i1 %28, label %.thread34.i, label %.thread.i
+  br i1 %28, label %.thread40.i, label %.thread.i
 
 .thread.i:                                        ; preds = %30, %29
   %31 = tail call ptr @UF_find(ptr noundef nonnull %27) #15
@@ -1298,9 +1298,9 @@ edgelabel_ranks.exit:                             ; preds = %1, %._crit_edge22.i
   %.phi.trans.insert30.i = getelementptr inbounds nuw i8, ptr %32, i64 328
   %.pre31.i = load ptr, ptr %.phi.trans.insert30.i, align 8, !tbaa !107
   %.not21.i = icmp eq ptr %.pre31.i, null
-  br i1 %.not21.i, label %.loopexit26.i, label %.thread34.i
+  br i1 %.not21.i, label %.loopexit26.i, label %.thread40.i
 
-.thread34.i:                                      ; preds = %.thread.i, %30
+.thread40.i:                                      ; preds = %.thread.i, %30
   %34 = phi ptr [ %.pre31.i, %.thread.i ], [ %24, %30 ]
   %35 = tail call ptr @UF_find(ptr noundef nonnull %34) #15
   %36 = load ptr, ptr %2, align 8, !tbaa !3
@@ -1309,7 +1309,7 @@ edgelabel_ranks.exit:                             ; preds = %1, %._crit_edge22.i
   %.not22.i = icmp eq ptr %35, null
   br i1 %.not22.i, label %.loopexit26.i, label %38
 
-38:                                               ; preds = %.thread34.i
+38:                                               ; preds = %.thread40.i
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 233
@@ -1335,9 +1335,9 @@ edgelabel_ranks.exit:                             ; preds = %1, %._crit_edge22.i
   %.pre32.i = load ptr, ptr %2, align 8, !tbaa !3
   br label %.loopexit26.i
 
-.loopexit26.i:                                    ; preds = %.loopexit26.loopexit.i, %38, %.thread34.i, %.thread.i
-  %52 = phi ptr [ %36, %.thread34.i ], [ %36, %38 ], [ %.pre32.i, %.loopexit26.loopexit.i ], [ %32, %.thread.i ]
-  %.sroa.3.1.shrunk.i = phi i1 [ false, %.thread34.i ], [ %43, %38 ], [ %43, %.loopexit26.loopexit.i ], [ false, %.thread.i ]
+.loopexit26.i:                                    ; preds = %.loopexit26.loopexit.i, %38, %.thread40.i, %.thread.i
+  %52 = phi ptr [ %36, %.thread40.i ], [ %36, %38 ], [ %.pre32.i, %.loopexit26.loopexit.i ], [ %32, %.thread.i ]
+  %.sroa.3.1.shrunk.i = phi i1 [ false, %.thread40.i ], [ %43, %38 ], [ %43, %.loopexit26.loopexit.i ], [ false, %.thread.i ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 320
   %54 = load ptr, ptr %53, align 8, !tbaa !108
   %.not24.i = icmp eq ptr %54, null
@@ -2178,8 +2178,8 @@ dot_scan_ranks.exit:                              ; preds = %75, %48
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %118, %116
-  %.sink35.i = phi i64 [ 328, %118 ], [ 320, %116 ]
-  %119 = getelementptr inbounds nuw i8, ptr %117, i64 %.sink35.i
+  %.sink38.i = phi i64 [ 328, %118 ], [ 320, %116 ]
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 %.sink38.i
   %120 = load ptr, ptr %119, align 8, !tbaa !45
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load ptr, ptr %121, align 8, !tbaa !3
@@ -2993,10 +2993,10 @@ gv_calloc.exit14:                                 ; preds = %gv_calloc.exit
   %20 = load ptr, ptr @Last_node, align 8, !tbaa !45
   %.not = icmp eq ptr %20, null
   %. = select i1 %.not, ptr %0, ptr %20
-  %.18 = select i1 %.not, i64 256, i64 240
+  %.20 = select i1 %.not, i64 256, i64 240
   %21 = getelementptr inbounds nuw i8, ptr %., i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !3
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.18
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.20
   store ptr %3, ptr %23, align 8, !tbaa !45
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 248
   store ptr %20, ptr %24, align 8, !tbaa !85

@@ -373,7 +373,7 @@ define internal i32 @atrac1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   %165 = getelementptr inbounds nuw [64 x float], ptr @ff_atrac_sf_table, i64 0, i64 %164
   %166 = load float, ptr %165, align 4, !tbaa !28
   %167 = mul nuw nsw i32 %161, %155
-  %168 = add nsw i32 %167, %.15682.i
+  %168 = add nuw nsw i32 %167, %.15682.i
   %169 = icmp slt i32 %168, 1697
   br i1 %169, label %170, label %at1_unpack_dequant.exit.thread
 

@@ -922,9 +922,9 @@ _ZN7glslang13TInputScanner4peekEv.exit:           ; preds = %14
   %22 = getelementptr inbounds i8, ptr %21, i64 %.0.i
   %23 = load i8, ptr %22, align 1
   %.not = icmp eq i8 %23, 47
-  br i1 %.not, label %.preheader264, label %_ZN7glslang13TInputScanner4peekEv.exit.thread
+  br i1 %.not, label %.preheader287, label %_ZN7glslang13TInputScanner4peekEv.exit.thread
 
-.preheader264:                                    ; preds = %_ZN7glslang13TInputScanner4peekEv.exit, %26
+.preheader287:                                    ; preds = %_ZN7glslang13TInputScanner4peekEv.exit, %26
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %26 ], [ %13, %_ZN7glslang13TInputScanner4peekEv.exit ]
   %.0.i.i = phi i64 [ 0, %26 ], [ %10, %_ZN7glslang13TInputScanner4peekEv.exit ]
   %24 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv.i.i
@@ -932,12 +932,12 @@ _ZN7glslang13TInputScanner4peekEv.exit:           ; preds = %14
   %.not11.i.i = icmp ult i64 %.0.i.i, %25
   br i1 %.not11.i.i, label %_ZN7glslang13TInputScanner4peekEv.exit.i, label %26
 
-26:                                               ; preds = %.preheader264
+26:                                               ; preds = %.preheader287
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
-  br i1 %exitcond.not.i.i, label %_ZN7glslang13TInputScanner3getEv.exit, label %.preheader264, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %_ZN7glslang13TInputScanner3getEv.exit, label %.preheader287, !llvm.loop !4
 
-_ZN7glslang13TInputScanner4peekEv.exit.i:         ; preds = %.preheader264
+_ZN7glslang13TInputScanner4peekEv.exit.i:         ; preds = %.preheader287
   %27 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv.i.i
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 %.0.i.i
@@ -1019,11 +1019,11 @@ _ZN7glslang13TInputScanner4peekEv.exit39:         ; preds = %63
   %70 = getelementptr inbounds i8, ptr %69, i64 %.0.i35
   %71 = load i8, ptr %70, align 1
   switch i8 %71, label %_ZN7glslang13TInputScanner4peekEv.exit39.thread [
-    i8 47, label %.preheader260
-    i8 42, label %.preheader263
+    i8 47, label %.preheader283
+    i8 42, label %.preheader286
   ]
 
-.preheader260:                                    ; preds = %_ZN7glslang13TInputScanner4peekEv.exit39, %74
+.preheader283:                                    ; preds = %_ZN7glslang13TInputScanner4peekEv.exit39, %74
   %indvars.iv.i.i43 = phi i64 [ %indvars.iv.next.i.i46, %74 ], [ %62, %_ZN7glslang13TInputScanner4peekEv.exit39 ]
   %.0.i.i44 = phi i64 [ 0, %74 ], [ %60, %_ZN7glslang13TInputScanner4peekEv.exit39 ]
   %72 = getelementptr inbounds i64, ptr %61, i64 %indvars.iv.i.i43
@@ -1031,12 +1031,12 @@ _ZN7glslang13TInputScanner4peekEv.exit39:         ; preds = %63
   %.not11.i.i45 = icmp ult i64 %.0.i.i44, %73
   br i1 %.not11.i.i45, label %_ZN7glslang13TInputScanner4peekEv.exit.i48, label %74
 
-74:                                               ; preds = %.preheader260
+74:                                               ; preds = %.preheader283
   %indvars.iv.next.i.i46 = add nsw i64 %indvars.iv.i.i43, 1
   %exitcond.not.i.i47 = icmp eq i64 %indvars.iv.next.i.i46, %wide.trip.count.i33
-  br i1 %exitcond.not.i.i47, label %_ZN7glslang13TInputScanner3getEv.exit49, label %.preheader260, !llvm.loop !4
+  br i1 %exitcond.not.i.i47, label %_ZN7glslang13TInputScanner3getEv.exit49, label %.preheader283, !llvm.loop !4
 
-_ZN7glslang13TInputScanner4peekEv.exit.i48:       ; preds = %.preheader260
+_ZN7glslang13TInputScanner4peekEv.exit.i48:       ; preds = %.preheader283
   %75 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv.i.i43
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 %.0.i.i44
@@ -1523,7 +1523,7 @@ _ZN7glslang13TInputScanner4peekEv.exit.i107:      ; preds = %292
   tail call void @_ZN7glslang13TInputScanner5ungetEv(ptr noundef nonnull align 8 dereferenceable(90) %0)
   br label %_ZN7glslang13TInputScanner4peekEv.exit.thread
 
-.preheader263:                                    ; preds = %_ZN7glslang13TInputScanner4peekEv.exit39, %326
+.preheader286:                                    ; preds = %_ZN7glslang13TInputScanner4peekEv.exit39, %326
   %indvars.iv.i.i112 = phi i64 [ %indvars.iv.next.i.i115, %326 ], [ %62, %_ZN7glslang13TInputScanner4peekEv.exit39 ]
   %.0.i.i113 = phi i64 [ 0, %326 ], [ %60, %_ZN7glslang13TInputScanner4peekEv.exit39 ]
   %324 = getelementptr inbounds i64, ptr %61, i64 %indvars.iv.i.i112
@@ -1531,12 +1531,12 @@ _ZN7glslang13TInputScanner4peekEv.exit.i107:      ; preds = %292
   %.not11.i.i114 = icmp ult i64 %.0.i.i113, %325
   br i1 %.not11.i.i114, label %_ZN7glslang13TInputScanner4peekEv.exit.i117, label %326
 
-326:                                              ; preds = %.preheader263
+326:                                              ; preds = %.preheader286
   %indvars.iv.next.i.i115 = add nsw i64 %indvars.iv.i.i112, 1
   %exitcond.not.i.i116 = icmp eq i64 %indvars.iv.next.i.i115, %wide.trip.count.i33
-  br i1 %exitcond.not.i.i116, label %_ZN7glslang13TInputScanner3getEv.exit118, label %.preheader263, !llvm.loop !4
+  br i1 %exitcond.not.i.i116, label %_ZN7glslang13TInputScanner3getEv.exit118, label %.preheader286, !llvm.loop !4
 
-_ZN7glslang13TInputScanner4peekEv.exit.i117:      ; preds = %.preheader263
+_ZN7glslang13TInputScanner4peekEv.exit.i117:      ; preds = %.preheader286
   %327 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv.i.i112
   %328 = load ptr, ptr %327, align 8
   %329 = getelementptr inbounds i8, ptr %328, i64 %.0.i.i113
@@ -1663,8 +1663,8 @@ _ZN7glslang13TInputScanner3getEv.exit128:         ; preds = %366, %357, %396
   %400 = getelementptr inbounds nuw i8, ptr %0, i64 76
   br label %401
 
-401:                                              ; preds = %.backedge311, %_ZN7glslang13TInputScanner3getEv.exit128
-  %.4 = phi i32 [ %.08.i6.i120, %_ZN7glslang13TInputScanner3getEv.exit128 ], [ %.4.be, %.backedge311 ]
+401:                                              ; preds = %.backedge334, %_ZN7glslang13TInputScanner3getEv.exit128
+  %.4 = phi i32 [ %.08.i6.i120, %_ZN7glslang13TInputScanner3getEv.exit128 ], [ %.4.be, %.backedge334 ]
   switch i32 %.4, label %402 [
     i32 42, label %441
     i32 -1, label %_ZN7glslang13TInputScanner4peekEv.exit.thread
@@ -1678,7 +1678,7 @@ _ZN7glslang13TInputScanner3getEv.exit128:         ; preds = %366, %357, %396
 
 405:                                              ; preds = %402
   store i8 1, ptr %397, align 1
-  br label %.backedge311
+  br label %.backedge334
 
 406:                                              ; preds = %402
   %407 = load i64, ptr %9, align 8
@@ -1698,7 +1698,7 @@ _ZN7glslang13TInputScanner3getEv.exit128:         ; preds = %366, %357, %396
 413:                                              ; preds = %410
   %indvars.iv.next.i.i135 = add nsw i64 %indvars.iv.i.i132, 1
   %exitcond.not.i.i136 = icmp eq i64 %indvars.iv.next.i.i135, %wide.trip.count.i.i131
-  br i1 %exitcond.not.i.i136, label %.backedge311, label %410, !llvm.loop !4
+  br i1 %exitcond.not.i.i136, label %.backedge334, label %410, !llvm.loop !4
 
 _ZN7glslang13TInputScanner4peekEv.exit.i137:      ; preds = %410
   %414 = load ptr, ptr %18, align 8
@@ -1739,9 +1739,9 @@ _ZN7glslang13TInputScanner4peekEv.exit.i137:      ; preds = %410
 
 440:                                              ; preds = %427, %_ZN7glslang13TInputScanner4peekEv.exit.i137
   tail call void @_ZN7glslang13TInputScanner7advanceEv(ptr noundef nonnull align 8 dereferenceable(90) %0)
-  br label %.backedge311
+  br label %.backedge334
 
-.backedge311:                                     ; preds = %440, %405, %413, %_ZN7glslang13TInputScanner3getEv.exit148
+.backedge334:                                     ; preds = %440, %405, %413, %_ZN7glslang13TInputScanner3getEv.exit148
   %.4.be = phi i32 [ %.08.i6.i140, %_ZN7glslang13TInputScanner3getEv.exit148 ], [ %419, %440 ], [ -1, %405 ], [ -1, %413 ]
   br label %401, !llvm.loop !9
 
@@ -1819,7 +1819,7 @@ _ZN7glslang13TInputScanner4peekEv.exit.i147:      ; preds = %449
 _ZN7glslang13TInputScanner3getEv.exit148:         ; preds = %452, %444, %479
   %.08.i6.i140 = phi i32 [ %458, %479 ], [ -1, %444 ], [ -1, %452 ]
   %480 = icmp eq i32 %.08.i6.i140, 47
-  br i1 %480, label %_ZN7glslang13TInputScanner4peekEv.exit.thread, label %.backedge311
+  br i1 %480, label %_ZN7glslang13TInputScanner4peekEv.exit.thread, label %.backedge334
 
 _ZN7glslang13TInputScanner4peekEv.exit39.thread:  ; preds = %66, %57, %_ZN7glslang13TInputScanner4peekEv.exit39
   tail call void @_ZN7glslang13TInputScanner5ungetEv(ptr noundef nonnull align 8 dereferenceable(90) %0)
@@ -3471,14 +3471,14 @@ _ZN7glslang13TInputScanner3getEv.exit220:         ; preds = %_ZN7glslang13TInput
 .preheader330.preheader:                          ; preds = %_ZN7glslang13TInputScanner3getEv.exit220
   %700 = load i32, ptr %6, align 8
   %701 = load i32, ptr %7, align 8
-  %.not.i.i221732 = icmp slt i32 %700, %701
-  br i1 %.not.i.i221732, label %.lr.ph733, label %.preheader330._crit_edge
+  %.not.i.i221827 = icmp slt i32 %700, %701
+  br i1 %.not.i.i221827, label %.lr.ph828, label %.preheader330._crit_edge
 
 .preheader330._crit_edge:                         ; preds = %.backedge, %.preheader330.preheader
   store i8 1, ptr %8, align 1
   br label %._crit_edge426
 
-.lr.ph733:                                        ; preds = %.preheader330.preheader, %.backedge
+.lr.ph828:                                        ; preds = %.preheader330.preheader, %.backedge
   %702 = phi i32 [ %736, %.backedge ], [ %701, %.preheader330.preheader ]
   %703 = phi i32 [ %735, %.backedge ], [ %700, %.preheader330.preheader ]
   %704 = load i64, ptr %9, align 8
@@ -3487,9 +3487,9 @@ _ZN7glslang13TInputScanner3getEv.exit220:         ; preds = %_ZN7glslang13TInput
   %wide.trip.count.i.i223 = sext i32 %702 to i64
   br label %707
 
-707:                                              ; preds = %710, %.lr.ph733
-  %indvars.iv.i.i224 = phi i64 [ %indvars.iv.next.i.i227, %710 ], [ %706, %.lr.ph733 ]
-  %.0.i.i225 = phi i64 [ 0, %710 ], [ %704, %.lr.ph733 ]
+707:                                              ; preds = %710, %.lr.ph828
+  %indvars.iv.i.i224 = phi i64 [ %indvars.iv.next.i.i227, %710 ], [ %706, %.lr.ph828 ]
+  %.0.i.i225 = phi i64 [ 0, %710 ], [ %704, %.lr.ph828 ]
   %708 = getelementptr inbounds i64, ptr %705, i64 %indvars.iv.i.i224
   %709 = load i64, ptr %708, align 8
   %.not11.i.i226 = icmp ult i64 %.0.i.i225, %709
@@ -3515,9 +3515,9 @@ _ZN7glslang13TInputScanner4peekEv.exit.i229:      ; preds = %707
   %721 = add nsw i32 %720, 1
   store i32 %721, ptr %13, align 8
   %722 = icmp eq i8 %715, 10
-  br i1 %722, label %_ZN7glslang13TInputScanner3getEv.exit230.thread521, label %_ZN7glslang13TInputScanner3getEv.exit230
+  br i1 %722, label %_ZN7glslang13TInputScanner3getEv.exit230.thread616, label %_ZN7glslang13TInputScanner3getEv.exit230
 
-_ZN7glslang13TInputScanner3getEv.exit230.thread521: ; preds = %_ZN7glslang13TInputScanner4peekEv.exit.i229
+_ZN7glslang13TInputScanner3getEv.exit230.thread616: ; preds = %_ZN7glslang13TInputScanner4peekEv.exit.i229
   %723 = load ptr, ptr %12, align 8
   %724 = load i32, ptr %6, align 8
   %725 = sext i32 %724 to i64
@@ -3548,7 +3548,7 @@ _ZN7glslang13TInputScanner3getEv.exit230:         ; preds = %_ZN7glslang13TInput
   %735 = load i32, ptr %6, align 8
   %736 = load i32, ptr %7, align 8
   %.not.i.i221 = icmp slt i32 %735, %736
-  br i1 %.not.i.i221, label %.lr.ph733, label %.preheader330._crit_edge
+  br i1 %.not.i.i221, label %.lr.ph828, label %.preheader330._crit_edge
 
 .preheader329:                                    ; preds = %_ZN7glslang13TInputScanner3getEv.exit230
   %737 = zext i8 %715 to i32
@@ -3606,9 +3606,9 @@ _ZN7glslang13TInputScanner4peekEv.exit.i239:      ; preds = %751
   %765 = add nsw i32 %764, 1
   store i32 %765, ptr %13, align 8
   %766 = icmp eq i8 %759, 10
-  br i1 %766, label %_ZN7glslang13TInputScanner3getEv.exit240.thread525, label %_ZN7glslang13TInputScanner3getEv.exit240
+  br i1 %766, label %_ZN7glslang13TInputScanner3getEv.exit240.thread620, label %_ZN7glslang13TInputScanner3getEv.exit240
 
-_ZN7glslang13TInputScanner3getEv.exit240.thread525: ; preds = %_ZN7glslang13TInputScanner4peekEv.exit.i239
+_ZN7glslang13TInputScanner3getEv.exit240.thread620: ; preds = %_ZN7glslang13TInputScanner4peekEv.exit.i239
   %767 = load ptr, ptr %12, align 8
   %768 = load i32, ptr %6, align 8
   %769 = sext i32 %768 to i64
@@ -3635,8 +3635,8 @@ _ZN7glslang13TInputScanner3getEv.exit240:         ; preds = %_ZN7glslang13TInput
   %781 = icmp ult i32 %780, 10
   br i1 %781, label %.lr.ph425, label %._crit_edge426, !llvm.loop !15
 
-._crit_edge426:                                   ; preds = %_ZN7glslang13TInputScanner3getEv.exit240, %710, %754, %746, %.preheader330._crit_edge, %_ZN7glslang13TInputScanner3getEv.exit230.thread521, %_ZN7glslang13TInputScanner3getEv.exit240.thread525, %.preheader329
-  %.068.lcssa = phi i32 [ %737, %.preheader329 ], [ 10, %_ZN7glslang13TInputScanner3getEv.exit240.thread525 ], [ 10, %_ZN7glslang13TInputScanner3getEv.exit230.thread521 ], [ -1, %.preheader330._crit_edge ], [ -1, %746 ], [ -1, %754 ], [ -1, %710 ], [ %779, %_ZN7glslang13TInputScanner3getEv.exit240 ]
+._crit_edge426:                                   ; preds = %_ZN7glslang13TInputScanner3getEv.exit240, %710, %754, %746, %.preheader330._crit_edge, %_ZN7glslang13TInputScanner3getEv.exit230.thread616, %_ZN7glslang13TInputScanner3getEv.exit240.thread620, %.preheader329
+  %.068.lcssa = phi i32 [ %737, %.preheader329 ], [ 10, %_ZN7glslang13TInputScanner3getEv.exit240.thread620 ], [ 10, %_ZN7glslang13TInputScanner3getEv.exit230.thread616 ], [ -1, %.preheader330._crit_edge ], [ -1, %746 ], [ -1, %754 ], [ -1, %710 ], [ %779, %_ZN7glslang13TInputScanner3getEv.exit240 ]
   %782 = load i32, ptr %1, align 4
   %783 = icmp eq i32 %782, 0
   br i1 %783, label %_ZN7glslang13TInputScanner3getEv.exit150.thread, label %.preheader328
@@ -3917,9 +3917,9 @@ define noundef i32 @_ZN7glslang12TScanContext8tokenizeEPNS_10TPpContextERNS_12TP
     i32 41, label %30
     i32 46, label %32
     i32 33, label %.loopexit176
-    i32 45, label %.loopexit177
-    i32 126, label %.loopexit178
-    i32 43, label %.loopexit179
+    i32 45, label %.loopexit179
+    i32 126, label %.loopexit180
+    i32 43, label %.loopexit181
     i32 42, label %142
     i32 47, label %34
     i32 37, label %35
@@ -4235,17 +4235,17 @@ define noundef i32 @_ZN7glslang12TScanContext8tokenizeEPNS_10TPpContextERNS_12TP
 .loopexit176:                                     ; preds = %17
   br label %142
 
-.loopexit177:                                     ; preds = %17
-  br label %142
-
-.loopexit178:                                     ; preds = %17
-  br label %142
-
 .loopexit179:                                     ; preds = %17
   br label %142
 
-142:                                              ; preds = %139, %17, %.loopexit179, %.loopexit178, %.loopexit177, %.loopexit176, %3, %.loopexit, %130, %125, %120, %115, %110, %105, %100, %95, %90, %85, %79, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %47, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %32, %30, %28, %26, %24, %21
-  %.0 = phi i32 [ 620, %21 ], [ 617, %24 ], [ 619, %26 ], [ 610, %28 ], [ 611, %30 ], [ 616, %32 ], [ 626, %34 ], [ 627, %35 ], [ 628, %36 ], [ 629, %37 ], [ 630, %38 ], [ 631, %39 ], [ 632, %40 ], [ 633, %41 ], [ 612, %42 ], [ 613, %43 ], [ 614, %44 ], [ 615, %47 ], [ 601, %53 ], [ 608, %54 ], [ 599, %55 ], [ 600, %56 ], [ 602, %57 ], [ 589, %58 ], [ 588, %59 ], [ 604, %60 ], [ 603, %61 ], [ 605, %62 ], [ 607, %63 ], [ 606, %64 ], [ 596, %65 ], [ 597, %66 ], [ 598, %67 ], [ 594, %68 ], [ 593, %69 ], [ 595, %70 ], [ 592, %71 ], [ 591, %72 ], [ 590, %73 ], [ 609, %79 ], [ 643, %85 ], [ 644, %90 ], [ 642, %95 ], [ 677, %100 ], [ 678, %105 ], [ 682, %110 ], [ 683, %115 ], [ 676, %120 ], [ 679, %125 ], [ %131, %130 ], [ 0, %3 ], [ 618, %.loopexit ], [ 621, %.loopexit176 ], [ 622, %.loopexit177 ], [ 623, %.loopexit178 ], [ 625, %17 ], [ 0, %139 ], [ 624, %.loopexit179 ]
+.loopexit180:                                     ; preds = %17
+  br label %142
+
+.loopexit181:                                     ; preds = %17
+  br label %142
+
+142:                                              ; preds = %139, %17, %.loopexit181, %.loopexit180, %.loopexit179, %.loopexit176, %3, %.loopexit, %130, %125, %120, %115, %110, %105, %100, %95, %90, %85, %79, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %47, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %32, %30, %28, %26, %24, %21
+  %.0 = phi i32 [ 620, %21 ], [ 617, %24 ], [ 619, %26 ], [ 610, %28 ], [ 611, %30 ], [ 616, %32 ], [ 626, %34 ], [ 627, %35 ], [ 628, %36 ], [ 629, %37 ], [ 630, %38 ], [ 631, %39 ], [ 632, %40 ], [ 633, %41 ], [ 612, %42 ], [ 613, %43 ], [ 614, %44 ], [ 615, %47 ], [ 601, %53 ], [ 608, %54 ], [ 599, %55 ], [ 600, %56 ], [ 602, %57 ], [ 589, %58 ], [ 588, %59 ], [ 604, %60 ], [ 603, %61 ], [ 605, %62 ], [ 607, %63 ], [ 606, %64 ], [ 596, %65 ], [ 597, %66 ], [ 598, %67 ], [ 594, %68 ], [ 593, %69 ], [ 595, %70 ], [ 592, %71 ], [ 591, %72 ], [ 590, %73 ], [ 609, %79 ], [ 643, %85 ], [ 644, %90 ], [ 642, %95 ], [ 677, %100 ], [ 678, %105 ], [ 682, %110 ], [ 683, %115 ], [ 676, %120 ], [ 679, %125 ], [ %131, %130 ], [ 0, %3 ], [ 618, %.loopexit ], [ 621, %.loopexit176 ], [ 622, %.loopexit179 ], [ 623, %.loopexit180 ], [ 625, %17 ], [ 0, %139 ], [ 624, %.loopexit181 ]
   ret i32 %.0
 }
 
@@ -7042,8 +7042,8 @@ _ZNSt13unordered_mapIPKciN12_GLOBAL__N_18str_hashENS2_6str_eqESaISt4pairIKS1_iEE
   %231 = icmp eq i32 %230, 8
   %232 = getelementptr inbounds nuw i8, ptr %228, i64 24
   %233 = load i32, ptr %232, align 8
-  %.138 = select i1 %231, i32 299, i32 419
-  %234 = icmp sgt i32 %233, %.138
+  %.150 = select i1 %231, i32 299, i32 419
+  %234 = icmp sgt i32 %233, %.150
   %235 = tail call noundef i32 @_ZN7glslang12TScanContext20identifierOrReservedEb(ptr noundef nonnull align 8 dereferenceable(76) %0, i1 noundef zeroext %234)
   br label %_ZN7glslang12TScanContext12reservedWordEv.exit
 
@@ -7414,7 +7414,7 @@ _ZNSt13unordered_mapIPKciN12_GLOBAL__N_18str_hashENS2_6str_eqESaISt4pairIKS1_iEE
   %492 = getelementptr inbounds nuw i8, ptr %479, i64 12
   %493 = load i32, ptr %492, align 4
   %494 = icmp eq i32 %493, 8
-  br i1 %494, label %495, label %.thread127
+  br i1 %494, label %495, label %.thread139
 
 495:                                              ; preds = %491
   %496 = getelementptr inbounds nuw i8, ptr %479, i64 24
@@ -7434,9 +7434,9 @@ _ZNSt13unordered_mapIPKciN12_GLOBAL__N_18str_hashENS2_6str_eqESaISt4pairIKS1_iEE
   %.phi.trans.insert115 = getelementptr inbounds nuw i8, ptr %.pre114, i64 12
   %.pre116 = load i32, ptr %.phi.trans.insert115, align 4
   %505 = icmp eq i32 %.pre116, 8
-  br i1 %505, label %513, label %.thread127
+  br i1 %505, label %513, label %.thread139
 
-.thread127:                                       ; preds = %491, %504
+.thread139:                                       ; preds = %491, %504
   %506 = phi ptr [ %.pre114, %504 ], [ %479, %491 ]
   %507 = load ptr, ptr %506, align 8
   %508 = getelementptr inbounds nuw i8, ptr %507, i64 64
@@ -7444,11 +7444,11 @@ _ZNSt13unordered_mapIPKciN12_GLOBAL__N_18str_hashENS2_6str_eqESaISt4pairIKS1_iEE
   %510 = tail call noundef zeroext i1 %509(ptr noundef nonnull align 8 dereferenceable(224) %506, ptr noundef nonnull @.str.460) #15
   br i1 %510, label %511, label %513
 
-511:                                              ; preds = %.thread127, %499, %495, %477
+511:                                              ; preds = %.thread139, %499, %495, %477
   %512 = load i32, ptr %93, align 8
   br label %_ZN7glslang12TScanContext12reservedWordEv.exit
 
-513:                                              ; preds = %.thread127, %504
+513:                                              ; preds = %.thread139, %504
   %514 = tail call noundef i32 @_ZN7glslang12TScanContext20es30ReservedFromGLSLEi(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef 400)
   br label %_ZN7glslang12TScanContext12reservedWordEv.exit
 
@@ -9044,7 +9044,7 @@ _ZNSt13unordered_mapIPKciN12_GLOBAL__N_18str_hashENS2_6str_eqESaISt4pairIKS1_iEE
   %1571 = getelementptr inbounds nuw i8, ptr %1570, i64 12
   %1572 = load i32, ptr %1571, align 4
   %1573 = icmp eq i32 %1572, 8
-  br i1 %1573, label %1574, label %.thread128
+  br i1 %1573, label %1574, label %.thread140
 
 1574:                                             ; preds = %1568
   %1575 = getelementptr inbounds nuw i8, ptr %1570, i64 24
@@ -9064,16 +9064,16 @@ _ZNSt13unordered_mapIPKciN12_GLOBAL__N_18str_hashENS2_6str_eqESaISt4pairIKS1_iEE
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre81, i64 12
   %.pre82 = load i32, ptr %.phi.trans.insert, align 4
   %1584 = icmp eq i32 %.pre82, 8
-  br i1 %1584, label %1591, label %.thread128
+  br i1 %1584, label %1591, label %.thread140
 
-.thread128:                                       ; preds = %1568, %1583
+.thread140:                                       ; preds = %1568, %1583
   %1585 = phi ptr [ %.pre81, %1583 ], [ %1570, %1568 ]
   %1586 = getelementptr inbounds nuw i8, ptr %1585, i64 24
   %1587 = load i32, ptr %1586, align 8
   %1588 = icmp sgt i32 %1587, 399
   br i1 %1588, label %1589, label %1598
 
-1589:                                             ; preds = %.thread128, %1578, %1574
+1589:                                             ; preds = %.thread140, %1578, %1574
   %1590 = load i32, ptr %93, align 8
   br label %_ZN7glslang12TScanContext12reservedWordEv.exit
 
@@ -9088,7 +9088,7 @@ _ZNSt13unordered_mapIPKciN12_GLOBAL__N_18str_hashENS2_6str_eqESaISt4pairIKS1_iEE
   %1597 = load i32, ptr %93, align 8
   br label %_ZN7glslang12TScanContext12reservedWordEv.exit
 
-1598:                                             ; preds = %.thread128, %1591
+1598:                                             ; preds = %.thread140, %1591
   %1599 = tail call noundef i32 @_ZN7glslang12TScanContext16identifierOrTypeEv(ptr noundef nonnull align 8 dereferenceable(76) %0)
   br label %_ZN7glslang12TScanContext12reservedWordEv.exit
 
@@ -9919,13 +9919,13 @@ define noundef i32 @_ZN7glslang12TScanContext20firstGenerationImageEb(ptr nounde
   br i1 %1, label %33, label %41
 
 33:                                               ; preds = %29
-  br i1 %32, label %34, label %.thread6
+  br i1 %32, label %34, label %.thread7
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %36 = load i32, ptr %35, align 8
   %37 = icmp sgt i32 %36, 309
-  br i1 %37, label %38, label %.thread5
+  br i1 %37, label %38, label %.thread6
 
 38:                                               ; preds = %34, %24, %20, %2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -9933,21 +9933,21 @@ define noundef i32 @_ZN7glslang12TScanContext20firstGenerationImageEb(ptr nounde
   br label %81
 
 41:                                               ; preds = %29
-  br i1 %32, label %.thread5, label %.thread6
+  br i1 %32, label %.thread6, label %.thread7
 
-.thread5:                                         ; preds = %34, %41
+.thread6:                                         ; preds = %34, %41
   %42 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %43 = load i32, ptr %42, align 8
   %44 = icmp sgt i32 %43, 299
   br i1 %44, label %48, label %.thread
 
-.thread6:                                         ; preds = %33, %41
+.thread7:                                         ; preds = %33, %41
   %45 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %46 = load i32, ptr %45, align 8
   %47 = icmp sgt i32 %46, 129
   br i1 %47, label %48, label %.thread
 
-48:                                               ; preds = %.thread6, %.thread5
+48:                                               ; preds = %.thread7, %.thread6
   %49 = getelementptr inbounds nuw i8, ptr %.pre, i64 232
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -9976,7 +9976,7 @@ _ZN7glslang12TScanContext12reservedWordEv.exit:   ; preds = %48, %60
   %68 = load i32, ptr %67, align 8
   br label %81
 
-.thread:                                          ; preds = %.thread5, %.thread6
+.thread:                                          ; preds = %.thread6, %.thread7
   %69 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %70 = load i8, ptr %69, align 8
   %71 = trunc i8 %70 to i1

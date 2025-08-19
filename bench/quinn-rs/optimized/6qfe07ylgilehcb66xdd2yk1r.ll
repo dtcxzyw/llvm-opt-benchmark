@@ -3963,12 +3963,12 @@ define internal fastcc void @_ZN5alloc7raw_vec11finish_grow17heb26f3480ba4c5cbE(
   %30 = icmp eq ptr %.sroa.012.0.i.i.pn, null
   %31 = inttoptr i64 %1 to ptr
   %spec.select = select i1 %30, ptr %31, ptr %.sroa.012.0.i.i.pn
-  %spec.select4 = zext i1 %30 to i64
+  %spec.select6 = zext i1 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %33, align 8
-  store i64 %spec.select4, ptr %0, align 8
+  store i64 %spec.select6, ptr %0, align 8
   ret void
 }
 
@@ -7499,13 +7499,13 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i: ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 1345
   %59 = load i8, ptr %58, align 1, !range !120, !noundef !8
-  switch i8 %59, label %default.unreachable20 [
+  switch i8 %59, label %default.unreachable26 [
     i8 0, label %60
     i8 1, label %61
     i8 2, label %62
   ], !prof !739
 
-default.unreachable20:                            ; preds = %57
+default.unreachable26:                            ; preds = %57
   unreachable
 
 60:                                               ; preds = %57

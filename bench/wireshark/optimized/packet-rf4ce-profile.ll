@@ -630,8 +630,8 @@ sub_2:                                            ; preds = %sub_1
   %33 = load ptr, ptr %32, align 8
   tail call void @col_clear(ptr noundef %33, i32 noundef 25)
   %brmerge = select i1 %.not, i1 true, i1 %.not43
-  %brmerge49 = select i1 %brmerge, i1 true, i1 %.not44
-  br i1 %brmerge49, label %.sink.split, label %37
+  %brmerge54 = select i1 %brmerge, i1 true, i1 %.not44
+  br i1 %brmerge54, label %.sink.split, label %37
 
 .sink.split:                                      ; preds = %.tail
   %or.cond = select i1 %.not43, i1 %17, i1 false
@@ -941,8 +941,8 @@ sub_2:                                            ; preds = %sub_1
 
 dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i: ; preds = %175, %167, %163, %160, %150
   %178 = phi i32 [ %172, %175 ], [ %157, %160 ], [ %147, %150 ], [ %169, %167 ], [ %165, %163 ]
-  %.sink17.i.i = phi i32 [ %173, %175 ], [ %158, %160 ], [ %148, %150 ], [ 1, %167 ], [ 1, %163 ]
-  %179 = add i32 %178, %.sink17.i.i
+  %.sink19.i.i = phi i32 [ %173, %175 ], [ %158, %160 ], [ %148, %150 ], [ 1, %167 ], [ 1, %163 ]
+  %179 = add i32 %178, %.sink19.i.i
   store i32 %179, ptr %8, align 4
   br label %dissect_rf4ce_profile_cmd.exit
 

@@ -166,20 +166,20 @@ _ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit: ; preds = %1
   %8 = shl nuw nsw i64 %7, 3
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
   %.not8 = icmp eq i32 %6, 0
-  br i1 %.not8, label %._crit_edge.thread13, label %.lr.ph
+  br i1 %.not8, label %._crit_edge.thread16, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_Z7deallocIN7datalog16rule_transformer6pluginEEvPT_.exit
   %.pre = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i = icmp eq ptr %.pre, null
-  br i1 %.not.i, label %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE5resetEv.exit, label %._crit_edge.thread13
+  br i1 %.not.i, label %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE5resetEv.exit, label %._crit_edge.thread16
 
-._crit_edge.thread13:                             ; preds = %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit, %._crit_edge
+._crit_edge.thread16:                             ; preds = %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit, %._crit_edge
   %10 = phi ptr [ %.pre, %._crit_edge ], [ %3, %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit ]
   %11 = getelementptr inbounds i8, ptr %10, i64 -4
   store i32 0, ptr %11, align 4, !tbaa !18
   br label %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE5resetEv.exit
 
-_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE5resetEv.exit: ; preds = %1, %._crit_edge, %._crit_edge.thread13
+_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE5resetEv.exit: ; preds = %1, %._crit_edge, %._crit_edge.thread16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %12, align 8, !tbaa !10
   ret void
@@ -368,7 +368,7 @@ _ZN7datalog16rule_transformer14ensure_orderedEv.exit: ; preds = %2, %_ZSt4sortIP
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !17
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %.thread145, label %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit
+  br i1 %24, label %.thread155, label %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit
 
 _ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit: ; preds = %_ZN7datalog16rule_transformer14ensure_orderedEv.exit
   %25 = getelementptr inbounds i8, ptr %23, i64 -4
@@ -377,7 +377,7 @@ _ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit: ; preds = %_ZN
   %28 = shl nuw nsw i64 %27, 3
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 %28
   %.not124 = icmp eq i32 %26, 0
-  br i1 %.not124, label %.thread145, label %.lr.ph
+  br i1 %.not124, label %.thread155, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit, %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit
   %30 = phi ptr [ %184, %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit ], [ %21, %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit ]
@@ -799,29 +799,29 @@ _ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit:    ; preds = %_ZStlsISt11char_tra
   br label %198
 
 198:                                              ; preds = %.thread, %._crit_edge, %.critedge
-  %.021118143 = phi i1 [ true, %._crit_edge ], [ false, %.critedge ], [ false, %.thread ]
+  %.021118153 = phi i1 [ true, %._crit_edge ], [ false, %.critedge ], [ false, %.thread ]
   %199 = phi ptr [ %.pre, %._crit_edge ], [ %184, %.critedge ], [ %30, %.thread ]
   %200 = icmp eq ptr %199, null
-  br i1 %200, label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit102, label %.thread145
+  br i1 %200, label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit102, label %.thread155
 
-.thread145:                                       ; preds = %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit, %_ZN7datalog16rule_transformer14ensure_orderedEv.exit, %198
+.thread155:                                       ; preds = %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit, %_ZN7datalog16rule_transformer14ensure_orderedEv.exit, %198
   %201 = phi ptr [ %199, %198 ], [ %21, %_ZN7datalog16rule_transformer14ensure_orderedEv.exit ], [ %21, %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit ]
-  %.021118143147 = phi i1 [ %.021118143, %198 ], [ false, %_ZN7datalog16rule_transformer14ensure_orderedEv.exit ], [ false, %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit ]
+  %.021118153157 = phi i1 [ %.021118153, %198 ], [ false, %_ZN7datalog16rule_transformer14ensure_orderedEv.exit ], [ false, %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit ]
   tail call void @_ZN7datalog8rule_setD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %201) #20
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %201)
           to label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit102 unwind label %202
 
-202:                                              ; preds = %.thread145
+202:                                              ; preds = %.thread155
   %203 = landingpad { ptr, i32 }
           catch ptr null
   %204 = extractvalue { ptr, i32 } %203, 0
   tail call void @__clang_call_terminate(ptr %204) #21
   unreachable
 
-_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit102: ; preds = %198, %.thread145
-  %.021118143148 = phi i1 [ %.021118143, %198 ], [ %.021118143147, %.thread145 ]
+_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit102: ; preds = %198, %.thread155
+  %.021118153158 = phi i1 [ %.021118153, %198 ], [ %.021118153157, %.thread155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %.021118143148
+  ret i1 %.021118153158
 
 205:                                              ; preds = %.loopexit, %.loopexit.split-lp, %195, %62
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %.pn.pn, %195 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -1768,7 +1768,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPN7datalog16rule_transformer
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds ptr, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %16
   br label %.split
 
@@ -1815,7 +1815,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPN7datalog16rule_transformer
   %.01317.i.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %49 ]
   %.018.in.i.i.us = add nsw i64 %.01317.i.i.us, -1
   %.018.i.i.us = sdiv i64 %.018.in.i.i.us, 2
-  %44 = getelementptr inbounds ptr, ptr %0, i64 %.018.i.i.us
+  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %.018.i.i.us
   %45 = load ptr, ptr %44, align 8, !tbaa !20
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 8, !tbaa !252
@@ -1823,14 +1823,14 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPN7datalog16rule_transformer
   br i1 %48, label %49, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.us
+  %50 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01317.i.i.us
   store ptr %45, ptr %50, align 8, !tbaa !20
   %51 = icmp sgt i64 %.018.i.i.us, %.014.us
   br i1 %51, label %43, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us, !llvm.loop !254
 
 _ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us: ; preds = %43, %49, %.split.us, %._crit_edge.i.us
   %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.014.us, %.split.us ], [ %.018.i.i.us, %49 ], [ %.01317.i.i.us, %43 ]
-  %52 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.us
+  %52 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.us
   store ptr %21, ptr %52, align 8, !tbaa !20
   %.not.us = icmp eq i64 %.014.us, 0
   %53 = add nsw i64 %.014.us, -1
@@ -1890,7 +1890,7 @@ _ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15
   %.01317.i.i = phi i64 [ %.128.i, %.lr.ph.i.i ], [ %.018.i.i, %87 ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %82 = getelementptr inbounds ptr, ptr %0, i64 %.018.i.i
+  %82 = getelementptr inbounds nuw ptr, ptr %0, i64 %.018.i.i
   %83 = load ptr, ptr %82, align 8, !tbaa !20
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load i32, ptr %84, align 8, !tbaa !252
@@ -1898,14 +1898,14 @@ _ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15
   br i1 %86, label %87, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit
 
 87:                                               ; preds = %81
-  %88 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i
+  %88 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01317.i.i
   store ptr %83, ptr %88, align 8, !tbaa !20
   %89 = icmp sgt i64 %.018.i.i, %.014
   br i1 %89, label %81, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit, !llvm.loop !254
 
 _ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit: ; preds = %81, %87, %77
   %.013.lcssa.i.i = phi i64 [ %.128.i, %77 ], [ %.018.i.i, %87 ], [ %.01317.i.i, %81 ]
-  %90 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i
+  %90 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i
   store ptr %55, ptr %90, align 8, !tbaa !20
   %.not = icmp eq i64 %.014, 0
   %91 = add nsw i64 %.014, -1

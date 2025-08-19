@@ -1706,7 +1706,7 @@ define internal fastcc range(i32 -4, 1) i32 @__mutex_lock(ptr noundef %0, i32 no
 
 291:                                              ; preds = %.thread45
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_contention_begin, i64 8), i32 2) #12
-          to label %.preheader95 [label %292], !srcloc !29
+          to label %.preheader110 [label %292], !srcloc !29
 
 292:                                              ; preds = %291
   %293 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !30
@@ -1715,7 +1715,7 @@ define internal fastcc range(i32 -4, 1) i32 @__mutex_lock(ptr noundef %0, i32 no
   %296 = icmp ult i8 %295, 2
   call void @llvm.assume(i1 %296)
   %297 = icmp eq i8 %295, 0
-  br i1 %297, label %.preheader95, label %298
+  br i1 %297, label %.preheader110, label %298
 
 298:                                              ; preds = %292
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !27
@@ -1736,18 +1736,18 @@ define internal fastcc range(i32 -4, 1) i32 @__mutex_lock(ptr noundef %0, i32 no
   %307 = icmp ult i8 %306, 2
   call void @llvm.assume(i1 %307)
   %308 = icmp eq i8 %306, 0
-  br i1 %308, label %.preheader95, label %309, !prof !10
+  br i1 %308, label %.preheader110, label %309, !prof !10
 
 309:                                              ; preds = %305
   %310 = call i64 @llvm.read_register.i64(metadata !0)
   %311 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %310) #12, !srcloc !35
   call void @llvm.write_register.i64(metadata !0, i64 %311)
-  br label %.preheader95
+  br label %.preheader110
 
-.preheader95:                                     ; preds = %309, %305, %292, %291
+.preheader110:                                    ; preds = %309, %305, %292, %291
   br label %312
 
-312:                                              ; preds = %.preheader95, %.loopexit56
+312:                                              ; preds = %.preheader110, %.loopexit56
   %313 = load volatile i64, ptr %0, align 8
   br label %314
 

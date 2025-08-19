@@ -3336,11 +3336,11 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit.thread: ; preds = %131
   br i1 %.not10.i.i.i.i110, label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157.thread, label %.lr.ph.i.i.i.i111.preheader
 
 .lr.ph.i.i.i.i111.preheader:                      ; preds = %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit66, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit78, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i64, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i76, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit.thread
-  %.pr251 = phi ptr [ %.pr.pre, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit.thread ], [ %53, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i76 ], [ %53, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i64 ], [ %53, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i ], [ %53, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit78 ], [ %53, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit66 ], [ %53, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit ]
+  %.pr267 = phi ptr [ %.pr.pre, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit.thread ], [ %53, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i76 ], [ %53, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i64 ], [ %53, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i ], [ %53, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit78 ], [ %53, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit66 ], [ %53, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit ]
   br label %.lr.ph.i.i.i.i111
 
 .lr.ph.i.i.i.i111:                                ; preds = %.lr.ph.i.i.i.i111.preheader, %.lr.ph.i.i.i.i111
-  %.012.i.i.i.i112 = phi ptr [ %.1.i.i.i.i117, %.lr.ph.i.i.i.i111 ], [ %.pr251, %.lr.ph.i.i.i.i111.preheader ]
+  %.012.i.i.i.i112 = phi ptr [ %.1.i.i.i.i117, %.lr.ph.i.i.i.i111 ], [ %.pr267, %.lr.ph.i.i.i.i111.preheader ]
   %.0811.i.i.i.i113 = phi ptr [ %.19.i.i.i.i114, %.lr.ph.i.i.i.i111 ], [ %54, %.lr.ph.i.i.i.i111.preheader ]
   %160 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i112, i64 32
   %161 = load i16, ptr %160, align 2, !tbaa !58
@@ -3366,7 +3366,7 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit121: ; preds = %_ZNKSt8_Rb_treeI
   br label %.lr.ph.i.i.i.i147
 
 .lr.ph.i.i.i.i123:                                ; preds = %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit121, %.lr.ph.i.i.i.i123
-  %.012.i.i.i.i124 = phi ptr [ %.1.i.i.i.i129, %.lr.ph.i.i.i.i123 ], [ %.pr251, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit121 ]
+  %.012.i.i.i.i124 = phi ptr [ %.1.i.i.i.i129, %.lr.ph.i.i.i.i123 ], [ %.pr267, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit121 ]
   %.0811.i.i.i.i125 = phi ptr [ %.19.i.i.i.i126, %.lr.ph.i.i.i.i123 ], [ %54, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit121 ]
   %167 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i124, i64 32
   %168 = load i16, ptr %167, align 2, !tbaa !58
@@ -3389,7 +3389,7 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit133: ; preds = %_ZNKSt8_Rb_treeI
   br i1 %173, label %.lr.ph.i.i.i.i135, label %.lr.ph.i.i.i.i147.preheader
 
 .lr.ph.i.i.i.i135:                                ; preds = %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit133, %.lr.ph.i.i.i.i135
-  %.012.i.i.i.i136 = phi ptr [ %.1.i.i.i.i141, %.lr.ph.i.i.i.i135 ], [ %.pr251, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit133 ]
+  %.012.i.i.i.i136 = phi ptr [ %.1.i.i.i.i141, %.lr.ph.i.i.i.i135 ], [ %.pr267, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit133 ]
   %.0811.i.i.i.i137 = phi ptr [ %.19.i.i.i.i138, %.lr.ph.i.i.i.i135 ], [ %54, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit133 ]
   %174 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i136, i64 32
   %175 = load i16, ptr %174, align 2, !tbaa !58
@@ -3445,7 +3445,7 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit145: ; preds = %_ZNKSt8_Rb_treeI
           to label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157.thread.sink.split unwind label %123
 
 .lr.ph.i.i.i.i147:                                ; preds = %.lr.ph.i.i.i.i147.preheader, %.lr.ph.i.i.i.i147
-  %.012.i.i.i.i148 = phi ptr [ %.1.i.i.i.i153, %.lr.ph.i.i.i.i147 ], [ %.pr251, %.lr.ph.i.i.i.i147.preheader ]
+  %.012.i.i.i.i148 = phi ptr [ %.1.i.i.i.i153, %.lr.ph.i.i.i.i147 ], [ %.pr267, %.lr.ph.i.i.i.i147.preheader ]
   %.0811.i.i.i.i149 = phi ptr [ %.19.i.i.i.i150, %.lr.ph.i.i.i.i147 ], [ %54, %.lr.ph.i.i.i.i147.preheader ]
   %200 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i148, i64 32
   %201 = load i16, ptr %200, align 2, !tbaa !58
@@ -3468,7 +3468,7 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157: ; preds = %_ZNKSt8_Rb_treeI
   br i1 %206, label %.lr.ph.i.i.i.i159, label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157.thread
 
 .lr.ph.i.i.i.i159:                                ; preds = %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157, %.lr.ph.i.i.i.i159
-  %.012.i.i.i.i160 = phi ptr [ %.1.i.i.i.i165, %.lr.ph.i.i.i.i159 ], [ %.pr251, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157 ]
+  %.012.i.i.i.i160 = phi ptr [ %.1.i.i.i.i165, %.lr.ph.i.i.i.i159 ], [ %.pr267, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157 ]
   %.0811.i.i.i.i161 = phi ptr [ %.19.i.i.i.i162, %.lr.ph.i.i.i.i159 ], [ %54, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157 ]
   %207 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i160, i64 32
   %208 = load i16, ptr %207, align 2, !tbaa !58
@@ -3514,12 +3514,12 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit169: ; preds = %_ZNKSt8_Rb_treeI
           to label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157.thread.sink.split unwind label %123
 
 _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157.thread.sink.split: ; preds = %225, %198
-  %.sink257.in = phi ptr [ %187, %198 ], [ %220, %225 ]
-  %.sink255.in = phi i16 [ %199, %198 ], [ %226, %225 ]
-  %.sink255 = uitofp i16 %.sink255.in to float
-  %.sink257 = load ptr, ptr %.sink257.in, align 8, !tbaa !29
-  %227 = getelementptr inbounds nuw i8, ptr %.sink257, i64 264
-  store float %.sink255, ptr %227, align 4, !tbaa !135
+  %.sink273.in = phi ptr [ %187, %198 ], [ %220, %225 ]
+  %.sink271.in = phi i16 [ %199, %198 ], [ %226, %225 ]
+  %.sink271 = uitofp i16 %.sink271.in to float
+  %.sink273 = load ptr, ptr %.sink273.in, align 8, !tbaa !29
+  %227 = getelementptr inbounds nuw i8, ptr %.sink273, i64 264
+  store float %.sink271, ptr %227, align 4, !tbaa !135
   br label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157.thread
 
 _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157.thread: ; preds = %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157.thread.sink.split, %_ZNK8rawspeed10Rw2Decoder6getRawEv.exit, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit.thread, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i167, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i155, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit169

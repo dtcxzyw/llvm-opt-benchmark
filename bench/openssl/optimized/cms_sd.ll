@@ -169,10 +169,10 @@ define range(i32 0, 2) i32 @ossl_cms_SignerIdentifier_get0_signer_id(ptr noundef
 
 .sink.split:                                      ; preds = %15, %12
   %.sink = phi ptr [ %14, %12 ], [ %0, %15 ]
-  %.sink17 = phi ptr [ %3, %12 ], [ %1, %15 ]
+  %.sink20 = phi ptr [ %3, %12 ], [ %1, %15 ]
   %16 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !3
-  store ptr %17, ptr %.sink17, align 8, !tbaa !32
+  store ptr %17, ptr %.sink20, align 8, !tbaa !32
   br label %18
 
 18:                                               ; preds = %.sink.split, %11, %15, %4
@@ -1254,10 +1254,10 @@ define range(i32 0, 2) i32 @CMS_SignerInfo_sign(ptr noundef %0) local_unnamed_ad
   br i1 %28, label %cms_add1_signingTime.exit.thread, label %cms_add1_signingTime.exit
 
 cms_add1_signingTime.exit.thread:                 ; preds = %21, %24
-  %.sink1.i = phi i32 [ 576, %21 ], [ 582, %24 ]
+  %.sink2.i = phi i32 [ 576, %21 ], [ 582, %24 ]
   %.sink.i = phi i32 [ 524299, %21 ], [ 524334, %24 ]
   call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink1.i, ptr noundef nonnull @__func__.cms_add1_signingTime) #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink2.i, ptr noundef nonnull @__func__.cms_add1_signingTime) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink.i, ptr noundef null) #7
   call void @ASN1_TIME_free(ptr noundef %22) #7
   br label %75
@@ -1614,10 +1614,10 @@ define range(i32 0, 2) i32 @CMS_SignerInfo_get0_signer_id(ptr noundef readonly c
 
 .sink.split.i:                                    ; preds = %17, %14
   %.sink.i = phi ptr [ %16, %14 ], [ %6, %17 ]
-  %.sink17.i = phi ptr [ %3, %14 ], [ %1, %17 ]
+  %.sink20.i = phi ptr [ %3, %14 ], [ %1, %17 ]
   %18 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !3
-  store ptr %19, ptr %.sink17.i, align 8, !tbaa !32
+  store ptr %19, ptr %.sink20.i, align 8, !tbaa !32
   br label %ossl_cms_SignerIdentifier_get0_signer_id.exit
 
 ossl_cms_SignerIdentifier_get0_signer_id.exit:    ; preds = %4, %13, %17, %.sink.split.i

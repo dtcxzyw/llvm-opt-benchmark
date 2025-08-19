@@ -840,8 +840,8 @@ _ZNK4ncnn3Mat5emptyEv.exit161:                    ; preds = %69
   %85 = icmp slt i32 %81, 1
   %86 = icmp slt i32 %62, 1
   %87 = icmp slt i32 %82, 1
-  %or.cond.not213 = select i1 %85, i1 true, i1 %87
-  %brmerge = or i1 %or.cond.not213, %86
+  %or.cond.not252 = select i1 %85, i1 true, i1 %87
+  %brmerge = or i1 %or.cond.not252, %86
   br i1 %brmerge, label %._crit_edge177, label %.preheader163.lr.ph.us.us.us.preheader
 
 .preheader163.lr.ph.us.us.us.preheader:           ; preds = %.lr.ph
@@ -873,15 +873,15 @@ _ZNK4ncnn3Mat5emptyEv.exit161:                    ; preds = %69
   %100 = add nuw nsw i64 %indvars.iv193, %96
   %101 = mul nuw nsw i64 %100, %89
   %invariant.gep = getelementptr inbounds nuw float, ptr %95, i64 %99
-  %invariant.gep208 = getelementptr inbounds nuw float, ptr %94, i64 %101
+  %invariant.gep247 = getelementptr inbounds nuw float, ptr %94, i64 %101
   br label %102
 
 102:                                              ; preds = %102, %.preheader.us.us.us.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %102 ], [ 0, %.preheader.us.us.us.us.us.us ]
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
   %103 = load float, ptr %gep, align 4, !tbaa !49
-  %gep209 = getelementptr inbounds nuw float, ptr %invariant.gep208, i64 %indvars.iv
-  store float %103, ptr %gep209, align 4, !tbaa !49
+  %gep248 = getelementptr inbounds nuw float, ptr %invariant.gep247, i64 %indvars.iv
+  store float %103, ptr %gep248, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %89
   br i1 %exitcond.not, label %._crit_edge.us.us.us.us.us.us, label %102, !llvm.loop !68
@@ -1922,11 +1922,11 @@ _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %106, %121, %122, %1
 
 _ZN4ncnn3MataSERKS0_.exit.invoke:                 ; preds = %104, %_ZN4ncnn3Mat7releaseEv.exit.i, %4, %95
   %.sink = phi i32 [ %65, %95 ], [ %65, %4 ], [ %.pre303, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %65, %104 ]
-  %.sink308 = phi i64 [ 16, %95 ], [ 16, %4 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %104 ]
+  %.sink351 = phi i64 [ 16, %95 ], [ 16, %4 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %104 ]
   %143 = phi i32 [ %52, %95 ], [ %52, %4 ], [ %.pre301, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %52, %104 ]
   %144 = phi i32 [ %60, %95 ], [ %60, %4 ], [ %.pre302, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %60, %104 ]
   %145 = sdiv i32 %.sink, %.078
-  %146 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink308
+  %146 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink351
   %147 = load ptr, ptr %146, align 8, !tbaa !87
   invoke void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %12, i32 noundef %143, i32 noundef %144, i32 noundef %145, i64 noundef %72, i32 noundef %.078, ptr noundef %147)
           to label %148 unwind label %102
@@ -4096,13 +4096,13 @@ define linkonce_odr hidden void @_ZNSt6vectorIPN4ncnn5LayerESaIS2_EE17_M_default
 19:                                               ; preds = %3
   store ptr null, ptr %5, align 8, !tbaa !63
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPPN4ncnn5LayerEmS2_ET_S4_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPPN4ncnn5LayerEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPPN4ncnn5LayerEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !63
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -4576,8 +4576,8 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge229, %.p
   %285 = sdiv i32 %.reass, %283
   %.not66 = icmp eq i32 %284, 0
   %.not67 = icmp slt i32 %285, %93
-  %or.cond253 = select i1 %.not66, i1 %.not67, i1 false
-  br i1 %or.cond253, label %286, label %299
+  %or.cond268 = select i1 %.not66, i1 %.not67, i1 false
+  br i1 %or.cond268, label %286, label %299
 
 286:                                              ; preds = %282
   %287 = shl nsw i32 %285, 2
@@ -4851,8 +4851,8 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us:  ; preds = %118, %112, %111, %1
   %128 = sdiv i32 %.reass126.us.us.us, %126
   %.not72.us.us.us = icmp eq i32 %127, 0
   %.not73.us.us.us = icmp slt i32 %128, %156
-  %or.cond153 = select i1 %.not72.us.us.us, i1 %.not73.us.us.us, i1 false
-  br i1 %or.cond153, label %129, label %.loopexit.us.us.us
+  %or.cond165 = select i1 %.not72.us.us.us, i1 %.not73.us.us.us, i1 false
+  br i1 %or.cond165, label %129, label %.loopexit.us.us.us
 
 129:                                              ; preds = %125
   %130 = sext i32 %128 to i64
@@ -4877,8 +4877,8 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us:  ; preds = %118, %112, %111, %1
   %142 = sdiv i32 %.reass.us.us.us, %140
   %.not74.us.us.us = icmp eq i32 %141, 0
   %.not75.us.us.us = icmp slt i32 %142, %158
-  %or.cond154 = select i1 %.not74.us.us.us, i1 %.not75.us.us.us, i1 false
-  br i1 %or.cond154, label %143, label %150
+  %or.cond166 = select i1 %.not74.us.us.us, i1 %.not75.us.us.us, i1 false
+  br i1 %or.cond166, label %143, label %150
 
 143:                                              ; preds = %139
   %144 = sext i32 %142 to i64

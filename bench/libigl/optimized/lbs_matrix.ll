@@ -412,8 +412,8 @@ define dso_local void @_ZN3igl17lbs_matrix_columnERKN5Eigen6MatrixIdLin1ELin1ELi
   %reass.add.us.us.us = add i64 %45, %indvars.iv86
   %reass.mul.us.us.us = mul i64 %reass.add.us.us.us, %10
   %46 = add i64 %reass.mul.us.us.us, %indvars.iv76
-  %sext91 = shl i64 %46, 32
-  %47 = ashr exact i64 %sext91, 32
+  %sext93 = shl i64 %46, 32
+  %47 = ashr exact i64 %sext93, 32
   %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen12SparseMatrixIdLi0EiE6insertEll(ptr noundef nonnull align 8 dereferenceable(72) %2, i64 noundef %27, i64 noundef %47)
   store double %.0.us.us.us, ptr %48, align 8, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1002,8 +1002,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %reass.add.us.us.us = add i64 %52, %indvars.iv85
   %reass.mul.us.us.us = mul i64 %reass.add.us.us.us, %11
   %53 = add i64 %reass.mul.us.us.us, %indvars.iv75
-  %sext90 = shl i64 %53, 32
-  %54 = ashr exact i64 %sext90, 32
+  %sext92 = shl i64 %53, 32
+  %54 = ashr exact i64 %sext92, 32
   %55 = mul nsw i64 %40, %54
   %56 = getelementptr double, ptr %42, i64 %55
   store double %.0.us.us.us, ptr %56, align 8, !tbaa !34
@@ -1985,8 +1985,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   %69 = getelementptr double, ptr %64, i64 %68
   store double %66, ptr %69, align 8, !tbaa !34
   %70 = add nsw i64 %.075111, -1
-  %.not131 = icmp eq i64 %.075111, 0
-  br i1 %.not131, label %._crit_edge114, label %53, !llvm.loop !107
+  %.not140 = icmp eq i64 %.075111, 0
+  br i1 %.not140, label %._crit_edge114, label %53, !llvm.loop !107
 
 ._crit_edge120:                                   ; preds = %._crit_edge114
   %71 = add nsw i64 %23, -1
@@ -2116,8 +2116,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   %141 = getelementptr double, ptr %138, i64 %129
   store double %140, ptr %141, align 8, !tbaa !34
   %142 = add nsw i64 %.097, -1
-  %.not130 = icmp eq i64 %.097, 0
-  br i1 %.not130, label %.loopexit, label %.lr.ph99, !llvm.loop !109
+  %.not139 = icmp eq i64 %.097, 0
+  br i1 %.not139, label %.loopexit, label %.lr.ph99, !llvm.loop !109
 
 .loopexit:                                        ; preds = %.lr.ph99, %123, %117
   %143 = icmp samesign ugt i64 %.071101.in, 1
@@ -2345,8 +2345,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   %73 = getelementptr double, ptr %68, i64 %72
   store double %70, ptr %73, align 8, !tbaa !34
   %74 = add nsw i64 %.075111, -1
-  %.not132 = icmp eq i64 %.075111, 0
-  br i1 %.not132, label %._crit_edge114, label %57, !llvm.loop !117
+  %.not141 = icmp eq i64 %.075111, 0
+  br i1 %.not141, label %._crit_edge114, label %57, !llvm.loop !117
 
 ._crit_edge120:                                   ; preds = %._crit_edge114
   %75 = add nsw i64 %23, -1
@@ -2484,8 +2484,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   %153 = getelementptr double, ptr %150, i64 %141
   store double %152, ptr %153, align 8, !tbaa !34
   %154 = add nsw i64 %.097, -1
-  %.not131 = icmp eq i64 %.097, 0
-  br i1 %.not131, label %.loopexit, label %.lr.ph99, !llvm.loop !119
+  %.not140 = icmp eq i64 %.097, 0
+  br i1 %.not140, label %.loopexit, label %.lr.ph99, !llvm.loop !119
 
 .loopexit:                                        ; preds = %.lr.ph99, %135, %129
   %155 = icmp samesign ugt i64 %.071101.in, 1

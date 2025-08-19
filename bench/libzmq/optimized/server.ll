@@ -293,26 +293,26 @@ define void @_ZN3zmq8server_t12xattach_pipeEPNS_6pipe_tEbb(ptr noundef nonnull a
   br i1 %21, label %._crit_edge.thread.i.i, label %27
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %10
-  %.019.lcssa28.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %18, %10 ]
+  %.019.lcssa29.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %18, %10 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %23 = load ptr, ptr %22, align 8, !tbaa !15
-  %24 = icmp eq ptr %.019.lcssa28.i.i, %23
+  %24 = icmp eq ptr %.019.lcssa29.i.i, %23
   br i1 %24, label %select.unfold.i, label %25
 
 25:                                               ; preds = %._crit_edge.thread.i.i
-  %26 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #21
+  %26 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i) #21
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %26, i64 32
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !108
   br label %27
 
 27:                                               ; preds = %25, %._crit_edge.i.i
   %28 = phi i32 [ %.pre.i, %25 ], [ %20, %._crit_edge.i.i ]
-  %.019.lcssa29.i.i = phi ptr [ %.019.lcssa28.i.i, %25 ], [ %.02024.i.i, %._crit_edge.i.i ]
+  %.019.lcssa28.i.i = phi ptr [ %.019.lcssa29.i.i, %25 ], [ %.02024.i.i, %._crit_edge.i.i ]
   %29 = icmp ult i32 %28, %spec.select12
   br i1 %29, label %select.unfold.i, label %39
 
 select.unfold.i:                                  ; preds = %27, %._crit_edge.thread.i.i
-  %.sroa.4.0.i.ph.i = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %.019.lcssa29.i.i, %27 ]
+  %.sroa.4.0.i.ph.i = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %.019.lcssa28.i.i, %27 ]
   %30 = icmp eq ptr %.sroa.4.0.i.ph.i, %18
   br i1 %30, label %_ZNSt8_Rb_treeIjSt4pairIKjN3zmq8server_t9outpipe_tEESt10_Select1stIS5_ESt4lessIjESaIS5_EE17_M_emplace_uniqueIJRjRS4_EEES0_ISt17_Rb_tree_iteratorIS5_EbEDpOT_.exit.thread, label %31
 

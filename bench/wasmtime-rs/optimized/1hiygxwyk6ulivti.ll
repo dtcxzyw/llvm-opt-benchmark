@@ -2282,8 +2282,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   unreachable
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2d60eeffc417465E.exit": ; preds = %24, %19
-  %.sink35 = phi i64 [ 248, %19 ], [ 32, %24 ]
-  %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink35
+  %.sink45 = phi i64 [ 248, %19 ], [ 32, %24 ]
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink45
   %30 = load ptr, ptr %29, align 8, !alias.scope !382, !noalias !406, !nonnull !13, !noundef !13
   %31 = getelementptr inbounds nuw [0 x { { { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} } }, i32, [1 x i32] }], ptr %30, i64 0, i64 %18
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
@@ -2413,8 +2413,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %75, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2d60eeffc417465E.exit.i.i", label %.invoke, !prof !397
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2d60eeffc417465E.exit.i.i": ; preds = %72, %66
-  %.sink26.i.i = phi i64 [ 248, %66 ], [ 32, %72 ]
-  %76 = getelementptr inbounds nuw i8, ptr %61, i64 %.sink26.i.i
+  %.sink31.i.i = phi i64 [ 248, %66 ], [ 32, %72 ]
+  %76 = getelementptr inbounds nuw i8, ptr %61, i64 %.sink31.i.i
   %77 = load ptr, ptr %76, align 8, !alias.scope !452, !noalias !470, !nonnull !13, !noundef !13
   %78 = getelementptr inbounds nuw [0 x { { { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} } }, i32, [1 x i32] }], ptr %77, i64 0, i64 %65
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
@@ -3871,8 +3871,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   unreachable
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd370630d3734bcdE.exit": ; preds = %21, %26
-  %.sink2.i.i.i.i = phi i64 [ 152, %21 ], [ 8, %26 ]
-  %31 = getelementptr inbounds nuw i8, ptr %16, i64 %.sink2.i.i.i.i
+  %.sink6.i.i.i.i = phi i64 [ 152, %21 ], [ 8, %26 ]
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 %.sink6.i.i.i.i
   %32 = load ptr, ptr %31, align 8, !alias.scope !882, !noalias !904, !nonnull !13, !noundef !13
   %33 = getelementptr inbounds nuw [0 x { i64, [4 x i64] }], ptr %32, i64 0, i64 %20
   call void @"_ZN96_$LT$wasmtime_environ..component..translate..inline..ModuleDef$u20$as$u20$core..clone..Clone$GT$5clone17hdefacab2af502858E.llvm.9996293967201523975"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %33), !noalias !905
@@ -4001,8 +4001,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %77, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd370630d3734bcdE.exit.i.i", label %.invoke, !prof !397
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd370630d3734bcdE.exit.i.i": ; preds = %74, %68
-  %.sink2.i.i.i.i.i.i = phi i64 [ 152, %68 ], [ 8, %74 ]
-  %78 = getelementptr inbounds nuw i8, ptr %63, i64 %.sink2.i.i.i.i.i.i
+  %.sink6.i.i.i.i.i.i = phi i64 [ 152, %68 ], [ 8, %74 ]
+  %78 = getelementptr inbounds nuw i8, ptr %63, i64 %.sink6.i.i.i.i.i.i
   %79 = load ptr, ptr %78, align 8, !alias.scope !949, !noalias !967, !nonnull !13, !noundef !13
   %80 = getelementptr inbounds nuw [0 x { i64, [4 x i64] }], ptr %79, i64 0, i64 %67
   invoke void @"_ZN96_$LT$wasmtime_environ..component..translate..inline..ModuleDef$u20$as$u20$core..clone..Clone$GT$5clone17hdefacab2af502858E.llvm.9996293967201523975"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %80)

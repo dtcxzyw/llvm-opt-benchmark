@@ -1773,11 +1773,11 @@ define void @_ZN3git4diff10BufferDiff18process_patch_hunk17h1f1aff71fd45b7e6E(pt
   unreachable
 
 common.resume.sink.split:                         ; preds = %17, %35
-  %.sink166 = phi ptr [ %8, %35 ], [ %9, %17 ]
-  %.sink165 = phi i64 [ %38, %35 ], [ %20, %17 ]
+  %.sink171 = phi ptr [ %8, %35 ], [ %9, %17 ]
+  %.sink170 = phi i64 [ %38, %35 ], [ %20, %17 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %36, %35 ], [ %18, %17 ]
-  %23 = load ptr, ptr %.sink166, align 8, !noalias !4, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %.sink165, i64 noundef 1) #28, !noalias !4
+  %23 = load ptr, ptr %.sink171, align 8, !noalias !4, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %.sink170, i64 noundef 1) #28, !noalias !4
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %35, %17
@@ -1802,7 +1802,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 28:                                               ; preds = %.loopexit
   %switch = icmp eq i32 %.sroa.02.092, 0
-  br i1 %switch, label %44, label %.thread112
+  br i1 %switch, label %44, label %.thread117
 
 29:                                               ; preds = %.outer, %.thread
   %.sroa.02.092 = phi i32 [ 1, %.thread ], [ %.sroa.02.092.ph, %.outer ]
@@ -1849,21 +1849,21 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 44:                                               ; preds = %28
   %switch51 = icmp eq i32 %.sroa.0.1, 0
-  br i1 %switch51, label %45, label %.thread112
+  br i1 %switch51, label %45, label %.thread117
 
 45:                                               ; preds = %44
   call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.406c5a6426f8b066a64707da383431b8.74) #29
   unreachable
 
-.thread112:                                       ; preds = %.thread, %44, %28
-  %.sroa.615.1104124 = phi i64 [ %.sroa.615.1, %28 ], [ %.sroa.615.1, %44 ], [ %.sroa.615.087.ph, %.thread ]
-  %.sroa.612.1105123 = phi i64 [ %.sroa.612.1, %28 ], [ %.sroa.612.1, %44 ], [ %.sroa.612.088.ph, %.thread ]
-  %.sroa.010.1106122 = phi i64 [ %.sroa.010.1, %28 ], [ %.sroa.010.1, %44 ], [ %.sroa.010.089.ph, %.thread ]
+.thread117:                                       ; preds = %.thread, %44, %28
+  %.sroa.615.1109129 = phi i64 [ %.sroa.615.1, %28 ], [ %.sroa.615.1, %44 ], [ %.sroa.615.087.ph, %.thread ]
+  %.sroa.612.1110128 = phi i64 [ %.sroa.612.1, %28 ], [ %.sroa.612.1, %44 ], [ %.sroa.612.088.ph, %.thread ]
+  %.sroa.010.1111127 = phi i64 [ %.sroa.010.1, %28 ], [ %.sroa.010.1, %44 ], [ %.sroa.010.089.ph, %.thread ]
   %.sroa.043.0 = phi i32 [ %.sroa.64.091, %28 ], [ %.sroa.6.1, %44 ], [ %..sroa.64.0, %.thread ]
   %.sroa.045.0 = phi i32 [ %.sroa.67.090, %28 ], [ %.sroa.6.1, %44 ], [ %.sroa.67.1, %.thread ]
-  %switch52 = icmp eq i64 %.sroa.010.1106122, 0
-  %..sroa.612.0 = select i1 %switch52, i64 0, i64 %.sroa.612.1105123
-  %..sroa.615.0 = select i1 %switch52, i64 0, i64 %.sroa.615.1104124
+  %switch52 = icmp eq i64 %.sroa.010.1111127, 0
+  %..sroa.612.0 = select i1 %switch52, i64 0, i64 %.sroa.612.1110128
+  %..sroa.615.0 = select i1 %switch52, i64 0, i64 %.sroa.615.1109129
   %46 = call { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %.sroa.043.0, i32 noundef 0)
   %47 = extractvalue { i32, i32 } %46, 0
   %48 = extractvalue { i32, i32 } %46, 1
@@ -1945,8 +1945,8 @@ common.resume:                                    ; preds = %common.resume.sink.
   %..sroa.64.0 = select i1 %switch54, i32 %72, i32 %.sroa.64.091
   %.sroa.67.1 = add nuw nsw i32 %72, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %exitcond.not103 = icmp eq i64 %31, %25
-  br i1 %exitcond.not103, label %.thread112, label %29
+  %exitcond.not108 = icmp eq i64 %31, %25
+  br i1 %exitcond.not108, label %.thread117, label %29
 
 73:                                               ; preds = %65
   %74 = getelementptr inbounds nuw i8, ptr %43, i64 4

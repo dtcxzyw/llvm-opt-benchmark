@@ -382,9 +382,9 @@ check_retval.exit117:                             ; preds = %143
   %149 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17)
   %switch.selectcmp = icmp eq i32 %.0143, 2
   %switch.select = select i1 %switch.selectcmp, ptr @.str.19, ptr @.str.20
-  %switch.selectcmp206 = icmp eq i32 %.0143, 1
-  %switch.select207 = select i1 %switch.selectcmp206, ptr @.str.18, ptr %switch.select
-  %150 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.select207)
+  %switch.selectcmp228 = icmp eq i32 %.0143, 1
+  %switch.select229 = select i1 %switch.selectcmp228, ptr @.str.18, ptr %switch.select
+  %150 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.select229)
   %spec.select = select i1 %.not65, ptr @.str.22, ptr @.str.21
   br label %151
 
@@ -593,10 +593,10 @@ define internal range(i32 -1, 1) i32 @ewt(ptr noundef readonly captures(none) %0
 10:                                               ; preds = %3, %19
   %indvars.iv = phi i64 [ 1, %3 ], [ %indvars.iv.next, %19 ]
   %11 = add nsw i64 %indvars.iv, -1
-  %12 = getelementptr inbounds double, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw double, ptr %9, i64 %11
   %13 = load double, ptr %12, align 8, !tbaa !11
   %14 = tail call double @llvm.fabs.f64(double %13)
-  %15 = getelementptr inbounds [3 x double], ptr %4, i64 0, i64 %11
+  %15 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %11
   %16 = load double, ptr %15, align 8, !tbaa !11
   %17 = tail call double @llvm.fmuladd.f64(double %14, double 1.000000e-04, double %16)
   %18 = fcmp ugt double %17, 0.000000e+00
@@ -607,7 +607,7 @@ define internal range(i32 -1, 1) i32 @ewt(ptr noundef readonly captures(none) %0
   %21 = load ptr, ptr %1, align 8, !tbaa !15
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !18
-  %24 = getelementptr inbounds double, ptr %23, i64 %11
+  %24 = getelementptr inbounds nuw double, ptr %23, i64 %11
   store double %20, ptr %24, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

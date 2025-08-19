@@ -1929,8 +1929,8 @@ gen9_rps_enable.exit:                             ; preds = %240
   br label %291
 
 .critedge.sink.split:                             ; preds = %191, %111
-  %.sink14 = phi ptr [ %105, %111 ], [ %185, %191 ]
-  %289 = getelementptr inbounds nuw i8, ptr %.sink14, i64 8
+  %.sink23 = phi ptr [ %105, %111 ], [ %185, %191 ]
+  %289 = getelementptr inbounds nuw i8, ptr %.sink23, i64 8
   %290 = load ptr, ptr %289, align 8
   br label %.critedge
 

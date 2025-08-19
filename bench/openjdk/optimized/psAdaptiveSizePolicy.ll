@@ -447,8 +447,8 @@ define hidden void @_ZN20PSAdaptiveSizePolicy23compute_eden_space_sizeEmmmmb(ptr
   %.pre26 = load float, ptr %.phi.trans.insert25, align 4
   %33 = fpext float %.pre26 to double
   %34 = fcmp olt double %31, %33
-  %or.cond29 = select i1 %32, i1 true, i1 %34
-  br i1 %or.cond29, label %._crit_edge, label %56
+  %or.cond31 = select i1 %32, i1 true, i1 %34
+  br i1 %or.cond31, label %._crit_edge, label %56
 
 ._crit_edge:                                      ; preds = %6
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 232

@@ -732,8 +732,8 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
 
 _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %23
   %.in = phi ptr [ %26, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %14, %23 ]
-  %.fca.1.insert.merged.i9.i = phi i1 [ %28, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %23 ]
-  br i1 %.fca.1.insert.merged.i9.i, label %29, label %.thread
+  %.fca.1.insert.merged.i12.i = phi i1 [ %28, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %23 ]
+  br i1 %.fca.1.insert.merged.i12.i, label %29, label %.thread
 
 29:                                               ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit
   %30 = load i32, ptr %.in, align 4, !noalias !199
@@ -816,15 +816,15 @@ _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %_ZN4l
   br i1 %66, label %69, label %.thread
 
 .critedge.thread.thread:                          ; preds = %54, %49, %58, %.critedge.thread
-  %.sroa.042.05173 = phi i32 [ %.sroa.042.051, %.critedge.thread ], [ %40, %58 ], [ %40, %49 ], [ %40, %54 ]
+  %.sroa.042.05181 = phi i32 [ %.sroa.042.051, %.critedge.thread ], [ %40, %58 ], [ %40, %49 ], [ %40, %54 ]
   %67 = load i32, ptr %2, align 4, !tbaa !186
   %.not39 = icmp eq i32 %67, 0
-  %.not40 = icmp eq i32 %67, %.sroa.042.05173
+  %.not40 = icmp eq i32 %67, %.sroa.042.05181
   %or.cond58 = or i1 %.not39, %.not40
   br i1 %or.cond58, label %68, label %.thread
 
 68:                                               ; preds = %.critedge.thread.thread
-  store i32 %.sroa.042.05173, ptr %2, align 4, !tbaa !186
+  store i32 %.sroa.042.05181, ptr %2, align 4, !tbaa !186
   br label %69
 
 69:                                               ; preds = %68, %65, %.lr.ph
@@ -900,8 +900,8 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
 
 _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %22
   %.in = phi ptr [ %25, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %13, %22 ]
-  %.fca.1.insert.merged.i9.i = phi i1 [ %27, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %22 ]
-  br i1 %.fca.1.insert.merged.i9.i, label %28, label %.loopexit
+  %.fca.1.insert.merged.i12.i = phi i1 [ %27, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %22 ]
+  br i1 %.fca.1.insert.merged.i12.i, label %28, label %.loopexit
 
 28:                                               ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit
   %29 = load i32, ptr %.in, align 4, !noalias !203

@@ -48,7 +48,7 @@ define internal ptr @STEAM_User_Create(ptr readnone captures(none) %0, ptr readn
   %7 = tail call ptr @SDL_LoadObject_REAL(ptr noundef nonnull @.str.2) #5
   store ptr %7, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.sink.split49, label %9
+  br i1 %8, label %.sink.split53, label %9
 
 9:                                                ; preds = %6
   %10 = tail call ptr @SDL_LoadFunction_REAL(ptr noundef nonnull %7, ptr noundef nonnull @.str.3) #5
@@ -155,14 +155,14 @@ define internal ptr @STEAM_User_Create(ptr readnone captures(none) %0, ptr readn
 70:                                               ; preds = %.sink.split, %66
   %71 = load ptr, ptr %4, align 8
   tail call void @SDL_UnloadObject_REAL(ptr noundef %71) #5
-  br label %.sink.split49
+  br label %.sink.split53
 
-.sink.split49:                                    ; preds = %6, %70
+.sink.split53:                                    ; preds = %6, %70
   tail call void @SDL_free_REAL(ptr noundef nonnull %4) #5
   br label %72
 
-72:                                               ; preds = %.sink.split49, %66, %3
-  %.0 = phi ptr [ null, %3 ], [ %67, %66 ], [ null, %.sink.split49 ]
+72:                                               ; preds = %.sink.split53, %66, %3
+  %.0 = phi ptr [ null, %3 ], [ %67, %66 ], [ null, %.sink.split53 ]
   ret ptr %.0
 }
 

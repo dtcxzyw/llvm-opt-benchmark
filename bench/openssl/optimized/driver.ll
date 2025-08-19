@@ -203,15 +203,15 @@ define range(i32 0, 2) i32 @run_tests(ptr noundef %0) local_unnamed_addr #1 {
 
 .outer:                                           ; preds = %7, %1
   %.08.i.ph = phi ptr [ %8, %7 ], [ @.str.15, %1 ]
-  %.06.i.ph = phi ptr [ %.06.i.ph210, %7 ], [ @.str.15, %1 ]
+  %.06.i.ph = phi ptr [ %.06.i.ph227, %7 ], [ @.str.15, %1 ]
   %.0.i.ph = phi ptr [ %9, %7 ], [ null, %1 ]
-  br label %.outer209
+  br label %.outer226
 
-.outer209:                                        ; preds = %.outer, %10
-  %.06.i.ph210 = phi ptr [ %.06.i.ph, %.outer ], [ %11, %10 ]
+.outer226:                                        ; preds = %.outer, %10
+  %.06.i.ph227 = phi ptr [ %.06.i.ph, %.outer ], [ %11, %10 ]
   br label %4
 
-4:                                                ; preds = %.backedge, %.outer209
+4:                                                ; preds = %.backedge, %.outer226
   %5 = call i32 @opt_next() #13
   switch i32 %5, label %.backedge [
     i32 0, label %30
@@ -238,7 +238,7 @@ define range(i32 0, 2) i32 @run_tests(ptr noundef %0) local_unnamed_addr #1 {
   %12 = call ptr @opt_arg() #13
   %13 = call i32 @opt_int(ptr noundef %12, ptr noundef nonnull @single_iter) #13
   %.not16.i = icmp eq i32 %13, 0
-  br i1 %.not16.i, label %.loopexit131, label %.outer209, !llvm.loop !15
+  br i1 %.not16.i, label %.loopexit131, label %.outer226, !llvm.loop !15
 
 14:                                               ; preds = %4
   %15 = call ptr @opt_arg() #13
@@ -364,7 +364,7 @@ set_seed.exit.i:                                  ; preds = %26, %23
 
 64:                                               ; preds = %57
   %65 = load ptr, ptr %60, align 16, !tbaa !7
-  %66 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.17, ptr noundef %.06.i.ph210, i32 noundef %56, ptr noundef %65) #13
+  %66 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.17, ptr noundef %.06.i.ph227, i32 noundef %56, ptr noundef %65) #13
   br label %.loopexit131
 
 67:                                               ; preds = %57
@@ -375,7 +375,7 @@ set_seed.exit.i:                                  ; preds = %26, %23
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr %60, align 16, !tbaa !7
-  %72 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.18, ptr noundef %.06.i.ph210, i32 noundef %56, ptr noundef %71, i32 noundef 1, i32 noundef %62) #13
+  %72 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.18, ptr noundef %.06.i.ph227, i32 noundef %56, ptr noundef %71, i32 noundef 1, i32 noundef %62) #13
   br label %.loopexit131
 
 process_shared_options.exit:                      ; preds = %4
@@ -594,8 +594,8 @@ set_test_title.exit118:                           ; preds = %142, %143
   %.b = load i1, ptr @rand_order, align 4
   %.pre176 = load i32, ptr %115, align 8, !tbaa !12
   %162 = icmp sgt i32 %.pre176, 2
-  %or.cond195.not = select i1 %.b, i1 %162, i1 false
-  br i1 %or.cond195.not, label %.critedge, label %.loopexit
+  %or.cond212.not = select i1 %.b, i1 %162, i1 false
+  br i1 %or.cond212.not, label %.critedge, label %.loopexit
 
 .critedge:                                        ; preds = %161, %.critedge.backedge
   %163 = call i32 @test_random() #13

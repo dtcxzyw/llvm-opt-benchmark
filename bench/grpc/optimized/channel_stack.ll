@@ -466,7 +466,7 @@ _Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit.loopexit: ; preds = %.
 
 _Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit: ; preds = %56, %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit.loopexit
   %.not.not76 = phi i1 [ %136, %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit.loopexit ], [ true, %56 ]
-  %.068.lcssa116120 = phi i64 [ %110, %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit.loopexit ], [ %60, %56 ]
+  %.068.lcssa122126 = phi i64 [ %110, %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit.loopexit ], [ %60, %56 ]
   br i1 %.not.not76, label %.critedge83, label %137, !prof !69
 
 137:                                              ; preds = %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit
@@ -486,7 +486,7 @@ _Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit: ; preds = %56, %_Z23g
 
 .critedge83:                                      ; preds = %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit
   %141 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i64 %.068.lcssa116120, ptr %141, align 8, !tbaa !70
+  store i64 %.068.lcssa122126, ptr %141, align 8, !tbaa !70
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %54) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void

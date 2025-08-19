@@ -274,8 +274,8 @@ ikcp_segment_delete.exit.us:                      ; preds = %.lr.ph, %ikcp_segme
 .preheader76.thread:                              ; preds = %ikcp_segment_delete.exit.us
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %14 = load ptr, ptr %13, align 8, !tbaa !36
-  %.not6079113 = icmp eq ptr %13, %14
-  br i1 %.not6079113, label %.preheader75, label %ikcp_segment_delete.exit66.us.preheader
+  %.not6079132 = icmp eq ptr %13, %14
+  br i1 %.not6079132, label %.preheader75, label %ikcp_segment_delete.exit66.us.preheader
 
 .lr.ph80:                                         ; preds = %.preheader76
   %15 = icmp eq ptr %.pre97.pre98.pre.pre.pre, null
@@ -393,8 +393,8 @@ ikcp_segment_delete.exit66:                       ; preds = %49, %50
 .preheader.thread:                                ; preds = %ikcp_segment_delete.exit68.us
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %56 = load ptr, ptr %55, align 8, !tbaa !32
-  %.not6283117 = icmp eq ptr %55, %56
-  br i1 %.not6283117, label %._crit_edge, label %ikcp_segment_delete.exit70.us.preheader
+  %.not6283136 = icmp eq ptr %55, %56
+  br i1 %.not6283136, label %._crit_edge, label %ikcp_segment_delete.exit70.us.preheader
 
 .lr.ph84:                                         ; preds = %.preheader
   %57 = icmp eq ptr %.pre97.pre98.pre, null
@@ -505,8 +505,8 @@ ikcp_free.exit.thread:                            ; preds = %88
   tail call void @free(ptr noundef nonnull %87) #15
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %93 = load ptr, ptr %92, align 8, !tbaa !69
-  %.not64121 = icmp eq ptr %93, null
-  br i1 %.not64121, label %ikcp_free.exit72, label %.thread
+  %.not64140 = icmp eq ptr %93, null
+  br i1 %.not64140, label %ikcp_free.exit72, label %.thread
 
 94:                                               ; preds = %ikcp_free.exit
   %.not.i71 = icmp eq ptr %.pre97, null
@@ -1306,7 +1306,7 @@ ikcp_canlog.exit.thread:                          ; preds = %3, %12, %ikcp_canlo
   br i1 %17, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %.preheader239
-  %.pre256260 = load i32, ptr %4, align 8, !tbaa !84
+  %.pre256290 = load i32, ptr %4, align 8, !tbaa !84
   br label %ikcp_parse_fastack.exit
 
 .lr.ph:                                           ; preds = %.preheader239
@@ -1803,8 +1803,8 @@ ikcp_canlog.exit154.thread:                       ; preds = %243, %235, %143, %1
   %.pre256 = load i32, ptr %4, align 8, !tbaa !84
   %254 = sub i32 %.3124, %.pre256
   %255 = icmp slt i32 %254, 0
-  %or.cond264 = select i1 %253, i1 true, i1 %255
-  br i1 %or.cond264, label %ikcp_parse_fastack.exit, label %256
+  %or.cond294 = select i1 %253, i1 true, i1 %255
+  br i1 %or.cond294, label %ikcp_parse_fastack.exit, label %256
 
 256:                                              ; preds = %._crit_edge
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1851,8 +1851,8 @@ ikcp_canlog.exit154.thread:                       ; preds = %243, %235, %143, %1
   br i1 %.not.i170, label %ikcp_parse_fastack.exit, label %.lr.ph.i169, !llvm.loop !100
 
 ikcp_parse_fastack.exit:                          ; preds = %279, %.lr.ph.i169, %._crit_edge.thread, %261, %256, %._crit_edge
-  %.pre256261 = phi i32 [ %.pre256260, %._crit_edge.thread ], [ %.pre256, %261 ], [ %.pre256, %256 ], [ %.pre256, %._crit_edge ], [ %.pre256, %.lr.ph.i169 ], [ %.pre256, %279 ]
-  %280 = sub i32 %.pre256261, %5
+  %.pre256291 = phi i32 [ %.pre256290, %._crit_edge.thread ], [ %.pre256, %261 ], [ %.pre256, %256 ], [ %.pre256, %._crit_edge ], [ %.pre256, %.lr.ph.i169 ], [ %.pre256, %279 ]
+  %280 = sub i32 %.pre256291, %5
   %281 = icmp sgt i32 %280, 0
   br i1 %281, label %282, label %.thread
 
@@ -1884,11 +1884,11 @@ ikcp_parse_fastack.exit:                          ; preds = %279, %.lr.ph.i169, 
 299:                                              ; preds = %288
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %301 = load i32, ptr %300, align 8, !tbaa !24
-  %spec.select265 = tail call i32 @llvm.umax.i32(i32 %301, i32 %290)
+  %spec.select295 = tail call i32 @llvm.umax.i32(i32 %301, i32 %290)
   %302 = mul i32 %290, %290
-  %303 = udiv i32 %302, %spec.select265
+  %303 = udiv i32 %302, %spec.select295
   %304 = lshr i32 %290, 4
-  %305 = add i32 %spec.select265, %304
+  %305 = add i32 %spec.select295, %304
   %306 = add i32 %305, %303
   store i32 %306, ptr %300, align 8, !tbaa !24
   %307 = add nuw i32 %284, 1
@@ -2057,9 +2057,9 @@ ikcp_output.exit:                                 ; preds = %41, %ikcp_canlog.ex
   br i1 %73, label %74, label %84
 
 74:                                               ; preds = %68
-  %spec.select326 = tail call i32 @llvm.umax.i32(i32 %62, i32 7000)
-  %75 = lshr i32 %spec.select326, 1
-  %76 = add i32 %75, %spec.select326
+  %spec.select336 = tail call i32 @llvm.umax.i32(i32 %62, i32 7000)
+  %75 = lshr i32 %spec.select336, 1
+  %76 = add i32 %75, %spec.select336
   %spec.select = tail call i32 @llvm.umin.i32(i32 %76, i32 120000)
   store i32 %spec.select, ptr %61, align 8, !tbaa !19
   %77 = add i32 %spec.select, %69
@@ -2621,9 +2621,9 @@ ikcp_output.exit261:                              ; preds = %359, %ikcp_canlog.e
   br label %379
 
 379:                                              ; preds = %367, %366
-  br i1 %.0214.lcssa, label %382, label %.thread323
+  br i1 %.0214.lcssa, label %382, label %.thread333
 
-.thread323:                                       ; preds = %379
+.thread333:                                       ; preds = %379
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %381 = tail call i32 @llvm.umax.i32(i32 %.0211, i32 4)
   %spec.select238 = lshr i32 %381, 1
@@ -2636,7 +2636,7 @@ ikcp_output.exit261:                              ; preds = %359, %ikcp_canlog.e
   %383 = icmp eq i32 %.pre321, 0
   br i1 %383, label %.sink.split, label %388
 
-.sink.split:                                      ; preds = %382, %.thread323
+.sink.split:                                      ; preds = %382, %.thread333
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 1, ptr %384, align 4, !tbaa !23
   %385 = getelementptr inbounds nuw i8, ptr %0, i64 8

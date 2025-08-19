@@ -907,7 +907,7 @@ define internal fastcc ptr @get_parallel_object_list(ptr noundef %0, i32 noundef
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @initPQExpBuffer(ptr noundef nonnull %5) #11
-  switch i32 %1, label %default.unreachable66 [
+  switch i32 %1, label %default.unreachable67 [
     i32 0, label %7
     i32 2, label %8
     i32 1, label %12
@@ -972,7 +972,7 @@ define internal fastcc ptr @get_parallel_object_list(ptr noundef %0, i32 noundef
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   br label %17
 
-default.unreachable66:                            ; preds = %4
+default.unreachable67:                            ; preds = %4
   unreachable
 
 17:                                               ; preds = %._crit_edge, %._crit_edge59, %7

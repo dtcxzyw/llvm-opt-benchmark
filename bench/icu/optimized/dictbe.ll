@@ -158,15 +158,15 @@ define noundef i32 @_ZNK6icu_7721DictionaryBreakEngine10findBreaksEP5UTextiiRNS_
 
 .lr.ph.preheader:                                 ; preds = %10
   %19 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %15, i32 noundef %14)
-  %.not2330 = icmp eq i8 %19, 0
-  br i1 %.not2330, label %.critedge, label %.lr.ph31
+  %.not2333 = icmp eq i8 %19, 0
+  br i1 %.not2333, label %.critedge, label %.lr.ph34
 
-.lr.ph:                                           ; preds = %.lr.ph31
+.lr.ph:                                           ; preds = %.lr.ph34
   %20 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %15, i32 noundef %22)
   %.not23 = icmp eq i8 %20, 0
-  br i1 %.not23, label %.critedge, label %.lr.ph31, !llvm.loop !9
+  br i1 %.not23, label %.critedge, label %.lr.ph34, !llvm.loop !9
 
-.lr.ph31:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph34:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %21 = tail call i32 @utext_next32_77(ptr noundef %1)
   %22 = tail call i32 @utext_current32_77(ptr noundef %1)
   %23 = tail call i64 @utext_getNativeIndex_77(ptr noundef %1)
@@ -174,7 +174,7 @@ define noundef i32 @_ZNK6icu_7721DictionaryBreakEngine10findBreaksEP5UTextiiRNS_
   %25 = icmp sgt i32 %3, %24
   br i1 %25, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !9
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph31
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph34
   br label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %10
@@ -1054,9 +1054,9 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit215.thread: ; preds = %_ZN6icu_7712P
   %264 = add i32 %247, %263
   %265 = sub i32 %3, %264
   %266 = icmp slt i32 %265, 1
-  br i1 %266, label %.thread257, label %.lr.ph306
+  br i1 %266, label %.thread257, label %.lr.ph327
 
-.lr.ph306:                                        ; preds = %246, %.critedge270
+.lr.ph327:                                        ; preds = %246, %.critedge270
   %267 = phi i32 [ %307, %.critedge270 ], [ %265, %246 ]
   %268 = phi i32 [ %306, %.critedge270 ], [ %263, %246 ]
   %269 = phi i32 [ %302, %.critedge270 ], [ %260, %246 ]
@@ -1065,7 +1065,7 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit215.thread: ; preds = %_ZN6icu_7712P
   %.not175 = icmp eq i8 %271, 0
   br i1 %.not175, label %.critedge270, label %272
 
-272:                                              ; preds = %.lr.ph306
+272:                                              ; preds = %.lr.ph327
   %273 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %27, i32 noundef %270)
   %.not176 = icmp eq i8 %273, 0
   br i1 %.not176, label %.critedge270, label %.noexc233
@@ -1123,7 +1123,7 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit215.thread: ; preds = %_ZN6icu_7712P
   %299 = icmp slt i32 %295, 1
   br i1 %299, label %.critedge270, label %.thread257
 
-.critedge270:                                     ; preds = %294, %272, %.lr.ph306
+.critedge270:                                     ; preds = %294, %272, %.lr.ph327
   %300 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %301 = trunc i64 %300 to i32
   %302 = call i32 @utext_next32_77(ptr noundef %1)
@@ -1133,7 +1133,7 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit215.thread: ; preds = %_ZN6icu_7712P
   %306 = add nsw i32 %305, %268
   %307 = sub nsw i32 %267, %305
   %308 = icmp slt i32 %307, 1
-  br i1 %308, label %.thread257, label %.lr.ph306
+  br i1 %308, label %.thread257, label %.lr.ph327
 
 .thread257:                                       ; preds = %.critedge270, %294, %246
   %.lcssa = phi i32 [ %263, %246 ], [ %306, %.critedge270 ], [ %268, %294 ]
@@ -1155,29 +1155,29 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit215.thread: ; preds = %_ZN6icu_7712P
   %316 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %317 = trunc i64 %316 to i32
   %318 = icmp sgt i32 %3, %317
-  br i1 %318, label %.lr.ph310, label %.critedge3
+  br i1 %318, label %.lr.ph331, label %.critedge3
 
-.lr.ph310:                                        ; preds = %315, %322
+.lr.ph331:                                        ; preds = %315, %322
   %319 = phi i32 [ %329, %322 ], [ %317, %315 ]
-  %.2140309 = phi i32 [ %327, %322 ], [ %.1139, %315 ]
+  %.2140330 = phi i32 [ %327, %322 ], [ %.1139, %315 ]
   %320 = call i32 @utext_current32_77(ptr noundef %1)
   %321 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %28, i32 noundef %320)
   %.not179 = icmp eq i8 %321, 0
   br i1 %.not179, label %.critedge3, label %322
 
-322:                                              ; preds = %.lr.ph310
+322:                                              ; preds = %.lr.ph331
   %323 = call i32 @utext_next32_77(ptr noundef %1)
   %324 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %325 = trunc i64 %324 to i32
-  %326 = sub i32 %.2140309, %319
+  %326 = sub i32 %.2140330, %319
   %327 = add i32 %326, %325
   %328 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %329 = trunc i64 %328 to i32
   %330 = icmp sgt i32 %3, %329
-  br i1 %330, label %.lr.ph310, label %.critedge3, !llvm.loop !38
+  br i1 %330, label %.lr.ph331, label %.critedge3, !llvm.loop !38
 
-.critedge3:                                       ; preds = %.lr.ph310, %322, %315
-  %.2140.lcssa = phi i32 [ %.1139, %315 ], [ %.2140309, %.lr.ph310 ], [ %327, %322 ]
+.critedge3:                                       ; preds = %.lr.ph331, %322, %315
+  %.2140.lcssa = phi i32 [ %.1139, %315 ], [ %.2140330, %.lr.ph331 ], [ %327, %322 ]
   %331 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %332 = trunc i64 %331 to i32
   %333 = icmp sgt i32 %3, %332
@@ -2073,9 +2073,9 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread: ; preds = %_ZN6icu_7712P
   %261 = add i32 %244, %260
   %262 = sub i32 %3, %261
   %263 = icmp slt i32 %262, 1
-  br i1 %263, label %.thread199, label %.lr.ph236
+  br i1 %263, label %.thread199, label %.lr.ph254
 
-.lr.ph236:                                        ; preds = %243, %.critedge205
+.lr.ph254:                                        ; preds = %243, %.critedge205
   %264 = phi i32 [ %304, %.critedge205 ], [ %262, %243 ]
   %265 = phi i32 [ %303, %.critedge205 ], [ %260, %243 ]
   %266 = phi i32 [ %299, %.critedge205 ], [ %257, %243 ]
@@ -2084,7 +2084,7 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread: ; preds = %_ZN6icu_7712P
   %.not130 = icmp eq i8 %268, 0
   br i1 %.not130, label %.critedge205, label %269
 
-269:                                              ; preds = %.lr.ph236
+269:                                              ; preds = %.lr.ph254
   %270 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %26, i32 noundef %267)
   %.not131 = icmp eq i8 %270, 0
   br i1 %.not131, label %.critedge205, label %.noexc185
@@ -2142,7 +2142,7 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread: ; preds = %_ZN6icu_7712P
   %296 = icmp slt i32 %292, 1
   br i1 %296, label %.critedge205, label %.thread199
 
-.critedge205:                                     ; preds = %291, %269, %.lr.ph236
+.critedge205:                                     ; preds = %291, %269, %.lr.ph254
   %297 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %298 = trunc i64 %297 to i32
   %299 = call i32 @utext_next32_77(ptr noundef %1)
@@ -2152,7 +2152,7 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread: ; preds = %_ZN6icu_7712P
   %303 = add nsw i32 %302, %265
   %304 = sub nsw i32 %264, %302
   %305 = icmp slt i32 %304, 1
-  br i1 %305, label %.thread199, label %.lr.ph236
+  br i1 %305, label %.thread199, label %.lr.ph254
 
 .thread199:                                       ; preds = %.critedge205, %291, %243
   %.lcssa = phi i32 [ %260, %243 ], [ %303, %.critedge205 ], [ %265, %291 ]
@@ -2174,29 +2174,29 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread: ; preds = %_ZN6icu_7712P
   %313 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %314 = trunc i64 %313 to i32
   %315 = icmp sgt i32 %3, %314
-  br i1 %315, label %.lr.ph240, label %.critedge3
+  br i1 %315, label %.lr.ph258, label %.critedge3
 
-.lr.ph240:                                        ; preds = %312, %319
+.lr.ph258:                                        ; preds = %312, %319
   %316 = phi i32 [ %326, %319 ], [ %314, %312 ]
-  %.2106239 = phi i32 [ %324, %319 ], [ %.1105, %312 ]
+  %.2106257 = phi i32 [ %324, %319 ], [ %.1105, %312 ]
   %317 = call i32 @utext_current32_77(ptr noundef %1)
   %318 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %27, i32 noundef %317)
   %.not134 = icmp eq i8 %318, 0
   br i1 %.not134, label %.critedge3, label %319
 
-319:                                              ; preds = %.lr.ph240
+319:                                              ; preds = %.lr.ph258
   %320 = call i32 @utext_next32_77(ptr noundef %1)
   %321 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %322 = trunc i64 %321 to i32
-  %323 = sub i32 %.2106239, %316
+  %323 = sub i32 %.2106257, %316
   %324 = add i32 %323, %322
   %325 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %326 = trunc i64 %325 to i32
   %327 = icmp sgt i32 %3, %326
-  br i1 %327, label %.lr.ph240, label %.critedge3, !llvm.loop !47
+  br i1 %327, label %.lr.ph258, label %.critedge3, !llvm.loop !47
 
-.critedge3:                                       ; preds = %.lr.ph240, %319, %312
-  %.2106.lcssa = phi i32 [ %.1105, %312 ], [ %.2106239, %.lr.ph240 ], [ %324, %319 ]
+.critedge3:                                       ; preds = %.lr.ph258, %319, %312
+  %.2106.lcssa = phi i32 [ %.1105, %312 ], [ %.2106257, %.lr.ph258 ], [ %324, %319 ]
   %328 = icmp sgt i32 %.2106.lcssa, 0
   br i1 %328, label %329, label %_ZN6icu_779UVector324pushEiR10UErrorCode.exit
 
@@ -2932,9 +2932,9 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread: ; preds = %_ZN6icu_7712P
   %261 = add i32 %244, %260
   %262 = sub i32 %3, %261
   %263 = icmp slt i32 %262, 1
-  br i1 %263, label %.thread199, label %.lr.ph236
+  br i1 %263, label %.thread199, label %.lr.ph254
 
-.lr.ph236:                                        ; preds = %243, %.critedge205
+.lr.ph254:                                        ; preds = %243, %.critedge205
   %264 = phi i32 [ %304, %.critedge205 ], [ %262, %243 ]
   %265 = phi i32 [ %303, %.critedge205 ], [ %260, %243 ]
   %266 = phi i32 [ %299, %.critedge205 ], [ %257, %243 ]
@@ -2943,7 +2943,7 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread: ; preds = %_ZN6icu_7712P
   %.not130 = icmp eq i8 %268, 0
   br i1 %.not130, label %.critedge205, label %269
 
-269:                                              ; preds = %.lr.ph236
+269:                                              ; preds = %.lr.ph254
   %270 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %26, i32 noundef %267)
   %.not131 = icmp eq i8 %270, 0
   br i1 %.not131, label %.critedge205, label %.noexc185
@@ -3001,7 +3001,7 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread: ; preds = %_ZN6icu_7712P
   %296 = icmp slt i32 %292, 1
   br i1 %296, label %.critedge205, label %.thread199
 
-.critedge205:                                     ; preds = %291, %269, %.lr.ph236
+.critedge205:                                     ; preds = %291, %269, %.lr.ph254
   %297 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %298 = trunc i64 %297 to i32
   %299 = call i32 @utext_next32_77(ptr noundef %1)
@@ -3011,7 +3011,7 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread: ; preds = %_ZN6icu_7712P
   %303 = add nsw i32 %302, %265
   %304 = sub nsw i32 %264, %302
   %305 = icmp slt i32 %304, 1
-  br i1 %305, label %.thread199, label %.lr.ph236
+  br i1 %305, label %.thread199, label %.lr.ph254
 
 .thread199:                                       ; preds = %.critedge205, %291, %243
   %.lcssa = phi i32 [ %260, %243 ], [ %303, %.critedge205 ], [ %265, %291 ]
@@ -3033,29 +3033,29 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread: ; preds = %_ZN6icu_7712P
   %313 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %314 = trunc i64 %313 to i32
   %315 = icmp sgt i32 %3, %314
-  br i1 %315, label %.lr.ph240, label %.critedge3
+  br i1 %315, label %.lr.ph258, label %.critedge3
 
-.lr.ph240:                                        ; preds = %312, %319
+.lr.ph258:                                        ; preds = %312, %319
   %316 = phi i32 [ %326, %319 ], [ %314, %312 ]
-  %.2106239 = phi i32 [ %324, %319 ], [ %.1105, %312 ]
+  %.2106257 = phi i32 [ %324, %319 ], [ %.1105, %312 ]
   %317 = call i32 @utext_current32_77(ptr noundef %1)
   %318 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %27, i32 noundef %317)
   %.not134 = icmp eq i8 %318, 0
   br i1 %.not134, label %.critedge3, label %319
 
-319:                                              ; preds = %.lr.ph240
+319:                                              ; preds = %.lr.ph258
   %320 = call i32 @utext_next32_77(ptr noundef %1)
   %321 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %322 = trunc i64 %321 to i32
-  %323 = sub i32 %.2106239, %316
+  %323 = sub i32 %.2106257, %316
   %324 = add i32 %323, %322
   %325 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %326 = trunc i64 %325 to i32
   %327 = icmp sgt i32 %3, %326
-  br i1 %327, label %.lr.ph240, label %.critedge3, !llvm.loop !53
+  br i1 %327, label %.lr.ph258, label %.critedge3, !llvm.loop !53
 
-.critedge3:                                       ; preds = %.lr.ph240, %319, %312
-  %.2106.lcssa = phi i32 [ %.1105, %312 ], [ %.2106239, %.lr.ph240 ], [ %324, %319 ]
+.critedge3:                                       ; preds = %.lr.ph258, %319, %312
+  %.2106.lcssa = phi i32 [ %.1105, %312 ], [ %.2106257, %.lr.ph258 ], [ %324, %319 ]
   %328 = icmp sgt i32 %.2106.lcssa, 0
   br i1 %328, label %329, label %_ZN6icu_779UVector324pushEiR10UErrorCode.exit
 
@@ -3809,9 +3809,9 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread: ; preds = %_ZN6icu_7712P
   %261 = add i32 %244, %260
   %262 = sub i32 %3, %261
   %263 = icmp slt i32 %262, 1
-  br i1 %263, label %.thread199, label %.lr.ph236
+  br i1 %263, label %.thread199, label %.lr.ph254
 
-.lr.ph236:                                        ; preds = %243, %.critedge205
+.lr.ph254:                                        ; preds = %243, %.critedge205
   %264 = phi i32 [ %304, %.critedge205 ], [ %262, %243 ]
   %265 = phi i32 [ %303, %.critedge205 ], [ %260, %243 ]
   %266 = phi i32 [ %299, %.critedge205 ], [ %257, %243 ]
@@ -3820,7 +3820,7 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread: ; preds = %_ZN6icu_7712P
   %.not130 = icmp eq i8 %268, 0
   br i1 %.not130, label %.critedge205, label %269
 
-269:                                              ; preds = %.lr.ph236
+269:                                              ; preds = %.lr.ph254
   %270 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %25, i32 noundef %267)
   %.not131 = icmp eq i8 %270, 0
   br i1 %.not131, label %.critedge205, label %.noexc185
@@ -3878,7 +3878,7 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread: ; preds = %_ZN6icu_7712P
   %296 = icmp slt i32 %292, 1
   br i1 %296, label %.critedge205, label %.thread199
 
-.critedge205:                                     ; preds = %291, %269, %.lr.ph236
+.critedge205:                                     ; preds = %291, %269, %.lr.ph254
   %297 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %298 = trunc i64 %297 to i32
   %299 = call i32 @utext_next32_77(ptr noundef %1)
@@ -3888,7 +3888,7 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread: ; preds = %_ZN6icu_7712P
   %303 = add nsw i32 %302, %265
   %304 = sub nsw i32 %264, %302
   %305 = icmp slt i32 %304, 1
-  br i1 %305, label %.thread199, label %.lr.ph236
+  br i1 %305, label %.thread199, label %.lr.ph254
 
 .thread199:                                       ; preds = %.critedge205, %291, %243
   %.lcssa = phi i32 [ %260, %243 ], [ %303, %.critedge205 ], [ %265, %291 ]
@@ -3910,29 +3910,29 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread: ; preds = %_ZN6icu_7712P
   %313 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %314 = trunc i64 %313 to i32
   %315 = icmp sgt i32 %3, %314
-  br i1 %315, label %.lr.ph240, label %.critedge3
+  br i1 %315, label %.lr.ph258, label %.critedge3
 
-.lr.ph240:                                        ; preds = %312, %319
+.lr.ph258:                                        ; preds = %312, %319
   %316 = phi i32 [ %326, %319 ], [ %314, %312 ]
-  %.2106239 = phi i32 [ %324, %319 ], [ %.1105, %312 ]
+  %.2106257 = phi i32 [ %324, %319 ], [ %.1105, %312 ]
   %317 = call i32 @utext_current32_77(ptr noundef %1)
   %318 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %26, i32 noundef %317)
   %.not134 = icmp eq i8 %318, 0
   br i1 %.not134, label %.critedge3, label %319
 
-319:                                              ; preds = %.lr.ph240
+319:                                              ; preds = %.lr.ph258
   %320 = call i32 @utext_next32_77(ptr noundef %1)
   %321 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %322 = trunc i64 %321 to i32
-  %323 = sub i32 %.2106239, %316
+  %323 = sub i32 %.2106257, %316
   %324 = add i32 %323, %322
   %325 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %326 = trunc i64 %325 to i32
   %327 = icmp sgt i32 %3, %326
-  br i1 %327, label %.lr.ph240, label %.critedge3, !llvm.loop !59
+  br i1 %327, label %.lr.ph258, label %.critedge3, !llvm.loop !59
 
-.critedge3:                                       ; preds = %.lr.ph240, %319, %312
-  %.2106.lcssa = phi i32 [ %.1105, %312 ], [ %.2106239, %.lr.ph240 ], [ %324, %319 ]
+.critedge3:                                       ; preds = %.lr.ph258, %319, %312
+  %.2106.lcssa = phi i32 [ %.1105, %312 ], [ %.2106257, %.lr.ph258 ], [ %324, %319 ]
   %328 = icmp sgt i32 %.2106.lcssa, 0
   br i1 %328, label %329, label %_ZN6icu_779UVector324pushEiR10UErrorCode.exit
 
@@ -5079,9 +5079,9 @@ _ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit420: ; preds = %301, %172
 315:                                              ; preds = %307
   %316 = load ptr, ptr %9, align 8, !tbaa !75
   %.not575 = icmp eq ptr %316, null
-  br i1 %.not575, label %317, label %.preheader708
+  br i1 %.not575, label %317, label %.preheader764
 
-.preheader708:                                    ; preds = %321, %315
+.preheader764:                                    ; preds = %321, %315
   br label %328
 
 317:                                              ; preds = %315
@@ -5097,7 +5097,7 @@ _ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit420: ; preds = %301, %172
   call void @_ZN6icu_7712LocalPointerINS_9UVector32EE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %318, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %322 = load i32, ptr %6, align 4, !tbaa !6
   %323 = icmp slt i32 %322, 1
-  br i1 %323, label %.preheader708, label %.critedge395
+  br i1 %323, label %.preheader764, label %.critedge395
 
 324:                                              ; preds = %305
   %325 = landingpad { ptr, i32 }
@@ -5110,9 +5110,9 @@ _ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit420: ; preds = %301, %172
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %318) #12
   br label %873
 
-328:                                              ; preds = %.preheader708, %366
-  %.0303 = phi i32 [ %367, %366 ], [ 0, %.preheader708 ]
-  %.0302 = phi i32 [ %368, %366 ], [ 0, %.preheader708 ]
+328:                                              ; preds = %.preheader764, %366
+  %.0303 = phi i32 [ %367, %366 ], [ 0, %.preheader764 ]
+  %.0302 = phi i32 [ %368, %366 ], [ 0, %.preheader764 ]
   %329 = load ptr, ptr %9, align 8, !tbaa !75
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
   %331 = load i32, ptr %330, align 8
@@ -6437,19 +6437,19 @@ _ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit548: ; preds = %167, %170, %.cr
 
 .critedge395:                                     ; preds = %.thread, %_ZN6icu_7712LocalPointerINS_9UVector32EE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit, %853, %321, %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit548
   %.3.ph = phi i32 [ 0, %.thread ], [ 0, %_ZN6icu_7712LocalPointerINS_9UVector32EE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit ], [ 0, %321 ], [ %.2274, %853 ], [ 0, %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit548 ]
-  %.pr686 = load ptr, ptr %9, align 8, !tbaa !75
-  %868 = icmp eq ptr %.pr686, null
+  %.pr742 = load ptr, ptr %9, align 8, !tbaa !75
+  %868 = icmp eq ptr %.pr742, null
   br i1 %868, label %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit549, label %869
 
 869:                                              ; preds = %.critedge395
-  %870 = load ptr, ptr %.pr686, align 8, !tbaa !3
+  %870 = load ptr, ptr %.pr742, align 8, !tbaa !3
   %871 = getelementptr inbounds nuw i8, ptr %870, i64 8
   %872 = load ptr, ptr %871, align 8
-  call void %872(ptr noundef nonnull align 8 dereferenceable(32) %.pr686) #12
+  call void %872(ptr noundef nonnull align 8 dereferenceable(32) %.pr742) #12
   br label %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit549
 
 _ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit549: ; preds = %.critedge395.thread, %.critedge395, %869
-  %.3688 = phi i32 [ 0, %.critedge395.thread ], [ %.3.ph, %.critedge395 ], [ %.3.ph, %869 ]
+  %.3744 = phi i32 [ 0, %.critedge395.thread ], [ %.3.ph, %.critedge395 ], [ %.3.ph, %869 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -6475,7 +6475,7 @@ _ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit550: ; preds = %876, %873
   resume { ptr, i32 } %.pn384.pn.pn.pn
 
 880:                                              ; preds = %7, %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit549
-  %.0 = phi i32 [ %.3688, %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit549 ], [ 0, %7 ]
+  %.0 = phi i32 [ %.3744, %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit549 ], [ 0, %7 ]
   ret i32 %.0
 }
 

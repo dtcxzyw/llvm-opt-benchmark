@@ -1315,7 +1315,7 @@ define void @_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc i8 @_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer16next_token_inner17h567361aec9f82804E(ptr align 8 %0, i32 %1) unnamed_addr #0 {
+define internal fastcc range(i8 91, 90) i8 @_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer16next_token_inner17h567361aec9f82804E(ptr align 8 %0, i32 %1) unnamed_addr #0 {
   %3 = alloca [12 x i8], align 4
   %4 = alloca [24 x i8], align 8
   %5 = alloca [12 x i8], align 4

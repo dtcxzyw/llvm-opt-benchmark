@@ -739,9 +739,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit202: ; preds = %_Z
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit208.invoke unwind label %39
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit208.invoke: ; preds = %198, %194
-  %.sink336 = phi i32 [ %2, %194 ], [ %4, %198 ]
+  %.sink370 = phi i32 [ %2, %194 ], [ %4, %198 ]
   %201 = phi ptr [ %195, %194 ], [ %199, %198 ]
-  %202 = zext i32 %.sink336 to i64
+  %202 = zext i32 %.sink370 to i64
   %203 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %201, i64 noundef %202)
           to label %_ZNSolsEj.exit206 unwind label %39
 
@@ -929,9 +929,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit230: ; preds = %_Z
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit236.invoke unwind label %39
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit236.invoke: ; preds = %261, %257
-  %.sink337 = phi i32 [ %2, %257 ], [ %4, %261 ]
+  %.sink371 = phi i32 [ %2, %257 ], [ %4, %261 ]
   %264 = phi ptr [ %258, %257 ], [ %262, %261 ]
-  %265 = zext i32 %.sink337 to i64
+  %265 = zext i32 %.sink371 to i64
   %266 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %264, i64 noundef %265)
           to label %_ZNSolsEj.exit234 unwind label %39
 
@@ -1140,9 +1140,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit264: ; preds = %_Z
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit266: ; preds = %332
   %335 = zext i32 %2 to i64
-  br label %.invoke338
+  br label %.invoke372
 
-336:                                              ; preds = %.invoke338, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit281, %362, %358, %355, %339, %332, %343, %330
+336:                                              ; preds = %.invoke372, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit281, %362, %358, %355, %339, %332, %343, %330
   %337 = landingpad { ptr, i32 }
           cleanup
   br label %418
@@ -1158,7 +1158,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit266: ; preds = %332
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit270: ; preds = %339
   %342 = zext i32 %4 to i64
-  br label %.invoke338
+  br label %.invoke372
 
 343:                                              ; preds = %338
   %344 = load ptr, ptr %5, align 8, !tbaa !20
@@ -1217,9 +1217,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit281: ; preds = %362
   %switch.select.i.i283 = select i1 %switch.selectcmp.i.i282, i64 16, i64 18
   %switch.selectcmp1.i.i284 = icmp eq i32 %365, 0
   %switch.select2.i.i285 = select i1 %switch.selectcmp1.i.i284, i64 8, i64 %switch.select.i.i283
-  br label %.invoke338
+  br label %.invoke372
 
-.invoke338:                                       ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit266, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit270, %366
+.invoke372:                                       ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit266, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit270, %366
   %367 = phi ptr [ %363, %366 ], [ %340, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit270 ], [ %333, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit266 ]
   %368 = phi i64 [ %switch.select2.i.i285, %366 ], [ %342, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit270 ], [ %335, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit266 ]
   %369 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %367, i64 noundef %368)
@@ -1329,7 +1329,7 @@ _ZN9decl_infoD2Ev.exit305:                        ; preds = %_ZN11ast_manager12m
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %418
 
-_ZNSolsEj.exit268:                                ; preds = %.invoke338
+_ZNSolsEj.exit268:                                ; preds = %.invoke372
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   invoke void @_ZNKRSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %27, ptr noundef nonnull align 8 dereferenceable(128) %8)
           to label %404 unwind label %406
@@ -1396,9 +1396,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit308: ; preds = %_Z
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit314.invoke unwind label %39
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit314.invoke: ; preds = %424, %420
-  %.sink339 = phi i32 [ %2, %420 ], [ %4, %424 ]
+  %.sink373 = phi i32 [ %2, %420 ], [ %4, %424 ]
   %427 = phi ptr [ %421, %420 ], [ %425, %424 ]
-  %428 = zext i32 %.sink339 to i64
+  %428 = zext i32 %.sink373 to i64
   %429 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %427, i64 noundef %428)
           to label %_ZNSolsEj.exit312 unwind label %39
 

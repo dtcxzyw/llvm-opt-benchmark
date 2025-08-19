@@ -494,8 +494,8 @@ define dso_local noundef i32 @_Z29rcGetChunksOverlappingSegmentPK15rcChunkyTriMe
   %.042 = phi i32 [ 0, %.lr.ph ], [ %.1, %66 ]
   %.02641 = phi i32 [ 0, %.lr.ph ], [ %.12739, %66 ]
   %13 = load ptr, ptr %0, align 8
-  %14 = sext i32 %.042 to i64
-  %15 = getelementptr inbounds %struct.rcChunkyTriMeshNode, ptr %13, i64 %14
+  %14 = zext nneg i32 %.042 to i64
+  %15 = getelementptr inbounds nuw %struct.rcChunkyTriMeshNode, ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.val = load float, ptr %2, align 4
   %.val29 = load float, ptr %9, align 4
@@ -581,7 +581,7 @@ _ZL19checkOverlapSegmentPKfS0_S0_S0_.exit:        ; preds = %50
 .thread:                                          ; preds = %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit, %55, %59
   %.pre = phi i32 [ %.pre43, %59 ], [ %.pre43, %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit ], [ %.pre.pre, %55 ]
   %.12740 = phi i32 [ %.02641, %59 ], [ %.02641, %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit ], [ %58, %55 ]
-  %63 = add nsw i32 %.042, 1
+  %63 = add nuw nsw i32 %.042, 1
   br label %66
 
 64:                                               ; preds = %59

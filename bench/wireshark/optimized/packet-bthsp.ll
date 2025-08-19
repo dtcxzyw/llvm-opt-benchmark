@@ -287,9 +287,9 @@ define internal i32 @dissect_bthsp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %59 = load ptr, ptr %55, align 8
   %switch.selectcmp = icmp eq i32 %58, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.70, ptr @.str.71
-  %switch.selectcmp376 = icmp eq i32 %58, 0
-  %switch.select377 = select i1 %switch.selectcmp376, ptr @.str.69, ptr %switch.select
-  tail call void @col_set_str(ptr noundef %59, i32 noundef 25, ptr noundef nonnull %switch.select377)
+  %switch.selectcmp390 = icmp eq i32 %58, 0
+  %switch.select391 = select i1 %switch.selectcmp390, ptr @.str.69, ptr %switch.select
+  tail call void @col_set_str(ptr noundef %59, i32 noundef 25, ptr noundef nonnull %switch.select391)
   %60 = load i32, ptr @hsp_role, align 4
   switch i32 %60, label %.thread315 [
     i32 1, label %61

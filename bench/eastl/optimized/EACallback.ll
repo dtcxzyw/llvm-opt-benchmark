@@ -1367,12 +1367,12 @@ if.end33:                                         ; preds = %if.end14, %if.then1
   %mul = fmul double %12, %conv24
   %conv26 = fptosi double %mul to i64
   %..i = call noundef i64 @llvm.smin.i64(i64 %sub21, i64 %conv26)
-  %div2910 = udiv i64 %..i, 2000000
+  %div2913 = udiv i64 %..i, 2000000
   %cmp34 = icmp slt i64 %..i, 2000000
   br i1 %cmp34, label %if.end36, label %if.else
 
 if.else:                                          ; preds = %if.end, %if.end33
-  %timeToNextEventMs.07 = phi i64 [ %div2910, %if.end33 ], [ 50, %if.end ]
+  %timeToNextEventMs.07 = phi i64 [ %div2913, %if.end33 ], [ 50, %if.end ]
   %div.i8 = udiv i64 %timeToNextEventMs.07, 1000
   store i64 %div.i8, ptr %ref.tmp, align 8
   %mul.neg.i = mul nsw i64 %div.i8, -1000

@@ -1536,13 +1536,13 @@ if.then.i:                                        ; preds = %invoke.cont286
 if.then.i.i.i.i577:                               ; preds = %if.then.i
   store double 0.000000e+00, ptr %180, align 8, !tbaa !52
   %incdec.ptr.i.i.i.i578 = getelementptr i8, ptr %180, i64 8
-  %sub.i.i.i.i = add i64 %sub.i, -1
+  %sub.i.i.i.i = add nsw i64 %sub.i, -1
   %cmp.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i577
-  %183 = shl i64 %sub.i, 3
-  %184 = add i64 %183, -8
+  %183 = shl nuw nsw i64 %sub.i, 3
+  %184 = add nsw i64 %183, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i578, i8 0, i64 %184, i1 false), !tbaa !52
   %add.ptr.idx.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i, 3
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i578, i64 %add.ptr.idx.i.i.i.i.i.i
@@ -2157,12 +2157,12 @@ if.then.i.i.i523:                                 ; preds = %ehcleanup312
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit528
 
 _ZNSt6vectorIdSaIdEED2Ev.exit528:                 ; preds = %ehcleanup312.thread, %ehcleanup312, %if.then.i.i.i523
-  %.pn34.pn.pn.pn.pn.pn.pn648 = phi { ptr, i32 } [ %231, %ehcleanup312.thread ], [ %.pn34.pn.pn.pn.pn.pn, %ehcleanup312 ], [ %.pn34.pn.pn.pn.pn.pn, %if.then.i.i.i523 ]
+  %.pn34.pn.pn.pn.pn.pn.pn737 = phi { ptr, i32 } [ %231, %ehcleanup312.thread ], [ %.pn34.pn.pn.pn.pn.pn, %ehcleanup312 ], [ %.pn34.pn.pn.pn.pn.pn, %if.then.i.i.i523 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %mergedEvolutionTimes)
   br label %ehcleanup315
 
 ehcleanup315:                                     ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit528, %ehcleanup178, %ehcleanup149
-  %.pn34.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn34.pn.pn.pn.pn.pn.pn648, %_ZNSt6vectorIdSaIdEED2Ev.exit528 ], [ %.pn28.pn.pn.pn.pn, %ehcleanup178 ], [ %.pn20.pn.pn.pn.pn.pn.pn, %ehcleanup149 ]
+  %.pn34.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn34.pn.pn.pn.pn.pn.pn737, %_ZNSt6vectorIdSaIdEED2Ev.exit528 ], [ %.pn28.pn.pn.pn.pn, %ehcleanup178 ], [ %.pn20.pn.pn.pn.pn.pn.pn, %ehcleanup149 ]
   %250 = load ptr, ptr %ref.tmp, align 8, !tbaa !51
   %tobool.not.i.i.i530 = icmp eq ptr %250, null
   br i1 %tobool.not.i.i.i530, label %_ZNSt6vectorIdSaIdEED2Ev.exit536, label %if.then.i.i.i531

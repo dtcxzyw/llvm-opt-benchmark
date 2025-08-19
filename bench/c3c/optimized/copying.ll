@@ -1738,7 +1738,7 @@ define dso_local noundef ptr @copy_type_info_single(ptr noundef readonly capture
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @copy_type_info(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %common.ret41, label %3
+  br i1 %.not, label %common.ret44, label %3
 
 3:                                                ; preds = %2
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #5
@@ -1746,15 +1746,15 @@ define internal fastcc noundef ptr @copy_type_info(ptr noundef captures(address)
   %5 = load i16, ptr %1, align 8
   %6 = and i16 %5, 7
   %7 = icmp eq i16 %6, 2
-  br i1 %7, label %common.ret41, label %8
+  br i1 %7, label %common.ret44, label %8
 
 8:                                                ; preds = %3
   %9 = lshr i16 %5, 3
   %10 = and i16 %9, 63
   switch i16 %10, label %77 [
-    i16 0, label %common.ret41
-    i16 2, label %common.ret41
-    i16 1, label %common.ret41
+    i16 0, label %common.ret44
+    i16 2, label %common.ret44
+    i16 1, label %common.ret44
     i16 13, label %11
     i16 6, label %53
     i16 5, label %53
@@ -1854,7 +1854,7 @@ expand_.exit.i:                                   ; preds = %29, %25
 copy_expr_list.exit:                              ; preds = %expand_.exit.i, %11, %17
   %.021.i.lcssa = phi ptr [ null, %17 ], [ null, %11 ], [ %45, %expand_.exit.i ]
   store ptr %.021.i.lcssa, ptr %15, align 8
-  br label %common.ret41
+  br label %common.ret44
 
 53:                                               ; preds = %8, %8, %8, %8
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1862,11 +1862,11 @@ copy_expr_list.exit:                              ; preds = %expand_.exit.i, %11
   %56 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %55)
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %56, ptr %57, align 8
-  br label %common.ret41
+  br label %common.ret44
 
-common.ret41:                                     ; preds = %8, %8, %8, %3, %2, %53, %copy_expr_list.exit, %72, %67, %58
-  %common.ret41.op = phi ptr [ %4, %58 ], [ %4, %67 ], [ %4, %72 ], [ %4, %copy_expr_list.exit ], [ %4, %53 ], [ null, %2 ], [ %4, %3 ], [ %4, %8 ], [ %4, %8 ], [ %4, %8 ]
-  ret ptr %common.ret41.op
+common.ret44:                                     ; preds = %8, %8, %8, %3, %2, %53, %copy_expr_list.exit, %72, %67, %58
+  %common.ret44.op = phi ptr [ %4, %58 ], [ %4, %67 ], [ %4, %72 ], [ %4, %copy_expr_list.exit ], [ %4, %53 ], [ null, %2 ], [ %4, %3 ], [ %4, %8 ], [ %4, %8 ], [ %4, %8 ]
+  ret ptr %common.ret44.op
 
 58:                                               ; preds = %8, %8
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1879,7 +1879,7 @@ common.ret41:                                     ; preds = %8, %8, %8, %3, %2, 
   %65 = load ptr, ptr %59, align 8
   %66 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %65)
   store ptr %66, ptr %63, align 8
-  br label %common.ret41
+  br label %common.ret44
 
 67:                                               ; preds = %8, %8, %8
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1887,7 +1887,7 @@ common.ret41:                                     ; preds = %8, %8, %8, %3, %2, 
   %70 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %69)
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %70, ptr %71, align 8
-  br label %common.ret41
+  br label %common.ret44
 
 72:                                               ; preds = %8
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1895,7 +1895,7 @@ common.ret41:                                     ; preds = %8, %8, %8, %3, %2, 
   %75 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %74)
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %75, ptr %76, align 8
-  br label %common.ret41
+  br label %common.ret44
 
 77:                                               ; preds = %8
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.copy_type_info, ptr noundef nonnull @.str.2, i32 noundef 852) #6
@@ -1931,7 +1931,7 @@ define dso_local noundef ptr @copy_expr_single(ptr noundef captures(address_is_n
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @copy_expr(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %common.ret575, label %3
+  br i1 %.not, label %common.ret610, label %3
 
 3:                                                ; preds = %2
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #5
@@ -1948,10 +1948,10 @@ define internal fastcc noundef ptr @copy_expr(ptr noundef captures(address) %0, 
     i8 66, label %58
     i8 36, label %65
     i8 52, label %72
-    i8 40, label %common.ret575
-    i8 6, label %common.ret575
-    i8 46, label %common.ret575
-    i8 41, label %common.ret575
+    i8 40, label %common.ret610
+    i8 6, label %common.ret610
+    i8 46, label %common.ret610
+    i8 41, label %common.ret610
     i8 65, label %87
     i8 16, label %89
     i8 43, label %104
@@ -1962,12 +1962,12 @@ define internal fastcc noundef ptr @copy_expr(ptr noundef captures(address) %0, 
     i8 59, label %180
     i8 10, label %184
     i8 34, label %191
-    i8 22, label %common.ret575
-    i8 33, label %common.ret575
-    i8 56, label %common.ret575
-    i8 57, label %common.ret575
-    i8 11, label %common.ret575
-    i8 37, label %common.ret575
+    i8 22, label %common.ret610
+    i8 33, label %common.ret610
+    i8 56, label %common.ret610
+    i8 57, label %common.ret610
+    i8 11, label %common.ret610
+    i8 37, label %common.ret610
     i8 25, label %209
     i8 62, label %216
     i8 48, label %220
@@ -2013,16 +2013,16 @@ define internal fastcc noundef ptr @copy_expr(ptr noundef captures(address) %0, 
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.copy_expr, ptr noundef nonnull @.str.2, i32 noundef 298) #6
   unreachable
 
-common.ret575:                                    ; preds = %621, %fixup.exit519, %588, %599, %420, %436, %438, %435, %fixup.exit507, %454, %fixup.exit511, %292, %292, %292, %292, %292, %191, %208, %fixup.exit, %178, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %65, %68, %2, %664, %632, %628, %624, %531, %526, %483, %415, %414, %389, %368, %367, %349, %341, %340, %310, %copy_range.exit, %248, %216, %184, %180, %148, %147, %132, %103, %87, %86, %58, %57, %33, %201, %447, %428, %614, %622, %597, %527, %416, %393, %345, %209, %176, %160, %152, %12, %8
-  %common.ret575.op = phi ptr [ %4, %8 ], [ %4, %12 ], [ %4, %152 ], [ %4, %160 ], [ %4, %176 ], [ %4, %209 ], [ %4, %345 ], [ %4, %393 ], [ %4, %416 ], [ %4, %527 ], [ %4, %597 ], [ %4, %622 ], [ %4, %33 ], [ %4, %57 ], [ %4, %58 ], [ %4, %86 ], [ %4, %87 ], [ %4, %103 ], [ %4, %132 ], [ %4, %147 ], [ %4, %148 ], [ %4, %180 ], [ %4, %184 ], [ %4, %216 ], [ %4, %248 ], [ %4, %copy_range.exit ], [ %4, %310 ], [ %4, %340 ], [ %4, %341 ], [ %4, %349 ], [ %4, %367 ], [ %4, %368 ], [ %4, %389 ], [ %4, %414 ], [ %1, %415 ], [ %4, %483 ], [ %4, %526 ], [ %4, %531 ], [ %4, %624 ], [ %4, %628 ], [ %4, %632 ], [ %4, %664 ], [ null, %2 ], [ %4, %68 ], [ %4, %65 ], [ %4, %3 ], [ %4, %3 ], [ %4, %3 ], [ %4, %3 ], [ %4, %3 ], [ %4, %3 ], [ %4, %3 ], [ %4, %3 ], [ %4, %3 ], [ %4, %3 ], [ %4, %178 ], [ %4, %fixup.exit ], [ %4, %208 ], [ %4, %191 ], [ %4, %292 ], [ %4, %292 ], [ %4, %292 ], [ %4, %292 ], [ %4, %292 ], [ %4, %fixup.exit511 ], [ %4, %454 ], [ %4, %fixup.exit507 ], [ %4, %435 ], [ %4, %438 ], [ %4, %436 ], [ %4, %420 ], [ %4, %599 ], [ %4, %588 ], [ %4, %fixup.exit519 ], [ %4, %621 ], [ %4, %201 ], [ %4, %447 ], [ %4, %428 ], [ %4, %614 ]
-  ret ptr %common.ret575.op
+common.ret610:                                    ; preds = %621, %fixup.exit519, %588, %599, %420, %436, %438, %435, %fixup.exit507, %454, %fixup.exit511, %292, %292, %292, %292, %292, %191, %208, %fixup.exit, %178, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %65, %68, %2, %664, %632, %628, %624, %531, %526, %483, %415, %414, %389, %368, %367, %349, %341, %340, %310, %copy_range.exit, %248, %216, %184, %180, %148, %147, %132, %103, %87, %86, %58, %57, %33, %201, %447, %428, %614, %622, %597, %527, %416, %393, %345, %209, %176, %160, %152, %12, %8
+  %common.ret610.op = phi ptr [ %4, %8 ], [ %4, %12 ], [ %4, %152 ], [ %4, %160 ], [ %4, %176 ], [ %4, %209 ], [ %4, %345 ], [ %4, %393 ], [ %4, %416 ], [ %4, %527 ], [ %4, %597 ], [ %4, %622 ], [ %4, %33 ], [ %4, %57 ], [ %4, %58 ], [ %4, %86 ], [ %4, %87 ], [ %4, %103 ], [ %4, %132 ], [ %4, %147 ], [ %4, %148 ], [ %4, %180 ], [ %4, %184 ], [ %4, %216 ], [ %4, %248 ], [ %4, %copy_range.exit ], [ %4, %310 ], [ %4, %340 ], [ %4, %341 ], [ %4, %349 ], [ %4, %367 ], [ %4, %368 ], [ %4, %389 ], [ %4, %414 ], [ %1, %415 ], [ %4, %483 ], [ %4, %526 ], [ %4, %531 ], [ %4, %624 ], [ %4, %628 ], [ %4, %632 ], [ %4, %664 ], [ null, %2 ], [ %4, %68 ], [ %4, %65 ], [ %4, %3 ], [ %4, %3 ], [ %4, %3 ], [ %4, %3 ], [ %4, %3 ], [ %4, %3 ], [ %4, %3 ], [ %4, %3 ], [ %4, %3 ], [ %4, %3 ], [ %4, %178 ], [ %4, %fixup.exit ], [ %4, %208 ], [ %4, %191 ], [ %4, %292 ], [ %4, %292 ], [ %4, %292 ], [ %4, %292 ], [ %4, %292 ], [ %4, %fixup.exit511 ], [ %4, %454 ], [ %4, %fixup.exit507 ], [ %4, %435 ], [ %4, %438 ], [ %4, %436 ], [ %4, %420 ], [ %4, %599 ], [ %4, %588 ], [ %4, %fixup.exit519 ], [ %4, %621 ], [ %4, %201 ], [ %4, %447 ], [ %4, %428 ], [ %4, %614 ]
+  ret ptr %common.ret610.op
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %10)
   store ptr %11, ptr %9, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2033,7 +2033,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   %17 = load ptr, ptr %13, align 8
   %18 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %17)
   store ptr %18, ptr %13, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2061,7 +2061,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   %35 = load ptr, ptr %34, align 8
   %36 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %35)
   store ptr %36, ptr %34, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 37:                                               ; preds = %3
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2093,7 +2093,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
 57:                                               ; preds = %37, %46
   %.0409 = phi i32 [ %56, %46 ], [ 0, %37 ]
   store i32 %.0409, ptr %44, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 58:                                               ; preds = %3
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2104,19 +2104,19 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   %63 = load ptr, ptr %62, align 8
   %64 = tail call fastcc ptr @copy_decl_list(ptr noundef %0, ptr noundef %63)
   store ptr %64, ptr %62, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 65:                                               ; preds = %3
   %66 = load i8, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777210), align 2
   %67 = trunc i8 %66 to i1
-  br i1 %67, label %68, label %common.ret575
+  br i1 %67, label %68, label %common.ret610
 
 68:                                               ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %70 = load ptr, ptr %69, align 8
   %71 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %70)
   store ptr %71, ptr %69, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 72:                                               ; preds = %3
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2140,12 +2140,12 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
 86:                                               ; preds = %72, %75
   %.0415 = phi i32 [ %85, %75 ], [ 0, %72 ]
   store i32 %.0415, ptr %73, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 87:                                               ; preds = %3
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @copy_range(ptr noundef %0, ptr noundef nonnull %88)
-  br label %common.ret575
+  br label %common.ret610
 
 89:                                               ; preds = %3
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -2169,7 +2169,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
 103:                                              ; preds = %89, %92
   %.0416 = phi i32 [ %102, %92 ], [ 0, %89 ]
   store i32 %.0416, ptr %90, align 4
-  br label %common.ret575
+  br label %common.ret610
 
 104:                                              ; preds = %3
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2214,7 +2214,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
 132:                                              ; preds = %118, %121
   %.0419 = phi i32 [ %131, %121 ], [ 0, %118 ]
   store i32 %.0419, ptr %119, align 4
-  br label %common.ret575
+  br label %common.ret610
 
 133:                                              ; preds = %3
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -2238,21 +2238,21 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
 147:                                              ; preds = %133, %136
   %.0421 = phi i32 [ %146, %136 ], [ 0, %133 ]
   store i32 %.0421, ptr %134, align 4
-  br label %common.ret575
+  br label %common.ret610
 
 148:                                              ; preds = %3
   %149 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %150 = load ptr, ptr %149, align 8
   %151 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %150)
   store ptr %151, ptr %149, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 152:                                              ; preds = %3
   %153 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %154 = load ptr, ptr %153, align 8
   %155 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %154)
   store ptr %155, ptr %153, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 156:                                              ; preds = %3
   %157 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2270,7 +2270,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   %165 = load ptr, ptr %164, align 8
   %166 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %165)
   store ptr %166, ptr %164, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 167:                                              ; preds = %156
   %168 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2287,19 +2287,19 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
 176:                                              ; preds = %167
   %177 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %175)
   store ptr %177, ptr %174, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 178:                                              ; preds = %167
   %179 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %175)
   store ptr %179, ptr %174, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 180:                                              ; preds = %3
   %181 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %182 = load ptr, ptr %181, align 8
   %183 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %182)
   store ptr %183, ptr %181, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 184:                                              ; preds = %3
   %185 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -2310,14 +2310,14 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   %189 = load ptr, ptr %188, align 8
   %190 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %189)
   store ptr %190, ptr %188, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 191:                                              ; preds = %3
   %192 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %193 = load i16, ptr %192, align 8
   %194 = and i16 %193, 3840
   %195 = icmp eq i16 %194, 512
-  br i1 %195, label %196, label %common.ret575
+  br i1 %195, label %196, label %common.ret610
 
 196:                                              ; preds = %191
   %197 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2329,7 +2329,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
 201:                                              ; preds = %202, %196
   %.09.i = phi ptr [ %200, %196 ], [ %203, %202 ]
   %.not.i = icmp eq ptr %.09.i, %0
-  br i1 %.not.i, label %common.ret575, label %202
+  br i1 %.not.i, label %common.ret610, label %202
 
 202:                                              ; preds = %201
   %203 = getelementptr inbounds i8, ptr %.09.i, i64 -16
@@ -2341,11 +2341,11 @@ fixup.exit:                                       ; preds = %202
   %206 = getelementptr inbounds i8, ptr %.09.i, i64 -8
   %207 = load ptr, ptr %206, align 8
   %.not493 = icmp eq ptr %207, null
-  br i1 %.not493, label %common.ret575, label %208
+  br i1 %.not493, label %common.ret610, label %208
 
 208:                                              ; preds = %fixup.exit
   store ptr %207, ptr %197, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 209:                                              ; preds = %3
   %210 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2356,14 +2356,14 @@ fixup.exit:                                       ; preds = %202
   %214 = load ptr, ptr %213, align 8
   %215 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %214)
   store ptr %215, ptr %213, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 216:                                              ; preds = %3
   %217 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %218 = load ptr, ptr %217, align 8
   %219 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %218)
   store ptr %219, ptr %217, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 220:                                              ; preds = %3, %3
   %221 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2408,7 +2408,7 @@ fixup.exit:                                       ; preds = %202
 248:                                              ; preds = %234, %237
   %.0424 = phi i32 [ %247, %237 ], [ 0, %234 ]
   store i32 %.0424, ptr %235, align 4
-  br label %common.ret575
+  br label %common.ret610
 
 249:                                              ; preds = %3
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.copy_expr, ptr noundef nonnull @.str.2, i32 noundef 406) #6
@@ -2478,18 +2478,18 @@ fixup.exit:                                       ; preds = %202
 copy_range.exit:                                  ; preds = %278, %281
   %.013.i = phi i32 [ %291, %281 ], [ 0, %278 ]
   store i32 %.013.i, ptr %279, align 4
-  br label %common.ret575
+  br label %common.ret610
 
 292:                                              ; preds = %3
   %293 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %294 = load i64, ptr %293, align 8
   %295 = trunc i64 %294 to i8
   switch i8 %295, label %311 [
-    i8 0, label %common.ret575
-    i8 3, label %common.ret575
-    i8 2, label %common.ret575
-    i8 6, label %common.ret575
-    i8 4, label %common.ret575
+    i8 0, label %common.ret610
+    i8 3, label %common.ret610
+    i8 2, label %common.ret610
+    i8 6, label %common.ret610
+    i8 4, label %common.ret610
     i8 5, label %296
     i8 1, label %296
   ]
@@ -2516,7 +2516,7 @@ copy_range.exit:                                  ; preds = %278, %281
 310:                                              ; preds = %296, %299
   %.0427 = phi i32 [ %309, %299 ], [ 0, %296 ]
   store i32 %.0427, ptr %297, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 311:                                              ; preds = %292
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.copy_expr, ptr noundef nonnull @.str.2, i32 noundef 427) #6
@@ -2565,28 +2565,28 @@ copy_range.exit:                                  ; preds = %278, %281
 340:                                              ; preds = %326, %329
   %.0 = phi i32 [ %339, %329 ], [ 0, %326 ]
   store i32 %.0, ptr %327, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 341:                                              ; preds = %3
   %342 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %343 = load ptr, ptr %342, align 8
   %344 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %343)
   store ptr %344, ptr %342, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 345:                                              ; preds = %3, %3, %3, %3, %3, %3
   %346 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %347 = load ptr, ptr %346, align 8
   %348 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %347)
   store ptr %348, ptr %346, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 349:                                              ; preds = %3
   %350 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %351 = load ptr, ptr %350, align 8
   %352 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %351)
   store ptr %352, ptr %350, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 353:                                              ; preds = %3
   %354 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2610,14 +2610,14 @@ copy_range.exit:                                  ; preds = %278, %281
 367:                                              ; preds = %353, %356
   %.0430 = phi i32 [ %366, %356 ], [ 0, %353 ]
   store i32 %.0430, ptr %354, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 368:                                              ; preds = %3
   %369 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %370 = load ptr, ptr %369, align 8
   %371 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %370)
   store ptr %371, ptr %369, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 372:                                              ; preds = %3
   %373 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2649,7 +2649,7 @@ copy_range.exit:                                  ; preds = %278, %281
   %391 = load ptr, ptr %390, align 8
   %392 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %391)
   store ptr %392, ptr %390, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 393:                                              ; preds = %3
   %394 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2660,7 +2660,7 @@ copy_range.exit:                                  ; preds = %278, %281
   %398 = load ptr, ptr %397, align 8
   %399 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %398)
   store ptr %399, ptr %397, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 400:                                              ; preds = %3
   %401 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2684,23 +2684,23 @@ copy_range.exit:                                  ; preds = %278, %281
 414:                                              ; preds = %400, %403
   %.0412 = phi i32 [ %413, %403 ], [ 0, %400 ]
   store i32 %.0412, ptr %401, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 415:                                              ; preds = %3
-  br label %common.ret575
+  br label %common.ret610
 
 416:                                              ; preds = %3
   %417 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %418 = load ptr, ptr %417, align 8
   %419 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %418)
   store ptr %419, ptr %417, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 420:                                              ; preds = %3
   %421 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %422 = load i16, ptr %421, align 8
   %trunc480 = trunc i16 %422 to i8
-  switch i8 %trunc480, label %common.ret575 [
+  switch i8 %trunc480, label %common.ret610 [
     i8 11, label %442
     i8 10, label %438
     i8 9, label %436
@@ -2718,7 +2718,7 @@ copy_range.exit:                                  ; preds = %278, %281
 428:                                              ; preds = %429, %423
   %.09.i504 = phi ptr [ %427, %423 ], [ %430, %429 ]
   %.not.i505 = icmp eq ptr %.09.i504, %0
-  br i1 %.not.i505, label %common.ret575, label %429
+  br i1 %.not.i505, label %common.ret610, label %429
 
 429:                                              ; preds = %428
   %430 = getelementptr inbounds i8, ptr %.09.i504, i64 -16
@@ -2730,23 +2730,23 @@ fixup.exit507:                                    ; preds = %429
   %433 = getelementptr inbounds i8, ptr %.09.i504, i64 -8
   %434 = load ptr, ptr %433, align 8
   %.not481 = icmp eq ptr %434, null
-  br i1 %.not481, label %common.ret575, label %435
+  br i1 %.not481, label %common.ret610, label %435
 
 435:                                              ; preds = %fixup.exit507
   store ptr %434, ptr %424, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 436:                                              ; preds = %420
   %437 = getelementptr inbounds nuw i8, ptr %4, i64 32
   tail call fastcc void @copy_const_initializer(ptr noundef %0, ptr noundef nonnull %437)
-  br label %common.ret575
+  br label %common.ret610
 
 438:                                              ; preds = %420
   %439 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %440 = load ptr, ptr %439, align 8
   %441 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %440)
   store ptr %441, ptr %439, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 442:                                              ; preds = %420
   %443 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -2758,7 +2758,7 @@ fixup.exit507:                                    ; preds = %429
 447:                                              ; preds = %448, %442
   %.09.i508 = phi ptr [ %446, %442 ], [ %449, %448 ]
   %.not.i509 = icmp eq ptr %.09.i508, %0
-  br i1 %.not.i509, label %common.ret575, label %448
+  br i1 %.not.i509, label %common.ret610, label %448
 
 448:                                              ; preds = %447
   %449 = getelementptr inbounds i8, ptr %.09.i508, i64 -16
@@ -2770,11 +2770,11 @@ fixup.exit511:                                    ; preds = %448
   %452 = getelementptr inbounds i8, ptr %.09.i508, i64 -8
   %453 = load ptr, ptr %452, align 8
   %.not482 = icmp eq ptr %453, null
-  br i1 %.not482, label %common.ret575, label %454
+  br i1 %.not482, label %common.ret610, label %454
 
 454:                                              ; preds = %fixup.exit511
   store ptr %453, ptr %443, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 455:                                              ; preds = %3, %3
   %456 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2819,7 +2819,7 @@ fixup.exit511:                                    ; preds = %448
 483:                                              ; preds = %469, %472
   %.0429 = phi i32 [ %482, %472 ], [ 0, %469 ]
   store i32 %.0429, ptr %470, align 4
-  br label %common.ret575
+  br label %common.ret610
 
 484:                                              ; preds = %3
   %485 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2885,21 +2885,21 @@ fixup.exit511:                                    ; preds = %448
 526:                                              ; preds = %512, %515
   %.0420 = phi i32 [ %525, %515 ], [ 0, %512 ]
   store i32 %.0420, ptr %513, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 527:                                              ; preds = %3, %3
   %528 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %529 = load ptr, ptr %528, align 8
   %530 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %529)
   store ptr %530, ptr %528, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 531:                                              ; preds = %3
   %532 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %533 = load ptr, ptr %532, align 8
   %534 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %533)
   store ptr %534, ptr %532, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 535:                                              ; preds = %3
   %536 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -3000,7 +3000,7 @@ fixup.exit515.thread:                             ; preds = %548, %fixup.exit515
   %592 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %593 = load ptr, ptr %592, align 8
   %.not473 = icmp eq ptr %593, null
-  br i1 %.not473, label %common.ret575, label %594
+  br i1 %.not473, label %common.ret610, label %594
 
 594:                                              ; preds = %588
   %595 = load i16, ptr %537, align 8
@@ -3011,12 +3011,12 @@ fixup.exit515.thread:                             ; preds = %548, %fixup.exit515
 597:                                              ; preds = %594
   %598 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %593)
   store ptr %598, ptr %592, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 599:                                              ; preds = %594
   %600 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef nonnull %593)
   store ptr %600, ptr %592, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 601:                                              ; preds = %3, %3
   %602 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -3039,7 +3039,7 @@ fixup.exit515.thread:                             ; preds = %548, %fixup.exit515
 614:                                              ; preds = %615, %611
   %.09.i516 = phi ptr [ %613, %611 ], [ %616, %615 ]
   %.not.i517 = icmp eq ptr %.09.i516, %0
-  br i1 %.not.i517, label %common.ret575, label %615
+  br i1 %.not.i517, label %common.ret610, label %615
 
 615:                                              ; preds = %614
   %616 = getelementptr inbounds i8, ptr %.09.i516, i64 -16
@@ -3051,37 +3051,37 @@ fixup.exit519:                                    ; preds = %615
   %619 = getelementptr inbounds i8, ptr %.09.i516, i64 -8
   %620 = load ptr, ptr %619, align 8
   %.not467 = icmp eq ptr %620, null
-  br i1 %.not467, label %common.ret575, label %621
+  br i1 %.not467, label %common.ret610, label %621
 
 621:                                              ; preds = %fixup.exit519
   store ptr %620, ptr %609, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 622:                                              ; preds = %601
   %623 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %610)
   store ptr %623, ptr %609, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 624:                                              ; preds = %3
   %625 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %626 = load ptr, ptr %625, align 8
   %627 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %626)
   store ptr %627, ptr %625, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 628:                                              ; preds = %3
   %629 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %630 = load ptr, ptr %629, align 8
   %631 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %630)
   store ptr %631, ptr %629, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 632:                                              ; preds = %3
   %633 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %634 = load ptr, ptr %633, align 8
   %635 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %634)
   store ptr %635, ptr %633, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 636:                                              ; preds = %3
   %637 = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -3126,7 +3126,7 @@ fixup.exit519:                                    ; preds = %615
 664:                                              ; preds = %650, %653
   %.0407 = phi i32 [ %663, %653 ], [ 0, %650 ]
   store i32 %.0407, ptr %651, align 8
-  br label %common.ret575
+  br label %common.ret610
 
 665:                                              ; preds = %3
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.copy_expr, ptr noundef nonnull @.str.2, i32 noundef 538) #6
@@ -3813,7 +3813,7 @@ define dso_local noundef ptr @copy_lambda_deep(ptr noundef %0) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @copy_decl(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %common.ret1025, label %3
+  br i1 %.not, label %common.ret1128, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16777208
@@ -3833,7 +3833,7 @@ define internal fastcc noundef ptr @copy_decl(ptr noundef captures(address) %0, 
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 2303
   %or.cond = icmp eq i32 %14, 2050
-  br i1 %or.cond, label %common.ret1025, label %decl_is_resolved_static_var.exit.thread
+  br i1 %or.cond, label %common.ret1128, label %decl_is_resolved_static_var.exit.thread
 
 decl_is_resolved_static_var.exit.thread:          ; preds = %11, %7, %3
   %15 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #5
@@ -4020,7 +4020,7 @@ copy_attributes.exit:                             ; preds = %expand_.exit, %26, 
   %99 = load i64, ptr %98, align 8
   %100 = trunc i64 %99 to i32
   %101 = and i32 %100, 127
-  switch i32 %101, label %common.ret1025 [
+  switch i32 %101, label %common.ret1128 [
     i32 9, label %1337
     i32 1, label %1224
     i32 22, label %102
@@ -4290,7 +4290,7 @@ expand_.exit.i256:                                ; preds = %193, %189
 copy_decl_list.exit259:                           ; preds = %expand_.exit.i256, %copy_decl_list.exit, %181
   %.021.i250.lcssa = phi ptr [ null, %181 ], [ null, %copy_decl_list.exit ], [ %209, %expand_.exit.i256 ]
   store ptr %.021.i250.lcssa, ptr %179, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 217:                                              ; preds = %copy_attributes.exit
   %218 = getelementptr inbounds nuw i8, ptr %15, i64 80
@@ -4378,14 +4378,14 @@ expand_.exit466:                                  ; preds = %231, %235
 copy_expr_list.exit:                              ; preds = %expand_.exit466, %217, %223
   %.021.i262.lcssa = phi ptr [ null, %223 ], [ null, %217 ], [ %251, %expand_.exit466 ]
   store ptr %.021.i262.lcssa, ptr %221, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 259:                                              ; preds = %copy_attributes.exit
   %260 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %261 = load ptr, ptr %260, align 8
   %262 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %261)
   store ptr %262, ptr %260, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 263:                                              ; preds = %copy_attributes.exit
   %264 = getelementptr inbounds nuw i8, ptr %15, i64 80
@@ -4469,7 +4469,7 @@ expand_.exit.i272:                                ; preds = %278, %274
 copy_decl_list.exit275:                           ; preds = %expand_.exit.i272, %263, %266
   %.021.i266.lcssa = phi ptr [ null, %266 ], [ null, %263 ], [ %294, %expand_.exit.i272 ]
   store ptr %.021.i266.lcssa, ptr %264, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 302:                                              ; preds = %copy_attributes.exit, %copy_attributes.exit
   %303 = getelementptr inbounds nuw i8, ptr %15, i64 72
@@ -4740,7 +4740,7 @@ expand_.exit.i302:                                ; preds = %404, %400
 copy_decl_list.exit305:                           ; preds = %expand_.exit.i302, %copy_decl_list.exit293, %392
   %.021.i296.lcssa = phi ptr [ null, %392 ], [ null, %copy_decl_list.exit293 ], [ %420, %expand_.exit.i302 ]
   store ptr %.021.i296.lcssa, ptr %390, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 428:                                              ; preds = %copy_attributes.exit, %copy_attributes.exit
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.copy_decl, ptr noundef nonnull @.str.2, i32 noundef 918) #6
@@ -5019,7 +5019,7 @@ expand_.exit.i333:                                ; preds = %534, %530
 copy_decl_list.exit336:                           ; preds = %expand_.exit.i333, %copy_decl_list.exit324, %522
   %.021.i327.lcssa = phi ptr [ null, %522 ], [ null, %copy_decl_list.exit324 ], [ %550, %expand_.exit.i333 ]
   store ptr %.021.i327.lcssa, ptr %520, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 558:                                              ; preds = %copy_attributes.exit, %copy_attributes.exit
   %559 = getelementptr inbounds nuw i8, ptr %15, i64 72
@@ -5375,7 +5375,7 @@ expand_.exit.i376:                                ; preds = %701, %697
 copy_decl_list.exit379:                           ; preds = %expand_.exit.i376, %copy_decl_list.exit367, %689
   %.021.i370.lcssa = phi ptr [ null, %689 ], [ null, %copy_decl_list.exit367 ], [ %717, %expand_.exit.i376 ]
   store ptr %.021.i370.lcssa, ptr %646, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 725:                                              ; preds = %copy_attributes.exit
   %726 = getelementptr inbounds nuw i8, ptr %15, i64 96
@@ -5480,7 +5480,7 @@ copy_decl_list.exit499:                           ; preds = %expand_.exit.i496, 
 copy_signature_deep.exit:                         ; preds = %copy_decl_list.exit499, %766
   %.0.i381 = phi i32 [ %776, %766 ], [ 0, %copy_decl_list.exit499 ]
   store i32 %.0.i381, ptr %764, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 777:                                              ; preds = %copy_attributes.exit
   %778 = getelementptr inbounds nuw i8, ptr %15, i64 72
@@ -5673,7 +5673,7 @@ copy_signature_deep.exit386:                      ; preds = %copy_decl_list.exit
 881:                                              ; preds = %copy_signature_deep.exit386, %870
   %.0215 = phi i32 [ %880, %870 ], [ 0, %copy_signature_deep.exit386 ]
   store i32 %.0215, ptr %868, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 882:                                              ; preds = %copy_attributes.exit
   %883 = getelementptr inbounds nuw i8, ptr %15, i64 80
@@ -5705,21 +5705,21 @@ copy_signature_deep.exit386:                      ; preds = %copy_decl_list.exit
     i8 5, label %903
   ]
 
-common.ret1025:                                   ; preds = %11, %copy_attributes.exit, %copy_decl_list.exit259, %copy_expr_list.exit, %259, %copy_decl_list.exit275, %copy_decl_list.exit305, %copy_decl_list.exit336, %copy_decl_list.exit379, %copy_signature_deep.exit, %881, %copy_expr_list.exit393, %1015, %copy_decl_list.exit418, %1108, %1112, %1223, %copy_attributes.exit438, %903, %905, %912, %975, %990, %fixup.exit397, %1341, %1337, %2, %983, %1013, %899
-  %common.ret1025.op = phi ptr [ %15, %899 ], [ %15, %1013 ], [ null, %2 ], [ %15, %1337 ], [ %15, %1341 ], [ %15, %fixup.exit397 ], [ %15, %990 ], [ %15, %975 ], [ %15, %912 ], [ %15, %905 ], [ %15, %903 ], [ %15, %copy_attributes.exit438 ], [ %15, %1223 ], [ %15, %1112 ], [ %15, %1108 ], [ %15, %copy_decl_list.exit418 ], [ %15, %1015 ], [ %15, %copy_expr_list.exit393 ], [ %15, %881 ], [ %15, %copy_signature_deep.exit ], [ %15, %copy_decl_list.exit379 ], [ %15, %copy_decl_list.exit336 ], [ %15, %copy_decl_list.exit305 ], [ %15, %copy_decl_list.exit275 ], [ %15, %259 ], [ %15, %copy_expr_list.exit ], [ %15, %copy_decl_list.exit259 ], [ %15, %copy_attributes.exit ], [ %1, %11 ], [ %15, %983 ]
-  ret ptr %common.ret1025.op
+common.ret1128:                                   ; preds = %11, %copy_attributes.exit, %copy_decl_list.exit259, %copy_expr_list.exit, %259, %copy_decl_list.exit275, %copy_decl_list.exit305, %copy_decl_list.exit336, %copy_decl_list.exit379, %copy_signature_deep.exit, %881, %copy_expr_list.exit393, %1015, %copy_decl_list.exit418, %1108, %1112, %1223, %copy_attributes.exit438, %903, %905, %912, %975, %990, %fixup.exit397, %1341, %1337, %2, %983, %1013, %899
+  %common.ret1128.op = phi ptr [ %15, %899 ], [ %15, %1013 ], [ null, %2 ], [ %15, %1337 ], [ %15, %1341 ], [ %15, %fixup.exit397 ], [ %15, %990 ], [ %15, %975 ], [ %15, %912 ], [ %15, %905 ], [ %15, %903 ], [ %15, %copy_attributes.exit438 ], [ %15, %1223 ], [ %15, %1112 ], [ %15, %1108 ], [ %15, %copy_decl_list.exit418 ], [ %15, %1015 ], [ %15, %copy_expr_list.exit393 ], [ %15, %881 ], [ %15, %copy_signature_deep.exit ], [ %15, %copy_decl_list.exit379 ], [ %15, %copy_decl_list.exit336 ], [ %15, %copy_decl_list.exit305 ], [ %15, %copy_decl_list.exit275 ], [ %15, %259 ], [ %15, %copy_expr_list.exit ], [ %15, %copy_decl_list.exit259 ], [ %15, %copy_attributes.exit ], [ %1, %11 ], [ %15, %983 ]
+  ret ptr %common.ret1128.op
 
 899:                                              ; preds = %897
   %900 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %901 = load ptr, ptr %900, align 8
   %902 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %901)
   store ptr %902, ptr %900, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 903:                                              ; preds = %897
   %904 = and i32 %898, 1048576
   %.not238 = icmp eq i32 %904, 0
-  br i1 %.not238, label %common.ret1025, label %905
+  br i1 %.not238, label %common.ret1128, label %905
 
 905:                                              ; preds = %903
   %906 = getelementptr inbounds nuw i8, ptr %15, i64 96
@@ -5730,14 +5730,14 @@ common.ret1025:                                   ; preds = %11, %copy_attribute
   %910 = load ptr, ptr %909, align 8
   %911 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %910)
   store ptr %911, ptr %909, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 912:                                              ; preds = %897
   %913 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %914 = load ptr, ptr %913, align 8
   %915 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %914)
   store ptr %915, ptr %913, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 916:                                              ; preds = %copy_attributes.exit
   %917 = getelementptr inbounds nuw i8, ptr %15, i64 80
@@ -5860,13 +5860,13 @@ expand_.exit518:                                  ; preds = %947, %951
 copy_expr_list.exit393:                           ; preds = %expand_.exit518, %fixup.exit.thread, %939
   %.021.i391.lcssa = phi ptr [ null, %939 ], [ null, %fixup.exit.thread ], [ %967, %expand_.exit518 ]
   store ptr %.021.i391.lcssa, ptr %917, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 975:                                              ; preds = %copy_attributes.exit
   %976 = getelementptr inbounds nuw i8, ptr %15, i64 92
   %977 = load i32, ptr %976, align 4
   %.not233 = icmp eq i32 %977, 0
-  br i1 %.not233, label %common.ret1025, label %978
+  br i1 %.not233, label %common.ret1128, label %978
 
 978:                                              ; preds = %975
   %979 = load ptr, ptr @decl_arena, align 8
@@ -5878,7 +5878,7 @@ copy_expr_list.exit393:                           ; preds = %expand_.exit518, %f
 983:                                              ; preds = %984, %978
   %.09.i394 = phi ptr [ %982, %978 ], [ %985, %984 ]
   %.not.i395 = icmp eq ptr %.09.i394, %0
-  br i1 %.not.i395, label %common.ret1025, label %984
+  br i1 %.not.i395, label %common.ret1128, label %984
 
 984:                                              ; preds = %983
   %985 = getelementptr inbounds i8, ptr %.09.i394, i64 -16
@@ -5890,7 +5890,7 @@ fixup.exit397:                                    ; preds = %984
   %988 = getelementptr inbounds i8, ptr %.09.i394, i64 -8
   %989 = load ptr, ptr %988, align 8
   %.not234 = icmp eq ptr %989, null
-  br i1 %.not234, label %common.ret1025, label %990
+  br i1 %.not234, label %common.ret1128, label %990
 
 990:                                              ; preds = %fixup.exit397
   %991 = ptrtoint ptr %989 to i64
@@ -5899,7 +5899,7 @@ fixup.exit397:                                    ; preds = %984
   %994 = sdiv exact i64 %993, 136
   %995 = trunc i64 %994 to i32
   store i32 %995, ptr %976, align 4
-  br label %common.ret1025
+  br label %common.ret1128
 
 996:                                              ; preds = %copy_attributes.exit
   %997 = getelementptr inbounds nuw i8, ptr %15, i64 72
@@ -5937,12 +5937,12 @@ copy_decl_type.exit399:                           ; preds = %996, %999
 1013:                                             ; preds = %copy_decl_type.exit399
   %1014 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %1012)
   store ptr %1014, ptr %1011, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 1015:                                             ; preds = %copy_decl_type.exit399
   %1016 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %1012)
   store ptr %1016, ptr %1011, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 1017:                                             ; preds = %copy_attributes.exit
   %1018 = getelementptr inbounds nuw i8, ptr %15, i64 72
@@ -6136,21 +6136,21 @@ copy_decl_list.exit418:                           ; preds = %expand_.exit.i415, 
   %1106 = load ptr, ptr %1105, align 8
   %1107 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %1106)
   store ptr %1107, ptr %1105, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 1108:                                             ; preds = %copy_attributes.exit
   %1109 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %1110 = load ptr, ptr %1109, align 8
   %1111 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef %1110)
   store ptr %1111, ptr %1109, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 1112:                                             ; preds = %copy_attributes.exit
   %1113 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %1114 = load ptr, ptr %1113, align 8
   %1115 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef %1114)
   store ptr %1115, ptr %1113, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 1116:                                             ; preds = %copy_attributes.exit
   %1117 = getelementptr inbounds nuw i8, ptr %15, i64 116
@@ -6339,7 +6339,7 @@ copy_signature_deep.exit421:                      ; preds = %copy_decl_list.exit
 1223:                                             ; preds = %1209, %1212
   %.0 = phi i32 [ %1222, %1212 ], [ 0, %1209 ]
   store i32 %.0, ptr %1210, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 1224:                                             ; preds = %copy_attributes.exit
   %1225 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -6584,21 +6584,21 @@ expand_.exit544:                                  ; preds = %1314, %1318
 copy_attributes.exit438:                          ; preds = %expand_.exit544, %1265, %copy_decl_list.exit433
   %.028.i437 = phi ptr [ null, %copy_decl_list.exit433 ], [ null, %1265 ], [ %1334, %expand_.exit544 ]
   store ptr %.028.i437, ptr %1263, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 
 1337:                                             ; preds = %copy_attributes.exit
   %1338 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %1339 = load i8, ptr %1338, align 8
   %1340 = and i8 %1339, 31
   %cond = icmp eq i8 %1340, 1
-  br i1 %cond, label %1341, label %common.ret1025
+  br i1 %cond, label %1341, label %common.ret1128
 
 1341:                                             ; preds = %1337
   %1342 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %1343 = load ptr, ptr %1342, align 8
   %1344 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %1343)
   store ptr %1344, ptr %1342, align 8
-  br label %common.ret1025
+  br label %common.ret1128
 }
 
 ; Function Attrs: nounwind uwtable

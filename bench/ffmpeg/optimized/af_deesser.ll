@@ -233,11 +233,11 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %130
 
 130:                                              ; preds = %128, %113
-  %.sink167 = phi double [ %117, %128 ], [ %102, %113 ]
+  %.sink174 = phi double [ %117, %128 ], [ %102, %113 ]
   %.storemerge.us.sink = phi double [ %.storemerge.us, %128 ], [ %.storemerge150.us, %113 ]
-  %131 = fsub nsz double %77, %.sink167
+  %131 = fsub nsz double %77, %.sink174
   %132 = fdiv nsz double %131, %.storemerge.us.sink
-  %133 = fadd nsz double %.sink167, %132
+  %133 = fadd nsz double %.sink174, %132
   %134 = zext i1 %.not149.us to i32
   br i1 %.not152.us, label %137, label %135
 
@@ -263,9 +263,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %137, %138, %141
-  %.sink168 = phi double [ %142, %141 ], [ %140, %138 ], [ %.1.us, %137 ]
+  %.sink175 = phi double [ %142, %141 ], [ %140, %138 ], [ %.1.us, %137 ]
   %143 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv
-  store double %.sink168, ptr %143, align 8, !tbaa !55
+  store double %.sink175, ptr %143, align 8, !tbaa !55
   br label %144
 
 144:                                              ; preds = %.sink.split, %137

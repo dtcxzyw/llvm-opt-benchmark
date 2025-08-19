@@ -2076,11 +2076,11 @@ define internal void @trace_event_raw_event_device_pm_callback_start(ptr noundef
 66:                                               ; preds = %62
   %67 = load ptr, ptr %60, align 8
   %68 = icmp eq ptr %67, null
-  %spec.select8 = select i1 %68, ptr @.str.8, ptr %67
+  %spec.select13 = select i1 %68, ptr @.str.8, ptr %67
   br label %69
 
 69:                                               ; preds = %66, %62, %52
-  %70 = phi ptr [ @.str.29, %52 ], [ %64, %62 ], [ %spec.select8, %66 ]
+  %70 = phi ptr [ @.str.29, %52 ], [ %64, %62 ], [ %spec.select13, %66 ]
   %71 = call ptr @strcpy(ptr noundef %58, ptr noundef nonnull dereferenceable(1) %70) #9
   %72 = load i32, ptr %33, align 4
   %73 = and i32 %72, 65535
@@ -2212,11 +2212,11 @@ define internal void @perf_trace_device_pm_callback_start(ptr noundef %0, ptr no
 78:                                               ; preds = %74
   %79 = load ptr, ptr %72, align 8
   %80 = icmp eq ptr %79, null
-  %spec.select8 = select i1 %80, ptr @.str.8, ptr %79
+  %spec.select13 = select i1 %80, ptr @.str.8, ptr %79
   br label %81
 
 81:                                               ; preds = %78, %74, %64
-  %82 = phi ptr [ @.str.29, %64 ], [ %76, %74 ], [ %spec.select8, %78 ]
+  %82 = phi ptr [ @.str.29, %64 ], [ %76, %74 ], [ %spec.select13, %78 ]
   %83 = call ptr @strcpy(ptr noundef %70, ptr noundef nonnull dereferenceable(1) %82) #9
   %84 = load i32, ptr %45, align 4
   %85 = and i32 %84, 65535
@@ -2314,11 +2314,11 @@ define internal void @trace_event_raw_event_device_pm_callback_end(ptr noundef %
 48:                                               ; preds = %40
   %49 = load ptr, ptr %1, align 8
   %50 = icmp eq ptr %49, null
-  %spec.select9 = select i1 %50, ptr @.str.8, ptr %49
+  %spec.select13 = select i1 %50, ptr @.str.8, ptr %49
   br label %.thread6
 
 .thread6:                                         ; preds = %48, %40
-  %51 = phi ptr [ %47, %40 ], [ %spec.select9, %48 ]
+  %51 = phi ptr [ %47, %40 ], [ %spec.select13, %48 ]
   %52 = call ptr @strcpy(ptr noundef %46, ptr noundef nonnull dereferenceable(1) %51) #9
   %53 = and i32 %42, 65535
   %54 = zext nneg i32 %53 to i64
@@ -2434,11 +2434,11 @@ define internal void @perf_trace_device_pm_callback_end(ptr noundef %0, ptr noun
 59:                                               ; preds = %45
   %60 = load ptr, ptr %1, align 8
   %61 = icmp eq ptr %60, null
-  %spec.select9 = select i1 %61, ptr @.str.8, ptr %60
+  %spec.select13 = select i1 %61, ptr @.str.8, ptr %60
   br label %.thread6
 
 .thread6:                                         ; preds = %59, %45
-  %62 = phi ptr [ %58, %45 ], [ %spec.select9, %59 ]
+  %62 = phi ptr [ %58, %45 ], [ %spec.select13, %59 ]
   %63 = call ptr @strcpy(ptr noundef %57, ptr noundef nonnull dereferenceable(1) %62) #9
   %64 = and i32 %25, 65535
   %65 = zext nneg i32 %64 to i64
@@ -3569,11 +3569,11 @@ define internal fastcc i32 @trace_event_get_offsets_device_pm_callback_start(ptr
 35:                                               ; preds = %31
   %36 = load ptr, ptr %29, align 8
   %37 = icmp eq ptr %36, null
-  %spec.select7 = select i1 %37, ptr @.str.8, ptr %36
+  %spec.select11 = select i1 %37, ptr @.str.8, ptr %36
   br label %38
 
 38:                                               ; preds = %35, %31, %19
-  %39 = phi ptr [ @.str.29, %19 ], [ %33, %31 ], [ %spec.select7, %35 ]
+  %39 = phi ptr [ @.str.29, %19 ], [ %33, %31 ], [ %spec.select11, %35 ]
   %40 = add i32 %23, %12
   %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #9
   %42 = trunc i64 %41 to i32

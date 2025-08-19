@@ -457,23 +457,23 @@ define dso_local i64 @CopyFrom(ptr noundef %0) local_unnamed_addr #0 {
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 152
   %102 = load ptr, ptr %101, align 8
   %.not341 = icmp eq ptr %102, null
-  br i1 %.not341, label %.thread413, label %103
+  br i1 %.not341, label %.thread441, label %103
 
 103:                                              ; preds = %100
   tail call void %102(ptr noundef nonnull %91, ptr noundef nonnull %90) #12
   %.pr.pre = load ptr, ptr %98, align 8
   %.not342 = icmp eq ptr %.pr.pre, null
-  br i1 %.not342, label %.thread, label %.thread413
+  br i1 %.not342, label %.thread, label %.thread441
 
-.thread413:                                       ; preds = %100, %103
-  %.pr416 = phi ptr [ %.pr.pre, %103 ], [ %99, %100 ]
-  %104 = getelementptr inbounds nuw i8, ptr %.pr416, i64 120
+.thread441:                                       ; preds = %100, %103
+  %.pr444 = phi ptr [ %.pr.pre, %103 ], [ %99, %100 ]
+  %104 = getelementptr inbounds nuw i8, ptr %.pr444, i64 120
   %105 = load ptr, ptr %104, align 8
   %.not343 = icmp eq ptr %105, null
   br i1 %.not343, label %.thread, label %106
 
-106:                                              ; preds = %.thread413
-  %107 = getelementptr inbounds nuw i8, ptr %.pr416, i64 112
+106:                                              ; preds = %.thread441
+  %107 = getelementptr inbounds nuw i8, ptr %.pr444, i64 112
   %108 = load ptr, ptr %107, align 8
   %.not344 = icmp eq ptr %108, null
   br i1 %.not344, label %.thread, label %109
@@ -482,8 +482,8 @@ define dso_local i64 @CopyFrom(ptr noundef %0) local_unnamed_addr #0 {
   %110 = tail call i32 %105(ptr noundef nonnull %90) #12
   br label %.thread
 
-.thread:                                          ; preds = %103, %.thread413, %106, %84, %109
-  %.sink = phi i32 [ %110, %109 ], [ 1, %84 ], [ 1, %106 ], [ 1, %.thread413 ], [ 1, %103 ]
+.thread:                                          ; preds = %103, %.thread441, %106, %84, %109
+  %.sink = phi i32 [ %110, %109 ], [ 1, %84 ], [ 1, %106 ], [ 1, %.thread441 ], [ 1, %103 ]
   %111 = getelementptr inbounds nuw i8, ptr %90, i64 188
   store i32 %.sink, ptr %111, align 4
   tail call void @AfterTriggerBeginQuery() #12
@@ -1451,12 +1451,12 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull captur
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %14 = load i32, ptr %6, align 4
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph42, label %.critedge
+  br i1 %15, label %.lr.ph54, label %.critedge
 
-.lr.ph42:                                         ; preds = %.lr.ph, %CopyMultiInsertBufferFlush.exit
-  %indvars.iv41 = phi i64 [ %indvars.iv.next, %CopyMultiInsertBufferFlush.exit ], [ 0, %.lr.ph ]
+.lr.ph54:                                         ; preds = %.lr.ph, %CopyMultiInsertBufferFlush.exit
+  %indvars.iv53 = phi i64 [ %indvars.iv.next, %CopyMultiInsertBufferFlush.exit ], [ 0, %.lr.ph ]
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv41
+  %17 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv53
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %10, align 8
   %20 = load ptr, ptr %11, align 8
@@ -1469,7 +1469,7 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull captur
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %75, label %27
 
-27:                                               ; preds = %.lr.ph42
+27:                                               ; preds = %.lr.ph54
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 188
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 312
@@ -1566,7 +1566,7 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull captur
   store i8 0, ptr %30, align 8
   br label %CopyMultiInsertBufferFlush.exit
 
-75:                                               ; preds = %.lr.ph42
+75:                                               ; preds = %.lr.ph54
   %76 = load i32, ptr %12, align 8
   %77 = load i32, ptr %13, align 4
   %78 = getelementptr inbounds nuw i8, ptr %19, i64 496
@@ -1680,11 +1680,11 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull captur
 
 CopyMultiInsertBufferFlush.exit:                  ; preds = %._crit_edge.i, %._crit_edge116.i
   store i32 0, ptr %21, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv41, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv53, 1
   %141 = load i32, ptr %6, align 4
   %142 = sext i32 %141 to i64
   %143 = icmp slt i64 %indvars.iv.next, %142
-  br i1 %143, label %.lr.ph42, label %.critedge
+  br i1 %143, label %.lr.ph54, label %.critedge
 
 .critedge:                                        ; preds = %CopyMultiInsertBufferFlush.exit, %.lr.ph
   %.pr.pre = load ptr, ptr %0, align 8

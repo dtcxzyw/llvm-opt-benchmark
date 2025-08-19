@@ -972,19 +972,19 @@ sdslen.exit:                                      ; preds = %47, %50, %54, %58, 
   %118 = phi i32 [ %75, %72 ], [ %115, %114 ]
   %119 = load ptr, ptr %73, align 8, !tbaa !6
   %.not92 = icmp eq ptr %119, null
-  br i1 %.not92, label %.thread113.thread204, label %120
+  br i1 %.not92, label %.thread113.thread208, label %120
 
 120:                                              ; preds = %._crit_edge
   %121 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %122 = load i64, ptr %121, align 8, !tbaa !14
   %.not93 = icmp eq i64 %122, 0
-  br i1 %.not93, label %.thread113.thread204, label %123
+  br i1 %.not93, label %.thread113.thread208, label %123
 
 123:                                              ; preds = %120
   %124 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %125 = load i32, ptr %124, align 8, !tbaa !15
   %.not94 = icmp eq i32 %125, 0
-  br i1 %.not94, label %.thread113.thread204, label %126
+  br i1 %.not94, label %.thread113.thread208, label %126
 
 126:                                              ; preds = %123
   call void @sdsfreesplitres(ptr noundef nonnull %66, i32 noundef %118) #20
@@ -1038,9 +1038,9 @@ sdslen.exit:                                      ; preds = %47, %50, %54, %58, 
 
 .thread124.loopexit:                              ; preds = %84
   %.pre = load i32, ptr %3, align 4, !tbaa !21
-  br label %.thread113.thread204
+  br label %.thread113.thread208
 
-.thread113.thread204:                             ; preds = %._crit_edge, %120, %123, %.thread124.loopexit
+.thread113.thread208:                             ; preds = %._crit_edge, %120, %123, %.thread124.loopexit
   %.ph = phi i32 [ %.pre, %.thread124.loopexit ], [ %118, %123 ], [ %118, %120 ], [ %118, %._crit_edge ]
   %.182131.ph = phi ptr [ @.str.25, %.thread124.loopexit ], [ @.str.24, %123 ], [ @.str.24, %120 ], [ @.str.24, %._crit_edge ]
   call void @sdsfreesplitres(ptr noundef nonnull %66, i32 noundef %.ph) #20
@@ -1050,8 +1050,8 @@ sdslen.exit:                                      ; preds = %47, %50, %54, %58, 
   call void @sdsfreesplitres(ptr noundef nonnull %66, i32 noundef %68) #20
   br label %.thread113.thread
 
-.thread113.thread150:                             ; preds = %128, %134, %126, %.thread113.thread204
-  %.182120159 = phi ptr [ %.182131.ph, %.thread113.thread204 ], [ @.str.28, %126 ], [ @.str.27, %134 ], [ @.str.26, %128 ]
+.thread113.thread150:                             ; preds = %128, %134, %126, %.thread113.thread208
+  %.182120159 = phi ptr [ %.182131.ph, %.thread113.thread208 ], [ @.str.28, %126 ], [ @.str.27, %134 ], [ @.str.26, %128 ]
   call void @aofInfoFree(ptr noundef nonnull %73)
   br label %.thread113.thread
 
@@ -3700,7 +3700,7 @@ sdsavail.exit:                                    ; preds = %sdslen.exit95, %281
 337:                                              ; preds = %325
   %338 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !83
   %.not78 = icmp eq i64 %338, 0
-  br i1 %.not78, label %.thread120, label %339
+  br i1 %.not78, label %.thread124, label %339
 
 339:                                              ; preds = %337
   %340 = tail call i64 @mstime() #20
@@ -3709,13 +3709,13 @@ sdsavail.exit:                                    ; preds = %sdslen.exit95, %281
   %.not79 = icmp eq i64 %.pre117, 0
   %.not80 = icmp slt i64 %341, %.pre117
   %or.cond85 = select i1 %.not79, i1 true, i1 %.not80
-  br i1 %or.cond85, label %.thread120, label %342
+  br i1 %or.cond85, label %.thread124, label %342
 
 342:                                              ; preds = %339
   tail call void @latencyAddSample(ptr noundef nonnull @.str.86, i64 noundef %341) #20
-  br label %.thread120
+  br label %.thread124
 
-.thread120:                                       ; preds = %337, %342, %339
+.thread124:                                       ; preds = %337, %342, %339
   %343 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6576), align 8, !tbaa !80
   store i64 %343, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6584), align 8, !tbaa !81
   %344 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7808), align 8, !tbaa !88
@@ -3749,7 +3749,7 @@ sdsavail.exit:                                    ; preds = %sdslen.exit95, %281
   store i64 %357, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6624), align 8, !tbaa !89
   br label %.thread
 
-.thread:                                          ; preds = %33, %35, %.thread120, %356, %346, %319, %317, %236, %238, %61, %31, %29, %40, %60
+.thread:                                          ; preds = %33, %35, %.thread124, %356, %346, %319, %317, %236, %238, %61, %31, %29, %40, %60
   ret void
 }
 
@@ -5244,9 +5244,9 @@ define dso_local i32 @loadAppendOnlyFiles(ptr noundef captures(address_is_null) 
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %36 = load i64, ptr %35, align 8, !tbaa !73
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %136, label %.thread128
+  br i1 %37, label %136, label %.thread137
 
-.thread128:                                       ; preds = %34
+.thread137:                                       ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %41
 
@@ -5255,13 +5255,13 @@ define dso_local i32 @loadAppendOnlyFiles(ptr noundef captures(address_is_null) 
   %.not6.i = icmp eq ptr %33, null
   br i1 %.not6.i, label %getBaseAndIncrAppendOnlyFilesNum.exit, label %41
 
-41:                                               ; preds = %.thread128, %39
-  %42 = phi ptr [ %38, %.thread128 ], [ %40, %39 ]
-  %spec.select.i132 = phi i32 [ 0, %.thread128 ], [ 1, %39 ]
+41:                                               ; preds = %.thread137, %39
+  %42 = phi ptr [ %38, %.thread137 ], [ %40, %39 ]
+  %spec.select.i141 = phi i32 [ 0, %.thread137 ], [ 1, %39 ]
   %43 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %44 = load i64, ptr %43, align 8, !tbaa !73
   %45 = trunc i64 %44 to i32
-  %46 = add i32 %spec.select.i132, %45
+  %46 = add i32 %spec.select.i141, %45
   br label %getBaseAndIncrAppendOnlyFilesNum.exit
 
 getBaseAndIncrAppendOnlyFilesNum.exit:            ; preds = %39, %41
@@ -8190,7 +8190,7 @@ aofManifestFree.exit:                             ; preds = %45, %48
 51:                                               ; preds = %26
   %52 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !83
   %.not65 = icmp eq i64 %52, 0
-  br i1 %.not65, label %.thread92, label %53
+  br i1 %.not65, label %.thread106, label %53
 
 53:                                               ; preds = %51
   %54 = tail call i64 @mstime() #20
@@ -8199,22 +8199,22 @@ aofManifestFree.exit:                             ; preds = %45, %48
   %.not66 = icmp eq i64 %.pre, 0
   %.not67 = icmp slt i64 %55, %.pre
   %or.cond76 = select i1 %.not66, i1 true, i1 %.not67
-  br i1 %or.cond76, label %.thread92, label %56
+  br i1 %or.cond76, label %.thread106, label %56
 
 56:                                               ; preds = %53
   tail call void @latencyAddSample(ptr noundef nonnull @.str.170, i64 noundef %55) #20
-  br label %.thread92
+  br label %.thread106
 
-.thread92:                                        ; preds = %51, %53, %56
+.thread106:                                       ; preds = %51, %53, %56
   %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !65
   %58 = icmp sgt i32 %57, 2
   br i1 %58, label %60, label %59
 
-59:                                               ; preds = %.thread92
+59:                                               ; preds = %.thread106
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.171, ptr noundef nonnull %4, ptr noundef nonnull %18) #20
   br label %60
 
-60:                                               ; preds = %.thread92, %59
+60:                                               ; preds = %.thread106, %59
   %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6520), align 8, !tbaa !79
   %62 = icmp eq i32 %61, 2
   br i1 %62, label %63, label %126
@@ -8331,7 +8331,7 @@ aofInfoFree.exit.i80:                             ; preds = %106, %104
 116:                                              ; preds = %92
   %117 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !83
   %.not69 = icmp eq i64 %117, 0
-  br i1 %.not69, label %.thread97, label %118
+  br i1 %.not69, label %.thread111, label %118
 
 118:                                              ; preds = %116
   %119 = call i64 @mstime() #20
@@ -8340,22 +8340,22 @@ aofInfoFree.exit.i80:                             ; preds = %106, %104
   %.not70 = icmp eq i64 %.pre91, 0
   %.not71 = icmp slt i64 %120, %.pre91
   %or.cond77 = select i1 %.not70, i1 true, i1 %.not71
-  br i1 %or.cond77, label %.thread97, label %121
+  br i1 %or.cond77, label %.thread111, label %121
 
 121:                                              ; preds = %118
   call void @latencyAddSample(ptr noundef nonnull @.str.170, i64 noundef %120) #20
-  br label %.thread97
+  br label %.thread111
 
-.thread97:                                        ; preds = %116, %118, %121
+.thread111:                                       ; preds = %116, %118, %121
   %122 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !65
   %123 = icmp sgt i32 %122, 2
   br i1 %123, label %125, label %124
 
-124:                                              ; preds = %.thread97
+124:                                              ; preds = %.thread111
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.173, ptr noundef %66, ptr noundef %86) #20
   br label %125
 
-125:                                              ; preds = %124, %.thread97
+125:                                              ; preds = %124, %.thread111
   call void @sdsfree(ptr noundef %68) #20
   call void @sdsfree(ptr noundef %66) #20
   br label %126

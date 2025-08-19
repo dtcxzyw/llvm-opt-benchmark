@@ -433,11 +433,11 @@ var_read_metadata.exit178:                        ; preds = %var_read_metadata.e
   br label %183
 
 183:                                              ; preds = %173, %177
-  %.sink204 = phi ptr [ %182, %177 ], [ %.pre194, %173 ]
-  %.sink202 = phi i32 [ 0, %177 ], [ 65537, %173 ]
-  %184 = getelementptr inbounds nuw i8, ptr %.sink204, i64 4
-  store i32 %.sink202, ptr %184, align 4, !tbaa !40
-  %185 = getelementptr inbounds nuw i8, ptr %.sink204, i64 132
+  %.sink222 = phi ptr [ %182, %177 ], [ %.pre194, %173 ]
+  %.sink220 = phi i32 [ 0, %177 ], [ 65537, %173 ]
+  %184 = getelementptr inbounds nuw i8, ptr %.sink222, i64 4
+  store i32 %.sink220, ptr %184, align 4, !tbaa !40
+  %185 = getelementptr inbounds nuw i8, ptr %.sink222, i64 132
   %186 = load i32, ptr %185, align 4, !tbaa !48
   %187 = icmp slt i32 %186, 1
   br i1 %187, label %188, label %._crit_edge195
@@ -1470,8 +1470,8 @@ var_read_float.exit95:                            ; preds = %115, %117, %var_rea
   %.sroa.05.0.insert.insert.i94 = phi i64 [ %129, %var_read_string.exit.i93 ], [ 0, %115 ], [ 0, %117 ]
   store i64 %.sroa.05.0.insert.insert.i94, ptr %116, align 8
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %sext128 = shl i64 %.sroa.05.0.insert.insert.i94, 32
-  %131 = ashr exact i64 %sext128, 32
+  %sext144 = shl i64 %.sroa.05.0.insert.insert.i94, 32
+  %131 = ashr exact i64 %sext144, 32
   %132 = ashr i64 %.sroa.05.0.insert.insert.i94, 32
   %133 = tail call i32 @av_reduce(ptr noundef nonnull %116, ptr noundef nonnull %130, i64 noundef %131, i64 noundef %132, i64 noundef 2147483647) #8
   br label %.critedge

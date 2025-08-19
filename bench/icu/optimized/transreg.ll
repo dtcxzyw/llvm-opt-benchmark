@@ -895,7 +895,7 @@ _ZN6icu_7713UnicodeString6removeEii.exit:         ; preds = %107, %111
 135:                                              ; preds = %_ZNK6icu_7713UnicodeString7indexOfEDs.exit
   %136 = load i16, ptr %39, align 8, !tbaa !17
   %137 = icmp ugt i16 %136, 31
-  br i1 %137, label %138, label %.preheader98
+  br i1 %137, label %138, label %.preheader107
 
 138:                                              ; preds = %135
   %139 = invoke noundef ptr @_ZN6icu_7714Transliterator14createInstanceERKNS_13UnicodeStringE15UTransDirectionR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %30, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(72) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
@@ -903,12 +903,12 @@ _ZN6icu_7713UnicodeString6removeEii.exit:         ; preds = %107, %111
 
 140:                                              ; preds = %138
   invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %139, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %.preheader98 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.preheader107 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.preheader98:                                     ; preds = %140, %135
+.preheader107:                                    ; preds = %140, %135
   br label %141
 
-141:                                              ; preds = %.preheader98, %147
+141:                                              ; preds = %.preheader107, %147
   %142 = load ptr, ptr %24, align 8, !tbaa !18
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load i32, ptr %143, align 8, !tbaa !30
@@ -4325,8 +4325,8 @@ _ZN6icu_7713UnicodeString8truncateEi.exit62:      ; preds = %102, %96, %95
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %112 = load i16, ptr %111, align 8, !tbaa !17
   %113 = and i16 %112, 1
-  %.not119 = icmp eq i16 %113, 0
-  br i1 %.not119, label %.critedge, label %138
+  %.not121 = icmp eq i16 %113, 0
+  br i1 %.not121, label %.critedge, label %138
 
 114:                                              ; preds = %107
   %115 = icmp slt i16 %108, 0
@@ -4359,8 +4359,8 @@ _ZN6icu_7713UnicodeString8truncateEi.exit62:      ; preds = %102, %96, %95
           to label %137 unwind label %90
 
 137:                                              ; preds = %130
-  %.not120 = icmp eq i8 %136, 0
-  br i1 %.not120, label %.critedge, label %138
+  %.not122 = icmp eq i8 %136, 0
+  br i1 %.not122, label %.critedge, label %138
 
 138:                                              ; preds = %110, %137
   %139 = load i16, ptr %28, align 8, !tbaa !17
@@ -4733,9 +4733,9 @@ _ZN6icu_7718TransliteratorSpec4nextEv.exit:       ; preds = %_ZN6icu_7718Transli
   store i16 2, ptr %59, align 8, !tbaa !17
   %79 = load i8, ptr %60, align 8, !tbaa !45
   %.not.i52 = icmp eq i8 %79, 0
-  br i1 %.not.i52, label %84, label %.invoke102
+  br i1 %.not.i52, label %84, label %.invoke104
 
-.invoke102:                                       ; preds = %84, %78
+.invoke104:                                       ; preds = %84, %78
   %80 = phi ptr [ %7, %78 ], [ %8, %84 ]
   %81 = phi ptr [ %8, %78 ], [ %7, %84 ]
   %82 = phi i32 [ 0, %78 ], [ 1, %84 ]
@@ -4745,9 +4745,9 @@ _ZN6icu_7718TransliteratorSpec4nextEv.exit:       ; preds = %_ZN6icu_7718Transli
 84:                                               ; preds = %78
   %85 = load i8, ptr %61, align 8, !tbaa !45
   %.not15.i56 = icmp eq i8 %85, 0
-  br i1 %.not15.i56, label %90, label %.invoke102
+  br i1 %.not15.i56, label %90, label %.invoke104
 
-.noexc57:                                         ; preds = %.invoke102
+.noexc57:                                         ; preds = %.invoke104
   %.not16.i54 = icmp eq ptr %83, null
   br i1 %.not16.i54, label %90, label %86
 
@@ -4762,7 +4762,7 @@ _ZN6icu_7722TransliteratorRegistry17findInStaticStoreERKNS_18TransliteratorSpecE
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN6icu_7722TransliteratorRegistry17findInStaticStoreERKNS_18TransliteratorSpecES3_RKNS_13UnicodeStringE.exit
 
-.loopexit:                                        ; preds = %.invoke102
+.loopexit:                                        ; preds = %.invoke104
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %89

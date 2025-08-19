@@ -3405,9 +3405,9 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast10BuildSceneEv(ptr noundef
   store i64 %104, ptr %18, align 8, !tbaa !130
   %switch.selectcmp = icmp eq i16 %101, 1
   %switch.select = select i1 %switch.selectcmp, i32 16772748, i32 9226532
-  %switch.selectcmp41 = icmp eq i16 %101, 0
-  %switch.select42 = select i1 %switch.selectcmp41, i32 3190463, i32 %switch.select
-  store i32 %switch.select42, ptr %19, align 8, !tbaa !156
+  %switch.selectcmp47 = icmp eq i16 %101, 0
+  %switch.select48 = select i1 %switch.selectcmp47, i32 3190463, i32 %switch.select
+  store i32 %switch.select48, ptr %19, align 8, !tbaa !156
   %105 = call i64 @b2CreatePolygonShape(i64 %51, ptr noundef nonnull %4, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i32, ptr @g_seed, align 4, !tbaa !44
@@ -3677,9 +3677,9 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast4StepER8Settings(ptr nound
   %80 = load ptr, ptr %79, align 8, !tbaa !152
   %81 = getelementptr inbounds nuw %struct.b2Vec2, ptr %80, i64 %76
   %.sroa.045.0.copyload = load <2 x float>, ptr %81, align 4
-  %foldExtExtBinop258 = fadd <2 x float> %.sroa.050.0.copyload, %.sroa.045.0.copyload
   %foldExtExtBinop260 = fadd <2 x float> %.sroa.050.0.copyload, %.sroa.045.0.copyload
-  %.sroa.02.4.vec.insert.i150 = shufflevector <2 x float> %foldExtExtBinop258, <2 x float> %foldExtExtBinop260, <2 x i32> <i32 0, i32 3>
+  %foldExtExtBinop262 = fadd <2 x float> %.sroa.050.0.copyload, %.sroa.045.0.copyload
+  %.sroa.02.4.vec.insert.i150 = shufflevector <2 x float> %foldExtExtBinop260, <2 x float> %foldExtExtBinop262, <2 x i32> <i32 0, i32 3>
   call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.050.0.copyload, <2 x float> %.sroa.02.4.vec.insert.i150, i32 noundef 16777215)
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.050.0.copyload, float noundef 5.000000e+00, i32 noundef 32768)
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i150, float noundef 5.000000e+00, i32 noundef 16711680)
@@ -3724,9 +3724,9 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast4StepER8Settings(ptr nound
   br i1 %exitcond234.not, label %._crit_edge196.loopexit, label %82, !llvm.loop !163
 
 95:                                               ; preds = %._crit_edge196
-  %96 = extractelement <2 x float> %foldExtExtBinop260, i64 1
+  %96 = extractelement <2 x float> %foldExtExtBinop262, i64 1
   %.sroa.01.4.vec.extract.i148 = extractelement <2 x float> %.sroa.050.0.copyload, i64 1
-  %97 = extractelement <2 x float> %foldExtExtBinop258, i64 0
+  %97 = extractelement <2 x float> %foldExtExtBinop260, i64 0
   %.sroa.01.0.vec.extract.i145 = extractelement <2 x float> %.sroa.050.0.copyload, i64 0
   %98 = fsub float 1.000000e+00, %.sroa.5.0.lcssa
   %99 = fmul float %98, %.sroa.01.0.vec.extract.i145
@@ -4046,7 +4046,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI6b2Vec2SaIS0_EE17_M_default_app
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIP6b2Vec2mS0_ET_S2_T0_RSaIT1_E.exit, label %23
 

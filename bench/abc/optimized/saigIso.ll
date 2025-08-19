@@ -281,8 +281,8 @@ Vec_IntPush.exit65:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %.not.i66, label %Vec_PtrFree.exit, label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %Vec_IntPush.exit65, %.critedge2
-  %.pre.pre103108114 = phi ptr [ %29, %.critedge2 ], [ %.pre.pre.pre, %Vec_IntPush.exit65 ]
-  tail call void @free(ptr noundef nonnull %.pre.pre103108114) #25
+  %.pre.pre111116122 = phi ptr [ %29, %.critedge2 ], [ %.pre.pre.pre, %Vec_IntPush.exit65 ]
+  tail call void @free(ptr noundef nonnull %.pre.pre111116122) #25
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge2, %.critedge2.thread
@@ -552,8 +552,8 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %10
 
 .critedge4.thread:                                ; preds = %.critedge.preheader
   %27 = getelementptr i8, ptr %0, i64 104
-  %.val5888 = load i32, ptr %27, align 8, !tbaa !45
-  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %8, i32 noundef %.val5888) #25
+  %.val5892 = load i32, ptr %27, align 8, !tbaa !45
+  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %8, i32 noundef %.val5892) #25
   br label %76
 
 .lr.ph76:                                         ; preds = %.critedge.preheader
@@ -1445,7 +1445,7 @@ Vec_PtrPush.exit88:                               ; preds = %.Vec_PtrGrow.exit11
   br i1 %94, label %.lr.ph120, label %.critedge.preheader.thread
 
 .critedge.preheader.thread:                       ; preds = %._crit_edge
-  %.pre140 = load ptr, ptr %15, align 8, !tbaa !29
+  %.pre158 = load ptr, ptr %15, align 8, !tbaa !29
   br label %.critedge4
 
 .critedge.preheader:                              ; preds = %174
@@ -1662,19 +1662,19 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %183, label %.critedge, label %.critedge4.thread, !llvm.loop !62
 
 .critedge4:                                       ; preds = %.critedge.preheader.thread, %.critedge.preheader
-  %.pre142 = phi ptr [ %.pre140, %.critedge.preheader.thread ], [ %.pre, %.critedge.preheader ]
-  %.val77141 = phi ptr [ %92, %.critedge.preheader.thread ], [ %.val75132, %.critedge.preheader ]
-  %.not.i100 = icmp eq ptr %.pre142, null
+  %.pre160 = phi ptr [ %.pre158, %.critedge.preheader.thread ], [ %.pre, %.critedge.preheader ]
+  %.val77159 = phi ptr [ %92, %.critedge.preheader.thread ], [ %.val75132, %.critedge.preheader ]
+  %.not.i100 = icmp eq ptr %.pre160, null
   br i1 %.not.i100, label %Vec_PtrFree.exit, label %.critedge4.thread
 
 .critedge4.thread:                                ; preds = %.critedge, %.critedge4
-  %.val77141148 = phi ptr [ %.val77141, %.critedge4 ], [ %.val75132, %.critedge ]
-  %.pre142147 = phi ptr [ %.pre142, %.critedge4 ], [ %.pre, %.critedge ]
-  call void @free(ptr noundef nonnull %.pre142147) #25
+  %.val77159166 = phi ptr [ %.val77159, %.critedge4 ], [ %.val75132, %.critedge ]
+  %.pre160165 = phi ptr [ %.pre160, %.critedge4 ], [ %.pre, %.critedge ]
+  call void @free(ptr noundef nonnull %.pre160165) #25
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge4, %.critedge4.thread
-  %.val77141149 = phi ptr [ %.val77141, %.critedge4 ], [ %.val77141148, %.critedge4.thread ]
+  %.val77159167 = phi ptr [ %.val77159, %.critedge4 ], [ %.val77159166, %.critedge4.thread ]
   call void @free(ptr noundef nonnull %7) #25
   %.val69 = load i32, ptr %17, align 4, !tbaa !26
   store i32 0, ptr %3, align 4, !tbaa !3
@@ -1715,7 +1715,7 @@ Vec_IntFree.exit102:                              ; preds = %.lr.ph125, %190
 Vec_PtrFree.exit104:                              ; preds = %.critedge6, %.critedge6.thread
   call void @free(ptr noundef nonnull %16) #25
   %.val74 = load i32, ptr %91, align 4, !tbaa !7
-  %194 = call ptr @Saig_ManDupCones(ptr noundef %0, ptr noundef %.val77141149, i32 noundef %.val74) #25
+  %194 = call ptr @Saig_ManDupCones(ptr noundef %0, ptr noundef %.val77159167, i32 noundef %.val74) #25
   %195 = load ptr, ptr %89, align 8, !tbaa !29
   %.not.i105 = icmp eq ptr %195, null
   br i1 %.not.i105, label %Vec_PtrFree.exit106, label %196
@@ -1726,11 +1726,11 @@ Vec_PtrFree.exit104:                              ; preds = %.critedge6, %.crite
 
 Vec_PtrFree.exit106:                              ; preds = %Vec_PtrFree.exit104, %196
   call void @free(ptr noundef nonnull %86) #25
-  %.not.i107 = icmp eq ptr %.val77141149, null
+  %.not.i107 = icmp eq ptr %.val77159167, null
   br i1 %.not.i107, label %Vec_IntFree.exit108, label %197
 
 197:                                              ; preds = %Vec_PtrFree.exit106
-  call void @free(ptr noundef nonnull %.val77141149) #25
+  call void @free(ptr noundef nonnull %.val77159167) #25
   br label %Vec_IntFree.exit108
 
 Vec_IntFree.exit108:                              ; preds = %Vec_PtrFree.exit106, %197
@@ -2495,14 +2495,14 @@ Abc_Clock.exit136:                                ; preds = %251, %254
   br label %Vec_IntPush.exit143.sink.split
 
 Vec_IntPush.exit143.sink.split:                   ; preds = %300, %302, %292, %294
-  %.sink196 = phi ptr [ %293, %292 ], [ %295, %294 ], [ %301, %300 ], [ %303, %302 ]
+  %.sink214 = phi ptr [ %293, %292 ], [ %295, %294 ], [ %301, %300 ], [ %303, %302 ]
   %.sink = phi i32 [ 16, %292 ], [ 16, %294 ], [ %297, %300 ], [ %297, %302 ]
-  store ptr %.sink196, ptr %279, align 8, !tbaa !12
+  store ptr %.sink214, ptr %279, align 8, !tbaa !12
   store i32 %.sink, ptr %276, align 8, !tbaa !11
   br label %Vec_IntPush.exit143
 
 Vec_IntPush.exit143:                              ; preds = %Vec_IntPush.exit143.sink.split, %.lr.ph176
-  %.pre.i139182 = phi ptr [ %280, %.lr.ph176 ], [ %.sink196, %Vec_IntPush.exit143.sink.split ]
+  %.pre.i139182 = phi ptr [ %280, %.lr.ph176 ], [ %.sink214, %Vec_IntPush.exit143.sink.split ]
   %304 = add nsw i32 %286, 1
   store i32 %304, ptr %277, align 4, !tbaa !7
   %305 = sext i32 %286 to i64
@@ -2527,8 +2527,8 @@ Vec_IntPush.exit143:                              ; preds = %Vec_IntPush.exit143
 
 312:                                              ; preds = %.critedge4.thread, %.critedge4
   %313 = phi ptr [ %310, %.critedge4.thread ], [ %311, %.critedge4 ]
-  %.val78191 = phi ptr [ %.pre.i139182, %.critedge4.thread ], [ %278, %.critedge4 ]
-  call void @free(ptr noundef nonnull %.val78191) #25
+  %.val78209 = phi ptr [ %.pre.i139182, %.critedge4.thread ], [ %278, %.critedge4 ]
+  call void @free(ptr noundef nonnull %.val78209) #25
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %.critedge4, %312

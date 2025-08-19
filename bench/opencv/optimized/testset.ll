@@ -494,7 +494,7 @@ _ZNSt6vectorIN2cv2ml6PairDIESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
           to label %.lr.ph125 unwind label %217
 
 .lr.ph125:                                        ; preds = %_ZNSt6vectorIN2cv2ml6PairDIESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, %.noexc89, %._crit_edge
-  %.sroa.095.0136143 = phi ptr [ %114, %._crit_edge ], [ %114, %.noexc89 ], [ null, %_ZNSt6vectorIN2cv2ml6PairDIESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ]
+  %.sroa.095.0144151 = phi ptr [ %114, %._crit_edge ], [ %114, %.noexc89 ], [ null, %_ZNSt6vectorIN2cv2ml6PairDIESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ]
   %.sroa.speculated108 = call i32 @llvm.smin.i32(i32 %2, i32 %0)
   %162 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %163 = getelementptr inbounds nuw i8, ptr %14, i64 12
@@ -510,12 +510,11 @@ _ZNSt6vectorIN2cv2ml6PairDIESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
   %169 = mul nuw nsw i32 %168, %0
   %170 = udiv i32 %169, %.sroa.speculated108
   %171 = zext nneg i32 %170 to i64
-  %172 = getelementptr %"struct.cv::ml::PairDI", ptr %.sroa.095.0136143, i64 %171
+  %172 = getelementptr %"struct.cv::ml::PairDI", ptr %.sroa.095.0144151, i64 %171
   %173 = getelementptr i8, ptr %172, i64 -16
   %174 = load double, ptr %173, align 8, !tbaa !61
-  %sext = shl i64 %.146124, 32
-  %175 = ashr exact i64 %sext, 32
-  %176 = getelementptr inbounds nuw %"struct.cv::ml::PairDI", ptr %.sroa.095.0136143, i64 %175
+  %175 = and i64 %.146124, 4294967295
+  %176 = getelementptr inbounds nuw %"struct.cv::ml::PairDI", ptr %.sroa.095.0144151, i64 %175
   %177 = load double, ptr %176, align 8, !tbaa !49
   %178 = fcmp olt double %174, %177
   %.sroa.speculated = select i1 %178, double %177, double %174
@@ -527,7 +526,7 @@ _ZNSt6vectorIN2cv2ml6PairDIESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
 
 183:                                              ; preds = %167, %_ZN2cv3Mat2atIiEERT_i.exit
   %indvars.iv128 = phi i64 [ %175, %167 ], [ %indvars.iv.next129, %_ZN2cv3Mat2atIiEERT_i.exit ]
-  %184 = getelementptr inbounds nuw %"struct.cv::ml::PairDI", ptr %.sroa.095.0136143, i64 %indvars.iv128
+  %184 = getelementptr inbounds nuw %"struct.cv::ml::PairDI", ptr %.sroa.095.0144151, i64 %indvars.iv128
   %185 = load double, ptr %184, align 8, !tbaa !61
   %186 = fcmp ugt double %185, %.sroa.speculated
   br i1 %186, label %.critedge, label %187
@@ -578,8 +577,8 @@ _ZNSt6vectorIN2cv2ml6PairDIESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
 _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %206, %201, %195
   %.0.i = phi ptr [ %197, %195 ], [ %205, %201 ], [ %215, %206 ]
   store i32 %.048123, ptr %.0.i, align 4, !tbaa !50
-  %indvars.iv.next129 = add nsw i64 %indvars.iv128, 1
-  %216 = icmp slt i64 %indvars.iv.next129, %166
+  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
+  %216 = icmp samesign ult i64 %indvars.iv.next129, %166
   br i1 %216, label %183, label %_ZNSt6vectorIN2cv2ml6PairDIESaIS2_EED2Ev.exit, !llvm.loop !66
 
 217:                                              ; preds = %.noexc89, %154
@@ -588,12 +587,12 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %206, %201, %195
   br label %221
 
 .critedge:                                        ; preds = %183
-  %219 = trunc nsw i64 %indvars.iv128 to i32
+  %219 = trunc nuw nsw i64 %indvars.iv128 to i32
   %220 = icmp sgt i32 %0, %219
   br i1 %220, label %167, label %_ZNSt6vectorIN2cv2ml6PairDIESaIS2_EED2Ev.exit, !llvm.loop !67
 
 _ZNSt6vectorIN2cv2ml6PairDIESaIS2_EED2Ev.exit:    ; preds = %.critedge, %_ZN2cv3Mat2atIiEERT_i.exit
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.095.0136143) #16
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.095.0144151) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #17
@@ -1175,7 +1174,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds %"struct.cv::ml::PairDI", ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.cv::ml::PairDI", ptr %0, i64 %17
   %19 = getelementptr inbounds nuw %"struct.cv::ml::PairDI", ptr %0, i64 %16
   br label %20
 

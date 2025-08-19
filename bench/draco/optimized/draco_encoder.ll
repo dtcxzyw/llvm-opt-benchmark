@@ -1188,8 +1188,8 @@ _ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i: ; preds = %378
 
 _ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %.thread, %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i, %378
   %386 = phi ptr [ %377, %.thread ], [ %382, %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i ], [ %382, %378 ]
-  %.2427 = phi i32 [ 0, %.thread ], [ -1, %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i ], [ -1, %378 ]
-  %.sroa.0296.0426 = phi ptr [ %376, %.thread ], [ null, %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i ], [ null, %378 ]
+  %.2484 = phi i32 [ 0, %.thread ], [ -1, %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i ], [ -1, %378 ]
+  %.sroa.0296.0483 = phi ptr [ %376, %.thread ], [ null, %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i ], [ null, %378 ]
   store ptr null, ptr %386, align 8, !tbaa !47
   %387 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %388 = load ptr, ptr %387, align 8, !tbaa !30
@@ -1241,7 +1241,7 @@ _ZN5draco7OptionsD2Ev.exit:                       ; preds = %_ZN5draco8StatusOrI
 402:                                              ; preds = %401
   %403 = load i32, ptr %24, align 8, !tbaa !44
   %404 = icmp eq i32 %403, 0
-  br i1 %404, label %.thread428, label %410
+  br i1 %404, label %.thread485, label %410
 
 405:                                              ; preds = %401
   %406 = landingpad { ptr, i32 }
@@ -1249,7 +1249,7 @@ _ZN5draco7OptionsD2Ev.exit:                       ; preds = %_ZN5draco8StatusOrI
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %_ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit282
 
-.thread428:                                       ; preds = %402
+.thread485:                                       ; preds = %402
   %407 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %408 = load ptr, ptr %407, align 8, !tbaa !51
   %409 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -1272,10 +1272,10 @@ _ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i.i: ; preds = %410
   call void %417(ptr noundef nonnull align 8 dereferenceable(164) %.pre418) #22
   br label %_ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %.thread428, %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i.i, %410
-  %418 = phi ptr [ %409, %.thread428 ], [ %414, %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i.i ], [ %414, %410 ]
-  %.4433 = phi i32 [ 0, %.thread428 ], [ -1, %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i.i ], [ -1, %410 ]
-  %.sroa.0296.4432 = phi ptr [ %408, %.thread428 ], [ null, %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i.i ], [ null, %410 ]
+_ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %.thread485, %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i.i, %410
+  %418 = phi ptr [ %409, %.thread485 ], [ %414, %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i.i ], [ %414, %410 ]
+  %.4490 = phi i32 [ 0, %.thread485 ], [ -1, %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i.i ], [ -1, %410 ]
+  %.sroa.0296.4489 = phi ptr [ %408, %.thread485 ], [ null, %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i.i ], [ null, %410 ]
   store ptr null, ptr %418, align 8, !tbaa !51
   %419 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %420 = load ptr, ptr %419, align 8, !tbaa !30
@@ -1301,8 +1301,8 @@ _ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.
   br i1 %404, label %428, label %716
 
 428:                                              ; preds = %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit, %_ZN5draco7OptionsD2Ev.exit
-  %.sroa.0296.2 = phi ptr [ %.sroa.0296.4432, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit ], [ %.sroa.0296.0426, %_ZN5draco7OptionsD2Ev.exit ]
-  %.1102 = phi ptr [ null, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit ], [ %.sroa.0296.0426, %_ZN5draco7OptionsD2Ev.exit ]
+  %.sroa.0296.2 = phi ptr [ %.sroa.0296.4489, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit ], [ %.sroa.0296.0483, %_ZN5draco7OptionsD2Ev.exit ]
+  %.1102 = phi ptr [ null, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit ], [ %.sroa.0296.0483, %_ZN5draco7OptionsD2Ev.exit ]
   %429 = load i32, ptr %31, align 4, !tbaa !15
   %430 = icmp slt i32 %429, 0
   br i1 %430, label %431, label %432
@@ -1342,16 +1342,16 @@ _ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.
 
 437:                                              ; preds = %435
   %438 = icmp sgt i32 %436, 0
-  br i1 %438, label %439, label %.preheader435
+  br i1 %438, label %439, label %.preheader492
 
 439:                                              ; preds = %437
   store i8 1, ptr %33, align 4, !tbaa !17
-  br label %.preheader435
+  br label %.preheader492
 
-.preheader435:                                    ; preds = %439, %437
+.preheader492:                                    ; preds = %439, %437
   br label %440
 
-440:                                              ; preds = %.preheader435, %446
+440:                                              ; preds = %.preheader492, %446
   %441 = invoke noundef i32 @_ZNK5draco10PointCloud18NumNamedAttributesENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %.sroa.0296.2, i32 noundef 3)
           to label %442 unwind label %.thread346.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1381,16 +1381,16 @@ _ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.
 
 454:                                              ; preds = %452
   %455 = icmp sgt i32 %453, 0
-  br i1 %455, label %456, label %.preheader434
+  br i1 %455, label %456, label %.preheader491
 
 456:                                              ; preds = %454
   store i8 1, ptr %35, align 4, !tbaa !19
-  br label %.preheader434
+  br label %.preheader491
 
-.preheader434:                                    ; preds = %456, %454
+.preheader491:                                    ; preds = %456, %454
   br label %457
 
-457:                                              ; preds = %.preheader434, %463
+457:                                              ; preds = %.preheader491, %463
   %458 = invoke noundef i32 @_ZNK5draco10PointCloud18NumNamedAttributesENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %.sroa.0296.2, i32 noundef 1)
           to label %459 unwind label %.thread346.loopexit.split-lp.loopexit
 
@@ -2029,8 +2029,8 @@ _ZNSt10unique_ptrIN5draco13ExpertEncoderESt14default_deleteIS1_EED2Ev.exit278: ;
   br label %720
 
 716:                                              ; preds = %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit, %_ZN5draco7OptionsD2Ev.exit, %431
-  %.sroa.0296.1 = phi ptr [ %.sroa.0296.2, %431 ], [ %.sroa.0296.4432, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit ], [ %.sroa.0296.0426, %_ZN5draco7OptionsD2Ev.exit ]
-  %.3 = phi i32 [ -1, %431 ], [ %.4433, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit ], [ %.2427, %_ZN5draco7OptionsD2Ev.exit ]
+  %.sroa.0296.1 = phi ptr [ %.sroa.0296.2, %431 ], [ %.sroa.0296.4489, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit ], [ %.sroa.0296.0483, %_ZN5draco7OptionsD2Ev.exit ]
+  %.3 = phi i32 [ -1, %431 ], [ %.4490, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit ], [ %.2484, %_ZN5draco7OptionsD2Ev.exit ]
   %.not.i279 = icmp eq ptr %.sroa.0296.1, null
   br i1 %.not.i279, label %_ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i
 

@@ -73,36 +73,36 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 .outer:                                           ; preds = %24, %2
   %.078.ph = phi ptr [ %.078.fr, %24 ], [ null, %2 ]
   %.076.ph = phi ptr [ %26, %24 ], [ null, %2 ]
-  %.074.ph = phi ptr [ %.074.ph180, %24 ], [ null, %2 ]
-  %.072.ph = phi ptr [ %.072.ph186, %24 ], [ @.str, %2 ]
-  %.064.ph = phi i1 [ %.064.ph191, %24 ], [ false, %2 ]
+  %.074.ph = phi ptr [ %.074.ph194, %24 ], [ null, %2 ]
+  %.072.ph = phi ptr [ %.072.ph200, %24 ], [ @.str, %2 ]
+  %.064.ph = phi i1 [ %.064.ph205, %24 ], [ false, %2 ]
   %.062.ph = phi ptr [ %.062.fr, %24 ], [ null, %2 ]
-  br label %.outer178
+  br label %.outer192
 
-.outer178:                                        ; preds = %.outer, %12
-  %.078.ph179 = phi ptr [ %.078.ph, %.outer ], [ %.078.fr, %12 ]
-  %.074.ph180 = phi ptr [ %.074.ph, %.outer ], [ %14, %12 ]
-  %.072.ph181 = phi ptr [ %.072.ph, %.outer ], [ %.072.ph186, %12 ]
-  %.064.ph182 = phi i1 [ %.064.ph, %.outer ], [ %.064.ph191, %12 ]
-  %.062.ph183 = phi ptr [ %.062.ph, %.outer ], [ %.062.fr, %12 ]
-  br label %.outer184
+.outer192:                                        ; preds = %.outer, %12
+  %.078.ph193 = phi ptr [ %.078.ph, %.outer ], [ %.078.fr, %12 ]
+  %.074.ph194 = phi ptr [ %.074.ph, %.outer ], [ %14, %12 ]
+  %.072.ph195 = phi ptr [ %.072.ph, %.outer ], [ %.072.ph200, %12 ]
+  %.064.ph196 = phi i1 [ %.064.ph, %.outer ], [ %.064.ph205, %12 ]
+  %.062.ph197 = phi ptr [ %.062.ph, %.outer ], [ %.062.fr, %12 ]
+  br label %.outer198
 
-.outer184:                                        ; preds = %.outer178, %21
-  %.078.ph185 = phi ptr [ %.078.ph179, %.outer178 ], [ %.078.fr, %21 ]
-  %.072.ph186 = phi ptr [ %.072.ph181, %.outer178 ], [ %23, %21 ]
-  %.064.ph187 = phi i1 [ %.064.ph182, %.outer178 ], [ %.064.ph191, %21 ]
-  %.062.ph188 = phi ptr [ %.062.ph183, %.outer178 ], [ %.062.fr, %21 ]
-  br label %.outer189
+.outer198:                                        ; preds = %.outer192, %21
+  %.078.ph199 = phi ptr [ %.078.ph193, %.outer192 ], [ %.078.fr, %21 ]
+  %.072.ph200 = phi ptr [ %.072.ph195, %.outer192 ], [ %23, %21 ]
+  %.064.ph201 = phi i1 [ %.064.ph196, %.outer192 ], [ %.064.ph205, %21 ]
+  %.062.ph202 = phi ptr [ %.062.ph197, %.outer192 ], [ %.062.fr, %21 ]
+  br label %.outer203
 
-.outer189:                                        ; preds = %10, %.outer184
-  %.078.ph190 = phi ptr [ %.078.ph185, %.outer184 ], [ %.078.fr, %10 ]
-  %.064.ph191 = phi i1 [ %.064.ph187, %.outer184 ], [ true, %10 ]
-  %.062.ph192 = phi ptr [ %.062.ph188, %.outer184 ], [ %.062.fr, %10 ]
+.outer203:                                        ; preds = %10, %.outer198
+  %.078.ph204 = phi ptr [ %.078.ph199, %.outer198 ], [ %.078.fr, %10 ]
+  %.064.ph205 = phi i1 [ %.064.ph201, %.outer198 ], [ true, %10 ]
+  %.062.ph206 = phi ptr [ %.062.ph202, %.outer198 ], [ %.062.fr, %10 ]
   br label %10
 
-10:                                               ; preds = %.backedge, %.outer189
-  %.078 = phi ptr [ %.078.ph190, %.outer189 ], [ %.078.be, %.backedge ]
-  %.062 = phi ptr [ %.062.ph192, %.outer189 ], [ %.062.be, %.backedge ]
+10:                                               ; preds = %.backedge, %.outer203
+  %.078 = phi ptr [ %.078.ph204, %.outer203 ], [ %.078.be, %.backedge ]
+  %.062 = phi ptr [ %.062.ph206, %.outer203 ], [ %.062.be, %.backedge ]
   %.062.fr = freeze ptr %.062
   %.078.fr = freeze ptr %.078
   %11 = tail call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @main.long_options, ptr noundef null) #7
@@ -111,7 +111,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
     i32 100, label %12
     i32 104, label %15
     i32 112, label %18
-    i32 113, label %.outer189
+    i32 113, label %.outer203
     i32 116, label %21
     i32 85, label %24
   ], !llvm.loop !4
@@ -119,7 +119,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 12:                                               ; preds = %10
   %13 = load ptr, ptr @optarg, align 8
   %14 = tail call ptr @pg_strdup(ptr noundef %13) #7
-  br label %.outer178, !llvm.loop !4
+  br label %.outer192, !llvm.loop !4
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr @optarg, align 8
@@ -139,7 +139,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 21:                                               ; preds = %10
   %22 = load ptr, ptr @optarg, align 8
   %23 = tail call ptr @pg_strdup(ptr noundef %22) #7
-  br label %.outer184, !llvm.loop !4
+  br label %.outer198, !llvm.loop !4
 
 24:                                               ; preds = %10
   %25 = load ptr, ptr @optarg, align 8
@@ -179,11 +179,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @.str.1, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %.074.ph180, ptr %41, align 8
+  store ptr %.074.ph194, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr @.str.12, ptr %42, align 16
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %.072.ph186, ptr %43, align 16
+  store ptr %.072.ph200, ptr %43, align 16
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @.str.13, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -192,26 +192,26 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store ptr null, ptr %46, align 16
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr null, ptr %47, align 16
-  %.not91 = icmp eq ptr %.074.ph180, null
+  %.not91 = icmp eq ptr %.074.ph194, null
   br i1 %.not91, label %61, label %48
 
 48:                                               ; preds = %35
-  %49 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.074.ph180, ptr noundef nonnull dereferenceable(14) @.str.14, i64 noundef 13) #9
+  %49 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.074.ph194, ptr noundef nonnull dereferenceable(14) @.str.14, i64 noundef 13) #9
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %56, label %51
 
 51:                                               ; preds = %48
-  %52 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.074.ph180, ptr noundef nonnull dereferenceable(12) @.str.15, i64 noundef 11) #9
+  %52 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.074.ph194, ptr noundef nonnull dereferenceable(12) @.str.15, i64 noundef 11) #9
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %56, label %54
 
 54:                                               ; preds = %51
-  %55 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.074.ph180, i32 noundef 61) #9
+  %55 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.074.ph194, i32 noundef 61) #9
   %.not92 = icmp eq ptr %55, null
   br i1 %.not92, label %61, label %56
 
 56:                                               ; preds = %54, %51, %48
-  %57 = call ptr @PQconninfoParse(ptr noundef nonnull %.074.ph180, ptr noundef nonnull %5) #7
+  %57 = call ptr @PQconninfoParse(ptr noundef nonnull %.074.ph194, ptr noundef nonnull %5) #7
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %61
 
@@ -495,7 +495,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.068.lcssa = phi ptr [ null, %.preheader ], [ %.169.us, %96 ], [ %.169, %159 ], [ %.169.us141, %128 ]
   %.066.lcssa = phi ptr [ null, %.preheader ], [ %.167.us, %96 ], [ %.167, %159 ], [ %.167.us142, %128 ]
   %163 = call i32 @PQpingParams(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1) #7
-  br i1 %.064.ph191, label %170, label %164
+  br i1 %.064.ph205, label %170, label %164
 
 164:                                              ; preds = %._crit_edge
   %.not94 = icmp eq ptr %.068.lcssa, null

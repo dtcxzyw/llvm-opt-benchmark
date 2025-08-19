@@ -4455,7 +4455,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_fib_config(ptr noun
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %70 = icmp sgt i32 %56, 3
-  br i1 %70, label %.lr.ph, label %.thread24
+  br i1 %70, label %.lr.ph, label %.thread30
 
 .lr.ph:                                           ; preds = %54, %128
   %71 = phi ptr [ %137, %128 ], [ %9, %54 ]
@@ -4635,7 +4635,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_fib_config(ptr noun
   br label %.thread
 
 158:                                              ; preds = %152, %.critedge
-  br i1 %142, label %.thread24, label %159
+  br i1 %142, label %.thread30, label %159
 
 159:                                              ; preds = %158
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtm_to_fib_config.__msg.15) #13
@@ -4646,17 +4646,17 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_fib_config(ptr noun
   store ptr @rtm_to_fib_config.__msg.15, ptr %4, align 8
   br label %.thread
 
-.thread24:                                        ; preds = %54, %158
+.thread30:                                        ; preds = %54, %158
   %162 = load i32, ptr %28, align 8
   %163 = icmp eq i32 %162, 0
   br i1 %163, label %164, label %.thread
 
-164:                                              ; preds = %.thread24
+164:                                              ; preds = %.thread30
   store i32 254, ptr %28, align 8
   br label %.thread
 
-.thread:                                          ; preds = %93, %5, %164, %.thread24, %161, %159, %157, %155, %124, %119, %53, %51, %20, %18, %8
-  %165 = phi i32 [ -22, %157 ], [ -22, %155 ], [ -22, %161 ], [ -22, %159 ], [ 0, %164 ], [ 0, %.thread24 ], [ %11, %8 ], [ -22, %20 ], [ -22, %18 ], [ -22, %53 ], [ -22, %51 ], [ -95, %119 ], [ -95, %124 ], [ -22, %5 ], [ %94, %93 ]
+.thread:                                          ; preds = %93, %5, %164, %.thread30, %161, %159, %157, %155, %124, %119, %53, %51, %20, %18, %8
+  %165 = phi i32 [ -22, %157 ], [ -22, %155 ], [ -22, %161 ], [ -22, %159 ], [ 0, %164 ], [ 0, %.thread30 ], [ %11, %8 ], [ -22, %20 ], [ -22, %18 ], [ -22, %53 ], [ -22, %51 ], [ -95, %119 ], [ -95, %124 ], [ -22, %5 ], [ %94, %93 ]
   ret i32 %165
 }
 

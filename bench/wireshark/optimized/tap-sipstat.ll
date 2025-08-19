@@ -201,9 +201,9 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr readnone
   br label %.sink.split
 
 .sink.split:                                      ; preds = %39, %20
-  %.sink93 = phi i64 [ 24, %20 ], [ 16, %39 ]
+  %.sink101 = phi i64 [ 24, %20 ], [ 16, %39 ]
   %.sink = phi i32 [ %23, %20 ], [ %42, %39 ]
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink93
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink101
   store i32 %.sink, ptr %43, align 8
   br label %44
 
@@ -263,8 +263,8 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr readnone
   br label %72
 
 72:                                               ; preds = %71, %69, %67, %65, %63
-  %.sink94 = phi i32 [ 199, %63 ], [ 299, %65 ], [ 399, %67 ], [ 499, %69 ], [ %., %71 ]
-  store i32 %.sink94, ptr %6, align 4
+  %.sink102 = phi i32 [ 199, %63 ], [ 299, %65 ], [ 399, %67 ], [ 499, %69 ], [ %., %71 ]
+  store i32 %.sink102, ptr %6, align 4
   %73 = load ptr, ptr %56, align 8
   %74 = call ptr @g_hash_table_lookup(ptr noundef %73, ptr noundef nonnull %6)
   %.not91 = icmp eq ptr %74, null

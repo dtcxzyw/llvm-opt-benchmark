@@ -1134,8 +1134,8 @@ define internal void @"_ZN4core3ptr161drop_in_place$LT$$LT$ockam..relay_service.
   ]
 
 common.ret.sink.split:                            ; preds = %1, %20
-  %.sink4 = phi i64 [ 64, %20 ], [ 1808, %1 ]
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink4
+  %.sink5 = phi i64 [ 64, %20 ], [ 1808, %1 ]
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink5
   tail call void @"_ZN4core3ptr80drop_in_place$LT$ockam_core..message..Routed$LT$ockam_core..message..Any$GT$$GT$17h929b5e0922bb55f2E"(ptr noalias noundef nonnull align 8 dereferenceable(232) %5)
   br label %common.ret
 
@@ -2867,14 +2867,14 @@ define internal { i64, ptr } @"_ZN96_$LT$ockam..relay_service..relay_service..Re
   %82 = alloca { { { ptr, i64 }, i64, i64 } }, align 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 2060
   %84 = load i8, ptr %83, align 4, !range !315, !noundef !4
-  switch i8 %84, label %default.unreachable147 [
+  switch i8 %84, label %default.unreachable181 [
     i8 0, label %89
     i8 1, label %203
     i8 2, label %204
     i8 3, label %205
   ]
 
-default.unreachable147:                           ; preds = %1064, %832, %815, %787, %494, %444, %205, %2
+default.unreachable181:                           ; preds = %1064, %832, %815, %787, %494, %444, %205, %2
   unreachable
 
 85:                                               ; preds = %1467
@@ -3215,7 +3215,7 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   %.pre = load i8, ptr %.phi.trans.insert, align 4, !range !315, !noalias !793
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 1804
-  switch i8 %.pre, label %default.unreachable147 [
+  switch i8 %.pre, label %default.unreachable181 [
     i8 0, label %208
     i8 1, label %.invoke
     i8 2, label %441
@@ -3805,7 +3805,7 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !793
   store i8 0, ptr %214, align 1, !noalias !793
   invoke void @"_ZN10ockam_node14worker_builder32WorkerBuilderOneAddress$LT$W$GT$32with_outgoing_access_control_arc17hecf149d62f1be4fdE"(ptr noalias noundef nonnull sret({ { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { ptr, ptr }, { ptr, ptr }, { { { { ptr, i64 }, i64, i64 } }, { ptr, [2 x i64] } }, { [56 x i8], i8, [7 x i8] } }) align 8 captures(none) dereferenceable(184) %62, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %61, ptr noundef nonnull %364, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %365)
-          to label %.thread255.i unwind label %419
+          to label %.thread283.i unwind label %419
 
 418:                                              ; preds = %419, %414
   %.pn118.i = phi { ptr, i32 } [ %420, %419 ], [ %.pn116.i, %414 ]
@@ -3818,7 +3818,7 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
           cleanup
   br label %418
 
-.thread255.i:                                     ; preds = %417
+.thread283.i:                                     ; preds = %417
   call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !793
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %.sroa.8240.i, ptr noundef nonnull align 8 dereferenceable(184) %62, i64 184, i1 false), !noalias !793
   call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !793
@@ -3894,7 +3894,7 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 1762
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2, !range !315, !noalias !882
   %445 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  switch i8 %.pre.i, label %default.unreachable147 [
+  switch i8 %.pre.i, label %default.unreachable181 [
     i8 0, label %._crit_edge
     i8 1, label %.invoke.i
     i8 2, label %491
@@ -3906,12 +3906,12 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   %.pre146 = load ptr, ptr %.phi.trans.insert145, align 8, !noalias !882
   br label %446
 
-446:                                              ; preds = %._crit_edge, %.thread255.i
-  %447 = phi ptr [ %209, %.thread255.i ], [ %207, %._crit_edge ]
-  %448 = phi ptr [ %210, %.thread255.i ], [ %206, %._crit_edge ]
-  %449 = phi ptr [ %216, %.thread255.i ], [ %.pre146, %._crit_edge ]
-  %450 = phi ptr [ %.sroa.10242.0..sroa_idx.i, %.thread255.i ], [ %.phi.trans.insert.i, %._crit_edge ]
-  %451 = phi ptr [ %421, %.thread255.i ], [ %445, %._crit_edge ]
+446:                                              ; preds = %._crit_edge, %.thread283.i
+  %447 = phi ptr [ %209, %.thread283.i ], [ %207, %._crit_edge ]
+  %448 = phi ptr [ %210, %.thread283.i ], [ %206, %._crit_edge ]
+  %449 = phi ptr [ %216, %.thread283.i ], [ %.pre146, %._crit_edge ]
+  %450 = phi ptr [ %.sroa.10242.0..sroa_idx.i, %.thread283.i ], [ %.phi.trans.insert.i, %._crit_edge ]
+  %451 = phi ptr [ %421, %.thread283.i ], [ %445, %._crit_edge ]
   %452 = getelementptr inbounds nuw i8, ptr %0, i64 1761
   %453 = getelementptr inbounds nuw i8, ptr %0, i64 1760
   %454 = getelementptr inbounds nuw i8, ptr %0, i64 1576
@@ -4082,7 +4082,7 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6330.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i.i.i)
-  switch i8 %.pre.i.i, label %default.unreachable147 [
+  switch i8 %.pre.i.i, label %default.unreachable181 [
     i8 0, label %._crit_edge.i
     i8 1, label %.invoke.i.i
     i8 2, label %784
@@ -4783,14 +4783,14 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !920
   %744 = load ptr, ptr %511, align 8, !noalias !920, !nonnull !4, !align !5, !noundef !4
   %745 = invoke noundef align 8 dereferenceable(8) ptr @_ZN10ockam_node7context7context7Context6sender17hd9d39e287e7dedb3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %744)
-          to label %.thread384.i.i.i unwind label %746
+          to label %.thread396.i.i.i unwind label %746
 
 746:                                              ; preds = %740
   %747 = landingpad { ptr, i32 }
           cleanup
   br label %1056
 
-.thread384.i.i.i:                                 ; preds = %740
+.thread396.i.i.i:                                 ; preds = %740
   store i8 0, ptr %510, align 8, !noalias !920
   %.sroa.7283.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1464
   store ptr %745, ptr %.sroa.7283.0..sroa_idx.i.i.i, align 8, !noalias !920
@@ -4898,7 +4898,7 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i, align 1, !range !315, !noalias !989
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8289.i.i.i)
   %788 = getelementptr inbounds nuw i8, ptr %0, i64 1248
-  switch i8 %.pre.i.i.i, label %default.unreachable147 [
+  switch i8 %.pre.i.i.i, label %default.unreachable181 [
     i8 0, label %..thread.i.i_crit_edge.i.i
     i8 1, label %.invoke.i.i.i
     i8 2, label %812
@@ -4910,16 +4910,16 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   %.pre78.i.i = load ptr, ptr %.phi.trans.insert77.i.i, align 8, !noalias !989
   br label %.thread.i.i.i.i
 
-.thread.i.i.i.i:                                  ; preds = %..thread.i.i_crit_edge.i.i, %.thread384.i.i.i
-  %789 = phi ptr [ %497, %.thread384.i.i.i ], [ %207, %..thread.i.i_crit_edge.i.i ]
-  %790 = phi ptr [ %498, %.thread384.i.i.i ], [ %206, %..thread.i.i_crit_edge.i.i ]
-  %791 = phi ptr [ %499, %.thread384.i.i.i ], [ %.phi.trans.insert.i, %..thread.i.i_crit_edge.i.i ]
-  %792 = phi ptr [ %500, %.thread384.i.i.i ], [ %445, %..thread.i.i_crit_edge.i.i ]
-  %793 = phi ptr [ %502, %.thread384.i.i.i ], [ %.phi.trans.insert.i.i, %..thread.i.i_crit_edge.i.i ]
-  %794 = phi ptr [ %503, %.thread384.i.i.i ], [ %495, %..thread.i.i_crit_edge.i.i ]
-  %795 = phi ptr [ %745, %.thread384.i.i.i ], [ %.pre78.i.i, %..thread.i.i_crit_edge.i.i ]
-  %796 = phi ptr [ %.sroa.10286.0..sroa_idx.i.i.i, %.thread384.i.i.i ], [ %.phi.trans.insert.i.i.i, %..thread.i.i_crit_edge.i.i ]
-  %797 = phi ptr [ %748, %.thread384.i.i.i ], [ %788, %..thread.i.i_crit_edge.i.i ]
+.thread.i.i.i.i:                                  ; preds = %..thread.i.i_crit_edge.i.i, %.thread396.i.i.i
+  %789 = phi ptr [ %497, %.thread396.i.i.i ], [ %207, %..thread.i.i_crit_edge.i.i ]
+  %790 = phi ptr [ %498, %.thread396.i.i.i ], [ %206, %..thread.i.i_crit_edge.i.i ]
+  %791 = phi ptr [ %499, %.thread396.i.i.i ], [ %.phi.trans.insert.i, %..thread.i.i_crit_edge.i.i ]
+  %792 = phi ptr [ %500, %.thread396.i.i.i ], [ %445, %..thread.i.i_crit_edge.i.i ]
+  %793 = phi ptr [ %502, %.thread396.i.i.i ], [ %.phi.trans.insert.i.i, %..thread.i.i_crit_edge.i.i ]
+  %794 = phi ptr [ %503, %.thread396.i.i.i ], [ %495, %..thread.i.i_crit_edge.i.i ]
+  %795 = phi ptr [ %745, %.thread396.i.i.i ], [ %.pre78.i.i, %..thread.i.i_crit_edge.i.i ]
+  %796 = phi ptr [ %.sroa.10286.0..sroa_idx.i.i.i, %.thread396.i.i.i ], [ %.phi.trans.insert.i.i.i, %..thread.i.i_crit_edge.i.i ]
+  %797 = phi ptr [ %748, %.thread396.i.i.i ], [ %788, %..thread.i.i_crit_edge.i.i ]
   %798 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   store i8 1, ptr %798, align 8, !noalias !989
   %799 = getelementptr inbounds nuw i8, ptr %0, i64 1376
@@ -4960,7 +4960,7 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
 815:                                              ; preds = %787
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %.pre.i.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i.i, align 8, !range !315, !noalias !993
-  switch i8 %.pre.i.i.i.i, label %default.unreachable147 [
+  switch i8 %.pre.i.i.i.i, label %default.unreachable181 [
     i8 0, label %..thread.i.i_crit_edge.i.i.i
     i8 1, label %.invoke.i.i.i.i
     i8 2, label %829
@@ -5012,7 +5012,7 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %.pre.i.i.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i.i.i, align 8, !range !269, !noalias !997
   %833 = getelementptr inbounds nuw i8, ptr %0, i64 1264
-  switch i8 %.pre.i.i.i.i.i, label %default.unreachable147 [
+  switch i8 %.pre.i.i.i.i.i, label %default.unreachable181 [
     i8 0, label %._crit_edge38.i.i.i.i
     i8 1, label %.invoke.i.i.i.i.i
     i8 2, label %853
@@ -5374,7 +5374,7 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
 
 1011:                                             ; preds = %994
   %1012 = icmp eq i8 %.sroa.024.0.i362.i.i.i, 15
-  br i1 %1012, label %.thread385.i.i.i, label %1013
+  br i1 %1012, label %.thread397.i.i.i, label %1013
 
 1013:                                             ; preds = %1011
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !1028
@@ -5389,7 +5389,7 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
           cleanup
   br label %1056
 
-.thread385.i.i.i:                                 ; preds = %1011
+.thread397.i.i.i:                                 ; preds = %1011
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !920
   %1017 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   store ptr %1017, ptr %1001, align 8, !noalias !920
@@ -5512,9 +5512,9 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   %.pre382.i.i.i = load i8, ptr %.phi.trans.insert381.i.i.i, align 8, !range !315, !noalias !1053
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0321.sroa.6.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8325.i.i.i)
-  switch i8 %.pre382.i.i.i, label %default.unreachable147 [
+  switch i8 %.pre382.i.i.i, label %default.unreachable181 [
     i8 0, label %1065
-    i8 1, label %.invoke386.i.i.i
+    i8 1, label %.invoke398.i.i.i
     i8 2, label %1076
     i8 3, label %._crit_edge.i.i.i.i
   ]
@@ -5524,14 +5524,14 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   %.pre.i229.i.i.i = load ptr, ptr %.phi.trans.insert.i228.i.i.i, align 8, !alias.scope !1057, !noalias !1062
   br label %1079
 
-1065:                                             ; preds = %1064, %.thread385.i.i.i
-  %1066 = phi ptr [ %995, %.thread385.i.i.i ], [ %207, %1064 ]
-  %1067 = phi ptr [ %996, %.thread385.i.i.i ], [ %206, %1064 ]
-  %1068 = phi ptr [ %997, %.thread385.i.i.i ], [ %.phi.trans.insert.i, %1064 ]
-  %1069 = phi ptr [ %998, %.thread385.i.i.i ], [ %445, %1064 ]
-  %1070 = phi ptr [ %999, %.thread385.i.i.i ], [ %.phi.trans.insert.i.i, %1064 ]
-  %1071 = phi ptr [ %1000, %.thread385.i.i.i ], [ %495, %1064 ]
-  %1072 = phi ptr [ %.sroa.8319.0..sroa_idx.i.i.i, %.thread385.i.i.i ], [ %.phi.trans.insert381.i.i.i, %1064 ]
+1065:                                             ; preds = %1064, %.thread397.i.i.i
+  %1066 = phi ptr [ %995, %.thread397.i.i.i ], [ %207, %1064 ]
+  %1067 = phi ptr [ %996, %.thread397.i.i.i ], [ %206, %1064 ]
+  %1068 = phi ptr [ %997, %.thread397.i.i.i ], [ %.phi.trans.insert.i, %1064 ]
+  %1069 = phi ptr [ %998, %.thread397.i.i.i ], [ %445, %1064 ]
+  %1070 = phi ptr [ %999, %.thread397.i.i.i ], [ %.phi.trans.insert.i.i, %1064 ]
+  %1071 = phi ptr [ %1000, %.thread397.i.i.i ], [ %495, %1064 ]
+  %1072 = phi ptr [ %.sroa.8319.0..sroa_idx.i.i.i, %.thread397.i.i.i ], [ %.phi.trans.insert381.i.i.i, %1064 ]
   %1073 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %1074 = load ptr, ptr %1073, align 8, !noalias !1053, !nonnull !4, !align !5, !noundef !4
   %1075 = getelementptr inbounds nuw i8, ptr %0, i64 1256
@@ -5539,15 +5539,15 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   br label %1079
 
 1076:                                             ; preds = %1064
-  br label %.invoke386.i.i.i
+  br label %.invoke398.i.i.i
 
-.invoke386.i.i.i:                                 ; preds = %1076, %1064
+.invoke398.i.i.i:                                 ; preds = %1076, %1064
   %1077 = phi ptr [ @str.1, %1076 ], [ @str.0, %1064 ]
   %1078 = phi i64 [ 34, %1076 ], [ 35, %1064 ]
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 %1077, i64 noundef %1078, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cf4ee15f6bfc49c83258a766967567f5.36) #29
-          to label %.cont387.i.i.i unwind label %1093
+          to label %.cont399.i.i.i unwind label %1093
 
-.cont387.i.i.i:                                   ; preds = %.invoke386.i.i.i
+.cont399.i.i.i:                                   ; preds = %.invoke398.i.i.i
   unreachable
 
 1079:                                             ; preds = %1065, %._crit_edge.i.i.i.i
@@ -5576,7 +5576,7 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   %1092 = icmp eq i8 %1091, 11
   br i1 %1092, label %1095, label %1096
 
-1093:                                             ; preds = %.invoke386.i.i.i
+1093:                                             ; preds = %.invoke398.i.i.i
   %1094 = landingpad { ptr, i32 }
           cleanup
   br label %.body233.i.i.i

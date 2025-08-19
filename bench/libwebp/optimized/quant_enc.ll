@@ -932,7 +932,7 @@ VP8MakeChroma8Preds.exit:                         ; preds = %38, %41
   %46 = load ptr, ptr %32, align 8, !tbaa !90
   tail call void %45(ptr noundef %46, ptr noundef %39, ptr noundef %44) #11
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %591, label %47
+  br i1 %.not, label %587, label %47
 
 47:                                               ; preds = %VP8MakeChroma8Preds.exit
   %48 = icmp ugt i32 %2, 2
@@ -1006,11 +1006,11 @@ IsFlatSource16.exit.i:                            ; preds = %76, %74, %72, %70, 
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %83
 
-83:                                               ; preds = %144, %IsFlatSource16.exit.i
-  %indvars.iv.i = phi i64 [ 0, %IsFlatSource16.exit.i ], [ %indvars.iv.next.i, %144 ]
-  %.03869.i = phi i32 [ %.09.i.i, %IsFlatSource16.exit.i ], [ %.1.i, %144 ]
-  %.06068.i = phi ptr [ %1, %IsFlatSource16.exit.i ], [ %.161.i, %144 ]
-  %.06267.i = phi ptr [ %12, %IsFlatSource16.exit.i ], [ %.163.i, %144 ]
+83:                                               ; preds = %140, %IsFlatSource16.exit.i
+  %indvars.iv.i = phi i64 [ 0, %IsFlatSource16.exit.i ], [ %indvars.iv.next.i, %140 ]
+  %.03869.i = phi i32 [ %.09.i.i, %IsFlatSource16.exit.i ], [ %.1.i, %140 ]
+  %.06068.i = phi ptr [ %1, %IsFlatSource16.exit.i ], [ %.161.i, %140 ]
+  %.06267.i = phi ptr [ %12, %IsFlatSource16.exit.i ], [ %.163.i, %140 ]
   %84 = load ptr, ptr %80, align 8, !tbaa !108, !alias.scope !98, !noalias !101
   %85 = getelementptr inbounds nuw i8, ptr %.06267.i, i64 840
   %86 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1053,1244 +1053,1239 @@ IsFlatSource16.exit.i:                            ; preds = %76, %74, %72, %70, 
   %110 = getelementptr inbounds nuw i8, ptr %.06267.i, i64 72
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %120, %109
-  %.in.i.i = phi i32 [ 16, %109 ], [ %111, %120 ]
-  %.01127.i.i = phi i32 [ 0, %109 ], [ %118, %120 ]
-  %.01626.i.i = phi ptr [ %110, %109 ], [ %121, %120 ]
+.preheader.i.i:                                   ; preds = %116, %109
+  %.in.i.i = phi i32 [ 16, %109 ], [ %111, %116 ]
+  %.01626.i.i = phi ptr [ %110, %109 ], [ %117, %116 ]
   %111 = add nsw i32 %.in.i.i, -1
   br label %113
 
 112:                                              ; preds = %113
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.i.i, label %120, label %113, !llvm.loop !113
+  br i1 %exitcond.i.i, label %116, label %113, !llvm.loop !113
 
 113:                                              ; preds = %112, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 1, %.preheader.i.i ], [ %indvars.iv.next.i.i, %112 ]
-  %.124.i.i = phi i32 [ %.01127.i.i, %.preheader.i.i ], [ %118, %112 ]
   %114 = getelementptr inbounds nuw i16, ptr %.01626.i.i, i64 %indvars.iv.i.i
   %115 = load i16, ptr %114, align 2, !tbaa !46, !noalias !98
-  %116 = icmp ne i16 %115, 0
-  %117 = zext i1 %116 to i32
-  %118 = add nsw i32 %.124.i.i, %117
-  %119 = icmp sgt i32 %118, 0
-  br i1 %119, label %IsFlat_C.exit.thread.i, label %112
+  %.not77.i = icmp eq i16 %115, 0
+  br i1 %.not77.i, label %112, label %IsFlat_C.exit.thread.i
 
-120:                                              ; preds = %112
-  %121 = getelementptr inbounds nuw i8, ptr %.01626.i.i, i64 32
-  %122 = icmp samesign ugt i32 %.in.i.i, 1
-  br i1 %122, label %.preheader.i.i, label %IsFlat_C.exit.i, !llvm.loop !114
+116:                                              ; preds = %112
+  %117 = getelementptr inbounds nuw i8, ptr %.01626.i.i, i64 32
+  %118 = icmp samesign ugt i32 %.in.i.i, 1
+  br i1 %118, label %.preheader.i.i, label %IsFlat_C.exit.i, !llvm.loop !114
 
-IsFlat_C.exit.i:                                  ; preds = %120
-  %123 = load i64, ptr %.06267.i, align 8, !tbaa !109, !noalias !98
-  %124 = shl nsw i64 %123, 1
-  store i64 %124, ptr %.06267.i, align 8, !tbaa !109, !noalias !98
-  %125 = load i64, ptr %101, align 8, !tbaa !110, !noalias !98
-  %126 = shl nsw i64 %125, 1
-  store i64 %126, ptr %101, align 8, !tbaa !110, !noalias !98
+IsFlat_C.exit.i:                                  ; preds = %116
+  %119 = load i64, ptr %.06267.i, align 8, !tbaa !109, !noalias !98
+  %120 = shl nsw i64 %119, 1
+  store i64 %120, ptr %.06267.i, align 8, !tbaa !109, !noalias !98
+  %121 = load i64, ptr %101, align 8, !tbaa !110, !noalias !98
+  %122 = shl nsw i64 %121, 1
+  store i64 %122, ptr %101, align 8, !tbaa !110, !noalias !98
   br label %IsFlat_C.exit.thread.i
 
 IsFlat_C.exit.thread.i:                           ; preds = %113, %IsFlat_C.exit.i, %99
   %.1.i = phi i32 [ 1, %IsFlat_C.exit.i ], [ 0, %99 ], [ 0, %113 ]
-  %127 = load i64, ptr %105, align 8, !tbaa !111, !noalias !98
-  %128 = add nsw i64 %127, %107
-  %129 = mul nsw i64 %128, %81
-  %130 = load i64, ptr %.06267.i, align 8, !tbaa !109, !noalias !98
-  %131 = load i64, ptr %101, align 8, !tbaa !110, !noalias !98
-  %132 = add nsw i64 %131, %130
-  %133 = shl nsw i64 %132, 8
-  %134 = add nsw i64 %133, %129
-  %135 = getelementptr inbounds nuw i8, ptr %.06267.i, i64 32
-  store i64 %134, ptr %135, align 8, !tbaa !96, !noalias !98
-  %136 = icmp eq i64 %indvars.iv.i, 0
-  br i1 %136, label %141, label %137
+  %123 = load i64, ptr %105, align 8, !tbaa !111, !noalias !98
+  %124 = add nsw i64 %123, %107
+  %125 = mul nsw i64 %124, %81
+  %126 = load i64, ptr %.06267.i, align 8, !tbaa !109, !noalias !98
+  %127 = load i64, ptr %101, align 8, !tbaa !110, !noalias !98
+  %128 = add nsw i64 %127, %126
+  %129 = shl nsw i64 %128, 8
+  %130 = add nsw i64 %129, %125
+  %131 = getelementptr inbounds nuw i8, ptr %.06267.i, i64 32
+  store i64 %130, ptr %131, align 8, !tbaa !96, !noalias !98
+  %132 = icmp eq i64 %indvars.iv.i, 0
+  br i1 %132, label %137, label %133
 
-137:                                              ; preds = %IsFlat_C.exit.thread.i
-  %138 = getelementptr inbounds nuw i8, ptr %.06068.i, i64 32
-  %139 = load i64, ptr %138, align 8, !tbaa !96, !noalias !98
-  %140 = icmp slt i64 %134, %139
-  br i1 %140, label %141, label %144
+133:                                              ; preds = %IsFlat_C.exit.thread.i
+  %134 = getelementptr inbounds nuw i8, ptr %.06068.i, i64 32
+  %135 = load i64, ptr %134, align 8, !tbaa !96, !noalias !98
+  %136 = icmp slt i64 %130, %135
+  br i1 %136, label %137, label %140
 
-141:                                              ; preds = %137, %IsFlat_C.exit.thread.i
-  %142 = load ptr, ptr %82, align 8, !tbaa !115, !alias.scope !98, !noalias !101
-  %143 = load ptr, ptr %80, align 8, !tbaa !115, !alias.scope !98, !noalias !101
-  store ptr %143, ptr %82, align 8, !tbaa !115, !alias.scope !98, !noalias !101
-  store ptr %142, ptr %80, align 8, !tbaa !115, !alias.scope !98, !noalias !101
-  br label %144
+137:                                              ; preds = %133, %IsFlat_C.exit.thread.i
+  %138 = load ptr, ptr %82, align 8, !tbaa !115, !alias.scope !98, !noalias !101
+  %139 = load ptr, ptr %80, align 8, !tbaa !115, !alias.scope !98, !noalias !101
+  store ptr %139, ptr %82, align 8, !tbaa !115, !alias.scope !98, !noalias !101
+  store ptr %138, ptr %80, align 8, !tbaa !115, !alias.scope !98, !noalias !101
+  br label %140
 
-144:                                              ; preds = %141, %137
-  %.163.i = phi ptr [ %.06068.i, %141 ], [ %.06267.i, %137 ]
-  %.161.i = phi ptr [ %.06267.i, %141 ], [ %.06068.i, %137 ]
+140:                                              ; preds = %137, %133
+  %.163.i = phi ptr [ %.06068.i, %137 ], [ %.06267.i, %133 ]
+  %.161.i = phi ptr [ %.06267.i, %137 ], [ %.06068.i, %133 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %145, label %83, !llvm.loop !116
+  br i1 %exitcond.not.i, label %141, label %83, !llvm.loop !116
 
-145:                                              ; preds = %144
+141:                                              ; preds = %140
   %.not.i27 = icmp eq ptr %.161.i, %1
-  br i1 %.not.i27, label %147, label %146
+  br i1 %.not.i27, label %143, label %142
 
-146:                                              ; preds = %145
+142:                                              ; preds = %141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(880) %1, ptr noundef nonnull align 8 dereferenceable(880) %.161.i, i64 880, i1 false), !noalias !98
-  br label %147
+  br label %143
 
-147:                                              ; preds = %146, %145
-  %148 = getelementptr inbounds nuw i8, ptr %59, i64 708
-  %149 = load i32, ptr %148, align 4, !tbaa !73
-  %150 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %151 = load i64, ptr %150, align 8, !tbaa !112, !alias.scope !101, !noalias !98
-  %152 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %153 = load i64, ptr %152, align 8, !tbaa !111, !alias.scope !101, !noalias !98
-  %154 = add nsw i64 %153, %151
-  %155 = sext i32 %149 to i64
-  %156 = mul nsw i64 %154, %155
-  %157 = load i64, ptr %1, align 8, !tbaa !109, !alias.scope !101, !noalias !98
-  %158 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %159 = load i64, ptr %158, align 8, !tbaa !110, !alias.scope !101, !noalias !98
-  %160 = add nsw i64 %159, %157
-  %161 = shl nsw i64 %160, 8
-  %162 = add nsw i64 %161, %156
-  store i64 %162, ptr %18, align 8, !tbaa !96, !alias.scope !101, !noalias !98
-  %163 = load i32, ptr %79, align 8, !tbaa !107, !alias.scope !101, !noalias !98
-  call void @VP8SetIntra16Mode(ptr noundef nonnull %0, i32 noundef %163) #11
-  %164 = load i32, ptr %17, align 8, !tbaa !94, !alias.scope !101, !noalias !98
-  %165 = and i32 %164, 16842751
-  %166 = icmp eq i32 %165, 16777216
-  br i1 %166, label %167, label %PickBestIntra16.exit
+143:                                              ; preds = %142, %141
+  %144 = getelementptr inbounds nuw i8, ptr %59, i64 708
+  %145 = load i32, ptr %144, align 4, !tbaa !73
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %147 = load i64, ptr %146, align 8, !tbaa !112, !alias.scope !101, !noalias !98
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %149 = load i64, ptr %148, align 8, !tbaa !111, !alias.scope !101, !noalias !98
+  %150 = add nsw i64 %149, %147
+  %151 = sext i32 %145 to i64
+  %152 = mul nsw i64 %150, %151
+  %153 = load i64, ptr %1, align 8, !tbaa !109, !alias.scope !101, !noalias !98
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %155 = load i64, ptr %154, align 8, !tbaa !110, !alias.scope !101, !noalias !98
+  %156 = add nsw i64 %155, %153
+  %157 = shl nsw i64 %156, 8
+  %158 = add nsw i64 %157, %152
+  store i64 %158, ptr %18, align 8, !tbaa !96, !alias.scope !101, !noalias !98
+  %159 = load i32, ptr %79, align 8, !tbaa !107, !alias.scope !101, !noalias !98
+  call void @VP8SetIntra16Mode(ptr noundef nonnull %0, i32 noundef %159) #11
+  %160 = load i32, ptr %17, align 8, !tbaa !94, !alias.scope !101, !noalias !98
+  %161 = and i32 %160, 16842751
+  %162 = icmp eq i32 %161, 16777216
+  br i1 %162, label %163, label %PickBestIntra16.exit
 
-167:                                              ; preds = %147
-  %168 = load i64, ptr %1, align 8, !tbaa !109, !alias.scope !101, !noalias !98
-  %169 = getelementptr inbounds nuw i8, ptr %59, i64 692
-  %170 = load i32, ptr %169, align 4, !tbaa !78
-  %171 = sext i32 %170 to i64
-  %172 = icmp sgt i64 %168, %171
-  br i1 %172, label %173, label %PickBestIntra16.exit
+163:                                              ; preds = %143
+  %164 = load i64, ptr %1, align 8, !tbaa !109, !alias.scope !101, !noalias !98
+  %165 = getelementptr inbounds nuw i8, ptr %59, i64 692
+  %166 = load i32, ptr %165, align 4, !tbaa !78
+  %167 = sext i32 %166 to i64
+  %168 = icmp sgt i64 %164, %167
+  br i1 %168, label %169, label %PickBestIntra16.exit
 
-173:                                              ; preds = %167
-  %174 = getelementptr inbounds nuw i8, ptr %1, i64 42
-  %175 = load i16, ptr %174, align 2, !tbaa !46, !alias.scope !101, !noalias !98
-  %176 = call i16 @llvm.abs.i16(i16 %175, i1 false)
-  %177 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %178 = load i16, ptr %177, align 2, !tbaa !46, !alias.scope !101, !noalias !98
-  %179 = call i16 @llvm.abs.i16(i16 %178, i1 false)
-  %180 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %181 = load i16, ptr %180, align 2, !tbaa !46, !alias.scope !101, !noalias !98
-  %182 = call i16 @llvm.abs.i16(i16 %181, i1 false)
-  %183 = call i16 @llvm.umax.i16(i16 %179, i16 %176)
-  %184 = call i16 @llvm.umax.i16(i16 %182, i16 %183)
-  %185 = zext i16 %184 to i32
-  %186 = getelementptr inbounds nuw i8, ptr %59, i64 688
-  %187 = load i32, ptr %186, align 8, !tbaa !79
-  %188 = icmp slt i32 %187, %185
-  br i1 %188, label %189, label %PickBestIntra16.exit
+169:                                              ; preds = %163
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 42
+  %171 = load i16, ptr %170, align 2, !tbaa !46, !alias.scope !101, !noalias !98
+  %172 = call i16 @llvm.abs.i16(i16 %171, i1 false)
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %174 = load i16, ptr %173, align 2, !tbaa !46, !alias.scope !101, !noalias !98
+  %175 = call i16 @llvm.abs.i16(i16 %174, i1 false)
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %177 = load i16, ptr %176, align 2, !tbaa !46, !alias.scope !101, !noalias !98
+  %178 = call i16 @llvm.abs.i16(i16 %177, i1 false)
+  %179 = call i16 @llvm.umax.i16(i16 %175, i16 %172)
+  %180 = call i16 @llvm.umax.i16(i16 %178, i16 %179)
+  %181 = zext i16 %180 to i32
+  %182 = getelementptr inbounds nuw i8, ptr %59, i64 688
+  %183 = load i32, ptr %182, align 8, !tbaa !79
+  %184 = icmp slt i32 %183, %181
+  br i1 %184, label %185, label %PickBestIntra16.exit
 
-189:                                              ; preds = %173
-  store i32 %185, ptr %186, align 8, !tbaa !79
+185:                                              ; preds = %169
+  store i32 %181, ptr %182, align 8, !tbaa !79
   br label %PickBestIntra16.exit
 
-PickBestIntra16.exit:                             ; preds = %147, %167, %173, %189
+PickBestIntra16.exit:                             ; preds = %143, %163, %169, %185
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !104
-  %190 = icmp sgt i32 %16, 1
-  %.pre99 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !117, !noalias !120
-  %.pre101 = load ptr, ptr %53, align 8, !tbaa !103, !alias.scope !117, !noalias !120
-  %.pre103 = load ptr, ptr %64, align 8, !tbaa !105, !alias.scope !117, !noalias !120
-  %.pre105 = load ptr, ptr %80, align 8, !tbaa !108, !alias.scope !117, !noalias !120
-  br i1 %190, label %191, label %394
+  %186 = icmp sgt i32 %16, 1
+  %.pre94 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !117, !noalias !120
+  %.pre96 = load ptr, ptr %53, align 8, !tbaa !103, !alias.scope !117, !noalias !120
+  %.pre98 = load ptr, ptr %64, align 8, !tbaa !105, !alias.scope !117, !noalias !120
+  %.pre100 = load ptr, ptr %80, align 8, !tbaa !108, !alias.scope !117, !noalias !120
+  br i1 %186, label %187, label %390
 
-191:                                              ; preds = %PickBestIntra16.exit
+187:                                              ; preds = %PickBestIntra16.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !122)
   call void @llvm.experimental.noalias.scope.decl(metadata !125)
-  %192 = getelementptr inbounds nuw i8, ptr %.pre99, i64 608
-  %193 = load i8, ptr %.pre101, align 4, !noalias !127
-  %194 = lshr i8 %193, 5
-  %195 = and i8 %194, 3
-  %196 = zext nneg i8 %195 to i64
-  %197 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %192, i64 0, i64 %196
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 700
-  %199 = load i32, ptr %198, align 4, !tbaa !70, !noalias !127
-  %200 = getelementptr inbounds nuw i8, ptr %197, i64 716
-  %201 = load i32, ptr %200, align 4, !tbaa !77, !noalias !127
+  %188 = getelementptr inbounds nuw i8, ptr %.pre94, i64 608
+  %189 = load i8, ptr %.pre96, align 4, !noalias !127
+  %190 = lshr i8 %189, 5
+  %191 = and i8 %190, 3
+  %192 = zext nneg i8 %191 to i64
+  %193 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %188, i64 0, i64 %192
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 700
+  %195 = load i32, ptr %194, align 4, !tbaa !70, !noalias !127
+  %196 = getelementptr inbounds nuw i8, ptr %193, i64 716
+  %197 = load i32, ptr %196, align 4, !tbaa !77, !noalias !127
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !127
-  %202 = getelementptr inbounds nuw i8, ptr %.pre99, i64 23624
-  %203 = load i32, ptr %202, align 8, !tbaa !128, !noalias !127
-  %204 = icmp eq i32 %203, 0
-  br i1 %204, label %PickBestIntra4.exit, label %205
+  %198 = getelementptr inbounds nuw i8, ptr %.pre94, i64 23624
+  %199 = load i32, ptr %198, align 8, !tbaa !128, !noalias !127
+  %200 = icmp eq i32 %199, 0
+  br i1 %200, label %PickBestIntra4.exit, label %201
 
-205:                                              ; preds = %191
-  %206 = getelementptr inbounds nuw i8, ptr %9, i64 864
-  store i32 0, ptr %206, align 8, !tbaa !94, !noalias !127
-  %207 = getelementptr inbounds nuw i8, ptr %9, i64 32
+201:                                              ; preds = %187
+  %202 = getelementptr inbounds nuw i8, ptr %9, i64 864
+  store i32 0, ptr %202, align 8, !tbaa !94, !noalias !127
+  %203 = getelementptr inbounds nuw i8, ptr %9, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false), !noalias !127
-  %208 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 211, ptr %208, align 8, !tbaa !111, !noalias !127
-  %209 = getelementptr inbounds nuw i8, ptr %197, i64 708
-  %210 = load i32, ptr %209, align 4, !tbaa !73, !noalias !127
-  %211 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %212 = sext i32 %210 to i64
-  %213 = mul nsw i64 %212, 211
-  %214 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %213, ptr %207, align 8, !tbaa !96, !noalias !127
+  %204 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 211, ptr %204, align 8, !tbaa !111, !noalias !127
+  %205 = getelementptr inbounds nuw i8, ptr %193, i64 708
+  %206 = load i32, ptr %205, align 4, !tbaa !73, !noalias !127
+  %207 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %208 = sext i32 %206 to i64
+  %209 = mul nsw i64 %208, 211
+  %210 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 %209, ptr %203, align 8, !tbaa !96, !noalias !127
   call void @VP8IteratorStartI4(ptr noundef nonnull %0) #11, !noalias !125
-  %215 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %216 = getelementptr inbounds nuw i8, ptr %1, i64 844
-  %217 = getelementptr i8, ptr %0, i64 120
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %.not77.i = icmp eq i32 %201, 0
-  %221 = sext i32 %199 to i64
-  %222 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  br label %223
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 844
+  %213 = getelementptr i8, ptr %0, i64 120
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %.not77.i28 = icmp eq i32 %197, 0
+  %217 = sext i32 %195 to i64
+  %218 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  br label %219
 
-223:                                              ; preds = %371, %205
-  %.062.i = phi i32 [ 0, %205 ], [ %359, %371 ]
-  %224 = load i32, ptr %215, align 8, !tbaa !129, !alias.scope !122, !noalias !125
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds [16 x i16], ptr @VP8Scan, i64 0, i64 %225
-  %227 = load i16, ptr %226, align 2, !tbaa !46, !noalias !127
-  %228 = zext i16 %227 to i64
-  %229 = getelementptr inbounds nuw i8, ptr %.pre103, i64 %228
+219:                                              ; preds = %367, %201
+  %.062.i = phi i32 [ 0, %201 ], [ %355, %367 ]
+  %220 = load i32, ptr %211, align 8, !tbaa !129, !alias.scope !122, !noalias !125
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds [16 x i16], ptr @VP8Scan, i64 0, i64 %221
+  %223 = load i16, ptr %222, align 2, !tbaa !46, !noalias !127
+  %224 = zext i16 %223 to i64
+  %225 = getelementptr inbounds nuw i8, ptr %.pre98, i64 %224
   call void @llvm.experimental.noalias.scope.decl(metadata !130)
-  %230 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !133, !noalias !125
-  %231 = getelementptr inbounds nuw i8, ptr %230, i64 56
-  %232 = load i32, ptr %231, align 8, !tbaa !134, !noalias !135
-  %233 = and i32 %224, 3
-  %234 = icmp eq i32 %233, 0
-  br i1 %234, label %235, label %239
+  %226 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !133, !noalias !125
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 56
+  %228 = load i32, ptr %227, align 8, !tbaa !134, !noalias !135
+  %229 = and i32 %220, 3
+  %230 = icmp eq i32 %229, 0
+  br i1 %230, label %231, label %235
 
-235:                                              ; preds = %223
-  %236 = ashr exact i32 %224, 2
-  %237 = load ptr, ptr %218, align 8, !tbaa !136, !alias.scope !133, !noalias !125
-  %238 = mul nsw i32 %232, %236
-  %.pre140.i = sext i32 %238 to i64
-  br label %239
+231:                                              ; preds = %219
+  %232 = ashr exact i32 %220, 2
+  %233 = load ptr, ptr %214, align 8, !tbaa !136, !alias.scope !133, !noalias !125
+  %234 = mul nsw i32 %228, %232
+  %.pre140.i = sext i32 %234 to i64
+  br label %235
 
-239:                                              ; preds = %235, %223
-  %.pre-phi.i = phi i64 [ %.pre140.i, %235 ], [ %225, %223 ]
-  %.sink.i.i = phi ptr [ %237, %235 ], [ %216, %223 ]
-  %240 = getelementptr i8, ptr %.sink.i.i, i64 %.pre-phi.i
-  %.in.in.i.i = getelementptr i8, ptr %240, i64 -1
-  %.in.i.i28 = load i8, ptr %.in.in.i.i, align 1, !tbaa !58, !noalias !130
-  %241 = icmp ult i32 %224, 4
-  br i1 %241, label %242, label %247
+235:                                              ; preds = %231, %219
+  %.pre-phi.i = phi i64 [ %.pre140.i, %231 ], [ %221, %219 ]
+  %.sink.i.i = phi ptr [ %233, %231 ], [ %212, %219 ]
+  %236 = getelementptr i8, ptr %.sink.i.i, i64 %.pre-phi.i
+  %.in.in.i.i = getelementptr i8, ptr %236, i64 -1
+  %.in.i.i29 = load i8, ptr %.in.in.i.i, align 1, !tbaa !58, !noalias !130
+  %237 = icmp ult i32 %220, 4
+  br i1 %237, label %238, label %243
 
-242:                                              ; preds = %239
-  %243 = load ptr, ptr %218, align 8, !tbaa !136, !alias.scope !133, !noalias !125
-  %244 = sub nsw i32 %233, %232
-  %245 = sext i32 %244 to i64
-  %246 = getelementptr inbounds i8, ptr %243, i64 %245
+238:                                              ; preds = %235
+  %239 = load ptr, ptr %214, align 8, !tbaa !136, !alias.scope !133, !noalias !125
+  %240 = sub nsw i32 %229, %228
+  %241 = sext i32 %240 to i64
+  %242 = getelementptr inbounds i8, ptr %239, i64 %241
   br label %GetCostModeI4.exit.i
 
-247:                                              ; preds = %239
-  %248 = getelementptr i8, ptr %216, i64 %225
-  %249 = getelementptr i8, ptr %248, i64 -4
+243:                                              ; preds = %235
+  %244 = getelementptr i8, ptr %212, i64 %221
+  %245 = getelementptr i8, ptr %244, i64 -4
   br label %GetCostModeI4.exit.i
 
-GetCostModeI4.exit.i:                             ; preds = %247, %242
-  %.in16.in.i.i = phi ptr [ %246, %242 ], [ %249, %247 ]
+GetCostModeI4.exit.i:                             ; preds = %243, %238
+  %.in16.in.i.i = phi ptr [ %242, %238 ], [ %245, %243 ]
   %.in16.i.i = load i8, ptr %.in16.in.i.i, align 1, !tbaa !58, !noalias !130
-  %250 = zext i8 %.in16.i.i to i64
-  %251 = getelementptr inbounds nuw [10 x [10 x [10 x i16]]], ptr @VP8FixedCostsI4, i64 0, i64 %250
-  %252 = zext i8 %.in.i.i28 to i64
-  %253 = getelementptr inbounds nuw [10 x [10 x i16]], ptr %251, i64 0, i64 %252
-  %254 = getelementptr inbounds nuw i8, ptr %.pre105, i64 %228
-  %255 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !122, !noalias !125
-  %256 = getelementptr inbounds nuw i8, ptr %255, i64 1672
-  %.val81.i = load ptr, ptr %217, align 8, !tbaa !137, !alias.scope !122, !noalias !125
-  %257 = load ptr, ptr @VP8EncPredLuma4, align 8, !tbaa !89, !noalias !127
-  call void %257(ptr noundef %255, ptr noundef %.val81.i) #11, !noalias !125
-  br label %258
+  %246 = zext i8 %.in16.i.i to i64
+  %247 = getelementptr inbounds nuw [10 x [10 x [10 x i16]]], ptr @VP8FixedCostsI4, i64 0, i64 %246
+  %248 = zext i8 %.in.i.i29 to i64
+  %249 = getelementptr inbounds nuw [10 x [10 x i16]], ptr %247, i64 0, i64 %248
+  %250 = getelementptr inbounds nuw i8, ptr %.pre100, i64 %224
+  %251 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !122, !noalias !125
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 1672
+  %.val81.i = load ptr, ptr %213, align 8, !tbaa !137, !alias.scope !122, !noalias !125
+  %253 = load ptr, ptr @VP8EncPredLuma4, align 8, !tbaa !89, !noalias !127
+  call void %253(ptr noundef %251, ptr noundef %.val81.i) #11, !noalias !125
+  br label %254
 
-258:                                              ; preds = %335, %GetCostModeI4.exit.i
-  %indvars.iv.i29 = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %indvars.iv.next.i37, %335 ]
-  %.064136.i = phi i32 [ -1, %GetCostModeI4.exit.i ], [ %.165.i, %335 ]
-  %.sroa.0100.1134.i = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.0100.2.i, %335 ]
-  %.sroa.7.1133.i = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.7.2.i, %335 ]
-  %.sroa.10103.1132.i = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.10103.2.i, %335 ]
-  %.sroa.23110.0131.i = phi i32 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.23110.1.i, %335 ]
-  %.sroa.17.0130.i = phi i64 [ 36028797018963967, %GetCostModeI4.exit.i ], [ %.sroa.17.1.i, %335 ]
-  %.sroa.14106.1129.i = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.14106.2.i, %335 ]
-  %.0116128.i = phi ptr [ %256, %GetCostModeI4.exit.i ], [ %.1.i36, %335 ]
-  %.0117127.i = phi ptr [ %254, %GetCostModeI4.exit.i ], [ %.1118.i, %335 ]
+254:                                              ; preds = %331, %GetCostModeI4.exit.i
+  %indvars.iv.i30 = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %indvars.iv.next.i37, %331 ]
+  %.064136.i = phi i32 [ -1, %GetCostModeI4.exit.i ], [ %.165.i, %331 ]
+  %.sroa.0100.1134.i = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.0100.2.i, %331 ]
+  %.sroa.7.1133.i = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.7.2.i, %331 ]
+  %.sroa.10103.1132.i = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.10103.2.i, %331 ]
+  %.sroa.23110.0131.i = phi i32 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.23110.1.i, %331 ]
+  %.sroa.17.0130.i = phi i64 [ 36028797018963967, %GetCostModeI4.exit.i ], [ %.sroa.17.1.i, %331 ]
+  %.sroa.14106.1129.i = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.14106.2.i, %331 ]
+  %.0116128.i = phi ptr [ %252, %GetCostModeI4.exit.i ], [ %.1.i36, %331 ]
+  %.0117127.i = phi ptr [ %250, %GetCostModeI4.exit.i ], [ %.1118.i, %331 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !127
   call void @llvm.experimental.noalias.scope.decl(metadata !138)
-  %259 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !141, !noalias !142
-  %260 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !141, !noalias !142
-  %261 = getelementptr inbounds nuw [10 x i16], ptr @VP8I4ModeOffsets, i64 0, i64 %indvars.iv.i29
-  %262 = load i16, ptr %261, align 2, !tbaa !46, !noalias !145
-  %263 = zext i16 %262 to i64
-  %264 = getelementptr inbounds nuw i8, ptr %260, i64 %263
-  %265 = getelementptr inbounds nuw i8, ptr %259, i64 608
-  %266 = load ptr, ptr %53, align 8, !tbaa !103, !alias.scope !141, !noalias !142
-  %267 = load i8, ptr %266, align 4, !noalias !146
-  %268 = lshr i8 %267, 5
-  %269 = and i8 %268, 3
-  %270 = zext nneg i8 %269 to i64
-  %271 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %265, i64 0, i64 %270
+  %255 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !141, !noalias !142
+  %256 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !141, !noalias !142
+  %257 = getelementptr inbounds nuw [10 x i16], ptr @VP8I4ModeOffsets, i64 0, i64 %indvars.iv.i30
+  %258 = load i16, ptr %257, align 2, !tbaa !46, !noalias !145
+  %259 = zext i16 %258 to i64
+  %260 = getelementptr inbounds nuw i8, ptr %256, i64 %259
+  %261 = getelementptr inbounds nuw i8, ptr %255, i64 608
+  %262 = load ptr, ptr %53, align 8, !tbaa !103, !alias.scope !141, !noalias !142
+  %263 = load i8, ptr %262, align 4, !noalias !146
+  %264 = lshr i8 %263, 5
+  %265 = and i8 %264, 3
+  %266 = zext nneg i8 %265 to i64
+  %267 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %261, i64 0, i64 %266
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !145
-  %272 = load ptr, ptr @VP8FTransform, align 8, !tbaa !89, !noalias !145
-  call void %272(ptr noundef %229, ptr noundef %264, ptr noundef nonnull %8) #11, !noalias !147
-  %273 = load i32, ptr %50, align 8, !tbaa !97, !alias.scope !141, !noalias !142
-  %.not.i.i30 = icmp eq i32 %273, 0
-  br i1 %.not.i.i30, label %288, label %274
+  %268 = load ptr, ptr @VP8FTransform, align 8, !tbaa !89, !noalias !145
+  call void %268(ptr noundef %225, ptr noundef %260, ptr noundef nonnull %8) #11, !noalias !147
+  %269 = load i32, ptr %50, align 8, !tbaa !97, !alias.scope !141, !noalias !142
+  %.not.i.i31 = icmp eq i32 %269, 0
+  br i1 %.not.i.i31, label %284, label %270
 
-274:                                              ; preds = %258
-  %275 = load i32, ptr %215, align 8, !tbaa !129, !alias.scope !141, !noalias !142
-  %276 = and i32 %275, 3
-  %277 = ashr i32 %275, 2
-  %278 = zext nneg i32 %276 to i64
-  %279 = getelementptr inbounds nuw [9 x i32], ptr %219, i64 0, i64 %278
-  %280 = load i32, ptr %279, align 4, !tbaa !30, !alias.scope !141, !noalias !142
-  %281 = sext i32 %277 to i64
-  %282 = getelementptr inbounds [9 x i32], ptr %220, i64 0, i64 %281
-  %283 = load i32, ptr %282, align 4, !tbaa !30, !alias.scope !141, !noalias !142
-  %284 = add nsw i32 %283, %280
-  %285 = getelementptr inbounds nuw i8, ptr %271, i64 724
-  %286 = load i32, ptr %285, align 4, !tbaa !74, !noalias !147
-  %287 = call fastcc i32 @TrellisQuantizeBlock(ptr noundef %259, ptr noundef %8, ptr noundef nonnull %10, i32 noundef %284, i32 noundef 3, ptr noundef nonnull %271, i32 noundef %286), !noalias !147
+270:                                              ; preds = %254
+  %271 = load i32, ptr %211, align 8, !tbaa !129, !alias.scope !141, !noalias !142
+  %272 = and i32 %271, 3
+  %273 = ashr i32 %271, 2
+  %274 = zext nneg i32 %272 to i64
+  %275 = getelementptr inbounds nuw [9 x i32], ptr %215, i64 0, i64 %274
+  %276 = load i32, ptr %275, align 4, !tbaa !30, !alias.scope !141, !noalias !142
+  %277 = sext i32 %273 to i64
+  %278 = getelementptr inbounds [9 x i32], ptr %216, i64 0, i64 %277
+  %279 = load i32, ptr %278, align 4, !tbaa !30, !alias.scope !141, !noalias !142
+  %280 = add nsw i32 %279, %276
+  %281 = getelementptr inbounds nuw i8, ptr %267, i64 724
+  %282 = load i32, ptr %281, align 4, !tbaa !74, !noalias !147
+  %283 = call fastcc i32 @TrellisQuantizeBlock(ptr noundef %255, ptr noundef %8, ptr noundef nonnull %10, i32 noundef %280, i32 noundef 3, ptr noundef nonnull %267, i32 noundef %282), !noalias !147
   br label %ReconstructIntra4.exit.i
 
-288:                                              ; preds = %258
-  %289 = load ptr, ptr @VP8EncQuantizeBlock, align 8, !tbaa !89, !noalias !145
-  %290 = call i32 %289(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %271) #11, !noalias !147
+284:                                              ; preds = %254
+  %285 = load ptr, ptr @VP8EncQuantizeBlock, align 8, !tbaa !89, !noalias !145
+  %286 = call i32 %285(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %267) #11, !noalias !147
   br label %ReconstructIntra4.exit.i
 
-ReconstructIntra4.exit.i:                         ; preds = %288, %274
-  %.0.i.i = phi i32 [ %287, %274 ], [ %290, %288 ]
-  %291 = load ptr, ptr @VP8ITransform, align 8, !tbaa !89, !noalias !145
-  call void %291(ptr noundef %264, ptr noundef nonnull %8, ptr noundef %.0116128.i, i32 noundef 0) #11, !noalias !148
+ReconstructIntra4.exit.i:                         ; preds = %284, %270
+  %.0.i.i = phi i32 [ %283, %270 ], [ %286, %284 ]
+  %287 = load ptr, ptr @VP8ITransform, align 8, !tbaa !89, !noalias !145
+  call void %287(ptr noundef %260, ptr noundef nonnull %8, ptr noundef %.0116128.i, i32 noundef 0) #11, !noalias !148
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !145
-  %292 = load i32, ptr %215, align 8, !tbaa !129, !alias.scope !122, !noalias !125
-  %293 = shl i32 %.0.i.i, %292
-  %294 = load ptr, ptr @VP8SSE4x4, align 8, !tbaa !89, !noalias !127
-  %295 = call i32 %294(ptr noundef %229, ptr noundef %.0116128.i) #11, !noalias !125
-  %296 = sext i32 %295 to i64
-  br i1 %.not77.i, label %304, label %297
+  %288 = load i32, ptr %211, align 8, !tbaa !129, !alias.scope !122, !noalias !125
+  %289 = shl i32 %.0.i.i, %288
+  %290 = load ptr, ptr @VP8SSE4x4, align 8, !tbaa !89, !noalias !127
+  %291 = call i32 %290(ptr noundef %225, ptr noundef %.0116128.i) #11, !noalias !125
+  %292 = sext i32 %291 to i64
+  br i1 %.not77.i28, label %300, label %293
 
-297:                                              ; preds = %ReconstructIntra4.exit.i
-  %298 = load ptr, ptr @VP8TDisto4x4, align 8, !tbaa !89, !noalias !127
-  %299 = call i32 %298(ptr noundef %229, ptr noundef %.0116128.i, ptr noundef nonnull @kWeightY) #11, !noalias !125
-  %300 = mul nsw i32 %299, %201
-  %301 = add nsw i32 %300, 128
-  %302 = ashr i32 %301, 8
-  %303 = sext i32 %302 to i64
-  br label %304
+293:                                              ; preds = %ReconstructIntra4.exit.i
+  %294 = load ptr, ptr @VP8TDisto4x4, align 8, !tbaa !89, !noalias !127
+  %295 = call i32 %294(ptr noundef %225, ptr noundef %.0116128.i, ptr noundef nonnull @kWeightY) #11, !noalias !125
+  %296 = mul nsw i32 %295, %197
+  %297 = add nsw i32 %296, 128
+  %298 = ashr i32 %297, 8
+  %299 = sext i32 %298 to i64
+  br label %300
 
-304:                                              ; preds = %297, %ReconstructIntra4.exit.i
-  %305 = phi i64 [ %303, %297 ], [ 0, %ReconstructIntra4.exit.i ]
-  %306 = getelementptr inbounds nuw i16, ptr %253, i64 %indvars.iv.i29
-  %307 = load i16, ptr %306, align 2, !tbaa !46, !noalias !127
-  %308 = zext i16 %307 to i64
-  %.not78.i = icmp eq i64 %indvars.iv.i29, 0
+300:                                              ; preds = %293, %ReconstructIntra4.exit.i
+  %301 = phi i64 [ %299, %293 ], [ 0, %ReconstructIntra4.exit.i ]
+  %302 = getelementptr inbounds nuw i16, ptr %249, i64 %indvars.iv.i30
+  %303 = load i16, ptr %302, align 2, !tbaa !46, !noalias !127
+  %304 = zext i16 %303 to i64
+  %.not78.i = icmp eq i64 %indvars.iv.i30, 0
   br i1 %.not78.i, label %IsFlat_C.exit.i35, label %.preheader.i.preheader.i
 
-309:                                              ; preds = %.preheader.i.preheader.i
-  %indvars.iv.next.i.i33 = add nuw nsw i64 %indvars.iv.i.i31, 1
+305:                                              ; preds = %.preheader.i.preheader.i
+  %indvars.iv.next.i.i33 = add nuw nsw i64 %indvars.iv.i.i32, 1
   %exitcond.i.i34 = icmp eq i64 %indvars.iv.next.i.i33, 16
   br i1 %exitcond.i.i34, label %IsFlat_C.exit.i35, label %.preheader.i.preheader.i, !llvm.loop !113
 
-.preheader.i.preheader.i:                         ; preds = %304, %309
-  %indvars.iv.i.i31 = phi i64 [ %indvars.iv.next.i.i33, %309 ], [ 1, %304 ]
-  %.124.i.i32 = phi i32 [ %314, %309 ], [ 0, %304 ]
-  %310 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv.i.i31
-  %311 = load i16, ptr %310, align 2, !tbaa !46, !noalias !127
-  %312 = icmp ne i16 %311, 0
-  %313 = zext i1 %312 to i32
-  %314 = add nuw nsw i32 %.124.i.i32, %313
-  %315 = icmp samesign ugt i32 %314, 3
-  br i1 %315, label %IsFlat_C.exit.i35, label %309
+.preheader.i.preheader.i:                         ; preds = %300, %305
+  %indvars.iv.i.i32 = phi i64 [ %indvars.iv.next.i.i33, %305 ], [ 1, %300 ]
+  %.124.i.i = phi i32 [ %310, %305 ], [ 0, %300 ]
+  %306 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv.i.i32
+  %307 = load i16, ptr %306, align 2, !tbaa !46, !noalias !127
+  %308 = icmp ne i16 %307, 0
+  %309 = zext i1 %308 to i32
+  %310 = add nuw nsw i32 %.124.i.i, %309
+  %311 = icmp samesign ugt i32 %310, 3
+  br i1 %311, label %IsFlat_C.exit.i35, label %305
 
-IsFlat_C.exit.i35:                                ; preds = %.preheader.i.preheader.i, %309, %304
-  %.sroa.14.0.i = phi i64 [ 0, %304 ], [ 140, %309 ], [ 0, %.preheader.i.preheader.i ]
-  %316 = add nuw nsw i64 %.sroa.14.0.i, %308
-  %317 = mul nsw i64 %316, %221
-  %318 = add nsw i64 %305, %296
-  %319 = shl nsw i64 %318, 8
-  %320 = add nsw i64 %317, %319
-  %321 = icmp slt i32 %.064136.i, 0
-  %.not80.i = icmp slt i64 %320, %.sroa.17.0130.i
-  %or.cond.i = select i1 %321, i1 true, i1 %.not80.i
-  br i1 %or.cond.i, label %322, label %335
+IsFlat_C.exit.i35:                                ; preds = %.preheader.i.preheader.i, %305, %300
+  %.sroa.14.0.i = phi i64 [ 0, %300 ], [ 140, %305 ], [ 0, %.preheader.i.preheader.i ]
+  %312 = add nuw nsw i64 %.sroa.14.0.i, %304
+  %313 = mul nsw i64 %312, %217
+  %314 = add nsw i64 %301, %292
+  %315 = shl nsw i64 %314, 8
+  %316 = add nsw i64 %313, %315
+  %317 = icmp slt i32 %.064136.i, 0
+  %.not80.i = icmp slt i64 %316, %.sroa.17.0130.i
+  %or.cond.i = select i1 %317, i1 true, i1 %.not80.i
+  br i1 %or.cond.i, label %318, label %331
 
-322:                                              ; preds = %IsFlat_C.exit.i35
-  %323 = call i32 @VP8GetCostLuma4(ptr noundef nonnull %0, ptr noundef nonnull %10) #11, !noalias !125
-  %324 = sext i32 %323 to i64
-  %325 = add nsw i64 %.sroa.14.0.i, %324
-  %326 = add nsw i64 %325, %308
-  %327 = mul nsw i64 %326, %221
-  %328 = add nsw i64 %327, %319
-  %329 = icmp slt i64 %328, %.sroa.17.0130.i
-  %or.cond121.i = select i1 %321, i1 true, i1 %329
-  br i1 %or.cond121.i, label %330, label %335
+318:                                              ; preds = %IsFlat_C.exit.i35
+  %319 = call i32 @VP8GetCostLuma4(ptr noundef nonnull %0, ptr noundef nonnull %10) #11, !noalias !125
+  %320 = sext i32 %319 to i64
+  %321 = add nsw i64 %.sroa.14.0.i, %320
+  %322 = add nsw i64 %321, %304
+  %323 = mul nsw i64 %322, %217
+  %324 = add nsw i64 %323, %315
+  %325 = icmp slt i64 %324, %.sroa.17.0130.i
+  %or.cond121.i = select i1 %317, i1 true, i1 %325
+  br i1 %or.cond121.i, label %326, label %331
 
-330:                                              ; preds = %322
-  %331 = load i32, ptr %215, align 8, !tbaa !129, !alias.scope !122, !noalias !125
-  %332 = sext i32 %331 to i64
-  %333 = getelementptr inbounds [16 x [16 x i16]], ptr %222, i64 0, i64 %332
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %333, ptr noundef nonnull align 16 dereferenceable(32) %10, i64 32, i1 false), !noalias !127
-  %334 = trunc nuw nsw i64 %indvars.iv.i29 to i32
-  br label %335
+326:                                              ; preds = %318
+  %327 = load i32, ptr %211, align 8, !tbaa !129, !alias.scope !122, !noalias !125
+  %328 = sext i32 %327 to i64
+  %329 = getelementptr inbounds [16 x [16 x i16]], ptr %218, i64 0, i64 %328
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %329, ptr noundef nonnull align 16 dereferenceable(32) %10, i64 32, i1 false), !noalias !127
+  %330 = trunc nuw nsw i64 %indvars.iv.i30 to i32
+  br label %331
 
-335:                                              ; preds = %330, %322, %IsFlat_C.exit.i35
-  %.1118.i = phi ptr [ %.0116128.i, %330 ], [ %.0117127.i, %IsFlat_C.exit.i35 ], [ %.0117127.i, %322 ]
-  %.1.i36 = phi ptr [ %.0117127.i, %330 ], [ %.0116128.i, %IsFlat_C.exit.i35 ], [ %.0116128.i, %322 ]
-  %.sroa.14106.2.i = phi i64 [ %325, %330 ], [ %.sroa.14106.1129.i, %IsFlat_C.exit.i35 ], [ %.sroa.14106.1129.i, %322 ]
-  %.sroa.17.1.i = phi i64 [ %328, %330 ], [ %.sroa.17.0130.i, %IsFlat_C.exit.i35 ], [ %.sroa.17.0130.i, %322 ]
-  %.sroa.23110.1.i = phi i32 [ %293, %330 ], [ %.sroa.23110.0131.i, %IsFlat_C.exit.i35 ], [ %.sroa.23110.0131.i, %322 ]
-  %.sroa.10103.2.i = phi i64 [ %308, %330 ], [ %.sroa.10103.1132.i, %IsFlat_C.exit.i35 ], [ %.sroa.10103.1132.i, %322 ]
-  %.sroa.7.2.i = phi i64 [ %305, %330 ], [ %.sroa.7.1133.i, %IsFlat_C.exit.i35 ], [ %.sroa.7.1133.i, %322 ]
-  %.sroa.0100.2.i = phi i64 [ %296, %330 ], [ %.sroa.0100.1134.i, %IsFlat_C.exit.i35 ], [ %.sroa.0100.1134.i, %322 ]
-  %.165.i = phi i32 [ %334, %330 ], [ %.064136.i, %IsFlat_C.exit.i35 ], [ %.064136.i, %322 ]
+331:                                              ; preds = %326, %318, %IsFlat_C.exit.i35
+  %.1118.i = phi ptr [ %.0116128.i, %326 ], [ %.0117127.i, %IsFlat_C.exit.i35 ], [ %.0117127.i, %318 ]
+  %.1.i36 = phi ptr [ %.0117127.i, %326 ], [ %.0116128.i, %IsFlat_C.exit.i35 ], [ %.0116128.i, %318 ]
+  %.sroa.14106.2.i = phi i64 [ %321, %326 ], [ %.sroa.14106.1129.i, %IsFlat_C.exit.i35 ], [ %.sroa.14106.1129.i, %318 ]
+  %.sroa.17.1.i = phi i64 [ %324, %326 ], [ %.sroa.17.0130.i, %IsFlat_C.exit.i35 ], [ %.sroa.17.0130.i, %318 ]
+  %.sroa.23110.1.i = phi i32 [ %289, %326 ], [ %.sroa.23110.0131.i, %IsFlat_C.exit.i35 ], [ %.sroa.23110.0131.i, %318 ]
+  %.sroa.10103.2.i = phi i64 [ %304, %326 ], [ %.sroa.10103.1132.i, %IsFlat_C.exit.i35 ], [ %.sroa.10103.1132.i, %318 ]
+  %.sroa.7.2.i = phi i64 [ %301, %326 ], [ %.sroa.7.1133.i, %IsFlat_C.exit.i35 ], [ %.sroa.7.1133.i, %318 ]
+  %.sroa.0100.2.i = phi i64 [ %292, %326 ], [ %.sroa.0100.1134.i, %IsFlat_C.exit.i35 ], [ %.sroa.0100.1134.i, %318 ]
+  %.165.i = phi i32 [ %330, %326 ], [ %.064136.i, %IsFlat_C.exit.i35 ], [ %.064136.i, %318 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !127
-  %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i29, 1
+  %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, 10
-  br i1 %exitcond.not.i38, label %336, label %258, !llvm.loop !149
+  br i1 %exitcond.not.i38, label %332, label %254, !llvm.loop !149
 
-336:                                              ; preds = %335
-  %337 = load i32, ptr %209, align 4, !tbaa !73, !noalias !125
-  %338 = add nsw i64 %.sroa.10103.2.i, %.sroa.14106.2.i
-  %339 = sext i32 %337 to i64
-  %340 = mul nsw i64 %338, %339
-  %341 = add nsw i64 %.sroa.0100.2.i, %.sroa.7.2.i
-  %342 = shl nsw i64 %341, 8
-  %343 = add nsw i64 %340, %342
-  %344 = load i64, ptr %9, align 8, !tbaa !109, !alias.scope !150, !noalias !153
-  %345 = add nsw i64 %344, %.sroa.0100.2.i
-  store i64 %345, ptr %9, align 8, !tbaa !109, !alias.scope !150, !noalias !153
-  %346 = load i64, ptr %214, align 8, !tbaa !110, !alias.scope !150, !noalias !153
-  %347 = add nsw i64 %346, %.sroa.7.2.i
-  store i64 %347, ptr %214, align 8, !tbaa !110, !alias.scope !150, !noalias !153
-  %348 = load i64, ptr %211, align 8, !tbaa !112, !alias.scope !150, !noalias !153
-  %349 = add nsw i64 %348, %.sroa.14106.2.i
-  store i64 %349, ptr %211, align 8, !tbaa !112, !alias.scope !150, !noalias !153
-  %350 = load i64, ptr %208, align 8, !tbaa !111, !alias.scope !150, !noalias !153
-  %351 = add nsw i64 %350, %.sroa.10103.2.i
-  store i64 %351, ptr %208, align 8, !tbaa !111, !alias.scope !150, !noalias !153
-  %352 = load i32, ptr %206, align 8, !tbaa !94, !alias.scope !150, !noalias !153
-  %353 = or i32 %352, %.sroa.23110.1.i
-  store i32 %353, ptr %206, align 8, !tbaa !94, !alias.scope !150, !noalias !153
-  %354 = load i64, ptr %207, align 8, !tbaa !96, !alias.scope !150, !noalias !153
-  %355 = add nsw i64 %343, %354
-  store i64 %355, ptr %207, align 8, !tbaa !96, !alias.scope !150, !noalias !153
-  %356 = load i64, ptr %18, align 8, !tbaa !96, !alias.scope !125, !noalias !122
-  %.not.i39 = icmp slt i64 %355, %356
-  br i1 %.not.i39, label %357, label %PickBestIntra4.exit.loopexit
+332:                                              ; preds = %331
+  %333 = load i32, ptr %205, align 4, !tbaa !73, !noalias !125
+  %334 = add nsw i64 %.sroa.10103.2.i, %.sroa.14106.2.i
+  %335 = sext i32 %333 to i64
+  %336 = mul nsw i64 %334, %335
+  %337 = add nsw i64 %.sroa.0100.2.i, %.sroa.7.2.i
+  %338 = shl nsw i64 %337, 8
+  %339 = add nsw i64 %336, %338
+  %340 = load i64, ptr %9, align 8, !tbaa !109, !alias.scope !150, !noalias !153
+  %341 = add nsw i64 %340, %.sroa.0100.2.i
+  store i64 %341, ptr %9, align 8, !tbaa !109, !alias.scope !150, !noalias !153
+  %342 = load i64, ptr %210, align 8, !tbaa !110, !alias.scope !150, !noalias !153
+  %343 = add nsw i64 %342, %.sroa.7.2.i
+  store i64 %343, ptr %210, align 8, !tbaa !110, !alias.scope !150, !noalias !153
+  %344 = load i64, ptr %207, align 8, !tbaa !112, !alias.scope !150, !noalias !153
+  %345 = add nsw i64 %344, %.sroa.14106.2.i
+  store i64 %345, ptr %207, align 8, !tbaa !112, !alias.scope !150, !noalias !153
+  %346 = load i64, ptr %204, align 8, !tbaa !111, !alias.scope !150, !noalias !153
+  %347 = add nsw i64 %346, %.sroa.10103.2.i
+  store i64 %347, ptr %204, align 8, !tbaa !111, !alias.scope !150, !noalias !153
+  %348 = load i32, ptr %202, align 8, !tbaa !94, !alias.scope !150, !noalias !153
+  %349 = or i32 %348, %.sroa.23110.1.i
+  store i32 %349, ptr %202, align 8, !tbaa !94, !alias.scope !150, !noalias !153
+  %350 = load i64, ptr %203, align 8, !tbaa !96, !alias.scope !150, !noalias !153
+  %351 = add nsw i64 %339, %350
+  store i64 %351, ptr %203, align 8, !tbaa !96, !alias.scope !150, !noalias !153
+  %352 = load i64, ptr %18, align 8, !tbaa !96, !alias.scope !125, !noalias !122
+  %.not.i39 = icmp slt i64 %351, %352
+  br i1 %.not.i39, label %353, label %PickBestIntra4.exit.loopexit
 
-357:                                              ; preds = %336
-  %358 = trunc nuw nsw i64 %.sroa.10103.2.i to i32
-  %359 = add nuw nsw i32 %.062.i, %358
-  %360 = load i32, ptr %202, align 8, !tbaa !128, !noalias !125
-  %361 = icmp sgt i32 %359, %360
-  br i1 %361, label %PickBestIntra4.exit.loopexit, label %362
+353:                                              ; preds = %332
+  %354 = trunc nuw nsw i64 %.sroa.10103.2.i to i32
+  %355 = add nuw nsw i32 %.062.i, %354
+  %356 = load i32, ptr %198, align 8, !tbaa !128, !noalias !125
+  %357 = icmp sgt i32 %355, %356
+  br i1 %357, label %PickBestIntra4.exit.loopexit, label %358
 
-362:                                              ; preds = %357
-  %363 = load i32, ptr %215, align 8, !tbaa !129, !alias.scope !122, !noalias !125
-  %364 = sext i32 %363 to i64
-  %365 = getelementptr inbounds [16 x i16], ptr @VP8Scan, i64 0, i64 %364
-  %366 = load i16, ptr %365, align 2, !tbaa !46, !noalias !127
-  %367 = zext i16 %366 to i64
-  %368 = getelementptr inbounds nuw i8, ptr %.pre105, i64 %367
-  %.not74.i = icmp eq ptr %.1118.i, %368
-  br i1 %.not74.i, label %371, label %369
+358:                                              ; preds = %353
+  %359 = load i32, ptr %211, align 8, !tbaa !129, !alias.scope !122, !noalias !125
+  %360 = sext i32 %359 to i64
+  %361 = getelementptr inbounds [16 x i16], ptr @VP8Scan, i64 0, i64 %360
+  %362 = load i16, ptr %361, align 2, !tbaa !46, !noalias !127
+  %363 = zext i16 %362 to i64
+  %364 = getelementptr inbounds nuw i8, ptr %.pre100, i64 %363
+  %.not74.i = icmp eq ptr %.1118.i, %364
+  br i1 %.not74.i, label %367, label %365
 
-369:                                              ; preds = %362
-  %370 = load ptr, ptr @VP8Copy4x4, align 8, !tbaa !89, !noalias !127
-  call void %370(ptr noundef %.1118.i, ptr noundef %368) #11, !noalias !125
-  %.pre.i = load i32, ptr %215, align 8, !tbaa !129, !alias.scope !122, !noalias !125
+365:                                              ; preds = %358
+  %366 = load ptr, ptr @VP8Copy4x4, align 8, !tbaa !89, !noalias !127
+  call void %366(ptr noundef %.1118.i, ptr noundef %364) #11, !noalias !125
+  %.pre.i = load i32, ptr %211, align 8, !tbaa !129, !alias.scope !122, !noalias !125
   %.pre141.i = sext i32 %.pre.i to i64
-  br label %371
+  br label %367
 
-371:                                              ; preds = %369, %362
-  %.pre-phi142.i = phi i64 [ %.pre141.i, %369 ], [ %364, %362 ]
-  %372 = phi i32 [ %.pre.i, %369 ], [ %363, %362 ]
-  %373 = trunc i32 %.165.i to i8
-  %374 = getelementptr inbounds [16 x i8], ptr %216, i64 0, i64 %.pre-phi142.i
-  store i8 %373, ptr %374, align 1, !tbaa !58, !alias.scope !125, !noalias !122
+367:                                              ; preds = %365, %358
+  %.pre-phi142.i = phi i64 [ %.pre141.i, %365 ], [ %360, %358 ]
+  %368 = phi i32 [ %.pre.i, %365 ], [ %359, %358 ]
+  %369 = trunc i32 %.165.i to i8
+  %370 = getelementptr inbounds [16 x i8], ptr %212, i64 0, i64 %.pre-phi142.i
+  store i8 %369, ptr %370, align 1, !tbaa !58, !alias.scope !125, !noalias !122
   %.not75.i = icmp ne i32 %.sroa.23110.1.i, 0
-  %375 = zext i1 %.not75.i to i32
-  %376 = ashr i32 %372, 2
-  %377 = sext i32 %376 to i64
-  %378 = getelementptr inbounds [9 x i32], ptr %220, i64 0, i64 %377
-  store i32 %375, ptr %378, align 4, !tbaa !30, !alias.scope !122, !noalias !125
-  %379 = load i32, ptr %215, align 8, !tbaa !129, !alias.scope !122, !noalias !125
-  %380 = and i32 %379, 3
-  %381 = zext nneg i32 %380 to i64
-  %382 = getelementptr inbounds nuw [9 x i32], ptr %219, i64 0, i64 %381
-  store i32 %375, ptr %382, align 4, !tbaa !30, !alias.scope !122, !noalias !125
-  %383 = call i32 @VP8IteratorRotateI4(ptr noundef nonnull %0, ptr noundef %.pre105) #11, !noalias !125
-  %.not76.i = icmp eq i32 %383, 0
-  br i1 %.not76.i, label %384, label %223, !llvm.loop !155
+  %371 = zext i1 %.not75.i to i32
+  %372 = ashr i32 %368, 2
+  %373 = sext i32 %372 to i64
+  %374 = getelementptr inbounds [9 x i32], ptr %216, i64 0, i64 %373
+  store i32 %371, ptr %374, align 4, !tbaa !30, !alias.scope !122, !noalias !125
+  %375 = load i32, ptr %211, align 8, !tbaa !129, !alias.scope !122, !noalias !125
+  %376 = and i32 %375, 3
+  %377 = zext nneg i32 %376 to i64
+  %378 = getelementptr inbounds nuw [9 x i32], ptr %215, i64 0, i64 %377
+  store i32 %371, ptr %378, align 4, !tbaa !30, !alias.scope !122, !noalias !125
+  %379 = call i32 @VP8IteratorRotateI4(ptr noundef nonnull %0, ptr noundef %.pre100) #11, !noalias !125
+  %.not76.i = icmp eq i32 %379, 0
+  br i1 %.not76.i, label %380, label %219, !llvm.loop !155
 
-384:                                              ; preds = %371
+380:                                              ; preds = %367
   call void @llvm.experimental.noalias.scope.decl(metadata !156)
   call void @llvm.experimental.noalias.scope.decl(metadata !159)
-  %385 = load i64, ptr %9, align 8, !tbaa !109, !alias.scope !159, !noalias !161
-  store i64 %385, ptr %1, align 8, !tbaa !109, !alias.scope !162, !noalias !163
-  %386 = load i64, ptr %214, align 8, !tbaa !110, !alias.scope !159, !noalias !161
-  store i64 %386, ptr %158, align 8, !tbaa !110, !alias.scope !162, !noalias !163
-  %387 = load i64, ptr %211, align 8, !tbaa !112, !alias.scope !159, !noalias !161
-  store i64 %387, ptr %150, align 8, !tbaa !112, !alias.scope !162, !noalias !163
-  %388 = load i64, ptr %208, align 8, !tbaa !111, !alias.scope !159, !noalias !161
-  store i64 %388, ptr %152, align 8, !tbaa !111, !alias.scope !162, !noalias !163
-  %389 = load i32, ptr %206, align 8, !tbaa !94, !alias.scope !159, !noalias !161
-  store i32 %389, ptr %17, align 8, !tbaa !94, !alias.scope !162, !noalias !163
-  %390 = load i64, ptr %207, align 8, !tbaa !96, !alias.scope !159, !noalias !161
-  store i64 %390, ptr %18, align 8, !tbaa !96, !alias.scope !162, !noalias !163
-  call void @VP8SetIntra4Mode(ptr noundef nonnull %0, ptr noundef nonnull %216) #11
-  %391 = load ptr, ptr %82, align 8, !tbaa !115, !alias.scope !122, !noalias !125
-  %392 = load ptr, ptr %80, align 8, !tbaa !115, !alias.scope !122, !noalias !125
-  store ptr %392, ptr %82, align 8, !tbaa !115, !alias.scope !122, !noalias !125
-  store ptr %391, ptr %80, align 8, !tbaa !115, !alias.scope !122, !noalias !125
-  %393 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %393, ptr noundef nonnull align 8 dereferenceable(512) %222, i64 512, i1 false), !noalias !122
+  %381 = load i64, ptr %9, align 8, !tbaa !109, !alias.scope !159, !noalias !161
+  store i64 %381, ptr %1, align 8, !tbaa !109, !alias.scope !162, !noalias !163
+  %382 = load i64, ptr %210, align 8, !tbaa !110, !alias.scope !159, !noalias !161
+  store i64 %382, ptr %154, align 8, !tbaa !110, !alias.scope !162, !noalias !163
+  %383 = load i64, ptr %207, align 8, !tbaa !112, !alias.scope !159, !noalias !161
+  store i64 %383, ptr %146, align 8, !tbaa !112, !alias.scope !162, !noalias !163
+  %384 = load i64, ptr %204, align 8, !tbaa !111, !alias.scope !159, !noalias !161
+  store i64 %384, ptr %148, align 8, !tbaa !111, !alias.scope !162, !noalias !163
+  %385 = load i32, ptr %202, align 8, !tbaa !94, !alias.scope !159, !noalias !161
+  store i32 %385, ptr %17, align 8, !tbaa !94, !alias.scope !162, !noalias !163
+  %386 = load i64, ptr %203, align 8, !tbaa !96, !alias.scope !159, !noalias !161
+  store i64 %386, ptr %18, align 8, !tbaa !96, !alias.scope !162, !noalias !163
+  call void @VP8SetIntra4Mode(ptr noundef nonnull %0, ptr noundef nonnull %212) #11
+  %387 = load ptr, ptr %82, align 8, !tbaa !115, !alias.scope !122, !noalias !125
+  %388 = load ptr, ptr %80, align 8, !tbaa !115, !alias.scope !122, !noalias !125
+  store ptr %388, ptr %82, align 8, !tbaa !115, !alias.scope !122, !noalias !125
+  store ptr %387, ptr %80, align 8, !tbaa !115, !alias.scope !122, !noalias !125
+  %389 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %389, ptr noundef nonnull align 8 dereferenceable(512) %218, i64 512, i1 false), !noalias !122
   br label %PickBestIntra4.exit
 
-PickBestIntra4.exit.loopexit:                     ; preds = %357, %336
-  %.pre104.pre = load ptr, ptr %80, align 8, !tbaa !108, !alias.scope !117, !noalias !120
+PickBestIntra4.exit.loopexit:                     ; preds = %353, %332
+  %.pre99.pre = load ptr, ptr %80, align 8, !tbaa !108, !alias.scope !117, !noalias !120
   br label %PickBestIntra4.exit
 
-PickBestIntra4.exit:                              ; preds = %PickBestIntra4.exit.loopexit, %191, %384
-  %.pre104 = phi ptr [ %.pre104.pre, %PickBestIntra4.exit.loopexit ], [ %.pre105, %191 ], [ %391, %384 ]
+PickBestIntra4.exit:                              ; preds = %PickBestIntra4.exit.loopexit, %187, %380
+  %.pre99 = phi ptr [ %.pre99.pre, %PickBestIntra4.exit.loopexit ], [ %.pre100, %187 ], [ %387, %380 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !127
   %.pre = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !117, !noalias !120
-  %.pre100 = load ptr, ptr %53, align 8, !tbaa !103, !alias.scope !117, !noalias !120
-  %.pre102 = load ptr, ptr %64, align 8, !tbaa !105, !alias.scope !117, !noalias !120
-  br label %394
+  %.pre95 = load ptr, ptr %53, align 8, !tbaa !103, !alias.scope !117, !noalias !120
+  %.pre97 = load ptr, ptr %64, align 8, !tbaa !105, !alias.scope !117, !noalias !120
+  br label %390
 
-394:                                              ; preds = %PickBestIntra4.exit, %PickBestIntra16.exit
-  %395 = phi ptr [ %.pre104, %PickBestIntra4.exit ], [ %.pre105, %PickBestIntra16.exit ]
-  %396 = phi ptr [ %.pre102, %PickBestIntra4.exit ], [ %.pre103, %PickBestIntra16.exit ]
-  %397 = phi ptr [ %.pre100, %PickBestIntra4.exit ], [ %.pre101, %PickBestIntra16.exit ]
-  %398 = phi ptr [ %.pre, %PickBestIntra4.exit ], [ %.pre99, %PickBestIntra16.exit ]
+390:                                              ; preds = %PickBestIntra4.exit, %PickBestIntra16.exit
+  %391 = phi ptr [ %.pre99, %PickBestIntra4.exit ], [ %.pre100, %PickBestIntra16.exit ]
+  %392 = phi ptr [ %.pre97, %PickBestIntra4.exit ], [ %.pre98, %PickBestIntra16.exit ]
+  %393 = phi ptr [ %.pre95, %PickBestIntra4.exit ], [ %.pre96, %PickBestIntra16.exit ]
+  %394 = phi ptr [ %.pre, %PickBestIntra4.exit ], [ %.pre94, %PickBestIntra16.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
-  %399 = load i8, ptr %397, align 4, !noalias !164
-  %400 = lshr i8 %399, 5
-  %401 = and i8 %400, 3
-  %402 = zext nneg i8 %401 to i64
-  %.idx.i = mul nuw nsw i64 %402, 744
-  %403 = getelementptr inbounds nuw i8, ptr %398, i64 1312
-  %404 = getelementptr inbounds nuw i8, ptr %403, i64 %.idx.i
-  %405 = load i32, ptr %404, align 8, !tbaa !72, !noalias !164
-  %406 = getelementptr inbounds nuw i8, ptr %396, i64 16
-  %407 = getelementptr inbounds nuw i8, ptr %395, i64 16
-  %408 = load ptr, ptr %82, align 8, !tbaa !165, !alias.scope !117, !noalias !120
-  %409 = getelementptr inbounds nuw i8, ptr %408, i64 16
-  %410 = getelementptr inbounds nuw i8, ptr %1, i64 860
-  store i32 -1, ptr %410, align 4, !tbaa !166, !alias.scope !120, !noalias !117
-  %411 = getelementptr inbounds nuw i8, ptr %7, i64 864
-  %412 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %413 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %414 = getelementptr inbounds nuw i8, ptr %7, i64 584
-  %415 = sext i32 %405 to i64
-  %416 = getelementptr inbounds nuw i8, ptr %1, i64 584
-  %417 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %418 = getelementptr inbounds nuw i8, ptr %1, i64 868
-  %419 = getelementptr inbounds nuw i8, ptr %7, i64 868
-  br label %420
+  %395 = load i8, ptr %393, align 4, !noalias !164
+  %396 = lshr i8 %395, 5
+  %397 = and i8 %396, 3
+  %398 = zext nneg i8 %397 to i64
+  %.idx.i = mul nuw nsw i64 %398, 744
+  %399 = getelementptr inbounds nuw i8, ptr %394, i64 1312
+  %400 = getelementptr inbounds nuw i8, ptr %399, i64 %.idx.i
+  %401 = load i32, ptr %400, align 8, !tbaa !72, !noalias !164
+  %402 = getelementptr inbounds nuw i8, ptr %392, i64 16
+  %403 = getelementptr inbounds nuw i8, ptr %391, i64 16
+  %404 = load ptr, ptr %82, align 8, !tbaa !165, !alias.scope !117, !noalias !120
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 16
+  %406 = getelementptr inbounds nuw i8, ptr %1, i64 860
+  store i32 -1, ptr %406, align 4, !tbaa !166, !alias.scope !120, !noalias !117
+  %407 = getelementptr inbounds nuw i8, ptr %7, i64 864
+  %408 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %409 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %410 = getelementptr inbounds nuw i8, ptr %7, i64 584
+  %411 = sext i32 %401 to i64
+  %412 = getelementptr inbounds nuw i8, ptr %1, i64 584
+  %413 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %414 = getelementptr inbounds nuw i8, ptr %1, i64 868
+  %415 = getelementptr inbounds nuw i8, ptr %7, i64 868
+  br label %416
 
-420:                                              ; preds = %459, %394
-  %421 = phi i32 [ -1, %394 ], [ %460, %459 ]
-  %indvars.iv.i40 = phi i64 [ 0, %394 ], [ %indvars.iv.next.i53, %459 ]
-  %.sroa.9.056.i = phi i64 [ 0, %394 ], [ %.sroa.9.1.i, %459 ]
-  %.sroa.11.055.i = phi i64 [ 36028797018963967, %394 ], [ %.sroa.11.1.i, %459 ]
-  %.04354.i = phi ptr [ %407, %394 ], [ %.1.i52, %459 ]
-  %.sroa.1538.053.i = phi i32 [ 0, %394 ], [ %.sroa.1538.1.i, %459 ]
-  %.04452.i = phi ptr [ %409, %394 ], [ %.145.i, %459 ]
-  %.sroa.7.051.i = phi i64 [ 0, %394 ], [ %.sroa.7.1.i, %459 ]
-  %.sroa.5.050.i = phi i64 [ 0, %394 ], [ %.sroa.5.1.i, %459 ]
-  %.sroa.0.049.i = phi i64 [ 0, %394 ], [ %.sroa.0.1.i, %459 ]
+416:                                              ; preds = %455, %390
+  %417 = phi i32 [ -1, %390 ], [ %456, %455 ]
+  %indvars.iv.i40 = phi i64 [ 0, %390 ], [ %indvars.iv.next.i52, %455 ]
+  %.sroa.9.056.i = phi i64 [ 0, %390 ], [ %.sroa.9.1.i, %455 ]
+  %.sroa.11.055.i = phi i64 [ 36028797018963967, %390 ], [ %.sroa.11.1.i, %455 ]
+  %.04354.i = phi ptr [ %403, %390 ], [ %.1.i51, %455 ]
+  %.sroa.1538.053.i = phi i32 [ 0, %390 ], [ %.sroa.1538.1.i, %455 ]
+  %.04452.i = phi ptr [ %405, %390 ], [ %.145.i, %455 ]
+  %.sroa.7.051.i = phi i64 [ 0, %390 ], [ %.sroa.7.1.i, %455 ]
+  %.sroa.5.050.i = phi i64 [ 0, %390 ], [ %.sroa.5.1.i, %455 ]
+  %.sroa.0.049.i = phi i64 [ 0, %390 ], [ %.sroa.0.1.i, %455 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !164
-  %422 = trunc nuw nsw i64 %indvars.iv.i40 to i32
-  %423 = call fastcc i32 @ReconstructUV(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %.04354.i, i32 noundef %422), !noalias !120
-  store i32 %423, ptr %411, align 8, !tbaa !94, !noalias !164
-  %424 = load ptr, ptr @VP8SSE16x8, align 8, !tbaa !89, !noalias !164
-  %425 = call i32 %424(ptr noundef nonnull %406, ptr noundef %.04354.i) #11, !noalias !120
-  %426 = sext i32 %425 to i64
-  store i64 %426, ptr %7, align 8, !tbaa !109, !noalias !164
-  store i64 0, ptr %412, align 8, !tbaa !110, !noalias !164
-  %427 = getelementptr inbounds nuw [4 x i16], ptr @VP8FixedCostsUV, i64 0, i64 %indvars.iv.i40
-  %428 = load i16, ptr %427, align 2, !tbaa !46, !noalias !164
-  %429 = zext i16 %428 to i64
-  store i64 %429, ptr %413, align 8, !tbaa !111, !noalias !164
-  %430 = call i32 @VP8GetCostUV(ptr noundef %0, ptr noundef nonnull %7) #11, !noalias !120
-  %431 = sext i32 %430 to i64
+  %418 = trunc nuw nsw i64 %indvars.iv.i40 to i32
+  %419 = call fastcc i32 @ReconstructUV(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %.04354.i, i32 noundef %418), !noalias !120
+  store i32 %419, ptr %407, align 8, !tbaa !94, !noalias !164
+  %420 = load ptr, ptr @VP8SSE16x8, align 8, !tbaa !89, !noalias !164
+  %421 = call i32 %420(ptr noundef nonnull %402, ptr noundef %.04354.i) #11, !noalias !120
+  %422 = sext i32 %421 to i64
+  store i64 %422, ptr %7, align 8, !tbaa !109, !noalias !164
+  store i64 0, ptr %408, align 8, !tbaa !110, !noalias !164
+  %423 = getelementptr inbounds nuw [4 x i16], ptr @VP8FixedCostsUV, i64 0, i64 %indvars.iv.i40
+  %424 = load i16, ptr %423, align 2, !tbaa !46, !noalias !164
+  %425 = zext i16 %424 to i64
+  store i64 %425, ptr %409, align 8, !tbaa !111, !noalias !164
+  %426 = call i32 @VP8GetCostUV(ptr noundef %0, ptr noundef nonnull %7) #11, !noalias !120
+  %427 = sext i32 %426 to i64
   %.not33.i = icmp eq i64 %indvars.iv.i40, 0
-  br i1 %.not33.i, label %IsFlat_C.exit.thread.i50, label %.preheader.i.i41
+  br i1 %.not33.i, label %IsFlat_C.exit.thread.i49, label %.preheader.i.i41
 
-.preheader.i.i41:                                 ; preds = %420, %441
-  %.in.i.i42 = phi i32 [ %432, %441 ], [ 8, %420 ]
-  %.01127.i.i43 = phi i32 [ %439, %441 ], [ 0, %420 ]
-  %.01626.i.i44 = phi ptr [ %442, %441 ], [ %414, %420 ]
-  %432 = add nsw i32 %.in.i.i42, -1
-  br label %434
+.preheader.i.i41:                                 ; preds = %416, %437
+  %.in.i.i42 = phi i32 [ %428, %437 ], [ 8, %416 ]
+  %.01127.i.i = phi i32 [ %435, %437 ], [ 0, %416 ]
+  %.01626.i.i43 = phi ptr [ %438, %437 ], [ %410, %416 ]
+  %428 = add nsw i32 %.in.i.i42, -1
+  br label %430
 
-433:                                              ; preds = %434
-  %indvars.iv.next.i.i47 = add nuw nsw i64 %indvars.iv.i.i45, 1
-  %exitcond.i.i48 = icmp eq i64 %indvars.iv.next.i.i47, 16
-  br i1 %exitcond.i.i48, label %441, label %434, !llvm.loop !113
+429:                                              ; preds = %430
+  %indvars.iv.next.i.i46 = add nuw nsw i64 %indvars.iv.i.i44, 1
+  %exitcond.i.i47 = icmp eq i64 %indvars.iv.next.i.i46, 16
+  br i1 %exitcond.i.i47, label %437, label %430, !llvm.loop !113
 
-434:                                              ; preds = %433, %.preheader.i.i41
-  %indvars.iv.i.i45 = phi i64 [ 1, %.preheader.i.i41 ], [ %indvars.iv.next.i.i47, %433 ]
-  %.124.i.i46 = phi i32 [ %.01127.i.i43, %.preheader.i.i41 ], [ %439, %433 ]
-  %435 = getelementptr inbounds nuw i16, ptr %.01626.i.i44, i64 %indvars.iv.i.i45
-  %436 = load i16, ptr %435, align 2, !tbaa !46, !noalias !164
-  %437 = icmp ne i16 %436, 0
-  %438 = zext i1 %437 to i32
-  %439 = add nsw i32 %.124.i.i46, %438
-  %440 = icmp sgt i32 %439, 2
-  br i1 %440, label %IsFlat_C.exit.thread.i50, label %433
+430:                                              ; preds = %429, %.preheader.i.i41
+  %indvars.iv.i.i44 = phi i64 [ 1, %.preheader.i.i41 ], [ %indvars.iv.next.i.i46, %429 ]
+  %.124.i.i45 = phi i32 [ %.01127.i.i, %.preheader.i.i41 ], [ %435, %429 ]
+  %431 = getelementptr inbounds nuw i16, ptr %.01626.i.i43, i64 %indvars.iv.i.i44
+  %432 = load i16, ptr %431, align 2, !tbaa !46, !noalias !164
+  %433 = icmp ne i16 %432, 0
+  %434 = zext i1 %433 to i32
+  %435 = add nuw nsw i32 %.124.i.i45, %434
+  %436 = icmp sgt i32 %435, 2
+  br i1 %436, label %IsFlat_C.exit.thread.i49, label %429
 
-441:                                              ; preds = %433
-  %442 = getelementptr inbounds nuw i8, ptr %.01626.i.i44, i64 32
-  %443 = icmp samesign ugt i32 %.in.i.i42, 1
-  br i1 %443, label %.preheader.i.i41, label %IsFlat_C.exit.i49, !llvm.loop !114
+437:                                              ; preds = %429
+  %438 = getelementptr inbounds nuw i8, ptr %.01626.i.i43, i64 32
+  %439 = icmp samesign ugt i32 %.in.i.i42, 1
+  br i1 %439, label %.preheader.i.i41, label %IsFlat_C.exit.i48, !llvm.loop !114
 
-IsFlat_C.exit.i49:                                ; preds = %441
-  %444 = add nsw i64 %431, 1120
-  br label %IsFlat_C.exit.thread.i50
+IsFlat_C.exit.i48:                                ; preds = %437
+  %440 = add nsw i64 %427, 1120
+  br label %IsFlat_C.exit.thread.i49
 
-IsFlat_C.exit.thread.i50:                         ; preds = %434, %IsFlat_C.exit.i49, %420
-  %445 = phi i64 [ %444, %IsFlat_C.exit.i49 ], [ %431, %420 ], [ %431, %434 ]
-  %446 = load i64, ptr %413, align 8, !tbaa !111, !noalias !164
+IsFlat_C.exit.thread.i49:                         ; preds = %430, %IsFlat_C.exit.i48, %416
+  %441 = phi i64 [ %440, %IsFlat_C.exit.i48 ], [ %427, %416 ], [ %427, %430 ]
+  %442 = load i64, ptr %409, align 8, !tbaa !111, !noalias !164
+  %443 = add nsw i64 %442, %441
+  %444 = mul nsw i64 %443, %411
+  %445 = load i64, ptr %7, align 8, !tbaa !109, !noalias !164
+  %446 = load i64, ptr %408, align 8, !tbaa !110, !noalias !164
   %447 = add nsw i64 %446, %445
-  %448 = mul nsw i64 %447, %415
-  %449 = load i64, ptr %7, align 8, !tbaa !109, !noalias !164
-  %450 = load i64, ptr %412, align 8, !tbaa !110, !noalias !164
-  %451 = add nsw i64 %450, %449
-  %452 = shl nsw i64 %451, 8
-  %453 = add nsw i64 %452, %448
-  %454 = icmp slt i64 %453, %.sroa.11.055.i
-  %or.cond.i51 = select i1 %.not33.i, i1 true, i1 %454
-  br i1 %or.cond.i51, label %455, label %459
+  %448 = shl nsw i64 %447, 8
+  %449 = add nsw i64 %448, %444
+  %450 = icmp slt i64 %449, %.sroa.11.055.i
+  %or.cond.i50 = select i1 %.not33.i, i1 true, i1 %450
+  br i1 %or.cond.i50, label %451, label %455
 
-455:                                              ; preds = %IsFlat_C.exit.thread.i50
-  %456 = load i32, ptr %411, align 8, !tbaa !94, !alias.scope !167, !noalias !170
-  store i32 %422, ptr %410, align 4, !tbaa !166, !alias.scope !120, !noalias !117
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %416, ptr noundef nonnull align 8 dereferenceable(256) %414, i64 256, i1 false), !noalias !117
-  %457 = load ptr, ptr %417, align 8, !tbaa !172, !alias.scope !117, !noalias !120
-  %.not35.i = icmp eq ptr %457, null
-  br i1 %.not35.i, label %459, label %458
+451:                                              ; preds = %IsFlat_C.exit.thread.i49
+  %452 = load i32, ptr %407, align 8, !tbaa !94, !alias.scope !167, !noalias !170
+  store i32 %418, ptr %406, align 4, !tbaa !166, !alias.scope !120, !noalias !117
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %412, ptr noundef nonnull align 8 dereferenceable(256) %410, i64 256, i1 false), !noalias !117
+  %453 = load ptr, ptr %413, align 8, !tbaa !172, !alias.scope !117, !noalias !120
+  %.not35.i = icmp eq ptr %453, null
+  br i1 %.not35.i, label %455, label %454
 
-458:                                              ; preds = %455
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %418, ptr noundef nonnull align 4 dereferenceable(6) %419, i64 6, i1 false), !noalias !117
-  br label %459
+454:                                              ; preds = %451
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %414, ptr noundef nonnull align 4 dereferenceable(6) %415, i64 6, i1 false), !noalias !117
+  br label %455
 
-459:                                              ; preds = %458, %455, %IsFlat_C.exit.thread.i50
-  %460 = phi i32 [ %422, %458 ], [ %422, %455 ], [ %421, %IsFlat_C.exit.thread.i50 ]
-  %.sroa.0.1.i = phi i64 [ %449, %458 ], [ %449, %455 ], [ %.sroa.0.049.i, %IsFlat_C.exit.thread.i50 ]
-  %.sroa.5.1.i = phi i64 [ %450, %458 ], [ %450, %455 ], [ %.sroa.5.050.i, %IsFlat_C.exit.thread.i50 ]
-  %.sroa.7.1.i = phi i64 [ %446, %458 ], [ %446, %455 ], [ %.sroa.7.051.i, %IsFlat_C.exit.thread.i50 ]
-  %.145.i = phi ptr [ %.04354.i, %458 ], [ %.04354.i, %455 ], [ %.04452.i, %IsFlat_C.exit.thread.i50 ]
-  %.sroa.1538.1.i = phi i32 [ %456, %458 ], [ %456, %455 ], [ %.sroa.1538.053.i, %IsFlat_C.exit.thread.i50 ]
-  %.1.i52 = phi ptr [ %.04452.i, %458 ], [ %.04452.i, %455 ], [ %.04354.i, %IsFlat_C.exit.thread.i50 ]
-  %.sroa.11.1.i = phi i64 [ %453, %458 ], [ %453, %455 ], [ %.sroa.11.055.i, %IsFlat_C.exit.thread.i50 ]
-  %.sroa.9.1.i = phi i64 [ %445, %458 ], [ %445, %455 ], [ %.sroa.9.056.i, %IsFlat_C.exit.thread.i50 ]
+455:                                              ; preds = %454, %451, %IsFlat_C.exit.thread.i49
+  %456 = phi i32 [ %418, %454 ], [ %418, %451 ], [ %417, %IsFlat_C.exit.thread.i49 ]
+  %.sroa.0.1.i = phi i64 [ %445, %454 ], [ %445, %451 ], [ %.sroa.0.049.i, %IsFlat_C.exit.thread.i49 ]
+  %.sroa.5.1.i = phi i64 [ %446, %454 ], [ %446, %451 ], [ %.sroa.5.050.i, %IsFlat_C.exit.thread.i49 ]
+  %.sroa.7.1.i = phi i64 [ %442, %454 ], [ %442, %451 ], [ %.sroa.7.051.i, %IsFlat_C.exit.thread.i49 ]
+  %.145.i = phi ptr [ %.04354.i, %454 ], [ %.04354.i, %451 ], [ %.04452.i, %IsFlat_C.exit.thread.i49 ]
+  %.sroa.1538.1.i = phi i32 [ %452, %454 ], [ %452, %451 ], [ %.sroa.1538.053.i, %IsFlat_C.exit.thread.i49 ]
+  %.1.i51 = phi ptr [ %.04452.i, %454 ], [ %.04452.i, %451 ], [ %.04354.i, %IsFlat_C.exit.thread.i49 ]
+  %.sroa.11.1.i = phi i64 [ %449, %454 ], [ %449, %451 ], [ %.sroa.11.055.i, %IsFlat_C.exit.thread.i49 ]
+  %.sroa.9.1.i = phi i64 [ %441, %454 ], [ %441, %451 ], [ %.sroa.9.056.i, %IsFlat_C.exit.thread.i49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !164
-  %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i40, 1
-  %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, 4
-  br i1 %exitcond.not.i54, label %461, label %420, !llvm.loop !173
+  %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i40, 1
+  %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, 4
+  br i1 %exitcond.not.i53, label %457, label %416, !llvm.loop !173
 
-461:                                              ; preds = %459
-  call void @VP8SetIntraUVMode(ptr noundef %0, i32 noundef %460) #11, !noalias !120
-  %462 = load i64, ptr %1, align 8, !tbaa !109, !alias.scope !174, !noalias !177
-  %463 = add nsw i64 %462, %.sroa.0.1.i
-  store i64 %463, ptr %1, align 8, !tbaa !109, !alias.scope !174, !noalias !177
-  %464 = load i64, ptr %158, align 8, !tbaa !110, !alias.scope !174, !noalias !177
-  %465 = add nsw i64 %464, %.sroa.5.1.i
-  store i64 %465, ptr %158, align 8, !tbaa !110, !alias.scope !174, !noalias !177
-  %466 = load i64, ptr %150, align 8, !tbaa !112, !alias.scope !174, !noalias !177
-  %467 = add nsw i64 %466, %.sroa.9.1.i
-  store i64 %467, ptr %150, align 8, !tbaa !112, !alias.scope !174, !noalias !177
-  %468 = load i64, ptr %152, align 8, !tbaa !111, !alias.scope !174, !noalias !177
-  %469 = add nsw i64 %468, %.sroa.7.1.i
-  store i64 %469, ptr %152, align 8, !tbaa !111, !alias.scope !174, !noalias !177
-  %470 = load i32, ptr %17, align 8, !tbaa !94, !alias.scope !174, !noalias !177
-  %471 = or i32 %470, %.sroa.1538.1.i
-  store i32 %471, ptr %17, align 8, !tbaa !94, !alias.scope !174, !noalias !177
-  %472 = load i64, ptr %18, align 8, !tbaa !96, !alias.scope !174, !noalias !177
-  %473 = add nsw i64 %472, %.sroa.11.1.i
-  store i64 %473, ptr %18, align 8, !tbaa !96, !alias.scope !174, !noalias !177
-  %.not.i55 = icmp eq ptr %.145.i, %409
-  br i1 %.not.i55, label %476, label %474
+457:                                              ; preds = %455
+  call void @VP8SetIntraUVMode(ptr noundef %0, i32 noundef %456) #11, !noalias !120
+  %458 = load i64, ptr %1, align 8, !tbaa !109, !alias.scope !174, !noalias !177
+  %459 = add nsw i64 %458, %.sroa.0.1.i
+  store i64 %459, ptr %1, align 8, !tbaa !109, !alias.scope !174, !noalias !177
+  %460 = load i64, ptr %154, align 8, !tbaa !110, !alias.scope !174, !noalias !177
+  %461 = add nsw i64 %460, %.sroa.5.1.i
+  store i64 %461, ptr %154, align 8, !tbaa !110, !alias.scope !174, !noalias !177
+  %462 = load i64, ptr %146, align 8, !tbaa !112, !alias.scope !174, !noalias !177
+  %463 = add nsw i64 %462, %.sroa.9.1.i
+  store i64 %463, ptr %146, align 8, !tbaa !112, !alias.scope !174, !noalias !177
+  %464 = load i64, ptr %148, align 8, !tbaa !111, !alias.scope !174, !noalias !177
+  %465 = add nsw i64 %464, %.sroa.7.1.i
+  store i64 %465, ptr %148, align 8, !tbaa !111, !alias.scope !174, !noalias !177
+  %466 = load i32, ptr %17, align 8, !tbaa !94, !alias.scope !174, !noalias !177
+  %467 = or i32 %466, %.sroa.1538.1.i
+  store i32 %467, ptr %17, align 8, !tbaa !94, !alias.scope !174, !noalias !177
+  %468 = load i64, ptr %18, align 8, !tbaa !96, !alias.scope !174, !noalias !177
+  %469 = add nsw i64 %468, %.sroa.11.1.i
+  store i64 %469, ptr %18, align 8, !tbaa !96, !alias.scope !174, !noalias !177
+  %.not.i54 = icmp eq ptr %.145.i, %405
+  br i1 %.not.i54, label %472, label %470
 
-474:                                              ; preds = %461
-  %475 = load ptr, ptr @VP8Copy16x8, align 8, !tbaa !89, !noalias !164
-  call void %475(ptr noundef %.145.i, ptr noundef nonnull %409) #11, !noalias !120
-  br label %476
+470:                                              ; preds = %457
+  %471 = load ptr, ptr @VP8Copy16x8, align 8, !tbaa !89, !noalias !164
+  call void %471(ptr noundef %.145.i, ptr noundef nonnull %405) #11, !noalias !120
+  br label %472
 
-476:                                              ; preds = %474, %461
-  %477 = load ptr, ptr %417, align 8, !tbaa !172, !alias.scope !117, !noalias !120
-  %.not32.i = icmp eq ptr %477, null
-  br i1 %.not32.i, label %PickBestUV.exit, label %478
+472:                                              ; preds = %470, %457
+  %473 = load ptr, ptr %413, align 8, !tbaa !172, !alias.scope !117, !noalias !120
+  %.not32.i = icmp eq ptr %473, null
+  br i1 %.not32.i, label %PickBestUV.exit, label %474
 
-478:                                              ; preds = %476
+474:                                              ; preds = %472
   call void @llvm.experimental.noalias.scope.decl(metadata !179)
   call void @llvm.experimental.noalias.scope.decl(metadata !182)
-  %479 = load i32, ptr %0, align 8, !tbaa !82, !alias.scope !184, !noalias !185
-  %480 = sext i32 %479 to i64
-  %481 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %482 = getelementptr inbounds [2 x [2 x i8]], ptr %477, i64 %480
-  br label %483
+  %475 = load i32, ptr %0, align 8, !tbaa !82, !alias.scope !184, !noalias !185
+  %476 = sext i32 %475 to i64
+  %477 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %478 = getelementptr inbounds [2 x [2 x i8]], ptr %473, i64 %476
+  br label %479
 
-483:                                              ; preds = %483, %478
-  %484 = phi i1 [ true, %478 ], [ false, %483 ]
-  %indvars.iv.i36.i = phi i64 [ 0, %478 ], [ 1, %483 ]
-  %485 = getelementptr inbounds nuw [2 x [2 x i8]], ptr %482, i64 0, i64 %indvars.iv.i36.i
-  %486 = getelementptr inbounds nuw [2 x [2 x i8]], ptr %481, i64 0, i64 %indvars.iv.i36.i
-  %487 = getelementptr inbounds nuw [2 x [3 x i8]], ptr %418, i64 0, i64 %indvars.iv.i36.i
-  %488 = load i8, ptr %487, align 1, !tbaa !58, !alias.scope !185, !noalias !184
-  store i8 %488, ptr %486, align 1, !tbaa !58, !alias.scope !184, !noalias !185
-  %489 = getelementptr inbounds nuw i8, ptr %487, i64 2
-  %490 = load i8, ptr %489, align 1, !tbaa !58, !alias.scope !185, !noalias !184
-  %491 = sext i8 %490 to i16
-  %492 = mul nsw i16 %491, 3
-  %493 = lshr i16 %492, 2
-  %494 = trunc i16 %493 to i8
-  %495 = getelementptr inbounds nuw i8, ptr %486, i64 1
-  store i8 %494, ptr %495, align 1, !tbaa !58, !alias.scope !184, !noalias !185
-  %496 = getelementptr inbounds nuw i8, ptr %487, i64 1
-  %497 = load i8, ptr %496, align 1, !tbaa !58, !alias.scope !185, !noalias !184
-  store i8 %497, ptr %485, align 1, !tbaa !58, !noalias !186
-  %498 = sub i8 %490, %494
-  %499 = getelementptr inbounds nuw i8, ptr %485, i64 1
-  store i8 %498, ptr %499, align 1, !tbaa !58, !noalias !186
-  br i1 %484, label %483, label %PickBestUV.exit, !llvm.loop !187
+479:                                              ; preds = %479, %474
+  %480 = phi i1 [ true, %474 ], [ false, %479 ]
+  %indvars.iv.i36.i = phi i64 [ 0, %474 ], [ 1, %479 ]
+  %481 = getelementptr inbounds nuw [2 x [2 x i8]], ptr %478, i64 0, i64 %indvars.iv.i36.i
+  %482 = getelementptr inbounds nuw [2 x [2 x i8]], ptr %477, i64 0, i64 %indvars.iv.i36.i
+  %483 = getelementptr inbounds nuw [2 x [3 x i8]], ptr %414, i64 0, i64 %indvars.iv.i36.i
+  %484 = load i8, ptr %483, align 1, !tbaa !58, !alias.scope !185, !noalias !184
+  store i8 %484, ptr %482, align 1, !tbaa !58, !alias.scope !184, !noalias !185
+  %485 = getelementptr inbounds nuw i8, ptr %483, i64 2
+  %486 = load i8, ptr %485, align 1, !tbaa !58, !alias.scope !185, !noalias !184
+  %487 = sext i8 %486 to i16
+  %488 = mul nsw i16 %487, 3
+  %489 = lshr i16 %488, 2
+  %490 = trunc i16 %489 to i8
+  %491 = getelementptr inbounds nuw i8, ptr %482, i64 1
+  store i8 %490, ptr %491, align 1, !tbaa !58, !alias.scope !184, !noalias !185
+  %492 = getelementptr inbounds nuw i8, ptr %483, i64 1
+  %493 = load i8, ptr %492, align 1, !tbaa !58, !alias.scope !185, !noalias !184
+  store i8 %493, ptr %481, align 1, !tbaa !58, !noalias !186
+  %494 = sub i8 %486, %490
+  %495 = getelementptr inbounds nuw i8, ptr %481, i64 1
+  store i8 %494, ptr %495, align 1, !tbaa !58, !noalias !186
+  br i1 %480, label %479, label %PickBestUV.exit, !llvm.loop !187
 
-PickBestUV.exit:                                  ; preds = %483, %476
-  %500 = icmp eq i32 %2, 2
-  br i1 %500, label %501, label %PickBestUV.exit._crit_edge
+PickBestUV.exit:                                  ; preds = %479, %472
+  %496 = icmp eq i32 %2, 2
+  br i1 %496, label %497, label %PickBestUV.exit._crit_edge
 
 PickBestUV.exit._crit_edge:                       ; preds = %PickBestUV.exit
-  %.pre106 = load i32, ptr %17, align 8, !tbaa !94
-  br label %824
+  %.pre101 = load i32, ptr %17, align 8, !tbaa !94
+  br label %820
 
-501:                                              ; preds = %PickBestUV.exit
+497:                                              ; preds = %PickBestUV.exit
   store i32 1, ptr %50, align 8, !tbaa !97
   call void @llvm.experimental.noalias.scope.decl(metadata !188)
   call void @llvm.experimental.noalias.scope.decl(metadata !191)
-  %502 = load ptr, ptr %53, align 8, !tbaa !103, !alias.scope !188, !noalias !191
-  %503 = load i8, ptr %502, align 4, !noalias !193
-  %504 = and i8 %503, 3
-  %505 = icmp eq i8 %504, 1
-  %506 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br i1 %505, label %507, label %513
+  %498 = load ptr, ptr %53, align 8, !tbaa !103, !alias.scope !188, !noalias !191
+  %499 = load i8, ptr %498, align 4, !noalias !193
+  %500 = and i8 %499, 3
+  %501 = icmp eq i8 %500, 1
+  %502 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  br i1 %501, label %503, label %509
 
-507:                                              ; preds = %501
-  %508 = load ptr, ptr %82, align 8, !tbaa !165, !alias.scope !188, !noalias !191
-  %509 = load ptr, ptr %506, align 8, !tbaa !136, !alias.scope !188, !noalias !191
-  %510 = load i8, ptr %509, align 1, !tbaa !58, !noalias !193
-  %511 = zext i8 %510 to i32
-  %512 = call fastcc i32 @ReconstructIntra16(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %508, i32 noundef %511)
+503:                                              ; preds = %497
+  %504 = load ptr, ptr %82, align 8, !tbaa !165, !alias.scope !188, !noalias !191
+  %505 = load ptr, ptr %502, align 8, !tbaa !136, !alias.scope !188, !noalias !191
+  %506 = load i8, ptr %505, align 1, !tbaa !58, !noalias !193
+  %507 = zext i8 %506 to i32
+  %508 = call fastcc i32 @ReconstructIntra16(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %504, i32 noundef %507)
   br label %SimpleQuantize.exit
 
-513:                                              ; preds = %501
-  %514 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !188, !noalias !191
+509:                                              ; preds = %497
+  %510 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !188, !noalias !191
   call void @VP8IteratorStartI4(ptr noundef nonnull %0) #11, !noalias !191
-  %515 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %516 = getelementptr inbounds nuw i8, ptr %514, i64 56
-  %517 = getelementptr i8, ptr %0, i64 120
-  %518 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %519 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %520 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  br label %521
+  %511 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %512 = getelementptr inbounds nuw i8, ptr %510, i64 56
+  %513 = getelementptr i8, ptr %0, i64 120
+  %514 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %515 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %516 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  br label %517
 
-521:                                              ; preds = %ReconstructIntra4.exit.i58, %513
-  %.1.i56 = phi i32 [ 0, %513 ], [ %579, %ReconstructIntra4.exit.i58 ]
-  %522 = load ptr, ptr %506, align 8, !tbaa !136, !alias.scope !188, !noalias !191
-  %523 = load i32, ptr %515, align 8, !tbaa !129, !alias.scope !188, !noalias !191
-  %524 = and i32 %523, 3
-  %525 = ashr i32 %523, 2
-  %526 = load i32, ptr %516, align 8, !tbaa !134
-  %527 = mul nsw i32 %525, %526
-  %528 = add nsw i32 %527, %524
-  %529 = sext i32 %528 to i64
-  %530 = getelementptr inbounds i8, ptr %522, i64 %529
-  %531 = load i8, ptr %530, align 1, !tbaa !58
-  %532 = load ptr, ptr %64, align 8, !tbaa !105, !alias.scope !188, !noalias !191
-  %533 = sext i32 %523 to i64
-  %534 = getelementptr inbounds [16 x i16], ptr @VP8Scan, i64 0, i64 %533
-  %535 = load i16, ptr %534, align 2, !tbaa !46, !noalias !193
-  %536 = zext i16 %535 to i64
-  %537 = getelementptr inbounds nuw i8, ptr %532, i64 %536
-  %538 = load ptr, ptr %82, align 8, !tbaa !165, !alias.scope !188, !noalias !191
-  %539 = getelementptr inbounds nuw i8, ptr %538, i64 %536
+517:                                              ; preds = %ReconstructIntra4.exit.i57, %509
+  %.1.i55 = phi i32 [ 0, %509 ], [ %575, %ReconstructIntra4.exit.i57 ]
+  %518 = load ptr, ptr %502, align 8, !tbaa !136, !alias.scope !188, !noalias !191
+  %519 = load i32, ptr %511, align 8, !tbaa !129, !alias.scope !188, !noalias !191
+  %520 = and i32 %519, 3
+  %521 = ashr i32 %519, 2
+  %522 = load i32, ptr %512, align 8, !tbaa !134
+  %523 = mul nsw i32 %521, %522
+  %524 = add nsw i32 %523, %520
+  %525 = sext i32 %524 to i64
+  %526 = getelementptr inbounds i8, ptr %518, i64 %525
+  %527 = load i8, ptr %526, align 1, !tbaa !58
+  %528 = load ptr, ptr %64, align 8, !tbaa !105, !alias.scope !188, !noalias !191
+  %529 = sext i32 %519 to i64
+  %530 = getelementptr inbounds [16 x i16], ptr @VP8Scan, i64 0, i64 %529
+  %531 = load i16, ptr %530, align 2, !tbaa !46, !noalias !193
+  %532 = zext i16 %531 to i64
+  %533 = getelementptr inbounds nuw i8, ptr %528, i64 %532
+  %534 = load ptr, ptr %82, align 8, !tbaa !165, !alias.scope !188, !noalias !191
+  %535 = getelementptr inbounds nuw i8, ptr %534, i64 %532
   %.val.i = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !188, !noalias !191
-  %.val33.i = load ptr, ptr %517, align 8, !tbaa !137, !alias.scope !188, !noalias !191
-  %540 = load ptr, ptr @VP8EncPredLuma4, align 8, !tbaa !89, !noalias !193
-  call void %540(ptr noundef %.val.i, ptr noundef %.val33.i) #11
-  %541 = load i32, ptr %515, align 8, !tbaa !129, !alias.scope !188, !noalias !191
-  %542 = sext i32 %541 to i64
-  %543 = getelementptr inbounds [16 x [16 x i16]], ptr %518, i64 0, i64 %542
+  %.val33.i = load ptr, ptr %513, align 8, !tbaa !137, !alias.scope !188, !noalias !191
+  %536 = load ptr, ptr @VP8EncPredLuma4, align 8, !tbaa !89, !noalias !193
+  call void %536(ptr noundef %.val.i, ptr noundef %.val33.i) #11
+  %537 = load i32, ptr %511, align 8, !tbaa !129, !alias.scope !188, !noalias !191
+  %538 = sext i32 %537 to i64
+  %539 = getelementptr inbounds [16 x [16 x i16]], ptr %514, i64 0, i64 %538
   call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  %544 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !197, !noalias !198
-  %545 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !197, !noalias !198
-  %546 = zext i8 %531 to i64
-  %547 = getelementptr inbounds nuw [10 x i16], ptr @VP8I4ModeOffsets, i64 0, i64 %546
-  %548 = load i16, ptr %547, align 2, !tbaa !46, !noalias !201
-  %549 = zext i16 %548 to i64
-  %550 = getelementptr inbounds nuw i8, ptr %545, i64 %549
-  %551 = getelementptr inbounds nuw i8, ptr %544, i64 608
-  %552 = load ptr, ptr %53, align 8, !tbaa !103, !alias.scope !197, !noalias !198
-  %553 = load i8, ptr %552, align 4, !noalias !202
-  %554 = lshr i8 %553, 5
-  %555 = and i8 %554, 3
-  %556 = zext nneg i8 %555 to i64
-  %557 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %551, i64 0, i64 %556
+  %540 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !197, !noalias !198
+  %541 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !197, !noalias !198
+  %542 = zext i8 %527 to i64
+  %543 = getelementptr inbounds nuw [10 x i16], ptr @VP8I4ModeOffsets, i64 0, i64 %542
+  %544 = load i16, ptr %543, align 2, !tbaa !46, !noalias !201
+  %545 = zext i16 %544 to i64
+  %546 = getelementptr inbounds nuw i8, ptr %541, i64 %545
+  %547 = getelementptr inbounds nuw i8, ptr %540, i64 608
+  %548 = load ptr, ptr %53, align 8, !tbaa !103, !alias.scope !197, !noalias !198
+  %549 = load i8, ptr %548, align 4, !noalias !202
+  %550 = lshr i8 %549, 5
+  %551 = and i8 %550, 3
+  %552 = zext nneg i8 %551 to i64
+  %553 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %547, i64 0, i64 %552
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !201
-  %558 = load ptr, ptr @VP8FTransform, align 8, !tbaa !89, !noalias !201
-  call void %558(ptr noundef %537, ptr noundef %550, ptr noundef nonnull %6) #11, !noalias !203
-  %559 = load i32, ptr %50, align 8, !tbaa !97, !alias.scope !197, !noalias !198
-  %.not.i.i57 = icmp eq i32 %559, 0
-  br i1 %.not.i.i57, label %573, label %560
+  %554 = load ptr, ptr @VP8FTransform, align 8, !tbaa !89, !noalias !201
+  call void %554(ptr noundef %533, ptr noundef %546, ptr noundef nonnull %6) #11, !noalias !203
+  %555 = load i32, ptr %50, align 8, !tbaa !97, !alias.scope !197, !noalias !198
+  %.not.i.i56 = icmp eq i32 %555, 0
+  br i1 %.not.i.i56, label %569, label %556
 
-560:                                              ; preds = %521
-  %561 = and i32 %541, 3
-  %562 = ashr i32 %541, 2
-  %563 = zext nneg i32 %561 to i64
-  %564 = getelementptr inbounds nuw [9 x i32], ptr %519, i64 0, i64 %563
-  %565 = load i32, ptr %564, align 4, !tbaa !30, !alias.scope !197, !noalias !198
-  %566 = sext i32 %562 to i64
-  %567 = getelementptr inbounds [9 x i32], ptr %520, i64 0, i64 %566
-  %568 = load i32, ptr %567, align 4, !tbaa !30, !alias.scope !197, !noalias !198
-  %569 = add nsw i32 %568, %565
-  %570 = getelementptr inbounds nuw i8, ptr %557, i64 724
-  %571 = load i32, ptr %570, align 4, !tbaa !74, !noalias !203
-  %572 = call fastcc i32 @TrellisQuantizeBlock(ptr noundef %544, ptr noundef %6, ptr noundef nonnull %543, i32 noundef %569, i32 noundef 3, ptr noundef nonnull %557, i32 noundef %571), !noalias !203
-  br label %ReconstructIntra4.exit.i58
+556:                                              ; preds = %517
+  %557 = and i32 %537, 3
+  %558 = ashr i32 %537, 2
+  %559 = zext nneg i32 %557 to i64
+  %560 = getelementptr inbounds nuw [9 x i32], ptr %515, i64 0, i64 %559
+  %561 = load i32, ptr %560, align 4, !tbaa !30, !alias.scope !197, !noalias !198
+  %562 = sext i32 %558 to i64
+  %563 = getelementptr inbounds [9 x i32], ptr %516, i64 0, i64 %562
+  %564 = load i32, ptr %563, align 4, !tbaa !30, !alias.scope !197, !noalias !198
+  %565 = add nsw i32 %564, %561
+  %566 = getelementptr inbounds nuw i8, ptr %553, i64 724
+  %567 = load i32, ptr %566, align 4, !tbaa !74, !noalias !203
+  %568 = call fastcc i32 @TrellisQuantizeBlock(ptr noundef %540, ptr noundef %6, ptr noundef nonnull %539, i32 noundef %565, i32 noundef 3, ptr noundef nonnull %553, i32 noundef %567), !noalias !203
+  br label %ReconstructIntra4.exit.i57
 
-573:                                              ; preds = %521
-  %574 = load ptr, ptr @VP8EncQuantizeBlock, align 8, !tbaa !89, !noalias !201
-  %575 = call i32 %574(ptr noundef nonnull %6, ptr noundef nonnull %543, ptr noundef nonnull %557) #11, !noalias !203
-  br label %ReconstructIntra4.exit.i58
+569:                                              ; preds = %517
+  %570 = load ptr, ptr @VP8EncQuantizeBlock, align 8, !tbaa !89, !noalias !201
+  %571 = call i32 %570(ptr noundef nonnull %6, ptr noundef nonnull %539, ptr noundef nonnull %553) #11, !noalias !203
+  br label %ReconstructIntra4.exit.i57
 
-ReconstructIntra4.exit.i58:                       ; preds = %573, %560
-  %.0.i.i59 = phi i32 [ %572, %560 ], [ %575, %573 ]
-  %576 = load ptr, ptr @VP8ITransform, align 8, !tbaa !89, !noalias !201
-  call void %576(ptr noundef %550, ptr noundef nonnull %6, ptr noundef %539, i32 noundef 0) #11, !noalias !194
+ReconstructIntra4.exit.i57:                       ; preds = %569, %556
+  %.0.i.i58 = phi i32 [ %568, %556 ], [ %571, %569 ]
+  %572 = load ptr, ptr @VP8ITransform, align 8, !tbaa !89, !noalias !201
+  call void %572(ptr noundef %546, ptr noundef nonnull %6, ptr noundef %535, i32 noundef 0) #11, !noalias !194
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !201
-  %577 = load i32, ptr %515, align 8, !tbaa !129, !alias.scope !188, !noalias !191
-  %578 = shl i32 %.0.i.i59, %577
-  %579 = or i32 %578, %.1.i56
-  %580 = load ptr, ptr %82, align 8, !tbaa !165, !alias.scope !188, !noalias !191
-  %581 = call i32 @VP8IteratorRotateI4(ptr noundef nonnull %0, ptr noundef %580) #11
-  %.not.i60 = icmp eq i32 %581, 0
-  br i1 %.not.i60, label %SimpleQuantize.exit, label %521, !llvm.loop !204
+  %573 = load i32, ptr %511, align 8, !tbaa !129, !alias.scope !188, !noalias !191
+  %574 = shl i32 %.0.i.i58, %573
+  %575 = or i32 %574, %.1.i55
+  %576 = load ptr, ptr %82, align 8, !tbaa !165, !alias.scope !188, !noalias !191
+  %577 = call i32 @VP8IteratorRotateI4(ptr noundef nonnull %0, ptr noundef %576) #11
+  %.not.i59 = icmp eq i32 %577, 0
+  br i1 %.not.i59, label %SimpleQuantize.exit, label %517, !llvm.loop !204
 
-SimpleQuantize.exit:                              ; preds = %ReconstructIntra4.exit.i58, %507
-  %.0.i61 = phi i32 [ %512, %507 ], [ %579, %ReconstructIntra4.exit.i58 ]
-  %582 = load ptr, ptr %82, align 8, !tbaa !165, !alias.scope !188, !noalias !191
-  %583 = getelementptr inbounds nuw i8, ptr %582, i64 16
-  %584 = load ptr, ptr %53, align 8, !tbaa !103, !alias.scope !188, !noalias !191
-  %585 = load i8, ptr %584, align 4
-  %586 = lshr i8 %585, 2
-  %587 = and i8 %586, 3
-  %588 = zext nneg i8 %587 to i32
-  %589 = call fastcc i32 @ReconstructUV(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %583, i32 noundef %588)
-  %590 = or i32 %589, %.0.i61
-  store i32 %590, ptr %17, align 8, !tbaa !94, !alias.scope !191, !noalias !188
-  br label %824
+SimpleQuantize.exit:                              ; preds = %ReconstructIntra4.exit.i57, %503
+  %.0.i60 = phi i32 [ %508, %503 ], [ %575, %ReconstructIntra4.exit.i57 ]
+  %578 = load ptr, ptr %82, align 8, !tbaa !165, !alias.scope !188, !noalias !191
+  %579 = getelementptr inbounds nuw i8, ptr %578, i64 16
+  %580 = load ptr, ptr %53, align 8, !tbaa !103, !alias.scope !188, !noalias !191
+  %581 = load i8, ptr %580, align 4
+  %582 = lshr i8 %581, 2
+  %583 = and i8 %582, 3
+  %584 = zext nneg i8 %583 to i32
+  %585 = call fastcc i32 @ReconstructUV(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %579, i32 noundef %584)
+  %586 = or i32 %585, %.0.i60
+  store i32 %586, ptr %17, align 8, !tbaa !94, !alias.scope !191, !noalias !188
+  br label %820
 
-591:                                              ; preds = %VP8MakeChroma8Preds.exit
-  %592 = icmp slt i32 %16, 2
-  %593 = icmp slt i32 %16, 1
+587:                                              ; preds = %VP8MakeChroma8Preds.exit
+  %588 = icmp slt i32 %16, 2
+  %589 = icmp slt i32 %16, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
-  %594 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %595 = load ptr, ptr %594, align 8, !tbaa !103, !alias.scope !205, !noalias !208
-  %596 = load i8, ptr %595, align 4, !noalias !210
-  br i1 %592, label %607, label %.thread209.i
+  %590 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %591 = load ptr, ptr %590, align 8, !tbaa !103, !alias.scope !205, !noalias !208
+  %592 = load i8, ptr %591, align 4, !noalias !210
+  br i1 %588, label %603, label %.thread211.i
 
-.thread209.i:                                     ; preds = %591
-  %597 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !205, !noalias !208
-  %598 = lshr i8 %596, 5
-  %599 = and i8 %598, 3
-  %600 = zext nneg i8 %599 to i64
-  %.idx.i63 = mul nuw nsw i64 %600, 744
-  %601 = getelementptr inbounds nuw i8, ptr %597, i64 1344
-  %602 = getelementptr inbounds nuw i8, ptr %601, i64 %.idx.i63
-  %603 = load i64, ptr %602, align 8, !tbaa !80, !noalias !210
-  %604 = getelementptr inbounds nuw i8, ptr %597, i64 23628
-  %605 = load i32, ptr %604, align 4, !tbaa !211, !noalias !210
-  %606 = sext i32 %605 to i64
-  br label %617
+.thread211.i:                                     ; preds = %587
+  %593 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !205, !noalias !208
+  %594 = lshr i8 %592, 5
+  %595 = and i8 %594, 3
+  %596 = zext nneg i8 %595 to i64
+  %.idx.i62 = mul nuw nsw i64 %596, 744
+  %597 = getelementptr inbounds nuw i8, ptr %593, i64 1344
+  %598 = getelementptr inbounds nuw i8, ptr %597, i64 %.idx.i62
+  %599 = load i64, ptr %598, align 8, !tbaa !80, !noalias !210
+  %600 = getelementptr inbounds nuw i8, ptr %593, i64 23628
+  %601 = load i32, ptr %600, align 4, !tbaa !211, !noalias !210
+  %602 = sext i32 %601 to i64
+  br label %613
 
-607:                                              ; preds = %591
-  %608 = and i8 %596, 3
-  %609 = icmp eq i8 %608, 1
-  %610 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !205, !noalias !208
-  %611 = lshr i8 %596, 5
-  %612 = and i8 %611, 3
-  %613 = zext nneg i8 %612 to i64
-  %.idx208.i = mul nuw nsw i64 %613, 744
-  %614 = getelementptr inbounds nuw i8, ptr %610, i64 1344
-  %615 = getelementptr inbounds nuw i8, ptr %614, i64 %.idx208.i
-  %616 = load i64, ptr %615, align 8, !tbaa !80, !noalias !210
-  br i1 %609, label %617, label %.thread.i
+603:                                              ; preds = %587
+  %604 = and i8 %592, 3
+  %605 = icmp eq i8 %604, 1
+  %606 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !205, !noalias !208
+  %607 = lshr i8 %592, 5
+  %608 = and i8 %607, 3
+  %609 = zext nneg i8 %608 to i64
+  %.idx210.i = mul nuw nsw i64 %609, 744
+  %610 = getelementptr inbounds nuw i8, ptr %606, i64 1344
+  %611 = getelementptr inbounds nuw i8, ptr %610, i64 %.idx210.i
+  %612 = load i64, ptr %611, align 8, !tbaa !80, !noalias !210
+  br i1 %605, label %613, label %.thread.i
 
-617:                                              ; preds = %607, %.thread209.i
-  %618 = phi i64 [ %606, %.thread209.i ], [ 36028797018963967, %607 ]
-  %619 = phi i64 [ %603, %.thread209.i ], [ %616, %607 ]
-  %620 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %621 = load ptr, ptr %620, align 8, !tbaa !105, !alias.scope !205, !noalias !208
-  %622 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !205, !noalias !208
-  br label %623
+613:                                              ; preds = %603, %.thread211.i
+  %614 = phi i64 [ %602, %.thread211.i ], [ 36028797018963967, %603 ]
+  %615 = phi i64 [ %599, %.thread211.i ], [ %612, %603 ]
+  %616 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %617 = load ptr, ptr %616, align 8, !tbaa !105, !alias.scope !205, !noalias !208
+  %618 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !205, !noalias !208
+  br label %619
 
-623:                                              ; preds = %623, %617
-  %indvars.iv.i64 = phi i64 [ 0, %617 ], [ %indvars.iv.next.i65, %623 ]
-  %.1108187.i = phi i64 [ 36028797018963967, %617 ], [ %.2.i, %623 ]
-  %.0126185.i = phi i32 [ -1, %617 ], [ %.1127.i, %623 ]
-  %624 = getelementptr inbounds nuw [4 x i16], ptr @VP8I16ModeOffsets, i64 0, i64 %indvars.iv.i64
-  %625 = load i16, ptr %624, align 2, !tbaa !46, !noalias !210
-  %626 = zext i16 %625 to i64
-  %627 = getelementptr inbounds nuw i8, ptr %622, i64 %626
-  %628 = load ptr, ptr @VP8SSE16x16, align 8, !tbaa !89, !noalias !210
-  %629 = tail call i32 %628(ptr noundef %621, ptr noundef %627) #11, !noalias !210
-  %630 = sext i32 %629 to i64
-  %631 = shl nsw i64 %630, 8
-  %632 = getelementptr inbounds nuw [4 x i16], ptr @VP8FixedCostsI16, i64 0, i64 %indvars.iv.i64
-  %633 = load i16, ptr %632, align 2, !tbaa !46, !noalias !210
-  %634 = zext i16 %633 to i64
-  %635 = mul nuw nsw i64 %634, 106
-  %636 = add nsw i64 %635, %631
-  %.not143.i = icmp ne i64 %indvars.iv.i64, 0
-  %637 = icmp slt i64 %618, %634
-  %or.cond145.i = select i1 %.not143.i, i1 %637, i1 false
-  %638 = icmp slt i64 %636, %.1108187.i
-  %639 = trunc nuw nsw i64 %indvars.iv.i64 to i32
-  %spec.select.i = select i1 %638, i32 %639, i32 %.0126185.i
-  %spec.select146.i = tail call i64 @llvm.smin.i64(i64 %636, i64 %.1108187.i)
+619:                                              ; preds = %619, %613
+  %indvars.iv.i63 = phi i64 [ 0, %613 ], [ %indvars.iv.next.i64, %619 ]
+  %.1108187.i = phi i64 [ 36028797018963967, %613 ], [ %.2.i, %619 ]
+  %.0126185.i = phi i32 [ -1, %613 ], [ %.1127.i, %619 ]
+  %620 = getelementptr inbounds nuw [4 x i16], ptr @VP8I16ModeOffsets, i64 0, i64 %indvars.iv.i63
+  %621 = load i16, ptr %620, align 2, !tbaa !46, !noalias !210
+  %622 = zext i16 %621 to i64
+  %623 = getelementptr inbounds nuw i8, ptr %618, i64 %622
+  %624 = load ptr, ptr @VP8SSE16x16, align 8, !tbaa !89, !noalias !210
+  %625 = tail call i32 %624(ptr noundef %617, ptr noundef %623) #11, !noalias !210
+  %626 = sext i32 %625 to i64
+  %627 = shl nsw i64 %626, 8
+  %628 = getelementptr inbounds nuw [4 x i16], ptr @VP8FixedCostsI16, i64 0, i64 %indvars.iv.i63
+  %629 = load i16, ptr %628, align 2, !tbaa !46, !noalias !210
+  %630 = zext i16 %629 to i64
+  %631 = mul nuw nsw i64 %630, 106
+  %632 = add nsw i64 %631, %627
+  %.not143.i = icmp ne i64 %indvars.iv.i63, 0
+  %633 = icmp slt i64 %614, %630
+  %or.cond145.i = select i1 %.not143.i, i1 %633, i1 false
+  %634 = icmp slt i64 %632, %.1108187.i
+  %635 = trunc nuw nsw i64 %indvars.iv.i63 to i32
+  %spec.select.i = select i1 %634, i32 %635, i32 %.0126185.i
+  %spec.select146.i = tail call i64 @llvm.smin.i64(i64 %632, i64 %.1108187.i)
   %.1127.i = select i1 %or.cond145.i, i32 %.0126185.i, i32 %spec.select.i
   %.2.i = select i1 %or.cond145.i, i64 %.1108187.i, i64 %spec.select146.i
-  %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i64, 1
-  %exitcond.not.i66 = icmp eq i64 %indvars.iv.next.i65, 4
-  br i1 %exitcond.not.i66, label %640, label %623, !llvm.loop !212
+  %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
+  %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, 4
+  br i1 %exitcond.not.i65, label %636, label %619, !llvm.loop !212
 
-640:                                              ; preds = %623
-  %641 = load i32, ptr %0, align 8, !tbaa !82, !alias.scope !205, !noalias !208
-  %642 = icmp eq i32 %641, 0
-  br i1 %642, label %646, label %643
+636:                                              ; preds = %619
+  %637 = load i32, ptr %0, align 8, !tbaa !82, !alias.scope !205, !noalias !208
+  %638 = icmp eq i32 %637, 0
+  br i1 %638, label %642, label %639
 
-643:                                              ; preds = %640
-  %644 = load i32, ptr %25, align 4, !tbaa !87, !alias.scope !205, !noalias !208
-  %645 = icmp eq i32 %644, 0
-  br i1 %645, label %646, label %661
+639:                                              ; preds = %636
+  %640 = load i32, ptr %25, align 4, !tbaa !87, !alias.scope !205, !noalias !208
+  %641 = icmp eq i32 %640, 0
+  br i1 %641, label %642, label %657
 
-646:                                              ; preds = %643, %640
+642:                                              ; preds = %639, %636
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !210
-  %647 = load i8, ptr %621, align 1, !tbaa !58, !noalias !210
-  %648 = zext i8 %647 to i32
-  %649 = mul nuw i32 %648, 16843009
-  store i32 %649, ptr %5, align 4, !tbaa !30, !noalias !210
-  br label %650
+  %643 = load i8, ptr %617, align 1, !tbaa !58, !noalias !210
+  %644 = zext i8 %643 to i32
+  %645 = mul nuw i32 %644, 16843009
+  store i32 %645, ptr %5, align 4, !tbaa !30, !noalias !210
+  br label %646
 
-650:                                              ; preds = %657, %646
-  %.017.i.i76 = phi i32 [ 0, %646 ], [ %659, %657 ]
-  %.0816.i.i77 = phi ptr [ %621, %646 ], [ %658, %657 ]
-  %bcmp.i.i78 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.0816.i.i77, ptr noundef nonnull dereferenceable(4) %5, i64 4), !noalias !210
-  %.not.i.i79 = icmp eq i32 %bcmp.i.i78, 0
-  br i1 %.not.i.i79, label %651, label %IsFlatSource16.exit.thread.i
+646:                                              ; preds = %653, %642
+  %.017.i.i75 = phi i32 [ 0, %642 ], [ %655, %653 ]
+  %.0816.i.i76 = phi ptr [ %617, %642 ], [ %654, %653 ]
+  %bcmp.i.i77 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.0816.i.i76, ptr noundef nonnull dereferenceable(4) %5, i64 4), !noalias !210
+  %.not.i.i78 = icmp eq i32 %bcmp.i.i77, 0
+  br i1 %.not.i.i78, label %647, label %IsFlatSource16.exit.thread.i
 
-651:                                              ; preds = %650
-  %652 = getelementptr inbounds nuw i8, ptr %.0816.i.i77, i64 4
-  %bcmp10.i.i80 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %652, ptr noundef nonnull dereferenceable(4) %5, i64 4), !noalias !210
-  %.not11.i.i81 = icmp eq i32 %bcmp10.i.i80, 0
-  br i1 %.not11.i.i81, label %653, label %IsFlatSource16.exit.thread.i
+647:                                              ; preds = %646
+  %648 = getelementptr inbounds nuw i8, ptr %.0816.i.i76, i64 4
+  %bcmp10.i.i79 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %648, ptr noundef nonnull dereferenceable(4) %5, i64 4), !noalias !210
+  %.not11.i.i80 = icmp eq i32 %bcmp10.i.i79, 0
+  br i1 %.not11.i.i80, label %649, label %IsFlatSource16.exit.thread.i
+
+649:                                              ; preds = %647
+  %650 = getelementptr inbounds nuw i8, ptr %.0816.i.i76, i64 8
+  %bcmp12.i.i81 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %650, ptr noundef nonnull dereferenceable(4) %5, i64 4), !noalias !210
+  %.not13.i.i82 = icmp eq i32 %bcmp12.i.i81, 0
+  br i1 %.not13.i.i82, label %651, label %IsFlatSource16.exit.thread.i
+
+651:                                              ; preds = %649
+  %652 = getelementptr inbounds nuw i8, ptr %.0816.i.i76, i64 12
+  %bcmp14.i.i83 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %652, ptr noundef nonnull dereferenceable(4) %5, i64 4), !noalias !210
+  %.not15.i.i84 = icmp eq i32 %bcmp14.i.i83, 0
+  br i1 %.not15.i.i84, label %653, label %IsFlatSource16.exit.thread.i
 
 653:                                              ; preds = %651
-  %654 = getelementptr inbounds nuw i8, ptr %.0816.i.i77, i64 8
-  %bcmp12.i.i82 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %654, ptr noundef nonnull dereferenceable(4) %5, i64 4), !noalias !210
-  %.not13.i.i83 = icmp eq i32 %bcmp12.i.i82, 0
-  br i1 %.not13.i.i83, label %655, label %IsFlatSource16.exit.thread.i
+  %654 = getelementptr inbounds nuw i8, ptr %.0816.i.i76, i64 32
+  %655 = add nuw nsw i32 %.017.i.i75, 1
+  %exitcond.not.i.i85 = icmp eq i32 %655, 16
+  br i1 %exitcond.not.i.i85, label %.thread212.i, label %646, !llvm.loop !106
 
-655:                                              ; preds = %653
-  %656 = getelementptr inbounds nuw i8, ptr %.0816.i.i77, i64 12
-  %bcmp14.i.i84 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %656, ptr noundef nonnull dereferenceable(4) %5, i64 4), !noalias !210
-  %.not15.i.i85 = icmp eq i32 %bcmp14.i.i84, 0
-  br i1 %.not15.i.i85, label %657, label %IsFlatSource16.exit.thread.i
-
-657:                                              ; preds = %655
-  %658 = getelementptr inbounds nuw i8, ptr %.0816.i.i77, i64 32
-  %659 = add nuw nsw i32 %.017.i.i76, 1
-  %exitcond.not.i.i86 = icmp eq i32 %659, 16
-  br i1 %exitcond.not.i.i86, label %.thread210.i, label %650, !llvm.loop !106
-
-IsFlatSource16.exit.thread.i:                     ; preds = %655, %653, %651, %650
+IsFlatSource16.exit.thread.i:                     ; preds = %651, %649, %647, %646
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !210
-  br label %661
+  br label %657
 
-.thread210.i:                                     ; preds = %657
+.thread212.i:                                     ; preds = %653
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !210
-  %660 = select i1 %642, i32 0, i32 2
-  tail call void @VP8SetIntra16Mode(ptr noundef nonnull %0, i32 noundef %660) #11, !noalias !208
+  %656 = select i1 %638, i32 0, i32 2
+  tail call void @VP8SetIntra16Mode(ptr noundef nonnull %0, i32 noundef %656) #11, !noalias !208
   br label %.thread176.i
 
-661:                                              ; preds = %IsFlatSource16.exit.thread.i, %643
+657:                                              ; preds = %IsFlatSource16.exit.thread.i, %639
   tail call void @VP8SetIntra16Mode(ptr noundef nonnull %0, i32 noundef %.1127.i) #11, !noalias !208
-  br i1 %592, label %.thread176.i, label %.thread.i
+  br i1 %588, label %.thread176.i, label %.thread.i
 
-.thread.i:                                        ; preds = %661, %607
-  %662 = phi i64 [ %618, %661 ], [ 36028797018963967, %607 ]
-  %663 = phi i64 [ %619, %661 ], [ %616, %607 ]
-  %.0107159.i = phi i64 [ %.2.i, %661 ], [ 36028797018963967, %607 ]
+.thread.i:                                        ; preds = %657, %603
+  %658 = phi i64 [ %614, %657 ], [ 36028797018963967, %603 ]
+  %659 = phi i64 [ %615, %657 ], [ %612, %603 ]
+  %.0107159.i = phi i64 [ %.2.i, %657 ], [ 36028797018963967, %603 ]
   tail call void @VP8IteratorStartI4(ptr noundef nonnull %0) #11, !noalias !208
-  %664 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %665 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %666 = getelementptr inbounds nuw i8, ptr %1, i64 844
-  %667 = getelementptr i8, ptr %0, i64 120
-  %668 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %669 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %670 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %671 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %672 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %673 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  br label %674
+  %660 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %661 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %662 = getelementptr inbounds nuw i8, ptr %1, i64 844
+  %663 = getelementptr i8, ptr %0, i64 120
+  %664 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %665 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %666 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %667 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %668 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %669 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  br label %670
 
-674:                                              ; preds = %774, %.thread.i
-  %.0125.i = phi i64 [ 0, %.thread.i ], [ %729, %774 ]
-  %.1124.i = phi i64 [ %663, %.thread.i ], [ %734, %774 ]
-  %.1110.i = phi i32 [ 0, %.thread.i ], [ %778, %774 ]
-  %675 = load ptr, ptr %664, align 8, !tbaa !105, !alias.scope !205, !noalias !208
-  %676 = load i32, ptr %665, align 8, !tbaa !129, !alias.scope !205, !noalias !208
-  %677 = sext i32 %676 to i64
-  %678 = getelementptr inbounds [16 x i16], ptr @VP8Scan, i64 0, i64 %677
-  %679 = load i16, ptr %678, align 2, !tbaa !46, !noalias !210
-  %680 = zext i16 %679 to i64
-  %681 = getelementptr inbounds nuw i8, ptr %675, i64 %680
+670:                                              ; preds = %770, %.thread.i
+  %.0125.i = phi i64 [ 0, %.thread.i ], [ %725, %770 ]
+  %.1124.i = phi i64 [ %659, %.thread.i ], [ %730, %770 ]
+  %.1110.i = phi i32 [ 0, %.thread.i ], [ %774, %770 ]
+  %671 = load ptr, ptr %660, align 8, !tbaa !105, !alias.scope !205, !noalias !208
+  %672 = load i32, ptr %661, align 8, !tbaa !129, !alias.scope !205, !noalias !208
+  %673 = sext i32 %672 to i64
+  %674 = getelementptr inbounds [16 x i16], ptr @VP8Scan, i64 0, i64 %673
+  %675 = load i16, ptr %674, align 2, !tbaa !46, !noalias !210
+  %676 = zext i16 %675 to i64
+  %677 = getelementptr inbounds nuw i8, ptr %671, i64 %676
   call void @llvm.experimental.noalias.scope.decl(metadata !213)
-  %682 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !216, !noalias !208
-  %683 = getelementptr inbounds nuw i8, ptr %682, i64 56
-  %684 = load i32, ptr %683, align 8, !tbaa !134, !noalias !213
-  %685 = and i32 %676, 3
-  %686 = icmp eq i32 %685, 0
-  br i1 %686, label %687, label %691
+  %678 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !216, !noalias !208
+  %679 = getelementptr inbounds nuw i8, ptr %678, i64 56
+  %680 = load i32, ptr %679, align 8, !tbaa !134, !noalias !213
+  %681 = and i32 %672, 3
+  %682 = icmp eq i32 %681, 0
+  br i1 %682, label %683, label %687
 
-687:                                              ; preds = %674
-  %688 = ashr exact i32 %676, 2
-  %689 = load ptr, ptr %668, align 8, !tbaa !136, !alias.scope !216, !noalias !208
-  %690 = mul nsw i32 %684, %688
-  %.pre206.i = sext i32 %690 to i64
-  br label %691
+683:                                              ; preds = %670
+  %684 = ashr exact i32 %672, 2
+  %685 = load ptr, ptr %664, align 8, !tbaa !136, !alias.scope !216, !noalias !208
+  %686 = mul nsw i32 %680, %684
+  %.pre206.i = sext i32 %686 to i64
+  br label %687
 
-691:                                              ; preds = %687, %674
-  %.pre-phi.i67 = phi i64 [ %.pre206.i, %687 ], [ %677, %674 ]
-  %.sink.i.i68 = phi ptr [ %689, %687 ], [ %666, %674 ]
-  %692 = getelementptr i8, ptr %.sink.i.i68, i64 %.pre-phi.i67
-  %.in.in.i.i69 = getelementptr i8, ptr %692, i64 -1
-  %.in.i.i70 = load i8, ptr %.in.in.i.i69, align 1, !tbaa !58, !noalias !213
-  %693 = icmp ult i32 %676, 4
-  br i1 %693, label %694, label %699
+687:                                              ; preds = %683, %670
+  %.pre-phi.i66 = phi i64 [ %.pre206.i, %683 ], [ %673, %670 ]
+  %.sink.i.i67 = phi ptr [ %685, %683 ], [ %662, %670 ]
+  %688 = getelementptr i8, ptr %.sink.i.i67, i64 %.pre-phi.i66
+  %.in.in.i.i68 = getelementptr i8, ptr %688, i64 -1
+  %.in.i.i69 = load i8, ptr %.in.in.i.i68, align 1, !tbaa !58, !noalias !213
+  %689 = icmp ult i32 %672, 4
+  br i1 %689, label %690, label %695
 
-694:                                              ; preds = %691
-  %695 = load ptr, ptr %668, align 8, !tbaa !136, !alias.scope !216, !noalias !208
-  %696 = sub nsw i32 %685, %684
-  %697 = sext i32 %696 to i64
-  %698 = getelementptr inbounds i8, ptr %695, i64 %697
-  br label %GetCostModeI4.exit.i71
+690:                                              ; preds = %687
+  %691 = load ptr, ptr %664, align 8, !tbaa !136, !alias.scope !216, !noalias !208
+  %692 = sub nsw i32 %681, %680
+  %693 = sext i32 %692 to i64
+  %694 = getelementptr inbounds i8, ptr %691, i64 %693
+  br label %GetCostModeI4.exit.i70
 
-699:                                              ; preds = %691
-  %700 = getelementptr i8, ptr %666, i64 %677
-  %701 = getelementptr i8, ptr %700, i64 -4
-  br label %GetCostModeI4.exit.i71
+695:                                              ; preds = %687
+  %696 = getelementptr i8, ptr %662, i64 %673
+  %697 = getelementptr i8, ptr %696, i64 -4
+  br label %GetCostModeI4.exit.i70
 
-GetCostModeI4.exit.i71:                           ; preds = %699, %694
-  %.in16.in.i.i72 = phi ptr [ %698, %694 ], [ %701, %699 ]
-  %.in16.i.i73 = load i8, ptr %.in16.in.i.i72, align 1, !tbaa !58, !noalias !213
-  %702 = zext i8 %.in16.i.i73 to i64
-  %703 = getelementptr inbounds nuw [10 x [10 x [10 x i16]]], ptr @VP8FixedCostsI4, i64 0, i64 %702
-  %704 = zext i8 %.in.i.i70 to i64
-  %705 = getelementptr inbounds nuw [10 x [10 x i16]], ptr %703, i64 0, i64 %704
-  %.val.i74 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !205, !noalias !208
-  %.val152.i = load ptr, ptr %667, align 8, !tbaa !137, !alias.scope !205, !noalias !208
-  %706 = load ptr, ptr @VP8EncPredLuma4, align 8, !tbaa !89, !noalias !210
-  call void %706(ptr noundef %.val.i74, ptr noundef %.val152.i) #11
-  br label %707
+GetCostModeI4.exit.i70:                           ; preds = %695, %690
+  %.in16.in.i.i71 = phi ptr [ %694, %690 ], [ %697, %695 ]
+  %.in16.i.i72 = load i8, ptr %.in16.in.i.i71, align 1, !tbaa !58, !noalias !213
+  %698 = zext i8 %.in16.i.i72 to i64
+  %699 = getelementptr inbounds nuw [10 x [10 x [10 x i16]]], ptr @VP8FixedCostsI4, i64 0, i64 %698
+  %700 = zext i8 %.in.i.i69 to i64
+  %701 = getelementptr inbounds nuw [10 x [10 x i16]], ptr %699, i64 0, i64 %700
+  %.val.i73 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !205, !noalias !208
+  %.val152.i = load ptr, ptr %663, align 8, !tbaa !137, !alias.scope !205, !noalias !208
+  %702 = load ptr, ptr @VP8EncPredLuma4, align 8, !tbaa !89, !noalias !210
+  call void %702(ptr noundef %.val.i73, ptr noundef %.val152.i) #11
+  br label %703
 
-707:                                              ; preds = %707, %GetCostModeI4.exit.i71
-  %indvars.iv197.i = phi i64 [ 0, %GetCostModeI4.exit.i71 ], [ %indvars.iv.next198.i, %707 ]
-  %.0130189.i = phi i64 [ 36028797018963967, %GetCostModeI4.exit.i71 ], [ %spec.select148.i, %707 ]
-  %.0132188.i = phi i32 [ -1, %GetCostModeI4.exit.i71 ], [ %spec.select147.i, %707 ]
-  %708 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !205, !noalias !208
-  %709 = getelementptr inbounds nuw [10 x i16], ptr @VP8I4ModeOffsets, i64 0, i64 %indvars.iv197.i
-  %710 = load i16, ptr %709, align 2, !tbaa !46, !noalias !210
-  %711 = zext i16 %710 to i64
-  %712 = getelementptr inbounds nuw i8, ptr %708, i64 %711
-  %713 = load ptr, ptr @VP8SSE4x4, align 8, !tbaa !89, !noalias !210
-  %714 = call i32 %713(ptr noundef %681, ptr noundef %712) #11
-  %715 = shl nsw i32 %714, 8
-  %716 = getelementptr inbounds nuw i16, ptr %705, i64 %indvars.iv197.i
-  %717 = load i16, ptr %716, align 2, !tbaa !46, !noalias !210
-  %718 = zext i16 %717 to i32
-  %719 = mul nuw nsw i32 %718, 11
-  %720 = add nsw i32 %719, %715
-  %721 = sext i32 %720 to i64
-  %722 = icmp sgt i64 %.0130189.i, %721
-  %723 = trunc nuw nsw i64 %indvars.iv197.i to i32
-  %spec.select147.i = select i1 %722, i32 %723, i32 %.0132188.i
-  %spec.select148.i = call i64 @llvm.smin.i64(i64 %.0130189.i, i64 %721)
+703:                                              ; preds = %703, %GetCostModeI4.exit.i70
+  %indvars.iv197.i = phi i64 [ 0, %GetCostModeI4.exit.i70 ], [ %indvars.iv.next198.i, %703 ]
+  %.0130189.i = phi i64 [ 36028797018963967, %GetCostModeI4.exit.i70 ], [ %spec.select148.i, %703 ]
+  %.0132188.i = phi i32 [ -1, %GetCostModeI4.exit.i70 ], [ %spec.select147.i, %703 ]
+  %704 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !205, !noalias !208
+  %705 = getelementptr inbounds nuw [10 x i16], ptr @VP8I4ModeOffsets, i64 0, i64 %indvars.iv197.i
+  %706 = load i16, ptr %705, align 2, !tbaa !46, !noalias !210
+  %707 = zext i16 %706 to i64
+  %708 = getelementptr inbounds nuw i8, ptr %704, i64 %707
+  %709 = load ptr, ptr @VP8SSE4x4, align 8, !tbaa !89, !noalias !210
+  %710 = call i32 %709(ptr noundef %677, ptr noundef %708) #11
+  %711 = shl nsw i32 %710, 8
+  %712 = getelementptr inbounds nuw i16, ptr %701, i64 %indvars.iv197.i
+  %713 = load i16, ptr %712, align 2, !tbaa !46, !noalias !210
+  %714 = zext i16 %713 to i32
+  %715 = mul nuw nsw i32 %714, 11
+  %716 = add nsw i32 %715, %711
+  %717 = sext i32 %716 to i64
+  %718 = icmp sgt i64 %.0130189.i, %717
+  %719 = trunc nuw nsw i64 %indvars.iv197.i to i32
+  %spec.select147.i = select i1 %718, i32 %719, i32 %.0132188.i
+  %spec.select148.i = call i64 @llvm.smin.i64(i64 %.0130189.i, i64 %717)
   %indvars.iv.next198.i = add nuw nsw i64 %indvars.iv197.i, 1
   %exitcond200.not.i = icmp eq i64 %indvars.iv.next198.i, 10
-  br i1 %exitcond200.not.i, label %724, label %707, !llvm.loop !217
+  br i1 %exitcond200.not.i, label %720, label %703, !llvm.loop !217
 
-724:                                              ; preds = %707
-  %725 = sext i32 %spec.select147.i to i64
-  %726 = getelementptr inbounds i16, ptr %705, i64 %725
-  %727 = load i16, ptr %726, align 2, !tbaa !46, !noalias !210
-  %728 = zext i16 %727 to i64
-  %729 = add nuw nsw i64 %.0125.i, %728
-  %730 = trunc i32 %spec.select147.i to i8
-  %731 = load i32, ptr %665, align 8, !tbaa !129, !alias.scope !205, !noalias !208
-  %732 = sext i32 %731 to i64
-  %733 = getelementptr inbounds [16 x i8], ptr %666, i64 0, i64 %732
-  store i8 %730, ptr %733, align 1, !tbaa !58, !alias.scope !208, !noalias !205
-  %734 = add nsw i64 %spec.select148.i, %.1124.i
-  %.not139.i = icmp sge i64 %734, %.0107159.i
-  %735 = icmp sgt i64 %729, %662
-  %or.cond149.i = select i1 %.not139.i, i1 true, i1 %735
-  br i1 %or.cond149.i, label %.thread176.i, label %736
+720:                                              ; preds = %703
+  %721 = sext i32 %spec.select147.i to i64
+  %722 = getelementptr inbounds i16, ptr %701, i64 %721
+  %723 = load i16, ptr %722, align 2, !tbaa !46, !noalias !210
+  %724 = zext i16 %723 to i64
+  %725 = add nuw nsw i64 %.0125.i, %724
+  %726 = trunc i32 %spec.select147.i to i8
+  %727 = load i32, ptr %661, align 8, !tbaa !129, !alias.scope !205, !noalias !208
+  %728 = sext i32 %727 to i64
+  %729 = getelementptr inbounds [16 x i8], ptr %662, i64 0, i64 %728
+  store i8 %726, ptr %729, align 1, !tbaa !58, !alias.scope !208, !noalias !205
+  %730 = add nsw i64 %spec.select148.i, %.1124.i
+  %.not139.i = icmp sge i64 %730, %.0107159.i
+  %731 = icmp sgt i64 %725, %658
+  %or.cond149.i = select i1 %.not139.i, i1 true, i1 %731
+  br i1 %or.cond149.i, label %.thread176.i, label %732
 
-736:                                              ; preds = %724
-  %737 = load ptr, ptr %669, align 8, !tbaa !108, !alias.scope !205, !noalias !208
-  %738 = getelementptr inbounds [16 x i16], ptr @VP8Scan, i64 0, i64 %732
-  %739 = load i16, ptr %738, align 2, !tbaa !46, !noalias !210
-  %740 = zext i16 %739 to i64
-  %741 = getelementptr inbounds nuw i8, ptr %737, i64 %740
-  %742 = getelementptr inbounds [16 x [16 x i16]], ptr %670, i64 0, i64 %732
+732:                                              ; preds = %720
+  %733 = load ptr, ptr %665, align 8, !tbaa !108, !alias.scope !205, !noalias !208
+  %734 = getelementptr inbounds [16 x i16], ptr @VP8Scan, i64 0, i64 %728
+  %735 = load i16, ptr %734, align 2, !tbaa !46, !noalias !210
+  %736 = zext i16 %735 to i64
+  %737 = getelementptr inbounds nuw i8, ptr %733, i64 %736
+  %738 = getelementptr inbounds [16 x [16 x i16]], ptr %666, i64 0, i64 %728
   call void @llvm.experimental.noalias.scope.decl(metadata !218)
-  %743 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !221, !noalias !222
-  %744 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !221, !noalias !222
-  %745 = getelementptr inbounds [10 x i16], ptr @VP8I4ModeOffsets, i64 0, i64 %725
-  %746 = load i16, ptr %745, align 2, !tbaa !46, !noalias !225
-  %747 = zext i16 %746 to i64
-  %748 = getelementptr inbounds nuw i8, ptr %744, i64 %747
-  %749 = getelementptr inbounds nuw i8, ptr %743, i64 608
-  %750 = load ptr, ptr %594, align 8, !tbaa !103, !alias.scope !221, !noalias !222
-  %751 = load i8, ptr %750, align 4, !noalias !226
-  %752 = lshr i8 %751, 5
-  %753 = and i8 %752, 3
-  %754 = zext nneg i8 %753 to i64
-  %755 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %749, i64 0, i64 %754
+  %739 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !221, !noalias !222
+  %740 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !221, !noalias !222
+  %741 = getelementptr inbounds [10 x i16], ptr @VP8I4ModeOffsets, i64 0, i64 %721
+  %742 = load i16, ptr %741, align 2, !tbaa !46, !noalias !225
+  %743 = zext i16 %742 to i64
+  %744 = getelementptr inbounds nuw i8, ptr %740, i64 %743
+  %745 = getelementptr inbounds nuw i8, ptr %739, i64 608
+  %746 = load ptr, ptr %590, align 8, !tbaa !103, !alias.scope !221, !noalias !222
+  %747 = load i8, ptr %746, align 4, !noalias !226
+  %748 = lshr i8 %747, 5
+  %749 = and i8 %748, 3
+  %750 = zext nneg i8 %749 to i64
+  %751 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %745, i64 0, i64 %750
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !225
-  %756 = load ptr, ptr @VP8FTransform, align 8, !tbaa !89, !noalias !225
-  call void %756(ptr noundef %681, ptr noundef %748, ptr noundef nonnull %4) #11, !noalias !227
-  %757 = load i32, ptr %671, align 8, !tbaa !97, !alias.scope !221, !noalias !222
-  %.not.i153.i = icmp eq i32 %757, 0
-  br i1 %.not.i153.i, label %771, label %758
+  %752 = load ptr, ptr @VP8FTransform, align 8, !tbaa !89, !noalias !225
+  call void %752(ptr noundef %677, ptr noundef %744, ptr noundef nonnull %4) #11, !noalias !227
+  %753 = load i32, ptr %667, align 8, !tbaa !97, !alias.scope !221, !noalias !222
+  %.not.i153.i = icmp eq i32 %753, 0
+  br i1 %.not.i153.i, label %767, label %754
 
-758:                                              ; preds = %736
-  %759 = and i32 %731, 3
-  %760 = ashr i32 %731, 2
-  %761 = zext nneg i32 %759 to i64
-  %762 = getelementptr inbounds nuw [9 x i32], ptr %672, i64 0, i64 %761
-  %763 = load i32, ptr %762, align 4, !tbaa !30, !alias.scope !221, !noalias !222
-  %764 = sext i32 %760 to i64
-  %765 = getelementptr inbounds [9 x i32], ptr %673, i64 0, i64 %764
-  %766 = load i32, ptr %765, align 4, !tbaa !30, !alias.scope !221, !noalias !222
-  %767 = add nsw i32 %766, %763
-  %768 = getelementptr inbounds nuw i8, ptr %755, i64 724
-  %769 = load i32, ptr %768, align 4, !tbaa !74, !noalias !227
-  %770 = call fastcc i32 @TrellisQuantizeBlock(ptr noundef %743, ptr noundef %4, ptr noundef nonnull %742, i32 noundef %767, i32 noundef 3, ptr noundef nonnull %755, i32 noundef %769), !noalias !227
-  br label %774
+754:                                              ; preds = %732
+  %755 = and i32 %727, 3
+  %756 = ashr i32 %727, 2
+  %757 = zext nneg i32 %755 to i64
+  %758 = getelementptr inbounds nuw [9 x i32], ptr %668, i64 0, i64 %757
+  %759 = load i32, ptr %758, align 4, !tbaa !30, !alias.scope !221, !noalias !222
+  %760 = sext i32 %756 to i64
+  %761 = getelementptr inbounds [9 x i32], ptr %669, i64 0, i64 %760
+  %762 = load i32, ptr %761, align 4, !tbaa !30, !alias.scope !221, !noalias !222
+  %763 = add nsw i32 %762, %759
+  %764 = getelementptr inbounds nuw i8, ptr %751, i64 724
+  %765 = load i32, ptr %764, align 4, !tbaa !74, !noalias !227
+  %766 = call fastcc i32 @TrellisQuantizeBlock(ptr noundef %739, ptr noundef %4, ptr noundef nonnull %738, i32 noundef %763, i32 noundef 3, ptr noundef nonnull %751, i32 noundef %765), !noalias !227
+  br label %770
 
-771:                                              ; preds = %736
-  %772 = load ptr, ptr @VP8EncQuantizeBlock, align 8, !tbaa !89, !noalias !225
-  %773 = call i32 %772(ptr noundef nonnull %4, ptr noundef nonnull %742, ptr noundef nonnull %755) #11, !noalias !227
-  br label %774
+767:                                              ; preds = %732
+  %768 = load ptr, ptr @VP8EncQuantizeBlock, align 8, !tbaa !89, !noalias !225
+  %769 = call i32 %768(ptr noundef nonnull %4, ptr noundef nonnull %738, ptr noundef nonnull %751) #11, !noalias !227
+  br label %770
 
-774:                                              ; preds = %771, %758
-  %.0.i.i75 = phi i32 [ %770, %758 ], [ %773, %771 ]
-  %775 = load ptr, ptr @VP8ITransform, align 8, !tbaa !89, !noalias !225
-  call void %775(ptr noundef %748, ptr noundef nonnull %4, ptr noundef %741, i32 noundef 0) #11, !noalias !218
+770:                                              ; preds = %767, %754
+  %.0.i.i74 = phi i32 [ %766, %754 ], [ %769, %767 ]
+  %771 = load ptr, ptr @VP8ITransform, align 8, !tbaa !89, !noalias !225
+  call void %771(ptr noundef %744, ptr noundef nonnull %4, ptr noundef %737, i32 noundef 0) #11, !noalias !218
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !225
-  %776 = load i32, ptr %665, align 8, !tbaa !129, !alias.scope !205, !noalias !208
-  %777 = shl i32 %.0.i.i75, %776
-  %778 = or i32 %777, %.1110.i
-  %779 = load ptr, ptr %669, align 8, !tbaa !108, !alias.scope !205, !noalias !208
-  %780 = call i32 @VP8IteratorRotateI4(ptr noundef nonnull %0, ptr noundef %779) #11
-  %.not140.i = icmp eq i32 %780, 0
-  br i1 %.not140.i, label %.thread168.i, label %674, !llvm.loop !228
+  %772 = load i32, ptr %661, align 8, !tbaa !129, !alias.scope !205, !noalias !208
+  %773 = shl i32 %.0.i.i74, %772
+  %774 = or i32 %773, %.1110.i
+  %775 = load ptr, ptr %665, align 8, !tbaa !108, !alias.scope !205, !noalias !208
+  %776 = call i32 @VP8IteratorRotateI4(ptr noundef nonnull %0, ptr noundef %775) #11
+  %.not140.i = icmp eq i32 %776, 0
+  br i1 %.not140.i, label %.thread168.i, label %670, !llvm.loop !228
 
-.thread168.i:                                     ; preds = %774
-  call void @VP8SetIntra4Mode(ptr noundef nonnull %0, ptr noundef nonnull %666) #11
-  %781 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %782 = load ptr, ptr %781, align 8, !tbaa !115, !alias.scope !205, !noalias !208
-  %783 = load ptr, ptr %669, align 8, !tbaa !115, !alias.scope !205, !noalias !208
-  store ptr %783, ptr %781, align 8, !tbaa !115, !alias.scope !205, !noalias !208
-  store ptr %782, ptr %669, align 8, !tbaa !115, !alias.scope !205, !noalias !208
-  br label %791
+.thread168.i:                                     ; preds = %770
+  call void @VP8SetIntra4Mode(ptr noundef nonnull %0, ptr noundef nonnull %662) #11
+  %777 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %778 = load ptr, ptr %777, align 8, !tbaa !115, !alias.scope !205, !noalias !208
+  %779 = load ptr, ptr %665, align 8, !tbaa !115, !alias.scope !205, !noalias !208
+  store ptr %779, ptr %777, align 8, !tbaa !115, !alias.scope !205, !noalias !208
+  store ptr %778, ptr %665, align 8, !tbaa !115, !alias.scope !205, !noalias !208
+  br label %787
 
-.thread176.i:                                     ; preds = %724, %661, %.thread210.i
-  %.0107160182.i = phi i64 [ %.2.i, %.thread210.i ], [ %.2.i, %661 ], [ %.0107159.i, %724 ]
-  %784 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %785 = load ptr, ptr %784, align 8, !tbaa !165, !alias.scope !205, !noalias !208
-  %786 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %787 = load ptr, ptr %786, align 8, !tbaa !136, !alias.scope !205, !noalias !208
-  %788 = load i8, ptr %787, align 1, !tbaa !58
-  %789 = zext i8 %788 to i32
-  %790 = call fastcc i32 @ReconstructIntra16(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %785, i32 noundef %789)
-  br label %791
+.thread176.i:                                     ; preds = %720, %657, %.thread212.i
+  %.0107160182.i = phi i64 [ %.2.i, %.thread212.i ], [ %.2.i, %657 ], [ %.0107159.i, %720 ]
+  %780 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %781 = load ptr, ptr %780, align 8, !tbaa !165, !alias.scope !205, !noalias !208
+  %782 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %783 = load ptr, ptr %782, align 8, !tbaa !136, !alias.scope !205, !noalias !208
+  %784 = load i8, ptr %783, align 1, !tbaa !58
+  %785 = zext i8 %784 to i32
+  %786 = call fastcc i32 @ReconstructIntra16(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %781, i32 noundef %785)
+  br label %787
 
-791:                                              ; preds = %.thread176.i, %.thread168.i
-  %.3112.i = phi i32 [ %790, %.thread176.i ], [ %778, %.thread168.i ]
-  %.4.i = phi i64 [ %.0107160182.i, %.thread176.i ], [ %734, %.thread168.i ]
-  br i1 %593, label %RefineUsingDistortion.exit, label %792
+787:                                              ; preds = %.thread176.i, %.thread168.i
+  %.3112.i = phi i32 [ %786, %.thread176.i ], [ %774, %.thread168.i ]
+  %.4.i = phi i64 [ %.0107160182.i, %.thread176.i ], [ %730, %.thread168.i ]
+  br i1 %589, label %RefineUsingDistortion.exit, label %788
 
-792:                                              ; preds = %791
-  %793 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %794 = load ptr, ptr %793, align 8, !tbaa !105, !alias.scope !205, !noalias !208
-  %795 = getelementptr inbounds nuw i8, ptr %794, i64 16
-  br label %796
+788:                                              ; preds = %787
+  %789 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %790 = load ptr, ptr %789, align 8, !tbaa !105, !alias.scope !205, !noalias !208
+  %791 = getelementptr inbounds nuw i8, ptr %790, i64 16
+  br label %792
 
-796:                                              ; preds = %796, %792
-  %indvars.iv201.i = phi i64 [ 0, %792 ], [ %indvars.iv.next202.i, %796 ]
-  %.0113193.i = phi i64 [ 36028797018963967, %792 ], [ %spec.select151.i, %796 ]
-  %.0115192.i = phi i32 [ -1, %792 ], [ %spec.select150.i, %796 ]
-  %797 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !205, !noalias !208
-  %798 = getelementptr inbounds nuw [4 x i16], ptr @VP8UVModeOffsets, i64 0, i64 %indvars.iv201.i
-  %799 = load i16, ptr %798, align 2, !tbaa !46, !noalias !210
-  %800 = zext i16 %799 to i64
-  %801 = getelementptr inbounds nuw i8, ptr %797, i64 %800
-  %802 = load ptr, ptr @VP8SSE16x8, align 8, !tbaa !89, !noalias !210
-  %803 = call i32 %802(ptr noundef nonnull %795, ptr noundef %801) #11
-  %804 = shl nsw i32 %803, 8
-  %805 = getelementptr inbounds nuw [4 x i16], ptr @VP8FixedCostsUV, i64 0, i64 %indvars.iv201.i
-  %806 = load i16, ptr %805, align 2, !tbaa !46, !noalias !210
-  %807 = zext i16 %806 to i32
-  %808 = mul nuw nsw i32 %807, 120
-  %809 = add nsw i32 %808, %804
-  %810 = sext i32 %809 to i64
-  %811 = icmp sgt i64 %.0113193.i, %810
-  %812 = trunc nuw nsw i64 %indvars.iv201.i to i32
-  %spec.select150.i = select i1 %811, i32 %812, i32 %.0115192.i
-  %spec.select151.i = call i64 @llvm.smin.i64(i64 %.0113193.i, i64 %810)
+792:                                              ; preds = %792, %788
+  %indvars.iv201.i = phi i64 [ 0, %788 ], [ %indvars.iv.next202.i, %792 ]
+  %.0113193.i = phi i64 [ 36028797018963967, %788 ], [ %spec.select151.i, %792 ]
+  %.0115192.i = phi i32 [ -1, %788 ], [ %spec.select150.i, %792 ]
+  %793 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !205, !noalias !208
+  %794 = getelementptr inbounds nuw [4 x i16], ptr @VP8UVModeOffsets, i64 0, i64 %indvars.iv201.i
+  %795 = load i16, ptr %794, align 2, !tbaa !46, !noalias !210
+  %796 = zext i16 %795 to i64
+  %797 = getelementptr inbounds nuw i8, ptr %793, i64 %796
+  %798 = load ptr, ptr @VP8SSE16x8, align 8, !tbaa !89, !noalias !210
+  %799 = call i32 %798(ptr noundef nonnull %791, ptr noundef %797) #11
+  %800 = shl nsw i32 %799, 8
+  %801 = getelementptr inbounds nuw [4 x i16], ptr @VP8FixedCostsUV, i64 0, i64 %indvars.iv201.i
+  %802 = load i16, ptr %801, align 2, !tbaa !46, !noalias !210
+  %803 = zext i16 %802 to i32
+  %804 = mul nuw nsw i32 %803, 120
+  %805 = add nsw i32 %804, %800
+  %806 = sext i32 %805 to i64
+  %807 = icmp sgt i64 %.0113193.i, %806
+  %808 = trunc nuw nsw i64 %indvars.iv201.i to i32
+  %spec.select150.i = select i1 %807, i32 %808, i32 %.0115192.i
+  %spec.select151.i = call i64 @llvm.smin.i64(i64 %.0113193.i, i64 %806)
   %indvars.iv.next202.i = add nuw nsw i64 %indvars.iv201.i, 1
   %exitcond204.not.i = icmp eq i64 %indvars.iv.next202.i, 4
-  br i1 %exitcond204.not.i, label %813, label %796, !llvm.loop !229
+  br i1 %exitcond204.not.i, label %809, label %792, !llvm.loop !229
 
-813:                                              ; preds = %796
+809:                                              ; preds = %792
   call void @VP8SetIntraUVMode(ptr noundef nonnull %0, i32 noundef %spec.select150.i) #11
   br label %RefineUsingDistortion.exit
 
-RefineUsingDistortion.exit:                       ; preds = %791, %813
-  %814 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %815 = load ptr, ptr %814, align 8, !tbaa !165, !alias.scope !205, !noalias !208
-  %816 = getelementptr inbounds nuw i8, ptr %815, i64 16
-  %817 = load ptr, ptr %594, align 8, !tbaa !103, !alias.scope !205, !noalias !208
-  %818 = load i8, ptr %817, align 4
-  %819 = lshr i8 %818, 2
-  %820 = and i8 %819, 3
-  %821 = zext nneg i8 %820 to i32
-  %822 = call fastcc i32 @ReconstructUV(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %816, i32 noundef %821)
-  %823 = or i32 %822, %.3112.i
-  store i32 %823, ptr %17, align 8, !tbaa !94, !alias.scope !208, !noalias !205
+RefineUsingDistortion.exit:                       ; preds = %787, %809
+  %810 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %811 = load ptr, ptr %810, align 8, !tbaa !165, !alias.scope !205, !noalias !208
+  %812 = getelementptr inbounds nuw i8, ptr %811, i64 16
+  %813 = load ptr, ptr %590, align 8, !tbaa !103, !alias.scope !205, !noalias !208
+  %814 = load i8, ptr %813, align 4
+  %815 = lshr i8 %814, 2
+  %816 = and i8 %815, 3
+  %817 = zext nneg i8 %816 to i32
+  %818 = call fastcc i32 @ReconstructUV(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %812, i32 noundef %817)
+  %819 = or i32 %818, %.3112.i
+  store i32 %819, ptr %17, align 8, !tbaa !94, !alias.scope !208, !noalias !205
   store i64 %.4.i, ptr %18, align 8, !tbaa !96, !alias.scope !208, !noalias !205
-  br label %824
+  br label %820
 
-824:                                              ; preds = %PickBestUV.exit._crit_edge, %SimpleQuantize.exit, %RefineUsingDistortion.exit
-  %825 = phi i32 [ %.pre106, %PickBestUV.exit._crit_edge ], [ %590, %SimpleQuantize.exit ], [ %823, %RefineUsingDistortion.exit ]
-  %826 = icmp eq i32 %825, 0
-  %827 = zext i1 %826 to i32
-  call void @VP8SetSkip(ptr noundef nonnull %0, i32 noundef %827) #11
-  ret i32 %827
+820:                                              ; preds = %PickBestUV.exit._crit_edge, %SimpleQuantize.exit, %RefineUsingDistortion.exit
+  %821 = phi i32 [ %.pre101, %PickBestUV.exit._crit_edge ], [ %586, %SimpleQuantize.exit ], [ %819, %RefineUsingDistortion.exit ]
+  %822 = icmp eq i32 %821, 0
+  %823 = zext i1 %822 to i32
+  call void @VP8SetSkip(ptr noundef nonnull %0, i32 noundef %823) #11
+  ret i32 %823
 }
 
 declare void @VP8SetSkip(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -2529,12 +2524,12 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
   br label %.preheader
 
 .preheader:                                       ; preds = %44, %.split.us
-  %.sink261 = phi i64 [ %55, %.split.us ], [ 0, %44 ]
-  store i64 %.sink261, ptr %9, align 16, !tbaa !237
+  %.sink265 = phi i64 [ %55, %.split.us ], [ 0, %44 ]
+  store i64 %.sink265, ptr %9, align 16, !tbaa !237
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %53, ptr %56, align 8, !tbaa !239
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %.sink261, ptr %57, align 16, !tbaa !237
+  store i64 %.sink265, ptr %57, align 16, !tbaa !237
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %53, ptr %58, align 8, !tbaa !239
   %.not199222 = icmp slt i32 %spec.select, %16
@@ -2543,7 +2538,7 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
 .lr.ph:                                           ; preds = %.preheader
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 192
-  %61 = add i32 %spec.select, 1
+  %61 = add nuw i32 %spec.select, 1
   %wide.trip.count = zext i32 %61 to i64
   br label %62
 

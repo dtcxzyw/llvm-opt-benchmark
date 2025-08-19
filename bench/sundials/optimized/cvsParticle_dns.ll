@@ -430,7 +430,7 @@ check_retval.exit133:                             ; preds = %check_retval.exit13
 
 check_retval.exit135:                             ; preds = %178
   %181 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.16, i32 noundef %179) #14
+  %182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.16, i32 noundef -1) #14
   br label %254
 
 183:                                              ; preds = %178
@@ -439,7 +439,7 @@ check_retval.exit135:                             ; preds = %178
   call fastcc void @WriteOutput(double noundef 0.000000e+00, ptr noundef nonnull %109, ptr noundef %116, double noundef 0.000000e+00, i32 noundef 0, ptr noundef null, ptr noundef null)
   %185 = load i32, ptr %24, align 4, !tbaa !23
   %186 = icmp sgt i32 %185, 0
-  br i1 %186, label %187, label %.thread225
+  br i1 %186, label %187, label %.thread244
 
 187:                                              ; preds = %183
   %188 = call noalias ptr @fopen(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
@@ -447,9 +447,9 @@ check_retval.exit135:                             ; preds = %178
   call fastcc void @WriteOutput(double noundef 0.000000e+00, ptr noundef nonnull %109, ptr noundef %116, double noundef 0.000000e+00, i32 noundef 1, ptr noundef %188, ptr noundef %189)
   %.pr = load i32, ptr %24, align 4, !tbaa !23
   %190 = icmp sgt i32 %.pr, 0
-  br i1 %190, label %195, label %.thread225
+  br i1 %190, label %195, label %.thread244
 
-.thread225:                                       ; preds = %187, %183
+.thread244:                                       ; preds = %187, %183
   %.0205 = phi ptr [ %189, %187 ], [ null, %183 ]
   %.072203 = phi ptr [ %188, %187 ], [ null, %183 ]
   %191 = load double, ptr %18, align 8, !tbaa !17
@@ -467,16 +467,16 @@ check_retval.exit135:                             ; preds = %178
   %201 = icmp sgt i32 %197, 0
   br i1 %201, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.thread225, %195
-  %.074235 = phi double [ %194, %.thread225 ], [ %200, %195 ]
-  %.075234 = phi i32 [ 1, %.thread225 ], [ %197, %195 ]
-  %.072202233 = phi ptr [ %.072203, %.thread225 ], [ %188, %195 ]
-  %.0204231 = phi ptr [ %.0205, %.thread225 ], [ %189, %195 ]
-  %202 = add nsw i32 %.075234, -1
+.lr.ph:                                           ; preds = %.thread244, %195
+  %.074254 = phi double [ %194, %.thread244 ], [ %200, %195 ]
+  %.075253 = phi i32 [ 1, %.thread244 ], [ %197, %195 ]
+  %.072202252 = phi ptr [ %.072203, %.thread244 ], [ %188, %195 ]
+  %.0204250 = phi ptr [ %.0205, %.thread244 ], [ %189, %195 ]
+  %202 = add nsw i32 %.075253, -1
   br label %203
 
 203:                                              ; preds = %.lr.ph, %235
-  %.073218 = phi double [ %.074235, %.lr.ph ], [ %.1, %235 ]
+  %.073218 = phi double [ %.074254, %.lr.ph ], [ %.1, %235 ]
   %.076217 = phi i32 [ 0, %.lr.ph ], [ %236, %235 ]
   %204 = load i32, ptr %23, align 8, !tbaa !22
   %.not96 = icmp eq i32 %204, 0
@@ -524,7 +524,7 @@ check_retval.exit143:                             ; preds = %219
   %223 = call fastcc i32 @ComputeError(double noundef %222, ptr noundef nonnull %109, ptr noundef %116, ptr noundef %4, ptr noundef nonnull %12)
   %224 = load double, ptr %3, align 8, !tbaa !4
   %225 = load double, ptr %4, align 8, !tbaa !4
-  call fastcc void @WriteOutput(double noundef %224, ptr noundef nonnull %109, ptr noundef %116, double noundef %225, i32 noundef 1, ptr noundef %.072202233, ptr noundef %.0204231)
+  call fastcc void @WriteOutput(double noundef %224, ptr noundef nonnull %109, ptr noundef %116, double noundef %225, i32 noundef 1, ptr noundef %.072202252, ptr noundef %.0204250)
   br label %226
 
 226:                                              ; preds = %check_retval.exit143, %219
@@ -533,7 +533,7 @@ check_retval.exit143:                             ; preds = %219
   br i1 %227, label %228, label %230
 
 228:                                              ; preds = %226
-  %229 = fadd double %.074235, %.073218
+  %229 = fadd double %.074254, %.073218
   br label %235
 
 230:                                              ; preds = %226
@@ -546,20 +546,20 @@ check_retval.exit143:                             ; preds = %219
 235:                                              ; preds = %228, %230
   %.1 = phi double [ %229, %228 ], [ %234, %230 ]
   %236 = add nuw nsw i32 %.076217, 1
-  %exitcond.not = icmp eq i32 %236, %.075234
+  %exitcond.not = icmp eq i32 %236, %.075253
   br i1 %exitcond.not, label %.loopexit, label %203
 
 .loopexit:                                        ; preds = %235, %195, %check_retval.exit139
-  %.072202232 = phi ptr [ %.072202233, %check_retval.exit139 ], [ %188, %195 ], [ %.072202233, %235 ]
-  %.0204230 = phi ptr [ %.0204231, %check_retval.exit139 ], [ %189, %195 ], [ %.0204231, %235 ]
+  %.072202251 = phi ptr [ %.072202252, %check_retval.exit139 ], [ %188, %195 ], [ %.072202252, %235 ]
+  %.0204249 = phi ptr [ %.0204250, %check_retval.exit139 ], [ %189, %195 ], [ %.0204250, %235 ]
   %.1166 = phi i32 [ %215, %check_retval.exit139 ], [ 0, %195 ], [ %.2, %235 ]
   %237 = load i32, ptr %24, align 4, !tbaa !23
   %238 = icmp sgt i32 %237, 0
   br i1 %238, label %239, label %242
 
 239:                                              ; preds = %.loopexit
-  %240 = call i32 @fclose(ptr noundef %.072202232)
-  %241 = call i32 @fclose(ptr noundef %.0204230)
+  %240 = call i32 @fclose(ptr noundef %.072202251)
+  %241 = call i32 @fclose(ptr noundef %.0204249)
   br label %242
 
 242:                                              ; preds = %239, %.loopexit

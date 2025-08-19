@@ -543,23 +543,23 @@ define dso_local i64 @tsquery_rewrite_query(ptr noundef readonly captures(none) 
   br i1 %104, label %.lr.ph.backedge, label %._crit_edge
 
 .lr.ph.backedge:                                  ; preds = %101, %._crit_edge
-  %.1111.be = phi ptr [ %.2, %101 ], [ %.2119, %._crit_edge ]
+  %.1111.be = phi ptr [ %.2, %101 ], [ %.2132, %._crit_edge ]
   %.082110.be = phi i64 [ %102, %101 ], [ 0, %._crit_edge ]
   br label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %97, %101
-  %.2119 = phi ptr [ %.2, %101 ], [ null, %97 ]
+  %.2132 = phi ptr [ %.2, %101 ], [ null, %97 ]
   %105 = load ptr, ptr @SPI_tuptable, align 8
   call void @SPI_freetuptable(ptr noundef %105) #5
   call void @SPI_cursor_fetch(ptr noundef nonnull %34, i1 noundef zeroext true, i64 noundef 100) #5
   %106 = load i64, ptr @SPI_processed, align 8
   %107 = icmp ne i64 %106, 0
-  %108 = icmp ne ptr %.2119, null
+  %108 = icmp ne ptr %.2132, null
   %109 = select i1 %107, i1 %108, i1 false
   br i1 %109, label %.lr.ph.backedge, label %._crit_edge113
 
 ._crit_edge113:                                   ; preds = %._crit_edge, %.preheader109
-  %.080.lcssa = phi ptr [ %25, %.preheader109 ], [ %.2119, %._crit_edge ]
+  %.080.lcssa = phi ptr [ %25, %.preheader109 ], [ %.2132, %._crit_edge ]
   %.lcssa = phi i1 [ %53, %.preheader109 ], [ %108, %._crit_edge ]
   %110 = load ptr, ptr @SPI_tuptable, align 8
   call void @SPI_freetuptable(ptr noundef %110) #5

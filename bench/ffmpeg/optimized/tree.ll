@@ -73,8 +73,8 @@ define ptr @av_tree_find(ptr noundef readonly captures(address_is_null) %0, ptr 
   br label %.split46.thread
 
 .split46.thread:                                  ; preds = %.split46.thread.loopexit, %.split46
-  %.us-phi4771 = phi ptr [ %11, %.split46 ], [ %26, %.split46.thread.loopexit ]
-  %27 = load ptr, ptr %.us-phi4771, align 8, !tbaa !4
+  %.us-phi4775 = phi ptr [ %11, %.split46 ], [ %26, %.split46.thread.loopexit ]
+  %27 = load ptr, ptr %.us-phi4775, align 8, !tbaa !4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split.split.us, %.split25, %4, %.split46.thread
@@ -217,8 +217,8 @@ define ptr @av_tree_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr no
   store i32 %.lobit, ptr %78, align 8, !tbaa !13
   store i32 0, ptr %70, align 8, !tbaa !13
   %79 = load ptr, ptr %3, align 8, !tbaa !10
-  %.not105 = icmp eq ptr %79, null
-  br i1 %.not105, label %104, label %98
+  %.not108 = icmp eq ptr %79, null
+  br i1 %.not108, label %104, label %98
 
 80:                                               ; preds = %45
   store ptr %46, ptr %0, align 8, !tbaa !10

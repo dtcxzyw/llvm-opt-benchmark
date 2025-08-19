@@ -1926,8 +1926,8 @@ define dso_local void @_ZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamE(ptr
   %.not.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i, 7
   %16 = and i64 %.0.copyload.i.i.i.i.i.i, 4
   %.not.i = icmp eq i64 %16, 0
-  %or.cond = and i1 %.not.i.i.i, %.not.i
-  br i1 %or.cond, label %20, label %._crit_edge.i.i.i
+  %or.cond.i = and i1 %.not.i.i.i, %.not.i
+  br i1 %or.cond.i, label %20, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -23405,8 +23405,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit48:               ; preds = %80, %82
   %.not.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i, 7
   %86 = and i64 %.0.copyload.i.i.i.i.i.i, 4
   %.not.i = icmp eq i64 %86, 0
-  %or.cond = and i1 %.not.i.i.i, %.not.i
-  br i1 %or.cond, label %90, label %._crit_edge.i.i.i
+  %or.cond.i = and i1 %.not.i.i.i, %.not.i
+  br i1 %or.cond.i, label %90, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit48
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 16

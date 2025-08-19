@@ -2530,17 +2530,17 @@ define range(i32 0, 3) i32 @ssl_build_cert_chain(ptr noundef %0, ptr noundef %1,
   br i1 %.not100, label %99, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %18, %._crit_edge, %.loopexit
-  %.0127 = phi i32 [ %.0, %.loopexit ], [ 0, %._crit_edge ], [ 0, %18 ], [ 0, %.lr.ph ]
-  %.072126 = phi ptr [ %.072, %.loopexit ], [ %19, %._crit_edge ], [ null, %18 ], [ %19, %.lr.ph ]
-  %.077124 = phi ptr [ %.077, %.loopexit ], [ null, %._crit_edge ], [ null, %18 ], [ null, %.lr.ph ]
-  tail call void @X509_STORE_free(ptr noundef %.072126) #14
+  %.0135 = phi i32 [ %.0, %.loopexit ], [ 0, %._crit_edge ], [ 0, %18 ], [ 0, %.lr.ph ]
+  %.072134 = phi ptr [ %.072, %.loopexit ], [ %19, %._crit_edge ], [ null, %18 ], [ %19, %.lr.ph ]
+  %.077132 = phi ptr [ %.077, %.loopexit ], [ null, %._crit_edge ], [ null, %18 ], [ null, %.lr.ph ]
+  tail call void @X509_STORE_free(ptr noundef %.072134) #14
   br label %99
 
 99:                                               ; preds = %.loopexit.thread, %.loopexit
-  %.0128 = phi i32 [ %.0127, %.loopexit.thread ], [ %.0, %.loopexit ]
-  %.077125 = phi ptr [ %.077124, %.loopexit.thread ], [ %.077, %.loopexit ]
-  tail call void @X509_STORE_CTX_free(ptr noundef %.077125) #14
-  ret i32 %.0128
+  %.0136 = phi i32 [ %.0135, %.loopexit.thread ], [ %.0, %.loopexit ]
+  %.077133 = phi ptr [ %.077132, %.loopexit.thread ], [ %.077, %.loopexit ]
+  tail call void @X509_STORE_CTX_free(ptr noundef %.077133) #14
+  ret i32 %.0136
 }
 
 declare ptr @X509_STORE_new() local_unnamed_addr #1

@@ -2158,7 +2158,7 @@ define void @_ZNK6casadi10Polynomial10derivativeEv(ptr dead_on_unwind noalias wr
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
   %.not.i.i.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i.i.i, label %.thread55, label %.noexc10
+  br i1 %.not.i.i.i.i, label %.thread58, label %.noexc10
 
 .noexc10:                                         ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %12 = shl nuw nsw i64 %10, 3
@@ -2188,7 +2188,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc10
   %22 = icmp ugt i64 %21, 9223372036854775800
   br i1 %22, label %23, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
-.thread55:                                        ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
+.thread58:                                        ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
@@ -2246,7 +2246,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %._crit_edg
   tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %.idx) #22
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
-_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.thread55, %38
+_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.thread58, %38
   ret void
 
 .body:                                            ; preds = %23
@@ -2256,8 +2256,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.thread55, %38
 
 _ZNSt6vectorIdSaIdEED2Ev.exit13:                  ; preds = %.body.thread, %.body
   %41 = phi { ptr, i32 } [ %26, %.body.thread ], [ %40, %.body ]
-  %.idx65 = shl nuw nsw i64 %10, 3
-  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %.idx65) #22
+  %.idx68 = shl nuw nsw i64 %10, 3
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %.idx68) #22
   resume { ptr, i32 } %41
 }
 
@@ -2556,13 +2556,13 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store double 0.000000e+00, ptr %5, align 8, !tbaa !10
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !10
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

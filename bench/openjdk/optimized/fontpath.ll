@@ -1646,14 +1646,14 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %254, %303, %._crit_edge
-  %.1445622 = phi i32 [ %.1445, %303 ], [ %.1445, %._crit_edge ], [ 0, %254 ]
+  %.1445673 = phi i32 [ %.1445, %303 ], [ %.1445, %._crit_edge ], [ 0, %254 ]
   br i1 %180, label %320, label %305
 
 305:                                              ; preds = %._crit_edge.thread
   %306 = load ptr, ptr %0, align 8
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 1376
   %308 = load ptr, ptr %307, align 8
-  %309 = call ptr %308(ptr noundef nonnull %0, i32 noundef %.1445622, ptr noundef nonnull %30, ptr noundef null) #13
+  %309 = call ptr %308(ptr noundef nonnull %0, i32 noundef %.1445673, ptr noundef nonnull %30, ptr noundef null) #13
   %310 = icmp eq ptr %309, null
   br i1 %310, label %311, label %316
 

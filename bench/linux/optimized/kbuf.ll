@@ -361,8 +361,8 @@ define dso_local ptr @io_buffer_select(ptr noundef captures(none) %0, ptr nounde
   %.pre10.fr = freeze i32 %.pre10
   %.pre11 = zext i32 %.pre10.fr to i64
   %97 = add i64 %96, -1
-  %or.cond14.not = icmp ult i64 %97, %.pre11
-  br i1 %or.cond14.not, label %98, label %._crit_edge8
+  %or.cond23.not = icmp ult i64 %97, %.pre11
+  br i1 %or.cond23.not, label %98, label %._crit_edge8
 
 ._crit_edge8:                                     ; preds = %91
   store i64 %.pre11, ptr %1, align 8
@@ -1248,7 +1248,7 @@ define dso_local i32 @io_register_pbuf_ring(ptr noundef %0, ptr noundef %1) loca
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %42 = load i16, ptr %41, align 4
   %43 = icmp ult i16 %42, 64
-  br i1 %43, label %44, label %.thread12
+  br i1 %43, label %44, label %.thread22
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -1272,22 +1272,22 @@ define dso_local i32 @io_register_pbuf_ring(ptr noundef %0, ptr noundef %1) loca
   %55 = icmp ne ptr %54, null
   %56 = icmp ult i16 %52, 64
   %57 = and i1 %56, %55
-  br i1 %57, label %58, label %.thread12
+  br i1 %57, label %58, label %.thread22
 
 58:                                               ; preds = %51
   %59 = zext nneg i16 %52 to i64
   %60 = getelementptr %struct.io_buffer_list, ptr %54, i64 %59
   br label %65
 
-.thread12:                                        ; preds = %40, %51
+.thread22:                                        ; preds = %40, %51
   %61 = phi i16 [ %52, %51 ], [ %42, %40 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %63 = zext i16 %61 to i64
   %64 = call ptr @xa_load(ptr noundef nonnull %62, i64 noundef %63) #8
   br label %65
 
-65:                                               ; preds = %.thread12, %58
-  %66 = phi ptr [ %60, %58 ], [ %64, %.thread12 ]
+65:                                               ; preds = %.thread22, %58
+  %66 = phi ptr [ %60, %58 ], [ %64, %.thread22 ]
   %67 = icmp eq ptr %66, null
   br i1 %67, label %75, label %68
 

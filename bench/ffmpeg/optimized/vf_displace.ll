@@ -411,9 +411,9 @@ define internal noundef i32 @displace_planar(ptr noundef readonly captures(none)
   br i1 %.not175, label %171, label %167
 
 167:                                              ; preds = %166
-  %168 = srem i32 %.0, %31
+  %168 = urem i32 %.0, %31
   %169 = xor i32 %168, -1
-  %170 = add i32 %31, %169
+  %170 = add nsw i32 %31, %169
   br label %171
 
 171:                                              ; preds = %167, %166
@@ -786,9 +786,9 @@ define internal noundef i32 @displace_packed(ptr noundef readonly captures(none)
   br i1 %.not212, label %205, label %201
 
 201:                                              ; preds = %200
-  %202 = srem i32 %.0, %13
+  %202 = urem i32 %.0, %13
   %203 = xor i32 %202, -1
-  %204 = add i32 %13, %203
+  %204 = add nsw i32 %13, %203
   br label %205
 
 205:                                              ; preds = %201, %200

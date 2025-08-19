@@ -58,9 +58,9 @@ list_length.exit:                                 ; preds = %3, %8
   br label %26
 
 26:                                               ; preds = %22, %25
-  %.sink128 = phi i8 [ 0, %25 ], [ 1, %22 ]
+  %.sink133 = phi i8 [ 0, %25 ], [ 1, %22 ]
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 229
-  store i8 %.sink128, ptr %27, align 1
+  store i8 %.sink133, ptr %27, align 1
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 232
   store i64 0, ptr %28, align 8
   tail call void @ExecAssignExprContext(ptr noundef %1, ptr noundef nonnull %12) #6
@@ -80,20 +80,20 @@ list_length.exit:                                 ; preds = %3, %8
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 229
   %38 = load i32, ptr %34, align 4
   %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph133, label %.critedge
+  br i1 %39, label %.lr.ph138, label %.critedge
 
-.lr.ph133:                                        ; preds = %.lr.ph, %92
-  %.094107132 = phi i32 [ %94, %92 ], [ 0, %.lr.ph ]
-  %indvars.iv131 = phi i64 [ %indvars.iv.next, %92 ], [ 0, %.lr.ph ]
+.lr.ph138:                                        ; preds = %.lr.ph, %92
+  %.094107137 = phi i32 [ %94, %92 ], [ 0, %.lr.ph ]
+  %indvars.iv136 = phi i64 [ %indvars.iv.next, %92 ], [ 0, %.lr.ph ]
   %40 = load ptr, ptr %35, align 8
-  %41 = getelementptr inbounds nuw %union.ListCell, ptr %40, i64 %indvars.iv131
+  %41 = getelementptr inbounds nuw %union.ListCell, ptr %40, i64 %indvars.iv136
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load i32, ptr %45, align 8
   %47 = load ptr, ptr %32, align 8
-  %48 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %47, i64 %indvars.iv131
+  %48 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %47, i64 %indvars.iv136
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %49 = load ptr, ptr %36, align 8
   %50 = call ptr @ExecInitTableFunctionResult(ptr noundef %44, ptr noundef %49, ptr noundef nonnull %12) #6
@@ -114,7 +114,7 @@ list_length.exit:                                 ; preds = %3, %8
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %98, label %105
 
-58:                                               ; preds = %.lr.ph133
+58:                                               ; preds = %.lr.ph138
   %59 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %42, i64 40
@@ -126,7 +126,7 @@ list_length.exit:                                 ; preds = %3, %8
   %66 = call ptr @BlessTupleDesc(ptr noundef %65) #6
   br label %84
 
-67:                                               ; preds = %.lr.ph133
+67:                                               ; preds = %.lr.ph138
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %68 = call i32 @get_expr_result_type(ptr noundef %44, ptr noundef nonnull %5, ptr noundef nonnull %4) #6
   %69 = add i32 %68, -1
@@ -182,13 +182,13 @@ list_length.exit:                                 ; preds = %3, %8
   %.sink = phi ptr [ %91, %90 ], [ null, %84 ]
   %93 = getelementptr inbounds nuw i8, ptr %48, i64 40
   store ptr %.sink, ptr %93, align 8
-  %94 = add i32 %46, %.094107132
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv131, 1
+  %94 = add i32 %46, %.094107137
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv136, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %95 = load i32, ptr %34, align 4
   %96 = sext i32 %95 to i64
   %97 = icmp slt i64 %indvars.iv.next, %96
-  br i1 %97, label %.lr.ph133, label %.critedge
+  br i1 %97, label %.lr.ph138, label %.critedge
 
 98:                                               ; preds = %.critedge
   %99 = load ptr, ptr %32, align 8

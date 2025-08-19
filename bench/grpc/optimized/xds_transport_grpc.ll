@@ -1684,12 +1684,12 @@ _ZNSt10unique_ptrIK17grpc_channel_argsN9grpc_core11ChannelArgs18ChannelArgsDelet
   br i1 %95, label %_ZN9grpc_core13RefCountedPtrINS_18ChannelCredsConfigEED2Ev.exit14.sink.split.i, label %_ZN9grpc_core13RefCountedPtrINS_18ChannelCredsConfigEED2Ev.exit14.i, !prof !75
 
 _ZN9grpc_core13RefCountedPtrINS_18ChannelCredsConfigEED2Ev.exit14.sink.split.i: ; preds = %92, %79
-  %.sink20.i = phi ptr [ %78, %79 ], [ %91, %92 ]
+  %.sink24.i = phi ptr [ %78, %79 ], [ %91, %92 ]
   %.pn.pn.pn.ph.i = phi { ptr, i32 } [ %77, %79 ], [ %.pn.pn.i, %92 ]
-  %96 = load ptr, ptr %.sink20.i, align 8, !tbaa !8, !noalias !107
+  %96 = load ptr, ptr %.sink24.i, align 8, !tbaa !8, !noalias !107
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !noalias !107
-  call void %98(ptr noundef nonnull align 8 dereferenceable(16) %.sink20.i) #37, !noalias !107
+  call void %98(ptr noundef nonnull align 8 dereferenceable(16) %.sink24.i) #37, !noalias !107
   br label %_ZN9grpc_core13RefCountedPtrINS_18ChannelCredsConfigEED2Ev.exit14.i
 
 _ZN9grpc_core13RefCountedPtrINS_18ChannelCredsConfigEED2Ev.exit14.i: ; preds = %_ZN9grpc_core13RefCountedPtrINS_18ChannelCredsConfigEED2Ev.exit14.sink.split.i, %92, %90, %79, %76
@@ -5271,12 +5271,12 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br label %59
 
 59:                                               ; preds = %.thread, %.critedge21
-  %.sink72 = phi ptr [ %53, %.thread ], [ %58, %.critedge21 ]
-  %.sink71 = phi ptr [ %54, %.thread ], [ %39, %.critedge21 ]
+  %.sink74 = phi ptr [ %53, %.thread ], [ %58, %.critedge21 ]
+  %.sink73 = phi ptr [ %54, %.thread ], [ %39, %.critedge21 ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.critedge21 ]
-  store ptr %.sink72, ptr %0, align 8
+  store ptr %.sink74, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink71, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %.sink73, ptr %.sroa.4.0..sroa_idx, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %60, align 8, !tbaa !289
   ret void
@@ -5834,12 +5834,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %44
   br label %62
 
 62:                                               ; preds = %.thread, %.critedge23
-  %.sink76 = phi ptr [ %56, %.thread ], [ %61, %.critedge23 ]
-  %.sink75 = phi ptr [ %57, %.thread ], [ %39, %.critedge23 ]
+  %.sink79 = phi ptr [ %56, %.thread ], [ %61, %.critedge23 ]
+  %.sink78 = phi ptr [ %57, %.thread ], [ %39, %.critedge23 ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.critedge23 ]
-  store ptr %.sink76, ptr %0, align 8
+  store ptr %.sink79, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink75, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %.sink78, ptr %.sroa.4.0..sroa_idx, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %63, align 8, !tbaa !214
   ret void

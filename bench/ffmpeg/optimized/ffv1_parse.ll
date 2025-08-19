@@ -435,8 +435,8 @@ get_rac.exit161:                                  ; preds = %122, %136, %141, %1
   %186 = icmp ugt i32 %185, 4
   %.pre216 = load i32, ptr %113, align 4, !tbaa !58
   %187 = icmp ugt i32 %.pre216, 4
-  %or.cond222 = select i1 %186, i1 true, i1 %187
-  br i1 %or.cond222, label %188, label %190
+  %or.cond244 = select i1 %186, i1 true, i1 %187
+  br i1 %or.cond244, label %188, label %190
 
 188:                                              ; preds = %175
   %189 = load ptr, ptr %7, align 8, !tbaa !13
@@ -1874,14 +1874,14 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
   br i1 %.not295, label %476, label %477
 
 476:                                              ; preds = %469
-  %spec.select395 = select i1 %.not296, i32 77, i32 244
-  store i32 %spec.select395, ptr %474, align 4, !tbaa !79
+  %spec.select412 = select i1 %.not296, i32 77, i32 244
+  store i32 %spec.select412, ptr %474, align 4, !tbaa !79
   store i32 1, ptr %475, align 4, !tbaa !81
   br label %.thread356
 
 477:                                              ; preds = %469
-  %spec.select396 = select i1 %.not296, i32 113, i32 246
-  store i32 %spec.select396, ptr %474, align 4, !tbaa !79
+  %spec.select413 = select i1 %.not296, i32 113, i32 246
+  store i32 %spec.select413, ptr %474, align 4, !tbaa !79
   store i32 1, ptr %475, align 4, !tbaa !81
   br label %.thread356
 

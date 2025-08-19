@@ -419,12 +419,12 @@ matches_skip_worktree.exit:                       ; preds = %151, %152
   br label %._crit_edge145.thread
 
 ._crit_edge145.thread:                            ; preds = %138, %175, %._crit_edge145
-  %.057.lcssa186 = phi i1 [ %174, %175 ], [ %174, %._crit_edge145 ], [ true, %138 ]
-  %.0119.lcssa185 = phi ptr [ %.2121, %175 ], [ %.2121, %._crit_edge145 ], [ null, %138 ]
+  %.057.lcssa201 = phi i1 [ %174, %175 ], [ %174, %._crit_edge145 ], [ true, %138 ]
+  %.0119.lcssa200 = phi ptr [ %.2121, %175 ], [ %.2121, %._crit_edge145 ], [ null, %138 ]
   %.156 = phi i32 [ 1, %175 ], [ 0, %._crit_edge145 ], [ 0, %138 ]
-  call void @free(ptr noundef %.0119.lcssa185) #15
+  call void @free(ptr noundef %.0119.lcssa200) #15
   call void @string_list_clear(ptr noundef nonnull %14, i32 noundef 0) #15
-  br i1 %.057.lcssa186, label %176, label %178
+  br i1 %.057.lcssa201, label %176, label %178
 
 176:                                              ; preds = %._crit_edge145.thread
   %177 = call i32 @common_exit(ptr noundef nonnull @.str.10, i32 noundef 365, i32 noundef %.156) #15

@@ -5851,10 +5851,10 @@ _ZN9grpc_core5SliceD2Ev.exit26:                   ; preds = %_ZN9grpc_core5Slice
   ret void
 
 110:                                              ; preds = %85, %59
-  %.sink32 = phi ptr [ %10, %85 ], [ %8, %59 ]
+  %.sink40 = phi ptr [ %10, %85 ], [ %8, %59 ]
   %.sink = phi ptr [ %9, %85 ], [ %7, %59 ]
   %.pn = phi { ptr, i32 } [ %86, %85 ], [ %60, %59 ]
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink32) #31
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink40) #31
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #31
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #31
   br label %111
@@ -6453,10 +6453,10 @@ _ZN9grpc_core5SliceD2Ev.exit26:                   ; preds = %_ZN9grpc_core5Slice
   ret void
 
 109:                                              ; preds = %84, %58
-  %.sink27 = phi ptr [ %10, %84 ], [ %8, %58 ]
+  %.sink35 = phi ptr [ %10, %84 ], [ %8, %58 ]
   %.sink = phi ptr [ %9, %84 ], [ %7, %58 ]
   %.pn = phi { ptr, i32 } [ %85, %84 ], [ %59, %58 ]
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink27) #31
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink35) #31
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #31
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #31
   br label %110

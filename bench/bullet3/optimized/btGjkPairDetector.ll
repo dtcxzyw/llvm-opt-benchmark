@@ -234,13 +234,13 @@ define dso_local void @_ZN17btGjkPairDetector26getClosestPointsNonVirtualERKN36b
 78:                                               ; preds = %4
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %80 = load i32, ptr %79, align 8, !tbaa !23
-  %.fr625 = freeze i32 %80
-  %81 = add i32 %.fr625, -17
+  %.fr635 = freeze i32 %80
+  %81 = add i32 %.fr635, -17
   %82 = icmp ult i32 %81, 2
   br label %_ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S8_.exit
 
 _ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S8_.exit: ; preds = %4, %78
-  %cond.fr603 = phi i1 [ %82, %78 ], [ false, %4 ]
+  %cond.fr613 = phi i1 [ %82, %78 ], [ false, %4 ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %84 = load float, ptr %83, align 8, !tbaa !27
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -405,9 +405,9 @@ _ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S
   %.sroa.3.12.vec.insert.i4.i35.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %204, i64 0
   %.sroa.10441.8.vec.insert = insertelement <2 x float> %.sroa.3.12.vec.insert.i4.i.i, float 0.000000e+00, i64 0
   %.sroa.10.8.vec.insert = insertelement <2 x float> %.sroa.3.12.vec.insert.i4.i35.i, float 0.000000e+00, i64 0
-  %205 = select i1 %cond.fr603, <2 x float> %.sroa.10.8.vec.insert, <2 x float> %.sroa.3.12.vec.insert.i4.i35.i
-  %206 = select i1 %cond.fr603, <2 x float> %.sroa.10441.8.vec.insert, <2 x float> %.sroa.3.12.vec.insert.i4.i.i
-  %207 = select i1 %cond.fr603, float 0.000000e+00, float %204
+  %205 = select i1 %cond.fr613, <2 x float> %.sroa.10.8.vec.insert, <2 x float> %.sroa.3.12.vec.insert.i4.i35.i
+  %206 = select i1 %cond.fr613, <2 x float> %.sroa.10441.8.vec.insert, <2 x float> %.sroa.3.12.vec.insert.i4.i.i
+  %207 = select i1 %cond.fr613, float 0.000000e+00, float %204
   %208 = fsub float %176, %200
   %209 = fsub float %178, %202
   %.sroa.10441.8.vec.extract = extractelement <2 x float> %206, i64 0
@@ -583,8 +583,8 @@ _ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S
   %328 = load float, ptr %58, align 4, !tbaa !7
   %329 = fadd float %323, %328
   %.sroa.10441.8.vec.insert447 = insertelement <2 x float> %.sroa.3.12.vec.insert.i4.i.i163, float 0.000000e+00, i64 0
-  %.sroa.10441.1 = select i1 %cond.fr603, <2 x float> %.sroa.10441.8.vec.insert447, <2 x float> %.sroa.3.12.vec.insert.i4.i.i163
-  %330 = select i1 %cond.fr603, float 0.000000e+00, float %329
+  %.sroa.10441.1 = select i1 %cond.fr613, <2 x float> %.sroa.10441.8.vec.insert447, <2 x float> %.sroa.3.12.vec.insert.i4.i.i163
+  %330 = select i1 %cond.fr613, float 0.000000e+00, float %329
   %331 = fsub float %301, %325
   %332 = fsub float %303, %327
   %.sroa.10441.8.vec.extract445 = extractelement <2 x float> %.sroa.10441.1, i64 0
@@ -606,7 +606,7 @@ _ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S
   %.sroa.0.4.vec.insert.i39.i173 = insertelement <2 x float> %.sroa.0.0.vec.insert.i38.i172, float %332, i64 1
   %.sroa.3.12.vec.insert.i4.i35.i170 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %329, i64 0
   %.sroa.10.8.vec.insert427 = insertelement <2 x float> %.sroa.3.12.vec.insert.i4.i35.i170, float 0.000000e+00, i64 0
-  %.sroa.10.1 = select i1 %cond.fr603, <2 x float> %.sroa.10.8.vec.insert427, <2 x float> %.sroa.3.12.vec.insert.i4.i35.i170
+  %.sroa.10.1 = select i1 %cond.fr613, <2 x float> %.sroa.10.8.vec.insert427, <2 x float> %.sroa.3.12.vec.insert.i4.i35.i170
   %.sroa.0.0.vec.insert.i2.i33.i168 = insertelement <2 x float> poison, float %325, i64 0
   %.sroa.0.4.vec.insert.i3.i34.i169 = insertelement <2 x float> %.sroa.0.0.vec.insert.i2.i33.i168, float %327, i64 1
   %.sroa.0.0.vec.insert.i2.i.i161 = insertelement <2 x float> poison, float %301, i64 0
@@ -866,7 +866,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit:      ; preds = %341, %511
   %512 = call fastcc noundef i32 @_ZL12btDoSimplex3P9btSimplexP9btVector3(ptr noundef nonnull %14, ptr noundef nonnull %15)
   switch i32 %512, label %_ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge [
     i32 1, label %.thread
-    i32 -1, label %.thread.loopexit647
+    i32 -1, label %.thread.loopexit657
   ]
 
 _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimplexP9btSimplexP9btVector3.exit
@@ -883,14 +883,14 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   %519 = call noundef float @llvm.fmuladd.f32(float %518, float %518, float %517)
   %520 = fcmp uge float %519, 0x3E80000000000000
   %521 = fcmp uge float %519, 0x3D10000000000000
-  %or.cond636 = and i1 %520, %521
-  br i1 %or.cond636, label %228, label %.thread
+  %or.cond646 = and i1 %520, %521
+  br i1 %or.cond646, label %228, label %.thread
 
-.thread.loopexit647:                              ; preds = %_ZL11btDoSimplexP9btSimplexP9btVector3.exit
+.thread.loopexit657:                              ; preds = %_ZL11btDoSimplexP9btSimplexP9btVector3.exit
   br label %.thread
 
-.thread:                                          ; preds = %412, %408, %404, %400, %396, %347, %513, %_ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S8_.exit179, %228, %390, %_ZL11btDoSimplexP9btSimplexP9btVector3.exit, %.thread.loopexit647
-  %.1104 = phi i1 [ true, %_ZL11btDoSimplexP9btSimplexP9btVector3.exit ], [ false, %390 ], [ true, %412 ], [ true, %408 ], [ true, %404 ], [ true, %400 ], [ true, %396 ], [ true, %347 ], [ false, %_ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S8_.exit179 ], [ false, %513 ], [ false, %228 ], [ false, %.thread.loopexit647 ]
+.thread:                                          ; preds = %412, %408, %404, %400, %396, %347, %513, %_ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S8_.exit179, %228, %390, %_ZL11btDoSimplexP9btSimplexP9btVector3.exit, %.thread.loopexit657
+  %.1104 = phi i1 [ true, %_ZL11btDoSimplexP9btSimplexP9btVector3.exit ], [ false, %390 ], [ true, %412 ], [ true, %408 ], [ true, %404 ], [ true, %400 ], [ true, %396 ], [ true, %347 ], [ false, %_ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S8_.exit179 ], [ false, %513 ], [ false, %228 ], [ false, %.thread.loopexit657 ]
   %522 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %523 = load ptr, ptr %522, align 8, !tbaa !20
   call void @_ZN22btVoronoiSimplexSolver5resetEv(ptr noundef nonnull align 4 dereferenceable(357) %523)
@@ -1034,7 +1034,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   %.sroa.3.12.vec.insert.i4.i197 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %630, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i3.i196, ptr %19, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i4.i197, ptr %527, align 8
-  br i1 %cond.fr603, label %631, label %632
+  br i1 %cond.fr613, label %631, label %632
 
 631:                                              ; preds = %532
   store float 0.000000e+00, ptr %526, align 8, !tbaa !7
@@ -1368,11 +1368,11 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !34
   store <2 x float> %.sroa.0388.4.vec.insert, ptr %9, align 8
   store <2 x float> %.sroa.11.8.vec.insert, ptr %33, align 8, !tbaa !35
-  br label %.thread604
+  br label %.thread614
 
 803:                                              ; preds = %788
   store i32 8, ptr %96, align 8, !tbaa !30
-  br label %.thread604
+  br label %.thread614
 
 804:                                              ; preds = %786
   store i32 9, ptr %96, align 8, !tbaa !30
@@ -1457,9 +1457,9 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   %storemerge130 = phi i32 [ 6, %826 ], [ 5, %807 ]
   %.5 = phi float [ %824, %826 ], [ %.0, %807 ]
   store i32 %storemerge130, ptr %96, align 8, !tbaa !30
-  br label %.thread604
+  br label %.thread614
 
-.thread604:                                       ; preds = %859, %798, %803
+.thread614:                                       ; preds = %859, %798, %803
   %.6.ph = phi float [ %.0, %803 ], [ %796, %798 ], [ %.5, %859 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -1477,8 +1477,8 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %.090, label %862, label %1213
 
-.sink.split:                                      ; preds = %744, %.thread604
-  %.2553.ph = phi float [ %.6.ph, %.thread604 ], [ %.0, %744 ]
+.sink.split:                                      ; preds = %744, %.thread614
+  %.2553.ph = phi float [ %.6.ph, %.thread614 ], [ %.0, %744 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %862

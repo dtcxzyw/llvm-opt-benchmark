@@ -820,16 +820,16 @@ _develop_mask_get_post_operations.exit:           ; preds = %140, %141
   %231 = load ptr, ptr %11, align 8, !tbaa !46
   %232 = tail call ptr @dt_iop_colorspace_to_name(i32 noundef %.0.i) #17
   %233 = icmp ult i32 %83, 5
-  br i1 %233, label %switch.lookup389, label %_develop_blend_colorspace_to_str.exit
+  br i1 %233, label %switch.lookup412, label %_develop_blend_colorspace_to_str.exit
 
-switch.lookup389:                                 ; preds = %227
+switch.lookup412:                                 ; preds = %227
   %234 = zext nneg i32 %83 to i64
-  %switch.gep390 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dt_develop_blend_process.8, i64 0, i64 %234
-  %switch.load391 = load ptr, ptr %switch.gep390, align 8
+  %switch.gep413 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dt_develop_blend_process.8, i64 0, i64 %234
+  %switch.load414 = load ptr, ptr %switch.gep413, align 8
   br label %_develop_blend_colorspace_to_str.exit
 
-_develop_blend_colorspace_to_str.exit:            ; preds = %227, %switch.lookup389
-  %.0.i343 = phi ptr [ %switch.load391, %switch.lookup389 ], [ @.str.26, %227 ]
+_develop_blend_colorspace_to_str.exit:            ; preds = %227, %switch.lookup412
+  %.0.i343 = phi ptr [ %switch.load414, %switch.lookup412 ], [ @.str.26, %227 ]
   %.not317 = icmp eq i32 %191, 0
   %235 = select i1 %.not317, ptr @.str.8, ptr @.str.12
   %236 = select i1 %48, ptr @.str.8, ptr @.str.13
@@ -1808,13 +1808,13 @@ switch.lookup:                                    ; preds = %11
   %switch.gep = getelementptr inbounds nuw [6 x float], ptr @switch.table.dt_develop_blend_legacy_params, i64 0, i64 %16
   %switch.load = load float, ptr %switch.gep, align 4
   %17 = zext nneg i32 %14 to i64
-  %switch.gep552 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.dt_develop_blend_legacy_params.9, i64 0, i64 %17
-  %switch.load553 = load i32, ptr %switch.gep552, align 4
+  %switch.gep554 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.dt_develop_blend_legacy_params.9, i64 0, i64 %17
+  %switch.load555 = load i32, ptr %switch.gep554, align 4
   br label %_blend_default_module_blend_colorspace.exit
 
 _blend_default_module_blend_colorspace.exit:      ; preds = %11, %switch.lookup, %6
   %.sroa.17494.0 = phi float [ 0.000000e+00, %6 ], [ %switch.load, %switch.lookup ], [ 0.000000e+00, %11 ]
-  %.0.i = phi i32 [ 0, %6 ], [ %switch.load553, %switch.lookup ], [ 0, %11 ]
+  %.0.i = phi i32 [ 0, %6 ], [ %switch.load555, %switch.lookup ], [ 0, %11 ]
   %18 = sext i32 %5 to i64
   %.not910.i = icmp eq i32 %5, 0
   br i1 %.not910.i, label %.loopexit, label %.lr.ph.i

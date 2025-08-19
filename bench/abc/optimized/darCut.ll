@@ -197,7 +197,7 @@ Dar_CutTruthSwapPolarity.exit:                    ; preds = %31, %25, %19, %13, 
   store i32 %36, ptr %38, align 4, !tbaa !3
   store i32 %34, ptr %35, align 4, !tbaa !3
   %39 = trunc nuw nsw i64 %indvars.iv67 to i32
-  switch i32 %39, label %default.unreachable53 [
+  switch i32 %39, label %default.unreachable78 [
     i32 0, label %40
     i32 1, label %48
     i32 2, label %56
@@ -233,7 +233,7 @@ Dar_CutTruthSwapPolarity.exit:                    ; preds = %31, %25, %19, %13, 
   %63 = or disjoint i32 %60, %62
   br label %Dar_CutTruthSwapAdjacentVars.exit
 
-default.unreachable53:                            ; preds = %37
+default.unreachable78:                            ; preds = %37
   unreachable
 
 Dar_CutTruthSwapAdjacentVars.exit:                ; preds = %56, %48, %40, %33
@@ -566,7 +566,7 @@ define ptr @Dar_ObjComputeCuts(ptr noundef captures(none) %0, ptr noundef initia
   %26 = trunc i64 %15 to i32
   %27 = and i32 %26, 1
   %sext.i = sub nsw i32 0, %25
-  %sext50.i = sub nsw i32 0, %27
+  %sext52.i = sub nsw i32 0, %27
   %.not63 = icmp eq i32 %2, 0
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2768
@@ -927,7 +927,7 @@ Dar_CutCheckDominance.exit.thread.i:              ; preds = %._crit_edge.us.i40.
   %196 = load i32, ptr %32, align 4
   %197 = xor i32 %196, %sext.i
   %198 = load i32, ptr %40, align 4
-  %199 = xor i32 %198, %sext50.i
+  %199 = xor i32 %198, %sext52.i
   %200 = lshr i32 %196, 29
   %201 = load i32, ptr %144, align 4
   %.not.i.i72 = icmp ult i32 %201, 536870912
@@ -1526,8 +1526,8 @@ Dar_CutFindValue.exit:                            ; preds = %Aig_ManObj.exit.i, 
   br i1 %458, label %.loopexit158, label %Dar_CutMerge.exit.thread
 
 Dar_CutMerge.exit.thread.sink.split:              ; preds = %178, %189, %453
-  %.sink214 = phi i32 [ %456, %453 ], [ %160, %189 ], [ %160, %178 ]
-  %459 = and i32 %.sink214, -268435457
+  %.sink242 = phi i32 [ %456, %453 ], [ %160, %189 ], [ %160, %178 ]
+  %459 = and i32 %.sink242, -268435457
   store i32 %459, ptr %144, align 4
   br label %Dar_CutMerge.exit.thread
 
@@ -1725,12 +1725,12 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
   br i1 %33, label %26, label %._crit_edge125, !llvm.loop !74
 
 ._crit_edge125:                                   ; preds = %26
-  %34 = and i32 %30, -536870912
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %36 = load i32, ptr %35, align 4
-  %37 = and i32 %36, 536870911
-  %38 = or disjoint i32 %37, %34
-  store i32 %38, ptr %35, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %30, -536870912
+  %37 = and i32 %35, 536870911
+  %38 = or disjoint i32 %37, %36
+  store i32 %38, ptr %34, align 4
   br label %.thread105
 
 39:                                               ; preds = %11
@@ -1791,12 +1791,12 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
   br i1 %61, label %54, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %54
-  %62 = and i32 %58, -536870912
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %64 = load i32, ptr %63, align 4
-  %65 = and i32 %64, 536870911
-  %66 = or disjoint i32 %65, %62
-  store i32 %66, ptr %63, align 4
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %63 = load i32, ptr %62, align 4
+  %64 = and i32 %58, -536870912
+  %65 = and i32 %63, 536870911
+  %66 = or disjoint i32 %65, %64
+  store i32 %66, ptr %62, align 4
   br label %.thread105
 
 67:                                               ; preds = %.preheader112, %113

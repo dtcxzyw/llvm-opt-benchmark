@@ -149,13 +149,13 @@ switch.lookup:                                    ; preds = %72
   %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.lexbor_strtod_internal, i64 0, i64 %75
   %switch.load = load i32, ptr %switch.gep, align 4
   %76 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep73 = getelementptr inbounds nuw [7 x i64], ptr @switch.table.lexbor_strtod_internal.1, i64 0, i64 %76
-  %switch.load74 = load i64, ptr %switch.gep73, align 8
+  %switch.gep81 = getelementptr inbounds nuw [7 x i64], ptr @switch.table.lexbor_strtod_internal.1, i64 0, i64 %76
+  %switch.load82 = load i64, ptr %switch.gep81, align 8
   br label %lexbor_strtod_adjust_pow10.exit.i
 
 lexbor_strtod_adjust_pow10.exit.i:                ; preds = %72, %switch.lookup
   %.sroa.9.0.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %72 ]
-  %.sroa.0.0.i.i = phi i64 [ %switch.load74, %switch.lookup ], [ 0, %72 ]
+  %.sroa.0.0.i.i = phi i64 [ %switch.load82, %switch.lookup ], [ 0, %72 ]
   %77 = lshr i64 %63, 32
   %78 = and i64 %63, 4294967295
   %79 = mul nuw i64 %.sroa.0.0.i.i, %77

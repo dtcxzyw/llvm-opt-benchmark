@@ -166,7 +166,7 @@ H5FL__fac_term_all.exit:                          ; preds = %H5FL__fac_term_all.
   br i1 %34, label %thread-pre-split.i10, label %H5FL__arr_term.exit.thread, !prof !15
 
 H5FL__arr_term.exit.thread:                       ; preds = %H5FL__fac_term_all.exit
-  %.pre.i1949 = load ptr, ptr @H5FL_blk_gc_head.1, align 8, !tbaa !41
+  %.pre.i1954 = load ptr, ptr @H5FL_blk_gc_head.1, align 8, !tbaa !41
   br label %H5FL__blk_term.exit
 
 thread-pre-split.i10:                             ; preds = %H5FL__fac_term_all.exit
@@ -258,7 +258,7 @@ thread-pre-split.i21:                             ; preds = %H5FL__arr_term.exit
 
 H5FL__blk_term.exit:                              ; preds = %H5FL__arr_term.exit.thread, %H5FL__arr_term.exit, %._crit_edge.i28
   %.pn.in.in = phi ptr [ %.0.lcssa.i18, %._crit_edge.i28 ], [ %.0.lcssa.i18, %H5FL__arr_term.exit ], [ %.pre.i8, %H5FL__arr_term.exit.thread ]
-  %62 = phi ptr [ %.0.lcssa.i29, %._crit_edge.i28 ], [ %.pre.i19, %H5FL__arr_term.exit ], [ %.pre.i1949, %H5FL__arr_term.exit.thread ]
+  %62 = phi ptr [ %.0.lcssa.i29, %._crit_edge.i28 ], [ %.pre.i19, %H5FL__arr_term.exit ], [ %.pre.i1954, %H5FL__arr_term.exit.thread ]
   %.pn.in = icmp ne ptr %.pn.in.in, null
   %.pn = zext i1 %.pn.in to i32
   %63 = add nuw nsw i32 %.pn, %22
@@ -1210,19 +1210,19 @@ define noalias noundef ptr @H5FL_blk_free(ptr noundef captures(none) %0, ptr nou
   br label %H5FL__blk_gc.exit
 
 .sink.split.sink.split:                           ; preds = %30, %40
-  %.sink33 = phi ptr [ %38, %40 ], [ %31, %30 ]
+  %.sink37 = phi ptr [ %38, %40 ], [ %31, %30 ]
   %.sink = phi ptr [ %34, %40 ], [ %.1.i, %30 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.sink33, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %.sink37, i64 32
   store ptr %.sink, ptr %52, align 8, !tbaa !95
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %36
-  %.1.i.lcssa31.sink = phi ptr [ %34, %36 ], [ %.sink, %.sink.split.sink.split ]
-  store ptr %.1.i.lcssa31.sink, ptr %12, align 8, !tbaa !89
+  %.1.i.lcssa35.sink = phi ptr [ %34, %36 ], [ %.sink, %.sink.split.sink.split ]
+  store ptr %.1.i.lcssa35.sink, ptr %12, align 8, !tbaa !89
   br label %53
 
 53:                                               ; preds = %.sink.split, %14
-  %.021.ph = phi ptr [ %13, %14 ], [ %.1.i.lcssa31.sink, %.sink.split ]
+  %.021.ph = phi ptr [ %13, %14 ], [ %.1.i.lcssa35.sink, %.sink.split ]
   %54 = getelementptr inbounds nuw i8, ptr %.021.ph, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !96
   store ptr %55, ptr %10, align 8, !tbaa !97
@@ -2026,9 +2026,9 @@ define noalias ptr @H5FL_seq_calloc(ptr noundef %0, i64 noundef %1) local_unname
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7
   %6 = trunc nuw i8 %5 to i1
   %7 = select i1 %4, i1 true, i1 %6
-  br i1 %7, label %10, label %.thread3, !prof !15
+  br i1 %7, label %10, label %.thread4, !prof !15
 
-.thread3:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   store i8 1, ptr @H5FL_init_g, align 1, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i64, ptr %8, align 8, !tbaa !122
@@ -2049,8 +2049,8 @@ define noalias ptr @H5FL_seq_calloc(ptr noundef %0, i64 noundef %1) local_unname
   store i8 1, ptr @H5FL_init_g, align 1, !tbaa !3
   br label %17
 
-17:                                               ; preds = %.thread3, %13, %.thread.i
-  %.pn = phi i64 [ %9, %.thread3 ], [ %15, %13 ], [ %15, %.thread.i ]
+17:                                               ; preds = %.thread4, %13, %.thread.i
+  %.pn = phi i64 [ %9, %.thread4 ], [ %15, %13 ], [ %15, %.thread.i ]
   %18 = mul i64 %.pn, %1
   %19 = tail call noalias ptr @H5FL_blk_malloc(ptr noundef nonnull %0, i64 noundef %18)
   %20 = icmp eq ptr %19, null
@@ -2078,9 +2078,9 @@ define ptr @H5FL_seq_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !7
   %7 = trunc nuw i8 %6 to i1
   %8 = select i1 %5, i1 true, i1 %7
-  br i1 %8, label %11, label %.thread4, !prof !15
+  br i1 %8, label %11, label %.thread7, !prof !15
 
-.thread4:                                         ; preds = %3
+.thread7:                                         ; preds = %3
   store i8 1, ptr @H5FL_init_g, align 1, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8, !tbaa !122
@@ -2101,8 +2101,8 @@ define ptr @H5FL_seq_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   store i8 1, ptr @H5FL_init_g, align 1, !tbaa !3
   br label %18
 
-18:                                               ; preds = %.thread4, %14, %.thread.i
-  %.pn = phi i64 [ %10, %.thread4 ], [ %16, %14 ], [ %16, %.thread.i ]
+18:                                               ; preds = %.thread7, %14, %.thread.i
+  %.pn = phi i64 [ %10, %.thread7 ], [ %16, %14 ], [ %16, %.thread.i ]
   %19 = mul i64 %.pn, %2
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %32, label %20
@@ -2530,9 +2530,9 @@ H5FL__fac_gc_list.exit:                           ; preds = %.lr.ph.i, %8
   br i1 %.not22, label %43, label %.sink.split
 
 .sink.split:                                      ; preds = %36, %30
-  %.sink26 = phi ptr [ %34, %30 ], [ %39, %36 ]
+  %.sink30 = phi ptr [ %34, %30 ], [ %39, %36 ]
   %.sink = phi ptr [ %29, %30 ], [ null, %36 ]
-  %41 = load ptr, ptr %.sink26, align 8, !tbaa !32
+  %41 = load ptr, ptr %.sink30, align 8, !tbaa !32
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr %.sink, ptr %42, align 8, !tbaa !124
   br label %43

@@ -915,13 +915,13 @@ define void @_ZN5Moves18WeightAllocNTVoid1ERK3pos(ptr noundef nonnull readonly a
 
 .sink.split:                                      ; preds = %40, %42
   %.sink = phi i64 [ 1484, %42 ], [ 1516, %40 ]
-  %.sink50 = phi i32 [ -3, %42 ], [ -2, %40 ]
+  %.sink51 = phi i32 [ -3, %42 ], [ -2, %40 ]
   %.idx32 = shl nsw i64 %36, 3
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %44 = getelementptr i8, ptr %43, i64 %.idx32
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, %31
-  %47 = select i1 %46, i32 %.sink50, i32 0
+  %47 = select i1 %46, i32 %.sink51, i32 0
   %spec.select37 = add nsw i32 %47, %.zext
   br label %48
 
@@ -1762,19 +1762,19 @@ _ZNK5Moves12GetTopNumberEiiRiS0_.exit:            ; preds = %.lr.ph.i, %111, %.c
   %174 = getelementptr inbounds nuw %struct.moveType, ptr %20, i64 %indvars.iv54.i, i32 1
   %175 = load i32, ptr %174, align 4
   %176 = icmp sgt i32 %175, %168
-  br i1 %176, label %177, label %.critedge2.loopexit.split.loop.exit66.i
+  br i1 %176, label %177, label %.critedge2.loopexit.split.loop.exit70.i
 
 177:                                              ; preds = %173
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
   %exitcond58.not.i = icmp eq i64 %indvars.iv.next55.i, %wide.trip.count57.i
   br i1 %exitcond58.not.i, label %.critedge2.loopexit.i, label %173, !llvm.loop !24
 
-.critedge2.loopexit.split.loop.exit66.i:          ; preds = %173
+.critedge2.loopexit.split.loop.exit70.i:          ; preds = %173
   %178 = trunc nuw nsw i64 %indvars.iv54.i to i32
   br label %.critedge2.loopexit.i
 
-.critedge2.loopexit.i:                            ; preds = %177, %.critedge2.loopexit.split.loop.exit66.i
-  %.030.lcssa.ph.i = phi i32 [ %178, %.critedge2.loopexit.split.loop.exit66.i ], [ %171, %177 ]
+.critedge2.loopexit.i:                            ; preds = %177, %.critedge2.loopexit.split.loop.exit70.i
+  %.030.lcssa.ph.i = phi i32 [ %178, %.critedge2.loopexit.split.loop.exit70.i ], [ %171, %177 ]
   %179 = add nsw i32 %.030.lcssa.ph.i, -1
   br label %_ZNK5Moves13RankForcesAceEi.exit
 
@@ -1797,19 +1797,19 @@ _ZNK5Moves12GetTopNumberEiiRiS0_.exit:            ; preds = %.lr.ph.i, %111, %.c
   %186 = getelementptr inbounds nuw %struct.moveType, ptr %20, i64 %indvars.iv.i53, i32 1
   %187 = load i32, ptr %186, align 4
   %188 = icmp sgt i32 %187, %130
-  br i1 %188, label %189, label %.critedge4.loopexit.split.loop.exit64.i
+  br i1 %188, label %189, label %.critedge4.loopexit.split.loop.exit68.i
 
 189:                                              ; preds = %185
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i54, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge4.loopexit.i, label %185, !llvm.loop !25
 
-.critedge4.loopexit.split.loop.exit64.i:          ; preds = %185
+.critedge4.loopexit.split.loop.exit68.i:          ; preds = %185
   %190 = trunc nuw nsw i64 %indvars.iv.i53 to i32
   br label %.critedge4.loopexit.i
 
-.critedge4.loopexit.i:                            ; preds = %189, %.critedge4.loopexit.split.loop.exit64.i
-  %.0.lcssa.ph.i = phi i32 [ %190, %.critedge4.loopexit.split.loop.exit64.i ], [ %183, %189 ]
+.critedge4.loopexit.i:                            ; preds = %189, %.critedge4.loopexit.split.loop.exit68.i
+  %.0.lcssa.ph.i = phi i32 [ %190, %.critedge4.loopexit.split.loop.exit68.i ], [ %183, %189 ]
   %191 = add nsw i32 %.0.lcssa.ph.i, -1
   br label %_ZNK5Moves13RankForcesAceEi.exit
 
@@ -1832,8 +1832,8 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %161, %.critedge4.lo
   %202 = icmp sgt i32 %198, %201
   %203 = icmp sgt i32 %198, %16
   %or.cond51 = select i1 %202, i1 %203, i1 false
-  %spec.select86 = select i1 %or.cond51, i32 60, i32 0
-  %.sink = sub nsw i32 %spec.select86, %198
+  %spec.select94 = select i1 %or.cond51, i32 60, i32 0
+  %.sink = sub nsw i32 %spec.select94, %198
   %204 = getelementptr inbounds nuw i8, ptr %196, i64 12
   store i32 %.sink, ptr %204, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1983,8 +1983,8 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr noundef nonnull read
   br label %84
 
 84:                                               ; preds = %78, %83
-  %.sink274 = phi i32 [ 0, %83 ], [ 58, %78 ]
-  %85 = sub nsw i32 %.sink274, %76
+  %.sink292 = phi i32 [ 0, %83 ], [ 58, %78 ]
+  %85 = sub nsw i32 %.sink292, %76
   %86 = getelementptr inbounds nuw i8, ptr %74, i64 12
   store i32 %85, ptr %86, align 4
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
@@ -2049,19 +2049,19 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr noundef nonnull read
   %117 = getelementptr inbounds nuw %struct.moveType, ptr %21, i64 %indvars.iv54.i, i32 1
   %118 = load i32, ptr %117, align 4
   %119 = icmp sgt i32 %118, %111
-  br i1 %119, label %120, label %.critedge2.loopexit.split.loop.exit66.i
+  br i1 %119, label %120, label %.critedge2.loopexit.split.loop.exit70.i
 
 120:                                              ; preds = %116
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
   %exitcond58.not.i = icmp eq i64 %indvars.iv.next55.i, %wide.trip.count57.i
   br i1 %exitcond58.not.i, label %.critedge2.loopexit.i, label %116, !llvm.loop !24
 
-.critedge2.loopexit.split.loop.exit66.i:          ; preds = %116
+.critedge2.loopexit.split.loop.exit70.i:          ; preds = %116
   %121 = trunc nuw nsw i64 %indvars.iv54.i to i32
   br label %.critedge2.loopexit.i
 
-.critedge2.loopexit.i:                            ; preds = %120, %.critedge2.loopexit.split.loop.exit66.i
-  %.030.lcssa.ph.i = phi i32 [ %121, %.critedge2.loopexit.split.loop.exit66.i ], [ %114, %120 ]
+.critedge2.loopexit.i:                            ; preds = %120, %.critedge2.loopexit.split.loop.exit70.i
+  %.030.lcssa.ph.i = phi i32 [ %121, %.critedge2.loopexit.split.loop.exit70.i ], [ %114, %120 ]
   %122 = add nsw i32 %.030.lcssa.ph.i, -1
   br label %_ZNK5Moves13RankForcesAceEi.exit
 
@@ -2084,19 +2084,19 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr noundef nonnull read
   %129 = getelementptr inbounds nuw %struct.moveType, ptr %21, i64 %indvars.iv.i, i32 1
   %130 = load i32, ptr %129, align 4
   %131 = icmp sgt i32 %130, %53
-  br i1 %131, label %132, label %.critedge4.loopexit.split.loop.exit64.i
+  br i1 %131, label %132, label %.critedge4.loopexit.split.loop.exit68.i
 
 132:                                              ; preds = %128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge4.loopexit.i, label %128, !llvm.loop !25
 
-.critedge4.loopexit.split.loop.exit64.i:          ; preds = %128
+.critedge4.loopexit.split.loop.exit68.i:          ; preds = %128
   %133 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge4.loopexit.i
 
-.critedge4.loopexit.i:                            ; preds = %132, %.critedge4.loopexit.split.loop.exit64.i
-  %.0.lcssa.ph.i = phi i32 [ %133, %.critedge4.loopexit.split.loop.exit64.i ], [ %126, %132 ]
+.critedge4.loopexit.i:                            ; preds = %132, %.critedge4.loopexit.split.loop.exit68.i
+  %.0.lcssa.ph.i = phi i32 [ %133, %.critedge4.loopexit.split.loop.exit68.i ], [ %126, %132 ]
   %134 = add nsw i32 %.0.lcssa.ph.i, -1
   br label %_ZNK5Moves13RankForcesAceEi.exit
 
@@ -2288,8 +2288,8 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %104, %.critedge.i, 
   %242 = icmp sgt i32 %238, %241
   %243 = icmp sgt i32 %238, %17
   %or.cond = select i1 %242, i1 %243, i1 false
-  %spec.select275 = select i1 %or.cond, i32 60, i32 0
-  %.sink251 = sub nsw i32 %spec.select275, %238
+  %spec.select293 = select i1 %or.cond, i32 60, i32 0
+  %.sink251 = sub nsw i32 %spec.select293, %238
   %244 = getelementptr inbounds nuw i8, ptr %236, i64 12
   store i32 %.sink251, ptr %244, align 4
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
@@ -2321,8 +2321,8 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %104, %.critedge.i, 
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 92
   %258 = load i32, ptr %257, align 4
   %259 = icmp sgt i32 %255, %258
-  %spec.select276 = select i1 %259, i32 20, i32 0
-  %.sink252 = sub nsw i32 %spec.select276, %255
+  %spec.select294 = select i1 %259, i32 20, i32 0
+  %.sink252 = sub nsw i32 %spec.select294, %255
   %260 = getelementptr inbounds nuw i8, ptr %253, i64 12
   store i32 %.sink252, ptr %260, align 4
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
@@ -2384,8 +2384,8 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %104, %.critedge.i, 
   %295 = icmp sgt i32 %291, %294
   %296 = icmp sgt i32 %291, %17
   %or.cond143 = select i1 %295, i1 %296, i1 false
-  %spec.select277 = select i1 %or.cond143, i32 58, i32 0
-  %.sink253 = sub nsw i32 %spec.select277, %291
+  %spec.select295 = select i1 %or.cond143, i32 58, i32 0
+  %.sink253 = sub nsw i32 %spec.select295, %291
   %297 = getelementptr inbounds nuw i8, ptr %289, i64 12
   store i32 %.sink253, ptr %297, align 4
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
@@ -2413,8 +2413,8 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %104, %.critedge.i, 
   %313 = icmp sgt i32 %309, %312
   %314 = icmp sgt i32 %309, %17
   %or.cond144 = select i1 %313, i1 %314, i1 false
-  %spec.select278 = select i1 %or.cond144, i32 60, i32 0
-  %.sink254 = sub nsw i32 %spec.select278, %309
+  %spec.select296 = select i1 %or.cond144, i32 60, i32 0
+  %.sink254 = sub nsw i32 %spec.select296, %309
   %315 = getelementptr inbounds nuw i8, ptr %307, i64 12
   store i32 %.sink254, ptr %315, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2428,9 +2428,9 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %104, %.critedge.i, 
   br i1 %.not, label %.loopexit, label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %._crit_edge, %._crit_edge176, %._crit_edge190
-  %.sink285 = phi i32 [ %.031.i, %._crit_edge190 ], [ %231, %._crit_edge176 ], [ %302, %._crit_edge ]
+  %.sink303 = phi i32 [ %.031.i, %._crit_edge190 ], [ %231, %._crit_edge176 ], [ %302, %._crit_edge ]
   %319 = load ptr, ptr %20, align 8
-  %320 = sext i32 %.sink285 to i64
+  %320 = sext i32 %.sink303 to i64
   %321 = getelementptr inbounds %struct.moveType, ptr %319, i64 %320, i32 3
   %322 = load i32, ptr %321, align 4
   %323 = add nsw i32 %322, 20
@@ -4309,11 +4309,11 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   br i1 %487, label %.sink.split, label %491
 
 .sink.split:                                      ; preds = %481, %395, %385
-  %.sink276 = phi ptr [ %388, %385 ], [ %398, %395 ], [ %484, %481 ]
-  %.sink275 = phi i32 [ 55, %385 ], [ 18, %395 ], [ 18, %481 ]
-  %488 = getelementptr inbounds nuw i8, ptr %.sink276, i64 12
+  %.sink289 = phi ptr [ %388, %385 ], [ %398, %395 ], [ %484, %481 ]
+  %.sink288 = phi i32 [ 55, %385 ], [ 18, %395 ], [ 18, %481 ]
+  %488 = getelementptr inbounds nuw i8, ptr %.sink289, i64 12
   %489 = load i32, ptr %488, align 4
-  %490 = add nsw i32 %489, %.sink275
+  %490 = add nsw i32 %489, %.sink288
   store i32 %490, ptr %488, align 4
   br label %491
 
@@ -4476,11 +4476,11 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
   %.0102132 = phi i32 [ %.0102, %._crit_edge148 ], [ %64, %107 ]
   %110 = icmp ne i32 %105, %102
   %or.cond5 = select i1 %110, i1 true, i1 %.not113
-  %spec.select162 = select i1 %or.cond5, i32 45, i32 18
+  %spec.select169 = select i1 %or.cond5, i32 45, i32 18
   br label %111
 
 111:                                              ; preds = %.thread, %._crit_edge148
-  %.sink = phi i32 [ 18, %._crit_edge148 ], [ %spec.select162, %.thread ]
+  %.sink = phi i32 [ 18, %._crit_edge148 ], [ %spec.select169, %.thread ]
   %.0102133.sink = phi i32 [ %.0102, %._crit_edge148 ], [ %.0102132, %.thread ]
   %112 = add nsw i32 %.sink, %74
   %113 = add nsw i32 %112, %.0102133.sink
@@ -4602,8 +4602,8 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
   %184 = getelementptr i8, ptr %183, i64 4
   %185 = load i32, ptr %184, align 4
   %186 = icmp eq i32 %185, %94
-  %or.cond155 = select i1 %.not113, i1 %186, i1 false
-  br i1 %or.cond155, label %187, label %._crit_edge141
+  %or.cond162 = select i1 %.not113, i1 %186, i1 false
+  br i1 %or.cond162, label %187, label %._crit_edge141
 
 187:                                              ; preds = %182, %177
   %188 = add nsw i32 %74, 28
@@ -4686,11 +4686,11 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
   br i1 %234, label %.sink.split, label %238
 
 .sink.split:                                      ; preds = %228, %218, %128, %118
-  %.sink161 = phi ptr [ %121, %118 ], [ %131, %128 ], [ %221, %218 ], [ %231, %228 ]
-  %.sink159 = phi i32 [ 126, %118 ], [ 32, %128 ], [ 47, %218 ], [ 19, %228 ]
-  %235 = getelementptr inbounds nuw i8, ptr %.sink161, i64 12
+  %.sink168 = phi ptr [ %121, %118 ], [ %131, %128 ], [ %221, %218 ], [ %231, %228 ]
+  %.sink166 = phi i32 [ 126, %118 ], [ 32, %128 ], [ 47, %218 ], [ 19, %228 ]
+  %235 = getelementptr inbounds nuw i8, ptr %.sink168, i64 12
   %236 = load i32, ptr %235, align 4
-  %237 = add nsw i32 %236, %.sink159
+  %237 = add nsw i32 %236, %.sink166
   store i32 %237, ptr %235, align 4
   br label %238
 
@@ -9424,19 +9424,19 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAce
   %39 = getelementptr inbounds nuw %struct.moveType, ptr %37, i64 %indvars.iv54, i32 1
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %40, %29
-  br i1 %41, label %42, label %.critedge2.loopexit.split.loop.exit66
+  br i1 %41, label %42, label %.critedge2.loopexit.split.loop.exit70
 
 42:                                               ; preds = %38
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
   br i1 %exitcond58.not, label %.critedge2.loopexit, label %38, !llvm.loop !24
 
-.critedge2.loopexit.split.loop.exit66:            ; preds = %38
+.critedge2.loopexit.split.loop.exit70:            ; preds = %38
   %43 = trunc nuw nsw i64 %indvars.iv54 to i32
   br label %.critedge2.loopexit
 
-.critedge2.loopexit:                              ; preds = %42, %.critedge2.loopexit.split.loop.exit66
-  %.030.lcssa.ph = phi i32 [ %43, %.critedge2.loopexit.split.loop.exit66 ], [ %34, %42 ]
+.critedge2.loopexit:                              ; preds = %42, %.critedge2.loopexit.split.loop.exit70
+  %.030.lcssa.ph = phi i32 [ %43, %.critedge2.loopexit.split.loop.exit70 ], [ %34, %42 ]
   %44 = add nsw i32 %.030.lcssa.ph, -1
   br label %.critedge2
 
@@ -9463,19 +9463,19 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAce
   %55 = getelementptr inbounds nuw %struct.moveType, ptr %53, i64 %indvars.iv, i32 1
   %56 = load i32, ptr %55, align 4
   %57 = icmp sgt i32 %56, %31
-  br i1 %57, label %58, label %.critedge4.loopexit.split.loop.exit64
+  br i1 %57, label %58, label %.critedge4.loopexit.split.loop.exit68
 
 58:                                               ; preds = %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge4.loopexit, label %54, !llvm.loop !25
 
-.critedge4.loopexit.split.loop.exit64:            ; preds = %54
+.critedge4.loopexit.split.loop.exit68:            ; preds = %54
   %59 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge4.loopexit
 
-.critedge4.loopexit:                              ; preds = %58, %.critedge4.loopexit.split.loop.exit64
-  %.0.lcssa.ph = phi i32 [ %59, %.critedge4.loopexit.split.loop.exit64 ], [ %50, %58 ]
+.critedge4.loopexit:                              ; preds = %58, %.critedge4.loopexit.split.loop.exit68
+  %.0.lcssa.ph = phi i32 [ %59, %.critedge4.loopexit.split.loop.exit68 ], [ %50, %58 ]
   %60 = add nsw i32 %.0.lcssa.ph, -1
   br label %.critedge2
 

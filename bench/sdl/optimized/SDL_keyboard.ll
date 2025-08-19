@@ -1044,8 +1044,8 @@ define internal fastcc zeroext i1 @SDL_SendKeyboardKeyInternal(i64 noundef %0, i
   %19 = zext i8 %18 to i32
   %20 = and i32 %9, %19
   %.not = icmp eq i32 %20, 0
-  %or.cond83 = select i1 %15, i1 %.not, i1 false
-  br i1 %or.cond83, label %21, label %._crit_edge
+  %or.cond85 = select i1 %15, i1 %.not, i1 false
+  br i1 %or.cond85, label %21, label %._crit_edge
 
 21:                                               ; preds = %16
   %22 = trunc nuw nsw i32 %9 to i8
@@ -1591,16 +1591,16 @@ define hidden void @SDL_SendEditingTextCandidates(ptr noundef readonly captures(
   br label %.critedge20
 
 .critedge20:                                      ; preds = %17, %43
-  %.sink26 = phi ptr [ %32, %43 ], [ null, %17 ]
-  %.sink24 = phi i32 [ %1, %43 ], [ 0, %17 ]
-  %.sink22 = phi i32 [ %2, %43 ], [ -1, %17 ]
+  %.sink29 = phi ptr [ %32, %43 ], [ null, %17 ]
+  %.sink27 = phi i32 [ %1, %43 ], [ 0, %17 ]
+  %.sink25 = phi i32 [ %2, %43 ], [ -1, %17 ]
   %.sink = phi i8 [ %6, %43 ], [ 0, %17 ]
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %.sink26, ptr %45, align 8
+  store ptr %.sink29, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 %.sink24, ptr %46, align 8
+  store i32 %.sink27, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 %.sink22, ptr %47, align 4
+  store i32 %.sink25, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i8 %.sink, ptr %48, align 8
   %49 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %5) #13

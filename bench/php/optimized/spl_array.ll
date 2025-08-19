@@ -333,8 +333,8 @@ spl_hash_key_release.exit:                        ; preds = %56, %51, %47, %43, 
 
 68:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.not52.i55 = icmp eq ptr %2, null
-  br i1 %.not52.i55, label %69, label %spl_array_read_dimension_ex.exit
+  %.not52.i59 = icmp eq ptr %2, null
+  br i1 %.not52.i59, label %69, label %spl_array_read_dimension_ex.exit
 
 69:                                               ; preds = %68
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -342,19 +342,19 @@ spl_hash_key_release.exit:                        ; preds = %56, %51, %47, %43, 
   br label %spl_array_read_dimension_ex.exit
 
 spl_array_read_dimension_ex.exit:                 ; preds = %68, %69
-  %.045.i56 = phi ptr [ %2, %68 ], [ %5, %69 ]
+  %.045.i60 = phi ptr [ %2, %68 ], [ %5, %69 ]
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !50
-  %73 = call ptr @zend_call_method(ptr noundef nonnull %1, ptr noundef %72, ptr noundef nonnull %66, ptr noundef nonnull @.str.25, i64 noundef 9, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %.045.i56, ptr noundef null) #13
+  %73 = call ptr @zend_call_method(ptr noundef nonnull %1, ptr noundef %72, ptr noundef nonnull %66, ptr noundef nonnull @.str.25, i64 noundef 9, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %.045.i60, ptr noundef null) #13
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %75 = load i8, ptr %74, align 8, !tbaa !4
   %76 = icmp eq i8 %75, 0
-  %executor_globals..i57 = select i1 %76, ptr @executor_globals, ptr %7
+  %executor_globals..i61 = select i1 %76, ptr @executor_globals, ptr %7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread51
 
 .thread51:                                        ; preds = %63, %65, %spl_array_read_dimension_ex.exit
-  %.2.ph = phi ptr [ %.034, %63 ], [ %.034, %65 ], [ %executor_globals..i57, %spl_array_read_dimension_ex.exit ]
+  %.2.ph = phi ptr [ %.034, %63 ], [ %.034, %65 ], [ %executor_globals..i61, %spl_array_read_dimension_ex.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %78
 
@@ -443,9 +443,9 @@ define hidden void @zim_ArrayObject_offsetGet(ptr noundef readonly captures(none
   br i1 %.not22, label %38, label %.sink.split
 
 .sink.split:                                      ; preds = %25, %28
-  %.sink27 = phi i32 [ %32, %28 ], [ %23, %25 ]
+  %.sink29 = phi i32 [ %32, %28 ], [ %23, %25 ]
   %.sink.in = phi ptr [ %30, %28 ], [ %20, %25 ]
-  %34 = and i32 %.sink27, 65280
+  %34 = and i32 %.sink29, 65280
   %35 = icmp ne i32 %34, 0
   call void @llvm.assume(i1 %35)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !4
@@ -3448,9 +3448,9 @@ spl_array_get_pos_ptr.exit:                       ; preds = %.critedge, %16
   br i1 %.not29, label %53, label %.sink.split
 
 .sink.split:                                      ; preds = %40, %43
-  %.sink34 = phi i32 [ %47, %43 ], [ %38, %40 ]
+  %.sink36 = phi i32 [ %47, %43 ], [ %38, %40 ]
   %.sink.in = phi ptr [ %45, %43 ], [ %.0, %40 ]
-  %49 = and i32 %.sink34, 65280
+  %49 = and i32 %.sink36, 65280
   %50 = icmp ne i32 %49, 0
   tail call void @llvm.assume(i1 %50)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !4
@@ -5426,19 +5426,19 @@ tailrecurse:                                      ; preds = %.lr.ph
   br label %zend_std_get_properties_ex.exit
 
 .thread:                                          ; preds = %28, %40
-  %.037 = phi ptr [ %34, %40 ], [ %29, %28 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.037, i64 32
+  %.040 = phi ptr [ %34, %40 ], [ %29, %28 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.040, i64 32
   %45 = load ptr, ptr %44, align 8, !tbaa !112
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %46, label %zend_std_get_properties_ex.exit
 
 46:                                               ; preds = %.thread
-  %47 = tail call ptr @rebuild_object_properties_internal(ptr noundef nonnull %.037) #13
+  %47 = tail call ptr @rebuild_object_properties_internal(ptr noundef nonnull %.040) #13
   br label %zend_std_get_properties_ex.exit
 
 zend_std_get_properties_ex.exit:                  ; preds = %42, %.thread, %46
-  %.036 = phi ptr [ %34, %42 ], [ %.037, %.thread ], [ %.037, %46 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.036, i64 32
+  %.039 = phi ptr [ %34, %42 ], [ %.040, %.thread ], [ %.040, %46 ]
+  %48 = getelementptr inbounds nuw i8, ptr %.039, i64 32
   %49 = load ptr, ptr %48, align 8, !tbaa !112
   %50 = load i32, ptr %49, align 4, !tbaa !68
   %51 = icmp ugt i32 %50, 1

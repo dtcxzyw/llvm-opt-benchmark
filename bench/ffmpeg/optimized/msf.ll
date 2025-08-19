@@ -167,11 +167,11 @@ define internal range(i32 -2147483648, 1) i32 @msf_read_header(ptr noundef %0) #
   br label %90
 
 78:                                               ; preds = %24, %75, %44, %26, %25
-  %.sink53 = phi ptr [ %21, %75 ], [ %74, %44 ], [ %21, %26 ], [ %21, %25 ], [ %21, %24 ]
+  %.sink55 = phi ptr [ %21, %75 ], [ %74, %44 ], [ %21, %26 ], [ %21, %25 ], [ %21, %24 ]
   %.sink = phi i32 [ 86017, %75 ], [ 86047, %44 ], [ 69669, %26 ], [ 65536, %25 ], [ 65537, %24 ]
-  %79 = getelementptr inbounds nuw i8, ptr %.sink53, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %.sink55, i64 4
   store i32 %.sink, ptr %79, align 4, !tbaa !54
-  %80 = tail call i32 @av_get_audio_frame_duration2(ptr noundef nonnull %.sink53, i32 noundef %18) #6
+  %80 = tail call i32 @av_get_audio_frame_duration2(ptr noundef nonnull %.sink55, i32 noundef %18) #6
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %81, ptr %82, align 8, !tbaa !55

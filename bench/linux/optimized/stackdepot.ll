@@ -314,7 +314,7 @@ define dso_local i32 @stack_depot_save_flags(ptr noundef %0, i32 noundef %1, i32
   %62 = phi i32 [ %18, %15 ], [ %52, %.preheader53 ]
   %63 = phi i32 [ %18, %15 ], [ %56, %.preheader53 ]
   %64 = phi i32 [ %18, %15 ], [ %55, %.preheader53 ]
-  switch i32 %60, label %default.unreachable [
+  switch i32 %60, label %default.unreachable112 [
     i32 3, label %65
     i32 2, label %69
     i32 1, label %74
@@ -362,7 +362,7 @@ define dso_local i32 @stack_depot_save_flags(ptr noundef %0, i32 noundef %1, i32
   %99 = sub i32 %97, %98
   br label %100
 
-default.unreachable:                              ; preds = %.loopexit54
+default.unreachable112:                           ; preds = %.loopexit54
   unreachable
 
 100:                                              ; preds = %.loopexit54, %74

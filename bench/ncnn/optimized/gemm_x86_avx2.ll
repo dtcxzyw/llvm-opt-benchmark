@@ -6200,12 +6200,12 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %640
 
 640:                                              ; preds = %604, %592, %584
-  %.sink1775.i = phi i64 [ 64, %592 ], [ 16, %604 ], [ 128, %584 ]
+  %.sink1807.i = phi i64 [ 64, %592 ], [ 16, %604 ], [ 128, %584 ]
   %.01079.i = phi nsz <8 x float> [ %603, %592 ], [ %639, %604 ], [ %591, %584 ]
   %.01065.i = phi nsz <8 x float> [ %602, %592 ], [ %638, %604 ], [ %589, %584 ]
   %.01064.i = phi nsz <8 x float> [ %601, %592 ], [ %637, %604 ], [ %587, %584 ]
   %.8902.i = phi nsz <8 x float> [ %600, %592 ], [ %636, %604 ], [ %585, %584 ]
-  %641 = getelementptr inbounds nuw i8, ptr %.81532.i, i64 %.sink1775.i
+  %641 = getelementptr inbounds nuw i8, ptr %.81532.i, i64 %.sink1807.i
   br i1 %63, label %642, label %647
 
 642:                                              ; preds = %640
@@ -6460,10 +6460,10 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %776
 
 776:                                              ; preds = %772, %766, %762
-  %.sink1776.i = phi i64 [ 32, %766 ], [ 8, %772 ], [ 64, %762 ]
+  %.sink1808.i = phi i64 [ 32, %766 ], [ 8, %772 ], [ 64, %762 ]
   %.01192.i = phi nsz <8 x float> [ %771, %766 ], [ %775, %772 ], [ %765, %762 ]
   %.12906.i = phi nsz <8 x float> [ %770, %766 ], [ %773, %772 ], [ %763, %762 ]
-  %777 = getelementptr inbounds nuw i8, ptr %.121543.i, i64 %.sink1776.i
+  %777 = getelementptr inbounds nuw i8, ptr %.121543.i, i64 %.sink1808.i
   br i1 %63, label %778, label %781
 
 778:                                              ; preds = %776
@@ -6643,9 +6643,9 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %848
 
 848:                                              ; preds = %846, %841, %839
-  %.sink1777.i = phi i64 [ 16, %841 ], [ 4, %846 ], [ 32, %839 ]
+  %.sink1809.i = phi i64 [ 16, %841 ], [ 4, %846 ], [ 32, %839 ]
   %.16910.i = phi nsz <8 x float> [ %845, %841 ], [ %847, %846 ], [ %840, %839 ]
-  %849 = getelementptr inbounds nuw i8, ptr %.161554.i, i64 %.sink1777.i
+  %849 = getelementptr inbounds nuw i8, ptr %.161554.i, i64 %.sink1809.i
   %850 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.16910.i, <8 x float> nofpclass(nan inf) %48, <8 x float> nofpclass(nan inf) %831)
   br label %.thread1295.i
 
@@ -7055,12 +7055,12 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %1094
 
 1094:                                             ; preds = %1074, %1065
-  %.sink1778.i = phi i64 [ 32, %1074 ], [ 128, %1065 ]
+  %.sink1810.i = phi i64 [ 32, %1074 ], [ 128, %1065 ]
   %.51177.i = phi nsz <4 x float> [ %1090, %1074 ], [ %1067, %1065 ]
   %.11123.i = phi nsz <4 x float> [ %1091, %1074 ], [ %1069, %1065 ]
   %.11121.i = phi nsz <4 x float> [ %1092, %1074 ], [ %1071, %1065 ]
   %.01119.i = phi nsz <4 x float> [ %1093, %1074 ], [ %1073, %1065 ]
-  %1095 = getelementptr inbounds nuw i8, ptr %.241570.i, i64 %.sink1778.i
+  %1095 = getelementptr inbounds nuw i8, ptr %.241570.i, i64 %.sink1810.i
   br i1 %111, label %1096, label %1101
 
 1096:                                             ; preds = %1094
@@ -7429,12 +7429,12 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %1326
 
 1326:                                             ; preds = %1311, %1304
-  %.sink1779.i = phi i64 [ 16, %1311 ], [ 64, %1304 ]
+  %.sink1811.i = phi i64 [ 16, %1311 ], [ 64, %1304 ]
   %.91181.i = phi nsz <4 x float> [ %1322, %1311 ], [ %1303, %1304 ]
   %.01082.i = phi nsz <4 x float> [ %1323, %1311 ], [ %1306, %1304 ]
   %.01081.i = phi nsz <4 x float> [ %1324, %1311 ], [ %1308, %1304 ]
   %.01080.i = phi nsz <4 x float> [ %1325, %1311 ], [ %1310, %1304 ]
-  %1327 = getelementptr inbounds nuw i8, ptr %.281581.i, i64 %.sink1779.i
+  %1327 = getelementptr inbounds nuw i8, ptr %.281581.i, i64 %.sink1811.i
   br i1 %111, label %1328, label %1333
 
 1328:                                             ; preds = %1326
@@ -7668,10 +7668,10 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %1458
 
 1458:                                             ; preds = %1434, %1430
-  %.sink1780.i = phi i64 [ 8, %1434 ], [ 32, %1430 ]
+  %.sink1812.i = phi i64 [ 8, %1434 ], [ 32, %1430 ]
   %.131185.i = phi nsz <4 x float> [ %1445, %1434 ], [ %1431, %1430 ]
   %.01066.i = phi nsz <4 x float> [ %1457, %1434 ], [ %1433, %1430 ]
-  %1459 = getelementptr inbounds nuw i8, ptr %.321592.i, i64 %.sink1780.i
+  %1459 = getelementptr inbounds nuw i8, ptr %.321592.i, i64 %.sink1812.i
   br i1 %111, label %1460, label %1463
 
 1460:                                             ; preds = %1458
@@ -7817,9 +7817,9 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %1523
 
 1523:                                             ; preds = %1511, %1509
-  %.sink1781.i = phi i64 [ 4, %1511 ], [ 16, %1509 ]
+  %.sink1813.i = phi i64 [ 4, %1511 ], [ 16, %1509 ]
   %.171189.i = phi nsz <4 x float> [ %1522, %1511 ], [ %1510, %1509 ]
-  %1524 = getelementptr inbounds nuw i8, ptr %.361603.i, i64 %.sink1781.i
+  %1524 = getelementptr inbounds nuw i8, ptr %.361603.i, i64 %.sink1813.i
   %1525 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.171189.i, <4 x float> nofpclass(nan inf) %103, <4 x float> nofpclass(nan inf) %1501)
   br label %.thread1395.i
 

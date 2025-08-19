@@ -343,7 +343,7 @@ for.body:                                         ; preds = %for.body.backedge, 
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(168) %6)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.09, i64 -16
-  %mul.neg.i.i.i = mul i64 %__begin1.sroa.6.010, -16
+  %mul.neg.i.i.i = mul nsw i64 %__begin1.sroa.6.010, -16
   %add.ptr1.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %mul.neg.i.i.i
   %cmp.i.not17.i = icmp eq i64 %__begin1.sroa.6.010, 0
   br i1 %cmp.i.not17.i, label %for.cond.i.i.preheader, label %while.body.i.i
@@ -358,9 +358,9 @@ while.cond.i.i:                                   ; preds = %while.body.i.i
 while.body.i.i:                                   ; preds = %for.body, %while.cond.i.i
   %8 = phi i64 [ %dec.i.i, %while.cond.i.i ], [ %__begin1.sroa.6.010, %for.body ]
   %incdec.ptr.i1618.i = phi ptr [ %incdec.ptr.i.i, %while.cond.i.i ], [ %__begin1.sroa.0.09, %for.body ]
-  %dec.i.i = add i64 %8, -1
+  %dec.i.i = add nsw i64 %8, -1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i1618.i, i64 -16
-  %arrayidx.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i, i64 0, i64 %dec.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [14 x i8], ptr %add.ptr1.i.i.i, i64 0, i64 %dec.i.i
   %9 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %cmp.i.not14.i = icmp eq i8 %9, 0
   br i1 %cmp.i.not14.i, label %while.cond.i.i, label %for.body.backedge, !llvm.loop !4

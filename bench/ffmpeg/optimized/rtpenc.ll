@@ -321,8 +321,8 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   br label %87
 
 87:                                               ; preds = %77, %84
-  %.sink129 = phi i32 [ %86, %84 ], [ 90000, %77 ]
-  tail call void @avpriv_set_pts_info(ptr noundef nonnull %10, i32 noundef 32, i32 noundef 1, i32 noundef %.sink129) #7
+  %.sink135 = phi i32 [ %86, %84 ], [ 90000, %77 ]
+  tail call void @avpriv_set_pts_info(ptr noundef nonnull %10, i32 noundef 32, i32 noundef 1, i32 noundef %.sink135) #7
   %88 = load ptr, ptr %76, align 8, !tbaa !57
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store ptr %88, ptr %89, align 8, !tbaa !61

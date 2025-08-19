@@ -858,8 +858,8 @@ decode_pivot.exit62:                              ; preds = %63
   br label %decode_pixel.exit.i
 
 decode_pixel.exit.i:                              ; preds = %._crit_edge.i, %.loopexit.i, %100
-  %.050.i95.i = phi i32 [ %.050.i.i, %.loopexit.i ], [ %.050.i.i, %._crit_edge.i ], [ %103, %100 ]
-  %119 = icmp slt i32 %.050.i95.i, 0
+  %.050.i110.i = phi i32 [ %.050.i.i, %.loopexit.i ], [ %.050.i.i, %._crit_edge.i ], [ %103, %100 ]
+  %119 = icmp slt i32 %.050.i110.i, 0
   br i1 %119, label %decode_region_inter.exit, label %120
 
 120:                                              ; preds = %decode_pixel.exit.i
@@ -878,20 +878,20 @@ decode_pixel.exit.i:                              ; preds = %._crit_edge.i, %.lo
   br i1 %cond.i, label %switch.early.test68.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %125
-  switch i32 %.050.i95.i, label %decode_region_inter.exit [
+  switch i32 %.050.i110.i, label %decode_region_inter.exit [
     i32 2, label %129
     i32 4, label %165
     i32 1, label %233
   ]
 
 switch.early.test68.i:                            ; preds = %125
-  switch i32 %.050.i95.i, label %decode_region_inter.exit [
+  switch i32 %.050.i110.i, label %decode_region_inter.exit [
     i32 128, label %copy_rectangles.exit.i
     i32 255, label %233
   ]
 
 128:                                              ; preds = %120
-  switch i32 %.050.i95.i, label %233 [
+  switch i32 %.050.i110.i, label %233 [
     i32 2, label %129
     i32 4, label %165
     i32 128, label %copy_rectangles.exit.i
@@ -1008,20 +1008,20 @@ switch.early.test68.i:                            ; preds = %125
   br label %210
 
 210:                                              ; preds = %207, %188
-  %.sink81.i.i = phi ptr [ %209, %207 ], [ %190, %188 ]
-  %.sink77.i.i = phi ptr [ %206, %207 ], [ %187, %188 ]
+  %.sink85.i.i = phi ptr [ %209, %207 ], [ %190, %188 ]
+  %.sink81.i.i = phi ptr [ %206, %207 ], [ %187, %188 ]
   %211 = icmp sgt i32 %5, 0
   br i1 %211, label %.lr.ph.i70.i, label %decode_region_inter.exit
 
 .lr.ph.i70.i:                                     ; preds = %210
   %212 = mul nuw nsw i32 %168, 3
   %213 = zext nneg i32 %212 to i64
-  %214 = getelementptr inbounds nuw i8, ptr %.sink77.i.i, i64 %213
+  %214 = getelementptr inbounds nuw i8, ptr %.sink81.i.i, i64 %213
   %215 = zext nneg i32 %178 to i64
   %216 = mul nsw i64 %202, %215
   %217 = getelementptr inbounds i8, ptr %214, i64 %216
   %218 = zext nneg i32 %168 to i64
-  %219 = getelementptr inbounds nuw i8, ptr %.sink81.i.i, i64 %218
+  %219 = getelementptr inbounds nuw i8, ptr %.sink85.i.i, i64 %218
   %220 = mul nsw i64 %195, %215
   %221 = getelementptr inbounds i8, ptr %219, i64 %220
   %222 = sext i32 %4 to i64
@@ -1212,16 +1212,16 @@ switch.early.test68.i:                            ; preds = %125
   br label %copy_rectangles.exit.us.loopexit128.i.i
 
 copy_rectangles.exit.us.loopexit128.i.i:          ; preds = %325, %313
-  %.sink81.i.us.i.i = phi ptr [ %326, %325 ], [ %314, %313 ]
-  %.sink77.i.us.i.i = phi ptr [ %324, %325 ], [ %312, %313 ]
+  %.sink85.i.us.i.i = phi ptr [ %326, %325 ], [ %314, %313 ]
+  %.sink81.i.us.i.i = phi ptr [ %324, %325 ], [ %312, %313 ]
   %327 = mul nuw nsw i32 %299, 3
   %328 = zext nneg i32 %327 to i64
-  %329 = getelementptr inbounds nuw i8, ptr %.sink77.i.us.i.i, i64 %328
+  %329 = getelementptr inbounds nuw i8, ptr %.sink81.i.us.i.i, i64 %328
   %330 = zext nneg i32 %306 to i64
   %331 = mul nsw i64 %321, %330
   %332 = getelementptr inbounds i8, ptr %329, i64 %331
   %333 = zext nneg i32 %299 to i64
-  %334 = getelementptr inbounds nuw i8, ptr %.sink81.i.us.i.i, i64 %333
+  %334 = getelementptr inbounds nuw i8, ptr %.sink85.i.us.i.i, i64 %333
   %335 = mul nsw i64 %316, %330
   %336 = getelementptr inbounds i8, ptr %334, i64 %335
   %337 = load i8, ptr %336, align 1
@@ -1299,7 +1299,7 @@ copy_rectangles.exit.us.loopexit128.i.i:          ; preds = %325, %313
   %380 = load i8, ptr %379, align 1, !tbaa !10
   %381 = zext i8 %380 to i32
   %382 = icmp eq i32 %375, %381
-  br i1 %382, label %.loopexit.us.loopexit.split.loop.exit150.i.i, label %383
+  br i1 %382, label %.loopexit.us.loopexit.split.loop.exit156.i.i, label %383
 
 383:                                              ; preds = %.lr.ph.us.i.i
   %indvars.iv.next.i72.i = add nuw nsw i64 %indvars.iv.i71.i, 1
@@ -1313,13 +1313,13 @@ copy_rectangles.exit.us.loopexit128.i.i:          ; preds = %325, %313
   %388 = zext i8 %387 to i32
   br label %.loopexit.us.i.i
 
-.loopexit.us.loopexit.split.loop.exit150.i.i:     ; preds = %.lr.ph.us.i.i
+.loopexit.us.loopexit.split.loop.exit156.i.i:     ; preds = %.lr.ph.us.i.i
   %389 = trunc nuw nsw i64 %indvars.iv.i71.i to i32
   br label %.loopexit.us.i.i
 
-.loopexit.us.i.i:                                 ; preds = %383, %.loopexit.us.loopexit.split.loop.exit150.i.i, %384
-  %.152.i.us.i.i = phi i32 [ %370, %384 ], [ %389, %.loopexit.us.loopexit.split.loop.exit150.i.i ], [ %377, %383 ]
-  %.050.i.us.i.i = phi i32 [ %388, %384 ], [ %375, %.loopexit.us.loopexit.split.loop.exit150.i.i ], [ %375, %383 ]
+.loopexit.us.i.i:                                 ; preds = %383, %.loopexit.us.loopexit.split.loop.exit156.i.i, %384
+  %.152.i.us.i.i = phi i32 [ %370, %384 ], [ %389, %.loopexit.us.loopexit.split.loop.exit156.i.i ], [ %377, %383 ]
+  %.050.i.us.i.i = phi i32 [ %388, %384 ], [ %375, %.loopexit.us.loopexit.split.loop.exit156.i.i ], [ %375, %383 ]
   %.not59.i.us.i.i = icmp eq i32 %.152.i.us.i.i, 0
   br i1 %.not59.i.us.i.i, label %decode_pixel.exit.us.i.i, label %.preheader.us.i.i
 
@@ -1391,7 +1391,7 @@ copy_rectangles.exit.i:                           ; preds = %147, %129, %128, %s
   br label %decode_region_inter.exit
 
 decode_region_inter.exit:                         ; preds = %._crit_edge123.us.i.i, %decode_pixel.exit.us.i.i, %365, %311, %308, %304, %301, %295, %292, %291, %225, %63, %53, %34, %24, %copy_rectangles.exit.i, %.preheader113.lr.ph.i.i, %244, %235, %233, %210, %185, %180, %175, %170, %165, %switch.early.test68.i, %switch.early.test.i, %decode_pixel.exit.i, %83, %10, %69, %67, %decode_pivot.exit62, %40, %38, %decode_pivot.exit, %6, %417, %77
-  %.0 = phi i32 [ 0, %417 ], [ %78, %77 ], [ -1094995529, %6 ], [ -1, %decode_pivot.exit ], [ -1, %38 ], [ -1, %40 ], [ -1, %decode_pivot.exit62 ], [ -1, %67 ], [ -1, %69 ], [ -1, %10 ], [ 0, %copy_rectangles.exit.i ], [ %234, %233 ], [ %.050.i95.i, %decode_pixel.exit.i ], [ -1, %switch.early.test68.i ], [ -1, %switch.early.test.i ], [ -1, %235 ], [ -1, %185 ], [ -1, %180 ], [ -1, %175 ], [ -1, %170 ], [ -1, %165 ], [ 0, %210 ], [ 0, %244 ], [ 0, %.preheader113.lr.ph.i.i ], [ -1094995529, %83 ], [ -1, %24 ], [ -1, %34 ], [ -1, %53 ], [ -1, %63 ], [ 0, %225 ], [ -1094995529, %365 ], [ -1, %295 ], [ -1, %301 ], [ -1, %304 ], [ -1, %308 ], [ -1, %311 ], [ %.085.us.i.i, %decode_pixel.exit.us.i.i ], [ -1, %291 ], [ -1, %292 ], [ 0, %._crit_edge123.us.i.i ]
+  %.0 = phi i32 [ 0, %417 ], [ %78, %77 ], [ -1094995529, %6 ], [ -1, %decode_pivot.exit ], [ -1, %38 ], [ -1, %40 ], [ -1, %decode_pivot.exit62 ], [ -1, %67 ], [ -1, %69 ], [ -1, %10 ], [ 0, %copy_rectangles.exit.i ], [ %234, %233 ], [ %.050.i110.i, %decode_pixel.exit.i ], [ -1, %switch.early.test68.i ], [ -1, %switch.early.test.i ], [ -1, %235 ], [ -1, %185 ], [ -1, %180 ], [ -1, %175 ], [ -1, %170 ], [ -1, %165 ], [ 0, %210 ], [ 0, %244 ], [ 0, %.preheader113.lr.ph.i.i ], [ -1094995529, %83 ], [ -1, %24 ], [ -1, %34 ], [ -1, %53 ], [ -1, %63 ], [ 0, %225 ], [ -1094995529, %365 ], [ -1, %295 ], [ -1, %301 ], [ -1, %304 ], [ -1, %308 ], [ -1, %311 ], [ %.085.us.i.i, %decode_pixel.exit.us.i.i ], [ -1, %291 ], [ -1, %292 ], [ 0, %._crit_edge123.us.i.i ]
   ret i32 %.0
 }
 
@@ -1512,8 +1512,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_region_intra(ptr no
   br label %decode_pixel.exit
 
 decode_pixel.exit:                                ; preds = %49, %.loopexit, %._crit_edge
-  %.050.i97 = phi i32 [ %.050.i, %.loopexit ], [ %.050.i, %._crit_edge ], [ %52, %49 ]
-  %73 = icmp sgt i32 %.050.i97, -1
+  %.050.i99 = phi i32 [ %.050.i, %.loopexit ], [ %.050.i, %._crit_edge ], [ %52, %49 ]
+  %73 = icmp sgt i32 %.050.i99, -1
   br i1 %73, label %74, label %.thread
 
 74:                                               ; preds = %decode_pixel.exit
@@ -1522,10 +1522,10 @@ decode_pixel.exit:                                ; preds = %49, %.loopexit, %._
 
 .lr.ph83:                                         ; preds = %74
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %77 = zext nneg i32 %.050.i97 to i64
+  %77 = zext nneg i32 %.050.i99 to i64
   %78 = getelementptr inbounds nuw [256 x i32], ptr %76, i64 0, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !73
-  %80 = trunc i32 %.050.i97 to i8
+  %80 = trunc i32 %.050.i99 to i8
   %81 = sext i32 %4 to i64
   %82 = icmp sgt i32 %4, 0
   %83 = trunc i32 %79 to i8
@@ -1595,7 +1595,7 @@ decode_pixel.exit:                                ; preds = %49, %.loopexit, %._
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph83.split, %94, %74, %12, %decode_pixel.exit, %100
-  %.160 = phi i32 [ %111, %100 ], [ %.050.i97, %decode_pixel.exit ], [ -1094995529, %12 ], [ 0, %74 ], [ 0, %94 ], [ 0, %.lr.ph83.split ]
+  %.160 = phi i32 [ %111, %100 ], [ %.050.i99, %decode_pixel.exit ], [ -1094995529, %12 ], [ 0, %74 ], [ 0, %94 ], [ 0, %.lr.ph83.split ]
   ret i32 %.160
 }
 
@@ -2007,7 +2007,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_region(ptr noundef 
   %58 = load i8, ptr %57, align 1, !tbaa !10
   %59 = zext i8 %58 to i32
   %60 = icmp eq i32 %53, %59
-  br i1 %60, label %.loopexit.us.loopexit.split.loop.exit94, label %61
+  br i1 %60, label %.loopexit.us.loopexit.split.loop.exit98, label %61
 
 61:                                               ; preds = %.lr.ph.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2021,13 +2021,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_region(ptr noundef 
   %66 = zext i8 %65 to i32
   br label %.loopexit.us
 
-.loopexit.us.loopexit.split.loop.exit94:          ; preds = %.lr.ph.us
+.loopexit.us.loopexit.split.loop.exit98:          ; preds = %.lr.ph.us
   %67 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit.us
 
-.loopexit.us:                                     ; preds = %61, %.loopexit.us.loopexit.split.loop.exit94, %62
-  %.152.i.us = phi i32 [ %48, %62 ], [ %67, %.loopexit.us.loopexit.split.loop.exit94 ], [ %55, %61 ]
-  %.050.i.us = phi i32 [ %66, %62 ], [ %53, %.loopexit.us.loopexit.split.loop.exit94 ], [ %53, %61 ]
+.loopexit.us:                                     ; preds = %61, %.loopexit.us.loopexit.split.loop.exit98, %62
+  %.152.i.us = phi i32 [ %48, %62 ], [ %67, %.loopexit.us.loopexit.split.loop.exit98 ], [ %55, %61 ]
+  %.050.i.us = phi i32 [ %66, %62 ], [ %53, %.loopexit.us.loopexit.split.loop.exit98 ], [ %53, %61 ]
   %.not59.i.us = icmp eq i32 %.152.i.us, 0
   br i1 %.not59.i.us, label %decode_pixel.exit.us, label %.preheader.us
 

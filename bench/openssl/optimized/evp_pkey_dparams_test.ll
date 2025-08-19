@@ -143,8 +143,8 @@ define internal i32 @set_enc_pubkey_test(i32 noundef %0) #0 {
 20:                                               ; preds = %12
   %21 = call ptr @d2i_KeyParams_bio(i32 noundef %5, ptr noundef nonnull %2, ptr noundef %18) #3
   %22 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 287, ptr noundef nonnull @.str.4, ptr noundef %21) #3
-  %.not45 = icmp eq i32 %22, 0
-  br i1 %.not45, label %.critedge, label %.lr.ph
+  %.not42 = icmp eq i32 %22, 0
+  br i1 %.not42, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %44
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %20 ]
@@ -180,9 +180,9 @@ define internal i32 @set_enc_pubkey_test(i32 noundef %0) #0 {
 42:                                               ; preds = %36, %28
   %.1.in.in = phi i32 [ %34, %28 ], [ %41, %36 ]
   %.1.in.not = icmp eq i32 %.1.in.in, 0
-  br i1 %.1.in.not, label %.thread41, label %44
+  br i1 %.1.in.not, label %.thread44, label %44
 
-.thread41:                                        ; preds = %42
+.thread44:                                        ; preds = %42
   %43 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 306, ptr noundef nonnull @.str.14, i32 noundef %43) #3
   br label %.critedge
@@ -192,8 +192,8 @@ define internal i32 @set_enc_pubkey_test(i32 noundef %0) #0 {
   %45 = icmp samesign ult i64 %indvars.iv, 9
   br i1 %45, label %.lr.ph, label %.critedge, !llvm.loop !21
 
-.critedge:                                        ; preds = %.lr.ph, %44, %12, %.thread41, %20
-  %.029.lcssa = phi i32 [ 0, %20 ], [ 0, %.thread41 ], [ 0, %12 ], [ 1, %44 ], [ 1, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %44, %12, %.thread44, %20
+  %.029.lcssa = phi i32 [ 0, %20 ], [ 0, %.thread44 ], [ 0, %12 ], [ 1, %44 ], [ 1, %.lr.ph ]
   %46 = call i32 @BIO_free(ptr noundef %18) #3
   %47 = load ptr, ptr %2, align 8, !tbaa !4
   call void @EVP_PKEY_free(ptr noundef %47) #3

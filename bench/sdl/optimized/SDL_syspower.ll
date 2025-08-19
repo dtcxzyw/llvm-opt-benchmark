@@ -100,28 +100,28 @@ define hidden noundef zeroext i1 @SDL_GetPowerInfo_Linux_proc_acpi(ptr noundef w
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 %24
   store i8 0, ptr %28, align 1
-  br label %.outer240
+  br label %.outer253
 
-.outer240:                                        ; preds = %47, %27
+.outer253:                                        ; preds = %47, %27
   %.138.ph = phi i1 [ %spec.select, %47 ], [ %.03787, %27 ]
   %.070.i.ph = phi ptr [ %.272.i, %47 ], [ %6, %27 ]
-  %.033.i.ph = phi i32 [ %.033.i.ph243, %47 ], [ -1, %27 ]
-  %.0.i.ph = phi i1 [ %.0.i.ph247, %47 ], [ false, %27 ]
-  br label %.outer241
+  %.033.i.ph = phi i32 [ %.033.i.ph256, %47 ], [ -1, %27 ]
+  %.0.i.ph = phi i1 [ %.0.i.ph260, %47 ], [ false, %27 ]
+  br label %.outer254
 
-.outer241:                                        ; preds = %.outer240, %62
-  %.070.i.ph242 = phi ptr [ %.070.i.ph, %.outer240 ], [ %.272.i, %62 ]
-  %.033.i.ph243 = phi i32 [ %.033.i.ph, %.outer240 ], [ %spec.select37.i, %62 ]
-  %.0.i.ph244 = phi i1 [ %.0.i.ph, %.outer240 ], [ %.0.i.ph247, %62 ]
-  br label %.outer245
+.outer254:                                        ; preds = %.outer253, %62
+  %.070.i.ph255 = phi ptr [ %.070.i.ph, %.outer253 ], [ %.272.i, %62 ]
+  %.033.i.ph256 = phi i32 [ %.033.i.ph, %.outer253 ], [ %spec.select37.i, %62 ]
+  %.0.i.ph257 = phi i1 [ %.0.i.ph, %.outer253 ], [ %.0.i.ph260, %62 ]
+  br label %.outer258
 
-.outer245:                                        ; preds = %.outer245.backedge, %.outer241
-  %.070.i.ph246 = phi ptr [ %.070.i.ph242, %.outer241 ], [ %.272.i, %.outer245.backedge ]
-  %.0.i.ph247 = phi i1 [ %.0.i.ph244, %.outer241 ], [ %.0.i.ph247.be, %.outer245.backedge ]
+.outer258:                                        ; preds = %.outer258.backedge, %.outer254
+  %.070.i.ph259 = phi ptr [ %.070.i.ph255, %.outer254 ], [ %.272.i, %.outer258.backedge ]
+  %.0.i.ph260 = phi i1 [ %.0.i.ph257, %.outer254 ], [ %.0.i.ph260.be, %.outer258.backedge ]
   br label %29
 
-29:                                               ; preds = %.outer245, %59
-  %.070.i = phi ptr [ %.272.i, %59 ], [ %.070.i.ph246, %.outer245 ]
+29:                                               ; preds = %.outer258, %59
+  %.070.i = phi ptr [ %.272.i, %59 ], [ %.070.i.ph259, %.outer258 ]
   br label %30
 
 30:                                               ; preds = %32, %29
@@ -190,7 +190,7 @@ make_proc_acpi_key_val.exit.i:                    ; preds = %.preheader102.i, %4
   %48 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.2.i.i, ptr noundef nonnull @.str.24) #6
   %49 = icmp eq i32 %48, 0
   %spec.select = select i1 %49, i1 true, i1 %.138.ph
-  br label %.outer240, !llvm.loop !7
+  br label %.outer253, !llvm.loop !7
 
 50:                                               ; preds = %make_proc_acpi_key_val.exit.i
   %51 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.0.i44.i, ptr noundef nonnull @.str.25) #6
@@ -200,17 +200,17 @@ make_proc_acpi_key_val.exit.i:                    ; preds = %.preheader102.i, %4
 53:                                               ; preds = %50
   %54 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.2.i.i, ptr noundef nonnull @.str.26) #6
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %.outer245.backedge, label %56
+  br i1 %55, label %.outer258.backedge, label %56
 
-.outer245.backedge:                               ; preds = %53, %56
-  %.0.i.ph247.be = phi i1 [ %spec.select.i, %56 ], [ true, %53 ]
-  br label %.outer245, !llvm.loop !7
+.outer258.backedge:                               ; preds = %53, %56
+  %.0.i.ph260.be = phi i1 [ %spec.select.i, %56 ], [ true, %53 ]
+  br label %.outer258, !llvm.loop !7
 
 56:                                               ; preds = %53
   %57 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.2.i.i, ptr noundef nonnull @.str.27) #6
   %58 = icmp eq i32 %57, 0
-  %spec.select.i = select i1 %58, i1 true, i1 %.0.i.ph247
-  br label %.outer245.backedge
+  %spec.select.i = select i1 %58, i1 true, i1 %.0.i.ph260
+  br label %.outer258.backedge
 
 59:                                               ; preds = %50
   %60 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.0.i44.i, ptr noundef nonnull @.str.28) #6
@@ -225,9 +225,9 @@ make_proc_acpi_key_val.exit.i:                    ; preds = %.preheader102.i, %4
   %65 = load i8, ptr %64, align 1
   %66 = icmp eq i8 %65, 32
   %67 = trunc i64 %63 to i32
-  %spec.select37.i = select i1 %66, i32 %67, i32 %.033.i.ph243
+  %spec.select37.i = select i1 %66, i32 %67, i32 %.033.i.ph256
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.outer241, !llvm.loop !7
+  br label %.outer254, !llvm.loop !7
 
 .loopexit103.i.preheader:                         ; preds = %30, %.preheader104.i, %38
   br label %.loopexit103.i.outer
@@ -317,12 +317,12 @@ make_proc_acpi_key_val.exit53.i:                  ; preds = %.preheader.i, %81
 
 .loopexit.i:                                      ; preds = %68, %.preheader99.i, %76
   %91 = icmp sgt i32 %.031.i.ph, -1
-  %92 = icmp sgt i32 %.033.i.ph243, -1
+  %92 = icmp sgt i32 %.033.i.ph256, -1
   %or.cond.i = select i1 %91, i1 %92, i1 false
-  br i1 %or.cond.i, label %93, label %.thread160.i
+  br i1 %or.cond.i, label %93, label %.thread165.i
 
 93:                                               ; preds = %.loopexit.i
-  %94 = uitofp nneg i32 %.033.i.ph243 to float
+  %94 = uitofp nneg i32 %.033.i.ph256 to float
   %95 = uitofp nneg i32 %.031.i.ph to float
   %96 = fdiv float %94, %95
   %97 = fmul float %96, 1.000000e+02
@@ -335,7 +335,7 @@ make_proc_acpi_key_val.exit53.i:                  ; preds = %.preheader.i, %81
 102:                                              ; preds = %93
   br i1 %101, label %105, label %check_proc_acpi_battery.exit
 
-.thread160.i:                                     ; preds = %.loopexit.i
+.thread165.i:                                     ; preds = %.loopexit.i
   %103 = load i32, ptr %1, align 4
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %107, label %check_proc_acpi_battery.exit
@@ -352,13 +352,13 @@ make_proc_acpi_key_val.exit53.i:                  ; preds = %.preheader.i, %81
   %.pre159.i = load i32, ptr %2, align 4
   br label %.thread93.i
 
-107:                                              ; preds = %.thread160.i
-  %.pre159165.i = load i32, ptr %2, align 4
-  %108 = icmp slt i32 %.pre159165.i, 0
+107:                                              ; preds = %.thread165.i
+  %.pre159170.i = load i32, ptr %2, align 4
+  %108 = icmp slt i32 %.pre159170.i, 0
   br label %.thread93.i
 
 .thread93.i:                                      ; preds = %107, %105, %.thread..thread93_crit_edge.i
-  %109 = phi i32 [ %.pre159.i, %105 ], [ %.pre159165.i, %107 ], [ %.pre.i, %.thread..thread93_crit_edge.i ]
+  %109 = phi i32 [ %.pre159.i, %105 ], [ %.pre159170.i, %107 ], [ %.pre.i, %.thread..thread93_crit_edge.i ]
   %.0309095.i = phi i32 [ %106, %105 ], [ -1, %107 ], [ 0, %.thread..thread93_crit_edge.i ]
   %.028.i = phi i1 [ false, %105 ], [ %108, %107 ], [ false, %.thread..thread93_crit_edge.i ]
   %110 = icmp sgt i32 %.0309095.i, %109
@@ -370,9 +370,9 @@ make_proc_acpi_key_val.exit53.i:                  ; preds = %.preheader.i, %81
   store i32 %.0309095.i, ptr %2, align 4
   br label %check_proc_acpi_battery.exit
 
-check_proc_acpi_battery.exit:                     ; preds = %.lr.ph, %15, %19, %23, %102, %.thread160.i, %.thread.i, %.thread93.i, %111
-  %.340 = phi i1 [ %.03787, %.lr.ph ], [ %.03787, %15 ], [ %.03787, %19 ], [ %.03787, %23 ], [ %.138.ph, %111 ], [ %.138.ph, %.thread93.i ], [ %.138.ph, %.thread.i ], [ %.138.ph, %102 ], [ %.138.ph, %.thread160.i ]
-  %.1 = phi i1 [ %.03488, %.lr.ph ], [ %.03488, %15 ], [ %.03488, %19 ], [ %.03488, %23 ], [ %.0.i.ph247, %111 ], [ %.03488, %.thread93.i ], [ %.03488, %.thread.i ], [ %.03488, %102 ], [ %.03488, %.thread160.i ]
+check_proc_acpi_battery.exit:                     ; preds = %.lr.ph, %15, %19, %23, %102, %.thread165.i, %.thread.i, %.thread93.i, %111
+  %.340 = phi i1 [ %.03787, %.lr.ph ], [ %.03787, %15 ], [ %.03787, %19 ], [ %.03787, %23 ], [ %.138.ph, %111 ], [ %.138.ph, %.thread93.i ], [ %.138.ph, %.thread.i ], [ %.138.ph, %102 ], [ %.138.ph, %.thread165.i ]
+  %.1 = phi i1 [ %.03488, %.lr.ph ], [ %.03488, %15 ], [ %.03488, %19 ], [ %.03488, %23 ], [ %.0.i.ph260, %111 ], [ %.03488, %.thread93.i ], [ %.03488, %.thread.i ], [ %.03488, %102 ], [ %.03488, %.thread165.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %112 = call ptr @readdir(ptr noundef nonnull %9) #6
@@ -503,8 +503,8 @@ check_proc_acpi_ac_adapter.exit:                  ; preds = %127, %.preheader16.
 ._crit_edge93:                                    ; preds = %._crit_edge93.loopexit, %.preheader
   %.035.lcssa = phi i32 [ 1, %.preheader ], [ %148, %._crit_edge93.loopexit ]
   %149 = call i32 @closedir(ptr noundef nonnull %114)
-  %spec.select181 = select i1 %.034.lcssa, i32 3, i32 %.035.lcssa
-  %.sink = select i1 %.037.lcssa, i32 %spec.select181, i32 2
+  %spec.select194 = select i1 %.034.lcssa, i32 3, i32 %.035.lcssa
+  %.sink = select i1 %.037.lcssa, i32 %spec.select194, i32 2
   store i32 %.sink, ptr %0, align 4
   br label %150
 
@@ -1188,10 +1188,10 @@ read_power_file.exit74.thread:                    ; preds = %90, %87, %94
   %119 = icmp slt i32 %.051, 0
   %.pre = load i32, ptr %2, align 4
   %120 = icmp slt i32 %.pre, 0
-  %or.cond95 = select i1 %119, i1 %120, i1 false
+  %or.cond117 = select i1 %119, i1 %120, i1 false
   %121 = icmp sgt i32 %.051, %.pre
-  %or.cond96 = select i1 %or.cond95, i1 true, i1 %121
-  br i1 %or.cond96, label %.critedge, label %read_power_file.exit.thread
+  %or.cond118 = select i1 %or.cond117, i1 true, i1 %121
+  br i1 %or.cond118, label %.critedge, label %read_power_file.exit.thread
 
 .thread92:                                        ; preds = %82, %109, %.thread86
   %.05290 = phi i32 [ %.05291, %.thread86 ], [ %114, %109 ], [ %84, %82 ]

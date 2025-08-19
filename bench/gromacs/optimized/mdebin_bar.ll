@@ -1078,13 +1078,13 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store double 0.000000e+00, ptr %5, align 8, !tbaa !147
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !147
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -1203,13 +1203,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !145
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !145
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -1302,7 +1302,7 @@ define linkonce_odr void @_ZNSt6vectorI13t_mde_delta_hSaIS0_EE17_M_default_appen
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIP13t_mde_delta_hmS0_ET_S2_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIP13t_mde_delta_hmS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 272
+  %19 = mul nuw nsw i64 %1, 272
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !169
@@ -1668,13 +1668,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !210
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !210
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -2175,7 +2175,7 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
 
 .preheader:                                       ; preds = %3
   %33 = icmp sgt i32 %.pre, 0
-  br i1 %33, label %.lr.ph, label %.loopexit84
+  br i1 %33, label %.lr.ph, label %.loopexit93
 
 .lr.ph:                                           ; preds = %.preheader
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2192,7 +2192,7 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
   store double %38, ptr %40, align 8, !tbaa !147
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit84, label %36, !llvm.loop !227
+  br i1 %exitcond.not, label %.loopexit93, label %36, !llvm.loop !227
 
 .loopexit:                                        ; preds = %3
   store i32 4, ptr %8, align 8, !tbaa !228
@@ -2206,7 +2206,7 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
   store ptr %17, ptr %45, align 8, !tbaa !238
   br label %70
 
-.loopexit84:                                      ; preds = %36, %.preheader
+.loopexit93:                                      ; preds = %36, %.preheader
   store i32 4, ptr %8, align 8, !tbaa !228
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %47 = add nsw i32 %.pre, 5
@@ -2228,8 +2228,8 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
   %58 = icmp sgt i32 %56, 0
   br i1 %58, label %.lr.ph65, label %._crit_edge
 
-.lr.ph65:                                         ; preds = %.loopexit84, %.lr.ph65
-  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %.lr.ph65 ], [ 0, %.loopexit84 ]
+.lr.ph65:                                         ; preds = %.loopexit93, %.lr.ph65
+  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %.lr.ph65 ], [ 0, %.loopexit93 ]
   %59 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv74
   %60 = load i32, ptr %59, align 4, !tbaa !145
   %61 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv74
@@ -2241,8 +2241,8 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
   %65 = icmp slt i64 %indvars.iv.next75, %64
   br i1 %65, label %.lr.ph65, label %._crit_edge, !llvm.loop !239
 
-._crit_edge:                                      ; preds = %.lr.ph65, %.loopexit84
-  %.lcssa62 = phi i32 [ %56, %.loopexit84 ], [ %63, %.lr.ph65 ]
+._crit_edge:                                      ; preds = %.lr.ph65, %.loopexit93
+  %.lcssa62 = phi i32 [ %56, %.loopexit93 ], [ %63, %.lr.ph65 ]
   %66 = add nsw i32 %.lcssa62, 2
   %67 = getelementptr inbounds nuw i8, ptr %49, i64 80
   store i32 %66, ptr %67, align 8, !tbaa !232
@@ -2975,7 +2975,7 @@ define linkonce_odr void @_ZNSt6vectorIS_IfSaIfEESaIS1_EE17_M_default_appendEm(p
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIfSaIfEEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIfSaIfEEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !259

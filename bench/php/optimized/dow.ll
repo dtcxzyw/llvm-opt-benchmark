@@ -197,19 +197,19 @@ define hidden void @timelib_isoweek_from_date(i64 noundef %0, i64 noundef %1, i6
   %27 = srem i64 %0, 400
   %28 = icmp eq i64 %27, 0
   %or.cond.i = or i1 %.not.i, %28
-  %spec.select89 = select i1 %or.cond.i, ptr @d_table_leap, ptr @d_table_common
-  %29 = getelementptr inbounds [13 x i32], ptr %spec.select89, i64 0, i64 %1
+  %spec.select91 = select i1 %or.cond.i, ptr @d_table_leap, ptr @d_table_common
+  %29 = getelementptr inbounds [13 x i32], ptr %spec.select91, i64 0, i64 %1
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = trunc i64 %2 to i32
   %32 = add i32 %30, %31
   %33 = icmp sgt i64 %1, 2
-  %or.cond78 = and i1 %33, %14
-  %34 = zext i1 %or.cond78 to i32
-  %spec.select79 = add i32 %32, %34
+  %or.cond80 = and i1 %33, %14
+  %34 = zext i1 %or.cond80 to i32
+  %spec.select81 = add i32 %32, %34
   %.not.i.i = icmp ne i64 %26, 0
   %35 = icmp eq i64 %27, 0
   %or.cond.i.i = or i1 %.not.i.i, %35
-  %spec.select91 = select i1 %or.cond.i.i, ptr @m_table_leap, ptr @m_table_common
+  %spec.select93 = select i1 %or.cond.i.i, ptr @m_table_leap, ptr @m_table_common
   br label %timelib_day_of_week.exit
 
 timelib_day_of_year.exit:                         ; preds = %23
@@ -226,17 +226,17 @@ timelib_day_of_year.exit:                         ; preds = %23
   br label %timelib_day_of_week.exit
 
 timelib_day_of_week.exit:                         ; preds = %25, %timelib_day_of_year.exit
-  %spec.select87 = phi i32 [ %spec.select, %timelib_day_of_year.exit ], [ %spec.select79, %25 ]
-  %.pre-phi84 = phi i64 [ %.pre74, %timelib_day_of_year.exit ], [ %27, %25 ]
-  %.pre-phi7381 = phi i64 [ %.pre, %timelib_day_of_year.exit ], [ %26, %25 ]
-  %m_table_common.sink.i.i = phi ptr [ @m_table_common, %timelib_day_of_year.exit ], [ %spec.select91, %25 ]
+  %spec.select89 = phi i32 [ %spec.select, %timelib_day_of_year.exit ], [ %spec.select81, %25 ]
+  %.pre-phi86 = phi i64 [ %.pre74, %timelib_day_of_year.exit ], [ %27, %25 ]
+  %.pre-phi7383 = phi i64 [ %.pre, %timelib_day_of_year.exit ], [ %26, %25 ]
+  %m_table_common.sink.i.i = phi ptr [ @m_table_common, %timelib_day_of_year.exit ], [ %spec.select93, %25 ]
   %42 = getelementptr inbounds nuw i8, ptr %m_table_common.sink.i.i, i64 4
-  %43 = icmp slt i64 %.pre-phi7381, 0
+  %43 = icmp slt i64 %.pre-phi7383, 0
   %44 = select i1 %43, i64 100, i64 0
-  %spec.select.i17.i.i = add nsw i64 %44, %.pre-phi7381
-  %45 = icmp slt i64 %.pre-phi84, 0
+  %spec.select.i17.i.i = add nsw i64 %44, %.pre-phi7383
+  %45 = icmp slt i64 %.pre-phi86, 0
   %46 = select i1 %45, i64 400, i64 0
-  %spec.select.i.i.i = add nsw i64 %46, %.pre-phi84
+  %spec.select.i.i.i = add nsw i64 %46, %.pre-phi86
   %.lhs.trunc.i.i = trunc nuw nsw i64 %spec.select.i.i.i to i16
   %47 = udiv i16 %.lhs.trunc.i.i, 100
   %48 = shl nuw nsw i16 %47, 1
@@ -256,8 +256,8 @@ timelib_day_of_week.exit:                         ; preds = %25, %timelib_day_of
   br i1 %7, label %61, label %63
 
 61:                                               ; preds = %timelib_day_of_week.exit
-  %.not.i.i66 = icmp ne i64 %.pre-phi7381, 0
-  %62 = icmp eq i64 %.pre-phi84, 0
+  %.not.i.i66 = icmp ne i64 %.pre-phi7383, 0
+  %62 = icmp eq i64 %.pre-phi86, 0
   %or.cond.i.i67 = or i1 %.not.i.i66, %62
   br i1 %or.cond.i.i67, label %timelib_day_of_week.exit68, label %63
 
@@ -284,7 +284,7 @@ timelib_day_of_week.exit68:                       ; preds = %61, %63
   %76 = icmp eq i64 %spec.select.i18.i.i, 0
   %spec.store.select6 = select i1 %76, i32 7, i32 %60
   %77 = sub nsw i32 8, %spec.store.select6
-  %78 = icmp sle i32 %spec.select87, %77
+  %78 = icmp sle i32 %spec.select89, %77
   %79 = icmp sgt i32 %spec.store.select6, 4
   %or.cond3 = and i1 %79, %78
   br i1 %or.cond3, label %80, label %85
@@ -316,7 +316,7 @@ timelib_day_of_week.exit68:                       ; preds = %61, %63
 
 89:                                               ; preds = %86
   %.neg70 = select i1 %14, i32 367, i32 365
-  %90 = sub i32 %.neg70, %spec.select87
+  %90 = sub i32 %.neg70, %spec.select89
   %91 = sub nsw i32 4, %spec.store.select
   %.not58 = icmp slt i32 %90, %91
   br i1 %.not58, label %92, label %94
@@ -327,7 +327,7 @@ timelib_day_of_week.exit68:                       ; preds = %61, %63
   br label %.critedge.sink.split
 
 94:                                               ; preds = %89
-  %reass.sub = add i32 %spec.select87, 6
+  %reass.sub = add i32 %spec.select89, 6
   %95 = add i32 %reass.sub, %spec.store.select6
   %96 = sub i32 %95, %spec.store.select
   %97 = sdiv i32 %96, 7
@@ -545,34 +545,34 @@ timelib_daynr_from_weeknr.exit:                   ; preds = %11, %13
   %57 = icmp slt i64 %56, 1
   br i1 %57, label %.lr.ph, label %..preheader_crit_edge
 
-.lr.ph47:                                         ; preds = %.preheader, %.thread69
-  %58 = phi i64 [ %61, %.thread69 ], [ %.promoted50, %.preheader ]
-  %59 = phi i64 [ %70, %.thread69 ], [ %44, %.preheader ]
-  %.13346 = phi i64 [ %60, %.thread69 ], [ %.032.lcssa, %.preheader ]
+.lr.ph47:                                         ; preds = %.preheader, %.thread76
+  %58 = phi i64 [ %61, %.thread76 ], [ %.promoted50, %.preheader ]
+  %59 = phi i64 [ %70, %.thread76 ], [ %44, %.preheader ]
+  %.13346 = phi i64 [ %60, %.thread76 ], [ %.032.lcssa, %.preheader ]
   %60 = sub nuw nsw i64 %.13346, %59
   %61 = add i64 %58, 1
   %62 = and i64 %61, 3
   %63 = icmp eq i64 %62, 0
-  br i1 %63, label %64, label %.thread69
+  br i1 %63, label %64, label %.thread76
 
 64:                                               ; preds = %.lr.ph47
   %65 = srem i64 %61, 100
   %.not36 = icmp eq i64 %65, 0
-  br i1 %.not36, label %66, label %.thread69
+  br i1 %.not36, label %66, label %.thread76
 
 66:                                               ; preds = %64
   %67 = srem i64 %61, 400
   %68 = icmp eq i64 %67, 0
-  %spec.select78 = select i1 %68, i64 366, i64 365
-  br label %.thread69
+  %spec.select85 = select i1 %68, i64 366, i64 365
+  br label %.thread76
 
-.thread69:                                        ; preds = %66, %64, %.lr.ph47
+.thread76:                                        ; preds = %66, %64, %.lr.ph47
   %69 = phi i1 [ false, %.lr.ph47 ], [ true, %64 ], [ %68, %66 ]
-  %70 = phi i64 [ 365, %.lr.ph47 ], [ 366, %64 ], [ %spec.select78, %66 ]
+  %70 = phi i64 [ 365, %.lr.ph47 ], [ 366, %64 ], [ %spec.select85, %66 ]
   %71 = icmp sgt i64 %60, %70
   br i1 %71, label %.lr.ph47, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.thread69
+._crit_edge:                                      ; preds = %.thread76
   store i64 %61, ptr %3, align 8, !tbaa !8
   br label %72
 

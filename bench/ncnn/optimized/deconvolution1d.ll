@@ -1017,8 +1017,8 @@ _ZNK4ncnn3Mat5emptyEv.exit150:                    ; preds = %41
   %50 = icmp slt i32 %17, 1
   %51 = icmp slt i32 %15, 1
   %52 = icmp slt i32 %13, 1
-  %or.cond191.not195 = select i1 %50, i1 true, i1 %52
-  %brmerge = select i1 %or.cond191.not195, i1 true, i1 %51
+  %or.cond225.not229 = select i1 %50, i1 true, i1 %52
+  %brmerge = select i1 %or.cond225.not229, i1 true, i1 %51
   br i1 %brmerge, label %.split.us, label %.preheader155.us.us.us.us.us.preheader
 
 .preheader155.us.us.us.us.us.preheader:           ; preds = %.preheader156
@@ -1040,15 +1040,15 @@ _ZNK4ncnn3Mat5emptyEv.exit150:                    ; preds = %41
   %60 = add nuw nsw i64 %indvars.iv178, %56
   %61 = mul nuw nsw i64 %60, %54
   %invariant.gep = getelementptr inbounds nuw float, ptr %49, i64 %59
-  %invariant.gep189 = getelementptr inbounds nuw float, ptr %42, i64 %61
+  %invariant.gep223 = getelementptr inbounds nuw float, ptr %42, i64 %61
   br label %62
 
 62:                                               ; preds = %62, %.preheader.us.us.us.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %62 ], [ 0, %.preheader.us.us.us.us.us.us ]
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
   %63 = load float, ptr %gep, align 4, !tbaa !56
-  %gep190 = getelementptr inbounds nuw float, ptr %invariant.gep189, i64 %indvars.iv
-  store float %63, ptr %gep190, align 4, !tbaa !56
+  %gep224 = getelementptr inbounds nuw float, ptr %invariant.gep223, i64 %indvars.iv
+  store float %63, ptr %gep224, align 4, !tbaa !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %54
   br i1 %exitcond.not, label %._crit_edge.us.us.us.us.us.us, label %62, !llvm.loop !58
@@ -1763,10 +1763,10 @@ _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %48, %63, %64, %59, 
   br label %_ZN4ncnn3MataSERKS0_.exit.invoke
 
 _ZN4ncnn3MataSERKS0_.exit.invoke:                 ; preds = %46, %_ZN4ncnn3Mat7releaseEv.exit.i, %4
-  %.sink43 = phi i64 [ 16, %4 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %46 ]
+  %.sink55 = phi i64 [ 16, %4 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %46 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %86 = load i32, ptr %85, align 8, !tbaa !18
-  %87 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink43
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink55
   %88 = load ptr, ptr %87, align 8, !tbaa !62
   invoke void @_ZN4ncnn3Mat6createEiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %24, i32 noundef %86, i64 noundef %9, ptr noundef %88)
           to label %89 unwind label %44
@@ -2038,8 +2038,8 @@ define hidden void @_ZNK4ncnn15Deconvolution1D11cut_paddingERKNS_3MatERS1_RKNS_6
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 228
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !38
   %8 = icmp sgt i32 %.pre, 0
-  %or.cond21 = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond21, label %._crit_edge, label %9
+  %or.cond29 = select i1 %7, i1 true, i1 %8
+  br i1 %or.cond29, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %4
   tail call void @_ZN4ncnn15copy_cut_borderERKNS_3MatERS0_iiiiRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 0, i32 noundef 0, i32 noundef %6, i32 noundef %.pre, ptr noundef nonnull align 8 dereferenceable(64) %3)

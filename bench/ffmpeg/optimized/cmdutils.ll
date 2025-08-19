@@ -3131,7 +3131,7 @@ define range(i32 0, 2) i32 @stream_specifier_match(ptr noundef readonly captures
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load i64, ptr %50, align 8, !tbaa !143
   %52 = icmp eq i64 %10, %51
-  br i1 %52, label %._crit_edge.thread184, label %46
+  br i1 %52, label %._crit_edge.thread193, label %46
 
 .thread135:                                       ; preds = %4
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3152,7 +3152,7 @@ define range(i32 0, 2) i32 @stream_specifier_match(ptr noundef readonly captures
   %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %54
   %64 = load ptr, ptr %63, align 8, !tbaa !141
   %.not = icmp eq ptr %64, null
-  br i1 %.not, label %._crit_edge.thread, label %._crit_edge.thread184
+  br i1 %.not, label %._crit_edge.thread, label %._crit_edge.thread193
 
 ._crit_edge.thread:                               ; preds = %46, %.preheader152, %.thread135, %56, %._crit_edge
   %65 = icmp eq i32 %6, 3
@@ -3162,9 +3162,9 @@ define range(i32 0, 2) i32 @stream_specifier_match(ptr noundef readonly captures
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 24, ptr noundef nonnull @.str.85, ptr noundef nonnull %66, i64 noundef %68) #15
   br label %.loopexit
 
-._crit_edge.thread184:                            ; preds = %47, %._crit_edge
-  %.392187 = phi ptr [ %64, %._crit_edge ], [ %49, %47 ]
-  %69 = getelementptr inbounds nuw i8, ptr %.392187, i64 56
+._crit_edge.thread193:                            ; preds = %47, %._crit_edge
+  %.392196 = phi ptr [ %64, %._crit_edge ], [ %49, %47 ]
+  %69 = getelementptr inbounds nuw i8, ptr %.392196, i64 56
   %70 = load i32, ptr %69, align 8, !tbaa !145
   br label %72
 
@@ -3173,31 +3173,31 @@ define range(i32 0, 2) i32 @stream_specifier_match(ptr noundef readonly captures
   tail call void @abort() #17
   unreachable
 
-72:                                               ; preds = %._crit_edge.thread184, %43, %32
-  %.0105 = phi i32 [ %..pre181, %32 ], [ 0, %43 ], [ 0, %._crit_edge.thread184 ]
-  %.0104 = phi i32 [ %34, %32 ], [ %45, %43 ], [ %70, %._crit_edge.thread184 ]
-  %.093 = phi ptr [ null, %32 ], [ %38, %43 ], [ null, %._crit_edge.thread184 ]
-  %.190 = phi ptr [ null, %32 ], [ null, %43 ], [ %.392187, %._crit_edge.thread184 ]
+72:                                               ; preds = %._crit_edge.thread193, %43, %32
+  %.0105 = phi i32 [ %..pre181, %32 ], [ 0, %43 ], [ 0, %._crit_edge.thread193 ]
+  %.0104 = phi i32 [ %34, %32 ], [ %45, %43 ], [ %70, %._crit_edge.thread193 ]
+  %.093 = phi ptr [ null, %32 ], [ %38, %43 ], [ null, %._crit_edge.thread193 ]
+  %.190 = phi ptr [ null, %32 ], [ null, %43 ], [ %.392196, %._crit_edge.thread193 ]
   %.not132160 = icmp slt i32 %.0105, %.0104
   br i1 %.not132160, label %.lr.ph164, label %.loopexit
 
 .lr.ph164:                                        ; preds = %.thread, %72
-  %.190196 = phi ptr [ null, %.thread ], [ %.190, %72 ]
-  %.093195 = phi ptr [ null, %.thread ], [ %.093, %72 ]
-  %.0104194 = phi i32 [ %31, %.thread ], [ %.0104, %72 ]
-  %.0105193 = phi i32 [ %30, %.thread ], [ %.0105, %72 ]
+  %.190205 = phi ptr [ null, %.thread ], [ %.190, %72 ]
+  %.093204 = phi ptr [ null, %.thread ], [ %.093, %72 ]
+  %.0104203 = phi i32 [ %31, %.thread ], [ %.0104, %72 ]
+  %.0105202 = phi i32 [ %30, %.thread ], [ %.0105, %72 ]
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.not115 = icmp eq ptr %.190196, null
-  %74 = getelementptr inbounds nuw i8, ptr %.190196, i64 64
-  %.not116 = icmp eq ptr %.093195, null
-  %75 = getelementptr inbounds nuw i8, ptr %.093195, i64 16
+  %.not115 = icmp eq ptr %.190205, null
+  %74 = getelementptr inbounds nuw i8, ptr %.190205, i64 64
+  %.not116 = icmp eq ptr %.093204, null
+  %75 = getelementptr inbounds nuw i8, ptr %.093204, i64 16
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %82 = sext i32 %.0105193 to i64
+  %82 = sext i32 %.0105202 to i64
   br label %83
 
 83:                                               ; preds = %.lr.ph164, %.thread138
@@ -3359,7 +3359,7 @@ define range(i32 0, 2) i32 @stream_specifier_match(ptr noundef readonly captures
   %.1103.ph = phi i32 [ %.0102161, %153 ], [ %.0102161, %103 ], [ %.0102161, %109 ], [ %160, %159 ], [ %.0102161, %115 ], [ %.0102161, %121 ], [ %.0102161, %137 ], [ %.0102161, %134 ], [ %.0102161, %131 ], [ %.0102161, %147 ], [ %.0102161, %144 ], [ %.0102161, %141 ], [ %.0102161, %127 ]
   %indvars.iv.next176 = add nsw i64 %indvars.iv175, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next176 to i32
-  %exitcond178.not = icmp eq i32 %.0104194, %lftr.wideiv
+  %exitcond178.not = icmp eq i32 %.0104203, %lftr.wideiv
   br i1 %exitcond178.not, label %.loopexit, label %83, !llvm.loop !164
 
 .loopexit:                                        ; preds = %.thread138, %72, %161, %23, %._crit_edge.thread, %._crit_edge159

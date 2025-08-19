@@ -545,14 +545,14 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
   br i1 %29, label %.split25.us.split.us.split.preheader, label %.split25.us.split.split
 
 .split25.us.split.us.split.preheader:             ; preds = %.split25.us
-  br i1 %22, label %.lr.ph65, label %56
+  br i1 %22, label %.lr.ph78, label %56
 
-.lr.ph65:                                         ; preds = %.split25.us.split.us.split.preheader
+.lr.ph78:                                         ; preds = %.split25.us.split.us.split.preheader
   %35 = load i8, ptr %30, align 8, !range !5, !noundef !6
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %37, label %.thread13.us.us
 
-37:                                               ; preds = %.lr.ph65
+37:                                               ; preds = %.lr.ph78
   %38 = load ptr, ptr %31, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %40 = load ptr, ptr %39, align 8
@@ -577,9 +577,9 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 200
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %.thread13.us.us, label %.thread48
+  br i1 %55, label %.thread13.us.us, label %.thread61
 
-.thread48:                                        ; preds = %52
+.thread61:                                        ; preds = %52
   store ptr null, ptr %6, align 8
   br label %.thread13.us.us.thread
 
@@ -597,12 +597,12 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
   call void @bio_put(ptr noundef nonnull %.pre47) #6
   br label %.thread13.us.us.thread
 
-.thread13.us.us.thread:                           ; preds = %.thread48, %61, %56
-  %.ph = phi i32 [ 0, %.thread48 ], [ %57, %56 ], [ %62, %61 ]
+.thread13.us.us.thread:                           ; preds = %.thread61, %61, %56
+  %.ph = phi i32 [ 0, %.thread61 ], [ %57, %56 ], [ %62, %61 ]
   call void @blk_finish_plug(ptr noundef nonnull %7) #6
   br label %.loopexit14
 
-.thread13.us.us:                                  ; preds = %52, %49, %44, %37, %.lr.ph65
+.thread13.us.us:                                  ; preds = %52, %49, %44, %37, %.lr.ph78
   call void @blk_finish_plug(ptr noundef nonnull %7) #6
   call void @blk_start_plug(ptr noundef nonnull %7) #6
   br label %56
@@ -647,7 +647,7 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
   br label %.loopexit14
 
 .split28.us.split:                                ; preds = %81, %63, %66, %73, %78
-  %.ph49 = phi i32 [ -95, %78 ], [ -1, %73 ], [ -1, %66 ], [ -1, %63 ], [ -95, %81 ]
+  %.ph62 = phi i32 [ -95, %78 ], [ -1, %73 ], [ -1, %66 ], [ -1, %63 ], [ -95, %81 ]
   call void @blk_finish_plug(ptr noundef nonnull %7) #6
   br label %.split28
 
@@ -790,7 +790,7 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
   br i1 %29, label %.split25, label %.split28
 
 .split28:                                         ; preds = %158, %.split28.us.split
-  %.us-phi29 = phi i32 [ %.ph49, %.split28.us.split ], [ %155, %158 ]
+  %.us-phi29 = phi i32 [ %.ph62, %.split28.us.split ], [ %155, %158 ]
   %159 = load ptr, ptr %8, align 8
   %160 = icmp eq ptr %159, null
   br i1 %160, label %.loopexit14, label %161

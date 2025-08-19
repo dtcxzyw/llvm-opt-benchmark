@@ -88,7 +88,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.51 = private unnamed_addr constant [21 x i8] c"Roon Discovery Query\00", align 1
 @.str.52 = private unnamed_addr constant [6 x i8] c"Query\00", align 1
 @roon_disco_string_fields = internal constant [22 x %struct.roon_map] [%struct.roon_map { ptr @.str.54, ptr @.str.55, ptr @hf_roon_disco_tid }, %struct.roon_map { ptr @.str.56, ptr @.str, ptr @hf_roon_disco_config_version }, %struct.roon_map { ptr @.str.57, ptr @.str.6, ptr @hf_roon_disco_device_class }, %struct.roon_map { ptr @.str.58, ptr @.str.4, ptr @hf_roon_disco_device_type }, %struct.roon_map { ptr @.str.59, ptr @.str.2, ptr @hf_roon_disco_display_version }, %struct.roon_map { ptr @.str.60, ptr @.str.8, ptr @hf_roon_disco_http_port }, %struct.roon_map { ptr @.str.61, ptr @.str.10, ptr @hf_roon_disco_https_port }, %struct.roon_map { ptr @.str.62, ptr @.str.14, ptr @hf_roon_disco_machine_id }, %struct.roon_map { ptr @.str.63, ptr @.str.16, ptr @hf_roon_disco_machine_name }, %struct.roon_map { ptr @.str.64, ptr @.str.65, ptr @hf_roon_disco_marker }, %struct.roon_map { ptr @.str.66, ptr @.str.67, ptr @hf_roon_disco_name }, %struct.roon_map { ptr @.str.68, ptr @.str.22, ptr @hf_roon_disco_os_version }, %struct.roon_map { ptr @.str.69, ptr @.str.24, ptr @hf_roon_disco_protocol_hash }, %struct.roon_map { ptr @.str.70, ptr @.str.26, ptr @hf_roon_disco_protocol_version }, %struct.roon_map { ptr @.str.71, ptr @.str.28, ptr @hf_roon_disco_query_service_id }, %struct.roon_map { ptr @.str.72, ptr @.str.30, ptr @hf_roon_disco_raat_version }, %struct.roon_map { ptr @.str.73, ptr @.str.74, ptr @hf_roon_disco_service_id }, %struct.roon_map { ptr @.str.75, ptr @.str.76, ptr @hf_roon_disco_tcp_port }, %struct.roon_map { ptr @.str.77, ptr @.str.38, ptr @hf_roon_disco_type }, %struct.roon_map { ptr @.str.78, ptr @.str.42, ptr @hf_roon_disco_unique_id }, %struct.roon_map { ptr @.str.79, ptr @.str.40, ptr @hf_roon_disco_user_id }, %struct.roon_map zeroinitializer], align 16
-@roon_disco_bool_fields = internal constant [2 x %struct.roon_map] [%struct.roon_map { ptr @.str.80, ptr @.str.81, ptr @hf_roon_disco_is_dev }, %struct.roon_map zeroinitializer], align 16
 @.str.54 = private unnamed_addr constant [5 x i8] c"_tid\00", align 1
 @.str.55 = private unnamed_addr constant [14 x i8] c"TransactionID\00", align 1
 @.str.56 = private unnamed_addr constant [15 x i8] c"config_version\00", align 1
@@ -116,7 +115,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.78 = private unnamed_addr constant [10 x i8] c"unique_id\00", align 1
 @.str.79 = private unnamed_addr constant [8 x i8] c"user_id\00", align 1
 @.str.80 = private unnamed_addr constant [7 x i8] c"is_dev\00", align 1
-@.str.81 = private unnamed_addr constant [14 x i8] c"Devel Version\00", align 1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_roon_discover() local_unnamed_addr #0 {
@@ -146,12 +144,12 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_roon_discover(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 98
-  br i1 %6, label %125, label %7
+  br i1 %6, label %96, label %7
 
 7:                                                ; preds = %4
   %8 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %9 = icmp ult i32 %8, 6
-  br i1 %9, label %125, label %10
+  br i1 %9, label %96, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -159,11 +157,11 @@ define internal i32 @dissect_roon_discover(ptr noundef %0, ptr noundef readonly 
   %13 = tail call ptr @tvb_get_string_enc(ptr noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.48, ptr noundef %13) #3
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %15, label %125
+  br i1 %.not, label %15, label %96
 
 15:                                               ; preds = %10
   %16 = tail call signext i16 @tvb_get_int16(ptr noundef %0, i32 noundef 4, i32 noundef 0)
-  switch i16 %16, label %125 [
+  switch i16 %16, label %96 [
     i16 594, label %17
     i16 593, label %18
   ]
@@ -196,10 +194,10 @@ define internal i32 @dissect_roon_discover(ptr noundef %0, ptr noundef readonly 
 
 ._crit_edge:                                      ; preds = %roon_map_name.exit90.thread, %18
   %33 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %125
+  br label %96
 
 .lr.ph.i.i.preheader:                             ; preds = %18, %roon_map_name.exit90.thread
-  %.063117 = phi i32 [ %122, %roon_map_name.exit90.thread ], [ 6, %18 ]
+  %.063117 = phi i32 [ %93, %roon_map_name.exit90.thread ], [ 6, %18 ]
   %34 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.063117)
   %35 = add nuw i32 %.063117, 1
   %36 = load ptr, ptr %11, align 8
@@ -240,21 +238,18 @@ define internal i32 @dissect_roon_discover(ptr noundef %0, ptr noundef readonly 
   %.118.i.i = phi i64 [ %.01720.i.i, %56 ], [ %49, %.lr.ph.i.i ]
   %.1.i.i = phi i64 [ %57, %56 ], [ %.01621.i.i, %.lr.ph.i.i ]
   %59 = icmp ult i64 %.1.i.i, %.118.i.i
-  br i1 %59, label %.lr.ph.i.i, label %.lr.ph.i.i82.preheader, !llvm.loop !6
+  br i1 %59, label %.lr.ph.i.i, label %.lr.ph.i.i82, !llvm.loop !6
 
 bsearch.exit.i:                                   ; preds = %55
   %60 = getelementptr i8, ptr @roon_disco_string_fields, i64 %50
   %.not.i = icmp eq ptr %60, null
-  br i1 %.not.i, label %.lr.ph.i.i82.preheader, label %roon_map_name.exit
-
-.lr.ph.i.i82.preheader:                           ; preds = %58, %roon_map_name.exit, %bsearch.exit.i
-  br label %.lr.ph.i.i82
+  br i1 %.not.i, label %.lr.ph.i.i82, label %roon_map_name.exit
 
 roon_map_name.exit:                               ; preds = %bsearch.exit.i
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8
   %.not64 = icmp eq ptr %62, null
-  br i1 %.not64, label %.lr.ph.i.i82.preheader, label %.lr.ph.i.i70
+  br i1 %.not64, label %.lr.ph.i.i82, label %.lr.ph.i.i70
 
 .lr.ph.i.i70:                                     ; preds = %roon_map_name.exit, %73
   %.01621.i.i71 = phi i64 [ %.1.i.i75, %73 ], [ 0, %roon_map_name.exit ]
@@ -298,105 +293,39 @@ roon_map_value.exit:                              ; preds = %73, %bsearch.exit.i
   %81 = tail call ptr @proto_tree_add_string(ptr noundef %25, i32 noundef %80, ptr noundef %0, i32 noundef %.063117, i32 noundef %47, ptr noundef %45)
   br label %roon_map_name.exit90.thread
 
-.lr.ph.i.i82:                                     ; preds = %.lr.ph.i.i82.preheader, %92
-  %.01621.i.i83 = phi i64 [ %.1.i.i87, %92 ], [ 0, %.lr.ph.i.i82.preheader ]
-  %.01720.i.i84 = phi i64 [ %.118.i.i86, %92 ], [ 1, %.lr.ph.i.i82.preheader ]
-  %82 = add nuw nsw i64 %.01720.i.i84, %.01621.i.i83
-  %83 = lshr i64 %82, 1
-  %84 = mul nuw nsw i64 %83, 24
-  %85 = getelementptr i8, ptr @roon_disco_bool_fields, i64 %84
-  %86 = load ptr, ptr %85, align 8
-  %87 = tail call i32 @strcmp(ptr noundef readonly %38, ptr noundef %86) #3
-  %88 = icmp slt i32 %87, 0
-  br i1 %88, label %92, label %89
+.lr.ph.i.i82:                                     ; preds = %58, %bsearch.exit.i, %roon_map_name.exit
+  %82 = tail call i32 @strcmp(ptr noundef readonly %38, ptr noundef nonnull dereferenceable(7) @.str.80) #3
+  %.not.i5.i85 = icmp eq i32 %82, 0
+  br i1 %.not.i5.i85, label %.lr.ph.i.i95, label %roon_map_name.exit90.thread
 
-89:                                               ; preds = %.lr.ph.i.i82
-  %.not.i5.i85 = icmp eq i32 %87, 0
-  br i1 %.not.i5.i85, label %bsearch.exit.i88, label %90
-
-90:                                               ; preds = %89
-  %91 = add nuw nsw i64 %83, 1
-  br label %92
-
-92:                                               ; preds = %90, %.lr.ph.i.i82
-  %.118.i.i86 = phi i64 [ %.01720.i.i84, %90 ], [ %83, %.lr.ph.i.i82 ]
-  %.1.i.i87 = phi i64 [ %91, %90 ], [ %.01621.i.i83, %.lr.ph.i.i82 ]
-  %93 = icmp ult i64 %.1.i.i87, %.118.i.i86
-  br i1 %93, label %.lr.ph.i.i82, label %roon_map_name.exit90.thread, !llvm.loop !6
-
-bsearch.exit.i88:                                 ; preds = %89
-  %94 = getelementptr i8, ptr @roon_disco_bool_fields, i64 %84
-  %.not.i89 = icmp eq ptr %94, null
-  br i1 %.not.i89, label %roon_map_name.exit90.thread, label %roon_map_name.exit90
-
-roon_map_name.exit90:                             ; preds = %bsearch.exit.i88
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %96 = load ptr, ptr %95, align 8
-  %.not65 = icmp eq ptr %96, null
-  br i1 %.not65, label %roon_map_name.exit90.thread, label %.lr.ph.i.i95
-
-.lr.ph.i.i95:                                     ; preds = %roon_map_name.exit90, %107
-  %.01621.i.i96 = phi i64 [ %.1.i.i100, %107 ], [ 0, %roon_map_name.exit90 ]
-  %.01720.i.i97 = phi i64 [ %.118.i.i99, %107 ], [ 1, %roon_map_name.exit90 ]
-  %97 = add nuw nsw i64 %.01720.i.i97, %.01621.i.i96
-  %98 = lshr i64 %97, 1
-  %99 = mul nuw nsw i64 %98, 24
-  %100 = getelementptr i8, ptr @roon_disco_bool_fields, i64 %99
-  %101 = load ptr, ptr %100, align 8
-  %102 = tail call i32 @strcmp(ptr noundef readonly %38, ptr noundef %101) #3
-  %103 = icmp slt i32 %102, 0
-  br i1 %103, label %107, label %104
-
-104:                                              ; preds = %.lr.ph.i.i95
-  %.not.i5.i98 = icmp eq i32 %102, 0
-  br i1 %.not.i5.i98, label %bsearch.exit.i101, label %105
-
-105:                                              ; preds = %104
-  %106 = add nuw nsw i64 %98, 1
-  br label %107
-
-107:                                              ; preds = %105, %.lr.ph.i.i95
-  %.118.i.i99 = phi i64 [ %.01720.i.i97, %105 ], [ %98, %.lr.ph.i.i95 ]
-  %.1.i.i100 = phi i64 [ %106, %105 ], [ %.01621.i.i96, %.lr.ph.i.i95 ]
-  %108 = icmp ult i64 %.1.i.i100, %.118.i.i99
-  br i1 %108, label %.lr.ph.i.i95, label %sub_0, !llvm.loop !6
-
-bsearch.exit.i101:                                ; preds = %104
-  %109 = getelementptr i8, ptr @roon_disco_bool_fields, i64 %99
-  %.not.i102 = icmp eq ptr %109, null
-  br i1 %.not.i102, label %sub_0, label %110
-
-110:                                              ; preds = %bsearch.exit.i101
-  %111 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  %112 = load ptr, ptr %111, align 8
-  br label %sub_0
-
-sub_0:                                            ; preds = %107, %110, %bsearch.exit.i101
-  %113 = phi ptr [ %112, %110 ], [ null, %bsearch.exit.i101 ], [ null, %107 ]
-  %114 = load i8, ptr %45, align 1
-  %.not119 = icmp eq i8 %114, 48
+.lr.ph.i.i95:                                     ; preds = %.lr.ph.i.i82
+  %83 = tail call i32 @strcmp(ptr noundef readonly %38, ptr noundef nonnull dereferenceable(7) @.str.80) #3
+  %.not.i5.i98 = icmp eq i32 %83, 0
+  %84 = select i1 %.not.i5.i98, ptr @hf_roon_disco_is_dev, ptr null
+  %85 = load i8, ptr %45, align 1
+  %.not119 = icmp eq i8 %85, 48
   br i1 %.not119, label %sub_1, label %roon_map_value.exit103.tail
 
-sub_1:                                            ; preds = %sub_0
-  %115 = getelementptr inbounds nuw i8, ptr %45, i64 1
-  %116 = load i8, ptr %115, align 1
-  %117 = icmp ne i8 %116, 0
-  %118 = zext i1 %117 to i64
+sub_1:                                            ; preds = %.lr.ph.i.i95
+  %86 = getelementptr inbounds nuw i8, ptr %45, i64 1
+  %87 = load i8, ptr %86, align 1
+  %88 = icmp ne i8 %87, 0
+  %89 = zext i1 %88 to i64
   br label %roon_map_value.exit103.tail
 
-roon_map_value.exit103.tail:                      ; preds = %sub_0, %sub_1
-  %119 = phi i64 [ 1, %sub_0 ], [ %118, %sub_1 ]
-  %120 = load i32, ptr %113, align 4
-  %121 = tail call ptr @proto_tree_add_boolean(ptr noundef %25, i32 noundef %120, ptr noundef %0, i32 noundef %.063117, i32 noundef %47, i64 noundef %119)
+roon_map_value.exit103.tail:                      ; preds = %.lr.ph.i.i95, %sub_1
+  %90 = phi i64 [ 1, %.lr.ph.i.i95 ], [ %89, %sub_1 ]
+  %91 = load i32, ptr %84, align 4
+  %92 = tail call ptr @proto_tree_add_boolean(ptr noundef %25, i32 noundef %91, ptr noundef %0, i32 noundef %.063117, i32 noundef %47, i64 noundef %90)
   br label %roon_map_name.exit90.thread
 
-roon_map_name.exit90.thread:                      ; preds = %92, %bsearch.exit.i88, %roon_map_name.exit90, %roon_map_value.exit103.tail, %roon_map_value.exit
-  %122 = add i32 %47, %.063117
-  %123 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %124 = icmp ult i32 %122, %123
-  br i1 %124, label %.lr.ph.i.i.preheader, label %._crit_edge, !llvm.loop !8
+roon_map_name.exit90.thread:                      ; preds = %.lr.ph.i.i82, %roon_map_value.exit103.tail, %roon_map_value.exit
+  %93 = add i32 %47, %.063117
+  %94 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %95 = icmp ult i32 %93, %94
+  br i1 %95, label %.lr.ph.i.i.preheader, label %._crit_edge, !llvm.loop !8
 
-125:                                              ; preds = %._crit_edge, %10, %15, %4, %7
+96:                                               ; preds = %._crit_edge, %10, %15, %4, %7
   %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ %33, %._crit_edge ], [ 0, %10 ], [ 0, %15 ]
   ret i32 %.0
 }

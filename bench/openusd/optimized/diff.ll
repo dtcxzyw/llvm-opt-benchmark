@@ -398,9 +398,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i: ; preds = %143, %138
           to label %172 unwind label %.loopexit.split-lp.i.i, !noalias !5
 
 172:                                              ; preds = %170
-  br i1 %171, label %.preheader15, label %.critedge.thread.i.i
+  br i1 %171, label %.preheader33, label %.critedge.thread.i.i
 
-.preheader15:                                     ; preds = %276, %172
+.preheader33:                                     ; preds = %276, %172
   br label %289
 
 173:                                              ; preds = %168
@@ -605,7 +605,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit53.i.i: ; preds = %256, %2
   %spec.store.select.i.i.i.i = zext i1 %narrow.i.i.i.i to i8
   store double %277, ptr %37, align 8, !noalias !5
   store i8 %spec.store.select.i.i.i.i, ptr %38, align 8, !noalias !5
-  br i1 %.0.i.i47.i.i, label %.preheader15, label %.critedge.thread.i.i
+  br i1 %.0.i.i47.i.i, label %.preheader33, label %.critedge.thread.i.i
 
 279:                                              ; preds = %180
   %280 = landingpad { ptr, i32 }
@@ -639,7 +639,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit53.i.i: ; preds = %256, %2
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #13, !noalias !5
   br label %294
 
-289:                                              ; preds = %.preheader15, %291
+289:                                              ; preds = %.preheader33, %291
   %290 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper26_TightenToPreviousKeyFrameEb(ptr noundef nonnull align 8 dereferenceable(80) %24, i1 noundef zeroext false)
           to label %291 unwind label %.loopexit.i.i, !noalias !5
 

@@ -104,26 +104,23 @@ define void @"_ZN92_$LT$uv_distribution_filename..build_tag..BuildTag$u20$as$u20
   ret void
 
 58:                                               ; preds = %11
-  switch i64 %2, label %61 [
-    i64 0, label %.loopexit
-    i64 1, label %59
-  ]
+  %cond = icmp eq i64 %2, 1
+  %59 = load i8, ptr %1, align 1, !alias.scope !21, !noalias !24
+  br i1 %cond, label %60, label %61
 
-59:                                               ; preds = %58
-  %60 = load i8, ptr %1, align 1, !alias.scope !21, !noalias !24, !noundef !20
-  switch i8 %60, label %.lr.ph.i.preheader [
+60:                                               ; preds = %58
+  switch i8 %59, label %.lr.ph.i.preheader [
     i8 43, label %.loopexit
     i8 45, label %.loopexit
   ]
 
-.lr.ph.i.preheader:                               ; preds = %62, %66, %59
-  %.sroa.01.158.i.ph = phi ptr [ %63, %62 ], [ %1, %59 ], [ %1, %66 ]
-  %.sroa.14.157.i.ph = phi i64 [ %64, %62 ], [ 1, %59 ], [ %2, %66 ]
+.lr.ph.i.preheader:                               ; preds = %62, %66, %60
+  %.sroa.01.158.i.ph = phi ptr [ %63, %62 ], [ %1, %60 ], [ %1, %66 ]
+  %.sroa.14.157.i.ph = phi i64 [ %64, %62 ], [ 1, %60 ], [ %2, %66 ]
   br label %.lr.ph.i
 
 61:                                               ; preds = %58
-  %.pr.i = load i8, ptr %1, align 1, !alias.scope !21, !noalias !24
-  %cond.i = icmp eq i8 %.pr.i, 43
+  %cond.i = icmp eq i8 %59, 43
   br i1 %cond.i, label %62, label %66
 
 62:                                               ; preds = %61
@@ -193,8 +190,8 @@ define void @"_ZN92_$LT$uv_distribution_filename..build_tag..BuildTag$u20$as$u20
   %95 = icmp eq i64 %12, 0
   br i1 %95, label %99, label %101
 
-.loopexit:                                        ; preds = %136, %134, %125, %.lr.ph.i46, %79, %77, %68, %.lr.ph.i, %116, %116, %109, %59, %59, %58
-  %.sroa.10.0 = phi i8 [ 1, %59 ], [ 1, %59 ], [ 0, %58 ], [ 1, %116 ], [ 1, %116 ], [ 0, %109 ], [ 1, %.lr.ph.i ], [ 1, %68 ], [ 2, %77 ], [ 2, %79 ], [ 1, %.lr.ph.i46 ], [ 1, %125 ], [ 2, %134 ], [ 2, %136 ]
+.loopexit:                                        ; preds = %136, %134, %125, %.lr.ph.i46, %79, %77, %68, %.lr.ph.i, %116, %116, %109, %60, %60
+  %.sroa.10.0 = phi i8 [ 1, %60 ], [ 1, %60 ], [ 1, %116 ], [ 1, %116 ], [ 0, %109 ], [ 1, %.lr.ph.i ], [ 1, %68 ], [ 2, %77 ], [ 2, %79 ], [ 1, %.lr.ph.i46 ], [ 1, %125 ], [ 2, %134 ], [ 2, %136 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.10.0, ptr %96, align 1
   br label %57

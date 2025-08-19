@@ -1972,9 +1972,9 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit.thread: ; preds = %570
 583:                                              ; preds = %570
   %584 = getelementptr inbounds nuw i8, ptr %571, i64 %575
   %.not1.i.i.i = icmp ult ptr %584, %582
-  br i1 %.not1.i.i.i, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit.thread350, label %585
+  br i1 %.not1.i.i.i, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit.thread393, label %585
 
-_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit.thread350: ; preds = %583
+_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit.thread393: ; preds = %583
   store double %.1117, ptr %584, align 8, !tbaa !29
   br label %586
 
@@ -1990,9 +1990,9 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit: ; preds = %585
   %.not.i.i.i228 = icmp eq ptr %.pre336, null
   br i1 %.not.i.i.i228, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit231, label %586
 
-586:                                              ; preds = %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit.thread350, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit
-  %587 = phi ptr [ %584, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit.thread350 ], [ %.pre335, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit ]
-  %588 = phi ptr [ %572, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit.thread350 ], [ %.pre336, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit ]
+586:                                              ; preds = %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit.thread393, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit
+  %587 = phi ptr [ %584, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit.thread393 ], [ %.pre335, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit ]
+  %588 = phi ptr [ %572, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit.thread393 ], [ %.pre336, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit ]
   %589 = load i64, ptr %573, align 8, !tbaa !80
   %590 = getelementptr inbounds nuw i8, ptr %587, i64 %589
   store ptr %590, ptr %576, align 8, !tbaa !76
@@ -2038,9 +2038,9 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit235.thread: ; preds = %_ZN2cv20M
   %609 = getelementptr inbounds nuw i8, ptr %594, i64 %608
   %610 = load ptr, ptr %580, align 8, !tbaa !81
   %.not1.i.i.i233 = icmp ult ptr %609, %610
-  br i1 %.not1.i.i.i233, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit235.thread353, label %616
+  br i1 %.not1.i.i.i233, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit235.thread396, label %616
 
-_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit235.thread353: ; preds = %607
+_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit235.thread396: ; preds = %607
   %611 = getelementptr inbounds nuw i8, ptr %596, i64 8
   %612 = load double, ptr %611, align 8, !tbaa !29
   %613 = getelementptr inbounds nuw i8, ptr %599, i64 8
@@ -2068,9 +2068,9 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit235: ; preds = %616
   %.not.i.i.i236 = icmp eq ptr %.pre342, null
   br i1 %.not.i.i.i236, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit239, label %622
 
-622:                                              ; preds = %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit235.thread353, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit235
-  %623 = phi ptr [ %609, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit235.thread353 ], [ %.pre341, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit235 ]
-  %624 = phi ptr [ %593, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit235.thread353 ], [ %.pre342, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit235 ]
+622:                                              ; preds = %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit235.thread396, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit235
+  %623 = phi ptr [ %609, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit235.thread396 ], [ %.pre341, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit235 ]
+  %624 = phi ptr [ %593, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit235.thread396 ], [ %.pre342, %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit235 ]
   %625 = load i64, ptr %573, align 8, !tbaa !80
   %626 = getelementptr inbounds nuw i8, ptr %623, i64 %625
   store ptr %626, ptr %576, align 8, !tbaa !76
@@ -3722,7 +3722,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt7complexIdESaIS1_EE6resizeEm(ptr
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIPSt7complexIdEmS1_ET_S3_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPSt7complexIdEmS1_ET_S3_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = shl nuw i64 %12, 4
+  %21 = shl nuw nsw i64 %12, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %21, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !39
@@ -4760,13 +4760,13 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store double 0.000000e+00, ptr %5, align 8, !tbaa !29
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !29
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

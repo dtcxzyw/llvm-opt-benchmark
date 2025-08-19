@@ -420,7 +420,7 @@ define range(i32 -1, 1) i32 @RGBE_ReadPixels_RLE(ptr noundef captures(none) %0, 
   br label %.critedge109
 
 23:                                               ; preds = %.lr.ph174, %.critedge._crit_edge
-  %.089173 = phi ptr [ null, %.lr.ph174 ], [ %.190223, %.critedge._crit_edge ]
+  %.089173 = phi ptr [ null, %.lr.ph174 ], [ %.190228, %.critedge._crit_edge ]
   %.091172 = phi i32 [ %3, %.lr.ph174 ], [ %116, %.critedge._crit_edge ]
   %.093171 = phi ptr [ %1, %.lr.ph174 ], [ %138, %.critedge._crit_edge ]
   %24 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 4, i64 noundef 1, ptr noundef %0)
@@ -510,7 +510,7 @@ rgbe2float.exit:                                  ; preds = %41, %53
   br i1 %69, label %70, label %.preheader113.preheader
 
 .preheader113.preheader:                          ; preds = %65, %67
-  %.190223 = phi ptr [ %68, %67 ], [ %.089173, %65 ]
+  %.190228 = phi ptr [ %68, %67 ], [ %.089173, %65 ]
   br label %.preheader113
 
 70:                                               ; preds = %67
@@ -523,17 +523,17 @@ rgbe2float.exit:                                  ; preds = %41, %53
   br i1 %exitcond, label %.lr.ph169.preheader, label %.preheader113
 
 .lr.ph169.preheader:                              ; preds = %.loopexit112
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %.190223, i64 %17
-  %invariant.gep261 = getelementptr inbounds nuw i8, ptr %.190223, i64 %18
-  %invariant.gep263 = getelementptr inbounds nuw i8, ptr %.190223, i64 %19
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %.190228, i64 %17
+  %invariant.gep266 = getelementptr inbounds nuw i8, ptr %.190228, i64 %18
+  %invariant.gep268 = getelementptr inbounds nuw i8, ptr %.190228, i64 %19
   br label %.lr.ph169
 
 .preheader113:                                    ; preds = %.preheader113.preheader, %.loopexit112
   %indvars.iv = phi i64 [ 0, %.preheader113.preheader ], [ %indvars.iv.next, %.loopexit112 ]
-  %.082165 = phi ptr [ %.190223, %.preheader113.preheader ], [ %.1.lcssa, %.loopexit112 ]
+  %.082165 = phi ptr [ %.190228, %.preheader113.preheader ], [ %.1.lcssa, %.loopexit112 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %71 = mul nuw nsw i64 %indvars.iv.next, %17
-  %72 = getelementptr inbounds nuw i8, ptr %.190223, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %.190228, i64 %71
   %73 = icmp ult ptr %.082165, %72
   br i1 %73, label %.lr.ph163, label %.loopexit112
 
@@ -548,7 +548,7 @@ rgbe2float.exit:                                  ; preds = %41, %53
   br i1 %77, label %78, label %82
 
 78:                                               ; preds = %75
-  tail call void @free(ptr noundef nonnull %.190223) #16
+  tail call void @free(ptr noundef nonnull %.190228) #16
   %79 = tail call ptr @__errno_location() #15
   %80 = load i32, ptr %79, align 4, !tbaa !15
   %81 = tail call ptr @strerror(i32 noundef %80) #16
@@ -574,7 +574,7 @@ rgbe2float.exit:                                  ; preds = %41, %53
   br label %.lr.ph
 
 92:                                               ; preds = %88
-  tail call void @free(ptr noundef nonnull %.190223) #16
+  tail call void @free(ptr noundef nonnull %.190228) #16
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.10) #16
   br label %.critedge109
 
@@ -595,7 +595,7 @@ rgbe2float.exit:                                  ; preds = %41, %53
   br i1 %or.cond107, label %100, label %101
 
 100:                                              ; preds = %96
-  tail call void @free(ptr noundef nonnull %.190223) #16
+  tail call void @free(ptr noundef nonnull %.190228) #16
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.10) #16
   br label %.critedge109
 
@@ -614,7 +614,7 @@ rgbe2float.exit:                                  ; preds = %41, %53
   br i1 %108, label %109, label %113
 
 109:                                              ; preds = %104
-  tail call void @free(ptr noundef nonnull %.190223) #16
+  tail call void @free(ptr noundef nonnull %.190228) #16
   %110 = tail call ptr @__errno_location() #15
   %111 = load i32, ptr %110, align 4, !tbaa !15
   %112 = tail call ptr @strerror(i32 noundef %111) #16
@@ -638,17 +638,17 @@ rgbe2float.exit:                                  ; preds = %41, %53
 .lr.ph169:                                        ; preds = %.lr.ph169.preheader, %rgbe2float.exit111
   %indvars.iv215 = phi i64 [ 0, %.lr.ph169.preheader ], [ %indvars.iv.next216, %rgbe2float.exit111 ]
   %.295167 = phi ptr [ %.093171, %.lr.ph169.preheader ], [ %138, %rgbe2float.exit111 ]
-  %118 = getelementptr inbounds nuw i8, ptr %.190223, i64 %indvars.iv215
+  %118 = getelementptr inbounds nuw i8, ptr %.190228, i64 %indvars.iv215
   %119 = load i8, ptr %118, align 1, !tbaa !12
   store i8 %119, ptr %5, align 1, !tbaa !12
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv215
   %120 = load i8, ptr %gep, align 1, !tbaa !12
   store i8 %120, ptr %9, align 1, !tbaa !12
-  %gep262 = getelementptr inbounds nuw i8, ptr %invariant.gep261, i64 %indvars.iv215
-  %121 = load i8, ptr %gep262, align 1, !tbaa !12
+  %gep267 = getelementptr inbounds nuw i8, ptr %invariant.gep266, i64 %indvars.iv215
+  %121 = load i8, ptr %gep267, align 1, !tbaa !12
   store i8 %121, ptr %10, align 1, !tbaa !12
-  %gep264 = getelementptr inbounds nuw i8, ptr %invariant.gep263, i64 %indvars.iv215
-  %122 = load i8, ptr %gep264, align 1, !tbaa !12
+  %gep269 = getelementptr inbounds nuw i8, ptr %invariant.gep268, i64 %indvars.iv215
+  %122 = load i8, ptr %gep269, align 1, !tbaa !12
   store i8 %122, ptr %11, align 1, !tbaa !12
   %123 = getelementptr inbounds nuw i8, ptr %.295167, i64 4
   %124 = getelementptr inbounds nuw i8, ptr %.295167, i64 8
@@ -685,7 +685,7 @@ rgbe2float.exit111:                               ; preds = %125, %137
   br i1 %exitcond218.not, label %.critedge._crit_edge, label %.lr.ph169
 
 ._crit_edge:                                      ; preds = %.critedge._crit_edge, %.preheader114
-  %.089.lcssa = phi ptr [ null, %.preheader114 ], [ %.190223, %.critedge._crit_edge ]
+  %.089.lcssa = phi ptr [ null, %.preheader114 ], [ %.190228, %.critedge._crit_edge ]
   tail call void @free(ptr noundef %.089.lcssa) #16
   br label %.critedge109
 

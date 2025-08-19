@@ -2321,8 +2321,8 @@ _ZN2cv6stereo8MVKernelILi2EEC2EPPhPPi.exit.critedge: ; preds = %238
   store ptr %245, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 64
   store ptr %247, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5164.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 72
-  store i32 2, ptr %.sroa.5164.0..sroa_idx, align 8
+  %.sroa.5183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 72
+  store i32 2, ptr %.sroa.5183.0..sroa_idx, align 8
   %258 = getelementptr inbounds nuw i8, ptr %31, i64 80
   store i32 %126, ptr %258, align 8, !tbaa !87
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %31, double noundef -1.000000e+00)
@@ -3784,7 +3784,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   %30 = load ptr, ptr %15, align 8
   %invariant.gep = getelementptr i32, ptr %30, i64 %26
   %31 = load ptr, ptr %21, align 8
-  %invariant.gep128 = getelementptr i32, ptr %31, i64 %26
+  %invariant.gep135 = getelementptr i32, ptr %31, i64 %26
   br label %.lr.ph90
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit60
@@ -3829,8 +3829,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
 .loopexit60.loopexit.critedge:                    ; preds = %.lr.ph90, %41, %48
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv117
   store i32 0, ptr %gep, align 4, !tbaa !9
-  %gep129 = getelementptr i32, ptr %invariant.gep128, i64 %indvars.iv117
-  store i32 0, ptr %gep129, align 4, !tbaa !9
+  %gep136 = getelementptr i32, ptr %invariant.gep135, i64 %indvars.iv117
+  store i32 0, ptr %gep136, align 4, !tbaa !9
   br label %.loopexit60
 
 52:                                               ; preds = %48
@@ -3845,8 +3845,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   %57 = add nsw i64 %indvars.iv117, %26
   %58 = zext i32 %.fr95 to i64
   %.not5561 = icmp slt i32 %37, 0
-  %or.cond124 = or i1 %.not5468, %.not5561
-  %brmerge = or i1 %or.cond124, %56
+  %or.cond131 = or i1 %.not5468, %.not5561
+  %brmerge = or i1 %or.cond131, %56
   br i1 %brmerge, label %.preheader, label %.lr.ph.us.us.preheader
 
 .lr.ph.us.us.preheader:                           ; preds = %52
@@ -4005,7 +4005,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi2ELi1E
   %30 = load ptr, ptr %15, align 8
   %invariant.gep = getelementptr i32, ptr %30, i64 %26
   %31 = load ptr, ptr %21, align 8
-  %invariant.gep127 = getelementptr i32, ptr %31, i64 %26
+  %invariant.gep134 = getelementptr i32, ptr %31, i64 %26
   br label %.lr.ph90
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit60
@@ -4050,8 +4050,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi2ELi1E
 .loopexit60.loopexit.critedge:                    ; preds = %.lr.ph90, %41, %48
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv116
   store i32 0, ptr %gep, align 4, !tbaa !9
-  %gep128 = getelementptr i32, ptr %invariant.gep127, i64 %indvars.iv116
-  store i32 0, ptr %gep128, align 4, !tbaa !9
+  %gep135 = getelementptr i32, ptr %invariant.gep134, i64 %indvars.iv116
+  store i32 0, ptr %gep135, align 4, !tbaa !9
   br label %.loopexit60
 
 52:                                               ; preds = %48
@@ -4066,8 +4066,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi2ELi1E
   %57 = add nsw i64 %indvars.iv116, %26
   %58 = zext i32 %.fr95 to i64
   %.not5561 = icmp slt i32 %37, 0
-  %or.cond123 = or i1 %.not5468, %.not5561
-  %brmerge = or i1 %or.cond123, %56
+  %or.cond130 = or i1 %.not5468, %.not5561
+  %brmerge = or i1 %or.cond130, %56
   br i1 %brmerge, label %.preheader, label %.lr.ph.us.us.preheader
 
 .lr.ph.us.us.preheader:                           ; preds = %52
@@ -4274,8 +4274,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   %51 = add nsw i64 %indvars.iv136, %22
   %52 = zext i32 %.fr119 to i64
   %.not5564 = icmp slt i32 %31, 0
-  %or.cond145 = or i1 %.not5475, %.not5564
-  %brmerge = or i1 %or.cond145, %50
+  %or.cond152 = or i1 %.not5475, %.not5564
+  %brmerge = or i1 %or.cond152, %50
   br i1 %brmerge, label %.preheader, label %.lr.ph.us.us.preheader
 
 .lr.ph.us.us.preheader:                           ; preds = %46
@@ -4480,8 +4480,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi2ELi1E
   %51 = add nsw i64 %indvars.iv135, %22
   %52 = zext i32 %.fr119 to i64
   %.not5564 = icmp slt i32 %31, 0
-  %or.cond144 = or i1 %.not5475, %.not5564
-  %brmerge = or i1 %or.cond144, %50
+  %or.cond151 = or i1 %.not5475, %.not5564
+  %brmerge = or i1 %or.cond151, %50
   br i1 %brmerge, label %.preheader, label %.lr.ph.us.us.preheader
 
 .lr.ph.us.us.preheader:                           ; preds = %46
@@ -5187,7 +5187,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi4ELi2E
   %31 = load ptr, ptr %16, align 8
   %invariant.gep = getelementptr i32, ptr %31, i64 %27
   %32 = load ptr, ptr %22, align 8
-  %invariant.gep137 = getelementptr i32, ptr %32, i64 %27
+  %invariant.gep146 = getelementptr i32, ptr %32, i64 %27
   br label %.lr.ph96
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
@@ -5232,8 +5232,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi4ELi2E
 .loopexit.loopexit.critedge:                      ; preds = %.lr.ph96, %42, %49
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv126
   store i32 0, ptr %gep, align 4, !tbaa !9
-  %gep138 = getelementptr i32, ptr %invariant.gep137, i64 %indvars.iv126
-  store i32 0, ptr %gep138, align 4, !tbaa !9
+  %gep147 = getelementptr i32, ptr %invariant.gep146, i64 %indvars.iv126
+  store i32 0, ptr %gep147, align 4, !tbaa !9
   br label %.loopexit
 
 53:                                               ; preds = %49
@@ -5249,8 +5249,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi4ELi2E
   %59 = load i32, ptr %15, align 8
   %60 = zext i32 %.fr101 to i64
   %.not5560 = icmp slt i32 %38, 0
-  %or.cond133 = or i1 %.not5467, %.not5560
-  %brmerge = or i1 %or.cond133, %57
+  %or.cond142 = or i1 %.not5467, %.not5560
+  %brmerge = or i1 %or.cond142, %57
   br i1 %brmerge, label %.preheader, label %.lr.ph70.us78.preheader
 
 .lr.ph70.us78.preheader:                          ; preds = %53
@@ -5449,7 +5449,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
   %31 = load ptr, ptr %16, align 8
   %invariant.gep = getelementptr i32, ptr %31, i64 %27
   %32 = load ptr, ptr %22, align 8
-  %invariant.gep133 = getelementptr i32, ptr %32, i64 %27
+  %invariant.gep140 = getelementptr i32, ptr %32, i64 %27
   br label %.lr.ph95
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
@@ -5494,8 +5494,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
 .loopexit.loopexit.critedge:                      ; preds = %.lr.ph95, %42, %49
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv122
   store i32 0, ptr %gep, align 4, !tbaa !9
-  %gep134 = getelementptr i32, ptr %invariant.gep133, i64 %indvars.iv122
-  store i32 0, ptr %gep134, align 4, !tbaa !9
+  %gep141 = getelementptr i32, ptr %invariant.gep140, i64 %indvars.iv122
+  store i32 0, ptr %gep141, align 4, !tbaa !9
   br label %.loopexit
 
 53:                                               ; preds = %49
@@ -5510,8 +5510,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
   %58 = add nsw i64 %indvars.iv122, %27
   %59 = zext i32 %.fr100 to i64
   %.not5560 = icmp slt i32 %38, 0
-  %or.cond129 = or i1 %.not5467, %.not5560
-  %brmerge = or i1 %or.cond129, %57
+  %or.cond136 = or i1 %.not5467, %.not5560
+  %brmerge = or i1 %or.cond136, %57
   br i1 %brmerge, label %.preheader, label %.lr.ph70.us78.preheader
 
 .lr.ph70.us78.preheader:                          ; preds = %53
@@ -5739,8 +5739,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi4ELi2E
   %53 = load i32, ptr %14, align 8
   %54 = zext i32 %.fr125 to i64
   %.not5563 = icmp slt i32 %32, 0
-  %or.cond154 = or i1 %.not5474, %.not5563
-  %brmerge = or i1 %or.cond154, %51
+  %or.cond163 = or i1 %.not5474, %.not5563
+  %brmerge = or i1 %or.cond163, %51
   br i1 %brmerge, label %.preheader, label %.lr.ph78.us98.preheader
 
 .lr.ph78.us98.preheader:                          ; preds = %47
@@ -5986,8 +5986,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
   %52 = add nsw i64 %indvars.iv141, %23
   %53 = zext i32 %.fr124 to i64
   %.not5563 = icmp slt i32 %32, 0
-  %or.cond150 = or i1 %.not5474, %.not5563
-  %brmerge = or i1 %or.cond150, %51
+  %or.cond157 = or i1 %.not5474, %.not5563
+  %brmerge = or i1 %or.cond157, %51
   br i1 %brmerge, label %.preheader, label %.lr.ph78.us98.preheader
 
 .lr.ph78.us98.preheader:                          ; preds = %47
@@ -6225,7 +6225,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi2EEclERKNS_5Ra
   %57 = sext i32 %51 to i64
   %58 = add nuw i32 %.fr81, 1
   %59 = sext i32 %53 to i64
-  %invariant.gep102 = getelementptr i8, ptr %56, i64 %59
+  %invariant.gep109 = getelementptr i8, ptr %56, i64 %59
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph67.split, %._crit_edge
@@ -6296,8 +6296,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi2EEclERKNS_5Ra
   br i1 %90, label %91, label %100
 
 91:                                               ; preds = %.lr.ph.split
-  %gep103 = getelementptr i8, ptr %invariant.gep102, i64 %81
-  %92 = load i8, ptr %gep103, align 1, !tbaa !40
+  %gep110 = getelementptr i8, ptr %invariant.gep109, i64 %81
+  %92 = load i8, ptr %gep110, align 1, !tbaa !40
   %93 = add i32 %54, %.0.neg63
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds i8, ptr %56, i64 %94
@@ -6385,11 +6385,11 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   %29 = load ptr, ptr %16, align 8
   %invariant.gep = getelementptr i32, ptr %29, i64 %27
   %30 = load ptr, ptr %21, align 8
-  %invariant.gep129 = getelementptr i32, ptr %30, i64 %27
+  %invariant.gep136 = getelementptr i32, ptr %30, i64 %27
   %31 = load ptr, ptr %16, align 8
-  %invariant.gep131 = getelementptr i32, ptr %31, i64 %27
+  %invariant.gep138 = getelementptr i32, ptr %31, i64 %27
   %32 = load ptr, ptr %22, align 8
-  %invariant.gep133 = getelementptr i32, ptr %32, i64 %27
+  %invariant.gep140 = getelementptr i32, ptr %32, i64 %27
   br label %.lr.ph91
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit60
@@ -6432,10 +6432,10 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   br i1 %.not53, label %53, label %.loopexit60.loopexit.critedge
 
 .loopexit60.loopexit.critedge:                    ; preds = %.lr.ph91, %42, %49
-  %gep132 = getelementptr i32, ptr %invariant.gep131, i64 %indvars.iv118
-  store i32 0, ptr %gep132, align 4, !tbaa !9
-  %gep134 = getelementptr i32, ptr %invariant.gep133, i64 %indvars.iv118
-  store i32 0, ptr %gep134, align 4, !tbaa !9
+  %gep139 = getelementptr i32, ptr %invariant.gep138, i64 %indvars.iv118
+  store i32 0, ptr %gep139, align 4, !tbaa !9
+  %gep141 = getelementptr i32, ptr %invariant.gep140, i64 %indvars.iv118
+  store i32 0, ptr %gep141, align 4, !tbaa !9
   br label %.loopexit60
 
 53:                                               ; preds = %49
@@ -6451,8 +6451,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   %59 = load i32, ptr %15, align 8
   %60 = zext i32 %.fr96 to i64
   %.not5561 = icmp slt i32 %38, 0
-  %or.cond125 = or i1 %.not5468, %.not5561
-  %brmerge = or i1 %or.cond125, %58
+  %or.cond132 = or i1 %.not5468, %.not5561
+  %brmerge = or i1 %or.cond132, %58
   br i1 %brmerge, label %.preheader, label %.lr.ph.us.us.preheader
 
 .lr.ph.us.us.preheader:                           ; preds = %53
@@ -6555,8 +6555,8 @@ _ZNK2cv6stereo16ModifiedCsCensusILi2EEclEiiiiiPi.exit.loopexit.us.us.us.us: ; pr
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv118
   store i32 %104, ptr %gep, align 4, !tbaa !9
   %105 = load i32, ptr %20, align 4, !tbaa !9
-  %gep130 = getelementptr i32, ptr %invariant.gep129, i64 %indvars.iv118
-  store i32 %105, ptr %gep130, align 4, !tbaa !9
+  %gep137 = getelementptr i32, ptr %invariant.gep136, i64 %indvars.iv118
+  store i32 %105, ptr %gep137, align 4, !tbaa !9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit60
 
@@ -6687,7 +6687,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi1EEclERKNS_5Ra
   %57 = sext i32 %51 to i64
   %58 = add nuw i32 %.fr81, 1
   %59 = sext i32 %53 to i64
-  %invariant.gep102 = getelementptr i8, ptr %56, i64 %59
+  %invariant.gep109 = getelementptr i8, ptr %56, i64 %59
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph67.split, %._crit_edge
@@ -6758,8 +6758,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi1EEclERKNS_5Ra
   br i1 %90, label %91, label %100
 
 91:                                               ; preds = %.lr.ph.split
-  %gep103 = getelementptr i8, ptr %invariant.gep102, i64 %81
-  %92 = load i8, ptr %gep103, align 1, !tbaa !40
+  %gep110 = getelementptr i8, ptr %invariant.gep109, i64 %81
+  %92 = load i8, ptr %gep110, align 1, !tbaa !40
   %93 = add i32 %54, %.0.neg63
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds i8, ptr %56, i64 %94
@@ -6841,7 +6841,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   %23 = sext i32 %22 to i64
   %24 = mul nsw i64 %indvars.iv140, %23
   %25 = load ptr, ptr %15, align 8
-  %invariant.gep146.sink = getelementptr i32, ptr %25, i64 %24
+  %invariant.gep153.sink = getelementptr i32, ptr %25, i64 %24
   br label %30
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit60
@@ -6894,8 +6894,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   %53 = load i32, ptr %14, align 8
   %54 = zext i32 %.fr120 to i64
   %.not5564 = icmp slt i32 %32, 0
-  %or.cond148 = or i1 %.not5475, %.not5564
-  %brmerge = or i1 %or.cond148, %52
+  %or.cond155 = or i1 %.not5475, %.not5564
+  %brmerge = or i1 %or.cond155, %52
   br i1 %brmerge, label %.loopexit60, label %.lr.ph.us.us.preheader
 
 .lr.ph.us.us.preheader:                           ; preds = %47
@@ -6996,8 +6996,8 @@ _ZNK2cv6stereo16ModifiedCsCensusILi1EEclEiiiiiPi.exit.loopexit.us.us.us.us: ; pr
 
 .loopexit60:                                      ; preds = %._crit_edge.split.us.us.us, %47, %30, %36, %43
   %.sink = phi i32 [ 0, %43 ], [ 0, %36 ], [ 0, %30 ], [ 0, %47 ], [ %.us-phi.us, %._crit_edge.split.us.us.us ]
-  %gep147 = getelementptr i32, ptr %invariant.gep146.sink, i64 %indvars.iv137
-  store i32 %.sink, ptr %gep147, align 4, !tbaa !9
+  %gep154 = getelementptr i32, ptr %invariant.gep153.sink, i64 %indvars.iv137
+  store i32 %.sink, ptr %gep154, align 4, !tbaa !9
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %96 = load i32, ptr %8, align 8, !tbaa !121
   %97 = sext i32 %96 to i64

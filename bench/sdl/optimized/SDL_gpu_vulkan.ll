@@ -3255,8 +3255,8 @@ define internal void @VULKAN_DestroyDevice(ptr noundef %0) #0 {
   %26 = load ptr, ptr %25, align 8
   tail call void @VULKAN_ReleaseWindow(ptr noundef %22, ptr noundef %26)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not192 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not192, label %._crit_edge, label %21, !llvm.loop !14
+  %.not203 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not203, label %._crit_edge, label %21, !llvm.loop !14
 
 ._crit_edge133:                                   ; preds = %34, %._crit_edge
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 2312
@@ -7780,12 +7780,12 @@ VULKAN_INTERNAL_TrackTexture.exit185:             ; preds = %155, %170
   %.in.i = phi i32 [ %201, %199 ], [ %198, %191 ]
   %207 = phi i32 [ %201, %199 ], [ %195, %191 ]
   %208 = phi i64 [ %204, %199 ], [ 0, %191 ]
-  %.val98125.pn.in.i = getelementptr i8, ptr %188, i64 40
-  %.val98125.pn.i = load ptr, ptr %.val98125.pn.in.i, align 8
-  %.val98.val127.in.i = getelementptr i8, ptr %.val98125.pn.i, i64 72
-  %.val98.val127.i = load ptr, ptr %.val98.val127.in.i, align 8
+  %.val98131.pn.in.i = getelementptr i8, ptr %188, i64 40
+  %.val98131.pn.i = load ptr, ptr %.val98131.pn.in.i, align 8
+  %.val98.val133.in.i = getelementptr i8, ptr %.val98131.pn.i, i64 72
+  %.val98.val133.i = load ptr, ptr %.val98.val133.in.i, align 8
   %209 = zext i32 %.in.i to i64
-  %210 = getelementptr inbounds nuw %struct.VulkanTextureSubresource, ptr %.val98.val127.i, i64 %209, i32 3
+  %210 = getelementptr inbounds nuw %struct.VulkanTextureSubresource, ptr %.val98.val133.i, i64 %209, i32 3
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds nuw ptr, ptr %211, i64 %208
   %213 = load ptr, ptr %212, align 8
@@ -7892,14 +7892,14 @@ VULKAN_INTERNAL_TrackTexture.exit185:             ; preds = %155, %170
   br label %270
 
 270:                                              ; preds = %264, %256
-  %.in135.i = phi i32 [ %266, %264 ], [ %263, %256 ]
+  %.in141.i = phi i32 [ %266, %264 ], [ %263, %256 ]
   %271 = phi i64 [ %269, %264 ], [ 0, %256 ]
-  %.val104131.pn.in.i = getelementptr i8, ptr %253, i64 40
-  %.val104131.pn.i = load ptr, ptr %.val104131.pn.in.i, align 8
-  %.val104.val133.in.i = getelementptr i8, ptr %.val104131.pn.i, i64 72
-  %.val104.val133.i = load ptr, ptr %.val104.val133.in.i, align 8
-  %272 = zext i32 %.in135.i to i64
-  %273 = getelementptr inbounds nuw %struct.VulkanTextureSubresource, ptr %.val104.val133.i, i64 %272, i32 3
+  %.val104137.pn.in.i = getelementptr i8, ptr %253, i64 40
+  %.val104137.pn.i = load ptr, ptr %.val104137.pn.in.i, align 8
+  %.val104.val139.in.i = getelementptr i8, ptr %.val104137.pn.i, i64 72
+  %.val104.val139.i = load ptr, ptr %.val104.val139.in.i, align 8
+  %272 = zext i32 %.in141.i to i64
+  %273 = getelementptr inbounds nuw %struct.VulkanTextureSubresource, ptr %.val104.val139.i, i64 %272, i32 3
   %274 = load ptr, ptr %273, align 8
   %275 = getelementptr inbounds nuw ptr, ptr %274, i64 %271
   %276 = load ptr, ptr %275, align 8
@@ -10589,15 +10589,15 @@ VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i:   ; preds = %73, %71, %69, %67, 
   store i32 1, ptr %12, align 8
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage, i64 0, i64 %.0.i.i
   %switch.load = load i32, ptr %switch.gep, align 4
-  %switch.gep54 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.34, i64 0, i64 %.0.i.i
-  %switch.load55 = load i32, ptr %switch.gep54, align 4
-  %switch.gep56 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.35, i64 0, i64 %.0.i.i
-  %switch.load57 = load i32, ptr %switch.gep56, align 4
+  %switch.gep58 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.34, i64 0, i64 %.0.i.i
+  %switch.load59 = load i32, ptr %switch.gep58, align 4
+  %switch.gep60 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.35, i64 0, i64 %.0.i.i
+  %switch.load61 = load i32, ptr %switch.gep60, align 4
   store i32 %switch.load, ptr %22, align 4
-  store i32 %switch.load55, ptr %21, align 4
+  store i32 %switch.load59, ptr %21, align 4
   %83 = load ptr, ptr %23, align 8
   %84 = load ptr, ptr %24, align 8
-  call void %83(ptr noundef %84, i32 noundef 2048, i32 noundef %switch.load57, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %6) #12
+  call void %83(ptr noundef %84, i32 noundef 2048, i32 noundef %switch.load61, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %6) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %85 = load i32, ptr %54, align 4
@@ -10687,18 +10687,18 @@ VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i38: ; preds = %108, %106, %104, %1
   br i1 %110, label %switch.lookup, label %VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit
 
 switch.lookup:                                    ; preds = %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i38
-  %switch.gep59 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage, i64 0, i64 %.0.i.i39
-  %switch.load60 = load i32, ptr %switch.gep59, align 4
-  %switch.gep61 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.36, i64 0, i64 %.0.i.i39
-  %switch.load62 = load i32, ptr %switch.gep61, align 4
-  %switch.gep63 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.37, i64 0, i64 %.0.i.i39
+  %switch.gep63 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage, i64 0, i64 %.0.i.i39
   %switch.load64 = load i32, ptr %switch.gep63, align 4
+  %switch.gep65 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.36, i64 0, i64 %.0.i.i39
+  %switch.load66 = load i32, ptr %switch.gep65, align 4
+  %switch.gep67 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.37, i64 0, i64 %.0.i.i39
+  %switch.load68 = load i32, ptr %switch.gep67, align 4
   br label %VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit
 
 VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit: ; preds = %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i38, %switch.lookup
-  %.sink31.i.i = phi i32 [ %switch.load60, %switch.lookup ], [ 1024, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i38 ]
-  %.sink.ph.i.i = phi i32 [ %switch.load62, %switch.lookup ], [ 3, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i38 ]
-  %.025.ph.i.i = phi i32 [ %switch.load64, %switch.lookup ], [ 768, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i38 ]
+  %.sink31.i.i = phi i32 [ %switch.load64, %switch.lookup ], [ 1024, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i38 ]
+  %.sink.ph.i.i = phi i32 [ %switch.load66, %switch.lookup ], [ 3, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i38 ]
+  %.025.ph.i.i = phi i32 [ %switch.load68, %switch.lookup ], [ 768, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i38 ]
   store i32 %.sink31.i.i, ptr %26, align 8
   store i32 %.sink.ph.i.i, ptr %27, align 8
   store i32 32, ptr %37, align 4
@@ -11266,15 +11266,15 @@ VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i:   ; preds = %63, %61, %59, %57, 
   store i32 1, ptr %19, align 8
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage, i64 0, i64 %.0.i.i
   %switch.load = load i32, ptr %switch.gep, align 4
-  %switch.gep69 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.34, i64 0, i64 %.0.i.i
-  %switch.load70 = load i32, ptr %switch.gep69, align 4
-  %switch.gep71 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.35, i64 0, i64 %.0.i.i
+  %switch.gep71 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.34, i64 0, i64 %.0.i.i
   %switch.load72 = load i32, ptr %switch.gep71, align 4
+  %switch.gep73 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.35, i64 0, i64 %.0.i.i
+  %switch.load74 = load i32, ptr %switch.gep73, align 4
   store i32 %switch.load, ptr %29, align 4
-  store i32 %switch.load70, ptr %28, align 4
+  store i32 %switch.load72, ptr %28, align 4
   %73 = load ptr, ptr %46, align 8
   %74 = load ptr, ptr %30, align 8
-  call void %73(ptr noundef %74, i32 noundef 2048, i32 noundef %switch.load72, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2) #12
+  call void %73(ptr noundef %74, i32 noundef 2048, i32 noundef %switch.load74, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %75 = load i32, ptr %42, align 4
@@ -12865,16 +12865,16 @@ VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i:   ; preds = %131, %129, %127, %1
 switch.lookup:                                    ; preds = %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage, i64 0, i64 %.0.i.i
   %switch.load = load i32, ptr %switch.gep, align 4
-  %switch.gep116 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.36, i64 0, i64 %.0.i.i
-  %switch.load117 = load i32, ptr %switch.gep116, align 4
-  %switch.gep118 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.37, i64 0, i64 %.0.i.i
-  %switch.load119 = load i32, ptr %switch.gep118, align 4
+  %switch.gep127 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.36, i64 0, i64 %.0.i.i
+  %switch.load128 = load i32, ptr %switch.gep127, align 4
+  %switch.gep129 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.37, i64 0, i64 %.0.i.i
+  %switch.load130 = load i32, ptr %switch.gep129, align 4
   br label %VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit
 
 VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit: ; preds = %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i, %switch.lookup
   %.sink31.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 1024, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i ]
-  %.sink.ph.i.i = phi i32 [ %switch.load117, %switch.lookup ], [ 3, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i ]
-  %.025.ph.i.i = phi i32 [ %switch.load119, %switch.lookup ], [ 768, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i ]
+  %.sink.ph.i.i = phi i32 [ %switch.load128, %switch.lookup ], [ 3, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i ]
+  %.025.ph.i.i = phi i32 [ %switch.load130, %switch.lookup ], [ 768, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i ]
   store i32 %.sink31.i.i, ptr %15, align 8
   store i32 %.sink.ph.i.i, ptr %16, align 8
   store i32 2048, ptr %26, align 4
@@ -12943,21 +12943,21 @@ VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62: ; preds = %157, %155, %153, %1
   %167 = load i32, ptr %166, align 4
   store i32 %167, ptr %38, align 4
   store i32 1, ptr %39, align 8
-  br i1 %159, label %switch.lookup120, label %VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit73
+  br i1 %159, label %switch.lookup131, label %VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit73
 
-switch.lookup120:                                 ; preds = %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62
-  %switch.gep122 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage, i64 0, i64 %.0.i.i63
-  %switch.load123 = load i32, ptr %switch.gep122, align 4
-  %switch.gep124 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.36, i64 0, i64 %.0.i.i63
-  %switch.load125 = load i32, ptr %switch.gep124, align 4
-  %switch.gep126 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.37, i64 0, i64 %.0.i.i63
-  %switch.load127 = load i32, ptr %switch.gep126, align 4
+switch.lookup131:                                 ; preds = %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62
+  %switch.gep133 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage, i64 0, i64 %.0.i.i63
+  %switch.load134 = load i32, ptr %switch.gep133, align 4
+  %switch.gep135 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.36, i64 0, i64 %.0.i.i63
+  %switch.load136 = load i32, ptr %switch.gep135, align 4
+  %switch.gep137 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.37, i64 0, i64 %.0.i.i63
+  %switch.load138 = load i32, ptr %switch.gep137, align 4
   br label %VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit73
 
-VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit73: ; preds = %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62, %switch.lookup120
-  %.sink31.i.i64 = phi i32 [ %switch.load123, %switch.lookup120 ], [ 1024, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62 ]
-  %.sink.ph.i.i65 = phi i32 [ %switch.load125, %switch.lookup120 ], [ 3, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62 ]
-  %.025.ph.i.i66 = phi i32 [ %switch.load127, %switch.lookup120 ], [ 768, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62 ]
+VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit73: ; preds = %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62, %switch.lookup131
+  %.sink31.i.i64 = phi i32 [ %switch.load134, %switch.lookup131 ], [ 1024, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62 ]
+  %.sink.ph.i.i65 = phi i32 [ %switch.load136, %switch.lookup131 ], [ 3, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62 ]
+  %.025.ph.i.i66 = phi i32 [ %switch.load138, %switch.lookup131 ], [ 768, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62 ]
   store i32 %.sink31.i.i64, ptr %30, align 8
   store i32 %.sink.ph.i.i65, ptr %31, align 8
   store i32 4096, ptr %41, align 4
@@ -13058,17 +13058,17 @@ VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i76: ; preds = %195, %193, %191, %1
   store i32 1, ptr %74, align 8
   store i32 2048, ptr %65, align 8
   store i32 6, ptr %66, align 8
-  %switch.gep130 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage, i64 0, i64 %.0.i.i77
-  %switch.load131 = load i32, ptr %switch.gep130, align 4
-  %switch.gep132 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.34, i64 0, i64 %.0.i.i77
-  %switch.load133 = load i32, ptr %switch.gep132, align 4
-  %switch.gep134 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.35, i64 0, i64 %.0.i.i77
-  %switch.load135 = load i32, ptr %switch.gep134, align 4
-  store i32 %switch.load131, ptr %76, align 4
-  store i32 %switch.load133, ptr %75, align 4
+  %switch.gep141 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage, i64 0, i64 %.0.i.i77
+  %switch.load142 = load i32, ptr %switch.gep141, align 4
+  %switch.gep143 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.34, i64 0, i64 %.0.i.i77
+  %switch.load144 = load i32, ptr %switch.gep143, align 4
+  %switch.gep145 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.35, i64 0, i64 %.0.i.i77
+  %switch.load146 = load i32, ptr %switch.gep145, align 4
+  store i32 %switch.load142, ptr %76, align 4
+  store i32 %switch.load144, ptr %75, align 4
   %203 = load ptr, ptr %27, align 8
   %204 = load ptr, ptr %28, align 8
-  call void %203(ptr noundef %204, i32 noundef 4096, i32 noundef %switch.load135, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4) #12
+  call void %203(ptr noundef %204, i32 noundef 4096, i32 noundef %switch.load146, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %205 = load ptr, ptr %117, align 8
   %206 = getelementptr i8, ptr %205, i64 64
@@ -13129,17 +13129,17 @@ VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i89: ; preds = %218, %216, %214, %2
   store i32 1, ptr %87, align 8
   store i32 4096, ptr %78, align 8
   store i32 7, ptr %79, align 8
-  %switch.gep138 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage, i64 0, i64 %.0.i.i90
-  %switch.load139 = load i32, ptr %switch.gep138, align 4
-  %switch.gep140 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.34, i64 0, i64 %.0.i.i90
-  %switch.load141 = load i32, ptr %switch.gep140, align 4
-  %switch.gep142 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.35, i64 0, i64 %.0.i.i90
-  %switch.load143 = load i32, ptr %switch.gep142, align 4
-  store i32 %switch.load139, ptr %89, align 4
-  store i32 %switch.load141, ptr %88, align 4
+  %switch.gep149 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage, i64 0, i64 %.0.i.i90
+  %switch.load150 = load i32, ptr %switch.gep149, align 4
+  %switch.gep151 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.34, i64 0, i64 %.0.i.i90
+  %switch.load152 = load i32, ptr %switch.gep151, align 4
+  %switch.gep153 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.35, i64 0, i64 %.0.i.i90
+  %switch.load154 = load i32, ptr %switch.gep153, align 4
+  store i32 %switch.load150, ptr %89, align 4
+  store i32 %switch.load152, ptr %88, align 4
   %226 = load ptr, ptr %27, align 8
   %227 = load ptr, ptr %28, align 8
-  call void %226(ptr noundef %227, i32 noundef 4096, i32 noundef %switch.load143, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #12
+  call void %226(ptr noundef %227, i32 noundef 4096, i32 noundef %switch.load154, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %228 = load ptr, ptr %115, align 8
   %229 = load i32, ptr %90, align 8
@@ -13267,13 +13267,13 @@ define internal void @VULKAN_Blit(ptr noundef %0, ptr noundef readonly captures(
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %13 = load i32, ptr %12, align 4
   %. = select i1 %11, i32 0, i32 %13
-  %.82 = select i1 %11, i32 %13, i32 0
+  %.84 = select i1 %11, i32 %13, i32 0
   %14 = load i32, ptr %9, align 4
   %15 = icmp eq i32 %14, 2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %17 = load i32, ptr %16, align 4
-  %.83 = select i1 %15, i32 0, i32 %17
-  %.84 = select i1 %15, i32 %17, i32 0
+  %.85 = select i1 %15, i32 0, i32 %17
+  %.86 = select i1 %15, i32 %17, i32 0
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 1
@@ -13328,7 +13328,7 @@ define internal void @VULKAN_Blit(ptr noundef %0, ptr noundef readonly captures(
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %49 = load i8, ptr %48, align 4, !range !3, !noundef !4
   %50 = trunc nuw i8 %49 to i1
-  %51 = tail call fastcc ptr @VULKAN_INTERNAL_PrepareTextureSubresourceForWrite(ptr noundef %6, ptr noundef nonnull %0, ptr noundef %35, i32 noundef %.83, i32 noundef %47, i1 noundef zeroext %50, i32 noundef 2)
+  %51 = tail call fastcc ptr @VULKAN_INTERNAL_PrepareTextureSubresourceForWrite(ptr noundef %6, ptr noundef nonnull %0, ptr noundef %35, i32 noundef %.85, i32 noundef %47, i1 noundef zeroext %50, i32 noundef 2)
   tail call fastcc void @VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage(ptr noundef %6, ptr noundef nonnull %0, i32 noundef 1, ptr noundef %45)
   %52 = load ptr, ptr %45, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 56
@@ -13353,7 +13353,7 @@ define internal void @VULKAN_Blit(ptr noundef %0, ptr noundef readonly captures(
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %66, ptr %67, align 4
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 %.82, ptr %68, align 4
+  store i32 %.84, ptr %68, align 4
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %70 = load i32, ptr %69, align 8
   %71 = add i32 %70, %63
@@ -13364,7 +13364,7 @@ define internal void @VULKAN_Blit(ptr noundef %0, ptr noundef readonly captures(
   %75 = add i32 %74, %66
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %75, ptr %76, align 4
-  %77 = add i32 %.82, 1
+  %77 = add i32 %.84, 1
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 %77, ptr %78, align 4
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -13413,7 +13413,7 @@ define internal void @VULKAN_Blit(ptr noundef %0, ptr noundef readonly captures(
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i32 %102, ptr %103, align 4
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i32 %.84, ptr %104, align 4
+  store i32 %.86, ptr %104, align 4
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %106 = load i32, ptr %105, align 8
   %107 = add i32 %106, %99
@@ -13424,7 +13424,7 @@ define internal void @VULKAN_Blit(ptr noundef %0, ptr noundef readonly captures(
   %111 = add i32 %110, %102
   %112 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i32 %111, ptr %112, align 4
-  %113 = add i32 %.84, 1
+  %113 = add i32 %.86, 1
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 76
   store i32 %113, ptr %114, align 4
   %115 = getelementptr inbounds nuw i8, ptr %6, i64 2832
@@ -18698,8 +18698,8 @@ define internal fastcc void @VULKAN_INTERNAL_NewMemoryFreeRegion(ptr noundef %0,
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ %11, %4 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %13 = and i64 %indvars.iv.next, 2147483648
-  %.not139 = icmp eq i64 %13, 0
-  br i1 %.not139, label %14, label %.critedge
+  %.not143 = icmp eq i64 %13, 0
+  br i1 %.not143, label %14, label %.critedge
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %9, align 8
@@ -18842,8 +18842,8 @@ common.ret:                                       ; preds = %42, %.loopexit, %30
   %89 = phi ptr [ %.pre, %75 ], [ %59, %._crit_edge ]
   %.not102 = icmp ne i32 %88, 0
   %90 = icmp sgt i32 %88, %.097.lcssa
-  %or.cond147 = and i1 %.not102, %90
-  br i1 %or.cond147, label %.lr.ph121, label %.loopexit
+  %or.cond151 = and i1 %.not102, %90
+  br i1 %or.cond151, label %.lr.ph121, label %.loopexit
 
 .lr.ph121:                                        ; preds = %87, %.lr.ph121
   %.0120 = phi i32 [ %94, %.lr.ph121 ], [ %88, %87 ]
@@ -19478,7 +19478,7 @@ define internal fastcc noundef ptr @VULKAN_INTERNAL_CreateTexture(ptr noundef %0
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %12 = load i32, ptr %11, align 4
   %. = select i1 %10, i32 1, i32 %12
-  %.268 = select i1 %10, i32 %12, i32 1
+  %.279 = select i1 %10, i32 %12, i32 1
   %13 = tail call noalias dereferenceable_or_null(88) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 88) #15
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -19505,7 +19505,7 @@ SwizzleForSDLFormat.exit:                         ; preds = %3, %17, %18
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i64 %.sroa.7.8.insert.insert.i, ptr %.sroa.4.0..sroa_idx, align 8
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 60
-  store i32 %.268, ptr %19, align 4
+  store i32 %.279, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -19568,7 +19568,7 @@ switch.lookup:                                    ; preds = %SwizzleForSDLFormat
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %48, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i32 %.268, ptr %50, align 4
+  store i32 %.279, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -19888,19 +19888,19 @@ VULKAN_INTERNAL_BindMemoryForImage.exit.thread245: ; preds = %124, %114
   store i32 %., ptr %175, align 8
   %176 = load i32, ptr %2, align 4
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %switch.tableidx272 = add i32 %176, -1
-  %178 = icmp ult i32 %switch.tableidx272, 4
-  br i1 %178, label %switch.lookup271, label %180
+  %switch.tableidx283 = add i32 %176, -1
+  %178 = icmp ult i32 %switch.tableidx283, 4
+  br i1 %178, label %switch.lookup282, label %180
 
-switch.lookup271:                                 ; preds = %157
-  %179 = zext nneg i32 %switch.tableidx272 to i64
-  %switch.gep273 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.VULKAN_INTERNAL_CreateTexture.33, i64 0, i64 %179
-  %switch.load274 = load i32, ptr %switch.gep273, align 4
+switch.lookup282:                                 ; preds = %157
+  %179 = zext nneg i32 %switch.tableidx283 to i64
+  %switch.gep284 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.VULKAN_INTERNAL_CreateTexture.33, i64 0, i64 %179
+  %switch.load285 = load i32, ptr %switch.gep284, align 4
   br label %180
 
-180:                                              ; preds = %157, %switch.lookup271
-  %.sink269 = phi i32 [ %switch.load274, %switch.lookup271 ], [ 1, %157 ]
-  store i32 %.sink269, ptr %177, align 8
+180:                                              ; preds = %157, %switch.lookup282
+  %.sink280 = phi i32 [ %switch.load285, %switch.lookup282 ], [ 1, %157 ]
+  store i32 %.sink280, ptr %177, align 8
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 3080
   %182 = load ptr, ptr %181, align 8
   %183 = load ptr, ptr %69, align 8
@@ -20083,9 +20083,9 @@ VkErrorMessages.exit236:                          ; preds = %208, %209, %210, %2
   br i1 %.not210253.not, label %.critedge217, label %.preheader248.lr.ph
 
 .preheader248.lr.ph:                              ; preds = %227
-  %234 = zext i32 %.268 to i64
+  %234 = zext i32 %.279 to i64
   %235 = shl nuw nsw i64 %234, 3
-  %236 = icmp ugt i32 %.268, 1
+  %236 = icmp ugt i32 %.279, 1
   %237 = load i32, ptr %51, align 4
   %.not255 = icmp eq i32 %237, 0
   br i1 %.not255, label %.critedge217, label %.preheader248

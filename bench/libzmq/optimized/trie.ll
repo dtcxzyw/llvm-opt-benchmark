@@ -299,7 +299,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
 73:                                               ; preds = %68, %60
   %74 = load i16, ptr %20, align 2, !tbaa !10
   %.not5288 = icmp eq i16 %19, %74
-  br i1 %.not5288, label %.loopexit.thread109, label %.lr.ph91
+  br i1 %.not5288, label %.loopexit.thread117, label %.lr.ph91
 
 .lr.ph91:                                         ; preds = %73, %.lr.ph91
   %.03189 = phi i16 [ %78, %.lr.ph91 ], [ %19, %73 ]
@@ -370,7 +370,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
 .loopexit:                                        ; preds = %.lr.ph91, %._crit_edge, %._crit_edge96, %11
   %110 = phi i16 [ %.pre108, %._crit_edge ], [ %45, %._crit_edge96 ], [ %15, %11 ], [ %74, %.lr.ph91 ]
   %111 = icmp eq i16 %110, 1
-  br i1 %111, label %112, label %.loopexit.thread109
+  br i1 %111, label %112, label %.loopexit.thread117
 
 112:                                              ; preds = %.loopexit.thread, %.loopexit
   %113 = getelementptr inbounds nuw i8, ptr %.tr98, i64 16
@@ -429,7 +429,7 @@ tailrecurse.backedge:                             ; preds = %112, %131, %127, %1
   %.not = icmp eq i64 %.tr82.be, 0
   br i1 %.not, label %tailrecurse._crit_edge, label %.lr.ph102
 
-.loopexit.thread109:                              ; preds = %73, %.loopexit
+.loopexit.thread117:                              ; preds = %73, %.loopexit
   %136 = getelementptr inbounds nuw i8, ptr %.tr98, i64 16
   %137 = load ptr, ptr %136, align 8, !tbaa !12
   %138 = zext i8 %7 to i64
@@ -441,7 +441,7 @@ tailrecurse.backedge:                             ; preds = %112, %131, %127, %1
   %.not55 = icmp eq ptr %143, null
   br i1 %.not55, label %144, label %174
 
-144:                                              ; preds = %.loopexit.thread109
+144:                                              ; preds = %.loopexit.thread117
   %145 = tail call noalias noundef dereferenceable_or_null(24) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 24, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %146 = icmp eq ptr %145, null
   br i1 %146, label %148, label %147
@@ -492,7 +492,7 @@ tailrecurse.backedge:                             ; preds = %112, %131, %127, %1
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.7)
   br label %174
 
-174:                                              ; preds = %164, %169, %.loopexit.thread109
+174:                                              ; preds = %164, %169, %.loopexit.thread117
   %175 = load ptr, ptr %136, align 8, !tbaa !12
   %176 = load i8, ptr %8, align 4, !tbaa !9
   %177 = zext i8 %176 to i64

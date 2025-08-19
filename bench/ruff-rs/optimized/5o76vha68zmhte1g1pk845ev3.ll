@@ -2546,7 +2546,7 @@ define internal fastcc void @_ZN15ruff_python_ast7visitor12source_order18SourceO
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_order17h3579b000e50f7390E(i64 noundef range(i64 0, 92) %0, ptr noundef %1, ptr noalias noundef align 8 dereferenceable(48) %2) unnamed_addr #0 {
-  switch i64 %0, label %default.unreachable109 [
+  switch i64 %0, label %default.unreachable112 [
     i64 0, label %4
     i64 1, label %10
     i64 2, label %13
@@ -2641,7 +2641,7 @@ define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_ord
     i64 91, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit
   ]
 
-default.unreachable109:                           ; preds = %3
+default.unreachable112:                           ; preds = %3
   unreachable
 
 4:                                                ; preds = %3
@@ -3246,7 +3246,7 @@ _ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_order17h394aef219dfa7657E(i64 noundef range(i64 0, 92) %0, ptr noundef %1, ptr noalias noundef align 8 dereferenceable(48) %2) unnamed_addr #0 {
-  switch i64 %0, label %default.unreachable109 [
+  switch i64 %0, label %default.unreachable112 [
     i64 0, label %4
     i64 1, label %10
     i64 2, label %13
@@ -3341,7 +3341,7 @@ define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_ord
     i64 91, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit
   ]
 
-default.unreachable109:                           ; preds = %3
+default.unreachable112:                           ; preds = %3
   unreachable
 
 4:                                                ; preds = %3
@@ -3946,7 +3946,7 @@ _ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f691
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_order17hadb345f9114fa2a6E(i64 noundef range(i64 0, 92) %0, ptr noundef %1, ptr noalias noundef align 8 dereferenceable(16) %2) unnamed_addr #0 {
-  switch i64 %0, label %default.unreachable109 [
+  switch i64 %0, label %default.unreachable112 [
     i64 0, label %4
     i64 1, label %10
     i64 2, label %13
@@ -4041,7 +4041,7 @@ define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_ord
     i64 91, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit
   ]
 
-default.unreachable109:                           ; preds = %3
+default.unreachable112:                           ; preds = %3
   unreachable
 
 4:                                                ; preds = %3
@@ -4646,7 +4646,7 @@ _ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e848
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_order17hf472f7303d0041b9E(i64 noundef range(i64 0, 92) %0, ptr noundef %1, ptr noalias noundef align 8 dereferenceable(104) %2) unnamed_addr #0 {
-  switch i64 %0, label %default.unreachable119 [
+  switch i64 %0, label %default.unreachable122 [
     i64 0, label %4
     i64 1, label %10
     i64 2, label %13
@@ -4741,7 +4741,7 @@ define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_ord
     i64 91, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit
   ]
 
-default.unreachable119:                           ; preds = %3
+default.unreachable122:                           ; preds = %3
   unreachable
 
 4:                                                ; preds = %3

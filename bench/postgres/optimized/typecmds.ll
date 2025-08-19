@@ -2482,18 +2482,18 @@ define dso_local { i64, i32 } @DefineRange(ptr noundef %0, ptr noundef readonly 
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %46 = load i32, ptr %44, align 4
   %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %.lr.ph383, label %.critedge
+  br i1 %47, label %.lr.ph393, label %.critedge
 
-.lr.ph383:                                        ; preds = %.lr.ph, %103
-  %.0147240382 = phi ptr [ %.1148, %103 ], [ null, %.lr.ph ]
-  %.0145241381 = phi ptr [ %.1146, %103 ], [ null, %.lr.ph ]
-  %.0143242380 = phi ptr [ %.1144, %103 ], [ null, %.lr.ph ]
-  %.0141243379 = phi ptr [ %.1142, %103 ], [ null, %.lr.ph ]
-  %.0139244378 = phi i32 [ %.1140, %103 ], [ 0, %.lr.ph ]
-  %.0138245377 = phi i32 [ %.1, %103 ], [ 0, %.lr.ph ]
-  %indvars.iv376 = phi i64 [ %indvars.iv.next, %103 ], [ 0, %.lr.ph ]
+.lr.ph393:                                        ; preds = %.lr.ph, %103
+  %.0147240392 = phi ptr [ %.1148, %103 ], [ null, %.lr.ph ]
+  %.0145241391 = phi ptr [ %.1146, %103 ], [ null, %.lr.ph ]
+  %.0143242390 = phi ptr [ %.1144, %103 ], [ null, %.lr.ph ]
+  %.0141243389 = phi ptr [ %.1142, %103 ], [ null, %.lr.ph ]
+  %.0139244388 = phi i32 [ %.1140, %103 ], [ 0, %.lr.ph ]
+  %.0138245387 = phi i32 [ %.1, %103 ], [ 0, %.lr.ph ]
+  %indvars.iv386 = phi i64 [ %indvars.iv.next, %103 ], [ 0, %.lr.ph ]
   %48 = load ptr, ptr %45, align 8
-  %49 = getelementptr inbounds nuw %union.ListCell, ptr %48, i64 %indvars.iv376
+  %49 = getelementptr inbounds nuw %union.ListCell, ptr %48, i64 %indvars.iv386
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
@@ -2511,8 +2511,8 @@ define dso_local { i64, i32 } @DefineRange(ptr noundef %0, ptr noundef readonly 
   %.not162 = icmp eq i32 %.0139244.lcssa, 0
   br i1 %.not162, label %.critedge.thread, label %110
 
-55:                                               ; preds = %.lr.ph383
-  %.not175 = icmp eq i32 %.0139244378, 0
+55:                                               ; preds = %.lr.ph393
+  %.not175 = icmp eq i32 %.0139244388, 0
   br i1 %.not175, label %57, label %56
 
 56:                                               ; preds = %55
@@ -2524,13 +2524,13 @@ define dso_local { i64, i32 } @DefineRange(ptr noundef %0, ptr noundef readonly 
   %59 = call i32 @typenameTypeId(ptr noundef null, ptr noundef %58) #8
   br label %103
 
-60:                                               ; preds = %.lr.ph383
+60:                                               ; preds = %.lr.ph393
   %61 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(16) @.str.63) #10
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %60
-  %.not174 = icmp eq ptr %.0141243379, null
+  %.not174 = icmp eq ptr %.0141243389, null
   br i1 %.not174, label %65, label %64
 
 64:                                               ; preds = %63
@@ -2547,7 +2547,7 @@ define dso_local { i64, i32 } @DefineRange(ptr noundef %0, ptr noundef readonly 
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %67
-  %.not173 = icmp eq ptr %.0143242380, null
+  %.not173 = icmp eq ptr %.0143242390, null
   br i1 %.not173, label %72, label %71
 
 71:                                               ; preds = %70
@@ -2564,7 +2564,7 @@ define dso_local { i64, i32 } @DefineRange(ptr noundef %0, ptr noundef readonly 
   br i1 %76, label %77, label %81
 
 77:                                               ; preds = %74
-  %.not172 = icmp eq ptr %.0145241381, null
+  %.not172 = icmp eq ptr %.0145241391, null
   br i1 %.not172, label %79, label %78
 
 78:                                               ; preds = %77
@@ -2581,7 +2581,7 @@ define dso_local { i64, i32 } @DefineRange(ptr noundef %0, ptr noundef readonly 
   br i1 %83, label %84, label %88
 
 84:                                               ; preds = %81
-  %.not171 = icmp eq ptr %.0147240382, null
+  %.not171 = icmp eq ptr %.0147240392, null
   br i1 %.not171, label %86, label %85
 
 85:                                               ; preds = %84
@@ -2622,17 +2622,17 @@ define dso_local { i64, i32 } @DefineRange(ptr noundef %0, ptr noundef readonly 
   unreachable
 
 103:                                              ; preds = %65, %79, %94, %86, %72, %57
-  %.1148 = phi ptr [ %.0147240382, %57 ], [ %.0147240382, %65 ], [ %.0147240382, %72 ], [ %.0147240382, %79 ], [ %87, %86 ], [ %.0147240382, %94 ]
-  %.1146 = phi ptr [ %.0145241381, %57 ], [ %.0145241381, %65 ], [ %.0145241381, %72 ], [ %80, %79 ], [ %.0145241381, %86 ], [ %.0145241381, %94 ]
-  %.1144 = phi ptr [ %.0143242380, %57 ], [ %.0143242380, %65 ], [ %73, %72 ], [ %.0143242380, %79 ], [ %.0143242380, %86 ], [ %.0143242380, %94 ]
-  %.1142 = phi ptr [ %.0141243379, %57 ], [ %66, %65 ], [ %.0141243379, %72 ], [ %.0141243379, %79 ], [ %.0141243379, %86 ], [ %.0141243379, %94 ]
-  %.1140 = phi i32 [ %59, %57 ], [ %.0139244378, %65 ], [ %.0139244378, %72 ], [ %.0139244378, %79 ], [ %.0139244378, %86 ], [ %.0139244378, %94 ]
-  %.1 = phi i32 [ %.0138245377, %57 ], [ %.0138245377, %65 ], [ %.0138245377, %72 ], [ %.0138245377, %79 ], [ %.0138245377, %86 ], [ %96, %94 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv376, 1
+  %.1148 = phi ptr [ %.0147240392, %57 ], [ %.0147240392, %65 ], [ %.0147240392, %72 ], [ %.0147240392, %79 ], [ %87, %86 ], [ %.0147240392, %94 ]
+  %.1146 = phi ptr [ %.0145241391, %57 ], [ %.0145241391, %65 ], [ %.0145241391, %72 ], [ %80, %79 ], [ %.0145241391, %86 ], [ %.0145241391, %94 ]
+  %.1144 = phi ptr [ %.0143242390, %57 ], [ %.0143242390, %65 ], [ %73, %72 ], [ %.0143242390, %79 ], [ %.0143242390, %86 ], [ %.0143242390, %94 ]
+  %.1142 = phi ptr [ %.0141243389, %57 ], [ %66, %65 ], [ %.0141243389, %72 ], [ %.0141243389, %79 ], [ %.0141243389, %86 ], [ %.0141243389, %94 ]
+  %.1140 = phi i32 [ %59, %57 ], [ %.0139244388, %65 ], [ %.0139244388, %72 ], [ %.0139244388, %79 ], [ %.0139244388, %86 ], [ %.0139244388, %94 ]
+  %.1 = phi i32 [ %.0138245387, %57 ], [ %.0138245387, %65 ], [ %.0138245387, %72 ], [ %.0138245387, %79 ], [ %.0138245387, %86 ], [ %96, %94 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv386, 1
   %104 = load i32, ptr %44, align 4
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next, %105
-  br i1 %106, label %.lr.ph383, label %.critedge
+  br i1 %106, label %.lr.ph393, label %.critedge
 
 .critedge.thread:                                 ; preds = %41, %.critedge
   %107 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -3484,12 +3484,12 @@ define internal fastcc void @validateDomainNotNullConstraint(i32 noundef %0) unn
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %3, align 4
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.lr.ph87, label %.critedge
+  br i1 %6, label %.lr.ph88, label %.critedge
 
-.lr.ph87:                                         ; preds = %.lr.ph44, %80
-  %indvars.iv5986 = phi i64 [ %indvars.iv.next60, %80 ], [ 0, %.lr.ph44 ]
+.lr.ph88:                                         ; preds = %.lr.ph44, %80
+  %indvars.iv5987 = phi i64 [ %indvars.iv.next60, %80 ], [ 0, %.lr.ph44 ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv5986
+  %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv5987
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
@@ -3514,7 +3514,7 @@ define internal fastcc void @validateDomainNotNullConstraint(i32 noundef %0) unn
   %.not5.i40 = select i1 %26, i1 true, i1 %28
   br i1 %.not5.i40, label %table_scan_getnextslot.exit.lr.ph, label %._crit_edge, !prof !9
 
-table_scan_getnextslot.exit.lr.ph:                ; preds = %.lr.ph87
+table_scan_getnextslot.exit.lr.ph:                ; preds = %.lr.ph88
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 6
@@ -3536,7 +3536,7 @@ table_scan_getnextslot.exit.lr.ph:                ; preds = %.lr.ph87
   %.not5.i = select i1 %37, i1 true, i1 %39
   br i1 %.not5.i, label %table_scan_getnextslot.exit, label %._crit_edge, !prof !10, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph87, %.loopexit
+._crit_edge:                                      ; preds = %.lr.ph88, %.loopexit
   %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %40)
   %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.135) #8
@@ -3616,11 +3616,11 @@ slot_attisnull.exit:                              ; preds = %.lr.ph, %slot_getso
   tail call void %85(ptr noundef nonnull %19) #8
   tail call void @UnregisterSnapshot(ptr noundef %14) #8
   tail call void @table_close(ptr noundef %10, i32 noundef 0) #8
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv5986, 1
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv5987, 1
   %86 = load i32, ptr %3, align 4
   %87 = sext i32 %86 to i64
   %88 = icmp slt i64 %indvars.iv.next60, %87
-  br i1 %88, label %.lr.ph87, label %.critedge
+  br i1 %88, label %.lr.ph88, label %.critedge
 }
 
 declare ptr @findDomainNotNullConstraint(i32 noundef) local_unnamed_addr #1
@@ -3891,12 +3891,12 @@ define internal fastcc void @validateDomainCheckConstraint(i32 noundef %0, ptr n
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %20 = load i32, ptr %14, align 4
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.lr.ph104, label %.critedge
+  br i1 %21, label %.lr.ph106, label %.critedge
 
-.lr.ph104:                                        ; preds = %.lr.ph61, %106
-  %indvars.iv76103 = phi i64 [ %indvars.iv.next77, %106 ], [ 0, %.lr.ph61 ]
+.lr.ph106:                                        ; preds = %.lr.ph61, %106
+  %indvars.iv76105 = phi i64 [ %indvars.iv.next77, %106 ], [ 0, %.lr.ph61 ]
   %22 = load ptr, ptr %15, align 8
-  %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv76103
+  %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv76105
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
@@ -3921,7 +3921,7 @@ define internal fastcc void @validateDomainCheckConstraint(i32 noundef %0, ptr n
   %.not5.i56 = select i1 %41, i1 true, i1 %43
   br i1 %.not5.i56, label %table_scan_getnextslot.exit.lr.ph, label %._crit_edge57, !prof !9
 
-table_scan_getnextslot.exit.lr.ph:                ; preds = %.lr.ph104
+table_scan_getnextslot.exit.lr.ph:                ; preds = %.lr.ph106
   %44 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 6
@@ -3933,7 +3933,7 @@ table_scan_getnextslot.exit.lr.ph:                ; preds = %.lr.ph104
   call void @FreeExecutorState(ptr noundef nonnull %5) #8
   ret void
 
-._crit_edge57:                                    ; preds = %.lr.ph104, %._crit_edge
+._crit_edge57:                                    ; preds = %.lr.ph106, %._crit_edge
   %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %49)
   %50 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.135) #8
@@ -4044,11 +4044,11 @@ slot_getattr.exit:                                ; preds = %.lr.ph, %slot_getso
   call void %111(ptr noundef nonnull %34) #8
   call void @UnregisterSnapshot(ptr noundef %29) #8
   call void @table_close(ptr noundef %25, i32 noundef 0) #8
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76103, 1
+  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76105, 1
   %112 = load i32, ptr %14, align 4
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next77, %113
-  br i1 %114, label %.lr.ph104, label %.critedge
+  br i1 %114, label %.lr.ph106, label %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4644,9 +4644,9 @@ define dso_local void @AlterTypeOwnerInternal(i32 noundef %0, i32 noundef %1) lo
   %64 = getelementptr i8, ptr %.val, i64 26
   %.val20.i.i = load i8, ptr %64, align 1
   %.not.i21.i.i = icmp sgt i8 %.val20.i.i, -1
-  br i1 %.not.i21.i.i, label %heap_getattr.exit.thread31, label %65
+  br i1 %.not.i21.i.i, label %heap_getattr.exit.thread34, label %65
 
-heap_getattr.exit.thread31:                       ; preds = %63
+heap_getattr.exit.thread34:                       ; preds = %63
   store i8 1, ptr %6, align 1
   br label %77
 
@@ -4661,8 +4661,8 @@ heap_getattr.exit:                                ; preds = %13
   br i1 %68, label %77, label %heap_getattr.exit.thread
 
 heap_getattr.exit.thread:                         ; preds = %59, %53, %50, %47, %44, %61, %65, %heap_getattr.exit
-  %.0.i30 = phi i64 [ %67, %heap_getattr.exit ], [ %60, %59 ], [ %54, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %62, %61 ], [ %66, %65 ]
-  %69 = inttoptr i64 %.0.i30 to ptr
+  %.0.i33 = phi i64 [ %67, %heap_getattr.exit ], [ %60, %59 ], [ %54, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %62, %61 ], [ %66, %65 ]
+  %69 = inttoptr i64 %.0.i33 to ptr
   %70 = call ptr @pg_detoast_datum(ptr noundef %69) #8
   %71 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %72 = load i32, ptr %71, align 4
@@ -4674,7 +4674,7 @@ heap_getattr.exit.thread:                         ; preds = %59, %53, %50, %47, 
   store i64 %75, ptr %76, align 8
   br label %77
 
-77:                                               ; preds = %heap_getattr.exit.thread31, %heap_getattr.exit.thread, %heap_getattr.exit
+77:                                               ; preds = %heap_getattr.exit.thread34, %heap_getattr.exit.thread, %heap_getattr.exit
   %78 = load ptr, ptr %22, align 8
   %79 = call ptr @heap_modify_tuple(ptr noundef nonnull %9, ptr noundef %78, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
@@ -4885,7 +4885,7 @@ define dso_local i32 @AlterTypeNamespaceInternal(i32 noundef %0, i32 noundef %1,
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 79
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 99
-  br i1 %41, label %42, label %.thread79
+  br i1 %41, label %42, label %.thread84
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %23, i64 84
@@ -4895,7 +4895,7 @@ define dso_local i32 @AlterTypeNamespaceInternal(i32 noundef %0, i32 noundef %1,
   %.pre = load i8, ptr %39, align 1
   %47 = icmp ne i8 %.pre, 99
   %48 = select i1 %47, i1 true, i1 %46
-  br i1 %48, label %.thread79, label %49
+  br i1 %48, label %.thread84, label %49
 
 49:                                               ; preds = %42
   br i1 %3, label %50, label %51
@@ -4905,7 +4905,7 @@ define dso_local i32 @AlterTypeNamespaceInternal(i32 noundef %0, i32 noundef %1,
   br label %86
 
 51:                                               ; preds = %49
-  br i1 %4, label %52, label %.thread79
+  br i1 %4, label %52, label %.thread84
 
 52:                                               ; preds = %51
   %53 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -4917,17 +4917,17 @@ define dso_local i32 @AlterTypeNamespaceInternal(i32 noundef %0, i32 noundef %1,
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4213, ptr noundef nonnull @__func__.AlterTypeNamespaceInternal) #8
   unreachable
 
-.thread79:                                        ; preds = %38, %51, %42
+.thread84:                                        ; preds = %38, %51, %42
   %58 = phi i1 [ %46, %51 ], [ %46, %42 ], [ false, %38 ]
   br i1 %.not74, label %61, label %59
 
-59:                                               ; preds = %.thread79
+59:                                               ; preds = %.thread84
   store i32 %1, ptr %24, align 4
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 4
   call void @CatalogTupleUpdate(ptr noundef %12, ptr noundef nonnull %60, ptr noundef nonnull %14) #8
   br label %61
 
-61:                                               ; preds = %59, %.thread79
+61:                                               ; preds = %59, %.thread84
   br i1 %58, label %.thread, label %62
 
 62:                                               ; preds = %61

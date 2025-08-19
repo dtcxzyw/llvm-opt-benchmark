@@ -370,7 +370,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl14flags_internal7FlagOpsIlEEP
   %24 = load ptr, ptr %2, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %26 = icmp eq ptr %24, %25
-  br i1 %26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -382,14 +382,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %32 = icmp eq ptr %30, %31
   br i1 %32, label %36, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %22
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %22
   %33 = load ptr, ptr %6, align 8, !tbaa !14
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %35 = icmp eq ptr %33, %34
   br i1 %35, label %36, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-36:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %37 = phi ptr [ %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+36:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %37 = phi ptr [ %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !17
   %40 = icmp ult i64 %39, 16
@@ -431,7 +431,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %51, ptr %25, align 8, !tbaa !19
   br label %58
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %52 = load i64, ptr %25, align 8, !tbaa !19
   store ptr %33, ptr %2, align 8, !tbaa !14
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -8448,8 +8448,8 @@ _ZN7testing15AssertionResultD2Ev.exit391:         ; preds = %736, %_ZNKSt14defau
   %767 = getelementptr inbounds nuw [64 x float], ptr %60, i64 0, i64 %indvars.iv513
   store float %766, ptr %767, align 4, !tbaa !60
   %indvars.iv.next514 = add nsw i64 %indvars.iv513, -1
-  %.not547 = icmp eq i64 %indvars.iv513, 0
-  br i1 %.not547, label %.preheader500, label %764, !llvm.loop !82
+  %.not703 = icmp eq i64 %indvars.iv513, 0
+  br i1 %.not703, label %.preheader500, label %764, !llvm.loop !82
 
 768:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
@@ -19810,8 +19810,8 @@ _ZN7testing15AssertionResultD2Ev.exit715:         ; preds = %1431, %_ZNKSt14defa
   %1462 = getelementptr inbounds nuw [64 x double], ptr %111, i64 0, i64 %indvars.iv837
   store double %1461, ptr %1462, align 8, !tbaa !70
   %indvars.iv.next838 = add nsw i64 %indvars.iv837, -1
-  %.not871 = icmp eq i64 %indvars.iv837, 0
-  br i1 %.not871, label %.preheader824, label %1459, !llvm.loop !109
+  %.not1129 = icmp eq i64 %indvars.iv837, 0
+  br i1 %.not1129, label %.preheader824, label %1459, !llvm.loop !109
 
 1463:                                             ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %111)

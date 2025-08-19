@@ -2651,9 +2651,9 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit109: ; preds = %_ZN4cvc58internal1
   br label %424
 
 424:                                              ; preds = %420, %422, %418
-  %.sink122 = phi ptr [ %25, %418 ], [ %24, %422 ], [ %24, %420 ]
+  %.sink148 = phi ptr [ %25, %418 ], [ %24, %422 ], [ %24, %420 ]
   %.pn61.pn = phi { ptr, i32 } [ %419, %418 ], [ %423, %422 ], [ %421, %420 ]
-  call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink122) #24
+  call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink148) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %460
 

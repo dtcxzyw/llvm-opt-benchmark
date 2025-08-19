@@ -610,7 +610,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK13sentencepiece3bpe5Model12SampleEncodeE
   %.07.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i94 ], [ %.098.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEfE20SymbolPairComparatorEclINS_17__normal_iteratorIPPZNKS4_12SampleEncodeES8_fE10SymbolPairSt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.thread.i.i.i.i.i ]
   %.098.in.i.i.i.i.i = add nsw i64 %.07.i.i.i.i.i, -1
   %.098.i.i.i.i.i = sdiv i64 %.098.in.i.i.i.i.i, 2
-  %166 = getelementptr inbounds ptr, ptr %.val76166, i64 %.098.i.i.i.i.i
+  %166 = getelementptr inbounds nuw ptr, ptr %.val76166, i64 %.098.i.i.i.i.i
   %167 = load ptr, ptr %166, align 8, !tbaa !88
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load float, ptr %168, align 8, !tbaa !90
@@ -799,8 +799,8 @@ select.unfold.i.i.i.i.i:                          ; preds = %.noexc98, %.noexc97
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %240, i64 16
   store ptr %11, ptr %.sroa.6.0..sroa_idx, align 16, !tbaa !65
   store ptr %240, ptr %15, align 8
-  %.sroa.4.0..sroa_idx197 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 0, ptr %.sroa.4.0..sroa_idx197, align 8
+  %.sroa.4.0..sroa_idx221 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i64 0, ptr %.sroa.4.0..sroa_idx221, align 8
   %242 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr @"_ZNSt17_Function_handlerIFvSt17basic_string_viewIcSt11char_traitsIcEEPSt6vectorISt4pairIS3_iESaIS6_EEEZNK13sentencepiece3bpe5Model12SampleEncodeES3_fE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %242, align 8, !tbaa !105
   %243 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -1354,7 +1354,7 @@ _ZNSt6vectorIPZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIc
   %.07.i.i.i = phi i64 [ %127, %.lr.ph.i.i.i ], [ %.098.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEfE20SymbolPairComparatorEclINS_17__normal_iteratorIPPZNKS4_12SampleEncodeES8_fE10SymbolPairSt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.thread.i.i.i ]
   %.098.in.i.i.i = add nsw i64 %.07.i.i.i, -1
   %.098.i.i.i = sdiv i64 %.098.in.i.i.i, 2
-  %132 = getelementptr inbounds ptr, ptr %.val.i21, i64 %.098.i.i.i
+  %132 = getelementptr inbounds nuw ptr, ptr %.val.i21, i64 %.098.i.i.i
   %133 = load ptr, ptr %132, align 8, !tbaa !88
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load float, ptr %134, align 8, !tbaa !90

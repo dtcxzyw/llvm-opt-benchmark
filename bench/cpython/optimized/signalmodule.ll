@@ -1516,8 +1516,8 @@ compare_handler.exit15.thread:                    ; preds = %18, %compare_handle
   %30 = tail call ptr @__errno_location() #16
   %.pre = load i32, ptr %30, align 4, !tbaa !199
   %.not6.i = icmp eq i32 %.pre, 11
-  %or.cond22 = select i1 %.not5.i, i1 %.not6.i, i1 false
-  br i1 %or.cond22, label %34, label %._crit_edge.i
+  %or.cond25 = select i1 %.not5.i, i1 %.not6.i, i1 false
+  br i1 %or.cond25, label %34, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %28
   %31 = sext i32 %.pre to i64

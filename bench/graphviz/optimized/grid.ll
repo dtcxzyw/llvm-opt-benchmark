@@ -35,7 +35,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @newBlock(i32 noundef %0) unnamed_addr #3 {
+define internal fastcc noalias nonnull ptr @newBlock(i32 noundef %0) unnamed_addr #3 {
   %2 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #14
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %gv_alloc.exit

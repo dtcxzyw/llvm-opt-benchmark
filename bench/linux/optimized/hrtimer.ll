@@ -830,16 +830,16 @@ define dso_local noundef range(i32 -1, 2) i32 @hrtimer_try_to_cancel(ptr noundef
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !40
   %14 = load i8, ptr %3, align 8
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %16, label %.preheader16
+  br i1 %15, label %16, label %.preheader18
 
-.preheader16:                                     ; preds = %16, %.loopexit
+.preheader18:                                     ; preds = %16, %.loopexit
   br label %26
 
 16:                                               ; preds = %.loopexit
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %0
-  br i1 %19, label %.preheader16, label %20
+  br i1 %19, label %.preheader18, label %20
 
 20:                                               ; preds = %16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !41
@@ -855,7 +855,7 @@ define dso_local noundef range(i32 -1, 2) i32 @hrtimer_try_to_cancel(ptr noundef
 .backedge:                                        ; preds = %23, %20
   br label %4, !llvm.loop !42
 
-26:                                               ; preds = %.preheader16, %36
+26:                                               ; preds = %.preheader18, %36
   %27 = load volatile ptr, ptr %2, align 8
   %28 = icmp eq ptr %27, getelementptr inbounds nuw (i8, ptr @migration_cpu_base, i64 64)
   br i1 %28, label %36, label %29, !prof !25
@@ -1152,9 +1152,9 @@ define dso_local range(i64 0, -9223372036854775808) i64 @hrtimer_get_next_event(
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   br label %17
 
-17:                                               ; preds = %.backedge23, %10
-  %18 = phi i32 [ %13, %10 ], [ %29, %.backedge23 ]
-  %19 = phi i64 [ 9223372036854775807, %10 ], [ %.be25, %.backedge23 ]
+17:                                               ; preds = %.backedge32, %10
+  %18 = phi i32 [ %13, %10 ], [ %29, %.backedge32 ]
+  %19 = phi i64 [ 9223372036854775807, %10 ], [ %.be34, %.backedge32 ]
   br label %20
 
 20:                                               ; preds = %37, %17
@@ -1194,7 +1194,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @hrtimer_get_next_event(
   %46 = sub i64 %43, %45
   %47 = icmp slt i64 %46, %19
   %48 = tail call i64 @llvm.smin.i64(i64 %46, i64 %19)
-  br i1 %47, label %49, label %.backedge23
+  br i1 %47, label %49, label %.backedge32
 
 49:                                               ; preds = %40
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 58
@@ -1202,10 +1202,10 @@ define dso_local range(i64 0, -9223372036854775808) i64 @hrtimer_get_next_event(
   %52 = icmp eq i8 %51, 0
   %53 = select i1 %52, ptr %16, ptr %14
   store ptr %41, ptr %53, align 8
-  br label %.backedge23
+  br label %.backedge32
 
-.backedge23:                                      ; preds = %49, %40
-  %.be25 = phi i64 [ %46, %49 ], [ %48, %40 ]
+.backedge32:                                      ; preds = %49, %40
+  %.be34 = phi i64 [ %46, %49 ], [ %48, %40 ]
   br label %17
 
 .thread.i:                                        ; preds = %23, %20
@@ -1360,7 +1360,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @hrtimer_next_event_with
 
 .split:                                           ; preds = %12, %.split.backedge
   %47 = phi i32 [ %58, %.split.backedge ], [ %15, %12 ]
-  %48 = phi i64 [ %.be70, %.split.backedge ], [ 9223372036854775807, %12 ]
+  %48 = phi i64 [ %.be90, %.split.backedge ], [ 9223372036854775807, %12 ]
   br label %49
 
 49:                                               ; preds = %66, %.split
@@ -1412,7 +1412,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @hrtimer_next_event_with
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %77, %69
-  %.be70 = phi i64 [ %75, %77 ], [ %76, %69 ]
+  %.be90 = phi i64 [ %75, %77 ], [ %76, %69 ]
   br label %.split
 
 .thread:                                          ; preds = %19, %22, %52, %49
@@ -2097,9 +2097,9 @@ define internal fastcc range(i64 0, -9223372036854775808) i64 @hrtimer_update_ne
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %13
 
-13:                                               ; preds = %.backedge37, %6
-  %14 = phi i32 [ %9, %6 ], [ %25, %.backedge37 ]
-  %15 = phi i64 [ 9223372036854775807, %6 ], [ %.be39, %.backedge37 ]
+13:                                               ; preds = %.backedge47, %6
+  %14 = phi i32 [ %9, %6 ], [ %25, %.backedge47 ]
+  %15 = phi i64 [ 9223372036854775807, %6 ], [ %.be49, %.backedge47 ]
   br label %16
 
 16:                                               ; preds = %33, %13
@@ -2139,7 +2139,7 @@ define internal fastcc range(i64 0, -9223372036854775808) i64 @hrtimer_update_ne
   %42 = sub i64 %39, %41
   %43 = icmp slt i64 %42, %15
   %44 = tail call i64 @llvm.smin.i64(i64 %42, i64 %15)
-  br i1 %43, label %45, label %.backedge37
+  br i1 %43, label %45, label %.backedge47
 
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 58
@@ -2147,10 +2147,10 @@ define internal fastcc range(i64 0, -9223372036854775808) i64 @hrtimer_update_ne
   %48 = icmp eq i8 %47, 0
   %49 = select i1 %48, ptr %12, ptr %10
   store ptr %37, ptr %49, align 8
-  br label %.backedge37
+  br label %.backedge47
 
-.backedge37:                                      ; preds = %45, %36
-  %.be39 = phi i64 [ %42, %45 ], [ %44, %36 ]
+.backedge47:                                      ; preds = %45, %36
+  %.be49 = phi i64 [ %42, %45 ], [ %44, %36 ]
   br label %13
 
 .thread:                                          ; preds = %16, %19
@@ -2597,16 +2597,16 @@ define internal fastcc noundef range(i32 -516, 1) i32 @do_nanosleep(ptr noundef 
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !40
   %34 = load i8, ptr %11, align 8
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %36, label %.preheader18
+  br i1 %35, label %36, label %.preheader24
 
-.preheader18:                                     ; preds = %36, %.loopexit.i
+.preheader24:                                     ; preds = %36, %.loopexit.i
   br label %46
 
 36:                                               ; preds = %.loopexit.i
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, %0
-  br i1 %39, label %.preheader18, label %40
+  br i1 %39, label %.preheader24, label %40
 
 40:                                               ; preds = %36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !41
@@ -2622,7 +2622,7 @@ define internal fastcc noundef range(i32 -516, 1) i32 @do_nanosleep(ptr noundef 
 .backedge:                                        ; preds = %43, %40
   br label %24, !llvm.loop !42
 
-46:                                               ; preds = %.preheader18, %56
+46:                                               ; preds = %.preheader24, %56
   %47 = load volatile ptr, ptr %10, align 8
   %48 = icmp eq ptr %47, getelementptr inbounds nuw (i8, ptr @migration_cpu_base, i64 64)
   br i1 %48, label %56, label %49, !prof !25

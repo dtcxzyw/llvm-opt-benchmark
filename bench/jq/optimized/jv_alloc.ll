@@ -88,7 +88,7 @@ declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #2
 declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @jv_mem_alloc(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @jv_mem_alloc(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @malloc(i64 noundef %0) #19
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -111,7 +111,7 @@ define dso_local noalias noundef ptr @jv_mem_alloc_unguarded(i64 noundef %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @jv_mem_calloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @jv_mem_calloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #16
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -134,7 +134,7 @@ define dso_local noalias noundef ptr @jv_mem_calloc_unguarded(i64 noundef %0, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @jv_mem_strdup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @jv_mem_strdup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @strdup(ptr noundef %0) #15
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -166,7 +166,7 @@ define dso_local void @jv_mem_free(ptr noundef captures(none) %0) local_unnamed_
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @jv_mem_realloc(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @jv_mem_realloc(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #20
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5

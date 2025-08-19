@@ -400,13 +400,13 @@ sub_1:                                            ; preds = %sub_0
 
 .tail.thread.thread:                              ; preds = %sub_0
   %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(6) @.str.2) #15
-  %.not6221708 = icmp eq i32 %70, 0
-  br i1 %.not6221708, label %72, label %.tail902.thread.thread
+  %.not6221762 = icmp eq i32 %70, 0
+  br i1 %.not6221762, label %72, label %.tail902.thread.thread
 
 .thread:                                          ; preds = %.tail
   %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(6) @.str.2) #15
-  %.not6221659 = icmp eq i32 %71, 0
-  br i1 %.not6221659, label %72, label %sub_1904
+  %.not6221713 = icmp eq i32 %71, 0
+  br i1 %.not6221713, label %72, label %sub_1904
 
 72:                                               ; preds = %.tail.thread.thread, %.thread, %.tail.thread, %.tail
   %puts.i733 = call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -426,7 +426,7 @@ sub_1904:                                         ; preds = %.tail.thread, %.thr
   %75 = getelementptr inbounds nuw i8, ptr %62, i64 2
   %76 = load i8, ptr %75, align 1
   %77 = icmp eq i8 %76, 0
-  br i1 %77, label %81, label %.thread1661
+  br i1 %77, label %81, label %.thread1715
 
 .tail902.thread:                                  ; preds = %sub_1904
   %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(10) @.str.4) #15
@@ -435,19 +435,19 @@ sub_1904:                                         ; preds = %.tail.thread, %.thr
 
 .tail902.thread.thread:                           ; preds = %.tail.thread.thread
   %79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(10) @.str.4) #15
-  %.not6241710 = icmp eq i32 %79, 0
-  br i1 %.not6241710, label %81, label %.tail912.thread
+  %.not6241764 = icmp eq i32 %79, 0
+  br i1 %.not6241764, label %81, label %.tail912.thread
 
-.thread1661:                                      ; preds = %.tail902
+.thread1715:                                      ; preds = %.tail902
   %80 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(10) @.str.4) #15
-  %.not6241662 = icmp eq i32 %80, 0
-  br i1 %.not6241662, label %81, label %sub_1909
+  %.not6241716 = icmp eq i32 %80, 0
+  br i1 %.not6241716, label %81, label %sub_1909
 
-81:                                               ; preds = %.tail902.thread.thread, %.thread1661, %.tail902.thread, %.tail902
+81:                                               ; preds = %.tail902.thread.thread, %.thread1715, %.tail902.thread, %.tail902
   call fastcc void @HelpLong()
   br label %.thread782
 
-sub_1909:                                         ; preds = %.tail902.thread, %.thread1661
+sub_1909:                                         ; preds = %.tail902.thread, %.thread1715
   %82 = getelementptr inbounds nuw i8, ptr %62, i64 1
   %83 = load i8, ptr %82, align 1
   %.not1327 = icmp eq i8 %83, 111
@@ -537,9 +537,9 @@ sub_1919:                                         ; preds = %sub_0918
   %118 = getelementptr inbounds nuw i8, ptr %62, i64 1
   %119 = load i8, ptr %118, align 1
   %.not1331 = icmp eq i8 %119, 115
-  br i1 %.not1331, label %.tail917, label %sub_0923.thread1668
+  br i1 %.not1331, label %.tail917, label %sub_0923.thread1722
 
-sub_0923.thread1668:                              ; preds = %sub_1919
+sub_0923.thread1722:                              ; preds = %sub_1919
   %120 = add nsw i32 %.05011278, 2
   %121 = icmp slt i32 %120, %0
   br label %sub_1924
@@ -574,9 +574,9 @@ sub_0923.thread1668:                              ; preds = %sub_1919
   %139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %138, ptr noundef nonnull @.str.12, i32 noundef %135, i32 noundef %134) #16
   br label %.thread807
 
-sub_1924:                                         ; preds = %.tail917, %sub_0923.thread1668
-  %140 = phi i32 [ %120, %sub_0923.thread1668 ], [ %125, %.tail917 ]
-  %141 = phi i1 [ %121, %sub_0923.thread1668 ], [ %126, %.tail917 ]
+sub_1924:                                         ; preds = %.tail917, %sub_0923.thread1722
+  %140 = phi i32 [ %120, %sub_0923.thread1722 ], [ %125, %.tail917 ]
+  %141 = phi i1 [ %121, %sub_0923.thread1722 ], [ %126, %.tail917 ]
   %142 = getelementptr inbounds nuw i8, ptr %62, i64 1
   %143 = load i8, ptr %142, align 1
   %.not1333 = icmp eq i8 %143, 109
@@ -1368,13 +1368,13 @@ sub_1949:                                         ; preds = %.tail942, %sub_1944
   %536 = getelementptr inbounds nuw i8, ptr %62, i64 1
   %537 = load i8, ptr %536, align 1
   %.not1343 = icmp eq i8 %537, 45
-  br i1 %.not1343, label %.tail947, label %.thread1686
+  br i1 %.not1343, label %.tail947, label %.thread1740
 
 .tail947:                                         ; preds = %sub_1949
   %538 = getelementptr inbounds nuw i8, ptr %62, i64 2
   %539 = load i8, ptr %538, align 1
   %540 = icmp eq i8 %539, 0
-  br i1 %540, label %541, label %.thread1686
+  br i1 %540, label %541, label %.thread1740
 
 541:                                              ; preds = %.tail947
   %542 = add nsw i32 %.05011278, 1
@@ -1387,7 +1387,7 @@ sub_1949:                                         ; preds = %.tail942, %sub_1944
   %547 = load ptr, ptr %546, align 8, !tbaa !11
   br label %.thread832
 
-.thread1686:                                      ; preds = %.tail947, %sub_1949
+.thread1740:                                      ; preds = %.tail947, %sub_1949
   %548 = load ptr, ptr @stderr, align 8, !tbaa !4
   %549 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %548, ptr noundef nonnull @.str.75, ptr noundef nonnull %62) #16
   call fastcc void @HelpLong()
@@ -1423,8 +1423,8 @@ sub_1949:                                         ; preds = %.tail942, %sub_1944
   call fastcc void @HelpLong()
   br label %.thread782
 
-.thread782:                                       ; preds = %526, %.thread1686, %551, %451, %81, %72
-  %.3.ph = phi i32 [ 0, %72 ], [ 0, %81 ], [ 0, %451 ], [ 1, %526 ], [ 1, %551 ], [ 1, %.thread1686 ]
+.thread782:                                       ; preds = %526, %.thread1740, %551, %451, %81, %72
+  %.3.ph = phi i32 [ 0, %72 ], [ 0, %81 ], [ 0, %451 ], [ 1, %526 ], [ 1, %551 ], [ 1, %.thread1740 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1214
 
@@ -1768,9 +1768,9 @@ sub_0952:                                         ; preds = %699, %.thread862, %
   %720 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %721 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %WebPMemoryWrite.MyWriter = select i1 %703, ptr @WebPMemoryWrite, ptr @MyWriter
-  %.1990 = select i1 %703, ptr %12, ptr %713
+  %.2044 = select i1 %703, ptr %12, ptr %713
   store ptr %WebPMemoryWrite.MyWriter, ptr %720, align 8, !tbaa !65
-  store ptr %.1990, ptr %721, align 8, !tbaa !66
+  store ptr %.2044, ptr %721, align 8, !tbaa !66
   br label %.thread860
 
 722:                                              ; preds = %712
@@ -2686,11 +2686,11 @@ WriteWebPWithMetadata.exit.thread:                ; preds = %.thread18.i, %Updat
   %1155 = load i64, ptr %1154, align 8, !tbaa !86
   %.not9.i = icmp eq i64 %1155, 0
   %1156 = select i1 %.not9.i, i32 0, i32 %1149
-  %spec.select1989 = or i32 %.27581315, %1156
+  %spec.select2043 = or i32 %.27581315, %1156
   br label %UpdateFlagsAndSize.exit.thread
 
 UpdateFlagsAndSize.exit.thread:                   ; preds = %1153, %.lr.ph1319, %1151
-  %.3759 = phi i32 [ %.27581315, %1151 ], [ %.27581315, %.lr.ph1319 ], [ %spec.select1989, %1153 ]
+  %.3759 = phi i32 [ %.27581315, %1151 ], [ %.27581315, %.lr.ph1319 ], [ %spec.select2043, %1153 ]
   %1157 = getelementptr inbounds nuw i8, ptr %.01317, i64 16
   %1158 = load ptr, ptr %1157, align 8, !tbaa !90
   %.not713 = icmp eq ptr %1158, null

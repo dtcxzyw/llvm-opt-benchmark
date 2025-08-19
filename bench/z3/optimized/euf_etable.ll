@@ -418,20 +418,20 @@ _ZN6vectorIPvLb0EjE3endEv.exit:                   ; preds = %1
   %8 = shl nuw nsw i64 %7, 3
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
   %.not25 = icmp eq i32 %6, 0
-  br i1 %.not25, label %._crit_edge.thread34, label %.lr.ph
+  br i1 %.not25, label %._crit_edge.thread51, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_Z7deallocI10chashtableIPN3euf5enodeENS1_6etable13cg_unary_hashENS4_11cg_unary_eqEEEvPT_.exit
   %.pre = load ptr, ptr %2, align 8, !tbaa !42
   %.not.i = icmp eq ptr %.pre, null
-  br i1 %.not.i, label %_ZN6vectorIPvLb0EjE5resetEv.exit, label %._crit_edge.thread34
+  br i1 %.not.i, label %_ZN6vectorIPvLb0EjE5resetEv.exit, label %._crit_edge.thread51
 
-._crit_edge.thread34:                             ; preds = %_ZN6vectorIPvLb0EjE3endEv.exit, %._crit_edge
+._crit_edge.thread51:                             ; preds = %_ZN6vectorIPvLb0EjE3endEv.exit, %._crit_edge
   %10 = phi ptr [ %.pre, %._crit_edge ], [ %3, %_ZN6vectorIPvLb0EjE3endEv.exit ]
   %11 = getelementptr inbounds i8, ptr %10, i64 -4
   store i32 0, ptr %11, align 4, !tbaa !48
   br label %_ZN6vectorIPvLb0EjE5resetEv.exit
 
-_ZN6vectorIPvLb0EjE5resetEv.exit:                 ; preds = %1, %._crit_edge, %._crit_edge.thread34
+_ZN6vectorIPvLb0EjE5resetEv.exit:                 ; preds = %1, %._crit_edge, %._crit_edge.thread51
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !44
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -617,8 +617,8 @@ _Z7deallocI10chashtableIPN3euf5enodeENS1_6etable13cg_unary_hashENS4_11cg_unary_e
   %93 = icmp ugt i32 %81, 16
   %94 = mul i32 %81, 3
   %95 = icmp ugt i32 %92, %94
-  %or.cond16.i.i = select i1 %93, i1 %95, i1 false
-  br i1 %or.cond16.i.i, label %96, label %._crit_edge.thread.i.i
+  %or.cond18.i.i = select i1 %93, i1 %95, i1 false
+  br i1 %or.cond18.i.i, label %96, label %._crit_edge.thread.i.i
 
 96:                                               ; preds = %._crit_edge.i.i
   %97 = icmp eq ptr %80, null
@@ -852,10 +852,10 @@ _ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEEC2E
   br label %57
 
 57:                                               ; preds = %_ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEEC2ERKS4_RKS5_jj.exit, %_ZN10chashtableIPN3euf5enodeENS0_6etable12cg_comm_hashENS3_10cg_comm_eqEEC2ERKS4_RKS5_jj.exit
-  %.sink27 = phi ptr [ %43, %_ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEEC2ERKS4_RKS5_jj.exit ], [ %26, %_ZN10chashtableIPN3euf5enodeENS0_6etable12cg_comm_hashENS3_10cg_comm_eqEEC2ERKS4_RKS5_jj.exit ]
-  %.sink26 = phi i64 [ 1, %_ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEEC2ERKS4_RKS5_jj.exit ], [ 2, %_ZN10chashtableIPN3euf5enodeENS0_6etable12cg_comm_hashENS3_10cg_comm_eqEEC2ERKS4_RKS5_jj.exit ]
-  %58 = ptrtoint ptr %.sink27 to i64
-  %59 = or i64 %.sink26, %58
+  %.sink28 = phi ptr [ %43, %_ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEEC2ERKS4_RKS5_jj.exit ], [ %26, %_ZN10chashtableIPN3euf5enodeENS0_6etable12cg_comm_hashENS3_10cg_comm_eqEEC2ERKS4_RKS5_jj.exit ]
+  %.sink27 = phi i64 [ 1, %_ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEEC2ERKS4_RKS5_jj.exit ], [ 2, %_ZN10chashtableIPN3euf5enodeENS0_6etable12cg_comm_hashENS3_10cg_comm_eqEEC2ERKS4_RKS5_jj.exit ]
+  %58 = ptrtoint ptr %.sink28 to i64
+  %59 = or i64 %.sink27, %58
   %.0 = inttoptr i64 %59 to ptr
   br label %78
 
@@ -1243,11 +1243,11 @@ define hidden void @_ZNK3euf6etable13display_unaryERSoPv(ptr nonnull readnone al
   ret void
 
 .lr.ph.outer:                                     ; preds = %.lr.ph.i.i, %.lr.ph.preheader
-  %.sroa.08.013.ph30 = phi ptr [ %.sroa.08.013.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i ]
+  %.sroa.08.013.ph34 = phi ptr [ %.sroa.08.013.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %.lr.ph
-  %.sroa.9.014 = phi ptr [ %31, %.lr.ph ], [ %.sroa.08.013.ph30, %.lr.ph.outer ]
+  %.sroa.9.014 = phi ptr [ %31, %.lr.ph ], [ %.sroa.08.013.ph34, %.lr.ph.outer ]
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.9.014, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !24
   %26 = load ptr, ptr %25, align 8, !tbaa !26
@@ -1260,7 +1260,7 @@ define hidden void @_ZNK3euf6etable13display_unaryERSoPv(ptr nonnull readnone al
   br i1 %32, label %33, label %.lr.ph
 
 33:                                               ; preds = %.lr.ph
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.ph30, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.ph34, i64 16
   %.not2.i.i = icmp eq ptr %34, %12
   br i1 %.not2.i.i, label %._crit_edge, label %.lr.ph.i.i
 
@@ -1325,11 +1325,11 @@ define hidden void @_ZNK3euf6etable14display_binaryERSoPv(ptr nonnull readnone a
   ret void
 
 .lr.ph.outer:                                     ; preds = %.lr.ph.i.i, %.lr.ph.preheader
-  %.sroa.08.013.ph30 = phi ptr [ %.sroa.08.013.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i ]
+  %.sroa.08.013.ph34 = phi ptr [ %.sroa.08.013.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %.lr.ph
-  %.sroa.9.014 = phi ptr [ %31, %.lr.ph ], [ %.sroa.08.013.ph30, %.lr.ph.outer ]
+  %.sroa.9.014 = phi ptr [ %31, %.lr.ph ], [ %.sroa.08.013.ph34, %.lr.ph.outer ]
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.9.014, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !24
   %26 = load ptr, ptr %25, align 8, !tbaa !26
@@ -1342,7 +1342,7 @@ define hidden void @_ZNK3euf6etable14display_binaryERSoPv(ptr nonnull readnone a
   br i1 %32, label %33, label %.lr.ph
 
 33:                                               ; preds = %.lr.ph
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.ph30, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.ph34, i64 16
   %.not2.i.i = icmp eq ptr %34, %12
   br i1 %.not2.i.i, label %._crit_edge, label %.lr.ph.i.i
 
@@ -1408,11 +1408,11 @@ define hidden void @_ZNK3euf6etable19display_binary_commERSoPv(ptr nonnull readn
   ret void
 
 .lr.ph.outer:                                     ; preds = %.lr.ph.i.i, %.lr.ph.preheader
-  %.sroa.08.013.ph30 = phi ptr [ %.sroa.08.013.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i ]
+  %.sroa.08.013.ph34 = phi ptr [ %.sroa.08.013.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %.lr.ph
-  %.sroa.9.014 = phi ptr [ %32, %.lr.ph ], [ %.sroa.08.013.ph30, %.lr.ph.outer ]
+  %.sroa.9.014 = phi ptr [ %32, %.lr.ph ], [ %.sroa.08.013.ph34, %.lr.ph.outer ]
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.9.014, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !24
   %27 = load ptr, ptr %26, align 8, !tbaa !26
@@ -1425,7 +1425,7 @@ define hidden void @_ZNK3euf6etable19display_binary_commERSoPv(ptr nonnull readn
   br i1 %33, label %34, label %.lr.ph
 
 34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.ph30, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.ph34, i64 16
   %.not2.i.i = icmp eq ptr %35, %13
   br i1 %.not2.i.i, label %._crit_edge, label %.lr.ph.i.i
 
@@ -1490,11 +1490,11 @@ define hidden void @_ZNK3euf6etable12display_naryERSoPv(ptr nonnull readnone ali
   ret void
 
 .lr.ph.outer:                                     ; preds = %.lr.ph.i.i, %.lr.ph.preheader
-  %.sroa.08.013.ph30 = phi ptr [ %.sroa.08.013.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i ]
+  %.sroa.08.013.ph34 = phi ptr [ %.sroa.08.013.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %.lr.ph
-  %.sroa.9.014 = phi ptr [ %31, %.lr.ph ], [ %.sroa.08.013.ph30, %.lr.ph.outer ]
+  %.sroa.9.014 = phi ptr [ %31, %.lr.ph ], [ %.sroa.08.013.ph34, %.lr.ph.outer ]
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.9.014, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !24
   %26 = load ptr, ptr %25, align 8, !tbaa !26
@@ -1507,7 +1507,7 @@ define hidden void @_ZNK3euf6etable12display_naryERSoPv(ptr nonnull readnone ali
   br i1 %32, label %33, label %.lr.ph
 
 33:                                               ; preds = %.lr.ph
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.ph30, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.ph34, i64 16
   %.not2.i.i = icmp eq ptr %34, %12
   br i1 %.not2.i.i, label %._crit_edge, label %.lr.ph.i.i
 
@@ -2130,7 +2130,7 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE14has_free_cellsEv
 
 .preheader.i.i:                                   ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 176
-  br i1 %.not1516.i.i, label %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.thread.loopexit34, label %.lr.ph.i.i
+  br i1 %.not1516.i.i, label %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.thread.loopexit37, label %.lr.ph.i.i
 
 45:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2191,12 +2191,12 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.e
   %69 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   br label %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.thread
 
-_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.thread.loopexit34: ; preds = %.preheader.i.i
+_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.thread.loopexit37: ; preds = %.preheader.i.i
   %70 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   br label %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.thread
 
-_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.thread: ; preds = %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.thread.loopexit34, %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.thread.loopexit, %_ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE13get_free_cellEv.exit, %30
-  %.0 = phi ptr [ %37, %30 ], [ %68, %_ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE13get_free_cellEv.exit ], [ %69, %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.thread.loopexit ], [ %70, %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.thread.loopexit34 ]
+_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.thread: ; preds = %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.thread.loopexit37, %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.thread.loopexit, %_ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE13get_free_cellEv.exit, %30
+  %.0 = phi ptr [ %37, %30 ], [ %68, %_ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE13get_free_cellEv.exit ], [ %69, %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.thread.loopexit ], [ %70, %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.thread.loopexit37 ]
   ret ptr %.0
 }
 

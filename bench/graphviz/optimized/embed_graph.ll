@@ -144,8 +144,8 @@ gv_calloc.exit104:                                ; preds = %gv_calloc.exit99
 
 62:                                               ; preds = %58, %54
   %63 = phi i32 [ %60, %58 ], [ %56, %54 ]
-  %.not168 = icmp eq i32 %1, 0
-  br i1 %.not168, label %.preheader.thread, label %.lr.ph110
+  %.not175 = icmp eq i32 %1, 0
+  br i1 %.not175, label %.preheader.thread, label %.lr.ph110
 
 .lr.ph110:                                        ; preds = %62
   %64 = load ptr, ptr %53, align 8, !tbaa !15
@@ -269,9 +269,9 @@ gv_calloc.exit104:                                ; preds = %gv_calloc.exit99
   tail call void @dijkstra(i32 noundef %63, ptr noundef nonnull %0, i32 noundef %1, ptr noundef %97) #14
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count140
-  br i1 %exitcond136.not, label %._crit_edge121.thread166, label %.lr.ph120.split.split, !llvm.loop !21
+  br i1 %exitcond136.not, label %._crit_edge121.thread173, label %.lr.ph120.split.split, !llvm.loop !21
 
-._crit_edge121.thread166:                         ; preds = %.lr.ph120.split.split
+._crit_edge121.thread173:                         ; preds = %.lr.ph120.split.split
   tail call void @free(ptr noundef %34) #14
   br label %98
 
@@ -279,7 +279,7 @@ gv_calloc.exit104:                                ; preds = %gv_calloc.exit99
   tail call void @free(ptr noundef %34) #14
   br i1 %.not, label %99, label %98
 
-98:                                               ; preds = %._crit_edge121.thread166, %._crit_edge121
+98:                                               ; preds = %._crit_edge121.thread173, %._crit_edge121
   tail call void @restore_old_weights(ptr noundef %0, i32 noundef %1, ptr noundef %36) #14
   br label %99
 

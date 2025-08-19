@@ -49,22 +49,22 @@ define hidden ptr @mbedtls_cipher_info_from_type(i32 noundef %0) local_unnamed_a
 .lr.ph.preheader:                                 ; preds = %1
   %3 = load i32, ptr @mbedtls_cipher_definitions, align 8, !tbaa !3
   %4 = icmp eq i32 %3, %0
-  br i1 %4, label %._crit_edge, label %.lr.ph12
+  br i1 %4, label %._crit_edge, label %.lr.ph13
 
-.lr.ph12:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0811 = phi ptr [ %7, %.lr.ph ], [ @mbedtls_cipher_definitions, %.lr.ph.preheader ]
-  %5 = getelementptr inbounds nuw i8, ptr %.0811, i64 24
+.lr.ph13:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0812 = phi ptr [ %7, %.lr.ph ], [ @mbedtls_cipher_definitions, %.lr.ph.preheader ]
+  %5 = getelementptr inbounds nuw i8, ptr %.0812, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !14
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !15
 
-.lr.ph:                                           ; preds = %.lr.ph12
-  %7 = getelementptr inbounds nuw i8, ptr %.0811, i64 16
+.lr.ph:                                           ; preds = %.lr.ph13
+  %7 = getelementptr inbounds nuw i8, ptr %.0812, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !3
   %9 = icmp eq i32 %8, %0
-  br i1 %9, label %._crit_edge, label %.lr.ph12, !llvm.loop !15
+  br i1 %9, label %._crit_edge, label %.lr.ph13, !llvm.loop !15
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph12
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph13
   br label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %1
@@ -249,10 +249,10 @@ define hidden noundef i32 @mbedtls_cipher_setkey(ptr noundef captures(none) %0, 
   br i1 %23, label %.sink.split, label %31
 
 .sink.split:                                      ; preds = %22, %15, %19
-  %.sink27 = phi i64 [ 16, %19 ], [ 16, %15 ], [ 24, %22 ]
+  %.sink29 = phi i64 [ 16, %19 ], [ 16, %15 ], [ 24, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !22
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %.sink27
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %.sink29
   %27 = load ptr, ptr %26, align 8, !tbaa !39
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load ptr, ptr %28, align 8, !tbaa !29

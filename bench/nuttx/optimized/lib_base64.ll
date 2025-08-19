@@ -176,7 +176,7 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %11
-  switch i32 %.044.ph, label %.unreachabledefault159 [
+  switch i32 %.044.ph, label %.unreachabledefault162 [
     i32 0, label %14
     i32 1, label %20
     i32 2, label %32
@@ -357,7 +357,7 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   %78 = trunc i64 %.046.ph.ph.ph to i32
   br label %.loopexit
 
-.unreachabledefault159:                           ; preds = %13
+.unreachabledefault162:                           ; preds = %13
   unreachable
 
 .loopexit:                                        ; preds = %15, %11, %33, %21, %59, %.lr.ph107, %.preheader, %76, %74, %63, %54, %54, %77

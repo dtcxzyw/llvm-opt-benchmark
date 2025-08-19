@@ -1970,7 +1970,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %26, %28
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %38, %40, %41
   %44 = load i8, ptr %21, align 1, !tbaa !32
-  switch i8 %44, label %.preheader76 [
+  switch i8 %44, label %.preheader84 [
     i8 0, label %.loopexit
     i8 32, label %45
     i8 9, label %45
@@ -1997,16 +1997,16 @@ _ZN4llvm11raw_ostreamlsEc.exit65:                 ; preds = %48, %50
   %.pre72 = zext i32 %52 to i64
   %.phi.trans.insert71.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.pre72
   %.pre.pre = load i8, ptr %.phi.trans.insert71.phi.trans.insert, align 1, !tbaa !32
-  br label %.preheader76
+  br label %.preheader84
 
-.preheader76:                                     ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, %_ZN4llvm11raw_ostreamlsEc.exit65
+.preheader84:                                     ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, %_ZN4llvm11raw_ostreamlsEc.exit65
   %.ph = phi i8 [ %.pre.pre, %_ZN4llvm11raw_ostreamlsEc.exit65 ], [ %44, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ]
   %.2.ph = phi i32 [ %52, %_ZN4llvm11raw_ostreamlsEc.exit65 ], [ %.050, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ]
   br label %53
 
-53:                                               ; preds = %.preheader76, %_ZN4llvm11raw_ostreamlsEc.exit68
-  %54 = phi i8 [ %89, %_ZN4llvm11raw_ostreamlsEc.exit68 ], [ %.ph, %.preheader76 ]
-  %.2 = phi i32 [ %.3, %_ZN4llvm11raw_ostreamlsEc.exit68 ], [ %.2.ph, %.preheader76 ]
+53:                                               ; preds = %.preheader84, %_ZN4llvm11raw_ostreamlsEc.exit68
+  %54 = phi i8 [ %89, %_ZN4llvm11raw_ostreamlsEc.exit68 ], [ %.ph, %.preheader84 ]
+  %.2 = phi i32 [ %.3, %_ZN4llvm11raw_ostreamlsEc.exit68 ], [ %.2.ph, %.preheader84 ]
   %55 = icmp eq i8 %54, 36
   %56 = add i32 %.2, 1
   br i1 %55, label %57, label %80

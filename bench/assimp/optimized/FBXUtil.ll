@@ -532,16 +532,16 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEElsIA3_cTnPNSt9ena
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %80 = load i32, ptr %79, align 8
   %81 = icmp ult i32 %80, 6
-  br i1 %81, label %switch.lookup57, label %_ZN6Assimp3FBX4Util15TokenTypeStringENS0_9TokenTypeE.exit29
+  br i1 %81, label %switch.lookup64, label %_ZN6Assimp3FBX4Util15TokenTypeStringENS0_9TokenTypeE.exit29
 
-switch.lookup57:                                  ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEElsIA3_cTnPNSt9enable_ifIXntsr3std10is_base_ofISt9exceptionT_EE5valueEvE4typeELPv0EEERS5_RKSA_.exit27
+switch.lookup64:                                  ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEElsIA3_cTnPNSt9enable_ifIXntsr3std10is_base_ofISt9exceptionT_EE5valueEvE4typeELPv0EEERS5_RKSA_.exit27
   %82 = zext nneg i32 %80 to i64
-  %switch.gep58 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 0, i64 %82
-  %switch.load59 = load ptr, ptr %switch.gep58, align 8
+  %switch.gep65 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 0, i64 %82
+  %switch.load66 = load ptr, ptr %switch.gep65, align 8
   br label %_ZN6Assimp3FBX4Util15TokenTypeStringENS0_9TokenTypeE.exit29
 
-_ZN6Assimp3FBX4Util15TokenTypeStringENS0_9TokenTypeE.exit29: ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEElsIA3_cTnPNSt9enable_ifIXntsr3std10is_base_ofISt9exceptionT_EE5valueEvE4typeELPv0EEERS5_RKSA_.exit27, %switch.lookup57
-  %.0.i28 = phi ptr [ %switch.load59, %switch.lookup57 ], [ @.str.6, %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEElsIA3_cTnPNSt9enable_ifIXntsr3std10is_base_ofISt9exceptionT_EE5valueEvE4typeELPv0EEERS5_RKSA_.exit27 ]
+_ZN6Assimp3FBX4Util15TokenTypeStringENS0_9TokenTypeE.exit29: ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEElsIA3_cTnPNSt9enable_ifIXntsr3std10is_base_ofISt9exceptionT_EE5valueEvE4typeELPv0EEERS5_RKSA_.exit27, %switch.lookup64
+  %.0.i28 = phi ptr [ %switch.load66, %switch.lookup64 ], [ @.str.6, %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEElsIA3_cTnPNSt9enable_ifIXntsr3std10is_base_ofISt9exceptionT_EE5valueEvE4typeELPv0EEERS5_RKSA_.exit27 ]
   %83 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i28) #16
   %84 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(376) %4, ptr noundef nonnull %.0.i28, i64 noundef %83)
           to label %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEElsIPKcTnPNSt9enable_ifIXntsr3std10is_base_ofISt9exceptionT_EE5valueEvE4typeELPv0EEERS5_RKSB_.exit33 unwind label %138

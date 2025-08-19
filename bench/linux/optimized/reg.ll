@@ -1084,7 +1084,7 @@ select.unfold:                                    ; preds = %108, %129, %123
   %257 = load i8, ptr %256, align 1
   %258 = load i8, ptr %225, align 1
   %259 = icmp eq i8 %257, %258
-  br i1 %259, label %.thread56, label %.thread48
+  br i1 %259, label %.thread73, label %.thread48
 
 260:                                              ; preds = %249, %217
   %261 = phi ptr [ %218, %217 ], [ %233, %249 ]
@@ -1095,14 +1095,14 @@ select.unfold:                                    ; preds = %108, %129, %123
   %266 = icmp eq i8 %264, %265
   br i1 %266, label %.thread51, label %.thread53
 
-.thread56:                                        ; preds = %255
+.thread73:                                        ; preds = %255
   %267 = getelementptr i8, ptr %246, i64 21
   %268 = load i8, ptr %267, align 1
   %269 = load i8, ptr %233, align 1
   %270 = icmp eq i8 %268, %269
   br i1 %270, label %.thread51, label %.thread48
 
-.thread51:                                        ; preds = %.thread56, %260
+.thread51:                                        ; preds = %.thread73, %260
   %271 = icmp eq ptr %0, @core_request_world
   br i1 %271, label %290, label %272
 
@@ -1115,7 +1115,7 @@ select.unfold:                                    ; preds = %108, %129, %123
   tail call void @kfree(ptr noundef %0) #23
   br label %290
 
-.thread48:                                        ; preds = %.thread56, %255, %254, %224, %232
+.thread48:                                        ; preds = %.thread73, %255, %254, %224, %232
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 0, ptr %276, align 4
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 37
@@ -1395,7 +1395,7 @@ define dso_local ptr @freq_reg_info(ptr noundef %0, i32 noundef %1) #1 align 16 
   br label %49
 
 49:                                               ; preds = %37, %42, %.preheader
-  %.fr = phi i8 [ %32, %.preheader ], [ 1, %37 ], [ %48, %42 ]
+  %.fr = phi i8 [ 1, %.preheader ], [ 1, %37 ], [ %48, %42 ]
   %50 = tail call zeroext i1 @cfg80211_does_bw_fit_range(ptr noundef %35, i32 noundef %1, i32 noundef %25) #23
   %51 = icmp ne i8 %.fr, 0
   %52 = select i1 %51, i1 %50, i1 false
@@ -1687,7 +1687,7 @@ define internal fastcc void @handle_band_custom(ptr noundef readonly captures(no
   br label %69
 
 69:                                               ; preds = %57, %62, %.preheader
-  %70 = phi i8 [ %52, %.preheader ], [ 1, %57 ], [ %68, %62 ]
+  %70 = phi i8 [ 1, %.preheader ], [ 1, %57 ], [ %68, %62 ]
   %71 = tail call zeroext i1 @cfg80211_does_bw_fit_range(ptr noundef %55, i32 noundef %43, i32 noundef 20000) #23
   %72 = icmp ne i8 %70, 0
   %73 = select i1 %72, i1 %71, i1 false
@@ -2445,8 +2445,8 @@ define internal fastcc void @restore_regulatory_settings(i1 noundef zeroext %0, 
   %63 = icmp ne ptr %62, null
   %.pre23 = load i8, ptr %62, align 1
   %64 = icmp eq i8 %.pre23, 48
-  %or.cond24 = select i1 %63, i1 %64, i1 false
-  br i1 %or.cond24, label %65, label %69
+  %or.cond42 = select i1 %63, i1 %64, i1 false
+  br i1 %or.cond42, label %65, label %69
 
 65:                                               ; preds = %61
   %66 = getelementptr i8, ptr %62, i64 1
@@ -3553,11 +3553,11 @@ define dso_local noundef i32 @set_regdom(ptr noundef %0, i32 noundef %1) local_u
   br label %.thread33.sink.split
 
 .thread33.sink.split:                             ; preds = %241, %246, %250, %144, %149, %153, %.thread33.sink.split.sink.split, %228, %131
-  %.sink49 = phi i8 [ %21, %131 ], [ %21, %228 ], [ %.pre45, %.thread33.sink.split.sink.split ], [ %21, %153 ], [ %21, %149 ], [ %21, %144 ], [ %21, %250 ], [ %21, %246 ], [ %21, %241 ]
+  %.sink77 = phi i8 [ %21, %131 ], [ %21, %228 ], [ %.pre45, %.thread33.sink.split.sink.split ], [ %21, %153 ], [ %21, %149 ], [ %21, %144 ], [ %21, %250 ], [ %21, %246 ], [ %21, %241 ]
   %.sink.in = phi i8 [ %16, %131 ], [ %16, %228 ], [ %.pre, %.thread33.sink.split.sink.split ], [ %16, %153 ], [ %16, %149 ], [ %16, %144 ], [ %16, %250 ], [ %16, %246 ], [ %16, %241 ]
   %.ph = phi i1 [ false, %131 ], [ false, %228 ], [ %.ph.ph, %.thread33.sink.split.sink.split ], [ false, %153 ], [ false, %149 ], [ false, %144 ], [ false, %250 ], [ false, %246 ], [ false, %241 ]
   %.sink = zext i8 %.sink.in to i32
-  %278 = zext i8 %.sink49 to i32
+  %278 = zext i8 %.sink77 to i32
   %279 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24, i32 noundef %.sink, i32 noundef %278) #27
   tail call fastcc void @print_rd_rules(ptr noundef %0)
   br label %.thread33
@@ -4212,7 +4212,7 @@ define internal fastcc void @wiphy_update_regulatory(ptr noundef %0, i32 noundef
   br label %132
 
 132:                                              ; preds = %125, %120, %.preheader.i
-  %.fr.i = phi i8 [ %115, %.preheader.i ], [ 1, %120 ], [ %131, %125 ]
+  %.fr.i = phi i8 [ 1, %.preheader.i ], [ 1, %120 ], [ %131, %125 ]
   %133 = call zeroext i1 @cfg80211_does_bw_fit_range(ptr noundef %118, i32 noundef %80, i32 noundef %108) #23
   %134 = icmp ne i8 %.fr.i, 0
   %135 = select i1 %134, i1 %133, i1 false
@@ -8449,7 +8449,7 @@ define internal fastcc void @reg_process_ht_flags(ptr noundef %0) unnamed_addr #
   br label %96
 
 96:                                               ; preds = %84, %89, %78
-  %97 = phi i8 [ %79, %78 ], [ 1, %84 ], [ %95, %89 ]
+  %97 = phi i8 [ 1, %78 ], [ 1, %84 ], [ %95, %89 ]
   %98 = tail call zeroext i1 @cfg80211_does_bw_fit_range(ptr noundef %82, i32 noundef %66, i32 noundef 20000) #23
   %99 = icmp ne i8 %97, 0
   %100 = select i1 %99, i1 %98, i1 false

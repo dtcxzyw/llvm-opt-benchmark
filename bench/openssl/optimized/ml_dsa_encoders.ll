@@ -217,7 +217,7 @@ PACKET_copy_bytes.exit:                           ; preds = %16
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.3, i64 5
-  %35 = add i64 %31, -5
+  %35 = add nsw i64 %31, -5
   %.013.ptr.i = getelementptr inbounds nuw i8, ptr %29, i64 %.013.idx.i
   %.0.copyload.i.i = load i32, ptr %.sroa.0.3, align 1
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.3, i64 4

@@ -2565,8 +2565,8 @@ define linkonce_odr dso_local noundef i32 @_Z19b3FindClippingFacesRK9b3Vector3PK
   %52 = sext i32 %51 to i64
   %53 = sext i32 %.sroa.3.0.copyload to i64
   %wide.trip.count161 = zext nneg i32 %.sroa.424.0.copyload to i64
-  %invariant.gep169 = getelementptr i32, ptr %18, i64 %53
-  %invariant.gep171 = getelementptr %class.b3Vector3, ptr %9, i64 %52
+  %invariant.gep174 = getelementptr i32, ptr %18, i64 %53
+  %invariant.gep176 = getelementptr %class.b3Vector3, ptr %9, i64 %52
   br label %101
 
 54:                                               ; preds = %.lr.ph, %54
@@ -2637,8 +2637,8 @@ define linkonce_odr dso_local noundef i32 @_Z19b3FindClippingFacesRK9b3Vector3PK
 101:                                              ; preds = %.lr.ph143, %101
   %indvars.iv156 = phi i64 [ 0, %.lr.ph143 ], [ %indvars.iv.next157, %101 ]
   %102 = load i32, ptr %47, align 16, !tbaa !29
-  %gep170 = getelementptr i32, ptr %invariant.gep169, i64 %indvars.iv156
-  %103 = load i32, ptr %gep170, align 4, !tbaa !17
+  %gep175 = getelementptr i32, ptr %invariant.gep174, i64 %indvars.iv156
+  %103 = load i32, ptr %gep175, align 4, !tbaa !17
   %104 = add nsw i32 %103, %102
   %105 = sext i32 %104 to i64
   %106 = getelementptr inbounds %class.b3Vector3, ptr %16, i64 %105
@@ -2699,9 +2699,9 @@ define linkonce_odr dso_local noundef i32 @_Z19b3FindClippingFacesRK9b3Vector3PK
   %.sroa.0.4.vec.insert.i.i3.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i2.i.i, float %150, i64 1
   %.sroa.3.12.vec.insert.i.i4.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %151, i64 0
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %gep172 = getelementptr %class.b3Vector3, ptr %invariant.gep171, i64 %indvars.iv156
-  store <2 x float> %.sroa.0.4.vec.insert.i.i3.i.i, ptr %gep172, align 16
-  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %gep172, i64 8
+  %gep177 = getelementptr %class.b3Vector3, ptr %invariant.gep176, i64 %indvars.iv156
+  store <2 x float> %.sroa.0.4.vec.insert.i.i3.i.i, ptr %gep177, align 16
+  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %gep177, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i4.i.i, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !4
   %exitcond162.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count161
   br i1 %exitcond162.not, label %.preheader, label %101, !llvm.loop !42
@@ -2727,7 +2727,7 @@ define linkonce_odr dso_local noundef i32 @_Z19b3FindClippingFacesRK9b3Vector3PK
   %163 = mul nsw i32 %20, %10
   %164 = sext i32 %163 to i64
   %wide.trip.count166 = zext nneg i32 %157 to i64
-  %invariant.gep173 = getelementptr %class.b3Vector3, ptr %7, i64 %164
+  %invariant.gep178 = getelementptr %class.b3Vector3, ptr %7, i64 %164
   br label %225
 
 165:                                              ; preds = %.lr.ph148, %216
@@ -2885,9 +2885,9 @@ define linkonce_odr dso_local noundef i32 @_Z19b3FindClippingFacesRK9b3Vector3PK
   %.sroa.0.0.vec.insert.i.i2.i.i119 = insertelement <2 x float> poison, float %281, i64 0
   %.sroa.0.4.vec.insert.i.i3.i.i120 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i2.i.i119, float %282, i64 1
   %.sroa.3.12.vec.insert.i.i4.i.i121 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %283, i64 0
-  %gep174 = getelementptr %class.b3Vector3, ptr %invariant.gep173, i64 %indvars.iv163
-  store <2 x float> %.sroa.0.4.vec.insert.i.i3.i.i120, ptr %gep174, align 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %gep174, i64 8
+  %gep179 = getelementptr %class.b3Vector3, ptr %invariant.gep178, i64 %indvars.iv163
+  store <2 x float> %.sroa.0.4.vec.insert.i.i3.i.i120, ptr %gep179, align 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %gep179, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i4.i.i121, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !4
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count166
@@ -4126,7 +4126,7 @@ _ZN13b3OpenCLArrayIiE7reserveEmb.exit:            ; preds = %10, %3
   br i1 %.not.i6, label %64, label %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread
 
 _ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread:     ; preds = %_ZN13b3OpenCLArrayIiE10deallocateEv.exit.i, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit14.i, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit
-  %.010 = phi i1 [ true, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit ], [ false, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit14.i ], [ %.not.i5, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit.i ]
+  %.015 = phi i1 [ true, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit ], [ false, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit14.i ], [ %.not.i5, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit.i ]
   %53 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8, !tbaa !100
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = load ptr, ptr %54, align 8, !tbaa !84
@@ -4148,11 +4148,11 @@ _ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread:     ; preds = %_ZN13b3OpenCLArrayI
   br label %_ZN13b3OpenCLArrayIiE19copyFromHostPointerEPKimmb.exit
 
 _ZN13b3OpenCLArrayIiE19copyFromHostPointerEPKimmb.exit: ; preds = %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread, %60, %64
-  %.09 = phi i1 [ %.010, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread ], [ %.010, %60 ], [ true, %64 ]
+  %.014 = phi i1 [ %.015, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread ], [ %.015, %60 ], [ true, %64 ]
   %65 = load i64, ptr %5, align 8, !tbaa !119
   %66 = add i64 %65, 1
   store i64 %66, ptr %5, align 8, !tbaa !119
-  ret i1 %.09
+  ret i1 %.014
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -27001,12 +27001,12 @@ _Z20portalReachTolerancePK15_b3MprSimplex_tPK15_b3MprSupport_tPK9b3Vector3.exit.
   %.pre.i65 = load float, ptr %.phi.trans.insert.i, align 4, !tbaa !4
   %500 = call float @llvm.fabs.f32(float %.pre.i65)
   %501 = fcmp uge float %500, 0x3E80000000000000
-  %or.cond50.i = select i1 %499, i1 true, i1 %501
+  %or.cond52.i = select i1 %499, i1 true, i1 %501
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.pre98 = load float, ptr %.phi.trans.insert, align 8, !tbaa !4
   %502 = call float @llvm.fabs.f32(float %.pre98)
   %503 = fcmp uge float %502, 0x3E80000000000000
-  %or.cond = select i1 %or.cond50.i, i1 true, i1 %503
+  %or.cond = select i1 %or.cond52.i, i1 true, i1 %503
   br i1 %or.cond, label %_Z20portalReachTolerancePK15_b3MprSimplex_tPK15_b3MprSupport_tPK9b3Vector3.exit.thread._crit_edge.i, label %504
 
 504:                                              ; preds = %_Z20portalReachTolerancePK15_b3MprSimplex_tPK15_b3MprSupport_tPK9b3Vector3.exit.thread.i

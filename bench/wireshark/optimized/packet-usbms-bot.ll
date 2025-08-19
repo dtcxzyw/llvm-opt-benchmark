@@ -294,14 +294,14 @@ define internal i32 @dissect_usbms_bot_control(ptr noundef %0, ptr noundef %1, p
   br i1 %16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %19
-  %.0334246 = phi ptr [ %20, %19 ], [ @setup_dissectors, %10 ]
-  %17 = getelementptr i8, ptr %.0334246, i64 24
+  %.0334249 = phi ptr [ %20, %19 ], [ @setup_dissectors, %10 ]
+  %17 = getelementptr i8, ptr %.0334249, i64 24
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %.thread, label %19, !llvm.loop !6
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr i8, ptr %.0334246, i64 16
+  %20 = getelementptr i8, ptr %.0334249, i64 16
   %21 = load i8, ptr %20, align 8
   %22 = icmp eq i8 %21, %15
   br i1 %22, label %._crit_edge, label %.lr.ph, !llvm.loop !6

@@ -125,7 +125,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 check_flag.exit:                                  ; preds = %2
   %29 = load ptr, ptr @stderr, align 8, !tbaa !8
   %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str, i32 noundef %27) #11
-  br label %412
+  br label %410
 
 31:                                               ; preds = %2
   %32 = icmp sgt i32 %0, 1
@@ -148,7 +148,7 @@ check_flag.exit:                                  ; preds = %2
 check_flag.exit84:                                ; preds = %38
   %42 = load ptr, ptr @stderr, align 8, !tbaa !8
   %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.1) #11
-  br label %412
+  br label %410
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %26, align 8, !tbaa !12
@@ -354,73 +354,76 @@ InitUserData.exit:                                ; preds = %.preheader46.i73.i
   %switch.select81 = select i1 %switch.selectcmp80, double 0x402D64D51E0DB1C6, double %switch.select
   br label %.preheader
 
-.preheader:                                       ; preds = %InitUserData.exit, %407
-  %129 = phi ptr [ null, %InitUserData.exit ], [ %.pre, %407 ]
-  %.060265 = phi i32 [ 1, %InitUserData.exit ], [ %408, %407 ]
-  %.061264 = phi ptr [ null, %InitUserData.exit ], [ %.2173, %407 ]
-  %130 = icmp eq i32 %.060265, 1
+.preheader:                                       ; preds = %InitUserData.exit, %406
+  %129 = phi ptr [ null, %InitUserData.exit ], [ %.pre, %406 ]
+  %130 = phi i1 [ true, %InitUserData.exit ], [ false, %406 ]
+  %exitcond323.not = phi i1 [ false, %InitUserData.exit ], [ true, %406 ]
+  %.060265 = phi i32 [ 1, %InitUserData.exit ], [ 2, %406 ]
+  %.061264 = phi ptr [ null, %InitUserData.exit ], [ %.2173, %406 ]
   %.str.37..str.38.i = select i1 %130, ptr @.str.37, ptr @.str.38
   br label %131
 
 131:                                              ; preds = %.preheader, %PrintFinalStats.exit
   %132 = phi ptr [ %129, %.preheader ], [ %.pre, %PrintFinalStats.exit ]
-  %.059263 = phi i32 [ 1, %.preheader ], [ %406, %PrintFinalStats.exit ]
+  %133 = phi i1 [ true, %.preheader ], [ false, %PrintFinalStats.exit ]
+  %exitcond322.not = phi i1 [ false, %.preheader ], [ true, %PrintFinalStats.exit ]
+  %.059263 = phi i32 [ 1, %.preheader ], [ 2, %PrintFinalStats.exit ]
   %.162262 = phi ptr [ %.061264, %.preheader ], [ %.2173, %PrintFinalStats.exit ]
-  %133 = call ptr @N_VGetArrayPointer(ptr noundef nonnull %40) #10
-  %134 = load i32, ptr %59, align 8, !tbaa !24
-  %135 = load double, ptr %83, align 8, !tbaa !27
-  %136 = load double, ptr %84, align 8, !tbaa !28
-  %.not41.i = icmp slt i32 %134, 1
+  %134 = call ptr @N_VGetArrayPointer(ptr noundef nonnull %40) #10
+  %135 = load i32, ptr %59, align 8, !tbaa !24
+  %136 = load double, ptr %83, align 8, !tbaa !27
+  %137 = load double, ptr %84, align 8, !tbaa !28
+  %.not41.i = icmp slt i32 %135, 1
   br i1 %.not41.i, label %CInit.exit, label %.split.preheader.i
 
 .split.preheader.i:                               ; preds = %131
-  %137 = load i32, ptr %82, align 4, !tbaa !26
-  %138 = add nuw i32 %134, 1
-  %139 = zext nneg i32 %134 to i64
-  %140 = sext i32 %137 to i64
-  %wide.trip.count.i = zext i32 %138 to i64
+  %138 = load i32, ptr %82, align 4, !tbaa !26
+  %139 = add nuw i32 %135, 1
+  %140 = zext nneg i32 %135 to i64
+  %141 = sext i32 %138 to i64
+  %wide.trip.count.i = zext i32 %139 to i64
   br label %.split.i
 
 .split.i:                                         ; preds = %.split45.i, %.split.preheader.i
   %indvars.iv56.i = phi i64 [ 0, %.split.preheader.i ], [ %indvars.iv.next57.i, %.split45.i ]
-  %141 = trunc nuw nsw i64 %indvars.iv56.i to i32
-  %142 = uitofp nneg i32 %141 to double
-  %143 = fmul double %136, %142
-  %144 = fmul double %143, 4.000000e+00
-  %145 = fsub double 1.000000e+00, %143
-  %146 = fmul double %144, %145
-  %147 = fmul double %146, %146
-  %148 = mul nsw i64 %indvars.iv56.i, %140
-  %invariant.gep.i90 = getelementptr double, ptr %133, i64 %148
+  %142 = trunc nuw nsw i64 %indvars.iv56.i to i32
+  %143 = uitofp nneg i32 %142 to double
+  %144 = fmul double %137, %143
+  %145 = fmul double %144, 4.000000e+00
+  %146 = fsub double 1.000000e+00, %144
+  %147 = fmul double %145, %146
+  %148 = fmul double %147, %147
+  %149 = mul nsw i64 %indvars.iv56.i, %141
+  %invariant.gep.i90 = getelementptr double, ptr %134, i64 %149
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %.split.i
   %indvars.iv52.i = phi i64 [ 0, %.split.i ], [ %indvars.iv.next53.i, %._crit_edge.i ]
-  %149 = trunc nuw nsw i64 %indvars.iv52.i to i32
-  %150 = uitofp nneg i32 %149 to double
-  %151 = fmul double %135, %150
-  %152 = fmul double %151, 4.000000e+00
-  %153 = fsub double 1.000000e+00, %151
-  %154 = fmul double %152, %153
-  %155 = fmul double %154, %154
-  %156 = mul nuw nsw i64 %indvars.iv52.i, %139
-  %gep.i91 = getelementptr double, ptr %invariant.gep.i90, i64 %156
-  br label %157
+  %150 = trunc nuw nsw i64 %indvars.iv52.i to i32
+  %151 = uitofp nneg i32 %150 to double
+  %152 = fmul double %136, %151
+  %153 = fmul double %152, 4.000000e+00
+  %154 = fsub double 1.000000e+00, %152
+  %155 = fmul double %153, %154
+  %156 = fmul double %155, %155
+  %157 = mul nuw nsw i64 %indvars.iv52.i, %140
+  %gep.i91 = getelementptr double, ptr %invariant.gep.i90, i64 %157
+  br label %158
 
-157:                                              ; preds = %157, %.lr.ph.i
-  %indvars.iv.i92 = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i93, %157 ]
-  %158 = trunc nuw nsw i64 %indvars.iv.i92 to i32
-  %159 = uitofp nneg i32 %158 to double
-  %160 = fmul double %155, %159
-  %161 = call double @llvm.fmuladd.f64(double %160, double %147, double 1.000000e+01)
-  %162 = getelementptr double, ptr %gep.i91, i64 %indvars.iv.i92
-  %163 = getelementptr i8, ptr %162, i64 -8
-  store double %161, ptr %163, align 8, !tbaa !25
+158:                                              ; preds = %158, %.lr.ph.i
+  %indvars.iv.i92 = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i93, %158 ]
+  %159 = trunc nuw nsw i64 %indvars.iv.i92 to i32
+  %160 = uitofp nneg i32 %159 to double
+  %161 = fmul double %156, %160
+  %162 = call double @llvm.fmuladd.f64(double %161, double %148, double 1.000000e+01)
+  %163 = getelementptr double, ptr %gep.i91, i64 %indvars.iv.i92
+  %164 = getelementptr i8, ptr %163, i64 -8
+  store double %162, ptr %164, align 8, !tbaa !25
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i92, 1
   %exitcond.not.i94 = icmp eq i64 %indvars.iv.next.i93, %wide.trip.count.i
-  br i1 %exitcond.not.i94, label %._crit_edge.i, label %157
+  br i1 %exitcond.not.i94, label %._crit_edge.i, label %158
 
-._crit_edge.i:                                    ; preds = %157
+._crit_edge.i:                                    ; preds = %158
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next53.i, 6
   br i1 %exitcond55.not.i, label %.split45.i, label %.lr.ph.i
@@ -431,11 +434,10 @@ InitUserData.exit:                                ; preds = %.preheader46.i73.i
   br i1 %exitcond59.not.i, label %CInit.exit, label %.split.i
 
 CInit.exit:                                       ; preds = %.split45.i, %131
-  %164 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, ptr noundef nonnull %.str.37..str.38.i)
-  %165 = icmp eq i32 %.059263, 1
-  %.str.41.sink.i = select i1 %165, ptr @.str.40, ptr @.str.41
+  %165 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, ptr noundef nonnull %.str.37..str.38.i)
+  %.str.41.sink.i = select i1 %133, ptr @.str.40, ptr @.str.41
   %166 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %.str.41.sink.i)
-  %167 = and i1 %130, %165
+  %167 = and i1 %130, %133
   br i1 %167, label %168, label %225
 
 168:                                              ; preds = %CInit.exit
@@ -448,7 +450,7 @@ CInit.exit:                                       ; preds = %.split45.i, %131
 check_flag.exit96:                                ; preds = %168
   %172 = load ptr, ptr @stderr, align 8, !tbaa !8
   %173 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %172, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.3) #11
-  br label %412
+  br label %410
 
 174:                                              ; preds = %168
   store ptr %170, ptr %128, align 8, !tbaa !39
@@ -459,7 +461,7 @@ check_flag.exit96:                                ; preds = %168
 check_flag.exit98:                                ; preds = %174
   %177 = load ptr, ptr @stderr, align 8, !tbaa !8
   %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %177, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.4, i32 noundef %175) #11
-  br label %412
+  br label %410
 
 179:                                              ; preds = %174
   %180 = call i32 @ARKodeSStolerances(ptr noundef nonnull %170, double noundef 1.000000e-05, double noundef 1.000000e-05) #10
@@ -469,7 +471,7 @@ check_flag.exit98:                                ; preds = %174
 check_flag.exit100:                               ; preds = %179
   %182 = load ptr, ptr @stderr, align 8, !tbaa !8
   %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.5, i32 noundef %180) #11
-  br label %412
+  br label %410
 
 184:                                              ; preds = %179
   %185 = call i32 @ARKodeSetMaxNumSteps(ptr noundef nonnull %170, i64 noundef 1000) #10
@@ -479,7 +481,7 @@ check_flag.exit100:                               ; preds = %179
 check_flag.exit102:                               ; preds = %184
   %187 = load ptr, ptr @stderr, align 8, !tbaa !8
   %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.6, i32 noundef %185) #11
-  br label %412
+  br label %410
 
 189:                                              ; preds = %184
   %190 = call i32 @ARKodeSetNonlinConvCoef(ptr noundef nonnull %170, double noundef 1.000000e-03) #10
@@ -489,7 +491,7 @@ check_flag.exit102:                               ; preds = %184
 check_flag.exit104:                               ; preds = %189
   %192 = load ptr, ptr @stderr, align 8, !tbaa !8
   %193 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %192, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.7, i32 noundef %190) #11
-  br label %412
+  br label %410
 
 194:                                              ; preds = %189
   %195 = load ptr, ptr %26, align 8, !tbaa !12
@@ -500,7 +502,7 @@ check_flag.exit104:                               ; preds = %189
 check_flag.exit106:                               ; preds = %194
   %198 = load ptr, ptr @stderr, align 8, !tbaa !8
   %199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %198, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.8) #11
-  br label %412
+  br label %410
 
 200:                                              ; preds = %194
   %201 = call i32 @ARKodeSetLinearSolver(ptr noundef nonnull %170, ptr noundef nonnull %196, ptr noundef null) #10
@@ -510,7 +512,7 @@ check_flag.exit106:                               ; preds = %194
 check_flag.exit108:                               ; preds = %200
   %203 = load ptr, ptr @stderr, align 8, !tbaa !8
   %204 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %203, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.9, i32 noundef %201) #11
-  br label %412
+  br label %410
 
 205:                                              ; preds = %200
   %206 = call i32 @SUNLinSol_SPGMRSetGSType(ptr noundef nonnull %196, i32 noundef 1) #10
@@ -520,7 +522,7 @@ check_flag.exit108:                               ; preds = %200
 check_flag.exit110:                               ; preds = %205
   %208 = load ptr, ptr @stderr, align 8, !tbaa !8
   %209 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %208, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.10, i32 noundef %206) #11
-  br label %412
+  br label %410
 
 210:                                              ; preds = %205
   %211 = call i32 @ARKodeSetEpsLin(ptr noundef nonnull %170, double noundef 0.000000e+00) #10
@@ -530,7 +532,7 @@ check_flag.exit110:                               ; preds = %205
 check_flag.exit112:                               ; preds = %210
   %213 = load ptr, ptr @stderr, align 8, !tbaa !8
   %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %213, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.11, i32 noundef %211) #11
-  br label %412
+  br label %410
 
 215:                                              ; preds = %210
   %216 = call i32 @ARKodeSetPreconditioner(ptr noundef nonnull %170, ptr noundef nonnull @Precond, ptr noundef nonnull @PSolve) #10
@@ -540,7 +542,7 @@ check_flag.exit112:                               ; preds = %210
 check_flag.exit114:                               ; preds = %215
   %218 = load ptr, ptr @stderr, align 8, !tbaa !8
   %219 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %218, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.12, i32 noundef %216) #11
-  br label %412
+  br label %410
 
 220:                                              ; preds = %215
   %221 = call i32 @ARKodeSetLSNormFactor(ptr noundef nonnull %170, double noundef %switch.select81) #10
@@ -550,7 +552,7 @@ check_flag.exit114:                               ; preds = %215
 check_flag.exit116:                               ; preds = %220
   %223 = load ptr, ptr @stderr, align 8, !tbaa !8
   %224 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %223, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.13, i32 noundef %221) #11
-  br label %412
+  br label %410
 
 225:                                              ; preds = %CInit.exit
   %226 = call i32 @ARKStepReInit(ptr noundef %132, ptr noundef null, ptr noundef nonnull @f, double noundef 0.000000e+00, ptr noundef nonnull %40) #10
@@ -560,7 +562,7 @@ check_flag.exit116:                               ; preds = %220
 check_flag.exit118:                               ; preds = %225
   %228 = load ptr, ptr @stderr, align 8, !tbaa !8
   %229 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.14, i32 noundef %226) #11
-  br label %412
+  br label %410
 
 230:                                              ; preds = %225
   %231 = call i32 @SUNLinSol_SPGMRSetPrecType(ptr noundef %.162262, i32 noundef %.060265) #10
@@ -570,7 +572,7 @@ check_flag.exit118:                               ; preds = %225
 check_flag.exit120:                               ; preds = %230
   %233 = load ptr, ptr @stderr, align 8, !tbaa !8
   %234 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %233, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.15, i32 noundef %231) #11
-  br label %412
+  br label %410
 
 235:                                              ; preds = %230
   %236 = call i32 @SUNLinSol_SPGMRSetGSType(ptr noundef %.162262, i32 noundef %.059263) #10
@@ -584,7 +586,7 @@ check_flag.exit120:                               ; preds = %230
 check_flag.exit122:                               ; preds = %235
   %238 = load ptr, ptr @stderr, align 8, !tbaa !8
   %239 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %238, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.10, i32 noundef %236) #11
-  br label %412
+  br label %410
 
 240:                                              ; preds = %220
   call fastcc void @PrintAllSpecies(ptr noundef nonnull %40, i32 noundef 6, i32 noundef 36, double noundef 0.000000e+00)
@@ -918,25 +920,21 @@ PrintFinalStats.exit:                             ; preds = %check_flag.exit40.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %406 = add nuw nsw i32 %.059263, 1
-  %exitcond322.not = icmp eq i32 %406, 3
-  br i1 %exitcond322.not, label %407, label %131
+  br i1 %exitcond322.not, label %406, label %131
 
-407:                                              ; preds = %PrintFinalStats.exit
-  %408 = add nuw nsw i32 %.060265, 1
-  %exitcond323.not = icmp eq i32 %408, 3
-  br i1 %exitcond323.not, label %409, label %.preheader
+406:                                              ; preds = %PrintFinalStats.exit
+  br i1 %exitcond323.not, label %407, label %.preheader
 
-409:                                              ; preds = %407
+407:                                              ; preds = %406
   call void @ARKodeFree(ptr noundef nonnull %25) #10
   call void @N_VDestroy(ptr noundef nonnull %40) #10
-  %410 = call i32 @SUNLinSolFree(ptr noundef %.2173) #10
+  %408 = call i32 @SUNLinSolFree(ptr noundef %.2173) #10
   call fastcc void @FreeUserData(ptr noundef %46)
-  %411 = call i32 @SUNContext_Free(ptr noundef nonnull %26) #10
-  br label %412
+  %409 = call i32 @SUNContext_Free(ptr noundef nonnull %26) #10
+  br label %410
 
-412:                                              ; preds = %check_flag.exit122, %check_flag.exit120, %check_flag.exit118, %check_flag.exit116, %check_flag.exit114, %check_flag.exit112, %check_flag.exit110, %check_flag.exit108, %check_flag.exit106, %check_flag.exit104, %check_flag.exit102, %check_flag.exit100, %check_flag.exit98, %check_flag.exit96, %check_flag.exit84, %check_flag.exit, %409
-  %.057 = phi i32 [ 0, %409 ], [ 1, %check_flag.exit ], [ 1, %check_flag.exit84 ], [ 1, %check_flag.exit96 ], [ 1, %check_flag.exit98 ], [ 1, %check_flag.exit100 ], [ 1, %check_flag.exit102 ], [ 1, %check_flag.exit104 ], [ 1, %check_flag.exit106 ], [ 1, %check_flag.exit108 ], [ 1, %check_flag.exit110 ], [ 1, %check_flag.exit112 ], [ 1, %check_flag.exit114 ], [ 1, %check_flag.exit116 ], [ 1, %check_flag.exit118 ], [ 1, %check_flag.exit120 ], [ 1, %check_flag.exit122 ]
+410:                                              ; preds = %check_flag.exit122, %check_flag.exit120, %check_flag.exit118, %check_flag.exit116, %check_flag.exit114, %check_flag.exit112, %check_flag.exit110, %check_flag.exit108, %check_flag.exit106, %check_flag.exit104, %check_flag.exit102, %check_flag.exit100, %check_flag.exit98, %check_flag.exit96, %check_flag.exit84, %check_flag.exit, %407
+  %.057 = phi i32 [ 0, %407 ], [ 1, %check_flag.exit ], [ 1, %check_flag.exit84 ], [ 1, %check_flag.exit96 ], [ 1, %check_flag.exit98 ], [ 1, %check_flag.exit100 ], [ 1, %check_flag.exit102 ], [ 1, %check_flag.exit104 ], [ 1, %check_flag.exit106 ], [ 1, %check_flag.exit108 ], [ 1, %check_flag.exit110 ], [ 1, %check_flag.exit112 ], [ 1, %check_flag.exit114 ], [ 1, %check_flag.exit116 ], [ 1, %check_flag.exit118 ], [ 1, %check_flag.exit120 ], [ 1, %check_flag.exit122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -1217,7 +1215,7 @@ check_flag.exit:                                  ; preds = %7
   %64 = mul nuw nsw i64 %indvars.iv173, %60
   %65 = sitofp i32 %62 to double
   %66 = mul nsw i32 %55, %62
-  %invariant.gep188 = getelementptr inbounds nuw ptr, ptr %6, i64 %64
+  %invariant.gep195 = getelementptr inbounds nuw ptr, ptr %6, i64 %64
   br label %.lr.ph118.us.us.us.us.us
 
 .lr.ph118.us.us.us.us.us:                         ; preds = %._crit_edge119.split.us.us.us.us.us.us, %.lr.ph.us.us.us
@@ -1231,10 +1229,10 @@ check_flag.exit:                                  ; preds = %7
   %73 = mul nsw i32 %56, %71
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds double, ptr %10, i64 %74
-  %gep189 = getelementptr inbounds nuw ptr, ptr %invariant.gep188, i64 %indvars.iv168
-  %76 = load ptr, ptr %gep189, align 8, !tbaa !14
+  %gep196 = getelementptr inbounds nuw ptr, ptr %invariant.gep195, i64 %indvars.iv168
+  %76 = load ptr, ptr %gep196, align 8, !tbaa !14
   %77 = sext i32 %70 to i64
-  %invariant.gep186 = getelementptr double, ptr %34, i64 %77
+  %invariant.gep193 = getelementptr double, ptr %34, i64 %77
   br label %.preheader.us.preheader.i.i.us.us.us.us.us.us
 
 .preheader.us.preheader.i.i.us.us.us.us.us.us:    ; preds = %._crit_edge.us.us.us.us.us.us, %.lr.ph118.us.us.us.us.us
@@ -1305,8 +1303,8 @@ check_flag.exit:                                  ; preds = %7
   %indvars.iv158 = phi i64 [ 0, %fblock.exit.loopexit.us.us.us.us.us.us ], [ %indvars.iv.next159, %108 ]
   %109 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv158
   %110 = load double, ptr %109, align 8, !tbaa !25
-  %gep187 = getelementptr double, ptr %invariant.gep186, i64 %indvars.iv158
-  %111 = load double, ptr %gep187, align 8, !tbaa !25
+  %gep194 = getelementptr double, ptr %invariant.gep193, i64 %indvars.iv158
+  %111 = load double, ptr %gep194, align 8, !tbaa !25
   %112 = fsub double %110, %111
   %113 = fmul double %115, %112
   %114 = getelementptr inbounds nuw double, ptr %117, i64 %indvars.iv158
@@ -1343,7 +1341,7 @@ fblock.exit.loopexit.us.us.us.us.us.us:           ; preds = %.lr.ph43.i.i.us.us.
   %119 = load i32, ptr %118, align 4, !tbaa !38
   %120 = mul nsw i32 %119, %33
   %121 = mul nuw nsw i64 %indvars.iv153, %60
-  %invariant.gep184 = getelementptr inbounds nuw ptr, ptr %6, i64 %121
+  %invariant.gep191 = getelementptr inbounds nuw ptr, ptr %6, i64 %121
   br label %.lr.ph118.us.us134.us
 
 .lr.ph118.us.us134.us:                            ; preds = %.lr.ph.us.us, %._crit_edge119.split.split.us.us.us.us
@@ -1352,8 +1350,8 @@ fblock.exit.loopexit.us.us.us.us.us.us:           ; preds = %.lr.ph43.i.i.us.us.
   %123 = load i32, ptr %122, align 4, !tbaa !38
   %124 = mul nsw i32 %123, %23
   %125 = add nsw i32 %124, %120
-  %gep185 = getelementptr inbounds nuw ptr, ptr %invariant.gep184, i64 %indvars.iv148
-  %126 = load ptr, ptr %gep185, align 8, !tbaa !14
+  %gep192 = getelementptr inbounds nuw ptr, ptr %invariant.gep191, i64 %indvars.iv148
+  %126 = load ptr, ptr %gep192, align 8, !tbaa !14
   %127 = sext i32 %125 to i64
   %invariant.gep = getelementptr double, ptr %34, i64 %127
   br label %fblock.exit.us120.us.us.us
@@ -1488,8 +1486,8 @@ define internal noundef i32 @PSolve(double %0, ptr readnone captures(none) %1, p
 .lr.ph394.i:                                      ; preds = %.preheader389.i
   %32 = icmp slt i32 %22, 1
   %wide.trip.count.i.i = zext nneg i32 %20 to i64
-  %brmerge478.i = or i1 %29, %32
-  br i1 %brmerge478.i, label %._crit_edge395.i, label %.lr.ph392.us.us.preheader.i
+  %brmerge484.i = or i1 %29, %32
+  br i1 %brmerge484.i, label %._crit_edge395.i, label %.lr.ph392.us.us.preheader.i
 
 .lr.ph392.us.us.preheader.i:                      ; preds = %.lr.ph394.i
   %33 = sext i32 %26 to i64
@@ -1577,7 +1575,7 @@ v_prod.exit.loopexit.us.us.us.i:                  ; preds = %.lr.ph.i.us.us.us.i
   %73 = zext i32 %66 to i64
   %wide.trip.count449.i = zext nneg i32 %24 to i64
   %wide.trip.count444.i = zext nneg i32 %22 to i64
-  %brmerge481.i = select i1 %31, i1 true, i1 %64
+  %brmerge487.i = select i1 %31, i1 true, i1 %64
   br label %74
 
 74:                                               ; preds = %._crit_edge408.i, %._crit_edge395.i
@@ -1809,7 +1807,7 @@ default.unreachable:                              ; preds = %81
   unreachable
 
 .loopexit.i:                                      ; preds = %._crit_edge.us.i, %74
-  br i1 %brmerge481.i, label %._crit_edge408.i, label %.lr.ph404.us.i
+  br i1 %brmerge487.i, label %._crit_edge408.i, label %.lr.ph404.us.i
 
 .lr.ph404.us.i:                                   ; preds = %.loopexit.i, %._crit_edge.us409.i
   %indvars.iv456.i = phi i64 [ %indvars.iv.next457.i, %._crit_edge.us409.i ], [ 0, %.loopexit.i ]

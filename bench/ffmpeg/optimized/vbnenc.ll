@@ -124,10 +124,10 @@ define internal range(i32 -2147483648, 1) i32 @vbn_encode(ptr noundef %0, ptr no
   br label %129
 
 .sink.split:                                      ; preds = %37, %40
-  %.sink131 = phi i64 [ 16, %40 ], [ 8, %37 ]
+  %.sink135 = phi i64 [ 16, %40 ], [ 8, %37 ]
   %.sink = phi i32 [ 16, %40 ], [ 8, %37 ]
   %.091.in.ph = phi i32 [ %41, %40 ], [ %39, %37 ]
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink131
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink135
   %49 = load ptr, ptr %48, align 8, !tbaa !42
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store ptr %49, ptr %50, align 8, !tbaa !43

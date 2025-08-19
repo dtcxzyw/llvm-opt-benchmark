@@ -152,9 +152,9 @@ define hidden noundef zeroext i1 @php_dom_fragment_insertion_hierarchy_check_pre
   %.not4.i = icmp eq ptr %.val, null
   br i1 %.not4.i, label %.thread, label %.lr.ph.i.outer
 
-.lr.ph.i.outer:                                   ; preds = %3, %.thread12
-  %.07.ph = phi i1 [ true, %.thread12 ], [ false, %3 ]
-  %.05.i.ph = phi ptr [ %12, %.thread12 ], [ %.val, %3 ]
+.lr.ph.i.outer:                                   ; preds = %3, %.thread14
+  %.07.ph = phi i1 [ true, %.thread14 ], [ false, %3 ]
+  %.05.i.ph = phi ptr [ %12, %.thread14 ], [ %.val, %3 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.outer, %8
@@ -168,7 +168,7 @@ define hidden noundef zeroext i1 @php_dom_fragment_insertion_hierarchy_check_pre
   ]
 
 7:                                                ; preds = %.lr.ph.i
-  br i1 %.07.ph, label %.thread.sink.split, label %.thread12
+  br i1 %.07.ph, label %.thread.sink.split, label %.thread14
 
 8:                                                ; preds = %.lr.ph.i
   %9 = getelementptr inbounds nuw i8, ptr %.05.i, i64 48
@@ -176,20 +176,20 @@ define hidden noundef zeroext i1 @php_dom_fragment_insertion_hierarchy_check_pre
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %13, label %.lr.ph.i
 
-.thread12:                                        ; preds = %7
+.thread14:                                        ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %.05.i, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !20
-  %.not.i14 = icmp eq ptr %12, null
-  br i1 %.not.i14, label %.thread16, label %.lr.ph.i.outer
+  %.not.i16 = icmp eq ptr %12, null
+  br i1 %.not.i16, label %.thread18, label %.lr.ph.i.outer
 
 13:                                               ; preds = %8
-  br i1 %.07.ph, label %.thread16, label %.thread
+  br i1 %.07.ph, label %.thread18, label %.thread
 
-.thread16:                                        ; preds = %.thread12, %13
+.thread18:                                        ; preds = %.thread14, %13
   %14 = tail call zeroext i1 @php_dom_has_child_of_type(ptr noundef %0, i32 noundef 1) #6
   br i1 %14, label %.thread.sink.split, label %15
 
-15:                                               ; preds = %.thread16
+15:                                               ; preds = %.thread18
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.thread, label %16
 
@@ -203,8 +203,8 @@ define hidden noundef zeroext i1 @php_dom_fragment_insertion_hierarchy_check_pre
   %21 = tail call zeroext i1 @php_dom_has_sibling_following_node(ptr noundef nonnull %2, i32 noundef 14) #6
   br i1 %21, label %.thread.sink.split, label %.thread
 
-.thread.sink.split:                               ; preds = %7, %.lr.ph.i, %.lr.ph.i, %16, %20, %.thread16
-  %.str.2.sink.i.sink = phi ptr [ @.str, %.thread16 ], [ @.str.1, %20 ], [ @.str.1, %16 ], [ @.str.2, %.lr.ph.i ], [ @.str.2, %.lr.ph.i ], [ @.str, %7 ]
+.thread.sink.split:                               ; preds = %7, %.lr.ph.i, %.lr.ph.i, %16, %20, %.thread18
+  %.str.2.sink.i.sink = phi ptr [ @.str, %.thread18 ], [ @.str.1, %20 ], [ @.str.1, %16 ], [ @.str.2, %.lr.ph.i ], [ @.str.2, %.lr.ph.i ], [ @.str, %7 ]
   tail call void @php_dom_throw_error_with_message(i32 noundef 3, ptr noundef nonnull %.str.2.sink.i.sink, i1 noundef zeroext true) #6
   br label %.thread
 
@@ -253,13 +253,13 @@ define hidden noundef zeroext i1 @php_dom_fragment_insertion_hierarchy_check_rep
 .thread:                                          ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %.05.i, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !20
-  %.not.i22 = icmp eq ptr %12, null
-  br i1 %.not.i22, label %.thread24, label %.lr.ph.i.outer
+  %.not.i23 = icmp eq ptr %12, null
+  br i1 %.not.i23, label %.thread25, label %.lr.ph.i.outer
 
 13:                                               ; preds = %8
-  br i1 %.013.ph, label %.thread24, label %.critedge
+  br i1 %.013.ph, label %.thread25, label %.critedge
 
-.thread24:                                        ; preds = %.thread, %13
+.thread25:                                        ; preds = %.thread, %13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.018 = load ptr, ptr %14, align 8, !tbaa !5
   %.not19 = icmp eq ptr %.018, null
@@ -271,8 +271,8 @@ define hidden noundef zeroext i1 @php_dom_fragment_insertion_hierarchy_check_rep
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread24, %15
-  %.020 = phi ptr [ %.0, %15 ], [ %.018, %.thread24 ]
+.lr.ph:                                           ; preds = %.thread25, %15
+  %.020 = phi ptr [ %.0, %15 ], [ %.018, %.thread25 ]
   %17 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !10
   %19 = icmp ne i32 %18, 1
@@ -280,7 +280,7 @@ define hidden noundef zeroext i1 @php_dom_fragment_insertion_hierarchy_check_rep
   %or.cond = or i1 %.not12, %19
   br i1 %or.cond, label %15, label %.critedge.sink.split
 
-._crit_edge:                                      ; preds = %15, %.thread24
+._crit_edge:                                      ; preds = %15, %.thread25
   %20 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %20)
   %21 = tail call zeroext i1 @php_dom_has_sibling_following_node(ptr noundef nonnull %2, i32 noundef 14) #6

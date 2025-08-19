@@ -2856,8 +2856,8 @@ bitor.exit:                                       ; preds = %.lr.ph, %2
   %209 = call fastcc ptr @mul(ptr noundef %167, ptr noundef %208)
   br label %210
 
-210:                                              ; preds = %.backedge3812, %.lr.ph96
-  %.08.i558 = phi ptr [ %209, %.lr.ph96 ], [ %.08.i558.be, %.backedge3812 ]
+210:                                              ; preds = %.backedge3864, %.lr.ph96
+  %.08.i558 = phi ptr [ %209, %.lr.ph96 ], [ %.08.i558.be, %.backedge3864 ]
   %211 = load ptr, ptr %167, align 8, !tbaa !25
   %212 = call zeroext i1 @equal(ptr noundef %211, ptr noundef nonnull @.str.18) #13
   br i1 %212, label %213, label %218
@@ -2867,7 +2867,7 @@ bitor.exit:                                       ; preds = %.lr.ph, %2
   %215 = load ptr, ptr %214, align 8, !tbaa !26
   %216 = call fastcc ptr @mul(ptr noundef %167, ptr noundef %215)
   %217 = call fastcc ptr @new_add(ptr noundef %.08.i558, ptr noundef %216, ptr noundef %211)
-  br label %.backedge3812
+  br label %.backedge3864
 
 218:                                              ; preds = %210
   %219 = call zeroext i1 @equal(ptr noundef %211, ptr noundef nonnull @.str.19) #13
@@ -2878,9 +2878,9 @@ bitor.exit:                                       ; preds = %.lr.ph, %2
   %222 = load ptr, ptr %221, align 8, !tbaa !26
   %223 = call fastcc ptr @mul(ptr noundef %167, ptr noundef %222)
   %224 = call fastcc ptr @new_sub(ptr noundef %.08.i558, ptr noundef %223, ptr noundef %211)
-  br label %.backedge3812
+  br label %.backedge3864
 
-.backedge3812:                                    ; preds = %220, %213
+.backedge3864:                                    ; preds = %220, %213
   %.08.i558.be = phi ptr [ %217, %213 ], [ %224, %220 ]
   br label %210
 
@@ -2944,9 +2944,9 @@ mul.exit557:                                      ; preds = %240
   call void @llvm.lifetime.end.p0(ptr nonnull %168)
   br label %251
 
-251:                                              ; preds = %.backedge3811, %mul.exit557
-  %.02019 = phi ptr [ %242, %mul.exit557 ], [ %.02019.be, %.backedge3811 ]
-  %.08.i.i217 = phi ptr [ %.010.i554, %mul.exit557 ], [ %.08.i.i217.be, %.backedge3811 ]
+251:                                              ; preds = %.backedge3863, %mul.exit557
+  %.02019 = phi ptr [ %242, %mul.exit557 ], [ %.02019.be, %.backedge3863 ]
+  %.08.i.i217 = phi ptr [ %.010.i554, %mul.exit557 ], [ %.08.i.i217.be, %.backedge3863 ]
   %252 = call zeroext i1 @equal(ptr noundef %.02019, ptr noundef nonnull @.str.18) #13
   br i1 %252, label %253, label %320
 
@@ -3069,7 +3069,7 @@ mul.exit553:                                      ; preds = %264
   br label %.sink.split.i539
 
 .sink.split.i539:                                 ; preds = %303, %297
-  %.sink46.i540 = phi ptr [ %307, %303 ], [ %300, %297 ]
+  %.sink47.i540 = phi ptr [ %307, %303 ], [ %300, %297 ]
   %312 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %312, align 16, !tbaa !7
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 24
@@ -3077,7 +3077,7 @@ mul.exit553:                                      ; preds = %264
   %314 = getelementptr inbounds nuw i8, ptr %312, i64 32
   store ptr %.032.i537, ptr %314, align 16, !tbaa !23
   %315 = getelementptr inbounds nuw i8, ptr %312, i64 40
-  store ptr %.sink46.i540, ptr %315, align 8, !tbaa !29
+  store ptr %.sink47.i540, ptr %315, align 8, !tbaa !29
   br label %new_add.exit549
 
 new_add.exit549:                                  ; preds = %278, %.sink.split.i539
@@ -3091,7 +3091,7 @@ new_add.exit549:                                  ; preds = %278, %.sink.split.i
   store ptr %.031.sink.i541, ptr %318, align 16, !tbaa !23
   %319 = getelementptr inbounds nuw i8, ptr %316, i64 40
   store ptr %.sink.i542, ptr %319, align 8, !tbaa !29
-  br label %.backedge3811
+  br label %.backedge3863
 
 320:                                              ; preds = %251
   %321 = call zeroext i1 @equal(ptr noundef %.02019, ptr noundef nonnull @.str.19) #13
@@ -3141,9 +3141,9 @@ new_add.exit549:                                  ; preds = %278, %.sink.split.i
 mul.exit534:                                      ; preds = %333
   call void @llvm.lifetime.end.p0(ptr nonnull %170)
   %344 = call fastcc ptr @new_sub(ptr noundef %.08.i.i217, ptr noundef %.010.i531, ptr noundef %.02019)
-  br label %.backedge3811
+  br label %.backedge3863
 
-.backedge3811:                                    ; preds = %mul.exit534, %new_add.exit549
+.backedge3863:                                    ; preds = %mul.exit534, %new_add.exit549
   %.02019.be = phi ptr [ %266, %new_add.exit549 ], [ %335, %mul.exit534 ]
   %.08.i.i217.be = phi ptr [ %316, %new_add.exit549 ], [ %344, %mul.exit534 ]
   br label %251
@@ -3173,8 +3173,8 @@ shift.exit220:                                    ; preds = %227, %shift.exit214
   %353 = call fastcc ptr @mul(ptr noundef %171, ptr noundef %352)
   br label %354
 
-354:                                              ; preds = %.backedge3804, %350
-  %.08.i528 = phi ptr [ %353, %350 ], [ %.08.i528.be, %.backedge3804 ]
+354:                                              ; preds = %.backedge3856, %350
+  %.08.i528 = phi ptr [ %353, %350 ], [ %.08.i528.be, %.backedge3856 ]
   %355 = load ptr, ptr %171, align 8, !tbaa !25
   %356 = call zeroext i1 @equal(ptr noundef %355, ptr noundef nonnull @.str.18) #13
   br i1 %356, label %357, label %424
@@ -3299,7 +3299,7 @@ mul.exit1702:                                     ; preds = %368
   br label %.sink.split.i1688
 
 .sink.split.i1688:                                ; preds = %407, %401
-  %.sink46.i1689 = phi ptr [ %411, %407 ], [ %404, %401 ]
+  %.sink47.i1689 = phi ptr [ %411, %407 ], [ %404, %401 ]
   %416 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %416, align 16, !tbaa !7
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 24
@@ -3307,7 +3307,7 @@ mul.exit1702:                                     ; preds = %368
   %418 = getelementptr inbounds nuw i8, ptr %416, i64 32
   store ptr %.032.i1686, ptr %418, align 16, !tbaa !23
   %419 = getelementptr inbounds nuw i8, ptr %416, i64 40
-  store ptr %.sink46.i1689, ptr %419, align 8, !tbaa !29
+  store ptr %.sink47.i1689, ptr %419, align 8, !tbaa !29
   br label %new_add.exit1698
 
 new_add.exit1698:                                 ; preds = %382, %.sink.split.i1688
@@ -3321,7 +3321,7 @@ new_add.exit1698:                                 ; preds = %382, %.sink.split.i
   store ptr %.031.sink.i1690, ptr %422, align 16, !tbaa !23
   %423 = getelementptr inbounds nuw i8, ptr %420, i64 40
   store ptr %.sink.i1691, ptr %423, align 8, !tbaa !29
-  br label %.backedge3804
+  br label %.backedge3856
 
 424:                                              ; preds = %354
   %425 = call zeroext i1 @equal(ptr noundef %355, ptr noundef nonnull @.str.19) #13
@@ -3372,9 +3372,9 @@ mul.exit1683:                                     ; preds = %437
   store ptr %439, ptr %171, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %448 = call fastcc ptr @new_sub(ptr noundef %.08.i528, ptr noundef %.010.i1680, ptr noundef %355)
-  br label %.backedge3804
+  br label %.backedge3856
 
-.backedge3804:                                    ; preds = %mul.exit1683, %new_add.exit1698
+.backedge3856:                                    ; preds = %mul.exit1683, %new_add.exit1698
   %.08.i528.be = phi ptr [ %420, %new_add.exit1698 ], [ %448, %mul.exit1683 ]
   br label %354
 
@@ -3438,9 +3438,9 @@ mul.exit527:                                      ; preds = %464
   call void @llvm.lifetime.end.p0(ptr nonnull %172)
   br label %475
 
-475:                                              ; preds = %.backedge3797, %mul.exit527
-  %.02016 = phi ptr [ %466, %mul.exit527 ], [ %.02016.be, %.backedge3797 ]
-  %.08.i.i211 = phi ptr [ %.010.i524, %mul.exit527 ], [ %.08.i.i211.be, %.backedge3797 ]
+475:                                              ; preds = %.backedge3849, %mul.exit527
+  %.02016 = phi ptr [ %466, %mul.exit527 ], [ %.02016.be, %.backedge3849 ]
+  %.08.i.i211 = phi ptr [ %.010.i524, %mul.exit527 ], [ %.08.i.i211.be, %.backedge3849 ]
   %476 = call zeroext i1 @equal(ptr noundef %.02016, ptr noundef nonnull @.str.18) #13
   br i1 %476, label %477, label %544
 
@@ -3563,7 +3563,7 @@ mul.exit523:                                      ; preds = %488
   br label %.sink.split.i509
 
 .sink.split.i509:                                 ; preds = %527, %521
-  %.sink46.i510 = phi ptr [ %531, %527 ], [ %524, %521 ]
+  %.sink47.i510 = phi ptr [ %531, %527 ], [ %524, %521 ]
   %536 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %536, align 16, !tbaa !7
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 24
@@ -3571,7 +3571,7 @@ mul.exit523:                                      ; preds = %488
   %538 = getelementptr inbounds nuw i8, ptr %536, i64 32
   store ptr %.032.i507, ptr %538, align 16, !tbaa !23
   %539 = getelementptr inbounds nuw i8, ptr %536, i64 40
-  store ptr %.sink46.i510, ptr %539, align 8, !tbaa !29
+  store ptr %.sink47.i510, ptr %539, align 8, !tbaa !29
   br label %new_add.exit519
 
 new_add.exit519:                                  ; preds = %502, %.sink.split.i509
@@ -3585,7 +3585,7 @@ new_add.exit519:                                  ; preds = %502, %.sink.split.i
   store ptr %.031.sink.i511, ptr %542, align 16, !tbaa !23
   %543 = getelementptr inbounds nuw i8, ptr %540, i64 40
   store ptr %.sink.i512, ptr %543, align 8, !tbaa !29
-  br label %.backedge3797
+  br label %.backedge3849
 
 544:                                              ; preds = %475
   %545 = call zeroext i1 @equal(ptr noundef %.02016, ptr noundef nonnull @.str.19) #13
@@ -3635,9 +3635,9 @@ new_add.exit519:                                  ; preds = %502, %.sink.split.i
 mul.exit504:                                      ; preds = %557
   call void @llvm.lifetime.end.p0(ptr nonnull %174)
   %568 = call fastcc ptr @new_sub(ptr noundef %.08.i.i211, ptr noundef %.010.i501, ptr noundef %.02016)
-  br label %.backedge3797
+  br label %.backedge3849
 
-.backedge3797:                                    ; preds = %mul.exit504, %new_add.exit519
+.backedge3849:                                    ; preds = %mul.exit504, %new_add.exit519
   %.02016.be = phi ptr [ %490, %new_add.exit519 ], [ %559, %mul.exit504 ]
   %.08.i.i211.be = phi ptr [ %540, %new_add.exit519 ], [ %568, %mul.exit504 ]
   br label %475
@@ -3665,8 +3665,8 @@ add.exit.i212:                                    ; preds = %544
   %578 = call fastcc ptr @mul(ptr noundef %175, ptr noundef %577)
   br label %579
 
-579:                                              ; preds = %.backedge3806, %575
-  %.08.i498 = phi ptr [ %578, %575 ], [ %.08.i498.be, %.backedge3806 ]
+579:                                              ; preds = %.backedge3858, %575
+  %.08.i498 = phi ptr [ %578, %575 ], [ %.08.i498.be, %.backedge3858 ]
   %580 = load ptr, ptr %175, align 8, !tbaa !25
   %581 = call zeroext i1 @equal(ptr noundef %580, ptr noundef nonnull @.str.18) #13
   br i1 %581, label %582, label %649
@@ -3791,7 +3791,7 @@ mul.exit1679:                                     ; preds = %593
   br label %.sink.split.i1665
 
 .sink.split.i1665:                                ; preds = %632, %626
-  %.sink46.i1666 = phi ptr [ %636, %632 ], [ %629, %626 ]
+  %.sink47.i1666 = phi ptr [ %636, %632 ], [ %629, %626 ]
   %641 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %641, align 16, !tbaa !7
   %642 = getelementptr inbounds nuw i8, ptr %641, i64 24
@@ -3799,7 +3799,7 @@ mul.exit1679:                                     ; preds = %593
   %643 = getelementptr inbounds nuw i8, ptr %641, i64 32
   store ptr %.032.i1663, ptr %643, align 16, !tbaa !23
   %644 = getelementptr inbounds nuw i8, ptr %641, i64 40
-  store ptr %.sink46.i1666, ptr %644, align 8, !tbaa !29
+  store ptr %.sink47.i1666, ptr %644, align 8, !tbaa !29
   br label %new_add.exit1675
 
 new_add.exit1675:                                 ; preds = %607, %.sink.split.i1665
@@ -3813,7 +3813,7 @@ new_add.exit1675:                                 ; preds = %607, %.sink.split.i
   store ptr %.031.sink.i1667, ptr %647, align 16, !tbaa !23
   %648 = getelementptr inbounds nuw i8, ptr %645, i64 40
   store ptr %.sink.i1668, ptr %648, align 8, !tbaa !29
-  br label %.backedge3806
+  br label %.backedge3858
 
 649:                                              ; preds = %579
   %650 = call zeroext i1 @equal(ptr noundef %580, ptr noundef nonnull @.str.19) #13
@@ -3864,9 +3864,9 @@ mul.exit1660:                                     ; preds = %662
   store ptr %664, ptr %175, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %673 = call fastcc ptr @new_sub(ptr noundef %.08.i498, ptr noundef %.010.i1657, ptr noundef %580)
-  br label %.backedge3806
+  br label %.backedge3858
 
-.backedge3806:                                    ; preds = %mul.exit1660, %new_add.exit1675
+.backedge3858:                                    ; preds = %mul.exit1660, %new_add.exit1675
   %.08.i498.be = phi ptr [ %645, %new_add.exit1675 ], [ %673, %mul.exit1660 ]
   br label %579
 
@@ -3930,9 +3930,9 @@ mul.exit497:                                      ; preds = %689
   call void @llvm.lifetime.end.p0(ptr nonnull %176)
   br label %700
 
-700:                                              ; preds = %.backedge3798, %mul.exit497
-  %.02013 = phi ptr [ %691, %mul.exit497 ], [ %.02013.be, %.backedge3798 ]
-  %.08.i.i205 = phi ptr [ %.010.i494, %mul.exit497 ], [ %.08.i.i205.be, %.backedge3798 ]
+700:                                              ; preds = %.backedge3850, %mul.exit497
+  %.02013 = phi ptr [ %691, %mul.exit497 ], [ %.02013.be, %.backedge3850 ]
+  %.08.i.i205 = phi ptr [ %.010.i494, %mul.exit497 ], [ %.08.i.i205.be, %.backedge3850 ]
   %701 = call zeroext i1 @equal(ptr noundef %.02013, ptr noundef nonnull @.str.18) #13
   br i1 %701, label %702, label %769
 
@@ -4055,7 +4055,7 @@ mul.exit493:                                      ; preds = %713
   br label %.sink.split.i479
 
 .sink.split.i479:                                 ; preds = %752, %746
-  %.sink46.i480 = phi ptr [ %756, %752 ], [ %749, %746 ]
+  %.sink47.i480 = phi ptr [ %756, %752 ], [ %749, %746 ]
   %761 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %761, align 16, !tbaa !7
   %762 = getelementptr inbounds nuw i8, ptr %761, i64 24
@@ -4063,7 +4063,7 @@ mul.exit493:                                      ; preds = %713
   %763 = getelementptr inbounds nuw i8, ptr %761, i64 32
   store ptr %.032.i477, ptr %763, align 16, !tbaa !23
   %764 = getelementptr inbounds nuw i8, ptr %761, i64 40
-  store ptr %.sink46.i480, ptr %764, align 8, !tbaa !29
+  store ptr %.sink47.i480, ptr %764, align 8, !tbaa !29
   br label %new_add.exit489
 
 new_add.exit489:                                  ; preds = %727, %.sink.split.i479
@@ -4077,7 +4077,7 @@ new_add.exit489:                                  ; preds = %727, %.sink.split.i
   store ptr %.031.sink.i481, ptr %767, align 16, !tbaa !23
   %768 = getelementptr inbounds nuw i8, ptr %765, i64 40
   store ptr %.sink.i482, ptr %768, align 8, !tbaa !29
-  br label %.backedge3798
+  br label %.backedge3850
 
 769:                                              ; preds = %700
   %770 = call zeroext i1 @equal(ptr noundef %.02013, ptr noundef nonnull @.str.19) #13
@@ -4127,9 +4127,9 @@ new_add.exit489:                                  ; preds = %727, %.sink.split.i
 mul.exit474:                                      ; preds = %782
   call void @llvm.lifetime.end.p0(ptr nonnull %178)
   %793 = call fastcc ptr @new_sub(ptr noundef %.08.i.i205, ptr noundef %.010.i471, ptr noundef %.02013)
-  br label %.backedge3798
+  br label %.backedge3850
 
-.backedge3798:                                    ; preds = %mul.exit474, %new_add.exit489
+.backedge3850:                                    ; preds = %mul.exit474, %new_add.exit489
   %.02013.be = phi ptr [ %715, %new_add.exit489 ], [ %784, %mul.exit474 ]
   %.08.i.i205.be = phi ptr [ %765, %new_add.exit489 ], [ %793, %mul.exit474 ]
   br label %700
@@ -4157,8 +4157,8 @@ add.exit.i206:                                    ; preds = %769
   %803 = call fastcc ptr @mul(ptr noundef %179, ptr noundef %802)
   br label %804
 
-804:                                              ; preds = %.backedge3808, %800
-  %.08.i468 = phi ptr [ %803, %800 ], [ %.08.i468.be, %.backedge3808 ]
+804:                                              ; preds = %.backedge3860, %800
+  %.08.i468 = phi ptr [ %803, %800 ], [ %.08.i468.be, %.backedge3860 ]
   %805 = load ptr, ptr %179, align 8, !tbaa !25
   %806 = call zeroext i1 @equal(ptr noundef %805, ptr noundef nonnull @.str.18) #13
   br i1 %806, label %807, label %874
@@ -4283,7 +4283,7 @@ mul.exit1656:                                     ; preds = %818
   br label %.sink.split.i1642
 
 .sink.split.i1642:                                ; preds = %857, %851
-  %.sink46.i1643 = phi ptr [ %861, %857 ], [ %854, %851 ]
+  %.sink47.i1643 = phi ptr [ %861, %857 ], [ %854, %851 ]
   %866 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %866, align 16, !tbaa !7
   %867 = getelementptr inbounds nuw i8, ptr %866, i64 24
@@ -4291,7 +4291,7 @@ mul.exit1656:                                     ; preds = %818
   %868 = getelementptr inbounds nuw i8, ptr %866, i64 32
   store ptr %.032.i1640, ptr %868, align 16, !tbaa !23
   %869 = getelementptr inbounds nuw i8, ptr %866, i64 40
-  store ptr %.sink46.i1643, ptr %869, align 8, !tbaa !29
+  store ptr %.sink47.i1643, ptr %869, align 8, !tbaa !29
   br label %new_add.exit1652
 
 new_add.exit1652:                                 ; preds = %832, %.sink.split.i1642
@@ -4305,7 +4305,7 @@ new_add.exit1652:                                 ; preds = %832, %.sink.split.i
   store ptr %.031.sink.i1644, ptr %872, align 16, !tbaa !23
   %873 = getelementptr inbounds nuw i8, ptr %870, i64 40
   store ptr %.sink.i1645, ptr %873, align 8, !tbaa !29
-  br label %.backedge3808
+  br label %.backedge3860
 
 874:                                              ; preds = %804
   %875 = call zeroext i1 @equal(ptr noundef %805, ptr noundef nonnull @.str.19) #13
@@ -4356,9 +4356,9 @@ mul.exit1637:                                     ; preds = %887
   store ptr %889, ptr %179, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %898 = call fastcc ptr @new_sub(ptr noundef %.08.i468, ptr noundef %.010.i1634, ptr noundef %805)
-  br label %.backedge3808
+  br label %.backedge3860
 
-.backedge3808:                                    ; preds = %mul.exit1637, %new_add.exit1652
+.backedge3860:                                    ; preds = %mul.exit1637, %new_add.exit1652
   %.08.i468.be = phi ptr [ %870, %new_add.exit1652 ], [ %898, %mul.exit1637 ]
   br label %804
 
@@ -4422,9 +4422,9 @@ mul.exit467:                                      ; preds = %914
   call void @llvm.lifetime.end.p0(ptr nonnull %180)
   br label %925
 
-925:                                              ; preds = %.backedge3799, %mul.exit467
-  %.02010 = phi ptr [ %916, %mul.exit467 ], [ %.02010.be, %.backedge3799 ]
-  %.08.i.i199 = phi ptr [ %.010.i464, %mul.exit467 ], [ %.08.i.i199.be, %.backedge3799 ]
+925:                                              ; preds = %.backedge3851, %mul.exit467
+  %.02010 = phi ptr [ %916, %mul.exit467 ], [ %.02010.be, %.backedge3851 ]
+  %.08.i.i199 = phi ptr [ %.010.i464, %mul.exit467 ], [ %.08.i.i199.be, %.backedge3851 ]
   %926 = call zeroext i1 @equal(ptr noundef %.02010, ptr noundef nonnull @.str.18) #13
   br i1 %926, label %927, label %994
 
@@ -4547,7 +4547,7 @@ mul.exit463:                                      ; preds = %938
   br label %.sink.split.i449
 
 .sink.split.i449:                                 ; preds = %977, %971
-  %.sink46.i450 = phi ptr [ %981, %977 ], [ %974, %971 ]
+  %.sink47.i450 = phi ptr [ %981, %977 ], [ %974, %971 ]
   %986 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %986, align 16, !tbaa !7
   %987 = getelementptr inbounds nuw i8, ptr %986, i64 24
@@ -4555,7 +4555,7 @@ mul.exit463:                                      ; preds = %938
   %988 = getelementptr inbounds nuw i8, ptr %986, i64 32
   store ptr %.032.i447, ptr %988, align 16, !tbaa !23
   %989 = getelementptr inbounds nuw i8, ptr %986, i64 40
-  store ptr %.sink46.i450, ptr %989, align 8, !tbaa !29
+  store ptr %.sink47.i450, ptr %989, align 8, !tbaa !29
   br label %new_add.exit459
 
 new_add.exit459:                                  ; preds = %952, %.sink.split.i449
@@ -4569,7 +4569,7 @@ new_add.exit459:                                  ; preds = %952, %.sink.split.i
   store ptr %.031.sink.i451, ptr %992, align 16, !tbaa !23
   %993 = getelementptr inbounds nuw i8, ptr %990, i64 40
   store ptr %.sink.i452, ptr %993, align 8, !tbaa !29
-  br label %.backedge3799
+  br label %.backedge3851
 
 994:                                              ; preds = %925
   %995 = call zeroext i1 @equal(ptr noundef %.02010, ptr noundef nonnull @.str.19) #13
@@ -4619,9 +4619,9 @@ new_add.exit459:                                  ; preds = %952, %.sink.split.i
 mul.exit444:                                      ; preds = %1007
   call void @llvm.lifetime.end.p0(ptr nonnull %182)
   %1018 = call fastcc ptr @new_sub(ptr noundef %.08.i.i199, ptr noundef %.010.i441, ptr noundef %.02010)
-  br label %.backedge3799
+  br label %.backedge3851
 
-.backedge3799:                                    ; preds = %mul.exit444, %new_add.exit459
+.backedge3851:                                    ; preds = %mul.exit444, %new_add.exit459
   %.02010.be = phi ptr [ %940, %new_add.exit459 ], [ %1009, %mul.exit444 ]
   %.08.i.i199.be = phi ptr [ %990, %new_add.exit459 ], [ %1018, %mul.exit444 ]
   br label %925
@@ -4649,8 +4649,8 @@ add.exit.i200:                                    ; preds = %994
   %1028 = call fastcc ptr @mul(ptr noundef %183, ptr noundef %1027)
   br label %1029
 
-1029:                                             ; preds = %.backedge3810, %1025
-  %.08.i440 = phi ptr [ %1028, %1025 ], [ %.08.i440.be, %.backedge3810 ]
+1029:                                             ; preds = %.backedge3862, %1025
+  %.08.i440 = phi ptr [ %1028, %1025 ], [ %.08.i440.be, %.backedge3862 ]
   %1030 = load ptr, ptr %183, align 8, !tbaa !25
   %1031 = call zeroext i1 @equal(ptr noundef %1030, ptr noundef nonnull @.str.18) #13
   br i1 %1031, label %1032, label %1099
@@ -4775,7 +4775,7 @@ mul.exit1633:                                     ; preds = %1043
   br label %.sink.split.i1619
 
 .sink.split.i1619:                                ; preds = %1082, %1076
-  %.sink46.i1620 = phi ptr [ %1086, %1082 ], [ %1079, %1076 ]
+  %.sink47.i1620 = phi ptr [ %1086, %1082 ], [ %1079, %1076 ]
   %1091 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %1091, align 16, !tbaa !7
   %1092 = getelementptr inbounds nuw i8, ptr %1091, i64 24
@@ -4783,7 +4783,7 @@ mul.exit1633:                                     ; preds = %1043
   %1093 = getelementptr inbounds nuw i8, ptr %1091, i64 32
   store ptr %.032.i1617, ptr %1093, align 16, !tbaa !23
   %1094 = getelementptr inbounds nuw i8, ptr %1091, i64 40
-  store ptr %.sink46.i1620, ptr %1094, align 8, !tbaa !29
+  store ptr %.sink47.i1620, ptr %1094, align 8, !tbaa !29
   br label %new_add.exit1629
 
 new_add.exit1629:                                 ; preds = %1057, %.sink.split.i1619
@@ -4797,7 +4797,7 @@ new_add.exit1629:                                 ; preds = %1057, %.sink.split.
   store ptr %.031.sink.i1621, ptr %1097, align 16, !tbaa !23
   %1098 = getelementptr inbounds nuw i8, ptr %1095, i64 40
   store ptr %.sink.i1622, ptr %1098, align 8, !tbaa !29
-  br label %.backedge3810
+  br label %.backedge3862
 
 1099:                                             ; preds = %1029
   %1100 = call zeroext i1 @equal(ptr noundef %1030, ptr noundef nonnull @.str.19) #13
@@ -4848,9 +4848,9 @@ mul.exit1614:                                     ; preds = %1112
   store ptr %1114, ptr %183, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %1123 = call fastcc ptr @new_sub(ptr noundef %.08.i440, ptr noundef %.010.i1611, ptr noundef %1030)
-  br label %.backedge3810
+  br label %.backedge3862
 
-.backedge3810:                                    ; preds = %mul.exit1614, %new_add.exit1629
+.backedge3862:                                    ; preds = %mul.exit1614, %new_add.exit1629
   %.08.i440.be = phi ptr [ %1095, %new_add.exit1629 ], [ %1123, %mul.exit1614 ]
   br label %1029
 
@@ -4914,9 +4914,9 @@ mul.exit439:                                      ; preds = %1139
   call void @llvm.lifetime.end.p0(ptr nonnull %184)
   br label %1150
 
-1150:                                             ; preds = %.backedge3800, %mul.exit439
-  %.02007 = phi ptr [ %1141, %mul.exit439 ], [ %.02007.be, %.backedge3800 ]
-  %.08.i.i = phi ptr [ %.010.i436, %mul.exit439 ], [ %.08.i.i.be, %.backedge3800 ]
+1150:                                             ; preds = %.backedge3852, %mul.exit439
+  %.02007 = phi ptr [ %1141, %mul.exit439 ], [ %.02007.be, %.backedge3852 ]
+  %.08.i.i = phi ptr [ %.010.i436, %mul.exit439 ], [ %.08.i.i.be, %.backedge3852 ]
   %1151 = call zeroext i1 @equal(ptr noundef %.02007, ptr noundef nonnull @.str.18) #13
   br i1 %1151, label %1152, label %1219
 
@@ -5039,7 +5039,7 @@ mul.exit435:                                      ; preds = %1163
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %1202, %1196
-  %.sink46.i = phi ptr [ %1206, %1202 ], [ %1199, %1196 ]
+  %.sink47.i = phi ptr [ %1206, %1202 ], [ %1199, %1196 ]
   %1211 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %1211, align 16, !tbaa !7
   %1212 = getelementptr inbounds nuw i8, ptr %1211, i64 24
@@ -5047,7 +5047,7 @@ mul.exit435:                                      ; preds = %1163
   %1213 = getelementptr inbounds nuw i8, ptr %1211, i64 32
   store ptr %.032.i, ptr %1213, align 16, !tbaa !23
   %1214 = getelementptr inbounds nuw i8, ptr %1211, i64 40
-  store ptr %.sink46.i, ptr %1214, align 8, !tbaa !29
+  store ptr %.sink47.i, ptr %1214, align 8, !tbaa !29
   br label %new_add.exit
 
 new_add.exit:                                     ; preds = %1177, %.sink.split.i
@@ -5061,7 +5061,7 @@ new_add.exit:                                     ; preds = %1177, %.sink.split.
   store ptr %.031.sink.i, ptr %1217, align 16, !tbaa !23
   %1218 = getelementptr inbounds nuw i8, ptr %1215, i64 40
   store ptr %.sink.i431, ptr %1218, align 8, !tbaa !29
-  br label %.backedge3800
+  br label %.backedge3852
 
 1219:                                             ; preds = %1150
   %1220 = call zeroext i1 @equal(ptr noundef %.02007, ptr noundef nonnull @.str.19) #13
@@ -5111,9 +5111,9 @@ new_add.exit:                                     ; preds = %1177, %.sink.split.
 mul.exit:                                         ; preds = %1232
   call void @llvm.lifetime.end.p0(ptr nonnull %186)
   %1243 = call fastcc ptr @new_sub(ptr noundef %.08.i.i, ptr noundef %.010.i, ptr noundef %.02007)
-  br label %.backedge3800
+  br label %.backedge3852
 
-.backedge3800:                                    ; preds = %mul.exit, %new_add.exit
+.backedge3852:                                    ; preds = %mul.exit, %new_add.exit
   %.02007.be = phi ptr [ %1165, %new_add.exit ], [ %1234, %mul.exit ]
   %.08.i.i.be = phi ptr [ %1215, %new_add.exit ], [ %1243, %mul.exit ]
   br label %1150
@@ -5163,8 +5163,8 @@ relational.exit:                                  ; preds = %1023, %relational.e
   %1258 = call fastcc ptr @mul(ptr noundef %149, ptr noundef %1257)
   br label %1259
 
-1259:                                             ; preds = %.backedge3803, %1255
-  %.08.i708 = phi ptr [ %1258, %1255 ], [ %.08.i708.be, %.backedge3803 ]
+1259:                                             ; preds = %.backedge3855, %1255
+  %.08.i708 = phi ptr [ %1258, %1255 ], [ %.08.i708.be, %.backedge3855 ]
   %1260 = load ptr, ptr %149, align 8, !tbaa !25
   %1261 = call zeroext i1 @equal(ptr noundef %1260, ptr noundef nonnull @.str.18) #13
   br i1 %1261, label %1262, label %1329
@@ -5289,7 +5289,7 @@ mul.exit1825:                                     ; preds = %1273
   br label %.sink.split.i1811
 
 .sink.split.i1811:                                ; preds = %1312, %1306
-  %.sink46.i1812 = phi ptr [ %1316, %1312 ], [ %1309, %1306 ]
+  %.sink47.i1812 = phi ptr [ %1316, %1312 ], [ %1309, %1306 ]
   %1321 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %1321, align 16, !tbaa !7
   %1322 = getelementptr inbounds nuw i8, ptr %1321, i64 24
@@ -5297,7 +5297,7 @@ mul.exit1825:                                     ; preds = %1273
   %1323 = getelementptr inbounds nuw i8, ptr %1321, i64 32
   store ptr %.032.i1809, ptr %1323, align 16, !tbaa !23
   %1324 = getelementptr inbounds nuw i8, ptr %1321, i64 40
-  store ptr %.sink46.i1812, ptr %1324, align 8, !tbaa !29
+  store ptr %.sink47.i1812, ptr %1324, align 8, !tbaa !29
   br label %new_add.exit1821
 
 new_add.exit1821:                                 ; preds = %1287, %.sink.split.i1811
@@ -5311,7 +5311,7 @@ new_add.exit1821:                                 ; preds = %1287, %.sink.split.
   store ptr %.031.sink.i1813, ptr %1327, align 16, !tbaa !23
   %1328 = getelementptr inbounds nuw i8, ptr %1325, i64 40
   store ptr %.sink.i1814, ptr %1328, align 8, !tbaa !29
-  br label %.backedge3803
+  br label %.backedge3855
 
 1329:                                             ; preds = %1259
   %1330 = call zeroext i1 @equal(ptr noundef %1260, ptr noundef nonnull @.str.19) #13
@@ -5362,9 +5362,9 @@ mul.exit1806:                                     ; preds = %1342
   store ptr %1344, ptr %149, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %1353 = call fastcc ptr @new_sub(ptr noundef %.08.i708, ptr noundef %.010.i1803, ptr noundef %1260)
-  br label %.backedge3803
+  br label %.backedge3855
 
-.backedge3803:                                    ; preds = %mul.exit1806, %new_add.exit1821
+.backedge3855:                                    ; preds = %mul.exit1806, %new_add.exit1821
   %.08.i708.be = phi ptr [ %1325, %new_add.exit1821 ], [ %1353, %mul.exit1806 ]
   br label %1259
 
@@ -5428,9 +5428,9 @@ mul.exit707:                                      ; preds = %1369
   call void @llvm.lifetime.end.p0(ptr nonnull %150)
   br label %1380
 
-1380:                                             ; preds = %.backedge3796, %mul.exit707
-  %.02034 = phi ptr [ %1371, %mul.exit707 ], [ %.02034.be, %.backedge3796 ]
-  %.08.i.i247 = phi ptr [ %.010.i704, %mul.exit707 ], [ %.08.i.i247.be, %.backedge3796 ]
+1380:                                             ; preds = %.backedge3848, %mul.exit707
+  %.02034 = phi ptr [ %1371, %mul.exit707 ], [ %.02034.be, %.backedge3848 ]
+  %.08.i.i247 = phi ptr [ %.010.i704, %mul.exit707 ], [ %.08.i.i247.be, %.backedge3848 ]
   %1381 = call zeroext i1 @equal(ptr noundef %.02034, ptr noundef nonnull @.str.18) #13
   br i1 %1381, label %1382, label %1449
 
@@ -5553,7 +5553,7 @@ mul.exit703:                                      ; preds = %1393
   br label %.sink.split.i689
 
 .sink.split.i689:                                 ; preds = %1432, %1426
-  %.sink46.i690 = phi ptr [ %1436, %1432 ], [ %1429, %1426 ]
+  %.sink47.i690 = phi ptr [ %1436, %1432 ], [ %1429, %1426 ]
   %1441 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %1441, align 16, !tbaa !7
   %1442 = getelementptr inbounds nuw i8, ptr %1441, i64 24
@@ -5561,7 +5561,7 @@ mul.exit703:                                      ; preds = %1393
   %1443 = getelementptr inbounds nuw i8, ptr %1441, i64 32
   store ptr %.032.i687, ptr %1443, align 16, !tbaa !23
   %1444 = getelementptr inbounds nuw i8, ptr %1441, i64 40
-  store ptr %.sink46.i690, ptr %1444, align 8, !tbaa !29
+  store ptr %.sink47.i690, ptr %1444, align 8, !tbaa !29
   br label %new_add.exit699
 
 new_add.exit699:                                  ; preds = %1407, %.sink.split.i689
@@ -5575,7 +5575,7 @@ new_add.exit699:                                  ; preds = %1407, %.sink.split.
   store ptr %.031.sink.i691, ptr %1447, align 16, !tbaa !23
   %1448 = getelementptr inbounds nuw i8, ptr %1445, i64 40
   store ptr %.sink.i692, ptr %1448, align 8, !tbaa !29
-  br label %.backedge3796
+  br label %.backedge3848
 
 1449:                                             ; preds = %1380
   %1450 = call zeroext i1 @equal(ptr noundef %.02034, ptr noundef nonnull @.str.19) #13
@@ -5625,9 +5625,9 @@ new_add.exit699:                                  ; preds = %1407, %.sink.split.
 mul.exit684:                                      ; preds = %1462
   call void @llvm.lifetime.end.p0(ptr nonnull %152)
   %1473 = call fastcc ptr @new_sub(ptr noundef %.08.i.i247, ptr noundef %.010.i681, ptr noundef %.02034)
-  br label %.backedge3796
+  br label %.backedge3848
 
-.backedge3796:                                    ; preds = %mul.exit684, %new_add.exit699
+.backedge3848:                                    ; preds = %mul.exit684, %new_add.exit699
   %.02034.be = phi ptr [ %1395, %new_add.exit699 ], [ %1464, %mul.exit684 ]
   %.08.i.i247.be = phi ptr [ %1445, %new_add.exit699 ], [ %1473, %mul.exit684 ]
   br label %1380
@@ -5694,9 +5694,9 @@ mul.exit1802:                                     ; preds = %1490
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1501
 
-1501:                                             ; preds = %.backedge3789, %mul.exit1802
-  %.02128 = phi ptr [ %1492, %mul.exit1802 ], [ %.02128.be, %.backedge3789 ]
-  %.08.i678 = phi ptr [ %.010.i1799, %mul.exit1802 ], [ %.08.i678.be, %.backedge3789 ]
+1501:                                             ; preds = %.backedge3841, %mul.exit1802
+  %.02128 = phi ptr [ %1492, %mul.exit1802 ], [ %.02128.be, %.backedge3841 ]
+  %.08.i678 = phi ptr [ %.010.i1799, %mul.exit1802 ], [ %.08.i678.be, %.backedge3841 ]
   %1502 = call zeroext i1 @equal(ptr noundef %.02128, ptr noundef nonnull @.str.18) #13
   br i1 %1502, label %1503, label %1570
 
@@ -5819,7 +5819,7 @@ mul.exit1798:                                     ; preds = %1514
   br label %.sink.split.i1784
 
 .sink.split.i1784:                                ; preds = %1553, %1547
-  %.sink46.i1785 = phi ptr [ %1557, %1553 ], [ %1550, %1547 ]
+  %.sink47.i1785 = phi ptr [ %1557, %1553 ], [ %1550, %1547 ]
   %1562 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %1562, align 16, !tbaa !7
   %1563 = getelementptr inbounds nuw i8, ptr %1562, i64 24
@@ -5827,7 +5827,7 @@ mul.exit1798:                                     ; preds = %1514
   %1564 = getelementptr inbounds nuw i8, ptr %1562, i64 32
   store ptr %.032.i1782, ptr %1564, align 16, !tbaa !23
   %1565 = getelementptr inbounds nuw i8, ptr %1562, i64 40
-  store ptr %.sink46.i1785, ptr %1565, align 8, !tbaa !29
+  store ptr %.sink47.i1785, ptr %1565, align 8, !tbaa !29
   br label %new_add.exit1794
 
 new_add.exit1794:                                 ; preds = %1528, %.sink.split.i1784
@@ -5841,7 +5841,7 @@ new_add.exit1794:                                 ; preds = %1528, %.sink.split.
   store ptr %.031.sink.i1786, ptr %1568, align 16, !tbaa !23
   %1569 = getelementptr inbounds nuw i8, ptr %1566, i64 40
   store ptr %.sink.i1787, ptr %1569, align 8, !tbaa !29
-  br label %.backedge3789
+  br label %.backedge3841
 
 1570:                                             ; preds = %1501
   %1571 = call zeroext i1 @equal(ptr noundef %.02128, ptr noundef nonnull @.str.19) #13
@@ -5891,9 +5891,9 @@ new_add.exit1794:                                 ; preds = %1528, %.sink.split.
 mul.exit1779:                                     ; preds = %1583
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %1594 = call fastcc ptr @new_sub(ptr noundef %.08.i678, ptr noundef %.010.i1776, ptr noundef %.02128)
-  br label %.backedge3789
+  br label %.backedge3841
 
-.backedge3789:                                    ; preds = %mul.exit1779, %new_add.exit1794
+.backedge3841:                                    ; preds = %mul.exit1779, %new_add.exit1794
   %.02128.be = phi ptr [ %1516, %new_add.exit1794 ], [ %1585, %mul.exit1779 ]
   %.08.i678.be = phi ptr [ %1566, %new_add.exit1794 ], [ %1594, %mul.exit1779 ]
   br label %1501
@@ -5954,9 +5954,9 @@ mul.exit677:                                      ; preds = %1609
   call void @llvm.lifetime.end.p0(ptr nonnull %153)
   br label %1620
 
-1620:                                             ; preds = %.backedge3766, %mul.exit677
-  %.02031 = phi ptr [ %1611, %mul.exit677 ], [ %.02031.be, %.backedge3766 ]
-  %.08.i.i241 = phi ptr [ %.010.i674, %mul.exit677 ], [ %.08.i.i241.be, %.backedge3766 ]
+1620:                                             ; preds = %.backedge3818, %mul.exit677
+  %.02031 = phi ptr [ %1611, %mul.exit677 ], [ %.02031.be, %.backedge3818 ]
+  %.08.i.i241 = phi ptr [ %.010.i674, %mul.exit677 ], [ %.08.i.i241.be, %.backedge3818 ]
   %1621 = call zeroext i1 @equal(ptr noundef %.02031, ptr noundef nonnull @.str.18) #13
   br i1 %1621, label %1622, label %1689
 
@@ -6079,7 +6079,7 @@ mul.exit673:                                      ; preds = %1633
   br label %.sink.split.i659
 
 .sink.split.i659:                                 ; preds = %1672, %1666
-  %.sink46.i660 = phi ptr [ %1676, %1672 ], [ %1669, %1666 ]
+  %.sink47.i660 = phi ptr [ %1676, %1672 ], [ %1669, %1666 ]
   %1681 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %1681, align 16, !tbaa !7
   %1682 = getelementptr inbounds nuw i8, ptr %1681, i64 24
@@ -6087,7 +6087,7 @@ mul.exit673:                                      ; preds = %1633
   %1683 = getelementptr inbounds nuw i8, ptr %1681, i64 32
   store ptr %.032.i657, ptr %1683, align 16, !tbaa !23
   %1684 = getelementptr inbounds nuw i8, ptr %1681, i64 40
-  store ptr %.sink46.i660, ptr %1684, align 8, !tbaa !29
+  store ptr %.sink47.i660, ptr %1684, align 8, !tbaa !29
   br label %new_add.exit669
 
 new_add.exit669:                                  ; preds = %1647, %.sink.split.i659
@@ -6101,7 +6101,7 @@ new_add.exit669:                                  ; preds = %1647, %.sink.split.
   store ptr %.031.sink.i661, ptr %1687, align 16, !tbaa !23
   %1688 = getelementptr inbounds nuw i8, ptr %1685, i64 40
   store ptr %.sink.i662, ptr %1688, align 8, !tbaa !29
-  br label %.backedge3766
+  br label %.backedge3818
 
 1689:                                             ; preds = %1620
   %1690 = call zeroext i1 @equal(ptr noundef %.02031, ptr noundef nonnull @.str.19) #13
@@ -6151,9 +6151,9 @@ new_add.exit669:                                  ; preds = %1647, %.sink.split.
 mul.exit654:                                      ; preds = %1702
   call void @llvm.lifetime.end.p0(ptr nonnull %155)
   %1713 = call fastcc ptr @new_sub(ptr noundef %.08.i.i241, ptr noundef %.010.i651, ptr noundef %.02031)
-  br label %.backedge3766
+  br label %.backedge3818
 
-.backedge3766:                                    ; preds = %mul.exit654, %new_add.exit669
+.backedge3818:                                    ; preds = %mul.exit654, %new_add.exit669
   %.02031.be = phi ptr [ %1635, %new_add.exit669 ], [ %1704, %mul.exit654 ]
   %.08.i.i241.be = phi ptr [ %1685, %new_add.exit669 ], [ %1713, %mul.exit654 ]
   br label %1620
@@ -6218,9 +6218,9 @@ mul.exit1775:                                     ; preds = %1731
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1742
 
-1742:                                             ; preds = %.backedge3791, %mul.exit1775
-  %.02126 = phi ptr [ %1733, %mul.exit1775 ], [ %.02126.be, %.backedge3791 ]
-  %.08.i648 = phi ptr [ %.010.i1772, %mul.exit1775 ], [ %.08.i648.be, %.backedge3791 ]
+1742:                                             ; preds = %.backedge3843, %mul.exit1775
+  %.02126 = phi ptr [ %1733, %mul.exit1775 ], [ %.02126.be, %.backedge3843 ]
+  %.08.i648 = phi ptr [ %.010.i1772, %mul.exit1775 ], [ %.08.i648.be, %.backedge3843 ]
   %1743 = call zeroext i1 @equal(ptr noundef %.02126, ptr noundef nonnull @.str.18) #13
   br i1 %1743, label %1744, label %1811
 
@@ -6343,7 +6343,7 @@ mul.exit1771:                                     ; preds = %1755
   br label %.sink.split.i1757
 
 .sink.split.i1757:                                ; preds = %1794, %1788
-  %.sink46.i1758 = phi ptr [ %1798, %1794 ], [ %1791, %1788 ]
+  %.sink47.i1758 = phi ptr [ %1798, %1794 ], [ %1791, %1788 ]
   %1803 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %1803, align 16, !tbaa !7
   %1804 = getelementptr inbounds nuw i8, ptr %1803, i64 24
@@ -6351,7 +6351,7 @@ mul.exit1771:                                     ; preds = %1755
   %1805 = getelementptr inbounds nuw i8, ptr %1803, i64 32
   store ptr %.032.i1755, ptr %1805, align 16, !tbaa !23
   %1806 = getelementptr inbounds nuw i8, ptr %1803, i64 40
-  store ptr %.sink46.i1758, ptr %1806, align 8, !tbaa !29
+  store ptr %.sink47.i1758, ptr %1806, align 8, !tbaa !29
   br label %new_add.exit1767
 
 new_add.exit1767:                                 ; preds = %1769, %.sink.split.i1757
@@ -6365,7 +6365,7 @@ new_add.exit1767:                                 ; preds = %1769, %.sink.split.
   store ptr %.031.sink.i1759, ptr %1809, align 16, !tbaa !23
   %1810 = getelementptr inbounds nuw i8, ptr %1807, i64 40
   store ptr %.sink.i1760, ptr %1810, align 8, !tbaa !29
-  br label %.backedge3791
+  br label %.backedge3843
 
 1811:                                             ; preds = %1742
   %1812 = call zeroext i1 @equal(ptr noundef %.02126, ptr noundef nonnull @.str.19) #13
@@ -6415,9 +6415,9 @@ new_add.exit1767:                                 ; preds = %1769, %.sink.split.
 mul.exit1752:                                     ; preds = %1824
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %1835 = call fastcc ptr @new_sub(ptr noundef %.08.i648, ptr noundef %.010.i1749, ptr noundef %.02126)
-  br label %.backedge3791
+  br label %.backedge3843
 
-.backedge3791:                                    ; preds = %mul.exit1752, %new_add.exit1767
+.backedge3843:                                    ; preds = %mul.exit1752, %new_add.exit1767
   %.02126.be = phi ptr [ %1757, %new_add.exit1767 ], [ %1826, %mul.exit1752 ]
   %.08.i648.be = phi ptr [ %1807, %new_add.exit1767 ], [ %1835, %mul.exit1752 ]
   br label %1742
@@ -6478,9 +6478,9 @@ mul.exit647:                                      ; preds = %1850
   call void @llvm.lifetime.end.p0(ptr nonnull %156)
   br label %1861
 
-1861:                                             ; preds = %.backedge3767, %mul.exit647
-  %.02028 = phi ptr [ %1852, %mul.exit647 ], [ %.02028.be, %.backedge3767 ]
-  %.08.i.i235 = phi ptr [ %.010.i644, %mul.exit647 ], [ %.08.i.i235.be, %.backedge3767 ]
+1861:                                             ; preds = %.backedge3819, %mul.exit647
+  %.02028 = phi ptr [ %1852, %mul.exit647 ], [ %.02028.be, %.backedge3819 ]
+  %.08.i.i235 = phi ptr [ %.010.i644, %mul.exit647 ], [ %.08.i.i235.be, %.backedge3819 ]
   %1862 = call zeroext i1 @equal(ptr noundef %.02028, ptr noundef nonnull @.str.18) #13
   br i1 %1862, label %1863, label %1930
 
@@ -6603,7 +6603,7 @@ mul.exit643:                                      ; preds = %1874
   br label %.sink.split.i629
 
 .sink.split.i629:                                 ; preds = %1913, %1907
-  %.sink46.i630 = phi ptr [ %1917, %1913 ], [ %1910, %1907 ]
+  %.sink47.i630 = phi ptr [ %1917, %1913 ], [ %1910, %1907 ]
   %1922 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %1922, align 16, !tbaa !7
   %1923 = getelementptr inbounds nuw i8, ptr %1922, i64 24
@@ -6611,7 +6611,7 @@ mul.exit643:                                      ; preds = %1874
   %1924 = getelementptr inbounds nuw i8, ptr %1922, i64 32
   store ptr %.032.i627, ptr %1924, align 16, !tbaa !23
   %1925 = getelementptr inbounds nuw i8, ptr %1922, i64 40
-  store ptr %.sink46.i630, ptr %1925, align 8, !tbaa !29
+  store ptr %.sink47.i630, ptr %1925, align 8, !tbaa !29
   br label %new_add.exit639
 
 new_add.exit639:                                  ; preds = %1888, %.sink.split.i629
@@ -6625,7 +6625,7 @@ new_add.exit639:                                  ; preds = %1888, %.sink.split.
   store ptr %.031.sink.i631, ptr %1928, align 16, !tbaa !23
   %1929 = getelementptr inbounds nuw i8, ptr %1926, i64 40
   store ptr %.sink.i632, ptr %1929, align 8, !tbaa !29
-  br label %.backedge3767
+  br label %.backedge3819
 
 1930:                                             ; preds = %1861
   %1931 = call zeroext i1 @equal(ptr noundef %.02028, ptr noundef nonnull @.str.19) #13
@@ -6675,9 +6675,9 @@ new_add.exit639:                                  ; preds = %1888, %.sink.split.
 mul.exit624:                                      ; preds = %1943
   call void @llvm.lifetime.end.p0(ptr nonnull %158)
   %1954 = call fastcc ptr @new_sub(ptr noundef %.08.i.i235, ptr noundef %.010.i621, ptr noundef %.02028)
-  br label %.backedge3767
+  br label %.backedge3819
 
-.backedge3767:                                    ; preds = %mul.exit624, %new_add.exit639
+.backedge3819:                                    ; preds = %mul.exit624, %new_add.exit639
   %.02028.be = phi ptr [ %1876, %new_add.exit639 ], [ %1945, %mul.exit624 ]
   %.08.i.i235.be = phi ptr [ %1926, %new_add.exit639 ], [ %1954, %mul.exit624 ]
   br label %1861
@@ -6705,8 +6705,8 @@ add.exit.i236:                                    ; preds = %1930
   %1964 = call fastcc ptr @mul(ptr noundef %159, ptr noundef %1963)
   br label %1965
 
-1965:                                             ; preds = %.backedge3793, %1961
-  %.08.i618 = phi ptr [ %1964, %1961 ], [ %.08.i618.be, %.backedge3793 ]
+1965:                                             ; preds = %.backedge3845, %1961
+  %.08.i618 = phi ptr [ %1964, %1961 ], [ %.08.i618.be, %.backedge3845 ]
   %1966 = load ptr, ptr %159, align 8, !tbaa !25
   %1967 = call zeroext i1 @equal(ptr noundef %1966, ptr noundef nonnull @.str.18) #13
   br i1 %1967, label %1968, label %2035
@@ -6831,7 +6831,7 @@ mul.exit1748:                                     ; preds = %1979
   br label %.sink.split.i1734
 
 .sink.split.i1734:                                ; preds = %2018, %2012
-  %.sink46.i1735 = phi ptr [ %2022, %2018 ], [ %2015, %2012 ]
+  %.sink47.i1735 = phi ptr [ %2022, %2018 ], [ %2015, %2012 ]
   %2027 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %2027, align 16, !tbaa !7
   %2028 = getelementptr inbounds nuw i8, ptr %2027, i64 24
@@ -6839,7 +6839,7 @@ mul.exit1748:                                     ; preds = %1979
   %2029 = getelementptr inbounds nuw i8, ptr %2027, i64 32
   store ptr %.032.i1732, ptr %2029, align 16, !tbaa !23
   %2030 = getelementptr inbounds nuw i8, ptr %2027, i64 40
-  store ptr %.sink46.i1735, ptr %2030, align 8, !tbaa !29
+  store ptr %.sink47.i1735, ptr %2030, align 8, !tbaa !29
   br label %new_add.exit1744
 
 new_add.exit1744:                                 ; preds = %1993, %.sink.split.i1734
@@ -6853,7 +6853,7 @@ new_add.exit1744:                                 ; preds = %1993, %.sink.split.
   store ptr %.031.sink.i1736, ptr %2033, align 16, !tbaa !23
   %2034 = getelementptr inbounds nuw i8, ptr %2031, i64 40
   store ptr %.sink.i1737, ptr %2034, align 8, !tbaa !29
-  br label %.backedge3793
+  br label %.backedge3845
 
 2035:                                             ; preds = %1965
   %2036 = call zeroext i1 @equal(ptr noundef %1966, ptr noundef nonnull @.str.19) #13
@@ -6904,9 +6904,9 @@ mul.exit1729:                                     ; preds = %2048
   store ptr %2050, ptr %159, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %2059 = call fastcc ptr @new_sub(ptr noundef %.08.i618, ptr noundef %.010.i1726, ptr noundef %1966)
-  br label %.backedge3793
+  br label %.backedge3845
 
-.backedge3793:                                    ; preds = %mul.exit1729, %new_add.exit1744
+.backedge3845:                                    ; preds = %mul.exit1729, %new_add.exit1744
   %.08.i618.be = phi ptr [ %2031, %new_add.exit1744 ], [ %2059, %mul.exit1729 ]
   br label %1965
 
@@ -6970,9 +6970,9 @@ mul.exit617:                                      ; preds = %2075
   call void @llvm.lifetime.end.p0(ptr nonnull %160)
   br label %2086
 
-2086:                                             ; preds = %.backedge3768, %mul.exit617
-  %.02025 = phi ptr [ %2077, %mul.exit617 ], [ %.02025.be, %.backedge3768 ]
-  %.08.i.i229 = phi ptr [ %.010.i614, %mul.exit617 ], [ %.08.i.i229.be, %.backedge3768 ]
+2086:                                             ; preds = %.backedge3820, %mul.exit617
+  %.02025 = phi ptr [ %2077, %mul.exit617 ], [ %.02025.be, %.backedge3820 ]
+  %.08.i.i229 = phi ptr [ %.010.i614, %mul.exit617 ], [ %.08.i.i229.be, %.backedge3820 ]
   %2087 = call zeroext i1 @equal(ptr noundef %.02025, ptr noundef nonnull @.str.18) #13
   br i1 %2087, label %2088, label %2155
 
@@ -7095,7 +7095,7 @@ mul.exit613:                                      ; preds = %2099
   br label %.sink.split.i599
 
 .sink.split.i599:                                 ; preds = %2138, %2132
-  %.sink46.i600 = phi ptr [ %2142, %2138 ], [ %2135, %2132 ]
+  %.sink47.i600 = phi ptr [ %2142, %2138 ], [ %2135, %2132 ]
   %2147 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %2147, align 16, !tbaa !7
   %2148 = getelementptr inbounds nuw i8, ptr %2147, i64 24
@@ -7103,7 +7103,7 @@ mul.exit613:                                      ; preds = %2099
   %2149 = getelementptr inbounds nuw i8, ptr %2147, i64 32
   store ptr %.032.i597, ptr %2149, align 16, !tbaa !23
   %2150 = getelementptr inbounds nuw i8, ptr %2147, i64 40
-  store ptr %.sink46.i600, ptr %2150, align 8, !tbaa !29
+  store ptr %.sink47.i600, ptr %2150, align 8, !tbaa !29
   br label %new_add.exit609
 
 new_add.exit609:                                  ; preds = %2113, %.sink.split.i599
@@ -7117,7 +7117,7 @@ new_add.exit609:                                  ; preds = %2113, %.sink.split.
   store ptr %.031.sink.i601, ptr %2153, align 16, !tbaa !23
   %2154 = getelementptr inbounds nuw i8, ptr %2151, i64 40
   store ptr %.sink.i602, ptr %2154, align 8, !tbaa !29
-  br label %.backedge3768
+  br label %.backedge3820
 
 2155:                                             ; preds = %2086
   %2156 = call zeroext i1 @equal(ptr noundef %.02025, ptr noundef nonnull @.str.19) #13
@@ -7167,9 +7167,9 @@ new_add.exit609:                                  ; preds = %2113, %.sink.split.
 mul.exit594:                                      ; preds = %2168
   call void @llvm.lifetime.end.p0(ptr nonnull %162)
   %2179 = call fastcc ptr @new_sub(ptr noundef %.08.i.i229, ptr noundef %.010.i591, ptr noundef %.02025)
-  br label %.backedge3768
+  br label %.backedge3820
 
-.backedge3768:                                    ; preds = %mul.exit594, %new_add.exit609
+.backedge3820:                                    ; preds = %mul.exit594, %new_add.exit609
   %.02025.be = phi ptr [ %2101, %new_add.exit609 ], [ %2170, %mul.exit594 ]
   %.08.i.i229.be = phi ptr [ %2151, %new_add.exit609 ], [ %2179, %mul.exit594 ]
   br label %2086
@@ -7197,8 +7197,8 @@ add.exit.i230:                                    ; preds = %2155
   %2189 = call fastcc ptr @mul(ptr noundef %163, ptr noundef %2188)
   br label %2190
 
-2190:                                             ; preds = %.backedge3795, %2186
-  %.08.i588 = phi ptr [ %2189, %2186 ], [ %.08.i588.be, %.backedge3795 ]
+2190:                                             ; preds = %.backedge3847, %2186
+  %.08.i588 = phi ptr [ %2189, %2186 ], [ %.08.i588.be, %.backedge3847 ]
   %2191 = load ptr, ptr %163, align 8, !tbaa !25
   %2192 = call zeroext i1 @equal(ptr noundef %2191, ptr noundef nonnull @.str.18) #13
   br i1 %2192, label %2193, label %2260
@@ -7323,7 +7323,7 @@ mul.exit1725:                                     ; preds = %2204
   br label %.sink.split.i1711
 
 .sink.split.i1711:                                ; preds = %2243, %2237
-  %.sink46.i1712 = phi ptr [ %2247, %2243 ], [ %2240, %2237 ]
+  %.sink47.i1712 = phi ptr [ %2247, %2243 ], [ %2240, %2237 ]
   %2252 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %2252, align 16, !tbaa !7
   %2253 = getelementptr inbounds nuw i8, ptr %2252, i64 24
@@ -7331,7 +7331,7 @@ mul.exit1725:                                     ; preds = %2204
   %2254 = getelementptr inbounds nuw i8, ptr %2252, i64 32
   store ptr %.032.i1709, ptr %2254, align 16, !tbaa !23
   %2255 = getelementptr inbounds nuw i8, ptr %2252, i64 40
-  store ptr %.sink46.i1712, ptr %2255, align 8, !tbaa !29
+  store ptr %.sink47.i1712, ptr %2255, align 8, !tbaa !29
   br label %new_add.exit1721
 
 new_add.exit1721:                                 ; preds = %2218, %.sink.split.i1711
@@ -7345,7 +7345,7 @@ new_add.exit1721:                                 ; preds = %2218, %.sink.split.
   store ptr %.031.sink.i1713, ptr %2258, align 16, !tbaa !23
   %2259 = getelementptr inbounds nuw i8, ptr %2256, i64 40
   store ptr %.sink.i1714, ptr %2259, align 8, !tbaa !29
-  br label %.backedge3795
+  br label %.backedge3847
 
 2260:                                             ; preds = %2190
   %2261 = call zeroext i1 @equal(ptr noundef %2191, ptr noundef nonnull @.str.19) #13
@@ -7396,9 +7396,9 @@ mul.exit1706:                                     ; preds = %2273
   store ptr %2275, ptr %163, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %2284 = call fastcc ptr @new_sub(ptr noundef %.08.i588, ptr noundef %.010.i1703, ptr noundef %2191)
-  br label %.backedge3795
+  br label %.backedge3847
 
-.backedge3795:                                    ; preds = %mul.exit1706, %new_add.exit1721
+.backedge3847:                                    ; preds = %mul.exit1706, %new_add.exit1721
   %.08.i588.be = phi ptr [ %2256, %new_add.exit1721 ], [ %2284, %mul.exit1706 ]
   br label %2190
 
@@ -7462,9 +7462,9 @@ mul.exit587:                                      ; preds = %2300
   call void @llvm.lifetime.end.p0(ptr nonnull %164)
   br label %2311
 
-2311:                                             ; preds = %.backedge3769, %mul.exit587
-  %.02022 = phi ptr [ %2302, %mul.exit587 ], [ %.02022.be, %.backedge3769 ]
-  %.08.i.i223 = phi ptr [ %.010.i584, %mul.exit587 ], [ %.08.i.i223.be, %.backedge3769 ]
+2311:                                             ; preds = %.backedge3821, %mul.exit587
+  %.02022 = phi ptr [ %2302, %mul.exit587 ], [ %.02022.be, %.backedge3821 ]
+  %.08.i.i223 = phi ptr [ %.010.i584, %mul.exit587 ], [ %.08.i.i223.be, %.backedge3821 ]
   %2312 = call zeroext i1 @equal(ptr noundef %.02022, ptr noundef nonnull @.str.18) #13
   br i1 %2312, label %2313, label %2380
 
@@ -7587,7 +7587,7 @@ mul.exit583:                                      ; preds = %2324
   br label %.sink.split.i569
 
 .sink.split.i569:                                 ; preds = %2363, %2357
-  %.sink46.i570 = phi ptr [ %2367, %2363 ], [ %2360, %2357 ]
+  %.sink47.i570 = phi ptr [ %2367, %2363 ], [ %2360, %2357 ]
   %2372 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %2372, align 16, !tbaa !7
   %2373 = getelementptr inbounds nuw i8, ptr %2372, i64 24
@@ -7595,7 +7595,7 @@ mul.exit583:                                      ; preds = %2324
   %2374 = getelementptr inbounds nuw i8, ptr %2372, i64 32
   store ptr %.032.i567, ptr %2374, align 16, !tbaa !23
   %2375 = getelementptr inbounds nuw i8, ptr %2372, i64 40
-  store ptr %.sink46.i570, ptr %2375, align 8, !tbaa !29
+  store ptr %.sink47.i570, ptr %2375, align 8, !tbaa !29
   br label %new_add.exit579
 
 new_add.exit579:                                  ; preds = %2338, %.sink.split.i569
@@ -7609,7 +7609,7 @@ new_add.exit579:                                  ; preds = %2338, %.sink.split.
   store ptr %.031.sink.i571, ptr %2378, align 16, !tbaa !23
   %2379 = getelementptr inbounds nuw i8, ptr %2376, i64 40
   store ptr %.sink.i572, ptr %2379, align 8, !tbaa !29
-  br label %.backedge3769
+  br label %.backedge3821
 
 2380:                                             ; preds = %2311
   %2381 = call zeroext i1 @equal(ptr noundef %.02022, ptr noundef nonnull @.str.19) #13
@@ -7659,9 +7659,9 @@ new_add.exit579:                                  ; preds = %2338, %.sink.split.
 mul.exit564:                                      ; preds = %2393
   call void @llvm.lifetime.end.p0(ptr nonnull %166)
   %2404 = call fastcc ptr @new_sub(ptr noundef %.08.i.i223, ptr noundef %.010.i561, ptr noundef %.02022)
-  br label %.backedge3769
+  br label %.backedge3821
 
-.backedge3769:                                    ; preds = %mul.exit564, %new_add.exit579
+.backedge3821:                                    ; preds = %mul.exit564, %new_add.exit579
   %.02022.be = phi ptr [ %2326, %new_add.exit579 ], [ %2395, %mul.exit564 ]
   %.08.i.i223.be = phi ptr [ %2376, %new_add.exit579 ], [ %2404, %mul.exit564 ]
   br label %2311
@@ -7723,8 +7723,8 @@ bitand.exit.i.preheader:                          ; preds = %equality.exit18, %e
   %2421 = call fastcc ptr @mul(ptr noundef %129, ptr noundef %2420)
   br label %2422
 
-2422:                                             ; preds = %.backedge3802, %.lr.ph80
-  %.08.i858 = phi ptr [ %2421, %.lr.ph80 ], [ %.08.i858.be, %.backedge3802 ]
+2422:                                             ; preds = %.backedge3854, %.lr.ph80
+  %.08.i858 = phi ptr [ %2421, %.lr.ph80 ], [ %.08.i858.be, %.backedge3854 ]
   %2423 = load ptr, ptr %129, align 8, !tbaa !25
   %2424 = call zeroext i1 @equal(ptr noundef %2423, ptr noundef nonnull @.str.18) #13
   br i1 %2424, label %2425, label %2430
@@ -7734,7 +7734,7 @@ bitand.exit.i.preheader:                          ; preds = %equality.exit18, %e
   %2427 = load ptr, ptr %2426, align 8, !tbaa !26
   %2428 = call fastcc ptr @mul(ptr noundef %129, ptr noundef %2427)
   %2429 = call fastcc ptr @new_add(ptr noundef %.08.i858, ptr noundef %2428, ptr noundef %2423)
-  br label %.backedge3802
+  br label %.backedge3854
 
 2430:                                             ; preds = %2422
   %2431 = call zeroext i1 @equal(ptr noundef %2423, ptr noundef nonnull @.str.19) #13
@@ -7745,9 +7745,9 @@ bitand.exit.i.preheader:                          ; preds = %equality.exit18, %e
   %2434 = load ptr, ptr %2433, align 8, !tbaa !26
   %2435 = call fastcc ptr @mul(ptr noundef %129, ptr noundef %2434)
   %2436 = call fastcc ptr @new_sub(ptr noundef %.08.i858, ptr noundef %2435, ptr noundef %2423)
-  br label %.backedge3802
+  br label %.backedge3854
 
-.backedge3802:                                    ; preds = %2432, %2425
+.backedge3854:                                    ; preds = %2432, %2425
   %.08.i858.be = phi ptr [ %2429, %2425 ], [ %2436, %2432 ]
   br label %2422
 
@@ -7811,9 +7811,9 @@ mul.exit857:                                      ; preds = %2452
   call void @llvm.lifetime.end.p0(ptr nonnull %130)
   br label %2463
 
-2463:                                             ; preds = %.backedge3788, %mul.exit857
-  %.02049 = phi ptr [ %2454, %mul.exit857 ], [ %.02049.be, %.backedge3788 ]
-  %.08.i.i277 = phi ptr [ %.010.i854, %mul.exit857 ], [ %.08.i.i277.be, %.backedge3788 ]
+2463:                                             ; preds = %.backedge3840, %mul.exit857
+  %.02049 = phi ptr [ %2454, %mul.exit857 ], [ %.02049.be, %.backedge3840 ]
+  %.08.i.i277 = phi ptr [ %.010.i854, %mul.exit857 ], [ %.08.i.i277.be, %.backedge3840 ]
   %2464 = call zeroext i1 @equal(ptr noundef %.02049, ptr noundef nonnull @.str.18) #13
   br i1 %2464, label %2465, label %2532
 
@@ -7936,7 +7936,7 @@ mul.exit853:                                      ; preds = %2476
   br label %.sink.split.i839
 
 .sink.split.i839:                                 ; preds = %2515, %2509
-  %.sink46.i840 = phi ptr [ %2519, %2515 ], [ %2512, %2509 ]
+  %.sink47.i840 = phi ptr [ %2519, %2515 ], [ %2512, %2509 ]
   %2524 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %2524, align 16, !tbaa !7
   %2525 = getelementptr inbounds nuw i8, ptr %2524, i64 24
@@ -7944,7 +7944,7 @@ mul.exit853:                                      ; preds = %2476
   %2526 = getelementptr inbounds nuw i8, ptr %2524, i64 32
   store ptr %.032.i837, ptr %2526, align 16, !tbaa !23
   %2527 = getelementptr inbounds nuw i8, ptr %2524, i64 40
-  store ptr %.sink46.i840, ptr %2527, align 8, !tbaa !29
+  store ptr %.sink47.i840, ptr %2527, align 8, !tbaa !29
   br label %new_add.exit849
 
 new_add.exit849:                                  ; preds = %2490, %.sink.split.i839
@@ -7958,7 +7958,7 @@ new_add.exit849:                                  ; preds = %2490, %.sink.split.
   store ptr %.031.sink.i841, ptr %2530, align 16, !tbaa !23
   %2531 = getelementptr inbounds nuw i8, ptr %2528, i64 40
   store ptr %.sink.i842, ptr %2531, align 8, !tbaa !29
-  br label %.backedge3788
+  br label %.backedge3840
 
 2532:                                             ; preds = %2463
   %2533 = call zeroext i1 @equal(ptr noundef %.02049, ptr noundef nonnull @.str.19) #13
@@ -8008,9 +8008,9 @@ new_add.exit849:                                  ; preds = %2490, %.sink.split.
 mul.exit834:                                      ; preds = %2545
   call void @llvm.lifetime.end.p0(ptr nonnull %132)
   %2556 = call fastcc ptr @new_sub(ptr noundef %.08.i.i277, ptr noundef %.010.i831, ptr noundef %.02049)
-  br label %.backedge3788
+  br label %.backedge3840
 
-.backedge3788:                                    ; preds = %mul.exit834, %new_add.exit849
+.backedge3840:                                    ; preds = %mul.exit834, %new_add.exit849
   %.02049.be = phi ptr [ %2478, %new_add.exit849 ], [ %2547, %mul.exit834 ]
   %.08.i.i277.be = phi ptr [ %2528, %new_add.exit849 ], [ %2556, %mul.exit834 ]
   br label %2463
@@ -8040,8 +8040,8 @@ shift.exit280:                                    ; preds = %2439, %shift.exit27
   %2565 = call fastcc ptr @mul(ptr noundef %133, ptr noundef %2564)
   br label %2566
 
-2566:                                             ; preds = %.backedge3781, %2562
-  %.08.i828 = phi ptr [ %2565, %2562 ], [ %.08.i828.be, %.backedge3781 ]
+2566:                                             ; preds = %.backedge3833, %2562
+  %.08.i828 = phi ptr [ %2565, %2562 ], [ %.08.i828.be, %.backedge3833 ]
   %2567 = load ptr, ptr %133, align 8, !tbaa !25
   %2568 = call zeroext i1 @equal(ptr noundef %2567, ptr noundef nonnull @.str.18) #13
   br i1 %2568, label %2569, label %2574
@@ -8051,7 +8051,7 @@ shift.exit280:                                    ; preds = %2439, %shift.exit27
   %2571 = load ptr, ptr %2570, align 8, !tbaa !26
   %2572 = call fastcc ptr @mul(ptr noundef %133, ptr noundef %2571)
   %2573 = call fastcc ptr @new_add(ptr noundef %.08.i828, ptr noundef %2572, ptr noundef %2567)
-  br label %.backedge3781
+  br label %.backedge3833
 
 2574:                                             ; preds = %2566
   %2575 = call zeroext i1 @equal(ptr noundef %2567, ptr noundef nonnull @.str.19) #13
@@ -8062,9 +8062,9 @@ shift.exit280:                                    ; preds = %2439, %shift.exit27
   %2578 = load ptr, ptr %2577, align 8, !tbaa !26
   %2579 = call fastcc ptr @mul(ptr noundef %133, ptr noundef %2578)
   %2580 = call fastcc ptr @new_sub(ptr noundef %.08.i828, ptr noundef %2579, ptr noundef %2567)
-  br label %.backedge3781
+  br label %.backedge3833
 
-.backedge3781:                                    ; preds = %2576, %2569
+.backedge3833:                                    ; preds = %2576, %2569
   %.08.i828.be = phi ptr [ %2573, %2569 ], [ %2580, %2576 ]
   br label %2566
 
@@ -8128,9 +8128,9 @@ mul.exit827:                                      ; preds = %2596
   call void @llvm.lifetime.end.p0(ptr nonnull %134)
   br label %2607
 
-2607:                                             ; preds = %.backedge3762, %mul.exit827
-  %.02046 = phi ptr [ %2598, %mul.exit827 ], [ %.02046.be, %.backedge3762 ]
-  %.08.i.i271 = phi ptr [ %.010.i824, %mul.exit827 ], [ %.08.i.i271.be, %.backedge3762 ]
+2607:                                             ; preds = %.backedge3814, %mul.exit827
+  %.02046 = phi ptr [ %2598, %mul.exit827 ], [ %.02046.be, %.backedge3814 ]
+  %.08.i.i271 = phi ptr [ %.010.i824, %mul.exit827 ], [ %.08.i.i271.be, %.backedge3814 ]
   %2608 = call zeroext i1 @equal(ptr noundef %.02046, ptr noundef nonnull @.str.18) #13
   br i1 %2608, label %2609, label %2676
 
@@ -8253,7 +8253,7 @@ mul.exit823:                                      ; preds = %2620
   br label %.sink.split.i809
 
 .sink.split.i809:                                 ; preds = %2659, %2653
-  %.sink46.i810 = phi ptr [ %2663, %2659 ], [ %2656, %2653 ]
+  %.sink47.i810 = phi ptr [ %2663, %2659 ], [ %2656, %2653 ]
   %2668 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %2668, align 16, !tbaa !7
   %2669 = getelementptr inbounds nuw i8, ptr %2668, i64 24
@@ -8261,7 +8261,7 @@ mul.exit823:                                      ; preds = %2620
   %2670 = getelementptr inbounds nuw i8, ptr %2668, i64 32
   store ptr %.032.i807, ptr %2670, align 16, !tbaa !23
   %2671 = getelementptr inbounds nuw i8, ptr %2668, i64 40
-  store ptr %.sink46.i810, ptr %2671, align 8, !tbaa !29
+  store ptr %.sink47.i810, ptr %2671, align 8, !tbaa !29
   br label %new_add.exit819
 
 new_add.exit819:                                  ; preds = %2634, %.sink.split.i809
@@ -8275,7 +8275,7 @@ new_add.exit819:                                  ; preds = %2634, %.sink.split.
   store ptr %.031.sink.i811, ptr %2674, align 16, !tbaa !23
   %2675 = getelementptr inbounds nuw i8, ptr %2672, i64 40
   store ptr %.sink.i812, ptr %2675, align 8, !tbaa !29
-  br label %.backedge3762
+  br label %.backedge3814
 
 2676:                                             ; preds = %2607
   %2677 = call zeroext i1 @equal(ptr noundef %.02046, ptr noundef nonnull @.str.19) #13
@@ -8325,9 +8325,9 @@ new_add.exit819:                                  ; preds = %2634, %.sink.split.
 mul.exit804:                                      ; preds = %2689
   call void @llvm.lifetime.end.p0(ptr nonnull %136)
   %2700 = call fastcc ptr @new_sub(ptr noundef %.08.i.i271, ptr noundef %.010.i801, ptr noundef %.02046)
-  br label %.backedge3762
+  br label %.backedge3814
 
-.backedge3762:                                    ; preds = %mul.exit804, %new_add.exit819
+.backedge3814:                                    ; preds = %mul.exit804, %new_add.exit819
   %.02046.be = phi ptr [ %2622, %new_add.exit819 ], [ %2691, %mul.exit804 ]
   %.08.i.i271.be = phi ptr [ %2672, %new_add.exit819 ], [ %2700, %mul.exit804 ]
   br label %2607
@@ -8355,8 +8355,8 @@ add.exit.i272:                                    ; preds = %2676
   %2710 = call fastcc ptr @mul(ptr noundef %137, ptr noundef %2709)
   br label %2711
 
-2711:                                             ; preds = %.backedge3783, %2707
-  %.08.i798 = phi ptr [ %2710, %2707 ], [ %.08.i798.be, %.backedge3783 ]
+2711:                                             ; preds = %.backedge3835, %2707
+  %.08.i798 = phi ptr [ %2710, %2707 ], [ %.08.i798.be, %.backedge3835 ]
   %2712 = load ptr, ptr %137, align 8, !tbaa !25
   %2713 = call zeroext i1 @equal(ptr noundef %2712, ptr noundef nonnull @.str.18) #13
   br i1 %2713, label %2714, label %2719
@@ -8366,7 +8366,7 @@ add.exit.i272:                                    ; preds = %2676
   %2716 = load ptr, ptr %2715, align 8, !tbaa !26
   %2717 = call fastcc ptr @mul(ptr noundef %137, ptr noundef %2716)
   %2718 = call fastcc ptr @new_add(ptr noundef %.08.i798, ptr noundef %2717, ptr noundef %2712)
-  br label %.backedge3783
+  br label %.backedge3835
 
 2719:                                             ; preds = %2711
   %2720 = call zeroext i1 @equal(ptr noundef %2712, ptr noundef nonnull @.str.19) #13
@@ -8377,9 +8377,9 @@ add.exit.i272:                                    ; preds = %2676
   %2723 = load ptr, ptr %2722, align 8, !tbaa !26
   %2724 = call fastcc ptr @mul(ptr noundef %137, ptr noundef %2723)
   %2725 = call fastcc ptr @new_sub(ptr noundef %.08.i798, ptr noundef %2724, ptr noundef %2712)
-  br label %.backedge3783
+  br label %.backedge3835
 
-.backedge3783:                                    ; preds = %2721, %2714
+.backedge3835:                                    ; preds = %2721, %2714
   %.08.i798.be = phi ptr [ %2718, %2714 ], [ %2725, %2721 ]
   br label %2711
 
@@ -8443,9 +8443,9 @@ mul.exit797:                                      ; preds = %2741
   call void @llvm.lifetime.end.p0(ptr nonnull %138)
   br label %2752
 
-2752:                                             ; preds = %.backedge3763, %mul.exit797
-  %.02043 = phi ptr [ %2743, %mul.exit797 ], [ %.02043.be, %.backedge3763 ]
-  %.08.i.i265 = phi ptr [ %.010.i794, %mul.exit797 ], [ %.08.i.i265.be, %.backedge3763 ]
+2752:                                             ; preds = %.backedge3815, %mul.exit797
+  %.02043 = phi ptr [ %2743, %mul.exit797 ], [ %.02043.be, %.backedge3815 ]
+  %.08.i.i265 = phi ptr [ %.010.i794, %mul.exit797 ], [ %.08.i.i265.be, %.backedge3815 ]
   %2753 = call zeroext i1 @equal(ptr noundef %.02043, ptr noundef nonnull @.str.18) #13
   br i1 %2753, label %2754, label %2821
 
@@ -8568,7 +8568,7 @@ mul.exit793:                                      ; preds = %2765
   br label %.sink.split.i779
 
 .sink.split.i779:                                 ; preds = %2804, %2798
-  %.sink46.i780 = phi ptr [ %2808, %2804 ], [ %2801, %2798 ]
+  %.sink47.i780 = phi ptr [ %2808, %2804 ], [ %2801, %2798 ]
   %2813 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %2813, align 16, !tbaa !7
   %2814 = getelementptr inbounds nuw i8, ptr %2813, i64 24
@@ -8576,7 +8576,7 @@ mul.exit793:                                      ; preds = %2765
   %2815 = getelementptr inbounds nuw i8, ptr %2813, i64 32
   store ptr %.032.i777, ptr %2815, align 16, !tbaa !23
   %2816 = getelementptr inbounds nuw i8, ptr %2813, i64 40
-  store ptr %.sink46.i780, ptr %2816, align 8, !tbaa !29
+  store ptr %.sink47.i780, ptr %2816, align 8, !tbaa !29
   br label %new_add.exit789
 
 new_add.exit789:                                  ; preds = %2779, %.sink.split.i779
@@ -8590,7 +8590,7 @@ new_add.exit789:                                  ; preds = %2779, %.sink.split.
   store ptr %.031.sink.i781, ptr %2819, align 16, !tbaa !23
   %2820 = getelementptr inbounds nuw i8, ptr %2817, i64 40
   store ptr %.sink.i782, ptr %2820, align 8, !tbaa !29
-  br label %.backedge3763
+  br label %.backedge3815
 
 2821:                                             ; preds = %2752
   %2822 = call zeroext i1 @equal(ptr noundef %.02043, ptr noundef nonnull @.str.19) #13
@@ -8640,9 +8640,9 @@ new_add.exit789:                                  ; preds = %2779, %.sink.split.
 mul.exit774:                                      ; preds = %2834
   call void @llvm.lifetime.end.p0(ptr nonnull %140)
   %2845 = call fastcc ptr @new_sub(ptr noundef %.08.i.i265, ptr noundef %.010.i771, ptr noundef %.02043)
-  br label %.backedge3763
+  br label %.backedge3815
 
-.backedge3763:                                    ; preds = %mul.exit774, %new_add.exit789
+.backedge3815:                                    ; preds = %mul.exit774, %new_add.exit789
   %.02043.be = phi ptr [ %2767, %new_add.exit789 ], [ %2836, %mul.exit774 ]
   %.08.i.i265.be = phi ptr [ %2817, %new_add.exit789 ], [ %2845, %mul.exit774 ]
   br label %2752
@@ -8670,8 +8670,8 @@ add.exit.i266:                                    ; preds = %2821
   %2855 = call fastcc ptr @mul(ptr noundef %141, ptr noundef %2854)
   br label %2856
 
-2856:                                             ; preds = %.backedge3785, %2852
-  %.08.i768 = phi ptr [ %2855, %2852 ], [ %.08.i768.be, %.backedge3785 ]
+2856:                                             ; preds = %.backedge3837, %2852
+  %.08.i768 = phi ptr [ %2855, %2852 ], [ %.08.i768.be, %.backedge3837 ]
   %2857 = load ptr, ptr %141, align 8, !tbaa !25
   %2858 = call zeroext i1 @equal(ptr noundef %2857, ptr noundef nonnull @.str.18) #13
   br i1 %2858, label %2859, label %2864
@@ -8681,7 +8681,7 @@ add.exit.i266:                                    ; preds = %2821
   %2861 = load ptr, ptr %2860, align 8, !tbaa !26
   %2862 = call fastcc ptr @mul(ptr noundef %141, ptr noundef %2861)
   %2863 = call fastcc ptr @new_add(ptr noundef %.08.i768, ptr noundef %2862, ptr noundef %2857)
-  br label %.backedge3785
+  br label %.backedge3837
 
 2864:                                             ; preds = %2856
   %2865 = call zeroext i1 @equal(ptr noundef %2857, ptr noundef nonnull @.str.19) #13
@@ -8692,9 +8692,9 @@ add.exit.i266:                                    ; preds = %2821
   %2868 = load ptr, ptr %2867, align 8, !tbaa !26
   %2869 = call fastcc ptr @mul(ptr noundef %141, ptr noundef %2868)
   %2870 = call fastcc ptr @new_sub(ptr noundef %.08.i768, ptr noundef %2869, ptr noundef %2857)
-  br label %.backedge3785
+  br label %.backedge3837
 
-.backedge3785:                                    ; preds = %2866, %2859
+.backedge3837:                                    ; preds = %2866, %2859
   %.08.i768.be = phi ptr [ %2863, %2859 ], [ %2870, %2866 ]
   br label %2856
 
@@ -8758,9 +8758,9 @@ mul.exit767:                                      ; preds = %2886
   call void @llvm.lifetime.end.p0(ptr nonnull %142)
   br label %2897
 
-2897:                                             ; preds = %.backedge3764, %mul.exit767
-  %.02040 = phi ptr [ %2888, %mul.exit767 ], [ %.02040.be, %.backedge3764 ]
-  %.08.i.i259 = phi ptr [ %.010.i764, %mul.exit767 ], [ %.08.i.i259.be, %.backedge3764 ]
+2897:                                             ; preds = %.backedge3816, %mul.exit767
+  %.02040 = phi ptr [ %2888, %mul.exit767 ], [ %.02040.be, %.backedge3816 ]
+  %.08.i.i259 = phi ptr [ %.010.i764, %mul.exit767 ], [ %.08.i.i259.be, %.backedge3816 ]
   %2898 = call zeroext i1 @equal(ptr noundef %.02040, ptr noundef nonnull @.str.18) #13
   br i1 %2898, label %2899, label %2966
 
@@ -8883,7 +8883,7 @@ mul.exit763:                                      ; preds = %2910
   br label %.sink.split.i749
 
 .sink.split.i749:                                 ; preds = %2949, %2943
-  %.sink46.i750 = phi ptr [ %2953, %2949 ], [ %2946, %2943 ]
+  %.sink47.i750 = phi ptr [ %2953, %2949 ], [ %2946, %2943 ]
   %2958 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %2958, align 16, !tbaa !7
   %2959 = getelementptr inbounds nuw i8, ptr %2958, i64 24
@@ -8891,7 +8891,7 @@ mul.exit763:                                      ; preds = %2910
   %2960 = getelementptr inbounds nuw i8, ptr %2958, i64 32
   store ptr %.032.i747, ptr %2960, align 16, !tbaa !23
   %2961 = getelementptr inbounds nuw i8, ptr %2958, i64 40
-  store ptr %.sink46.i750, ptr %2961, align 8, !tbaa !29
+  store ptr %.sink47.i750, ptr %2961, align 8, !tbaa !29
   br label %new_add.exit759
 
 new_add.exit759:                                  ; preds = %2924, %.sink.split.i749
@@ -8905,7 +8905,7 @@ new_add.exit759:                                  ; preds = %2924, %.sink.split.
   store ptr %.031.sink.i751, ptr %2964, align 16, !tbaa !23
   %2965 = getelementptr inbounds nuw i8, ptr %2962, i64 40
   store ptr %.sink.i752, ptr %2965, align 8, !tbaa !29
-  br label %.backedge3764
+  br label %.backedge3816
 
 2966:                                             ; preds = %2897
   %2967 = call zeroext i1 @equal(ptr noundef %.02040, ptr noundef nonnull @.str.19) #13
@@ -8955,9 +8955,9 @@ new_add.exit759:                                  ; preds = %2924, %.sink.split.
 mul.exit744:                                      ; preds = %2979
   call void @llvm.lifetime.end.p0(ptr nonnull %144)
   %2990 = call fastcc ptr @new_sub(ptr noundef %.08.i.i259, ptr noundef %.010.i741, ptr noundef %.02040)
-  br label %.backedge3764
+  br label %.backedge3816
 
-.backedge3764:                                    ; preds = %mul.exit744, %new_add.exit759
+.backedge3816:                                    ; preds = %mul.exit744, %new_add.exit759
   %.02040.be = phi ptr [ %2912, %new_add.exit759 ], [ %2981, %mul.exit744 ]
   %.08.i.i259.be = phi ptr [ %2962, %new_add.exit759 ], [ %2990, %mul.exit744 ]
   br label %2897
@@ -8985,8 +8985,8 @@ add.exit.i260:                                    ; preds = %2966
   %3000 = call fastcc ptr @mul(ptr noundef %145, ptr noundef %2999)
   br label %3001
 
-3001:                                             ; preds = %.backedge3787, %2997
-  %.08.i738 = phi ptr [ %3000, %2997 ], [ %.08.i738.be, %.backedge3787 ]
+3001:                                             ; preds = %.backedge3839, %2997
+  %.08.i738 = phi ptr [ %3000, %2997 ], [ %.08.i738.be, %.backedge3839 ]
   %3002 = load ptr, ptr %145, align 8, !tbaa !25
   %3003 = call zeroext i1 @equal(ptr noundef %3002, ptr noundef nonnull @.str.18) #13
   br i1 %3003, label %3004, label %3009
@@ -8996,7 +8996,7 @@ add.exit.i260:                                    ; preds = %2966
   %3006 = load ptr, ptr %3005, align 8, !tbaa !26
   %3007 = call fastcc ptr @mul(ptr noundef %145, ptr noundef %3006)
   %3008 = call fastcc ptr @new_add(ptr noundef %.08.i738, ptr noundef %3007, ptr noundef %3002)
-  br label %.backedge3787
+  br label %.backedge3839
 
 3009:                                             ; preds = %3001
   %3010 = call zeroext i1 @equal(ptr noundef %3002, ptr noundef nonnull @.str.19) #13
@@ -9007,9 +9007,9 @@ add.exit.i260:                                    ; preds = %2966
   %3013 = load ptr, ptr %3012, align 8, !tbaa !26
   %3014 = call fastcc ptr @mul(ptr noundef %145, ptr noundef %3013)
   %3015 = call fastcc ptr @new_sub(ptr noundef %.08.i738, ptr noundef %3014, ptr noundef %3002)
-  br label %.backedge3787
+  br label %.backedge3839
 
-.backedge3787:                                    ; preds = %3011, %3004
+.backedge3839:                                    ; preds = %3011, %3004
   %.08.i738.be = phi ptr [ %3008, %3004 ], [ %3015, %3011 ]
   br label %3001
 
@@ -9073,9 +9073,9 @@ mul.exit737:                                      ; preds = %3031
   call void @llvm.lifetime.end.p0(ptr nonnull %146)
   br label %3042
 
-3042:                                             ; preds = %.backedge3765, %mul.exit737
-  %.02037 = phi ptr [ %3033, %mul.exit737 ], [ %.02037.be, %.backedge3765 ]
-  %.08.i.i253 = phi ptr [ %.010.i734, %mul.exit737 ], [ %.08.i.i253.be, %.backedge3765 ]
+3042:                                             ; preds = %.backedge3817, %mul.exit737
+  %.02037 = phi ptr [ %3033, %mul.exit737 ], [ %.02037.be, %.backedge3817 ]
+  %.08.i.i253 = phi ptr [ %.010.i734, %mul.exit737 ], [ %.08.i.i253.be, %.backedge3817 ]
   %3043 = call zeroext i1 @equal(ptr noundef %.02037, ptr noundef nonnull @.str.18) #13
   br i1 %3043, label %3044, label %3111
 
@@ -9198,7 +9198,7 @@ mul.exit733:                                      ; preds = %3055
   br label %.sink.split.i719
 
 .sink.split.i719:                                 ; preds = %3094, %3088
-  %.sink46.i720 = phi ptr [ %3098, %3094 ], [ %3091, %3088 ]
+  %.sink47.i720 = phi ptr [ %3098, %3094 ], [ %3091, %3088 ]
   %3103 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %3103, align 16, !tbaa !7
   %3104 = getelementptr inbounds nuw i8, ptr %3103, i64 24
@@ -9206,7 +9206,7 @@ mul.exit733:                                      ; preds = %3055
   %3105 = getelementptr inbounds nuw i8, ptr %3103, i64 32
   store ptr %.032.i717, ptr %3105, align 16, !tbaa !23
   %3106 = getelementptr inbounds nuw i8, ptr %3103, i64 40
-  store ptr %.sink46.i720, ptr %3106, align 8, !tbaa !29
+  store ptr %.sink47.i720, ptr %3106, align 8, !tbaa !29
   br label %new_add.exit729
 
 new_add.exit729:                                  ; preds = %3069, %.sink.split.i719
@@ -9220,7 +9220,7 @@ new_add.exit729:                                  ; preds = %3069, %.sink.split.
   store ptr %.031.sink.i721, ptr %3109, align 16, !tbaa !23
   %3110 = getelementptr inbounds nuw i8, ptr %3107, i64 40
   store ptr %.sink.i722, ptr %3110, align 8, !tbaa !29
-  br label %.backedge3765
+  br label %.backedge3817
 
 3111:                                             ; preds = %3042
   %3112 = call zeroext i1 @equal(ptr noundef %.02037, ptr noundef nonnull @.str.19) #13
@@ -9270,9 +9270,9 @@ new_add.exit729:                                  ; preds = %3069, %.sink.split.
 mul.exit714:                                      ; preds = %3124
   call void @llvm.lifetime.end.p0(ptr nonnull %148)
   %3135 = call fastcc ptr @new_sub(ptr noundef %.08.i.i253, ptr noundef %.010.i711, ptr noundef %.02037)
-  br label %.backedge3765
+  br label %.backedge3817
 
-.backedge3765:                                    ; preds = %mul.exit714, %new_add.exit729
+.backedge3817:                                    ; preds = %mul.exit714, %new_add.exit729
   %.02037.be = phi ptr [ %3057, %new_add.exit729 ], [ %3126, %mul.exit714 ]
   %.08.i.i253.be = phi ptr [ %3107, %new_add.exit729 ], [ %3135, %mul.exit714 ]
   br label %3042
@@ -9322,8 +9322,8 @@ relational.exit170:                               ; preds = %2995, %relational.e
   %3150 = call fastcc ptr @mul(ptr noundef %109, ptr noundef %3149)
   br label %3151
 
-3151:                                             ; preds = %.backedge3780, %3147
-  %.08.i1008 = phi ptr [ %3150, %3147 ], [ %.08.i1008.be, %.backedge3780 ]
+3151:                                             ; preds = %.backedge3832, %3147
+  %.08.i1008 = phi ptr [ %3150, %3147 ], [ %.08.i1008.be, %.backedge3832 ]
   %3152 = load ptr, ptr %109, align 8, !tbaa !25
   %3153 = call zeroext i1 @equal(ptr noundef %3152, ptr noundef nonnull @.str.18) #13
   br i1 %3153, label %3154, label %3159
@@ -9333,7 +9333,7 @@ relational.exit170:                               ; preds = %2995, %relational.e
   %3156 = load ptr, ptr %3155, align 8, !tbaa !26
   %3157 = call fastcc ptr @mul(ptr noundef %109, ptr noundef %3156)
   %3158 = call fastcc ptr @new_add(ptr noundef %.08.i1008, ptr noundef %3157, ptr noundef %3152)
-  br label %.backedge3780
+  br label %.backedge3832
 
 3159:                                             ; preds = %3151
   %3160 = call zeroext i1 @equal(ptr noundef %3152, ptr noundef nonnull @.str.19) #13
@@ -9344,9 +9344,9 @@ relational.exit170:                               ; preds = %2995, %relational.e
   %3163 = load ptr, ptr %3162, align 8, !tbaa !26
   %3164 = call fastcc ptr @mul(ptr noundef %109, ptr noundef %3163)
   %3165 = call fastcc ptr @new_sub(ptr noundef %.08.i1008, ptr noundef %3164, ptr noundef %3152)
-  br label %.backedge3780
+  br label %.backedge3832
 
-.backedge3780:                                    ; preds = %3161, %3154
+.backedge3832:                                    ; preds = %3161, %3154
   %.08.i1008.be = phi ptr [ %3158, %3154 ], [ %3165, %3161 ]
   br label %3151
 
@@ -9410,9 +9410,9 @@ mul.exit1007:                                     ; preds = %3181
   call void @llvm.lifetime.end.p0(ptr nonnull %110)
   br label %3192
 
-3192:                                             ; preds = %.backedge3761, %mul.exit1007
-  %.02064 = phi ptr [ %3183, %mul.exit1007 ], [ %.02064.be, %.backedge3761 ]
-  %.08.i.i307 = phi ptr [ %.010.i1004, %mul.exit1007 ], [ %.08.i.i307.be, %.backedge3761 ]
+3192:                                             ; preds = %.backedge3813, %mul.exit1007
+  %.02064 = phi ptr [ %3183, %mul.exit1007 ], [ %.02064.be, %.backedge3813 ]
+  %.08.i.i307 = phi ptr [ %.010.i1004, %mul.exit1007 ], [ %.08.i.i307.be, %.backedge3813 ]
   %3193 = call zeroext i1 @equal(ptr noundef %.02064, ptr noundef nonnull @.str.18) #13
   br i1 %3193, label %3194, label %3261
 
@@ -9535,7 +9535,7 @@ mul.exit1003:                                     ; preds = %3205
   br label %.sink.split.i989
 
 .sink.split.i989:                                 ; preds = %3244, %3238
-  %.sink46.i990 = phi ptr [ %3248, %3244 ], [ %3241, %3238 ]
+  %.sink47.i990 = phi ptr [ %3248, %3244 ], [ %3241, %3238 ]
   %3253 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %3253, align 16, !tbaa !7
   %3254 = getelementptr inbounds nuw i8, ptr %3253, i64 24
@@ -9543,7 +9543,7 @@ mul.exit1003:                                     ; preds = %3205
   %3255 = getelementptr inbounds nuw i8, ptr %3253, i64 32
   store ptr %.032.i987, ptr %3255, align 16, !tbaa !23
   %3256 = getelementptr inbounds nuw i8, ptr %3253, i64 40
-  store ptr %.sink46.i990, ptr %3256, align 8, !tbaa !29
+  store ptr %.sink47.i990, ptr %3256, align 8, !tbaa !29
   br label %new_add.exit999
 
 new_add.exit999:                                  ; preds = %3219, %.sink.split.i989
@@ -9557,7 +9557,7 @@ new_add.exit999:                                  ; preds = %3219, %.sink.split.
   store ptr %.031.sink.i991, ptr %3259, align 16, !tbaa !23
   %3260 = getelementptr inbounds nuw i8, ptr %3257, i64 40
   store ptr %.sink.i992, ptr %3260, align 8, !tbaa !29
-  br label %.backedge3761
+  br label %.backedge3813
 
 3261:                                             ; preds = %3192
   %3262 = call zeroext i1 @equal(ptr noundef %.02064, ptr noundef nonnull @.str.19) #13
@@ -9607,9 +9607,9 @@ new_add.exit999:                                  ; preds = %3219, %.sink.split.
 mul.exit984:                                      ; preds = %3274
   call void @llvm.lifetime.end.p0(ptr nonnull %112)
   %3285 = call fastcc ptr @new_sub(ptr noundef %.08.i.i307, ptr noundef %.010.i981, ptr noundef %.02064)
-  br label %.backedge3761
+  br label %.backedge3813
 
-.backedge3761:                                    ; preds = %mul.exit984, %new_add.exit999
+.backedge3813:                                    ; preds = %mul.exit984, %new_add.exit999
   %.02064.be = phi ptr [ %3207, %new_add.exit999 ], [ %3276, %mul.exit984 ]
   %.08.i.i307.be = phi ptr [ %3257, %new_add.exit999 ], [ %3285, %mul.exit984 ]
   br label %3192
@@ -9639,8 +9639,8 @@ shift.exit310:                                    ; preds = %3168, %shift.exit30
   %3294 = call fastcc ptr @mul(ptr noundef %113, ptr noundef %3293)
   br label %3295
 
-3295:                                             ; preds = %.backedge3754, %3291
-  %.08.i978 = phi ptr [ %3294, %3291 ], [ %.08.i978.be, %.backedge3754 ]
+3295:                                             ; preds = %.backedge3806, %3291
+  %.08.i978 = phi ptr [ %3294, %3291 ], [ %.08.i978.be, %.backedge3806 ]
   %3296 = load ptr, ptr %113, align 8, !tbaa !25
   %3297 = call zeroext i1 @equal(ptr noundef %3296, ptr noundef nonnull @.str.18) #13
   br i1 %3297, label %3298, label %3365
@@ -9765,7 +9765,7 @@ mul.exit1871:                                     ; preds = %3309
   br label %.sink.split.i1857
 
 .sink.split.i1857:                                ; preds = %3348, %3342
-  %.sink46.i1858 = phi ptr [ %3352, %3348 ], [ %3345, %3342 ]
+  %.sink47.i1858 = phi ptr [ %3352, %3348 ], [ %3345, %3342 ]
   %3357 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %3357, align 16, !tbaa !7
   %3358 = getelementptr inbounds nuw i8, ptr %3357, i64 24
@@ -9773,7 +9773,7 @@ mul.exit1871:                                     ; preds = %3309
   %3359 = getelementptr inbounds nuw i8, ptr %3357, i64 32
   store ptr %.032.i1855, ptr %3359, align 16, !tbaa !23
   %3360 = getelementptr inbounds nuw i8, ptr %3357, i64 40
-  store ptr %.sink46.i1858, ptr %3360, align 8, !tbaa !29
+  store ptr %.sink47.i1858, ptr %3360, align 8, !tbaa !29
   br label %new_add.exit1867
 
 new_add.exit1867:                                 ; preds = %3323, %.sink.split.i1857
@@ -9787,7 +9787,7 @@ new_add.exit1867:                                 ; preds = %3323, %.sink.split.
   store ptr %.031.sink.i1859, ptr %3363, align 16, !tbaa !23
   %3364 = getelementptr inbounds nuw i8, ptr %3361, i64 40
   store ptr %.sink.i1860, ptr %3364, align 8, !tbaa !29
-  br label %.backedge3754
+  br label %.backedge3806
 
 3365:                                             ; preds = %3295
   %3366 = call zeroext i1 @equal(ptr noundef %3296, ptr noundef nonnull @.str.19) #13
@@ -9838,9 +9838,9 @@ mul.exit1852:                                     ; preds = %3378
   store ptr %3380, ptr %113, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %3389 = call fastcc ptr @new_sub(ptr noundef %.08.i978, ptr noundef %.010.i1849, ptr noundef %3296)
-  br label %.backedge3754
+  br label %.backedge3806
 
-.backedge3754:                                    ; preds = %mul.exit1852, %new_add.exit1867
+.backedge3806:                                    ; preds = %mul.exit1852, %new_add.exit1867
   %.08.i978.be = phi ptr [ %3361, %new_add.exit1867 ], [ %3389, %mul.exit1852 ]
   br label %3295
 
@@ -9904,9 +9904,9 @@ mul.exit977:                                      ; preds = %3405
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
   br label %3416
 
-3416:                                             ; preds = %.backedge3729, %mul.exit977
-  %.02061 = phi ptr [ %3407, %mul.exit977 ], [ %.02061.be, %.backedge3729 ]
-  %.08.i.i301 = phi ptr [ %.010.i974, %mul.exit977 ], [ %.08.i.i301.be, %.backedge3729 ]
+3416:                                             ; preds = %.backedge3781, %mul.exit977
+  %.02061 = phi ptr [ %3407, %mul.exit977 ], [ %.02061.be, %.backedge3781 ]
+  %.08.i.i301 = phi ptr [ %.010.i974, %mul.exit977 ], [ %.08.i.i301.be, %.backedge3781 ]
   %3417 = call zeroext i1 @equal(ptr noundef %.02061, ptr noundef nonnull @.str.18) #13
   br i1 %3417, label %3418, label %3485
 
@@ -10029,7 +10029,7 @@ mul.exit973:                                      ; preds = %3429
   br label %.sink.split.i959
 
 .sink.split.i959:                                 ; preds = %3468, %3462
-  %.sink46.i960 = phi ptr [ %3472, %3468 ], [ %3465, %3462 ]
+  %.sink47.i960 = phi ptr [ %3472, %3468 ], [ %3465, %3462 ]
   %3477 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %3477, align 16, !tbaa !7
   %3478 = getelementptr inbounds nuw i8, ptr %3477, i64 24
@@ -10037,7 +10037,7 @@ mul.exit973:                                      ; preds = %3429
   %3479 = getelementptr inbounds nuw i8, ptr %3477, i64 32
   store ptr %.032.i957, ptr %3479, align 16, !tbaa !23
   %3480 = getelementptr inbounds nuw i8, ptr %3477, i64 40
-  store ptr %.sink46.i960, ptr %3480, align 8, !tbaa !29
+  store ptr %.sink47.i960, ptr %3480, align 8, !tbaa !29
   br label %new_add.exit969
 
 new_add.exit969:                                  ; preds = %3443, %.sink.split.i959
@@ -10051,7 +10051,7 @@ new_add.exit969:                                  ; preds = %3443, %.sink.split.
   store ptr %.031.sink.i961, ptr %3483, align 16, !tbaa !23
   %3484 = getelementptr inbounds nuw i8, ptr %3481, i64 40
   store ptr %.sink.i962, ptr %3484, align 8, !tbaa !29
-  br label %.backedge3729
+  br label %.backedge3781
 
 3485:                                             ; preds = %3416
   %3486 = call zeroext i1 @equal(ptr noundef %.02061, ptr noundef nonnull @.str.19) #13
@@ -10101,9 +10101,9 @@ new_add.exit969:                                  ; preds = %3443, %.sink.split.
 mul.exit954:                                      ; preds = %3498
   call void @llvm.lifetime.end.p0(ptr nonnull %116)
   %3509 = call fastcc ptr @new_sub(ptr noundef %.08.i.i301, ptr noundef %.010.i951, ptr noundef %.02061)
-  br label %.backedge3729
+  br label %.backedge3781
 
-.backedge3729:                                    ; preds = %mul.exit954, %new_add.exit969
+.backedge3781:                                    ; preds = %mul.exit954, %new_add.exit969
   %.02061.be = phi ptr [ %3431, %new_add.exit969 ], [ %3500, %mul.exit954 ]
   %.08.i.i301.be = phi ptr [ %3481, %new_add.exit969 ], [ %3509, %mul.exit954 ]
   br label %3416
@@ -10131,8 +10131,8 @@ add.exit.i302:                                    ; preds = %3485
   %3519 = call fastcc ptr @mul(ptr noundef %117, ptr noundef %3518)
   br label %3520
 
-3520:                                             ; preds = %.backedge3756, %3516
-  %.08.i948 = phi ptr [ %3519, %3516 ], [ %.08.i948.be, %.backedge3756 ]
+3520:                                             ; preds = %.backedge3808, %3516
+  %.08.i948 = phi ptr [ %3519, %3516 ], [ %.08.i948.be, %.backedge3808 ]
   %3521 = load ptr, ptr %117, align 8, !tbaa !25
   %3522 = call zeroext i1 @equal(ptr noundef %3521, ptr noundef nonnull @.str.18) #13
   br i1 %3522, label %3523, label %3590
@@ -10257,7 +10257,7 @@ mul.exit1848:                                     ; preds = %3534
   br label %.sink.split.i1834
 
 .sink.split.i1834:                                ; preds = %3573, %3567
-  %.sink46.i1835 = phi ptr [ %3577, %3573 ], [ %3570, %3567 ]
+  %.sink47.i1835 = phi ptr [ %3577, %3573 ], [ %3570, %3567 ]
   %3582 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %3582, align 16, !tbaa !7
   %3583 = getelementptr inbounds nuw i8, ptr %3582, i64 24
@@ -10265,7 +10265,7 @@ mul.exit1848:                                     ; preds = %3534
   %3584 = getelementptr inbounds nuw i8, ptr %3582, i64 32
   store ptr %.032.i1832, ptr %3584, align 16, !tbaa !23
   %3585 = getelementptr inbounds nuw i8, ptr %3582, i64 40
-  store ptr %.sink46.i1835, ptr %3585, align 8, !tbaa !29
+  store ptr %.sink47.i1835, ptr %3585, align 8, !tbaa !29
   br label %new_add.exit1844
 
 new_add.exit1844:                                 ; preds = %3548, %.sink.split.i1834
@@ -10279,7 +10279,7 @@ new_add.exit1844:                                 ; preds = %3548, %.sink.split.
   store ptr %.031.sink.i1836, ptr %3588, align 16, !tbaa !23
   %3589 = getelementptr inbounds nuw i8, ptr %3586, i64 40
   store ptr %.sink.i1837, ptr %3589, align 8, !tbaa !29
-  br label %.backedge3756
+  br label %.backedge3808
 
 3590:                                             ; preds = %3520
   %3591 = call zeroext i1 @equal(ptr noundef %3521, ptr noundef nonnull @.str.19) #13
@@ -10330,9 +10330,9 @@ mul.exit1829:                                     ; preds = %3603
   store ptr %3605, ptr %117, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %3614 = call fastcc ptr @new_sub(ptr noundef %.08.i948, ptr noundef %.010.i1826, ptr noundef %3521)
-  br label %.backedge3756
+  br label %.backedge3808
 
-.backedge3756:                                    ; preds = %mul.exit1829, %new_add.exit1844
+.backedge3808:                                    ; preds = %mul.exit1829, %new_add.exit1844
   %.08.i948.be = phi ptr [ %3586, %new_add.exit1844 ], [ %3614, %mul.exit1829 ]
   br label %3520
 
@@ -10396,9 +10396,9 @@ mul.exit947:                                      ; preds = %3630
   call void @llvm.lifetime.end.p0(ptr nonnull %118)
   br label %3641
 
-3641:                                             ; preds = %.backedge3730, %mul.exit947
-  %.02058 = phi ptr [ %3632, %mul.exit947 ], [ %.02058.be, %.backedge3730 ]
-  %.08.i.i295 = phi ptr [ %.010.i944, %mul.exit947 ], [ %.08.i.i295.be, %.backedge3730 ]
+3641:                                             ; preds = %.backedge3782, %mul.exit947
+  %.02058 = phi ptr [ %3632, %mul.exit947 ], [ %.02058.be, %.backedge3782 ]
+  %.08.i.i295 = phi ptr [ %.010.i944, %mul.exit947 ], [ %.08.i.i295.be, %.backedge3782 ]
   %3642 = call zeroext i1 @equal(ptr noundef %.02058, ptr noundef nonnull @.str.18) #13
   br i1 %3642, label %3643, label %3710
 
@@ -10521,7 +10521,7 @@ mul.exit943:                                      ; preds = %3654
   br label %.sink.split.i929
 
 .sink.split.i929:                                 ; preds = %3693, %3687
-  %.sink46.i930 = phi ptr [ %3697, %3693 ], [ %3690, %3687 ]
+  %.sink47.i930 = phi ptr [ %3697, %3693 ], [ %3690, %3687 ]
   %3702 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %3702, align 16, !tbaa !7
   %3703 = getelementptr inbounds nuw i8, ptr %3702, i64 24
@@ -10529,7 +10529,7 @@ mul.exit943:                                      ; preds = %3654
   %3704 = getelementptr inbounds nuw i8, ptr %3702, i64 32
   store ptr %.032.i927, ptr %3704, align 16, !tbaa !23
   %3705 = getelementptr inbounds nuw i8, ptr %3702, i64 40
-  store ptr %.sink46.i930, ptr %3705, align 8, !tbaa !29
+  store ptr %.sink47.i930, ptr %3705, align 8, !tbaa !29
   br label %new_add.exit939
 
 new_add.exit939:                                  ; preds = %3668, %.sink.split.i929
@@ -10543,7 +10543,7 @@ new_add.exit939:                                  ; preds = %3668, %.sink.split.
   store ptr %.031.sink.i931, ptr %3708, align 16, !tbaa !23
   %3709 = getelementptr inbounds nuw i8, ptr %3706, i64 40
   store ptr %.sink.i932, ptr %3709, align 8, !tbaa !29
-  br label %.backedge3730
+  br label %.backedge3782
 
 3710:                                             ; preds = %3641
   %3711 = call zeroext i1 @equal(ptr noundef %.02058, ptr noundef nonnull @.str.19) #13
@@ -10593,9 +10593,9 @@ new_add.exit939:                                  ; preds = %3668, %.sink.split.
 mul.exit924:                                      ; preds = %3723
   call void @llvm.lifetime.end.p0(ptr nonnull %120)
   %3734 = call fastcc ptr @new_sub(ptr noundef %.08.i.i295, ptr noundef %.010.i921, ptr noundef %.02058)
-  br label %.backedge3730
+  br label %.backedge3782
 
-.backedge3730:                                    ; preds = %mul.exit924, %new_add.exit939
+.backedge3782:                                    ; preds = %mul.exit924, %new_add.exit939
   %.02058.be = phi ptr [ %3656, %new_add.exit939 ], [ %3725, %mul.exit924 ]
   %.08.i.i295.be = phi ptr [ %3706, %new_add.exit939 ], [ %3734, %mul.exit924 ]
   br label %3641
@@ -10623,8 +10623,8 @@ add.exit.i296:                                    ; preds = %3710
   %3744 = call fastcc ptr @mul(ptr noundef %121, ptr noundef %3743)
   br label %3745
 
-3745:                                             ; preds = %.backedge3758, %3741
-  %.08.i918 = phi ptr [ %3744, %3741 ], [ %.08.i918.be, %.backedge3758 ]
+3745:                                             ; preds = %.backedge3810, %3741
+  %.08.i918 = phi ptr [ %3744, %3741 ], [ %.08.i918.be, %.backedge3810 ]
   %3746 = load ptr, ptr %121, align 8, !tbaa !25
   %3747 = call zeroext i1 @equal(ptr noundef %3746, ptr noundef nonnull @.str.18) #13
   br i1 %3747, label %3748, label %3753
@@ -10634,7 +10634,7 @@ add.exit.i296:                                    ; preds = %3710
   %3750 = load ptr, ptr %3749, align 8, !tbaa !26
   %3751 = call fastcc ptr @mul(ptr noundef %121, ptr noundef %3750)
   %3752 = call fastcc ptr @new_add(ptr noundef %.08.i918, ptr noundef %3751, ptr noundef %3746)
-  br label %.backedge3758
+  br label %.backedge3810
 
 3753:                                             ; preds = %3745
   %3754 = call zeroext i1 @equal(ptr noundef %3746, ptr noundef nonnull @.str.19) #13
@@ -10645,9 +10645,9 @@ add.exit.i296:                                    ; preds = %3710
   %3757 = load ptr, ptr %3756, align 8, !tbaa !26
   %3758 = call fastcc ptr @mul(ptr noundef %121, ptr noundef %3757)
   %3759 = call fastcc ptr @new_sub(ptr noundef %.08.i918, ptr noundef %3758, ptr noundef %3746)
-  br label %.backedge3758
+  br label %.backedge3810
 
-.backedge3758:                                    ; preds = %3755, %3748
+.backedge3810:                                    ; preds = %3755, %3748
   %.08.i918.be = phi ptr [ %3752, %3748 ], [ %3759, %3755 ]
   br label %3745
 
@@ -10711,9 +10711,9 @@ mul.exit917:                                      ; preds = %3775
   call void @llvm.lifetime.end.p0(ptr nonnull %122)
   br label %3786
 
-3786:                                             ; preds = %.backedge3731, %mul.exit917
-  %.02055 = phi ptr [ %3777, %mul.exit917 ], [ %.02055.be, %.backedge3731 ]
-  %.08.i.i289 = phi ptr [ %.010.i914, %mul.exit917 ], [ %.08.i.i289.be, %.backedge3731 ]
+3786:                                             ; preds = %.backedge3783, %mul.exit917
+  %.02055 = phi ptr [ %3777, %mul.exit917 ], [ %.02055.be, %.backedge3783 ]
+  %.08.i.i289 = phi ptr [ %.010.i914, %mul.exit917 ], [ %.08.i.i289.be, %.backedge3783 ]
   %3787 = call zeroext i1 @equal(ptr noundef %.02055, ptr noundef nonnull @.str.18) #13
   br i1 %3787, label %3788, label %3855
 
@@ -10836,7 +10836,7 @@ mul.exit913:                                      ; preds = %3799
   br label %.sink.split.i899
 
 .sink.split.i899:                                 ; preds = %3838, %3832
-  %.sink46.i900 = phi ptr [ %3842, %3838 ], [ %3835, %3832 ]
+  %.sink47.i900 = phi ptr [ %3842, %3838 ], [ %3835, %3832 ]
   %3847 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %3847, align 16, !tbaa !7
   %3848 = getelementptr inbounds nuw i8, ptr %3847, i64 24
@@ -10844,7 +10844,7 @@ mul.exit913:                                      ; preds = %3799
   %3849 = getelementptr inbounds nuw i8, ptr %3847, i64 32
   store ptr %.032.i897, ptr %3849, align 16, !tbaa !23
   %3850 = getelementptr inbounds nuw i8, ptr %3847, i64 40
-  store ptr %.sink46.i900, ptr %3850, align 8, !tbaa !29
+  store ptr %.sink47.i900, ptr %3850, align 8, !tbaa !29
   br label %new_add.exit909
 
 new_add.exit909:                                  ; preds = %3813, %.sink.split.i899
@@ -10858,7 +10858,7 @@ new_add.exit909:                                  ; preds = %3813, %.sink.split.
   store ptr %.031.sink.i901, ptr %3853, align 16, !tbaa !23
   %3854 = getelementptr inbounds nuw i8, ptr %3851, i64 40
   store ptr %.sink.i902, ptr %3854, align 8, !tbaa !29
-  br label %.backedge3731
+  br label %.backedge3783
 
 3855:                                             ; preds = %3786
   %3856 = call zeroext i1 @equal(ptr noundef %.02055, ptr noundef nonnull @.str.19) #13
@@ -10908,9 +10908,9 @@ new_add.exit909:                                  ; preds = %3813, %.sink.split.
 mul.exit894:                                      ; preds = %3868
   call void @llvm.lifetime.end.p0(ptr nonnull %124)
   %3879 = call fastcc ptr @new_sub(ptr noundef %.08.i.i289, ptr noundef %.010.i891, ptr noundef %.02055)
-  br label %.backedge3731
+  br label %.backedge3783
 
-.backedge3731:                                    ; preds = %mul.exit894, %new_add.exit909
+.backedge3783:                                    ; preds = %mul.exit894, %new_add.exit909
   %.02055.be = phi ptr [ %3801, %new_add.exit909 ], [ %3870, %mul.exit894 ]
   %.08.i.i289.be = phi ptr [ %3851, %new_add.exit909 ], [ %3879, %mul.exit894 ]
   br label %3786
@@ -10938,8 +10938,8 @@ add.exit.i290:                                    ; preds = %3855
   %3889 = call fastcc ptr @mul(ptr noundef %125, ptr noundef %3888)
   br label %3890
 
-3890:                                             ; preds = %.backedge3760, %3886
-  %.08.i888 = phi ptr [ %3889, %3886 ], [ %.08.i888.be, %.backedge3760 ]
+3890:                                             ; preds = %.backedge3812, %3886
+  %.08.i888 = phi ptr [ %3889, %3886 ], [ %.08.i888.be, %.backedge3812 ]
   %3891 = load ptr, ptr %125, align 8, !tbaa !25
   %3892 = call zeroext i1 @equal(ptr noundef %3891, ptr noundef nonnull @.str.18) #13
   br i1 %3892, label %3893, label %3898
@@ -10949,7 +10949,7 @@ add.exit.i290:                                    ; preds = %3855
   %3895 = load ptr, ptr %3894, align 8, !tbaa !26
   %3896 = call fastcc ptr @mul(ptr noundef %125, ptr noundef %3895)
   %3897 = call fastcc ptr @new_add(ptr noundef %.08.i888, ptr noundef %3896, ptr noundef %3891)
-  br label %.backedge3760
+  br label %.backedge3812
 
 3898:                                             ; preds = %3890
   %3899 = call zeroext i1 @equal(ptr noundef %3891, ptr noundef nonnull @.str.19) #13
@@ -10960,9 +10960,9 @@ add.exit.i290:                                    ; preds = %3855
   %3902 = load ptr, ptr %3901, align 8, !tbaa !26
   %3903 = call fastcc ptr @mul(ptr noundef %125, ptr noundef %3902)
   %3904 = call fastcc ptr @new_sub(ptr noundef %.08.i888, ptr noundef %3903, ptr noundef %3891)
-  br label %.backedge3760
+  br label %.backedge3812
 
-.backedge3760:                                    ; preds = %3900, %3893
+.backedge3812:                                    ; preds = %3900, %3893
   %.08.i888.be = phi ptr [ %3897, %3893 ], [ %3904, %3900 ]
   br label %3890
 
@@ -11026,9 +11026,9 @@ mul.exit887:                                      ; preds = %3920
   call void @llvm.lifetime.end.p0(ptr nonnull %126)
   br label %3931
 
-3931:                                             ; preds = %.backedge3732, %mul.exit887
-  %.02052 = phi ptr [ %3922, %mul.exit887 ], [ %.02052.be, %.backedge3732 ]
-  %.08.i.i283 = phi ptr [ %.010.i884, %mul.exit887 ], [ %.08.i.i283.be, %.backedge3732 ]
+3931:                                             ; preds = %.backedge3784, %mul.exit887
+  %.02052 = phi ptr [ %3922, %mul.exit887 ], [ %.02052.be, %.backedge3784 ]
+  %.08.i.i283 = phi ptr [ %.010.i884, %mul.exit887 ], [ %.08.i.i283.be, %.backedge3784 ]
   %3932 = call zeroext i1 @equal(ptr noundef %.02052, ptr noundef nonnull @.str.18) #13
   br i1 %3932, label %3933, label %4000
 
@@ -11151,7 +11151,7 @@ mul.exit883:                                      ; preds = %3944
   br label %.sink.split.i869
 
 .sink.split.i869:                                 ; preds = %3983, %3977
-  %.sink46.i870 = phi ptr [ %3987, %3983 ], [ %3980, %3977 ]
+  %.sink47.i870 = phi ptr [ %3987, %3983 ], [ %3980, %3977 ]
   %3992 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %3992, align 16, !tbaa !7
   %3993 = getelementptr inbounds nuw i8, ptr %3992, i64 24
@@ -11159,7 +11159,7 @@ mul.exit883:                                      ; preds = %3944
   %3994 = getelementptr inbounds nuw i8, ptr %3992, i64 32
   store ptr %.032.i867, ptr %3994, align 16, !tbaa !23
   %3995 = getelementptr inbounds nuw i8, ptr %3992, i64 40
-  store ptr %.sink46.i870, ptr %3995, align 8, !tbaa !29
+  store ptr %.sink47.i870, ptr %3995, align 8, !tbaa !29
   br label %new_add.exit879
 
 new_add.exit879:                                  ; preds = %3958, %.sink.split.i869
@@ -11173,7 +11173,7 @@ new_add.exit879:                                  ; preds = %3958, %.sink.split.
   store ptr %.031.sink.i871, ptr %3998, align 16, !tbaa !23
   %3999 = getelementptr inbounds nuw i8, ptr %3996, i64 40
   store ptr %.sink.i872, ptr %3999, align 8, !tbaa !29
-  br label %.backedge3732
+  br label %.backedge3784
 
 4000:                                             ; preds = %3931
   %4001 = call zeroext i1 @equal(ptr noundef %.02052, ptr noundef nonnull @.str.19) #13
@@ -11223,9 +11223,9 @@ new_add.exit879:                                  ; preds = %3958, %.sink.split.
 mul.exit864:                                      ; preds = %4013
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
   %4024 = call fastcc ptr @new_sub(ptr noundef %.08.i.i283, ptr noundef %.010.i861, ptr noundef %.02052)
-  br label %.backedge3732
+  br label %.backedge3784
 
-.backedge3732:                                    ; preds = %mul.exit864, %new_add.exit879
+.backedge3784:                                    ; preds = %mul.exit864, %new_add.exit879
   %.02052.be = phi ptr [ %3946, %new_add.exit879 ], [ %4015, %mul.exit864 ]
   %.08.i.i283.be = phi ptr [ %3996, %new_add.exit879 ], [ %4024, %mul.exit864 ]
   br label %3931
@@ -11289,8 +11289,8 @@ equality.exit18:                                  ; preds = %3145
   %4044 = call fastcc ptr @mul(ptr noundef %89, ptr noundef %4043)
   br label %4045
 
-4045:                                             ; preds = %.backedge3801, %.lr.ph90
-  %.08.i1158 = phi ptr [ %4044, %.lr.ph90 ], [ %.08.i1158.be, %.backedge3801 ]
+4045:                                             ; preds = %.backedge3853, %.lr.ph90
+  %.08.i1158 = phi ptr [ %4044, %.lr.ph90 ], [ %.08.i1158.be, %.backedge3853 ]
   %4046 = load ptr, ptr %89, align 8, !tbaa !25
   %4047 = call zeroext i1 @equal(ptr noundef %4046, ptr noundef nonnull @.str.18) #13
   br i1 %4047, label %4048, label %4053
@@ -11300,7 +11300,7 @@ equality.exit18:                                  ; preds = %3145
   %4050 = load ptr, ptr %4049, align 8, !tbaa !26
   %4051 = call fastcc ptr @mul(ptr noundef %89, ptr noundef %4050)
   %4052 = call fastcc ptr @new_add(ptr noundef %.08.i1158, ptr noundef %4051, ptr noundef %4046)
-  br label %.backedge3801
+  br label %.backedge3853
 
 4053:                                             ; preds = %4045
   %4054 = call zeroext i1 @equal(ptr noundef %4046, ptr noundef nonnull @.str.19) #13
@@ -11311,9 +11311,9 @@ equality.exit18:                                  ; preds = %3145
   %4057 = load ptr, ptr %4056, align 8, !tbaa !26
   %4058 = call fastcc ptr @mul(ptr noundef %89, ptr noundef %4057)
   %4059 = call fastcc ptr @new_sub(ptr noundef %.08.i1158, ptr noundef %4058, ptr noundef %4046)
-  br label %.backedge3801
+  br label %.backedge3853
 
-.backedge3801:                                    ; preds = %4055, %4048
+.backedge3853:                                    ; preds = %4055, %4048
   %.08.i1158.be = phi ptr [ %4052, %4048 ], [ %4059, %4055 ]
   br label %4045
 
@@ -11377,9 +11377,9 @@ mul.exit1157:                                     ; preds = %4075
   call void @llvm.lifetime.end.p0(ptr nonnull %90)
   br label %4086
 
-4086:                                             ; preds = %.backedge3779, %mul.exit1157
-  %.02079 = phi ptr [ %4077, %mul.exit1157 ], [ %.02079.be, %.backedge3779 ]
-  %.08.i.i337 = phi ptr [ %.010.i1154, %mul.exit1157 ], [ %.08.i.i337.be, %.backedge3779 ]
+4086:                                             ; preds = %.backedge3831, %mul.exit1157
+  %.02079 = phi ptr [ %4077, %mul.exit1157 ], [ %.02079.be, %.backedge3831 ]
+  %.08.i.i337 = phi ptr [ %.010.i1154, %mul.exit1157 ], [ %.08.i.i337.be, %.backedge3831 ]
   %4087 = call zeroext i1 @equal(ptr noundef %.02079, ptr noundef nonnull @.str.18) #13
   br i1 %4087, label %4088, label %4155
 
@@ -11502,7 +11502,7 @@ mul.exit1153:                                     ; preds = %4099
   br label %.sink.split.i1139
 
 .sink.split.i1139:                                ; preds = %4138, %4132
-  %.sink46.i1140 = phi ptr [ %4142, %4138 ], [ %4135, %4132 ]
+  %.sink47.i1140 = phi ptr [ %4142, %4138 ], [ %4135, %4132 ]
   %4147 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %4147, align 16, !tbaa !7
   %4148 = getelementptr inbounds nuw i8, ptr %4147, i64 24
@@ -11510,7 +11510,7 @@ mul.exit1153:                                     ; preds = %4099
   %4149 = getelementptr inbounds nuw i8, ptr %4147, i64 32
   store ptr %.032.i1137, ptr %4149, align 16, !tbaa !23
   %4150 = getelementptr inbounds nuw i8, ptr %4147, i64 40
-  store ptr %.sink46.i1140, ptr %4150, align 8, !tbaa !29
+  store ptr %.sink47.i1140, ptr %4150, align 8, !tbaa !29
   br label %new_add.exit1149
 
 new_add.exit1149:                                 ; preds = %4113, %.sink.split.i1139
@@ -11524,7 +11524,7 @@ new_add.exit1149:                                 ; preds = %4113, %.sink.split.
   store ptr %.031.sink.i1141, ptr %4153, align 16, !tbaa !23
   %4154 = getelementptr inbounds nuw i8, ptr %4151, i64 40
   store ptr %.sink.i1142, ptr %4154, align 8, !tbaa !29
-  br label %.backedge3779
+  br label %.backedge3831
 
 4155:                                             ; preds = %4086
   %4156 = call zeroext i1 @equal(ptr noundef %.02079, ptr noundef nonnull @.str.19) #13
@@ -11574,9 +11574,9 @@ new_add.exit1149:                                 ; preds = %4113, %.sink.split.
 mul.exit1134:                                     ; preds = %4168
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
   %4179 = call fastcc ptr @new_sub(ptr noundef %.08.i.i337, ptr noundef %.010.i1131, ptr noundef %.02079)
-  br label %.backedge3779
+  br label %.backedge3831
 
-.backedge3779:                                    ; preds = %mul.exit1134, %new_add.exit1149
+.backedge3831:                                    ; preds = %mul.exit1134, %new_add.exit1149
   %.02079.be = phi ptr [ %4101, %new_add.exit1149 ], [ %4170, %mul.exit1134 ]
   %.08.i.i337.be = phi ptr [ %4151, %new_add.exit1149 ], [ %4179, %mul.exit1134 ]
   br label %4086
@@ -11606,8 +11606,8 @@ shift.exit340:                                    ; preds = %4062, %shift.exit33
   %4188 = call fastcc ptr @mul(ptr noundef %93, ptr noundef %4187)
   br label %4189
 
-4189:                                             ; preds = %.backedge3772, %4185
-  %.08.i1128 = phi ptr [ %4188, %4185 ], [ %.08.i1128.be, %.backedge3772 ]
+4189:                                             ; preds = %.backedge3824, %4185
+  %.08.i1128 = phi ptr [ %4188, %4185 ], [ %.08.i1128.be, %.backedge3824 ]
   %4190 = load ptr, ptr %93, align 8, !tbaa !25
   %4191 = call zeroext i1 @equal(ptr noundef %4190, ptr noundef nonnull @.str.18) #13
   br i1 %4191, label %4192, label %4197
@@ -11617,7 +11617,7 @@ shift.exit340:                                    ; preds = %4062, %shift.exit33
   %4194 = load ptr, ptr %4193, align 8, !tbaa !26
   %4195 = call fastcc ptr @mul(ptr noundef %93, ptr noundef %4194)
   %4196 = call fastcc ptr @new_add(ptr noundef %.08.i1128, ptr noundef %4195, ptr noundef %4190)
-  br label %.backedge3772
+  br label %.backedge3824
 
 4197:                                             ; preds = %4189
   %4198 = call zeroext i1 @equal(ptr noundef %4190, ptr noundef nonnull @.str.19) #13
@@ -11628,9 +11628,9 @@ shift.exit340:                                    ; preds = %4062, %shift.exit33
   %4201 = load ptr, ptr %4200, align 8, !tbaa !26
   %4202 = call fastcc ptr @mul(ptr noundef %93, ptr noundef %4201)
   %4203 = call fastcc ptr @new_sub(ptr noundef %.08.i1128, ptr noundef %4202, ptr noundef %4190)
-  br label %.backedge3772
+  br label %.backedge3824
 
-.backedge3772:                                    ; preds = %4199, %4192
+.backedge3824:                                    ; preds = %4199, %4192
   %.08.i1128.be = phi ptr [ %4196, %4192 ], [ %4203, %4199 ]
   br label %4189
 
@@ -11694,9 +11694,9 @@ mul.exit1127:                                     ; preds = %4219
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br label %4230
 
-4230:                                             ; preds = %.backedge3750, %mul.exit1127
-  %.02076 = phi ptr [ %4221, %mul.exit1127 ], [ %.02076.be, %.backedge3750 ]
-  %.08.i.i331 = phi ptr [ %.010.i1124, %mul.exit1127 ], [ %.08.i.i331.be, %.backedge3750 ]
+4230:                                             ; preds = %.backedge3802, %mul.exit1127
+  %.02076 = phi ptr [ %4221, %mul.exit1127 ], [ %.02076.be, %.backedge3802 ]
+  %.08.i.i331 = phi ptr [ %.010.i1124, %mul.exit1127 ], [ %.08.i.i331.be, %.backedge3802 ]
   %4231 = call zeroext i1 @equal(ptr noundef %.02076, ptr noundef nonnull @.str.18) #13
   br i1 %4231, label %4232, label %4299
 
@@ -11819,7 +11819,7 @@ mul.exit1123:                                     ; preds = %4243
   br label %.sink.split.i1109
 
 .sink.split.i1109:                                ; preds = %4282, %4276
-  %.sink46.i1110 = phi ptr [ %4286, %4282 ], [ %4279, %4276 ]
+  %.sink47.i1110 = phi ptr [ %4286, %4282 ], [ %4279, %4276 ]
   %4291 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %4291, align 16, !tbaa !7
   %4292 = getelementptr inbounds nuw i8, ptr %4291, i64 24
@@ -11827,7 +11827,7 @@ mul.exit1123:                                     ; preds = %4243
   %4293 = getelementptr inbounds nuw i8, ptr %4291, i64 32
   store ptr %.032.i1107, ptr %4293, align 16, !tbaa !23
   %4294 = getelementptr inbounds nuw i8, ptr %4291, i64 40
-  store ptr %.sink46.i1110, ptr %4294, align 8, !tbaa !29
+  store ptr %.sink47.i1110, ptr %4294, align 8, !tbaa !29
   br label %new_add.exit1119
 
 new_add.exit1119:                                 ; preds = %4257, %.sink.split.i1109
@@ -11841,7 +11841,7 @@ new_add.exit1119:                                 ; preds = %4257, %.sink.split.
   store ptr %.031.sink.i1111, ptr %4297, align 16, !tbaa !23
   %4298 = getelementptr inbounds nuw i8, ptr %4295, i64 40
   store ptr %.sink.i1112, ptr %4298, align 8, !tbaa !29
-  br label %.backedge3750
+  br label %.backedge3802
 
 4299:                                             ; preds = %4230
   %4300 = call zeroext i1 @equal(ptr noundef %.02076, ptr noundef nonnull @.str.19) #13
@@ -11891,9 +11891,9 @@ new_add.exit1119:                                 ; preds = %4257, %.sink.split.
 mul.exit1104:                                     ; preds = %4312
   call void @llvm.lifetime.end.p0(ptr nonnull %96)
   %4323 = call fastcc ptr @new_sub(ptr noundef %.08.i.i331, ptr noundef %.010.i1101, ptr noundef %.02076)
-  br label %.backedge3750
+  br label %.backedge3802
 
-.backedge3750:                                    ; preds = %mul.exit1104, %new_add.exit1119
+.backedge3802:                                    ; preds = %mul.exit1104, %new_add.exit1119
   %.02076.be = phi ptr [ %4245, %new_add.exit1119 ], [ %4314, %mul.exit1104 ]
   %.08.i.i331.be = phi ptr [ %4295, %new_add.exit1119 ], [ %4323, %mul.exit1104 ]
   br label %4230
@@ -11921,8 +11921,8 @@ add.exit.i332:                                    ; preds = %4299
   %4333 = call fastcc ptr @mul(ptr noundef %97, ptr noundef %4332)
   br label %4334
 
-4334:                                             ; preds = %.backedge3774, %4330
-  %.08.i1098 = phi ptr [ %4333, %4330 ], [ %.08.i1098.be, %.backedge3774 ]
+4334:                                             ; preds = %.backedge3826, %4330
+  %.08.i1098 = phi ptr [ %4333, %4330 ], [ %.08.i1098.be, %.backedge3826 ]
   %4335 = load ptr, ptr %97, align 8, !tbaa !25
   %4336 = call zeroext i1 @equal(ptr noundef %4335, ptr noundef nonnull @.str.18) #13
   br i1 %4336, label %4337, label %4342
@@ -11932,7 +11932,7 @@ add.exit.i332:                                    ; preds = %4299
   %4339 = load ptr, ptr %4338, align 8, !tbaa !26
   %4340 = call fastcc ptr @mul(ptr noundef %97, ptr noundef %4339)
   %4341 = call fastcc ptr @new_add(ptr noundef %.08.i1098, ptr noundef %4340, ptr noundef %4335)
-  br label %.backedge3774
+  br label %.backedge3826
 
 4342:                                             ; preds = %4334
   %4343 = call zeroext i1 @equal(ptr noundef %4335, ptr noundef nonnull @.str.19) #13
@@ -11943,9 +11943,9 @@ add.exit.i332:                                    ; preds = %4299
   %4346 = load ptr, ptr %4345, align 8, !tbaa !26
   %4347 = call fastcc ptr @mul(ptr noundef %97, ptr noundef %4346)
   %4348 = call fastcc ptr @new_sub(ptr noundef %.08.i1098, ptr noundef %4347, ptr noundef %4335)
-  br label %.backedge3774
+  br label %.backedge3826
 
-.backedge3774:                                    ; preds = %4344, %4337
+.backedge3826:                                    ; preds = %4344, %4337
   %.08.i1098.be = phi ptr [ %4341, %4337 ], [ %4348, %4344 ]
   br label %4334
 
@@ -12009,9 +12009,9 @@ mul.exit1097:                                     ; preds = %4364
   call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %4375
 
-4375:                                             ; preds = %.backedge3751, %mul.exit1097
-  %.02073 = phi ptr [ %4366, %mul.exit1097 ], [ %.02073.be, %.backedge3751 ]
-  %.08.i.i325 = phi ptr [ %.010.i1094, %mul.exit1097 ], [ %.08.i.i325.be, %.backedge3751 ]
+4375:                                             ; preds = %.backedge3803, %mul.exit1097
+  %.02073 = phi ptr [ %4366, %mul.exit1097 ], [ %.02073.be, %.backedge3803 ]
+  %.08.i.i325 = phi ptr [ %.010.i1094, %mul.exit1097 ], [ %.08.i.i325.be, %.backedge3803 ]
   %4376 = call zeroext i1 @equal(ptr noundef %.02073, ptr noundef nonnull @.str.18) #13
   br i1 %4376, label %4377, label %4444
 
@@ -12134,7 +12134,7 @@ mul.exit1093:                                     ; preds = %4388
   br label %.sink.split.i1079
 
 .sink.split.i1079:                                ; preds = %4427, %4421
-  %.sink46.i1080 = phi ptr [ %4431, %4427 ], [ %4424, %4421 ]
+  %.sink47.i1080 = phi ptr [ %4431, %4427 ], [ %4424, %4421 ]
   %4436 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %4436, align 16, !tbaa !7
   %4437 = getelementptr inbounds nuw i8, ptr %4436, i64 24
@@ -12142,7 +12142,7 @@ mul.exit1093:                                     ; preds = %4388
   %4438 = getelementptr inbounds nuw i8, ptr %4436, i64 32
   store ptr %.032.i1077, ptr %4438, align 16, !tbaa !23
   %4439 = getelementptr inbounds nuw i8, ptr %4436, i64 40
-  store ptr %.sink46.i1080, ptr %4439, align 8, !tbaa !29
+  store ptr %.sink47.i1080, ptr %4439, align 8, !tbaa !29
   br label %new_add.exit1089
 
 new_add.exit1089:                                 ; preds = %4402, %.sink.split.i1079
@@ -12156,7 +12156,7 @@ new_add.exit1089:                                 ; preds = %4402, %.sink.split.
   store ptr %.031.sink.i1081, ptr %4442, align 16, !tbaa !23
   %4443 = getelementptr inbounds nuw i8, ptr %4440, i64 40
   store ptr %.sink.i1082, ptr %4443, align 8, !tbaa !29
-  br label %.backedge3751
+  br label %.backedge3803
 
 4444:                                             ; preds = %4375
   %4445 = call zeroext i1 @equal(ptr noundef %.02073, ptr noundef nonnull @.str.19) #13
@@ -12206,9 +12206,9 @@ new_add.exit1089:                                 ; preds = %4402, %.sink.split.
 mul.exit1074:                                     ; preds = %4457
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
   %4468 = call fastcc ptr @new_sub(ptr noundef %.08.i.i325, ptr noundef %.010.i1071, ptr noundef %.02073)
-  br label %.backedge3751
+  br label %.backedge3803
 
-.backedge3751:                                    ; preds = %mul.exit1074, %new_add.exit1089
+.backedge3803:                                    ; preds = %mul.exit1074, %new_add.exit1089
   %.02073.be = phi ptr [ %4390, %new_add.exit1089 ], [ %4459, %mul.exit1074 ]
   %.08.i.i325.be = phi ptr [ %4440, %new_add.exit1089 ], [ %4468, %mul.exit1074 ]
   br label %4375
@@ -12236,8 +12236,8 @@ add.exit.i326:                                    ; preds = %4444
   %4478 = call fastcc ptr @mul(ptr noundef %101, ptr noundef %4477)
   br label %4479
 
-4479:                                             ; preds = %.backedge3776, %4475
-  %.08.i1068 = phi ptr [ %4478, %4475 ], [ %.08.i1068.be, %.backedge3776 ]
+4479:                                             ; preds = %.backedge3828, %4475
+  %.08.i1068 = phi ptr [ %4478, %4475 ], [ %.08.i1068.be, %.backedge3828 ]
   %4480 = load ptr, ptr %101, align 8, !tbaa !25
   %4481 = call zeroext i1 @equal(ptr noundef %4480, ptr noundef nonnull @.str.18) #13
   br i1 %4481, label %4482, label %4487
@@ -12247,7 +12247,7 @@ add.exit.i326:                                    ; preds = %4444
   %4484 = load ptr, ptr %4483, align 8, !tbaa !26
   %4485 = call fastcc ptr @mul(ptr noundef %101, ptr noundef %4484)
   %4486 = call fastcc ptr @new_add(ptr noundef %.08.i1068, ptr noundef %4485, ptr noundef %4480)
-  br label %.backedge3776
+  br label %.backedge3828
 
 4487:                                             ; preds = %4479
   %4488 = call zeroext i1 @equal(ptr noundef %4480, ptr noundef nonnull @.str.19) #13
@@ -12258,9 +12258,9 @@ add.exit.i326:                                    ; preds = %4444
   %4491 = load ptr, ptr %4490, align 8, !tbaa !26
   %4492 = call fastcc ptr @mul(ptr noundef %101, ptr noundef %4491)
   %4493 = call fastcc ptr @new_sub(ptr noundef %.08.i1068, ptr noundef %4492, ptr noundef %4480)
-  br label %.backedge3776
+  br label %.backedge3828
 
-.backedge3776:                                    ; preds = %4489, %4482
+.backedge3828:                                    ; preds = %4489, %4482
   %.08.i1068.be = phi ptr [ %4486, %4482 ], [ %4493, %4489 ]
   br label %4479
 
@@ -12324,9 +12324,9 @@ mul.exit1067:                                     ; preds = %4509
   call void @llvm.lifetime.end.p0(ptr nonnull %102)
   br label %4520
 
-4520:                                             ; preds = %.backedge3752, %mul.exit1067
-  %.02070 = phi ptr [ %4511, %mul.exit1067 ], [ %.02070.be, %.backedge3752 ]
-  %.08.i.i319 = phi ptr [ %.010.i1064, %mul.exit1067 ], [ %.08.i.i319.be, %.backedge3752 ]
+4520:                                             ; preds = %.backedge3804, %mul.exit1067
+  %.02070 = phi ptr [ %4511, %mul.exit1067 ], [ %.02070.be, %.backedge3804 ]
+  %.08.i.i319 = phi ptr [ %.010.i1064, %mul.exit1067 ], [ %.08.i.i319.be, %.backedge3804 ]
   %4521 = call zeroext i1 @equal(ptr noundef %.02070, ptr noundef nonnull @.str.18) #13
   br i1 %4521, label %4522, label %4589
 
@@ -12449,7 +12449,7 @@ mul.exit1063:                                     ; preds = %4533
   br label %.sink.split.i1049
 
 .sink.split.i1049:                                ; preds = %4572, %4566
-  %.sink46.i1050 = phi ptr [ %4576, %4572 ], [ %4569, %4566 ]
+  %.sink47.i1050 = phi ptr [ %4576, %4572 ], [ %4569, %4566 ]
   %4581 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %4581, align 16, !tbaa !7
   %4582 = getelementptr inbounds nuw i8, ptr %4581, i64 24
@@ -12457,7 +12457,7 @@ mul.exit1063:                                     ; preds = %4533
   %4583 = getelementptr inbounds nuw i8, ptr %4581, i64 32
   store ptr %.032.i1047, ptr %4583, align 16, !tbaa !23
   %4584 = getelementptr inbounds nuw i8, ptr %4581, i64 40
-  store ptr %.sink46.i1050, ptr %4584, align 8, !tbaa !29
+  store ptr %.sink47.i1050, ptr %4584, align 8, !tbaa !29
   br label %new_add.exit1059
 
 new_add.exit1059:                                 ; preds = %4547, %.sink.split.i1049
@@ -12471,7 +12471,7 @@ new_add.exit1059:                                 ; preds = %4547, %.sink.split.
   store ptr %.031.sink.i1051, ptr %4587, align 16, !tbaa !23
   %4588 = getelementptr inbounds nuw i8, ptr %4585, i64 40
   store ptr %.sink.i1052, ptr %4588, align 8, !tbaa !29
-  br label %.backedge3752
+  br label %.backedge3804
 
 4589:                                             ; preds = %4520
   %4590 = call zeroext i1 @equal(ptr noundef %.02070, ptr noundef nonnull @.str.19) #13
@@ -12521,9 +12521,9 @@ new_add.exit1059:                                 ; preds = %4547, %.sink.split.
 mul.exit1044:                                     ; preds = %4602
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
   %4613 = call fastcc ptr @new_sub(ptr noundef %.08.i.i319, ptr noundef %.010.i1041, ptr noundef %.02070)
-  br label %.backedge3752
+  br label %.backedge3804
 
-.backedge3752:                                    ; preds = %mul.exit1044, %new_add.exit1059
+.backedge3804:                                    ; preds = %mul.exit1044, %new_add.exit1059
   %.02070.be = phi ptr [ %4535, %new_add.exit1059 ], [ %4604, %mul.exit1044 ]
   %.08.i.i319.be = phi ptr [ %4585, %new_add.exit1059 ], [ %4613, %mul.exit1044 ]
   br label %4520
@@ -12551,8 +12551,8 @@ add.exit.i320:                                    ; preds = %4589
   %4623 = call fastcc ptr @mul(ptr noundef %105, ptr noundef %4622)
   br label %4624
 
-4624:                                             ; preds = %.backedge3778, %4620
-  %.08.i1038 = phi ptr [ %4623, %4620 ], [ %.08.i1038.be, %.backedge3778 ]
+4624:                                             ; preds = %.backedge3830, %4620
+  %.08.i1038 = phi ptr [ %4623, %4620 ], [ %.08.i1038.be, %.backedge3830 ]
   %4625 = load ptr, ptr %105, align 8, !tbaa !25
   %4626 = call zeroext i1 @equal(ptr noundef %4625, ptr noundef nonnull @.str.18) #13
   br i1 %4626, label %4627, label %4632
@@ -12562,7 +12562,7 @@ add.exit.i320:                                    ; preds = %4589
   %4629 = load ptr, ptr %4628, align 8, !tbaa !26
   %4630 = call fastcc ptr @mul(ptr noundef %105, ptr noundef %4629)
   %4631 = call fastcc ptr @new_add(ptr noundef %.08.i1038, ptr noundef %4630, ptr noundef %4625)
-  br label %.backedge3778
+  br label %.backedge3830
 
 4632:                                             ; preds = %4624
   %4633 = call zeroext i1 @equal(ptr noundef %4625, ptr noundef nonnull @.str.19) #13
@@ -12573,9 +12573,9 @@ add.exit.i320:                                    ; preds = %4589
   %4636 = load ptr, ptr %4635, align 8, !tbaa !26
   %4637 = call fastcc ptr @mul(ptr noundef %105, ptr noundef %4636)
   %4638 = call fastcc ptr @new_sub(ptr noundef %.08.i1038, ptr noundef %4637, ptr noundef %4625)
-  br label %.backedge3778
+  br label %.backedge3830
 
-.backedge3778:                                    ; preds = %4634, %4627
+.backedge3830:                                    ; preds = %4634, %4627
   %.08.i1038.be = phi ptr [ %4631, %4627 ], [ %4638, %4634 ]
   br label %4624
 
@@ -12639,9 +12639,9 @@ mul.exit1037:                                     ; preds = %4654
   call void @llvm.lifetime.end.p0(ptr nonnull %106)
   br label %4665
 
-4665:                                             ; preds = %.backedge3753, %mul.exit1037
-  %.02067 = phi ptr [ %4656, %mul.exit1037 ], [ %.02067.be, %.backedge3753 ]
-  %.08.i.i313 = phi ptr [ %.010.i1034, %mul.exit1037 ], [ %.08.i.i313.be, %.backedge3753 ]
+4665:                                             ; preds = %.backedge3805, %mul.exit1037
+  %.02067 = phi ptr [ %4656, %mul.exit1037 ], [ %.02067.be, %.backedge3805 ]
+  %.08.i.i313 = phi ptr [ %.010.i1034, %mul.exit1037 ], [ %.08.i.i313.be, %.backedge3805 ]
   %4666 = call zeroext i1 @equal(ptr noundef %.02067, ptr noundef nonnull @.str.18) #13
   br i1 %4666, label %4667, label %4734
 
@@ -12764,7 +12764,7 @@ mul.exit1033:                                     ; preds = %4678
   br label %.sink.split.i1019
 
 .sink.split.i1019:                                ; preds = %4717, %4711
-  %.sink46.i1020 = phi ptr [ %4721, %4717 ], [ %4714, %4711 ]
+  %.sink47.i1020 = phi ptr [ %4721, %4717 ], [ %4714, %4711 ]
   %4726 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %4726, align 16, !tbaa !7
   %4727 = getelementptr inbounds nuw i8, ptr %4726, i64 24
@@ -12772,7 +12772,7 @@ mul.exit1033:                                     ; preds = %4678
   %4728 = getelementptr inbounds nuw i8, ptr %4726, i64 32
   store ptr %.032.i1017, ptr %4728, align 16, !tbaa !23
   %4729 = getelementptr inbounds nuw i8, ptr %4726, i64 40
-  store ptr %.sink46.i1020, ptr %4729, align 8, !tbaa !29
+  store ptr %.sink47.i1020, ptr %4729, align 8, !tbaa !29
   br label %new_add.exit1029
 
 new_add.exit1029:                                 ; preds = %4692, %.sink.split.i1019
@@ -12786,7 +12786,7 @@ new_add.exit1029:                                 ; preds = %4692, %.sink.split.
   store ptr %.031.sink.i1021, ptr %4732, align 16, !tbaa !23
   %4733 = getelementptr inbounds nuw i8, ptr %4730, i64 40
   store ptr %.sink.i1022, ptr %4733, align 8, !tbaa !29
-  br label %.backedge3753
+  br label %.backedge3805
 
 4734:                                             ; preds = %4665
   %4735 = call zeroext i1 @equal(ptr noundef %.02067, ptr noundef nonnull @.str.19) #13
@@ -12836,9 +12836,9 @@ new_add.exit1029:                                 ; preds = %4692, %.sink.split.
 mul.exit1014:                                     ; preds = %4747
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
   %4758 = call fastcc ptr @new_sub(ptr noundef %.08.i.i313, ptr noundef %.010.i1011, ptr noundef %.02067)
-  br label %.backedge3753
+  br label %.backedge3805
 
-.backedge3753:                                    ; preds = %mul.exit1014, %new_add.exit1029
+.backedge3805:                                    ; preds = %mul.exit1014, %new_add.exit1029
   %.02067.be = phi ptr [ %4680, %new_add.exit1029 ], [ %4749, %mul.exit1014 ]
   %.08.i.i313.be = phi ptr [ %4730, %new_add.exit1029 ], [ %4758, %mul.exit1014 ]
   br label %4665
@@ -12888,8 +12888,8 @@ relational.exit180:                               ; preds = %4618, %relational.e
   %4773 = call fastcc ptr @mul(ptr noundef %69, ptr noundef %4772)
   br label %4774
 
-4774:                                             ; preds = %.backedge3771, %4770
-  %.08.i1308 = phi ptr [ %4773, %4770 ], [ %.08.i1308.be, %.backedge3771 ]
+4774:                                             ; preds = %.backedge3823, %4770
+  %.08.i1308 = phi ptr [ %4773, %4770 ], [ %.08.i1308.be, %.backedge3823 ]
   %4775 = load ptr, ptr %69, align 8, !tbaa !25
   %4776 = call zeroext i1 @equal(ptr noundef %4775, ptr noundef nonnull @.str.18) #13
   br i1 %4776, label %4777, label %4782
@@ -12899,7 +12899,7 @@ relational.exit180:                               ; preds = %4618, %relational.e
   %4779 = load ptr, ptr %4778, align 8, !tbaa !26
   %4780 = call fastcc ptr @mul(ptr noundef %69, ptr noundef %4779)
   %4781 = call fastcc ptr @new_add(ptr noundef %.08.i1308, ptr noundef %4780, ptr noundef %4775)
-  br label %.backedge3771
+  br label %.backedge3823
 
 4782:                                             ; preds = %4774
   %4783 = call zeroext i1 @equal(ptr noundef %4775, ptr noundef nonnull @.str.19) #13
@@ -12910,9 +12910,9 @@ relational.exit180:                               ; preds = %4618, %relational.e
   %4786 = load ptr, ptr %4785, align 8, !tbaa !26
   %4787 = call fastcc ptr @mul(ptr noundef %69, ptr noundef %4786)
   %4788 = call fastcc ptr @new_sub(ptr noundef %.08.i1308, ptr noundef %4787, ptr noundef %4775)
-  br label %.backedge3771
+  br label %.backedge3823
 
-.backedge3771:                                    ; preds = %4784, %4777
+.backedge3823:                                    ; preds = %4784, %4777
   %.08.i1308.be = phi ptr [ %4781, %4777 ], [ %4788, %4784 ]
   br label %4774
 
@@ -12976,9 +12976,9 @@ mul.exit1307:                                     ; preds = %4804
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   br label %4815
 
-4815:                                             ; preds = %.backedge3749, %mul.exit1307
-  %.02094 = phi ptr [ %4806, %mul.exit1307 ], [ %.02094.be, %.backedge3749 ]
-  %.08.i.i367 = phi ptr [ %.010.i1304, %mul.exit1307 ], [ %.08.i.i367.be, %.backedge3749 ]
+4815:                                             ; preds = %.backedge3801, %mul.exit1307
+  %.02094 = phi ptr [ %4806, %mul.exit1307 ], [ %.02094.be, %.backedge3801 ]
+  %.08.i.i367 = phi ptr [ %.010.i1304, %mul.exit1307 ], [ %.08.i.i367.be, %.backedge3801 ]
   %4816 = call zeroext i1 @equal(ptr noundef %.02094, ptr noundef nonnull @.str.18) #13
   br i1 %4816, label %4817, label %4884
 
@@ -13101,7 +13101,7 @@ mul.exit1303:                                     ; preds = %4828
   br label %.sink.split.i1289
 
 .sink.split.i1289:                                ; preds = %4867, %4861
-  %.sink46.i1290 = phi ptr [ %4871, %4867 ], [ %4864, %4861 ]
+  %.sink47.i1290 = phi ptr [ %4871, %4867 ], [ %4864, %4861 ]
   %4876 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %4876, align 16, !tbaa !7
   %4877 = getelementptr inbounds nuw i8, ptr %4876, i64 24
@@ -13109,7 +13109,7 @@ mul.exit1303:                                     ; preds = %4828
   %4878 = getelementptr inbounds nuw i8, ptr %4876, i64 32
   store ptr %.032.i1287, ptr %4878, align 16, !tbaa !23
   %4879 = getelementptr inbounds nuw i8, ptr %4876, i64 40
-  store ptr %.sink46.i1290, ptr %4879, align 8, !tbaa !29
+  store ptr %.sink47.i1290, ptr %4879, align 8, !tbaa !29
   br label %new_add.exit1299
 
 new_add.exit1299:                                 ; preds = %4842, %.sink.split.i1289
@@ -13123,7 +13123,7 @@ new_add.exit1299:                                 ; preds = %4842, %.sink.split.
   store ptr %.031.sink.i1291, ptr %4882, align 16, !tbaa !23
   %4883 = getelementptr inbounds nuw i8, ptr %4880, i64 40
   store ptr %.sink.i1292, ptr %4883, align 8, !tbaa !29
-  br label %.backedge3749
+  br label %.backedge3801
 
 4884:                                             ; preds = %4815
   %4885 = call zeroext i1 @equal(ptr noundef %.02094, ptr noundef nonnull @.str.19) #13
@@ -13173,9 +13173,9 @@ new_add.exit1299:                                 ; preds = %4842, %.sink.split.
 mul.exit1284:                                     ; preds = %4897
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   %4908 = call fastcc ptr @new_sub(ptr noundef %.08.i.i367, ptr noundef %.010.i1281, ptr noundef %.02094)
-  br label %.backedge3749
+  br label %.backedge3801
 
-.backedge3749:                                    ; preds = %mul.exit1284, %new_add.exit1299
+.backedge3801:                                    ; preds = %mul.exit1284, %new_add.exit1299
   %.02094.be = phi ptr [ %4830, %new_add.exit1299 ], [ %4899, %mul.exit1284 ]
   %.08.i.i367.be = phi ptr [ %4880, %new_add.exit1299 ], [ %4908, %mul.exit1284 ]
   br label %4815
@@ -13205,8 +13205,8 @@ shift.exit370:                                    ; preds = %4791, %shift.exit36
   %4917 = call fastcc ptr @mul(ptr noundef %73, ptr noundef %4916)
   br label %4918
 
-4918:                                             ; preds = %.backedge3742, %4914
-  %.08.i1278 = phi ptr [ %4917, %4914 ], [ %.08.i1278.be, %.backedge3742 ]
+4918:                                             ; preds = %.backedge3794, %4914
+  %.08.i1278 = phi ptr [ %4917, %4914 ], [ %.08.i1278.be, %.backedge3794 ]
   %4919 = load ptr, ptr %73, align 8, !tbaa !25
   %4920 = call zeroext i1 @equal(ptr noundef %4919, ptr noundef nonnull @.str.18) #13
   br i1 %4920, label %4921, label %4988
@@ -13331,7 +13331,7 @@ mul.exit1894:                                     ; preds = %4932
   br label %.sink.split.i1880
 
 .sink.split.i1880:                                ; preds = %4971, %4965
-  %.sink46.i1881 = phi ptr [ %4975, %4971 ], [ %4968, %4965 ]
+  %.sink47.i1881 = phi ptr [ %4975, %4971 ], [ %4968, %4965 ]
   %4980 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %4980, align 16, !tbaa !7
   %4981 = getelementptr inbounds nuw i8, ptr %4980, i64 24
@@ -13339,7 +13339,7 @@ mul.exit1894:                                     ; preds = %4932
   %4982 = getelementptr inbounds nuw i8, ptr %4980, i64 32
   store ptr %.032.i1878, ptr %4982, align 16, !tbaa !23
   %4983 = getelementptr inbounds nuw i8, ptr %4980, i64 40
-  store ptr %.sink46.i1881, ptr %4983, align 8, !tbaa !29
+  store ptr %.sink47.i1881, ptr %4983, align 8, !tbaa !29
   br label %new_add.exit1890
 
 new_add.exit1890:                                 ; preds = %4946, %.sink.split.i1880
@@ -13353,7 +13353,7 @@ new_add.exit1890:                                 ; preds = %4946, %.sink.split.
   store ptr %.031.sink.i1882, ptr %4986, align 16, !tbaa !23
   %4987 = getelementptr inbounds nuw i8, ptr %4984, i64 40
   store ptr %.sink.i1883, ptr %4987, align 8, !tbaa !29
-  br label %.backedge3742
+  br label %.backedge3794
 
 4988:                                             ; preds = %4918
   %4989 = call zeroext i1 @equal(ptr noundef %4919, ptr noundef nonnull @.str.19) #13
@@ -13404,9 +13404,9 @@ mul.exit1875:                                     ; preds = %5001
   store ptr %5003, ptr %73, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %5012 = call fastcc ptr @new_sub(ptr noundef %.08.i1278, ptr noundef %.010.i1872, ptr noundef %4919)
-  br label %.backedge3742
+  br label %.backedge3794
 
-.backedge3742:                                    ; preds = %mul.exit1875, %new_add.exit1890
+.backedge3794:                                    ; preds = %mul.exit1875, %new_add.exit1890
   %.08.i1278.be = phi ptr [ %4984, %new_add.exit1890 ], [ %5012, %mul.exit1875 ]
   br label %4918
 
@@ -13470,9 +13470,9 @@ mul.exit1277:                                     ; preds = %5028
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br label %5039
 
-5039:                                             ; preds = %.backedge3725, %mul.exit1277
-  %.02091 = phi ptr [ %5030, %mul.exit1277 ], [ %.02091.be, %.backedge3725 ]
-  %.08.i.i361 = phi ptr [ %.010.i1274, %mul.exit1277 ], [ %.08.i.i361.be, %.backedge3725 ]
+5039:                                             ; preds = %.backedge3777, %mul.exit1277
+  %.02091 = phi ptr [ %5030, %mul.exit1277 ], [ %.02091.be, %.backedge3777 ]
+  %.08.i.i361 = phi ptr [ %.010.i1274, %mul.exit1277 ], [ %.08.i.i361.be, %.backedge3777 ]
   %5040 = call zeroext i1 @equal(ptr noundef %.02091, ptr noundef nonnull @.str.18) #13
   br i1 %5040, label %5041, label %5108
 
@@ -13595,7 +13595,7 @@ mul.exit1273:                                     ; preds = %5052
   br label %.sink.split.i1259
 
 .sink.split.i1259:                                ; preds = %5091, %5085
-  %.sink46.i1260 = phi ptr [ %5095, %5091 ], [ %5088, %5085 ]
+  %.sink47.i1260 = phi ptr [ %5095, %5091 ], [ %5088, %5085 ]
   %5100 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %5100, align 16, !tbaa !7
   %5101 = getelementptr inbounds nuw i8, ptr %5100, i64 24
@@ -13603,7 +13603,7 @@ mul.exit1273:                                     ; preds = %5052
   %5102 = getelementptr inbounds nuw i8, ptr %5100, i64 32
   store ptr %.032.i1257, ptr %5102, align 16, !tbaa !23
   %5103 = getelementptr inbounds nuw i8, ptr %5100, i64 40
-  store ptr %.sink46.i1260, ptr %5103, align 8, !tbaa !29
+  store ptr %.sink47.i1260, ptr %5103, align 8, !tbaa !29
   br label %new_add.exit1269
 
 new_add.exit1269:                                 ; preds = %5066, %.sink.split.i1259
@@ -13617,7 +13617,7 @@ new_add.exit1269:                                 ; preds = %5066, %.sink.split.
   store ptr %.031.sink.i1261, ptr %5106, align 16, !tbaa !23
   %5107 = getelementptr inbounds nuw i8, ptr %5104, i64 40
   store ptr %.sink.i1262, ptr %5107, align 8, !tbaa !29
-  br label %.backedge3725
+  br label %.backedge3777
 
 5108:                                             ; preds = %5039
   %5109 = call zeroext i1 @equal(ptr noundef %.02091, ptr noundef nonnull @.str.19) #13
@@ -13667,9 +13667,9 @@ new_add.exit1269:                                 ; preds = %5066, %.sink.split.
 mul.exit1254:                                     ; preds = %5121
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
   %5132 = call fastcc ptr @new_sub(ptr noundef %.08.i.i361, ptr noundef %.010.i1251, ptr noundef %.02091)
-  br label %.backedge3725
+  br label %.backedge3777
 
-.backedge3725:                                    ; preds = %mul.exit1254, %new_add.exit1269
+.backedge3777:                                    ; preds = %mul.exit1254, %new_add.exit1269
   %.02091.be = phi ptr [ %5054, %new_add.exit1269 ], [ %5123, %mul.exit1254 ]
   %.08.i.i361.be = phi ptr [ %5104, %new_add.exit1269 ], [ %5132, %mul.exit1254 ]
   br label %5039
@@ -13697,8 +13697,8 @@ add.exit.i362:                                    ; preds = %5108
   %5142 = call fastcc ptr @mul(ptr noundef %77, ptr noundef %5141)
   br label %5143
 
-5143:                                             ; preds = %.backedge3744, %5139
-  %.08.i1248 = phi ptr [ %5142, %5139 ], [ %.08.i1248.be, %.backedge3744 ]
+5143:                                             ; preds = %.backedge3796, %5139
+  %.08.i1248 = phi ptr [ %5142, %5139 ], [ %.08.i1248.be, %.backedge3796 ]
   %5144 = load ptr, ptr %77, align 8, !tbaa !25
   %5145 = call zeroext i1 @equal(ptr noundef %5144, ptr noundef nonnull @.str.18) #13
   br i1 %5145, label %5146, label %5151
@@ -13708,7 +13708,7 @@ add.exit.i362:                                    ; preds = %5108
   %5148 = load ptr, ptr %5147, align 8, !tbaa !26
   %5149 = call fastcc ptr @mul(ptr noundef %77, ptr noundef %5148)
   %5150 = call fastcc ptr @new_add(ptr noundef %.08.i1248, ptr noundef %5149, ptr noundef %5144)
-  br label %.backedge3744
+  br label %.backedge3796
 
 5151:                                             ; preds = %5143
   %5152 = call zeroext i1 @equal(ptr noundef %5144, ptr noundef nonnull @.str.19) #13
@@ -13719,9 +13719,9 @@ add.exit.i362:                                    ; preds = %5108
   %5155 = load ptr, ptr %5154, align 8, !tbaa !26
   %5156 = call fastcc ptr @mul(ptr noundef %77, ptr noundef %5155)
   %5157 = call fastcc ptr @new_sub(ptr noundef %.08.i1248, ptr noundef %5156, ptr noundef %5144)
-  br label %.backedge3744
+  br label %.backedge3796
 
-.backedge3744:                                    ; preds = %5153, %5146
+.backedge3796:                                    ; preds = %5153, %5146
   %.08.i1248.be = phi ptr [ %5150, %5146 ], [ %5157, %5153 ]
   br label %5143
 
@@ -13785,9 +13785,9 @@ mul.exit1247:                                     ; preds = %5173
   call void @llvm.lifetime.end.p0(ptr nonnull %78)
   br label %5184
 
-5184:                                             ; preds = %.backedge3726, %mul.exit1247
-  %.02088 = phi ptr [ %5175, %mul.exit1247 ], [ %.02088.be, %.backedge3726 ]
-  %.08.i.i355 = phi ptr [ %.010.i1244, %mul.exit1247 ], [ %.08.i.i355.be, %.backedge3726 ]
+5184:                                             ; preds = %.backedge3778, %mul.exit1247
+  %.02088 = phi ptr [ %5175, %mul.exit1247 ], [ %.02088.be, %.backedge3778 ]
+  %.08.i.i355 = phi ptr [ %.010.i1244, %mul.exit1247 ], [ %.08.i.i355.be, %.backedge3778 ]
   %5185 = call zeroext i1 @equal(ptr noundef %.02088, ptr noundef nonnull @.str.18) #13
   br i1 %5185, label %5186, label %5253
 
@@ -13910,7 +13910,7 @@ mul.exit1243:                                     ; preds = %5197
   br label %.sink.split.i1229
 
 .sink.split.i1229:                                ; preds = %5236, %5230
-  %.sink46.i1230 = phi ptr [ %5240, %5236 ], [ %5233, %5230 ]
+  %.sink47.i1230 = phi ptr [ %5240, %5236 ], [ %5233, %5230 ]
   %5245 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %5245, align 16, !tbaa !7
   %5246 = getelementptr inbounds nuw i8, ptr %5245, i64 24
@@ -13918,7 +13918,7 @@ mul.exit1243:                                     ; preds = %5197
   %5247 = getelementptr inbounds nuw i8, ptr %5245, i64 32
   store ptr %.032.i1227, ptr %5247, align 16, !tbaa !23
   %5248 = getelementptr inbounds nuw i8, ptr %5245, i64 40
-  store ptr %.sink46.i1230, ptr %5248, align 8, !tbaa !29
+  store ptr %.sink47.i1230, ptr %5248, align 8, !tbaa !29
   br label %new_add.exit1239
 
 new_add.exit1239:                                 ; preds = %5211, %.sink.split.i1229
@@ -13932,7 +13932,7 @@ new_add.exit1239:                                 ; preds = %5211, %.sink.split.
   store ptr %.031.sink.i1231, ptr %5251, align 16, !tbaa !23
   %5252 = getelementptr inbounds nuw i8, ptr %5249, i64 40
   store ptr %.sink.i1232, ptr %5252, align 8, !tbaa !29
-  br label %.backedge3726
+  br label %.backedge3778
 
 5253:                                             ; preds = %5184
   %5254 = call zeroext i1 @equal(ptr noundef %.02088, ptr noundef nonnull @.str.19) #13
@@ -13982,9 +13982,9 @@ new_add.exit1239:                                 ; preds = %5211, %.sink.split.
 mul.exit1224:                                     ; preds = %5266
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
   %5277 = call fastcc ptr @new_sub(ptr noundef %.08.i.i355, ptr noundef %.010.i1221, ptr noundef %.02088)
-  br label %.backedge3726
+  br label %.backedge3778
 
-.backedge3726:                                    ; preds = %mul.exit1224, %new_add.exit1239
+.backedge3778:                                    ; preds = %mul.exit1224, %new_add.exit1239
   %.02088.be = phi ptr [ %5199, %new_add.exit1239 ], [ %5268, %mul.exit1224 ]
   %.08.i.i355.be = phi ptr [ %5249, %new_add.exit1239 ], [ %5277, %mul.exit1224 ]
   br label %5184
@@ -14012,8 +14012,8 @@ add.exit.i356:                                    ; preds = %5253
   %5287 = call fastcc ptr @mul(ptr noundef %81, ptr noundef %5286)
   br label %5288
 
-5288:                                             ; preds = %.backedge3746, %5284
-  %.08.i1218 = phi ptr [ %5287, %5284 ], [ %.08.i1218.be, %.backedge3746 ]
+5288:                                             ; preds = %.backedge3798, %5284
+  %.08.i1218 = phi ptr [ %5287, %5284 ], [ %.08.i1218.be, %.backedge3798 ]
   %5289 = load ptr, ptr %81, align 8, !tbaa !25
   %5290 = call zeroext i1 @equal(ptr noundef %5289, ptr noundef nonnull @.str.18) #13
   br i1 %5290, label %5291, label %5296
@@ -14023,7 +14023,7 @@ add.exit.i356:                                    ; preds = %5253
   %5293 = load ptr, ptr %5292, align 8, !tbaa !26
   %5294 = call fastcc ptr @mul(ptr noundef %81, ptr noundef %5293)
   %5295 = call fastcc ptr @new_add(ptr noundef %.08.i1218, ptr noundef %5294, ptr noundef %5289)
-  br label %.backedge3746
+  br label %.backedge3798
 
 5296:                                             ; preds = %5288
   %5297 = call zeroext i1 @equal(ptr noundef %5289, ptr noundef nonnull @.str.19) #13
@@ -14034,9 +14034,9 @@ add.exit.i356:                                    ; preds = %5253
   %5300 = load ptr, ptr %5299, align 8, !tbaa !26
   %5301 = call fastcc ptr @mul(ptr noundef %81, ptr noundef %5300)
   %5302 = call fastcc ptr @new_sub(ptr noundef %.08.i1218, ptr noundef %5301, ptr noundef %5289)
-  br label %.backedge3746
+  br label %.backedge3798
 
-.backedge3746:                                    ; preds = %5298, %5291
+.backedge3798:                                    ; preds = %5298, %5291
   %.08.i1218.be = phi ptr [ %5295, %5291 ], [ %5302, %5298 ]
   br label %5288
 
@@ -14100,9 +14100,9 @@ mul.exit1217:                                     ; preds = %5318
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %5329
 
-5329:                                             ; preds = %.backedge3727, %mul.exit1217
-  %.02085 = phi ptr [ %5320, %mul.exit1217 ], [ %.02085.be, %.backedge3727 ]
-  %.08.i.i349 = phi ptr [ %.010.i1214, %mul.exit1217 ], [ %.08.i.i349.be, %.backedge3727 ]
+5329:                                             ; preds = %.backedge3779, %mul.exit1217
+  %.02085 = phi ptr [ %5320, %mul.exit1217 ], [ %.02085.be, %.backedge3779 ]
+  %.08.i.i349 = phi ptr [ %.010.i1214, %mul.exit1217 ], [ %.08.i.i349.be, %.backedge3779 ]
   %5330 = call zeroext i1 @equal(ptr noundef %.02085, ptr noundef nonnull @.str.18) #13
   br i1 %5330, label %5331, label %5398
 
@@ -14225,7 +14225,7 @@ mul.exit1213:                                     ; preds = %5342
   br label %.sink.split.i1199
 
 .sink.split.i1199:                                ; preds = %5381, %5375
-  %.sink46.i1200 = phi ptr [ %5385, %5381 ], [ %5378, %5375 ]
+  %.sink47.i1200 = phi ptr [ %5385, %5381 ], [ %5378, %5375 ]
   %5390 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %5390, align 16, !tbaa !7
   %5391 = getelementptr inbounds nuw i8, ptr %5390, i64 24
@@ -14233,7 +14233,7 @@ mul.exit1213:                                     ; preds = %5342
   %5392 = getelementptr inbounds nuw i8, ptr %5390, i64 32
   store ptr %.032.i1197, ptr %5392, align 16, !tbaa !23
   %5393 = getelementptr inbounds nuw i8, ptr %5390, i64 40
-  store ptr %.sink46.i1200, ptr %5393, align 8, !tbaa !29
+  store ptr %.sink47.i1200, ptr %5393, align 8, !tbaa !29
   br label %new_add.exit1209
 
 new_add.exit1209:                                 ; preds = %5356, %.sink.split.i1199
@@ -14247,7 +14247,7 @@ new_add.exit1209:                                 ; preds = %5356, %.sink.split.
   store ptr %.031.sink.i1201, ptr %5396, align 16, !tbaa !23
   %5397 = getelementptr inbounds nuw i8, ptr %5394, i64 40
   store ptr %.sink.i1202, ptr %5397, align 8, !tbaa !29
-  br label %.backedge3727
+  br label %.backedge3779
 
 5398:                                             ; preds = %5329
   %5399 = call zeroext i1 @equal(ptr noundef %.02085, ptr noundef nonnull @.str.19) #13
@@ -14297,9 +14297,9 @@ new_add.exit1209:                                 ; preds = %5356, %.sink.split.
 mul.exit1194:                                     ; preds = %5411
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
   %5422 = call fastcc ptr @new_sub(ptr noundef %.08.i.i349, ptr noundef %.010.i1191, ptr noundef %.02085)
-  br label %.backedge3727
+  br label %.backedge3779
 
-.backedge3727:                                    ; preds = %mul.exit1194, %new_add.exit1209
+.backedge3779:                                    ; preds = %mul.exit1194, %new_add.exit1209
   %.02085.be = phi ptr [ %5344, %new_add.exit1209 ], [ %5413, %mul.exit1194 ]
   %.08.i.i349.be = phi ptr [ %5394, %new_add.exit1209 ], [ %5422, %mul.exit1194 ]
   br label %5329
@@ -14327,8 +14327,8 @@ add.exit.i350:                                    ; preds = %5398
   %5432 = call fastcc ptr @mul(ptr noundef %85, ptr noundef %5431)
   br label %5433
 
-5433:                                             ; preds = %.backedge3748, %5429
-  %.08.i1188 = phi ptr [ %5432, %5429 ], [ %.08.i1188.be, %.backedge3748 ]
+5433:                                             ; preds = %.backedge3800, %5429
+  %.08.i1188 = phi ptr [ %5432, %5429 ], [ %.08.i1188.be, %.backedge3800 ]
   %5434 = load ptr, ptr %85, align 8, !tbaa !25
   %5435 = call zeroext i1 @equal(ptr noundef %5434, ptr noundef nonnull @.str.18) #13
   br i1 %5435, label %5436, label %5441
@@ -14338,7 +14338,7 @@ add.exit.i350:                                    ; preds = %5398
   %5438 = load ptr, ptr %5437, align 8, !tbaa !26
   %5439 = call fastcc ptr @mul(ptr noundef %85, ptr noundef %5438)
   %5440 = call fastcc ptr @new_add(ptr noundef %.08.i1188, ptr noundef %5439, ptr noundef %5434)
-  br label %.backedge3748
+  br label %.backedge3800
 
 5441:                                             ; preds = %5433
   %5442 = call zeroext i1 @equal(ptr noundef %5434, ptr noundef nonnull @.str.19) #13
@@ -14349,9 +14349,9 @@ add.exit.i350:                                    ; preds = %5398
   %5445 = load ptr, ptr %5444, align 8, !tbaa !26
   %5446 = call fastcc ptr @mul(ptr noundef %85, ptr noundef %5445)
   %5447 = call fastcc ptr @new_sub(ptr noundef %.08.i1188, ptr noundef %5446, ptr noundef %5434)
-  br label %.backedge3748
+  br label %.backedge3800
 
-.backedge3748:                                    ; preds = %5443, %5436
+.backedge3800:                                    ; preds = %5443, %5436
   %.08.i1188.be = phi ptr [ %5440, %5436 ], [ %5447, %5443 ]
   br label %5433
 
@@ -14415,9 +14415,9 @@ mul.exit1187:                                     ; preds = %5463
   call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br label %5474
 
-5474:                                             ; preds = %.backedge3728, %mul.exit1187
-  %.02082 = phi ptr [ %5465, %mul.exit1187 ], [ %.02082.be, %.backedge3728 ]
-  %.08.i.i343 = phi ptr [ %.010.i1184, %mul.exit1187 ], [ %.08.i.i343.be, %.backedge3728 ]
+5474:                                             ; preds = %.backedge3780, %mul.exit1187
+  %.02082 = phi ptr [ %5465, %mul.exit1187 ], [ %.02082.be, %.backedge3780 ]
+  %.08.i.i343 = phi ptr [ %.010.i1184, %mul.exit1187 ], [ %.08.i.i343.be, %.backedge3780 ]
   %5475 = call zeroext i1 @equal(ptr noundef %.02082, ptr noundef nonnull @.str.18) #13
   br i1 %5475, label %5476, label %5543
 
@@ -14540,7 +14540,7 @@ mul.exit1183:                                     ; preds = %5487
   br label %.sink.split.i1169
 
 .sink.split.i1169:                                ; preds = %5526, %5520
-  %.sink46.i1170 = phi ptr [ %5530, %5526 ], [ %5523, %5520 ]
+  %.sink47.i1170 = phi ptr [ %5530, %5526 ], [ %5523, %5520 ]
   %5535 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %5535, align 16, !tbaa !7
   %5536 = getelementptr inbounds nuw i8, ptr %5535, i64 24
@@ -14548,7 +14548,7 @@ mul.exit1183:                                     ; preds = %5487
   %5537 = getelementptr inbounds nuw i8, ptr %5535, i64 32
   store ptr %.032.i1167, ptr %5537, align 16, !tbaa !23
   %5538 = getelementptr inbounds nuw i8, ptr %5535, i64 40
-  store ptr %.sink46.i1170, ptr %5538, align 8, !tbaa !29
+  store ptr %.sink47.i1170, ptr %5538, align 8, !tbaa !29
   br label %new_add.exit1179
 
 new_add.exit1179:                                 ; preds = %5501, %.sink.split.i1169
@@ -14562,7 +14562,7 @@ new_add.exit1179:                                 ; preds = %5501, %.sink.split.
   store ptr %.031.sink.i1171, ptr %5541, align 16, !tbaa !23
   %5542 = getelementptr inbounds nuw i8, ptr %5539, i64 40
   store ptr %.sink.i1172, ptr %5542, align 8, !tbaa !29
-  br label %.backedge3728
+  br label %.backedge3780
 
 5543:                                             ; preds = %5474
   %5544 = call zeroext i1 @equal(ptr noundef %.02082, ptr noundef nonnull @.str.19) #13
@@ -14612,9 +14612,9 @@ new_add.exit1179:                                 ; preds = %5501, %.sink.split.
 mul.exit1164:                                     ; preds = %5556
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
   %5567 = call fastcc ptr @new_sub(ptr noundef %.08.i.i343, ptr noundef %.010.i1161, ptr noundef %.02082)
-  br label %.backedge3728
+  br label %.backedge3780
 
-.backedge3728:                                    ; preds = %mul.exit1164, %new_add.exit1179
+.backedge3780:                                    ; preds = %mul.exit1164, %new_add.exit1179
   %.02082.be = phi ptr [ %5489, %new_add.exit1179 ], [ %5558, %mul.exit1164 ]
   %.08.i.i343.be = phi ptr [ %5539, %new_add.exit1179 ], [ %5567, %mul.exit1164 ]
   br label %5474
@@ -14670,8 +14670,8 @@ equality.exit12:                                  ; preds = %4768
   %5583 = call fastcc ptr @mul(ptr noundef %49, ptr noundef %5582)
   br label %5584
 
-5584:                                             ; preds = %.backedge3770, %.lr.ph85
-  %.08.i1458 = phi ptr [ %5583, %.lr.ph85 ], [ %.08.i1458.be, %.backedge3770 ]
+5584:                                             ; preds = %.backedge3822, %.lr.ph85
+  %.08.i1458 = phi ptr [ %5583, %.lr.ph85 ], [ %.08.i1458.be, %.backedge3822 ]
   %5585 = load ptr, ptr %49, align 8, !tbaa !25
   %5586 = call zeroext i1 @equal(ptr noundef %5585, ptr noundef nonnull @.str.18) #13
   br i1 %5586, label %5587, label %5592
@@ -14681,7 +14681,7 @@ equality.exit12:                                  ; preds = %4768
   %5589 = load ptr, ptr %5588, align 8, !tbaa !26
   %5590 = call fastcc ptr @mul(ptr noundef %49, ptr noundef %5589)
   %5591 = call fastcc ptr @new_add(ptr noundef %.08.i1458, ptr noundef %5590, ptr noundef %5585)
-  br label %.backedge3770
+  br label %.backedge3822
 
 5592:                                             ; preds = %5584
   %5593 = call zeroext i1 @equal(ptr noundef %5585, ptr noundef nonnull @.str.19) #13
@@ -14692,9 +14692,9 @@ equality.exit12:                                  ; preds = %4768
   %5596 = load ptr, ptr %5595, align 8, !tbaa !26
   %5597 = call fastcc ptr @mul(ptr noundef %49, ptr noundef %5596)
   %5598 = call fastcc ptr @new_sub(ptr noundef %.08.i1458, ptr noundef %5597, ptr noundef %5585)
-  br label %.backedge3770
+  br label %.backedge3822
 
-.backedge3770:                                    ; preds = %5594, %5587
+.backedge3822:                                    ; preds = %5594, %5587
   %.08.i1458.be = phi ptr [ %5591, %5587 ], [ %5598, %5594 ]
   br label %5584
 
@@ -14758,9 +14758,9 @@ mul.exit1457:                                     ; preds = %5614
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %5625
 
-5625:                                             ; preds = %.backedge3741, %mul.exit1457
-  %.02109 = phi ptr [ %5616, %mul.exit1457 ], [ %.02109.be, %.backedge3741 ]
-  %.08.i.i397 = phi ptr [ %.010.i1454, %mul.exit1457 ], [ %.08.i.i397.be, %.backedge3741 ]
+5625:                                             ; preds = %.backedge3793, %mul.exit1457
+  %.02109 = phi ptr [ %5616, %mul.exit1457 ], [ %.02109.be, %.backedge3793 ]
+  %.08.i.i397 = phi ptr [ %.010.i1454, %mul.exit1457 ], [ %.08.i.i397.be, %.backedge3793 ]
   %5626 = call zeroext i1 @equal(ptr noundef %.02109, ptr noundef nonnull @.str.18) #13
   br i1 %5626, label %5627, label %5694
 
@@ -14883,7 +14883,7 @@ mul.exit1453:                                     ; preds = %5638
   br label %.sink.split.i1439
 
 .sink.split.i1439:                                ; preds = %5677, %5671
-  %.sink46.i1440 = phi ptr [ %5681, %5677 ], [ %5674, %5671 ]
+  %.sink47.i1440 = phi ptr [ %5681, %5677 ], [ %5674, %5671 ]
   %5686 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %5686, align 16, !tbaa !7
   %5687 = getelementptr inbounds nuw i8, ptr %5686, i64 24
@@ -14891,7 +14891,7 @@ mul.exit1453:                                     ; preds = %5638
   %5688 = getelementptr inbounds nuw i8, ptr %5686, i64 32
   store ptr %.032.i1437, ptr %5688, align 16, !tbaa !23
   %5689 = getelementptr inbounds nuw i8, ptr %5686, i64 40
-  store ptr %.sink46.i1440, ptr %5689, align 8, !tbaa !29
+  store ptr %.sink47.i1440, ptr %5689, align 8, !tbaa !29
   br label %new_add.exit1449
 
 new_add.exit1449:                                 ; preds = %5652, %.sink.split.i1439
@@ -14905,7 +14905,7 @@ new_add.exit1449:                                 ; preds = %5652, %.sink.split.
   store ptr %.031.sink.i1441, ptr %5692, align 16, !tbaa !23
   %5693 = getelementptr inbounds nuw i8, ptr %5690, i64 40
   store ptr %.sink.i1442, ptr %5693, align 8, !tbaa !29
-  br label %.backedge3741
+  br label %.backedge3793
 
 5694:                                             ; preds = %5625
   %5695 = call zeroext i1 @equal(ptr noundef %.02109, ptr noundef nonnull @.str.19) #13
@@ -14955,9 +14955,9 @@ new_add.exit1449:                                 ; preds = %5652, %.sink.split.
 mul.exit1434:                                     ; preds = %5707
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   %5718 = call fastcc ptr @new_sub(ptr noundef %.08.i.i397, ptr noundef %.010.i1431, ptr noundef %.02109)
-  br label %.backedge3741
+  br label %.backedge3793
 
-.backedge3741:                                    ; preds = %mul.exit1434, %new_add.exit1449
+.backedge3793:                                    ; preds = %mul.exit1434, %new_add.exit1449
   %.02109.be = phi ptr [ %5640, %new_add.exit1449 ], [ %5709, %mul.exit1434 ]
   %.08.i.i397.be = phi ptr [ %5690, %new_add.exit1449 ], [ %5718, %mul.exit1434 ]
   br label %5625
@@ -14987,8 +14987,8 @@ shift.exit400:                                    ; preds = %5601, %shift.exit39
   %5727 = call fastcc ptr @mul(ptr noundef %53, ptr noundef %5726)
   br label %5728
 
-5728:                                             ; preds = %.backedge3734, %5724
-  %.08.i1428 = phi ptr [ %5727, %5724 ], [ %.08.i1428.be, %.backedge3734 ]
+5728:                                             ; preds = %.backedge3786, %5724
+  %.08.i1428 = phi ptr [ %5727, %5724 ], [ %.08.i1428.be, %.backedge3786 ]
   %5729 = load ptr, ptr %53, align 8, !tbaa !25
   %5730 = call zeroext i1 @equal(ptr noundef %5729, ptr noundef nonnull @.str.18) #13
   br i1 %5730, label %5731, label %5736
@@ -14998,7 +14998,7 @@ shift.exit400:                                    ; preds = %5601, %shift.exit39
   %5733 = load ptr, ptr %5732, align 8, !tbaa !26
   %5734 = call fastcc ptr @mul(ptr noundef %53, ptr noundef %5733)
   %5735 = call fastcc ptr @new_add(ptr noundef %.08.i1428, ptr noundef %5734, ptr noundef %5729)
-  br label %.backedge3734
+  br label %.backedge3786
 
 5736:                                             ; preds = %5728
   %5737 = call zeroext i1 @equal(ptr noundef %5729, ptr noundef nonnull @.str.19) #13
@@ -15009,9 +15009,9 @@ shift.exit400:                                    ; preds = %5601, %shift.exit39
   %5740 = load ptr, ptr %5739, align 8, !tbaa !26
   %5741 = call fastcc ptr @mul(ptr noundef %53, ptr noundef %5740)
   %5742 = call fastcc ptr @new_sub(ptr noundef %.08.i1428, ptr noundef %5741, ptr noundef %5729)
-  br label %.backedge3734
+  br label %.backedge3786
 
-.backedge3734:                                    ; preds = %5738, %5731
+.backedge3786:                                    ; preds = %5738, %5731
   %.08.i1428.be = phi ptr [ %5735, %5731 ], [ %5742, %5738 ]
   br label %5728
 
@@ -15075,9 +15075,9 @@ mul.exit1427:                                     ; preds = %5758
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %5769
 
-5769:                                             ; preds = %.backedge3721, %mul.exit1427
-  %.02106 = phi ptr [ %5760, %mul.exit1427 ], [ %.02106.be, %.backedge3721 ]
-  %.08.i.i391 = phi ptr [ %.010.i1424, %mul.exit1427 ], [ %.08.i.i391.be, %.backedge3721 ]
+5769:                                             ; preds = %.backedge3773, %mul.exit1427
+  %.02106 = phi ptr [ %5760, %mul.exit1427 ], [ %.02106.be, %.backedge3773 ]
+  %.08.i.i391 = phi ptr [ %.010.i1424, %mul.exit1427 ], [ %.08.i.i391.be, %.backedge3773 ]
   %5770 = call zeroext i1 @equal(ptr noundef %.02106, ptr noundef nonnull @.str.18) #13
   br i1 %5770, label %5771, label %5838
 
@@ -15200,7 +15200,7 @@ mul.exit1423:                                     ; preds = %5782
   br label %.sink.split.i1409
 
 .sink.split.i1409:                                ; preds = %5821, %5815
-  %.sink46.i1410 = phi ptr [ %5825, %5821 ], [ %5818, %5815 ]
+  %.sink47.i1410 = phi ptr [ %5825, %5821 ], [ %5818, %5815 ]
   %5830 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %5830, align 16, !tbaa !7
   %5831 = getelementptr inbounds nuw i8, ptr %5830, i64 24
@@ -15208,7 +15208,7 @@ mul.exit1423:                                     ; preds = %5782
   %5832 = getelementptr inbounds nuw i8, ptr %5830, i64 32
   store ptr %.032.i1407, ptr %5832, align 16, !tbaa !23
   %5833 = getelementptr inbounds nuw i8, ptr %5830, i64 40
-  store ptr %.sink46.i1410, ptr %5833, align 8, !tbaa !29
+  store ptr %.sink47.i1410, ptr %5833, align 8, !tbaa !29
   br label %new_add.exit1419
 
 new_add.exit1419:                                 ; preds = %5796, %.sink.split.i1409
@@ -15222,7 +15222,7 @@ new_add.exit1419:                                 ; preds = %5796, %.sink.split.
   store ptr %.031.sink.i1411, ptr %5836, align 16, !tbaa !23
   %5837 = getelementptr inbounds nuw i8, ptr %5834, i64 40
   store ptr %.sink.i1412, ptr %5837, align 8, !tbaa !29
-  br label %.backedge3721
+  br label %.backedge3773
 
 5838:                                             ; preds = %5769
   %5839 = call zeroext i1 @equal(ptr noundef %.02106, ptr noundef nonnull @.str.19) #13
@@ -15272,9 +15272,9 @@ new_add.exit1419:                                 ; preds = %5796, %.sink.split.
 mul.exit1404:                                     ; preds = %5851
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   %5862 = call fastcc ptr @new_sub(ptr noundef %.08.i.i391, ptr noundef %.010.i1401, ptr noundef %.02106)
-  br label %.backedge3721
+  br label %.backedge3773
 
-.backedge3721:                                    ; preds = %mul.exit1404, %new_add.exit1419
+.backedge3773:                                    ; preds = %mul.exit1404, %new_add.exit1419
   %.02106.be = phi ptr [ %5784, %new_add.exit1419 ], [ %5853, %mul.exit1404 ]
   %.08.i.i391.be = phi ptr [ %5834, %new_add.exit1419 ], [ %5862, %mul.exit1404 ]
   br label %5769
@@ -15302,8 +15302,8 @@ add.exit.i392:                                    ; preds = %5838
   %5872 = call fastcc ptr @mul(ptr noundef %57, ptr noundef %5871)
   br label %5873
 
-5873:                                             ; preds = %.backedge3736, %5869
-  %.08.i1398 = phi ptr [ %5872, %5869 ], [ %.08.i1398.be, %.backedge3736 ]
+5873:                                             ; preds = %.backedge3788, %5869
+  %.08.i1398 = phi ptr [ %5872, %5869 ], [ %.08.i1398.be, %.backedge3788 ]
   %5874 = load ptr, ptr %57, align 8, !tbaa !25
   %5875 = call zeroext i1 @equal(ptr noundef %5874, ptr noundef nonnull @.str.18) #13
   br i1 %5875, label %5876, label %5881
@@ -15313,7 +15313,7 @@ add.exit.i392:                                    ; preds = %5838
   %5878 = load ptr, ptr %5877, align 8, !tbaa !26
   %5879 = call fastcc ptr @mul(ptr noundef %57, ptr noundef %5878)
   %5880 = call fastcc ptr @new_add(ptr noundef %.08.i1398, ptr noundef %5879, ptr noundef %5874)
-  br label %.backedge3736
+  br label %.backedge3788
 
 5881:                                             ; preds = %5873
   %5882 = call zeroext i1 @equal(ptr noundef %5874, ptr noundef nonnull @.str.19) #13
@@ -15324,9 +15324,9 @@ add.exit.i392:                                    ; preds = %5838
   %5885 = load ptr, ptr %5884, align 8, !tbaa !26
   %5886 = call fastcc ptr @mul(ptr noundef %57, ptr noundef %5885)
   %5887 = call fastcc ptr @new_sub(ptr noundef %.08.i1398, ptr noundef %5886, ptr noundef %5874)
-  br label %.backedge3736
+  br label %.backedge3788
 
-.backedge3736:                                    ; preds = %5883, %5876
+.backedge3788:                                    ; preds = %5883, %5876
   %.08.i1398.be = phi ptr [ %5880, %5876 ], [ %5887, %5883 ]
   br label %5873
 
@@ -15390,9 +15390,9 @@ mul.exit1397:                                     ; preds = %5903
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %5914
 
-5914:                                             ; preds = %.backedge3722, %mul.exit1397
-  %.02103 = phi ptr [ %5905, %mul.exit1397 ], [ %.02103.be, %.backedge3722 ]
-  %.08.i.i385 = phi ptr [ %.010.i1394, %mul.exit1397 ], [ %.08.i.i385.be, %.backedge3722 ]
+5914:                                             ; preds = %.backedge3774, %mul.exit1397
+  %.02103 = phi ptr [ %5905, %mul.exit1397 ], [ %.02103.be, %.backedge3774 ]
+  %.08.i.i385 = phi ptr [ %.010.i1394, %mul.exit1397 ], [ %.08.i.i385.be, %.backedge3774 ]
   %5915 = call zeroext i1 @equal(ptr noundef %.02103, ptr noundef nonnull @.str.18) #13
   br i1 %5915, label %5916, label %5983
 
@@ -15515,7 +15515,7 @@ mul.exit1393:                                     ; preds = %5927
   br label %.sink.split.i1379
 
 .sink.split.i1379:                                ; preds = %5966, %5960
-  %.sink46.i1380 = phi ptr [ %5970, %5966 ], [ %5963, %5960 ]
+  %.sink47.i1380 = phi ptr [ %5970, %5966 ], [ %5963, %5960 ]
   %5975 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %5975, align 16, !tbaa !7
   %5976 = getelementptr inbounds nuw i8, ptr %5975, i64 24
@@ -15523,7 +15523,7 @@ mul.exit1393:                                     ; preds = %5927
   %5977 = getelementptr inbounds nuw i8, ptr %5975, i64 32
   store ptr %.032.i1377, ptr %5977, align 16, !tbaa !23
   %5978 = getelementptr inbounds nuw i8, ptr %5975, i64 40
-  store ptr %.sink46.i1380, ptr %5978, align 8, !tbaa !29
+  store ptr %.sink47.i1380, ptr %5978, align 8, !tbaa !29
   br label %new_add.exit1389
 
 new_add.exit1389:                                 ; preds = %5941, %.sink.split.i1379
@@ -15537,7 +15537,7 @@ new_add.exit1389:                                 ; preds = %5941, %.sink.split.
   store ptr %.031.sink.i1381, ptr %5981, align 16, !tbaa !23
   %5982 = getelementptr inbounds nuw i8, ptr %5979, i64 40
   store ptr %.sink.i1382, ptr %5982, align 8, !tbaa !29
-  br label %.backedge3722
+  br label %.backedge3774
 
 5983:                                             ; preds = %5914
   %5984 = call zeroext i1 @equal(ptr noundef %.02103, ptr noundef nonnull @.str.19) #13
@@ -15587,9 +15587,9 @@ new_add.exit1389:                                 ; preds = %5941, %.sink.split.
 mul.exit1374:                                     ; preds = %5996
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %6007 = call fastcc ptr @new_sub(ptr noundef %.08.i.i385, ptr noundef %.010.i1371, ptr noundef %.02103)
-  br label %.backedge3722
+  br label %.backedge3774
 
-.backedge3722:                                    ; preds = %mul.exit1374, %new_add.exit1389
+.backedge3774:                                    ; preds = %mul.exit1374, %new_add.exit1389
   %.02103.be = phi ptr [ %5929, %new_add.exit1389 ], [ %5998, %mul.exit1374 ]
   %.08.i.i385.be = phi ptr [ %5979, %new_add.exit1389 ], [ %6007, %mul.exit1374 ]
   br label %5914
@@ -15617,8 +15617,8 @@ add.exit.i386:                                    ; preds = %5983
   %6017 = call fastcc ptr @mul(ptr noundef %61, ptr noundef %6016)
   br label %6018
 
-6018:                                             ; preds = %.backedge3738, %6014
-  %.08.i1368 = phi ptr [ %6017, %6014 ], [ %.08.i1368.be, %.backedge3738 ]
+6018:                                             ; preds = %.backedge3790, %6014
+  %.08.i1368 = phi ptr [ %6017, %6014 ], [ %.08.i1368.be, %.backedge3790 ]
   %6019 = load ptr, ptr %61, align 8, !tbaa !25
   %6020 = call zeroext i1 @equal(ptr noundef %6019, ptr noundef nonnull @.str.18) #13
   br i1 %6020, label %6021, label %6026
@@ -15628,7 +15628,7 @@ add.exit.i386:                                    ; preds = %5983
   %6023 = load ptr, ptr %6022, align 8, !tbaa !26
   %6024 = call fastcc ptr @mul(ptr noundef %61, ptr noundef %6023)
   %6025 = call fastcc ptr @new_add(ptr noundef %.08.i1368, ptr noundef %6024, ptr noundef %6019)
-  br label %.backedge3738
+  br label %.backedge3790
 
 6026:                                             ; preds = %6018
   %6027 = call zeroext i1 @equal(ptr noundef %6019, ptr noundef nonnull @.str.19) #13
@@ -15639,9 +15639,9 @@ add.exit.i386:                                    ; preds = %5983
   %6030 = load ptr, ptr %6029, align 8, !tbaa !26
   %6031 = call fastcc ptr @mul(ptr noundef %61, ptr noundef %6030)
   %6032 = call fastcc ptr @new_sub(ptr noundef %.08.i1368, ptr noundef %6031, ptr noundef %6019)
-  br label %.backedge3738
+  br label %.backedge3790
 
-.backedge3738:                                    ; preds = %6028, %6021
+.backedge3790:                                    ; preds = %6028, %6021
   %.08.i1368.be = phi ptr [ %6025, %6021 ], [ %6032, %6028 ]
   br label %6018
 
@@ -15705,9 +15705,9 @@ mul.exit1367:                                     ; preds = %6048
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %6059
 
-6059:                                             ; preds = %.backedge3723, %mul.exit1367
-  %.02100 = phi ptr [ %6050, %mul.exit1367 ], [ %.02100.be, %.backedge3723 ]
-  %.08.i.i379 = phi ptr [ %.010.i1364, %mul.exit1367 ], [ %.08.i.i379.be, %.backedge3723 ]
+6059:                                             ; preds = %.backedge3775, %mul.exit1367
+  %.02100 = phi ptr [ %6050, %mul.exit1367 ], [ %.02100.be, %.backedge3775 ]
+  %.08.i.i379 = phi ptr [ %.010.i1364, %mul.exit1367 ], [ %.08.i.i379.be, %.backedge3775 ]
   %6060 = call zeroext i1 @equal(ptr noundef %.02100, ptr noundef nonnull @.str.18) #13
   br i1 %6060, label %6061, label %6128
 
@@ -15830,7 +15830,7 @@ mul.exit1363:                                     ; preds = %6072
   br label %.sink.split.i1349
 
 .sink.split.i1349:                                ; preds = %6111, %6105
-  %.sink46.i1350 = phi ptr [ %6115, %6111 ], [ %6108, %6105 ]
+  %.sink47.i1350 = phi ptr [ %6115, %6111 ], [ %6108, %6105 ]
   %6120 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %6120, align 16, !tbaa !7
   %6121 = getelementptr inbounds nuw i8, ptr %6120, i64 24
@@ -15838,7 +15838,7 @@ mul.exit1363:                                     ; preds = %6072
   %6122 = getelementptr inbounds nuw i8, ptr %6120, i64 32
   store ptr %.032.i1347, ptr %6122, align 16, !tbaa !23
   %6123 = getelementptr inbounds nuw i8, ptr %6120, i64 40
-  store ptr %.sink46.i1350, ptr %6123, align 8, !tbaa !29
+  store ptr %.sink47.i1350, ptr %6123, align 8, !tbaa !29
   br label %new_add.exit1359
 
 new_add.exit1359:                                 ; preds = %6086, %.sink.split.i1349
@@ -15852,7 +15852,7 @@ new_add.exit1359:                                 ; preds = %6086, %.sink.split.
   store ptr %.031.sink.i1351, ptr %6126, align 16, !tbaa !23
   %6127 = getelementptr inbounds nuw i8, ptr %6124, i64 40
   store ptr %.sink.i1352, ptr %6127, align 8, !tbaa !29
-  br label %.backedge3723
+  br label %.backedge3775
 
 6128:                                             ; preds = %6059
   %6129 = call zeroext i1 @equal(ptr noundef %.02100, ptr noundef nonnull @.str.19) #13
@@ -15902,9 +15902,9 @@ new_add.exit1359:                                 ; preds = %6086, %.sink.split.
 mul.exit1344:                                     ; preds = %6141
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   %6152 = call fastcc ptr @new_sub(ptr noundef %.08.i.i379, ptr noundef %.010.i1341, ptr noundef %.02100)
-  br label %.backedge3723
+  br label %.backedge3775
 
-.backedge3723:                                    ; preds = %mul.exit1344, %new_add.exit1359
+.backedge3775:                                    ; preds = %mul.exit1344, %new_add.exit1359
   %.02100.be = phi ptr [ %6074, %new_add.exit1359 ], [ %6143, %mul.exit1344 ]
   %.08.i.i379.be = phi ptr [ %6124, %new_add.exit1359 ], [ %6152, %mul.exit1344 ]
   br label %6059
@@ -15932,8 +15932,8 @@ add.exit.i380:                                    ; preds = %6128
   %6162 = call fastcc ptr @mul(ptr noundef %65, ptr noundef %6161)
   br label %6163
 
-6163:                                             ; preds = %.backedge3740, %6159
-  %.08.i1338 = phi ptr [ %6162, %6159 ], [ %.08.i1338.be, %.backedge3740 ]
+6163:                                             ; preds = %.backedge3792, %6159
+  %.08.i1338 = phi ptr [ %6162, %6159 ], [ %.08.i1338.be, %.backedge3792 ]
   %6164 = load ptr, ptr %65, align 8, !tbaa !25
   %6165 = call zeroext i1 @equal(ptr noundef %6164, ptr noundef nonnull @.str.18) #13
   br i1 %6165, label %6166, label %6171
@@ -15943,7 +15943,7 @@ add.exit.i380:                                    ; preds = %6128
   %6168 = load ptr, ptr %6167, align 8, !tbaa !26
   %6169 = call fastcc ptr @mul(ptr noundef %65, ptr noundef %6168)
   %6170 = call fastcc ptr @new_add(ptr noundef %.08.i1338, ptr noundef %6169, ptr noundef %6164)
-  br label %.backedge3740
+  br label %.backedge3792
 
 6171:                                             ; preds = %6163
   %6172 = call zeroext i1 @equal(ptr noundef %6164, ptr noundef nonnull @.str.19) #13
@@ -15954,9 +15954,9 @@ add.exit.i380:                                    ; preds = %6128
   %6175 = load ptr, ptr %6174, align 8, !tbaa !26
   %6176 = call fastcc ptr @mul(ptr noundef %65, ptr noundef %6175)
   %6177 = call fastcc ptr @new_sub(ptr noundef %.08.i1338, ptr noundef %6176, ptr noundef %6164)
-  br label %.backedge3740
+  br label %.backedge3792
 
-.backedge3740:                                    ; preds = %6173, %6166
+.backedge3792:                                    ; preds = %6173, %6166
   %.08.i1338.be = phi ptr [ %6170, %6166 ], [ %6177, %6173 ]
   br label %6163
 
@@ -16020,9 +16020,9 @@ mul.exit1337:                                     ; preds = %6193
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %6204
 
-6204:                                             ; preds = %.backedge3724, %mul.exit1337
-  %.02097 = phi ptr [ %6195, %mul.exit1337 ], [ %.02097.be, %.backedge3724 ]
-  %.08.i.i373 = phi ptr [ %.010.i1334, %mul.exit1337 ], [ %.08.i.i373.be, %.backedge3724 ]
+6204:                                             ; preds = %.backedge3776, %mul.exit1337
+  %.02097 = phi ptr [ %6195, %mul.exit1337 ], [ %.02097.be, %.backedge3776 ]
+  %.08.i.i373 = phi ptr [ %.010.i1334, %mul.exit1337 ], [ %.08.i.i373.be, %.backedge3776 ]
   %6205 = call zeroext i1 @equal(ptr noundef %.02097, ptr noundef nonnull @.str.18) #13
   br i1 %6205, label %6206, label %6273
 
@@ -16145,7 +16145,7 @@ mul.exit1333:                                     ; preds = %6217
   br label %.sink.split.i1319
 
 .sink.split.i1319:                                ; preds = %6256, %6250
-  %.sink46.i1320 = phi ptr [ %6260, %6256 ], [ %6253, %6250 ]
+  %.sink47.i1320 = phi ptr [ %6260, %6256 ], [ %6253, %6250 ]
   %6265 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %6265, align 16, !tbaa !7
   %6266 = getelementptr inbounds nuw i8, ptr %6265, i64 24
@@ -16153,7 +16153,7 @@ mul.exit1333:                                     ; preds = %6217
   %6267 = getelementptr inbounds nuw i8, ptr %6265, i64 32
   store ptr %.032.i1317, ptr %6267, align 16, !tbaa !23
   %6268 = getelementptr inbounds nuw i8, ptr %6265, i64 40
-  store ptr %.sink46.i1320, ptr %6268, align 8, !tbaa !29
+  store ptr %.sink47.i1320, ptr %6268, align 8, !tbaa !29
   br label %new_add.exit1329
 
 new_add.exit1329:                                 ; preds = %6231, %.sink.split.i1319
@@ -16167,7 +16167,7 @@ new_add.exit1329:                                 ; preds = %6231, %.sink.split.
   store ptr %.031.sink.i1321, ptr %6271, align 16, !tbaa !23
   %6272 = getelementptr inbounds nuw i8, ptr %6269, i64 40
   store ptr %.sink.i1322, ptr %6272, align 8, !tbaa !29
-  br label %.backedge3724
+  br label %.backedge3776
 
 6273:                                             ; preds = %6204
   %6274 = call zeroext i1 @equal(ptr noundef %.02097, ptr noundef nonnull @.str.19) #13
@@ -16217,9 +16217,9 @@ new_add.exit1329:                                 ; preds = %6231, %.sink.split.
 mul.exit1314:                                     ; preds = %6286
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %6297 = call fastcc ptr @new_sub(ptr noundef %.08.i.i373, ptr noundef %.010.i1311, ptr noundef %.02097)
-  br label %.backedge3724
+  br label %.backedge3776
 
-.backedge3724:                                    ; preds = %mul.exit1314, %new_add.exit1329
+.backedge3776:                                    ; preds = %mul.exit1314, %new_add.exit1329
   %.02097.be = phi ptr [ %6219, %new_add.exit1329 ], [ %6288, %mul.exit1314 ]
   %.08.i.i373.be = phi ptr [ %6269, %new_add.exit1329 ], [ %6297, %mul.exit1314 ]
   br label %6204
@@ -16269,8 +16269,8 @@ relational.exit190:                               ; preds = %6157, %relational.e
   %6312 = call fastcc ptr @mul(ptr noundef %29, ptr noundef %6311)
   br label %6313
 
-6313:                                             ; preds = %.backedge3733, %6309
-  %.08.i1608 = phi ptr [ %6312, %6309 ], [ %.08.i1608.be, %.backedge3733 ]
+6313:                                             ; preds = %.backedge3785, %6309
+  %.08.i1608 = phi ptr [ %6312, %6309 ], [ %.08.i1608.be, %.backedge3785 ]
   %6314 = load ptr, ptr %29, align 8, !tbaa !25
   %6315 = call zeroext i1 @equal(ptr noundef %6314, ptr noundef nonnull @.str.18) #13
   br i1 %6315, label %6316, label %6321
@@ -16280,7 +16280,7 @@ relational.exit190:                               ; preds = %6157, %relational.e
   %6318 = load ptr, ptr %6317, align 8, !tbaa !26
   %6319 = call fastcc ptr @mul(ptr noundef %29, ptr noundef %6318)
   %6320 = call fastcc ptr @new_add(ptr noundef %.08.i1608, ptr noundef %6319, ptr noundef %6314)
-  br label %.backedge3733
+  br label %.backedge3785
 
 6321:                                             ; preds = %6313
   %6322 = call zeroext i1 @equal(ptr noundef %6314, ptr noundef nonnull @.str.19) #13
@@ -16291,9 +16291,9 @@ relational.exit190:                               ; preds = %6157, %relational.e
   %6325 = load ptr, ptr %6324, align 8, !tbaa !26
   %6326 = call fastcc ptr @mul(ptr noundef %29, ptr noundef %6325)
   %6327 = call fastcc ptr @new_sub(ptr noundef %.08.i1608, ptr noundef %6326, ptr noundef %6314)
-  br label %.backedge3733
+  br label %.backedge3785
 
-.backedge3733:                                    ; preds = %6323, %6316
+.backedge3785:                                    ; preds = %6323, %6316
   %.08.i1608.be = phi ptr [ %6320, %6316 ], [ %6327, %6323 ]
   br label %6313
 
@@ -16357,9 +16357,9 @@ mul.exit1607:                                     ; preds = %6343
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %6354
 
-6354:                                             ; preds = %.backedge3720, %mul.exit1607
-  %.02124 = phi ptr [ %6345, %mul.exit1607 ], [ %.02124.be, %.backedge3720 ]
-  %.08.i.i427 = phi ptr [ %.010.i1604, %mul.exit1607 ], [ %.08.i.i427.be, %.backedge3720 ]
+6354:                                             ; preds = %.backedge3772, %mul.exit1607
+  %.02124 = phi ptr [ %6345, %mul.exit1607 ], [ %.02124.be, %.backedge3772 ]
+  %.08.i.i427 = phi ptr [ %.010.i1604, %mul.exit1607 ], [ %.08.i.i427.be, %.backedge3772 ]
   %6355 = call zeroext i1 @equal(ptr noundef %.02124, ptr noundef nonnull @.str.18) #13
   br i1 %6355, label %6356, label %6423
 
@@ -16482,7 +16482,7 @@ mul.exit1603:                                     ; preds = %6367
   br label %.sink.split.i1589
 
 .sink.split.i1589:                                ; preds = %6406, %6400
-  %.sink46.i1590 = phi ptr [ %6410, %6406 ], [ %6403, %6400 ]
+  %.sink47.i1590 = phi ptr [ %6410, %6406 ], [ %6403, %6400 ]
   %6415 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %6415, align 16, !tbaa !7
   %6416 = getelementptr inbounds nuw i8, ptr %6415, i64 24
@@ -16490,7 +16490,7 @@ mul.exit1603:                                     ; preds = %6367
   %6417 = getelementptr inbounds nuw i8, ptr %6415, i64 32
   store ptr %.032.i1587, ptr %6417, align 16, !tbaa !23
   %6418 = getelementptr inbounds nuw i8, ptr %6415, i64 40
-  store ptr %.sink46.i1590, ptr %6418, align 8, !tbaa !29
+  store ptr %.sink47.i1590, ptr %6418, align 8, !tbaa !29
   br label %new_add.exit1599
 
 new_add.exit1599:                                 ; preds = %6381, %.sink.split.i1589
@@ -16504,7 +16504,7 @@ new_add.exit1599:                                 ; preds = %6381, %.sink.split.
   store ptr %.031.sink.i1591, ptr %6421, align 16, !tbaa !23
   %6422 = getelementptr inbounds nuw i8, ptr %6419, i64 40
   store ptr %.sink.i1592, ptr %6422, align 8, !tbaa !29
-  br label %.backedge3720
+  br label %.backedge3772
 
 6423:                                             ; preds = %6354
   %6424 = call zeroext i1 @equal(ptr noundef %.02124, ptr noundef nonnull @.str.19) #13
@@ -16554,9 +16554,9 @@ new_add.exit1599:                                 ; preds = %6381, %.sink.split.
 mul.exit1584:                                     ; preds = %6436
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %6447 = call fastcc ptr @new_sub(ptr noundef %.08.i.i427, ptr noundef %.010.i1581, ptr noundef %.02124)
-  br label %.backedge3720
+  br label %.backedge3772
 
-.backedge3720:                                    ; preds = %mul.exit1584, %new_add.exit1599
+.backedge3772:                                    ; preds = %mul.exit1584, %new_add.exit1599
   %.02124.be = phi ptr [ %6369, %new_add.exit1599 ], [ %6438, %mul.exit1584 ]
   %.08.i.i427.be = phi ptr [ %6419, %new_add.exit1599 ], [ %6447, %mul.exit1584 ]
   br label %6354
@@ -16586,8 +16586,8 @@ shift.exit430:                                    ; preds = %6330, %shift.exit42
   %6456 = call fastcc ptr @mul(ptr noundef %33, ptr noundef %6455)
   br label %6457
 
-6457:                                             ; preds = %.backedge3713, %6453
-  %.08.i1578 = phi ptr [ %6456, %6453 ], [ %.08.i1578.be, %.backedge3713 ]
+6457:                                             ; preds = %.backedge3765, %6453
+  %.08.i1578 = phi ptr [ %6456, %6453 ], [ %.08.i1578.be, %.backedge3765 ]
   %6458 = load ptr, ptr %33, align 8, !tbaa !25
   %6459 = call zeroext i1 @equal(ptr noundef %6458, ptr noundef nonnull @.str.18) #13
   br i1 %6459, label %6460, label %6465
@@ -16597,7 +16597,7 @@ shift.exit430:                                    ; preds = %6330, %shift.exit42
   %6462 = load ptr, ptr %6461, align 8, !tbaa !26
   %6463 = call fastcc ptr @mul(ptr noundef %33, ptr noundef %6462)
   %6464 = call fastcc ptr @new_add(ptr noundef %.08.i1578, ptr noundef %6463, ptr noundef %6458)
-  br label %.backedge3713
+  br label %.backedge3765
 
 6465:                                             ; preds = %6457
   %6466 = call zeroext i1 @equal(ptr noundef %6458, ptr noundef nonnull @.str.19) #13
@@ -16608,9 +16608,9 @@ shift.exit430:                                    ; preds = %6330, %shift.exit42
   %6469 = load ptr, ptr %6468, align 8, !tbaa !26
   %6470 = call fastcc ptr @mul(ptr noundef %33, ptr noundef %6469)
   %6471 = call fastcc ptr @new_sub(ptr noundef %.08.i1578, ptr noundef %6470, ptr noundef %6458)
-  br label %.backedge3713
+  br label %.backedge3765
 
-.backedge3713:                                    ; preds = %6467, %6460
+.backedge3765:                                    ; preds = %6467, %6460
   %.08.i1578.be = phi ptr [ %6464, %6460 ], [ %6471, %6467 ]
   br label %6457
 
@@ -16799,7 +16799,7 @@ mul.exit1573:                                     ; preds = %6511
   br label %.sink.split.i1559
 
 .sink.split.i1559:                                ; preds = %6550, %6544
-  %.sink46.i1560 = phi ptr [ %6554, %6550 ], [ %6547, %6544 ]
+  %.sink47.i1560 = phi ptr [ %6554, %6550 ], [ %6547, %6544 ]
   %6559 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %6559, align 16, !tbaa !7
   %6560 = getelementptr inbounds nuw i8, ptr %6559, i64 24
@@ -16807,7 +16807,7 @@ mul.exit1573:                                     ; preds = %6511
   %6561 = getelementptr inbounds nuw i8, ptr %6559, i64 32
   store ptr %.032.i1557, ptr %6561, align 16, !tbaa !23
   %6562 = getelementptr inbounds nuw i8, ptr %6559, i64 40
-  store ptr %.sink46.i1560, ptr %6562, align 8, !tbaa !29
+  store ptr %.sink47.i1560, ptr %6562, align 8, !tbaa !29
   br label %new_add.exit1569
 
 new_add.exit1569:                                 ; preds = %6525, %.sink.split.i1559
@@ -16901,8 +16901,8 @@ add.exit.i422:                                    ; preds = %6567
   %6601 = call fastcc ptr @mul(ptr noundef %37, ptr noundef %6600)
   br label %6602
 
-6602:                                             ; preds = %.backedge3715, %6598
-  %.08.i1548 = phi ptr [ %6601, %6598 ], [ %.08.i1548.be, %.backedge3715 ]
+6602:                                             ; preds = %.backedge3767, %6598
+  %.08.i1548 = phi ptr [ %6601, %6598 ], [ %.08.i1548.be, %.backedge3767 ]
   %6603 = load ptr, ptr %37, align 8, !tbaa !25
   %6604 = call zeroext i1 @equal(ptr noundef %6603, ptr noundef nonnull @.str.18) #13
   br i1 %6604, label %6605, label %6610
@@ -16912,7 +16912,7 @@ add.exit.i422:                                    ; preds = %6567
   %6607 = load ptr, ptr %6606, align 8, !tbaa !26
   %6608 = call fastcc ptr @mul(ptr noundef %37, ptr noundef %6607)
   %6609 = call fastcc ptr @new_add(ptr noundef %.08.i1548, ptr noundef %6608, ptr noundef %6603)
-  br label %.backedge3715
+  br label %.backedge3767
 
 6610:                                             ; preds = %6602
   %6611 = call zeroext i1 @equal(ptr noundef %6603, ptr noundef nonnull @.str.19) #13
@@ -16923,9 +16923,9 @@ add.exit.i422:                                    ; preds = %6567
   %6614 = load ptr, ptr %6613, align 8, !tbaa !26
   %6615 = call fastcc ptr @mul(ptr noundef %37, ptr noundef %6614)
   %6616 = call fastcc ptr @new_sub(ptr noundef %.08.i1548, ptr noundef %6615, ptr noundef %6603)
-  br label %.backedge3715
+  br label %.backedge3767
 
-.backedge3715:                                    ; preds = %6612, %6605
+.backedge3767:                                    ; preds = %6612, %6605
   %.08.i1548.be = phi ptr [ %6609, %6605 ], [ %6616, %6612 ]
   br label %6602
 
@@ -16989,9 +16989,9 @@ mul.exit1547:                                     ; preds = %6632
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %6643
 
-6643:                                             ; preds = %.backedge3710, %mul.exit1547
-  %.02118 = phi ptr [ %6634, %mul.exit1547 ], [ %.02118.be, %.backedge3710 ]
-  %.08.i.i415 = phi ptr [ %.010.i1544, %mul.exit1547 ], [ %.08.i.i415.be, %.backedge3710 ]
+6643:                                             ; preds = %.backedge3762, %mul.exit1547
+  %.02118 = phi ptr [ %6634, %mul.exit1547 ], [ %.02118.be, %.backedge3762 ]
+  %.08.i.i415 = phi ptr [ %.010.i1544, %mul.exit1547 ], [ %.08.i.i415.be, %.backedge3762 ]
   %6644 = call zeroext i1 @equal(ptr noundef %.02118, ptr noundef nonnull @.str.18) #13
   br i1 %6644, label %6645, label %6712
 
@@ -17114,7 +17114,7 @@ mul.exit1543:                                     ; preds = %6656
   br label %.sink.split.i1529
 
 .sink.split.i1529:                                ; preds = %6695, %6689
-  %.sink46.i1530 = phi ptr [ %6699, %6695 ], [ %6692, %6689 ]
+  %.sink47.i1530 = phi ptr [ %6699, %6695 ], [ %6692, %6689 ]
   %6704 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %6704, align 16, !tbaa !7
   %6705 = getelementptr inbounds nuw i8, ptr %6704, i64 24
@@ -17122,7 +17122,7 @@ mul.exit1543:                                     ; preds = %6656
   %6706 = getelementptr inbounds nuw i8, ptr %6704, i64 32
   store ptr %.032.i1527, ptr %6706, align 16, !tbaa !23
   %6707 = getelementptr inbounds nuw i8, ptr %6704, i64 40
-  store ptr %.sink46.i1530, ptr %6707, align 8, !tbaa !29
+  store ptr %.sink47.i1530, ptr %6707, align 8, !tbaa !29
   br label %new_add.exit1539
 
 new_add.exit1539:                                 ; preds = %6670, %.sink.split.i1529
@@ -17136,7 +17136,7 @@ new_add.exit1539:                                 ; preds = %6670, %.sink.split.
   store ptr %.031.sink.i1531, ptr %6710, align 16, !tbaa !23
   %6711 = getelementptr inbounds nuw i8, ptr %6708, i64 40
   store ptr %.sink.i1532, ptr %6711, align 8, !tbaa !29
-  br label %.backedge3710
+  br label %.backedge3762
 
 6712:                                             ; preds = %6643
   %6713 = call zeroext i1 @equal(ptr noundef %.02118, ptr noundef nonnull @.str.19) #13
@@ -17186,9 +17186,9 @@ new_add.exit1539:                                 ; preds = %6670, %.sink.split.
 mul.exit1524:                                     ; preds = %6725
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %6736 = call fastcc ptr @new_sub(ptr noundef %.08.i.i415, ptr noundef %.010.i1521, ptr noundef %.02118)
-  br label %.backedge3710
+  br label %.backedge3762
 
-.backedge3710:                                    ; preds = %mul.exit1524, %new_add.exit1539
+.backedge3762:                                    ; preds = %mul.exit1524, %new_add.exit1539
   %.02118.be = phi ptr [ %6658, %new_add.exit1539 ], [ %6727, %mul.exit1524 ]
   %.08.i.i415.be = phi ptr [ %6708, %new_add.exit1539 ], [ %6736, %mul.exit1524 ]
   br label %6643
@@ -17216,8 +17216,8 @@ add.exit.i416:                                    ; preds = %6712
   %6746 = call fastcc ptr @mul(ptr noundef %41, ptr noundef %6745)
   br label %6747
 
-6747:                                             ; preds = %.backedge3717, %6743
-  %.08.i1518 = phi ptr [ %6746, %6743 ], [ %.08.i1518.be, %.backedge3717 ]
+6747:                                             ; preds = %.backedge3769, %6743
+  %.08.i1518 = phi ptr [ %6746, %6743 ], [ %.08.i1518.be, %.backedge3769 ]
   %6748 = load ptr, ptr %41, align 8, !tbaa !25
   %6749 = call zeroext i1 @equal(ptr noundef %6748, ptr noundef nonnull @.str.18) #13
   br i1 %6749, label %6750, label %6755
@@ -17227,7 +17227,7 @@ add.exit.i416:                                    ; preds = %6712
   %6752 = load ptr, ptr %6751, align 8, !tbaa !26
   %6753 = call fastcc ptr @mul(ptr noundef %41, ptr noundef %6752)
   %6754 = call fastcc ptr @new_add(ptr noundef %.08.i1518, ptr noundef %6753, ptr noundef %6748)
-  br label %.backedge3717
+  br label %.backedge3769
 
 6755:                                             ; preds = %6747
   %6756 = call zeroext i1 @equal(ptr noundef %6748, ptr noundef nonnull @.str.19) #13
@@ -17238,9 +17238,9 @@ add.exit.i416:                                    ; preds = %6712
   %6759 = load ptr, ptr %6758, align 8, !tbaa !26
   %6760 = call fastcc ptr @mul(ptr noundef %41, ptr noundef %6759)
   %6761 = call fastcc ptr @new_sub(ptr noundef %.08.i1518, ptr noundef %6760, ptr noundef %6748)
-  br label %.backedge3717
+  br label %.backedge3769
 
-.backedge3717:                                    ; preds = %6757, %6750
+.backedge3769:                                    ; preds = %6757, %6750
   %.08.i1518.be = phi ptr [ %6754, %6750 ], [ %6761, %6757 ]
   br label %6747
 
@@ -17304,9 +17304,9 @@ mul.exit1517:                                     ; preds = %6777
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %6788
 
-6788:                                             ; preds = %.backedge3711, %mul.exit1517
-  %.02115 = phi ptr [ %6779, %mul.exit1517 ], [ %.02115.be, %.backedge3711 ]
-  %.08.i.i409 = phi ptr [ %.010.i1514, %mul.exit1517 ], [ %.08.i.i409.be, %.backedge3711 ]
+6788:                                             ; preds = %.backedge3763, %mul.exit1517
+  %.02115 = phi ptr [ %6779, %mul.exit1517 ], [ %.02115.be, %.backedge3763 ]
+  %.08.i.i409 = phi ptr [ %.010.i1514, %mul.exit1517 ], [ %.08.i.i409.be, %.backedge3763 ]
   %6789 = call zeroext i1 @equal(ptr noundef %.02115, ptr noundef nonnull @.str.18) #13
   br i1 %6789, label %6790, label %6857
 
@@ -17429,7 +17429,7 @@ mul.exit1513:                                     ; preds = %6801
   br label %.sink.split.i1499
 
 .sink.split.i1499:                                ; preds = %6840, %6834
-  %.sink46.i1500 = phi ptr [ %6844, %6840 ], [ %6837, %6834 ]
+  %.sink47.i1500 = phi ptr [ %6844, %6840 ], [ %6837, %6834 ]
   %6849 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %6849, align 16, !tbaa !7
   %6850 = getelementptr inbounds nuw i8, ptr %6849, i64 24
@@ -17437,7 +17437,7 @@ mul.exit1513:                                     ; preds = %6801
   %6851 = getelementptr inbounds nuw i8, ptr %6849, i64 32
   store ptr %.032.i1497, ptr %6851, align 16, !tbaa !23
   %6852 = getelementptr inbounds nuw i8, ptr %6849, i64 40
-  store ptr %.sink46.i1500, ptr %6852, align 8, !tbaa !29
+  store ptr %.sink47.i1500, ptr %6852, align 8, !tbaa !29
   br label %new_add.exit1509
 
 new_add.exit1509:                                 ; preds = %6815, %.sink.split.i1499
@@ -17451,7 +17451,7 @@ new_add.exit1509:                                 ; preds = %6815, %.sink.split.
   store ptr %.031.sink.i1501, ptr %6855, align 16, !tbaa !23
   %6856 = getelementptr inbounds nuw i8, ptr %6853, i64 40
   store ptr %.sink.i1502, ptr %6856, align 8, !tbaa !29
-  br label %.backedge3711
+  br label %.backedge3763
 
 6857:                                             ; preds = %6788
   %6858 = call zeroext i1 @equal(ptr noundef %.02115, ptr noundef nonnull @.str.19) #13
@@ -17501,9 +17501,9 @@ new_add.exit1509:                                 ; preds = %6815, %.sink.split.
 mul.exit1494:                                     ; preds = %6870
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %6881 = call fastcc ptr @new_sub(ptr noundef %.08.i.i409, ptr noundef %.010.i1491, ptr noundef %.02115)
-  br label %.backedge3711
+  br label %.backedge3763
 
-.backedge3711:                                    ; preds = %mul.exit1494, %new_add.exit1509
+.backedge3763:                                    ; preds = %mul.exit1494, %new_add.exit1509
   %.02115.be = phi ptr [ %6803, %new_add.exit1509 ], [ %6872, %mul.exit1494 ]
   %.08.i.i409.be = phi ptr [ %6853, %new_add.exit1509 ], [ %6881, %mul.exit1494 ]
   br label %6788
@@ -17531,8 +17531,8 @@ add.exit.i410:                                    ; preds = %6857
   %6891 = call fastcc ptr @mul(ptr noundef %45, ptr noundef %6890)
   br label %6892
 
-6892:                                             ; preds = %.backedge3719, %6888
-  %.08.i1488 = phi ptr [ %6891, %6888 ], [ %.08.i1488.be, %.backedge3719 ]
+6892:                                             ; preds = %.backedge3771, %6888
+  %.08.i1488 = phi ptr [ %6891, %6888 ], [ %.08.i1488.be, %.backedge3771 ]
   %6893 = load ptr, ptr %45, align 8, !tbaa !25
   %6894 = call zeroext i1 @equal(ptr noundef %6893, ptr noundef nonnull @.str.18) #13
   br i1 %6894, label %6895, label %6900
@@ -17542,7 +17542,7 @@ add.exit.i410:                                    ; preds = %6857
   %6897 = load ptr, ptr %6896, align 8, !tbaa !26
   %6898 = call fastcc ptr @mul(ptr noundef %45, ptr noundef %6897)
   %6899 = call fastcc ptr @new_add(ptr noundef %.08.i1488, ptr noundef %6898, ptr noundef %6893)
-  br label %.backedge3719
+  br label %.backedge3771
 
 6900:                                             ; preds = %6892
   %6901 = call zeroext i1 @equal(ptr noundef %6893, ptr noundef nonnull @.str.19) #13
@@ -17553,9 +17553,9 @@ add.exit.i410:                                    ; preds = %6857
   %6904 = load ptr, ptr %6903, align 8, !tbaa !26
   %6905 = call fastcc ptr @mul(ptr noundef %45, ptr noundef %6904)
   %6906 = call fastcc ptr @new_sub(ptr noundef %.08.i1488, ptr noundef %6905, ptr noundef %6893)
-  br label %.backedge3719
+  br label %.backedge3771
 
-.backedge3719:                                    ; preds = %6902, %6895
+.backedge3771:                                    ; preds = %6902, %6895
   %.08.i1488.be = phi ptr [ %6899, %6895 ], [ %6906, %6902 ]
   br label %6892
 
@@ -17619,9 +17619,9 @@ mul.exit1487:                                     ; preds = %6922
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %6933
 
-6933:                                             ; preds = %.backedge3712, %mul.exit1487
-  %.02112 = phi ptr [ %6924, %mul.exit1487 ], [ %.02112.be, %.backedge3712 ]
-  %.08.i.i403 = phi ptr [ %.010.i1484, %mul.exit1487 ], [ %.08.i.i403.be, %.backedge3712 ]
+6933:                                             ; preds = %.backedge3764, %mul.exit1487
+  %.02112 = phi ptr [ %6924, %mul.exit1487 ], [ %.02112.be, %.backedge3764 ]
+  %.08.i.i403 = phi ptr [ %.010.i1484, %mul.exit1487 ], [ %.08.i.i403.be, %.backedge3764 ]
   %6934 = call zeroext i1 @equal(ptr noundef %.02112, ptr noundef nonnull @.str.18) #13
   br i1 %6934, label %6935, label %7002
 
@@ -17744,7 +17744,7 @@ mul.exit1483:                                     ; preds = %6946
   br label %.sink.split.i1469
 
 .sink.split.i1469:                                ; preds = %6985, %6979
-  %.sink46.i1470 = phi ptr [ %6989, %6985 ], [ %6982, %6979 ]
+  %.sink47.i1470 = phi ptr [ %6989, %6985 ], [ %6982, %6979 ]
   %6994 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %6994, align 16, !tbaa !7
   %6995 = getelementptr inbounds nuw i8, ptr %6994, i64 24
@@ -17752,7 +17752,7 @@ mul.exit1483:                                     ; preds = %6946
   %6996 = getelementptr inbounds nuw i8, ptr %6994, i64 32
   store ptr %.032.i1467, ptr %6996, align 16, !tbaa !23
   %6997 = getelementptr inbounds nuw i8, ptr %6994, i64 40
-  store ptr %.sink46.i1470, ptr %6997, align 8, !tbaa !29
+  store ptr %.sink47.i1470, ptr %6997, align 8, !tbaa !29
   br label %new_add.exit1479
 
 new_add.exit1479:                                 ; preds = %6960, %.sink.split.i1469
@@ -17766,7 +17766,7 @@ new_add.exit1479:                                 ; preds = %6960, %.sink.split.
   store ptr %.031.sink.i1471, ptr %7000, align 16, !tbaa !23
   %7001 = getelementptr inbounds nuw i8, ptr %6998, i64 40
   store ptr %.sink.i1472, ptr %7001, align 8, !tbaa !29
-  br label %.backedge3712
+  br label %.backedge3764
 
 7002:                                             ; preds = %6933
   %7003 = call zeroext i1 @equal(ptr noundef %.02112, ptr noundef nonnull @.str.19) #13
@@ -17816,9 +17816,9 @@ new_add.exit1479:                                 ; preds = %6960, %.sink.split.
 mul.exit1464:                                     ; preds = %7015
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %7026 = call fastcc ptr @new_sub(ptr noundef %.08.i.i403, ptr noundef %.010.i1461, ptr noundef %.02112)
-  br label %.backedge3712
+  br label %.backedge3764
 
-.backedge3712:                                    ; preds = %mul.exit1464, %new_add.exit1479
+.backedge3764:                                    ; preds = %mul.exit1464, %new_add.exit1479
   %.02112.be = phi ptr [ %6948, %new_add.exit1479 ], [ %7017, %mul.exit1464 ]
   %.08.i.i403.be = phi ptr [ %6998, %new_add.exit1479 ], [ %7026, %mul.exit1464 ]
   br label %6933
@@ -18038,8 +18038,8 @@ bitand.exit:                                      ; preds = %.lr.ph, %2
   %83 = call fastcc ptr @mul(ptr noundef %41, ptr noundef %82)
   br label %84
 
-84:                                               ; preds = %.backedge1198, %.lr.ph20
-  %.08.i233 = phi ptr [ %83, %.lr.ph20 ], [ %.08.i233.be, %.backedge1198 ]
+84:                                               ; preds = %.backedge1217, %.lr.ph20
+  %.08.i233 = phi ptr [ %83, %.lr.ph20 ], [ %.08.i233.be, %.backedge1217 ]
   %85 = load ptr, ptr %41, align 8, !tbaa !25
   %86 = call zeroext i1 @equal(ptr noundef %85, ptr noundef nonnull @.str.18) #13
   br i1 %86, label %87, label %92
@@ -18049,7 +18049,7 @@ bitand.exit:                                      ; preds = %.lr.ph, %2
   %89 = load ptr, ptr %88, align 8, !tbaa !26
   %90 = call fastcc ptr @mul(ptr noundef %41, ptr noundef %89)
   %91 = call fastcc ptr @new_add(ptr noundef %.08.i233, ptr noundef %90, ptr noundef %85)
-  br label %.backedge1198
+  br label %.backedge1217
 
 92:                                               ; preds = %84
   %93 = call zeroext i1 @equal(ptr noundef %85, ptr noundef nonnull @.str.19) #13
@@ -18060,9 +18060,9 @@ bitand.exit:                                      ; preds = %.lr.ph, %2
   %96 = load ptr, ptr %95, align 8, !tbaa !26
   %97 = call fastcc ptr @mul(ptr noundef %41, ptr noundef %96)
   %98 = call fastcc ptr @new_sub(ptr noundef %.08.i233, ptr noundef %97, ptr noundef %85)
-  br label %.backedge1198
+  br label %.backedge1217
 
-.backedge1198:                                    ; preds = %94, %87
+.backedge1217:                                    ; preds = %94, %87
   %.08.i233.be = phi ptr [ %91, %87 ], [ %98, %94 ]
   br label %84
 
@@ -18126,9 +18126,9 @@ mul.exit232:                                      ; preds = %114
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %125
 
-125:                                              ; preds = %.backedge1197, %mul.exit232
-  %.0641 = phi ptr [ %116, %mul.exit232 ], [ %.0641.be, %.backedge1197 ]
-  %.08.i.i72 = phi ptr [ %.010.i229, %mul.exit232 ], [ %.08.i.i72.be, %.backedge1197 ]
+125:                                              ; preds = %.backedge1216, %mul.exit232
+  %.0641 = phi ptr [ %116, %mul.exit232 ], [ %.0641.be, %.backedge1216 ]
+  %.08.i.i72 = phi ptr [ %.010.i229, %mul.exit232 ], [ %.08.i.i72.be, %.backedge1216 ]
   %126 = call zeroext i1 @equal(ptr noundef %.0641, ptr noundef nonnull @.str.18) #13
   br i1 %126, label %127, label %194
 
@@ -18251,7 +18251,7 @@ mul.exit228:                                      ; preds = %138
   br label %.sink.split.i214
 
 .sink.split.i214:                                 ; preds = %177, %171
-  %.sink46.i215 = phi ptr [ %181, %177 ], [ %174, %171 ]
+  %.sink47.i215 = phi ptr [ %181, %177 ], [ %174, %171 ]
   %186 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %186, align 16, !tbaa !7
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
@@ -18259,7 +18259,7 @@ mul.exit228:                                      ; preds = %138
   %188 = getelementptr inbounds nuw i8, ptr %186, i64 32
   store ptr %.032.i212, ptr %188, align 16, !tbaa !23
   %189 = getelementptr inbounds nuw i8, ptr %186, i64 40
-  store ptr %.sink46.i215, ptr %189, align 8, !tbaa !29
+  store ptr %.sink47.i215, ptr %189, align 8, !tbaa !29
   br label %new_add.exit224
 
 new_add.exit224:                                  ; preds = %152, %.sink.split.i214
@@ -18273,7 +18273,7 @@ new_add.exit224:                                  ; preds = %152, %.sink.split.i
   store ptr %.031.sink.i216, ptr %192, align 16, !tbaa !23
   %193 = getelementptr inbounds nuw i8, ptr %190, i64 40
   store ptr %.sink.i217, ptr %193, align 8, !tbaa !29
-  br label %.backedge1197
+  br label %.backedge1216
 
 194:                                              ; preds = %125
   %195 = call zeroext i1 @equal(ptr noundef %.0641, ptr noundef nonnull @.str.19) #13
@@ -18323,9 +18323,9 @@ new_add.exit224:                                  ; preds = %152, %.sink.split.i
 mul.exit209:                                      ; preds = %207
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %218 = call fastcc ptr @new_sub(ptr noundef %.08.i.i72, ptr noundef %.010.i206, ptr noundef %.0641)
-  br label %.backedge1197
+  br label %.backedge1216
 
-.backedge1197:                                    ; preds = %mul.exit209, %new_add.exit224
+.backedge1216:                                    ; preds = %mul.exit209, %new_add.exit224
   %.0641.be = phi ptr [ %140, %new_add.exit224 ], [ %209, %mul.exit209 ]
   %.08.i.i72.be = phi ptr [ %190, %new_add.exit224 ], [ %218, %mul.exit209 ]
   br label %125
@@ -18355,8 +18355,8 @@ shift.exit75:                                     ; preds = %101, %shift.exit69
   %227 = call fastcc ptr @mul(ptr noundef %45, ptr noundef %226)
   br label %228
 
-228:                                              ; preds = %.backedge1190, %224
-  %.08.i203 = phi ptr [ %227, %224 ], [ %.08.i203.be, %.backedge1190 ]
+228:                                              ; preds = %.backedge1209, %224
+  %.08.i203 = phi ptr [ %227, %224 ], [ %.08.i203.be, %.backedge1209 ]
   %229 = load ptr, ptr %45, align 8, !tbaa !25
   %230 = call zeroext i1 @equal(ptr noundef %229, ptr noundef nonnull @.str.18) #13
   br i1 %230, label %231, label %298
@@ -18481,7 +18481,7 @@ mul.exit477:                                      ; preds = %242
   br label %.sink.split.i463
 
 .sink.split.i463:                                 ; preds = %281, %275
-  %.sink46.i464 = phi ptr [ %285, %281 ], [ %278, %275 ]
+  %.sink47.i464 = phi ptr [ %285, %281 ], [ %278, %275 ]
   %290 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %290, align 16, !tbaa !7
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 24
@@ -18489,7 +18489,7 @@ mul.exit477:                                      ; preds = %242
   %292 = getelementptr inbounds nuw i8, ptr %290, i64 32
   store ptr %.032.i461, ptr %292, align 16, !tbaa !23
   %293 = getelementptr inbounds nuw i8, ptr %290, i64 40
-  store ptr %.sink46.i464, ptr %293, align 8, !tbaa !29
+  store ptr %.sink47.i464, ptr %293, align 8, !tbaa !29
   br label %new_add.exit473
 
 new_add.exit473:                                  ; preds = %256, %.sink.split.i463
@@ -18503,7 +18503,7 @@ new_add.exit473:                                  ; preds = %256, %.sink.split.i
   store ptr %.031.sink.i465, ptr %296, align 16, !tbaa !23
   %297 = getelementptr inbounds nuw i8, ptr %294, i64 40
   store ptr %.sink.i466, ptr %297, align 8, !tbaa !29
-  br label %.backedge1190
+  br label %.backedge1209
 
 298:                                              ; preds = %228
   %299 = call zeroext i1 @equal(ptr noundef %229, ptr noundef nonnull @.str.19) #13
@@ -18554,9 +18554,9 @@ mul.exit458:                                      ; preds = %311
   store ptr %313, ptr %45, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %322 = call fastcc ptr @new_sub(ptr noundef %.08.i203, ptr noundef %.010.i455, ptr noundef %229)
-  br label %.backedge1190
+  br label %.backedge1209
 
-.backedge1190:                                    ; preds = %mul.exit458, %new_add.exit473
+.backedge1209:                                    ; preds = %mul.exit458, %new_add.exit473
   %.08.i203.be = phi ptr [ %294, %new_add.exit473 ], [ %322, %mul.exit458 ]
   br label %228
 
@@ -18620,9 +18620,9 @@ mul.exit202:                                      ; preds = %338
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %349
 
-349:                                              ; preds = %.backedge1185, %mul.exit202
-  %.0638 = phi ptr [ %340, %mul.exit202 ], [ %.0638.be, %.backedge1185 ]
-  %.08.i.i66 = phi ptr [ %.010.i199, %mul.exit202 ], [ %.08.i.i66.be, %.backedge1185 ]
+349:                                              ; preds = %.backedge1204, %mul.exit202
+  %.0638 = phi ptr [ %340, %mul.exit202 ], [ %.0638.be, %.backedge1204 ]
+  %.08.i.i66 = phi ptr [ %.010.i199, %mul.exit202 ], [ %.08.i.i66.be, %.backedge1204 ]
   %350 = call zeroext i1 @equal(ptr noundef %.0638, ptr noundef nonnull @.str.18) #13
   br i1 %350, label %351, label %418
 
@@ -18745,7 +18745,7 @@ mul.exit198:                                      ; preds = %362
   br label %.sink.split.i184
 
 .sink.split.i184:                                 ; preds = %401, %395
-  %.sink46.i185 = phi ptr [ %405, %401 ], [ %398, %395 ]
+  %.sink47.i185 = phi ptr [ %405, %401 ], [ %398, %395 ]
   %410 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %410, align 16, !tbaa !7
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 24
@@ -18753,7 +18753,7 @@ mul.exit198:                                      ; preds = %362
   %412 = getelementptr inbounds nuw i8, ptr %410, i64 32
   store ptr %.032.i182, ptr %412, align 16, !tbaa !23
   %413 = getelementptr inbounds nuw i8, ptr %410, i64 40
-  store ptr %.sink46.i185, ptr %413, align 8, !tbaa !29
+  store ptr %.sink47.i185, ptr %413, align 8, !tbaa !29
   br label %new_add.exit194
 
 new_add.exit194:                                  ; preds = %376, %.sink.split.i184
@@ -18767,7 +18767,7 @@ new_add.exit194:                                  ; preds = %376, %.sink.split.i
   store ptr %.031.sink.i186, ptr %416, align 16, !tbaa !23
   %417 = getelementptr inbounds nuw i8, ptr %414, i64 40
   store ptr %.sink.i187, ptr %417, align 8, !tbaa !29
-  br label %.backedge1185
+  br label %.backedge1204
 
 418:                                              ; preds = %349
   %419 = call zeroext i1 @equal(ptr noundef %.0638, ptr noundef nonnull @.str.19) #13
@@ -18817,9 +18817,9 @@ new_add.exit194:                                  ; preds = %376, %.sink.split.i
 mul.exit179:                                      ; preds = %431
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %442 = call fastcc ptr @new_sub(ptr noundef %.08.i.i66, ptr noundef %.010.i176, ptr noundef %.0638)
-  br label %.backedge1185
+  br label %.backedge1204
 
-.backedge1185:                                    ; preds = %mul.exit179, %new_add.exit194
+.backedge1204:                                    ; preds = %mul.exit179, %new_add.exit194
   %.0638.be = phi ptr [ %364, %new_add.exit194 ], [ %433, %mul.exit179 ]
   %.08.i.i66.be = phi ptr [ %414, %new_add.exit194 ], [ %442, %mul.exit179 ]
   br label %349
@@ -18847,8 +18847,8 @@ add.exit.i67:                                     ; preds = %418
   %452 = call fastcc ptr @mul(ptr noundef %49, ptr noundef %451)
   br label %453
 
-453:                                              ; preds = %.backedge1192, %449
-  %.08.i173 = phi ptr [ %452, %449 ], [ %.08.i173.be, %.backedge1192 ]
+453:                                              ; preds = %.backedge1211, %449
+  %.08.i173 = phi ptr [ %452, %449 ], [ %.08.i173.be, %.backedge1211 ]
   %454 = load ptr, ptr %49, align 8, !tbaa !25
   %455 = call zeroext i1 @equal(ptr noundef %454, ptr noundef nonnull @.str.18) #13
   br i1 %455, label %456, label %523
@@ -18973,7 +18973,7 @@ mul.exit454:                                      ; preds = %467
   br label %.sink.split.i440
 
 .sink.split.i440:                                 ; preds = %506, %500
-  %.sink46.i441 = phi ptr [ %510, %506 ], [ %503, %500 ]
+  %.sink47.i441 = phi ptr [ %510, %506 ], [ %503, %500 ]
   %515 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %515, align 16, !tbaa !7
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 24
@@ -18981,7 +18981,7 @@ mul.exit454:                                      ; preds = %467
   %517 = getelementptr inbounds nuw i8, ptr %515, i64 32
   store ptr %.032.i438, ptr %517, align 16, !tbaa !23
   %518 = getelementptr inbounds nuw i8, ptr %515, i64 40
-  store ptr %.sink46.i441, ptr %518, align 8, !tbaa !29
+  store ptr %.sink47.i441, ptr %518, align 8, !tbaa !29
   br label %new_add.exit450
 
 new_add.exit450:                                  ; preds = %481, %.sink.split.i440
@@ -18995,7 +18995,7 @@ new_add.exit450:                                  ; preds = %481, %.sink.split.i
   store ptr %.031.sink.i442, ptr %521, align 16, !tbaa !23
   %522 = getelementptr inbounds nuw i8, ptr %519, i64 40
   store ptr %.sink.i443, ptr %522, align 8, !tbaa !29
-  br label %.backedge1192
+  br label %.backedge1211
 
 523:                                              ; preds = %453
   %524 = call zeroext i1 @equal(ptr noundef %454, ptr noundef nonnull @.str.19) #13
@@ -19046,9 +19046,9 @@ mul.exit435:                                      ; preds = %536
   store ptr %538, ptr %49, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %547 = call fastcc ptr @new_sub(ptr noundef %.08.i173, ptr noundef %.010.i432, ptr noundef %454)
-  br label %.backedge1192
+  br label %.backedge1211
 
-.backedge1192:                                    ; preds = %mul.exit435, %new_add.exit450
+.backedge1211:                                    ; preds = %mul.exit435, %new_add.exit450
   %.08.i173.be = phi ptr [ %519, %new_add.exit450 ], [ %547, %mul.exit435 ]
   br label %453
 
@@ -19112,9 +19112,9 @@ mul.exit172:                                      ; preds = %563
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %574
 
-574:                                              ; preds = %.backedge1186, %mul.exit172
-  %.0635 = phi ptr [ %565, %mul.exit172 ], [ %.0635.be, %.backedge1186 ]
-  %.08.i.i60 = phi ptr [ %.010.i169, %mul.exit172 ], [ %.08.i.i60.be, %.backedge1186 ]
+574:                                              ; preds = %.backedge1205, %mul.exit172
+  %.0635 = phi ptr [ %565, %mul.exit172 ], [ %.0635.be, %.backedge1205 ]
+  %.08.i.i60 = phi ptr [ %.010.i169, %mul.exit172 ], [ %.08.i.i60.be, %.backedge1205 ]
   %575 = call zeroext i1 @equal(ptr noundef %.0635, ptr noundef nonnull @.str.18) #13
   br i1 %575, label %576, label %643
 
@@ -19237,7 +19237,7 @@ mul.exit168:                                      ; preds = %587
   br label %.sink.split.i154
 
 .sink.split.i154:                                 ; preds = %626, %620
-  %.sink46.i155 = phi ptr [ %630, %626 ], [ %623, %620 ]
+  %.sink47.i155 = phi ptr [ %630, %626 ], [ %623, %620 ]
   %635 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %635, align 16, !tbaa !7
   %636 = getelementptr inbounds nuw i8, ptr %635, i64 24
@@ -19245,7 +19245,7 @@ mul.exit168:                                      ; preds = %587
   %637 = getelementptr inbounds nuw i8, ptr %635, i64 32
   store ptr %.032.i152, ptr %637, align 16, !tbaa !23
   %638 = getelementptr inbounds nuw i8, ptr %635, i64 40
-  store ptr %.sink46.i155, ptr %638, align 8, !tbaa !29
+  store ptr %.sink47.i155, ptr %638, align 8, !tbaa !29
   br label %new_add.exit164
 
 new_add.exit164:                                  ; preds = %601, %.sink.split.i154
@@ -19259,7 +19259,7 @@ new_add.exit164:                                  ; preds = %601, %.sink.split.i
   store ptr %.031.sink.i156, ptr %641, align 16, !tbaa !23
   %642 = getelementptr inbounds nuw i8, ptr %639, i64 40
   store ptr %.sink.i157, ptr %642, align 8, !tbaa !29
-  br label %.backedge1186
+  br label %.backedge1205
 
 643:                                              ; preds = %574
   %644 = call zeroext i1 @equal(ptr noundef %.0635, ptr noundef nonnull @.str.19) #13
@@ -19309,9 +19309,9 @@ new_add.exit164:                                  ; preds = %601, %.sink.split.i
 mul.exit149:                                      ; preds = %656
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   %667 = call fastcc ptr @new_sub(ptr noundef %.08.i.i60, ptr noundef %.010.i146, ptr noundef %.0635)
-  br label %.backedge1186
+  br label %.backedge1205
 
-.backedge1186:                                    ; preds = %mul.exit149, %new_add.exit164
+.backedge1205:                                    ; preds = %mul.exit149, %new_add.exit164
   %.0635.be = phi ptr [ %589, %new_add.exit164 ], [ %658, %mul.exit149 ]
   %.08.i.i60.be = phi ptr [ %639, %new_add.exit164 ], [ %667, %mul.exit149 ]
   br label %574
@@ -19339,8 +19339,8 @@ add.exit.i61:                                     ; preds = %643
   %677 = call fastcc ptr @mul(ptr noundef %53, ptr noundef %676)
   br label %678
 
-678:                                              ; preds = %.backedge1194, %674
-  %.08.i143 = phi ptr [ %677, %674 ], [ %.08.i143.be, %.backedge1194 ]
+678:                                              ; preds = %.backedge1213, %674
+  %.08.i143 = phi ptr [ %677, %674 ], [ %.08.i143.be, %.backedge1213 ]
   %679 = load ptr, ptr %53, align 8, !tbaa !25
   %680 = call zeroext i1 @equal(ptr noundef %679, ptr noundef nonnull @.str.18) #13
   br i1 %680, label %681, label %748
@@ -19465,7 +19465,7 @@ mul.exit431:                                      ; preds = %692
   br label %.sink.split.i417
 
 .sink.split.i417:                                 ; preds = %731, %725
-  %.sink46.i418 = phi ptr [ %735, %731 ], [ %728, %725 ]
+  %.sink47.i418 = phi ptr [ %735, %731 ], [ %728, %725 ]
   %740 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %740, align 16, !tbaa !7
   %741 = getelementptr inbounds nuw i8, ptr %740, i64 24
@@ -19473,7 +19473,7 @@ mul.exit431:                                      ; preds = %692
   %742 = getelementptr inbounds nuw i8, ptr %740, i64 32
   store ptr %.032.i415, ptr %742, align 16, !tbaa !23
   %743 = getelementptr inbounds nuw i8, ptr %740, i64 40
-  store ptr %.sink46.i418, ptr %743, align 8, !tbaa !29
+  store ptr %.sink47.i418, ptr %743, align 8, !tbaa !29
   br label %new_add.exit427
 
 new_add.exit427:                                  ; preds = %706, %.sink.split.i417
@@ -19487,7 +19487,7 @@ new_add.exit427:                                  ; preds = %706, %.sink.split.i
   store ptr %.031.sink.i419, ptr %746, align 16, !tbaa !23
   %747 = getelementptr inbounds nuw i8, ptr %744, i64 40
   store ptr %.sink.i420, ptr %747, align 8, !tbaa !29
-  br label %.backedge1194
+  br label %.backedge1213
 
 748:                                              ; preds = %678
   %749 = call zeroext i1 @equal(ptr noundef %679, ptr noundef nonnull @.str.19) #13
@@ -19538,9 +19538,9 @@ mul.exit412:                                      ; preds = %761
   store ptr %763, ptr %53, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %772 = call fastcc ptr @new_sub(ptr noundef %.08.i143, ptr noundef %.010.i409, ptr noundef %679)
-  br label %.backedge1194
+  br label %.backedge1213
 
-.backedge1194:                                    ; preds = %mul.exit412, %new_add.exit427
+.backedge1213:                                    ; preds = %mul.exit412, %new_add.exit427
   %.08.i143.be = phi ptr [ %744, %new_add.exit427 ], [ %772, %mul.exit412 ]
   br label %678
 
@@ -19604,9 +19604,9 @@ mul.exit142:                                      ; preds = %788
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %799
 
-799:                                              ; preds = %.backedge1187, %mul.exit142
-  %.0632 = phi ptr [ %790, %mul.exit142 ], [ %.0632.be, %.backedge1187 ]
-  %.08.i.i54 = phi ptr [ %.010.i139, %mul.exit142 ], [ %.08.i.i54.be, %.backedge1187 ]
+799:                                              ; preds = %.backedge1206, %mul.exit142
+  %.0632 = phi ptr [ %790, %mul.exit142 ], [ %.0632.be, %.backedge1206 ]
+  %.08.i.i54 = phi ptr [ %.010.i139, %mul.exit142 ], [ %.08.i.i54.be, %.backedge1206 ]
   %800 = call zeroext i1 @equal(ptr noundef %.0632, ptr noundef nonnull @.str.18) #13
   br i1 %800, label %801, label %868
 
@@ -19729,7 +19729,7 @@ mul.exit138:                                      ; preds = %812
   br label %.sink.split.i124
 
 .sink.split.i124:                                 ; preds = %851, %845
-  %.sink46.i125 = phi ptr [ %855, %851 ], [ %848, %845 ]
+  %.sink47.i125 = phi ptr [ %855, %851 ], [ %848, %845 ]
   %860 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %860, align 16, !tbaa !7
   %861 = getelementptr inbounds nuw i8, ptr %860, i64 24
@@ -19737,7 +19737,7 @@ mul.exit138:                                      ; preds = %812
   %862 = getelementptr inbounds nuw i8, ptr %860, i64 32
   store ptr %.032.i122, ptr %862, align 16, !tbaa !23
   %863 = getelementptr inbounds nuw i8, ptr %860, i64 40
-  store ptr %.sink46.i125, ptr %863, align 8, !tbaa !29
+  store ptr %.sink47.i125, ptr %863, align 8, !tbaa !29
   br label %new_add.exit134
 
 new_add.exit134:                                  ; preds = %826, %.sink.split.i124
@@ -19751,7 +19751,7 @@ new_add.exit134:                                  ; preds = %826, %.sink.split.i
   store ptr %.031.sink.i126, ptr %866, align 16, !tbaa !23
   %867 = getelementptr inbounds nuw i8, ptr %864, i64 40
   store ptr %.sink.i127, ptr %867, align 8, !tbaa !29
-  br label %.backedge1187
+  br label %.backedge1206
 
 868:                                              ; preds = %799
   %869 = call zeroext i1 @equal(ptr noundef %.0632, ptr noundef nonnull @.str.19) #13
@@ -19801,9 +19801,9 @@ new_add.exit134:                                  ; preds = %826, %.sink.split.i
 mul.exit119:                                      ; preds = %881
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   %892 = call fastcc ptr @new_sub(ptr noundef %.08.i.i54, ptr noundef %.010.i116, ptr noundef %.0632)
-  br label %.backedge1187
+  br label %.backedge1206
 
-.backedge1187:                                    ; preds = %mul.exit119, %new_add.exit134
+.backedge1206:                                    ; preds = %mul.exit119, %new_add.exit134
   %.0632.be = phi ptr [ %814, %new_add.exit134 ], [ %883, %mul.exit119 ]
   %.08.i.i54.be = phi ptr [ %864, %new_add.exit134 ], [ %892, %mul.exit119 ]
   br label %799
@@ -19831,8 +19831,8 @@ add.exit.i55:                                     ; preds = %868
   %902 = call fastcc ptr @mul(ptr noundef %57, ptr noundef %901)
   br label %903
 
-903:                                              ; preds = %.backedge1196, %899
-  %.08.i115 = phi ptr [ %902, %899 ], [ %.08.i115.be, %.backedge1196 ]
+903:                                              ; preds = %.backedge1215, %899
+  %.08.i115 = phi ptr [ %902, %899 ], [ %.08.i115.be, %.backedge1215 ]
   %904 = load ptr, ptr %57, align 8, !tbaa !25
   %905 = call zeroext i1 @equal(ptr noundef %904, ptr noundef nonnull @.str.18) #13
   br i1 %905, label %906, label %973
@@ -19957,7 +19957,7 @@ mul.exit408:                                      ; preds = %917
   br label %.sink.split.i394
 
 .sink.split.i394:                                 ; preds = %956, %950
-  %.sink46.i395 = phi ptr [ %960, %956 ], [ %953, %950 ]
+  %.sink47.i395 = phi ptr [ %960, %956 ], [ %953, %950 ]
   %965 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %965, align 16, !tbaa !7
   %966 = getelementptr inbounds nuw i8, ptr %965, i64 24
@@ -19965,7 +19965,7 @@ mul.exit408:                                      ; preds = %917
   %967 = getelementptr inbounds nuw i8, ptr %965, i64 32
   store ptr %.032.i392, ptr %967, align 16, !tbaa !23
   %968 = getelementptr inbounds nuw i8, ptr %965, i64 40
-  store ptr %.sink46.i395, ptr %968, align 8, !tbaa !29
+  store ptr %.sink47.i395, ptr %968, align 8, !tbaa !29
   br label %new_add.exit404
 
 new_add.exit404:                                  ; preds = %931, %.sink.split.i394
@@ -19979,7 +19979,7 @@ new_add.exit404:                                  ; preds = %931, %.sink.split.i
   store ptr %.031.sink.i396, ptr %971, align 16, !tbaa !23
   %972 = getelementptr inbounds nuw i8, ptr %969, i64 40
   store ptr %.sink.i397, ptr %972, align 8, !tbaa !29
-  br label %.backedge1196
+  br label %.backedge1215
 
 973:                                              ; preds = %903
   %974 = call zeroext i1 @equal(ptr noundef %904, ptr noundef nonnull @.str.19) #13
@@ -20030,9 +20030,9 @@ mul.exit389:                                      ; preds = %986
   store ptr %988, ptr %57, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %997 = call fastcc ptr @new_sub(ptr noundef %.08.i115, ptr noundef %.010.i386, ptr noundef %904)
-  br label %.backedge1196
+  br label %.backedge1215
 
-.backedge1196:                                    ; preds = %mul.exit389, %new_add.exit404
+.backedge1215:                                    ; preds = %mul.exit389, %new_add.exit404
   %.08.i115.be = phi ptr [ %969, %new_add.exit404 ], [ %997, %mul.exit389 ]
   br label %903
 
@@ -20096,9 +20096,9 @@ mul.exit114:                                      ; preds = %1013
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %1024
 
-1024:                                             ; preds = %.backedge1188, %mul.exit114
-  %.0629 = phi ptr [ %1015, %mul.exit114 ], [ %.0629.be, %.backedge1188 ]
-  %.08.i.i = phi ptr [ %.010.i111, %mul.exit114 ], [ %.08.i.i.be, %.backedge1188 ]
+1024:                                             ; preds = %.backedge1207, %mul.exit114
+  %.0629 = phi ptr [ %1015, %mul.exit114 ], [ %.0629.be, %.backedge1207 ]
+  %.08.i.i = phi ptr [ %.010.i111, %mul.exit114 ], [ %.08.i.i.be, %.backedge1207 ]
   %1025 = call zeroext i1 @equal(ptr noundef %.0629, ptr noundef nonnull @.str.18) #13
   br i1 %1025, label %1026, label %1093
 
@@ -20221,7 +20221,7 @@ mul.exit110:                                      ; preds = %1037
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %1076, %1070
-  %.sink46.i = phi ptr [ %1080, %1076 ], [ %1073, %1070 ]
+  %.sink47.i = phi ptr [ %1080, %1076 ], [ %1073, %1070 ]
   %1085 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %1085, align 16, !tbaa !7
   %1086 = getelementptr inbounds nuw i8, ptr %1085, i64 24
@@ -20229,7 +20229,7 @@ mul.exit110:                                      ; preds = %1037
   %1087 = getelementptr inbounds nuw i8, ptr %1085, i64 32
   store ptr %.032.i, ptr %1087, align 16, !tbaa !23
   %1088 = getelementptr inbounds nuw i8, ptr %1085, i64 40
-  store ptr %.sink46.i, ptr %1088, align 8, !tbaa !29
+  store ptr %.sink47.i, ptr %1088, align 8, !tbaa !29
   br label %new_add.exit
 
 new_add.exit:                                     ; preds = %1051, %.sink.split.i
@@ -20243,7 +20243,7 @@ new_add.exit:                                     ; preds = %1051, %.sink.split.
   store ptr %.031.sink.i, ptr %1091, align 16, !tbaa !23
   %1092 = getelementptr inbounds nuw i8, ptr %1089, i64 40
   store ptr %.sink.i106, ptr %1092, align 8, !tbaa !29
-  br label %.backedge1188
+  br label %.backedge1207
 
 1093:                                             ; preds = %1024
   %1094 = call zeroext i1 @equal(ptr noundef %.0629, ptr noundef nonnull @.str.19) #13
@@ -20293,9 +20293,9 @@ new_add.exit:                                     ; preds = %1051, %.sink.split.
 mul.exit:                                         ; preds = %1106
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %1117 = call fastcc ptr @new_sub(ptr noundef %.08.i.i, ptr noundef %.010.i, ptr noundef %.0629)
-  br label %.backedge1188
+  br label %.backedge1207
 
-.backedge1188:                                    ; preds = %mul.exit, %new_add.exit
+.backedge1207:                                    ; preds = %mul.exit, %new_add.exit
   %.0629.be = phi ptr [ %1039, %new_add.exit ], [ %1108, %mul.exit ]
   %.08.i.i.be = phi ptr [ %1089, %new_add.exit ], [ %1117, %mul.exit ]
   br label %1024
@@ -20345,8 +20345,8 @@ relational.exit:                                  ; preds = %897, %relational.ex
   %1132 = call fastcc ptr @mul(ptr noundef %23, ptr noundef %1131)
   br label %1133
 
-1133:                                             ; preds = %.backedge1189, %1129
-  %.08.i383 = phi ptr [ %1132, %1129 ], [ %.08.i383.be, %.backedge1189 ]
+1133:                                             ; preds = %.backedge1208, %1129
+  %.08.i383 = phi ptr [ %1132, %1129 ], [ %.08.i383.be, %.backedge1208 ]
   %1134 = load ptr, ptr %23, align 8, !tbaa !25
   %1135 = call zeroext i1 @equal(ptr noundef %1134, ptr noundef nonnull @.str.18) #13
   br i1 %1135, label %1136, label %1203
@@ -20471,7 +20471,7 @@ mul.exit600:                                      ; preds = %1147
   br label %.sink.split.i586
 
 .sink.split.i586:                                 ; preds = %1186, %1180
-  %.sink46.i587 = phi ptr [ %1190, %1186 ], [ %1183, %1180 ]
+  %.sink47.i587 = phi ptr [ %1190, %1186 ], [ %1183, %1180 ]
   %1195 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %1195, align 16, !tbaa !7
   %1196 = getelementptr inbounds nuw i8, ptr %1195, i64 24
@@ -20479,7 +20479,7 @@ mul.exit600:                                      ; preds = %1147
   %1197 = getelementptr inbounds nuw i8, ptr %1195, i64 32
   store ptr %.032.i584, ptr %1197, align 16, !tbaa !23
   %1198 = getelementptr inbounds nuw i8, ptr %1195, i64 40
-  store ptr %.sink46.i587, ptr %1198, align 8, !tbaa !29
+  store ptr %.sink47.i587, ptr %1198, align 8, !tbaa !29
   br label %new_add.exit596
 
 new_add.exit596:                                  ; preds = %1161, %.sink.split.i586
@@ -20493,7 +20493,7 @@ new_add.exit596:                                  ; preds = %1161, %.sink.split.
   store ptr %.031.sink.i588, ptr %1201, align 16, !tbaa !23
   %1202 = getelementptr inbounds nuw i8, ptr %1199, i64 40
   store ptr %.sink.i589, ptr %1202, align 8, !tbaa !29
-  br label %.backedge1189
+  br label %.backedge1208
 
 1203:                                             ; preds = %1133
   %1204 = call zeroext i1 @equal(ptr noundef %1134, ptr noundef nonnull @.str.19) #13
@@ -20544,9 +20544,9 @@ mul.exit581:                                      ; preds = %1216
   store ptr %1218, ptr %23, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %1227 = call fastcc ptr @new_sub(ptr noundef %.08.i383, ptr noundef %.010.i578, ptr noundef %1134)
-  br label %.backedge1189
+  br label %.backedge1208
 
-.backedge1189:                                    ; preds = %mul.exit581, %new_add.exit596
+.backedge1208:                                    ; preds = %mul.exit581, %new_add.exit596
   %.08.i383.be = phi ptr [ %1199, %new_add.exit596 ], [ %1227, %mul.exit581 ]
   br label %1133
 
@@ -20610,9 +20610,9 @@ mul.exit382:                                      ; preds = %1243
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %1254
 
-1254:                                             ; preds = %.backedge1184, %mul.exit382
-  %.0656 = phi ptr [ %1245, %mul.exit382 ], [ %.0656.be, %.backedge1184 ]
-  %.08.i.i102 = phi ptr [ %.010.i379, %mul.exit382 ], [ %.08.i.i102.be, %.backedge1184 ]
+1254:                                             ; preds = %.backedge1203, %mul.exit382
+  %.0656 = phi ptr [ %1245, %mul.exit382 ], [ %.0656.be, %.backedge1203 ]
+  %.08.i.i102 = phi ptr [ %.010.i379, %mul.exit382 ], [ %.08.i.i102.be, %.backedge1203 ]
   %1255 = call zeroext i1 @equal(ptr noundef %.0656, ptr noundef nonnull @.str.18) #13
   br i1 %1255, label %1256, label %1323
 
@@ -20735,7 +20735,7 @@ mul.exit378:                                      ; preds = %1267
   br label %.sink.split.i364
 
 .sink.split.i364:                                 ; preds = %1306, %1300
-  %.sink46.i365 = phi ptr [ %1310, %1306 ], [ %1303, %1300 ]
+  %.sink47.i365 = phi ptr [ %1310, %1306 ], [ %1303, %1300 ]
   %1315 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %1315, align 16, !tbaa !7
   %1316 = getelementptr inbounds nuw i8, ptr %1315, i64 24
@@ -20743,7 +20743,7 @@ mul.exit378:                                      ; preds = %1267
   %1317 = getelementptr inbounds nuw i8, ptr %1315, i64 32
   store ptr %.032.i362, ptr %1317, align 16, !tbaa !23
   %1318 = getelementptr inbounds nuw i8, ptr %1315, i64 40
-  store ptr %.sink46.i365, ptr %1318, align 8, !tbaa !29
+  store ptr %.sink47.i365, ptr %1318, align 8, !tbaa !29
   br label %new_add.exit374
 
 new_add.exit374:                                  ; preds = %1281, %.sink.split.i364
@@ -20757,7 +20757,7 @@ new_add.exit374:                                  ; preds = %1281, %.sink.split.
   store ptr %.031.sink.i366, ptr %1321, align 16, !tbaa !23
   %1322 = getelementptr inbounds nuw i8, ptr %1319, i64 40
   store ptr %.sink.i367, ptr %1322, align 8, !tbaa !29
-  br label %.backedge1184
+  br label %.backedge1203
 
 1323:                                             ; preds = %1254
   %1324 = call zeroext i1 @equal(ptr noundef %.0656, ptr noundef nonnull @.str.19) #13
@@ -20807,9 +20807,9 @@ new_add.exit374:                                  ; preds = %1281, %.sink.split.
 mul.exit359:                                      ; preds = %1336
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %1347 = call fastcc ptr @new_sub(ptr noundef %.08.i.i102, ptr noundef %.010.i356, ptr noundef %.0656)
-  br label %.backedge1184
+  br label %.backedge1203
 
-.backedge1184:                                    ; preds = %mul.exit359, %new_add.exit374
+.backedge1203:                                    ; preds = %mul.exit359, %new_add.exit374
   %.0656.be = phi ptr [ %1269, %new_add.exit374 ], [ %1338, %mul.exit359 ]
   %.08.i.i102.be = phi ptr [ %1319, %new_add.exit374 ], [ %1347, %mul.exit359 ]
   br label %1254
@@ -20876,9 +20876,9 @@ mul.exit577:                                      ; preds = %1364
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %1375
 
-1375:                                             ; preds = %.backedge1177, %mul.exit577
-  %.0660 = phi ptr [ %1366, %mul.exit577 ], [ %.0660.be, %.backedge1177 ]
-  %.08.i353 = phi ptr [ %.010.i574, %mul.exit577 ], [ %.08.i353.be, %.backedge1177 ]
+1375:                                             ; preds = %.backedge1196, %mul.exit577
+  %.0660 = phi ptr [ %1366, %mul.exit577 ], [ %.0660.be, %.backedge1196 ]
+  %.08.i353 = phi ptr [ %.010.i574, %mul.exit577 ], [ %.08.i353.be, %.backedge1196 ]
   %1376 = call zeroext i1 @equal(ptr noundef %.0660, ptr noundef nonnull @.str.18) #13
   br i1 %1376, label %1377, label %1444
 
@@ -21001,7 +21001,7 @@ mul.exit573:                                      ; preds = %1388
   br label %.sink.split.i559
 
 .sink.split.i559:                                 ; preds = %1427, %1421
-  %.sink46.i560 = phi ptr [ %1431, %1427 ], [ %1424, %1421 ]
+  %.sink47.i560 = phi ptr [ %1431, %1427 ], [ %1424, %1421 ]
   %1436 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %1436, align 16, !tbaa !7
   %1437 = getelementptr inbounds nuw i8, ptr %1436, i64 24
@@ -21009,7 +21009,7 @@ mul.exit573:                                      ; preds = %1388
   %1438 = getelementptr inbounds nuw i8, ptr %1436, i64 32
   store ptr %.032.i557, ptr %1438, align 16, !tbaa !23
   %1439 = getelementptr inbounds nuw i8, ptr %1436, i64 40
-  store ptr %.sink46.i560, ptr %1439, align 8, !tbaa !29
+  store ptr %.sink47.i560, ptr %1439, align 8, !tbaa !29
   br label %new_add.exit569
 
 new_add.exit569:                                  ; preds = %1402, %.sink.split.i559
@@ -21023,7 +21023,7 @@ new_add.exit569:                                  ; preds = %1402, %.sink.split.
   store ptr %.031.sink.i561, ptr %1442, align 16, !tbaa !23
   %1443 = getelementptr inbounds nuw i8, ptr %1440, i64 40
   store ptr %.sink.i562, ptr %1443, align 8, !tbaa !29
-  br label %.backedge1177
+  br label %.backedge1196
 
 1444:                                             ; preds = %1375
   %1445 = call zeroext i1 @equal(ptr noundef %.0660, ptr noundef nonnull @.str.19) #13
@@ -21073,9 +21073,9 @@ new_add.exit569:                                  ; preds = %1402, %.sink.split.
 mul.exit554:                                      ; preds = %1457
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %1468 = call fastcc ptr @new_sub(ptr noundef %.08.i353, ptr noundef %.010.i551, ptr noundef %.0660)
-  br label %.backedge1177
+  br label %.backedge1196
 
-.backedge1177:                                    ; preds = %mul.exit554, %new_add.exit569
+.backedge1196:                                    ; preds = %mul.exit554, %new_add.exit569
   %.0660.be = phi ptr [ %1390, %new_add.exit569 ], [ %1459, %mul.exit554 ]
   %.08.i353.be = phi ptr [ %1440, %new_add.exit569 ], [ %1468, %mul.exit554 ]
   br label %1375
@@ -21261,7 +21261,7 @@ mul.exit348:                                      ; preds = %1507
   br label %.sink.split.i334
 
 .sink.split.i334:                                 ; preds = %1546, %1540
-  %.sink46.i335 = phi ptr [ %1550, %1546 ], [ %1543, %1540 ]
+  %.sink47.i335 = phi ptr [ %1550, %1546 ], [ %1543, %1540 ]
   %1555 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %1555, align 16, !tbaa !7
   %1556 = getelementptr inbounds nuw i8, ptr %1555, i64 24
@@ -21269,7 +21269,7 @@ mul.exit348:                                      ; preds = %1507
   %1557 = getelementptr inbounds nuw i8, ptr %1555, i64 32
   store ptr %.032.i332, ptr %1557, align 16, !tbaa !23
   %1558 = getelementptr inbounds nuw i8, ptr %1555, i64 40
-  store ptr %.sink46.i335, ptr %1558, align 8, !tbaa !29
+  store ptr %.sink47.i335, ptr %1558, align 8, !tbaa !29
   br label %new_add.exit344
 
 new_add.exit344:                                  ; preds = %1521, %.sink.split.i334
@@ -21400,9 +21400,9 @@ mul.exit550:                                      ; preds = %1605
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %1616
 
-1616:                                             ; preds = %.backedge1179, %mul.exit550
-  %.0658 = phi ptr [ %1607, %mul.exit550 ], [ %.0658.be, %.backedge1179 ]
-  %.08.i323 = phi ptr [ %.010.i547, %mul.exit550 ], [ %.08.i323.be, %.backedge1179 ]
+1616:                                             ; preds = %.backedge1198, %mul.exit550
+  %.0658 = phi ptr [ %1607, %mul.exit550 ], [ %.0658.be, %.backedge1198 ]
+  %.08.i323 = phi ptr [ %.010.i547, %mul.exit550 ], [ %.08.i323.be, %.backedge1198 ]
   %1617 = call zeroext i1 @equal(ptr noundef %.0658, ptr noundef nonnull @.str.18) #13
   br i1 %1617, label %1618, label %1685
 
@@ -21525,7 +21525,7 @@ mul.exit546:                                      ; preds = %1629
   br label %.sink.split.i532
 
 .sink.split.i532:                                 ; preds = %1668, %1662
-  %.sink46.i533 = phi ptr [ %1672, %1668 ], [ %1665, %1662 ]
+  %.sink47.i533 = phi ptr [ %1672, %1668 ], [ %1665, %1662 ]
   %1677 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %1677, align 16, !tbaa !7
   %1678 = getelementptr inbounds nuw i8, ptr %1677, i64 24
@@ -21533,7 +21533,7 @@ mul.exit546:                                      ; preds = %1629
   %1679 = getelementptr inbounds nuw i8, ptr %1677, i64 32
   store ptr %.032.i530, ptr %1679, align 16, !tbaa !23
   %1680 = getelementptr inbounds nuw i8, ptr %1677, i64 40
-  store ptr %.sink46.i533, ptr %1680, align 8, !tbaa !29
+  store ptr %.sink47.i533, ptr %1680, align 8, !tbaa !29
   br label %new_add.exit542
 
 new_add.exit542:                                  ; preds = %1643, %.sink.split.i532
@@ -21547,7 +21547,7 @@ new_add.exit542:                                  ; preds = %1643, %.sink.split.
   store ptr %.031.sink.i534, ptr %1683, align 16, !tbaa !23
   %1684 = getelementptr inbounds nuw i8, ptr %1681, i64 40
   store ptr %.sink.i535, ptr %1684, align 8, !tbaa !29
-  br label %.backedge1179
+  br label %.backedge1198
 
 1685:                                             ; preds = %1616
   %1686 = call zeroext i1 @equal(ptr noundef %.0658, ptr noundef nonnull @.str.19) #13
@@ -21597,9 +21597,9 @@ new_add.exit542:                                  ; preds = %1643, %.sink.split.
 mul.exit527:                                      ; preds = %1698
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %1709 = call fastcc ptr @new_sub(ptr noundef %.08.i323, ptr noundef %.010.i524, ptr noundef %.0658)
-  br label %.backedge1179
+  br label %.backedge1198
 
-.backedge1179:                                    ; preds = %mul.exit527, %new_add.exit542
+.backedge1198:                                    ; preds = %mul.exit527, %new_add.exit542
   %.0658.be = phi ptr [ %1631, %new_add.exit542 ], [ %1700, %mul.exit527 ]
   %.08.i323.be = phi ptr [ %1681, %new_add.exit542 ], [ %1709, %mul.exit527 ]
   br label %1616
@@ -21660,9 +21660,9 @@ mul.exit322:                                      ; preds = %1724
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %1735
 
-1735:                                             ; preds = %.backedge1174, %mul.exit322
-  %.0650 = phi ptr [ %1726, %mul.exit322 ], [ %.0650.be, %.backedge1174 ]
-  %.08.i.i90 = phi ptr [ %.010.i319, %mul.exit322 ], [ %.08.i.i90.be, %.backedge1174 ]
+1735:                                             ; preds = %.backedge1193, %mul.exit322
+  %.0650 = phi ptr [ %1726, %mul.exit322 ], [ %.0650.be, %.backedge1193 ]
+  %.08.i.i90 = phi ptr [ %.010.i319, %mul.exit322 ], [ %.08.i.i90.be, %.backedge1193 ]
   %1736 = call zeroext i1 @equal(ptr noundef %.0650, ptr noundef nonnull @.str.18) #13
   br i1 %1736, label %1737, label %1804
 
@@ -21785,7 +21785,7 @@ mul.exit318:                                      ; preds = %1748
   br label %.sink.split.i304
 
 .sink.split.i304:                                 ; preds = %1787, %1781
-  %.sink46.i305 = phi ptr [ %1791, %1787 ], [ %1784, %1781 ]
+  %.sink47.i305 = phi ptr [ %1791, %1787 ], [ %1784, %1781 ]
   %1796 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %1796, align 16, !tbaa !7
   %1797 = getelementptr inbounds nuw i8, ptr %1796, i64 24
@@ -21793,7 +21793,7 @@ mul.exit318:                                      ; preds = %1748
   %1798 = getelementptr inbounds nuw i8, ptr %1796, i64 32
   store ptr %.032.i302, ptr %1798, align 16, !tbaa !23
   %1799 = getelementptr inbounds nuw i8, ptr %1796, i64 40
-  store ptr %.sink46.i305, ptr %1799, align 8, !tbaa !29
+  store ptr %.sink47.i305, ptr %1799, align 8, !tbaa !29
   br label %new_add.exit314
 
 new_add.exit314:                                  ; preds = %1762, %.sink.split.i304
@@ -21807,7 +21807,7 @@ new_add.exit314:                                  ; preds = %1762, %.sink.split.
   store ptr %.031.sink.i306, ptr %1802, align 16, !tbaa !23
   %1803 = getelementptr inbounds nuw i8, ptr %1800, i64 40
   store ptr %.sink.i307, ptr %1803, align 8, !tbaa !29
-  br label %.backedge1174
+  br label %.backedge1193
 
 1804:                                             ; preds = %1735
   %1805 = call zeroext i1 @equal(ptr noundef %.0650, ptr noundef nonnull @.str.19) #13
@@ -21857,9 +21857,9 @@ new_add.exit314:                                  ; preds = %1762, %.sink.split.
 mul.exit299:                                      ; preds = %1817
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %1828 = call fastcc ptr @new_sub(ptr noundef %.08.i.i90, ptr noundef %.010.i296, ptr noundef %.0650)
-  br label %.backedge1174
+  br label %.backedge1193
 
-.backedge1174:                                    ; preds = %mul.exit299, %new_add.exit314
+.backedge1193:                                    ; preds = %mul.exit299, %new_add.exit314
   %.0650.be = phi ptr [ %1750, %new_add.exit314 ], [ %1819, %mul.exit299 ]
   %.08.i.i90.be = phi ptr [ %1800, %new_add.exit314 ], [ %1828, %mul.exit299 ]
   br label %1735
@@ -21887,8 +21887,8 @@ add.exit.i91:                                     ; preds = %1804
   %1838 = call fastcc ptr @mul(ptr noundef %33, ptr noundef %1837)
   br label %1839
 
-1839:                                             ; preds = %.backedge1181, %1835
-  %.08.i293 = phi ptr [ %1838, %1835 ], [ %.08.i293.be, %.backedge1181 ]
+1839:                                             ; preds = %.backedge1200, %1835
+  %.08.i293 = phi ptr [ %1838, %1835 ], [ %.08.i293.be, %.backedge1200 ]
   %1840 = load ptr, ptr %33, align 8, !tbaa !25
   %1841 = call zeroext i1 @equal(ptr noundef %1840, ptr noundef nonnull @.str.18) #13
   br i1 %1841, label %1842, label %1909
@@ -22013,7 +22013,7 @@ mul.exit523:                                      ; preds = %1853
   br label %.sink.split.i509
 
 .sink.split.i509:                                 ; preds = %1892, %1886
-  %.sink46.i510 = phi ptr [ %1896, %1892 ], [ %1889, %1886 ]
+  %.sink47.i510 = phi ptr [ %1896, %1892 ], [ %1889, %1886 ]
   %1901 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %1901, align 16, !tbaa !7
   %1902 = getelementptr inbounds nuw i8, ptr %1901, i64 24
@@ -22021,7 +22021,7 @@ mul.exit523:                                      ; preds = %1853
   %1903 = getelementptr inbounds nuw i8, ptr %1901, i64 32
   store ptr %.032.i507, ptr %1903, align 16, !tbaa !23
   %1904 = getelementptr inbounds nuw i8, ptr %1901, i64 40
-  store ptr %.sink46.i510, ptr %1904, align 8, !tbaa !29
+  store ptr %.sink47.i510, ptr %1904, align 8, !tbaa !29
   br label %new_add.exit519
 
 new_add.exit519:                                  ; preds = %1867, %.sink.split.i509
@@ -22035,7 +22035,7 @@ new_add.exit519:                                  ; preds = %1867, %.sink.split.
   store ptr %.031.sink.i511, ptr %1907, align 16, !tbaa !23
   %1908 = getelementptr inbounds nuw i8, ptr %1905, i64 40
   store ptr %.sink.i512, ptr %1908, align 8, !tbaa !29
-  br label %.backedge1181
+  br label %.backedge1200
 
 1909:                                             ; preds = %1839
   %1910 = call zeroext i1 @equal(ptr noundef %1840, ptr noundef nonnull @.str.19) #13
@@ -22086,9 +22086,9 @@ mul.exit504:                                      ; preds = %1922
   store ptr %1924, ptr %33, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %1933 = call fastcc ptr @new_sub(ptr noundef %.08.i293, ptr noundef %.010.i501, ptr noundef %1840)
-  br label %.backedge1181
+  br label %.backedge1200
 
-.backedge1181:                                    ; preds = %mul.exit504, %new_add.exit519
+.backedge1200:                                    ; preds = %mul.exit504, %new_add.exit519
   %.08.i293.be = phi ptr [ %1905, %new_add.exit519 ], [ %1933, %mul.exit504 ]
   br label %1839
 
@@ -22152,9 +22152,9 @@ mul.exit292:                                      ; preds = %1949
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %1960
 
-1960:                                             ; preds = %.backedge1175, %mul.exit292
-  %.0647 = phi ptr [ %1951, %mul.exit292 ], [ %.0647.be, %.backedge1175 ]
-  %.08.i.i84 = phi ptr [ %.010.i289, %mul.exit292 ], [ %.08.i.i84.be, %.backedge1175 ]
+1960:                                             ; preds = %.backedge1194, %mul.exit292
+  %.0647 = phi ptr [ %1951, %mul.exit292 ], [ %.0647.be, %.backedge1194 ]
+  %.08.i.i84 = phi ptr [ %.010.i289, %mul.exit292 ], [ %.08.i.i84.be, %.backedge1194 ]
   %1961 = call zeroext i1 @equal(ptr noundef %.0647, ptr noundef nonnull @.str.18) #13
   br i1 %1961, label %1962, label %2029
 
@@ -22277,7 +22277,7 @@ mul.exit288:                                      ; preds = %1973
   br label %.sink.split.i274
 
 .sink.split.i274:                                 ; preds = %2012, %2006
-  %.sink46.i275 = phi ptr [ %2016, %2012 ], [ %2009, %2006 ]
+  %.sink47.i275 = phi ptr [ %2016, %2012 ], [ %2009, %2006 ]
   %2021 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %2021, align 16, !tbaa !7
   %2022 = getelementptr inbounds nuw i8, ptr %2021, i64 24
@@ -22285,7 +22285,7 @@ mul.exit288:                                      ; preds = %1973
   %2023 = getelementptr inbounds nuw i8, ptr %2021, i64 32
   store ptr %.032.i272, ptr %2023, align 16, !tbaa !23
   %2024 = getelementptr inbounds nuw i8, ptr %2021, i64 40
-  store ptr %.sink46.i275, ptr %2024, align 8, !tbaa !29
+  store ptr %.sink47.i275, ptr %2024, align 8, !tbaa !29
   br label %new_add.exit284
 
 new_add.exit284:                                  ; preds = %1987, %.sink.split.i274
@@ -22299,7 +22299,7 @@ new_add.exit284:                                  ; preds = %1987, %.sink.split.
   store ptr %.031.sink.i276, ptr %2027, align 16, !tbaa !23
   %2028 = getelementptr inbounds nuw i8, ptr %2025, i64 40
   store ptr %.sink.i277, ptr %2028, align 8, !tbaa !29
-  br label %.backedge1175
+  br label %.backedge1194
 
 2029:                                             ; preds = %1960
   %2030 = call zeroext i1 @equal(ptr noundef %.0647, ptr noundef nonnull @.str.19) #13
@@ -22349,9 +22349,9 @@ new_add.exit284:                                  ; preds = %1987, %.sink.split.
 mul.exit269:                                      ; preds = %2042
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %2053 = call fastcc ptr @new_sub(ptr noundef %.08.i.i84, ptr noundef %.010.i266, ptr noundef %.0647)
-  br label %.backedge1175
+  br label %.backedge1194
 
-.backedge1175:                                    ; preds = %mul.exit269, %new_add.exit284
+.backedge1194:                                    ; preds = %mul.exit269, %new_add.exit284
   %.0647.be = phi ptr [ %1975, %new_add.exit284 ], [ %2044, %mul.exit269 ]
   %.08.i.i84.be = phi ptr [ %2025, %new_add.exit284 ], [ %2053, %mul.exit269 ]
   br label %1960
@@ -22379,8 +22379,8 @@ add.exit.i85:                                     ; preds = %2029
   %2063 = call fastcc ptr @mul(ptr noundef %37, ptr noundef %2062)
   br label %2064
 
-2064:                                             ; preds = %.backedge1183, %2060
-  %.08.i263 = phi ptr [ %2063, %2060 ], [ %.08.i263.be, %.backedge1183 ]
+2064:                                             ; preds = %.backedge1202, %2060
+  %.08.i263 = phi ptr [ %2063, %2060 ], [ %.08.i263.be, %.backedge1202 ]
   %2065 = load ptr, ptr %37, align 8, !tbaa !25
   %2066 = call zeroext i1 @equal(ptr noundef %2065, ptr noundef nonnull @.str.18) #13
   br i1 %2066, label %2067, label %2134
@@ -22505,7 +22505,7 @@ mul.exit500:                                      ; preds = %2078
   br label %.sink.split.i486
 
 .sink.split.i486:                                 ; preds = %2117, %2111
-  %.sink46.i487 = phi ptr [ %2121, %2117 ], [ %2114, %2111 ]
+  %.sink47.i487 = phi ptr [ %2121, %2117 ], [ %2114, %2111 ]
   %2126 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %2126, align 16, !tbaa !7
   %2127 = getelementptr inbounds nuw i8, ptr %2126, i64 24
@@ -22513,7 +22513,7 @@ mul.exit500:                                      ; preds = %2078
   %2128 = getelementptr inbounds nuw i8, ptr %2126, i64 32
   store ptr %.032.i484, ptr %2128, align 16, !tbaa !23
   %2129 = getelementptr inbounds nuw i8, ptr %2126, i64 40
-  store ptr %.sink46.i487, ptr %2129, align 8, !tbaa !29
+  store ptr %.sink47.i487, ptr %2129, align 8, !tbaa !29
   br label %new_add.exit496
 
 new_add.exit496:                                  ; preds = %2092, %.sink.split.i486
@@ -22527,7 +22527,7 @@ new_add.exit496:                                  ; preds = %2092, %.sink.split.
   store ptr %.031.sink.i488, ptr %2132, align 16, !tbaa !23
   %2133 = getelementptr inbounds nuw i8, ptr %2130, i64 40
   store ptr %.sink.i489, ptr %2133, align 8, !tbaa !29
-  br label %.backedge1183
+  br label %.backedge1202
 
 2134:                                             ; preds = %2064
   %2135 = call zeroext i1 @equal(ptr noundef %2065, ptr noundef nonnull @.str.19) #13
@@ -22578,9 +22578,9 @@ mul.exit481:                                      ; preds = %2147
   store ptr %2149, ptr %37, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %2158 = call fastcc ptr @new_sub(ptr noundef %.08.i263, ptr noundef %.010.i478, ptr noundef %2065)
-  br label %.backedge1183
+  br label %.backedge1202
 
-.backedge1183:                                    ; preds = %mul.exit481, %new_add.exit496
+.backedge1202:                                    ; preds = %mul.exit481, %new_add.exit496
   %.08.i263.be = phi ptr [ %2130, %new_add.exit496 ], [ %2158, %mul.exit481 ]
   br label %2064
 
@@ -22644,9 +22644,9 @@ mul.exit262:                                      ; preds = %2174
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %2185
 
-2185:                                             ; preds = %.backedge1176, %mul.exit262
-  %.0644 = phi ptr [ %2176, %mul.exit262 ], [ %.0644.be, %.backedge1176 ]
-  %.08.i.i78 = phi ptr [ %.010.i259, %mul.exit262 ], [ %.08.i.i78.be, %.backedge1176 ]
+2185:                                             ; preds = %.backedge1195, %mul.exit262
+  %.0644 = phi ptr [ %2176, %mul.exit262 ], [ %.0644.be, %.backedge1195 ]
+  %.08.i.i78 = phi ptr [ %.010.i259, %mul.exit262 ], [ %.08.i.i78.be, %.backedge1195 ]
   %2186 = call zeroext i1 @equal(ptr noundef %.0644, ptr noundef nonnull @.str.18) #13
   br i1 %2186, label %2187, label %2254
 
@@ -22769,7 +22769,7 @@ mul.exit258:                                      ; preds = %2198
   br label %.sink.split.i244
 
 .sink.split.i244:                                 ; preds = %2237, %2231
-  %.sink46.i245 = phi ptr [ %2241, %2237 ], [ %2234, %2231 ]
+  %.sink47.i245 = phi ptr [ %2241, %2237 ], [ %2234, %2231 ]
   %2246 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %2246, align 16, !tbaa !7
   %2247 = getelementptr inbounds nuw i8, ptr %2246, i64 24
@@ -22777,7 +22777,7 @@ mul.exit258:                                      ; preds = %2198
   %2248 = getelementptr inbounds nuw i8, ptr %2246, i64 32
   store ptr %.032.i242, ptr %2248, align 16, !tbaa !23
   %2249 = getelementptr inbounds nuw i8, ptr %2246, i64 40
-  store ptr %.sink46.i245, ptr %2249, align 8, !tbaa !29
+  store ptr %.sink47.i245, ptr %2249, align 8, !tbaa !29
   br label %new_add.exit254
 
 new_add.exit254:                                  ; preds = %2212, %.sink.split.i244
@@ -22791,7 +22791,7 @@ new_add.exit254:                                  ; preds = %2212, %.sink.split.
   store ptr %.031.sink.i246, ptr %2252, align 16, !tbaa !23
   %2253 = getelementptr inbounds nuw i8, ptr %2250, i64 40
   store ptr %.sink.i247, ptr %2253, align 8, !tbaa !29
-  br label %.backedge1176
+  br label %.backedge1195
 
 2254:                                             ; preds = %2185
   %2255 = call zeroext i1 @equal(ptr noundef %.0644, ptr noundef nonnull @.str.19) #13
@@ -22841,9 +22841,9 @@ new_add.exit254:                                  ; preds = %2212, %.sink.split.
 mul.exit239:                                      ; preds = %2267
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %2278 = call fastcc ptr @new_sub(ptr noundef %.08.i.i78, ptr noundef %.010.i236, ptr noundef %.0644)
-  br label %.backedge1176
+  br label %.backedge1195
 
-.backedge1176:                                    ; preds = %mul.exit239, %new_add.exit254
+.backedge1195:                                    ; preds = %mul.exit239, %new_add.exit254
   %.0644.be = phi ptr [ %2200, %new_add.exit254 ], [ %2269, %mul.exit239 ]
   %.08.i.i78.be = phi ptr [ %2250, %new_add.exit254 ], [ %2278, %mul.exit239 ]
   br label %2185
@@ -22976,8 +22976,8 @@ define internal fastcc ptr @equality(ptr noundef nonnull writeonly captures(none
   %43 = call fastcc ptr @mul(ptr noundef %17, ptr noundef %42)
   br label %44
 
-44:                                               ; preds = %.backedge636, %40
-  %.08.i174 = phi ptr [ %43, %40 ], [ %.08.i174.be, %.backedge636 ]
+44:                                               ; preds = %.backedge646, %40
+  %.08.i174 = phi ptr [ %43, %40 ], [ %.08.i174.be, %.backedge646 ]
   %45 = load ptr, ptr %17, align 8, !tbaa !25
   %46 = call zeroext i1 @equal(ptr noundef %45, ptr noundef nonnull @.str.18) #13
   br i1 %46, label %47, label %114
@@ -23102,7 +23102,7 @@ mul.exit307:                                      ; preds = %58
   br label %.sink.split.i293
 
 .sink.split.i293:                                 ; preds = %97, %91
-  %.sink46.i294 = phi ptr [ %101, %97 ], [ %94, %91 ]
+  %.sink47.i294 = phi ptr [ %101, %97 ], [ %94, %91 ]
   %106 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %106, align 16, !tbaa !7
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
@@ -23110,7 +23110,7 @@ mul.exit307:                                      ; preds = %58
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 32
   store ptr %.032.i291, ptr %108, align 16, !tbaa !23
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 40
-  store ptr %.sink46.i294, ptr %109, align 8, !tbaa !29
+  store ptr %.sink47.i294, ptr %109, align 8, !tbaa !29
   br label %new_add.exit303
 
 new_add.exit303:                                  ; preds = %72, %.sink.split.i293
@@ -23124,7 +23124,7 @@ new_add.exit303:                                  ; preds = %72, %.sink.split.i2
   store ptr %.031.sink.i295, ptr %112, align 16, !tbaa !23
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 40
   store ptr %.sink.i296, ptr %113, align 8, !tbaa !29
-  br label %.backedge636
+  br label %.backedge646
 
 114:                                              ; preds = %44
   %115 = call zeroext i1 @equal(ptr noundef %45, ptr noundef nonnull @.str.19) #13
@@ -23175,9 +23175,9 @@ mul.exit288:                                      ; preds = %127
   store ptr %129, ptr %17, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %138 = call fastcc ptr @new_sub(ptr noundef %.08.i174, ptr noundef %.010.i285, ptr noundef %45)
-  br label %.backedge636
+  br label %.backedge646
 
-.backedge636:                                     ; preds = %mul.exit288, %new_add.exit303
+.backedge646:                                     ; preds = %mul.exit288, %new_add.exit303
   %.08.i174.be = phi ptr [ %110, %new_add.exit303 ], [ %138, %mul.exit288 ]
   br label %44
 
@@ -23241,9 +23241,9 @@ mul.exit173:                                      ; preds = %154
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %165
 
-165:                                              ; preds = %.backedge635, %mul.exit173
-  %.0335 = phi ptr [ %156, %mul.exit173 ], [ %.0335.be, %.backedge635 ]
-  %.08.i.i43 = phi ptr [ %.010.i170, %mul.exit173 ], [ %.08.i.i43.be, %.backedge635 ]
+165:                                              ; preds = %.backedge645, %mul.exit173
+  %.0335 = phi ptr [ %156, %mul.exit173 ], [ %.0335.be, %.backedge645 ]
+  %.08.i.i43 = phi ptr [ %.010.i170, %mul.exit173 ], [ %.08.i.i43.be, %.backedge645 ]
   %166 = call zeroext i1 @equal(ptr noundef %.0335, ptr noundef nonnull @.str.18) #13
   br i1 %166, label %167, label %234
 
@@ -23366,7 +23366,7 @@ mul.exit169:                                      ; preds = %178
   br label %.sink.split.i155
 
 .sink.split.i155:                                 ; preds = %217, %211
-  %.sink46.i156 = phi ptr [ %221, %217 ], [ %214, %211 ]
+  %.sink47.i156 = phi ptr [ %221, %217 ], [ %214, %211 ]
   %226 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %226, align 16, !tbaa !7
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 24
@@ -23374,7 +23374,7 @@ mul.exit169:                                      ; preds = %178
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 32
   store ptr %.032.i153, ptr %228, align 16, !tbaa !23
   %229 = getelementptr inbounds nuw i8, ptr %226, i64 40
-  store ptr %.sink46.i156, ptr %229, align 8, !tbaa !29
+  store ptr %.sink47.i156, ptr %229, align 8, !tbaa !29
   br label %new_add.exit165
 
 new_add.exit165:                                  ; preds = %192, %.sink.split.i155
@@ -23388,7 +23388,7 @@ new_add.exit165:                                  ; preds = %192, %.sink.split.i
   store ptr %.031.sink.i157, ptr %232, align 16, !tbaa !23
   %233 = getelementptr inbounds nuw i8, ptr %230, i64 40
   store ptr %.sink.i158, ptr %233, align 8, !tbaa !29
-  br label %.backedge635
+  br label %.backedge645
 
 234:                                              ; preds = %165
   %235 = call zeroext i1 @equal(ptr noundef %.0335, ptr noundef nonnull @.str.19) #13
@@ -23438,9 +23438,9 @@ new_add.exit165:                                  ; preds = %192, %.sink.split.i
 mul.exit150:                                      ; preds = %247
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %258 = call fastcc ptr @new_sub(ptr noundef %.08.i.i43, ptr noundef %.010.i147, ptr noundef %.0335)
-  br label %.backedge635
+  br label %.backedge645
 
-.backedge635:                                     ; preds = %mul.exit150, %new_add.exit165
+.backedge645:                                     ; preds = %mul.exit150, %new_add.exit165
   %.0335.be = phi ptr [ %180, %new_add.exit165 ], [ %249, %mul.exit150 ]
   %.08.i.i43.be = phi ptr [ %230, %new_add.exit165 ], [ %258, %mul.exit150 ]
   br label %165
@@ -23507,9 +23507,9 @@ mul.exit284:                                      ; preds = %275
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %286
 
-286:                                              ; preds = %.backedge628, %mul.exit284
-  %.0343 = phi ptr [ %277, %mul.exit284 ], [ %.0343.be, %.backedge628 ]
-  %.08.i144 = phi ptr [ %.010.i281, %mul.exit284 ], [ %.08.i144.be, %.backedge628 ]
+286:                                              ; preds = %.backedge638, %mul.exit284
+  %.0343 = phi ptr [ %277, %mul.exit284 ], [ %.0343.be, %.backedge638 ]
+  %.08.i144 = phi ptr [ %.010.i281, %mul.exit284 ], [ %.08.i144.be, %.backedge638 ]
   %287 = call zeroext i1 @equal(ptr noundef %.0343, ptr noundef nonnull @.str.18) #13
   br i1 %287, label %288, label %355
 
@@ -23632,7 +23632,7 @@ mul.exit280:                                      ; preds = %299
   br label %.sink.split.i266
 
 .sink.split.i266:                                 ; preds = %338, %332
-  %.sink46.i267 = phi ptr [ %342, %338 ], [ %335, %332 ]
+  %.sink47.i267 = phi ptr [ %342, %338 ], [ %335, %332 ]
   %347 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %347, align 16, !tbaa !7
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 24
@@ -23640,7 +23640,7 @@ mul.exit280:                                      ; preds = %299
   %349 = getelementptr inbounds nuw i8, ptr %347, i64 32
   store ptr %.032.i264, ptr %349, align 16, !tbaa !23
   %350 = getelementptr inbounds nuw i8, ptr %347, i64 40
-  store ptr %.sink46.i267, ptr %350, align 8, !tbaa !29
+  store ptr %.sink47.i267, ptr %350, align 8, !tbaa !29
   br label %new_add.exit276
 
 new_add.exit276:                                  ; preds = %313, %.sink.split.i266
@@ -23654,7 +23654,7 @@ new_add.exit276:                                  ; preds = %313, %.sink.split.i
   store ptr %.031.sink.i268, ptr %353, align 16, !tbaa !23
   %354 = getelementptr inbounds nuw i8, ptr %351, i64 40
   store ptr %.sink.i269, ptr %354, align 8, !tbaa !29
-  br label %.backedge628
+  br label %.backedge638
 
 355:                                              ; preds = %286
   %356 = call zeroext i1 @equal(ptr noundef %.0343, ptr noundef nonnull @.str.19) #13
@@ -23704,9 +23704,9 @@ new_add.exit276:                                  ; preds = %313, %.sink.split.i
 mul.exit261:                                      ; preds = %368
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %379 = call fastcc ptr @new_sub(ptr noundef %.08.i144, ptr noundef %.010.i258, ptr noundef %.0343)
-  br label %.backedge628
+  br label %.backedge638
 
-.backedge628:                                     ; preds = %mul.exit261, %new_add.exit276
+.backedge638:                                     ; preds = %mul.exit261, %new_add.exit276
   %.0343.be = phi ptr [ %301, %new_add.exit276 ], [ %370, %mul.exit261 ]
   %.08.i144.be = phi ptr [ %351, %new_add.exit276 ], [ %379, %mul.exit261 ]
   br label %286
@@ -23892,7 +23892,7 @@ mul.exit139:                                      ; preds = %418
   br label %.sink.split.i125
 
 .sink.split.i125:                                 ; preds = %457, %451
-  %.sink46.i126 = phi ptr [ %461, %457 ], [ %454, %451 ]
+  %.sink47.i126 = phi ptr [ %461, %457 ], [ %454, %451 ]
   %466 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %466, align 16, !tbaa !7
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 24
@@ -23900,7 +23900,7 @@ mul.exit139:                                      ; preds = %418
   %468 = getelementptr inbounds nuw i8, ptr %466, i64 32
   store ptr %.032.i123, ptr %468, align 16, !tbaa !23
   %469 = getelementptr inbounds nuw i8, ptr %466, i64 40
-  store ptr %.sink46.i126, ptr %469, align 8, !tbaa !29
+  store ptr %.sink47.i126, ptr %469, align 8, !tbaa !29
   br label %new_add.exit135
 
 new_add.exit135:                                  ; preds = %432, %.sink.split.i125
@@ -24031,9 +24031,9 @@ mul.exit257:                                      ; preds = %516
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %527
 
-527:                                              ; preds = %.backedge630, %mul.exit257
-  %.0341 = phi ptr [ %518, %mul.exit257 ], [ %.0341.be, %.backedge630 ]
-  %.08.i114 = phi ptr [ %.010.i254, %mul.exit257 ], [ %.08.i114.be, %.backedge630 ]
+527:                                              ; preds = %.backedge640, %mul.exit257
+  %.0341 = phi ptr [ %518, %mul.exit257 ], [ %.0341.be, %.backedge640 ]
+  %.08.i114 = phi ptr [ %.010.i254, %mul.exit257 ], [ %.08.i114.be, %.backedge640 ]
   %528 = call zeroext i1 @equal(ptr noundef %.0341, ptr noundef nonnull @.str.18) #13
   br i1 %528, label %529, label %596
 
@@ -24156,7 +24156,7 @@ mul.exit253:                                      ; preds = %540
   br label %.sink.split.i239
 
 .sink.split.i239:                                 ; preds = %579, %573
-  %.sink46.i240 = phi ptr [ %583, %579 ], [ %576, %573 ]
+  %.sink47.i240 = phi ptr [ %583, %579 ], [ %576, %573 ]
   %588 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %588, align 16, !tbaa !7
   %589 = getelementptr inbounds nuw i8, ptr %588, i64 24
@@ -24164,7 +24164,7 @@ mul.exit253:                                      ; preds = %540
   %590 = getelementptr inbounds nuw i8, ptr %588, i64 32
   store ptr %.032.i237, ptr %590, align 16, !tbaa !23
   %591 = getelementptr inbounds nuw i8, ptr %588, i64 40
-  store ptr %.sink46.i240, ptr %591, align 8, !tbaa !29
+  store ptr %.sink47.i240, ptr %591, align 8, !tbaa !29
   br label %new_add.exit249
 
 new_add.exit249:                                  ; preds = %554, %.sink.split.i239
@@ -24178,7 +24178,7 @@ new_add.exit249:                                  ; preds = %554, %.sink.split.i
   store ptr %.031.sink.i241, ptr %594, align 16, !tbaa !23
   %595 = getelementptr inbounds nuw i8, ptr %592, i64 40
   store ptr %.sink.i242, ptr %595, align 8, !tbaa !29
-  br label %.backedge630
+  br label %.backedge640
 
 596:                                              ; preds = %527
   %597 = call zeroext i1 @equal(ptr noundef %.0341, ptr noundef nonnull @.str.19) #13
@@ -24228,9 +24228,9 @@ new_add.exit249:                                  ; preds = %554, %.sink.split.i
 mul.exit234:                                      ; preds = %609
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %620 = call fastcc ptr @new_sub(ptr noundef %.08.i114, ptr noundef %.010.i231, ptr noundef %.0341)
-  br label %.backedge630
+  br label %.backedge640
 
-.backedge630:                                     ; preds = %mul.exit234, %new_add.exit249
+.backedge640:                                     ; preds = %mul.exit234, %new_add.exit249
   %.0341.be = phi ptr [ %542, %new_add.exit249 ], [ %611, %mul.exit234 ]
   %.08.i114.be = phi ptr [ %592, %new_add.exit249 ], [ %620, %mul.exit234 ]
   br label %527
@@ -24291,9 +24291,9 @@ mul.exit113:                                      ; preds = %635
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %646
 
-646:                                              ; preds = %.backedge625, %mul.exit113
-  %.0329 = phi ptr [ %637, %mul.exit113 ], [ %.0329.be, %.backedge625 ]
-  %.08.i.i31 = phi ptr [ %.010.i110, %mul.exit113 ], [ %.08.i.i31.be, %.backedge625 ]
+646:                                              ; preds = %.backedge635, %mul.exit113
+  %.0329 = phi ptr [ %637, %mul.exit113 ], [ %.0329.be, %.backedge635 ]
+  %.08.i.i31 = phi ptr [ %.010.i110, %mul.exit113 ], [ %.08.i.i31.be, %.backedge635 ]
   %647 = call zeroext i1 @equal(ptr noundef %.0329, ptr noundef nonnull @.str.18) #13
   br i1 %647, label %648, label %715
 
@@ -24416,7 +24416,7 @@ mul.exit109:                                      ; preds = %659
   br label %.sink.split.i95
 
 .sink.split.i95:                                  ; preds = %698, %692
-  %.sink46.i96 = phi ptr [ %702, %698 ], [ %695, %692 ]
+  %.sink47.i96 = phi ptr [ %702, %698 ], [ %695, %692 ]
   %707 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %707, align 16, !tbaa !7
   %708 = getelementptr inbounds nuw i8, ptr %707, i64 24
@@ -24424,7 +24424,7 @@ mul.exit109:                                      ; preds = %659
   %709 = getelementptr inbounds nuw i8, ptr %707, i64 32
   store ptr %.032.i93, ptr %709, align 16, !tbaa !23
   %710 = getelementptr inbounds nuw i8, ptr %707, i64 40
-  store ptr %.sink46.i96, ptr %710, align 8, !tbaa !29
+  store ptr %.sink47.i96, ptr %710, align 8, !tbaa !29
   br label %new_add.exit105
 
 new_add.exit105:                                  ; preds = %673, %.sink.split.i95
@@ -24438,7 +24438,7 @@ new_add.exit105:                                  ; preds = %673, %.sink.split.i
   store ptr %.031.sink.i97, ptr %713, align 16, !tbaa !23
   %714 = getelementptr inbounds nuw i8, ptr %711, i64 40
   store ptr %.sink.i98, ptr %714, align 8, !tbaa !29
-  br label %.backedge625
+  br label %.backedge635
 
 715:                                              ; preds = %646
   %716 = call zeroext i1 @equal(ptr noundef %.0329, ptr noundef nonnull @.str.19) #13
@@ -24488,9 +24488,9 @@ new_add.exit105:                                  ; preds = %673, %.sink.split.i
 mul.exit90:                                       ; preds = %728
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %739 = call fastcc ptr @new_sub(ptr noundef %.08.i.i31, ptr noundef %.010.i87, ptr noundef %.0329)
-  br label %.backedge625
+  br label %.backedge635
 
-.backedge625:                                     ; preds = %mul.exit90, %new_add.exit105
+.backedge635:                                     ; preds = %mul.exit90, %new_add.exit105
   %.0329.be = phi ptr [ %661, %new_add.exit105 ], [ %730, %mul.exit90 ]
   %.08.i.i31.be = phi ptr [ %711, %new_add.exit105 ], [ %739, %mul.exit90 ]
   br label %646
@@ -24555,9 +24555,9 @@ mul.exit230:                                      ; preds = %757
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %768
 
-768:                                              ; preds = %.backedge632, %mul.exit230
-  %.0339 = phi ptr [ %759, %mul.exit230 ], [ %.0339.be, %.backedge632 ]
-  %.08.i84 = phi ptr [ %.010.i227, %mul.exit230 ], [ %.08.i84.be, %.backedge632 ]
+768:                                              ; preds = %.backedge642, %mul.exit230
+  %.0339 = phi ptr [ %759, %mul.exit230 ], [ %.0339.be, %.backedge642 ]
+  %.08.i84 = phi ptr [ %.010.i227, %mul.exit230 ], [ %.08.i84.be, %.backedge642 ]
   %769 = call zeroext i1 @equal(ptr noundef %.0339, ptr noundef nonnull @.str.18) #13
   br i1 %769, label %770, label %837
 
@@ -24680,7 +24680,7 @@ mul.exit226:                                      ; preds = %781
   br label %.sink.split.i212
 
 .sink.split.i212:                                 ; preds = %820, %814
-  %.sink46.i213 = phi ptr [ %824, %820 ], [ %817, %814 ]
+  %.sink47.i213 = phi ptr [ %824, %820 ], [ %817, %814 ]
   %829 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %829, align 16, !tbaa !7
   %830 = getelementptr inbounds nuw i8, ptr %829, i64 24
@@ -24688,7 +24688,7 @@ mul.exit226:                                      ; preds = %781
   %831 = getelementptr inbounds nuw i8, ptr %829, i64 32
   store ptr %.032.i210, ptr %831, align 16, !tbaa !23
   %832 = getelementptr inbounds nuw i8, ptr %829, i64 40
-  store ptr %.sink46.i213, ptr %832, align 8, !tbaa !29
+  store ptr %.sink47.i213, ptr %832, align 8, !tbaa !29
   br label %new_add.exit222
 
 new_add.exit222:                                  ; preds = %795, %.sink.split.i212
@@ -24702,7 +24702,7 @@ new_add.exit222:                                  ; preds = %795, %.sink.split.i
   store ptr %.031.sink.i214, ptr %835, align 16, !tbaa !23
   %836 = getelementptr inbounds nuw i8, ptr %833, i64 40
   store ptr %.sink.i215, ptr %836, align 8, !tbaa !29
-  br label %.backedge632
+  br label %.backedge642
 
 837:                                              ; preds = %768
   %838 = call zeroext i1 @equal(ptr noundef %.0339, ptr noundef nonnull @.str.19) #13
@@ -24752,9 +24752,9 @@ new_add.exit222:                                  ; preds = %795, %.sink.split.i
 mul.exit207:                                      ; preds = %850
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %861 = call fastcc ptr @new_sub(ptr noundef %.08.i84, ptr noundef %.010.i204, ptr noundef %.0339)
-  br label %.backedge632
+  br label %.backedge642
 
-.backedge632:                                     ; preds = %mul.exit207, %new_add.exit222
+.backedge642:                                     ; preds = %mul.exit207, %new_add.exit222
   %.0339.be = phi ptr [ %783, %new_add.exit222 ], [ %852, %mul.exit207 ]
   %.08.i84.be = phi ptr [ %833, %new_add.exit222 ], [ %861, %mul.exit207 ]
   br label %768
@@ -24815,9 +24815,9 @@ mul.exit83:                                       ; preds = %876
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %887
 
-887:                                              ; preds = %.backedge626, %mul.exit83
-  %.0326 = phi ptr [ %878, %mul.exit83 ], [ %.0326.be, %.backedge626 ]
-  %.08.i.i25 = phi ptr [ %.010.i80, %mul.exit83 ], [ %.08.i.i25.be, %.backedge626 ]
+887:                                              ; preds = %.backedge636, %mul.exit83
+  %.0326 = phi ptr [ %878, %mul.exit83 ], [ %.0326.be, %.backedge636 ]
+  %.08.i.i25 = phi ptr [ %.010.i80, %mul.exit83 ], [ %.08.i.i25.be, %.backedge636 ]
   %888 = call zeroext i1 @equal(ptr noundef %.0326, ptr noundef nonnull @.str.18) #13
   br i1 %888, label %889, label %956
 
@@ -24940,7 +24940,7 @@ mul.exit79:                                       ; preds = %900
   br label %.sink.split.i65
 
 .sink.split.i65:                                  ; preds = %939, %933
-  %.sink46.i66 = phi ptr [ %943, %939 ], [ %936, %933 ]
+  %.sink47.i66 = phi ptr [ %943, %939 ], [ %936, %933 ]
   %948 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %948, align 16, !tbaa !7
   %949 = getelementptr inbounds nuw i8, ptr %948, i64 24
@@ -24948,7 +24948,7 @@ mul.exit79:                                       ; preds = %900
   %950 = getelementptr inbounds nuw i8, ptr %948, i64 32
   store ptr %.032.i63, ptr %950, align 16, !tbaa !23
   %951 = getelementptr inbounds nuw i8, ptr %948, i64 40
-  store ptr %.sink46.i66, ptr %951, align 8, !tbaa !29
+  store ptr %.sink47.i66, ptr %951, align 8, !tbaa !29
   br label %new_add.exit75
 
 new_add.exit75:                                   ; preds = %914, %.sink.split.i65
@@ -24962,7 +24962,7 @@ new_add.exit75:                                   ; preds = %914, %.sink.split.i
   store ptr %.031.sink.i67, ptr %954, align 16, !tbaa !23
   %955 = getelementptr inbounds nuw i8, ptr %952, i64 40
   store ptr %.sink.i68, ptr %955, align 8, !tbaa !29
-  br label %.backedge626
+  br label %.backedge636
 
 956:                                              ; preds = %887
   %957 = call zeroext i1 @equal(ptr noundef %.0326, ptr noundef nonnull @.str.19) #13
@@ -25012,9 +25012,9 @@ new_add.exit75:                                   ; preds = %914, %.sink.split.i
 mul.exit60:                                       ; preds = %969
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %980 = call fastcc ptr @new_sub(ptr noundef %.08.i.i25, ptr noundef %.010.i57, ptr noundef %.0326)
-  br label %.backedge626
+  br label %.backedge636
 
-.backedge626:                                     ; preds = %mul.exit60, %new_add.exit75
+.backedge636:                                     ; preds = %mul.exit60, %new_add.exit75
   %.0326.be = phi ptr [ %902, %new_add.exit75 ], [ %971, %mul.exit60 ]
   %.08.i.i25.be = phi ptr [ %952, %new_add.exit75 ], [ %980, %mul.exit60 ]
   br label %887
@@ -25079,9 +25079,9 @@ mul.exit203:                                      ; preds = %998
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1009
 
-1009:                                             ; preds = %.backedge634, %mul.exit203
-  %.0337 = phi ptr [ %1000, %mul.exit203 ], [ %.0337.be, %.backedge634 ]
-  %.08.i56 = phi ptr [ %.010.i200, %mul.exit203 ], [ %.08.i56.be, %.backedge634 ]
+1009:                                             ; preds = %.backedge644, %mul.exit203
+  %.0337 = phi ptr [ %1000, %mul.exit203 ], [ %.0337.be, %.backedge644 ]
+  %.08.i56 = phi ptr [ %.010.i200, %mul.exit203 ], [ %.08.i56.be, %.backedge644 ]
   %1010 = call zeroext i1 @equal(ptr noundef %.0337, ptr noundef nonnull @.str.18) #13
   br i1 %1010, label %1011, label %1078
 
@@ -25204,7 +25204,7 @@ mul.exit199:                                      ; preds = %1022
   br label %.sink.split.i185
 
 .sink.split.i185:                                 ; preds = %1061, %1055
-  %.sink46.i186 = phi ptr [ %1065, %1061 ], [ %1058, %1055 ]
+  %.sink47.i186 = phi ptr [ %1065, %1061 ], [ %1058, %1055 ]
   %1070 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %1070, align 16, !tbaa !7
   %1071 = getelementptr inbounds nuw i8, ptr %1070, i64 24
@@ -25212,7 +25212,7 @@ mul.exit199:                                      ; preds = %1022
   %1072 = getelementptr inbounds nuw i8, ptr %1070, i64 32
   store ptr %.032.i183, ptr %1072, align 16, !tbaa !23
   %1073 = getelementptr inbounds nuw i8, ptr %1070, i64 40
-  store ptr %.sink46.i186, ptr %1073, align 8, !tbaa !29
+  store ptr %.sink47.i186, ptr %1073, align 8, !tbaa !29
   br label %new_add.exit195
 
 new_add.exit195:                                  ; preds = %1036, %.sink.split.i185
@@ -25226,7 +25226,7 @@ new_add.exit195:                                  ; preds = %1036, %.sink.split.
   store ptr %.031.sink.i187, ptr %1076, align 16, !tbaa !23
   %1077 = getelementptr inbounds nuw i8, ptr %1074, i64 40
   store ptr %.sink.i188, ptr %1077, align 8, !tbaa !29
-  br label %.backedge634
+  br label %.backedge644
 
 1078:                                             ; preds = %1009
   %1079 = call zeroext i1 @equal(ptr noundef %.0337, ptr noundef nonnull @.str.19) #13
@@ -25276,9 +25276,9 @@ new_add.exit195:                                  ; preds = %1036, %.sink.split.
 mul.exit180:                                      ; preds = %1091
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %1102 = call fastcc ptr @new_sub(ptr noundef %.08.i56, ptr noundef %.010.i177, ptr noundef %.0337)
-  br label %.backedge634
+  br label %.backedge644
 
-.backedge634:                                     ; preds = %mul.exit180, %new_add.exit195
+.backedge644:                                     ; preds = %mul.exit180, %new_add.exit195
   %.0337.be = phi ptr [ %1024, %new_add.exit195 ], [ %1093, %mul.exit180 ]
   %.08.i56.be = phi ptr [ %1074, %new_add.exit195 ], [ %1102, %mul.exit180 ]
   br label %1009
@@ -25339,9 +25339,9 @@ mul.exit55:                                       ; preds = %1117
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %1128
 
-1128:                                             ; preds = %.backedge627, %mul.exit55
-  %.0323 = phi ptr [ %1119, %mul.exit55 ], [ %.0323.be, %.backedge627 ]
-  %.08.i.i = phi ptr [ %.010.i52, %mul.exit55 ], [ %.08.i.i.be, %.backedge627 ]
+1128:                                             ; preds = %.backedge637, %mul.exit55
+  %.0323 = phi ptr [ %1119, %mul.exit55 ], [ %.0323.be, %.backedge637 ]
+  %.08.i.i = phi ptr [ %.010.i52, %mul.exit55 ], [ %.08.i.i.be, %.backedge637 ]
   %1129 = call zeroext i1 @equal(ptr noundef %.0323, ptr noundef nonnull @.str.18) #13
   br i1 %1129, label %1130, label %1197
 
@@ -25464,7 +25464,7 @@ mul.exit51:                                       ; preds = %1141
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %1180, %1174
-  %.sink46.i = phi ptr [ %1184, %1180 ], [ %1177, %1174 ]
+  %.sink47.i = phi ptr [ %1184, %1180 ], [ %1177, %1174 ]
   %1189 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %1189, align 16, !tbaa !7
   %1190 = getelementptr inbounds nuw i8, ptr %1189, i64 24
@@ -25472,7 +25472,7 @@ mul.exit51:                                       ; preds = %1141
   %1191 = getelementptr inbounds nuw i8, ptr %1189, i64 32
   store ptr %.032.i, ptr %1191, align 16, !tbaa !23
   %1192 = getelementptr inbounds nuw i8, ptr %1189, i64 40
-  store ptr %.sink46.i, ptr %1192, align 8, !tbaa !29
+  store ptr %.sink47.i, ptr %1192, align 8, !tbaa !29
   br label %new_add.exit
 
 new_add.exit:                                     ; preds = %1155, %.sink.split.i
@@ -25486,7 +25486,7 @@ new_add.exit:                                     ; preds = %1155, %.sink.split.
   store ptr %.031.sink.i, ptr %1195, align 16, !tbaa !23
   %1196 = getelementptr inbounds nuw i8, ptr %1193, i64 40
   store ptr %.sink.i47, ptr %1196, align 8, !tbaa !29
-  br label %.backedge627
+  br label %.backedge637
 
 1197:                                             ; preds = %1128
   %1198 = call zeroext i1 @equal(ptr noundef %.0323, ptr noundef nonnull @.str.19) #13
@@ -25536,9 +25536,9 @@ new_add.exit:                                     ; preds = %1155, %.sink.split.
 mul.exit:                                         ; preds = %1210
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %1221 = call fastcc ptr @new_sub(ptr noundef %.08.i.i, ptr noundef %.010.i, ptr noundef %.0323)
-  br label %.backedge627
+  br label %.backedge637
 
-.backedge627:                                     ; preds = %mul.exit, %new_add.exit
+.backedge637:                                     ; preds = %mul.exit, %new_add.exit
   %.0323.be = phi ptr [ %1143, %new_add.exit ], [ %1212, %mul.exit ]
   %.08.i.i.be = phi ptr [ %1193, %new_add.exit ], [ %1221, %mul.exit ]
   br label %1128
@@ -25656,9 +25656,9 @@ mul.exit96:                                       ; preds = %31
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %42
 
-42:                                               ; preds = %.backedge215, %mul.exit96
-  %.0128 = phi ptr [ %33, %mul.exit96 ], [ %.0128.be, %.backedge215 ]
-  %.08.i39 = phi ptr [ %.010.i93, %mul.exit96 ], [ %.08.i39.be, %.backedge215 ]
+42:                                               ; preds = %.backedge219, %mul.exit96
+  %.0128 = phi ptr [ %33, %mul.exit96 ], [ %.0128.be, %.backedge219 ]
+  %.08.i39 = phi ptr [ %.010.i93, %mul.exit96 ], [ %.08.i39.be, %.backedge219 ]
   %43 = call zeroext i1 @equal(ptr noundef %.0128, ptr noundef nonnull @.str.18) #13
   br i1 %43, label %44, label %111
 
@@ -25781,7 +25781,7 @@ mul.exit92:                                       ; preds = %55
   br label %.sink.split.i78
 
 .sink.split.i78:                                  ; preds = %94, %88
-  %.sink46.i79 = phi ptr [ %98, %94 ], [ %91, %88 ]
+  %.sink47.i79 = phi ptr [ %98, %94 ], [ %91, %88 ]
   %103 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %103, align 16, !tbaa !7
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
@@ -25789,7 +25789,7 @@ mul.exit92:                                       ; preds = %55
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 32
   store ptr %.032.i76, ptr %105, align 16, !tbaa !23
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 40
-  store ptr %.sink46.i79, ptr %106, align 8, !tbaa !29
+  store ptr %.sink47.i79, ptr %106, align 8, !tbaa !29
   br label %new_add.exit88
 
 new_add.exit88:                                   ; preds = %69, %.sink.split.i78
@@ -25803,7 +25803,7 @@ new_add.exit88:                                   ; preds = %69, %.sink.split.i7
   store ptr %.031.sink.i80, ptr %109, align 16, !tbaa !23
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 40
   store ptr %.sink.i81, ptr %110, align 8, !tbaa !29
-  br label %.backedge215
+  br label %.backedge219
 
 111:                                              ; preds = %42
   %112 = call zeroext i1 @equal(ptr noundef %.0128, ptr noundef nonnull @.str.19) #13
@@ -25853,9 +25853,9 @@ new_add.exit88:                                   ; preds = %69, %.sink.split.i7
 mul.exit73:                                       ; preds = %124
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %135 = call fastcc ptr @new_sub(ptr noundef %.08.i39, ptr noundef %.010.i70, ptr noundef %.0128)
-  br label %.backedge215
+  br label %.backedge219
 
-.backedge215:                                     ; preds = %mul.exit73, %new_add.exit88
+.backedge219:                                     ; preds = %mul.exit73, %new_add.exit88
   %.0128.be = phi ptr [ %57, %new_add.exit88 ], [ %126, %mul.exit73 ]
   %.08.i39.be = phi ptr [ %107, %new_add.exit88 ], [ %135, %mul.exit73 ]
   br label %42
@@ -26041,7 +26041,7 @@ mul.exit34:                                       ; preds = %174
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %213, %207
-  %.sink46.i = phi ptr [ %217, %213 ], [ %210, %207 ]
+  %.sink47.i = phi ptr [ %217, %213 ], [ %210, %207 ]
   %222 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %222, align 16, !tbaa !7
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 24
@@ -26049,7 +26049,7 @@ mul.exit34:                                       ; preds = %174
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 32
   store ptr %.032.i, ptr %224, align 16, !tbaa !23
   %225 = getelementptr inbounds nuw i8, ptr %222, i64 40
-  store ptr %.sink46.i, ptr %225, align 8, !tbaa !29
+  store ptr %.sink47.i, ptr %225, align 8, !tbaa !29
   br label %new_add.exit
 
 new_add.exit:                                     ; preds = %188, %.sink.split.i
@@ -26147,8 +26147,8 @@ shift.exit:                                       ; preds = %137
   %264 = call fastcc ptr @mul(ptr noundef %8, ptr noundef %263)
   br label %265
 
-265:                                              ; preds = %.backedge216, %261
-  %.08.i67 = phi ptr [ %264, %261 ], [ %.08.i67.be, %.backedge216 ]
+265:                                              ; preds = %.backedge220, %261
+  %.08.i67 = phi ptr [ %264, %261 ], [ %.08.i67.be, %.backedge220 ]
   %266 = load ptr, ptr %8, align 8, !tbaa !25
   %267 = call zeroext i1 @equal(ptr noundef %266, ptr noundef nonnull @.str.18) #13
   br i1 %267, label %268, label %335
@@ -26273,7 +26273,7 @@ mul.exit119:                                      ; preds = %279
   br label %.sink.split.i105
 
 .sink.split.i105:                                 ; preds = %318, %312
-  %.sink46.i106 = phi ptr [ %322, %318 ], [ %315, %312 ]
+  %.sink47.i106 = phi ptr [ %322, %318 ], [ %315, %312 ]
   %327 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %327, align 16, !tbaa !7
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 24
@@ -26281,7 +26281,7 @@ mul.exit119:                                      ; preds = %279
   %329 = getelementptr inbounds nuw i8, ptr %327, i64 32
   store ptr %.032.i103, ptr %329, align 16, !tbaa !23
   %330 = getelementptr inbounds nuw i8, ptr %327, i64 40
-  store ptr %.sink46.i106, ptr %330, align 8, !tbaa !29
+  store ptr %.sink47.i106, ptr %330, align 8, !tbaa !29
   br label %new_add.exit115
 
 new_add.exit115:                                  ; preds = %293, %.sink.split.i105
@@ -26295,7 +26295,7 @@ new_add.exit115:                                  ; preds = %293, %.sink.split.i
   store ptr %.031.sink.i107, ptr %333, align 16, !tbaa !23
   %334 = getelementptr inbounds nuw i8, ptr %331, i64 40
   store ptr %.sink.i108, ptr %334, align 8, !tbaa !29
-  br label %.backedge216
+  br label %.backedge220
 
 335:                                              ; preds = %265
   %336 = call zeroext i1 @equal(ptr noundef %266, ptr noundef nonnull @.str.19) #13
@@ -26346,9 +26346,9 @@ mul.exit100:                                      ; preds = %348
   store ptr %350, ptr %8, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %359 = call fastcc ptr @new_sub(ptr noundef %.08.i67, ptr noundef %.010.i97, ptr noundef %266)
-  br label %.backedge216
+  br label %.backedge220
 
-.backedge216:                                     ; preds = %mul.exit100, %new_add.exit115
+.backedge220:                                     ; preds = %mul.exit100, %new_add.exit115
   %.08.i67.be = phi ptr [ %331, %new_add.exit115 ], [ %359, %mul.exit100 ]
   br label %265
 
@@ -26412,9 +26412,9 @@ mul.exit66:                                       ; preds = %375
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %386
 
-386:                                              ; preds = %.backedge214, %mul.exit66
-  %.0126 = phi ptr [ %377, %mul.exit66 ], [ %.0126.be, %.backedge214 ]
-  %.08.i.i27 = phi ptr [ %.010.i63, %mul.exit66 ], [ %.08.i.i27.be, %.backedge214 ]
+386:                                              ; preds = %.backedge218, %mul.exit66
+  %.0126 = phi ptr [ %377, %mul.exit66 ], [ %.0126.be, %.backedge218 ]
+  %.08.i.i27 = phi ptr [ %.010.i63, %mul.exit66 ], [ %.08.i.i27.be, %.backedge218 ]
   %387 = call zeroext i1 @equal(ptr noundef %.0126, ptr noundef nonnull @.str.18) #13
   br i1 %387, label %388, label %455
 
@@ -26537,7 +26537,7 @@ mul.exit62:                                       ; preds = %399
   br label %.sink.split.i48
 
 .sink.split.i48:                                  ; preds = %438, %432
-  %.sink46.i49 = phi ptr [ %442, %438 ], [ %435, %432 ]
+  %.sink47.i49 = phi ptr [ %442, %438 ], [ %435, %432 ]
   %447 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %447, align 16, !tbaa !7
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 24
@@ -26545,7 +26545,7 @@ mul.exit62:                                       ; preds = %399
   %449 = getelementptr inbounds nuw i8, ptr %447, i64 32
   store ptr %.032.i46, ptr %449, align 16, !tbaa !23
   %450 = getelementptr inbounds nuw i8, ptr %447, i64 40
-  store ptr %.sink46.i49, ptr %450, align 8, !tbaa !29
+  store ptr %.sink47.i49, ptr %450, align 8, !tbaa !29
   br label %new_add.exit58
 
 new_add.exit58:                                   ; preds = %413, %.sink.split.i48
@@ -26559,7 +26559,7 @@ new_add.exit58:                                   ; preds = %413, %.sink.split.i
   store ptr %.031.sink.i50, ptr %453, align 16, !tbaa !23
   %454 = getelementptr inbounds nuw i8, ptr %451, i64 40
   store ptr %.sink.i51, ptr %454, align 8, !tbaa !29
-  br label %.backedge214
+  br label %.backedge218
 
 455:                                              ; preds = %386
   %456 = call zeroext i1 @equal(ptr noundef %.0126, ptr noundef nonnull @.str.19) #13
@@ -26609,9 +26609,9 @@ new_add.exit58:                                   ; preds = %413, %.sink.split.i
 mul.exit43:                                       ; preds = %468
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %479 = call fastcc ptr @new_sub(ptr noundef %.08.i.i27, ptr noundef %.010.i40, ptr noundef %.0126)
-  br label %.backedge214
+  br label %.backedge218
 
-.backedge214:                                     ; preds = %mul.exit43, %new_add.exit58
+.backedge218:                                     ; preds = %mul.exit43, %new_add.exit58
   %.0126.be = phi ptr [ %401, %new_add.exit58 ], [ %470, %mul.exit43 ]
   %.08.i.i27.be = phi ptr [ %451, %new_add.exit58 ], [ %479, %mul.exit43 ]
   br label %386
@@ -26862,7 +26862,7 @@ mul.exit26:                                       ; preds = %48
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %87, %81
-  %.sink46.i = phi ptr [ %91, %87 ], [ %84, %81 ]
+  %.sink47.i = phi ptr [ %91, %87 ], [ %84, %81 ]
   %96 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %96, align 16, !tbaa !7
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
@@ -26870,7 +26870,7 @@ mul.exit26:                                       ; preds = %48
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 32
   store ptr %.032.i, ptr %98, align 16, !tbaa !23
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 40
-  store ptr %.sink46.i, ptr %99, align 8, !tbaa !29
+  store ptr %.sink47.i, ptr %99, align 8, !tbaa !29
   br label %new_add.exit
 
 new_add.exit:                                     ; preds = %62, %.sink.split.i
@@ -27121,7 +27121,7 @@ define internal fastcc noalias noundef ptr @new_add(ptr noundef %0, ptr noundef 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %26, %32
-  %.sink46 = phi ptr [ %36, %32 ], [ %29, %26 ]
+  %.sink47 = phi ptr [ %36, %32 ], [ %29, %26 ]
   %41 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %41, align 16, !tbaa !7
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
@@ -27129,7 +27129,7 @@ define internal fastcc noalias noundef ptr @new_add(ptr noundef %0, ptr noundef 
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr %.032, ptr %43, align 16, !tbaa !23
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  store ptr %.sink46, ptr %44, align 8, !tbaa !29
+  store ptr %.sink47, ptr %44, align 8, !tbaa !29
   br label %45
 
 45:                                               ; preds = %.sink.split, %7
@@ -29555,7 +29555,7 @@ generic_selection.exit:                           ; preds = %._crit_edge
   %406 = getelementptr inbounds nuw i8, ptr %404, i64 44
   %407 = load i8, ptr %406, align 4, !tbaa !89, !range !58, !noundef !59
   %408 = trunc nuw i8 %407 to i1
-  br i1 %408, label %409, label %.thread145
+  br i1 %408, label %409, label %.thread156
 
 409:                                              ; preds = %405
   %410 = load ptr, ptr @current_fn, align 8, !tbaa !46
@@ -29565,7 +29565,7 @@ generic_selection.exit:                           ; preds = %._crit_edge
 411:                                              ; preds = %409
   %412 = getelementptr inbounds nuw i8, ptr %404, i64 125
   store i8 1, ptr %412, align 1, !tbaa !66
-  br label %.thread145
+  br label %.thread156
 
 413:                                              ; preds = %409
   %414 = getelementptr inbounds nuw i8, ptr %410, i64 128
@@ -29574,16 +29574,16 @@ generic_selection.exit:                           ; preds = %._crit_edge
   tail call void @strarray_push(ptr noundef nonnull %414, ptr noundef %416) #13
   %.pr.pre = load ptr, ptr %400, align 8, !tbaa !43
   %.not74.i = icmp eq ptr %.pr.pre, null
-  br i1 %.not74.i, label %.thread, label %.thread145
+  br i1 %.not74.i, label %.thread, label %.thread156
 
-.thread145:                                       ; preds = %411, %405, %413
-  %.pr148 = phi ptr [ %.pr.pre, %413 ], [ %404, %405 ], [ %404, %411 ]
+.thread156:                                       ; preds = %411, %405, %413
+  %.pr159 = phi ptr [ %.pr.pre, %413 ], [ %404, %405 ], [ %404, %411 ]
   %417 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 40, ptr %417, align 16, !tbaa !7
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 24
   store ptr %1, ptr %418, align 8, !tbaa !22
   %419 = getelementptr inbounds nuw i8, ptr %417, i64 256
-  store ptr %.pr148, ptr %419, align 16, !tbaa !48
+  store ptr %.pr159, ptr %419, align 16, !tbaa !48
   br label %primary.exit
 
 .thread:                                          ; preds = %403, %413
@@ -29680,8 +29680,8 @@ generic_selection.exit:                           ; preds = %._crit_edge
   tail call void (ptr, ptr, ...) @error_tok(ptr noundef nonnull %1, ptr noundef nonnull @.str.98) #16
   unreachable
 
-primary.exit:                                     ; preds = %111, %125, %174, %178, %189, %207, %214, %is_typename.exit55.thread71, %269, %generic_selection.exit, %322, %350, %359, %360, %363, %383, %.thread145, %422, %433, %460
-  %.064.i = phi ptr [ %112, %111 ], [ %128, %125 ], [ %263, %is_typename.exit55.thread71 ], [ %279, %269 ], [ %.015.i.be, %generic_selection.exit ], [ %334, %322 ], [ %364, %363 ], [ %384, %383 ], [ %441, %433 ], [ %.0.i, %460 ], [ %175, %174 ], [ %185, %178 ], [ %193, %189 ], [ %211, %207 ], [ %219, %214 ], [ %351, %350 ], [ %356, %359 ], [ %356, %360 ], [ %417, %.thread145 ], [ %426, %422 ]
+primary.exit:                                     ; preds = %111, %125, %174, %178, %189, %207, %214, %is_typename.exit55.thread71, %269, %generic_selection.exit, %322, %350, %359, %360, %363, %383, %.thread156, %422, %433, %460
+  %.064.i = phi ptr [ %112, %111 ], [ %128, %125 ], [ %263, %is_typename.exit55.thread71 ], [ %279, %269 ], [ %.015.i.be, %generic_selection.exit ], [ %334, %322 ], [ %364, %363 ], [ %384, %383 ], [ %441, %433 ], [ %.0.i, %460 ], [ %175, %174 ], [ %185, %178 ], [ %193, %189 ], [ %211, %207 ], [ %219, %214 ], [ %351, %350 ], [ %356, %359 ], [ %356, %360 ], [ %417, %.thread156 ], [ %426, %422 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %466 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %.backedge
@@ -29977,7 +29977,7 @@ funcall.exit:                                     ; preds = %533, %547
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %597, %591
-  %.sink46.i = phi ptr [ %601, %597 ], [ %594, %591 ]
+  %.sink47.i = phi ptr [ %601, %597 ], [ %594, %591 ]
   %606 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 3, ptr %606, align 16, !tbaa !7
   %607 = getelementptr inbounds nuw i8, ptr %606, i64 24
@@ -29985,7 +29985,7 @@ funcall.exit:                                     ; preds = %533, %547
   %608 = getelementptr inbounds nuw i8, ptr %606, i64 32
   store ptr %.032.i, ptr %608, align 16, !tbaa !23
   %609 = getelementptr inbounds nuw i8, ptr %606, i64 40
-  store ptr %.sink46.i, ptr %609, align 8, !tbaa !29
+  store ptr %.sink47.i, ptr %609, align 8, !tbaa !29
   br label %new_add.exit
 
 new_add.exit:                                     ; preds = %572, %.sink.split.i
@@ -30889,7 +30889,7 @@ string_initializer.exit:                          ; preds = %80, %64, %48, %42, 
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %97 = load i8, ptr %96, align 8, !tbaa !191, !range !58, !noundef !59
   %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %.thread69
+  br i1 %98, label %99, label %.thread70
 
 99:                                               ; preds = %94
   %100 = load ptr, ptr %11, align 8, !tbaa !172
@@ -30902,7 +30902,7 @@ string_initializer.exit:                          ; preds = %80, %64, %48, %42, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %106, i64 56, i1 false), !tbaa.struct !195
   %.pre64 = load i8, ptr %96, align 8, !tbaa !191, !range !58
   %107 = trunc nuw i8 %.pre64 to i1
-  br i1 %107, label %108, label %.thread69
+  br i1 %107, label %108, label %.thread70
 
 108:                                              ; preds = %99
   %109 = load ptr, ptr %11, align 8, !tbaa !172
@@ -30913,13 +30913,13 @@ string_initializer.exit:                          ; preds = %80, %64, %48, %42, 
   %114 = tail call ptr @array_of(ptr noundef %113, i32 noundef %110) #13
   %115 = tail call fastcc ptr @new_initializer(ptr noundef %114, i1 noundef zeroext false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %115, i64 56, i1 false), !tbaa.struct !195
-  br label %.thread69
+  br label %.thread70
 
-.thread69:                                        ; preds = %94, %108, %99
+.thread70:                                        ; preds = %94, %108, %99
   %116 = tail call zeroext i1 @equal(ptr noundef %95, ptr noundef nonnull @.str.69) #13
   br i1 %116, label %array_initializer1.exit, label %.lr.ph54
 
-.lr.ph54:                                         ; preds = %.thread69
+.lr.ph54:                                         ; preds = %.thread70
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 40
   br label %118
 
@@ -31025,8 +31025,8 @@ string_initializer.exit:                          ; preds = %80, %64, %48, %42, 
   %162 = call zeroext i1 @equal(ptr noundef %160, ptr noundef nonnull @.str.69) #13
   br i1 %162, label %array_initializer1.exit, label %118, !llvm.loop !201
 
-array_initializer1.exit:                          ; preds = %159, %.thread69, %125
-  %.sink.i = phi ptr [ %127, %125 ], [ %95, %.thread69 ], [ %160, %159 ]
+array_initializer1.exit:                          ; preds = %159, %.thread70, %125
+  %.sink.i = phi ptr [ %127, %125 ], [ %95, %.thread70 ], [ %160, %159 ]
   %163 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   %164 = load ptr, ptr %163, align 8, !tbaa !26
   store ptr %164, ptr %0, align 8, !tbaa !25
@@ -31958,7 +31958,7 @@ common.ret:                                       ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @struct_designator(ptr noundef nonnull writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc nonnull ptr @struct_designator(ptr noundef nonnull writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = tail call ptr @skip(ptr noundef %1, ptr noundef nonnull @.str.67) #13
   %5 = load i32, ptr %4, align 16, !tbaa !55
   %.not = icmp eq i32 %5, 0
@@ -33109,7 +33109,7 @@ define internal fastcc noundef ptr @stmt(ptr noundef nonnull %0, ptr noundef %1)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !26
   %10 = tail call zeroext i1 @consume(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull @.str.99) #13
-  br i1 %10, label %common.ret103, label %11
+  br i1 %10, label %common.ret104, label %11
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %8, align 8, !tbaa !26
@@ -33147,7 +33147,7 @@ define internal fastcc noundef ptr @stmt(ptr noundef nonnull %0, ptr noundef %1)
   %.093 = phi ptr [ %24, %23 ], [ %13, %11 ]
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %.093, ptr %32, align 16, !tbaa !23
-  br label %common.ret103
+  br label %common.ret104
 
 33:                                               ; preds = %2
   %34 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef nonnull @.str.105) #13
@@ -33187,15 +33187,15 @@ define internal fastcc noundef ptr @stmt(ptr noundef nonnull %0, ptr noundef %1)
 55:                                               ; preds = %49, %35
   %56 = load ptr, ptr %3, align 8, !tbaa !25
   store ptr %56, ptr %0, align 8, !tbaa !25
-  br label %common.ret103
+  br label %common.ret104
 
 57:                                               ; preds = %33
   %58 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef nonnull @.str.107) #13
   br i1 %58, label %59, label %77
 
-common.ret103:                                    ; preds = %31, %5, %326, %322, %285, %273, %258, %250, %240, %213, %102, %55, %299, %189, %180, %125, %59
-  %common.ret103.op = phi ptr [ %60, %59 ], [ %126, %125 ], [ %142, %180 ], [ %190, %189 ], [ %300, %299 ], [ %36, %55 ], [ %83, %102 ], [ %214, %213 ], [ %241, %240 ], [ %248, %250 ], [ %248, %258 ], [ %274, %273 ], [ %286, %285 ], [ %325, %322 ], [ %327, %326 ], [ %6, %5 ], [ %6, %31 ]
-  ret ptr %common.ret103.op
+common.ret104:                                    ; preds = %31, %5, %326, %322, %285, %273, %258, %250, %240, %213, %102, %55, %299, %189, %180, %125, %59
+  %common.ret104.op = phi ptr [ %60, %59 ], [ %126, %125 ], [ %142, %180 ], [ %190, %189 ], [ %300, %299 ], [ %36, %55 ], [ %83, %102 ], [ %214, %213 ], [ %241, %240 ], [ %248, %250 ], [ %248, %258 ], [ %274, %273 ], [ %286, %285 ], [ %325, %322 ], [ %327, %326 ], [ %6, %5 ], [ %6, %31 ]
+  ret ptr %common.ret104.op
 
 59:                                               ; preds = %57
   %60 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
@@ -33226,7 +33226,7 @@ common.ret103:                                    ; preds = %31, %5, %326, %322,
   store ptr %75, ptr %76, align 8, !tbaa !50
   store ptr %69, ptr @current_switch, align 8, !tbaa !101
   store ptr %70, ptr @brk_label, align 8, !tbaa !70
-  br label %common.ret103
+  br label %common.ret104
 
 77:                                               ; preds = %57
   %78 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef nonnull @.str.108) #13
@@ -33299,7 +33299,7 @@ common.ret103:                                    ; preds = %31, %5, %326, %322,
   %119 = getelementptr inbounds nuw i8, ptr %83, i64 176
   store ptr %118, ptr %119, align 16, !tbaa !218
   store ptr %83, ptr %117, align 16, !tbaa !218
-  br label %common.ret103
+  br label %common.ret104
 
 120:                                              ; preds = %77
   %121 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef nonnull @.str.111) #13
@@ -33334,7 +33334,7 @@ common.ret103:                                    ; preds = %31, %5, %326, %322,
   %137 = load ptr, ptr @current_switch, align 8, !tbaa !101
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 184
   store ptr %126, ptr %138, align 8, !tbaa !219
-  br label %common.ret103
+  br label %common.ret104
 
 139:                                              ; preds = %120
   %140 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef nonnull @.str.113) #13
@@ -33422,7 +33422,7 @@ common.ret103:                                    ; preds = %31, %5, %326, %322,
   store ptr %186, ptr @scope, align 8, !tbaa !41
   store ptr %149, ptr @brk_label, align 8, !tbaa !70
   store ptr %150, ptr @cont_label, align 8, !tbaa !70
-  br label %common.ret103
+  br label %common.ret104
 
 187:                                              ; preds = %139
   %188 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef nonnull @.str.114) #13
@@ -33463,7 +33463,7 @@ common.ret103:                                    ; preds = %31, %5, %326, %322,
   store ptr %209, ptr %210, align 8, !tbaa !50
   store ptr %199, ptr @brk_label, align 8, !tbaa !70
   store ptr %200, ptr @cont_label, align 8, !tbaa !70
-  br label %common.ret103
+  br label %common.ret104
 
 211:                                              ; preds = %187
   %212 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef nonnull @.str.115) #13
@@ -33510,7 +33510,7 @@ common.ret103:                                    ; preds = %31, %5, %326, %322,
   store ptr %236, ptr %3, align 8, !tbaa !25
   %237 = call ptr @skip(ptr noundef %236, ptr noundef nonnull @.str.99) #13
   store ptr %237, ptr %0, align 8, !tbaa !25
-  br label %common.ret103
+  br label %common.ret104
 
 238:                                              ; preds = %211
   %239 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef nonnull @.str.116) #13
@@ -33518,7 +33518,7 @@ common.ret103:                                    ; preds = %31, %5, %326, %322,
 
 240:                                              ; preds = %238
   %241 = tail call fastcc ptr @asm_stmt(ptr noundef %0, ptr noundef %1)
-  br label %common.ret103
+  br label %common.ret104
 
 242:                                              ; preds = %238
   %243 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef nonnull @.str.117) #13
@@ -33544,7 +33544,7 @@ common.ret103:                                    ; preds = %31, %5, %326, %322,
   %256 = load ptr, ptr %3, align 8, !tbaa !25
   %257 = tail call ptr @skip(ptr noundef %256, ptr noundef nonnull @.str.99) #13
   store ptr %257, ptr %0, align 8, !tbaa !25
-  br label %common.ret103
+  br label %common.ret104
 
 258:                                              ; preds = %244
   store i32 33, ptr %248, align 16, !tbaa !7
@@ -33562,7 +33562,7 @@ common.ret103:                                    ; preds = %31, %5, %326, %322,
   %266 = load ptr, ptr %265, align 8, !tbaa !26
   %267 = tail call ptr @skip(ptr noundef %266, ptr noundef nonnull @.str.99) #13
   store ptr %267, ptr %0, align 8, !tbaa !25
-  br label %common.ret103
+  br label %common.ret104
 
 268:                                              ; preds = %242
   %269 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef nonnull @.str.118) #13
@@ -33588,7 +33588,7 @@ common.ret103:                                    ; preds = %31, %5, %326, %322,
   %278 = load ptr, ptr %277, align 8, !tbaa !26
   %279 = tail call ptr @skip(ptr noundef %278, ptr noundef nonnull @.str.99) #13
   store ptr %279, ptr %0, align 8, !tbaa !25
-  br label %common.ret103
+  br label %common.ret104
 
 280:                                              ; preds = %268
   %281 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef nonnull @.str.120) #13
@@ -33614,7 +33614,7 @@ common.ret103:                                    ; preds = %31, %5, %326, %322,
   %290 = load ptr, ptr %289, align 8, !tbaa !26
   %291 = tail call ptr @skip(ptr noundef %290, ptr noundef nonnull @.str.99) #13
   store ptr %291, ptr %0, align 8, !tbaa !25
-  br label %common.ret103
+  br label %common.ret104
 
 292:                                              ; preds = %280
   %293 = load i32, ptr %1, align 16, !tbaa !55
@@ -33656,7 +33656,7 @@ common.ret103:                                    ; preds = %31, %5, %326, %322,
   %319 = getelementptr inbounds nuw i8, ptr %300, i64 168
   store ptr %318, ptr %319, align 8, !tbaa !129
   store ptr %300, ptr @labels, align 8, !tbaa !101
-  br label %common.ret103
+  br label %common.ret104
 
 320:                                              ; preds = %295, %292
   %321 = tail call zeroext i1 @equal(ptr noundef nonnull %1, ptr noundef nonnull @.str.25) #13
@@ -33666,11 +33666,11 @@ common.ret103:                                    ; preds = %31, %5, %326, %322,
   %323 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %324 = load ptr, ptr %323, align 8, !tbaa !26
   %325 = tail call fastcc ptr @compound_stmt(ptr noundef %0, ptr noundef %324)
-  br label %common.ret103
+  br label %common.ret104
 
 326:                                              ; preds = %320
   %327 = tail call fastcc ptr @expr_stmt(ptr noundef %0, ptr noundef nonnull %1)
-  br label %common.ret103
+  br label %common.ret104
 }
 
 ; Function Attrs: nounwind uwtable

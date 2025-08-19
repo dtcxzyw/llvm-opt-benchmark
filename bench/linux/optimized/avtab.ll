@@ -300,7 +300,7 @@ define dso_local noundef ptr @avtab_search_node(ptr noundef readonly captures(ad
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 2
   %71 = load i16, ptr %70, align 2
   %72 = icmp eq i16 %25, %71
-  br i1 %72, label %73, label %.thread11
+  br i1 %72, label %73, label %.thread15
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 4
@@ -319,7 +319,7 @@ define dso_local noundef ptr @avtab_search_node(ptr noundef readonly captures(ad
   %83 = icmp ult i16 %25, %71
   br i1 %83, label %.thread9, label %86
 
-.thread11:                                        ; preds = %69
+.thread15:                                        ; preds = %69
   %84 = icmp ult i16 %25, %71
   br i1 %84, label %.thread9, label %.thread5
 
@@ -333,14 +333,14 @@ define dso_local noundef ptr @avtab_search_node(ptr noundef readonly captures(ad
   %89 = icmp ult i16 %12, %88
   br i1 %89, label %.thread9, label %.thread5
 
-.thread5:                                         ; preds = %.thread11, %.thread, %86
+.thread5:                                         ; preds = %.thread15, %.thread, %86
   %90 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, null
   br i1 %92, label %.thread9, label %65, !llvm.loop !8
 
-.thread9:                                         ; preds = %82, %86, %.thread, %77, %.thread5, %.thread11, %8, %4, %2
-  %93 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %.thread11 ], [ null, %82 ], [ null, %86 ], [ null, %.thread ], [ %66, %77 ], [ null, %.thread5 ]
+.thread9:                                         ; preds = %82, %86, %.thread, %77, %.thread5, %.thread15, %8, %4, %2
+  %93 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %.thread15 ], [ null, %82 ], [ null, %86 ], [ null, %.thread ], [ %66, %77 ], [ null, %.thread5 ]
   ret ptr %93
 }
 
@@ -372,7 +372,7 @@ define dso_local noundef ptr @avtab_search_node_next(ptr noundef readonly captur
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %20 = load i16, ptr %19, align 2
   %21 = icmp eq i16 %20, %8
-  br i1 %21, label %22, label %.thread17
+  br i1 %21, label %22, label %.thread21
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -391,7 +391,7 @@ define dso_local noundef ptr @avtab_search_node_next(ptr noundef readonly captur
   %32 = icmp ugt i16 %20, %8
   br i1 %32, label %.thread8, label %35
 
-.thread17:                                        ; preds = %18
+.thread21:                                        ; preds = %18
   %33 = icmp ugt i16 %20, %8
   br i1 %33, label %.thread8, label %.thread4
 
@@ -405,14 +405,14 @@ define dso_local noundef ptr @avtab_search_node_next(ptr noundef readonly captur
   %38 = icmp ugt i16 %37, %10
   br i1 %38, label %.thread8, label %.thread4
 
-.thread4:                                         ; preds = %.thread17, %.thread, %35
+.thread4:                                         ; preds = %.thread21, %.thread, %35
   %39 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread8, label %.lr.ph
 
-.thread8:                                         ; preds = %.thread4, %26, %.thread, %35, %31, %.thread17, %4, %2
-  %42 = phi ptr [ null, %2 ], [ null, %4 ], [ null, %.thread17 ], [ null, %.thread4 ], [ %15, %26 ], [ null, %.thread ], [ null, %35 ], [ null, %31 ]
+.thread8:                                         ; preds = %.thread4, %26, %.thread, %35, %31, %.thread21, %4, %2
+  %42 = phi ptr [ null, %2 ], [ null, %4 ], [ null, %.thread21 ], [ null, %.thread4 ], [ %15, %26 ], [ null, %.thread ], [ null, %35 ], [ null, %31 ]
   ret ptr %42
 }
 
@@ -952,7 +952,7 @@ define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr noundef captures(no
   %21 = trunc i64 %20 to i32
   %22 = tail call i32 @llvm.umin.i32(i32 %21, i32 65536)
   %23 = icmp ugt i32 %18, 31
-  br i1 %23, label %.preheader27, label %.thread8
+  br i1 %23, label %.preheader34, label %.thread8
 
 .thread8:                                         ; preds = %13, %15
   %24 = phi i32 [ %22, %15 ], [ 2, %13 ]
@@ -969,13 +969,13 @@ define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr noundef captures(no
   %31 = add nsw i32 %24, -1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %31, ptr %32, align 8
-  br label %.preheader27
+  br label %.preheader34
 
-.preheader27:                                     ; preds = %29, %15
+.preheader34:                                     ; preds = %29, %15
   br label %33
 
-33:                                               ; preds = %.preheader27, %36
-  %34 = phi i32 [ %37, %36 ], [ 0, %.preheader27 ]
+33:                                               ; preds = %.preheader34, %36
+  %34 = phi i32 [ %37, %36 ], [ 0, %.preheader34 ]
   %35 = tail call i32 @avtab_read_item(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @avtab_insertf, ptr noundef null)
   switch i32 %35, label %.thread9 [
     i32 0, label %36
@@ -1142,7 +1142,7 @@ define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef capture
   %72 = icmp eq i16 %71, 0
   br label %76
 
-.thread7:                                         ; preds = %.thread15, %.thread, %98
+.thread7:                                         ; preds = %.thread21, %.thread, %98
   %73 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
@@ -1159,7 +1159,7 @@ define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef capture
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 2
   %83 = load i16, ptr %82, align 2
   %84 = icmp eq i16 %31, %83
-  br i1 %84, label %85, label %.thread15
+  br i1 %84, label %85, label %.thread21
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %77, i64 4
@@ -1178,7 +1178,7 @@ define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef capture
   %95 = icmp ult i16 %31, %83
   br i1 %95, label %.thread9, label %98
 
-.thread15:                                        ; preds = %81
+.thread21:                                        ; preds = %81
   %96 = icmp ult i16 %31, %83
   br i1 %96, label %.thread9, label %.thread7
 
@@ -1195,8 +1195,8 @@ define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef capture
 102:                                              ; preds = %89
   br i1 %72, label %131, label %.thread9
 
-.thread9:                                         ; preds = %94, %98, %.thread, %.thread7, %.thread15, %102, %14
-  %103 = phi ptr [ null, %14 ], [ %78, %102 ], [ %78, %.thread15 ], [ %78, %94 ], [ %78, %98 ], [ %78, %.thread ], [ %77, %.thread7 ]
+.thread9:                                         ; preds = %94, %98, %.thread, %.thread7, %.thread21, %102, %14
+  %103 = phi ptr [ null, %14 ], [ %78, %102 ], [ %78, %.thread21 ], [ %78, %94 ], [ %78, %98 ], [ %78, %.thread ], [ %77, %.thread7 ]
   %104 = icmp eq ptr %103, null
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %106 = select i1 %104, ptr %64, ptr %105

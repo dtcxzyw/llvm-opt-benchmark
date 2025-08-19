@@ -676,8 +676,8 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !49, !noalias !46
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !49, !noalias !46
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 15:                                               ; preds = %6
@@ -689,13 +689,13 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !49, !noalias !46
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !49, !noalias !46
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !49, !noalias !46
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !49, !noalias !46
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 26:                                               ; preds = %6
@@ -2275,8 +2275,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h6b2f126ef85bd9
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.854811f44bca550c56cb6f681a6a9a44.281.llvm.2002727345234535996, i64 %10
-  %12 = add nuw i64 %10, 1
+  %11 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.854811f44bca550c56cb6f681a6a9a44.281.llvm.2002727345234535996, i64 %10
+  %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8, !noalias !366, !noundef !4
   %15 = icmp eq i64 %14, 0
@@ -2389,8 +2389,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h6cd368069d19aa
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.854811f44bca550c56cb6f681a6a9a44.273.llvm.2002727345234535996, i64 %10
-  %12 = add nuw i64 %10, 1
+  %11 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.854811f44bca550c56cb6f681a6a9a44.273.llvm.2002727345234535996, i64 %10
+  %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8, !noalias !408, !noundef !4
   %15 = icmp eq i64 %14, 0
@@ -2503,8 +2503,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h9f991704ee37cb
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.854811f44bca550c56cb6f681a6a9a44.269.llvm.2002727345234535996, i64 %10
-  %12 = add nuw i64 %10, 1
+  %11 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.854811f44bca550c56cb6f681a6a9a44.269.llvm.2002727345234535996, i64 %10
+  %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8, !noalias !450, !noundef !4
   %15 = icmp eq i64 %14, 0
@@ -3177,7 +3177,7 @@ define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17h7918a
   %.idx = shl nsw i64 %4, 5
   %110 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %111 = icmp eq i64 %4, 0
-  br i1 %111, label %.thread1172, label %.lr.ph
+  br i1 %111, label %.thread1213, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3205,7 +3205,7 @@ define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17h7918a
   br label %135
 
 ._crit_edge:                                      ; preds = %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit"
-  %.not1225 = icmp eq i64 %.sroa.0.1, 0
+  %.not1266 = icmp eq i64 %.sroa.0.1, 0
   %.not.i = icmp eq i8 %.1441, 3
   br i1 %.not.i, label %"_ZN98_$LT$actix_http..responses..head..ResponseHead$u20$as$u20$actix_http..h1..decoder..MessageType$GT$19set_connection_type17h300762db3bc5991cE.exit", label %134
 
@@ -3287,7 +3287,7 @@ define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17h7918a
   br label %160
 
 157:                                              ; preds = %155
-  br i1 %.not1225, label %.thread1172, label %159
+  br i1 %.not1266, label %.thread1213, label %159
 
 158:                                              ; preds = %155
   store i64 3, ptr %0, align 8
@@ -3301,11 +3301,11 @@ define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17h7918a
   store i64 %.sroa.7.1, ptr %.sroa.4212.sroa.5.0..sroa.4212.0..sroa_idx.sroa_idx, align 8
   br label %160
 
-.thread1172:                                      ; preds = %6, %157
+.thread1213:                                      ; preds = %6, %157
   store i64 4, ptr %0, align 8
   br label %160
 
-160:                                              ; preds = %156, %158, %159, %.thread1172, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hd462342c1d1424f7E.exit"
+160:                                              ; preds = %156, %158, %159, %.thread1213, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hd462342c1d1424f7E.exit"
   ret void
 
 .loopexit967:                                     ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb94b08fe0a045bbE.exit", %161
@@ -7375,13 +7375,13 @@ define noundef zeroext i1 @"_ZN72_$LT$actix_http..h1..timer..TimerState$u20$as$u
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = load i64, ptr %0, align 8, !range !108, !noundef !4
-  switch i64 %6, label %default.unreachable20 [
+  switch i64 %6, label %default.unreachable21 [
     i64 0, label %7
     i64 1, label %9
     i64 2, label %11
   ]
 
-default.unreachable20:                            ; preds = %2
+default.unreachable21:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2

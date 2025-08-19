@@ -293,20 +293,20 @@ define internal i64 @xz_filter_read(ptr noundef readonly captures(none) %0, ptr 
 
 .lr.ph.preheader:                                 ; preds = %25
   %29 = load i8, ptr %14, align 8, !tbaa !29
-  %.not61111 = icmp eq i8 %29, 0
-  br i1 %.not61111, label %.lr.ph112, label %.critedge.loopexit
+  %.not61116 = icmp eq i8 %29, 0
+  br i1 %.not61116, label %.lr.ph117, label %.critedge.loopexit
 
 .lr.ph:                                           ; preds = %75
   %30 = load i8, ptr %14, align 8, !tbaa !29
   %.not61 = icmp eq i8 %30, 0
-  br i1 %.not61, label %.lr.ph112, label %.critedge.loopexit, !llvm.loop !30
+  br i1 %.not61, label %.lr.ph117, label %.critedge.loopexit, !llvm.loop !30
 
-.lr.ph112:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph117:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %31 = load i8, ptr %15, align 1, !tbaa !27
   %.not68 = icmp eq i8 %31, 0
   br i1 %.not68, label %32, label %61
 
-32:                                               ; preds = %.lr.ph112
+32:                                               ; preds = %.lr.ph117
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -376,7 +376,7 @@ define internal i64 @xz_filter_read(ptr noundef readonly captures(none) %0, ptr 
   store i8 1, ptr %15, align 1, !tbaa !27
   br label %61
 
-61:                                               ; preds = %60, %.lr.ph112
+61:                                               ; preds = %60, %.lr.ph117
   %62 = load ptr, ptr %16, align 8, !tbaa !32
   %63 = call ptr @__archive_read_filter_ahead(ptr noundef %62, i64 noundef 1, ptr noundef nonnull %6) #10
   store ptr %63, ptr %8, align 8, !tbaa !38

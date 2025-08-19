@@ -78,8 +78,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   %17 = getelementptr inbounds ptr, ptr %1, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !10
   %19 = load i8, ptr %18, align 1, !tbaa !13
-  %.not439.not.not = icmp ne i8 %19, 45
-  br i1 %.not439.not.not, label %.critedge.loopexit, label %sub_1
+  %.not460.not.not = icmp ne i8 %19, 45
+  br i1 %.not460.not.not, label %.critedge.loopexit, label %sub_1
 
 sub_1:                                            ; preds = %.lr.ph
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 1
@@ -182,7 +182,7 @@ sub_1244:                                         ; preds = %sub_1, %.tail
   %.0166.lcssa = phi i64 [ 1073741824, %2 ], [ %.0166.lcssa.ph, %.critedge.loopexit ]
   %.0165.lcssa = phi i64 [ 1024, %2 ], [ %.0165.lcssa.ph, %.critedge.loopexit ]
   %.lcssa303 = phi i32 [ 1, %2 ], [ %.lcssa303.ph, %.critedge.loopexit ]
-  %.lcssa = phi i1 [ false, %2 ], [ %.not439.not.not, %.critedge.loopexit ]
+  %.lcssa = phi i1 [ false, %2 ], [ %.not460.not.not, %.critedge.loopexit ]
   %57 = tail call noalias dereferenceable_or_null(4096) ptr @calloc(i64 noundef 4096, i64 noundef 1) #20
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %60
@@ -615,8 +615,8 @@ sub_1244:                                         ; preds = %sub_1, %.tail
   unreachable
 
 .loopexit.thread:                                 ; preds = %113, %232, %.loopexit
-  %.0191286393 = phi i32 [ %.0191286, %232 ], [ %.0191286, %.loopexit ], [ %103, %113 ]
-  %236 = tail call i32 @close(i32 noundef %.0191286393) #23
+  %.0191286414 = phi i32 [ %.0191286, %232 ], [ %.0191286, %.loopexit ], [ %103, %113 ]
+  %236 = tail call i32 @close(i32 noundef %.0191286414) #23
   %237 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !24, !noundef !25
   %238 = trunc nuw i8 %237 to i1
   %239 = load i8, ptr @H5_libterm_g, align 1, !range !24

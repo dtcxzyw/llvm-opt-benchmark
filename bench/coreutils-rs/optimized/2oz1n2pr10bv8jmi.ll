@@ -409,8 +409,8 @@ define hidden void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.165446
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.1..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %14, ptr %.sroa.0.1..sroa_idx12, align 1, !alias.scope !22
+  %.sroa.0.1..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %14, ptr %.sroa.0.1..sroa_idx15, align 1, !alias.scope !22
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.16544676712327837833.exit
 
 15:                                               ; preds = %6
@@ -422,13 +422,13 @@ define hidden void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.165446
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %22, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !22
+  %.sroa.0.1..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %22, ptr %.sroa.0.1..sroa_idx14, align 1, !alias.scope !22
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.2..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  store i8 %25, ptr %.sroa.0.2..sroa_idx13, align 2, !alias.scope !22
+  %.sroa.0.2..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  store i8 %25, ptr %.sroa.0.2..sroa_idx16, align 2, !alias.scope !22
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.16544676712327837833.exit
 
 26:                                               ; preds = %6
@@ -1421,29 +1421,29 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$
   %401 = add nsw i64 %298, %400
   %402 = icmp samesign ult i16 %169, 6
   %narrow = add nuw nsw i16 %169, 1
-  %narrow284 = select i1 %402, i16 %narrow, i16 0
-  %403 = zext nneg i16 %narrow284 to i64
+  %narrow353 = select i1 %402, i16 %narrow, i16 0
+  %403 = zext nneg i16 %narrow353 to i64
   %404 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr @anon.62066d03839ab3dd71d8d8df0124a804.83, i64 0, i64 %403
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 8
   %406 = icmp samesign ult i16 %169, 6
-  %narrow285 = add nuw nsw i16 %169, 1
-  %narrow286 = select i1 %406, i16 %narrow285, i16 0
-  %407 = zext nneg i16 %narrow286 to i64
+  %narrow354 = add nuw nsw i16 %169, 1
+  %narrow355 = select i1 %406, i16 %narrow354, i16 0
+  %407 = zext nneg i16 %narrow355 to i64
   %408 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr @anon.62066d03839ab3dd71d8d8df0124a804.32, i64 0, i64 %407
   %409 = icmp samesign ult i16 %169, 6
-  %narrow287 = add nuw nsw i16 %169, 1
-  %narrow288 = select i1 %409, i16 %narrow287, i16 0
-  %410 = zext nneg i16 %narrow288 to i64
+  %narrow356 = add nuw nsw i16 %169, 1
+  %narrow357 = select i1 %409, i16 %narrow356, i16 0
+  %410 = zext nneg i16 %narrow357 to i64
   %411 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr @anon.62066d03839ab3dd71d8d8df0124a804.32, i64 0, i64 %410
   %412 = icmp samesign ult i16 %343, 6
-  %narrow289 = add nuw nsw i16 %343, 49
-  %switch.offset274 = zext nneg i16 %narrow289 to i32
+  %narrow358 = add nuw nsw i16 %343, 49
+  %switch.offset343 = zext nneg i16 %narrow358 to i32
   %413 = icmp samesign ult i16 %343, 6
-  %narrow290 = add nuw nsw i16 %343, 49
-  %switch.offset = zext nneg i16 %narrow290 to i32
+  %narrow359 = add nuw nsw i16 %343, 49
+  %switch.offset = zext nneg i16 %narrow359 to i32
   br label %415
 
-default.unreachable266:                           ; preds = %417, %415
+default.unreachable335:                           ; preds = %417, %415
   unreachable
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17hfe2436226205e6c5E.exit", %2, %"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17hfe2436226205e6c5E.exit132"
@@ -1481,7 +1481,7 @@ default.unreachable266:                           ; preds = %417, %415
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %68, i64 24, i1 false)
   %416 = load i8, ptr %67, align 8, !range !4, !noundef !5
-  switch i8 %416, label %default.unreachable266 [
+  switch i8 %416, label %default.unreachable335 [
     i8 0, label %1162
     i8 1, label %1176
     i8 2, label %1162
@@ -1495,7 +1495,7 @@ default.unreachable266:                           ; preds = %417, %415
   %418 = load i8, ptr %281, align 2, !range !61, !noundef !5
   %.val = load i8, ptr %79, align 1, !range !62, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !63)
-  switch i8 %.val, label %default.unreachable266 [
+  switch i8 %.val, label %default.unreachable335 [
     i8 0, label %419
     i8 1, label %420
     i8 2, label %421
@@ -1601,7 +1601,7 @@ _ZN4core3ops5range11RangeBounds8contains17h01aa666bc3ff8942E.exit.thread.i.i.inv
           to label %.noexc11.invoke unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc11.invoke:                                  ; preds = %663, %662, %704, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.i170.i, %705, %691, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.i167.i, %692, %678, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.i164.i, %679, %665, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.i161.i, %666, %460, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.i122.i, %461, %447, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.i.i, %448, %.noexc10, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h01c3740a07dadb72E.exit155.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h01c3740a07dadb72E.exit146.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h01c3740a07dadb72E.exit142.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h01c3740a07dadb72E.exit139.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h01c3740a07dadb72E.exit135.i", %.noexc23
-  %445 = phi i32 [ %493, %.noexc23 ], [ %518, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h01c3740a07dadb72E.exit135.i" ], [ %544, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h01c3740a07dadb72E.exit139.i" ], [ %569, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h01c3740a07dadb72E.exit142.i" ], [ %593, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h01c3740a07dadb72E.exit146.i" ], [ %661, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h01c3740a07dadb72E.exit155.i" ], [ %389, %.noexc10 ], [ %371, %448 ], [ %371, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.i.i ], [ %371, %447 ], [ %362, %461 ], [ %362, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.i122.i ], [ %362, %460 ], [ %339, %666 ], [ %339, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.i161.i ], [ %339, %665 ], [ %331, %679 ], [ %331, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.i164.i ], [ %331, %678 ], [ %321, %692 ], [ %321, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.i167.i ], [ %321, %691 ], [ %311, %705 ], [ %311, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.i170.i ], [ %311, %704 ], [ %spec.select291, %662 ], [ %spec.select292, %663 ]
+  %445 = phi i32 [ %493, %.noexc23 ], [ %518, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h01c3740a07dadb72E.exit135.i" ], [ %544, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h01c3740a07dadb72E.exit139.i" ], [ %569, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h01c3740a07dadb72E.exit142.i" ], [ %593, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h01c3740a07dadb72E.exit146.i" ], [ %661, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h01c3740a07dadb72E.exit155.i" ], [ %389, %.noexc10 ], [ %371, %448 ], [ %371, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.i.i ], [ %371, %447 ], [ %362, %461 ], [ %362, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.i122.i ], [ %362, %460 ], [ %339, %666 ], [ %339, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.i161.i ], [ %339, %665 ], [ %331, %679 ], [ %331, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.i164.i ], [ %331, %678 ], [ %321, %692 ], [ %321, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.i167.i ], [ %321, %691 ], [ %311, %705 ], [ %311, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.i170.i ], [ %311, %704 ], [ %spec.select360, %662 ], [ %spec.select361, %663 ]
   invoke void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %445)
           to label %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric17h280603e5929ab703E.exit.thread219" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -2131,11 +2131,11 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16544676712327837833.exit.
   br label %.noexc11.invoke
 
 662:                                              ; preds = %430
-  %spec.select291 = select i1 %413, i32 %switch.offset, i32 48
+  %spec.select360 = select i1 %413, i32 %switch.offset, i32 48
   br label %.noexc11.invoke
 
 663:                                              ; preds = %431
-  %spec.select292 = select i1 %412, i32 %switch.offset274, i32 55
+  %spec.select361 = select i1 %412, i32 %switch.offset343, i32 55
   br label %.noexc11.invoke
 
 664:                                              ; preds = %433

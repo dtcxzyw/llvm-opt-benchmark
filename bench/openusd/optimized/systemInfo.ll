@@ -310,7 +310,7 @@ _ZNSt8functionIFbPcPmEED2Ev.exit:                 ; preds = %29, %31
   br i1 %.not.i.i1, label %_ZNSt8functionIFbPcPmEED2Ev.exit2, label %37
 
 37:                                               ; preds = %.body.thread, %.body
-  %eh.lpad-body14 = phi { ptr, i32 } [ %36, %.body.thread ], [ %.pn25.i, %.body ]
+  %eh.lpad-body16 = phi { ptr, i32 } [ %36, %.body.thread ], [ %.pn25.i, %.body ]
   %38 = phi ptr [ @"_ZNSt17_Function_handlerIFbPcPmEZN32pxrInternal_v0_24__pxrReserved__21ArchGetExecutablePathB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %.body.thread ], [ %.pre, %.body ]
   %39 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbPcPmEED2Ev.exit2 unwind label %40
@@ -323,8 +323,8 @@ _ZNSt8functionIFbPcPmEED2Ev.exit:                 ; preds = %29, %31
   unreachable
 
 _ZNSt8functionIFbPcPmEED2Ev.exit2:                ; preds = %.body, %37
-  %eh.lpad-body15 = phi { ptr, i32 } [ %.pn25.i, %.body ], [ %eh.lpad-body14, %37 ]
-  resume { ptr, i32 } %eh.lpad-body15
+  %eh.lpad-body17 = phi { ptr, i32 } [ %.pn25.i, %.body ], [ %eh.lpad-body16, %37 ]
+  resume { ptr, i32 } %eh.lpad-body17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

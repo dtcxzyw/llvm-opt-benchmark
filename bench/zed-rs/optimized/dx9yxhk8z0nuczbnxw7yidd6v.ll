@@ -2816,8 +2816,8 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %14, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !253
+  %.sroa.0.1..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %14, ptr %.sroa.0.1..sroa_idx12, align 1, !alias.scope !253
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit
 
 15:                                               ; preds = %6
@@ -2829,13 +2829,13 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %22, ptr %.sroa.0.1..sroa_idx10, align 1, !alias.scope !253
+  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %22, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !253
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  store i8 %25, ptr %.sroa.0.2..sroa_idx12, align 2, !alias.scope !253
+  %.sroa.0.2..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  store i8 %25, ptr %.sroa.0.2..sroa_idx13, align 2, !alias.scope !253
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit
 
 26:                                               ; preds = %6
@@ -4053,13 +4053,13 @@ define void @_ZN2ui10components5label17highlighted_label16highlight_ranges17h56e
   %.sroa.10.0 = phi i64 [ %.sroa.3.0.i.i.i58, %91 ], [ undef, %6 ]
   %.sroa.0.039 = phi i64 [ %.sroa.0.0.i.i.i59, %91 ], [ 2, %6 ]
   store i64 %.sink, ptr %10, align 8
-  switch i64 %.sroa.0.039, label %default.unreachable64 [
+  switch i64 %.sroa.0.039, label %default.unreachable70 [
     i64 2, label %12
     i64 1, label %22
     i64 0, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae38dfbe34399750E.exit.thread"
   ]
 
-default.unreachable64:                            ; preds = %11
+default.unreachable70:                            ; preds = %11
   unreachable
 
 12:                                               ; preds = %11
@@ -5797,10 +5797,10 @@ define void @_ZN2ui12key_bindings18text_for_keystroke17h523546e58d77df2cE(ptr de
   br label %52
 
 52:                                               ; preds = %60, %48
-  %.sink136 = phi i64 [ 4, %60 ], [ 7, %48 ]
+  %.sink139 = phi i64 [ 4, %60 ], [ 7, %48 ]
   %.sroa.03.19296 = phi i32 [ %.sroa.03.19297, %60 ], [ %.sroa.03.192102, %48 ]
   %53 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !noundef !4
-  %54 = add i64 %53, %.sink136
+  %54 = add i64 %53, %.sink139
   store i64 %54, ptr %.sroa.5.0..sroa_idx, align 8
   invoke fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(ptr noalias noundef align 8 dereferenceable(24) %9, i32 noundef %.sroa.03.19296)
           to label %32 unwind label %.thread87
@@ -5864,10 +5864,10 @@ define void @_ZN2ui12key_bindings18text_for_keystroke17h523546e58d77df2cE(ptr de
   br label %78
 
 78:                                               ; preds = %86, %74
-  %.sink138 = phi i64 [ 3, %86 ], [ 6, %74 ]
+  %.sink141 = phi i64 [ 3, %86 ], [ 6, %74 ]
   %.sroa.03.193105109 = phi i32 [ %.sroa.03.193105110, %86 ], [ %.sroa.03.193105115, %74 ]
   %79 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !noundef !4
-  %80 = add i64 %79, %.sink138
+  %80 = add i64 %79, %.sink141
   store i64 %80, ptr %.sroa.5.0..sroa_idx, align 8
   invoke fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(ptr noalias noundef align 8 dereferenceable(24) %9, i32 noundef %.sroa.03.193105109)
           to label %64 unwind label %.thread87
@@ -5931,9 +5931,9 @@ define void @_ZN2ui12key_bindings18text_for_keystroke17h523546e58d77df2cE(ptr de
   br label %105
 
 105:                                              ; preds = %118, %111, %101
-  %.sink141 = phi i64 [ 3, %118 ], [ 5, %111 ], [ 7, %101 ]
+  %.sink144 = phi i64 [ 3, %118 ], [ 5, %111 ], [ 7, %101 ]
   %106 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !noundef !4
-  %107 = add i64 %106, %.sink141
+  %107 = add i64 %106, %.sink144
   store i64 %107, ptr %.sroa.5.0..sroa_idx, align 8
   invoke fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(ptr noalias noundef align 8 dereferenceable(24) %9, i32 noundef %.sroa.03.193106)
           to label %90 unwind label %.thread87

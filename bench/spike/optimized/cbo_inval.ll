@@ -1164,8 +1164,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_cbo_invalP
   %42 = trunc nuw i8 %41 to i1
   %43 = icmp ne i64 %27, 0
   %or.cond3.not = or i1 %43, %42
-  %or.cond68 = select i1 %.not, i1 true, i1 %or.cond3.not
-  br i1 %or.cond68, label %._crit_edge, label %44
+  %or.cond69 = select i1 %.not, i1 true, i1 %or.cond3.not
+  br i1 %or.cond69, label %._crit_edge, label %44
 
 44:                                               ; preds = %38, %11
   %45 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -1248,14 +1248,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_cbo_invalP
   unreachable
 
 79:                                               ; preds = %70, %61
-  %.sink73 = phi i64 [ %63, %61 ], [ %72, %70 ]
-  %.sink70 = phi i1 [ true, %61 ], [ false, %70 ]
+  %.sink74 = phi i64 [ %63, %61 ], [ %72, %70 ]
+  %.sink71 = phi i1 [ true, %61 ], [ false, %70 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %81 = load ptr, ptr %80, align 8, !tbaa !95
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %83 = getelementptr inbounds nuw [32 x i64], ptr %82, i64 0, i64 %.sink73
+  %83 = getelementptr inbounds nuw [32 x i64], ptr %82, i64 0, i64 %.sink74
   %84 = load i64, ptr %83, align 8, !tbaa !3
-  tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %81, i64 noundef %84, i1 noundef zeroext %.sink70, i1 noundef zeroext true)
+  tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %81, i64 noundef %84, i1 noundef zeroext %.sink71, i1 noundef zeroext true)
   %85 = shl i64 %2, 32
   %86 = add i64 %85, 17179869184
   %87 = ashr exact i64 %86, 32
@@ -1320,8 +1320,8 @@ define noundef i64 @_Z20fast_rv64e_cbo_invalP11processor_t6insn_tm(ptr noundef r
   %42 = trunc nuw i8 %41 to i1
   %43 = icmp ne i64 %27, 0
   %or.cond3.not = or i1 %43, %42
-  %or.cond68 = select i1 %.not, i1 true, i1 %or.cond3.not
-  br i1 %or.cond68, label %._crit_edge, label %44
+  %or.cond69 = select i1 %.not, i1 true, i1 %or.cond3.not
+  br i1 %or.cond69, label %._crit_edge, label %44
 
 44:                                               ; preds = %38, %11
   %45 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -1404,14 +1404,14 @@ define noundef i64 @_Z20fast_rv64e_cbo_invalP11processor_t6insn_tm(ptr noundef r
   unreachable
 
 79:                                               ; preds = %70, %61
-  %.sink73 = phi i64 [ %63, %61 ], [ %72, %70 ]
-  %.sink70 = phi i1 [ true, %61 ], [ false, %70 ]
+  %.sink74 = phi i64 [ %63, %61 ], [ %72, %70 ]
+  %.sink71 = phi i1 [ true, %61 ], [ false, %70 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %81 = load ptr, ptr %80, align 8, !tbaa !95
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %83 = getelementptr inbounds nuw [32 x i64], ptr %82, i64 0, i64 %.sink73
+  %83 = getelementptr inbounds nuw [32 x i64], ptr %82, i64 0, i64 %.sink74
   %84 = load i64, ptr %83, align 8, !tbaa !3
-  tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %81, i64 noundef %84, i1 noundef zeroext %.sink70, i1 noundef zeroext true)
+  tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %81, i64 noundef %84, i1 noundef zeroext %.sink71, i1 noundef zeroext true)
   %85 = add i64 %2, 4
   ret i64 %85
 }
@@ -1474,8 +1474,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_cbo_inva
   %42 = trunc nuw i8 %41 to i1
   %43 = icmp ne i64 %27, 0
   %or.cond3.not = or i1 %43, %42
-  %or.cond68 = select i1 %.not, i1 true, i1 %or.cond3.not
-  br i1 %or.cond68, label %._crit_edge, label %44
+  %or.cond69 = select i1 %.not, i1 true, i1 %or.cond3.not
+  br i1 %or.cond69, label %._crit_edge, label %44
 
 44:                                               ; preds = %38, %11
   %45 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -1558,14 +1558,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_cbo_inva
   unreachable
 
 79:                                               ; preds = %70, %61
-  %.sink73 = phi i64 [ %63, %61 ], [ %72, %70 ]
-  %.sink70 = phi i1 [ true, %61 ], [ false, %70 ]
+  %.sink74 = phi i64 [ %63, %61 ], [ %72, %70 ]
+  %.sink71 = phi i1 [ true, %61 ], [ false, %70 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %81 = load ptr, ptr %80, align 8, !tbaa !95
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %83 = getelementptr inbounds nuw [32 x i64], ptr %82, i64 0, i64 %.sink73
+  %83 = getelementptr inbounds nuw [32 x i64], ptr %82, i64 0, i64 %.sink74
   %84 = load i64, ptr %83, align 8, !tbaa !3
-  tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %81, i64 noundef %84, i1 noundef zeroext %.sink70, i1 noundef zeroext true)
+  tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %81, i64 noundef %84, i1 noundef zeroext %.sink71, i1 noundef zeroext true)
   %85 = shl i64 %2, 32
   %86 = add i64 %85, 17179869184
   %87 = ashr exact i64 %86, 32
@@ -1630,8 +1630,8 @@ define noundef i64 @_Z22logged_rv64e_cbo_invalP11processor_t6insn_tm(ptr noundef
   %42 = trunc nuw i8 %41 to i1
   %43 = icmp ne i64 %27, 0
   %or.cond3.not = or i1 %43, %42
-  %or.cond68 = select i1 %.not, i1 true, i1 %or.cond3.not
-  br i1 %or.cond68, label %._crit_edge, label %44
+  %or.cond69 = select i1 %.not, i1 true, i1 %or.cond3.not
+  br i1 %or.cond69, label %._crit_edge, label %44
 
 44:                                               ; preds = %38, %11
   %45 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -1714,14 +1714,14 @@ define noundef i64 @_Z22logged_rv64e_cbo_invalP11processor_t6insn_tm(ptr noundef
   unreachable
 
 79:                                               ; preds = %70, %61
-  %.sink73 = phi i64 [ %63, %61 ], [ %72, %70 ]
-  %.sink70 = phi i1 [ true, %61 ], [ false, %70 ]
+  %.sink74 = phi i64 [ %63, %61 ], [ %72, %70 ]
+  %.sink71 = phi i1 [ true, %61 ], [ false, %70 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %81 = load ptr, ptr %80, align 8, !tbaa !95
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %83 = getelementptr inbounds nuw [32 x i64], ptr %82, i64 0, i64 %.sink73
+  %83 = getelementptr inbounds nuw [32 x i64], ptr %82, i64 0, i64 %.sink74
   %84 = load i64, ptr %83, align 8, !tbaa !3
-  tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %81, i64 noundef %84, i1 noundef zeroext %.sink70, i1 noundef zeroext true)
+  tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %81, i64 noundef %84, i1 noundef zeroext %.sink71, i1 noundef zeroext true)
   %85 = add i64 %2, 4
   ret i64 %85
 }

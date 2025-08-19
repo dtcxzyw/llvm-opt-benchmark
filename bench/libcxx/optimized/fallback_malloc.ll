@@ -43,20 +43,20 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115fallback_mallocEm(i64 nou
   %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN12_GLOBAL__N_110heap_mutexE) #11
   %6 = load ptr, ptr @_ZN12_GLOBAL__N_18freelistE, align 8, !tbaa !5
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread89, label %8
+  br i1 %7, label %.thread91, label %8
 
-.thread89:                                        ; preds = %1
+.thread91:                                        ; preds = %1
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_14heapE, i64 12), ptr @_ZN12_GLOBAL__N_18freelistE, align 8, !tbaa !5
   store i16 128, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_14heapE, i64 12), align 4, !tbaa !10
   store i16 125, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_14heapE, i64 14), align 2, !tbaa !13
   br label %.lr.ph
 
 8:                                                ; preds = %1
-  %.not88 = icmp eq ptr %6, getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_14heapE, i64 512)
-  br i1 %.not88, label %.thread, label %.lr.ph
+  %.not90 = icmp eq ptr %6, getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_14heapE, i64 512)
+  br i1 %.not90, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread89, %8
-  %9 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_14heapE, i64 12), %.thread89 ], [ %6, %8 ]
+.lr.ph:                                           ; preds = %.thread91, %8
+  %9 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_14heapE, i64 12), %.thread91 ], [ %6, %8 ]
   %10 = trunc i64 %4 to i16
   br label %11
 

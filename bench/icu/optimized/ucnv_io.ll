@@ -571,9 +571,9 @@ define internal fastcc noundef range(i32 -1, 4096) i32 @_ZL13findConverterPKcPaP
 16:                                               ; preds = %12
   %17 = load i8, ptr %0, align 1, !tbaa !3
   %.not2831.i = icmp eq i8 %17, 0
-  br i1 %.not2831.i, label %.thread71, label %.lr.ph.i
+  br i1 %.not2831.i, label %.thread81, label %.lr.ph.i
 
-.thread71:                                        ; preds = %16
+.thread81:                                        ; preds = %16
   store i8 0, ptr %4, align 16, !tbaa !3
   br label %.split.preheader
 
@@ -626,7 +626,7 @@ define internal fastcc noundef range(i32 -1, 4096) i32 @_ZL13findConverterPKcPaP
 .backedge.i:                                      ; preds = %32, %..backedge_crit_edge.i
   %38 = phi i8 [ %.pre.i, %..backedge_crit_edge.i ], [ %30, %32 ]
   %.not.i = icmp eq i8 %38, 0
-  br i1 %.not.i, label %.loopexit75, label %20, !llvm.loop !6
+  br i1 %.not.i, label %.loopexit85, label %20, !llvm.loop !6
 
 .critedge.i.loopexit:                             ; preds = %24
   br label %.critedge.i
@@ -638,14 +638,14 @@ define internal fastcc noundef range(i32 -1, 4096) i32 @_ZL13findConverterPKcPaP
   store i8 %.016.i, ptr %.018.ph32.i, align 1, !tbaa !3
   %40 = load i8, ptr %22, align 1, !tbaa !3
   %.not28.i = icmp eq i8 %40, 0
-  br i1 %.not28.i, label %.loopexit75, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not28.i, label %.loopexit85, label %.lr.ph.i, !llvm.loop !6
 
-.loopexit75:                                      ; preds = %.critedge.i, %.backedge.i
+.loopexit85:                                      ; preds = %.critedge.i, %.backedge.i
   %.018.ph.lcssa.i = phi ptr [ %.018.ph32.i, %.backedge.i ], [ %39, %.critedge.i ]
   store i8 0, ptr %.018.ph.lcssa.i, align 1, !tbaa !3
   br label %.split.preheader
 
-.split.preheader:                                 ; preds = %.loopexit75, %.thread71
+.split.preheader:                                 ; preds = %.loopexit85, %.thread81
   %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 84), align 4, !tbaa !29
   %42 = lshr i32 %41, 1
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 64), align 8
@@ -1530,8 +1530,8 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %21 = load i8, ptr %20, align 1, !tbaa !3
   %22 = icmp eq i8 %21, 118
-  %or.cond257 = select i1 %19, i1 %22, i1 false
-  br i1 %or.cond257, label %23, label %._crit_edge247
+  %or.cond270 = select i1 %19, i1 %22, i1 false
+  br i1 %or.cond270, label %23, label %._crit_edge247
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 14

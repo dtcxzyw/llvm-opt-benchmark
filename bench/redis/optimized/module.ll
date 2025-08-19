@@ -1395,8 +1395,8 @@ define dso_local void @autoMemoryCollect(ptr noundef captures(none) %0) local_un
   br i1 %.not37.i.i, label %.critedge.i.i, label %48
 
 48:                                               ; preds = %45
-  %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds %struct.AutoMemEntry, ptr %32, i64 %49
+  %49 = zext nneg i32 %47 to i64
+  %50 = getelementptr inbounds nuw %struct.AutoMemEntry, ptr %32, i64 %49
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false), !tbaa.struct !102
   %.pre.i.i = load i32, ptr %27, align 4, !tbaa !96
   %.pre55.i.i = add nsw i32 %.pre.i.i, -1
@@ -1671,9 +1671,9 @@ define dso_local void @moduleCreateContext(ptr noundef writeonly captures(none) 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %18, %17, %10, %26
-  %.sink15 = phi ptr [ %27, %26 ], [ %14, %17 ], [ %14, %10 ], [ %19, %18 ]
+  %.sink16 = phi ptr [ %27, %26 ], [ %14, %17 ], [ %14, %10 ], [ %19, %18 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink15, ptr %28, align 8, !tbaa !95
+  store ptr %.sink16, ptr %28, align 8, !tbaa !95
   br label %29
 
 29:                                               ; preds = %.sink.split, %24
@@ -4365,8 +4365,8 @@ define dso_local range(i32 0, 2) i32 @autoMemoryFreed(ptr noundef captures(none)
   br i1 %.not37, label %.critedge, label %29
 
 29:                                               ; preds = %26
-  %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds %struct.AutoMemEntry, ptr %13, i64 %30
+  %30 = zext nneg i32 %28 to i64
+  %31 = getelementptr inbounds nuw %struct.AutoMemEntry, ptr %13, i64 %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !102
   %.pre = load i32, ptr %8, align 4, !tbaa !96
   %.pre55 = add nsw i32 %.pre, -1
@@ -4481,8 +4481,8 @@ freeRedisModuleAsyncRMCallPromise.exit:           ; preds = %1, %14, %5
   br i1 %.not37.i, label %.critedge.i, label %41
 
 41:                                               ; preds = %38
-  %42 = sext i32 %40 to i64
-  %43 = getelementptr inbounds %struct.AutoMemEntry, ptr %25, i64 %42
+  %42 = zext nneg i32 %40 to i64
+  %43 = getelementptr inbounds nuw %struct.AutoMemEntry, ptr %25, i64 %42
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false), !tbaa.struct !102
   %.pre.i = load i32, ptr %20, align 4, !tbaa !96
   %.pre55.i = add nsw i32 %.pre.i, -1
@@ -4561,8 +4561,8 @@ define dso_local void @RM_CloseKey(ptr noundef %0) #0 {
   br i1 %.not37.i, label %.critedge.i, label %30
 
 30:                                               ; preds = %27
-  %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds %struct.AutoMemEntry, ptr %14, i64 %31
+  %31 = zext nneg i32 %29 to i64
+  %32 = getelementptr inbounds nuw %struct.AutoMemEntry, ptr %14, i64 %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !102
   %.pre.i = load i32, ptr %9, align 4, !tbaa !96
   %.pre55.i = add nsw i32 %.pre.i, -1
@@ -4643,8 +4643,8 @@ define dso_local void @RM_FreeDict(ptr noundef captures(address_is_null) %0, ptr
   br i1 %.not37.i, label %.critedge.i, label %29
 
 29:                                               ; preds = %26
-  %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds %struct.AutoMemEntry, ptr %13, i64 %30
+  %30 = zext nneg i32 %28 to i64
+  %31 = getelementptr inbounds nuw %struct.AutoMemEntry, ptr %13, i64 %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !102
   %.pre.i = load i32, ptr %8, align 4, !tbaa !96
   %.pre55.i = add nsw i32 %.pre.i, -1
@@ -4724,8 +4724,8 @@ define dso_local void @RM_FreeServerInfo(ptr noundef captures(address_is_null) %
   br i1 %.not37.i, label %.critedge.i, label %29
 
 29:                                               ; preds = %26
-  %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds %struct.AutoMemEntry, ptr %13, i64 %30
+  %30 = zext nneg i32 %28 to i64
+  %31 = getelementptr inbounds nuw %struct.AutoMemEntry, ptr %13, i64 %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !102
   %.pre.i = load i32, ptr %8, align 4, !tbaa !96
   %.pre55.i = add nsw i32 %.pre.i, -1
@@ -5310,8 +5310,8 @@ define dso_local void @RM_FreeString(ptr noundef captures(address_is_null) %0, p
   br i1 %.not37.i, label %.critedge.i, label %29
 
 29:                                               ; preds = %26
-  %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds %struct.AutoMemEntry, ptr %13, i64 %30
+  %30 = zext nneg i32 %28 to i64
+  %31 = getelementptr inbounds nuw %struct.AutoMemEntry, ptr %13, i64 %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !102
   %.pre.i = load i32, ptr %8, align 4, !tbaa !96
   %.pre55.i = add nsw i32 %.pre.i, -1
@@ -5388,8 +5388,8 @@ define dso_local void @RM_RetainString(ptr noundef captures(address_is_null) %0,
   br i1 %.not37.i, label %autoMemoryFreed.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds %struct.AutoMemEntry, ptr %14, i64 %31
+  %31 = zext nneg i32 %29 to i64
+  %32 = getelementptr inbounds nuw %struct.AutoMemEntry, ptr %14, i64 %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !102
   %.pre.i = load i32, ptr %9, align 4, !tbaa !96
   %.pre55.i = add nsw i32 %.pre.i, -1
@@ -6391,7 +6391,7 @@ moduleGetReplyClient.exit.i:                      ; preds = %12
   br i1 %16, label %moduleReplyWithCollection.exit, label %moduleGetReplyClient.exit.i.thread
 
 moduleGetReplyClient.exit.i.thread:               ; preds = %8, %moduleGetReplyClient.exit.i
-  %.0.i.i5 = phi ptr [ %.0.i.i.pre, %moduleGetReplyClient.exit.i ], [ %4, %8 ]
+  %.0.i.i6 = phi ptr [ %.0.i.i.pre, %moduleGetReplyClient.exit.i ], [ %4, %8 ]
   switch i64 %1, label %33 [
     i64 -1, label %17
     i64 0, label %32
@@ -6407,7 +6407,7 @@ moduleGetReplyClient.exit.i.thread:               ; preds = %8, %moduleGetReplyC
   %24 = shl nsw i64 %23, 3
   %25 = tail call ptr @zrealloc(ptr noundef %19, i64 noundef %24) #37
   store ptr %25, ptr %18, align 8, !tbaa !88
-  %26 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %.0.i.i5) #35
+  %26 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %.0.i.i6) #35
   %27 = load ptr, ptr %18, align 8, !tbaa !88
   %28 = load i32, ptr %20, align 8, !tbaa !89
   %29 = sext i32 %28 to i64
@@ -6418,11 +6418,11 @@ moduleGetReplyClient.exit.i.thread:               ; preds = %8, %moduleGetReplyC
   br label %moduleReplyWithCollection.exit
 
 32:                                               ; preds = %moduleGetReplyClient.exit.i.thread
-  tail call void @addReplyAttributeLen(ptr noundef nonnull %.0.i.i5, i64 noundef 0) #35
+  tail call void @addReplyAttributeLen(ptr noundef nonnull %.0.i.i6, i64 noundef 0) #35
   br label %moduleReplyWithCollection.exit
 
 33:                                               ; preds = %moduleGetReplyClient.exit.i.thread
-  tail call void @addReplyAttributeLen(ptr noundef nonnull %.0.i.i5, i64 noundef %1) #35
+  tail call void @addReplyAttributeLen(ptr noundef nonnull %.0.i.i6, i64 noundef %1) #35
   br label %moduleReplyWithCollection.exit
 
 moduleReplyWithCollection.exit:                   ; preds = %33, %32, %17, %moduleGetReplyClient.exit.i, %12, %2
@@ -6866,7 +6866,7 @@ moduleGetReplyClient.exit.i:                      ; preds = %12
   br i1 %16, label %moduleReplySetCollectionLength.exit, label %moduleGetReplyClient.exit.i.thread
 
 moduleGetReplyClient.exit.i.thread:               ; preds = %8, %moduleGetReplyClient.exit.i
-  %.0.i.i4 = phi ptr [ %.0.i.i.pre, %moduleGetReplyClient.exit.i ], [ %4, %8 ]
+  %.0.i.i5 = phi ptr [ %.0.i.i.pre, %moduleGetReplyClient.exit.i ], [ %4, %8 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load i32, ptr %17, align 8, !tbaa !89
   %19 = icmp eq i32 %18, 0
@@ -6893,7 +6893,7 @@ moduleGetReplyClient.exit.i.thread:               ; preds = %8, %moduleGetReplyC
   %32 = sext i32 %29 to i64
   %33 = getelementptr inbounds ptr, ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !83
-  tail call void @setDeferredAttributeLen(ptr noundef nonnull %.0.i.i4, ptr noundef %34, i64 noundef %1) #35
+  tail call void @setDeferredAttributeLen(ptr noundef nonnull %.0.i.i5, ptr noundef %34, i64 noundef %1) #35
   %35 = load i32, ptr %17, align 8, !tbaa !89
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %moduleReplySetCollectionLength.exit
@@ -7706,9 +7706,9 @@ sdslen.exit:                                      ; preds = %55, %62, %65, %69, 
 134:                                              ; preds = %16
   %135 = load i32, ptr %4, align 8
   %136 = icmp ult i32 %135, 41
-  br i1 %136, label %140, label %.thread150
+  br i1 %136, label %140, label %.thread162
 
-.thread150:                                       ; preds = %134
+.thread162:                                       ; preds = %134
   %137 = load ptr, ptr %14, align 8
   %138 = getelementptr i8, ptr %137, i64 8
   store ptr %138, ptr %14, align 8
@@ -7733,8 +7733,8 @@ sdslen.exit:                                      ; preds = %55, %62, %65, %69, 
   store i32 %151, ptr %4, align 8
   br label %156
 
-152:                                              ; preds = %.thread150, %140
-  %153 = phi ptr [ %139, %.thread150 ], [ %145, %140 ]
+152:                                              ; preds = %.thread162, %140
+  %153 = phi ptr [ %139, %.thread162 ], [ %145, %140 ]
   %154 = load ptr, ptr %14, align 8
   %155 = getelementptr i8, ptr %154, i64 8
   store ptr %155, ptr %14, align 8
@@ -10073,7 +10073,7 @@ define dso_local range(i32 0, 2) i32 @RM_ListInsert(ptr noundef %0, i64 noundef 
   %17 = load i32, ptr %10, align 8
   %18 = and i32 %17, 15
   %19 = icmp eq i32 %18, 1
-  br i1 %19, label %20, label %.critedge.thread42
+  br i1 %19, label %20, label %.critedge.thread47
 
 20:                                               ; preds = %16
   %21 = tail call i64 @listTypeLength(ptr noundef nonnull %10) #35
@@ -10089,16 +10089,16 @@ define dso_local range(i32 0, 2) i32 @RM_ListInsert(ptr noundef %0, i64 noundef 
 .critedge:                                        ; preds = %20
   %.pre = load ptr, ptr %9, align 8, !tbaa !57
   %.not37 = icmp eq ptr %.pre, null
-  br i1 %.not37, label %.critedge40, label %.critedge.thread42
+  br i1 %.not37, label %.critedge40, label %.critedge.thread47
 
-.critedge.thread42:                               ; preds = %16, %.critedge
+.critedge.thread47:                               ; preds = %16, %.critedge
   %26 = phi ptr [ %.pre, %.critedge ], [ %10, %16 ]
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 15
   %29 = icmp eq i32 %28, 1
   br i1 %29, label %30, label %.critedge40
 
-30:                                               ; preds = %.critedge.thread42
+30:                                               ; preds = %.critedge.thread47
   %31 = icmp eq i64 %1, 0
   br i1 %31, label %36, label %32
 
@@ -10112,7 +10112,7 @@ define dso_local range(i32 0, 2) i32 @RM_ListInsert(ptr noundef %0, i64 noundef 
   %37 = tail call i32 @RM_ListPush(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %2)
   br label %45
 
-.critedge40:                                      ; preds = %15, %7, %.critedge, %.critedge.thread42, %32
+.critedge40:                                      ; preds = %15, %7, %.critedge, %.critedge.thread47, %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !57
   call void @listTypeTryConversionAppend(ptr noundef %39, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @moduleFreeListIterator, ptr noundef %0) #35
@@ -13678,9 +13678,9 @@ moduleAllocTempClient.exit:                       ; preds = %15, %22, %23
   br label %236
 
 236:                                              ; preds = %229, %226
-  %.sink287.in = phi ptr [ %235, %229 ], [ %228, %226 ]
-  %.sink287 = load ptr, ptr %.sink287.in, align 8, !tbaa !83
-  %237 = call ptr @sdsdup(ptr noundef %.sink287) #35
+  %.sink295.in = phi ptr [ %235, %229 ], [ %228, %226 ]
+  %.sink295 = load ptr, ptr %.sink295.in, align 8, !tbaa !83
+  %237 = call ptr @sdsdup(ptr noundef %.sink295) #35
   %238 = load ptr, ptr %35, align 8, !tbaa !95
   %239 = getelementptr inbounds nuw i8, ptr %.0.i, i64 160
   %240 = load ptr, ptr %239, align 8, !tbaa !45
@@ -13781,10 +13781,10 @@ moduleAllocTempClient.exit:                       ; preds = %15, %22, %23
   br label %297
 
 297:                                              ; preds = %294, %295, %287, %288, %280, %281
-  %.sink288 = phi i32 [ 30, %281 ], [ 30, %280 ], [ 100, %288 ], [ 100, %287 ], [ 1, %295 ], [ 1, %294 ]
+  %.sink296 = phi i32 [ 30, %281 ], [ 30, %280 ], [ 100, %288 ], [ 100, %287 ], [ 1, %295 ], [ 1, %294 ]
   %.1178 = phi ptr [ %286, %281 ], [ null, %280 ], [ %293, %288 ], [ null, %287 ], [ %296, %295 ], [ null, %294 ]
   %298 = tail call ptr @__errno_location() #40
-  store i32 %.sink288, ptr %298, align 4, !tbaa !22
+  store i32 %.sink296, ptr %298, align 4, !tbaa !22
   %.not230 = icmp eq ptr %.1178, null
   br i1 %.not230, label %.thread272, label %299
 
@@ -18407,8 +18407,8 @@ define dso_local void @firePostExecutionUnitJobs() local_unnamed_addr #0 {
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %24, %23, %16
-  %.sink15.i = phi ptr [ %20, %23 ], [ %20, %16 ], [ %25, %24 ]
-  store ptr %.sink15.i, ptr %5, align 8, !tbaa !95
+  %.sink16.i = phi ptr [ %20, %23 ], [ %20, %16 ], [ %25, %24 ]
+  store ptr %.sink16.i, ptr %5, align 8, !tbaa !95
   %30 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !113
   %.not13.i = icmp eq i32 %30, 0
   %31 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !83
@@ -18626,8 +18626,8 @@ define dso_local void @moduleNotifyKeyspaceEvent(i32 noundef %0, ptr noundef %1,
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %44, %43, %36
-  %.sink15.i = phi ptr [ %40, %43 ], [ %40, %36 ], [ %45, %44 ]
-  store ptr %.sink15.i, ptr %15, align 8, !tbaa !95
+  %.sink16.i = phi ptr [ %40, %43 ], [ %40, %36 ], [ %45, %44 ]
+  store ptr %.sink16.i, ptr %15, align 8, !tbaa !95
   %50 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !113
   %.not13.i = icmp eq i32 %50, 0
   %51 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !83
@@ -18773,8 +18773,8 @@ define dso_local void @moduleCallClusterReceivers(ptr noundef %0, i64 noundef %1
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %27, %26, %19
-  %.sink15.i = phi ptr [ %23, %26 ], [ %23, %19 ], [ %28, %27 ]
-  store ptr %.sink15.i, ptr %14, align 8, !tbaa !95
+  %.sink16.i = phi ptr [ %23, %26 ], [ %23, %19 ], [ %28, %27 ]
+  store ptr %.sink16.i, ptr %14, align 8, !tbaa !95
   %33 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !113
   %.not13.i = icmp eq i32 %33, 0
   %34 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !83
@@ -18872,16 +18872,16 @@ moduleTypeEncodeId.exit:                          ; preds = %5, %23
 .lr.ph.preheader:                                 ; preds = %moduleTypeEncodeId.exit
   %27 = load i64, ptr %.02634, align 8, !tbaa !509
   %28 = icmp eq i64 %27, %.0.i
-  br i1 %28, label %.lr.ph._crit_edge, label %.lr.ph45
+  br i1 %28, label %.lr.ph._crit_edge, label %.lr.ph46
 
-.lr.ph:                                           ; preds = %.lr.ph45
+.lr.ph:                                           ; preds = %.lr.ph46
   %29 = load i64, ptr %.026, align 8, !tbaa !509
   %30 = icmp eq i64 %29, %.0.i
-  br i1 %30, label %.lr.ph._crit_edge, label %.lr.ph45, !llvm.loop !514
+  br i1 %30, label %.lr.ph._crit_edge, label %.lr.ph46, !llvm.loop !514
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.02637.lcssa = phi ptr [ %.02634, %.lr.ph.preheader ], [ %.026, %.lr.ph ]
-  %.036.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0263744, %.lr.ph ]
+  %.036.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0263745, %.lr.ph ]
   %.not30 = icmp eq ptr %2, null
   br i1 %.not30, label %33, label %31
 
@@ -18900,14 +18900,14 @@ moduleTypeEncodeId.exit:                          ; preds = %5, %23
   tail call void @zfree(ptr noundef nonnull %.02637.lcssa) #35
   br label %45
 
-.lr.ph45:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0263744 = phi ptr [ %.026, %.lr.ph ], [ %.02634, %.lr.ph.preheader ]
-  %37 = getelementptr inbounds nuw i8, ptr %.0263744, i64 24
+.lr.ph46:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0263745 = phi ptr [ %.026, %.lr.ph ], [ %.02634, %.lr.ph.preheader ]
+  %37 = getelementptr inbounds nuw i8, ptr %.0263745, i64 24
   %.026 = load ptr, ptr %37, align 8, !tbaa !507
   %.not28 = icmp eq ptr %.026, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !514
 
-._crit_edge:                                      ; preds = %.lr.ph45, %moduleTypeEncodeId.exit
+._crit_edge:                                      ; preds = %.lr.ph46, %moduleTypeEncodeId.exit
   %.not29 = icmp eq ptr %2, null
   br i1 %.not29, label %45, label %38
 
@@ -19457,8 +19457,8 @@ define dso_local i32 @moduleTimerHandler(ptr readnone captures(none) %0, i64 %1,
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %32, %31, %24
-  %.sink15.i = phi ptr [ %28, %31 ], [ %28, %24 ], [ %33, %32 ]
-  store ptr %.sink15.i, ptr %12, align 8, !tbaa !95
+  %.sink16.i = phi ptr [ %28, %31 ], [ %28, %24 ], [ %33, %32 ]
+  store ptr %.sink16.i, ptr %12, align 8, !tbaa !95
   %38 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !113
   %.not13.i = icmp eq i32 %38, 0
   %39 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !83
@@ -24671,8 +24671,8 @@ moduleInitKey.exit.us:                            ; preds = %65
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %104, %103, %96
-  %.sink15.i = phi ptr [ %100, %103 ], [ %100, %96 ], [ %105, %104 ]
-  store ptr %.sink15.i, ptr %18, align 8, !tbaa !95
+  %.sink16.i = phi ptr [ %100, %103 ], [ %100, %96 ], [ %105, %104 ]
+  store ptr %.sink16.i, ptr %18, align 8, !tbaa !95
   %110 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !113
   %.not13.i54 = icmp eq i32 %110, 0
   %111 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !83
@@ -26313,8 +26313,8 @@ define dso_local range(i32 -1, 1) i32 @moduleLoad(ptr noundef %0, ptr noundef %1
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %47, %46, %39
-  %.sink15.i = phi ptr [ %43, %46 ], [ %43, %39 ], [ %48, %47 ]
-  store ptr %.sink15.i, ptr %34, align 8, !tbaa !95
+  %.sink16.i = phi ptr [ %43, %46 ], [ %43, %39 ], [ %48, %47 ]
+  store ptr %.sink16.i, ptr %34, align 8, !tbaa !95
   %53 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !113
   %.not13.i = icmp eq i32 %53, 0
   %54 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !83
@@ -26400,9 +26400,9 @@ moduleRemoveCateogires.exit:                      ; preds = %74, %78
   %96 = load ptr, ptr %95, align 8, !tbaa !639
   store ptr %93, ptr %96, align 8, !tbaa !627
   %.not36 = icmp eq i32 %2, 0
-  br i1 %.not36, label %.thread56, label %99
+  br i1 %.not36, label %.thread62, label %99
 
-.thread56:                                        ; preds = %82
+.thread62:                                        ; preds = %82
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   store ptr null, ptr %97, align 8, !tbaa !630
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
@@ -26431,8 +26431,8 @@ moduleRemoveCateogires.exit:                      ; preds = %74, %78
   %.pre49 = load ptr, ptr %36, align 8, !tbaa !91
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.thread56, %._crit_edge.loopexit, %99
-  %106 = phi ptr [ %.pre49, %._crit_edge.loopexit ], [ %.pre, %99 ], [ %94, %.thread56 ]
+._crit_edge:                                      ; preds = %.thread62, %._crit_edge.loopexit, %99
+  %106 = phi ptr [ %.pre49, %._crit_edge.loopexit ], [ %.pre, %99 ], [ %94, %.thread62 ]
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 128
   %108 = load i32, ptr %107, align 8, !tbaa !183
   %.not37 = icmp eq i32 %108, 0

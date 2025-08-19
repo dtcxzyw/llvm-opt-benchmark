@@ -319,12 +319,12 @@ procfs_sort_pid.exit:                             ; preds = %._crit_edge.i, %9
   br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !10
 
 56:                                               ; preds = %.thread, %procfs_sort_pid.exit
-  %.sink61 = phi ptr [ %47, %.thread ], [ %8, %procfs_sort_pid.exit ]
-  %57 = getelementptr inbounds nuw i8, ptr %.sink61, i64 32
+  %.sink68 = phi ptr [ %47, %.thread ], [ %8, %procfs_sort_pid.exit ]
+  %57 = getelementptr inbounds nuw i8, ptr %.sink68, i64 32
   store i8 0, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %.sink61, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.sink68, i64 24
   store ptr null, ptr %58, align 8
-  store ptr %.sink61, ptr %2, align 8
+  store ptr %.sink68, ptr %2, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %55, %46, %33, %40, %7, %56

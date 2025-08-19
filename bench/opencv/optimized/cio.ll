@@ -991,15 +991,15 @@ define hidden i64 @opj_stream_read_data(ptr noundef captures(none) %0, ptr nound
   br label %104
 
 100:                                              ; preds = %93, %70
-  %.sink167 = phi i64 [ %84, %93 ], [ %73, %70 ]
+  %.sink172 = phi i64 [ %84, %93 ], [ %73, %70 ]
   %101 = phi ptr [ %94, %93 ], [ %72, %70 ]
   %.pn134 = phi i64 [ %84, %93 ], [ %61, %70 ]
   %102 = load i64, ptr %53, align 8, !tbaa !34
-  %103 = add nsw i64 %102, %.sink167
+  %103 = add nsw i64 %102, %.sink172
   store i64 %103, ptr %53, align 8, !tbaa !34
   %.2 = add i64 %.pn134, %.1
-  %.2120 = sub i64 %.1119, %.sink167
-  %.2123 = getelementptr inbounds nuw i8, ptr %.1122, i64 %.sink167
+  %.2120 = sub i64 %.1119, %.sink172
+  %.2123 = getelementptr inbounds nuw i8, ptr %.1122, i64 %.sink172
   store i64 0, ptr %5, align 8, !tbaa !33
   br label %54
 

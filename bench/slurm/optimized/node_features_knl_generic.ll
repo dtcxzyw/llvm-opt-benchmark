@@ -1668,14 +1668,14 @@ define dso_local void @node_features_p_node_state(ptr noundef %0, ptr noundef %1
   %or.cond = and i1 %10, %9
   %11 = icmp ne ptr %1, null
   %or.cond4 = and i1 %11, %or.cond
-  %.sink124.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink124.sroa.gep130 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink125.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink125.sroa.gep131 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink127.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink127.sroa.gep132 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink128.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink128.sroa.gep133 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink130.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink130.sroa.gep136 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink131.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink131.sroa.gep137 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink133.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink133.sroa.gep138 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink134.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink134.sroa.gep139 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %or.cond4, label %12, label %198
 
 12:                                               ; preds = %2
@@ -1739,11 +1739,11 @@ define dso_local void @node_features_p_node_state(ptr noundef %0, ptr noundef %1
   br label %198
 
 35:                                               ; preds = %32, %29
-  %.sink125.sroa.phi = phi ptr [ %.sink125.sroa.gep, %32 ], [ %.sink125.sroa.gep131, %29 ]
+  %.sink131.sroa.phi = phi ptr [ %.sink131.sroa.gep, %32 ], [ %.sink131.sroa.gep137, %29 ]
   %.str.54.sink = phi ptr [ @.str.54, %32 ], [ @.str.53, %29 ]
-  %.sink124.sroa.phi = phi ptr [ %.sink124.sroa.gep, %32 ], [ %.sink124.sroa.gep130, %29 ]
-  store ptr %.str.54.sink, ptr %.sink125.sroa.phi, align 8
-  store ptr null, ptr %.sink124.sroa.phi, align 16
+  %.sink130.sroa.phi = phi ptr [ %.sink130.sroa.gep, %32 ], [ %.sink130.sroa.gep136, %29 ]
+  store ptr %.str.54.sink, ptr %.sink131.sroa.phi, align 8
+  store ptr null, ptr %.sink130.sroa.phi, align 16
   %36 = call fastcc ptr @_run_script(ptr noundef nonnull %8, ptr noundef %6, ptr noundef %7)
   store ptr %36, ptr %5, align 8
   %37 = load i32, ptr %7, align 4
@@ -1938,21 +1938,21 @@ define dso_local void @node_features_p_node_state(ptr noundef %0, ptr noundef %1
   store ptr @.str.51, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @.str.52, ptr %108, align 16
-  br label %.sink.split126
+  br label %.sink.split132
 
 109:                                              ; preds = %104
   store ptr @.str.50, ptr %6, align 16
-  br label %.sink.split126
+  br label %.sink.split132
 
-.sink.split126:                                   ; preds = %106, %109
-  %.sink128.sroa.phi = phi ptr [ %.sink128.sroa.gep, %109 ], [ %.sink128.sroa.gep133, %106 ]
+.sink.split132:                                   ; preds = %106, %109
+  %.sink134.sroa.phi = phi ptr [ %.sink134.sroa.gep, %109 ], [ %.sink134.sroa.gep139, %106 ]
   %.str.74.sink = phi ptr [ @.str.74, %109 ], [ @.str.73, %106 ]
-  %.sink127.sroa.phi = phi ptr [ %.sink127.sroa.gep, %109 ], [ %.sink127.sroa.gep132, %106 ]
-  store ptr %.str.74.sink, ptr %.sink128.sroa.phi, align 8
-  store ptr null, ptr %.sink127.sroa.phi, align 16
+  %.sink133.sroa.phi = phi ptr [ %.sink133.sroa.gep, %109 ], [ %.sink133.sroa.gep138, %106 ]
+  store ptr %.str.74.sink, ptr %.sink134.sroa.phi, align 8
+  store ptr null, ptr %.sink133.sroa.phi, align 16
   br label %110
 
-110:                                              ; preds = %.sink.split126, %104
+110:                                              ; preds = %.sink.split132, %104
   %111 = load ptr, ptr @syscfg_path, align 8
   %112 = call fastcc ptr @_run_script(ptr noundef %111, ptr noundef %6, ptr noundef %7)
   store ptr %112, ptr %5, align 8
@@ -2003,39 +2003,39 @@ define dso_local void @node_features_p_node_state(ptr noundef %0, ptr noundef %1
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 %.2
   %132 = call i32 @xstrncasecmp(ptr noundef nonnull %131, ptr noundef nonnull @.str.77, i64 noundef 3) #14
   %.not81 = icmp eq i32 %132, 0
-  br i1 %.not81, label %.sink.split129, label %133
+  br i1 %.not81, label %.sink.split135, label %133
 
 133:                                              ; preds = %130
   %134 = call i32 @xstrncasecmp(ptr noundef nonnull %131, ptr noundef nonnull @.str.79, i64 noundef 3) #14
   %.not82 = icmp eq i32 %134, 0
-  br i1 %.not82, label %.sink.split129, label %135
+  br i1 %.not82, label %.sink.split135, label %135
 
 135:                                              ; preds = %133
   %136 = call i32 @xstrncasecmp(ptr noundef nonnull %131, ptr noundef nonnull @.str.80, i64 noundef 3) #14
   %.not83 = icmp eq i32 %136, 0
-  br i1 %.not83, label %.sink.split129, label %137
+  br i1 %.not83, label %.sink.split135, label %137
 
 137:                                              ; preds = %135
   %138 = call i32 @xstrncasecmp(ptr noundef nonnull %131, ptr noundef nonnull @.str.82, i64 noundef 3) #14
   %.not84 = icmp eq i32 %138, 0
-  br i1 %.not84, label %.sink.split129, label %139
+  br i1 %.not84, label %.sink.split135, label %139
 
 139:                                              ; preds = %137
   %140 = call i32 @xstrncasecmp(ptr noundef nonnull %131, ptr noundef nonnull @.str.84, i64 noundef 3) #14
   %.not85 = icmp eq i32 %140, 0
-  br i1 %.not85, label %.sink.split129, label %141
+  br i1 %.not85, label %.sink.split135, label %141
 
 141:                                              ; preds = %139
   %142 = call i32 @xstrncasecmp(ptr noundef nonnull %131, ptr noundef nonnull @.str.86, i64 noundef 3) #14
   %.not86 = icmp eq i32 %142, 0
-  br i1 %.not86, label %.sink.split129, label %143
+  br i1 %.not86, label %.sink.split135, label %143
 
-.sink.split129:                                   ; preds = %141, %139, %137, %133, %135, %130
+.sink.split135:                                   ; preds = %141, %139, %137, %133, %135, %130
   %.str.78.sink = phi ptr [ @.str.78, %130 ], [ @.str.81, %135 ], [ @.str.81, %133 ], [ @.str.83, %137 ], [ @.str.85, %139 ], [ @.str.87, %141 ]
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.72, ptr noundef nonnull %.055, ptr noundef nonnull %.str.78.sink) #14
   br label %143
 
-143:                                              ; preds = %.sink.split129, %141, %127
+143:                                              ; preds = %.sink.split135, %141, %127
   %.pr118 = load i32, ptr @knl_system_type, align 4
   %cond1 = icmp eq i32 %.pr118, 2
   br i1 %cond1, label %144, label %.thread119
@@ -2786,22 +2786,22 @@ define dso_local range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0, 
   store ptr null, ptr %8, align 8
   store i8 1, ptr %1, align 1
   %9 = icmp eq ptr %0, null
-  %.sink54.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink54.sroa.gep74 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink55.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink55.sroa.gep75 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink57.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink57.sroa.gep76 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %.sink60.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink60.sroa.gep77 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.sink60.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink60.sroa.gep80 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink61.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink61.sroa.gep81 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sink63.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink63.sroa.gep78 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink65.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink65.sroa.gep79 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink70.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink70.sroa.gep80 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %.sink73.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink73.sroa.gep81 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.sink63.sroa.gep82 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %.sink66.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink66.sroa.gep83 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.sink69.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink69.sroa.gep84 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink71.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink71.sroa.gep85 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink76.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink76.sroa.gep86 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %.sink79.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink79.sroa.gep87 = getelementptr inbounds nuw i8, ptr %4, i64 40
   br i1 %9, label %145, label %10
 
 10:                                               ; preds = %2
@@ -2864,11 +2864,11 @@ define dso_local range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0, 
   br label %145
 
 36:                                               ; preds = %33, %30
-  %.sink55.sroa.phi = phi ptr [ %.sink55.sroa.gep, %33 ], [ %.sink55.sroa.gep75, %30 ]
+  %.sink61.sroa.phi = phi ptr [ %.sink61.sroa.gep, %33 ], [ %.sink61.sroa.gep81, %30 ]
   %.str.54.sink = phi ptr [ @.str.54, %33 ], [ @.str.53, %30 ]
-  %.sink54.sroa.phi = phi ptr [ %.sink54.sroa.gep, %33 ], [ %.sink54.sroa.gep74, %30 ]
-  store ptr %.str.54.sink, ptr %.sink55.sroa.phi, align 8
-  store ptr null, ptr %.sink54.sroa.phi, align 16
+  %.sink60.sroa.phi = phi ptr [ %.sink60.sroa.gep, %33 ], [ %.sink60.sroa.gep80, %30 ]
+  store ptr %.str.54.sink, ptr %.sink61.sroa.phi, align 8
+  store ptr null, ptr %.sink60.sroa.phi, align 16
   %37 = call fastcc ptr @_run_script(ptr noundef nonnull %14, ptr noundef %4, ptr noundef %6)
   store ptr %37, ptr %3, align 8
   %38 = load i32, ptr %6, align 4
@@ -2926,12 +2926,12 @@ define dso_local range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0, 
 59:                                               ; preds = %57, %55, %53, %51, %49
   %.020 = phi ptr [ @.str.60, %49 ], [ @.str.62, %51 ], [ @.str.64, %53 ], [ @.str.66, %55 ], [ %..str.68, %57 ]
   %60 = load i32, ptr @knl_system_type, align 4
-  switch i32 %60, label %.thread52 [
+  switch i32 %60, label %.thread58 [
     i32 1, label %61
     i32 2, label %64
   ]
 
-.thread52:                                        ; preds = %59
+.thread58:                                        ; preds = %59
   call void @slurm_xfree(ptr noundef nonnull %3) #14
   br label %.thread
 
@@ -2976,11 +2976,11 @@ define dso_local range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %69, %74
-  %.sink60.sroa.phi = phi ptr [ %.sink60.sroa.gep, %74 ], [ %.sink60.sroa.gep77, %69 ]
-  %.sink58 = phi ptr [ %5, %74 ], [ %.sink, %69 ]
-  %.sink57.sroa.phi = phi ptr [ %.sink57.sroa.gep, %74 ], [ %.sink57.sroa.gep76, %69 ]
-  store ptr %.sink58, ptr %.sink60.sroa.phi, align 8
-  store ptr null, ptr %.sink57.sroa.phi, align 16
+  %.sink66.sroa.phi = phi ptr [ %.sink66.sroa.gep, %74 ], [ %.sink66.sroa.gep83, %69 ]
+  %.sink64 = phi ptr [ %5, %74 ], [ %.sink, %69 ]
+  %.sink63.sroa.phi = phi ptr [ %.sink63.sroa.gep, %74 ], [ %.sink63.sroa.gep82, %69 ]
+  store ptr %.sink64, ptr %.sink66.sroa.phi, align 8
+  store ptr null, ptr %.sink63.sroa.phi, align 16
   br label %76
 
 76:                                               ; preds = %.sink.split, %67
@@ -3006,8 +3006,8 @@ define dso_local range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0, 
   call void @slurm_xfree(ptr noundef nonnull %8) #14
   br label %.thread
 
-.thread:                                          ; preds = %48, %45, %.thread52, %84, %66
-  %.1 = phi i32 [ %.2, %84 ], [ %.0, %66 ], [ %.0, %.thread52 ], [ %.0, %45 ], [ %.0, %48 ]
+.thread:                                          ; preds = %48, %45, %.thread58, %84, %66
+  %.1 = phi i32 [ %.2, %84 ], [ %.0, %66 ], [ %.0, %.thread58 ], [ %.0, %45 ], [ %.0, %48 ]
   %85 = load i32, ptr @knl_system_type, align 4
   switch i32 %85, label %90 [
     i32 1, label %86
@@ -3020,21 +3020,21 @@ define dso_local range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0, 
   store ptr @.str.51, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @.str.52, ptr %88, align 16
-  br label %.sink.split61
+  br label %.sink.split67
 
 89:                                               ; preds = %.thread
   store ptr @.str.50, ptr %4, align 16
-  br label %.sink.split61
+  br label %.sink.split67
 
-.sink.split61:                                    ; preds = %86, %89
-  %.sink65.sroa.phi = phi ptr [ %.sink65.sroa.gep, %89 ], [ %.sink65.sroa.gep79, %86 ]
+.sink.split67:                                    ; preds = %86, %89
+  %.sink71.sroa.phi = phi ptr [ %.sink71.sroa.gep, %89 ], [ %.sink71.sroa.gep85, %86 ]
   %.str.74.sink = phi ptr [ @.str.74, %89 ], [ @.str.73, %86 ]
-  %.sink63.sroa.phi = phi ptr [ %.sink63.sroa.gep, %89 ], [ %.sink63.sroa.gep78, %86 ]
-  store ptr %.str.74.sink, ptr %.sink65.sroa.phi, align 8
-  store ptr null, ptr %.sink63.sroa.phi, align 16
+  %.sink69.sroa.phi = phi ptr [ %.sink69.sroa.gep, %89 ], [ %.sink69.sroa.gep84, %86 ]
+  store ptr %.str.74.sink, ptr %.sink71.sroa.phi, align 8
+  store ptr null, ptr %.sink69.sroa.phi, align 16
   br label %90
 
-90:                                               ; preds = %.sink.split61, %.thread
+90:                                               ; preds = %.sink.split67, %.thread
   %91 = load ptr, ptr @syscfg_path, align 8
   %92 = call fastcc ptr @_run_script(ptr noundef %91, ptr noundef %4, ptr noundef %6)
   store ptr %92, ptr %3, align 8
@@ -3114,18 +3114,18 @@ thread-pre-split:                                 ; preds = %104, %110, %112, %1
 118:                                              ; preds = %116
   %119 = load ptr, ptr %3, align 8
   %120 = call fastcc ptr @_find_key_val(ptr noundef %.121, ptr noundef %119)
-  br label %.sink.split66
+  br label %.sink.split72
 
 121:                                              ; preds = %116
   %122 = call ptr @xstrdup(ptr noundef %.121) #14
-  br label %.sink.split66
+  br label %.sink.split72
 
-.sink.split66:                                    ; preds = %118, %121
-  %.sink67 = phi ptr [ %122, %121 ], [ %120, %118 ]
-  store ptr %.sink67, ptr %7, align 8
+.sink.split72:                                    ; preds = %118, %121
+  %.sink73 = phi ptr [ %122, %121 ], [ %120, %118 ]
+  store ptr %.sink73, ptr %7, align 8
   br label %123
 
-123:                                              ; preds = %.sink.split66, %116
+123:                                              ; preds = %.sink.split72, %116
   call void @slurm_xfree(ptr noundef nonnull %3) #14
   br label %124
 
@@ -3151,22 +3151,22 @@ thread-pre-split:                                 ; preds = %104, %110, %112, %1
   store ptr @.str.52, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr @.str.73, ptr %132, align 16
-  br label %.sink.split68
+  br label %.sink.split74
 
 133:                                              ; preds = %126
   %134 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 100, ptr noundef nonnull @.str.98, ptr noundef nonnull %125) #14
   store ptr @.str.50, ptr %4, align 16
-  br label %.sink.split68
+  br label %.sink.split74
 
-.sink.split68:                                    ; preds = %128, %133
-  %.sink73.sroa.phi = phi ptr [ %.sink73.sroa.gep, %133 ], [ %.sink73.sroa.gep81, %128 ]
-  %.sink71 = phi ptr [ %5, %133 ], [ %125, %128 ]
-  %.sink70.sroa.phi = phi ptr [ %.sink70.sroa.gep, %133 ], [ %.sink70.sroa.gep80, %128 ]
-  store ptr %.sink71, ptr %.sink73.sroa.phi, align 8
-  store ptr null, ptr %.sink70.sroa.phi, align 16
+.sink.split74:                                    ; preds = %128, %133
+  %.sink79.sroa.phi = phi ptr [ %.sink79.sroa.gep, %133 ], [ %.sink79.sroa.gep87, %128 ]
+  %.sink77 = phi ptr [ %5, %133 ], [ %125, %128 ]
+  %.sink76.sroa.phi = phi ptr [ %.sink76.sroa.gep, %133 ], [ %.sink76.sroa.gep86, %128 ]
+  store ptr %.sink77, ptr %.sink79.sroa.phi, align 8
+  store ptr null, ptr %.sink76.sroa.phi, align 16
   br label %135
 
-135:                                              ; preds = %.sink.split68, %126
+135:                                              ; preds = %.sink.split74, %126
   %136 = load ptr, ptr @syscfg_path, align 8
   %137 = call fastcc ptr @_run_script(ptr noundef %136, ptr noundef %4, ptr noundef %6)
   store ptr %137, ptr %3, align 8
@@ -3960,7 +3960,7 @@ _knl_numa_token.exit.thread:                      ; preds = %20, %18, %16, %14, 
 
 ._crit_edge:                                      ; preds = %_knl_numa_token.exit.thread
   call void @slurm_xfree(ptr noundef nonnull %6) #14
-  br i1 %.2, label %.thread159, label %23
+  br i1 %.2, label %.thread172, label %23
 
 23:                                               ; preds = %._crit_edge.thread, %._crit_edge
   call void @slurm_xfree(ptr noundef nonnull %5) #14
@@ -3968,11 +3968,11 @@ _knl_numa_token.exit.thread:                      ; preds = %20, %18, %16, %14, 
 
 24:                                               ; preds = %23, %4
   %.not76 = icmp eq ptr %0, null
-  br i1 %.not76, label %.thread172, label %25
+  br i1 %.not76, label %.thread185, label %25
 
-.thread159:                                       ; preds = %._crit_edge
-  %.not76162 = icmp eq ptr %0, null
-  br i1 %.not76162, label %.thread170, label %.thread166
+.thread172:                                       ; preds = %._crit_edge
+  %.not76175 = icmp eq ptr %0, null
+  br i1 %.not76175, label %.thread183, label %.thread179
 
 25:                                               ; preds = %24
   %26 = call ptr @xstrdup(ptr noundef nonnull %0) #14
@@ -4026,21 +4026,21 @@ _knl_numa_token.exit96.thread:                    ; preds = %38, %36, %34, %32, 
 ._crit_edge137:                                   ; preds = %_knl_numa_token.exit96.thread, %25
   %.465.lcssa = phi ptr [ @.str.48, %25 ], [ %.5, %_knl_numa_token.exit96.thread ]
   call void @slurm_xfree(ptr noundef nonnull %6) #14
-  br label %.thread166
+  br label %.thread179
 
-.thread166:                                       ; preds = %.thread159, %._crit_edge137
-  %.0164169 = phi i1 [ false, %._crit_edge137 ], [ true, %.thread159 ]
-  %.364 = phi ptr [ %.465.lcssa, %._crit_edge137 ], [ %.263, %.thread159 ]
+.thread179:                                       ; preds = %.thread172, %._crit_edge137
+  %.0177182 = phi i1 [ false, %._crit_edge137 ], [ true, %.thread172 ]
+  %.364 = phi ptr [ %.465.lcssa, %._crit_edge137 ], [ %.263, %.thread172 ]
   %41 = call ptr @xstrdup(ptr noundef nonnull %0) #14
   store ptr %41, ptr %6, align 8
   %42 = call ptr @strtok_r(ptr noundef %41, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #14
   %.not77139 = icmp eq ptr %42, null
   br i1 %.not77139, label %._crit_edge145, label %.lr.ph144
 
-.lr.ph144:                                        ; preds = %.thread166, %57
-  %.049142 = phi i16 [ %.150, %57 ], [ 0, %.thread166 ]
-  %.052141 = phi i16 [ %.153, %57 ], [ 0, %.thread166 ]
-  %.259140 = phi ptr [ %58, %57 ], [ %42, %.thread166 ]
+.lr.ph144:                                        ; preds = %.thread179, %57
+  %.049142 = phi i16 [ %.150, %57 ], [ 0, %.thread179 ]
+  %.052141 = phi i16 [ %.153, %57 ], [ 0, %.thread179 ]
+  %.259140 = phi ptr [ %58, %57 ], [ %42, %.thread179 ]
   %43 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.259140)
   %.not84 = icmp eq i16 %43, 0
   br i1 %.not84, label %46, label %44
@@ -4087,11 +4087,11 @@ _knl_numa_token.exit104:                          ; preds = %46, %48, %50, %52, 
   %.not77 = icmp eq ptr %58, null
   br i1 %.not77, label %._crit_edge145, label %.lr.ph144, !llvm.loop !43
 
-._crit_edge145:                                   ; preds = %57, %.thread166
-  %.052.lcssa = phi i16 [ 0, %.thread166 ], [ %.153, %57 ]
-  %.049.lcssa = phi i16 [ 0, %.thread166 ], [ %.150, %57 ]
+._crit_edge145:                                   ; preds = %57, %.thread179
+  %.052.lcssa = phi i16 [ 0, %.thread179 ], [ %.153, %57 ]
+  %.049.lcssa = phi i16 [ 0, %.thread179 ], [ %.150, %57 ]
   call void @slurm_xfree(ptr noundef nonnull %6) #14
-  br i1 %.0164169, label %59, label %81
+  br i1 %.0177182, label %59, label %81
 
 59:                                               ; preds = %._crit_edge145
   %60 = icmp eq i16 %.052.lcssa, 0
@@ -4187,30 +4187,30 @@ _knl_numa_token.exit112:                          ; preds = %78, %76, %74, %72, 
   store ptr %85, ptr %6, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.72, ptr noundef %.6, ptr noundef %85) #14
   call void @slurm_xfree(ptr noundef nonnull %6) #14
-  br i1 %.0164169, label %.thread170, label %.thread172
+  br i1 %.0177182, label %.thread183, label %.thread185
 
 86:                                               ; preds = %83
-  br i1 %.0164169, label %.thread170, label %.thread172
+  br i1 %.0177182, label %.thread183, label %.thread185
 
-.thread170:                                       ; preds = %.thread159, %84, %86
+.thread183:                                       ; preds = %.thread172, %84, %86
   %87 = load ptr, ptr @knl_node_bitmap, align 8
   %.not81 = icmp eq ptr %87, null
   br i1 %.not81, label %88, label %92
 
-88:                                               ; preds = %.thread170
+88:                                               ; preds = %.thread183
   %89 = load i32, ptr @node_record_count, align 4
   %90 = sext i32 %89 to i64
   %91 = call ptr @bit_alloc(i64 noundef %90) #14
   store ptr %91, ptr @knl_node_bitmap, align 8
   br label %92
 
-92:                                               ; preds = %88, %.thread170
-  %93 = phi ptr [ %91, %88 ], [ %87, %.thread170 ]
+92:                                               ; preds = %88, %.thread183
+  %93 = phi ptr [ %91, %88 ], [ %87, %.thread183 ]
   %94 = sext i32 %3 to i64
   call void @bit_set(ptr noundef %93, i64 noundef %94) #14
-  br label %.thread172
+  br label %.thread185
 
-.thread172:                                       ; preds = %24, %84, %92, %86
+.thread185:                                       ; preds = %24, %84, %92, %86
   %95 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

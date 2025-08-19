@@ -6834,8 +6834,8 @@ define noundef zeroext i1 @"_ZN79_$LT$uv_workspace..pyproject..PyProjectToml$u20
   %14 = load i8, ptr %13, align 1, !range !1369, !alias.scope !1545, !noalias !1548, !noundef !6
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 137
   %16 = load i8, ptr %15, align 1, !range !1369, !alias.scope !1548, !noalias !1545, !noundef !6
-  %.not37.i = icmp eq i8 %14, %16
-  br i1 %.not37.i, label %112, label %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3c2ec7969c6329eaE.exit"
+  %.not41.i = icmp eq i8 %14, %16
+  br i1 %.not41.i, label %112, label %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3c2ec7969c6329eaE.exit"
 
 17:                                               ; preds = %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1545)
@@ -8162,7 +8162,7 @@ define void @"_ZN119_$LT$uv_workspace..pyproject..Sources$u20$as$u20$core..conve
   invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$uv_workspace..pyproject..Source$GT$$GT$17h48a94afe570307f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #41
           to label %42 unwind label %40
 
-.loopexit:                                        ; preds = %switch.lookup117
+.loopexit:                                        ; preds = %switch.lookup125
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -8211,9 +8211,9 @@ switch.lookup:                                    ; preds = %.lr.ph
   %61 = icmp slt i64 %60, -9223372036854775804
   %62 = add i64 %60, -9223372036854775807
   %63 = select i1 %61, i64 %62, i64 0
-  %switch.gep121 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source5extra17hfd422ab9a267a67dE, i64 0, i64 %63
-  %switch.load122 = load i64, ptr %switch.gep121, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %47, i64 %switch.load122
+  %switch.gep129 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source5extra17hfd422ab9a267a67dE, i64 0, i64 %63
+  %switch.load130 = load i64, ptr %switch.gep129, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %47, i64 %switch.load130
   %65 = load ptr, ptr %64, align 8, !alias.scope !1784, !noundef !6
   %66 = icmp eq ptr %65, null
   br i1 %59, label %72, label %71
@@ -8238,11 +8238,11 @@ switch.lookup:                                    ; preds = %.lr.ph
   br i1 %66, label %.backedge, label %73
 
 72:                                               ; preds = %switch.lookup
-  br i1 %66, label %switch.lookup114, label %.backedge
+  br i1 %66, label %switch.lookup122, label %.backedge
 
 73:                                               ; preds = %71
   %74 = icmp eq ptr %58, %65
-  br i1 %74, label %switch.lookup114, label %75
+  br i1 %74, label %switch.lookup122, label %75
 
 75:                                               ; preds = %73
   %76 = load i64, ptr %58, align 8, !noundef !6
@@ -8257,30 +8257,30 @@ switch.lookup:                                    ; preds = %.lr.ph
   %81 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %81, ptr nonnull readonly align 1 %80, i64 %77), !alias.scope !1787
   %82 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %82, label %switch.lookup114, label %.backedge
+  br i1 %82, label %switch.lookup122, label %.backedge
 
-switch.lookup114:                                 ; preds = %72, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit", %73
-  %switch.gep115 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source5group17h38fc1015d610440bE, i64 0, i64 %56
-  %switch.load116 = load i64, ptr %switch.gep115, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %46, i64 %switch.load116
+switch.lookup122:                                 ; preds = %72, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit", %73
+  %switch.gep123 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source5group17h38fc1015d610440bE, i64 0, i64 %56
+  %switch.load124 = load i64, ptr %switch.gep123, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %46, i64 %switch.load124
   %84 = load ptr, ptr %83, align 8, !alias.scope !1791, !noundef !6
   %85 = icmp eq ptr %84, null
-  %switch.gep124 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source5group17h38fc1015d610440bE, i64 0, i64 %63
-  %switch.load125 = load i64, ptr %switch.gep124, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %47, i64 %switch.load125
+  %switch.gep132 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source5group17h38fc1015d610440bE, i64 0, i64 %63
+  %switch.load133 = load i64, ptr %switch.gep132, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %47, i64 %switch.load133
   %87 = load ptr, ptr %86, align 8, !alias.scope !1794, !noundef !6
   %88 = icmp eq ptr %87, null
   br i1 %85, label %90, label %89
 
-89:                                               ; preds = %switch.lookup114
+89:                                               ; preds = %switch.lookup122
   br i1 %88, label %.backedge, label %91
 
-90:                                               ; preds = %switch.lookup114
-  br i1 %88, label %switch.lookup117, label %.backedge
+90:                                               ; preds = %switch.lookup122
+  br i1 %88, label %switch.lookup125, label %.backedge
 
 91:                                               ; preds = %89
   %92 = icmp eq ptr %84, %87
-  br i1 %92, label %switch.lookup117, label %93
+  br i1 %92, label %switch.lookup125, label %93
 
 93:                                               ; preds = %91
   %94 = load i64, ptr %84, align 8, !noundef !6
@@ -8295,21 +8295,21 @@ switch.lookup114:                                 ; preds = %72, %"_ZN64_$LT$arc
   %99 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %bcmp.i.i65 = call i32 @bcmp(ptr nonnull readonly align 1 %99, ptr nonnull readonly align 1 %98, i64 %95), !alias.scope !1797
   %100 = icmp eq i32 %bcmp.i.i65, 0
-  br i1 %100, label %switch.lookup117, label %.backedge
+  br i1 %100, label %switch.lookup125, label %.backedge
 
-switch.lookup117:                                 ; preds = %90, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit66", %91
-  %switch.gep118 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source6marker17hecdfbc0869da7f09E, i64 0, i64 %56
-  %switch.load119 = load i64, ptr %switch.gep118, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %46, i64 %switch.load119
+switch.lookup125:                                 ; preds = %90, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit66", %91
+  %switch.gep126 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source6marker17hecdfbc0869da7f09E, i64 0, i64 %56
+  %switch.load127 = load i64, ptr %switch.gep126, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %46, i64 %switch.load127
   %.sroa.0.0.i67 = load i64, ptr %101, align 8, !alias.scope !1801, !noundef !6
-  %switch.gep127 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source6marker17hecdfbc0869da7f09E, i64 0, i64 %63
-  %switch.load128 = load i64, ptr %switch.gep127, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %47, i64 %switch.load128
+  %switch.gep135 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source6marker17hecdfbc0869da7f09E, i64 0, i64 %63
+  %switch.load136 = load i64, ptr %switch.gep135, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %47, i64 %switch.load136
   %.sroa.0.0.i69 = load i64, ptr %102, align 8, !alias.scope !1804, !noundef !6
   %103 = invoke noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree11is_disjoint17h23a6047837e71088E(i64 noundef %.sroa.0.0.i67, i64 noundef %.sroa.0.0.i69)
           to label %104 unwind label %.loopexit
 
-104:                                              ; preds = %switch.lookup117
+104:                                              ; preds = %switch.lookup125
   br i1 %103, label %.backedge, label %105
 
 105:                                              ; preds = %104
@@ -12775,8 +12775,8 @@ define void @"_ZN12uv_workspace9pyproject1_82_$LT$impl$u20$schemars..JsonSchema$
 105:                                              ; preds = %96
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 -9223372036854775807, ptr %16, align 8
-  %.sroa.10.0..sroa_idx467 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i8 0, ptr %.sroa.10.0..sroa_idx467, align 8
+  %.sroa.10.0..sroa_idx478 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i8 0, ptr %.sroa.10.0..sroa_idx478, align 8
   %106 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !2270
   %107 = call noalias noundef align 8 dereferenceable_or_null(200) ptr @__rust_alloc(i64 noundef range(i64 1, 9617) 200, i64 noundef range(i64 1, 9) 8) #44, !noalias !2270
   %108 = icmp eq ptr %107, null
@@ -12808,8 +12808,8 @@ define void @"_ZN12uv_workspace9pyproject1_82_$LT$impl$u20$schemars..JsonSchema$
 
 117:                                              ; preds = %105
   store i64 -9223372036854775807, ptr %107, align 8
-  %.sroa.10.0..sroa_idx476 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  store i8 0, ptr %.sroa.10.0..sroa_idx476, align 8
+  %.sroa.10.0..sroa_idx487 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  store i8 0, ptr %.sroa.10.0..sroa_idx487, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %118 = getelementptr inbounds nuw i8, ptr %104, i64 88
   %.val223 = load ptr, ptr %118, align 8, !noundef !6
@@ -13062,8 +13062,8 @@ define void @"_ZN12uv_workspace9pyproject1_82_$LT$impl$u20$schemars..JsonSchema$
 178:                                              ; preds = %169
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 -9223372036854775807, ptr %15, align 8
-  %.sroa.10.0..sroa_idx468 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i8 0, ptr %.sroa.10.0..sroa_idx468, align 8
+  %.sroa.10.0..sroa_idx479 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i8 0, ptr %.sroa.10.0..sroa_idx479, align 8
   %179 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !2288
   %180 = call noalias noundef align 8 dereferenceable_or_null(200) ptr @__rust_alloc(i64 noundef range(i64 1, 9617) 200, i64 noundef range(i64 1, 9) 8) #44, !noalias !2288
   %181 = icmp eq ptr %180, null
@@ -13095,8 +13095,8 @@ define void @"_ZN12uv_workspace9pyproject1_82_$LT$impl$u20$schemars..JsonSchema$
 
 190:                                              ; preds = %178
   store i64 -9223372036854775807, ptr %180, align 8
-  %.sroa.10.0..sroa_idx478 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  store i8 0, ptr %.sroa.10.0..sroa_idx478, align 8
+  %.sroa.10.0..sroa_idx489 = getelementptr inbounds nuw i8, ptr %180, i64 8
+  store i8 0, ptr %.sroa.10.0..sroa_idx489, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %191 = getelementptr inbounds nuw i8, ptr %177, i64 88
   %.val222 = load ptr, ptr %191, align 8, !noundef !6
@@ -13313,8 +13313,8 @@ define void @"_ZN12uv_workspace9pyproject1_82_$LT$impl$u20$schemars..JsonSchema$
 244:                                              ; preds = %235
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 -9223372036854775807, ptr %14, align 8
-  %.sroa.10.0..sroa_idx470 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i8 0, ptr %.sroa.10.0..sroa_idx470, align 8
+  %.sroa.10.0..sroa_idx481 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i8 0, ptr %.sroa.10.0..sroa_idx481, align 8
   %245 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !2306
   %246 = call noalias noundef align 8 dereferenceable_or_null(200) ptr @__rust_alloc(i64 noundef range(i64 1, 9617) 200, i64 noundef range(i64 1, 9) 8) #44, !noalias !2306
   %247 = icmp eq ptr %246, null
@@ -13346,8 +13346,8 @@ define void @"_ZN12uv_workspace9pyproject1_82_$LT$impl$u20$schemars..JsonSchema$
 
 256:                                              ; preds = %244
   store i64 -9223372036854775807, ptr %246, align 8
-  %.sroa.10.0..sroa_idx480 = getelementptr inbounds nuw i8, ptr %246, i64 8
-  store i8 0, ptr %.sroa.10.0..sroa_idx480, align 8
+  %.sroa.10.0..sroa_idx491 = getelementptr inbounds nuw i8, ptr %246, i64 8
+  store i8 0, ptr %.sroa.10.0..sroa_idx491, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %257 = getelementptr inbounds nuw i8, ptr %243, i64 88
   %.val221 = load ptr, ptr %257, align 8, !noundef !6
@@ -13580,8 +13580,8 @@ define void @"_ZN12uv_workspace9pyproject1_82_$LT$impl$u20$schemars..JsonSchema$
 313:                                              ; preds = %304
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 -9223372036854775807, ptr %13, align 8
-  %.sroa.10.0..sroa_idx472 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i8 0, ptr %.sroa.10.0..sroa_idx472, align 8
+  %.sroa.10.0..sroa_idx483 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i8 0, ptr %.sroa.10.0..sroa_idx483, align 8
   %314 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !2324
   %315 = call noalias noundef align 8 dereferenceable_or_null(200) ptr @__rust_alloc(i64 noundef range(i64 1, 9617) 200, i64 noundef range(i64 1, 9) 8) #44, !noalias !2324
   %316 = icmp eq ptr %315, null
@@ -13613,8 +13613,8 @@ define void @"_ZN12uv_workspace9pyproject1_82_$LT$impl$u20$schemars..JsonSchema$
 
 325:                                              ; preds = %313
   store i64 -9223372036854775807, ptr %315, align 8
-  %.sroa.10.0..sroa_idx482 = getelementptr inbounds nuw i8, ptr %315, i64 8
-  store i8 0, ptr %.sroa.10.0..sroa_idx482, align 8
+  %.sroa.10.0..sroa_idx493 = getelementptr inbounds nuw i8, ptr %315, i64 8
+  store i8 0, ptr %.sroa.10.0..sroa_idx493, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %326 = getelementptr inbounds nuw i8, ptr %312, i64 88
   %.val220 = load ptr, ptr %326, align 8, !noundef !6
@@ -13832,8 +13832,8 @@ define void @"_ZN12uv_workspace9pyproject1_82_$LT$impl$u20$schemars..JsonSchema$
 
 384:                                              ; preds = %377
   store i64 -9223372036854775807, ptr %379, align 8
-  %.sroa.10.0..sroa_idx474 = getelementptr inbounds nuw i8, ptr %379, i64 8
-  store i8 0, ptr %.sroa.10.0..sroa_idx474, align 8
+  %.sroa.10.0..sroa_idx485 = getelementptr inbounds nuw i8, ptr %379, i64 8
+  store i8 0, ptr %.sroa.10.0..sroa_idx485, align 8
   %385 = getelementptr inbounds nuw i8, ptr %376, i64 88
   %.val = load ptr, ptr %385, align 8, !noundef !6
   %386 = icmp eq ptr %.val, null

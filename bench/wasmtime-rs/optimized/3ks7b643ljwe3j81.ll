@@ -279,12 +279,12 @@ define hidden noundef ptr @_ZN16system_interface2io6io_ext5IoExt19read_exact_vec
   br label %29
 
 29:                                               ; preds = %.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit"
-  %.sroa.0.123 = phi ptr [ %24, %.thread ], [ %.sroa.0.017, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit" ]
-  %.sroa.8.122 = phi i64 [ %25, %.thread ], [ %.sroa.8.018, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit" ]
+  %.sroa.0.124 = phi ptr [ %24, %.thread ], [ %.sroa.0.017, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit" ]
+  %.sroa.8.123 = phi i64 [ %25, %.thread ], [ %.sroa.8.018, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %30 = icmp ne ptr %.sroa.0.123, null
+  %30 = icmp ne ptr %.sroa.0.124, null
   call void @llvm.assume(i1 %30)
-  %31 = call { ptr, i64 } @_ZN16system_interface2io6io_ext20skip_leading_empties17hb86167822c855a04E(ptr noalias noundef nonnull align 8 %.sroa.0.123, i64 noundef %.sroa.8.122)
+  %31 = call { ptr, i64 } @_ZN16system_interface2io6io_ext20skip_leading_empties17hb86167822c855a04E(ptr noalias noundef nonnull align 8 %.sroa.0.124, i64 noundef %.sroa.8.123)
   %.sroa.8.0 = extractvalue { ptr, i64 } %31, 1
   %32 = icmp eq i64 %.sroa.8.0, 0
   br i1 %32, label %.loopexit, label %11
@@ -367,12 +367,12 @@ define hidden noundef ptr @_ZN16system_interface2io6io_ext5IoExt19read_exact_vec
   br label %29
 
 29:                                               ; preds = %.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit"
-  %.sroa.0.123 = phi ptr [ %24, %.thread ], [ %.sroa.0.017, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit" ]
-  %.sroa.8.122 = phi i64 [ %25, %.thread ], [ %.sroa.8.018, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit" ]
+  %.sroa.0.124 = phi ptr [ %24, %.thread ], [ %.sroa.0.017, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit" ]
+  %.sroa.8.123 = phi i64 [ %25, %.thread ], [ %.sroa.8.018, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %30 = icmp ne ptr %.sroa.0.123, null
+  %30 = icmp ne ptr %.sroa.0.124, null
   call void @llvm.assume(i1 %30)
-  %31 = call { ptr, i64 } @_ZN16system_interface2io6io_ext20skip_leading_empties17hb86167822c855a04E(ptr noalias noundef nonnull align 8 %.sroa.0.123, i64 noundef %.sroa.8.122)
+  %31 = call { ptr, i64 } @_ZN16system_interface2io6io_ext20skip_leading_empties17hb86167822c855a04E(ptr noalias noundef nonnull align 8 %.sroa.0.124, i64 noundef %.sroa.8.123)
   %.sroa.8.0 = extractvalue { ptr, i64 } %31, 1
   %32 = icmp eq i64 %.sroa.8.0, 0
   br i1 %32, label %.loopexit, label %11
@@ -2910,13 +2910,13 @@ define { ptr, ptr } @"_ZN77_$LT$wasi_common..sync..file..File$u20$as$u20$wasi_co
 define internal { i64, ptr } @"_ZN77_$LT$wasi_common..sync..file..File$u20$as$u20$wasi_common..file..WasiFile$GT$8datasync28_$u7b$$u7b$closure$u7d$$u7d$17h7413a3f6e5f5b75cE"(ptr noundef nonnull align 8 captures(none) %0, ptr noalias readnone align 8 captures(none) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8, !range !347, !noundef !5
-  switch i8 %4, label %default.unreachable8 [
+  switch i8 %4, label %default.unreachable9 [
     i8 0, label %6
     i8 1, label %17
     i8 2, label %18
   ]
 
-default.unreachable8:                             ; preds = %2
+default.unreachable9:                             ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit": ; preds = %12, %_ZN7cap_std2fs4file4File9sync_data17h223ee8b44d1ac306E.exit
@@ -2986,13 +2986,13 @@ define { ptr, ptr } @"_ZN77_$LT$wasi_common..sync..file..File$u20$as$u20$wasi_co
 define internal { i64, ptr } @"_ZN77_$LT$wasi_common..sync..file..File$u20$as$u20$wasi_common..file..WasiFile$GT$4sync28_$u7b$$u7b$closure$u7d$$u7d$17ha79629fae315b446E"(ptr noundef nonnull align 8 captures(none) %0, ptr noalias readnone align 8 captures(none) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8, !range !347, !noundef !5
-  switch i8 %4, label %default.unreachable8 [
+  switch i8 %4, label %default.unreachable9 [
     i8 0, label %6
     i8 1, label %17
     i8 2, label %18
   ]
 
-default.unreachable8:                             ; preds = %2
+default.unreachable9:                             ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit": ; preds = %12, %_ZN7cap_std2fs4file4File8sync_all17hc3bf2e75f8c3e2afE.exit
@@ -3280,13 +3280,13 @@ define internal { i64, ptr } @"_ZN77_$LT$wasi_common..sync..file..File$u20$as$u2
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i8, ptr %7, align 4, !range !347, !noundef !5
-  switch i8 %8, label %default.unreachable36 [
+  switch i8 %8, label %default.unreachable37 [
     i8 0, label %10
     i8 1, label %54
     i8 2, label %55
   ]
 
-default.unreachable36:                            ; preds = %2
+default.unreachable37:                            ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit19": ; preds = %_ZN11wasi_common9snapshots9preview_15types5Error7context17hd3507375539a111bE.exit, %33, %32
@@ -3449,13 +3449,13 @@ define internal void @"_ZN77_$LT$wasi_common..sync..file..File$u20$as$u20$wasi_c
   %7 = alloca { [2 x i32], i32, [45 x i32] }, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i8, ptr %8, align 8, !range !347, !noundef !5
-  switch i8 %9, label %default.unreachable138 [
+  switch i8 %9, label %default.unreachable139 [
     i8 0, label %11
     i8 1, label %76
     i8 2, label %77
   ]
 
-default.unreachable138:                           ; preds = %3
+default.unreachable139:                           ; preds = %3
   unreachable
 
 10:                                               ; preds = %62, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i55", %73
@@ -3738,13 +3738,13 @@ define { ptr, ptr } @"_ZN77_$LT$wasi_common..sync..file..File$u20$as$u20$wasi_co
 define internal { i64, ptr } @"_ZN77_$LT$wasi_common..sync..file..File$u20$as$u20$wasi_common..file..WasiFile$GT$17set_filestat_size28_$u7b$$u7b$closure$u7d$$u7d$17hf3bf22c2ad711a74E"(ptr noundef nonnull align 8 captures(none) %0, ptr noalias readnone align 8 captures(none) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8, !range !347, !noundef !5
-  switch i8 %4, label %default.unreachable8 [
+  switch i8 %4, label %default.unreachable9 [
     i8 0, label %6
     i8 1, label %19
     i8 2, label %20
   ]
 
-default.unreachable8:                             ; preds = %2
+default.unreachable9:                             ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit": ; preds = %14, %_ZN7cap_std2fs4file4File7set_len17h8b3be131c0a89f1dE.exit
@@ -3822,13 +3822,13 @@ define { ptr, ptr } @"_ZN77_$LT$wasi_common..sync..file..File$u20$as$u20$wasi_co
 define internal { i64, ptr } @"_ZN77_$LT$wasi_common..sync..file..File$u20$as$u20$wasi_common..file..WasiFile$GT$6advise28_$u7b$$u7b$closure$u7d$$u7d$17h76513978f444a9aeE"(ptr noundef nonnull align 8 captures(none) %0, ptr noalias readnone align 8 captures(none) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %4 = load i8, ptr %3, align 1, !range !347, !noundef !5
-  switch i8 %4, label %default.unreachable8 [
+  switch i8 %4, label %default.unreachable9 [
     i8 0, label %switch.lookup
     i8 1, label %34
     i8 2, label %35
   ]
 
-default.unreachable8:                             ; preds = %2
+default.unreachable9:                             ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit": ; preds = %25, %17
@@ -3929,13 +3929,13 @@ define internal { i64, ptr } @"_ZN77_$LT$wasi_common..sync..file..File$u20$as$u2
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i8, ptr %4, align 8, !range !347, !noundef !5
-  switch i8 %5, label %default.unreachable9 [
+  switch i8 %5, label %default.unreachable10 [
     i8 0, label %9
     i8 1, label %28
     i8 2, label %29
   ]
 
-default.unreachable9:                             ; preds = %2
+default.unreachable10:                            ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit": ; preds = %23, %21

@@ -42,41 +42,41 @@ define void @CRYPTO_cbc128_encrypt(ptr noundef readonly captures(none) %0, ptr n
   br i1 %.not, label %33, label %.preheader60.preheader
 
 .preheader60.preheader:                           ; preds = %.preheader62, %._crit_edge
-  %.0.lcssa87 = phi ptr [ %.05365, %._crit_edge ], [ %4, %.preheader62 ]
-  %.051.lcssa86 = phi ptr [ %19, %._crit_edge ], [ %0, %.preheader62 ]
-  %.053.lcssa85 = phi ptr [ %20, %._crit_edge ], [ %1, %.preheader62 ]
-  %.055.lcssa84 = phi i64 [ %18, %._crit_edge ], [ %2, %.preheader62 ]
+  %.0.lcssa89 = phi ptr [ %.05365, %._crit_edge ], [ %4, %.preheader62 ]
+  %.051.lcssa88 = phi ptr [ %19, %._crit_edge ], [ %0, %.preheader62 ]
+  %.053.lcssa87 = phi ptr [ %20, %._crit_edge ], [ %1, %.preheader62 ]
+  %.055.lcssa86 = phi i64 [ %18, %._crit_edge ], [ %2, %.preheader62 ]
   br label %.preheader60
 
 .preheader60:                                     ; preds = %.preheader60.preheader, %.preheader60
   %.14971 = phi i64 [ %28, %.preheader60 ], [ 0, %.preheader60.preheader ]
-  %22 = getelementptr inbounds nuw i8, ptr %.051.lcssa86, i64 %.14971
+  %22 = getelementptr inbounds nuw i8, ptr %.051.lcssa88, i64 %.14971
   %23 = load i8, ptr %22, align 1, !tbaa !9
-  %24 = getelementptr inbounds nuw i8, ptr %.0.lcssa87, i64 %.14971
+  %24 = getelementptr inbounds nuw i8, ptr %.0.lcssa89, i64 %.14971
   %25 = load i8, ptr %24, align 1, !tbaa !9
   %26 = xor i8 %25, %23
-  %27 = getelementptr inbounds nuw i8, ptr %.053.lcssa85, i64 %.14971
+  %27 = getelementptr inbounds nuw i8, ptr %.053.lcssa87, i64 %.14971
   store i8 %26, ptr %27, align 1, !tbaa !9
   %28 = add nuw nsw i64 %.14971, 1
-  %exitcond.not = icmp eq i64 %28, %.055.lcssa84
+  %exitcond.not = icmp eq i64 %28, %.055.lcssa86
   br i1 %exitcond.not, label %.lr.ph, label %.preheader60, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.preheader60, %.lr.ph
-  %.25072 = phi i64 [ %32, %.lr.ph ], [ %.055.lcssa84, %.preheader60 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.0.lcssa87, i64 %.25072
+  %.25072 = phi i64 [ %32, %.lr.ph ], [ %.055.lcssa86, %.preheader60 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.0.lcssa89, i64 %.25072
   %30 = load i8, ptr %29, align 1, !tbaa !9
-  %31 = getelementptr inbounds nuw i8, ptr %.053.lcssa85, i64 %.25072
+  %31 = getelementptr inbounds nuw i8, ptr %.053.lcssa87, i64 %.25072
   store i8 %30, ptr %31, align 1, !tbaa !9
   %32 = add i64 %.25072, 1
   %exitcond78.not = icmp eq i64 %32, 16
   br i1 %exitcond78.not, label %._crit_edge73, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge73:                                    ; preds = %.lr.ph
-  tail call void %5(ptr noundef nonnull %.053.lcssa85, ptr noundef nonnull %.053.lcssa85, ptr noundef %3) #3
+  tail call void %5(ptr noundef nonnull %.053.lcssa87, ptr noundef nonnull %.053.lcssa87, ptr noundef %3) #3
   br label %33
 
 33:                                               ; preds = %._crit_edge73, %._crit_edge
-  %.2 = phi ptr [ %.053.lcssa85, %._crit_edge73 ], [ %.05365, %._crit_edge ]
+  %.2 = phi ptr [ %.053.lcssa87, %._crit_edge73 ], [ %.05365, %._crit_edge ]
   %.not59 = icmp eq ptr %4, %.2
   br i1 %.not59, label %35, label %34
 
@@ -177,31 +177,31 @@ define void @CRYPTO_cbc128_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %.not98, label %.loopexit, label %.loopexit100.thread
 
 .loopexit100.thread:                              ; preds = %.preheader101, %.preheader99, %.loopexit100
-  %.1139 = phi ptr [ %.1, %.loopexit100 ], [ %0, %.preheader99 ], [ %0, %.preheader101 ]
-  %.176138 = phi ptr [ %.176, %.loopexit100 ], [ %1, %.preheader99 ], [ %1, %.preheader101 ]
-  %.181137 = phi i64 [ %.181, %.loopexit100 ], [ %2, %.preheader99 ], [ %2, %.preheader101 ]
-  call void %5(ptr noundef %.1139, ptr noundef nonnull %7, ptr noundef %3) #3
+  %.1148 = phi ptr [ %.1, %.loopexit100 ], [ %0, %.preheader99 ], [ %0, %.preheader101 ]
+  %.176147 = phi ptr [ %.176, %.loopexit100 ], [ %1, %.preheader99 ], [ %1, %.preheader101 ]
+  %.181146 = phi i64 [ %.181, %.loopexit100 ], [ %2, %.preheader99 ], [ %2, %.preheader101 ]
+  call void %5(ptr noundef %.1148, ptr noundef nonnull %7, ptr noundef %3) #3
   br label %40
 
 40:                                               ; preds = %.loopexit100.thread, %40
   %.287118 = phi i64 [ 0, %.loopexit100.thread ], [ %49, %40 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.1139, i64 %.287118
+  %41 = getelementptr inbounds nuw i8, ptr %.1148, i64 %.287118
   %42 = load i8, ptr %41, align 1, !tbaa !9
   %43 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %.287118
   %44 = load i8, ptr %43, align 1, !tbaa !9
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 %.287118
   %46 = load i8, ptr %45, align 1, !tbaa !9
   %47 = xor i8 %46, %44
-  %48 = getelementptr inbounds nuw i8, ptr %.176138, i64 %.287118
+  %48 = getelementptr inbounds nuw i8, ptr %.176147, i64 %.287118
   store i8 %47, ptr %48, align 1, !tbaa !9
   store i8 %42, ptr %45, align 1, !tbaa !9
   %49 = add nuw nsw i64 %.287118, 1
-  %exitcond.not = icmp eq i64 %49, %.181137
+  %exitcond.not = icmp eq i64 %49, %.181146
   br i1 %exitcond.not, label %.lr.ph120, label %40, !llvm.loop !14
 
 .lr.ph120:                                        ; preds = %40, %.lr.ph120
-  %.388119 = phi i64 [ %53, %.lr.ph120 ], [ %.181137, %40 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.1139, i64 %.388119
+  %.388119 = phi i64 [ %53, %.lr.ph120 ], [ %.181146, %40 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.1148, i64 %.388119
   %51 = load i8, ptr %50, align 1, !tbaa !9
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 %.388119
   store i8 %51, ptr %52, align 1, !tbaa !9

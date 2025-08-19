@@ -2441,8 +2441,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 643:                                              ; preds = %._crit_edge.i.i.thread, %._crit_edge.i.i
-  %.0.lcssa.i.i486 = phi i8 [ %618, %._crit_edge.i.i.thread ], [ %189, %._crit_edge.i.i ]
-  %644 = or disjoint i8 %.0.lcssa.i.i486, 48
+  %.0.lcssa.i.i573 = phi i8 [ %618, %._crit_edge.i.i.thread ], [ %189, %._crit_edge.i.i ]
+  %644 = or disjoint i8 %.0.lcssa.i.i573, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 645:                                              ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
@@ -8300,8 +8300,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 495:                                              ; preds = %._crit_edge.i.i.thread, %._crit_edge.i.i
-  %.0.lcssa.i.i245 = phi i8 [ 1, %._crit_edge.i.i.thread ], [ %163, %._crit_edge.i.i ]
-  %496 = or disjoint i8 %.0.lcssa.i.i245, 48
+  %.0.lcssa.i.i313 = phi i8 [ 1, %._crit_edge.i.i.thread ], [ %163, %._crit_edge.i.i ]
+  %496 = or disjoint i8 %.0.lcssa.i.i313, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 497:                                              ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
@@ -8776,7 +8776,7 @@ define noundef zeroext i1 @_ZN7rocksdb3log22FragmentBufferedReader11TryReadMoreE
   br i1 %8, label %57, label %10
 
 10:                                               ; preds = %3
-  br i1 %9, label %.thread16, label %_ZN7rocksdb6StatusC2EOS0_.exit
+  br i1 %9, label %.thread19, label %_ZN7rocksdb6StatusC2EOS0_.exit
 
 _ZN7rocksdb6StatusC2EOS0_.exit:                   ; preds = %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -8895,7 +8895,7 @@ _ZN7rocksdb6StatusD2Ev.exit12:                    ; preds = %55, %_ZNKSt14defaul
   br label %69
 
 57:                                               ; preds = %3
-  br i1 %9, label %.thread16, label %58
+  br i1 %9, label %.thread19, label %58
 
 58:                                               ; preds = %57
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 73
@@ -8905,9 +8905,9 @@ _ZN7rocksdb6StatusD2Ev.exit12:                    ; preds = %55, %_ZNKSt14defaul
   tail call void %62(ptr noundef nonnull align 8 dereferenceable(321) %0)
   %.pre14 = load i8, ptr %59, align 1, !tbaa !59, !range !90
   %63 = trunc nuw i8 %.pre14 to i1
-  br i1 %63, label %.thread16, label %69
+  br i1 %63, label %.thread19, label %69
 
-.thread16:                                        ; preds = %10, %57, %58
+.thread19:                                        ; preds = %10, %57, %58
   store i8 -124, ptr %2, align 1, !tbaa !15
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -8916,11 +8916,11 @@ _ZN7rocksdb6StatusD2Ev.exit12:                    ; preds = %55, %_ZNKSt14defaul
   %.not = icmp eq i64 %66, 0
   br i1 %.not, label %68, label %67
 
-67:                                               ; preds = %.thread16
+67:                                               ; preds = %.thread19
   store i8 -122, ptr %2, align 1, !tbaa !15
   br label %68
 
-68:                                               ; preds = %67, %.thread16
+68:                                               ; preds = %67, %.thread19
   store ptr @.str.28, ptr %64, align 8, !tbaa !56
   store i64 0, ptr %65, align 8, !tbaa !57
   br label %69

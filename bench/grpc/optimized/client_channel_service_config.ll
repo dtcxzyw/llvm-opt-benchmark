@@ -685,11 +685,11 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i42:   ; preds = %_ZNSt7__cxx1112basi
   br label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i42.invoke
 
 _ZSt26__throw_bad_variant_accessb.exit.i.i.i42.invoke: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i42
-  %.str.25.sink85 = phi ptr [ @.str.24, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i42 ], [ @.str.25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.str.25.sink103 = phi ptr [ @.str.24, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i42 ], [ @.str.25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %62 = call ptr @__cxa_allocate_exception(i64 16) #22
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %62, align 8, !tbaa !4
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store ptr %.str.25.sink85, ptr %63, align 8, !tbaa !20
+  store ptr %.str.25.sink103, ptr %63, align 8, !tbaa !20
   invoke void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #24
           to label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i42.cont unwind label %84
 

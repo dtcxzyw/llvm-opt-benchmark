@@ -41,24 +41,24 @@ define internal noundef range(i32 0, 2) i32 @_ZL18Abc_CommandGlucoseP12Abc_Frame
 
 .outer:                                           ; preds = %18, %3
   %.028.ph = phi i32 [ %19, %18 ], [ 1, %3 ]
-  %.026.ph = phi i32 [ %.026.ph81, %18 ], [ 0, %3 ]
-  %.024.ph = phi i32 [ %.024.ph85, %18 ], [ 0, %3 ]
+  %.026.ph = phi i32 [ %.026.ph85, %18 ], [ 0, %3 ]
+  %.024.ph = phi i32 [ %.024.ph89, %18 ], [ 0, %3 ]
   %.023.ph = phi i32 [ %.023, %18 ], [ 0, %3 ]
-  br label %.outer80
-
-.outer80:                                         ; preds = %.outer, %22
-  %.026.ph81 = phi i32 [ %.026.ph, %.outer ], [ %23, %22 ]
-  %.024.ph82 = phi i32 [ %.024.ph, %.outer ], [ %.024.ph85, %22 ]
-  %.023.ph83 = phi i32 [ %.023.ph, %.outer ], [ %.023, %22 ]
   br label %.outer84
 
-.outer84:                                         ; preds = %.outer80, %10
-  %.024.ph85 = phi i32 [ %.024.ph82, %.outer80 ], [ %15, %10 ]
-  %.023.ph86 = phi i32 [ %.023.ph83, %.outer80 ], [ %.023, %10 ]
+.outer84:                                         ; preds = %.outer, %22
+  %.026.ph85 = phi i32 [ %.026.ph, %.outer ], [ %23, %22 ]
+  %.024.ph86 = phi i32 [ %.024.ph, %.outer ], [ %.024.ph89, %22 ]
+  %.023.ph87 = phi i32 [ %.023.ph, %.outer ], [ %.023, %22 ]
+  br label %.outer88
+
+.outer88:                                         ; preds = %.outer84, %10
+  %.024.ph89 = phi i32 [ %.024.ph86, %.outer84 ], [ %15, %10 ]
+  %.023.ph90 = phi i32 [ %.023.ph87, %.outer84 ], [ %.023, %10 ]
   br label %5
 
-5:                                                ; preds = %.outer84, %20
-  %.023 = phi i32 [ %21, %20 ], [ %.023.ph86, %.outer84 ]
+5:                                                ; preds = %.outer88, %20
+  %.023 = phi i32 [ %21, %20 ], [ %.023.ph90, %.outer88 ]
   %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2) #10
   switch i32 %6, label %.loopexit [
     i32 -1, label %24
@@ -86,7 +86,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL18Abc_CommandGlucoseP12Abc_Frame
   %16 = add nsw i32 %8, 1
   store i32 %16, ptr @globalUtilOptind, align 4, !tbaa !3
   %17 = icmp slt i32 %15, 0
-  br i1 %17, label %.loopexit, label %.outer84, !llvm.loop !10
+  br i1 %17, label %.loopexit, label %.outer88, !llvm.loop !10
 
 18:                                               ; preds = %5
   %19 = xor i32 %.028.ph, 1
@@ -97,15 +97,15 @@ define internal noundef range(i32 0, 2) i32 @_ZL18Abc_CommandGlucoseP12Abc_Frame
   br label %5, !llvm.loop !10
 
 22:                                               ; preds = %5
-  %23 = xor i32 %.026.ph81, 1
-  br label %.outer80, !llvm.loop !10
+  %23 = xor i32 %.026.ph85, 1
+  br label %.outer84, !llvm.loop !10
 
 24:                                               ; preds = %5
-  %.sroa.2.0.insert.ext.i = zext nneg i32 %.026.ph81 to i64
+  %.sroa.2.0.insert.ext.i = zext nneg i32 %.026.ph85 to i64
   %.sroa.2.0.insert.shift.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext nneg i32 %.028.ph to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %.sroa.5.8.insert.ext.i = zext nneg i32 %.024.ph85 to i64
+  %.sroa.5.8.insert.ext.i = zext nneg i32 %.024.ph89 to i64
   %.sroa.5.8.insert.shift.i = shl nuw nsw i64 %.sroa.5.8.insert.ext.i, 32
   store i64 %.sroa.0.0.insert.insert.i, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -144,13 +144,13 @@ define internal noundef range(i32 0, 2) i32 @_ZL18Abc_CommandGlucoseP12Abc_Frame
   br label %43
 
 .loopexit:                                        ; preds = %5, %10, %9
-  %.125 = phi i32 [ %.024.ph85, %9 ], [ %.024.ph85, %5 ], [ %15, %10 ]
+  %.125 = phi i32 [ %.024.ph89, %9 ], [ %.024.ph89, %5 ], [ %15, %10 ]
   tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.5)
   tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.6)
   tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.7, i32 noundef %.125)
   tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.8, i32 noundef %.028.ph)
   tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.9, i32 noundef %.023)
-  tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.10, i32 noundef %.026.ph81)
+  tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.10, i32 noundef %.026.ph85)
   tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.11)
   tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.12)
   br label %43

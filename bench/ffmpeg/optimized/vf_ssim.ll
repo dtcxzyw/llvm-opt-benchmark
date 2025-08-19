@@ -603,10 +603,10 @@ define internal noundef i32 @ssim_plane_16bit(ptr readnone captures(none) %0, pt
 .preheader:                                       ; preds = %.preheader.lr.ph, %ssim_endn_16bit.exit
   %indvars.iv.in = phi i32 [ %47, %.preheader.lr.ph ], [ %indvars.iv, %ssim_endn_16bit.exit ]
   %.06289 = phi i32 [ %47, %.preheader.lr.ph ], [ %170, %ssim_endn_16bit.exit ]
-  %.06388 = phi ptr [ %58, %.preheader.lr.ph ], [ %.1.lcssa119, %ssim_endn_16bit.exit ]
-  %.06487 = phi ptr [ %13, %.preheader.lr.ph ], [ %.165.lcssa118, %ssim_endn_16bit.exit ]
+  %.06388 = phi ptr [ %58, %.preheader.lr.ph ], [ %.1.lcssa122, %ssim_endn_16bit.exit ]
+  %.06487 = phi ptr [ %13, %.preheader.lr.ph ], [ %.165.lcssa121, %ssim_endn_16bit.exit ]
   %.06686 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %169, %ssim_endn_16bit.exit ]
-  %.06785 = phi i32 [ %59, %.preheader.lr.ph ], [ %.168.lcssa117, %ssim_endn_16bit.exit ]
+  %.06785 = phi i32 [ %59, %.preheader.lr.ph ], [ %.168.lcssa120, %ssim_endn_16bit.exit ]
   %indvars.iv = add i32 %indvars.iv.in, 1
   %.not77 = icmp sgt i32 %.06785, %.06289
   br i1 %.not77, label %._crit_edge, label %.lr.ph
@@ -812,9 +812,9 @@ ssim_endn_16bit.exit.loopexit:                    ; preds = %109
   br label %ssim_endn_16bit.exit
 
 ssim_endn_16bit.exit:                             ; preds = %ssim_4x4xn_16bit.exit, %ssim_endn_16bit.exit.loopexit, %._crit_edge
-  %.1.lcssa119 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %ssim_endn_16bit.exit.loopexit ], [ %.16579, %ssim_4x4xn_16bit.exit ]
-  %.165.lcssa118 = phi ptr [ %.165.lcssa, %._crit_edge ], [ %.165.lcssa, %ssim_endn_16bit.exit.loopexit ], [ %.180, %ssim_4x4xn_16bit.exit ]
-  %.168.lcssa117 = phi i32 [ %.168.lcssa, %._crit_edge ], [ %.168.lcssa, %ssim_endn_16bit.exit.loopexit ], [ %indvars.iv, %ssim_4x4xn_16bit.exit ]
+  %.1.lcssa122 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %ssim_endn_16bit.exit.loopexit ], [ %.16579, %ssim_4x4xn_16bit.exit ]
+  %.165.lcssa121 = phi ptr [ %.165.lcssa, %._crit_edge ], [ %.165.lcssa, %ssim_endn_16bit.exit.loopexit ], [ %.180, %ssim_4x4xn_16bit.exit ]
+  %.168.lcssa120 = phi i32 [ %.168.lcssa, %._crit_edge ], [ %.168.lcssa, %ssim_endn_16bit.exit.loopexit ], [ %indvars.iv, %ssim_4x4xn_16bit.exit ]
   %.037.lcssa.i = phi double [ 0.000000e+00, %._crit_edge ], [ %168, %ssim_endn_16bit.exit.loopexit ], [ 0.000000e+00, %ssim_4x4xn_16bit.exit ]
   %169 = fadd nsz double %.06686, %.037.lcssa.i
   %170 = add nuw nsw i32 %.06289, 1
@@ -1545,18 +1545,18 @@ set_meta.exit:                                    ; preds = %162, %166
   br i1 %170, label %146, label %._crit_edge126, !llvm.loop !122
 
 ._crit_edge126:                                   ; preds = %set_meta.exit, %83
-  %.099.lcssa160 = phi double [ 0.000000e+00, %83 ], [ %142, %set_meta.exit ]
+  %.099.lcssa168 = phi double [ 0.000000e+00, %83 ], [ %142, %set_meta.exit ]
   %171 = getelementptr inbounds nuw i8, ptr %13, i64 176
   %172 = load double, ptr %171, align 8, !tbaa !39
-  %173 = fadd nsz double %.099.lcssa160, %172
+  %173 = fadd nsz double %.099.lcssa168, %172
   store double %173, ptr %171, align 8, !tbaa !39
-  %174 = fptrunc nsz double %.099.lcssa160 to float
+  %174 = fptrunc nsz double %.099.lcssa168 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %175 = fpext nsz float %174 to double
   %176 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str.22, double noundef %175) #14
   %177 = call i32 @av_dict_set(ptr noundef nonnull %24, ptr noundef nonnull @.str.17, ptr noundef nonnull %3, i32 noundef 0) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %178 = fsub nsz double 1.000000e+00, %.099.lcssa160
+  %178 = fsub nsz double 1.000000e+00, %.099.lcssa168
   %179 = call nsz double @llvm.fabs.f64(double %178)
   %180 = fcmp nsz ogt double %179, 1.000000e-09
   br i1 %180, label %181, label %ssim_db.exit
@@ -1633,7 +1633,7 @@ ssim_db.exit:                                     ; preds = %._crit_edge126, %18
 
 ssim_db.exit111:                                  ; preds = %._crit_edge130, %220
   %224 = phi nsz double [ %223, %220 ], [ 0x7FF0000000000000, %._crit_edge130 ]
-  %225 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.21, double noundef %.099.lcssa160, double noundef %224) #14
+  %225 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.21, double noundef %.099.lcssa168, double noundef %224) #14
   br label %.sink.split
 
 .sink.split:                                      ; preds = %ssim_db.exit, %ssim_db.exit111, %16

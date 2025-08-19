@@ -2556,11 +2556,11 @@ copy_address_wmem.exit369:                        ; preds = %copy_address_wmem.e
 
 608:                                              ; preds = %604
   %609 = icmp sgt i32 %603, %607
-  br i1 %609, label %.thread452, label %610
+  br i1 %609, label %.thread524, label %610
 
 610:                                              ; preds = %608
   %611 = icmp slt i32 %603, %607
-  br i1 %611, label %.thread452, label %612
+  br i1 %611, label %.thread524, label %612
 
 612:                                              ; preds = %610
   %613 = getelementptr inbounds nuw i8, ptr %601, i64 20
@@ -2568,15 +2568,15 @@ copy_address_wmem.exit369:                        ; preds = %copy_address_wmem.e
   %615 = getelementptr inbounds nuw i8, ptr %605, i64 20
   %616 = load i32, ptr %615, align 4
   %617 = icmp sgt i32 %614, %616
-  br i1 %617, label %.thread452, label %618
+  br i1 %617, label %.thread524, label %618
 
 618:                                              ; preds = %612
   %619 = icmp slt i32 %614, %616
-  br i1 %619, label %.thread452, label %620
+  br i1 %619, label %.thread524, label %620
 
 620:                                              ; preds = %618
   %621 = icmp eq i32 %614, 0
-  br i1 %621, label %.thread452, label %cmp_address.exit
+  br i1 %621, label %.thread524, label %cmp_address.exit
 
 cmp_address.exit:                                 ; preds = %620
   %622 = getelementptr inbounds nuw i8, ptr %601, i64 24
@@ -2587,13 +2587,13 @@ cmp_address.exit:                                 ; preds = %620
   %627 = call i32 @memcmp(ptr noundef %623, ptr noundef %625, i64 noundef %626) #19
   %.fr = freeze i32 %627
   %628 = icmp slt i32 %.fr, 0
-  %spec.select477 = select i1 %628, ptr %555, ptr %551
-  %spec.select478 = select i1 %628, ptr %551, ptr %555
-  br label %.thread452
+  %spec.select549 = select i1 %628, ptr %555, ptr %551
+  %spec.select550 = select i1 %628, ptr %551, ptr %555
+  br label %.thread524
 
-.thread452:                                       ; preds = %cmp_address.exit, %618, %610, %608, %612, %620
-  %629 = phi ptr [ %551, %620 ], [ %551, %612 ], [ %551, %608 ], [ %555, %618 ], [ %555, %610 ], [ %spec.select477, %cmp_address.exit ]
-  %630 = phi ptr [ %555, %620 ], [ %555, %612 ], [ %555, %608 ], [ %551, %618 ], [ %551, %610 ], [ %spec.select478, %cmp_address.exit ]
+.thread524:                                       ; preds = %cmp_address.exit, %618, %610, %608, %612, %620
+  %629 = phi ptr [ %551, %620 ], [ %551, %612 ], [ %551, %608 ], [ %555, %618 ], [ %555, %610 ], [ %spec.select549, %cmp_address.exit ]
+  %630 = phi ptr [ %555, %620 ], [ %555, %612 ], [ %555, %608 ], [ %551, %618 ], [ %551, %610 ], [ %spec.select550, %cmp_address.exit ]
   %.pn330 = load ptr, ptr %630, align 8
   %.0283 = getelementptr inbounds nuw i8, ptr %.pn330, i64 16
   %.pn = load ptr, ptr %629, align 8
@@ -2642,7 +2642,7 @@ cmp_address.exit:                                 ; preds = %620
   %657 = call ptr @find_or_create_conversation(ptr noundef %1)
   br label %658
 
-658:                                              ; preds = %.thread452, %604, %copy_address_wmem.exit369
+658:                                              ; preds = %.thread524, %604, %copy_address_wmem.exit369
   %659 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %660 = load ptr, ptr %659, align 8
   %661 = call ptr @wmem_list_head(ptr noundef %660)
@@ -3515,10 +3515,10 @@ define internal i32 @dissect_eid_dtn(ptr noundef %0, ptr noundef %1, ptr noundef
   %35 = call ptr @strrchr(ptr noundef %31, i32 noundef 47) #19
   %.not67 = icmp eq ptr %35, null
   %36 = getelementptr i8, ptr %35, i64 1
-  %.sink77 = select i1 %.not67, ptr %31, ptr %36
-  %.sink76 = select i1 %.not67, i64 40, i64 48
-  %37 = call noalias ptr @wmem_strdup(ptr noundef %8, ptr noundef %.sink77)
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink76
+  %.sink85 = select i1 %.not67, ptr %31, ptr %36
+  %.sink84 = select i1 %.not67, i64 40, i64 48
+  %37 = call noalias ptr @wmem_strdup(ptr noundef %8, ptr noundef %.sink85)
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink84
   store ptr %37, ptr %38, align 8
   %39 = load ptr, ptr %9, align 8
   call void @wmem_free(ptr noundef %39, ptr noundef %31)

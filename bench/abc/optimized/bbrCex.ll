@@ -165,23 +165,23 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   %84 = getelementptr i8, ptr %3, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %86 = zext nneg i32 %.val187 to i64
-  %indvars.iv.next246260 = add nsw i64 %86, -1
-  %.val201261 = load ptr, ptr %84, align 8, !tbaa !52
-  %87 = getelementptr inbounds nuw ptr, ptr %.val201261, i64 %indvars.iv.next246260
+  %indvars.iv.next246263 = add nsw i64 %86, -1
+  %.val201264 = load ptr, ptr %84, align 8, !tbaa !52
+  %87 = getelementptr inbounds nuw ptr, ptr %.val201264, i64 %indvars.iv.next246263
   %88 = load ptr, ptr %87, align 8, !tbaa !53
   %89 = call ptr @Bbr_bddImageCompute(ptr noundef nonnull %31, ptr noundef %.0157.lcssa) #11
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %._crit_edge, label %.lr.ph265
+  br i1 %90, label %._crit_edge, label %.lr.ph268
 
 .critedge10.loopexit:                             ; preds = %.lr.ph228, %122
   %.2159.lcssa = phi ptr [ %123, %122 ], [ %140, %.lr.ph228 ]
-  %indvars.iv.next246 = add nsw i64 %indvars.iv.next246264, -1
+  %indvars.iv.next246 = add nsw i64 %indvars.iv.next246267, -1
   %.val201 = load ptr, ptr %84, align 8, !tbaa !52
   %91 = getelementptr inbounds nuw ptr, ptr %.val201, i64 %indvars.iv.next246
   %92 = load ptr, ptr %91, align 8, !tbaa !53
   %93 = call ptr @Bbr_bddImageCompute(ptr noundef nonnull %31, ptr noundef %.2159.lcssa) #11
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %._crit_edge, label %.lr.ph265
+  br i1 %94, label %._crit_edge, label %.lr.ph268
 
 ._crit_edge:                                      ; preds = %.critedge10.loopexit, %.lr.ph234
   %.1158231.lcssa = phi ptr [ %.0157.lcssa, %.lr.ph234 ], [ %.2159.lcssa, %.critedge10.loopexit ]
@@ -202,14 +202,14 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   call void @free(ptr noundef nonnull %40) #11
   br label %166
 
-.lr.ph265:                                        ; preds = %.lr.ph234, %.critedge10.loopexit
+.lr.ph268:                                        ; preds = %.lr.ph234, %.critedge10.loopexit
   %99 = phi ptr [ %93, %.critedge10.loopexit ], [ %89, %.lr.ph234 ]
   %100 = phi ptr [ %92, %.critedge10.loopexit ], [ %88, %.lr.ph234 ]
-  %indvars.iv.next246264 = phi i64 [ %indvars.iv.next246, %.critedge10.loopexit ], [ %indvars.iv.next246260, %.lr.ph234 ]
-  %.1158231263 = phi ptr [ %.2159.lcssa, %.critedge10.loopexit ], [ %.0157.lcssa, %.lr.ph234 ]
-  %.0154232262 = phi i32 [ %120, %.critedge10.loopexit ], [ %61, %.lr.ph234 ]
+  %indvars.iv.next246267 = phi i64 [ %indvars.iv.next246, %.critedge10.loopexit ], [ %indvars.iv.next246263, %.lr.ph234 ]
+  %.1158231266 = phi ptr [ %.2159.lcssa, %.critedge10.loopexit ], [ %.0157.lcssa, %.lr.ph234 ]
+  %.0154232265 = phi i32 [ %120, %.critedge10.loopexit ], [ %61, %.lr.ph234 ]
   call void @Cudd_Ref(ptr noundef nonnull %99) #11
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %.1158231263) #11
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %.1158231266) #11
   %101 = call ptr @Cudd_bddAnd(ptr noundef nonnull %1, ptr noundef nonnull %99, ptr noundef %100) #11
   call void @Cudd_Ref(ptr noundef %101) #11
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef nonnull %99) #11
@@ -219,9 +219,9 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   %103 = icmp sgt i32 %.val179220, 0
   br i1 %103, label %.lr.ph222, label %.critedge6
 
-.lr.ph222:                                        ; preds = %.lr.ph265, %117
-  %.val179250 = phi i32 [ %.val179, %117 ], [ %.val179220, %.lr.ph265 ]
-  %indvars.iv242 = phi i64 [ %indvars.iv.next243, %117 ], [ 0, %.lr.ph265 ]
+.lr.ph222:                                        ; preds = %.lr.ph268, %117
+  %.val179250 = phi i32 [ %.val179, %117 ], [ %.val179220, %.lr.ph268 ]
+  %indvars.iv242 = phi i64 [ %indvars.iv.next243, %117 ], [ 0, %.lr.ph268 ]
   %104 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv242
   %105 = load i8, ptr %104, align 1, !tbaa !45
   %106 = icmp eq i8 %105, 1
@@ -229,7 +229,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
 
 107:                                              ; preds = %.lr.ph222
   %108 = trunc i64 %indvars.iv242 to i32
-  %109 = add i32 %.0154232262, %108
+  %109 = add i32 %.0154232265, %108
   %110 = and i32 %109, 31
   %111 = shl nuw i32 1, %110
   %112 = ashr i32 %109, 5
@@ -248,10 +248,10 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   %119 = icmp slt i64 %indvars.iv.next243, %118
   br i1 %119, label %.lr.ph222, label %.critedge6, !llvm.loop !54
 
-.critedge6:                                       ; preds = %117, %.lr.ph265
-  %.val179.lcssa = phi i32 [ %.val179220, %.lr.ph265 ], [ %.val179, %117 ]
-  %120 = sub nsw i32 %.0154232262, %.val179.lcssa
-  %121 = icmp eq i64 %indvars.iv.next246264, 0
+.critedge6:                                       ; preds = %117, %.lr.ph268
+  %.val179.lcssa = phi i32 [ %.val179220, %.lr.ph268 ], [ %.val179, %117 ]
+  %120 = sub nsw i32 %.0154232265, %.val179.lcssa
+  %121 = icmp eq i64 %indvars.iv.next246267, 0
   br i1 %121, label %.critedge8, label %122
 
 122:                                              ; preds = %.critedge6

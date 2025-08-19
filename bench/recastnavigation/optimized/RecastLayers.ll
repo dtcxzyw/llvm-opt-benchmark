@@ -129,7 +129,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %14, %18
 
 55:                                               ; preds = %.lr.ph841, %._crit_edge838
   %indvars.iv952 = phi i64 [ %50, %.lr.ph841 ], [ %indvars.iv.next953, %._crit_edge838 ]
-  %.0525840 = phi i8 [ 0, %.lr.ph841 ], [ %.1526.lcssa1086, %._crit_edge838 ]
+  %.0525840 = phi i8 [ 0, %.lr.ph841 ], [ %.1526.lcssa1141, %._crit_edge838 ]
   %56 = zext i8 %.0525840 to i64
   %57 = shl nuw nsw i64 %56, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %6, i8 0, i64 %57, i1 false)
@@ -375,14 +375,14 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %14, %18
   br i1 %exitcond951.not, label %._crit_edge838, label %154, !llvm.loop !9
 
 ._crit_edge838:                                   ; preds = %._crit_edge835, %55
-  %.1526.lcssa1086 = phi i8 [ %.0525840, %55 ], [ %.1526.lcssa, %._crit_edge835 ]
+  %.1526.lcssa1141 = phi i8 [ %.0525840, %55 ], [ %.1526.lcssa, %._crit_edge835 ]
   %indvars.iv.next953 = add nsw i64 %indvars.iv952, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next953 to i32
   %exitcond954.not = icmp eq i32 %43, %lftr.wideiv
   br i1 %exitcond954.not, label %._crit_edge842, label %55, !llvm.loop !10
 
 ._crit_edge842:                                   ; preds = %._crit_edge838, %.preheader812
-  %.0525.lcssa = phi i8 [ 0, %.preheader812 ], [ %.1526.lcssa1086, %._crit_edge838 ]
+  %.0525.lcssa = phi i8 [ 0, %.preheader812 ], [ %.1526.lcssa1141, %._crit_edge838 ]
   %173 = zext i8 %.0525.lcssa to i64
   %174 = mul nuw nsw i64 %173, 88
   %175 = invoke noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef %174, i32 noundef 1)

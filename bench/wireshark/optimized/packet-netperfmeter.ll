@@ -497,9 +497,9 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr noundef readonly captur
   br label %.thread
 
 .thread:                                          ; preds = %55, %84, %70
-  %.0103114 = phi double [ %71, %84 ], [ %71, %70 ], [ -1.000000e+00, %55 ]
+  %.0103117 = phi double [ %71, %84 ], [ %71, %70 ], [ -1.000000e+00, %55 ]
   %.0102 = phi double [ %85, %84 ], [ -1.000000e+00, %70 ], [ -1.000000e+00, %55 ]
-  %86 = fsub double %.0102, %.0103114
+  %86 = fsub double %.0102, %.0103117
   %87 = fcmp ogt double %86, 0.000000e+00
   br i1 %87, label %88, label %99
 

@@ -45,7 +45,7 @@ entry:
   br i1 %cmp9.i.i, label %for.body.i.i.preheader, label %_ZN5eastl7is_heapIPjEEbT_S2_.exit.thread
 
 _ZN5eastl7is_heapIPjEEbT_S2_.exit.thread:         ; preds = %entry
-  %call167 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 38, ptr noundef nonnull @.str.1)
+  %call168 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 38, ptr noundef nonnull @.str.1)
   br label %_ZN5eastl7is_heapIPjEEbT_S2_.exit41
 
 for.body.i.i.preheader:                           ; preds = %entry
@@ -374,11 +374,11 @@ for.end:                                          ; preds = %for.body12
 do.body.i:                                        ; preds = %_ZN5eastl11adjust_heapIPjljEEvT_T0_S3_S3_OT1_.exit.i, %for.end
   %parentPosition.0.i = phi i64 [ %add.i181, %for.end ], [ %dec.i, %_ZN5eastl11adjust_heapIPjljEEvT_T0_S3_S3_OT1_.exit.i ]
   %dec.i = add nsw i64 %parentPosition.0.i, -1
-  %add.ptr.i = getelementptr inbounds i32, ptr %call9, i64 %dec.i
+  %add.ptr.i = getelementptr inbounds nuw i32, ptr %call9, i64 %dec.i
   %5 = load i32, ptr %add.ptr.i, align 4
-  %childPosition.0.in20.i.i.i = shl nsw i64 %dec.i, 1
-  %childPosition.021.i.i.i = add nsw i64 %childPosition.0.in20.i.i.i, 2
-  %cmp22.i.i.i = icmp slt i64 %childPosition.021.i.i.i, %wide.trip.count
+  %childPosition.0.in20.i.i.i = shl nuw nsw i64 %dec.i, 1
+  %childPosition.021.i.i.i = add nuw nsw i64 %childPosition.0.in20.i.i.i, 2
+  %cmp22.i.i.i = icmp samesign ult i64 %childPosition.021.i.i.i, %wide.trip.count
   br i1 %cmp22.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i
 
 for.body.i.i.i:                                   ; preds = %do.body.i, %for.body.i.i.i
@@ -425,14 +425,14 @@ if.end14.i.i.i:                                   ; preds = %if.then8.i.i.i, %fo
 land.rhs.i.i.i.i.i:                               ; preds = %if.end14.i.i.i, %for.body.i.i.i.i.i
   %position.addr.014.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %position.addr.1.i.i.i, %if.end14.i.i.i ]
   %parentPosition.015.in.i.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i.i, -1
-  %parentPosition.015.i.i.i.i.i = ashr i64 %parentPosition.015.in.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %call9, i64 %parentPosition.015.i.i.i.i.i
+  %parentPosition.015.i.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %call9, i64 %parentPosition.015.i.i.i.i.i
   %11 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp1.i.i.i.i.i = icmp ult i32 %11, %5
   br i1 %cmp1.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN5eastl11adjust_heapIPjljEEvT_T0_S3_S3_OT1_.exit.i
 
 for.body.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds i32, ptr %call9, i64 %position.addr.014.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %call9, i64 %position.addr.014.i.i.i.i.i
   store i32 %11, ptr %add.ptr3.i.i.i.i.i, align 4
   %cmp.i.i.i.i.not.i = icmp slt i64 %parentPosition.015.i.i.i.i.i, %parentPosition.0.i
   br i1 %cmp.i.i.i.i.not.i, label %_ZN5eastl11adjust_heapIPjljEEvT_T0_S3_S3_OT1_.exit.i, label %land.rhs.i.i.i.i.i, !llvm.loop !10
@@ -693,10 +693,10 @@ for.body57:                                       ; preds = %for.cond52.preheade
   br i1 %cmp13.i.i.not, label %_ZSt9push_heapIPjEvT_S1_.exit.thread, label %land.rhs.i.i
 
 _ZSt9push_heapIPjEvT_S1_.exit.thread:             ; preds = %for.body57
-  %add.ptr5.i.i1205 = getelementptr inbounds nuw i32, ptr %call6, i64 %idxprom59
-  store i32 %conv3.i.i250, ptr %add.ptr5.i.i1205, align 4
-  %arrayidx651206 = getelementptr inbounds nuw i32, ptr %call9, i64 %idxprom59
-  store i32 %conv3.i.i250, ptr %arrayidx651206, align 4
+  %add.ptr5.i.i1247 = getelementptr inbounds nuw i32, ptr %call6, i64 %idxprom59
+  store i32 %conv3.i.i250, ptr %add.ptr5.i.i1247, align 4
+  %arrayidx651248 = getelementptr inbounds nuw i32, ptr %call9, i64 %idxprom59
+  store i32 %conv3.i.i250, ptr %arrayidx651248, align 4
   br label %_ZN5eastl9push_heapIPjEEvT_S2_.exit
 
 land.rhs.i.i:                                     ; preds = %for.body57, %while.body.i.i
@@ -716,7 +716,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
 
 _ZSt9push_heapIPjEvT_S1_.exit:                    ; preds = %land.rhs.i.i, %while.body.i.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.014.i.i, %land.rhs.i.i ], [ 0, %while.body.i.i ]
-  %add.ptr5.i.i = getelementptr inbounds i32, ptr %call6, i64 %__holeIndex.addr.0.lcssa.i.i
+  %add.ptr5.i.i = getelementptr inbounds nuw i32, ptr %call6, i64 %__holeIndex.addr.0.lcssa.i.i
   store i32 %conv3.i.i250, ptr %add.ptr5.i.i, align 4
   %arrayidx65 = getelementptr inbounds nuw i32, ptr %call9, i64 %idxprom59
   store i32 %conv3.i.i250, ptr %arrayidx65, align 4
@@ -739,7 +739,7 @@ for.body.i.i.i267:                                ; preds = %land.rhs.i.i.i
 
 _ZN5eastl9push_heapIPjEEvT_S2_.exit:              ; preds = %land.rhs.i.i.i, %for.body.i.i.i267, %_ZSt9push_heapIPjEvT_S1_.exit.thread
   %position.addr.0.lcssa.i.i.i265 = phi i64 [ 0, %_ZSt9push_heapIPjEvT_S1_.exit.thread ], [ %position.addr.014.i.i.i, %land.rhs.i.i.i ], [ 0, %for.body.i.i.i267 ]
-  %add.ptr7.i.i.i = getelementptr inbounds i32, ptr %call9, i64 %position.addr.0.lcssa.i.i.i265
+  %add.ptr7.i.i.i = getelementptr inbounds nuw i32, ptr %call9, i64 %position.addr.0.lcssa.i.i.i265
   store i32 %conv3.i.i250, ptr %add.ptr7.i.i.i, align 4
   %add69 = add nsw i32 %nArraySize.11150, 1
   %call70 = call noundef i32 @_Z11VerifyHeapsPjS_j(ptr noundef nonnull %call6, ptr noundef nonnull %call9, i32 noundef %add69)
@@ -1000,10 +1000,10 @@ for.body116:                                      ; preds = %for.cond111.prehead
   br i1 %cmp13.i.i422.not, label %_ZSt9push_heapIPjEvT_S1_.exit434.thread, label %land.rhs.i.i425
 
 _ZSt9push_heapIPjEvT_S1_.exit434.thread:          ; preds = %for.body116
-  %add.ptr5.i.i4241213 = getelementptr inbounds nuw i32, ptr %call6, i64 %idxprom119
-  store i32 %conv3.i.i414, ptr %add.ptr5.i.i4241213, align 4
-  %arrayidx1251214 = getelementptr inbounds nuw i32, ptr %call9, i64 %idxprom119
-  store i32 %conv3.i.i414, ptr %arrayidx1251214, align 4
+  %add.ptr5.i.i4241255 = getelementptr inbounds nuw i32, ptr %call6, i64 %idxprom119
+  store i32 %conv3.i.i414, ptr %add.ptr5.i.i4241255, align 4
+  %arrayidx1251256 = getelementptr inbounds nuw i32, ptr %call9, i64 %idxprom119
+  store i32 %conv3.i.i414, ptr %arrayidx1251256, align 4
   br label %_ZN5eastl9push_heapIPjEEvT_S2_.exit453
 
 land.rhs.i.i425:                                  ; preds = %for.body116, %while.body.i.i431
@@ -1054,11 +1054,11 @@ _ZN5eastl9push_heapIPjEEvT_S2_.exit453:           ; preds = %land.rhs.i.i.i444, 
   br i1 %exitcond1181.not, label %for.end132, label %for.body116, !llvm.loop !19
 
 for.end132:                                       ; preds = %_ZN5eastl9push_heapIPjEEvT_S2_.exit453, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit, %for.cond52.preheader, %for.cond75.preheader, %for.cond111.preheader
-  %nArraySize.1.lcssa12031211 = phi i32 [ %add69, %for.cond111.preheader ], [ %add69, %for.cond75.preheader ], [ %sub, %for.cond52.preheader ], [ %add.i, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit ], [ %add69, %_ZN5eastl9push_heapIPjEEvT_S2_.exit453 ]
+  %nArraySize.1.lcssa12451253 = phi i32 [ %add69, %for.cond111.preheader ], [ %add69, %for.cond75.preheader ], [ %sub, %for.cond52.preheader ], [ %add.i, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit ], [ %add69, %_ZN5eastl9push_heapIPjEEvT_S2_.exit453 ]
   %rng.sroa.0.4.lcssa = phi i32 [ %conv4.i.i.i276, %for.cond111.preheader ], [ %conv4.i.i.i246, %for.cond75.preheader ], [ %rng.sroa.0.1, %for.cond52.preheader ], [ %rng.sroa.0.1, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit ], [ %conv4.i.i.i410, %_ZN5eastl9push_heapIPjEEvT_S2_.exit453 ]
   %nArraySize.3.lcssa = phi i32 [ %sub.i284, %for.cond111.preheader ], [ %add69, %for.cond75.preheader ], [ %sub, %for.cond52.preheader ], [ %add.i, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit ], [ %inc131, %_ZN5eastl9push_heapIPjEEvT_S2_.exit453 ]
-  %cmp133 = icmp eq i32 %nArraySize.3.lcssa, %nArraySize.1.lcssa12031211
-  %call134 = call noundef i32 (i1, ptr, ptr, i32, ptr, ...) @_ZN2EA8UnitTest12TestInternal19EATEST_VERIFY_F_IMPEbRiPKciS4_z(i1 noundef zeroext %cmp133, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 187, ptr noundef nonnull @.str.6, i32 noundef %nArraySize.3.lcssa, i32 noundef %nArraySize.1.lcssa12031211)
+  %cmp133 = icmp eq i32 %nArraySize.3.lcssa, %nArraySize.1.lcssa12451253
+  %call134 = call noundef i32 (i1, ptr, ptr, i32, ptr, ...) @_ZN2EA8UnitTest12TestInternal19EATEST_VERIFY_F_IMPEbRiPKciS4_z(i1 noundef zeroext %cmp133, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 187, ptr noundef nonnull @.str.6, i32 noundef %nArraySize.3.lcssa, i32 noundef %nArraySize.1.lcssa12451253)
   %idx.ext136 = zext i32 %nArraySize.3.lcssa to i64
   %add.ptr137.idx = shl nuw nsw i64 %idx.ext136, 2
   %add.ptr137 = getelementptr inbounds nuw i8, ptr %call6, i64 %add.ptr137.idx
@@ -1067,7 +1067,7 @@ for.end132:                                       ; preds = %_ZN5eastl9push_heap
   br i1 %cmp9.i455, label %for.body.i457, label %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit468.thread
 
 _ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit468.thread: ; preds = %for.end132
-  %call1421216 = call noundef i32 (i1, ptr, ptr, i32, ptr, ...) @_ZN2EA8UnitTest12TestInternal19EATEST_VERIFY_F_IMPEbRiPKciS4_z(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 190, ptr noundef nonnull @.str.7, i32 noundef %nArraySize.3.lcssa)
+  %call1421258 = call noundef i32 (i1, ptr, ptr, i32, ptr, ...) @_ZN2EA8UnitTest12TestInternal19EATEST_VERIFY_F_IMPEbRiPKciS4_z(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 190, ptr noundef nonnull @.str.7, i32 noundef %nArraySize.3.lcssa)
   br label %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit483
 
 for.body.i457:                                    ; preds = %for.end132, %if.end.i462
@@ -1786,10 +1786,10 @@ if.then.i706:                                     ; preds = %for.end243
 do.body.i710:                                     ; preds = %_ZN5eastl11adjust_heapIP7Align64lS1_EEvT_T0_S4_S4_OT1_.exit.i, %if.then.i706
   %parentPosition.0.i711 = phi i64 [ %add.i709, %if.then.i706 ], [ %dec.i712, %_ZN5eastl11adjust_heapIP7Align64lS1_EEvT_T0_S4_S4_OT1_.exit.i ]
   %dec.i712 = add nsw i64 %parentPosition.0.i711, -1
-  %add.ptr.i713 = getelementptr inbounds %struct.Align64, ptr %150, i64 %dec.i712
+  %add.ptr.i713 = getelementptr inbounds nuw %struct.Align64, ptr %150, i64 %dec.i712
   %temp.sroa.0.0.copyload.i = load i32, ptr %add.ptr.i713, align 64
-  %childPosition.0.in20.i.i.i714 = shl nsw i64 %dec.i712, 1
-  %childPosition.021.i.i.i715 = add nsw i64 %childPosition.0.in20.i.i.i714, 2
+  %childPosition.0.in20.i.i.i714 = shl nuw nsw i64 %dec.i712, 1
+  %childPosition.021.i.i.i715 = add nuw nsw i64 %childPosition.0.in20.i.i.i714, 2
   %cmp22.i.i.i716 = icmp slt i64 %childPosition.021.i.i.i715, %sub.ptr.div.i703
   br i1 %cmp22.i.i.i716, label %for.body.i.i.i741, label %for.end.i.i.i717
 
@@ -1837,14 +1837,14 @@ if.end14.i.i.i722:                                ; preds = %if.then8.i.i.i737, 
 land.rhs.i.i.i.i.i725:                            ; preds = %if.end14.i.i.i722, %for.body.i.i.i.i.i734
   %position.addr.014.i.i.i.i.i726 = phi i64 [ %parentPosition.015.i.i.i.i.i728, %for.body.i.i.i.i.i734 ], [ %position.addr.1.i.i.i723, %if.end14.i.i.i722 ]
   %parentPosition.015.in.i.i.i.i.i727 = add nsw i64 %position.addr.014.i.i.i.i.i726, -1
-  %parentPosition.015.i.i.i.i.i728 = ashr i64 %parentPosition.015.in.i.i.i.i.i727, 1
-  %add.ptr.i.i.i.i.i729 = getelementptr inbounds %struct.Align64, ptr %150, i64 %parentPosition.015.i.i.i.i.i728
+  %parentPosition.015.i.i.i.i.i728 = lshr i64 %parentPosition.015.in.i.i.i.i.i727, 1
+  %add.ptr.i.i.i.i.i729 = getelementptr inbounds nuw %struct.Align64, ptr %150, i64 %parentPosition.015.i.i.i.i.i728
   %157 = load i32, ptr %add.ptr.i.i.i.i.i729, align 64
   %cmp.i.i.i.i.i.i730 = icmp slt i32 %157, %temp.sroa.0.0.copyload.i
   br i1 %cmp.i.i.i.i.i.i730, label %for.body.i.i.i.i.i734, label %_ZN5eastl11adjust_heapIP7Align64lS1_EEvT_T0_S4_S4_OT1_.exit.i
 
 for.body.i.i.i.i.i734:                            ; preds = %land.rhs.i.i.i.i.i725
-  %add.ptr3.i.i.i.i.i735 = getelementptr inbounds %struct.Align64, ptr %150, i64 %position.addr.014.i.i.i.i.i726
+  %add.ptr3.i.i.i.i.i735 = getelementptr inbounds nuw %struct.Align64, ptr %150, i64 %position.addr.014.i.i.i.i.i726
   store i32 %157, ptr %add.ptr3.i.i.i.i.i735, align 64
   %cmp.i.i.i.i.not.i736 = icmp slt i64 %parentPosition.015.i.i.i.i.i728, %parentPosition.0.i711
   br i1 %cmp.i.i.i.i.not.i736, label %_ZN5eastl11adjust_heapIP7Align64lS1_EEvT_T0_S4_S4_OT1_.exit.i, label %land.rhs.i.i.i.i.i725, !llvm.loop !27
@@ -2443,9 +2443,9 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop.preh
   br i1 %arrayctor.done, label %for.body.i.i.i1083.preheader, label %arrayctor.loop
 
 for.body.i.i.i1083.preheader:                     ; preds = %arrayctor.loop, %_ZN5eastl11adjust_heapIP7Align16lS1_EEvT_T0_S4_S4_OT1_.exit.i
-  %parentPosition.0.i1052 = phi i64 [ %dec.i1053, %_ZN5eastl11adjust_heapIP7Align16lS1_EEvT_T0_S4_S4_OT1_.exit.i ], [ 2, %arrayctor.loop ]
+  %parentPosition.0.i1052 = phi i64 [ 1, %_ZN5eastl11adjust_heapIP7Align16lS1_EEvT_T0_S4_S4_OT1_.exit.i ], [ 2, %arrayctor.loop ]
   %dec.i1053 = add nsw i64 %parentPosition.0.i1052, -1
-  %add.ptr.i1054 = getelementptr inbounds %struct.Align16, ptr %heap297, i64 %dec.i1053
+  %add.ptr.i1054 = getelementptr inbounds nuw %struct.Align16, ptr %heap297, i64 %dec.i1053
   %temp.sroa.0.0.copyload.i1055 = load i32, ptr %add.ptr.i1054, align 16
   br label %for.body.i.i.i1083
 
@@ -2471,16 +2471,16 @@ for.body.i.i.i1083:                               ; preds = %for.body.i.i.i1083.
 land.rhs.i.i.i.i.i1067:                           ; preds = %for.body.i.i.i1083, %for.body.i.i.i.i.i1076
   %position.addr.014.i.i.i.i.i1068 = phi i64 [ %parentPosition.015.i.i.i.i.i1070, %for.body.i.i.i.i.i1076 ], [ %spec.select.i.i.i1091, %for.body.i.i.i1083 ]
   %parentPosition.015.in.i.i.i.i.i1069 = add nsw i64 %position.addr.014.i.i.i.i.i1068, -1
-  %parentPosition.015.i.i.i.i.i1070 = ashr i64 %parentPosition.015.in.i.i.i.i.i1069, 1
-  %add.ptr.i.i.i.i.i1071 = getelementptr inbounds %struct.Align16, ptr %heap297, i64 %parentPosition.015.i.i.i.i.i1070
+  %parentPosition.015.i.i.i.i.i1070 = lshr i64 %parentPosition.015.in.i.i.i.i.i1069, 1
+  %add.ptr.i.i.i.i.i1071 = getelementptr inbounds nuw %struct.Align16, ptr %heap297, i64 %parentPosition.015.i.i.i.i.i1070
   %234 = load i32, ptr %add.ptr.i.i.i.i.i1071, align 16
   %cmp.i.i.i.i.i.i1072 = icmp slt i32 %234, %temp.sroa.0.0.copyload.i1055
   br i1 %cmp.i.i.i.i.i.i1072, label %for.body.i.i.i.i.i1076, label %_ZN5eastl11adjust_heapIP7Align16lS1_EEvT_T0_S4_S4_OT1_.exit.i
 
 for.body.i.i.i.i.i1076:                           ; preds = %land.rhs.i.i.i.i.i1067
-  %add.ptr3.i.i.i.i.i1077 = getelementptr inbounds %struct.Align16, ptr %heap297, i64 %position.addr.014.i.i.i.i.i1068
+  %add.ptr3.i.i.i.i.i1077 = getelementptr inbounds nuw %struct.Align16, ptr %heap297, i64 %position.addr.014.i.i.i.i.i1068
   store i32 %234, ptr %add.ptr3.i.i.i.i.i1077, align 16
-  %cmp.i.i.i.i.not.i1078 = icmp slt i64 %parentPosition.015.i.i.i.i.i1070, %parentPosition.0.i1052
+  %cmp.i.i.i.i.not.i1078 = icmp samesign ult i64 %parentPosition.015.i.i.i.i.i1070, %parentPosition.0.i1052
   br i1 %cmp.i.i.i.i.not.i1078, label %_ZN5eastl11adjust_heapIP7Align16lS1_EEvT_T0_S4_S4_OT1_.exit.i, label %land.rhs.i.i.i.i.i1067, !llvm.loop !35
 
 _ZN5eastl11adjust_heapIP7Align16lS1_EEvT_T0_S4_S4_OT1_.exit.i: ; preds = %for.body.i.i.i.i.i1076, %land.rhs.i.i.i.i.i1067
@@ -2571,10 +2571,10 @@ if.then.i:                                        ; preds = %entry
 do.body.i:                                        ; preds = %_ZN5eastl11adjust_heapIP7Align16lS1_EEvT_T0_S4_S4_OT1_.exit.i, %if.then.i
   %parentPosition.0.i = phi i64 [ %add.i, %if.then.i ], [ %dec.i, %_ZN5eastl11adjust_heapIP7Align16lS1_EEvT_T0_S4_S4_OT1_.exit.i ]
   %dec.i = add nsw i64 %parentPosition.0.i, -1
-  %add.ptr.i = getelementptr inbounds %struct.Align16, ptr %first, i64 %dec.i
+  %add.ptr.i = getelementptr inbounds nuw %struct.Align16, ptr %first, i64 %dec.i
   %temp.sroa.0.0.copyload.i = load i32, ptr %add.ptr.i, align 16
-  %childPosition.0.in20.i.i.i = shl nsw i64 %dec.i, 1
-  %childPosition.021.i.i.i = add nsw i64 %childPosition.0.in20.i.i.i, 2
+  %childPosition.0.in20.i.i.i = shl nuw nsw i64 %dec.i, 1
+  %childPosition.021.i.i.i = add nuw nsw i64 %childPosition.0.in20.i.i.i, 2
   %cmp22.i.i.i = icmp slt i64 %childPosition.021.i.i.i, %sub.ptr.div.i
   br i1 %cmp22.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i
 
@@ -2622,14 +2622,14 @@ if.end14.i.i.i:                                   ; preds = %if.then8.i.i.i, %fo
 land.rhs.i.i.i.i.i:                               ; preds = %if.end14.i.i.i, %for.body.i.i.i.i.i
   %position.addr.014.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %position.addr.1.i.i.i, %if.end14.i.i.i ]
   %parentPosition.015.in.i.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i.i, -1
-  %parentPosition.015.i.i.i.i.i = ashr i64 %parentPosition.015.in.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %struct.Align16, ptr %first, i64 %parentPosition.015.i.i.i.i.i
+  %parentPosition.015.i.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %struct.Align16, ptr %first, i64 %parentPosition.015.i.i.i.i.i
   %5 = load i32, ptr %add.ptr.i.i.i.i.i, align 16
   %cmp.i.i.i.i.i.i = icmp slt i32 %5, %temp.sroa.0.0.copyload.i
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN5eastl11adjust_heapIP7Align16lS1_EEvT_T0_S4_S4_OT1_.exit.i
 
 for.body.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds %struct.Align16, ptr %first, i64 %position.addr.014.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw %struct.Align16, ptr %first, i64 %position.addr.014.i.i.i.i.i
   store i32 %5, ptr %add.ptr3.i.i.i.i.i, align 16
   %cmp.i.i.i.i.not.i = icmp slt i64 %parentPosition.015.i.i.i.i.i, %parentPosition.0.i
   br i1 %cmp.i.i.i.i.not.i, label %_ZN5eastl11adjust_heapIP7Align16lS1_EEvT_T0_S4_S4_OT1_.exit.i, label %land.rhs.i.i.i.i.i, !llvm.loop !35
@@ -2912,35 +2912,35 @@ if.end16.i:                                       ; preds = %if.then9.i, %while.
   br i1 %cmp13.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 
 land.rhs.i.i:                                     ; preds = %if.end16.i, %while.body.i.i
-  %__holeIndex.addr.014.i.i = phi i64 [ %__parent.015.i.i, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end16.i ]
+  %__holeIndex.addr.014.i.i = phi i64 [ %__parent.015.i.i63, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end16.i ]
   %__parent.015.in.i.i = add nsw i64 %__holeIndex.addr.014.i.i, -1
-  %__parent.015.i.i = sdiv i64 %__parent.015.in.i.i, 2
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %__first, i64 %__parent.015.i.i
+  %__parent.015.i.i63 = lshr i64 %__parent.015.in.i.i, 1
+  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %__parent.015.i.i63
   %7 = load i32, ptr %add.ptr.i.i, align 4
   %cmp.i.i.i = icmp ult i32 %7, %0
   br i1 %cmp.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %add.ptr2.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.014.i.i
+  %add.ptr2.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %__holeIndex.addr.014.i.i
   store i32 %7, ptr %add.ptr2.i.i, align 4
-  %cmp.i23.i = icmp sgt i64 %__parent.015.i.i, %div11
+  %cmp.i23.i = icmp samesign ugt i64 %__parent.015.i.i63, %div11
   br i1 %cmp.i23.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit, !llvm.loop !8
 
 _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit: ; preds = %land.rhs.i.i, %while.body.i.i, %if.end16.i
-  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__parent.015.i.i, %while.body.i.i ], [ %__holeIndex.addr.014.i.i, %land.rhs.i.i ]
-  %add.ptr5.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
+  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__parent.015.i.i63, %while.body.i.i ], [ %__holeIndex.addr.014.i.i, %land.rhs.i.i ]
+  %add.ptr5.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
   store i32 %0, ptr %add.ptr5.i.i, align 4
   %cmp558 = icmp ult i64 %sub, 2
   br i1 %cmp558, label %return, label %if.end7.split.lr.ph
 
 if.end7.split.lr.ph:                              ; preds = %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
-  %div7.i35 = ashr exact i64 %sub, 1
+  %div7.i35 = lshr exact i64 %sub, 1
   br i1 %cmp5.i, label %if.end7.split.preheader, label %if.end7.split.us
 
 if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
   %sub12.i39 = or disjoint i64 %sub, 1
-  %add.ptr13.i40 = getelementptr inbounds i32, ptr %__first, i64 %sub12.i39
-  %add.ptr14.i41 = getelementptr inbounds i32, ptr %__first, i64 %div7.i35
+  %add.ptr13.i40 = getelementptr inbounds nuw i32, ptr %__first, i64 %sub12.i39
+  %add.ptr14.i41 = getelementptr inbounds nuw i32, ptr %__first, i64 %div7.i35
   br label %if.end7.split
 
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us

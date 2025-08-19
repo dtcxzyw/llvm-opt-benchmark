@@ -25,7 +25,7 @@ define internal noalias noundef ptr @Make_Enum_Type(ptr noundef captures(none) %
   store ptr %8, ptr %6, align 8
   %9 = load ptr, ptr %7, align 8, !tbaa !4
   store ptr %9, ptr %2, align 8, !tbaa !9
-  br label %.thread30
+  br label %.thread33
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -37,9 +37,9 @@ define internal noalias noundef ptr @Make_Enum_Type(ptr noundef captures(none) %
   %16 = load ptr, ptr %14, align 8, !tbaa !4
   store ptr %16, ptr %2, align 8, !tbaa !9
   %17 = icmp ult i32 %4, 33
-  br i1 %17, label %23, label %.thread30
+  br i1 %17, label %23, label %.thread33
 
-.thread30:                                        ; preds = %10, %.thread
+.thread33:                                        ; preds = %10, %.thread
   %18 = phi ptr [ %9, %.thread ], [ %16, %10 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
@@ -68,9 +68,9 @@ define internal noalias noundef ptr @Make_Enum_Type(ptr noundef captures(none) %
   store i32 %36, ptr %0, align 8
   br label %43
 
-37:                                               ; preds = %.thread30, %23
-  %38 = phi i32 [ %22, %.thread30 ], [ %29, %23 ]
-  %39 = phi ptr [ %18, %.thread30 ], [ %16, %23 ]
+37:                                               ; preds = %.thread33, %23
+  %38 = phi i32 [ %22, %.thread33 ], [ %29, %23 ]
+  %39 = phi ptr [ %18, %.thread33 ], [ %16, %23 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 8
@@ -95,14 +95,14 @@ define internal noalias noundef ptr @Make_Enum_Type(ptr noundef captures(none) %
 
 .lr.ph.preheader:                                 ; preds = %43
   %54 = load ptr, ptr %45, align 8, !tbaa !16
-  %.not2131 = icmp eq ptr %54, null
-  br i1 %.not2131, label %.critedge, label %.lr.ph
+  %.not2134 = icmp eq ptr %54, null
+  br i1 %.not2134, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0152433 = phi ptr [ %55, %.lr.ph ], [ %45, %.lr.ph.preheader ]
-  %.02532 = phi i32 [ %56, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %55 = getelementptr inbounds nuw i8, ptr %.0152433, i64 8
-  %56 = add nuw nsw i32 %.02532, 1
+  %.0152436 = phi ptr [ %55, %.lr.ph ], [ %45, %.lr.ph.preheader ]
+  %.02535 = phi i32 [ %56, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %55 = getelementptr inbounds nuw i8, ptr %.0152436, i64 8
+  %56 = add nuw nsw i32 %.02535, 1
   %57 = load ptr, ptr %55, align 8, !tbaa !16
   %.not21 = icmp eq ptr %57, null
   br i1 %.not21, label %.critedge, label %.lr.ph
@@ -164,19 +164,19 @@ define internal noundef zeroext i1 @Check_Enum_Field(ptr noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %2
   %11 = load ptr, ptr %3, align 8, !tbaa !16
-  %.not38.us327 = icmp eq ptr %11, null
+  %.not38.us345 = icmp eq ptr %11, null
   br i1 %6, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  br i1 %.not38.us327, label %.critedge, label %.preheader95.preheader
+  br i1 %.not38.us345, label %.critedge, label %.preheader95.preheader
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  br i1 %.not38.us327, label %.critedge, label %.preheader95.us.preheader
+  br i1 %.not38.us345, label %.critedge, label %.preheader95.us.preheader
 
 .preheader95.us.preheader:                        ; preds = %.lr.ph.split.us.preheader, %Compare.exit.us
   %12 = phi ptr [ %31, %Compare.exit.us ], [ %11, %.lr.ph.split.us.preheader ]
-  %.pn328 = phi ptr [ %13, %Compare.exit.us ], [ %3, %.lr.ph.split.us.preheader ]
-  %13 = getelementptr inbounds nuw i8, ptr %.pn328, i64 8
+  %.pn346 = phi ptr [ %13, %Compare.exit.us ], [ %3, %.lr.ph.split.us.preheader ]
+  %13 = getelementptr inbounds nuw i8, ptr %.pn346, i64 8
   br label %.preheader95.us
 
 .preheader95.us:                                  ; preds = %.preheader95.us.preheader, %.preheader95.us

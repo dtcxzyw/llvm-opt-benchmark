@@ -1227,8 +1227,8 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i:       ; preds = %54
   %60 = ptrtoint ptr %57 to i64
   %61 = sub i64 %59, %60
   %.not2263 = icmp eq i64 %61, -1
-  %or.cond79 = or i1 %.not.i27, %.not2263
-  br i1 %or.cond79, label %.critedge, label %.lr.ph
+  %or.cond86 = or i1 %.not.i27, %.not2263
+  br i1 %or.cond86, label %.critedge, label %.lr.ph
 
 62:                                               ; preds = %.split.us
   %63 = landingpad { ptr, i32 }
@@ -1270,8 +1270,8 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i30:     ; preds = %_ZNSt7__cxx1112basi
   %75 = ptrtoint ptr %72 to i64
   %76 = sub i64 %74, %75
   %.not22 = icmp eq i64 %76, -1
-  %or.cond80 = or i1 %.not.i31, %.not22
-  br i1 %or.cond80, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  %or.cond87 = or i1 %.not.i31, %.not22
+  br i1 %or.cond87, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7replaceEmmPKcm.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }

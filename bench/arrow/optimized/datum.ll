@@ -2775,9 +2775,9 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
   %19 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !39
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %19, 0
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread11
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread17
 
-_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread11: ; preds = %17
+_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread17: ; preds = %17
   %21 = load i32, ptr %18, align 4, !tbaa !40
   %22 = add nsw i32 %21, 1
   store i32 %22, ptr %18, align 4, !tbaa !40
@@ -2792,8 +2792,8 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
   %.not.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %24
 
-24:                                               ; preds = %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread11, %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i
-  %25 = phi ptr [ %15, %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread11 ], [ %.pre, %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
+24:                                               ; preds = %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread17, %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i
+  %25 = phi ptr [ %15, %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread17 ], [ %.pre, %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load atomic i64, ptr %26 acquire, align 8
   %28 = icmp eq i64 %27, 4294967297
@@ -3104,11 +3104,11 @@ _ZNK5arrow5Datum4kindEv.exit:
   %switch.idx.cast = zext i8 %switch.tableidx to i32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i8, ptr %11, align 8, !tbaa !41
-  %switch.tableidx65 = add i8 %12, -1
-  %13 = icmp ult i8 %switch.tableidx65, 5
-  %switch.idx.cast66 = zext i8 %switch.tableidx65 to i32
+  %switch.tableidx76 = add i8 %12, -1
+  %13 = icmp ult i8 %switch.tableidx76, 5
+  %switch.idx.cast77 = zext i8 %switch.tableidx76 to i32
   %14 = select i1 %10, i32 %switch.idx.cast, i32 -1
-  %15 = select i1 %13, i32 %switch.idx.cast66, i32 -1
+  %15 = select i1 %13, i32 %switch.idx.cast77, i32 -1
   %.not = icmp eq i32 %14, %15
   br i1 %.not, label %16, label %_ZN5arrow8internal15SharedPtrEqualsINS_6ScalarEEEbRKSt10shared_ptrIT_ES7_.exit
 
@@ -3902,9 +3902,9 @@ _ZNK5arrow5Datum13chunked_arrayEv.exit:           ; preds = %2
   %181 = load ptr, ptr %179, align 8, !tbaa !252
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %183 = icmp eq ptr %181, %182
-  br i1 %183, label %.thread152, label %190
+  br i1 %183, label %.thread221, label %190
 
-.thread152:                                       ; preds = %.noexc67
+.thread221:                                       ; preds = %.noexc67
   %184 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %185 = load i64, ptr %184, align 8, !tbaa !247
   %186 = icmp ult i64 %185, 16
@@ -3940,8 +3940,8 @@ _ZNK5arrow5Datum13chunked_arrayEv.exit:           ; preds = %2
 .noexc73:                                         ; preds = %195
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i69: ; preds = %.thread152, %190
-  %196 = phi ptr [ %189, %.thread152 ], [ %193, %190 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i69: ; preds = %.thread221, %190
+  %196 = phi ptr [ %189, %.thread221 ], [ %193, %190 ]
   %197 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.3, i64 noundef 1)
           to label %.noexc74 unwind label %228
 
@@ -4082,9 +4082,9 @@ _ZNK5arrow5Datum12record_batchEv.exit:            ; preds = %2
   %248 = load ptr, ptr %246, align 8, !tbaa !252
   %249 = getelementptr inbounds nuw i8, ptr %246, i64 16
   %250 = icmp eq ptr %248, %249
-  br i1 %250, label %.thread153, label %257
+  br i1 %250, label %.thread222, label %257
 
-.thread153:                                       ; preds = %.noexc92
+.thread222:                                       ; preds = %.noexc92
   %251 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %252 = load i64, ptr %251, align 8, !tbaa !247
   %253 = icmp ult i64 %252, 16
@@ -4120,8 +4120,8 @@ _ZNK5arrow5Datum12record_batchEv.exit:            ; preds = %2
 .noexc98:                                         ; preds = %262
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i94: ; preds = %.thread153, %257
-  %263 = phi ptr [ %256, %.thread153 ], [ %260, %257 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i94: ; preds = %.thread222, %257
+  %263 = phi ptr [ %256, %.thread222 ], [ %260, %257 ]
   %264 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.3, i64 noundef 1)
           to label %.noexc99 unwind label %295
 
@@ -4262,9 +4262,9 @@ _ZNK5arrow5Datum5tableEv.exit:                    ; preds = %2
   %315 = load ptr, ptr %313, align 8, !tbaa !252
   %316 = getelementptr inbounds nuw i8, ptr %313, i64 16
   %317 = icmp eq ptr %315, %316
-  br i1 %317, label %.thread154, label %324
+  br i1 %317, label %.thread223, label %324
 
-.thread154:                                       ; preds = %.noexc117
+.thread223:                                       ; preds = %.noexc117
   %318 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %319 = load i64, ptr %318, align 8, !tbaa !247
   %320 = icmp ult i64 %319, 16
@@ -4300,8 +4300,8 @@ _ZNK5arrow5Datum5tableEv.exit:                    ; preds = %2
 .noexc123:                                        ; preds = %329
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i119: ; preds = %.thread154, %324
-  %330 = phi ptr [ %323, %.thread154 ], [ %327, %324 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i119: ; preds = %.thread223, %324
+  %330 = phi ptr [ %323, %.thread223 ], [ %327, %324 ]
   %331 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.3, i64 noundef 1)
           to label %.noexc124 unwind label %362
 

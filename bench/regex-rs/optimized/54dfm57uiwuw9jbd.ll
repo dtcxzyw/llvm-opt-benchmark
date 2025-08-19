@@ -1304,14 +1304,14 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   br i1 %11, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %.sroa.417.4..sroa_idx75 = getelementptr inbounds nuw i8, ptr %.sroa.417, i64 4
   %.sroa.417.4..sroa_idx76 = getelementptr inbounds nuw i8, ptr %.sroa.417, i64 4
-  %.sroa.417.4..sroa_idx78 = getelementptr inbounds nuw i8, ptr %.sroa.417, i64 4
-  %.sroa.417.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.417, i64 8
-  %.sroa.417.4..sroa_idx79 = getelementptr inbounds nuw i8, ptr %.sroa.417, i64 4
-  %.sroa.417.8..sroa_idx81 = getelementptr inbounds nuw i8, ptr %.sroa.417, i64 8
-  %.sroa.417.4..sroa_idx80 = getelementptr inbounds nuw i8, ptr %.sroa.417, i64 4
   %.sroa.417.4..sroa_idx77 = getelementptr inbounds nuw i8, ptr %.sroa.417, i64 4
+  %.sroa.417.4..sroa_idx79 = getelementptr inbounds nuw i8, ptr %.sroa.417, i64 4
+  %.sroa.417.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.417, i64 8
+  %.sroa.417.4..sroa_idx80 = getelementptr inbounds nuw i8, ptr %.sroa.417, i64 4
+  %.sroa.417.8..sroa_idx82 = getelementptr inbounds nuw i8, ptr %.sroa.417, i64 8
+  %.sroa.417.4..sroa_idx81 = getelementptr inbounds nuw i8, ptr %.sroa.417, i64 4
+  %.sroa.417.4..sroa_idx78 = getelementptr inbounds nuw i8, ptr %.sroa.417, i64 4
   br label %12
 
 12:                                               ; preds = %.lr.ph, %"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit"
@@ -1379,7 +1379,7 @@ default.unreachable:                              ; preds = %15
   tail call void @llvm.assume(i1 %33)
   %34 = shl i64 %29, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %32, ptr nonnull readonly align 4 %28, i64 %34, i1 false), !noalias !307
-  store i64 %31, ptr %.sroa.417.4..sroa_idx77, align 4
+  store i64 %31, ptr %.sroa.417.4..sroa_idx78, align 4
   br label %"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit"
 
 35:                                               ; preds = %15
@@ -1387,7 +1387,7 @@ default.unreachable:                              ; preds = %15
   %37 = load i32, ptr %36, align 8, !range !310, !alias.scope !295, !noalias !299, !noundef !13
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.015.055, i64 4
   %39 = load i32, ptr %38, align 4, !alias.scope !295, !noalias !299, !noundef !13
-  store i32 %37, ptr %.sroa.417.4..sroa_idx80, align 4
+  store i32 %37, ptr %.sroa.417.4..sroa_idx81, align 4
   store i32 %39, ptr %.sroa.417, align 8
   br label %"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit"
 
@@ -1399,8 +1399,8 @@ default.unreachable:                              ; preds = %15
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.015.055, i64 12
   %46 = load i32, ptr %45, align 4, !alias.scope !295, !noalias !299, !noundef !13
   store i32 %42, ptr %.sroa.417, align 8
-  store i32 %44, ptr %.sroa.417.4..sroa_idx79, align 4
-  store i32 %46, ptr %.sroa.417.8..sroa_idx81, align 8
+  store i32 %44, ptr %.sroa.417.4..sroa_idx80, align 4
+  store i32 %46, ptr %.sroa.417.8..sroa_idx82, align 8
   br label %"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit"
 
 47:                                               ; preds = %15
@@ -1411,7 +1411,7 @@ default.unreachable:                              ; preds = %15
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.015.055, i64 12
   %53 = load i32, ptr %52, align 4, !alias.scope !295, !noalias !299, !noundef !13
   store i32 %49, ptr %.sroa.417, align 8
-  store i32 %51, ptr %.sroa.417.4..sroa_idx78, align 4
+  store i32 %51, ptr %.sroa.417.4..sroa_idx79, align 4
   store i32 %53, ptr %.sroa.417.8..sroa_idx, align 8
   br label %"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit"
 
@@ -1431,7 +1431,7 @@ default.unreachable:                              ; preds = %15
   tail call void @llvm.assume(i1 %62)
   %63 = shl i64 %58, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %61, ptr nonnull readonly align 4 %57, i64 %63, i1 false), !noalias !317
-  store i64 %60, ptr %.sroa.417.4..sroa_idx76, align 4
+  store i64 %60, ptr %.sroa.417.4..sroa_idx77, align 4
   br label %"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit"
 
 64:                                               ; preds = %15
@@ -1450,7 +1450,7 @@ default.unreachable:                              ; preds = %15
   tail call void @llvm.assume(i1 %72)
   %73 = shl i64 %68, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %71, ptr nonnull readonly align 4 %67, i64 %73, i1 false), !noalias !326
-  store i64 %70, ptr %.sroa.417.4..sroa_idx75, align 4
+  store i64 %70, ptr %.sroa.417.4..sroa_idx76, align 4
   br label %"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit"
 
 74:                                               ; preds = %15
@@ -2472,10 +2472,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hd19093b91813
           to label %41 unwind label %24
 
 ._crit_edge.thread:                               ; preds = %41, %._crit_edge
-  %.0.lcssa38 = phi ptr [ %16, %._crit_edge ], [ %48, %41 ]
-  %storemerge.lcssa37 = phi i64 [ %13, %._crit_edge ], [ %23, %41 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0.lcssa38, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  %31 = add i64 %storemerge.lcssa37, 1
+  %.0.lcssa40 = phi ptr [ %16, %._crit_edge ], [ %48, %41 ]
+  %storemerge.lcssa39 = phi i64 [ %13, %._crit_edge ], [ %23, %41 ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0.lcssa40, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  %31 = add i64 %storemerge.lcssa39, 1
   store i64 %31, ptr %5, align 8
   br label %32
 

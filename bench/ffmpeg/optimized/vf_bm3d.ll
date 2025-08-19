@@ -1551,10 +1551,10 @@ define internal void @basic_block_filtering(ptr noundef readonly captures(none) 
   br i1 %exitcond436.not, label %._crit_edge337, label %.preheader248.us.us353, !llvm.loop !141
 
 ._crit_edge337:                                   ; preds = %._crit_edge327.split.split.us.us.us, %._crit_edge327.split.us.split.us348.us, %._crit_edge327.split.us.split.us.us.us.us
-  %.0234.lcssa482 = phi i32 [ %.3237.us.us.us, %._crit_edge327.split.us.split.us.us.us.us ], [ %.3237.us.us.us, %._crit_edge327.split.us.split.us348.us ], [ 0, %._crit_edge327.split.split.us.us.us ]
-  %.0234.lcssa482.fr = freeze i32 %.0234.lcssa482
-  %209 = icmp slt i32 %.0234.lcssa482.fr, 1
-  %210 = sitofp i32 %.0234.lcssa482.fr to float
+  %.0234.lcssa494 = phi i32 [ %.3237.us.us.us, %._crit_edge327.split.us.split.us.us.us.us ], [ %.3237.us.us.us, %._crit_edge327.split.us.split.us348.us ], [ 0, %._crit_edge327.split.split.us.us.us ]
+  %.0234.lcssa494.fr = freeze i32 %.0234.lcssa494
+  %209 = icmp slt i32 %.0234.lcssa494.fr, 1
+  %210 = sitofp i32 %.0234.lcssa494.fr to float
   %211 = fdiv nsz float 1.000000e+00, %210
   br i1 %209, label %._crit_edge337.thread, label %212
 
@@ -1611,7 +1611,7 @@ define internal void @basic_block_filtering(ptr noundef readonly captures(none) 
   %238 = mul nsw i64 %indvars.iv461, %225
   %239 = getelementptr inbounds float, ptr %36, i64 %238
   tail call void %236(ptr noundef %237, ptr noundef %34, ptr noundef %239, i64 noundef 4) #15
-  %invariant.gep502 = getelementptr float, ptr %32, i64 %indvars.iv461
+  %invariant.gep514 = getelementptr float, ptr %32, i64 %indvars.iv461
   br label %240
 
 240:                                              ; preds = %.lr.ph361.us, %240
@@ -1619,8 +1619,8 @@ define internal void @basic_block_filtering(ptr noundef readonly captures(none) 
   %241 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv456
   %242 = load float, ptr %241, align 4, !tbaa !120
   %243 = mul nsw i64 %indvars.iv456, %225
-  %gep503 = getelementptr float, ptr %invariant.gep502, i64 %243
-  store float %242, ptr %gep503, align 4, !tbaa !120
+  %gep515 = getelementptr float, ptr %invariant.gep514, i64 %243
+  store float %242, ptr %gep515, align 4, !tbaa !120
   %indvars.iv.next457 = add nuw nsw i64 %indvars.iv456, 1
   %exitcond460.not = icmp eq i64 %indvars.iv.next457, %wide.trip.count464
   br i1 %exitcond460.not, label %._crit_edge362.us, label %240, !llvm.loop !144
@@ -1741,11 +1741,11 @@ define internal void @final_block_filtering(ptr noundef readonly captures(none) 
 
 .preheader334:                                    ; preds = %._crit_edge344
   %57 = icmp sgt i32 %19, 0
-  br i1 %57, label %.preheader333.lr.ph, label %._crit_edge402.thread600
+  br i1 %57, label %.preheader333.lr.ph, label %._crit_edge402.thread612
 
 .preheader334.thread:                             ; preds = %9
   %58 = icmp sgt i32 %19, 0
-  br i1 %58, label %.preheader333.lr.ph.thread, label %._crit_edge402.thread600
+  br i1 %58, label %.preheader333.lr.ph.thread, label %._crit_edge402.thread612
 
 .preheader333.lr.ph.thread:                       ; preds = %.preheader334.thread
   %59 = icmp sgt i32 %27, 1
@@ -2033,7 +2033,7 @@ define internal void @final_block_filtering(ptr noundef readonly captures(none) 
   br i1 %exitcond542.not, label %._crit_edge402, label %.preheader331.us.us, !llvm.loop !164
 
 .preheader329.lr.ph.thread:                       ; preds = %._crit_edge368, %.preheader331.lr.ph.thread
-  %.ph592 = phi ptr [ %155, %._crit_edge368 ], [ %154, %.preheader331.lr.ph.thread ]
+  %.ph604 = phi ptr [ %155, %._crit_edge368 ], [ %154, %.preheader331.lr.ph.thread ]
   %173 = load ptr, ptr %31, align 8, !tbaa !115
   %174 = icmp sgt i32 %27, 1
   %175 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -2041,7 +2041,7 @@ define internal void @final_block_filtering(ptr noundef readonly captures(none) 
   %177 = sext i32 %25 to i64
   br i1 %174, label %.preheader329.us.us447, label %._crit_edge472
 
-._crit_edge402.thread600:                         ; preds = %.preheader334.thread, %.preheader334
+._crit_edge402.thread612:                         ; preds = %.preheader334.thread, %.preheader334
   %178 = load ptr, ptr %31, align 8, !tbaa !115
   br label %._crit_edge431
 
@@ -2133,7 +2133,7 @@ define internal void @final_block_filtering(ptr noundef readonly captures(none) 
 
 .preheader329.us.us447:                           ; preds = %.preheader329.lr.ph.thread, %._crit_edge421.split.split.us.us.us
   %.0304430.us.us448 = phi i32 [ %217, %._crit_edge421.split.split.us.us.us ], [ 0, %.preheader329.lr.ph.thread ]
-  %.4429.us.us449 = phi ptr [ %215, %._crit_edge421.split.split.us.us.us ], [ %.ph592, %.preheader329.lr.ph.thread ]
+  %.4429.us.us449 = phi ptr [ %215, %._crit_edge421.split.split.us.us.us ], [ %.ph604, %.preheader329.lr.ph.thread ]
   br label %212
 
 212:                                              ; preds = %212, %.preheader329.us.us447
@@ -2152,12 +2152,12 @@ define internal void @final_block_filtering(ptr noundef readonly captures(none) 
   %exitcond544.not = icmp eq i32 %217, %19
   br i1 %exitcond544.not, label %._crit_edge431, label %.preheader329.us.us447, !llvm.loop !167
 
-._crit_edge431:                                   ; preds = %._crit_edge421.split.split.us.us.us, %._crit_edge421.split.us.split.us442.us, %._crit_edge421.split.us.split.us.us.us.us, %._crit_edge402.thread600
-  %218 = phi ptr [ %178, %._crit_edge402.thread600 ], [ %179, %._crit_edge421.split.us.split.us.us.us.us ], [ %179, %._crit_edge421.split.us.split.us442.us ], [ %173, %._crit_edge421.split.split.us.us.us ]
-  %.0320.lcssa595 = phi float [ 0.000000e+00, %._crit_edge402.thread600 ], [ %168, %._crit_edge421.split.us.split.us.us.us.us ], [ %168, %._crit_edge421.split.us.split.us442.us ], [ 0.000000e+00, %._crit_edge421.split.split.us.us.us ]
-  %219 = phi i1 [ false, %._crit_edge402.thread600 ], [ true, %._crit_edge421.split.us.split.us.us.us.us ], [ true, %._crit_edge421.split.us.split.us442.us ], [ true, %._crit_edge421.split.split.us.us.us ]
-  %220 = fcmp nsz ogt float %.0320.lcssa595, 0x3CD203AFA0000000
-  %221 = select nsz i1 %220, float %.0320.lcssa595, float 0x3CD203AFA0000000
+._crit_edge431:                                   ; preds = %._crit_edge421.split.split.us.us.us, %._crit_edge421.split.us.split.us442.us, %._crit_edge421.split.us.split.us.us.us.us, %._crit_edge402.thread612
+  %218 = phi ptr [ %178, %._crit_edge402.thread612 ], [ %179, %._crit_edge421.split.us.split.us.us.us.us ], [ %179, %._crit_edge421.split.us.split.us442.us ], [ %173, %._crit_edge421.split.split.us.us.us ]
+  %.0320.lcssa607 = phi float [ 0.000000e+00, %._crit_edge402.thread612 ], [ %168, %._crit_edge421.split.us.split.us.us.us.us ], [ %168, %._crit_edge421.split.us.split.us442.us ], [ 0.000000e+00, %._crit_edge421.split.split.us.us.us ]
+  %219 = phi i1 [ false, %._crit_edge402.thread612 ], [ true, %._crit_edge421.split.us.split.us.us.us.us ], [ true, %._crit_edge421.split.us.split.us442.us ], [ true, %._crit_edge421.split.split.us.us.us ]
+  %220 = fcmp nsz ogt float %.0320.lcssa607, 0x3CD203AFA0000000
+  %221 = select nsz i1 %220, float %.0320.lcssa607, float 0x3CD203AFA0000000
   %222 = fdiv nsz float 1.000000e+00, %221
   br i1 %47, label %.lr.ph471, label %._crit_edge472
 
@@ -2206,7 +2206,7 @@ define internal void @final_block_filtering(ptr noundef readonly captures(none) 
   %247 = getelementptr inbounds float, ptr %36, i64 %246
   tail call void %244(ptr noundef %245, ptr noundef %247, ptr noundef %247, i64 noundef 4) #15
   %invariant.gep = getelementptr float, ptr %36, i64 %246
-  %invariant.gep624 = getelementptr float, ptr %34, i64 %indvars.iv569
+  %invariant.gep636 = getelementptr float, ptr %34, i64 %indvars.iv569
   br label %248
 
 248:                                              ; preds = %.lr.ph455.us, %248
@@ -2214,8 +2214,8 @@ define internal void @final_block_filtering(ptr noundef readonly captures(none) 
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv564
   %249 = load float, ptr %gep, align 4, !tbaa !120
   %250 = mul nsw i64 %indvars.iv564, %233
-  %gep625 = getelementptr float, ptr %invariant.gep624, i64 %250
-  store float %249, ptr %gep625, align 4, !tbaa !120
+  %gep637 = getelementptr float, ptr %invariant.gep636, i64 %250
+  store float %249, ptr %gep637, align 4, !tbaa !120
   %indvars.iv.next565 = add nuw nsw i64 %indvars.iv564, 1
   %exitcond568.not = icmp eq i64 %indvars.iv.next565, %wide.trip.count572
   br i1 %exitcond568.not, label %._crit_edge456.us, label %248, !llvm.loop !168
@@ -2249,7 +2249,7 @@ define internal void @final_block_filtering(ptr noundef readonly captures(none) 
   %257 = mul nsw i64 %indvars.iv579, %233
   %258 = getelementptr inbounds float, ptr %34, i64 %257
   tail call void %255(ptr noundef %256, ptr noundef %258, ptr noundef %258, i64 noundef 4) #15
-  %invariant.gep626 = getelementptr float, ptr %34, i64 %257
+  %invariant.gep638 = getelementptr float, ptr %34, i64 %257
   br label %261
 
 ._crit_edge463:                                   ; preds = %261
@@ -2261,8 +2261,8 @@ define internal void @final_block_filtering(ptr noundef readonly captures(none) 
 
 261:                                              ; preds = %.lr.ph467, %261
   %indvars.iv574 = phi i64 [ 0, %.lr.ph467 ], [ %indvars.iv.next575, %261 ]
-  %gep627 = getelementptr float, ptr %invariant.gep626, i64 %indvars.iv574
-  %262 = load float, ptr %gep627, align 4, !tbaa !120
+  %gep639 = getelementptr float, ptr %invariant.gep638, i64 %indvars.iv574
+  %262 = load float, ptr %gep639, align 4, !tbaa !120
   %263 = getelementptr inbounds nuw float, ptr %.0300464, i64 %indvars.iv574
   %264 = load float, ptr %263, align 4, !tbaa !120
   %265 = tail call nsz float @llvm.fmuladd.f32(float %262, float %222, float %264)

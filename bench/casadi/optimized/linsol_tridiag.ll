@@ -576,8 +576,8 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   %128 = tail call double @llvm.fmuladd.f64(double %127, double %store_forwarded, double %123)
   store double %128, ptr %126, align 8, !tbaa !49
   %129 = add nsw i64 %.3164.us, -1
-  %.not176 = icmp eq i64 %.3164.us, 0
-  br i1 %.not176, label %.loopexit.us, label %121, !llvm.loop !54
+  %.not180 = icmp eq i64 %.3164.us, 0
+  br i1 %.not180, label %.loopexit.us, label %121, !llvm.loop !54
 
 .lr.ph162.us:                                     ; preds = %.lr.ph171.split.us, %.lr.ph162.us
   %.2160.us = phi i64 [ %150, %.lr.ph162.us ], [ 1, %.lr.ph171.split.us ]
@@ -620,8 +620,8 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   %158 = load ptr, ptr %102, align 8, !tbaa !25
   %scevgep = getelementptr i8, ptr %.0168.us, i64 -8
   %159 = shl i64 %119, 3
-  %scevgep178 = getelementptr i8, ptr %scevgep, i64 %159
-  %load_initial = load double, ptr %scevgep178, align 8
+  %scevgep182 = getelementptr i8, ptr %scevgep, i64 %159
+  %load_initial = load double, ptr %scevgep182, align 8
   br label %121
 
 .lr.ph171.split:                                  ; preds = %.lr.ph171, %.loopexit147
@@ -704,14 +704,14 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   %220 = add nsw i64 %218, -2
   %221 = load ptr, ptr %99, align 8, !tbaa !25
   %222 = load ptr, ptr %101, align 8, !tbaa !25
-  %scevgep179 = getelementptr i8, ptr %.0168, i64 -8
+  %scevgep183 = getelementptr i8, ptr %.0168, i64 -8
   %223 = shl i64 %218, 3
-  %scevgep180 = getelementptr i8, ptr %scevgep179, i64 %223
-  %load_initial181 = load double, ptr %scevgep180, align 8
+  %scevgep184 = getelementptr i8, ptr %scevgep183, i64 %223
+  %load_initial185 = load double, ptr %scevgep184, align 8
   br label %224
 
 224:                                              ; preds = %.lr.ph159, %224
-  %store_forwarded182 = phi double [ %load_initial181, %.lr.ph159 ], [ %231, %224 ]
+  %store_forwarded186 = phi double [ %load_initial185, %.lr.ph159 ], [ %231, %224 ]
   %.5157 = phi i64 [ %220, %.lr.ph159 ], [ %232, %224 ]
   %225 = getelementptr inbounds nuw double, ptr %221, i64 %.5157
   %226 = load double, ptr %225, align 8, !tbaa !49
@@ -719,7 +719,7 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   %228 = load double, ptr %227, align 8, !tbaa !49
   %229 = getelementptr inbounds nuw double, ptr %.0168, i64 %.5157
   %230 = fneg double %228
-  %231 = tail call double @llvm.fmuladd.f64(double %230, double %store_forwarded182, double %226)
+  %231 = tail call double @llvm.fmuladd.f64(double %230, double %store_forwarded186, double %226)
   store double %231, ptr %229, align 8, !tbaa !49
   %232 = add nsw i64 %.5157, -1
   %.not = icmp eq i64 %.5157, 0
@@ -3847,18 +3847,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !79
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #31
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #31
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !62
@@ -3892,7 +3892,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -3936,13 +3936,13 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store double 0.000000e+00, ptr %5, align 8, !tbaa !49
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !49
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

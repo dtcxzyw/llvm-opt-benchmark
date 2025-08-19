@@ -274,9 +274,9 @@ _ZN2cv5GCallC2ERKS0_.exit.thread:                 ; preds = %2
   %.not.i.i.i.i.i = icmp eq i8 %14, 0
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br i1 %.not.i.i.i.i.i, label %_ZN2cv5GCallC2ERKS0_.exit, label %_ZN2cv5GCallC2ERKS0_.exit.thread6
+  br i1 %.not.i.i.i.i.i, label %_ZN2cv5GCallC2ERKS0_.exit, label %_ZN2cv5GCallC2ERKS0_.exit.thread7
 
-_ZN2cv5GCallC2ERKS0_.exit.thread6:                ; preds = %12
+_ZN2cv5GCallC2ERKS0_.exit.thread7:                ; preds = %12
   %17 = load i32, ptr %13, align 4, !tbaa !24
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %13, align 4, !tbaa !24
@@ -297,8 +297,8 @@ _ZN2cv5GCallC2ERKS0_.exit:                        ; preds = %12
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.pre4, null
   br i1 %.not.i.i.i.i.i.i.i, label %29, label %20
 
-20:                                               ; preds = %_ZN2cv5GCallC2ERKS0_.exit.thread6, %_ZN2cv5GCallC2ERKS0_.exit
-  %21 = phi ptr [ %8, %_ZN2cv5GCallC2ERKS0_.exit.thread6 ], [ %.pre4, %_ZN2cv5GCallC2ERKS0_.exit ]
+20:                                               ; preds = %_ZN2cv5GCallC2ERKS0_.exit.thread7, %_ZN2cv5GCallC2ERKS0_.exit
+  %21 = phi ptr [ %8, %_ZN2cv5GCallC2ERKS0_.exit.thread7 ], [ %.pre4, %_ZN2cv5GCallC2ERKS0_.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %23, 0

@@ -1092,8 +1092,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit77.i:               ; preds = %_ZN4llvm8DebugLocD2
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit79.sink.split.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit79.sink.split.i: ; preds = %362, %_ZN4llvm8DebugLocD2Ev.exit.i
-  %.sink271.i = phi ptr [ %35, %362 ], [ %34, %_ZN4llvm8DebugLocD2Ev.exit.i ]
-  store ptr null, ptr %.sink271.i, align 8, !tbaa !259
+  %.sink338.i = phi ptr [ %35, %362 ], [ %34, %_ZN4llvm8DebugLocD2Ev.exit.i ]
+  store ptr null, ptr %.sink338.i, align 8, !tbaa !259
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit79.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit79.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit79.sink.split.i, %_ZN4llvm8DebugLocC2ERKS0_.exit77.i
@@ -1320,8 +1320,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit89.i:               ; preds = %_ZN4llvm8DebugLocD2
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit91.sink.split.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit91.sink.split.i: ; preds = %435, %_ZN4llvm8DebugLocD2Ev.exit87.i
-  %.sink272.i = phi ptr [ %37, %435 ], [ %36, %_ZN4llvm8DebugLocD2Ev.exit87.i ]
-  store ptr null, ptr %.sink272.i, align 8, !tbaa !259
+  %.sink339.i = phi ptr [ %37, %435 ], [ %36, %_ZN4llvm8DebugLocD2Ev.exit87.i ]
+  store ptr null, ptr %.sink339.i, align 8, !tbaa !259
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit91.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit91.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit91.sink.split.i, %_ZN4llvm8DebugLocC2ERKS0_.exit89.i
@@ -1578,12 +1578,12 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i: ; preds
   br i1 %.not237.i, label %._crit_edge251.i, label %143
 
 _ZN12_GLOBAL__N_117X86FastTileConfig16configBasicBlockERN4llvm17MachineBasicBlockE.exit: ; preds = %_ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_6ShapeTEELb0EE13destroy_rangeEPS3_S5_.exit.i.i, %142
-  %.0.lcssa264266.i = phi i1 [ %.1.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_6ShapeTEELb0EE13destroy_rangeEPS3_S5_.exit.i.i ], [ %.1.i, %142 ], [ false, %_ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit.i ]
+  %.0.lcssa331333.i = phi i1 [ %.1.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_6ShapeTEELb0EE13destroy_rangeEPS3_S5_.exit.i.i ], [ %.1.i, %142 ], [ false, %_ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  %520 = or i1 %.01321, %.0.lcssa264266.i
+  %520 = or i1 %.01321, %.0.lcssa331333.i
   %521 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
   %.sroa.014.0 = load ptr, ptr %521, align 8, !tbaa !204
   %.not17 = icmp eq ptr %.sroa.014.0, %62

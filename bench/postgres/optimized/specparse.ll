@@ -604,16 +604,16 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   br i1 %.not302, label %312, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %26, %.loopexit
-  %.5362 = phi ptr [ %.5, %.loopexit ], [ %19, %26 ]
-  %.0259360 = phi i32 [ %.0259, %.loopexit ], [ 1, %26 ]
-  call void @free(ptr noundef %.5362) #8
+  %.5367 = phi ptr [ %.5, %.loopexit ], [ %19, %26 ]
+  %.0259365 = phi i32 [ %.0259, %.loopexit ], [ 1, %26 ]
+  call void @free(ptr noundef %.5367) #8
   br label %312
 
 312:                                              ; preds = %.loopexit, %.loopexit.thread
-  %.0259361 = phi i32 [ %.0259, %.loopexit ], [ %.0259360, %.loopexit.thread ]
+  %.0259366 = phi i32 [ %.0259, %.loopexit ], [ %.0259365, %.loopexit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i32 %.0259361
+  ret i32 %.0259366
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

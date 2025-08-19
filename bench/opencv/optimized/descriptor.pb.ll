@@ -4446,16 +4446,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit124: ; preds = %
   br i1 %259, label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %253
-  %scevgep219 = getelementptr i8, ptr %.0.i123, i64 2
-  %load_initial220 = load i8, ptr %scevgep219, align 1
+  %scevgep245 = getelementptr i8, ptr %.0.i123, i64 2
+  %load_initial246 = load i8, ptr %scevgep245, align 1
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %store_forwarded221 = phi i8 [ %load_initial220, %.preheader.i.preheader ], [ %264, %.preheader.i ]
+  %store_forwarded247 = phi i8 [ %load_initial246, %.preheader.i.preheader ], [ %264, %.preheader.i ]
   %.018.i.i.i = phi i64 [ %256, %.preheader.i.preheader ], [ %263, %.preheader.i ]
   %.0.i.i.i = phi ptr [ %260, %.preheader.i.preheader ], [ %265, %.preheader.i ]
   %261 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 -1
-  %262 = or i8 %store_forwarded221, -128
+  %262 = or i8 %store_forwarded247, -128
   store i8 %262, ptr %261, align 1, !tbaa !41
   %263 = lshr i64 %.018.i.i.i, 7
   %264 = trunc i64 %263 to i8
@@ -7117,16 +7117,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %7, 
   br i1 %24, label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %18
-  %scevgep36 = getelementptr i8, ptr %.0.i18, i64 2
-  %load_initial37 = load i8, ptr %scevgep36, align 1
+  %scevgep41 = getelementptr i8, ptr %.0.i18, i64 2
+  %load_initial42 = load i8, ptr %scevgep41, align 1
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %store_forwarded38 = phi i8 [ %load_initial37, %.preheader.i.preheader ], [ %29, %.preheader.i ]
+  %store_forwarded43 = phi i8 [ %load_initial42, %.preheader.i.preheader ], [ %29, %.preheader.i ]
   %.018.i.i.i = phi i64 [ %21, %.preheader.i.preheader ], [ %28, %.preheader.i ]
   %.0.i.i.i = phi ptr [ %25, %.preheader.i.preheader ], [ %30, %.preheader.i ]
   %26 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 -1
-  %27 = or i8 %store_forwarded38, -128
+  %27 = or i8 %store_forwarded43, -128
   store i8 %27, ptr %26, align 1, !tbaa !41
   %28 = lshr i64 %.018.i.i.i, 7
   %29 = trunc i64 %28 to i8
@@ -8302,16 +8302,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %7, 
   br i1 %24, label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %18
-  %scevgep26 = getelementptr i8, ptr %.0.i12, i64 2
-  %load_initial27 = load i8, ptr %scevgep26, align 1
+  %scevgep30 = getelementptr i8, ptr %.0.i12, i64 2
+  %load_initial31 = load i8, ptr %scevgep30, align 1
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %store_forwarded28 = phi i8 [ %load_initial27, %.preheader.i.preheader ], [ %29, %.preheader.i ]
+  %store_forwarded32 = phi i8 [ %load_initial31, %.preheader.i.preheader ], [ %29, %.preheader.i ]
   %.018.i.i.i = phi i64 [ %21, %.preheader.i.preheader ], [ %28, %.preheader.i ]
   %.0.i.i.i = phi ptr [ %25, %.preheader.i.preheader ], [ %30, %.preheader.i ]
   %26 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 -1
-  %27 = or i8 %store_forwarded28, -128
+  %27 = or i8 %store_forwarded32, -128
   store i8 %27, ptr %26, align 1, !tbaa !41
   %28 = lshr i64 %.018.i.i.i, 7
   %29 = trunc i64 %28 to i8
@@ -13067,31 +13067,31 @@ _ZN6google8protobuf21ExtensionRangeOptions34_internal_add_uninterpreted_optionEv
   br i1 %70, label %48, label %.backedge, !llvm.loop !267
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
-  %.0.i1559 = phi ptr [ %.0.i15, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %34, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30 ]
-  %.02658 = phi i32 [ %.026, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30 ]
-  %71 = icmp eq i32 %.02658, 0
-  %72 = and i32 %.02658, 7
+  %.0.i1565 = phi ptr [ %.0.i15, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %34, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30 ]
+  %.02664 = phi i32 [ %.026, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30 ]
+  %71 = icmp eq i32 %.02664, 0
+  %72 = and i32 %.02664, 7
   %73 = icmp eq i32 %72, 4
   %or.cond13 = or i1 %71, %73
   br i1 %or.cond13, label %74, label %77
 
 74:                                               ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
-  %.not9 = icmp eq ptr %.0.i1559, null
+  %.not9 = icmp eq ptr %.0.i1565, null
   br i1 %.not9, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.thread37, !prof !43
 
 .thread37:                                        ; preds = %74
-  %75 = add i32 %.02658, -1
+  %75 = add i32 %.02664, -1
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %75, ptr %76, align 8, !tbaa !45
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 77:                                               ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
-  %78 = icmp ugt i32 %.02658, 7999
-  %79 = zext i32 %.02658 to i64
+  %78 = icmp ugt i32 %.02664, 7999
+  %79 = zext i32 %.02664 to i64
   br i1 %78, label %80, label %82
 
 80:                                               ; preds = %77
-  %81 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10ParseFieldEmPKcPKNS0_7MessageEPNS1_16InternalMetadataEPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %79, ptr noundef %.0.i1559, ptr noundef nonnull @_ZN6google8protobuf40_ExtensionRangeOptions_default_instance_E, ptr noundef nonnull %7, ptr noundef nonnull %2)
+  %81 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10ParseFieldEmPKcPKNS0_7MessageEPNS1_16InternalMetadataEPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %79, ptr noundef %.0.i1565, ptr noundef nonnull @_ZN6google8protobuf40_ExtensionRangeOptions_default_instance_E, ptr noundef nonnull %7, ptr noundef nonnull %2)
   %.not8 = icmp eq ptr %81, null
   br i1 %.not8, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !prof !43
 
@@ -13113,7 +13113,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %85, %89
   %.0.i = phi ptr [ %88, %85 ], [ %90, %89 ]
-  %91 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %79, ptr noundef %.0.i, ptr noundef %.0.i1559, ptr noundef nonnull %2)
+  %91 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %79, ptr noundef %.0.i, ptr noundef %.0.i1565, ptr noundef nonnull %2)
   %.not = icmp eq ptr %91, null
   br i1 %.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !prof !43
 
@@ -13122,7 +13122,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %12, !llvm.loop !268
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %80, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf21ExtensionRangeOptions34_internal_add_uninterpreted_optionEv.exit, %24, %74, %.thread37
-  %.3 = phi ptr [ %.0.i1559, %.thread37 ], [ null, %74 ], [ %spec.select, %24 ], [ null, %_ZN6google8protobuf21ExtensionRangeOptions34_internal_add_uninterpreted_optionEv.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %80 ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.3 = phi ptr [ %.0.i1565, %.thread37 ], [ null, %74 ], [ %spec.select, %24 ], [ null, %_ZN6google8protobuf21ExtensionRangeOptions34_internal_add_uninterpreted_optionEv.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %80 ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.3
 }
 
@@ -14874,16 +14874,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %53,
   br i1 %70, label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %64
-  %scevgep125 = getelementptr i8, ptr %.0.i57, i64 2
-  %load_initial126 = load i8, ptr %scevgep125, align 1
+  %scevgep135 = getelementptr i8, ptr %.0.i57, i64 2
+  %load_initial136 = load i8, ptr %scevgep135, align 1
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %store_forwarded127 = phi i8 [ %load_initial126, %.preheader.i.preheader ], [ %75, %.preheader.i ]
+  %store_forwarded137 = phi i8 [ %load_initial136, %.preheader.i.preheader ], [ %75, %.preheader.i ]
   %.018.i.i.i = phi i64 [ %67, %.preheader.i.preheader ], [ %74, %.preheader.i ]
   %.0.i.i.i = phi ptr [ %71, %.preheader.i.preheader ], [ %76, %.preheader.i ]
   %72 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 -1
-  %73 = or i8 %store_forwarded127, -128
+  %73 = or i8 %store_forwarded137, -128
   store i8 %73, ptr %72, align 1, !tbaa !41
   %74 = lshr i64 %.018.i.i.i, 7
   %75 = trunc i64 %74 to i8
@@ -14935,16 +14935,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit60: ; preds = %7
   br i1 %96, label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit65, label %.preheader.i61.preheader
 
 .preheader.i61.preheader:                         ; preds = %90
-  %scevgep122 = getelementptr i8, ptr %.0.i59, i64 2
-  %load_initial123 = load i8, ptr %scevgep122, align 1
+  %scevgep132 = getelementptr i8, ptr %.0.i59, i64 2
+  %load_initial133 = load i8, ptr %scevgep132, align 1
   br label %.preheader.i61
 
 .preheader.i61:                                   ; preds = %.preheader.i61.preheader, %.preheader.i61
-  %store_forwarded124 = phi i8 [ %load_initial123, %.preheader.i61.preheader ], [ %101, %.preheader.i61 ]
+  %store_forwarded134 = phi i8 [ %load_initial133, %.preheader.i61.preheader ], [ %101, %.preheader.i61 ]
   %.018.i.i.i62 = phi i64 [ %93, %.preheader.i61.preheader ], [ %100, %.preheader.i61 ]
   %.0.i.i.i63 = phi ptr [ %97, %.preheader.i61.preheader ], [ %102, %.preheader.i61 ]
   %98 = getelementptr inbounds i8, ptr %.0.i.i.i63, i64 -1
-  %99 = or i8 %store_forwarded124, -128
+  %99 = or i8 %store_forwarded134, -128
   store i8 %99, ptr %98, align 1, !tbaa !41
   %100 = lshr i64 %.018.i.i.i62, 7
   %101 = trunc i64 %100 to i8
@@ -14996,16 +14996,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit68: ; preds = %1
   br i1 %122, label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit73, label %.preheader.i69.preheader
 
 .preheader.i69.preheader:                         ; preds = %116
-  %scevgep119 = getelementptr i8, ptr %.0.i67, i64 2
-  %load_initial120 = load i8, ptr %scevgep119, align 1
+  %scevgep129 = getelementptr i8, ptr %.0.i67, i64 2
+  %load_initial130 = load i8, ptr %scevgep129, align 1
   br label %.preheader.i69
 
 .preheader.i69:                                   ; preds = %.preheader.i69.preheader, %.preheader.i69
-  %store_forwarded121 = phi i8 [ %load_initial120, %.preheader.i69.preheader ], [ %127, %.preheader.i69 ]
+  %store_forwarded131 = phi i8 [ %load_initial130, %.preheader.i69.preheader ], [ %127, %.preheader.i69 ]
   %.018.i.i.i70 = phi i64 [ %119, %.preheader.i69.preheader ], [ %126, %.preheader.i69 ]
   %.0.i.i.i71 = phi ptr [ %123, %.preheader.i69.preheader ], [ %128, %.preheader.i69 ]
   %124 = getelementptr inbounds i8, ptr %.0.i.i.i71, i64 -1
-  %125 = or i8 %store_forwarded121, -128
+  %125 = or i8 %store_forwarded131, -128
   store i8 %125, ptr %124, align 1, !tbaa !41
   %126 = lshr i64 %.018.i.i.i70, 7
   %127 = trunc i64 %126 to i8
@@ -17873,16 +17873,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %7, 
   br i1 %24, label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %18
-  %scevgep26 = getelementptr i8, ptr %.0.i12, i64 2
-  %load_initial27 = load i8, ptr %scevgep26, align 1
+  %scevgep30 = getelementptr i8, ptr %.0.i12, i64 2
+  %load_initial31 = load i8, ptr %scevgep30, align 1
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %store_forwarded28 = phi i8 [ %load_initial27, %.preheader.i.preheader ], [ %29, %.preheader.i ]
+  %store_forwarded32 = phi i8 [ %load_initial31, %.preheader.i.preheader ], [ %29, %.preheader.i ]
   %.018.i.i.i = phi i64 [ %21, %.preheader.i.preheader ], [ %28, %.preheader.i ]
   %.0.i.i.i = phi ptr [ %25, %.preheader.i.preheader ], [ %30, %.preheader.i ]
   %26 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 -1
-  %27 = or i8 %store_forwarded28, -128
+  %27 = or i8 %store_forwarded32, -128
   store i8 %27, ptr %26, align 1, !tbaa !41
   %28 = lshr i64 %.018.i.i.i, 7
   %29 = trunc i64 %28 to i8
@@ -30101,16 +30101,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %7, 
   br i1 %24, label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %18
-  %scevgep80 = getelementptr i8, ptr %.0.i43, i64 2
-  %load_initial81 = load i8, ptr %scevgep80, align 1
+  %scevgep87 = getelementptr i8, ptr %.0.i43, i64 2
+  %load_initial88 = load i8, ptr %scevgep87, align 1
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %store_forwarded82 = phi i8 [ %load_initial81, %.preheader.i.preheader ], [ %29, %.preheader.i ]
+  %store_forwarded89 = phi i8 [ %load_initial88, %.preheader.i.preheader ], [ %29, %.preheader.i ]
   %.018.i.i.i = phi i64 [ %21, %.preheader.i.preheader ], [ %28, %.preheader.i ]
   %.0.i.i.i = phi ptr [ %25, %.preheader.i.preheader ], [ %30, %.preheader.i ]
   %26 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 -1
-  %27 = or i8 %store_forwarded82, -128
+  %27 = or i8 %store_forwarded89, -128
   store i8 %27, ptr %26, align 1, !tbaa !41
   %28 = lshr i64 %.018.i.i.i, 7
   %29 = trunc i64 %28 to i8
@@ -30953,31 +30953,31 @@ _ZN6google8protobuf12OneofOptions34_internal_add_uninterpreted_optionEv.exit: ; 
   br i1 %70, label %48, label %.backedge, !llvm.loop !397
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
-  %.0.i1559 = phi ptr [ %.0.i15, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %34, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30 ]
-  %.02658 = phi i32 [ %.026, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30 ]
-  %71 = icmp eq i32 %.02658, 0
-  %72 = and i32 %.02658, 7
+  %.0.i1565 = phi ptr [ %.0.i15, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %34, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30 ]
+  %.02664 = phi i32 [ %.026, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30 ]
+  %71 = icmp eq i32 %.02664, 0
+  %72 = and i32 %.02664, 7
   %73 = icmp eq i32 %72, 4
   %or.cond13 = or i1 %71, %73
   br i1 %or.cond13, label %74, label %77
 
 74:                                               ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
-  %.not9 = icmp eq ptr %.0.i1559, null
+  %.not9 = icmp eq ptr %.0.i1565, null
   br i1 %.not9, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.thread37, !prof !43
 
 .thread37:                                        ; preds = %74
-  %75 = add i32 %.02658, -1
+  %75 = add i32 %.02664, -1
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %75, ptr %76, align 8, !tbaa !45
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 77:                                               ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
-  %78 = icmp ugt i32 %.02658, 7999
-  %79 = zext i32 %.02658 to i64
+  %78 = icmp ugt i32 %.02664, 7999
+  %79 = zext i32 %.02664 to i64
   br i1 %78, label %80, label %82
 
 80:                                               ; preds = %77
-  %81 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10ParseFieldEmPKcPKNS0_7MessageEPNS1_16InternalMetadataEPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %79, ptr noundef %.0.i1559, ptr noundef nonnull @_ZN6google8protobuf31_OneofOptions_default_instance_E, ptr noundef nonnull %7, ptr noundef nonnull %2)
+  %81 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10ParseFieldEmPKcPKNS0_7MessageEPNS1_16InternalMetadataEPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %79, ptr noundef %.0.i1565, ptr noundef nonnull @_ZN6google8protobuf31_OneofOptions_default_instance_E, ptr noundef nonnull %7, ptr noundef nonnull %2)
   %.not8 = icmp eq ptr %81, null
   br i1 %.not8, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !prof !43
 
@@ -30999,7 +30999,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %85, %89
   %.0.i = phi ptr [ %88, %85 ], [ %90, %89 ]
-  %91 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %79, ptr noundef %.0.i, ptr noundef %.0.i1559, ptr noundef nonnull %2)
+  %91 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %79, ptr noundef %.0.i, ptr noundef %.0.i1565, ptr noundef nonnull %2)
   %.not = icmp eq ptr %91, null
   br i1 %.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !prof !43
 
@@ -31008,7 +31008,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %12, !llvm.loop !398
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %80, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf12OneofOptions34_internal_add_uninterpreted_optionEv.exit, %24, %74, %.thread37
-  %.3 = phi ptr [ %.0.i1559, %.thread37 ], [ null, %74 ], [ %spec.select, %24 ], [ null, %_ZN6google8protobuf12OneofOptions34_internal_add_uninterpreted_optionEv.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %80 ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.3 = phi ptr [ %.0.i1565, %.thread37 ], [ null, %74 ], [ %spec.select, %24 ], [ null, %_ZN6google8protobuf12OneofOptions34_internal_add_uninterpreted_optionEv.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %80 ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.3
 }
 
@@ -36695,16 +36695,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit43: ; preds = %5
   br i1 %69, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit, label %.preheader64.preheader
 
 .preheader64.preheader:                           ; preds = %64
-  %scevgep77 = getelementptr i8, ptr %.0.i42, i64 2
-  %load_initial78 = load i8, ptr %scevgep77, align 1
+  %scevgep84 = getelementptr i8, ptr %.0.i42, i64 2
+  %load_initial85 = load i8, ptr %scevgep84, align 1
   br label %.preheader64
 
 .preheader64:                                     ; preds = %.preheader64.preheader, %.preheader64
-  %store_forwarded79 = phi i8 [ %load_initial78, %.preheader64.preheader ], [ %74, %.preheader64 ]
+  %store_forwarded86 = phi i8 [ %load_initial85, %.preheader64.preheader ], [ %74, %.preheader64 ]
   %.018.i.i = phi i64 [ %66, %.preheader64.preheader ], [ %73, %.preheader64 ]
   %.0.i.i = phi ptr [ %70, %.preheader64.preheader ], [ %75, %.preheader64 ]
   %71 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
-  %72 = or i8 %store_forwarded79, -128
+  %72 = or i8 %store_forwarded86, -128
   store i8 %72, ptr %71, align 1, !tbaa !41
   %73 = lshr i64 %.018.i.i, 7
   %74 = trunc i64 %73 to i8
@@ -38391,19 +38391,19 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit50: ; preds = %2
   store i8 %38, ptr %39, align 1, !tbaa !41
   %40 = icmp ult i32 %29, 16384
   %41 = getelementptr inbounds nuw i8, ptr %.0.i49, i64 2
-  br i1 %40, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i38, label %.preheader97
+  br i1 %40, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i38, label %.preheader109
 
-.preheader97:                                     ; preds = %34
-  %scevgep103 = getelementptr i8, ptr %.0.i49, i64 1
-  %load_initial104 = load i8, ptr %scevgep103, align 1
+.preheader109:                                    ; preds = %34
+  %scevgep115 = getelementptr i8, ptr %.0.i49, i64 1
+  %load_initial116 = load i8, ptr %scevgep115, align 1
   br label %42
 
-42:                                               ; preds = %.preheader97, %42
-  %store_forwarded105 = phi i8 [ %load_initial104, %.preheader97 ], [ %46, %42 ]
-  %.018.i.i36 = phi i64 [ %37, %.preheader97 ], [ %45, %42 ]
-  %.0.i.i37 = phi ptr [ %41, %.preheader97 ], [ %47, %42 ]
+42:                                               ; preds = %.preheader109, %42
+  %store_forwarded117 = phi i8 [ %load_initial116, %.preheader109 ], [ %46, %42 ]
+  %.018.i.i36 = phi i64 [ %37, %.preheader109 ], [ %45, %42 ]
+  %.0.i.i37 = phi ptr [ %41, %.preheader109 ], [ %47, %42 ]
   %43 = getelementptr inbounds i8, ptr %.0.i.i37, i64 -1
-  %44 = or i8 %store_forwarded105, -128
+  %44 = or i8 %store_forwarded117, -128
   store i8 %44, ptr %43, align 1, !tbaa !41
   %45 = lshr i64 %.018.i.i36, 7
   %46 = trunc i64 %45 to i8
@@ -40152,7 +40152,7 @@ _ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.preheader:
 
 _ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit: ; preds = %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.preheader
   %13 = phi ptr [ %1, %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.preheader ], [ %.be, %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge ]
-  %14 = phi i32 [ 0, %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.preheader ], [ %.be82, %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge ]
+  %14 = phi i32 [ 0, %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.preheader ], [ %.be89, %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge ]
   %15 = load i32, ptr %4, align 4, !tbaa !30
   %16 = load ptr, ptr %2, align 8, !tbaa !38
   %17 = icmp ult ptr %13, %16
@@ -40350,7 +40350,7 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32.thread: ; preds = %102, %
 
 _ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread, %51, %53, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf28GeneratedCodeInfo_Annotation29_internal_mutable_source_fileB5cxx11Ev.exit
   %.be = phi ptr [ %.0.i.i31.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32.thread ], [ %.0.i.i25.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %52, %51 ], [ %55, %53 ], [ %123, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.fca.0.extract.i.i.i28, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32 ], [ %.fca.0.extract.i.i.i, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %70, %_ZN6google8protobuf28GeneratedCodeInfo_Annotation29_internal_mutable_source_fileB5cxx11Ev.exit ]
-  %.be82 = phi i32 [ %92, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32.thread ], [ %75, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %14, %51 ], [ %14, %53 ], [ %14, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %92, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32 ], [ %75, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %14, %_ZN6google8protobuf28GeneratedCodeInfo_Annotation29_internal_mutable_source_fileB5cxx11Ev.exit ]
+  %.be89 = phi i32 [ %92, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32.thread ], [ %75, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %14, %51 ], [ %14, %53 ], [ %14, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %92, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32 ], [ %75, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %14, %_ZN6google8protobuf28GeneratedCodeInfo_Annotation29_internal_mutable_source_fileB5cxx11Ev.exit ]
   br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit, !llvm.loop !485
 
 _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32: ; preds = %96
@@ -40534,16 +40534,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit28: ; preds = %2
   br i1 %40, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i, label %.preheader
 
 .preheader:                                       ; preds = %34
-  %scevgep67 = getelementptr i8, ptr %.0.i27, i64 1
-  %load_initial68 = load i8, ptr %scevgep67, align 1
+  %scevgep75 = getelementptr i8, ptr %.0.i27, i64 1
+  %load_initial76 = load i8, ptr %scevgep75, align 1
   br label %42
 
 42:                                               ; preds = %.preheader, %42
-  %store_forwarded69 = phi i8 [ %load_initial68, %.preheader ], [ %46, %42 ]
+  %store_forwarded77 = phi i8 [ %load_initial76, %.preheader ], [ %46, %42 ]
   %.018.i.i = phi i64 [ %37, %.preheader ], [ %45, %42 ]
   %.0.i.i = phi ptr [ %41, %.preheader ], [ %47, %42 ]
   %43 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
-  %44 = or i8 %store_forwarded69, -128
+  %44 = or i8 %store_forwarded77, -128
   store i8 %44, ptr %43, align 1, !tbaa !41
   %45 = lshr i64 %.018.i.i, 7
   %46 = trunc i64 %45 to i8
@@ -40643,16 +40643,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit33: ; preds = %7
   br i1 %93, label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %87
-  %scevgep64 = getelementptr i8, ptr %.0.i32, i64 2
-  %load_initial65 = load i8, ptr %scevgep64, align 1
+  %scevgep72 = getelementptr i8, ptr %.0.i32, i64 2
+  %load_initial73 = load i8, ptr %scevgep72, align 1
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %store_forwarded66 = phi i8 [ %load_initial65, %.preheader.i.preheader ], [ %98, %.preheader.i ]
+  %store_forwarded74 = phi i8 [ %load_initial73, %.preheader.i.preheader ], [ %98, %.preheader.i ]
   %.018.i.i.i = phi i64 [ %90, %.preheader.i.preheader ], [ %97, %.preheader.i ]
   %.0.i.i.i = phi ptr [ %94, %.preheader.i.preheader ], [ %99, %.preheader.i ]
   %95 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 -1
-  %96 = or i8 %store_forwarded66, -128
+  %96 = or i8 %store_forwarded74, -128
   store i8 %96, ptr %95, align 1, !tbaa !41
   %97 = lshr i64 %.018.i.i.i, 7
   %98 = trunc i64 %97 to i8

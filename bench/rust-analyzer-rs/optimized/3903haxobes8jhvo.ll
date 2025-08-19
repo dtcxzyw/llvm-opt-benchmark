@@ -272,13 +272,13 @@ define hidden void @_ZN6parser9shortcuts7Builder5token17h4845c96421a6d4d2E(ptr n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i8, ptr %7, align 8, !range !46, !noundef !26
   store i8 1, ptr %7, align 8
-  switch i8 %8, label %default.unreachable9 [
+  switch i8 %8, label %default.unreachable12 [
     i8 0, label %9
     i8 1, label %10
     i8 2, label %53
   ]
 
-default.unreachable9:                             ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 9:                                                ; preds = %3
@@ -405,13 +405,13 @@ define hidden void @_ZN6parser9shortcuts7Builder11float_split17ha54a9163d49e1faf
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i8, ptr %5, align 8, !range !46, !noundef !26
   store i8 1, ptr %5, align 8
-  switch i8 %6, label %default.unreachable7 [
+  switch i8 %6, label %default.unreachable9 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %40
   ]
 
-default.unreachable7:                             ; preds = %2
+default.unreachable9:                             ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -510,13 +510,13 @@ define hidden void @_ZN6parser9shortcuts7Builder5enter17h82eea12ff1df04e8E(ptr n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i8, ptr %7, align 8, !range !46, !noundef !26
   store i8 1, ptr %7, align 8
-  switch i8 %8, label %default.unreachable12 [
+  switch i8 %8, label %default.unreachable17 [
     i8 0, label %9
     i8 1, label %16
     i8 2, label %50
   ]
 
-default.unreachable12:                            ; preds = %2
+default.unreachable17:                            ; preds = %2
   unreachable
 
 9:                                                ; preds = %2

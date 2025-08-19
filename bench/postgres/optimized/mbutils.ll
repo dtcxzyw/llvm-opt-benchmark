@@ -2100,8 +2100,8 @@ define internal noundef zeroext i1 @pg_eucjp_increment(ptr noundef captures(none
 
 32:                                               ; preds = %40
   %33 = add nsw i32 %.154, -1
-  %.not66 = icmp eq i32 %.154, 0
-  br i1 %.not66, label %.loopexit, label %.preheader, !llvm.loop !14
+  %.not69 = icmp eq i32 %.154, 0
+  br i1 %.not69, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %31, %32
   %.154 = phi i32 [ %33, %32 ], [ 1, %31 ]

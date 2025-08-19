@@ -886,7 +886,7 @@ addRow.exit:                                      ; preds = %._crit_edge.i.i.i32
   %395 = load ptr, ptr %.2263, align 8, !tbaa !3
   %396 = call fastcc ptr @mkText(ptr noundef nonnull %5)
   %.val313 = load ptr, ptr %6, align 8, !tbaa !48
-  call fastcc void @setCell(ptr %.val313, ptr noundef %395, ptr noundef %396, i32 noundef 2)
+  call fastcc void @setCell(ptr %.val313, ptr noundef %395, ptr noundef nonnull %396, i32 noundef 2)
   br label %405
 
 397:                                              ; preds = %86
@@ -1017,17 +1017,17 @@ addRow.exit:                                      ; preds = %._crit_edge.i.i.i32
   br i1 %.not307, label %460, label %.loopexit361.thread
 
 .loopexit361.thread:                              ; preds = %38, %.loopexit361
-  %.0259482 = phi i32 [ %.0259, %.loopexit361 ], [ 1, %38 ]
-  %.5286481 = phi ptr [ %.5286, %.loopexit361 ], [ %31, %38 ]
-  call void @free(ptr noundef %.5286481) #17
+  %.0259500 = phi i32 [ %.0259, %.loopexit361 ], [ 1, %38 ]
+  %.5286499 = phi ptr [ %.5286, %.loopexit361 ], [ %31, %38 ]
+  call void @free(ptr noundef %.5286499) #17
   br label %460
 
 460:                                              ; preds = %.loopexit361, %.loopexit361.thread
-  %.0259483 = phi i32 [ %.0259, %.loopexit361 ], [ %.0259482, %.loopexit361.thread ]
+  %.0259501 = phi i32 [ %.0259, %.loopexit361 ], [ %.0259500, %.loopexit361.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.0259483
+  ret i32 %.0259501
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1150,7 +1150,7 @@ htextspans_clear.exit:                            ; preds = %free_hi.exit.i, %te
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @mkText(ptr noundef captures(none) %0) unnamed_addr #0 {
+define internal fastcc noalias nonnull ptr @mkText(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 73) 56) #18
   %4 = icmp eq ptr %3, null
@@ -1391,8 +1391,8 @@ gv_alloc.exit:                                    ; preds = %27
   br i1 %63, label %54, label %textspans_clear.exit, !llvm.loop !56
 
 textspans_clear.exit:                             ; preds = %54, %.loopexit.thread, %.loopexit
-  %.sroa.8.028 = phi i64 [ 1, %.loopexit.thread ], [ %.val, %.loopexit ], [ %.val, %54 ]
-  %.sroa.0.027 = phi ptr [ %28, %.loopexit.thread ], [ %10, %.loopexit ], [ %10, %54 ]
+  %.sroa.8.034 = phi i64 [ 1, %.loopexit.thread ], [ %.val, %.loopexit ], [ %.val, %54 ]
+  %.sroa.0.033 = phi ptr [ %28, %.loopexit.thread ], [ %10, %.loopexit ], [ %10, %54 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1469,9 +1469,9 @@ htextspans_append.exit:                           ; preds = %._crit_edge.i.i, %9
   %106 = add i64 %104, %103
   %107 = urem i64 %106, %102
   %108 = getelementptr inbounds nuw %struct.htextspan_t, ptr %101, i64 %107
-  store ptr %.sroa.0.027, ptr %108, align 8
+  store ptr %.sroa.0.033, ptr %108, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %108, i64 8
-  store i64 %.sroa.8.028, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.8.034, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %108, i64 16
   store i8 %105, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %108, i64 17

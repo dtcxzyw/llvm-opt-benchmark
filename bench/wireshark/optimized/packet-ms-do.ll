@@ -193,8 +193,8 @@ define internal i32 @dissect_do(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %16 = load i32, ptr @ett_do, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16)
   %18 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not31 = icmp eq i32 %18, 0
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  %.not36 = icmp eq i32 %18, 0
+  br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 292
@@ -332,16 +332,16 @@ do_add_message_tree.exit.i:                       ; preds = %86, %switch.lookup
   %104 = add i32 %103, 1
   store i32 %104, ptr %5, align 4
   %105 = icmp ult i8 %89, 21
-  br i1 %105, label %switch.lookup41, label %dissect_do_message.exit
+  br i1 %105, label %switch.lookup46, label %dissect_do_message.exit
 
-switch.lookup41:                                  ; preds = %do_add_message_tree.exit.i
+switch.lookup46:                                  ; preds = %do_add_message_tree.exit.i
   %106 = zext nneg i8 %89 to i64
-  %switch.gep42 = getelementptr inbounds nuw [21 x ptr], ptr @switch.table.dissect_do.2, i64 0, i64 %106
-  %switch.load43 = load ptr, ptr %switch.gep42, align 8
+  %switch.gep47 = getelementptr inbounds nuw [21 x ptr], ptr @switch.table.dissect_do.2, i64 0, i64 %106
+  %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %dissect_do_message.exit
 
-dissect_do_message.exit:                          ; preds = %do_add_message_tree.exit.i, %switch.lookup41
-  %.0.i.i18 = phi ptr [ %switch.load43, %switch.lookup41 ], [ @dissect_do_unknown_message, %do_add_message_tree.exit.i ]
+dissect_do_message.exit:                          ; preds = %do_add_message_tree.exit.i, %switch.lookup46
+  %.0.i.i18 = phi ptr [ %switch.load48, %switch.lookup46 ], [ @dissect_do_unknown_message, %do_add_message_tree.exit.i ]
   %107 = call zeroext i1 %.0.i.i18(ptr noundef %0, ptr noundef %1, ptr noundef %95, i32 noundef %70, i8 noundef zeroext %89, ptr noundef nonnull %5)
   br i1 %107, label %dissect_do_message.exit.thread..backedge_crit_edge, label %116
 

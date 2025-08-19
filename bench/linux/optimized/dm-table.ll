@@ -1267,10 +1267,10 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.pre.fr = freeze ptr %.pre
   %31 = icmp eq ptr %.pre.fr, null
-  %.104 = select i1 %30, i32 1, i32 %24
+  %.124 = select i1 %30, i32 1, i32 %24
   %32 = select i1 %31, i1 true, i1 %30
   %33 = select i1 %32, i32 %25, i32 1
-  %34 = select i1 %31, i32 %24, i32 %.104
+  %34 = select i1 %31, i32 %24, i32 %.124
   %35 = select i1 %31, i32 1, i32 %23
   %36 = icmp ne i32 %35, 0
   %37 = icmp ne i32 %34, 0
@@ -2069,14 +2069,14 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 109
   %70 = load i8, ptr %69, align 1, !range !46, !noundef !47
   %71 = icmp eq i8 %70, 0
-  br i1 %71, label %.thread48, label %.thread.thread
+  br i1 %71, label %.thread53, label %.thread.thread
 
 .thread.thread:                                   ; preds = %.loopexit18.thread
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %73 = load i32, ptr %72, align 8
   br label %91
 
-.thread48:                                        ; preds = %.loopexit18.thread
+.thread53:                                        ; preds = %.loopexit18.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %.critedge
 
@@ -2205,8 +2205,8 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
   %157 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.43, ptr noundef %152, i32 noundef %147, i64 noundef %154, i64 noundef %155, i32 noundef %156) #24
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread48, %.thread17, %95, %149, %.loopexit
-  %158 = phi i32 [ -22, %149 ], [ 0, %.loopexit ], [ 0, %95 ], [ 0, %.thread17 ], [ 0, %.thread48 ]
+.critedge:                                        ; preds = %.thread53, %.thread17, %95, %149, %.loopexit
+  %158 = phi i32 [ -22, %149 ], [ 0, %.loopexit ], [ 0, %95 ], [ 0, %.thread17 ], [ 0, %.thread53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge15
 

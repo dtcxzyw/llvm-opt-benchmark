@@ -235,7 +235,7 @@ line_is_blank.exit:                               ; preds = %.loopexit139, %.lr.
   %.2125177 = phi i32 [ %.5.ph, %.loopexit ], [ %.1124, %line_is_blank.exit ]
   %73 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.2181, i32 noundef -1, ptr noundef nonnull %5, i1 noundef zeroext false)
   %74 = icmp eq i32 %73, -1
-  br i1 %74, label %.loopexit234, label %75
+  br i1 %74, label %.loopexit242, label %75
 
 75:                                               ; preds = %.lr.ph182
   %76 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.2181, i32 noundef %73)
@@ -334,26 +334,26 @@ line_is_eb.exit120:                               ; preds = %.loopexit, %83, %89
   br label %line_is_eb.exit120.thread
 
 line_is_eb.exit120.thread:                        ; preds = %line_is_blank.exit, %112, %117, %line_is_eb.exit120
-  %.3218 = phi i32 [ %.3, %112 ], [ %.3, %117 ], [ %.3, %line_is_eb.exit120 ], [ %.1124, %line_is_blank.exit ]
-  %.2145217 = phi i32 [ %.2145, %112 ], [ %.2145, %117 ], [ %.2145, %line_is_eb.exit120 ], [ %.199154, %line_is_blank.exit ]
+  %.3226 = phi i32 [ %.3, %112 ], [ %.3, %117 ], [ %.3, %line_is_eb.exit120 ], [ %.1124, %line_is_blank.exit ]
+  %.2145225 = phi i32 [ %.2145, %112 ], [ %.2145, %117 ], [ %.2145, %line_is_eb.exit120 ], [ %.199154, %line_is_blank.exit ]
   %124 = load i32, ptr %5, align 4
-  %125 = sub i32 %124, %.2145217
-  %126 = call ptr @proto_tree_add_format_text(ptr noundef %11, ptr noundef %0, i32 noundef %.2145217, i32 noundef %125)
+  %125 = sub i32 %124, %.2145225
+  %126 = call ptr @proto_tree_add_format_text(ptr noundef %11, ptr noundef %0, i32 noundef %.2145225, i32 noundef %125)
   %127 = load i32, ptr @ett_rfc7468_posteb, align 4
   %128 = call ptr @proto_item_add_subtree(ptr noundef %126, i32 noundef %127)
   %129 = load i32, ptr @hf_rfc7468_posteb_label, align 4
-  %130 = add i32 %.2145217, 9
-  %131 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %129, ptr noundef %0, i32 noundef %130, i32 noundef %.3218, i32 noundef 0)
-  br label %.loopexit234
+  %130 = add i32 %.2145225, 9
+  %131 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %129, ptr noundef %0, i32 noundef %130, i32 noundef %.3226, i32 noundef 0)
+  br label %.loopexit242
 
-.loopexit234:                                     ; preds = %.lr.ph182, %line_is_eb.exit120.thread
+.loopexit242:                                     ; preds = %.lr.ph182, %line_is_eb.exit120.thread
   %132 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %133
 
-133:                                              ; preds = %.loopexit234, %60, %17
-  %.0 = phi i32 [ %18, %17 ], [ %61, %60 ], [ %132, %.loopexit234 ]
+133:                                              ; preds = %.loopexit242, %60, %17
+  %.0 = phi i32 [ %18, %17 ], [ %61, %60 ], [ %132, %.loopexit242 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

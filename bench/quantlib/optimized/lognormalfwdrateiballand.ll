@@ -1454,7 +1454,7 @@ invoke.cont186.lr.ph:                             ; preds = %if.end.i.i.i.i.i.i.
   br label %invoke.cont186
 
 for.cond.cleanup183:                              ; preds = %invoke.cont186, %invoke.cont177
-  %__first.addr.0.i.i.i.i.i393562 = phi ptr [ null, %invoke.cont177 ], [ %__first.addr.0.i.i.i.i.i393.ph, %invoke.cont186 ]
+  %__first.addr.0.i.i.i.i.i393615 = phi ptr [ null, %invoke.cont177 ], [ %__first.addr.0.i.i.i.i.i393.ph, %invoke.cont186 ]
   %150 = phi ptr [ null, %invoke.cont177 ], [ %call5.i.i.i.i2.i.i399, %invoke.cont186 ]
   %151 = load ptr, ptr %_M_finish.i401, align 8, !tbaa !59
   %152 = load ptr, ptr %_M_end_of_storage.i.i327, align 8, !tbaa !57
@@ -1462,11 +1462,11 @@ for.cond.cleanup183:                              ; preds = %invoke.cont186, %in
   br i1 %cmp.not.i403, label %if.else.i407, label %if.then.i404
 
 if.then.i404:                                     ; preds = %for.cond.cleanup183
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__first.addr.0.i.i.i.i.i393562 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__first.addr.0.i.i.i.i.i393615 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %150 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %151, i8 0, i64 24, i1 false)
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %__first.addr.0.i.i.i.i.i393562, %150
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %__first.addr.0.i.i.i.i.i393615, %150
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %cond.true.i.i.i.i.i.i.i
 
 cond.true.i.i.i.i.i.i.i:                          ; preds = %if.then.i404

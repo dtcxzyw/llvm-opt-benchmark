@@ -1148,13 +1148,13 @@ _ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_
   %335 = icmp sgt i32 %.sroa.52.1.in, -1
   br i1 %335, label %.lr.ph, label %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorC2ERKSR_l.exit73.thread
 
-._crit_edge:                                      ; preds = %.thread6.i75, %394, %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorppEv.exit83
+._crit_edge:                                      ; preds = %.thread6.i75, %390, %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorppEv.exit83
   store ptr %.pre23.i.i112215, ptr %.phi.trans.insert.i.i111, align 8
   br label %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorC2ERKSR_l.exit73.thread
 
 _ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorC2ERKSR_l.exit73.thread: ; preds = %.thread6.i.i67, %327, %._crit_edge, %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorC2ERKSR_l.exit73
   %.phi.trans.insert.i.i111.promoted259 = phi ptr [ %.pre23.i.i112215, %._crit_edge ], [ %.phi.trans.insert.i.i111.promoted, %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorC2ERKSR_l.exit73 ], [ %.phi.trans.insert.i.i111.promoted, %327 ], [ %.phi.trans.insert.i.i111.promoted, %.thread6.i.i67 ]
-  %.lcssa204 = phi ptr [ %365, %._crit_edge ], [ %.promoted203, %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorC2ERKSR_l.exit73 ], [ %.promoted203, %327 ], [ %.promoted203, %.thread6.i.i67 ]
+  %.lcssa204 = phi ptr [ %361, %._crit_edge ], [ %.promoted203, %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorC2ERKSR_l.exit73 ], [ %.promoted203, %327 ], [ %.promoted203, %.thread6.i.i67 ]
   %.sroa.speculated.i105199.lcssa = phi i64 [ %.sroa.speculated.i105198, %._crit_edge ], [ %.promoted197, %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorC2ERKSR_l.exit73 ], [ %.promoted197, %327 ], [ %.promoted197, %.thread6.i.i67 ]
   %.lcssa193 = phi i64 [ %342, %._crit_edge ], [ %.promoted, %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorC2ERKSR_l.exit73 ], [ %.promoted, %327 ], [ %.promoted, %.thread6.i.i67 ]
   store i64 %.lcssa193, ptr %213, align 8
@@ -1172,14 +1172,14 @@ _ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_
   %.sroa.43.0209 = phi double [ %.sroa.43.2, %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorppEv.exit83 ], [ %.sroa.43.1, %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorC2ERKSR_l.exit73 ]
   %337 = phi i64 [ %342, %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorppEv.exit83 ], [ %.promoted, %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorC2ERKSR_l.exit73 ]
   %.sroa.speculated.i105199208 = phi i64 [ %.sroa.speculated.i105198, %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorppEv.exit83 ], [ %.promoted197, %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorC2ERKSR_l.exit73 ]
-  %338 = phi ptr [ %365, %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorppEv.exit83 ], [ %.promoted203, %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorC2ERKSR_l.exit73 ]
+  %338 = phi ptr [ %361, %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorppEv.exit83 ], [ %.promoted203, %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorC2ERKSR_l.exit73 ]
   %339 = load i32, ptr %266, align 4, !tbaa !52
   %340 = sext i32 %339 to i64
   %341 = add nsw i32 %339, 1
   store i32 %341, ptr %266, align 4, !tbaa !52
   %342 = add nsw i64 %337, 1
   %.not = icmp sgt i64 %.sroa.speculated.i105199208, %337
-  br i1 %.not, label %364, label %343
+  br i1 %.not, label %360, label %343
 
 343:                                              ; preds = %.lr.ph
   %344 = sitofp i64 %342 to double
@@ -1203,133 +1203,129 @@ _ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_
   unreachable
 
 349:                                              ; preds = %343
-  %350 = icmp ugt i64 %.sroa.speculated.i105, 2305843009213693951
-  %351 = shl nuw i64 %.sroa.speculated.i105, 3
-  %352 = select i1 %350, i64 -1, i64 %351
-  %353 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %352) #21
+  %350 = shl nuw nsw i64 %.sroa.speculated.i105, 3
+  %351 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %350) #21
           to label %.noexc119 unwind label %.loopexit191
 
 .noexc119:                                        ; preds = %349
-  %354 = icmp ugt i64 %.sroa.speculated.i105, 4611686018427387903
-  %355 = shl nuw i64 %.sroa.speculated.i105, 2
-  %356 = select i1 %354, i64 -1, i64 %355
-  %357 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %356) #21
+  %352 = shl nuw nsw i64 %.sroa.speculated.i105, 2
+  %353 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %352) #21
           to label %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i.i107 unwind label %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit9.i.i106
 
 _ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i.i107: ; preds = %.noexc119
   %.sroa.speculated.i.i108 = tail call i64 @llvm.smin.i64(i64 %337, i64 %.sroa.speculated.i105)
-  %358 = icmp sgt i64 %.sroa.speculated.i.i108, 0
-  br i1 %358, label %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i.i115, label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i113
+  %354 = icmp sgt i64 %.sroa.speculated.i.i108, 0
+  br i1 %354, label %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i.i115, label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i113
 
 _ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i.i115: ; preds = %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i.i107
   %.idx.i.i116 = shl nuw nsw i64 %.sroa.speculated.i.i108, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %353, ptr align 8 %338, i64 %.idx.i.i116, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %351, ptr align 8 %338, i64 %.idx.i.i116, i1 false)
   %.idx22.i.i117 = shl nuw nsw i64 %.sroa.speculated.i.i108, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %357, ptr align 4 %.pre23.i.i112216, i64 %.idx22.i.i117, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %353, ptr align 4 %.pre23.i.i112216, i64 %.idx22.i.i117, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i113
 
 _ZN5Eigen8internal12scoped_arrayIdED2Ev.exit9.i.i106: ; preds = %.noexc119
-  %359 = landingpad { ptr, i32 }
+  %355 = landingpad { ptr, i32 }
           cleanup
   store ptr %.pre23.i.i112216, ptr %.phi.trans.insert.i.i111, align 8
   store i64 %337, ptr %213, align 8
   store i64 %.sroa.speculated.i105199208, ptr %227, align 8
   store ptr %338, ptr %226, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %353) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %351) #20
   br label %.body103
 
 _ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i113: ; preds = %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i.i107, %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i.i115
-  %360 = icmp eq ptr %.pre23.i.i112216, null
-  br i1 %360, label %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i114, label %361
+  %356 = icmp eq ptr %.pre23.i.i112216, null
+  br i1 %356, label %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i114, label %357
 
-361:                                              ; preds = %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i113
+357:                                              ; preds = %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i113
   tail call void @_ZdaPv(ptr noundef nonnull %.pre23.i.i112216) #20
   br label %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i114
 
-_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i114: ; preds = %361, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i113
-  %362 = icmp eq ptr %338, null
-  br i1 %362, label %364, label %363
+_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i114: ; preds = %357, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i113
+  %358 = icmp eq ptr %338, null
+  br i1 %358, label %360, label %359
 
-363:                                              ; preds = %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i114
+359:                                              ; preds = %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i114
   tail call void @_ZdaPv(ptr noundef nonnull %338) #20
-  br label %364
+  br label %360
 
-364:                                              ; preds = %.lr.ph, %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i114, %363
-  %.pre23.i.i112215 = phi ptr [ %.pre23.i.i112216, %.lr.ph ], [ %357, %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i114 ], [ %357, %363 ]
-  %365 = phi ptr [ %338, %.lr.ph ], [ %353, %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i114 ], [ %353, %363 ]
-  %.sroa.speculated.i105198 = phi i64 [ %.sroa.speculated.i105199208, %.lr.ph ], [ %.sroa.speculated.i105, %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i114 ], [ %.sroa.speculated.i105, %363 ]
-  %366 = getelementptr inbounds double, ptr %365, i64 %337
-  store double 0.000000e+00, ptr %366, align 8, !tbaa !57
-  %367 = getelementptr inbounds i32, ptr %.pre23.i.i112215, i64 %337
-  store i32 %.sroa.52.0210.in, ptr %367, align 4, !tbaa !52
-  %368 = getelementptr inbounds double, ptr %365, i64 %340
-  store double %.sroa.43.0209, ptr %368, align 8, !tbaa !57
-  %369 = icmp slt i64 %.sroa.10.0212, %.sink.i.i.i65
-  %370 = icmp slt i64 %.sroa.29.0211, %301
-  br i1 %369, label %371, label %.thread6.i75
+360:                                              ; preds = %.lr.ph, %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i114, %359
+  %.pre23.i.i112215 = phi ptr [ %.pre23.i.i112216, %.lr.ph ], [ %353, %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i114 ], [ %353, %359 ]
+  %361 = phi ptr [ %338, %.lr.ph ], [ %351, %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i114 ], [ %351, %359 ]
+  %.sroa.speculated.i105198 = phi i64 [ %.sroa.speculated.i105199208, %.lr.ph ], [ %.sroa.speculated.i105, %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i114 ], [ %.sroa.speculated.i105, %359 ]
+  %362 = getelementptr inbounds double, ptr %361, i64 %337
+  store double 0.000000e+00, ptr %362, align 8, !tbaa !57
+  %363 = getelementptr inbounds i32, ptr %.pre23.i.i112215, i64 %337
+  store i32 %.sroa.52.0210.in, ptr %363, align 4, !tbaa !52
+  %364 = getelementptr inbounds double, ptr %361, i64 %340
+  store double %.sroa.43.0209, ptr %364, align 8, !tbaa !57
+  %365 = icmp slt i64 %.sroa.10.0212, %.sink.i.i.i65
+  %366 = icmp slt i64 %.sroa.29.0211, %301
+  br i1 %365, label %367, label %.thread6.i75
 
-371:                                              ; preds = %364
-  %372 = getelementptr inbounds i32, ptr %268, i64 %.sroa.10.0212
-  %373 = load i32, ptr %372, align 4, !tbaa !52
-  br i1 %370, label %374, label %._crit_edge10.i82
+367:                                              ; preds = %360
+  %368 = getelementptr inbounds i32, ptr %268, i64 %.sroa.10.0212
+  %369 = load i32, ptr %368, align 4, !tbaa !52
+  br i1 %366, label %370, label %._crit_edge10.i82
 
-374:                                              ; preds = %371
-  %375 = getelementptr inbounds i32, ptr %285, i64 %.sroa.29.0211
-  %376 = load i32, ptr %375, align 4, !tbaa !52
-  %377 = icmp eq i32 %376, %373
-  br i1 %377, label %378, label %388
+370:                                              ; preds = %367
+  %371 = getelementptr inbounds i32, ptr %285, i64 %.sroa.29.0211
+  %372 = load i32, ptr %371, align 4, !tbaa !52
+  %373 = icmp eq i32 %372, %369
+  br i1 %373, label %374, label %384
 
-378:                                              ; preds = %374
-  %379 = getelementptr inbounds double, ptr %267, i64 %.sroa.10.0212
-  %380 = load double, ptr %379, align 8, !tbaa !57
-  %381 = fneg double %380
-  %382 = getelementptr inbounds double, ptr %284, i64 %.sroa.29.0211
-  %383 = load double, ptr %382, align 8, !tbaa !57
-  %384 = fmul double %7, %383
-  %385 = fsub double %381, %384
-  %386 = add nsw i64 %.sroa.10.0212, 1
-  %387 = add nsw i64 %.sroa.29.0211, 1
+374:                                              ; preds = %370
+  %375 = getelementptr inbounds double, ptr %267, i64 %.sroa.10.0212
+  %376 = load double, ptr %375, align 8, !tbaa !57
+  %377 = fneg double %376
+  %378 = getelementptr inbounds double, ptr %284, i64 %.sroa.29.0211
+  %379 = load double, ptr %378, align 8, !tbaa !57
+  %380 = fmul double %7, %379
+  %381 = fsub double %377, %380
+  %382 = add nsw i64 %.sroa.10.0212, 1
+  %383 = add nsw i64 %.sroa.29.0211, 1
   br label %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorppEv.exit83
 
-388:                                              ; preds = %374
-  %389 = icmp sgt i32 %376, %373
-  br i1 %389, label %._crit_edge10.i82, label %394
+384:                                              ; preds = %370
+  %385 = icmp sgt i32 %372, %369
+  br i1 %385, label %._crit_edge10.i82, label %390
 
-._crit_edge10.i82:                                ; preds = %388, %371
-  %390 = getelementptr inbounds double, ptr %267, i64 %.sroa.10.0212
-  %391 = load double, ptr %390, align 8, !tbaa !57
-  %392 = fneg double %391
-  %393 = add nsw i64 %.sroa.10.0212, 1
+._crit_edge10.i82:                                ; preds = %384, %367
+  %386 = getelementptr inbounds double, ptr %267, i64 %.sroa.10.0212
+  %387 = load double, ptr %386, align 8, !tbaa !57
+  %388 = fneg double %387
+  %389 = add nsw i64 %.sroa.10.0212, 1
   br label %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorppEv.exit83
 
-.thread6.i75:                                     ; preds = %364
-  br i1 %370, label %.thread6..thread7_crit_edge.i76, label %._crit_edge
+.thread6.i75:                                     ; preds = %360
+  br i1 %366, label %.thread6..thread7_crit_edge.i76, label %._crit_edge
 
 .thread6..thread7_crit_edge.i76:                  ; preds = %.thread6.i75
   %.phi.trans.insert8.i79 = getelementptr inbounds i32, ptr %285, i64 %.sroa.29.0211
   %.pre9.i80 = load i32, ptr %.phi.trans.insert8.i79, align 4, !tbaa !52
   br label %.thread7.i81
 
-394:                                              ; preds = %388
-  %395 = icmp slt i32 %376, %373
-  br i1 %395, label %.thread7.i81, label %._crit_edge
+390:                                              ; preds = %384
+  %391 = icmp slt i32 %372, %369
+  br i1 %391, label %.thread7.i81, label %._crit_edge
 
-.thread7.i81:                                     ; preds = %394, %.thread6..thread7_crit_edge.i76
-  %396 = phi i32 [ %376, %394 ], [ %.pre9.i80, %.thread6..thread7_crit_edge.i76 ]
-  %397 = getelementptr inbounds double, ptr %284, i64 %.sroa.29.0211
-  %398 = load double, ptr %397, align 8, !tbaa !57
-  %399 = fmul double %7, %398
-  %400 = fsub double 0.000000e+00, %399
-  %401 = add nsw i64 %.sroa.29.0211, 1
+.thread7.i81:                                     ; preds = %390, %.thread6..thread7_crit_edge.i76
+  %392 = phi i32 [ %372, %390 ], [ %.pre9.i80, %.thread6..thread7_crit_edge.i76 ]
+  %393 = getelementptr inbounds double, ptr %284, i64 %.sroa.29.0211
+  %394 = load double, ptr %393, align 8, !tbaa !57
+  %395 = fmul double %7, %394
+  %396 = fsub double 0.000000e+00, %395
+  %397 = add nsw i64 %.sroa.29.0211, 1
   br label %_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorppEv.exit83
 
-_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorppEv.exit83: ; preds = %378, %._crit_edge10.i82, %.thread7.i81
-  %.sroa.43.2 = phi double [ %385, %378 ], [ %392, %._crit_edge10.i82 ], [ %400, %.thread7.i81 ]
-  %.sroa.52.2.in = phi i32 [ %373, %378 ], [ %373, %._crit_edge10.i82 ], [ %396, %.thread7.i81 ]
-  %.sroa.29.2 = phi i64 [ %387, %378 ], [ %.sroa.29.0211, %._crit_edge10.i82 ], [ %401, %.thread7.i81 ]
-  %.sroa.10.2 = phi i64 [ %386, %378 ], [ %393, %._crit_edge10.i82 ], [ %.sroa.10.0212, %.thread7.i81 ]
-  %402 = icmp sgt i32 %.sroa.52.2.in, -1
-  br i1 %402, label %.lr.ph, label %._crit_edge
+_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEEKNS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EEEENS0_13IteratorBasedESQ_ddE13InnerIteratorppEv.exit83: ; preds = %374, %._crit_edge10.i82, %.thread7.i81
+  %.sroa.43.2 = phi double [ %381, %374 ], [ %388, %._crit_edge10.i82 ], [ %396, %.thread7.i81 ]
+  %.sroa.52.2.in = phi i32 [ %369, %374 ], [ %369, %._crit_edge10.i82 ], [ %392, %.thread7.i81 ]
+  %.sroa.29.2 = phi i64 [ %383, %374 ], [ %.sroa.29.0211, %._crit_edge10.i82 ], [ %397, %.thread7.i81 ]
+  %.sroa.10.2 = phi i64 [ %382, %374 ], [ %389, %._crit_edge10.i82 ], [ %.sroa.10.0212, %.thread7.i81 ]
+  %398 = icmp sgt i32 %.sroa.52.2.in, -1
+  br i1 %398, label %.lr.ph, label %._crit_edge
 
 .loopexit191:                                     ; preds = %349
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1347,43 +1343,43 @@ _ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_
 
 .loopexit:                                        ; preds = %.lr.ph13.i59, %._crit_edge223, %.critedge.i56
   store i8 1, ptr %3, align 8, !tbaa !4
-  %403 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Eigen12SparseMatrixIdLi0EiEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3)
-          to label %404 unwind label %415
+  %399 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Eigen12SparseMatrixIdLi0EiEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3)
+          to label %400 unwind label %411
 
-404:                                              ; preds = %.loopexit
-  %405 = load ptr, ptr %214, align 8, !tbaa !17
-  call void @free(ptr noundef %405) #18
-  %406 = load ptr, ptr %223, align 8, !tbaa !34
-  call void @free(ptr noundef %406) #18
-  %407 = load ptr, ptr %226, align 8, !tbaa !35
-  %408 = icmp eq ptr %407, null
-  br i1 %408, label %410, label %409
+400:                                              ; preds = %.loopexit
+  %401 = load ptr, ptr %214, align 8, !tbaa !17
+  call void @free(ptr noundef %401) #18
+  %402 = load ptr, ptr %223, align 8, !tbaa !34
+  call void @free(ptr noundef %402) #18
+  %403 = load ptr, ptr %226, align 8, !tbaa !35
+  %404 = icmp eq ptr %403, null
+  br i1 %404, label %406, label %405
 
-409:                                              ; preds = %404
-  call void @_ZdaPv(ptr noundef nonnull %407) #20
-  br label %410
+405:                                              ; preds = %400
+  call void @_ZdaPv(ptr noundef nonnull %403) #20
+  br label %406
 
-410:                                              ; preds = %409, %404
-  %411 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %412 = load ptr, ptr %411, align 8, !tbaa !36
-  %413 = icmp eq ptr %412, null
-  br i1 %413, label %_ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit, label %414
+406:                                              ; preds = %405, %400
+  %407 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %408 = load ptr, ptr %407, align 8, !tbaa !36
+  %409 = icmp eq ptr %408, null
+  br i1 %409, label %_ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit, label %410
 
-414:                                              ; preds = %410
-  call void @_ZdaPv(ptr noundef nonnull %412) #20
+410:                                              ; preds = %406
+  call void @_ZdaPv(ptr noundef nonnull %408) #20
   br label %_ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit
 
-_ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit:         ; preds = %410, %414
+_ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit:         ; preds = %406, %410
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5Eigen12SparseMatrixIdLi0EiE8finalizeEv.exit
 
-415:                                              ; preds = %.loopexit
-  %416 = landingpad { ptr, i32 }
+411:                                              ; preds = %.loopexit
+  %412 = landingpad { ptr, i32 }
           cleanup
   br label %.body103
 
-.body103:                                         ; preds = %.loopexit191, %.loopexit.split-lp, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit9.i.i106, %261, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit9.i.i90, %415
-  %.pn.pn = phi { ptr, i32 } [ %416, %415 ], [ %262, %261 ], [ %238, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit9.i.i90 ], [ %359, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit9.i.i106 ], [ %lpad.loopexit, %.loopexit191 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body103:                                         ; preds = %.loopexit191, %.loopexit.split-lp, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit9.i.i106, %261, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit9.i.i90, %411
+  %.pn.pn = phi { ptr, i32 } [ %412, %411 ], [ %262, %261 ], [ %238, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit9.i.i90 ], [ %355, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit9.i.i106 ], [ %lpad.loopexit, %.loopexit191 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN5Eigen12SparseMatrixIdLi0EiED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   br label %.body
 

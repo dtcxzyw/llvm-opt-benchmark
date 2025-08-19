@@ -1424,27 +1424,27 @@ _setup_selected_images_list.exit:                 ; preds = %68, %50
   %161 = getelementptr inbounds nuw i8, ptr %.08899.i, i64 8
   %162 = load ptr, ptr %161, align 8, !tbaa !117
   %.not93.i = icmp eq ptr %162, null
-  %.val109.i = load ptr, ptr %5, align 8, !tbaa !6
-  %163 = getelementptr inbounds nuw i8, ptr %.val109.i, i64 224
-  %.0231.i110.i = load ptr, ptr %163, align 8, !tbaa !74
-  %.not2.i111.i = icmp eq ptr %.0231.i110.i, null
+  %.val112.i = load ptr, ptr %5, align 8, !tbaa !6
+  %163 = getelementptr inbounds nuw i8, ptr %.val112.i, i64 224
+  %.0231.i113.i = load ptr, ptr %163, align 8, !tbaa !74
+  %.not2.i114.i = icmp eq ptr %.0231.i113.i, null
   br i1 %.not93.i, label %.thread.i, label %164
 
 164:                                              ; preds = %149
-  br i1 %.not2.i111.i, label %_count_images_per_track.exit.i, label %.lr.ph.i.i
+  br i1 %.not2.i114.i, label %_count_images_per_track.exit.i, label %.lr.ph.i.i
 
 .thread.i:                                        ; preds = %149
-  br i1 %.not2.i111.i, label %_count_images_per_track.exit.i, label %.lr.ph.i.thread.i
+  br i1 %.not2.i114.i, label %_count_images_per_track.exit.i, label %.lr.ph.i.thread.i
 
 .lr.ph.i.thread.i:                                ; preds = %.thread.i
-  %165 = getelementptr inbounds nuw i8, ptr %.val109.i, i64 296
-  %166 = getelementptr inbounds nuw i8, ptr %.val109.i, i64 208
+  %165 = getelementptr inbounds nuw i8, ptr %.val112.i, i64 296
+  %166 = getelementptr inbounds nuw i8, ptr %.val112.i, i64 208
   br label %.lr.ph.split.us.i.preheader.i
 
 .lr.ph.i.i:                                       ; preds = %164
   %167 = load ptr, ptr %162, align 8, !tbaa !78
-  %168 = getelementptr inbounds nuw i8, ptr %.val109.i, i64 296
-  %169 = getelementptr inbounds nuw i8, ptr %.val109.i, i64 208
+  %168 = getelementptr inbounds nuw i8, ptr %.val112.i, i64 296
+  %169 = getelementptr inbounds nuw i8, ptr %.val112.i, i64 208
   %.not25.i.i = icmp eq ptr %167, null
   %170 = getelementptr inbounds nuw i8, ptr %167, i64 8
   br i1 %.not25.i.i, label %.lr.ph.split.us.i.preheader.i, label %.lr.ph.split.i.i
@@ -1455,7 +1455,7 @@ _setup_selected_images_list.exit:                 ; preds = %68, %50
   br label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %196, %.lr.ph.split.us.i.preheader.i
-  %.0234.us.i.i = phi ptr [ %.023.us.i.i, %196 ], [ %.0231.i110.i, %.lr.ph.split.us.i.preheader.i ]
+  %.0234.us.i.i = phi ptr [ %.023.us.i.i, %196 ], [ %.0231.i113.i, %.lr.ph.split.us.i.preheader.i ]
   %.03.us.i.i = phi i32 [ %.1.us.i.i, %196 ], [ 0, %.lr.ph.split.us.i.preheader.i ]
   %173 = load ptr, ptr %.0234.us.i.i, align 8, !tbaa !78
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 4
@@ -1503,7 +1503,7 @@ _setup_selected_images_list.exit:                 ; preds = %68, %50
   br i1 %.not.us.i.i, label %_count_images_per_track.exit.i, label %.lr.ph.split.us.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %229
-  %.0234.i.i = phi ptr [ %.023.i.i, %229 ], [ %.0231.i110.i, %.lr.ph.i.i ]
+  %.0234.i.i = phi ptr [ %.023.i.i, %229 ], [ %.0231.i113.i, %.lr.ph.i.i ]
   %.03.i.i = phi i32 [ %.1.i.i, %229 ], [ 0, %.lr.ph.i.i ]
   %198 = load ptr, ptr %.0234.i.i, align 8, !tbaa !78
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 4
@@ -2087,20 +2087,20 @@ define internal range(i32 0, 2) i32 @_datetime_scroll_over(ptr noundef readnone 
 14:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.split.loop.exit42, label %.preheader
+  br i1 %exitcond.not, label %.split.loop.exit44, label %.preheader
 
 .split.loop.exit:                                 ; preds = %.preheader
   %15 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit42
+  br label %.split.loop.exit44
 
-.split.loop.exit42:                               ; preds = %14, %.split.loop.exit
+.split.loop.exit44:                               ; preds = %14, %.split.loop.exit
   %.029.lcssa = phi i32 [ %15, %.split.loop.exit ], [ 7, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = call i32 @dt_gui_get_scroll_unit_delta(ptr noundef %1, ptr noundef nonnull %4) #16
   %.not33 = icmp eq i32 %16, 0
   br i1 %.not33, label %21, label %17
 
-17:                                               ; preds = %.split.loop.exit42
+17:                                               ; preds = %.split.loop.exit44
   %18 = load i32, ptr %4, align 4, !tbaa !123
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %21, label %20
@@ -2110,8 +2110,8 @@ define internal range(i32 0, 2) i32 @_datetime_scroll_over(ptr noundef readnone 
   %spec.select = sext i1 %.not34 to i32
   br label %21
 
-21:                                               ; preds = %20, %17, %.split.loop.exit42
-  %.028 = phi i32 [ 0, %.split.loop.exit42 ], [ 1, %17 ], [ %spec.select, %20 ]
+21:                                               ; preds = %20, %17, %.split.loop.exit44
+  %.028 = phi i32 [ 0, %.split.loop.exit44 ], [ 1, %17 ], [ %spec.select, %20 ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load i32, ptr %22, align 8, !tbaa !124
   %24 = call i32 @gtk_accelerator_get_default_mod_mask() #16
@@ -2885,16 +2885,16 @@ _new_datetime.exit30:                             ; preds = %51, %56
   br label %_new_datetime.exit.sink.split
 
 _new_datetime.exit.sink.split:                    ; preds = %_new_datetime.exit30, %46
-  %.sink38 = phi ptr [ %53, %_new_datetime.exit30 ], [ %41, %46 ]
+  %.sink44 = phi ptr [ %53, %_new_datetime.exit30 ], [ %41, %46 ]
   %.0.i.sink = phi ptr [ %.0.i, %_new_datetime.exit30 ], [ %40, %46 ]
-  %.sink33.in = phi ptr [ %54, %_new_datetime.exit30 ], [ %43, %46 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.sink38, i64 200
+  %.sink39.in = phi ptr [ %54, %_new_datetime.exit30 ], [ %43, %46 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.sink44, i64 200
   %58 = load ptr, ptr %57, align 8, !tbaa !81
   %59 = call i64 @g_date_time_difference(ptr noundef nonnull %.0.i.sink, ptr noundef %58) #16
-  %60 = getelementptr inbounds nuw i8, ptr %.sink38, i64 208
+  %60 = getelementptr inbounds nuw i8, ptr %.sink44, i64 208
   store i64 %59, ptr %60, align 8, !tbaa !83
-  %.sink33 = load ptr, ptr %.sink33.in, align 8, !tbaa !82
-  %61 = icmp ne ptr %.sink33, null
+  %.sink39 = load ptr, ptr %.sink39.in, align 8, !tbaa !82
+  %61 = icmp ne ptr %.sink39, null
   %62 = zext i1 %61 to i32
   %.val.i = load ptr, ptr %3, align 8, !tbaa !6
   call fastcc void @_display_offset(i64 noundef %59, i32 noundef %62, ptr %.val.i)

@@ -3371,12 +3371,12 @@ while.body.i6.i.i15.i.i.i842:                     ; preds = %land.rhs.i4.i.i12.i
 _ZNK4llvh15SmallPtrSetImplIPKN6hermes10BasicBlockEE5countES4_.exit862: ; preds = %land.rhs.i4.i.i12.i.i.i836
   %.not1303 = icmp eq ptr %retval.sroa.0.3.i.i.i837, %cond.i9.i.i.i834.fr
   %spec.select = select i1 %.not1303, i32 %232, i32 %maxDiscovery.01360
-  %spec.select1495 = select i1 %.not1303, ptr %194, ptr %innerHeader.01361
+  %spec.select1580 = select i1 %.not1303, ptr %194, ptr %innerHeader.01361
   br label %for.inc140
 
 for.inc140:                                       ; preds = %while.body.i6.i.i15.i.i.i842, %_ZNK4llvh15SmallPtrSetImplIPKN6hermes10BasicBlockEE5countES4_.exit862, %_ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i828, %_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_EixERKS5_.exit
   %maxDiscovery.1 = phi i32 [ %maxDiscovery.01360, %_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_EixERKS5_.exit ], [ %232, %_ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i828 ], [ %spec.select, %_ZNK4llvh15SmallPtrSetImplIPKN6hermes10BasicBlockEE5countES4_.exit862 ], [ %232, %while.body.i6.i.i15.i.i.i842 ]
-  %innerHeader.1 = phi ptr [ %innerHeader.01361, %_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_EixERKS5_.exit ], [ %194, %_ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i828 ], [ %spec.select1495, %_ZNK4llvh15SmallPtrSetImplIPKN6hermes10BasicBlockEE5countES4_.exit862 ], [ %194, %while.body.i6.i.i15.i.i.i842 ]
+  %innerHeader.1 = phi ptr [ %innerHeader.01361, %_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_EixERKS5_.exit ], [ %194, %_ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i828 ], [ %spec.select1580, %_ZNK4llvh15SmallPtrSetImplIPKN6hermes10BasicBlockEE5countES4_.exit862 ], [ %194, %while.body.i6.i.i15.i.i.i842 ]
   %incdec.ptr3.i864 = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.01359, i64 8
   %cmp.not2.i3.i866 = icmp eq ptr %incdec.ptr3.i864, %cond.i9.i8.i748
   br i1 %cmp.not2.i3.i866, label %_ZN4llvh19SmallPtrSetIteratorIPN6hermes10BasicBlockEEppEv.exit873, label %land.rhs.i4.i867

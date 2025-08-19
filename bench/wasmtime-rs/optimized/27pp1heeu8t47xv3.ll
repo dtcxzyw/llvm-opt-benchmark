@@ -365,7 +365,7 @@ define void @"_ZN4witx3abi18Generator$LT$B$GT$4lift17h13acabfb82f65fe3E"(ptr ali
   %26 = load ptr, ptr %25, align 8, !nonnull !3, !noundef !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i8, ptr %27, align 8, !range !6, !noundef !3
-  switch i8 %28, label %default.unreachable20 [
+  switch i8 %28, label %default.unreachable23 [
     i8 0, label %29
     i8 1, label %32
     i8 2, label %35
@@ -375,7 +375,7 @@ define void @"_ZN4witx3abi18Generator$LT$B$GT$4lift17h13acabfb82f65fe3E"(ptr ali
     i8 6, label %47
   ]
 
-default.unreachable20:                            ; preds = %47, %3
+default.unreachable23:                            ; preds = %47, %3
   unreachable
 
 29:                                               ; preds = %3
@@ -420,7 +420,7 @@ default.unreachable20:                            ; preds = %47, %3
 47:                                               ; preds = %3
   %48 = getelementptr inbounds nuw i8, ptr %26, i64 17
   %49 = load i8, ptr %48, align 1, !range !8, !noundef !3
-  switch i8 %49, label %default.unreachable20 [
+  switch i8 %49, label %default.unreachable23 [
     i8 0, label %175
     i8 1, label %176
     i8 2, label %180
@@ -827,7 +827,7 @@ define void @"_ZN4witx3abi18Generator$LT$B$GT$5lower17he47749bbf1e3a209E"(ptr al
   %20 = load ptr, ptr %19, align 8, !nonnull !3, !noundef !3
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i8, ptr %21, align 8, !range !6, !noundef !3
-  switch i8 %22, label %default.unreachable32 [
+  switch i8 %22, label %default.unreachable36 [
     i8 0, label %23
     i8 1, label %26
     i8 2, label %29
@@ -837,7 +837,7 @@ define void @"_ZN4witx3abi18Generator$LT$B$GT$5lower17he47749bbf1e3a209E"(ptr al
     i8 6, label %35
   ]
 
-default.unreachable32:                            ; preds = %35, %3
+default.unreachable36:                            ; preds = %35, %3
   unreachable
 
 23:                                               ; preds = %3
@@ -870,7 +870,7 @@ default.unreachable32:                            ; preds = %35, %3
 35:                                               ; preds = %3
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 17
   %37 = load i8, ptr %36, align 1, !range !8, !noundef !3
-  switch i8 %37, label %default.unreachable32 [
+  switch i8 %37, label %default.unreachable36 [
     i8 0, label %147
     i8 1, label %148
     i8 2, label %152

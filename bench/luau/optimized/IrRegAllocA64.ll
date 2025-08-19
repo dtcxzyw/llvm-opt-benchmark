@@ -824,7 +824,8 @@ define dso_local noundef range(i64 -1152921504606846976, 1152921504606846976) i6
   br i1 %40, label %.preheader, label %.loopexit
 
 41:                                               ; preds = %.loopexit163, %.loopexit162
-  %.080.idx171 = phi i64 [ 0, %.loopexit163 ], [ %.080.add, %.loopexit162 ]
+  %.not88 = phi i1 [ false, %.loopexit163 ], [ true, %.loopexit162 ]
+  %.080.idx171 = phi i64 [ 0, %.loopexit163 ], [ 1, %.loopexit162 ]
   %.080.ptr = getelementptr inbounds nuw i8, ptr @_ZZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EEE4sets, i64 %.080.idx171
   %42 = load i8, ptr %.080.ptr, align 1, !tbaa !58
   %.off.i96 = add i8 %42, -1
@@ -1161,8 +1162,6 @@ _ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.ex
   br i1 %.not91, label %.loopexit162, label %54, !llvm.loop !88
 
 .loopexit162:                                     ; preds = %190, %47, %41
-  %.080.add = add nuw nsw i64 %.080.idx171, 1
-  %.not88 = icmp eq i64 %.080.add, 2
   br i1 %.not88, label %38, label %41
 
 .preheader:                                       ; preds = %38, %209
@@ -1532,7 +1531,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN4Luau7CodeGen3A6413IrRegAllocA645SpillEmS4_ET_S6_T0_RSaIT1_E.exit, label %23
 

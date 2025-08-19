@@ -577,8 +577,8 @@ define internal fastcc void @_lib_masks_list_recurs(ptr noundef %0, ptr noundef 
   br i1 %.not105, label %33, label %.sink.split
 
 .sink.split:                                      ; preds = %29, %27, %25, %23, %18
-  %.sink130 = phi i64 [ 224, %18 ], [ 232, %23 ], [ 240, %25 ], [ 248, %27 ], [ 256, %29 ]
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink130
+  %.sink132 = phi i64 [ 224, %18 ], [ 232, %23 ], [ 240, %25 ], [ 248, %27 ], [ 256, %29 ]
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink132
   %32 = load ptr, ptr %31, align 8, !tbaa !99
   br label %33
 
@@ -2397,7 +2397,7 @@ define internal range(i32 0, 2) i32 @_tree_button_pressed(ptr noundef %0, ptr no
 
 .thread:                                          ; preds = %52
   %105 = icmp eq i32 %56, 0
-  br i1 %105, label %110, label %.thread381
+  br i1 %105, label %110, label %.thread390
 
 106:                                              ; preds = %103
   %107 = getelementptr inbounds nuw i8, ptr %.1217, i64 8
@@ -2408,11 +2408,11 @@ define internal range(i32 0, 2) i32 @_tree_button_pressed(ptr noundef %0, ptr no
 
 110:                                              ; preds = %.thread, %106
   %111 = phi i1 [ true, %.thread ], [ %104, %106 ]
-  %.0197331 = phi i32 [ 1, %.thread ], [ %.1, %106 ]
-  %.0202327 = phi i32 [ 1, %.thread ], [ %.1203, %106 ]
-  %.0205323 = phi i32 [ 0, %.thread ], [ %.2207, %106 ]
-  %.0214319 = phi i32 [ 0, %.thread ], [ %61, %106 ]
-  %.0216314 = phi ptr [ null, %.thread ], [ %.1217, %106 ]
+  %.0197340 = phi i32 [ 1, %.thread ], [ %.1, %106 ]
+  %.0202336 = phi i32 [ 1, %.thread ], [ %.1203, %106 ]
+  %.0205332 = phi i32 [ 0, %.thread ], [ %.2207, %106 ]
+  %.0214328 = phi i32 [ 0, %.thread ], [ %61, %106 ]
+  %.0216323 = phi ptr [ null, %.thread ], [ %.1217, %106 ]
   %112 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #12
   %113 = call ptr @gtk_menu_item_new_with_label(ptr noundef %112) #12
   %114 = call i64 @g_signal_connect_data(ptr noundef %113, ptr noundef nonnull @.str.40, ptr noundef nonnull @_tree_add_shape, ptr noundef nonnull inttoptr (i64 64 to ptr), ptr noundef null, i32 noundef 0) #12
@@ -2433,11 +2433,11 @@ define internal range(i32 0, 2) i32 @_tree_button_pressed(ptr noundef %0, ptr no
   %125 = call ptr @gtk_menu_item_new_with_label(ptr noundef %124) #12
   %126 = call i64 @g_signal_connect_data(ptr noundef %125, ptr noundef nonnull @.str.40, ptr noundef nonnull @_tree_add_shape, ptr noundef nonnull inttoptr (i64 16 to ptr), ptr noundef null, i32 noundef 0) #12
   call void @gtk_menu_shell_append(ptr noundef %55, ptr noundef %125) #12
-  %.not237 = icmp eq ptr %.0216314, null
+  %.not237 = icmp eq ptr %.0216323, null
   br i1 %.not237, label %.thread268.thread, label %.thread268
 
 .thread268:                                       ; preds = %110
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0216314, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0216323, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !90
   %.pre307 = and i32 %.pre, 4
   %127 = icmp eq i32 %.pre307, 0
@@ -2481,7 +2481,7 @@ define internal range(i32 0, 2) i32 @_tree_button_pressed(ptr noundef %0, ptr no
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 2056
   %.0198293 = load ptr, ptr %146, align 8, !tbaa !89
   %.not247294 = icmp eq ptr %.0198293, null
-  br i1 %.not247294, label %.thread349, label %.lr.ph297
+  br i1 %.not247294, label %.thread358, label %.lr.ph297
 
 ._crit_edge:                                      ; preds = %.loopexit
   %.not248 = icmp eq i32 %.1200, -1
@@ -2559,13 +2559,13 @@ define internal range(i32 0, 2) i32 @_tree_button_pressed(ptr noundef %0, ptr no
 
 178:                                              ; preds = %._crit_edge
   %179 = icmp sgt i32 %.1200, 0
-  br i1 %179, label %180, label %.thread349
+  br i1 %179, label %180, label %.thread358
 
 180:                                              ; preds = %178
   %181 = call i64 @g_strlcat(ptr noundef nonnull %11, ptr noundef nonnull @.str.42, i64 noundef 10000) #12
-  br label %.thread349
+  br label %.thread358
 
-.thread349:                                       ; preds = %142, %180, %178
+.thread358:                                       ; preds = %142, %180, %178
   %182 = call ptr @gtk_menu_item_new_with_label(ptr noundef nonnull %11) #12
   %183 = call ptr @g_type_check_instance_cast(ptr noundef %182, i64 noundef 80) #12
   %184 = load i32, ptr %138, align 8, !tbaa !101
@@ -2576,13 +2576,13 @@ define internal range(i32 0, 2) i32 @_tree_button_pressed(ptr noundef %0, ptr no
   %188 = load ptr, ptr %6, align 8, !tbaa !20
   call void @g_object_set_data(ptr noundef %187, ptr noundef nonnull @.str.44, ptr noundef %188) #12
   %189 = call ptr @g_type_check_instance_cast(ptr noundef %182, i64 noundef 80) #12
-  %190 = call i64 @g_signal_connect_data(ptr noundef %189, ptr noundef nonnull @.str.40, ptr noundef nonnull @_tree_add_exist, ptr noundef nonnull %.0216314, ptr noundef null, i32 noundef 0) #12
+  %190 = call i64 @g_signal_connect_data(ptr noundef %189, ptr noundef nonnull @.str.40, ptr noundef nonnull @_tree_add_exist, ptr noundef nonnull %.0216323, ptr noundef null, i32 noundef 0) #12
   %191 = call ptr @g_type_check_instance_cast(ptr noundef %129, i64 noundef %54) #12
   call void @gtk_menu_shell_append(ptr noundef %191, ptr noundef %182) #12
   br label %192
 
-192:                                              ; preds = %.thread349, %._crit_edge
-  %.2213 = phi i32 [ 1, %.thread349 ], [ %.0211301, %._crit_edge ]
+192:                                              ; preds = %.thread358, %._crit_edge
+  %.2213 = phi i32 [ 1, %.thread358 ], [ %.0211301, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %193
 
@@ -2604,10 +2604,10 @@ define internal range(i32 0, 2) i32 @_tree_button_pressed(ptr noundef %0, ptr no
 
 .thread268.thread:                                ; preds = %128, %106, %103, %._crit_edge305, %195, %.thread268, %110
   %200 = phi i1 [ %104, %103 ], [ %111, %._crit_edge305 ], [ %111, %195 ], [ %111, %.thread268 ], [ %111, %110 ], [ %104, %106 ], [ %111, %128 ]
-  %.0197329 = phi i32 [ %.1, %103 ], [ %.0197331, %._crit_edge305 ], [ %.0197331, %195 ], [ %.0197331, %.thread268 ], [ %.0197331, %110 ], [ %.1, %106 ], [ %.0197331, %128 ]
-  %.0202325 = phi i32 [ %.1203, %103 ], [ %.0202327, %._crit_edge305 ], [ %.0202327, %195 ], [ %.0202327, %.thread268 ], [ %.0202327, %110 ], [ %.1203, %106 ], [ %.0202327, %128 ]
-  %.0205321 = phi i32 [ %.2207, %103 ], [ %.0205323, %._crit_edge305 ], [ %.0205323, %195 ], [ %.0205323, %.thread268 ], [ %.0205323, %110 ], [ %.2207, %106 ], [ %.0205323, %128 ]
-  %.0214317 = phi i32 [ %61, %103 ], [ %.0214319, %._crit_edge305 ], [ %.0214319, %195 ], [ %.0214319, %.thread268 ], [ %.0214319, %110 ], [ %61, %106 ], [ %.0214319, %128 ]
+  %.0197338 = phi i32 [ %.1, %103 ], [ %.0197340, %._crit_edge305 ], [ %.0197340, %195 ], [ %.0197340, %.thread268 ], [ %.0197340, %110 ], [ %.1, %106 ], [ %.0197340, %128 ]
+  %.0202334 = phi i32 [ %.1203, %103 ], [ %.0202336, %._crit_edge305 ], [ %.0202336, %195 ], [ %.0202336, %.thread268 ], [ %.0202336, %110 ], [ %.1203, %106 ], [ %.0202336, %128 ]
+  %.0205330 = phi i32 [ %.2207, %103 ], [ %.0205332, %._crit_edge305 ], [ %.0205332, %195 ], [ %.0205332, %.thread268 ], [ %.0205332, %110 ], [ %.2207, %106 ], [ %.0205332, %128 ]
+  %.0214326 = phi i32 [ %61, %103 ], [ %.0214328, %._crit_edge305 ], [ %.0214328, %195 ], [ %.0214328, %.thread268 ], [ %.0214328, %110 ], [ %61, %106 ], [ %.0214328, %128 ]
   %or.cond = and i1 %57, %200
   br i1 %or.cond, label %201, label %215
 
@@ -2637,7 +2637,7 @@ define internal range(i32 0, 2) i32 @_tree_button_pressed(ptr noundef %0, ptr no
   br label %.sink.split
 
 215:                                              ; preds = %.thread268.thread
-  %216 = icmp slt i32 %.0214317, 3
+  %216 = icmp slt i32 %.0214326, 3
   %or.cond3 = and i1 %57, %216
   br i1 %or.cond3, label %.sink.split, label %220
 
@@ -2660,11 +2660,11 @@ define internal range(i32 0, 2) i32 @_tree_button_pressed(ptr noundef %0, ptr no
   %223 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.50, i32 noundef 5) #12
   %224 = call ptr @gtk_menu_item_new_with_label(ptr noundef %223) #12
   %225 = call i64 @g_signal_connect_data(ptr noundef %224, ptr noundef nonnull @.str.40, ptr noundef nonnull @_tree_group, ptr noundef %2, ptr noundef null, i32 noundef 0) #12
-  br label %.thread381.sink.split
+  br label %.thread390.sink.split
 
 226:                                              ; preds = %220
-  %or.cond7 = icmp eq i32 %.0214317, 2
-  br i1 %or.cond7, label %227, label %.thread381
+  %or.cond7 = icmp eq i32 %.0214326, 2
+  br i1 %or.cond7, label %227, label %.thread390
 
 227:                                              ; preds = %226
   %228 = call ptr @gtk_separator_menu_item_new() #12
@@ -2672,7 +2672,7 @@ define internal range(i32 0, 2) i32 @_tree_button_pressed(ptr noundef %0, ptr no
   %229 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 5) #12
   %230 = call ptr @gtk_check_menu_item_new_with_label(ptr noundef %229) #12
   call void @gtk_widget_set_sensitive(ptr noundef %230, i32 noundef 1) #12
-  %231 = and i32 %.0205321, 4
+  %231 = and i32 %.0205330, 4
   %.not.i = icmp eq i32 %231, 0
   br i1 %.not.i, label %_add_tree_operation.exit, label %232
 
@@ -2689,8 +2689,8 @@ _add_tree_operation.exit:                         ; preds = %227, %232
   call void @gtk_menu_shell_append(ptr noundef %55, ptr noundef %236) #12
   %237 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.52, i32 noundef 5) #12
   %238 = call ptr @gtk_check_menu_item_new_with_label(ptr noundef %237) #12
-  call void @gtk_widget_set_sensitive(ptr noundef %238, i32 noundef range(i32 0, 2) %.0202325) #12
-  %239 = and i32 %.0205321, 8
+  call void @gtk_widget_set_sensitive(ptr noundef %238, i32 noundef range(i32 0, 2) %.0202334) #12
+  %239 = and i32 %.0205330, 8
   %.not.i258 = icmp eq i32 %239, 0
   br i1 %.not.i258, label %_add_tree_operation.exit259, label %240
 
@@ -2705,8 +2705,8 @@ _add_tree_operation.exit259:                      ; preds = %_add_tree_operation
   call void @gtk_menu_shell_append(ptr noundef %55, ptr noundef %238) #12
   %244 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.53, i32 noundef 5) #12
   %245 = call ptr @gtk_check_menu_item_new_with_label(ptr noundef %244) #12
-  call void @gtk_widget_set_sensitive(ptr noundef %245, i32 noundef range(i32 0, 2) %.0202325) #12
-  %246 = and i32 %.0205321, 16
+  call void @gtk_widget_set_sensitive(ptr noundef %245, i32 noundef range(i32 0, 2) %.0202334) #12
+  %246 = and i32 %.0205330, 16
   %.not.i260 = icmp eq i32 %246, 0
   br i1 %.not.i260, label %_add_tree_operation.exit261, label %247
 
@@ -2721,8 +2721,8 @@ _add_tree_operation.exit261:                      ; preds = %_add_tree_operation
   call void @gtk_menu_shell_append(ptr noundef %55, ptr noundef %245) #12
   %251 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.54, i32 noundef 5) #12
   %252 = call ptr @gtk_check_menu_item_new_with_label(ptr noundef %251) #12
-  call void @gtk_widget_set_sensitive(ptr noundef %252, i32 noundef range(i32 0, 2) %.0202325) #12
-  %253 = and i32 %.0205321, 32
+  call void @gtk_widget_set_sensitive(ptr noundef %252, i32 noundef range(i32 0, 2) %.0202334) #12
+  %253 = and i32 %.0205330, 32
   %.not.i262 = icmp eq i32 %253, 0
   br i1 %.not.i262, label %_add_tree_operation.exit263, label %254
 
@@ -2737,8 +2737,8 @@ _add_tree_operation.exit263:                      ; preds = %_add_tree_operation
   call void @gtk_menu_shell_append(ptr noundef %55, ptr noundef %252) #12
   %258 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.55, i32 noundef 5) #12
   %259 = call ptr @gtk_check_menu_item_new_with_label(ptr noundef %258) #12
-  call void @gtk_widget_set_sensitive(ptr noundef %259, i32 noundef range(i32 0, 2) %.0202325) #12
-  %260 = and i32 %.0205321, 128
+  call void @gtk_widget_set_sensitive(ptr noundef %259, i32 noundef range(i32 0, 2) %.0202334) #12
+  %260 = and i32 %.0205330, 128
   %.not.i264 = icmp eq i32 %260, 0
   br i1 %.not.i264, label %_add_tree_operation.exit265, label %261
 
@@ -2753,8 +2753,8 @@ _add_tree_operation.exit265:                      ; preds = %_add_tree_operation
   call void @gtk_menu_shell_append(ptr noundef %55, ptr noundef %259) #12
   %265 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #12
   %266 = call ptr @gtk_check_menu_item_new_with_label(ptr noundef %265) #12
-  call void @gtk_widget_set_sensitive(ptr noundef %266, i32 noundef range(i32 0, 2) %.0202325) #12
-  %267 = and i32 %.0205321, 64
+  call void @gtk_widget_set_sensitive(ptr noundef %266, i32 noundef range(i32 0, 2) %.0202334) #12
+  %267 = and i32 %.0205330, 64
   %.not.i266 = icmp eq i32 %267, 0
   br i1 %.not.i266, label %_add_tree_operation.exit267, label %268
 
@@ -2771,21 +2771,21 @@ _add_tree_operation.exit267:                      ; preds = %_add_tree_operation
   call void @gtk_menu_shell_append(ptr noundef %55, ptr noundef %272) #12
   %273 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.57, i32 noundef 5) #12
   %274 = call ptr @gtk_menu_item_new_with_label(ptr noundef %273) #12
-  call void @gtk_widget_set_sensitive(ptr noundef %274, i32 noundef %.0197329) #12
+  call void @gtk_widget_set_sensitive(ptr noundef %274, i32 noundef %.0197338) #12
   %275 = call i64 @g_signal_connect_data(ptr noundef %274, ptr noundef nonnull @.str.40, ptr noundef nonnull @_tree_moveup, ptr noundef %2, ptr noundef null, i32 noundef 0) #12
   call void @gtk_menu_shell_append(ptr noundef %55, ptr noundef %274) #12
   %276 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.58, i32 noundef 5) #12
   %277 = call ptr @gtk_menu_item_new_with_label(ptr noundef %276) #12
-  call void @gtk_widget_set_sensitive(ptr noundef %277, i32 noundef %.0202325) #12
+  call void @gtk_widget_set_sensitive(ptr noundef %277, i32 noundef %.0202334) #12
   %278 = call i64 @g_signal_connect_data(ptr noundef %277, ptr noundef nonnull @.str.40, ptr noundef nonnull @_tree_movedown, ptr noundef %2, ptr noundef null, i32 noundef 0) #12
-  br label %.thread381.sink.split
+  br label %.thread390.sink.split
 
-.thread381.sink.split:                            ; preds = %_add_tree_operation.exit267, %.thread274
+.thread390.sink.split:                            ; preds = %_add_tree_operation.exit267, %.thread274
   %.sink = phi ptr [ %224, %.thread274 ], [ %277, %_add_tree_operation.exit267 ]
   call void @gtk_menu_shell_append(ptr noundef %55, ptr noundef %.sink) #12
-  br label %.thread381
+  br label %.thread390
 
-.thread381:                                       ; preds = %.thread381.sink.split, %.thread, %226
+.thread390:                                       ; preds = %.thread390.sink.split, %.thread, %226
   %279 = call ptr @gtk_separator_menu_item_new() #12
   call void @gtk_menu_shell_append(ptr noundef %55, ptr noundef %279) #12
   %280 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #12
@@ -2801,8 +2801,8 @@ _add_tree_operation.exit267:                      ; preds = %_add_tree_operation
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %287
 
-287:                                              ; preds = %32, %29, %36, %35, %.thread381
-  %.0 = phi i32 [ 1, %.thread381 ], [ 0, %35 ], [ 0, %36 ], [ 0, %29 ], [ 0, %32 ]
+287:                                              ; preds = %32, %29, %36, %35, %.thread390
+  %.0 = phi i32 [ 1, %.thread390 ], [ 0, %35 ], [ 0, %36 ], [ 0, %29 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3632,8 +3632,8 @@ define internal fastcc void @_set_iter_name(ptr noundef readonly captures(none) 
   br i1 %.not30, label %31, label %.sink.split
 
 .sink.split:                                      ; preds = %27, %25, %23, %21, %18
-  %.sink32 = phi i64 [ 224, %18 ], [ 232, %21 ], [ 240, %23 ], [ 248, %25 ], [ 256, %27 ]
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink32
+  %.sink34 = phi i64 [ 224, %18 ], [ 232, %21 ], [ 240, %23 ], [ 248, %25 ], [ 256, %27 ]
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink34
   %30 = load ptr, ptr %29, align 8, !tbaa !99
   br label %31
 

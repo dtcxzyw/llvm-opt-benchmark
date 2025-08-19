@@ -1194,7 +1194,7 @@ define dso_local range(i32 -1, 1) i32 @print_file_slurmdb_hierarchical_rec_list(
   %85 = call ptr @list_iterator_create(ptr noundef %84) #12
   %86 = call ptr @list_next(ptr noundef %85) #12
   %.not82.i1517 = icmp eq ptr %86, null
-  br i1 %.not82.i1517, label %.outer._crit_edge.thread33, label %.lr.ph
+  br i1 %.not82.i1517, label %.outer._crit_edge.thread51, label %.lr.ph
 
 .lr.ph:                                           ; preds = %83, %.outer
   %87 = phi ptr [ %96, %.outer ], [ %86, %83 ]
@@ -1228,17 +1228,17 @@ define dso_local range(i32 -1, 1) i32 @print_file_slurmdb_hierarchical_rec_list(
   br i1 %.not82.i15, label %.outer._crit_edge.thread, label %.lr.ph, !llvm.loop !11
 
 .outer._crit_edge:                                ; preds = %94
-  br i1 %.not87.i, label %.outer._crit_edge.thread, label %.outer._crit_edge.thread33
+  br i1 %.not87.i, label %.outer._crit_edge.thread, label %.outer._crit_edge.thread51
 
 .outer._crit_edge.thread:                         ; preds = %.outer, %.outer._crit_edge
   call void @_xstrcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.114) #12
-  br label %.outer._crit_edge.thread33
+  br label %.outer._crit_edge.thread51
 
-.outer._crit_edge.thread33:                       ; preds = %83, %.outer._crit_edge.thread, %.outer._crit_edge
+.outer._crit_edge.thread51:                       ; preds = %83, %.outer._crit_edge.thread, %.outer._crit_edge
   call void @list_iterator_destroy(ptr noundef %85) #12
   br label %97
 
-97:                                               ; preds = %.outer._crit_edge.thread33, %81, %78, %44
+97:                                               ; preds = %.outer._crit_edge.thread51, %81, %78, %44
   %98 = load ptr, ptr %31, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 48
   %100 = load ptr, ptr %99, align 8
@@ -3499,8 +3499,8 @@ _mod_cluster.exit:                                ; preds = %876
   br label %959
 
 959:                                              ; preds = %957, %949
-  %.sink20.i = phi ptr [ %958, %957 ], [ %956, %949 ]
-  %960 = call ptr @xstrdup(ptr noundef %.sink20.i) #12
+  %.sink21.i = phi ptr [ %958, %957 ], [ %956, %949 ]
+  %960 = call ptr @xstrdup(ptr noundef %.sink21.i) #12
   %961 = getelementptr inbounds nuw i8, ptr %951, i64 16
   store ptr %960, ptr %961, align 8
   %962 = getelementptr inbounds nuw i8, ptr %938, i64 376
@@ -3518,8 +3518,8 @@ _mod_cluster.exit:                                ; preds = %876
   br label %_set_acct_up.exit
 
 _set_acct_up.exit:                                ; preds = %959, %964, %966
-  %.sink22.i = phi ptr [ %967, %966 ], [ %963, %959 ], [ %950, %964 ]
-  %968 = call ptr @xstrdup(ptr noundef %.sink22.i) #12
+  %.sink23.i = phi ptr [ %967, %966 ], [ %963, %959 ], [ %950, %964 ]
+  %968 = call ptr @xstrdup(ptr noundef %.sink23.i) #12
   %969 = getelementptr inbounds nuw i8, ptr %951, i64 40
   store ptr %968, ptr %969, align 8
   call void @list_append(ptr noundef %147, ptr noundef nonnull %951) #12
@@ -4038,8 +4038,8 @@ _set_user_up.exit:                                ; preds = %1088, %._crit_edge5
   br label %1222
 
 1222:                                             ; preds = %1210, %1220, %1218, %1216
-  %.sink1477 = phi ptr [ %1221, %1220 ], [ %1219, %1218 ], [ %1217, %1216 ], [ null, %1210 ]
-  call void %1215(ptr noundef nonnull %1211, ptr noundef %.sink1477, i32 noundef 0) #12
+  %.sink1607 = phi ptr [ %1221, %1220 ], [ %1219, %1218 ], [ %1217, %1216 ], [ null, %1210 ]
+  call void %1215(ptr noundef nonnull %1211, ptr noundef %.sink1607, i32 noundef 0) #12
   %1223 = call ptr @list_next(ptr noundef %1203) #12
   %.not664 = icmp eq ptr %1223, null
   br i1 %.not664, label %._crit_edge1027, label %1210, !llvm.loop !27
@@ -4152,8 +4152,8 @@ _set_user_up.exit:                                ; preds = %1088, %._crit_edge5
   br label %1267
 
 1267:                                             ; preds = %1249, %1266, %1265, %1263, %1261, %1259, %1255
-  %.sink1478 = phi ptr [ null, %1266 ], [ %1244, %1265 ], [ %1264, %1263 ], [ %1262, %1261 ], [ %1260, %1259 ], [ %1258, %1255 ], [ %1248, %1249 ]
-  call void %1254(ptr noundef nonnull %1250, ptr noundef %.sink1478, i32 noundef 0) #12
+  %.sink1608 = phi ptr [ null, %1266 ], [ %1244, %1265 ], [ %1264, %1263 ], [ %1262, %1261 ], [ %1260, %1259 ], [ %1258, %1255 ], [ %1248, %1249 ]
+  call void %1254(ptr noundef nonnull %1250, ptr noundef %.sink1608, i32 noundef 0) #12
   %1268 = call ptr @list_next(ptr noundef %1240) #12
   %.not663 = icmp eq ptr %1268, null
   br i1 %.not663, label %._crit_edge1032, label %1249, !llvm.loop !29
@@ -5281,8 +5281,8 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._mod_assoc, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = zext nneg i32 %2 to i64
-  %switch.gep303 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._mod_assoc.16, i64 0, i64 %10
-  %switch.load304 = load ptr, ptr %switch.gep303, align 8
+  %switch.gep350 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._mod_assoc.16, i64 0, i64 %10
+  %switch.load351 = load ptr, ptr %switch.gep350, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load
   %.0200 = load ptr, ptr %11, align 8
   call void @slurmdb_init_assoc_rec(ptr noundef nonnull %4, i1 noundef zeroext false) #12
@@ -5304,7 +5304,7 @@ switch.lookup:
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.184, ptr noundef nonnull %switch.load304, ptr noundef %.0200, ptr noundef %21, ptr noundef %19) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.184, ptr noundef nonnull %switch.load351, ptr noundef %.0200, ptr noundef %21, ptr noundef %19) #12
   br label %22
 
 22:                                               ; preds = %18, %14, %switch.lookup
@@ -5323,7 +5323,7 @@ switch.lookup:
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 288
   store i32 %24, ptr %29, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.186, ptr noundef nonnull %switch.load304, ptr noundef %.0200, i32 noundef %27, i32 noundef %24) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.186, ptr noundef nonnull %switch.load351, ptr noundef %.0200, i32 noundef %27, i32 noundef %24) #12
   br label %30
 
 30:                                               ; preds = %28, %25, %22
@@ -5345,7 +5345,7 @@ switch.lookup:
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %38, ptr %39, align 8
   %40 = load ptr, ptr %34, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.136, ptr noundef nonnull %switch.load304, ptr noundef %.0200, ptr noundef %40, ptr noundef %38) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.136, ptr noundef nonnull %switch.load351, ptr noundef %.0200, ptr noundef %40, ptr noundef %38) #12
   br label %41
 
 41:                                               ; preds = %37, %33, %30
@@ -5367,7 +5367,7 @@ switch.lookup:
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store ptr %49, ptr %50, align 8
   %51 = load ptr, ptr %45, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.137, ptr noundef nonnull %switch.load304, ptr noundef %.0200, ptr noundef %51, ptr noundef %49) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.137, ptr noundef nonnull %switch.load351, ptr noundef %.0200, ptr noundef %51, ptr noundef %49) #12
   br label %52
 
 52:                                               ; preds = %48, %44, %41
@@ -5389,7 +5389,7 @@ switch.lookup:
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr %60, ptr %61, align 8
   %62 = load ptr, ptr %56, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.135, ptr noundef nonnull %switch.load304, ptr noundef %.0200, ptr noundef %62, ptr noundef %60) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.135, ptr noundef nonnull %switch.load351, ptr noundef %.0200, ptr noundef %62, ptr noundef %60) #12
   br label %63
 
 63:                                               ; preds = %59, %55, %52
@@ -5408,7 +5408,7 @@ switch.lookup:
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 %65, ptr %70, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.133, ptr noundef nonnull %switch.load304, ptr noundef %.0200, i32 noundef %68, i32 noundef %65) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.133, ptr noundef nonnull %switch.load351, ptr noundef %.0200, i32 noundef %68, i32 noundef %65) #12
   br label %71
 
 71:                                               ; preds = %69, %66, %63
@@ -5427,7 +5427,7 @@ switch.lookup:
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store i32 %73, ptr %78, align 4
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.132, ptr noundef nonnull %switch.load304, ptr noundef %.0200, i32 noundef %76, i32 noundef %73) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.132, ptr noundef nonnull %switch.load351, ptr noundef %.0200, i32 noundef %76, i32 noundef %73) #12
   br label %79
 
 79:                                               ; preds = %77, %74, %71
@@ -5446,7 +5446,7 @@ switch.lookup:
 85:                                               ; preds = %82
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 %81, ptr %86, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.134, ptr noundef nonnull %switch.load304, ptr noundef %.0200, i32 noundef %84, i32 noundef %81) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.134, ptr noundef nonnull %switch.load351, ptr noundef %.0200, i32 noundef %84, i32 noundef %81) #12
   br label %87
 
 87:                                               ; preds = %85, %82, %79
@@ -5465,7 +5465,7 @@ switch.lookup:
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store i32 %89, ptr %94, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.138, ptr noundef nonnull %switch.load304, ptr noundef %.0200, i32 noundef %92, i32 noundef %89) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.138, ptr noundef nonnull %switch.load351, ptr noundef %.0200, i32 noundef %92, i32 noundef %89) #12
   br label %95
 
 95:                                               ; preds = %93, %90, %87
@@ -5487,7 +5487,7 @@ switch.lookup:
   %104 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store ptr %103, ptr %104, align 8
   %105 = load ptr, ptr %99, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.147, ptr noundef nonnull %switch.load304, ptr noundef %.0200, ptr noundef %105, ptr noundef %103) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.147, ptr noundef nonnull %switch.load351, ptr noundef %.0200, ptr noundef %105, ptr noundef %103) #12
   br label %106
 
 106:                                              ; preds = %102, %98, %95
@@ -5509,7 +5509,7 @@ switch.lookup:
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 192
   store ptr %114, ptr %115, align 8
   %116 = load ptr, ptr %110, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.187, ptr noundef nonnull %switch.load304, ptr noundef %.0200, ptr noundef %116, ptr noundef %114) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.187, ptr noundef nonnull %switch.load351, ptr noundef %.0200, ptr noundef %116, ptr noundef %114) #12
   br label %117
 
 117:                                              ; preds = %113, %109, %106
@@ -5531,7 +5531,7 @@ switch.lookup:
   %126 = getelementptr inbounds nuw i8, ptr %4, i64 208
   store ptr %125, ptr %126, align 8
   %127 = load ptr, ptr %121, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.149, ptr noundef nonnull %switch.load304, ptr noundef %.0200, ptr noundef %127, ptr noundef %125) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.149, ptr noundef nonnull %switch.load351, ptr noundef %.0200, ptr noundef %127, ptr noundef %125) #12
   br label %128
 
 128:                                              ; preds = %124, %120, %117
@@ -5553,7 +5553,7 @@ switch.lookup:
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 224
   store ptr %136, ptr %137, align 8
   %138 = load ptr, ptr %132, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.150, ptr noundef nonnull %switch.load304, ptr noundef %.0200, ptr noundef %138, ptr noundef %136) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.150, ptr noundef nonnull %switch.load351, ptr noundef %.0200, ptr noundef %138, ptr noundef %136) #12
   br label %139
 
 139:                                              ; preds = %135, %131, %128
@@ -5572,7 +5572,7 @@ switch.lookup:
 145:                                              ; preds = %142
   %146 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store i32 %141, ptr %146, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.188, ptr noundef nonnull %switch.load304, ptr noundef %.0200, i32 noundef %144, i32 noundef %141) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.188, ptr noundef nonnull %switch.load351, ptr noundef %.0200, i32 noundef %144, i32 noundef %141) #12
   br label %147
 
 147:                                              ; preds = %145, %142, %139
@@ -5591,7 +5591,7 @@ switch.lookup:
 153:                                              ; preds = %150
   %154 = getelementptr inbounds nuw i8, ptr %4, i64 164
   store i32 %149, ptr %154, align 4
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.189, ptr noundef nonnull %switch.load304, ptr noundef %.0200, i32 noundef %152, i32 noundef %149) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.189, ptr noundef nonnull %switch.load351, ptr noundef %.0200, i32 noundef %152, i32 noundef %149) #12
   br label %155
 
 155:                                              ; preds = %153, %150, %147
@@ -5610,7 +5610,7 @@ switch.lookup:
 161:                                              ; preds = %158
   %162 = getelementptr inbounds nuw i8, ptr %4, i64 168
   store i32 %157, ptr %162, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.190, ptr noundef nonnull %switch.load304, ptr noundef %.0200, i32 noundef %160, i32 noundef %157) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.190, ptr noundef nonnull %switch.load351, ptr noundef %.0200, i32 noundef %160, i32 noundef %157) #12
   br label %163
 
 163:                                              ; preds = %161, %158, %155
@@ -5629,7 +5629,7 @@ switch.lookup:
 169:                                              ; preds = %166
   %170 = getelementptr inbounds nuw i8, ptr %4, i64 240
   store i32 %165, ptr %170, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.154, ptr noundef nonnull %switch.load304, ptr noundef %.0200, i32 noundef %168, i32 noundef %165) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.154, ptr noundef nonnull %switch.load351, ptr noundef %.0200, i32 noundef %168, i32 noundef %165) #12
   br label %171
 
 171:                                              ; preds = %169, %166, %163
@@ -5648,7 +5648,7 @@ switch.lookup:
 177:                                              ; preds = %174
   %178 = getelementptr inbounds nuw i8, ptr %4, i64 244
   store i32 %173, ptr %178, align 4
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.155, ptr noundef nonnull %switch.load304, ptr noundef %.0200, i32 noundef %176, i32 noundef %173) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.155, ptr noundef nonnull %switch.load351, ptr noundef %.0200, i32 noundef %176, i32 noundef %173) #12
   br label %179
 
 179:                                              ; preds = %177, %174, %171
@@ -5669,7 +5669,7 @@ switch.lookup:
   %187 = getelementptr inbounds nuw i8, ptr %4, i64 248
   store ptr %3, ptr %187, align 8
   %188 = load ptr, ptr %180, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.191, ptr noundef nonnull %switch.load304, ptr noundef %.0200, ptr noundef %188, ptr noundef nonnull %3) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.191, ptr noundef nonnull %switch.load351, ptr noundef %.0200, ptr noundef %188, ptr noundef nonnull %3) #12
   br label %189
 
 189:                                              ; preds = %186, %184, %179
@@ -5688,7 +5688,7 @@ switch.lookup:
 195:                                              ; preds = %192
   %196 = getelementptr inbounds nuw i8, ptr %4, i64 272
   store i32 %191, ptr %196, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.160, ptr noundef nonnull %switch.load304, ptr noundef %.0200, i32 noundef %194, i32 noundef %191) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.160, ptr noundef nonnull %switch.load351, ptr noundef %.0200, i32 noundef %194, i32 noundef %191) #12
   br label %197
 
 197:                                              ; preds = %195, %192, %189
@@ -5786,7 +5786,7 @@ thread-pre-split:                                 ; preds = %230
   br i1 %.not286, label %thread-pre-split.thread, label %235
 
 235:                                              ; preds = %thread-pre-split
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.192, ptr noundef nonnull @.str.193, ptr noundef nonnull %switch.load304, ptr noundef %.0200, ptr noundef nonnull %234) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.192, ptr noundef nonnull @.str.193, ptr noundef nonnull %switch.load351, ptr noundef %.0200, ptr noundef nonnull %234) #12
   call void @slurm_xfree(ptr noundef nonnull %7) #12
   br label %237
 
@@ -5829,7 +5829,7 @@ thread-pre-split.thread.thread:                   ; preds = %._crit_edge, %236, 
   br i1 %.not281, label %250, label %247
 
 247:                                              ; preds = %243
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.192, ptr noundef nonnull @.str.193, ptr noundef nonnull %switch.load304, ptr noundef %.0200, ptr noundef nonnull %246) #12
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.192, ptr noundef nonnull @.str.193, ptr noundef nonnull %switch.load351, ptr noundef %.0200, ptr noundef nonnull %246) #12
   call void @slurm_xfree(ptr noundef nonnull %8) #12
   %248 = load ptr, ptr %239, align 8
   %249 = getelementptr inbounds nuw i8, ptr %4, i64 280

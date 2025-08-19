@@ -57,7 +57,8 @@ define noundef i32 @ff_rotate_slice(ptr noundef captures(none) %0, i32 noundef %
   br label %20
 
 20:                                               ; preds = %.preheader, %32
-  %indvars.iv41 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next42, %32 ]
+  %exitcond.not = phi i1 [ false, %.preheader ], [ true, %32 ]
+  %indvars.iv41 = phi i64 [ 1, %.preheader ], [ 2, %32 ]
   %21 = getelementptr inbounds nuw [4 x %struct.SwsPlane], ptr %19, i64 0, i64 %indvars.iv41
   %22 = load i32, ptr %21, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -77,8 +78,6 @@ define noundef i32 @ff_rotate_slice(ptr noundef captures(none) %0, i32 noundef %
   br label %32
 
 32:                                               ; preds = %27, %20
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next42, 3
   br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !16
 
 .loopexit:                                        ; preds = %32, %.loopexit37
@@ -122,10 +121,10 @@ define noundef i32 @ff_init_slice_from_src(ptr noundef captures(none) initialize
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv95
   %26 = load i32, ptr %25, align 4, !tbaa !17
-  %.100 = select i1 %.not80, i32 %26, i32 0
+  %.105 = select i1 %.not80, i32 %26, i32 0
   %27 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv95
   %28 = load i32, ptr %27, align 4, !tbaa !17
-  %29 = mul nsw i32 %28, %.100
+  %29 = mul nsw i32 %28, %.105
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %23, i64 %30
   %32 = getelementptr inbounds nuw [4 x %struct.SwsPlane], ptr %20, i64 0, i64 %indvars.iv95
@@ -1074,9 +1073,9 @@ define internal fastcc range(i32 -12, 1) i32 @alloc_lines(ptr noundef captures(n
   %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   store ptr %26, ptr %28, align 8, !tbaa !20
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %.preheader60, label %53
+  br i1 %.not, label %.preheader62, label %53
 
-.preheader60:                                     ; preds = %25, %._crit_edge.i
+.preheader62:                                     ; preds = %25, %._crit_edge.i
   %29 = phi i1 [ false, %._crit_edge.i ], [ true, %25 ]
   %indvars.iv29.i = phi i64 [ 1, %._crit_edge.i ], [ 0, %25 ]
   %30 = getelementptr inbounds nuw [4 x %struct.SwsPlane], ptr %5, i64 0, i64 %indvars.iv29.i
@@ -1084,7 +1083,7 @@ define internal fastcc range(i32 -12, 1) i32 @alloc_lines(ptr noundef captures(n
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.preheader60
+.lr.ph.i:                                         ; preds = %.preheader62
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %34 = zext nneg i32 %31 to i64
   br label %35
@@ -1110,8 +1109,8 @@ define internal fastcc range(i32 -12, 1) i32 @alloc_lines(ptr noundef captures(n
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %34
   br i1 %exitcond.not.i, label %._crit_edge.i, label %35, !llvm.loop !106
 
-._crit_edge.i:                                    ; preds = %43, %.preheader60
-  br i1 %29, label %.preheader60, label %.preheader.i, !llvm.loop !107
+._crit_edge.i:                                    ; preds = %43, %.preheader62
+  br i1 %29, label %.preheader62, label %.preheader.i, !llvm.loop !107
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.preheader.i
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %.preheader.i ], [ 0, %._crit_edge.i ]

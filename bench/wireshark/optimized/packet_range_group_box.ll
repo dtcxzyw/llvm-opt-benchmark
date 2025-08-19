@@ -2806,8 +2806,8 @@ _ZN7QStringD2Ev.exit196:                          ; preds = %271, %_ZN17QArrayDa
   br label %293
 
 293:                                              ; preds = %286, %289, %285
-  %.sink608 = phi i1 [ %68, %285 ], [ false, %289 ], [ false, %286 ]
-  %.sink604 = phi i1 [ %.090, %285 ], [ false, %289 ], [ false, %286 ]
+  %.sink677 = phi i1 [ %68, %285 ], [ false, %289 ], [ false, %286 ]
+  %.sink673 = phi i1 [ %.090, %285 ], [ false, %289 ], [ false, %286 ]
   %294 = load ptr, ptr %44, align 8
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 32
   %296 = load ptr, ptr %295, align 8
@@ -2815,11 +2815,11 @@ _ZN7QStringD2Ev.exit196:                          ; preds = %271, %_ZN17QArrayDa
   %297 = load ptr, ptr %44, align 8
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 144
   %299 = load ptr, ptr %298, align 8
-  call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %299, i1 noundef zeroext %.sink608)
+  call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %299, i1 noundef zeroext %.sink677)
   %300 = load ptr, ptr %44, align 8
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 72
   %302 = load ptr, ptr %301, align 8
-  call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %302, i1 noundef zeroext %.sink604)
+  call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %302, i1 noundef zeroext %.sink673)
   %303 = load ptr, ptr %49, align 8
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 6
   %305 = load i8, ptr %304, align 2, !range !6, !noundef !7
@@ -3080,8 +3080,8 @@ _ZN17QArrayDataPointerIDsED2Ev.exit246:           ; preds = %388, %_ZN17QArrayDa
   br label %397
 
 397:                                              ; preds = %390, %393, %_ZN17QArrayDataPointerIDsED2Ev.exit234
-  %.sink621 = phi i1 [ %68, %_ZN17QArrayDataPointerIDsED2Ev.exit234 ], [ false, %393 ], [ false, %390 ]
-  %.sink617 = phi i1 [ %.090, %_ZN17QArrayDataPointerIDsED2Ev.exit234 ], [ false, %393 ], [ false, %390 ]
+  %.sink690 = phi i1 [ %68, %_ZN17QArrayDataPointerIDsED2Ev.exit234 ], [ false, %393 ], [ false, %390 ]
+  %.sink686 = phi i1 [ %.090, %_ZN17QArrayDataPointerIDsED2Ev.exit234 ], [ false, %393 ], [ false, %390 ]
   %398 = load ptr, ptr %44, align 8
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 80
   %400 = load ptr, ptr %399, align 8
@@ -3089,11 +3089,11 @@ _ZN17QArrayDataPointerIDsED2Ev.exit246:           ; preds = %388, %_ZN17QArrayDa
   %401 = load ptr, ptr %44, align 8
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 104
   %403 = load ptr, ptr %402, align 8
-  call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %403, i1 noundef zeroext %.sink621)
+  call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %403, i1 noundef zeroext %.sink690)
   %404 = load ptr, ptr %44, align 8
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 168
   %406 = load ptr, ptr %405, align 8
-  call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %406, i1 noundef zeroext %.sink617)
+  call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %406, i1 noundef zeroext %.sink686)
   %407 = load ptr, ptr %49, align 8
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 6
   %409 = load i8, ptr %408, align 2, !range !6, !noundef !7
@@ -3910,8 +3910,8 @@ _ZN7QStringD2Ev.exit393:                          ; preds = %683, %_ZN17QArrayDa
   unreachable
 
 690:                                              ; preds = %_ZN7QStringD2Ev.exit385, %_ZN7QStringD2Ev.exit369, %_ZN17QArrayDataPointerIDsED2Ev.exit349
-  %.sink628 = phi i32 [ 2, %_ZN7QStringD2Ev.exit385 ], [ 2, %_ZN7QStringD2Ev.exit369 ], [ 0, %_ZN17QArrayDataPointerIDsED2Ev.exit349 ]
-  store i32 %.sink628, ptr %42, align 8
+  %.sink697 = phi i32 [ 2, %_ZN7QStringD2Ev.exit385 ], [ 2, %_ZN7QStringD2Ev.exit369 ], [ 0, %_ZN17QArrayDataPointerIDsED2Ev.exit349 ]
+  store i32 %.sink697, ptr %42, align 8
   %691 = load ptr, ptr %49, align 8
   %692 = load i32, ptr %691, align 8
   %693 = icmp ult i32 %692, 5
@@ -3926,15 +3926,15 @@ switch.lookup:                                    ; preds = %690
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN19PacketRangeGroupBox12updateCountsEv, i64 0, i64 %695
   %switch.load = load i64, ptr %switch.gep, align 8
   %696 = zext nneg i32 %692 to i64
-  %switch.gep657 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN19PacketRangeGroupBox12updateCountsEv.1, i64 0, i64 %696
-  %switch.load658 = load i64, ptr %switch.gep657, align 8
+  %switch.gep726 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN19PacketRangeGroupBox12updateCountsEv.1, i64 0, i64 %696
+  %switch.load727 = load i64, ptr %switch.gep726, align 8
   %697 = getelementptr inbounds nuw i8, ptr %691, i64 %switch.load
-  %698 = getelementptr inbounds nuw i8, ptr %691, i64 %switch.load658
+  %698 = getelementptr inbounds nuw i8, ptr %691, i64 %switch.load727
   %.084 = load i32, ptr %698, align 4
   %.085 = load i32, ptr %697, align 4
   %.084..085 = select i1 %.090, i32 %.084, i32 %.085
   %.288.in.not = icmp ne i32 %.084..085, 0
-  %.653 = and i1 %.288.in.not, %68
+  %.722 = and i1 %.288.in.not, %68
   %..090 = and i1 %.288.in.not, %.090
   %699 = load ptr, ptr %44, align 8
   %700 = getelementptr inbounds nuw i8, ptr %699, i64 56
@@ -3943,7 +3943,7 @@ switch.lookup:                                    ; preds = %690
   %702 = load ptr, ptr %44, align 8
   %703 = getelementptr inbounds nuw i8, ptr %702, i64 176
   %704 = load ptr, ptr %703, align 8
-  call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %704, i1 noundef zeroext %.653)
+  call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %704, i1 noundef zeroext %.722)
   %705 = load ptr, ptr %44, align 8
   %706 = getelementptr inbounds nuw i8, ptr %705, i64 184
   %707 = load ptr, ptr %706, align 8
@@ -4216,17 +4216,17 @@ _ZN17QArrayDataPointerIDsED2Ev.exit443:           ; preds = %762, %_ZN17QArrayDa
   %817 = load ptr, ptr %44, align 8
   %818 = getelementptr inbounds nuw i8, ptr %817, i64 64
   %819 = load ptr, ptr %818, align 8
-  %.655 = and i1 %.389.in.not, %68
-  %..090656 = and i1 %.389.in.not, %.090
+  %.724 = and i1 %.389.in.not, %68
+  %..090725 = and i1 %.389.in.not, %.090
   call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %819, i1 noundef zeroext %.389.in.not)
   %820 = load ptr, ptr %44, align 8
   %821 = getelementptr inbounds nuw i8, ptr %820, i64 192
   %822 = load ptr, ptr %821, align 8
-  call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %822, i1 noundef zeroext %.655)
+  call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %822, i1 noundef zeroext %.724)
   %823 = load ptr, ptr %44, align 8
   %824 = getelementptr inbounds nuw i8, ptr %823, i64 200
   %825 = load ptr, ptr %824, align 8
-  call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %825, i1 noundef zeroext %..090656)
+  call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %825, i1 noundef zeroext %..090725)
   %826 = load ptr, ptr %44, align 8
   %827 = getelementptr inbounds nuw i8, ptr %826, i64 192
   %828 = load ptr, ptr %827, align 8

@@ -651,9 +651,9 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   store i64 1, ptr %4, align 8, !alias.scope !154, !noalias !161
   %36 = icmp eq i64 %34, 0
   tail call void @llvm.assume(i1 %36)
-  %.sroa.029.0.copyload3081 = load ptr, ptr %35, align 8, !alias.scope !163
-  %37 = icmp eq ptr %.sroa.029.0.copyload3081, null
-  br i1 %37, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6a7d07a713ae502E.exit11.thread", label %.lr.ph83
+  %.sroa.029.0.copyload3094 = load ptr, ptr %35, align 8, !alias.scope !163
+  %37 = icmp eq ptr %.sroa.029.0.copyload3094, null
+  br i1 %37, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6a7d07a713ae502E.exit11.thread", label %.lr.ph96
 
 .body14:                                          ; preds = %61
   invoke void @"_ZN4core3ptr91drop_in_place$LT$core..array..iter..IntoIter$LT$gpui..element..AnyElement$C$1_usize$GT$$GT$17hbe3d4d198c345535E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #21
@@ -666,7 +666,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   tail call void @llvm.assume(i1 %38)
   %.sroa.029.0.copyload30 = load ptr, ptr %35, align 8, !alias.scope !166
   %39 = icmp eq ptr %.sroa.029.0.copyload30, null
-  br i1 %39, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6a7d07a713ae502E.exit11.thread", label %.lr.ph83
+  br i1 %39, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6a7d07a713ae502E.exit11.thread", label %.lr.ph96
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6a7d07a713ae502E.exit11.thread": ; preds = %68, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6a7d07a713ae502E.exit11", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6a7d07a713ae502E.exit11.lr.ph", %._crit_edge
   %40 = phi i64 [ %33, %._crit_edge ], [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6a7d07a713ae502E.exit11.lr.ph" ], [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6a7d07a713ae502E.exit11" ], [ %73, %68 ]
@@ -709,9 +709,9 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #20
   unreachable
 
-.lr.ph83:                                         ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6a7d07a713ae502E.exit11.lr.ph", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6a7d07a713ae502E.exit11"
-  %.sroa.029.0.copyload3082 = phi ptr [ %.sroa.029.0.copyload30, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6a7d07a713ae502E.exit11" ], [ %.sroa.029.0.copyload3081, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6a7d07a713ae502E.exit11.lr.ph" ]
-  store ptr %.sroa.029.0.copyload3082, ptr %3, align 8
+.lr.ph96:                                         ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6a7d07a713ae502E.exit11.lr.ph", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6a7d07a713ae502E.exit11"
+  %.sroa.029.0.copyload3095 = phi ptr [ %.sroa.029.0.copyload30, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6a7d07a713ae502E.exit11" ], [ %.sroa.029.0.copyload3094, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6a7d07a713ae502E.exit11.lr.ph" ]
+  store ptr %.sroa.029.0.copyload3095, ptr %3, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.731.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.731.0..sroa_idx32, i64 16, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
   %56 = load i64, ptr %8, align 8, !alias.scope !170, !noalias !173, !noundef !11
@@ -730,7 +730,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf65818d49fac2176E.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %.body14 unwind label %66, !noalias !167
 
-63:                                               ; preds = %.lr.ph83
+63:                                               ; preds = %.lr.ph96
   invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h8a3c7527217637e2E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
           to label %64 unwind label %61, !noalias !176
 
@@ -753,10 +753,10 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-68:                                               ; preds = %64, %.lr.ph83
-  %69 = phi i64 [ %.pre.i, %64 ], [ %59, %.lr.ph83 ]
-  %.sroa.01.0.i = phi ptr [ %11, %64 ], [ %.sink9.i.i, %.lr.ph83 ]
-  %.sroa.0.0.i13 = phi ptr [ %65, %64 ], [ %.sink10.i.i, %.lr.ph83 ]
+68:                                               ; preds = %64, %.lr.ph96
+  %69 = phi i64 [ %.pre.i, %64 ], [ %59, %.lr.ph96 ]
+  %.sroa.01.0.i = phi ptr [ %11, %64 ], [ %.sink9.i.i, %.lr.ph96 ]
+  %.sroa.0.0.i13 = phi ptr [ %65, %64 ], [ %.sink10.i.i, %.lr.ph96 ]
   %70 = getelementptr inbounds { { ptr, { ptr, ptr } } }, ptr %.sroa.0.0.i13, i64 %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %71 = load i64, ptr %.sroa.01.0.i, align 8, !alias.scope !167, !noalias !176, !noundef !11

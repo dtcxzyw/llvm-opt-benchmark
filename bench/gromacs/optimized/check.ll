@@ -2615,24 +2615,24 @@ define internal fastcc void @_ZL8comp_trxPK16gmx_output_env_tPKcS3_bff(ptr nound
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %indvars.iv.sroa.gep47 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %indvars.iv.sroa.gep49 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %indvars.iv41.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 1
-  %indvars.iv.sroa.gep51 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %indvars.iv41.sroa.gep53 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %indvars.iv.sroa.gep57 = getelementptr inbounds nuw i8, ptr %8, i64 176
-  %indvars.iv.sroa.gep60 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %indvars.iv41.sroa.gep62 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %indvars.iv.sroa.gep53 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %indvars.iv41.sroa.gep55 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %indvars.iv.sroa.gep59 = getelementptr inbounds nuw i8, ptr %8, i64 176
+  %indvars.iv.sroa.gep62 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %indvars.iv41.sroa.gep64 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %18
 
 18:                                               ; preds = %6, %_ZNSt10filesystem7__cxx114pathD2Ev.exit
   %19 = phi i1 [ true, %6 ], [ false, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
-  %indvars.iv.sroa.phi = phi ptr [ %10, %6 ], [ %indvars.iv.sroa.gep47, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
-  %indvars.iv.sroa.phi49 = phi ptr [ %9, %6 ], [ %indvars.iv.sroa.gep51, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
-  %indvars.iv.sroa.phi55 = phi ptr [ %8, %6 ], [ %indvars.iv.sroa.gep57, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
-  %indvars.iv.sroa.phi58 = phi ptr [ %7, %6 ], [ %indvars.iv.sroa.gep60, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
+  %indvars.iv.sroa.phi = phi ptr [ %10, %6 ], [ %indvars.iv.sroa.gep49, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
+  %indvars.iv.sroa.phi51 = phi ptr [ %9, %6 ], [ %indvars.iv.sroa.gep53, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
+  %indvars.iv.sroa.phi57 = phi ptr [ %8, %6 ], [ %indvars.iv.sroa.gep59, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
+  %indvars.iv.sroa.phi60 = phi ptr [ %7, %6 ], [ %indvars.iv.sroa.gep62, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(8) %indvars.iv.sroa.phi58, i8 noundef zeroext 2)
-  %20 = invoke noundef zeroext i1 @_Z16read_first_framePK16gmx_output_env_tPP11t_trxstatusRKNSt10filesystem7__cxx114pathEP10t_trxframei(ptr noundef %0, ptr noundef nonnull %indvars.iv.sroa.phi49, ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull %indvars.iv.sroa.phi55, i32 noundef 21)
+  call void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(8) %indvars.iv.sroa.phi60, i8 noundef zeroext 2)
+  %20 = invoke noundef zeroext i1 @_Z16read_first_framePK16gmx_output_env_tPP11t_trxstatusRKNSt10filesystem7__cxx114pathEP10t_trxframei(ptr noundef %0, ptr noundef nonnull %indvars.iv.sroa.phi51, ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull %indvars.iv.sroa.phi57, i32 noundef 21)
           to label %21 unwind label %31
 
 21:                                               ; preds = %18
@@ -2715,8 +2715,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
 .preheader:                                       ; preds = %.preheader.preheader, %64
   %51 = phi i1 [ false, %64 ], [ true, %.preheader.preheader ]
   %indvars.iv41.sroa.phi = phi ptr [ %indvars.iv41.sroa.gep, %64 ], [ %10, %.preheader.preheader ]
-  %indvars.iv41.sroa.phi52 = phi ptr [ %indvars.iv41.sroa.gep53, %64 ], [ %9, %.preheader.preheader ]
-  %indvars.iv41.sroa.phi61 = phi ptr [ %indvars.iv41.sroa.gep62, %64 ], [ %7, %.preheader.preheader ]
+  %indvars.iv41.sroa.phi54 = phi ptr [ %indvars.iv41.sroa.gep55, %64 ], [ %9, %.preheader.preheader ]
+  %indvars.iv41.sroa.phi63 = phi ptr [ %indvars.iv41.sroa.gep64, %64 ], [ %7, %.preheader.preheader ]
   %indvars.iv41 = phi i64 [ 0, %64 ], [ 1, %.preheader.preheader ]
   %52 = load i8, ptr %indvars.iv41.sroa.phi, align 1, !tbaa !24, !range !36, !noundef !37
   %53 = trunc nuw i8 %52 to i1
@@ -2732,12 +2732,12 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
   %59 = load ptr, ptr @stdout, align 8, !tbaa !32
   %60 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %indvars.iv41
   %61 = load ptr, ptr %60, align 8, !tbaa !21
-  %62 = load ptr, ptr %indvars.iv41.sroa.phi61, align 8, !tbaa !21
+  %62 = load ptr, ptr %indvars.iv41.sroa.phi63, align 8, !tbaa !21
   %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.65, ptr noundef %61, ptr noundef %62) #22
   br label %64
 
 64:                                               ; preds = %58, %54, %.preheader
-  %65 = load ptr, ptr %indvars.iv41.sroa.phi52, align 8, !tbaa !194
+  %65 = load ptr, ptr %indvars.iv41.sroa.phi54, align 8, !tbaa !194
   call void @_Z9close_trxP11t_trxstatus(ptr noundef %65)
   br i1 %51, label %.preheader, label %.loopexit, !llvm.loop !221
 
@@ -3889,7 +3889,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit222._crit_edge: ; 
   br i1 %73, label %.preheader234, label %414
 
 .preheader234:                                    ; preds = %335
-  br i1 %135, label %.preheader.lr.ph, label %.thread366
+  br i1 %135, label %.preheader.lr.ph, label %.thread382
 
 .preheader.lr.ph:                                 ; preds = %.preheader234
   %338 = getelementptr inbounds nuw i8, ptr %8, i64 2360
@@ -3910,7 +3910,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit222._crit_edge: ; 
   %344 = getelementptr inbounds nuw [3 x float], ptr %342, i64 0, i64 %indvars.iv338
   %345 = load float, ptr %344, align 4, !tbaa !22
   %346 = fcmp olt float %345, 0.000000e+00
-  br i1 %346, label %.thread362, label %347
+  br i1 %346, label %.thread378, label %347
 
 347:                                              ; preds = %343
   %348 = getelementptr inbounds nuw [3 x [3 x float]], ptr %13, i64 0, i64 %indvars.iv338
@@ -3923,14 +3923,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit222._crit_edge: ; 
   br i1 %.not202, label %353, label %343, !llvm.loop !262
 
 353:                                              ; preds = %347
-  br i1 %351, label %.thread362, label %400
+  br i1 %351, label %.thread378, label %400
 
-.thread362:                                       ; preds = %343, %353
+.thread378:                                       ; preds = %343, %353
   %354 = add nsw i32 %.0177298, 1
   %355 = trunc nuw i8 %.4191297 to i1
   br i1 %355, label %356, label %369
 
-356:                                              ; preds = %.thread362
+356:                                              ; preds = %.thread378
   %357 = load ptr, ptr @stderr, align 8, !tbaa !32
   %358 = call i64 @fwrite(ptr nonnull @.str.123, i64 20, i64 1, ptr %357) #20
   br label %359
@@ -3952,7 +3952,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit222._crit_edge: ; 
   %368 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %367, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.126) #24
   br label %369
 
-369:                                              ; preds = %366, %.thread362
+369:                                              ; preds = %366, %.thread378
   %370 = load ptr, ptr @stderr, align 8, !tbaa !32
   %371 = load ptr, ptr %338, align 8, !tbaa !255
   %372 = getelementptr inbounds nuw ptr, ptr %371, i64 %indvars.iv348
@@ -4010,17 +4010,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit222._crit_edge: ; 
 406:                                              ; preds = %._crit_edge300
   %407 = load ptr, ptr @stderr, align 8, !tbaa !32
   %408 = call i64 @fwrite(ptr nonnull @.str.129, i64 13, i64 1, ptr %407) #20
-  br i1 %405, label %.thread366, label %412
+  br i1 %405, label %.thread382, label %412
 
 409:                                              ; preds = %._crit_edge300
-  br i1 %405, label %.thread366, label %412
+  br i1 %405, label %.thread382, label %412
 
-.thread366:                                       ; preds = %.preheader234, %406, %409
+.thread382:                                       ; preds = %.preheader234, %406, %409
   %410 = load ptr, ptr @stderr, align 8, !tbaa !32
   %411 = call i64 @fwrite(ptr nonnull @.str.130, i64 27, i64 1, ptr %410) #20
   br label %412
 
-412:                                              ; preds = %406, %.thread366, %409
+412:                                              ; preds = %406, %.thread382, %409
   %413 = load ptr, ptr @stderr, align 8, !tbaa !32
   %fputc201 = call i32 @fputc(i32 10, ptr %413)
   br label %414

@@ -188,8 +188,8 @@ FullTransactionIdFromAllowableAt.exit30:          ; preds = %62, %67
   br i1 %exitcond.not, label %._crit_edge, label %56, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %FullTransactionIdFromAllowableAt.exit30
-  %.not33 = icmp eq i32 %10, 1
-  br i1 %.not33, label %sort_snapshot.exit, label %71
+  %.not42 = icmp eq i32 %10, 1
+  br i1 %.not42, label %sort_snapshot.exit, label %71
 
 71:                                               ; preds = %._crit_edge
   %72 = getelementptr inbounds nuw i8, ptr %14, i64 24

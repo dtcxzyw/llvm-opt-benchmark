@@ -970,14 +970,14 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_7710UCharsTrie4nextENS_14ConstChar16
   br label %.outer
 
 .outer:                                           ; preds = %96, %.loopexit
-  %.pn434 = phi ptr [ %97, %96 ], [ %.394, %.loopexit ]
+  %.pn445 = phi ptr [ %97, %96 ], [ %.394, %.loopexit ]
   %.181.ph.in = phi i16 [ %.383.in, %96 ], [ %.080.in, %.loopexit ]
   %.576.ph = phi ptr [ %.778, %96 ], [ %.374, %.loopexit ]
   %.467.ph = phi i32 [ %.669, %96 ], [ %.265, %.loopexit ]
-  %.060.ph.in = load i16, ptr %.pn434, align 2, !tbaa !12
+  %.060.ph.in = load i16, ptr %.pn445, align 2, !tbaa !12
   %.060.ph = zext i16 %.060.ph.in to i32
   %.181.ph = zext i16 %.181.ph.in to i32
-  %.596.ph = getelementptr inbounds nuw i8, ptr %.pn434, i64 2
+  %.596.ph = getelementptr inbounds nuw i8, ptr %.pn445, i64 2
   %77 = and i32 %.060.ph, 63
   br label %78
 

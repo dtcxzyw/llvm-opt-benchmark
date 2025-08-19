@@ -367,9 +367,9 @@ define hidden void @"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u2
   br label %84
 
 84:                                               ; preds = %79, %71
-  %.sink7 = phi ptr [ %0, %79 ], [ %78, %71 ]
+  %.sink8 = phi ptr [ %0, %79 ], [ %78, %71 ]
   %.sink = phi i64 [ %83, %79 ], [ %77, %71 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sink7, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.sink8, i64 8
   store i64 %.sink, ptr %85, align 8
   %86 = tail call fastcc noundef align 8 dereferenceable(48) ptr @"_ZN140_$LT$tokio_util..time..delay_queue..SlabStorage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$tokio_util..time..delay_queue..Key$GT$$GT$9index_mut17h5c78d2157a289e54E"(ptr noalias noundef align 8 dereferenceable(104) %2, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   store i64 0, ptr %86, align 8
@@ -749,14 +749,14 @@ define internal void @"_ZN10tokio_util4sync4mpsc19make_acquire_future28_$u7b$$u7
   %5 = alloca [48 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load i8, ptr %6, align 8, !range !56, !noundef !4
-  switch i8 %7, label %default.unreachable20 [
+  switch i8 %7, label %default.unreachable23 [
     i8 0, label %8
     i8 1, label %22
     i8 2, label %23
     i8 3, label %24
   ]
 
-default.unreachable20:                            ; preds = %37, %24, %3
+default.unreachable23:                            ; preds = %37, %24, %3
   unreachable
 
 8:                                                ; preds = %3
@@ -816,7 +816,7 @@ default.unreachable20:                            ; preds = %37, %24, %3
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !56, !noalias !62
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  switch i8 %.pre, label %default.unreachable20 [
+  switch i8 %.pre, label %default.unreachable23 [
     i8 0, label %.thread.i
     i8 1, label %35
     i8 2, label %36
@@ -864,7 +864,7 @@ default.unreachable20:                            ; preds = %37, %24, %3
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !65, !noalias !66
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i.i)
-  switch i8 %.pre.i, label %default.unreachable20 [
+  switch i8 %.pre.i, label %default.unreachable23 [
     i8 0, label %._crit_edge15
     i8 1, label %46
     i8 2, label %47
@@ -1136,14 +1136,14 @@ define internal void @"_ZN10tokio_util4sync4mpsc19make_acquire_future28_$u7b$$u7
   %5 = alloca [48 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load i8, ptr %6, align 8, !range !56, !noundef !4
-  switch i8 %7, label %default.unreachable21 [
+  switch i8 %7, label %default.unreachable24 [
     i8 0, label %8
     i8 1, label %22
     i8 2, label %23
     i8 3, label %24
   ]
 
-default.unreachable21:                            ; preds = %37, %24, %3
+default.unreachable24:                            ; preds = %37, %24, %3
   unreachable
 
 8:                                                ; preds = %3
@@ -1203,7 +1203,7 @@ default.unreachable21:                            ; preds = %37, %24, %3
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !56, !noalias !74
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  switch i8 %.pre, label %default.unreachable21 [
+  switch i8 %.pre, label %default.unreachable24 [
     i8 0, label %.thread.i
     i8 1, label %35
     i8 2, label %36
@@ -1251,7 +1251,7 @@ default.unreachable21:                            ; preds = %37, %24, %3
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !65, !noalias !77
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i.i)
-  switch i8 %.pre.i, label %default.unreachable21 [
+  switch i8 %.pre.i, label %default.unreachable24 [
     i8 0, label %._crit_edge16
     i8 1, label %46
     i8 2, label %47
@@ -1695,7 +1695,7 @@ common.resume:                                    ; preds = %101, %109, %29
 
 74:                                               ; preds = %57
   %75 = tail call noundef zeroext i1 @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7ca37aa47d6afce9E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %36, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
-  br i1 %75, label %.loopexit46, label %76
+  br i1 %75, label %.loopexit50, label %76
 
 76:                                               ; preds = %74, %57
   %77 = load ptr, ptr %36, align 8, !alias.scope !82, !noalias !92, !nonnull !4, !noundef !4
@@ -1883,9 +1883,9 @@ common.resume:                                    ; preds = %101, %109, %29
   store i64 %.sroa.08.sroa.0.0, ptr %0, align 8
   %.sroa.08.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.08.sroa.4.0, ptr %.sroa.08.sroa.4.0..sroa_idx, align 8
-  br label %.loopexit46
+  br label %.loopexit50
 
-.loopexit46:                                      ; preds = %74, %.loopexit
+.loopexit50:                                      ; preds = %74, %.loopexit
   %.sroa.4.0.sink = phi i32 [ %.sroa.4.0, %.loopexit ], [ 1000000001, %74 ]
   %.sroa.4.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.4.0.sink, ptr %.sroa.4.0..sroa_idx9, align 8

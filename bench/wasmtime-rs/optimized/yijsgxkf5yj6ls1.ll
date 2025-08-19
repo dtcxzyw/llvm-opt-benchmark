@@ -569,10 +569,10 @@ default.unreachable:                              ; preds = %37
   ret void
 
 ._crit_edge.thread:                               ; preds = %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit", %._crit_edge
-  %.0.lcssa56 = phi ptr [ %13, %._crit_edge ], [ %41, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
-  %storemerge.lcssa55 = phi i64 [ %10, %._crit_edge ], [ %36, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0.lcssa56, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %40 = add i64 %storemerge.lcssa55, 1
+  %.0.lcssa57 = phi ptr [ %13, %._crit_edge ], [ %41, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
+  %storemerge.lcssa56 = phi i64 [ %10, %._crit_edge ], [ %36, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0.lcssa57, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %40 = add i64 %storemerge.lcssa56, 1
   br label %39
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit": ; preds = %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i", %37
@@ -765,26 +765,26 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha8b63f23e43f6130E"
   br label %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit.i"
 
 ._crit_edge.thread.i:                             ; preds = %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0dd776e98067f090E.exit.i"
-  %.0.lcssa56.i = phi ptr [ %16, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0dd776e98067f090E.exit.i" ], [ %23, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit.i" ]
-  %storemerge.lcssa55.i = phi i64 [ %13, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0dd776e98067f090E.exit.i" ], [ %19, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit.i" ]
-  store i8 %.sroa.0.0.copyload, ptr %.0.lcssa56.i, align 8
-  %.sroa.5.0..0.lcssa56.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa56.i, i64 1
-  store i8 %.sroa.5.0.copyload, ptr %.sroa.5.0..0.lcssa56.i.sroa_idx, align 1
-  %.sroa.6.0..0.lcssa56.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa56.i, i64 2
-  store i16 %.sroa.6.0.copyload, ptr %.sroa.6.0..0.lcssa56.i.sroa_idx, align 2
-  %.sroa.7.0..0.lcssa56.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa56.i, i64 4
-  store i32 %.sroa.7.0.copyload, ptr %.sroa.7.0..0.lcssa56.i.sroa_idx, align 4
-  %.sroa.8.0..0.lcssa56.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa56.i, i64 8
-  store i64 %.sroa.8.0.copyload, ptr %.sroa.8.0..0.lcssa56.i.sroa_idx, align 8
-  %.sroa.11.0..0.lcssa56.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa56.i, i64 16
-  store i64 %.sroa.11.0.copyload, ptr %.sroa.11.0..0.lcssa56.i.sroa_idx, align 8
-  %.sroa.12.0..0.lcssa56.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa56.i, i64 24
-  store i32 %.sroa.12.0.copyload, ptr %.sroa.12.0..0.lcssa56.i.sroa_idx, align 8
-  %.sroa.13.0..0.lcssa56.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa56.i, i64 28
-  store i32 %.sroa.13.0.copyload, ptr %.sroa.13.0..0.lcssa56.i.sroa_idx, align 4
-  %.sroa.14.0..0.lcssa56.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa56.i, i64 32
-  store i64 %.sroa.14.0.copyload, ptr %.sroa.14.0..0.lcssa56.i.sroa_idx, align 8
-  %22 = add i64 %storemerge.lcssa55.i, 1
+  %.0.lcssa57.i = phi ptr [ %16, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0dd776e98067f090E.exit.i" ], [ %23, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit.i" ]
+  %storemerge.lcssa56.i = phi i64 [ %13, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0dd776e98067f090E.exit.i" ], [ %19, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit.i" ]
+  store i8 %.sroa.0.0.copyload, ptr %.0.lcssa57.i, align 8
+  %.sroa.5.0..0.lcssa57.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa57.i, i64 1
+  store i8 %.sroa.5.0.copyload, ptr %.sroa.5.0..0.lcssa57.i.sroa_idx, align 1
+  %.sroa.6.0..0.lcssa57.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa57.i, i64 2
+  store i16 %.sroa.6.0.copyload, ptr %.sroa.6.0..0.lcssa57.i.sroa_idx, align 2
+  %.sroa.7.0..0.lcssa57.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa57.i, i64 4
+  store i32 %.sroa.7.0.copyload, ptr %.sroa.7.0..0.lcssa57.i.sroa_idx, align 4
+  %.sroa.8.0..0.lcssa57.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa57.i, i64 8
+  store i64 %.sroa.8.0.copyload, ptr %.sroa.8.0..0.lcssa57.i.sroa_idx, align 8
+  %.sroa.11.0..0.lcssa57.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa57.i, i64 16
+  store i64 %.sroa.11.0.copyload, ptr %.sroa.11.0..0.lcssa57.i.sroa_idx, align 8
+  %.sroa.12.0..0.lcssa57.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa57.i, i64 24
+  store i32 %.sroa.12.0.copyload, ptr %.sroa.12.0..0.lcssa57.i.sroa_idx, align 8
+  %.sroa.13.0..0.lcssa57.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa57.i, i64 28
+  store i32 %.sroa.13.0.copyload, ptr %.sroa.13.0..0.lcssa57.i.sroa_idx, align 4
+  %.sroa.14.0..0.lcssa57.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa57.i, i64 32
+  store i64 %.sroa.14.0.copyload, ptr %.sroa.14.0..0.lcssa57.i.sroa_idx, align 8
+  %22 = add i64 %storemerge.lcssa56.i, 1
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8b07dfd81abea041E.llvm.1718329805141733722.exit"
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit.i": ; preds = %20, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i.i"

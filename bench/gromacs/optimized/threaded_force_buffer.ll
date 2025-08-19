@@ -498,13 +498,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !50
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !50
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -695,7 +695,7 @@ define linkonce_odr void @_ZNSt6vectorISt5arrayImLm2EESaIS1_EE17_M_default_appen
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPSt5arrayImLm2EEmS1_ET_S3_T0_RSaIT1_E.exit, label %23
 
@@ -811,7 +811,7 @@ define linkonce_odr void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocation
   br i1 %.not23, label %20, label %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_23AlignedAllocationPolicyEEEET_S5_T0_RT1_.exit
 
 _ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_23AlignedAllocationPolicyEEEET_S5_T0_RT1_.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 2
+  %19 = shl nuw nsw i64 %1, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %19, i1 false), !tbaa !50
   %scevgep.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i, ptr %4, align 8, !tbaa !54
@@ -1528,7 +1528,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN3gmx17ThreadForceBufferIN
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN3gmx17ThreadForceBufferINS1_11BasicVectorIfEEEESt14default_deleteIS5_EEmS8_ET_SA_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN3gmx17ThreadForceBufferINS1_11BasicVectorIfEEEESt14default_deleteIS5_EEmS8_ET_SA_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 3
+  %19 = shl nuw nsw i64 %1, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false), !tbaa !105
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !102
@@ -1850,7 +1850,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %_ZNSt6vectorISt5arr
   %67 = load ptr, ptr %4, align 8, !tbaa !97
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %.promoted = load i64, ptr %66, align 8, !tbaa !56
-  %.promoted93 = load i64, ptr %68, align 8, !tbaa !56
+  %.promoted111 = load i64, ptr %68, align 8, !tbaa !56
   br label %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge
 
 ._crit_edge74.loopexit:                           ; preds = %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge
@@ -1898,7 +1898,7 @@ _ZL15bitmask_is_zeroSt5arrayImLm2EE.exit:         ; preds = %70
   br i1 %72, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %82
 
 _ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge: ; preds = %.lr.ph73, %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge
-  %73 = phi i64 [ %.promoted93, %.lr.ph73 ], [ %81, %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge ]
+  %73 = phi i64 [ %.promoted111, %.lr.ph73 ], [ %81, %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge ]
   %74 = phi i64 [ %.promoted, %.lr.ph73 ], [ %80, %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next, %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge ]
   %75 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %67, i64 %indvars.iv
@@ -2466,8 +2466,8 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE21reduce
 .preheader66.us.us.preheader:                     ; preds = %.preheader67
   %43 = sext i32 %6 to i64
   %wide.trip.count105 = zext nneg i32 %40 to i64
-  %sext119 = shl i64 %14, 29
-  %wide.trip.count100 = ashr i64 %sext119, 32
+  %sext121 = shl i64 %14, 29
+  %wide.trip.count100 = ashr i64 %sext121, 32
   br label %.preheader66.us.us
 
 .preheader66.us.us:                               ; preds = %.preheader66.us.us.preheader, %._crit_edge76.split.us.us.us
@@ -2513,8 +2513,8 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE21reduce
 
 .preheader.us.preheader:                          ; preds = %.loopexit68
   %57 = sext i32 %6 to i64
-  %sext120 = shl i64 %14, 29
-  %wide.trip.count114 = ashr i64 %sext120, 32
+  %sext122 = shl i64 %14, 29
+  %wide.trip.count114 = ashr i64 %sext122, 32
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us87
@@ -3842,7 +3842,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN3gmx17ThreadForceBufferIA
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN3gmx17ThreadForceBufferIA4_fEESt14default_deleteIS4_EEmS7_ET_S9_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN3gmx17ThreadForceBufferIA4_fEESt14default_deleteIS4_EEmS7_ET_S9_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 3
+  %19 = shl nuw nsw i64 %1, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false), !tbaa !178
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !175
@@ -4164,7 +4164,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %_ZNSt6vectorISt5arr
   %67 = load ptr, ptr %4, align 8, !tbaa !172
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %.promoted = load i64, ptr %66, align 8, !tbaa !56
-  %.promoted93 = load i64, ptr %68, align 8, !tbaa !56
+  %.promoted111 = load i64, ptr %68, align 8, !tbaa !56
   br label %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge
 
 ._crit_edge74.loopexit:                           ; preds = %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge
@@ -4212,7 +4212,7 @@ _ZL15bitmask_is_zeroSt5arrayImLm2EE.exit:         ; preds = %70
   br i1 %72, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %82
 
 _ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge: ; preds = %.lr.ph73, %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge
-  %73 = phi i64 [ %.promoted93, %.lr.ph73 ], [ %81, %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge ]
+  %73 = phi i64 [ %.promoted111, %.lr.ph73 ], [ %81, %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge ]
   %74 = phi i64 [ %.promoted, %.lr.ph73 ], [ %80, %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next, %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge ]
   %75 = getelementptr inbounds nuw %"class.std::unique_ptr.64", ptr %67, i64 %indvars.iv
@@ -4645,8 +4645,8 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferIA4_fE21reduceEnergiesAndDvdlE
 .preheader66.us.us.preheader:                     ; preds = %.preheader67
   %43 = sext i32 %6 to i64
   %wide.trip.count105 = zext nneg i32 %40 to i64
-  %sext119 = shl i64 %14, 29
-  %wide.trip.count100 = ashr i64 %sext119, 32
+  %sext121 = shl i64 %14, 29
+  %wide.trip.count100 = ashr i64 %sext121, 32
   br label %.preheader66.us.us
 
 .preheader66.us.us:                               ; preds = %.preheader66.us.us.preheader, %._crit_edge76.split.us.us.us
@@ -4692,8 +4692,8 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferIA4_fE21reduceEnergiesAndDvdlE
 
 .preheader.us.preheader:                          ; preds = %.loopexit68
   %57 = sext i32 %6 to i64
-  %sext120 = shl i64 %14, 29
-  %wide.trip.count114 = ashr i64 %sext120, 32
+  %sext122 = shl i64 %14, 29
+  %wide.trip.count114 = ashr i64 %sext122, 32
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us87

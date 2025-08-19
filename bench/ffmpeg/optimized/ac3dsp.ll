@@ -58,7 +58,7 @@ define void @ff_ac3dsp_downmix_fixed(ptr noundef captures(none) %0, ptr noundef 
   %40 = xor i16 %39, %37
   %41 = or i16 %36, %40
   %.not40 = icmp eq i16 %41, 0
-  br i1 %.not40, label %.thread.thread53.sink.split, label %.preheader46.i.thread
+  br i1 %.not40, label %.thread.thread56.sink.split, label %.preheader46.i.thread
 
 42:                                               ; preds = %12
   %43 = icmp eq i32 %3, 1
@@ -79,21 +79,21 @@ define void @ff_ac3dsp_downmix_fixed(ptr noundef captures(none) %0, ptr noundef 
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %54 = load i16, ptr %53, align 2, !tbaa !14
   %55 = icmp eq i16 %52, %54
-  br i1 %55, label %.thread.thread53.sink.split, label %.preheader48.i.thread
+  br i1 %55, label %.thread.thread56.sink.split, label %.preheader48.i.thread
 
 .thread:                                          ; preds = %9
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !11
   %.not41 = icmp eq ptr %.pre, null
-  br i1 %.not41, label %.thread.thread, label %.thread.thread53
+  br i1 %.not41, label %.thread.thread, label %.thread.thread56
 
-.thread.thread53.sink.split:                      ; preds = %50, %17
+.thread.thread56.sink.split:                      ; preds = %50, %17
   %ac3_downmix_5_to_1_symmetric_c_fixed.sink = phi ptr [ @ac3_downmix_5_to_2_symmetric_c_fixed, %17 ], [ @ac3_downmix_5_to_1_symmetric_c_fixed, %50 ]
   store ptr %ac3_downmix_5_to_1_symmetric_c_fixed.sink, ptr %14, align 8, !tbaa !11
-  br label %.thread.thread53
+  br label %.thread.thread56
 
-.thread.thread53:                                 ; preds = %.thread.thread53.sink.split, %.thread
-  %56 = phi ptr [ %.pre, %.thread ], [ %ac3_downmix_5_to_1_symmetric_c_fixed.sink, %.thread.thread53.sink.split ]
+.thread.thread56:                                 ; preds = %.thread.thread56.sink.split, %.thread
+  %56 = phi ptr [ %.pre, %.thread ], [ %ac3_downmix_5_to_1_symmetric_c_fixed.sink, %.thread.thread56.sink.split ]
   tail call void %56(ptr noundef %1, ptr noundef %2, i32 noundef %5) #8
   br label %ac3_downmix_c_fixed.exit
 
@@ -251,7 +251,7 @@ define void @ff_ac3dsp_downmix_fixed(ptr noundef captures(none) %0, ptr noundef 
   %exitcond76.not.i = icmp eq i64 %indvars.iv.next73.i, %wide.trip.count75.i
   br i1 %exitcond76.not.i, label %ac3_downmix_c_fixed.exit, label %.preheader.i, !llvm.loop !23
 
-ac3_downmix_c_fixed.exit:                         ; preds = %._crit_edge.us.i, %.preheader.i, %._crit_edge.us58.i, %.preheader46.i.thread, %.preheader48.i.thread, %.preheader46.i, %.preheader47.preheader.i, %.preheader48.i, %.thread.thread, %.thread.thread53
+ac3_downmix_c_fixed.exit:                         ; preds = %._crit_edge.us.i, %.preheader.i, %._crit_edge.us58.i, %.preheader46.i.thread, %.preheader48.i.thread, %.preheader46.i, %.preheader47.preheader.i, %.preheader48.i, %.thread.thread, %.thread.thread56
   ret void
 }
 
@@ -436,7 +436,7 @@ define void @ff_ac3dsp_downmix(ptr noundef captures(none) %0, ptr noundef %1, pt
   %40 = xor i32 %39, %37
   %41 = or i32 %36, %40
   %.not41 = icmp eq i32 %41, 0
-  br i1 %.not41, label %.thread.thread54.sink.split, label %.preheader46.i.thread
+  br i1 %.not41, label %.thread.thread57.sink.split, label %.preheader46.i.thread
 
 42:                                               ; preds = %12
   %43 = icmp eq i32 %3, 1
@@ -457,21 +457,21 @@ define void @ff_ac3dsp_downmix(ptr noundef captures(none) %0, ptr noundef %1, pt
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %54 = load i32, ptr %53, align 4, !tbaa !18
   %55 = icmp eq i32 %52, %54
-  br i1 %55, label %.thread.thread54.sink.split, label %.preheader48.i.thread
+  br i1 %55, label %.thread.thread57.sink.split, label %.preheader48.i.thread
 
 .thread:                                          ; preds = %9
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !26
   %.not42 = icmp eq ptr %.pre, null
-  br i1 %.not42, label %.thread.thread, label %.thread.thread54
+  br i1 %.not42, label %.thread.thread, label %.thread.thread57
 
-.thread.thread54.sink.split:                      ; preds = %50, %17
+.thread.thread57.sink.split:                      ; preds = %50, %17
   %ac3_downmix_5_to_1_symmetric_c.sink = phi ptr [ @ac3_downmix_5_to_2_symmetric_c, %17 ], [ @ac3_downmix_5_to_1_symmetric_c, %50 ]
   store ptr %ac3_downmix_5_to_1_symmetric_c.sink, ptr %14, align 8, !tbaa !26
-  br label %.thread.thread54
+  br label %.thread.thread57
 
-.thread.thread54:                                 ; preds = %.thread.thread54.sink.split, %.thread
-  %56 = phi ptr [ %.pre, %.thread ], [ %ac3_downmix_5_to_1_symmetric_c.sink, %.thread.thread54.sink.split ]
+.thread.thread57:                                 ; preds = %.thread.thread57.sink.split, %.thread
+  %56 = phi ptr [ %.pre, %.thread ], [ %ac3_downmix_5_to_1_symmetric_c.sink, %.thread.thread57.sink.split ]
   tail call void %56(ptr noundef %1, ptr noundef %2, i32 noundef %5) #8
   br label %ac3_downmix_c.exit
 
@@ -612,7 +612,7 @@ define void @ff_ac3dsp_downmix(ptr noundef captures(none) %0, ptr noundef %1, pt
   %exitcond76.not.i = icmp eq i64 %indvars.iv.next73.i, %wide.trip.count75.i
   br i1 %exitcond76.not.i, label %ac3_downmix_c.exit, label %.preheader.i, !llvm.loop !34
 
-ac3_downmix_c.exit:                               ; preds = %._crit_edge.us.i, %.preheader.i, %._crit_edge.us58.i, %.preheader46.i.thread, %.preheader48.i.thread, %.preheader46.i, %.preheader47.preheader.i, %.preheader48.i, %.thread.thread, %.thread.thread54
+ac3_downmix_c.exit:                               ; preds = %._crit_edge.us.i, %.preheader.i, %._crit_edge.us58.i, %.preheader46.i.thread, %.preheader48.i.thread, %.preheader46.i, %.preheader47.preheader.i, %.preheader48.i, %.thread.thread, %.thread.thread57
   ret void
 }
 
@@ -744,8 +744,8 @@ define void @ff_ac3dsp_init(ptr noundef writeonly captures(none) initializes((0,
 define internal void @ac3_exponent_min_c(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #3 {
   %4 = icmp sgt i32 %2, 0
   %5 = icmp sgt i32 %1, 0
-  %or.cond28 = and i1 %5, %4
-  br i1 %or.cond28, label %.lr.ph.us, label %.loopexit
+  %or.cond30 = and i1 %5, %4
+  br i1 %or.cond30, label %.lr.ph.us, label %.loopexit
 
 .lr.ph.us:                                        ; preds = %3, %._crit_edge.us
   %.024.us = phi ptr [ %10, %._crit_edge.us ], [ %0, %3 ]

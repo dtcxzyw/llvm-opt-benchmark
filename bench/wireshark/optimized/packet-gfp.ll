@@ -514,7 +514,7 @@ proto_item_set_generated.exit135.i:               ; preds = %proto_item_set_gene
   switch i8 %54, label %dissect_gfp_payload.exit [
     i8 0, label %154
     i8 5, label %154
-    i8 4, label %.sink.split145.i
+    i8 4, label %.sink.split153.i
   ]
 
 154:                                              ; preds = %proto_item_set_generated.exit135.i, %proto_item_set_generated.exit135.i
@@ -526,13 +526,13 @@ proto_item_set_generated.exit135.i:               ; preds = %proto_item_set_gene
 157:                                              ; preds = %154
   %158 = call ptr @rval_to_str_const(i32 noundef %59, ptr noundef nonnull @gfp_upi_data_rvals, ptr noundef nonnull @.str.125)
   %159 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.0128.i, ptr noundef nonnull @ei_gfp_payload_undecoded, ptr noundef nonnull @.str.124, i32 noundef %59, ptr noundef %158)
-  br label %.sink.split145.i
+  br label %.sink.split153.i
 
-.sink.split145.i:                                 ; preds = %157, %proto_item_set_generated.exit135.i
+.sink.split153.i:                                 ; preds = %157, %proto_item_set_generated.exit135.i
   %160 = call i32 @call_data_dissector(ptr noundef %153, ptr noundef %1, ptr noundef %2)
   br label %dissect_gfp_payload.exit
 
-dissect_gfp_payload.exit:                         ; preds = %proto_item_set_generated.exit135.i, %154, %.sink.split145.i
+dissect_gfp_payload.exit:                         ; preds = %proto_item_set_generated.exit135.i, %154, %.sink.split153.i
   %161 = add i32 %.2.i, %.1
   %162 = add i32 %161, %.0.i
   br label %163

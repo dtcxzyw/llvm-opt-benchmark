@@ -631,10 +631,10 @@ define internal fastcc range(i32 0, 2) i32 @verify_signature(ptr noundef nonnull
   br i1 %33, label %37, label %34
 
 .sink.split:                                      ; preds = %15, %11
-  %.sink29 = phi i32 [ 42, %11 ], [ 48, %15 ]
+  %.sink31 = phi i32 [ 42, %11 ], [ 48, %15 ]
   %.sink = phi i32 [ 142, %11 ], [ 141, %15 ]
   tail call void @ERR_new() #3
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink29, ptr noundef nonnull @__func__.verify_signature) #3
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink31, ptr noundef nonnull @__func__.verify_signature) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink, ptr noundef null) #3
   br label %34
 
@@ -799,8 +799,8 @@ define range(i32 0, 2) i32 @ossl_cmp_msg_check_update(ptr noundef %0, ptr nounde
   br i1 %.not97, label %67, label %.sink.split
 
 .sink.split:                                      ; preds = %64, %63
-  %.sink126 = phi i32 [ 1, %63 ], [ 0, %64 ]
-  %65 = tail call i32 %2(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.sink126, i32 noundef %3) #3
+  %.sink138 = phi i32 [ 1, %63 ], [ 0, %64 ]
+  %65 = tail call i32 %2(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.sink138, i32 noundef %3) #3
   %66 = icmp sgt i32 %65, 0
   br label %67
 
@@ -1193,10 +1193,10 @@ define internal fastcc i32 @check_msg_all_certs(ptr noundef nonnull %0, ptr noun
   br i1 %.not30, label %.split28, label %33
 
 .split28:                                         ; preds = %11, %.split
-  %.sink36 = phi i32 [ %2, %.split ], [ 0, %11 ]
+  %.sink37 = phi i32 [ %2, %.split ], [ 0, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !61
-  %14 = tail call fastcc i32 @check_msg_with_certs(ptr noundef %0, ptr noundef %13, ptr noundef nonnull @.str.48, ptr noundef null, ptr noundef null, ptr noundef %1, i32 noundef %.sink36)
+  %14 = tail call fastcc i32 @check_msg_with_certs(ptr noundef %0, ptr noundef %13, ptr noundef nonnull @.str.48, ptr noundef null, ptr noundef null, ptr noundef %1, i32 noundef %.sink37)
   %.not32 = icmp eq i32 %14, 0
   br i1 %.not32, label %15, label %33
 

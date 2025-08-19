@@ -338,8 +338,8 @@ xioctl.exit88:                                    ; preds = %93
   %.not80 = icmp eq i32 %113, %114
   %.pre = load i32, ptr %105, align 4
   %.not81 = icmp eq i32 %.pre, 0
-  %or.cond107 = select i1 %.not80, i1 %.not81, i1 false
-  br i1 %or.cond107, label %.thread, label %115
+  %or.cond110 = select i1 %.not80, i1 %.not81, i1 false
+  br i1 %or.cond110, label %.thread, label %115
 
 115:                                              ; preds = %111
   %116 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -469,7 +469,7 @@ xioctl.exit88:                                    ; preds = %93
   br i1 %175, label %176, label %192
 
 176:                                              ; preds = %168
-  switch i32 %.2.ph, label %default.unreachable106 [
+  switch i32 %.2.ph, label %default.unreachable109 [
     i32 1, label %177
     i32 2, label %180
     i32 3, label %182
@@ -484,7 +484,7 @@ xioctl.exit88:                                    ; preds = %93
   %181 = call fastcc zeroext i1 @AllocBufferMmap(ptr noundef nonnull %0)
   br i1 %181, label %185, label %192
 
-default.unreachable106:                           ; preds = %176
+default.unreachable109:                           ; preds = %176
   unreachable
 
 182:                                              ; preds = %176

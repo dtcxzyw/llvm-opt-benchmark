@@ -793,9 +793,9 @@ define hidden noundef ptr @updateGCMParams(ptr noundef readnone captures(none) %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %23
-  %.sink40 = phi i64 [ 48, %23 ], [ 40, %6 ]
+  %.sink41 = phi i64 [ 48, %23 ], [ 40, %6 ]
   %.sink = phi ptr [ %25, %23 ], [ %8, %6 ]
-  store i64 %.sink40, ptr %4, align 8
+  store i64 %.sink41, ptr %4, align 8
   tail call void @free(ptr noundef %.sink) #15
   br label %42
 

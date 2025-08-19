@@ -464,7 +464,7 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit:       ; preds = %.thread.i.i, %65
 
 .loopexit.thread:                                 ; preds = %_ZNK4llvm10DILocation12getInlinedAtEv.exit, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i, %5
   %.ph = phi i32 [ 0, %5 ], [ %54, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ %54, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ %54, %_ZNK4llvm10DILocation12getInlinedAtEv.exit ]
-  %.pre6066 = load ptr, ptr %6, align 8, !tbaa !14, !noalias !53
+  %.pre6073 = load ptr, ptr %6, align 8, !tbaa !14, !noalias !53
   br label %74
 
 .loopexit:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPS2_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findES4_.exit
@@ -475,10 +475,10 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit:       ; preds = %.thread.i.i, %65
   br i1 %.not35, label %74, label %101
 
 74:                                               ; preds = %.loopexit.thread, %.loopexit
-  %.pre6067 = phi ptr [ %.pre6066, %.loopexit.thread ], [ %.pre60, %.loopexit ]
+  %.pre6074 = phi ptr [ %.pre6073, %.loopexit.thread ], [ %.pre60, %.loopexit ]
   %75 = phi i32 [ %.ph, %.loopexit.thread ], [ %15, %.loopexit ]
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %.pre6067, i64 %76
+  %77 = getelementptr inbounds nuw ptr, ptr %.pre6074, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -8
   %79 = load ptr, ptr %78, align 8, !tbaa !66
   %80 = add i32 %75, -1

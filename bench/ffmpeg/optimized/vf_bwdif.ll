@@ -330,8 +330,8 @@ job_start.exit147:                                ; preds = %job_start.exit, %32
   %.pre = load i32, ptr %24, align 8, !tbaa !57
   %104 = add nuw nsw i32 %.0149, 5
   %105 = icmp sgt i32 %104, %.pre
-  %or.cond151 = select i1 %103, i1 true, i1 %105
-  br i1 %or.cond151, label %106, label %118
+  %or.cond158 = select i1 %103, i1 true, i1 %105
+  br i1 %or.cond158, label %106, label %118
 
 106:                                              ; preds = %102
   %107 = load ptr, ptr %53, align 8, !tbaa !70

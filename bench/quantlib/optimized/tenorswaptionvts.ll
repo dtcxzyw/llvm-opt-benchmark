@@ -2841,7 +2841,7 @@ for.body:                                         ; preds = %_ZN5boost10shared_p
   br i1 %cmp.i.not, label %for.body397.lr.ph, label %for.body
 
 for.cond.cleanup396:                              ; preds = %for.body397, %_ZN5boost10shared_ptrIN8QuantLib8ExerciseEED2Ev.exit578
-  %sumTauj.0.lcssa915 = phi double [ 0.000000e+00, %_ZN5boost10shared_ptrIN8QuantLib8ExerciseEED2Ev.exit578 ], [ %add, %for.body397 ]
+  %sumTauj.0.lcssa983 = phi double [ 0.000000e+00, %_ZN5boost10shared_ptrIN8QuantLib8ExerciseEED2Ev.exit578 ], [ %add, %for.body397 ]
   %sumTaujDeltaT.0.lcssa = phi double [ 0.000000e+00, %_ZN5boost10shared_ptrIN8QuantLib8ExerciseEED2Ev.exit578 ], [ %308, %for.body397 ]
   %floatWeights_.i = getelementptr inbounds nuw i8, ptr %cfs, i64 56
   %304 = load ptr, ptr %floatWeights_.i, align 8, !tbaa !3
@@ -2886,11 +2886,11 @@ for.body424:                                      ; preds = %for.cond.cleanup396
   br i1 %cmp.i585.not, label %for.body440.lr.ph, label %for.body424
 
 for.cond.cleanup439:                              ; preds = %for.body440, %for.cond.cleanup396
-  %sumWi.0.lcssa917 = phi double [ 0.000000e+00, %for.cond.cleanup396 ], [ %add427, %for.body440 ]
+  %sumWi.0.lcssa985 = phi double [ 0.000000e+00, %for.cond.cleanup396 ], [ %add427, %for.body440 ]
   %sumWiDeltaT.0.lcssa = phi double [ 0.000000e+00, %for.cond.cleanup396 ], [ %317, %for.body440 ]
-  %313 = fneg double %sumTauj.0.lcssa915
+  %313 = fneg double %sumTauj.0.lcssa983
   %neg = fmul double %sumWiDeltaT.0.lcssa, %313
-  %314 = call double @llvm.fmuladd.f64(double %sumTaujDeltaT.0.lcssa, double %sumWi.0.lcssa917, double %neg)
+  %314 = call double @llvm.fmuladd.f64(double %sumTaujDeltaT.0.lcssa, double %sumWi.0.lcssa985, double %neg)
   %div458 = fdiv double %313, %314
   %div459 = fdiv double %sumTaujDeltaT.0.lcssa, %314
   call void @llvm.lifetime.start.p0(ptr nonnull %dc)
@@ -7680,7 +7680,7 @@ for.body:                                         ; preds = %_ZN5boost10shared_p
   br i1 %cmp.i.not, label %for.body396.lr.ph, label %for.body
 
 for.cond.cleanup395:                              ; preds = %for.body396, %_ZN5boost10shared_ptrIN8QuantLib8ExerciseEED2Ev.exit583
-  %sumTauj.0.lcssa920 = phi double [ 0.000000e+00, %_ZN5boost10shared_ptrIN8QuantLib8ExerciseEED2Ev.exit583 ], [ %add, %for.body396 ]
+  %sumTauj.0.lcssa988 = phi double [ 0.000000e+00, %_ZN5boost10shared_ptrIN8QuantLib8ExerciseEED2Ev.exit583 ], [ %add, %for.body396 ]
   %sumTaujDeltaT.0.lcssa = phi double [ 0.000000e+00, %_ZN5boost10shared_ptrIN8QuantLib8ExerciseEED2Ev.exit583 ], [ %307, %for.body396 ]
   %floatWeights_.i = getelementptr inbounds nuw i8, ptr %cfs, i64 56
   %303 = load ptr, ptr %floatWeights_.i, align 8, !tbaa !3
@@ -7725,11 +7725,11 @@ for.body423:                                      ; preds = %for.cond.cleanup395
   br i1 %cmp.i590.not, label %for.body439.lr.ph, label %for.body423
 
 for.cond.cleanup438:                              ; preds = %for.body439, %for.cond.cleanup395
-  %sumWi.0.lcssa922 = phi double [ 0.000000e+00, %for.cond.cleanup395 ], [ %add426, %for.body439 ]
+  %sumWi.0.lcssa990 = phi double [ 0.000000e+00, %for.cond.cleanup395 ], [ %add426, %for.body439 ]
   %sumWiDeltaT.0.lcssa = phi double [ 0.000000e+00, %for.cond.cleanup395 ], [ %316, %for.body439 ]
-  %312 = fneg double %sumTauj.0.lcssa920
+  %312 = fneg double %sumTauj.0.lcssa988
   %neg = fmul double %sumWiDeltaT.0.lcssa, %312
-  %313 = call double @llvm.fmuladd.f64(double %sumTaujDeltaT.0.lcssa, double %sumWi.0.lcssa922, double %neg)
+  %313 = call double @llvm.fmuladd.f64(double %sumTaujDeltaT.0.lcssa, double %sumWi.0.lcssa990, double %neg)
   %div457 = fdiv double %312, %313
   %div458 = fdiv double %sumTaujDeltaT.0.lcssa, %313
   call void @llvm.lifetime.start.p0(ptr nonnull %dc)

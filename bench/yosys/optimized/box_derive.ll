@@ -1315,8 +1315,8 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:  ; preds = %430
 .noexc203:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
   %442 = getelementptr inbounds i8, ptr %441, i64 %427
   %443 = shl nuw nsw i64 %422, 2
-  %reass.sub540 = sub i64 %443, %427
-  %444 = and i64 %reass.sub540, -4
+  %reass.sub667 = sub i64 %443, %427
+  %444 = and i64 %reass.sub667, -4
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %442, i8 -1, i64 %444, i1 false), !tbaa !35
   %.not.i.i.i.i.i.i.i.i.i81.i = icmp eq ptr %423, %424
   br i1 %.not.i.i.i.i.i.i.i.i.i81.i, label %446, label %445

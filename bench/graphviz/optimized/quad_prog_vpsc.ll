@@ -205,7 +205,7 @@ define i32 @constrained_majorization_vpsc(ptr noundef readonly captures(none) %0
 ._crit_edge199:                                   ; preds = %.preheader170
   %86 = load i32, ptr %18, align 8, !tbaa !18
   %87 = icmp sgt i32 %86, 0
-  br i1 %87, label %.loopexit.thread304, label %._crit_edge226.thread
+  br i1 %87, label %.loopexit.thread306, label %._crit_edge226.thread
 
 ._crit_edge199.thread:                            ; preds = %80
   %88 = load i32, ptr %18, align 8, !tbaa !18
@@ -228,7 +228,7 @@ define i32 @constrained_majorization_vpsc(ptr noundef readonly captures(none) %0
   %exitcond272.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count271
   br i1 %exitcond272.not, label %.lr.ph205.preheader, label %.lr.ph201, !llvm.loop !35
 
-.loopexit.thread304:                              ; preds = %._crit_edge199
+.loopexit.thread306:                              ; preds = %._crit_edge199
   %96 = load ptr, ptr %45, align 8, !tbaa !26
   tail call void @satisfyVPSC(ptr noundef %96) #14
   br label %._crit_edge226.thread
@@ -340,7 +340,7 @@ define i32 @constrained_majorization_vpsc(ptr noundef readonly captures(none) %0
   %exitcond297.not = icmp eq i64 %indvars.iv.next294, %wide.trip.count296
   br i1 %exitcond297.not, label %._crit_edge226, label %129, !llvm.loop !40
 
-._crit_edge226.thread:                            ; preds = %._crit_edge199, %.loopexit.thread304
+._crit_edge226.thread:                            ; preds = %._crit_edge199, %.loopexit.thread306
   %144 = add nuw nsw i32 %.0162228, 1
   br label %.loopexit171
 
@@ -1603,7 +1603,7 @@ gv_calloc.exit338:                                ; preds = %74
 gv_calloc.exit353.thread:                         ; preds = %94
   %111 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 8) #15
   %112 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 32) #15
-  %.pre492 = load ptr, ptr %87, align 8, !tbaa !19
+  %.pre511 = load ptr, ptr %87, align 8, !tbaa !19
   br label %._crit_edge403
 
 gv_calloc.exit348:                                ; preds = %104
@@ -1668,7 +1668,7 @@ gv_calloc.exit353:                                ; preds = %gv_calloc.exit348
   br i1 %exitcond454.not, label %._crit_edge403, label %123, !llvm.loop !101
 
 ._crit_edge403:                                   ; preds = %123, %gv_calloc.exit353.thread, %gv_calloc.exit353
-  %.pre493 = phi ptr [ %.pre, %gv_calloc.exit353 ], [ %.pre492, %gv_calloc.exit353.thread ], [ %.pre, %123 ]
+  %.pre512 = phi ptr [ %.pre, %gv_calloc.exit353 ], [ %.pre511, %gv_calloc.exit353.thread ], [ %.pre, %123 ]
   %146 = phi ptr [ %113, %gv_calloc.exit353 ], [ %112, %gv_calloc.exit353.thread ], [ %113, %123 ]
   %147 = phi ptr [ %105, %gv_calloc.exit353 ], [ %111, %gv_calloc.exit353.thread ], [ %105, %123 ]
   %.sroa.23.0.lcssa = phi double [ 0xFFEFFFFFFFFFFFFF, %gv_calloc.exit353 ], [ 0xFFEFFFFFFFFFFFFF, %gv_calloc.exit353.thread ], [ %145, %123 ]
@@ -1685,7 +1685,7 @@ gv_calloc.exit353:                                ; preds = %gv_calloc.exit348
   %152 = getelementptr inbounds nuw %struct.boxf, ptr %148, i64 %indvars.iv455, i32 1, i32 1
   store double %.sroa.23.0.lcssa, ptr %152, align 8, !tbaa !99
   %.idx = shl i64 %indvars.iv455, 4
-  %153 = getelementptr i8, ptr %.pre493, i64 %.idx
+  %153 = getelementptr i8, ptr %.pre512, i64 %.idx
   %154 = getelementptr ptr, ptr %153, i64 %89
   %155 = load ptr, ptr %154, align 8, !tbaa !20
   %156 = sext i32 %97 to i64
@@ -1895,8 +1895,8 @@ gv_calloc.exit363:                                ; preds = %.thread.i362, %gv_c
   br label %267
 
 267:                                              ; preds = %265, %263
-  %.sink504 = phi i32 [ %266, %265 ], [ %264, %263 ]
-  store i32 %.sink504, ptr %262, align 4, !tbaa !64
+  %.sink523 = phi i32 [ %266, %265 ], [ %264, %263 ]
+  store i32 %.sink523, ptr %262, align 4, !tbaa !64
   %268 = load i32, ptr %185, align 8, !tbaa !104
   %269 = icmp slt i32 %268, %187
   br i1 %269, label %.lr.ph419, label %._crit_edge420

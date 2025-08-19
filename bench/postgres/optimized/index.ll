@@ -1327,7 +1327,7 @@ UpdateIndexRelation.exit:                         ; preds = %522, %525
 
 .outer:                                           ; preds = %.thread, %.lr.ph287
   %.ph = phi i32 [ %.pre338, %.thread ], [ %549, %.lr.ph287 ]
-  %indvars.iv326.ph = phi i64 [ %indvars.iv.next327341, %.thread ], [ 0, %.lr.ph287 ]
+  %indvars.iv326.ph = phi i64 [ %indvars.iv.next327370, %.thread ], [ 0, %.lr.ph287 ]
   %.0285.ph = phi i1 [ true, %.thread ], [ false, %.lr.ph287 ]
   %554 = sext i32 %.ph to i64
   br label %555
@@ -1351,9 +1351,9 @@ UpdateIndexRelation.exit:                         ; preds = %522, %525
   store i32 %560, ptr %553, align 4
   call void @add_exact_object_address(ptr noundef nonnull %27, ptr noundef %548) #11
   %.pre338 = load i32, ptr %57, align 4
-  %indvars.iv.next327341 = add nuw nsw i64 %indvars.iv326, 1
+  %indvars.iv.next327370 = add nuw nsw i64 %indvars.iv326, 1
   %561 = sext i32 %.pre338 to i64
-  %562 = icmp slt i64 %indvars.iv.next327341, %561
+  %562 = icmp slt i64 %indvars.iv.next327370, %561
   br i1 %562, label %.outer, label %._crit_edge288.thread, !llvm.loop !13
 
 ._crit_edge288:                                   ; preds = %558
@@ -2967,12 +2967,12 @@ define dso_local void @index_concurrently_swap(i32 noundef %0, i32 noundef %1, p
   %90 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %91 = load i32, ptr %89, align 4
   %92 = icmp sgt i32 %91, 0
-  br i1 %92, label %.lr.ph167, label %.critedge
+  br i1 %92, label %.lr.ph176, label %.critedge
 
-.lr.ph167:                                        ; preds = %.lr.ph163, %._crit_edge
-  %indvars.iv166 = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %.lr.ph163 ]
+.lr.ph176:                                        ; preds = %.lr.ph163, %._crit_edge
+  %indvars.iv175 = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %.lr.ph163 ]
   %93 = load ptr, ptr %90, align 8
-  %94 = getelementptr inbounds nuw %union.ListCell, ptr %93, i64 %indvars.iv166
+  %94 = getelementptr inbounds nuw %union.ListCell, ptr %93, i64 %indvars.iv175
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %95 = load i32, ptr %94, align 8
   %96 = zext i32 %95 to i64
@@ -3000,14 +3000,14 @@ define dso_local void @index_concurrently_swap(i32 noundef %0, i32 noundef %1, p
   %.not149 = icmp eq ptr %102, null
   br i1 %.not149, label %147, label %142
 
-103:                                              ; preds = %.lr.ph167
+103:                                              ; preds = %.lr.ph176
   %104 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   call void @llvm.assume(i1 %104)
   %105 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, i32 noundef %95) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1682, ptr noundef nonnull @__func__.index_concurrently_swap) #11
   unreachable
 
-106:                                              ; preds = %.lr.ph167
+106:                                              ; preds = %.lr.ph176
   %107 = getelementptr i8, ptr %97, i64 16
   %.val154 = load ptr, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %.val154, i64 22
@@ -3069,11 +3069,11 @@ define dso_local void @index_concurrently_swap(i32 noundef %0, i32 noundef %1, p
 ._crit_edge:                                      ; preds = %137, %117
   call void @systable_endscan(ptr noundef %118) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv166, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv175, 1
   %139 = load i32, ptr %89, align 4
   %140 = sext i32 %139 to i64
   %141 = icmp slt i64 %indvars.iv.next, %140
-  br i1 %141, label %.lr.ph167, label %.critedge
+  br i1 %141, label %.lr.ph176, label %.critedge
 
 142:                                              ; preds = %.critedge
   %143 = getelementptr inbounds nuw i8, ptr %100, i64 64
@@ -4735,7 +4735,7 @@ SetReindexPending.exit:                           ; preds = %38
   br i1 %.not54, label %.lr.ph.split.us.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  br i1 %69, label %.lr.ph80, label %.critedge
+  br i1 %69, label %.lr.ph82, label %.critedge
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph
   br i1 %69, label %.lr.ph68, label %.critedge
@@ -4782,11 +4782,11 @@ SetReindexPending.exit:                           ; preds = %38
   %90 = icmp slt i64 %indvars.iv.next74, %89
   br i1 %90, label %.lr.ph68, label %.critedge
 
-.lr.ph80:                                         ; preds = %.lr.ph.split.preheader, %.lr.ph.split
-  %.0496079 = phi i32 [ %.1, %.lr.ph.split ], [ 1, %.lr.ph.split.preheader ]
-  %indvars.iv78 = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
+.lr.ph82:                                         ; preds = %.lr.ph.split.preheader, %.lr.ph.split
+  %.0496081 = phi i32 [ %.1, %.lr.ph.split ], [ 1, %.lr.ph.split.preheader ]
+  %indvars.iv80 = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
   %91 = load ptr, ptr %66, align 8
-  %92 = getelementptr inbounds nuw %union.ListCell, ptr %91, i64 %indvars.iv78
+  %92 = getelementptr inbounds nuw %union.ListCell, ptr %91, i64 %indvars.iv80
   %93 = load i32, ptr %92, align 8
   %94 = tail call i32 @get_rel_namespace(i32 noundef %93) #11
   %95 = tail call zeroext i1 @IsToastNamespace(i32 noundef %94) #11
@@ -4799,7 +4799,7 @@ SetReindexPending.exit:                           ; preds = %38
   %97 = icmp ne i32 %96, 0
   br label %120
 
-98:                                               ; preds = %.lr.ph80
+98:                                               ; preds = %.lr.ph82
   %99 = tail call zeroext i1 @get_index_isvalid(i32 noundef %93) #11
   br i1 %99, label %114, label %100
 
@@ -4832,21 +4832,21 @@ RemoveReindexPending.exit:                        ; preds = %107
   store ptr %113, ptr @pendingReindexedIndexes, align 8
   br label %.lr.ph.split
 
-114:                                              ; preds = %98, %.lr.ph80
+114:                                              ; preds = %98, %.lr.ph82
   tail call void @reindex_index(ptr noundef %0, i32 noundef %93, i1 noundef zeroext %.not58, i8 noundef signext %.047, ptr noundef nonnull %3)
   tail call void @CommandCounterIncrement() #11
-  %115 = sext i32 %.0496079 to i64
+  %115 = sext i32 %.0496081 to i64
   tail call void @pgstat_progress_update_param(i32 noundef 7, i64 noundef %115) #11
-  %116 = add i32 %.0496079, 1
+  %116 = add i32 %.0496081, 1
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %RemoveReindexPending.exit, %114
-  %.1 = phi i32 [ %116, %114 ], [ %.0496079, %RemoveReindexPending.exit ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv78, 1
+  %.1 = phi i32 [ %116, %114 ], [ %.0496081, %RemoveReindexPending.exit ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv80, 1
   %117 = load i32, ptr %65, align 4
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next, %118
-  br i1 %119, label %.lr.ph80, label %.critedge
+  br i1 %119, label %.lr.ph82, label %.critedge
 
 120:                                              ; preds = %12, %.critedge
   %.0 = phi i1 [ %97, %.critedge ], [ false, %12 ]

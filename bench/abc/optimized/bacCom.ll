@@ -214,17 +214,17 @@ define internal range(i32 0, 2) i32 @Bac_CommandRead(ptr noundef captures(none) 
 
 .outer:                                           ; preds = %6, %3
   %.063.ph = phi i32 [ %7, %6 ], [ 0, %3 ]
-  %.061.ph = phi i32 [ %.061.ph111, %6 ], [ 0, %3 ]
+  %.061.ph = phi i32 [ %.061.ph118, %6 ], [ 0, %3 ]
   %.059.ph = phi i32 [ %.059, %6 ], [ 0, %3 ]
-  br label %.outer110
+  br label %.outer117
 
-.outer110:                                        ; preds = %.outer, %8
-  %.061.ph111 = phi i32 [ %.061.ph, %.outer ], [ %9, %8 ]
-  %.059.ph112 = phi i32 [ %.059.ph, %.outer ], [ %.059, %8 ]
+.outer117:                                        ; preds = %.outer, %8
+  %.061.ph118 = phi i32 [ %.061.ph, %.outer ], [ %9, %8 ]
+  %.059.ph119 = phi i32 [ %.059.ph, %.outer ], [ %.059, %8 ]
   br label %4
 
-4:                                                ; preds = %.outer110, %10
-  %.059 = phi i32 [ %11, %10 ], [ %.059.ph112, %.outer110 ]
+4:                                                ; preds = %.outer117, %10
+  %.059 = phi i32 [ %11, %10 ], [ %.059.ph119, %.outer117 ]
   %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.13) #14
   switch i32 %5, label %82 [
     i32 -1, label %12
@@ -238,8 +238,8 @@ define internal range(i32 0, 2) i32 @Bac_CommandRead(ptr noundef captures(none) 
   br label %.outer, !llvm.loop !23
 
 8:                                                ; preds = %4
-  %9 = xor i32 %.061.ph111, 1
-  br label %.outer110, !llvm.loop !23
+  %9 = xor i32 %.061.ph118, 1
+  br label %.outer117, !llvm.loop !23
 
 10:                                               ; preds = %4
   %11 = xor i32 %.059, 1
@@ -280,7 +280,7 @@ define internal range(i32 0, 2) i32 @Bac_CommandRead(ptr noundef captures(none) 
 26:                                               ; preds = %16
   %27 = tail call i32 @fclose(ptr noundef nonnull %20)
   %28 = icmp ne i32 %.063.ph, 0
-  %29 = icmp ne i32 %.061.ph111, 0
+  %29 = icmp ne i32 %.061.ph118, 0
   %or.cond = select i1 %28, i1 true, i1 %29
   br i1 %or.cond, label %30, label %49
 
@@ -425,7 +425,7 @@ Bac_AbcUpdateMan.exit:                            ; preds = %79, %81
   %.not87 = icmp eq i32 %.063.ph, 0
   %83 = select i1 %.not87, ptr @.str.32, ptr @.str.31
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.30, ptr noundef nonnull %83)
-  %.not88 = icmp eq i32 %.061.ph111, 0
+  %.not88 = icmp eq i32 %.061.ph118, 0
   %84 = select i1 %.not88, ptr @.str.32, ptr @.str.31
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.33, ptr noundef nonnull %84)
   %.not89 = icmp eq i32 %.059, 0
@@ -448,17 +448,17 @@ define internal range(i32 0, 2) i32 @Bac_CommandWrite(ptr noundef readonly captu
 
 .outer:                                           ; preds = %7, %3
   %.037.ph = phi i32 [ %8, %7 ], [ 1, %3 ]
-  %.035.ph = phi i32 [ %.035.ph67, %7 ], [ 0, %3 ]
+  %.035.ph = phi i32 [ %.035.ph69, %7 ], [ 0, %3 ]
   %.033.ph = phi i32 [ %.033, %7 ], [ 0, %3 ]
-  br label %.outer66
+  br label %.outer68
 
-.outer66:                                         ; preds = %.outer, %9
-  %.035.ph67 = phi i32 [ %.035.ph, %.outer ], [ %10, %9 ]
-  %.033.ph68 = phi i32 [ %.033.ph, %.outer ], [ %.033, %9 ]
+.outer68:                                         ; preds = %.outer, %9
+  %.035.ph69 = phi i32 [ %.035.ph, %.outer ], [ %10, %9 ]
+  %.033.ph70 = phi i32 [ %.033.ph, %.outer ], [ %.033, %9 ]
   br label %5
 
-5:                                                ; preds = %.outer66, %11
-  %.033 = phi i32 [ %12, %11 ], [ %.033.ph68, %.outer66 ]
+5:                                                ; preds = %.outer68, %11
+  %.033 = phi i32 [ %12, %11 ], [ %.033.ph70, %.outer68 ]
   %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.13) #14
   switch i32 %6, label %49 [
     i32 -1, label %13
@@ -472,8 +472,8 @@ define internal range(i32 0, 2) i32 @Bac_CommandWrite(ptr noundef readonly captu
   br label %.outer, !llvm.loop !42
 
 9:                                                ; preds = %5
-  %10 = xor i32 %.035.ph67, 1
-  br label %.outer66, !llvm.loop !42
+  %10 = xor i32 %.035.ph69, 1
+  br label %.outer68, !llvm.loop !42
 
 11:                                               ; preds = %5
   %12 = xor i32 %.033, 1
@@ -536,7 +536,7 @@ sub_0:                                            ; preds = %29
   br i1 %37, label %38, label %.tail.thread
 
 38:                                               ; preds = %.tail
-  %.not45 = icmp eq i32 %.035.ph67, 0
+  %.not45 = icmp eq i32 %.035.ph69, 0
   br i1 %.not45, label %44, label %39
 
 39:                                               ; preds = %38
@@ -577,7 +577,7 @@ sub_0:                                            ; preds = %29
   %.not49 = icmp eq i32 %.037.ph, 0
   %50 = select i1 %.not49, ptr @.str.32, ptr @.str.31
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.44, ptr noundef nonnull %50)
-  %.not50 = icmp eq i32 %.035.ph67, 0
+  %.not50 = icmp eq i32 %.035.ph69, 0
   %51 = select i1 %.not50, ptr @.str.32, ptr @.str.31
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.45, ptr noundef nonnull %51)
   %.not51 = icmp eq i32 %.033, 0

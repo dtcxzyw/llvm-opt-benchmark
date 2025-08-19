@@ -1645,7 +1645,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #14
 define linkonce_odr void @_ZN5faiss12AlignedTableIfLi32EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = icmp eq i64 %1, 0
-  br i1 %4, label %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread8, label %5
+  br i1 %4, label %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread9, label %5
 
 5:                                                ; preds = %2
   %6 = icmp ult i64 %1, 256
@@ -1663,7 +1663,7 @@ _ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit: ; preds = %.preheader.i
   %11 = icmp eq i64 %10, %.0.i
   br i1 %11, label %_ZN5faiss22AlignedTableTightAllocIfLi32EE6resizeEm.exit, label %.thread
 
-_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread8: ; preds = %2
+_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread9: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !73
   %14 = icmp eq i64 %13, 0
@@ -1703,7 +1703,7 @@ _ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread: ; preds = %5
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %26, ptr align 4 %27, i64 %28, i1 false)
   br label %30
 
-29:                                               ; preds = %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread8
+29:                                               ; preds = %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !46
   br label %30
@@ -1719,7 +1719,7 @@ _ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread: ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5faiss22AlignedTableTightAllocIfLi32EE6resizeEm.exit
 
-_ZN5faiss22AlignedTableTightAllocIfLi32EE6resizeEm.exit: ; preds = %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread8, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit, %30
+_ZN5faiss22AlignedTableTightAllocIfLi32EE6resizeEm.exit: ; preds = %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread9, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit, %30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %34, align 8, !tbaa !74
   ret void
@@ -1756,8 +1756,8 @@ define internal void @_ZN5faiss18IndexIVFPQFastScanC2ERKNS_10IndexIVFPQEi.omp_ou
   %17 = call i64 @llvm.umin.i64(i64 %16, i64 %14)
   store i64 %17, ptr %8, align 8, !tbaa !47
   %18 = load i64, ptr %7, align 8, !tbaa !47
-  %.not39 = icmp ugt i64 %18, %17
-  br i1 %.not39, label %._crit_edge, label %.lr.ph
+  %.not42 = icmp ugt i64 %18, %17
+  br i1 %.not42, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -2106,8 +2106,8 @@ define internal void @_ZNK5faiss18IndexIVFPQFastScan11compute_LUTEmPKfRKNS_16Ind
   %25 = call i64 @llvm.umin.i64(i64 %24, i64 %22)
   store i64 %25, ptr %15, align 8, !tbaa !47
   %26 = load i64, ptr %14, align 8, !tbaa !47
-  %.not28 = icmp ugt i64 %26, %25
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not32 = icmp ugt i64 %26, %25
+  br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2255,8 +2255,8 @@ define internal void @_ZNK5faiss18IndexIVFPQFastScan11compute_LUTEmPKfRKNS_16Ind
   %21 = call i64 @llvm.umin.i64(i64 %20, i64 %18)
   store i64 %21, ptr %11, align 8, !tbaa !47
   %22 = load i64, ptr %10, align 8, !tbaa !47
-  %.not27 = icmp ugt i64 %22, %21
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not30 = icmp ugt i64 %22, %21
+  br i1 %.not30, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16

@@ -4328,16 +4328,16 @@ _ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit: ; pre
   br i1 %40, label %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit17.thread, label %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit.thread
 
 _ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit.thread: ; preds = %8, %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit
-  %.sroa.05.0.i22 = phi float [ %.sroa.05.0.i.ph, %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit ], [ 0x7FF8000000000000, %8 ]
-  %.sroa.0.0.copyload21 = phi i16 [ %.sroa.0.0.copyload.pr, %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit ], [ %9, %8 ]
-  %41 = and i16 %.sroa.0.0.copyload21, 8
+  %.sroa.05.0.i27 = phi float [ %.sroa.05.0.i.ph, %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit ], [ 0x7FF8000000000000, %8 ]
+  %.sroa.0.0.copyload26 = phi i16 [ %.sroa.0.0.copyload.pr, %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit ], [ %9, %8 ]
+  %41 = and i16 %.sroa.0.0.copyload26, 8
   %.not.i9 = icmp eq i16 %41, 0
-  %42 = lshr i16 %.sroa.0.0.copyload21, 4
+  %42 = lshr i16 %.sroa.0.0.copyload26, 4
   br i1 %.not.i9, label %62, label %43
 
 43:                                               ; preds = %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit.thread
   %44 = zext nneg i16 %42 to i64
-  %45 = icmp ult i16 %.sroa.0.0.copyload21, 64
+  %45 = icmp ult i16 %.sroa.0.0.copyload26, 64
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %43
@@ -4376,24 +4376,24 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i12: ; preds = %_ZNSt6ve
   %63 = and i16 %42, 2047
   %64 = zext nneg i16 %63 to i32
   %65 = sub nsw i32 0, %64
-  %.not.i6.i16 = icmp slt i16 %.sroa.0.0.copyload21, 0
+  %.not.i6.i16 = icmp slt i16 %.sroa.0.0.copyload26, 0
   %66 = select i1 %.not.i6.i16, i32 %65, i32 %64
   %67 = sitofp i32 %66 to float
   br label %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit17
 
 _ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit17: ; preds = %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i12, %62
   %.sroa.05.0.i15 = phi float [ %.0.i7.i14, %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i12 ], [ %67, %62 ]
-  %68 = fcmp oeq float %.sroa.05.0.i22, %.sroa.05.0.i15
+  %68 = fcmp oeq float %.sroa.05.0.i27, %.sroa.05.0.i15
   br i1 %68, label %_ZN8facebook4yogaeqENS0_13FloatOptionalES1_.exit, label %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit17.thread
 
 _ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit17.thread: ; preds = %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit, %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit17
-  %.sroa.05.0.i1527 = phi float [ %.sroa.05.0.i15, %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit17 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit ]
-  %.sroa.05.0.i2326 = phi float [ %.sroa.05.0.i22, %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit17 ], [ %.sroa.05.0.i.ph, %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit ]
-  %69 = fcmp uno float %.sroa.05.0.i2326, 0.000000e+00
+  %.sroa.05.0.i1532 = phi float [ %.sroa.05.0.i15, %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit17 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit ]
+  %.sroa.05.0.i2831 = phi float [ %.sroa.05.0.i27, %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit17 ], [ %.sroa.05.0.i.ph, %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit ]
+  %69 = fcmp uno float %.sroa.05.0.i2831, 0.000000e+00
   br i1 %69, label %70, label %_ZN8facebook4yogaeqENS0_13FloatOptionalES1_.exit
 
 70:                                               ; preds = %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit17.thread
-  %71 = fcmp uno float %.sroa.05.0.i1527, 0.000000e+00
+  %71 = fcmp uno float %.sroa.05.0.i1532, 0.000000e+00
   br label %_ZN8facebook4yogaeqENS0_13FloatOptionalES1_.exit
 
 _ZN8facebook4yogaeqENS0_13FloatOptionalES1_.exit: ; preds = %70, %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit17.thread, %_ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit17, %8

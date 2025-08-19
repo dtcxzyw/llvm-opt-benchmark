@@ -844,10 +844,10 @@ define dso_local i32 @intel_guc_ct_send(ptr noundef %0, ptr noundef readonly cap
   br label %.sink.split
 
 .sink.split:                                      ; preds = %177, %200
-  %.ph90 = phi i32 [ %202, %200 ], [ 10000, %177 ]
-  %.ph91 = phi i32 [ %198, %200 ], [ %178, %177 ]
+  %.ph112 = phi i32 [ %202, %200 ], [ 10000, %177 ]
+  %.ph113 = phi i32 [ %198, %200 ], [ %178, %177 ]
   %179 = call i64 @local_clock() #13
-  %180 = sext i32 %.ph90 to i64
+  %180 = sext i32 %.ph112 to i64
   br label %181
 
 181:                                              ; preds = %.sink.split, %197
@@ -886,12 +886,12 @@ define dso_local i32 @intel_guc_ct_send(ptr noundef %0, ptr noundef readonly cap
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !22
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !30
   %198 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !31
-  %199 = icmp eq i32 %.ph91, %198
+  %199 = icmp eq i32 %.ph113, %198
   br i1 %199, label %181, label %200, !prof !6
 
 200:                                              ; preds = %197
   %201 = trunc i64 %195 to i32
-  %202 = sub i32 %.ph90, %201
+  %202 = sub i32 %.ph112, %201
   br label %.sink.split
 
 203:                                              ; preds = %194

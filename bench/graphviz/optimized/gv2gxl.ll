@@ -1814,7 +1814,7 @@ declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @agisdirected(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noalias noundef ptr @make_nitem(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #4 {
+define internal noalias nonnull ptr @make_nitem(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #4 {
   %3 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 33) 32) #22
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %gv_alloc.exit

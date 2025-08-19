@@ -107,16 +107,16 @@ define noundef ptr @Bmc_CexCareExtendToObjects(ptr noundef readonly captures(non
   br i1 %49, label %.lr.ph139.preheader, label %.critedge2
 
 .lr.ph139.preheader:                              ; preds = %.preheader
-  %.val113173 = load ptr, ptr %14, align 8, !tbaa !32
-  %.not88175 = icmp eq ptr %.val113173, null
-  br i1 %.not88175, label %.critedge2, label %.lr.ph177
+  %.val113179 = load ptr, ptr %14, align 8, !tbaa !32
+  %.not88181 = icmp eq ptr %.val113179, null
+  br i1 %.not88181, label %.critedge2, label %.lr.ph183
 
-.lr.ph177:                                        ; preds = %.lr.ph139.preheader
+.lr.ph183:                                        ; preds = %.lr.ph139.preheader
   %50 = getelementptr i8, ptr %.val110135, i64 8
-  %.val114.val174 = load ptr, ptr %50, align 8, !tbaa !35
-  %51 = load i32, ptr %.val114.val174, align 4, !tbaa !37
+  %.val114.val180 = load ptr, ptr %50, align 8, !tbaa !35
+  %51 = load i32, ptr %.val114.val180, align 4, !tbaa !37
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val113173, i64 %52
+  %53 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val113179, i64 %52
   br label %59
 
 .lr.ph139:                                        ; preds = %96
@@ -130,13 +130,13 @@ define noundef ptr @Bmc_CexCareExtendToObjects(ptr noundef readonly captures(non
   %.not88 = icmp eq ptr %.val113, null
   br i1 %.not88, label %.critedge2, label %59, !llvm.loop !41
 
-59:                                               ; preds = %.lr.ph177, %.lr.ph139
-  %60 = phi ptr [ %53, %.lr.ph177 ], [ %58, %.lr.ph139 ]
-  %indvars.iv176 = phi i64 [ 0, %.lr.ph177 ], [ %indvars.iv.next, %.lr.ph139 ]
+59:                                               ; preds = %.lr.ph183, %.lr.ph139
+  %60 = phi ptr [ %53, %.lr.ph183 ], [ %58, %.lr.ph139 ]
+  %indvars.iv182 = phi i64 [ 0, %.lr.ph183 ], [ %indvars.iv.next, %.lr.ph139 ]
   %61 = load i32, ptr %40, align 4, !tbaa !3
   %62 = load i32, ptr %41, align 4, !tbaa !42
   %63 = mul nsw i32 %62, %.080157
-  %64 = trunc nuw nsw i64 %indvars.iv176 to i32
+  %64 = trunc nuw nsw i64 %indvars.iv182 to i32
   %65 = add i32 %61, %64
   %66 = add i32 %65, %63
   %67 = ashr i32 %66, 5
@@ -183,7 +183,7 @@ define noundef ptr @Bmc_CexCareExtendToObjects(ptr noundef readonly captures(non
 96:                                               ; preds = %74, %94, %92
   %.sink = phi i64 [ %76, %74 ], [ %95, %94 ], [ %93, %92 ]
   store i64 %.sink, ptr %60, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv176, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv182, 1
   %.val109 = load i32, ptr %18, align 8, !tbaa !33
   %.val110 = load ptr, ptr %38, align 8, !tbaa !40
   %97 = getelementptr i8, ptr %.val110, i64 4
@@ -2109,12 +2109,12 @@ Vec_IntFree.exit277:                              ; preds = %Vec_IntFree.exit275
   %335 = tail call i32 @Abc_CexCountOnes(ptr noundef nonnull %332) #11
   %336 = icmp sgt i32 %.0208363, %335
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.0208363, i32 %335)
-  %spec.select507 = select i1 %336, ptr %332, ptr %.0202365
+  %spec.select538 = select i1 %336, ptr %332, ptr %.0202365
   br label %337
 
 337:                                              ; preds = %334, %.lr.ph366
   %.1209 = phi i32 [ %.0208363, %.lr.ph366 ], [ %spec.select, %334 ]
-  %.1 = phi ptr [ %.0202365, %.lr.ph366 ], [ %spec.select507, %334 ]
+  %.1 = phi ptr [ %.0202365, %.lr.ph366 ], [ %spec.select538, %334 ]
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
   %exitcond394.not = icmp eq i64 %indvars.iv.next391, %wide.trip.count393
   br i1 %exitcond394.not, label %._crit_edge367, label %.lr.ph366, !llvm.loop !86

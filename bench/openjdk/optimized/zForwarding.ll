@@ -862,8 +862,8 @@ _ZN6ZUtils11object_sizeE8zaddress.exit:           ; preds = %82, %85, %92, %112
   unreachable
 
 _ZNK5ZPage16object_alignmentEv.exit.sink.split:   ; preds = %_ZN6ZUtils11object_sizeE8zaddress.exit, %120
-  %.sink49 = phi ptr [ @ZObjectAlignmentMedium, %120 ], [ %15, %_ZN6ZUtils11object_sizeE8zaddress.exit ]
-  %123 = load i32, ptr %.sink49, align 4
+  %.sink53 = phi ptr [ @ZObjectAlignmentMedium, %120 ], [ %15, %_ZN6ZUtils11object_sizeE8zaddress.exit ]
+  %123 = load i32, ptr %.sink53, align 4
   %124 = sext i32 %123 to i64
   br label %_ZNK5ZPage16object_alignmentEv.exit
 

@@ -486,9 +486,9 @@ define internal fastcc i64 @iomap_readpage_iter(ptr noundef readonly captures(no
   %145 = zext nneg i32 %144 to i64
   %146 = add i64 %141, %145
   %147 = icmp eq i64 %146, %127
-  br i1 %147, label %156, label %.thread8
+  br i1 %147, label %156, label %.thread12
 
-.thread8:                                         ; preds = %139
+.thread12:                                        ; preds = %139
   %148 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 64
@@ -517,10 +517,10 @@ define internal fastcc i64 @iomap_readpage_iter(ptr noundef readonly captures(no
   %168 = icmp eq ptr %.pre, null
   br i1 %168, label %173, label %169
 
-169:                                              ; preds = %.thread8, %159
-  %170 = phi i32 [ %155, %.thread8 ], [ %167, %159 ]
-  %171 = phi i32 [ %152, %.thread8 ], [ %164, %159 ]
-  %172 = phi ptr [ %129, %.thread8 ], [ %.pre, %159 ]
+169:                                              ; preds = %.thread12, %159
+  %170 = phi i32 [ %155, %.thread12 ], [ %167, %159 ]
+  %171 = phi i32 [ %152, %.thread12 ], [ %164, %159 ]
+  %172 = phi ptr [ %129, %.thread12 ], [ %.pre, %159 ]
   tail call void @submit_bio(ptr noundef nonnull %172) #16
   br label %173
 
@@ -2173,12 +2173,12 @@ define dso_local range(i32 -2147483648, 1) i32 @iomap_file_unshare(ptr noundef %
   br i1 %105, label %.preheader, label %.loopexit, !llvm.loop !86
 
 .loopexit.sink.split:                             ; preds = %50, %96, %48
-  %.ph36 = phi i64 [ -5, %96 ], [ %49, %48 ], [ %43, %50 ]
+  %.ph41 = phi i64 [ -5, %96 ], [ %49, %48 ], [ %43, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %97, %.loopexit.sink.split, %41, %41, %33
-  %106 = phi i64 [ %37, %33 ], [ %37, %41 ], [ %37, %41 ], [ %.ph36, %.loopexit.sink.split ], [ %100, %97 ]
+  %106 = phi i64 [ %37, %33 ], [ %37, %41 ], [ %37, %41 ], [ %.ph41, %.loopexit.sink.split ], [ %100, %97 ]
   store i64 %106, ptr %20, align 8
   %107 = call i32 @iomap_iter(ptr noundef nonnull %6, ptr noundef %3) #16
   %108 = icmp sgt i32 %107, 0
@@ -4784,7 +4784,7 @@ define internal void @iomap_read_end_io(ptr noundef %0) #0 align 16 {
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 40
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %.thread6, label %95
+  br i1 %94, label %.thread10, label %95
 
 95:                                               ; preds = %.split.us
   %96 = load i64, ptr %57, align 8
@@ -4835,14 +4835,14 @@ define internal void @iomap_read_end_io(ptr noundef %0) #0 align 16 {
   store i32 %134, ptr %131, align 4
   %135 = icmp eq i32 %132, %133
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %93, i64 noundef %97) #16
-  br i1 %135, label %.thread6, label %137
+  br i1 %135, label %.thread10, label %137
 
-.thread6:                                         ; preds = %.split.us, %121
+.thread10:                                        ; preds = %.split.us, %121
   %136 = phi i1 [ %130, %121 ], [ true, %.split.us ]
   tail call void @folio_end_read(ptr noundef nonnull %90, i1 noundef zeroext %136) #16
   br label %137
 
-137:                                              ; preds = %.thread6, %121
+137:                                              ; preds = %.thread10, %121
   call fastcc void @bio_next_folio(ptr noundef nonnull %2, ptr noundef %0)
   %138 = load ptr, ptr %2, align 8
   %139 = icmp eq ptr %138, null

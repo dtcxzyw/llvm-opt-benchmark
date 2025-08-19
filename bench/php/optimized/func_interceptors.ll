@@ -1303,11 +1303,11 @@ zend_hash_str_find_ptr.exit.thread:               ; preds = %63, %71
   br label %161
 
 161:                                              ; preds = %138, %158, %117, %82
-  %.sink181.in = phi ptr [ %147, %138 ], [ %160, %158 ], [ %121, %117 ], [ %86, %82 ]
+  %.sink188.in = phi ptr [ %147, %138 ], [ %160, %158 ], [ %121, %117 ], [ %86, %82 ]
   %162 = phi i32 [ %storemerge, %138 ], [ %159, %158 ], [ 16895, %117 ], [ 16895, %82 ]
   %.1 = phi ptr [ %.0, %138 ], [ %.0, %158 ], [ null, %117 ], [ null, %82 ]
-  %.sink181 = load i32, ptr %.sink181.in, align 4, !tbaa !92
-  %163 = zext i32 %.sink181 to i64
+  %.sink188 = load i32, ptr %.sink188.in, align 4, !tbaa !92
+  %163 = zext i32 %.sink188 to i64
   %164 = getelementptr inbounds nuw i8, ptr %11, i64 88
   store i64 %163, ptr %164, align 8, !tbaa !93
   %165 = getelementptr inbounds nuw i8, ptr %11, i64 72

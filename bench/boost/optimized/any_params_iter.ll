@@ -106,9 +106,9 @@ _ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread.i: ; preds =
   br label %_ZN5boost4urls6detail10query_iter6rewindEv.exit
 
 _ZN5boost4urls6detail10query_iter6rewindEv.exit:  ; preds = %4, %_ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread.i
-  %.sink5.i = phi i8 [ 0, %_ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread.i ], [ 1, %4 ]
+  %.sink7.i = phi i8 [ 0, %_ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread.i ], [ 1, %4 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 %.sink5.i, ptr %20, align 8, !tbaa !18
+  store i8 %.sink7.i, ptr %20, align 8, !tbaa !18
   ret void
 }
 
@@ -147,9 +147,9 @@ _ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread: ; preds = %
   br label %17
 
 17:                                               ; preds = %1, %_ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread
-  %.sink5 = phi i8 [ 0, %_ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread ], [ 1, %1 ]
+  %.sink7 = phi i8 [ 0, %_ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread ], [ 1, %1 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 %.sink5, ptr %18, align 8, !tbaa !18
+  store i8 %.sink7, ptr %18, align 8, !tbaa !18
   ret void
 }
 
@@ -777,7 +777,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
 
 24:                                               ; preds = %.lr.ph
   %25 = icmp eq ptr %.05972, %11
-  br i1 %25, label %.loopexit84, label %26
+  br i1 %25, label %.loopexit87, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %.05972, i64 1
@@ -798,7 +798,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   %31 = ptrtoint ptr %.05972 to i64
   %32 = ptrtoint ptr %0 to i64
   %33 = sub i64 %31, %32
-  br label %.loopexit84
+  br label %.loopexit87
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %.05972, i64 1
@@ -823,7 +823,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   %47 = ptrtoint ptr %.059.lcssa to i64
   %48 = ptrtoint ptr %0 to i64
   %49 = sub i64 %47, %48
-  br label %.loopexit84
+  br label %.loopexit87
 
 50:                                               ; preds = %6
   %51 = load i64, ptr %4, align 8, !tbaa !7
@@ -850,7 +850,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
 
 62:                                               ; preds = %.lr.ph77
   %63 = icmp eq ptr %.16075, %11
-  br i1 %63, label %.loopexit84, label %64
+  br i1 %63, label %.loopexit87, label %64
 
 64:                                               ; preds = %62
   %65 = getelementptr inbounds nuw i8, ptr %.16075, i64 1
@@ -869,7 +869,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
 
 68:                                               ; preds = %66
   %69 = icmp eq ptr %.16075, %11
-  br i1 %69, label %.loopexit84, label %70
+  br i1 %69, label %.loopexit87, label %70
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %.16075, i64 1
@@ -884,7 +884,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   %75 = ptrtoint ptr %.16075 to i64
   %76 = ptrtoint ptr %0 to i64
   %77 = sub i64 %75, %76
-  br label %.loopexit84
+  br label %.loopexit87
 
 78:                                               ; preds = %72
   %79 = getelementptr inbounds nuw i8, ptr %.16075, i64 1
@@ -909,9 +909,9 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   %91 = ptrtoint ptr %.2 to i64
   %92 = ptrtoint ptr %0 to i64
   %93 = sub i64 %91, %92
-  br label %.loopexit84
+  br label %.loopexit87
 
-.loopexit84:                                      ; preds = %24, %68, %62, %.loopexit, %74, %._crit_edge, %30
+.loopexit87:                                      ; preds = %24, %68, %62, %.loopexit, %74, %._crit_edge, %30
   %.0 = phi i64 [ %93, %.loopexit ], [ %77, %74 ], [ %33, %30 ], [ %49, %._crit_edge ], [ %1, %62 ], [ %1, %68 ], [ %1, %24 ]
   ret i64 %.0
 }

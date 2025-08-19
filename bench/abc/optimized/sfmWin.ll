@@ -590,11 +590,11 @@ Vec_IntPush.exit113:                              ; preds = %.Vec_IntGrow.exit10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Vec_IntPush.exit113, %Vec_IntPush.exit104
-  %.sink157 = phi i32 [ %112, %Vec_IntPush.exit104 ], [ %151, %Vec_IntPush.exit113 ]
-  %.sink155 = phi ptr [ %111, %Vec_IntPush.exit104 ], [ %150, %Vec_IntPush.exit113 ]
+  %.sink167 = phi i32 [ %112, %Vec_IntPush.exit104 ], [ %151, %Vec_IntPush.exit113 ]
+  %.sink165 = phi ptr [ %111, %Vec_IntPush.exit104 ], [ %150, %Vec_IntPush.exit113 ]
   %.sink = phi i32 [ %20, %Vec_IntPush.exit104 ], [ %1, %Vec_IntPush.exit113 ]
-  %153 = sext i32 %.sink157 to i64
-  %154 = getelementptr inbounds i32, ptr %.sink155, i64 %153
+  %153 = sext i32 %.sink167 to i64
+  %154 = getelementptr inbounds i32, ptr %.sink165, i64 %153
   store i32 %.sink, ptr %154, align 4, !tbaa !22
   br label %155
 

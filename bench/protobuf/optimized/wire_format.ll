@@ -425,28 +425,28 @@ if.end19:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp20, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %if.end19
-  %cmp.i73 = icmp slt i32 %length.068, 0
-  br i1 %cmp.i73, label %return, label %if.end.i
+  %cmp.i78 = icmp slt i32 %length.068, 0
+  br i1 %cmp.i78, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then21
   %12 = load ptr, ptr %buffer_end_.i30, align 8
   %13 = load ptr, ptr %input, align 8
-  %sub.ptr.lhs.cast.i.i75 = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i.i76 = ptrtoint ptr %13 to i64
-  %sub.ptr.sub.i.i77 = sub i64 %sub.ptr.lhs.cast.i.i75, %sub.ptr.rhs.cast.i.i76
-  %conv.i.i78 = trunc i64 %sub.ptr.sub.i.i77 to i32
-  %cmp2.not.i = icmp sgt i32 %length.068, %conv.i.i78
+  %sub.ptr.lhs.cast.i.i80 = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i.i81 = ptrtoint ptr %13 to i64
+  %sub.ptr.sub.i.i82 = sub i64 %sub.ptr.lhs.cast.i.i80, %sub.ptr.rhs.cast.i.i81
+  %conv.i.i83 = trunc i64 %sub.ptr.sub.i.i82 to i32
+  %cmp2.not.i = icmp sgt i32 %length.068, %conv.i.i83
   br i1 %cmp2.not.i, label %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit, label %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit.thread
 
 _ZN6google8protobuf2io16CodedInputStream4SkipEi.exit.thread: ; preds = %if.end.i
   %idx.ext.i.i = zext nneg i32 %length.068 to i64
-  %add.ptr.i.i79 = getelementptr inbounds nuw i8, ptr %13, i64 %idx.ext.i.i
-  store ptr %add.ptr.i.i79, ptr %input, align 8
+  %add.ptr.i.i84 = getelementptr inbounds nuw i8, ptr %13, i64 %idx.ext.i.i
+  store ptr %add.ptr.i.i84, ptr %input, align 8
   br label %if.end29
 
 _ZN6google8protobuf2io16CodedInputStream4SkipEi.exit: ; preds = %if.end.i
-  %call5.i81 = tail call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %input, i32 noundef %length.068, i32 noundef %conv.i.i78)
-  br i1 %call5.i81, label %if.end29, label %return
+  %call5.i86 = tail call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %input, i32 noundef %length.068, i32 noundef %conv.i.i83)
+  br i1 %call5.i86, label %if.end29, label %return
 
 if.else:                                          ; preds = %if.end19
   %call25 = tail call noundef ptr @_ZN6google8protobuf15UnknownFieldSet18AddLengthDelimitedB5cxx11Ei(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields, i32 noundef %shr.i)
@@ -1956,29 +1956,29 @@ if.end.i.i:                                       ; preds = %call.i32.i.noexc.if
   %21 = phi ptr [ %add.ptr.i.i36.i, %if.end19.i.thread ], [ %.pre13, %call.i32.i.noexc.if.end.i.i_crit_edge ]
   %22 = phi ptr [ %18, %if.end19.i.thread ], [ %.pre, %call.i32.i.noexc.if.end.i.i_crit_edge ]
   %length.068.i10 = phi i32 [ %conv.i.i5, %if.end19.i.thread ], [ %conv6.i.i3, %call.i32.i.noexc.if.end.i.i_crit_edge ]
-  %sub.ptr.lhs.cast.i.i75.i = ptrtoint ptr %22 to i64
-  %sub.ptr.rhs.cast.i.i76.i = ptrtoint ptr %21 to i64
-  %sub.ptr.sub.i.i77.i = sub i64 %sub.ptr.lhs.cast.i.i75.i, %sub.ptr.rhs.cast.i.i76.i
-  %conv.i.i78.i = trunc i64 %sub.ptr.sub.i.i77.i to i32
-  %cmp2.not.i.i = icmp sgt i32 %length.068.i10, %conv.i.i78.i
+  %sub.ptr.lhs.cast.i.i80.i = ptrtoint ptr %22 to i64
+  %sub.ptr.rhs.cast.i.i81.i = ptrtoint ptr %21 to i64
+  %sub.ptr.sub.i.i82.i = sub i64 %sub.ptr.lhs.cast.i.i80.i, %sub.ptr.rhs.cast.i.i81.i
+  %conv.i.i83.i = trunc i64 %sub.ptr.sub.i.i82.i to i32
+  %cmp2.not.i.i = icmp sgt i32 %length.068.i10, %conv.i.i83.i
   br i1 %cmp2.not.i.i, label %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit.i, label %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit.thread.i
 
 _ZN6google8protobuf2io16CodedInputStream4SkipEi.exit.thread.i: ; preds = %if.end.i.i
   %idx.ext.i.i.i = zext nneg i32 %length.068.i10 to i64
-  %add.ptr.i.i79.i = getelementptr inbounds nuw i8, ptr %21, i64 %idx.ext.i.i.i
-  store ptr %add.ptr.i.i79.i, ptr %input, align 8
+  %add.ptr.i.i84.i = getelementptr inbounds nuw i8, ptr %21, i64 %idx.ext.i.i.i
+  store ptr %add.ptr.i.i84.i, ptr %input, align 8
   br label %while.cond.i.backedge
 
 _ZN6google8protobuf2io16CodedInputStream4SkipEi.exit.i: ; preds = %if.end.i.i
-  %call5.i81.i7 = invoke noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %input, i32 noundef %length.068.i10, i32 noundef %conv.i.i78.i)
-          to label %call5.i81.i.noexc unwind label %lpad.i
+  %call5.i86.i7 = invoke noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %input, i32 noundef %length.068.i10, i32 noundef %conv.i.i83.i)
+          to label %call5.i86.i.noexc unwind label %lpad.i
 
-call5.i81.i.noexc:                                ; preds = %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit.i
-  br i1 %call5.i81.i7, label %while.cond.i.backedge, label %_ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_10WireFormat27ParseAndMergeMessageSetItemEPNS0_2io16CodedInputStreamEPNS0_7MessageEE12MSReflectiveEEbS6_T_.exit
+call5.i86.i.noexc:                                ; preds = %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit.i
+  br i1 %call5.i86.i7, label %while.cond.i.backedge, label %_ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_10WireFormat27ParseAndMergeMessageSetItemEPNS0_2io16CodedInputStreamEPNS0_7MessageEE12MSReflectiveEEbS6_T_.exit
 
-while.cond.i.backedge:                            ; preds = %call5.i81.i.noexc, %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit.thread.i, %sw.epilog.fold.split.i, %invoke.cont61.i, %invoke.cont49.i, %invoke.cont26.i, %cleanup.thread.i, %if.end5.i
-  %last_type_id.0.i.be = phi i32 [ %last_type_id.0.i, %invoke.cont61.i ], [ %type_id.0.i, %if.end5.i ], [ %last_type_id.0.i, %sw.epilog.fold.split.i ], [ %last_type_id.0.i, %invoke.cont26.i ], [ %last_type_id.0.i, %invoke.cont49.i ], [ %last_type_id.0.i, %cleanup.thread.i ], [ %last_type_id.0.i, %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit.thread.i ], [ %last_type_id.0.i, %call5.i81.i.noexc ]
-  %state.0.i.be = phi i32 [ %state.0.i, %invoke.cont61.i ], [ 1, %if.end5.i ], [ %state.0.i, %sw.epilog.fold.split.i ], [ 3, %invoke.cont26.i ], [ 2, %invoke.cont49.i ], [ 3, %cleanup.thread.i ], [ %state.0.i, %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit.thread.i ], [ %state.0.i, %call5.i81.i.noexc ]
+while.cond.i.backedge:                            ; preds = %call5.i86.i.noexc, %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit.thread.i, %sw.epilog.fold.split.i, %invoke.cont61.i, %invoke.cont49.i, %invoke.cont26.i, %cleanup.thread.i, %if.end5.i
+  %last_type_id.0.i.be = phi i32 [ %last_type_id.0.i, %invoke.cont61.i ], [ %type_id.0.i, %if.end5.i ], [ %last_type_id.0.i, %sw.epilog.fold.split.i ], [ %last_type_id.0.i, %invoke.cont26.i ], [ %last_type_id.0.i, %invoke.cont49.i ], [ %last_type_id.0.i, %cleanup.thread.i ], [ %last_type_id.0.i, %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit.thread.i ], [ %last_type_id.0.i, %call5.i86.i.noexc ]
+  %state.0.i.be = phi i32 [ %state.0.i, %invoke.cont61.i ], [ 1, %if.end5.i ], [ %state.0.i, %sw.epilog.fold.split.i ], [ 3, %invoke.cont26.i ], [ 2, %invoke.cont49.i ], [ 3, %cleanup.thread.i ], [ %state.0.i, %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit.thread.i ], [ %state.0.i, %call5.i86.i.noexc ]
   br label %while.cond.i, !llvm.loop !14
 
 sw.default.i:                                     ; preds = %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit.i
@@ -1999,8 +1999,8 @@ ehcleanup.i:                                      ; preds = %lpad13.i, %lpad.i
 _ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_10WireFormat27ParseAndMergeMessageSetItemEPNS0_2io16CodedInputStreamEPNS0_7MessageEE12MSReflectiveEEbS6_T_.exit.loopexit: ; preds = %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit.i
   br label %_ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_10WireFormat27ParseAndMergeMessageSetItemEPNS0_2io16CodedInputStreamEPNS0_7MessageEE12MSReflectiveEEbS6_T_.exit
 
-_ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_10WireFormat27ParseAndMergeMessageSetItemEPNS0_2io16CodedInputStreamEPNS0_7MessageEE12MSReflectiveEEbS6_T_.exit: ; preds = %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit.i, %invoke.cont1.i, %invoke.cont26.i, %invoke.cont33.i, %invoke.cont49.i, %invoke.cont61.i, %call.i32.i.noexc, %call5.i81.i.noexc, %_ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_10WireFormat27ParseAndMergeMessageSetItemEPNS0_2io16CodedInputStreamEPNS0_7MessageEE12MSReflectiveEEbS6_T_.exit.loopexit, %cleanup.i
-  %retval.1.i = phi i1 [ false, %cleanup.i ], [ true, %_ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_10WireFormat27ParseAndMergeMessageSetItemEPNS0_2io16CodedInputStreamEPNS0_7MessageEE12MSReflectiveEEbS6_T_.exit.loopexit ], [ false, %call5.i81.i.noexc ], [ false, %call.i32.i.noexc ], [ false, %invoke.cont61.i ], [ false, %invoke.cont49.i ], [ false, %invoke.cont33.i ], [ false, %invoke.cont26.i ], [ false, %invoke.cont1.i ], [ false, %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit.i ]
+_ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_10WireFormat27ParseAndMergeMessageSetItemEPNS0_2io16CodedInputStreamEPNS0_7MessageEE12MSReflectiveEEbS6_T_.exit: ; preds = %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit.i, %invoke.cont1.i, %invoke.cont26.i, %invoke.cont33.i, %invoke.cont49.i, %invoke.cont61.i, %call.i32.i.noexc, %call5.i86.i.noexc, %_ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_10WireFormat27ParseAndMergeMessageSetItemEPNS0_2io16CodedInputStreamEPNS0_7MessageEE12MSReflectiveEEbS6_T_.exit.loopexit, %cleanup.i
+  %retval.1.i = phi i1 [ false, %cleanup.i ], [ true, %_ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_10WireFormat27ParseAndMergeMessageSetItemEPNS0_2io16CodedInputStreamEPNS0_7MessageEE12MSReflectiveEEbS6_T_.exit.loopexit ], [ false, %call5.i86.i.noexc ], [ false, %call.i32.i.noexc ], [ false, %invoke.cont61.i ], [ false, %invoke.cont49.i ], [ false, %invoke.cont33.i ], [ false, %invoke.cont26.i ], [ false, %invoke.cont1.i ], [ false, %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %message_data.i) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %message_data.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %sub_input.i)
@@ -6062,7 +6062,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN6goo
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then16, %invoke.contthread-pre-split.i, %for.end
-  %target.addr.0.lcssa2082 = phi ptr [ %call26, %invoke.contthread-pre-split.i ], [ %call26, %for.end ], [ %target, %if.then16 ]
+  %target.addr.0.lcssa2099 = phi ptr [ %call26, %invoke.contthread-pre-split.i ], [ %call26, %for.end ], [ %target, %if.then16 ]
   %26 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %for.end ], [ %21, %if.then16 ]
   %tobool.not.i.i.i = icmp eq ptr %26, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i722
@@ -9544,7 +9544,7 @@ if.then.i.i.i1787:                                ; preds = %ehcleanup589
   br label %eh.resume
 
 return:                                           ; preds = %if.then.i.i.i1783, %cleanup, %if.then.i.i730, %for.cond.cleanup, %if.then.i.i.i722, %invoke.cont.i, %if.then
-  %retval.0 = phi ptr [ %call9, %if.then ], [ %target.addr.0.lcssa2082, %invoke.cont.i ], [ %target.addr.0.lcssa2082, %if.then.i.i.i722 ], [ %target.addr.2, %for.cond.cleanup ], [ %target.addr.2, %if.then.i.i730 ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i.i1783 ]
+  %retval.0 = phi ptr [ %call9, %if.then ], [ %target.addr.0.lcssa2099, %invoke.cont.i ], [ %target.addr.0.lcssa2099, %if.then.i.i.i722 ], [ %target.addr.2, %for.cond.cleanup ], [ %target.addr.2, %if.then.i.i730 ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i.i1783 ]
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i1787, %ehcleanup589, %if.then.i.i742, %ehcleanup, %lpad

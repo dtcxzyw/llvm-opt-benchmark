@@ -241,9 +241,9 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.backedge
-  %.079109 = phi ptr [ %.079.be, %.backedge ], [ %0, %2 ]
-  %.082108 = phi i64 [ %.082.be, %.backedge ], [ %1, %2 ]
-  %.0.copyload.i = load i64, ptr %.079109, align 1
+  %.079113 = phi ptr [ %.079.be, %.backedge ], [ %0, %2 ]
+  %.082112 = phi i64 [ %.082.be, %.backedge ], [ %1, %2 ]
+  %.0.copyload.i = load i64, ptr %.079113, align 1
   %4 = and i64 %.0.copyload.i, -9187201950435737472
   %5 = icmp eq i64 %4, 0
   %6 = lshr i64 %.0.copyload.i, 40
@@ -252,8 +252,8 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
   br i1 %5, label %9, label %12, !prof !13
 
 9:                                                ; preds = %.lr.ph
-  %10 = add nsw i64 %.082108, -8
-  %11 = getelementptr inbounds nuw i8, ptr %.079109, i64 8
+  %10 = add nsw i64 %.082112, -8
+  %11 = getelementptr inbounds nuw i8, ptr %.079113, i64 8
   br label %.backedge
 
 12:                                               ; preds = %.lr.ph
@@ -288,8 +288,8 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %12
-  %42 = getelementptr inbounds nuw i8, ptr %.079109, i64 5
-  %43 = add nsw i64 %.082108, -5
+  %42 = getelementptr inbounds nuw i8, ptr %.079113, i64 5
+  %43 = add nsw i64 %.082112, -5
   br label %.backedge
 
 44:                                               ; preds = %12
@@ -302,8 +302,8 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds nuw i8, ptr %.079109, i64 6
-  %53 = add nsw i64 %.082108, -6
+  %52 = getelementptr inbounds nuw i8, ptr %.079113, i64 6
+  %53 = add nsw i64 %.082112, -6
   br label %.backedge
 
 54:                                               ; preds = %44
@@ -316,17 +316,17 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %54
-  %62 = getelementptr inbounds nuw i8, ptr %.079109, i64 7
-  %63 = add nsw i64 %.082108, -7
+  %62 = getelementptr inbounds nuw i8, ptr %.079113, i64 7
+  %63 = add nsw i64 %.082112, -7
   br label %.backedge
 
 64:                                               ; preds = %54
-  %65 = getelementptr inbounds nuw i8, ptr %.079109, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.079113, i64 8
   %66 = zext i16 %59 to i64
   %67 = add nuw nsw i64 %8, %66
   %68 = getelementptr inbounds nuw [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %67
   %69 = load i16, ptr %68, align 2, !tbaa !10
-  %70 = add nsw i64 %.082108, -8
+  %70 = add nsw i64 %.082112, -8
   %.not97 = icmp eq i16 %69, 0
   br i1 %.not97, label %.backedge, label %.loopexit
 

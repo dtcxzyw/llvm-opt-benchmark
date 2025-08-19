@@ -2260,9 +2260,9 @@ define internal fastcc range(i32 -1, 1020) i32 @dissect_capwap_header(ptr nounde
 
 87:                                               ; preds = %78, %85, %86
   %hf_capwap_header_mac_eui64.sink = phi ptr [ @hf_capwap_header_mac_eui64, %85 ], [ @hf_capwap_header_mac_data, %86 ], [ @hf_capwap_header_mac_eui48, %78 ]
-  %.sink187 = phi i32 [ 8, %85 ], [ %83, %86 ], [ 6, %78 ]
+  %.sink189 = phi i32 [ 8, %85 ], [ %83, %86 ], [ 6, %78 ]
   %88 = load i32, ptr %hf_capwap_header_mac_eui64.sink, align 4
-  %89 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %88, ptr noundef %0, i32 noundef %84, i32 noundef %.sink187, i32 noundef 0)
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %88, ptr noundef %0, i32 noundef %84, i32 noundef %.sink189, i32 noundef 0)
   %90 = add nuw nsw i32 %83, 8
   %91 = add nuw nsw i32 %90, %2
   %92 = and i32 %91, 3
@@ -2742,9 +2742,9 @@ dissect_capwap_ac_information.exit:               ; preds = %.lr.ph1015, %.sink.
 
 148:                                              ; preds = %137, %147, %146
   %hf_capwap_msg_element_type_add_station_mac_data.sink = phi ptr [ @hf_capwap_msg_element_type_add_station_mac_data, %147 ], [ @hf_capwap_msg_element_type_add_station_mac_eui64, %146 ], [ @hf_capwap_msg_element_type_add_station_mac_eui48, %137 ]
-  %.sink1046 = phi i32 [ %144, %147 ], [ 8, %146 ], [ 6, %137 ]
+  %.sink1063 = phi i32 [ %144, %147 ], [ 8, %146 ], [ 6, %137 ]
   %149 = load i32, ptr %hf_capwap_msg_element_type_add_station_mac_data.sink, align 4
-  %150 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %149, ptr noundef %0, i32 noundef %145, i32 noundef %.sink1046, i32 noundef 0)
+  %150 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %149, ptr noundef %0, i32 noundef %145, i32 noundef %.sink1063, i32 noundef 0)
   %151 = add nuw nsw i32 %144, 2
   %.not971 = icmp eq i32 %151, %9
   br i1 %.not971, label %.loopexit, label %152

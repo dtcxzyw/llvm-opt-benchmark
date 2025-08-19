@@ -351,12 +351,11 @@ Vec_PtrGrow.exit.i96.i:                           ; preds = %131, %129
   br i1 %.not87.i, label %152, label %.thread136.i
 
 .thread136.i:                                     ; preds = %151, %111
-  %.1139.i = phi i32 [ %.0.i24, %151 ], [ 1, %111 ]
   store i8 0, ptr %.071.i, align 1, !tbaa !30
   br label %152
 
 152:                                              ; preds = %.thread136.i, %151, %.thread.i
-  %.1135.i = phi i32 [ 0, %.thread.i ], [ 0, %151 ], [ %.1139.i, %.thread136.i ]
+  %.1135.i = phi i32 [ 0, %.thread.i ], [ 0, %151 ], [ 1, %.thread136.i ]
   %153 = getelementptr inbounds nuw i8, ptr %.071.i, i64 1
   br label %111, !llvm.loop !31
 
@@ -896,9 +895,9 @@ Io_BlifReadPreparse.exit:                         ; preds = %.critedge.i, %Io_Bl
   store i32 %370, ptr %371, align 8, !tbaa !44
   %372 = sext i32 %370 to i64
   %373 = shl nsw i64 %372, 3
-  %calloc173.i = tail call ptr @calloc(i64 1, i64 %373)
+  %calloc196.i = tail call ptr @calloc(i64 1, i64 %373)
   %374 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 112
-  store ptr %calloc173.i, ptr %374, align 8, !tbaa !45
+  store ptr %calloc196.i, ptr %374, align 8, !tbaa !45
   %375 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40
   %376 = load ptr, ptr %375, align 8, !tbaa !35
   %377 = load ptr, ptr %37, align 8, !tbaa !22

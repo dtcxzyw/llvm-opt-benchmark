@@ -109,9 +109,9 @@ define internal i32 @mpegaudio_parse(ptr noundef captures(none) %0, ptr noundef 
   %.not99 = icmp eq i32 %56, 0
   %.not100 = icmp eq i32 %54, 0
   %or.cond107 = or i1 %.not100, %.not99
-  br i1 %or.cond107, label %58, label %.thread144
+  br i1 %or.cond107, label %58, label %.thread147
 
-.thread144:                                       ; preds = %48
+.thread147:                                       ; preds = %48
   store i32 %42, ptr %21, align 4, !tbaa !38
   store i32 -2, ptr %20, align 8, !tbaa !37
   %57 = add nsw i32 %43, -4
@@ -142,8 +142,8 @@ define internal i32 @mpegaudio_parse(ptr noundef captures(none) %0, ptr noundef 
   %.not102 = icmp ne i32 %66, 0
   %.pre142 = load i64, ptr %26, align 8, !tbaa !42
   %.not103 = icmp eq i64 %.pre142, 0
-  %or.cond152 = select i1 %.not102, i1 true, i1 %.not103
-  br i1 %or.cond152, label %67, label %76
+  %or.cond155 = select i1 %.not102, i1 true, i1 %.not103
+  br i1 %or.cond155, label %67, label %76
 
 67:                                               ; preds = %61
   store i32 1, ptr %25, align 4, !tbaa !41
@@ -158,8 +158,8 @@ define internal i32 @mpegaudio_parse(ptr noundef captures(none) %0, ptr noundef 
   store i64 %75, ptr %26, align 8, !tbaa !42
   br label %76
 
-76:                                               ; preds = %61, %.thread144, %67, %58
-  %77 = phi i32 [ %65, %67 ], [ %51, %58 ], [ %51, %.thread144 ], [ %65, %61 ]
+76:                                               ; preds = %61, %.thread147, %67, %58
+  %77 = phi i32 [ %65, %67 ], [ %51, %58 ], [ %51, %.thread147 ], [ %65, %61 ]
   %78 = load i32, ptr %27, align 8, !tbaa !43
   %79 = and i32 %78, 1
   %.not104 = icmp eq i32 %79, 0

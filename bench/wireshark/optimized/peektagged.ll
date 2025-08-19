@@ -965,14 +965,14 @@ switch.lookup:                                    ; preds = %168
   %171 = call i32 @ieee80211_chan_to_mhz(i32 noundef %170, i1 noundef zeroext %switch.masked)
   %.not181 = icmp eq i32 %171, 0
   %172 = or disjoint i16 %.sroa.54370.3, 2
-  %spec.select534 = select i1 %.not181, i16 %.sroa.54370.3, i16 %172
-  %spec.select535 = select i1 %.not181, i32 %.sroa.78.0, i32 %171
+  %spec.select539 = select i1 %.not181, i16 %.sroa.54370.3, i16 %172
+  %spec.select540 = select i1 %.not181, i32 %.sroa.78.0, i32 %171
   br label %.thread213
 
 .thread213:                                       ; preds = %168, %switch.lookup, %161, %163, %165
-  %.sroa.54370.4 = phi i16 [ %.sroa.54370.3, %163 ], [ %166, %165 ], [ %.sroa.54370.3, %168 ], [ %.sroa.54370.3, %161 ], [ %spec.select534, %switch.lookup ]
+  %.sroa.54370.4 = phi i16 [ %.sroa.54370.3, %163 ], [ %166, %165 ], [ %.sroa.54370.3, %168 ], [ %.sroa.54370.3, %161 ], [ %spec.select539, %switch.lookup ]
   %.sroa.73.3 = phi i16 [ %.sroa.73.0, %163 ], [ %167, %165 ], [ %.sroa.73.0, %168 ], [ %.sroa.73.0, %161 ], [ %.sroa.73.0, %switch.lookup ]
-  %.sroa.78.3 = phi i32 [ %.sroa.78.0, %163 ], [ %.sroa.78.0, %165 ], [ %.sroa.78.0, %168 ], [ %.sroa.78.0, %161 ], [ %spec.select535, %switch.lookup ]
+  %.sroa.78.3 = phi i32 [ %.sroa.78.0, %163 ], [ %.sroa.78.0, %165 ], [ %.sroa.78.0, %168 ], [ %.sroa.78.0, %161 ], [ %spec.select540, %switch.lookup ]
   %173 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 -1, ptr %173, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 84

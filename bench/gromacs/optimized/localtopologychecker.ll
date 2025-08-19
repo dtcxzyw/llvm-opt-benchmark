@@ -354,9 +354,9 @@ define internal void @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24Observabl
   br i1 %.not.i.i.not.i.i.i, label %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.thread.i.i, label %11
 
 _ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.thread.i.i: ; preds = %3
-  %.sroa.0.0.copyload3.i.i = load ptr, ptr %2, align 8
-  %.sroa.2.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.2.0.copyload5.i.i = load ptr, ptr %.sroa.2.0..sroa_idx4.i.i, align 8
+  %.sroa.0.0.copyload4.i.i = load ptr, ptr %2, align 8
+  %.sroa.2.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.2.0.copyload6.i.i = load ptr, ptr %.sroa.2.0..sroa_idx5.i.i, align 8
   %9 = load ptr, ptr %0, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -377,8 +377,8 @@ _ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2E
 _ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i.i.i: ; preds = %11, %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.thread.i.i
   %14 = phi ptr [ %10, %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.thread.i.i ], [ %13, %11 ]
   %15 = phi ptr [ %9, %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.thread.i.i ], [ %12, %11 ]
-  %.sroa.2.0.copyload8.i.i = phi ptr [ %.sroa.2.0.copyload5.i.i, %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.thread.i.i ], [ %.sroa.2.0.copyload.i.i, %11 ]
-  %.sroa.0.0.copyload7.i.i = phi ptr [ %.sroa.0.0.copyload3.i.i, %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.thread.i.i ], [ %.sroa.0.0.copyload.i.i, %11 ]
+  %.sroa.2.0.copyload9.i.i = phi ptr [ %.sroa.2.0.copyload6.i.i, %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.thread.i.i ], [ %.sroa.2.0.copyload.i.i, %11 ]
+  %.sroa.0.0.copyload8.i.i = phi ptr [ %.sroa.0.0.copyload4.i.i, %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.thread.i.i ], [ %.sroa.0.0.copyload.i.i, %11 ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !38
@@ -412,9 +412,9 @@ _ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2E
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %27 = load ptr, ptr %0, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  store ptr %.sroa.0.0.copyload7.i.i, ptr %28, align 8
+  store ptr %.sroa.0.0.copyload8.i.i, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 48
-  store ptr %.sroa.2.0.copyload8.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
+  store ptr %.sroa.2.0.copyload9.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   ret void
 }
 
@@ -1132,7 +1132,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc89.i.i, %_ZNS
           to label %283 unwind label %.loopexit.split.us.i.i, !noalias !214
 
 283:                                              ; preds = %.lr.ph170.us.i.i
-  %284 = add nuw i32 %.1169.us.i.i, 1
+  %284 = add nuw nsw i32 %.1169.us.i.i, 1
   %exitcond209.not.i.i = icmp eq i32 %284, 4
   br i1 %exitcond209.not.i.i, label %._crit_edge.us.i.i, label %.lr.ph170.us.i.i, !llvm.loop !220
 
@@ -1347,8 +1347,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc89.i.i, %_ZNS
   %388 = sext i32 %387 to i64
   %389 = getelementptr inbounds i32, ptr %309, i64 %388
   %390 = load i32, ptr %389, align 4, !tbaa !182, !noalias !214
-  %gep67.i.i.i = getelementptr i32, ptr %366, i64 %indvars.iv42.i.i.i
-  %391 = getelementptr i8, ptr %gep67.i.i.i, i64 8
+  %gep84.i.i.i = getelementptr i32, ptr %366, i64 %indvars.iv42.i.i.i
+  %391 = getelementptr i8, ptr %gep84.i.i.i, i64 8
   %392 = load i32, ptr %391, align 4, !tbaa !182, !noalias !214
   %393 = add nsw i32 %392, %344
   %.not.us.us.us.us.i.i.i = icmp eq i32 %390, %393
@@ -1531,8 +1531,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc89.i.i, %_ZNS
   %490 = ptrtoint ptr %488 to i64
   %491 = ptrtoint ptr %487 to i64
   %492 = sub i64 %490, %491
-  %sext56.i.i.i = shl i64 %492, 30
-  %493 = ashr i64 %sext56.i.i.i, 32
+  %sext73.i.i.i = shl i64 %492, 30
+  %493 = ashr i64 %sext73.i.i.i, 32
   %494 = icmp slt i64 %indvars.iv.next35.i.i.i, %493
   br i1 %494, label %.lr.ph.split.split.us.i.i.i, label %_ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5RangeIiEEiNS_8ArrayRefIKiEENSA_IiEE.exit.i.i, !llvm.loop !223
 
@@ -2071,7 +2071,7 @@ _ZN3gmxL29printMissingInteractionsAtomsERKNS_8MDLoggerEPK9t_commrecRK10gmx_mtop_
 683:                                              ; preds = %680
   %684 = load ptr, ptr %21, align 8, !tbaa !86
   %685 = icmp eq ptr %684, %668
-  br i1 %685, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %685, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %683
   %686 = load i64, ptr %669, align 8, !tbaa !79
@@ -2082,14 +2082,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %690 = icmp eq ptr %688, %689
   br i1 %690, label %694, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %683
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %683
   %691 = load ptr, ptr %22, align 8, !tbaa !86
   %692 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %693 = icmp eq ptr %691, %692
   br i1 %693, label %694, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-694:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %695 = phi ptr [ %691, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %688, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+694:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %695 = phi ptr [ %691, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %688, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %696 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %697 = load i64, ptr %696, align 8, !tbaa !79
   %698 = icmp ult i64 %697, 16
@@ -2126,7 +2126,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %707, ptr %668, align 8, !tbaa !39
   br label %713
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %708 = load i64, ptr %668, align 8, !tbaa !39
   store ptr %691, ptr %21, align 8, !tbaa !86
   %709 = getelementptr inbounds nuw i8, ptr %22, i64 8

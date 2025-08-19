@@ -2935,17 +2935,17 @@ _ZNK4Luau5Lexer6peekchEv.exit9.thread.i:          ; preds = %_ZNK4Luau5Lexer6pee
   br label %_ZN4Luau5Lexer14readLongStringERKNS_8PositionEiNS_6Lexeme4TypeES5_.exit
 
 _ZN4Luau5Lexer14readLongStringERKNS_8PositionEiNS_6Lexeme4TypeES5_.exit: ; preds = %97, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i
-  %.sink33.i = phi i32 [ 285, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ 278, %97 ]
+  %.sink40.i = phi i32 [ 285, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ 278, %97 ]
   %.sroa.014.0.insert.insert.sink.i = phi i64 [ %.sroa.014.0.insert.insert.i, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %.sroa.016.0.insert.insert.i, %97 ]
-  %.sink29.i = phi i32 [ 0, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %104, %97 ]
+  %.sink36.i = phi i32 [ 0, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %104, %97 ]
   %.sink.i = phi ptr [ null, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %101, %97 ]
-  store i32 %.sink33.i, ptr %0, align 8, !tbaa !8, !alias.scope !76
+  store i32 %.sink40.i, ptr %0, align 8, !tbaa !8, !alias.scope !76
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i64 %.sroa.0155.0.insert.insert, ptr %115, align 4, !alias.scope !76
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i64 %.sroa.014.0.insert.insert.sink.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !76
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sink29.i, ptr %116, align 4, !tbaa !14, !alias.scope !76
+  store i32 %.sink36.i, ptr %116, align 4, !tbaa !14, !alias.scope !76
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink.i, ptr %117, align 8, !tbaa !15, !alias.scope !76
   br label %441
@@ -4199,21 +4199,21 @@ _ZNK4Luau5Lexer6peekchEv.exit10:                  ; preds = %.critedge8, %88
   br label %_ZN4Luau5Lexer14readLongStringERKNS_8PositionEiNS_6Lexeme4TypeES5_.exit
 
 _ZN4Luau5Lexer14readLongStringERKNS_8PositionEiNS_6Lexeme4TypeES5_.exit: ; preds = %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i, %63, %.critedge
-  %.sink33.i.sink = phi i32 [ 282, %.critedge ], [ 286, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ 283, %63 ]
+  %.sink40.i.sink = phi i32 [ 282, %.critedge ], [ 286, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ 283, %63 ]
   %.sroa.014.0.insert.insert.sink.i.sink = phi i64 [ %.sroa.017.0.insert.insert, %.critedge ], [ %.sroa.014.0.insert.insert.i, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %.sroa.016.0.insert.insert.i, %63 ]
-  %.sink29.i.sink = phi i32 [ %94, %.critedge ], [ 0, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %69, %63 ]
+  %.sink36.i.sink = phi i32 [ %94, %.critedge ], [ 0, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %69, %63 ]
   %.sink.i.sink = phi ptr [ %93, %.critedge ], [ null, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %66, %63 ]
   %95 = sub i32 %6, %8
   %.sroa.416.0.insert.ext = zext i32 %95 to i64
   %.sroa.416.0.insert.shift = shl nuw i64 %.sroa.416.0.insert.ext, 32
   %.sroa.015.0.insert.insert = or disjoint i64 %.sroa.416.0.insert.shift, %.sroa.015.0.insert.ext
-  store i32 %.sink33.i.sink, ptr %0, align 8, !tbaa !8
+  store i32 %.sink40.i.sink, ptr %0, align 8, !tbaa !8
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i64 %.sroa.015.0.insert.insert, ptr %96, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i64 %.sroa.014.0.insert.insert.sink.i.sink, ptr %.sroa.4.0..sroa_idx.i, align 4
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sink29.i.sink, ptr %97, align 4, !tbaa !14
+  store i32 %.sink36.i.sink, ptr %97, align 4, !tbaa !14
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink.i.sink, ptr %98, align 8, !tbaa !15
   ret void
@@ -4400,18 +4400,18 @@ _ZNK4Luau5Lexer6peekchEv.exit9.thread:            ; preds = %53, %_ZNK4Luau5Lexe
   br label %62
 
 62:                                               ; preds = %_ZNK4Luau5Lexer6peekchEv.exit9.thread, %41
-  %.sink33 = phi i32 [ %5, %_ZNK4Luau5Lexer6peekchEv.exit9.thread ], [ %4, %41 ]
+  %.sink40 = phi i32 [ %5, %_ZNK4Luau5Lexer6peekchEv.exit9.thread ], [ %4, %41 ]
   %.sroa.014.0.insert.insert.sink = phi i64 [ %.sroa.014.0.insert.insert, %_ZNK4Luau5Lexer6peekchEv.exit9.thread ], [ %.sroa.016.0.insert.insert, %41 ]
-  %.sink29 = phi i32 [ 0, %_ZNK4Luau5Lexer6peekchEv.exit9.thread ], [ %48, %41 ]
+  %.sink36 = phi i32 [ 0, %_ZNK4Luau5Lexer6peekchEv.exit9.thread ], [ %48, %41 ]
   %.sink = phi ptr [ null, %_ZNK4Luau5Lexer6peekchEv.exit9.thread ], [ %45, %41 ]
-  %.sink31 = load i64, ptr %2, align 4
-  store i32 %.sink33, ptr %0, align 8, !tbaa !8
+  %.sink38 = load i64, ptr %2, align 4
+  store i32 %.sink40, ptr %0, align 8, !tbaa !8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sink31, ptr %63, align 4
+  store i64 %.sink38, ptr %63, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i64 %.sroa.014.0.insert.insert.sink, ptr %.sroa.4.0..sroa_idx, align 4
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sink29, ptr %64, align 4, !tbaa !14
+  store i32 %.sink36, ptr %64, align 4, !tbaa !14
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %65, align 8, !tbaa !15
   ret void
@@ -4705,13 +4705,13 @@ _ZN4Luau5Lexer10consumeAnyEv.exit3.i:             ; preds = %59, %._ZN4Luau5Lexe
 _ZN4Luau5Lexer21readBackslashInStringEv.exit.sink.split: ; preds = %_ZN4Luau5Lexer10consumeAnyEv.exit4.i, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i, %67, %70
   %.sink.i.sink = phi i32 [ %71, %70 ], [ %48, %_ZN4Luau5Lexer10consumeAnyEv.exit4.i ], [ %.pre6.i, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i ], [ %69, %67 ]
   %.ph = phi i32 [ %22, %70 ], [ %48, %_ZN4Luau5Lexer10consumeAnyEv.exit4.i ], [ %22, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i ], [ %69, %67 ]
-  %.ph40 = phi i32 [ %25, %70 ], [ %47, %_ZN4Luau5Lexer10consumeAnyEv.exit4.i ], [ %25, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i ], [ %68, %67 ]
+  %.ph48 = phi i32 [ %25, %70 ], [ %47, %_ZN4Luau5Lexer10consumeAnyEv.exit4.i ], [ %25, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i ], [ %68, %67 ]
   store i32 %.sink.i.sink, ptr %5, align 8, !tbaa !60
   br label %_ZN4Luau5Lexer21readBackslashInStringEv.exit
 
 _ZN4Luau5Lexer21readBackslashInStringEv.exit:     ; preds = %_ZN4Luau5Lexer10consumeAnyEv.exit3.i, %_ZNK4Luau5Lexer6peekchEv.exit.i, %_ZN4Luau5Lexer21readBackslashInStringEv.exit.sink.split, %49, %_ZNK4Luau5Lexer6peekchEv.exit1.i, %40, %_ZNK4Luau5Lexer6peekchEv.exit2.i, %34
   %72 = phi i32 [ %22, %49 ], [ %22, %_ZNK4Luau5Lexer6peekchEv.exit1.i ], [ %22, %40 ], [ %22, %_ZNK4Luau5Lexer6peekchEv.exit2.i ], [ %22, %34 ], [ %.ph, %_ZN4Luau5Lexer21readBackslashInStringEv.exit.sink.split ], [ %53, %_ZNK4Luau5Lexer6peekchEv.exit.i ], [ %62, %_ZN4Luau5Lexer10consumeAnyEv.exit3.i ]
-  %73 = phi i32 [ %25, %49 ], [ %25, %_ZNK4Luau5Lexer6peekchEv.exit1.i ], [ %25, %40 ], [ %25, %_ZNK4Luau5Lexer6peekchEv.exit2.i ], [ %25, %34 ], [ %.ph40, %_ZN4Luau5Lexer21readBackslashInStringEv.exit.sink.split ], [ %54, %_ZNK4Luau5Lexer6peekchEv.exit.i ], [ %63, %_ZN4Luau5Lexer10consumeAnyEv.exit3.i ]
+  %73 = phi i32 [ %25, %49 ], [ %25, %_ZNK4Luau5Lexer6peekchEv.exit1.i ], [ %25, %40 ], [ %25, %_ZNK4Luau5Lexer6peekchEv.exit2.i ], [ %25, %34 ], [ %.ph48, %_ZN4Luau5Lexer21readBackslashInStringEv.exit.sink.split ], [ %54, %_ZNK4Luau5Lexer6peekchEv.exit.i ], [ %63, %_ZN4Luau5Lexer10consumeAnyEv.exit3.i ]
   %74 = phi i32 [ %50, %49 ], [ %41, %_ZNK4Luau5Lexer6peekchEv.exit1.i ], [ %41, %40 ], [ %35, %_ZNK4Luau5Lexer6peekchEv.exit2.i ], [ %35, %34 ], [ %.sink.i.sink, %_ZN4Luau5Lexer21readBackslashInStringEv.exit.sink.split ], [ %storemerge5.i, %_ZNK4Luau5Lexer6peekchEv.exit.i ], [ %.pre-phi9.i, %_ZN4Luau5Lexer10consumeAnyEv.exit3.i ]
   %75 = zext i32 %74 to i64
   %76 = icmp ugt i64 %11, %75
@@ -4735,22 +4735,22 @@ _ZN4Luau5Lexer21readBackslashInStringEv.exit:     ; preds = %_ZN4Luau5Lexer10con
   br label %86
 
 86:                                               ; preds = %.loopexit, %_ZNK4Luau5Lexer6peekchEv.exit.thread
-  %.sink46 = phi i32 [ 279, %.loopexit ], [ 285, %_ZNK4Luau5Lexer6peekchEv.exit.thread ]
+  %.sink54 = phi i32 [ 279, %.loopexit ], [ 285, %_ZNK4Luau5Lexer6peekchEv.exit.thread ]
   %.sroa.011.0.insert.insert.sink = phi i64 [ %.sroa.011.0.insert.insert, %.loopexit ], [ %.sroa.013.0.insert.insert, %_ZNK4Luau5Lexer6peekchEv.exit.thread ]
-  %.sink43 = phi i32 [ %85, %.loopexit ], [ 0, %_ZNK4Luau5Lexer6peekchEv.exit.thread ]
+  %.sink51 = phi i32 [ %85, %.loopexit ], [ 0, %_ZNK4Luau5Lexer6peekchEv.exit.thread ]
   %.sink = phi ptr [ %83, %.loopexit ], [ null, %_ZNK4Luau5Lexer6peekchEv.exit.thread ]
   %87 = sub i32 %6, %8
   %.sroa.416.0.insert.ext = zext i32 %87 to i64
   %.sroa.416.0.insert.shift = shl nuw i64 %.sroa.416.0.insert.ext, 32
   %.sroa.015.0.insert.ext = zext i32 %4 to i64
   %.sroa.015.0.insert.insert = or disjoint i64 %.sroa.416.0.insert.shift, %.sroa.015.0.insert.ext
-  store i32 %.sink46, ptr %0, align 8, !tbaa !8
+  store i32 %.sink54, ptr %0, align 8, !tbaa !8
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i64 %.sroa.015.0.insert.insert, ptr %88, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i64 %.sroa.011.0.insert.insert.sink, ptr %.sroa.4.0..sroa_idx, align 4
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sink43, ptr %89, align 4, !tbaa !14
+  store i32 %.sink51, ptr %89, align 4, !tbaa !14
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %90, align 8, !tbaa !15
   ret void
@@ -5505,7 +5505,7 @@ _ZNK4Luau5Lexer6peekchEv.exit18:                  ; preds = %_ZNK4Luau5Lexer6pee
   %.sink = phi i8 [ 31, %_ZNK4Luau5Lexer6peekchEv.exit17 ], [ 15, %_ZNK4Luau5Lexer6peekchEv.exit15 ], [ 7, %_ZNK4Luau5Lexer6peekchEv.exit13 ]
   %.08.ph = phi i32 [ 2, %_ZNK4Luau5Lexer6peekchEv.exit17 ], [ 3, %_ZNK4Luau5Lexer6peekchEv.exit15 ], [ 4, %_ZNK4Luau5Lexer6peekchEv.exit13 ]
   %31 = and i8 %16, %.sink
-  %.0948 = zext nneg i8 %31 to i32
+  %.0952 = zext nneg i8 %31 to i32
   %32 = add i32 %6, 1
   store i32 %32, ptr %5, align 8, !tbaa !60
   %33 = load ptr, ptr %1, align 8
@@ -5513,7 +5513,7 @@ _ZNK4Luau5Lexer6peekchEv.exit18:                  ; preds = %_ZNK4Luau5Lexer6pee
 
 34:                                               ; preds = %.lr.ph, %_ZNK4Luau5Lexer6peekchEv.exit
   %.042 = phi i32 [ 1, %.lr.ph ], [ %49, %_ZNK4Luau5Lexer6peekchEv.exit ]
-  %.141 = phi i32 [ %.0948, %.lr.ph ], [ %47, %_ZNK4Luau5Lexer6peekchEv.exit ]
+  %.141 = phi i32 [ %.0952, %.lr.ph ], [ %47, %_ZNK4Luau5Lexer6peekchEv.exit ]
   %35 = phi i32 [ %32, %.lr.ph ], [ %48, %_ZNK4Luau5Lexer6peekchEv.exit ]
   %36 = zext i32 %35 to i64
   %37 = icmp ugt i64 %12, %36
@@ -5609,7 +5609,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
   br label %.backedge
 
 .backedge:                                        ; preds = %.lr.ph, %.thread195, %103, %.thread170, %33, %_ZN4LuauL8unescapeEc.exit, %29, %26, %.preheader207, %13
-  %.0131.be = phi i64 [ %16, %13 ], [ %24, %_ZN4LuauL8unescapeEc.exit ], [ %24, %26 ], [ %24, %29 ], [ %spec.select, %33 ], [ %40, %.thread170 ], [ %104, %103 ], [ %.9140.lcssa251, %.thread195 ], [ %24, %.preheader207 ], [ %.4135220, %.lr.ph ]
+  %.0131.be = phi i64 [ %16, %13 ], [ %24, %_ZN4LuauL8unescapeEc.exit ], [ %24, %26 ], [ %24, %29 ], [ %spec.select, %33 ], [ %40, %.thread170 ], [ %104, %103 ], [ %.9140.lcssa261, %.thread195 ], [ %24, %.preheader207 ], [ %.4135220, %.lr.ph ]
   %.0119.be = phi i64 [ %14, %13 ], [ %137, %_ZN4LuauL8unescapeEc.exit ], [ %27, %26 ], [ %30, %29 ], [ %30, %33 ], [ %61, %.thread170 ], [ %108, %103 ], [ %127, %.thread195 ], [ %.0119235, %.preheader207 ], [ %.0119235, %.lr.ph ]
   %17 = icmp ult i64 %.0131.be, %9
   br i1 %17, label %.lr.ph237, label %._crit_edge238, !llvm.loop !103
@@ -5827,9 +5827,9 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
   br i1 %125, label %.thread195, label %.thread202
 
 .thread195:                                       ; preds = %.preheader, %._crit_edge
-  %.0117.lcssa252 = phi i32 [ %.0117.lcssa, %._crit_edge ], [ %111, %.preheader ]
-  %.9140.lcssa251 = phi i64 [ %.9140.lcssa, %._crit_edge ], [ %9, %.preheader ]
-  %126 = trunc nuw i32 %.0117.lcssa252 to i8
+  %.0117.lcssa262 = phi i32 [ %.0117.lcssa, %._crit_edge ], [ %111, %.preheader ]
+  %.9140.lcssa261 = phi i64 [ %.9140.lcssa, %._crit_edge ], [ %9, %.preheader ]
+  %126 = trunc nuw i32 %.0117.lcssa262 to i8
   %127 = add i64 %.0119235, 1
   %128 = getelementptr inbounds nuw i8, ptr %10, i64 %.0119235
   store i8 %126, ptr %128, align 1, !tbaa !15

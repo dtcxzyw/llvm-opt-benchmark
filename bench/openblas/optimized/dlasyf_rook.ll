@@ -59,13 +59,13 @@ define void @dlasyf_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %34 = add i32 %28, 1
   store i32 1, ptr %18, align 4, !tbaa !3
   %35 = load i32, ptr %2, align 4, !tbaa !3
-  %.not7191011 = icmp slt i32 %35, 2
-  %.pre9051012 = load i32, ptr %1, align 4, !tbaa !3
-  %36 = icmp slt i32 %35, %.pre9051012
-  %or.cond9521013 = select i1 %.not7191011, i1 %36, i1 false
-  %37 = icmp slt i32 %.pre9051012, 1
-  %or.cond9531014 = select i1 %or.cond9521013, i1 true, i1 %37
-  br i1 %or.cond9531014, label %._crit_edge1019, label %.lr.ph1018
+  %.not7191073 = icmp slt i32 %35, 2
+  %.pre9051074 = load i32, ptr %1, align 4, !tbaa !3
+  %36 = icmp slt i32 %35, %.pre9051074
+  %or.cond10141075 = select i1 %.not7191073, i1 %36, i1 false
+  %37 = icmp slt i32 %.pre9051074, 1
+  %or.cond10151076 = select i1 %or.cond10141075, i1 true, i1 %37
+  br i1 %or.cond10151076, label %._crit_edge1081, label %.lr.ph1080
 
 38:                                               ; preds = %10
   %39 = load i32, ptr %1, align 4, !tbaa !3
@@ -522,16 +522,16 @@ define void @dlasyf_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %343 = getelementptr inbounds double, ptr %26, i64 %342
   %344 = sext i32 %340 to i64
   %wide.trip.count882 = zext nneg i32 %321 to i64
-  %invariant.gep975 = getelementptr double, ptr %26, i64 %344
+  %invariant.gep1037 = getelementptr double, ptr %26, i64 %344
   br label %345
 
 345:                                              ; preds = %.lr.ph831, %345
   %indvars.iv879 = phi i64 [ 1, %.lr.ph831 ], [ %indvars.iv.next880, %345 ]
   %346 = load double, ptr %343, align 8, !tbaa !7
-  %gep976 = getelementptr double, ptr %invariant.gep975, i64 %indvars.iv879
-  %347 = load double, ptr %gep976, align 8, !tbaa !7
+  %gep1038 = getelementptr double, ptr %invariant.gep1037, i64 %indvars.iv879
+  %347 = load double, ptr %gep1038, align 8, !tbaa !7
   %348 = fdiv double %347, %346
-  store double %348, ptr %gep976, align 8, !tbaa !7
+  store double %348, ptr %gep1038, align 8, !tbaa !7
   %indvars.iv.next880 = add nuw nsw i64 %indvars.iv879, 1
   %exitcond883.not = icmp eq i64 %indvars.iv.next880, %wide.trip.count882
   br i1 %exitcond883.not, label %.loopexit807, label %345, !llvm.loop !9
@@ -580,31 +580,31 @@ define void @dlasyf_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %375 = sext i32 %362 to i64
   %wide.trip.count = zext nneg i32 %351 to i64
   %invariant.gep = getelementptr double, ptr %30, i64 %375
-  %invariant.gep969 = getelementptr double, ptr %30, i64 %57
-  %invariant.gep971 = getelementptr double, ptr %26, i64 %374
-  %invariant.gep973 = getelementptr double, ptr %26, i64 %373
+  %invariant.gep1031 = getelementptr double, ptr %30, i64 %57
+  %invariant.gep1033 = getelementptr double, ptr %26, i64 %374
+  %invariant.gep1035 = getelementptr double, ptr %26, i64 %373
   br label %376
 
 376:                                              ; preds = %.lr.ph, %376
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %376 ]
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
   %377 = load double, ptr %gep, align 8, !tbaa !7
-  %gep970 = getelementptr double, ptr %invariant.gep969, i64 %indvars.iv
-  %378 = load double, ptr %gep970, align 8, !tbaa !7
+  %gep1032 = getelementptr double, ptr %invariant.gep1031, i64 %indvars.iv
+  %378 = load double, ptr %gep1032, align 8, !tbaa !7
   %379 = fneg double %378
   %380 = call double @llvm.fmuladd.f64(double %360, double %377, double %379)
   %381 = fdiv double %380, %355
   %382 = fmul double %369, %381
-  %gep972 = getelementptr double, ptr %invariant.gep971, i64 %indvars.iv
-  store double %382, ptr %gep972, align 8, !tbaa !7
-  %383 = load double, ptr %gep970, align 8, !tbaa !7
+  %gep1034 = getelementptr double, ptr %invariant.gep1033, i64 %indvars.iv
+  store double %382, ptr %gep1034, align 8, !tbaa !7
+  %383 = load double, ptr %gep1032, align 8, !tbaa !7
   %384 = load double, ptr %gep, align 8, !tbaa !7
   %385 = fneg double %384
   %386 = call double @llvm.fmuladd.f64(double %367, double %383, double %385)
   %387 = fdiv double %386, %355
   %388 = fmul double %369, %387
-  %gep974 = getelementptr double, ptr %invariant.gep973, i64 %indvars.iv
-  store double %388, ptr %gep974, align 8, !tbaa !7
+  %gep1036 = getelementptr double, ptr %invariant.gep1035, i64 %indvars.iv
+  store double %388, ptr %gep1036, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit808, label %376, !llvm.loop !11
@@ -681,7 +681,7 @@ define void @dlasyf_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %429 = mul nsw i32 %428, %28
   %430 = sext i32 %429 to i64
   %431 = sext i32 %24 to i64
-  %invariant.gep978 = getelementptr double, ptr %30, i64 %430
+  %invariant.gep1040 = getelementptr double, ptr %30, i64 %430
   br label %432
 
 432:                                              ; preds = %.lr.ph838, %473
@@ -701,7 +701,7 @@ define void @dlasyf_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
 
 .lr.ph834.preheader:                              ; preds = %432
   %441 = sext i32 %433 to i64
-  %invariant.gep980 = getelementptr double, ptr %26, i64 %441
+  %invariant.gep1042 = getelementptr double, ptr %26, i64 %441
   br label %.lr.ph834
 
 .lr.ph834:                                        ; preds = %.lr.ph834.preheader, %.lr.ph834
@@ -719,10 +719,10 @@ define void @dlasyf_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %450 = add nsw i32 %449, %433
   %451 = sext i32 %450 to i64
   %452 = getelementptr inbounds double, ptr %26, i64 %451
-  %gep979 = getelementptr double, ptr %invariant.gep978, i64 %indvars.iv884
+  %gep1041 = getelementptr double, ptr %invariant.gep1040, i64 %indvars.iv884
   %453 = mul nsw i64 %indvars.iv884, %431
-  %gep981 = getelementptr double, ptr %invariant.gep980, i64 %453
-  call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull @c_b9, ptr noundef %452, ptr noundef nonnull %5, ptr noundef %gep979, ptr noundef nonnull %8, ptr noundef nonnull @c_b10, ptr noundef %gep981, ptr noundef nonnull @c__1) #5
+  %gep1043 = getelementptr double, ptr %invariant.gep1042, i64 %453
+  call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull @c_b9, ptr noundef %452, ptr noundef nonnull %5, ptr noundef %gep1041, ptr noundef nonnull %8, ptr noundef nonnull @c_b10, ptr noundef %gep1043, ptr noundef nonnull @c__1) #5
   %indvars.iv.next885 = add nsw i64 %indvars.iv884, 1
   %454 = load i32, ptr %12, align 4, !tbaa !3
   %455 = sext i32 %454 to i64
@@ -797,8 +797,8 @@ define void @dlasyf_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %.not744 = icmp ne i32 %.0636, %482
   %.pre904.pre914 = load i32, ptr %1, align 4, !tbaa !3
   %.not745.not = icmp slt i32 %495, %.pre904.pre914
-  %or.cond996 = select i1 %.not744, i1 %.not745.not, i1 false
-  br i1 %or.cond996, label %497, label %506
+  %or.cond1058 = select i1 %.not744, i1 %.not745.not, i1 false
+  br i1 %or.cond1058, label %497, label %506
 
 497:                                              ; preds = %494
   %498 = sub i32 %.pre904.pre914, %495
@@ -845,18 +845,18 @@ define void @dlasyf_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %521 = sub nsw i32 %518, %520
   br label %1029
 
-.lr.ph1018:                                       ; preds = %.preheader806, %929
-  %.pre9051017 = phi i32 [ %.pre905, %929 ], [ %.pre9051012, %.preheader806 ]
-  %.66641016 = phi i32 [ %.7665780, %929 ], [ undef, %.preheader806 ]
-  %storemerge1015 = phi i32 [ %931, %929 ], [ 1, %.preheader806 ]
-  store i32 %storemerge1015, ptr %19, align 4, !tbaa !3
-  %reass.sub855 = sub i32 %.pre9051017, %storemerge1015
+.lr.ph1080:                                       ; preds = %.preheader806, %929
+  %.pre9051079 = phi i32 [ %.pre905, %929 ], [ %.pre9051074, %.preheader806 ]
+  %.66641078 = phi i32 [ %.7665780, %929 ], [ undef, %.preheader806 ]
+  %storemerge1077 = phi i32 [ %931, %929 ], [ 1, %.preheader806 ]
+  store i32 %storemerge1077, ptr %19, align 4, !tbaa !3
+  %reass.sub855 = sub i32 %.pre9051079, %storemerge1077
   %522 = add i32 %reass.sub855, 1
   store i32 %522, ptr %11, align 4, !tbaa !3
-  %523 = mul i32 %storemerge1015, %33
+  %523 = mul i32 %storemerge1077, %33
   %524 = sext i32 %523 to i64
   %525 = getelementptr inbounds double, ptr %26, i64 %524
-  %526 = mul i32 %storemerge1015, %34
+  %526 = mul i32 %storemerge1077, %34
   %527 = sext i32 %526 to i64
   %528 = getelementptr inbounds double, ptr %30, i64 %527
   call void @dcopy_(ptr noundef nonnull %11, ptr noundef %525, ptr noundef nonnull @c__1, ptr noundef %528, ptr noundef nonnull @c__1) #5
@@ -864,7 +864,7 @@ define void @dlasyf_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %530 = icmp sgt i32 %529, 1
   br i1 %530, label %531, label %544
 
-531:                                              ; preds = %.lr.ph1018
+531:                                              ; preds = %.lr.ph1080
   %532 = load i32, ptr %1, align 4, !tbaa !3
   %reass.sub856 = sub i32 %532, %529
   %533 = add i32 %reass.sub856, 1
@@ -884,8 +884,8 @@ define void @dlasyf_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %.pre906 = load i32, ptr %18, align 4, !tbaa !3
   br label %544
 
-544:                                              ; preds = %531, %.lr.ph1018
-  %545 = phi i32 [ %.pre906, %531 ], [ %529, %.lr.ph1018 ]
+544:                                              ; preds = %531, %.lr.ph1080
+  %545 = phi i32 [ %.pre906, %531 ], [ %529, %.lr.ph1080 ]
   %546 = mul i32 %545, %34
   %547 = sext i32 %546 to i64
   %548 = getelementptr inbounds double, ptr %30, i64 %547
@@ -963,7 +963,7 @@ define void @dlasyf_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
 
 .preheader:                                       ; preds = %591, %701
   %594 = phi i32 [ %.pre907, %701 ], [ %574, %591 ]
-  %.9667 = phi i32 [ %.11, %701 ], [ %.66641016, %591 ]
+  %.9667 = phi i32 [ %.11, %701 ], [ %.66641078, %591 ]
   %.4 = phi double [ %.3, %701 ], [ %.3643, %591 ]
   %595 = load i32, ptr %16, align 4, !tbaa !3
   %596 = sub nsw i32 %595, %594
@@ -1203,7 +1203,7 @@ define void @dlasyf_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
 757:                                              ; preds = %710, %.thread768, %720, %.thread773
   %758 = phi i32 [ %574, %.thread768 ], [ %.pre910, %720 ], [ %.pre-phi, %.thread773 ], [ %719, %710 ]
   %759 = phi i1 [ true, %.thread768 ], [ false, %720 ], [ false, %.thread773 ], [ true, %710 ]
-  %.8666771 = phi i32 [ %.66641016, %.thread768 ], [ %.11, %720 ], [ %.11, %.thread773 ], [ %.11, %710 ]
+  %.8666771 = phi i32 [ %.66641078, %.thread768 ], [ %.11, %720 ], [ %.11, %.thread773 ], [ %.11, %710 ]
   %760 = load i32, ptr %23, align 4, !tbaa !3
   %.not723 = icmp eq i32 %760, %758
   br i1 %.not723, label %810, label %761
@@ -1322,17 +1322,17 @@ define void @dlasyf_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %846 = sext i32 %822 to i64
   %847 = sext i32 %842 to i64
   %wide.trip.count894 = sext i32 %823 to i64
-  %invariant.gep990 = getelementptr double, ptr %26, i64 %847
+  %invariant.gep1052 = getelementptr double, ptr %26, i64 %847
   br label %848
 
 848:                                              ; preds = %.lr.ph848, %848
   %indvars.iv891 = phi i64 [ %846, %.lr.ph848 ], [ %indvars.iv.next892, %848 ]
   %indvars.iv.next892 = add nsw i64 %indvars.iv891, 1
   %849 = load double, ptr %845, align 8, !tbaa !7
-  %gep991 = getelementptr double, ptr %invariant.gep990, i64 %indvars.iv.next892
-  %850 = load double, ptr %gep991, align 8, !tbaa !7
+  %gep1053 = getelementptr double, ptr %invariant.gep1052, i64 %indvars.iv.next892
+  %850 = load double, ptr %gep1053, align 8, !tbaa !7
   %851 = fdiv double %850, %849
-  store double %851, ptr %gep991, align 8, !tbaa !7
+  store double %851, ptr %gep1053, align 8, !tbaa !7
   %exitcond895.not = icmp eq i64 %indvars.iv.next892, %wide.trip.count894
   br i1 %exitcond895.not, label %.loopexit, label %848, !llvm.loop !14
 
@@ -1382,39 +1382,39 @@ define void @dlasyf_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %883 = sext i32 %877 to i64
   %884 = sext i32 %858 to i64
   %885 = add i32 %854, 1
-  %invariant.gep982 = getelementptr double, ptr %30, i64 %884
-  %invariant.gep984 = getelementptr double, ptr %30, i64 %883
-  %invariant.gep986 = getelementptr double, ptr %26, i64 %882
-  %invariant.gep988 = getelementptr double, ptr %26, i64 %881
+  %invariant.gep1044 = getelementptr double, ptr %30, i64 %884
+  %invariant.gep1046 = getelementptr double, ptr %30, i64 %883
+  %invariant.gep1048 = getelementptr double, ptr %26, i64 %882
+  %invariant.gep1050 = getelementptr double, ptr %26, i64 %881
   br label %886
 
 886:                                              ; preds = %.lr.ph843, %886
   %indvars.iv887 = phi i64 [ %880, %.lr.ph843 ], [ %indvars.iv.next888, %886 ]
-  %gep983 = getelementptr double, ptr %invariant.gep982, i64 %indvars.iv887
-  %887 = load double, ptr %gep983, align 8, !tbaa !7
-  %gep985 = getelementptr double, ptr %invariant.gep984, i64 %indvars.iv887
-  %888 = load double, ptr %gep985, align 8, !tbaa !7
+  %gep1045 = getelementptr double, ptr %invariant.gep1044, i64 %indvars.iv887
+  %887 = load double, ptr %gep1045, align 8, !tbaa !7
+  %gep1047 = getelementptr double, ptr %invariant.gep1046, i64 %indvars.iv887
+  %888 = load double, ptr %gep1047, align 8, !tbaa !7
   %889 = fneg double %888
   %890 = call double @llvm.fmuladd.f64(double %868, double %887, double %889)
   %891 = fdiv double %890, %863
   %892 = fmul double %875, %891
-  %gep987 = getelementptr double, ptr %invariant.gep986, i64 %indvars.iv887
-  store double %892, ptr %gep987, align 8, !tbaa !7
-  %893 = load double, ptr %gep985, align 8, !tbaa !7
-  %894 = load double, ptr %gep983, align 8, !tbaa !7
+  %gep1049 = getelementptr double, ptr %invariant.gep1048, i64 %indvars.iv887
+  store double %892, ptr %gep1049, align 8, !tbaa !7
+  %893 = load double, ptr %gep1047, align 8, !tbaa !7
+  %894 = load double, ptr %gep1045, align 8, !tbaa !7
   %895 = fneg double %894
   %896 = call double @llvm.fmuladd.f64(double %873, double %893, double %895)
   %897 = fdiv double %896, %863
   %898 = fmul double %875, %897
-  %gep989 = getelementptr double, ptr %invariant.gep988, i64 %indvars.iv887
-  store double %898, ptr %gep989, align 8, !tbaa !7
+  %gep1051 = getelementptr double, ptr %invariant.gep1050, i64 %indvars.iv887
+  store double %898, ptr %gep1051, align 8, !tbaa !7
   %indvars.iv.next888 = add nsw i64 %indvars.iv887, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next888 to i32
   %exitcond890.not = icmp eq i32 %885, %lftr.wideiv
   br i1 %exitcond890.not, label %.loopexit805, label %886, !llvm.loop !15
 
 .loopexit:                                        ; preds = %848, %582, %832, %840, %811
-  %.7665.ph = phi i32 [ %.8666771, %811 ], [ %.8666771, %840 ], [ %.8666771, %832 ], [ %.66641016, %582 ], [ %.8666771, %848 ]
+  %.7665.ph = phi i32 [ %.8666771, %811 ], [ %.8666771, %840 ], [ %.8666771, %832 ], [ %.66641078, %582 ], [ %.8666771, %848 ]
   %899 = load i32, ptr %23, align 4, !tbaa !3
   %900 = load i32, ptr %18, align 4, !tbaa !3
   %901 = sext i32 %900 to i64
@@ -1471,26 +1471,26 @@ define void @dlasyf_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %.not719 = icmp sge i32 %931, %932
   %.pre905 = load i32, ptr %1, align 4, !tbaa !3
   %933 = icmp slt i32 %932, %.pre905
-  %or.cond952 = select i1 %.not719, i1 %933, i1 false
+  %or.cond1014 = select i1 %.not719, i1 %933, i1 false
   %934 = icmp sgt i32 %931, %.pre905
-  %or.cond953 = select i1 %or.cond952, i1 true, i1 %934
-  br i1 %or.cond953, label %._crit_edge1019, label %.lr.ph1018
+  %or.cond1015 = select i1 %or.cond1014, i1 true, i1 %934
+  br i1 %or.cond1015, label %._crit_edge1081, label %.lr.ph1080
 
-._crit_edge1019:                                  ; preds = %929, %.preheader806
+._crit_edge1081:                                  ; preds = %929, %.preheader806
   %storemerge.lcssa = phi i32 [ 1, %.preheader806 ], [ %931, %929 ]
-  %.lcssa1004 = phi i32 [ %35, %.preheader806 ], [ %932, %929 ]
-  %.pre905.lcssa = phi i32 [ %.pre9051012, %.preheader806 ], [ %.pre905, %929 ]
+  %.lcssa1066 = phi i32 [ %35, %.preheader806 ], [ %932, %929 ]
+  %.pre905.lcssa = phi i32 [ %.pre9051074, %.preheader806 ], [ %.pre905, %929 ]
   store i32 %.pre905.lcssa, ptr %11, align 4, !tbaa !3
-  store i32 %.lcssa1004, ptr %12, align 4, !tbaa !3
+  store i32 %.lcssa1066, ptr %12, align 4, !tbaa !3
   %935 = sext i32 %24 to i64
   %936 = sext i32 %28 to i64
-  %invariant.gep992 = getelementptr double, ptr %26, i64 %935
-  %invariant.gep994 = getelementptr double, ptr %30, i64 %936
+  %invariant.gep1054 = getelementptr double, ptr %26, i64 %935
+  %invariant.gep1056 = getelementptr double, ptr %30, i64 %936
   br label %937
 
-937:                                              ; preds = %981, %._crit_edge1019
-  %938 = phi i32 [ %982, %981 ], [ %.lcssa1004, %._crit_edge1019 ]
-  %939 = phi i32 [ %983, %981 ], [ %storemerge.lcssa, %._crit_edge1019 ]
+937:                                              ; preds = %981, %._crit_edge1081
+  %938 = phi i32 [ %982, %981 ], [ %.lcssa1066, %._crit_edge1081 ]
+  %939 = phi i32 [ %983, %981 ], [ %storemerge.lcssa, %._crit_edge1081 ]
   %940 = icmp slt i32 %938, 0
   %941 = load i32, ptr %11, align 4, !tbaa !3
   br i1 %940, label %942, label %943
@@ -1531,12 +1531,12 @@ define void @dlasyf_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %957 = load i32, ptr %18, align 4, !tbaa !3
   %958 = add nsw i32 %957, -1
   store i32 %958, ptr %15, align 4, !tbaa !3
-  %gep993 = getelementptr double, ptr %invariant.gep992, i64 %indvars.iv896
-  %gep995 = getelementptr double, ptr %invariant.gep994, i64 %indvars.iv896
+  %gep1055 = getelementptr double, ptr %invariant.gep1054, i64 %indvars.iv896
+  %gep1057 = getelementptr double, ptr %invariant.gep1056, i64 %indvars.iv896
   %959 = mul i32 %33, %954
   %960 = sext i32 %959 to i64
   %961 = getelementptr inbounds double, ptr %26, i64 %960
-  call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b9, ptr noundef %gep993, ptr noundef nonnull %5, ptr noundef %gep995, ptr noundef nonnull %8, ptr noundef nonnull @c_b10, ptr noundef %961, ptr noundef nonnull @c__1) #5
+  call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b9, ptr noundef %gep1055, ptr noundef nonnull %5, ptr noundef %gep1057, ptr noundef nonnull %8, ptr noundef nonnull @c_b10, ptr noundef %961, ptr noundef nonnull @c__1) #5
   %indvars.iv.next897 = add nsw i64 %indvars.iv896, 1
   %962 = load i32, ptr %13, align 4, !tbaa !3
   %963 = sext i32 %962 to i64

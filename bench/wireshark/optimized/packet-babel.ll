@@ -480,14 +480,14 @@ define internal fastcc i32 @dissect_babel_body(ptr noundef %0, ptr noundef %1, p
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %137, %133, %132
-  %.sink68.i.i = phi i32 [ 8, %137 ], [ 4, %132 ], [ 16, %133 ]
+  %.sink70.i.i = phi i32 [ 8, %137 ], [ 4, %132 ], [ 16, %133 ]
   %.sink.i.i = phi ptr [ %43, %137 ], [ %44, %132 ], [ %14, %133 ]
-  %138 = zext nneg i32 %.sink68.i.i to i64
+  %138 = zext nneg i32 %.sink70.i.i to i64
   %139 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %.sink.i.i, i32 noundef %128, i64 noundef %138)
   br label %140
 
 140:                                              ; preds = %.sink.split.i.i, %125
-  %.0.i.i = phi i32 [ 0, %125 ], [ %.sink68.i.i, %.sink.split.i.i ]
+  %.0.i.i = phi i32 [ 0, %125 ], [ %.sink70.i.i, %.sink.split.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %17, ptr noundef nonnull align 16 dereferenceable(16) %14, i64 noundef 16, i1 noundef false) #8
   br label %network_address.exit
 
@@ -586,9 +586,9 @@ format_address.exit:                              ; preds = %network_address.exi
   br label %.sink.split.i.i275
 
 .sink.split.i.i275:                               ; preds = %181, %177, %176
-  %.sink68.i.i276 = phi i64 [ 8, %181 ], [ 4, %176 ], [ 16, %177 ]
+  %.sink70.i.i276 = phi i64 [ 8, %181 ], [ 4, %176 ], [ 16, %177 ]
   %.sink.i.i277 = phi ptr [ %38, %181 ], [ %39, %176 ], [ %12, %177 ]
-  %182 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %.sink.i.i277, i32 noundef %172, i64 noundef %.sink68.i.i276)
+  %182 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %.sink.i.i277, i32 noundef %172, i64 noundef %.sink70.i.i276)
   br label %network_address.exit280
 
 network_address.exit280.thread:                   ; preds = %174, %177, %179, %169
@@ -774,9 +774,9 @@ format_prefix.exit:                               ; preds = %212, %.sink.split.i
   br i1 %269, label %.sink.split.i291, label %.sink.split.i.i293
 
 .sink.split.i291:                                 ; preds = %272, %263, %267
-  %.sink68.i = phi i32 [ %255, %267 ], [ %255, %263 ], [ %270, %272 ]
+  %.sink70.i = phi i32 [ %255, %267 ], [ %255, %263 ], [ %270, %272 ]
   %.sink.i292 = phi ptr [ %9, %267 ], [ %32, %263 ], [ %31, %272 ]
-  %273 = zext nneg i32 %.sink68.i to i64
+  %273 = zext nneg i32 %.sink70.i to i64
   %274 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %.sink.i292, i32 noundef %252, i64 noundef %273)
   br label %.sink.split.i.i293
 
@@ -881,11 +881,11 @@ format_prefix.exit300:                            ; preds = %network_prefix.exit
   br i1 %314, label %.sink.split.i305, label %321
 
 .sink.split.i305:                                 ; preds = %317, %308, %312
-  %.sink68.i306 = phi i32 [ %300, %312 ], [ %300, %308 ], [ %315, %317 ]
+  %.sink70.i306 = phi i32 [ %300, %312 ], [ %300, %308 ], [ %315, %317 ]
   %.sink.i307 = phi ptr [ %7, %312 ], [ %26, %308 ], [ %25, %317 ]
-  %318 = zext nneg i32 %.sink68.i306 to i64
+  %318 = zext nneg i32 %.sink70.i306 to i64
   %319 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %.sink.i307, i32 noundef %297, i64 noundef %318)
-  %320 = icmp slt i32 %.sink68.i306, 0
+  %320 = icmp slt i32 %.sink70.i306, 0
   br label %321
 
 321:                                              ; preds = %.sink.split.i305, %317, %312, %308, %302
@@ -1228,14 +1228,14 @@ define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %31, %48, %57
-  %.sink68 = phi i32 [ %53, %57 ], [ %39, %48 ], [ %21, %31 ]
+  %.sink70 = phi i32 [ %53, %57 ], [ %39, %48 ], [ %21, %31 ]
   %.sink = phi ptr [ %58, %57 ], [ %50, %48 ], [ %34, %31 ]
-  %59 = zext nneg i32 %.sink68 to i64
+  %59 = zext nneg i32 %.sink70 to i64
   %60 = call ptr @tvb_memcpy(ptr noundef %3, ptr noundef %.sink, i32 noundef %4, i64 noundef %59)
   br label %61
 
 61:                                               ; preds = %.sink.split, %55, %47, %30, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %30 ], [ 0, %47 ], [ 0, %55 ], [ %.sink68, %.sink.split ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %30 ], [ 0, %47 ], [ 0, %55 ], [ %.sink70, %.sink.split ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %9, i64 noundef 16, i1 noundef false) #8
   br label %62
 

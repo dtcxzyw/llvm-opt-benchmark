@@ -248,12 +248,12 @@ define internal range(i32 -1, 2) i32 @IDASptfqmrSetup(ptr noundef %0, ptr nounde
 24:                                               ; preds = %7
   %.not = icmp ne i32 %18, 0
   %. = select i1 %.not, i64 5, i64 0
-  %.19 = zext i1 %.not to i32
+  %.20 = zext i1 %.not to i32
   br label %25
 
 25:                                               ; preds = %24, %23
   %.sink = phi i64 [ -4, %23 ], [ %., %24 ]
-  %.0 = phi i32 [ -1, %23 ], [ %.19, %24 ]
+  %.0 = phi i32 [ -1, %23 ], [ %.20, %24 ]
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 200
   store i64 %.sink, ptr %26, align 8, !tbaa !35
   ret i32 %.0

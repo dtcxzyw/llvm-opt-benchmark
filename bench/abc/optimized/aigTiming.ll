@@ -265,9 +265,9 @@ define range(i32 1, -2147483648) i32 @Aig_ObjReverseLevelNew(ptr noundef readonl
   br label %21
 
 21:                                               ; preds = %18, %12
-  %.sink24 = phi i32 [ %20, %18 ], [ %17, %12 ]
+  %.sink30 = phi i32 [ %20, %18 ], [ %17, %12 ]
   %.val16.sink = load ptr, ptr %6, align 8, !tbaa !28
-  %22 = sext i32 %.sink24 to i64
+  %22 = sext i32 %.sink30 to i64
   %23 = getelementptr inbounds i32, ptr %.val16.sink, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !26
   %.val17 = load ptr, ptr %8, align 8, !tbaa !29
@@ -806,8 +806,8 @@ Aig_ObjLevelNew.exit68:                           ; preds = %91, %112
   %126 = icmp eq i64 %indvars.iv92, %122
   %127 = and i64 %86, 4294967232
   %.not90 = icmp eq i64 %127, 0
-  %or.cond96 = select i1 %126, i1 true, i1 %.not90
-  br i1 %or.cond96, label %.critedge2, label %.lr.ph
+  %or.cond107 = select i1 %126, i1 true, i1 %.not90
+  br i1 %or.cond107, label %.critedge2, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Aig_ObjLevelNew.exit68
   %128 = getelementptr inbounds nuw i8, ptr %84, i64 36
@@ -834,9 +834,9 @@ Aig_ObjLevelNew.exit68:                           ; preds = %91, %112
   br label %140
 
 140:                                              ; preds = %137, %131
-  %.sink97 = phi i32 [ %139, %137 ], [ %136, %131 ]
+  %.sink108 = phi i32 [ %139, %137 ], [ %136, %131 ]
   %.val50.sink = load ptr, ptr %72, align 8, !tbaa !28
-  %141 = sext i32 %.sink97 to i64
+  %141 = sext i32 %.sink108 to i64
   %142 = getelementptr inbounds i32, ptr %.val50.sink, i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !26
   %.val52 = load ptr, ptr %73, align 8, !tbaa !29
@@ -1514,9 +1514,9 @@ Aig_ObjReverseLevel.exit82.Aig_ObjReverseLevelNew.exit_crit_edge: ; preds = %Aig
   br label %155
 
 155:                                              ; preds = %152, %146
-  %.sink24.i = phi i32 [ %154, %152 ], [ %151, %146 ]
+  %.sink30.i = phi i32 [ %154, %152 ], [ %151, %146 ]
   %.val16.sink.i = load ptr, ptr %84, align 8, !tbaa !28
-  %156 = sext i32 %.sink24.i to i64
+  %156 = sext i32 %.sink30.i to i64
   %157 = getelementptr inbounds i32, ptr %.val16.sink.i, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !26
   %.val17.i = load ptr, ptr %85, align 8, !tbaa !29
@@ -1844,12 +1844,12 @@ Aig_ObjReverseLevel.exit118:                      ; preds = %Aig_ObjSetReverseLe
 
 Vec_IntGrow.exit.sink.split.i.i123:               ; preds = %309
   %311 = shl nsw i32 %310, 1
-  %.207 = tail call i32 @llvm.smax.i32(i32 %311, i32 %306)
-  %312 = sext i32 %.207 to i64
+  %.267 = tail call i32 @llvm.smax.i32(i32 %311, i32 %306)
+  %312 = sext i32 %.267 to i64
   %313 = shl nsw i64 %312, 2
   %314 = tail call ptr @realloc(ptr noundef nonnull %285, i64 noundef %313) #12
   store ptr %314, ptr %288, align 8, !tbaa !25
-  store i32 %.207, ptr %287, align 8, !tbaa !24
+  store i32 %.267, ptr %287, align 8, !tbaa !24
   %.pre.i125 = load i32, ptr %307, align 4, !tbaa !22
   br label %Vec_IntGrow.exit.i.i126
 

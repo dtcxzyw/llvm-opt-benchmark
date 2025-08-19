@@ -263,13 +263,13 @@ Vec_StrGrow.exit.i37:                             ; preds = %92, %90
   br label %Vec_StrPush.exit
 
 Vec_StrPush.exit:                                 ; preds = %103, %Vec_StrGrow.exit.i37, %.Vec_StrGrow.exit10_crit_edge.i32, %83, %Vec_StrGrow.exit.i30, %.Vec_StrGrow.exit10_crit_edge.i25, %62, %Vec_StrGrow.exit.i23, %.Vec_StrGrow.exit10_crit_edge.i18, %42, %Vec_StrGrow.exit.i, %.Vec_StrGrow.exit10_crit_edge.i
-  %.sink63 = phi ptr [ %.pre.i, %.Vec_StrGrow.exit10_crit_edge.i ], [ %43, %42 ], [ %33, %Vec_StrGrow.exit.i ], [ %.pre.i20, %.Vec_StrGrow.exit10_crit_edge.i18 ], [ %63, %62 ], [ %53, %Vec_StrGrow.exit.i23 ], [ %.pre.i27, %.Vec_StrGrow.exit10_crit_edge.i25 ], [ %84, %83 ], [ %74, %Vec_StrGrow.exit.i30 ], [ %.pre.i34, %.Vec_StrGrow.exit10_crit_edge.i32 ], [ %104, %103 ], [ %94, %Vec_StrGrow.exit.i37 ]
+  %.sink84 = phi ptr [ %.pre.i, %.Vec_StrGrow.exit10_crit_edge.i ], [ %43, %42 ], [ %33, %Vec_StrGrow.exit.i ], [ %.pre.i20, %.Vec_StrGrow.exit10_crit_edge.i18 ], [ %63, %62 ], [ %53, %Vec_StrGrow.exit.i23 ], [ %.pre.i27, %.Vec_StrGrow.exit10_crit_edge.i25 ], [ %84, %83 ], [ %74, %Vec_StrGrow.exit.i30 ], [ %.pre.i34, %.Vec_StrGrow.exit10_crit_edge.i32 ], [ %104, %103 ], [ %94, %Vec_StrGrow.exit.i37 ]
   %.sink = phi i8 [ 45, %.Vec_StrGrow.exit10_crit_edge.i ], [ 45, %42 ], [ 45, %Vec_StrGrow.exit.i ], [ 48, %.Vec_StrGrow.exit10_crit_edge.i18 ], [ 48, %62 ], [ 48, %Vec_StrGrow.exit.i23 ], [ 49, %.Vec_StrGrow.exit10_crit_edge.i25 ], [ 49, %83 ], [ 49, %Vec_StrGrow.exit.i30 ], [ 63, %.Vec_StrGrow.exit10_crit_edge.i32 ], [ 63, %103 ], [ 63, %Vec_StrGrow.exit.i37 ]
   %105 = load i32, ptr %8, align 4, !tbaa !7
   %106 = add nsw i32 %105, 1
   store i32 %106, ptr %8, align 4, !tbaa !7
   %107 = sext i32 %105 to i64
-  %108 = getelementptr inbounds i8, ptr %.sink63, i64 %107
+  %108 = getelementptr inbounds i8, ptr %.sink84, i64 %107
   store i8 %.sink, ptr %108, align 1, !tbaa !13
   %109 = add nuw nsw i32 %.060, 1
   %110 = load i32, ptr %4, align 8

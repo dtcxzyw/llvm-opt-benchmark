@@ -61,7 +61,7 @@ define internal i32 @lag_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %17 = load i32, ptr %16, align 1, !tbaa !34
   switch i8 %13, label %348 [
-    i8 9, label %.thread331
+    i8 9, label %.thread349
     i8 10, label %298
     i8 6, label %100
     i8 8, label %.thread
@@ -77,13 +77,13 @@ define internal i32 @lag_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %21 = icmp eq i32 %20, 24
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %. = select i1 %21, i32 71, i32 111
-  %.340 = select i1 %21, i64 3, i64 4
+  %.358 = select i1 %21, i64 3, i64 4
   store i32 %., ptr %22, align 8, !tbaa !36
   %23 = tail call i32 @ff_thread_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.loopexit299, label %28
 
-.thread331:                                       ; preds = %4
+.thread349:                                       ; preds = %4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 111, ptr %25, align 8, !tbaa !36
   %26 = tail call i32 @ff_thread_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #7
@@ -105,7 +105,7 @@ define internal i32 @lag_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %.preheader292
 
-.preheader:                                       ; preds = %.thread331, %28
+.preheader:                                       ; preds = %.thread349, %28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %36 = load i32, ptr %35, align 4, !tbaa !37
   %37 = icmp sgt i32 %36, 0
@@ -186,7 +186,7 @@ define internal i32 @lag_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %95 = sext i32 %94 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %92, i8 %93, i64 %95, i1 false)
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
-  %exitcond330.not = icmp eq i64 %indvars.iv.next327, %.340
+  %exitcond330.not = icmp eq i64 %indvars.iv.next327, %.358
   br i1 %exitcond330.not, label %96, label %85, !llvm.loop !43
 
 96:                                               ; preds = %85
@@ -579,8 +579,8 @@ define internal i32 @lag_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   store i32 1, ptr %2, align 4, !tbaa !39
   br label %.loopexit299
 
-.loopexit299:                                     ; preds = %197, %.thread331, %.loopexit, %317, %305, %298, %271, %259, %252, %165, %100, %18, %.loopexit.thread, %348, %304, %258, %188
-  %.0 = phi i32 [ -1163346256, %348 ], [ %10, %.loopexit.thread ], [ -1094995529, %188 ], [ -1094995529, %258 ], [ -1094995529, %304 ], [ %23, %18 ], [ %105, %100 ], [ %166, %165 ], [ %254, %252 ], [ %269, %259 ], [ %283, %271 ], [ %300, %298 ], [ %315, %305 ], [ %331, %317 ], [ %.0255, %.loopexit ], [ %26, %.thread331 ], [ %210, %197 ]
+.loopexit299:                                     ; preds = %197, %.thread349, %.loopexit, %317, %305, %298, %271, %259, %252, %165, %100, %18, %.loopexit.thread, %348, %304, %258, %188
+  %.0 = phi i32 [ -1163346256, %348 ], [ %10, %.loopexit.thread ], [ -1094995529, %188 ], [ -1094995529, %258 ], [ -1094995529, %304 ], [ %23, %18 ], [ %105, %100 ], [ %166, %165 ], [ %254, %252 ], [ %269, %259 ], [ %283, %271 ], [ %300, %298 ], [ %315, %305 ], [ %331, %317 ], [ %.0255, %.loopexit ], [ %26, %.thread349 ], [ %210, %197 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -891,7 +891,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @lag_decode_arith_plane(ptr
   %193 = and i32 %.sroa.46.0.copyload.i.i, 7
   %194 = shl i32 %192, %193
   %195 = and i32 %194, 16711680
-  %196 = add i32 %.sroa.46.0.copyload.i.i, 16
+  %196 = add nuw i32 %.sroa.46.0.copyload.i.i, 16
   %197 = tail call i32 @llvm.umin.i32(i32 %38, i32 %196)
   %198 = lshr i32 %197, 3
   %199 = zext nneg i32 %198 to i64

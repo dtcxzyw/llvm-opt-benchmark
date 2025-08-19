@@ -584,9 +584,9 @@ return.sink.split:                                ; preds = %if.then, %_ZN6herme
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end26
-  %.sink110 = phi i64 [ 16, %if.end26 ], [ 8, %return.sink.split ]
+  %.sink111 = phi i64 [ 16, %if.end26 ], [ 8, %return.sink.split ]
   %.sink = phi i8 [ 0, %if.end26 ], [ %.sink.ph, %return.sink.split ]
-  %ref.tmp57.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 %.sink110
+  %ref.tmp57.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 %.sink111
   store i8 %.sink, ptr %ref.tmp57.sroa.2.0.agg.result.sroa_idx, align 8
   ret void
 }

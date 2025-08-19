@@ -2357,9 +2357,9 @@ define hidden noundef range(i32 1, 4) i32 @_ZN4cvc58internal6theory5arith6linear
   %58 = or i32 %57, %56
   %.not = icmp eq i32 %58, 0
   %59 = trunc i64 %53 to i32
-  %spec.select134 = select i1 %.not, i32 %59, i32 -1
+  %spec.select139 = select i1 %.not, i32 %59, i32 -1
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  store i32 %spec.select134, ptr %60, align 4, !tbaa !61
+  store i32 %spec.select139, ptr %60, align 4, !tbaa !61
   %61 = tail call noundef i32 @_ZN4cvc58internal6theory5arith6linear23SumOfInfeasibilitiesSPD20sumOfInfeasibilitiesEv(ptr noundef nonnull align 8 dereferenceable(800) %0)
   %62 = icmp eq i32 %61, 1
   br i1 %62, label %.thread, label %65
@@ -5742,7 +5742,7 @@ thread-pre-split:                                 ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %.not.i.i.i451, label %_ZNSt6vectorIjSaIjEED2Ev.exit452, label %394
 
 394:                                              ; preds = %.thread, %392
-  %.pn102.pn.pn.pn.pn.pn.pn.pn759 = phi { ptr, i32 } [ %129, %.thread ], [ %.pn102.pn.pn.pn.pn.pn.pn.pn, %392 ]
+  %.pn102.pn.pn.pn.pn.pn.pn.pn808 = phi { ptr, i32 } [ %129, %.thread ], [ %.pn102.pn.pn.pn.pn.pn.pn.pn, %392 ]
   %395 = phi ptr [ %78, %.thread ], [ %393, %392 ]
   %396 = load ptr, ptr %77, align 8, !tbaa !75
   %397 = ptrtoint ptr %396 to i64
@@ -5752,12 +5752,12 @@ thread-pre-split:                                 ; preds = %_ZNSt6vectorIjSaIjE
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit452
 
 _ZNSt6vectorIjSaIjEED2Ev.exit452:                 ; preds = %392, %394
-  %.pn102.pn.pn.pn.pn.pn.pn.pn760 = phi { ptr, i32 } [ %.pn102.pn.pn.pn.pn.pn.pn.pn, %392 ], [ %.pn102.pn.pn.pn.pn.pn.pn.pn759, %394 ]
+  %.pn102.pn.pn.pn.pn.pn.pn.pn809 = phi { ptr, i32 } [ %.pn102.pn.pn.pn.pn.pn.pn.pn, %392 ], [ %.pn102.pn.pn.pn.pn.pn.pn.pn808, %394 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %400
 
 400:                                              ; preds = %89, %_ZNSt6vectorIjSaIjEED2Ev.exit452
-  %.pn115.pn.pn.pn = phi { ptr, i32 } [ %.pn102.pn.pn.pn.pn.pn.pn.pn760, %_ZNSt6vectorIjSaIjEED2Ev.exit452 ], [ %90, %89 ]
+  %.pn115.pn.pn.pn = phi { ptr, i32 } [ %.pn102.pn.pn.pn.pn.pn.pn.pn809, %_ZNSt6vectorIjSaIjEED2Ev.exit452 ], [ %90, %89 ]
   call void @_ZN4cvc58internal8DenseSetD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %9) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZNSt13unordered_mapISt4pairIjiESt6vectorIjSaIjEEN4cvc58internal6theory5arith6linear24SimplexDecisionProcedure23ArithVarIntPairHashFuncESt8equal_toIS1_ESaIS0_IKS1_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #26
@@ -5960,12 +5960,12 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear23SumOfIn
   br i1 %82, label %._crit_edge232, label %58, !llvm.loop !459
 
 83:                                               ; preds = %._crit_edge232, %._crit_edge.thread
-  %.0.lcssa235 = phi i1 [ true, %._crit_edge232 ], [ false, %._crit_edge.thread ]
+  %.0.lcssa238 = phi i1 [ true, %._crit_edge232 ], [ false, %._crit_edge.thread ]
   %84 = load i32, ptr %5, align 8, !tbaa !15
   tail call void @_ZN4cvc58internal6theory5arith6linear24SimplexDecisionProcedure28tearDownInfeasiblityFunctionERNS0_9TimerStatEj(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %84)
   %85 = load i32, ptr @_ZN4cvc58internal6theory5arith6linear17ARITHVAR_SENTINELE, align 4, !tbaa !13
   store i32 %85, ptr %5, align 8, !tbaa !15
-  ret i1 %.0.lcssa235
+  ret i1 %.0.lcssa238
 }
 
 declare void @_ZN4cvc58internal6theory5arith6linear21FarkasConflictBuilder13addConstraintEPKNS3_10ConstraintERKNS0_8RationalE(ptr noundef nonnull align 8 dereferenceable(58), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
@@ -9400,18 +9400,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !512
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #30
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #30
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !73
@@ -9445,7 +9445,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -9747,13 +9747,13 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !13
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !13
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

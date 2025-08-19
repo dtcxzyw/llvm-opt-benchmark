@@ -472,21 +472,21 @@ define dso_local void @con_free_unimap(ptr noundef readonly captures(none) %0) l
 11:                                               ; preds = %6
   %12 = load ptr, ptr @dflt, align 8
   %13 = icmp eq ptr %12, %4
-  br i1 %13, label %14, label %.preheader2
+  br i1 %13, label %14, label %.preheader4
 
-.preheader2:                                      ; preds = %14, %11
+.preheader4:                                      ; preds = %14, %11
   br label %17
 
 14:                                               ; preds = %11
   store ptr null, ptr @dflt, align 8
-  br label %.preheader2
+  br label %.preheader4
 
 15:                                               ; preds = %28
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 272
   br label %31
 
-17:                                               ; preds = %.preheader2, %28
-  %18 = phi i64 [ %29, %28 ], [ 0, %.preheader2 ]
+17:                                               ; preds = %.preheader4, %28
+  %18 = phi i64 [ %29, %28 ], [ 0, %.preheader4 ]
   %19 = getelementptr [32 x ptr], ptr %4, i64 0, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
@@ -583,21 +583,21 @@ define internal fastcc noundef range(i32 -12, 1) i32 @con_do_clear_unimap(ptr no
   store i64 0, ptr %22, align 8
   %23 = load ptr, ptr @dflt, align 8
   %24 = icmp eq ptr %23, %4
-  br i1 %24, label %25, label %.preheader3
+  br i1 %24, label %25, label %.preheader6
 
-.preheader3:                                      ; preds = %25, %21
+.preheader6:                                      ; preds = %25, %21
   br label %28
 
 25:                                               ; preds = %21
   store ptr null, ptr @dflt, align 8
-  br label %.preheader3
+  br label %.preheader6
 
 26:                                               ; preds = %39
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 272
   br label %42
 
-28:                                               ; preds = %.preheader3, %39
-  %29 = phi i64 [ %40, %39 ], [ 0, %.preheader3 ]
+28:                                               ; preds = %.preheader6, %39
+  %29 = phi i64 [ %40, %39 ], [ 0, %.preheader6 ]
   %30 = getelementptr [32 x ptr], ptr %4, i64 0, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
@@ -787,17 +787,17 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
   store ptr %16, ptr %92, align 8
   %93 = load ptr, ptr @dflt, align 8
   %94 = icmp eq ptr %93, %32
-  br i1 %94, label %95, label %.preheader49
+  br i1 %94, label %95, label %.preheader80
 
 95:                                               ; preds = %89
   store ptr null, ptr @dflt, align 8
-  br label %.preheader49
+  br label %.preheader80
 
-.preheader49:                                     ; preds = %95, %89
+.preheader80:                                     ; preds = %95, %89
   br label %96
 
-96:                                               ; preds = %.preheader49, %107
-  %97 = phi i64 [ %108, %107 ], [ 0, %.preheader49 ]
+96:                                               ; preds = %.preheader80, %107
+  %97 = phi i64 [ %108, %107 ], [ 0, %.preheader80 ]
   %98 = getelementptr [32 x ptr], ptr %32, i64 0, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
@@ -1139,21 +1139,21 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr noundef
   store ptr %14, ptr %56, align 8
   %57 = load ptr, ptr @dflt, align 8
   %58 = icmp eq ptr %57, %1
-  br i1 %58, label %59, label %.preheader35
+  br i1 %58, label %59, label %.preheader45
 
-.preheader35:                                     ; preds = %59, %.critedge
+.preheader45:                                     ; preds = %59, %.critedge
   br label %62
 
 59:                                               ; preds = %.critedge
   store ptr null, ptr @dflt, align 8
-  br label %.preheader35
+  br label %.preheader45
 
 60:                                               ; preds = %73
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 272
   br label %76
 
-62:                                               ; preds = %.preheader35, %73
-  %63 = phi i64 [ %74, %73 ], [ 0, %.preheader35 ]
+62:                                               ; preds = %.preheader45, %73
+  %63 = phi i64 [ %74, %73 ], [ 0, %.preheader45 ]
   %64 = getelementptr [32 x ptr], ptr %1, i64 0, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null

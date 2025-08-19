@@ -536,11 +536,11 @@ define noundef ptr @unum_clone_77(ptr noundef %0, ptr noundef captures(none) %1)
   br label %10
 
 10:                                               ; preds = %7, %.thread
-  %.sink20 = phi ptr [ %9, %.thread ], [ %8, %7 ]
-  %11 = load ptr, ptr %.sink20, align 8, !tbaa !7
+  %.sink22 = phi ptr [ %9, %.thread ], [ %8, %7 ]
+  %11 = load ptr, ptr %.sink22, align 8, !tbaa !7
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(72) %.sink20)
+  %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(72) %.sink22)
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
 
@@ -2211,9 +2211,9 @@ define void @unum_setTextAttribute_77(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %.invoke
 
 .invoke:                                          ; preds = %13, %16, %17, %18, %19
-  %.sink29 = phi i64 [ 376, %16 ], [ 368, %17 ], [ 384, %18 ], [ 440, %19 ], [ 360, %13 ]
+  %.sink30 = phi i64 [ 376, %16 ], [ 368, %17 ], [ 384, %18 ], [ 440, %19 ], [ 360, %13 ]
   %20 = load ptr, ptr %12, align 8, !tbaa !7
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink29
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink30
   %22 = load ptr, ptr %21, align 8
   invoke void %22(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(64) %6)
           to label %39 unwind label %14

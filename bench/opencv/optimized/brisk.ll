@@ -362,11 +362,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit18:                  ; preds = %_ZNKSt6vectorIfSaIf
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit20
 
 _ZNSt6vectorIfSaIfEED2Ev.exit20:                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit18, %_ZNSt6vectorIiSaIiEED2Ev.exit18.thread
-  %.pn3437 = phi { ptr, i32 } [ %38, %_ZNSt6vectorIiSaIiEED2Ev.exit18.thread ], [ %39, %_ZNSt6vectorIiSaIiEED2Ev.exit18 ]
+  %.pn3639 = phi { ptr, i32 } [ %38, %_ZNSt6vectorIiSaIiEED2Ev.exit18.thread ], [ %39, %_ZNSt6vectorIiSaIiEED2Ev.exit18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   tail call void @_ZdlPv(ptr noundef nonnull %6) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %.pn3437
+  resume { ptr, i32 } %.pn3639
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -4369,7 +4369,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vector
   br label %232
 
 ._crit_edge417:                                   ; preds = %.loopexit317, %.thread, %228
-  %.pr.i507510512 = phi ptr [ null, %.thread ], [ %47, %228 ], [ %47, %.loopexit317 ]
+  %.pr.i539542544 = phi ptr [ null, %.thread ], [ %47, %228 ], [ %47, %.loopexit317 ]
   %231 = phi ptr [ null, %.thread ], [ %48, %228 ], [ %48, %.loopexit317 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -4931,13 +4931,13 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit247: ; preds = %416, %_ZN
   br label %450
 
 .loopexit:                                        ; preds = %207, %108, %._crit_edge417
-  %.pr.i508 = phi ptr [ %47, %108 ], [ %.pr.i507510512, %._crit_edge417 ], [ %47, %207 ]
+  %.pr.i540 = phi ptr [ %47, %108 ], [ %.pr.i539542544, %._crit_edge417 ], [ %47, %207 ]
   %445 = phi ptr [ %48, %108 ], [ %231, %._crit_edge417 ], [ %48, %207 ]
-  %.not4.i.i.i.i = icmp eq ptr %.pr.i508, %445
+  %.not4.i.i.i.i = icmp eq ptr %.pr.i540, %445
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIN2cv8KeyPointESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.loopexit, %_ZSt8_DestroyISt6vectorIN2cv8KeyPointESaIS2_EEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %448, %_ZSt8_DestroyISt6vectorIN2cv8KeyPointESaIS2_EEEvPT_.exit.i.i.i.i ], [ %.pr.i508, %.loopexit ]
+  %.05.i.i.i.i = phi ptr [ %448, %_ZSt8_DestroyISt6vectorIN2cv8KeyPointESaIS2_EEEvPT_.exit.i.i.i.i ], [ %.pr.i540, %.loopexit ]
   %446 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !109
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %446, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIN2cv8KeyPointESaIS2_EEEvPT_.exit.i.i.i.i, label %447
@@ -4952,11 +4952,11 @@ _ZSt8_DestroyISt6vectorIN2cv8KeyPointESaIS2_EEEvPT_.exit.i.i.i.i: ; preds = %447
   br i1 %.not.i.i.i.i248, label %_ZSt8_DestroyIPSt6vectorIN2cv8KeyPointESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !204
 
 _ZSt8_DestroyIPSt6vectorIN2cv8KeyPointESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt6vectorIN2cv8KeyPointESaIS2_EEEvPT_.exit.i.i.i.i, %.loopexit
-  %.not.i.i.i = icmp eq ptr %.pr.i508, null
+  %.not.i.i.i = icmp eq ptr %.pr.i540, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIS_IN2cv8KeyPointESaIS1_EESaIS3_EED2Ev.exit, label %449
 
 449:                                              ; preds = %_ZSt8_DestroyIPSt6vectorIN2cv8KeyPointESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %.pr.i508) #30
+  call void @_ZdlPv(ptr noundef nonnull %.pr.i540) #30
   br label %_ZNSt6vectorIS_IN2cv8KeyPointESaIS1_EESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIS_IN2cv8KeyPointESaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN2cv8KeyPointESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i, %449
@@ -8047,11 +8047,11 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit474:   ; preds = %_ZNK2cv10BriskLayer
   br label %1020
 
 1020:                                             ; preds = %1015, %1010
-  %.sink580 = phi double [ %1019, %1015 ], [ %1014, %1010 ]
+  %.sink640 = phi double [ %1019, %1015 ], [ %1014, %1010 ]
   %.pn.in = phi double [ %1017, %1015 ], [ %1012, %1010 ]
   %.pn = fptrunc double %.pn.in to float
   %.sink = fsub float %.pn, %1007
-  %1021 = fptrunc double %.sink580 to float
+  %1021 = fptrunc double %.sink640 to float
   %1022 = fsub float %1021, %1009
   store float %.sink, ptr %6, align 4, !tbaa !29
   store float %1022, ptr %7, align 4, !tbaa !29
@@ -8064,8 +8064,8 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit474:   ; preds = %_ZNK2cv10BriskLayer
   br i1 %1026, label %thread-pre-split, label %1027
 
 thread-pre-split:                                 ; preds = %1025, %1020
-  %.sink581 = phi float [ 1.000000e+00, %1020 ], [ -1.000000e+00, %1025 ]
-  store float %.sink581, ptr %6, align 4, !tbaa !29
+  %.sink641 = phi float [ 1.000000e+00, %1020 ], [ -1.000000e+00, %1025 ]
+  store float %.sink641, ptr %6, align 4, !tbaa !29
   %.pr = load float, ptr %7, align 4, !tbaa !29
   br label %1027
 
@@ -9960,15 +9960,15 @@ _ZNK2cv15BriskScaleSpace10refine1D_1EfffRf.exit:  ; preds = %1123, %1134, %1136
   br label %1154
 
 1154:                                             ; preds = %1152, %1149
-  %.sink586 = phi float [ %1153, %1152 ], [ %1151, %1149 ]
-  %.sink585 = phi ptr [ %15, %1152 ], [ %9, %1149 ]
-  %.sink571 = phi ptr [ %16, %1152 ], [ %10, %1149 ]
+  %.sink648 = phi float [ %1153, %1152 ], [ %1151, %1149 ]
+  %.sink647 = phi ptr [ %15, %1152 ], [ %9, %1149 ]
+  %.sink633 = phi ptr [ %16, %1152 ], [ %10, %1149 ]
   %.sink.i438535 = phi float [ %.sink.i438536, %1152 ], [ %.sink.i438541, %1149 ]
-  %1155 = fsub float 1.000000e+00, %.sink586
+  %1155 = fsub float 1.000000e+00, %.sink648
   %1156 = load float, ptr %17, align 4, !tbaa !29
-  %1157 = load float, ptr %.sink585, align 4, !tbaa !29
+  %1157 = load float, ptr %.sink647, align 4, !tbaa !29
   %1158 = fmul float %1155, %1157
-  %1159 = call float @llvm.fmuladd.f32(float %.sink586, float %1156, float %1158)
+  %1159 = call float @llvm.fmuladd.f32(float %.sink648, float %1156, float %1158)
   %1160 = sitofp i32 %2 to float
   %1161 = fadd float %1159, %1160
   %1162 = getelementptr inbounds nuw i8, ptr %22, i64 192
@@ -9978,9 +9978,9 @@ _ZNK2cv15BriskScaleSpace10refine1D_1EfffRf.exit:  ; preds = %1123, %1134, %1136
   %1166 = call float @llvm.fmuladd.f32(float %1161, float %1163, float %1165)
   store float %1166, ptr %4, align 4, !tbaa !29
   %1167 = load float, ptr %18, align 4, !tbaa !29
-  %1168 = load float, ptr %.sink571, align 4, !tbaa !29
+  %1168 = load float, ptr %.sink633, align 4, !tbaa !29
   %1169 = fmul float %1155, %1168
-  %1170 = call float @llvm.fmuladd.f32(float %.sink586, float %1167, float %1169)
+  %1170 = call float @llvm.fmuladd.f32(float %.sink648, float %1167, float %1169)
   %1171 = sitofp i32 %3 to float
   %1172 = fadd float %1170, %1171
   %1173 = load float, ptr %1162, align 8, !tbaa !187
@@ -10414,10 +10414,10 @@ define hidden void @_ZN2cv10BriskLayerC2ERKS0_i(ptr noundef nonnull align 8 dere
           to label %29 unwind label %19
 
 29:                                               ; preds = %28, %18
-  %.sink20 = phi float [ 2.000000e+00, %18 ], [ 1.500000e+00, %28 ]
+  %.sink23 = phi float [ 2.000000e+00, %18 ], [ 1.500000e+00, %28 ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %31 = load float, ptr %30, align 8, !tbaa !187
-  %32 = fmul float %31, %.sink20
+  %32 = fmul float %31, %.sink23
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store float %32, ptr %33, align 8, !tbaa !187
   %34 = tail call float @llvm.fmuladd.f32(float %32, float 5.000000e-01, float -5.000000e-01)
@@ -12165,10 +12165,10 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit290:   ; preds = %_ZNK2cv10BriskLayer
   br label %527
 
 527:                                              ; preds = %522, %517
-  %.sink409 = phi float [ %526, %522 ], [ %521, %517 ]
+  %.sink443 = phi float [ %526, %522 ], [ %521, %517 ]
   %.pn = phi float [ %524, %522 ], [ %519, %517 ]
   %.sink = fsub float %.pn, %515
-  %528 = fsub float %.sink409, %516
+  %528 = fsub float %.sink443, %516
   store float %.sink, ptr %6, align 4, !tbaa !29
   store float %528, ptr %7, align 4, !tbaa !29
   %529 = load float, ptr %6, align 4, !tbaa !29
@@ -12180,8 +12180,8 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit290:   ; preds = %_ZNK2cv10BriskLayer
   br i1 %532, label %thread-pre-split, label %533
 
 thread-pre-split:                                 ; preds = %531, %527
-  %.sink410 = phi float [ 1.000000e+00, %527 ], [ -1.000000e+00, %531 ]
-  store float %.sink410, ptr %6, align 4, !tbaa !29
+  %.sink444 = phi float [ 1.000000e+00, %527 ], [ -1.000000e+00, %531 ]
+  store float %.sink444, ptr %6, align 4, !tbaa !29
   %.pr = load float, ptr %7, align 4, !tbaa !29
   br label %533
 

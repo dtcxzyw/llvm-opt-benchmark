@@ -57,7 +57,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %indvars.iv519.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 32
   %indvars.iv527.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 32
   %indvars.iv542.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %indvars.iv550.sroa.gep651 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %indvars.iv550.sroa.gep661 = getelementptr inbounds nuw i8, ptr %4, i64 32
   switch i32 %10, label %240 [
     i32 0, label %11
     i32 1, label %11
@@ -139,11 +139,11 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %.0328 = sub i32 %38, %.pn354
   %43 = icmp sgt i32 %.0328, 0
   %44 = zext i1 %43 to i32
-  %spec.select629 = lshr i32 %.0328, %44
+  %spec.select639 = lshr i32 %.0328, %44
   br label %45
 
 45:                                               ; preds = %40, %36
-  %.sink = phi i32 [ -5, %36 ], [ %spec.select629, %40 ]
+  %.sink = phi i32 [ -5, %36 ], [ %spec.select639, %40 ]
   %46 = getelementptr inbounds nuw [8 x i32], ptr %31, i64 0, i64 %indvars.iv553
   store i32 %.sink, ptr %46, align 4, !tbaa !19
   %spec.select355 = tail call i32 @llvm.smax.i32(i32 %.sink, i32 %.3326452)
@@ -152,8 +152,8 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   br i1 %exitcond557.not, label %.lr.ph463.us.preheader, label %36, !llvm.loop !21
 
 .lr.ph463.us.preheader:                           ; preds = %45, %33
-  %.in632 = phi i32 [ %spec.select, %33 ], [ %spec.select355, %45 ]
-  %47 = add nuw nsw i32 %.in632, 1
+  %.in642 = phi i32 [ %spec.select, %33 ], [ %spec.select355, %45 ]
+  %47 = add nuw nsw i32 %.in642, 1
   %.in = load i8, ptr %20, align 1, !tbaa !22
   %48 = zext i8 %.in to i32
   %49 = getelementptr inbounds nuw [2 x [8 x i32]], ptr %3, i64 0, i64 %indvar558
@@ -279,10 +279,10 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   br i1 %or.cond371, label %.sink.split, label %98
 
 .sink.split:                                      ; preds = %92, %90
-  %.sink621 = phi i32 [ %91, %90 ], [ 2, %92 ]
-  %.sink620 = phi i32 [ 1, %90 ], [ 2, %92 ]
-  store i32 %.sink621, ptr %87, align 4, !tbaa !19
-  %97 = add nsw i32 %.2319480, %.sink620
+  %.sink631 = phi i32 [ %91, %90 ], [ 2, %92 ]
+  %.sink630 = phi i32 [ 1, %90 ], [ 2, %92 ]
+  store i32 %.sink631, ptr %87, align 4, !tbaa !19
+  %97 = add nsw i32 %.2319480, %.sink630
   br label %98
 
 98:                                               ; preds = %.sink.split, %92
@@ -368,14 +368,14 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %.0304.us.us.us = sub i32 %129, %.pn.us.us.us
   %133 = icmp sgt i32 %.0304.us.us.us, 0
   %134 = zext i1 %133 to i32
-  %spec.select630 = lshr i32 %.0304.us.us.us, %134
+  %spec.select640 = lshr i32 %.0304.us.us.us, %134
   br label %135
 
 135:                                              ; preds = %131, %127
-  %.sink622 = phi i32 [ -5, %127 ], [ %spec.select630, %131 ]
+  %.sink632 = phi i32 [ -5, %127 ], [ %spec.select640, %131 ]
   %136 = getelementptr inbounds nuw [8 x i32], ptr %indvars.iv527.sroa.phi, i64 0, i64 %indvars.iv522
-  store i32 %.sink622, ptr %136, align 4, !tbaa !19
-  %spec.select362.us.us.us = tail call i32 @llvm.smax.i32(i32 %.sink622, i32 %.5302398.us.us.us)
+  store i32 %.sink632, ptr %136, align 4, !tbaa !19
+  %spec.select362.us.us.us = tail call i32 @llvm.smax.i32(i32 %.sink632, i32 %.5302398.us.us.us)
   %indvars.iv.next523 = add nuw nsw i64 %indvars.iv522, 1
   %exitcond526.not = icmp eq i64 %indvars.iv.next523, %wide.trip.count525
   br i1 %exitcond526.not, label %._crit_edge.split.us.us.us, label %127, !llvm.loop !29
@@ -405,14 +405,14 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %.0304.us405 = sub i32 %141, %.pn.us404
   %145 = icmp sgt i32 %.0304.us405, 0
   %146 = zext i1 %145 to i32
-  %spec.select631 = lshr i32 %.0304.us405, %146
+  %spec.select641 = lshr i32 %.0304.us405, %146
   br label %147
 
 147:                                              ; preds = %143, %139
-  %.sink624 = phi i32 [ -5, %139 ], [ %spec.select631, %143 ]
+  %.sink634 = phi i32 [ -5, %139 ], [ %spec.select641, %143 ]
   %148 = getelementptr inbounds nuw [8 x i32], ptr %indvars.iv519.sroa.phi, i64 0, i64 %indvars.iv
-  store i32 %.sink624, ptr %148, align 4, !tbaa !19
-  %spec.select362.us406 = tail call i32 @llvm.smax.i32(i32 %.sink624, i32 %.5302398.us403)
+  store i32 %.sink634, ptr %148, align 4, !tbaa !19
+  %spec.select362.us406 = tail call i32 @llvm.smax.i32(i32 %.sink634, i32 %.5302398.us403)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count525
   br i1 %exitcond.not, label %._crit_edge.split.us407, label %139, !llvm.loop !29
@@ -518,7 +518,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %180 = phi i8 [ %159, %.loopexit383.thread ], [ %163, %.loopexit383 ]
   %181 = phi ptr [ %158, %.loopexit383.thread ], [ %162, %.loopexit383 ]
   %182 = phi i32 [ 1, %.loopexit383.thread ], [ %161, %.loopexit383 ]
-  %.3300609 = phi i32 [ 0, %.loopexit383.thread ], [ %.3300, %.loopexit383 ]
+  %.3300619 = phi i32 [ 0, %.loopexit383.thread ], [ %.3300, %.loopexit383 ]
   %.not498 = icmp eq i8 %180, 0
   tail call void @llvm.assume(i1 %.not498)
   br label %.split427.us
@@ -526,17 +526,17 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 .split427.us:                                     ; preds = %.split423.us.us, %.split425
   %183 = phi i32 [ %179, %.split425 ], [ %164, %.split423.us.us ]
   %184 = phi ptr [ %181, %.split425 ], [ %162, %.split423.us.us ]
-  %.not497610 = phi i1 [ true, %.split425 ], [ false, %.split423.us.us ]
+  %.not497620 = phi i1 [ true, %.split425 ], [ false, %.split423.us.us ]
   %.us-phi428 = phi i32 [ 0, %.split425 ], [ %177, %.split423.us.us ]
   %.us-phi430 = phi i32 [ %182, %.split425 ], [ %.0284.us, %.split423.us.us ]
-  %.us-phi431 = phi i32 [ %.3300609, %.split425 ], [ %175, %.split423.us.us ]
+  %.us-phi431 = phi i32 [ %.3300619, %.split425 ], [ %175, %.split423.us.us ]
   %.us-phi432 = phi i32 [ 0, %.split425 ], [ %176, %.split423.us.us ]
   %185 = icmp eq i32 %.us-phi428, %183
   %186 = add nsw i32 %.us-phi430, -2
   %spec.select366 = select i1 %185, i32 %.us-phi428, i32 %.us-phi432
   %spec.select367 = select i1 %185, i32 %186, i32 %.us-phi431
   %187 = add nsw i32 %spec.select367, 2
-  br i1 %.not497610, label %.preheader378, label %.preheader379.us.preheader
+  br i1 %.not497620, label %.preheader378, label %.preheader379.us.preheader
 
 .preheader379.us.preheader:                       ; preds = %.split427.us
   %wide.trip.count548 = zext i8 %.fr495 to i64
@@ -544,7 +544,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 
 .preheader379.us:                                 ; preds = %.preheader379.us.preheader, %._crit_edge.us437
   %188 = phi i1 [ true, %.preheader379.us.preheader ], [ false, %._crit_edge.us437 ]
-  %indvars.iv550.sroa.phi = phi ptr [ %4, %.preheader379.us.preheader ], [ %indvars.iv550.sroa.gep651, %._crit_edge.us437 ]
+  %indvars.iv550.sroa.phi = phi ptr [ %4, %.preheader379.us.preheader ], [ %indvars.iv550.sroa.gep661, %._crit_edge.us437 ]
   %indvars.iv550 = phi i64 [ 0, %.preheader379.us.preheader ], [ 1, %._crit_edge.us437 ]
   %189 = getelementptr inbounds nuw [8 x i32], ptr %1, i64 %indvars.iv550
   br label %190
@@ -606,7 +606,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 
 209:                                              ; preds = %202
   %210 = add nuw nsw i32 %207, 1
-  br label %.sink.split626
+  br label %.sink.split636
 
 211:                                              ; preds = %202
   %212 = getelementptr inbounds nuw [2 x [8 x i32]], ptr %4, i64 0, i64 %203
@@ -615,17 +615,17 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %215 = icmp eq i32 %214, %201
   %216 = icmp slt i32 %.2292438, %invariant.op
   %or.cond373 = select i1 %215, i1 %216, i1 false
-  br i1 %or.cond373, label %.sink.split626, label %218
+  br i1 %or.cond373, label %.sink.split636, label %218
 
-.sink.split626:                                   ; preds = %211, %209
-  %.sink628 = phi i32 [ %210, %209 ], [ 2, %211 ]
-  %.sink627 = phi i32 [ 1, %209 ], [ 2, %211 ]
-  store i32 %.sink628, ptr %206, align 4, !tbaa !19
-  %217 = add nsw i32 %.2292438, %.sink627
+.sink.split636:                                   ; preds = %211, %209
+  %.sink638 = phi i32 [ %210, %209 ], [ 2, %211 ]
+  %.sink637 = phi i32 [ 1, %209 ], [ 2, %211 ]
+  store i32 %.sink638, ptr %206, align 4, !tbaa !19
+  %217 = add nsw i32 %.2292438, %.sink637
   br label %218
 
-218:                                              ; preds = %.sink.split626, %211
-  %.4294 = phi i32 [ %.2292438, %211 ], [ %217, %.sink.split626 ]
+218:                                              ; preds = %.sink.split636, %211
+  %.4294 = phi i32 [ %.2292438, %211 ], [ %217, %.sink.split636 ]
   %219 = icmp eq i32 %.4280439, 1
   br i1 %219, label %220, label %222
 

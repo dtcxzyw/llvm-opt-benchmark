@@ -229,19 +229,19 @@ define internal range(i32 -2147483648, 1) i32 @g726_encode_frame(ptr noundef %0,
   %54 = sub nsw i32 %48, %53
   %55 = add nsw i32 %54, %51
   %56 = load ptr, ptr %31, align 8, !tbaa !58
-  br i1 %.not25, label %.preheader, label %.preheader89
+  br i1 %.not25, label %.preheader, label %.preheader93
 
-.preheader89:                                     ; preds = %33, %.preheader89
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader89 ], [ 0, %33 ]
+.preheader93:                                     ; preds = %33, %.preheader93
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader93 ], [ 0, %33 ]
   %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i.i
   %58 = load i32, ptr %57, align 4, !tbaa !42
   %.not.i.i = icmp ne i32 %58, 2147483647
   %59 = icmp slt i32 %58, %55
   %or.cond24.i.i = select i1 %.not.i.i, i1 %59, i1 false
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  br i1 %or.cond24.i.i, label %.preheader89, label %g726_encode.exit, !llvm.loop !59
+  br i1 %or.cond24.i.i, label %.preheader93, label %g726_encode.exit, !llvm.loop !59
 
-g726_encode.exit:                                 ; preds = %.preheader89
+g726_encode.exit:                                 ; preds = %.preheader93
   %60 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %.lobit.i.i = ashr i32 %40, 31
   %spec.select25.i.i = xor i32 %.lobit.i.i, %60

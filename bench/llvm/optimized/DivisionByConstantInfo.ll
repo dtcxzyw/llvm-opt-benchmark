@@ -1069,8 +1069,8 @@ _ZN4llvm5APIntC2ERKS0_.exit35:                    ; preds = %171, %173
   %178 = icmp sgt i32 %177, -1
   %179 = icmp ult i32 %175, 65
   %180 = icmp eq i64 %176, 0
-  %or.cond99 = select i1 %179, i1 true, i1 %180
-  br i1 %or.cond99, label %_ZN4llvm5APIntD2Ev.exit37, label %_ZN4llvm5APIntD2Ev.exit36
+  %or.cond138 = select i1 %179, i1 true, i1 %180
+  br i1 %or.cond138, label %_ZN4llvm5APIntD2Ev.exit37, label %_ZN4llvm5APIntD2Ev.exit36
 
 _ZN4llvm5APIntD2Ev.exit36:                        ; preds = %_ZN4llvm5APIntC2ERKS0_.exit35
   %181 = inttoptr i64 %176 to ptr
@@ -1246,8 +1246,8 @@ _ZN4llvm5APIntC2ERKS0_.exit51:                    ; preds = %251, %253
   %258 = icmp sgt i32 %257, -1
   %259 = icmp ult i32 %255, 65
   %260 = icmp eq i64 %256, 0
-  %or.cond100 = select i1 %259, i1 true, i1 %260
-  br i1 %or.cond100, label %_ZN4llvm5APIntD2Ev.exit53, label %_ZN4llvm5APIntD2Ev.exit52
+  %or.cond139 = select i1 %259, i1 true, i1 %260
+  br i1 %or.cond139, label %_ZN4llvm5APIntD2Ev.exit53, label %_ZN4llvm5APIntD2Ev.exit52
 
 _ZN4llvm5APIntD2Ev.exit52:                        ; preds = %_ZN4llvm5APIntC2ERKS0_.exit51
   %261 = inttoptr i64 %256 to ptr

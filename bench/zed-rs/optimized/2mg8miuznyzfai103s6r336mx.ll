@@ -454,10 +454,10 @@ define void @_ZN15release_channel10AppVersion4init17h068a2a026413d553E(ptr dead_
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %88, label %89
 
-.body10.thread26:                                 ; preds = %60
+.body10.thread28:                                 ; preds = %60
   %45 = load i64, ptr %12, align 8, !range !54, !noundef !5
   %46 = icmp eq i64 %45, 0
-  br i1 %46, label %.thread29, label %89
+  br i1 %46, label %.thread31, label %89
 
 .body10.thread:                                   ; preds = %.body
   %47 = load i64, ptr %12, align 8, !range !54, !noundef !5
@@ -479,7 +479,7 @@ define void @_ZN15release_channel10AppVersion4init17h068a2a026413d553E(ptr dead_
   %trunc414 = trunc nuw i64 %52 to i1
   br i1 %trunc414, label %65, label %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h6e483aacc8221a28E.exit"
 
-53:                                               ; preds = %.thread29, %89, %.body
+53:                                               ; preds = %.thread31, %89, %.body
   %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16
@@ -504,7 +504,7 @@ define void @_ZN15release_channel10AppVersion4init17h068a2a026413d553E(ptr dead_
   %61 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
-          to label %.body10.thread26 unwind label %63, !noalias !111
+          to label %.body10.thread28 unwind label %63, !noalias !111
 
 62:                                               ; preds = %57
   unreachable
@@ -569,19 +569,19 @@ define void @_ZN15release_channel10AppVersion4init17h068a2a026413d553E(ptr dead_
   br label %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h6e483aacc8221a28E.exit"
 
 88:                                               ; preds = %.body10
-  br i1 %trunc, label %.thread29, label %.thread23
+  br i1 %trunc, label %.thread31, label %.thread23
 
-89:                                               ; preds = %.body10.thread26, %.body10.thread, %.body10
-  %.pn20 = phi { ptr, i32 } [ %eh.lpad-body, %.body10.thread ], [ %42, %.body10 ], [ %61, %.body10.thread26 ]
+89:                                               ; preds = %.body10.thread28, %.body10.thread, %.body10
+  %.pn20 = phi { ptr, i32 } [ %eh.lpad-body, %.body10.thread ], [ %42, %.body10 ], [ %61, %.body10.thread28 ]
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h6e483aacc8221a28E"(ptr noalias noundef align 8 dereferenceable(32) %12) #15
           to label %.thread23 unwind label %53
 
-.thread23:                                        ; preds = %.body10.thread, %.thread29, %89, %88
-  %.pn19 = phi { ptr, i32 } [ %.pn2831, %.thread29 ], [ %.pn20, %89 ], [ %42, %88 ], [ %eh.lpad-body, %.body10.thread ]
+.thread23:                                        ; preds = %.body10.thread, %.thread31, %89, %88
+  %.pn19 = phi { ptr, i32 } [ %.pn3033, %.thread31 ], [ %.pn20, %89 ], [ %42, %88 ], [ %eh.lpad-body, %.body10.thread ]
   resume { ptr, i32 } %.pn19
 
-.thread29:                                        ; preds = %.body10.thread26, %88
-  %.pn2831 = phi { ptr, i32 } [ %42, %88 ], [ %61, %.body10.thread26 ]
+.thread31:                                        ; preds = %.body10.thread28, %88
+  %.pn3033 = phi { ptr, i32 } [ %42, %88 ], [ %61, %.body10.thread28 ]
   %90 = getelementptr inbounds nuw i8, ptr %12, i64 8
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbdcdfdad66019170E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %90) #15
           to label %.thread23 unwind label %53

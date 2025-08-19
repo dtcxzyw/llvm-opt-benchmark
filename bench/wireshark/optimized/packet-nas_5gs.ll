@@ -3821,7 +3821,7 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_qos_rules(ptr noundef %0, ptr n
   br label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %._crit_edge.thread, %180, %173, %33, %46, %62
-  %.0203.be = phi i32 [ %38, %33 ], [ %50, %46 ], [ %66, %62 ], [ %189, %180 ], [ %176, %173 ], [ %.1.lcssa228, %._crit_edge.thread ], [ %.1.lcssa, %._crit_edge ]
+  %.0203.be = phi i32 [ %38, %33 ], [ %50, %46 ], [ %66, %62 ], [ %189, %180 ], [ %176, %173 ], [ %.1.lcssa232, %._crit_edge.thread ], [ %.1.lcssa, %._crit_edge ]
   %.0.be = add i32 %.0220, 1
   %39 = sub i32 %.0203.be, %3
   %40 = icmp ult i32 %39, %4
@@ -4064,16 +4064,16 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_qos_rules(ptr noundef %0, ptr n
   br i1 %42, label %.backedge, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph217.split.us, %._crit_edge
-  %.1.lcssa228 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %58, %.lr.ph217.split.us ]
-  %170 = sub i32 %.1.lcssa228, %23
+  %.1.lcssa232 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %58, %.lr.ph217.split.us ]
+  %170 = sub i32 %.1.lcssa232, %23
   %171 = load i32, ptr %13, align 4
   %172 = icmp ult i32 %170, %171
   br i1 %172, label %173, label %.backedge
 
 173:                                              ; preds = %._crit_edge.thread
   %174 = load i32, ptr @hf_nas_5gs_sm_qos_rule_precedence, align 4
-  %175 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %174, ptr noundef %0, i32 noundef %.1.lcssa228, i32 noundef 1, i32 noundef 0)
-  %176 = add i32 %.1.lcssa228, 1
+  %175 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %174, ptr noundef %0, i32 noundef %.1.lcssa232, i32 noundef 1, i32 noundef 0)
+  %176 = add i32 %.1.lcssa232, 1
   %177 = sub i32 %176, %23
   %178 = load i32, ptr %13, align 4
   %179 = icmp ult i32 %177, %178
@@ -4090,7 +4090,7 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_qos_rules(ptr noundef %0, ptr n
   %186 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %185, ptr noundef %0, i32 noundef %176, i32 noundef 1, i32 noundef 0)
   %187 = load i32, ptr @hf_nas_5gs_sm_qfi, align 4
   %188 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %187, ptr noundef %0, i32 noundef %176, i32 noundef 1, i32 noundef 0)
-  %189 = add i32 %.1.lcssa228, 2
+  %189 = add i32 %.1.lcssa232, 2
   br label %.backedge
 
 ._crit_edge223:                                   ; preds = %.backedge, %7
@@ -4622,7 +4622,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_5gs_mobile_id(ptr noundef %0,
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %11 = and i8 %10, 7
-  switch i8 %11, label %default.unreachable170 [
+  switch i8 %11, label %default.unreachable174 [
     i8 0, label %12
     i8 1, label %13
     i8 2, label %76
@@ -4813,7 +4813,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_5gs_mobile_id(ptr noundef %0,
   %133 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %132, ptr noundef %0, i32 noundef %131, i32 noundef 8, i32 noundef 0)
   br label %proto_item_set_hidden.exit
 
-default.unreachable170:                           ; preds = %7
+default.unreachable174:                           ; preds = %7
   unreachable
 
 proto_item_set_hidden.exit:                       ; preds = %119, %116, %103, %96, %93, %76, %50, %53, %38, %73, %69, %130, %126, %123, %100, %12
@@ -10844,10 +10844,10 @@ define internal fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef %
 
 33:                                               ; preds = %18, %15
   %hf_nas_5gs_proc_trans_id.sink = phi ptr [ @hf_nas_5gs_proc_trans_id, %18 ], [ @hf_nas_5gs_security_header_type, %15 ]
-  %.sink44 = phi i32 [ %21, %18 ], [ %13, %15 ]
+  %.sink47 = phi i32 [ %21, %18 ], [ %13, %15 ]
   %34 = load i32, ptr %hf_nas_5gs_proc_trans_id.sink, align 4
-  %35 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %34, ptr noundef %0, i32 noundef %.sink44, i32 noundef 1, i32 noundef 0)
-  %36 = add nuw nsw i32 %.sink44, 1
+  %35 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %34, ptr noundef %0, i32 noundef %.sink47, i32 noundef 1, i32 noundef 0)
+  %36 = add nuw nsw i32 %.sink47, 1
   %37 = load i32, ptr %8, align 4
   switch i32 %37, label %92 [
     i32 126, label %38
@@ -10874,7 +10874,7 @@ define internal fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef %
   %50 = load ptr, ptr %49, align 8
   call void @col_append_sep_str(ptr noundef %50, i32 noundef 25, ptr noundef null, ptr noundef nonnull %42)
   %51 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %44, ptr noundef %0, i32 noundef range(i32 2, 11) %36, i32 noundef 1, i32 noundef 0)
-  %52 = add nuw nsw i32 %.sink44, 2
+  %52 = add nuw nsw i32 %.sink47, 2
   %53 = and i64 %46, 2305843009213693951
   %54 = shl nuw i64 1, %53
   %55 = and i64 %54, 35184372088992
@@ -10922,7 +10922,7 @@ define internal fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef %
   %78 = load ptr, ptr %77, align 8
   call void @col_append_sep_str(ptr noundef %78, i32 noundef 25, ptr noundef null, ptr noundef nonnull %70)
   %79 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %72, ptr noundef %0, i32 noundef range(i32 2, 11) %36, i32 noundef 1, i32 noundef 0)
-  %80 = add nuw nsw i32 %.sink44, 2
+  %80 = add nuw nsw i32 %.sink47, 2
   %81 = icmp eq i32 %73, 27
   br i1 %81, label %84, label %90
 

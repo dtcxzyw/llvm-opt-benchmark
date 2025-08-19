@@ -157,7 +157,7 @@ bytestream2_get_le16.exit.thread:                 ; preds = %.lr.ph129.split, %b
 .lr.ph.preheader:                                 ; preds = %.thread, %68
   %71 = phi ptr [ %67, %.thread ], [ %70, %68 ]
   %72 = phi i64 [ %66, %.thread ], [ %69, %68 ]
-  %.067137 = phi i32 [ %64, %.thread ], [ %.071125, %68 ]
+  %.067148 = phi i32 [ %64, %.thread ], [ %.071125, %68 ]
   %73 = ptrtoint ptr %71 to i64
   br label %.lr.ph
 
@@ -262,8 +262,8 @@ bytestream2_get_byte.exit85:                      ; preds = %100, %104
 
 ._crit_edge:                                      ; preds = %117, %68
   %125 = phi ptr [ %70, %68 ], [ %71, %117 ]
-  %.067138 = phi i32 [ 0, %68 ], [ %.067137, %117 ]
-  %126 = sub i32 %.071125, %.067138
+  %.067149 = phi i32 [ 0, %68 ], [ %.067148, %117 ]
+  %126 = sub i32 %.071125, %.067149
   br label %127
 
 127:                                              ; preds = %._crit_edge, %bytestream2_get_le16.exit.thread

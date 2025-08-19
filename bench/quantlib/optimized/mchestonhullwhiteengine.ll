@@ -408,8 +408,8 @@ do.end:                                           ; preds = %entry
 
 _ZN8QuantLib5ArrayC2Em.exit.thread:               ; preds = %do.end
   store ptr null, ptr %states, align 8, !tbaa !32
-  %n_.i65 = getelementptr inbounds nuw i8, ptr %states, i64 8
-  store i64 %sub.ptr.div.i.i, ptr %n_.i65, align 8, !tbaa !33
+  %n_.i79 = getelementptr inbounds nuw i8, ptr %states, i64 8
+  store i64 %sub.ptr.div.i.i, ptr %n_.i79, align 8, !tbaa !33
   br label %for.cond.cleanup
 
 invoke.cont35.lr.ph:                              ; preds = %do.end

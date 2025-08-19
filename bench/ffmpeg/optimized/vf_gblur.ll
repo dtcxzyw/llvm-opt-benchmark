@@ -786,7 +786,7 @@ define internal void @horiz_slice_c(ptr noundef captures(none) %0, i32 noundef %
 .preheader.us.us.us:                              ; preds = %.preheader.us.us.us.preheader, %._crit_edge38.split.us.us.us.split.us.us
   %indvars.iv86 = phi i64 [ 0, %.preheader.us.us.us.preheader ], [ %indvars.iv.next87, %._crit_edge38.split.us.us.us.split.us.us ]
   %19 = mul i64 %17, %indvars.iv86
-  %scevgep93 = getelementptr i8, ptr %18, i64 %19
+  %scevgep98 = getelementptr i8, ptr %18, i64 %19
   %20 = mul i64 %15, %indvars.iv86
   %scevgep = getelementptr nuw i8, ptr %0, i64 %20
   %21 = mul nuw nsw i64 %indvars.iv86, %14
@@ -803,12 +803,12 @@ define internal void @horiz_slice_c(ptr noundef captures(none) %0, i32 noundef %
   br label %32
 
 26:                                               ; preds = %._crit_edge.us.us.us.us.us, %26
-  %store_forwarded95 = phi float [ %load_initial94, %._crit_edge.us.us.us.us.us ], [ %30, %26 ]
+  %store_forwarded100 = phi float [ %load_initial99, %._crit_edge.us.us.us.us.us ], [ %30, %26 ]
   %indvars.iv82 = phi i64 [ %13, %._crit_edge.us.us.us.us.us ], [ %indvars.iv.next83, %26 ]
   %27 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv82
   %28 = getelementptr i8, ptr %27, i64 -4
   %29 = load float, ptr %28, align 4, !tbaa !39
-  %30 = tail call nsz float @llvm.fmuladd.f32(float %4, float %store_forwarded95, float %29)
+  %30 = tail call nsz float @llvm.fmuladd.f32(float %4, float %store_forwarded100, float %29)
   store float %30, ptr %28, align 4, !tbaa !39
   %indvars.iv.next83 = add nsw i64 %indvars.iv82, -1
   %31 = icmp sgt i64 %indvars.iv82, 1
@@ -829,7 +829,7 @@ define internal void @horiz_slice_c(ptr noundef captures(none) %0, i32 noundef %
   %36 = load float, ptr %23, align 4, !tbaa !39
   %37 = fmul nsz float %5, %36
   store float %37, ptr %23, align 4, !tbaa !39
-  %load_initial94 = load float, ptr %scevgep93, align 4
+  %load_initial99 = load float, ptr %scevgep98, align 4
   br label %26
 
 ._crit_edge35.us.us.us.us.us:                     ; preds = %26
@@ -950,7 +950,7 @@ define internal fastcc void @do_vertical_columns(ptr noundef captures(none) %0, 
 .preheader67.us.us.us:                            ; preds = %.preheader67.us.us.us.preheader, %._crit_edge76.split.us.us.us.split.us.us
   %indvars.iv178 = phi i64 [ %18, %.preheader67.us.us.us.preheader ], [ %indvars.iv.next179, %._crit_edge76.split.us.us.us.split.us.us ]
   %23 = getelementptr inbounds float, ptr %0, i64 %indvars.iv178
-  %invariant.gep200 = getelementptr inbounds nuw float, ptr %23, i64 %22
+  %invariant.gep216 = getelementptr inbounds nuw float, ptr %23, i64 %22
   br label %24
 
 24:                                               ; preds = %._crit_edge74.us.us.us.us.us, %.preheader67.us.us.us
@@ -963,22 +963,22 @@ define internal fastcc void @do_vertical_columns(ptr noundef captures(none) %0, 
 
 27:                                               ; preds = %.preheader.us.us.us.us.us, %27
   %indvars.iv172 = phi i64 [ 0, %.preheader.us.us.us.us.us ], [ %indvars.iv.next173, %27 ]
-  %gep203 = getelementptr inbounds nuw float, ptr %invariant.gep202, i64 %indvars.iv172
-  %28 = load float, ptr %gep203, align 4, !tbaa !39
-  %gep205 = getelementptr float, ptr %invariant.gep204, i64 %indvars.iv172
-  %29 = load float, ptr %gep205, align 4, !tbaa !39
+  %gep219 = getelementptr inbounds nuw float, ptr %invariant.gep218, i64 %indvars.iv172
+  %28 = load float, ptr %gep219, align 4, !tbaa !39
+  %gep221 = getelementptr float, ptr %invariant.gep220, i64 %indvars.iv172
+  %29 = load float, ptr %gep221, align 4, !tbaa !39
   %30 = tail call nsz float @llvm.fmuladd.f32(float %6, float %28, float %29)
-  store float %30, ptr %gep205, align 4, !tbaa !39
+  store float %30, ptr %gep221, align 4, !tbaa !39
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next173, %19
   br i1 %exitcond176.not, label %25, label %27, !llvm.loop !91
 
 ._crit_edge.us.us.us.us.us:                       ; preds = %33, %._crit_edge.us.us.us.us.us
   %indvars.iv167 = phi i64 [ %indvars.iv.next168, %._crit_edge.us.us.us.us.us ], [ 0, %33 ]
-  %gep201 = getelementptr inbounds nuw float, ptr %invariant.gep200, i64 %indvars.iv167
-  %31 = load float, ptr %gep201, align 4, !tbaa !39
+  %gep217 = getelementptr inbounds nuw float, ptr %invariant.gep216, i64 %indvars.iv167
+  %31 = load float, ptr %gep217, align 4, !tbaa !39
   %32 = fmul nsz float %7, %31
-  store float %32, ptr %gep201, align 4, !tbaa !39
+  store float %32, ptr %gep217, align 4, !tbaa !39
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next168, %19
   br i1 %exitcond171.not, label %.preheader.us.us.us.us.us, label %._crit_edge.us.us.us.us.us, !llvm.loop !92
@@ -990,12 +990,12 @@ define internal fastcc void @do_vertical_columns(ptr noundef captures(none) %0, 
 
 35:                                               ; preds = %.preheader64.us.us.us.us.us, %35
   %indvars.iv159 = phi i64 [ 0, %.preheader64.us.us.us.us.us ], [ %indvars.iv.next160, %35 ]
-  %gep197 = getelementptr float, ptr %invariant.gep196, i64 %indvars.iv159
-  %36 = load float, ptr %gep197, align 4, !tbaa !39
-  %gep199 = getelementptr float, ptr %invariant.gep198, i64 %indvars.iv159
-  %37 = load float, ptr %gep199, align 4, !tbaa !39
+  %gep213 = getelementptr float, ptr %invariant.gep212, i64 %indvars.iv159
+  %36 = load float, ptr %gep213, align 4, !tbaa !39
+  %gep215 = getelementptr float, ptr %invariant.gep214, i64 %indvars.iv159
+  %37 = load float, ptr %gep215, align 4, !tbaa !39
   %38 = tail call nsz float @llvm.fmuladd.f32(float %6, float %36, float %37)
-  store float %38, ptr %gep199, align 4, !tbaa !39
+  store float %38, ptr %gep215, align 4, !tbaa !39
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next160, %19
   br i1 %exitcond163.not, label %33, label %35, !llvm.loop !94
@@ -1015,8 +1015,8 @@ define internal fastcc void @do_vertical_columns(ptr noundef captures(none) %0, 
   %43 = sub i32 %.173.us.us.us.us.us, %1
   %44 = zext nneg i32 %.173.us.us.us.us.us to i64
   %45 = sext i32 %43 to i64
-  %invariant.gep202 = getelementptr inbounds nuw float, ptr %23, i64 %44
-  %invariant.gep204 = getelementptr float, ptr %23, i64 %45
+  %invariant.gep218 = getelementptr inbounds nuw float, ptr %23, i64 %44
+  %invariant.gep220 = getelementptr float, ptr %23, i64 %45
   br label %27
 
 .preheader64.us.us.us.us.us:                      ; preds = %39, %33
@@ -1024,8 +1024,8 @@ define internal fastcc void @do_vertical_columns(ptr noundef captures(none) %0, 
   %46 = trunc nsw i64 %indvars.iv164 to i32
   %47 = sub i32 %46, %1
   %48 = sext i32 %47 to i64
-  %invariant.gep196 = getelementptr float, ptr %23, i64 %48
-  %invariant.gep198 = getelementptr float, ptr %23, i64 %indvars.iv164
+  %invariant.gep212 = getelementptr float, ptr %23, i64 %48
+  %invariant.gep214 = getelementptr float, ptr %23, i64 %indvars.iv164
   br label %35
 
 ._crit_edge74.us.us.us.us.us:                     ; preds = %25
@@ -1041,7 +1041,7 @@ define internal fastcc void @do_vertical_columns(ptr noundef captures(none) %0, 
 .preheader67.us.us:                               ; preds = %.preheader67.us.us.preheader, %._crit_edge76.split.us.us.us.split
   %indvars.iv151 = phi i64 [ %18, %.preheader67.us.us.preheader ], [ %indvars.iv.next152, %._crit_edge76.split.us.us.us.split ]
   %51 = getelementptr inbounds float, ptr %0, i64 %indvars.iv151
-  %invariant.gep194 = getelementptr float, ptr %51, i64 %21
+  %invariant.gep210 = getelementptr float, ptr %51, i64 %21
   br label %52
 
 52:                                               ; preds = %.preheader65.us.us.us, %.preheader67.us.us
@@ -1050,10 +1050,10 @@ define internal fastcc void @do_vertical_columns(ptr noundef captures(none) %0, 
 
 ._crit_edge.us.us.us:                             ; preds = %55, %._crit_edge.us.us.us
   %indvars.iv145 = phi i64 [ %indvars.iv.next146, %._crit_edge.us.us.us ], [ 0, %55 ]
-  %gep195 = getelementptr float, ptr %invariant.gep194, i64 %indvars.iv145
-  %53 = load float, ptr %gep195, align 4, !tbaa !39
+  %gep211 = getelementptr float, ptr %invariant.gep210, i64 %indvars.iv145
+  %53 = load float, ptr %gep211, align 4, !tbaa !39
   %54 = fmul nsz float %7, %53
-  store float %54, ptr %gep195, align 4, !tbaa !39
+  store float %54, ptr %gep211, align 4, !tbaa !39
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %19
   br i1 %exitcond149.not, label %.preheader65.us.us.us, label %._crit_edge.us.us.us, !llvm.loop !92
@@ -1065,12 +1065,12 @@ define internal fastcc void @do_vertical_columns(ptr noundef captures(none) %0, 
 
 57:                                               ; preds = %.preheader64.us.us.us, %57
   %indvars.iv137 = phi i64 [ 0, %.preheader64.us.us.us ], [ %indvars.iv.next138, %57 ]
-  %gep191 = getelementptr float, ptr %invariant.gep190, i64 %indvars.iv137
-  %58 = load float, ptr %gep191, align 4, !tbaa !39
-  %gep193 = getelementptr float, ptr %invariant.gep192, i64 %indvars.iv137
-  %59 = load float, ptr %gep193, align 4, !tbaa !39
+  %gep207 = getelementptr float, ptr %invariant.gep206, i64 %indvars.iv137
+  %58 = load float, ptr %gep207, align 4, !tbaa !39
+  %gep209 = getelementptr float, ptr %invariant.gep208, i64 %indvars.iv137
+  %59 = load float, ptr %gep209, align 4, !tbaa !39
   %60 = tail call nsz float @llvm.fmuladd.f32(float %6, float %58, float %59)
-  store float %60, ptr %gep193, align 4, !tbaa !39
+  store float %60, ptr %gep209, align 4, !tbaa !39
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %19
   br i1 %exitcond141.not, label %55, label %57, !llvm.loop !94
@@ -1090,8 +1090,8 @@ define internal fastcc void @do_vertical_columns(ptr noundef captures(none) %0, 
   %65 = trunc nsw i64 %indvars.iv142 to i32
   %66 = sub i32 %65, %1
   %67 = sext i32 %66 to i64
-  %invariant.gep190 = getelementptr float, ptr %51, i64 %67
-  %invariant.gep192 = getelementptr float, ptr %51, i64 %indvars.iv142
+  %invariant.gep206 = getelementptr float, ptr %51, i64 %67
+  %invariant.gep208 = getelementptr float, ptr %51, i64 %indvars.iv142
   br label %57
 
 .preheader65.us.us.us:                            ; preds = %._crit_edge.us.us.us
@@ -1121,7 +1121,7 @@ define internal fastcc void @do_vertical_columns(ptr noundef captures(none) %0, 
 .preheader67.us.us97:                             ; preds = %.preheader67.us.us97.preheader, %._crit_edge76.split.split.us.us.us
   %indvars.iv129 = phi i64 [ %70, %.preheader67.us.us97.preheader ], [ %indvars.iv.next130, %._crit_edge76.split.split.us.us.us ]
   %75 = getelementptr inbounds float, ptr %0, i64 %indvars.iv129
-  %invariant.gep184 = getelementptr inbounds nuw float, ptr %75, i64 %74
+  %invariant.gep200 = getelementptr inbounds nuw float, ptr %75, i64 %74
   br label %76
 
 76:                                               ; preds = %._crit_edge74.us86.us.us, %.preheader67.us.us97
@@ -1134,22 +1134,22 @@ define internal fastcc void @do_vertical_columns(ptr noundef captures(none) %0, 
 
 79:                                               ; preds = %.preheader.us81.us.us, %79
   %indvars.iv123 = phi i64 [ 0, %.preheader.us81.us.us ], [ %indvars.iv.next124, %79 ]
-  %gep187 = getelementptr inbounds nuw float, ptr %invariant.gep186, i64 %indvars.iv123
-  %80 = load float, ptr %gep187, align 4, !tbaa !39
-  %gep189 = getelementptr float, ptr %invariant.gep188, i64 %indvars.iv123
-  %81 = load float, ptr %gep189, align 4, !tbaa !39
+  %gep203 = getelementptr inbounds nuw float, ptr %invariant.gep202, i64 %indvars.iv123
+  %80 = load float, ptr %gep203, align 4, !tbaa !39
+  %gep205 = getelementptr float, ptr %invariant.gep204, i64 %indvars.iv123
+  %81 = load float, ptr %gep205, align 4, !tbaa !39
   %82 = tail call nsz float @llvm.fmuladd.f32(float %6, float %80, float %81)
-  store float %82, ptr %gep189, align 4, !tbaa !39
+  store float %82, ptr %gep205, align 4, !tbaa !39
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %71
   br i1 %exitcond127.not, label %77, label %79, !llvm.loop !91
 
 .preheader66.us84.us.us:                          ; preds = %85, %.preheader66.us84.us.us
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %.preheader66.us84.us.us ], [ 0, %85 ]
-  %gep185 = getelementptr inbounds nuw float, ptr %invariant.gep184, i64 %indvars.iv118
-  %83 = load float, ptr %gep185, align 4, !tbaa !39
+  %gep201 = getelementptr inbounds nuw float, ptr %invariant.gep200, i64 %indvars.iv118
+  %83 = load float, ptr %gep201, align 4, !tbaa !39
   %84 = fmul nsz float %7, %83
-  store float %84, ptr %gep185, align 4, !tbaa !39
+  store float %84, ptr %gep201, align 4, !tbaa !39
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %71
   br i1 %exitcond122.not, label %.preheader.us81.us.us, label %.preheader66.us84.us.us, !llvm.loop !92
@@ -1169,8 +1169,8 @@ define internal fastcc void @do_vertical_columns(ptr noundef captures(none) %0, 
   %89 = sub i32 %.173.us82.us.us, %1
   %90 = zext nneg i32 %.173.us82.us.us to i64
   %91 = sext i32 %89 to i64
-  %invariant.gep186 = getelementptr inbounds nuw float, ptr %75, i64 %90
-  %invariant.gep188 = getelementptr float, ptr %75, i64 %91
+  %invariant.gep202 = getelementptr inbounds nuw float, ptr %75, i64 %90
+  %invariant.gep204 = getelementptr float, ptr %75, i64 %91
   br label %79
 
 ._crit_edge74.us86.us.us:                         ; preds = %77

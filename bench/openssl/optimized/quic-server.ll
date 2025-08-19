@@ -368,7 +368,7 @@ ossl_time_from_timeval.exit:                      ; preds = %110, %113
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.sink.split, %15, %17, %12, %8, %.loopexit
-  %.0117195 = phi i64 [ %.4121.ph, %.loopexit ], [ 1, %8 ], [ 1, %12 ], [ 1, %17 ], [ 1, %15 ], [ 1, %.lr.ph.preheader.sink.split ]
+  %.0117204 = phi i64 [ %.4121.ph, %.loopexit ], [ 1, %8 ], [ 1, %12 ], [ 1, %17 ], [ 1, %15 ], [ 1, %.lr.ph.preheader.sink.split ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -377,7 +377,7 @@ ossl_time_from_timeval.exit:                      ; preds = %110, %113
   %144 = load ptr, ptr %143, align 8, !tbaa !4
   call void @SSL_free(ptr noundef %144) #7
   %145 = add nuw i64 %.0103178, 1
-  %exitcond.not = icmp eq i64 %145, %.0117195
+  %exitcond.not = icmp eq i64 %145, %.0117204
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit

@@ -728,9 +728,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
   %244 = ptrtoint ptr %242 to i64
   %245 = sub i64 %243, %244
   %.not180422 = icmp ugt i64 %245, 64
-  br i1 %.not180422, label %.lr.ph, label %.thread476
+  br i1 %.not180422, label %.lr.ph, label %.thread570
 
-.thread476:                                       ; preds = %238
+.thread570:                                       ; preds = %238
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   br label %.sink.split
 
@@ -1719,26 +1719,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit338: ; preds = %_Z
   br i1 %449, label %622, label %624
 
 622:                                              ; preds = %.critedge, %621
-  %.pre440488 = phi i32 [ %.pre440.pre, %.critedge ], [ 0, %621 ]
-  %623 = or i32 %.pre440488, 420
+  %.pre440582 = phi i32 [ %.pre440.pre, %.critedge ], [ 0, %621 ]
+  %623 = or i32 %.pre440582, 420
   br label %.sink.split
 
-.sink.split:                                      ; preds = %622, %.thread476
-  %.sink = phi i32 [ 0, %.thread476 ], [ %623, %622 ]
-  %.0144.lcssa451463473484.ph = phi i1 [ false, %.thread476 ], [ %.1145, %622 ]
-  %.0141.lcssa452462474483.ph = phi i1 [ false, %.thread476 ], [ %.2143, %622 ]
-  %.0137.lcssa453461475482.ph = phi i1 [ false, %.thread476 ], [ %.1138, %622 ]
+.sink.split:                                      ; preds = %622, %.thread570
+  %.sink = phi i32 [ 0, %.thread570 ], [ %623, %622 ]
+  %.0144.lcssa545557567578.ph = phi i1 [ false, %.thread570 ], [ %.1145, %622 ]
+  %.0141.lcssa546556568577.ph = phi i1 [ false, %.thread570 ], [ %.2143, %622 ]
+  %.0137.lcssa547555569576.ph = phi i1 [ false, %.thread570 ], [ %.1138, %622 ]
   store i32 %.sink, ptr %34, align 4, !tbaa !54
   br label %624
 
 624:                                              ; preds = %.sink.split, %.critedge, %621
-  %.0144.lcssa451463473484 = phi i1 [ %.1145, %621 ], [ %.1145, %.critedge ], [ %.0144.lcssa451463473484.ph, %.sink.split ]
-  %.0141.lcssa452462474483 = phi i1 [ %.2143, %621 ], [ %.2143, %.critedge ], [ %.0141.lcssa452462474483.ph, %.sink.split ]
-  %.0137.lcssa453461475482 = phi i1 [ %.1138, %621 ], [ %.1138, %.critedge ], [ %.0137.lcssa453461475482.ph, %.sink.split ]
+  %.0144.lcssa545557567578 = phi i1 [ %.1145, %621 ], [ %.1145, %.critedge ], [ %.0144.lcssa545557567578.ph, %.sink.split ]
+  %.0141.lcssa546556568577 = phi i1 [ %.2143, %621 ], [ %.2143, %.critedge ], [ %.0141.lcssa546556568577.ph, %.sink.split ]
+  %.0137.lcssa547555569576 = phi i1 [ %.1138, %621 ], [ %.1138, %.critedge ], [ %.0137.lcssa547555569576.ph, %.sink.split ]
   %625 = phi i32 [ 0, %621 ], [ %.pre440.pre, %.critedge ], [ %.sink, %.sink.split ]
   %626 = load ptr, ptr %1, align 8, !tbaa !20
   %.sroa.0.0.copyload = load i32, ptr %14, align 4, !tbaa !59
-  %627 = invoke noundef i32 @_ZN10cmMakefile13ConfigureFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_bbbj14cmNewLineStyle(ptr noundef nonnull align 8 dereferenceable(2880) %626, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9, i1 noundef zeroext %.0141.lcssa452462474483, i1 noundef zeroext %.0137.lcssa453461475482, i1 noundef zeroext %.0144.lcssa451463473484, i32 noundef %625, i32 %.sroa.0.0.copyload)
+  %627 = invoke noundef i32 @_ZN10cmMakefile13ConfigureFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_bbbj14cmNewLineStyle(ptr noundef nonnull align 8 dereferenceable(2880) %626, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9, i1 noundef zeroext %.0141.lcssa546556568577, i1 noundef zeroext %.0137.lcssa547555569576, i1 noundef zeroext %.0144.lcssa545557567578, i32 noundef %625, i32 %.sroa.0.0.copyload)
           to label %628 unwind label %640
 
 628:                                              ; preds = %624
@@ -3157,18 +3157,18 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit: ; preds
   br i1 %11, label %._crit_edge.thread, label %17
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.033.lcssa42 = phi ptr [ %.03438, %._crit_edge ], [ %4, %2 ]
+  %.033.lcssa44 = phi ptr [ %.03438, %._crit_edge ], [ %4, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !68
-  %14 = icmp eq ptr %.033.lcssa42, %13
+  %14 = icmp eq ptr %.033.lcssa44, %13
   br i1 %14, label %24, label %15
 
 15:                                               ; preds = %._crit_edge.thread
-  %16 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.033.lcssa42) #25
+  %16 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.033.lcssa44) #25
   br label %17
 
 17:                                               ; preds = %15, %._crit_edge
-  %.033.lcssa43 = phi ptr [ %.033.lcssa42, %15 ], [ %.03438, %._crit_edge ]
+  %.033.lcssa43 = phi ptr [ %.033.lcssa44, %15 ], [ %.03438, %._crit_edge ]
   %.sroa.019.0 = phi ptr [ %16, %15 ], [ %.03438, %._crit_edge ]
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 32
   %.sroa.01.0.copyload.i5 = load i64, ptr %18, align 8, !tbaa !14
@@ -3202,7 +3202,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18: ; pre
 
 24:                                               ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18, %._crit_edge.thread
   %.sroa.032.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18 ]
-  %.sroa.4.0 = phi ptr [ %.033.lcssa42, %._crit_edge.thread ], [ %spec.select35, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18 ]
+  %.sroa.4.0 = phi ptr [ %.033.lcssa44, %._crit_edge.thread ], [ %spec.select35, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.032.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

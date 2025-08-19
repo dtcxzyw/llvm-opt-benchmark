@@ -335,11 +335,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit292:           ; preds = %131, %117, %_ZN11hb
   br label %157
 
 157:                                              ; preds = %150, %156, %155
-  %.sink614 = phi i32 [ 2530, %156 ], [ 2499, %155 ], [ 2494, %150 ]
+  %.sink668 = phi i32 [ 2530, %156 ], [ 2499, %155 ], [ 2494, %150 ]
   %158 = zext i32 %146 to i64
   %159 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %151, i64 %158
   %160 = load i32, ptr %159, align 4
-  %161 = icmp eq i32 %160, %.sink614
+  %161 = icmp eq i32 %160, %.sink668
   %162 = load i8, ptr %142, align 2
   %163 = trunc i8 %162 to i1
   br i1 %163, label %164, label %182
@@ -845,11 +845,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit327:           ; preds = %384, %370, %_ZN11hb
   br label %409
 
 409:                                              ; preds = %403, %408
-  %.sink616 = phi i32 [ 2903, %408 ], [ 2878, %403 ]
+  %.sink670 = phi i32 [ 2903, %408 ], [ 2878, %403 ]
   %410 = zext i32 %399 to i64
   %411 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %404, i64 %410
   %412 = load i32, ptr %411, align 4
-  %413 = icmp eq i32 %412, %.sink616
+  %413 = icmp eq i32 %412, %.sink670
   %414 = load i8, ptr %395, align 2
   %415 = trunc i8 %414 to i1
   br i1 %415, label %416, label %434
@@ -1283,11 +1283,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit357:           ; preds = %610, %596, %589, %_
   br label %635
 
 635:                                              ; preds = %629, %629, %634
-  %.sink618 = phi i32 [ 3276, %634 ], [ 3262, %629 ], [ 3262, %629 ]
+  %.sink672 = phi i32 [ 3276, %634 ], [ 3262, %629 ], [ 3262, %629 ]
   %636 = zext i32 %625 to i64
   %637 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %630, i64 %636
   %638 = load i32, ptr %637, align 4
-  %639 = icmp eq i32 %638, %.sink618
+  %639 = icmp eq i32 %638, %.sink672
   %640 = load i8, ptr %621, align 2
   %641 = trunc i8 %640 to i1
   br i1 %641, label %642, label %660
@@ -1815,11 +1815,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit392:           ; preds = %876, %862, %_ZN11hb
   br label %902
 
 902:                                              ; preds = %895, %901, %900
-  %.sink620 = phi i32 [ 69698, %901 ], [ 69694, %900 ], [ 69688, %895 ]
+  %.sink674 = phi i32 [ 69698, %901 ], [ 69694, %900 ], [ 69688, %895 ]
   %903 = zext i32 %891 to i64
   %904 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %896, i64 %903
   %905 = load i32, ptr %904, align 4
-  %906 = icmp eq i32 %905, %.sink620
+  %906 = icmp eq i32 %905, %.sink674
   %907 = load i8, ptr %887, align 2
   %908 = trunc i8 %907 to i1
   br i1 %908, label %909, label %927

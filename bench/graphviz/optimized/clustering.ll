@@ -54,7 +54,7 @@ define void @modularity_clustering(ptr noundef %0, i1 noundef zeroext %1, i32 no
 25:                                               ; preds = %23, %20
   %.0.i.i = phi ptr [ %24, %23 ], [ %.1, %20 ]
   %26 = tail call fastcc ptr @Multilevel_Modularity_Clustering_init(ptr noundef %.0.i.i, i32 noundef 0)
-  %27 = tail call fastcc ptr @Multilevel_Modularity_Clustering_establish(ptr noundef %26, i32 noundef %2)
+  %27 = tail call fastcc ptr @Multilevel_Modularity_Clustering_establish(ptr noundef nonnull %26, i32 noundef %2)
   %.not10.i.i = icmp eq ptr %.0.i.i, %.1
   br i1 %.not10.i.i, label %Multilevel_Modularity_Clustering_new.exit.i.preheader, label %28
 
@@ -246,7 +246,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Multilevel_Modularity_Clustering_delete(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %common.ret13, label %2
+  br i1 %.not, label %common.ret14, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -265,7 +265,7 @@ define internal fastcc void @Multilevel_Modularity_Clustering_delete(ptr noundef
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %.sink.split, label %12
 
-common.ret13:                                     ; preds = %1, %12
+common.ret14:                                     ; preds = %1, %12
   ret void
 
 .sink.split:                                      ; preds = %5, %8
@@ -286,7 +286,7 @@ common.ret13:                                     ; preds = %1, %12
   %20 = load ptr, ptr %19, align 8, !tbaa !19
   tail call fastcc void @Multilevel_Modularity_Clustering_delete(ptr noundef %20)
   tail call void @free(ptr noundef nonnull %0) #11
-  br label %common.ret13
+  br label %common.ret14
 }
 
 declare zeroext i1 @SparseMatrix_is_symmetric(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -294,7 +294,7 @@ declare zeroext i1 @SparseMatrix_is_symmetric(ptr noundef, i1 noundef zeroext) l
 declare ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @Multilevel_Modularity_Clustering_init(ptr noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc noalias nonnull ptr @Multilevel_Modularity_Clustering_init(ptr noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !40
   %5 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #14
@@ -467,11 +467,11 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %18
   br i1 %exitcond113.not, label %._crit_edge100, label %.lr.ph99, !llvm.loop !47
 
 ._crit_edge100:                                   ; preds = %.lr.ph99, %._crit_edge95.thread
-  %.075.lcssa115 = phi double [ 1.000000e+00, %._crit_edge95.thread ], [ %74, %.lr.ph99 ]
+  %.075.lcssa121 = phi double [ 1.000000e+00, %._crit_edge95.thread ], [ %74, %.lr.ph99 ]
   %84 = phi ptr [ %52, %._crit_edge95.thread ], [ %39, %.lr.ph99 ]
   %85 = phi ptr [ %53, %._crit_edge95.thread ], [ %46, %.lr.ph99 ]
   %.076.lcssa = phi double [ 0.000000e+00, %._crit_edge95.thread ], [ %83, %.lr.ph99 ]
-  store double %.075.lcssa115, ptr %37, align 8, !tbaa !48
+  store double %.075.lcssa121, ptr %37, align 8, !tbaa !48
   store ptr %84, ptr %27, align 8, !tbaa !39
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store double %.076.lcssa, ptr %86, align 8, !tbaa !28
@@ -723,17 +723,17 @@ gv_calloc.exit267:                                ; preds = %gv_calloc.exit
   br i1 %136, label %139, label %._crit_edge361.thread
 
 ._crit_edge361.thread:                            ; preds = %61, %._crit_edge361
-  %.0235.lcssa514 = phi i64 [ %135, %._crit_edge361 ], [ -1, %61 ]
-  %.0240.lcssa512 = phi double [ %.1241, %._crit_edge361 ], [ 0.000000e+00, %61 ]
+  %.0235.lcssa529 = phi i64 [ %135, %._crit_edge361 ], [ -1, %61 ]
+  %.0240.lcssa527 = phi double [ %.1241, %._crit_edge361 ], [ 0.000000e+00, %61 ]
   %137 = load i8, ptr %10, align 8, !tbaa !41, !range !37, !noundef !38
   %138 = trunc nuw i8 %137 to i1
   br i1 %138, label %139, label %160
 
 139:                                              ; preds = %._crit_edge361.thread, %._crit_edge361
-  %.0235.lcssa515 = phi i64 [ %.0235.lcssa514, %._crit_edge361.thread ], [ %135, %._crit_edge361 ]
-  %.0240.lcssa513 = phi double [ %.0240.lcssa512, %._crit_edge361.thread ], [ %.1241, %._crit_edge361 ]
-  %140 = fadd double %.0238364, %.0240.lcssa513
-  %141 = getelementptr inbounds i32, ptr %12, i64 %.0235.lcssa515
+  %.0235.lcssa530 = phi i64 [ %.0235.lcssa529, %._crit_edge361.thread ], [ %135, %._crit_edge361 ]
+  %.0240.lcssa528 = phi double [ %.0240.lcssa527, %._crit_edge361.thread ], [ %.1241, %._crit_edge361 ]
+  %140 = fadd double %.0238364, %.0240.lcssa528
+  %141 = getelementptr inbounds i32, ptr %12, i64 %.0235.lcssa530
   %142 = load i32, ptr %141, align 4, !tbaa !26
   %143 = icmp eq i32 %142, -1
   br i1 %143, label %144, label %153
@@ -743,7 +743,7 @@ gv_calloc.exit267:                                ; preds = %gv_calloc.exit
   store i32 %.0230367, ptr %59, align 4, !tbaa !26
   %145 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv453
   %146 = load double, ptr %145, align 8, !tbaa !12
-  %147 = getelementptr inbounds double, ptr %20, i64 %.0235.lcssa515
+  %147 = getelementptr inbounds double, ptr %20, i64 %.0235.lcssa530
   %148 = load double, ptr %147, align 8, !tbaa !12
   %149 = fadd double %146, %148
   %150 = sext i32 %.0230367 to i64
@@ -925,7 +925,7 @@ gv_calloc.exit267:                                ; preds = %gv_calloc.exit
   %218 = load double, ptr %8, align 8, !tbaa !48
   %219 = getelementptr inbounds nuw i8, ptr %213, i64 64
   store double %218, ptr %219, align 8, !tbaa !48
-  %220 = call fastcc ptr @Multilevel_Modularity_Clustering_establish(ptr noundef %213, i32 noundef %1)
+  %220 = call fastcc ptr @Multilevel_Modularity_Clustering_establish(ptr noundef nonnull %213, i32 noundef %1)
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %213, ptr %221, align 8, !tbaa !19
   %222 = getelementptr inbounds nuw i8, ptr %213, i64 32

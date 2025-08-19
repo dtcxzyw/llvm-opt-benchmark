@@ -442,7 +442,7 @@ define internal ptr @composite_memcpy(ptr noundef captures(none) %0, ptr noundef
   %23 = icmp eq i32 %2, %22
   %24 = icmp eq i32 %3, 0
   %or.cond = and i1 %24, %23
-  br i1 %or.cond, label %common.ret82, label %25
+  br i1 %or.cond, label %common.ret86, label %25
 
 25:                                               ; preds = %.thread
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 135, ptr noundef nonnull @.str.8) #7
@@ -470,7 +470,7 @@ define internal ptr @composite_memcpy(ptr noundef captures(none) %0, ptr noundef
 37:                                               ; preds = %33
   %38 = zext i32 %3 to i64
   %39 = tail call ptr @tvb_memcpy(ptr noundef nonnull %20, ptr noundef %1, i32 noundef %31, i64 noundef %38)
-  br label %common.ret82
+  br label %common.ret86
 
 40:                                               ; preds = %26
   %41 = tail call i32 @tvb_captured_length_remaining(ptr noundef nonnull %20, i32 noundef %31)
@@ -495,7 +495,7 @@ define internal ptr @composite_memcpy(ptr noundef captures(none) %0, ptr noundef
   %48 = add i32 %41, %2
   %49 = sub nuw i32 %3, %41
   %.not61 = icmp eq i32 %3, %41
-  br i1 %.not61, label %common.ret82, label %50
+  br i1 %.not61, label %common.ret86, label %50
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -509,9 +509,9 @@ define internal ptr @composite_memcpy(ptr noundef captures(none) %0, ptr noundef
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 165, ptr noundef nonnull @.str.13) #7
   unreachable
 
-common.ret82:                                     ; preds = %45, %.thread, %37, %56
-  %common.ret82.op = phi ptr [ %1, %56 ], [ %39, %37 ], [ %1, %.thread ], [ %1, %45 ]
-  ret ptr %common.ret82.op
+common.ret86:                                     ; preds = %45, %.thread, %37, %56
+  %common.ret86.op = phi ptr [ %1, %56 ], [ %39, %37 ], [ %1, %.thread ], [ %1, %45 ]
+  ret ptr %common.ret86.op
 
 56:                                               ; preds = %50
   %57 = getelementptr i8, ptr %1, i64 %46
@@ -519,7 +519,7 @@ common.ret82:                                     ; preds = %45, %.thread, %37, 
   %59 = load i32, ptr %51, align 8
   %60 = add i32 %59, -1
   store i32 %60, ptr %51, align 8
-  br label %common.ret82
+  br label %common.ret86
 }
 
 ; Function Attrs: null_pointer_is_valid

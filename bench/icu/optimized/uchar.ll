@@ -398,8 +398,8 @@ define signext range(i8 0, 2) i8 @u_isxdigit_77(i32 noundef %0) local_unnamed_ad
   br label %.sink.split
 
 .sink.split:                                      ; preds = %9, %20, %13
-  %.sink35 = phi i32 [ %17, %13 ], [ %29, %20 ], [ %10, %9 ]
-  %30 = zext nneg i32 %.sink35 to i64
+  %.sink36 = phi i32 [ %17, %13 ], [ %29, %20 ], [ %10, %9 ]
+  %30 = zext nneg i32 %.sink36 to i64
   %31 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !3
   %33 = zext i16 %32 to i32
@@ -520,8 +520,8 @@ define signext range(i8 0, 2) i8 @u_isUAlphabetic_77(i32 noundef %0) local_unnam
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %14, %7, %3
-  %.sink21.i = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
-  %24 = zext nneg i32 %.sink21.i to i64
+  %.sink23.i = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
+  %24 = zext nneg i32 %.sink23.i to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
@@ -586,8 +586,8 @@ define i32 @u_getUnicodeProperties_77(i32 noundef %0, i32 noundef %1) local_unna
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %17, %10
-  %.sink21 = phi i32 [ %14, %10 ], [ %26, %17 ], [ %7, %6 ]
-  %27 = zext nneg i32 %.sink21 to i64
+  %.sink23 = phi i32 [ %14, %10 ], [ %26, %17 ], [ %7, %6 ]
+  %27 = zext nneg i32 %.sink23 to i64
   %28 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !3
   %30 = zext i16 %29 to i32
@@ -710,8 +710,8 @@ define signext range(i8 0, 2) i8 @u_isalnumPOSIX_77(i32 noundef %0) local_unname
   br label %u_isUAlphabetic_77.exit
 
 u_isUAlphabetic_77.exit:                          ; preds = %3, %7, %14
-  %.sink21.i.i = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
-  %24 = zext nneg i32 %.sink21.i.i to i64
+  %.sink23.i.i = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
+  %24 = zext nneg i32 %.sink23.i.i to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
@@ -1246,8 +1246,8 @@ define signext range(i8 0, 2) i8 @u_isblank_77(i32 noundef %0) local_unnamed_add
   br label %.sink.split
 
 .sink.split:                                      ; preds = %9, %20, %13
-  %.sink21 = phi i32 [ %17, %13 ], [ %29, %20 ], [ %10, %9 ]
-  %30 = zext nneg i32 %.sink21 to i64
+  %.sink22 = phi i32 [ %17, %13 ], [ %29, %20 ], [ %10, %9 ]
+  %30 = zext nneg i32 %.sink22 to i64
   %31 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !3
   %33 = zext i16 %32 to i32
@@ -1308,8 +1308,8 @@ define signext range(i8 0, 2) i8 @u_isUWhiteSpace_77(i32 noundef %0) local_unnam
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %14, %7, %3
-  %.sink21.i = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
-  %24 = zext nneg i32 %.sink21.i to i64
+  %.sink23.i = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
+  %24 = zext nneg i32 %.sink23.i to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
@@ -1754,8 +1754,8 @@ define signext range(i8 0, 2) i8 @u_isIDIgnorable_77(i32 noundef %0) local_unnam
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %23, %16
-  %.sink27 = phi i32 [ %20, %16 ], [ %32, %23 ], [ %13, %12 ]
-  %33 = zext nneg i32 %.sink27 to i64
+  %.sink29 = phi i32 [ %20, %16 ], [ %32, %23 ], [ %13, %12 ]
+  %33 = zext nneg i32 %.sink29 to i64
   %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = zext i16 %35 to i32
@@ -1876,8 +1876,8 @@ define signext range(i8 0, 2) i8 @u_isJavaIDPart_77(i32 noundef %0) local_unname
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3, %14, %7
-  %.sink17 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
-  %24 = zext nneg i32 %.sink17 to i64
+  %.sink18 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
+  %24 = zext nneg i32 %.sink18 to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
@@ -1951,8 +1951,8 @@ define signext range(i8 0, 2) i8 @u_isJavaIDPart_77(i32 noundef %0) local_unname
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %61, %54, %50
-  %.sink27.i = phi i32 [ %58, %54 ], [ %70, %61 ], [ %51, %50 ]
-  %71 = zext nneg i32 %.sink27.i to i64
+  %.sink29.i = phi i32 [ %58, %54 ], [ %70, %61 ], [ %51, %50 ]
+  %71 = zext nneg i32 %.sink29.i to i64
   %72 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %71
   %73 = load i16, ptr %72, align 2, !tbaa !3
   %74 = zext i16 %73 to i32
@@ -2017,8 +2017,8 @@ define range(i32 -1, 10) i32 @u_charDigitValue_77(i32 noundef %0) local_unnamed_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3, %14, %7
-  %.sink21 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
-  %24 = zext nneg i32 %.sink21 to i64
+  %.sink22 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
+  %24 = zext nneg i32 %.sink22 to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
@@ -2077,8 +2077,8 @@ define double @u_getNumericValue_77(i32 noundef %0) local_unnamed_addr #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3, %14, %7
-  %.sink73 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
-  %24 = zext nneg i32 %.sink73 to i64
+  %.sink76 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
+  %24 = zext nneg i32 %.sink76 to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
@@ -2278,8 +2278,8 @@ define range(i32 -1, 36) i32 @u_digit_77(i32 noundef %0, i8 noundef signext %1) 
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %18, %11, %7
-  %.sink21.i = phi i32 [ %15, %11 ], [ %27, %18 ], [ %8, %7 ]
-  %28 = zext nneg i32 %.sink21.i to i64
+  %.sink22.i = phi i32 [ %15, %11 ], [ %27, %18 ], [ %8, %7 ]
+  %28 = zext nneg i32 %.sink22.i to i64
   %29 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !3
   %31 = zext i16 %30 to i32
@@ -2504,8 +2504,8 @@ define void @u_charAge_77(i32 noundef %0, ptr noundef writeonly captures(address
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %16, %9, %5
-  %.sink21.i = phi i32 [ %13, %9 ], [ %25, %16 ], [ %6, %5 ]
-  %26 = zext nneg i32 %.sink21.i to i64
+  %.sink23.i = phi i32 [ %13, %9 ], [ %25, %16 ], [ %6, %5 ]
+  %26 = zext nneg i32 %.sink23.i to i64
   %27 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !3
   %29 = zext i16 %28 to i32
@@ -2590,8 +2590,8 @@ define range(i32 -1, 65536) i32 @uscript_getScript_77(i32 noundef %0, ptr nounde
   br label %u_getUnicodeProperties_77.exit
 
 u_getUnicodeProperties_77.exit:                   ; preds = %12, %16, %21
-  %.sink21.i = phi i32 [ %20, %16 ], [ %30, %21 ], [ %13, %12 ]
-  %31 = zext nneg i32 %.sink21.i to i64
+  %.sink23.i = phi i32 [ %20, %16 ], [ %30, %21 ], [ %13, %12 ]
+  %31 = zext nneg i32 %.sink23.i to i64
   %32 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !3
   %34 = zext i16 %33 to i32
@@ -2666,8 +2666,8 @@ define signext range(i8 0, 2) i8 @uscript_hasScript_77(i32 noundef %0, i32 nound
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %15, %8, %4
-  %.sink21.i = phi i32 [ %12, %8 ], [ %24, %15 ], [ %5, %4 ]
-  %25 = zext nneg i32 %.sink21.i to i64
+  %.sink23.i = phi i32 [ %12, %8 ], [ %24, %15 ], [ %5, %4 ]
+  %25 = zext nneg i32 %.sink23.i to i64
   %26 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !3
   %28 = zext i16 %27 to i32
@@ -2790,8 +2790,8 @@ define range(i32 -2147483647, -2147483648) i32 @uscript_getScriptExtensions_77(i
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %28, %21, %17
-  %.sink21.i = phi i32 [ %25, %21 ], [ %37, %28 ], [ %18, %17 ]
-  %38 = zext nneg i32 %.sink21.i to i64
+  %.sink23.i = phi i32 [ %25, %21 ], [ %37, %28 ], [ %18, %17 ]
+  %38 = zext nneg i32 %.sink23.i to i64
   %39 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !3
   %41 = zext i16 %40 to i32

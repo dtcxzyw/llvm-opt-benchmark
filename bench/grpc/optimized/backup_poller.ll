@@ -429,7 +429,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %9
 _ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread: ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = icmp eq i64 %8, 1
-  br i1 %15, label %.thread42, label %.thread
+  br i1 %15, label %.thread44, label %.thread
 
 .thread:                                          ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread
   store i64 %8, ptr %4, align 8, !tbaa !46
@@ -464,7 +464,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i:     ; preds = %.thread, %_ZN4absl1
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %118
 
-.thread42:                                        ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread
+.thread44:                                        ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4absl12lts_202407226StatusD2Ev.exit20
 
@@ -484,7 +484,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i:     ; preds = %.thread, %_ZN4absl1
   call void @__clang_call_terminate(ptr %31) #16
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit20:         ; preds = %.thread42, %2, %27, %26
+_ZN4absl12lts_202407226StatusD2Ev.exit20:         ; preds = %.thread44, %2, %27, %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %33 = call i32 @gpr_unref(ptr noundef nonnull %32)
   %.not.i = icmp eq i32 %33, 0
@@ -566,13 +566,13 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit25:     ; preds = %62
 _ZN4absl12lts_202407226StatusC2ERKS1_.exit25.thread: ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %69 = icmp eq i64 %63, 1
-  br i1 %69, label %.thread45, label %.thread43
+  br i1 %69, label %.thread47, label %.thread45
 
-.thread43:                                        ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit25.thread
+.thread45:                                        ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit25.thread
   store i64 %63, ptr %3, align 8, !tbaa !46
   br label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.i27
 
-_ZN4absl12lts_202407226StatusC2ERKS1_.exit.i27:   ; preds = %.thread43, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit25
+_ZN4absl12lts_202407226StatusC2ERKS1_.exit.i27:   ; preds = %.thread45, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit25
   %70 = invoke noundef zeroext i1 @_Z14grpc_log_errorPKcN4absl12lts_202407226StatusES0_i(ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef 134)
           to label %71 unwind label %.body29
 
@@ -601,7 +601,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i27:   ; preds = %.thread43, %_ZN4abs
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
   br label %117
 
-.thread45:                                        ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit25.thread
+.thread47:                                        ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit25.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4absl12lts_202407226StatusD2Ev.exit33
 
@@ -621,7 +621,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i27:   ; preds = %.thread43, %_ZN4abs
   call void @__clang_call_terminate(ptr %85) #16
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit33:         ; preds = %.thread45, %80, %81
+_ZN4absl12lts_202407226StatusD2Ev.exit33:         ; preds = %.thread47, %80, %81
   br i1 %.not.i.i23, label %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i, label %86
 
 86:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit33

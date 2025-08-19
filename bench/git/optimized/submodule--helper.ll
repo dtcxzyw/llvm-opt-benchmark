@@ -2383,9 +2383,9 @@ define internal i32 @module_update(i32 noundef %0, ptr noundef %1, ptr noundef %
   %249 = call i32 @parse_options(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %31, ptr noundef nonnull %32, i32 noundef 0) #20
   %250 = load i32, ptr %219, align 4, !tbaa !96
   %.not = icmp eq i32 %250, 0
-  br i1 %.not, label %251, label %.thread81
+  br i1 %.not, label %251, label %.thread97
 
-.thread81:                                        ; preds = %4
+.thread97:                                        ; preds = %4
   store i32 1, ptr %61, align 8, !tbaa !102
   br label %257
 
@@ -2402,7 +2402,7 @@ define internal i32 @module_update(i32 noundef %0, ptr noundef %1, ptr noundef %
   call void @usage_with_options(ptr noundef nonnull %32, ptr noundef nonnull %31) #21
   unreachable
 
-257:                                              ; preds = %.thread81, %251
+257:                                              ; preds = %.thread97, %251
   %258 = load ptr, ptr %30, align 8, !tbaa !18
   %.not16 = icmp eq ptr %258, null
   br i1 %.not16, label %266, label %259
@@ -8711,10 +8711,10 @@ st_mult.exit:                                     ; preds = %128
   br i1 %231, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0165177 = phi ptr [ %233, %.lr.ph ], [ %224, %.lr.ph.preheader ]
-  %232 = load ptr, ptr %.0165177, align 8, !tbaa !161
+  %.0165196 = phi ptr [ %233, %.lr.ph ], [ %224, %.lr.ph.preheader ]
+  %232 = load ptr, ptr %.0165196, align 8, !tbaa !161
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %1, ptr noundef nonnull @.str.58, ptr noundef %232, ptr noundef null) #20
-  %233 = getelementptr inbounds nuw i8, ptr %.0165177, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %.0165196, i64 16
   %234 = load ptr, ptr %9, align 8, !tbaa !131
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 64
   %236 = load ptr, ptr %235, align 8, !tbaa !293
@@ -9612,21 +9612,21 @@ _.exit85:                                         ; preds = %48, %50
   %79 = call ptr @oid_to_hex(ptr noundef nonnull %78) #20
   %80 = call fastcc ptr @verify_submodule_committish(ptr noundef %77, ptr noundef %79)
   %.not80 = icmp eq ptr %80, null
-  br i1 %.not80, label %.sink.split93, label %85
+  br i1 %.not80, label %.sink.split103, label %85
 
 81:                                               ; preds = %69
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  br label %.sink.split93
+  br label %.sink.split103
 
-.sink.split93:                                    ; preds = %75, %81
-  %.sink95 = phi ptr [ %82, %81 ], [ %78, %75 ]
-  %83 = call ptr @oid_to_hex(ptr noundef nonnull %.sink95) #20
+.sink.split103:                                   ; preds = %75, %81
+  %.sink105 = phi ptr [ %82, %81 ], [ %78, %75 ]
+  %83 = call ptr @oid_to_hex(ptr noundef nonnull %.sink105) #20
   %84 = call ptr @xstrndup(ptr noundef %83, i64 noundef 7) #20
   br label %85
 
-85:                                               ; preds = %.sink.split93, %75
-  %86 = phi i1 [ false, %75 ], [ %74, %.sink.split93 ]
-  %.065 = phi ptr [ %80, %75 ], [ %84, %.sink.split93 ]
+85:                                               ; preds = %.sink.split103, %75
+  %86 = phi i1 [ false, %75 ], [ %74, %.sink.split103 ]
+  %.065 = phi ptr [ %80, %75 ], [ %84, %.sink.split103 ]
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %88 = load ptr, ptr %87, align 8, !tbaa !243
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16

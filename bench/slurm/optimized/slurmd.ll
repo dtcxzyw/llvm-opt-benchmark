@@ -3978,9 +3978,9 @@ define dso_local void @update_slurmd_logging(i32 noundef %0) local_unnamed_addr 
   br label %39
 
 39:                                               ; preds = %35, %30, %16, %38
-  %.sink21 = phi i32 [ 1, %38 ], [ %29, %16 ], [ 0, %30 ], [ %34, %35 ]
+  %.sink24 = phi i32 [ 1, %38 ], [ %29, %16 ], [ 0, %30 ], [ %34, %35 ]
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 4392
-  store i32 %.sink21, ptr %40, align 4
+  store i32 %.sink24, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 4388
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 4328
   %43 = load ptr, ptr %42, align 8
@@ -4204,24 +4204,24 @@ define internal noalias noundef ptr @_try_to_reconfig(ptr readnone captures(none
 
 .lr.ph104.preheader:                              ; preds = %.lr.ph.split.us.split
   %89 = icmp slt i32 %87, 0
-  br i1 %89, label %.lr.ph174.preheader, label %.split67.us
+  br i1 %89, label %.lr.ph184.preheader, label %.split67.us
 
-.lr.ph174.preheader:                              ; preds = %.lr.ph104.preheader
+.lr.ph184.preheader:                              ; preds = %.lr.ph104.preheader
   %90 = tail call ptr @__errno_location() #21
-  br label %.lr.ph174
+  br label %.lr.ph184
 
 .lr.ph104:                                        ; preds = %93
   %91 = icmp slt i32 %96, 0
-  br i1 %91, label %.lr.ph174, label %.split67.us
+  br i1 %91, label %.lr.ph184, label %.split67.us
 
-.lr.ph174:                                        ; preds = %.lr.ph174.preheader, %.lr.ph104
+.lr.ph184:                                        ; preds = %.lr.ph184.preheader, %.lr.ph104
   %92 = load i32, ptr %90, align 4
   switch i32 %92, label %.split70.us [
     i32 11, label %93
     i32 4, label %93
   ]
 
-93:                                               ; preds = %.lr.ph174, %.lr.ph174
+93:                                               ; preds = %.lr.ph184, %.lr.ph184
   %94 = load i32, ptr %4, align 8
   %95 = call i64 @read(i32 noundef %94, ptr noundef %.030.ph108, i64 noundef %.031.ph106) #18
   %96 = trunc i64 %95 to i32
@@ -4236,11 +4236,11 @@ define internal noalias noundef ptr @_try_to_reconfig(ptr readnone captures(none
 
 .lr.ph89.preheader.preheader:                     ; preds = %.lr.ph.split.split
   %101 = icmp slt i32 %99, 0
-  br i1 %101, label %.lr.ph175.preheader, label %.split67.us
+  br i1 %101, label %.lr.ph185.preheader, label %.split67.us
 
-.lr.ph175.preheader:                              ; preds = %.lr.ph89.preheader.preheader
+.lr.ph185.preheader:                              ; preds = %.lr.ph89.preheader.preheader
   %102 = tail call ptr @__errno_location() #21
-  br label %.lr.ph175
+  br label %.lr.ph185
 
 .split73.us:                                      ; preds = %.lr.ph.split.split, %115
   %103 = call i32 @get_log_level() #18
@@ -4272,24 +4272,24 @@ define internal noalias noundef ptr @_try_to_reconfig(ptr readnone captures(none
 
 .lr.ph89.preheader:                               ; preds = %115
   %113 = icmp slt i32 %118, 0
-  br i1 %113, label %.lr.ph175, label %.split67.us
+  br i1 %113, label %.lr.ph185, label %.split67.us
 
-.lr.ph175:                                        ; preds = %.lr.ph175.preheader, %.lr.ph89.preheader
+.lr.ph185:                                        ; preds = %.lr.ph185.preheader, %.lr.ph89.preheader
   %114 = load i32, ptr %102, align 4
   switch i32 %114, label %.split70.us [
     i32 11, label %115
     i32 4, label %115
   ]
 
-115:                                              ; preds = %.lr.ph175, %.lr.ph175
+115:                                              ; preds = %.lr.ph185, %.lr.ph185
   %116 = load i32, ptr %4, align 8
   %117 = call i64 @read(i32 noundef %116, ptr noundef %.030.ph108, i64 noundef 4) #18
   %118 = trunc i64 %117 to i32
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %.split73.us, label %.lr.ph89.preheader
 
-.split70.us:                                      ; preds = %.lr.ph174, %.lr.ph175
-  %.031.ph106131 = phi i64 [ 4, %.lr.ph175 ], [ %.031.ph106, %.lr.ph174 ]
+.split70.us:                                      ; preds = %.lr.ph184, %.lr.ph185
+  %.031.ph106131 = phi i64 [ 4, %.lr.ph185 ], [ %.031.ph106, %.lr.ph184 ]
   %120 = call i32 @get_log_level() #18
   %121 = icmp sgt i32 %120, 4
   br i1 %121, label %122, label %138
@@ -5772,9 +5772,9 @@ _validate_dynamic_conf.exit:                      ; preds = %.preheader.preheade
   br i1 %.not15.i, label %153, label %_create_nodes.exit
 
 _create_nodes.exit.thread:                        ; preds = %136, %140
-  %.sink30 = phi ptr [ %137, %136 ], [ %141, %140 ]
-  store ptr %.sink30, ptr %3, align 8
-  %145 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.48, ptr noundef %.sink30) #18
+  %.sink34 = phi ptr [ %137, %136 ], [ %141, %140 ]
+  store ptr %.sink34, ptr %3, align 8
+  %145 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.48, ptr noundef %.sink34) #18
   br label %149
 
 _create_nodes.exit:                               ; preds = %142
@@ -5911,7 +5911,7 @@ define internal fastcc void @_read_config() unnamed_addr #0 {
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4272
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %58, label %.thread120
+  br i1 %47, label %58, label %.thread145
 
 48:                                               ; preds = %.lr.ph93, %48
   %indvars.iv97 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next98, %48 ]
@@ -5940,7 +5940,7 @@ define internal fastcc void @_read_config() unnamed_addr #0 {
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4272
   store ptr %61, ptr %63, align 8
   %64 = icmp eq ptr %61, null
-  br i1 %64, label %65, label %.thread120
+  br i1 %64, label %65, label %.thread145
 
 65:                                               ; preds = %58
   %66 = call ptr @slurm_conf_get_aliased_nodename() #18
@@ -5948,7 +5948,7 @@ define internal fastcc void @_read_config() unnamed_addr #0 {
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4272
   store ptr %66, ptr %68, align 8
   %69 = icmp eq ptr %66, null
-  br i1 %69, label %70, label %.thread120
+  br i1 %69, label %70, label %.thread145
 
 70:                                               ; preds = %65
   %71 = call ptr @slurm_conf_get_nodename(ptr noundef nonnull @.str.201) #18
@@ -5956,19 +5956,19 @@ define internal fastcc void @_read_config() unnamed_addr #0 {
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4272
   store ptr %71, ptr %73, align 8
   %.not69 = icmp eq ptr %71, null
-  br i1 %.not69, label %77, label %.thread120
+  br i1 %.not69, label %77, label %.thread145
 
-.thread120:                                       ; preds = %._crit_edge, %58, %65, %70
+.thread145:                                       ; preds = %._crit_edge, %58, %65, %70
   %74 = phi ptr [ %71, %70 ], [ %66, %65 ], [ %61, %58 ], [ %46, %._crit_edge ]
   %75 = load i8, ptr %74, align 1
   %76 = icmp eq i8 %75, 0
   br i1 %76, label %77, label %78
 
-77:                                               ; preds = %.thread120, %70
+77:                                               ; preds = %.thread145, %70
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.202) #19
   unreachable
 
-78:                                               ; preds = %.thread120
+78:                                               ; preds = %.thread145
   %79 = call ptr @slurm_conf_get_bcast_address(ptr noundef nonnull %74) #18
   store ptr %79, ptr %2, align 8
   %.not70 = icmp eq ptr %79, null
@@ -6402,7 +6402,7 @@ _update_nice.exit:                                ; preds = %update_stepd_loggin
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 4196
   %353 = load i16, ptr %352, align 4
   %.not80 = icmp eq i16 %350, %353
-  br i1 %.not80, label %.thread122, label %354
+  br i1 %.not80, label %.thread147, label %354
 
 354:                                              ; preds = %349
   %355 = getelementptr inbounds nuw i8, ptr %351, i64 4202
@@ -6434,26 +6434,26 @@ _update_nice.exit:                                ; preds = %update_stepd_loggin
   %369 = phi i16 [ %.pre107, %362 ], [ %350, %358 ]
   %370 = phi ptr [ %.pre105, %362 ], [ %351, %358 ]
   %.not81 = icmp eq i16 %369, %368
-  br i1 %.not81, label %.thread122, label %371
+  br i1 %.not81, label %.thread147, label %371
 
 371:                                              ; preds = %367
   %372 = getelementptr inbounds nuw i8, ptr %370, i64 4202
   %373 = load i16, ptr %372, align 2
   %.not82 = icmp eq i16 %369, %373
-  br i1 %.not82, label %.thread122, label %374
+  br i1 %.not82, label %.thread147, label %374
 
 374:                                              ; preds = %371
   %375 = getelementptr inbounds nuw i8, ptr %370, i64 4200
   %376 = load i16, ptr %375, align 8
   %.not83 = icmp eq i16 %369, %376
-  br i1 %.not83, label %.thread122, label %._crit_edge110
+  br i1 %.not83, label %.thread147, label %._crit_edge110
 
 ._crit_edge110:                                   ; preds = %374
   %.phi.trans.insert111 = getelementptr inbounds nuw i8, ptr %370, i64 4156
   %.pre112 = load i16, ptr %.phi.trans.insert111, align 4
   br label %394
 
-.thread122:                                       ; preds = %349, %374, %371, %367
+.thread147:                                       ; preds = %349, %374, %371, %367
   %377 = phi ptr [ %370, %374 ], [ %370, %371 ], [ %370, %367 ], [ %351, %349 ]
   %378 = phi i16 [ %369, %374 ], [ %369, %371 ], [ %369, %367 ], [ %350, %349 ]
   %379 = phi i16 [ %368, %374 ], [ %368, %371 ], [ %368, %367 ], [ %350, %349 ]
@@ -6464,12 +6464,12 @@ _update_nice.exit:                                ; preds = %update_stepd_loggin
   %.not84 = icmp eq i16 %381, %383
   br i1 %.not84, label %384, label %._crit_edge113
 
-._crit_edge113:                                   ; preds = %.thread122
+._crit_edge113:                                   ; preds = %.thread147
   %.phi.trans.insert114 = getelementptr inbounds nuw i8, ptr %377, i64 4202
   %.pre115 = load i16, ptr %.phi.trans.insert114, align 2
   br label %394
 
-384:                                              ; preds = %.thread122
+384:                                              ; preds = %.thread147
   %385 = getelementptr inbounds nuw i8, ptr %377, i64 4184
   %386 = load i16, ptr %385, align 8
   %387 = getelementptr inbounds nuw i8, ptr %377, i64 4202
@@ -7083,9 +7083,9 @@ _resource_spec_fini.exit31.i:                     ; preds = %135, %133
   %155 = load i16, ptr %154, align 8
   %156 = icmp eq i16 %155, 0
   %157 = icmp eq i32 %.028.i.i, %.027.i.i
-  %.not57.i.i = select i1 %156, i1 true, i1 %157
+  %.not60.i.i = select i1 %156, i1 true, i1 %157
   %.not.i32.i = icmp eq i32 %.025.i.i, %.024.i.i
-  %or.cond.i.i = select i1 %.not57.i.i, i1 true, i1 %.not.i32.i
+  %or.cond.i.i = select i1 %.not60.i.i, i1 true, i1 %.not.i32.i
   br i1 %or.cond.i.i, label %_select_spec_cores.exit.i, label %.preheader.us.preheader.i.i
 
 .preheader.us.preheader.i.i:                      ; preds = %153

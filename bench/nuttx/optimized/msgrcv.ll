@@ -150,8 +150,8 @@ define range(i64 -1, 65536) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly ca
 .split.split.us.split.us.i:                       ; preds = %.split.split.us.i, %71
   %.03952.us64.us.i = load ptr, ptr %21, align 8
   %.not53.us65.us.i = icmp eq ptr %.03952.us64.us.i, %20
-  %.not42.us67.us106.i = icmp eq ptr %.03952.us64.us.i, null
-  %.not42.us67.us.i = or i1 %.not53.us65.us.i, %.not42.us67.us106.i
+  %.not42.us67.us112.i = icmp eq ptr %.03952.us64.us.i, null
+  %.not42.us67.us.i = or i1 %.not53.us65.us.i, %.not42.us67.us112.i
   br i1 %.not42.us67.us.i, label %60, label %msgrcv_wait.exit.thread50
 
 60:                                               ; preds = %.split.split.us.split.us.i

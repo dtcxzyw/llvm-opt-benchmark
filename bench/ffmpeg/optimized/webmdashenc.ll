@@ -167,16 +167,16 @@ define internal range(i32 -2147483648, 1) i32 @webm_dash_manifest_write_header(p
 .lr.ph112.i:                                      ; preds = %.preheader103.i
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  br label %.backedge124.i
+  br label %.backedge131.i
 
 ._crit_edge113.i:                                 ; preds = %.backedge.i
   %27 = icmp eq i32 %.060.be.i, 0
   br i1 %27, label %.loopexit89, label %parse_adaptation_sets.exit.thread
 
-.backedge124.i:                                   ; preds = %.backedge124.i.backedge, %.lr.ph112.i
-  %28 = phi i8 [ %23, %.lr.ph112.i ], [ %.be, %.backedge124.i.backedge ]
-  %.055111.i = phi ptr [ %22, %.lr.ph112.i ], [ %.055111.i.be, %.backedge124.i.backedge ]
-  %.060110.i = phi i32 [ 0, %.lr.ph112.i ], [ %.060110.i.be, %.backedge124.i.backedge ]
+.backedge131.i:                                   ; preds = %.backedge131.i.backedge, %.lr.ph112.i
+  %28 = phi i8 [ %23, %.lr.ph112.i ], [ %.be, %.backedge131.i.backedge ]
+  %.055111.i = phi ptr [ %22, %.lr.ph112.i ], [ %.055111.i.be, %.backedge131.i.backedge ]
+  %.060110.i = phi i32 [ 0, %.lr.ph112.i ], [ %.060110.i.be, %.backedge131.i.backedge ]
   %29 = icmp eq i32 %.060110.i, 0
   %30 = icmp eq i8 %28, 32
   %or.cond82.i = and i1 %30, %29
@@ -187,21 +187,21 @@ define internal range(i32 -2147483648, 1) i32 @webm_dash_manifest_write_header(p
   %.055.be.i = phi ptr [ %77, %76 ], [ %72, %._crit_edge.i ], [ %115, %.thread98.i ]
   %31 = load i8, ptr %.055.be.i, align 1, !tbaa !44
   %32 = icmp eq i8 %31, 0
-  br i1 %32, label %._crit_edge113.i, label %.backedge124.i.backedge
+  br i1 %32, label %._crit_edge113.i, label %.backedge131.i.backedge
 
-.backedge.thread.i:                               ; preds = %.backedge124.i
+.backedge.thread.i:                               ; preds = %.backedge131.i
   %33 = getelementptr inbounds nuw i8, ptr %.055111.i, i64 1
   %34 = load i8, ptr %33, align 1, !tbaa !44
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %.loopexit89, label %.backedge124.i.backedge
+  br i1 %35, label %.loopexit89, label %.backedge131.i.backedge
 
-.backedge124.i.backedge:                          ; preds = %.backedge.thread.i, %.backedge.i
+.backedge131.i.backedge:                          ; preds = %.backedge.thread.i, %.backedge.i
   %.be = phi i8 [ %31, %.backedge.i ], [ %34, %.backedge.thread.i ]
   %.055111.i.be = phi ptr [ %.055.be.i, %.backedge.i ], [ %33, %.backedge.thread.i ]
   %.060110.i.be = phi i32 [ %.060.be.i, %.backedge.i ], [ 0, %.backedge.thread.i ]
-  br label %.backedge124.i
+  br label %.backedge131.i
 
-36:                                               ; preds = %.backedge124.i
+36:                                               ; preds = %.backedge131.i
   br i1 %29, label %sub_0.i, label %73
 
 sub_0.i:                                          ; preds = %36
@@ -679,8 +679,8 @@ get_duration.exit:                                ; preds = %209, %191
   %.not.i152.i = icmp eq i32 %278, %288
   %indvars.iv.next.i154.i = add nuw nsw i64 %indvars.iv.i151.i, 1
   %exitcond.not.i155.i = icmp ne i64 %indvars.iv.next.i154.i, %wide.trip.count.i150.i
-  %or.cond108.not = select i1 %.not.i152.i, i1 %exitcond.not.i155.i, i1 false
-  br i1 %or.cond108.not, label %279, label %.thread.i, !llvm.loop !71
+  %or.cond139.not = select i1 %.not.i152.i, i1 %exitcond.not.i155.i, i1 false
+  br i1 %or.cond139.not, label %279, label %.thread.i, !llvm.loop !71
 
 .thread.i:                                        ; preds = %279, %261, %272, %271, %242, %241
   %.0121.i = phi i1 [ false, %271 ], [ true, %241 ], [ true, %272 ], [ true, %242 ], [ true, %261 ], [ %.not.i152.i, %279 ]

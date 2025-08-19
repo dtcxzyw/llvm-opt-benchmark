@@ -2627,7 +2627,8 @@ Vec_StrPush.exit.i268:                            ; preds = %493, %Vec_StrGrow.e
   br label %.lr.ph.i275
 
 .lr.ph.i275:                                      ; preds = %.lr.ph.i275.preheader, %Vec_StrPush.exit.i281
-  %indvars.iv.i278 = phi i64 [ %indvars.iv.next.i282, %Vec_StrPush.exit.i281 ], [ 0, %.lr.ph.i275.preheader ]
+  %exitcond.not.i283 = phi i1 [ true, %Vec_StrPush.exit.i281 ], [ false, %.lr.ph.i275.preheader ]
+  %indvars.iv.i278 = phi i64 [ 1, %Vec_StrPush.exit.i281 ], [ 0, %.lr.ph.i275.preheader ]
   %500 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %indvars.iv.i278
   %501 = load i8, ptr %500, align 1, !tbaa !16
   %502 = load i32, ptr %4, align 4, !tbaa !41
@@ -2691,8 +2692,6 @@ Vec_StrPush.exit.i281:                            ; preds = %522, %Vec_StrGrow.e
   %527 = sext i32 %525 to i64
   %528 = getelementptr inbounds i8, ptr %524, i64 %527
   store i8 %501, ptr %528, align 1, !tbaa !16
-  %indvars.iv.next.i282 = add nuw nsw i64 %indvars.iv.i278, 1
-  %exitcond.not.i283 = icmp eq i64 %indvars.iv.next.i282, 2
   br i1 %exitcond.not.i283, label %Vec_StrPrintStr.exit287, label %.lr.ph.i275, !llvm.loop !45
 
 Vec_StrPrintStr.exit287:                          ; preds = %Vec_StrPush.exit.i281

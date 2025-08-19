@@ -1817,9 +1817,9 @@ define dso_local void @_ZN23b3Generic6DofConstraint8getInfo2EPN17b3TypedConstrai
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %5, align 16
   store <2 x float> %.sroa.2.0.copyload.i.i, ptr %124, align 8
   %138 = load i32, ptr %125, align 4, !tbaa !45
-  %139 = trunc i64 %indvars.iv.i to i32
-  %140 = mul i32 %139, 3
-  %141 = add i32 %140, 9
+  %139 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %140 = mul nuw nsw i32 %139, 3
+  %141 = add nuw nsw i32 %140, 9
   %142 = ashr i32 %138, %141
   %143 = and i32 %142, 1
   %.not.i = icmp eq i32 %143, 0
@@ -1909,9 +1909,9 @@ _ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3Constrai
   store <2 x float> %.sroa.0.0.copyload.i.i34, ptr %4, align 16
   store <2 x float> %.sroa.2.0.copyload.i.i36, ptr %174, align 8
   %188 = load i32, ptr %175, align 4, !tbaa !45
-  %189 = trunc i64 %indvars.iv.i28 to i32
-  %190 = mul i32 %189, 3
-  %191 = add i32 %190, 9
+  %189 = trunc nuw nsw i64 %indvars.iv.i28 to i32
+  %190 = mul nuw nsw i32 %189, 3
+  %191 = add nuw nsw i32 %190, 9
   %192 = ashr i32 %188, %191
   %193 = and i32 %192, 1
   %.not.i37 = icmp eq i32 %193, 0
@@ -2382,9 +2382,9 @@ _ZN23b3Generic6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %26, %35, 
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %11, align 16
   store <2 x float> %.sroa.2.0.copyload.i.i, ptr %61, align 8
   %75 = load i32, ptr %62, align 4, !tbaa !45
-  %76 = trunc i64 %indvars.iv.i to i32
-  %77 = mul i32 %76, 3
-  %78 = add i32 %77, 9
+  %76 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %77 = mul nuw nsw i32 %76, 3
+  %78 = add nuw nsw i32 %77, 9
   %79 = ashr i32 %75, %78
   %80 = and i32 %79, 1
   %.not.i = icmp eq i32 %80, 0
@@ -2473,9 +2473,9 @@ _ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3Constrai
   store <2 x float> %.sroa.0.0.copyload.i.i43, ptr %10, align 16
   store <2 x float> %.sroa.2.0.copyload.i.i45, ptr %110, align 8
   %124 = load i32, ptr %111, align 4, !tbaa !45
-  %125 = trunc i64 %indvars.iv.i37 to i32
-  %126 = mul i32 %125, 3
-  %127 = add i32 %126, 9
+  %125 = trunc nuw nsw i64 %indvars.iv.i37 to i32
+  %126 = mul nuw nsw i32 %125, 3
+  %127 = add nuw nsw i32 %126, 9
   %128 = ashr i32 %124, %127
   %129 = and i32 %128, 1
   %.not.i46 = icmp eq i32 %129, 0
@@ -2931,12 +2931,12 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23b3Generic6DofConstraint21get_
   %311 = load float, ptr %310, align 4, !tbaa !28
   %312 = fmul float %309, %311
   %313 = fneg float %312
-  %.sink387 = select i1 %.not193, float %312, float %313
+  %.sink393 = select i1 %.not193, float %312, float %313
   %314 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %315 = load float, ptr %314, align 4, !tbaa !34
   %316 = getelementptr inbounds float, ptr %256, i64 %257
   %317 = load float, ptr %316, align 4, !tbaa !16
-  %318 = tail call float @llvm.fmuladd.f32(float %.sink387, float %315, float %317)
+  %318 = tail call float @llvm.fmuladd.f32(float %.sink393, float %315, float %317)
   store float %318, ptr %316, align 4, !tbaa !16
   %319 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %320 = load float, ptr %319, align 4, !tbaa !29
@@ -2966,11 +2966,11 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23b3Generic6DofConstraint21get_
   %337 = load ptr, ptr %336, align 8, !tbaa !122
   %338 = getelementptr inbounds float, ptr %337, i64 %257
   %. = select i1 %335, float 0.000000e+00, float 0xC7EFFFFFE0000000
-  %.415 = select i1 %335, float 0x47EFFFFFE0000000, float 0.000000e+00
+  %.421 = select i1 %335, float 0x47EFFFFFE0000000, float 0.000000e+00
   store float %., ptr %338, align 4, !tbaa !16
   %339 = load ptr, ptr %327, align 8, !tbaa !123
   %340 = getelementptr inbounds float, ptr %339, i64 %257
-  store float %.415, ptr %340, align 4, !tbaa !16
+  store float %.421, ptr %340, align 4, !tbaa !16
   %341 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %342 = load float, ptr %341, align 4, !tbaa !30
   %343 = fcmp ogt float %342, 0.000000e+00
@@ -2982,22 +2982,22 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23b3Generic6DofConstraint21get_
   %347 = load float, ptr %346, align 4, !tbaa !8
   %348 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %349 = load float, ptr %348, align 8, !tbaa !8
-  %.416 = select i1 %.not193, ptr %4, ptr %6
-  %.417 = select i1 %.not193, ptr %5, ptr %7
-  %350 = load float, ptr %.416, align 16, !tbaa !8
-  %351 = getelementptr inbounds nuw i8, ptr %.416, i64 4
+  %.422 = select i1 %.not193, ptr %4, ptr %6
+  %.423 = select i1 %.not193, ptr %5, ptr %7
+  %350 = load float, ptr %.422, align 16, !tbaa !8
+  %351 = getelementptr inbounds nuw i8, ptr %.422, i64 4
   %352 = load float, ptr %351, align 4, !tbaa !8
   %353 = fmul float %352, %347
   %354 = tail call float @llvm.fmuladd.f32(float %350, float %345, float %353)
-  %355 = getelementptr inbounds nuw i8, ptr %.416, i64 8
+  %355 = getelementptr inbounds nuw i8, ptr %.422, i64 8
   %356 = load float, ptr %355, align 8, !tbaa !8
   %357 = tail call noundef float @llvm.fmuladd.f32(float %356, float %349, float %354)
-  %358 = load float, ptr %.417, align 16, !tbaa !8
-  %359 = getelementptr inbounds nuw i8, ptr %.417, i64 4
+  %358 = load float, ptr %.423, align 16, !tbaa !8
+  %359 = getelementptr inbounds nuw i8, ptr %.423, i64 4
   %360 = load float, ptr %359, align 4, !tbaa !8
   %361 = fmul float %347, %360
   %362 = tail call float @llvm.fmuladd.f32(float %358, float %345, float %361)
-  %363 = getelementptr inbounds nuw i8, ptr %.417, i64 8
+  %363 = getelementptr inbounds nuw i8, ptr %.423, i64 8
   %364 = load float, ptr %363, align 8, !tbaa !8
   %365 = tail call noundef float @llvm.fmuladd.f32(float %364, float %349, float %362)
   %366 = fsub float %357, %365

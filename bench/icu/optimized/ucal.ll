@@ -880,9 +880,9 @@ define noundef ptr @ucal_open_77(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %21 = load i32, ptr %4, align 4
   %22 = icmp sgt i32 %21, 0
   %or.cond.i = select i1 %20, i1 true, i1 %22
-  br i1 %or.cond.i, label %_ZN6icu_7712LocalPointerINS_8TimeZoneEEC2EPS1_R10UErrorCode.exit, label %.thread51
+  br i1 %or.cond.i, label %_ZN6icu_7712LocalPointerINS_8TimeZoneEEC2EPS1_R10UErrorCode.exit, label %.thread52
 
-.thread51:                                        ; preds = %18
+.thread52:                                        ; preds = %18
   store i32 7, ptr %4, align 4, !tbaa !13
   br label %_ZN6icu_7712LocalPointerINS_8TimeZoneEED2Ev.exit
 
@@ -1063,8 +1063,8 @@ _ZN6icu_7712LocalPointerINS_8TimeZoneEED2Ev.exit37: ; preds = %.thread47, %74, %
   %.pn32.pn.pn.pn50 = phi { ptr, i32 } [ %.pn, %.thread47 ], [ %.pn32.pn.pn.pn, %74 ], [ %.pn32.pn.pn.pn, %76 ]
   resume { ptr, i32 } %.pn32.pn.pn.pn50
 
-_ZN6icu_7712LocalPointerINS_8TimeZoneEED2Ev.exit: ; preds = %.thread51, %70, %68, %.thread, %5
-  %.023 = phi ptr [ null, %5 ], [ %63, %.thread ], [ %.124, %68 ], [ %.124, %70 ], [ null, %.thread51 ]
+_ZN6icu_7712LocalPointerINS_8TimeZoneEED2Ev.exit: ; preds = %.thread52, %70, %68, %.thread, %5
+  %.023 = phi ptr [ null, %5 ], [ %63, %.thread ], [ %.124, %68 ], [ %.124, %70 ], [ null, %.thread52 ]
   ret ptr %.023
 }
 

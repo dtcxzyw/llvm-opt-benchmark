@@ -2850,7 +2850,7 @@ if.else.i.i.i.i:                                  ; preds = %while.end.i.i.i.i
 
 _ZN5folly16to_ascii_decimalEPcPKcm.exit:          ; preds = %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i, %if.then.i16.i.i.i, %if.else.i.i.i.i
   %retval.i.0.i.i.i = phi i64 [ 0, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ %retval.i5.03236.i.i.i, %if.else.i.i.i.i ], [ %retval.i5.03236.i.i.i, %if.then.i16.i.i.i ]
-  %add.ptr33 = getelementptr inbounds i8, ptr %add.ptr28, i64 %retval.i.0.i.i.i
+  %add.ptr33 = getelementptr inbounds nuw i8, ptr %add.ptr28, i64 %retval.i.0.i.i.i
   store ptr %add.ptr33, ptr %valBufEnd, align 8
   %thousandsSeparator34 = getelementptr inbounds nuw i8, ptr %arg, i64 20
   %13 = load i8, ptr %thousandsSeparator34, align 4
@@ -3567,8 +3567,8 @@ if.end8:                                          ; preds = %if.end
   %.pre68 = sub i64 %.pre, %sub.ptr.rhs.cast.i
   %conv24 = zext nneg i32 %0 to i64
   %cmp25 = icmp ult i64 %.pre68, %conv24
-  %or.cond73 = select i1 %cmp20.not, i1 %cmp25, i1 false
-  br i1 %or.cond73, label %if.then26, label %if.end43.thread
+  %or.cond74 = select i1 %cmp20.not, i1 %cmp25, i1 false
+  br i1 %or.cond74, label %if.then26, label %if.end43.thread
 
 if.then26:                                        ; preds = %if.end8
   %fill27 = getelementptr inbounds nuw i8, ptr %arg, i64 16
@@ -3634,7 +3634,7 @@ sw.default:                                       ; preds = %if.then26
 
 if.end43.thread:                                  ; preds = %while.body.i28, %if.end8, %sw.bb41
   %7 = load ptr, ptr %cb, align 8
-  %call3.i71 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %val.coerce0, i64 noundef %.pre68)
+  %call3.i72 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %val.coerce0, i64 noundef %.pre68)
   br label %if.end45
 
 if.end43:                                         ; preds = %if.then26, %if.then26, %_ZZN5folly12format_value12formatStringIZNKS_13BaseFormatterINS_9FormatterILb0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEELb0EJiS9_EE8appendToIS9_EENSt9enable_ifIXsr12IsSomeStringIT_EE5valueEvE4typeERSE_EUlNS_5RangeIPKcEEE_EEvSL_RNS_9FormatArgESH_ENKUliE_clEi.exit
@@ -4042,7 +4042,7 @@ if.else.i.i.i.i:                                  ; preds = %while.end.i.i.i.i
 
 _ZN5folly16to_ascii_decimalEPcPKcm.exit:          ; preds = %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i, %if.then.i16.i.i.i, %if.else.i.i.i.i
   %retval.i.0.i.i.i = phi i64 [ 0, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ %retval.i5.03236.i.i.i, %if.else.i.i.i.i ], [ %retval.i5.03236.i.i.i, %if.then.i16.i.i.i ]
-  %add.ptr35 = getelementptr inbounds i8, ptr %add.ptr30, i64 %retval.i.0.i.i.i
+  %add.ptr35 = getelementptr inbounds nuw i8, ptr %add.ptr30, i64 %retval.i.0.i.i.i
   store ptr %add.ptr35, ptr %valBufEnd, align 8
   %thousandsSeparator36 = getelementptr inbounds nuw i8, ptr %arg, i64 20
   %13 = load i8, ptr %thousandsSeparator36, align 4

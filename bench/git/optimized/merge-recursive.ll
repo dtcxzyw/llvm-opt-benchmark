@@ -173,25 +173,25 @@ Q_.exit:                                          ; preds = %57, %59
   %.2.ph = phi i32 [ %.03979, %Q_.exit ], [ %51, %47 ], [ %.03979, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.split.loop.exit95, label %.preheader, !llvm.loop !20
+  br i1 %exitcond.not, label %.split.loop.exit97, label %.preheader, !llvm.loop !20
 
 .split.loop.exit:                                 ; preds = %38
   %63 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit95
+  br label %.split.loop.exit97
 
-.split.loop.exit95:                               ; preds = %62, %.split.loop.exit
+.split.loop.exit97:                               ; preds = %62, %.split.loop.exit
   %.040.lcssa = phi i32 [ %63, %.split.loop.exit ], [ %0, %62 ]
   %.039.lcssa = phi i32 [ %.03979, %.split.loop.exit ], [ %.2.ph, %62 ]
   %64 = sub nsw i32 %0, %.040.lcssa
   %.not52 = icmp eq i32 %64, 3
   br i1 %.not52, label %67, label %65
 
-65:                                               ; preds = %.split.loop.exit95
+65:                                               ; preds = %.split.loop.exit97
   %66 = call fastcc ptr @_(ptr noundef nonnull @.str.8)
   call void (ptr, ...) @die(ptr noundef %66) #14
   unreachable
 
-67:                                               ; preds = %.split.loop.exit95
+67:                                               ; preds = %.split.loop.exit97
   %68 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %69 = call i32 @repo_read_index_unmerged(ptr noundef %68) #12
   %.not53 = icmp eq i32 %69, 0

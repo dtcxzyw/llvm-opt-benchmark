@@ -406,8 +406,8 @@ define internal fastcc i32 @matcher_run(ptr noundef %0, ptr noundef %1, i32 noun
   %.not198 = icmp ne i64 %106, 0
   %.pre = load i64, ptr %101, align 8, !tbaa !84
   %109 = icmp ugt i64 %.pre, %106
-  %or.cond216 = select i1 %.not198, i1 %109, i1 false
-  br i1 %or.cond216, label %110, label %111
+  %or.cond227 = select i1 %.not198, i1 %109, i1 false
+  br i1 %or.cond227, label %110, label %111
 
 110:                                              ; preds = %108
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.62, i64 noundef %106, i64 noundef %.pre) #13
@@ -2023,11 +2023,11 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
 163:                                              ; preds = %157
   %164 = call i32 @cli_hm_have_wild(ptr noundef %126, i32 noundef 1) #13
   %.not321 = icmp ne i32 %164, 0
-  %spec.select574 = zext i1 %.not321 to i8
+  %spec.select595 = zext i1 %.not321 to i8
   br label %165
 
 165:                                              ; preds = %163, %148, %155, %157
-  %.sink = phi i8 [ 1, %157 ], [ 1, %155 ], [ 1, %148 ], [ %spec.select574, %163 ]
+  %.sink = phi i8 [ 1, %157 ], [ 1, %155 ], [ 1, %148 ], [ %spec.select595, %163 ]
   %166 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %.sink, ptr %166, align 1, !tbaa !160
   %167 = load ptr, ptr %67, align 8, !tbaa !67
@@ -2055,14 +2055,14 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
 180:                                              ; preds = %174
   %181 = call i32 @cli_hm_have_wild(ptr noundef %126, i32 noundef 2) #13
   %.not325 = icmp ne i32 %181, 0
-  %spec.select575 = zext i1 %.not325 to i8
+  %spec.select596 = zext i1 %.not325 to i8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %180, %165, %172, %174
-  %.sink572 = phi i8 [ 1, %174 ], [ 1, %172 ], [ 1, %165 ], [ %spec.select575, %180 ]
+  %.sink593 = phi i8 [ 1, %174 ], [ 1, %172 ], [ 1, %165 ], [ %spec.select596, %180 ]
   %.ph = phi i1 [ true, %174 ], [ true, %172 ], [ true, %165 ], [ %.not325, %180 ]
   %182 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %.sink572, ptr %182, align 1, !tbaa !160
+  store i8 %.sink593, ptr %182, align 1, !tbaa !160
   %183 = trunc nuw i8 %.sink to i1
   br label %184
 

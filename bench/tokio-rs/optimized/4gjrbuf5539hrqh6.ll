@@ -2362,7 +2362,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit
   invoke void @_ZN3std3sys4unix5locks11futex_mutex5Mutex4wake17hb07a3d057da5ea39E(ptr noundef nonnull align 4 %58)
           to label %"_ZN4core3ptr111drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio_util..sync..cancellation_token..tree_node..Inner$GT$$GT$17hebe8c85891790c43E.llvm.17688124612483408026.exit74" unwind label %65
 
-.thread179:                                       ; preds = %.invoke563
+.thread179:                                       ; preds = %.invoke570
   %lpad.thr_comm177 = landingpad { ptr, i32 }
           cleanup
   br label %.thread171
@@ -2692,7 +2692,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #16
   unreachable
 
-.backedge:                                        ; preds = %.invoke563, %196, %235, %"_ZN4core3ptr111drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio_util..sync..cancellation_token..tree_node..Inner$GT$$GT$17hebe8c85891790c43E.llvm.17688124612483408026.exit99"
+.backedge:                                        ; preds = %.invoke570, %196, %235, %"_ZN4core3ptr111drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio_util..sync..cancellation_token..tree_node..Inner$GT$$GT$17hebe8c85891790c43E.llvm.17688124612483408026.exit99"
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %233 = load i64, ptr %98, align 8, !alias.scope !368, !noundef !5
   %234 = icmp eq i64 %233, 0
@@ -2705,9 +2705,9 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit
   %236 = load ptr, ptr %7, align 8, !alias.scope !376, !nonnull !5, !noundef !5
   %237 = atomicrmw sub ptr %236, i64 1 release, align 8, !noalias !376
   %238 = icmp eq i64 %237, 1
-  br i1 %238, label %.invoke563, label %.backedge
+  br i1 %238, label %.invoke570, label %.backedge
 
-.invoke563:                                       ; preds = %235, %"_ZN4core3ptr111drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio_util..sync..cancellation_token..tree_node..Inner$GT$$GT$17hebe8c85891790c43E.llvm.17688124612483408026.exit99"
+.invoke570:                                       ; preds = %235, %"_ZN4core3ptr111drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio_util..sync..cancellation_token..tree_node..Inner$GT$$GT$17hebe8c85891790c43E.llvm.17688124612483408026.exit99"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h8bb298854c9941edE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
           to label %.backedge unwind label %.thread179
@@ -2719,7 +2719,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit
   %239 = load ptr, ptr %7, align 8, !alias.scope !383, !nonnull !5, !noundef !5
   %240 = atomicrmw sub ptr %239, i64 1 release, align 8, !noalias !383
   %241 = icmp eq i64 %240, 1
-  br i1 %241, label %.invoke563, label %.backedge
+  br i1 %241, label %.invoke570, label %.backedge
 
 242:                                              ; preds = %179, %208, %152
   %.pn.ph = phi { ptr, i32 } [ %153, %152 ], [ %209, %208 ], [ %180, %179 ]

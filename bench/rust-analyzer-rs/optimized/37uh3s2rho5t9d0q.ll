@@ -1353,8 +1353,8 @@ define noundef zeroext i1 @"_ZN56_$LT$cfg..dnf..DnfExpr$u20$as$u20$core..fmt..Di
 .thread:                                          ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
-  %.idx48 = mul nuw nsw i64 %9, 24
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx48
+  %.idx50 = mul nuw nsw i64 %9, 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx50
   br label %.lr.ph45
 
 13:                                               ; preds = %31
@@ -1409,13 +1409,13 @@ define noundef zeroext i1 @"_ZN56_$LT$cfg..dnf..DnfExpr$u20$as$u20$core..fmt..Di
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.043, i64 16
   %40 = load i64, ptr %39, align 8, !alias.scope !221, !noalias !224, !noundef !5
   %.not.i = icmp eq i64 %40, 1
-  br i1 %.not.i, label %.thread49, label %51
+  br i1 %.not.i, label %.thread51, label %51
 
-.thread49:                                        ; preds = %38
+.thread51:                                        ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.043, i64 8
   %42 = load ptr, ptr %41, align 8, !alias.scope !221, !noalias !224, !nonnull !5, !noundef !5
-  %.idx4650 = mul nuw nsw i64 %40, 56
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx4650
+  %.idx4652 = mul nuw nsw i64 %40, 56
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx4652
   br label %.lr.ph.preheader
 
 44:                                               ; preds = %51
@@ -1426,9 +1426,9 @@ define noundef zeroext i1 @"_ZN56_$LT$cfg..dnf..DnfExpr$u20$as$u20$core..fmt..Di
   %48 = icmp eq i64 %40, 0
   br i1 %48, label %"_ZN60_$LT$cfg..dnf..Conjunction$u20$as$u20$core..fmt..Display$GT$3fmt17h662eccf5952d1e8aE.exit", label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread49, %44
-  %49 = phi ptr [ %43, %.thread49 ], [ %47, %44 ]
-  %50 = phi ptr [ %42, %.thread49 ], [ %46, %44 ]
+.lr.ph.preheader:                                 ; preds = %.thread51, %44
+  %49 = phi ptr [ %43, %.thread51 ], [ %47, %44 ]
+  %50 = phi ptr [ %42, %.thread51 ], [ %46, %44 ]
   br label %.lr.ph
 
 51:                                               ; preds = %38
@@ -1628,17 +1628,17 @@ define internal fastcc void @_ZN3cfg3dnf11Conjunction3new17h1b59c7a9a11d0eb7E(pt
   %.sroa.7.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %31, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.0..sroa_idx28, i64 23, i1 false), !noalias !248
   %33 = icmp eq i8 %.sroa.525.0.copyload27, 32
-  br i1 %33, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8551ec3e7be4897E.exit.thread.loopexit.split.loop.exit63", label %43
+  br i1 %33, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8551ec3e7be4897E.exit.thread.loopexit.split.loop.exit66", label %43
 
 34:                                               ; preds = %43
   unreachable
 
-"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8551ec3e7be4897E.exit.thread.loopexit.split.loop.exit63": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8551ec3e7be4897E.exit"
+"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8551ec3e7be4897E.exit.thread.loopexit.split.loop.exit66": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8551ec3e7be4897E.exit"
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 48
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8551ec3e7be4897E.exit.thread"
 
-"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8551ec3e7be4897E.exit.thread": ; preds = %139, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8551ec3e7be4897E.exit.thread.loopexit.split.loop.exit63", %2
-  %36 = phi ptr [ %.sroa.4.0.copyload.i, %2 ], [ %35, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8551ec3e7be4897E.exit.thread.loopexit.split.loop.exit63" ], [ %141, %139 ]
+"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8551ec3e7be4897E.exit.thread": ; preds = %139, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8551ec3e7be4897E.exit.thread.loopexit.split.loop.exit66", %2
+  %36 = phi ptr [ %.sroa.4.0.copyload.i, %2 ], [ %35, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8551ec3e7be4897E.exit.thread.loopexit.split.loop.exit66" ], [ %141, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !253
   store ptr %16, ptr %9, align 8, !noalias !253

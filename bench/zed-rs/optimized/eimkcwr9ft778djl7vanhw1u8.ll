@@ -7608,7 +7608,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %26, ptr %27, align 4, !noalias !1606
   %28 = invoke { i32, i32 } @"_ZN55_$LT$gpui..window..WindowId$u20$as$u20$slotmap..Key$GT$4data17hf40da87cab223b19E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %9)
-          to label %.noexc unwind label %.thread108
+          to label %.noexc unwind label %.thread111
 
 .noexc:                                           ; preds = %3
   %29 = extractvalue { i32, i32 } %28, 1
@@ -7631,7 +7631,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
 41:                                               ; preds = %.critedge62.thread
   br i1 %.sroa.043.488, label %194, label %common.resume
 
-.thread108:                                       ; preds = %42, %68, %3
+.thread111:                                       ; preds = %42, %68, %3
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %194
@@ -7649,7 +7649,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %46 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 0, ptr %46, align 8
   %47 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %13)
-          to label %50 unwind label %.thread108
+          to label %50 unwind label %.thread111
 
 48:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -7708,7 +7708,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   unreachable
 
 common.resume:                                    ; preds = %.critedge62, %41, %194, %53
-  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %.pn59107, %194 ], [ %.pn89, %41 ], [ %125, %.critedge62 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %.pn59110, %194 ], [ %.pn89, %41 ], [ %125, %.critedge62 ]
   resume { ptr, i32 } %common.resume.op
 
 68:                                               ; preds = %48
@@ -7723,7 +7723,7 @@ common.resume:                                    ; preds = %.critedge62, %41, %
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 0, ptr %72, align 8
   %73 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %12)
-          to label %78 unwind label %.thread108
+          to label %78 unwind label %.thread111
 
 74:                                               ; preds = %48
   %.sroa.613.sroa.5.0..sroa.613.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -8093,8 +8093,8 @@ common.resume:                                    ; preds = %.critedge62, %41, %
   invoke void @"_ZN4core3ptr41drop_in_place$LT$gpui..window..Window$GT$17h6b92b158452189c1E"(ptr noalias noundef nonnull align 8 dereferenceable(3920) %22) #35
           to label %41 unwind label %189
 
-194:                                              ; preds = %.thread108, %41
-  %.pn59107 = phi { ptr, i32 } [ %.pn89, %41 ], [ %lpad.thr_comm, %.thread108 ]
+194:                                              ; preds = %.thread111, %41
+  %.pn59110 = phi { ptr, i32 } [ %.pn89, %41 ], [ %lpad.thr_comm, %.thread111 ]
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke fastcc void @"_ZN4core3ptr589drop_in_place$LT$$LT$gpui..app..async_context..AsyncWindowContext$u20$as$u20$gpui..VisualContext$GT$..update_view$LT$workspace..Workspace$C$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$C$workspace..DelayedDebouncedEditAction..fire_new$LT$$LT$gpui..view..View$LT$editor..Editor$GT$$u20$as$u20$workspace..item..ItemHandle$GT$..added_to_pane..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcff39dae5c2e6704E"(ptr noalias noundef align 8 dereferenceable(40) %195) #35
           to label %common.resume unwind label %189
@@ -8585,7 +8585,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   br i1 %.sroa.044.382, label %168, label %common.resume
 
 .thread:                                          ; preds = %39, %48, %2
-  %lpad.thr_comm112 = landingpad { ptr, i32 }
+  %lpad.thr_comm115 = landingpad { ptr, i32 }
           cleanup
   br label %168
 
@@ -8969,11 +8969,11 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   unreachable
 
 common.resume:                                    ; preds = %38, %168, %153
-  %common.resume.op = phi { ptr, i32 } [ %154, %153 ], [ %.pn60111, %168 ], [ %.pn83, %38 ]
+  %common.resume.op = phi { ptr, i32 } [ %154, %153 ], [ %.pn60114, %168 ], [ %.pn83, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 168:                                              ; preds = %.thread, %38
-  %.pn60111 = phi { ptr, i32 } [ %.pn83, %38 ], [ %lpad.thr_comm112, %.thread ]
+  %.pn60114 = phi { ptr, i32 } [ %.pn83, %38 ], [ %lpad.thr_comm115, %.thread ]
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke fastcc void @"_ZN4core3ptr346drop_in_place$LT$$LT$gpui..app..async_context..AsyncWindowContext$u20$as$u20$gpui..VisualContext$GT$..update_view$LT$workspace..Workspace$C$$LP$$RP$$C$activity_indicator..ActivityIndicator..new..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h99ee6243b87e414eE"(ptr noalias noundef align 8 dereferenceable(48) %169) #35
           to label %common.resume unwind label %148
@@ -10404,7 +10404,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   br i1 %.sroa.044.382, label %154, label %153
 
 .thread:                                          ; preds = %40, %49, %2
-  %lpad.thr_comm113 = landingpad { ptr, i32 }
+  %lpad.thr_comm115 = landingpad { ptr, i32 }
           cleanup
   br label %154
 
@@ -10753,11 +10753,11 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   br label %146
 
 153:                                              ; preds = %154, %39
-  %.pn60111 = phi { ptr, i32 } [ %.pn60112, %154 ], [ %.pn83, %39 ]
-  resume { ptr, i32 } %.pn60111
+  %.pn60113 = phi { ptr, i32 } [ %.pn60114, %154 ], [ %.pn83, %39 ]
+  resume { ptr, i32 } %.pn60113
 
 154:                                              ; preds = %.thread, %39
-  %.pn60112 = phi { ptr, i32 } [ %.pn83, %39 ], [ %lpad.thr_comm113, %.thread ]
+  %.pn60114 = phi { ptr, i32 } [ %.pn83, %39 ], [ %lpad.thr_comm115, %.thread ]
   invoke fastcc void @"_ZN4core3ptr363drop_in_place$LT$$LT$gpui..app..async_context..AsyncWindowContext$u20$as$u20$gpui..VisualContext$GT$..update_view$LT$activity_indicator..ActivityIndicator$C$$LP$$RP$$C$activity_indicator..ActivityIndicator..new..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc900436565c011beE"(ptr noalias noundef align 8 dereferenceable(56) %0) #35
           to label %153 unwind label %149
 }
@@ -10818,7 +10818,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   br i1 %.sroa.044.391, label %178, label %"_ZN4core3ptr347drop_in_place$LT$gpui..window..WindowContext..defer$LT$gpui..window..ViewContext$LT$workspace..Workspace$GT$..defer$LT$$LT$gpui..view..View$LT$editor..Editor$GT$$u20$as$u20$workspace..item..ItemHandle$GT$..added_to_pane..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha657729b0c004971E.exit75"
 
 .thread:                                          ; preds = %39, %48, %2
-  %lpad.thr_comm122 = landingpad { ptr, i32 }
+  %lpad.thr_comm127 = landingpad { ptr, i32 }
           cleanup
   br label %178
 
@@ -11247,11 +11247,11 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   br label %"_ZN4core3ptr347drop_in_place$LT$gpui..window..WindowContext..defer$LT$gpui..window..ViewContext$LT$workspace..Workspace$GT$..defer$LT$$LT$gpui..view..View$LT$editor..Editor$GT$$u20$as$u20$workspace..item..ItemHandle$GT$..added_to_pane..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha657729b0c004971E.exit74"
 
 "_ZN4core3ptr347drop_in_place$LT$gpui..window..WindowContext..defer$LT$gpui..window..ViewContext$LT$workspace..Workspace$GT$..defer$LT$$LT$gpui..view..View$LT$editor..Editor$GT$$u20$as$u20$workspace..item..ItemHandle$GT$..added_to_pane..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha657729b0c004971E.exit75": ; preds = %185, %181, %178, %38
-  %.pn60120 = phi { ptr, i32 } [ %.pn60121, %185 ], [ %.pn60121, %181 ], [ %.pn60121, %178 ], [ %.pn92, %38 ]
-  resume { ptr, i32 } %.pn60120
+  %.pn60125 = phi { ptr, i32 } [ %.pn60126, %185 ], [ %.pn60126, %181 ], [ %.pn60126, %178 ], [ %.pn92, %38 ]
+  resume { ptr, i32 } %.pn60125
 
 178:                                              ; preds = %.thread, %38
-  %.pn60121 = phi { ptr, i32 } [ %.pn92, %38 ], [ %lpad.thr_comm122, %.thread ]
+  %.pn60126 = phi { ptr, i32 } [ %.pn92, %38 ], [ %lpad.thr_comm127, %.thread ]
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val = load ptr, ptr %179, align 8, !alias.scope !2193, !nonnull !18, !noundef !18
   %180 = icmp eq ptr %.val, inttoptr (i64 -1 to ptr)
@@ -13336,7 +13336,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6b
 
 50:                                               ; preds = %43, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %43 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %43 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %43 ], [ 1, %._crit_edge.i.i ]
   %51 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %52 = bitcast <16 x i1> %51 to i16
   %.not.i.i = icmp eq i16 %52, 0
@@ -13514,7 +13514,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17ha1
 
 51:                                               ; preds = %44, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %44 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %44 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %44 ], [ 1, %._crit_edge.i.i ]
   %52 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %53 = bitcast <16 x i1> %52 to i16
   %.not.i.i = icmp eq i16 %53, 0
@@ -13697,7 +13697,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 
 49:                                               ; preds = %42, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %42 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %42 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %42 ], [ 1, %._crit_edge.i.i ]
   %50 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %51 = bitcast <16 x i1> %50 to i16
   %.not.i.i = icmp eq i16 %51, 0
@@ -13913,7 +13913,7 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 
 74:                                               ; preds = %67, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %67 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %67 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %67 ], [ 1, %._crit_edge.i.i ]
   %75 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %76 = bitcast <16 x i1> %75 to i16
   %.not.i.i = icmp eq i16 %76, 0
@@ -14579,7 +14579,7 @@ _ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hc6d54d5516b1859cE.exit: ; pr
 
 35:                                               ; preds = %._crit_edge, %28
   %.sroa.6.1 = phi i64 [ %.sroa.3.0.i, %28 ], [ %.sroa.6.0, %._crit_edge ]
-  %.sroa.01.1 = phi i64 [ %.sroa.0.0.i, %28 ], [ %.sroa.01.0, %._crit_edge ]
+  %.sroa.01.1 = phi i64 [ %.sroa.0.0.i, %28 ], [ 1, %._crit_edge ]
   %36 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40, splat (i8 -1)
   %37 = bitcast <16 x i1> %36 to i16
   %.not = icmp eq i16 %37, 0
@@ -14726,7 +14726,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
 
 44:                                               ; preds = %37, %._crit_edge.i
   %.sroa.6.1.i = phi i64 [ %.sroa.3.0.i.i, %37 ], [ %.sroa.6.0.i, %._crit_edge.i ]
-  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %37 ], [ %.sroa.01.0.i, %._crit_edge.i ]
+  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %37 ], [ 1, %._crit_edge.i ]
   %45 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i, splat (i8 -1)
   %46 = bitcast <16 x i1> %45 to i16
   %.not.i = icmp eq i16 %46, 0

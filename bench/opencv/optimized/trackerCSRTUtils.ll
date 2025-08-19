@@ -3127,8 +3127,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit.i:               ; preds = %93
 
 317:                                              ; preds = %368, %.preheader485.us.i
   %indvars.iv545.i = phi i64 [ 1, %.preheader485.us.i ], [ %indvars.iv.next546.i, %368 ]
-  %.idx569.i = shl nsw i64 %indvars.iv545.i, 8
-  %318 = getelementptr inbounds nuw i8, ptr %309, i64 %.idx569.i
+  %.idx580.i = shl nsw i64 %indvars.iv545.i, 8
+  %318 = getelementptr inbounds nuw i8, ptr %309, i64 %.idx580.i
   %319 = getelementptr inbounds nuw double, ptr %312, i64 %indvars.iv545.i
   %320 = load double, ptr %319, align 8, !tbaa !142
   %321 = getelementptr inbounds nuw i8, ptr %319, i64 8
@@ -3177,8 +3177,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit.i:               ; preds = %93
   %364 = fadd double %363, 1.000000e-04
   %365 = call double @sqrt(double noundef %364) #21, !tbaa !40
   %366 = fdiv double 1.000000e+00, %365
-  %.idx570.i = mul nuw nsw i64 %indvars.iv545.i, 144
-  %367 = getelementptr inbounds nuw i8, ptr %316, i64 %.idx570.i
+  %.idx581.i = mul nuw nsw i64 %indvars.iv545.i, 144
+  %367 = getelementptr inbounds nuw i8, ptr %316, i64 %.idx581.i
   br label %396
 
 368:                                              ; preds = %.preheader484.us.i

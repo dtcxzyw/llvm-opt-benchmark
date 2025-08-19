@@ -74,7 +74,7 @@ define internal range(i32 -2147483648, 1) i32 @hls_open(ptr noundef %0, ptr noun
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 4128
   %27 = load i32, ptr %26, align 8, !tbaa !23
   %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %.preheader, label %.thread61
+  br i1 %28, label %.preheader, label %.thread65
 
 .preheader:                                       ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 4136
@@ -112,9 +112,9 @@ define internal range(i32 -2147483648, 1) i32 @hls_open(ptr noundef %0, ptr noun
 46:                                               ; preds = %38
   %.pr.pre = load i32, ptr %22, align 8, !tbaa !17
   %47 = icmp eq i32 %.pr.pre, 0
-  br i1 %47, label %.thread61, label %.thread
+  br i1 %47, label %.thread65, label %.thread
 
-.thread61:                                        ; preds = %25, %46
+.thread65:                                        ; preds = %25, %46
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.6) #7
   br label %58
 
@@ -137,8 +137,8 @@ define internal range(i32 -2147483648, 1) i32 @hls_open(ptr noundef %0, ptr noun
   store i32 %57, ptr %51, align 8, !tbaa !32
   br label %84
 
-58:                                               ; preds = %38, %11, %.thread61, %20, %18
-  %.047 = phi i32 [ %14, %11 ], [ -5, %.thread61 ], [ %44, %38 ], [ -22, %18 ], [ -22, %20 ]
+58:                                               ; preds = %38, %11, %.thread65, %20, %18
+  %.047 = phi i32 [ %14, %11 ], [ -5, %.thread65 ], [ %44, %38 ], [ -22, %18 ], [ -22, %20 ]
   %59 = load ptr, ptr %5, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4112
   %61 = load i32, ptr %60, align 8, !tbaa !17

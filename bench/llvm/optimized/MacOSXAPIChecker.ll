@@ -1453,8 +1453,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit97.i.i:           ; preds = %325, %323
 _ZN4llvm11raw_ostreamlsEPKc.exit100.i.i:          ; preds = %336, %334, %_ZN4llvm11raw_ostreamlsEPKc.exit97.i.i
   %338 = load ptr, ptr %34, align 8, !tbaa !65
   %339 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i6.i.i.i = load i64, ptr %339, align 8
-  %340 = and i64 %.0.copyload.i.i.i.i6.i.i.i, -8
+  %.0.copyload.i.i.i.i7.i.i.i = load i64, ptr %339, align 8
+  %340 = and i64 %.0.copyload.i.i.i.i7.i.i.i, -8
   %341 = inttoptr i64 %340 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %342 = getelementptr inbounds nuw i8, ptr %338, i64 56

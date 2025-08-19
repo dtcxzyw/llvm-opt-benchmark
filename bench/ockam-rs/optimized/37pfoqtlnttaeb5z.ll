@@ -7410,14 +7410,14 @@ define hidden { i64, ptr } @"_ZN98_$LT$ockam_transport_udp..workers..sender..Udp
   %102 = alloca { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { { ptr, i64 }, i64, i64 } }, { { { ptr, i64 }, i64, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } } }, i8, [7 x i8] }, {} }, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 657
   %104 = load i8, ptr %103, align 1, !range !898, !noundef !5
-  switch i8 %104, label %default.unreachable1102 [
+  switch i8 %104, label %default.unreachable1139 [
     i8 0, label %110
     i8 1, label %659
     i8 2, label %660
     i8 3, label %105
   ]
 
-default.unreachable1102:                          ; preds = %2
+default.unreachable1139:                          ; preds = %2
   unreachable
 
 105:                                              ; preds = %2

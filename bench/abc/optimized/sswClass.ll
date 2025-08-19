@@ -1349,8 +1349,8 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %79, %76, %Vec_PtrPu
   br i1 %.not117, label %.critedge8, label %127
 
 .critedge.thread:                                 ; preds = %Abc_Clock.exit147
-  %.not117240 = icmp eq i32 %4, 0
-  br i1 %.not117240, label %.critedge8, label %.thread
+  %.not117258 = icmp eq i32 %4, 0
+  br i1 %.not117258, label %.critedge8, label %.thread
 
 .thread:                                          ; preds = %.critedge.thread
   %126 = getelementptr inbounds nuw i8, ptr %60, i64 32
@@ -2586,9 +2586,9 @@ define range(i32 -2147483647, -2147483648) i32 @Ssw_ClassesRefineOneClass(ptr no
 .lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.lr.ph, %tailrecurse
   %21 = phi i64 [ %16, %.lr.ph.preheader.lr.ph ], [ %176, %tailrecurse ]
   %22 = phi ptr [ %14, %.lr.ph.preheader.lr.ph ], [ %174, %tailrecurse ]
-  %.tr93141 = phi i1 [ %20, %.lr.ph.preheader.lr.ph ], [ false, %tailrecurse ]
-  %.tr92140 = phi ptr [ %1, %.lr.ph.preheader.lr.ph ], [ %111, %tailrecurse ]
-  %accumulator.tr139 = phi i32 [ 0, %.lr.ph.preheader.lr.ph ], [ %171, %tailrecurse ]
+  %.tr93148 = phi i1 [ %20, %.lr.ph.preheader.lr.ph ], [ false, %tailrecurse ]
+  %.tr92147 = phi ptr [ %1, %.lr.ph.preheader.lr.ph ], [ %111, %tailrecurse ]
+  %accumulator.tr146 = phi i32 [ 0, %.lr.ph.preheader.lr.ph ], [ %171, %tailrecurse ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %98
@@ -2605,7 +2605,7 @@ define range(i32 -2147483647, -2147483648) i32 @Ssw_ClassesRefineOneClass(ptr no
 30:                                               ; preds = %.lr.ph
   %31 = load ptr, ptr %8, align 8, !tbaa !37
   %32 = load ptr, ptr %9, align 8, !tbaa !34
-  %33 = tail call i32 %31(ptr noundef %32, ptr noundef nonnull %.tr92140, ptr noundef nonnull %28) #23
+  %33 = tail call i32 %31(ptr noundef %32, ptr noundef nonnull %.tr92147, ptr noundef nonnull %28) #23
   %.not67 = icmp eq i32 %33, 0
   br i1 %.not67, label %65, label %34
 
@@ -2745,9 +2745,9 @@ Vec_PtrPush.exit91:                               ; preds = %.Vec_PtrGrow.exit11
 
 .sink.split:                                      ; preds = %Vec_PtrPush.exit, %Vec_PtrPush.exit91
   %.sink = phi i32 [ %94, %Vec_PtrPush.exit91 ], [ %63, %Vec_PtrPush.exit ]
-  %.sink135 = phi ptr [ %93, %Vec_PtrPush.exit91 ], [ %62, %Vec_PtrPush.exit ]
+  %.sink142 = phi ptr [ %93, %Vec_PtrPush.exit91 ], [ %62, %Vec_PtrPush.exit ]
   %96 = sext i32 %.sink to i64
-  %97 = getelementptr inbounds ptr, ptr %.sink135, i64 %96
+  %97 = getelementptr inbounds ptr, ptr %.sink142, i64 %96
   store ptr %28, ptr %97, align 8, !tbaa !46
   br label %98
 
@@ -2809,7 +2809,7 @@ Vec_PtrPush.exit91:                               ; preds = %.Vec_PtrGrow.exit11
   %128 = getelementptr inbounds nuw ptr, ptr %114, i64 %indvars.iv118
   store ptr %127, ptr %128, align 8, !tbaa !45
   %.not66 = icmp eq i64 %indvars.iv118, 0
-  %129 = select i1 %.not66, ptr null, ptr %.tr92140
+  %129 = select i1 %.not66, ptr null, ptr %.tr92147
   %130 = getelementptr i8, ptr %127, i64 36
   %.val81 = load i32, ptr %130, align 4, !tbaa !42
   %131 = sext i32 %.val81 to i64
@@ -2898,7 +2898,7 @@ Vec_PtrPush.exit91:                               ; preds = %.Vec_PtrGrow.exit11
   br label %168
 
 168:                                              ; preds = %158, %156
-  br i1 %.tr93141, label %._crit_edge.thread.loopexit, label %169
+  br i1 %.tr93148, label %._crit_edge.thread.loopexit, label %169
 
 169:                                              ; preds = %168
   %.val = load i32, ptr %107, align 4, !tbaa !24
@@ -2906,7 +2906,7 @@ Vec_PtrPush.exit91:                               ; preds = %.Vec_PtrGrow.exit11
   br i1 %170, label %tailrecurse, label %._crit_edge.thread.loopexit
 
 tailrecurse:                                      ; preds = %169
-  %171 = add nuw nsw i32 %accumulator.tr139, 1
+  %171 = add nuw nsw i32 %accumulator.tr146, 1
   %172 = getelementptr inbounds nuw i8, ptr %119, i64 4
   store i32 0, ptr %172, align 4, !tbaa !24
   %173 = getelementptr inbounds nuw i8, ptr %.pre128, i64 4
@@ -2920,7 +2920,7 @@ tailrecurse:                                      ; preds = %169
   br i1 %179, label %.lr.ph.preheader, label %._crit_edge.thread.loopexit
 
 ._crit_edge.thread.loopexit:                      ; preds = %tailrecurse, %168, %169, %._crit_edge
-  %accumulator.tr.lcssa.ph = phi i32 [ %accumulator.tr139, %._crit_edge ], [ %accumulator.tr139, %169 ], [ %accumulator.tr139, %168 ], [ %171, %tailrecurse ]
+  %accumulator.tr.lcssa.ph = phi i32 [ %accumulator.tr146, %._crit_edge ], [ %accumulator.tr146, %169 ], [ %accumulator.tr146, %168 ], [ %171, %tailrecurse ]
   %.063.ph = phi i32 [ 0, %._crit_edge ], [ 1, %169 ], [ 1, %168 ], [ 0, %tailrecurse ]
   %180 = add nuw nsw i32 %.063.ph, %accumulator.tr.lcssa.ph
   br label %._crit_edge.thread

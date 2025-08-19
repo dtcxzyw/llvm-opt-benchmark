@@ -891,9 +891,9 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13reserve_exact17h109
   br i1 %26, label %29, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h81807e43fbbcc898E.exit.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h81807e43fbbcc898E.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h212a2d5c3422bc50E.exit.i.i.i", %21
-  %.sroa.0.0.i.i.pn.i43.i.i = phi ptr [ %.sroa.0.0.i.i.pn.i.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h212a2d5c3422bc50E.exit.i.i.i" ], [ inttoptr (i64 8 to ptr), %21 ]
+  %.sroa.0.0.i.i.pn.i44.i.i = phi ptr [ %.sroa.0.0.i.i.pn.i.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h212a2d5c3422bc50E.exit.i.i.i" ], [ inttoptr (i64 8 to ptr), %21 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.0.0.i.i.pn.i43.i.i, ptr %27, align 8, !alias.scope !493
+  store ptr %.sroa.0.0.i.i.pn.i44.i.i, ptr %27, align 8, !alias.scope !493
   store i64 %9, ptr %0, align 8, !alias.scope !493
   %.pre.i = sub i64 %9, %1
   %28 = icmp ule i64 %2, %.pre.i
@@ -1386,9 +1386,9 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve
   br i1 %26, label %30, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h81807e43fbbcc898E.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h81807e43fbbcc898E.exit": ; preds = %21, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h212a2d5c3422bc50E.exit.i.i"
-  %.sroa.0.0.i.i.pn.i43.i = phi ptr [ %.sroa.0.0.i.i.pn.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h212a2d5c3422bc50E.exit.i.i" ], [ inttoptr (i64 8 to ptr), %21 ]
+  %.sroa.0.0.i.i.pn.i44.i = phi ptr [ %.sroa.0.0.i.i.pn.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h212a2d5c3422bc50E.exit.i.i" ], [ inttoptr (i64 8 to ptr), %21 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.0.0.i.i.pn.i43.i, ptr %27, align 8, !alias.scope !521
+  store ptr %.sroa.0.0.i.i.pn.i44.i, ptr %27, align 8, !alias.scope !521
   store i64 %9, ptr %0, align 8, !alias.scope !521
   %.pre = sub i64 %9, %1
   %28 = icmp ule i64 %2, %.pre

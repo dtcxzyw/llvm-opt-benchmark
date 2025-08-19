@@ -282,11 +282,11 @@ Vec_StrPush.exit.i.i113:                          ; preds = %94, %Vec_StrGrow.ex
   br i1 %102, label %.lr.ph.i.i120, label %Vec_StrAppend.exit132
 
 .lr.ph.i.i120thread-pre-split:                    ; preds = %Vec_StrPush.exit.i.i126
-  %.pr330 = load i32, ptr %9, align 4, !tbaa !3
+  %.pr373 = load i32, ptr %9, align 4, !tbaa !3
   br label %.lr.ph.i.i120
 
 .lr.ph.i.i120:                                    ; preds = %101, %.lr.ph.i.i120thread-pre-split
-  %103 = phi i32 [ %.pr330, %.lr.ph.i.i120thread-pre-split ], [ %.val97, %101 ]
+  %103 = phi i32 [ %.pr373, %.lr.ph.i.i120thread-pre-split ], [ %.val97, %101 ]
   %indvars.iv.i.i123 = phi i64 [ %indvars.iv.next.i.i127, %.lr.ph.i.i120thread-pre-split ], [ 0, %101 ]
   %104 = getelementptr inbounds nuw i8, ptr @.str.5, i64 %indvars.iv.i.i123
   %105 = load i8, ptr %104, align 1, !tbaa !33
@@ -440,11 +440,11 @@ Vec_StrPush.exit.i.i139:                          ; preds = %159, %Vec_StrGrow.e
   br i1 %167, label %.lr.ph.i.i146, label %Vec_StrAppend.exit158
 
 .lr.ph.i.i146thread-pre-split:                    ; preds = %Vec_StrPush.exit.i.i152
-  %.pr331 = load i32, ptr %9, align 4, !tbaa !3
+  %.pr374 = load i32, ptr %9, align 4, !tbaa !3
   br label %.lr.ph.i.i146
 
 .lr.ph.i.i146:                                    ; preds = %166, %.lr.ph.i.i146thread-pre-split
-  %168 = phi i32 [ %.pr331, %.lr.ph.i.i146thread-pre-split ], [ %.val98, %166 ]
+  %168 = phi i32 [ %.pr374, %.lr.ph.i.i146thread-pre-split ], [ %.val98, %166 ]
   %indvars.iv.i.i149 = phi i64 [ %indvars.iv.next.i.i153, %.lr.ph.i.i146thread-pre-split ], [ 0, %166 ]
   %169 = getelementptr inbounds nuw i8, ptr @.str.5, i64 %indvars.iv.i.i149
   %170 = load i8, ptr %169, align 1, !tbaa !33
@@ -598,11 +598,11 @@ Vec_StrPush.exit.i.i165:                          ; preds = %224, %Vec_StrGrow.e
   br i1 %232, label %.lr.ph.i.i172, label %Vec_StrAppend.exit184
 
 .lr.ph.i.i172thread-pre-split:                    ; preds = %Vec_StrPush.exit.i.i178
-  %.pr332 = load i32, ptr %9, align 4, !tbaa !3
+  %.pr375 = load i32, ptr %9, align 4, !tbaa !3
   br label %.lr.ph.i.i172
 
 .lr.ph.i.i172:                                    ; preds = %231, %.lr.ph.i.i172thread-pre-split
-  %233 = phi i32 [ %.pr332, %.lr.ph.i.i172thread-pre-split ], [ %.val99, %231 ]
+  %233 = phi i32 [ %.pr375, %.lr.ph.i.i172thread-pre-split ], [ %.val99, %231 ]
   %indvars.iv.i.i175 = phi i64 [ %indvars.iv.next.i.i179, %.lr.ph.i.i172thread-pre-split ], [ 0, %231 ]
   %234 = getelementptr inbounds nuw i8, ptr @.str.5, i64 %indvars.iv.i.i175
   %235 = load i8, ptr %234, align 1, !tbaa !33
@@ -756,11 +756,11 @@ Vec_StrPush.exit.i.i191:                          ; preds = %289, %Vec_StrGrow.e
   br i1 %297, label %.lr.ph.i.i198, label %Vec_StrAppend.exit210
 
 .lr.ph.i.i198thread-pre-split:                    ; preds = %Vec_StrPush.exit.i.i204
-  %.pr333 = load i32, ptr %9, align 4, !tbaa !3
+  %.pr376 = load i32, ptr %9, align 4, !tbaa !3
   br label %.lr.ph.i.i198
 
 .lr.ph.i.i198:                                    ; preds = %296, %.lr.ph.i.i198thread-pre-split
-  %298 = phi i32 [ %.pr333, %.lr.ph.i.i198thread-pre-split ], [ %.val100, %296 ]
+  %298 = phi i32 [ %.pr376, %.lr.ph.i.i198thread-pre-split ], [ %.val100, %296 ]
   %indvars.iv.i.i201 = phi i64 [ %indvars.iv.next.i.i205, %.lr.ph.i.i198thread-pre-split ], [ 0, %296 ]
   %299 = getelementptr inbounds nuw i8, ptr @.str.5, i64 %indvars.iv.i.i201
   %300 = load i8, ptr %299, align 1, !tbaa !33
@@ -914,11 +914,11 @@ Vec_StrPush.exit.i.i217:                          ; preds = %354, %Vec_StrGrow.e
   br i1 %362, label %.lr.ph.i.i224, label %Vec_StrAppend.exit236
 
 .lr.ph.i.i224thread-pre-split:                    ; preds = %Vec_StrPush.exit.i.i230
-  %.pr334 = load i32, ptr %9, align 4, !tbaa !3
+  %.pr377 = load i32, ptr %9, align 4, !tbaa !3
   br label %.lr.ph.i.i224
 
 .lr.ph.i.i224:                                    ; preds = %361, %.lr.ph.i.i224thread-pre-split
-  %363 = phi i32 [ %.pr334, %.lr.ph.i.i224thread-pre-split ], [ %.val101, %361 ]
+  %363 = phi i32 [ %.pr377, %.lr.ph.i.i224thread-pre-split ], [ %.val101, %361 ]
   %indvars.iv.i.i227 = phi i64 [ %indvars.iv.next.i.i231, %.lr.ph.i.i224thread-pre-split ], [ 0, %361 ]
   %364 = getelementptr inbounds nuw i8, ptr @.str.5, i64 %indvars.iv.i.i227
   %365 = load i8, ptr %364, align 1, !tbaa !33
@@ -997,11 +997,11 @@ Vec_StrAppend.exit236:                            ; preds = %Vec_StrPush.exit.i.
   br i1 %394, label %.lr.ph.i.i237, label %Vec_StrAppend.exit249
 
 .lr.ph.i.i237thread-pre-split:                    ; preds = %Vec_StrPush.exit.i.i243
-  %.pr335 = load i32, ptr %9, align 4, !tbaa !3
+  %.pr378 = load i32, ptr %9, align 4, !tbaa !3
   br label %.lr.ph.i.i237
 
 .lr.ph.i.i237:                                    ; preds = %393, %.lr.ph.i.i237thread-pre-split
-  %395 = phi i32 [ %.pr335, %.lr.ph.i.i237thread-pre-split ], [ %.val102, %393 ]
+  %395 = phi i32 [ %.pr378, %.lr.ph.i.i237thread-pre-split ], [ %.val102, %393 ]
   %indvars.iv.i.i240 = phi i64 [ %indvars.iv.next.i.i244, %.lr.ph.i.i237thread-pre-split ], [ 0, %393 ]
   %396 = getelementptr inbounds nuw i8, ptr @.str.5, i64 %indvars.iv.i.i240
   %397 = load i8, ptr %396, align 1, !tbaa !33

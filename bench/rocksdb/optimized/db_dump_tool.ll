@@ -3075,9 +3075,9 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i281: ; preds = %_ZStlsISt11char
           to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i283.invoke unwind label %104
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i283.invoke.sink.split: ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i281, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i270
-  %.sink469 = phi ptr [ %156, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i270 ], [ %203, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i281 ]
+  %.sink513 = phi ptr [ %156, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i270 ], [ %203, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i281 ]
   %.ph = phi ptr [ %149, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i270 ], [ %196, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i281 ]
-  %211 = getelementptr inbounds nuw i8, ptr %.sink469, i64 67
+  %211 = getelementptr inbounds nuw i8, ptr %.sink513, i64 67
   %212 = load i8, ptr %211, align 1, !tbaa !19
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i283.invoke
 

@@ -100,8 +100,8 @@ sub_0:                                            ; preds = %6
 
 .thread:                                          ; preds = %.tail
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.14) #9
-  %.not3455 = icmp eq i32 %15, 0
-  br i1 %.not3455, label %25, label %.tail46.thread
+  %.not3456 = icmp eq i32 %15, 0
+  br i1 %.not3456, label %25, label %.tail46.thread
 
 sub_039:                                          ; preds = %.tail.thread
   switch i8 %10, label %.tail46.thread [
@@ -423,7 +423,8 @@ normalize_double.exit118:                         ; preds = %normalize_double.ex
   br label %156
 
 156:                                              ; preds = %.preheader, %174
-  %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %174 ]
+  %exitcond.not = phi i1 [ false, %.preheader ], [ true, %174 ]
+  %indvars.iv = phi i64 [ 1, %.preheader ], [ 2, %174 ]
   %157 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv
   %158 = load ptr, ptr %157, align 8, !tbaa !67
   %.not111 = icmp eq ptr %158, null
@@ -448,8 +449,6 @@ normalize_double.exit118:                         ; preds = %normalize_double.ex
   br label %174
 
 174:                                              ; preds = %156, %159
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %156, !llvm.loop !68
 
 .loopexit:                                        ; preds = %174, %135

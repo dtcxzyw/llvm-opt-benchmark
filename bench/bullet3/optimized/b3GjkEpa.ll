@@ -239,12 +239,12 @@ define dso_local noundef zeroext i1 @_ZN15b3GjkEpaSolver28DistanceERK11b3Transfo
   %foldExtExtBinop = fsub <2 x float> %.sroa.095.0.lcssa, %.sroa.079.0.lcssa
   %148 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %149 = fsub float %.sroa.095.4.vec.extract, %.sroa.079.4.vec.extract
-  %foldExtExtBinop132 = fsub <2 x float> %.sroa.11106.0.lcssa, %.sroa.11.0.lcssa
-  %150 = extractelement <2 x float> %foldExtExtBinop132, i64 0
-  %.sroa.3.12.vec.insert.i.i134 = insertelement <2 x float> %foldExtExtBinop132, float 0.000000e+00, i64 1
+  %foldExtExtBinop133 = fsub <2 x float> %.sroa.11106.0.lcssa, %.sroa.11.0.lcssa
+  %150 = extractelement <2 x float> %foldExtExtBinop133, i64 0
+  %.sroa.3.12.vec.insert.i.i135 = insertelement <2 x float> %foldExtExtBinop133, float 0.000000e+00, i64 1
   %151 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store <2 x float> %.sroa.3.12.vec.insert.i.i134, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !33
+  store <2 x float> %.sroa.3.12.vec.insert.i.i135, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %7, i64 52
   %153 = fmul float %149, %149
   %154 = call float @llvm.fmuladd.f32(float %148, float %148, float %153)
@@ -346,9 +346,9 @@ define dso_local noundef zeroext i1 @_ZN15b3GjkEpaSolver28DistanceERK11b3Transfo
 
 _Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i: ; preds = %188, %172
   %.114.i.i.i.lcssa.sink.i.i = phi i32 [ %.114.i.i.i.i, %172 ], [ %.114.i.i.i.i.i, %188 ]
-  %.sink10.i.i = phi i32 [ %169, %172 ], [ %185, %188 ]
+  %.sink11.i.i = phi i32 [ %169, %172 ], [ %185, %188 ]
   %200 = call i32 @llvm.smax.i32(i32 %.114.i.i.i.lcssa.sink.i.i, i32 0)
-  %201 = add nsw i32 %200, %.sink10.i.i
+  %201 = add nsw i32 %200, %.sink11.i.i
   %202 = sext i32 %201 to i64
   %203 = getelementptr inbounds %class.b3Vector3, ptr %34, i64 %202
   %.sroa.07.0.copyload.i.i.i.i = load <2 x float>, ptr %203, align 16
@@ -457,9 +457,9 @@ _ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArr
 
 _Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i: ; preds = %250, %234
   %.114.i.i.i.lcssa.sink.i = phi i32 [ %.114.i.i.i, %234 ], [ %.114.i.i.i.i65, %250 ]
-  %.sink65.i = phi i32 [ %231, %234 ], [ %247, %250 ]
+  %.sink66.i = phi i32 [ %231, %234 ], [ %247, %250 ]
   %262 = call i32 @llvm.smax.i32(i32 %.114.i.i.i.lcssa.sink.i, i32 0)
-  %263 = add nsw i32 %262, %.sink65.i
+  %263 = add nsw i32 %262, %.sink66.i
   %264 = sext i32 %263 to i64
   %265 = getelementptr inbounds %class.b3Vector3, ptr %61, i64 %264
   %.sroa.07.0.copyload.i.i.i = load <2 x float>, ptr %265, align 16
@@ -470,9 +470,9 @@ _Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3A
   br label %_ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E.exit
 
 _ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E.exit: ; preds = %230, %246, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i
-  %.fca.1.insert.merged.i.i.sink60.i = phi { <2 x float>, <2 x float> } [ zeroinitializer, %230 ], [ zeroinitializer, %246 ], [ %267, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i ]
-  %268 = extractvalue { <2 x float>, <2 x float> } %.fca.1.insert.merged.i.i.sink60.i, 0
-  %269 = extractvalue { <2 x float>, <2 x float> } %.fca.1.insert.merged.i.i.sink60.i, 1
+  %.fca.1.insert.merged.i.i.sink61.i = phi { <2 x float>, <2 x float> } [ zeroinitializer, %230 ], [ zeroinitializer, %246 ], [ %267, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i ]
+  %268 = extractvalue { <2 x float>, <2 x float> } %.fca.1.insert.merged.i.i.sink61.i, 0
+  %269 = extractvalue { <2 x float>, <2 x float> } %.fca.1.insert.merged.i.i.sink61.i, 1
   %.sroa.016.0.vec.extract.i = extractelement <2 x float> %268, i64 0
   %.sroa.016.4.vec.extract.i = extractelement <2 x float> %268, i64 1
   %270 = fmul float %.sroa.016.4.vec.extract.i, %68
@@ -900,12 +900,12 @@ define linkonce_odr dso_local noundef i32 @_ZN13gjkepa2_impl25b3GJK8EvaluateERKN
 
 _Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.i.i: ; preds = %100, %80
   %.114.i.i.i.lcssa.sink.i.i.i.i = phi i32 [ %.114.i.i.i.i.i.i, %80 ], [ %.114.i.i.i.i.i.i.i, %100 ]
-  %.sink10.i.i.i.i = phi i32 [ %74, %80 ], [ %94, %100 ]
-  %.sink7.i.i.i.i = phi ptr [ %76, %80 ], [ %96, %100 ]
+  %.sink11.i.i.i.i = phi i32 [ %74, %80 ], [ %94, %100 ]
+  %.sink8.i.i.i.i = phi ptr [ %76, %80 ], [ %96, %100 ]
   %112 = tail call i32 @llvm.smax.i32(i32 %.114.i.i.i.lcssa.sink.i.i.i.i, i32 0)
-  %113 = add nsw i32 %112, %.sink10.i.i.i.i
+  %113 = add nsw i32 %112, %.sink11.i.i.i.i
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds %class.b3Vector3, ptr %.sink7.i.i.i.i, i64 %114
+  %115 = getelementptr inbounds %class.b3Vector3, ptr %.sink8.i.i.i.i, i64 %114
   %.sroa.07.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %115, align 16
   %.sroa.3.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %115, i64 8
   %.sroa.3.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !33
@@ -930,14 +930,14 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit: ; pred
   %124 = call { <2 x float>, <2 x float> } @_ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E(ptr noundef nonnull align 16 dereferenceable(484) %0, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(25) %66)
   %125 = extractvalue { <2 x float>, <2 x float> } %124, 0
   %126 = extractvalue { <2 x float>, <2 x float> } %124, 1
-  %foldExtExtBinop203 = fsub <2 x float> %119, %126
+  %foldExtExtBinop209 = fsub <2 x float> %119, %126
   %.sroa.0.4.vec.insert.i.i6.i.i.i = fsub <2 x float> %118, %125
-  %.sroa.3.12.vec.insert.i.i7.i.i.i211 = insertelement <2 x float> %foldExtExtBinop203, float 0.000000e+00, i64 1
+  %.sroa.3.12.vec.insert.i.i7.i.i.i217 = insertelement <2 x float> %foldExtExtBinop209, float 0.000000e+00, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store <2 x float> %.sroa.0.4.vec.insert.i.i6.i.i.i, ptr %127, align 16
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store <2 x float> %.sroa.3.12.vec.insert.i.i7.i.i.i211, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !33
+  store <2 x float> %.sroa.3.12.vec.insert.i.i7.i.i.i217, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !33
   store float 1.000000e+00, ptr %55, align 8, !tbaa !37
   %128 = load ptr, ptr %38, align 8, !tbaa !38
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
@@ -1092,12 +1092,12 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit: ; pred
 
 _Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.i.i101: ; preds = %206, %186
   %.114.i.i.i.lcssa.sink.i.i.i.i102 = phi i32 [ %.114.i.i.i.i.i.i112, %186 ], [ %.114.i.i.i.i.i.i.i97, %206 ]
-  %.sink10.i.i.i.i103 = phi i32 [ %180, %186 ], [ %200, %206 ]
-  %.sink7.i.i.i.i104 = phi ptr [ %182, %186 ], [ %202, %206 ]
+  %.sink11.i.i.i.i103 = phi i32 [ %180, %186 ], [ %200, %206 ]
+  %.sink8.i.i.i.i104 = phi ptr [ %182, %186 ], [ %202, %206 ]
   %218 = call i32 @llvm.smax.i32(i32 %.114.i.i.i.lcssa.sink.i.i.i.i102, i32 0)
-  %219 = add nsw i32 %218, %.sink10.i.i.i.i103
+  %219 = add nsw i32 %218, %.sink11.i.i.i.i103
   %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds %class.b3Vector3, ptr %.sink7.i.i.i.i104, i64 %220
+  %221 = getelementptr inbounds %class.b3Vector3, ptr %.sink8.i.i.i.i104, i64 %220
   %.sroa.07.0.copyload.i.i.i.i.i.i105 = load <2 x float>, ptr %221, align 16
   %.sroa.3.0..sroa_idx.i.i.i.i.i.i106 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %.sroa.3.0.copyload.i.i.i.i.i.i107 = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i.i106, align 8, !tbaa !33
@@ -1121,14 +1121,14 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit116: ; p
   %229 = call { <2 x float>, <2 x float> } @_ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E(ptr noundef nonnull align 16 dereferenceable(484) %0, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(25) %171)
   %230 = extractvalue { <2 x float>, <2 x float> } %229, 0
   %231 = extractvalue { <2 x float>, <2 x float> } %229, 1
-  %foldExtExtBinop209 = fsub <2 x float> %225, %231
+  %foldExtExtBinop215 = fsub <2 x float> %225, %231
   %.sroa.0.4.vec.insert.i.i6.i.i.i90 = fsub <2 x float> %224, %230
-  %.sroa.3.12.vec.insert.i.i7.i.i.i91212 = insertelement <2 x float> %foldExtExtBinop209, float 0.000000e+00, i64 1
+  %.sroa.3.12.vec.insert.i.i7.i.i.i91218 = insertelement <2 x float> %foldExtExtBinop215, float 0.000000e+00, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %232 = getelementptr inbounds nuw i8, ptr %163, i64 16
   store <2 x float> %.sroa.0.4.vec.insert.i.i6.i.i.i90, ptr %232, align 16
   %.sroa.4.0..sroa_idx.i.i92 = getelementptr inbounds nuw i8, ptr %163, i64 24
-  store <2 x float> %.sroa.3.12.vec.insert.i.i7.i.i.i91212, ptr %.sroa.4.0..sroa_idx.i.i92, align 8, !tbaa !33
+  store <2 x float> %.sroa.3.12.vec.insert.i.i7.i.i.i91218, ptr %.sroa.4.0..sroa_idx.i.i92, align 8, !tbaa !33
   %233 = load i32, ptr %155, align 8, !tbaa !24
   %234 = add i32 %233, -1
   %235 = zext i32 %234 to i64
@@ -2334,12 +2334,12 @@ _ZN13gjkepa2_impl25b3EPA8findbestEv.exit:         ; preds = %.lr.ph.i, %123
 
 _Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.i: ; preds = %223, %203
   %.114.i.i.i.lcssa.sink.i.i.i = phi i32 [ %.114.i.i.i.i.i, %203 ], [ %.114.i.i.i.i.i.i, %223 ]
-  %.sink10.i.i.i = phi i32 [ %197, %203 ], [ %217, %223 ]
-  %.sink7.i.i.i = phi ptr [ %199, %203 ], [ %219, %223 ]
+  %.sink11.i.i.i = phi i32 [ %197, %203 ], [ %217, %223 ]
+  %.sink8.i.i.i = phi ptr [ %199, %203 ], [ %219, %223 ]
   %235 = call i32 @llvm.smax.i32(i32 %.114.i.i.i.lcssa.sink.i.i.i, i32 0)
-  %236 = add nsw i32 %235, %.sink10.i.i.i
+  %236 = add nsw i32 %235, %.sink11.i.i.i
   %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds %class.b3Vector3, ptr %.sink7.i.i.i, i64 %237
+  %238 = getelementptr inbounds %class.b3Vector3, ptr %.sink8.i.i.i, i64 %237
   %.sroa.07.0.copyload.i.i.i.i.i = load <2 x float>, ptr %238, align 16
   %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %238, i64 8
   %.sroa.3.0.copyload.i.i.i.i.i = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !33
@@ -2365,17 +2365,17 @@ _ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit: ; preds = %19
   %248 = extractvalue { <2 x float>, <2 x float> } %246, 1
   %foldExtExtBinop = fsub <2 x float> %241, %247
   %249 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop373 = fsub <2 x float> %241, %247
-  %250 = extractelement <2 x float> %foldExtExtBinop373, i64 1
-  %foldExtExtBinop375 = fsub <2 x float> %242, %248
-  %251 = extractelement <2 x float> %foldExtExtBinop375, i64 0
-  %.sroa.0.4.vec.insert.i.i6.i.i = shufflevector <2 x float> %foldExtExtBinop, <2 x float> %foldExtExtBinop373, <2 x i32> <i32 0, i32 3>
-  %.sroa.3.12.vec.insert.i.i7.i.i377 = insertelement <2 x float> %foldExtExtBinop375, float 0.000000e+00, i64 1
+  %foldExtExtBinop383 = fsub <2 x float> %241, %247
+  %250 = extractelement <2 x float> %foldExtExtBinop383, i64 1
+  %foldExtExtBinop385 = fsub <2 x float> %242, %248
+  %251 = extractelement <2 x float> %foldExtExtBinop385, i64 0
+  %.sroa.0.4.vec.insert.i.i6.i.i = shufflevector <2 x float> %foldExtExtBinop, <2 x float> %foldExtExtBinop383, <2 x i32> <i32 0, i32 3>
+  %.sroa.3.12.vec.insert.i.i7.i.i387 = insertelement <2 x float> %foldExtExtBinop385, float 0.000000e+00, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %252 = getelementptr inbounds nuw i8, ptr %171, i64 16
   store <2 x float> %.sroa.0.4.vec.insert.i.i6.i.i, ptr %252, align 16
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %171, i64 24
-  store <2 x float> %.sroa.3.12.vec.insert.i.i7.i.i377, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !33
+  store <2 x float> %.sroa.3.12.vec.insert.i.i7.i.i387, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !33
   %253 = load float, ptr %.076311, align 16, !tbaa !33
   %254 = load float, ptr %176, align 4, !tbaa !33
   %255 = fmul float %254, %250
@@ -3419,12 +3419,12 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK13gjkepa2_impl21
 
 _Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split: ; preds = %72, %52
   %.114.i.i.i.lcssa.sink = phi i32 [ %.114.i.i, %52 ], [ %.114.i.i.i, %72 ]
-  %.sink65 = phi i32 [ %46, %52 ], [ %66, %72 ]
-  %.sink62 = phi ptr [ %48, %52 ], [ %68, %72 ]
+  %.sink66 = phi i32 [ %46, %52 ], [ %66, %72 ]
+  %.sink63 = phi ptr [ %48, %52 ], [ %68, %72 ]
   %84 = tail call i32 @llvm.smax.i32(i32 %.114.i.i.i.lcssa.sink, i32 0)
-  %85 = add nsw i32 %84, %.sink65
+  %85 = add nsw i32 %84, %.sink66
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds %class.b3Vector3, ptr %.sink62, i64 %86
+  %87 = getelementptr inbounds %class.b3Vector3, ptr %.sink63, i64 %86
   %.sroa.07.0.copyload.i.i = load <2 x float>, ptr %87, align 16
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %87, i64 8
   %.sroa.3.0.copyload.i.i = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !33
@@ -3433,10 +3433,10 @@ _Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3A
   br label %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit
 
 _Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit: ; preds = %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split, %64, %44
-  %.fca.1.insert.merged.i.i.sink60 = phi { <2 x float>, <2 x float> } [ zeroinitializer, %44 ], [ zeroinitializer, %64 ], [ %89, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split ]
+  %.fca.1.insert.merged.i.i.sink61 = phi { <2 x float>, <2 x float> } [ zeroinitializer, %44 ], [ zeroinitializer, %64 ], [ %89, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %91 = extractvalue { <2 x float>, <2 x float> } %.fca.1.insert.merged.i.i.sink60, 0
-  %92 = extractvalue { <2 x float>, <2 x float> } %.fca.1.insert.merged.i.i.sink60, 1
+  %91 = extractvalue { <2 x float>, <2 x float> } %.fca.1.insert.merged.i.i.sink61, 0
+  %92 = extractvalue { <2 x float>, <2 x float> } %.fca.1.insert.merged.i.i.sink61, 1
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.016.0.vec.extract = extractelement <2 x float> %91, i64 0
@@ -3640,12 +3640,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13gjkepa2_impl25b3GJK13Encl
 
 _Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.i.i: ; preds = %84, %64
   %.114.i.i.i.lcssa.sink.i.i.i.i = phi i32 [ %.114.i.i.i.i.i.i, %64 ], [ %.114.i.i.i.i.i.i.i, %84 ]
-  %.sink10.i.i.i.i = phi i32 [ %58, %64 ], [ %78, %84 ]
-  %.sink7.i.i.i.i = phi ptr [ %60, %64 ], [ %80, %84 ]
+  %.sink11.i.i.i.i = phi i32 [ %58, %64 ], [ %78, %84 ]
+  %.sink8.i.i.i.i = phi ptr [ %60, %64 ], [ %80, %84 ]
   %96 = call i32 @llvm.smax.i32(i32 %.114.i.i.i.lcssa.sink.i.i.i.i, i32 0)
-  %97 = add nsw i32 %96, %.sink10.i.i.i.i
+  %97 = add nsw i32 %96, %.sink11.i.i.i.i
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds %class.b3Vector3, ptr %.sink7.i.i.i.i, i64 %98
+  %99 = getelementptr inbounds %class.b3Vector3, ptr %.sink8.i.i.i.i, i64 %98
   %.sroa.07.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %99, align 16
   %.sroa.3.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %99, i64 8
   %.sroa.3.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !33
@@ -3669,14 +3669,14 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit: ; pred
   %107 = call { <2 x float>, <2 x float> } @_ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E(ptr noundef nonnull align 16 dereferenceable(484) %0, ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(25) %49)
   %108 = extractvalue { <2 x float>, <2 x float> } %107, 0
   %109 = extractvalue { <2 x float>, <2 x float> } %107, 1
-  %foldExtExtBinop376 = fsub <2 x float> %103, %109
+  %foldExtExtBinop388 = fsub <2 x float> %103, %109
   %.sroa.0.4.vec.insert.i.i6.i.i.i = fsub <2 x float> %102, %108
-  %.sroa.3.12.vec.insert.i.i7.i.i.i412 = insertelement <2 x float> %foldExtExtBinop376, float 0.000000e+00, i64 1
+  %.sroa.3.12.vec.insert.i.i7.i.i.i424 = insertelement <2 x float> %foldExtExtBinop388, float 0.000000e+00, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %110 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store <2 x float> %.sroa.0.4.vec.insert.i.i6.i.i.i, ptr %110, align 16
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store <2 x float> %.sroa.3.12.vec.insert.i.i7.i.i.i412, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !33
+  store <2 x float> %.sroa.3.12.vec.insert.i.i7.i.i.i424, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !33
   %111 = call noundef zeroext i1 @_ZN13gjkepa2_impl25b3GJK13EncloseOriginEv(ptr noundef nonnull align 16 dereferenceable(484) %0)
   br i1 %111, label %206, label %112
 
@@ -3789,12 +3789,12 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit: ; pred
 
 _Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.i.i55: ; preds = %167, %147
   %.114.i.i.i.lcssa.sink.i.i.i.i56 = phi i32 [ %.114.i.i.i.i.i.i66, %147 ], [ %.114.i.i.i.i.i.i.i51, %167 ]
-  %.sink10.i.i.i.i57 = phi i32 [ %141, %147 ], [ %161, %167 ]
-  %.sink7.i.i.i.i58 = phi ptr [ %143, %147 ], [ %163, %167 ]
+  %.sink11.i.i.i.i57 = phi i32 [ %141, %147 ], [ %161, %167 ]
+  %.sink8.i.i.i.i58 = phi ptr [ %143, %147 ], [ %163, %167 ]
   %179 = call i32 @llvm.smax.i32(i32 %.114.i.i.i.lcssa.sink.i.i.i.i56, i32 0)
-  %180 = add nsw i32 %179, %.sink10.i.i.i.i57
+  %180 = add nsw i32 %179, %.sink11.i.i.i.i57
   %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds %class.b3Vector3, ptr %.sink7.i.i.i.i58, i64 %181
+  %182 = getelementptr inbounds %class.b3Vector3, ptr %.sink8.i.i.i.i58, i64 %181
   %.sroa.07.0.copyload.i.i.i.i.i.i59 = load <2 x float>, ptr %182, align 16
   %.sroa.3.0..sroa_idx.i.i.i.i.i.i60 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %.sroa.3.0.copyload.i.i.i.i.i.i61 = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i.i60, align 8, !tbaa !33
@@ -3818,14 +3818,14 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit70: ; pr
   %190 = call { <2 x float>, <2 x float> } @_ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E(ptr noundef nonnull align 16 dereferenceable(484) %0, ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(25) %132)
   %191 = extractvalue { <2 x float>, <2 x float> } %190, 0
   %192 = extractvalue { <2 x float>, <2 x float> } %190, 1
-  %foldExtExtBinop382 = fsub <2 x float> %186, %192
+  %foldExtExtBinop394 = fsub <2 x float> %186, %192
   %.sroa.0.4.vec.insert.i.i6.i.i.i44 = fsub <2 x float> %185, %191
-  %.sroa.3.12.vec.insert.i.i7.i.i.i45413 = insertelement <2 x float> %foldExtExtBinop382, float 0.000000e+00, i64 1
+  %.sroa.3.12.vec.insert.i.i7.i.i.i45425 = insertelement <2 x float> %foldExtExtBinop394, float 0.000000e+00, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %193 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store <2 x float> %.sroa.0.4.vec.insert.i.i6.i.i.i44, ptr %193, align 16
   %.sroa.4.0..sroa_idx.i.i46 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  store <2 x float> %.sroa.3.12.vec.insert.i.i7.i.i.i45413, ptr %.sroa.4.0..sroa_idx.i.i46, align 8, !tbaa !33
+  store <2 x float> %.sroa.3.12.vec.insert.i.i7.i.i.i45425, ptr %.sroa.4.0..sroa_idx.i.i46, align 8, !tbaa !33
   %194 = call noundef zeroext i1 @_ZN13gjkepa2_impl25b3GJK13EncloseOriginEv(ptr noundef nonnull align 16 dereferenceable(484) %0)
   br i1 %194, label %206, label %.critedge
 
@@ -4016,12 +4016,12 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit70: ; pr
 
 _Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.i.i103: ; preds = %307, %287
   %.114.i.i.i.lcssa.sink.i.i.i.i104 = phi i32 [ %.114.i.i.i.i.i.i114, %287 ], [ %.114.i.i.i.i.i.i.i99, %307 ]
-  %.sink10.i.i.i.i105 = phi i32 [ %281, %287 ], [ %301, %307 ]
-  %.sink7.i.i.i.i106 = phi ptr [ %283, %287 ], [ %303, %307 ]
+  %.sink11.i.i.i.i105 = phi i32 [ %281, %287 ], [ %301, %307 ]
+  %.sink8.i.i.i.i106 = phi ptr [ %283, %287 ], [ %303, %307 ]
   %319 = call i32 @llvm.smax.i32(i32 %.114.i.i.i.lcssa.sink.i.i.i.i104, i32 0)
-  %320 = add nsw i32 %319, %.sink10.i.i.i.i105
+  %320 = add nsw i32 %319, %.sink11.i.i.i.i105
   %321 = sext i32 %320 to i64
-  %322 = getelementptr inbounds %class.b3Vector3, ptr %.sink7.i.i.i.i106, i64 %321
+  %322 = getelementptr inbounds %class.b3Vector3, ptr %.sink8.i.i.i.i106, i64 %321
   %.sroa.07.0.copyload.i.i.i.i.i.i107 = load <2 x float>, ptr %322, align 16
   %.sroa.3.0..sroa_idx.i.i.i.i.i.i108 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %.sroa.3.0.copyload.i.i.i.i.i.i109 = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i.i108, align 8, !tbaa !33
@@ -4045,14 +4045,14 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit118: ; p
   %330 = call { <2 x float>, <2 x float> } @_ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E(ptr noundef nonnull align 16 dereferenceable(484) %0, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(25) %272)
   %331 = extractvalue { <2 x float>, <2 x float> } %330, 0
   %332 = extractvalue { <2 x float>, <2 x float> } %330, 1
-  %foldExtExtBinop388 = fsub <2 x float> %326, %332
+  %foldExtExtBinop400 = fsub <2 x float> %326, %332
   %.sroa.0.4.vec.insert.i.i6.i.i.i92 = fsub <2 x float> %325, %331
-  %.sroa.3.12.vec.insert.i.i7.i.i.i93410 = insertelement <2 x float> %foldExtExtBinop388, float 0.000000e+00, i64 1
+  %.sroa.3.12.vec.insert.i.i7.i.i.i93422 = insertelement <2 x float> %foldExtExtBinop400, float 0.000000e+00, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %333 = getelementptr inbounds nuw i8, ptr %264, i64 16
   store <2 x float> %.sroa.0.4.vec.insert.i.i6.i.i.i92, ptr %333, align 16
   %.sroa.4.0..sroa_idx.i.i94 = getelementptr inbounds nuw i8, ptr %264, i64 24
-  store <2 x float> %.sroa.3.12.vec.insert.i.i7.i.i.i93410, ptr %.sroa.4.0..sroa_idx.i.i94, align 8, !tbaa !33
+  store <2 x float> %.sroa.3.12.vec.insert.i.i7.i.i.i93422, ptr %.sroa.4.0..sroa_idx.i.i94, align 8, !tbaa !33
   %334 = call noundef zeroext i1 @_ZN13gjkepa2_impl25b3GJK13EncloseOriginEv(ptr noundef nonnull align 16 dereferenceable(484) %0)
   br i1 %334, label %432, label %335
 
@@ -4165,12 +4165,12 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit118: ; p
 
 _Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.i.i151: ; preds = %390, %370
   %.114.i.i.i.lcssa.sink.i.i.i.i152 = phi i32 [ %.114.i.i.i.i.i.i162, %370 ], [ %.114.i.i.i.i.i.i.i147, %390 ]
-  %.sink10.i.i.i.i153 = phi i32 [ %364, %370 ], [ %384, %390 ]
-  %.sink7.i.i.i.i154 = phi ptr [ %366, %370 ], [ %386, %390 ]
+  %.sink11.i.i.i.i153 = phi i32 [ %364, %370 ], [ %384, %390 ]
+  %.sink8.i.i.i.i154 = phi ptr [ %366, %370 ], [ %386, %390 ]
   %402 = call i32 @llvm.smax.i32(i32 %.114.i.i.i.lcssa.sink.i.i.i.i152, i32 0)
-  %403 = add nsw i32 %402, %.sink10.i.i.i.i153
+  %403 = add nsw i32 %402, %.sink11.i.i.i.i153
   %404 = sext i32 %403 to i64
-  %405 = getelementptr inbounds %class.b3Vector3, ptr %.sink7.i.i.i.i154, i64 %404
+  %405 = getelementptr inbounds %class.b3Vector3, ptr %.sink8.i.i.i.i154, i64 %404
   %.sroa.07.0.copyload.i.i.i.i.i.i155 = load <2 x float>, ptr %405, align 16
   %.sroa.3.0..sroa_idx.i.i.i.i.i.i156 = getelementptr inbounds nuw i8, ptr %405, i64 8
   %.sroa.3.0.copyload.i.i.i.i.i.i157 = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i.i156, align 8, !tbaa !33
@@ -4194,14 +4194,14 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit166: ; p
   %413 = call { <2 x float>, <2 x float> } @_ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E(ptr noundef nonnull align 16 dereferenceable(484) %0, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(25) %355)
   %414 = extractvalue { <2 x float>, <2 x float> } %413, 0
   %415 = extractvalue { <2 x float>, <2 x float> } %413, 1
-  %foldExtExtBinop394 = fsub <2 x float> %409, %415
+  %foldExtExtBinop406 = fsub <2 x float> %409, %415
   %.sroa.0.4.vec.insert.i.i6.i.i.i140 = fsub <2 x float> %408, %414
-  %.sroa.3.12.vec.insert.i.i7.i.i.i141411 = insertelement <2 x float> %foldExtExtBinop394, float 0.000000e+00, i64 1
+  %.sroa.3.12.vec.insert.i.i7.i.i.i141423 = insertelement <2 x float> %foldExtExtBinop406, float 0.000000e+00, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %416 = getelementptr inbounds nuw i8, ptr %342, i64 16
   store <2 x float> %.sroa.0.4.vec.insert.i.i6.i.i.i140, ptr %416, align 16
   %.sroa.4.0..sroa_idx.i.i142 = getelementptr inbounds nuw i8, ptr %342, i64 24
-  store <2 x float> %.sroa.3.12.vec.insert.i.i7.i.i.i141411, ptr %.sroa.4.0..sroa_idx.i.i142, align 8, !tbaa !33
+  store <2 x float> %.sroa.3.12.vec.insert.i.i7.i.i.i141423, ptr %.sroa.4.0..sroa_idx.i.i142, align 8, !tbaa !33
   %417 = call noundef zeroext i1 @_ZN13gjkepa2_impl25b3GJK13EncloseOriginEv(ptr noundef nonnull align 16 dereferenceable(484) %0)
   br i1 %417, label %432, label %418
 
@@ -4386,12 +4386,12 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit166: ; p
 
 _Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.i.i209: ; preds = %529, %509
   %.114.i.i.i.lcssa.sink.i.i.i.i210 = phi i32 [ %.114.i.i.i.i.i.i220, %509 ], [ %.114.i.i.i.i.i.i.i205, %529 ]
-  %.sink10.i.i.i.i211 = phi i32 [ %503, %509 ], [ %523, %529 ]
-  %.sink7.i.i.i.i212 = phi ptr [ %505, %509 ], [ %525, %529 ]
+  %.sink11.i.i.i.i211 = phi i32 [ %503, %509 ], [ %523, %529 ]
+  %.sink8.i.i.i.i212 = phi ptr [ %505, %509 ], [ %525, %529 ]
   %541 = tail call i32 @llvm.smax.i32(i32 %.114.i.i.i.lcssa.sink.i.i.i.i210, i32 0)
-  %542 = add nsw i32 %541, %.sink10.i.i.i.i211
+  %542 = add nsw i32 %541, %.sink11.i.i.i.i211
   %543 = sext i32 %542 to i64
-  %544 = getelementptr inbounds %class.b3Vector3, ptr %.sink7.i.i.i.i212, i64 %543
+  %544 = getelementptr inbounds %class.b3Vector3, ptr %.sink8.i.i.i.i212, i64 %543
   %.sroa.07.0.copyload.i.i.i.i.i.i213 = load <2 x float>, ptr %544, align 16
   %.sroa.3.0..sroa_idx.i.i.i.i.i.i214 = getelementptr inbounds nuw i8, ptr %544, i64 8
   %.sroa.3.0.copyload.i.i.i.i.i.i215 = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i.i214, align 8, !tbaa !33
@@ -4416,14 +4416,14 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit224: ; p
   %553 = call { <2 x float>, <2 x float> } @_ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E(ptr noundef nonnull align 16 dereferenceable(484) %0, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(25) %493)
   %554 = extractvalue { <2 x float>, <2 x float> } %553, 0
   %555 = extractvalue { <2 x float>, <2 x float> } %553, 1
-  %foldExtExtBinop400 = fsub <2 x float> %548, %555
+  %foldExtExtBinop412 = fsub <2 x float> %548, %555
   %.sroa.0.4.vec.insert.i.i6.i.i.i198 = fsub <2 x float> %547, %554
-  %.sroa.3.12.vec.insert.i.i7.i.i.i199408 = insertelement <2 x float> %foldExtExtBinop400, float 0.000000e+00, i64 1
+  %.sroa.3.12.vec.insert.i.i7.i.i.i199420 = insertelement <2 x float> %foldExtExtBinop412, float 0.000000e+00, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %556 = getelementptr inbounds nuw i8, ptr %484, i64 16
   store <2 x float> %.sroa.0.4.vec.insert.i.i6.i.i.i198, ptr %556, align 16
   %.sroa.4.0..sroa_idx.i.i200 = getelementptr inbounds nuw i8, ptr %484, i64 24
-  store <2 x float> %.sroa.3.12.vec.insert.i.i7.i.i.i199408, ptr %.sroa.4.0..sroa_idx.i.i200, align 8, !tbaa !33
+  store <2 x float> %.sroa.3.12.vec.insert.i.i7.i.i.i199420, ptr %.sroa.4.0..sroa_idx.i.i200, align 8, !tbaa !33
   %557 = call noundef zeroext i1 @_ZN13gjkepa2_impl25b3GJK13EncloseOriginEv(ptr noundef nonnull align 16 dereferenceable(484) %0)
   br i1 %557, label %711, label %558
 
@@ -4536,12 +4536,12 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit224: ; p
 
 _Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.i.i257: ; preds = %613, %593
   %.114.i.i.i.lcssa.sink.i.i.i.i258 = phi i32 [ %.114.i.i.i.i.i.i268, %593 ], [ %.114.i.i.i.i.i.i.i253, %613 ]
-  %.sink10.i.i.i.i259 = phi i32 [ %587, %593 ], [ %607, %613 ]
-  %.sink7.i.i.i.i260 = phi ptr [ %589, %593 ], [ %609, %613 ]
+  %.sink11.i.i.i.i259 = phi i32 [ %587, %593 ], [ %607, %613 ]
+  %.sink8.i.i.i.i260 = phi ptr [ %589, %593 ], [ %609, %613 ]
   %625 = call i32 @llvm.smax.i32(i32 %.114.i.i.i.lcssa.sink.i.i.i.i258, i32 0)
-  %626 = add nsw i32 %625, %.sink10.i.i.i.i259
+  %626 = add nsw i32 %625, %.sink11.i.i.i.i259
   %627 = sext i32 %626 to i64
-  %628 = getelementptr inbounds %class.b3Vector3, ptr %.sink7.i.i.i.i260, i64 %627
+  %628 = getelementptr inbounds %class.b3Vector3, ptr %.sink8.i.i.i.i260, i64 %627
   %.sroa.07.0.copyload.i.i.i.i.i.i261 = load <2 x float>, ptr %628, align 16
   %.sroa.3.0..sroa_idx.i.i.i.i.i.i262 = getelementptr inbounds nuw i8, ptr %628, i64 8
   %.sroa.3.0.copyload.i.i.i.i.i.i263 = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i.i262, align 8, !tbaa !33
@@ -4566,14 +4566,14 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit272: ; p
   %637 = call { <2 x float>, <2 x float> } @_ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E(ptr noundef nonnull align 16 dereferenceable(484) %0, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(25) %578)
   %638 = extractvalue { <2 x float>, <2 x float> } %637, 0
   %639 = extractvalue { <2 x float>, <2 x float> } %637, 1
-  %foldExtExtBinop406 = fsub <2 x float> %632, %639
+  %foldExtExtBinop418 = fsub <2 x float> %632, %639
   %.sroa.0.4.vec.insert.i.i6.i.i.i246 = fsub <2 x float> %631, %638
-  %.sroa.3.12.vec.insert.i.i7.i.i.i247409 = insertelement <2 x float> %foldExtExtBinop406, float 0.000000e+00, i64 1
+  %.sroa.3.12.vec.insert.i.i7.i.i.i247421 = insertelement <2 x float> %foldExtExtBinop418, float 0.000000e+00, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %640 = getelementptr inbounds nuw i8, ptr %565, i64 16
   store <2 x float> %.sroa.0.4.vec.insert.i.i6.i.i.i246, ptr %640, align 16
   %.sroa.4.0..sroa_idx.i.i248 = getelementptr inbounds nuw i8, ptr %565, i64 24
-  store <2 x float> %.sroa.3.12.vec.insert.i.i7.i.i.i247409, ptr %.sroa.4.0..sroa_idx.i.i248, align 8, !tbaa !33
+  store <2 x float> %.sroa.3.12.vec.insert.i.i7.i.i.i247421, ptr %.sroa.4.0..sroa_idx.i.i248, align 8, !tbaa !33
   %641 = call noundef zeroext i1 @_ZN13gjkepa2_impl25b3GJK13EncloseOriginEv(ptr noundef nonnull align 16 dereferenceable(484) %0)
   br i1 %641, label %711, label %642
 

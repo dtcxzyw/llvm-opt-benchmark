@@ -1164,20 +1164,20 @@ define internal void @write_frame_header(ptr noundef %0) #0 {
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %25 = load i32, ptr %24, align 4, !tbaa !68
   %.not43 = icmp eq i32 %25, 0
-  br i1 %.not43, label %26, label %.thread62.thread
+  br i1 %.not43, label %26, label %.thread63.thread
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr %2, align 8, !tbaa !58
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load i32, ptr %28, align 8, !tbaa !59
   %.not44 = icmp eq i32 %29, 0
-  br i1 %.not44, label %30, label %.thread62
+  br i1 %.not44, label %30, label %.thread63
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = load i32, ptr %31, align 8, !tbaa !69
   %.not45 = icmp eq i32 %32, 8
-  br i1 %.not45, label %33, label %.thread62
+  br i1 %.not45, label %33, label %.thread63
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -1219,7 +1219,7 @@ define internal void @write_frame_header(ptr noundef %0) #0 {
   %.137.lcssa = phi i32 [ 1, %33 ], [ %.2, %47 ]
   %50 = icmp ne i32 %.137.lcssa, 0
   %or.cond = select i1 %.038, i1 %50, i1 false
-  br i1 %or.cond, label %51, label %.thread62
+  br i1 %or.cond, label %51, label %.thread63
 
 51:                                               ; preds = %._crit_edge
   %52 = load ptr, ptr %0, align 8, !tbaa !45
@@ -1230,35 +1230,35 @@ define internal void @write_frame_header(ptr noundef %0) #0 {
   tail call void %55(ptr noundef nonnull %0, i32 noundef 0) #3
   %.pr.pre = load i32, ptr %21, align 4, !tbaa !67
   %56 = icmp eq i32 %.pr.pre, 0
-  br i1 %56, label %.thread62, label %.thread
+  br i1 %56, label %.thread63, label %.thread
 
 .thread:                                          ; preds = %.loopexit, %51
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %58 = load i32, ptr %57, align 4, !tbaa !68
   %.not50 = icmp eq i32 %58, 0
   %. = select i1 %.not50, i32 201, i32 202
-  br label %.thread62.thread
+  br label %.thread63.thread
 
-.thread62:                                        ; preds = %._crit_edge, %30, %26, %51
-  %.036.ph65.ph = phi i32 [ 0, %26 ], [ 0, %30 ], [ %.137.lcssa, %._crit_edge ], [ 0, %51 ]
+.thread63:                                        ; preds = %._crit_edge, %30, %26, %51
+  %.036.ph66.ph = phi i32 [ 0, %26 ], [ 0, %30 ], [ %.137.lcssa, %._crit_edge ], [ 0, %51 ]
   %.pr = load i32, ptr %24, align 4, !tbaa !68
   %.not47 = icmp eq i32 %.pr, 0
-  br i1 %.not47, label %59, label %.thread62.thread
+  br i1 %.not47, label %59, label %.thread63.thread
 
-59:                                               ; preds = %.thread62
+59:                                               ; preds = %.thread63
   %60 = load ptr, ptr %2, align 8, !tbaa !58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load i32, ptr %61, align 8, !tbaa !59
   %.not48 = icmp eq i32 %62, 0
-  br i1 %.not48, label %63, label %.thread62.thread
+  br i1 %.not48, label %63, label %.thread63.thread
 
 63:                                               ; preds = %59
-  %.not49 = icmp eq i32 %.036.ph65.ph, 0
-  %.68 = select i1 %.not49, i32 193, i32 192
-  br label %.thread62.thread
+  %.not49 = icmp eq i32 %.036.ph66.ph, 0
+  %.69 = select i1 %.not49, i32 193, i32 192
+  br label %.thread63.thread
 
-.thread62.thread:                                 ; preds = %63, %59, %.thread62, %23, %.thread
-  %.sink = phi i32 [ %., %.thread ], [ 194, %23 ], [ 194, %.thread62 ], [ 195, %59 ], [ %.68, %63 ]
+.thread63.thread:                                 ; preds = %63, %59, %.thread63, %23, %.thread
+  %.sink = phi i32 [ %., %.thread ], [ 194, %23 ], [ 194, %.thread63 ], [ 195, %59 ], [ %.69, %63 ]
   tail call fastcc void @emit_sof(ptr noundef nonnull %0, i32 noundef %.sink)
   ret void
 }

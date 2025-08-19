@@ -166,7 +166,7 @@ define void @_ZN6LibRaw15parse_phase_oneEi(ptr noundef nonnull align 8 dereferen
 
 77:                                               ; preds = %.lr.ph, %.thread136
   %.in = phi i32 [ %27, %.lr.ph ], [ %78, %.thread136 ]
-  %78 = add i32 %.in, -1
+  %78 = add nsw i32 %.in, -1
   %79 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %80 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %81 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
@@ -476,23 +476,23 @@ define void @_ZN6LibRaw15parse_phase_oneEi(ptr noundef nonnull align 8 dereferen
 
 208:                                              ; preds = %205
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %36, ptr noundef nonnull align 1 dereferenceable(13) @.str.2, i64 13, i1 false) #10
-  br label %.sink.split170
+  br label %.sink.split181
 
 209:                                              ; preds = %205
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %36, ptr noundef nonnull align 1 dereferenceable(11) @.str.3, i64 11, i1 false) #10
-  br label %.sink.split170
+  br label %.sink.split181
 
 210:                                              ; preds = %205
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %36, ptr noundef nonnull align 1 dereferenceable(17) @.str.4, i64 17, i1 false) #10
-  br label %.sink.split170
+  br label %.sink.split181
 
-.sink.split170:                                   ; preds = %208, %210, %209
-  %.sink171 = phi i16 [ 24, %209 ], [ 14, %210 ], [ 8, %208 ]
-  store i16 %.sink171, ptr %43, align 2, !tbaa !104
+.sink.split181:                                   ; preds = %208, %210, %209
+  %.sink182 = phi i16 [ 24, %209 ], [ 14, %210 ], [ 8, %208 ]
+  store i16 %.sink182, ptr %43, align 2, !tbaa !104
   store i16 11, ptr %44, align 8, !tbaa !105
   br label %211
 
-211:                                              ; preds = %.sink.split170, %205
+211:                                              ; preds = %.sink.split181, %205
   store i8 0, ptr %204, align 1, !tbaa !74
   br label %212
 
@@ -718,7 +718,7 @@ define void @_ZN6LibRaw15parse_phase_oneEi(ptr noundef nonnull align 8 dereferen
 
 332:                                              ; preds = %.lr.ph153, %382
   %.in155 = phi i32 [ %325, %.lr.ph153 ], [ %333, %382 ]
-  %333 = add i32 %.in155, -1
+  %333 = add nsw i32 %.in155, -1
   %334 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %335 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %336 = load ptr, ptr %5, align 8, !tbaa !6

@@ -2430,8 +2430,8 @@ _ZN5clang12isCheckedPtrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.e
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %147 = load i32, ptr %146, align 4
   %148 = and i32 %147, 127
-  %.not45 = icmp eq i32 %148, 35
-  br i1 %.not45, label %149, label %.critedge13
+  %.not49 = icmp eq i32 %148, 35
+  br i1 %.not49, label %149, label %.critedge13
 
 149:                                              ; preds = %_ZN5clang12isCheckedPtrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit24.thread
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2764,13 +2764,13 @@ _ZN5clang11safeGetNameINS_12FunctionDeclEEENSt7__cxx1112basic_stringIcSt11char_t
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZN5clang11safeGetNameINS_12FunctionDeclEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_.exit
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %.pre, ptr noundef nonnull dereferenceable(9) @.str.30, i64 9)
   %37 = icmp eq i32 %bcmp.i, 0
-  br i1 %37, label %_ZNK4llvm9StringRef9ends_withES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread17.thread23
+  br i1 %37, label %_ZNK4llvm9StringRef9ends_withES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread17.thread26
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread17:       ; preds = %_ZN5clang11safeGetNameINS_12FunctionDeclEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_.exit
   %.not.i8 = icmp ult i64 %.pre20, 9
-  br i1 %.not.i8, label %_ZNK4llvm9StringRef9ends_withES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread17.thread23
+  br i1 %.not.i8, label %_ZNK4llvm9StringRef9ends_withES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread17.thread26
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread17.thread23: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread17
+_ZN4llvmeqENS_9StringRefES0_.exit.thread17.thread26: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread17
   %38 = phi i64 [ %.pre20, %_ZN4llvmeqENS_9StringRefES0_.exit.thread17 ], [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %.pre, i64 %38
   %40 = getelementptr inbounds i8, ptr %39, i64 -9
@@ -2778,9 +2778,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread17.thread23: ; preds = %_ZN4llvmeqENS_9S
   %41 = icmp eq i32 %bcmp.i9, 0
   br label %_ZNK4llvm9StringRef9ends_withES0_.exit
 
-_ZNK4llvm9StringRef9ends_withES0_.exit:           ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread17.thread23, %_ZN4llvmeqENS_9StringRefES0_.exit.thread17, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %42 = phi i64 [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.pre20, %_ZN4llvmeqENS_9StringRefES0_.exit.thread17 ], [ %38, %_ZN4llvmeqENS_9StringRefES0_.exit.thread17.thread23 ]
-  %43 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread17 ], [ %41, %_ZN4llvmeqENS_9StringRefES0_.exit.thread17.thread23 ]
+_ZNK4llvm9StringRef9ends_withES0_.exit:           ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread17.thread26, %_ZN4llvmeqENS_9StringRefES0_.exit.thread17, %_ZN4llvmeqENS_9StringRefES0_.exit
+  %42 = phi i64 [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.pre20, %_ZN4llvmeqENS_9StringRefES0_.exit.thread17 ], [ %38, %_ZN4llvmeqENS_9StringRefES0_.exit.thread17.thread26 ]
+  %43 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread17 ], [ %41, %_ZN4llvmeqENS_9StringRefES0_.exit.thread17.thread26 ]
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %45 = icmp eq ptr %.pre, %44
   br i1 %45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -4904,13 +4904,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysi
 
 .loopexit.loopexit:                               ; preds = %.critedge.i
   %.pre = load i32, ptr %1, align 8
-  %.pre31 = lshr i32 %.pre, 24
-  %.pre32 = zext nneg i32 %.pre31 to i64
+  %.pre34 = lshr i32 %.pre, 24
+  %.pre35 = zext nneg i32 %.pre34 to i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %2
-  %.pre-phi33 = phi i64 [ %.pre32, %.loopexit.loopexit ], [ %8, %2 ]
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.pre-phi33
+  %.pre-phi36 = phi i64 [ %.pre35, %.loopexit.loopexit ], [ %8, %2 ]
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.pre-phi36
   %24 = load ptr, ptr %23, align 8, !tbaa !377
   %25 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #13
   %.not.i.i.i = icmp eq ptr %25, null
@@ -5174,13 +5174,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysi
 
 .loopexit.loopexit:                               ; preds = %.critedge.i
   %.pre = load i32, ptr %1, align 8
-  %.pre8 = lshr i32 %.pre, 24
-  %.pre9 = zext nneg i32 %.pre8 to i64
+  %.pre9 = lshr i32 %.pre, 24
+  %.pre10 = zext nneg i32 %.pre9 to i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %2
-  %.pre-phi10 = phi i64 [ %.pre9, %.loopexit.loopexit ], [ %6, %2 ]
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.pre-phi10
+  %.pre-phi11 = phi i64 [ %.pre10, %.loopexit.loopexit ], [ %6, %2 ]
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.pre-phi11
   %22 = load ptr, ptr %21, align 8, !tbaa !377
   %23 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #13
   %.not = icmp eq ptr %23, null

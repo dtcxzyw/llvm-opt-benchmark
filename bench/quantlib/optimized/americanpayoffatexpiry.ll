@@ -1553,16 +1553,16 @@ if.else381:                                       ; preds = %if.else375
   br label %if.end390
 
 if.end390:                                        ; preds = %if.else375, %if.else381, %if.then374
-  %.sink358 = phi double [ %call387, %if.else381 ], [ 1.000000e+00, %if.then374 ], [ 0.000000e+00, %if.else375 ]
+  %.sink419 = phi double [ %call387, %if.else381 ], [ 1.000000e+00, %if.then374 ], [ 0.000000e+00, %if.else375 ]
   %Y_380 = getelementptr inbounds nuw i8, ptr %this, i64 136
-  store double %.sink358, ptr %Y_380, align 8, !tbaa !75
+  store double %.sink419, ptr %Y_380, align 8, !tbaa !75
   %188 = load i8, ptr %knock_in_, align 8, !tbaa !25, !range !55, !noundef !56
   %loadedv392 = trunc nuw i8 %188 to i1
   br i1 %loadedv392, label %if.end396, label %if.then393
 
 if.then393:                                       ; preds = %if.end390
   %Y_394 = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %mul395 = fneg double %.sink358
+  %mul395 = fneg double %.sink419
   store double %mul395, ptr %Y_394, align 8, !tbaa !75
   br label %if.end396
 

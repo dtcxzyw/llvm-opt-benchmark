@@ -576,8 +576,8 @@ get_se_golomb.exit250:                            ; preds = %259, %269
   br i1 %328, label %78, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.loopexit, %70
-  %or.cond310 = and i1 %.not195, %71
-  br i1 %or.cond310, label %70, label %329, !llvm.loop !30
+  %or.cond316 = and i1 %.not195, %71
+  br i1 %or.cond316, label %70, label %329, !llvm.loop !30
 
 329:                                              ; preds = %._crit_edge
   %330 = load i32, ptr %4, align 4, !tbaa !4
@@ -930,8 +930,8 @@ get_ue_golomb.exit58:                             ; preds = %79, %89
   %110 = icmp ugt i32 %109, %15
   %111 = icmp ugt i32 %.pre62, %15
   %or.cond = select i1 %107, i1 %111, i1 false
-  %or.cond68 = select i1 %110, i1 true, i1 %or.cond
-  br i1 %or.cond68, label %._crit_edge65, label %._crit_edge64
+  %or.cond75 = select i1 %110, i1 true, i1 %or.cond
+  br i1 %or.cond75, label %._crit_edge65, label %._crit_edge64
 
 ._crit_edge64:                                    ; preds = %106
   %112 = icmp ugt i32 %.pre62, %15
@@ -1002,9 +1002,9 @@ define range(i32 -1094995529, 1) i32 @ff_h264_init_poc(ptr noundef captures(none
   %29 = load i32, ptr %28, align 4, !tbaa !41
   %30 = icmp slt i32 %29, 0
   %.pre = load i32, ptr %3, align 4, !tbaa !42
-  br i1 %30, label %.thread134, label %31
+  br i1 %30, label %.thread138, label %31
 
-.thread134:                                       ; preds = %24
+.thread138:                                       ; preds = %24
   store i32 %.pre, ptr %28, align 4, !tbaa !41
   br label %50
 
@@ -1040,7 +1040,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_init_poc(ptr noundef captures(none
   %49 = sub nsw i32 %48, %27
   br label %53
 
-50:                                               ; preds = %.thread134, %42, %40
+50:                                               ; preds = %.thread138, %42, %40
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %52 = load i32, ptr %51, align 4, !tbaa !43
   br label %53
@@ -1105,17 +1105,17 @@ define range(i32 -1094995529, 1) i32 @ff_h264_init_poc(ptr noundef captures(none
 .lr.ph120:                                        ; preds = %._crit_edge
   %80 = add nsw i32 %spec.select, -1
   %81 = sdiv i32 %80, %65
-  %82 = srem i32 %80, %65
-  %83 = sext i32 %81 to i64
-  %84 = mul nsw i64 %.095.lcssa, %83
+  %82 = sext i32 %81 to i64
+  %83 = mul nsw i64 %.095.lcssa, %82
+  %84 = srem i32 %80, %65
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 184
-  %86 = add nuw nsw i32 %82, 1
+  %86 = add nuw nsw i32 %84, 1
   %wide.trip.count127 = zext nneg i32 %86 to i64
   br label %87
 
 87:                                               ; preds = %.lr.ph120, %87
   %indvars.iv124 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next125, %87 ]
-  %.093117 = phi i64 [ %84, %.lr.ph120 ], [ %91, %87 ]
+  %.093117 = phi i64 [ %83, %.lr.ph120 ], [ %91, %87 ]
   %88 = getelementptr inbounds nuw [256 x i32], ptr %85, i64 0, i64 %indvars.iv124
   %89 = load i32, ptr %88, align 4, !tbaa !25
   %90 = sext i32 %89 to i64
@@ -1129,11 +1129,11 @@ define range(i32 -1094995529, 1) i32 @ff_h264_init_poc(ptr noundef captures(none
   br i1 %69, label %92, label %97
 
 92:                                               ; preds = %._crit_edge.thread, %.loopexit
-  %.194142 = phi i64 [ 0, %._crit_edge.thread ], [ %.194, %.loopexit ]
+  %.194146 = phi i64 [ 0, %._crit_edge.thread ], [ %.194, %.loopexit ]
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %94 = load i32, ptr %93, align 4, !tbaa !49
   %95 = sext i32 %94 to i64
-  %96 = add nsw i64 %.194142, %95
+  %96 = add nsw i64 %.194146, %95
   br label %97
 
 97:                                               ; preds = %._crit_edge.thread, %92, %.loopexit

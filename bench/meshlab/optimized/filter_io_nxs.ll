@@ -664,13 +664,13 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
   br i1 %23, label %._crit_edge.thread.i.i, label %28
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %18
-  %.019.lcssa28.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %6, %18 ]
+  %.019.lcssa29.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %6, %18 ]
   %24 = load ptr, ptr %8, align 8
-  %25 = icmp eq ptr %.019.lcssa28.i.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i.i, %24
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #31
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i) #31
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81.i = load i32, ptr %.phi.trans.insert80.i, align 4
   %.pre82.i = load i32, ptr %.08.i, align 4
@@ -679,12 +679,12 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 28:                                               ; preds = %26, %._crit_edge.i.i
   %29 = phi i32 [ %.pre82.i, %26 ], [ %19, %._crit_edge.i.i ]
   %30 = phi i32 [ %.pre81.i, %26 ], [ %22, %._crit_edge.i.i ]
-  %.019.lcssa29.i.i = phi ptr [ %.019.lcssa28.i.i, %26 ], [ %.02024.i.i, %._crit_edge.i.i ]
+  %.019.lcssa28.i.i = phi ptr [ %.019.lcssa29.i.i, %26 ], [ %.02024.i.i, %._crit_edge.i.i ]
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
-  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
+  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
@@ -1356,8 +1356,8 @@ _ZNSt7__cxx114listIiSaIiEE6spliceESt20_List_const_iteratorIiERS2_.exit: ; preds 
   br i1 %.not.i.i.i8, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i6, !llvm.loop !12
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i6, %4, %23
-  %.sroa.04.013 = phi ptr [ %.sroa.04.0, %23 ], [ %1, %4 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
-  ret ptr %.sroa.04.013
+  %.sroa.04.020 = phi ptr [ %.sroa.04.0, %23 ], [ %1, %4 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
+  ret ptr %.sroa.04.020
 }
 
 ; Function Attrs: nounwind
@@ -7035,18 +7035,18 @@ _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %_ZN7QSt
   br label %357
 
 357:                                              ; preds = %310, %331, %355
-  %.sink534 = phi double [ %327, %310 ], [ %354, %331 ], [ %166, %355 ]
+  %.sink552 = phi double [ %327, %310 ], [ %354, %331 ], [ %166, %355 ]
   %358 = phi double [ %326, %310 ], [ %352, %331 ], [ %165, %355 ]
   %359 = phi double [ %325, %310 ], [ %351, %331 ], [ %164, %355 ]
   %.sroa.3480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.2187, i64 80
-  store double %.sink534, ptr %.sroa.3480.0..sroa_idx, align 8
+  store double %.sink552, ptr %.sroa.3480.0..sroa_idx, align 8
   %360 = getelementptr inbounds nuw i8, ptr %.2187, i64 64
   %361 = fcmp une double %359, 0.000000e+00
   %362 = fcmp une double %358, 0.000000e+00
-  %or.cond535 = select i1 %361, i1 true, i1 %362
-  %363 = fcmp une double %.sink534, 0.000000e+00
-  %or.cond536 = select i1 %or.cond535, i1 true, i1 %363
-  br i1 %or.cond536, label %364, label %_ZN7QStringD2Ev.exit391
+  %or.cond553 = select i1 %361, i1 true, i1 %362
+  %363 = fcmp une double %.sink552, 0.000000e+00
+  %or.cond554 = select i1 %or.cond553, i1 true, i1 %363
+  br i1 %or.cond554, label %364, label %_ZN7QStringD2Ev.exit391
 
 364:                                              ; preds = %357
   %365 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.103, i32 noundef 1)
@@ -7962,9 +7962,9 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
   br label %683
 
 _ZN7QStringD2Ev.exit445.sink.split:               ; preds = %628, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i451, %612, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i443
-  %.sink537 = phi ptr [ %.pre.i444, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i443 ], [ %613, %612 ], [ %.pre.i452, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i451 ], [ %629, %628 ]
+  %.sink555 = phi ptr [ %.pre.i444, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i443 ], [ %613, %612 ], [ %.pre.i452, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i451 ], [ %629, %628 ]
   %.pn234.ph = phi ptr [ %606, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i443 ], [ %606, %612 ], [ %622, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i451 ], [ %622, %628 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %.sink537, i64 noundef 2, i64 noundef 8) #29
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %.sink555, i64 noundef 2, i64 noundef 8) #29
   br label %_ZN7QStringD2Ev.exit445
 
 _ZN7QStringD2Ev.exit445:                          ; preds = %_ZN7QStringD2Ev.exit445.sink.split, %_ZN9QtPrivate8RefCount5derefEv.exit.i449, %628, %_ZN9QtPrivate8RefCount5derefEv.exit.i441, %612
@@ -12192,11 +12192,11 @@ define linkonce_odr noundef i32 @_ZN9VcgLoaderI6CMeshOE12getTrianglesEjP8Triangl
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 109
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 110
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %exitcond48.not53 = icmp eq i32 %1, 0
-  br i1 %exitcond48.not53, label %.split, label %.outer.split.preheader
+  %exitcond48.not54 = icmp eq i32 %1, 0
+  br i1 %exitcond48.not54, label %.split, label %.outer.split.preheader
 
 .outer.split.preheader:                           ; preds = %3, %.outer
-  %.031.ph54 = phi i32 [ %80, %.outer ], [ 0, %3 ]
+  %.031.ph55 = phi i32 [ %80, %.outer ], [ 0, %3 ]
   %.pn = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %.pn, i64 304
   %10 = getelementptr inbounds nuw i8, ptr %.pn, i64 312
@@ -12226,7 +12226,7 @@ define linkonce_odr noundef i32 @_ZN9VcgLoaderI6CMeshOE12getTrianglesEjP8Triangl
   br i1 %.not, label %26, label %.outer.split, !llvm.loop !53
 
 26:                                               ; preds = %20
-  %27 = sext i32 %.031.ph54 to i64
+  %27 = sext i32 %.031.ph55 to i64
   %28 = getelementptr inbounds %struct.Triangle, ptr %2, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %30 = ptrtoint ptr %21 to i64
@@ -12323,12 +12323,12 @@ define linkonce_odr noundef i32 @_ZN9VcgLoaderI6CMeshOE12getTrianglesEjP8Triangl
   br i1 %exitcond47.not, label %.outer, label %31, !llvm.loop !56
 
 .outer:                                           ; preds = %79
-  %80 = add i32 %.031.ph54, 1
+  %80 = add i32 %.031.ph55, 1
   %exitcond48.not = icmp eq i32 %80, %1
   br i1 %exitcond48.not, label %.split, label %.outer.split.preheader, !llvm.loop !53
 
 .split:                                           ; preds = %.outer, %.outer.split, %3
-  %.031.ph38 = phi i32 [ %1, %3 ], [ %.031.ph54, %.outer.split ], [ %1, %.outer ]
+  %.031.ph38 = phi i32 [ %1, %3 ], [ %.031.ph55, %.outer.split ], [ %1, %.outer ]
   ret i32 %.031.ph38
 }
 

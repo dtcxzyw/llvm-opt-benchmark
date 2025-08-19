@@ -221,8 +221,8 @@ _valid_num_list.exit.i:                           ; preds = %._crit_edge.i.i, %.
   %73 = call i32 @isxdigit(i32 noundef %72) #7, !callees !12
   %.not40.us.i.i = icmp ne i32 %73, 0
   %.not41.us.i.i = icmp eq i8 %71, 42
-  %or.cond44.i = or i1 %.not41.us.i.i, %.not40.us.i.i
-  br i1 %or.cond44.i, label %74, label %.split.us.i28.i
+  %or.cond51.i = or i1 %.not41.us.i.i, %.not40.us.i.i
+  br i1 %or.cond51.i, label %74, label %.split.us.i28.i
 
 74:                                               ; preds = %.lr.ph.us.i.i
   %indvars.iv.next72.i.i = add nuw nsw i64 %indvars.iv71.i.i, 1

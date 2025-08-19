@@ -1298,7 +1298,7 @@ define dso_local void @_Z12deepExamplesv() local_unnamed_addr #4 personality ptr
   store ptr %10, ptr %11, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = invoke noalias noundef nonnull dereferenceable(3840000) ptr @_Znam(i64 noundef 3840000) #17
-          to label %14 unwind label %.thread33
+          to label %14 unwind label %.thread40
 
 14:                                               ; preds = %0
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1408,7 +1408,7 @@ _ZN7Imf_3_47Array2DIPfED2Ev.exit:                 ; preds = %_ZN7Imf_3_47Array2D
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
-.thread33:                                        ; preds = %0
+.thread40:                                        ; preds = %0
   %49 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1442,17 +1442,17 @@ _ZN7Imf_3_47Array2DIPfED2Ev.exit:                 ; preds = %_ZN7Imf_3_47Array2D
   %60 = icmp eq ptr %.pre27.pr, null
   br i1 %60, label %_ZN7Imf_3_47Array2DIPfED2Ev.exit25, label %61
 
-61:                                               ; preds = %.thread33, %59
-  %.pn2937 = phi { ptr, i32 } [ %49, %.thread33 ], [ %51, %59 ]
-  %.pre2736 = phi ptr [ %10, %.thread33 ], [ %.pre27.pr, %59 ]
-  call void @_ZdaPv(ptr noundef nonnull %.pre2736) #18
+61:                                               ; preds = %.thread40, %59
+  %.pn3644 = phi { ptr, i32 } [ %49, %.thread40 ], [ %51, %59 ]
+  %.pre2743 = phi ptr [ %10, %.thread40 ], [ %.pre27.pr, %59 ]
+  call void @_ZdaPv(ptr noundef nonnull %.pre2743) #18
   br label %_ZN7Imf_3_47Array2DIPfED2Ev.exit25
 
 _ZN7Imf_3_47Array2DIPfED2Ev.exit25:               ; preds = %59, %61
-  %.pn.pn32 = phi { ptr, i32 } [ %51, %59 ], [ %.pn2937, %61 ]
+  %.pn.pn39 = phi { ptr, i32 } [ %51, %59 ], [ %.pn3644, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  resume { ptr, i32 } %.pn.pn32
+  resume { ptr, i32 } %.pn.pn39
 }
 
 declare void @_Z10drawImage2RN7Imf_3_47Array2DIN9Imath_3_24halfEEERNS0_IfEEii(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef) local_unnamed_addr #0

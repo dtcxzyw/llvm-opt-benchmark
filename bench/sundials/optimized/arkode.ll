@@ -2585,10 +2585,10 @@ arkCheckConvergence.exit:                         ; preds = %193
   br label %360
 
 360:                                              ; preds = %354, %357
-  %.sink487 = phi double [ %359, %357 ], [ %1, %354 ]
-  store double %.sink487, ptr %3, align 8, !tbaa !113
+  %.sink511 = phi double [ %359, %357 ], [ %1, %354 ]
+  store double %.sink511, ptr %3, align 8, !tbaa !113
   %361 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  store double %.sink487, ptr %361, align 8, !tbaa !114
+  store double %.sink511, ptr %361, align 8, !tbaa !114
   %362 = load double, ptr %67, align 8, !tbaa !20
   store double %362, ptr %51, align 8, !tbaa !76
   br label %.loopexit
@@ -3164,9 +3164,9 @@ define i32 @arkInitialSetup(ptr noundef %0, double noundef %1) local_unnamed_add
   br label %.sink.split
 
 .sink.split:                                      ; preds = %274, %292
-  %.sink228 = phi i64 [ 744, %292 ], [ 728, %274 ]
+  %.sink240 = phi i64 [ 744, %292 ], [ 728, %274 ]
   %.sink = phi double [ %298, %292 ], [ %275, %274 ]
-  %299 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink228
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink240
   store double %.sink, ptr %299, align 8, !tbaa !113
   br label %300
 
@@ -3454,10 +3454,10 @@ define range(i32 0, 2) i32 @arkStopTests(ptr noundef %0, double noundef %1, ptr 
   br label %151
 
 151:                                              ; preds = %144, %147
-  %.sink143 = phi double [ %150, %147 ], [ %1, %144 ]
-  store double %.sink143, ptr %3, align 8, !tbaa !113
+  %.sink145 = phi double [ %150, %147 ], [ %1, %144 ]
+  store double %.sink145, ptr %3, align 8, !tbaa !113
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  store double %.sink143, ptr %152, align 8, !tbaa !114
+  store double %.sink145, ptr %152, align 8, !tbaa !114
   br label %.sink.split
 
 153:                                              ; preds = %134
@@ -3478,8 +3478,8 @@ define range(i32 0, 2) i32 @arkStopTests(ptr noundef %0, double noundef %1, ptr 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %41, %45, %49, %53, %72, %76, %81, %110, %116, %146, %151, %160
-  %.sink144 = phi i32 [ 0, %160 ], [ 0, %151 ], [ -22, %146 ], [ 1, %116 ], [ -22, %110 ], [ -12, %81 ], [ 2, %76 ], [ 0, %72 ], [ 2, %53 ], [ -12, %49 ], [ -22, %45 ], [ -8, %41 ]
-  store i32 %.sink144, ptr %5, align 4, !tbaa !115
+  %.sink146 = phi i32 [ 0, %160 ], [ 0, %151 ], [ -22, %146 ], [ 1, %116 ], [ -22, %110 ], [ -12, %81 ], [ 2, %76 ], [ 0, %72 ], [ 2, %53 ], [ -12, %49 ], [ -22, %45 ], [ -8, %41 ]
+  store i32 %.sink146, ptr %5, align 4, !tbaa !115
   br label %163
 
 163:                                              ; preds = %.sink.split, %135, %153, %134
@@ -5752,20 +5752,20 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
 102:                                              ; preds = %.lr.ph.split
   %103 = fdiv double 2.000000e+00, %98
   %104 = fcmp ugt double %103, 0.000000e+00
-  br i1 %104, label %.sink.split108, label %109
+  br i1 %104, label %.sink.split115, label %109
 
 105:                                              ; preds = %.lr.ph.split
   %106 = fmul double %.0.i, %.083100
   %107 = fcmp ugt double %106, 0.000000e+00
-  br i1 %107, label %.sink.split108, label %109
+  br i1 %107, label %.sink.split115, label %109
 
-.sink.split108:                                   ; preds = %105, %102
-  %.sink109 = phi double [ %103, %102 ], [ %106, %105 ]
-  %108 = tail call double @sqrt(double noundef %.sink109) #16, !tbaa !115
+.sink.split115:                                   ; preds = %105, %102
+  %.sink116 = phi double [ %103, %102 ], [ %106, %105 ]
+  %108 = tail call double @sqrt(double noundef %.sink116) #16, !tbaa !115
   br label %109
 
-109:                                              ; preds = %.sink.split108, %105, %102
-  %110 = phi double [ 0.000000e+00, %102 ], [ 0.000000e+00, %105 ], [ %108, %.sink.split108 ]
+109:                                              ; preds = %.sink.split115, %105, %102
+  %110 = phi double [ 0.000000e+00, %102 ], [ 0.000000e+00, %105 ], [ %108, %.sink.split115 ]
   %111 = icmp eq i32 %.08599, 4
   br i1 %111, label %.split.us, label %112
 
@@ -5794,9 +5794,9 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %91, %.split.us, %92
-  %.sink110 = phi double [ %93, %92 ], [ %.2, %.split.us ], [ %59, %91 ]
+  %.sink117 = phi double [ %93, %92 ], [ %.2, %.split.us ], [ %59, %91 ]
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  store double %.sink110, ptr %123, align 8, !tbaa !24
+  store double %.sink117, ptr %123, align 8, !tbaa !24
   br label %.loopexit
 
 .loopexit:                                        ; preds = %94, %69, %.loopexit.sink.split, %.preheader, %22, %8, %2

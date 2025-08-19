@@ -290,12 +290,12 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !23
 
-._crit_edge455.us:                                ; preds = %.lr.ph454.us, %.preheader419.us.loopexit
+._crit_edge455.us:                                ; preds = %.lr.ph454.us, %.preheader419.us
   %83 = getelementptr inbounds nuw i32, ptr %.1364458.us, i64 %25
   %84 = getelementptr inbounds nuw i32, ptr %.3457.us, i64 %23
   %85 = add nuw i32 %.5456.us, 1
   %exitcond564.not = icmp eq i32 %85, %38
-  br i1 %exitcond564.not, label %.loopexit.us, label %.preheader420.us, !llvm.loop !24
+  br i1 %exitcond564.not, label %.loopexit.us, label %.lr.ph452.us.preheader, !llvm.loop !24
 
 .lr.ph454.us:                                     ; preds = %.lr.ph454.us.preheader, %.lr.ph454.us
   %indvars.iv559 = phi i64 [ %263, %.lr.ph454.us.preheader ], [ %indvars.iv.next560, %.lr.ph454.us ]
@@ -309,8 +309,8 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %exitcond563.not = icmp eq i64 %indvars.iv.next560, %wide.trip.count562
   br i1 %exitcond563.not, label %._crit_edge455.us, label %.lr.ph454.us, !llvm.loop !25
 
-.lr.ph452.us:                                     ; preds = %.preheader420.us, %.lr.ph452.us
-  %indvars.iv556 = phi i64 [ 0, %.preheader420.us ], [ %indvars.iv.next557, %.lr.ph452.us ]
+.lr.ph452.us:                                     ; preds = %.lr.ph452.us.preheader, %.lr.ph452.us
+  %indvars.iv556 = phi i64 [ 0, %.lr.ph452.us.preheader ], [ %indvars.iv.next557, %.lr.ph452.us ]
   %91 = getelementptr inbounds nuw i32, ptr %.3457.us, i64 %indvars.iv556
   %92 = load i32, ptr %91, align 4, !tbaa !22
   %93 = shl i64 %indvars.iv556, 3
@@ -340,7 +340,7 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   store i32 %110, ptr %113, align 4, !tbaa !22
   %indvars.iv.next557 = add nuw nsw i64 %indvars.iv556, 4
   %114 = icmp samesign ult i64 %indvars.iv.next557, %270
-  br i1 %114, label %.lr.ph452.us, label %.preheader419.us.loopexit, !llvm.loop !26
+  br i1 %114, label %.lr.ph452.us, label %.preheader419.us, !llvm.loop !26
 
 .lr.ph463.us:                                     ; preds = %.lr.ph463.us.preheader, %.lr.ph463.us
   %indvars.iv568 = phi i64 [ %266, %.lr.ph463.us.preheader ], [ %indvars.iv.next569, %.lr.ph463.us ]
@@ -526,12 +526,12 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %exitcond587.not = icmp eq i64 %indvars.iv.next584, %wide.trip.count586
   br i1 %exitcond587.not, label %._crit_edge487.us, label %.lr.ph486.us, !llvm.loop !36
 
-._crit_edge496.us:                                ; preds = %.lr.ph495.us, %.preheader.us.loopexit
+._crit_edge496.us:                                ; preds = %.lr.ph495.us, %.preheader.us
   %209 = getelementptr inbounds nuw i32, ptr %.1350499.us, i64 %25
   %210 = getelementptr inbounds nuw i32, ptr %.1352498.us, i64 %23
   %211 = add nuw i32 %.10497.us, 1
   %exitcond597.not = icmp eq i32 %211, %38
-  br i1 %exitcond597.not, label %.loopexit.us, label %.preheader416.us, !llvm.loop !37
+  br i1 %exitcond597.not, label %.loopexit.us, label %.lr.ph492.us.preheader, !llvm.loop !37
 
 .lr.ph495.us:                                     ; preds = %.lr.ph495.us.preheader, %.lr.ph495.us
   %indvars.iv592 = phi i64 [ %260, %.lr.ph495.us.preheader ], [ %indvars.iv.next593, %.lr.ph495.us ]
@@ -545,8 +545,8 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %exitcond596.not = icmp eq i64 %indvars.iv.next593, %wide.trip.count595
   br i1 %exitcond596.not, label %._crit_edge496.us, label %.lr.ph495.us, !llvm.loop !38
 
-.lr.ph492.us:                                     ; preds = %.preheader416.us, %.lr.ph492.us
-  %indvars.iv589 = phi i64 [ 0, %.preheader416.us ], [ %indvars.iv.next590, %.lr.ph492.us ]
+.lr.ph492.us:                                     ; preds = %.lr.ph492.us.preheader, %.lr.ph492.us
+  %indvars.iv589 = phi i64 [ 0, %.lr.ph492.us.preheader ], [ %indvars.iv.next590, %.lr.ph492.us ]
   %217 = shl i64 %indvars.iv589, 3
   %218 = and i64 %217, 4294967264
   %219 = getelementptr inbounds nuw i32, ptr %.1350499.us, i64 %218
@@ -576,7 +576,7 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   store i32 %238, ptr %239, align 4, !tbaa !22
   %indvars.iv.next590 = add nuw nsw i64 %indvars.iv589, 4
   %240 = icmp samesign ult i64 %indvars.iv.next590, %283
-  br i1 %240, label %.lr.ph492.us, label %.preheader.us.loopexit, !llvm.loop !39
+  br i1 %240, label %.lr.ph492.us, label %.preheader.us, !llvm.loop !39
 
 .lr.ph503.us:                                     ; preds = %.preheader425.us, %.lr.ph503.us
   %.0349502.us = phi ptr [ %242, %.lr.ph503.us ], [ %196, %.preheader425.us ]
@@ -624,16 +624,16 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %exitcond600.not = icmp eq i32 %257, %38
   br i1 %exitcond600.not, label %.loopexit.us, label %.lr.ph511.us, !llvm.loop !43
 
-.preheader.us.loopexit:                           ; preds = %.lr.ph492.us
+.preheader.us:                                    ; preds = %.lr.ph492.us
   %258 = trunc nuw i64 %indvars.iv.next590 to i32
   %259 = icmp ugt i32 %51, %258
   br i1 %259, label %.lr.ph495.us.preheader, label %._crit_edge496.us
 
-.lr.ph495.us.preheader:                           ; preds = %.preheader.us.loopexit
+.lr.ph495.us.preheader:                           ; preds = %.preheader.us
   %260 = and i64 %indvars.iv.next590, 4294967292
   br label %.lr.ph495.us
 
-.preheader416.us:                                 ; preds = %.preheader416.lr.ph.us, %._crit_edge496.us
+.lr.ph492.us.preheader:                           ; preds = %._crit_edge496.us, %.preheader416.lr.ph.us
   %.1350499.us = phi ptr [ %196, %.preheader416.lr.ph.us ], [ %209, %._crit_edge496.us ]
   %.1352498.us = phi ptr [ %191, %.preheader416.lr.ph.us ], [ %210, %._crit_edge496.us ]
   %.10497.us = phi i32 [ 0, %.preheader416.lr.ph.us ], [ %211, %._crit_edge496.us ]
@@ -650,16 +650,16 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %.1381479.us = phi i32 [ 0, %.preheader418.lr.ph.us ], [ %162, %._crit_edge478.us ]
   br i1 %.not535, label %._crit_edge478.us, label %.lr.ph477.us
 
-.preheader419.us.loopexit:                        ; preds = %.lr.ph452.us
+.preheader419.us:                                 ; preds = %.lr.ph452.us
   %261 = trunc nuw i64 %indvars.iv.next557 to i32
   %262 = icmp ugt i32 %51, %261
   br i1 %262, label %.lr.ph454.us.preheader, label %._crit_edge455.us
 
-.lr.ph454.us.preheader:                           ; preds = %.preheader419.us.loopexit
+.lr.ph454.us.preheader:                           ; preds = %.preheader419.us
   %263 = and i64 %indvars.iv.next557, 4294967292
   br label %.lr.ph454.us
 
-.preheader420.us:                                 ; preds = %.preheader420.lr.ph.us, %._crit_edge455.us
+.lr.ph452.us.preheader:                           ; preds = %._crit_edge455.us, %.preheader420.lr.ph.us
   %.1364458.us = phi ptr [ %69, %.preheader420.lr.ph.us ], [ %83, %._crit_edge455.us ]
   %.3457.us = phi ptr [ %64, %.preheader420.lr.ph.us ], [ %84, %._crit_edge455.us ]
   %.5456.us = phi i32 [ 0, %.preheader420.lr.ph.us ], [ %85, %._crit_edge455.us ]
@@ -733,7 +733,7 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %269 = and i32 %51, -4
   %270 = zext i32 %269 to i64
   %wide.trip.count562 = zext i32 %51 to i64
-  br label %.preheader420.us
+  br label %.lr.ph452.us.preheader
 
 .lr.ph471.us:                                     ; preds = %.preheader435.us
   %271 = zext i32 %51 to i64
@@ -766,7 +766,7 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %282 = and i32 %51, -4
   %283 = zext i32 %282 to i64
   %wide.trip.count595 = zext i32 %51 to i64
-  br label %.preheader416.us
+  br label %.lr.ph492.us.preheader
 
 .lr.ph507.us:                                     ; preds = %.preheader423.us
   %284 = zext i32 %51 to i64

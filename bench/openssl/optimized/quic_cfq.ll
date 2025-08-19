@@ -939,14 +939,14 @@ list_insert_tail.exit22:                          ; preds = %56, %59
   br i1 %.not.i23, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %list_insert_tail.exit22, %list_insert_tail.exit
-  %.sink29 = phi ptr [ %32, %list_insert_tail.exit ], [ %61, %list_insert_tail.exit22 ]
+  %.sink35 = phi ptr [ %32, %list_insert_tail.exit ], [ %61, %list_insert_tail.exit22 ]
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %63 = load ptr, ptr %62, align 8, !tbaa !14
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %65 = load i64, ptr %64, align 8, !tbaa !15
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %67 = load ptr, ptr %66, align 8, !tbaa !23
-  tail call void %.sink29(ptr noundef %63, i64 noundef %65, ptr noundef %67) #6
+  tail call void %.sink35(ptr noundef %63, i64 noundef %65, ptr noundef %67) #6
   store i64 0, ptr %64, align 8, !tbaa !15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false)
   br label %.sink.split

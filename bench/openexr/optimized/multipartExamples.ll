@@ -3360,12 +3360,12 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %360
 
 360:                                              ; preds = %348, %.noexc110
-  %.sink43.i = phi i64 [ %359, %.noexc110 ], [ %350, %348 ]
+  %.sink50.i = phi i64 [ %359, %.noexc110 ], [ %350, %348 ]
   %.sink.i = phi ptr [ %358, %.noexc110 ], [ null, %348 ]
   %361 = phi i64 [ %359, %.noexc110 ], [ %349, %348 ]
-  %.sink41.i = load ptr, ptr %336, align 8, !tbaa !105
-  %362 = mul nsw i64 %.sink43.i, %indvars.iv36.i
-  %363 = getelementptr inbounds ptr, ptr %.sink41.i, i64 %362
+  %.sink48.i = load ptr, ptr %336, align 8, !tbaa !105
+  %362 = mul nsw i64 %.sink50.i, %indvars.iv36.i
+  %363 = getelementptr inbounds ptr, ptr %.sink48.i, i64 %362
   %364 = getelementptr inbounds nuw ptr, ptr %363, i64 %indvars.iv.i107
   store ptr %.sink.i, ptr %364, align 8, !tbaa !144
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i107, 1
@@ -3443,12 +3443,12 @@ _Z17resizeDeepBuffersIjEvRN7Imf_3_47Array2DIjEERNSt7__cxx114listINS1_IPT_EESaIS8
   br label %395
 
 395:                                              ; preds = %385, %.noexc132
-  %.sink43.i126 = phi i64 [ %394, %.noexc132 ], [ %387, %385 ]
+  %.sink50.i126 = phi i64 [ %394, %.noexc132 ], [ %387, %385 ]
   %.sink.i127 = phi ptr [ %393, %.noexc132 ], [ null, %385 ]
   %396 = phi i64 [ %394, %.noexc132 ], [ %386, %385 ]
-  %.sink41.i128 = load ptr, ptr %372, align 8, !tbaa !114
-  %397 = mul nsw i64 %.sink43.i126, %indvars.iv36.i120
-  %398 = getelementptr inbounds ptr, ptr %.sink41.i128, i64 %397
+  %.sink48.i128 = load ptr, ptr %372, align 8, !tbaa !114
+  %397 = mul nsw i64 %.sink50.i126, %indvars.iv36.i120
+  %398 = getelementptr inbounds ptr, ptr %.sink48.i128, i64 %397
   %399 = getelementptr inbounds nuw ptr, ptr %398, i64 %indvars.iv.i124
   store ptr %.sink.i127, ptr %399, align 8, !tbaa !148
   %indvars.iv.next.i129 = add nuw nsw i64 %indvars.iv.i124, 1
@@ -3526,12 +3526,12 @@ _Z17resizeDeepBuffersIN9Imath_3_24halfEEvRN7Imf_3_47Array2DIjEERNSt7__cxx114list
   br label %430
 
 430:                                              ; preds = %420, %.noexc154
-  %.sink43.i148 = phi i64 [ %429, %.noexc154 ], [ %422, %420 ]
+  %.sink50.i148 = phi i64 [ %429, %.noexc154 ], [ %422, %420 ]
   %.sink.i149 = phi ptr [ %428, %.noexc154 ], [ null, %420 ]
   %431 = phi i64 [ %429, %.noexc154 ], [ %421, %420 ]
-  %.sink41.i150 = load ptr, ptr %407, align 8, !tbaa !122
-  %432 = mul nsw i64 %.sink43.i148, %indvars.iv36.i142
-  %433 = getelementptr inbounds ptr, ptr %.sink41.i150, i64 %432
+  %.sink48.i150 = load ptr, ptr %407, align 8, !tbaa !122
+  %432 = mul nsw i64 %.sink50.i148, %indvars.iv36.i142
+  %433 = getelementptr inbounds ptr, ptr %.sink48.i150, i64 %432
   %434 = getelementptr inbounds nuw ptr, ptr %433, i64 %indvars.iv.i146
   store ptr %.sink.i149, ptr %434, align 8, !tbaa !152
   %indvars.iv.next.i151 = add nuw nsw i64 %indvars.iv.i146, 1
@@ -3683,12 +3683,12 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %486
 
 486:                                              ; preds = %474, %.noexc176
-  %.sink43.i170 = phi i64 [ %485, %.noexc176 ], [ %476, %474 ]
+  %.sink50.i170 = phi i64 [ %485, %.noexc176 ], [ %476, %474 ]
   %.sink.i171 = phi ptr [ %484, %.noexc176 ], [ null, %474 ]
   %487 = phi i64 [ %485, %.noexc176 ], [ %475, %474 ]
-  %.sink41.i172 = load ptr, ptr %462, align 8, !tbaa !105
-  %488 = mul nsw i64 %.sink43.i170, %indvars.iv36.i164
-  %489 = getelementptr inbounds ptr, ptr %.sink41.i172, i64 %488
+  %.sink48.i172 = load ptr, ptr %462, align 8, !tbaa !105
+  %488 = mul nsw i64 %.sink50.i170, %indvars.iv36.i164
+  %489 = getelementptr inbounds ptr, ptr %.sink48.i172, i64 %488
   %490 = getelementptr inbounds nuw ptr, ptr %489, i64 %indvars.iv.i168
   store ptr %.sink.i171, ptr %490, align 8, !tbaa !144
   %indvars.iv.next.i173 = add nuw nsw i64 %indvars.iv.i168, 1
@@ -3766,12 +3766,12 @@ _Z17resizeDeepBuffersIjEvRN7Imf_3_47Array2DIjEERNSt7__cxx114listINS1_IPT_EESaIS8
   br label %521
 
 521:                                              ; preds = %511, %.noexc199
-  %.sink43.i193 = phi i64 [ %520, %.noexc199 ], [ %513, %511 ]
+  %.sink50.i193 = phi i64 [ %520, %.noexc199 ], [ %513, %511 ]
   %.sink.i194 = phi ptr [ %519, %.noexc199 ], [ null, %511 ]
   %522 = phi i64 [ %520, %.noexc199 ], [ %512, %511 ]
-  %.sink41.i195 = load ptr, ptr %498, align 8, !tbaa !114
-  %523 = mul nsw i64 %.sink43.i193, %indvars.iv36.i187
-  %524 = getelementptr inbounds ptr, ptr %.sink41.i195, i64 %523
+  %.sink48.i195 = load ptr, ptr %498, align 8, !tbaa !114
+  %523 = mul nsw i64 %.sink50.i193, %indvars.iv36.i187
+  %524 = getelementptr inbounds ptr, ptr %.sink48.i195, i64 %523
   %525 = getelementptr inbounds nuw ptr, ptr %524, i64 %indvars.iv.i191
   store ptr %.sink.i194, ptr %525, align 8, !tbaa !148
   %indvars.iv.next.i196 = add nuw nsw i64 %indvars.iv.i191, 1
@@ -3849,12 +3849,12 @@ _Z17resizeDeepBuffersIN9Imath_3_24halfEEvRN7Imf_3_47Array2DIjEERNSt7__cxx114list
   br label %556
 
 556:                                              ; preds = %546, %.noexc222
-  %.sink43.i216 = phi i64 [ %555, %.noexc222 ], [ %548, %546 ]
+  %.sink50.i216 = phi i64 [ %555, %.noexc222 ], [ %548, %546 ]
   %.sink.i217 = phi ptr [ %554, %.noexc222 ], [ null, %546 ]
   %557 = phi i64 [ %555, %.noexc222 ], [ %547, %546 ]
-  %.sink41.i218 = load ptr, ptr %533, align 8, !tbaa !122
-  %558 = mul nsw i64 %.sink43.i216, %indvars.iv36.i210
-  %559 = getelementptr inbounds ptr, ptr %.sink41.i218, i64 %558
+  %.sink48.i218 = load ptr, ptr %533, align 8, !tbaa !122
+  %558 = mul nsw i64 %.sink50.i216, %indvars.iv36.i210
+  %559 = getelementptr inbounds ptr, ptr %.sink48.i218, i64 %558
   %560 = getelementptr inbounds nuw ptr, ptr %559, i64 %indvars.iv.i214
   store ptr %.sink.i217, ptr %560, align 8, !tbaa !152
   %indvars.iv.next.i219 = add nuw nsw i64 %indvars.iv.i214, 1

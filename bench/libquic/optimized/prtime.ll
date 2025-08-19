@@ -299,23 +299,23 @@ define void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr 
   %.0.in = load i8, ptr %130, align 1, !tbaa !10
   %.0 = sext i8 %.0.in to i32
   %131 = icmp sgt i32 %114, %.0
-  br i1 %131, label %.lr.ph, label %.loopexit.loopexit152, !llvm.loop !25
+  br i1 %131, label %.lr.ph, label %.loopexit.loopexit175, !llvm.loop !25
 
 .loopexit.loopexit:                               ; preds = %84
   store i32 %86, ptr %59, align 4, !tbaa !22
   store i32 %98, ptr %73, align 4, !tbaa !21
   br label %.loopexit
 
-.loopexit.loopexit152:                            ; preds = %119
+.loopexit.loopexit175:                            ; preds = %119
   store i32 %114, ptr %73, align 4, !tbaa !21
   store i32 %121, ptr %59, align 4, !tbaa !22
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit152, %.loopexit.loopexit, %100
-  %.pre-phi132 = phi i64 [ %106, %100 ], [ %92, %.loopexit.loopexit ], [ %127, %.loopexit.loopexit152 ]
-  %.pre-phi = phi i64 [ %108, %100 ], [ %94, %.loopexit.loopexit ], [ %129, %.loopexit.loopexit152 ]
-  %132 = phi i16 [ %.promoted124, %100 ], [ %85, %.loopexit.loopexit ], [ %120, %.loopexit.loopexit152 ]
-  %133 = phi i32 [ %74, %100 ], [ %98, %.loopexit.loopexit ], [ %114, %.loopexit.loopexit152 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit175, %.loopexit.loopexit, %100
+  %.pre-phi132 = phi i64 [ %106, %100 ], [ %92, %.loopexit.loopexit ], [ %127, %.loopexit.loopexit175 ]
+  %.pre-phi = phi i64 [ %108, %100 ], [ %94, %.loopexit.loopexit ], [ %129, %.loopexit.loopexit175 ]
+  %132 = phi i16 [ %.promoted124, %100 ], [ %85, %.loopexit.loopexit ], [ %120, %.loopexit.loopexit175 ]
+  %133 = phi i32 [ %74, %100 ], [ %98, %.loopexit.loopexit ], [ %114, %.loopexit.loopexit175 ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %135 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @_ZL14lastDayOfMonth, i64 0, i64 %.pre-phi132
   %136 = getelementptr inbounds [13 x i32], ptr %135, i64 0, i64 %.pre-phi
@@ -818,8 +818,8 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
   ]
 
 .critedge794:                                     ; preds = %76
-  %cond957 = icmp eq i8 %71, 83
-  br i1 %cond957, label %79, label %.critedge792
+  %cond973 = icmp eq i8 %71, 83
+  br i1 %cond973, label %79, label %.critedge792
 
 79:                                               ; preds = %.critedge794, %75, %69, %69
   %80 = getelementptr inbounds nuw i8, ptr %.0580907, i64 2
@@ -1027,8 +1027,8 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
   ]
 
 152:                                              ; preds = %149
-  %cond958 = icmp eq i8 %148, 69
-  br i1 %cond958, label %153, label %.critedge801
+  %cond974 = icmp eq i8 %148, 69
+  br i1 %cond974, label %153, label %.critedge801
 
 153:                                              ; preds = %152, %146, %146
   %154 = getelementptr inbounds nuw i8, ptr %.0580907, i64 2
@@ -1169,8 +1169,8 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
   ]
 
 205:                                              ; preds = %202
-  %cond959 = icmp eq i8 %201, 83
-  br i1 %cond959, label %206, label %.critedge792
+  %cond975 = icmp eq i8 %201, 83
+  br i1 %cond975, label %206, label %.critedge792
 
 206:                                              ; preds = %205, %199, %199
   %207 = getelementptr inbounds nuw i8, ptr %.0580907, i64 2
@@ -1268,8 +1268,8 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
   ]
 
 242:                                              ; preds = %239
-  %cond960 = icmp eq i8 %238, 85
-  br i1 %cond960, label %243, label %.critedge792
+  %cond976 = icmp eq i8 %238, 85
+  br i1 %cond976, label %243, label %.critedge792
 
 243:                                              ; preds = %242, %236, %236
   %244 = getelementptr inbounds nuw i8, ptr %.0580907, i64 2
@@ -1340,19 +1340,19 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
 
 270:                                              ; preds = %267
   switch i32 %.0621892, label %271 [
-    i32 30, label %.preheader998
-    i32 0, label %.preheader998
+    i32 30, label %.preheader1014
+    i32 0, label %.preheader1014
   ]
 
-.preheader998:                                    ; preds = %270, %270
+.preheader1014:                                   ; preds = %270, %270
   br label %273
 
 271:                                              ; preds = %270
   %272 = getelementptr inbounds nuw i8, ptr %.0580907, i64 1
   br label %.critedge792
 
-273:                                              ; preds = %.preheader998, %273
-  %.0576.idx = phi i64 [ %.0576.add, %273 ], [ 1, %.preheader998 ]
+273:                                              ; preds = %.preheader1014, %273
+  %.0576.idx = phi i64 [ %.0576.add, %273 ], [ 1, %.preheader1014 ]
   %.0576.ptr = getelementptr inbounds nuw i8, ptr %.0580907, i64 %.0576.idx
   %274 = load i8, ptr %.0576.ptr, align 1, !tbaa !10
   %275 = add i8 %274, -48
@@ -2060,13 +2060,13 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
   %631 = load i8, ptr %630, align 1, !tbaa !10
   %632 = add i8 %631, -48
   %or.cond835 = icmp ult i8 %632, 10
-  %spec.select979 = select i1 %or.cond835, i8 %631, i8 84
-  %spec.select980 = select i1 %or.cond835, ptr %630, ptr %.10
+  %spec.select995 = select i1 %or.cond835, i8 %631, i8 84
+  %spec.select996 = select i1 %or.cond835, ptr %630, ptr %.10
   br label %.thread849
 
 .thread849:                                       ; preds = %625, %615, %629
-  %633 = phi i8 [ %spec.select979, %629 ], [ 45, %625 ], [ %616, %615 ]
-  %.11 = phi ptr [ %spec.select980, %629 ], [ %.10, %615 ], [ %.10, %625 ]
+  %633 = phi i8 [ %spec.select995, %629 ], [ 45, %625 ], [ %616, %615 ]
+  %.11 = phi ptr [ %spec.select996, %629 ], [ %.10, %615 ], [ %.10, %625 ]
   %.not754 = icmp eq i8 %633, 0
   br i1 %.not754, label %._crit_edge, label %.lr.ph912, !llvm.loop !36
 
@@ -2141,76 +2141,76 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader860, %637, %638, %639, %640, %641, %642, %643, %644, %645, %646, %647, %648, %649, %650, %651, %636, %._crit_edge
-  %.0574.lcssa956 = phi i32 [ %.1575, %636 ], [ %.1575, %637 ], [ %.1575, %638 ], [ %.1575, %639 ], [ %.1575, %640 ], [ %.1575, %641 ], [ %.1575, %642 ], [ %.1575, %643 ], [ %.1575, %644 ], [ %.1575, %645 ], [ %.1575, %646 ], [ %.1575, %647 ], [ %.1575, %648 ], [ %.1575, %649 ], [ %.1575, %650 ], [ %.1575, %651 ], [ %.1575, %._crit_edge ], [ 0, %.preheader860 ]
-  %.0585.lcssa955 = phi i32 [ %.1586, %636 ], [ %.1586, %637 ], [ %.1586, %638 ], [ %.1586, %639 ], [ %.1586, %640 ], [ %.1586, %641 ], [ %.1586, %642 ], [ %.1586, %643 ], [ %.1586, %644 ], [ %.1586, %645 ], [ %.1586, %646 ], [ %.1586, %647 ], [ %.1586, %648 ], [ %.1586, %649 ], [ %.1586, %650 ], [ %.1586, %651 ], [ %.1586, %._crit_edge ], [ -1, %.preheader860 ]
-  %.0588.lcssa954 = phi i32 [ %.1589, %636 ], [ %.1589, %637 ], [ %.1589, %638 ], [ %.1589, %639 ], [ %.1589, %640 ], [ %.1589, %641 ], [ %.1589, %642 ], [ %.1589, %643 ], [ %.1589, %644 ], [ %.1589, %645 ], [ %.1589, %646 ], [ %.1589, %647 ], [ %.1589, %648 ], [ %.1589, %649 ], [ %.1589, %650 ], [ %.1589, %651 ], [ %.1589, %._crit_edge ], [ -1, %.preheader860 ]
-  %.0591.lcssa953 = phi i32 [ %.1592, %636 ], [ %.1592, %637 ], [ %.1592, %638 ], [ %.1592, %639 ], [ %.1592, %640 ], [ %.1592, %641 ], [ %.1592, %642 ], [ %.1592, %643 ], [ %.1592, %644 ], [ %.1592, %645 ], [ %.1592, %646 ], [ %.1592, %647 ], [ %.1592, %648 ], [ %.1592, %649 ], [ %.1592, %650 ], [ %.1592, %651 ], [ %.1592, %._crit_edge ], [ -1, %.preheader860 ]
-  %.0594.lcssa952 = phi i32 [ %.1595, %636 ], [ %.1595, %637 ], [ %.1595, %638 ], [ %.1595, %639 ], [ %.1595, %640 ], [ %.1595, %641 ], [ %.1595, %642 ], [ %.1595, %643 ], [ %.1595, %644 ], [ %.1595, %645 ], [ %.1595, %646 ], [ %.1595, %647 ], [ %.1595, %648 ], [ %.1595, %649 ], [ %.1595, %650 ], [ %.1595, %651 ], [ %.1595, %._crit_edge ], [ -1, %.preheader860 ]
-  %.0597.lcssa951 = phi i32 [ %.1598, %636 ], [ %.1598, %637 ], [ %.1598, %638 ], [ %.1598, %639 ], [ %.1598, %640 ], [ %.1598, %641 ], [ %.1598, %642 ], [ %.1598, %643 ], [ %.1598, %644 ], [ %.1598, %645 ], [ %.1598, %646 ], [ %.1598, %647 ], [ %.1598, %648 ], [ %.1598, %649 ], [ %.1598, %650 ], [ %.1598, %651 ], [ %.1598, %._crit_edge ], [ -1, %.preheader860 ]
-  %.0605.lcssa950 = phi i32 [ %.1606, %636 ], [ %.1606, %637 ], [ %.1606, %638 ], [ %.1606, %639 ], [ %.1606, %640 ], [ %.1606, %641 ], [ %.1606, %642 ], [ %.1606, %643 ], [ %.1606, %644 ], [ %.1606, %645 ], [ %.1606, %646 ], [ %.1606, %647 ], [ %.1606, %648 ], [ %.1606, %649 ], [ %.1606, %650 ], [ %.1606, %651 ], [ %.1606, %._crit_edge ], [ -1, %.preheader860 ]
-  %.0621.lcssa949 = phi i32 [ 20, %636 ], [ 20, %637 ], [ 20, %638 ], [ 20, %639 ], [ 20, %640 ], [ 20, %641 ], [ 20, %642 ], [ 20, %643 ], [ 20, %644 ], [ 20, %645 ], [ 20, %646 ], [ 20, %647 ], [ 20, %648 ], [ 20, %649 ], [ 20, %650 ], [ 20, %651 ], [ %.1622, %._crit_edge ], [ 0, %.preheader860 ]
-  %.0626.lcssa948 = phi i32 [ %.1627, %636 ], [ %.1627, %637 ], [ %.1627, %638 ], [ %.1627, %639 ], [ %.1627, %640 ], [ %.1627, %641 ], [ %.1627, %642 ], [ %.1627, %643 ], [ %.1627, %644 ], [ %.1627, %645 ], [ %.1627, %646 ], [ %.1627, %647 ], [ %.1627, %648 ], [ %.1627, %649 ], [ %.1627, %650 ], [ %.1627, %651 ], [ %.1627, %._crit_edge ], [ 0, %.preheader860 ]
+  %.0574.lcssa972 = phi i32 [ %.1575, %636 ], [ %.1575, %637 ], [ %.1575, %638 ], [ %.1575, %639 ], [ %.1575, %640 ], [ %.1575, %641 ], [ %.1575, %642 ], [ %.1575, %643 ], [ %.1575, %644 ], [ %.1575, %645 ], [ %.1575, %646 ], [ %.1575, %647 ], [ %.1575, %648 ], [ %.1575, %649 ], [ %.1575, %650 ], [ %.1575, %651 ], [ %.1575, %._crit_edge ], [ 0, %.preheader860 ]
+  %.0585.lcssa971 = phi i32 [ %.1586, %636 ], [ %.1586, %637 ], [ %.1586, %638 ], [ %.1586, %639 ], [ %.1586, %640 ], [ %.1586, %641 ], [ %.1586, %642 ], [ %.1586, %643 ], [ %.1586, %644 ], [ %.1586, %645 ], [ %.1586, %646 ], [ %.1586, %647 ], [ %.1586, %648 ], [ %.1586, %649 ], [ %.1586, %650 ], [ %.1586, %651 ], [ %.1586, %._crit_edge ], [ -1, %.preheader860 ]
+  %.0588.lcssa970 = phi i32 [ %.1589, %636 ], [ %.1589, %637 ], [ %.1589, %638 ], [ %.1589, %639 ], [ %.1589, %640 ], [ %.1589, %641 ], [ %.1589, %642 ], [ %.1589, %643 ], [ %.1589, %644 ], [ %.1589, %645 ], [ %.1589, %646 ], [ %.1589, %647 ], [ %.1589, %648 ], [ %.1589, %649 ], [ %.1589, %650 ], [ %.1589, %651 ], [ %.1589, %._crit_edge ], [ -1, %.preheader860 ]
+  %.0591.lcssa969 = phi i32 [ %.1592, %636 ], [ %.1592, %637 ], [ %.1592, %638 ], [ %.1592, %639 ], [ %.1592, %640 ], [ %.1592, %641 ], [ %.1592, %642 ], [ %.1592, %643 ], [ %.1592, %644 ], [ %.1592, %645 ], [ %.1592, %646 ], [ %.1592, %647 ], [ %.1592, %648 ], [ %.1592, %649 ], [ %.1592, %650 ], [ %.1592, %651 ], [ %.1592, %._crit_edge ], [ -1, %.preheader860 ]
+  %.0594.lcssa968 = phi i32 [ %.1595, %636 ], [ %.1595, %637 ], [ %.1595, %638 ], [ %.1595, %639 ], [ %.1595, %640 ], [ %.1595, %641 ], [ %.1595, %642 ], [ %.1595, %643 ], [ %.1595, %644 ], [ %.1595, %645 ], [ %.1595, %646 ], [ %.1595, %647 ], [ %.1595, %648 ], [ %.1595, %649 ], [ %.1595, %650 ], [ %.1595, %651 ], [ %.1595, %._crit_edge ], [ -1, %.preheader860 ]
+  %.0597.lcssa967 = phi i32 [ %.1598, %636 ], [ %.1598, %637 ], [ %.1598, %638 ], [ %.1598, %639 ], [ %.1598, %640 ], [ %.1598, %641 ], [ %.1598, %642 ], [ %.1598, %643 ], [ %.1598, %644 ], [ %.1598, %645 ], [ %.1598, %646 ], [ %.1598, %647 ], [ %.1598, %648 ], [ %.1598, %649 ], [ %.1598, %650 ], [ %.1598, %651 ], [ %.1598, %._crit_edge ], [ -1, %.preheader860 ]
+  %.0605.lcssa966 = phi i32 [ %.1606, %636 ], [ %.1606, %637 ], [ %.1606, %638 ], [ %.1606, %639 ], [ %.1606, %640 ], [ %.1606, %641 ], [ %.1606, %642 ], [ %.1606, %643 ], [ %.1606, %644 ], [ %.1606, %645 ], [ %.1606, %646 ], [ %.1606, %647 ], [ %.1606, %648 ], [ %.1606, %649 ], [ %.1606, %650 ], [ %.1606, %651 ], [ %.1606, %._crit_edge ], [ -1, %.preheader860 ]
+  %.0621.lcssa965 = phi i32 [ 20, %636 ], [ 20, %637 ], [ 20, %638 ], [ 20, %639 ], [ 20, %640 ], [ 20, %641 ], [ 20, %642 ], [ 20, %643 ], [ 20, %644 ], [ 20, %645 ], [ 20, %646 ], [ 20, %647 ], [ 20, %648 ], [ 20, %649 ], [ 20, %650 ], [ 20, %651 ], [ %.1622, %._crit_edge ], [ 0, %.preheader860 ]
+  %.0626.lcssa964 = phi i32 [ %.1627, %636 ], [ %.1627, %637 ], [ %.1627, %638 ], [ %.1627, %639 ], [ %.1627, %640 ], [ %.1627, %641 ], [ %.1627, %642 ], [ %.1627, %643 ], [ %.1627, %644 ], [ %.1627, %645 ], [ %.1627, %646 ], [ %.1627, %647 ], [ %.1627, %648 ], [ %.1627, %649 ], [ %.1627, %650 ], [ %.1627, %651 ], [ %.1627, %._crit_edge ], [ 0, %.preheader860 ]
   %.4617 = phi i32 [ -1, %636 ], [ -480, %637 ], [ -480, %638 ], [ -420, %639 ], [ -420, %640 ], [ -360, %641 ], [ -360, %642 ], [ -300, %643 ], [ -300, %644 ], [ -240, %645 ], [ -210, %646 ], [ 0, %647 ], [ 0, %648 ], [ 60, %649 ], [ 120, %650 ], [ 540, %651 ], [ %.1614, %._crit_edge ], [ -1, %.preheader860 ]
   %.0612 = phi i32 [ 0, %636 ], [ 0, %637 ], [ 3600, %638 ], [ 0, %639 ], [ 3600, %640 ], [ 0, %641 ], [ 3600, %642 ], [ 0, %643 ], [ 3600, %644 ], [ 0, %645 ], [ 0, %646 ], [ 0, %647 ], [ 3600, %648 ], [ 0, %649 ], [ 0, %650 ], [ 0, %651 ], [ 0, %._crit_edge ], [ 0, %.preheader860 ]
-  %652 = icmp eq i32 %.0626.lcssa948, 0
-  %653 = icmp eq i32 %.0605.lcssa950, -1
+  %652 = icmp eq i32 %.0626.lcssa964, 0
+  %653 = icmp eq i32 %.0605.lcssa966, -1
   %or.cond34 = select i1 %652, i1 true, i1 %653
-  %654 = icmp eq i32 %.0597.lcssa951, -1
-  %655 = icmp sgt i32 %.0597.lcssa951, 32767
+  %654 = icmp eq i32 %.0597.lcssa967, -1
+  %655 = icmp sgt i32 %.0597.lcssa967, 32767
   %656 = or i1 %654, %655
   %or.cond38 = select i1 %or.cond34, i1 true, i1 %656
   br i1 %or.cond38, label %.loopexit861, label %657
 
 657:                                              ; preds = %._crit_edge.thread
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  %.not755 = icmp eq i32 %.0585.lcssa955, -1
+  %.not755 = icmp eq i32 %.0585.lcssa971, -1
   br i1 %.not755, label %659, label %658
 
 658:                                              ; preds = %657
-  store i32 %.0585.lcssa955, ptr %5, align 4, !tbaa !20
+  store i32 %.0585.lcssa971, ptr %5, align 4, !tbaa !20
   br label %659
 
 659:                                              ; preds = %658, %657
-  %.not756 = icmp eq i32 %.0588.lcssa954, -1
+  %.not756 = icmp eq i32 %.0588.lcssa970, -1
   br i1 %.not756, label %662, label %660
 
 660:                                              ; preds = %659
   %661 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %.0588.lcssa954, ptr %661, align 4, !tbaa !17
+  store i32 %.0588.lcssa970, ptr %661, align 4, !tbaa !17
   br label %662
 
 662:                                              ; preds = %660, %659
-  %.not757 = icmp eq i32 %.0591.lcssa953, -1
+  %.not757 = icmp eq i32 %.0591.lcssa969, -1
   br i1 %.not757, label %665, label %663
 
 663:                                              ; preds = %662
   %664 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %.0591.lcssa953, ptr %664, align 4, !tbaa !16
+  store i32 %.0591.lcssa969, ptr %664, align 4, !tbaa !16
   br label %665
 
 665:                                              ; preds = %663, %662
-  %.not758 = icmp eq i32 %.0594.lcssa952, -1
+  %.not758 = icmp eq i32 %.0594.lcssa968, -1
   br i1 %.not758, label %668, label %666
 
 666:                                              ; preds = %665
   %667 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %.0594.lcssa952, ptr %667, align 4, !tbaa !15
+  store i32 %.0594.lcssa968, ptr %667, align 4, !tbaa !15
   br label %668
 
 668:                                              ; preds = %665, %666
   %669 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %.0605.lcssa950, ptr %669, align 4, !tbaa !21
-  %670 = add nsw i32 %.0626.lcssa948, -8
+  store i32 %.0605.lcssa966, ptr %669, align 4, !tbaa !21
+  %670 = add nsw i32 %.0626.lcssa964, -8
   %671 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %670, ptr %671, align 4, !tbaa !22
-  %672 = trunc i32 %.0597.lcssa951 to i16
+  %672 = trunc i32 %.0597.lcssa967 to i16
   %673 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i16 %672, ptr %673, align 4, !tbaa !11
-  %.not759 = icmp eq i32 %.0574.lcssa956, 0
+  %.not759 = icmp eq i32 %.0574.lcssa972, 0
   br i1 %.not759, label %678, label %674
 
 674:                                              ; preds = %668
-  %675 = trunc nsw i32 %.0574.lcssa956 to i8
+  %675 = trunc nsw i32 %.0574.lcssa972 to i8
   %676 = add nsw i8 %675, -1
   %677 = getelementptr inbounds nuw i8, ptr %5, i64 26
   store i8 %676, ptr %677, align 2, !tbaa !26
@@ -2218,7 +2218,7 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
 
 678:                                              ; preds = %674, %668
   call void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr noundef nonnull %5, ptr noundef nonnull @_Z16PR_GMTParametersPK14PRExplodedTime)
-  %679 = icmp eq i32 %.0621.lcssa949, 0
+  %679 = icmp eq i32 %.0621.lcssa965, 0
   %680 = icmp ne i32 %1, 0
   %or.cond40 = and i1 %680, %679
   %spec.select836 = select i1 %or.cond40, i32 0, i32 %.4617

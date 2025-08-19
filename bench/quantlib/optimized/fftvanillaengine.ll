@@ -2218,9 +2218,9 @@ cond.false.i1:                                    ; preds = %dynamic_cast.end3.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %cond.true.i, %if.then.i.i.i, %cond.false.i1
-  %.pre.i11 = phi ptr [ null, %cond.false.i1 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
+  %.pre.i15 = phi ptr [ null, %cond.false.i1 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
   %5 = phi ptr [ null, %cond.false.i1 ], [ %3, %if.then.i.i.i ], [ null, %cond.true.i ]
-  %call3 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib30GeneralizedBlackScholesProcess12riskFreeRateEv(ptr noundef nonnull align 8 dereferenceable(250) %.pre.i11)
+  %call3 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib30GeneralizedBlackScholesProcess12riskFreeRateEv(ptr noundef nonnull align 8 dereferenceable(250) %.pre.i15)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -2336,9 +2336,9 @@ cond.false.i1:                                    ; preds = %dynamic_cast.end3.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %cond.true.i, %if.then.i.i.i, %cond.false.i1
-  %.pre.i11 = phi ptr [ null, %cond.false.i1 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
+  %.pre.i15 = phi ptr [ null, %cond.false.i1 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
   %5 = phi ptr [ null, %cond.false.i1 ], [ %3, %if.then.i.i.i ], [ null, %cond.true.i ]
-  %call3 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib30GeneralizedBlackScholesProcess13dividendYieldEv(ptr noundef nonnull align 8 dereferenceable(250) %.pre.i11)
+  %call3 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib30GeneralizedBlackScholesProcess13dividendYieldEv(ptr noundef nonnull align 8 dereferenceable(250) %.pre.i15)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont

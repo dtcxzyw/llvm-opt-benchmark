@@ -911,13 +911,13 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17h600c5f145
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !75
   invoke void @"_ZN92_$LT$alloc..string..String$u20$as$u20$pingora_http..case_header_name..IntoCaseHeaderName$GT$21into_case_header_name17h7d009e84a24c2f2dE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %17)
-          to label %34 unwind label %.thread62.i, !noalias !80
+          to label %34 unwind label %.thread64.i, !noalias !80
 
 33:                                               ; preds = %80
   br i1 %.sroa.017.251.i, label %.thread, label %.body.thread
 
-.thread62.i:                                      ; preds = %77, %30
-  %lpad.thr_comm60.i = landingpad { ptr, i32 }
+.thread64.i:                                      ; preds = %77, %30
+  %lpad.thr_comm62.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
@@ -1011,7 +1011,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17h600c5f145
           to label %62 unwind label %74, !noalias !86
 
 .thread54.thread.i:                               ; preds = %71, %49
-  %lpad.thr_comm65.i = landingpad { ptr, i32 }
+  %lpad.thr_comm67.i = landingpad { ptr, i32 }
           cleanup
   br label %80
 
@@ -1106,7 +1106,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17h600c5f145
   store i8 1, ptr %0, align 8, !alias.scope !72, !noalias !87
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !75
   invoke void @"_ZN4core3ptr67drop_in_place$LT$pingora_http..case_header_name..CaseHeaderName$GT$17he6db5e0c1a99caadE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15)
-          to label %79 unwind label %.thread62.i, !noalias !75
+          to label %79 unwind label %.thread64.i, !noalias !75
 
 79:                                               ; preds = %77
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !75
@@ -1114,13 +1114,13 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17h600c5f145
   br label %_ZN12pingora_http19append_header_value17he33dc485ddd6ff7dE.exit
 
 80:                                               ; preds = %.thread54.thread.i, %.thread.i, %36
-  %.pn52.i = phi { ptr, i32 } [ %37, %.thread.i ], [ %lpad.thr_comm.split-lp.i, %36 ], [ %lpad.thr_comm65.i, %.thread54.thread.i ]
+  %.pn52.i = phi { ptr, i32 } [ %37, %.thread.i ], [ %lpad.thr_comm.split-lp.i, %36 ], [ %lpad.thr_comm67.i, %.thread54.thread.i ]
   %.sroa.017.251.i = phi i1 [ true, %.thread.i ], [ true, %36 ], [ false, %.thread54.thread.i ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$pingora_http..case_header_name..CaseHeaderName$GT$17he6db5e0c1a99caadE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #22
           to label %33 unwind label %75, !noalias !89
 
-.thread:                                          ; preds = %36, %.thread62.i, %33
-  %.pn4059.i = phi { ptr, i32 } [ %.pn52.i, %33 ], [ %lpad.thr_comm60.i, %.thread62.i ], [ %lpad.thr_comm.split-lp.i, %36 ]
+.thread:                                          ; preds = %36, %.thread64.i, %33
+  %.pn4061.i = phi { ptr, i32 } [ %.pn52.i, %33 ], [ %lpad.thr_comm62.i, %.thread64.i ], [ %lpad.thr_comm.split-lp.i, %36 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h7595bf9052585af0E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18) #22
           to label %.body.thread unwind label %75, !noalias !88
 
@@ -1132,7 +1132,7 @@ _ZN12pingora_http19append_header_value17he33dc485ddd6ff7dE.exit: ; preds = %79, 
   ret void
 
 .body.thread:                                     ; preds = %.thread, %33, %82
-  %eh.lpad-body22 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %82 ], [ %.pn4059.i, %.thread ], [ %.pn52.i, %33 ]
+  %eh.lpad-body22 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %82 ], [ %.pn4061.i, %.thread ], [ %.pn52.i, %33 ]
   resume { ptr, i32 } %eh.lpad-body22
 
 82:                                               ; preds = %.noexc, %4, %22
@@ -1213,13 +1213,13 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17h9e1e564dd
   tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !102
   invoke void @"_ZN78_$LT$$RF$str$u20$as$u20$pingora_http..case_header_name..IntoCaseHeaderName$GT$21into_case_header_name17h4e682ffe09531ca2E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %16, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
-          to label %41 unwind label %.thread62.i, !noalias !107
+          to label %41 unwind label %.thread64.i, !noalias !107
 
 40:                                               ; preds = %88
   br i1 %.sroa.017.251.i, label %.thread, label %89
 
-.thread62.i:                                      ; preds = %85, %37
-  %lpad.thr_comm60.i = landingpad { ptr, i32 }
+.thread64.i:                                      ; preds = %85, %37
+  %lpad.thr_comm62.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
@@ -1313,7 +1313,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17h9e1e564dd
           to label %69 unwind label %82, !noalias !113
 
 .thread54.thread.i:                               ; preds = %79, %56
-  %lpad.thr_comm65.i = landingpad { ptr, i32 }
+  %lpad.thr_comm67.i = landingpad { ptr, i32 }
           cleanup
   br label %88
 
@@ -1408,7 +1408,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17h9e1e564dd
   store i8 1, ptr %0, align 8, !alias.scope !99, !noalias !115
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !102
   invoke void @"_ZN4core3ptr67drop_in_place$LT$pingora_http..case_header_name..CaseHeaderName$GT$17he6db5e0c1a99caadE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16)
-          to label %87 unwind label %.thread62.i, !noalias !107
+          to label %87 unwind label %.thread64.i, !noalias !107
 
 87:                                               ; preds = %85
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !102
@@ -1416,17 +1416,17 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17h9e1e564dd
   br label %_ZN12pingora_http19append_header_value17h2c820ec355e3578bE.exit
 
 88:                                               ; preds = %.thread54.thread.i, %.thread.i, %43
-  %.pn52.i = phi { ptr, i32 } [ %44, %.thread.i ], [ %lpad.thr_comm.split-lp.i, %43 ], [ %lpad.thr_comm65.i, %.thread54.thread.i ]
+  %.pn52.i = phi { ptr, i32 } [ %44, %.thread.i ], [ %lpad.thr_comm.split-lp.i, %43 ], [ %lpad.thr_comm67.i, %.thread54.thread.i ]
   %.sroa.017.251.i = phi i1 [ true, %.thread.i ], [ true, %43 ], [ false, %.thread54.thread.i ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$pingora_http..case_header_name..CaseHeaderName$GT$17he6db5e0c1a99caadE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #22
           to label %40 unwind label %83, !noalias !114
 
 89:                                               ; preds = %.thread, %40
-  %.pn4058.i = phi { ptr, i32 } [ %.pn4059.i, %.thread ], [ %.pn52.i, %40 ]
-  resume { ptr, i32 } %.pn4058.i
+  %.pn4060.i = phi { ptr, i32 } [ %.pn4061.i, %.thread ], [ %.pn52.i, %40 ]
+  resume { ptr, i32 } %.pn4060.i
 
-.thread:                                          ; preds = %43, %.thread62.i, %40
-  %.pn4059.i = phi { ptr, i32 } [ %.pn52.i, %40 ], [ %lpad.thr_comm60.i, %.thread62.i ], [ %lpad.thr_comm.split-lp.i, %43 ]
+.thread:                                          ; preds = %43, %.thread64.i, %40
+  %.pn4061.i = phi { ptr, i32 } [ %.pn52.i, %40 ], [ %lpad.thr_comm62.i, %.thread64.i ], [ %lpad.thr_comm.split-lp.i, %43 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h7595bf9052585af0E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18) #22
           to label %89 unwind label %83, !noalias !99
 
@@ -5654,11 +5654,11 @@ define hidden void @"_ZN84_$LT$rmp_serde..encode..Tuple$LT$W$C$C$GT$$u20$as$u20$
   br label %11
 
 46:                                               ; preds = %40, %47
-  %.sink31 = phi i64 [ %32, %40 ], [ %44, %47 ]
+  %.sink34 = phi i64 [ %32, %40 ], [ %44, %47 ]
   %.sink = phi ptr [ %42, %40 ], [ %49, %47 ]
   store i64 -9223372036854775808, ptr %0, align 8
   %.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink31, ptr %.sroa.429.0..sroa_idx, align 8
+  store i64 %.sink34, ptr %.sroa.429.0..sroa_idx, align 8
   %.sroa.530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink, ptr %.sroa.530.0..sroa_idx, align 8
   call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17haa20e7b2ed3473cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
@@ -6236,11 +6236,11 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   br label %41
 
 .noexc10.i:                                       ; preds = %77, %71, %.noexc.i.i
-  %.sink38.i.i = phi i64 [ %59, %71 ], [ %75, %77 ], [ 1, %.noexc.i.i ]
+  %.sink41.i.i = phi i64 [ %59, %71 ], [ %75, %77 ], [ 1, %.noexc.i.i ]
   %.sink.i.i = phi ptr [ %73, %71 ], [ %79, %77 ], [ inttoptr (i64 163208757251 to ptr), %.noexc.i.i ]
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !529, !noalias !530
   %.sroa.431.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink38.i.i, ptr %.sroa.431.0..sroa_idx.i.i, align 8, !alias.scope !529, !noalias !530
+  store i64 %.sink41.i.i, ptr %.sroa.431.0..sroa_idx.i.i, align 8, !alias.scope !529, !noalias !530
   %.sroa.532.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink.i.i, ptr %.sroa.532.0..sroa_idx.i.i, align 8, !alias.scope !529, !noalias !530
   call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17haa20e7b2ed3473cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6), !noalias !511
@@ -6260,8 +6260,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   unreachable
 
 .body.thread.i:                                   ; preds = %82, %54
-  %eh.lpad-body50.i = phi { ptr, i32 } [ %lpad.loopexit.i, %82 ], [ %55, %54 ]
-  resume { ptr, i32 } %eh.lpad-body50.i
+  %eh.lpad-body55.i = phi { ptr, i32 } [ %lpad.loopexit.i, %82 ], [ %55, %54 ]
+  resume { ptr, i32 } %eh.lpad-body55.i
 
 82:                                               ; preds = %29, %25
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -6687,7 +6687,7 @@ define internal fastcc void @"_ZN105_$LT$pingora_cache..eviction..simple_lru..Ma
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h42e3b6c0c526c320E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #22
           to label %21 unwind label %91
 
-26:                                               ; preds = %.invoke19, %29, %28, %24
+26:                                               ; preds = %.invoke20, %29, %28, %24
   %27 = landingpad { ptr, i32 }
           cleanup
   br label %25
@@ -6867,7 +6867,7 @@ define internal fastcc void @"_ZN105_$LT$pingora_cache..eviction..simple_lru..Ma
 
 87:                                               ; preds = %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  br label %.invoke19
+  br label %.invoke20
 
 88:                                               ; preds = %.invoke
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -6881,14 +6881,14 @@ define internal fastcc void @"_ZN105_$LT$pingora_cache..eviction..simple_lru..Ma
   store ptr %72, ptr %90, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17haa20e7b2ed3473cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-          to label %.invoke19 unwind label %48
+          to label %.invoke20 unwind label %48
 
-.invoke19:                                        ; preds = %89, %87
+.invoke20:                                        ; preds = %89, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   invoke void @"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h202db346a2f754b7E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %15)
           to label %.invoke unwind label %26
 
-.invoke:                                          ; preds = %.invoke19, %33
+.invoke:                                          ; preds = %.invoke20, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h42e3b6c0c526c320E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
           to label %88 unwind label %22

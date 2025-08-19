@@ -33,9 +33,9 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
   %7 = icmp eq i32 %3, 1
-  br i1 %7, label %.thread118, label %.lr.ph.preheader.i
+  br i1 %7, label %.thread125, label %.lr.ph.preheader.i
 
-.thread118:                                       ; preds = %5
+.thread125:                                       ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i16, ptr %8, align 8
   %spec.select.i = tail call i16 @llvm.umin.i16(i16 %9, i16 16383)
@@ -202,10 +202,10 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   %95 = icmp sgt i32 %94, 0
   br i1 %95, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %.thread118, %89
-  %.071.i120 = phi i32 [ 1, %.thread118 ], [ %94, %89 ]
+.lr.ph:                                           ; preds = %.thread125, %89
+  %.071.i127 = phi i32 [ 1, %.thread125 ], [ %94, %89 ]
   %96 = load ptr, ptr %0, align 8
-  %wide.trip.count = zext nneg i32 %.071.i120 to i64
+  %wide.trip.count = zext nneg i32 %.071.i127 to i64
   br label %97
 
 97:                                               ; preds = %.lr.ph, %115
@@ -252,10 +252,10 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   unreachable
 
 ._crit_edge.thread:                               ; preds = %1, %89, %._crit_edge
-  %.086.lcssa122 = phi i32 [ %.187, %._crit_edge ], [ 0, %89 ], [ 0, %1 ]
-  %121 = phi i32 [ %.071.i120, %._crit_edge ], [ %94, %89 ], [ %3, %1 ]
+  %.086.lcssa129 = phi i32 [ %.187, %._crit_edge ], [ 0, %89 ], [ 0, %1 ]
+  %121 = phi i32 [ %.071.i127, %._crit_edge ], [ %94, %89 ], [ %3, %1 ]
   %122 = shl i32 %121, 2
-  %123 = add nsw i32 %.086.lcssa122, 8
+  %123 = add nsw i32 %.086.lcssa129, 8
   %124 = add i32 %123, %122
   %125 = sext i32 %124 to i64
   %126 = tail call ptr @palloc0(i64 noundef %125) #8
@@ -1054,23 +1054,23 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i16, ptr %59, align 8
   %61 = icmp eq i16 %41, %60
-  br i1 %61, label %.lr.ph91, label %.critedge2
+  br i1 %61, label %.lr.ph103, label %.critedge2
 
 .lr.ph63:                                         ; preds = %90
-  %62 = add i32 %.0466190, 1
+  %62 = add i32 %.04661102, 1
   %63 = load ptr, ptr %7, align 8
   %64 = sext i32 %91 to i64
   %65 = getelementptr inbounds %struct.ParsedWord, ptr %63, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i16, ptr %66, align 8
   %68 = icmp eq i16 %41, %67
-  br i1 %68, label %.lr.ph91, label %.critedge2, !llvm.loop !10
+  br i1 %68, label %.lr.ph103, label %.critedge2, !llvm.loop !10
 
-.lr.ph91:                                         ; preds = %.lr.ph63.preheader, %.lr.ph63
+.lr.ph103:                                        ; preds = %.lr.ph63.preheader, %.lr.ph63
   %69 = phi ptr [ %65, %.lr.ph63 ], [ %58, %.lr.ph63.preheader ]
   %70 = phi i64 [ %64, %.lr.ph63 ], [ %57, %.lr.ph63.preheader ]
-  %.0466190 = phi i32 [ %62, %.lr.ph63 ], [ 0, %.lr.ph63.preheader ]
-  %.26289 = phi i32 [ %91, %.lr.ph63 ], [ %.170, %.lr.ph63.preheader ]
+  %.04661102 = phi i32 [ %62, %.lr.ph63 ], [ 0, %.lr.ph63.preheader ]
+  %.262101 = phi i32 [ %91, %.lr.ph63 ], [ %.170, %.lr.ph63.preheader ]
   %71 = phi i32 [ %92, %.lr.ph63 ], [ %45, %.lr.ph63.preheader ]
   %72 = phi i32 [ %92, %.lr.ph63 ], [ %44, %.lr.ph63.preheader ]
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 4
@@ -1078,7 +1078,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %75 = icmp eq i16 %54, %74
   br i1 %75, label %76, label %.critedge2
 
-76:                                               ; preds = %.lr.ph91
+76:                                               ; preds = %.lr.ph103
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %69, i64 2
@@ -1093,7 +1093,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %87 = getelementptr inbounds %struct.ParsedWord, ptr %86, i64 %70, i32 5
   %88 = load ptr, ptr %87, align 8
   call void @pfree(ptr noundef %88) #8
-  %.not57 = icmp eq i32 %.0466190, 0
+  %.not57 = icmp eq i32 %.04661102, 0
   br i1 %.not57, label %90, label %89
 
 89:                                               ; preds = %76
@@ -1101,7 +1101,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   br label %90
 
 90:                                               ; preds = %89, %76
-  %91 = add nsw i32 %.26289, 1
+  %91 = add nsw i32 %.262101, 1
   %92 = load i32, ptr %10, align 4
   %93 = icmp slt i32 %91, %92
   br i1 %93, label %.lr.ph63, label %..critedge2.loopexit_crit_edge, !llvm.loop !10
@@ -1109,10 +1109,10 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 ..critedge2.loopexit_crit_edge:                   ; preds = %90
   br label %.critedge2, !llvm.loop !10
 
-.critedge2:                                       ; preds = %.lr.ph63, %.lr.ph91, %.lr.ph63.preheader, %..critedge2.loopexit_crit_edge, %52
-  %94 = phi i32 [ %44, %52 ], [ %92, %..critedge2.loopexit_crit_edge ], [ %44, %.lr.ph63.preheader ], [ %72, %.lr.ph91 ], [ %92, %.lr.ph63 ]
-  %95 = phi i32 [ %45, %52 ], [ %92, %..critedge2.loopexit_crit_edge ], [ %45, %.lr.ph63.preheader ], [ %71, %.lr.ph91 ], [ %92, %.lr.ph63 ]
-  %.2.lcssa = phi i32 [ %.170, %52 ], [ %91, %..critedge2.loopexit_crit_edge ], [ %.170, %.lr.ph63.preheader ], [ %.26289, %.lr.ph91 ], [ %91, %.lr.ph63 ]
+.critedge2:                                       ; preds = %.lr.ph63, %.lr.ph103, %.lr.ph63.preheader, %..critedge2.loopexit_crit_edge, %52
+  %94 = phi i32 [ %44, %52 ], [ %92, %..critedge2.loopexit_crit_edge ], [ %44, %.lr.ph63.preheader ], [ %72, %.lr.ph103 ], [ %92, %.lr.ph63 ]
+  %95 = phi i32 [ %45, %52 ], [ %92, %..critedge2.loopexit_crit_edge ], [ %45, %.lr.ph63.preheader ], [ %71, %.lr.ph103 ], [ %92, %.lr.ph63 ]
+  %.2.lcssa = phi i32 [ %.170, %52 ], [ %91, %..critedge2.loopexit_crit_edge ], [ %.170, %.lr.ph63.preheader ], [ %.262101, %.lr.ph103 ], [ %91, %.lr.ph63 ]
   %.not56 = icmp eq i32 %.05069, 0
   br i1 %.not56, label %97, label %96
 

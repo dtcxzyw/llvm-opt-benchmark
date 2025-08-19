@@ -222,7 +222,7 @@ declare ptr @l_Lean_Syntax_getId(ptr noundef) local_unnamed_addr #1
 declare ptr @l_Lake_Name_quoteFrom(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at___private_Lake_DSL_Key_0__Lake_DSL_expandFacets___spec__2(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at___private_Lake_DSL_Key_0__Lake_DSL_expandFacets___spec__2(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %.not86 = icmp eq i64 %2, %3
   br i1 %.not86, label %._crit_edge, label %.lr.ph
 
@@ -492,7 +492,7 @@ declare ptr @l_Lean_addMacroScope(ptr noundef, ptr noundef, ptr noundef) local_u
 declare ptr @l_Lean_Syntax_node2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l___private_Lake_DSL_Key_0__Lake_DSL_expandFacets(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define noalias nonnull ptr @l___private_Lake_DSL_Key_0__Lake_DSL_expandFacets(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
 lean_nat_lt.exit:
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load i64, ptr %4, align 8, !tbaa !12
@@ -660,7 +660,7 @@ lean_dec.exit:                                    ; preds = %23, %22, %20, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at___private_Lake_DSL_Key_0__Lake_DSL_expandFacets___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at___private_Lake_DSL_Key_0__Lake_DSL_expandFacets___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr i8, ptr %2, i64 8
   %.val22 = load i64, ptr %8, align 8, !tbaa !12
   %9 = ptrtoint ptr %2 to i64
@@ -1040,16 +1040,16 @@ lean_inc.exit:                                    ; preds = %112, %111, %109, %1
   unreachable
 
 lean_alloc_ctor.exit86:                           ; preds = %lean_inc.exit, %lean_inc.exit63
-  %.sink100 = phi ptr [ %99, %lean_inc.exit63 ], [ %116, %lean_inc.exit ]
+  %.sink106 = phi ptr [ %99, %lean_inc.exit63 ], [ %116, %lean_inc.exit ]
   %.sink = phi ptr [ %98, %lean_inc.exit63 ], [ %115, %lean_inc.exit ]
-  %119 = getelementptr inbounds nuw i8, ptr %.sink100, i64 4
-  store i32 1, ptr %.sink100, align 4, !tbaa !8
+  %119 = getelementptr inbounds nuw i8, ptr %.sink106, i64 4
+  store i32 1, ptr %.sink106, align 4, !tbaa !8
   store i32 131096, ptr %119, align 4
-  %120 = getelementptr inbounds nuw i8, ptr %.sink100, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.sink106, i64 8
   store ptr %.sink, ptr %120, align 8, !tbaa !4
-  %121 = getelementptr inbounds nuw i8, ptr %.sink100, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %.sink106, i64 16
   store ptr %5, ptr %121, align 8, !tbaa !4
-  ret ptr %.sink100
+  ret ptr %.sink106
 }
 
 declare ptr @l_Lean_Syntax_getArg(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -3961,7 +3961,7 @@ lean_dec.exit:                                    ; preds = %23, %22, %20, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l_Lake_DSL___aux__Lake__DSL__Key______macroRules__Lake__DSL__term_x60_x40_______x2f__________1___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define nonnull ptr @l_Lake_DSL___aux__Lake__DSL__Key______macroRules__Lake__DSL__term_x60_x40_______x2f__________1___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = ptrtoint ptr %2 to i64
   %6 = and i64 %5, 1
   %.not = icmp eq i64 %6, 0
@@ -7457,18 +7457,18 @@ _init_l_Lake_DSL___aux__Lake__DSL__Key______macroRules__Lake__DSL__term_x60_x40_
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_DSL___aux__Lake__DSL__Key______macroRules__Lake__DSL__term_x60_x40_______x2f__________1___lambda__2___closed__9.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %260, %_init_l_Lake_DSL___aux__Lake__DSL__Key______macroRules__Lake__DSL__term_x60_x40_______x2f__________1___lambda__2___closed__9.exit ]
-  %263 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !8
+  %.sink42 = phi ptr [ %4, %3 ], [ %260, %_init_l_Lake_DSL___aux__Lake__DSL__Key______macroRules__Lake__DSL__term_x60_x40_______x2f__________1___lambda__2___closed__9.exit ]
+  %263 = getelementptr inbounds nuw i8, ptr %.sink42, i64 4
+  store i32 1, ptr %.sink42, align 4, !tbaa !8
   store i32 131096, ptr %263, align 4
-  %264 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %.sink42, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %264, align 8, !tbaa !4
-  %265 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %265 = getelementptr inbounds nuw i8, ptr %.sink42, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %265, align 8, !tbaa !4
   br label %266
 
 266:                                              ; preds = %.sink.split, %lean_dec_ref.exit10, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink42, %.sink.split ]
   ret ptr %.0
 }
 

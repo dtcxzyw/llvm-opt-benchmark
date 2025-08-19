@@ -1936,9 +1936,9 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit38:     ; preds = %110
 _ZN4absl12lts_202407226StatusC2ERKS1_.exit38.thread: ; preds = %110
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %116 = icmp eq ptr %55, null
-  br i1 %116, label %.thread49, label %.thread
+  br i1 %116, label %.thread52, label %.thread
 
-.thread49:                                        ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit38.thread
+.thread52:                                        ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit38.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4absl12lts_202407226StatusD2Ev.exit41
 
@@ -2007,7 +2007,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i:     ; preds = %.thread, %121
   call void @__clang_call_terminate(ptr %144) #28
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit41:         ; preds = %.thread49, %140, %139, %_ZN9grpc_core7ExecCtxD2Ev.exit
+_ZN4absl12lts_202407226StatusD2Ev.exit41:         ; preds = %.thread52, %140, %139, %_ZN9grpc_core7ExecCtxD2Ev.exit
   call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5UnrefEv(ptr noundef nonnull align 16 dereferenceable(164) %0)
   ret void
 }

@@ -302,7 +302,8 @@ define internal fastcc void @ackm_set_loss_detection_timer(ptr noundef captures(
   br label %4
 
 4:                                                ; preds = %4, %1
-  %indvars.iv.i = phi i64 [ 1, %1 ], [ %indvars.iv.next.i, %4 ]
+  %exitcond.not.i = phi i1 [ false, %1 ], [ true, %4 ]
+  %indvars.iv.i = phi i64 [ 1, %1 ], [ 2, %4 ]
   %.016.i = phi i32 [ 0, %1 ], [ %.1.i, %4 ]
   %.sroa.0.014.i = phi i64 [ %.sroa.0.0.copyload.i, %1 ], [ %.sroa.0.1.i, %4 ]
   %.phi.trans.insert.i = getelementptr inbounds nuw [3 x %struct.OSSL_TIME], ptr %3, i64 0, i64 %indvars.iv.i
@@ -313,8 +314,6 @@ define internal fastcc void @ackm_set_loss_detection_timer(ptr noundef captures(
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %.sroa.0.1.i = select i1 %or.cond.not.i, i64 %.sroa.0.014.i, i64 %5
   %.1.i = select i1 %or.cond.not.i, i32 %.016.i, i32 %7
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %ackm_get_loss_time_and_space.exit, label %4, !llvm.loop !51
 
 ackm_get_loss_time_and_space.exit:                ; preds = %4
@@ -340,14 +339,14 @@ ackm_get_loss_time_and_space.exit:                ; preds = %4
   br label %17
 
 17:                                               ; preds = %17, %15
-  %indvars.iv.i13 = phi i64 [ 0, %15 ], [ %indvars.iv.next.i14, %17 ]
+  %indvars.iv.i13 = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %17 ]
   %.07.i = phi i64 [ 0, %15 ], [ %20, %17 ]
   %18 = getelementptr inbounds nuw [3 x i64], ptr %16, i64 0, i64 %indvars.iv.i13
   %19 = load i64, ptr %18, align 8, !tbaa !3
   %20 = add i64 %19, %.07.i
-  %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
-  %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, 3
-  br i1 %exitcond.not.i15, label %ackm_ack_eliciting_bytes_in_flight.exit, label %17, !llvm.loop !54
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i13, 1
+  %exitcond.not.i14 = icmp eq i64 %indvars.iv.next.i, 3
+  br i1 %exitcond.not.i14, label %ackm_ack_eliciting_bytes_in_flight.exit, label %17, !llvm.loop !54
 
 ackm_ack_eliciting_bytes_in_flight.exit:          ; preds = %17
   %21 = icmp eq i64 %20, 0
@@ -364,8 +363,8 @@ ackm_ack_eliciting_bytes_in_flight.exit:          ; preds = %17
   store i64 0, ptr %26, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %28 = load ptr, ptr %27, align 8, !tbaa !52
-  %.not.i16 = icmp eq ptr %28, null
-  br i1 %.not.i16, label %ackm_set_loss_detection_timer_actual.exit, label %29
+  %.not.i15 = icmp eq ptr %28, null
+  br i1 %.not.i15, label %ackm_set_loss_detection_timer_actual.exit, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 2376
@@ -379,8 +378,8 @@ ackm_ack_eliciting_bytes_in_flight.exit:          ; preds = %17
   store i64 %33, ptr %34, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %36 = load ptr, ptr %35, align 8, !tbaa !52
-  %.not.i18 = icmp eq ptr %36, null
-  br i1 %.not.i18, label %ackm_set_loss_detection_timer_actual.exit, label %37
+  %.not.i17 = icmp eq ptr %36, null
+  br i1 %.not.i17, label %ackm_set_loss_detection_timer_actual.exit, label %37
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 2376
@@ -456,7 +455,7 @@ define noundef i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %0, ptr noundef readon
   br i1 %.not42.i, label %ackm_detect_and_remove_newly_acked_pkts.exit, label %.lr.ph46.i
 
 .lr.ph46.i:                                       ; preds = %38, %31
-  %.02553.i = phi ptr [ %.val30.i, %38 ], [ %36, %31 ]
+  %.02559.i = phi ptr [ %.val30.i, %38 ], [ %36, %31 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -465,7 +464,7 @@ define noundef i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %0, ptr noundef readon
 43:                                               ; preds = %.loopexit33.i, %.lr.ph46.i
   %.045.i = phi i64 [ 0, %.lr.ph46.i ], [ %.140.i, %.loopexit33.i ]
   %.02344.i = phi ptr [ %16, %.lr.ph46.i ], [ %.124.i, %.loopexit33.i ]
-  %.12643.i = phi ptr [ %.02553.i, %.lr.ph46.i ], [ %.126.val.i, %.loopexit33.i ]
+  %.12643.i = phi ptr [ %.02559.i, %.lr.ph46.i ], [ %.126.val.i, %.loopexit33.i ]
   %44 = getelementptr i8, ptr %.12643.i, i64 80
   %.126.val.i = load ptr, ptr %44, align 8, !tbaa !43
   %45 = load i64, ptr %40, align 8, !tbaa !62
@@ -591,7 +590,8 @@ ackm_detect_and_remove_newly_acked_pkts.exit:     ; preds = %43, %.loopexit33.i,
   br label %86
 
 86:                                               ; preds = %86, %84
-  %indvars.iv.i.i = phi i64 [ 1, %84 ], [ %indvars.iv.next.i.i, %86 ]
+  %exitcond.not.i.i = phi i1 [ false, %84 ], [ true, %86 ]
+  %indvars.iv.i.i = phi i64 [ 1, %84 ], [ 2, %86 ]
   %.sroa.0.014.i.i = phi i64 [ %.sroa.0.0.copyload.i.i, %84 ], [ %.sroa.0.1.i.i, %86 ]
   %.phi.trans.insert.i.i = getelementptr inbounds nuw [3 x %struct.OSSL_TIME], ptr %85, i64 0, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload11.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
@@ -599,8 +599,6 @@ ackm_detect_and_remove_newly_acked_pkts.exit:     ; preds = %43, %.loopexit33.i,
   %88 = add i64 %.sroa.0.014.i.i, -1
   %or.cond.not.i.i = icmp ult i64 %88, %87
   %.sroa.0.1.i.i = select i1 %or.cond.not.i.i, i64 %.sroa.0.014.i.i, i64 %87
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %exitcond.not.i.i, label %ackm_get_loss_time_and_space.exit.i, label %86, !llvm.loop !51
 
 ackm_get_loss_time_and_space.exit.i:              ; preds = %86
@@ -626,14 +624,14 @@ ackm_get_loss_time_and_space.exit.i:              ; preds = %86
   br label %98
 
 98:                                               ; preds = %98, %96
-  %indvars.iv.i13.i = phi i64 [ 0, %96 ], [ %indvars.iv.next.i14.i, %98 ]
+  %indvars.iv.i13.i = phi i64 [ 0, %96 ], [ %indvars.iv.next.i.i, %98 ]
   %.07.i.i = phi i64 [ 0, %96 ], [ %101, %98 ]
   %99 = getelementptr inbounds nuw [3 x i64], ptr %97, i64 0, i64 %indvars.iv.i13.i
   %100 = load i64, ptr %99, align 8, !tbaa !3
   %101 = add i64 %100, %.07.i.i
-  %indvars.iv.next.i14.i = add nuw nsw i64 %indvars.iv.i13.i, 1
-  %exitcond.not.i15.i = icmp eq i64 %indvars.iv.next.i14.i, 3
-  br i1 %exitcond.not.i15.i, label %ackm_ack_eliciting_bytes_in_flight.exit.i, label %98, !llvm.loop !54
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i13.i, 1
+  %exitcond.not.i14.i = icmp eq i64 %indvars.iv.next.i.i, 3
+  br i1 %exitcond.not.i14.i, label %ackm_ack_eliciting_bytes_in_flight.exit.i, label %98, !llvm.loop !54
 
 ackm_ack_eliciting_bytes_in_flight.exit.i:        ; preds = %98
   %102 = icmp eq i64 %101, 0
@@ -649,8 +647,8 @@ ackm_ack_eliciting_bytes_in_flight.exit.i:        ; preds = %98
   store i64 0, ptr %106, align 8, !tbaa !3
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %108 = load ptr, ptr %107, align 8, !tbaa !52
-  %.not.i16.i = icmp eq ptr %108, null
-  br i1 %.not.i16.i, label %ackm_set_loss_detection_timer.exit, label %109
+  %.not.i15.i = icmp eq ptr %108, null
+  br i1 %.not.i15.i, label %ackm_set_loss_detection_timer.exit, label %109
 
 109:                                              ; preds = %105
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 2376
@@ -664,8 +662,8 @@ ackm_ack_eliciting_bytes_in_flight.exit.i:        ; preds = %98
   store i64 %113, ptr %114, align 8, !tbaa !3
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %116 = load ptr, ptr %115, align 8, !tbaa !52
-  %.not.i18.i = icmp eq ptr %116, null
-  br i1 %.not.i18.i, label %ackm_set_loss_detection_timer.exit, label %117
+  %.not.i17.i = icmp eq ptr %116, null
+  br i1 %.not.i17.i, label %ackm_set_loss_detection_timer.exit, label %117
 
 117:                                              ; preds = %112
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 2376
@@ -683,9 +681,9 @@ ackm_set_loss_detection_timer.exit:               ; preds = %89, %93, %105, %109
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load i64, ptr %123, align 8, !tbaa !59
   %125 = icmp eq i64 %121, %124
-  br i1 %125, label %.preheader96, label %ack_includes_ack_eliciting.exit.thread
+  br i1 %125, label %.preheader95, label %ack_includes_ack_eliciting.exit.thread
 
-.preheader96:                                     ; preds = %120, %129
+.preheader95:                                     ; preds = %120, %129
   %.05.i = phi ptr [ %131, %129 ], [ %.0..0..0..0..0..0..i, %120 ]
   %126 = getelementptr inbounds nuw i8, ptr %.05.i, i64 32
   %127 = load i8, ptr %126, align 8
@@ -693,13 +691,13 @@ ackm_set_loss_detection_timer.exit:               ; preds = %89, %93, %105, %109
   %.not4.i = icmp eq i8 %128, 0
   br i1 %.not4.i, label %129, label %ack_includes_ack_eliciting.exit
 
-129:                                              ; preds = %.preheader96
+129:                                              ; preds = %.preheader95
   %130 = getelementptr inbounds nuw i8, ptr %.05.i, i64 88
   %131 = load ptr, ptr %130, align 8, !tbaa !65
   %.not.i65 = icmp eq ptr %131, null
-  br i1 %.not.i65, label %ack_includes_ack_eliciting.exit.thread, label %.preheader96, !llvm.loop !66
+  br i1 %.not.i65, label %ack_includes_ack_eliciting.exit.thread, label %.preheader95, !llvm.loop !66
 
-ack_includes_ack_eliciting.exit:                  ; preds = %.preheader96
+ack_includes_ack_eliciting.exit:                  ; preds = %.preheader95
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %133 = load ptr, ptr %132, align 8, !tbaa !20
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -707,8 +705,8 @@ ack_includes_ack_eliciting.exit:                  ; preds = %.preheader96
   %136 = call i64 %133(ptr noundef %135) #12
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %138 = load i64, ptr %137, align 8
-  %.not95 = icmp eq i64 %138, 0
-  br i1 %.not95, label %139, label %140
+  %.not94 = icmp eq i64 %138, 0
+  br i1 %.not94, label %139, label %140
 
 139:                                              ; preds = %ack_includes_ack_eliciting.exit
   store i64 %136, ptr %137, align 8, !tbaa !3
@@ -990,85 +988,84 @@ ackm_on_pkts_acked.exit:                          ; preds = %284
   br label %290
 
 290:                                              ; preds = %290, %288
-  %indvars.iv.i.i71 = phi i64 [ 1, %288 ], [ %indvars.iv.next.i.i79, %290 ]
-  %.sroa.0.014.i.i73 = phi i64 [ %.sroa.0.0.copyload.i.i70, %288 ], [ %.sroa.0.1.i.i77, %290 ]
-  %.phi.trans.insert.i.i74 = getelementptr inbounds nuw [3 x %struct.OSSL_TIME], ptr %289, i64 0, i64 %indvars.iv.i.i71
-  %.sroa.0.0.copyload11.pre.i.i75 = load i64, ptr %.phi.trans.insert.i.i74, align 8
-  %291 = freeze i64 %.sroa.0.0.copyload11.pre.i.i75
-  %292 = add i64 %.sroa.0.014.i.i73, -1
-  %or.cond.not.i.i76 = icmp ult i64 %292, %291
-  %.sroa.0.1.i.i77 = select i1 %or.cond.not.i.i76, i64 %.sroa.0.014.i.i73, i64 %291
-  %indvars.iv.next.i.i79 = add nuw nsw i64 %indvars.iv.i.i71, 1
-  %exitcond.not.i.i80 = icmp eq i64 %indvars.iv.next.i.i79, 3
-  br i1 %exitcond.not.i.i80, label %ackm_get_loss_time_and_space.exit.i81, label %290, !llvm.loop !51
+  %exitcond.not.i.i71 = phi i1 [ false, %288 ], [ true, %290 ]
+  %indvars.iv.i.i72 = phi i64 [ 1, %288 ], [ 2, %290 ]
+  %.sroa.0.014.i.i74 = phi i64 [ %.sroa.0.0.copyload.i.i70, %288 ], [ %.sroa.0.1.i.i78, %290 ]
+  %.phi.trans.insert.i.i75 = getelementptr inbounds nuw [3 x %struct.OSSL_TIME], ptr %289, i64 0, i64 %indvars.iv.i.i72
+  %.sroa.0.0.copyload11.pre.i.i76 = load i64, ptr %.phi.trans.insert.i.i75, align 8
+  %291 = freeze i64 %.sroa.0.0.copyload11.pre.i.i76
+  %292 = add i64 %.sroa.0.014.i.i74, -1
+  %or.cond.not.i.i77 = icmp ult i64 %292, %291
+  %.sroa.0.1.i.i78 = select i1 %or.cond.not.i.i77, i64 %.sroa.0.014.i.i74, i64 %291
+  br i1 %exitcond.not.i.i71, label %ackm_get_loss_time_and_space.exit.i80, label %290, !llvm.loop !51
 
-ackm_get_loss_time_and_space.exit.i81:            ; preds = %290
-  %.not.i82 = icmp eq i64 %.sroa.0.1.i.i77, 0
-  br i1 %.not.i82, label %.preheader, label %293
+ackm_get_loss_time_and_space.exit.i80:            ; preds = %290
+  %.not.i81 = icmp eq i64 %.sroa.0.1.i.i78, 0
+  br i1 %.not.i81, label %.preheader, label %293
 
-293:                                              ; preds = %ackm_get_loss_time_and_space.exit.i81
+293:                                              ; preds = %ackm_get_loss_time_and_space.exit.i80
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store i64 %.sroa.0.1.i.i77, ptr %294, align 8, !tbaa !3
+  store i64 %.sroa.0.1.i.i78, ptr %294, align 8, !tbaa !3
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %296 = load ptr, ptr %295, align 8, !tbaa !52
-  %.not.i.i83 = icmp eq ptr %296, null
-  br i1 %.not.i.i83, label %ackm_set_loss_detection_timer.exit92, label %297
+  %.not.i.i82 = icmp eq ptr %296, null
+  br i1 %.not.i.i82, label %ackm_set_loss_detection_timer.exit91, label %297
 
 297:                                              ; preds = %293
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 2376
   %299 = load ptr, ptr %298, align 8, !tbaa !53
-  call void %296(i64 %.sroa.0.1.i.i77, ptr noundef %299) #12
-  br label %ackm_set_loss_detection_timer.exit92
+  call void %296(i64 %.sroa.0.1.i.i78, ptr noundef %299) #12
+  br label %ackm_set_loss_detection_timer.exit91
 
-.preheader:                                       ; preds = %ackm_get_loss_time_and_space.exit.i81, %.preheader
-  %indvars.iv.i13.i84 = phi i64 [ %indvars.iv.next.i14.i86, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i81 ]
-  %.07.i.i85 = phi i64 [ %302, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i81 ]
-  %300 = getelementptr inbounds nuw [3 x i64], ptr %228, i64 0, i64 %indvars.iv.i13.i84
+.preheader:                                       ; preds = %ackm_get_loss_time_and_space.exit.i80, %.preheader
+  %indvars.iv.i13.i83 = phi i64 [ %indvars.iv.next.i.i85, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i80 ]
+  %.07.i.i84 = phi i64 [ %302, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i80 ]
+  %300 = getelementptr inbounds nuw [3 x i64], ptr %228, i64 0, i64 %indvars.iv.i13.i83
   %301 = load i64, ptr %300, align 8, !tbaa !3
-  %302 = add i64 %301, %.07.i.i85
-  %indvars.iv.next.i14.i86 = add nuw nsw i64 %indvars.iv.i13.i84, 1
-  %exitcond.not.i15.i87 = icmp eq i64 %indvars.iv.next.i14.i86, 3
-  br i1 %exitcond.not.i15.i87, label %ackm_ack_eliciting_bytes_in_flight.exit.i88, label %.preheader, !llvm.loop !54
+  %302 = add i64 %301, %.07.i.i84
+  %indvars.iv.next.i.i85 = add nuw nsw i64 %indvars.iv.i13.i83, 1
+  %exitcond.not.i14.i86 = icmp eq i64 %indvars.iv.next.i.i85, 3
+  br i1 %exitcond.not.i14.i86, label %ackm_ack_eliciting_bytes_in_flight.exit.i87, label %.preheader, !llvm.loop !54
 
-ackm_ack_eliciting_bytes_in_flight.exit.i88:      ; preds = %.preheader
+ackm_ack_eliciting_bytes_in_flight.exit.i87:      ; preds = %.preheader
   %303 = icmp ne i64 %302, 0
   %brmerge = or i1 %.not59, %303
   br i1 %brmerge, label %311, label %304
 
-304:                                              ; preds = %ackm_ack_eliciting_bytes_in_flight.exit.i88
+304:                                              ; preds = %ackm_ack_eliciting_bytes_in_flight.exit.i87
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store i64 0, ptr %305, align 8, !tbaa !3
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %307 = load ptr, ptr %306, align 8, !tbaa !52
-  %.not.i16.i91 = icmp eq ptr %307, null
-  br i1 %.not.i16.i91, label %ackm_set_loss_detection_timer.exit92, label %308
+  %.not.i15.i90 = icmp eq ptr %307, null
+  br i1 %.not.i15.i90, label %ackm_set_loss_detection_timer.exit91, label %308
 
 308:                                              ; preds = %304
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 2376
   %310 = load ptr, ptr %309, align 8, !tbaa !53
   call void %307(i64 0, ptr noundef %310) #12
-  br label %ackm_set_loss_detection_timer.exit92
+  br label %ackm_set_loss_detection_timer.exit91
 
-311:                                              ; preds = %ackm_ack_eliciting_bytes_in_flight.exit.i88
+311:                                              ; preds = %ackm_ack_eliciting_bytes_in_flight.exit.i87
   %312 = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %0, ptr noundef %5)
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store i64 %312, ptr %313, align 8, !tbaa !3
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %315 = load ptr, ptr %314, align 8, !tbaa !52
-  %.not.i18.i89 = icmp eq ptr %315, null
-  br i1 %.not.i18.i89, label %ackm_set_loss_detection_timer.exit92, label %316
+  %.not.i17.i88 = icmp eq ptr %315, null
+  br i1 %.not.i17.i88, label %ackm_set_loss_detection_timer.exit91, label %316
 
 316:                                              ; preds = %311
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 2376
   %318 = load ptr, ptr %317, align 8, !tbaa !53
   call void %315(i64 %312, ptr noundef %318) #12
-  br label %ackm_set_loss_detection_timer.exit92
+  br label %ackm_set_loss_detection_timer.exit91
 
-ackm_set_loss_detection_timer.exit92:             ; preds = %293, %297, %304, %308, %311, %316
+ackm_set_loss_detection_timer.exit91:             ; preds = %293, %297, %304, %308, %311, %316
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %319
 
-319:                                              ; preds = %83, %ackm_set_loss_detection_timer.exit, %ackm_set_loss_detection_timer.exit92
+319:                                              ; preds = %83, %ackm_set_loss_detection_timer.exit, %ackm_set_loss_detection_timer.exit91
   ret i32 1
 }
 
@@ -1343,7 +1340,8 @@ define range(i32 0, 2) i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %0, i32
   br label %52
 
 52:                                               ; preds = %52, %44
-  %indvars.iv.i.i = phi i64 [ 1, %44 ], [ %indvars.iv.next.i.i, %52 ]
+  %exitcond.not.i.i = phi i1 [ false, %44 ], [ true, %52 ]
+  %indvars.iv.i.i = phi i64 [ 1, %44 ], [ 2, %52 ]
   %.sroa.0.014.i.i = phi i64 [ %.sroa.0.0.copyload.i.i, %44 ], [ %.sroa.0.1.i.i, %52 ]
   %.phi.trans.insert.i.i = getelementptr inbounds nuw [3 x %struct.OSSL_TIME], ptr %47, i64 0, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload11.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
@@ -1351,8 +1349,6 @@ define range(i32 0, 2) i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %0, i32
   %54 = add i64 %.sroa.0.014.i.i, -1
   %or.cond.not.i.i = icmp ult i64 %54, %53
   %.sroa.0.1.i.i = select i1 %or.cond.not.i.i, i64 %.sroa.0.014.i.i, i64 %53
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %exitcond.not.i.i, label %ackm_get_loss_time_and_space.exit.i, label %52, !llvm.loop !51
 
 ackm_get_loss_time_and_space.exit.i:              ; preds = %52
@@ -1374,14 +1370,14 @@ ackm_get_loss_time_and_space.exit.i:              ; preds = %52
   br label %ackm_set_loss_detection_timer.exit
 
 .preheader:                                       ; preds = %ackm_get_loss_time_and_space.exit.i, %.preheader
-  %indvars.iv.i13.i = phi i64 [ %indvars.iv.next.i14.i, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i ]
+  %indvars.iv.i13.i = phi i64 [ %indvars.iv.next.i.i, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i ]
   %.07.i.i = phi i64 [ %64, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i ]
   %62 = getelementptr inbounds nuw [3 x i64], ptr %50, i64 0, i64 %indvars.iv.i13.i
   %63 = load i64, ptr %62, align 8, !tbaa !3
   %64 = add i64 %63, %.07.i.i
-  %indvars.iv.next.i14.i = add nuw nsw i64 %indvars.iv.i13.i, 1
-  %exitcond.not.i15.i = icmp eq i64 %indvars.iv.next.i14.i, 3
-  br i1 %exitcond.not.i15.i, label %ackm_ack_eliciting_bytes_in_flight.exit.i, label %.preheader, !llvm.loop !54
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i13.i, 1
+  %exitcond.not.i14.i = icmp eq i64 %indvars.iv.next.i.i, 3
+  br i1 %exitcond.not.i14.i, label %ackm_ack_eliciting_bytes_in_flight.exit.i, label %.preheader, !llvm.loop !54
 
 ackm_ack_eliciting_bytes_in_flight.exit.i:        ; preds = %.preheader
   %65 = icmp eq i64 %64, 0
@@ -1398,8 +1394,8 @@ ackm_ack_eliciting_bytes_in_flight.exit.i:        ; preds = %.preheader
   store i64 0, ptr %70, align 8, !tbaa !3
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %72 = load ptr, ptr %71, align 8, !tbaa !52
-  %.not.i16.i = icmp eq ptr %72, null
-  br i1 %.not.i16.i, label %ackm_set_loss_detection_timer.exit, label %73
+  %.not.i15.i = icmp eq ptr %72, null
+  br i1 %.not.i15.i, label %ackm_set_loss_detection_timer.exit, label %73
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 2376
@@ -1413,8 +1409,8 @@ ackm_ack_eliciting_bytes_in_flight.exit.i:        ; preds = %.preheader
   store i64 %77, ptr %78, align 8, !tbaa !3
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %80 = load ptr, ptr %79, align 8, !tbaa !52
-  %.not.i18.i = icmp eq ptr %80, null
-  br i1 %.not.i18.i, label %ackm_set_loss_detection_timer.exit, label %81
+  %.not.i17.i = icmp eq ptr %80, null
+  br i1 %.not.i17.i, label %ackm_set_loss_detection_timer.exit, label %81
 
 81:                                               ; preds = %76
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 2376
@@ -1444,7 +1440,8 @@ define noundef i32 @ossl_ackm_on_handshake_confirmed(ptr noundef captures(none) 
   br label %6
 
 6:                                                ; preds = %6, %1
-  %indvars.iv.i.i = phi i64 [ 1, %1 ], [ %indvars.iv.next.i.i, %6 ]
+  %exitcond.not.i.i = phi i1 [ false, %1 ], [ true, %6 ]
+  %indvars.iv.i.i = phi i64 [ 1, %1 ], [ 2, %6 ]
   %.sroa.0.014.i.i = phi i64 [ %.sroa.0.0.copyload.i.i, %1 ], [ %.sroa.0.1.i.i, %6 ]
   %.phi.trans.insert.i.i = getelementptr inbounds nuw [3 x %struct.OSSL_TIME], ptr %5, i64 0, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload11.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
@@ -1452,8 +1449,6 @@ define noundef i32 @ossl_ackm_on_handshake_confirmed(ptr noundef captures(none) 
   %8 = add i64 %.sroa.0.014.i.i, -1
   %or.cond.not.i.i = icmp ult i64 %8, %7
   %.sroa.0.1.i.i = select i1 %or.cond.not.i.i, i64 %.sroa.0.014.i.i, i64 %7
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %exitcond.not.i.i, label %ackm_get_loss_time_and_space.exit.i, label %6, !llvm.loop !51
 
 ackm_get_loss_time_and_space.exit.i:              ; preds = %6
@@ -1479,14 +1474,14 @@ ackm_get_loss_time_and_space.exit.i:              ; preds = %6
   br label %18
 
 18:                                               ; preds = %18, %16
-  %indvars.iv.i13.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i14.i, %18 ]
+  %indvars.iv.i13.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i.i, %18 ]
   %.07.i.i = phi i64 [ 0, %16 ], [ %21, %18 ]
   %19 = getelementptr inbounds nuw [3 x i64], ptr %17, i64 0, i64 %indvars.iv.i13.i
   %20 = load i64, ptr %19, align 8, !tbaa !3
   %21 = add i64 %20, %.07.i.i
-  %indvars.iv.next.i14.i = add nuw nsw i64 %indvars.iv.i13.i, 1
-  %exitcond.not.i15.i = icmp eq i64 %indvars.iv.next.i14.i, 3
-  br i1 %exitcond.not.i15.i, label %ackm_ack_eliciting_bytes_in_flight.exit.i, label %18, !llvm.loop !54
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i13.i, 1
+  %exitcond.not.i14.i = icmp eq i64 %indvars.iv.next.i.i, 3
+  br i1 %exitcond.not.i14.i, label %ackm_ack_eliciting_bytes_in_flight.exit.i, label %18, !llvm.loop !54
 
 ackm_ack_eliciting_bytes_in_flight.exit.i:        ; preds = %18
   %22 = icmp eq i64 %21, 0
@@ -1497,8 +1492,8 @@ ackm_ack_eliciting_bytes_in_flight.exit.i:        ; preds = %18
   store i64 0, ptr %24, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %26 = load ptr, ptr %25, align 8, !tbaa !52
-  %.not.i16.i = icmp eq ptr %26, null
-  br i1 %.not.i16.i, label %ackm_set_loss_detection_timer.exit, label %27
+  %.not.i15.i = icmp eq ptr %26, null
+  br i1 %.not.i15.i, label %ackm_set_loss_detection_timer.exit, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2376
@@ -1512,8 +1507,8 @@ ackm_ack_eliciting_bytes_in_flight.exit.i:        ; preds = %18
   store i64 %31, ptr %32, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %34 = load ptr, ptr %33, align 8, !tbaa !52
-  %.not.i18.i = icmp eq ptr %34, null
-  br i1 %.not.i18.i, label %ackm_set_loss_detection_timer.exit, label %35
+  %.not.i17.i = icmp eq ptr %34, null
+  br i1 %.not.i17.i, label %ackm_set_loss_detection_timer.exit, label %35
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 2376
@@ -1539,7 +1534,8 @@ define noundef i32 @ossl_ackm_on_timeout(ptr noundef captures(none) %0) local_un
   br label %8
 
 8:                                                ; preds = %8, %1
-  %indvars.iv.i = phi i64 [ 1, %1 ], [ %indvars.iv.next.i, %8 ]
+  %exitcond.not.i = phi i1 [ false, %1 ], [ true, %8 ]
+  %indvars.iv.i = phi i64 [ 1, %1 ], [ 2, %8 ]
   %.016.i = phi i32 [ 0, %1 ], [ %.1.i, %8 ]
   %.sroa.0.014.i = phi i64 [ %.sroa.0.0.copyload.i, %1 ], [ %.sroa.0.1.i, %8 ]
   %.phi.trans.insert.i = getelementptr inbounds nuw [3 x %struct.OSSL_TIME], ptr %7, i64 0, i64 %indvars.iv.i
@@ -1550,8 +1546,6 @@ define noundef i32 @ossl_ackm_on_timeout(ptr noundef captures(none) %0) local_un
   %11 = trunc nuw nsw i64 %indvars.iv.i to i32
   %.sroa.0.1.i = select i1 %or.cond.not.i, i64 %.sroa.0.014.i, i64 %9
   %.1.i = select i1 %or.cond.not.i, i32 %.016.i, i32 %11
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %ackm_get_loss_time_and_space.exit, label %8, !llvm.loop !51
 
 ackm_get_loss_time_and_space.exit:                ; preds = %8
@@ -1647,7 +1641,8 @@ ackm_on_pkts_lost.exit:                           ; preds = %47
   br label %60
 
 60:                                               ; preds = %60, %59
-  %indvars.iv.i.i = phi i64 [ 1, %59 ], [ %indvars.iv.next.i.i, %60 ]
+  %exitcond.not.i.i = phi i1 [ false, %59 ], [ true, %60 ]
+  %indvars.iv.i.i = phi i64 [ 1, %59 ], [ 2, %60 ]
   %.sroa.0.014.i.i = phi i64 [ %.sroa.0.0.copyload.i.i, %59 ], [ %.sroa.0.1.i.i, %60 ]
   %.phi.trans.insert.i.i = getelementptr inbounds nuw [3 x %struct.OSSL_TIME], ptr %7, i64 0, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload11.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
@@ -1655,8 +1650,6 @@ ackm_on_pkts_lost.exit:                           ; preds = %47
   %62 = add i64 %.sroa.0.014.i.i, -1
   %or.cond.not.i.i = icmp ult i64 %62, %61
   %.sroa.0.1.i.i = select i1 %or.cond.not.i.i, i64 %.sroa.0.014.i.i, i64 %61
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %exitcond.not.i.i, label %ackm_get_loss_time_and_space.exit.i, label %60, !llvm.loop !51
 
 ackm_get_loss_time_and_space.exit.i:              ; preds = %60
@@ -1682,14 +1675,14 @@ ackm_get_loss_time_and_space.exit.i:              ; preds = %60
   br label %72
 
 72:                                               ; preds = %72, %70
-  %indvars.iv.i13.i = phi i64 [ 0, %70 ], [ %indvars.iv.next.i14.i, %72 ]
+  %indvars.iv.i13.i = phi i64 [ 0, %70 ], [ %indvars.iv.next.i.i, %72 ]
   %.07.i.i = phi i64 [ 0, %70 ], [ %75, %72 ]
   %73 = getelementptr inbounds nuw [3 x i64], ptr %71, i64 0, i64 %indvars.iv.i13.i
   %74 = load i64, ptr %73, align 8, !tbaa !3
   %75 = add i64 %74, %.07.i.i
-  %indvars.iv.next.i14.i = add nuw nsw i64 %indvars.iv.i13.i, 1
-  %exitcond.not.i15.i = icmp eq i64 %indvars.iv.next.i14.i, 3
-  br i1 %exitcond.not.i15.i, label %ackm_ack_eliciting_bytes_in_flight.exit.i, label %72, !llvm.loop !54
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i13.i, 1
+  %exitcond.not.i14.i = icmp eq i64 %indvars.iv.next.i.i, 3
+  br i1 %exitcond.not.i14.i, label %ackm_ack_eliciting_bytes_in_flight.exit.i, label %72, !llvm.loop !54
 
 ackm_ack_eliciting_bytes_in_flight.exit.i:        ; preds = %72
   %76 = icmp eq i64 %75, 0
@@ -1706,8 +1699,8 @@ ackm_ack_eliciting_bytes_in_flight.exit.i:        ; preds = %72
   store i64 0, ptr %81, align 8, !tbaa !3
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %83 = load ptr, ptr %82, align 8, !tbaa !52
-  %.not.i16.i = icmp eq ptr %83, null
-  br i1 %.not.i16.i, label %ackm_set_loss_detection_timer.exit, label %84
+  %.not.i15.i = icmp eq ptr %83, null
+  br i1 %.not.i15.i, label %ackm_set_loss_detection_timer.exit, label %84
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 2376
@@ -1721,8 +1714,8 @@ ackm_ack_eliciting_bytes_in_flight.exit.i:        ; preds = %72
   store i64 %88, ptr %89, align 8, !tbaa !3
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %91 = load ptr, ptr %90, align 8, !tbaa !52
-  %.not.i18.i = icmp eq ptr %91, null
-  br i1 %.not.i18.i, label %ackm_set_loss_detection_timer.exit, label %92
+  %.not.i17.i = icmp eq ptr %91, null
+  br i1 %.not.i17.i, label %ackm_set_loss_detection_timer.exit, label %92
 
 92:                                               ; preds = %87
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 2376
@@ -1739,14 +1732,14 @@ ackm_set_loss_detection_timer.exit:               ; preds = %63, %67, %80, %84, 
   br label %97
 
 97:                                               ; preds = %97, %95
-  %indvars.iv.i18 = phi i64 [ 0, %95 ], [ %indvars.iv.next.i19, %97 ]
+  %indvars.iv.i18 = phi i64 [ 0, %95 ], [ %indvars.iv.next.i, %97 ]
   %.07.i = phi i64 [ 0, %95 ], [ %100, %97 ]
   %98 = getelementptr inbounds nuw [3 x i64], ptr %96, i64 0, i64 %indvars.iv.i18
   %99 = load i64, ptr %98, align 8, !tbaa !3
   %100 = add i64 %99, %.07.i
-  %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
-  %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, 3
-  br i1 %exitcond.not.i20, label %ackm_ack_eliciting_bytes_in_flight.exit, label %97, !llvm.loop !54
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i18, 1
+  %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i, 3
+  br i1 %exitcond.not.i19, label %ackm_ack_eliciting_bytes_in_flight.exit, label %97, !llvm.loop !54
 
 ackm_ack_eliciting_bytes_in_flight.exit:          ; preds = %97
   %101 = icmp eq i64 %100, 0
@@ -1781,11 +1774,11 @@ ackm_ack_eliciting_bytes_in_flight.exit:          ; preds = %97
   %119 = load i32, ptr %118, align 4, !tbaa !92
   %120 = add i32 %119, 1
   store i32 %120, ptr %118, align 4, !tbaa !92
-  %.sroa.0.0.copyload.i.i21.pre = load i64, ptr %7, align 8, !tbaa !3
+  %.sroa.0.0.copyload.i.i20.pre = load i64, ptr %7, align 8, !tbaa !3
   br label %121
 
 121:                                              ; preds = %105, %109, %113
-  %.sroa.0.0.copyload.i.i21 = phi i64 [ %.sroa.0.0.copyload.i, %105 ], [ %.sroa.0.0.copyload.i, %109 ], [ %.sroa.0.0.copyload.i.i21.pre, %113 ]
+  %.sroa.0.0.copyload.i.i20 = phi i64 [ %.sroa.0.0.copyload.i, %105 ], [ %.sroa.0.0.copyload.i, %109 ], [ %.sroa.0.0.copyload.i.i20.pre, %113 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %123 = load i32, ptr %122, align 8, !tbaa !87
   %124 = add i32 %123, 1
@@ -1794,90 +1787,89 @@ ackm_ack_eliciting_bytes_in_flight.exit:          ; preds = %97
   br label %125
 
 125:                                              ; preds = %125, %121
-  %indvars.iv.i.i22 = phi i64 [ 1, %121 ], [ %indvars.iv.next.i.i30, %125 ]
-  %.sroa.0.014.i.i24 = phi i64 [ %.sroa.0.0.copyload.i.i21, %121 ], [ %.sroa.0.1.i.i28, %125 ]
+  %exitcond.not.i.i21 = phi i1 [ false, %121 ], [ true, %125 ]
+  %indvars.iv.i.i22 = phi i64 [ 1, %121 ], [ 2, %125 ]
+  %.sroa.0.014.i.i24 = phi i64 [ %.sroa.0.0.copyload.i.i20, %121 ], [ %.sroa.0.1.i.i28, %125 ]
   %.phi.trans.insert.i.i25 = getelementptr inbounds nuw [3 x %struct.OSSL_TIME], ptr %7, i64 0, i64 %indvars.iv.i.i22
   %.sroa.0.0.copyload11.pre.i.i26 = load i64, ptr %.phi.trans.insert.i.i25, align 8
   %126 = freeze i64 %.sroa.0.0.copyload11.pre.i.i26
   %127 = add i64 %.sroa.0.014.i.i24, -1
   %or.cond.not.i.i27 = icmp ult i64 %127, %126
   %.sroa.0.1.i.i28 = select i1 %or.cond.not.i.i27, i64 %.sroa.0.014.i.i24, i64 %126
-  %indvars.iv.next.i.i30 = add nuw nsw i64 %indvars.iv.i.i22, 1
-  %exitcond.not.i.i31 = icmp eq i64 %indvars.iv.next.i.i30, 3
-  br i1 %exitcond.not.i.i31, label %ackm_get_loss_time_and_space.exit.i32, label %125, !llvm.loop !51
+  br i1 %exitcond.not.i.i21, label %ackm_get_loss_time_and_space.exit.i30, label %125, !llvm.loop !51
 
-ackm_get_loss_time_and_space.exit.i32:            ; preds = %125
-  %.not.i33 = icmp eq i64 %.sroa.0.1.i.i28, 0
-  br i1 %.not.i33, label %.preheader, label %128
+ackm_get_loss_time_and_space.exit.i30:            ; preds = %125
+  %.not.i31 = icmp eq i64 %.sroa.0.1.i.i28, 0
+  br i1 %.not.i31, label %.preheader, label %128
 
-128:                                              ; preds = %ackm_get_loss_time_and_space.exit.i32
+128:                                              ; preds = %ackm_get_loss_time_and_space.exit.i30
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store i64 %.sroa.0.1.i.i28, ptr %129, align 8, !tbaa !3
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %131 = load ptr, ptr %130, align 8, !tbaa !52
-  %.not.i.i34 = icmp eq ptr %131, null
-  br i1 %.not.i.i34, label %ackm_set_loss_detection_timer.exit43, label %132
+  %.not.i.i32 = icmp eq ptr %131, null
+  br i1 %.not.i.i32, label %ackm_set_loss_detection_timer.exit41, label %132
 
 132:                                              ; preds = %128
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 2376
   %134 = load ptr, ptr %133, align 8, !tbaa !53
   tail call void %131(i64 %.sroa.0.1.i.i28, ptr noundef %134) #12
-  br label %ackm_set_loss_detection_timer.exit43
+  br label %ackm_set_loss_detection_timer.exit41
 
-.preheader:                                       ; preds = %ackm_get_loss_time_and_space.exit.i32, %.preheader
-  %indvars.iv.i13.i35 = phi i64 [ %indvars.iv.next.i14.i37, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i32 ]
-  %.07.i.i36 = phi i64 [ %137, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i32 ]
-  %135 = getelementptr inbounds nuw [3 x i64], ptr %96, i64 0, i64 %indvars.iv.i13.i35
+.preheader:                                       ; preds = %ackm_get_loss_time_and_space.exit.i30, %.preheader
+  %indvars.iv.i13.i33 = phi i64 [ %indvars.iv.next.i.i35, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i30 ]
+  %.07.i.i34 = phi i64 [ %137, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i30 ]
+  %135 = getelementptr inbounds nuw [3 x i64], ptr %96, i64 0, i64 %indvars.iv.i13.i33
   %136 = load i64, ptr %135, align 8, !tbaa !3
-  %137 = add i64 %136, %.07.i.i36
-  %indvars.iv.next.i14.i37 = add nuw nsw i64 %indvars.iv.i13.i35, 1
-  %exitcond.not.i15.i38 = icmp eq i64 %indvars.iv.next.i14.i37, 3
-  br i1 %exitcond.not.i15.i38, label %ackm_ack_eliciting_bytes_in_flight.exit.i39, label %.preheader, !llvm.loop !54
+  %137 = add i64 %136, %.07.i.i34
+  %indvars.iv.next.i.i35 = add nuw nsw i64 %indvars.iv.i13.i33, 1
+  %exitcond.not.i14.i36 = icmp eq i64 %indvars.iv.next.i.i35, 3
+  br i1 %exitcond.not.i14.i36, label %ackm_ack_eliciting_bytes_in_flight.exit.i37, label %.preheader, !llvm.loop !54
 
-ackm_ack_eliciting_bytes_in_flight.exit.i39:      ; preds = %.preheader
+ackm_ack_eliciting_bytes_in_flight.exit.i37:      ; preds = %.preheader
   %138 = icmp eq i64 %137, 0
   br i1 %138, label %139, label %149
 
-139:                                              ; preds = %ackm_ack_eliciting_bytes_in_flight.exit.i39
+139:                                              ; preds = %ackm_ack_eliciting_bytes_in_flight.exit.i37
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 457
   %141 = load i8, ptr %140, align 1, !tbaa !55
-  %.not12.i41 = icmp eq i8 %141, 0
-  br i1 %.not12.i41, label %149, label %142
+  %.not12.i39 = icmp eq i8 %141, 0
+  br i1 %.not12.i39, label %149, label %142
 
 142:                                              ; preds = %139
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store i64 0, ptr %143, align 8, !tbaa !3
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %145 = load ptr, ptr %144, align 8, !tbaa !52
-  %.not.i16.i42 = icmp eq ptr %145, null
-  br i1 %.not.i16.i42, label %ackm_set_loss_detection_timer.exit43, label %146
+  %.not.i15.i40 = icmp eq ptr %145, null
+  br i1 %.not.i15.i40, label %ackm_set_loss_detection_timer.exit41, label %146
 
 146:                                              ; preds = %142
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 2376
   %148 = load ptr, ptr %147, align 8, !tbaa !53
   tail call void %145(i64 0, ptr noundef %148) #12
-  br label %ackm_set_loss_detection_timer.exit43
+  br label %ackm_set_loss_detection_timer.exit41
 
-149:                                              ; preds = %139, %ackm_ack_eliciting_bytes_in_flight.exit.i39
+149:                                              ; preds = %139, %ackm_ack_eliciting_bytes_in_flight.exit.i37
   %150 = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %0, ptr noundef %2)
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store i64 %150, ptr %151, align 8, !tbaa !3
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %153 = load ptr, ptr %152, align 8, !tbaa !52
-  %.not.i18.i40 = icmp eq ptr %153, null
-  br i1 %.not.i18.i40, label %ackm_set_loss_detection_timer.exit43, label %154
+  %.not.i17.i38 = icmp eq ptr %153, null
+  br i1 %.not.i17.i38, label %ackm_set_loss_detection_timer.exit41, label %154
 
 154:                                              ; preds = %149
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 2376
   %156 = load ptr, ptr %155, align 8, !tbaa !53
   tail call void %153(i64 %150, ptr noundef %156) #12
-  br label %ackm_set_loss_detection_timer.exit43
+  br label %ackm_set_loss_detection_timer.exit41
 
-ackm_set_loss_detection_timer.exit43:             ; preds = %128, %132, %142, %146, %149, %154
+ackm_set_loss_detection_timer.exit41:             ; preds = %128, %132, %142, %146, %149, %154
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %157
 
-157:                                              ; preds = %ackm_set_loss_detection_timer.exit43, %ackm_set_loss_detection_timer.exit
+157:                                              ; preds = %ackm_set_loss_detection_timer.exit41, %ackm_set_loss_detection_timer.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 1
 }
@@ -2350,7 +2342,7 @@ ackm_on_rx_ack_eliciting.exit:                    ; preds = %ossl_ackm_get_ack_d
   %135 = load i8, ptr %6, align 8
   %136 = lshr i8 %135, 3
   %137 = and i8 %136, 3
-  switch i8 %137, label %default.unreachable49 [
+  switch i8 %137, label %default.unreachable60 [
     i8 2, label %138
     i8 1, label %145
     i8 3, label %152
@@ -2387,7 +2379,7 @@ ackm_on_rx_ack_eliciting.exit:                    ; preds = %ossl_ackm_get_ack_d
   store i64 %158, ptr %156, align 8, !tbaa !3
   br label %ossl_ackm_is_rx_pn_processable.exit.thread
 
-default.unreachable49:                            ; preds = %ackm_on_rx_ack_eliciting.exit
+default.unreachable60:                            ; preds = %ackm_on_rx_ack_eliciting.exit
   unreachable
 
 ossl_ackm_is_rx_pn_processable.exit.thread:       ; preds = %2, %rx_pkt_history_add_pn.exit, %138, %145, %152, %ackm_on_rx_ack_eliciting.exit, %ossl_ackm_is_rx_pn_processable.exit

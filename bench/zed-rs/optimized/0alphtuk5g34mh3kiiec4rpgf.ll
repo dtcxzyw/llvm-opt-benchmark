@@ -1010,8 +1010,8 @@ define internal fastcc noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..tak
   %38 = trunc i32 %37 to i8
   %39 = and i8 %38, 63
   %40 = or disjoint i8 %39, -128
-  %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx26 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 1
-  store i8 %40, ptr %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx26, align 1, !alias.scope !268, !noalias !265
+  %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx27 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 1
+  store i8 %40, ptr %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx27, align 1, !alias.scope !268, !noalias !265
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i.i.i.i
 
 41:                                               ; preds = %27
@@ -1023,14 +1023,14 @@ define internal fastcc noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..tak
   %46 = trunc i32 %45 to i8
   %47 = and i8 %46, 63
   %48 = or disjoint i8 %47, -128
-  %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx25 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 1
-  store i8 %48, ptr %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx25, align 1, !alias.scope !268, !noalias !265
+  %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx26 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 1
+  store i8 %48, ptr %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx26, align 1, !alias.scope !268, !noalias !265
   %49 = lshr i32 %0, 6
   %50 = trunc i32 %49 to i8
   %51 = and i8 %50, 63
   %52 = or disjoint i8 %51, -128
-  %.sroa.0.i.i.i.i.2.i.i.i.i.2.i.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx27 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 2
-  store i8 %52, ptr %.sroa.0.i.i.i.i.2.i.i.i.i.2.i.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx27, align 2, !alias.scope !268, !noalias !265
+  %.sroa.0.i.i.i.i.2.i.i.i.i.2.i.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx28 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 2
+  store i8 %52, ptr %.sroa.0.i.i.i.i.2.i.i.i.i.2.i.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx28, align 2, !alias.scope !268, !noalias !265
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i.i.i.i
 
 _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i.i.i.i: ; preds = %41, %33, %29
@@ -1185,8 +1185,8 @@ define internal fastcc noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..tak
   %38 = trunc i32 %37 to i8
   %39 = and i8 %38, 63
   %40 = or disjoint i8 %39, -128
-  %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx26 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 1
-  store i8 %40, ptr %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx26, align 1, !alias.scope !280, !noalias !277
+  %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx27 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 1
+  store i8 %40, ptr %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx27, align 1, !alias.scope !280, !noalias !277
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i.i.i.i
 
 41:                                               ; preds = %27
@@ -1198,14 +1198,14 @@ define internal fastcc noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..tak
   %46 = trunc i32 %45 to i8
   %47 = and i8 %46, 63
   %48 = or disjoint i8 %47, -128
-  %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx25 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 1
-  store i8 %48, ptr %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx25, align 1, !alias.scope !280, !noalias !277
+  %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx26 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 1
+  store i8 %48, ptr %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx26, align 1, !alias.scope !280, !noalias !277
   %49 = lshr i32 %0, 6
   %50 = trunc i32 %49 to i8
   %51 = and i8 %50, 63
   %52 = or disjoint i8 %51, -128
-  %.sroa.0.i.i.i.i.2.i.i.i.i.2.i.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx27 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 2
-  store i8 %52, ptr %.sroa.0.i.i.i.i.2.i.i.i.i.2.i.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx27, align 2, !alias.scope !280, !noalias !277
+  %.sroa.0.i.i.i.i.2.i.i.i.i.2.i.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx28 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 2
+  store i8 %52, ptr %.sroa.0.i.i.i.i.2.i.i.i.i.2.i.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx28, align 2, !alias.scope !280, !noalias !277
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i.i.i.i
 
 _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i.i.i.i: ; preds = %41, %33, %29
@@ -1360,8 +1360,8 @@ define internal fastcc noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..tak
   %38 = trunc i32 %37 to i8
   %39 = and i8 %38, 63
   %40 = or disjoint i8 %39, -128
-  %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx26 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 1
-  store i8 %40, ptr %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx26, align 1, !alias.scope !292, !noalias !289
+  %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx27 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 1
+  store i8 %40, ptr %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx27, align 1, !alias.scope !292, !noalias !289
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i.i.i.i
 
 41:                                               ; preds = %27
@@ -1373,14 +1373,14 @@ define internal fastcc noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..tak
   %46 = trunc i32 %45 to i8
   %47 = and i8 %46, 63
   %48 = or disjoint i8 %47, -128
-  %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx25 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 1
-  store i8 %48, ptr %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx25, align 1, !alias.scope !292, !noalias !289
+  %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx26 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 1
+  store i8 %48, ptr %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx26, align 1, !alias.scope !292, !noalias !289
   %49 = lshr i32 %0, 6
   %50 = trunc i32 %49 to i8
   %51 = and i8 %50, 63
   %52 = or disjoint i8 %51, -128
-  %.sroa.0.i.i.i.i.2.i.i.i.i.2.i.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx27 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 2
-  store i8 %52, ptr %.sroa.0.i.i.i.i.2.i.i.i.i.2.i.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx27, align 2, !alias.scope !292, !noalias !289
+  %.sroa.0.i.i.i.i.2.i.i.i.i.2.i.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx28 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 2
+  store i8 %52, ptr %.sroa.0.i.i.i.i.2.i.i.i.i.2.i.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx28, align 2, !alias.scope !292, !noalias !289
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i.i.i.i
 
 _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i.i.i.i: ; preds = %41, %33, %29

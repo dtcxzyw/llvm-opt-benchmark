@@ -898,9 +898,9 @@ handleRV.exit:                                    ; preds = %.preheader103, %._c
   br i1 %104, label %throwOutOfMemoryError.exit98, label %.preheader
 
 .preheader:                                       ; preds = %handleRV.exit
-  br i1 %15, label %.lr.ph108.preheader, label %throwOutOfMemoryError.exit98.thread134
+  br i1 %15, label %.lr.ph108.preheader, label %throwOutOfMemoryError.exit98.thread144
 
-throwOutOfMemoryError.exit98.thread134:           ; preds = %.preheader
+throwOutOfMemoryError.exit98.thread144:           ; preds = %.preheader
   %105 = load ptr, ptr %0, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 1560
   %107 = load ptr, ptr %106, align 8
@@ -950,7 +950,7 @@ throwOutOfMemoryError.exit98:                     ; preds = %42, %.lr.ph106, %10
   br i1 %15, label %.lr.ph112.preheader, label %._crit_edge113
 
 .lr.ph112.preheader:                              ; preds = %throwOutOfMemoryError.exit98.thread, %throwOutOfMemoryError.exit98
-  %.089133 = phi ptr [ null, %throwOutOfMemoryError.exit98.thread ], [ %.089, %throwOutOfMemoryError.exit98 ]
+  %.089143 = phi ptr [ null, %throwOutOfMemoryError.exit98.thread ], [ %.089, %throwOutOfMemoryError.exit98 ]
   %wide.trip.count129 = zext nneg i32 %11 to i64
   br label %.lr.ph112
 
@@ -963,13 +963,13 @@ throwOutOfMemoryError.exit98:                     ; preds = %42, %.lr.ph106, %10
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
   br i1 %exitcond130.not, label %._crit_edge113, label %.lr.ph112, !llvm.loop !13
 
-._crit_edge113:                                   ; preds = %.lr.ph112, %throwOutOfMemoryError.exit98.thread134, %throwOutOfMemoryError.exit98
-  %.089132 = phi ptr [ %.089, %throwOutOfMemoryError.exit98 ], [ %103, %throwOutOfMemoryError.exit98.thread134 ], [ %.089133, %.lr.ph112 ]
+._crit_edge113:                                   ; preds = %.lr.ph112, %throwOutOfMemoryError.exit98.thread144, %throwOutOfMemoryError.exit98
+  %.089142 = phi ptr [ %.089, %throwOutOfMemoryError.exit98 ], [ %103, %throwOutOfMemoryError.exit98.thread144 ], [ %.089143, %.lr.ph112 ]
   call void @free(ptr noundef %13) #7
   br label %throwOutOfMemoryError.exit
 
 throwOutOfMemoryError.exit:                       ; preds = %21, %17, %._crit_edge113, %31
-  %.0 = phi ptr [ null, %31 ], [ %.089132, %._crit_edge113 ], [ null, %17 ], [ null, %21 ]
+  %.0 = phi ptr [ null, %31 ], [ %.089142, %._crit_edge113 ], [ null, %17 ], [ null, %21 ]
   ret ptr %.0
 }
 

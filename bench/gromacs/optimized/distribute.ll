@@ -783,8 +783,8 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i:       ; preds = %_ZN3gmx14LogEntryWr
   %268 = sub i64 %266, %267
   %269 = lshr exact i64 %268, 2
   %270 = trunc i64 %269 to i32
-  %.idx181.i = shl nuw nsw i64 %indvars.iv.i, 3
-  %271 = getelementptr inbounds nuw i8, ptr %257, i64 %.idx181.i
+  %.idx219.i = shl nuw nsw i64 %indvars.iv.i, 3
+  %271 = getelementptr inbounds nuw i8, ptr %257, i64 %.idx219.i
   store i32 %270, ptr %271, align 4, !tbaa !284
   %272 = getelementptr inbounds nuw %"struct.AtomDistribution::DomainAtomGroups", ptr %258, i64 %indvars.iv.i, i32 1
   %273 = load i32, ptr %272, align 8, !tbaa !139
@@ -1627,7 +1627,7 @@ define linkonce_odr void @_ZNSt6vectorIiN3gmx30DefaultInitializationAllocatorIiS
   br i1 %.not37.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = shl i64 %12, 2
+  %22 = shl nuw nsw i64 %12, 2
   %scevgep.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i, ptr %3, align 8, !tbaa !357
   br label %_ZNSt6vectorIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE17_M_default_appendEm.exit
@@ -2244,18 +2244,18 @@ _ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit: ; preds = %.lr.ph17
   %281 = getelementptr inbounds nuw float, ptr %280, i64 %indvars.iv.next249
   %282 = load float, ptr %281, align 4, !tbaa !345
   %283 = fcmp ult float %.0120, %282
-  br i1 %283, label %.critedge.split.loop.exit278, label %278, !llvm.loop !373
+  br i1 %283, label %.critedge.split.loop.exit287, label %278, !llvm.loop !373
 
-.critedge.split.loop.exit278:                     ; preds = %279
+.critedge.split.loop.exit287:                     ; preds = %279
   %284 = trunc nuw nsw i64 %indvars.iv248 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %278, %.critedge.split.loop.exit278
-  %storemerge.lcssa = phi i32 [ %284, %.critedge.split.loop.exit278 ], [ %277, %278 ]
+.critedge:                                        ; preds = %278, %.critedge.split.loop.exit287
+  %storemerge.lcssa = phi i32 [ %284, %.critedge.split.loop.exit287 ], [ %277, %278 ]
   store i32 %storemerge.lcssa, ptr %273, align 4, !tbaa !284
   %indvars.iv.next214 = add nsw i64 %indvars.iv213, -1
-  %.not258 = icmp eq i64 %indvars.iv213, 0
-  br i1 %.not258, label %66, label %78, !llvm.loop !374
+  %.not267 = icmp eq i64 %indvars.iv213, 0
+  br i1 %.not267, label %66, label %78, !llvm.loop !374
 }
 
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ...) local_unnamed_addr #1
@@ -2530,7 +2530,7 @@ define internal fastcc void @_ZL13distributeVecP12gmx_domdec_tN3gmx8ArrayRefIKNS
   br i1 %.not28.i.i.i, label %50, label %48
 
 48:                                               ; preds = %40
-  %49 = mul i64 %41, 12
+  %49 = mul nuw nsw i64 %41, 12
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %.sroa.10.084.i, i64 %49
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit.i
 

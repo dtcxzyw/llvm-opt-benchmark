@@ -598,50 +598,50 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = icmp slt i32 %31, -1048576
-  br i1 %32, label %.sink.split288, label %33
+  br i1 %32, label %.sink.split314, label %33
 
 33:                                               ; preds = %28
   %34 = icmp sgt i32 %31, 1048576
-  br i1 %34, label %.sink.split288, label %35
+  br i1 %34, label %.sink.split314, label %35
 
-.sink.split288:                                   ; preds = %33, %28
-  %.sink289 = phi i32 [ -1048576, %28 ], [ 1048576, %33 ]
-  store i32 %.sink289, ptr %30, align 4
+.sink.split314:                                   ; preds = %33, %28
+  %.sink315 = phi i32 [ -1048576, %28 ], [ 1048576, %33 ]
+  store i32 %.sink315, ptr %30, align 4
   br label %35
 
-35:                                               ; preds = %.sink.split288, %33
+35:                                               ; preds = %.sink.split314, %33
   %36 = load ptr, ptr %21, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load i32, ptr %37, align 8
   %39 = icmp slt i32 %38, -1048576
-  br i1 %39, label %.sink.split290, label %40
+  br i1 %39, label %.sink.split316, label %40
 
 40:                                               ; preds = %35
   %41 = icmp sgt i32 %38, 1048576
-  br i1 %41, label %.sink.split290, label %42
+  br i1 %41, label %.sink.split316, label %42
 
-.sink.split290:                                   ; preds = %40, %35
-  %.sink291 = phi i32 [ -1048576, %35 ], [ 1048576, %40 ]
-  store i32 %.sink291, ptr %37, align 8
+.sink.split316:                                   ; preds = %40, %35
+  %.sink317 = phi i32 [ -1048576, %35 ], [ 1048576, %40 ]
+  store i32 %.sink317, ptr %37, align 8
   br label %42
 
-42:                                               ; preds = %.sink.split290, %40
+42:                                               ; preds = %.sink.split316, %40
   %43 = load ptr, ptr %21, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 36
   %45 = load i32, ptr %44, align 4
   %46 = icmp slt i32 %45, -1048576
-  br i1 %46, label %.sink.split292, label %47
+  br i1 %46, label %.sink.split318, label %47
 
 47:                                               ; preds = %42
   %48 = icmp sgt i32 %45, 1048576
-  br i1 %48, label %.sink.split292, label %49
+  br i1 %48, label %.sink.split318, label %49
 
-.sink.split292:                                   ; preds = %47, %42
-  %.sink293 = phi i32 [ -1048576, %42 ], [ 1048576, %47 ]
-  store i32 %.sink293, ptr %44, align 4
+.sink.split318:                                   ; preds = %47, %42
+  %.sink319 = phi i32 [ -1048576, %42 ], [ 1048576, %47 ]
+  store i32 %.sink319, ptr %44, align 4
   br label %49
 
-49:                                               ; preds = %.sink.split292, %47
+49:                                               ; preds = %.sink.split318, %47
   %50 = load ptr, ptr %21, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load i32, ptr %51, align 8
@@ -883,8 +883,8 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
 189:                                              ; preds = %186
   %190 = fcmp olt float %185, %166
   %191 = fcmp olt float %166, %172
-  %or.cond92.i = select i1 %190, i1 true, i1 %191
-  br i1 %or.cond92.i, label %._crit_edge.i, label %203
+  %or.cond105.i = select i1 %190, i1 true, i1 %191
+  br i1 %or.cond105.i, label %._crit_edge.i, label %203
 
 ._crit_edge.i:                                    ; preds = %189
   %192 = call float @llvm.fmuladd.f32(float %166, float -2.000000e+00, float %185)
@@ -917,8 +917,8 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
 208:                                              ; preds = %203
   %209 = fcmp olt float %205, %169
   %210 = fcmp olt float %169, %175
-  %or.cond93.i = select i1 %209, i1 true, i1 %210
-  br i1 %or.cond93.i, label %._crit_edge89.i, label %226
+  %or.cond106.i = select i1 %209, i1 true, i1 %210
+  br i1 %or.cond106.i, label %._crit_edge89.i, label %226
 
 ._crit_edge89.i:                                  ; preds = %208
   %211 = call float @llvm.fmuladd.f32(float %169, float -2.000000e+00, float %205)
@@ -1138,9 +1138,9 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
 319:                                              ; preds = %314
   %320 = fcmp olt float %315, %285
   %321 = fcmp olt float %285, %291
-  %or.cond203.i = select i1 %320, i1 true, i1 %321
+  %or.cond225.i = select i1 %320, i1 true, i1 %321
   %322 = fcmp olt float %291, %297
-  %or.cond259 = select i1 %or.cond203.i, i1 true, i1 %322
+  %or.cond259 = select i1 %or.cond225.i, i1 true, i1 %322
   br i1 %or.cond259, label %._crit_edge196.i, label %370
 
 ._crit_edge196.i:                                 ; preds = %319
@@ -1238,9 +1238,9 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
 377:                                              ; preds = %374, %370
   %378 = fcmp olt float %371, %372
   %379 = fcmp olt float %372, %.pre199.i.pre
-  %or.cond204.i = select i1 %378, i1 true, i1 %379
+  %or.cond226.i = select i1 %378, i1 true, i1 %379
   %380 = fcmp olt float %.pre199.i.pre, %.pre
-  %or.cond263 = select i1 %or.cond204.i, i1 true, i1 %380
+  %or.cond263 = select i1 %or.cond226.i, i1 true, i1 %380
   br i1 %or.cond263, label %._crit_edge197.i, label %426
 
 ._crit_edge197.i:                                 ; preds = %377
@@ -1318,21 +1318,21 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
   br i1 %.not.i, label %ProcessCubic.exit, label %.preheader.i
 
 .preheader.sink.split.i:                          ; preds = %421, %415
-  %.0.sink207.i = phi i32 [ %.3.i, %415 ], [ %.0.i, %421 ]
+  %.0.sink229.i = phi i32 [ %.3.i, %415 ], [ %.0.i, %421 ]
   %.sink.i = phi double [ %416, %415 ], [ %423, %421 ]
-  %427 = add nuw nsw i32 %.0.sink207.i, 1
-  %428 = zext nneg i32 %.0.sink207.i to i64
+  %427 = add nuw nsw i32 %.0.sink229.i, 1
+  %428 = zext nneg i32 %.0.sink229.i to i64
   %429 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %428
   store double %.sink.i, ptr %429, align 8
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.sink.split.i, %426
-  %.2202.i = phi i32 [ %.2.i, %426 ], [ %427, %.preheader.sink.split.i ]
-  %430 = icmp samesign ugt i32 %.2202.i, 1
+  %.2224.i = phi i32 [ %.2.i, %426 ], [ %427, %.preheader.sink.split.i ]
+  %430 = icmp samesign ugt i32 %.2224.i, 1
   br i1 %430, label %.lr.ph.preheader.i, label %._crit_edge.i241
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = zext nneg i32 %.2202.i to i64
+  %wide.trip.count.i = zext nneg i32 %.2224.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.preheader.i
@@ -1420,7 +1420,7 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
   br i1 %430, label %.lr.ph186.i, label %ProcessCubic.exit
 
 .lr.ph186.i:                                      ; preds = %._crit_edge.i241
-  %wide.trip.count194.i = zext nneg i32 %.2202.i to i64
+  %wide.trip.count194.i = zext nneg i32 %.2224.i to i64
   br label %476
 
 476:                                              ; preds = %518, %.lr.ph186.i
@@ -1537,7 +1537,7 @@ ProcessCubic.exit:                                ; preds = %518, %426, %._crit_
   %.sroa.13.2 = phi float [ %.sroa.13.1274, %115 ], [ %139, %143 ], [ %.sroa.13.1274, %132 ], [ %.sroa.13.1274, %159 ], [ %153, %158 ], [ %.sroa.13.1274, %146 ], [ %.sroa.13.1274, %278 ], [ %175, %180 ], [ %.sroa.13.1274, %162 ], [ %.sroa.13.1274, %520 ], [ %300, %305 ], [ %.sroa.13.1274, %281 ], [ %.sroa.13.1274, %521 ], [ %.sroa.13.1274, %530 ]
   %.sroa.0.2 = phi float [ %.sroa.0.1276, %115 ], [ %136, %143 ], [ %.sroa.0.1276, %132 ], [ %.sroa.0.1276, %159 ], [ %150, %158 ], [ %.sroa.0.1276, %146 ], [ %.sroa.0.1276, %278 ], [ %172, %180 ], [ %.sroa.0.1276, %162 ], [ %.sroa.0.1276, %520 ], [ %297, %305 ], [ %.sroa.0.1276, %281 ], [ %.sroa.0.1276, %521 ], [ %.sroa.0.1276, %530 ]
   %.1191 = phi i8 [ %.0190278, %115 ], [ 0, %143 ], [ 1, %132 ], [ 0, %159 ], [ 0, %158 ], [ %.0190278, %146 ], [ 0, %278 ], [ 0, %180 ], [ %.0190278, %162 ], [ 0, %520 ], [ 0, %305 ], [ %.0190278, %281 ], [ %.0190278, %521 ], [ 0, %530 ]
-  %.1189 = phi i8 [ %.0188279, %115 ], [ 1, %143 ], [ %.0188279, %132 ], [ %.0188279, %159 ], [ 1, %158 ], [ %.0188279, %146 ], [ %.0188279, %278 ], [ 1, %180 ], [ %.0188279, %162 ], [ %.0188279, %520 ], [ 1, %305 ], [ %.0188279, %281 ], [ %.0188279, %521 ], [ %.0188279, %530 ]
+  %.1189 = phi i8 [ %.0188279, %115 ], [ 1, %143 ], [ %.0188279, %132 ], [ %.0188279, %159 ], [ 1, %158 ], [ %.0188279, %146 ], [ %.0188279, %278 ], [ 1, %180 ], [ %.0188279, %162 ], [ %.0188279, %520 ], [ 1, %305 ], [ %.0188279, %281 ], [ %.0188279, %521 ], [ 1, %530 ]
   %.1 = phi i32 [ %.0281, %115 ], [ %119, %143 ], [ %119, %132 ], [ %145, %159 ], [ %145, %158 ], [ %145, %146 ], [ %161, %278 ], [ %161, %180 ], [ %161, %162 ], [ %280, %520 ], [ %280, %305 ], [ %280, %281 ], [ %.0281, %521 ], [ %.0281, %530 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2011,8 +2011,8 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %66, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %.not334 = icmp sgt i32 %.pre, %.0284404
-  %or.cond441 = select i1 %.not333, i1 true, i1 %.not334
-  br i1 %or.cond441, label %._crit_edge414, label %73
+  %or.cond460 = select i1 %.not333, i1 true, i1 %.not334
+  br i1 %or.cond460, label %._crit_edge414, label %73
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 24
@@ -2115,8 +2115,8 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
 
 130:                                              ; preds = %115, %125
   %.sink = phi i32 [ %120, %115 ], [ %127, %125 ]
-  %.pn421 = phi i32 [ %124, %115 ], [ %129, %125 ]
-  %storemerge = add nsw i32 %112, %.pn421
+  %.pn440 = phi i32 [ %124, %115 ], [ %129, %125 ]
+  %storemerge = add nsw i32 %112, %.pn440
   %131 = getelementptr inbounds nuw i8, ptr %91, i64 4
   store i32 %.sink, ptr %131, align 4
   store i32 %storemerge, ptr %91, align 8
@@ -2160,8 +2160,8 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   %.phi.trans.insert416 = getelementptr inbounds nuw i8, ptr %145, i64 4
   %.pre417 = load i32, ptr %.phi.trans.insert416, align 4
   %.not341 = icmp sgt i32 %.pre417, %.0284404
-  %or.cond442 = select i1 %.not340, i1 true, i1 %.not341
-  br i1 %or.cond442, label %._crit_edge415, label %149
+  %or.cond461 = select i1 %.not340, i1 true, i1 %.not341
+  br i1 %or.cond461, label %._crit_edge415, label %149
 
 149:                                              ; preds = %146
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 24
@@ -2245,8 +2245,8 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
 
 193:                                              ; preds = %178, %188
   %.sink413 = phi i32 [ %183, %178 ], [ %190, %188 ]
-  %.pn422 = phi i32 [ %187, %178 ], [ %192, %188 ]
-  %storemerge343 = add nsw i32 %storemerge352, %.pn422
+  %.pn441 = phi i32 [ %187, %178 ], [ %192, %188 ]
+  %storemerge343 = add nsw i32 %storemerge352, %.pn441
   %194 = getelementptr inbounds nuw i8, ptr %164, i64 4
   store i32 %.sink413, ptr %194, align 4
   store i32 %storemerge343, ptr %164, align 8
@@ -2296,7 +2296,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   br i1 %209, label %.preheader, label %.lr.ph388.preheader, !llvm.loop !13
 
 .lr.ph388.preheader:                              ; preds = %.loopexit, %.preheader, %.preheader354
-  %.7.lcssa429 = phi ptr [ %.1291.lcssa, %.preheader354 ], [ %.9, %.loopexit ], [ %.7382, %.preheader ]
+  %.7.lcssa448 = phi ptr [ %.1291.lcssa, %.preheader354 ], [ %.9, %.loopexit ], [ %.7382, %.preheader ]
   br label %.lr.ph388
 
 .preheader:                                       ; preds = %.preheader354, %.loopexit
@@ -2350,7 +2350,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   br i1 %.not329, label %.loopexit, label %.lr.ph378, !llvm.loop !14
 
 .lr.ph388:                                        ; preds = %.lr.ph388.preheader, %.lr.ph388
-  %.0294387 = phi ptr [ %229, %.lr.ph388 ], [ %.7.lcssa429, %.lr.ph388.preheader ]
+  %.0294387 = phi ptr [ %229, %.lr.ph388 ], [ %.7.lcssa448, %.lr.ph388.preheader ]
   %.0296386 = phi ptr [ %.0294387, %.lr.ph388 ], [ null, %.lr.ph388.preheader ]
   %227 = getelementptr inbounds nuw i8, ptr %.0294387, i64 24
   store ptr %.0296386, ptr %227, align 8
@@ -2369,7 +2369,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
 234:                                              ; preds = %._crit_edge389, %252
   %.0285394 = phi i32 [ %232, %._crit_edge389 ], [ %.1286351, %252 ]
   %.0287393 = phi i32 [ 0, %._crit_edge389 ], [ %.2289, %252 ]
-  %.1295392 = phi ptr [ %.7.lcssa429, %._crit_edge389 ], [ %258, %252 ]
+  %.1295392 = phi ptr [ %.7.lcssa448, %._crit_edge389 ], [ %258, %252 ]
   %.0303391 = phi i32 [ 0, %._crit_edge389 ], [ %237, %252 ]
   %235 = getelementptr inbounds nuw i8, ptr %.1295392, i64 16
   %236 = load i32, ptr %235, align 8
@@ -2433,7 +2433,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   br label %._crit_edge397.thread
 
 ._crit_edge397.thread:                            ; preds = %._crit_edge397, %260, %._crit_edge369
-  %.6 = phi ptr [ %.7.lcssa429, %260 ], [ %.7.lcssa429, %._crit_edge397 ], [ null, %._crit_edge369 ]
+  %.6 = phi ptr [ %.7.lcssa448, %260 ], [ %.7.lcssa448, %._crit_edge397 ], [ null, %._crit_edge369 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.0284 = add nsw i32 %.0284404, 1024
   %265 = icmp sle i32 %.0284, %13

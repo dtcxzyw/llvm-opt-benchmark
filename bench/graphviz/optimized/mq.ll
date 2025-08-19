@@ -69,7 +69,7 @@ define void @mq_clustering(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
 28:                                               ; preds = %26, %23
   %.0.i.i = phi ptr [ %27, %26 ], [ %.1, %23 ]
   %29 = tail call fastcc ptr @Multilevel_MQ_Clustering_init(ptr noundef %.0.i.i, i32 noundef 0)
-  %30 = tail call fastcc ptr @Multilevel_MQ_Clustering_establish(ptr noundef %29, i32 noundef %.012.i.i)
+  %30 = tail call fastcc ptr @Multilevel_MQ_Clustering_establish(ptr noundef nonnull %29, i32 noundef %.012.i.i)
   %.not14.i.i = icmp eq ptr %.0.i.i, %.1
   br i1 %.not14.i.i, label %Multilevel_MQ_Clustering_new.exit.i.preheader, label %31
 
@@ -261,7 +261,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Multilevel_MQ_Clustering_delete(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %common.ret15, label %2
+  br i1 %.not, label %common.ret16, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -280,7 +280,7 @@ define internal fastcc void @Multilevel_MQ_Clustering_delete(ptr noundef capture
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %.sink.split, label %12
 
-common.ret15:                                     ; preds = %1, %12
+common.ret16:                                     ; preds = %1, %12
   ret void
 
 .sink.split:                                      ; preds = %5, %8
@@ -307,7 +307,7 @@ common.ret15:                                     ; preds = %1, %12
   %24 = load ptr, ptr %23, align 8, !tbaa !20
   tail call fastcc void @Multilevel_MQ_Clustering_delete(ptr noundef %24)
   tail call void @free(ptr noundef nonnull %0) #13
-  br label %common.ret15
+  br label %common.ret16
 }
 
 declare zeroext i1 @SparseMatrix_is_symmetric(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -315,7 +315,7 @@ declare zeroext i1 @SparseMatrix_is_symmetric(ptr noundef, i1 noundef zeroext) l
 declare ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @Multilevel_MQ_Clustering_init(ptr noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc noalias nonnull ptr @Multilevel_MQ_Clustering_init(ptr noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !43
   %5 = tail call noalias dereferenceable_or_null(112) ptr @calloc(i64 noundef 1, i64 noundef 112) #16
@@ -777,23 +777,23 @@ gv_calloc.exit.thread:                            ; preds = %17
   br label %get_mq.exit
 
 get_mq.exit:                                      ; preds = %._crit_edge179.i.thread, %._crit_edge179.i, %211
-  %.0107.lcssa258274.i70 = phi double [ %.0107.lcssa.i, %211 ], [ %.0107.lcssa.i, %._crit_edge179.i ], [ 0.000000e+00, %._crit_edge179.i.thread ]
-  %.0110.lcssa256276.i69 = phi double [ %.0110.lcssa.i, %211 ], [ %.0110.lcssa.i, %._crit_edge179.i ], [ 0.000000e+00, %._crit_edge179.i.thread ]
-  %.0101.lcssa250254278.i68 = phi i32 [ %spec.select.i, %211 ], [ %spec.select.i, %._crit_edge179.i ], [ 0, %._crit_edge179.i.thread ]
+  %.0107.lcssa279295.i70 = phi double [ %.0107.lcssa.i, %211 ], [ %.0107.lcssa.i, %._crit_edge179.i ], [ 0.000000e+00, %._crit_edge179.i.thread ]
+  %.0110.lcssa277297.i69 = phi double [ %.0110.lcssa.i, %211 ], [ %.0110.lcssa.i, %._crit_edge179.i ], [ 0.000000e+00, %._crit_edge179.i.thread ]
+  %.0101.lcssa271275299.i68 = phi i32 [ %spec.select.i, %211 ], [ %spec.select.i, %._crit_edge179.i ], [ 0, %._crit_edge179.i.thread ]
   %219 = phi ptr [ %156, %211 ], [ %156, %._crit_edge179.i ], [ %79, %._crit_edge179.i.thread ]
   %.0.in.i = phi double [ %218, %211 ], [ %.0110.lcssa.i, %._crit_edge179.i ], [ 0.000000e+00, %._crit_edge179.i.thread ]
   %.0.i = fmul double %.0.in.i, 2.000000e+00
   %220 = load ptr, ptr @stderr, align 8, !tbaa !24
-  %221 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %220, ptr noundef nonnull @.str, i32 noundef %.0101.lcssa250254278.i68, double noundef %.0.i) #14
+  %221 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %220, ptr noundef nonnull @.str, i32 noundef %.0101.lcssa271275299.i68, double noundef %.0.i) #14
   %222 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store double %.0.i, ptr %222, align 8, !tbaa !29
   %223 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store double %.0110.lcssa256276.i69, ptr %223, align 8, !tbaa !54
+  store double %.0110.lcssa277297.i69, ptr %223, align 8, !tbaa !54
   %224 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store double %.0107.lcssa258274.i70, ptr %224, align 8, !tbaa !55
+  store double %.0107.lcssa279295.i70, ptr %224, align 8, !tbaa !55
   store ptr %219, ptr %53, align 8, !tbaa !41
   %225 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i32 %.0101.lcssa250254278.i68, ptr %225, align 8, !tbaa !56
+  store i32 %.0101.lcssa271275299.i68, ptr %225, align 8, !tbaa !56
   br label %226
 
 226:                                              ; preds = %gv_calloc.exit.thread, %gv_calloc.exit, %get_mq.exit
@@ -936,7 +936,7 @@ gv_calloc.exit497:                                ; preds = %gv_calloc.exit492
   tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 -1, i64 %85, i1 false), !tbaa !27
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %87 = load ptr, ptr %86, align 8, !tbaa !48
-  %invariant.smax685 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %invariant.smax739 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %wide.trip.count664 = zext nneg i32 %9 to i64
   br label %.lr.ph618
 
@@ -1186,7 +1186,7 @@ gv_calloc.exit497:                                ; preds = %gv_calloc.exit492
   %.2415.lcssa = phi double [ %.0413610, %._crit_edge562.thread ], [ %.3416, %207 ]
   %.2411.lcssa = phi double [ %.0409611, %._crit_edge562.thread ], [ %.3412, %207 ]
   %216 = fcmp ogt double %.0420.lcssa, 0.000000e+00
-  %or.cond475 = icmp sgt i32 %.0393616, %invariant.smax685
+  %or.cond475 = icmp sgt i32 %.0393616, %invariant.smax739
   %or.cond637 = select i1 %216, i1 true, i1 %or.cond475
   br i1 %or.cond637, label %217, label %384
 

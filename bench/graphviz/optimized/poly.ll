@@ -159,7 +159,7 @@ gv_calloc.exit:                                   ; preds = %10
   %73 = load double, ptr %56, align 8, !tbaa !38
   %74 = load double, ptr %61, align 8, !tbaa !38
   %75 = fcmp oeq double %73, %74
-  br i1 %75, label %.thread156, label %.thread
+  br i1 %75, label %.thread163, label %.thread
 
 76:                                               ; preds = %53
   %77 = load double, ptr %52, align 8, !tbaa !38
@@ -185,7 +185,7 @@ isBox.exit:                                       ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %91 = load double, ptr %90, align 8, !tbaa !39
   %92 = fcmp oeq double %58, %91
-  br i1 %92, label %.thread156, label %.thread
+  br i1 %92, label %.thread163, label %.thread
 
 isBox.exit.thread:                                ; preds = %50, %47
   %93 = icmp ult i64 %41, 3
@@ -223,14 +223,14 @@ isBox.exit.thread:                                ; preds = %50, %47
   %105 = icmp eq ptr %104, null
   br i1 %105, label %109, label %gv_calloc.exit132
 
-.thread156:                                       ; preds = %isBox.exit, %72
+.thread163:                                       ; preds = %isBox.exit, %72
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 1, ptr %106, align 8, !tbaa !35
   %107 = tail call noalias ptr @calloc(i64 noundef %41, i64 noundef 16) #15
   %108 = icmp eq ptr %107, null
   br i1 %108, label %109, label %gv_calloc.exit132.thread
 
-109:                                              ; preds = %.thread156, %103
+109:                                              ; preds = %.thread163, %103
   %110 = load ptr, ptr @stderr, align 8, !tbaa !36
   %111 = shl nuw i64 %41, 4
   %112 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef nonnull @.str.5, i64 noundef %111) #16
@@ -245,8 +245,8 @@ gv_calloc.exit132:                                ; preds = %103
   %114 = load ptr, ptr %113, align 8, !tbaa !49
   br label %156
 
-gv_calloc.exit132.thread:                         ; preds = %.thread156, %gv_calloc.exit132
-  %115 = phi ptr [ %104, %gv_calloc.exit132 ], [ %107, %.thread156 ]
+gv_calloc.exit132.thread:                         ; preds = %.thread163, %gv_calloc.exit132
+  %115 = phi ptr [ %104, %gv_calloc.exit132 ], [ %107, %.thread163 ]
   %116 = getelementptr inbounds nuw i8, ptr %39, i64 56
   %117 = load ptr, ptr %116, align 8, !tbaa !49
   %118 = load double, ptr %117, align 8, !tbaa !38
@@ -454,7 +454,7 @@ declare i32 @shapeOf(ptr noundef) local_unnamed_addr #3
 declare double @hypot(double noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @genRound(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, double noundef %2, double noundef %3) unnamed_addr #2 {
+define internal fastcc noalias nonnull ptr @genRound(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, double noundef %2, double noundef %3) unnamed_addr #2 {
   %5 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.6) #14
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread28.thread, label %.thread28
@@ -1429,8 +1429,8 @@ gv_calloc.exit:                                   ; preds = %12
   %.phi.trans.insert54 = getelementptr inbounds %struct.pointf_s, ptr %21, i64 %.phi.trans.insert, i32 1
   %.pre = load double, ptr %.phi.trans.insert54, align 8, !tbaa !39
   %54 = fcmp ugt double %.pre, 0.000000e+00
-  %or.cond56 = select i1 %53, i1 true, i1 %54
-  br i1 %or.cond56, label %._crit_edge53, label %57
+  %or.cond64 = select i1 %53, i1 true, i1 %54
+  br i1 %or.cond64, label %._crit_edge53, label %57
 
 ._crit_edge53:                                    ; preds = %52
   %55 = fcmp ult double %.pre, 0.000000e+00

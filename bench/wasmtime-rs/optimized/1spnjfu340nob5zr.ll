@@ -4999,13 +4999,13 @@ _ZN16wasmtime_runtime8instance8Instance5store17ha09c795bc3115f7bE.llvm.138702190
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.29.0.copyload = load ptr, ptr %.sroa.29.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  switch i32 %39, label %default.unreachable1.i [
+  switch i32 %39, label %default.unreachable [
     i32 0, label %_ZN16wasmtime_runtime5table12TableElement35into_func_ref_asserting_initialized17hc2435b5cbbcadd5aE.exit
     i32 1, label %43
     i32 2, label %48
   ]
 
-default.unreachable1.i:                           ; preds = %42
+default.unreachable:                              ; preds = %42
   unreachable
 
 43:                                               ; preds = %42

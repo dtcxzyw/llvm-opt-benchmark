@@ -198,8 +198,8 @@ inBoxf.exit.i:                                    ; preds = %92
   %106 = fcmp ugt double %94, %103
   %107 = fcmp ugt double %103, %97
   %108 = or i1 %106, %107
-  %or.cond298.i = select i1 %or.cond.i, i1 true, i1 %108
-  br i1 %or.cond298.i, label %.preheader275.i, label %109
+  %or.cond332.i = select i1 %or.cond.i, i1 true, i1 %108
+  br i1 %or.cond332.i, label %.preheader275.i, label %109
 
 109:                                              ; preds = %99
   %110 = getelementptr inbounds nuw i8, ptr %71, i64 16
@@ -210,12 +210,12 @@ inBoxf.exit.i:                                    ; preds = %92
   %115 = load double, ptr %114, align 8
   %116 = fcmp ugt double %86, %113
   %117 = fcmp ugt double %113, %90
-  %or.cond299.i = or i1 %116, %117
+  %or.cond333.i = or i1 %116, %117
   %118 = fcmp ugt double %94, %115
   %119 = fcmp ugt double %115, %97
   %120 = or i1 %118, %119
-  %or.cond301.i = select i1 %or.cond299.i, i1 true, i1 %120
-  br i1 %or.cond301.i, label %inBoxf.exit241.thread.i, label %.sink.split.i
+  %or.cond335.i = select i1 %or.cond333.i, i1 true, i1 %120
+  br i1 %or.cond335.i, label %inBoxf.exit241.thread.i, label %.sink.split.i
 
 inBoxf.exit241.thread.i:                          ; preds = %109
   %121 = getelementptr inbounds nuw i8, ptr %57, i64 24
@@ -363,25 +363,25 @@ inBoxf.exit241.thread.i:                          ; preds = %109
   %203 = load double, ptr %202, align 8
   %204 = load double, ptr %197, align 8, !tbaa !41
   %205 = fcmp ugt double %204, %201
-  br i1 %205, label %.sink.split316.i, label %206
+  br i1 %205, label %.sink.split350.i, label %206
 
 206:                                              ; preds = %194
   %207 = getelementptr inbounds nuw i8, ptr %196, i64 48
   %208 = load double, ptr %207, align 8, !tbaa !42
   %209 = fcmp ugt double %201, %208
-  br i1 %209, label %.sink.split316.i, label %210
+  br i1 %209, label %.sink.split350.i, label %210
 
 210:                                              ; preds = %206
   %211 = getelementptr inbounds nuw i8, ptr %196, i64 40
   %212 = load double, ptr %211, align 8, !tbaa !43
   %213 = fcmp ugt double %212, %203
-  br i1 %213, label %.sink.split316.i, label %inBoxf.exit246.i
+  br i1 %213, label %.sink.split350.i, label %inBoxf.exit246.i
 
 inBoxf.exit246.i:                                 ; preds = %210
   %214 = getelementptr inbounds nuw i8, ptr %196, i64 56
   %215 = load double, ptr %214, align 8, !tbaa !44
   %216 = fcmp ugt double %203, %215
-  br i1 %216, label %.sink.split316.i, label %217
+  br i1 %216, label %.sink.split350.i, label %217
 
 217:                                              ; preds = %inBoxf.exit246.i
   %218 = load ptr, ptr %57, align 8, !tbaa !45
@@ -391,12 +391,12 @@ inBoxf.exit246.i:                                 ; preds = %210
   %222 = load double, ptr %221, align 8
   %223 = fcmp ugt double %204, %220
   %224 = fcmp ugt double %220, %208
-  %or.cond310.i = or i1 %223, %224
+  %or.cond344.i = or i1 %223, %224
   %225 = fcmp ugt double %212, %222
   %226 = fcmp ugt double %222, %215
   %227 = or i1 %225, %226
-  %or.cond312.i = select i1 %or.cond310.i, i1 true, i1 %227
-  br i1 %or.cond312.i, label %.preheader274.i, label %228
+  %or.cond346.i = select i1 %or.cond344.i, i1 true, i1 %227
+  br i1 %or.cond346.i, label %.preheader274.i, label %228
 
 228:                                              ; preds = %217
   %229 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -407,12 +407,12 @@ inBoxf.exit246.i:                                 ; preds = %210
   %234 = load double, ptr %233, align 8
   %235 = fcmp ugt double %204, %232
   %236 = fcmp ugt double %232, %208
-  %or.cond313.i = or i1 %235, %236
+  %or.cond347.i = or i1 %235, %236
   %237 = fcmp ugt double %212, %234
   %238 = fcmp ugt double %234, %215
   %239 = or i1 %237, %238
-  %or.cond315.i = select i1 %or.cond313.i, i1 true, i1 %239
-  br i1 %or.cond315.i, label %inBoxf.exit248.thread.i, label %.sink.split316.i
+  %or.cond349.i = select i1 %or.cond347.i, i1 true, i1 %239
+  br i1 %or.cond349.i, label %inBoxf.exit248.thread.i, label %.sink.split350.i
 
 inBoxf.exit248.thread.i:                          ; preds = %228
   %240 = load double, ptr %8, align 8
@@ -538,7 +538,7 @@ inBoxf.exit248.thread.i:                          ; preds = %228
   %303 = call i64 @arrowStartClip(ptr noundef nonnull %.018, ptr noundef %301, i64 noundef %298, i64 noundef %302, ptr noundef nonnull %2, i32 noundef %299) #11
   br label %.thread268.i
 
-.sink.split316.i:                                 ; preds = %228, %inBoxf.exit246.i, %210, %206, %194
+.sink.split350.i:                                 ; preds = %228, %inBoxf.exit246.i, %210, %206, %194
   %.str.6.sink.i = phi ptr [ @.str.5, %210 ], [ @.str.5, %194 ], [ @.str.5, %206 ], [ @.str.5, %inBoxf.exit246.i ], [ @.str.6, %228 ]
   %304 = load i32, ptr %.018, align 8
   %305 = and i32 %304, 3
@@ -558,7 +558,7 @@ inBoxf.exit248.thread.i:                          ; preds = %228
   call void (ptr, ...) @agwarningf(ptr noundef nonnull %.str.6.sink.i, ptr noundef %310, ptr noundef %317, ptr noundef %318) #11
   br label %319
 
-319:                                              ; preds = %.sink.split316.i, %.thread.i
+319:                                              ; preds = %.sink.split350.i, %.thread.i
   %320 = load i32, ptr %74, align 8, !tbaa !40
   %.not234.i = icmp eq i32 %320, 0
   br i1 %.not234.i, label %.thread268.i, label %321

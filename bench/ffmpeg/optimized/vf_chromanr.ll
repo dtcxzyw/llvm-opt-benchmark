@@ -129,9 +129,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %50, %47
-  %.sink58 = phi ptr [ %49, %47 ], [ %52, %50 ]
+  %.sink59 = phi ptr [ %49, %47 ], [ %52, %50 ]
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 136
-  store ptr %.sink58, ptr %53, align 8, !tbaa !38
+  store ptr %.sink59, ptr %53, align 8, !tbaa !38
   br label %54
 
 54:                                               ; preds = %.sink.split, %._crit_edge, %46

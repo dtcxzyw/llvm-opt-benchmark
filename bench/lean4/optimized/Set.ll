@@ -722,18 +722,18 @@ _init_l___auto____x40_Init_Data_Array_Set___hyg_17____closed__22.exit: ; preds =
   unreachable
 
 .sink.split:                                      ; preds = %_init_l___auto____x40_Init_Data_Array_Set___hyg_17____closed__22.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %102, %_init_l___auto____x40_Init_Data_Array_Set___hyg_17____closed__22.exit ]
-  %105 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !4
+  %.sink17 = phi ptr [ %4, %3 ], [ %102, %_init_l___auto____x40_Init_Data_Array_Set___hyg_17____closed__22.exit ]
+  %105 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
+  store i32 1, ptr %.sink17, align 4, !tbaa !4
   store i32 131096, ptr %105, align 4
-  %106 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %106, align 8, !tbaa !9
-  %107 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %107, align 8, !tbaa !9
   br label %108
 
 108:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink17, %.sink.split ]
   ret ptr %.0
 }
 

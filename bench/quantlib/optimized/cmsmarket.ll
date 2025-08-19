@@ -2519,26 +2519,26 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i484, label %if.then.i.i.i.i.i, label %if.end12.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i
-  %__y.0.lcssa25.i.i.i.i.i = phi ptr [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i ]
+  %__y.0.lcssa26.i.i.i.i.i = phi ptr [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i ]
   %_M_left.i3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cast.result.i, i64 32
   %193 = load ptr, ptr %_M_left.i3.i.i.i.i.i, align 8, !tbaa !14
-  %cmp.i4.i.i.i.i.i = icmp eq ptr %__y.0.lcssa25.i.i.i.i.i, %193
+  %cmp.i4.i.i.i.i.i = icmp eq ptr %__y.0.lcssa26.i.i.i.i.i, %193
   br i1 %cmp.i4.i.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i
-  %call.i.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i.i.i) #34
+  %call.i.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i.i.i.i) #34
   %_M_storage.i.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i, i64 32
   %.pre.i.i.i.i = load ptr, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i.i.i, align 8, !tbaa !3
   br label %if.end12.i.i.i.i.i
 
 if.end12.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i, %while.end.i.i.i.i.i
   %194 = phi ptr [ %.pre.i.i.i.i, %if.else.i.i.i.i.i ], [ %192, %while.end.i.i.i.i.i ]
-  %__y.0.lcssa26.i.i.i.i.i = phi ptr [ %__y.0.lcssa25.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ]
+  %__y.0.lcssa25.i.i.i.i.i = phi ptr [ %__y.0.lcssa26.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ]
   %cmp.i5.i.i.i.i.i = icmp ult ptr %194, %add.ptr266
   br i1 %cmp.i5.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end12.i.i.i.i.i, %if.then.i.i.i.i.i
-  %retval.sroa.4.0.i.ph.i.i.i.i = phi ptr [ %__y.0.lcssa25.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %__y.0.lcssa26.i.i.i.i.i, %if.end12.i.i.i.i.i ]
+  %retval.sroa.4.0.i.ph.i.i.i.i = phi ptr [ %__y.0.lcssa26.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %__y.0.lcssa25.i.i.i.i.i, %if.end12.i.i.i.i.i ]
   %cmp2.i.i.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp2.i.i.i.i.i, label %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i, label %lor.rhs.i.i.i.i.i
 
@@ -2589,14 +2589,14 @@ while.end.i.i:                                    ; preds = %while.body.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i760, label %if.end12.i.i
 
 if.then.i.i760:                                   ; preds = %while.end.i.i, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i
-  %__y.0.lcssa26.i.i = phi ptr [ %__x.022.i.i, %while.end.i.i ], [ %add.ptr.i.i.i757, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i ]
+  %__y.0.lcssa27.i.i = phi ptr [ %__x.022.i.i, %while.end.i.i ], [ %add.ptr.i.i.i757, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i ]
   %_M_left.i3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr266, i64 32
   %200 = load ptr, ptr %_M_left.i3.i.i, align 8, !tbaa !14
-  %cmp.i.i.i761 = icmp eq ptr %__y.0.lcssa26.i.i, %200
+  %cmp.i.i.i761 = icmp eq ptr %__y.0.lcssa27.i.i, %200
   br i1 %cmp.i.i.i761, label %if.then.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i760
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i) #34
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa27.i.i) #34
   %pn.i.i.i4.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 40
   %.pre.i762 = load ptr, ptr %pn.i.i.i4.i.phi.trans.insert.i, align 8, !tbaa !41
   %.pre16.i = load ptr, ptr %pn.i481, align 8, !tbaa !41
@@ -2605,12 +2605,12 @@ if.else.i.i:                                      ; preds = %if.then.i.i760
 if.end12.i.i:                                     ; preds = %if.else.i.i, %while.end.i.i
   %201 = phi ptr [ %.pre16.i, %if.else.i.i ], [ %198, %while.end.i.i ]
   %202 = phi ptr [ %.pre.i762, %if.else.i.i ], [ %199, %while.end.i.i ]
-  %__y.0.lcssa27.i.i = phi ptr [ %__y.0.lcssa26.i.i, %if.else.i.i ], [ %__x.022.i.i, %while.end.i.i ]
+  %__y.0.lcssa26.i.i = phi ptr [ %__y.0.lcssa27.i.i, %if.else.i.i ], [ %__x.022.i.i, %while.end.i.i ]
   %cmp.i.i.i.i.i6.i.i = icmp ult ptr %202, %201
   br i1 %cmp.i.i.i.i.i6.i.i, label %if.then.i, label %invoke.cont271
 
 if.then.i:                                        ; preds = %if.end12.i.i, %if.then.i.i760
-  %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa26.i.i, %if.then.i.i760 ], [ %__y.0.lcssa27.i.i, %if.end12.i.i ]
+  %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa27.i.i, %if.then.i.i760 ], [ %__y.0.lcssa26.i.i, %if.end12.i.i ]
   %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i, %add.ptr.i.i.i757
   br i1 %cmp2.i.i, label %entry.lor.end_crit_edge.i.i, label %lor.rhs.i.i
 
@@ -2771,26 +2771,26 @@ while.end.i.i.i.i.i515:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i510, label %if.then.i.i.i.i.i533, label %if.end12.i.i.i.i.i516
 
 if.then.i.i.i.i.i533:                             ; preds = %while.end.i.i.i.i.i515, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i502
-  %__y.0.lcssa25.i.i.i.i.i534 = phi ptr [ %__x.021.i.i.i.i.i508, %while.end.i.i.i.i.i515 ], [ %add.ptr.i.i.i.i.i.i504, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i502 ]
+  %__y.0.lcssa26.i.i.i.i.i534 = phi ptr [ %__x.021.i.i.i.i.i508, %while.end.i.i.i.i.i515 ], [ %add.ptr.i.i.i.i.i.i504, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i502 ]
   %_M_left.i3.i.i.i.i.i535 = getelementptr inbounds nuw i8, ptr %224, i64 32
   %228 = load ptr, ptr %_M_left.i3.i.i.i.i.i535, align 8, !tbaa !14
-  %cmp.i4.i.i.i.i.i536 = icmp eq ptr %__y.0.lcssa25.i.i.i.i.i534, %228
+  %cmp.i4.i.i.i.i.i536 = icmp eq ptr %__y.0.lcssa26.i.i.i.i.i534, %228
   br i1 %cmp.i4.i.i.i.i.i536, label %if.then.i.i.i.i523, label %if.else.i.i.i.i.i537
 
 if.else.i.i.i.i.i537:                             ; preds = %if.then.i.i.i.i.i533
-  %call.i.i.i.i.i.i538 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i.i.i534) #34
+  %call.i.i.i.i.i.i538 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i.i.i.i534) #34
   %_M_storage.i.i.i.i.phi.trans.insert.i.i.i.i539 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i538, i64 32
   %.pre.i.i.i.i540 = load ptr, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i.i.i539, align 8, !tbaa !3
   br label %if.end12.i.i.i.i.i516
 
 if.end12.i.i.i.i.i516:                            ; preds = %if.else.i.i.i.i.i537, %while.end.i.i.i.i.i515
   %229 = phi ptr [ %.pre.i.i.i.i540, %if.else.i.i.i.i.i537 ], [ %227, %while.end.i.i.i.i.i515 ]
-  %__y.0.lcssa26.i.i.i.i.i517 = phi ptr [ %__y.0.lcssa25.i.i.i.i.i534, %if.else.i.i.i.i.i537 ], [ %__x.021.i.i.i.i.i508, %while.end.i.i.i.i.i515 ]
+  %__y.0.lcssa25.i.i.i.i.i517 = phi ptr [ %__y.0.lcssa26.i.i.i.i.i534, %if.else.i.i.i.i.i537 ], [ %__x.021.i.i.i.i.i508, %while.end.i.i.i.i.i515 ]
   %cmp.i5.i.i.i.i.i518 = icmp ult ptr %229, %add.ptr283
   br i1 %cmp.i5.i.i.i.i.i518, label %if.then.i.i.i.i523, label %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i519
 
 if.then.i.i.i.i523:                               ; preds = %if.end12.i.i.i.i.i516, %if.then.i.i.i.i.i533
-  %retval.sroa.4.0.i.ph.i.i.i.i524 = phi ptr [ %__y.0.lcssa25.i.i.i.i.i534, %if.then.i.i.i.i.i533 ], [ %__y.0.lcssa26.i.i.i.i.i517, %if.end12.i.i.i.i.i516 ]
+  %retval.sroa.4.0.i.ph.i.i.i.i524 = phi ptr [ %__y.0.lcssa26.i.i.i.i.i534, %if.then.i.i.i.i.i533 ], [ %__y.0.lcssa25.i.i.i.i.i517, %if.end12.i.i.i.i.i516 ]
   %cmp2.i.i.i.i.i525 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i.i.i524, %add.ptr.i.i.i.i.i.i504
   br i1 %cmp2.i.i.i.i.i525, label %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i529, label %lor.rhs.i.i.i.i.i526
 
@@ -2841,14 +2841,14 @@ while.end.i.i778:                                 ; preds = %while.body.i.i770
   br i1 %cmp.i.i.i.i.i.i.i773, label %if.then.i.i805, label %if.end12.i.i779
 
 if.then.i.i805:                                   ; preds = %while.end.i.i778, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i519
-  %__y.0.lcssa26.i.i806 = phi ptr [ %__x.022.i.i771, %while.end.i.i778 ], [ %add.ptr.i.i.i765, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i519 ]
+  %__y.0.lcssa27.i.i806 = phi ptr [ %__x.022.i.i771, %while.end.i.i778 ], [ %add.ptr.i.i.i765, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i519 ]
   %_M_left.i3.i.i807 = getelementptr inbounds nuw i8, ptr %add.ptr283, i64 32
   %235 = load ptr, ptr %_M_left.i3.i.i807, align 8, !tbaa !14
-  %cmp.i.i.i808 = icmp eq ptr %__y.0.lcssa26.i.i806, %235
+  %cmp.i.i.i808 = icmp eq ptr %__y.0.lcssa27.i.i806, %235
   br i1 %cmp.i.i.i808, label %if.then.i787, label %if.else.i.i809
 
 if.else.i.i809:                                   ; preds = %if.then.i.i805
-  %call.i.i.i810 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i806) #34
+  %call.i.i.i810 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa27.i.i806) #34
   %pn.i.i.i4.i.phi.trans.insert.i811 = getelementptr inbounds nuw i8, ptr %call.i.i.i810, i64 40
   %.pre.i812 = load ptr, ptr %pn.i.i.i4.i.phi.trans.insert.i811, align 8, !tbaa !41
   %.pre16.i814 = load ptr, ptr %pn.i.i498, align 8, !tbaa !41
@@ -2857,12 +2857,12 @@ if.else.i.i809:                                   ; preds = %if.then.i.i805
 if.end12.i.i779:                                  ; preds = %if.else.i.i809, %while.end.i.i778
   %236 = phi ptr [ %.pre16.i814, %if.else.i.i809 ], [ %233, %while.end.i.i778 ]
   %237 = phi ptr [ %.pre.i812, %if.else.i.i809 ], [ %234, %while.end.i.i778 ]
-  %__y.0.lcssa27.i.i780 = phi ptr [ %__y.0.lcssa26.i.i806, %if.else.i.i809 ], [ %__x.022.i.i771, %while.end.i.i778 ]
+  %__y.0.lcssa26.i.i780 = phi ptr [ %__y.0.lcssa27.i.i806, %if.else.i.i809 ], [ %__x.022.i.i771, %while.end.i.i778 ]
   %cmp.i.i.i.i.i6.i.i782 = icmp ult ptr %237, %236
   br i1 %cmp.i.i.i.i.i6.i.i782, label %if.then.i787, label %invoke.cont292
 
 if.then.i787:                                     ; preds = %if.end12.i.i779, %if.then.i.i805
-  %retval.sroa.4.0.i.ph.i788 = phi ptr [ %__y.0.lcssa26.i.i806, %if.then.i.i805 ], [ %__y.0.lcssa27.i.i780, %if.end12.i.i779 ]
+  %retval.sroa.4.0.i.ph.i788 = phi ptr [ %__y.0.lcssa27.i.i806, %if.then.i.i805 ], [ %__y.0.lcssa26.i.i780, %if.end12.i.i779 ]
   %cmp2.i.i789 = icmp eq ptr %retval.sroa.4.0.i.ph.i788, %add.ptr.i.i.i765
   br i1 %cmp2.i.i789, label %entry.lor.end_crit_edge.i.i803, label %lor.rhs.i.i791
 
@@ -2995,26 +2995,26 @@ while.end.i.i.i.i.i587:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i582, label %if.then.i.i.i.i.i605, label %if.end12.i.i.i.i.i588
 
 if.then.i.i.i.i.i605:                             ; preds = %while.end.i.i.i.i.i587, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i574
-  %__y.0.lcssa25.i.i.i.i.i606 = phi ptr [ %__x.021.i.i.i.i.i580, %while.end.i.i.i.i.i587 ], [ %add.ptr.i.i.i.i.i.i576, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i574 ]
+  %__y.0.lcssa26.i.i.i.i.i606 = phi ptr [ %__x.021.i.i.i.i.i580, %while.end.i.i.i.i.i587 ], [ %add.ptr.i.i.i.i.i.i576, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i574 ]
   %_M_left.i3.i.i.i.i.i607 = getelementptr inbounds nuw i8, ptr %255, i64 32
   %259 = load ptr, ptr %_M_left.i3.i.i.i.i.i607, align 8, !tbaa !14
-  %cmp.i4.i.i.i.i.i608 = icmp eq ptr %__y.0.lcssa25.i.i.i.i.i606, %259
+  %cmp.i4.i.i.i.i.i608 = icmp eq ptr %__y.0.lcssa26.i.i.i.i.i606, %259
   br i1 %cmp.i4.i.i.i.i.i608, label %if.then.i.i.i.i595, label %if.else.i.i.i.i.i609
 
 if.else.i.i.i.i.i609:                             ; preds = %if.then.i.i.i.i.i605
-  %call.i.i.i.i.i.i610 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i.i.i606) #34
+  %call.i.i.i.i.i.i610 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i.i.i.i606) #34
   %_M_storage.i.i.i.i.phi.trans.insert.i.i.i.i611 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i610, i64 32
   %.pre.i.i.i.i612 = load ptr, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i.i.i611, align 8, !tbaa !3
   br label %if.end12.i.i.i.i.i588
 
 if.end12.i.i.i.i.i588:                            ; preds = %if.else.i.i.i.i.i609, %while.end.i.i.i.i.i587
   %260 = phi ptr [ %.pre.i.i.i.i612, %if.else.i.i.i.i.i609 ], [ %258, %while.end.i.i.i.i.i587 ]
-  %__y.0.lcssa26.i.i.i.i.i589 = phi ptr [ %__y.0.lcssa25.i.i.i.i.i606, %if.else.i.i.i.i.i609 ], [ %__x.021.i.i.i.i.i580, %while.end.i.i.i.i.i587 ]
+  %__y.0.lcssa25.i.i.i.i.i589 = phi ptr [ %__y.0.lcssa26.i.i.i.i.i606, %if.else.i.i.i.i.i609 ], [ %__x.021.i.i.i.i.i580, %while.end.i.i.i.i.i587 ]
   %cmp.i5.i.i.i.i.i590 = icmp ult ptr %260, %add.ptr300
   br i1 %cmp.i5.i.i.i.i.i590, label %if.then.i.i.i.i595, label %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i591
 
 if.then.i.i.i.i595:                               ; preds = %if.end12.i.i.i.i.i588, %if.then.i.i.i.i.i605
-  %retval.sroa.4.0.i.ph.i.i.i.i596 = phi ptr [ %__y.0.lcssa25.i.i.i.i.i606, %if.then.i.i.i.i.i605 ], [ %__y.0.lcssa26.i.i.i.i.i589, %if.end12.i.i.i.i.i588 ]
+  %retval.sroa.4.0.i.ph.i.i.i.i596 = phi ptr [ %__y.0.lcssa26.i.i.i.i.i606, %if.then.i.i.i.i.i605 ], [ %__y.0.lcssa25.i.i.i.i.i589, %if.end12.i.i.i.i.i588 ]
   %cmp2.i.i.i.i.i597 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i.i.i596, %add.ptr.i.i.i.i.i.i576
   br i1 %cmp2.i.i.i.i.i597, label %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i601, label %lor.rhs.i.i.i.i.i598
 
@@ -3065,14 +3065,14 @@ while.end.i.i832:                                 ; preds = %while.body.i.i824
   br i1 %cmp.i.i.i.i.i.i.i827, label %if.then.i.i859, label %if.end12.i.i833
 
 if.then.i.i859:                                   ; preds = %while.end.i.i832, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i591
-  %__y.0.lcssa26.i.i860 = phi ptr [ %__x.022.i.i825, %while.end.i.i832 ], [ %add.ptr.i.i.i819, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i591 ]
+  %__y.0.lcssa27.i.i860 = phi ptr [ %__x.022.i.i825, %while.end.i.i832 ], [ %add.ptr.i.i.i819, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i591 ]
   %_M_left.i3.i.i861 = getelementptr inbounds nuw i8, ptr %add.ptr300, i64 32
   %266 = load ptr, ptr %_M_left.i3.i.i861, align 8, !tbaa !14
-  %cmp.i.i.i862 = icmp eq ptr %__y.0.lcssa26.i.i860, %266
+  %cmp.i.i.i862 = icmp eq ptr %__y.0.lcssa27.i.i860, %266
   br i1 %cmp.i.i.i862, label %if.then.i841, label %if.else.i.i863
 
 if.else.i.i863:                                   ; preds = %if.then.i.i859
-  %call.i.i.i864 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i860) #34
+  %call.i.i.i864 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa27.i.i860) #34
   %pn.i.i.i4.i.phi.trans.insert.i865 = getelementptr inbounds nuw i8, ptr %call.i.i.i864, i64 40
   %.pre.i866 = load ptr, ptr %pn.i.i.i4.i.phi.trans.insert.i865, align 8, !tbaa !41
   %.pre16.i868 = load ptr, ptr %pn.i.i567, align 8, !tbaa !41
@@ -3081,12 +3081,12 @@ if.else.i.i863:                                   ; preds = %if.then.i.i859
 if.end12.i.i833:                                  ; preds = %if.else.i.i863, %while.end.i.i832
   %267 = phi ptr [ %.pre16.i868, %if.else.i.i863 ], [ %264, %while.end.i.i832 ]
   %268 = phi ptr [ %.pre.i866, %if.else.i.i863 ], [ %265, %while.end.i.i832 ]
-  %__y.0.lcssa27.i.i834 = phi ptr [ %__y.0.lcssa26.i.i860, %if.else.i.i863 ], [ %__x.022.i.i825, %while.end.i.i832 ]
+  %__y.0.lcssa26.i.i834 = phi ptr [ %__y.0.lcssa27.i.i860, %if.else.i.i863 ], [ %__x.022.i.i825, %while.end.i.i832 ]
   %cmp.i.i.i.i.i6.i.i836 = icmp ult ptr %268, %267
   br i1 %cmp.i.i.i.i.i6.i.i836, label %if.then.i841, label %invoke.cont309
 
 if.then.i841:                                     ; preds = %if.end12.i.i833, %if.then.i.i859
-  %retval.sroa.4.0.i.ph.i842 = phi ptr [ %__y.0.lcssa26.i.i860, %if.then.i.i859 ], [ %__y.0.lcssa27.i.i834, %if.end12.i.i833 ]
+  %retval.sroa.4.0.i.ph.i842 = phi ptr [ %__y.0.lcssa27.i.i860, %if.then.i.i859 ], [ %__y.0.lcssa26.i.i834, %if.end12.i.i833 ]
   %cmp2.i.i843 = icmp eq ptr %retval.sroa.4.0.i.ph.i842, %add.ptr.i.i.i819
   br i1 %cmp2.i.i843, label %entry.lor.end_crit_edge.i.i857, label %lor.rhs.i.i845
 
@@ -3532,295 +3532,295 @@ ehcleanup400:                                     ; preds = %_ZNKSt14default_del
   br i1 %cmp.not.i.i706, label %ehcleanup401, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707: ; preds = %ehcleanup400.thread, %ehcleanup400
-  %.pn55.pn.pn.pn.pn.pn1250 = phi { ptr, i32 } [ %100, %ehcleanup400.thread ], [ %.pn55.pn.pn.pn.pn, %ehcleanup400 ]
-  %mdlFwdCmsLegNPV_109111071248 = phi ptr [ %mdlFwdCmsLegNPV_, %ehcleanup400.thread ], [ %mdlFwdCmsLegNPV_10911108, %ehcleanup400 ]
-  %errSpotCmsLegNPV_10241039109011091246 = phi ptr [ %errSpotCmsLegNPV_, %ehcleanup400.thread ], [ %errSpotCmsLegNPV_1024103910901110, %ehcleanup400 ]
-  %mktSpotCmsLegNPV_96998210231041108811111244 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup400.thread ], [ %mktSpotCmsLegNPV_9699821023104110881112, %ehcleanup400 ]
-  %mdlSpreads_92693796898410211043108611131242 = phi ptr [ %mdlSpreads_, %ehcleanup400.thread ], [ %mdlSpreads_9269379689841021104310861114, %ehcleanup400 ]
-  %mktAskSpreads_89590492593996698610191045108411151240 = phi ptr [ %mktAskSpreads_, %ehcleanup400.thread ], [ %mktAskSpreads_8959049259399669861019104510841116, %ehcleanup400 ]
-  %spotFloatLegBPS_87688389490692394196498810171047108211171238 = phi ptr [ %spotFloatLegBPS_, %ehcleanup400.thread ], [ %spotFloatLegBPS_8768838949069239419649881017104710821118, %ehcleanup400 ]
-  %mktBidSpreads_88489290892194396299010151049108011191236 = phi ptr [ %mktBidSpreads_, %ehcleanup400.thread ], [ %mktBidSpreads_8848929089219439629901015104910801120, %ehcleanup400 ]
-  %mktSpreads_90991994596099210131051107811211234 = phi ptr [ %mktSpreads_, %ehcleanup400.thread ], [ %mktSpreads_9099199459609921013105110781122, %ehcleanup400 ]
-  %errSpreads_94695899410111053107611231232 = phi ptr [ %errSpreads_, %ehcleanup400.thread ], [ %errSpreads_9469589941011105310761124, %ehcleanup400 ]
-  %mdlSpotCmsLegNPV_99510091055107411251230 = phi ptr [ %mdlSpotCmsLegNPV_, %ehcleanup400.thread ], [ %mdlSpotCmsLegNPV_9951009105510741126, %ehcleanup400 ]
-  %mktFwdCmsLegNPV_1056107211271228 = phi ptr [ %mktFwdCmsLegNPV_, %ehcleanup400.thread ], [ %mktFwdCmsLegNPV_105610721128, %ehcleanup400 ]
+  %.pn55.pn.pn.pn.pn.pn1338 = phi { ptr, i32 } [ %100, %ehcleanup400.thread ], [ %.pn55.pn.pn.pn.pn, %ehcleanup400 ]
+  %mdlFwdCmsLegNPV_109111071336 = phi ptr [ %mdlFwdCmsLegNPV_, %ehcleanup400.thread ], [ %mdlFwdCmsLegNPV_10911108, %ehcleanup400 ]
+  %errSpotCmsLegNPV_10241039109011091334 = phi ptr [ %errSpotCmsLegNPV_, %ehcleanup400.thread ], [ %errSpotCmsLegNPV_1024103910901110, %ehcleanup400 ]
+  %mktSpotCmsLegNPV_96998210231041108811111332 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup400.thread ], [ %mktSpotCmsLegNPV_9699821023104110881112, %ehcleanup400 ]
+  %mdlSpreads_92693796898410211043108611131330 = phi ptr [ %mdlSpreads_, %ehcleanup400.thread ], [ %mdlSpreads_9269379689841021104310861114, %ehcleanup400 ]
+  %mktAskSpreads_89590492593996698610191045108411151328 = phi ptr [ %mktAskSpreads_, %ehcleanup400.thread ], [ %mktAskSpreads_8959049259399669861019104510841116, %ehcleanup400 ]
+  %spotFloatLegBPS_87688389490692394196498810171047108211171326 = phi ptr [ %spotFloatLegBPS_, %ehcleanup400.thread ], [ %spotFloatLegBPS_8768838949069239419649881017104710821118, %ehcleanup400 ]
+  %mktBidSpreads_88489290892194396299010151049108011191324 = phi ptr [ %mktBidSpreads_, %ehcleanup400.thread ], [ %mktBidSpreads_8848929089219439629901015104910801120, %ehcleanup400 ]
+  %mktSpreads_90991994596099210131051107811211322 = phi ptr [ %mktSpreads_, %ehcleanup400.thread ], [ %mktSpreads_9099199459609921013105110781122, %ehcleanup400 ]
+  %errSpreads_94695899410111053107611231320 = phi ptr [ %errSpreads_, %ehcleanup400.thread ], [ %errSpreads_9469589941011105310761124, %ehcleanup400 ]
+  %mdlSpotCmsLegNPV_99510091055107411251318 = phi ptr [ %mdlSpotCmsLegNPV_, %ehcleanup400.thread ], [ %mdlSpotCmsLegNPV_9951009105510741126, %ehcleanup400 ]
+  %mktFwdCmsLegNPV_1056107211271316 = phi ptr [ %mktFwdCmsLegNPV_, %ehcleanup400.thread ], [ %mktFwdCmsLegNPV_105610721128, %ehcleanup400 ]
   %341 = phi ptr [ %call.i207, %ehcleanup400.thread ], [ %.pre1202, %ehcleanup400 ]
   call void @_ZdaPv(ptr noundef nonnull %341) #32
   br label %ehcleanup401
 
 ehcleanup401:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707, %ehcleanup400
-  %.pn55.pn.pn.pn.pn.pn1251 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn, %ehcleanup400 ], [ %.pn55.pn.pn.pn.pn.pn1250, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
-  %mdlFwdCmsLegNPV_109111071249 = phi ptr [ %mdlFwdCmsLegNPV_10911108, %ehcleanup400 ], [ %mdlFwdCmsLegNPV_109111071248, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
-  %errSpotCmsLegNPV_10241039109011091247 = phi ptr [ %errSpotCmsLegNPV_1024103910901110, %ehcleanup400 ], [ %errSpotCmsLegNPV_10241039109011091246, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
-  %mktSpotCmsLegNPV_96998210231041108811111245 = phi ptr [ %mktSpotCmsLegNPV_9699821023104110881112, %ehcleanup400 ], [ %mktSpotCmsLegNPV_96998210231041108811111244, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
-  %mdlSpreads_92693796898410211043108611131243 = phi ptr [ %mdlSpreads_9269379689841021104310861114, %ehcleanup400 ], [ %mdlSpreads_92693796898410211043108611131242, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
-  %mktAskSpreads_89590492593996698610191045108411151241 = phi ptr [ %mktAskSpreads_8959049259399669861019104510841116, %ehcleanup400 ], [ %mktAskSpreads_89590492593996698610191045108411151240, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
-  %spotFloatLegBPS_87688389490692394196498810171047108211171239 = phi ptr [ %spotFloatLegBPS_8768838949069239419649881017104710821118, %ehcleanup400 ], [ %spotFloatLegBPS_87688389490692394196498810171047108211171238, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
-  %mktBidSpreads_88489290892194396299010151049108011191237 = phi ptr [ %mktBidSpreads_8848929089219439629901015104910801120, %ehcleanup400 ], [ %mktBidSpreads_88489290892194396299010151049108011191236, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
-  %mktSpreads_90991994596099210131051107811211235 = phi ptr [ %mktSpreads_9099199459609921013105110781122, %ehcleanup400 ], [ %mktSpreads_90991994596099210131051107811211234, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
-  %errSpreads_94695899410111053107611231233 = phi ptr [ %errSpreads_9469589941011105310761124, %ehcleanup400 ], [ %errSpreads_94695899410111053107611231232, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
-  %mdlSpotCmsLegNPV_99510091055107411251231 = phi ptr [ %mdlSpotCmsLegNPV_9951009105510741126, %ehcleanup400 ], [ %mdlSpotCmsLegNPV_99510091055107411251230, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
-  %mktFwdCmsLegNPV_1056107211271229 = phi ptr [ %mktFwdCmsLegNPV_105610721128, %ehcleanup400 ], [ %mktFwdCmsLegNPV_1056107211271228, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
-  store ptr null, ptr %mdlFwdCmsLegNPV_109111071249, align 8, !tbaa !3
-  %.pre1203 = load ptr, ptr %mktFwdCmsLegNPV_1056107211271229, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn1339 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn, %ehcleanup400 ], [ %.pn55.pn.pn.pn.pn.pn1338, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
+  %mdlFwdCmsLegNPV_109111071337 = phi ptr [ %mdlFwdCmsLegNPV_10911108, %ehcleanup400 ], [ %mdlFwdCmsLegNPV_109111071336, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
+  %errSpotCmsLegNPV_10241039109011091335 = phi ptr [ %errSpotCmsLegNPV_1024103910901110, %ehcleanup400 ], [ %errSpotCmsLegNPV_10241039109011091334, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
+  %mktSpotCmsLegNPV_96998210231041108811111333 = phi ptr [ %mktSpotCmsLegNPV_9699821023104110881112, %ehcleanup400 ], [ %mktSpotCmsLegNPV_96998210231041108811111332, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
+  %mdlSpreads_92693796898410211043108611131331 = phi ptr [ %mdlSpreads_9269379689841021104310861114, %ehcleanup400 ], [ %mdlSpreads_92693796898410211043108611131330, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
+  %mktAskSpreads_89590492593996698610191045108411151329 = phi ptr [ %mktAskSpreads_8959049259399669861019104510841116, %ehcleanup400 ], [ %mktAskSpreads_89590492593996698610191045108411151328, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
+  %spotFloatLegBPS_87688389490692394196498810171047108211171327 = phi ptr [ %spotFloatLegBPS_8768838949069239419649881017104710821118, %ehcleanup400 ], [ %spotFloatLegBPS_87688389490692394196498810171047108211171326, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
+  %mktBidSpreads_88489290892194396299010151049108011191325 = phi ptr [ %mktBidSpreads_8848929089219439629901015104910801120, %ehcleanup400 ], [ %mktBidSpreads_88489290892194396299010151049108011191324, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
+  %mktSpreads_90991994596099210131051107811211323 = phi ptr [ %mktSpreads_9099199459609921013105110781122, %ehcleanup400 ], [ %mktSpreads_90991994596099210131051107811211322, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
+  %errSpreads_94695899410111053107611231321 = phi ptr [ %errSpreads_9469589941011105310761124, %ehcleanup400 ], [ %errSpreads_94695899410111053107611231320, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
+  %mdlSpotCmsLegNPV_99510091055107411251319 = phi ptr [ %mdlSpotCmsLegNPV_9951009105510741126, %ehcleanup400 ], [ %mdlSpotCmsLegNPV_99510091055107411251318, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
+  %mktFwdCmsLegNPV_1056107211271317 = phi ptr [ %mktFwdCmsLegNPV_105610721128, %ehcleanup400 ], [ %mktFwdCmsLegNPV_1056107211271316, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i707 ]
+  store ptr null, ptr %mdlFwdCmsLegNPV_109111071337, align 8, !tbaa !3
+  %.pre1203 = load ptr, ptr %mktFwdCmsLegNPV_1056107211271317, align 8, !tbaa !3
   %cmp.not.i.i709 = icmp eq ptr %.pre1203, null
   br i1 %cmp.not.i.i709, label %ehcleanup402, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710: ; preds = %ehcleanup401.thread, %ehcleanup401
-  %.pn55.pn.pn.pn.pn.pn.pn1284 = phi { ptr, i32 } [ %99, %ehcleanup401.thread ], [ %.pn55.pn.pn.pn.pn.pn1251, %ehcleanup401 ]
-  %mktFwdCmsLegNPV_105610711282 = phi ptr [ %mktFwdCmsLegNPV_, %ehcleanup401.thread ], [ %mktFwdCmsLegNPV_1056107211271229, %ehcleanup401 ]
-  %mdlSpotCmsLegNPV_9951009105510731280 = phi ptr [ %mdlSpotCmsLegNPV_, %ehcleanup401.thread ], [ %mdlSpotCmsLegNPV_99510091055107411251231, %ehcleanup401 ]
-  %errSpreads_9469589941011105310751278 = phi ptr [ %errSpreads_, %ehcleanup401.thread ], [ %errSpreads_94695899410111053107611231233, %ehcleanup401 ]
-  %mktSpreads_9099199459609921013105110771276 = phi ptr [ %mktSpreads_, %ehcleanup401.thread ], [ %mktSpreads_90991994596099210131051107811211235, %ehcleanup401 ]
-  %mktBidSpreads_8848929089219439629901015104910791274 = phi ptr [ %mktBidSpreads_, %ehcleanup401.thread ], [ %mktBidSpreads_88489290892194396299010151049108011191237, %ehcleanup401 ]
-  %spotFloatLegBPS_8768838949069239419649881017104710811272 = phi ptr [ %spotFloatLegBPS_, %ehcleanup401.thread ], [ %spotFloatLegBPS_87688389490692394196498810171047108211171239, %ehcleanup401 ]
-  %mktAskSpreads_8959049259399669861019104510831270 = phi ptr [ %mktAskSpreads_, %ehcleanup401.thread ], [ %mktAskSpreads_89590492593996698610191045108411151241, %ehcleanup401 ]
-  %mdlSpreads_9269379689841021104310851268 = phi ptr [ %mdlSpreads_, %ehcleanup401.thread ], [ %mdlSpreads_92693796898410211043108611131243, %ehcleanup401 ]
-  %mktSpotCmsLegNPV_9699821023104110871266 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup401.thread ], [ %mktSpotCmsLegNPV_96998210231041108811111245, %ehcleanup401 ]
-  %errSpotCmsLegNPV_1024103910891264 = phi ptr [ %errSpotCmsLegNPV_, %ehcleanup401.thread ], [ %errSpotCmsLegNPV_10241039109011091247, %ehcleanup401 ]
+  %.pn55.pn.pn.pn.pn.pn.pn1372 = phi { ptr, i32 } [ %99, %ehcleanup401.thread ], [ %.pn55.pn.pn.pn.pn.pn1339, %ehcleanup401 ]
+  %mktFwdCmsLegNPV_105610711370 = phi ptr [ %mktFwdCmsLegNPV_, %ehcleanup401.thread ], [ %mktFwdCmsLegNPV_1056107211271317, %ehcleanup401 ]
+  %mdlSpotCmsLegNPV_9951009105510731368 = phi ptr [ %mdlSpotCmsLegNPV_, %ehcleanup401.thread ], [ %mdlSpotCmsLegNPV_99510091055107411251319, %ehcleanup401 ]
+  %errSpreads_9469589941011105310751366 = phi ptr [ %errSpreads_, %ehcleanup401.thread ], [ %errSpreads_94695899410111053107611231321, %ehcleanup401 ]
+  %mktSpreads_9099199459609921013105110771364 = phi ptr [ %mktSpreads_, %ehcleanup401.thread ], [ %mktSpreads_90991994596099210131051107811211323, %ehcleanup401 ]
+  %mktBidSpreads_8848929089219439629901015104910791362 = phi ptr [ %mktBidSpreads_, %ehcleanup401.thread ], [ %mktBidSpreads_88489290892194396299010151049108011191325, %ehcleanup401 ]
+  %spotFloatLegBPS_8768838949069239419649881017104710811360 = phi ptr [ %spotFloatLegBPS_, %ehcleanup401.thread ], [ %spotFloatLegBPS_87688389490692394196498810171047108211171327, %ehcleanup401 ]
+  %mktAskSpreads_8959049259399669861019104510831358 = phi ptr [ %mktAskSpreads_, %ehcleanup401.thread ], [ %mktAskSpreads_89590492593996698610191045108411151329, %ehcleanup401 ]
+  %mdlSpreads_9269379689841021104310851356 = phi ptr [ %mdlSpreads_, %ehcleanup401.thread ], [ %mdlSpreads_92693796898410211043108611131331, %ehcleanup401 ]
+  %mktSpotCmsLegNPV_9699821023104110871354 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup401.thread ], [ %mktSpotCmsLegNPV_96998210231041108811111333, %ehcleanup401 ]
+  %errSpotCmsLegNPV_1024103910891352 = phi ptr [ %errSpotCmsLegNPV_, %ehcleanup401.thread ], [ %errSpotCmsLegNPV_10241039109011091335, %ehcleanup401 ]
   %342 = phi ptr [ %call.i198, %ehcleanup401.thread ], [ %.pre1203, %ehcleanup401 ]
   call void @_ZdaPv(ptr noundef nonnull %342) #32
   br label %ehcleanup402
 
 ehcleanup402:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710, %ehcleanup401
-  %.pn55.pn.pn.pn.pn.pn.pn1285 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn1251, %ehcleanup401 ], [ %.pn55.pn.pn.pn.pn.pn.pn1284, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %mktFwdCmsLegNPV_105610711283 = phi ptr [ %mktFwdCmsLegNPV_1056107211271229, %ehcleanup401 ], [ %mktFwdCmsLegNPV_105610711282, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %mdlSpotCmsLegNPV_9951009105510731281 = phi ptr [ %mdlSpotCmsLegNPV_99510091055107411251231, %ehcleanup401 ], [ %mdlSpotCmsLegNPV_9951009105510731280, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %errSpreads_9469589941011105310751279 = phi ptr [ %errSpreads_94695899410111053107611231233, %ehcleanup401 ], [ %errSpreads_9469589941011105310751278, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %mktSpreads_9099199459609921013105110771277 = phi ptr [ %mktSpreads_90991994596099210131051107811211235, %ehcleanup401 ], [ %mktSpreads_9099199459609921013105110771276, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %mktBidSpreads_8848929089219439629901015104910791275 = phi ptr [ %mktBidSpreads_88489290892194396299010151049108011191237, %ehcleanup401 ], [ %mktBidSpreads_8848929089219439629901015104910791274, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %spotFloatLegBPS_8768838949069239419649881017104710811273 = phi ptr [ %spotFloatLegBPS_87688389490692394196498810171047108211171239, %ehcleanup401 ], [ %spotFloatLegBPS_8768838949069239419649881017104710811272, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %mktAskSpreads_8959049259399669861019104510831271 = phi ptr [ %mktAskSpreads_89590492593996698610191045108411151241, %ehcleanup401 ], [ %mktAskSpreads_8959049259399669861019104510831270, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %mdlSpreads_9269379689841021104310851269 = phi ptr [ %mdlSpreads_92693796898410211043108611131243, %ehcleanup401 ], [ %mdlSpreads_9269379689841021104310851268, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %mktSpotCmsLegNPV_9699821023104110871267 = phi ptr [ %mktSpotCmsLegNPV_96998210231041108811111245, %ehcleanup401 ], [ %mktSpotCmsLegNPV_9699821023104110871266, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %errSpotCmsLegNPV_1024103910891265 = phi ptr [ %errSpotCmsLegNPV_10241039109011091247, %ehcleanup401 ], [ %errSpotCmsLegNPV_1024103910891264, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  store ptr null, ptr %mktFwdCmsLegNPV_105610711283, align 8, !tbaa !3
-  %.pre1204 = load ptr, ptr %errSpotCmsLegNPV_1024103910891265, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn1373 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn1339, %ehcleanup401 ], [ %.pn55.pn.pn.pn.pn.pn.pn1372, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %mktFwdCmsLegNPV_105610711371 = phi ptr [ %mktFwdCmsLegNPV_1056107211271317, %ehcleanup401 ], [ %mktFwdCmsLegNPV_105610711370, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %mdlSpotCmsLegNPV_9951009105510731369 = phi ptr [ %mdlSpotCmsLegNPV_99510091055107411251319, %ehcleanup401 ], [ %mdlSpotCmsLegNPV_9951009105510731368, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %errSpreads_9469589941011105310751367 = phi ptr [ %errSpreads_94695899410111053107611231321, %ehcleanup401 ], [ %errSpreads_9469589941011105310751366, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %mktSpreads_9099199459609921013105110771365 = phi ptr [ %mktSpreads_90991994596099210131051107811211323, %ehcleanup401 ], [ %mktSpreads_9099199459609921013105110771364, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %mktBidSpreads_8848929089219439629901015104910791363 = phi ptr [ %mktBidSpreads_88489290892194396299010151049108011191325, %ehcleanup401 ], [ %mktBidSpreads_8848929089219439629901015104910791362, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %spotFloatLegBPS_8768838949069239419649881017104710811361 = phi ptr [ %spotFloatLegBPS_87688389490692394196498810171047108211171327, %ehcleanup401 ], [ %spotFloatLegBPS_8768838949069239419649881017104710811360, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %mktAskSpreads_8959049259399669861019104510831359 = phi ptr [ %mktAskSpreads_89590492593996698610191045108411151329, %ehcleanup401 ], [ %mktAskSpreads_8959049259399669861019104510831358, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %mdlSpreads_9269379689841021104310851357 = phi ptr [ %mdlSpreads_92693796898410211043108611131331, %ehcleanup401 ], [ %mdlSpreads_9269379689841021104310851356, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %mktSpotCmsLegNPV_9699821023104110871355 = phi ptr [ %mktSpotCmsLegNPV_96998210231041108811111333, %ehcleanup401 ], [ %mktSpotCmsLegNPV_9699821023104110871354, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %errSpotCmsLegNPV_1024103910891353 = phi ptr [ %errSpotCmsLegNPV_10241039109011091335, %ehcleanup401 ], [ %errSpotCmsLegNPV_1024103910891352, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  store ptr null, ptr %mktFwdCmsLegNPV_105610711371, align 8, !tbaa !3
+  %.pre1204 = load ptr, ptr %errSpotCmsLegNPV_1024103910891353, align 8, !tbaa !3
   %cmp.not.i.i712 = icmp eq ptr %.pre1204, null
   br i1 %cmp.not.i.i712, label %ehcleanup403, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713: ; preds = %ehcleanup402.thread, %ehcleanup402
-  %.pn55.pn.pn.pn.pn.pn.pn.pn1315 = phi { ptr, i32 } [ %98, %ehcleanup402.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn1285, %ehcleanup402 ]
-  %errSpotCmsLegNPV_102410381313 = phi ptr [ %errSpotCmsLegNPV_, %ehcleanup402.thread ], [ %errSpotCmsLegNPV_1024103910891265, %ehcleanup402 ]
-  %mktSpotCmsLegNPV_969982102310401311 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup402.thread ], [ %mktSpotCmsLegNPV_9699821023104110871267, %ehcleanup402 ]
-  %mdlSpreads_926937968984102110421309 = phi ptr [ %mdlSpreads_, %ehcleanup402.thread ], [ %mdlSpreads_9269379689841021104310851269, %ehcleanup402 ]
-  %mktAskSpreads_895904925939966986101910441307 = phi ptr [ %mktAskSpreads_, %ehcleanup402.thread ], [ %mktAskSpreads_8959049259399669861019104510831271, %ehcleanup402 ]
-  %spotFloatLegBPS_876883894906923941964988101710461305 = phi ptr [ %spotFloatLegBPS_, %ehcleanup402.thread ], [ %spotFloatLegBPS_8768838949069239419649881017104710811273, %ehcleanup402 ]
-  %mktBidSpreads_884892908921943962990101510481303 = phi ptr [ %mktBidSpreads_, %ehcleanup402.thread ], [ %mktBidSpreads_8848929089219439629901015104910791275, %ehcleanup402 ]
-  %mktSpreads_909919945960992101310501301 = phi ptr [ %mktSpreads_, %ehcleanup402.thread ], [ %mktSpreads_9099199459609921013105110771277, %ehcleanup402 ]
-  %errSpreads_946958994101110521299 = phi ptr [ %errSpreads_, %ehcleanup402.thread ], [ %errSpreads_9469589941011105310751279, %ehcleanup402 ]
-  %mdlSpotCmsLegNPV_995100910541297 = phi ptr [ %mdlSpotCmsLegNPV_, %ehcleanup402.thread ], [ %mdlSpotCmsLegNPV_9951009105510731281, %ehcleanup402 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn1403 = phi { ptr, i32 } [ %98, %ehcleanup402.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn1373, %ehcleanup402 ]
+  %errSpotCmsLegNPV_102410381401 = phi ptr [ %errSpotCmsLegNPV_, %ehcleanup402.thread ], [ %errSpotCmsLegNPV_1024103910891353, %ehcleanup402 ]
+  %mktSpotCmsLegNPV_969982102310401399 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup402.thread ], [ %mktSpotCmsLegNPV_9699821023104110871355, %ehcleanup402 ]
+  %mdlSpreads_926937968984102110421397 = phi ptr [ %mdlSpreads_, %ehcleanup402.thread ], [ %mdlSpreads_9269379689841021104310851357, %ehcleanup402 ]
+  %mktAskSpreads_895904925939966986101910441395 = phi ptr [ %mktAskSpreads_, %ehcleanup402.thread ], [ %mktAskSpreads_8959049259399669861019104510831359, %ehcleanup402 ]
+  %spotFloatLegBPS_876883894906923941964988101710461393 = phi ptr [ %spotFloatLegBPS_, %ehcleanup402.thread ], [ %spotFloatLegBPS_8768838949069239419649881017104710811361, %ehcleanup402 ]
+  %mktBidSpreads_884892908921943962990101510481391 = phi ptr [ %mktBidSpreads_, %ehcleanup402.thread ], [ %mktBidSpreads_8848929089219439629901015104910791363, %ehcleanup402 ]
+  %mktSpreads_909919945960992101310501389 = phi ptr [ %mktSpreads_, %ehcleanup402.thread ], [ %mktSpreads_9099199459609921013105110771365, %ehcleanup402 ]
+  %errSpreads_946958994101110521387 = phi ptr [ %errSpreads_, %ehcleanup402.thread ], [ %errSpreads_9469589941011105310751367, %ehcleanup402 ]
+  %mdlSpotCmsLegNPV_995100910541385 = phi ptr [ %mdlSpotCmsLegNPV_, %ehcleanup402.thread ], [ %mdlSpotCmsLegNPV_9951009105510731369, %ehcleanup402 ]
   %343 = phi ptr [ %call.i189, %ehcleanup402.thread ], [ %.pre1204, %ehcleanup402 ]
   call void @_ZdaPv(ptr noundef nonnull %343) #32
   br label %ehcleanup403
 
 ehcleanup403:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713, %ehcleanup402
-  %.pn55.pn.pn.pn.pn.pn.pn.pn1316 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn1285, %ehcleanup402 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn1315, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %errSpotCmsLegNPV_102410381314 = phi ptr [ %errSpotCmsLegNPV_1024103910891265, %ehcleanup402 ], [ %errSpotCmsLegNPV_102410381313, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %mktSpotCmsLegNPV_969982102310401312 = phi ptr [ %mktSpotCmsLegNPV_9699821023104110871267, %ehcleanup402 ], [ %mktSpotCmsLegNPV_969982102310401311, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %mdlSpreads_926937968984102110421310 = phi ptr [ %mdlSpreads_9269379689841021104310851269, %ehcleanup402 ], [ %mdlSpreads_926937968984102110421309, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %mktAskSpreads_895904925939966986101910441308 = phi ptr [ %mktAskSpreads_8959049259399669861019104510831271, %ehcleanup402 ], [ %mktAskSpreads_895904925939966986101910441307, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %spotFloatLegBPS_876883894906923941964988101710461306 = phi ptr [ %spotFloatLegBPS_8768838949069239419649881017104710811273, %ehcleanup402 ], [ %spotFloatLegBPS_876883894906923941964988101710461305, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %mktBidSpreads_884892908921943962990101510481304 = phi ptr [ %mktBidSpreads_8848929089219439629901015104910791275, %ehcleanup402 ], [ %mktBidSpreads_884892908921943962990101510481303, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %mktSpreads_909919945960992101310501302 = phi ptr [ %mktSpreads_9099199459609921013105110771277, %ehcleanup402 ], [ %mktSpreads_909919945960992101310501301, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %errSpreads_946958994101110521300 = phi ptr [ %errSpreads_9469589941011105310751279, %ehcleanup402 ], [ %errSpreads_946958994101110521299, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %mdlSpotCmsLegNPV_995100910541298 = phi ptr [ %mdlSpotCmsLegNPV_9951009105510731281, %ehcleanup402 ], [ %mdlSpotCmsLegNPV_995100910541297, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  store ptr null, ptr %errSpotCmsLegNPV_102410381314, align 8, !tbaa !3
-  %.pre1205 = load ptr, ptr %mdlSpotCmsLegNPV_995100910541298, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn.pn1404 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn1373, %ehcleanup402 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn1403, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %errSpotCmsLegNPV_102410381402 = phi ptr [ %errSpotCmsLegNPV_1024103910891353, %ehcleanup402 ], [ %errSpotCmsLegNPV_102410381401, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %mktSpotCmsLegNPV_969982102310401400 = phi ptr [ %mktSpotCmsLegNPV_9699821023104110871355, %ehcleanup402 ], [ %mktSpotCmsLegNPV_969982102310401399, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %mdlSpreads_926937968984102110421398 = phi ptr [ %mdlSpreads_9269379689841021104310851357, %ehcleanup402 ], [ %mdlSpreads_926937968984102110421397, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %mktAskSpreads_895904925939966986101910441396 = phi ptr [ %mktAskSpreads_8959049259399669861019104510831359, %ehcleanup402 ], [ %mktAskSpreads_895904925939966986101910441395, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %spotFloatLegBPS_876883894906923941964988101710461394 = phi ptr [ %spotFloatLegBPS_8768838949069239419649881017104710811361, %ehcleanup402 ], [ %spotFloatLegBPS_876883894906923941964988101710461393, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %mktBidSpreads_884892908921943962990101510481392 = phi ptr [ %mktBidSpreads_8848929089219439629901015104910791363, %ehcleanup402 ], [ %mktBidSpreads_884892908921943962990101510481391, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %mktSpreads_909919945960992101310501390 = phi ptr [ %mktSpreads_9099199459609921013105110771365, %ehcleanup402 ], [ %mktSpreads_909919945960992101310501389, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %errSpreads_946958994101110521388 = phi ptr [ %errSpreads_9469589941011105310751367, %ehcleanup402 ], [ %errSpreads_946958994101110521387, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %mdlSpotCmsLegNPV_995100910541386 = phi ptr [ %mdlSpotCmsLegNPV_9951009105510731369, %ehcleanup402 ], [ %mdlSpotCmsLegNPV_995100910541385, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  store ptr null, ptr %errSpotCmsLegNPV_102410381402, align 8, !tbaa !3
+  %.pre1205 = load ptr, ptr %mdlSpotCmsLegNPV_995100910541386, align 8, !tbaa !3
   %cmp.not.i.i715 = icmp eq ptr %.pre1205, null
   br i1 %cmp.not.i.i715, label %ehcleanup404, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716: ; preds = %ehcleanup403.thread, %ehcleanup403
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1343 = phi { ptr, i32 } [ %97, %ehcleanup403.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn1316, %ehcleanup403 ]
-  %mdlSpotCmsLegNPV_99510081341 = phi ptr [ %mdlSpotCmsLegNPV_, %ehcleanup403.thread ], [ %mdlSpotCmsLegNPV_995100910541298, %ehcleanup403 ]
-  %errSpreads_94695899410101339 = phi ptr [ %errSpreads_, %ehcleanup403.thread ], [ %errSpreads_946958994101110521300, %ehcleanup403 ]
-  %mktSpreads_90991994596099210121337 = phi ptr [ %mktSpreads_, %ehcleanup403.thread ], [ %mktSpreads_909919945960992101310501302, %ehcleanup403 ]
-  %mktBidSpreads_88489290892194396299010141335 = phi ptr [ %mktBidSpreads_, %ehcleanup403.thread ], [ %mktBidSpreads_884892908921943962990101510481304, %ehcleanup403 ]
-  %spotFloatLegBPS_87688389490692394196498810161333 = phi ptr [ %spotFloatLegBPS_, %ehcleanup403.thread ], [ %spotFloatLegBPS_876883894906923941964988101710461306, %ehcleanup403 ]
-  %mktAskSpreads_89590492593996698610181331 = phi ptr [ %mktAskSpreads_, %ehcleanup403.thread ], [ %mktAskSpreads_895904925939966986101910441308, %ehcleanup403 ]
-  %mdlSpreads_92693796898410201329 = phi ptr [ %mdlSpreads_, %ehcleanup403.thread ], [ %mdlSpreads_926937968984102110421310, %ehcleanup403 ]
-  %mktSpotCmsLegNPV_96998210221327 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup403.thread ], [ %mktSpotCmsLegNPV_969982102310401312, %ehcleanup403 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1431 = phi { ptr, i32 } [ %97, %ehcleanup403.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn1404, %ehcleanup403 ]
+  %mdlSpotCmsLegNPV_99510081429 = phi ptr [ %mdlSpotCmsLegNPV_, %ehcleanup403.thread ], [ %mdlSpotCmsLegNPV_995100910541386, %ehcleanup403 ]
+  %errSpreads_94695899410101427 = phi ptr [ %errSpreads_, %ehcleanup403.thread ], [ %errSpreads_946958994101110521388, %ehcleanup403 ]
+  %mktSpreads_90991994596099210121425 = phi ptr [ %mktSpreads_, %ehcleanup403.thread ], [ %mktSpreads_909919945960992101310501390, %ehcleanup403 ]
+  %mktBidSpreads_88489290892194396299010141423 = phi ptr [ %mktBidSpreads_, %ehcleanup403.thread ], [ %mktBidSpreads_884892908921943962990101510481392, %ehcleanup403 ]
+  %spotFloatLegBPS_87688389490692394196498810161421 = phi ptr [ %spotFloatLegBPS_, %ehcleanup403.thread ], [ %spotFloatLegBPS_876883894906923941964988101710461394, %ehcleanup403 ]
+  %mktAskSpreads_89590492593996698610181419 = phi ptr [ %mktAskSpreads_, %ehcleanup403.thread ], [ %mktAskSpreads_895904925939966986101910441396, %ehcleanup403 ]
+  %mdlSpreads_92693796898410201417 = phi ptr [ %mdlSpreads_, %ehcleanup403.thread ], [ %mdlSpreads_926937968984102110421398, %ehcleanup403 ]
+  %mktSpotCmsLegNPV_96998210221415 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup403.thread ], [ %mktSpotCmsLegNPV_969982102310401400, %ehcleanup403 ]
   %344 = phi ptr [ %call.i180, %ehcleanup403.thread ], [ %.pre1205, %ehcleanup403 ]
   call void @_ZdaPv(ptr noundef nonnull %344) #32
   br label %ehcleanup404
 
 ehcleanup404:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716, %ehcleanup403
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1344 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn1316, %ehcleanup403 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1343, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  %mdlSpotCmsLegNPV_99510081342 = phi ptr [ %mdlSpotCmsLegNPV_995100910541298, %ehcleanup403 ], [ %mdlSpotCmsLegNPV_99510081341, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  %errSpreads_94695899410101340 = phi ptr [ %errSpreads_946958994101110521300, %ehcleanup403 ], [ %errSpreads_94695899410101339, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  %mktSpreads_90991994596099210121338 = phi ptr [ %mktSpreads_909919945960992101310501302, %ehcleanup403 ], [ %mktSpreads_90991994596099210121337, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  %mktBidSpreads_88489290892194396299010141336 = phi ptr [ %mktBidSpreads_884892908921943962990101510481304, %ehcleanup403 ], [ %mktBidSpreads_88489290892194396299010141335, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  %spotFloatLegBPS_87688389490692394196498810161334 = phi ptr [ %spotFloatLegBPS_876883894906923941964988101710461306, %ehcleanup403 ], [ %spotFloatLegBPS_87688389490692394196498810161333, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  %mktAskSpreads_89590492593996698610181332 = phi ptr [ %mktAskSpreads_895904925939966986101910441308, %ehcleanup403 ], [ %mktAskSpreads_89590492593996698610181331, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  %mdlSpreads_92693796898410201330 = phi ptr [ %mdlSpreads_926937968984102110421310, %ehcleanup403 ], [ %mdlSpreads_92693796898410201329, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  %mktSpotCmsLegNPV_96998210221328 = phi ptr [ %mktSpotCmsLegNPV_969982102310401312, %ehcleanup403 ], [ %mktSpotCmsLegNPV_96998210221327, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  store ptr null, ptr %mdlSpotCmsLegNPV_99510081342, align 8, !tbaa !3
-  %.pre1206 = load ptr, ptr %mktSpotCmsLegNPV_96998210221328, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1432 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn1404, %ehcleanup403 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1431, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  %mdlSpotCmsLegNPV_99510081430 = phi ptr [ %mdlSpotCmsLegNPV_995100910541386, %ehcleanup403 ], [ %mdlSpotCmsLegNPV_99510081429, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  %errSpreads_94695899410101428 = phi ptr [ %errSpreads_946958994101110521388, %ehcleanup403 ], [ %errSpreads_94695899410101427, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  %mktSpreads_90991994596099210121426 = phi ptr [ %mktSpreads_909919945960992101310501390, %ehcleanup403 ], [ %mktSpreads_90991994596099210121425, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  %mktBidSpreads_88489290892194396299010141424 = phi ptr [ %mktBidSpreads_884892908921943962990101510481392, %ehcleanup403 ], [ %mktBidSpreads_88489290892194396299010141423, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  %spotFloatLegBPS_87688389490692394196498810161422 = phi ptr [ %spotFloatLegBPS_876883894906923941964988101710461394, %ehcleanup403 ], [ %spotFloatLegBPS_87688389490692394196498810161421, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  %mktAskSpreads_89590492593996698610181420 = phi ptr [ %mktAskSpreads_895904925939966986101910441396, %ehcleanup403 ], [ %mktAskSpreads_89590492593996698610181419, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  %mdlSpreads_92693796898410201418 = phi ptr [ %mdlSpreads_926937968984102110421398, %ehcleanup403 ], [ %mdlSpreads_92693796898410201417, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  %mktSpotCmsLegNPV_96998210221416 = phi ptr [ %mktSpotCmsLegNPV_969982102310401400, %ehcleanup403 ], [ %mktSpotCmsLegNPV_96998210221415, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  store ptr null, ptr %mdlSpotCmsLegNPV_99510081430, align 8, !tbaa !3
+  %.pre1206 = load ptr, ptr %mktSpotCmsLegNPV_96998210221416, align 8, !tbaa !3
   %cmp.not.i.i718 = icmp eq ptr %.pre1206, null
   br i1 %cmp.not.i.i718, label %ehcleanup405, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719: ; preds = %ehcleanup404.thread, %ehcleanup404
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1368 = phi { ptr, i32 } [ %96, %ehcleanup404.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1344, %ehcleanup404 ]
-  %mktSpotCmsLegNPV_9699811366 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup404.thread ], [ %mktSpotCmsLegNPV_96998210221328, %ehcleanup404 ]
-  %mdlSpreads_9269379689831364 = phi ptr [ %mdlSpreads_, %ehcleanup404.thread ], [ %mdlSpreads_92693796898410201330, %ehcleanup404 ]
-  %mktAskSpreads_8959049259399669851362 = phi ptr [ %mktAskSpreads_, %ehcleanup404.thread ], [ %mktAskSpreads_89590492593996698610181332, %ehcleanup404 ]
-  %spotFloatLegBPS_8768838949069239419649871360 = phi ptr [ %spotFloatLegBPS_, %ehcleanup404.thread ], [ %spotFloatLegBPS_87688389490692394196498810161334, %ehcleanup404 ]
-  %mktBidSpreads_8848929089219439629891358 = phi ptr [ %mktBidSpreads_, %ehcleanup404.thread ], [ %mktBidSpreads_88489290892194396299010141336, %ehcleanup404 ]
-  %mktSpreads_9099199459609911356 = phi ptr [ %mktSpreads_, %ehcleanup404.thread ], [ %mktSpreads_90991994596099210121338, %ehcleanup404 ]
-  %errSpreads_9469589931354 = phi ptr [ %errSpreads_, %ehcleanup404.thread ], [ %errSpreads_94695899410101340, %ehcleanup404 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1456 = phi { ptr, i32 } [ %96, %ehcleanup404.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1432, %ehcleanup404 ]
+  %mktSpotCmsLegNPV_9699811454 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup404.thread ], [ %mktSpotCmsLegNPV_96998210221416, %ehcleanup404 ]
+  %mdlSpreads_9269379689831452 = phi ptr [ %mdlSpreads_, %ehcleanup404.thread ], [ %mdlSpreads_92693796898410201418, %ehcleanup404 ]
+  %mktAskSpreads_8959049259399669851450 = phi ptr [ %mktAskSpreads_, %ehcleanup404.thread ], [ %mktAskSpreads_89590492593996698610181420, %ehcleanup404 ]
+  %spotFloatLegBPS_8768838949069239419649871448 = phi ptr [ %spotFloatLegBPS_, %ehcleanup404.thread ], [ %spotFloatLegBPS_87688389490692394196498810161422, %ehcleanup404 ]
+  %mktBidSpreads_8848929089219439629891446 = phi ptr [ %mktBidSpreads_, %ehcleanup404.thread ], [ %mktBidSpreads_88489290892194396299010141424, %ehcleanup404 ]
+  %mktSpreads_9099199459609911444 = phi ptr [ %mktSpreads_, %ehcleanup404.thread ], [ %mktSpreads_90991994596099210121426, %ehcleanup404 ]
+  %errSpreads_9469589931442 = phi ptr [ %errSpreads_, %ehcleanup404.thread ], [ %errSpreads_94695899410101428, %ehcleanup404 ]
   %345 = phi ptr [ %call.i171, %ehcleanup404.thread ], [ %.pre1206, %ehcleanup404 ]
   call void @_ZdaPv(ptr noundef nonnull %345) #32
   br label %ehcleanup405
 
 ehcleanup405:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719, %ehcleanup404
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1369 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1344, %ehcleanup404 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1368, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
-  %mktSpotCmsLegNPV_9699811367 = phi ptr [ %mktSpotCmsLegNPV_96998210221328, %ehcleanup404 ], [ %mktSpotCmsLegNPV_9699811366, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
-  %mdlSpreads_9269379689831365 = phi ptr [ %mdlSpreads_92693796898410201330, %ehcleanup404 ], [ %mdlSpreads_9269379689831364, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
-  %mktAskSpreads_8959049259399669851363 = phi ptr [ %mktAskSpreads_89590492593996698610181332, %ehcleanup404 ], [ %mktAskSpreads_8959049259399669851362, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
-  %spotFloatLegBPS_8768838949069239419649871361 = phi ptr [ %spotFloatLegBPS_87688389490692394196498810161334, %ehcleanup404 ], [ %spotFloatLegBPS_8768838949069239419649871360, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
-  %mktBidSpreads_8848929089219439629891359 = phi ptr [ %mktBidSpreads_88489290892194396299010141336, %ehcleanup404 ], [ %mktBidSpreads_8848929089219439629891358, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
-  %mktSpreads_9099199459609911357 = phi ptr [ %mktSpreads_90991994596099210121338, %ehcleanup404 ], [ %mktSpreads_9099199459609911356, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
-  %errSpreads_9469589931355 = phi ptr [ %errSpreads_94695899410101340, %ehcleanup404 ], [ %errSpreads_9469589931354, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
-  store ptr null, ptr %mktSpotCmsLegNPV_9699811367, align 8, !tbaa !3
-  %.pre1207 = load ptr, ptr %errSpreads_9469589931355, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1457 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1432, %ehcleanup404 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1456, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
+  %mktSpotCmsLegNPV_9699811455 = phi ptr [ %mktSpotCmsLegNPV_96998210221416, %ehcleanup404 ], [ %mktSpotCmsLegNPV_9699811454, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
+  %mdlSpreads_9269379689831453 = phi ptr [ %mdlSpreads_92693796898410201418, %ehcleanup404 ], [ %mdlSpreads_9269379689831452, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
+  %mktAskSpreads_8959049259399669851451 = phi ptr [ %mktAskSpreads_89590492593996698610181420, %ehcleanup404 ], [ %mktAskSpreads_8959049259399669851450, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
+  %spotFloatLegBPS_8768838949069239419649871449 = phi ptr [ %spotFloatLegBPS_87688389490692394196498810161422, %ehcleanup404 ], [ %spotFloatLegBPS_8768838949069239419649871448, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
+  %mktBidSpreads_8848929089219439629891447 = phi ptr [ %mktBidSpreads_88489290892194396299010141424, %ehcleanup404 ], [ %mktBidSpreads_8848929089219439629891446, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
+  %mktSpreads_9099199459609911445 = phi ptr [ %mktSpreads_90991994596099210121426, %ehcleanup404 ], [ %mktSpreads_9099199459609911444, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
+  %errSpreads_9469589931443 = phi ptr [ %errSpreads_94695899410101428, %ehcleanup404 ], [ %errSpreads_9469589931442, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
+  store ptr null, ptr %mktSpotCmsLegNPV_9699811455, align 8, !tbaa !3
+  %.pre1207 = load ptr, ptr %errSpreads_9469589931443, align 8, !tbaa !3
   %cmp.not.i.i721 = icmp eq ptr %.pre1207, null
   br i1 %cmp.not.i.i721, label %ehcleanup406, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722: ; preds = %ehcleanup405.thread, %ehcleanup405
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1390 = phi { ptr, i32 } [ %95, %ehcleanup405.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1369, %ehcleanup405 ]
-  %errSpreads_9469571388 = phi ptr [ %errSpreads_, %ehcleanup405.thread ], [ %errSpreads_9469589931355, %ehcleanup405 ]
-  %mktSpreads_9099199459591386 = phi ptr [ %mktSpreads_, %ehcleanup405.thread ], [ %mktSpreads_9099199459609911357, %ehcleanup405 ]
-  %mktBidSpreads_8848929089219439611384 = phi ptr [ %mktBidSpreads_, %ehcleanup405.thread ], [ %mktBidSpreads_8848929089219439629891359, %ehcleanup405 ]
-  %spotFloatLegBPS_8768838949069239419631382 = phi ptr [ %spotFloatLegBPS_, %ehcleanup405.thread ], [ %spotFloatLegBPS_8768838949069239419649871361, %ehcleanup405 ]
-  %mktAskSpreads_8959049259399651380 = phi ptr [ %mktAskSpreads_, %ehcleanup405.thread ], [ %mktAskSpreads_8959049259399669851363, %ehcleanup405 ]
-  %mdlSpreads_9269379671378 = phi ptr [ %mdlSpreads_, %ehcleanup405.thread ], [ %mdlSpreads_9269379689831365, %ehcleanup405 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1478 = phi { ptr, i32 } [ %95, %ehcleanup405.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1457, %ehcleanup405 ]
+  %errSpreads_9469571476 = phi ptr [ %errSpreads_, %ehcleanup405.thread ], [ %errSpreads_9469589931443, %ehcleanup405 ]
+  %mktSpreads_9099199459591474 = phi ptr [ %mktSpreads_, %ehcleanup405.thread ], [ %mktSpreads_9099199459609911445, %ehcleanup405 ]
+  %mktBidSpreads_8848929089219439611472 = phi ptr [ %mktBidSpreads_, %ehcleanup405.thread ], [ %mktBidSpreads_8848929089219439629891447, %ehcleanup405 ]
+  %spotFloatLegBPS_8768838949069239419631470 = phi ptr [ %spotFloatLegBPS_, %ehcleanup405.thread ], [ %spotFloatLegBPS_8768838949069239419649871449, %ehcleanup405 ]
+  %mktAskSpreads_8959049259399651468 = phi ptr [ %mktAskSpreads_, %ehcleanup405.thread ], [ %mktAskSpreads_8959049259399669851451, %ehcleanup405 ]
+  %mdlSpreads_9269379671466 = phi ptr [ %mdlSpreads_, %ehcleanup405.thread ], [ %mdlSpreads_9269379689831453, %ehcleanup405 ]
   %346 = phi ptr [ %call.i162, %ehcleanup405.thread ], [ %.pre1207, %ehcleanup405 ]
   call void @_ZdaPv(ptr noundef nonnull %346) #32
   br label %ehcleanup406
 
 ehcleanup406:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722, %ehcleanup405
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1391 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1369, %ehcleanup405 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1390, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
-  %errSpreads_9469571389 = phi ptr [ %errSpreads_9469589931355, %ehcleanup405 ], [ %errSpreads_9469571388, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
-  %mktSpreads_9099199459591387 = phi ptr [ %mktSpreads_9099199459609911357, %ehcleanup405 ], [ %mktSpreads_9099199459591386, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
-  %mktBidSpreads_8848929089219439611385 = phi ptr [ %mktBidSpreads_8848929089219439629891359, %ehcleanup405 ], [ %mktBidSpreads_8848929089219439611384, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
-  %spotFloatLegBPS_8768838949069239419631383 = phi ptr [ %spotFloatLegBPS_8768838949069239419649871361, %ehcleanup405 ], [ %spotFloatLegBPS_8768838949069239419631382, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
-  %mktAskSpreads_8959049259399651381 = phi ptr [ %mktAskSpreads_8959049259399669851363, %ehcleanup405 ], [ %mktAskSpreads_8959049259399651380, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
-  %mdlSpreads_9269379671379 = phi ptr [ %mdlSpreads_9269379689831365, %ehcleanup405 ], [ %mdlSpreads_9269379671378, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
-  store ptr null, ptr %errSpreads_9469571389, align 8, !tbaa !3
-  %.pre1208 = load ptr, ptr %mdlSpreads_9269379671379, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1479 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1457, %ehcleanup405 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1478, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
+  %errSpreads_9469571477 = phi ptr [ %errSpreads_9469589931443, %ehcleanup405 ], [ %errSpreads_9469571476, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
+  %mktSpreads_9099199459591475 = phi ptr [ %mktSpreads_9099199459609911445, %ehcleanup405 ], [ %mktSpreads_9099199459591474, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
+  %mktBidSpreads_8848929089219439611473 = phi ptr [ %mktBidSpreads_8848929089219439629891447, %ehcleanup405 ], [ %mktBidSpreads_8848929089219439611472, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
+  %spotFloatLegBPS_8768838949069239419631471 = phi ptr [ %spotFloatLegBPS_8768838949069239419649871449, %ehcleanup405 ], [ %spotFloatLegBPS_8768838949069239419631470, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
+  %mktAskSpreads_8959049259399651469 = phi ptr [ %mktAskSpreads_8959049259399669851451, %ehcleanup405 ], [ %mktAskSpreads_8959049259399651468, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
+  %mdlSpreads_9269379671467 = phi ptr [ %mdlSpreads_9269379689831453, %ehcleanup405 ], [ %mdlSpreads_9269379671466, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
+  store ptr null, ptr %errSpreads_9469571477, align 8, !tbaa !3
+  %.pre1208 = load ptr, ptr %mdlSpreads_9269379671467, align 8, !tbaa !3
   %cmp.not.i.i724 = icmp eq ptr %.pre1208, null
   br i1 %cmp.not.i.i724, label %ehcleanup407, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725: ; preds = %ehcleanup406.thread, %ehcleanup406
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1409 = phi { ptr, i32 } [ %94, %ehcleanup406.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1391, %ehcleanup406 ]
-  %mdlSpreads_9269361407 = phi ptr [ %mdlSpreads_, %ehcleanup406.thread ], [ %mdlSpreads_9269379671379, %ehcleanup406 ]
-  %mktAskSpreads_8959049259381405 = phi ptr [ %mktAskSpreads_, %ehcleanup406.thread ], [ %mktAskSpreads_8959049259399651381, %ehcleanup406 ]
-  %spotFloatLegBPS_8768838949069239401403 = phi ptr [ %spotFloatLegBPS_, %ehcleanup406.thread ], [ %spotFloatLegBPS_8768838949069239419631383, %ehcleanup406 ]
-  %mktBidSpreads_8848929089219421401 = phi ptr [ %mktBidSpreads_, %ehcleanup406.thread ], [ %mktBidSpreads_8848929089219439611385, %ehcleanup406 ]
-  %mktSpreads_9099199441399 = phi ptr [ %mktSpreads_, %ehcleanup406.thread ], [ %mktSpreads_9099199459591387, %ehcleanup406 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1497 = phi { ptr, i32 } [ %94, %ehcleanup406.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1479, %ehcleanup406 ]
+  %mdlSpreads_9269361495 = phi ptr [ %mdlSpreads_, %ehcleanup406.thread ], [ %mdlSpreads_9269379671467, %ehcleanup406 ]
+  %mktAskSpreads_8959049259381493 = phi ptr [ %mktAskSpreads_, %ehcleanup406.thread ], [ %mktAskSpreads_8959049259399651469, %ehcleanup406 ]
+  %spotFloatLegBPS_8768838949069239401491 = phi ptr [ %spotFloatLegBPS_, %ehcleanup406.thread ], [ %spotFloatLegBPS_8768838949069239419631471, %ehcleanup406 ]
+  %mktBidSpreads_8848929089219421489 = phi ptr [ %mktBidSpreads_, %ehcleanup406.thread ], [ %mktBidSpreads_8848929089219439611473, %ehcleanup406 ]
+  %mktSpreads_9099199441487 = phi ptr [ %mktSpreads_, %ehcleanup406.thread ], [ %mktSpreads_9099199459591475, %ehcleanup406 ]
   %347 = phi ptr [ %call.i153, %ehcleanup406.thread ], [ %.pre1208, %ehcleanup406 ]
   call void @_ZdaPv(ptr noundef nonnull %347) #32
   br label %ehcleanup407
 
 ehcleanup407:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725, %ehcleanup406
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1410 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1391, %ehcleanup406 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1409, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
-  %mdlSpreads_9269361408 = phi ptr [ %mdlSpreads_9269379671379, %ehcleanup406 ], [ %mdlSpreads_9269361407, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
-  %mktAskSpreads_8959049259381406 = phi ptr [ %mktAskSpreads_8959049259399651381, %ehcleanup406 ], [ %mktAskSpreads_8959049259381405, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
-  %spotFloatLegBPS_8768838949069239401404 = phi ptr [ %spotFloatLegBPS_8768838949069239419631383, %ehcleanup406 ], [ %spotFloatLegBPS_8768838949069239401403, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
-  %mktBidSpreads_8848929089219421402 = phi ptr [ %mktBidSpreads_8848929089219439611385, %ehcleanup406 ], [ %mktBidSpreads_8848929089219421401, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
-  %mktSpreads_9099199441400 = phi ptr [ %mktSpreads_9099199459591387, %ehcleanup406 ], [ %mktSpreads_9099199441399, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
-  store ptr null, ptr %mdlSpreads_9269361408, align 8, !tbaa !3
-  %.pre1209 = load ptr, ptr %mktSpreads_9099199441400, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1498 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1479, %ehcleanup406 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1497, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
+  %mdlSpreads_9269361496 = phi ptr [ %mdlSpreads_9269379671467, %ehcleanup406 ], [ %mdlSpreads_9269361495, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
+  %mktAskSpreads_8959049259381494 = phi ptr [ %mktAskSpreads_8959049259399651469, %ehcleanup406 ], [ %mktAskSpreads_8959049259381493, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
+  %spotFloatLegBPS_8768838949069239401492 = phi ptr [ %spotFloatLegBPS_8768838949069239419631471, %ehcleanup406 ], [ %spotFloatLegBPS_8768838949069239401491, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
+  %mktBidSpreads_8848929089219421490 = phi ptr [ %mktBidSpreads_8848929089219439611473, %ehcleanup406 ], [ %mktBidSpreads_8848929089219421489, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
+  %mktSpreads_9099199441488 = phi ptr [ %mktSpreads_9099199459591475, %ehcleanup406 ], [ %mktSpreads_9099199441487, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
+  store ptr null, ptr %mdlSpreads_9269361496, align 8, !tbaa !3
+  %.pre1209 = load ptr, ptr %mktSpreads_9099199441488, align 8, !tbaa !3
   %cmp.not.i.i727 = icmp eq ptr %.pre1209, null
   br i1 %cmp.not.i.i727, label %ehcleanup408, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728: ; preds = %ehcleanup407.thread, %ehcleanup407
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1425 = phi { ptr, i32 } [ %93, %ehcleanup407.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1410, %ehcleanup407 ]
-  %mktSpreads_9099181423 = phi ptr [ %mktSpreads_, %ehcleanup407.thread ], [ %mktSpreads_9099199441400, %ehcleanup407 ]
-  %mktBidSpreads_8848929089201421 = phi ptr [ %mktBidSpreads_, %ehcleanup407.thread ], [ %mktBidSpreads_8848929089219421402, %ehcleanup407 ]
-  %spotFloatLegBPS_8768838949069221419 = phi ptr [ %spotFloatLegBPS_, %ehcleanup407.thread ], [ %spotFloatLegBPS_8768838949069239401404, %ehcleanup407 ]
-  %mktAskSpreads_8959049241417 = phi ptr [ %mktAskSpreads_, %ehcleanup407.thread ], [ %mktAskSpreads_8959049259381406, %ehcleanup407 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1513 = phi { ptr, i32 } [ %93, %ehcleanup407.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1498, %ehcleanup407 ]
+  %mktSpreads_9099181511 = phi ptr [ %mktSpreads_, %ehcleanup407.thread ], [ %mktSpreads_9099199441488, %ehcleanup407 ]
+  %mktBidSpreads_8848929089201509 = phi ptr [ %mktBidSpreads_, %ehcleanup407.thread ], [ %mktBidSpreads_8848929089219421490, %ehcleanup407 ]
+  %spotFloatLegBPS_8768838949069221507 = phi ptr [ %spotFloatLegBPS_, %ehcleanup407.thread ], [ %spotFloatLegBPS_8768838949069239401492, %ehcleanup407 ]
+  %mktAskSpreads_8959049241505 = phi ptr [ %mktAskSpreads_, %ehcleanup407.thread ], [ %mktAskSpreads_8959049259381494, %ehcleanup407 ]
   %348 = phi ptr [ %call.i144, %ehcleanup407.thread ], [ %.pre1209, %ehcleanup407 ]
   call void @_ZdaPv(ptr noundef nonnull %348) #32
   br label %ehcleanup408
 
 ehcleanup408:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728, %ehcleanup407
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1426 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1410, %ehcleanup407 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1425, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
-  %mktSpreads_9099181424 = phi ptr [ %mktSpreads_9099199441400, %ehcleanup407 ], [ %mktSpreads_9099181423, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
-  %mktBidSpreads_8848929089201422 = phi ptr [ %mktBidSpreads_8848929089219421402, %ehcleanup407 ], [ %mktBidSpreads_8848929089201421, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
-  %spotFloatLegBPS_8768838949069221420 = phi ptr [ %spotFloatLegBPS_8768838949069239401404, %ehcleanup407 ], [ %spotFloatLegBPS_8768838949069221419, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
-  %mktAskSpreads_8959049241418 = phi ptr [ %mktAskSpreads_8959049259381406, %ehcleanup407 ], [ %mktAskSpreads_8959049241417, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
-  store ptr null, ptr %mktSpreads_9099181424, align 8, !tbaa !3
-  %.pre1210 = load ptr, ptr %mktAskSpreads_8959049241418, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1514 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1498, %ehcleanup407 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1513, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
+  %mktSpreads_9099181512 = phi ptr [ %mktSpreads_9099199441488, %ehcleanup407 ], [ %mktSpreads_9099181511, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
+  %mktBidSpreads_8848929089201510 = phi ptr [ %mktBidSpreads_8848929089219421490, %ehcleanup407 ], [ %mktBidSpreads_8848929089201509, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
+  %spotFloatLegBPS_8768838949069221508 = phi ptr [ %spotFloatLegBPS_8768838949069239401492, %ehcleanup407 ], [ %spotFloatLegBPS_8768838949069221507, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
+  %mktAskSpreads_8959049241506 = phi ptr [ %mktAskSpreads_8959049259381494, %ehcleanup407 ], [ %mktAskSpreads_8959049241505, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
+  store ptr null, ptr %mktSpreads_9099181512, align 8, !tbaa !3
+  %.pre1210 = load ptr, ptr %mktAskSpreads_8959049241506, align 8, !tbaa !3
   %cmp.not.i.i730 = icmp eq ptr %.pre1210, null
   br i1 %cmp.not.i.i730, label %ehcleanup409, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731: ; preds = %ehcleanup408.thread, %ehcleanup408
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1438 = phi { ptr, i32 } [ %92, %ehcleanup408.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1426, %ehcleanup408 ]
-  %mktAskSpreads_8959031436 = phi ptr [ %mktAskSpreads_, %ehcleanup408.thread ], [ %mktAskSpreads_8959049241418, %ehcleanup408 ]
-  %spotFloatLegBPS_8768838949051434 = phi ptr [ %spotFloatLegBPS_, %ehcleanup408.thread ], [ %spotFloatLegBPS_8768838949069221420, %ehcleanup408 ]
-  %mktBidSpreads_8848929071432 = phi ptr [ %mktBidSpreads_, %ehcleanup408.thread ], [ %mktBidSpreads_8848929089201422, %ehcleanup408 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1526 = phi { ptr, i32 } [ %92, %ehcleanup408.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1514, %ehcleanup408 ]
+  %mktAskSpreads_8959031524 = phi ptr [ %mktAskSpreads_, %ehcleanup408.thread ], [ %mktAskSpreads_8959049241506, %ehcleanup408 ]
+  %spotFloatLegBPS_8768838949051522 = phi ptr [ %spotFloatLegBPS_, %ehcleanup408.thread ], [ %spotFloatLegBPS_8768838949069221508, %ehcleanup408 ]
+  %mktBidSpreads_8848929071520 = phi ptr [ %mktBidSpreads_, %ehcleanup408.thread ], [ %mktBidSpreads_8848929089201510, %ehcleanup408 ]
   %349 = phi ptr [ %call.i135, %ehcleanup408.thread ], [ %.pre1210, %ehcleanup408 ]
   call void @_ZdaPv(ptr noundef nonnull %349) #32
   br label %ehcleanup409
 
 ehcleanup409:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731, %ehcleanup408
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1439 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1426, %ehcleanup408 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1438, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731 ]
-  %mktAskSpreads_8959031437 = phi ptr [ %mktAskSpreads_8959049241418, %ehcleanup408 ], [ %mktAskSpreads_8959031436, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731 ]
-  %spotFloatLegBPS_8768838949051435 = phi ptr [ %spotFloatLegBPS_8768838949069221420, %ehcleanup408 ], [ %spotFloatLegBPS_8768838949051434, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731 ]
-  %mktBidSpreads_8848929071433 = phi ptr [ %mktBidSpreads_8848929089201422, %ehcleanup408 ], [ %mktBidSpreads_8848929071432, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731 ]
-  store ptr null, ptr %mktAskSpreads_8959031437, align 8, !tbaa !3
-  %.pre1211 = load ptr, ptr %mktBidSpreads_8848929071433, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1527 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1514, %ehcleanup408 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1526, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731 ]
+  %mktAskSpreads_8959031525 = phi ptr [ %mktAskSpreads_8959049241506, %ehcleanup408 ], [ %mktAskSpreads_8959031524, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731 ]
+  %spotFloatLegBPS_8768838949051523 = phi ptr [ %spotFloatLegBPS_8768838949069221508, %ehcleanup408 ], [ %spotFloatLegBPS_8768838949051522, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731 ]
+  %mktBidSpreads_8848929071521 = phi ptr [ %mktBidSpreads_8848929089201510, %ehcleanup408 ], [ %mktBidSpreads_8848929071520, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731 ]
+  store ptr null, ptr %mktAskSpreads_8959031525, align 8, !tbaa !3
+  %.pre1211 = load ptr, ptr %mktBidSpreads_8848929071521, align 8, !tbaa !3
   %cmp.not.i.i733 = icmp eq ptr %.pre1211, null
   br i1 %cmp.not.i.i733, label %ehcleanup410, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734: ; preds = %ehcleanup409.thread, %ehcleanup409
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1448 = phi { ptr, i32 } [ %91, %ehcleanup409.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1439, %ehcleanup409 ]
-  %mktBidSpreads_8848911446 = phi ptr [ %mktBidSpreads_, %ehcleanup409.thread ], [ %mktBidSpreads_8848929071433, %ehcleanup409 ]
-  %spotFloatLegBPS_8768838931444 = phi ptr [ %spotFloatLegBPS_, %ehcleanup409.thread ], [ %spotFloatLegBPS_8768838949051435, %ehcleanup409 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1536 = phi { ptr, i32 } [ %91, %ehcleanup409.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1527, %ehcleanup409 ]
+  %mktBidSpreads_8848911534 = phi ptr [ %mktBidSpreads_, %ehcleanup409.thread ], [ %mktBidSpreads_8848929071521, %ehcleanup409 ]
+  %spotFloatLegBPS_8768838931532 = phi ptr [ %spotFloatLegBPS_, %ehcleanup409.thread ], [ %spotFloatLegBPS_8768838949051523, %ehcleanup409 ]
   %350 = phi ptr [ %call.i126, %ehcleanup409.thread ], [ %.pre1211, %ehcleanup409 ]
   call void @_ZdaPv(ptr noundef nonnull %350) #32
   br label %ehcleanup410
 
 ehcleanup410:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734, %ehcleanup409
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1449 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1439, %ehcleanup409 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1448, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734 ]
-  %mktBidSpreads_8848911447 = phi ptr [ %mktBidSpreads_8848929071433, %ehcleanup409 ], [ %mktBidSpreads_8848911446, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734 ]
-  %spotFloatLegBPS_8768838931445 = phi ptr [ %spotFloatLegBPS_8768838949051435, %ehcleanup409 ], [ %spotFloatLegBPS_8768838931444, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734 ]
-  store ptr null, ptr %mktBidSpreads_8848911447, align 8, !tbaa !3
-  %.pre1212 = load ptr, ptr %spotFloatLegBPS_8768838931445, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1537 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1527, %ehcleanup409 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1536, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734 ]
+  %mktBidSpreads_8848911535 = phi ptr [ %mktBidSpreads_8848929071521, %ehcleanup409 ], [ %mktBidSpreads_8848911534, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734 ]
+  %spotFloatLegBPS_8768838931533 = phi ptr [ %spotFloatLegBPS_8768838949051523, %ehcleanup409 ], [ %spotFloatLegBPS_8768838931532, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734 ]
+  store ptr null, ptr %mktBidSpreads_8848911535, align 8, !tbaa !3
+  %.pre1212 = load ptr, ptr %spotFloatLegBPS_8768838931533, align 8, !tbaa !3
   %cmp.not.i.i736 = icmp eq ptr %.pre1212, null
   br i1 %cmp.not.i.i736, label %ehcleanup411, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i737
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i737: ; preds = %ehcleanup410.thread, %ehcleanup410
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1455 = phi { ptr, i32 } [ %90, %ehcleanup410.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1449, %ehcleanup410 ]
-  %spotFloatLegBPS_8768821453 = phi ptr [ %spotFloatLegBPS_, %ehcleanup410.thread ], [ %spotFloatLegBPS_8768838931445, %ehcleanup410 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1543 = phi { ptr, i32 } [ %90, %ehcleanup410.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1537, %ehcleanup410 ]
+  %spotFloatLegBPS_8768821541 = phi ptr [ %spotFloatLegBPS_, %ehcleanup410.thread ], [ %spotFloatLegBPS_8768838931533, %ehcleanup410 ]
   %351 = phi ptr [ %call.i117, %ehcleanup410.thread ], [ %.pre1212, %ehcleanup410 ]
   call void @_ZdaPv(ptr noundef nonnull %351) #32
   br label %ehcleanup411
 
 ehcleanup411:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i737, %ehcleanup410
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1456 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1449, %ehcleanup410 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1455, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i737 ]
-  %spotFloatLegBPS_8768821454 = phi ptr [ %spotFloatLegBPS_8768838931445, %ehcleanup410 ], [ %spotFloatLegBPS_8768821453, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i737 ]
-  store ptr null, ptr %spotFloatLegBPS_8768821454, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1544 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1537, %ehcleanup410 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1543, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i737 ]
+  %spotFloatLegBPS_8768821542 = phi ptr [ %spotFloatLegBPS_8768838931533, %ehcleanup410 ], [ %spotFloatLegBPS_8768821541, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i737 ]
+  store ptr null, ptr %spotFloatLegBPS_8768821542, align 8, !tbaa !3
   %.pre1213 = load ptr, ptr %spotFloatLegNPV_, align 8, !tbaa !3
   %cmp.not.i.i739 = icmp eq ptr %.pre1213, null
   br i1 %cmp.not.i.i739, label %_ZN8QuantLib6MatrixD2Ev.exit741, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i740
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i740: ; preds = %ehcleanup411.thread, %ehcleanup411
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1459 = phi { ptr, i32 } [ %89, %ehcleanup411.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1456, %ehcleanup411 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1547 = phi { ptr, i32 } [ %89, %ehcleanup411.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1544, %ehcleanup411 ]
   %352 = phi ptr [ %call.i109, %ehcleanup411.thread ], [ %.pre1213, %ehcleanup411 ]
   call void @_ZdaPv(ptr noundef nonnull %352) #32
   br label %_ZN8QuantLib6MatrixD2Ev.exit741
 
 _ZN8QuantLib6MatrixD2Ev.exit741:                  ; preds = %ehcleanup411, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i740
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1460 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1456, %ehcleanup411 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1459, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i740 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1548 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1544, %ehcleanup411 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1547, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i740 ]
   store ptr null, ptr %spotFloatLegNPV_, align 8, !tbaa !3
   %.pre1214 = load ptr, ptr %swapTenors_, align 8, !tbaa !50
   br label %ehcleanup412
 
 ehcleanup412:                                     ; preds = %_ZN8QuantLib6MatrixD2Ev.exit741, %lpad17
   %353 = phi ptr [ %.pre1214, %_ZN8QuantLib6MatrixD2Ev.exit741 ], [ %40, %lpad17 ]
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1460, %_ZN8QuantLib6MatrixD2Ev.exit741 ], [ %88, %lpad17 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1548, %_ZN8QuantLib6MatrixD2Ev.exit741 ], [ %88, %lpad17 ]
   %tobool.not.i.i.i743 = icmp eq ptr %353, null
   br i1 %tobool.not.i.i.i743, label %ehcleanup413, label %if.then.i.i.i744
 
@@ -6779,26 +6779,26 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i487, label %if.then.i.i.i.i.i, label %if.end12.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i
-  %__y.0.lcssa25.i.i.i.i.i = phi ptr [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i ]
+  %__y.0.lcssa26.i.i.i.i.i = phi ptr [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i ]
   %_M_left.i3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cast.result.i, i64 32
   %186 = load ptr, ptr %_M_left.i3.i.i.i.i.i, align 8, !tbaa !14
-  %cmp.i4.i.i.i.i.i = icmp eq ptr %__y.0.lcssa25.i.i.i.i.i, %186
+  %cmp.i4.i.i.i.i.i = icmp eq ptr %__y.0.lcssa26.i.i.i.i.i, %186
   br i1 %cmp.i4.i.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i
-  %call.i.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i.i.i) #34
+  %call.i.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i.i.i.i) #34
   %_M_storage.i.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i, i64 32
   %.pre.i.i.i.i = load ptr, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i.i.i, align 8, !tbaa !3
   br label %if.end12.i.i.i.i.i
 
 if.end12.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i, %while.end.i.i.i.i.i
   %187 = phi ptr [ %.pre.i.i.i.i, %if.else.i.i.i.i.i ], [ %185, %while.end.i.i.i.i.i ]
-  %__y.0.lcssa26.i.i.i.i.i = phi ptr [ %__y.0.lcssa25.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ]
+  %__y.0.lcssa25.i.i.i.i.i = phi ptr [ %__y.0.lcssa26.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ]
   %cmp.i5.i.i.i.i.i = icmp ult ptr %187, %add.ptr261
   br i1 %cmp.i5.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end12.i.i.i.i.i, %if.then.i.i.i.i.i
-  %retval.sroa.4.0.i.ph.i.i.i.i = phi ptr [ %__y.0.lcssa25.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %__y.0.lcssa26.i.i.i.i.i, %if.end12.i.i.i.i.i ]
+  %retval.sroa.4.0.i.ph.i.i.i.i = phi ptr [ %__y.0.lcssa26.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %__y.0.lcssa25.i.i.i.i.i, %if.end12.i.i.i.i.i ]
   %cmp2.i.i.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp2.i.i.i.i.i, label %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i, label %lor.rhs.i.i.i.i.i
 
@@ -6849,14 +6849,14 @@ while.end.i.i:                                    ; preds = %while.body.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i763, label %if.end12.i.i
 
 if.then.i.i763:                                   ; preds = %while.end.i.i, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i
-  %__y.0.lcssa26.i.i = phi ptr [ %__x.022.i.i, %while.end.i.i ], [ %add.ptr.i.i.i760, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i ]
+  %__y.0.lcssa27.i.i = phi ptr [ %__x.022.i.i, %while.end.i.i ], [ %add.ptr.i.i.i760, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i ]
   %_M_left.i3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr261, i64 32
   %193 = load ptr, ptr %_M_left.i3.i.i, align 8, !tbaa !14
-  %cmp.i.i.i764 = icmp eq ptr %__y.0.lcssa26.i.i, %193
+  %cmp.i.i.i764 = icmp eq ptr %__y.0.lcssa27.i.i, %193
   br i1 %cmp.i.i.i764, label %if.then.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i763
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i) #34
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa27.i.i) #34
   %pn.i.i.i4.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 40
   %.pre.i765 = load ptr, ptr %pn.i.i.i4.i.phi.trans.insert.i, align 8, !tbaa !41
   %.pre16.i = load ptr, ptr %pn.i484, align 8, !tbaa !41
@@ -6865,12 +6865,12 @@ if.else.i.i:                                      ; preds = %if.then.i.i763
 if.end12.i.i:                                     ; preds = %if.else.i.i, %while.end.i.i
   %194 = phi ptr [ %.pre16.i, %if.else.i.i ], [ %191, %while.end.i.i ]
   %195 = phi ptr [ %.pre.i765, %if.else.i.i ], [ %192, %while.end.i.i ]
-  %__y.0.lcssa27.i.i = phi ptr [ %__y.0.lcssa26.i.i, %if.else.i.i ], [ %__x.022.i.i, %while.end.i.i ]
+  %__y.0.lcssa26.i.i = phi ptr [ %__y.0.lcssa27.i.i, %if.else.i.i ], [ %__x.022.i.i, %while.end.i.i ]
   %cmp.i.i.i.i.i6.i.i = icmp ult ptr %195, %194
   br i1 %cmp.i.i.i.i.i6.i.i, label %if.then.i, label %invoke.cont266
 
 if.then.i:                                        ; preds = %if.end12.i.i, %if.then.i.i763
-  %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa26.i.i, %if.then.i.i763 ], [ %__y.0.lcssa27.i.i, %if.end12.i.i ]
+  %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa27.i.i, %if.then.i.i763 ], [ %__y.0.lcssa26.i.i, %if.end12.i.i ]
   %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i, %add.ptr.i.i.i760
   br i1 %cmp2.i.i, label %entry.lor.end_crit_edge.i.i, label %lor.rhs.i.i
 
@@ -7031,26 +7031,26 @@ while.end.i.i.i.i.i518:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i513, label %if.then.i.i.i.i.i536, label %if.end12.i.i.i.i.i519
 
 if.then.i.i.i.i.i536:                             ; preds = %while.end.i.i.i.i.i518, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i505
-  %__y.0.lcssa25.i.i.i.i.i537 = phi ptr [ %__x.021.i.i.i.i.i511, %while.end.i.i.i.i.i518 ], [ %add.ptr.i.i.i.i.i.i507, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i505 ]
+  %__y.0.lcssa26.i.i.i.i.i537 = phi ptr [ %__x.021.i.i.i.i.i511, %while.end.i.i.i.i.i518 ], [ %add.ptr.i.i.i.i.i.i507, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i505 ]
   %_M_left.i3.i.i.i.i.i538 = getelementptr inbounds nuw i8, ptr %217, i64 32
   %221 = load ptr, ptr %_M_left.i3.i.i.i.i.i538, align 8, !tbaa !14
-  %cmp.i4.i.i.i.i.i539 = icmp eq ptr %__y.0.lcssa25.i.i.i.i.i537, %221
+  %cmp.i4.i.i.i.i.i539 = icmp eq ptr %__y.0.lcssa26.i.i.i.i.i537, %221
   br i1 %cmp.i4.i.i.i.i.i539, label %if.then.i.i.i.i526, label %if.else.i.i.i.i.i540
 
 if.else.i.i.i.i.i540:                             ; preds = %if.then.i.i.i.i.i536
-  %call.i.i.i.i.i.i541 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i.i.i537) #34
+  %call.i.i.i.i.i.i541 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i.i.i.i537) #34
   %_M_storage.i.i.i.i.phi.trans.insert.i.i.i.i542 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i541, i64 32
   %.pre.i.i.i.i543 = load ptr, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i.i.i542, align 8, !tbaa !3
   br label %if.end12.i.i.i.i.i519
 
 if.end12.i.i.i.i.i519:                            ; preds = %if.else.i.i.i.i.i540, %while.end.i.i.i.i.i518
   %222 = phi ptr [ %.pre.i.i.i.i543, %if.else.i.i.i.i.i540 ], [ %220, %while.end.i.i.i.i.i518 ]
-  %__y.0.lcssa26.i.i.i.i.i520 = phi ptr [ %__y.0.lcssa25.i.i.i.i.i537, %if.else.i.i.i.i.i540 ], [ %__x.021.i.i.i.i.i511, %while.end.i.i.i.i.i518 ]
+  %__y.0.lcssa25.i.i.i.i.i520 = phi ptr [ %__y.0.lcssa26.i.i.i.i.i537, %if.else.i.i.i.i.i540 ], [ %__x.021.i.i.i.i.i511, %while.end.i.i.i.i.i518 ]
   %cmp.i5.i.i.i.i.i521 = icmp ult ptr %222, %add.ptr278
   br i1 %cmp.i5.i.i.i.i.i521, label %if.then.i.i.i.i526, label %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i522
 
 if.then.i.i.i.i526:                               ; preds = %if.end12.i.i.i.i.i519, %if.then.i.i.i.i.i536
-  %retval.sroa.4.0.i.ph.i.i.i.i527 = phi ptr [ %__y.0.lcssa25.i.i.i.i.i537, %if.then.i.i.i.i.i536 ], [ %__y.0.lcssa26.i.i.i.i.i520, %if.end12.i.i.i.i.i519 ]
+  %retval.sroa.4.0.i.ph.i.i.i.i527 = phi ptr [ %__y.0.lcssa26.i.i.i.i.i537, %if.then.i.i.i.i.i536 ], [ %__y.0.lcssa25.i.i.i.i.i520, %if.end12.i.i.i.i.i519 ]
   %cmp2.i.i.i.i.i528 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i.i.i527, %add.ptr.i.i.i.i.i.i507
   br i1 %cmp2.i.i.i.i.i528, label %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i532, label %lor.rhs.i.i.i.i.i529
 
@@ -7101,14 +7101,14 @@ while.end.i.i781:                                 ; preds = %while.body.i.i773
   br i1 %cmp.i.i.i.i.i.i.i776, label %if.then.i.i808, label %if.end12.i.i782
 
 if.then.i.i808:                                   ; preds = %while.end.i.i781, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i522
-  %__y.0.lcssa26.i.i809 = phi ptr [ %__x.022.i.i774, %while.end.i.i781 ], [ %add.ptr.i.i.i768, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i522 ]
+  %__y.0.lcssa27.i.i809 = phi ptr [ %__x.022.i.i774, %while.end.i.i781 ], [ %add.ptr.i.i.i768, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i522 ]
   %_M_left.i3.i.i810 = getelementptr inbounds nuw i8, ptr %add.ptr278, i64 32
   %228 = load ptr, ptr %_M_left.i3.i.i810, align 8, !tbaa !14
-  %cmp.i.i.i811 = icmp eq ptr %__y.0.lcssa26.i.i809, %228
+  %cmp.i.i.i811 = icmp eq ptr %__y.0.lcssa27.i.i809, %228
   br i1 %cmp.i.i.i811, label %if.then.i790, label %if.else.i.i812
 
 if.else.i.i812:                                   ; preds = %if.then.i.i808
-  %call.i.i.i813 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i809) #34
+  %call.i.i.i813 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa27.i.i809) #34
   %pn.i.i.i4.i.phi.trans.insert.i814 = getelementptr inbounds nuw i8, ptr %call.i.i.i813, i64 40
   %.pre.i815 = load ptr, ptr %pn.i.i.i4.i.phi.trans.insert.i814, align 8, !tbaa !41
   %.pre16.i817 = load ptr, ptr %pn.i.i501, align 8, !tbaa !41
@@ -7117,12 +7117,12 @@ if.else.i.i812:                                   ; preds = %if.then.i.i808
 if.end12.i.i782:                                  ; preds = %if.else.i.i812, %while.end.i.i781
   %229 = phi ptr [ %.pre16.i817, %if.else.i.i812 ], [ %226, %while.end.i.i781 ]
   %230 = phi ptr [ %.pre.i815, %if.else.i.i812 ], [ %227, %while.end.i.i781 ]
-  %__y.0.lcssa27.i.i783 = phi ptr [ %__y.0.lcssa26.i.i809, %if.else.i.i812 ], [ %__x.022.i.i774, %while.end.i.i781 ]
+  %__y.0.lcssa26.i.i783 = phi ptr [ %__y.0.lcssa27.i.i809, %if.else.i.i812 ], [ %__x.022.i.i774, %while.end.i.i781 ]
   %cmp.i.i.i.i.i6.i.i785 = icmp ult ptr %230, %229
   br i1 %cmp.i.i.i.i.i6.i.i785, label %if.then.i790, label %invoke.cont287
 
 if.then.i790:                                     ; preds = %if.end12.i.i782, %if.then.i.i808
-  %retval.sroa.4.0.i.ph.i791 = phi ptr [ %__y.0.lcssa26.i.i809, %if.then.i.i808 ], [ %__y.0.lcssa27.i.i783, %if.end12.i.i782 ]
+  %retval.sroa.4.0.i.ph.i791 = phi ptr [ %__y.0.lcssa27.i.i809, %if.then.i.i808 ], [ %__y.0.lcssa26.i.i783, %if.end12.i.i782 ]
   %cmp2.i.i792 = icmp eq ptr %retval.sroa.4.0.i.ph.i791, %add.ptr.i.i.i768
   br i1 %cmp2.i.i792, label %entry.lor.end_crit_edge.i.i806, label %lor.rhs.i.i794
 
@@ -7255,26 +7255,26 @@ while.end.i.i.i.i.i590:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i585, label %if.then.i.i.i.i.i608, label %if.end12.i.i.i.i.i591
 
 if.then.i.i.i.i.i608:                             ; preds = %while.end.i.i.i.i.i590, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i577
-  %__y.0.lcssa25.i.i.i.i.i609 = phi ptr [ %__x.021.i.i.i.i.i583, %while.end.i.i.i.i.i590 ], [ %add.ptr.i.i.i.i.i.i579, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i577 ]
+  %__y.0.lcssa26.i.i.i.i.i609 = phi ptr [ %__x.021.i.i.i.i.i583, %while.end.i.i.i.i.i590 ], [ %add.ptr.i.i.i.i.i.i579, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i577 ]
   %_M_left.i3.i.i.i.i.i610 = getelementptr inbounds nuw i8, ptr %248, i64 32
   %252 = load ptr, ptr %_M_left.i3.i.i.i.i.i610, align 8, !tbaa !14
-  %cmp.i4.i.i.i.i.i611 = icmp eq ptr %__y.0.lcssa25.i.i.i.i.i609, %252
+  %cmp.i4.i.i.i.i.i611 = icmp eq ptr %__y.0.lcssa26.i.i.i.i.i609, %252
   br i1 %cmp.i4.i.i.i.i.i611, label %if.then.i.i.i.i598, label %if.else.i.i.i.i.i612
 
 if.else.i.i.i.i.i612:                             ; preds = %if.then.i.i.i.i.i608
-  %call.i.i.i.i.i.i613 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i.i.i609) #34
+  %call.i.i.i.i.i.i613 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i.i.i.i609) #34
   %_M_storage.i.i.i.i.phi.trans.insert.i.i.i.i614 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i613, i64 32
   %.pre.i.i.i.i615 = load ptr, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i.i.i614, align 8, !tbaa !3
   br label %if.end12.i.i.i.i.i591
 
 if.end12.i.i.i.i.i591:                            ; preds = %if.else.i.i.i.i.i612, %while.end.i.i.i.i.i590
   %253 = phi ptr [ %.pre.i.i.i.i615, %if.else.i.i.i.i.i612 ], [ %251, %while.end.i.i.i.i.i590 ]
-  %__y.0.lcssa26.i.i.i.i.i592 = phi ptr [ %__y.0.lcssa25.i.i.i.i.i609, %if.else.i.i.i.i.i612 ], [ %__x.021.i.i.i.i.i583, %while.end.i.i.i.i.i590 ]
+  %__y.0.lcssa25.i.i.i.i.i592 = phi ptr [ %__y.0.lcssa26.i.i.i.i.i609, %if.else.i.i.i.i.i612 ], [ %__x.021.i.i.i.i.i583, %while.end.i.i.i.i.i590 ]
   %cmp.i5.i.i.i.i.i593 = icmp ult ptr %253, %add.ptr295
   br i1 %cmp.i5.i.i.i.i.i593, label %if.then.i.i.i.i598, label %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i594
 
 if.then.i.i.i.i598:                               ; preds = %if.end12.i.i.i.i.i591, %if.then.i.i.i.i.i608
-  %retval.sroa.4.0.i.ph.i.i.i.i599 = phi ptr [ %__y.0.lcssa25.i.i.i.i.i609, %if.then.i.i.i.i.i608 ], [ %__y.0.lcssa26.i.i.i.i.i592, %if.end12.i.i.i.i.i591 ]
+  %retval.sroa.4.0.i.ph.i.i.i.i599 = phi ptr [ %__y.0.lcssa26.i.i.i.i.i609, %if.then.i.i.i.i.i608 ], [ %__y.0.lcssa25.i.i.i.i.i592, %if.end12.i.i.i.i.i591 ]
   %cmp2.i.i.i.i.i600 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i.i.i599, %add.ptr.i.i.i.i.i.i579
   br i1 %cmp2.i.i.i.i.i600, label %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i604, label %lor.rhs.i.i.i.i.i601
 
@@ -7325,14 +7325,14 @@ while.end.i.i835:                                 ; preds = %while.body.i.i827
   br i1 %cmp.i.i.i.i.i.i.i830, label %if.then.i.i862, label %if.end12.i.i836
 
 if.then.i.i862:                                   ; preds = %while.end.i.i835, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i594
-  %__y.0.lcssa26.i.i863 = phi ptr [ %__x.022.i.i828, %while.end.i.i835 ], [ %add.ptr.i.i.i822, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i594 ]
+  %__y.0.lcssa27.i.i863 = phi ptr [ %__x.022.i.i828, %while.end.i.i835 ], [ %add.ptr.i.i.i822, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i594 ]
   %_M_left.i3.i.i864 = getelementptr inbounds nuw i8, ptr %add.ptr295, i64 32
   %259 = load ptr, ptr %_M_left.i3.i.i864, align 8, !tbaa !14
-  %cmp.i.i.i865 = icmp eq ptr %__y.0.lcssa26.i.i863, %259
+  %cmp.i.i.i865 = icmp eq ptr %__y.0.lcssa27.i.i863, %259
   br i1 %cmp.i.i.i865, label %if.then.i844, label %if.else.i.i866
 
 if.else.i.i866:                                   ; preds = %if.then.i.i862
-  %call.i.i.i867 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i863) #34
+  %call.i.i.i867 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa27.i.i863) #34
   %pn.i.i.i4.i.phi.trans.insert.i868 = getelementptr inbounds nuw i8, ptr %call.i.i.i867, i64 40
   %.pre.i869 = load ptr, ptr %pn.i.i.i4.i.phi.trans.insert.i868, align 8, !tbaa !41
   %.pre16.i871 = load ptr, ptr %pn.i.i570, align 8, !tbaa !41
@@ -7341,12 +7341,12 @@ if.else.i.i866:                                   ; preds = %if.then.i.i862
 if.end12.i.i836:                                  ; preds = %if.else.i.i866, %while.end.i.i835
   %260 = phi ptr [ %.pre16.i871, %if.else.i.i866 ], [ %257, %while.end.i.i835 ]
   %261 = phi ptr [ %.pre.i869, %if.else.i.i866 ], [ %258, %while.end.i.i835 ]
-  %__y.0.lcssa27.i.i837 = phi ptr [ %__y.0.lcssa26.i.i863, %if.else.i.i866 ], [ %__x.022.i.i828, %while.end.i.i835 ]
+  %__y.0.lcssa26.i.i837 = phi ptr [ %__y.0.lcssa27.i.i863, %if.else.i.i866 ], [ %__x.022.i.i828, %while.end.i.i835 ]
   %cmp.i.i.i.i.i6.i.i839 = icmp ult ptr %261, %260
   br i1 %cmp.i.i.i.i.i6.i.i839, label %if.then.i844, label %invoke.cont304
 
 if.then.i844:                                     ; preds = %if.end12.i.i836, %if.then.i.i862
-  %retval.sroa.4.0.i.ph.i845 = phi ptr [ %__y.0.lcssa26.i.i863, %if.then.i.i862 ], [ %__y.0.lcssa27.i.i837, %if.end12.i.i836 ]
+  %retval.sroa.4.0.i.ph.i845 = phi ptr [ %__y.0.lcssa27.i.i863, %if.then.i.i862 ], [ %__y.0.lcssa26.i.i837, %if.end12.i.i836 ]
   %cmp2.i.i846 = icmp eq ptr %retval.sroa.4.0.i.ph.i845, %add.ptr.i.i.i822
   br i1 %cmp2.i.i846, label %entry.lor.end_crit_edge.i.i860, label %lor.rhs.i.i848
 
@@ -7792,295 +7792,295 @@ ehcleanup395:                                     ; preds = %_ZNKSt14default_del
   br i1 %cmp.not.i.i709, label %ehcleanup396, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710: ; preds = %ehcleanup395.thread, %ehcleanup395
-  %.pn55.pn.pn.pn.pn.pn1253 = phi { ptr, i32 } [ %93, %ehcleanup395.thread ], [ %.pn55.pn.pn.pn.pn, %ehcleanup395 ]
-  %mdlFwdCmsLegNPV_109411101251 = phi ptr [ %mdlFwdCmsLegNPV_, %ehcleanup395.thread ], [ %mdlFwdCmsLegNPV_10941111, %ehcleanup395 ]
-  %errSpotCmsLegNPV_10271042109311121249 = phi ptr [ %errSpotCmsLegNPV_, %ehcleanup395.thread ], [ %errSpotCmsLegNPV_1027104210931113, %ehcleanup395 ]
-  %mktSpotCmsLegNPV_97298510261044109111141247 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup395.thread ], [ %mktSpotCmsLegNPV_9729851026104410911115, %ehcleanup395 ]
-  %mdlSpreads_92994097198710241046108911161245 = phi ptr [ %mdlSpreads_, %ehcleanup395.thread ], [ %mdlSpreads_9299409719871024104610891117, %ehcleanup395 ]
-  %mktAskSpreads_89890792894296998910221048108711181243 = phi ptr [ %mktAskSpreads_, %ehcleanup395.thread ], [ %mktAskSpreads_8989079289429699891022104810871119, %ehcleanup395 ]
-  %spotFloatLegBPS_87988689790992694496799110201050108511201241 = phi ptr [ %spotFloatLegBPS_, %ehcleanup395.thread ], [ %spotFloatLegBPS_8798868979099269449679911020105010851121, %ehcleanup395 ]
-  %mktBidSpreads_88789591192494696599310181052108311221239 = phi ptr [ %mktBidSpreads_, %ehcleanup395.thread ], [ %mktBidSpreads_8878959119249469659931018105210831123, %ehcleanup395 ]
-  %mktSpreads_91292294896399510161054108111241237 = phi ptr [ %mktSpreads_, %ehcleanup395.thread ], [ %mktSpreads_9129229489639951016105410811125, %ehcleanup395 ]
-  %errSpreads_94996199710141056107911261235 = phi ptr [ %errSpreads_, %ehcleanup395.thread ], [ %errSpreads_9499619971014105610791127, %ehcleanup395 ]
-  %mdlSpotCmsLegNPV_99810121058107711281233 = phi ptr [ %mdlSpotCmsLegNPV_, %ehcleanup395.thread ], [ %mdlSpotCmsLegNPV_9981012105810771129, %ehcleanup395 ]
-  %mktFwdCmsLegNPV_1059107511301231 = phi ptr [ %mktFwdCmsLegNPV_, %ehcleanup395.thread ], [ %mktFwdCmsLegNPV_105910751131, %ehcleanup395 ]
+  %.pn55.pn.pn.pn.pn.pn1341 = phi { ptr, i32 } [ %93, %ehcleanup395.thread ], [ %.pn55.pn.pn.pn.pn, %ehcleanup395 ]
+  %mdlFwdCmsLegNPV_109411101339 = phi ptr [ %mdlFwdCmsLegNPV_, %ehcleanup395.thread ], [ %mdlFwdCmsLegNPV_10941111, %ehcleanup395 ]
+  %errSpotCmsLegNPV_10271042109311121337 = phi ptr [ %errSpotCmsLegNPV_, %ehcleanup395.thread ], [ %errSpotCmsLegNPV_1027104210931113, %ehcleanup395 ]
+  %mktSpotCmsLegNPV_97298510261044109111141335 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup395.thread ], [ %mktSpotCmsLegNPV_9729851026104410911115, %ehcleanup395 ]
+  %mdlSpreads_92994097198710241046108911161333 = phi ptr [ %mdlSpreads_, %ehcleanup395.thread ], [ %mdlSpreads_9299409719871024104610891117, %ehcleanup395 ]
+  %mktAskSpreads_89890792894296998910221048108711181331 = phi ptr [ %mktAskSpreads_, %ehcleanup395.thread ], [ %mktAskSpreads_8989079289429699891022104810871119, %ehcleanup395 ]
+  %spotFloatLegBPS_87988689790992694496799110201050108511201329 = phi ptr [ %spotFloatLegBPS_, %ehcleanup395.thread ], [ %spotFloatLegBPS_8798868979099269449679911020105010851121, %ehcleanup395 ]
+  %mktBidSpreads_88789591192494696599310181052108311221327 = phi ptr [ %mktBidSpreads_, %ehcleanup395.thread ], [ %mktBidSpreads_8878959119249469659931018105210831123, %ehcleanup395 ]
+  %mktSpreads_91292294896399510161054108111241325 = phi ptr [ %mktSpreads_, %ehcleanup395.thread ], [ %mktSpreads_9129229489639951016105410811125, %ehcleanup395 ]
+  %errSpreads_94996199710141056107911261323 = phi ptr [ %errSpreads_, %ehcleanup395.thread ], [ %errSpreads_9499619971014105610791127, %ehcleanup395 ]
+  %mdlSpotCmsLegNPV_99810121058107711281321 = phi ptr [ %mdlSpotCmsLegNPV_, %ehcleanup395.thread ], [ %mdlSpotCmsLegNPV_9981012105810771129, %ehcleanup395 ]
+  %mktFwdCmsLegNPV_1059107511301319 = phi ptr [ %mktFwdCmsLegNPV_, %ehcleanup395.thread ], [ %mktFwdCmsLegNPV_105910751131, %ehcleanup395 ]
   %334 = phi ptr [ %call.i212, %ehcleanup395.thread ], [ %.pre1205, %ehcleanup395 ]
   call void @_ZdaPv(ptr noundef nonnull %334) #32
   br label %ehcleanup396
 
 ehcleanup396:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710, %ehcleanup395
-  %.pn55.pn.pn.pn.pn.pn1254 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn, %ehcleanup395 ], [ %.pn55.pn.pn.pn.pn.pn1253, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %mdlFwdCmsLegNPV_109411101252 = phi ptr [ %mdlFwdCmsLegNPV_10941111, %ehcleanup395 ], [ %mdlFwdCmsLegNPV_109411101251, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %errSpotCmsLegNPV_10271042109311121250 = phi ptr [ %errSpotCmsLegNPV_1027104210931113, %ehcleanup395 ], [ %errSpotCmsLegNPV_10271042109311121249, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %mktSpotCmsLegNPV_97298510261044109111141248 = phi ptr [ %mktSpotCmsLegNPV_9729851026104410911115, %ehcleanup395 ], [ %mktSpotCmsLegNPV_97298510261044109111141247, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %mdlSpreads_92994097198710241046108911161246 = phi ptr [ %mdlSpreads_9299409719871024104610891117, %ehcleanup395 ], [ %mdlSpreads_92994097198710241046108911161245, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %mktAskSpreads_89890792894296998910221048108711181244 = phi ptr [ %mktAskSpreads_8989079289429699891022104810871119, %ehcleanup395 ], [ %mktAskSpreads_89890792894296998910221048108711181243, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %spotFloatLegBPS_87988689790992694496799110201050108511201242 = phi ptr [ %spotFloatLegBPS_8798868979099269449679911020105010851121, %ehcleanup395 ], [ %spotFloatLegBPS_87988689790992694496799110201050108511201241, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %mktBidSpreads_88789591192494696599310181052108311221240 = phi ptr [ %mktBidSpreads_8878959119249469659931018105210831123, %ehcleanup395 ], [ %mktBidSpreads_88789591192494696599310181052108311221239, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %mktSpreads_91292294896399510161054108111241238 = phi ptr [ %mktSpreads_9129229489639951016105410811125, %ehcleanup395 ], [ %mktSpreads_91292294896399510161054108111241237, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %errSpreads_94996199710141056107911261236 = phi ptr [ %errSpreads_9499619971014105610791127, %ehcleanup395 ], [ %errSpreads_94996199710141056107911261235, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %mdlSpotCmsLegNPV_99810121058107711281234 = phi ptr [ %mdlSpotCmsLegNPV_9981012105810771129, %ehcleanup395 ], [ %mdlSpotCmsLegNPV_99810121058107711281233, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  %mktFwdCmsLegNPV_1059107511301232 = phi ptr [ %mktFwdCmsLegNPV_105910751131, %ehcleanup395 ], [ %mktFwdCmsLegNPV_1059107511301231, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
-  store ptr null, ptr %mdlFwdCmsLegNPV_109411101252, align 8, !tbaa !3
-  %.pre1206 = load ptr, ptr %mktFwdCmsLegNPV_1059107511301232, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn1342 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn, %ehcleanup395 ], [ %.pn55.pn.pn.pn.pn.pn1341, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %mdlFwdCmsLegNPV_109411101340 = phi ptr [ %mdlFwdCmsLegNPV_10941111, %ehcleanup395 ], [ %mdlFwdCmsLegNPV_109411101339, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %errSpotCmsLegNPV_10271042109311121338 = phi ptr [ %errSpotCmsLegNPV_1027104210931113, %ehcleanup395 ], [ %errSpotCmsLegNPV_10271042109311121337, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %mktSpotCmsLegNPV_97298510261044109111141336 = phi ptr [ %mktSpotCmsLegNPV_9729851026104410911115, %ehcleanup395 ], [ %mktSpotCmsLegNPV_97298510261044109111141335, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %mdlSpreads_92994097198710241046108911161334 = phi ptr [ %mdlSpreads_9299409719871024104610891117, %ehcleanup395 ], [ %mdlSpreads_92994097198710241046108911161333, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %mktAskSpreads_89890792894296998910221048108711181332 = phi ptr [ %mktAskSpreads_8989079289429699891022104810871119, %ehcleanup395 ], [ %mktAskSpreads_89890792894296998910221048108711181331, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %spotFloatLegBPS_87988689790992694496799110201050108511201330 = phi ptr [ %spotFloatLegBPS_8798868979099269449679911020105010851121, %ehcleanup395 ], [ %spotFloatLegBPS_87988689790992694496799110201050108511201329, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %mktBidSpreads_88789591192494696599310181052108311221328 = phi ptr [ %mktBidSpreads_8878959119249469659931018105210831123, %ehcleanup395 ], [ %mktBidSpreads_88789591192494696599310181052108311221327, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %mktSpreads_91292294896399510161054108111241326 = phi ptr [ %mktSpreads_9129229489639951016105410811125, %ehcleanup395 ], [ %mktSpreads_91292294896399510161054108111241325, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %errSpreads_94996199710141056107911261324 = phi ptr [ %errSpreads_9499619971014105610791127, %ehcleanup395 ], [ %errSpreads_94996199710141056107911261323, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %mdlSpotCmsLegNPV_99810121058107711281322 = phi ptr [ %mdlSpotCmsLegNPV_9981012105810771129, %ehcleanup395 ], [ %mdlSpotCmsLegNPV_99810121058107711281321, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  %mktFwdCmsLegNPV_1059107511301320 = phi ptr [ %mktFwdCmsLegNPV_105910751131, %ehcleanup395 ], [ %mktFwdCmsLegNPV_1059107511301319, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i710 ]
+  store ptr null, ptr %mdlFwdCmsLegNPV_109411101340, align 8, !tbaa !3
+  %.pre1206 = load ptr, ptr %mktFwdCmsLegNPV_1059107511301320, align 8, !tbaa !3
   %cmp.not.i.i712 = icmp eq ptr %.pre1206, null
   br i1 %cmp.not.i.i712, label %ehcleanup397, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713: ; preds = %ehcleanup396.thread, %ehcleanup396
-  %.pn55.pn.pn.pn.pn.pn.pn1287 = phi { ptr, i32 } [ %92, %ehcleanup396.thread ], [ %.pn55.pn.pn.pn.pn.pn1254, %ehcleanup396 ]
-  %mktFwdCmsLegNPV_105910741285 = phi ptr [ %mktFwdCmsLegNPV_, %ehcleanup396.thread ], [ %mktFwdCmsLegNPV_1059107511301232, %ehcleanup396 ]
-  %mdlSpotCmsLegNPV_9981012105810761283 = phi ptr [ %mdlSpotCmsLegNPV_, %ehcleanup396.thread ], [ %mdlSpotCmsLegNPV_99810121058107711281234, %ehcleanup396 ]
-  %errSpreads_9499619971014105610781281 = phi ptr [ %errSpreads_, %ehcleanup396.thread ], [ %errSpreads_94996199710141056107911261236, %ehcleanup396 ]
-  %mktSpreads_9129229489639951016105410801279 = phi ptr [ %mktSpreads_, %ehcleanup396.thread ], [ %mktSpreads_91292294896399510161054108111241238, %ehcleanup396 ]
-  %mktBidSpreads_8878959119249469659931018105210821277 = phi ptr [ %mktBidSpreads_, %ehcleanup396.thread ], [ %mktBidSpreads_88789591192494696599310181052108311221240, %ehcleanup396 ]
-  %spotFloatLegBPS_8798868979099269449679911020105010841275 = phi ptr [ %spotFloatLegBPS_, %ehcleanup396.thread ], [ %spotFloatLegBPS_87988689790992694496799110201050108511201242, %ehcleanup396 ]
-  %mktAskSpreads_8989079289429699891022104810861273 = phi ptr [ %mktAskSpreads_, %ehcleanup396.thread ], [ %mktAskSpreads_89890792894296998910221048108711181244, %ehcleanup396 ]
-  %mdlSpreads_9299409719871024104610881271 = phi ptr [ %mdlSpreads_, %ehcleanup396.thread ], [ %mdlSpreads_92994097198710241046108911161246, %ehcleanup396 ]
-  %mktSpotCmsLegNPV_9729851026104410901269 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup396.thread ], [ %mktSpotCmsLegNPV_97298510261044109111141248, %ehcleanup396 ]
-  %errSpotCmsLegNPV_1027104210921267 = phi ptr [ %errSpotCmsLegNPV_, %ehcleanup396.thread ], [ %errSpotCmsLegNPV_10271042109311121250, %ehcleanup396 ]
+  %.pn55.pn.pn.pn.pn.pn.pn1375 = phi { ptr, i32 } [ %92, %ehcleanup396.thread ], [ %.pn55.pn.pn.pn.pn.pn1342, %ehcleanup396 ]
+  %mktFwdCmsLegNPV_105910741373 = phi ptr [ %mktFwdCmsLegNPV_, %ehcleanup396.thread ], [ %mktFwdCmsLegNPV_1059107511301320, %ehcleanup396 ]
+  %mdlSpotCmsLegNPV_9981012105810761371 = phi ptr [ %mdlSpotCmsLegNPV_, %ehcleanup396.thread ], [ %mdlSpotCmsLegNPV_99810121058107711281322, %ehcleanup396 ]
+  %errSpreads_9499619971014105610781369 = phi ptr [ %errSpreads_, %ehcleanup396.thread ], [ %errSpreads_94996199710141056107911261324, %ehcleanup396 ]
+  %mktSpreads_9129229489639951016105410801367 = phi ptr [ %mktSpreads_, %ehcleanup396.thread ], [ %mktSpreads_91292294896399510161054108111241326, %ehcleanup396 ]
+  %mktBidSpreads_8878959119249469659931018105210821365 = phi ptr [ %mktBidSpreads_, %ehcleanup396.thread ], [ %mktBidSpreads_88789591192494696599310181052108311221328, %ehcleanup396 ]
+  %spotFloatLegBPS_8798868979099269449679911020105010841363 = phi ptr [ %spotFloatLegBPS_, %ehcleanup396.thread ], [ %spotFloatLegBPS_87988689790992694496799110201050108511201330, %ehcleanup396 ]
+  %mktAskSpreads_8989079289429699891022104810861361 = phi ptr [ %mktAskSpreads_, %ehcleanup396.thread ], [ %mktAskSpreads_89890792894296998910221048108711181332, %ehcleanup396 ]
+  %mdlSpreads_9299409719871024104610881359 = phi ptr [ %mdlSpreads_, %ehcleanup396.thread ], [ %mdlSpreads_92994097198710241046108911161334, %ehcleanup396 ]
+  %mktSpotCmsLegNPV_9729851026104410901357 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup396.thread ], [ %mktSpotCmsLegNPV_97298510261044109111141336, %ehcleanup396 ]
+  %errSpotCmsLegNPV_1027104210921355 = phi ptr [ %errSpotCmsLegNPV_, %ehcleanup396.thread ], [ %errSpotCmsLegNPV_10271042109311121338, %ehcleanup396 ]
   %335 = phi ptr [ %call.i203, %ehcleanup396.thread ], [ %.pre1206, %ehcleanup396 ]
   call void @_ZdaPv(ptr noundef nonnull %335) #32
   br label %ehcleanup397
 
 ehcleanup397:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713, %ehcleanup396
-  %.pn55.pn.pn.pn.pn.pn.pn1288 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn1254, %ehcleanup396 ], [ %.pn55.pn.pn.pn.pn.pn.pn1287, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %mktFwdCmsLegNPV_105910741286 = phi ptr [ %mktFwdCmsLegNPV_1059107511301232, %ehcleanup396 ], [ %mktFwdCmsLegNPV_105910741285, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %mdlSpotCmsLegNPV_9981012105810761284 = phi ptr [ %mdlSpotCmsLegNPV_99810121058107711281234, %ehcleanup396 ], [ %mdlSpotCmsLegNPV_9981012105810761283, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %errSpreads_9499619971014105610781282 = phi ptr [ %errSpreads_94996199710141056107911261236, %ehcleanup396 ], [ %errSpreads_9499619971014105610781281, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %mktSpreads_9129229489639951016105410801280 = phi ptr [ %mktSpreads_91292294896399510161054108111241238, %ehcleanup396 ], [ %mktSpreads_9129229489639951016105410801279, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %mktBidSpreads_8878959119249469659931018105210821278 = phi ptr [ %mktBidSpreads_88789591192494696599310181052108311221240, %ehcleanup396 ], [ %mktBidSpreads_8878959119249469659931018105210821277, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %spotFloatLegBPS_8798868979099269449679911020105010841276 = phi ptr [ %spotFloatLegBPS_87988689790992694496799110201050108511201242, %ehcleanup396 ], [ %spotFloatLegBPS_8798868979099269449679911020105010841275, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %mktAskSpreads_8989079289429699891022104810861274 = phi ptr [ %mktAskSpreads_89890792894296998910221048108711181244, %ehcleanup396 ], [ %mktAskSpreads_8989079289429699891022104810861273, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %mdlSpreads_9299409719871024104610881272 = phi ptr [ %mdlSpreads_92994097198710241046108911161246, %ehcleanup396 ], [ %mdlSpreads_9299409719871024104610881271, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %mktSpotCmsLegNPV_9729851026104410901270 = phi ptr [ %mktSpotCmsLegNPV_97298510261044109111141248, %ehcleanup396 ], [ %mktSpotCmsLegNPV_9729851026104410901269, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  %errSpotCmsLegNPV_1027104210921268 = phi ptr [ %errSpotCmsLegNPV_10271042109311121250, %ehcleanup396 ], [ %errSpotCmsLegNPV_1027104210921267, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
-  store ptr null, ptr %mktFwdCmsLegNPV_105910741286, align 8, !tbaa !3
-  %.pre1207 = load ptr, ptr %errSpotCmsLegNPV_1027104210921268, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn1376 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn1342, %ehcleanup396 ], [ %.pn55.pn.pn.pn.pn.pn.pn1375, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %mktFwdCmsLegNPV_105910741374 = phi ptr [ %mktFwdCmsLegNPV_1059107511301320, %ehcleanup396 ], [ %mktFwdCmsLegNPV_105910741373, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %mdlSpotCmsLegNPV_9981012105810761372 = phi ptr [ %mdlSpotCmsLegNPV_99810121058107711281322, %ehcleanup396 ], [ %mdlSpotCmsLegNPV_9981012105810761371, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %errSpreads_9499619971014105610781370 = phi ptr [ %errSpreads_94996199710141056107911261324, %ehcleanup396 ], [ %errSpreads_9499619971014105610781369, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %mktSpreads_9129229489639951016105410801368 = phi ptr [ %mktSpreads_91292294896399510161054108111241326, %ehcleanup396 ], [ %mktSpreads_9129229489639951016105410801367, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %mktBidSpreads_8878959119249469659931018105210821366 = phi ptr [ %mktBidSpreads_88789591192494696599310181052108311221328, %ehcleanup396 ], [ %mktBidSpreads_8878959119249469659931018105210821365, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %spotFloatLegBPS_8798868979099269449679911020105010841364 = phi ptr [ %spotFloatLegBPS_87988689790992694496799110201050108511201330, %ehcleanup396 ], [ %spotFloatLegBPS_8798868979099269449679911020105010841363, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %mktAskSpreads_8989079289429699891022104810861362 = phi ptr [ %mktAskSpreads_89890792894296998910221048108711181332, %ehcleanup396 ], [ %mktAskSpreads_8989079289429699891022104810861361, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %mdlSpreads_9299409719871024104610881360 = phi ptr [ %mdlSpreads_92994097198710241046108911161334, %ehcleanup396 ], [ %mdlSpreads_9299409719871024104610881359, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %mktSpotCmsLegNPV_9729851026104410901358 = phi ptr [ %mktSpotCmsLegNPV_97298510261044109111141336, %ehcleanup396 ], [ %mktSpotCmsLegNPV_9729851026104410901357, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  %errSpotCmsLegNPV_1027104210921356 = phi ptr [ %errSpotCmsLegNPV_10271042109311121338, %ehcleanup396 ], [ %errSpotCmsLegNPV_1027104210921355, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i713 ]
+  store ptr null, ptr %mktFwdCmsLegNPV_105910741374, align 8, !tbaa !3
+  %.pre1207 = load ptr, ptr %errSpotCmsLegNPV_1027104210921356, align 8, !tbaa !3
   %cmp.not.i.i715 = icmp eq ptr %.pre1207, null
   br i1 %cmp.not.i.i715, label %ehcleanup398, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716: ; preds = %ehcleanup397.thread, %ehcleanup397
-  %.pn55.pn.pn.pn.pn.pn.pn.pn1318 = phi { ptr, i32 } [ %91, %ehcleanup397.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn1288, %ehcleanup397 ]
-  %errSpotCmsLegNPV_102710411316 = phi ptr [ %errSpotCmsLegNPV_, %ehcleanup397.thread ], [ %errSpotCmsLegNPV_1027104210921268, %ehcleanup397 ]
-  %mktSpotCmsLegNPV_972985102610431314 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup397.thread ], [ %mktSpotCmsLegNPV_9729851026104410901270, %ehcleanup397 ]
-  %mdlSpreads_929940971987102410451312 = phi ptr [ %mdlSpreads_, %ehcleanup397.thread ], [ %mdlSpreads_9299409719871024104610881272, %ehcleanup397 ]
-  %mktAskSpreads_898907928942969989102210471310 = phi ptr [ %mktAskSpreads_, %ehcleanup397.thread ], [ %mktAskSpreads_8989079289429699891022104810861274, %ehcleanup397 ]
-  %spotFloatLegBPS_879886897909926944967991102010491308 = phi ptr [ %spotFloatLegBPS_, %ehcleanup397.thread ], [ %spotFloatLegBPS_8798868979099269449679911020105010841276, %ehcleanup397 ]
-  %mktBidSpreads_887895911924946965993101810511306 = phi ptr [ %mktBidSpreads_, %ehcleanup397.thread ], [ %mktBidSpreads_8878959119249469659931018105210821278, %ehcleanup397 ]
-  %mktSpreads_912922948963995101610531304 = phi ptr [ %mktSpreads_, %ehcleanup397.thread ], [ %mktSpreads_9129229489639951016105410801280, %ehcleanup397 ]
-  %errSpreads_949961997101410551302 = phi ptr [ %errSpreads_, %ehcleanup397.thread ], [ %errSpreads_9499619971014105610781282, %ehcleanup397 ]
-  %mdlSpotCmsLegNPV_998101210571300 = phi ptr [ %mdlSpotCmsLegNPV_, %ehcleanup397.thread ], [ %mdlSpotCmsLegNPV_9981012105810761284, %ehcleanup397 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn1406 = phi { ptr, i32 } [ %91, %ehcleanup397.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn1376, %ehcleanup397 ]
+  %errSpotCmsLegNPV_102710411404 = phi ptr [ %errSpotCmsLegNPV_, %ehcleanup397.thread ], [ %errSpotCmsLegNPV_1027104210921356, %ehcleanup397 ]
+  %mktSpotCmsLegNPV_972985102610431402 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup397.thread ], [ %mktSpotCmsLegNPV_9729851026104410901358, %ehcleanup397 ]
+  %mdlSpreads_929940971987102410451400 = phi ptr [ %mdlSpreads_, %ehcleanup397.thread ], [ %mdlSpreads_9299409719871024104610881360, %ehcleanup397 ]
+  %mktAskSpreads_898907928942969989102210471398 = phi ptr [ %mktAskSpreads_, %ehcleanup397.thread ], [ %mktAskSpreads_8989079289429699891022104810861362, %ehcleanup397 ]
+  %spotFloatLegBPS_879886897909926944967991102010491396 = phi ptr [ %spotFloatLegBPS_, %ehcleanup397.thread ], [ %spotFloatLegBPS_8798868979099269449679911020105010841364, %ehcleanup397 ]
+  %mktBidSpreads_887895911924946965993101810511394 = phi ptr [ %mktBidSpreads_, %ehcleanup397.thread ], [ %mktBidSpreads_8878959119249469659931018105210821366, %ehcleanup397 ]
+  %mktSpreads_912922948963995101610531392 = phi ptr [ %mktSpreads_, %ehcleanup397.thread ], [ %mktSpreads_9129229489639951016105410801368, %ehcleanup397 ]
+  %errSpreads_949961997101410551390 = phi ptr [ %errSpreads_, %ehcleanup397.thread ], [ %errSpreads_9499619971014105610781370, %ehcleanup397 ]
+  %mdlSpotCmsLegNPV_998101210571388 = phi ptr [ %mdlSpotCmsLegNPV_, %ehcleanup397.thread ], [ %mdlSpotCmsLegNPV_9981012105810761372, %ehcleanup397 ]
   %336 = phi ptr [ %call.i194, %ehcleanup397.thread ], [ %.pre1207, %ehcleanup397 ]
   call void @_ZdaPv(ptr noundef nonnull %336) #32
   br label %ehcleanup398
 
 ehcleanup398:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716, %ehcleanup397
-  %.pn55.pn.pn.pn.pn.pn.pn.pn1319 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn1288, %ehcleanup397 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn1318, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  %errSpotCmsLegNPV_102710411317 = phi ptr [ %errSpotCmsLegNPV_1027104210921268, %ehcleanup397 ], [ %errSpotCmsLegNPV_102710411316, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  %mktSpotCmsLegNPV_972985102610431315 = phi ptr [ %mktSpotCmsLegNPV_9729851026104410901270, %ehcleanup397 ], [ %mktSpotCmsLegNPV_972985102610431314, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  %mdlSpreads_929940971987102410451313 = phi ptr [ %mdlSpreads_9299409719871024104610881272, %ehcleanup397 ], [ %mdlSpreads_929940971987102410451312, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  %mktAskSpreads_898907928942969989102210471311 = phi ptr [ %mktAskSpreads_8989079289429699891022104810861274, %ehcleanup397 ], [ %mktAskSpreads_898907928942969989102210471310, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  %spotFloatLegBPS_879886897909926944967991102010491309 = phi ptr [ %spotFloatLegBPS_8798868979099269449679911020105010841276, %ehcleanup397 ], [ %spotFloatLegBPS_879886897909926944967991102010491308, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  %mktBidSpreads_887895911924946965993101810511307 = phi ptr [ %mktBidSpreads_8878959119249469659931018105210821278, %ehcleanup397 ], [ %mktBidSpreads_887895911924946965993101810511306, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  %mktSpreads_912922948963995101610531305 = phi ptr [ %mktSpreads_9129229489639951016105410801280, %ehcleanup397 ], [ %mktSpreads_912922948963995101610531304, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  %errSpreads_949961997101410551303 = phi ptr [ %errSpreads_9499619971014105610781282, %ehcleanup397 ], [ %errSpreads_949961997101410551302, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  %mdlSpotCmsLegNPV_998101210571301 = phi ptr [ %mdlSpotCmsLegNPV_9981012105810761284, %ehcleanup397 ], [ %mdlSpotCmsLegNPV_998101210571300, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
-  store ptr null, ptr %errSpotCmsLegNPV_102710411317, align 8, !tbaa !3
-  %.pre1208 = load ptr, ptr %mdlSpotCmsLegNPV_998101210571301, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn.pn1407 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn1376, %ehcleanup397 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn1406, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  %errSpotCmsLegNPV_102710411405 = phi ptr [ %errSpotCmsLegNPV_1027104210921356, %ehcleanup397 ], [ %errSpotCmsLegNPV_102710411404, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  %mktSpotCmsLegNPV_972985102610431403 = phi ptr [ %mktSpotCmsLegNPV_9729851026104410901358, %ehcleanup397 ], [ %mktSpotCmsLegNPV_972985102610431402, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  %mdlSpreads_929940971987102410451401 = phi ptr [ %mdlSpreads_9299409719871024104610881360, %ehcleanup397 ], [ %mdlSpreads_929940971987102410451400, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  %mktAskSpreads_898907928942969989102210471399 = phi ptr [ %mktAskSpreads_8989079289429699891022104810861362, %ehcleanup397 ], [ %mktAskSpreads_898907928942969989102210471398, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  %spotFloatLegBPS_879886897909926944967991102010491397 = phi ptr [ %spotFloatLegBPS_8798868979099269449679911020105010841364, %ehcleanup397 ], [ %spotFloatLegBPS_879886897909926944967991102010491396, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  %mktBidSpreads_887895911924946965993101810511395 = phi ptr [ %mktBidSpreads_8878959119249469659931018105210821366, %ehcleanup397 ], [ %mktBidSpreads_887895911924946965993101810511394, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  %mktSpreads_912922948963995101610531393 = phi ptr [ %mktSpreads_9129229489639951016105410801368, %ehcleanup397 ], [ %mktSpreads_912922948963995101610531392, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  %errSpreads_949961997101410551391 = phi ptr [ %errSpreads_9499619971014105610781370, %ehcleanup397 ], [ %errSpreads_949961997101410551390, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  %mdlSpotCmsLegNPV_998101210571389 = phi ptr [ %mdlSpotCmsLegNPV_9981012105810761372, %ehcleanup397 ], [ %mdlSpotCmsLegNPV_998101210571388, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i716 ]
+  store ptr null, ptr %errSpotCmsLegNPV_102710411405, align 8, !tbaa !3
+  %.pre1208 = load ptr, ptr %mdlSpotCmsLegNPV_998101210571389, align 8, !tbaa !3
   %cmp.not.i.i718 = icmp eq ptr %.pre1208, null
   br i1 %cmp.not.i.i718, label %ehcleanup399, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719: ; preds = %ehcleanup398.thread, %ehcleanup398
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1346 = phi { ptr, i32 } [ %90, %ehcleanup398.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn1319, %ehcleanup398 ]
-  %mdlSpotCmsLegNPV_99810111344 = phi ptr [ %mdlSpotCmsLegNPV_, %ehcleanup398.thread ], [ %mdlSpotCmsLegNPV_998101210571301, %ehcleanup398 ]
-  %errSpreads_94996199710131342 = phi ptr [ %errSpreads_, %ehcleanup398.thread ], [ %errSpreads_949961997101410551303, %ehcleanup398 ]
-  %mktSpreads_91292294896399510151340 = phi ptr [ %mktSpreads_, %ehcleanup398.thread ], [ %mktSpreads_912922948963995101610531305, %ehcleanup398 ]
-  %mktBidSpreads_88789591192494696599310171338 = phi ptr [ %mktBidSpreads_, %ehcleanup398.thread ], [ %mktBidSpreads_887895911924946965993101810511307, %ehcleanup398 ]
-  %spotFloatLegBPS_87988689790992694496799110191336 = phi ptr [ %spotFloatLegBPS_, %ehcleanup398.thread ], [ %spotFloatLegBPS_879886897909926944967991102010491309, %ehcleanup398 ]
-  %mktAskSpreads_89890792894296998910211334 = phi ptr [ %mktAskSpreads_, %ehcleanup398.thread ], [ %mktAskSpreads_898907928942969989102210471311, %ehcleanup398 ]
-  %mdlSpreads_92994097198710231332 = phi ptr [ %mdlSpreads_, %ehcleanup398.thread ], [ %mdlSpreads_929940971987102410451313, %ehcleanup398 ]
-  %mktSpotCmsLegNPV_97298510251330 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup398.thread ], [ %mktSpotCmsLegNPV_972985102610431315, %ehcleanup398 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1434 = phi { ptr, i32 } [ %90, %ehcleanup398.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn1407, %ehcleanup398 ]
+  %mdlSpotCmsLegNPV_99810111432 = phi ptr [ %mdlSpotCmsLegNPV_, %ehcleanup398.thread ], [ %mdlSpotCmsLegNPV_998101210571389, %ehcleanup398 ]
+  %errSpreads_94996199710131430 = phi ptr [ %errSpreads_, %ehcleanup398.thread ], [ %errSpreads_949961997101410551391, %ehcleanup398 ]
+  %mktSpreads_91292294896399510151428 = phi ptr [ %mktSpreads_, %ehcleanup398.thread ], [ %mktSpreads_912922948963995101610531393, %ehcleanup398 ]
+  %mktBidSpreads_88789591192494696599310171426 = phi ptr [ %mktBidSpreads_, %ehcleanup398.thread ], [ %mktBidSpreads_887895911924946965993101810511395, %ehcleanup398 ]
+  %spotFloatLegBPS_87988689790992694496799110191424 = phi ptr [ %spotFloatLegBPS_, %ehcleanup398.thread ], [ %spotFloatLegBPS_879886897909926944967991102010491397, %ehcleanup398 ]
+  %mktAskSpreads_89890792894296998910211422 = phi ptr [ %mktAskSpreads_, %ehcleanup398.thread ], [ %mktAskSpreads_898907928942969989102210471399, %ehcleanup398 ]
+  %mdlSpreads_92994097198710231420 = phi ptr [ %mdlSpreads_, %ehcleanup398.thread ], [ %mdlSpreads_929940971987102410451401, %ehcleanup398 ]
+  %mktSpotCmsLegNPV_97298510251418 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup398.thread ], [ %mktSpotCmsLegNPV_972985102610431403, %ehcleanup398 ]
   %337 = phi ptr [ %call.i185, %ehcleanup398.thread ], [ %.pre1208, %ehcleanup398 ]
   call void @_ZdaPv(ptr noundef nonnull %337) #32
   br label %ehcleanup399
 
 ehcleanup399:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719, %ehcleanup398
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1347 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn1319, %ehcleanup398 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1346, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
-  %mdlSpotCmsLegNPV_99810111345 = phi ptr [ %mdlSpotCmsLegNPV_998101210571301, %ehcleanup398 ], [ %mdlSpotCmsLegNPV_99810111344, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
-  %errSpreads_94996199710131343 = phi ptr [ %errSpreads_949961997101410551303, %ehcleanup398 ], [ %errSpreads_94996199710131342, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
-  %mktSpreads_91292294896399510151341 = phi ptr [ %mktSpreads_912922948963995101610531305, %ehcleanup398 ], [ %mktSpreads_91292294896399510151340, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
-  %mktBidSpreads_88789591192494696599310171339 = phi ptr [ %mktBidSpreads_887895911924946965993101810511307, %ehcleanup398 ], [ %mktBidSpreads_88789591192494696599310171338, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
-  %spotFloatLegBPS_87988689790992694496799110191337 = phi ptr [ %spotFloatLegBPS_879886897909926944967991102010491309, %ehcleanup398 ], [ %spotFloatLegBPS_87988689790992694496799110191336, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
-  %mktAskSpreads_89890792894296998910211335 = phi ptr [ %mktAskSpreads_898907928942969989102210471311, %ehcleanup398 ], [ %mktAskSpreads_89890792894296998910211334, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
-  %mdlSpreads_92994097198710231333 = phi ptr [ %mdlSpreads_929940971987102410451313, %ehcleanup398 ], [ %mdlSpreads_92994097198710231332, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
-  %mktSpotCmsLegNPV_97298510251331 = phi ptr [ %mktSpotCmsLegNPV_972985102610431315, %ehcleanup398 ], [ %mktSpotCmsLegNPV_97298510251330, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
-  store ptr null, ptr %mdlSpotCmsLegNPV_99810111345, align 8, !tbaa !3
-  %.pre1209 = load ptr, ptr %mktSpotCmsLegNPV_97298510251331, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1435 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn1407, %ehcleanup398 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1434, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
+  %mdlSpotCmsLegNPV_99810111433 = phi ptr [ %mdlSpotCmsLegNPV_998101210571389, %ehcleanup398 ], [ %mdlSpotCmsLegNPV_99810111432, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
+  %errSpreads_94996199710131431 = phi ptr [ %errSpreads_949961997101410551391, %ehcleanup398 ], [ %errSpreads_94996199710131430, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
+  %mktSpreads_91292294896399510151429 = phi ptr [ %mktSpreads_912922948963995101610531393, %ehcleanup398 ], [ %mktSpreads_91292294896399510151428, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
+  %mktBidSpreads_88789591192494696599310171427 = phi ptr [ %mktBidSpreads_887895911924946965993101810511395, %ehcleanup398 ], [ %mktBidSpreads_88789591192494696599310171426, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
+  %spotFloatLegBPS_87988689790992694496799110191425 = phi ptr [ %spotFloatLegBPS_879886897909926944967991102010491397, %ehcleanup398 ], [ %spotFloatLegBPS_87988689790992694496799110191424, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
+  %mktAskSpreads_89890792894296998910211423 = phi ptr [ %mktAskSpreads_898907928942969989102210471399, %ehcleanup398 ], [ %mktAskSpreads_89890792894296998910211422, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
+  %mdlSpreads_92994097198710231421 = phi ptr [ %mdlSpreads_929940971987102410451401, %ehcleanup398 ], [ %mdlSpreads_92994097198710231420, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
+  %mktSpotCmsLegNPV_97298510251419 = phi ptr [ %mktSpotCmsLegNPV_972985102610431403, %ehcleanup398 ], [ %mktSpotCmsLegNPV_97298510251418, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i719 ]
+  store ptr null, ptr %mdlSpotCmsLegNPV_99810111433, align 8, !tbaa !3
+  %.pre1209 = load ptr, ptr %mktSpotCmsLegNPV_97298510251419, align 8, !tbaa !3
   %cmp.not.i.i721 = icmp eq ptr %.pre1209, null
   br i1 %cmp.not.i.i721, label %ehcleanup400, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722: ; preds = %ehcleanup399.thread, %ehcleanup399
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1371 = phi { ptr, i32 } [ %89, %ehcleanup399.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1347, %ehcleanup399 ]
-  %mktSpotCmsLegNPV_9729841369 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup399.thread ], [ %mktSpotCmsLegNPV_97298510251331, %ehcleanup399 ]
-  %mdlSpreads_9299409719861367 = phi ptr [ %mdlSpreads_, %ehcleanup399.thread ], [ %mdlSpreads_92994097198710231333, %ehcleanup399 ]
-  %mktAskSpreads_8989079289429699881365 = phi ptr [ %mktAskSpreads_, %ehcleanup399.thread ], [ %mktAskSpreads_89890792894296998910211335, %ehcleanup399 ]
-  %spotFloatLegBPS_8798868979099269449679901363 = phi ptr [ %spotFloatLegBPS_, %ehcleanup399.thread ], [ %spotFloatLegBPS_87988689790992694496799110191337, %ehcleanup399 ]
-  %mktBidSpreads_8878959119249469659921361 = phi ptr [ %mktBidSpreads_, %ehcleanup399.thread ], [ %mktBidSpreads_88789591192494696599310171339, %ehcleanup399 ]
-  %mktSpreads_9129229489639941359 = phi ptr [ %mktSpreads_, %ehcleanup399.thread ], [ %mktSpreads_91292294896399510151341, %ehcleanup399 ]
-  %errSpreads_9499619961357 = phi ptr [ %errSpreads_, %ehcleanup399.thread ], [ %errSpreads_94996199710131343, %ehcleanup399 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1459 = phi { ptr, i32 } [ %89, %ehcleanup399.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1435, %ehcleanup399 ]
+  %mktSpotCmsLegNPV_9729841457 = phi ptr [ %mktSpotCmsLegNPV_, %ehcleanup399.thread ], [ %mktSpotCmsLegNPV_97298510251419, %ehcleanup399 ]
+  %mdlSpreads_9299409719861455 = phi ptr [ %mdlSpreads_, %ehcleanup399.thread ], [ %mdlSpreads_92994097198710231421, %ehcleanup399 ]
+  %mktAskSpreads_8989079289429699881453 = phi ptr [ %mktAskSpreads_, %ehcleanup399.thread ], [ %mktAskSpreads_89890792894296998910211423, %ehcleanup399 ]
+  %spotFloatLegBPS_8798868979099269449679901451 = phi ptr [ %spotFloatLegBPS_, %ehcleanup399.thread ], [ %spotFloatLegBPS_87988689790992694496799110191425, %ehcleanup399 ]
+  %mktBidSpreads_8878959119249469659921449 = phi ptr [ %mktBidSpreads_, %ehcleanup399.thread ], [ %mktBidSpreads_88789591192494696599310171427, %ehcleanup399 ]
+  %mktSpreads_9129229489639941447 = phi ptr [ %mktSpreads_, %ehcleanup399.thread ], [ %mktSpreads_91292294896399510151429, %ehcleanup399 ]
+  %errSpreads_9499619961445 = phi ptr [ %errSpreads_, %ehcleanup399.thread ], [ %errSpreads_94996199710131431, %ehcleanup399 ]
   %338 = phi ptr [ %call.i176, %ehcleanup399.thread ], [ %.pre1209, %ehcleanup399 ]
   call void @_ZdaPv(ptr noundef nonnull %338) #32
   br label %ehcleanup400
 
 ehcleanup400:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722, %ehcleanup399
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1372 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1347, %ehcleanup399 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1371, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
-  %mktSpotCmsLegNPV_9729841370 = phi ptr [ %mktSpotCmsLegNPV_97298510251331, %ehcleanup399 ], [ %mktSpotCmsLegNPV_9729841369, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
-  %mdlSpreads_9299409719861368 = phi ptr [ %mdlSpreads_92994097198710231333, %ehcleanup399 ], [ %mdlSpreads_9299409719861367, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
-  %mktAskSpreads_8989079289429699881366 = phi ptr [ %mktAskSpreads_89890792894296998910211335, %ehcleanup399 ], [ %mktAskSpreads_8989079289429699881365, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
-  %spotFloatLegBPS_8798868979099269449679901364 = phi ptr [ %spotFloatLegBPS_87988689790992694496799110191337, %ehcleanup399 ], [ %spotFloatLegBPS_8798868979099269449679901363, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
-  %mktBidSpreads_8878959119249469659921362 = phi ptr [ %mktBidSpreads_88789591192494696599310171339, %ehcleanup399 ], [ %mktBidSpreads_8878959119249469659921361, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
-  %mktSpreads_9129229489639941360 = phi ptr [ %mktSpreads_91292294896399510151341, %ehcleanup399 ], [ %mktSpreads_9129229489639941359, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
-  %errSpreads_9499619961358 = phi ptr [ %errSpreads_94996199710131343, %ehcleanup399 ], [ %errSpreads_9499619961357, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
-  store ptr null, ptr %mktSpotCmsLegNPV_9729841370, align 8, !tbaa !3
-  %.pre1210 = load ptr, ptr %errSpreads_9499619961358, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1460 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn1435, %ehcleanup399 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1459, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
+  %mktSpotCmsLegNPV_9729841458 = phi ptr [ %mktSpotCmsLegNPV_97298510251419, %ehcleanup399 ], [ %mktSpotCmsLegNPV_9729841457, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
+  %mdlSpreads_9299409719861456 = phi ptr [ %mdlSpreads_92994097198710231421, %ehcleanup399 ], [ %mdlSpreads_9299409719861455, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
+  %mktAskSpreads_8989079289429699881454 = phi ptr [ %mktAskSpreads_89890792894296998910211423, %ehcleanup399 ], [ %mktAskSpreads_8989079289429699881453, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
+  %spotFloatLegBPS_8798868979099269449679901452 = phi ptr [ %spotFloatLegBPS_87988689790992694496799110191425, %ehcleanup399 ], [ %spotFloatLegBPS_8798868979099269449679901451, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
+  %mktBidSpreads_8878959119249469659921450 = phi ptr [ %mktBidSpreads_88789591192494696599310171427, %ehcleanup399 ], [ %mktBidSpreads_8878959119249469659921449, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
+  %mktSpreads_9129229489639941448 = phi ptr [ %mktSpreads_91292294896399510151429, %ehcleanup399 ], [ %mktSpreads_9129229489639941447, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
+  %errSpreads_9499619961446 = phi ptr [ %errSpreads_94996199710131431, %ehcleanup399 ], [ %errSpreads_9499619961445, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i722 ]
+  store ptr null, ptr %mktSpotCmsLegNPV_9729841458, align 8, !tbaa !3
+  %.pre1210 = load ptr, ptr %errSpreads_9499619961446, align 8, !tbaa !3
   %cmp.not.i.i724 = icmp eq ptr %.pre1210, null
   br i1 %cmp.not.i.i724, label %ehcleanup401, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725: ; preds = %ehcleanup400.thread, %ehcleanup400
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1393 = phi { ptr, i32 } [ %88, %ehcleanup400.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1372, %ehcleanup400 ]
-  %errSpreads_9499601391 = phi ptr [ %errSpreads_, %ehcleanup400.thread ], [ %errSpreads_9499619961358, %ehcleanup400 ]
-  %mktSpreads_9129229489621389 = phi ptr [ %mktSpreads_, %ehcleanup400.thread ], [ %mktSpreads_9129229489639941360, %ehcleanup400 ]
-  %mktBidSpreads_8878959119249469641387 = phi ptr [ %mktBidSpreads_, %ehcleanup400.thread ], [ %mktBidSpreads_8878959119249469659921362, %ehcleanup400 ]
-  %spotFloatLegBPS_8798868979099269449661385 = phi ptr [ %spotFloatLegBPS_, %ehcleanup400.thread ], [ %spotFloatLegBPS_8798868979099269449679901364, %ehcleanup400 ]
-  %mktAskSpreads_8989079289429681383 = phi ptr [ %mktAskSpreads_, %ehcleanup400.thread ], [ %mktAskSpreads_8989079289429699881366, %ehcleanup400 ]
-  %mdlSpreads_9299409701381 = phi ptr [ %mdlSpreads_, %ehcleanup400.thread ], [ %mdlSpreads_9299409719861368, %ehcleanup400 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1481 = phi { ptr, i32 } [ %88, %ehcleanup400.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1460, %ehcleanup400 ]
+  %errSpreads_9499601479 = phi ptr [ %errSpreads_, %ehcleanup400.thread ], [ %errSpreads_9499619961446, %ehcleanup400 ]
+  %mktSpreads_9129229489621477 = phi ptr [ %mktSpreads_, %ehcleanup400.thread ], [ %mktSpreads_9129229489639941448, %ehcleanup400 ]
+  %mktBidSpreads_8878959119249469641475 = phi ptr [ %mktBidSpreads_, %ehcleanup400.thread ], [ %mktBidSpreads_8878959119249469659921450, %ehcleanup400 ]
+  %spotFloatLegBPS_8798868979099269449661473 = phi ptr [ %spotFloatLegBPS_, %ehcleanup400.thread ], [ %spotFloatLegBPS_8798868979099269449679901452, %ehcleanup400 ]
+  %mktAskSpreads_8989079289429681471 = phi ptr [ %mktAskSpreads_, %ehcleanup400.thread ], [ %mktAskSpreads_8989079289429699881454, %ehcleanup400 ]
+  %mdlSpreads_9299409701469 = phi ptr [ %mdlSpreads_, %ehcleanup400.thread ], [ %mdlSpreads_9299409719861456, %ehcleanup400 ]
   %339 = phi ptr [ %call.i167, %ehcleanup400.thread ], [ %.pre1210, %ehcleanup400 ]
   call void @_ZdaPv(ptr noundef nonnull %339) #32
   br label %ehcleanup401
 
 ehcleanup401:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725, %ehcleanup400
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1394 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1372, %ehcleanup400 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1393, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
-  %errSpreads_9499601392 = phi ptr [ %errSpreads_9499619961358, %ehcleanup400 ], [ %errSpreads_9499601391, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
-  %mktSpreads_9129229489621390 = phi ptr [ %mktSpreads_9129229489639941360, %ehcleanup400 ], [ %mktSpreads_9129229489621389, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
-  %mktBidSpreads_8878959119249469641388 = phi ptr [ %mktBidSpreads_8878959119249469659921362, %ehcleanup400 ], [ %mktBidSpreads_8878959119249469641387, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
-  %spotFloatLegBPS_8798868979099269449661386 = phi ptr [ %spotFloatLegBPS_8798868979099269449679901364, %ehcleanup400 ], [ %spotFloatLegBPS_8798868979099269449661385, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
-  %mktAskSpreads_8989079289429681384 = phi ptr [ %mktAskSpreads_8989079289429699881366, %ehcleanup400 ], [ %mktAskSpreads_8989079289429681383, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
-  %mdlSpreads_9299409701382 = phi ptr [ %mdlSpreads_9299409719861368, %ehcleanup400 ], [ %mdlSpreads_9299409701381, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
-  store ptr null, ptr %errSpreads_9499601392, align 8, !tbaa !3
-  %.pre1211 = load ptr, ptr %mdlSpreads_9299409701382, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1482 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn1460, %ehcleanup400 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1481, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
+  %errSpreads_9499601480 = phi ptr [ %errSpreads_9499619961446, %ehcleanup400 ], [ %errSpreads_9499601479, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
+  %mktSpreads_9129229489621478 = phi ptr [ %mktSpreads_9129229489639941448, %ehcleanup400 ], [ %mktSpreads_9129229489621477, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
+  %mktBidSpreads_8878959119249469641476 = phi ptr [ %mktBidSpreads_8878959119249469659921450, %ehcleanup400 ], [ %mktBidSpreads_8878959119249469641475, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
+  %spotFloatLegBPS_8798868979099269449661474 = phi ptr [ %spotFloatLegBPS_8798868979099269449679901452, %ehcleanup400 ], [ %spotFloatLegBPS_8798868979099269449661473, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
+  %mktAskSpreads_8989079289429681472 = phi ptr [ %mktAskSpreads_8989079289429699881454, %ehcleanup400 ], [ %mktAskSpreads_8989079289429681471, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
+  %mdlSpreads_9299409701470 = phi ptr [ %mdlSpreads_9299409719861456, %ehcleanup400 ], [ %mdlSpreads_9299409701469, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i725 ]
+  store ptr null, ptr %errSpreads_9499601480, align 8, !tbaa !3
+  %.pre1211 = load ptr, ptr %mdlSpreads_9299409701470, align 8, !tbaa !3
   %cmp.not.i.i727 = icmp eq ptr %.pre1211, null
   br i1 %cmp.not.i.i727, label %ehcleanup402, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728: ; preds = %ehcleanup401.thread, %ehcleanup401
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1412 = phi { ptr, i32 } [ %87, %ehcleanup401.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1394, %ehcleanup401 ]
-  %mdlSpreads_9299391410 = phi ptr [ %mdlSpreads_, %ehcleanup401.thread ], [ %mdlSpreads_9299409701382, %ehcleanup401 ]
-  %mktAskSpreads_8989079289411408 = phi ptr [ %mktAskSpreads_, %ehcleanup401.thread ], [ %mktAskSpreads_8989079289429681384, %ehcleanup401 ]
-  %spotFloatLegBPS_8798868979099269431406 = phi ptr [ %spotFloatLegBPS_, %ehcleanup401.thread ], [ %spotFloatLegBPS_8798868979099269449661386, %ehcleanup401 ]
-  %mktBidSpreads_8878959119249451404 = phi ptr [ %mktBidSpreads_, %ehcleanup401.thread ], [ %mktBidSpreads_8878959119249469641388, %ehcleanup401 ]
-  %mktSpreads_9129229471402 = phi ptr [ %mktSpreads_, %ehcleanup401.thread ], [ %mktSpreads_9129229489621390, %ehcleanup401 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1500 = phi { ptr, i32 } [ %87, %ehcleanup401.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1482, %ehcleanup401 ]
+  %mdlSpreads_9299391498 = phi ptr [ %mdlSpreads_, %ehcleanup401.thread ], [ %mdlSpreads_9299409701470, %ehcleanup401 ]
+  %mktAskSpreads_8989079289411496 = phi ptr [ %mktAskSpreads_, %ehcleanup401.thread ], [ %mktAskSpreads_8989079289429681472, %ehcleanup401 ]
+  %spotFloatLegBPS_8798868979099269431494 = phi ptr [ %spotFloatLegBPS_, %ehcleanup401.thread ], [ %spotFloatLegBPS_8798868979099269449661474, %ehcleanup401 ]
+  %mktBidSpreads_8878959119249451492 = phi ptr [ %mktBidSpreads_, %ehcleanup401.thread ], [ %mktBidSpreads_8878959119249469641476, %ehcleanup401 ]
+  %mktSpreads_9129229471490 = phi ptr [ %mktSpreads_, %ehcleanup401.thread ], [ %mktSpreads_9129229489621478, %ehcleanup401 ]
   %340 = phi ptr [ %call.i158, %ehcleanup401.thread ], [ %.pre1211, %ehcleanup401 ]
   call void @_ZdaPv(ptr noundef nonnull %340) #32
   br label %ehcleanup402
 
 ehcleanup402:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728, %ehcleanup401
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1413 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1394, %ehcleanup401 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1412, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
-  %mdlSpreads_9299391411 = phi ptr [ %mdlSpreads_9299409701382, %ehcleanup401 ], [ %mdlSpreads_9299391410, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
-  %mktAskSpreads_8989079289411409 = phi ptr [ %mktAskSpreads_8989079289429681384, %ehcleanup401 ], [ %mktAskSpreads_8989079289411408, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
-  %spotFloatLegBPS_8798868979099269431407 = phi ptr [ %spotFloatLegBPS_8798868979099269449661386, %ehcleanup401 ], [ %spotFloatLegBPS_8798868979099269431406, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
-  %mktBidSpreads_8878959119249451405 = phi ptr [ %mktBidSpreads_8878959119249469641388, %ehcleanup401 ], [ %mktBidSpreads_8878959119249451404, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
-  %mktSpreads_9129229471403 = phi ptr [ %mktSpreads_9129229489621390, %ehcleanup401 ], [ %mktSpreads_9129229471402, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
-  store ptr null, ptr %mdlSpreads_9299391411, align 8, !tbaa !3
-  %.pre1212 = load ptr, ptr %mktSpreads_9129229471403, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1501 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1482, %ehcleanup401 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1500, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
+  %mdlSpreads_9299391499 = phi ptr [ %mdlSpreads_9299409701470, %ehcleanup401 ], [ %mdlSpreads_9299391498, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
+  %mktAskSpreads_8989079289411497 = phi ptr [ %mktAskSpreads_8989079289429681472, %ehcleanup401 ], [ %mktAskSpreads_8989079289411496, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
+  %spotFloatLegBPS_8798868979099269431495 = phi ptr [ %spotFloatLegBPS_8798868979099269449661474, %ehcleanup401 ], [ %spotFloatLegBPS_8798868979099269431494, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
+  %mktBidSpreads_8878959119249451493 = phi ptr [ %mktBidSpreads_8878959119249469641476, %ehcleanup401 ], [ %mktBidSpreads_8878959119249451492, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
+  %mktSpreads_9129229471491 = phi ptr [ %mktSpreads_9129229489621478, %ehcleanup401 ], [ %mktSpreads_9129229471490, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i728 ]
+  store ptr null, ptr %mdlSpreads_9299391499, align 8, !tbaa !3
+  %.pre1212 = load ptr, ptr %mktSpreads_9129229471491, align 8, !tbaa !3
   %cmp.not.i.i730 = icmp eq ptr %.pre1212, null
   br i1 %cmp.not.i.i730, label %ehcleanup403, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731: ; preds = %ehcleanup402.thread, %ehcleanup402
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1428 = phi { ptr, i32 } [ %86, %ehcleanup402.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1413, %ehcleanup402 ]
-  %mktSpreads_9129211426 = phi ptr [ %mktSpreads_, %ehcleanup402.thread ], [ %mktSpreads_9129229471403, %ehcleanup402 ]
-  %mktBidSpreads_8878959119231424 = phi ptr [ %mktBidSpreads_, %ehcleanup402.thread ], [ %mktBidSpreads_8878959119249451405, %ehcleanup402 ]
-  %spotFloatLegBPS_8798868979099251422 = phi ptr [ %spotFloatLegBPS_, %ehcleanup402.thread ], [ %spotFloatLegBPS_8798868979099269431407, %ehcleanup402 ]
-  %mktAskSpreads_8989079271420 = phi ptr [ %mktAskSpreads_, %ehcleanup402.thread ], [ %mktAskSpreads_8989079289411409, %ehcleanup402 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1516 = phi { ptr, i32 } [ %86, %ehcleanup402.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1501, %ehcleanup402 ]
+  %mktSpreads_9129211514 = phi ptr [ %mktSpreads_, %ehcleanup402.thread ], [ %mktSpreads_9129229471491, %ehcleanup402 ]
+  %mktBidSpreads_8878959119231512 = phi ptr [ %mktBidSpreads_, %ehcleanup402.thread ], [ %mktBidSpreads_8878959119249451493, %ehcleanup402 ]
+  %spotFloatLegBPS_8798868979099251510 = phi ptr [ %spotFloatLegBPS_, %ehcleanup402.thread ], [ %spotFloatLegBPS_8798868979099269431495, %ehcleanup402 ]
+  %mktAskSpreads_8989079271508 = phi ptr [ %mktAskSpreads_, %ehcleanup402.thread ], [ %mktAskSpreads_8989079289411497, %ehcleanup402 ]
   %341 = phi ptr [ %call.i149, %ehcleanup402.thread ], [ %.pre1212, %ehcleanup402 ]
   call void @_ZdaPv(ptr noundef nonnull %341) #32
   br label %ehcleanup403
 
 ehcleanup403:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731, %ehcleanup402
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1429 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1413, %ehcleanup402 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1428, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731 ]
-  %mktSpreads_9129211427 = phi ptr [ %mktSpreads_9129229471403, %ehcleanup402 ], [ %mktSpreads_9129211426, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731 ]
-  %mktBidSpreads_8878959119231425 = phi ptr [ %mktBidSpreads_8878959119249451405, %ehcleanup402 ], [ %mktBidSpreads_8878959119231424, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731 ]
-  %spotFloatLegBPS_8798868979099251423 = phi ptr [ %spotFloatLegBPS_8798868979099269431407, %ehcleanup402 ], [ %spotFloatLegBPS_8798868979099251422, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731 ]
-  %mktAskSpreads_8989079271421 = phi ptr [ %mktAskSpreads_8989079289411409, %ehcleanup402 ], [ %mktAskSpreads_8989079271420, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731 ]
-  store ptr null, ptr %mktSpreads_9129211427, align 8, !tbaa !3
-  %.pre1213 = load ptr, ptr %mktAskSpreads_8989079271421, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1517 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1501, %ehcleanup402 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1516, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731 ]
+  %mktSpreads_9129211515 = phi ptr [ %mktSpreads_9129229471491, %ehcleanup402 ], [ %mktSpreads_9129211514, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731 ]
+  %mktBidSpreads_8878959119231513 = phi ptr [ %mktBidSpreads_8878959119249451493, %ehcleanup402 ], [ %mktBidSpreads_8878959119231512, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731 ]
+  %spotFloatLegBPS_8798868979099251511 = phi ptr [ %spotFloatLegBPS_8798868979099269431495, %ehcleanup402 ], [ %spotFloatLegBPS_8798868979099251510, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731 ]
+  %mktAskSpreads_8989079271509 = phi ptr [ %mktAskSpreads_8989079289411497, %ehcleanup402 ], [ %mktAskSpreads_8989079271508, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i731 ]
+  store ptr null, ptr %mktSpreads_9129211515, align 8, !tbaa !3
+  %.pre1213 = load ptr, ptr %mktAskSpreads_8989079271509, align 8, !tbaa !3
   %cmp.not.i.i733 = icmp eq ptr %.pre1213, null
   br i1 %cmp.not.i.i733, label %ehcleanup404, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734: ; preds = %ehcleanup403.thread, %ehcleanup403
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1441 = phi { ptr, i32 } [ %85, %ehcleanup403.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1429, %ehcleanup403 ]
-  %mktAskSpreads_8989061439 = phi ptr [ %mktAskSpreads_, %ehcleanup403.thread ], [ %mktAskSpreads_8989079271421, %ehcleanup403 ]
-  %spotFloatLegBPS_8798868979081437 = phi ptr [ %spotFloatLegBPS_, %ehcleanup403.thread ], [ %spotFloatLegBPS_8798868979099251423, %ehcleanup403 ]
-  %mktBidSpreads_8878959101435 = phi ptr [ %mktBidSpreads_, %ehcleanup403.thread ], [ %mktBidSpreads_8878959119231425, %ehcleanup403 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1529 = phi { ptr, i32 } [ %85, %ehcleanup403.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1517, %ehcleanup403 ]
+  %mktAskSpreads_8989061527 = phi ptr [ %mktAskSpreads_, %ehcleanup403.thread ], [ %mktAskSpreads_8989079271509, %ehcleanup403 ]
+  %spotFloatLegBPS_8798868979081525 = phi ptr [ %spotFloatLegBPS_, %ehcleanup403.thread ], [ %spotFloatLegBPS_8798868979099251511, %ehcleanup403 ]
+  %mktBidSpreads_8878959101523 = phi ptr [ %mktBidSpreads_, %ehcleanup403.thread ], [ %mktBidSpreads_8878959119231513, %ehcleanup403 ]
   %342 = phi ptr [ %call.i140, %ehcleanup403.thread ], [ %.pre1213, %ehcleanup403 ]
   call void @_ZdaPv(ptr noundef nonnull %342) #32
   br label %ehcleanup404
 
 ehcleanup404:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734, %ehcleanup403
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1442 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1429, %ehcleanup403 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1441, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734 ]
-  %mktAskSpreads_8989061440 = phi ptr [ %mktAskSpreads_8989079271421, %ehcleanup403 ], [ %mktAskSpreads_8989061439, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734 ]
-  %spotFloatLegBPS_8798868979081438 = phi ptr [ %spotFloatLegBPS_8798868979099251423, %ehcleanup403 ], [ %spotFloatLegBPS_8798868979081437, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734 ]
-  %mktBidSpreads_8878959101436 = phi ptr [ %mktBidSpreads_8878959119231425, %ehcleanup403 ], [ %mktBidSpreads_8878959101435, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734 ]
-  store ptr null, ptr %mktAskSpreads_8989061440, align 8, !tbaa !3
-  %.pre1214 = load ptr, ptr %mktBidSpreads_8878959101436, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1530 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1517, %ehcleanup403 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1529, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734 ]
+  %mktAskSpreads_8989061528 = phi ptr [ %mktAskSpreads_8989079271509, %ehcleanup403 ], [ %mktAskSpreads_8989061527, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734 ]
+  %spotFloatLegBPS_8798868979081526 = phi ptr [ %spotFloatLegBPS_8798868979099251511, %ehcleanup403 ], [ %spotFloatLegBPS_8798868979081525, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734 ]
+  %mktBidSpreads_8878959101524 = phi ptr [ %mktBidSpreads_8878959119231513, %ehcleanup403 ], [ %mktBidSpreads_8878959101523, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i734 ]
+  store ptr null, ptr %mktAskSpreads_8989061528, align 8, !tbaa !3
+  %.pre1214 = load ptr, ptr %mktBidSpreads_8878959101524, align 8, !tbaa !3
   %cmp.not.i.i736 = icmp eq ptr %.pre1214, null
   br i1 %cmp.not.i.i736, label %ehcleanup405, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i737
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i737: ; preds = %ehcleanup404.thread, %ehcleanup404
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1451 = phi { ptr, i32 } [ %84, %ehcleanup404.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1442, %ehcleanup404 ]
-  %mktBidSpreads_8878941449 = phi ptr [ %mktBidSpreads_, %ehcleanup404.thread ], [ %mktBidSpreads_8878959101436, %ehcleanup404 ]
-  %spotFloatLegBPS_8798868961447 = phi ptr [ %spotFloatLegBPS_, %ehcleanup404.thread ], [ %spotFloatLegBPS_8798868979081438, %ehcleanup404 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1539 = phi { ptr, i32 } [ %84, %ehcleanup404.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1530, %ehcleanup404 ]
+  %mktBidSpreads_8878941537 = phi ptr [ %mktBidSpreads_, %ehcleanup404.thread ], [ %mktBidSpreads_8878959101524, %ehcleanup404 ]
+  %spotFloatLegBPS_8798868961535 = phi ptr [ %spotFloatLegBPS_, %ehcleanup404.thread ], [ %spotFloatLegBPS_8798868979081526, %ehcleanup404 ]
   %343 = phi ptr [ %call.i131, %ehcleanup404.thread ], [ %.pre1214, %ehcleanup404 ]
   call void @_ZdaPv(ptr noundef nonnull %343) #32
   br label %ehcleanup405
 
 ehcleanup405:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i737, %ehcleanup404
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1452 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1442, %ehcleanup404 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1451, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i737 ]
-  %mktBidSpreads_8878941450 = phi ptr [ %mktBidSpreads_8878959101436, %ehcleanup404 ], [ %mktBidSpreads_8878941449, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i737 ]
-  %spotFloatLegBPS_8798868961448 = phi ptr [ %spotFloatLegBPS_8798868979081438, %ehcleanup404 ], [ %spotFloatLegBPS_8798868961447, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i737 ]
-  store ptr null, ptr %mktBidSpreads_8878941450, align 8, !tbaa !3
-  %.pre1215 = load ptr, ptr %spotFloatLegBPS_8798868961448, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1540 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1530, %ehcleanup404 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1539, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i737 ]
+  %mktBidSpreads_8878941538 = phi ptr [ %mktBidSpreads_8878959101524, %ehcleanup404 ], [ %mktBidSpreads_8878941537, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i737 ]
+  %spotFloatLegBPS_8798868961536 = phi ptr [ %spotFloatLegBPS_8798868979081526, %ehcleanup404 ], [ %spotFloatLegBPS_8798868961535, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i737 ]
+  store ptr null, ptr %mktBidSpreads_8878941538, align 8, !tbaa !3
+  %.pre1215 = load ptr, ptr %spotFloatLegBPS_8798868961536, align 8, !tbaa !3
   %cmp.not.i.i739 = icmp eq ptr %.pre1215, null
   br i1 %cmp.not.i.i739, label %ehcleanup406, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i740
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i740: ; preds = %ehcleanup405.thread, %ehcleanup405
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1458 = phi { ptr, i32 } [ %83, %ehcleanup405.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1452, %ehcleanup405 ]
-  %spotFloatLegBPS_8798851456 = phi ptr [ %spotFloatLegBPS_, %ehcleanup405.thread ], [ %spotFloatLegBPS_8798868961448, %ehcleanup405 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1546 = phi { ptr, i32 } [ %83, %ehcleanup405.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1540, %ehcleanup405 ]
+  %spotFloatLegBPS_8798851544 = phi ptr [ %spotFloatLegBPS_, %ehcleanup405.thread ], [ %spotFloatLegBPS_8798868961536, %ehcleanup405 ]
   %344 = phi ptr [ %call.i122, %ehcleanup405.thread ], [ %.pre1215, %ehcleanup405 ]
   call void @_ZdaPv(ptr noundef nonnull %344) #32
   br label %ehcleanup406
 
 ehcleanup406:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i740, %ehcleanup405
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1459 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1452, %ehcleanup405 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1458, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i740 ]
-  %spotFloatLegBPS_8798851457 = phi ptr [ %spotFloatLegBPS_8798868961448, %ehcleanup405 ], [ %spotFloatLegBPS_8798851456, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i740 ]
-  store ptr null, ptr %spotFloatLegBPS_8798851457, align 8, !tbaa !3
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1547 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1540, %ehcleanup405 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1546, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i740 ]
+  %spotFloatLegBPS_8798851545 = phi ptr [ %spotFloatLegBPS_8798868961536, %ehcleanup405 ], [ %spotFloatLegBPS_8798851544, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i740 ]
+  store ptr null, ptr %spotFloatLegBPS_8798851545, align 8, !tbaa !3
   %.pre1216 = load ptr, ptr %spotFloatLegNPV_, align 8, !tbaa !3
   %cmp.not.i.i742 = icmp eq ptr %.pre1216, null
   br i1 %cmp.not.i.i742, label %_ZN8QuantLib6MatrixD2Ev.exit744, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i743
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i743: ; preds = %ehcleanup406.thread, %ehcleanup406
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1462 = phi { ptr, i32 } [ %82, %ehcleanup406.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1459, %ehcleanup406 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1550 = phi { ptr, i32 } [ %82, %ehcleanup406.thread ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1547, %ehcleanup406 ]
   %345 = phi ptr [ %call.i114, %ehcleanup406.thread ], [ %.pre1216, %ehcleanup406 ]
   call void @_ZdaPv(ptr noundef nonnull %345) #32
   br label %_ZN8QuantLib6MatrixD2Ev.exit744
 
 _ZN8QuantLib6MatrixD2Ev.exit744:                  ; preds = %ehcleanup406, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i743
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1463 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1459, %ehcleanup406 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1462, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i743 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1551 = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1547, %ehcleanup406 ], [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1550, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i743 ]
   store ptr null, ptr %spotFloatLegNPV_, align 8, !tbaa !3
   %.pre1217 = load ptr, ptr %swapTenors_, align 8, !tbaa !50
   br label %ehcleanup407
 
 ehcleanup407:                                     ; preds = %_ZN8QuantLib6MatrixD2Ev.exit744, %lpad15
   %346 = phi ptr [ %.pre1217, %_ZN8QuantLib6MatrixD2Ev.exit744 ], [ %33, %lpad15 ]
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1463, %_ZN8QuantLib6MatrixD2Ev.exit744 ], [ %81, %lpad15 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1551, %_ZN8QuantLib6MatrixD2Ev.exit744 ], [ %81, %lpad15 ]
   %tobool.not.i.i.i746 = icmp eq ptr %346, null
   br i1 %tobool.not.i.i.i746, label %ehcleanup408, label %if.then.i.i.i747
 
@@ -10259,26 +10259,26 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i15, label %if.then.i.i.i.i.i19, label %if.end12.i.i.i.i.i
 
 if.then.i.i.i.i.i19:                              ; preds = %while.end.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i13
-  %__y.0.lcssa25.i.i.i.i.i = phi ptr [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i13 ]
+  %__y.0.lcssa26.i.i.i.i.i = phi ptr [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i13 ]
   %_M_left.i3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 32
   %29 = load ptr, ptr %_M_left.i3.i.i.i.i.i, align 8, !tbaa !14
-  %cmp.i4.i.i.i.i.i = icmp eq ptr %__y.0.lcssa25.i.i.i.i.i, %29
+  %cmp.i4.i.i.i.i.i = icmp eq ptr %__y.0.lcssa26.i.i.i.i.i, %29
   br i1 %cmp.i4.i.i.i.i.i, label %if.then.i.i.i.i18, label %if.else.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i19
-  %call.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i.i.i) #34
+  %call.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i.i.i.i) #34
   %_M_storage.i.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i, i64 32
   %.pre.i.i.i.i = load ptr, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i.i.i, align 8, !tbaa !3
   br label %if.end12.i.i.i.i.i
 
 if.end12.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i, %while.end.i.i.i.i.i
   %30 = phi ptr [ %.pre.i.i.i.i, %if.else.i.i.i.i.i ], [ %28, %while.end.i.i.i.i.i ]
-  %__y.0.lcssa26.i.i.i.i.i = phi ptr [ %__y.0.lcssa25.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ]
+  %__y.0.lcssa25.i.i.i.i.i = phi ptr [ %__y.0.lcssa26.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ]
   %cmp.i5.i.i.i.i.i = icmp ult ptr %30, %add.ptr7
   br i1 %cmp.i5.i.i.i.i.i, label %if.then.i.i.i.i18, label %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i
 
 if.then.i.i.i.i18:                                ; preds = %if.end12.i.i.i.i.i, %if.then.i.i.i.i.i19
-  %retval.sroa.4.0.i.ph.i.i.i.i = phi ptr [ %__y.0.lcssa25.i.i.i.i.i, %if.then.i.i.i.i.i19 ], [ %__y.0.lcssa26.i.i.i.i.i, %if.end12.i.i.i.i.i ]
+  %retval.sroa.4.0.i.ph.i.i.i.i = phi ptr [ %__y.0.lcssa26.i.i.i.i.i, %if.then.i.i.i.i.i19 ], [ %__y.0.lcssa25.i.i.i.i.i, %if.end12.i.i.i.i.i ]
   %cmp2.i.i.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp2.i.i.i.i.i, label %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i, label %lor.rhs.i.i.i.i.i
 
@@ -10325,26 +10325,26 @@ while.end.i.i:                                    ; preds = %while.body.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i42, label %if.end12.i.i
 
 if.then.i.i42:                                    ; preds = %while.end.i.i, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i
-  %__y.0.lcssa26.i.i = phi ptr [ %__x.022.i.i, %while.end.i.i ], [ %add.ptr.i.i.i39, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i ]
+  %__y.0.lcssa27.i.i = phi ptr [ %__x.022.i.i, %while.end.i.i ], [ %add.ptr.i.i.i39, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i ]
   %_M_left.i3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr7, i64 32
   %35 = load ptr, ptr %_M_left.i3.i.i, align 8, !tbaa !14
-  %cmp.i.i.i43 = icmp eq ptr %__y.0.lcssa26.i.i, %35
+  %cmp.i.i.i43 = icmp eq ptr %__y.0.lcssa27.i.i, %35
   br i1 %cmp.i.i.i43, label %if.then.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i42
-  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i) #34
+  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa27.i.i) #34
   %pn.i.i.i4.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 40
   %.pre.i = load ptr, ptr %pn.i.i.i4.i.phi.trans.insert.i, align 8, !tbaa !41
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.else.i.i, %while.end.i.i
   %36 = phi ptr [ %.pre.i, %if.else.i.i ], [ %34, %while.end.i.i ]
-  %__y.0.lcssa27.i.i = phi ptr [ %__y.0.lcssa26.i.i, %if.else.i.i ], [ %__x.022.i.i, %while.end.i.i ]
+  %__y.0.lcssa26.i.i = phi ptr [ %__y.0.lcssa27.i.i, %if.else.i.i ], [ %__x.022.i.i, %while.end.i.i ]
   %cmp.i.i.i.i.i6.i.i = icmp ult ptr %36, %25
   br i1 %cmp.i.i.i.i.i6.i.i, label %if.then.i, label %invoke.cont11
 
 if.then.i:                                        ; preds = %if.end12.i.i, %if.then.i.i42
-  %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa26.i.i, %if.then.i.i42 ], [ %__y.0.lcssa27.i.i, %if.end12.i.i ]
+  %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa27.i.i, %if.then.i.i42 ], [ %__y.0.lcssa26.i.i, %if.end12.i.i ]
   %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i, %add.ptr.i.i.i39
   br i1 %cmp2.i.i, label %lor.end.i.i, label %lor.rhs.i.i
 
@@ -13535,26 +13535,26 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i35, label %if.end12.i.i.i.i.i
 
 if.then.i.i.i.i.i35:                              ; preds = %while.end.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i30
-  %__y.0.lcssa25.i.i.i.i.i = phi ptr [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i30 ]
+  %__y.0.lcssa26.i.i.i.i.i = phi ptr [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i30 ]
   %_M_left.i3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i20, i64 32
   %31 = load ptr, ptr %_M_left.i3.i.i.i.i.i, align 8, !tbaa !14
-  %cmp.i4.i.i.i.i.i = icmp eq ptr %__y.0.lcssa25.i.i.i.i.i, %31
+  %cmp.i4.i.i.i.i.i = icmp eq ptr %__y.0.lcssa26.i.i.i.i.i, %31
   br i1 %cmp.i4.i.i.i.i.i, label %if.then.i.i.i.i34, label %if.else.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i35
-  %call.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i.i.i) #34
+  %call.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i.i.i.i) #34
   %_M_storage.i.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i, i64 32
   %.pre.i.i.i.i = load ptr, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i.i.i, align 8, !tbaa !3
   br label %if.end12.i.i.i.i.i
 
 if.end12.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i, %while.end.i.i.i.i.i
   %32 = phi ptr [ %.pre.i.i.i.i, %if.else.i.i.i.i.i ], [ %30, %while.end.i.i.i.i.i ]
-  %__y.0.lcssa26.i.i.i.i.i = phi ptr [ %__y.0.lcssa25.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ]
+  %__y.0.lcssa25.i.i.i.i.i = phi ptr [ %__y.0.lcssa26.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ]
   %cmp.i5.i.i.i.i.i = icmp ult ptr %32, %add.ptr22
   br i1 %cmp.i5.i.i.i.i.i, label %if.then.i.i.i.i34, label %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i
 
 if.then.i.i.i.i34:                                ; preds = %if.end12.i.i.i.i.i, %if.then.i.i.i.i.i35
-  %retval.sroa.4.0.i.ph.i.i.i.i = phi ptr [ %__y.0.lcssa25.i.i.i.i.i, %if.then.i.i.i.i.i35 ], [ %__y.0.lcssa26.i.i.i.i.i, %if.end12.i.i.i.i.i ]
+  %retval.sroa.4.0.i.ph.i.i.i.i = phi ptr [ %__y.0.lcssa26.i.i.i.i.i, %if.then.i.i.i.i.i35 ], [ %__y.0.lcssa25.i.i.i.i.i, %if.end12.i.i.i.i.i ]
   %cmp2.i.i.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp2.i.i.i.i.i, label %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i, label %lor.rhs.i.i.i.i.i
 
@@ -13601,26 +13601,26 @@ while.end.i.i:                                    ; preds = %while.body.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i58, label %if.end12.i.i
 
 if.then.i.i58:                                    ; preds = %while.end.i.i, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i
-  %__y.0.lcssa26.i.i = phi ptr [ %__x.022.i.i, %while.end.i.i ], [ %add.ptr.i.i.i55, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i ]
+  %__y.0.lcssa27.i.i = phi ptr [ %__x.022.i.i, %while.end.i.i ], [ %add.ptr.i.i.i55, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i ]
   %_M_left.i3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %37 = load ptr, ptr %_M_left.i3.i.i, align 8, !tbaa !14
-  %cmp.i.i.i59 = icmp eq ptr %__y.0.lcssa26.i.i, %37
+  %cmp.i.i.i59 = icmp eq ptr %__y.0.lcssa27.i.i, %37
   br i1 %cmp.i.i.i59, label %if.then.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i58
-  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i) #34
+  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa27.i.i) #34
   %pn.i.i.i4.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 40
   %.pre.i = load ptr, ptr %pn.i.i.i4.i.phi.trans.insert.i, align 8, !tbaa !41
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.else.i.i, %while.end.i.i
   %38 = phi ptr [ %.pre.i, %if.else.i.i ], [ %36, %while.end.i.i ]
-  %__y.0.lcssa27.i.i = phi ptr [ %__y.0.lcssa26.i.i, %if.else.i.i ], [ %__x.022.i.i, %while.end.i.i ]
+  %__y.0.lcssa26.i.i = phi ptr [ %__y.0.lcssa27.i.i, %if.else.i.i ], [ %__x.022.i.i, %while.end.i.i ]
   %cmp.i.i.i.i.i6.i.i = icmp ult ptr %38, %28
   br i1 %cmp.i.i.i.i.i6.i.i, label %if.then.i, label %invoke.cont27
 
 if.then.i:                                        ; preds = %if.end12.i.i, %if.then.i.i58
-  %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa26.i.i, %if.then.i.i58 ], [ %__y.0.lcssa27.i.i, %if.end12.i.i ]
+  %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa27.i.i, %if.then.i.i58 ], [ %__y.0.lcssa26.i.i, %if.end12.i.i ]
   %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i, %add.ptr.i.i.i55
   br i1 %cmp2.i.i, label %lor.end.i.i, label %lor.rhs.i.i
 

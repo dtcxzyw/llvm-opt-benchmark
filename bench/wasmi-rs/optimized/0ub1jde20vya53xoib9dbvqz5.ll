@@ -24593,18 +24593,18 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator5stack6locals9Loc
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %42 = getelementptr inbounds nuw i8, ptr %31, i64 78
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 74
-  %.sink171.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink171.sroa.gep172 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink171.sroa.gep173 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink171.sroa.gep175 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink171.sroa.gep176 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink171.sroa.gep177 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %.sink171.sroa.gep179 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink171.sroa.gep180 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink171.sroa.gep181 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sink171.sroa.gep183 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink171.sroa.gep184 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sink171.sroa.gep185 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sink177.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink177.sroa.gep178 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink177.sroa.gep179 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sink177.sroa.gep181 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink177.sroa.gep182 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink177.sroa.gep183 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sink177.sroa.gep185 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink177.sroa.gep186 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink177.sroa.gep187 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sink177.sroa.gep189 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink177.sroa.gep190 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink177.sroa.gep191 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br label %.loopexit87
 
 .loopexit87:                                      ; preds = %"_ZN5wasmi6engine10translator5stack6locals9LocalRefs9drain_all28_$u7b$$u7b$closure$u7d$$u7d$17h278cc16ffddbccbbE.exit.i", %2
@@ -24667,25 +24667,25 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator5stack6locals9Loc
   %.sroa.46.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @"_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE", ptr %.sroa.46.0..sroa_idx.i.i, align 8, !noalias !499
   store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.855, ptr %12, align 8, !noalias !499
-  br label %.invoke160
+  br label %.invoke166
 
-.invoke160:                                       ; preds = %77, %95, %63
-  %.sink171.sroa.phi = phi ptr [ %.sink171.sroa.gep, %77 ], [ %.sink171.sroa.gep172, %95 ], [ %.sink171.sroa.gep173, %63 ]
-  %.sink171.sroa.phi174 = phi ptr [ %.sink171.sroa.gep175, %77 ], [ %.sink171.sroa.gep176, %95 ], [ %.sink171.sroa.gep177, %63 ]
-  %.sink171.sroa.phi178 = phi ptr [ %.sink171.sroa.gep179, %77 ], [ %.sink171.sroa.gep180, %95 ], [ %.sink171.sroa.gep181, %63 ]
-  %.sink171.sroa.phi182 = phi ptr [ %.sink171.sroa.gep183, %77 ], [ %.sink171.sroa.gep184, %95 ], [ %.sink171.sroa.gep185, %63 ]
-  %.sink171 = phi ptr [ %6, %77 ], [ %9, %95 ], [ %12, %63 ]
-  %.sink169 = phi i64 [ 2, %77 ], [ 2, %95 ], [ 1, %63 ]
-  %.sink164 = phi ptr [ %5, %77 ], [ %8, %95 ], [ %11, %63 ]
+.invoke166:                                       ; preds = %77, %95, %63
+  %.sink177.sroa.phi = phi ptr [ %.sink177.sroa.gep, %77 ], [ %.sink177.sroa.gep178, %95 ], [ %.sink177.sroa.gep179, %63 ]
+  %.sink177.sroa.phi180 = phi ptr [ %.sink177.sroa.gep181, %77 ], [ %.sink177.sroa.gep182, %95 ], [ %.sink177.sroa.gep183, %63 ]
+  %.sink177.sroa.phi184 = phi ptr [ %.sink177.sroa.gep185, %77 ], [ %.sink177.sroa.gep186, %95 ], [ %.sink177.sroa.gep187, %63 ]
+  %.sink177.sroa.phi188 = phi ptr [ %.sink177.sroa.gep189, %77 ], [ %.sink177.sroa.gep190, %95 ], [ %.sink177.sroa.gep191, %63 ]
+  %.sink177 = phi ptr [ %6, %77 ], [ %9, %95 ], [ %12, %63 ]
+  %.sink175 = phi i64 [ 2, %77 ], [ 2, %95 ], [ 1, %63 ]
+  %.sink170 = phi ptr [ %5, %77 ], [ %8, %95 ], [ %11, %63 ]
   %64 = phi ptr [ @anon.f1b2ef6443bc9398301f7dcabaecd75d.888, %77 ], [ @anon.f1b2ef6443bc9398301f7dcabaecd75d.884, %95 ], [ @anon.f1b2ef6443bc9398301f7dcabaecd75d.856, %63 ]
-  store i64 %.sink169, ptr %.sink171.sroa.phi, align 8, !noalias !3
-  store ptr null, ptr %.sink171.sroa.phi174, align 8, !noalias !3
-  store ptr %.sink164, ptr %.sink171.sroa.phi178, align 8, !noalias !3
-  store i64 %.sink169, ptr %.sink171.sroa.phi182, align 8, !noalias !3
-  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink171, ptr noalias noundef readonly align 8 dereferenceable(24) %64) #18
-          to label %.cont161 unwind label %.loopexit.split-lp.loopexit.split-lp
+  store i64 %.sink175, ptr %.sink177.sroa.phi, align 8, !noalias !3
+  store ptr null, ptr %.sink177.sroa.phi180, align 8, !noalias !3
+  store ptr %.sink170, ptr %.sink177.sroa.phi184, align 8, !noalias !3
+  store i64 %.sink175, ptr %.sink177.sroa.phi188, align 8, !noalias !3
+  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink177, ptr noalias noundef readonly align 8 dereferenceable(24) %64) #18
+          to label %.cont167 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont161:                                         ; preds = %.invoke160
+.cont167:                                         ; preds = %.invoke166
   unreachable
 
 _ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E.exit.i: ; preds = %57
@@ -24741,7 +24741,7 @@ _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_
   %.sroa.47.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @"_ZN72_$LT$core..num..error..TryFromIntError$u20$as$u20$core..fmt..Display$GT$3fmt17h73e595d62844075fE", ptr %.sroa.47.0..sroa_idx.i.i, align 8, !noalias !508
   store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.887, ptr %6, align 8, !noalias !508
-  br label %.invoke160
+  br label %.invoke166
 
 _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7key2reg17h7caf89fe80598b44E.exit.i: ; preds = %.noexc61
   %79 = trunc nuw nsw i64 %75 to i16
@@ -24798,7 +24798,7 @@ _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7key2reg17h7caf
   %.sroa.47.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @"_ZN72_$LT$core..num..error..TryFromIntError$u20$as$u20$core..fmt..Display$GT$3fmt17h73e595d62844075fE", ptr %.sroa.47.0..sroa_idx.i.i.i.i.i, align 8, !noalias !514
   store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.883, ptr %9, align 8, !noalias !514
-  br label %.invoke160
+  br label %.invoke166
 
 _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E.exit.i.i.i: ; preds = %.noexc53
   %97 = zext nneg i16 %93 to i64
@@ -24902,7 +24902,7 @@ _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserve
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke160, %.invoke, %74, %87
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke166, %.invoke, %74, %87
   %lpad.loopexit.split-lp89 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

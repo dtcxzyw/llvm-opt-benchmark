@@ -564,8 +564,8 @@ EmitInsertLen.exit:                               ; preds = %FindMatchLengthWith
   br label %EmitCopyLenLastDistance.exit
 
 EmitCopyLenLastDistance.exit:                     ; preds = %162, %167, %184, %195, %207
-  %.sink378 = phi i64 [ 12, %162 ], [ 12, %167 ], [ 16, %184 ], [ 16, %195 ], [ 16, %207 ]
-  %211 = getelementptr inbounds nuw i8, ptr %.187, i64 %.sink378
+  %.sink411 = phi i64 [ 12, %162 ], [ 12, %167 ], [ 16, %184 ], [ 16, %195 ], [ 16, %207 ]
+  %211 = getelementptr inbounds nuw i8, ptr %.187, i64 %.sink411
   %.not312.i = icmp ult ptr %104, %20
   br i1 %.not312.i, label %212, label %.thread124, !prof !38
 
@@ -751,8 +751,8 @@ FindMatchLengthWithLimit.exit:                    ; preds = %246, %.critedge.i17
   br label %EmitCopyLen.exit
 
 EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %306
-  %.sink379 = phi i32 [ %275, %273 ], [ %292, %278 ], [ %305, %295 ], [ %308, %306 ]
-  store i32 %.sink379, ptr %.424761, align 4, !tbaa !41
+  %.sink412 = phi i32 [ %275, %273 ], [ %292, %278 ], [ %305, %295 ], [ %308, %306 ]
+  store i32 %.sink412, ptr %.424761, align 4, !tbaa !41
   %309 = getelementptr inbounds nuw i8, ptr %.424761, i64 4
   %310 = add i32 %271, 3
   %311 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %310, i1 true)
@@ -883,8 +883,8 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %356, %364, %378, %387, %393, %395
-  %.sink380 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
-  store i32 %.sink380, ptr %.086, align 4, !tbaa !41
+  %.sink413 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
+  store i32 %.sink413, ptr %.086, align 4, !tbaa !41
   %397 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %398 = and i64 %359, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0, ptr align 1 %.3.i, i64 %398, i1 false)
@@ -938,7 +938,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %427 = load i8, ptr %426, align 1, !tbaa !7, !alias.scope !60, !noalias !57
   %428 = zext i8 %427 to i64
   %429 = and i64 %422, 7
-  %430 = shl nsw i64 %424, %429
+  %430 = shl nuw nsw i64 %424, %429
   %431 = or i64 %430, %428
   store i64 %431, ptr %426, align 1, !noalias !57
   %432 = add i64 %422, %423
@@ -999,7 +999,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %464 = load i8, ptr %463, align 1, !tbaa !7, !alias.scope !85, !noalias !82
   %465 = zext i8 %464 to i64
   %466 = and i64 %459, 7
-  %467 = shl nsw i64 %461, %466
+  %467 = shl nuw nsw i64 %461, %466
   %468 = or i64 %467, %465
   store i64 %468, ptr %463, align 1, !noalias !82
   %469 = add i64 %459, %460
@@ -1420,8 +1420,8 @@ EmitInsertLen.exit:                               ; preds = %FindMatchLengthWith
   br label %EmitCopyLenLastDistance.exit
 
 EmitCopyLenLastDistance.exit:                     ; preds = %162, %167, %184, %195, %207
-  %.sink378 = phi i64 [ 12, %162 ], [ 12, %167 ], [ 16, %184 ], [ 16, %195 ], [ 16, %207 ]
-  %211 = getelementptr inbounds nuw i8, ptr %.187, i64 %.sink378
+  %.sink411 = phi i64 [ 12, %162 ], [ 12, %167 ], [ 16, %184 ], [ 16, %195 ], [ 16, %207 ]
+  %211 = getelementptr inbounds nuw i8, ptr %.187, i64 %.sink411
   %.not312.i = icmp ult ptr %104, %20
   br i1 %.not312.i, label %212, label %.thread124, !prof !38
 
@@ -1607,8 +1607,8 @@ FindMatchLengthWithLimit.exit:                    ; preds = %246, %.critedge.i17
   br label %EmitCopyLen.exit
 
 EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %306
-  %.sink379 = phi i32 [ %275, %273 ], [ %292, %278 ], [ %305, %295 ], [ %308, %306 ]
-  store i32 %.sink379, ptr %.424761, align 4, !tbaa !41
+  %.sink412 = phi i32 [ %275, %273 ], [ %292, %278 ], [ %305, %295 ], [ %308, %306 ]
+  store i32 %.sink412, ptr %.424761, align 4, !tbaa !41
   %309 = getelementptr inbounds nuw i8, ptr %.424761, i64 4
   %310 = add i32 %271, 3
   %311 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %310, i1 true)
@@ -1739,8 +1739,8 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %356, %364, %378, %387, %393, %395
-  %.sink380 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
-  store i32 %.sink380, ptr %.086, align 4, !tbaa !41
+  %.sink413 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
+  store i32 %.sink413, ptr %.086, align 4, !tbaa !41
   %397 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %398 = and i64 %359, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0, ptr align 1 %.3.i, i64 %398, i1 false)
@@ -1794,7 +1794,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %427 = load i8, ptr %426, align 1, !tbaa !7, !alias.scope !106, !noalias !103
   %428 = zext i8 %427 to i64
   %429 = and i64 %422, 7
-  %430 = shl nsw i64 %424, %429
+  %430 = shl nuw nsw i64 %424, %429
   %431 = or i64 %430, %428
   store i64 %431, ptr %426, align 1, !noalias !103
   %432 = add i64 %422, %423
@@ -1855,7 +1855,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %464 = load i8, ptr %463, align 1, !tbaa !7, !alias.scope !131, !noalias !128
   %465 = zext i8 %464 to i64
   %466 = and i64 %459, 7
-  %467 = shl nsw i64 %461, %466
+  %467 = shl nuw nsw i64 %461, %466
   %468 = or i64 %467, %465
   store i64 %468, ptr %463, align 1, !noalias !128
   %469 = add i64 %459, %460
@@ -2276,8 +2276,8 @@ EmitInsertLen.exit:                               ; preds = %FindMatchLengthWith
   br label %EmitCopyLenLastDistance.exit
 
 EmitCopyLenLastDistance.exit:                     ; preds = %162, %167, %184, %195, %207
-  %.sink378 = phi i64 [ 12, %162 ], [ 12, %167 ], [ 16, %184 ], [ 16, %195 ], [ 16, %207 ]
-  %211 = getelementptr inbounds nuw i8, ptr %.187, i64 %.sink378
+  %.sink411 = phi i64 [ 12, %162 ], [ 12, %167 ], [ 16, %184 ], [ 16, %195 ], [ 16, %207 ]
+  %211 = getelementptr inbounds nuw i8, ptr %.187, i64 %.sink411
   %.not312.i = icmp ult ptr %104, %20
   br i1 %.not312.i, label %212, label %.thread124, !prof !38
 
@@ -2463,8 +2463,8 @@ FindMatchLengthWithLimit.exit:                    ; preds = %246, %.critedge.i17
   br label %EmitCopyLen.exit
 
 EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %306
-  %.sink379 = phi i32 [ %275, %273 ], [ %292, %278 ], [ %305, %295 ], [ %308, %306 ]
-  store i32 %.sink379, ptr %.424761, align 4, !tbaa !41
+  %.sink412 = phi i32 [ %275, %273 ], [ %292, %278 ], [ %305, %295 ], [ %308, %306 ]
+  store i32 %.sink412, ptr %.424761, align 4, !tbaa !41
   %309 = getelementptr inbounds nuw i8, ptr %.424761, i64 4
   %310 = add i32 %271, 3
   %311 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %310, i1 true)
@@ -2595,8 +2595,8 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %356, %364, %378, %387, %393, %395
-  %.sink380 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
-  store i32 %.sink380, ptr %.086, align 4, !tbaa !41
+  %.sink413 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
+  store i32 %.sink413, ptr %.086, align 4, !tbaa !41
   %397 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %398 = and i64 %359, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0, ptr align 1 %.3.i, i64 %398, i1 false)
@@ -2650,7 +2650,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %427 = load i8, ptr %426, align 1, !tbaa !7, !alias.scope !151, !noalias !148
   %428 = zext i8 %427 to i64
   %429 = and i64 %422, 7
-  %430 = shl nsw i64 %424, %429
+  %430 = shl nuw nsw i64 %424, %429
   %431 = or i64 %430, %428
   store i64 %431, ptr %426, align 1, !noalias !148
   %432 = add i64 %422, %423
@@ -2711,7 +2711,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %464 = load i8, ptr %463, align 1, !tbaa !7, !alias.scope !176, !noalias !173
   %465 = zext i8 %464 to i64
   %466 = and i64 %459, 7
-  %467 = shl nsw i64 %461, %466
+  %467 = shl nuw nsw i64 %461, %466
   %468 = or i64 %467, %465
   store i64 %468, ptr %463, align 1, !noalias !173
   %469 = add i64 %459, %460
@@ -3132,8 +3132,8 @@ EmitInsertLen.exit:                               ; preds = %FindMatchLengthWith
   br label %EmitCopyLenLastDistance.exit
 
 EmitCopyLenLastDistance.exit:                     ; preds = %162, %167, %184, %195, %207
-  %.sink378 = phi i64 [ 12, %162 ], [ 12, %167 ], [ 16, %184 ], [ 16, %195 ], [ 16, %207 ]
-  %211 = getelementptr inbounds nuw i8, ptr %.187, i64 %.sink378
+  %.sink411 = phi i64 [ 12, %162 ], [ 12, %167 ], [ 16, %184 ], [ 16, %195 ], [ 16, %207 ]
+  %211 = getelementptr inbounds nuw i8, ptr %.187, i64 %.sink411
   %.not312.i = icmp ult ptr %104, %20
   br i1 %.not312.i, label %212, label %.thread124, !prof !38
 
@@ -3319,8 +3319,8 @@ FindMatchLengthWithLimit.exit:                    ; preds = %246, %.critedge.i17
   br label %EmitCopyLen.exit
 
 EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %306
-  %.sink379 = phi i32 [ %275, %273 ], [ %292, %278 ], [ %305, %295 ], [ %308, %306 ]
-  store i32 %.sink379, ptr %.424761, align 4, !tbaa !41
+  %.sink412 = phi i32 [ %275, %273 ], [ %292, %278 ], [ %305, %295 ], [ %308, %306 ]
+  store i32 %.sink412, ptr %.424761, align 4, !tbaa !41
   %309 = getelementptr inbounds nuw i8, ptr %.424761, i64 4
   %310 = add i32 %271, 3
   %311 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %310, i1 true)
@@ -3451,8 +3451,8 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %356, %364, %378, %387, %393, %395
-  %.sink380 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
-  store i32 %.sink380, ptr %.086, align 4, !tbaa !41
+  %.sink413 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
+  store i32 %.sink413, ptr %.086, align 4, !tbaa !41
   %397 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %398 = and i64 %359, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0, ptr align 1 %.3.i, i64 %398, i1 false)
@@ -3506,7 +3506,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %427 = load i8, ptr %426, align 1, !tbaa !7, !alias.scope !196, !noalias !193
   %428 = zext i8 %427 to i64
   %429 = and i64 %422, 7
-  %430 = shl nsw i64 %424, %429
+  %430 = shl nuw nsw i64 %424, %429
   %431 = or i64 %430, %428
   store i64 %431, ptr %426, align 1, !noalias !193
   %432 = add i64 %422, %423
@@ -3567,7 +3567,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %464 = load i8, ptr %463, align 1, !tbaa !7, !alias.scope !221, !noalias !218
   %465 = zext i8 %464 to i64
   %466 = and i64 %459, 7
-  %467 = shl nsw i64 %461, %466
+  %467 = shl nuw nsw i64 %461, %466
   %468 = or i64 %467, %465
   store i64 %468, ptr %463, align 1, !noalias !218
   %469 = add i64 %459, %460
@@ -3988,8 +3988,8 @@ EmitInsertLen.exit:                               ; preds = %FindMatchLengthWith
   br label %EmitCopyLenLastDistance.exit
 
 EmitCopyLenLastDistance.exit:                     ; preds = %162, %167, %184, %195, %207
-  %.sink378 = phi i64 [ 12, %162 ], [ 12, %167 ], [ 16, %184 ], [ 16, %195 ], [ 16, %207 ]
-  %211 = getelementptr inbounds nuw i8, ptr %.187, i64 %.sink378
+  %.sink411 = phi i64 [ 12, %162 ], [ 12, %167 ], [ 16, %184 ], [ 16, %195 ], [ 16, %207 ]
+  %211 = getelementptr inbounds nuw i8, ptr %.187, i64 %.sink411
   %.not312.i = icmp ult ptr %104, %20
   br i1 %.not312.i, label %212, label %.thread124, !prof !38
 
@@ -4175,8 +4175,8 @@ FindMatchLengthWithLimit.exit:                    ; preds = %246, %.critedge.i17
   br label %EmitCopyLen.exit
 
 EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %306
-  %.sink379 = phi i32 [ %275, %273 ], [ %292, %278 ], [ %305, %295 ], [ %308, %306 ]
-  store i32 %.sink379, ptr %.424761, align 4, !tbaa !41
+  %.sink412 = phi i32 [ %275, %273 ], [ %292, %278 ], [ %305, %295 ], [ %308, %306 ]
+  store i32 %.sink412, ptr %.424761, align 4, !tbaa !41
   %309 = getelementptr inbounds nuw i8, ptr %.424761, i64 4
   %310 = add i32 %271, 3
   %311 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %310, i1 true)
@@ -4307,8 +4307,8 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %356, %364, %378, %387, %393, %395
-  %.sink380 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
-  store i32 %.sink380, ptr %.086, align 4, !tbaa !41
+  %.sink413 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
+  store i32 %.sink413, ptr %.086, align 4, !tbaa !41
   %397 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %398 = and i64 %359, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0, ptr align 1 %.3.i, i64 %398, i1 false)
@@ -4362,7 +4362,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %427 = load i8, ptr %426, align 1, !tbaa !7, !alias.scope !241, !noalias !238
   %428 = zext i8 %427 to i64
   %429 = and i64 %422, 7
-  %430 = shl nsw i64 %424, %429
+  %430 = shl nuw nsw i64 %424, %429
   %431 = or i64 %430, %428
   store i64 %431, ptr %426, align 1, !noalias !238
   %432 = add i64 %422, %423
@@ -4423,7 +4423,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %464 = load i8, ptr %463, align 1, !tbaa !7, !alias.scope !266, !noalias !263
   %465 = zext i8 %464 to i64
   %466 = and i64 %459, 7
-  %467 = shl nsw i64 %461, %466
+  %467 = shl nuw nsw i64 %461, %466
   %468 = or i64 %467, %465
   store i64 %468, ptr %463, align 1, !noalias !263
   %469 = add i64 %459, %460
@@ -4844,8 +4844,8 @@ EmitInsertLen.exit:                               ; preds = %FindMatchLengthWith
   br label %EmitCopyLenLastDistance.exit
 
 EmitCopyLenLastDistance.exit:                     ; preds = %162, %167, %184, %195, %207
-  %.sink378 = phi i64 [ 12, %162 ], [ 12, %167 ], [ 16, %184 ], [ 16, %195 ], [ 16, %207 ]
-  %211 = getelementptr inbounds nuw i8, ptr %.187, i64 %.sink378
+  %.sink411 = phi i64 [ 12, %162 ], [ 12, %167 ], [ 16, %184 ], [ 16, %195 ], [ 16, %207 ]
+  %211 = getelementptr inbounds nuw i8, ptr %.187, i64 %.sink411
   %.not312.i = icmp ult ptr %104, %20
   br i1 %.not312.i, label %212, label %.thread124, !prof !38
 
@@ -5031,8 +5031,8 @@ FindMatchLengthWithLimit.exit:                    ; preds = %246, %.critedge.i17
   br label %EmitCopyLen.exit
 
 EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %306
-  %.sink379 = phi i32 [ %275, %273 ], [ %292, %278 ], [ %305, %295 ], [ %308, %306 ]
-  store i32 %.sink379, ptr %.424761, align 4, !tbaa !41
+  %.sink412 = phi i32 [ %275, %273 ], [ %292, %278 ], [ %305, %295 ], [ %308, %306 ]
+  store i32 %.sink412, ptr %.424761, align 4, !tbaa !41
   %309 = getelementptr inbounds nuw i8, ptr %.424761, i64 4
   %310 = add i32 %271, 3
   %311 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %310, i1 true)
@@ -5163,8 +5163,8 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %356, %364, %378, %387, %393, %395
-  %.sink380 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
-  store i32 %.sink380, ptr %.086, align 4, !tbaa !41
+  %.sink413 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
+  store i32 %.sink413, ptr %.086, align 4, !tbaa !41
   %397 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %398 = and i64 %359, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0, ptr align 1 %.3.i, i64 %398, i1 false)
@@ -5218,7 +5218,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %427 = load i8, ptr %426, align 1, !tbaa !7, !alias.scope !286, !noalias !283
   %428 = zext i8 %427 to i64
   %429 = and i64 %422, 7
-  %430 = shl nsw i64 %424, %429
+  %430 = shl nuw nsw i64 %424, %429
   %431 = or i64 %430, %428
   store i64 %431, ptr %426, align 1, !noalias !283
   %432 = add i64 %422, %423
@@ -5279,7 +5279,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %464 = load i8, ptr %463, align 1, !tbaa !7, !alias.scope !311, !noalias !308
   %465 = zext i8 %464 to i64
   %466 = and i64 %459, 7
-  %467 = shl nsw i64 %461, %466
+  %467 = shl nuw nsw i64 %461, %466
   %468 = or i64 %467, %465
   store i64 %468, ptr %463, align 1, !noalias !308
   %469 = add i64 %459, %460
@@ -5700,8 +5700,8 @@ EmitInsertLen.exit:                               ; preds = %FindMatchLengthWith
   br label %EmitCopyLenLastDistance.exit
 
 EmitCopyLenLastDistance.exit:                     ; preds = %162, %167, %184, %195, %207
-  %.sink378 = phi i64 [ 12, %162 ], [ 12, %167 ], [ 16, %184 ], [ 16, %195 ], [ 16, %207 ]
-  %211 = getelementptr inbounds nuw i8, ptr %.187, i64 %.sink378
+  %.sink411 = phi i64 [ 12, %162 ], [ 12, %167 ], [ 16, %184 ], [ 16, %195 ], [ 16, %207 ]
+  %211 = getelementptr inbounds nuw i8, ptr %.187, i64 %.sink411
   %.not312.i = icmp ult ptr %104, %20
   br i1 %.not312.i, label %212, label %.thread124, !prof !38
 
@@ -5887,8 +5887,8 @@ FindMatchLengthWithLimit.exit:                    ; preds = %246, %.critedge.i17
   br label %EmitCopyLen.exit
 
 EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %306
-  %.sink379 = phi i32 [ %275, %273 ], [ %292, %278 ], [ %305, %295 ], [ %308, %306 ]
-  store i32 %.sink379, ptr %.424761, align 4, !tbaa !41
+  %.sink412 = phi i32 [ %275, %273 ], [ %292, %278 ], [ %305, %295 ], [ %308, %306 ]
+  store i32 %.sink412, ptr %.424761, align 4, !tbaa !41
   %309 = getelementptr inbounds nuw i8, ptr %.424761, i64 4
   %310 = add i32 %271, 3
   %311 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %310, i1 true)
@@ -6019,8 +6019,8 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %356, %364, %378, %387, %393, %395
-  %.sink380 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
-  store i32 %.sink380, ptr %.086, align 4, !tbaa !41
+  %.sink413 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
+  store i32 %.sink413, ptr %.086, align 4, !tbaa !41
   %397 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %398 = and i64 %359, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0, ptr align 1 %.3.i, i64 %398, i1 false)
@@ -6074,7 +6074,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %427 = load i8, ptr %426, align 1, !tbaa !7, !alias.scope !331, !noalias !328
   %428 = zext i8 %427 to i64
   %429 = and i64 %422, 7
-  %430 = shl nsw i64 %424, %429
+  %430 = shl nuw nsw i64 %424, %429
   %431 = or i64 %430, %428
   store i64 %431, ptr %426, align 1, !noalias !328
   %432 = add i64 %422, %423
@@ -6135,7 +6135,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %464 = load i8, ptr %463, align 1, !tbaa !7, !alias.scope !356, !noalias !353
   %465 = zext i8 %464 to i64
   %466 = and i64 %459, 7
-  %467 = shl nsw i64 %461, %466
+  %467 = shl nuw nsw i64 %461, %466
   %468 = or i64 %467, %465
   store i64 %468, ptr %463, align 1, !noalias !353
   %469 = add i64 %459, %460
@@ -6556,8 +6556,8 @@ EmitInsertLen.exit:                               ; preds = %FindMatchLengthWith
   br label %EmitCopyLenLastDistance.exit
 
 EmitCopyLenLastDistance.exit:                     ; preds = %162, %167, %184, %195, %207
-  %.sink378 = phi i64 [ 12, %162 ], [ 12, %167 ], [ 16, %184 ], [ 16, %195 ], [ 16, %207 ]
-  %211 = getelementptr inbounds nuw i8, ptr %.187, i64 %.sink378
+  %.sink411 = phi i64 [ 12, %162 ], [ 12, %167 ], [ 16, %184 ], [ 16, %195 ], [ 16, %207 ]
+  %211 = getelementptr inbounds nuw i8, ptr %.187, i64 %.sink411
   %.not312.i = icmp ult ptr %104, %20
   br i1 %.not312.i, label %212, label %.thread124, !prof !38
 
@@ -6743,8 +6743,8 @@ FindMatchLengthWithLimit.exit:                    ; preds = %246, %.critedge.i17
   br label %EmitCopyLen.exit
 
 EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %306
-  %.sink379 = phi i32 [ %275, %273 ], [ %292, %278 ], [ %305, %295 ], [ %308, %306 ]
-  store i32 %.sink379, ptr %.424761, align 4, !tbaa !41
+  %.sink412 = phi i32 [ %275, %273 ], [ %292, %278 ], [ %305, %295 ], [ %308, %306 ]
+  store i32 %.sink412, ptr %.424761, align 4, !tbaa !41
   %309 = getelementptr inbounds nuw i8, ptr %.424761, i64 4
   %310 = add i32 %271, 3
   %311 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %310, i1 true)
@@ -6875,8 +6875,8 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %356, %364, %378, %387, %393, %395
-  %.sink380 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
-  store i32 %.sink380, ptr %.086, align 4, !tbaa !41
+  %.sink413 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
+  store i32 %.sink413, ptr %.086, align 4, !tbaa !41
   %397 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %398 = and i64 %359, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0, ptr align 1 %.3.i, i64 %398, i1 false)
@@ -6930,7 +6930,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %427 = load i8, ptr %426, align 1, !tbaa !7, !alias.scope !376, !noalias !373
   %428 = zext i8 %427 to i64
   %429 = and i64 %422, 7
-  %430 = shl nsw i64 %424, %429
+  %430 = shl nuw nsw i64 %424, %429
   %431 = or i64 %430, %428
   store i64 %431, ptr %426, align 1, !noalias !373
   %432 = add i64 %422, %423
@@ -6991,7 +6991,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %464 = load i8, ptr %463, align 1, !tbaa !7, !alias.scope !401, !noalias !398
   %465 = zext i8 %464 to i64
   %466 = and i64 %459, 7
-  %467 = shl nsw i64 %461, %466
+  %467 = shl nuw nsw i64 %461, %466
   %468 = or i64 %467, %465
   store i64 %468, ptr %463, align 1, !noalias !398
   %469 = add i64 %459, %460
@@ -7482,8 +7482,8 @@ EmitInsertLen.exit:                               ; preds = %FindMatchLengthWith
   br label %EmitCopyLenLastDistance.exit
 
 EmitCopyLenLastDistance.exit:                     ; preds = %202, %207, %224, %235, %247
-  %.sink433 = phi i64 [ 12, %202 ], [ 12, %207 ], [ 16, %224 ], [ 16, %235 ], [ 16, %247 ]
-  %251 = getelementptr inbounds nuw i8, ptr %.189, i64 %.sink433
+  %.sink469 = phi i64 [ 12, %202 ], [ 12, %207 ], [ 16, %224 ], [ 16, %235 ], [ 16, %247 ]
+  %251 = getelementptr inbounds nuw i8, ptr %.189, i64 %.sink469
   %.not312.i = icmp ult ptr %144, %20
   br i1 %.not312.i, label %252, label %.thread124, !prof !38
 
@@ -7703,8 +7703,8 @@ FindMatchLengthWithLimit.exit:                    ; preds = %309, %.critedge.i17
   br label %EmitCopyLen.exit
 
 EmitCopyLen.exit:                                 ; preds = %336, %341, %357, %368
-  %.sink434 = phi i32 [ %338, %336 ], [ %354, %341 ], [ %367, %357 ], [ %370, %368 ]
-  store i32 %.sink434, ptr %.426180, align 4, !tbaa !41
+  %.sink470 = phi i32 [ %338, %336 ], [ %354, %341 ], [ %367, %357 ], [ %370, %368 ]
+  store i32 %.sink470, ptr %.426180, align 4, !tbaa !41
   %371 = getelementptr inbounds nuw i8, ptr %.426180, i64 4
   %372 = add i32 %334, 3
   %373 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %372, i1 true)
@@ -7847,8 +7847,8 @@ EmitCopyLen.exit:                                 ; preds = %336, %341, %357, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %427, %435, %449, %458, %464, %466
-  %.sink435 = phi i32 [ %446, %435 ], [ %455, %449 ], [ %460, %458 ], [ %465, %464 ], [ %467, %466 ], [ %431, %427 ]
-  store i32 %.sink435, ptr %.088, align 4, !tbaa !41
+  %.sink471 = phi i32 [ %446, %435 ], [ %455, %449 ], [ %460, %458 ], [ %465, %464 ], [ %467, %466 ], [ %431, %427 ]
+  store i32 %.sink471, ptr %.088, align 4, !tbaa !41
   %468 = getelementptr inbounds nuw i8, ptr %.088, i64 4
   %469 = and i64 %430, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0, ptr align 1 %.3.i, i64 %469, i1 false)
@@ -7902,7 +7902,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %498 = load i8, ptr %497, align 1, !tbaa !7, !alias.scope !424, !noalias !421
   %499 = zext i8 %498 to i64
   %500 = and i64 %493, 7
-  %501 = shl nsw i64 %495, %500
+  %501 = shl nuw nsw i64 %495, %500
   %502 = or i64 %501, %499
   store i64 %502, ptr %497, align 1, !noalias !421
   %503 = add i64 %493, %494
@@ -7963,7 +7963,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %535 = load i8, ptr %534, align 1, !tbaa !7, !alias.scope !449, !noalias !446
   %536 = zext i8 %535 to i64
   %537 = and i64 %530, 7
-  %538 = shl nsw i64 %532, %537
+  %538 = shl nuw nsw i64 %532, %537
   %539 = or i64 %538, %536
   store i64 %539, ptr %534, align 1, !noalias !446
   %540 = add i64 %530, %531
@@ -8454,8 +8454,8 @@ EmitInsertLen.exit:                               ; preds = %FindMatchLengthWith
   br label %EmitCopyLenLastDistance.exit
 
 EmitCopyLenLastDistance.exit:                     ; preds = %202, %207, %224, %235, %247
-  %.sink433 = phi i64 [ 12, %202 ], [ 12, %207 ], [ 16, %224 ], [ 16, %235 ], [ 16, %247 ]
-  %251 = getelementptr inbounds nuw i8, ptr %.189, i64 %.sink433
+  %.sink469 = phi i64 [ 12, %202 ], [ 12, %207 ], [ 16, %224 ], [ 16, %235 ], [ 16, %247 ]
+  %251 = getelementptr inbounds nuw i8, ptr %.189, i64 %.sink469
   %.not312.i = icmp ult ptr %144, %20
   br i1 %.not312.i, label %252, label %.thread124, !prof !38
 
@@ -8675,8 +8675,8 @@ FindMatchLengthWithLimit.exit:                    ; preds = %309, %.critedge.i17
   br label %EmitCopyLen.exit
 
 EmitCopyLen.exit:                                 ; preds = %336, %341, %357, %368
-  %.sink434 = phi i32 [ %338, %336 ], [ %354, %341 ], [ %367, %357 ], [ %370, %368 ]
-  store i32 %.sink434, ptr %.426180, align 4, !tbaa !41
+  %.sink470 = phi i32 [ %338, %336 ], [ %354, %341 ], [ %367, %357 ], [ %370, %368 ]
+  store i32 %.sink470, ptr %.426180, align 4, !tbaa !41
   %371 = getelementptr inbounds nuw i8, ptr %.426180, i64 4
   %372 = add i32 %334, 3
   %373 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %372, i1 true)
@@ -8819,8 +8819,8 @@ EmitCopyLen.exit:                                 ; preds = %336, %341, %357, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %427, %435, %449, %458, %464, %466
-  %.sink435 = phi i32 [ %446, %435 ], [ %455, %449 ], [ %460, %458 ], [ %465, %464 ], [ %467, %466 ], [ %431, %427 ]
-  store i32 %.sink435, ptr %.088, align 4, !tbaa !41
+  %.sink471 = phi i32 [ %446, %435 ], [ %455, %449 ], [ %460, %458 ], [ %465, %464 ], [ %467, %466 ], [ %431, %427 ]
+  store i32 %.sink471, ptr %.088, align 4, !tbaa !41
   %468 = getelementptr inbounds nuw i8, ptr %.088, i64 4
   %469 = and i64 %430, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0, ptr align 1 %.3.i, i64 %469, i1 false)
@@ -8874,7 +8874,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %498 = load i8, ptr %497, align 1, !tbaa !7, !alias.scope !469, !noalias !466
   %499 = zext i8 %498 to i64
   %500 = and i64 %493, 7
-  %501 = shl nsw i64 %495, %500
+  %501 = shl nuw nsw i64 %495, %500
   %502 = or i64 %501, %499
   store i64 %502, ptr %497, align 1, !noalias !466
   %503 = add i64 %493, %494
@@ -8935,7 +8935,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %535 = load i8, ptr %534, align 1, !tbaa !7, !alias.scope !494, !noalias !491
   %536 = zext i8 %535 to i64
   %537 = and i64 %530, 7
-  %538 = shl nsw i64 %532, %537
+  %538 = shl nuw nsw i64 %532, %537
   %539 = or i64 %538, %536
   store i64 %539, ptr %534, align 1, !noalias !491
   %540 = add i64 %530, %531
@@ -8981,7 +8981,7 @@ define internal fastcc range(i32 0, 2) i32 @ShouldCompress(ptr noundef captures(
   %6 = uitofp i64 %3 to double
   %7 = fmul double %5, 0x3FEF5C28F5C28F5C
   %8 = fcmp ogt double %7, %6
-  br i1 %8, label %58, label %9
+  br i1 %8, label %59, label %9
 
 9:                                                ; preds = %4
   %10 = fmul double %5, 8.000000e+00
@@ -9061,37 +9061,38 @@ FastLog2.exit:                                    ; preds = %38, %41
 
 46:                                               ; preds = %FastLog2.exit
   %.not.i = icmp eq i64 %35, 0
-  %.pre24 = uitofp i64 %35 to double
   br i1 %.not.i, label %ShannonEntropy.exit, label %47
 
 47:                                               ; preds = %46
-  %48 = icmp ult i64 %35, 256
-  br i1 %48, label %49, label %52
+  %48 = uitofp i64 %35 to double
+  %49 = icmp ult i64 %35, 256
+  br i1 %49, label %50, label %53
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %35
-  %51 = load double, ptr %50, align 8, !tbaa !502
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %35
+  %52 = load double, ptr %51, align 8, !tbaa !502
   br label %FastLog2.exit18
 
-52:                                               ; preds = %47
-  %53 = tail call double @log2(double noundef %.pre24) #10, !tbaa !41
+53:                                               ; preds = %47
+  %54 = tail call double @log2(double noundef %48) #10, !tbaa !41
   br label %FastLog2.exit18
 
-FastLog2.exit18:                                  ; preds = %49, %52
-  %.0.i17 = phi double [ %51, %49 ], [ %53, %52 ]
-  %54 = tail call double @llvm.fmuladd.f64(double %.pre24, double %.0.i17, double %44)
+FastLog2.exit18:                                  ; preds = %50, %53
+  %.0.i17 = phi double [ %52, %50 ], [ %54, %53 ]
+  %55 = tail call double @llvm.fmuladd.f64(double %48, double %.0.i17, double %44)
   br label %ShannonEntropy.exit
 
 ShannonEntropy.exit:                              ; preds = %46, %FastLog2.exit18
-  %.2.i = phi double [ %54, %FastLog2.exit18 ], [ %44, %46 ]
-  %55 = fcmp olt double %.2.i, %.pre24
-  %.0.i = select i1 %55, double %.pre24, double %.2.i
-  %56 = fcmp olt double %.0.i, %12
-  %57 = zext i1 %56 to i32
-  br label %58
+  %.pre-phi25 = phi double [ %48, %FastLog2.exit18 ], [ 0.000000e+00, %46 ]
+  %.2.i = phi double [ %55, %FastLog2.exit18 ], [ %44, %46 ]
+  %56 = fcmp olt double %.2.i, %.pre-phi25
+  %.0.i = select i1 %56, double %.pre-phi25, double %.2.i
+  %57 = fcmp olt double %.0.i, %12
+  %58 = zext i1 %57 to i32
+  br label %59
 
-58:                                               ; preds = %4, %ShannonEntropy.exit
-  %.013 = phi i32 [ %57, %ShannonEntropy.exit ], [ 1, %4 ]
+59:                                               ; preds = %4, %ShannonEntropy.exit
+  %.013 = phi i32 [ %58, %ShannonEntropy.exit ], [ 1, %4 ]
   ret i32 %.013
 }
 

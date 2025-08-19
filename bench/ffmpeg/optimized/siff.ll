@@ -236,8 +236,8 @@ siff_parse_soun.exit:                             ; preds = %73
   br label %siff_parse_vbv1.exit.sink.split
 
 siff_parse_vbv1.exit.sink.split:                  ; preds = %58, %siff_parse_soun.exit
-  %.sink33 = phi ptr [ %83, %siff_parse_soun.exit ], [ %57, %58 ]
-  %92 = getelementptr inbounds nuw i8, ptr %.sink33, i64 40
+  %.sink36 = phi ptr [ %83, %siff_parse_soun.exit ], [ %57, %58 ]
+  %92 = getelementptr inbounds nuw i8, ptr %.sink36, i64 40
   store i64 0, ptr %92, align 8, !tbaa !58
   br label %siff_parse_vbv1.exit
 
@@ -417,7 +417,7 @@ define internal i32 @siff_read_packet(ptr noundef readonly captures(none) %0, pt
   %98 = add i32 %97, -4
   %99 = tail call i32 @av_get_packet(ptr noundef %95, ptr noundef %1, i32 noundef %98) #4
   %100 = icmp sgt i32 %99, -1
-  br i1 %100, label %.thread112, label %.thread100
+  br i1 %100, label %.thread117, label %.thread100
 
 thread-pre-split:                                 ; preds = %86
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -432,7 +432,7 @@ thread-pre-split:                                 ; preds = %86
   store i32 %106, ptr %8, align 4, !tbaa !50
   br label %.thread99
 
-.thread112:                                       ; preds = %93
+.thread117:                                       ; preds = %93
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 1, ptr %107, align 4, !tbaa !64
   %108 = zext nneg i32 %99 to i64
@@ -440,10 +440,10 @@ thread-pre-split:                                 ; preds = %86
   store i64 %108, ptr %109, align 8, !tbaa !66
   store i32 0, ptr %12, align 4, !tbaa !53
   %110 = load i32, ptr %8, align 4, !tbaa !50
-  %.not96114 = icmp eq i32 %110, 0
-  br i1 %.not96114, label %thread-pre-split.thread116, label %.thread99
+  %.not96119 = icmp eq i32 %110, 0
+  br i1 %.not96119, label %thread-pre-split.thread121, label %.thread99
 
-thread-pre-split.thread116:                       ; preds = %.thread112
+thread-pre-split.thread121:                       ; preds = %.thread117
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %112 = load i32, ptr %111, align 8, !tbaa !65
   %113 = or i32 %112, 1
@@ -469,7 +469,7 @@ thread-pre-split.thread116:                       ; preds = %.thread112
   store i64 %123, ptr %124, align 8, !tbaa !66
   br label %.thread99
 
-.thread99:                                        ; preds = %.thread112, %thread-pre-split.thread116, %122, %thread-pre-split
+.thread99:                                        ; preds = %.thread117, %thread-pre-split.thread121, %122, %thread-pre-split
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %126 = load i32, ptr %125, align 8, !tbaa !67
   br label %.thread100

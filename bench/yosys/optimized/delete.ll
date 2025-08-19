@@ -599,11 +599,11 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu
   store i32 %174, ptr %168, align 4, !tbaa !30, !noalias !41
   %175 = getelementptr inbounds nuw i8, ptr %132, i64 168
   %176 = shl i64 %172, 32
-  %sext1076 = add i64 %176, -4294967296
-  %177 = ashr exact i64 %sext1076, 32
+  %sext1169 = add i64 %176, -4294967296
+  %177 = ashr exact i64 %sext1169, 32
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEEppEv.exit
 
-_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit211: ; preds = %162, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit.thread910
+_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit211: ; preds = %162, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit.thread1003
   invoke void @_ZN5Yosys5RTLIL6Module11fixup_portsEv(ptr noundef nonnull align 8 dereferenceable(616) %132)
           to label %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit unwind label %.loopexit471
 
@@ -638,9 +638,9 @@ _ZNK5Yosys5RTLIL6Design8selectedINS0_6ModuleENS0_4WireEEEbPT_PT0_.exit: ; preds 
 189:                                              ; preds = %186, %187, %_ZNK5Yosys5RTLIL6Design8selectedINS0_6ModuleENS0_4WireEEEbPT_PT0_.exit
   %indvars.iv.next851 = add nsw i64 %indvars.iv850, -1
   %190 = icmp eq i64 %indvars.iv850, 0
-  br i1 %190, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit.thread910, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEEppEv.exit
+  br i1 %190, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit.thread1003, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEEppEv.exit
 
-_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit.thread910: ; preds = %189
+_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit.thread1003: ; preds = %189
   %191 = load i32, ptr %168, align 4, !tbaa !30
   %192 = add nsw i32 %191, -1
   store i32 %192, ptr %168, align 4, !tbaa !30
@@ -876,8 +876,8 @@ _ZNSt6vectorIPN5Yosys5RTLIL4WireESaIS3_EED2Ev.exit224: ; preds = %290, %293
   br i1 %.not461663, label %._crit_edge667, label %.lr.ph666.preheader
 
 .lr.ph666.preheader:                              ; preds = %298
-  %sext871 = shl i64 %307, 32
-  %309 = ashr exact i64 %sext871, 32
+  %sext964 = shl i64 %307, 32
+  %309 = ashr exact i64 %sext964, 32
   br label %.lr.ph666
 
 .lr.ph666:                                        ; preds = %.lr.ph666.preheader, %351
@@ -990,8 +990,8 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
   store i32 %363, ptr %357, align 4, !tbaa !30, !noalias !103
   %364 = getelementptr inbounds nuw i8, ptr %132, i64 224
   %365 = shl i64 %361, 32
-  %sext1075 = add i64 %365, -4294967296
-  %366 = ashr exact i64 %sext1075, 32
+  %sext1168 = add i64 %365, -4294967296
+  %366 = ashr exact i64 %sext1168, 32
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit
 
 _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit: ; preds = %.critedge197.thread, %.lr.ph672
@@ -1214,9 +1214,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next836 = add nsw i64 %indvars.iv835, -1
   %454 = icmp eq i64 %indvars.iv835, 0
-  br i1 %454, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread929, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit
+  br i1 %454, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread1022, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit
 
-_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread929: ; preds = %.critedge197.thread
+_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread1022: ; preds = %.critedge197.thread
   %455 = load i32, ptr %357, align 4, !tbaa !30
   %456 = add nsw i32 %455, -1
   store i32 %456, ptr %357, align 4, !tbaa !30
@@ -1230,7 +1230,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread929: ; preds = %.crited
   store i32 %459, ptr %357, align 4, !tbaa !30
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit254
 
-_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread: ; preds = %._crit_edge667, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread929
+_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread: ; preds = %._crit_edge667, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread1022
   %460 = getelementptr inbounds nuw i8, ptr %132, i64 504
   %461 = getelementptr inbounds nuw i8, ptr %132, i64 512
   %462 = load ptr, ptr %461, align 8, !tbaa !111
@@ -1244,8 +1244,8 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread: ; preds = %._crit_edg
   br i1 %.not463676, label %._crit_edge680, label %.lr.ph679.preheader
 
 .lr.ph679.preheader:                              ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread
-  %sext872 = shl i64 %467, 32
-  %469 = ashr exact i64 %sext872, 32
+  %sext965 = shl i64 %467, 32
+  %469 = ashr exact i64 %sext965, 32
   br label %.lr.ph679
 
 .lr.ph679:                                        ; preds = %.lr.ph679.preheader, %481
@@ -2295,11 +2295,11 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.
   br label %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit
 
 _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit: ; preds = %78, %.loopexit
-  %.sink16 = phi i32 [ %87, %.loopexit ], [ %.013.i, %78 ]
+  %.sink23 = phi i32 [ %87, %.loopexit ], [ %.013.i, %78 ]
   %.sink = phi i8 [ 1, %.loopexit ], [ 0, %78 ]
   store ptr %1, ptr %0, align 8, !tbaa !149
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink16, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !30
+  store i32 %.sink23, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !30
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %88, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2562,11 +2562,11 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL7ProcessENS0_8hash_opsIS4_EEE7do_hashERKS4_.ex
   br label %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL7ProcessENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit
 
 _ZNK5Yosys7hashlib4poolIPNS_5RTLIL7ProcessENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit: ; preds = %78, %.loopexit
-  %.sink16 = phi i32 [ %87, %.loopexit ], [ %.013.i, %78 ]
+  %.sink23 = phi i32 [ %87, %.loopexit ], [ %.013.i, %78 ]
   %.sink = phi i8 [ 1, %.loopexit ], [ 0, %78 ]
   store ptr %1, ptr %0, align 8, !tbaa !158
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink16, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !30
+  store i32 %.sink23, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !30
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %88, align 8, !tbaa !160
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -140,8 +140,8 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17h8f23b51cdff69135E(pt
   br label %7
 
 7:                                                ; preds = %.lr.ph, %37
-  %.sroa.0.059 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.175, %37 ]
-  %.sroa.4.058 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.174, %37 ]
+  %.sroa.0.059 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.176, %37 ]
+  %.sroa.4.058 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.175, %37 ]
   %8 = call { i64, ptr } @"_ZN68_$LT$http_client..async_body..AsyncBody$u20$as$u20$std..io..Read$GT$4read17h7aa9c4e0aa4203f7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %.sroa.0.059, i64 noundef %.sroa.4.058)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -172,7 +172,7 @@ default.unreachable:                              ; preds = %14
 
 17:                                               ; preds = %12
   %18 = icmp ult i64 %.sroa.4.058, %11
-  br i1 %18, label %.noexc, label %.thread70
+  br i1 %18, label %.noexc, label %.thread71
 
 .noexc:                                           ; preds = %17
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef range(i64 1, 0) %11, i64 noundef range(i64 1, 0) %.sroa.4.058, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abc5958ecb543d3232d5f4291e576c66.6) #21
@@ -182,7 +182,7 @@ default.unreachable:                              ; preds = %14
   %.sroa.05.0 = phi ptr [ null, %3 ], [ %10, %28 ], [ %10, %21 ], [ %10, %23 ], [ %10, %16 ], [ null, %37 ], [ @anon.abc5958ecb543d3232d5f4291e576c66.4, %12 ]
   ret ptr %.sroa.05.0
 
-.thread70:                                        ; preds = %17
+.thread71:                                        ; preds = %17
   %19 = sub nuw i64 %.sroa.4.058, %11
   %20 = getelementptr inbounds i8, ptr %.sroa.0.059, i64 %11
   br label %37
@@ -224,10 +224,10 @@ default.unreachable:                              ; preds = %14
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !14
   br label %37
 
-37:                                               ; preds = %.thread70, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h236a7ad955b7b765E.exit"
-  %.sroa.0.175 = phi ptr [ %20, %.thread70 ], [ %.sroa.0.059, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h236a7ad955b7b765E.exit" ]
-  %.sroa.4.174 = phi i64 [ %19, %.thread70 ], [ %.sroa.4.058, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h236a7ad955b7b765E.exit" ]
-  %38 = icmp eq i64 %.sroa.4.174, 0
+37:                                               ; preds = %.thread71, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h236a7ad955b7b765E.exit"
+  %.sroa.0.176 = phi ptr [ %20, %.thread71 ], [ %.sroa.0.059, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h236a7ad955b7b765E.exit" ]
+  %.sroa.4.175 = phi i64 [ %19, %.thread71 ], [ %.sroa.4.058, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h236a7ad955b7b765E.exit" ]
+  %38 = icmp eq i64 %.sroa.4.175, 0
   br i1 %38, label %.loopexit, label %7
 }
 

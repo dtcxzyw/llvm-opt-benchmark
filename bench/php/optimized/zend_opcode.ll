@@ -960,19 +960,19 @@ define dso_local void @zend_cleanup_internal_class_data(ptr noundef captures(add
   %42 = load i64, ptr %40, align 8, !tbaa !99
   %.idx = shl nuw nsw i64 %42, 3
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx
-  %.not64 = icmp eq i64 %42, 0
-  br i1 %.not64, label %.loopexit, label %.lr.ph
+  %.not70 = icmp eq i64 %42, 0
+  br i1 %.not70, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %38
-  %.04062 = phi ptr [ %37, %.thread ], [ %43, %38 ]
-  %.04161 = phi ptr [ %32, %.thread ], [ %41, %38 ]
+  %.04068 = phi ptr [ %37, %.thread ], [ %43, %38 ]
+  %.04167 = phi ptr [ %32, %.thread ], [ %41, %38 ]
   %44 = ptrtoint ptr %.056 to i64
   %45 = sub i64 %44, %25
   %46 = ashr exact i64 %45, 4
   br label %47
 
 47:                                               ; preds = %.lr.ph, %57
-  %.154 = phi ptr [ %.04161, %.lr.ph ], [ %58, %57 ]
+  %.154 = phi ptr [ %.04167, %.lr.ph ], [ %58, %57 ]
   %48 = load ptr, ptr %.154, align 8, !tbaa !101
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load ptr, ptr %49, align 8, !tbaa !102
@@ -991,7 +991,7 @@ define dso_local void @zend_cleanup_internal_class_data(ptr noundef captures(add
 
 57:                                               ; preds = %47, %52
   %58 = getelementptr inbounds nuw i8, ptr %.154, i64 8
-  %59 = icmp ult ptr %58, %.04062
+  %59 = icmp ult ptr %58, %.04068
   br i1 %59, label %47, label %.loopexit
 
 .loopexit:                                        ; preds = %57, %38, %30, %56, %26

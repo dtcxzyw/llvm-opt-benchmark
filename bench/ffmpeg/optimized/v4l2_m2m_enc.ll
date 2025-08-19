@@ -288,8 +288,8 @@ v4l2_check_b_frame_support.exit.i:                ; preds = %v4l2_get_ext_ctrl.e
   %108 = getelementptr inbounds nuw i8, ptr %57, i64 104
   %109 = load i32, ptr %108, align 4, !tbaa !60
   %.not77.i = icmp eq i32 %109, 0
-  %or.cond112.i = select i1 %.not76.i, i1 %.not77.i, i1 false
-  br i1 %or.cond112.i, label %123, label %._crit_edge.i
+  %or.cond116.i = select i1 %.not76.i, i1 %.not77.i, i1 false
+  br i1 %or.cond116.i, label %123, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %105
   call void @llvm.lifetime.start.p0(ptr nonnull %16)

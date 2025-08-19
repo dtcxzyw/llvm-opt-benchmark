@@ -559,8 +559,8 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %171, label %41, label %.critedge, !llvm.loop !10
 
 .critedge.sink.split:                             ; preds = %51, %.lr.ph, %107, %96
-  %.lcssa363.sink = phi i32 [ %97, %96 ], [ %120, %107 ], [ %74, %.lr.ph ], [ %58, %51 ]
-  %172 = call ptr @proto_tree_add_expert(ptr noundef %29, ptr noundef %1, ptr noundef nonnull @ei_amp_cbor_malformed, ptr noundef %0, i32 noundef %.lcssa363.sink, i32 noundef -1)
+  %.lcssa373.sink = phi i32 [ %97, %96 ], [ %120, %107 ], [ %74, %.lr.ph ], [ %58, %51 ]
+  %172 = call ptr @proto_tree_add_expert(ptr noundef %29, ptr noundef %1, ptr noundef nonnull @ei_amp_cbor_malformed, ptr noundef %0, i32 noundef %.lcssa373.sink, i32 noundef -1)
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %60, %.critedge.sink.split, %4

@@ -1707,7 +1707,7 @@ _ZN6icu_7712LocalPointerINS_6RegionEEC2EPS1_R10UErrorCode.exit: ; preds = %442
 480:                                              ; preds = %479, %477
   %481 = load ptr, ptr %23, align 8, !tbaa !15
   %482 = invoke ptr @uhash_put_77(ptr noundef %481, ptr noundef nonnull %454, ptr noundef nonnull %440, ptr noundef nonnull %0)
-          to label %483 unwind label %.thread1233
+          to label %483 unwind label %.thread1314
 
 483:                                              ; preds = %480
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
@@ -1718,7 +1718,7 @@ _ZN6icu_7712LocalPointerINS_6RegionEEC2EPS1_R10UErrorCode.exit: ; preds = %442
   %.not477 = icmp slt i32 %484, %487
   br i1 %.not477, label %.lr.ph1096, label %.critedge628.preheader, !llvm.loop !66
 
-.thread1233:                                      ; preds = %480
+.thread1314:                                      ; preds = %480
   %488 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
@@ -1731,7 +1731,7 @@ _ZN6icu_7712LocalPointerINS_6RegionEEC2EPS1_R10UErrorCode.exit: ; preds = %442
   br label %491
 
 491:                                              ; preds = %489, %.thread
-  %.pn.pn1232 = phi { ptr, i32 } [ %478, %.thread ], [ %490, %489 ]
+  %.pn.pn1313 = phi { ptr, i32 } [ %478, %.thread ], [ %490, %489 ]
   %492 = load ptr, ptr %440, align 8, !tbaa !26
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 8
   %494 = load ptr, ptr %493, align 8
@@ -2012,11 +2012,11 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit689: ; preds = %_ZN6icu_77
   br label %_ZN6icu_7712LocalPointerINS_6RegionEED2Ev.exit678
 
 _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit691thread-pre-split: ; preds = %526, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit689
-  %.pr1236 = load i32, ptr %0, align 4, !tbaa !13
+  %.pr1317 = load i32, ptr %0, align 4, !tbaa !13
   br label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit691
 
 _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit691: ; preds = %530, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit691thread-pre-split
-  %587 = phi i32 [ %.pr1236, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit691thread-pre-split ], [ %532, %530 ]
+  %587 = phi i32 [ %.pr1317, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit691thread-pre-split ], [ %532, %530 ]
   %588 = icmp sgt i32 %587, 0
   br i1 %588, label %.critedge22, label %498
 
@@ -3937,8 +3937,8 @@ _ZN6icu_778internal16LocalOpenPointerI10UHashtableXadL_Z14uhash_close_77EEED2Ev.
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %_ZN6icu_7712LocalPointerINS_6RegionEED2Ev.exit678
 
-_ZN6icu_7712LocalPointerINS_6RegionEED2Ev.exit678: ; preds = %.thread1233, %.loopexit982, %.loopexit.split-lp983.loopexit.split-lp.loopexit, %.loopexit.split-lp983.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp983.loopexit, %.loopexit996, %.loopexit.split-lp997.loopexit.split-lp.loopexit, %.loopexit.split-lp997.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp997.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp997.loopexit, %521, %536, %.body683, %534, %448, %491, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit672, %.body668, %795, %.body741, %519, %.body725, %889, %432, %.body674, %.body648, %.body
-  %.pn596.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn596.pn.pn.pn.pn, %.body ], [ %.pn586.pn.pn.pn.pn, %.body648 ], [ %433, %432 ], [ %.pn10.i673, %.body674 ], [ %.pn566.pn.pn.pn.pn.pn.pn, %795 ], [ %.pn533.pn.pn.pn, %.body741 ], [ %520, %519 ], [ %890, %889 ], [ %.pn541.pn.pn.pn.pn.pn, %.body725 ], [ %402, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit672 ], [ %.pn577, %.body668 ], [ %449, %448 ], [ %.pn.pn1232, %491 ], [ %522, %521 ], [ %535, %534 ], [ %.pn488.pn.pn, %.body683 ], [ %537, %536 ], [ %lpad.loopexit998, %.loopexit996 ], [ %lpad.loopexit1001, %.loopexit.split-lp997.loopexit ], [ %lpad.loopexit1004, %.loopexit.split-lp997.loopexit.split-lp.loopexit ], [ %lpad.loopexit1008, %.loopexit.split-lp997.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1009, %.loopexit.split-lp997.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit984, %.loopexit982 ], [ %lpad.loopexit988, %.loopexit.split-lp983.loopexit ], [ %lpad.loopexit992, %.loopexit.split-lp983.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp993, %.loopexit.split-lp983.loopexit.split-lp.loopexit.split-lp ], [ %488, %.thread1233 ]
+_ZN6icu_7712LocalPointerINS_6RegionEED2Ev.exit678: ; preds = %.thread1314, %.loopexit982, %.loopexit.split-lp983.loopexit.split-lp.loopexit, %.loopexit.split-lp983.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp983.loopexit, %.loopexit996, %.loopexit.split-lp997.loopexit.split-lp.loopexit, %.loopexit.split-lp997.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp997.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp997.loopexit, %521, %536, %.body683, %534, %448, %491, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit672, %.body668, %795, %.body741, %519, %.body725, %889, %432, %.body674, %.body648, %.body
+  %.pn596.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn596.pn.pn.pn.pn, %.body ], [ %.pn586.pn.pn.pn.pn, %.body648 ], [ %433, %432 ], [ %.pn10.i673, %.body674 ], [ %.pn566.pn.pn.pn.pn.pn.pn, %795 ], [ %.pn533.pn.pn.pn, %.body741 ], [ %520, %519 ], [ %890, %889 ], [ %.pn541.pn.pn.pn.pn.pn, %.body725 ], [ %402, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit672 ], [ %.pn577, %.body668 ], [ %449, %448 ], [ %.pn.pn1313, %491 ], [ %522, %521 ], [ %535, %534 ], [ %.pn488.pn.pn, %.body683 ], [ %537, %536 ], [ %lpad.loopexit998, %.loopexit996 ], [ %lpad.loopexit1001, %.loopexit.split-lp997.loopexit ], [ %lpad.loopexit1004, %.loopexit.split-lp997.loopexit.split-lp.loopexit ], [ %lpad.loopexit1008, %.loopexit.split-lp997.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1009, %.loopexit.split-lp997.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit984, %.loopexit982 ], [ %lpad.loopexit988, %.loopexit.split-lp983.loopexit ], [ %lpad.loopexit992, %.loopexit.split-lp983.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp993, %.loopexit.split-lp983.loopexit.split-lp.loopexit.split-lp ], [ %488, %.thread1314 ]
   call void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #19
   br label %1248
 

@@ -2287,9 +2287,9 @@ define internal noundef range(i32 0, 2) i32 @io_poll_wake(ptr noundef %0, i32 %1
 34:                                               ; preds = %28, %30
   %35 = and i32 %11, 134217728
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %40, label %.thread2
+  br i1 %36, label %40, label %.thread3
 
-.thread2:                                         ; preds = %34
+.thread3:                                         ; preds = %34
   %37 = getelementptr i8, ptr %0, i64 -8
   %38 = load i32, ptr %37, align 8
   %39 = or i32 %38, 1073741824
@@ -2306,7 +2306,7 @@ define internal noundef range(i32 0, 2) i32 @io_poll_wake(ptr noundef %0, i32 %1
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %59, label %44
 
-44:                                               ; preds = %.thread2, %41
+44:                                               ; preds = %.thread3, %41
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %47 = load ptr, ptr %46, align 8

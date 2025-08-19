@@ -346,9 +346,9 @@ define hidden noundef i32 @mlib_ImageAffine_s16_1ch_bc(ptr noundef readonly capt
   %260 = icmp sgt i32 %259, 32766
   %261 = icmp slt i32 %259, -32767
   %262 = trunc nsw i32 %259 to i16
-  %spec.select244 = select i1 %261, i16 -32768, i16 %262
-  %.sink243 = select i1 %260, i16 32767, i16 %spec.select244
-  store i16 %.sink243, ptr %.0224, align 2
+  %spec.select251 = select i1 %261, i16 -32768, i16 %262
+  %.sink250 = select i1 %260, i16 32767, i16 %spec.select251
+  store i16 %.sink250, ptr %.0224, align 2
   br label %263
 
 263:                                              ; preds = %.sink.split, %50
@@ -713,9 +713,9 @@ define hidden noundef i32 @mlib_ImageAffine_s16_2ch_bc(ptr noundef readonly capt
   %268 = icmp sgt i32 %267, 32766
   %269 = icmp slt i32 %267, -32767
   %270 = trunc nsw i32 %267 to i16
-  %spec.select258 = select i1 %269, i16 -32768, i16 %270
-  %.sink257 = select i1 %268, i16 32767, i16 %spec.select258
-  store i16 %.sink257, ptr %.0, align 2
+  %spec.select265 = select i1 %269, i16 -32768, i16 %270
+  %.sink264 = select i1 %268, i16 32767, i16 %spec.select265
+  store i16 %.sink264, ptr %.0, align 2
   br i1 %90, label %89, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %200, %50
@@ -1079,9 +1079,9 @@ define hidden noundef i32 @mlib_ImageAffine_s16_3ch_bc(ptr noundef readonly capt
   %267 = icmp sgt i32 %266, 32766
   %268 = icmp slt i32 %266, -32767
   %269 = trunc nsw i32 %266 to i16
-  %spec.select259 = select i1 %268, i16 -32768, i16 %269
-  %.sink258 = select i1 %267, i16 32767, i16 %spec.select259
-  store i16 %.sink258, ptr %.0, align 2
+  %spec.select266 = select i1 %268, i16 -32768, i16 %269
+  %.sink265 = select i1 %267, i16 32767, i16 %spec.select266
+  store i16 %.sink265, ptr %.0, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %89, !llvm.loop !13
@@ -1447,9 +1447,9 @@ define hidden noundef i32 @mlib_ImageAffine_s16_4ch_bc(ptr noundef readonly capt
   %267 = icmp sgt i32 %266, 32766
   %268 = icmp slt i32 %266, -32767
   %269 = trunc nsw i32 %266 to i16
-  %spec.select259 = select i1 %268, i16 -32768, i16 %269
-  %.sink258 = select i1 %267, i16 32767, i16 %spec.select259
-  store i16 %.sink258, ptr %.0, align 2
+  %spec.select266 = select i1 %268, i16 -32768, i16 %269
+  %.sink265 = select i1 %267, i16 32767, i16 %spec.select266
+  store i16 %.sink265, ptr %.0, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit, label %89, !llvm.loop !16

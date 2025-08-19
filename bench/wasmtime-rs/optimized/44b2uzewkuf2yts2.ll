@@ -2929,7 +2929,7 @@ _ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llv
   br label %46
 
 46:                                               ; preds = %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit, %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit
-  %.sink7 = phi i32 [ %45, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit ], [ %33, %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit ]
+  %.sink8 = phi i32 [ %45, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit ], [ %33, %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit ]
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %49 = load ptr, ptr %48, align 16, !nonnull !4, !noundef !4
@@ -2937,11 +2937,11 @@ _ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llv
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
   %53 = getelementptr i8, ptr %49, i64 %52
-  %54 = zext i32 %.sink7 to i64
+  %54 = zext i32 %.sink8 to i64
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
-  %.sink5 = load ptr, ptr %55, align 8, !noundef !4
-  %56 = load ptr, ptr %.sink5, align 8, !noalias !4, !noundef !4
-  %57 = getelementptr inbounds nuw i8, ptr %.sink5, i64 8
+  %.sink6 = load ptr, ptr %55, align 8, !noundef !4
+  %56 = load ptr, ptr %.sink6, align 8, !noalias !4, !noundef !4
+  %57 = getelementptr inbounds nuw i8, ptr %.sink6, i64 8
   %58 = load atomic i64, ptr %57 monotonic, align 8, !noalias !4
   store ptr %56, ptr %0, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5205,7 +5205,7 @@ _ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llv
   br label %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit
 
 _ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit: ; preds = %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i
-  %.sink44 = phi i32 [ %36, %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i ], [ %45, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i ]
+  %.sink47 = phi i32 [ %36, %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i ], [ %45, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %48 = load ptr, ptr %47, align 16, !alias.scope !679, !noalias !686, !nonnull !4, !noundef !4
@@ -5213,11 +5213,11 @@ _ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit: ; 
   %50 = ptrtoint ptr %48 to i64
   %51 = sub i64 %49, %50
   %52 = getelementptr i8, ptr %48, i64 %51
-  %53 = zext i32 %.sink44 to i64
+  %53 = zext i32 %.sink47 to i64
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 %53
-  %.sink5.i = load ptr, ptr %54, align 8, !noalias !686, !noundef !4
-  %55 = load ptr, ptr %.sink5.i, align 8, !noalias !686, !noundef !4
-  %56 = getelementptr inbounds nuw i8, ptr %.sink5.i, i64 8
+  %.sink6.i = load ptr, ptr %54, align 8, !noalias !686, !noundef !4
+  %55 = load ptr, ptr %.sink6.i, align 8, !noalias !686, !noundef !4
+  %56 = getelementptr inbounds nuw i8, ptr %.sink6.i, i64 8
   %57 = load atomic i64, ptr %56 monotonic, align 8, !noalias !686
   tail call void @llvm.experimental.noalias.scope.decl(metadata !703)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !706)
@@ -5280,17 +5280,17 @@ _ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llv
   br label %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit23
 
 _ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit23: ; preds = %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i19, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i22
-  %.sink51 = phi i32 [ %86, %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i19 ], [ %95, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i22 ]
+  %.sink54 = phi i32 [ %86, %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i19 ], [ %95, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i22 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %97 = ptrtoint ptr %96 to i64
   %98 = ptrtoint ptr %48 to i64
   %99 = sub i64 %97, %98
   %100 = getelementptr i8, ptr %48, i64 %99
-  %101 = zext i32 %.sink51 to i64
+  %101 = zext i32 %.sink54 to i64
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 %101
-  %.sink5.i21 = load ptr, ptr %102, align 8, !noalias !710, !noundef !4
-  %103 = load ptr, ptr %.sink5.i21, align 8, !noalias !710, !noundef !4
-  %104 = getelementptr inbounds nuw i8, ptr %.sink5.i21, i64 8
+  %.sink6.i21 = load ptr, ptr %102, align 8, !noalias !710, !noundef !4
+  %103 = load ptr, ptr %.sink6.i21, align 8, !noalias !710, !noundef !4
+  %104 = getelementptr inbounds nuw i8, ptr %.sink6.i21, i64 8
   %105 = load atomic i64, ptr %104 monotonic, align 8, !noalias !710
   %106 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 %5)
   %107 = extractvalue { i64, i1 } %106, 1
@@ -5414,7 +5414,7 @@ _ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llv
   br label %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit
 
 _ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit: ; preds = %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i
-  %.sink13 = phi i32 [ %35, %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i ], [ %44, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i ]
+  %.sink15 = phi i32 [ %35, %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i ], [ %44, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 16, !alias.scope !727, !noalias !734, !nonnull !4, !noundef !4
@@ -5422,11 +5422,11 @@ _ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit: ; 
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
   %51 = getelementptr i8, ptr %47, i64 %50
-  %52 = zext i32 %.sink13 to i64
+  %52 = zext i32 %.sink15 to i64
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 %52
-  %.sink5.i = load ptr, ptr %53, align 8, !noalias !734, !noundef !4
-  %54 = load ptr, ptr %.sink5.i, align 8, !noalias !734, !noundef !4
-  %55 = getelementptr inbounds nuw i8, ptr %.sink5.i, i64 8
+  %.sink6.i = load ptr, ptr %53, align 8, !noalias !734, !noundef !4
+  %54 = load ptr, ptr %.sink6.i, align 8, !noalias !734, !noundef !4
+  %55 = getelementptr inbounds nuw i8, ptr %.sink6.i, i64 8
   %56 = load atomic i64, ptr %55 monotonic, align 8, !noalias !734
   %57 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %2, i64 %4)
   %58 = extractvalue { i64, i1 } %57, 1
@@ -5639,7 +5639,7 @@ _ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llv
   br label %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit
 
 _ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit: ; preds = %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i
-  %.sink36 = phi i32 [ %37, %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i ], [ %46, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i ]
+  %.sink40 = phi i32 [ %37, %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i ], [ %46, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %49 = load ptr, ptr %48, align 16, !alias.scope !778, !noalias !785, !nonnull !4, !noundef !4
@@ -5647,11 +5647,11 @@ _ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit: ; 
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
   %53 = getelementptr i8, ptr %49, i64 %52
-  %54 = zext i32 %.sink36 to i64
+  %54 = zext i32 %.sink40 to i64
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
-  %.sink5.i = load ptr, ptr %55, align 8, !noalias !785, !noundef !4
-  %56 = load ptr, ptr %.sink5.i, align 8, !noalias !785, !noundef !4
-  %57 = getelementptr inbounds nuw i8, ptr %.sink5.i, i64 8
+  %.sink6.i = load ptr, ptr %55, align 8, !noalias !785, !noundef !4
+  %56 = load ptr, ptr %.sink6.i, align 8, !noalias !785, !noundef !4
+  %57 = getelementptr inbounds nuw i8, ptr %.sink6.i, i64 8
   %58 = load atomic i64, ptr %57 monotonic, align 8, !noalias !785
   tail call void @llvm.experimental.noalias.scope.decl(metadata !802)
   %59 = load ptr, ptr %0, align 16, !alias.scope !802, !nonnull !4, !noundef !4
@@ -7310,7 +7310,7 @@ _ZN16wasmtime_runtime12traphandlers9backtrace9Backtrace19new_with_trap_state17hf
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %15
 
-.body15:                                          ; preds = %44, %.body13
+.body15:                                          ; preds = %.body13, %44
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #30
@@ -7936,8 +7936,8 @@ define internal void @_ZN16wasmtime_runtime3sys4unix7signals12trap_handler17h98e
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -103, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond5 = select i1 %11, i1 %switch.lobit, i1 false
-  br i1 %or.cond5, label %switch.lookup, label %12
+  %or.cond6 = select i1 %11, i1 %switch.lobit, i1 false
+  br i1 %or.cond6, label %switch.lookup, label %12
 
 12:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

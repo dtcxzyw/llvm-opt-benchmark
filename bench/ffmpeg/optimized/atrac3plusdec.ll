@@ -199,8 +199,8 @@ define internal i32 @atrac3p_decode_frame(ptr noundef %0, ptr noundef initialize
   br i1 %.not, label %.preheader, label %46
 
 .preheader:                                       ; preds = %29
-  %.not115 = icmp eq i32 %19, 0
-  br i1 %.not115, label %.critedge, label %.lr.ph
+  %.not128 = icmp eq i32 %19, 0
+  br i1 %.not128, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 65824

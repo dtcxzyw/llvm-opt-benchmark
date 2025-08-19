@@ -3180,7 +3180,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.02937.i.i = phi ptr [ %23, %.critedge.i.i ], [ %18, %17 ]
   %22 = load ptr, ptr %.02937.i.i, align 8, !tbaa !160, !noalias !194
   %.not17.i.i = icmp eq ptr %22, %.tr241
-  br i1 %.not17.i.i, label %.critedge276, label %.critedge.i.i
+  br i1 %.not17.i.i, label %.critedge290, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
   %23 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
@@ -3202,9 +3202,9 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %27 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %3, ptr noundef %.tr241) #20, !noalias !194
   %28 = extractvalue { ptr, i8 } %27, 1
   %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %33, label %.critedge276
+  br i1 %29, label %33, label %.critedge290
 
-.critedge276:                                     ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %.lr.ph.i.i
+.critedge290:                                     ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %.lr.ph.i.i
   %30 = getelementptr inbounds nuw i8, ptr %.tr241, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !140
   %32 = tail call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %31) #20
@@ -3337,9 +3337,9 @@ _ZN4llvm14BatchAAResultsC2ERNS_9AAResultsE.exit:  ; preds = %.lr.ph.i.i.i.i3.i, 
 ._crit_edge.i.i172:                               ; preds = %.critedge.i.i170, %69
   %76 = load i32, ptr %46, align 8, !tbaa !29, !noalias !219
   %77 = icmp ult i32 %71, %76
-  br i1 %77, label %.critedge277, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i148
+  br i1 %77, label %.critedge291, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i148
 
-.critedge277:                                     ; preds = %._crit_edge.i.i172
+.critedge291:                                     ; preds = %._crit_edge.i.i172
   %78 = add nuw i32 %71, 1
   store i32 %78, ptr %47, align 4, !tbaa !30, !noalias !219
   store ptr %.0104, ptr %73, align 8, !tbaa !160, !noalias !219
@@ -3351,7 +3351,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i148: ; preds = %._crit_edge.
   %81 = trunc nuw i8 %80 to i1
   br i1 %81, label %82, label %.loopexit
 
-82:                                               ; preds = %.critedge277, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i148
+82:                                               ; preds = %.critedge291, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i148
   %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17DefMaxInstsToScanE, i64 120), align 8, !tbaa !222
   %84 = call noundef ptr @_ZN4llvm24FindAvailableLoadedValueEPNS_8LoadInstEPNS_10BasicBlockERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEEjPNS_14BatchAAResultsEPbPj(ptr noundef nonnull %39, ptr noundef %.0104, ptr noundef nonnull align 8 dereferenceable(10) %5, i32 noundef %83, ptr noundef nonnull %7, ptr noundef null, ptr noundef null) #20
   %.not138 = icmp eq ptr %84, null
@@ -3574,8 +3574,8 @@ tailrecurse.backedge:                             ; preds = %128, %161, %120, %1
   %195 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_14Lint13findValueImplEPN4llvm5ValueEbRNS1_15SmallPtrSetImplIS3_EE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %193, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(21) %3)
   br label %.thread209
 
-.thread209:                                       ; preds = %189, %187, %170, %194, %185, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, %.critedge276
-  %.0 = phi ptr [ %32, %.critedge276 ], [ %.4, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit ], [ %186, %185 ], [ %195, %194 ], [ %39, %170 ], [ %39, %187 ], [ %39, %189 ]
+.thread209:                                       ; preds = %189, %187, %170, %194, %185, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, %.critedge290
+  %.0 = phi ptr [ %32, %.critedge290 ], [ %.4, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit ], [ %186, %185 ], [ %195, %194 ], [ %39, %170 ], [ %39, %187 ], [ %39, %189 ]
   ret ptr %.0
 }
 

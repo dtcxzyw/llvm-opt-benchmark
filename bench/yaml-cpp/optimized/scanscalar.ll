@@ -278,17 +278,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.thread375: ; pr
   %.2194.ph = phi i64 [ %171, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263 ], [ %.0192, %74 ]
   %.1168.ph = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263 ], [ %.0167, %74 ]
   %.1.ph = phi i8 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263 ], [ %.0166, %74 ]
-  br label %.outer794
+  br label %.outer806
 
-.outer794:                                        ; preds = %197, %.outer
-  %.0204.ph795 = phi i64 [ %198, %197 ], [ %.0204.ph, %.outer ]
-  %.1168.ph796 = phi i1 [ true, %197 ], [ %.1168.ph, %.outer ]
-  %.1.ph797 = phi i8 [ 1, %197 ], [ %.1.ph, %.outer ]
+.outer806:                                        ; preds = %197, %.outer
+  %.0204.ph807 = phi i64 [ %198, %197 ], [ %.0204.ph, %.outer ]
+  %.1168.ph808 = phi i1 [ true, %197 ], [ %.1168.ph, %.outer ]
+  %.1.ph809 = phi i8 [ 1, %197 ], [ %.1.ph, %.outer ]
   br label %76
 
-76:                                               ; preds = %.backedge, %.outer794
-  %.1168 = phi i1 [ %.1168.ph796, %.outer794 ], [ true, %.backedge ]
-  %.1 = phi i8 [ %.1.ph797, %.outer794 ], [ 1, %.backedge ]
+76:                                               ; preds = %.backedge, %.outer806
+  %.1168 = phi i1 [ %.1168.ph808, %.outer806 ], [ true, %.backedge ]
+  %.1 = phi i8 [ %.1.ph809, %.outer806 ], [ 1, %.backedge ]
   %77 = load ptr, ptr %2, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 0, ptr %16, align 8, !tbaa !24
@@ -662,7 +662,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
 
 197:                                              ; preds = %192
   %198 = load i64, ptr %32, align 8, !tbaa !17
-  br label %.outer794, !llvm.loop !46
+  br label %.outer806, !llvm.loop !46
 
 199:                                              ; preds = %191, %179
   %200 = landingpad { ptr, i32 }
@@ -670,7 +670,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   br label %.body
 
 .critedge:                                        ; preds = %110, %79, %89, %85, %151
-  %.1205 = phi i64 [ %152, %151 ], [ %.0204.ph795, %85 ], [ %.0204.ph795, %89 ], [ %.0204.ph795, %79 ], [ %.0204.ph795, %110 ]
+  %.1205 = phi i64 [ %152, %151 ], [ %.0204.ph807, %85 ], [ %.0204.ph807, %89 ], [ %.0204.ph807, %79 ], [ %.0204.ph807, %110 ]
   %.0203 = phi i1 [ true, %151 ], [ false, %85 ], [ false, %89 ], [ false, %79 ], [ false, %110 ]
   %.3195 = phi i64 [ %152, %151 ], [ %.2194.ph, %85 ], [ %.2194.ph, %89 ], [ %.2194.ph, %79 ], [ %.2194.ph, %110 ]
   %.2169 = phi i1 [ true, %151 ], [ %.1168, %85 ], [ %.1168, %89 ], [ %.1168, %79 ], [ %.1168, %110 ]
@@ -932,19 +932,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %
   %287 = trunc nuw i8 %286 to i1
   %.not7 = xor i1 %287, true
   %or.cond9 = select i1 %.not7, i1 true, i1 %268
-  br i1 %or.cond9, label %.preheader798, label %288
+  br i1 %or.cond9, label %.preheader810, label %288
 
 288:                                              ; preds = %.critedge6
   %289 = load i32, ptr %50, align 8, !tbaa !28
   %290 = load i32, ptr %60, align 4, !tbaa !41
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %290, i32 %289)
   store i32 %.sroa.speculated, ptr %60, align 4, !tbaa !51
-  br label %.preheader798
+  br label %.preheader810
 
-.preheader798:                                    ; preds = %288, %.critedge6
+.preheader810:                                    ; preds = %288, %.critedge6
   br label %291
 
-291:                                              ; preds = %.preheader798, %341
+291:                                              ; preds = %.preheader810, %341
   %292 = load atomic i8, ptr @_ZGVZN4YAML3Exp5BlankEvE1e acquire, align 8
   %293 = icmp eq i8 %292, 0
   br i1 %293, label %294, label %_ZN4YAML3Exp5BlankEv.exit, !prof !23
@@ -1159,12 +1159,12 @@ _ZN4YAML3Exp5BlankEv.exit314:                     ; preds = %357, %350, %346
   br label %.body
 
 .loopexit403.loopexit:                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i342, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, %_ZN4YAML3Exp5BlankEv.exit314
-  %lpad.loopexit799 = landingpad { ptr, i32 }
+  %lpad.loopexit811 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit403.loopexit.split-lp:                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i346, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i335, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i319.invoke
-  %lpad.loopexit.split-lp800 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp812 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -1474,7 +1474,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit355: ; preds 
   ret void
 
 .body:                                            ; preds = %.loopexit403.loopexit, %.loopexit403.loopexit.split-lp, %.loopexit.split-lp404, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit391, %.loopexit.split-lp392, %359, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i305, %303, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i278, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %105, %239, %145, %45, %43, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266, %199, %126, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %221, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit279, %366, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit306, %332
-  %.pn240.pn.pn = phi { ptr, i32 } [ %.pn240365, %221 ], [ %214, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit279 ], [ %.pn224362, %126 ], [ %119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266 ], [ %200, %199 ], [ %.pn233368, %332 ], [ %325, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit306 ], [ %367, %366 ], [ %.pn228, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341 ], [ %46, %45 ], [ %44, %43 ], [ %106, %105 ], [ %.pn.i, %145 ], [ %240, %239 ], [ %119, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %214, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i278 ], [ %304, %303 ], [ %325, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i305 ], [ %360, %359 ], [ %lpad.loopexit393, %.loopexit391 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp392 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit388, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit400, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp401, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit.split-lp406, %.loopexit.split-lp404 ], [ %lpad.loopexit799, %.loopexit403.loopexit ], [ %lpad.loopexit.split-lp800, %.loopexit403.loopexit.split-lp ]
+  %.pn240.pn.pn = phi { ptr, i32 } [ %.pn240365, %221 ], [ %214, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit279 ], [ %.pn224362, %126 ], [ %119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266 ], [ %200, %199 ], [ %.pn233368, %332 ], [ %325, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit306 ], [ %367, %366 ], [ %.pn228, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341 ], [ %46, %45 ], [ %44, %43 ], [ %106, %105 ], [ %.pn.i, %145 ], [ %240, %239 ], [ %119, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %214, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i278 ], [ %304, %303 ], [ %325, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i305 ], [ %360, %359 ], [ %lpad.loopexit393, %.loopexit391 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp392 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit388, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit400, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp401, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit.split-lp406, %.loopexit.split-lp404 ], [ %lpad.loopexit811, %.loopexit403.loopexit ], [ %lpad.loopexit.split-lp812, %.loopexit403.loopexit.split-lp ]
   %473 = load ptr, ptr %0, align 8, !tbaa !44
   %474 = icmp eq ptr %473, %31
   br i1 %474, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i357, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i356
@@ -2758,7 +2758,7 @@ _ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_.exit: ; preds = %1
 define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.YAML::StreamCharSource", align 8
   %4 = load i32, ptr %0, align 8, !tbaa !86
-  switch i32 %4, label %common.ret66 [
+  switch i32 %4, label %common.ret83 [
     i32 0, label %9
     i32 1, label %42
     i32 2, label %75
@@ -2774,7 +2774,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamChar
   %7 = load ptr, ptr %6, align 8, !tbaa !60
   %8 = load ptr, ptr %5, align 8, !tbaa !58
   %.not20.i37.not = icmp eq ptr %7, %8
-  br i1 %.not20.i37.not, label %common.ret66, label %.lr.ph40
+  br i1 %.not20.i37.not, label %common.ret83, label %.lr.ph40
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2823,7 +2823,7 @@ _ZNK4YAML5RegEx12MatchOpEmptyINS_16StreamCharSourceEEEiRKT_.exit: ; preds = %26,
   %39 = load i8, ptr %storemerge.i.i.i.i.i.i.i, align 1, !tbaa !20
   %40 = icmp ne i8 %39, 4
   %41 = sext i1 %40 to i32
-  br label %common.ret66
+  br label %common.ret83
 
 42:                                               ; preds = %2
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2874,7 +2874,7 @@ _ZNK4YAML5RegEx12MatchOpMatchINS_16StreamCharSourceEEEiRKT_.exit: ; preds = %59,
   %74 = load i8, ptr %73, align 4, !tbaa !99
   %.not.i = icmp eq i8 %72, %74
   %..i = select i1 %.not.i, i32 1, i32 -1
-  br label %common.ret66
+  br label %common.ret83
 
 75:                                               ; preds = %2
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2907,7 +2907,7 @@ _ZNK4YAML16StreamCharSourceixEm.exit.i:           ; preds = %92
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !20
   %100 = icmp sgt i8 %77, %99
-  br i1 %100, label %common.ret66, label %111
+  br i1 %100, label %common.ret83, label %111
 
 _ZNK4YAML16StreamCharSourceixEm.exit.thread7.i:   ; preds = %75
   %101 = ashr i64 %90, 9
@@ -2917,13 +2917,13 @@ _ZNK4YAML16StreamCharSourceixEm.exit.thread7.i:   ; preds = %75
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !20
   %107 = icmp sgt i8 %77, %106
-  br i1 %107, label %common.ret66, label %111
+  br i1 %107, label %common.ret83, label %111
 
 _ZNK4YAML16StreamCharSourceixEm.exit.thread.i:    ; preds = %92
   %108 = getelementptr inbounds i8, ptr %82, i64 %80
   %109 = load i8, ptr %108, align 1, !tbaa !20
   %110 = icmp sgt i8 %77, %109
-  br i1 %110, label %common.ret66, label %_ZNK4YAML16StreamCharSourceixEm.exit4.i
+  br i1 %110, label %common.ret83, label %_ZNK4YAML16StreamCharSourceixEm.exit4.i
 
 111:                                              ; preds = %_ZNK4YAML16StreamCharSourceixEm.exit.thread7.i, %_ZNK4YAML16StreamCharSourceixEm.exit.i
   %112 = phi ptr [ %96, %_ZNK4YAML16StreamCharSourceixEm.exit.i ], [ %103, %_ZNK4YAML16StreamCharSourceixEm.exit.thread7.i ]
@@ -2940,7 +2940,7 @@ _ZNK4YAML16StreamCharSourceixEm.exit4.i:          ; preds = %111, %_ZNK4YAML16St
   %118 = load i8, ptr %.in9.i, align 1, !tbaa !103
   %119 = icmp slt i8 %118, %117
   %spec.select.i = select i1 %119, i32 -1, i32 1
-  br label %common.ret66
+  br label %common.ret83
 
 120:                                              ; preds = %2
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2948,18 +2948,18 @@ _ZNK4YAML16StreamCharSourceixEm.exit4.i:          ; preds = %111, %_ZNK4YAML16St
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %124 = load ptr, ptr %123, align 8, !tbaa !113
   %.not2744 = icmp eq ptr %122, %124
-  br i1 %.not2744, label %common.ret66, label %.lr.ph46
+  br i1 %.not2744, label %common.ret83, label %.lr.ph46
 
 125:                                              ; preds = %.lr.ph46
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.020.045, i64 32
   %.not27 = icmp eq ptr %126, %124
-  br i1 %.not27, label %common.ret66, label %.lr.ph46
+  br i1 %.not27, label %common.ret83, label %.lr.ph46
 
 .lr.ph46:                                         ; preds = %120, %125
   %.sroa.020.045 = phi ptr [ %126, %125 ], [ %122, %120 ]
   %127 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.020.045, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %128 = icmp slt i32 %127, 0
-  br i1 %128, label %125, label %common.ret66
+  br i1 %128, label %125, label %common.ret83
 
 .lr.ph40:                                         ; preds = %.preheader, %132
   %129 = phi ptr [ %136, %132 ], [ %8, %.preheader ]
@@ -2968,7 +2968,7 @@ _ZNK4YAML16StreamCharSourceixEm.exit4.i:          ; preds = %111, %_ZNK4YAML16St
   %130 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %129, i64 %.014.i39
   %131 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %.not.i11 = icmp eq i32 %131, -1
-  br i1 %.not.i11, label %common.ret66, label %132
+  br i1 %.not.i11, label %common.ret83, label %132
 
 132:                                              ; preds = %.lr.ph40
   %133 = icmp eq i64 %.014.i39, 0
@@ -2981,7 +2981,7 @@ _ZNK4YAML16StreamCharSourceixEm.exit4.i:          ; preds = %111, %_ZNK4YAML16St
   %139 = sub i64 %137, %138
   %140 = ashr exact i64 %139, 5
   %.not20.i = icmp ult i64 %134, %140
-  br i1 %.not20.i, label %.lr.ph40, label %common.ret66, !llvm.loop !114
+  br i1 %.not20.i, label %.lr.ph40, label %common.ret83, !llvm.loop !114
 
 141:                                              ; preds = %2
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2989,17 +2989,17 @@ _ZNK4YAML16StreamCharSourceixEm.exit4.i:          ; preds = %111, %_ZNK4YAML16St
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %145 = load ptr, ptr %144, align 8, !tbaa !113
   %146 = icmp eq ptr %143, %145
-  br i1 %146, label %common.ret66, label %147
+  br i1 %146, label %common.ret83, label %147
 
-common.ret66:                                     ; preds = %141, %_ZNK4YAML16StreamCharSourceixEm.exit4.i, %_ZNK4YAML16StreamCharSourceixEm.exit.thread.i, %_ZNK4YAML16StreamCharSourceixEm.exit.thread7.i, %_ZNK4YAML16StreamCharSourceixEm.exit.i, %2, %_ZNK4YAML5RegEx12MatchOpMatchINS_16StreamCharSourceEEEiRKT_.exit, %_ZNK4YAML5RegEx12MatchOpEmptyINS_16StreamCharSourceEEEiRKT_.exit, %120, %.preheader, %150, %125, %.lr.ph46, %132, %.lr.ph40, %163, %156, %147
-  %common.ret66.op = phi i32 [ %..i13, %147 ], [ %41, %_ZNK4YAML5RegEx12MatchOpEmptyINS_16StreamCharSourceEEEiRKT_.exit ], [ %..i, %_ZNK4YAML5RegEx12MatchOpMatchINS_16StreamCharSourceEEEiRKT_.exit ], [ -1, %2 ], [ -1, %_ZNK4YAML16StreamCharSourceixEm.exit.i ], [ %spec.select.i, %_ZNK4YAML16StreamCharSourceixEm.exit4.i ], [ -1, %_ZNK4YAML16StreamCharSourceixEm.exit.thread.i ], [ -1, %_ZNK4YAML16StreamCharSourceixEm.exit.thread7.i ], [ -1, %141 ], [ -1, %120 ], [ -1, %.preheader ], [ 0, %150 ], [ %127, %.lr.ph46 ], [ -1, %125 ], [ -1, %.lr.ph40 ], [ %spec.select.i12, %132 ], [ -1, %156 ], [ %164, %163 ]
-  ret i32 %common.ret66.op
+common.ret83:                                     ; preds = %141, %_ZNK4YAML16StreamCharSourceixEm.exit4.i, %_ZNK4YAML16StreamCharSourceixEm.exit.thread.i, %_ZNK4YAML16StreamCharSourceixEm.exit.thread7.i, %_ZNK4YAML16StreamCharSourceixEm.exit.i, %2, %_ZNK4YAML5RegEx12MatchOpMatchINS_16StreamCharSourceEEEiRKT_.exit, %_ZNK4YAML5RegEx12MatchOpEmptyINS_16StreamCharSourceEEEiRKT_.exit, %120, %.preheader, %150, %125, %.lr.ph46, %132, %.lr.ph40, %163, %156, %147
+  %common.ret83.op = phi i32 [ %..i13, %147 ], [ %41, %_ZNK4YAML5RegEx12MatchOpEmptyINS_16StreamCharSourceEEEiRKT_.exit ], [ %..i, %_ZNK4YAML5RegEx12MatchOpMatchINS_16StreamCharSourceEEEiRKT_.exit ], [ -1, %2 ], [ -1, %_ZNK4YAML16StreamCharSourceixEm.exit.i ], [ %spec.select.i, %_ZNK4YAML16StreamCharSourceixEm.exit4.i ], [ -1, %_ZNK4YAML16StreamCharSourceixEm.exit.thread.i ], [ -1, %_ZNK4YAML16StreamCharSourceixEm.exit.thread7.i ], [ -1, %141 ], [ -1, %120 ], [ -1, %.preheader ], [ 0, %150 ], [ %127, %.lr.ph46 ], [ -1, %125 ], [ -1, %.lr.ph40 ], [ %spec.select.i12, %132 ], [ -1, %156 ], [ %164, %163 ]
+  ret i32 %common.ret83.op
 
 147:                                              ; preds = %141
   %148 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %149 = icmp sgt i32 %148, -1
   %..i13 = select i1 %149, i32 -1, i32 1
-  br label %common.ret66
+  br label %common.ret83
 
 150:                                              ; preds = %2
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3007,7 +3007,7 @@ common.ret66:                                     ; preds = %141, %_ZNK4YAML16St
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %154 = load ptr, ptr %153, align 8, !tbaa !113
   %.not32 = icmp eq ptr %152, %154
-  br i1 %.not32, label %common.ret66, label %.lr.ph
+  br i1 %.not32, label %common.ret83, label %.lr.ph
 
 .lr.ph:                                           ; preds = %150
   %.sroa.6.0..0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3031,13 +3031,13 @@ common.ret66:                                     ; preds = %141, %_ZNK4YAML16St
   %162 = call noundef i32 @_ZNK4YAML5RegEx5MatchINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.024.033, ptr noundef nonnull align 8 dereferenceable(16) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i18 = icmp eq i32 %162, -1
-  br i1 %.not.i18, label %common.ret66, label %163
+  br i1 %.not.i18, label %common.ret83, label %163
 
 163:                                              ; preds = %156
   %164 = add nsw i32 %162, %.015.i1534
   %165 = getelementptr inbounds nuw i8, ptr %.sroa.024.033, i64 32
   %.not = icmp eq ptr %165, %154
-  br i1 %.not, label %common.ret66, label %156
+  br i1 %.not, label %common.ret83, label %156
 }
 
 declare noundef zeroext i1 @_ZNK4YAML6Stream12_ReadAheadToEm(ptr noundef nonnull align 8 dereferenceable(136), i64 noundef) local_unnamed_addr #1

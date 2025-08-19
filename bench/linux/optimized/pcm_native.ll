@@ -1264,7 +1264,7 @@ define dso_local noundef range(i32 -77, 1) i32 @snd_pcm_drain_done(ptr noundef %
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %.thread2
+  br i1 %17, label %18, label %.thread3
 
 18:                                               ; preds = %14, %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -1287,9 +1287,9 @@ thread-pre-split:                                 ; preds = %6, %18
   %27 = phi i32 [ %.pr, %thread-pre-split ], [ %13, %12 ]
   %28 = phi ptr [ %.ph, %thread-pre-split ], [ %8, %12 ]
   %29 = icmp eq i32 %27, 1
-  br i1 %29, label %39, label %.thread2
+  br i1 %29, label %39, label %.thread3
 
-.thread2:                                         ; preds = %14, %26
+.thread3:                                         ; preds = %14, %26
   %30 = phi ptr [ %28, %26 ], [ %8, %14 ]
   tail call fastcc void @snd_pcm_trigger_tstamp(ptr noundef %0)
   store i32 1, ptr %30, align 8
@@ -1301,14 +1301,14 @@ thread-pre-split:                                 ; preds = %6, %18
   %35 = icmp eq ptr %34, null
   br i1 %35, label %39, label %36
 
-36:                                               ; preds = %.thread2
+36:                                               ; preds = %.thread3
   %37 = load ptr, ptr %2, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   tail call void @snd_timer_notify(ptr noundef nonnull %34, i32 noundef 13, ptr noundef nonnull %38) #18
   br label %39
 
-39:                                               ; preds = %36, %.thread2, %26
-  %40 = phi ptr [ %30, %36 ], [ %30, %.thread2 ], [ %28, %26 ]
+39:                                               ; preds = %36, %.thread3, %26
+  %40 = phi ptr [ %30, %36 ], [ %30, %.thread3 ], [ %28, %26 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 288
   %42 = tail call i32 @__wake_up(ptr noundef nonnull %41, i32 noundef 3, i32 noundef 1, ptr noundef null) #18
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 312
@@ -10531,7 +10531,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_pcm_ioctl_hw_params_co
   %39 = and i64 %38, 4294967295
   %40 = icmp ne i64 %39, 0
   %41 = or i1 %15, %40
-  %42 = select i1 %40, i32 -14, i32 %24
+  %42 = select i1 %40, i32 -14, i32 0
   br i1 %41, label %.thread, label %43
 
 43:                                               ; preds = %29

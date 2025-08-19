@@ -5836,9 +5836,9 @@ terminate.lpad.i.i.i141:                          ; preds = %if.then.i.i.i.i140
   unreachable
 
 cleanup157.sink.split.sink.split:                 ; preds = %if.else102, %if.then104, %if.then90, %if.then84
-  %.sink168 = phi i64 [ 1, %if.then84 ], [ 2, %if.then90 ], [ 3, %if.then104 ], [ 4, %if.else102 ]
+  %.sink171 = phi i64 [ 1, %if.then84 ], [ 2, %if.then90 ], [ 3, %if.then104 ], [ 4, %if.else102 ]
   %60 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %.sink168, ptr %60, align 8
+  store i64 %.sink171, ptr %60, align 8
   br label %cleanup157.sink.split
 
 cleanup157.sink.split:                            ; preds = %cleanup157.sink.split.sink.split, %invoke.cont4
@@ -7108,11 +7108,11 @@ if.then.i.i.i.i43:                                ; preds = %if.then.i.i.i41
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i41, %if.then.i.i.i.i43
   %23 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i64 24, i1 false)
-  store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i65, align 8
-  %token_.i.i.i.i66 = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
-  store ptr %19, ptr %token_.i.i.i.i66, align 8
+  store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i70, align 8
+  %token_.i.i.i.i71 = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
+  store ptr %19, ptr %token_.i.i.i.i71, align 8
   %outstanding_buffer_borrows_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 76
   %24 = load i32, ptr %outstanding_buffer_borrows_.i.i.i.i.i.i.i, align 4
   %inc.i.i.i.i.i.i.i = add nsw i32 %24, 1

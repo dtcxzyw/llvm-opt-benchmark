@@ -252,7 +252,7 @@ define hidden void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$ser
   store ptr %14, ptr %7, align 8, !alias.scope !70, !noalias !60
   %.sroa.0.0.copyload1.i.i = load i64, ptr %13, align 8, !noalias !71
   %15 = icmp eq i64 %.sroa.0.0.copyload1.i.i, 12
-  br i1 %15, label %._crit_edge.loopexit.split.loop.exit18, label %16
+  br i1 %15, label %._crit_edge.loopexit.split.loop.exit21, label %16
 
 16:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h66d29f6dd39fa1a1E.exit.i.i"
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -329,12 +329,12 @@ common.resume:                                    ; preds = %19, %36, %24
   %32 = icmp eq ptr %30, %31
   br i1 %32, label %._crit_edge, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h66d29f6dd39fa1a1E.exit.i.i"
 
-._crit_edge.loopexit.split.loop.exit18:           ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h66d29f6dd39fa1a1E.exit.i.i"
+._crit_edge.loopexit.split.loop.exit21:           ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h66d29f6dd39fa1a1E.exit.i.i"
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 176
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %29, %._crit_edge.loopexit.split.loop.exit18, %2
-  %34 = phi ptr [ %9, %2 ], [ %33, %._crit_edge.loopexit.split.loop.exit18 ], [ %30, %29 ]
+._crit_edge:                                      ; preds = %29, %._crit_edge.loopexit.split.loop.exit21, %2
+  %34 = phi ptr [ %9, %2 ], [ %33, %._crit_edge.loopexit.split.loop.exit21 ], [ %30, %29 ]
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !98
   store ptr %1, ptr %3, align 8, !noalias !98

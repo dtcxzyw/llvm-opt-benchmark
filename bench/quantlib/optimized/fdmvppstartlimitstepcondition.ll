@@ -805,7 +805,7 @@ for.body.lr.ph:                                   ; preds = %_ZN8QuantLib5ArrayC
   %mul116.neg83 = mul i64 %add2, -2
   %add115 = or disjoint i64 %mul116.neg83, 1
   %invariant.gep = getelementptr double, ptr %13, i64 %9
-  %invariant.gep89 = getelementptr double, ptr %13, i64 %9
+  %invariant.gep90 = getelementptr double, ptr %13, i64 %9
   br i1 %cmp78, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end150.us
@@ -850,12 +850,12 @@ if.then52.us:                                     ; preds = %if.else48.us
   br label %if.end150.us
 
 if.then21.us:                                     ; preds = %if.else.us
-  %gep90 = getelementptr double, ptr %invariant.gep89, i64 %i.082.us
-  %arrayidx.i46.us = getelementptr i8, ptr %gep90, i64 8
+  %gep91 = getelementptr double, ptr %invariant.gep90, i64 %i.082.us
+  %arrayidx.i46.us = getelementptr i8, ptr %gep91, i64 8
   %20 = load double, ptr %arrayidx.i46.us, align 8, !tbaa !48
   %arrayidx.i47.us = getelementptr inbounds nuw double, ptr %13, i64 %i.082.us
   %21 = load double, ptr %arrayidx.i47.us, align 8, !tbaa !48
-  %22 = load double, ptr %gep90, align 8, !tbaa !48
+  %22 = load double, ptr %gep91, align 8, !tbaa !48
   %cmp.i49.us = fcmp olt double %21, %22
   %23 = select i1 %cmp.i49.us, double %22, double %21
   %cmp.i51.us = fcmp olt double %20, %23
@@ -903,12 +903,12 @@ if.else:                                          ; preds = %for.body
   br i1 %cmp20, label %if.then21, label %if.else48
 
 if.then21:                                        ; preds = %if.else
-  %gep88 = getelementptr double, ptr %invariant.gep89, i64 %i.082
-  %arrayidx.i46 = getelementptr i8, ptr %gep88, i64 8
+  %gep89 = getelementptr double, ptr %invariant.gep90, i64 %i.082
+  %arrayidx.i46 = getelementptr i8, ptr %gep89, i64 8
   %32 = load double, ptr %arrayidx.i46, align 8, !tbaa !48
   %arrayidx.i47 = getelementptr inbounds nuw double, ptr %13, i64 %i.082
   %33 = load double, ptr %arrayidx.i47, align 8, !tbaa !48
-  %34 = load double, ptr %gep88, align 8, !tbaa !48
+  %34 = load double, ptr %gep89, align 8, !tbaa !48
   %cmp.i49 = fcmp olt double %33, %34
   %35 = select i1 %cmp.i49, double %34, double %33
   %cmp.i51 = fcmp olt double %32, %35

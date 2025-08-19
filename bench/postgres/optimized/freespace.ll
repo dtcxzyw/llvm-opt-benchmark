@@ -597,9 +597,9 @@ RelationGetSmgr.exit:                             ; preds = %fsm_logical_to_phys
 27:                                               ; preds = %RelationGetSmgr.exit
   store i32 -1, ptr %24, align 4
   %28 = tail call zeroext i1 @smgrexists(ptr noundef nonnull %23, i32 noundef 1) #8
-  br i1 %28, label %29, label %.thread38
+  br i1 %28, label %29, label %.thread41
 
-.thread38:                                        ; preds = %27
+.thread41:                                        ; preds = %27
   store i32 0, ptr %24, align 4
   br label %32
 
@@ -609,7 +609,7 @@ RelationGetSmgr.exit:                             ; preds = %fsm_logical_to_phys
   %31 = icmp ult i32 %15, %.pre
   br i1 %31, label %.thread, label %32
 
-32:                                               ; preds = %.thread38, %29
+32:                                               ; preds = %.thread41, %29
   br i1 %2, label %33, label %64
 
 33:                                               ; preds = %32

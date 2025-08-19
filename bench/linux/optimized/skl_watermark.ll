@@ -1453,7 +1453,7 @@ define dso_local void @intel_wm_state_verify(ptr noundef readonly captures(none)
   %354 = load i64, ptr %353, align 4
   %355 = and i64 %354, 8
   %356 = icmp eq i64 %355, 0
-  br i1 %356, label %357, label %.thread29
+  br i1 %356, label %357, label %.thread40
 
 357:                                              ; preds = %351
   %358 = getelementptr i8, ptr %347, i64 141
@@ -1485,7 +1485,7 @@ define dso_local void @intel_wm_state_verify(ptr noundef readonly captures(none)
   %378 = getelementptr i8, ptr %348, i64 138
   %379 = load i16, ptr %378, align 2
   %380 = icmp eq i16 %377, %379
-  br i1 %380, label %.thread29, label %381
+  br i1 %380, label %.thread40, label %381
 
 381:                                              ; preds = %375, %369, %363, %357
   br i1 %144, label %384, label %382
@@ -1520,9 +1520,9 @@ define dso_local void @intel_wm_state_verify(ptr noundef readonly captures(none)
   %.pre26 = zext i32 %.pre23 to i64
   %.pre28 = mul nuw nsw i64 %.pre26, 154
   %404 = icmp ugt i16 %.pr.pre, 12
-  br i1 %404, label %.thread29, label %.thread
+  br i1 %404, label %.thread40, label %.thread
 
-.thread29:                                        ; preds = %351, %375, %384
+.thread40:                                        ; preds = %351, %375, %384
   %.idx10.pre-phi.pn = phi i64 [ %.pre28, %384 ], [ %.idx10.pre-phi, %375 ], [ %.idx10.pre-phi, %351 ]
   %405 = getelementptr i8, ptr %26, i64 %.idx10.pre-phi.pn
   %406 = getelementptr i8, ptr %13, i64 %.idx10.pre-phi.pn
@@ -1533,7 +1533,7 @@ define dso_local void @intel_wm_state_verify(ptr noundef readonly captures(none)
   %411 = icmp eq i64 %410, 0
   br i1 %411, label %412, label %.thread
 
-412:                                              ; preds = %.thread29
+412:                                              ; preds = %.thread40
   %413 = getelementptr i8, ptr %405, i64 149
   %414 = load i8, ptr %413, align 1, !range !9, !noundef !10
   %415 = getelementptr i8, ptr %406, i64 149
@@ -1595,7 +1595,7 @@ define dso_local void @intel_wm_state_verify(ptr noundef readonly captures(none)
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %440, ptr noundef nonnull @.str.4, i32 noundef %442, ptr noundef %444, i32 noundef %445, i32 noundef %448, i32 noundef %451, i32 noundef %452, i32 noundef %455, i32 noundef %458) #16
   br label %.thread
 
-.thread:                                          ; preds = %346, %439, %430, %.thread29, %384
+.thread:                                          ; preds = %346, %439, %430, %.thread40, %384
   %459 = load i16, ptr %147, align 4
   %460 = load i16, ptr %148, align 2
   %461 = icmp eq i16 %459, %460
@@ -1746,12 +1746,12 @@ define internal fastcc void @skl_pipe_wm_get_hw_state(ptr noundef readonly captu
   %82 = load i8, ptr %7, align 8
   %83 = zext i8 %82 to i64
   %84 = icmp samesign ult i64 %81, %83
-  br i1 %84, label %.split, label %.loopexit.thread4, !llvm.loop !37
+  br i1 %84, label %.split, label %.loopexit.thread6, !llvm.loop !37
 
 .loopexit:                                        ; preds = %29
-  br i1 %33, label %.loopexit.thread, label %.loopexit.thread4
+  br i1 %33, label %.loopexit.thread, label %.loopexit.thread6
 
-.loopexit.thread4:                                ; preds = %.split, %.loopexit
+.loopexit.thread6:                                ; preds = %.split, %.loopexit
   %85 = load ptr, ptr %11, align 8
   %86 = trunc i64 %23 to i32
   %87 = shl i32 %86, 8
@@ -1764,9 +1764,9 @@ define internal fastcc void @skl_pipe_wm_get_hw_state(ptr noundef readonly captu
   %91 = tail call i32 %90(ptr noundef nonnull %10, i32 %14, i1 noundef zeroext true) #15
   br label %92
 
-92:                                               ; preds = %.loopexit.thread, %.loopexit.thread4
-  %93 = phi i1 [ false, %.loopexit.thread4 ], [ true, %.loopexit.thread ]
-  %94 = phi i32 [ %89, %.loopexit.thread4 ], [ %91, %.loopexit.thread ]
+92:                                               ; preds = %.loopexit.thread, %.loopexit.thread6
+  %93 = phi i1 [ false, %.loopexit.thread6 ], [ true, %.loopexit.thread ]
+  %94 = phi i32 [ %89, %.loopexit.thread6 ], [ %91, %.loopexit.thread ]
   %95 = getelementptr inbounds nuw i8, ptr %30, i64 128
   %96 = getelementptr inbounds nuw i8, ptr %30, i64 133
   %97 = lshr i32 %94, 31
@@ -1825,8 +1825,8 @@ define internal fastcc void @skl_pipe_wm_get_hw_state(ptr noundef readonly captu
   %137 = trunc i64 %23 to i32
   %138 = shl i32 %137, 8
   %139 = add i32 %19, %138
-  %.sink5 = select i1 %93, i32 %20, i32 %139
-  %140 = tail call i32 %136(ptr noundef nonnull %10, i32 %.sink5, i1 noundef zeroext true) #15
+  %.sink7 = select i1 %93, i32 %20, i32 %139
+  %140 = tail call i32 %136(ptr noundef nonnull %10, i32 %.sink7, i1 noundef zeroext true) #15
   %141 = getelementptr inbounds nuw i8, ptr %30, i64 149
   %142 = lshr i32 %140, 31
   %143 = trunc nuw nsw i32 %142 to i8
@@ -3575,7 +3575,7 @@ select.unfold:                                    ; preds = %281, %277
 
 320:                                              ; preds = %315, %313
   %321 = phi i64 [ %314, %313 ], [ %316, %315 ]
-  %.idx116 = shl i64 %321, 3
+  %.idx116 = shl nsw i64 %321, 3
   br label %322
 
 322:                                              ; preds = %334, %320
@@ -3968,7 +3968,7 @@ select.unfold:                                    ; preds = %281, %277
   %573 = getelementptr inbounds nuw i8, ptr %572, i64 728
   %574 = load i32, ptr %573, align 8
   %575 = icmp sgt i32 %574, 0
-  br i1 %575, label %.preheader405, label %.thread167
+  br i1 %575, label %.preheader525, label %.thread167
 
 576:                                              ; preds = %.loopexit208
   %577 = getelementptr i8, ptr %569, i64 -16
@@ -4278,7 +4278,7 @@ mbus_ddb_offset.exit:                             ; preds = %630, %663, %666
   %796 = icmp eq i32 %795, 0
   br i1 %796, label %.loopexit208, label %.thread131, !llvm.loop !99
 
-.preheader405:                                    ; preds = %571, %.thread162
+.preheader525:                                    ; preds = %571, %.thread162
   %797 = phi i64 [ %1383, %.thread162 ], [ 0, %571 ]
   %798 = phi ptr [ %1384, %.thread162 ], [ %572, %571 ]
   %799 = load ptr, ptr %13, align 8
@@ -4291,7 +4291,7 @@ mbus_ddb_offset.exit:                             ; preds = %630, %663, %666
   %806 = icmp eq ptr %801, null
   br i1 %806, label %.thread162, label %807
 
-807:                                              ; preds = %.preheader405
+807:                                              ; preds = %.preheader525
   %808 = load ptr, ptr %801, align 8
   %809 = getelementptr inbounds nuw i8, ptr %801, i64 144
   %810 = load i32, ptr %809, align 8
@@ -5155,14 +5155,14 @@ mbus_ddb_offset.exit:                             ; preds = %630, %663, %666
   %1382 = icmp eq i32 %1381, 0
   br i1 %1382, label %.thread162, label %.thread131
 
-.thread162:                                       ; preds = %.thread160, %.loopexit198, %1379, %.preheader405
+.thread162:                                       ; preds = %.thread160, %.loopexit198, %1379, %.preheader525
   %1383 = add nuw nsw i64 %797, 1
   %1384 = load ptr, ptr %7, align 8
   %1385 = getelementptr inbounds nuw i8, ptr %1384, i64 728
   %1386 = load i32, ptr %1385, align 8
   %1387 = sext i32 %1386 to i64
   %1388 = icmp slt i64 %1383, %1387
-  br i1 %1388, label %.preheader405, label %.thread167, !llvm.loop !127
+  br i1 %1388, label %.preheader525, label %.thread167, !llvm.loop !127
 
 .loopexit207:                                     ; preds = %457, %560, %392
   %1389 = phi i32 [ %394, %392 ], [ %561, %560 ], [ %458, %457 ]
@@ -6649,19 +6649,19 @@ define internal void @skl_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 2
   br label %59
 
-59:                                               ; preds = %.thread28, %52
-  %60 = phi i64 [ 0, %52 ], [ %143, %.thread28 ]
+59:                                               ; preds = %.thread44, %52
+  %60 = phi i64 [ 0, %52 ], [ %143, %.thread44 ]
   %61 = load i8, ptr %55, align 1
   %62 = zext i8 %61 to i64
   %63 = shl nuw nsw i64 1, %60
   %64 = and i64 %63, %62
   %65 = icmp eq i64 %64, 0
-  br i1 %65, label %.thread28, label %66
+  br i1 %65, label %.thread44, label %66
 
 66:                                               ; preds = %59
   %67 = load i8, ptr %48, align 8, !range !9, !noundef !10
   %68 = icmp eq i8 %67, 0
-  br i1 %68, label %.thread28, label %69
+  br i1 %68, label %.thread44, label %69
 
 69:                                               ; preds = %66
   %70 = getelementptr [8 x %struct.skl_ddb_entry], ptr %56, i64 0, i64 %60
@@ -6728,9 +6728,9 @@ define internal void @skl_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   br i1 %113, label %121, label %115
 
 115:                                              ; preds = %111
-  br i1 %114, label %thread-pre-split.thread26, label %thread-pre-split.thread27
+  br i1 %114, label %thread-pre-split.thread42, label %thread-pre-split.thread43
 
-thread-pre-split.thread27:                        ; preds = %115
+thread-pre-split.thread43:                        ; preds = %115
   %116 = load i16, ptr %54, align 2
   %117 = load i16, ptr %71, align 2
   %118 = call i16 @llvm.umin.i16(i16 %116, i16 %117)
@@ -6738,7 +6738,7 @@ thread-pre-split.thread27:                        ; preds = %115
   %119 = load i16, ptr %.phi.trans.insert, align 2
   %120 = call i16 @llvm.umax.i16(i16 %112, i16 %119)
   store i16 %120, ptr %58, align 2
-  br label %thread-pre-split.thread26
+  br label %thread-pre-split.thread42
 
 121:                                              ; preds = %111
   br i1 %114, label %thread-pre-split.thread, label %thread-pre-split
@@ -6750,16 +6750,16 @@ thread-pre-split:                                 ; preds = %121
   %124 = load i16, ptr %122, align 2
   store i16 %124, ptr %58, align 2
   %125 = icmp eq i16 %124, 0
-  br i1 %125, label %thread-pre-split.thread, label %thread-pre-split.thread26
+  br i1 %125, label %thread-pre-split.thread, label %thread-pre-split.thread42
 
-thread-pre-split.thread26:                        ; preds = %115, %thread-pre-split.thread27, %thread-pre-split
-  %126 = phi i16 [ %124, %thread-pre-split ], [ %120, %thread-pre-split.thread27 ], [ %112, %115 ]
+thread-pre-split.thread42:                        ; preds = %115, %thread-pre-split.thread43, %thread-pre-split
+  %126 = phi i16 [ %124, %thread-pre-split ], [ %120, %thread-pre-split.thread43 ], [ %112, %115 ]
   %127 = getelementptr inbounds nuw i8, ptr %70, i64 2
   %128 = load i16, ptr %127, align 2
   %129 = icmp eq i16 %128, 0
-  br i1 %129, label %.thread28, label %130
+  br i1 %129, label %.thread44, label %130
 
-130:                                              ; preds = %thread-pre-split.thread26
+130:                                              ; preds = %thread-pre-split.thread42
   %131 = load i16, ptr %54, align 2
   %132 = load i16, ptr %70, align 2
   %133 = call i16 @llvm.umin.i16(i16 %131, i16 %132)
@@ -6772,7 +6772,7 @@ thread-pre-split.thread:                          ; preds = %121, %thread-pre-sp
   %.phi.trans.insert24 = getelementptr inbounds nuw i8, ptr %70, i64 2
   %.pre25 = load i16, ptr %.phi.trans.insert24, align 2
   %136 = icmp eq i16 %.pre25, 0
-  br i1 %136, label %.thread28, label %137
+  br i1 %136, label %.thread44, label %137
 
 137:                                              ; preds = %thread-pre-split.thread
   %138 = getelementptr inbounds nuw i8, ptr %70, i64 2
@@ -6784,14 +6784,14 @@ thread-pre-split.thread:                          ; preds = %121, %thread-pre-sp
 141:                                              ; preds = %137, %130
   %142 = phi i16 [ %140, %137 ], [ %135, %130 ]
   store i16 %142, ptr %58, align 2
-  br label %.thread28
+  br label %.thread44
 
-.thread28:                                        ; preds = %thread-pre-split.thread26, %141, %thread-pre-split.thread, %66, %59
+.thread44:                                        ; preds = %thread-pre-split.thread42, %141, %thread-pre-split.thread, %66, %59
   %143 = add nuw nsw i64 %60, 1
   %144 = icmp eq i64 %143, 8
   br i1 %144, label %145, label %59, !llvm.loop !141
 
-145:                                              ; preds = %.thread28
+145:                                              ; preds = %.thread44
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !75
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -7987,11 +7987,11 @@ thread-pre-split:                                 ; preds = %79, %91, %95
   br label %.thread10
 
 .thread10.thread:                                 ; preds = %152, %144, %133, %123, %127
-  %.ph15 = phi i32 [ %132, %127 ], [ %116, %123 ], [ %116, %133 ], [ %151, %144 ], [ %116, %152 ]
-  %.ph16 = phi i32 [ %119, %127 ], [ %119, %123 ], [ %119, %133 ], [ %145, %144 ], [ %119, %152 ]
+  %.ph20 = phi i32 [ %132, %127 ], [ %116, %123 ], [ %116, %133 ], [ %151, %144 ], [ %116, %152 ]
+  %.ph21 = phi i32 [ %119, %127 ], [ %119, %123 ], [ %119, %133 ], [ %145, %144 ], [ %119, %152 ]
   %178 = icmp samesign ugt i16 %.pre1113, 9
   %179 = or i1 %29, %178
-  %180 = select i1 %179, i32 %.ph16, i32 0
+  %180 = select i1 %179, i32 %.ph21, i32 0
   br label %187
 
 .thread10:                                        ; preds = %174, %169
@@ -8007,8 +8007,8 @@ thread-pre-split:                                 ; preds = %79, %91, %95
 
 187:                                              ; preds = %.thread10, %.thread10.thread
   %188 = phi i32 [ %180, %.thread10.thread ], [ %185, %.thread10 ]
-  %189 = phi i32 [ %.ph15, %.thread10.thread ], [ %182, %.thread10 ]
-  %190 = phi i32 [ %.ph15, %.thread10.thread ], [ %116, %.thread10 ]
+  %189 = phi i32 [ %.ph20, %.thread10.thread ], [ %182, %.thread10 ]
+  %190 = phi i32 [ %.ph20, %.thread10.thread ], [ %116, %.thread10 ]
   %191 = phi i32 [ 31, %.thread10.thread ], [ %spec.select, %.thread10 ]
   %192 = icmp ugt i32 %188, %191
   br i1 %192, label %193, label %194

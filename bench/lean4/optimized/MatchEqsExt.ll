@@ -309,7 +309,7 @@ define noundef ptr @l_List_foldl___at___private_Lean_Meta_Match_MatchEqsExt_0__L
 
 6:                                                ; preds = %lean_alloc_ctor.exit, %3
   %.036 = phi ptr [ %2, %3 ], [ %29, %lean_alloc_ctor.exit ]
-  %.0 = phi ptr [ %1, %3 ], [ %.sink86, %lean_alloc_ctor.exit ]
+  %.0 = phi ptr [ %1, %3 ], [ %.sink95, %lean_alloc_ctor.exit ]
   %7 = ptrtoint ptr %.036 to i64
   %8 = and i64 %7, 1
   %.not.i44 = icmp eq i64 %8, 0
@@ -552,15 +552,15 @@ l_repr___at___private_Lean_Meta_Match_MatchEqsExt_0__Lean_Meta_Match_reprMatchEq
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %l_repr___at___private_Lean_Meta_Match_MatchEqsExt_0__Lean_Meta_Match_reprMatchEqns____x40_Lean_Meta_Match_MatchEqsExt___hyg_45____spec__3.exit57, %l_repr___at___private_Lean_Meta_Match_MatchEqsExt_0__Lean_Meta_Match_reprMatchEqns____x40_Lean_Meta_Match_MatchEqsExt___hyg_45____spec__3.exit
-  %.sink86 = phi ptr [ %47, %l_repr___at___private_Lean_Meta_Match_MatchEqsExt_0__Lean_Meta_Match_reprMatchEqns____x40_Lean_Meta_Match_MatchEqsExt___hyg_45____spec__3.exit ], [ %92, %l_repr___at___private_Lean_Meta_Match_MatchEqsExt_0__Lean_Meta_Match_reprMatchEqns____x40_Lean_Meta_Match_MatchEqsExt___hyg_45____spec__3.exit57 ]
-  %.sink81 = phi ptr [ %.036, %l_repr___at___private_Lean_Meta_Match_MatchEqsExt_0__Lean_Meta_Match_reprMatchEqns____x40_Lean_Meta_Match_MatchEqsExt___hyg_45____spec__3.exit ], [ %80, %l_repr___at___private_Lean_Meta_Match_MatchEqsExt_0__Lean_Meta_Match_reprMatchEqns____x40_Lean_Meta_Match_MatchEqsExt___hyg_45____spec__3.exit57 ]
+  %.sink95 = phi ptr [ %47, %l_repr___at___private_Lean_Meta_Match_MatchEqsExt_0__Lean_Meta_Match_reprMatchEqns____x40_Lean_Meta_Match_MatchEqsExt___hyg_45____spec__3.exit ], [ %92, %l_repr___at___private_Lean_Meta_Match_MatchEqsExt_0__Lean_Meta_Match_reprMatchEqns____x40_Lean_Meta_Match_MatchEqsExt___hyg_45____spec__3.exit57 ]
+  %.sink90 = phi ptr [ %.036, %l_repr___at___private_Lean_Meta_Match_MatchEqsExt_0__Lean_Meta_Match_reprMatchEqns____x40_Lean_Meta_Match_MatchEqsExt___hyg_45____spec__3.exit ], [ %80, %l_repr___at___private_Lean_Meta_Match_MatchEqsExt_0__Lean_Meta_Match_reprMatchEqns____x40_Lean_Meta_Match_MatchEqsExt___hyg_45____spec__3.exit57 ]
   %.sink = phi ptr [ %42, %l_repr___at___private_Lean_Meta_Match_MatchEqsExt_0__Lean_Meta_Match_reprMatchEqns____x40_Lean_Meta_Match_MatchEqsExt___hyg_45____spec__3.exit ], [ %87, %l_repr___at___private_Lean_Meta_Match_MatchEqsExt_0__Lean_Meta_Match_reprMatchEqns____x40_Lean_Meta_Match_MatchEqsExt___hyg_45____spec__3.exit57 ]
-  %95 = getelementptr inbounds nuw i8, ptr %.sink86, i64 4
-  store i32 1, ptr %.sink86, align 4, !tbaa !4
+  %95 = getelementptr inbounds nuw i8, ptr %.sink95, i64 4
+  store i32 1, ptr %.sink95, align 4, !tbaa !4
   store i32 84017176, ptr %95, align 4
-  %96 = getelementptr inbounds nuw i8, ptr %.sink86, i64 8
-  store ptr %.sink81, ptr %96, align 8, !tbaa !9
-  %97 = getelementptr inbounds nuw i8, ptr %.sink86, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %.sink95, i64 8
+  store ptr %.sink90, ptr %96, align 8, !tbaa !9
+  %97 = getelementptr inbounds nuw i8, ptr %.sink95, i64 16
   store ptr %.sink, ptr %97, align 8, !tbaa !9
   br label %6
 }
@@ -1619,7 +1619,7 @@ lean_array_fget.exit46:                           ; preds = %lean_array_fget.exi
   br label %lean_dec.exit35
 
 57:                                               ; preds = %50
-  %58 = tail call ptr @lean_big_usize_to_nat(i64 noundef %51) #6
+  %58 = tail call ptr @lean_big_usize_to_nat(i64 noundef -9223372036854775808) #6
   br label %lean_dec.exit35
 
 59:                                               ; preds = %lean_array_fget.exit46
@@ -1683,8 +1683,8 @@ lean_obj_tag.exit:                                ; preds = %8, %11
   br i1 %15, label %lean_usize_to_nat.exit, label %211
 
 lean_usize_to_nat.exit:                           ; preds = %16
-  %.b589 = load i1, ptr @l_Lean_PersistentHashMap_insertAux___at_Lean_Meta_Match_registerMatchEqns___spec__2___closed__2, align 8
-  %19 = select i1 %.b589, i64 31, i64 0
+  %.b684 = load i1, ptr @l_Lean_PersistentHashMap_insertAux___at_Lean_Meta_Match_registerMatchEqns___spec__2___closed__2, align 8
+  %19 = select i1 %.b684, i64 31, i64 0
   %20 = and i64 %19, %1
   %21 = shl nuw nsw i64 %20, 1
   %22 = or disjoint i64 %21, 1
@@ -3547,7 +3547,7 @@ lean_dec.exit90.backedge:                         ; preds = %121, %125, %131, %1
   br label %lean_dec.exit90
 
 125:                                              ; preds = %118
-  %126 = tail call ptr @lean_big_usize_to_nat(i64 noundef %119) #6
+  %126 = tail call ptr @lean_big_usize_to_nat(i64 noundef -9223372036854775808) #6
   br label %lean_dec.exit90.backedge
 
 127:                                              ; preds = %lean_dec.exit91
@@ -6150,18 +6150,18 @@ _init_l_Lean_Meta_Match_registerMatchEqns___closed__2.exit: ; preds = %lean_dec_
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Meta_Match_registerMatchEqns___closed__2.exit, %3
-  %.sink23 = phi ptr [ %4, %3 ], [ %212, %_init_l_Lean_Meta_Match_registerMatchEqns___closed__2.exit ]
-  %215 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
-  store i32 1, ptr %.sink23, align 4, !tbaa !4
+  %.sink48 = phi ptr [ %4, %3 ], [ %212, %_init_l_Lean_Meta_Match_registerMatchEqns___closed__2.exit ]
+  %215 = getelementptr inbounds nuw i8, ptr %.sink48, i64 4
+  store i32 1, ptr %.sink48, align 4, !tbaa !4
   store i32 131096, ptr %215, align 4
-  %216 = getelementptr inbounds nuw i8, ptr %.sink23, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %.sink48, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %216, align 8, !tbaa !9
-  %217 = getelementptr inbounds nuw i8, ptr %.sink23, i64 16
+  %217 = getelementptr inbounds nuw i8, ptr %.sink48, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %217, align 8, !tbaa !9
   br label %218
 
 218:                                              ; preds = %.sink.split, %190, %7
-  %.0 = phi ptr [ %8, %7 ], [ %192, %190 ], [ %.sink23, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %192, %190 ], [ %.sink48, %.sink.split ]
   ret ptr %.0
 }
 

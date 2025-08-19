@@ -102,11 +102,11 @@ fsm_settings__set_incompatible.exit.i:            ; preds = %14, %13
   br label %fsm_settings__set_ipc.exit
 
 fsm_settings__set_ipc.exit:                       ; preds = %fsm_settings__set_incompatible.exit.i, %22
-  %.sink16.i = phi ptr [ %23, %22 ], [ %17, %fsm_settings__set_incompatible.exit.i ]
-  %.sink14.i = phi i32 [ 1, %22 ], [ 2, %fsm_settings__set_incompatible.exit.i ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sink16.i, i64 4
-  store i32 %.sink14.i, ptr %24, align 4, !tbaa !33
-  %25 = getelementptr inbounds nuw i8, ptr %.sink16.i, i64 8
+  %.sink17.i = phi ptr [ %23, %22 ], [ %17, %fsm_settings__set_incompatible.exit.i ]
+  %.sink15.i = phi i32 [ 1, %22 ], [ 2, %fsm_settings__set_incompatible.exit.i ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sink17.i, i64 4
+  store i32 %.sink15.i, ptr %24, align 4, !tbaa !33
+  %25 = getelementptr inbounds nuw i8, ptr %.sink17.i, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !34
   call void @free(ptr noundef %26) #9
   %27 = load ptr, ptr %4, align 8, !tbaa !4
@@ -266,11 +266,11 @@ fsm_settings__set_incompatible.exit:              ; preds = %5, %6
   br label %16
 
 16:                                               ; preds = %14, %fsm_settings__set_incompatible.exit
-  %.sink16 = phi ptr [ %15, %14 ], [ %9, %fsm_settings__set_incompatible.exit ]
-  %.sink14 = phi i32 [ 1, %14 ], [ 2, %fsm_settings__set_incompatible.exit ]
-  %17 = getelementptr inbounds nuw i8, ptr %.sink16, i64 4
-  store i32 %.sink14, ptr %17, align 4, !tbaa !33
-  %18 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
+  %.sink17 = phi ptr [ %15, %14 ], [ %9, %fsm_settings__set_incompatible.exit ]
+  %.sink15 = phi i32 [ 1, %14 ], [ 2, %fsm_settings__set_incompatible.exit ]
+  %17 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
+  store i32 %.sink15, ptr %17, align 4, !tbaa !33
+  %18 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !34
   tail call void @free(ptr noundef %19) #9
   %20 = load ptr, ptr %3, align 8, !tbaa !4

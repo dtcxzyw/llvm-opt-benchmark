@@ -37,8 +37,8 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
   br label %._crit_edge.sink.split.i
 
 ._crit_edge.sink.split.i:                         ; preds = %9, %3
-  %.sink128.i = phi i8 [ 16, %9 ], [ 1, %3 ]
-  %10 = or i8 %.sink128.i, %.pre.i
+  %.sink132.i = phi i8 [ 16, %9 ], [ 1, %3 ]
+  %10 = or i8 %.sink132.i, %.pre.i
   store i8 %10, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %._crit_edge.i

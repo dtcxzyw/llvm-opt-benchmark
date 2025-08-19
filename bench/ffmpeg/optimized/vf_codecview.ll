@@ -103,8 +103,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %40 = sext i32 %39 to i64
   %41 = icmp slt i32 %33, 0
   %42 = icmp slt i32 %27, 0
-  %or.cond166 = select i1 %41, i1 %42, i1 false
-  br i1 %or.cond166, label %.preheader146.us.preheader, label %.sink.split
+  %or.cond173 = select i1 %41, i1 %42, i1 false
+  br i1 %or.cond173, label %.preheader146.us.preheader, label %.sink.split
 
 .preheader146.us.preheader:                       ; preds = %21
   %43 = sub nsw i32 0, %27

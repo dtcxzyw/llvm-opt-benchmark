@@ -434,8 +434,8 @@ for.cond192.preheader:                            ; preds = %_ZSt13inner_product
   br i1 %cmp193469, label %for.body195.us.preheader, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i226
 
 for.cond192.preheader.thread:                     ; preds = %invoke.cont180.us
-  %cmp193469502 = icmp ugt i64 %1, %indvars.iv.next494
-  br i1 %cmp193469502, label %for.body195.us.preheader, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i226
+  %cmp193469508 = icmp ugt i64 %1, %indvars.iv.next494
+  br i1 %cmp193469508, label %for.body195.us.preheader, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i226
 
 for.body195.us.preheader:                         ; preds = %for.cond192.preheader, %for.cond192.preheader.thread
   %71 = load ptr, ptr %q, align 8
@@ -1915,8 +1915,8 @@ do.end:                                           ; preds = %entry
 
 _ZN8QuantLib5ArrayC2Em.exit.thread:               ; preds = %do.end
   store ptr null, ptr %agg.result, align 8, !tbaa !19
-  %n_.i4775 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %26, ptr %n_.i4775, align 8, !tbaa !46
+  %n_.i4784 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i64 %26, ptr %n_.i4784, align 8, !tbaa !46
   br label %nrvo.skipdtor
 
 for.body.lr.ph:                                   ; preds = %do.end

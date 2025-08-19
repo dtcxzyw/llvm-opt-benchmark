@@ -310,8 +310,8 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %33, %_ZNK10ciMetada
   br i1 %.not7, label %11, label %.loopexit, !llvm.loop !8
 
 .loopexit.sink.split:                             ; preds = %26, %44
-  %.sink20 = phi i32 [ %45, %44 ], [ %12, %26 ]
-  %57 = add nsw i32 %.sink20, 1
+  %.sink21 = phi i32 [ %45, %44 ], [ %12, %26 ]
+  %57 = add nsw i32 %.sink21, 1
   store i32 %57, ptr %7, align 4
   br label %.loopexit
 

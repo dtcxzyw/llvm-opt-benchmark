@@ -5114,24 +5114,24 @@ _ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread76: ; preds = %24, %24, %24, %24
   %.not92103 = select i1 %37, i1 true, i1 %39
   br i1 %.not92103, label %.lr.ph104, label %.thread
 
-.thread:                                          ; preds = %.loopexit122, %_ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread76
+.thread:                                          ; preds = %.loopexit127, %_ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread76
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread
 
-.lr.ph104:                                        ; preds = %_ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread76, %.loopexit122
-  %40 = phi i64 [ %56, %.loopexit122 ], [ %38, %_ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread76 ]
-  %41 = phi i1 [ %55, %.loopexit122 ], [ %37, %_ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread76 ]
+.lr.ph104:                                        ; preds = %_ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread76, %.loopexit127
+  %40 = phi i64 [ %56, %.loopexit127 ], [ %38, %_ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread76 ]
+  %41 = phi i1 [ %55, %.loopexit127 ], [ %37, %_ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread76 ]
   %42 = load ptr, ptr %7, align 8
   %spec.select.i = select i1 %41, ptr %7, ptr %42
   %43 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %42, i64 %40
   %44 = select i1 %41, ptr %34, ptr %43
   %.not99 = icmp eq ptr %spec.select.i, %44
-  br i1 %.not99, label %.loopexit122, label %.lr.ph
+  br i1 %.not99, label %.loopexit127, label %.lr.ph
 
 45:                                               ; preds = %.lr.ph
   %46 = getelementptr inbounds nuw i8, ptr %.054100, i64 40
   %.not = icmp eq ptr %46, %44
-  br i1 %.not, label %.loopexit122, label %.lr.ph
+  br i1 %.not, label %.loopexit127, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph104, %45
   %.054100 = phi ptr [ %46, %45 ], [ %spec.select.i, %.lr.ph104 ]
@@ -5142,11 +5142,11 @@ _ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread76: ; preds = %24, %24, %24, %24
   %48 = call noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 %.sroa.0.0.copyload.i) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %49 = load ptr, ptr %47, align 8
-  %.not62125 = icmp ne ptr %49, null
-  %.not62.not = select i1 %48, i1 %.not62125, i1 false
+  %.not62130 = icmp ne ptr %49, null
+  %.not62.not = select i1 %48, i1 %.not62130, i1 false
   br i1 %.not62.not, label %._crit_edge, label %45
 
-.loopexit122:                                     ; preds = %45, %.lr.ph104
+.loopexit127:                                     ; preds = %45, %.lr.ph104
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %50 = load i8, ptr %34, align 8, !tbaa !247, !range !195, !noundef !196
   %51 = trunc nuw i8 %50 to i1

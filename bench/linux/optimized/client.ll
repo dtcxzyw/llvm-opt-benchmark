@@ -989,7 +989,7 @@ define dso_local void @nfs_init_timeout_values(ptr noundef writeonly captures(no
   store i64 %21, ptr %22, align 8
   %23 = zext i32 %13 to i64
   %24 = add nuw nsw i64 %23, 1
-  %25 = mul nsw i64 %24, %21
+  %25 = mul nuw nsw i64 %24, %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = tail call i64 @llvm.umin.i64(i64 %25, i64 600000)
   %28 = tail call i64 @llvm.umax.i64(i64 %27, i64 %21)
@@ -1009,18 +1009,18 @@ define dso_local void @nfs_init_timeout_values(ptr noundef writeonly captures(no
   %34 = add i32 %5, 9
   %35 = icmp ult i32 %34, 19
   %36 = or i1 %33, %35
-  br i1 %36, label %.sink.split4, label %37
+  br i1 %36, label %.sink.split5, label %37
 
 37:                                               ; preds = %32
   %38 = icmp ugt i32 %6, 60000
-  br i1 %38, label %.sink.split4, label %39
+  br i1 %38, label %.sink.split5, label %39
 
-.sink.split4:                                     ; preds = %37, %32
-  %.sink5 = phi i64 [ 1100, %32 ], [ 60000, %37 ]
-  store i64 %.sink5, ptr %0, align 8
+.sink.split5:                                     ; preds = %37, %32
+  %.sink6 = phi i64 [ 1100, %32 ], [ 60000, %37 ]
+  store i64 %.sink6, ptr %0, align 8
   br label %39
 
-39:                                               ; preds = %.sink.split4, %37
+39:                                               ; preds = %.sink.split5, %37
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 60000, ptr %40, align 8
   br label %42
@@ -1532,8 +1532,8 @@ split33:                                          ; preds = %.preheader22, %._cr
   %120 = load i32, ptr %119, align 4
   %121 = icmp ugt i32 %120, 511
   %122 = icmp ugt i32 %88, %120
-  %or.cond52 = select i1 %121, i1 %122, i1 false
-  br i1 %or.cond52, label %123, label %148
+  %or.cond74 = select i1 %121, i1 %122, i1 false
+  br i1 %or.cond74, label %123, label %148
 
 123:                                              ; preds = %118
   %124 = getelementptr inbounds nuw i8, ptr %24, i64 232
@@ -1661,8 +1661,8 @@ split29:                                          ; preds = %.preheader20, %._cr
 
 192:                                              ; preds = %191, %188
   %193 = phi i32 [ 1048576, %191 ], [ %189, %188 ]
-  %narrow38 = add nuw nsw i32 %193, 4095
-  %194 = lshr i32 %narrow38, 12
+  %narrow60 = add nuw nsw i32 %193, 4095
+  %194 = lshr i32 %narrow60, 12
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 %194, ptr %195, align 4
   %196 = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -2303,7 +2303,7 @@ define dso_local ptr @nfs_create_server(ptr noundef readonly captures(none) %0) 
   store i64 %73, ptr %74, align 8
   %75 = zext i32 %65 to i64
   %76 = add nuw nsw i64 %75, 1
-  %77 = mul nsw i64 %76, %73
+  %77 = mul nuw nsw i64 %76, %73
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %79 = call i64 @llvm.umin.i64(i64 %77, i64 600000)
   %80 = call i64 @llvm.umax.i64(i64 %79, i64 %73)
@@ -2323,18 +2323,18 @@ define dso_local ptr @nfs_create_server(ptr noundef readonly captures(none) %0) 
   %86 = add i32 %57, 9
   %87 = icmp ult i32 %86, 19
   %88 = or i1 %85, %87
-  br i1 %88, label %.sink.split32, label %89
+  br i1 %88, label %.sink.split53, label %89
 
 89:                                               ; preds = %84
   %90 = icmp ugt i32 %58, 60000
-  br i1 %90, label %.sink.split32, label %91
+  br i1 %90, label %.sink.split53, label %91
 
-.sink.split32:                                    ; preds = %89, %84
-  %.sink33 = phi i64 [ 1100, %84 ], [ 60000, %89 ]
-  store i64 %.sink33, ptr %3, align 8
+.sink.split53:                                    ; preds = %89, %84
+  %.sink54 = phi i64 [ 1100, %84 ], [ 60000, %89 ]
+  store i64 %.sink54, ptr %3, align 8
   br label %91
 
-91:                                               ; preds = %.sink.split32, %89
+91:                                               ; preds = %.sink.split53, %89
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 60000, ptr %92, align 8
   br label %94
@@ -2645,7 +2645,7 @@ nfs_start_lockd.exit:                             ; preds = %232
 
 .thread21:                                        ; preds = %274, %278
   %283 = load ptr, ptr %255, align 8
-  call void @nfs_sysfs_link_rpc_client(ptr noundef %7, ptr noundef %283, ptr noundef null) #13
+  call void @nfs_sysfs_link_rpc_client(ptr noundef nonnull %7, ptr noundef %283, ptr noundef null) #13
   br label %288
 
 284:                                              ; preds = %242

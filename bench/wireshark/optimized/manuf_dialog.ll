@@ -2058,9 +2058,9 @@ _ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit.i54.i.i
 _ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.i.i.i37: ; preds = %97
   %99 = load atomic i32, ptr %98 monotonic, align 4
   %100 = icmp sgt i32 %99, 1
-  br i1 %100, label %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.thread.i.i.i38, label %.thread94
+  br i1 %100, label %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.thread.i.i.i38, label %.thread116
 
-.thread94:                                        ; preds = %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.i.i.i37
+.thread116:                                       ; preds = %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.i.i.i37
   %101 = load ptr, ptr %32, align 8
   br label %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.i.i.i42
 
@@ -2074,9 +2074,9 @@ _ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.thread.i.i.i38: ; pre
   %.not.i.i.i.i41 = icmp eq ptr %.pre90, null
   br i1 %.not.i.i.i.i41, label %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.thread.i.i.i43, label %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.i.i.i42
 
-_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.i.i.i42: ; preds = %.thread94, %102
-  %104 = phi ptr [ %101, %.thread94 ], [ %103, %102 ]
-  %105 = phi ptr [ %98, %.thread94 ], [ %.pre90, %102 ]
+_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.i.i.i42: ; preds = %.thread116, %102
+  %104 = phi ptr [ %101, %.thread116 ], [ %103, %102 ]
+  %105 = phi ptr [ %98, %.thread116 ], [ %.pre90, %102 ]
   %106 = load atomic i32, ptr %105 monotonic, align 4
   %107 = icmp sgt i32 %106, 1
   br i1 %107, label %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.thread.i.i.i43, label %_ZN5QListI11QModelIndexE3endEv.exit45
@@ -4780,8 +4780,8 @@ _ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit31.thread: ; preds = %
   %49 = getelementptr i8, ptr %48, i64 %.idx43
   %50 = icmp ne i64 %.idx43, 0
   %51 = icmp ult ptr %48, %49
-  %or.cond47 = select i1 %50, i1 %51, i1 false
-  br i1 %or.cond47, label %.lr.ph.i, label %_ZN9QtPrivate16QGenericArrayOpsI11QModelIndexE10copyAppendEPKS1_S4_.exit
+  %or.cond58 = select i1 %50, i1 %51, i1 false
+  br i1 %or.cond58, label %.lr.ph.i, label %_ZN9QtPrivate16QGenericArrayOpsI11QModelIndexE10copyAppendEPKS1_S4_.exit
 
 .lr.ph.i:                                         ; preds = %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit31.thread
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4807,8 +4807,8 @@ _ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit31.thread: ; preds = %
   %63 = getelementptr i8, ptr %62, i64 %.idx
   %64 = icmp ne i64 %.idx, 0
   %65 = icmp ult ptr %62, %63
-  %or.cond48 = select i1 %64, i1 %65, i1 false
-  br i1 %or.cond48, label %.lr.ph.i32, label %_ZN9QtPrivate16QGenericArrayOpsI11QModelIndexE10copyAppendEPKS1_S4_.exit
+  %or.cond59 = select i1 %64, i1 %65, i1 false
+  br i1 %or.cond59, label %.lr.ph.i32, label %_ZN9QtPrivate16QGenericArrayOpsI11QModelIndexE10copyAppendEPKS1_S4_.exit
 
 .lr.ph.i32:                                       ; preds = %60
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4985,8 +4985,8 @@ _ZNK17QArrayDataPointerI11QModelIndexE16freeSpaceAtBeginEv.exit33: ; preds = %36
 
 58:                                               ; preds = %_ZNK17QArrayDataPointerI11QModelIndexE16freeSpaceAtBeginEv.exit33.thread, %_ZNK17QArrayDataPointerI11QModelIndexE16freeSpaceAtBeginEv.exit33
   %59 = phi ptr [ %48, %_ZNK17QArrayDataPointerI11QModelIndexE16freeSpaceAtBeginEv.exit33.thread ], [ %57, %_ZNK17QArrayDataPointerI11QModelIndexE16freeSpaceAtBeginEv.exit33 ]
-  %.pr59 = phi ptr [ %39, %_ZNK17QArrayDataPointerI11QModelIndexE16freeSpaceAtBeginEv.exit33.thread ], [ %.pr.pre, %_ZNK17QArrayDataPointerI11QModelIndexE16freeSpaceAtBeginEv.exit33 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.pr59, i64 4
+  %.pr62 = phi ptr [ %39, %_ZNK17QArrayDataPointerI11QModelIndexE16freeSpaceAtBeginEv.exit33.thread ], [ %.pr.pre, %_ZNK17QArrayDataPointerI11QModelIndexE16freeSpaceAtBeginEv.exit33 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.pr62, i64 4
   %61 = load i32, ptr %60, align 4
   br label %_ZNK17QArrayDataPointerI11QModelIndexE5flagsEv.exit
 

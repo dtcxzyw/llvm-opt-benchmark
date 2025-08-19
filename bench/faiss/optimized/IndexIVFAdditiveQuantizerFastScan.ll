@@ -1185,8 +1185,8 @@ _ZNSt6vectorIfSaIfEEC2ERKS1_.exit:                ; preds = %41, %61
   %70 = icmp slt i32 %69, 2
   %71 = load i32, ptr %31, align 4
   %72 = icmp ne i32 %71, 1
-  %or.cond.not40 = select i1 %70, i1 true, i1 %72
-  %brmerge = or i1 %or.cond.not40, %.not.i.i.i.i
+  %or.cond.not47 = select i1 %70, i1 true, i1 %72
+  %brmerge = or i1 %or.cond.not47, %.not.i.i.i.i
   br i1 %brmerge, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %67
@@ -2891,7 +2891,7 @@ declare void @_ZNK5faiss16IndexIVFFastScan22search_dispatch_implemElPKflPfPlRKNS
 define linkonce_odr void @_ZN5faiss12AlignedTableIfLi32EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = icmp eq i64 %1, 0
-  br i1 %4, label %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread8, label %5
+  br i1 %4, label %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread9, label %5
 
 5:                                                ; preds = %2
   %6 = icmp ult i64 %1, 256
@@ -2909,7 +2909,7 @@ _ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit: ; preds = %.preheader.i
   %11 = icmp eq i64 %10, %.0.i
   br i1 %11, label %_ZN5faiss22AlignedTableTightAllocIfLi32EE6resizeEm.exit, label %.thread
 
-_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread8: ; preds = %2
+_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread9: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !125
   %14 = icmp eq i64 %13, 0
@@ -2949,7 +2949,7 @@ _ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread: ; preds = %5
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %26, ptr align 4 %27, i64 %28, i1 false)
   br label %30
 
-29:                                               ; preds = %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread8
+29:                                               ; preds = %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !57
   br label %30
@@ -2965,7 +2965,7 @@ _ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread: ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5faiss22AlignedTableTightAllocIfLi32EE6resizeEm.exit
 
-_ZN5faiss22AlignedTableTightAllocIfLi32EE6resizeEm.exit: ; preds = %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread8, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit, %30
+_ZN5faiss22AlignedTableTightAllocIfLi32EE6resizeEm.exit: ; preds = %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread9, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit, %30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %34, align 8, !tbaa !126
   ret void
@@ -3036,8 +3036,8 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %32 = call i64 @llvm.umin.i64(i64 %31, i64 %30)
   store i64 %32, ptr %11, align 8, !tbaa !56
   %33 = load i64, ptr %10, align 8, !tbaa !56
-  %.not34 = icmp ugt i64 %33, %32
-  br i1 %.not34, label %._crit_edge, label %.lr.ph
+  %.not37 = icmp ugt i64 %33, %32
+  br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -3155,8 +3155,8 @@ define internal void @_ZNK5faiss33IndexIVFAdditiveQuantizerFastScan11compute_LUT
   %18 = call i64 @llvm.umin.i64(i64 %17, i64 %15)
   store i64 %18, ptr %10, align 8, !tbaa !56
   %19 = load i64, ptr %9, align 8, !tbaa !56
-  %.not19 = icmp ugt i64 %19, %18
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+  %.not20 = icmp ugt i64 %19, %18
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
   %.018 = phi i64 [ %29, %.lr.ph ], [ %19, %14 ]

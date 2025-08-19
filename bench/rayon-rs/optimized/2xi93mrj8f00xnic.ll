@@ -58,7 +58,7 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17he
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %7 = sub i64 %4, %6
   %8 = icmp slt i64 %7, 1
-  br i1 %8, label %.thread54, label %9
+  br i1 %8, label %.thread58, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -98,20 +98,20 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17he
   %35 = sdiv i64 %27, 4
   %.not41 = icmp sgt i64 %7, %35
   %or.cond = or i1 %34, %.not41
-  br i1 %or.cond, label %.thread54, label %39
+  br i1 %or.cond, label %.thread58, label %39
 
 36:                                               ; preds = %12
   %37 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 256
   store atomic i64 %13, ptr %38 monotonic, align 8
-  br label %.thread54
+  br label %.thread58
 
 39:                                               ; preds = %23
   %40 = lshr i64 %27, 1
   tail call fastcc void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize17h27e21cf936793231E"(ptr noundef nonnull align 8 %0, i64 noundef %40)
-  br label %.thread54
+  br label %.thread58
 
-.thread54:                                        ; preds = %61, %66, %57, %39, %23, %1, %55, %36
+.thread58:                                        ; preds = %61, %66, %57, %39, %23, %1, %55, %36
   %.sroa.7.0 = phi ptr [ undef, %36 ], [ undef, %55 ], [ undef, %1 ], [ %33, %39 ], [ %33, %23 ], [ %53, %57 ], [ %53, %66 ], [ %.43, %61 ]
   %.sroa.0.0 = phi ptr [ null, %36 ], [ null, %55 ], [ null, %1 ], [ %32, %39 ], [ %32, %23 ], [ %52, %57 ], [ %52, %66 ], [ %spec.select, %61 ]
   %41 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
@@ -135,30 +135,30 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17he
 55:                                               ; preds = %16
   %56 = getelementptr inbounds nuw i8, ptr %18, i64 264
   store atomic i64 %4, ptr %56 monotonic, align 8
-  br label %.thread54
+  br label %.thread58
 
 57:                                               ; preds = %43
   %58 = icmp ugt i64 %47, 64
   %59 = sdiv i64 %47, 4
   %60 = icmp slt i64 %21, %59
   %or.cond46 = and i1 %58, %60
-  br i1 %or.cond46, label %66, label %.thread54
+  br i1 %or.cond46, label %66, label %.thread58
 
 61:                                               ; preds = %43
   %62 = cmpxchg ptr %19, i64 %17, i64 %4 seq_cst monotonic, align 8
-  %.fr58 = freeze { i64, i1 } %62
-  %63 = extractvalue { i64, i1 } %.fr58, 1
+  %.fr62 = freeze { i64, i1 } %62
+  %63 = extractvalue { i64, i1 } %.fr62, 1
   %.43 = select i1 %63, ptr %53, ptr undef
   %64 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 264
   store atomic i64 %4, ptr %65 monotonic, align 8
   %spec.select = select i1 %63, ptr %52, ptr null
-  br label %.thread54
+  br label %.thread58
 
 66:                                               ; preds = %57
   %67 = lshr i64 %47, 1
   tail call fastcc void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize17h27e21cf936793231E"(ptr noundef nonnull align 8 %0, i64 noundef %67)
-  br label %.thread54
+  br label %.thread58
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -927,7 +927,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit: ; preds = 
   %24 = load atomic i64, ptr %23 monotonic, align 128
   %25 = lshr i64 %24, 1
   %26 = icmp eq i64 %.lcssa31, %25
-  br i1 %26, label %87, label %27
+  br i1 %26, label %86, label %27
 
 27:                                               ; preds = %22
   %.not.unshifted = xor i64 %24, %.lcssa33
@@ -940,7 +940,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit: ; preds = 
   %.09 = phi i64 [ %9, %._crit_edge ], [ %spec.select, %27 ]
   %30 = cmpxchg weak ptr %1, i64 %.lcssa33, i64 %.09 seq_cst acquire, align 8
   %31 = extractvalue { i64, i1 } %30, 1
-  br i1 %31, label %32, label %87
+  br i1 %31, label %32, label %86
 
 32:                                               ; preds = %29
   %33 = icmp eq i64 %.lcssa30, 62
@@ -1050,40 +1050,38 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit.i20: ; pred
   %72 = getelementptr inbounds nuw i8, ptr %.0.i.le, i64 24
   br label %73
 
-._crit_edge.i:                                    ; preds = %84, %71
+._crit_edge.i:                                    ; preds = %83, %71
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.i.le, i64 noundef 1520, i64 noundef 8) #14
   br label %"_ZN15crossbeam_deque5deque14Block$LT$T$GT$7destroy17hbd0fd57196cc56baE.exit"
 
-73:                                               ; preds = %84, %.lr.ph.i26
-  %.sroa.5.010.i = phi i64 [ %.lcssa30, %.lr.ph.i26 ], [ %74, %84 ]
+73:                                               ; preds = %83, %.lr.ph.i26
+  %.sroa.5.010.i = phi i64 [ %.lcssa30, %.lr.ph.i26 ], [ %74, %83 ]
   %74 = add nsw i64 %.sroa.5.010.i, -1
-  %75 = icmp ult i64 %.sroa.5.010.i, 64
-  tail call void @llvm.assume(i1 %75)
   %.idx.i = mul nuw nsw i64 %74, 24
-  %76 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i
-  %77 = load atomic i64, ptr %76 acquire, align 8
-  %78 = and i64 %77, 2
-  %79 = icmp eq i64 %78, 0
-  br i1 %79, label %80, label %84
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i
+  %76 = load atomic i64, ptr %75 acquire, align 8
+  %77 = and i64 %76, 2
+  %78 = icmp eq i64 %77, 0
+  br i1 %78, label %79, label %83
 
-80:                                               ; preds = %73
-  %81 = atomicrmw or ptr %76, i64 4 acq_rel, align 8
-  %82 = and i64 %81, 2
-  %83 = icmp eq i64 %82, 0
-  br i1 %83, label %"_ZN15crossbeam_deque5deque14Block$LT$T$GT$7destroy17hbd0fd57196cc56baE.exit", label %84
+79:                                               ; preds = %73
+  %80 = atomicrmw or ptr %75, i64 4 acq_rel, align 8
+  %81 = and i64 %80, 2
+  %82 = icmp eq i64 %81, 0
+  br i1 %82, label %"_ZN15crossbeam_deque5deque14Block$LT$T$GT$7destroy17hbd0fd57196cc56baE.exit", label %83
 
-84:                                               ; preds = %80, %73
+83:                                               ; preds = %79, %73
   %.not.i = icmp eq i64 %74, 0
   br i1 %.not.i, label %._crit_edge.i, label %73
 
-"_ZN15crossbeam_deque5deque14Block$LT$T$GT$7destroy17hbd0fd57196cc56baE.exit": ; preds = %80, %._crit_edge.i, %67
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %64, ptr %85, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %66, ptr %86, align 8
-  br label %87
+"_ZN15crossbeam_deque5deque14Block$LT$T$GT$7destroy17hbd0fd57196cc56baE.exit": ; preds = %79, %._crit_edge.i, %67
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %64, ptr %84, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %66, ptr %85, align 8
+  br label %86
 
-87:                                               ; preds = %22, %29, %"_ZN15crossbeam_deque5deque14Block$LT$T$GT$7destroy17hbd0fd57196cc56baE.exit"
+86:                                               ; preds = %22, %29, %"_ZN15crossbeam_deque5deque14Block$LT$T$GT$7destroy17hbd0fd57196cc56baE.exit"
   %storemerge29 = phi i64 [ 1, %"_ZN15crossbeam_deque5deque14Block$LT$T$GT$7destroy17hbd0fd57196cc56baE.exit" ], [ 0, %22 ], [ 2, %29 ]
   store i64 %storemerge29, ptr %0, align 8
   ret void

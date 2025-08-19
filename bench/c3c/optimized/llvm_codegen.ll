@@ -571,17 +571,17 @@ define dso_local ptr @llvm_emit_const_initializer(ptr noundef %0, ptr noundef %1
 ._crit_edge462.thread:                            ; preds = %12
   %57 = load i32, ptr %14, align 8
   %58 = icmp eq i32 %57, 37
-  br i1 %58, label %59, label %.thread483
+  br i1 %58, label %59, label %.thread504
 
 59:                                               ; preds = %._crit_edge462.thread, %._crit_edge462
-  %.0327.lcssa480 = phi ptr [ %27, %._crit_edge462.thread ], [ %52, %._crit_edge462 ]
-  %60 = getelementptr inbounds i8, ptr %.0327.lcssa480, i64 -8
+  %.0327.lcssa501 = phi ptr [ %27, %._crit_edge462.thread ], [ %52, %._crit_edge462 ]
+  %60 = getelementptr inbounds i8, ptr %.0327.lcssa501, i64 -8
   %61 = load i32, ptr %60, align 4
-  %62 = tail call ptr @LLVMConstVector(ptr noundef nonnull %.0327.lcssa480, i32 noundef %61) #10
+  %62 = tail call ptr @LLVMConstVector(ptr noundef nonnull %.0327.lcssa501, i32 noundef %61) #10
   br label %522
 
 63:                                               ; preds = %._crit_edge462
-  br i1 %spec.select, label %64, label %.thread483
+  br i1 %spec.select, label %64, label %.thread504
 
 64:                                               ; preds = %63
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -590,11 +590,11 @@ define dso_local ptr @llvm_emit_const_initializer(ptr noundef %0, ptr noundef %1
   %68 = tail call ptr @LLVMConstStructInContext(ptr noundef %66, ptr noundef nonnull %52, i32 noundef %67, i32 noundef 1) #10
   br label %522
 
-.thread483:                                       ; preds = %._crit_edge462.thread, %63
-  %.0327.lcssa481486 = phi ptr [ %52, %63 ], [ %27, %._crit_edge462.thread ]
-  %69 = getelementptr inbounds i8, ptr %.0327.lcssa481486, i64 -8
+.thread504:                                       ; preds = %._crit_edge462.thread, %63
+  %.0327.lcssa502507 = phi ptr [ %52, %63 ], [ %27, %._crit_edge462.thread ]
+  %69 = getelementptr inbounds i8, ptr %.0327.lcssa502507, i64 -8
   %70 = load i32, ptr %69, align 4
-  %71 = tail call ptr @LLVMConstArray(ptr noundef %17, ptr noundef nonnull %.0327.lcssa481486, i32 noundef %70) #10
+  %71 = tail call ptr @LLVMConstArray(ptr noundef %17, ptr noundef nonnull %.0327.lcssa502507, i32 noundef %70) #10
   br label %522
 
 72:                                               ; preds = %2
@@ -837,9 +837,9 @@ expand_.exit399:                                  ; preds = %174, %178
   store i32 %193, ptr %.1.i397, align 4
   %194 = getelementptr inbounds nuw i8, ptr %.1.i397, i64 8
   %195 = icmp eq i32 %166, 1
-  br i1 %195, label %202, label %.thread492.critedge
+  br i1 %195, label %202, label %.thread513.critedge
 
-.thread492.critedge:                              ; preds = %expand_.exit399
+.thread513.critedge:                              ; preds = %expand_.exit399
   %196 = tail call ptr @LLVMArrayType(ptr noundef %77, i32 noundef range(i32 1, -2147483648) %166) #10
   %197 = tail call ptr @LLVMConstNull(ptr noundef %196) #10
   %198 = load i32, ptr %.1.i397, align 4
@@ -847,7 +847,7 @@ expand_.exit399:                                  ; preds = %174, %178
   %200 = zext i32 %199 to i64
   %201 = getelementptr inbounds nuw ptr, ptr %194, i64 %200
   store ptr %197, ptr %201, align 8
-  br label %.thread492
+  br label %.thread513
 
 202:                                              ; preds = %expand_.exit399
   %203 = tail call ptr @LLVMConstNull(ptr noundef %77) #10
@@ -856,9 +856,9 @@ expand_.exit399:                                  ; preds = %174, %178
   %206 = zext i32 %205 to i64
   %207 = getelementptr inbounds nuw ptr, ptr %194, i64 %206
   store ptr %203, ptr %207, align 8
-  br i1 %.0432.lcssa, label %.thread492, label %.preheader.preheader
+  br i1 %.0432.lcssa, label %.thread513, label %.preheader.preheader
 
-.thread492:                                       ; preds = %.thread492.critedge, %202
+.thread513:                                       ; preds = %.thread513.critedge, %202
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %209 = load ptr, ptr %208, align 8
   br label %214
@@ -867,7 +867,7 @@ expand_.exit399:                                  ; preds = %174, %178
   br i1 %.0432.lcssa, label %211, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %202, %210
-  %.2333491 = phi ptr [ %194, %202 ], [ %.0331.lcssa, %210 ]
+  %.2333512 = phi ptr [ %194, %202 ], [ %.0331.lcssa, %210 ]
   br label %.preheader
 
 211:                                              ; preds = %210
@@ -876,18 +876,18 @@ expand_.exit399:                                  ; preds = %174, %178
   %.not368 = icmp eq ptr %.0331.lcssa, null
   br i1 %.not368, label %218, label %214
 
-214:                                              ; preds = %.thread492, %211
-  %215 = phi ptr [ %209, %.thread492 ], [ %213, %211 ]
-  %.2333490495 = phi ptr [ %194, %.thread492 ], [ %.0331.lcssa, %211 ]
-  %216 = getelementptr inbounds i8, ptr %.2333490495, i64 -8
+214:                                              ; preds = %.thread513, %211
+  %215 = phi ptr [ %209, %.thread513 ], [ %213, %211 ]
+  %.2333511516 = phi ptr [ %194, %.thread513 ], [ %.0331.lcssa, %211 ]
+  %216 = getelementptr inbounds i8, ptr %.2333511516, i64 -8
   %217 = load i32, ptr %216, align 4
   br label %218
 
 218:                                              ; preds = %211, %214
   %219 = phi ptr [ %215, %214 ], [ %213, %211 ]
-  %.2333490496 = phi ptr [ %.2333490495, %214 ], [ null, %211 ]
+  %.2333511517 = phi ptr [ %.2333511516, %214 ], [ null, %211 ]
   %.0300 = phi i32 [ %217, %214 ], [ 0, %211 ]
-  %220 = tail call ptr @LLVMConstStructInContext(ptr noundef %219, ptr noundef %.2333490496, i32 noundef %.0300, i32 noundef %.0334.lcssa) #10
+  %220 = tail call ptr @LLVMConstStructInContext(ptr noundef %219, ptr noundef %.2333511517, i32 noundef %.0300, i32 noundef %.0334.lcssa) #10
   br label %522
 
 .preheader:                                       ; preds = %.preheader.preheader, %233
@@ -924,31 +924,31 @@ expand_.exit399:                                  ; preds = %174, %178
   br label %.preheader
 
 234:                                              ; preds = %.preheader
-  %.not367 = icmp eq ptr %.2333491, null
+  %.not367 = icmp eq ptr %.2333512, null
   br i1 %.not367, label %238, label %235
 
 235:                                              ; preds = %234
-  %236 = getelementptr inbounds i8, ptr %.2333491, i64 -8
+  %236 = getelementptr inbounds i8, ptr %.2333512, i64 -8
   %237 = load i32, ptr %236, align 4
   br label %238
 
 238:                                              ; preds = %234, %235
   %.0316 = phi i32 [ %237, %235 ], [ 0, %234 ]
-  %239 = tail call ptr @LLVMConstVector(ptr noundef %.2333491, i32 noundef %.0316) #10
+  %239 = tail call ptr @LLVMConstVector(ptr noundef %.2333512, i32 noundef %.0316) #10
   br label %522
 
 240:                                              ; preds = %.preheader
-  %.not366 = icmp eq ptr %.2333491, null
+  %.not366 = icmp eq ptr %.2333512, null
   br i1 %.not366, label %244, label %241
 
 241:                                              ; preds = %240
-  %242 = getelementptr inbounds i8, ptr %.2333491, i64 -8
+  %242 = getelementptr inbounds i8, ptr %.2333512, i64 -8
   %243 = load i32, ptr %242, align 4
   br label %244
 
 244:                                              ; preds = %240, %241
   %.0317 = phi i32 [ %243, %241 ], [ 0, %240 ]
-  %245 = tail call ptr @LLVMConstArray(ptr noundef %77, ptr noundef %.2333491, i32 noundef %.0317) #10
+  %245 = tail call ptr @LLVMConstArray(ptr noundef %77, ptr noundef %.2333512, i32 noundef %.0317) #10
   br label %522
 
 246:                                              ; preds = %2
@@ -1307,8 +1307,8 @@ expand_.exit399:                                  ; preds = %174, %178
 ._crit_edge.thread:                               ; preds = %295
   %463 = getelementptr inbounds nuw i8, ptr %286, i64 116
   %464 = load i16, ptr %463, align 4
-  %.not354499 = icmp eq i16 %464, 0
-  br i1 %.not354499, label %513, label %465
+  %.not354520 = icmp eq i16 %464, 0
+  br i1 %.not354520, label %513, label %465
 
 465:                                              ; preds = %._crit_edge.thread
   %466 = tail call ptr @calloc_arena(i64 noundef 72) #10
@@ -1322,7 +1322,7 @@ expand_.exit399:                                  ; preds = %174, %178
   br label %469
 
 469:                                              ; preds = %468, %465
-  %.0309.lcssa501507 = phi i1 [ %460, %468 ], [ false, %465 ]
+  %.0309.lcssa522528 = phi i1 [ %460, %468 ], [ false, %465 ]
   %470 = phi ptr [ %461, %468 ], [ %463, %465 ]
   %471 = phi i32 [ %.pre.i427, %468 ], [ 8, %465 ]
   %.0.i428 = phi ptr [ %.1.i422, %468 ], [ %466, %465 ]
@@ -1364,36 +1364,36 @@ expand_.exit399:                                  ; preds = %174, %178
   %497 = zext i32 %496 to i64
   %498 = getelementptr inbounds nuw ptr, ptr %491, i64 %497
   store ptr %494, ptr %498, align 8
-  br i1 %.0309.lcssa501507, label %500, label %510
+  br i1 %.0309.lcssa522528, label %500, label %510
 
 499:                                              ; preds = %._crit_edge
   br i1 %460, label %500, label %510
 
 500:                                              ; preds = %488, %499
-  %.3513 = phi ptr [ %491, %488 ], [ %457, %499 ]
+  %.3534 = phi ptr [ %491, %488 ], [ %457, %499 ]
   %501 = load i64, ptr %289, align 8
   %502 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %503 = load ptr, ptr %502, align 8
-  %504 = getelementptr inbounds i8, ptr %.3513, i64 -8
+  %504 = getelementptr inbounds i8, ptr %.3534, i64 -8
   %505 = load i32, ptr %504, align 4
   %506 = trunc i64 %501 to i32
   %507 = lshr i32 %506, 13
   %508 = and i32 %507, 1
-  %509 = tail call ptr @LLVMConstStructInContext(ptr noundef %503, ptr noundef nonnull %.3513, i32 noundef %505, i32 noundef %508) #10
+  %509 = tail call ptr @LLVMConstStructInContext(ptr noundef %503, ptr noundef nonnull %.3534, i32 noundef %505, i32 noundef %508) #10
   br label %522
 
 510:                                              ; preds = %499, %488
-  %.3512.ph = phi ptr [ %491, %488 ], [ %457, %499 ]
-  %511 = getelementptr inbounds i8, ptr %.3512.ph, i64 -8
+  %.3533.ph = phi ptr [ %491, %488 ], [ %457, %499 ]
+  %511 = getelementptr inbounds i8, ptr %.3533.ph, i64 -8
   %512 = load i32, ptr %511, align 4
   br label %513
 
 513:                                              ; preds = %._crit_edge.thread, %510
-  %.3512518 = phi ptr [ %.3512.ph, %510 ], [ null, %._crit_edge.thread ]
+  %.3533539 = phi ptr [ %.3533.ph, %510 ], [ null, %._crit_edge.thread ]
   %.0323 = phi i32 [ %512, %510 ], [ 0, %._crit_edge.thread ]
   %514 = load ptr, ptr %278, align 8
   %515 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %514) #10
-  %516 = tail call ptr @LLVMConstNamedStruct(ptr noundef %515, ptr noundef %.3512518, i32 noundef %.0323) #10
+  %516 = tail call ptr @LLVMConstNamedStruct(ptr noundef %515, ptr noundef %.3533539, i32 noundef %.0323) #10
   br label %522
 
 517:                                              ; preds = %2
@@ -1407,8 +1407,8 @@ expand_.exit399:                                  ; preds = %174, %178
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.llvm_emit_const_initializer, ptr noundef nonnull @.str.10, i32 noundef 387) #12
   unreachable
 
-522:                                              ; preds = %517, %513, %500, %282, %275, %271, %244, %238, %218, %.thread483, %64, %59, %6
-  %.0324 = phi ptr [ %10, %6 ], [ %62, %59 ], [ %68, %64 ], [ %71, %.thread483 ], [ %220, %218 ], [ %239, %238 ], [ %245, %244 ], [ %274, %271 ], [ %276, %275 ], [ %283, %282 ], [ %509, %500 ], [ %516, %513 ], [ %520, %517 ]
+522:                                              ; preds = %517, %513, %500, %282, %275, %271, %244, %238, %218, %.thread504, %64, %59, %6
+  %.0324 = phi ptr [ %10, %6 ], [ %62, %59 ], [ %68, %64 ], [ %71, %.thread504 ], [ %220, %218 ], [ %239, %238 ], [ %245, %244 ], [ %274, %271 ], [ %276, %275 ], [ %283, %282 ], [ %509, %500 ], [ %516, %513 ], [ %520, %517 ]
   ret ptr %.0324
 }
 
@@ -1654,7 +1654,7 @@ define dso_local void @llvm_emit_global_variable_init(ptr noundef %0, ptr nounde
   br label %49
 
 49:                                               ; preds = %45, %47, %37, %.critedge2
-  %.not131165 = phi i1 [ false, %37 ], [ false, %.critedge2 ], [ %.not131, %45 ], [ %.not131, %47 ]
+  %.not131171 = phi i1 [ false, %37 ], [ false, %.critedge2 ], [ %.not131, %45 ], [ %.not131, %47 ]
   %.0121 = phi ptr [ %40, %37 ], [ %41, %.critedge2 ], [ %46, %45 ], [ %48, %47 ]
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %51 = load ptr, ptr %50, align 8
@@ -1754,7 +1754,7 @@ llvm_set_global_tls.exit:                         ; preds = %82, %89, %94
   br label %100
 
 100:                                              ; preds = %97, %llvm_set_global_tls.exit
-  br i1 %.not131165, label %.critedge148, label %101
+  br i1 %.not131171, label %.critedge148, label %101
 
 101:                                              ; preds = %100
   %102 = load ptr, ptr %.0122, align 8
@@ -2753,13 +2753,13 @@ tailrecurse:                                      ; preds = %69, %2
 6:                                                ; preds = %tailrecurse
   %7 = tail call ptr @LLVMIsAGlobalValue(ptr noundef nonnull %5) #10
   %.not44 = icmp eq ptr %7, null
-  br i1 %.not44, label %common.ret166, label %8
+  br i1 %.not44, label %common.ret167, label %8
 
 8:                                                ; preds = %6
   %9 = tail call ptr @LLVMGetGlobalParent(ptr noundef nonnull %5) #10
   %10 = load ptr, ptr %3, align 8
   %11 = icmp eq ptr %9, %10
-  br i1 %11, label %common.ret166, label %12
+  br i1 %11, label %common.ret167, label %12
 
 12:                                               ; preds = %8, %tailrecurse
   %13 = getelementptr inbounds nuw i8, ptr %.tr59, i64 24
@@ -2808,16 +2808,16 @@ tailrecurse:                                      ; preds = %69, %2
   %23 = icmp eq i32 %22, 8
   br i1 %23, label %24, label %28
 
-common.ret166:                                    ; preds = %66, %68, %44, %37, %75, %72, %6, %8, %24
-  %common.ret166.op = phi ptr [ %27, %24 ], [ %38, %37 ], [ %46, %44 ], [ %55, %68 ], [ %55, %66 ], [ %.pre, %75 ], [ %74, %72 ], [ %5, %6 ], [ %5, %8 ]
-  ret ptr %common.ret166.op
+common.ret167:                                    ; preds = %66, %68, %44, %37, %75, %72, %6, %8, %24
+  %common.ret167.op = phi ptr [ %27, %24 ], [ %38, %37 ], [ %46, %44 ], [ %55, %68 ], [ %55, %66 ], [ %.pre, %75 ], [ %74, %72 ], [ %5, %6 ], [ %5, %8 ]
+  ret ptr %common.ret167.op
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %.tr59, i64 88
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @llvm_get_ref(ptr noundef %0, ptr noundef %26)
   store ptr %27, ptr %19, align 8
-  br label %common.ret166
+  br label %common.ret167
 
 28:                                               ; preds = %18
   %29 = getelementptr inbounds nuw i8, ptr %.tr59, i64 24
@@ -2840,7 +2840,7 @@ common.ret166:                                    ; preds = %66, %68, %44, %37, 
 
 37:                                               ; preds = %35, %28
   %38 = load ptr, ptr %19, align 8
-  br label %common.ret166
+  br label %common.ret167
 
 39:                                               ; preds = %12
   %40 = getelementptr inbounds nuw i8, ptr %.tr59, i64 32
@@ -2854,7 +2854,7 @@ common.ret166:                                    ; preds = %66, %68, %44, %37, 
   %45 = load ptr, ptr %.tr59, align 8
   %46 = tail call ptr @llvm_get_selector(ptr noundef %0, ptr noundef %45)
   store ptr %46, ptr %40, align 8
-  br label %common.ret166
+  br label %common.ret167
 
 47:                                               ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %.tr59, i64 24
@@ -2893,12 +2893,12 @@ common.ret166:                                    ; preds = %66, %68, %44, %37, 
 
 66:                                               ; preds = %65, %61, %47
   %67 = tail call zeroext i1 @decl_is_local(ptr noundef nonnull %.tr59) #10
-  br i1 %67, label %68, label %common.ret166
+  br i1 %67, label %68, label %common.ret167
 
 68:                                               ; preds = %66
   tail call void @LLVMSetLinkage(ptr noundef %55, i32 noundef 8) #10
   tail call void @LLVMSetVisibility(ptr noundef %55, i32 noundef 0) #10
-  br label %common.ret166
+  br label %common.ret167
 
 69:                                               ; preds = %12
   %70 = getelementptr inbounds nuw i8, ptr %.tr59, i64 88
@@ -2909,7 +2909,7 @@ common.ret166:                                    ; preds = %66, %68, %44, %37, 
   %73 = getelementptr inbounds nuw i8, ptr %.tr59, i64 32
   %74 = load ptr, ptr %73, align 8
   %.not45 = icmp eq ptr %74, null
-  br i1 %.not45, label %75, label %common.ret166
+  br i1 %.not45, label %75, label %common.ret167
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %.tr59, i64 92
@@ -2920,7 +2920,7 @@ common.ret166:                                    ; preds = %66, %68, %44, %37, 
   %81 = load ptr, ptr %80, align 8
   %82 = tail call ptr @llvm_get_typeid(ptr noundef %0, ptr noundef %81) #10
   %.pre = load ptr, ptr %73, align 8
-  br label %common.ret166
+  br label %common.ret167
 
 83:                                               ; preds = %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.llvm_get_ref, ptr noundef nonnull @.str.10, i32 noundef 1195) #12
@@ -5609,7 +5609,7 @@ gencontext_init.exit:                             ; preds = %53, %60
   %66 = getelementptr inbounds i8, ptr %64, i64 -8
   %67 = load i32, ptr %66, align 4
   %.not416 = icmp eq i32 %67, 0
-  br i1 %.not416, label %._crit_edge378.thread514, label %.lr.ph377
+  br i1 %.not416, label %._crit_edge378.thread542, label %.lr.ph377
 
 .lr.ph377:                                        ; preds = %65
   %68 = getelementptr inbounds nuw i8, ptr %43, i64 336
@@ -5703,8 +5703,8 @@ gencontext_init.exit:                             ; preds = %53, %60
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %103 = and i64 %.pre, 536870912
   %.not329 = icmp eq i64 %103, 0
-  %or.cond544 = select i1 %.not295, i1 %.not329, i1 false
-  br i1 %or.cond544, label %llvm_emit_type_decls.exit, label %.lr.ph359._crit_edge
+  %or.cond572 = select i1 %.not295, i1 %.not329, i1 false
+  br i1 %or.cond572, label %llvm_emit_type_decls.exit, label %.lr.ph359._crit_edge
 
 .lr.ph359._crit_edge:                             ; preds = %.lr.ph359
   %104 = trunc i64 %.pre to i32
@@ -5780,8 +5780,8 @@ llvm_emit_type_decls.exit:                        ; preds = %.lr.ph359, %108, %.
   %.pre489 = load i64, ptr %.phi.trans.insert488, align 8
   %119 = and i64 %.pre489, 536870912
   %.not328 = icmp eq i64 %119, 0
-  %or.cond546 = select i1 %.not295, i1 %.not328, i1 false
-  br i1 %or.cond546, label %llvm_emit_type_decls.exit338, label %.lr.ph363._crit_edge
+  %or.cond574 = select i1 %.not295, i1 %.not328, i1 false
+  br i1 %or.cond574, label %llvm_emit_type_decls.exit338, label %.lr.ph363._crit_edge
 
 .lr.ph363._crit_edge:                             ; preds = %.lr.ph363
   %120 = trunc i64 %.pre489 to i32
@@ -6084,17 +6084,17 @@ llvm_emit_type_decls.exit338:                     ; preds = %.lr.ph363, %124, %.
 ._crit_edge378:                                   ; preds = %243
   %.pre491 = load ptr, ptr %7, align 8
   %.not297 = icmp eq ptr %.pre491, null
-  br i1 %.not297, label %._crit_edge414, label %._crit_edge378.thread514
+  br i1 %.not297, label %._crit_edge414, label %._crit_edge378.thread542
 
-._crit_edge378.thread514:                         ; preds = %65, %._crit_edge378
-  %.0268.lcssa517 = phi i1 [ %.3, %._crit_edge378 ], [ false, %65 ]
+._crit_edge378.thread542:                         ; preds = %65, %._crit_edge378
+  %.0268.lcssa545 = phi i1 [ %.3, %._crit_edge378 ], [ false, %65 ]
   %244 = phi ptr [ %.pre491, %._crit_edge378 ], [ %64, %65 ]
   %245 = getelementptr inbounds i8, ptr %244, i64 -8
   %246 = load i32, ptr %245, align 4
   %.not422 = icmp eq i32 %246, 0
   br i1 %.not422, label %._crit_edge414, label %.lr.ph413
 
-.lr.ph413:                                        ; preds = %._crit_edge378.thread514
+.lr.ph413:                                        ; preds = %._crit_edge378.thread542
   %247 = getelementptr inbounds nuw i8, ptr %43, i64 336
   %248 = getelementptr inbounds nuw i8, ptr %43, i64 320
   %.sroa.246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 328
@@ -6103,7 +6103,7 @@ llvm_emit_type_decls.exit338:                     ; preds = %.lr.ph363, %124, %.
 
 249:                                              ; preds = %.lr.ph413, %._crit_edge408
   %indvars.iv484 = phi i64 [ 0, %.lr.ph413 ], [ %indvars.iv.next485, %._crit_edge408 ]
-  %.4411 = phi i1 [ %.0268.lcssa517, %.lr.ph413 ], [ %.14.lcssa, %._crit_edge408 ]
+  %.4411 = phi i1 [ %.0268.lcssa545, %.lr.ph413 ], [ %.14.lcssa, %._crit_edge408 ]
   %250 = getelementptr inbounds nuw ptr, ptr %244, i64 %indvars.iv484
   %251 = load ptr, ptr %250, align 8
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 240
@@ -6388,8 +6388,8 @@ llvm_emit_type_decls.exit338:                     ; preds = %.lr.ph363, %124, %.
   %exitcond487.not = icmp eq i64 %indvars.iv.next485, %wide.trip.count486
   br i1 %exitcond487.not, label %._crit_edge414, label %249, !llvm.loop !36
 
-._crit_edge414:                                   ; preds = %._crit_edge408, %gencontext_init.exit, %._crit_edge378, %._crit_edge378.thread514
-  %.4.lcssa = phi i1 [ %.0268.lcssa517, %._crit_edge378.thread514 ], [ %.3, %._crit_edge378 ], [ false, %gencontext_init.exit ], [ %.14.lcssa, %._crit_edge408 ]
+._crit_edge414:                                   ; preds = %._crit_edge408, %gencontext_init.exit, %._crit_edge378, %._crit_edge378.thread542
+  %.4.lcssa = phi i1 [ %.0268.lcssa545, %._crit_edge378.thread542 ], [ %.3, %._crit_edge378 ], [ false, %gencontext_init.exit ], [ %.14.lcssa, %._crit_edge408 ]
   %353 = getelementptr inbounds nuw i8, ptr %43, i64 440
   %354 = load ptr, ptr %353, align 8
   tail call void @llvm_emit_dynamic_functions(ptr noundef nonnull %43, ptr noundef %354) #10
@@ -6816,7 +6816,7 @@ define dso_local ptr @llvm_emit_memcpy(ptr noundef %0, ptr noundef %1, i32 nound
 
 .sink.split:                                      ; preds = %16, %10
   %.sink = phi ptr [ %12, %10 ], [ %18, %16 ]
-  %.sink40.ph = phi ptr [ %13, %10 ], [ %19, %16 ]
+  %.sink43.ph = phi ptr [ %13, %10 ], [ %19, %16 ]
   %22 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %23, align 8
@@ -6824,11 +6824,11 @@ define dso_local ptr @llvm_emit_memcpy(ptr noundef %0, ptr noundef %1, i32 nound
 
 25:                                               ; preds = %.sink.split, %16, %10
   %.0.sink = phi i32 [ %14, %10 ], [ %20, %16 ], [ %24, %.sink.split ]
-  %.sink40 = phi ptr [ %13, %10 ], [ %19, %16 ], [ %.sink40.ph, %.sink.split ]
+  %.sink43 = phi ptr [ %13, %10 ], [ %19, %16 ], [ %.sink43.ph, %.sink.split ]
   %26 = add i32 %.0.sink, -3
   %27 = icmp ult i32 %26, 5
   %28 = zext i1 %27 to i32
-  %29 = tail call ptr @LLVMConstInt(ptr noundef %.sink40, i64 noundef %5, i32 noundef %28) #10
+  %29 = tail call ptr @LLVMConstInt(ptr noundef %.sink43, i64 noundef %5, i32 noundef %28) #10
   %30 = tail call ptr @LLVMBuildMemCpy(ptr noundef %9, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %29) #10
   ret ptr %30
 }

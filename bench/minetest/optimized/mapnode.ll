@@ -818,7 +818,7 @@ if.end:                                           ; preds = %_ZNK7MapNode8getLev
   ]
 
 sw.bb:                                            ; preds = %if.end
-  switch i8 %15, label %default.unreachable152 [
+  switch i8 %15, label %default.unreachable264 [
     i8 1, label %if.then24
     i8 2, label %if.then28
     i8 3, label %if.then35
@@ -866,7 +866,7 @@ sw.bb43:                                          ; preds = %if.end
   %76 = fmul nsz <2 x double> %72, splat (double 0x3C91A62633145C07)
   %77 = fadd nsz <2 x double> %76, %71
   %78 = fptrunc <2 x double> %77 to <2 x float>
-  switch i8 %15, label %default.unreachable152 [
+  switch i8 %15, label %default.unreachable264 [
     i8 1, label %if.then49
     i8 2, label %if.then56
     i8 3, label %if.then63
@@ -913,7 +913,7 @@ sw.bb71:                                          ; preds = %if.end
   %106 = fmul nsz <2 x double> %103, splat (double 0x3C91A62633145C07)
   %107 = fsub nsz <2 x double> %106, %102
   %108 = fptrunc <2 x double> %107 to <2 x float>
-  switch i8 %15, label %default.unreachable152 [
+  switch i8 %15, label %default.unreachable264 [
     i8 1, label %if.then77
     i8 2, label %if.then84
     i8 3, label %if.then91
@@ -960,7 +960,7 @@ sw.bb99:                                          ; preds = %if.end
   %136 = fmul nsz <2 x double> %133, splat (double 0x3C91A62633145C07)
   %137 = fsub nsz <2 x double> %136, %132
   %138 = fptrunc <2 x double> %137 to <2 x float>
-  switch i8 %15, label %default.unreachable152 [
+  switch i8 %15, label %default.unreachable264 [
     i8 1, label %if.then105
     i8 2, label %if.then112
     i8 3, label %if.then119
@@ -1008,7 +1008,7 @@ sw.bb127:                                         ; preds = %if.end
   %167 = fmul nsz <2 x double> %163, splat (double 0x3C91A62633145C07)
   %168 = fadd nsz <2 x double> %167, %162
   %169 = fptrunc <2 x double> %168 to <2 x float>
-  switch i8 %15, label %default.unreachable152 [
+  switch i8 %15, label %default.unreachable264 [
     i8 1, label %if.then133
     i8 2, label %if.then140
     i8 3, label %if.then147
@@ -1056,7 +1056,7 @@ sw.bb155:                                         ; preds = %if.end
   %198 = fneg nsz <2 x double> %194
   %199 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %193, <2 x double> splat (double 0xBCA1A62633145C07), <2 x double> %198)
   %200 = fptrunc <2 x double> %199 to <2 x float>
-  switch i8 %15, label %default.unreachable152 [
+  switch i8 %15, label %default.unreachable264 [
     i8 1, label %if.then161
     i8 2, label %if.then168
     i8 3, label %if.then175
@@ -1095,7 +1095,7 @@ if.then175:                                       ; preds = %sw.bb155
   %223 = fptrunc <2 x double> %222 to <2 x float>
   br label %sw.epilog
 
-default.unreachable152:                           ; preds = %sw.bb155, %sw.bb127, %sw.bb99, %sw.bb71, %sw.bb43, %sw.bb
+default.unreachable264:                           ; preds = %sw.bb155, %sw.bb127, %sw.bb99, %sw.bb71, %sw.bb43, %sw.bb
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb155, %sw.bb127, %sw.bb99, %sw.bb71, %sw.bb43, %sw.bb, %if.then175, %if.then168, %if.then161, %if.then147, %if.then140, %if.then133, %if.then119, %if.then112, %if.then105, %if.then91, %if.then84, %if.then77, %if.then63, %if.then56, %if.then49, %if.then35, %if.then28, %if.then24, %if.end
@@ -4963,7 +4963,7 @@ _ZN6BufferIhEC2Ej.exit:                           ; preds = %if.then.i, %if.end3
 invoke.cont43.preheader:                          ; preds = %_ZN6BufferIhEC2Ej.exit
   %wide.trip.count = zext i32 %nodecount to i64
   %min.iters.check = icmp ult i32 %nodecount, 25
-  br i1 %min.iters.check, label %invoke.cont43.preheader2, label %vector.scevcheck
+  br i1 %min.iters.check, label %invoke.cont43.preheader3, label %vector.scevcheck
 
 vector.scevcheck:                                 ; preds = %invoke.cont43.preheader
   %11 = add nsw i64 %wide.trip.count, -1
@@ -4975,7 +4975,7 @@ vector.scevcheck:                                 ; preds = %invoke.cont43.prehe
   %17 = icmp ult i32 %16, %13
   %18 = or i1 %12, %15
   %19 = or i1 %17, %18
-  br i1 %19, label %invoke.cont43.preheader2, label %vector.memcheck
+  br i1 %19, label %invoke.cont43.preheader3, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %vector.scevcheck
   %20 = shl nuw nsw i64 %wide.trip.count, 1
@@ -4998,7 +4998,7 @@ vector.memcheck:                                  ; preds = %vector.scevcheck
   %bound1107 = icmp ult ptr %scevgep101, %scevgep100
   %found.conflict108 = and i1 %bound0106, %bound1107
   %conflict.rdx109 = or i1 %found.conflict108, %conflict.rdx
-  br i1 %conflict.rdx109, label %invoke.cont43.preheader2, label %vector.ph
+  br i1 %conflict.rdx109, label %invoke.cont43.preheader3, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.mod.vf = and i64 %wide.trip.count, 7
@@ -5097,14 +5097,14 @@ vector.body:                                      ; preds = %vector.body, %vecto
   store <8 x i8> %108, ptr %84, align 1, !tbaa !58, !alias.scope !219
   %index.next = add nuw nsw i64 %index, 8
   %109 = icmp eq i64 %index.next, %n.vec
-  br i1 %109, label %invoke.cont43.preheader2, label %vector.body, !llvm.loop !220
+  br i1 %109, label %invoke.cont43.preheader3, label %vector.body, !llvm.loop !220
 
-invoke.cont43.preheader2:                         ; preds = %vector.body, %vector.memcheck, %vector.scevcheck, %invoke.cont43.preheader
+invoke.cont43.preheader3:                         ; preds = %vector.body, %vector.memcheck, %vector.scevcheck, %invoke.cont43.preheader
   %indvars.iv.ph = phi i64 [ 0, %invoke.cont43.preheader ], [ 0, %vector.scevcheck ], [ 0, %vector.memcheck ], [ %n.vec, %vector.body ]
   br label %invoke.cont43
 
-invoke.cont43:                                    ; preds = %invoke.cont43.preheader2, %invoke.cont43
-  %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont43 ], [ %indvars.iv.ph, %invoke.cont43.preheader2 ]
+invoke.cont43:                                    ; preds = %invoke.cont43.preheader3, %invoke.cont43
+  %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont43 ], [ %indvars.iv.ph, %invoke.cont43.preheader3 ]
   %110 = trunc i64 %indvars.iv to i32
   %mul39 = shl nuw i64 %indvars.iv, 1
   %idxprom.i = and i64 %mul39, 4294967294

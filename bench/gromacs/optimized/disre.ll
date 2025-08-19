@@ -162,11 +162,11 @@ define void @_Z11init_disresP8_IO_FILERK10gmx_mtop_tP10t_inputrec13DisResRunMode
   br label %67
 
 67:                                               ; preds = %54, %44
-  %.sink195 = phi float [ %66, %54 ], [ 0.000000e+00, %44 ]
+  %.sink209 = phi float [ %66, %54 ], [ 0.000000e+00, %44 ]
   %68 = phi ptr [ %43, %54 ], [ %45, %44 ]
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store float %.sink195, ptr %69, align 8, !tbaa !116
-  %70 = fsub float 1.000000e+00, %.sink195
+  store float %.sink209, ptr %69, align 8, !tbaa !116
+  %70 = fsub float 1.000000e+00, %.sink209
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store float %70, ptr %71, align 4, !tbaa !117
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 28
@@ -827,13 +827,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !159
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !159
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -1354,9 +1354,9 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
 
 114:                                              ; preds = %112, %107
   %.sink = phi float [ %113, %112 ], [ %111, %107 ]
-  %.sink276 = phi double [ %106, %112 ], [ %109, %107 ]
+  %.sink284 = phi double [ %106, %112 ], [ %109, %107 ]
   %115 = fpext float %.sink to double
-  %116 = fmul double %.sink276, %115
+  %116 = fmul double %.sink284, %115
   %117 = fpext float %102 to double
   %118 = fpext float %.0199256 to double
   %119 = call double @llvm.fmuladd.f64(double %116, double %117, double %118)
@@ -1393,12 +1393,12 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   br label %136
 
 136:                                              ; preds = %131, %120
-  %.sink278 = phi float [ %133, %131 ], [ %123, %120 ]
+  %.sink286 = phi float [ %133, %131 ], [ %123, %120 ]
   %.pre-phi = phi float [ %134, %131 ], [ %121, %120 ]
   %.1194 = phi float [ %133, %131 ], [ %.0193258, %120 ]
   %.1189 = phi float [ %.3191.ph, %131 ], [ %.0188260, %120 ]
   %.1 = phi float [ %135, %131 ], [ %122, %120 ]
-  %137 = call float @llvm.fmuladd.f32(float %.sink278, float %102, float %.0196257)
+  %137 = call float @llvm.fmuladd.f32(float %.sink286, float %102, float %.0196257)
   %138 = fmul float %103, %.pre-phi
   br i1 %.0207.in, label %139, label %165
 

@@ -337,9 +337,9 @@ define internal i32 @mlp_parse(ptr noundef captures(none) initializes((232, 236)
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 652
   store i32 %166, ptr %167, align 4, !tbaa !40
   %168 = icmp sgt i32 %166, 16
-  %spec.select133 = select i1 %168, i32 2, i32 1
+  %spec.select139 = select i1 %168, i32 2, i32 1
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 348
-  store i32 %spec.select133, ptr %169, align 4, !tbaa !57
+  store i32 %spec.select139, ptr %169, align 4, !tbaa !57
   %170 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %171 = load i32, ptr %170, align 8, !tbaa !58
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 344
@@ -357,8 +357,8 @@ define internal i32 @mlp_parse(ptr noundef captures(none) initializes((232, 236)
   %180 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %181 = load i32, ptr %180, align 8
   %.not109 = icmp eq i32 %181, 0
-  %.135 = select i1 %.not109, i64 64, i64 72
-  %.sink = select i1 %179, i64 56, i64 %.135
+  %.141 = select i1 %.not109, i64 64, i64 72
+  %.sink = select i1 %179, i64 56, i64 %.141
   %182 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink
   %183 = load i64, ptr %182, align 8, !tbaa !64
   %184 = call i32 @av_channel_layout_from_mask(ptr noundef nonnull %177, i64 noundef %183) #4

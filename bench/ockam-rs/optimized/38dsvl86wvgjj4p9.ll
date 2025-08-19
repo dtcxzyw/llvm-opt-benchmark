@@ -1409,10 +1409,10 @@ common.resume:                                    ; preds = %495, %434, %152, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %spec.select = select i1 %.sroa.084.0, ptr @anon.8b5e6c7bb52f9bb2ce1992037cc2af06.6, ptr @anon.8b5e6c7bb52f9bb2ce1992037cc2af06.7
   %not..sroa.084.0 = xor i1 %.sroa.084.0, true
-  %spec.select403 = zext i1 %not..sroa.084.0 to i64
+  %spec.select406 = zext i1 %not..sroa.084.0 to i64
   store ptr %spec.select, ptr %26, align 8
   %451 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i64 %spec.select403, ptr %451, align 8
+  store i64 %spec.select406, ptr %451, align 8
   store ptr %28, ptr %29, align 8
   %452 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @"_ZN90_$LT$nu_ansi_term..display..AnsiGenericString$LT$str$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h0ef90c753c2d316bE", ptr %452, align 8
@@ -2247,8 +2247,8 @@ define hidden void @_ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E.llvm.137638
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.1..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %14, ptr %.sroa.0.1..sroa_idx12, align 1, !alias.scope !281
+  %.sroa.0.1..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %14, ptr %.sroa.0.1..sroa_idx15, align 1, !alias.scope !281
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.llvm.13763856741993983681.exit
 
 15:                                               ; preds = %6
@@ -2260,13 +2260,13 @@ define hidden void @_ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E.llvm.137638
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %22, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !281
+  %.sroa.0.1..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %22, ptr %.sroa.0.1..sroa_idx14, align 1, !alias.scope !281
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.2..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  store i8 %25, ptr %.sroa.0.2..sroa_idx13, align 2, !alias.scope !281
+  %.sroa.0.2..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  store i8 %25, ptr %.sroa.0.2..sroa_idx16, align 2, !alias.scope !281
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.llvm.13763856741993983681.exit
 
 26:                                               ; preds = %6

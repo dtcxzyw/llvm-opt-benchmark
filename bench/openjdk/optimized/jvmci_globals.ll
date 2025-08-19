@@ -255,7 +255,7 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals32check_jvmci_flags_are_consi
   %107 = load i64, ptr @TieredStopAtLevel, align 8
   %108 = icmp slt i64 %107, 4
   %or.cond7 = select i1 %96, i1 %108, i1 false
-  br i1 %or.cond7, label %109, label %.thread65
+  br i1 %or.cond7, label %109, label %.thread66
 
 109:                                              ; preds = %106
   %110 = load i8, ptr @DisplayVMOutputToStdout, align 1
@@ -544,11 +544,11 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals32check_jvmci_flags_are_consi
 263:                                              ; preds = %._crit_edge48, %251
   %264 = phi i8 [ %.pre49, %._crit_edge48 ], [ %252, %251 ]
   %265 = trunc i8 %264 to i1
-  br i1 %265, label %.thread65, label %266
+  br i1 %265, label %.thread66, label %266
 
 266:                                              ; preds = %263
   %267 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 62) #5
-  br i1 %267, label %.thread65, label %268
+  br i1 %267, label %.thread66, label %268
 
 268:                                              ; preds = %266
   %269 = load i8, ptr @DisplayVMOutputToStdout, align 1
@@ -559,12 +559,12 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals32check_jvmci_flags_are_consi
   %274 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %273, ptr noundef nonnull @.str, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.15) #5
   br label %289
 
-.thread65:                                        ; preds = %106, %266, %263
+.thread66:                                        ; preds = %106, %266, %263
   %275 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not12 = icmp eq ptr %275, null
   br i1 %.not12, label %289, label %276
 
-276:                                              ; preds = %.thread65
+276:                                              ; preds = %.thread66
   %277 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 72, i8 noundef zeroext 8, i32 noundef 0) #5
   %278 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   call void @_ZN10fileStreamC1EPKc(ptr noundef nonnull align 8 dereferenceable(65) %277, ptr noundef %278) #5
@@ -584,8 +584,8 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals32check_jvmci_flags_are_consi
   %288 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %286, ptr noundef nonnull @.str.28, ptr noundef %287) #5
   br label %289
 
-289:                                              ; preds = %.thread65, %276, %281, %268, %256, %244, %232, %220, %208, %196, %184, %172, %160, %148, %136, %124, %109, %99, %87, %64, %52, %40, %28, %16
-  %.0 = phi i1 [ false, %99 ], [ false, %109 ], [ false, %281 ], [ false, %268 ], [ false, %256 ], [ false, %244 ], [ false, %232 ], [ false, %220 ], [ false, %208 ], [ false, %196 ], [ false, %184 ], [ false, %172 ], [ false, %160 ], [ false, %148 ], [ false, %136 ], [ false, %124 ], [ false, %87 ], [ false, %64 ], [ false, %52 ], [ false, %40 ], [ false, %28 ], [ false, %16 ], [ true, %276 ], [ true, %.thread65 ]
+289:                                              ; preds = %.thread66, %276, %281, %268, %256, %244, %232, %220, %208, %196, %184, %172, %160, %148, %136, %124, %109, %99, %87, %64, %52, %40, %28, %16
+  %.0 = phi i1 [ false, %99 ], [ false, %109 ], [ false, %281 ], [ false, %268 ], [ false, %256 ], [ false, %244 ], [ false, %232 ], [ false, %220 ], [ false, %208 ], [ false, %196 ], [ false, %184 ], [ false, %172 ], [ false, %160 ], [ false, %148 ], [ false, %136 ], [ false, %124 ], [ false, %87 ], [ false, %64 ], [ false, %52 ], [ false, %40 ], [ false, %28 ], [ false, %16 ], [ true, %276 ], [ true, %.thread66 ]
   ret i1 %.0
 }
 

@@ -150,14 +150,14 @@ define noundef i32 @_ZN3zmq5req_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1952
   %11 = load i8, ptr %10, align 8, !tbaa !94, !range !96, !noundef !97
   %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %13, label %.thread33
+  br i1 %12, label %13, label %.thread34
 
 13:                                               ; preds = %9
   %14 = tail call ptr @__errno_location() #12
   store i32 156384763, ptr %14, align 4, !tbaa !98
   br label %85
 
-.thread33:                                        ; preds = %9
+.thread34:                                        ; preds = %9
   store i8 0, ptr %6, align 1, !tbaa !6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1930
   store i8 1, ptr %15, align 2, !tbaa !90
@@ -171,8 +171,8 @@ define noundef i32 @_ZN3zmq5req_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1930
   br i1 %18, label %20, label %78
 
-20:                                               ; preds = %.thread33, %17
-  %21 = phi ptr [ %16, %.thread33 ], [ %19, %17 ]
+20:                                               ; preds = %.thread34, %17
+  %21 = phi ptr [ %16, %.thread34 ], [ %19, %17 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1936
   store ptr null, ptr %22, align 8, !tbaa !91
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1944

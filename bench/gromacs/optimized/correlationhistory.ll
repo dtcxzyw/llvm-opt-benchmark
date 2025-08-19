@@ -163,7 +163,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx27CorrelationBlockDataHistoryESaIS1_
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, i8 0, i64 88, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN3gmx27CorrelationBlockDataHistoryEmS1_ET_S3_T0_RSaIT1_E.exit, label %23
 
@@ -1680,13 +1680,13 @@ define void @_ZN3gmx15CorrelationGrid23restoreStateFromHistoryERKNS_22Correlatio
 .thread43:                                        ; preds = %44
   %50 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split54
+  br label %.sink.split56
 
 .thread48:                                        ; preds = %46
   %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #20
-  br label %.sink.split54
+  br label %.sink.split56
 
 52:                                               ; preds = %47, %49
   %.0 = phi i1 [ false, %49 ], [ true, %47 ]
@@ -1699,13 +1699,13 @@ define void @_ZN3gmx15CorrelationGrid23restoreStateFromHistoryERKNS_22Correlatio
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.0, label %54, label %55
 
-.sink.split54:                                    ; preds = %.thread43, %.thread48
+.sink.split56:                                    ; preds = %.thread43, %.thread48
   %.pn.pn47.ph = phi { ptr, i32 } [ %51, %.thread48 ], [ %50, %.thread43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
-54:                                               ; preds = %.sink.split54, %52
-  %.pn.pn47 = phi { ptr, i32 } [ %53, %52 ], [ %.pn.pn47.ph, %.sink.split54 ]
+54:                                               ; preds = %.sink.split56, %52
+  %.pn.pn47 = phi { ptr, i32 } [ %53, %52 ], [ %.pn.pn47.ph, %.sink.split56 ]
   call void @__cxa_free_exception(ptr %45) #20
   br label %55
 

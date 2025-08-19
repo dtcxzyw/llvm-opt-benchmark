@@ -470,14 +470,14 @@ parse_csv.exit.thread.i:                          ; preds = %parse_csv.exit._cri
   br label %main_csv.exit
 
 main_csv.exit:                                    ; preds = %parse_csv.exit.thread.i, %176
-  %.sink33.i = phi ptr [ %180, %176 ], [ %173, %parse_csv.exit.thread.i ]
-  %.sink32.i = phi ptr [ %181, %176 ], [ %172, %parse_csv.exit.thread.i ]
-  %.sink31.i = phi ptr [ %60, %176 ], [ %171, %parse_csv.exit.thread.i ]
+  %.sink42.i = phi ptr [ %180, %176 ], [ %173, %parse_csv.exit.thread.i ]
+  %.sink41.i = phi ptr [ %181, %176 ], [ %172, %parse_csv.exit.thread.i ]
+  %.sink40.i = phi ptr [ %60, %176 ], [ %171, %parse_csv.exit.thread.i ]
   %.sink.i = phi ptr [ %69, %176 ], [ %170, %parse_csv.exit.thread.i ]
   %.0.i = phi i32 [ 0, %176 ], [ 1, %parse_csv.exit.thread.i ]
-  call void @free(ptr noundef %.sink33.i) #24
-  call void @free(ptr noundef %.sink32.i) #24
-  call void @free(ptr noundef %.sink31.i) #24
+  call void @free(ptr noundef %.sink42.i) #24
+  call void @free(ptr noundef %.sink41.i) #24
+  call void @free(ptr noundef %.sink40.i) #24
   call void @free(ptr noundef %.sink.i) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -524,7 +524,7 @@ main_csv.exit:                                    ; preds = %parse_csv.exit.thre
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 24
   %201 = load ptr, ptr %200, align 8, !tbaa !24
   %..i = select i1 %.not.i, ptr null, ptr %201
-  %.56.i = select i1 %.not.i, ptr %201, ptr null
+  %.59.i = select i1 %.not.i, ptr %201, ptr null
   call void @g_free(ptr noundef %197) #24
   br label %.thread54.i
 
@@ -532,7 +532,7 @@ main_csv.exit:                                    ; preds = %parse_csv.exit.thre
   %202 = phi ptr [ %192, %194 ], [ %192, %190 ], [ null, %186 ], [ null, %.critedge.thread ]
   %203 = phi ptr [ %189, %194 ], [ %189, %190 ], [ %189, %186 ], [ null, %.critedge.thread ]
   %.042.i = phi ptr [ %..i, %194 ], [ null, %190 ], [ null, %186 ], [ null, %.critedge.thread ]
-  %.0.i33 = phi ptr [ %.56.i, %194 ], [ null, %190 ], [ null, %186 ], [ null, %.critedge.thread ]
+  %.0.i33 = phi ptr [ %.59.i, %194 ], [ null, %190 ], [ null, %186 ], [ null, %.critedge.thread ]
   %204 = call ptr @gtk_window_new(i32 noundef 0) #24
   store ptr %204, ptr %15, align 8, !tbaa !35
   %205 = tail call i64 @gtk_window_get_type() #28
@@ -1437,8 +1437,8 @@ define internal fastcc void @process_data(ptr noundef captures(none) %0, ptr nou
 
 .lr.ph196:                                        ; preds = %.lr.ph196.preheader, %.lr.ph196
   %indvars.iv216 = phi i64 [ 0, %.lr.ph196.preheader ], [ %indvars.iv.next217, %.lr.ph196 ]
-  %.idx241 = mul nuw nsw i64 %indvars.iv216, 48
-  %83 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx241
+  %.idx248 = mul nuw nsw i64 %indvars.iv216, 48
+  %83 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx248
   %84 = load double, ptr %83, align 8, !tbaa !30
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %85 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv.next217
@@ -1480,8 +1480,8 @@ define internal fastcc void @process_data(ptr noundef captures(none) %0, ptr nou
 
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %.lr.ph198
   %indvars.iv221 = phi i64 [ 0, %.lr.ph198.preheader ], [ %indvars.iv.next222, %.lr.ph198 ]
-  %.idx242 = mul nuw nsw i64 %indvars.iv221, 48
-  %104 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx242
+  %.idx249 = mul nuw nsw i64 %indvars.iv221, 48
+  %104 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx249
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %106 = load double, ptr %105, align 8, !tbaa !30
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
@@ -1521,8 +1521,8 @@ define internal fastcc void @process_data(ptr noundef captures(none) %0, ptr nou
 127:                                              ; preds = %.lr.ph203, %dt_Lab_to_prophotorgb.exit169
   %indvars.iv226 = phi i64 [ 1, %.lr.ph203 ], [ %indvars.iv.next227, %dt_Lab_to_prophotorgb.exit169 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %.idx243 = mul nuw nsw i64 %indvars.iv226, 48
-  %128 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx243
+  %.idx250 = mul nuw nsw i64 %indvars.iv226, 48
+  %128 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx250
   %129 = load double, ptr %128, align 8, !tbaa !30
   %130 = fptrunc reassoc nsz arcp contract afn double %129 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %25)

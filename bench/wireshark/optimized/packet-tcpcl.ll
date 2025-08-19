@@ -3350,21 +3350,21 @@ proto_item_set_generated.exit:                    ; preds = %66, %71, %74
   %90 = load i64, ptr %68, align 8
   %91 = load i64, ptr %88, align 8
   %92 = icmp ugt i64 %90, %91
-  br i1 %92, label %.sink.split139, label %93
+  br i1 %92, label %.sink.split160, label %93
 
 93:                                               ; preds = %89
   %94 = and i8 %2, 1
   %.not117 = icmp eq i8 %94, 0
   %.not118 = icmp eq i64 %90, %91
   %or.cond = or i1 %.not117, %.not118
-  br i1 %or.cond, label %96, label %.sink.split139
+  br i1 %or.cond, label %96, label %.sink.split160
 
-.sink.split139:                                   ; preds = %93, %89
+.sink.split160:                                   ; preds = %93, %89
   %ei_xfer_mismatch_total_len.sink = phi ptr [ @ei_xfer_seg_over_total_len, %89 ], [ @ei_xfer_mismatch_total_len, %93 ]
   %95 = tail call ptr @expert_add_info(ptr noundef %4, ptr noundef %70, ptr noundef nonnull %ei_xfer_mismatch_total_len.sink)
   br label %96
 
-96:                                               ; preds = %.sink.split139, %93
+96:                                               ; preds = %.sink.split160, %93
   %97 = load i32, ptr @hf_tcpclv4_xfer_total_len, align 4
   %98 = load ptr, ptr %87, align 8
   %99 = load i64, ptr %98, align 8

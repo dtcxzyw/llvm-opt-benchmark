@@ -26624,8 +26624,8 @@ _ZN4gpui6window13WindowContext5defer17h32a2d265538ebfb1E.exit.i: ; preds = %.noe
 
 178:                                              ; preds = %168
   store i64 1, ptr %172, align 8
-  %.sroa.4.0..sroa_idx183 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  store i64 1, ptr %.sroa.4.0..sroa_idx183, align 8
+  %.sroa.4.0..sroa_idx199 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  store i64 1, ptr %.sroa.4.0..sroa_idx199, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %172, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %172, i64 24

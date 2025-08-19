@@ -4385,8 +4385,8 @@ if.end.i:                                         ; preds = %_ZNSt6vectorISt10un
   br i1 %cmp.not.i.i70, label %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i, %if.end.i
-  %.pr.i.pr165 = phi ptr [ %.pr.i.pr.pre, %if.end.i ], [ %80, %if.then.i ]
-  %copiedNulls_.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr.i.pr165, i64 96
+  %.pr.i.pr181 = phi ptr [ %.pr.i.pr.pre, %if.end.i ], [ %80, %if.then.i ]
+  %copiedNulls_.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr.i.pr181, i64 96
   %90 = load ptr, ptr %copiedNulls_.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %90, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i71
@@ -4396,7 +4396,7 @@ if.then.i.i.i.i.i.i.i71:                          ; preds = %delete.notnull.i.i.
   br label %_ZNSt6vectorImSaImEED2Ev.exit.i.i.i.i
 
 _ZNSt6vectorImSaImEED2Ev.exit.i.i.i.i:            ; preds = %if.then.i.i.i.i.i.i.i71, %delete.notnull.i.i.i
-  %copiedIndices_.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr.i.pr165, i64 72
+  %copiedIndices_.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr.i.pr181, i64 72
   %91 = load ptr, ptr %copiedIndices_.i.i.i.i, align 8
   %tobool.not.i.i.i1.i.i.i.i = icmp eq ptr %91, null
   br i1 %tobool.not.i.i.i1.i.i.i.i, label %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i, label %if.then.i.i.i2.i.i.i.i
@@ -4406,7 +4406,7 @@ if.then.i.i.i2.i.i.i.i:                           ; preds = %_ZNSt6vectorImSaImE
   br label %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i: ; preds = %if.then.i.i.i2.i.i.i.i, %_ZNSt6vectorImSaImEED2Ev.exit.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.pr.i.pr165) #25
+  call void @_ZdlPv(ptr noundef nonnull %.pr.i.pr181) #25
   br label %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit
 
 terminate.lpad.i:                                 ; preds = %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i, %if.then.i.i.i.i.i117
@@ -4514,8 +4514,8 @@ if.end.i76:                                       ; preds = %_ZNSt6vectorISt10un
   br i1 %cmp.not.i.i78, label %_ZN8facebook5velox4exec22LocalSelectivityVectorD2Ev.exit, label %delete.notnull.i.i.i79
 
 delete.notnull.i.i.i79:                           ; preds = %if.then.i74, %if.end.i76
-  %.pr.i77.pr169 = phi ptr [ %.pr.i77.pr.pre, %if.end.i76 ], [ %94, %if.then.i74 ]
-  %104 = load ptr, ptr %.pr.i77.pr169, align 8
+  %.pr.i77.pr185 = phi ptr [ %.pr.i77.pr.pre, %if.end.i76 ], [ %94, %if.then.i74 ]
+  %104 = load ptr, ptr %.pr.i77.pr185, align 8
   %tobool.not.i.i.i.i.i.i.i80 = icmp eq ptr %104, null
   br i1 %tobool.not.i.i.i.i.i.i.i80, label %_ZNKSt14default_deleteIN8facebook5velox17SelectivityVectorEEclEPS2_.exit.i.i, label %if.then.i.i.i.i.i.i.i81
 
@@ -4524,7 +4524,7 @@ if.then.i.i.i.i.i.i.i81:                          ; preds = %delete.notnull.i.i.
   br label %_ZNKSt14default_deleteIN8facebook5velox17SelectivityVectorEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN8facebook5velox17SelectivityVectorEEclEPS2_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i81, %delete.notnull.i.i.i79
-  call void @_ZdlPv(ptr noundef nonnull %.pr.i77.pr169) #25
+  call void @_ZdlPv(ptr noundef nonnull %.pr.i77.pr185) #25
   br label %_ZN8facebook5velox4exec22LocalSelectivityVectorD2Ev.exit
 
 terminate.lpad.i75:                               ; preds = %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i, %if.then.i.i.i.i.i152
@@ -7386,13 +7386,13 @@ for.body.lr.ph.split.us.i.i.i.i.i.i.i162:         ; preds = %for.body.lr.ph.i.i.
 for.body.us.us.preheader.i.i.i.i.i.i.i167:        ; preds = %for.body.lr.ph.split.us.i.i.i.i.i.i.i162
   %405 = sext i32 %393 to i64
   %wide.trip.count208.i.i.i.i.i.i.i = zext nneg i32 %391 to i64
-  %invariant.gep221.i.i.i.i.i.i.i = getelementptr i32, ptr %404, i64 %405
+  %invariant.gep224.i.i.i.i.i.i.i = getelementptr i32, ptr %404, i64 %405
   br label %for.body.us.us.i.i.i.i.i.i.i168
 
 for.body.us.us.i.i.i.i.i.i.i168:                  ; preds = %for.inc.us.us.i.i.i.i.i.i.i169, %for.body.us.us.preheader.i.i.i.i.i.i.i167
   %indvars.iv204.i.i.i.i.i.i.i = phi i64 [ 0, %for.body.us.us.preheader.i.i.i.i.i.i.i167 ], [ %indvars.iv.next205.i.i.i.i.i.i.i, %for.inc.us.us.i.i.i.i.i.i.i169 ]
-  %gep222.i.i.i.i.i.i.i = getelementptr i32, ptr %invariant.gep221.i.i.i.i.i.i.i, i64 %indvars.iv204.i.i.i.i.i.i.i
-  %406 = load i32, ptr %gep222.i.i.i.i.i.i.i, align 4
+  %gep225.i.i.i.i.i.i.i = getelementptr i32, ptr %invariant.gep224.i.i.i.i.i.i.i, i64 %indvars.iv204.i.i.i.i.i.i.i
+  %406 = load i32, ptr %gep225.i.i.i.i.i.i.i, align 4
   %cmp9.us.us.i.i.i.i.i.i.i = icmp eq i32 %406, %401
   br i1 %cmp9.us.us.i.i.i.i.i.i.i, label %if.then.loopexit.i.i.i.i.i.i.i170, label %for.inc.us.us.i.i.i.i.i.i.i169
 
@@ -7418,13 +7418,13 @@ for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i: ; preds = %for.body.lr.ph.spl
   %410 = load ptr, ptr %indices_.i.i.i.i.i.i.i.i87, align 8
   %411 = sext i32 %393 to i64
   %wide.trip.count202.i.i.i.i.i.i.i = zext nneg i32 %391 to i64
-  %invariant.gep219.i.i.i.i.i.i.i = getelementptr i32, ptr %410, i64 %411
+  %invariant.gep222.i.i.i.i.i.i.i = getelementptr i32, ptr %410, i64 %411
   br label %for.body.us.i.i.i.i.i.i.i164
 
 for.body.us.i.i.i.i.i.i.i164:                     ; preds = %for.inc.us.i.i.i.i.i.i.i165, %for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i
   %indvars.iv198.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next199.i.i.i.i.i.i.i, %for.inc.us.i.i.i.i.i.i.i165 ], [ 0, %for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i ]
-  %gep220.i.i.i.i.i.i.i = getelementptr i32, ptr %invariant.gep219.i.i.i.i.i.i.i, i64 %indvars.iv198.i.i.i.i.i.i.i
-  %412 = load i32, ptr %gep220.i.i.i.i.i.i.i, align 4
+  %gep223.i.i.i.i.i.i.i = getelementptr i32, ptr %invariant.gep222.i.i.i.i.i.i.i, i64 %indvars.iv198.i.i.i.i.i.i.i
+  %412 = load i32, ptr %gep223.i.i.i.i.i.i.i, align 4
   %idxprom.i25.us.i.i.i.i.i.i.i = sext i32 %412 to i64
   %arrayidx.i26.us.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %404, i64 %idxprom.i25.us.i.i.i.i.i.i.i
   %413 = load i32, ptr %arrayidx.i26.us.i.i.i.i.i.i.i, align 4
@@ -8698,13 +8698,13 @@ for.body.lr.ph.split.us.i.i.i.i.i.i.i643:         ; preds = %for.body.lr.ph.i.i.
 for.body.us.us.preheader.i.i.i.i.i.i.i661:        ; preds = %for.body.lr.ph.split.us.i.i.i.i.i.i.i643
   %631 = sext i32 %619 to i64
   %wide.trip.count208.i.i.i.i.i.i.i662 = zext nneg i32 %617 to i64
-  %invariant.gep221.i.i.i.i.i.i.i663 = getelementptr i8, ptr %630, i64 %631
+  %invariant.gep224.i.i.i.i.i.i.i663 = getelementptr i8, ptr %630, i64 %631
   br label %for.body.us.us.i.i.i.i.i.i.i664
 
 for.body.us.us.i.i.i.i.i.i.i664:                  ; preds = %for.inc.us.us.i.i.i.i.i.i.i667, %for.body.us.us.preheader.i.i.i.i.i.i.i661
   %indvars.iv204.i.i.i.i.i.i.i665 = phi i64 [ 0, %for.body.us.us.preheader.i.i.i.i.i.i.i661 ], [ %indvars.iv.next205.i.i.i.i.i.i.i668, %for.inc.us.us.i.i.i.i.i.i.i667 ]
-  %gep222.i.i.i.i.i.i.i666 = getelementptr i8, ptr %invariant.gep221.i.i.i.i.i.i.i663, i64 %indvars.iv204.i.i.i.i.i.i.i665
-  %632 = load i8, ptr %gep222.i.i.i.i.i.i.i666, align 1
+  %gep225.i.i.i.i.i.i.i666 = getelementptr i8, ptr %invariant.gep224.i.i.i.i.i.i.i663, i64 %indvars.iv204.i.i.i.i.i.i.i665
+  %632 = load i8, ptr %gep225.i.i.i.i.i.i.i666, align 1
   %cmp11.us.us.i.i.i.i.i.i.i = icmp eq i8 %632, %627
   br i1 %cmp11.us.us.i.i.i.i.i.i.i, label %if.then.loopexit.i.i.i.i.i.i.i670, label %for.inc.us.us.i.i.i.i.i.i.i667
 
@@ -8730,13 +8730,13 @@ for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i646: ; preds = %for.body.lr.ph.
   %636 = load ptr, ptr %indices_.i.i.i.i.i.i.i.i507, align 8
   %637 = sext i32 %619 to i64
   %wide.trip.count202.i.i.i.i.i.i.i647 = zext nneg i32 %617 to i64
-  %invariant.gep219.i.i.i.i.i.i.i648 = getelementptr i32, ptr %636, i64 %637
+  %invariant.gep222.i.i.i.i.i.i.i648 = getelementptr i32, ptr %636, i64 %637
   br label %for.body.us.i.i.i.i.i.i.i649
 
 for.body.us.i.i.i.i.i.i.i649:                     ; preds = %for.inc.us.i.i.i.i.i.i.i654, %for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i646
   %indvars.iv198.i.i.i.i.i.i.i650 = phi i64 [ %indvars.iv.next199.i.i.i.i.i.i.i655, %for.inc.us.i.i.i.i.i.i.i654 ], [ 0, %for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i646 ]
-  %gep220.i.i.i.i.i.i.i651 = getelementptr i32, ptr %invariant.gep219.i.i.i.i.i.i.i648, i64 %indvars.iv198.i.i.i.i.i.i.i650
-  %638 = load i32, ptr %gep220.i.i.i.i.i.i.i651, align 4
+  %gep223.i.i.i.i.i.i.i651 = getelementptr i32, ptr %invariant.gep222.i.i.i.i.i.i.i648, i64 %indvars.iv198.i.i.i.i.i.i.i650
+  %638 = load i32, ptr %gep223.i.i.i.i.i.i.i651, align 4
   %idxprom.i25.us.i.i.i.i.i.i.i652 = sext i32 %638 to i64
   %arrayidx.i26.us.i.i.i.i.i.i.i653 = getelementptr inbounds i8, ptr %630, i64 %idxprom.i25.us.i.i.i.i.i.i.i652
   %639 = load i8, ptr %arrayidx.i26.us.i.i.i.i.i.i.i653, align 1
@@ -10010,13 +10010,13 @@ for.body.lr.ph.split.us.i.i.i.i.i.i.i1240:        ; preds = %for.body.lr.ph.i.i.
 for.body.us.us.preheader.i.i.i.i.i.i.i1260:       ; preds = %for.body.lr.ph.split.us.i.i.i.i.i.i.i1240
   %857 = sext i32 %845 to i64
   %wide.trip.count208.i.i.i.i.i.i.i1261 = zext nneg i32 %843 to i64
-  %invariant.gep221.i.i.i.i.i.i.i1262 = getelementptr i16, ptr %856, i64 %857
+  %invariant.gep224.i.i.i.i.i.i.i1262 = getelementptr i16, ptr %856, i64 %857
   br label %for.body.us.us.i.i.i.i.i.i.i1263
 
 for.body.us.us.i.i.i.i.i.i.i1263:                 ; preds = %for.inc.us.us.i.i.i.i.i.i.i1267, %for.body.us.us.preheader.i.i.i.i.i.i.i1260
   %indvars.iv204.i.i.i.i.i.i.i1264 = phi i64 [ 0, %for.body.us.us.preheader.i.i.i.i.i.i.i1260 ], [ %indvars.iv.next205.i.i.i.i.i.i.i1268, %for.inc.us.us.i.i.i.i.i.i.i1267 ]
-  %gep222.i.i.i.i.i.i.i1265 = getelementptr i16, ptr %invariant.gep221.i.i.i.i.i.i.i1262, i64 %indvars.iv204.i.i.i.i.i.i.i1264
-  %858 = load i16, ptr %gep222.i.i.i.i.i.i.i1265, align 2
+  %gep225.i.i.i.i.i.i.i1265 = getelementptr i16, ptr %invariant.gep224.i.i.i.i.i.i.i1262, i64 %indvars.iv204.i.i.i.i.i.i.i1264
+  %858 = load i16, ptr %gep225.i.i.i.i.i.i.i1265, align 2
   %cmp11.us.us.i.i.i.i.i.i.i1266 = icmp eq i16 %858, %853
   br i1 %cmp11.us.us.i.i.i.i.i.i.i1266, label %if.then.loopexit.i.i.i.i.i.i.i1270, label %for.inc.us.us.i.i.i.i.i.i.i1267
 
@@ -10042,13 +10042,13 @@ for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i1243: ; preds = %for.body.lr.ph
   %862 = load ptr, ptr %indices_.i.i.i.i.i.i.i.i1070, align 8
   %863 = sext i32 %845 to i64
   %wide.trip.count202.i.i.i.i.i.i.i1244 = zext nneg i32 %843 to i64
-  %invariant.gep219.i.i.i.i.i.i.i1245 = getelementptr i32, ptr %862, i64 %863
+  %invariant.gep222.i.i.i.i.i.i.i1245 = getelementptr i32, ptr %862, i64 %863
   br label %for.body.us.i.i.i.i.i.i.i1246
 
 for.body.us.i.i.i.i.i.i.i1246:                    ; preds = %for.inc.us.i.i.i.i.i.i.i1252, %for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i1243
   %indvars.iv198.i.i.i.i.i.i.i1247 = phi i64 [ %indvars.iv.next199.i.i.i.i.i.i.i1253, %for.inc.us.i.i.i.i.i.i.i1252 ], [ 0, %for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i1243 ]
-  %gep220.i.i.i.i.i.i.i1248 = getelementptr i32, ptr %invariant.gep219.i.i.i.i.i.i.i1245, i64 %indvars.iv198.i.i.i.i.i.i.i1247
-  %864 = load i32, ptr %gep220.i.i.i.i.i.i.i1248, align 4
+  %gep223.i.i.i.i.i.i.i1248 = getelementptr i32, ptr %invariant.gep222.i.i.i.i.i.i.i1245, i64 %indvars.iv198.i.i.i.i.i.i.i1247
+  %864 = load i32, ptr %gep223.i.i.i.i.i.i.i1248, align 4
   %idxprom.i25.us.i.i.i.i.i.i.i1249 = sext i32 %864 to i64
   %arrayidx.i26.us.i.i.i.i.i.i.i1250 = getelementptr inbounds i16, ptr %856, i64 %idxprom.i25.us.i.i.i.i.i.i.i1249
   %865 = load i16, ptr %arrayidx.i26.us.i.i.i.i.i.i.i1250, align 2
@@ -11322,13 +11322,13 @@ for.body.lr.ph.split.us.i.i.i.i.i.i.i1913:        ; preds = %for.body.lr.ph.i.i.
 for.body.us.us.preheader.i.i.i.i.i.i.i1933:       ; preds = %for.body.lr.ph.split.us.i.i.i.i.i.i.i1913
   %1083 = sext i32 %1071 to i64
   %wide.trip.count208.i.i.i.i.i.i.i1934 = zext nneg i32 %1069 to i64
-  %invariant.gep221.i.i.i.i.i.i.i1935 = getelementptr i64, ptr %1082, i64 %1083
+  %invariant.gep224.i.i.i.i.i.i.i1935 = getelementptr i64, ptr %1082, i64 %1083
   br label %for.body.us.us.i.i.i.i.i.i.i1936
 
 for.body.us.us.i.i.i.i.i.i.i1936:                 ; preds = %for.inc.us.us.i.i.i.i.i.i.i1940, %for.body.us.us.preheader.i.i.i.i.i.i.i1933
   %indvars.iv204.i.i.i.i.i.i.i1937 = phi i64 [ 0, %for.body.us.us.preheader.i.i.i.i.i.i.i1933 ], [ %indvars.iv.next205.i.i.i.i.i.i.i1941, %for.inc.us.us.i.i.i.i.i.i.i1940 ]
-  %gep222.i.i.i.i.i.i.i1938 = getelementptr i64, ptr %invariant.gep221.i.i.i.i.i.i.i1935, i64 %indvars.iv204.i.i.i.i.i.i.i1937
-  %1084 = load i64, ptr %gep222.i.i.i.i.i.i.i1938, align 8
+  %gep225.i.i.i.i.i.i.i1938 = getelementptr i64, ptr %invariant.gep224.i.i.i.i.i.i.i1935, i64 %indvars.iv204.i.i.i.i.i.i.i1937
+  %1084 = load i64, ptr %gep225.i.i.i.i.i.i.i1938, align 8
   %cmp9.us.us.i.i.i.i.i.i.i1939 = icmp eq i64 %1084, %1079
   br i1 %cmp9.us.us.i.i.i.i.i.i.i1939, label %if.then.loopexit.i.i.i.i.i.i.i1943, label %for.inc.us.us.i.i.i.i.i.i.i1940
 
@@ -11354,13 +11354,13 @@ for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i1916: ; preds = %for.body.lr.ph
   %1088 = load ptr, ptr %indices_.i.i.i.i.i.i.i.i1743, align 8
   %1089 = sext i32 %1071 to i64
   %wide.trip.count202.i.i.i.i.i.i.i1917 = zext nneg i32 %1069 to i64
-  %invariant.gep219.i.i.i.i.i.i.i1918 = getelementptr i32, ptr %1088, i64 %1089
+  %invariant.gep222.i.i.i.i.i.i.i1918 = getelementptr i32, ptr %1088, i64 %1089
   br label %for.body.us.i.i.i.i.i.i.i1919
 
 for.body.us.i.i.i.i.i.i.i1919:                    ; preds = %for.inc.us.i.i.i.i.i.i.i1925, %for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i1916
   %indvars.iv198.i.i.i.i.i.i.i1920 = phi i64 [ %indvars.iv.next199.i.i.i.i.i.i.i1926, %for.inc.us.i.i.i.i.i.i.i1925 ], [ 0, %for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i1916 ]
-  %gep220.i.i.i.i.i.i.i1921 = getelementptr i32, ptr %invariant.gep219.i.i.i.i.i.i.i1918, i64 %indvars.iv198.i.i.i.i.i.i.i1920
-  %1090 = load i32, ptr %gep220.i.i.i.i.i.i.i1921, align 4
+  %gep223.i.i.i.i.i.i.i1921 = getelementptr i32, ptr %invariant.gep222.i.i.i.i.i.i.i1918, i64 %indvars.iv198.i.i.i.i.i.i.i1920
+  %1090 = load i32, ptr %gep223.i.i.i.i.i.i.i1921, align 4
   %idxprom.i25.us.i.i.i.i.i.i.i1922 = sext i32 %1090 to i64
   %arrayidx.i26.us.i.i.i.i.i.i.i1923 = getelementptr inbounds i64, ptr %1082, i64 %idxprom.i25.us.i.i.i.i.i.i.i1922
   %1091 = load i64, ptr %arrayidx.i26.us.i.i.i.i.i.i.i1923, align 8
@@ -12670,13 +12670,13 @@ for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i2532: ; preds = %for.body.lr.ph
   %1312 = load ptr, ptr %indices_.i.i.i.i.i.i.i.i2416, align 8
   %1313 = sext i32 %1297 to i64
   %wide.trip.count215.i.i.i.i.i.i.i = zext nneg i32 %1295 to i64
-  %invariant.gep232.i.i.i.i.i.i.i = getelementptr i32, ptr %1312, i64 %1313
+  %invariant.gep235.i.i.i.i.i.i.i = getelementptr i32, ptr %1312, i64 %1313
   br label %for.body.us.i.i.i.i.i.i.i2533
 
 for.body.us.i.i.i.i.i.i.i2533:                    ; preds = %for.inc.us.i.i.i.i.i.i.i2534, %for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i2532
   %indvars.iv211.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next212.i.i.i.i.i.i.i, %for.inc.us.i.i.i.i.i.i.i2534 ], [ 0, %for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i2532 ]
-  %gep233.i.i.i.i.i.i.i = getelementptr i32, ptr %invariant.gep232.i.i.i.i.i.i.i, i64 %indvars.iv211.i.i.i.i.i.i.i
-  %1314 = load i32, ptr %gep233.i.i.i.i.i.i.i, align 4
+  %gep236.i.i.i.i.i.i.i = getelementptr i32, ptr %invariant.gep235.i.i.i.i.i.i.i, i64 %indvars.iv211.i.i.i.i.i.i.i
+  %1314 = load i32, ptr %gep236.i.i.i.i.i.i.i, align 4
   %conv.i23.us.i.i.i.i.i.i.i = sext i32 %1314 to i64
   %mul.i24.us.i.i.i.i.i.i.i = shl nsw i64 %conv.i23.us.i.i.i.i.i.i.i, 4
   %add.ptr.i25.us.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1307, i64 %mul.i24.us.i.i.i.i.i.i.i
@@ -13954,13 +13954,13 @@ for.body.lr.ph.split.us.i.i.i.i.i.i.i3181:        ; preds = %for.body.lr.ph.i.i.
 for.body.us.us.preheader.i.i.i.i.i.i.i3201:       ; preds = %for.body.lr.ph.split.us.i.i.i.i.i.i.i3181
   %1529 = sext i32 %1517 to i64
   %wide.trip.count208.i.i.i.i.i.i.i3202 = zext nneg i32 %1515 to i64
-  %invariant.gep221.i.i.i.i.i.i.i3203 = getelementptr float, ptr %1528, i64 %1529
+  %invariant.gep224.i.i.i.i.i.i.i3203 = getelementptr float, ptr %1528, i64 %1529
   br label %for.body.us.us.i.i.i.i.i.i.i3204
 
 for.body.us.us.i.i.i.i.i.i.i3204:                 ; preds = %for.inc.us.us.i.i.i.i.i.i.i3208, %for.body.us.us.preheader.i.i.i.i.i.i.i3201
   %indvars.iv204.i.i.i.i.i.i.i3205 = phi i64 [ 0, %for.body.us.us.preheader.i.i.i.i.i.i.i3201 ], [ %indvars.iv.next205.i.i.i.i.i.i.i3209, %for.inc.us.us.i.i.i.i.i.i.i3208 ]
-  %gep222.i.i.i.i.i.i.i3206 = getelementptr float, ptr %invariant.gep221.i.i.i.i.i.i.i3203, i64 %indvars.iv204.i.i.i.i.i.i.i3205
-  %1530 = load float, ptr %gep222.i.i.i.i.i.i.i3206, align 4
+  %gep225.i.i.i.i.i.i.i3206 = getelementptr float, ptr %invariant.gep224.i.i.i.i.i.i.i3203, i64 %indvars.iv204.i.i.i.i.i.i.i3205
+  %1530 = load float, ptr %gep225.i.i.i.i.i.i.i3206, align 4
   %cmp9.us.us.i.i.i.i.i.i.i3207 = fcmp oeq float %1530, %1525
   br i1 %cmp9.us.us.i.i.i.i.i.i.i3207, label %if.then.loopexit.i.i.i.i.i.i.i3211, label %for.inc.us.us.i.i.i.i.i.i.i3208
 
@@ -13986,13 +13986,13 @@ for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i3184: ; preds = %for.body.lr.ph
   %1534 = load ptr, ptr %indices_.i.i.i.i.i.i.i.i3011, align 8
   %1535 = sext i32 %1517 to i64
   %wide.trip.count202.i.i.i.i.i.i.i3185 = zext nneg i32 %1515 to i64
-  %invariant.gep219.i.i.i.i.i.i.i3186 = getelementptr i32, ptr %1534, i64 %1535
+  %invariant.gep222.i.i.i.i.i.i.i3186 = getelementptr i32, ptr %1534, i64 %1535
   br label %for.body.us.i.i.i.i.i.i.i3187
 
 for.body.us.i.i.i.i.i.i.i3187:                    ; preds = %for.inc.us.i.i.i.i.i.i.i3193, %for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i3184
   %indvars.iv198.i.i.i.i.i.i.i3188 = phi i64 [ %indvars.iv.next199.i.i.i.i.i.i.i3194, %for.inc.us.i.i.i.i.i.i.i3193 ], [ 0, %for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i3184 ]
-  %gep220.i.i.i.i.i.i.i3189 = getelementptr i32, ptr %invariant.gep219.i.i.i.i.i.i.i3186, i64 %indvars.iv198.i.i.i.i.i.i.i3188
-  %1536 = load i32, ptr %gep220.i.i.i.i.i.i.i3189, align 4
+  %gep223.i.i.i.i.i.i.i3189 = getelementptr i32, ptr %invariant.gep222.i.i.i.i.i.i.i3186, i64 %indvars.iv198.i.i.i.i.i.i.i3188
+  %1536 = load i32, ptr %gep223.i.i.i.i.i.i.i3189, align 4
   %idxprom.i25.us.i.i.i.i.i.i.i3190 = sext i32 %1536 to i64
   %arrayidx.i26.us.i.i.i.i.i.i.i3191 = getelementptr inbounds float, ptr %1528, i64 %idxprom.i25.us.i.i.i.i.i.i.i3190
   %1537 = load float, ptr %arrayidx.i26.us.i.i.i.i.i.i.i3191, align 4
@@ -15266,13 +15266,13 @@ for.body.lr.ph.split.us.i.i.i.i.i.i.i3854:        ; preds = %for.body.lr.ph.i.i.
 for.body.us.us.preheader.i.i.i.i.i.i.i3874:       ; preds = %for.body.lr.ph.split.us.i.i.i.i.i.i.i3854
   %1755 = sext i32 %1743 to i64
   %wide.trip.count208.i.i.i.i.i.i.i3875 = zext nneg i32 %1741 to i64
-  %invariant.gep221.i.i.i.i.i.i.i3876 = getelementptr double, ptr %1754, i64 %1755
+  %invariant.gep224.i.i.i.i.i.i.i3876 = getelementptr double, ptr %1754, i64 %1755
   br label %for.body.us.us.i.i.i.i.i.i.i3877
 
 for.body.us.us.i.i.i.i.i.i.i3877:                 ; preds = %for.inc.us.us.i.i.i.i.i.i.i3881, %for.body.us.us.preheader.i.i.i.i.i.i.i3874
   %indvars.iv204.i.i.i.i.i.i.i3878 = phi i64 [ 0, %for.body.us.us.preheader.i.i.i.i.i.i.i3874 ], [ %indvars.iv.next205.i.i.i.i.i.i.i3882, %for.inc.us.us.i.i.i.i.i.i.i3881 ]
-  %gep222.i.i.i.i.i.i.i3879 = getelementptr double, ptr %invariant.gep221.i.i.i.i.i.i.i3876, i64 %indvars.iv204.i.i.i.i.i.i.i3878
-  %1756 = load double, ptr %gep222.i.i.i.i.i.i.i3879, align 8
+  %gep225.i.i.i.i.i.i.i3879 = getelementptr double, ptr %invariant.gep224.i.i.i.i.i.i.i3876, i64 %indvars.iv204.i.i.i.i.i.i.i3878
+  %1756 = load double, ptr %gep225.i.i.i.i.i.i.i3879, align 8
   %cmp9.us.us.i.i.i.i.i.i.i3880 = fcmp oeq double %1756, %1751
   br i1 %cmp9.us.us.i.i.i.i.i.i.i3880, label %if.then.loopexit.i.i.i.i.i.i.i3884, label %for.inc.us.us.i.i.i.i.i.i.i3881
 
@@ -15298,13 +15298,13 @@ for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i3857: ; preds = %for.body.lr.ph
   %1760 = load ptr, ptr %indices_.i.i.i.i.i.i.i.i3684, align 8
   %1761 = sext i32 %1743 to i64
   %wide.trip.count202.i.i.i.i.i.i.i3858 = zext nneg i32 %1741 to i64
-  %invariant.gep219.i.i.i.i.i.i.i3859 = getelementptr i32, ptr %1760, i64 %1761
+  %invariant.gep222.i.i.i.i.i.i.i3859 = getelementptr i32, ptr %1760, i64 %1761
   br label %for.body.us.i.i.i.i.i.i.i3860
 
 for.body.us.i.i.i.i.i.i.i3860:                    ; preds = %for.inc.us.i.i.i.i.i.i.i3866, %for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i3857
   %indvars.iv198.i.i.i.i.i.i.i3861 = phi i64 [ %indvars.iv.next199.i.i.i.i.i.i.i3867, %for.inc.us.i.i.i.i.i.i.i3866 ], [ 0, %for.body.lr.ph.split.us.split.split.i.i.i.i.i.i.i3857 ]
-  %gep220.i.i.i.i.i.i.i3862 = getelementptr i32, ptr %invariant.gep219.i.i.i.i.i.i.i3859, i64 %indvars.iv198.i.i.i.i.i.i.i3861
-  %1762 = load i32, ptr %gep220.i.i.i.i.i.i.i3862, align 4
+  %gep223.i.i.i.i.i.i.i3862 = getelementptr i32, ptr %invariant.gep222.i.i.i.i.i.i.i3859, i64 %indvars.iv198.i.i.i.i.i.i.i3861
+  %1762 = load i32, ptr %gep223.i.i.i.i.i.i.i3862, align 4
   %idxprom.i25.us.i.i.i.i.i.i.i3863 = sext i32 %1762 to i64
   %arrayidx.i26.us.i.i.i.i.i.i.i3864 = getelementptr inbounds double, ptr %1754, i64 %idxprom.i25.us.i.i.i.i.i.i.i3863
   %1763 = load double, ptr %arrayidx.i26.us.i.i.i.i.i.i.i3864, align 8
@@ -19142,14 +19142,14 @@ for.body.lr.ph.split.us.i.i.i.i.i.i.i5443:        ; preds = %for.body.lr.ph.i.i.
 for.body.us.us.preheader.i.i.i.i.i.i.i5458:       ; preds = %for.body.lr.ph.split.us.i.i.i.i.i.i.i5443
   %2400 = sext i32 %2389 to i64
   %wide.trip.count208.i.i.i.i.i.i.i5459 = zext nneg i32 %2387 to i64
-  %invariant.gep219.i.i.i.i.i.i.i5460 = getelementptr %"struct.facebook::velox::Timestamp", ptr %2399, i64 %2400
+  %invariant.gep222.i.i.i.i.i.i.i5460 = getelementptr %"struct.facebook::velox::Timestamp", ptr %2399, i64 %2400
   br label %for.body.us.us.i.i.i.i.i.i.i5461
 
 for.body.us.us.i.i.i.i.i.i.i5461:                 ; preds = %for.inc.us.us.i.i.i.i.i.i.i5464, %for.body.us.us.preheader.i.i.i.i.i.i.i5458
   %indvars.iv204.i.i.i.i.i.i.i5462 = phi i64 [ 0, %for.body.us.us.preheader.i.i.i.i.i.i.i5458 ], [ %indvars.iv.next205.i.i.i.i.i.i.i5465, %for.inc.us.us.i.i.i.i.i.i.i5464 ]
-  %gep220.i.i.i.i.i.i.i5463 = getelementptr %"struct.facebook::velox::Timestamp", ptr %invariant.gep219.i.i.i.i.i.i.i5460, i64 %indvars.iv204.i.i.i.i.i.i.i5462
-  %retval.sroa.0.0.copyload.i27.us.us.i.i.i.i.i.i.i = load i64, ptr %gep220.i.i.i.i.i.i.i5463, align 8
-  %retval.sroa.2.0.arrayidx.sroa_idx.i28.us.us.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %gep220.i.i.i.i.i.i.i5463, i64 8
+  %gep223.i.i.i.i.i.i.i5463 = getelementptr %"struct.facebook::velox::Timestamp", ptr %invariant.gep222.i.i.i.i.i.i.i5460, i64 %indvars.iv204.i.i.i.i.i.i.i5462
+  %retval.sroa.0.0.copyload.i27.us.us.i.i.i.i.i.i.i = load i64, ptr %gep223.i.i.i.i.i.i.i5463, align 8
+  %retval.sroa.2.0.arrayidx.sroa_idx.i28.us.us.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %gep223.i.i.i.i.i.i.i5463, i64 8
   %retval.sroa.2.0.copyload.i29.us.us.i.i.i.i.i.i.i = load i64, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i28.us.us.i.i.i.i.i.i.i, align 8
   %cmp.i.us.us.i.i.i.i.i.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i27.us.us.i.i.i.i.i.i.i, %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i5372
   %cmp4.i.us.us.i.i.i.i.i.i.i = icmp eq i64 %retval.sroa.2.0.copyload.i29.us.us.i.i.i.i.i.i.i, %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i5374
@@ -44134,7 +44134,7 @@ if.then.i.i.i.i.i.i.i.i.i78:                      ; preds = %invoke.cont57
   br label %invoke.cont60
 
 invoke.cont60:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i78, %invoke.cont57
-  %add.ptr62 = getelementptr inbounds i64, ptr %add.ptr54, i64 %__n
+  %add.ptr62 = getelementptr inbounds nuw i64, ptr %add.ptr54, i64 %__n
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i82 = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast49
   %tobool.not.i.i.i.i.i.i.i.i.i83 = icmp eq ptr %1, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i83, label %invoke.cont64, label %if.then.i.i.i.i.i.i.i.i.i84
@@ -45547,13 +45547,13 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
 for.body.us.us.preheader:                         ; preds = %for.body.lr.ph.split.us
   %25 = sext i32 %10 to i64
   %wide.trip.count206 = zext nneg i32 %6 to i64
-  %invariant.gep219 = getelementptr i32, ptr %24, i64 %25
+  %invariant.gep222 = getelementptr i32, ptr %24, i64 %25
   br label %for.body.us.us
 
 for.body.us.us:                                   ; preds = %for.body.us.us.preheader, %for.inc.us.us
   %indvars.iv202 = phi i64 [ 0, %for.body.us.us.preheader ], [ %indvars.iv.next203, %for.inc.us.us ]
-  %gep220 = getelementptr i32, ptr %invariant.gep219, i64 %indvars.iv202
-  %26 = load i32, ptr %gep220, align 4
+  %gep223 = getelementptr i32, ptr %invariant.gep222, i64 %indvars.iv202
+  %26 = load i32, ptr %gep223, align 4
   %cmp11.us.us = icmp eq i32 %26, %19
   br i1 %cmp11.us.us, label %if.then.loopexit, label %for.inc.us.us
 
@@ -45579,13 +45579,13 @@ for.body.lr.ph.split.us.split.split:              ; preds = %for.body.lr.ph.spli
   %30 = load ptr, ptr %indices_.i, align 8
   %31 = sext i32 %10 to i64
   %wide.trip.count200 = zext nneg i32 %6 to i64
-  %invariant.gep217 = getelementptr i32, ptr %30, i64 %31
+  %invariant.gep220 = getelementptr i32, ptr %30, i64 %31
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.inc.us, %for.body.lr.ph.split.us.split.split
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %for.inc.us ], [ 0, %for.body.lr.ph.split.us.split.split ]
-  %gep218 = getelementptr i32, ptr %invariant.gep217, i64 %indvars.iv196
-  %32 = load i32, ptr %gep218, align 4
+  %gep221 = getelementptr i32, ptr %invariant.gep220, i64 %indvars.iv196
+  %32 = load i32, ptr %gep221, align 4
   %idxprom.i25.us = sext i32 %32 to i64
   %arrayidx.i26.us = getelementptr inbounds i32, ptr %24, i64 %idxprom.i25.us
   %33 = load i32, ptr %arrayidx.i26.us, align 4
@@ -46073,13 +46073,13 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
 for.body.us.us.preheader:                         ; preds = %for.body.lr.ph.split.us
   %25 = sext i32 %10 to i64
   %wide.trip.count206 = zext nneg i32 %6 to i64
-  %invariant.gep219 = getelementptr i8, ptr %24, i64 %25
+  %invariant.gep222 = getelementptr i8, ptr %24, i64 %25
   br label %for.body.us.us
 
 for.body.us.us:                                   ; preds = %for.body.us.us.preheader, %for.inc.us.us
   %indvars.iv202 = phi i64 [ 0, %for.body.us.us.preheader ], [ %indvars.iv.next203, %for.inc.us.us ]
-  %gep220 = getelementptr i8, ptr %invariant.gep219, i64 %indvars.iv202
-  %26 = load i8, ptr %gep220, align 1
+  %gep223 = getelementptr i8, ptr %invariant.gep222, i64 %indvars.iv202
+  %26 = load i8, ptr %gep223, align 1
   %cmp12.us.us = icmp eq i8 %26, %19
   br i1 %cmp12.us.us, label %if.then.loopexit, label %for.inc.us.us
 
@@ -46105,13 +46105,13 @@ for.body.lr.ph.split.us.split.split:              ; preds = %for.body.lr.ph.spli
   %30 = load ptr, ptr %indices_.i, align 8
   %31 = sext i32 %10 to i64
   %wide.trip.count200 = zext nneg i32 %6 to i64
-  %invariant.gep217 = getelementptr i32, ptr %30, i64 %31
+  %invariant.gep220 = getelementptr i32, ptr %30, i64 %31
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.inc.us, %for.body.lr.ph.split.us.split.split
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %for.inc.us ], [ 0, %for.body.lr.ph.split.us.split.split ]
-  %gep218 = getelementptr i32, ptr %invariant.gep217, i64 %indvars.iv196
-  %32 = load i32, ptr %gep218, align 4
+  %gep221 = getelementptr i32, ptr %invariant.gep220, i64 %indvars.iv196
+  %32 = load i32, ptr %gep221, align 4
   %idxprom.i25.us = sext i32 %32 to i64
   %arrayidx.i26.us = getelementptr inbounds i8, ptr %24, i64 %idxprom.i25.us
   %33 = load i8, ptr %arrayidx.i26.us, align 1
@@ -46599,13 +46599,13 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
 for.body.us.us.preheader:                         ; preds = %for.body.lr.ph.split.us
   %25 = sext i32 %10 to i64
   %wide.trip.count206 = zext nneg i32 %6 to i64
-  %invariant.gep219 = getelementptr i16, ptr %24, i64 %25
+  %invariant.gep222 = getelementptr i16, ptr %24, i64 %25
   br label %for.body.us.us
 
 for.body.us.us:                                   ; preds = %for.body.us.us.preheader, %for.inc.us.us
   %indvars.iv202 = phi i64 [ 0, %for.body.us.us.preheader ], [ %indvars.iv.next203, %for.inc.us.us ]
-  %gep220 = getelementptr i16, ptr %invariant.gep219, i64 %indvars.iv202
-  %26 = load i16, ptr %gep220, align 2
+  %gep223 = getelementptr i16, ptr %invariant.gep222, i64 %indvars.iv202
+  %26 = load i16, ptr %gep223, align 2
   %cmp12.us.us = icmp eq i16 %26, %19
   br i1 %cmp12.us.us, label %if.then.loopexit, label %for.inc.us.us
 
@@ -46631,13 +46631,13 @@ for.body.lr.ph.split.us.split.split:              ; preds = %for.body.lr.ph.spli
   %30 = load ptr, ptr %indices_.i, align 8
   %31 = sext i32 %10 to i64
   %wide.trip.count200 = zext nneg i32 %6 to i64
-  %invariant.gep217 = getelementptr i32, ptr %30, i64 %31
+  %invariant.gep220 = getelementptr i32, ptr %30, i64 %31
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.inc.us, %for.body.lr.ph.split.us.split.split
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %for.inc.us ], [ 0, %for.body.lr.ph.split.us.split.split ]
-  %gep218 = getelementptr i32, ptr %invariant.gep217, i64 %indvars.iv196
-  %32 = load i32, ptr %gep218, align 4
+  %gep221 = getelementptr i32, ptr %invariant.gep220, i64 %indvars.iv196
+  %32 = load i32, ptr %gep221, align 4
   %idxprom.i25.us = sext i32 %32 to i64
   %arrayidx.i26.us = getelementptr inbounds i16, ptr %24, i64 %idxprom.i25.us
   %33 = load i16, ptr %arrayidx.i26.us, align 2
@@ -47125,13 +47125,13 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
 for.body.us.us.preheader:                         ; preds = %for.body.lr.ph.split.us
   %25 = sext i32 %10 to i64
   %wide.trip.count206 = zext nneg i32 %6 to i64
-  %invariant.gep219 = getelementptr i64, ptr %24, i64 %25
+  %invariant.gep222 = getelementptr i64, ptr %24, i64 %25
   br label %for.body.us.us
 
 for.body.us.us:                                   ; preds = %for.body.us.us.preheader, %for.inc.us.us
   %indvars.iv202 = phi i64 [ 0, %for.body.us.us.preheader ], [ %indvars.iv.next203, %for.inc.us.us ]
-  %gep220 = getelementptr i64, ptr %invariant.gep219, i64 %indvars.iv202
-  %26 = load i64, ptr %gep220, align 8
+  %gep223 = getelementptr i64, ptr %invariant.gep222, i64 %indvars.iv202
+  %26 = load i64, ptr %gep223, align 8
   %cmp11.us.us = icmp eq i64 %26, %19
   br i1 %cmp11.us.us, label %if.then.loopexit, label %for.inc.us.us
 
@@ -47157,13 +47157,13 @@ for.body.lr.ph.split.us.split.split:              ; preds = %for.body.lr.ph.spli
   %30 = load ptr, ptr %indices_.i, align 8
   %31 = sext i32 %10 to i64
   %wide.trip.count200 = zext nneg i32 %6 to i64
-  %invariant.gep217 = getelementptr i32, ptr %30, i64 %31
+  %invariant.gep220 = getelementptr i32, ptr %30, i64 %31
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.inc.us, %for.body.lr.ph.split.us.split.split
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %for.inc.us ], [ 0, %for.body.lr.ph.split.us.split.split ]
-  %gep218 = getelementptr i32, ptr %invariant.gep217, i64 %indvars.iv196
-  %32 = load i32, ptr %gep218, align 4
+  %gep221 = getelementptr i32, ptr %invariant.gep220, i64 %indvars.iv196
+  %32 = load i32, ptr %gep221, align 4
   %idxprom.i25.us = sext i32 %32 to i64
   %arrayidx.i26.us = getelementptr inbounds i64, ptr %24, i64 %idxprom.i25.us
   %33 = load i64, ptr %arrayidx.i26.us, align 8
@@ -47686,13 +47686,13 @@ for.body.lr.ph.split.us.split.split:              ; preds = %for.body.lr.ph.spli
   %28 = load ptr, ptr %indices_.i, align 8
   %29 = sext i32 %10 to i64
   %wide.trip.count213 = zext nneg i32 %6 to i64
-  %invariant.gep230 = getelementptr i32, ptr %28, i64 %29
+  %invariant.gep233 = getelementptr i32, ptr %28, i64 %29
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.inc.us, %for.body.lr.ph.split.us.split.split
   %indvars.iv209 = phi i64 [ %indvars.iv.next210, %for.inc.us ], [ 0, %for.body.lr.ph.split.us.split.split ]
-  %gep231 = getelementptr i32, ptr %invariant.gep230, i64 %indvars.iv209
-  %30 = load i32, ptr %gep231, align 4
+  %gep234 = getelementptr i32, ptr %invariant.gep233, i64 %indvars.iv209
+  %30 = load i32, ptr %gep234, align 4
   %conv.i23.us = sext i32 %30 to i64
   %mul.i24.us = shl nsw i64 %conv.i23.us, 4
   %add.ptr.i25.us = getelementptr inbounds i8, ptr %23, i64 %mul.i24.us
@@ -48184,13 +48184,13 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
 for.body.us.us.preheader:                         ; preds = %for.body.lr.ph.split.us
   %25 = sext i32 %10 to i64
   %wide.trip.count206 = zext nneg i32 %6 to i64
-  %invariant.gep219 = getelementptr float, ptr %24, i64 %25
+  %invariant.gep222 = getelementptr float, ptr %24, i64 %25
   br label %for.body.us.us
 
 for.body.us.us:                                   ; preds = %for.body.us.us.preheader, %for.inc.us.us
   %indvars.iv202 = phi i64 [ 0, %for.body.us.us.preheader ], [ %indvars.iv.next203, %for.inc.us.us ]
-  %gep220 = getelementptr float, ptr %invariant.gep219, i64 %indvars.iv202
-  %26 = load float, ptr %gep220, align 4
+  %gep223 = getelementptr float, ptr %invariant.gep222, i64 %indvars.iv202
+  %26 = load float, ptr %gep223, align 4
   %cmp11.us.us = fcmp oeq float %26, %19
   br i1 %cmp11.us.us, label %if.then.loopexit, label %for.inc.us.us
 
@@ -48216,13 +48216,13 @@ for.body.lr.ph.split.us.split.split:              ; preds = %for.body.lr.ph.spli
   %30 = load ptr, ptr %indices_.i, align 8
   %31 = sext i32 %10 to i64
   %wide.trip.count200 = zext nneg i32 %6 to i64
-  %invariant.gep217 = getelementptr i32, ptr %30, i64 %31
+  %invariant.gep220 = getelementptr i32, ptr %30, i64 %31
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.inc.us, %for.body.lr.ph.split.us.split.split
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %for.inc.us ], [ 0, %for.body.lr.ph.split.us.split.split ]
-  %gep218 = getelementptr i32, ptr %invariant.gep217, i64 %indvars.iv196
-  %32 = load i32, ptr %gep218, align 4
+  %gep221 = getelementptr i32, ptr %invariant.gep220, i64 %indvars.iv196
+  %32 = load i32, ptr %gep221, align 4
   %idxprom.i25.us = sext i32 %32 to i64
   %arrayidx.i26.us = getelementptr inbounds float, ptr %24, i64 %idxprom.i25.us
   %33 = load float, ptr %arrayidx.i26.us, align 4
@@ -48710,13 +48710,13 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
 for.body.us.us.preheader:                         ; preds = %for.body.lr.ph.split.us
   %25 = sext i32 %10 to i64
   %wide.trip.count206 = zext nneg i32 %6 to i64
-  %invariant.gep219 = getelementptr double, ptr %24, i64 %25
+  %invariant.gep222 = getelementptr double, ptr %24, i64 %25
   br label %for.body.us.us
 
 for.body.us.us:                                   ; preds = %for.body.us.us.preheader, %for.inc.us.us
   %indvars.iv202 = phi i64 [ 0, %for.body.us.us.preheader ], [ %indvars.iv.next203, %for.inc.us.us ]
-  %gep220 = getelementptr double, ptr %invariant.gep219, i64 %indvars.iv202
-  %26 = load double, ptr %gep220, align 8
+  %gep223 = getelementptr double, ptr %invariant.gep222, i64 %indvars.iv202
+  %26 = load double, ptr %gep223, align 8
   %cmp11.us.us = fcmp oeq double %26, %19
   br i1 %cmp11.us.us, label %if.then.loopexit, label %for.inc.us.us
 
@@ -48742,13 +48742,13 @@ for.body.lr.ph.split.us.split.split:              ; preds = %for.body.lr.ph.spli
   %30 = load ptr, ptr %indices_.i, align 8
   %31 = sext i32 %10 to i64
   %wide.trip.count200 = zext nneg i32 %6 to i64
-  %invariant.gep217 = getelementptr i32, ptr %30, i64 %31
+  %invariant.gep220 = getelementptr i32, ptr %30, i64 %31
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.inc.us, %for.body.lr.ph.split.us.split.split
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %for.inc.us ], [ 0, %for.body.lr.ph.split.us.split.split ]
-  %gep218 = getelementptr i32, ptr %invariant.gep217, i64 %indvars.iv196
-  %32 = load i32, ptr %gep218, align 4
+  %gep221 = getelementptr i32, ptr %invariant.gep220, i64 %indvars.iv196
+  %32 = load i32, ptr %gep221, align 4
   %idxprom.i25.us = sext i32 %32 to i64
   %arrayidx.i26.us = getelementptr inbounds double, ptr %24, i64 %idxprom.i25.us
   %33 = load double, ptr %arrayidx.i26.us, align 8
@@ -50484,14 +50484,14 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
 for.body.us.us.preheader:                         ; preds = %for.body.lr.ph.split.us
   %24 = sext i32 %10 to i64
   %wide.trip.count206 = zext nneg i32 %6 to i64
-  %invariant.gep217 = getelementptr %"struct.facebook::velox::Timestamp", ptr %23, i64 %24
+  %invariant.gep220 = getelementptr %"struct.facebook::velox::Timestamp", ptr %23, i64 %24
   br label %for.body.us.us
 
 for.body.us.us:                                   ; preds = %for.body.us.us.preheader, %for.inc.us.us
   %indvars.iv202 = phi i64 [ 0, %for.body.us.us.preheader ], [ %indvars.iv.next203, %for.inc.us.us ]
-  %gep218 = getelementptr %"struct.facebook::velox::Timestamp", ptr %invariant.gep217, i64 %indvars.iv202
-  %retval.sroa.0.0.copyload.i27.us.us = load i64, ptr %gep218, align 8
-  %retval.sroa.2.0.arrayidx.sroa_idx.i28.us.us = getelementptr inbounds nuw i8, ptr %gep218, i64 8
+  %gep221 = getelementptr %"struct.facebook::velox::Timestamp", ptr %invariant.gep220, i64 %indvars.iv202
+  %retval.sroa.0.0.copyload.i27.us.us = load i64, ptr %gep221, align 8
+  %retval.sroa.2.0.arrayidx.sroa_idx.i28.us.us = getelementptr inbounds nuw i8, ptr %gep221, i64 8
   %retval.sroa.2.0.copyload.i29.us.us = load i64, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i28.us.us, align 8
   %cmp.i.us.us = icmp eq i64 %retval.sroa.0.0.copyload.i27.us.us, %retval.sroa.0.0.copyload.i
   %cmp4.i.us.us = icmp eq i64 %retval.sroa.2.0.copyload.i29.us.us, %retval.sroa.2.0.copyload.i

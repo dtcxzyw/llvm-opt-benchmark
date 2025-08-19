@@ -396,23 +396,23 @@ define hidden ptr @nghttp2_map_find(ptr noundef readonly captures(none) %0, i32 
   br i1 %19, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph:                                           ; preds = %27
-  %20 = add nuw nsw i64 %.0151924, 1
+  %20 = add nuw nsw i64 %.0151926, 1
   %21 = load i32, ptr %30, align 8, !tbaa !21
   %22 = zext i32 %21 to i64
-  %.not = icmp samesign ult i64 %.0151924, %22
+  %.not = icmp samesign ult i64 %.0151926, %22
   br i1 %.not, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %6, %.lr.ph
-  %.0161825 = phi i64 [ %29, %.lr.ph ], [ %13, %6 ]
-  %.0151924 = phi i64 [ %20, %.lr.ph ], [ 0, %6 ]
+  %.0161827 = phi i64 [ %29, %.lr.ph ], [ %13, %6 ]
+  %.0151926 = phi i64 [ %20, %.lr.ph ], [ 0, %6 ]
   %23 = phi ptr [ %32, %.lr.ph ], [ %18, %6 ]
-  %24 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %16, i64 %.0161825, i32 1
+  %24 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %16, i64 %.0161827, i32 1
   %25 = load i32, ptr %24, align 4, !tbaa !20
   %26 = icmp eq i32 %25, %1
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %.lr.ph.preheader
-  %28 = add nuw nsw i64 %.0161825, 1
+  %28 = add nuw nsw i64 %.0161827, 1
   %29 = and i64 %28, %15
   %30 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %16, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8

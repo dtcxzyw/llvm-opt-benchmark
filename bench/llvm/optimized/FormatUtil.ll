@@ -502,21 +502,21 @@ define dso_local void @_ZN4llvm3pdb15typesetItemListENS_8ArrayRefINSt7__cxx1112b
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.01.0.copyload.pre = load ptr, ptr %5, align 8, !tbaa !14
-  %..i22 = tail call i64 @llvm.umin.i64(i64 %14, i64 %2)
-  %32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %..i22
+  %..i29 = tail call i64 @llvm.umin.i64(i64 %14, i64 %2)
+  %32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %..i29
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN4llvm6detail9join_implIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_T_SA_NS_9StringRefESt20forward_iterator_tag(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef %1, ptr noundef %32, ptr %.sroa.01.0.copyload.pre, i64 %.sroa.22.0.copyload)
   %33 = load i64, ptr %15, align 8, !tbaa !9
   %34 = load i64, ptr %12, align 8, !tbaa !9
   %35 = sub i64 4611686018427387903, %34
   %36 = icmp ult i64 %35, %33
-  br i1 %36, label %._crit_edge23, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.lr.ph
+  br i1 %36, label %._crit_edge30, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.lr.ph
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.lr.ph: ; preds = %.lr.ph
-  %37 = sub i64 %2, %..i22
+  %37 = sub i64 %2, %..i29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit
 
-._crit_edge23:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10, %.lr.ph
+._crit_edge30:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10, %.lr.ph
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.346) #15
   unreachable
 
@@ -648,7 +648,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %_ZN
   %79 = load i64, ptr %12, align 8, !tbaa !9
   %80 = sub i64 4611686018427387903, %79
   %81 = icmp ult i64 %80, %78
-  br i1 %81, label %._crit_edge23, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit
+  br i1 %81, label %._crit_edge30, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %6
   ret void

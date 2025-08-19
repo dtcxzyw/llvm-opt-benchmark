@@ -2520,7 +2520,7 @@ define dso_local noundef zeroext i1 @_Z23have_overlapping_fieldsPK10ExpressionS1
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %7, %.critedge, %30
-  %.128 = phi i1 [ %.1, %.critedge ], [ %.1, %30 ], [ false, %7 ]
+  %.134 = phi i1 [ %.1, %.critedge ], [ %.1, %30 ], [ false, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %36 = load ptr, ptr %4, align 8, !tbaa !100
   %.not.i.i.i16 = icmp eq ptr %36, null
@@ -2537,7 +2537,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %7, %.critedge, %30
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit17:      ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %.128
+  ret i1 %.134
 
 43:                                               ; preds = %27, %20
   %.pn = phi { ptr, i32 } [ %28, %27 ], [ %21, %20 ]

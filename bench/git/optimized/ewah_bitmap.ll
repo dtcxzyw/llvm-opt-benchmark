@@ -1063,8 +1063,8 @@ define dso_local range(i32 0, 2) i32 @ewah_iterator_next(ptr noundef writeonly c
 
 .loopexit.i.loopexit:                             ; preds = %.lr.ph
   %62 = getelementptr inbounds nuw i64, ptr %42, i64 %54
-  %.val.i.le31 = load i64, ptr %62, align 8, !tbaa !12
-  %63 = trunc i64 %.val.i.le31 to i32
+  %.val.i.le37 = load i64, ptr %62, align 8, !tbaa !12
+  %63 = trunc i64 %.val.i.le37 to i32
   %64 = and i32 %63, 1
   br label %.loopexit.i
 
@@ -1153,8 +1153,8 @@ define dso_local void @ewah_iterator_init(ptr noundef writeonly captures(none) i
 
 .loopexit.i.loopexit:                             ; preds = %.lr.ph
   %29 = getelementptr inbounds nuw i64, ptr %3, i64 %21
-  %.val.i.le24 = load i64, ptr %29, align 8, !tbaa !12
-  %30 = trunc i64 %.val.i.le24 to i32
+  %.val.i.le26 = load i64, ptr %29, align 8, !tbaa !12
+  %30 = trunc i64 %.val.i.le26 to i32
   %31 = and i32 %30, 1
   br label %.loopexit.i
 

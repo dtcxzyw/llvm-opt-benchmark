@@ -82,9 +82,9 @@ define dso_local void @_ZN5vcpkg13get_device_idB5cxx11ERKNS_10FilesystemE(ptr de
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %15 = load i8, ptr %14, align 8, !tbaa !9, !range !12, !noundef !13
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %.thread57, label %22
+  br i1 %16, label %.thread84, label %22
 
-.thread57:                                        ; preds = %2
+.thread84:                                        ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %17, ptr %0, align 8, !tbaa !14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -560,16 +560,16 @@ _ZN5vcpkg4PathD2Ev.exit46:                        ; preds = %_ZNKSt7__cxx1112bas
 210:                                              ; preds = %205
   br i1 %209, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %.thread57, %210
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %.thread84, %210
   %211 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %212 = load i64, ptr %211, align 8, !tbaa !18
   %213 = icmp ult i64 %212, 16
   call void @llvm.assume(i1 %213)
   br label %_ZN5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %.thread57, %210
-  %214 = phi ptr [ %19, %.thread57 ], [ %207, %210 ]
-  %215 = phi ptr [ %20, %.thread57 ], [ %208, %210 ]
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %.thread84, %210
+  %214 = phi ptr [ %19, %.thread84 ], [ %207, %210 ]
+  %215 = phi ptr [ %20, %.thread84 ], [ %208, %210 ]
   %216 = load i64, ptr %215, align 8, !tbaa !4
   %217 = add i64 %216, 1
   call void @_ZdlPvm(ptr noundef %214, i64 noundef %217) #12

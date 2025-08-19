@@ -420,8 +420,8 @@ define hidden void @_ZNK8rawspeed14ThreefrDecoder18DecodeUncompressedEPKNS_7Tiff
   %29 = icmp samesign ugt i32 %21, 12000
   %or.cond = or i1 %29, %.not11
   %30 = icmp samesign ugt i32 %24, 8842
-  %or.cond21 = select i1 %or.cond, i1 true, i1 %30
-  br i1 %or.cond21, label %31, label %32
+  %or.cond25 = select i1 %or.cond, i1 true, i1 %30
+  br i1 %or.cond25, label %31, label %32
 
 31:                                               ; preds = %27, %19
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.4, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed14ThreefrDecoder18DecodeUncompressedEPKNS_7TiffIFDE, i32 noundef %21, i32 noundef %24) #12

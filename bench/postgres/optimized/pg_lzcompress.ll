@@ -99,9 +99,9 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .lr.ph249:                                        ; preds = %.thread, %45
   %47 = phi i32 [ %42, %.thread ], [ 511, %45 ]
-  %.0160211260 = phi i32 [ %.0160211.ph, %.thread ], [ %34, %45 ]
+  %.0160211276 = phi i32 [ %.0160211.ph, %.thread ], [ %34, %45 ]
   %48 = ptrtoint ptr %2 to i64
-  %49 = sext i32 %.0160211260 to i64
+  %49 = sext i32 %.0160211276 to i64
   %50 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 12
   %51 = ptrtoint ptr %7 to i64
   %52 = trunc i64 %51 to i32
@@ -245,9 +245,9 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %or.cond.i, label %.lr.ph26.split.us.i, label %.thread.i
 
 .lr.ph26.split.us.i:                              ; preds = %.critedge.us.i
-  %122 = mul i32 %.07622.us.i233, %24
+  %122 = mul nuw nsw i32 %.07622.us.i233, %24
   %.neg.us.i = sdiv i32 %122, -100
-  %123 = add i32 %.neg.us.i, %.07622.us.i233
+  %123 = add nsw i32 %.neg.us.i, %.07622.us.i233
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %125 = load ptr, ptr %124, align 8
   %126 = ptrtoint ptr %125 to i64
@@ -317,7 +317,7 @@ pglz_find_match.exit:                             ; preds = %.thread.i
   %.1142240 = phi i32 [ %.0141247, %155 ], [ %spec.select193, %207 ]
   %.1147239 = phi i8 [ %.0146246, %155 ], [ %spec.select, %207 ]
   %.1152238 = phi ptr [ %.0151245, %155 ], [ %218, %207 ]
-  %158 = add i32 %.in, -1
+  %158 = add nsw i32 %.in, -1
   %159 = ptrtoint ptr %.1152238 to i64
   %160 = sub i64 %51, %159
   %161 = icmp slt i64 %160, 4
@@ -530,7 +530,7 @@ pglz_find_match.exit:                             ; preds = %.thread.i
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %._crit_edge.loopexit
-  %.0160211261 = phi i32 [ %34, %.._crit_edge_crit_edge ], [ %.0160211260, %._crit_edge.loopexit ]
+  %.0160211277 = phi i32 [ %34, %.._crit_edge_crit_edge ], [ %.0160211276, %._crit_edge.loopexit ]
   %.pre-phi257 = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %.pre256, %._crit_edge.loopexit ]
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %48, %._crit_edge.loopexit ]
   %.0161.lcssa = phi i8 [ 0, %.._crit_edge_crit_edge ], [ %.2163, %._crit_edge.loopexit ]
@@ -538,7 +538,7 @@ pglz_find_match.exit:                             ; preds = %.thread.i
   store i8 %.0161.lcssa, ptr %.0154.lcssa, align 1
   %282 = sub i64 %.pre-phi257, %.pre-phi
   %283 = trunc i64 %282 to i32
-  %.not = icmp sgt i32 %.0160211261, %283
+  %.not = icmp sgt i32 %.0160211277, %283
   %.196 = select i1 %.not, i32 %283, i32 -1
   br label %.loopexit227
 

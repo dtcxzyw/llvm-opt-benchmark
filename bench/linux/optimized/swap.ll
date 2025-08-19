@@ -1790,7 +1790,7 @@ define internal fastcc void @folio_batch_move_lru(ptr noundef captures(none) %0,
 31:                                               ; preds = %23, %14
   %32 = phi i64 [ %30, %23 ], [ %10, %14 ]
   %33 = phi ptr [ %28, %23 ], [ %9, %14 ]
-  tail call void %1(ptr noundef nonnull %33, ptr noundef %12) #12
+  tail call void @lru_add_fn(ptr noundef nonnull %33, ptr noundef %12) #12
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %12, i32 32, ptr elementtype(i8) %12) #12, !srcloc !37
   %34 = add nuw nsw i64 %8, 1
   %35 = load i8, ptr %0, align 8
@@ -1859,10 +1859,10 @@ define internal fastcc void @folio_batch_move_lru(ptr noundef captures(none) %0,
   br i1 %75, label %.thread, label %.split5.us.thread
 
 .split5.us.thread:                                ; preds = %31, %.split5.us
-  %.us-phi614 = phi ptr [ %70, %.split5.us ], [ %33, %31 ]
-  %.us-phi13 = phi i64 [ %69, %.split5.us ], [ %32, %31 ]
-  %76 = getelementptr inbounds nuw i8, ptr %.us-phi614, i64 80
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %76, i64 noundef %.us-phi13) #12
+  %.us-phi618 = phi ptr [ %70, %.split5.us ], [ %33, %31 ]
+  %.us-phi17 = phi i64 [ %69, %.split5.us ], [ %32, %31 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.us-phi618, i64 80
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %76, i64 noundef %.us-phi17) #12
   %.pre = load i8, ptr %0, align 8
   br label %.thread
 
@@ -2943,15 +2943,15 @@ define dso_local void @release_pages(ptr readonly captures(none) %0, i32 noundef
 
 .outer:                                           ; preds = %.loopexit, %6
   %.ph = phi i64 [ %163, %.loopexit ], [ 0, %6 ]
-  %.ph14 = phi i32 [ %162, %.loopexit ], [ 0, %6 ]
-  %.ph15 = phi ptr [ %161, %.loopexit ], [ null, %6 ]
-  %.ph16 = phi i64 [ %160, %.loopexit ], [ 0, %6 ]
+  %.ph19 = phi i32 [ %162, %.loopexit ], [ 0, %6 ]
+  %.ph20 = phi ptr [ %161, %.loopexit ], [ null, %6 ]
+  %.ph21 = phi i64 [ %160, %.loopexit ], [ 0, %6 ]
   br label %8
 
-8:                                                ; preds = %.outer, %.thread12
-  %9 = phi i64 [ %165, %.thread12 ], [ %.ph, %.outer ]
-  %10 = phi i32 [ %50, %.thread12 ], [ %.ph14, %.outer ]
-  %11 = phi ptr [ null, %.thread12 ], [ %.ph15, %.outer ]
+8:                                                ; preds = %.outer, %.thread17
+  %9 = phi i64 [ %165, %.thread17 ], [ %.ph, %.outer ]
+  %10 = phi i32 [ %50, %.thread17 ], [ %.ph19, %.outer ]
+  %11 = phi ptr [ null, %.thread17 ], [ %.ph20, %.outer ]
   %12 = getelementptr ptr, ptr %0, i64 %9
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -3007,7 +3007,7 @@ define dso_local void @release_pages(ptr readonly captures(none) %0, i32 noundef
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %47, i64 noundef %.ph16) #12
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %47, i64 noundef %.ph21) #12
   br label %48
 
 48:                                               ; preds = %46, %43, %40
@@ -3032,7 +3032,7 @@ define dso_local void @release_pages(ptr readonly captures(none) %0, i32 noundef
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %49, i64 80
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %62, i64 noundef %.ph16) #12
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %62, i64 noundef %.ph21) #12
   br label %63
 
 63:                                               ; preds = %61, %59
@@ -3046,11 +3046,11 @@ define dso_local void @release_pages(ptr readonly captures(none) %0, i32 noundef
   %69 = load volatile i64, ptr %68, align 8
   %70 = and i64 %69, 256
   %71 = icmp eq i64 %70, 0
-  br i1 %71, label %72, label %.thread12
+  br i1 %71, label %72, label %.thread17
 
 72:                                               ; preds = %67, %63
   call fastcc void @__page_cache_release(ptr noundef %41)
-  br label %.thread12
+  br label %.thread17
 
 73:                                               ; preds = %55
   %74 = load volatile i64, ptr %41, align 8
@@ -3072,7 +3072,7 @@ define dso_local void @release_pages(ptr readonly captures(none) %0, i32 noundef
 
 85:                                               ; preds = %79
   %86 = getelementptr inbounds nuw i8, ptr %49, i64 80
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %86, i64 noundef %.ph16) #12
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %86, i64 noundef %.ph21) #12
   %.pre = load i64, ptr %41, align 16
   br label %87
 
@@ -3087,7 +3087,7 @@ define dso_local void @release_pages(ptr readonly captures(none) %0, i32 noundef
   br label %95
 
 95:                                               ; preds = %87, %79
-  %96 = phi i64 [ %94, %87 ], [ %.ph16, %79 ]
+  %96 = phi i64 [ %94, %87 ], [ %.ph21, %79 ]
   %97 = phi ptr [ %92, %87 ], [ %49, %79 ]
   %98 = icmp eq ptr %49, %97
   %99 = select i1 %98, i32 %50, i32 0
@@ -3170,7 +3170,7 @@ define dso_local void @release_pages(ptr readonly captures(none) %0, i32 noundef
   br label %147
 
 147:                                              ; preds = %146, %142, %73
-  %148 = phi i64 [ %.ph16, %73 ], [ %96, %142 ], [ %96, %146 ]
+  %148 = phi i64 [ %.ph21, %73 ], [ %96, %142 ], [ %96, %146 ]
   %149 = phi ptr [ %49, %73 ], [ %97, %142 ], [ %97, %146 ]
   %150 = phi i32 [ %50, %73 ], [ %99, %142 ], [ %99, %146 ]
   %151 = load volatile i64, ptr %41, align 8
@@ -3196,14 +3196,14 @@ define dso_local void @release_pages(ptr readonly captures(none) %0, i32 noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %155
-  %160 = phi i64 [ %148, %155 ], [ %.ph16, %48 ]
+  %160 = phi i64 [ %148, %155 ], [ %.ph21, %48 ]
   %161 = phi ptr [ %149, %155 ], [ %49, %48 ]
   %162 = phi i32 [ %150, %155 ], [ %50, %48 ]
   %163 = add nuw nsw i64 %9, 1
   %164 = icmp eq i64 %163, %7
   br i1 %164, label %167, label %.outer, !llvm.loop !106
 
-.thread12:                                        ; preds = %67, %72
+.thread17:                                        ; preds = %67, %72
   call void @destroy_large_folio(ptr noundef %41) #12
   %165 = add nuw nsw i64 %9, 1
   %166 = icmp eq i64 %165, %7
@@ -3218,7 +3218,7 @@ define dso_local void @release_pages(ptr readonly captures(none) %0, i32 noundef
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %170, i64 noundef %160) #12
   br label %.thread8
 
-.thread8:                                         ; preds = %.thread12, %2, %169, %167
+.thread8:                                         ; preds = %.thread17, %2, %169, %167
   call void @free_unref_page_list(ptr noundef nonnull %3) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

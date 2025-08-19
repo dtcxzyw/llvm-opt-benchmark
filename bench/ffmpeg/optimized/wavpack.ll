@@ -327,7 +327,7 @@ bytestream2_get_le32.exit572.i:                   ; preds = %119, %112
   %123 = sub i64 %65, %.pre-phi.i
   %124 = and i64 %123, 4294967295
   %.not5101053.i = icmp eq i64 %124, 0
-  br i1 %.not5101053.i, label %.thread1276.i, label %.lr.ph1068.i
+  br i1 %.not5101053.i, label %.thread1304.i, label %.lr.ph1068.i
 
 .lr.ph1068.i:                                     ; preds = %bytestream2_get_le32.exit572.i
   %125 = getelementptr inbounds nuw i8, ptr %55, i64 72
@@ -417,7 +417,7 @@ bytestream2_get_byte.exit579.i:                   ; preds = %153, %bytestream2_g
   br i1 %167, label %168, label %169
 
 168:                                              ; preds = %163
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %.0.i577.i, i32 noundef %spec.select565.i) #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %.0.i577.i, i32 noundef -1) #12
   br label %.loopexit899.i
 
 169:                                              ; preds = %163
@@ -841,8 +841,8 @@ wp_exp2.exit628.i:                                ; preds = %350, %bytestream2_g
   br i1 %372, label %376, label %.preheader.i
 
 .preheader.i:                                     ; preds = %371
-  %.not1235.i = icmp eq i32 %259, 0
-  br i1 %.not1235.i, label %._crit_edge1034.i, label %.lr.ph1033.i
+  %.not1263.i = icmp eq i32 %259, 0
+  br i1 %.not1263.i, label %._crit_edge1034.i, label %.lr.ph1033.i
 
 .lr.ph1033.i:                                     ; preds = %.preheader.i
   %373 = getelementptr inbounds nuw i8, ptr %257, i64 16
@@ -1914,9 +1914,9 @@ bytestream2_get_le24.exit679.i:                   ; preds = %.lr.ph1019.i, %wp_e
 
 863:                                              ; preds = %.loopexit899.i
   %.not887.i = icmp eq i32 %.0475993.i, 0
-  br i1 %.not887.i, label %.thread1276.i, label %.thread1284.i
+  br i1 %.not887.i, label %.thread1304.i, label %.thread1312.i
 
-.thread1276.i:                                    ; preds = %863, %bytestream2_get_le32.exit572.i
+.thread1304.i:                                    ; preds = %863, %bytestream2_get_le32.exit572.i
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.31) #12
   br label %wavpack_decode_block.exit.thread
 
@@ -1924,21 +1924,21 @@ bytestream2_get_le24.exit679.i:                   ; preds = %.lr.ph1019.i, %wp_e
   %865 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %866 = load i32, ptr %865, align 4, !tbaa !45
   %.not545.i = icmp eq i32 %866, 0
-  %.not1397.i = icmp eq i32 %.0475993.i, 0
-  %or.cond738 = select i1 %.not545.i, i1 %.not1397.i, i1 false
-  br i1 %or.cond738, label %868, label %.thread1284.i.thread
+  %.not1425.i = icmp eq i32 %.0475993.i, 0
+  %or.cond775 = select i1 %.not545.i, i1 %.not1425.i, i1 false
+  br i1 %or.cond775, label %868, label %.thread1312.i.thread
 
-.thread1284.i:                                    ; preds = %863
+.thread1312.i:                                    ; preds = %863
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %43, i64 28
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !45
   %867 = icmp eq i32 %.pre, 1
-  br i1 %867, label %868, label %.thread1284.i.thread
+  br i1 %867, label %868, label %.thread1312.i.thread
 
-.thread1284.i.thread:                             ; preds = %.thread1284.i, %864
+.thread1312.i.thread:                             ; preds = %.thread1312.i, %864
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.32) #12
   br label %wavpack_decode_block.exit.thread
 
-868:                                              ; preds = %864, %.thread1284.i
+868:                                              ; preds = %864, %.thread1312.i
   %869 = load i32, ptr %84, align 8, !tbaa !42
   %.not547.i = icmp eq i32 %869, 0
   br i1 %.not547.i, label %870, label %931
@@ -1992,8 +1992,8 @@ bytestream2_get_le24.exit679.i:                   ; preds = %.lr.ph1019.i, %wp_e
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %891, %887
-  %.045395812661298.sink.i = phi i32 [ %893, %891 ], [ %.0453958.i, %887 ]
-  call void @av_channel_layout_default(ptr noundef nonnull %5, i32 noundef %.045395812661298.sink.i) #12
+  %.045395812941326.sink.i = phi i32 [ %893, %891 ], [ %.0453958.i, %887 ]
+  call void @av_channel_layout_default(ptr noundef nonnull %5, i32 noundef %.045395812941326.sink.i) #12
   br label %894
 
 894:                                              ; preds = %.sink.split.i, %888
@@ -2259,9 +2259,9 @@ wavpack_decode_block.exit:                        ; preds = %963, %978, %980, %9
   %1005 = load i32, ptr %10, align 8, !tbaa !41
   br label %1013
 
-wavpack_decode_block.exit.thread:                 ; preds = %939, %976, %963, %936, %88, %86, %bytestream2_get_byte.exit593.i, %.thread881.i, %818, %725, %698, %836, %838, %840, %842, %847, %.thread1276.i, %.thread1284.i.thread, %850, %73, %50, %988, %40
-  %.1 = phi i32 [ %.071294, %40 ], [ %.2, %988 ], [ %.071294, %50 ], [ %.071294, %73 ], [ %.071294, %818 ], [ %.071294, %725 ], [ %.071294, %698 ], [ %.071294, %847 ], [ %.071294, %850 ], [ %.071294, %842 ], [ %.071294, %840 ], [ %.071294, %838 ], [ %.071294, %836 ], [ %.071294, %.thread1284.i.thread ], [ %.071294, %.thread881.i ], [ %.071294, %.thread1276.i ], [ %.071294, %bytestream2_get_byte.exit593.i ], [ %.2, %939 ], [ %.071294, %88 ], [ %.2, %976 ], [ %.2, %963 ], [ %.2, %936 ], [ %.071294, %86 ]
-  %.055 = phi i32 [ -1094995529, %40 ], [ -1094995529, %988 ], [ -1094995529, %50 ], [ -1094995529, %73 ], [ -1094995529, %818 ], [ -1094995529, %725 ], [ -1094995529, %698 ], [ -1094995529, %847 ], [ -1094995529, %850 ], [ -1094995529, %842 ], [ -1094995529, %840 ], [ -1094995529, %838 ], [ -1094995529, %836 ], [ -1094995529, %.thread1284.i.thread ], [ %.1.ph.i, %.thread881.i ], [ -1094995529, %.thread1276.i ], [ -1094995529, %bytestream2_get_byte.exit593.i ], [ -1094995529, %939 ], [ -1094995529, %88 ], [ %.1436.i, %976 ], [ %.0435.i, %963 ], [ -1094995529, %936 ], [ -1094995529, %86 ]
+wavpack_decode_block.exit.thread:                 ; preds = %939, %976, %963, %936, %88, %86, %bytestream2_get_byte.exit593.i, %.thread881.i, %818, %725, %698, %836, %838, %840, %842, %847, %.thread1304.i, %.thread1312.i.thread, %850, %73, %50, %988, %40
+  %.1 = phi i32 [ %.071294, %40 ], [ %.2, %988 ], [ %.071294, %50 ], [ %.071294, %73 ], [ %.071294, %818 ], [ %.071294, %725 ], [ %.071294, %698 ], [ %.071294, %847 ], [ %.071294, %850 ], [ %.071294, %842 ], [ %.071294, %840 ], [ %.071294, %838 ], [ %.071294, %836 ], [ %.071294, %.thread1312.i.thread ], [ %.071294, %.thread881.i ], [ %.071294, %.thread1304.i ], [ %.071294, %bytestream2_get_byte.exit593.i ], [ %.2, %939 ], [ %.071294, %88 ], [ %.2, %976 ], [ %.2, %963 ], [ %.2, %936 ], [ %.071294, %86 ]
+  %.055 = phi i32 [ -1094995529, %40 ], [ -1094995529, %988 ], [ -1094995529, %50 ], [ -1094995529, %73 ], [ -1094995529, %818 ], [ -1094995529, %725 ], [ -1094995529, %698 ], [ -1094995529, %847 ], [ -1094995529, %850 ], [ -1094995529, %842 ], [ -1094995529, %840 ], [ -1094995529, %838 ], [ -1094995529, %836 ], [ -1094995529, %.thread1312.i.thread ], [ %.1.ph.i, %.thread881.i ], [ -1094995529, %.thread1304.i ], [ -1094995529, %bytestream2_get_byte.exit593.i ], [ -1094995529, %939 ], [ -1094995529, %88 ], [ %.1436.i, %976 ], [ %.0435.i, %963 ], [ -1094995529, %936 ], [ -1094995529, %86 ]
   %.not68 = icmp eq i32 %.1, 0
   br i1 %.not68, label %1013, label %1006
 
@@ -2964,11 +2964,11 @@ bytestream2_get_byte.exit252:                     ; preds = %139, %140
   br label %202
 
 202:                                              ; preds = %170, %200
-  %.pn376 = phi i32 [ 65536, %200 ], [ 16777470, %170 ]
+  %.pn381 = phi i32 [ 65536, %200 ], [ 16777470, %170 ]
   %203 = phi i32 [ 0, %200 ], [ -1, %170 ]
   %.2213 = phi i32 [ %201, %200 ], [ %.1212328, %170 ]
   %.2207 = phi i32 [ %.1206329, %200 ], [ %199, %170 ]
-  %.pn.in = sub nsw i32 %.pn376, %196
+  %.pn.in = sub nsw i32 %.pn381, %196
   %.pn = ashr i32 %.pn.in, 8
   %storemerge = add nsw i32 %.pn, %196
   store i32 %storemerge, ptr %193, align 4, !tbaa !75
@@ -3102,14 +3102,14 @@ bytestream2_get_byte.exit250:                     ; preds = %222, %223
   br label %282
 
 282:                                              ; preds = %269, %280
-  %.pn380 = phi i32 [ 65536, %280 ], [ 16777470, %269 ]
+  %.pn385 = phi i32 [ 65536, %280 ], [ 16777470, %269 ]
   %283 = phi i32 [ 0, %280 ], [ -1, %269 ]
   %.5216 = phi i32 [ %281, %280 ], [ %.4215.lcssa, %269 ]
   %.5210 = phi i32 [ %.4209.lcssa, %280 ], [ %279, %269 ]
-  %.pn379.in = sub nsw i32 %.pn380, %276
-  %.pn379 = ashr i32 %.pn379.in, 8
-  %storemerge378 = add nsw i32 %.pn379, %276
-  store i32 %storemerge378, ptr %273, align 4, !tbaa !75
+  %.pn384.in = sub nsw i32 %.pn385, %276
+  %.pn384 = ashr i32 %.pn384.in, 8
+  %storemerge383 = add nsw i32 %.pn384, %276
+  store i32 %storemerge383, ptr %273, align 4, !tbaa !75
   store i32 %283, ptr %75, align 4, !tbaa !137
   %284 = xor i32 %.5210, %.5216
   %.not244 = icmp ult i32 %284, 16777216
@@ -3424,8 +3424,8 @@ bytestream2_get_byte.exit263:                     ; preds = %47
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %bytestream2_get_byte.exit263
-  %.not369 = icmp ult ptr %.0173302, %37
-  br i1 %.not369, label %.lr.ph.preheader, label %.critedge6
+  %.not380 = icmp ult ptr %.0173302, %37
+  br i1 %.not380, label %.lr.ph.preheader, label %.critedge6
 
 .lr.ph.preheader:                                 ; preds = %53
   %54 = sub i64 %39, %.0173302355
@@ -4027,12 +4027,12 @@ define internal fastcc range(i32 -1094995529, 1) i32 @wv_unpack_stereo(ptr nound
   %.0261 = phi i32 [ 0, %5 ], [ %555, %554 ]
   %.0244 = phi i32 [ 0, %5 ], [ %278, %554 ]
   %.0242 = phi i32 [ -1, %5 ], [ %286, %554 ]
-  %.0240 = phi ptr [ %2, %5 ], [ %.1241363, %554 ]
-  %.0238 = phi ptr [ %3, %5 ], [ %.1239364, %554 ]
-  %.0236 = phi ptr [ %2, %5 ], [ %.1237365, %554 ]
-  %.0234 = phi ptr [ %3, %5 ], [ %.1235366, %554 ]
-  %.0232 = phi ptr [ %2, %5 ], [ %.1233367, %554 ]
-  %.0231 = phi ptr [ %3, %5 ], [ %.1368, %554 ]
+  %.0240 = phi ptr [ %2, %5 ], [ %.1241373, %554 ]
+  %.0238 = phi ptr [ %3, %5 ], [ %.1239374, %554 ]
+  %.0236 = phi ptr [ %2, %5 ], [ %.1237375, %554 ]
+  %.0234 = phi ptr [ %3, %5 ], [ %.1235376, %554 ]
+  %.0232 = phi ptr [ %2, %5 ], [ %.1233377, %554 ]
+  %.0231 = phi ptr [ %3, %5 ], [ %.1378, %554 ]
   %29 = call fastcc i32 @wv_get_value(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, ptr noundef %6)
   %30 = load i32, ptr %6, align 4, !tbaa !75
   %.not = icmp eq i32 %30, 0
@@ -4307,19 +4307,19 @@ define internal fastcc range(i32 -1094995529, 1) i32 @wv_unpack_stereo(ptr nound
 197:                                              ; preds = %192
   %198 = sub nsw i32 %177, %195
   %spec.store.select286 = tail call i32 @llvm.smax.i32(i32 %198, i32 -1024)
-  br label %.sink.split371
+  br label %.sink.split381
 
 199:                                              ; preds = %192
   %200 = add nsw i32 %177, %195
   %spec.store.select287 = tail call i32 @llvm.smin.i32(i32 %200, i32 1024)
-  br label %.sink.split371
+  br label %.sink.split381
 
-.sink.split371:                                   ; preds = %197, %199
+.sink.split381:                                   ; preds = %197, %199
   %spec.store.select287.sink = phi i32 [ %spec.store.select287, %199 ], [ %spec.store.select286, %197 ]
   store i32 %spec.store.select287.sink, ptr %196, align 4
   br label %201
 
-201:                                              ; preds = %.sink.split371, %189
+201:                                              ; preds = %.sink.split381, %189
   store i32 %.1246, ptr %163, align 4, !tbaa !75
   br label %266
 
@@ -4367,19 +4367,19 @@ define internal fastcc range(i32 -1094995529, 1) i32 @wv_unpack_stereo(ptr nound
 230:                                              ; preds = %225
   %231 = sub nsw i32 %204, %228
   %spec.store.select288 = tail call i32 @llvm.smax.i32(i32 %231, i32 -1024)
-  br label %.sink.split372
+  br label %.sink.split382
 
 232:                                              ; preds = %225
   %233 = add nsw i32 %204, %228
   %spec.store.select289 = tail call i32 @llvm.smin.i32(i32 %233, i32 1024)
-  br label %.sink.split372
+  br label %.sink.split382
 
-.sink.split372:                                   ; preds = %230, %232
+.sink.split382:                                   ; preds = %230, %232
   %spec.store.select289.sink = phi i32 [ %spec.store.select289, %232 ], [ %spec.store.select288, %230 ]
   store i32 %spec.store.select289.sink, ptr %229, align 4
   br label %234
 
-234:                                              ; preds = %.sink.split372, %220
+234:                                              ; preds = %.sink.split382, %220
   %235 = icmp eq i32 %40, -3
   br i1 %235, label %236, label %239
 
@@ -4428,19 +4428,19 @@ define internal fastcc range(i32 -1094995529, 1) i32 @wv_unpack_stereo(ptr nound
 261:                                              ; preds = %256
   %262 = sub nsw i32 %241, %259
   %spec.store.select290 = tail call i32 @llvm.smax.i32(i32 %262, i32 -1024)
-  br label %.sink.split373
+  br label %.sink.split383
 
 263:                                              ; preds = %256
   %264 = add nsw i32 %241, %259
   %spec.store.select291 = tail call i32 @llvm.smin.i32(i32 %264, i32 1024)
-  br label %.sink.split373
+  br label %.sink.split383
 
-.sink.split373:                                   ; preds = %261, %263
+.sink.split383:                                   ; preds = %261, %263
   %spec.store.select291.sink = phi i32 [ %spec.store.select291, %263 ], [ %spec.store.select290, %261 ]
   store i32 %spec.store.select291.sink, ptr %260, align 4
   br label %265
 
-265:                                              ; preds = %.sink.split373, %253
+265:                                              ; preds = %.sink.split383, %253
   store i32 %.2252, ptr %222, align 4, !tbaa !75
   br label %266
 
@@ -4915,12 +4915,12 @@ wv_get_value_integer.exit333:                     ; preds = %534, %540
 
 554:                                              ; preds = %.thread, %548
   %555 = phi i32 [ %547, %.thread ], [ %553, %548 ]
-  %.1368 = phi ptr [ %.1.ph, %.thread ], [ %.0231, %548 ]
-  %.1233367 = phi ptr [ %.1233.ph, %.thread ], [ %.0232, %548 ]
-  %.1235366 = phi ptr [ %.0234, %.thread ], [ %551, %548 ]
-  %.1237365 = phi ptr [ %.0236, %.thread ], [ %357, %548 ]
-  %.1239364 = phi ptr [ %.1239.ph, %.thread ], [ %.0238, %548 ]
-  %.1241363 = phi ptr [ %.1241.ph, %.thread ], [ %.0240, %548 ]
+  %.1378 = phi ptr [ %.1.ph, %.thread ], [ %.0231, %548 ]
+  %.1233377 = phi ptr [ %.1233.ph, %.thread ], [ %.0232, %548 ]
+  %.1235376 = phi ptr [ %.0234, %.thread ], [ %551, %548 ]
+  %.1237375 = phi ptr [ %.0236, %.thread ], [ %357, %548 ]
+  %.1239374 = phi ptr [ %.1239.ph, %.thread ], [ %.0238, %548 ]
+  %.1241373 = phi ptr [ %.1241.ph, %.thread ], [ %.0240, %548 ]
   %556 = load i32, ptr %27, align 8, !tbaa !53
   %557 = icmp slt i32 %555, %556
   br i1 %557, label %28, label %.critedge, !llvm.loop !156
@@ -5025,9 +5025,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @wv_unpack_mono(ptr noundef
   %.093 = phi i32 [ 0, %4 ], [ %270, %269 ]
   %.087 = phi i32 [ 0, %4 ], [ %126, %269 ]
   %.085 = phi i32 [ -1, %4 ], [ %128, %269 ]
-  %.083 = phi ptr [ %2, %4 ], [ %.184147, %269 ]
-  %.081 = phi ptr [ %2, %4 ], [ %.182148, %269 ]
-  %.079 = phi ptr [ %2, %4 ], [ %.180149, %269 ]
+  %.083 = phi ptr [ %2, %4 ], [ %.184155, %269 ]
+  %.081 = phi ptr [ %2, %4 ], [ %.182156, %269 ]
+  %.079 = phi ptr [ %2, %4 ], [ %.180157, %269 ]
   %27 = call fastcc i32 @wv_get_value(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, ptr noundef %5)
   %28 = load i32, ptr %5, align 4, !tbaa !75
   %.not = icmp eq i32 %28, 0
@@ -5437,9 +5437,9 @@ wv_get_value_integer.exit121:                     ; preds = %244, %254
 
 269:                                              ; preds = %.thread, %263
   %270 = phi i32 [ %262, %.thread ], [ %268, %263 ]
-  %.180149 = phi ptr [ %.180.ph, %.thread ], [ %.079, %263 ]
-  %.182148 = phi ptr [ %.081, %.thread ], [ %266, %263 ]
-  %.184147 = phi ptr [ %.184.ph, %.thread ], [ %.083, %263 ]
+  %.180157 = phi ptr [ %.180.ph, %.thread ], [ %.079, %263 ]
+  %.182156 = phi ptr [ %.081, %.thread ], [ %266, %263 ]
+  %.184155 = phi ptr [ %.184.ph, %.thread ], [ %.083, %263 ]
   %271 = load i32, ptr %25, align 8, !tbaa !53
   %272 = icmp slt i32 %270, %271
   br i1 %272, label %26, label %.critedge, !llvm.loop !158

@@ -1122,9 +1122,9 @@ use_wt_file.exit.i:                               ; preds = %434
   %462 = load ptr, ptr %291, align 8, !tbaa !44
   %463 = call i32 @copy_file(ptr noundef %461, ptr noundef %462, i32 noundef %460) #18
   %.not152.i = icmp eq i32 %463, 0
-  br i1 %.not152.i, label %.thread604.i, label %464
+  br i1 %.not152.i, label %.thread636.i, label %464
 
-.thread604.i:                                     ; preds = %457
+.thread636.i:                                     ; preds = %457
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %.backedge.i
 
@@ -1141,7 +1141,7 @@ use_wt_file.exit.i:                               ; preds = %434
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %.loopexit288.i
 
-.backedge.i:                                      ; preds = %.thread604.i, %449, %440, %436, %415, %402, %385
+.backedge.i:                                      ; preds = %.thread636.i, %449, %440, %436, %415, %402, %385
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %468 = call i32 @strbuf_getline_nul(ptr noundef nonnull %9, ptr noundef %281) #18
@@ -1310,10 +1310,10 @@ strbuf_setlen.exit196.i:                          ; preds = %509, %507
   %530 = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %.outer.i
 
-.outer.i:                                         ; preds = %.thread608.i, %.lr.ph445.i
-  %.3111443.ph.i = phi i64 [ %597, %.thread608.i ], [ 0, %.lr.ph445.i ]
-  %531 = phi i1 [ false, %.thread608.i ], [ true, %.lr.ph445.i ]
-  %.0122442.ph.i = phi i32 [ 1, %.thread608.i ], [ 0, %.lr.ph445.i ]
+.outer.i:                                         ; preds = %.thread640.i, %.lr.ph445.i
+  %.3111443.ph.i = phi i64 [ %597, %.thread640.i ], [ 0, %.lr.ph445.i ]
+  %531 = phi i1 [ false, %.thread640.i ], [ true, %.lr.ph445.i ]
+  %.0122442.ph.i = phi i32 [ 1, %.thread640.i ], [ 0, %.lr.ph445.i ]
   br label %532
 
 532:                                              ; preds = %592, %.outer.i
@@ -1428,11 +1428,11 @@ _.exit.i:                                         ; preds = %569, %567
   call void (ptr, ...) @warning(ptr noundef %.0.i203.i, ptr noundef %571, ptr noundef %572) #18
   %573 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
   %.not4.i204.i = icmp eq i32 %573, 0
-  br i1 %.not4.i204.i, label %.thread608.i, label %574
+  br i1 %.not4.i204.i, label %.thread640.i, label %574
 
 574:                                              ; preds = %_.exit.i
   %575 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.68, i32 noundef 5) #18
-  br label %.thread608.i
+  br label %.thread640.i
 
 576:                                              ; preds = %565
   %577 = load ptr, ptr %530, align 8, !tbaa !44
@@ -1481,7 +1481,7 @@ _.exit209.i:                                      ; preds = %585, %583
   %596 = icmp samesign ult i64 %593, %595
   br i1 %596, label %532, label %._crit_edge446.i, !llvm.loop !89
 
-.thread608.i:                                     ; preds = %574, %_.exit.i
+.thread640.i:                                     ; preds = %574, %_.exit.i
   %.0.i205.i = phi ptr [ %575, %574 ], [ @.str.68, %_.exit.i ]
   call void (ptr, ...) @warning(ptr noundef %.0.i205.i) #18
   call void (ptr, ...) @warning(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.45) #18
@@ -1491,22 +1491,22 @@ _.exit209.i:                                      ; preds = %585, %583
   %598 = load i32, ptr %524, align 4, !tbaa !85
   %599 = zext i32 %598 to i64
   %600 = icmp samesign ult i64 %597, %599
-  br i1 %600, label %.outer.i, label %._crit_edge446.thread612.i, !llvm.loop !89
+  br i1 %600, label %.outer.i, label %._crit_edge446.thread644.i, !llvm.loop !89
 
 ._crit_edge446.i:                                 ; preds = %592
-  br i1 %531, label %._crit_edge446.thread.i, label %._crit_edge446.thread612.i
+  br i1 %531, label %._crit_edge446.thread.i, label %._crit_edge446.thread644.i
 
-._crit_edge446.thread612.i:                       ; preds = %.thread608.i, %._crit_edge446.i
+._crit_edge446.thread644.i:                       ; preds = %.thread640.i, %._crit_edge446.i
   %601 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
   %.not4.i210.i = icmp eq i32 %601, 0
   br i1 %.not4.i210.i, label %_.exit212.i, label %602
 
-602:                                              ; preds = %._crit_edge446.thread612.i
+602:                                              ; preds = %._crit_edge446.thread644.i
   %603 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.70, i32 noundef 5) #18
   br label %_.exit212.i
 
-_.exit212.i:                                      ; preds = %602, %._crit_edge446.thread612.i
-  %.0.i211.i = phi ptr [ %603, %602 ], [ @.str.70, %._crit_edge446.thread612.i ]
+_.exit212.i:                                      ; preds = %602, %._crit_edge446.thread644.i
+  %.0.i211.i = phi ptr [ %603, %602 ], [ @.str.70, %._crit_edge446.thread644.i ]
   %604 = load ptr, ptr %216, align 8, !tbaa !44
   call void (ptr, ...) @warning(ptr noundef %.0.i211.i, ptr noundef %604) #18
   %605 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4

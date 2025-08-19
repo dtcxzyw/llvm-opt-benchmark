@@ -30,7 +30,7 @@ define dso_local void @_Z32meshopt_optimizeVertexCacheTablePjPKjmmPKN7meshopt16V
   %9 = icmp eq i64 %2, 0
   %10 = icmp eq i64 %3, 0
   %or.cond = or i1 %9, %10
-  br i1 %or.cond, label %.preheader267, label %11
+  br i1 %or.cond, label %.preheader278, label %11
 
 11:                                               ; preds = %5
   %12 = icmp eq ptr %0, %1
@@ -394,14 +394,14 @@ _ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit: ; preds = %.lr.ph.i, %._crit_e
 _ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit.thread: ; preds = %._crit_edge230.thread, %_ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit, %199
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.preheader267
+  br label %.preheader278
 
-.preheader267:                                    ; preds = %5, %_ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit.thread
+.preheader278:                                    ; preds = %5, %_ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit.thread
   %.0.i201.ph = phi i64 [ %47, %_ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit.thread ], [ 0, %5 ]
   br label %203
 
-203:                                              ; preds = %.preheader267, %204
-  %.0.i201 = phi i64 [ %206, %204 ], [ %.0.i201.ph, %.preheader267 ]
+203:                                              ; preds = %.preheader278, %204
+  %.0.i201 = phi i64 [ %206, %204 ], [ %.0.i201.ph, %.preheader278 ]
   %.not.i202 = icmp eq i64 %.0.i201, 0
   br i1 %.not.i202, label %_ZN17meshopt_AllocatorD2Ev.exit, label %204
 
@@ -969,7 +969,7 @@ _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit.thread: ; preds = %._cri
   br i1 %183, label %.lr.ph.i134, label %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.thread, !llvm.loop !38
 
 _ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.loopexit168: ; preds = %.lr.ph161
-  %indvars.i = trunc i64 %indvars.iv.next.i to i32
+  %indvars.i = trunc nuw i64 %indvars.iv.next.i to i32
   br label %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit
 
 _ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit: ; preds = %.lr.ph.i134, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.loopexit168, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit

@@ -840,7 +840,7 @@ _ZN6icu_7712_GLOBAL__N_120getUnitCategoryIndexERNS_9BytesTrieENS_11StringPieceER
 
 100:                                              ; preds = %93
   %101 = icmp slt i32 %92, 1
-  br i1 %101, label %.thread89, label %102
+  br i1 %101, label %.thread98, label %102
 
 102:                                              ; preds = %100
   invoke void @_ZN6icu_7715MeasureUnitImpl9serializeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull align 4 dereferenceable(4) %2)
@@ -881,7 +881,7 @@ _ZN6icu_7712_GLOBAL__N_120getUnitCategoryIndexERNS_9BytesTrieENS_11StringPieceER
   br i1 %118, label %119, label %154
 
 119:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_120getUnitCategoryIndexERNS_9BytesTrieENS_11StringPieceER10UErrorCode.exit74
-  br i1 %109, label %.thread89, label %120
+  br i1 %109, label %.thread98, label %120
 
 120:                                              ; preds = %119
   store i32 0, ptr %5, align 4, !tbaa !13
@@ -936,19 +936,19 @@ _ZN6icu_7715MeasureUnitImpl14takeReciprocalER10UErrorCode.exit80: ; preds = %129
 142:                                              ; preds = %139
   %.pre = load i32, ptr %5, align 4, !tbaa !13
   %143 = icmp slt i32 %.pre, 1
-  br i1 %143, label %.thread89, label %.sink.split
+  br i1 %143, label %.thread98, label %.sink.split
 
-.thread89:                                        ; preds = %100, %119, %142
-  %.24691 = phi i32 [ %138, %142 ], [ %.0.i71, %119 ], [ %.044, %100 ]
-  %144 = icmp sgt i32 %.24691, -1
+.thread98:                                        ; preds = %100, %119, %142
+  %.246100 = phi i32 [ %138, %142 ], [ %.0.i71, %119 ], [ %.044, %100 ]
+  %144 = icmp sgt i32 %.246100, -1
   %145 = load i32, ptr @_ZN6icu_7712_GLOBAL__N_116gCategoriesCountE, align 4
-  %.not56 = icmp slt i32 %.24691, %145
+  %.not56 = icmp slt i32 %.246100, %145
   %or.cond = select i1 %144, i1 %.not56, i1 false
   br i1 %or.cond, label %146, label %.sink.split
 
-146:                                              ; preds = %.thread89
+146:                                              ; preds = %.thread98
   %147 = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_111gCategoriesE, align 8, !tbaa !41
-  %148 = zext nneg i32 %.24691 to i64
+  %148 = zext nneg i32 %.246100 to i64
   %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
   %150 = load ptr, ptr %149, align 8, !tbaa !43
   %151 = invoke i32 @u_strlen_77(ptr noundef %150)
@@ -958,7 +958,7 @@ _ZN6icu_7715MeasureUnitImpl14takeReciprocalER10UErrorCode.exit80: ; preds = %129
   %153 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString20appendInvariantCharsEPKDsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %150, i32 noundef %151, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %154 unwind label %98
 
-.sink.split:                                      ; preds = %.thread89, %142
+.sink.split:                                      ; preds = %.thread98, %142
   store i32 3, ptr %2, align 4, !tbaa !13
   br label %154
 
@@ -1821,7 +1821,7 @@ define void @_ZN6icu_7715MeasureUnitImpl9serializeER10UErrorCode(ptr noundef non
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %43
 
-41:                                               ; preds = %.invoke76, %.invoke, %80, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit, %90, %_ZN6icu_7710CharString6appendERKS0_R10UErrorCode.exit, %68, %65, %60
+41:                                               ; preds = %.invoke77, %.invoke, %80, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit, %90, %_ZN6icu_7710CharString6appendERKS0_R10UErrorCode.exit, %68, %65, %60
   %42 = landingpad { ptr, i32 }
           cleanup
   br label %138
@@ -1846,12 +1846,12 @@ define void @_ZN6icu_7715MeasureUnitImpl9serializeER10UErrorCode(ptr noundef non
 50:                                               ; preds = %43
   %51 = icmp slt i32 %47, 0
   %not. = xor i1 %51, true
-  %spec.select77 = select i1 %51, i1 true, i1 %.03670
+  %spec.select78 = select i1 %51, i1 true, i1 %.03670
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge
   %.139 = phi i1 [ false, %._crit_edge ], [ %not., %50 ]
-  %.137 = phi i1 [ %49, %._crit_edge ], [ %spec.select77, %50 ]
+  %.137 = phi i1 [ %49, %._crit_edge ], [ %spec.select78, %50 ]
   %53 = load i32, ptr %1, align 4, !tbaa !13
   %54 = icmp slt i32 %53, 1
   br i1 %54, label %55, label %.loopexit
@@ -1886,7 +1886,7 @@ define void @_ZN6icu_7715MeasureUnitImpl9serializeER10UErrorCode(ptr noundef non
 
 66:                                               ; preds = %65
   %67 = load i32, ptr %37, align 8
-  br label %.invoke76
+  br label %.invoke77
 
 68:                                               ; preds = %64
   invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull @.str.7)
@@ -1894,16 +1894,16 @@ define void @_ZN6icu_7715MeasureUnitImpl9serializeER10UErrorCode(ptr noundef non
 
 69:                                               ; preds = %68
   %70 = load i32, ptr %36, align 8
-  br label %.invoke76
+  br label %.invoke77
 
-.invoke76:                                        ; preds = %66, %69
+.invoke77:                                        ; preds = %66, %69
   %.in = phi ptr [ %6, %69 ], [ %5, %66 ]
   %71 = phi i32 [ %70, %69 ], [ %67, %66 ]
   %72 = load ptr, ptr %.in, align 8
   %73 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %3, ptr noundef %72, i32 noundef %71, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit57 unwind label %41
 
-_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit57: ; preds = %.invoke76
+_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit57: ; preds = %.invoke77
   %74 = load i64, ptr %19, align 8, !tbaa !81
   %.not43 = icmp eq i64 %74, 0
   br i1 %.not43, label %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit, label %75
@@ -1959,9 +1959,9 @@ _ZN6icu_7710CharString6appendERKS0_R10UErrorCode.exit: ; preds = %76
   br label %.invoke
 
 .invoke:                                          ; preds = %61, %91
-  %.in78 = phi ptr [ %9, %91 ], [ %4, %61 ]
+  %.in79 = phi ptr [ %9, %91 ], [ %4, %61 ]
   %93 = phi i32 [ %92, %91 ], [ %62, %61 ]
-  %94 = load ptr, ptr %.in78, align 8
+  %94 = load ptr, ptr %.in79, align 8
   %95 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %3, ptr noundef %94, i32 noundef %93, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit unwind label %41
 
@@ -2934,7 +2934,7 @@ define void @_ZNK6icu_7714SingleUnitImpl23appendNeutralIdentifierERNS_10CharStri
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 4, !tbaa !36
   %12 = tail call i32 @llvm.abs.i32(i32 %11, i1 true)
-  %.sink50.sroa.gep53 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink51.sroa.gep54 = getelementptr inbounds nuw i8, ptr %7, i64 8
   switch i32 %12, label %15 [
     i32 1, label %28
     i32 2, label %13
@@ -2942,12 +2942,12 @@ define void @_ZNK6icu_7714SingleUnitImpl23appendNeutralIdentifierERNS_10CharStri
   ]
 
 13:                                               ; preds = %3
-  %.sink50.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink51.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull @.str)
   br label %.sink.split
 
 14:                                               ; preds = %3
-  %.sink50.sroa.gep54 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink51.sroa.gep55 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull @.str.1)
   br label %.sink.split
 
@@ -2971,10 +2971,10 @@ define void @_ZNK6icu_7714SingleUnitImpl23appendNeutralIdentifierERNS_10CharStri
   br label %52
 
 .sink.split:                                      ; preds = %14, %17, %13
-  %.sink50.sroa.phi = phi ptr [ %.sink50.sroa.gep, %13 ], [ %.sink50.sroa.gep53, %17 ], [ %.sink50.sroa.gep54, %14 ]
-  %.sink50 = phi ptr [ %4, %13 ], [ %7, %17 ], [ %5, %14 ]
-  %25 = load ptr, ptr %.sink50, align 8
-  %26 = load i32, ptr %.sink50.sroa.phi, align 8
+  %.sink51.sroa.phi = phi ptr [ %.sink51.sroa.gep, %13 ], [ %.sink51.sroa.gep54, %17 ], [ %.sink51.sroa.gep55, %14 ]
+  %.sink51 = phi ptr [ %4, %13 ], [ %7, %17 ], [ %5, %14 ]
+  %25 = load ptr, ptr %.sink51, align 8
+  %26 = load i32, ptr %.sink51.sroa.phi, align 8
   %27 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %1, ptr noundef %25, i32 noundef %26, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %28
 

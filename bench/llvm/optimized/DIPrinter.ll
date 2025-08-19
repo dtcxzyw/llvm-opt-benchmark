@@ -8212,14 +8212,14 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %25
 
 25:                                               ; preds = %4, %21
-  %.sink14 = phi ptr [ %9, %21 ], [ %7, %4 ]
+  %.sink16 = phi ptr [ %9, %21 ], [ %7, %4 ]
   %.sink = phi i8 [ 1, %21 ], [ 0, %4 ]
   %26 = load ptr, ptr %1, align 8, !tbaa !148
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load i32, ptr %27, align 8, !tbaa !150
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %26, i64 %29
-  store ptr %.sink14, ptr %0, align 8
+  store ptr %.sink16, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %30, ptr %.sroa.4.0..sroa_idx, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16

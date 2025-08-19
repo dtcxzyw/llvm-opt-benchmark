@@ -26,7 +26,7 @@ define void @ff_acelp_interpolate(ptr noundef writeonly captures(none) %0, ptr n
   %13 = sext i32 %4 to i64
   %wide.trip.count44 = zext nneg i32 %6 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
-  %invariant.gep46 = getelementptr i16, ptr %2, i64 %13
+  %invariant.gep47 = getelementptr i16, ptr %2, i64 %13
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %15
@@ -52,8 +52,8 @@ define void @ff_acelp_interpolate(ptr noundef writeonly captures(none) %0, ptr n
   %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv36
   %18 = load i16, ptr %gep, align 2, !tbaa !4
   %19 = sext i16 %18 to i32
-  %gep47 = getelementptr i16, ptr %invariant.gep46, i64 %indvars.iv
-  %20 = load i16, ptr %gep47, align 2, !tbaa !4
+  %gep48 = getelementptr i16, ptr %invariant.gep47, i64 %indvars.iv
+  %20 = load i16, ptr %gep48, align 2, !tbaa !4
   %21 = sext i16 %20 to i32
   %22 = mul nsw i32 %21, %19
   %23 = add nsw i32 %22, %.031.us
@@ -106,7 +106,7 @@ define void @ff_acelp_interpolatef(ptr noundef writeonly captures(none) %0, ptr 
   %13 = sext i32 %4 to i64
   %wide.trip.count42 = zext nneg i32 %6 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
-  %invariant.gep44 = getelementptr float, ptr %2, i64 %13
+  %invariant.gep45 = getelementptr float, ptr %2, i64 %13
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
@@ -120,8 +120,8 @@ define void @ff_acelp_interpolatef(ptr noundef writeonly captures(none) %0, ptr 
   %.029.us = phi float [ 0.000000e+00, %.preheader.us ], [ %24, %14 ]
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv34
   %15 = load float, ptr %gep, align 4, !tbaa !11
-  %gep45 = getelementptr float, ptr %invariant.gep44, i64 %indvars.iv
-  %16 = load float, ptr %gep45, align 4, !tbaa !11
+  %gep46 = getelementptr float, ptr %invariant.gep45, i64 %indvars.iv
+  %16 = load float, ptr %gep46, align 4, !tbaa !11
   %17 = tail call nsz float @llvm.fmuladd.f32(float %15, float %16, float %.029.us)
   %indvars.iv.next = add nsw i64 %indvars.iv, %12
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1

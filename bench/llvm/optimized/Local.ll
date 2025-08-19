@@ -106,14 +106,14 @@ _ZN4llvm4User6op_endEv.exit:                      ; preds = %28, %31
   br label %60
 
 ._crit_edge:                                      ; preds = %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit
-  %.not63 = icmp eq ptr %.4167, null
+  %.not63 = icmp eq ptr %.4171, null
   br i1 %.not63, label %._crit_edge.thread, label %198
 
 60:                                               ; preds = %.lr.ph, %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit
   %.0152 = phi ptr [ %.0146, %.lr.ph ], [ %.0, %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit ]
   %.pn142.pn = phi ptr [ %36, %.lr.ph ], [ %.sroa.094.0151, %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit ]
   %.sroa.7.0149 = phi i64 [ %38, %.lr.ph ], [ %.sink.i, %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit ]
-  %.0130148 = phi ptr [ null, %.lr.ph ], [ %.4167, %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit ]
+  %.0130148 = phi ptr [ null, %.lr.ph ], [ %.4171, %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit ]
   %.sroa.094.0151 = getelementptr inbounds nuw i8, ptr %.pn142.pn, i64 32
   %61 = load ptr, ptr %.0152, align 8, !tbaa !13
   %62 = load i8, ptr %61, align 8, !tbaa !18
@@ -376,14 +376,14 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %142, %146
   br label %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i83
 
 .thread:                                          ; preds = %69, %81, %83, %169
-  %.pre-phi156165176 = phi ptr [ %.pre-phi156, %169 ], [ %70, %83 ], [ %70, %81 ], [ %70, %69 ]
-  %.4168175 = phi ptr [ %.4, %169 ], [ %87, %83 ], [ %82, %81 ], [ %.0130148, %69 ]
+  %.pre-phi156169180 = phi ptr [ %.pre-phi156, %169 ], [ %70, %83 ], [ %70, %81 ], [ %70, %69 ]
+  %.4172179 = phi ptr [ %.4, %169 ], [ %87, %83 ], [ %82, %81 ], [ %.0130148, %69 ]
   %174 = load ptr, ptr %.sroa.094.0151, align 8, !tbaa !13
-  %175 = call noundef ptr @_ZNK4llvm10StructType14getTypeAtIndexEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %.pre-phi156165176, ptr noundef %174) #5
+  %175 = call noundef ptr @_ZNK4llvm10StructType14getTypeAtIndexEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %.pre-phi156169180, ptr noundef %174) #5
   br label %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i83
 
 _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i83: ; preds = %.thread, %171, %"_ZZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_10DataLayoutEPNS_4UserEbENK3$_0clEPNS_5ValueE.exit"
-  %.4167 = phi ptr [ %.4168175, %.thread ], [ %.4, %171 ], [ %.4, %"_ZZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_10DataLayoutEPNS_4UserEbENK3$_0clEPNS_5ValueE.exit" ]
+  %.4171 = phi ptr [ %.4172179, %.thread ], [ %.4, %171 ], [ %.4, %"_ZZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_10DataLayoutEPNS_4UserEbENK3$_0clEPNS_5ValueE.exit" ]
   %.1.i.i84 = phi ptr [ %175, %.thread ], [ %173, %171 ], [ %.pre-phi156, %"_ZZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_10DataLayoutEPNS_4UserEbENK3$_0clEPNS_5ValueE.exit" ]
   %176 = getelementptr inbounds nuw i8, ptr %.1.i.i84, i64 8
   %177 = load i32, ptr %176, align 8
@@ -431,7 +431,7 @@ _ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit: ; preds = %180, %188, 
   br label %198
 
 198:                                              ; preds = %._crit_edge, %._crit_edge.thread
-  %199 = phi ptr [ %197, %._crit_edge.thread ], [ %.4167, %._crit_edge ]
+  %199 = phi ptr [ %197, %._crit_edge.thread ], [ %.4171, %._crit_edge ]
   ret ptr %199
 }
 

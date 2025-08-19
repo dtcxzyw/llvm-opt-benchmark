@@ -331,10 +331,10 @@ _ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRKT0_.exit.thread: ; pre
   %switch.masked = trunc i39 %switch.downshift to i1
   %58 = select i1 %57, i1 %switch.masked, i1 false
   %59 = icmp ult i32 %52, 39
-  %switch.cast245 = zext nneg i32 %52 to i39
-  %switch.downshift247 = lshr i39 -137438928896, %switch.cast245
-  %switch.masked248 = trunc i39 %switch.downshift247 to i1
-  %60 = select i1 %59, i1 %switch.masked248, i1 false
+  %switch.cast252 = zext nneg i32 %52 to i39
+  %switch.downshift254 = lshr i39 -137438928896, %switch.cast252
+  %switch.masked255 = trunc i39 %switch.downshift254 to i1
+  %60 = select i1 %59, i1 %switch.masked255, i1 false
   %61 = icmp eq i32 %30, 17
   %62 = icmp eq i32 %30, 41
   %spec.select.i.i.i.i.i.i.i.i175 = or i1 %61, %62
@@ -605,7 +605,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit143..thread224_c
   %114 = load ptr, ptr %113, align 8, !tbaa !3, !noalias !243
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %116 = load i32, ptr %115, align 8, !tbaa !21, !noalias !243
-  switch i32 %116, label %.thread224.thread272.i [
+  switch i32 %116, label %.thread224.thread278.i [
     i32 35, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit148.i
     i32 11, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit148.i
   ]
@@ -737,25 +737,25 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i.backedge: ; preds = %178
 .thread224.i:                                     ; preds = %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit143..thread224_crit_edge.i
   %185 = phi i32 [ %.pre.i, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit143..thread224_crit_edge.i ], [ %73, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i ]
   %186 = icmp eq i32 %185, 56
-  br i1 %186, label %.thread224.i..thread224.thread272.i_crit_edge, label %.loopexit
+  br i1 %186, label %.thread224.i..thread224.thread278.i_crit_edge, label %.loopexit
 
-.thread224.i..thread224.thread272.i_crit_edge:    ; preds = %.thread224.i
+.thread224.i..thread224.thread278.i_crit_edge:    ; preds = %.thread224.i
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.0196.0.i, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !246, !noalias !243
   %.phi.trans.insert72 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %.pre73 = load ptr, ptr %.phi.trans.insert72, align 8, !tbaa !3, !noalias !243
   %.phi.trans.insert74 = getelementptr inbounds nuw i8, ptr %.pre73, i64 24
   %.pre75 = load i32, ptr %.phi.trans.insert74, align 8, !tbaa !21, !noalias !243
-  br label %.thread224.thread272.i
+  br label %.thread224.thread278.i
 
-.thread224.thread272.i:                           ; preds = %110, %.thread224.i..thread224.thread272.i_crit_edge
-  %187 = phi i32 [ %.pre75, %.thread224.i..thread224.thread272.i_crit_edge ], [ %116, %110 ]
-  %188 = phi ptr [ %.pre73, %.thread224.i..thread224.thread272.i_crit_edge ], [ %114, %110 ]
-  %189 = phi ptr [ %.pre, %.thread224.i..thread224.thread272.i_crit_edge ], [ %112, %110 ]
+.thread224.thread278.i:                           ; preds = %110, %.thread224.i..thread224.thread278.i_crit_edge
+  %187 = phi i32 [ %.pre75, %.thread224.i..thread224.thread278.i_crit_edge ], [ %116, %110 ]
+  %188 = phi ptr [ %.pre73, %.thread224.i..thread224.thread278.i_crit_edge ], [ %114, %110 ]
+  %189 = phi ptr [ %.pre, %.thread224.i..thread224.thread278.i_crit_edge ], [ %112, %110 ]
   %190 = icmp eq i32 %187, 58
   br i1 %190, label %.loopexit, label %191
 
-191:                                              ; preds = %.thread224.thread272.i
+191:                                              ; preds = %.thread224.thread278.i
   %.sroa.19.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %189, i64 48
   %.sroa.013.0.copyload.i = load ptr, ptr %189, align 8, !tbaa !237, !noalias !243
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %189, i64 8
@@ -839,13 +839,13 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i: ; preds = %219, %212
   %230 = zext i1 %192 to i8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %148, %144, %140, %74, %229, %226, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i, %.thread224.thread272.i, %.thread224.i, %45, %20
-  %.sroa.013.0.copyload.sink.i = phi ptr [ %.sroa.013.0.copyload.i, %229 ], [ null, %20 ], [ null, %45 ], [ %.sroa.0196.0.i, %.thread224.thread272.i ], [ %.sroa.0196.0.i, %.thread224.i ], [ %.sroa.013.0.copyload.i, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i ], [ %.sroa.013.0.copyload.i, %226 ], [ %.sroa.0196.0.i, %74 ], [ %.sroa.0196.0.i, %140 ], [ %.sroa.0196.0.i, %144 ], [ %.sroa.0196.0.i, %148 ]
-  %.sroa.5.0.copyload.sink.i = phi i32 [ %.sroa.5.0.copyload.i, %229 ], [ 0, %20 ], [ 0, %45 ], [ %.sroa.21.0.i, %.thread224.thread272.i ], [ %.sroa.21.0.i, %.thread224.i ], [ %.sroa.5.0.copyload.i, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i ], [ %.sroa.5.0.copyload.i, %226 ], [ %.sroa.21.0.i, %74 ], [ %.sroa.21.0.i, %140 ], [ %.sroa.21.0.i, %144 ], [ %.sroa.21.0.i, %148 ]
-  %.sroa.0177.1.sink.i = phi ptr [ %.sroa.0177.1.i, %229 ], [ null, %20 ], [ null, %45 ], [ null, %.thread224.thread272.i ], [ null, %.thread224.i ], [ %.sroa.0177.0.copyload186.i, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i ], [ %.sroa.0177.0.copyload187.i, %226 ], [ null, %74 ], [ null, %140 ], [ null, %144 ], [ null, %148 ]
-  %.sroa.19.1.sink.i = phi i32 [ %.sroa.19.1.i, %229 ], [ 0, %20 ], [ 0, %45 ], [ 0, %.thread224.thread272.i ], [ 0, %.thread224.i ], [ %.sroa.19.0.copyload191.i, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i ], [ %.sroa.19.0.copyload193.i, %226 ], [ 0, %74 ], [ 0, %140 ], [ 0, %144 ], [ 0, %148 ]
-  %.3294.sink.i = phi i64 [ %.3.i, %229 ], [ 0, %20 ], [ 0, %45 ], [ %.3.i, %.thread224.thread272.i ], [ %.3.i, %.thread224.i ], [ %222, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i ], [ %222, %226 ], [ %.3.i, %74 ], [ %.3.i, %140 ], [ %.3.i, %144 ], [ %.3.i, %148 ]
-  %.sink.i = phi i8 [ %230, %229 ], [ 0, %20 ], [ 0, %45 ], [ 0, %.thread224.thread272.i ], [ 0, %.thread224.i ], [ 0, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i ], [ 1, %226 ], [ 0, %74 ], [ 0, %140 ], [ 0, %144 ], [ 0, %148 ]
+.loopexit:                                        ; preds = %148, %144, %140, %74, %229, %226, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i, %.thread224.thread278.i, %.thread224.i, %45, %20
+  %.sroa.013.0.copyload.sink.i = phi ptr [ %.sroa.013.0.copyload.i, %229 ], [ null, %20 ], [ null, %45 ], [ %.sroa.0196.0.i, %.thread224.thread278.i ], [ %.sroa.0196.0.i, %.thread224.i ], [ %.sroa.013.0.copyload.i, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i ], [ %.sroa.013.0.copyload.i, %226 ], [ %.sroa.0196.0.i, %74 ], [ %.sroa.0196.0.i, %140 ], [ %.sroa.0196.0.i, %144 ], [ %.sroa.0196.0.i, %148 ]
+  %.sroa.5.0.copyload.sink.i = phi i32 [ %.sroa.5.0.copyload.i, %229 ], [ 0, %20 ], [ 0, %45 ], [ %.sroa.21.0.i, %.thread224.thread278.i ], [ %.sroa.21.0.i, %.thread224.i ], [ %.sroa.5.0.copyload.i, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i ], [ %.sroa.5.0.copyload.i, %226 ], [ %.sroa.21.0.i, %74 ], [ %.sroa.21.0.i, %140 ], [ %.sroa.21.0.i, %144 ], [ %.sroa.21.0.i, %148 ]
+  %.sroa.0177.1.sink.i = phi ptr [ %.sroa.0177.1.i, %229 ], [ null, %20 ], [ null, %45 ], [ null, %.thread224.thread278.i ], [ null, %.thread224.i ], [ %.sroa.0177.0.copyload186.i, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i ], [ %.sroa.0177.0.copyload187.i, %226 ], [ null, %74 ], [ null, %140 ], [ null, %144 ], [ null, %148 ]
+  %.sroa.19.1.sink.i = phi i32 [ %.sroa.19.1.i, %229 ], [ 0, %20 ], [ 0, %45 ], [ 0, %.thread224.thread278.i ], [ 0, %.thread224.i ], [ %.sroa.19.0.copyload191.i, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i ], [ %.sroa.19.0.copyload193.i, %226 ], [ 0, %74 ], [ 0, %140 ], [ 0, %144 ], [ 0, %148 ]
+  %.3300.sink.i = phi i64 [ %.3.i, %229 ], [ 0, %20 ], [ 0, %45 ], [ %.3.i, %.thread224.thread278.i ], [ %.3.i, %.thread224.i ], [ %222, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i ], [ %222, %226 ], [ %.3.i, %74 ], [ %.3.i, %140 ], [ %.3.i, %144 ], [ %.3.i, %148 ]
+  %.sink.i = phi i8 [ %230, %229 ], [ 0, %20 ], [ 0, %45 ], [ 0, %.thread224.thread278.i ], [ 0, %.thread224.i ], [ 0, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i ], [ 1, %226 ], [ 0, %74 ], [ 0, %140 ], [ 0, %144 ], [ 0, %148 ]
   store ptr %.sroa.013.0.copyload.sink.i, ptr %0, align 8, !tbaa !237, !alias.scope !243
   %.sroa.22.0..sroa_idx.i161.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.5.0.copyload.sink.i, ptr %.sroa.22.0..sroa_idx.i161.i, align 8, !tbaa !247, !alias.scope !243
@@ -854,7 +854,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i: ; preds = %219, %212
   %.sroa.2.0..sroa_idx.i162.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sroa.19.1.sink.i, ptr %.sroa.2.0..sroa_idx.i162.i, align 8, !tbaa !247, !alias.scope !243
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.3294.sink.i, ptr %232, align 8, !tbaa !44, !alias.scope !243
+  store i64 %.3300.sink.i, ptr %232, align 8, !tbaa !44, !alias.scope !243
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %233, align 8, !tbaa !256, !alias.scope !243
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 48

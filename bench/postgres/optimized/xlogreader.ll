@@ -792,10 +792,10 @@ define dso_local noundef ptr @XLogReadAhead(ptr noundef %0, i1 noundef zeroext %
   br i1 %104, label %XLogReadRecordAlloc.exit.thread.i, label %XLogReadRecordAlloc.exit.i
 
 XLogReadRecordAlloc.exit.thread.i:                ; preds = %100, %96, %88
-  %.sink46.i.i = phi ptr [ %89, %88 ], [ %91, %96 ], [ %.pre.i.i, %100 ]
-  %105 = getelementptr inbounds nuw i8, ptr %.sink46.i.i, i64 8
+  %.sink52.i.i = phi ptr [ %89, %88 ], [ %91, %96 ], [ %.pre.i.i, %100 ]
+  %105 = getelementptr inbounds nuw i8, ptr %.sink52.i.i, i64 8
   store i8 0, ptr %105, align 8
-  %106 = icmp eq ptr %.sink46.i.i, null
+  %106 = icmp eq ptr %.sink52.i.i, null
   br label %107
 
 XLogReadRecordAlloc.exit.i:                       ; preds = %100, %96
@@ -803,7 +803,7 @@ XLogReadRecordAlloc.exit.i:                       ; preds = %100, %96
 
 107:                                              ; preds = %XLogReadRecordAlloc.exit.i, %XLogReadRecordAlloc.exit.thread.i
   %108 = phi i1 [ %106, %XLogReadRecordAlloc.exit.thread.i ], [ true, %XLogReadRecordAlloc.exit.i ]
-  %.0.i280.i = phi ptr [ %.sink46.i.i, %XLogReadRecordAlloc.exit.thread.i ], [ null, %XLogReadRecordAlloc.exit.i ]
+  %.0.i280.i = phi ptr [ %.sink52.i.i, %XLogReadRecordAlloc.exit.thread.i ], [ null, %XLogReadRecordAlloc.exit.i ]
   %109 = trunc nuw nsw i64 %63 to i32
   %110 = sub nuw nsw i32 8192, %109
   %111 = icmp ugt i32 %65, %110
@@ -1136,14 +1136,14 @@ ValidXLogRecord.exit265.i:                        ; preds = %231
   br label %XLogReadRecordAlloc.exit277.i
 
 XLogReadRecordAlloc.exit277.i:                    ; preds = %297, %292, %288, %280
-  %.sink46.i274.i = phi ptr [ %298, %297 ], [ %281, %280 ], [ %283, %288 ], [ %.pre.i267.i, %292 ]
+  %.sink52.i274.i = phi ptr [ %298, %297 ], [ %281, %280 ], [ %283, %288 ], [ %.pre.i267.i, %292 ]
   %.sink.i.i = phi i8 [ 1, %297 ], [ 0, %280 ], [ 0, %288 ], [ 0, %292 ]
-  %299 = getelementptr inbounds nuw i8, ptr %.sink46.i274.i, i64 8
+  %299 = getelementptr inbounds nuw i8, ptr %.sink52.i274.i, i64 8
   store i8 %.sink.i.i, ptr %299, align 8
   br label %300
 
 300:                                              ; preds = %XLogReadRecordAlloc.exit277.i, %269
-  %301 = phi ptr [ %.sink46.i274.i, %XLogReadRecordAlloc.exit277.i ], [ %.0.i280.i, %269 ]
+  %301 = phi ptr [ %.sink52.i274.i, %XLogReadRecordAlloc.exit277.i ], [ %.0.i280.i, %269 ]
   %302 = call zeroext i1 @DecodeXLogRecord(ptr noundef nonnull %0, ptr noundef %301, ptr noundef nonnull %.3217.i, i64 noundef %.2210.i, ptr noundef nonnull %3)
   br i1 %302, label %303, label %325
 
@@ -1167,8 +1167,8 @@ XLogReadRecordAlloc.exit277.i:                    ; preds = %297, %292, %288, %2
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %313, %309
-  %.sink763.i = phi ptr [ %314, %313 ], [ %310, %309 ]
-  %315 = getelementptr inbounds nuw i8, ptr %.sink763.i, i64 %312
+  %.sink783.i = phi ptr [ %314, %313 ], [ %310, %309 ]
+  %315 = getelementptr inbounds nuw i8, ptr %.sink783.i, i64 %312
   store ptr %315, ptr %.phi.trans.insert.i.i, align 8
   br label %316
 
@@ -1740,13 +1740,13 @@ define internal fastcc i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32
   br label %.thread75.sink.split
 
 .thread75.sink.split:                             ; preds = %66, %.thread
-  %.sink79 = phi i64 [ 0, %.thread ], [ %7, %66 ]
-  %.sink77 = phi i32 [ 0, %.thread ], [ %10, %66 ]
+  %.sink85 = phi i64 [ 0, %.thread ], [ %7, %66 ]
+  %.sink83 = phi i32 [ 0, %.thread ], [ %10, %66 ]
   %.sink = phi i32 [ 0, %.thread ], [ %.065, %66 ]
   %.0.ph = phi i32 [ -1, %.thread ], [ %.065, %66 ]
-  store i64 %.sink79, ptr %11, align 8
+  store i64 %.sink85, ptr %11, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 1232
-  store i32 %.sink77, ptr %68, align 8
+  store i32 %.sink83, ptr %68, align 8
   store i32 %.sink, ptr %22, align 8
   br label %.thread75
 
@@ -2148,7 +2148,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %141 = icmp eq i16 %135, 0
   %142 = icmp eq i16 %104, 8192
   %or.cond = select i1 %141, i1 true, i1 %142
-  br i1 %or.cond, label %143, label %.thread542
+  br i1 %or.cond, label %143, label %.thread550
 
 143:                                              ; preds = %140, %139
   %144 = zext i16 %109 to i32
@@ -2163,8 +2163,8 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
 
 151:                                              ; preds = %134
   %.not292 = icmp eq i16 %135, 0
-  %or.cond668 = select i1 %.not291, i1 %.not292, i1 false
-  br i1 %or.cond668, label %160, label %152
+  %or.cond676 = select i1 %.not291, i1 %.not292, i1 false
+  br i1 %or.cond676, label %160, label %152
 
 152:                                              ; preds = %151
   %153 = zext i16 %109 to i32
@@ -2182,7 +2182,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %.not293 = icmp ne i8 %161, 0
   %162 = icmp eq i16 %104, 8192
   %or.cond326 = select i1 %.not293, i1 %162, i1 false
-  br i1 %or.cond326, label %163, label %.thread542
+  br i1 %or.cond326, label %163, label %.thread550
 
 163:                                              ; preds = %160
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2193,14 +2193,14 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef 8192, i32 noundef %167, i32 noundef %168)
   br label %.thread320
 
-.thread542:                                       ; preds = %140, %160
+.thread550:                                       ; preds = %140, %160
   %169 = phi i1 [ %162, %160 ], [ false, %140 ]
   %170 = and i8 %114, 29
   %or.cond301 = icmp ne i8 %170, 0
   %or.cond327 = select i1 %or.cond301, i1 true, i1 %169
   br i1 %or.cond327, label %177, label %171
 
-171:                                              ; preds = %.thread542
+171:                                              ; preds = %.thread550
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %173 = load i64, ptr %172, align 8
   %174 = lshr i64 %173, 32
@@ -2209,10 +2209,10 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %97, i32 noundef %175, i32 noundef %176)
   br label %.thread320
 
-177:                                              ; preds = %.thread542, %.thread311
-  %.5258 = phi i32 [ %137, %.thread542 ], [ %98, %.thread311 ]
-  %.5249 = phi i32 [ %.6250, %.thread542 ], [ %79, %.thread311 ]
-  %.5 = phi ptr [ %.6, %.thread542 ], [ %78, %.thread311 ]
+177:                                              ; preds = %.thread550, %.thread311
+  %.5258 = phi i32 [ %137, %.thread550 ], [ %98, %.thread311 ]
+  %.5249 = phi i32 [ %.6250, %.thread550 ], [ %79, %.thread311 ]
+  %.5 = phi ptr [ %.6, %.thread550 ], [ %78, %.thread311 ]
   %.not297 = icmp sgt i8 %.0.copyload, -1
   br i1 %.not297, label %178, label %184
 

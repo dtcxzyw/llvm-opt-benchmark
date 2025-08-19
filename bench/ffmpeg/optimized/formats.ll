@@ -261,7 +261,7 @@ define range(i32 -12, 1) i32 @ff_add_format(ptr noundef captures(address) %0, i6
 24:                                               ; preds = %20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread.thread30.i, label %20, !llvm.loop !45
+  br i1 %exitcond.not.i, label %.thread.thread32.i, label %20, !llvm.loop !45
 
 .thread.i:                                        ; preds = %20
   %25 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -279,7 +279,7 @@ define range(i32 -12, 1) i32 @ff_add_format(ptr noundef captures(address) %0, i6
   %36 = add i32 %35, -1
   store i32 %36, ptr %34, align 8, !tbaa !41
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.thread.thread.i, label %.thread.thread30.i
+  br i1 %37, label %.thread.thread.i, label %.thread.thread32.i
 
 .thread.thread.i:                                 ; preds = %.thread.i, %.preheader.i
   %38 = phi ptr [ %33, %.thread.i ], [ %14, %.preheader.i ]
@@ -292,9 +292,9 @@ define range(i32 -12, 1) i32 @ff_add_format(ptr noundef captures(address) %0, i6
   tail call void @av_free(ptr noundef %43) #10
   %44 = load ptr, ptr %0, align 8, !tbaa !23
   tail call void @av_free(ptr noundef %44) #10
-  br label %.thread.thread30.i
+  br label %.thread.thread32.i
 
-.thread.thread30.i:                               ; preds = %24, %.thread.thread.i, %.thread.i
+.thread.thread32.i:                               ; preds = %24, %.thread.thread.i, %.thread.i
   store ptr null, ptr %0, align 8, !tbaa !23
   br label %ff_formats_unref.exit.thread
 
@@ -310,8 +310,8 @@ define range(i32 -12, 1) i32 @ff_add_format(ptr noundef captures(address) %0, i6
   store i32 %47, ptr %51, align 4, !tbaa !19
   br label %ff_formats_unref.exit.thread
 
-ff_formats_unref.exit.thread:                     ; preds = %.thread.thread30.i, %15, %4, %45
-  %52 = phi i32 [ 0, %45 ], [ -12, %4 ], [ -12, %15 ], [ -12, %.thread.thread30.i ]
+ff_formats_unref.exit.thread:                     ; preds = %.thread.thread32.i, %15, %4, %45
+  %52 = phi i32 [ 0, %45 ], [ -12, %4 ], [ -12, %15 ], [ -12, %.thread.thread32.i ]
   ret i32 %52
 }
 
@@ -345,7 +345,7 @@ define void @ff_formats_unref(ptr noundef captures(address) %0) local_unnamed_ad
 11:                                               ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread.thread30, label %7, !llvm.loop !45
+  br i1 %exitcond.not, label %.thread.thread32, label %7, !llvm.loop !45
 
 .thread:                                          ; preds = %7
   %12 = trunc nuw nsw i64 %indvars.iv to i32
@@ -363,7 +363,7 @@ define void @ff_formats_unref(ptr noundef captures(address) %0) local_unnamed_ad
   %23 = add i32 %22, -1
   store i32 %23, ptr %21, align 8, !tbaa !41
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.thread.thread, label %.thread.thread30
+  br i1 %24, label %.thread.thread, label %.thread.thread32
 
 .thread.thread:                                   ; preds = %.preheader, %.thread
   %25 = phi ptr [ %20, %.thread ], [ %2, %.preheader ]
@@ -376,13 +376,13 @@ define void @ff_formats_unref(ptr noundef captures(address) %0) local_unnamed_ad
   tail call void @av_free(ptr noundef %30) #10
   %31 = load ptr, ptr %0, align 8, !tbaa !23
   tail call void @av_free(ptr noundef %31) #10
-  br label %.thread.thread30
+  br label %.thread.thread32
 
-.thread.thread30:                                 ; preds = %11, %.thread.thread, %.thread
+.thread.thread32:                                 ; preds = %11, %.thread.thread, %.thread
   store ptr null, ptr %0, align 8, !tbaa !23
   br label %32
 
-32:                                               ; preds = %1, %.thread.thread30
+32:                                               ; preds = %1, %.thread.thread32
   ret void
 }
 
@@ -472,7 +472,7 @@ define void @ff_channel_layouts_unref(ptr noundef captures(address) %0) local_un
 11:                                               ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread.thread44, label %7, !llvm.loop !50
+  br i1 %exitcond.not, label %.thread.thread46, label %7, !llvm.loop !50
 
 .thread:                                          ; preds = %7
   %12 = trunc nuw nsw i64 %indvars.iv to i32
@@ -490,7 +490,7 @@ define void @ff_channel_layouts_unref(ptr noundef captures(address) %0) local_un
   %23 = add i32 %22, -1
   store i32 %23, ptr %21, align 8, !tbaa !46
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.preheader, label %.thread.thread44
+  br i1 %24, label %.preheader, label %.thread.thread46
 
 .preheader:                                       ; preds = %.preheader29, %.thread
   %25 = phi ptr [ %20, %.thread ], [ %2, %.preheader29 ]
@@ -509,7 +509,7 @@ define void @ff_channel_layouts_unref(ptr noundef captures(address) %0) local_un
   tail call void @av_free(ptr noundef %32) #10
   %33 = load ptr, ptr %0, align 8, !tbaa !33
   tail call void @av_free(ptr noundef %33) #10
-  br label %.thread.thread44
+  br label %.thread.thread46
 
 .lr.ph35:                                         ; preds = %.preheader, %.lr.ph35
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %.lr.ph35 ], [ 0, %.preheader ]
@@ -525,11 +525,11 @@ define void @ff_channel_layouts_unref(ptr noundef captures(address) %0) local_un
   %41 = icmp slt i64 %indvars.iv.next41, %40
   br i1 %41, label %.lr.ph35, label %._crit_edge, !llvm.loop !51
 
-.thread.thread44:                                 ; preds = %11, %._crit_edge, %.thread
+.thread.thread46:                                 ; preds = %11, %._crit_edge, %.thread
   store ptr null, ptr %0, align 8, !tbaa !33
   br label %42
 
-42:                                               ; preds = %1, %.thread.thread44
+42:                                               ; preds = %1, %.thread.thread46
   ret void
 }
 
@@ -4198,7 +4198,7 @@ define range(i32 -22, 1) i32 @ff_formats_check_channel_layouts(ptr noundef %0, p
 23:                                               ; preds = %.lr.ph
   %24 = load i32, ptr %20, align 8, !tbaa !126
   %.not20.i = icmp eq i32 %24, 0
-  br i1 %.not20.i, label %25, label %.thread24.i
+  br i1 %.not20.i, label %25, label %.thread25.i
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -4211,38 +4211,38 @@ define range(i32 -22, 1) i32 @ff_formats_check_channel_layouts(ptr noundef %0, p
 30:                                               ; preds = %25
   br i1 %29, label %33, label %layouts_compatible.exit.thread
 
-.thread24.i:                                      ; preds = %23
+.thread25.i:                                      ; preds = %23
   %31 = load i32, ptr %21, align 8, !tbaa !126
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %layouts_compatible.exit.thread
 
-33:                                               ; preds = %.thread24.i, %30
+33:                                               ; preds = %.thread25.i, %30
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !31
   %.not16.i = icmp eq i32 %35, 0
-  br i1 %.not16.i, label %.thread22.i, label %36
+  br i1 %.not16.i, label %.thread23.i, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !31
   %39 = icmp eq i32 %38, %35
-  br i1 %39, label %.loopexit30.sink.split, label %.thread22.i
+  br i1 %39, label %.loopexit30.sink.split, label %.thread23.i
 
 40:                                               ; preds = %25
-  br i1 %29, label %..thread22.i_crit_edge, label %layouts_compatible.exit
+  br i1 %29, label %..thread23.i_crit_edge, label %layouts_compatible.exit
 
-..thread22.i_crit_edge:                           ; preds = %40
+..thread23.i_crit_edge:                           ; preds = %40
   %.phi.trans.insert41 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.pre42 = load i32, ptr %.phi.trans.insert41, align 4, !tbaa !31
-  br label %.thread22.i
+  br label %.thread23.i
 
-.thread22.i:                                      ; preds = %..thread22.i_crit_edge, %36, %33
-  %41 = phi i32 [ %.pre42, %..thread22.i_crit_edge ], [ 1, %36 ], [ 0, %33 ]
+.thread23.i:                                      ; preds = %..thread23.i_crit_edge, %36, %33
+  %41 = phi i32 [ %.pre42, %..thread23.i_crit_edge ], [ 1, %36 ], [ 0, %33 ]
   %42 = or i32 %41, %24
   %brmerge.not.i = icmp eq i32 %42, 0
   br i1 %brmerge.not.i, label %.thread.i, label %layouts_compatible.exit.thread
 
-.thread.i:                                        ; preds = %.thread22.i
+.thread.i:                                        ; preds = %.thread23.i
   %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %.pre44 = load i32, ptr %.phi.trans.insert43, align 4, !tbaa !31
   %.not18.i = icmp eq i32 %.pre44, 0
@@ -4255,7 +4255,7 @@ layouts_compatible.exit:                          ; preds = %40, %.thread.i
   %.not29 = icmp eq i32 %45, %43
   br i1 %.not29, label %.loopexit30.sink.split, label %layouts_compatible.exit.thread
 
-layouts_compatible.exit.thread:                   ; preds = %30, %.thread24.i, %.thread22.i, %.thread.i, %layouts_compatible.exit
+layouts_compatible.exit.thread:                   ; preds = %30, %.thread25.i, %.thread23.i, %.thread.i, %layouts_compatible.exit
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %46 = load i32, ptr %14, align 8, !tbaa !34
   %47 = zext i32 %46 to i64
@@ -4406,8 +4406,8 @@ define internal fastcc range(i32 -12, 2) i32 @merge_formats_internal(ptr noundef
   br i1 %61, label %.thread, label %.preheader88
 
 .preheader88:                                     ; preds = %7, %.loopexit90
-  %.pr152 = load i32, ptr %0, align 8, !tbaa !24
-  %.not126 = icmp eq i32 %.pr152, 0
+  %.pr157 = load i32, ptr %0, align 8, !tbaa !24
+  %.not126 = icmp eq i32 %.pr157, 0
   br i1 %.not126, label %.thread, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader88
@@ -4424,7 +4424,7 @@ define internal fastcc range(i32 -12, 2) i32 @merge_formats_internal(ptr noundef
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheaderthread-pre-split
   %65 = phi i32 [ %.pr, %.preheaderthread-pre-split ], [ %64, %.preheader.lr.ph ]
-  %66 = phi i32 [ %81, %.preheaderthread-pre-split ], [ %.pr152, %.preheader.lr.ph ]
+  %66 = phi i32 [ %81, %.preheaderthread-pre-split ], [ %.pr157, %.preheader.lr.ph ]
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %.preheaderthread-pre-split ], [ 0, %.preheader.lr.ph ]
   %.061116 = phi i32 [ %.162, %.preheaderthread-pre-split ], [ 0, %.preheader.lr.ph ]
   %.not128 = icmp eq i32 %65, 0

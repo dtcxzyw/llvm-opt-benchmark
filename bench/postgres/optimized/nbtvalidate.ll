@@ -257,16 +257,16 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %140 = load i32, ptr %138, align 4
   %141 = icmp sgt i32 %140, 0
-  br i1 %141, label %.lr.ph161, label %.critedge
+  br i1 %141, label %.lr.ph163, label %.critedge
 
-.lr.ph161:                                        ; preds = %.lr.ph129, %190
-  %.096123160 = phi i32 [ %.197, %190 ], [ 0, %.lr.ph129 ]
-  %.094124159 = phi ptr [ %.195, %190 ], [ null, %.lr.ph129 ]
-  %.091126158 = phi ptr [ %.192, %190 ], [ null, %.lr.ph129 ]
-  %.7127157 = phi i1 [ %.8, %190 ], [ %.3.lcssa, %.lr.ph129 ]
-  %indvars.iv141156 = phi i64 [ %indvars.iv.next142, %190 ], [ 0, %.lr.ph129 ]
+.lr.ph163:                                        ; preds = %.lr.ph129, %190
+  %.096123162 = phi i32 [ %.197, %190 ], [ 0, %.lr.ph129 ]
+  %.094124161 = phi ptr [ %.195, %190 ], [ null, %.lr.ph129 ]
+  %.091126160 = phi ptr [ %.192, %190 ], [ null, %.lr.ph129 ]
+  %.7127159 = phi i1 [ %.8, %190 ], [ %.3.lcssa, %.lr.ph129 ]
+  %indvars.iv141158 = phi i64 [ %indvars.iv.next142, %190 ], [ 0, %.lr.ph129 ]
   %142 = load ptr, ptr %139, align 8
-  %143 = getelementptr inbounds nuw %union.ListCell, ptr %142, i64 %indvars.iv141156
+  %143 = getelementptr inbounds nuw %union.ListCell, ptr %142, i64 %indvars.iv141158
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %146 = load i64, ptr %145, align 8
@@ -284,14 +284,14 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %.096123.lcssa = phi i32 [ %.197, %..critedge_crit_edge ], [ 0, %.lr.ph129 ]
   br i1 %.091126.lcssa, label %.critedge.thread, label %198
 
-149:                                              ; preds = %.lr.ph161
+149:                                              ; preds = %.lr.ph163
   %150 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %151 = load i64, ptr %150, align 8
   %152 = icmp eq i64 %151, 8
   br i1 %152, label %190, label %153
 
-153:                                              ; preds = %149, %.lr.ph161
-  %154 = add i32 %.096123160, 1
+153:                                              ; preds = %149, %.lr.ph163
+  %154 = add i32 %.096123162, 1
   %155 = load i32, ptr %144, align 8
   %156 = icmp eq i32 %155, %16
   br i1 %156, label %157, label %161
@@ -300,12 +300,12 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %158 = getelementptr inbounds nuw i8, ptr %144, i64 4
   %159 = load i32, ptr %158, align 4
   %160 = icmp eq i32 %159, %16
-  %spec.select = select i1 %160, ptr %144, ptr %.091126158
+  %spec.select = select i1 %160, ptr %144, ptr %.091126160
   br label %161
 
 161:                                              ; preds = %157, %153
-  %.293 = phi ptr [ %.091126158, %153 ], [ %spec.select, %157 ]
-  %162 = tail call ptr @list_append_unique_oid(ptr noundef %.094124159, i32 noundef %155) #4
+  %.293 = phi ptr [ %.091126160, %153 ], [ %spec.select, %157 ]
+  %162 = tail call ptr @list_append_unique_oid(ptr noundef %.094124161, i32 noundef %155) #4
   %163 = getelementptr inbounds nuw i8, ptr %144, i64 4
   %164 = load i32, ptr %163, align 4
   %165 = tail call ptr @list_append_unique_oid(ptr noundef %162, i32 noundef %164) #4
@@ -328,7 +328,7 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %176
 
 176:                                              ; preds = %167, %169, %161
-  %.9 = phi i1 [ %.7127157, %161 ], [ false, %169 ], [ false, %167 ]
+  %.9 = phi i1 [ %.7127159, %161 ], [ false, %169 ], [ false, %167 ]
   %177 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %178 = load i64, ptr %177, align 8
   %179 = and i64 %178, 2
@@ -350,19 +350,19 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %190
 
 190:                                              ; preds = %176, %183, %181, %149
-  %.197 = phi i32 [ %.096123160, %149 ], [ %154, %181 ], [ %154, %183 ], [ %154, %176 ]
-  %.195 = phi ptr [ %.094124159, %149 ], [ %165, %181 ], [ %165, %183 ], [ %165, %176 ]
-  %.192 = phi ptr [ %.091126158, %149 ], [ %.293, %181 ], [ %.293, %183 ], [ %.293, %176 ]
-  %.8 = phi i1 [ %.7127157, %149 ], [ false, %181 ], [ false, %183 ], [ %.9, %176 ]
-  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141156, 1
+  %.197 = phi i32 [ %.096123162, %149 ], [ %154, %181 ], [ %154, %183 ], [ %154, %176 ]
+  %.195 = phi ptr [ %.094124161, %149 ], [ %165, %181 ], [ %165, %183 ], [ %165, %176 ]
+  %.192 = phi ptr [ %.091126160, %149 ], [ %.293, %181 ], [ %.293, %183 ], [ %.293, %176 ]
+  %.8 = phi i1 [ %.7127159, %149 ], [ false, %181 ], [ false, %183 ], [ %.9, %176 ]
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141158, 1
   %191 = load i32, ptr %138, align 4
   %192 = sext i32 %191 to i64
   %193 = icmp slt i64 %indvars.iv.next142, %192
-  br i1 %193, label %.lr.ph161, label %..critedge_crit_edge
+  br i1 %193, label %.lr.ph163, label %..critedge_crit_edge
 
 .critedge.thread:                                 ; preds = %._crit_edge, %.critedge
-  %.094.lcssa150 = phi ptr [ %.094124.lcssa, %.critedge ], [ null, %._crit_edge ]
-  %.096.lcssa148 = phi i32 [ %.096123.lcssa, %.critedge ], [ 0, %._crit_edge ]
+  %.094.lcssa152 = phi ptr [ %.094124.lcssa, %.critedge ], [ null, %._crit_edge ]
+  %.096.lcssa150 = phi i32 [ %.096123.lcssa, %.critedge ], [ 0, %._crit_edge ]
   %194 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #4
   br i1 %194, label %195, label %198
 
@@ -373,21 +373,21 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %198
 
 198:                                              ; preds = %.critedge.thread, %195, %.critedge
-  %.094.lcssa149 = phi ptr [ %.094124.lcssa, %.critedge ], [ %.094.lcssa150, %195 ], [ %.094.lcssa150, %.critedge.thread ]
-  %.096.lcssa147 = phi i32 [ %.096123.lcssa, %.critedge ], [ %.096.lcssa148, %195 ], [ %.096.lcssa148, %.critedge.thread ]
+  %.094.lcssa151 = phi ptr [ %.094124.lcssa, %.critedge ], [ %.094.lcssa152, %195 ], [ %.094.lcssa152, %.critedge.thread ]
+  %.096.lcssa149 = phi i32 [ %.096123.lcssa, %.critedge ], [ %.096.lcssa150, %195 ], [ %.096.lcssa150, %.critedge.thread ]
   %.11 = phi i1 [ %.7127.lcssa, %.critedge ], [ false, %195 ], [ false, %.critedge.thread ]
-  %.not.i = icmp eq ptr %.094.lcssa149, null
+  %.not.i = icmp eq ptr %.094.lcssa151, null
   br i1 %.not.i, label %list_length.exit116, label %199
 
 199:                                              ; preds = %198
-  %200 = getelementptr inbounds nuw i8, ptr %.094.lcssa149, i64 4
+  %200 = getelementptr inbounds nuw i8, ptr %.094.lcssa151, i64 4
   %201 = load i32, ptr %200, align 4
   br label %list_length.exit116
 
 list_length.exit116:                              ; preds = %198, %199
   %202 = phi i32 [ %201, %199 ], [ 0, %198 ]
   %203 = mul i32 %202, %202
-  %.not109 = icmp eq i32 %.096.lcssa147, %203
+  %.not109 = icmp eq i32 %.096.lcssa149, %203
   br i1 %.not109, label %209, label %204
 
 204:                                              ; preds = %list_length.exit116

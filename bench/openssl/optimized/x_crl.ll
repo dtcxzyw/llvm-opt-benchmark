@@ -666,7 +666,7 @@ setup_idp.exit:                                   ; preds = %80, %.thread.i
   %135 = load i32, ptr %6, align 4
   %136 = icmp ne i32 %135, -1
   %or.cond5 = select i1 %134, i1 %136, i1 false
-  br i1 %or.cond5, label %.sink.split138, label %137
+  br i1 %or.cond5, label %.sink.split153, label %137
 
 137:                                              ; preds = %131
   br i1 %134, label %143, label %138
@@ -674,16 +674,16 @@ setup_idp.exit:                                   ; preds = %80, %.thread.i
 138:                                              ; preds = %137
   %139 = load ptr, ptr %123, align 8, !tbaa !45
   %.not104 = icmp eq ptr %139, null
-  br i1 %.not104, label %.sink.split138, label %143
+  br i1 %.not104, label %.sink.split153, label %143
 
-.sink.split138:                                   ; preds = %138, %131
+.sink.split153:                                   ; preds = %138, %131
   %140 = getelementptr inbounds nuw i8, ptr %7, i64 132
   %141 = load i32, ptr %140, align 4, !tbaa !49
   %142 = or i32 %141, 128
   store i32 %142, ptr %140, align 4, !tbaa !49
   br label %143
 
-143:                                              ; preds = %.sink.split138, %138, %137
+143:                                              ; preds = %.sink.split153, %138, %137
   %144 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %145 = load ptr, ptr %144, align 8, !tbaa !63
   %146 = call i32 @OPENSSL_sk_num(ptr noundef %145) #9

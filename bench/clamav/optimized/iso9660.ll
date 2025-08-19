@@ -159,7 +159,7 @@ define range(i32 23, 22) i32 @cli_scaniso(ptr noundef %0, i64 noundef %1) local_
   %61 = load i8, ptr %60, align 1, !tbaa !31
   switch i8 %61, label %62 [
     i8 64, label %.loopexit.loopexit
-    i8 67, label %.loopexit.loopexit186
+    i8 67, label %.loopexit.loopexit194
     i8 69, label %.loopexit
   ]
 
@@ -171,12 +171,12 @@ define range(i32 23, 22) i32 @cli_scaniso(ptr noundef %0, i64 noundef %1) local_
 .loopexit.loopexit:                               ; preds = %59
   br label %.loopexit
 
-.loopexit.loopexit186:                            ; preds = %59
+.loopexit.loopexit194:                            ; preds = %59
   br label %.loopexit
 
-.loopexit:                                        ; preds = %41, %44, %33, %62, %59, %.loopexit.loopexit186, %.loopexit.loopexit
-  %.not148 = phi ptr [ %40, %.loopexit.loopexit ], [ %40, %59 ], [ null, %62 ], [ null, %33 ], [ null, %44 ], [ null, %41 ], [ %40, %.loopexit.loopexit186 ]
-  %63 = phi i32 [ 1, %.loopexit.loopexit ], [ 3, %59 ], [ 0, %62 ], [ 0, %33 ], [ 0, %44 ], [ 0, %41 ], [ 2, %.loopexit.loopexit186 ]
+.loopexit:                                        ; preds = %41, %44, %33, %62, %59, %.loopexit.loopexit194, %.loopexit.loopexit
+  %.not148 = phi ptr [ %40, %.loopexit.loopexit ], [ %40, %59 ], [ null, %62 ], [ null, %33 ], [ null, %44 ], [ null, %41 ], [ %40, %.loopexit.loopexit194 ]
+  %63 = phi i32 [ 1, %.loopexit.loopexit ], [ 3, %59 ], [ 0, %62 ], [ 0, %33 ], [ 0, %44 ], [ 0, %41 ], [ 2, %.loopexit.loopexit194 ]
   %64 = load ptr, ptr %6, align 8, !tbaa !3
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 128
   %66 = load ptr, ptr %65, align 8, !tbaa !34
@@ -691,7 +691,7 @@ needblock.exit:                                   ; preds = %22
 
 60:                                               ; preds = %.lr.ph
   %61 = icmp ult i8 %56, 34
-  br i1 %61, label %.sink.split167, label %62
+  br i1 %61, label %.sink.split177, label %62
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %.0102155, i64 32
@@ -797,12 +797,12 @@ iso_string.exit:                                  ; preds = %78, %87
 119:                                              ; preds = %94
   %120 = load i8, ptr %108, align 1, !tbaa !31
   %.not125 = icmp eq i8 %120, 0
-  br i1 %.not125, label %121, label %.sink.split167
+  br i1 %.not125, label %121, label %.sink.split177
 
 121:                                              ; preds = %119
   %122 = load i8, ptr %111, align 1, !tbaa !31
   %.not126 = icmp eq i8 %122, 0
-  br i1 %.not126, label %123, label %.sink.split167
+  br i1 %.not126, label %123, label %.sink.split177
 
 123:                                              ; preds = %121
   %124 = load i8, ptr %103, align 1, !tbaa !31
@@ -817,7 +817,7 @@ iso_string.exit:                                  ; preds = %78, %87
 128:                                              ; preds = %123
   %129 = tail call i32 @cli_checklimits(ptr noundef nonnull @.str.35, ptr noundef %4, i64 noundef %117, i64 noundef 0, i64 noundef 0) #9
   %.not128 = icmp eq i32 %129, 0
-  br i1 %.not128, label %130, label %.sink.split167
+  br i1 %.not128, label %130, label %.sink.split177
 
 130:                                              ; preds = %128
   %131 = tail call fastcc i32 @iso_scan_file(ptr noundef %0, i32 noundef %100, i32 noundef %102)
@@ -828,12 +828,12 @@ iso_string.exit:                                  ; preds = %78, %87
   %.not129 = icmp eq i32 %.5, 0
   br i1 %.not129, label %133, label %.loopexit
 
-.sink.split167:                                   ; preds = %121, %119, %128, %60
+.sink.split177:                                   ; preds = %121, %119, %128, %60
   %.str.36.sink.sink = phi ptr [ @.str.29, %60 ], [ @.str.34, %121 ], [ @.str.34, %119 ], [ @.str.36, %128 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.36.sink.sink) #9
   br label %133
 
-133:                                              ; preds = %.sink.split167, %132, %67
+133:                                              ; preds = %.sink.split177, %132, %67
   %134 = zext i8 %56 to i64
   %135 = getelementptr inbounds nuw i8, ptr %.0102155, i64 %134
   %.198 = sub i32 %.097156, %57

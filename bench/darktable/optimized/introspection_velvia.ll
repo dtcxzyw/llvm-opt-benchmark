@@ -194,8 +194,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %65 = fsub reassoc nsz arcp contract afn float 2.000000e+00, %61
   %66 = fcmp reassoc nsz arcp contract afn olt float %65, 0.000000e+00
   %67 = select reassoc nsz arcp contract afn i1 %66, float 0.000000e+00, float %65
-  %.sink112 = select i1 %63, float %67, float %61
-  %68 = fadd reassoc nsz arcp contract afn float %.sink112, 0x3EE4F8B580000000
+  %.sink117 = select i1 %63, float %67, float %61
+  %68 = fadd reassoc nsz arcp contract afn float %.sink117, 0x3EE4F8B580000000
   %69 = fmul reassoc nsz arcp contract afn float %64, -1.500000e+00
   %.neg = fdiv reassoc nsz arcp contract afn float %69, %68
   %70 = fadd reassoc nsz arcp contract afn float %62, -5.000000e-01

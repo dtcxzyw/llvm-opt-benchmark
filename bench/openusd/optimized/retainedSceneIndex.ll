@@ -3100,8 +3100,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS
   %9 = and i64 %8, 7
   %.not.i12 = icmp eq i64 %9, 0
   %10 = and i64 %8, -8
-  %.not.i17 = icmp eq i64 %10, 0
-  %.not.i = or i1 %.not.i12, %.not.i17
+  %.not.i18 = icmp eq i64 %10, 0
+  %.not.i = or i1 %.not.i12, %.not.i18
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_20HdRetainedSceneIndex10_PrimEntryEE24_EraseSubtreeAndSiblingsEPNS3_6_EntryE.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5

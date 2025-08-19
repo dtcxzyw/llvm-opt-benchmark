@@ -340,9 +340,9 @@ _ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE7perform
   br i1 %cmp.not.i.i52, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE7performEv.exit, %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE7performEv.exit
-  %.sink54 = phi ptr [ %14, %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE7performEv.exit ], [ %29, %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE7performEv.exit ]
-  call void @_ZN6hermes3hbc20BCProviderFromBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %.sink54) #14
-  call void @_ZdlPv(ptr noundef nonnull %.sink54) #17
+  %.sink61 = phi ptr [ %14, %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE7performEv.exit ], [ %29, %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE7performEv.exit ]
+  call void @_ZN6hermes3hbc20BCProviderFromBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %.sink61) #14
+  call void @_ZdlPv(ptr noundef nonnull %.sink61) #17
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE7performEv.exit, %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE7performEv.exit, %entry

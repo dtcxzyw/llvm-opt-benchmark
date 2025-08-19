@@ -626,13 +626,13 @@ decode_vint_size.exit.i:                          ; preds = %3
   br label %dissect_variable_length_long.exit
 
 dissect_variable_length_long.exit:                ; preds = %3, %decode_vint_size.exit.i, %._crit_edge.i
-  %.037.lcssa.sink50.i = phi i32 [ %.037.lcssa.i, %._crit_edge.i ], [ 1, %3 ], [ 1, %decode_vint_size.exit.i ]
+  %.037.lcssa.sink51.i = phi i32 [ %.037.lcssa.i, %._crit_edge.i ], [ 1, %3 ], [ 1, %decode_vint_size.exit.i ]
   %.0.i = phi i32 [ %19, %._crit_edge.i ], [ %6, %3 ], [ %6, %decode_vint_size.exit.i ]
   %20 = load i32, ptr @hf_hdfsdata_clientlen, align 4
   %21 = load i32, ptr %2, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %20, ptr noundef %0, i32 noundef %21, i32 noundef %.037.lcssa.sink50.i, i32 noundef 0)
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %20, ptr noundef %0, i32 noundef %21, i32 noundef %.037.lcssa.sink51.i, i32 noundef 0)
   %23 = load i32, ptr %2, align 4
-  %24 = add i32 %23, %.037.lcssa.sink50.i
+  %24 = add i32 %23, %.037.lcssa.sink51.i
   store i32 %24, ptr %2, align 4
   %25 = load i32, ptr @hf_hdfsdata_clientid, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %25, ptr noundef %0, i32 noundef %24, i32 noundef %.0.i, i32 noundef 0)

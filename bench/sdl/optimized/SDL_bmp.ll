@@ -198,7 +198,7 @@ define hidden ptr @SDL_LoadBMP_IO_REAL(ptr noundef %0, i1 noundef zeroext %1) lo
 78:                                               ; preds = %76
   %79 = load i32, ptr %9, align 4
   %.not173 = icmp eq i32 %79, 64
-  br i1 %.not173, label %.thread258, label %80
+  br i1 %.not173, label %.thread276, label %80
 
 80:                                               ; preds = %78
   %81 = load i32, ptr %13, align 4
@@ -220,15 +220,15 @@ define hidden ptr @SDL_LoadBMP_IO_REAL(ptr noundef %0, i1 noundef zeroext %1) lo
 89:                                               ; preds = %87
   %90 = load i32, ptr %9, align 4
   %91 = icmp ugt i32 %90, 55
-  br i1 %91, label %92, label %.thread258
+  br i1 %91, label %92, label %.thread276
 
 92:                                               ; preds = %89
   %93 = call zeroext i1 @SDL_ReadU32LE_REAL(ptr noundef nonnull %0, ptr noundef nonnull %6) #4
-  br i1 %93, label %.thread258, label %.thread216
+  br i1 %93, label %.thread276, label %.thread216
 
 94:                                               ; preds = %80
   %95 = icmp ugt i32 %79, 51
-  br i1 %95, label %96, label %.thread258
+  br i1 %95, label %96, label %.thread276
 
 96:                                               ; preds = %94
   %97 = call zeroext i1 @SDL_ReadU32LE_REAL(ptr noundef nonnull %0, ptr noundef null) #4
@@ -245,13 +245,13 @@ define hidden ptr @SDL_LoadBMP_IO_REAL(ptr noundef %0, i1 noundef zeroext %1) lo
 102:                                              ; preds = %100
   %.pre = load i32, ptr %9, align 4
   %103 = icmp ugt i32 %.pre, 55
-  br i1 %103, label %104, label %.thread258
+  br i1 %103, label %104, label %.thread276
 
 104:                                              ; preds = %102
   %105 = call zeroext i1 @SDL_ReadU32LE_REAL(ptr noundef nonnull %0, ptr noundef null) #4
-  br i1 %105, label %.thread258, label %.thread216
+  br i1 %105, label %.thread276, label %.thread216
 
-.thread258:                                       ; preds = %94, %92, %89, %104, %102, %78
+.thread276:                                       ; preds = %94, %92, %89, %104, %102, %78
   %106 = call i64 @SDL_TellIO_REAL(ptr noundef nonnull %0) #4
   %reass.sub = sub i64 %106, %21
   %107 = trunc i64 %reass.sub to i32
@@ -260,14 +260,14 @@ define hidden ptr @SDL_LoadBMP_IO_REAL(ptr noundef %0, i1 noundef zeroext %1) lo
   %110 = icmp ugt i32 %109, %108
   br i1 %110, label %111, label %thread-pre-split
 
-111:                                              ; preds = %.thread258
+111:                                              ; preds = %.thread276
   %112 = sub nuw i32 %109, %108
   %113 = zext i32 %112 to i64
   %114 = call i64 @SDL_SeekIO_REAL(ptr noundef nonnull %0, i64 noundef %113, i32 noundef 1) #4
   %115 = icmp slt i64 %114, 0
   br i1 %115, label %.thread216, label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %56, %.thread258, %111
+thread-pre-split:                                 ; preds = %56, %.thread276, %111
   %.pr = load i32, ptr %11, align 4
   %.pre257 = load i32, ptr %10, align 4
   br label %116
@@ -335,12 +335,12 @@ thread-pre-split:                                 ; preds = %56, %.thread258, %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %137, %137, %139, %138
-  %.sink264 = phi i32 [ 16711680, %138 ], [ 16711680, %139 ], [ 31744, %137 ], [ 31744, %137 ]
-  %.sink263 = phi i32 [ 65280, %138 ], [ 65280, %139 ], [ 992, %137 ], [ 992, %137 ]
+  %.sink282 = phi i32 [ 16711680, %138 ], [ 16711680, %139 ], [ 31744, %137 ], [ 31744, %137 ]
+  %.sink281 = phi i32 [ 65280, %138 ], [ 65280, %139 ], [ 992, %137 ], [ 992, %137 ]
   %.sink = phi i32 [ 255, %138 ], [ 255, %139 ], [ 31, %137 ], [ 31, %137 ]
   %.0144.ph = phi i1 [ false, %138 ], [ true, %139 ], [ false, %137 ], [ false, %137 ]
-  store i32 %.sink264, ptr %3, align 4
-  store i32 %.sink263, ptr %4, align 4
+  store i32 %.sink282, ptr %3, align 4
+  store i32 %.sink281, ptr %4, align 4
   store i32 %.sink, ptr %5, align 4
   br label %140
 
@@ -1035,13 +1035,13 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.critedge.thread.thread363, label %35
+  br i1 %31, label %.critedge.thread.thread373, label %35
 
 .critedge.thread296:                              ; preds = %11
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread358, label %.critedge283.thread
+  br i1 %34, label %.thread368, label %.critedge283.thread
 
 35:                                               ; preds = %.critedge
   %36 = and i32 %13, 65280
@@ -1062,27 +1062,27 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
   %or.cond285 = icmp eq i32 %13, 372645892
   br i1 %or.cond285, label %51, label %42
 
-.critedge.thread.thread363:                       ; preds = %.critedge
-  %or.cond285365 = icmp eq i32 %13, 390076419
-  br i1 %or.cond285365, label %.thread303, label %42
+.critedge.thread.thread373:                       ; preds = %.critedge
+  %or.cond285375 = icmp eq i32 %13, 390076419
+  br i1 %or.cond285375, label %.thread303, label %42
 
-42:                                               ; preds = %.critedge.thread.thread363, %.critedge.thread
-  %43 = phi i32 [ 390076419, %.critedge.thread.thread363 ], [ 372645892, %.critedge.thread ]
-  %.0229295352367 = phi i1 [ false, %.critedge.thread.thread363 ], [ true, %.critedge.thread ]
+42:                                               ; preds = %.critedge.thread.thread373, %.critedge.thread
+  %43 = phi i32 [ 390076419, %.critedge.thread.thread373 ], [ 372645892, %.critedge.thread ]
+  %.0229295362377 = phi i1 [ false, %.critedge.thread.thread373 ], [ true, %.critedge.thread ]
   %44 = tail call ptr @SDL_ConvertSurface_REAL(ptr noundef nonnull %0, i32 noundef %43) #4
   %.not265 = icmp eq ptr %44, null
   br i1 %.not265, label %46, label %.thread300
 
-.thread358:                                       ; preds = %.critedge.thread296
+.thread368:                                       ; preds = %.critedge.thread296
   %45 = tail call ptr @SDL_ConvertSurface_REAL(ptr noundef nonnull %0, i32 noundef 390076419) #4
-  %.not265360 = icmp eq ptr %45, null
-  br i1 %.not265360, label %46, label %.thread303
+  %.not265370 = icmp eq ptr %45, null
+  br i1 %.not265370, label %46, label %.thread303
 
 .thread300:                                       ; preds = %42
-  br i1 %.0229295352367, label %51, label %.thread303
+  br i1 %.0229295362377, label %51, label %.thread303
 
-46:                                               ; preds = %.thread358, %42
-  %47 = phi i32 [ 390076419, %.thread358 ], [ %43, %42 ]
+46:                                               ; preds = %.thread368, %42
+  %47 = phi i32 [ 390076419, %.thread368 ], [ %43, %42 ]
   %48 = lshr i32 %47, 8
   %49 = and i32 %48, 56
   %50 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.16, i32 noundef %49) #4
@@ -1093,9 +1093,9 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
   %52 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.17, i1 noundef zeroext false) #4
   br label %.thread303
 
-.thread303:                                       ; preds = %.thread358, %.critedge.thread.thread363, %35, %.thread300, %51
-  %.1210307 = phi ptr [ %.1210309, %51 ], [ %44, %.thread300 ], [ %0, %35 ], [ %0, %.critedge.thread.thread363 ], [ %45, %.thread358 ]
-  %.not = phi i1 [ %52, %51 ], [ true, %.thread300 ], [ true, %35 ], [ true, %.critedge.thread.thread363 ], [ true, %.thread358 ]
+.thread303:                                       ; preds = %.thread368, %.critedge.thread.thread373, %35, %.thread300, %51
+  %.1210307 = phi ptr [ %.1210309, %51 ], [ %44, %.thread300 ], [ %0, %35 ], [ %0, %.critedge.thread.thread373 ], [ %45, %.thread368 ]
+  %.not = phi i1 [ %52, %51 ], [ true, %.thread300 ], [ true, %35 ], [ true, %.critedge.thread.thread373 ], [ true, %.thread368 ]
   %53 = tail call zeroext i1 @SDL_LockSurface_REAL(ptr noundef nonnull %.1210307) #4
   br i1 %53, label %54, label %.thread310
 

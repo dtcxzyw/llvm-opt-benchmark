@@ -265,11 +265,11 @@ HIDAPI_DriverShield_HandleStatePacketV103.exit:   ; preds = %90, %93
 
 124:                                              ; preds = %121
   %125 = icmp ult i8 %123, 8
-  %switch.cast70 = zext i8 %123 to i64
-  %switch.shiftamt71 = shl nuw nsw i64 %switch.cast70, 3
-  %switch.downshift72 = lshr i64 650783357575234305, %switch.shiftamt71
-  %switch.masked73 = trunc i64 %switch.downshift72 to i8
-  %.0.i51 = select i1 %125, i8 %switch.masked73, i8 0
+  %switch.cast85 = zext i8 %123 to i64
+  %switch.shiftamt86 = shl nuw nsw i64 %switch.cast85, 3
+  %switch.downshift87 = lshr i64 650783357575234305, %switch.shiftamt86
+  %switch.masked88 = trunc i64 %switch.downshift87 to i8
+  %.0.i51 = select i1 %125, i8 %switch.masked88, i8 0
   call void @SDL_SendJoystickHat(i64 noundef %58, ptr noundef nonnull %15, i8 noundef zeroext 0, i8 noundef zeroext %.0.i51) #8
   br label %126
 

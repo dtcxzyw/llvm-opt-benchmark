@@ -864,8 +864,8 @@ define internal fastcc void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, p
   %36 = and i64 %35, 4294967295
   %37 = icmp eq i64 %36, 1
   %38 = select i1 %19, ptr @.str.36, ptr %7
-  %.str.78..str.7984 = select i1 %37, ptr @.str.78, ptr @.str.79
-  %39 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %26, ptr noundef nonnull %.str.78..str.7984, ptr noundef nonnull %38, ptr noundef nonnull %2) #7
+  %.str.78..str.7988 = select i1 %37, ptr @.str.78, ptr @.str.79
+  %39 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %26, ptr noundef nonnull %.str.78..str.7988, ptr noundef nonnull %38, ptr noundef nonnull %2) #7
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %41 = load ptr, ptr %40, align 8
   br label %42
@@ -1140,7 +1140,7 @@ sub_0158:                                         ; preds = %84, %76
   br i1 %.not167, label %sub_1159, label %.tail157
 
 sub_1159:                                         ; preds = %sub_0158.thread, %sub_0158
-  %.0175 = phi ptr [ %83, %sub_0158.thread ], [ @.str.42, %sub_0158 ]
+  %.0181 = phi ptr [ %83, %sub_0158.thread ], [ @.str.42, %sub_0158 ]
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, 0
@@ -1148,9 +1148,9 @@ sub_1159:                                         ; preds = %sub_0158.thread, %s
   br label %.tail157
 
 .tail157:                                         ; preds = %sub_0154, %sub_0158, %sub_1159
-  %.0174 = phi ptr [ @.str.42, %sub_0158 ], [ %.0175, %sub_1159 ], [ @.str.42, %sub_0154 ]
+  %.0180 = phi ptr [ @.str.42, %sub_0158 ], [ %.0181, %sub_1159 ], [ @.str.42, %sub_0154 ]
   %92 = phi ptr [ %3, %sub_0158 ], [ %91, %sub_1159 ], [ %3, %sub_0154 ]
-  %93 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %29, ptr noundef nonnull @.str.44, ptr noundef nonnull %92, ptr noundef nonnull %.0174) #7
+  %93 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %29, ptr noundef nonnull @.str.44, ptr noundef nonnull %92, ptr noundef nonnull %.0180) #7
   br label %132
 
 94:                                               ; preds = %20
@@ -1217,9 +1217,9 @@ sub_1163:                                         ; preds = %sub_0162
   br label %127
 
 127:                                              ; preds = %125, %.tail161, %126
-  %.str.37.sink179 = phi ptr [ @.str.37, %126 ], [ @.str.35, %.tail161 ], [ @.str.35, %125 ]
+  %.str.37.sink185 = phi ptr [ @.str.37, %126 ], [ @.str.35, %.tail161 ], [ @.str.35, %125 ]
   %128 = select i1 %17, ptr @.str.36, ptr %6
-  %129 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %24, ptr noundef nonnull %.str.37.sink179, ptr noundef nonnull %128, ptr noundef nonnull %1) #7
+  %129 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %24, ptr noundef nonnull %.str.37.sink185, ptr noundef nonnull %128, ptr noundef nonnull %1) #7
   %130 = tail call ptr @ecpg_type_name(i32 noundef %2) #7
   %131 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %29, ptr noundef nonnull @.str.41, ptr noundef %130) #7
   br label %132
@@ -1250,8 +1250,8 @@ sub_1163:                                         ; preds = %sub_0162
   %142 = icmp ult i32 %switch.tableidx, 32
   %switch.shifted = lshr i32 -477118465, %switch.tableidx
   %switch.lobit = trunc i32 %switch.shifted to i1
-  %or.cond180 = select i1 %142, i1 %switch.lobit, i1 false
-  br i1 %or.cond180, label %switch.lookup, label %143
+  %or.cond186 = select i1 %142, i1 %switch.lobit, i1 false
+  br i1 %or.cond186, label %switch.lookup, label %143
 
 143:                                              ; preds = %141
   tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.14, i32 noundef range(i32 30, 29) %2) #7
@@ -1269,25 +1269,25 @@ get_type.exit:                                    ; preds = %switch.lookup, %143
   br label %151
 
 146:                                              ; preds = %139
-  %switch.tableidx182 = add i32 %2, -1
-  %147 = icmp ult i32 %switch.tableidx182, 32
-  %switch.shifted184 = lshr i32 -477118465, %switch.tableidx182
-  %switch.lobit185 = trunc i32 %switch.shifted184 to i1
-  %or.cond188 = select i1 %147, i1 %switch.lobit185, i1 false
-  br i1 %or.cond188, label %switch.lookup183, label %148
+  %switch.tableidx188 = add i32 %2, -1
+  %147 = icmp ult i32 %switch.tableidx188, 32
+  %switch.shifted190 = lshr i32 -477118465, %switch.tableidx188
+  %switch.lobit191 = trunc i32 %switch.shifted190 to i1
+  %or.cond194 = select i1 %147, i1 %switch.lobit191, i1 false
+  br i1 %or.cond194, label %switch.lookup189, label %148
 
 148:                                              ; preds = %146
   tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.14, i32 noundef range(i32 30, 29) %2) #7
   br label %get_type.exit144
 
-switch.lookup183:                                 ; preds = %146
-  %149 = zext nneg i32 %switch.tableidx182 to i64
-  %switch.gep186 = getelementptr inbounds nuw [32 x ptr], ptr @switch.table.ECPGdump_a_simple.1, i64 0, i64 %149
-  %switch.load187 = load ptr, ptr %switch.gep186, align 8
+switch.lookup189:                                 ; preds = %146
+  %149 = zext nneg i32 %switch.tableidx188 to i64
+  %switch.gep192 = getelementptr inbounds nuw [32 x ptr], ptr @switch.table.ECPGdump_a_simple.1, i64 0, i64 %149
+  %switch.load193 = load ptr, ptr %switch.gep192, align 8
   br label %get_type.exit144
 
-get_type.exit144:                                 ; preds = %switch.lookup183, %148
-  %.0.i143 = phi ptr [ null, %148 ], [ %switch.load187, %switch.lookup183 ]
+get_type.exit144:                                 ; preds = %switch.lookup189, %148
+  %.0.i143 = phi ptr [ null, %148 ], [ %switch.load193, %switch.lookup189 ]
   %150 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.51, ptr noundef %.0.i143, ptr noundef %24, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   br label %151
 

@@ -346,14 +346,14 @@ define dso_local i32 @idr_for_each(ptr noundef %0, ptr noundef readonly captures
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   br label %10
 
-.loopexit4:                                       ; preds = %36, %30
+.loopexit7:                                       ; preds = %36, %30
   %.ph = phi i64 [ %38, %36 ], [ %31, %30 ]
-  %.ph5 = phi ptr [ %37, %36 ], [ null, %30 ]
+  %.ph8 = phi ptr [ %37, %36 ], [ null, %30 ]
   br label %10
 
-10:                                               ; preds = %.loopexit4, %3
-  %11 = phi i64 [ 0, %3 ], [ %.ph, %.loopexit4 ]
-  %12 = phi ptr [ null, %3 ], [ %.ph5, %.loopexit4 ]
+10:                                               ; preds = %.loopexit7, %3
+  %11 = phi i64 [ 0, %3 ], [ %.ph, %.loopexit7 ]
+  %12 = phi ptr [ null, %3 ], [ %.ph8, %.loopexit7 ]
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %17
 
@@ -398,7 +398,7 @@ define dso_local i32 @idr_for_each(ptr noundef %0, ptr noundef readonly captures
   %33 = phi i64 [ %29, %26 ], [ %34, %36 ]
   %34 = add i64 %33, -1
   %35 = icmp slt i64 %34, 1
-  br i1 %35, label %.loopexit4, label %36, !llvm.loop !16
+  br i1 %35, label %.loopexit7, label %36, !llvm.loop !16
 
 36:                                               ; preds = %30
   %37 = getelementptr i8, ptr %32, i64 8
@@ -406,7 +406,7 @@ define dso_local i32 @idr_for_each(ptr noundef %0, ptr noundef readonly captures
   store i64 %38, ptr %4, align 8
   %39 = load ptr, ptr %37, align 8
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %30, label %.loopexit4, !prof !5, !llvm.loop !16
+  br i1 %40, label %30, label %.loopexit7, !prof !5, !llvm.loop !16
 
 .loopexit:                                        ; preds = %14, %22, %.thread
   %41 = phi i32 [ 0, %.thread ], [ 0, %14 ], [ %25, %22 ]
@@ -435,12 +435,12 @@ define dso_local ptr @idr_get_next_ul(ptr noundef %0, ptr noundef captures(none)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %13
 
-.loopexit10:                                      ; preds = %43, %37
+.loopexit13:                                      ; preds = %43, %37
   %.ph = phi ptr [ null, %37 ], [ %44, %43 ]
   br label %13
 
-13:                                               ; preds = %.loopexit10, %2
-  %14 = phi ptr [ null, %2 ], [ %.ph, %.loopexit10 ]
+13:                                               ; preds = %.loopexit13, %2
+  %14 = phi ptr [ null, %2 ], [ %.ph, %.loopexit13 ]
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %19
 
@@ -495,7 +495,7 @@ define dso_local ptr @idr_get_next_ul(ptr noundef %0, ptr noundef captures(none)
   %40 = phi i64 [ %36, %32 ], [ %41, %43 ]
   %41 = add i64 %40, -1
   %42 = icmp slt i64 %41, 1
-  br i1 %42, label %.loopexit10, label %43, !llvm.loop !19
+  br i1 %42, label %.loopexit13, label %43, !llvm.loop !19
 
 43:                                               ; preds = %37
   %44 = getelementptr i8, ptr %39, i64 8
@@ -503,7 +503,7 @@ define dso_local ptr @idr_get_next_ul(ptr noundef %0, ptr noundef captures(none)
   store i64 %45, ptr %3, align 8
   %46 = load ptr, ptr %44, align 8
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %37, label %.loopexit10, !prof !5, !llvm.loop !19
+  br i1 %47, label %37, label %.loopexit13, !prof !5, !llvm.loop !19
 
 split:                                            ; preds = %27, %._crit_edge
   %48 = phi i64 [ %.pre, %._crit_edge ], [ %.pre4, %27 ]
@@ -536,12 +536,12 @@ define dso_local ptr @idr_get_next(ptr noundef %0, ptr noundef captures(none) %1
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %14
 
-.loopexit10:                                      ; preds = %44, %38
+.loopexit14:                                      ; preds = %44, %38
   %.ph = phi ptr [ %45, %44 ], [ null, %38 ]
   br label %14
 
-14:                                               ; preds = %.loopexit10, %2
-  %15 = phi ptr [ null, %2 ], [ %.ph, %.loopexit10 ]
+14:                                               ; preds = %.loopexit14, %2
+  %15 = phi ptr [ null, %2 ], [ %.ph, %.loopexit14 ]
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %20
 
@@ -596,7 +596,7 @@ define dso_local ptr @idr_get_next(ptr noundef %0, ptr noundef captures(none) %1
   %41 = phi i64 [ %37, %33 ], [ %42, %44 ]
   %42 = add i64 %41, -1
   %43 = icmp slt i64 %42, 1
-  br i1 %43, label %.loopexit10, label %44, !llvm.loop !19
+  br i1 %43, label %.loopexit14, label %44, !llvm.loop !19
 
 44:                                               ; preds = %38
   %45 = getelementptr i8, ptr %40, i64 8
@@ -604,7 +604,7 @@ define dso_local ptr @idr_get_next(ptr noundef %0, ptr noundef captures(none) %1
   store i64 %46, ptr %3, align 8
   %47 = load ptr, ptr %45, align 8
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %38, label %.loopexit10, !prof !5, !llvm.loop !19
+  br i1 %48, label %38, label %.loopexit14, !prof !5, !llvm.loop !19
 
 .thread:                                          ; preds = %28, %..thread_crit_edge
   %49 = phi i64 [ %.pre, %..thread_crit_edge ], [ %.pre5, %28 ]

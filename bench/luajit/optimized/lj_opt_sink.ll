@@ -437,8 +437,8 @@ sink_checkphi.exit66.thread.i:                    ; preds = %sink_checkphi.exit6
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %233, %211, %190, %sink_checkphi.exit66.thread.i, %sink_checkphi.exit.thread.i, %73, %60
-  %.sink84.i = phi ptr [ %203, %211 ], [ %64, %60 ], [ %143, %sink_checkphi.exit.thread.i ], [ %189, %sink_checkphi.exit66.thread.i ], [ %194, %190 ], [ %77, %73 ], [ %236, %233 ]
-  %237 = getelementptr inbounds nuw i8, ptr %.sink84.i, i64 4
+  %.sink90.i = phi ptr [ %203, %211 ], [ %64, %60 ], [ %143, %sink_checkphi.exit.thread.i ], [ %189, %sink_checkphi.exit66.thread.i ], [ %194, %190 ], [ %77, %73 ], [ %236, %233 ]
+  %237 = getelementptr inbounds nuw i8, ptr %.sink90.i, i64 4
   %238 = load i8, ptr %237, align 4, !tbaa !37
   %239 = or i8 %238, 32
   store i8 %239, ptr %237, align 4, !tbaa !37

@@ -1888,9 +1888,9 @@ cleanup_capture_info.exit149:                     ; preds = %253, %._crit_edge.i
   %292 = getelementptr inbounds nuw i8, ptr %11, i64 108
   store i32 %291, ptr %292, align 4
   %.not130 = icmp ne i32 %291, 0
-  %spec.select243 = zext i1 %.not130 to i8
+  %spec.select390 = zext i1 %.not130 to i8
   %293 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  store i8 %spec.select243, ptr %293, align 8
+  store i8 %spec.select390, ptr %293, align 8
   %294 = getelementptr inbounds nuw i8, ptr %11, i64 112
   store i32 %.092.lcssa, ptr %294, align 8
   %295 = getelementptr inbounds nuw i8, ptr %11, i64 116
@@ -3745,8 +3745,8 @@ putquote.exit113.i:                               ; preds = %1172, %putquote.exi
   br i1 %.not.i114.i, label %putquote.exit107.i, label %putquote.exit107.sink.split.i
 
 putquote.exit107.sink.split.i:                    ; preds = %putquote.exit113.i, %putquote.exit105.i
-  %.sink204.i = phi i8 [ %1155, %putquote.exit105.i ], [ %1177, %putquote.exit113.i ]
-  %1178 = zext nneg i8 %.sink204.i to i32
+  %.sink262.i = phi i8 [ %1155, %putquote.exit105.i ], [ %1177, %putquote.exit113.i ]
+  %1178 = zext nneg i8 %.sink262.i to i32
   %1179 = load ptr, ptr @stdout, align 8
   %1180 = call i32 @putc(i32 noundef %1178, ptr noundef %1179)
   br label %putquote.exit107.i
@@ -4239,16 +4239,16 @@ putquote.exit167.i:                               ; preds = %1415, %putquote.exi
 putquote.exit169.i:                               ; preds = %1425, %1419
   %1429 = load i32, ptr %307, align 4
   %1430 = icmp ult i32 %1429, 3
-  br i1 %1430, label %switch.lookup248, label %order_string.exit.i169
+  br i1 %1430, label %switch.lookup395, label %order_string.exit.i169
 
-switch.lookup248:                                 ; preds = %putquote.exit169.i
+switch.lookup395:                                 ; preds = %putquote.exit169.i
   %1431 = zext nneg i32 %1429 to i64
-  %switch.gep249 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.process_cap_file.2, i64 0, i64 %1431
-  %switch.load250 = load ptr, ptr %switch.gep249, align 8
+  %switch.gep396 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.process_cap_file.2, i64 0, i64 %1431
+  %switch.load397 = load ptr, ptr %switch.gep396, align 8
   br label %order_string.exit.i169
 
-order_string.exit.i169:                           ; preds = %putquote.exit169.i, %switch.lookup248
-  %.0.i.i170 = phi ptr [ %switch.load250, %switch.lookup248 ], [ @.str.148, %putquote.exit169.i ]
+order_string.exit.i169:                           ; preds = %putquote.exit169.i, %switch.lookup395
+  %.0.i.i170 = phi ptr [ %switch.load397, %switch.lookup395 ], [ @.str.148, %putquote.exit169.i ]
   %1432 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.93, ptr noundef nonnull %.0.i.i170)
   %1433 = load i8, ptr @quote_char, align 1
   %.not.i170.i = icmp eq i8 %1433, 0
@@ -4508,8 +4508,8 @@ putquote.exit193.i:                               ; preds = %1552, %.preheader.i
   br label %1560
 
 1560:                                             ; preds = %1558, %putquote.exit193.i
-  %.sink205.i = phi ptr [ %1559, %1558 ], [ %1557, %putquote.exit193.i ]
-  %1561 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.93, ptr noundef %.sink205.i)
+  %.sink263.i = phi ptr [ %1559, %1558 ], [ %1557, %putquote.exit193.i ]
+  %1561 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.93, ptr noundef %.sink263.i)
   %1562 = load ptr, ptr %1556, align 8
   call void @g_free(ptr noundef %1562)
   %1563 = load i8, ptr @quote_char, align 1

@@ -1243,9 +1243,9 @@ _ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit: ; pre
   br i1 %93, label %_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit.thread, label %85, !llvm.loop !34
 
 .loopexit30.sink.split.i:                         ; preds = %82, %75
-  %.sink52.i = phi i8 [ 1, %75 ], [ 0, %82 ]
+  %.sink55.i = phi i8 [ 1, %75 ], [ 0, %82 ]
   %94 = getelementptr inbounds nuw i8, ptr %.02238.i, i64 8
-  store i8 %.sink52.i, ptr %6, align 1
+  store i8 %.sink55.i, ptr %6, align 1
   %95 = load ptr, ptr %94, align 8
   br label %_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit.thread
 
@@ -1562,9 +1562,9 @@ define noundef ptr @_ZN11TransTableS7FindSOPEPKiiPNS_11winCardTypeERb(ptr nounde
   br i1 %37, label %.loopexit30, label %29, !llvm.loop !34
 
 .loopexit30.sink.split:                           ; preds = %26, %19
-  %.sink52 = phi i8 [ 1, %19 ], [ 0, %26 ]
+  %.sink55 = phi i8 [ 1, %19 ], [ 0, %26 ]
   %38 = getelementptr inbounds nuw i8, ptr %.02238, i64 8
-  store i8 %.sink52, ptr %4, align 1
+  store i8 %.sink55, ptr %4, align 1
   %39 = load ptr, ptr %38, align 8
   br label %.loopexit30
 
@@ -2712,7 +2712,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit41: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %33
   store ptr %27, ptr %0, align 8
-  %37 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %28, i64 %1
+  %37 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %1
   store ptr %37, ptr %4, align 8
   %38 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %25
   store ptr %38, ptr %11, align 8

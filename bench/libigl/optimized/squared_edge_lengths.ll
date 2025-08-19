@@ -2982,9 +2982,9 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %115 = load <2 x double>, ptr %113, align 1, !tbaa !109
   %116 = fsub <2 x double> %114, %115
   %117 = fmul <2 x double> %116, %116
-  %shift97 = shufflevector <2 x double> %117, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop98 = fadd <2 x double> %117, %shift97
-  %118 = extractelement <2 x double> %foldExtExtBinop98, i64 0
+  %shift100 = shufflevector <2 x double> %117, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop101 = fadd <2 x double> %117, %shift100
+  %118 = extractelement <2 x double> %foldExtExtBinop101, i64 0
   br label %.lr.ph85.i.i.i.i.us52
 
 .lr.ph85.i.i.i.i.us52:                            ; preds = %.lr.ph85.i.i.i.i.preheader.us58, %.lr.ph85.i.i.i.i.us52
@@ -3024,9 +3024,9 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %139 = load <2 x double>, ptr %137, align 1, !tbaa !109
   %140 = fsub <2 x double> %138, %139
   %141 = fmul <2 x double> %140, %140
-  %shift100 = shufflevector <2 x double> %141, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop101 = fadd <2 x double> %141, %shift100
-  %142 = extractelement <2 x double> %foldExtExtBinop101, i64 0
+  %shift103 = shufflevector <2 x double> %141, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop104 = fadd <2 x double> %141, %shift103
+  %142 = extractelement <2 x double> %foldExtExtBinop104, i64 0
   %143 = getelementptr double, ptr %31, i64 %indvars.iv
   store double %142, ptr %143, align 8, !tbaa !61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3264,9 +3264,9 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %115 = load <2 x double>, ptr %113, align 1, !tbaa !109
   %116 = fsub <2 x double> %114, %115
   %117 = fmul <2 x double> %116, %116
-  %shift97 = shufflevector <2 x double> %117, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop98 = fadd <2 x double> %117, %shift97
-  %118 = extractelement <2 x double> %foldExtExtBinop98, i64 0
+  %shift100 = shufflevector <2 x double> %117, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop101 = fadd <2 x double> %117, %shift100
+  %118 = extractelement <2 x double> %foldExtExtBinop101, i64 0
   br label %.lr.ph85.i.i.i.i.us52
 
 .lr.ph85.i.i.i.i.us52:                            ; preds = %.lr.ph85.i.i.i.i.preheader.us58, %.lr.ph85.i.i.i.i.us52
@@ -3306,9 +3306,9 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %139 = load <2 x double>, ptr %137, align 1, !tbaa !109
   %140 = fsub <2 x double> %138, %139
   %141 = fmul <2 x double> %140, %140
-  %shift100 = shufflevector <2 x double> %141, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop101 = fadd <2 x double> %141, %shift100
-  %142 = extractelement <2 x double> %foldExtExtBinop101, i64 0
+  %shift103 = shufflevector <2 x double> %141, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop104 = fadd <2 x double> %141, %shift103
+  %142 = extractelement <2 x double> %foldExtExtBinop104, i64 0
   %143 = getelementptr double, ptr %31, i64 %indvars.iv
   store double %142, ptr %143, align 8, !tbaa !61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -18288,7 +18288,7 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %foldExtExtBinop = fadd <2 x double> %.072.i.i.i.i, %shift
   %71 = extractelement <2 x double> %foldExtExtBinop, i64 0
   %72 = icmp slt i64 %29, %16
-  br i1 %72, label %.lr.ph85.i.i.i.i, label %.loopexit149
+  br i1 %72, label %.lr.ph85.i.i.i.i, label %.loopexit153
 
 .lr.ph85.i.i.i.i:                                 ; preds = %70, %.lr.ph85.i.i.i.i
   %.05283.i.i.i.i = phi i64 [ %80, %.lr.ph85.i.i.i.i ], [ %29, %70 ]
@@ -18302,9 +18302,9 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %79 = fadd double %.182.i.i.i.i, %78
   %80 = add nsw i64 %.05283.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %80, %16
-  br i1 %exitcond.not.i.i.i.i, label %.loopexit149, label %.lr.ph85.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i.i.i.i, label %.loopexit153, label %.lr.ph85.i.i.i.i, !llvm.loop !111
 
-.loopexit149:                                     ; preds = %.lr.ph85.i.i.i.i, %70
+.loopexit153:                                     ; preds = %.lr.ph85.i.i.i.i, %70
   %.0.i.i.ph.ph = phi double [ %71, %70 ], [ %79, %.lr.ph85.i.i.i.i ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %82 = load ptr, ptr %81, align 8, !tbaa !760
@@ -18323,7 +18323,7 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %94 = icmp sgt i64 %16, 3
   br i1 %94, label %95, label %129
 
-95:                                               ; preds = %.loopexit149
+95:                                               ; preds = %.loopexit153
   %96 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %97 = load <2 x double>, ptr %96, align 1, !tbaa !109
   %98 = getelementptr inbounds nuw i8, ptr %89, i64 16
@@ -18374,11 +18374,11 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %128 = fadd <2 x double> %103, %127
   br label %129
 
-129:                                              ; preds = %121, %._crit_edge.i.i.i.i22, %.loopexit149
-  %.072.i.i.i.i16 = phi <2 x double> [ %93, %.loopexit149 ], [ %128, %121 ], [ %103, %._crit_edge.i.i.i.i22 ]
-  %shift167 = shufflevector <2 x double> %.072.i.i.i.i16, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop168 = fadd <2 x double> %.072.i.i.i.i16, %shift167
-  %130 = extractelement <2 x double> %foldExtExtBinop168, i64 0
+129:                                              ; preds = %121, %._crit_edge.i.i.i.i22, %.loopexit153
+  %.072.i.i.i.i16 = phi <2 x double> [ %93, %.loopexit153 ], [ %128, %121 ], [ %103, %._crit_edge.i.i.i.i22 ]
+  %shift171 = shufflevector <2 x double> %.072.i.i.i.i16, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop172 = fadd <2 x double> %.072.i.i.i.i16, %shift171
+  %130 = extractelement <2 x double> %foldExtExtBinop172, i64 0
   %131 = icmp slt i64 %29, %16
   br i1 %131, label %.lr.ph85.i.i.i.i18, label %.loopexit
 
@@ -18473,9 +18473,9 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
 
 188:                                              ; preds = %180, %._crit_edge.i.i.i.i45, %.loopexit
   %.072.i.i.i.i39 = phi <2 x double> [ %152, %.loopexit ], [ %187, %180 ], [ %162, %._crit_edge.i.i.i.i45 ]
-  %shift170 = shufflevector <2 x double> %.072.i.i.i.i39, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop171 = fadd <2 x double> %.072.i.i.i.i39, %shift170
-  %189 = extractelement <2 x double> %foldExtExtBinop171, i64 0
+  %shift174 = shufflevector <2 x double> %.072.i.i.i.i39, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop175 = fadd <2 x double> %.072.i.i.i.i39, %shift174
+  %189 = extractelement <2 x double> %foldExtExtBinop175, i64 0
   %190 = icmp slt i64 %29, %16
   br i1 %190, label %.lr.ph85.i.i.i.i41, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit54
 
@@ -19358,7 +19358,7 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %foldExtExtBinop = fadd <2 x double> %.072.i.i.i.i, %shift
   %70 = extractelement <2 x double> %foldExtExtBinop, i64 0
   %71 = icmp slt i64 %28, %16
-  br i1 %71, label %.lr.ph85.i.i.i.i, label %.loopexit355
+  br i1 %71, label %.lr.ph85.i.i.i.i, label %.loopexit362
 
 .lr.ph85.i.i.i.i:                                 ; preds = %69, %.lr.ph85.i.i.i.i
   %.05283.i.i.i.i = phi i64 [ %79, %.lr.ph85.i.i.i.i ], [ %28, %69 ]
@@ -19372,9 +19372,9 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %78 = fadd double %.182.i.i.i.i, %77
   %79 = add nsw i64 %.05283.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %79, %16
-  br i1 %exitcond.not.i.i.i.i, label %.loopexit355, label %.lr.ph85.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i.i.i.i, label %.loopexit362, label %.lr.ph85.i.i.i.i, !llvm.loop !111
 
-.loopexit355:                                     ; preds = %.lr.ph85.i.i.i.i, %69
+.loopexit362:                                     ; preds = %.lr.ph85.i.i.i.i, %69
   %.0.i.i.ph.ph = phi double [ %70, %69 ], [ %78, %.lr.ph85.i.i.i.i ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !794
@@ -19394,7 +19394,7 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %94 = icmp sgt i64 %16, 3
   br i1 %94, label %95, label %129
 
-95:                                               ; preds = %.loopexit355
+95:                                               ; preds = %.loopexit362
   %96 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %97 = load <2 x double>, ptr %96, align 1, !tbaa !109
   %98 = getelementptr inbounds nuw i8, ptr %89, i64 16
@@ -19445,13 +19445,13 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %128 = fadd <2 x double> %103, %127
   br label %129
 
-129:                                              ; preds = %121, %._crit_edge.i.i.i.i31, %.loopexit355
-  %.072.i.i.i.i25 = phi <2 x double> [ %93, %.loopexit355 ], [ %128, %121 ], [ %103, %._crit_edge.i.i.i.i31 ]
-  %shift391 = shufflevector <2 x double> %.072.i.i.i.i25, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop392 = fadd <2 x double> %.072.i.i.i.i25, %shift391
-  %130 = extractelement <2 x double> %foldExtExtBinop392, i64 0
+129:                                              ; preds = %121, %._crit_edge.i.i.i.i31, %.loopexit362
+  %.072.i.i.i.i25 = phi <2 x double> [ %93, %.loopexit362 ], [ %128, %121 ], [ %103, %._crit_edge.i.i.i.i31 ]
+  %shift398 = shufflevector <2 x double> %.072.i.i.i.i25, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop399 = fadd <2 x double> %.072.i.i.i.i25, %shift398
+  %130 = extractelement <2 x double> %foldExtExtBinop399, i64 0
   %131 = icmp slt i64 %28, %16
-  br i1 %131, label %.lr.ph85.i.i.i.i27, label %.loopexit354
+  br i1 %131, label %.lr.ph85.i.i.i.i27, label %.loopexit361
 
 .lr.ph85.i.i.i.i27:                               ; preds = %129, %.lr.ph85.i.i.i.i27
   %.05283.i.i.i.i28 = phi i64 [ %139, %.lr.ph85.i.i.i.i27 ], [ %28, %129 ]
@@ -19465,15 +19465,15 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %138 = fadd double %.182.i.i.i.i29, %137
   %139 = add nsw i64 %.05283.i.i.i.i28, 1
   %exitcond.not.i.i.i.i30 = icmp eq i64 %139, %16
-  br i1 %exitcond.not.i.i.i.i30, label %.loopexit354, label %.lr.ph85.i.i.i.i27, !llvm.loop !111
+  br i1 %exitcond.not.i.i.i.i30, label %.loopexit361, label %.lr.ph85.i.i.i.i27, !llvm.loop !111
 
-.loopexit354:                                     ; preds = %.lr.ph85.i.i.i.i27, %129
+.loopexit361:                                     ; preds = %.lr.ph85.i.i.i.i27, %129
   %.0.i.i26.ph.ph = phi double [ %130, %129 ], [ %138, %.lr.ph85.i.i.i.i27 ]
   %140 = load i64, ptr %83, align 8, !tbaa !68
   %141 = getelementptr double, ptr %84, i64 %140
   store double %.0.i.i26.ph.ph, ptr %141, align 8, !tbaa !61
-  %.idx297345 = shl i64 %9, 3
-  %142 = getelementptr i8, ptr %10, i64 %.idx297345
+  %.idx297352 = shl i64 %9, 3
+  %142 = getelementptr i8, ptr %10, i64 %.idx297352
   %143 = load i32, ptr %142, align 4, !tbaa !28
   %144 = sext i32 %143 to i64
   %145 = mul nsw i64 %16, %144
@@ -19485,7 +19485,7 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %151 = icmp sgt i64 %16, 3
   br i1 %151, label %152, label %186
 
-152:                                              ; preds = %.loopexit354
+152:                                              ; preds = %.loopexit361
   %153 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %154 = load <2 x double>, ptr %153, align 1, !tbaa !109
   %155 = getelementptr inbounds nuw i8, ptr %146, i64 16
@@ -19536,13 +19536,13 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %185 = fadd <2 x double> %160, %184
   br label %186
 
-186:                                              ; preds = %178, %._crit_edge.i.i.i.i54, %.loopexit354
-  %.072.i.i.i.i48 = phi <2 x double> [ %150, %.loopexit354 ], [ %185, %178 ], [ %160, %._crit_edge.i.i.i.i54 ]
-  %shift394 = shufflevector <2 x double> %.072.i.i.i.i48, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop395 = fadd <2 x double> %.072.i.i.i.i48, %shift394
-  %187 = extractelement <2 x double> %foldExtExtBinop395, i64 0
+186:                                              ; preds = %178, %._crit_edge.i.i.i.i54, %.loopexit361
+  %.072.i.i.i.i48 = phi <2 x double> [ %150, %.loopexit361 ], [ %185, %178 ], [ %160, %._crit_edge.i.i.i.i54 ]
+  %shift401 = shufflevector <2 x double> %.072.i.i.i.i48, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop402 = fadd <2 x double> %.072.i.i.i.i48, %shift401
+  %187 = extractelement <2 x double> %foldExtExtBinop402, i64 0
   %188 = icmp slt i64 %28, %16
-  br i1 %188, label %.lr.ph85.i.i.i.i50, label %.loopexit353
+  br i1 %188, label %.lr.ph85.i.i.i.i50, label %.loopexit360
 
 .lr.ph85.i.i.i.i50:                               ; preds = %186, %.lr.ph85.i.i.i.i50
   %.05283.i.i.i.i51 = phi i64 [ %196, %.lr.ph85.i.i.i.i50 ], [ %28, %186 ]
@@ -19556,12 +19556,12 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %195 = fadd double %.182.i.i.i.i52, %194
   %196 = add nsw i64 %.05283.i.i.i.i51, 1
   %exitcond.not.i.i.i.i53 = icmp eq i64 %196, %16
-  br i1 %exitcond.not.i.i.i.i53, label %.loopexit353, label %.lr.ph85.i.i.i.i50, !llvm.loop !111
+  br i1 %exitcond.not.i.i.i.i53, label %.loopexit360, label %.lr.ph85.i.i.i.i50, !llvm.loop !111
 
-.loopexit353:                                     ; preds = %.lr.ph85.i.i.i.i50, %186
+.loopexit360:                                     ; preds = %.lr.ph85.i.i.i.i50, %186
   %.0.i.i49.ph.ph = phi double [ %187, %186 ], [ %195, %.lr.ph85.i.i.i.i50 ]
-  %.idx298347 = shl i64 %140, 4
-  %197 = getelementptr i8, ptr %84, i64 %.idx298347
+  %.idx298354 = shl i64 %140, 4
+  %197 = getelementptr i8, ptr %84, i64 %.idx298354
   store double %.0.i.i49.ph.ph, ptr %197, align 8, !tbaa !61
   %198 = load <2 x double>, ptr %89, align 1, !tbaa !109
   %199 = load <2 x double>, ptr %146, align 1, !tbaa !109
@@ -19570,7 +19570,7 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %202 = icmp sgt i64 %16, 3
   br i1 %202, label %203, label %237
 
-203:                                              ; preds = %.loopexit353
+203:                                              ; preds = %.loopexit360
   %204 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %205 = load <2 x double>, ptr %204, align 1, !tbaa !109
   %206 = getelementptr inbounds nuw i8, ptr %146, i64 16
@@ -19621,13 +19621,13 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %236 = fadd <2 x double> %211, %235
   br label %237
 
-237:                                              ; preds = %229, %._crit_edge.i.i.i.i77, %.loopexit353
-  %.072.i.i.i.i71 = phi <2 x double> [ %201, %.loopexit353 ], [ %236, %229 ], [ %211, %._crit_edge.i.i.i.i77 ]
-  %shift397 = shufflevector <2 x double> %.072.i.i.i.i71, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop398 = fadd <2 x double> %.072.i.i.i.i71, %shift397
-  %238 = extractelement <2 x double> %foldExtExtBinop398, i64 0
+237:                                              ; preds = %229, %._crit_edge.i.i.i.i77, %.loopexit360
+  %.072.i.i.i.i71 = phi <2 x double> [ %201, %.loopexit360 ], [ %236, %229 ], [ %211, %._crit_edge.i.i.i.i77 ]
+  %shift404 = shufflevector <2 x double> %.072.i.i.i.i71, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop405 = fadd <2 x double> %.072.i.i.i.i71, %shift404
+  %238 = extractelement <2 x double> %foldExtExtBinop405, i64 0
   %239 = icmp slt i64 %28, %16
-  br i1 %239, label %.lr.ph85.i.i.i.i73, label %.loopexit352
+  br i1 %239, label %.lr.ph85.i.i.i.i73, label %.loopexit359
 
 .lr.ph85.i.i.i.i73:                               ; preds = %237, %.lr.ph85.i.i.i.i73
   %.05283.i.i.i.i74 = phi i64 [ %247, %.lr.ph85.i.i.i.i73 ], [ %28, %237 ]
@@ -19641,12 +19641,12 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %246 = fadd double %.182.i.i.i.i75, %245
   %247 = add nsw i64 %.05283.i.i.i.i74, 1
   %exitcond.not.i.i.i.i76 = icmp eq i64 %247, %16
-  br i1 %exitcond.not.i.i.i.i76, label %.loopexit352, label %.lr.ph85.i.i.i.i73, !llvm.loop !111
+  br i1 %exitcond.not.i.i.i.i76, label %.loopexit359, label %.lr.ph85.i.i.i.i73, !llvm.loop !111
 
-.loopexit352:                                     ; preds = %.lr.ph85.i.i.i.i73, %237
+.loopexit359:                                     ; preds = %.lr.ph85.i.i.i.i73, %237
   %.0.i.i72.ph.ph = phi double [ %238, %237 ], [ %246, %.lr.ph85.i.i.i.i73 ]
-  %.idx299349 = mul i64 %140, 24
-  %248 = getelementptr i8, ptr %84, i64 %.idx299349
+  %.idx299356 = mul i64 %140, 24
+  %248 = getelementptr i8, ptr %84, i64 %.idx299356
   store double %.0.i.i72.ph.ph, ptr %248, align 8, !tbaa !61
   %249 = load <2 x double>, ptr %146, align 1, !tbaa !109
   %250 = load <2 x double>, ptr %22, align 1, !tbaa !109
@@ -19655,7 +19655,7 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %253 = icmp sgt i64 %16, 3
   br i1 %253, label %254, label %288
 
-254:                                              ; preds = %.loopexit352
+254:                                              ; preds = %.loopexit359
   %255 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %256 = load <2 x double>, ptr %255, align 1, !tbaa !109
   %257 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -19706,11 +19706,11 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %287 = fadd <2 x double> %262, %286
   br label %288
 
-288:                                              ; preds = %280, %._crit_edge.i.i.i.i100, %.loopexit352
-  %.072.i.i.i.i94 = phi <2 x double> [ %252, %.loopexit352 ], [ %287, %280 ], [ %262, %._crit_edge.i.i.i.i100 ]
-  %shift400 = shufflevector <2 x double> %.072.i.i.i.i94, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop401 = fadd <2 x double> %.072.i.i.i.i94, %shift400
-  %289 = extractelement <2 x double> %foldExtExtBinop401, i64 0
+288:                                              ; preds = %280, %._crit_edge.i.i.i.i100, %.loopexit359
+  %.072.i.i.i.i94 = phi <2 x double> [ %252, %.loopexit359 ], [ %287, %280 ], [ %262, %._crit_edge.i.i.i.i100 ]
+  %shift407 = shufflevector <2 x double> %.072.i.i.i.i94, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop408 = fadd <2 x double> %.072.i.i.i.i94, %shift407
+  %289 = extractelement <2 x double> %foldExtExtBinop408, i64 0
   %290 = icmp slt i64 %28, %16
   br i1 %290, label %.lr.ph85.i.i.i.i96, label %.loopexit
 
@@ -19751,8 +19751,8 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
 
 .loopexit:                                        ; preds = %.lr.ph85.i.i.i.i96, %288
   %.0.i.i95.ph.ph = phi double [ %289, %288 ], [ %297, %.lr.ph85.i.i.i.i96 ]
-  %.idx300351 = shl i64 %140, 5
-  %309 = getelementptr i8, ptr %84, i64 %.idx300351
+  %.idx300358 = shl i64 %140, 5
+  %309 = getelementptr i8, ptr %84, i64 %.idx300358
   store double %.0.i.i95.ph.ph, ptr %309, align 8, !tbaa !61
   %310 = load <2 x double>, ptr %22, align 1, !tbaa !109
   %311 = load <2 x double>, ptr %89, align 1, !tbaa !109
@@ -19814,9 +19814,9 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
 
 349:                                              ; preds = %341, %._crit_edge.i.i.i.i123, %.loopexit
   %.072.i.i.i.i117 = phi <2 x double> [ %313, %.loopexit ], [ %348, %341 ], [ %323, %._crit_edge.i.i.i.i123 ]
-  %shift403 = shufflevector <2 x double> %.072.i.i.i.i117, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop404 = fadd <2 x double> %.072.i.i.i.i117, %shift403
-  %350 = extractelement <2 x double> %foldExtExtBinop404, i64 0
+  %shift410 = shufflevector <2 x double> %.072.i.i.i.i117, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop411 = fadd <2 x double> %.072.i.i.i.i117, %shift410
+  %350 = extractelement <2 x double> %foldExtExtBinop411, i64 0
   %351 = icmp slt i64 %28, %16
   br i1 %351, label %.lr.ph85.i.i.i.i119, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit132
 
@@ -20728,7 +20728,7 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %foldExtExtBinop = fadd <2 x double> %.072.i.i.i.i, %shift
   %71 = extractelement <2 x double> %foldExtExtBinop, i64 0
   %72 = icmp slt i64 %29, %16
-  br i1 %72, label %.lr.ph85.i.i.i.i, label %.loopexit149
+  br i1 %72, label %.lr.ph85.i.i.i.i, label %.loopexit153
 
 .lr.ph85.i.i.i.i:                                 ; preds = %70, %.lr.ph85.i.i.i.i
   %.05283.i.i.i.i = phi i64 [ %80, %.lr.ph85.i.i.i.i ], [ %29, %70 ]
@@ -20742,9 +20742,9 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %79 = fadd double %.182.i.i.i.i, %78
   %80 = add nsw i64 %.05283.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %80, %16
-  br i1 %exitcond.not.i.i.i.i, label %.loopexit149, label %.lr.ph85.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i.i.i.i, label %.loopexit153, label %.lr.ph85.i.i.i.i, !llvm.loop !111
 
-.loopexit149:                                     ; preds = %.lr.ph85.i.i.i.i, %70
+.loopexit153:                                     ; preds = %.lr.ph85.i.i.i.i, %70
   %.0.i.i.ph.ph = phi double [ %71, %70 ], [ %79, %.lr.ph85.i.i.i.i ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %82 = load ptr, ptr %81, align 8, !tbaa !828
@@ -20763,7 +20763,7 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %94 = icmp sgt i64 %16, 3
   br i1 %94, label %95, label %129
 
-95:                                               ; preds = %.loopexit149
+95:                                               ; preds = %.loopexit153
   %96 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %97 = load <2 x double>, ptr %96, align 1, !tbaa !109
   %98 = getelementptr inbounds nuw i8, ptr %89, i64 16
@@ -20814,11 +20814,11 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %128 = fadd <2 x double> %103, %127
   br label %129
 
-129:                                              ; preds = %121, %._crit_edge.i.i.i.i22, %.loopexit149
-  %.072.i.i.i.i16 = phi <2 x double> [ %93, %.loopexit149 ], [ %128, %121 ], [ %103, %._crit_edge.i.i.i.i22 ]
-  %shift167 = shufflevector <2 x double> %.072.i.i.i.i16, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop168 = fadd <2 x double> %.072.i.i.i.i16, %shift167
-  %130 = extractelement <2 x double> %foldExtExtBinop168, i64 0
+129:                                              ; preds = %121, %._crit_edge.i.i.i.i22, %.loopexit153
+  %.072.i.i.i.i16 = phi <2 x double> [ %93, %.loopexit153 ], [ %128, %121 ], [ %103, %._crit_edge.i.i.i.i22 ]
+  %shift171 = shufflevector <2 x double> %.072.i.i.i.i16, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop172 = fadd <2 x double> %.072.i.i.i.i16, %shift171
+  %130 = extractelement <2 x double> %foldExtExtBinop172, i64 0
   %131 = icmp slt i64 %29, %16
   br i1 %131, label %.lr.ph85.i.i.i.i18, label %.loopexit
 
@@ -20913,9 +20913,9 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
 
 188:                                              ; preds = %180, %._crit_edge.i.i.i.i45, %.loopexit
   %.072.i.i.i.i39 = phi <2 x double> [ %152, %.loopexit ], [ %187, %180 ], [ %162, %._crit_edge.i.i.i.i45 ]
-  %shift170 = shufflevector <2 x double> %.072.i.i.i.i39, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop171 = fadd <2 x double> %.072.i.i.i.i39, %shift170
-  %189 = extractelement <2 x double> %foldExtExtBinop171, i64 0
+  %shift174 = shufflevector <2 x double> %.072.i.i.i.i39, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop175 = fadd <2 x double> %.072.i.i.i.i39, %shift174
+  %189 = extractelement <2 x double> %foldExtExtBinop175, i64 0
   %190 = icmp slt i64 %29, %16
   br i1 %190, label %.lr.ph85.i.i.i.i41, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit54
 
@@ -21798,7 +21798,7 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %foldExtExtBinop = fadd <2 x double> %.072.i.i.i.i, %shift
   %70 = extractelement <2 x double> %foldExtExtBinop, i64 0
   %71 = icmp slt i64 %28, %16
-  br i1 %71, label %.lr.ph85.i.i.i.i, label %.loopexit355
+  br i1 %71, label %.lr.ph85.i.i.i.i, label %.loopexit362
 
 .lr.ph85.i.i.i.i:                                 ; preds = %69, %.lr.ph85.i.i.i.i
   %.05283.i.i.i.i = phi i64 [ %79, %.lr.ph85.i.i.i.i ], [ %28, %69 ]
@@ -21812,9 +21812,9 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %78 = fadd double %.182.i.i.i.i, %77
   %79 = add nsw i64 %.05283.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %79, %16
-  br i1 %exitcond.not.i.i.i.i, label %.loopexit355, label %.lr.ph85.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i.i.i.i, label %.loopexit362, label %.lr.ph85.i.i.i.i, !llvm.loop !111
 
-.loopexit355:                                     ; preds = %.lr.ph85.i.i.i.i, %69
+.loopexit362:                                     ; preds = %.lr.ph85.i.i.i.i, %69
   %.0.i.i.ph.ph = phi double [ %70, %69 ], [ %78, %.lr.ph85.i.i.i.i ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !862
@@ -21834,7 +21834,7 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %94 = icmp sgt i64 %16, 3
   br i1 %94, label %95, label %129
 
-95:                                               ; preds = %.loopexit355
+95:                                               ; preds = %.loopexit362
   %96 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %97 = load <2 x double>, ptr %96, align 1, !tbaa !109
   %98 = getelementptr inbounds nuw i8, ptr %89, i64 16
@@ -21885,13 +21885,13 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %128 = fadd <2 x double> %103, %127
   br label %129
 
-129:                                              ; preds = %121, %._crit_edge.i.i.i.i31, %.loopexit355
-  %.072.i.i.i.i25 = phi <2 x double> [ %93, %.loopexit355 ], [ %128, %121 ], [ %103, %._crit_edge.i.i.i.i31 ]
-  %shift391 = shufflevector <2 x double> %.072.i.i.i.i25, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop392 = fadd <2 x double> %.072.i.i.i.i25, %shift391
-  %130 = extractelement <2 x double> %foldExtExtBinop392, i64 0
+129:                                              ; preds = %121, %._crit_edge.i.i.i.i31, %.loopexit362
+  %.072.i.i.i.i25 = phi <2 x double> [ %93, %.loopexit362 ], [ %128, %121 ], [ %103, %._crit_edge.i.i.i.i31 ]
+  %shift398 = shufflevector <2 x double> %.072.i.i.i.i25, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop399 = fadd <2 x double> %.072.i.i.i.i25, %shift398
+  %130 = extractelement <2 x double> %foldExtExtBinop399, i64 0
   %131 = icmp slt i64 %28, %16
-  br i1 %131, label %.lr.ph85.i.i.i.i27, label %.loopexit354
+  br i1 %131, label %.lr.ph85.i.i.i.i27, label %.loopexit361
 
 .lr.ph85.i.i.i.i27:                               ; preds = %129, %.lr.ph85.i.i.i.i27
   %.05283.i.i.i.i28 = phi i64 [ %139, %.lr.ph85.i.i.i.i27 ], [ %28, %129 ]
@@ -21905,15 +21905,15 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %138 = fadd double %.182.i.i.i.i29, %137
   %139 = add nsw i64 %.05283.i.i.i.i28, 1
   %exitcond.not.i.i.i.i30 = icmp eq i64 %139, %16
-  br i1 %exitcond.not.i.i.i.i30, label %.loopexit354, label %.lr.ph85.i.i.i.i27, !llvm.loop !111
+  br i1 %exitcond.not.i.i.i.i30, label %.loopexit361, label %.lr.ph85.i.i.i.i27, !llvm.loop !111
 
-.loopexit354:                                     ; preds = %.lr.ph85.i.i.i.i27, %129
+.loopexit361:                                     ; preds = %.lr.ph85.i.i.i.i27, %129
   %.0.i.i26.ph.ph = phi double [ %130, %129 ], [ %138, %.lr.ph85.i.i.i.i27 ]
   %140 = load i64, ptr %83, align 8, !tbaa !58
   %141 = getelementptr double, ptr %84, i64 %140
   store double %.0.i.i26.ph.ph, ptr %141, align 8, !tbaa !61
-  %.idx297345 = shl i64 %9, 3
-  %142 = getelementptr i8, ptr %10, i64 %.idx297345
+  %.idx297352 = shl i64 %9, 3
+  %142 = getelementptr i8, ptr %10, i64 %.idx297352
   %143 = load i32, ptr %142, align 4, !tbaa !28
   %144 = sext i32 %143 to i64
   %145 = mul nsw i64 %16, %144
@@ -21925,7 +21925,7 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %151 = icmp sgt i64 %16, 3
   br i1 %151, label %152, label %186
 
-152:                                              ; preds = %.loopexit354
+152:                                              ; preds = %.loopexit361
   %153 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %154 = load <2 x double>, ptr %153, align 1, !tbaa !109
   %155 = getelementptr inbounds nuw i8, ptr %146, i64 16
@@ -21976,13 +21976,13 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %185 = fadd <2 x double> %160, %184
   br label %186
 
-186:                                              ; preds = %178, %._crit_edge.i.i.i.i54, %.loopexit354
-  %.072.i.i.i.i48 = phi <2 x double> [ %150, %.loopexit354 ], [ %185, %178 ], [ %160, %._crit_edge.i.i.i.i54 ]
-  %shift394 = shufflevector <2 x double> %.072.i.i.i.i48, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop395 = fadd <2 x double> %.072.i.i.i.i48, %shift394
-  %187 = extractelement <2 x double> %foldExtExtBinop395, i64 0
+186:                                              ; preds = %178, %._crit_edge.i.i.i.i54, %.loopexit361
+  %.072.i.i.i.i48 = phi <2 x double> [ %150, %.loopexit361 ], [ %185, %178 ], [ %160, %._crit_edge.i.i.i.i54 ]
+  %shift401 = shufflevector <2 x double> %.072.i.i.i.i48, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop402 = fadd <2 x double> %.072.i.i.i.i48, %shift401
+  %187 = extractelement <2 x double> %foldExtExtBinop402, i64 0
   %188 = icmp slt i64 %28, %16
-  br i1 %188, label %.lr.ph85.i.i.i.i50, label %.loopexit353
+  br i1 %188, label %.lr.ph85.i.i.i.i50, label %.loopexit360
 
 .lr.ph85.i.i.i.i50:                               ; preds = %186, %.lr.ph85.i.i.i.i50
   %.05283.i.i.i.i51 = phi i64 [ %196, %.lr.ph85.i.i.i.i50 ], [ %28, %186 ]
@@ -21996,12 +21996,12 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %195 = fadd double %.182.i.i.i.i52, %194
   %196 = add nsw i64 %.05283.i.i.i.i51, 1
   %exitcond.not.i.i.i.i53 = icmp eq i64 %196, %16
-  br i1 %exitcond.not.i.i.i.i53, label %.loopexit353, label %.lr.ph85.i.i.i.i50, !llvm.loop !111
+  br i1 %exitcond.not.i.i.i.i53, label %.loopexit360, label %.lr.ph85.i.i.i.i50, !llvm.loop !111
 
-.loopexit353:                                     ; preds = %.lr.ph85.i.i.i.i50, %186
+.loopexit360:                                     ; preds = %.lr.ph85.i.i.i.i50, %186
   %.0.i.i49.ph.ph = phi double [ %187, %186 ], [ %195, %.lr.ph85.i.i.i.i50 ]
-  %.idx298347 = shl i64 %140, 4
-  %197 = getelementptr i8, ptr %84, i64 %.idx298347
+  %.idx298354 = shl i64 %140, 4
+  %197 = getelementptr i8, ptr %84, i64 %.idx298354
   store double %.0.i.i49.ph.ph, ptr %197, align 8, !tbaa !61
   %198 = load <2 x double>, ptr %89, align 1, !tbaa !109
   %199 = load <2 x double>, ptr %146, align 1, !tbaa !109
@@ -22010,7 +22010,7 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %202 = icmp sgt i64 %16, 3
   br i1 %202, label %203, label %237
 
-203:                                              ; preds = %.loopexit353
+203:                                              ; preds = %.loopexit360
   %204 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %205 = load <2 x double>, ptr %204, align 1, !tbaa !109
   %206 = getelementptr inbounds nuw i8, ptr %146, i64 16
@@ -22061,13 +22061,13 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %236 = fadd <2 x double> %211, %235
   br label %237
 
-237:                                              ; preds = %229, %._crit_edge.i.i.i.i77, %.loopexit353
-  %.072.i.i.i.i71 = phi <2 x double> [ %201, %.loopexit353 ], [ %236, %229 ], [ %211, %._crit_edge.i.i.i.i77 ]
-  %shift397 = shufflevector <2 x double> %.072.i.i.i.i71, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop398 = fadd <2 x double> %.072.i.i.i.i71, %shift397
-  %238 = extractelement <2 x double> %foldExtExtBinop398, i64 0
+237:                                              ; preds = %229, %._crit_edge.i.i.i.i77, %.loopexit360
+  %.072.i.i.i.i71 = phi <2 x double> [ %201, %.loopexit360 ], [ %236, %229 ], [ %211, %._crit_edge.i.i.i.i77 ]
+  %shift404 = shufflevector <2 x double> %.072.i.i.i.i71, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop405 = fadd <2 x double> %.072.i.i.i.i71, %shift404
+  %238 = extractelement <2 x double> %foldExtExtBinop405, i64 0
   %239 = icmp slt i64 %28, %16
-  br i1 %239, label %.lr.ph85.i.i.i.i73, label %.loopexit352
+  br i1 %239, label %.lr.ph85.i.i.i.i73, label %.loopexit359
 
 .lr.ph85.i.i.i.i73:                               ; preds = %237, %.lr.ph85.i.i.i.i73
   %.05283.i.i.i.i74 = phi i64 [ %247, %.lr.ph85.i.i.i.i73 ], [ %28, %237 ]
@@ -22081,12 +22081,12 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %246 = fadd double %.182.i.i.i.i75, %245
   %247 = add nsw i64 %.05283.i.i.i.i74, 1
   %exitcond.not.i.i.i.i76 = icmp eq i64 %247, %16
-  br i1 %exitcond.not.i.i.i.i76, label %.loopexit352, label %.lr.ph85.i.i.i.i73, !llvm.loop !111
+  br i1 %exitcond.not.i.i.i.i76, label %.loopexit359, label %.lr.ph85.i.i.i.i73, !llvm.loop !111
 
-.loopexit352:                                     ; preds = %.lr.ph85.i.i.i.i73, %237
+.loopexit359:                                     ; preds = %.lr.ph85.i.i.i.i73, %237
   %.0.i.i72.ph.ph = phi double [ %238, %237 ], [ %246, %.lr.ph85.i.i.i.i73 ]
-  %.idx299349 = mul i64 %140, 24
-  %248 = getelementptr i8, ptr %84, i64 %.idx299349
+  %.idx299356 = mul i64 %140, 24
+  %248 = getelementptr i8, ptr %84, i64 %.idx299356
   store double %.0.i.i72.ph.ph, ptr %248, align 8, !tbaa !61
   %249 = load <2 x double>, ptr %146, align 1, !tbaa !109
   %250 = load <2 x double>, ptr %22, align 1, !tbaa !109
@@ -22095,7 +22095,7 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %253 = icmp sgt i64 %16, 3
   br i1 %253, label %254, label %288
 
-254:                                              ; preds = %.loopexit352
+254:                                              ; preds = %.loopexit359
   %255 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %256 = load <2 x double>, ptr %255, align 1, !tbaa !109
   %257 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -22146,11 +22146,11 @@ define linkonce_odr dso_local void @_ZZN3igl20squared_edge_lengthsIN5Eigen6Matri
   %287 = fadd <2 x double> %262, %286
   br label %288
 
-288:                                              ; preds = %280, %._crit_edge.i.i.i.i100, %.loopexit352
-  %.072.i.i.i.i94 = phi <2 x double> [ %252, %.loopexit352 ], [ %287, %280 ], [ %262, %._crit_edge.i.i.i.i100 ]
-  %shift400 = shufflevector <2 x double> %.072.i.i.i.i94, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop401 = fadd <2 x double> %.072.i.i.i.i94, %shift400
-  %289 = extractelement <2 x double> %foldExtExtBinop401, i64 0
+288:                                              ; preds = %280, %._crit_edge.i.i.i.i100, %.loopexit359
+  %.072.i.i.i.i94 = phi <2 x double> [ %252, %.loopexit359 ], [ %287, %280 ], [ %262, %._crit_edge.i.i.i.i100 ]
+  %shift407 = shufflevector <2 x double> %.072.i.i.i.i94, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop408 = fadd <2 x double> %.072.i.i.i.i94, %shift407
+  %289 = extractelement <2 x double> %foldExtExtBinop408, i64 0
   %290 = icmp slt i64 %28, %16
   br i1 %290, label %.lr.ph85.i.i.i.i96, label %.loopexit
 
@@ -22191,8 +22191,8 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
 
 .loopexit:                                        ; preds = %.lr.ph85.i.i.i.i96, %288
   %.0.i.i95.ph.ph = phi double [ %289, %288 ], [ %297, %.lr.ph85.i.i.i.i96 ]
-  %.idx300351 = shl i64 %140, 5
-  %309 = getelementptr i8, ptr %84, i64 %.idx300351
+  %.idx300358 = shl i64 %140, 5
+  %309 = getelementptr i8, ptr %84, i64 %.idx300358
   store double %.0.i.i95.ph.ph, ptr %309, align 8, !tbaa !61
   %310 = load <2 x double>, ptr %22, align 1, !tbaa !109
   %311 = load <2 x double>, ptr %89, align 1, !tbaa !109
@@ -22254,9 +22254,9 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
 
 349:                                              ; preds = %341, %._crit_edge.i.i.i.i123, %.loopexit
   %.072.i.i.i.i117 = phi <2 x double> [ %313, %.loopexit ], [ %348, %341 ], [ %323, %._crit_edge.i.i.i.i123 ]
-  %shift403 = shufflevector <2 x double> %.072.i.i.i.i117, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop404 = fadd <2 x double> %.072.i.i.i.i117, %shift403
-  %350 = extractelement <2 x double> %foldExtExtBinop404, i64 0
+  %shift410 = shufflevector <2 x double> %.072.i.i.i.i117, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop411 = fadd <2 x double> %.072.i.i.i.i117, %shift410
+  %350 = extractelement <2 x double> %foldExtExtBinop411, i64 0
   %351 = icmp slt i64 %28, %16
   br i1 %351, label %.lr.ph85.i.i.i.i119, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit132
 
@@ -37294,9 +37294,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %61 = load <2 x double>, ptr %59, align 1, !tbaa !109
   %62 = fsub <2 x double> %60, %61
   %63 = fmul <2 x double> %62, %62
-  %shift72 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop73 = fadd <2 x double> %63, %shift72
-  %64 = extractelement <2 x double> %foldExtExtBinop73, i64 0
+  %shift80 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop81 = fadd <2 x double> %63, %shift80
+  %64 = extractelement <2 x double> %foldExtExtBinop81, i64 0
   %65 = load double, ptr %51, align 8, !tbaa !61
   %66 = getelementptr i8, ptr %59, i64 16
   %67 = load double, ptr %66, align 8, !tbaa !61
@@ -37309,9 +37309,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %73 = load <2 x double>, ptr %39, align 8, !tbaa !109
   %74 = fsub <2 x double> %72, %73
   %75 = fmul <2 x double> %74, %74
-  %shift75 = shufflevector <2 x double> %75, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop76 = fadd <2 x double> %75, %shift75
-  %76 = extractelement <2 x double> %foldExtExtBinop76, i64 0
+  %shift83 = shufflevector <2 x double> %75, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop84 = fadd <2 x double> %75, %shift83
+  %76 = extractelement <2 x double> %foldExtExtBinop84, i64 0
   %77 = load double, ptr %66, align 8, !tbaa !61
   %78 = load double, ptr %49, align 8, !tbaa !61
   %79 = fsub double %77, %78
@@ -37893,9 +37893,9 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %51 = load <2 x double>, ptr %49, align 1, !tbaa !109
   %52 = fsub <2 x double> %50, %51
   %53 = fmul <2 x double> %52, %52
-  %shift2 = shufflevector <2 x double> %53, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop3 = fadd <2 x double> %53, %shift2
-  %54 = extractelement <2 x double> %foldExtExtBinop3, i64 0
+  %shift3 = shufflevector <2 x double> %53, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop4 = fadd <2 x double> %53, %shift3
+  %54 = extractelement <2 x double> %foldExtExtBinop4, i64 0
   %55 = load double, ptr %41, align 8, !tbaa !61
   %56 = getelementptr i8, ptr %49, i64 16
   %57 = load double, ptr %56, align 8, !tbaa !61
@@ -37908,9 +37908,9 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %63 = load <2 x double>, ptr %29, align 8, !tbaa !109
   %64 = fsub <2 x double> %62, %63
   %65 = fmul <2 x double> %64, %64
-  %shift5 = shufflevector <2 x double> %65, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop6 = fadd <2 x double> %65, %shift5
-  %66 = extractelement <2 x double> %foldExtExtBinop6, i64 0
+  %shift6 = shufflevector <2 x double> %65, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop7 = fadd <2 x double> %65, %shift6
+  %66 = extractelement <2 x double> %foldExtExtBinop7, i64 0
   %67 = load double, ptr %56, align 8, !tbaa !61
   %68 = load double, ptr %39, align 8, !tbaa !61
   %69 = fsub double %67, %68
@@ -38179,9 +38179,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %61 = load <2 x double>, ptr %59, align 1, !tbaa !109
   %62 = fsub <2 x double> %60, %61
   %63 = fmul <2 x double> %62, %62
-  %shift72 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop73 = fadd <2 x double> %63, %shift72
-  %64 = extractelement <2 x double> %foldExtExtBinop73, i64 0
+  %shift80 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop81 = fadd <2 x double> %63, %shift80
+  %64 = extractelement <2 x double> %foldExtExtBinop81, i64 0
   %65 = load double, ptr %48, align 8, !tbaa !61
   %66 = getelementptr i8, ptr %59, i64 16
   %67 = load double, ptr %66, align 8, !tbaa !61
@@ -38199,9 +38199,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %77 = load <2 x double>, ptr %75, align 1, !tbaa !109
   %78 = fsub <2 x double> %76, %77
   %79 = fmul <2 x double> %78, %78
-  %shift75 = shufflevector <2 x double> %79, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop76 = fadd <2 x double> %79, %shift75
-  %80 = extractelement <2 x double> %foldExtExtBinop76, i64 0
+  %shift83 = shufflevector <2 x double> %79, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop84 = fadd <2 x double> %79, %shift83
+  %80 = extractelement <2 x double> %foldExtExtBinop84, i64 0
   %81 = load double, ptr %48, align 8, !tbaa !61
   %82 = getelementptr i8, ptr %75, i64 16
   %83 = load double, ptr %82, align 8, !tbaa !61
@@ -38214,9 +38214,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %89 = load <2 x double>, ptr %75, align 8, !tbaa !109
   %90 = fsub <2 x double> %88, %89
   %91 = fmul <2 x double> %90, %90
-  %shift78 = shufflevector <2 x double> %91, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop79 = fadd <2 x double> %91, %shift78
-  %92 = extractelement <2 x double> %foldExtExtBinop79, i64 0
+  %shift86 = shufflevector <2 x double> %91, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop87 = fadd <2 x double> %91, %shift86
+  %92 = extractelement <2 x double> %foldExtExtBinop87, i64 0
   %93 = load double, ptr %66, align 8, !tbaa !61
   %94 = load double, ptr %82, align 8, !tbaa !61
   %95 = fsub double %93, %94
@@ -38228,9 +38228,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %100 = load <2 x double>, ptr %42, align 8, !tbaa !109
   %101 = fsub <2 x double> %99, %100
   %102 = fmul <2 x double> %101, %101
-  %shift81 = shufflevector <2 x double> %102, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop82 = fadd <2 x double> %102, %shift81
-  %103 = extractelement <2 x double> %foldExtExtBinop82, i64 0
+  %shift89 = shufflevector <2 x double> %102, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop90 = fadd <2 x double> %102, %shift89
+  %103 = extractelement <2 x double> %foldExtExtBinop90, i64 0
   %104 = load double, ptr %82, align 8, !tbaa !61
   %105 = load double, ptr %50, align 8, !tbaa !61
   %106 = fsub double %104, %105
@@ -38242,9 +38242,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %111 = load <2 x double>, ptr %59, align 8, !tbaa !109
   %112 = fsub <2 x double> %110, %111
   %113 = fmul <2 x double> %112, %112
-  %shift84 = shufflevector <2 x double> %113, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop85 = fadd <2 x double> %113, %shift84
-  %114 = extractelement <2 x double> %foldExtExtBinop85, i64 0
+  %shift92 = shufflevector <2 x double> %113, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop93 = fadd <2 x double> %113, %shift92
+  %114 = extractelement <2 x double> %foldExtExtBinop93, i64 0
   %115 = load double, ptr %50, align 8, !tbaa !61
   %116 = load double, ptr %66, align 8, !tbaa !61
   %117 = fsub double %115, %116
@@ -38836,9 +38836,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %51 = load <2 x double>, ptr %49, align 1, !tbaa !109
   %52 = fsub <2 x double> %50, %51
   %53 = fmul <2 x double> %52, %52
-  %shift5 = shufflevector <2 x double> %53, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop6 = fadd <2 x double> %53, %shift5
-  %54 = extractelement <2 x double> %foldExtExtBinop6, i64 0
+  %shift6 = shufflevector <2 x double> %53, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop7 = fadd <2 x double> %53, %shift6
+  %54 = extractelement <2 x double> %foldExtExtBinop7, i64 0
   %55 = load double, ptr %38, align 8, !tbaa !61
   %56 = getelementptr i8, ptr %49, i64 16
   %57 = load double, ptr %56, align 8, !tbaa !61
@@ -38856,9 +38856,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %67 = load <2 x double>, ptr %65, align 1, !tbaa !109
   %68 = fsub <2 x double> %66, %67
   %69 = fmul <2 x double> %68, %68
-  %shift8 = shufflevector <2 x double> %69, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop9 = fadd <2 x double> %69, %shift8
-  %70 = extractelement <2 x double> %foldExtExtBinop9, i64 0
+  %shift9 = shufflevector <2 x double> %69, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop10 = fadd <2 x double> %69, %shift9
+  %70 = extractelement <2 x double> %foldExtExtBinop10, i64 0
   %71 = load double, ptr %38, align 8, !tbaa !61
   %72 = getelementptr i8, ptr %65, i64 16
   %73 = load double, ptr %72, align 8, !tbaa !61
@@ -38871,9 +38871,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %79 = load <2 x double>, ptr %65, align 8, !tbaa !109
   %80 = fsub <2 x double> %78, %79
   %81 = fmul <2 x double> %80, %80
-  %shift11 = shufflevector <2 x double> %81, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop12 = fadd <2 x double> %81, %shift11
-  %82 = extractelement <2 x double> %foldExtExtBinop12, i64 0
+  %shift12 = shufflevector <2 x double> %81, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop13 = fadd <2 x double> %81, %shift12
+  %82 = extractelement <2 x double> %foldExtExtBinop13, i64 0
   %83 = load double, ptr %56, align 8, !tbaa !61
   %84 = load double, ptr %72, align 8, !tbaa !61
   %85 = fsub double %83, %84
@@ -38885,9 +38885,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %90 = load <2 x double>, ptr %32, align 8, !tbaa !109
   %91 = fsub <2 x double> %89, %90
   %92 = fmul <2 x double> %91, %91
-  %shift14 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop15 = fadd <2 x double> %92, %shift14
-  %93 = extractelement <2 x double> %foldExtExtBinop15, i64 0
+  %shift15 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop16 = fadd <2 x double> %92, %shift15
+  %93 = extractelement <2 x double> %foldExtExtBinop16, i64 0
   %94 = load double, ptr %72, align 8, !tbaa !61
   %95 = load double, ptr %40, align 8, !tbaa !61
   %96 = fsub double %94, %95
@@ -38899,9 +38899,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %101 = load <2 x double>, ptr %49, align 8, !tbaa !109
   %102 = fsub <2 x double> %100, %101
   %103 = fmul <2 x double> %102, %102
-  %shift17 = shufflevector <2 x double> %103, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop18 = fadd <2 x double> %103, %shift17
-  %104 = extractelement <2 x double> %foldExtExtBinop18, i64 0
+  %shift18 = shufflevector <2 x double> %103, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop19 = fadd <2 x double> %103, %shift18
+  %104 = extractelement <2 x double> %foldExtExtBinop19, i64 0
   %105 = load double, ptr %40, align 8, !tbaa !61
   %106 = load double, ptr %56, align 8, !tbaa !61
   %107 = fsub double %105, %106
@@ -40946,9 +40946,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %58 = load <2 x double>, ptr %56, align 1, !tbaa !109
   %59 = fsub <2 x double> %57, %58
   %60 = fmul <2 x double> %59, %59
-  %shift72 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop73 = fadd <2 x double> %60, %shift72
-  %61 = extractelement <2 x double> %foldExtExtBinop73, i64 0
+  %shift80 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop81 = fadd <2 x double> %60, %shift80
+  %61 = extractelement <2 x double> %foldExtExtBinop81, i64 0
   %62 = load double, ptr %48, align 8, !tbaa !61
   %63 = getelementptr i8, ptr %56, i64 16
   %64 = load double, ptr %63, align 8, !tbaa !61
@@ -40961,9 +40961,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %70 = load <2 x double>, ptr %36, align 8, !tbaa !109
   %71 = fsub <2 x double> %69, %70
   %72 = fmul <2 x double> %71, %71
-  %shift75 = shufflevector <2 x double> %72, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop76 = fadd <2 x double> %72, %shift75
-  %73 = extractelement <2 x double> %foldExtExtBinop76, i64 0
+  %shift83 = shufflevector <2 x double> %72, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop84 = fadd <2 x double> %72, %shift83
+  %73 = extractelement <2 x double> %foldExtExtBinop84, i64 0
   %74 = load double, ptr %63, align 8, !tbaa !61
   %75 = load double, ptr %46, align 8, !tbaa !61
   %76 = fsub double %74, %75
@@ -41543,9 +41543,9 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %48 = load <2 x double>, ptr %46, align 1, !tbaa !109
   %49 = fsub <2 x double> %47, %48
   %50 = fmul <2 x double> %49, %49
-  %shift2 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop3 = fadd <2 x double> %50, %shift2
-  %51 = extractelement <2 x double> %foldExtExtBinop3, i64 0
+  %shift3 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop4 = fadd <2 x double> %50, %shift3
+  %51 = extractelement <2 x double> %foldExtExtBinop4, i64 0
   %52 = load double, ptr %38, align 8, !tbaa !61
   %53 = getelementptr i8, ptr %46, i64 16
   %54 = load double, ptr %53, align 8, !tbaa !61
@@ -41558,9 +41558,9 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %60 = load <2 x double>, ptr %26, align 8, !tbaa !109
   %61 = fsub <2 x double> %59, %60
   %62 = fmul <2 x double> %61, %61
-  %shift5 = shufflevector <2 x double> %62, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop6 = fadd <2 x double> %62, %shift5
-  %63 = extractelement <2 x double> %foldExtExtBinop6, i64 0
+  %shift6 = shufflevector <2 x double> %62, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop7 = fadd <2 x double> %62, %shift6
+  %63 = extractelement <2 x double> %foldExtExtBinop7, i64 0
   %64 = load double, ptr %53, align 8, !tbaa !61
   %65 = load double, ptr %36, align 8, !tbaa !61
   %66 = fsub double %64, %65
@@ -41825,9 +41825,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %58 = load <2 x double>, ptr %56, align 1, !tbaa !109
   %59 = fsub <2 x double> %57, %58
   %60 = fmul <2 x double> %59, %59
-  %shift72 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop73 = fadd <2 x double> %60, %shift72
-  %61 = extractelement <2 x double> %foldExtExtBinop73, i64 0
+  %shift80 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop81 = fadd <2 x double> %60, %shift80
+  %61 = extractelement <2 x double> %foldExtExtBinop81, i64 0
   %62 = load double, ptr %45, align 8, !tbaa !61
   %63 = getelementptr i8, ptr %56, i64 16
   %64 = load double, ptr %63, align 8, !tbaa !61
@@ -41845,9 +41845,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %74 = load <2 x double>, ptr %72, align 1, !tbaa !109
   %75 = fsub <2 x double> %73, %74
   %76 = fmul <2 x double> %75, %75
-  %shift75 = shufflevector <2 x double> %76, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop76 = fadd <2 x double> %76, %shift75
-  %77 = extractelement <2 x double> %foldExtExtBinop76, i64 0
+  %shift83 = shufflevector <2 x double> %76, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop84 = fadd <2 x double> %76, %shift83
+  %77 = extractelement <2 x double> %foldExtExtBinop84, i64 0
   %78 = load double, ptr %45, align 8, !tbaa !61
   %79 = getelementptr i8, ptr %72, i64 16
   %80 = load double, ptr %79, align 8, !tbaa !61
@@ -41860,9 +41860,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %86 = load <2 x double>, ptr %72, align 8, !tbaa !109
   %87 = fsub <2 x double> %85, %86
   %88 = fmul <2 x double> %87, %87
-  %shift78 = shufflevector <2 x double> %88, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop79 = fadd <2 x double> %88, %shift78
-  %89 = extractelement <2 x double> %foldExtExtBinop79, i64 0
+  %shift86 = shufflevector <2 x double> %88, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop87 = fadd <2 x double> %88, %shift86
+  %89 = extractelement <2 x double> %foldExtExtBinop87, i64 0
   %90 = load double, ptr %63, align 8, !tbaa !61
   %91 = load double, ptr %79, align 8, !tbaa !61
   %92 = fsub double %90, %91
@@ -41874,9 +41874,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %97 = load <2 x double>, ptr %39, align 8, !tbaa !109
   %98 = fsub <2 x double> %96, %97
   %99 = fmul <2 x double> %98, %98
-  %shift81 = shufflevector <2 x double> %99, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop82 = fadd <2 x double> %99, %shift81
-  %100 = extractelement <2 x double> %foldExtExtBinop82, i64 0
+  %shift89 = shufflevector <2 x double> %99, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop90 = fadd <2 x double> %99, %shift89
+  %100 = extractelement <2 x double> %foldExtExtBinop90, i64 0
   %101 = load double, ptr %79, align 8, !tbaa !61
   %102 = load double, ptr %47, align 8, !tbaa !61
   %103 = fsub double %101, %102
@@ -41888,9 +41888,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %108 = load <2 x double>, ptr %56, align 8, !tbaa !109
   %109 = fsub <2 x double> %107, %108
   %110 = fmul <2 x double> %109, %109
-  %shift84 = shufflevector <2 x double> %110, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop85 = fadd <2 x double> %110, %shift84
-  %111 = extractelement <2 x double> %foldExtExtBinop85, i64 0
+  %shift92 = shufflevector <2 x double> %110, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop93 = fadd <2 x double> %110, %shift92
+  %111 = extractelement <2 x double> %foldExtExtBinop93, i64 0
   %112 = load double, ptr %47, align 8, !tbaa !61
   %113 = load double, ptr %63, align 8, !tbaa !61
   %114 = fsub double %112, %113
@@ -42478,9 +42478,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %48 = load <2 x double>, ptr %46, align 1, !tbaa !109
   %49 = fsub <2 x double> %47, %48
   %50 = fmul <2 x double> %49, %49
-  %shift5 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop6 = fadd <2 x double> %50, %shift5
-  %51 = extractelement <2 x double> %foldExtExtBinop6, i64 0
+  %shift6 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop7 = fadd <2 x double> %50, %shift6
+  %51 = extractelement <2 x double> %foldExtExtBinop7, i64 0
   %52 = load double, ptr %35, align 8, !tbaa !61
   %53 = getelementptr i8, ptr %46, i64 16
   %54 = load double, ptr %53, align 8, !tbaa !61
@@ -42498,9 +42498,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %64 = load <2 x double>, ptr %62, align 1, !tbaa !109
   %65 = fsub <2 x double> %63, %64
   %66 = fmul <2 x double> %65, %65
-  %shift8 = shufflevector <2 x double> %66, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop9 = fadd <2 x double> %66, %shift8
-  %67 = extractelement <2 x double> %foldExtExtBinop9, i64 0
+  %shift9 = shufflevector <2 x double> %66, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop10 = fadd <2 x double> %66, %shift9
+  %67 = extractelement <2 x double> %foldExtExtBinop10, i64 0
   %68 = load double, ptr %35, align 8, !tbaa !61
   %69 = getelementptr i8, ptr %62, i64 16
   %70 = load double, ptr %69, align 8, !tbaa !61
@@ -42513,9 +42513,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %76 = load <2 x double>, ptr %62, align 8, !tbaa !109
   %77 = fsub <2 x double> %75, %76
   %78 = fmul <2 x double> %77, %77
-  %shift11 = shufflevector <2 x double> %78, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop12 = fadd <2 x double> %78, %shift11
-  %79 = extractelement <2 x double> %foldExtExtBinop12, i64 0
+  %shift12 = shufflevector <2 x double> %78, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop13 = fadd <2 x double> %78, %shift12
+  %79 = extractelement <2 x double> %foldExtExtBinop13, i64 0
   %80 = load double, ptr %53, align 8, !tbaa !61
   %81 = load double, ptr %69, align 8, !tbaa !61
   %82 = fsub double %80, %81
@@ -42527,9 +42527,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %87 = load <2 x double>, ptr %29, align 8, !tbaa !109
   %88 = fsub <2 x double> %86, %87
   %89 = fmul <2 x double> %88, %88
-  %shift14 = shufflevector <2 x double> %89, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop15 = fadd <2 x double> %89, %shift14
-  %90 = extractelement <2 x double> %foldExtExtBinop15, i64 0
+  %shift15 = shufflevector <2 x double> %89, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop16 = fadd <2 x double> %89, %shift15
+  %90 = extractelement <2 x double> %foldExtExtBinop16, i64 0
   %91 = load double, ptr %69, align 8, !tbaa !61
   %92 = load double, ptr %37, align 8, !tbaa !61
   %93 = fsub double %91, %92
@@ -42541,9 +42541,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %98 = load <2 x double>, ptr %46, align 8, !tbaa !109
   %99 = fsub <2 x double> %97, %98
   %100 = fmul <2 x double> %99, %99
-  %shift17 = shufflevector <2 x double> %100, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop18 = fadd <2 x double> %100, %shift17
-  %101 = extractelement <2 x double> %foldExtExtBinop18, i64 0
+  %shift18 = shufflevector <2 x double> %100, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop19 = fadd <2 x double> %100, %shift18
+  %101 = extractelement <2 x double> %foldExtExtBinop19, i64 0
   %102 = load double, ptr %37, align 8, !tbaa !61
   %103 = load double, ptr %53, align 8, !tbaa !61
   %104 = fsub double %102, %103
@@ -42807,9 +42807,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %59 = load <2 x double>, ptr %57, align 1, !tbaa !109
   %60 = fsub <2 x double> %58, %59
   %61 = fmul <2 x double> %60, %60
-  %shift72 = shufflevector <2 x double> %61, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop73 = fadd <2 x double> %61, %shift72
-  %62 = extractelement <2 x double> %foldExtExtBinop73, i64 0
+  %shift80 = shufflevector <2 x double> %61, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop81 = fadd <2 x double> %61, %shift80
+  %62 = extractelement <2 x double> %foldExtExtBinop81, i64 0
   %63 = load double, ptr %49, align 8, !tbaa !61
   %64 = getelementptr i8, ptr %57, i64 16
   %65 = load double, ptr %64, align 8, !tbaa !61
@@ -42822,9 +42822,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %71 = load <2 x double>, ptr %37, align 8, !tbaa !109
   %72 = fsub <2 x double> %70, %71
   %73 = fmul <2 x double> %72, %72
-  %shift75 = shufflevector <2 x double> %73, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop76 = fadd <2 x double> %73, %shift75
-  %74 = extractelement <2 x double> %foldExtExtBinop76, i64 0
+  %shift83 = shufflevector <2 x double> %73, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop84 = fadd <2 x double> %73, %shift83
+  %74 = extractelement <2 x double> %foldExtExtBinop84, i64 0
   %75 = load double, ptr %64, align 8, !tbaa !61
   %76 = load double, ptr %47, align 8, !tbaa !61
   %77 = fsub double %75, %76
@@ -43404,9 +43404,9 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %49 = load <2 x double>, ptr %47, align 1, !tbaa !109
   %50 = fsub <2 x double> %48, %49
   %51 = fmul <2 x double> %50, %50
-  %shift2 = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop3 = fadd <2 x double> %51, %shift2
-  %52 = extractelement <2 x double> %foldExtExtBinop3, i64 0
+  %shift3 = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop4 = fadd <2 x double> %51, %shift3
+  %52 = extractelement <2 x double> %foldExtExtBinop4, i64 0
   %53 = load double, ptr %39, align 8, !tbaa !61
   %54 = getelementptr i8, ptr %47, i64 16
   %55 = load double, ptr %54, align 8, !tbaa !61
@@ -43419,9 +43419,9 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %61 = load <2 x double>, ptr %27, align 8, !tbaa !109
   %62 = fsub <2 x double> %60, %61
   %63 = fmul <2 x double> %62, %62
-  %shift5 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop6 = fadd <2 x double> %63, %shift5
-  %64 = extractelement <2 x double> %foldExtExtBinop6, i64 0
+  %shift6 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop7 = fadd <2 x double> %63, %shift6
+  %64 = extractelement <2 x double> %foldExtExtBinop7, i64 0
   %65 = load double, ptr %54, align 8, !tbaa !61
   %66 = load double, ptr %37, align 8, !tbaa !61
   %67 = fsub double %65, %66
@@ -43685,9 +43685,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %59 = load <2 x double>, ptr %57, align 1, !tbaa !109
   %60 = fsub <2 x double> %58, %59
   %61 = fmul <2 x double> %60, %60
-  %shift72 = shufflevector <2 x double> %61, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop73 = fadd <2 x double> %61, %shift72
-  %62 = extractelement <2 x double> %foldExtExtBinop73, i64 0
+  %shift80 = shufflevector <2 x double> %61, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop81 = fadd <2 x double> %61, %shift80
+  %62 = extractelement <2 x double> %foldExtExtBinop81, i64 0
   %63 = load double, ptr %46, align 8, !tbaa !61
   %64 = getelementptr i8, ptr %57, i64 16
   %65 = load double, ptr %64, align 8, !tbaa !61
@@ -43705,9 +43705,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %75 = load <2 x double>, ptr %73, align 1, !tbaa !109
   %76 = fsub <2 x double> %74, %75
   %77 = fmul <2 x double> %76, %76
-  %shift75 = shufflevector <2 x double> %77, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop76 = fadd <2 x double> %77, %shift75
-  %78 = extractelement <2 x double> %foldExtExtBinop76, i64 0
+  %shift83 = shufflevector <2 x double> %77, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop84 = fadd <2 x double> %77, %shift83
+  %78 = extractelement <2 x double> %foldExtExtBinop84, i64 0
   %79 = load double, ptr %46, align 8, !tbaa !61
   %80 = getelementptr i8, ptr %73, i64 16
   %81 = load double, ptr %80, align 8, !tbaa !61
@@ -43720,9 +43720,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %87 = load <2 x double>, ptr %73, align 8, !tbaa !109
   %88 = fsub <2 x double> %86, %87
   %89 = fmul <2 x double> %88, %88
-  %shift78 = shufflevector <2 x double> %89, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop79 = fadd <2 x double> %89, %shift78
-  %90 = extractelement <2 x double> %foldExtExtBinop79, i64 0
+  %shift86 = shufflevector <2 x double> %89, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop87 = fadd <2 x double> %89, %shift86
+  %90 = extractelement <2 x double> %foldExtExtBinop87, i64 0
   %91 = load double, ptr %64, align 8, !tbaa !61
   %92 = load double, ptr %80, align 8, !tbaa !61
   %93 = fsub double %91, %92
@@ -43734,9 +43734,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %98 = load <2 x double>, ptr %40, align 8, !tbaa !109
   %99 = fsub <2 x double> %97, %98
   %100 = fmul <2 x double> %99, %99
-  %shift81 = shufflevector <2 x double> %100, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop82 = fadd <2 x double> %100, %shift81
-  %101 = extractelement <2 x double> %foldExtExtBinop82, i64 0
+  %shift89 = shufflevector <2 x double> %100, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop90 = fadd <2 x double> %100, %shift89
+  %101 = extractelement <2 x double> %foldExtExtBinop90, i64 0
   %102 = load double, ptr %80, align 8, !tbaa !61
   %103 = load double, ptr %48, align 8, !tbaa !61
   %104 = fsub double %102, %103
@@ -43748,9 +43748,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %109 = load <2 x double>, ptr %57, align 8, !tbaa !109
   %110 = fsub <2 x double> %108, %109
   %111 = fmul <2 x double> %110, %110
-  %shift84 = shufflevector <2 x double> %111, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop85 = fadd <2 x double> %111, %shift84
-  %112 = extractelement <2 x double> %foldExtExtBinop85, i64 0
+  %shift92 = shufflevector <2 x double> %111, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop93 = fadd <2 x double> %111, %shift92
+  %112 = extractelement <2 x double> %foldExtExtBinop93, i64 0
   %113 = load double, ptr %48, align 8, !tbaa !61
   %114 = load double, ptr %64, align 8, !tbaa !61
   %115 = fsub double %113, %114
@@ -44337,9 +44337,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %49 = load <2 x double>, ptr %47, align 1, !tbaa !109
   %50 = fsub <2 x double> %48, %49
   %51 = fmul <2 x double> %50, %50
-  %shift5 = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop6 = fadd <2 x double> %51, %shift5
-  %52 = extractelement <2 x double> %foldExtExtBinop6, i64 0
+  %shift6 = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop7 = fadd <2 x double> %51, %shift6
+  %52 = extractelement <2 x double> %foldExtExtBinop7, i64 0
   %53 = load double, ptr %36, align 8, !tbaa !61
   %54 = getelementptr i8, ptr %47, i64 16
   %55 = load double, ptr %54, align 8, !tbaa !61
@@ -44357,9 +44357,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %65 = load <2 x double>, ptr %63, align 1, !tbaa !109
   %66 = fsub <2 x double> %64, %65
   %67 = fmul <2 x double> %66, %66
-  %shift8 = shufflevector <2 x double> %67, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop9 = fadd <2 x double> %67, %shift8
-  %68 = extractelement <2 x double> %foldExtExtBinop9, i64 0
+  %shift9 = shufflevector <2 x double> %67, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop10 = fadd <2 x double> %67, %shift9
+  %68 = extractelement <2 x double> %foldExtExtBinop10, i64 0
   %69 = load double, ptr %36, align 8, !tbaa !61
   %70 = getelementptr i8, ptr %63, i64 16
   %71 = load double, ptr %70, align 8, !tbaa !61
@@ -44372,9 +44372,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %77 = load <2 x double>, ptr %63, align 8, !tbaa !109
   %78 = fsub <2 x double> %76, %77
   %79 = fmul <2 x double> %78, %78
-  %shift11 = shufflevector <2 x double> %79, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop12 = fadd <2 x double> %79, %shift11
-  %80 = extractelement <2 x double> %foldExtExtBinop12, i64 0
+  %shift12 = shufflevector <2 x double> %79, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop13 = fadd <2 x double> %79, %shift12
+  %80 = extractelement <2 x double> %foldExtExtBinop13, i64 0
   %81 = load double, ptr %54, align 8, !tbaa !61
   %82 = load double, ptr %70, align 8, !tbaa !61
   %83 = fsub double %81, %82
@@ -44386,9 +44386,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %88 = load <2 x double>, ptr %30, align 8, !tbaa !109
   %89 = fsub <2 x double> %87, %88
   %90 = fmul <2 x double> %89, %89
-  %shift14 = shufflevector <2 x double> %90, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop15 = fadd <2 x double> %90, %shift14
-  %91 = extractelement <2 x double> %foldExtExtBinop15, i64 0
+  %shift15 = shufflevector <2 x double> %90, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop16 = fadd <2 x double> %90, %shift15
+  %91 = extractelement <2 x double> %foldExtExtBinop16, i64 0
   %92 = load double, ptr %70, align 8, !tbaa !61
   %93 = load double, ptr %38, align 8, !tbaa !61
   %94 = fsub double %92, %93
@@ -44400,9 +44400,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %99 = load <2 x double>, ptr %47, align 8, !tbaa !109
   %100 = fsub <2 x double> %98, %99
   %101 = fmul <2 x double> %100, %100
-  %shift17 = shufflevector <2 x double> %101, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop18 = fadd <2 x double> %101, %shift17
-  %102 = extractelement <2 x double> %foldExtExtBinop18, i64 0
+  %shift18 = shufflevector <2 x double> %101, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop19 = fadd <2 x double> %101, %shift18
+  %102 = extractelement <2 x double> %foldExtExtBinop19, i64 0
   %103 = load double, ptr %38, align 8, !tbaa !61
   %104 = load double, ptr %54, align 8, !tbaa !61
   %105 = fsub double %103, %104
@@ -48222,9 +48222,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %60 = load <2 x double>, ptr %58, align 1, !tbaa !109
   %61 = fsub <2 x double> %59, %60
   %62 = fmul <2 x double> %61, %61
-  %shift72 = shufflevector <2 x double> %62, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop73 = fadd <2 x double> %62, %shift72
-  %63 = extractelement <2 x double> %foldExtExtBinop73, i64 0
+  %shift80 = shufflevector <2 x double> %62, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop81 = fadd <2 x double> %62, %shift80
+  %63 = extractelement <2 x double> %foldExtExtBinop81, i64 0
   %64 = load double, ptr %50, align 8, !tbaa !61
   %65 = getelementptr i8, ptr %58, i64 16
   %66 = load double, ptr %65, align 8, !tbaa !61
@@ -48237,9 +48237,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %72 = load <2 x double>, ptr %38, align 8, !tbaa !109
   %73 = fsub <2 x double> %71, %72
   %74 = fmul <2 x double> %73, %73
-  %shift75 = shufflevector <2 x double> %74, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop76 = fadd <2 x double> %74, %shift75
-  %75 = extractelement <2 x double> %foldExtExtBinop76, i64 0
+  %shift83 = shufflevector <2 x double> %74, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop84 = fadd <2 x double> %74, %shift83
+  %75 = extractelement <2 x double> %foldExtExtBinop84, i64 0
   %76 = load double, ptr %65, align 8, !tbaa !61
   %77 = load double, ptr %48, align 8, !tbaa !61
   %78 = fsub double %76, %77
@@ -48821,9 +48821,9 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %50 = load <2 x double>, ptr %48, align 1, !tbaa !109
   %51 = fsub <2 x double> %49, %50
   %52 = fmul <2 x double> %51, %51
-  %shift2 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop3 = fadd <2 x double> %52, %shift2
-  %53 = extractelement <2 x double> %foldExtExtBinop3, i64 0
+  %shift3 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop4 = fadd <2 x double> %52, %shift3
+  %53 = extractelement <2 x double> %foldExtExtBinop4, i64 0
   %54 = load double, ptr %40, align 8, !tbaa !61
   %55 = getelementptr i8, ptr %48, i64 16
   %56 = load double, ptr %55, align 8, !tbaa !61
@@ -48836,9 +48836,9 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %62 = load <2 x double>, ptr %28, align 8, !tbaa !109
   %63 = fsub <2 x double> %61, %62
   %64 = fmul <2 x double> %63, %63
-  %shift5 = shufflevector <2 x double> %64, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop6 = fadd <2 x double> %64, %shift5
-  %65 = extractelement <2 x double> %foldExtExtBinop6, i64 0
+  %shift6 = shufflevector <2 x double> %64, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop7 = fadd <2 x double> %64, %shift6
+  %65 = extractelement <2 x double> %foldExtExtBinop7, i64 0
   %66 = load double, ptr %55, align 8, !tbaa !61
   %67 = load double, ptr %38, align 8, !tbaa !61
   %68 = fsub double %66, %67
@@ -49108,9 +49108,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %60 = load <2 x double>, ptr %58, align 1, !tbaa !109
   %61 = fsub <2 x double> %59, %60
   %62 = fmul <2 x double> %61, %61
-  %shift72 = shufflevector <2 x double> %62, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop73 = fadd <2 x double> %62, %shift72
-  %63 = extractelement <2 x double> %foldExtExtBinop73, i64 0
+  %shift80 = shufflevector <2 x double> %62, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop81 = fadd <2 x double> %62, %shift80
+  %63 = extractelement <2 x double> %foldExtExtBinop81, i64 0
   %64 = load double, ptr %47, align 8, !tbaa !61
   %65 = getelementptr i8, ptr %58, i64 16
   %66 = load double, ptr %65, align 8, !tbaa !61
@@ -49128,9 +49128,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %76 = load <2 x double>, ptr %74, align 1, !tbaa !109
   %77 = fsub <2 x double> %75, %76
   %78 = fmul <2 x double> %77, %77
-  %shift75 = shufflevector <2 x double> %78, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop76 = fadd <2 x double> %78, %shift75
-  %79 = extractelement <2 x double> %foldExtExtBinop76, i64 0
+  %shift83 = shufflevector <2 x double> %78, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop84 = fadd <2 x double> %78, %shift83
+  %79 = extractelement <2 x double> %foldExtExtBinop84, i64 0
   %80 = load double, ptr %47, align 8, !tbaa !61
   %81 = getelementptr i8, ptr %74, i64 16
   %82 = load double, ptr %81, align 8, !tbaa !61
@@ -49143,9 +49143,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %88 = load <2 x double>, ptr %74, align 8, !tbaa !109
   %89 = fsub <2 x double> %87, %88
   %90 = fmul <2 x double> %89, %89
-  %shift78 = shufflevector <2 x double> %90, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop79 = fadd <2 x double> %90, %shift78
-  %91 = extractelement <2 x double> %foldExtExtBinop79, i64 0
+  %shift86 = shufflevector <2 x double> %90, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop87 = fadd <2 x double> %90, %shift86
+  %91 = extractelement <2 x double> %foldExtExtBinop87, i64 0
   %92 = load double, ptr %65, align 8, !tbaa !61
   %93 = load double, ptr %81, align 8, !tbaa !61
   %94 = fsub double %92, %93
@@ -49157,9 +49157,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %99 = load <2 x double>, ptr %41, align 8, !tbaa !109
   %100 = fsub <2 x double> %98, %99
   %101 = fmul <2 x double> %100, %100
-  %shift81 = shufflevector <2 x double> %101, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop82 = fadd <2 x double> %101, %shift81
-  %102 = extractelement <2 x double> %foldExtExtBinop82, i64 0
+  %shift89 = shufflevector <2 x double> %101, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop90 = fadd <2 x double> %101, %shift89
+  %102 = extractelement <2 x double> %foldExtExtBinop90, i64 0
   %103 = load double, ptr %81, align 8, !tbaa !61
   %104 = load double, ptr %49, align 8, !tbaa !61
   %105 = fsub double %103, %104
@@ -49171,9 +49171,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %110 = load <2 x double>, ptr %58, align 8, !tbaa !109
   %111 = fsub <2 x double> %109, %110
   %112 = fmul <2 x double> %111, %111
-  %shift84 = shufflevector <2 x double> %112, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop85 = fadd <2 x double> %112, %shift84
-  %113 = extractelement <2 x double> %foldExtExtBinop85, i64 0
+  %shift92 = shufflevector <2 x double> %112, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop93 = fadd <2 x double> %112, %shift92
+  %113 = extractelement <2 x double> %foldExtExtBinop93, i64 0
   %114 = load double, ptr %49, align 8, !tbaa !61
   %115 = load double, ptr %65, align 8, !tbaa !61
   %116 = fsub double %114, %115
@@ -49766,9 +49766,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %50 = load <2 x double>, ptr %48, align 1, !tbaa !109
   %51 = fsub <2 x double> %49, %50
   %52 = fmul <2 x double> %51, %51
-  %shift5 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop6 = fadd <2 x double> %52, %shift5
-  %53 = extractelement <2 x double> %foldExtExtBinop6, i64 0
+  %shift6 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop7 = fadd <2 x double> %52, %shift6
+  %53 = extractelement <2 x double> %foldExtExtBinop7, i64 0
   %54 = load double, ptr %37, align 8, !tbaa !61
   %55 = getelementptr i8, ptr %48, i64 16
   %56 = load double, ptr %55, align 8, !tbaa !61
@@ -49786,9 +49786,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %66 = load <2 x double>, ptr %64, align 1, !tbaa !109
   %67 = fsub <2 x double> %65, %66
   %68 = fmul <2 x double> %67, %67
-  %shift8 = shufflevector <2 x double> %68, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop9 = fadd <2 x double> %68, %shift8
-  %69 = extractelement <2 x double> %foldExtExtBinop9, i64 0
+  %shift9 = shufflevector <2 x double> %68, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop10 = fadd <2 x double> %68, %shift9
+  %69 = extractelement <2 x double> %foldExtExtBinop10, i64 0
   %70 = load double, ptr %37, align 8, !tbaa !61
   %71 = getelementptr i8, ptr %64, i64 16
   %72 = load double, ptr %71, align 8, !tbaa !61
@@ -49801,9 +49801,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %78 = load <2 x double>, ptr %64, align 8, !tbaa !109
   %79 = fsub <2 x double> %77, %78
   %80 = fmul <2 x double> %79, %79
-  %shift11 = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop12 = fadd <2 x double> %80, %shift11
-  %81 = extractelement <2 x double> %foldExtExtBinop12, i64 0
+  %shift12 = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop13 = fadd <2 x double> %80, %shift12
+  %81 = extractelement <2 x double> %foldExtExtBinop13, i64 0
   %82 = load double, ptr %55, align 8, !tbaa !61
   %83 = load double, ptr %71, align 8, !tbaa !61
   %84 = fsub double %82, %83
@@ -49815,9 +49815,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %89 = load <2 x double>, ptr %31, align 8, !tbaa !109
   %90 = fsub <2 x double> %88, %89
   %91 = fmul <2 x double> %90, %90
-  %shift14 = shufflevector <2 x double> %91, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop15 = fadd <2 x double> %91, %shift14
-  %92 = extractelement <2 x double> %foldExtExtBinop15, i64 0
+  %shift15 = shufflevector <2 x double> %91, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop16 = fadd <2 x double> %91, %shift15
+  %92 = extractelement <2 x double> %foldExtExtBinop16, i64 0
   %93 = load double, ptr %71, align 8, !tbaa !61
   %94 = load double, ptr %39, align 8, !tbaa !61
   %95 = fsub double %93, %94
@@ -49829,9 +49829,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %100 = load <2 x double>, ptr %48, align 8, !tbaa !109
   %101 = fsub <2 x double> %99, %100
   %102 = fmul <2 x double> %101, %101
-  %shift17 = shufflevector <2 x double> %102, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop18 = fadd <2 x double> %102, %shift17
-  %103 = extractelement <2 x double> %foldExtExtBinop18, i64 0
+  %shift18 = shufflevector <2 x double> %102, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop19 = fadd <2 x double> %102, %shift18
+  %103 = extractelement <2 x double> %foldExtExtBinop19, i64 0
   %104 = load double, ptr %39, align 8, !tbaa !61
   %105 = load double, ptr %55, align 8, !tbaa !61
   %106 = fsub double %104, %105
@@ -53660,9 +53660,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %61 = load <2 x double>, ptr %59, align 1, !tbaa !109
   %62 = fsub <2 x double> %60, %61
   %63 = fmul <2 x double> %62, %62
-  %shift72 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop73 = fadd <2 x double> %63, %shift72
-  %64 = extractelement <2 x double> %foldExtExtBinop73, i64 0
+  %shift80 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop81 = fadd <2 x double> %63, %shift80
+  %64 = extractelement <2 x double> %foldExtExtBinop81, i64 0
   %65 = load double, ptr %51, align 8, !tbaa !61
   %66 = getelementptr i8, ptr %59, i64 16
   %67 = load double, ptr %66, align 8, !tbaa !61
@@ -53675,9 +53675,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %73 = load <2 x double>, ptr %39, align 8, !tbaa !109
   %74 = fsub <2 x double> %72, %73
   %75 = fmul <2 x double> %74, %74
-  %shift75 = shufflevector <2 x double> %75, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop76 = fadd <2 x double> %75, %shift75
-  %76 = extractelement <2 x double> %foldExtExtBinop76, i64 0
+  %shift83 = shufflevector <2 x double> %75, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop84 = fadd <2 x double> %75, %shift83
+  %76 = extractelement <2 x double> %foldExtExtBinop84, i64 0
   %77 = load double, ptr %66, align 8, !tbaa !61
   %78 = load double, ptr %49, align 8, !tbaa !61
   %79 = fsub double %77, %78
@@ -54259,9 +54259,9 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %51 = load <2 x double>, ptr %49, align 1, !tbaa !109
   %52 = fsub <2 x double> %50, %51
   %53 = fmul <2 x double> %52, %52
-  %shift2 = shufflevector <2 x double> %53, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop3 = fadd <2 x double> %53, %shift2
-  %54 = extractelement <2 x double> %foldExtExtBinop3, i64 0
+  %shift3 = shufflevector <2 x double> %53, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop4 = fadd <2 x double> %53, %shift3
+  %54 = extractelement <2 x double> %foldExtExtBinop4, i64 0
   %55 = load double, ptr %41, align 8, !tbaa !61
   %56 = getelementptr i8, ptr %49, i64 16
   %57 = load double, ptr %56, align 8, !tbaa !61
@@ -54274,9 +54274,9 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %63 = load <2 x double>, ptr %29, align 8, !tbaa !109
   %64 = fsub <2 x double> %62, %63
   %65 = fmul <2 x double> %64, %64
-  %shift5 = shufflevector <2 x double> %65, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop6 = fadd <2 x double> %65, %shift5
-  %66 = extractelement <2 x double> %foldExtExtBinop6, i64 0
+  %shift6 = shufflevector <2 x double> %65, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop7 = fadd <2 x double> %65, %shift6
+  %66 = extractelement <2 x double> %foldExtExtBinop7, i64 0
   %67 = load double, ptr %56, align 8, !tbaa !61
   %68 = load double, ptr %39, align 8, !tbaa !61
   %69 = fsub double %67, %68
@@ -54545,9 +54545,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %61 = load <2 x double>, ptr %59, align 1, !tbaa !109
   %62 = fsub <2 x double> %60, %61
   %63 = fmul <2 x double> %62, %62
-  %shift72 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop73 = fadd <2 x double> %63, %shift72
-  %64 = extractelement <2 x double> %foldExtExtBinop73, i64 0
+  %shift80 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop81 = fadd <2 x double> %63, %shift80
+  %64 = extractelement <2 x double> %foldExtExtBinop81, i64 0
   %65 = load double, ptr %48, align 8, !tbaa !61
   %66 = getelementptr i8, ptr %59, i64 16
   %67 = load double, ptr %66, align 8, !tbaa !61
@@ -54565,9 +54565,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %77 = load <2 x double>, ptr %75, align 1, !tbaa !109
   %78 = fsub <2 x double> %76, %77
   %79 = fmul <2 x double> %78, %78
-  %shift75 = shufflevector <2 x double> %79, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop76 = fadd <2 x double> %79, %shift75
-  %80 = extractelement <2 x double> %foldExtExtBinop76, i64 0
+  %shift83 = shufflevector <2 x double> %79, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop84 = fadd <2 x double> %79, %shift83
+  %80 = extractelement <2 x double> %foldExtExtBinop84, i64 0
   %81 = load double, ptr %48, align 8, !tbaa !61
   %82 = getelementptr i8, ptr %75, i64 16
   %83 = load double, ptr %82, align 8, !tbaa !61
@@ -54580,9 +54580,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %89 = load <2 x double>, ptr %75, align 8, !tbaa !109
   %90 = fsub <2 x double> %88, %89
   %91 = fmul <2 x double> %90, %90
-  %shift78 = shufflevector <2 x double> %91, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop79 = fadd <2 x double> %91, %shift78
-  %92 = extractelement <2 x double> %foldExtExtBinop79, i64 0
+  %shift86 = shufflevector <2 x double> %91, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop87 = fadd <2 x double> %91, %shift86
+  %92 = extractelement <2 x double> %foldExtExtBinop87, i64 0
   %93 = load double, ptr %66, align 8, !tbaa !61
   %94 = load double, ptr %82, align 8, !tbaa !61
   %95 = fsub double %93, %94
@@ -54594,9 +54594,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %100 = load <2 x double>, ptr %42, align 8, !tbaa !109
   %101 = fsub <2 x double> %99, %100
   %102 = fmul <2 x double> %101, %101
-  %shift81 = shufflevector <2 x double> %102, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop82 = fadd <2 x double> %102, %shift81
-  %103 = extractelement <2 x double> %foldExtExtBinop82, i64 0
+  %shift89 = shufflevector <2 x double> %102, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop90 = fadd <2 x double> %102, %shift89
+  %103 = extractelement <2 x double> %foldExtExtBinop90, i64 0
   %104 = load double, ptr %82, align 8, !tbaa !61
   %105 = load double, ptr %50, align 8, !tbaa !61
   %106 = fsub double %104, %105
@@ -54608,9 +54608,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %111 = load <2 x double>, ptr %59, align 8, !tbaa !109
   %112 = fsub <2 x double> %110, %111
   %113 = fmul <2 x double> %112, %112
-  %shift84 = shufflevector <2 x double> %113, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop85 = fadd <2 x double> %113, %shift84
-  %114 = extractelement <2 x double> %foldExtExtBinop85, i64 0
+  %shift92 = shufflevector <2 x double> %113, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop93 = fadd <2 x double> %113, %shift92
+  %114 = extractelement <2 x double> %foldExtExtBinop93, i64 0
   %115 = load double, ptr %50, align 8, !tbaa !61
   %116 = load double, ptr %66, align 8, !tbaa !61
   %117 = fsub double %115, %116
@@ -55202,9 +55202,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %51 = load <2 x double>, ptr %49, align 1, !tbaa !109
   %52 = fsub <2 x double> %50, %51
   %53 = fmul <2 x double> %52, %52
-  %shift5 = shufflevector <2 x double> %53, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop6 = fadd <2 x double> %53, %shift5
-  %54 = extractelement <2 x double> %foldExtExtBinop6, i64 0
+  %shift6 = shufflevector <2 x double> %53, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop7 = fadd <2 x double> %53, %shift6
+  %54 = extractelement <2 x double> %foldExtExtBinop7, i64 0
   %55 = load double, ptr %38, align 8, !tbaa !61
   %56 = getelementptr i8, ptr %49, i64 16
   %57 = load double, ptr %56, align 8, !tbaa !61
@@ -55222,9 +55222,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %67 = load <2 x double>, ptr %65, align 1, !tbaa !109
   %68 = fsub <2 x double> %66, %67
   %69 = fmul <2 x double> %68, %68
-  %shift8 = shufflevector <2 x double> %69, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop9 = fadd <2 x double> %69, %shift8
-  %70 = extractelement <2 x double> %foldExtExtBinop9, i64 0
+  %shift9 = shufflevector <2 x double> %69, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop10 = fadd <2 x double> %69, %shift9
+  %70 = extractelement <2 x double> %foldExtExtBinop10, i64 0
   %71 = load double, ptr %38, align 8, !tbaa !61
   %72 = getelementptr i8, ptr %65, i64 16
   %73 = load double, ptr %72, align 8, !tbaa !61
@@ -55237,9 +55237,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %79 = load <2 x double>, ptr %65, align 8, !tbaa !109
   %80 = fsub <2 x double> %78, %79
   %81 = fmul <2 x double> %80, %80
-  %shift11 = shufflevector <2 x double> %81, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop12 = fadd <2 x double> %81, %shift11
-  %82 = extractelement <2 x double> %foldExtExtBinop12, i64 0
+  %shift12 = shufflevector <2 x double> %81, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop13 = fadd <2 x double> %81, %shift12
+  %82 = extractelement <2 x double> %foldExtExtBinop13, i64 0
   %83 = load double, ptr %56, align 8, !tbaa !61
   %84 = load double, ptr %72, align 8, !tbaa !61
   %85 = fsub double %83, %84
@@ -55251,9 +55251,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %90 = load <2 x double>, ptr %32, align 8, !tbaa !109
   %91 = fsub <2 x double> %89, %90
   %92 = fmul <2 x double> %91, %91
-  %shift14 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop15 = fadd <2 x double> %92, %shift14
-  %93 = extractelement <2 x double> %foldExtExtBinop15, i64 0
+  %shift15 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop16 = fadd <2 x double> %92, %shift15
+  %93 = extractelement <2 x double> %foldExtExtBinop16, i64 0
   %94 = load double, ptr %72, align 8, !tbaa !61
   %95 = load double, ptr %40, align 8, !tbaa !61
   %96 = fsub double %94, %95
@@ -55265,9 +55265,9 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %101 = load <2 x double>, ptr %49, align 8, !tbaa !109
   %102 = fsub <2 x double> %100, %101
   %103 = fmul <2 x double> %102, %102
-  %shift17 = shufflevector <2 x double> %103, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop18 = fadd <2 x double> %103, %shift17
-  %104 = extractelement <2 x double> %foldExtExtBinop18, i64 0
+  %shift18 = shufflevector <2 x double> %103, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop19 = fadd <2 x double> %103, %shift18
+  %104 = extractelement <2 x double> %foldExtExtBinop19, i64 0
   %105 = load double, ptr %40, align 8, !tbaa !61
   %106 = load double, ptr %56, align 8, !tbaa !61
   %107 = fsub double %105, %106
@@ -55531,9 +55531,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %58 = load <2 x double>, ptr %56, align 1, !tbaa !109
   %59 = fsub <2 x double> %57, %58
   %60 = fmul <2 x double> %59, %59
-  %shift72 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop73 = fadd <2 x double> %60, %shift72
-  %61 = extractelement <2 x double> %foldExtExtBinop73, i64 0
+  %shift80 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop81 = fadd <2 x double> %60, %shift80
+  %61 = extractelement <2 x double> %foldExtExtBinop81, i64 0
   %62 = load double, ptr %48, align 8, !tbaa !61
   %63 = getelementptr i8, ptr %56, i64 16
   %64 = load double, ptr %63, align 8, !tbaa !61
@@ -55546,9 +55546,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %70 = load <2 x double>, ptr %36, align 8, !tbaa !109
   %71 = fsub <2 x double> %69, %70
   %72 = fmul <2 x double> %71, %71
-  %shift75 = shufflevector <2 x double> %72, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop76 = fadd <2 x double> %72, %shift75
-  %73 = extractelement <2 x double> %foldExtExtBinop76, i64 0
+  %shift83 = shufflevector <2 x double> %72, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop84 = fadd <2 x double> %72, %shift83
+  %73 = extractelement <2 x double> %foldExtExtBinop84, i64 0
   %74 = load double, ptr %63, align 8, !tbaa !61
   %75 = load double, ptr %46, align 8, !tbaa !61
   %76 = fsub double %74, %75
@@ -56128,9 +56128,9 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %48 = load <2 x double>, ptr %46, align 1, !tbaa !109
   %49 = fsub <2 x double> %47, %48
   %50 = fmul <2 x double> %49, %49
-  %shift2 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop3 = fadd <2 x double> %50, %shift2
-  %51 = extractelement <2 x double> %foldExtExtBinop3, i64 0
+  %shift3 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop4 = fadd <2 x double> %50, %shift3
+  %51 = extractelement <2 x double> %foldExtExtBinop4, i64 0
   %52 = load double, ptr %38, align 8, !tbaa !61
   %53 = getelementptr i8, ptr %46, i64 16
   %54 = load double, ptr %53, align 8, !tbaa !61
@@ -56143,9 +56143,9 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %60 = load <2 x double>, ptr %26, align 8, !tbaa !109
   %61 = fsub <2 x double> %59, %60
   %62 = fmul <2 x double> %61, %61
-  %shift5 = shufflevector <2 x double> %62, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop6 = fadd <2 x double> %62, %shift5
-  %63 = extractelement <2 x double> %foldExtExtBinop6, i64 0
+  %shift6 = shufflevector <2 x double> %62, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop7 = fadd <2 x double> %62, %shift6
+  %63 = extractelement <2 x double> %foldExtExtBinop7, i64 0
   %64 = load double, ptr %53, align 8, !tbaa !61
   %65 = load double, ptr %36, align 8, !tbaa !61
   %66 = fsub double %64, %65

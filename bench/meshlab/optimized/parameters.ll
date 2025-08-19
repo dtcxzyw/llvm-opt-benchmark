@@ -218,13 +218,13 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
   br i1 %23, label %._crit_edge.thread.i.i, label %28
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %18
-  %.019.lcssa28.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %6, %18 ]
+  %.019.lcssa29.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %6, %18 ]
   %24 = load ptr, ptr %8, align 8
-  %25 = icmp eq ptr %.019.lcssa28.i.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i.i, %24
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #28
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i) #28
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81.i = load i32, ptr %.phi.trans.insert80.i, align 4
   %.pre82.i = load i32, ptr %.08.i, align 4
@@ -233,12 +233,12 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 28:                                               ; preds = %26, %._crit_edge.i.i
   %29 = phi i32 [ %.pre82.i, %26 ], [ %19, %._crit_edge.i.i ]
   %30 = phi i32 [ %.pre81.i, %26 ], [ %22, %._crit_edge.i.i ]
-  %.019.lcssa29.i.i = phi ptr [ %.019.lcssa28.i.i, %26 ], [ %.02024.i.i, %._crit_edge.i.i ]
+  %.019.lcssa28.i.i = phi ptr [ %.019.lcssa29.i.i, %26 ], [ %.02024.i.i, %._crit_edge.i.i ]
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
-  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
+  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
@@ -1584,8 +1584,8 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit61:              ; preds = %133
   %.sroa.0.0.i71 = phi <2 x float> [ %.sroa.0.4.vec.insert36.i75, %247 ], [ %.sroa.0.4.vec.insert.i69, %195 ]
   %foldExtExtBinop = fadd <2 x float> %.sroa.0.0.i, %.sroa.0.0.i71
   %252 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop113 = fadd <2 x float> %.sroa.0.0.i, %.sroa.0.0.i71
-  %253 = extractelement <2 x float> %foldExtExtBinop113, i64 1
+  %foldExtExtBinop114 = fadd <2 x float> %.sroa.0.0.i, %.sroa.0.0.i71
+  %253 = extractelement <2 x float> %foldExtExtBinop114, i64 1
   %254 = fadd float %.sroa.7.0.i, %.sroa.7.0.i70
   %255 = fadd float %137, %252
   %256 = fadd float %138, %253
@@ -1812,8 +1812,8 @@ define <2 x float> @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEENS
   %.sroa.22.0.copyload.i.i.i = load float, ptr %.sroa.22.0..sroa_idx.i.i.i, align 4
   %foldExtExtBinop = fsub <2 x float> %2, %.sroa.01.0.copyload.i.i.i
   %8 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop80 = fsub <2 x float> %2, %.sroa.01.0.copyload.i.i.i
-  %9 = extractelement <2 x float> %foldExtExtBinop80, i64 1
+  %foldExtExtBinop83 = fsub <2 x float> %2, %.sroa.01.0.copyload.i.i.i
+  %9 = extractelement <2 x float> %foldExtExtBinop83, i64 1
   %10 = fsub float %3, %.sroa.22.0.copyload.i.i.i
   %11 = fmul float %.sroa.2.0.copyload.i.i, %9
   %12 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.copyload.i.i, float %8, float %11)
@@ -1948,10 +1948,10 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit: ; preds = %_ZNK3
   %.sroa.01.0.copyload.i.i.i33 = load <2 x float>, ptr %77, align 4
   %.sroa.22.0..sroa_idx.i.i.i34 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %.sroa.22.0.copyload.i.i.i35 = load float, ptr %.sroa.22.0..sroa_idx.i.i.i34, align 4
-  %foldExtExtBinop82 = fsub <2 x float> %2, %.sroa.01.0.copyload.i.i.i33
-  %78 = extractelement <2 x float> %foldExtExtBinop82, i64 0
-  %foldExtExtBinop84 = fsub <2 x float> %2, %.sroa.01.0.copyload.i.i.i33
-  %79 = extractelement <2 x float> %foldExtExtBinop84, i64 1
+  %foldExtExtBinop85 = fsub <2 x float> %2, %.sroa.01.0.copyload.i.i.i33
+  %78 = extractelement <2 x float> %foldExtExtBinop85, i64 0
+  %foldExtExtBinop87 = fsub <2 x float> %2, %.sroa.01.0.copyload.i.i.i33
+  %79 = extractelement <2 x float> %foldExtExtBinop87, i64 1
   %80 = fsub float %3, %.sroa.22.0.copyload.i.i.i35
   %81 = fmul float %.sroa.2.0.copyload.i.i4, %79
   %82 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.copyload.i.i2, float %78, float %81)

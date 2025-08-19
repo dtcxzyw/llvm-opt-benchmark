@@ -2408,15 +2408,15 @@ if.then.i318:                                     ; preds = %lor.lhs.false.i308
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit322
 
 if.end.i311:                                      ; preds = %if.end5.i, %if.end5.i, %lor.lhs.false.i308
-  %connectionsList.0106 = phi ptr [ %connectionsList.0, %lor.lhs.false.i308 ], [ null, %if.end5.i ], [ null, %if.end5.i ]
-  %lenient_flags.097104 = phi i32 [ %lenient_flags.097, %lor.lhs.false.i308 ], [ %call94, %if.end5.i ], [ %call94, %if.end5.i ]
+  %connectionsList.0109 = phi ptr [ %connectionsList.0, %lor.lhs.false.i308 ], [ null, %if.end5.i ], [ null, %if.end5.i ]
+  %lenient_flags.097107 = phi i32 [ %lenient_flags.097, %lor.lhs.false.i308 ], [ %call94, %if.end5.i ], [ %call94, %if.end5.i ]
   %values_.i312 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %86 = load ptr, ptr %values_.i312, align 8
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit322
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit322: ; preds = %if.end.i311, %if.then.i318
-  %connectionsList.0105 = phi ptr [ %connectionsList.0, %if.then.i318 ], [ %connectionsList.0106, %if.end.i311 ]
-  %lenient_flags.097103 = phi i32 [ %lenient_flags.097, %if.then.i318 ], [ %lenient_flags.097104, %if.end.i311 ]
+  %connectionsList.0108 = phi ptr [ %connectionsList.0, %if.then.i318 ], [ %connectionsList.0109, %if.end.i311 ]
+  %lenient_flags.097106 = phi i32 [ %lenient_flags.097, %if.then.i318 ], [ %lenient_flags.097107, %if.end.i311 ]
   %retval.i302.sroa.0.0 = phi ptr [ %85, %if.then.i318 ], [ %86, %if.end.i311 ]
   %call149 = tail call noundef i32 @_ZNK2v85Int325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i302.sroa.0.0) #20
   %cmp151 = icmp eq i32 %call149, 1
@@ -2501,7 +2501,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   tail call void @_ZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdb(ptr noundef nonnull align 8 dereferenceable(56) %retval.i12.0.i84, ptr %retval.i285.sroa.0.0, double noundef -1.000000e+00, i1 noundef zeroext false) #20
   %parser_.i = getelementptr inbounds nuw i8, ptr %retval.i12.0.i84, i64 80
   tail call void @llhttp_init(ptr noundef nonnull %parser_.i, i32 noundef %call149, ptr noundef nonnull @_ZN4node12_GLOBAL__N_16Parser8settingsE) #20
-  %and.i88 = and i32 %lenient_flags.097103, 1
+  %and.i88 = and i32 %lenient_flags.097106, 1
   %tobool.not.i = icmp eq i32 %and.i88, 0
   br i1 %tobool.not.i, label %if.end.i90, label %if.then.i89
 
@@ -2510,7 +2510,7 @@ if.then.i89:                                      ; preds = %_ZNK2v820FunctionCa
   br label %if.end.i90
 
 if.end.i90:                                       ; preds = %if.then.i89, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %and3.i = and i32 %lenient_flags.097103, 2
+  %and3.i = and i32 %lenient_flags.097106, 2
   %tobool4.not.i = icmp eq i32 %and3.i, 0
   br i1 %tobool4.not.i, label %if.end7.i, label %if.then5.i
 
@@ -2519,7 +2519,7 @@ if.then5.i:                                       ; preds = %if.end.i90
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then5.i, %if.end.i90
-  %and8.i = and i32 %lenient_flags.097103, 4
+  %and8.i = and i32 %lenient_flags.097106, 4
   %tobool9.not.i = icmp eq i32 %and8.i, 0
   br i1 %tobool9.not.i, label %if.end12.i, label %if.then10.i
 
@@ -2528,7 +2528,7 @@ if.then10.i:                                      ; preds = %if.end7.i
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %if.end7.i
-  %and13.i = and i32 %lenient_flags.097103, 8
+  %and13.i = and i32 %lenient_flags.097106, 8
   %tobool14.not.i = icmp eq i32 %and13.i, 0
   br i1 %tobool14.not.i, label %if.end17.i, label %if.then15.i
 
@@ -2537,7 +2537,7 @@ if.then15.i:                                      ; preds = %if.end12.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then15.i, %if.end12.i
-  %and18.i = and i32 %lenient_flags.097103, 16
+  %and18.i = and i32 %lenient_flags.097106, 16
   %tobool19.not.i = icmp eq i32 %and18.i, 0
   br i1 %tobool19.not.i, label %if.end22.i, label %if.then20.i
 
@@ -2546,7 +2546,7 @@ if.then20.i:                                      ; preds = %if.end17.i
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.then20.i, %if.end17.i
-  %and23.i = and i32 %lenient_flags.097103, 32
+  %and23.i = and i32 %lenient_flags.097106, 32
   %tobool24.not.i = icmp eq i32 %and23.i, 0
   br i1 %tobool24.not.i, label %if.end27.i, label %if.then25.i
 
@@ -2555,7 +2555,7 @@ if.then25.i:                                      ; preds = %if.end22.i
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.then25.i, %if.end22.i
-  %and28.i = and i32 %lenient_flags.097103, 64
+  %and28.i = and i32 %lenient_flags.097106, 64
   %tobool29.not.i = icmp eq i32 %and28.i, 0
   br i1 %tobool29.not.i, label %if.end32.i, label %if.then30.i
 
@@ -2564,7 +2564,7 @@ if.then30.i:                                      ; preds = %if.end27.i
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.then30.i, %if.end27.i
-  %and33.i = and i32 %lenient_flags.097103, 128
+  %and33.i = and i32 %lenient_flags.097106, 128
   %tobool34.not.i = icmp eq i32 %and33.i, 0
   br i1 %tobool34.not.i, label %if.end37.i, label %if.then35.i
 
@@ -2573,7 +2573,7 @@ if.then35.i:                                      ; preds = %if.end32.i
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then35.i, %if.end32.i
-  %and38.i = and i32 %lenient_flags.097103, 256
+  %and38.i = and i32 %lenient_flags.097106, 256
   %tobool39.not.i = icmp eq i32 %and38.i, 0
   br i1 %tobool39.not.i, label %if.end42.i, label %if.then40.i
 
@@ -2582,7 +2582,7 @@ if.then40.i:                                      ; preds = %if.end37.i
   br label %if.end42.i
 
 if.end42.i:                                       ; preds = %if.then40.i, %if.end37.i
-  %and43.i = and i32 %lenient_flags.097103, 512
+  %and43.i = and i32 %lenient_flags.097106, 512
   %tobool44.not.i = icmp eq i32 %and43.i, 0
   br i1 %tobool44.not.i, label %if.end47.i, label %if.then45.i
 
@@ -2643,12 +2643,12 @@ _ZN4node12_GLOBAL__N_16Parser4InitE11llhttp_typemj.exit: ; preds = %_ZN4node12_G
   %max_http_header_size_.i = getelementptr inbounds nuw i8, ptr %retval.i12.0.i84, i64 1816
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %size_.i12.i, i8 0, i64 26, i1 false)
   store i64 %max_http_header_size.1, ptr %max_http_header_size_.i, align 8
-  %cmp207.not = icmp eq ptr %connectionsList.0105, null
+  %cmp207.not = icmp eq ptr %connectionsList.0108, null
   %connectionsList_212 = getelementptr inbounds nuw i8, ptr %retval.i12.0.i84, i64 1832
   br i1 %cmp207.not, label %if.else, label %if.then208
 
 if.then208:                                       ; preds = %_ZN4node12_GLOBAL__N_16Parser4InitE11llhttp_typemj.exit
-  store ptr %connectionsList.0105, ptr %connectionsList_212, align 8
+  store ptr %connectionsList.0108, ptr %connectionsList_212, align 8
   %call209 = tail call i64 @uv_hrtime() #20
   %last_message_start_ = getelementptr inbounds nuw i8, ptr %retval.i12.0.i84, i64 1824
   store i64 %call209, ptr %last_message_start_, align 8
@@ -4551,11 +4551,11 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %or.cond, label %if.then.i.i.i.i14, label %if.end9
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i33 = getelementptr inbounds i8, ptr %2, i64 -8
-  %8 = load ptr, ptr %incdec.ptr.i.i.i.i33, align 8
-  %cmp34 = icmp ne ptr %8, null
-  %or.cond35 = and i1 %subtract_from_self, %cmp34
-  br i1 %or.cond35, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end9
+  %incdec.ptr.i.i.i.i37 = getelementptr inbounds i8, ptr %2, i64 -8
+  %8 = load ptr, ptr %incdec.ptr.i.i.i.i37, align 8
+  %cmp38 = icmp ne ptr %8, null
+  %or.cond39 = and i1 %subtract_from_self, %cmp38
+  br i1 %or.cond39, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end9
 
 if.then.i.i.i.i14:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -4717,10 +4717,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i:   ; preds = %if.end.i.i
   br i1 %cmp.not.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i: ; preds = %if.end.i.i
-  %incdec.ptr.i.i.i.i19.i = getelementptr inbounds i8, ptr %4, i64 -8
-  %10 = load ptr, ptr %incdec.ptr.i.i.i.i19.i, align 8
-  %cmp.not20.i = icmp eq ptr %10, null
-  br i1 %cmp.not20.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
+  %incdec.ptr.i.i.i.i20.i = getelementptr inbounds i8, ptr %4, i64 -8
+  %10 = load ptr, ptr %incdec.ptr.i.i.i.i20.i, align 8
+  %cmp.not21.i = icmp eq ptr %10, null
+  br i1 %cmp.not21.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i
   %11 = phi ptr [ %10, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i ], [ %9, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i ]
@@ -5518,7 +5518,7 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %if.then
   store i8 0, ptr %0, align 1
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %sub.i.i.i.i = add i64 %sub, -1
+  %sub.i.i.i.i = add nsw i64 %sub, -1
   %cmp.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
 
@@ -5574,7 +5574,7 @@ if.then.i28.i:                                    ; preds = %_ZNSt6vectorIcSaIcE
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %if.then.i28.i, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr33.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %__new_size
+  %add.ptr33.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 %__new_size
   store ptr %add.ptr33.i, ptr %_M_finish.i, align 8
   %add.ptr36.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 %3
   store ptr %add.ptr36.i, ptr %_M_end_of_storage.i, align 8
@@ -6129,7 +6129,7 @@ while.body.us.i.i.i:                              ; preds = %while.body.lr.ph.i.
   %__x.addr.1.in.us.i.i.i = getelementptr i8, ptr %__x.addr.03.us.i.i.i, i64 %__x.addr.1.in.us.v.i.i.i
   %__x.addr.1.us.i.i.i = load ptr, ptr %__x.addr.1.in.us.i.i.i, align 8
   %cmp.not.us.i.i.i = icmp eq ptr %__x.addr.1.us.i.i.i, null
-  br i1 %cmp.not.us.i.i.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.thread.i, label %while.body.us.i.i.i, !llvm.loop !50
+  br i1 %cmp.not.us.i.i.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.thread.i.i, label %while.body.us.i.i.i, !llvm.loop !50
 
 while.body.i.i.i:                                 ; preds = %while.body.lr.ph.i.i.i, %while.body.i.i.i
   %__x.addr.03.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %__x.0.val19.i.i, %while.body.lr.ph.i.i.i ]
@@ -6146,34 +6146,34 @@ while.body.i.i.i:                                 ; preds = %while.body.lr.ph.i.
   %13 = getelementptr i8, ptr %__x.addr.03.i.i.i, i64 %..i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %13, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.thread24.i, label %while.body.i.i.i, !llvm.loop !50
+  br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.thread37.i.i, label %while.body.i.i.i, !llvm.loop !50
 
 _ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i: ; preds = %if.else12.i.i
   %cmp.not1.i33.i.i = icmp eq ptr %__x.0.val17.i.i, null
   br i1 %cmp.not1.i33.i.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE11equal_rangeERKS3_.exit.i, label %while.body.lr.ph.i34.i.i
 
-_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.thread24.i: ; preds = %while.body.i.i.i
-  %cmp.not1.i33.i26.i = icmp eq ptr %__x.0.val17.i.i, null
-  br i1 %cmp.not1.i33.i26.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE11equal_rangeERKS3_.exit.i, label %while.body.us.i45.i.preheader.i
+_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.thread37.i.i: ; preds = %while.body.i.i.i
+  %cmp.not1.i3339.i.i = icmp eq ptr %__x.0.val17.i.i, null
+  br i1 %cmp.not1.i3339.i.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE11equal_rangeERKS3_.exit.i, label %while.body.us.i45.preheader.i.i
 
-_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.thread.i: ; preds = %while.body.us.i.i.i
-  %cmp.not1.i33.i20.i = icmp eq ptr %__x.0.val17.i.i, null
-  br i1 %cmp.not1.i33.i20.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE11equal_rangeERKS3_.exit.i, label %while.body.i37.i.preheader.i
+_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.thread.i.i: ; preds = %while.body.us.i.i.i
+  %cmp.not1.i3333.i.i = icmp eq ptr %__x.0.val17.i.i, null
+  br i1 %cmp.not1.i3333.i.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE11equal_rangeERKS3_.exit.i, label %while.body.i37.preheader.i.i
 
 while.body.lr.ph.i34.i.i:                         ; preds = %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i
-  br i1 %cmp3.i.not.i.i, label %while.body.us.i45.i.preheader.i, label %while.body.i37.i.preheader.i
+  br i1 %cmp3.i.not.i.i, label %while.body.us.i45.preheader.i.i, label %while.body.i37.preheader.i.i
 
-while.body.i37.i.preheader.i:                     ; preds = %while.body.lr.ph.i34.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.thread.i
-  %__y.addr.0.lcssa.i.i2123.i = phi ptr [ %.us-phi20.i.i, %while.body.lr.ph.i34.i.i ], [ %__y.addr.1.us.i.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.thread.i ]
+while.body.i37.preheader.i.i:                     ; preds = %while.body.lr.ph.i34.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.thread.i.i
+  %__y.addr.0.lcssa.i3436.i.i = phi ptr [ %.us-phi20.i.i, %while.body.lr.ph.i34.i.i ], [ %__y.addr.1.us.i.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.thread.i.i ]
   br label %while.body.i37.i.i
 
-while.body.us.i45.i.preheader.i:                  ; preds = %while.body.lr.ph.i34.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.thread24.i
-  %__y.addr.0.lcssa.i.i2129.i = phi ptr [ %.us-phi20.i.i, %while.body.lr.ph.i34.i.i ], [ %__y.addr.02.__x.addr.03.i.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.thread24.i ]
+while.body.us.i45.preheader.i.i:                  ; preds = %while.body.lr.ph.i34.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.thread37.i.i
+  %__y.addr.0.lcssa.i3442.i.i = phi ptr [ %.us-phi20.i.i, %while.body.lr.ph.i34.i.i ], [ %__y.addr.02.__x.addr.03.i.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.thread37.i.i ]
   br label %while.body.us.i45.i.i
 
-while.body.us.i45.i.i:                            ; preds = %while.body.us.i45.i.i, %while.body.us.i45.i.preheader.i
-  %__x.addr.03.us.i46.i.i = phi ptr [ %__x.addr.1.us.i52.i.i, %while.body.us.i45.i.i ], [ %__x.0.val17.i.i, %while.body.us.i45.i.preheader.i ]
-  %__y.addr.02.us.i47.i.i = phi ptr [ %__y.addr.1.us.i49.i.i, %while.body.us.i45.i.i ], [ %.us-phi19.i.i, %while.body.us.i45.i.preheader.i ]
+while.body.us.i45.i.i:                            ; preds = %while.body.us.i45.i.i, %while.body.us.i45.preheader.i.i
+  %__x.addr.03.us.i46.i.i = phi ptr [ %__x.addr.1.us.i52.i.i, %while.body.us.i45.i.i ], [ %__x.0.val17.i.i, %while.body.us.i45.preheader.i.i ]
+  %__y.addr.02.us.i47.i.i = phi ptr [ %__y.addr.1.us.i49.i.i, %while.body.us.i45.i.i ], [ %.us-phi19.i.i, %while.body.us.i45.preheader.i.i ]
   %_M_storage.i.i.us.i48.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.03.us.i46.i.i, i64 32
   %14 = load ptr, ptr %_M_storage.i.i.us.i48.i.i, align 8
   %last_message_start_2.i.us.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 1824
@@ -6188,9 +6188,9 @@ while.body.us.i45.i.i:                            ; preds = %while.body.us.i45.i
   %cmp.not.us.i53.i.i = icmp eq ptr %__x.addr.1.us.i52.i.i, null
   br i1 %cmp.not.us.i53.i.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE11equal_rangeERKS3_.exit.i, label %while.body.us.i45.i.i, !llvm.loop !51
 
-while.body.i37.i.i:                               ; preds = %while.body.i37.i.i, %while.body.i37.i.preheader.i
-  %__x.addr.03.i38.i.i = phi ptr [ %__x.addr.1.i42.i.i, %while.body.i37.i.i ], [ %__x.0.val17.i.i, %while.body.i37.i.preheader.i ]
-  %__y.addr.02.i39.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i37.i.i ], [ %.us-phi19.i.i, %while.body.i37.i.preheader.i ]
+while.body.i37.i.i:                               ; preds = %while.body.i37.i.i, %while.body.i37.preheader.i.i
+  %__x.addr.03.i38.i.i = phi ptr [ %__x.addr.1.i42.i.i, %while.body.i37.i.i ], [ %__x.0.val17.i.i, %while.body.i37.preheader.i.i ]
+  %__y.addr.02.i39.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i37.i.i ], [ %.us-phi19.i.i, %while.body.i37.preheader.i.i ]
   %_M_storage.i.i.i40.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.03.i38.i.i, i64 32
   %16 = load ptr, ptr %_M_storage.i.i.i40.i.i, align 8
   %last_message_start_2.i.i41.i.i = getelementptr inbounds nuw i8, ptr %16, i64 1824
@@ -6204,16 +6204,16 @@ while.body.i37.i.i:                               ; preds = %while.body.i37.i.i,
   br i1 %cmp.not.i43.i.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE11equal_rangeERKS3_.exit.i, label %while.body.i37.i.i, !llvm.loop !51
 
 if.end19.i.i:                                     ; preds = %_ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit32.i.i, %_ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit.i.i, %while.body.i.i
-  %.sink40.i.i = phi i64 [ 24, %_ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit.i.i ], [ 16, %while.body.i.i ], [ 16, %_ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit32.i.i ]
+  %.sink51.i.i = phi i64 [ 24, %_ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit.i.i ], [ 16, %while.body.i.i ], [ 16, %_ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit32.i.i ]
   %__y.1.i.i = phi ptr [ %__y.016.i.i, %_ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit.i.i ], [ %__x.017.i.i, %while.body.i.i ], [ %__x.017.i.i, %_ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit32.i.i ]
-  %18 = getelementptr i8, ptr %__x.017.i.i, i64 %.sink40.i.i
+  %18 = getelementptr i8, ptr %__x.017.i.i, i64 %.sink51.i.i
   %__x.0.i.i = load ptr, ptr %18, align 8
   %cmp.not.i.i = icmp eq ptr %__x.0.i.i, null
   br i1 %cmp.not.i.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE11equal_rangeERKS3_.exit.i, label %while.body.i.i, !llvm.loop !49
 
-_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE11equal_rangeERKS3_.exit.i: ; preds = %if.end19.us.i.i, %if.end19.i.i, %while.body.i37.i.i, %while.body.us.i45.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.thread.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.thread24.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i, %entry
-  %retval.sroa.0.0.i.i = phi ptr [ %.us-phi20.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i ], [ %add.ptr.i.i.i, %entry ], [ %__y.addr.1.us.i.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.thread.i ], [ %__y.addr.02.__x.addr.03.i.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.thread24.i ], [ %__y.addr.0.lcssa.i.i2129.i, %while.body.us.i45.i.i ], [ %__y.addr.0.lcssa.i.i2123.i, %while.body.i37.i.i ], [ %__y.1.i.i, %if.end19.i.i ], [ %__y.1.us.i.i, %if.end19.us.i.i ]
-  %retval.sroa.3.0.i.i = phi ptr [ %.us-phi19.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i ], [ %add.ptr.i.i.i, %entry ], [ %.us-phi19.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.thread.i ], [ %.us-phi19.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.thread24.i ], [ %__y.addr.1.us.i49.i.i, %while.body.us.i45.i.i ], [ %__y.addr.1.i.i.i, %while.body.i37.i.i ], [ %__y.1.i.i, %if.end19.i.i ], [ %__y.1.us.i.i, %if.end19.us.i.i ]
+_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE11equal_rangeERKS3_.exit.i: ; preds = %if.end19.us.i.i, %if.end19.i.i, %while.body.i37.i.i, %while.body.us.i45.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.thread.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.thread37.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i, %entry
+  %retval.sroa.0.0.i.i = phi ptr [ %.us-phi20.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i ], [ %add.ptr.i.i.i, %entry ], [ %__y.addr.1.us.i.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.thread.i.i ], [ %__y.addr.02.__x.addr.03.i.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.thread37.i.i ], [ %__y.addr.0.lcssa.i3442.i.i, %while.body.us.i45.i.i ], [ %__y.addr.0.lcssa.i3436.i.i, %while.body.i37.i.i ], [ %__y.1.i.i, %if.end19.i.i ], [ %__y.1.us.i.i, %if.end19.us.i.i ]
+  %retval.sroa.3.0.i.i = phi ptr [ %.us-phi19.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i ], [ %add.ptr.i.i.i, %entry ], [ %.us-phi19.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.thread.i.i ], [ %.us-phi19.i.i, %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.thread37.i.i ], [ %__y.addr.1.us.i49.i.i, %while.body.us.i45.i.i ], [ %__y.addr.1.i.i.i, %while.body.i37.i.i ], [ %__y.1.i.i, %if.end19.i.i ], [ %__y.1.us.i.i, %if.end19.us.i.i ]
   %19 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %this.val.i.i = load ptr, ptr %20, align 8
@@ -8078,21 +8078,21 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %wh
   br i1 %__comp.0.lcssa.i.i, label %if.then.i.i, label %if.end12.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i, %entry
-  %__y.0.lcssa18.i.i = phi ptr [ %__y.0.lcssa.i.i, %while.end.i.i ], [ %add.ptr.i.i.i, %entry ]
+  %__y.0.lcssa19.i.i = phi ptr [ %__y.0.lcssa.i.i, %while.end.i.i ], [ %add.ptr.i.i.i, %entry ]
   %7 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %this.val4.i.i = load ptr, ptr %7, align 8
-  %cmp.i7.i.i = icmp eq ptr %__y.0.lcssa18.i.i, %this.val4.i.i
+  %cmp.i7.i.i = icmp eq ptr %__y.0.lcssa19.i.i, %this.val4.i.i
   br i1 %cmp.i7.i.i, label %if.then.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa18.i.i) #24
+  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa19.i.i) #24
   %last_message_start_2.i10.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %__x.0.val, i64 1824
   %.pre.i = load i64, ptr %last_message_start_2.i10.i.phi.trans.insert.i, align 8
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.else.i.i, %while.end.i.i
   %8 = phi i64 [ %.pre.i, %if.else.i.i ], [ %1, %while.end.i.i ]
-  %__y.0.lcssa17.i.i = phi ptr [ %__y.0.lcssa18.i.i, %if.else.i.i ], [ %__y.0.lcssa.i.i, %while.end.i.i ]
+  %__y.0.lcssa18.i.i = phi ptr [ %__y.0.lcssa19.i.i, %if.else.i.i ], [ %__y.0.lcssa.i.i, %while.end.i.i ]
   %__j.sroa.0.0.i.i = phi ptr [ %call.i.i.i, %if.else.i.i ], [ %__y.0.lcssa.i.i, %while.end.i.i ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0.i.i, i64 32
   %9 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8
@@ -8112,7 +8112,7 @@ _ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit18.i.i: ; pred
   br i1 %spec.select1.i17.i.i, label %if.then.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_.exit
 
 if.then.i:                                        ; preds = %_ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit18.i.i, %if.else8.i11.i.i, %if.then.i.i
-  %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa17.i.i, %_ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit18.i.i ], [ %__y.0.lcssa17.i.i, %if.else8.i11.i.i ], [ %__y.0.lcssa18.i.i, %if.then.i.i ]
+  %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa18.i.i, %_ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit18.i.i ], [ %__y.0.lcssa18.i.i, %if.else8.i11.i.i ], [ %__y.0.lcssa19.i.i, %if.then.i.i ]
   %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i, %add.ptr.i.i.i
   br i1 %cmp2.i.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE10_M_insert_IRKS3_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i, label %lor.rhs.i.i
 

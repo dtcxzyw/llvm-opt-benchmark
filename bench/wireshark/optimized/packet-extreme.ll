@@ -974,8 +974,8 @@ dissect_esl_tlv.exit:                             ; preds = %.lr.ph.i, %273
 
 dissect_link_tlv.exit:                            ; preds = %406, %385, %409, %368, %345, %dissect_esl_tlv.exit, %229, %194, %dissect_vlan_tlv.exit, %84, %70
   %420 = add nuw nsw i32 %.0150, %56
-  %.not172 = icmp samesign ult i32 %420, %21
-  br i1 %.not172, label %46, label %.loopexit, !llvm.loop !8
+  %.not179 = icmp samesign ult i32 %420, %21
+  br i1 %.not179, label %46, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %dissect_link_tlv.exit, %dissect_link_tlv.exit.thread, %35, %59, %49
   %421 = call i32 @tvb_captured_length(ptr noundef %0)

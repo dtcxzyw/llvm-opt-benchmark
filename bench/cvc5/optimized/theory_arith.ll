@@ -3000,10 +3000,10 @@ _ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit.lr.ph: ; preds = %.loopexi
   br label %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit
 
 ._crit_edge152:                                   ; preds = %_ZNSt6vectorIN4cvc58internal9TrustNodeESaIS2_EED2Ev.exit
-  br i1 %.1.lcssa162, label %.critedge, label %85, !prof !745
+  br i1 %.1.lcssa173, label %.critedge, label %85, !prof !745
 
 _ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit: ; preds = %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit.lr.ph, %_ZNSt6vectorIN4cvc58internal9TrustNodeESaIS2_EED2Ev.exit
-  %.026151 = phi i1 [ false, %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit.lr.ph ], [ %.1.lcssa162, %_ZNSt6vectorIN4cvc58internal9TrustNodeESaIS2_EED2Ev.exit ]
+  %.026151 = phi i1 [ false, %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit.lr.ph ], [ %.1.lcssa173, %_ZNSt6vectorIN4cvc58internal9TrustNodeESaIS2_EED2Ev.exit ]
   %.sroa.0113.0150 = phi ptr [ %7, %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit.lr.ph ], [ %74, %_ZNSt6vectorIN4cvc58internal9TrustNodeESaIS2_EED2Ev.exit ]
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0113.0150, i64 32
   %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal6EnvObj7warningEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -3140,7 +3140,7 @@ _ZSt8_DestroyIPN4cvc58internal9TrustNodeES2_EvT_S4_RSaIT0_E.exitthread-pre-split
   br label %_ZSt8_DestroyIPN4cvc58internal9TrustNodeES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN4cvc58internal9TrustNodeES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZN4cvc58internal8RationalD2Ev.exit, %_ZSt8_DestroyIPN4cvc58internal9TrustNodeES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %._crit_edge
-  %.1.lcssa162 = phi i1 [ %spec.select, %_ZSt8_DestroyIPN4cvc58internal9TrustNodeES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %spec.select, %._crit_edge ], [ %.026151, %_ZN4cvc58internal8RationalD2Ev.exit ]
+  %.1.lcssa173 = phi i1 [ %spec.select, %_ZSt8_DestroyIPN4cvc58internal9TrustNodeES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %spec.select, %._crit_edge ], [ %.026151, %_ZN4cvc58internal8RationalD2Ev.exit ]
   %68 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN4cvc58internal9TrustNodeES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %._crit_edge ], [ %51, %_ZN4cvc58internal8RationalD2Ev.exit ]
   %.not.i.i.i = icmp eq ptr %68, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4cvc58internal9TrustNodeESaIS2_EED2Ev.exit, label %69

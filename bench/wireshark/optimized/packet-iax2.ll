@@ -788,7 +788,7 @@ define internal i32 @dissect_iax2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 %.0, ptr @ii_arr, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @ii_arr, i64 4), i8 0, i64 6, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @ii_arr, i64 12), i8 0, i64 44, i1 false)
-  switch i32 %.0, label %default.unreachable97 [
+  switch i32 %.0, label %default.unreachable143 [
     i32 1, label %39
     i32 0, label %533
     i32 2, label %575
@@ -2160,8 +2160,8 @@ call_list_find.exit73.i:                          ; preds = %.lr.ph.i68.i, %732,
   br i1 %.not.i81.i, label %call_list_length.exit.i, label %.lr.ph.i80.i, !llvm.loop !14
 
 call_list_length.exit.i:                          ; preds = %.lr.ph.i80.i, %.loopexit.i, %.preheader.i, %.preheader9.i
-  %.15237.i = phi i32 [ %.152.i, %.loopexit.i ], [ %642, %.preheader.i ], [ %642, %.preheader9.i ], [ %.152.i, %.lr.ph.i80.i ]
-  %.15536.i = phi i32 [ %.155.i, %.loopexit.i ], [ 0, %.preheader.i ], [ 0, %.preheader9.i ], [ %.155.i, %.lr.ph.i80.i ]
+  %.15247.i = phi i32 [ %.152.i, %.loopexit.i ], [ %642, %.preheader.i ], [ %642, %.preheader9.i ], [ %.152.i, %.lr.ph.i80.i ]
+  %.15546.i = phi i32 [ %.155.i, %.loopexit.i ], [ 0, %.preheader.i ], [ 0, %.preheader9.i ], [ %.155.i, %.lr.ph.i80.i ]
   %.0.lcssa.i.i = phi i32 [ 0, %.loopexit.i ], [ 0, %.preheader.i ], [ 0, %.preheader9.i ], [ %737, %.lr.ph.i80.i ]
   br i1 %.not.i73, label %dissect_trunkpacket.exit, label %740
 
@@ -2186,18 +2186,18 @@ call_list_length.exit.i:                          ; preds = %.lr.ph.i80.i, %.loo
 
 dissect_trunkpacket.exit:                         ; preds = %call_list_length.exit.i, %740, %743, %746
   %750 = load ptr, ptr %13, align 8
-  %751 = icmp eq i32 %.15536.i, 1
+  %751 = icmp eq i32 %.15546.i, 1
   %752 = select i1 %751, ptr @.str.528, ptr @.str.531
   %753 = icmp eq i32 %.0.lcssa.i.i, 1
   %754 = select i1 %753, ptr @.str.528, ptr @.str.531
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %750, i32 noundef 25, ptr noundef nonnull @.str.530, i32 noundef %.15536.i, ptr noundef nonnull %752, i32 noundef %.0.lcssa.i.i, ptr noundef nonnull %754)
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %750, i32 noundef 25, ptr noundef nonnull @.str.530, i32 noundef %.15546.i, ptr noundef nonnull %752, i32 noundef %.0.lcssa.i.i, ptr noundef nonnull %754)
   br label %755
 
-default.unreachable97:                            ; preds = %38
+default.unreachable143:                           ; preds = %38
   unreachable
 
 755:                                              ; preds = %dissect_trunkpacket.exit, %dissect_minivideopacket.exit, %dissect_minipacket.exit, %dissect_fullpacket.exit
-  %.059 = phi i32 [ %.0.i, %dissect_fullpacket.exit ], [ %572, %dissect_minipacket.exit ], [ %617, %dissect_minivideopacket.exit ], [ %.15237.i, %dissect_trunkpacket.exit ]
+  %.059 = phi i32 [ %.0.i, %dissect_fullpacket.exit ], [ %572, %dissect_minipacket.exit ], [ %617, %dissect_minivideopacket.exit ], [ %.15247.i, %dissect_trunkpacket.exit ]
   call void @proto_item_set_len(ptr noundef %17, i32 noundef %.059)
   %756 = load i32, ptr @iax2_tap, align 4
   call void @tap_queue_packet(i32 noundef %756, ptr noundef %1, ptr noundef nonnull @ii_arr)
@@ -2562,7 +2562,7 @@ define internal fastcc void @iax2_add_ts_fields(ptr noundef %0, ptr noundef %1, 
 16:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  switch i32 %4, label %default.unreachable29 [
+  switch i32 %4, label %default.unreachable35 [
     i32 0, label %18
     i32 1, label %22
     i32 2, label %23
@@ -2585,7 +2585,7 @@ define internal fastcc void @iax2_add_ts_fields(ptr noundef %0, ptr noundef %1, 
   %26 = or i32 %25, %5
   br label %27
 
-default.unreachable29:                            ; preds = %16
+default.unreachable35:                            ; preds = %16
   unreachable
 
 27:                                               ; preds = %23, %22, %18

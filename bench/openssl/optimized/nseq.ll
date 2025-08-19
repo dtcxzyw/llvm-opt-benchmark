@@ -39,20 +39,20 @@ define dso_local range(i32 0, 2) i32 @nseq_main(i32 noundef %0, ptr noundef %1) 
 
 .outer:                                           ; preds = %4, %2
   %.not57 = phi i1 [ true, %2 ], [ false, %4 ]
-  %.038.ph = phi ptr [ null, %2 ], [ %.038.ph114, %4 ]
-  %.037.ph = phi ptr [ null, %2 ], [ %.037.ph117, %4 ]
-  br label %.outer113
+  %.038.ph = phi ptr [ null, %2 ], [ %.038.ph119, %4 ]
+  %.037.ph = phi ptr [ null, %2 ], [ %.037.ph122, %4 ]
+  br label %.outer118
 
-.outer113:                                        ; preds = %.outer, %9
-  %.038.ph114 = phi ptr [ %.038.ph, %.outer ], [ %10, %9 ]
-  %.037.ph115 = phi ptr [ %.037.ph, %.outer ], [ %.037.ph117, %9 ]
-  br label %.outer116
+.outer118:                                        ; preds = %.outer, %9
+  %.038.ph119 = phi ptr [ %.038.ph, %.outer ], [ %10, %9 ]
+  %.037.ph120 = phi ptr [ %.037.ph, %.outer ], [ %.037.ph122, %9 ]
+  br label %.outer121
 
-.outer116:                                        ; preds = %.outer113, %11
-  %.037.ph117 = phi ptr [ %.037.ph115, %.outer113 ], [ %12, %11 ]
+.outer121:                                        ; preds = %.outer118, %11
+  %.037.ph122 = phi ptr [ %.037.ph120, %.outer118 ], [ %12, %11 ]
   br label %4
 
-4:                                                ; preds = %.backedge, %.outer116
+4:                                                ; preds = %.backedge, %.outer121
   %5 = tail call i32 @opt_next() #2
   switch i32 %5, label %.backedge [
     i32 0, label %15
@@ -81,11 +81,11 @@ define dso_local range(i32 0, 2) i32 @nseq_main(i32 noundef %0, ptr noundef %1) 
 
 9:                                                ; preds = %4
   %10 = tail call ptr @opt_arg() #2
-  br label %.outer113, !llvm.loop !4
+  br label %.outer118, !llvm.loop !4
 
 11:                                               ; preds = %4
   %12 = tail call ptr @opt_arg() #2
-  br label %.outer116, !llvm.loop !4
+  br label %.outer121, !llvm.loop !4
 
 13:                                               ; preds = %4, %4, %4, %4
   %14 = tail call i32 @opt_provider(i32 noundef %5) #2
@@ -98,12 +98,12 @@ define dso_local range(i32 0, 2) i32 @nseq_main(i32 noundef %0, ptr noundef %1) 
   br i1 %.not56, label %.loopexit64, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call ptr @bio_open_default(ptr noundef %.038.ph114, i8 noundef signext 114, i32 noundef 32773) #2
+  %18 = tail call ptr @bio_open_default(ptr noundef %.038.ph119, i8 noundef signext 114, i32 noundef 32773) #2
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call ptr @bio_open_default(ptr noundef %.037.ph117, i8 noundef signext 119, i32 noundef 32773) #2
+  %21 = tail call ptr @bio_open_default(ptr noundef %.037.ph122, i8 noundef signext 119, i32 noundef 32773) #2
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.loopexit, label %23
 
@@ -140,7 +140,7 @@ define dso_local range(i32 0, 2) i32 @nseq_main(i32 noundef %0, ptr noundef %1) 
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr @bio_err, align 8, !tbaa !6
-  %39 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %38, ptr noundef nonnull @.str.21, ptr noundef %3, ptr noundef %.038.ph114) #2
+  %39 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %38, ptr noundef nonnull @.str.21, ptr noundef %3, ptr noundef %.038.ph119) #2
   %40 = load ptr, ptr @bio_err, align 8, !tbaa !6
   tail call void @ERR_print_errors(ptr noundef %40) #2
   br label %.loopexit
@@ -163,7 +163,7 @@ define dso_local range(i32 0, 2) i32 @nseq_main(i32 noundef %0, ptr noundef %1) 
 
 50:                                               ; preds = %43
   %51 = load ptr, ptr @bio_err, align 8, !tbaa !6
-  %52 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %51, ptr noundef nonnull @.str.22, ptr noundef %3, ptr noundef %.038.ph114) #2
+  %52 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %51, ptr noundef nonnull @.str.22, ptr noundef %3, ptr noundef %.038.ph119) #2
   %53 = load ptr, ptr @bio_err, align 8, !tbaa !6
   tail call void @ERR_print_errors(ptr noundef %53) #2
   br label %.loopexit

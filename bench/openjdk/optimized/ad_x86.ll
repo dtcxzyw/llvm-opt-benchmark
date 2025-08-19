@@ -8171,8 +8171,8 @@ _ZN7Matcher21vector_size_supportedE9BasicTypei.exit: ; preds = %5
   %204 = and i64 %203, 8589934592
   %.not225 = icmp eq i64 %204, 0
   %205 = icmp eq i32 %19, 8
-  %or.cond251 = select i1 %.not225, i1 true, i1 %205
-  br i1 %or.cond251, label %_ZN7Matcher21vector_size_supportedE9BasicTypei.exit.thread, label %.thread
+  %or.cond258 = select i1 %.not225, i1 true, i1 %205
+  br i1 %or.cond258, label %_ZN7Matcher21vector_size_supportedE9BasicTypei.exit.thread, label %.thread
 
 206:                                              ; preds = %18
   %.pre245 = add i8 %2, -4
@@ -8281,21 +8281,21 @@ _ZN7Matcher21vector_size_supportedE9BasicTypei.exit: ; preds = %5
   %.pre = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %255 = and i64 %.pre, 4503599627370496
   %.not.i184 = icmp eq i64 %255, 0
-  %or.cond253 = select i1 %switch.selectcmp.i.i183, i1 true, i1 %.not.i184
-  br i1 %or.cond253, label %_ZL25is_pop_count_instr_target9BasicType.exit, label %.thread
+  %or.cond260 = select i1 %switch.selectcmp.i.i183, i1 true, i1 %.not.i184
+  br i1 %or.cond260, label %_ZL25is_pop_count_instr_target9BasicType.exit, label %.thread
 
 _ZL25is_pop_count_instr_target9BasicType.exit:    ; preds = %253
   %256 = and i8 %2, -2
   %257 = icmp ne i8 %256, 10
   %258 = and i64 %.pre, 137438953472
   %259 = icmp eq i64 %258, 0
-  %.not261 = select i1 %257, i1 true, i1 %259
+  %.not268 = select i1 %257, i1 true, i1 %259
   %260 = icmp eq i32 %19, 64
-  %or.cond70.not.not258 = select i1 %.not261, i1 %260, i1 false
+  %or.cond70.not.not265 = select i1 %.not268, i1 %260, i1 false
   %261 = and i64 %.pre, 4294967296
   %.not220 = icmp eq i64 %261, 0
-  %or.cond255 = select i1 %or.cond70.not.not258, i1 %.not220, i1 false
-  br i1 %or.cond255, label %_ZN7Matcher21vector_size_supportedE9BasicTypei.exit.thread, label %.thread
+  %or.cond262 = select i1 %or.cond70.not.not265, i1 %.not220, i1 false
+  br i1 %or.cond262, label %_ZN7Matcher21vector_size_supportedE9BasicTypei.exit.thread, label %.thread
 
 262:                                              ; preds = %18, %18
   %263 = load i32, ptr @UseAVX, align 4
@@ -9602,8 +9602,8 @@ _ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit52: ; preds = %108, %113
   br label %115
 
 115:                                              ; preds = %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit52, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit49
-  %.sink69 = phi ptr [ %114, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit52 ], [ %107, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit49 ]
-  %116 = getelementptr inbounds nuw i8, ptr %.sink69, i64 8
+  %.sink82 = phi ptr [ %114, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit52 ], [ %107, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit49 ]
+  %116 = getelementptr inbounds nuw i8, ptr %.sink82, i64 8
   store i32 0, ptr %116, align 8
   %117 = load ptr, ptr %2, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
@@ -9711,8 +9711,8 @@ _ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit66: ; preds = %_ZN7Matcher6MS
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit58, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit66
-  %.sink70 = phi ptr [ %165, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit66 ], [ %131, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit58 ]
-  %166 = getelementptr inbounds nuw i8, ptr %.sink70, i64 8
+  %.sink83 = phi ptr [ %165, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit66 ], [ %131, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit58 ]
+  %166 = getelementptr inbounds nuw i8, ptr %.sink83, i64 8
   store i32 0, ptr %166, align 8
   br label %167
 
@@ -9921,8 +9921,8 @@ _ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit31: ; preds = %93, %97
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit31, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit28
-  %.sink36 = phi ptr [ %92, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit28 ], [ %98, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit31 ]
-  %99 = getelementptr inbounds nuw i8, ptr %.sink36, i64 8
+  %.sink42 = phi ptr [ %92, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit28 ], [ %98, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit31 ]
+  %99 = getelementptr inbounds nuw i8, ptr %.sink42, i64 8
   store i32 0, ptr %99, align 8
   br label %100
 
@@ -14142,7 +14142,7 @@ define hidden void @_ZN7i2bNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN7i2bNode12cisc_versionEi(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZN7i2bNode12cisc_versionEi(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1808
@@ -14247,7 +14247,7 @@ define hidden void @_ZN7i2sNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN7i2sNode12cisc_versionEi(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZN7i2sNode12cisc_versionEi(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1808
@@ -18331,7 +18331,7 @@ _ZN4NodenwEm.exit:                                ; preds = %17, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10jmpConNode20short_branch_versionEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZN10jmpConNode20short_branch_versionEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -18387,7 +18387,7 @@ _ZN4NodenwEm.exit:                                ; preds = %17, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14jmpLoopEndNode20short_branch_versionEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZN14jmpLoopEndNode20short_branch_versionEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -18443,7 +18443,7 @@ _ZN4NodenwEm.exit:                                ; preds = %17, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11jmpConUNode20short_branch_versionEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZN11jmpConUNode20short_branch_versionEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -18499,7 +18499,7 @@ _ZN4NodenwEm.exit:                                ; preds = %17, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13jmpConUCFNode20short_branch_versionEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZN13jmpConUCFNode20short_branch_versionEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -18555,7 +18555,7 @@ _ZN4NodenwEm.exit:                                ; preds = %17, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14jmpConUCF2Node20short_branch_versionEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZN14jmpConUCF2Node20short_branch_versionEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -53741,12 +53741,12 @@ _ZNK16MachCallJavaNode21resolved_method_indexEP17C2_MacroAssembler.exit: ; preds
   %62 = load i8, ptr %61, align 1
   %63 = trunc i8 %62 to i1
   %spec.select = select i1 %63, i32 3, i32 4
-  %spec.select20 = select i1 %63, ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV27opt_virtual_call_Relocation, i64 16), ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_call_Relocation, i64 16)
+  %spec.select21 = select i1 %63, ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV27opt_virtual_call_Relocation, i64 16), ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_call_Relocation, i64 16)
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %spec.select, ptr %65, align 8
-  store ptr %spec.select20, ptr %6, align 8
+  store ptr %spec.select21, ptr %6, align 8
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %.0.i, ptr %66, align 4
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53762,8 +53762,8 @@ _ZNK16MachCallJavaNode21resolved_method_indexEP17C2_MacroAssembler.exit: ; preds
   %77 = tail call noundef i64 %76(ptr noundef nonnull align 8 dereferenceable(8) %73) #23
   %78 = inttoptr i64 %77 to ptr
   %.val = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV27opt_virtual_call_Relocation, i64 32), align 8
-  %.val21 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV22static_call_Relocation, i64 32), align 8
-  %79 = select i1 %63, ptr %.val, ptr %.val21
+  %.val22 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV22static_call_Relocation, i64 32), align 8
+  %79 = select i1 %63, ptr %.val, ptr %.val22
   call void %79(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(56) %7) #23
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i8 0, ptr %80, align 8

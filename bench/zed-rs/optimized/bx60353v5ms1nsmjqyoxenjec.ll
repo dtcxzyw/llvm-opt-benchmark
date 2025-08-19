@@ -6604,13 +6604,13 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17he
 
 "_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split": ; preds = %105, %91, %92
   %.ph = phi i64 [ %54, %92 ], [ %79, %91 ], [ %54, %105 ]
-  %.ph79 = phi ptr [ %52, %92 ], [ %77, %91 ], [ %52, %105 ]
+  %.ph84 = phi ptr [ %52, %92 ], [ %77, %91 ], [ %52, %105 ]
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.019.0, i64 noundef 752, i64 noundef 8) #16
   br label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit"
 
 "_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit": ; preds = %101, %87, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split", %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h11f6538ec6e7d19fE.exit"
   %106 = phi i64 [ %54, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h11f6538ec6e7d19fE.exit" ], [ %.ph, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split" ], [ %79, %87 ], [ %54, %101 ]
-  %107 = phi ptr [ %52, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h11f6538ec6e7d19fE.exit" ], [ %.ph79, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split" ], [ %77, %87 ], [ %52, %101 ]
+  %107 = phi ptr [ %52, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h11f6538ec6e7d19fE.exit" ], [ %.ph84, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split" ], [ %77, %87 ], [ %52, %101 ]
   store ptr %107, ptr %0, align 8
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %106, ptr %108, align 8
@@ -7079,13 +7079,13 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %13 = lshr exact i64 %.sroa.012.0.ph90, 1
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 31
-  br i1 %15, label %.lr.ph157, label %._crit_edge
+  br i1 %15, label %.lr.ph159, label %._crit_edge
 
 16:                                               ; preds = %73
   %17 = lshr exact i64 %74, 1
   %18 = and i64 %17, 31
   %19 = icmp eq i64 %18, 31
-  br i1 %19, label %.lr.ph157, label %._crit_edge
+  br i1 %19, label %.lr.ph159, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
   %.sroa.0.0.ph.lcssa85 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph89, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
@@ -7102,7 +7102,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
 
-.lr.ph157:                                        ; preds = %.lr.ph, %16
+.lr.ph159:                                        ; preds = %.lr.ph, %16
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %73 unwind label %.loopexit
 
@@ -7249,14 +7249,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   store i64 2, ptr %0, align 8
   br label %"_ZN4core3ptr187drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$$LP$worktree..Entry$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17hce9a7ce119d79a62E.exit42"
 
-73:                                               ; preds = %.lr.ph157
+73:                                               ; preds = %.lr.ph159
   %74 = load atomic i64, ptr %6 acquire, align 128
   %75 = load atomic ptr, ptr %8 acquire, align 8
   %76 = and i64 %74, 1
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %16, label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph157
+.loopexit:                                        ; preds = %.lr.ph159
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %78
@@ -7338,13 +7338,13 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %13 = lshr exact i64 %.sroa.012.0.ph90, 1
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 31
-  br i1 %15, label %.lr.ph157, label %._crit_edge
+  br i1 %15, label %.lr.ph159, label %._crit_edge
 
 16:                                               ; preds = %73
   %17 = lshr exact i64 %74, 1
   %18 = and i64 %17, 31
   %19 = icmp eq i64 %18, 31
-  br i1 %19, label %.lr.ph157, label %._crit_edge
+  br i1 %19, label %.lr.ph159, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
   %.sroa.0.0.ph.lcssa85 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph89, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
@@ -7361,7 +7361,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
 
-.lr.ph157:                                        ; preds = %.lr.ph, %16
+.lr.ph159:                                        ; preds = %.lr.ph, %16
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %73 unwind label %.loopexit
 
@@ -7508,14 +7508,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   store i64 2, ptr %0, align 8
   br label %"_ZN4core3ptr161drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$semantic_index..summary_index..SummarizedFile$GT$$GT$$GT$$GT$17h29aae7e6b3010f14E.exit42"
 
-73:                                               ; preds = %.lr.ph157
+73:                                               ; preds = %.lr.ph159
   %74 = load atomic i64, ptr %6 acquire, align 128
   %75 = load atomic ptr, ptr %8 acquire, align 8
   %76 = and i64 %74, 1
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %16, label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph157
+.loopexit:                                        ; preds = %.lr.ph159
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %78
@@ -7597,13 +7597,13 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %13 = lshr exact i64 %.sroa.012.0.ph88, 1
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 31
-  br i1 %15, label %.lr.ph157, label %._crit_edge
+  br i1 %15, label %.lr.ph159, label %._crit_edge
 
 16:                                               ; preds = %73
   %17 = lshr exact i64 %74, 1
   %18 = and i64 %17, 31
   %19 = icmp eq i64 %18, 31
-  br i1 %19, label %.lr.ph157, label %._crit_edge
+  br i1 %19, label %.lr.ph159, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
   %.sroa.0.0.ph.lcssa83 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph87, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
@@ -7620,7 +7620,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
 
-.lr.ph157:                                        ; preds = %.lr.ph, %16
+.lr.ph159:                                        ; preds = %.lr.ph, %16
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %73 unwind label %.loopexit
 
@@ -7730,7 +7730,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %.sroa.18.0.in.i, label %58, label %59
 
 58:                                               ; preds = %55
-  br i1 %20, label %63, label %.critedge135
+  br i1 %20, label %63, label %.critedge137
 
 59:                                               ; preds = %55
   %.sroa.08.0.i = extractvalue { i64, i1 } %57, 0
@@ -7767,14 +7767,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   store i64 2, ptr %0, align 8
   br label %"_ZN4core3ptr169drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$$GT$$GT$$GT$17h5ba085554982d533E.exit42"
 
-73:                                               ; preds = %.lr.ph157
+73:                                               ; preds = %.lr.ph159
   %74 = load atomic i64, ptr %6 acquire, align 128
   %75 = load atomic ptr, ptr %8 acquire, align 8
   %76 = and i64 %74, 1
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %16, label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph157
+.loopexit:                                        ; preds = %.lr.ph159
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %78
@@ -7804,7 +7804,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
 "_ZN4core3ptr169drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$$GT$$GT$$GT$17h5ba085554982d533E.exit42": ; preds = %67, %88, %86
   ret void
 
-.critedge135:                                     ; preds = %58
+.critedge137:                                     ; preds = %58
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.016.1, i64 8
   %83 = getelementptr inbounds nuw { { { [6 x i64] } }, { i64 } }, ptr %82, i64 %.lcssa
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %83, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
@@ -7812,9 +7812,9 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %85 = atomicrmw or ptr %84, i64 1 release, align 8
   br label %86
 
-86:                                               ; preds = %.critedge135, %.critedge
-  %storemerge = phi i64 [ 1, %.critedge ], [ 2, %.critedge135 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.0.ph.lcssa83, %.critedge ], [ %.sroa.0.1, %.critedge135 ]
+86:                                               ; preds = %.critedge137, %.critedge
+  %storemerge = phi i64 [ 1, %.critedge ], [ 2, %.critedge137 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.0.ph.lcssa83, %.critedge ], [ %.sroa.0.1, %.critedge137 ]
   store i64 %storemerge, ptr %0, align 8
   %87 = icmp eq ptr %.sroa.0.3, null
   br i1 %87, label %"_ZN4core3ptr169drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$$GT$$GT$$GT$17h5ba085554982d533E.exit42", label %88
@@ -7857,13 +7857,13 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %13 = lshr exact i64 %.sroa.012.0.ph88, 1
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 31
-  br i1 %15, label %.lr.ph157, label %._crit_edge
+  br i1 %15, label %.lr.ph159, label %._crit_edge
 
 16:                                               ; preds = %73
   %17 = lshr exact i64 %74, 1
   %18 = and i64 %17, 31
   %19 = icmp eq i64 %18, 31
-  br i1 %19, label %.lr.ph157, label %._crit_edge
+  br i1 %19, label %.lr.ph159, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
   %.sroa.0.0.ph.lcssa83 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph87, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
@@ -7880,7 +7880,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
 
-.lr.ph157:                                        ; preds = %.lr.ph, %16
+.lr.ph159:                                        ; preds = %.lr.ph, %16
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %73 unwind label %.loopexit
 
@@ -7990,7 +7990,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %.sroa.18.0.in.i, label %58, label %59
 
 58:                                               ; preds = %55
-  br i1 %20, label %63, label %.critedge135
+  br i1 %20, label %63, label %.critedge137
 
 59:                                               ; preds = %55
   %.sroa.08.0.i = extractvalue { i64, i1 } %57, 0
@@ -8027,14 +8027,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   store i64 2, ptr %0, align 8
   br label %"_ZN4core3ptr231drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$GT$$GT$$GT$17he2836f25e4a099afE.exit42"
 
-73:                                               ; preds = %.lr.ph157
+73:                                               ; preds = %.lr.ph159
   %74 = load atomic i64, ptr %6 acquire, align 128
   %75 = load atomic ptr, ptr %8 acquire, align 8
   %76 = and i64 %74, 1
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %16, label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph157
+.loopexit:                                        ; preds = %.lr.ph159
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %78
@@ -8064,7 +8064,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
 "_ZN4core3ptr231drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$GT$$GT$$GT$17he2836f25e4a099afE.exit42": ; preds = %67, %88, %86
   ret void
 
-.critedge135:                                     ; preds = %58
+.critedge137:                                     ; preds = %58
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.016.1, i64 8
   %83 = getelementptr inbounds nuw { { { [8 x i64] } }, { i64 } }, ptr %82, i64 %.lcssa
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %83, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
@@ -8072,9 +8072,9 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %85 = atomicrmw or ptr %84, i64 1 release, align 8
   br label %86
 
-86:                                               ; preds = %.critedge135, %.critedge
-  %storemerge = phi i64 [ 1, %.critedge ], [ 2, %.critedge135 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.0.ph.lcssa83, %.critedge ], [ %.sroa.0.1, %.critedge135 ]
+86:                                               ; preds = %.critedge137, %.critedge
+  %storemerge = phi i64 [ 1, %.critedge ], [ 2, %.critedge137 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.0.ph.lcssa83, %.critedge ], [ %.sroa.0.1, %.critedge137 ]
   store i64 %storemerge, ptr %0, align 8
   %87 = icmp eq ptr %.sroa.0.3, null
   br i1 %87, label %"_ZN4core3ptr231drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$GT$$GT$$GT$17he2836f25e4a099afE.exit42", label %88
@@ -8117,13 +8117,13 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %13 = lshr exact i64 %.sroa.012.0.ph90, 1
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 31
-  br i1 %15, label %.lr.ph157, label %._crit_edge
+  br i1 %15, label %.lr.ph159, label %._crit_edge
 
 16:                                               ; preds = %73
   %17 = lshr exact i64 %74, 1
   %18 = and i64 %17, 31
   %19 = icmp eq i64 %18, 31
-  br i1 %19, label %.lr.ph157, label %._crit_edge
+  br i1 %19, label %.lr.ph159, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
   %.sroa.0.0.ph.lcssa85 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph89, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
@@ -8140,7 +8140,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
 
-.lr.ph157:                                        ; preds = %.lr.ph, %16
+.lr.ph159:                                        ; preds = %.lr.ph, %16
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %73 unwind label %.loopexit
 
@@ -8287,14 +8287,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   store i64 2, ptr %0, align 8
   br label %"_ZN4core3ptr238drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$alloc..vec..Vec$LT$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$core..option..Option$LT$std..time..SystemTime$GT$$RP$$GT$$GT$$GT$$GT$$GT$17hbb43ba6baca14afeE.exit42"
 
-73:                                               ; preds = %.lr.ph157
+73:                                               ; preds = %.lr.ph159
   %74 = load atomic i64, ptr %6 acquire, align 128
   %75 = load atomic ptr, ptr %8 acquire, align 8
   %76 = and i64 %74, 1
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %16, label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph157
+.loopexit:                                        ; preds = %.lr.ph159
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %78
@@ -8372,13 +8372,13 @@ define hidden noundef range(i8 1, 3) i8 @"_ZN16concurrent_queue9unbounded18Unbou
   %9 = lshr exact i64 %.sroa.013.0.ph93, 1
   %10 = and i64 %9, 31
   %11 = icmp eq i64 %10, 31
-  br i1 %11, label %.lr.ph161, label %._crit_edge
+  br i1 %11, label %.lr.ph163, label %._crit_edge
 
 12:                                               ; preds = %58
   %13 = lshr exact i64 %59, 1
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 31
-  br i1 %15, label %.lr.ph161, label %._crit_edge
+  br i1 %15, label %.lr.ph163, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %.lr.ph
   %.sroa.017.090.lcssa = phi ptr [ %.sroa.017.0.ph94, %.lr.ph ], [ %60, %12 ]
@@ -8389,7 +8389,7 @@ define hidden noundef range(i8 1, 3) i8 @"_ZN16concurrent_queue9unbounded18Unbou
   %or.cond = select i1 %16, i1 %17, i1 false
   br i1 %or.cond, label %20, label %18
 
-.lr.ph161:                                        ; preds = %.lr.ph, %12
+.lr.ph163:                                        ; preds = %.lr.ph, %12
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %58 unwind label %.loopexit
 
@@ -8494,14 +8494,14 @@ define hidden noundef range(i8 1, 3) i8 @"_ZN16concurrent_queue9unbounded18Unbou
   %57 = atomicrmw or ptr %56, i64 1 release, align 8
   br label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h6872ab9bfb32eaafE.exit43"
 
-58:                                               ; preds = %.lr.ph161
+58:                                               ; preds = %.lr.ph163
   %59 = load atomic i64, ptr %2 acquire, align 128
   %60 = load atomic ptr, ptr %4 acquire, align 8
   %61 = and i64 %59, 1
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %12, label %.thread59
 
-.loopexit:                                        ; preds = %.lr.ph161
+.loopexit:                                        ; preds = %.lr.ph163
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %63
@@ -8565,13 +8565,13 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %13 = lshr exact i64 %.sroa.012.0.ph88, 1
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 31
-  br i1 %15, label %.lr.ph157, label %._crit_edge
+  br i1 %15, label %.lr.ph159, label %._crit_edge
 
 16:                                               ; preds = %73
   %17 = lshr exact i64 %74, 1
   %18 = and i64 %17, 31
   %19 = icmp eq i64 %18, 31
-  br i1 %19, label %.lr.ph157, label %._crit_edge
+  br i1 %19, label %.lr.ph159, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
   %.sroa.0.0.ph.lcssa83 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph87, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
@@ -8588,7 +8588,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
 
-.lr.ph157:                                        ; preds = %.lr.ph, %16
+.lr.ph159:                                        ; preds = %.lr.ph, %16
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %73 unwind label %.loopexit
 
@@ -8698,7 +8698,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %.sroa.18.0.in.i, label %58, label %59
 
 58:                                               ; preds = %55
-  br i1 %20, label %63, label %.critedge135
+  br i1 %20, label %63, label %.critedge137
 
 59:                                               ; preds = %55
   %.sroa.08.0.i = extractvalue { i64, i1 } %57, 0
@@ -8735,14 +8735,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   store i64 2, ptr %0, align 8
   br label %"_ZN4core3ptr160drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$semantic_index..embedding_index..ChunkedFile$GT$$GT$$GT$$GT$17hc50439142932da8aE.exit42"
 
-73:                                               ; preds = %.lr.ph157
+73:                                               ; preds = %.lr.ph159
   %74 = load atomic i64, ptr %6 acquire, align 128
   %75 = load atomic ptr, ptr %8 acquire, align 8
   %76 = and i64 %74, 1
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %16, label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph157
+.loopexit:                                        ; preds = %.lr.ph159
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %78
@@ -8772,7 +8772,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
 "_ZN4core3ptr160drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$semantic_index..embedding_index..ChunkedFile$GT$$GT$$GT$$GT$17hc50439142932da8aE.exit42": ; preds = %67, %88, %86
   ret void
 
-.critedge135:                                     ; preds = %58
+.critedge137:                                     ; preds = %58
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.016.1, i64 8
   %83 = getelementptr inbounds nuw { { { [12 x i64] } }, { i64 } }, ptr %82, i64 %.lcssa
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %83, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
@@ -8780,9 +8780,9 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %85 = atomicrmw or ptr %84, i64 1 release, align 8
   br label %86
 
-86:                                               ; preds = %.critedge135, %.critedge
-  %storemerge = phi i64 [ 1, %.critedge ], [ 2, %.critedge135 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.0.ph.lcssa83, %.critedge ], [ %.sroa.0.1, %.critedge135 ]
+86:                                               ; preds = %.critedge137, %.critedge
+  %storemerge = phi i64 [ 1, %.critedge ], [ 2, %.critedge137 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.0.ph.lcssa83, %.critedge ], [ %.sroa.0.1, %.critedge137 ]
   store i64 %storemerge, ptr %0, align 8
   %87 = icmp eq ptr %.sroa.0.3, null
   br i1 %87, label %"_ZN4core3ptr160drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$semantic_index..embedding_index..ChunkedFile$GT$$GT$$GT$$GT$17hc50439142932da8aE.exit42", label %88
@@ -8829,13 +8829,13 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %16 = lshr exact i64 %.sroa.013.0.ph93, 1
   %17 = and i64 %16, 31
   %18 = icmp eq i64 %17, 31
-  br i1 %18, label %.lr.ph160, label %._crit_edge
+  br i1 %18, label %.lr.ph162, label %._crit_edge
 
 19:                                               ; preds = %81
   %20 = lshr exact i64 %82, 1
   %21 = and i64 %20, 31
   %22 = icmp eq i64 %21, 31
-  br i1 %22, label %.lr.ph160, label %._crit_edge
+  br i1 %22, label %.lr.ph162, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %81, %4
   %.sroa.0.0.ph.lcssa88 = phi ptr [ null, %4 ], [ %.sroa.0.0.ph92, %81 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
@@ -8855,7 +8855,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %27, label %25
 
-.lr.ph160:                                        ; preds = %.lr.ph, %19
+.lr.ph162:                                        ; preds = %.lr.ph, %19
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %81 unwind label %.loopexit
 
@@ -9014,14 +9014,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
 80:                                               ; preds = %79
   unreachable
 
-81:                                               ; preds = %.lr.ph160
+81:                                               ; preds = %.lr.ph162
   %82 = load atomic i64, ptr %9 acquire, align 128
   %83 = load atomic ptr, ptr %11 acquire, align 8
   %84 = and i64 %82, 1
   %85 = icmp eq i64 %84, 0
   br i1 %85, label %19, label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph160
+.loopexit:                                        ; preds = %.lr.ph162
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %86
@@ -9100,13 +9100,13 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %13 = lshr exact i64 %.sroa.012.0.ph88, 1
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 31
-  br i1 %15, label %.lr.ph157, label %._crit_edge
+  br i1 %15, label %.lr.ph159, label %._crit_edge
 
 16:                                               ; preds = %73
   %17 = lshr exact i64 %74, 1
   %18 = and i64 %17, 31
   %19 = icmp eq i64 %18, 31
-  br i1 %19, label %.lr.ph157, label %._crit_edge
+  br i1 %19, label %.lr.ph159, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
   %.sroa.0.0.ph.lcssa83 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph87, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
@@ -9123,7 +9123,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
 
-.lr.ph157:                                        ; preds = %.lr.ph, %16
+.lr.ph159:                                        ; preds = %.lr.ph, %16
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %73 unwind label %.loopexit
 
@@ -9233,7 +9233,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %.sroa.18.0.in.i, label %58, label %59
 
 58:                                               ; preds = %55
-  br i1 %20, label %63, label %.critedge135
+  br i1 %20, label %63, label %.critedge137
 
 59:                                               ; preds = %55
   %.sroa.08.0.i = extractvalue { i64, i1 } %57, 0
@@ -9270,14 +9270,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   store i64 2, ptr %0, align 8
   br label %"_ZN4core3ptr235drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$$LP$settings..WorktreeId$C$alloc..sync..Arc$LT$std..path..Path$GT$$C$semantic_index..embedding_index..EmbeddedChunk$RP$$GT$$GT$$GT$$GT$17h23114bd26fe17403E.exit42"
 
-73:                                               ; preds = %.lr.ph157
+73:                                               ; preds = %.lr.ph159
   %74 = load atomic i64, ptr %6 acquire, align 128
   %75 = load atomic ptr, ptr %8 acquire, align 8
   %76 = and i64 %74, 1
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %16, label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph157
+.loopexit:                                        ; preds = %.lr.ph159
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %78
@@ -9307,7 +9307,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
 "_ZN4core3ptr235drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$$LP$settings..WorktreeId$C$alloc..sync..Arc$LT$std..path..Path$GT$$C$semantic_index..embedding_index..EmbeddedChunk$RP$$GT$$GT$$GT$$GT$17h23114bd26fe17403E.exit42": ; preds = %67, %88, %86
   ret void
 
-.critedge135:                                     ; preds = %58
+.critedge137:                                     ; preds = %58
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.016.1, i64 8
   %83 = getelementptr inbounds nuw { { { [12 x i64] } }, { i64 } }, ptr %82, i64 %.lcssa
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %83, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
@@ -9315,9 +9315,9 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %85 = atomicrmw or ptr %84, i64 1 release, align 8
   br label %86
 
-86:                                               ; preds = %.critedge135, %.critedge
-  %storemerge = phi i64 [ 1, %.critedge ], [ 2, %.critedge135 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.0.ph.lcssa83, %.critedge ], [ %.sroa.0.1, %.critedge135 ]
+86:                                               ; preds = %.critedge137, %.critedge
+  %storemerge = phi i64 [ 1, %.critedge ], [ 2, %.critedge137 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.0.ph.lcssa83, %.critedge ], [ %.sroa.0.1, %.critedge137 ]
   store i64 %storemerge, ptr %0, align 8
   %87 = icmp eq ptr %.sroa.0.3, null
   br i1 %87, label %"_ZN4core3ptr235drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$$LP$settings..WorktreeId$C$alloc..sync..Arc$LT$std..path..Path$GT$$C$semantic_index..embedding_index..EmbeddedChunk$RP$$GT$$GT$$GT$$GT$17h23114bd26fe17403E.exit42", label %88
@@ -9360,13 +9360,13 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %13 = lshr exact i64 %.sroa.012.0.ph90, 1
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 31
-  br i1 %15, label %.lr.ph157, label %._crit_edge
+  br i1 %15, label %.lr.ph159, label %._crit_edge
 
 16:                                               ; preds = %73
   %17 = lshr exact i64 %74, 1
   %18 = and i64 %17, 31
   %19 = icmp eq i64 %18, 31
-  br i1 %19, label %.lr.ph157, label %._crit_edge
+  br i1 %19, label %.lr.ph159, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
   %.sroa.0.0.ph.lcssa85 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph89, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
@@ -9383,7 +9383,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
 
-.lr.ph157:                                        ; preds = %.lr.ph, %16
+.lr.ph159:                                        ; preds = %.lr.ph, %16
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %73 unwind label %.loopexit
 
@@ -9530,14 +9530,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   store i64 2, ptr %0, align 8
   br label %"_ZN4core3ptr217drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h7708a9c62bb63a51E.exit42"
 
-73:                                               ; preds = %.lr.ph157
+73:                                               ; preds = %.lr.ph159
   %74 = load atomic i64, ptr %6 acquire, align 128
   %75 = load atomic ptr, ptr %8 acquire, align 8
   %76 = and i64 %74, 1
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %16, label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph157
+.loopexit:                                        ; preds = %.lr.ph159
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %78
@@ -9619,13 +9619,13 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %13 = lshr exact i64 %.sroa.012.0.ph88, 1
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 31
-  br i1 %15, label %.lr.ph157, label %._crit_edge
+  br i1 %15, label %.lr.ph159, label %._crit_edge
 
 16:                                               ; preds = %73
   %17 = lshr exact i64 %74, 1
   %18 = and i64 %17, 31
   %19 = icmp eq i64 %18, 31
-  br i1 %19, label %.lr.ph157, label %._crit_edge
+  br i1 %19, label %.lr.ph159, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
   %.sroa.0.0.ph.lcssa83 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph87, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
@@ -9642,7 +9642,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
 
-.lr.ph157:                                        ; preds = %.lr.ph, %16
+.lr.ph159:                                        ; preds = %.lr.ph, %16
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %73 unwind label %.loopexit
 
@@ -9752,7 +9752,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %.sroa.18.0.in.i, label %58, label %59
 
 58:                                               ; preds = %55
-  br i1 %20, label %63, label %.critedge135
+  br i1 %20, label %63, label %.critedge137
 
 59:                                               ; preds = %55
   %.sroa.08.0.i = extractvalue { i64, i1 } %57, 0
@@ -9789,14 +9789,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   store i64 2, ptr %0, align 8
   br label %"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$semantic_index..summary_index..UnsummarizedFile$GT$$GT$$GT$$GT$17h4c1097c8f88a94c7E.exit42"
 
-73:                                               ; preds = %.lr.ph157
+73:                                               ; preds = %.lr.ph159
   %74 = load atomic i64, ptr %6 acquire, align 128
   %75 = load atomic ptr, ptr %8 acquire, align 8
   %76 = and i64 %74, 1
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %16, label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph157
+.loopexit:                                        ; preds = %.lr.ph159
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %78
@@ -9826,7 +9826,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
 "_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$semantic_index..summary_index..UnsummarizedFile$GT$$GT$$GT$$GT$17h4c1097c8f88a94c7E.exit42": ; preds = %67, %88, %86
   ret void
 
-.critedge135:                                     ; preds = %58
+.critedge137:                                     ; preds = %58
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.016.1, i64 8
   %83 = getelementptr inbounds nuw { { { [16 x i64] } }, { i64 } }, ptr %82, i64 %.lcssa
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %83, ptr noundef nonnull align 8 dereferenceable(128) %2, i64 128, i1 false)
@@ -9834,9 +9834,9 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %85 = atomicrmw or ptr %84, i64 1 release, align 8
   br label %86
 
-86:                                               ; preds = %.critedge135, %.critedge
-  %storemerge = phi i64 [ 1, %.critedge ], [ 2, %.critedge135 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.0.ph.lcssa83, %.critedge ], [ %.sroa.0.1, %.critedge135 ]
+86:                                               ; preds = %.critedge137, %.critedge
+  %storemerge = phi i64 [ 1, %.critedge ], [ 2, %.critedge137 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.0.ph.lcssa83, %.critedge ], [ %.sroa.0.1, %.critedge137 ]
   store i64 %storemerge, ptr %0, align 8
   %87 = icmp eq ptr %.sroa.0.3, null
   br i1 %87, label %"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$semantic_index..summary_index..UnsummarizedFile$GT$$GT$$GT$$GT$17h4c1097c8f88a94c7E.exit42", label %88

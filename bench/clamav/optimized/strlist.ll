@@ -176,7 +176,7 @@ define noundef zeroext i1 @_ZN10StringList10GetStringAEPcm(ptr noundef nonnull a
   %5 = shl i64 %..i.i, 2
   %malloc.i = tail call ptr @malloc(i64 %5)
   %6 = icmp eq ptr %malloc.i, null
-  br i1 %6, label %_ZN5ArrayIwEC2Em.exit, label %_ZN5ArrayIwEC2Em.exit.thread27
+  br i1 %6, label %_ZN5ArrayIwEC2Em.exit, label %_ZN5ArrayIwEC2Em.exit.thread29
 
 _ZN5ArrayIwEC2Em.exit:                            ; preds = %4
   tail call void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler)
@@ -187,13 +187,13 @@ _ZN5ArrayIwEC2Em.exit:                            ; preds = %4
   %.not.i.i = icmp ult i64 %8, %10
   br i1 %.not.i.i, label %19, label %_ZN5ArrayIwED2Ev.exit8
 
-_ZN5ArrayIwEC2Em.exit.thread27:                   ; preds = %4
+_ZN5ArrayIwEC2Em.exit.thread29:                   ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !14
-  %.not.i.i28 = icmp ult i64 %12, %14
-  br i1 %.not.i.i28, label %19, label %_ZN10StringList9GetStringEPwm.exit.thread12
+  %.not.i.i30 = icmp ult i64 %12, %14
+  br i1 %.not.i.i30, label %19, label %_ZN10StringList9GetStringEPwm.exit.thread12
 
 _ZN5ArrayIwEC2Em.exit.thread:                     ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -203,10 +203,10 @@ _ZN5ArrayIwEC2Em.exit.thread:                     ; preds = %3
   %.not.i.i15 = icmp ult i64 %16, %18
   br i1 %.not.i.i15, label %19, label %_ZN5ArrayIwED2Ev.exit8
 
-19:                                               ; preds = %_ZN5ArrayIwEC2Em.exit.thread27, %_ZN5ArrayIwEC2Em.exit.thread, %_ZN5ArrayIwEC2Em.exit
-  %20 = phi i64 [ %16, %_ZN5ArrayIwEC2Em.exit.thread ], [ %8, %_ZN5ArrayIwEC2Em.exit ], [ %12, %_ZN5ArrayIwEC2Em.exit.thread27 ]
-  %21 = phi ptr [ %15, %_ZN5ArrayIwEC2Em.exit.thread ], [ %7, %_ZN5ArrayIwEC2Em.exit ], [ %11, %_ZN5ArrayIwEC2Em.exit.thread27 ]
-  %.sroa.0.016 = phi ptr [ null, %_ZN5ArrayIwEC2Em.exit.thread ], [ null, %_ZN5ArrayIwEC2Em.exit ], [ %malloc.i, %_ZN5ArrayIwEC2Em.exit.thread27 ]
+19:                                               ; preds = %_ZN5ArrayIwEC2Em.exit.thread29, %_ZN5ArrayIwEC2Em.exit.thread, %_ZN5ArrayIwEC2Em.exit
+  %20 = phi i64 [ %16, %_ZN5ArrayIwEC2Em.exit.thread ], [ %8, %_ZN5ArrayIwEC2Em.exit ], [ %12, %_ZN5ArrayIwEC2Em.exit.thread29 ]
+  %21 = phi ptr [ %15, %_ZN5ArrayIwEC2Em.exit.thread ], [ %7, %_ZN5ArrayIwEC2Em.exit ], [ %11, %_ZN5ArrayIwEC2Em.exit.thread29 ]
+  %.sroa.0.016 = phi ptr [ null, %_ZN5ArrayIwEC2Em.exit.thread ], [ null, %_ZN5ArrayIwEC2Em.exit ], [ %malloc.i, %_ZN5ArrayIwEC2Em.exit.thread29 ]
   %22 = load ptr, ptr %0, align 8, !tbaa !12
   %23 = getelementptr inbounds nuw i32, ptr %22, i64 %20
   %24 = tail call i64 @wcslen(ptr noundef nonnull %23) #15
@@ -226,9 +226,9 @@ _ZN5ArrayIwED2Ev.exit:                            ; preds = %19, %28
   %29 = invoke noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef nonnull %.sroa.0.016, ptr noundef %1, i64 noundef %2)
           to label %_ZN10StringList9GetStringEPwm.exit.thread12 unwind label %_ZN5ArrayIwED2Ev.exit
 
-_ZN10StringList9GetStringEPwm.exit.thread12:      ; preds = %_ZN5ArrayIwEC2Em.exit.thread27, %28
-  %.not.i.i19 = phi i1 [ true, %28 ], [ false, %_ZN5ArrayIwEC2Em.exit.thread27 ]
-  %.sroa.0.017 = phi ptr [ %.sroa.0.016, %28 ], [ %malloc.i, %_ZN5ArrayIwEC2Em.exit.thread27 ]
+_ZN10StringList9GetStringEPwm.exit.thread12:      ; preds = %_ZN5ArrayIwEC2Em.exit.thread29, %28
+  %.not.i.i19 = phi i1 [ true, %28 ], [ false, %_ZN5ArrayIwEC2Em.exit.thread29 ]
+  %.sroa.0.017 = phi ptr [ %.sroa.0.016, %28 ], [ %malloc.i, %_ZN5ArrayIwEC2Em.exit.thread29 ]
   tail call void @free(ptr noundef nonnull %.sroa.0.017) #14
   br label %_ZN5ArrayIwED2Ev.exit8
 

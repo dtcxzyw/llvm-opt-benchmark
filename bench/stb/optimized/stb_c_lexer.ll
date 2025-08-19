@@ -548,8 +548,8 @@ switch.early.test:                                ; preds = %46
   %or.cond203 = icmp ult i8 %69, 10
   %or.cond220 = or i1 %or.cond203, %or.cond219
   %70 = icmp slt i8 %.fr, 0
-  %or.cond354 = or i1 %or.cond220, %70
-  br i1 %or.cond354, label %.backedge, label %switch.early.test291
+  %or.cond390 = or i1 %or.cond220, %70
+  br i1 %or.cond390, label %.backedge, label %switch.early.test291
 
 switch.early.test291:                             ; preds = %.lr.ph287
   switch i8 %.fr, label %73 [

@@ -13246,14 +13246,14 @@ define hidden void @_ZN5wasmi6engine8code_map18CompiledFuncEntity3new17h2e84595b
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2242
   %12 = extractvalue { ptr, i64 } %11, 0
   %13 = extractvalue { ptr, i64 } %11, 1
-  %.sink22.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink22.sroa.gep23 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink22.sroa.gep25 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sink22.sroa.gep26 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink22.sroa.gep28 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink22.sroa.gep29 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink22.sroa.gep31 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sink22.sroa.gep32 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink23.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink23.sroa.gep24 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink23.sroa.gep26 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink23.sroa.gep27 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink23.sroa.gep29 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink23.sroa.gep30 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink23.sroa.gep32 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink23.sroa.gep33 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %14 = invoke { ptr, i64 } @"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17hcdde2d586fa76cb4E"(ptr noundef nonnull %3, ptr noundef %4)
           to label %_ZN4core4iter6traits8iterator8Iterator7collect17hfe00c54f8827c08aE.exit unwind label %18
 
@@ -13316,19 +13316,19 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hfe00c54f8827c08aE.exit: ; preds
   br label %.invoke
 
 .invoke:                                          ; preds = %24, %32
-  %.sink22.sroa.phi = phi ptr [ %.sink22.sroa.gep, %24 ], [ %.sink22.sroa.gep23, %32 ]
-  %.sink22.sroa.phi24 = phi ptr [ %.sink22.sroa.gep25, %24 ], [ %.sink22.sroa.gep26, %32 ]
-  %.sink22.sroa.phi27 = phi ptr [ %.sink22.sroa.gep28, %24 ], [ %.sink22.sroa.gep29, %32 ]
-  %.sink22.sroa.phi30 = phi ptr [ %.sink22.sroa.gep31, %24 ], [ %.sink22.sroa.gep32, %32 ]
-  %.sink22 = phi ptr [ %10, %24 ], [ %9, %32 ]
-  %.sink16 = phi ptr [ inttoptr (i64 8 to ptr), %24 ], [ %8, %32 ]
+  %.sink23.sroa.phi = phi ptr [ %.sink23.sroa.gep, %24 ], [ %.sink23.sroa.gep24, %32 ]
+  %.sink23.sroa.phi25 = phi ptr [ %.sink23.sroa.gep26, %24 ], [ %.sink23.sroa.gep27, %32 ]
+  %.sink23.sroa.phi28 = phi ptr [ %.sink23.sroa.gep29, %24 ], [ %.sink23.sroa.gep30, %32 ]
+  %.sink23.sroa.phi31 = phi ptr [ %.sink23.sroa.gep32, %24 ], [ %.sink23.sroa.gep33, %32 ]
+  %.sink23 = phi ptr [ %10, %24 ], [ %9, %32 ]
+  %.sink17 = phi ptr [ inttoptr (i64 8 to ptr), %24 ], [ %8, %32 ]
   %.sink = phi i64 [ 0, %24 ], [ 1, %32 ]
   %33 = phi ptr [ @anon.41d87108d0286a6ddf32cbec16779938.37, %24 ], [ @anon.41d87108d0286a6ddf32cbec16779938.40, %32 ]
-  store i64 1, ptr %.sink22.sroa.phi, align 8
-  store ptr null, ptr %.sink22.sroa.phi24, align 8
-  store ptr %.sink16, ptr %.sink22.sroa.phi27, align 8
-  store i64 %.sink, ptr %.sink22.sroa.phi30, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink22, ptr noalias noundef readonly align 8 dereferenceable(24) %33) #25
+  store i64 1, ptr %.sink23.sroa.phi, align 8
+  store ptr null, ptr %.sink23.sroa.phi25, align 8
+  store ptr %.sink17, ptr %.sink23.sroa.phi28, align 8
+  store i64 %.sink, ptr %.sink23.sroa.phi31, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink23, ptr noalias noundef readonly align 8 dereferenceable(24) %33) #25
           to label %.cont unwind label %27
 
 .cont:                                            ; preds = %.invoke

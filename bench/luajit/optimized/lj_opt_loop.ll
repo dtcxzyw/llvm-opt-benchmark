@@ -513,9 +513,9 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   unreachable
 
 247:                                              ; preds = %245, %241
-  %.sink210.i = phi i16 [ 23310, %241 ], [ 23443, %245 ]
+  %.sink238.i = phi i16 [ 23310, %241 ], [ 23443, %245 ]
   %.sink.i = phi i16 [ 467, %241 ], [ 12910, %245 ]
-  store i16 %.sink210.i, ptr %18, align 4, !tbaa !53
+  store i16 %.sink238.i, ptr %18, align 4, !tbaa !53
   store i16 %202, ptr %17, align 8, !tbaa !53
   store i16 %.sink.i, ptr %19, align 2, !tbaa !53
   %248 = tail call i32 @lj_opt_fold(ptr noundef nonnull %5) #4
@@ -641,7 +641,7 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   br label %.outer.i.i
 
 .outer.i.i:                                       ; preds = %.thread.i.i, %.lr.ph.i163.i
-  %indvars.iv.ph.i.i = phi i64 [ %indvars.iv.next252.i.i, %.thread.i.i ], [ 0, %.lr.ph.i163.i ]
+  %indvars.iv.ph.i.i = phi i64 [ %indvars.iv.next264.i.i, %.thread.i.i ], [ 0, %.lr.ph.i163.i ]
   %305 = phi i1 [ false, %.thread.i.i ], [ true, %.lr.ph.i163.i ]
   %.0140176.ph.i.i = phi i32 [ %321, %.thread.i.i ], [ 0, %.lr.ph.i163.i ]
   br label %306
@@ -698,21 +698,21 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   %336 = load i8, ptr %335, align 4, !tbaa !53
   %337 = or i8 %336, 32
   store i8 %337, ptr %335, align 4, !tbaa !53
-  %indvars.iv.next252.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not253.i.i = icmp eq i64 %indvars.iv.next252.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not253.i.i, label %._crit_edge.thread256.i.i, label %.outer.i.i, !llvm.loop !77
+  %indvars.iv.next264.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not265.i.i = icmp eq i64 %indvars.iv.next264.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not265.i.i, label %._crit_edge.thread268.i.i, label %.outer.i.i, !llvm.loop !77
 
 ._crit_edge.i166.i:                               ; preds = %333
-  br i1 %305, label %.loopexit173.i.i, label %._crit_edge.thread256.i.i
+  br i1 %305, label %.loopexit173.i.i, label %._crit_edge.thread268.i.i
 
-._crit_edge.thread256.i.i:                        ; preds = %.thread.i.i, %._crit_edge.i166.i
-  %.1141254259.i.i = phi i32 [ %.1141.i.i, %._crit_edge.i166.i ], [ %321, %.thread.i.i ]
+._crit_edge.thread268.i.i:                        ; preds = %.thread.i.i, %._crit_edge.i166.i
+  %.1141266271.i.i = phi i32 [ %.1141.i.i, %._crit_edge.i166.i ], [ %321, %.thread.i.i ]
   %338 = load i32, ptr %6, align 4, !tbaa !4
   %.1136184.i.i = add i32 %338, -1
   %339 = icmp ugt i32 %.1136184.i.i, %303
   br i1 %339, label %.lr.ph187.i.i, label %._crit_edge188.i.i
 
-.lr.ph187.i.i:                                    ; preds = %._crit_edge.thread256.i.i
+.lr.ph187.i.i:                                    ; preds = %._crit_edge.thread268.i.i
   %340 = zext i32 %.1136184.i.i to i64
   br label %341
 
@@ -808,7 +808,7 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   %399 = icmp ugt i32 %indvars.i.i, %303
   br i1 %399, label %341, label %._crit_edge188.i.i, !llvm.loop !79
 
-._crit_edge188.i.i:                               ; preds = %.loopexit174.i.i, %._crit_edge.thread256.i.i
+._crit_edge188.i.i:                               ; preds = %.loopexit174.i.i, %._crit_edge.thread268.i.i
   %400 = load i16, ptr %21, align 2, !tbaa !27
   %401 = zext i16 %400 to i32
   %.0142192.i.i = add nsw i32 %401, -1
@@ -862,8 +862,8 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   br i1 %exitcond223.not.i.i, label %.loopexit172.i.i, label %.lr.ph191.i.i, !llvm.loop !81
 
 .loopexit173.i.i:                                 ; preds = %.loopexit172.i.i, %._crit_edge188.i.i, %._crit_edge.i166.i, %294
-  %.0131.lcssa249.i.i = phi i1 [ false, %._crit_edge188.i.i ], [ true, %._crit_edge.i166.i ], [ true, %294 ], [ false, %.loopexit172.i.i ]
-  %.0140.lcssa248.i.i = phi i32 [ %.1141254259.i.i, %._crit_edge188.i.i ], [ %.1141.i.i, %._crit_edge.i166.i ], [ 0, %294 ], [ %.1141254259.i.i, %.loopexit172.i.i ]
+  %.0131.lcssa261.i.i = phi i1 [ false, %._crit_edge188.i.i ], [ true, %._crit_edge.i166.i ], [ true, %294 ], [ false, %.loopexit172.i.i ]
+  %.0140.lcssa260.i.i = phi i32 [ %.1141266271.i.i, %._crit_edge188.i.i ], [ %.1141.i.i, %._crit_edge.i166.i ], [ 0, %294 ], [ %.1141266271.i.i, %.loopexit172.i.i ]
   %423 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %424 = load i32, ptr %423, align 8, !tbaa !82
   %425 = getelementptr inbounds nuw i8, ptr %5, i64 172
@@ -879,8 +879,8 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   br label %451
 
 .preheader171.i.i:                                ; preds = %.critedge.i.i, %.loopexit173.i.i
-  %.0.lcssa.i164.i = phi i32 [ %.0140.lcssa248.i.i, %.loopexit173.i.i ], [ %.2.i.i, %.critedge.i.i ]
-  br i1 %.0131.lcssa249.i.i, label %.preheader.i165.i, label %.preheader170.lr.ph.i.i
+  %.0.lcssa.i164.i = phi i32 [ %.0140.lcssa260.i.i, %.loopexit173.i.i ], [ %.2.i.i, %.critedge.i.i ]
+  br i1 %.0131.lcssa261.i.i, label %.preheader.i165.i, label %.preheader170.lr.ph.i.i
 
 .preheader170.lr.ph.i.i:                          ; preds = %.preheader171.i.i
   %.not212.i.i = icmp eq i32 %.0.lcssa.i164.i, 0
@@ -938,7 +938,7 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
 
 451:                                              ; preds = %.critedge.i.i, %.lr.ph200.i.i
   %indvars.iv228.i.i = phi i64 [ 1, %.lr.ph200.i.i ], [ %indvars.iv.next229.i.i, %.critedge.i.i ]
-  %.0198.i.i = phi i32 [ %.0140.lcssa248.i.i, %.lr.ph200.i.i ], [ %.2.i.i, %.critedge.i.i ]
+  %.0198.i.i = phi i32 [ %.0140.lcssa260.i.i, %.lr.ph200.i.i ], [ %.2.i.i, %.critedge.i.i ]
   %452 = getelementptr inbounds nuw [258 x i32], ptr %429, i64 0, i64 %indvars.iv228.i.i
   %453 = load i32, ptr %452, align 4, !tbaa !62
   %454 = and i32 %453, 65535

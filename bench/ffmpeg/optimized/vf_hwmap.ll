@@ -341,7 +341,7 @@ define internal range(i32 -2147483648, 1) i32 @hwmap_config_output(ptr noundef c
   %41 = getelementptr inbounds nuw i8, ptr %23, i64 60
   %42 = load i32, ptr %41, align 4, !tbaa !65
   %43 = icmp eq i32 %40, %42
-  br i1 %43, label %44, label %.thread173
+  br i1 %43, label %44, label %.thread188
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -462,17 +462,17 @@ define internal range(i32 -2147483648, 1) i32 @hwmap_config_output(ptr noundef c
   %105 = icmp eq i32 %104, %42
   br i1 %105, label %108, label %112
 
-.thread173:                                       ; preds = %39
+.thread188:                                       ; preds = %39
   %106 = load i32, ptr %13, align 4, !tbaa !50
   %107 = icmp eq i32 %106, %42
-  br i1 %107, label %108, label %.thread174
+  br i1 %107, label %108, label %.thread189
 
-108:                                              ; preds = %.thread173, %.thread
+108:                                              ; preds = %.thread188, %.thread
   %109 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %110 = load i32, ptr %109, align 8, !tbaa !68
   %111 = icmp eq i32 %40, %110
   %brmerge = or i1 %43, %111
-  br i1 %brmerge, label %112, label %.thread174
+  br i1 %brmerge, label %112, label %.thread189
 
 112:                                              ; preds = %.thread, %108
   %113 = load ptr, ptr %19, align 8, !tbaa !36
@@ -481,7 +481,7 @@ define internal range(i32 -2147483648, 1) i32 @hwmap_config_output(ptr noundef c
   %.not147 = icmp eq ptr %114, null
   br i1 %.not147, label %160, label %148
 
-.thread174:                                       ; preds = %.thread173, %108
+.thread189:                                       ; preds = %.thread188, %108
   %115 = call ptr @av_get_pix_fmt_name(i32 noundef %40) #5
   %116 = load i32, ptr %41, align 4, !tbaa !65
   %117 = call ptr @av_get_pix_fmt_name(i32 noundef %116) #5
@@ -568,9 +568,9 @@ define internal range(i32 -2147483648, 1) i32 @hwmap_config_output(ptr noundef c
   call void @av_buffer_unref(ptr noundef nonnull %2) #5
   br label %162
 
-160:                                              ; preds = %.thread163, %148, %112, %36, %.thread174, %61, %53
-  %.1118 = phi i32 [ -22, %.thread174 ], [ %59, %61 ], [ -22, %53 ], [ -22, %36 ], [ -12, %112 ], [ -12, %148 ], [ %.2119.ph, %.thread163 ]
-  %.2 = phi i32 [ %.0115, %.thread174 ], [ %.0115, %61 ], [ %.0115, %53 ], [ %.0115, %36 ], [ %.0115, %112 ], [ %.3, %148 ], [ %.0115, %.thread163 ]
+160:                                              ; preds = %.thread163, %148, %112, %36, %.thread189, %61, %53
+  %.1118 = phi i32 [ -22, %.thread189 ], [ %59, %61 ], [ -22, %53 ], [ -22, %36 ], [ -12, %112 ], [ -12, %148 ], [ %.2119.ph, %.thread163 ]
+  %.2 = phi i32 [ %.0115, %.thread189 ], [ %.0115, %61 ], [ %.0115, %53 ], [ %.0115, %36 ], [ %.0115, %112 ], [ %.3, %148 ], [ %.0115, %.thread163 ]
   %.not150 = icmp eq i32 %.2, 0
   br i1 %.not150, label %.thread168, label %161
 

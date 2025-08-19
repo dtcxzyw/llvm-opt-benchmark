@@ -953,9 +953,9 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17h5e1937b492ec0710E.exit.threa
 
 ._crit_edge.i.i11:                                ; preds = %193
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %24, i64 16)
-  %spec.select29.i = tail call i64 @llvm.umin.i64(i64 %24, i64 16)
+  %spec.select33.i = tail call i64 @llvm.umin.i64(i64 %24, i64 16)
   %179 = getelementptr inbounds i8, ptr %.val18.i, i64 %spec.select.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %179, ptr nonnull align 1 %.val18.i, i64 %spec.select29.i, i1 false), !noalias !171
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %179, ptr nonnull align 1 %.val18.i, i64 %spec.select33.i, i1 false), !noalias !171
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !171
   %180 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN4core3ptr125drop_in_place$LT$$LP$$RF$proc_macro2..Ident$C$dsl_auto_type..auto_type..local_variables_map..LetStatementInferredType$RP$$GT$17hf3ac284ba6870c3bE.llvm.8967928131548380058", ptr %180, align 8, !noalias !171

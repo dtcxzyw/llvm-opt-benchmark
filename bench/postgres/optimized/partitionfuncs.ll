@@ -119,7 +119,7 @@ list_length.exit:                                 ; preds = %35
   %.val = load ptr, ptr %53, align 8
   %54 = load i32, ptr %.val, align 8
   %.not68 = icmp eq i32 %54, 0
-  br i1 %.not68, label %55, label %.thread102
+  br i1 %.not68, label %55, label %.thread107
 
 55:                                               ; preds = %52, %44
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -134,20 +134,20 @@ list_length.exit:                                 ; preds = %35
   %brmerge = or i1 %.not72, %.not67
   br i1 %brmerge, label %.critedge, label %.lr.ph
 
-.thread102:                                       ; preds = %52
+.thread107:                                       ; preds = %52
   %61 = zext i32 %54 to i64
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %61, ptr %62, align 8
   %63 = icmp ne i8 %49, 112
   %64 = icmp ne i8 %49, 73
-  %.not71103 = and i1 %63, %64
-  %65 = zext i1 %.not71103 to i64
+  %.not71108 = and i1 %63, %64
+  %65 = zext i1 %.not71108 to i64
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %65, ptr %66, align 16
-  %.not72104 = icmp eq i32 %48, %7
-  br i1 %.not72104, label %.critedge, label %.lr.ph
+  %.not72109 = icmp eq i32 %48, %7
+  br i1 %.not72109, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %55, %.thread102
+.lr.ph:                                           ; preds = %55, %.thread107
   %67 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = icmp sgt i32 %68, 0
@@ -169,19 +169,19 @@ list_length.exit:                                 ; preds = %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, %7
-  br i1 %76, label %.critedge.loopexit.split.loop.exit105, label %72
+  br i1 %76, label %.critedge.loopexit.split.loop.exit110, label %72
 
-.critedge.loopexit.split.loop.exit105:            ; preds = %73
+.critedge.loopexit.split.loop.exit110:            ; preds = %73
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %.critedge.loopexit
 
-.critedge.loopexit:                               ; preds = %72, %.critedge.loopexit.split.loop.exit105
-  %.lcssa = phi i32 [ %indvars.le, %.critedge.loopexit.split.loop.exit105 ], [ %68, %72 ]
+.critedge.loopexit:                               ; preds = %72, %.critedge.loopexit.split.loop.exit110
+  %.lcssa = phi i32 [ %indvars.le, %.critedge.loopexit.split.loop.exit110 ], [ %68, %72 ]
   %77 = sext i32 %.lcssa to i64
   br label %.critedge
 
-.critedge:                                        ; preds = %55, %.thread102, %.critedge.loopexit, %.lr.ph
-  %.063 = phi i64 [ 0, %55 ], [ 0, %.lr.ph ], [ %77, %.critedge.loopexit ], [ 0, %.thread102 ]
+.critedge:                                        ; preds = %55, %.thread107, %.critedge.loopexit, %.lr.ph
+  %.063 = phi i64 [ 0, %55 ], [ 0, %.lr.ph ], [ %77, %.critedge.loopexit ], [ 0, %.thread107 ]
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %.063, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %36, i64 40

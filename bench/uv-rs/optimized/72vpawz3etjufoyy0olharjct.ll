@@ -1378,7 +1378,7 @@ define void @"_ZN90_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$as$u20$c
   br i1 %76, label %83, label %77
 
 77:                                               ; preds = %68
-  %78 = getelementptr inbounds i8, ptr %44, i64 %58
+  %78 = getelementptr inbounds nuw i8, ptr %44, i64 %58
   %79 = load i8, ptr %78, align 1, !alias.scope !126, !noundef !3
   %80 = icmp sgt i8 %79, -65
   br i1 %80, label %83, label %82
@@ -1548,7 +1548,7 @@ define void @"_ZN90_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$as$u20$c
   store i8 %.sroa.699.0.copyload, ptr %.sroa.2655.0..sroa_idx, align 8
   br label %121
 
-121:                                              ; preds = %432, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17hb61510c4055e6a72E.exit.thread", %439, %426, %427, %419, %420, %409, %410, %400, %401, %.thread1537, %392, %383, %384, %350, %354, %366, %376, %378, %270, %290, %298, %313, %317, %327, %329, %194, %214, %222, %237, %241, %251, %253, %175, %177, %159, %161, %146, %148, %133, %135, %61, %81, %89, %104, %108, %118, %120, %.thread1516, %45, %39, %36, %33, %30
+121:                                              ; preds = %432, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17hb61510c4055e6a72E.exit.thread", %439, %426, %427, %419, %420, %409, %410, %400, %401, %.thread1572, %392, %383, %384, %350, %354, %366, %376, %378, %270, %290, %298, %313, %317, %327, %329, %194, %214, %222, %237, %241, %251, %253, %175, %177, %159, %161, %146, %148, %133, %135, %61, %81, %89, %104, %108, %118, %120, %.thread1516, %45, %39, %36, %33, %30
   ret void
 
 122:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1041"
@@ -1860,7 +1860,7 @@ define void @"_ZN90_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$as$u20$c
   br i1 %209, label %216, label %210
 
 210:                                              ; preds = %201
-  %211 = getelementptr inbounds i8, ptr %170, i64 %191
+  %211 = getelementptr inbounds nuw i8, ptr %170, i64 %191
   %212 = load i8, ptr %211, align 1, !alias.scope !188, !noundef !3
   %213 = icmp sgt i8 %212, -65
   br i1 %213, label %216, label %215
@@ -2097,7 +2097,7 @@ define void @"_ZN90_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$as$u20$c
   br i1 %285, label %292, label %286
 
 286:                                              ; preds = %277
-  %287 = getelementptr inbounds i8, ptr %186, i64 %267
+  %287 = getelementptr inbounds nuw i8, ptr %186, i64 %267
   %288 = load i8, ptr %287, align 1, !alias.scope !210, !noundef !3
   %289 = icmp sgt i8 %288, -65
   br i1 %289, label %292, label %291
@@ -2300,7 +2300,7 @@ define void @"_ZN90_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$as$u20$c
   br i1 %345, label %352, label %351
 
 346:                                              ; preds = %343
-  %347 = getelementptr inbounds i8, ptr %262, i64 %340
+  %347 = getelementptr inbounds nuw i8, ptr %262, i64 %340
   %348 = load i8, ptr %347, align 1, !alias.scope !229, !noundef !3
   %349 = icmp sgt i8 %348, -65
   br i1 %349, label %352, label %351
@@ -2442,12 +2442,12 @@ define void @"_ZN90_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$as$u20$c
   br i1 %381, label %387, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1121"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1115.thread": ; preds = %259
-  %bcmp.i.i.i11161535 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(7) @anon.b6ff6adb2eeddc2d90bb9988127738b3.60, ptr noundef nonnull readonly align 1 dereferenceable(7) %1, i64 7), !alias.scope !235
-  %bcmp.i.i.fr.i11171536 = freeze i32 %bcmp.i.i.i11161535
-  %382 = icmp eq i32 %bcmp.i.i.fr.i11171536, 0
-  br i1 %382, label %.thread1537, label %.thread1538
+  %bcmp.i.i.i11161570 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(7) @anon.b6ff6adb2eeddc2d90bb9988127738b3.60, ptr noundef nonnull readonly align 1 dereferenceable(7) %1, i64 7), !alias.scope !235
+  %bcmp.i.i.fr.i11171571 = freeze i32 %bcmp.i.i.i11161570
+  %382 = icmp eq i32 %bcmp.i.i.fr.i11171571, 0
+  br i1 %382, label %.thread1572, label %.thread1573
 
-.thread1538:                                      ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1115.thread"
+.thread1573:                                      ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1115.thread"
   br i1 %.not.i.i1189.ph1200.ph1266.ph1285.ph1306, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1133", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1127"
 
 383:                                              ; preds = %379
@@ -2474,7 +2474,7 @@ define void @"_ZN90_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$as$u20$c
 
 387:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1115"
   %388 = icmp eq i64 %185, 0
-  br i1 %388, label %.thread1537, label %392
+  br i1 %388, label %.thread1572, label %392
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1121": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1115"
   %bcmp.i.i.i1122 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(8) @anon.b6ff6adb2eeddc2d90bb9988127738b3.62, ptr noundef nonnull readonly align 1 dereferenceable(8) %1, i64 8), !alias.scope !245
@@ -2484,7 +2484,7 @@ define void @"_ZN90_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$as$u20$c
   %391 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %389, label %395, label %.thread1507
 
-.thread1537:                                      ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1115.thread", %387
+.thread1572:                                      ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1115.thread", %387
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6507)
   call fastcc void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h5d7567689b882cc3E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %.sroa.6507, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   store i64 1, ptr %0, align 8
@@ -2513,8 +2513,8 @@ define void @"_ZN90_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$as$u20$c
 .thread1507:                                      ; preds = %183, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1121"
   br i1 %.not.i.i1189.ph1200.ph1266.ph1285.ph1306, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1133", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1127"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1127": ; preds = %.thread1538, %.thread1507
-  %.not.i.i10881403.ph1469.ph1501.ph1509.ph1545 = phi i1 [ true, %.thread1538 ], [ %.not.i.i1075, %.thread1507 ]
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1127": ; preds = %.thread1573, %.thread1507
+  %.not.i.i10881403.ph1469.ph1501.ph1509.ph1580 = phi i1 [ true, %.thread1573 ], [ %.not.i.i1075, %.thread1507 ]
   %bcmp.i.i.i1128 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(10) @anon.b6ff6adb2eeddc2d90bb9988127738b3.64, ptr noundef nonnull readonly align 1 dereferenceable(10) %1, i64 10), !alias.scope !255
   %bcmp.i.i.fr.i1129 = freeze i32 %bcmp.i.i.i1128
   %397 = icmp eq i32 %bcmp.i.i.fr.i1129, 0
@@ -2548,8 +2548,8 @@ define void @"_ZN90_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$as$u20$c
   %405 = icmp eq i64 %398, 0
   br i1 %405, label %409, label %410
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1133": ; preds = %.thread1507, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1127", %.thread1538
-  %.not.i.i10881403.ph1469.ph1501.ph1509.ph1543.ph = phi i1 [ true, %.thread1538 ], [ %.not.i.i10881403.ph1469.ph1501.ph1509.ph1545, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1127" ], [ %.not.i.i1075, %.thread1507 ]
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1133": ; preds = %.thread1507, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1127", %.thread1573
+  %.not.i.i10881403.ph1469.ph1501.ph1509.ph1578.ph = phi i1 [ true, %.thread1573 ], [ %.not.i.i10881403.ph1469.ph1501.ph1509.ph1580, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1127" ], [ %.not.i.i1075, %.thread1507 ]
   %bcmp.i.i.i1134 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(6) @anon.b6ff6adb2eeddc2d90bb9988127738b3.66, ptr noundef nonnull readonly align 1 dereferenceable(6) %1, i64 6), !alias.scope !265
   %bcmp.i.i.fr.i1135 = freeze i32 %bcmp.i.i.i1134
   %406 = icmp eq i32 %bcmp.i.i.fr.i1135, 0
@@ -2584,7 +2584,7 @@ define void @"_ZN90_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$as$u20$c
   br i1 %414, label %419, label %420
 
 415:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1133"
-  br i1 %.not.i.i10881403.ph1469.ph1501.ph1509.ph1543.ph, label %.thread1516, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1139"
+  br i1 %.not.i.i10881403.ph1469.ph1501.ph1509.ph1578.ph, label %.thread1516, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1139"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1139": ; preds = %415
   %bcmp.i.i.i1140 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(8) @anon.b6ff6adb2eeddc2d90bb9988127738b3.68, ptr noundef nonnull readonly align 1 dereferenceable(8) %1, i64 8), !alias.scope !275

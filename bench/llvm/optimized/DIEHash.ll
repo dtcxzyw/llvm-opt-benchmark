@@ -5482,8 +5482,8 @@ _ZN4llvm8DIEValueaSERKS0_.exit:                   ; preds = %2007, %2004, %2002,
   %2010 = and i64 %.0.copyload.i.i.i.i.i.i448, 4
   %.not.i.i.i449 = icmp ne i64 %2010, 0
   %2011 = and i64 %.0.copyload.i.i.i.i.i.i448, -8
-  %.not458 = icmp eq i64 %2011, 0
-  %.not = or i1 %.not.i.i.i449, %.not458
+  %.not509 = icmp eq i64 %2011, 0
+  %.not = or i1 %.not.i.i.i449, %.not509
   br i1 %.not, label %select.unfold._crit_edge, label %206
 }
 
@@ -6028,8 +6028,8 @@ select.unfold:                                    ; preds = %_ZN4llvm7DIEHash14h
   %54 = and i64 %.0.copyload.i.i.i.i.i, 4
   %.not.i.i = icmp ne i64 %54, 0
   %55 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %.not37 = icmp eq i64 %55, 0
-  %.not = or i1 %.not.i.i, %.not37
+  %.not39 = icmp eq i64 %55, 0
+  %.not = or i1 %.not.i.i, %.not39
   br i1 %.not, label %select.unfold._crit_edge, label %.lr.ph
 }
 

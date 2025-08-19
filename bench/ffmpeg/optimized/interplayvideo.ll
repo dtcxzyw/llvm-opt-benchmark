@@ -234,8 +234,8 @@ define internal range(i32 8, 0) i32 @ipvideo_decode_frame(ptr noundef %0, ptr no
   %or.cond = or i1 %75, %74
   %76 = add nuw nsw i32 %44, 8
   %77 = icmp samesign ult i32 %8, %76
-  %or.cond138 = select i1 %or.cond, i1 true, i1 %77
-  br i1 %or.cond138, label %157, label %bytestream2_init.exit
+  %or.cond144 = select i1 %or.cond, i1 true, i1 %77
+  br i1 %or.cond144, label %157, label %bytestream2_init.exit
 
 bytestream2_init.exit:                            ; preds = %61
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3833,8 +3833,8 @@ bytestream2_get_le32.exit:                        ; preds = %54, %55
   %.059104 = phi i32 [ %.0.i79, %bytestream2_get_le32.exit ], [ %71, %73 ]
   %.264103 = phi ptr [ %5, %bytestream2_get_le32.exit ], [ %74, %73 ]
   %.167102 = phi i32 [ 0, %bytestream2_get_le32.exit ], [ %75, %73 ]
-  %invariant.gep137 = getelementptr i16, ptr %.264103, i64 %62
-  %invariant.gep139 = getelementptr i16, ptr %.264103, i64 %62
+  %invariant.gep138 = getelementptr i16, ptr %.264103, i64 %62
+  %invariant.gep140 = getelementptr i16, ptr %.264103, i64 %62
   br label %63
 
 63:                                               ; preds = %.preheader81, %63
@@ -3845,10 +3845,10 @@ bytestream2_get_le32.exit:                        ; preds = %54, %55
   %66 = getelementptr inbounds nuw [4 x i16], ptr %3, i64 0, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !116
   %68 = or disjoint i64 %indvars.iv126, 1
-  %gep138 = getelementptr i16, ptr %invariant.gep137, i64 %68
-  store i16 %67, ptr %gep138, align 2, !tbaa !116
-  %gep140 = getelementptr i16, ptr %invariant.gep139, i64 %indvars.iv126
-  store i16 %67, ptr %gep140, align 2, !tbaa !116
+  %gep139 = getelementptr i16, ptr %invariant.gep138, i64 %68
+  store i16 %67, ptr %gep139, align 2, !tbaa !116
+  %gep141 = getelementptr i16, ptr %invariant.gep140, i64 %indvars.iv126
+  store i16 %67, ptr %gep141, align 2, !tbaa !116
   %69 = getelementptr inbounds nuw i16, ptr %.264103, i64 %68
   store i16 %67, ptr %69, align 2, !tbaa !116
   %70 = getelementptr inbounds nuw i16, ptr %.264103, i64 %indvars.iv126

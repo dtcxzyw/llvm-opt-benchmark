@@ -1453,8 +1453,8 @@ _ZNSolsEPFRSoS_E.exit143:                         ; preds = %_ZNSolsEPFRSoS_E.ex
   %462 = ptrtoint ptr %459 to i64
   %463 = sub i64 %461, %462
   %464 = sdiv exact i64 %463, 24
-  %sext321 = shl i64 %464, 32
-  %465 = ashr exact i64 %sext321, 32
+  %sext369 = shl i64 %464, 32
+  %465 = ashr exact i64 %sext369, 32
   %466 = icmp slt i64 %indvars.iv.next319, %465
   br i1 %466, label %.preheader, label %_ZNSolsEPFRSoS_E.exit143._crit_edge, !llvm.loop !126
 

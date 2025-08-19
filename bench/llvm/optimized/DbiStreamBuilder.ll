@@ -783,11 +783,11 @@ _ZN4llvm3pdb16DbiStreamBuilder11DebugStreamaSEOS2_.exit.i: ; preds = %20, %_ZNSt
 _ZNSt19_Optional_base_implIN4llvm3pdb16DbiStreamBuilder11DebugStreamESt14_Optional_baseIS3_Lb0ELb0EEE12_M_constructIJS3_EEEvDpOT_.exit.i: ; preds = %5
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
-  %.sroa.0.32..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 32
-  %25 = load i32, ptr %.sroa.0.32..sroa_idx9, align 8
+  %.sroa.0.32..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 32
+  %25 = load i32, ptr %.sroa.0.32..sroa_idx10, align 8
   store i32 %25, ptr %24, align 8
-  %.sroa.5.32..sroa_idx10 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  store i16 -1, ptr %.sroa.5.32..sroa_idx10, align 4
+  %.sroa.5.32..sroa_idx11 = getelementptr inbounds nuw i8, ptr %10, i64 36
+  store i16 -1, ptr %.sroa.5.32..sroa_idx11, align 4
   store i8 1, ptr %11, align 8, !tbaa !105
   br label %_ZN4llvm3pdb16DbiStreamBuilder11DebugStreamD2Ev.exit
 
@@ -1781,8 +1781,8 @@ _ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryS
   br i1 %152, label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm.exit, label %154
 
 _ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread: ; preds = %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i.i
-  %.sroa.speculated.i.i285 = call i64 @llvm.umin.i64(i64 %.sroa.10.16.copyload, i64 %124)
-  %153 = icmp eq i64 %.sroa.speculated.i.i285, 0
+  %.sroa.speculated.i.i318 = call i64 @llvm.umin.i64(i64 %.sroa.10.16.copyload, i64 %124)
+  %153 = icmp eq i64 %.sroa.speculated.i.i318, 0
   br i1 %153, label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm.exit, label %._crit_edge.i.i
 
 154:                                              ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i
@@ -1810,9 +1810,9 @@ _ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryS
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread, %157, %159, %161
-  %.sroa.speculated.i.i286288 = phi i64 [ %.0.i.i.i, %157 ], [ %.0.i.i.i, %161 ], [ %.0.i.i.i, %159 ], [ %.sroa.speculated.i.i285, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread ]
+  %.sroa.speculated.i.i319321 = phi i64 [ %.0.i.i.i, %157 ], [ %.0.i.i.i, %161 ], [ %.0.i.i.i, %159 ], [ %.sroa.speculated.i.i318, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread ]
   %169 = phi i64 [ %158, %157 ], [ %168, %161 ], [ 0, %159 ], [ %.sroa.10.16.copyload, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread ]
-  %170 = sub i64 %169, %.sroa.speculated.i.i286288
+  %170 = sub i64 %169, %.sroa.speculated.i.i319321
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm.exit
 
 _ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm.exit: ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread, %127, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i, %._crit_edge.i.i
@@ -3112,9 +3112,9 @@ _ZNSt8functionIFN4llvm5ErrorERNS0_18BinaryStreamWriterEEEC2EOS5_.exit.i.i.i: ; p
   store ptr %26, ptr %21, align 8, !tbaa !158
   store ptr null, ptr %25, align 8, !tbaa !158
   %.not.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i, label %_ZNSt8optionalIN4llvm3pdb16DbiStreamBuilder11DebugStreamEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit.thread84, label %_ZNSt8optionalIN4llvm3pdb16DbiStreamBuilder11DebugStreamEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit
+  br i1 %.not.i.i.i.i, label %_ZNSt8optionalIN4llvm3pdb16DbiStreamBuilder11DebugStreamEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit.thread94, label %_ZNSt8optionalIN4llvm3pdb16DbiStreamBuilder11DebugStreamEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit
 
-_ZNSt8optionalIN4llvm3pdb16DbiStreamBuilder11DebugStreamEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit.thread84: ; preds = %_ZNSt8functionIFN4llvm5ErrorERNS0_18BinaryStreamWriterEEEC2EOS5_.exit.i.i.i
+_ZNSt8optionalIN4llvm3pdb16DbiStreamBuilder11DebugStreamEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit.thread94: ; preds = %_ZNSt8functionIFN4llvm5ErrorERNS0_18BinaryStreamWriterEEEC2EOS5_.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 872
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %27, ptr noundef nonnull align 8 dereferenceable(6) %14, i64 6, i1 false)
@@ -3140,7 +3140,7 @@ _ZNSt8optionalIN4llvm3pdb16DbiStreamBuilder11DebugStreamEEaSIS3_EENSt9enable_ifI
   %32 = call noundef zeroext i1 %.pre.pre(ptr noundef nonnull align 8 dereferenceable(38) %7, ptr noundef nonnull align 8 dereferenceable(38) %7, i32 noundef 3) #21
   br label %_ZN4llvm3pdb16DbiStreamBuilder11DebugStreamD2Ev.exit
 
-_ZN4llvm3pdb16DbiStreamBuilder11DebugStreamD2Ev.exit: ; preds = %_ZNSt8optionalIN4llvm3pdb16DbiStreamBuilder11DebugStreamEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit.thread84, %_ZNSt8optionalIN4llvm3pdb16DbiStreamBuilder11DebugStreamEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit.thread, %_ZNSt8optionalIN4llvm3pdb16DbiStreamBuilder11DebugStreamEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit, %31
+_ZN4llvm3pdb16DbiStreamBuilder11DebugStreamD2Ev.exit: ; preds = %_ZNSt8optionalIN4llvm3pdb16DbiStreamBuilder11DebugStreamEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit.thread94, %_ZNSt8optionalIN4llvm3pdb16DbiStreamBuilder11DebugStreamEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit.thread, %_ZNSt8optionalIN4llvm3pdb16DbiStreamBuilder11DebugStreamEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %33 = call noundef i32 @_ZNK4llvm8codeview24DebugFrameDataSubsection23calculateSerializedSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %9) #21
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 872
@@ -3227,11 +3227,11 @@ _ZN4llvm3pdb16DbiStreamBuilder11DebugStreamaSEOS2_.exit.i40: ; preds = %62, %_ZN
 _ZNSt19_Optional_base_implIN4llvm3pdb16DbiStreamBuilder11DebugStreamESt14_Optional_baseIS3_Lb0ELb0EEE12_M_constructIJS3_EEEvDpOT_.exit.i36: ; preds = %51
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 440
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 32, i1 false)
-  %.sroa.0.32..sroa_idx88 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 32
-  %67 = load i32, ptr %.sroa.0.32..sroa_idx88, align 8
+  %.sroa.0.32..sroa_idx98 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 32
+  %67 = load i32, ptr %.sroa.0.32..sroa_idx98, align 8
   store i32 %67, ptr %66, align 8
-  %.sroa.5.32..sroa_idx89 = getelementptr inbounds nuw i8, ptr %1, i64 444
-  store i16 -1, ptr %.sroa.5.32..sroa_idx89, align 4
+  %.sroa.5.32..sroa_idx99 = getelementptr inbounds nuw i8, ptr %1, i64 444
+  store i16 -1, ptr %.sroa.5.32..sroa_idx99, align 4
   store i8 1, ptr %53, align 8, !tbaa !105
   br label %_ZN4llvm3pdb16DbiStreamBuilder11DebugStreamD2Ev.exit43
 
@@ -3844,7 +3844,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %115, %107
   br i1 %.not.i.i.i.i.i.i126, label %_ZNSt6vectorIP15LLVMOpaqueErrorSaIS1_EED2Ev.exit.i.i.i, label %._crit_edge.thread.i.i.i
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %103
-  %.026.lcssa47.i.i.i = phi ptr [ %136, %._crit_edge.i.i.i ], [ %105, %103 ]
+  %.026.lcssa55.i.i.i = phi ptr [ %136, %._crit_edge.i.i.i ], [ %105, %103 ]
   %118 = phi ptr [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %104, %103 ]
   %119 = load ptr, ptr %95, align 8, !tbaa !295, !noalias !284
   %120 = ptrtoint ptr %119 to i64
@@ -3854,7 +3854,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %115, %107
   br label %_ZNSt6vectorIP15LLVMOpaqueErrorSaIS1_EED2Ev.exit.i.i.i
 
 _ZNSt6vectorIP15LLVMOpaqueErrorSaIS1_EED2Ev.exit.i.i.i: ; preds = %._crit_edge.thread.i.i.i, %._crit_edge.i.i.i
-  %.026.lcssa48.i.i.i = phi ptr [ %136, %._crit_edge.i.i.i ], [ %.026.lcssa47.i.i.i, %._crit_edge.thread.i.i.i ]
+  %.026.lcssa56.i.i.i = phi ptr [ %136, %._crit_edge.i.i.i ], [ %.026.lcssa55.i.i.i, %._crit_edge.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !284
   br label %"_ZN4llvm8parallel6detail25parallel_transform_reduceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrINS_3pdb26DbiModuleDescriptorBuilderESt14default_deleteIS7_EESt6vectorISA_SaISA_EEEEP15LLVMOpaqueErrorZNS_20parallelForEachErrorIRSE_ZNS6_16DbiStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefEE3$_0EENS_5ErrorEOT_T0_EUlSH_SH_E_ZNSI_ISJ_SQ_EESR_ST_SU_EUlST_E_EESU_SS_SS_SU_T1_T2_.exit.i.i"
 
@@ -3901,7 +3901,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.i.i.i.i:                ; preds = %126, %.lr.ph.i.i.i
   br i1 %.not.i.i.i125, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 "_ZN4llvm8parallel6detail25parallel_transform_reduceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrINS_3pdb26DbiModuleDescriptorBuilderESt14default_deleteIS7_EESt6vectorISA_SaISA_EEEEP15LLVMOpaqueErrorZNS_20parallelForEachErrorIRSE_ZNS6_16DbiStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefEE3$_0EENS_5ErrorEOT_T0_EUlSH_SH_E_ZNSI_ISJ_SQ_EESR_ST_SU_EUlST_E_EESU_SS_SS_SU_T1_T2_.exit.i.i": ; preds = %_ZNSt6vectorIP15LLVMOpaqueErrorSaIS1_EED2Ev.exit.i.i.i, %86
-  %.0.i.i.i = phi ptr [ %.026.lcssa48.i.i.i, %_ZNSt6vectorIP15LLVMOpaqueErrorSaIS1_EED2Ev.exit.i.i.i ], [ null, %86 ]
+  %.0.i.i.i = phi ptr [ %.026.lcssa56.i.i.i, %_ZNSt6vectorIP15LLVMOpaqueErrorSaIS1_EED2Ev.exit.i.i.i ], [ null, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !284
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !284
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !284

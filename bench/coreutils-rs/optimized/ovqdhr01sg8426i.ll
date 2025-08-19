@@ -95,13 +95,13 @@ define hidden noundef ptr @"_ZN117_$LT$uucore..features..format..num_format..Uns
   %42 = load i8, ptr %41, align 1, !range !34, !noundef !4
   %43 = add nsw i8 %42, -2
   %narrow = tail call i8 @llvm.umin.i8(i8 %43, i8 2)
-  switch i8 %narrow, label %default.unreachable162 [
+  switch i8 %narrow, label %default.unreachable167 [
     i8 0, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
     i8 1, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit89
     i8 2, label %46
   ]
 
-default.unreachable162:                           ; preds = %85, %3
+default.unreachable167:                           ; preds = %85, %3
   unreachable
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %3
@@ -342,7 +342,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit105: ; preds = %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %87 = load i8, ptr %86, align 2, !range !110, !noundef !4
-  switch i8 %87, label %default.unreachable162 [
+  switch i8 %87, label %default.unreachable167 [
     i8 0, label %88
     i8 1, label %111
     i8 2, label %134

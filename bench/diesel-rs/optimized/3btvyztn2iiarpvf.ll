@@ -1622,19 +1622,19 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h96
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %22, ptr nonnull readonly align 1 %11, i64 %10), !alias.scope !234, !noalias !227
   %bcmp.i.i.fr.i = freeze i32 %bcmp.i.i.i
   %.not = icmp eq i32 %bcmp.i.i.fr.i, 0
-  br i1 %.not, label %._crit_edge.loopexit.split.loop.exit18, label %.backedge
+  br i1 %.not, label %._crit_edge.loopexit.split.loop.exit20, label %.backedge
 
 .backedge:                                        ; preds = %24, %13, %21, %"_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name28_$u7b$$u7b$closure$u7d$$u7d$17h1e4cf0ead2f31f2bE.exit.i"
   %exitcond.not = icmp eq i32 %4, %14
   br i1 %exitcond.not, label %._crit_edge, label %13
 
-._crit_edge.loopexit.split.loop.exit18:           ; preds = %"_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name28_$u7b$$u7b$closure$u7d$$u7d$17h1e4cf0ead2f31f2bE.exit.i"
+._crit_edge.loopexit.split.loop.exit20:           ; preds = %"_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name28_$u7b$$u7b$closure$u7d$$u7d$17h1e4cf0ead2f31f2bE.exit.i"
   %27 = trunc nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.backedge, %._crit_edge.loopexit.split.loop.exit18, %2
-  %.lcssa = phi i32 [ %.promoted, %2 ], [ %27, %._crit_edge.loopexit.split.loop.exit18 ], [ %4, %.backedge ]
-  %.sroa.0.0 = phi i32 [ 0, %2 ], [ 1, %._crit_edge.loopexit.split.loop.exit18 ], [ 0, %.backedge ]
+._crit_edge:                                      ; preds = %.backedge, %._crit_edge.loopexit.split.loop.exit20, %2
+  %.lcssa = phi i32 [ %.promoted, %2 ], [ %27, %._crit_edge.loopexit.split.loop.exit20 ], [ %4, %.backedge ]
+  %.sroa.0.0 = phi i32 [ 0, %2 ], [ 1, %._crit_edge.loopexit.split.loop.exit20 ], [ 0, %.backedge ]
   %28 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %29 = insertvalue { i32, i32 } %28, i32 %.lcssa, 1
   ret { i32, i32 } %29
@@ -4623,8 +4623,8 @@ define void @_ZN6diesel5mysql10connection4stmt8iterator17StatementIterator9from_
   br label %"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h4e932c9ca3e49612E.exit"
 
 "_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h4e932c9ca3e49612E.exit88": ; preds = %35, %113, %"_ZN4core3ptr81drop_in_place$LT$diesel..mysql..connection..stmt..metadata..StatementMetadata$GT$17hf1b9086e810a577fE.exit85"
-  %.pn.pn.pn.pn132 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %113 ], [ %.pn.pn.pn.pn, %"_ZN4core3ptr81drop_in_place$LT$diesel..mysql..connection..stmt..metadata..StatementMetadata$GT$17hf1b9086e810a577fE.exit85" ], [ %.pn.pn.pn, %35 ]
-  resume { ptr, i32 } %.pn.pn.pn.pn132
+  %.pn.pn.pn.pn136 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %113 ], [ %.pn.pn.pn.pn, %"_ZN4core3ptr81drop_in_place$LT$diesel..mysql..connection..stmt..metadata..StatementMetadata$GT$17hf1b9086e810a577fE.exit85" ], [ %.pn.pn.pn, %35 ]
+  resume { ptr, i32 } %.pn.pn.pn.pn136
 
 113:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$diesel..mysql..connection..stmt..metadata..StatementMetadata$GT$17hf1b9086e810a577fE.exit85"
   invoke void @"_ZN4core3ptr63drop_in_place$LT$diesel..mysql..connection..stmt..Statement$GT$17h0b14d9c308cfee6dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
@@ -5686,7 +5686,7 @@ define void @"_ZN6diesel5mysql5types10primitives129_$LT$impl$u20$diesel..deseria
   %7 = icmp eq i8 %6, 7
   br i1 %7, label %10, label %8
 
-default.unreachable:                              ; preds = %8
+default.unreachable68:                            ; preds = %8
   unreachable
 
 8:                                                ; preds = %2
@@ -5702,7 +5702,7 @@ default.unreachable:                              ; preds = %8
   %.sroa.8.0.copyload = load ptr, ptr %.sroa.8.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %9 = ptrtoint ptr %.sroa.736.0.copyload to i64
-  switch i8 %6, label %default.unreachable [
+  switch i8 %6, label %default.unreachable68 [
     i8 0, label %16
     i8 1, label %19
     i8 2, label %21
@@ -5857,7 +5857,7 @@ define void @"_ZN6diesel5mysql5types10primitives128_$LT$impl$u20$diesel..deseria
   %7 = icmp eq i8 %6, 7
   br i1 %7, label %10, label %8
 
-default.unreachable:                              ; preds = %8
+default.unreachable50:                            ; preds = %8
   unreachable
 
 8:                                                ; preds = %2
@@ -5873,7 +5873,7 @@ default.unreachable:                              ; preds = %8
   %.sroa.8.0.copyload = load ptr, ptr %.sroa.8.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %9 = ptrtoint ptr %.sroa.7.0.copyload to i64
-  switch i8 %6, label %default.unreachable [
+  switch i8 %6, label %default.unreachable50 [
     i8 0, label %16
     i8 1, label %19
     i8 2, label %22
@@ -6022,7 +6022,7 @@ define void @"_ZN6diesel5mysql5types10primitives127_$LT$impl$u20$diesel..deseria
   %5 = icmp eq i8 %4, 7
   br i1 %5, label %8, label %6
 
-default.unreachable:                              ; preds = %6
+default.unreachable27:                            ; preds = %6
   unreachable
 
 6:                                                ; preds = %2
@@ -6038,7 +6038,7 @@ default.unreachable:                              ; preds = %6
   %.sroa.8.0.copyload = load ptr, ptr %.sroa.8.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %7 = ptrtoint ptr %.sroa.7.0.copyload to i64
-  switch i8 %4, label %default.unreachable [
+  switch i8 %4, label %default.unreachable27 [
     i8 0, label %14
     i8 1, label %17
     i8 2, label %20
@@ -6115,7 +6115,7 @@ define void @"_ZN6diesel5mysql5types10primitives126_$LT$impl$u20$diesel..deseria
   %6 = icmp eq i8 %5, 7
   br i1 %6, label %9, label %7
 
-default.unreachable:                              ; preds = %7
+default.unreachable60:                            ; preds = %7
   unreachable
 
 7:                                                ; preds = %2
@@ -6131,7 +6131,7 @@ default.unreachable:                              ; preds = %7
   %.sroa.831.0.copyload = load ptr, ptr %.sroa.831.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = ptrtoint ptr %.sroa.7.0.copyload to i64
-  switch i8 %5, label %default.unreachable [
+  switch i8 %5, label %default.unreachable60 [
     i8 0, label %15
     i8 1, label %18
     i8 2, label %21
@@ -6265,7 +6265,7 @@ define void @"_ZN6diesel5mysql5types10primitives127_$LT$impl$u20$diesel..deseria
   %7 = icmp eq i8 %6, 7
   br i1 %7, label %10, label %8
 
-default.unreachable:                              ; preds = %8
+default.unreachable52:                            ; preds = %8
   unreachable
 
 8:                                                ; preds = %2
@@ -6281,7 +6281,7 @@ default.unreachable:                              ; preds = %8
   %.sroa.827.0.copyload = load ptr, ptr %.sroa.827.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %9 = ptrtoint ptr %.sroa.7.0.copyload to i64
-  switch i8 %6, label %default.unreachable [
+  switch i8 %6, label %default.unreachable52 [
     i8 0, label %16
     i8 1, label %19
     i8 2, label %22
@@ -6734,10 +6734,10 @@ common.resume:                                    ; preds = %47, %24, %28, %36
   %.sroa.0.0 = phi i64 [ -9223372036854775796, %37 ], [ -9223372036854775796, %44 ], [ %.sroa.0.0.copyload20, %_ZN3std9panicking3try17hdb07e80180eb803cE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0, ptr %7, align 8
-  %.sroa.5.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.sroa.5.0, ptr %.sroa.5.0..sroa_idx43, align 8
-  %.sroa.7.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.sroa.7.0, ptr %.sroa.7.0..sroa_idx44, align 8
+  %.sroa.5.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %.sroa.5.0, ptr %.sroa.5.0..sroa_idx50, align 8
+  %.sroa.7.0..sroa_idx51 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %.sroa.7.0, ptr %.sroa.7.0..sroa_idx51, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %.sroa.8.0, ptr %.sroa.8.0..sroa_idx, align 8
   invoke void @_ZN6diesel6sqlite10connection3raw19SqliteCallbackError4emit17h3da4a320946acd3cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, ptr noundef %0)
@@ -6951,7 +6951,7 @@ define hidden void @_ZN6diesel6sqlite10connection4stmt9Statement4bind17h6a1b431c
   %11 = alloca { i32, [5 x i32] }, align 8
   %12 = alloca i8, align 1
   %13 = load i32, ptr %3, align 8, !range !216, !noundef !10
-  switch i32 %13, label %default.unreachable70 [
+  switch i32 %13, label %default.unreachable71 [
     i32 0, label %14
     i32 1, label %16
     i32 2, label %18
@@ -6962,7 +6962,7 @@ define hidden void @_ZN6diesel6sqlite10connection4stmt9Statement4bind17h6a1b431c
     i32 7, label %28
   ]
 
-default.unreachable70:                            ; preds = %5
+default.unreachable71:                            ; preds = %5
   unreachable
 
 14:                                               ; preds = %5

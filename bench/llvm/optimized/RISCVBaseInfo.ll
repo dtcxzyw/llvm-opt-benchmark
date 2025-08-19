@@ -550,8 +550,8 @@ _ZSt7advanceIPKN4llvm11RISCVSysReg6SysRegElEvRT_T0_.exit.i.i: ; preds = %32, %_Z
   %.01320.i.i = phi i64 [ 440, %_ZSt7advanceIPKN4llvm11RISCVSysReg6SysRegElEvRT_T0_.exit.lr.ph.i.i ], [ %.2.i.i, %32 ]
   %.019.i.i = phi ptr [ @_ZN4llvm11RISCVSysRegL11SysRegsListE, %_ZSt7advanceIPKN4llvm11RISCVSysReg6SysRegElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %32 ]
   %2 = lshr i64 %.01320.i.i, 1
-  %.idx23 = mul nuw nsw i64 %2, 88
-  %3 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 %.idx23
+  %.idx25 = mul nuw nsw i64 %2, 88
+  %3 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 %.idx25
   %4 = getelementptr i8, ptr %3, i64 32
   %.val.i.i = load i32, ptr %4, align 8, !tbaa !3
   %5 = icmp ult i32 %.val.i.i, %1
@@ -591,7 +591,7 @@ _ZSt13__lower_boundIPKN4llvm11RISCVSysReg6SysRegEZNS1_22lookupSysRegByEncodingEt
   %.0.lcssa.i.i.i = phi ptr [ %.019.i.i, %.critedge.i.i ], [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm11RISCVSysReg6SysRegElEvRT_T0_.exit.i.i.i ]
   %.idx = mul nuw nsw i64 %.01320.i.i, 88
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %21 = add nuw nsw i64 %.idx23, 88
+  %21 = add nuw nsw i64 %.idx25, 88
   %gepdiff = sub nsw i64 %.idx, %21
   %22 = icmp sgt i64 %gepdiff, 0
   br i1 %22, label %_ZSt7advanceIPKN4llvm11RISCVSysReg6SysRegElEvRT_T0_.exit.lr.ph.i23.i.i, label %_ZSt11equal_rangeIPKN4llvm11RISCVSysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeZNS1_22lookupSysRegByEncodingEtE4CompESt4pairIT_S8_ES8_S8_RKT0_T1_.exit
@@ -12907,8 +12907,8 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit2104: ; preds = %_ZNK4l
   %2322 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %2323 = load i64, ptr %2322, align 8, !tbaa !34
   %2324 = and i64 %2323, 141836999983104
-  %or.cond.not2564 = icmp eq i64 %2324, 141836999983104
-  br i1 %or.cond.not2564, label %2325, label %.critedge
+  %or.cond.not2693 = icmp eq i64 %2324, 141836999983104
+  br i1 %or.cond.not2693, label %2325, label %.critedge
 
 2325:                                             ; preds = %2321
   %2326 = getelementptr inbounds nuw i8, ptr %2, i64 232
@@ -14147,7 +14147,7 @@ define internal fastcc noundef zeroext i1 @_ZN4llvmL33RISCVValidateMCOperandForC
   %19 = alloca i64, align 8
   %20 = alloca i64, align 8
   %21 = alloca i64, align 8
-  switch i32 %2, label %default.unreachable28 [
+  switch i32 %2, label %default.unreachable30 [
     i32 1, label %22
     i32 2, label %31
     i32 3, label %41
@@ -14168,7 +14168,7 @@ define internal fastcc noundef zeroext i1 @_ZN4llvmL33RISCVValidateMCOperandForC
     i32 18, label %145
   ]
 
-default.unreachable28:                            ; preds = %3
+default.unreachable30:                            ; preds = %3
   unreachable
 
 22:                                               ; preds = %3

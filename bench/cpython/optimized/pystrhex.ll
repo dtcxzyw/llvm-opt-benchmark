@@ -444,8 +444,8 @@ _PyUnicode_DATA.exit:                             ; preds = %65, %63, %56
   %173 = add i64 %.6177, -2
   %174 = getelementptr i8, ptr %167, i64 -1
   store i8 %172, ptr %174, align 1, !tbaa !4
-  %.not221 = icmp eq i64 %.6120176, 0
-  br i1 %.not221, label %.critedge, label %.lr.ph, !llvm.loop !31
+  %.not229 = icmp eq i64 %.6120176, 0
+  br i1 %.not229, label %.critedge, label %.lr.ph, !llvm.loop !31
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph194, %.lr.ph197, %.preheader161, %.preheader157, %.preheader, %10, %20, %36, %32, %6, %48, %58, %54
   %.1109 = phi ptr [ %49, %48 ], [ null, %54 ], [ null, %58 ], [ null, %6 ], [ null, %32 ], [ null, %36 ], [ null, %20 ], [ null, %10 ], [ %.0122, %.preheader ], [ %.0122, %.preheader157 ], [ %.0122, %.preheader161 ], [ %.0122, %.lr.ph197 ], [ %.0122, %.lr.ph194 ], [ %.0122, %.lr.ph ]

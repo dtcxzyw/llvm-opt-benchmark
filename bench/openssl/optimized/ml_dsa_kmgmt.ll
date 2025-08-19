@@ -134,7 +134,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_import(ptr noundef %0, i32 noundef %
   store i64 0, ptr %9, align 8, !tbaa !8
   %18 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.2) #6
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %.thread62.i, label %19
+  br i1 %.not.i, label %.thread68.i, label %19
 
 19:                                               ; preds = %15
   %20 = call i32 @OSSL_PARAM_get_octet_string_ptr(ptr noundef nonnull %18, ptr noundef nonnull %4, ptr noundef nonnull %7) #6
@@ -144,14 +144,14 @@ define internal range(i32 0, 2) i32 @ml_dsa_import(ptr noundef %0, i32 noundef %
 21:                                               ; preds = %19
   %.pre.i = load ptr, ptr %4, align 8, !tbaa !3
   %22 = icmp eq ptr %.pre.i, null
-  br i1 %22, label %.thread62.i, label %23
+  br i1 %22, label %.thread68.i, label %23
 
 23:                                               ; preds = %21
   %24 = load i64, ptr %7, align 8, !tbaa !8
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %26 = load i64, ptr %25, align 8, !tbaa !10
   %.not33.i = icmp eq i64 %24, %26
-  br i1 %.not33.i, label %.thread62.i, label %27
+  br i1 %.not33.i, label %.thread68.i, label %27
 
 27:                                               ; preds = %23
   call void @ERR_new() #6
@@ -160,14 +160,14 @@ define internal range(i32 0, 2) i32 @ml_dsa_import(ptr noundef %0, i32 noundef %
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 105, ptr noundef nonnull @.str.4, ptr noundef %28) #6
   br label %ml_dsa_key_fromdata.exit
 
-.thread62.i:                                      ; preds = %23, %21, %15
+.thread68.i:                                      ; preds = %23, %21, %15
   %.not34.i = icmp eq i32 %16, 0
   br i1 %.not34.i, label %thread-pre-split.i, label %29
 
-29:                                               ; preds = %.thread62.i
+29:                                               ; preds = %.thread68.i
   %30 = call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.5) #6
   %.not35.i = icmp eq ptr %30, null
-  br i1 %.not35.i, label %.thread64.i, label %31
+  br i1 %.not35.i, label %.thread70.i, label %31
 
 31:                                               ; preds = %29
   %32 = call i32 @OSSL_PARAM_get_octet_string_ptr(ptr noundef nonnull %30, ptr noundef nonnull %6, ptr noundef nonnull %9) #6
@@ -180,7 +180,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_import(ptr noundef %0, i32 noundef %
   %34 = icmp ne ptr %.pre52.i, null
   %35 = icmp ne i64 %.pre53.i, 32
   %36 = select i1 %34, i1 %35, i1 false
-  br i1 %36, label %37, label %.thread64.i
+  br i1 %36, label %37, label %.thread70.i
 
 37:                                               ; preds = %33
   call void @ERR_new() #6
@@ -188,12 +188,12 @@ define internal range(i32 0, 2) i32 @ml_dsa_import(ptr noundef %0, i32 noundef %
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 154, ptr noundef null) #6
   br label %ml_dsa_key_fromdata.exit
 
-.thread64.i:                                      ; preds = %33, %29
+.thread70.i:                                      ; preds = %33, %29
   %38 = call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.6) #6
   %.not37.i = icmp eq ptr %38, null
   br i1 %.not37.i, label %thread-pre-split.i, label %39
 
-39:                                               ; preds = %.thread64.i
+39:                                               ; preds = %.thread70.i
   %40 = call i32 @OSSL_PARAM_get_octet_string_ptr(ptr noundef nonnull %38, ptr noundef nonnull %5, ptr noundef nonnull %8) #6
   %.not38.i = icmp eq i32 %40, 0
   br i1 %.not38.i, label %ml_dsa_key_fromdata.exit, label %41
@@ -217,8 +217,8 @@ define internal range(i32 0, 2) i32 @ml_dsa_import(ptr noundef %0, i32 noundef %
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 105, ptr noundef nonnull @.str.7, ptr noundef %47) #6
   br label %ml_dsa_key_fromdata.exit
 
-thread-pre-split.i:                               ; preds = %43, %41, %.thread64.i, %.thread62.i
-  %48 = phi i64 [ %.pr.pre.pre.i, %43 ], [ 0, %.thread62.i ], [ %.pr.pre.pre.i, %41 ], [ 0, %.thread64.i ]
+thread-pre-split.i:                               ; preds = %43, %41, %.thread70.i, %.thread68.i
+  %48 = phi i64 [ %.pr.pre.pre.i, %43 ], [ 0, %.thread68.i ], [ %.pr.pre.pre.i, %41 ], [ 0, %.thread70.i ]
   %49 = load i64, ptr %9, align 8, !tbaa !8
   %50 = icmp eq i64 %49, 0
   %51 = load i64, ptr %7, align 8
@@ -360,24 +360,24 @@ define internal i32 @ml_dsa_export(ptr noundef %0, i32 noundef %1, ptr noundef r
 15:                                               ; preds = %13
   %16 = tail call ptr @ossl_ml_dsa_key_get_seed(ptr noundef nonnull %0) #6
   %.not27 = icmp eq ptr %16, null
-  br i1 %.not27, label %17, label %.thread38
+  br i1 %.not27, label %17, label %.thread41
 
 17:                                               ; preds = %15
   %18 = tail call ptr @ossl_ml_dsa_key_get_priv(ptr noundef nonnull %0) #6
   %.not28 = icmp eq ptr %18, null
   br i1 %.not28, label %.thread, label %.thread33
 
-.thread38:                                        ; preds = %15
+.thread41:                                        ; preds = %15
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.5, ptr noundef nonnull %16, i64 noundef 32) #6
   %19 = call ptr @ossl_ml_dsa_key_get_priv(ptr noundef nonnull %0) #6
-  %.not2840 = icmp eq ptr %19, null
-  br i1 %.not2840, label %.thread42, label %.thread33
+  %.not2843 = icmp eq ptr %19, null
+  br i1 %.not2843, label %.thread45, label %.thread33
 
-.thread33:                                        ; preds = %.thread38, %17
-  %20 = phi ptr [ %19, %.thread38 ], [ %18, %17 ]
-  %.141 = phi i32 [ 1, %.thread38 ], [ 0, %17 ]
-  %21 = add nuw nsw i32 %.141, 1
-  %22 = zext nneg i32 %.141 to i64
+.thread33:                                        ; preds = %.thread41, %17
+  %20 = phi ptr [ %19, %.thread41 ], [ %18, %17 ]
+  %.144 = phi i32 [ 1, %.thread41 ], [ 0, %17 ]
+  %21 = add nuw nsw i32 %.144, 1
+  %22 = zext nneg i32 %.144 to i64
   %23 = getelementptr inbounds nuw [3 x %struct.ossl_param_st], ptr %5, i64 0, i64 %22
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %24 = call i64 @ossl_ml_dsa_key_get_priv_len(ptr noundef nonnull %0) #6
@@ -385,7 +385,7 @@ define internal i32 @ml_dsa_export(ptr noundef %0, i32 noundef %1, ptr noundef r
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %25 = zext nneg i32 %21 to i64
-  br label %.thread42
+  br label %.thread45
 
 .thread:                                          ; preds = %17, %13
   %26 = tail call ptr @ossl_ml_dsa_key_get_pub(ptr noundef nonnull %0) #6
@@ -395,10 +395,10 @@ define internal i32 @ml_dsa_export(ptr noundef %0, i32 noundef %1, ptr noundef r
 27:                                               ; preds = %.thread
   %28 = tail call i64 @ossl_ml_dsa_key_get_pub_len(ptr noundef nonnull %0) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.2, ptr noundef nonnull %26, i64 noundef %28) #6
-  br label %.thread42
+  br label %.thread45
 
-.thread42:                                        ; preds = %.thread38, %27, %.thread33
-  %.2.ph = phi i64 [ %25, %.thread33 ], [ 1, %27 ], [ 1, %.thread38 ]
+.thread45:                                        ; preds = %.thread41, %27, %.thread33
+  %.2.ph = phi i64 [ %25, %.thread33 ], [ 1, %27 ], [ 1, %.thread41 ]
   %29 = getelementptr inbounds nuw [3 x %struct.ossl_param_st], ptr %5, i64 0, i64 %.2.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7) #6
@@ -407,8 +407,8 @@ define internal i32 @ml_dsa_export(ptr noundef %0, i32 noundef %1, ptr noundef r
   %30 = call i32 %2(ptr noundef nonnull %5, ptr noundef %3) #6
   br label %31
 
-31:                                               ; preds = %.thread, %4, %.thread42
-  %.022 = phi i32 [ %30, %.thread42 ], [ 0, %4 ], [ 0, %.thread ]
+31:                                               ; preds = %.thread, %4, %.thread45
+  %.022 = phi i32 [ %30, %.thread45 ], [ 0, %4 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.022
 }

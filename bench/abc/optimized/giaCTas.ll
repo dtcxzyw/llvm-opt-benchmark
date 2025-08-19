@@ -337,19 +337,19 @@ define i32 @Tas_ManPropagate(ptr noundef captures(none) %0, i32 noundef %1) loca
   %21 = load ptr, ptr %5, align 8, !tbaa !33
   %22 = getelementptr inbounds ptr, ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !72
-  %.not126 = icmp eq ptr %23, null
-  br i1 %.not126, label %.critedge, label %.lr.ph128
+  %.not160 = icmp eq ptr %23, null
+  br i1 %.not160, label %.critedge, label %.lr.ph162
 
 .lr.ph:                                           ; preds = %Tas_ManPropagateOne.exit.thread
   %24 = load ptr, ptr %5, align 8, !tbaa !33
   %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv.next
   %26 = load ptr, ptr %25, align 8, !tbaa !72
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %.critedge, label %.lr.ph128, !llvm.loop !73
+  br i1 %.not, label %.critedge, label %.lr.ph162, !llvm.loop !73
 
-.lr.ph128:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph162:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %27 = phi ptr [ %26, %.lr.ph ], [ %23, %.lr.ph.preheader ]
-  %indvars.iv127 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %20, %.lr.ph.preheader ]
+  %indvars.iv161 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %20, %.lr.ph.preheader ]
   %28 = load i32, ptr @s_Counter3, align 4, !tbaa !75
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr @s_Counter3, align 4, !tbaa !75
@@ -375,9 +375,9 @@ define i32 @Tas_ManPropagate(ptr noundef captures(none) %0, i32 noundef %1) loca
   %.not94.i.i = icmp eq i32 %.06293.i.i, 0
   br i1 %.not94.i.i, label %Tas_ManPropagateWatch.exit.thread.i, label %.lr.ph97.i.i
 
-.lr.ph97.i.i:                                     ; preds = %.lr.ph128, %218
-  %.06296.i.i = phi i32 [ %.062.i.i, %218 ], [ %.06293.i.i, %.lr.ph128 ]
-  %.06395.i.i = phi ptr [ %.1.i.i, %218 ], [ %44, %.lr.ph128 ]
+.lr.ph97.i.i:                                     ; preds = %.lr.ph162, %218
+  %.06296.i.i = phi i32 [ %.062.i.i, %218 ], [ %.06293.i.i, %.lr.ph162 ]
+  %.06395.i.i = phi ptr [ %.1.i.i, %218 ], [ %44, %.lr.ph162 ]
   %.val.i.i = load ptr, ptr %8, align 8, !tbaa !51
   %45 = sext i32 %.06296.i.i to i64
   %46 = getelementptr inbounds i32, ptr %.val.i.i, i64 %45
@@ -751,7 +751,7 @@ Tas_ManPropagateWatch.exit.i:                     ; preds = %216, %._crit_edge.i
   %.not.i = icmp eq i32 %203, 0
   br i1 %.not.i, label %Tas_ManPropagateWatch.exit.thread.i, label %Tas_ManPropagateOne.exit.thread55
 
-Tas_ManPropagateWatch.exit.thread.i:              ; preds = %218, %Tas_ManPropagateWatch.exit.i, %.lr.ph128
+Tas_ManPropagateWatch.exit.thread.i:              ; preds = %218, %Tas_ManPropagateWatch.exit.i, %.lr.ph162
   %.val81.i = load i64, ptr %27, align 4
   %224 = and i64 %.val81.i, 2684354559
   %narrow.i.not.i = icmp eq i64 %224, 2684354559
@@ -946,7 +946,7 @@ Tas_ManPropagateOne.exit:                         ; preds = %254, %258, %260, %2
   br i1 %.not43, label %Tas_ManPropagateOne.exit.thread, label %Tas_ManPropagateOne.exit.thread55
 
 Tas_ManPropagateOne.exit.thread:                  ; preds = %296, %297, %281, %269, %270, %Tas_ManPropagateWatch.exit.thread.i, %Tas_QuePush.exit, %Tas_ManPropagateOne.exit
-  %indvars.iv.next = add nsw i64 %indvars.iv127, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv161, 1
   %332 = load i32, ptr %4, align 4, !tbaa !71
   %333 = sext i32 %332 to i64
   %334 = icmp slt i64 %indvars.iv.next, %333
@@ -968,21 +968,21 @@ Tas_ManPropagateOne.exit.thread..critedge.loopexit_crit_edge: ; preds = %Tas_Man
   %339 = load ptr, ptr %.phi.trans.insert.i50, align 8, !tbaa !34
   %340 = getelementptr inbounds ptr, ptr %339, i64 %338
   %341 = load ptr, ptr %340, align 8, !tbaa !72
-  %.not40130 = icmp eq ptr %341, null
-  br i1 %.not40130, label %.critedge2, label %.lr.ph133
+  %.not40164 = icmp eq ptr %341, null
+  br i1 %.not40164, label %.critedge2, label %.lr.ph167
 
 .lr.ph85:                                         ; preds = %Tas_ManPropagateTwo.exit.thread
   %342 = load ptr, ptr %.phi.trans.insert.i50, align 8, !tbaa !34
   %343 = getelementptr inbounds ptr, ptr %342, i64 %indvars.iv.next102
   %344 = load ptr, ptr %343, align 8, !tbaa !72
   %.not40 = icmp eq ptr %344, null
-  br i1 %.not40, label %.critedge2, label %.lr.ph133, !llvm.loop !88
+  br i1 %.not40, label %.critedge2, label %.lr.ph167, !llvm.loop !88
 
-.lr.ph133:                                        ; preds = %.lr.ph85.preheader, %.lr.ph85
+.lr.ph167:                                        ; preds = %.lr.ph85.preheader, %.lr.ph85
   %345 = phi ptr [ %344, %.lr.ph85 ], [ %341, %.lr.ph85.preheader ]
   %346 = phi ptr [ %342, %.lr.ph85 ], [ %339, %.lr.ph85.preheader ]
-  %.084132 = phi i32 [ %.1, %.lr.ph85 ], [ %335, %.lr.ph85.preheader ]
-  %indvars.iv101131 = phi i64 [ %indvars.iv.next102, %.lr.ph85 ], [ %338, %.lr.ph85.preheader ]
+  %.084166 = phi i32 [ %.1, %.lr.ph85 ], [ %335, %.lr.ph85.preheader ]
+  %indvars.iv101165 = phi i64 [ %indvars.iv.next102, %.lr.ph85 ], [ %338, %.lr.ph85.preheader ]
   %.val6.i = load i64, ptr %345, align 4
   %347 = and i64 %.val6.i, 2147483648
   %.not.i.i44 = icmp ne i64 %347, 0
@@ -992,7 +992,7 @@ Tas_ManPropagateOne.exit.thread..critedge.loopexit_crit_edge: ; preds = %Tas_Man
   %.pre = sub nsw i64 0, %348
   br i1 %narrow.i.not.i45, label %Tas_VarIsJust.exit.thread, label %350
 
-350:                                              ; preds = %.lr.ph133
+350:                                              ; preds = %.lr.ph167
   %351 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %345, i64 %.pre
   %.val.i = load i64, ptr %351, align 4
   %352 = and i64 %.val.i, 1073741824
@@ -1010,13 +1010,13 @@ Tas_VarIsJust.exit:                               ; preds = %350
   br i1 %.not41.not, label %358, label %Tas_VarIsJust.exit.thread
 
 358:                                              ; preds = %Tas_VarIsJust.exit
-  %359 = add nsw i32 %.084132, 1
-  %360 = sext i32 %.084132 to i64
+  %359 = add nsw i32 %.084166, 1
+  %360 = sext i32 %.084166 to i64
   %361 = getelementptr inbounds ptr, ptr %346, i64 %360
   store ptr %345, ptr %361, align 8, !tbaa !72
   br label %Tas_ManPropagateTwo.exit.thread
 
-Tas_VarIsJust.exit.thread:                        ; preds = %.lr.ph133, %350, %Tas_VarIsJust.exit
+Tas_VarIsJust.exit.thread:                        ; preds = %.lr.ph167, %350, %Tas_VarIsJust.exit
   %362 = load i32, ptr @s_Counter4, align 4, !tbaa !75
   %363 = add nsw i32 %362, 1
   store i32 %363, ptr @s_Counter4, align 4, !tbaa !75
@@ -1095,8 +1095,8 @@ Tas_ManPropagateTwo.exit:                         ; preds = %386
   br i1 %.not42, label %Tas_ManPropagateTwo.exit.thread, label %Tas_ManPropagateOne.exit.thread55
 
 Tas_ManPropagateTwo.exit.thread:                  ; preds = %397, %398, %Tas_VarIsJust.exit.thread, %358, %Tas_ManPropagateTwo.exit
-  %.1 = phi i32 [ %359, %358 ], [ %.084132, %Tas_ManPropagateTwo.exit ], [ %.084132, %Tas_VarIsJust.exit.thread ], [ %.084132, %398 ], [ %.084132, %397 ]
-  %indvars.iv.next102 = add nsw i64 %indvars.iv101131, 1
+  %.1 = phi i32 [ %359, %358 ], [ %.084166, %Tas_ManPropagateTwo.exit ], [ %.084166, %Tas_VarIsJust.exit.thread ], [ %.084166, %398 ], [ %.084166, %397 ]
+  %indvars.iv.next102 = add nsw i64 %indvars.iv101165, 1
   %414 = load i32, ptr %13, align 4, !tbaa !87
   %415 = sext i32 %414 to i64
   %416 = icmp slt i64 %indvars.iv.next102, %415
@@ -1514,8 +1514,8 @@ define internal fastcc void @Tas_ManCreateCls(ptr noundef captures(none) %0, i32
   br i1 %11, label %163, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.0.lcssa64 = phi i32 [ %8, %._crit_edge ], [ 0, %2 ]
-  %12 = add nuw nsw i32 %.0.lcssa64, 3
+  %.0.lcssa73 = phi i32 [ %8, %._crit_edge ], [ 0, %2 ]
+  %12 = add nuw nsw i32 %.0.lcssa73, 3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %14 = load i32, ptr %13, align 8, !tbaa !49
   %15 = add nsw i32 %14, %12
@@ -1571,7 +1571,7 @@ Tas_ManAllocCls.exit:                             ; preds = %._crit_edge.i, %29
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr %36, align 8, !tbaa !103
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i32 %.0.lcssa64, ptr %39, align 4, !tbaa !77
+  store i32 %.0.lcssa73, ptr %39, align 4, !tbaa !77
   %40 = load ptr, ptr %3, align 8, !tbaa !82
   %41 = getelementptr inbounds ptr, ptr %40, i64 %5
   %42 = load ptr, ptr %41, align 8, !tbaa !72
@@ -1610,7 +1610,7 @@ Tas_ManAllocCls.exit:                             ; preds = %._crit_edge.i, %29
   br i1 %.not31, label %._crit_edge51, label %47, !llvm.loop !104
 
 ._crit_edge51:                                    ; preds = %47, %Tas_ManAllocCls.exit
-  %.not32 = icmp eq i32 %.0.lcssa64, 0
+  %.not32 = icmp eq i32 %.0.lcssa73, 0
   br i1 %.not32, label %163, label %62
 
 62:                                               ; preds = %._crit_edge51
@@ -2317,11 +2317,11 @@ Vec_IntPush.exit54:                               ; preds = %.Vec_IntGrow.exit10
   br label %218
 
 218:                                              ; preds = %Vec_IntPush.exit54, %Vec_IntPush.exit40
-  %.sink58 = phi i32 [ %216, %Vec_IntPush.exit54 ], [ %140, %Vec_IntPush.exit40 ]
-  %.sink56 = phi ptr [ %215, %Vec_IntPush.exit54 ], [ %139, %Vec_IntPush.exit40 ]
+  %.sink77 = phi i32 [ %216, %Vec_IntPush.exit54 ], [ %140, %Vec_IntPush.exit40 ]
+  %.sink75 = phi ptr [ %215, %Vec_IntPush.exit54 ], [ %139, %Vec_IntPush.exit40 ]
   %.sink = phi i32 [ %188, %Vec_IntPush.exit54 ], [ %112, %Vec_IntPush.exit40 ]
-  %219 = sext i32 %.sink58 to i64
-  %220 = getelementptr inbounds i32, ptr %.sink56, i64 %219
+  %219 = sext i32 %.sink77 to i64
+  %220 = getelementptr inbounds i32, ptr %.sink75, i64 %219
   store i32 %.sink, ptr %220, align 4, !tbaa !75
   %221 = load i32, ptr @s_Counter2, align 4, !tbaa !75
   %222 = add nsw i32 %221, 1

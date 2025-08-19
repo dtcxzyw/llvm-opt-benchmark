@@ -1285,8 +1285,8 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:  ; preds = %437
 .noexc194:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
   %449 = getelementptr inbounds i8, ptr %448, i64 %434
   %450 = shl nuw nsw i64 %429, 2
-  %reass.sub354 = sub i64 %450, %434
-  %451 = and i64 %reass.sub354, -4
+  %reass.sub465 = sub i64 %450, %434
+  %451 = and i64 %reass.sub465, -4
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %449, i8 -1, i64 %451, i1 false), !tbaa !35
   %.not.i.i.i.i.i.i.i.i.i81.i = icmp eq ptr %430, %431
   br i1 %.not.i.i.i.i.i.i.i.i.i81.i, label %453, label %452
@@ -1660,8 +1660,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i163:           ; preds = %588
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i213: ; preds = %635
   %641 = shl nuw nsw i64 %627, 2
-  %reass.sub355 = sub i64 %641, %632
-  %642 = and i64 %reass.sub355, -4
+  %reass.sub466 = sub i64 %641, %632
+  %642 = and i64 %reass.sub466, -4
   call void @llvm.memset.p0.i64(ptr align 4 %628, i8 -1, i64 %642, i1 false), !tbaa !35
   %.idx.i.i.i.i.i.i203 = shl nuw nsw i64 %636, 2
   %643 = getelementptr inbounds nuw i8, ptr %628, i64 %.idx.i.i.i.i.i.i203
@@ -1678,8 +1678,8 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i225: ; preds = %635
 .noexc239:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i225
   %647 = getelementptr inbounds i8, ptr %646, i64 %632
   %648 = shl nuw nsw i64 %627, 2
-  %reass.sub356 = sub i64 %648, %632
-  %649 = and i64 %reass.sub356, -4
+  %reass.sub467 = sub i64 %648, %632
+  %649 = and i64 %reass.sub467, -4
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %647, i8 -1, i64 %649, i1 false), !tbaa !35
   %.not.i.i.i.i.i.i.i.i.i81.i233 = icmp eq ptr %628, %629
   br i1 %.not.i.i.i.i.i.i.i.i.i81.i233, label %651, label %650
@@ -2006,8 +2006,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit126:             ; preds = %557, %.lr.ph318, %.
           to label %.sink.split.sink.split unwind label %.loopexit278
 
 .sink.split.sink.split:                           ; preds = %786, %791, %798, %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i118
-  %.sink375 = phi i32 [ %778, %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i118 ], [ %785, %798 ], [ %785, %791 ], [ %785, %786 ]
-  %799 = sext i32 %.sink375 to i64
+  %.sink486 = phi i32 [ %778, %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i118 ], [ %785, %798 ], [ %785, %791 ], [ %785, %786 ]
+  %799 = sext i32 %.sink486 to i64
   %800 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !tbaa !32
   %801 = getelementptr inbounds nuw i32, ptr %800, i64 %799
   %802 = load i32, ptr %801, align 4, !tbaa !35
@@ -2016,7 +2016,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit126:             ; preds = %557, %.lr.ph318, %.
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i118
-  %.sink = phi i32 [ %778, %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i118 ], [ %.sink375, %.sink.split.sink.split ]
+  %.sink = phi i32 [ %778, %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i118 ], [ %.sink486, %.sink.split.sink.split ]
   store i32 %.sink, ptr %361, align 4, !tbaa !6
   br label %804
 

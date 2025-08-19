@@ -3520,10 +3520,10 @@ ldap_match_call_response.exit.thread:             ; preds = %48, %15, %38, %59
   br label %.sink.split
 
 .sink.split:                                      ; preds = %126, %117, %128
-  %.sink35 = phi i32 [ %136, %128 ], [ %127, %126 ], [ %125, %117 ]
-  %137 = icmp eq i32 %.sink35, 1
+  %.sink45 = phi i32 [ %136, %128 ], [ %127, %126 ], [ %125, %117 ]
+  %137 = icmp eq i32 %.sink45, 1
   %138 = select i1 %137, ptr @.str.852, ptr @.str.859
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.864, i32 noundef %.sink35, ptr noundef nonnull %138)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.864, i32 noundef %.sink45, ptr noundef nonnull %138)
   br label %139
 
 139:                                              ; preds = %.sink.split, %114, %115, %6

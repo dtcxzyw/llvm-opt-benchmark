@@ -200,9 +200,9 @@ define hidden void @jRDislow(ptr noundef readonly captures(none) %0, ptr noundef
   br label %159
 
 159:                                              ; preds = %._crit_edge, %40
-  %.sink273 = phi i64 [ 128, %._crit_edge ], [ 224, %40 ]
+  %.sink274 = phi i64 [ 128, %._crit_edge ], [ 224, %40 ]
   %.sink = phi i32 [ %158, %._crit_edge ], [ %45, %40 ]
-  %160 = getelementptr inbounds nuw i8, ptr %.0249264, i64 %.sink273
+  %160 = getelementptr inbounds nuw i8, ptr %.0249264, i64 %.sink274
   store i32 %.sink, ptr %160, align 4
   %.1250 = getelementptr inbounds nuw i8, ptr %.0249264, i64 4
   %.1252 = getelementptr inbounds nuw i8, ptr %.0251263, i64 4
@@ -223,8 +223,8 @@ define hidden void @jRDislow(ptr noundef readonly captures(none) %0, ptr noundef
   %170 = getelementptr inbounds nuw i8, ptr %.2266, i64 8
   %171 = load i32, ptr %170, align 4
   %172 = icmp eq i32 %171, 0
-  %or.cond274 = select i1 %169, i1 %172, i1 false
-  br i1 %or.cond274, label %173, label %._crit_edge269
+  %or.cond275 = select i1 %169, i1 %172, i1 false
+  br i1 %or.cond275, label %173, label %._crit_edge269
 
 173:                                              ; preds = %163
   %174 = getelementptr inbounds nuw i8, ptr %.2266, i64 12
@@ -398,10 +398,10 @@ define hidden void @jRDislow(ptr noundef readonly captures(none) %0, ptr noundef
   br label %315
 
 315:                                              ; preds = %._crit_edge269, %193
-  %.sink277 = phi i64 [ 4, %._crit_edge269 ], [ 7, %193 ]
-  %.sink275 = phi i8 [ %314, %._crit_edge269 ], [ %200, %193 ]
-  %316 = getelementptr inbounds nuw i8, ptr %166, i64 %.sink277
-  store i8 %.sink275, ptr %316, align 1
+  %.sink278 = phi i64 [ 4, %._crit_edge269 ], [ 7, %193 ]
+  %.sink276 = phi i8 [ %314, %._crit_edge269 ], [ %200, %193 ]
+  %316 = getelementptr inbounds nuw i8, ptr %166, i64 %.sink278
+  store i8 %.sink276, ptr %316, align 1
   %.3 = getelementptr inbounds nuw i8, ptr %.2266, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

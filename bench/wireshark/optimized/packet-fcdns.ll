@@ -443,8 +443,8 @@ define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %
   %31 = load i8, ptr %26, align 4
   %32 = icmp eq i8 %31, -4
   %33 = load i32, ptr @proto_fcdns, align 4
-  %.str.222..str.223244 = select i1 %32, ptr @.str.222, ptr @.str.223
-  %34 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %33, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %.str.222..str.223244)
+  %.str.222..str.223250 = select i1 %32, ptr @.str.222, ptr @.str.223
+  %34 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %33, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %.str.222..str.223250)
   %35 = load i32, ptr @ett_fcdns, align 4
   %36 = call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35)
   br label %37
@@ -1048,9 +1048,9 @@ define internal fastcc void @dissect_fcdns_ganxt(ptr noundef %0, ptr noundef %1,
 
 .sink.split:                                      ; preds = %67, %4
   %hf_fcdns_rply_hrdaddr.sink = phi ptr [ @hf_fcdns_req_portid, %4 ], [ @hf_fcdns_rply_hrdaddr, %67 ]
-  %.sink71 = phi i32 [ 17, %4 ], [ 633, %67 ]
+  %.sink72 = phi i32 [ 17, %4 ], [ 633, %67 ]
   %69 = load i32, ptr %hf_fcdns_rply_hrdaddr.sink, align 4
-  %70 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %69, ptr noundef %0, i32 noundef %.sink71, i32 noundef 3, i32 noundef 0)
+  %70 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %69, ptr noundef %0, i32 noundef %.sink72, i32 noundef 3, i32 noundef 0)
   br label %71
 
 71:                                               ; preds = %.sink.split, %3, %67, %5

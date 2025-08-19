@@ -740,10 +740,10 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   br label %.loopexit.i
 
 ._crit_edge.thread.i:                             ; preds = %102, %._crit_edge.i, %.preheader.i
-  %.0217.lcssa25.i = phi i32 [ %100, %._crit_edge.i ], [ %100, %102 ], [ 0, %.preheader.i ]
+  %.0217.lcssa27.i = phi i32 [ %100, %._crit_edge.i ], [ %100, %102 ], [ 0, %.preheader.i ]
   %110 = load i32, ptr @hf_ipdc_uint, align 4
   %111 = add nuw nsw i32 %69, 2
-  %112 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %54, i32 noundef %110, ptr noundef %0, i32 noundef %65, i32 noundef %111, i32 noundef %.0217.lcssa25.i, ptr noundef nonnull @.str.121, ptr noundef %70, i32 noundef %66, i32 noundef %.0217.lcssa25.i)
+  %112 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %54, i32 noundef %110, ptr noundef %0, i32 noundef %65, i32 noundef %111, i32 noundef %.0217.lcssa27.i, ptr noundef nonnull @.str.121, ptr noundef %70, i32 noundef %66, i32 noundef %.0217.lcssa27.i)
   br label %.loopexit.i
 
 113:                                              ; preds = %.critedge.i

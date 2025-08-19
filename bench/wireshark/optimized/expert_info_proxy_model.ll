@@ -2610,14 +2610,14 @@ _ZNK17QArrayDataPointerIiE11needsDetachEv.exit31.thread: ; preds = %43, %_ZNK17Q
   br i1 %50, label %_ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit, label %_ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit.sink.split
 
 _ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit.sink.split: ; preds = %49, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit31.thread
-  %.idx.sink48 = phi i64 [ %.idx40, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit31.thread ], [ %.idx, %49 ]
+  %.idx.sink55 = phi i64 [ %.idx40, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit31.thread ], [ %.idx, %49 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i64, ptr %53, align 8
   %55 = getelementptr i32, ptr %31, i64 %54
-  %56 = ashr exact i64 %.idx.sink48, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %55, ptr noundef align 1 %52, i64 noundef %.idx.sink48, i1 noundef false) #18
+  %56 = ashr exact i64 %.idx.sink55, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %55, ptr noundef align 1 %52, i64 noundef %.idx.sink55, i1 noundef false) #18
   %57 = load i64, ptr %53, align 8
   %58 = add i64 %57, %56
   store i64 %58, ptr %53, align 8
@@ -2771,8 +2771,8 @@ _ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit33: ; preds = %38
 
 60:                                               ; preds = %_ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit33.thread, %_ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit33
   %61 = phi ptr [ %50, %_ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit33.thread ], [ %59, %_ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit33 ]
-  %.pr59 = phi ptr [ %41, %_ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit33.thread ], [ %.pr.pre, %_ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit33 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.pr59, i64 4
+  %.pr62 = phi ptr [ %41, %_ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit33.thread ], [ %.pr.pre, %_ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit33 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.pr62, i64 4
   %63 = load i32, ptr %62, align 4
   br label %_ZNK17QArrayDataPointerIiE5flagsEv.exit
 
@@ -2841,13 +2841,13 @@ define linkonce_odr noundef zeroext i1 @_ZN9QtPrivate20sequential_erase_oneI5QLi
   %21 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 8
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, %11
-  br i1 %23, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit25, label %24
+  br i1 %23, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit31, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, %11
-  br i1 %27, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit27, label %28
+  br i1 %27, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit33, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 16
@@ -2910,16 +2910,16 @@ _ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.ex
   %49 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 4
   br label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit
 
-_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit25: ; preds = %20
+_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit31: ; preds = %20
   %50 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 8
   br label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit
 
-_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit27: ; preds = %24
+_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit33: ; preds = %24
   %51 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 12
   br label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit
 
-_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit: ; preds = %13, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit25, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit27, %33, %39, %45
-  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %33 ], [ %.sroa.034.1.i.i.i, %39 ], [ %spec.select.i.i.i, %45 ], [ %49, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit25 ], [ %51, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit27 ], [ %.sroa.034.051.i.i.i, %13 ]
+_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit: ; preds = %13, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit31, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit33, %33, %39, %45
+  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %33 ], [ %.sroa.034.1.i.i.i, %39 ], [ %spec.select.i.i.i, %45 ], [ %49, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit31 ], [ %51, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit33 ], [ %.sroa.034.051.i.i.i, %13 ]
   %52 = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i, %7
   br i1 %52, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.thread, label %53
 

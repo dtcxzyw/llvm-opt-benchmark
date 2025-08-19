@@ -2774,11 +2774,11 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   br i1 %151, label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h80269fa6d59e446bE.exit.sink.split.i.i.i.i.i", label %"_ZN3ide15goto_definition15goto_definition28_$u7b$$u7b$closure$u7d$$u7d$17hd6b602812ebefafbE.exit.i.i.i.i"
 
 common.resume:                                    ; preds = %37, %179, %197, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h7f6705d97e5f0e90E.exit.i.i.i.i.i", %152, %157, %165
-  %common.resume.op = phi { ptr, i32 } [ %166, %165 ], [ %.pn47.i.i74.i.i.i, %157 ], [ %.pn47.i.i74.i.i.i, %152 ], [ %.pn47.i.i.i.i.i, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h7f6705d97e5f0e90E.exit.i.i.i.i.i" ], [ %198, %197 ], [ %180, %179 ], [ %38, %37 ]
+  %common.resume.op = phi { ptr, i32 } [ %166, %165 ], [ %.pn47.i.i82.i.i.i, %157 ], [ %.pn47.i.i82.i.i.i, %152 ], [ %.pn47.i.i.i.i.i, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h7f6705d97e5f0e90E.exit.i.i.i.i.i" ], [ %198, %197 ], [ %180, %179 ], [ %38, %37 ]
   resume { ptr, i32 } %common.resume.op
 
 152:                                              ; preds = %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h7f6705d97e5f0e90E.exit.i.i.thread.i.i.i", %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h7f6705d97e5f0e90E.exit.i.i.i.i.i"
-  %.pn47.i.i74.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp24.i.i.i, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h7f6705d97e5f0e90E.exit.i.i.thread.i.i.i" ], [ %.pn47.i.i.i.i.i, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h7f6705d97e5f0e90E.exit.i.i.i.i.i" ]
+  %.pn47.i.i82.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp24.i.i.i, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h7f6705d97e5f0e90E.exit.i.i.thread.i.i.i" ], [ %.pn47.i.i.i.i.i, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h7f6705d97e5f0e90E.exit.i.i.i.i.i" ]
   %153 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %154 = load i32, ptr %153, align 4, !noalias !875, !noundef !9
   %155 = add i32 %154, -1

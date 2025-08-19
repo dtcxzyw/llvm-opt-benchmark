@@ -1544,9 +1544,9 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i686: ; preds = %_ZStlsISt11char
           to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i688.invoke unwind label %480
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i688.invoke.sink.split: ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i686, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  %.sink1373 = phi ptr [ %440, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i ], [ %499, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i686 ]
+  %.sink1569 = phi ptr [ %440, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i ], [ %499, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i686 ]
   %.ph = phi ptr [ %433, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i ], [ %492, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i686 ]
-  %507 = getelementptr inbounds nuw i8, ptr %.sink1373, i64 67
+  %507 = getelementptr inbounds nuw i8, ptr %.sink1569, i64 67
   %508 = load i8, ptr %507, align 1, !tbaa !14
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i688.invoke
 
@@ -4101,13 +4101,13 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %1418 = getelementptr inbounds nuw i8, ptr %1417, i64 240
   %1419 = load ptr, ptr %1418, align 8, !tbaa !40
   %.not.i.i.i696 = icmp eq ptr %1419, null
-  br i1 %.not.i.i.i696, label %.invoke1518, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i697
+  br i1 %.not.i.i.i696, label %.invoke1714, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i697
 
-.invoke1518:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit588, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit584
+.invoke1714:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit588, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit584
   invoke void @_ZSt16__throw_bad_castv() #25
-          to label %.cont1519 unwind label %.loopexit.split-lp814
+          to label %.cont1715 unwind label %.loopexit.split-lp814
 
-.cont1519:                                        ; preds = %.invoke1518
+.cont1715:                                        ; preds = %.invoke1714
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i697: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit584
@@ -4153,7 +4153,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit588: ; preds = %_ZNS
   %1437 = getelementptr inbounds nuw i8, ptr %1436, i64 240
   %1438 = load ptr, ptr %1437, align 8, !tbaa !40
   %.not.i.i.i707 = icmp eq ptr %1438, null
-  br i1 %.not.i.i.i707, label %.invoke1518, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i708
+  br i1 %.not.i.i.i707, label %.invoke1714, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i708
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i708: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit588
   %1439 = getelementptr inbounds nuw i8, ptr %1438, i64 56
@@ -4266,7 +4266,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
           catch ptr @_ZTIN2cv9ExceptionE
   br label %1475
 
-.loopexit.split-lp814:                            ; preds = %.invoke1518
+.loopexit.split-lp814:                            ; preds = %.invoke1714
   %lpad.loopexit.split-lp816 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN2cv9ExceptionE

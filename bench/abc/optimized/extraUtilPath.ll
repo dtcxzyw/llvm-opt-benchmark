@@ -119,8 +119,8 @@ define ptr @Abc_EnumeratePaths(i32 noundef %0) local_unnamed_addr #1 {
   %26 = getelementptr i8, ptr %25, i64 -4
   %27 = load i32, ptr %26, align 4, !tbaa !5
   %28 = add nuw nsw i64 %indvars.iv75, %22
-  %.tr85 = trunc i64 %28 to i32
-  %29 = shl i32 %.tr85, 1
+  %.tr87 = trunc i64 %28 to i32
+  %29 = shl i32 %.tr87, 1
   %30 = tail call i32 @Gia_ManHashAnd(ptr noundef %2, i32 noundef %27, i32 noundef %29) #23
   %31 = load i32, ptr %25, align 4, !tbaa !5
   %32 = trunc i64 %indvars.iv75 to i32
@@ -479,15 +479,15 @@ Vec_IntAlloc.exit:                                ; preds = %1, %8
   br label %Vec_IntPush.exit.i.sink.split
 
 Vec_IntPush.exit.i.sink.split:                    ; preds = %34, %36, %26, %28
-  %.sink69 = phi ptr [ %27, %26 ], [ %29, %28 ], [ %35, %34 ], [ %37, %36 ]
+  %.sink80 = phi ptr [ %27, %26 ], [ %29, %28 ], [ %35, %34 ], [ %37, %36 ]
   %.sink = phi i32 [ 16, %26 ], [ 16, %28 ], [ %31, %34 ], [ %31, %36 ]
-  store ptr %.sink69, ptr %13, align 8, !tbaa !37
+  store ptr %.sink80, ptr %13, align 8, !tbaa !37
   store i32 %.sink, ptr %5, align 8, !tbaa !36
   br label %Vec_IntPush.exit.i
 
 Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.i.sink.split, %16
-  %.pre.i.i3360 = phi ptr [ %.pre.i.i3361, %16 ], [ %.sink69, %Vec_IntPush.exit.i.sink.split ]
-  %.pre.i.i56 = phi ptr [ %17, %16 ], [ %.sink69, %Vec_IntPush.exit.i.sink.split ]
+  %.pre.i.i3360 = phi ptr [ %.pre.i.i3361, %16 ], [ %.sink80, %Vec_IntPush.exit.i.sink.split ]
+  %.pre.i.i56 = phi ptr [ %17, %16 ], [ %.sink80, %Vec_IntPush.exit.i.sink.split ]
   %38 = add nsw i32 %20, 1
   store i32 %38, ptr %7, align 4, !tbaa !34
   %39 = sext i32 %20 to i64
@@ -503,9 +503,9 @@ Vec_IntPush.exit9.sink.split.i:                   ; preds = %Vec_IntPush.exit.i
   %45 = shl nuw nsw i32 %41, 1
   %46 = zext nneg i32 %45 to i64
   %47 = shl nuw nsw i64 %46, 2
-  %.sink70 = select i1 %44, i64 64, i64 %47
+  %.sink81 = select i1 %44, i64 64, i64 %47
   %.sink.i = select i1 %44, i32 16, i32 %45
-  %48 = tail call ptr @realloc(ptr noundef nonnull %.pre.i.i56, i64 noundef %.sink70) #25
+  %48 = tail call ptr @realloc(ptr noundef nonnull %.pre.i.i56, i64 noundef %.sink81) #25
   store ptr %48, ptr %13, align 8, !tbaa !37
   store i32 %.sink.i, ptr %5, align 8, !tbaa !36
   %.pre = load i32, ptr %7, align 4, !tbaa !34
@@ -575,14 +575,14 @@ Vec_IntPushTwo.exit:                              ; preds = %Vec_IntPush.exit.i,
   br label %Vec_IntPush.exit.i34.sink.split
 
 Vec_IntPush.exit.i34.sink.split:                  ; preds = %74, %76, %66, %68
-  %.sink72 = phi ptr [ %67, %66 ], [ %69, %68 ], [ %75, %74 ], [ %77, %76 ]
-  %.sink71 = phi i32 [ 16, %66 ], [ 16, %68 ], [ %71, %74 ], [ %71, %76 ]
-  store ptr %.sink72, ptr %13, align 8, !tbaa !37
-  store i32 %.sink71, ptr %5, align 8, !tbaa !36
+  %.sink83 = phi ptr [ %67, %66 ], [ %69, %68 ], [ %75, %74 ], [ %77, %76 ]
+  %.sink82 = phi i32 [ 16, %66 ], [ 16, %68 ], [ %71, %74 ], [ %71, %76 ]
+  store ptr %.sink83, ptr %13, align 8, !tbaa !37
+  store i32 %.sink82, ptr %5, align 8, !tbaa !36
   br label %Vec_IntPush.exit.i34
 
 Vec_IntPush.exit.i34:                             ; preds = %Vec_IntPush.exit.i34.sink.split, %56
-  %.pre.i.i3365 = phi ptr [ %57, %56 ], [ %.sink72, %Vec_IntPush.exit.i34.sink.split ]
+  %.pre.i.i3365 = phi ptr [ %57, %56 ], [ %.sink83, %Vec_IntPush.exit.i34.sink.split ]
   %78 = add nsw i32 %60, 1
   store i32 %78, ptr %7, align 4, !tbaa !34
   %79 = sext i32 %60 to i64
@@ -598,9 +598,9 @@ Vec_IntPush.exit9.sink.split.i35:                 ; preds = %Vec_IntPush.exit.i3
   %85 = shl nuw nsw i32 %81, 1
   %86 = zext nneg i32 %85 to i64
   %87 = shl nuw nsw i64 %86, 2
-  %.sink73 = select i1 %84, i64 64, i64 %87
+  %.sink84 = select i1 %84, i64 64, i64 %87
   %.sink.i36 = select i1 %84, i32 16, i32 %85
-  %88 = tail call ptr @realloc(ptr noundef nonnull %.pre.i.i3365, i64 noundef %.sink73) #25
+  %88 = tail call ptr @realloc(ptr noundef nonnull %.pre.i.i3365, i64 noundef %.sink84) #25
   store ptr %88, ptr %13, align 8, !tbaa !37
   store i32 %.sink.i36, ptr %5, align 8, !tbaa !36
   %.pre68 = load i32, ptr %7, align 4, !tbaa !34
@@ -1009,13 +1009,13 @@ Vec_WecGrow.exit.i45:                             ; preds = %111, %109
   br label %Vec_WecPushLevel.exit46.sink.split
 
 Vec_WecPushLevel.exit46.sink.split:               ; preds = %125, %Vec_WecGrow.exit.i45
-  %.sink68 = phi i32 [ %116, %Vec_WecGrow.exit.i45 ], [ %103, %125 ]
-  %.sink65 = phi ptr [ %115, %Vec_WecGrow.exit.i45 ], [ %128, %125 ]
+  %.sink79 = phi i32 [ %116, %Vec_WecGrow.exit.i45 ], [ %103, %125 ]
+  %.sink76 = phi ptr [ %115, %Vec_WecGrow.exit.i45 ], [ %128, %125 ]
   %.sink = phi i32 [ 16, %Vec_WecGrow.exit.i45 ], [ %118, %125 ]
   %.val8.pre.i3962.ph = phi ptr [ %113, %Vec_WecGrow.exit.i45 ], [ %126, %125 ]
-  %129 = zext nneg i32 %.sink68 to i64
+  %129 = zext nneg i32 %.sink79 to i64
   %130 = shl nuw nsw i64 %129, 4
-  tail call void @llvm.memset.p0.i64(ptr align 8 %.sink65, i8 0, i64 %130, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %.sink76, i8 0, i64 %130, i1 false)
   store i32 %.sink, ptr %5, align 8, !tbaa !45
   br label %Vec_WecPushLevel.exit46
 
@@ -1222,8 +1222,8 @@ define void @Abc_GraphPathPrint4(ptr noundef readonly captures(none) %0, ptr nou
   %43 = icmp eq i32 %20, %26
   %44 = or disjoint i32 %18, 1
   %45 = icmp slt i32 %44, %24
-  %or.cond95 = select i1 %43, i1 %45, i1 false
-  br i1 %or.cond95, label %.lr.ph, label %.loopexit
+  %or.cond98 = select i1 %43, i1 %45, i1 false
+  br i1 %or.cond98, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %42
   %46 = sext i32 %20 to i64
@@ -1367,8 +1367,8 @@ define void @Abc_GraphPathPrint5(ptr noundef readonly captures(none) %0, ptr nou
   %43 = icmp eq i32 %20, %26
   %44 = or disjoint i32 %18, 1
   %45 = icmp slt i32 %44, %24
-  %or.cond95 = select i1 %43, i1 %45, i1 false
-  br i1 %or.cond95, label %.lr.ph, label %.loopexit
+  %or.cond98 = select i1 %43, i1 %45, i1 false
+  br i1 %or.cond98, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %42
   %46 = sext i32 %20 to i64
@@ -1786,8 +1786,8 @@ define range(i32 -1, 2) i32 @Abc_GraphBuildState(ptr noundef readonly captures(n
 .thread:                                          ; preds = %9
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %1, i32 noundef %2)
   %23 = getelementptr i8, ptr %12, i64 4
-  %.val172186230 = load i32, ptr %23, align 4, !tbaa !34
-  %24 = icmp sgt i32 %.val172186230, 0
+  %.val172186232 = load i32, ptr %23, align 4, !tbaa !34
+  %24 = icmp sgt i32 %.val172186232, 0
   br i1 %24, label %.lr.ph.split.preheader, label %.critedge.thread
 
 .lr.ph.split.preheader:                           ; preds = %.thread
@@ -1942,7 +1942,7 @@ define range(i32 -1, 2) i32 @Abc_GraphBuildState(ptr noundef readonly captures(n
 
 106:                                              ; preds = %.loopexit, %.critedge4.thread
   %107 = phi i1 [ true, %.loopexit ], [ false, %.critedge4.thread ]
-  %indvars.iv217.sroa.phi237 = phi ptr [ %.sroa.0, %.loopexit ], [ %.sroa.6, %.critedge4.thread ]
+  %indvars.iv217.sroa.phi239 = phi ptr [ %.sroa.0, %.loopexit ], [ %.sroa.6, %.critedge4.thread ]
   %indvars.iv217 = phi i64 [ 0, %.loopexit ], [ 1, %.critedge4.thread ]
   %108 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv217
   %109 = load i32, ptr %108, align 4, !tbaa !5
@@ -1981,7 +1981,7 @@ define range(i32 -1, 2) i32 @Abc_GraphBuildState(ptr noundef readonly captures(n
 
 .lr.ph193:                                        ; preds = %127
   %.val176 = load ptr, ptr %105, align 8, !tbaa !37
-  %129 = load i32, ptr %indvars.iv217.sroa.phi237, align 4, !tbaa !5
+  %129 = load i32, ptr %indvars.iv217.sroa.phi239, align 4, !tbaa !5
   br label %130
 
 130:                                              ; preds = %.lr.ph193, %142
@@ -2019,7 +2019,7 @@ define range(i32 -1, 2) i32 @Abc_GraphBuildState(ptr noundef readonly captures(n
   br i1 %.not158, label %.critedge4.thread, label %145
 
 145:                                              ; preds = %.critedge4
-  store i32 %.2149, ptr %indvars.iv217.sroa.phi237, align 4, !tbaa !5
+  store i32 %.2149, ptr %indvars.iv217.sroa.phi239, align 4, !tbaa !5
   br label %.critedge4.thread
 
 .critedge4.thread:                                ; preds = %127, %145, %.critedge4, %106
@@ -3747,8 +3747,8 @@ define void @Abc_GraphSolve(ptr noundef %0) local_unnamed_addr #1 {
   %wide.trip.count159 = zext nneg i32 %.val94 to i64
   %wide.trip.count164 = zext nneg i32 %.val94 to i64
   %32 = tail call i32 @sat_solver_solve_lexsat(ptr noundef %12, ptr noundef %.val100, i32 noundef %.val94) #23
-  %.not173 = icmp eq i32 %32, 1
-  br i1 %.not173, label %.preheader134, label %.thread
+  %.not177 = icmp eq i32 %32, 1
+  br i1 %.not177, label %.preheader134, label %.thread
 
 .lr.ph139:                                        ; preds = %._crit_edge, %Vec_IntPush.exit
   %33 = phi i32 [ %.val94.pre, %Vec_IntPush.exit ], [ 0, %._crit_edge ]
@@ -3793,14 +3793,14 @@ define void @Abc_GraphSolve(ptr noundef %0) local_unnamed_addr #1 {
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %51, %53, %43, %45
-  %.sink172 = phi ptr [ %44, %43 ], [ %46, %45 ], [ %52, %51 ], [ %54, %53 ]
+  %.sink176 = phi ptr [ %44, %43 ], [ %46, %45 ], [ %52, %51 ], [ %54, %53 ]
   %.sink = phi i32 [ 16, %43 ], [ 16, %45 ], [ %48, %51 ], [ %48, %53 ]
-  store ptr %.sink172, ptr %6, align 8, !tbaa !37
+  store ptr %.sink176, ptr %6, align 8, !tbaa !37
   store i32 %.sink, ptr %3, align 8, !tbaa !36
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %.lr.ph139
-  %.pre.i167 = phi ptr [ %34, %.lr.ph139 ], [ %.sink172, %Vec_IntPush.exit.sink.split ]
+  %.pre.i167 = phi ptr [ %34, %.lr.ph139 ], [ %.sink176, %Vec_IntPush.exit.sink.split ]
   %55 = add nsw i32 %33, 1
   store i32 %55, ptr %4, align 4, !tbaa !34
   %56 = sext i32 %33 to i64
@@ -3817,9 +3817,9 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %.not, label %.preheader134, label %.thread, !llvm.loop !118
 
 .preheader134:                                    ; preds = %.preheader135, %59
-  %.081147176 = phi i64 [ %spec.select, %59 ], [ 0, %.preheader135 ]
-  %.079148175 = phi i64 [ %.3.lcssa, %59 ], [ 0, %.preheader135 ]
-  %.1149174 = phi i32 [ %79, %59 ], [ 0, %.preheader135 ]
+  %.081147180 = phi i64 [ %spec.select, %59 ], [ 0, %.preheader135 ]
+  %.079148179 = phi i64 [ %.3.lcssa, %59 ], [ 0, %.preheader135 ]
+  %.1149178 = phi i32 [ %79, %59 ], [ 0, %.preheader135 ]
   br i1 %29, label %.lr.ph141, label %.critedge.thread
 
 .lr.ph141:                                        ; preds = %.preheader134, %.lr.ph141
@@ -3839,8 +3839,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 .critedge.thread:                                 ; preds = %.preheader134
   %65 = tail call i32 @sat_solver_addclause(ptr noundef %12, ptr noundef %.val100, ptr noundef %31) #23
-  %.not90171 = icmp eq i32 %65, 0
-  br i1 %.not90171, label %.thread, label %.critedge2._crit_edge
+  %.not90175 = icmp eq i32 %65, 0
+  br i1 %.not90175, label %.thread, label %.critedge2._crit_edge
 
 .lr.ph143:                                        ; preds = %.critedge, %.lr.ph143
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.lr.ph143 ], [ 0, %.critedge ]
@@ -3872,9 +3872,9 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 .critedge2._crit_edge:                            ; preds = %.critedge2, %.critedge.thread
   %.3.lcssa = phi i64 [ 0, %.critedge.thread ], [ %.4, %.critedge2 ]
-  %78 = icmp eq i64 %.081147176, 0
-  %spec.select = select i1 %78, i64 %.3.lcssa, i64 %.081147176
-  %79 = add nuw nsw i32 %.1149174, 1
+  %78 = icmp eq i64 %.081147180, 0
+  %spec.select = select i1 %78, i64 %.3.lcssa, i64 %.081147180
+  %79 = add nuw nsw i32 %.1149178, 1
   %exitcond166.not = icmp eq i32 %79, 1000
   br i1 %exitcond166.not, label %.critedge2._crit_edge..thread_crit_edge, label %59, !llvm.loop !118
 
@@ -3882,8 +3882,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %.thread, !llvm.loop !118
 
 .thread:                                          ; preds = %59, %.critedge, %.critedge.thread, %.critedge2._crit_edge..thread_crit_edge, %.preheader135
-  %.081.lcssa = phi i64 [ %spec.select, %.critedge2._crit_edge..thread_crit_edge ], [ 0, %.preheader135 ], [ %spec.select, %59 ], [ %.081147176, %.critedge ], [ %.081147176, %.critedge.thread ]
-  %.079.lcssa = phi i64 [ %.3.lcssa, %.critedge2._crit_edge..thread_crit_edge ], [ 0, %.preheader135 ], [ %.3.lcssa, %59 ], [ %.079148175, %.critedge ], [ %.079148175, %.critedge.thread ]
+  %.081.lcssa = phi i64 [ %spec.select, %.critedge2._crit_edge..thread_crit_edge ], [ 0, %.preheader135 ], [ %spec.select, %59 ], [ %.081147180, %.critedge ], [ %.081147180, %.critedge.thread ]
+  %.079.lcssa = phi i64 [ %.3.lcssa, %.critedge2._crit_edge..thread_crit_edge ], [ 0, %.preheader135 ], [ %.3.lcssa, %59 ], [ %.079148179, %.critedge ], [ %.079148179, %.critedge.thread ]
   %80 = sub i64 %.079.lcssa, %.081.lcssa
   br label %81
 

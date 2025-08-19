@@ -790,9 +790,9 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit9: ; pre
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit10: ; preds = %28, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit
-  %.sink13 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit9 ]
+  %.sink15 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit9 ]
   %.sink = phi i32 [ %18, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit ], [ %25, %28 ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit9 ]
-  %30 = load i32, ptr %.sink13, align 4, !tbaa !12
+  %30 = load i32, ptr %.sink15, align 4, !tbaa !12
   %31 = icmp eq i32 %.sink, %30
   ret i1 %31
 }
@@ -852,9 +852,9 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit9: ; p
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit10: ; preds = %28, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit
-  %.sink13 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit9 ]
+  %.sink15 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit9 ]
   %.sink = phi i32 [ %18, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit ], [ %25, %28 ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit9 ]
-  %30 = load i32, ptr %.sink13, align 4, !tbaa !14
+  %30 = load i32, ptr %.sink15, align 4, !tbaa !14
   %31 = icmp eq i32 %.sink, %30
   ret i1 %31
 }
@@ -1103,9 +1103,9 @@ _ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit9: ; preds = %21, %22
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit10: ; preds = %28, %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit
-  %.sink13 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit9 ]
+  %.sink15 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit9 ]
   %.sink = phi i8 [ %18, %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit ], [ %25, %28 ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit9 ]
-  %30 = load i8, ptr %.sink13, align 1, !tbaa !16, !range !18, !noundef !19
+  %30 = load i8, ptr %.sink15, align 1, !tbaa !16, !range !18, !noundef !19
   %31 = icmp eq i8 %.sink, %30
   ret i1 %31
 }
@@ -1354,9 +1354,9 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit9: ;
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit10: ; preds = %28, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit
-  %.sink13 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit9 ]
+  %.sink15 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit9 ]
   %.sink = phi i32 [ %18, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit ], [ %25, %28 ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit9 ]
-  %30 = load i32, ptr %.sink13, align 4, !tbaa !20
+  %30 = load i32, ptr %.sink15, align 4, !tbaa !20
   %31 = icmp eq i32 %.sink, %30
   ret i1 %31
 }
@@ -1668,10 +1668,10 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.ex
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit10: ; preds = %26, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit
-  %.sink14 = phi ptr [ %17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit ], [ %23, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit9 ], [ %23, %26 ]
-  %.sink13 = phi ptr [ %19, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit9 ], [ %27, %26 ]
-  %28 = load i64, ptr %.sink14, align 8, !tbaa !23
-  %29 = load i64, ptr %.sink13, align 8, !tbaa !23
+  %.sink16 = phi ptr [ %17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit ], [ %23, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit9 ], [ %23, %26 ]
+  %.sink15 = phi ptr [ %19, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit9 ], [ %27, %26 ]
+  %28 = load i64, ptr %.sink16, align 8, !tbaa !23
+  %29 = load i64, ptr %.sink15, align 8, !tbaa !23
   %30 = icmp eq i64 %28, %29
   ret i1 %30
 }
@@ -1731,9 +1731,9 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit9: ; preds = 
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit10: ; preds = %28, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit
-  %.sink13 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit9 ]
+  %.sink15 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit9 ]
   %.sink = phi i32 [ %18, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit ], [ %25, %28 ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit9 ]
-  %30 = load i32, ptr %.sink13, align 4, !tbaa !26
+  %30 = load i32, ptr %.sink15, align 4, !tbaa !26
   %31 = icmp eq i32 %.sink, %30
   ret i1 %31
 }
@@ -1793,9 +1793,9 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit9: ; 
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit10: ; preds = %28, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit
-  %.sink13 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit9 ]
+  %.sink15 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit9 ]
   %.sink = phi i32 [ %18, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit ], [ %25, %28 ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit9 ]
-  %30 = load i32, ptr %.sink13, align 4, !tbaa !28
+  %30 = load i32, ptr %.sink15, align 4, !tbaa !28
   %31 = icmp eq i32 %.sink, %30
   ret i1 %31
 }
@@ -1916,10 +1916,10 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12BitVectorBitEEERKT_v.exit9: ; p
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12BitVectorBitEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12BitVectorBitEEERKT_v.exit10: ; preds = %26, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12BitVectorBitEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12BitVectorBitEEERKT_v.exit
-  %.sink14 = phi ptr [ %17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12BitVectorBitEEERKT_v.exit ], [ %23, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12BitVectorBitEEERKT_v.exit9 ], [ %23, %26 ]
-  %.sink13 = phi ptr [ %19, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12BitVectorBitEEERKT_v.exit ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12BitVectorBitEEERKT_v.exit9 ], [ %27, %26 ]
-  %28 = load i32, ptr %.sink14, align 4, !tbaa !30
-  %29 = load i32, ptr %.sink13, align 4, !tbaa !30
+  %.sink16 = phi ptr [ %17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12BitVectorBitEEERKT_v.exit ], [ %23, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12BitVectorBitEEERKT_v.exit9 ], [ %23, %26 ]
+  %.sink15 = phi ptr [ %19, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12BitVectorBitEEERKT_v.exit ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12BitVectorBitEEERKT_v.exit9 ], [ %27, %26 ]
+  %28 = load i32, ptr %.sink16, align 4, !tbaa !30
+  %29 = load i32, ptr %.sink15, align 4, !tbaa !30
   %30 = icmp eq i32 %28, %29
   ret i1 %30
 }
@@ -1977,12 +1977,12 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit9:
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit10: ; preds = %26, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit
-  %.sink21 = phi ptr [ %17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit ], [ %23, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit9 ], [ %23, %26 ]
+  %.sink23 = phi ptr [ %17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit ], [ %23, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit9 ], [ %23, %26 ]
   %.sink = phi ptr [ %19, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit9 ], [ %27, %26 ]
-  %28 = load i32, ptr %.sink21, align 4, !tbaa !32
+  %28 = load i32, ptr %.sink23, align 4, !tbaa !32
   %29 = load i32, ptr %.sink, align 4, !tbaa !32
   %30 = icmp eq i32 %28, %29
-  %31 = getelementptr inbounds nuw i8, ptr %.sink21, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %.sink, i64 4
   %34 = load i32, ptr %33, align 4
@@ -2046,9 +2046,9 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit9: 
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit10: ; preds = %28, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit
-  %.sink13 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit9 ]
+  %.sink15 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit9 ]
   %.sink = phi i32 [ %18, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit ], [ %25, %28 ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit9 ]
-  %30 = load i32, ptr %.sink13, align 4, !tbaa !34
+  %30 = load i32, ptr %.sink15, align 4, !tbaa !34
   %31 = icmp eq i32 %.sink, %30
   ret i1 %31
 }
@@ -2108,9 +2108,9 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exi
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit10: ; preds = %28, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit
-  %.sink13 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit9 ]
+  %.sink15 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit9 ]
   %.sink = phi i32 [ %18, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit ], [ %25, %28 ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit9 ]
-  %30 = load i32, ptr %.sink13, align 4, !tbaa !36
+  %30 = load i32, ptr %.sink15, align 4, !tbaa !36
   %31 = icmp eq i32 %.sink, %30
   ret i1 %31
 }
@@ -2170,9 +2170,9 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.ex
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit10: ; preds = %28, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit
-  %.sink13 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit9 ]
+  %.sink15 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit9 ]
   %.sink = phi i32 [ %18, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit ], [ %25, %28 ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit9 ]
-  %30 = load i32, ptr %.sink13, align 4, !tbaa !38
+  %30 = load i32, ptr %.sink15, align 4, !tbaa !38
   %31 = icmp eq i32 %.sink, %30
   ret i1 %31
 }
@@ -2232,9 +2232,9 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exi
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit10: ; preds = %28, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit
-  %.sink13 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit9 ]
+  %.sink15 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit9 ]
   %.sink = phi i32 [ %18, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit ], [ %25, %28 ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit9 ]
-  %30 = load i32, ptr %.sink13, align 4, !tbaa !40
+  %30 = load i32, ptr %.sink15, align 4, !tbaa !40
   %31 = icmp eq i32 %.sink, %30
   ret i1 %31
 }
@@ -2294,9 +2294,9 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exi
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit10: ; preds = %28, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit
-  %.sink13 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit9 ]
+  %.sink15 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit9 ]
   %.sink = phi i32 [ %18, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit ], [ %25, %28 ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit9 ]
-  %30 = load i32, ptr %.sink13, align 4, !tbaa !42
+  %30 = load i32, ptr %.sink15, align 4, !tbaa !42
   %31 = icmp eq i32 %.sink, %30
   ret i1 %31
 }
@@ -2545,9 +2545,9 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit9: ; p
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit10: ; preds = %28, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit
-  %.sink13 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit9 ]
+  %.sink15 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit9 ]
   %.sink = phi i32 [ %18, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit ], [ %25, %28 ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit9 ]
-  %30 = load i32, ptr %.sink13, align 4, !tbaa !44
+  %30 = load i32, ptr %.sink15, align 4, !tbaa !44
   %31 = icmp eq i32 %.sink, %30
   ret i1 %31
 }
@@ -2605,12 +2605,12 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit9
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit10: ; preds = %26, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit
-  %.sink21 = phi ptr [ %17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit ], [ %23, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit9 ], [ %23, %26 ]
+  %.sink23 = phi ptr [ %17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit ], [ %23, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit9 ], [ %23, %26 ]
   %.sink = phi ptr [ %19, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit9 ], [ %27, %26 ]
-  %28 = load i32, ptr %.sink21, align 4, !tbaa !46
+  %28 = load i32, ptr %.sink23, align 4, !tbaa !46
   %29 = load i32, ptr %.sink, align 4, !tbaa !46
   %30 = icmp eq i32 %28, %29
-  %31 = getelementptr inbounds nuw i8, ptr %.sink21, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %.sink, i64 4
   %34 = load i32, ptr %33, align 4
@@ -2672,12 +2672,12 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorE
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit10: ; preds = %26, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit
-  %.sink21 = phi ptr [ %17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit ], [ %23, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit9 ], [ %23, %26 ]
+  %.sink23 = phi ptr [ %17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit ], [ %23, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit9 ], [ %23, %26 ]
   %.sink = phi ptr [ %19, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit9 ], [ %27, %26 ]
-  %28 = load i32, ptr %.sink21, align 4, !tbaa !46
+  %28 = load i32, ptr %.sink23, align 4, !tbaa !46
   %29 = load i32, ptr %.sink, align 4, !tbaa !46
   %30 = icmp eq i32 %28, %29
-  %31 = getelementptr inbounds nuw i8, ptr %.sink21, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %.sink, i64 4
   %34 = load i32, ptr %33, align 4
@@ -2739,12 +2739,12 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointE
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit10: ; preds = %26, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit
-  %.sink21 = phi ptr [ %17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit ], [ %23, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit9 ], [ %23, %26 ]
+  %.sink23 = phi ptr [ %17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit ], [ %23, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit9 ], [ %23, %26 ]
   %.sink = phi ptr [ %19, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit9 ], [ %27, %26 ]
-  %28 = load i32, ptr %.sink21, align 4, !tbaa !46
+  %28 = load i32, ptr %.sink23, align 4, !tbaa !46
   %29 = load i32, ptr %.sink, align 4, !tbaa !46
   %30 = icmp eq i32 %28, %29
-  %31 = getelementptr inbounds nuw i8, ptr %.sink21, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %.sink, i64 4
   %34 = load i32, ptr %33, align 4
@@ -2806,12 +2806,12 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.e
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit10: ; preds = %26, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit
-  %.sink21 = phi ptr [ %17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit ], [ %23, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit9 ], [ %23, %26 ]
+  %.sink23 = phi ptr [ %17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit ], [ %23, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit9 ], [ %23, %26 ]
   %.sink = phi ptr [ %19, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit9 ], [ %27, %26 ]
-  %28 = load i32, ptr %.sink21, align 4, !tbaa !46
+  %28 = load i32, ptr %.sink23, align 4, !tbaa !46
   %29 = load i32, ptr %.sink, align 4, !tbaa !46
   %30 = icmp eq i32 %28, %29
-  %31 = getelementptr inbounds nuw i8, ptr %.sink21, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %.sink, i64 4
   %34 = load i32, ptr %33, align 4
@@ -2873,12 +2873,12 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVecto
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit10: ; preds = %26, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit
-  %.sink21 = phi ptr [ %17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit ], [ %23, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit9 ], [ %23, %26 ]
+  %.sink23 = phi ptr [ %17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit ], [ %23, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit9 ], [ %23, %26 ]
   %.sink = phi ptr [ %19, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit9 ], [ %27, %26 ]
-  %28 = load i32, ptr %.sink21, align 4, !tbaa !46
+  %28 = load i32, ptr %.sink23, align 4, !tbaa !46
   %29 = load i32, ptr %.sink, align 4, !tbaa !46
   %30 = icmp eq i32 %28, %29
-  %31 = getelementptr inbounds nuw i8, ptr %.sink21, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %.sink, i64 4
   %34 = load i32, ptr %33, align 4
@@ -2940,12 +2940,12 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVec
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit10: ; preds = %26, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit
-  %.sink21 = phi ptr [ %17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit ], [ %23, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit9 ], [ %23, %26 ]
+  %.sink23 = phi ptr [ %17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit ], [ %23, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit9 ], [ %23, %26 ]
   %.sink = phi ptr [ %19, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit9 ], [ %27, %26 ]
-  %28 = load i32, ptr %.sink21, align 4, !tbaa !46
+  %28 = load i32, ptr %.sink23, align 4, !tbaa !46
   %29 = load i32, ptr %.sink, align 4, !tbaa !46
   %30 = icmp eq i32 %28, %29
-  %31 = getelementptr inbounds nuw i8, ptr %.sink21, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %.sink, i64 4
   %34 = load i32, ptr %33, align 4
@@ -3009,9 +3009,9 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit10: ; preds = %28, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit
-  %.sink13 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit9 ]
+  %.sink15 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit9 ]
   %.sink = phi i32 [ %18, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit ], [ %25, %28 ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit9 ]
-  %30 = load i32, ptr %.sink13, align 4, !tbaa !28
+  %30 = load i32, ptr %.sink15, align 4, !tbaa !28
   %31 = icmp eq i32 %.sink, %30
   ret i1 %31
 }
@@ -3071,9 +3071,9 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit10: ; preds = %28, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit
-  %.sink13 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit9 ]
+  %.sink15 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit9 ]
   %.sink = phi i32 [ %18, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit ], [ %25, %28 ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit9 ]
-  %30 = load i32, ptr %.sink13, align 4, !tbaa !28
+  %30 = load i32, ptr %.sink15, align 4, !tbaa !28
   %31 = icmp eq i32 %.sink, %30
   ret i1 %31
 }
@@ -3133,9 +3133,9 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit10: ; preds = %28, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit
-  %.sink13 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit9 ]
+  %.sink15 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit9 ]
   %.sink = phi i32 [ %18, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit ], [ %25, %28 ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit9 ]
-  %30 = load i32, ptr %.sink13, align 4, !tbaa !28
+  %30 = load i32, ptr %.sink15, align 4, !tbaa !28
   %31 = icmp eq i32 %.sink, %30
   ret i1 %31
 }
@@ -3195,9 +3195,9 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit10
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit10: ; preds = %28, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit9, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit
-  %.sink13 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit9 ]
+  %.sink15 = phi ptr [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit ], [ %29, %28 ], [ %27, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit9 ]
   %.sink = phi i32 [ %18, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit ], [ %25, %28 ], [ %25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit9 ]
-  %30 = load i32, ptr %.sink13, align 4, !tbaa !28
+  %30 = load i32, ptr %.sink15, align 4, !tbaa !28
   %31 = icmp eq i32 %.sink, %30
   ret i1 %31
 }

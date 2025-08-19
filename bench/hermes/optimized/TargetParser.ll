@@ -7618,7 +7618,7 @@ _ZN4llvh9StringRefC2EPKc.exit150:                 ; preds = %land.lhs.true, %if.
   br i1 %cmp.i249, label %land.rhs.i250, label %if.end39
 
 land.rhs.i250:                                    ; preds = %if.end.i349, %_ZN4llvh9StringRefC2EPKc.exit110, %if.end.i331.thread, %_ZN4llvh9StringRefC2EPKc.exit150
-  %offset.0129142 = phi i64 [ %offset.0129, %_ZN4llvh9StringRefC2EPKc.exit150 ], [ -1, %if.end.i331.thread ], [ -1, %_ZN4llvh9StringRefC2EPKc.exit110 ], [ -1, %if.end.i349 ]
+  %offset.0129143 = phi i64 [ %offset.0129, %_ZN4llvh9StringRefC2EPKc.exit150 ], [ -1, %if.end.i331.thread ], [ -1, %_ZN4llvh9StringRefC2EPKc.exit110 ], [ -1, %if.end.i349 ]
   %12 = phi i64 [ %11, %_ZN4llvh9StringRefC2EPKc.exit150 ], [ %Arch.coerce1, %if.end.i331.thread ], [ %Arch.coerce1, %_ZN4llvh9StringRefC2EPKc.exit110 ], [ %Arch.coerce1, %if.end.i349 ]
   %13 = load ptr, ptr %A, align 8
   %add.ptr.i88 = getelementptr inbounds i8, ptr %13, i64 %12
@@ -7626,13 +7626,13 @@ land.rhs.i250:                                    ; preds = %if.end.i349, %_ZN4l
   %bcmp80 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %add.ptr.i252, ptr noundef nonnull dereferenceable(2) @.str.140, i64 2)
   %14 = icmp eq i32 %bcmp80, 0
   %sub = add i64 %12, -2
-  %spec.select147 = select i1 %14, i64 %sub, i64 %12
+  %spec.select148 = select i1 %14, i64 %sub, i64 %12
   br label %if.end39
 
 if.end39:                                         ; preds = %land.rhs.i250, %_ZN4llvh9StringRefC2EPKc.exit150
-  %offset.0129141 = phi i64 [ %offset.0129, %_ZN4llvh9StringRefC2EPKc.exit150 ], [ %offset.0129142, %land.rhs.i250 ]
-  %.pr = phi i64 [ %11, %_ZN4llvh9StringRefC2EPKc.exit150 ], [ %spec.select147, %land.rhs.i250 ]
-  %cmp40.not = icmp eq i64 %offset.0129141, -1
+  %offset.0129142 = phi i64 [ %offset.0129, %_ZN4llvh9StringRefC2EPKc.exit150 ], [ %offset.0129143, %land.rhs.i250 ]
+  %.pr = phi i64 [ %11, %_ZN4llvh9StringRefC2EPKc.exit150 ], [ %spec.select148, %land.rhs.i250 ]
+  %cmp40.not = icmp eq i64 %offset.0129142, -1
   br i1 %cmp40.not, label %if.end44, label %if.end39.if.then41_crit_edge
 
 if.end39.if.then41_crit_edge:                     ; preds = %if.end39
@@ -7646,9 +7646,9 @@ if.end44:                                         ; preds = %if.end39
 if.end44.thread:                                  ; preds = %if.end39.thread, %if.end39.if.then41_crit_edge
   %15 = phi ptr [ %9, %if.end39.thread ], [ %.pre, %if.end39.if.then41_crit_edge ]
   %16 = phi i64 [ %8, %if.end39.thread ], [ %.pr, %if.end39.if.then41_crit_edge ]
-  %offset.1132 = phi i64 [ %add31, %if.end39.thread ], [ %offset.0129141, %if.end39.if.then41_crit_edge ]
+  %offset.1132 = phi i64 [ %add31, %if.end39.thread ], [ %offset.0129142, %if.end39.if.then41_crit_edge ]
   %.sroa.speculated99 = call i64 @llvm.umin.i64(i64 %16, i64 %offset.1132)
-  %add.ptr.i = getelementptr inbounds i8, ptr %15, i64 %.sroa.speculated99
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %15, i64 %.sroa.speculated99
   %sub.i = sub i64 %16, %.sroa.speculated99
   store ptr %add.ptr.i, ptr %A, align 8
   store i64 %sub.i, ptr %Arch.sroa.3.0.A.sroa_idx, align 8

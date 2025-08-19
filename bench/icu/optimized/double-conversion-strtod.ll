@@ -346,12 +346,12 @@ switch.lookup:                                    ; preds = %116
   %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN6icu_7717double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd, i64 0, i64 %120
   %switch.load = load i32, ptr %switch.gep, align 4
   %121 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep86 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN6icu_7717double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1, i64 0, i64 %121
-  %switch.load87 = load i64, ptr %switch.gep86, align 8
+  %switch.gep96 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN6icu_7717double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1, i64 0, i64 %121
+  %switch.load97 = load i64, ptr %switch.gep96, align 8
   %122 = lshr i64 %.1.lcssa.i.i, 32
   %123 = and i64 %.1.lcssa.i.i, 4294967295
-  %124 = mul nuw i64 %switch.load87, %122
-  %125 = mul nuw i64 %switch.load87, %123
+  %124 = mul nuw i64 %switch.load97, %122
+  %125 = mul nuw i64 %switch.load97, %123
   %126 = and i64 %125, 2147483648
   %127 = add nuw nsw i64 %126, 2147483648
   %128 = add nsw i32 %switch.load, %.19.lcssa.i.i
@@ -920,8 +920,8 @@ _ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit54: ; preds = %36, %38,
   br i1 %47, label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit56.thread, label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit56
 
 _ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit56: ; preds = %44, %46
-  %.sink91 = phi i64 [ -1, %46 ], [ 1, %44 ]
-  %48 = add i64 %.sink91, %42
+  %.sink95 = phi i64 [ -1, %46 ], [ 1, %44 ]
+  %48 = add i64 %.sink95, %42
   %.0.i55 = bitcast i64 %48 to double
   %49 = fcmp ult double %.0.i55, 0x47EFFFFFE0000000
   br i1 %49, label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit56.thread, label %50

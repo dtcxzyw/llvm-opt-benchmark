@@ -51,13 +51,13 @@ define hidden noundef ptr @"_ZN111_$LT$uucore..features..format..num_format..Flo
 30:                                               ; preds = %3
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %32 = load i8, ptr %31, align 1, !range !4, !noundef !5
-  switch i8 %32, label %default.unreachable91 [
+  switch i8 %32, label %default.unreachable97 [
     i8 0, label %.thread
     i8 1, label %33
     i8 2, label %52
   ]
 
-default.unreachable91:                            ; preds = %80, %77, %30
+default.unreachable97:                            ; preds = %80, %77, %30
   unreachable
 
 33:                                               ; preds = %30
@@ -209,7 +209,7 @@ common.resume:                                    ; preds = %.body, %59, %40
 77:                                               ; preds = %.thread
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %79 = load i8, ptr %78, align 8, !range !27, !noundef !5
-  switch i8 %79, label %default.unreachable91 [
+  switch i8 %79, label %default.unreachable97 [
     i8 0, label %83
     i8 1, label %89
     i8 2, label %98
@@ -219,7 +219,7 @@ common.resume:                                    ; preds = %.body, %59, %40
 80:                                               ; preds = %73, %83, %89, %98, %107
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %82 = load i8, ptr %81, align 2, !range !4, !noundef !5
-  switch i8 %82, label %default.unreachable91 [
+  switch i8 %82, label %default.unreachable97 [
     i8 0, label %116
     i8 1, label %140
     i8 2, label %164

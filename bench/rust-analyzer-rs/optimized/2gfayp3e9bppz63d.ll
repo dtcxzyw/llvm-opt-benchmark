@@ -4906,8 +4906,8 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
   br i1 %23, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h74cce7d347d08639E.llvm.1352433577611232762.exit", label %7
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h74cce7d347d08639E.llvm.1352433577611232762.exit": ; preds = %7, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8bf0b99cc82feaa6E.exit.i.i", %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8bf0b99cc82feaa6E.exit.thread.i.i"
-  %.not.not.not.i.not.not.not.i.not.not.not.not.not12 = phi i1 [ true, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8bf0b99cc82feaa6E.exit.thread.i.i" ], [ %.not.not.not.i.not.not.not.i.not.not.not.not.not.not, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8bf0b99cc82feaa6E.exit.i.i" ], [ %.not.not.not.i.not.not.not.i.not.not.not.not.not.not, %7 ]
-  ret i1 %.not.not.not.i.not.not.not.i.not.not.not.not.not12
+  %.not.not.not.i.not.not.not.i.not.not.not.not.not13 = phi i1 [ true, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8bf0b99cc82feaa6E.exit.thread.i.i" ], [ %.not.not.not.i.not.not.not.i.not.not.not.not.not.not, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8bf0b99cc82feaa6E.exit.i.i" ], [ %.not.not.not.i.not.not.not.i.not.not.not.not.not.not, %7 ]
+  ret i1 %.not.not.not.i.not.not.not.i.not.not.not.not.not13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6671,8 +6671,8 @@ define hidden noundef zeroext i1 @"_ZN110_$LT$core..iter..adapters..enumerate..E
   br i1 %23, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h8b2170789c1584e5E.llvm.1352433577611232762.exit, label %7
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h8b2170789c1584e5E.llvm.1352433577611232762.exit: ; preds = %7, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8bf0b99cc82feaa6E.exit.i", %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8bf0b99cc82feaa6E.exit.thread.i"
-  %.not.not.not.i.not.not.not.not.not12 = phi i1 [ true, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8bf0b99cc82feaa6E.exit.thread.i" ], [ %.not.not.not.i.not.not.not.not.not.not, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8bf0b99cc82feaa6E.exit.i" ], [ %.not.not.not.i.not.not.not.not.not.not, %7 ]
-  ret i1 %.not.not.not.i.not.not.not.not.not12
+  %.not.not.not.i.not.not.not.not.not13 = phi i1 [ true, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8bf0b99cc82feaa6E.exit.thread.i" ], [ %.not.not.not.i.not.not.not.not.not.not, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8bf0b99cc82feaa6E.exit.i" ], [ %.not.not.not.i.not.not.not.not.not.not, %7 ]
+  ret i1 %.not.not.not.i.not.not.not.not.not13
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -7235,7 +7235,7 @@ define hidden noundef range(i8 1, 7) i8 @"_ZN115_$LT$core..iter..adapters..take_
   %131 = extractvalue { i32, i32 } %130, 0
   %132 = extractvalue { i32, i32 } %130, 1
   %switch.i.i.i.i.i.i.i.i = icmp eq i32 %131, 0
-  br i1 %switch.i.i.i.i.i.i.i.i, label %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.15040385714620792880.exit.i.i.i.i.i.i", label %.invoke3.i.i.i
+  br i1 %switch.i.i.i.i.i.i.i.i, label %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.15040385714620792880.exit.i.i.i.i.i.i", label %.invoke6.i.i.i
 
 "_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.15040385714620792880.exit.i.i.i.i.i.i": ; preds = %.noexc9.i.i.i, %125
   %.0.i.i.i.i.i.i.i = phi i32 [ %126, %125 ], [ %132, %.noexc9.i.i.i ]
@@ -7282,13 +7282,13 @@ define hidden noundef range(i8 1, 7) i8 @"_ZN115_$LT$core..iter..adapters..take_
   %150 = extractvalue { i32, i32 } %149, 0
   %151 = extractvalue { i32, i32 } %149, 1
   %switch.i.i.i.i5.i.i.i.i = icmp eq i32 %150, 0
-  br i1 %switch.i.i.i.i5.i.i.i.i, label %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.15040385714620792880.exit.i.i6.i.i.i.i", label %.invoke3.i.i.i
+  br i1 %switch.i.i.i.i5.i.i.i.i, label %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.15040385714620792880.exit.i.i6.i.i.i.i", label %.invoke6.i.i.i
 
-.invoke3.i.i.i:                                   ; preds = %.noexc13.i.i.i, %.noexc9.i.i.i
+.invoke6.i.i.i:                                   ; preds = %.noexc13.i.i.i, %.noexc9.i.i.i
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.b39596380d6f3ffd3d9d41061f2d749f.30.llvm.15040385714620792880, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b39596380d6f3ffd3d9d41061f2d749f.31.llvm.15040385714620792880, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b39596380d6f3ffd3d9d41061f2d749f.33.llvm.15040385714620792880) #35
-          to label %.cont4.i.i.i unwind label %153
+          to label %.cont7.i.i.i unwind label %153
 
-.cont4.i.i.i:                                     ; preds = %.invoke3.i.i.i
+.cont7.i.i.i:                                     ; preds = %.invoke6.i.i.i
   unreachable
 
 "_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.15040385714620792880.exit.i.i6.i.i.i.i": ; preds = %.noexc13.i.i.i, %144
@@ -7304,7 +7304,7 @@ define hidden noundef range(i8 1, 7) i8 @"_ZN115_$LT$core..iter..adapters..take_
 .cont.i.i.i:                                      ; preds = %.invoke.i.i.i
   unreachable
 
-153:                                              ; preds = %.invoke.i.i.i, %.invoke3.i.i.i, %146, %141, %127, %122, %113
+153:                                              ; preds = %.invoke.i.i.i, %.invoke6.i.i.i, %146, %141, %127, %122, %113
   %154 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !2666)
@@ -14504,8 +14504,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !align !51
   %15 = load ptr, ptr %6, align 8, !alias.scope !5617, !nonnull !4, !noundef !4
   %16 = load ptr, ptr %0, align 8, !alias.scope !5617, !nonnull !4, !noundef !4
-  %.not.not.not22.not = icmp eq ptr %16, %15
-  br i1 %.not.not.not22.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ee887001dd39756E.exit", label %.lr.ph
+  %.not.not.not24.not = icmp eq ptr %16, %15
+  br i1 %.not.not.not24.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ee887001dd39756E.exit", label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.backedge
   %17 = phi ptr [ %62, %.backedge ], [ %16, %2 ]
@@ -14659,8 +14659,8 @@ common.resume.i:                                  ; preds = %44, %21
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ee887001dd39756E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ee887001dd39756E.exit": ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h5ba97c416cdfadc7E.exit.sink.split.i.i.i", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb2579b577f9bf2b0E.exit", %.backedge, %2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ee887001dd39756E.exit.sink.split"
-  %.not.not.not21 = phi i1 [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ee887001dd39756E.exit.sink.split" ], [ false, %2 ], [ false, %.backedge ], [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb2579b577f9bf2b0E.exit" ], [ true, %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h5ba97c416cdfadc7E.exit.sink.split.i.i.i" ]
-  ret i1 %.not.not.not21
+  %.not.not.not23 = phi i1 [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ee887001dd39756E.exit.sink.split" ], [ false, %2 ], [ false, %.backedge ], [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb2579b577f9bf2b0E.exit" ], [ true, %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h5ba97c416cdfadc7E.exit.sink.split.i.i.i" ]
+  ret i1 %.not.not.not23
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -15505,8 +15505,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %34, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd6da5f347c01b69dE.exit", label %14
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd6da5f347c01b69dE.exit": ; preds = %25, %14, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h94e4fd7f3b16636bE.exit", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h94e4fd7f3b16636bE.exit.thread11"
-  %.not.not.not.not.not20 = phi i1 [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h94e4fd7f3b16636bE.exit.thread11" ], [ %.not.not.not.not.not.not, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h94e4fd7f3b16636bE.exit" ], [ %.not.not.not.not.not.not, %14 ], [ %.not.not.not.not.not.not, %25 ]
-  ret i1 %.not.not.not.not.not20
+  %.not.not.not.not.not21 = phi i1 [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h94e4fd7f3b16636bE.exit.thread11" ], [ %.not.not.not.not.not.not, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h94e4fd7f3b16636bE.exit" ], [ %.not.not.not.not.not.not, %14 ], [ %.not.not.not.not.not.not, %25 ]
+  ret i1 %.not.not.not.not.not21
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -15712,8 +15712,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !align !51
   %14 = load ptr, ptr %6, align 8, !alias.scope !5985, !nonnull !4, !noundef !4
   %15 = load ptr, ptr %0, align 8, !alias.scope !5985, !nonnull !4, !noundef !4
-  %.not.not.not22.not = icmp eq ptr %15, %14
-  br i1 %.not.not.not22.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ee887001dd39756E.exit", label %.lr.ph
+  %.not.not.not24.not = icmp eq ptr %15, %14
+  br i1 %.not.not.not24.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ee887001dd39756E.exit", label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.backedge
   %16 = phi ptr [ %63, %.backedge ], [ %15, %2 ]
@@ -15870,8 +15870,8 @@ common.resume.i:                                  ; preds = %45, %22
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ee887001dd39756E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ee887001dd39756E.exit": ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h5ba97c416cdfadc7E.exit.sink.split.i.i.i", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heda3f9f1ca0cfd63E.exit", %.backedge, %2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ee887001dd39756E.exit.sink.split"
-  %.not.not.not21 = phi i1 [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ee887001dd39756E.exit.sink.split" ], [ false, %2 ], [ false, %.backedge ], [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heda3f9f1ca0cfd63E.exit" ], [ true, %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h5ba97c416cdfadc7E.exit.sink.split.i.i.i" ]
-  ret i1 %.not.not.not21
+  %.not.not.not23 = phi i1 [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ee887001dd39756E.exit.sink.split" ], [ false, %2 ], [ false, %.backedge ], [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heda3f9f1ca0cfd63E.exit" ], [ true, %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h5ba97c416cdfadc7E.exit.sink.split.i.i.i" ]
+  ret i1 %.not.not.not23
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -17343,8 +17343,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %28, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ee887001dd39756E.exit", label %11
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ee887001dd39756E.exit": ; preds = %11, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8bf0b99cc82feaa6E.exit", %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8bf0b99cc82feaa6E.exit.thread"
-  %.not.not.not.not.not17 = phi i1 [ true, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8bf0b99cc82feaa6E.exit.thread" ], [ %.not.not.not.not.not.not, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8bf0b99cc82feaa6E.exit" ], [ %.not.not.not.not.not.not, %11 ]
-  ret i1 %.not.not.not.not.not17
+  %.not.not.not.not.not18 = phi i1 [ true, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8bf0b99cc82feaa6E.exit.thread" ], [ %.not.not.not.not.not.not, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8bf0b99cc82feaa6E.exit" ], [ %.not.not.not.not.not.not, %11 ]
+  ret i1 %.not.not.not.not.not18
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -24420,8 +24420,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !9150, !noalias !9147
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !9150, !noalias !9147
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 15:                                               ; preds = %6
@@ -24433,13 +24433,13 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !9150, !noalias !9147
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !9150, !noalias !9147
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !9150, !noalias !9147
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !9150, !noalias !9147
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 26:                                               ; preds = %6
@@ -25004,7 +25004,7 @@ define internal fastcc void @"_ZN67_$LT$hir..term_search..expr..Expr$u20$as$u20$
   %18 = alloca { { i64, ptr, {} }, i64 }, align 8
   %19 = alloca { { i64, ptr, {} }, i64 }, align 8
   %20 = load i32, ptr %1, align 8, !range !3640, !noundef !4
-  switch i32 %20, label %default.unreachable34 [
+  switch i32 %20, label %default.unreachable36 [
     i32 0, label %21
     i32 1, label %25
     i32 2, label %29
@@ -25020,7 +25020,7 @@ define internal fastcc void @"_ZN67_$LT$hir..term_search..expr..Expr$u20$as$u20$
     i32 12, label %157
   ]
 
-default.unreachable34:                            ; preds = %2
+default.unreachable36:                            ; preds = %2
   unreachable
 
 21:                                               ; preds = %2

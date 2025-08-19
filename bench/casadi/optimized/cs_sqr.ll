@@ -414,7 +414,7 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %.lr.ph171
-  %125 = add nsw i32 %.5169, 1
+  %125 = add nuw nsw i32 %.5169, 1
   store i32 %.5169, ptr %121, align 4, !tbaa !18
   br label %126
 

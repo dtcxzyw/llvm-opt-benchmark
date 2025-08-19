@@ -1474,7 +1474,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoE
   br i1 %cmp.i.i, label %if.end12, label %if.end.i.i9
 
 if.end.i.i9:                                      ; preds = %for.body.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4growEj.exit
-  %.pr103 = phi i32 [ %.pr.pre, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4growEj.exit ], [ %4, %for.body.i.i.i ]
+  %.pr114 = phi i32 [ %.pr.pre, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4growEj.exit ], [ %4, %for.body.i.i.i ]
   %5 = phi ptr [ %.pre, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4growEj.exit ], [ %call.i.i.i, %for.body.i.i.i ]
   %6 = load ptr, ptr %Lookup, align 8
   %7 = ptrtoint ptr %6 to i64
@@ -1482,7 +1482,7 @@ if.end.i.i9:                                      ; preds = %for.body.i.i.i, %_Z
   %shr.i.i.i.i = lshr i32 %conv.i.i.i.i, 4
   %shr2.i.i.i.i = lshr i32 %conv.i.i.i.i, 9
   %xor.i.i.i.i = xor i32 %shr.i.i.i.i, %shr2.i.i.i.i
-  %sub.i.i10 = add i32 %.pr103, -1
+  %sub.i.i10 = add i32 %.pr114, -1
   %BucketNo.019.i.i = and i32 %xor.i.i.i.i, %sub.i.i10
   %idx.ext20.i.i = zext nneg i32 %BucketNo.019.i.i to i64
   %add.ptr21.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %5, i64 %idx.ext20.i.i
@@ -1581,7 +1581,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoE
   br i1 %cmp.i.i50, label %if.end12, label %if.end.i.i51
 
 if.end.i.i51:                                     ; preds = %for.body.i.i.i44, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4growEj.exit48
-  %.pr86106 = phi i32 [ %.pr86.pre, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4growEj.exit48 ], [ %14, %for.body.i.i.i44 ]
+  %.pr86117 = phi i32 [ %.pr86.pre, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4growEj.exit48 ], [ %14, %for.body.i.i.i44 ]
   %15 = phi ptr [ %.pre100, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4growEj.exit48 ], [ %call.i.i.i32, %for.body.i.i.i44 ]
   %16 = load ptr, ptr %Lookup, align 8
   %17 = ptrtoint ptr %16 to i64
@@ -1589,7 +1589,7 @@ if.end.i.i51:                                     ; preds = %for.body.i.i.i44, %
   %shr.i.i.i.i53 = lshr i32 %conv.i.i.i.i52, 4
   %shr2.i.i.i.i54 = lshr i32 %conv.i.i.i.i52, 9
   %xor.i.i.i.i55 = xor i32 %shr.i.i.i.i53, %shr2.i.i.i.i54
-  %sub.i.i56 = add i32 %.pr86106, -1
+  %sub.i.i56 = add i32 %.pr86117, -1
   %BucketNo.019.i.i57 = and i32 %xor.i.i.i.i55, %sub.i.i56
   %idx.ext20.i.i58 = zext nneg i32 %BucketNo.019.i.i57 to i64
   %add.ptr21.i.i59 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %15, i64 %idx.ext20.i.i58
@@ -2319,13 +2319,13 @@ if.else13.i:                                      ; preds = %_ZNK9__gnu_cxx5__op
   br label %_ZSt22__move_median_to_firstIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_S6_T0_.exit
 
 _ZSt22__move_median_to_firstIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_S6_T0_.exit: ; preds = %if.then.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit26.i, %if.else.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit34.i, %if.else5.i, %if.else7.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit46.i, %if.else10.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit56.i, %if.else13.i
-  %.sink70.i = phi i32 [ %1, %if.else13.i ], [ %0, %if.else5.i ], [ %1, %if.then.i ], [ %1, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit26.i ], [ %4, %if.else.i ], [ %4, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit34.i ], [ %0, %if.else7.i ], [ %0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit46.i ], [ %9, %if.else10.i ], [ %9, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit56.i ]
-  %__a.sink69.i = phi ptr [ %add.ptr, %if.else13.i ], [ %add.ptr1, %if.else5.i ], [ %add.ptr, %if.then.i ], [ %add.ptr, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit26.i ], [ %add.ptr2, %if.else.i ], [ %add.ptr2, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit34.i ], [ %add.ptr1, %if.else7.i ], [ %add.ptr1, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit46.i ], [ %add.ptr2, %if.else10.i ], [ %add.ptr2, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit56.i ]
+  %.sink74.i = phi i32 [ %1, %if.else13.i ], [ %0, %if.else5.i ], [ %1, %if.then.i ], [ %1, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit26.i ], [ %4, %if.else.i ], [ %4, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit34.i ], [ %0, %if.else7.i ], [ %0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit46.i ], [ %9, %if.else10.i ], [ %9, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit56.i ]
+  %__a.sink73.i = phi ptr [ %add.ptr, %if.else13.i ], [ %add.ptr1, %if.else5.i ], [ %add.ptr, %if.then.i ], [ %add.ptr, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit26.i ], [ %add.ptr2, %if.else.i ], [ %add.ptr2, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit34.i ], [ %add.ptr1, %if.else7.i ], [ %add.ptr1, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit46.i ], [ %add.ptr2, %if.else10.i ], [ %add.ptr2, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit56.i ]
   %14 = load i32, ptr %__first, align 4
-  store i32 %.sink70.i, ptr %__first, align 4
-  store i32 %14, ptr %__a.sink69.i, align 4
+  store i32 %.sink74.i, ptr %__first, align 4
+  store i32 %14, ptr %__a.sink73.i, align 4
   %second.i.i.i47.i = getelementptr inbounds nuw i8, ptr %__first, i64 4
-  %second3.i.i.i48.i = getelementptr inbounds nuw i8, ptr %__a.sink69.i, i64 4
+  %second3.i.i.i48.i = getelementptr inbounds nuw i8, ptr %__a.sink73.i, i64 4
   %15 = load i32, ptr %second.i.i.i47.i, align 4
   %16 = load i32, ptr %second3.i.i.i48.i, align 4
   store i32 %16, ptr %second.i.i.i47.i, align 4
@@ -2425,9 +2425,9 @@ if.end.split:                                     ; preds = %entry
 
 while.body.i:                                     ; preds = %if.end.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread28.i
   %__holeIndex.addr.032.i = phi i64 [ %5, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread28.i ], [ %div13, %if.end.split ]
-  %add.i = shl i64 %__holeIndex.addr.032.i, 1
-  %mul.i = add i64 %add.i, 2
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair.138", ptr %__first, i64 %mul.i
+  %add.i = shl nuw nsw i64 %__holeIndex.addr.032.i, 1
+  %mul.i = add nuw nsw i64 %add.i, 2
+  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair.138", ptr %__first, i64 %mul.i
   %0 = getelementptr %"struct.std::pair.138", ptr %__first, i64 %add.i
   %add.ptr2.i = getelementptr i8, ptr %0, i64 8
   %1 = load i32, ptr %add.ptr.i, align 4
@@ -2456,8 +2456,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i: ; preds 
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread28.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i, %lor.rhs.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i
   %5 = phi i64 [ %dec25.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i ], [ %mul.i, %lor.rhs.i.i.i ], [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i ]
-  %add.ptr3.i = getelementptr inbounds %"struct.std::pair.138", ptr %__first, i64 %5
-  %add.ptr4.i = getelementptr inbounds %"struct.std::pair.138", ptr %__first, i64 %__holeIndex.addr.032.i
+  %add.ptr3.i = getelementptr inbounds nuw %"struct.std::pair.138", ptr %__first, i64 %5
+  %add.ptr4.i = getelementptr inbounds nuw %"struct.std::pair.138", ptr %__first, i64 %__holeIndex.addr.032.i
   %6 = load i32, ptr %add.ptr3.i, align 4
   store i32 %6, ptr %add.ptr4.i, align 4
   %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i, i64 4
@@ -2471,16 +2471,16 @@ while.end.i:                                      ; preds = %_ZNK9__gnu_cxx5__op
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %div13, %if.end.split ], [ %5, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread28.i ]
   %8 = and i64 %sub.ptr.sub, 8
   %cmp6.i = icmp eq i64 %8, 0
-  %div8.i = ashr exact i64 %sub, 1
+  %div8.i = lshr exact i64 %sub, 1
   %cmp9.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i, %div8.i
   %or.cond = select i1 %cmp6.i, i1 %cmp9.i, i1 false
   br i1 %or.cond, label %if.then10.i, label %if.end18.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %add11.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
+  %add11.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i, 1
   %sub13.i = or disjoint i64 %add11.i, 1
-  %add.ptr14.i = getelementptr inbounds %"struct.std::pair.138", ptr %__first, i64 %sub13.i
-  %add.ptr15.i = getelementptr inbounds %"struct.std::pair.138", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr14.i = getelementptr inbounds nuw %"struct.std::pair.138", ptr %__first, i64 %sub13.i
+  %add.ptr15.i = getelementptr inbounds nuw %"struct.std::pair.138", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   %9 = load i32, ptr %add.ptr14.i, align 4
   store i32 %9, ptr %add.ptr15.i, align 4
   %second.i23.i = getelementptr inbounds nuw i8, ptr %add.ptr14.i, i64 4
@@ -2498,10 +2498,10 @@ if.end18.i:                                       ; preds = %if.then10.i, %while
   br i1 %cmp17.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit
 
 land.rhs.i.i:                                     ; preds = %if.end18.i, %while.body.i.i
-  %__holeIndex.addr.018.i.i = phi i64 [ %__parent.019.i.i, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end18.i ]
+  %__holeIndex.addr.018.i.i = phi i64 [ %__parent.019.i.i100, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end18.i ]
   %__parent.019.in.i.i = add nsw i64 %__holeIndex.addr.018.i.i, -1
-  %__parent.019.i.i = sdiv i64 %__parent.019.in.i.i, 2
-  %add.ptr.i.i = getelementptr inbounds %"struct.std::pair.138", ptr %__first, i64 %__parent.019.i.i
+  %__parent.019.i.i100 = lshr i64 %__parent.019.in.i.i, 1
+  %add.ptr.i.i = getelementptr inbounds nuw %"struct.std::pair.138", ptr %__first, i64 %__parent.019.i.i100
   %11 = load i32, ptr %add.ptr.i.i, align 4
   %cmp.i.i.i.i = icmp ult i32 %11, %__value.sroa.0.0.extract.trunc.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.while.body_crit_edge.i.i, label %lor.rhs.i.i.i.i
@@ -2523,24 +2523,24 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIjjES4_EEbT_RT0_.exit.i.i: ; pred
 
 while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIjjES4_EEbT_RT0_.exit.i.i, %land.rhs.while.body_crit_edge.i.i
   %13 = phi i32 [ %.pre.i.i, %land.rhs.while.body_crit_edge.i.i ], [ %12, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIjjES4_EEbT_RT0_.exit.i.i ]
-  %add.ptr2.i.i = getelementptr inbounds %"struct.std::pair.138", ptr %__first, i64 %__holeIndex.addr.018.i.i
+  %add.ptr2.i.i = getelementptr inbounds nuw %"struct.std::pair.138", ptr %__first, i64 %__holeIndex.addr.018.i.i
   store i32 %11, ptr %add.ptr2.i.i, align 4
   %second3.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i.i, i64 4
   store i32 %13, ptr %second3.i.i.i, align 4
-  %cmp.i.i = icmp sgt i64 %__parent.019.i.i, %div13
+  %cmp.i.i = icmp samesign ugt i64 %__parent.019.i.i100, %div13
   br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit, !llvm.loop !41
 
 _ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit: ; preds = %lor.rhs.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIjjES4_EEbT_RT0_.exit.i.i, %while.body.i.i, %if.end18.i
-  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end18.i ], [ %__holeIndex.addr.018.i.i, %lor.rhs.i.i.i.i ], [ %__parent.019.i.i, %while.body.i.i ], [ %__holeIndex.addr.018.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIjjES4_EEbT_RT0_.exit.i.i ]
-  %add.ptr6.i.i = getelementptr inbounds %"struct.std::pair.138", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
+  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end18.i ], [ %__holeIndex.addr.018.i.i, %lor.rhs.i.i.i.i ], [ %__parent.019.i.i100, %while.body.i.i ], [ %__holeIndex.addr.018.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIjjES4_EEbT_RT0_.exit.i.i ]
+  %add.ptr6.i.i = getelementptr inbounds nuw %"struct.std::pair.138", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
   store i64 %__value.sroa.0.0.copyload10, ptr %add.ptr6.i.i, align 4
   %cmp687 = icmp ult i64 %sub, 2
   br i1 %cmp687, label %return, label %if.end8.split.lr.ph
 
 if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit
   %sub13.i53 = or disjoint i64 %sub, 1
-  %add.ptr14.i54 = getelementptr inbounds %"struct.std::pair.138", ptr %__first, i64 %sub13.i53
-  %add.ptr15.i55 = getelementptr inbounds %"struct.std::pair.138", ptr %__first, i64 %div8.i
+  %add.ptr14.i54 = getelementptr inbounds nuw %"struct.std::pair.138", ptr %__first, i64 %sub13.i53
+  %add.ptr15.i55 = getelementptr inbounds nuw %"struct.std::pair.138", ptr %__first, i64 %div8.i
   %second.i23.i56 = getelementptr inbounds nuw i8, ptr %add.ptr14.i54, i64 4
   %second3.i24.i57 = getelementptr inbounds nuw i8, ptr %add.ptr15.i55, i64 4
   br label %if.end8.split
@@ -3172,9 +3172,9 @@ if.end.split:                                     ; preds = %entry
 
 while.body.i:                                     ; preds = %if.end.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.thread26.i
   %__holeIndex.addr.030.i = phi i64 [ %5, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.thread26.i ], [ %div17, %if.end.split ]
-  %add.i = shl i64 %__holeIndex.addr.030.i, 1
-  %mul.i = add i64 %add.i, 2
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %mul.i
+  %add.i = shl nuw nsw i64 %__holeIndex.addr.030.i, 1
+  %mul.i = add nuw nsw i64 %add.i, 2
+  %add.ptr.i = getelementptr inbounds nuw %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %mul.i
   %0 = getelementptr %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %add.i
   %add.ptr2.i = getelementptr i8, ptr %0, i64 16
   %depth.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 12
@@ -3203,8 +3203,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.thread26.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.i, %lor.rhs.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.thread.i
   %5 = phi i64 [ %dec23.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.thread.i ], [ %mul.i, %lor.rhs.i.i.i ], [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.i ]
-  %add.ptr3.i = getelementptr inbounds %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %5
-  %add.ptr4.i = getelementptr inbounds %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %__holeIndex.addr.030.i
+  %add.ptr3.i = getelementptr inbounds nuw %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %5
+  %add.ptr4.i = getelementptr inbounds nuw %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %__holeIndex.addr.030.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %add.ptr4.i, ptr noundef nonnull align 4 dereferenceable(16) %add.ptr3.i, i64 16, i1 false)
   %cmp.i = icmp slt i64 %5, %div.i8183
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !51
@@ -3213,16 +3213,16 @@ while.end.i:                                      ; preds = %_ZNK9__gnu_cxx5__op
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %div17, %if.end.split ], [ %5, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.thread26.i ]
   %6 = and i64 %sub.ptr.sub, 16
   %cmp5.i = icmp eq i64 %6, 0
-  %div7.i = ashr exact i64 %sub, 1
+  %div7.i = lshr exact i64 %sub, 1
   %cmp8.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i, %div7.i
   %or.cond = select i1 %cmp5.i, i1 %cmp8.i, i1 false
   br i1 %or.cond, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %while.end.i
-  %add10.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
+  %add10.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i, 1
   %sub12.i = or disjoint i64 %add10.i, 1
-  %add.ptr13.i = getelementptr inbounds %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %sub12.i
-  %add.ptr14.i = getelementptr inbounds %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr13.i = getelementptr inbounds nuw %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %sub12.i
+  %add.ptr14.i = getelementptr inbounds nuw %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %add.ptr14.i, ptr noundef nonnull align 4 dereferenceable(16) %add.ptr13.i, i64 16, i1 false)
   br label %if.end16.i
 
@@ -3238,10 +3238,10 @@ land.rhs.lr.ph.i.i:                               ; preds = %if.end16.i
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
-  %__holeIndex.addr.014.i.i = phi i64 [ %__holeIndex.addr.1.i, %land.rhs.lr.ph.i.i ], [ %__parent.015.i.i, %while.body.i.i ]
+  %__holeIndex.addr.014.i.i = phi i64 [ %__holeIndex.addr.1.i, %land.rhs.lr.ph.i.i ], [ %__parent.015.i.i96, %while.body.i.i ]
   %__parent.015.in.i.i = add nsw i64 %__holeIndex.addr.014.i.i, -1
-  %__parent.015.i.i = sdiv i64 %__parent.015.in.i.i, 2
-  %add.ptr.i.i = getelementptr inbounds %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %__parent.015.i.i
+  %__parent.015.i.i96 = lshr i64 %__parent.015.in.i.i, 1
+  %add.ptr.i.i = getelementptr inbounds nuw %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %__parent.015.i.i96
   %depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 12
   %7 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp ugt i32 %7, %__value.sroa.3.12.extract.trunc.i.i
@@ -3257,14 +3257,14 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN6hermes20ExceptionHandlerInfoES4_EEbT_R
   br i1 %cmp7.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN6hermes20ExceptionHandlerInfoElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN6hermes20ExceptionHandlerInfoES4_EEbT_RT0_.exit.i.i, %land.rhs.i.i
-  %add.ptr2.i.i = getelementptr inbounds %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %__holeIndex.addr.014.i.i
+  %add.ptr2.i.i = getelementptr inbounds nuw %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %__holeIndex.addr.014.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %add.ptr2.i.i, ptr noundef nonnull align 4 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false)
-  %cmp.i.i = icmp sgt i64 %__parent.015.i.i, %div17
+  %cmp.i.i = icmp samesign ugt i64 %__parent.015.i.i96, %div17
   br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN6hermes20ExceptionHandlerInfoElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit, !llvm.loop !52
 
 _ZSt13__adjust_heapIPN6hermes20ExceptionHandlerInfoElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit: ; preds = %lor.rhs.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN6hermes20ExceptionHandlerInfoES4_EEbT_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
-  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.014.i.i, %lor.rhs.i.i.i.i ], [ %__parent.015.i.i, %while.body.i.i ], [ %__holeIndex.addr.014.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN6hermes20ExceptionHandlerInfoES4_EEbT_RT0_.exit.i.i ]
-  %add.ptr5.i.i = getelementptr inbounds %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
+  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.014.i.i, %lor.rhs.i.i.i.i ], [ %__parent.015.i.i96, %while.body.i.i ], [ %__holeIndex.addr.014.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN6hermes20ExceptionHandlerInfoES4_EEbT_RT0_.exit.i.i ]
+  %add.ptr5.i.i = getelementptr inbounds nuw %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
   store i64 %__value.sroa.0.0.copyload10, ptr %add.ptr5.i.i, align 4
   %__value.sroa.3.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i, i64 8
   store i64 %__value.sroa.2.0.copyload12, ptr %__value.sroa.3.0.add.ptr5.sroa_idx.i.i, align 4
@@ -3273,8 +3273,8 @@ _ZSt13__adjust_heapIPN6hermes20ExceptionHandlerInfoElS1_N9__gnu_cxx5__ops15_Iter
 
 if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heapIPN6hermes20ExceptionHandlerInfoElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit
   %sub12.i55 = or disjoint i64 %sub, 1
-  %add.ptr13.i56 = getelementptr inbounds %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %sub12.i55
-  %add.ptr14.i57 = getelementptr inbounds %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %div7.i
+  %add.ptr13.i56 = getelementptr inbounds nuw %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %sub12.i55
+  %add.ptr14.i57 = getelementptr inbounds nuw %"struct.hermes::ExceptionHandlerInfo", ptr %__first, i64 %div7.i
   br label %if.end8.split
 
 if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPN6hermes20ExceptionHandlerInfoElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit80

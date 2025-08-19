@@ -1962,9 +1962,9 @@ _ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ERKS1_.exit.i152: ; preds = %
   store ptr %116, ptr %115, align 8, !tbaa !230, !noalias !259
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4) %116, ptr noundef nonnull align 8 dereferenceable(4) %109, i64 %854, i1 false), !noalias !259
   store i64 %854, ptr %117, align 8, !tbaa !70, !noalias !259
-  %.sroa.sel263.v = select i1 %304, i64 52, i64 53
-  %.sroa.sel263 = getelementptr inbounds nuw i8, ptr %13, i64 %.sroa.sel263.v
-  store i8 0, ptr %.sroa.sel263, align 1, !tbaa !64, !noalias !259
+  %.sroa.sel377.v = select i1 %304, i64 52, i64 53
+  %.sroa.sel377 = getelementptr inbounds nuw i8, ptr %13, i64 %.sroa.sel377.v
+  store i8 0, ptr %.sroa.sel377, align 1, !tbaa !64, !noalias !259
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, i8 0, i64 16, i1 false)
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS0_8ArgumentE(ptr noundef nonnull align 8 dereferenceable(432) %21, ptr noundef nonnull %13) #9, !noalias !259
   %855 = load ptr, ptr %115, align 8, !tbaa !65, !noalias !259

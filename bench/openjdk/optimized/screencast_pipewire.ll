@@ -1668,11 +1668,11 @@ arrayToRectangles.exit:                           ; preds = %._crit_edge.i, %45,
   br i1 %.not112, label %.thread, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.pr152 = phi ptr [ %.pr.pre, %._crit_edge ], [ %91, %.preheader ]
+  %.pr161 = phi ptr [ %.pr.pre, %._crit_edge ], [ %91, %.preheader ]
   %115 = load ptr, ptr @gtk, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 504
   %117 = load ptr, ptr %116, align 8
-  call void %117(ptr noundef nonnull %.pr152) #16
+  call void %117(ptr noundef nonnull %.pr161) #16
   store ptr null, ptr %88, align 8
   br label %.thread
 
@@ -2673,10 +2673,10 @@ spa_pod_is_object.exit.i.i:                       ; preds = %52
 .thread:                                          ; preds = %spa_pod_is_object.exit.i.i
   %58 = or disjoint i32 %.pre27.i, 8
   store ptr %2, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i.i28.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %58, ptr %.sroa.2.0..sroa_idx.i.i28.i, align 8
-  %.sroa.3.0..sroa_idx.i.i29.i = getelementptr inbounds nuw i8, ptr %4, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.3.0..sroa_idx.i.i29.i, i8 0, i64 20, i1 false)
+  %.sroa.2.0..sroa_idx.i.i32.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %58, ptr %.sroa.2.0..sroa_idx.i.i32.i, align 8
+  %.sroa.3.0..sroa_idx.i.i33.i = getelementptr inbounds nuw i8, ptr %4, i64 12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.3.0..sroa_idx.i.i33.i, i8 0, i64 20, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %86
@@ -2984,8 +2984,8 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
   %.not111 = icmp eq i32 %95, %57
   %.pre = load i32, ptr %11, align 8
   %.not112 = icmp eq i32 %.pre, %59
-  %or.cond117 = select i1 %.not111, i1 %.not112, i1 false
-  br i1 %or.cond117, label %109, label %96
+  %or.cond123 = select i1 %.not111, i1 %.not112, i1 false
+  br i1 %or.cond123, label %109, label %96
 
 96:                                               ; preds = %55
   %97 = load i32, ptr %3, align 8
@@ -3621,9 +3621,9 @@ spa_pod_parser_can_collect.exit.i:                ; preds = %273
 
 289:                                              ; preds = %287
   %290 = icmp ult i32 %100, 41
-  br i1 %290, label %293, label %.thread172.i
+  br i1 %290, label %293, label %.thread219.i
 
-.thread172.i:                                     ; preds = %289
+.thread219.i:                                     ; preds = %289
   %291 = load ptr, ptr %11, align 8
   %292 = getelementptr i8, ptr %291, i64 8
   br label %298
@@ -3643,17 +3643,17 @@ spa_pod_parser_can_collect.exit.i:                ; preds = %273
   store i32 %297, ptr %2, align 16
   br label %.backedge
 
-298:                                              ; preds = %._crit_edge10, %.thread172.i
-  %299 = phi ptr [ %.pre11, %._crit_edge10 ], [ %292, %.thread172.i ]
+298:                                              ; preds = %._crit_edge10, %.thread219.i
+  %299 = phi ptr [ %.pre11, %._crit_edge10 ], [ %292, %.thread219.i ]
   %300 = getelementptr i8, ptr %299, i64 8
   store ptr %300, ptr %11, align 8
   br label %.backedge
 
 301:                                              ; preds = %287
   %302 = icmp ult i32 %100, 41
-  br i1 %302, label %305, label %.thread173.i
+  br i1 %302, label %305, label %.thread220.i
 
-.thread173.i:                                     ; preds = %301
+.thread220.i:                                     ; preds = %301
   %303 = load ptr, ptr %11, align 8
   %304 = getelementptr i8, ptr %303, i64 8
   br label %thread-pre-split.i.thread
@@ -3673,8 +3673,8 @@ spa_pod_parser_can_collect.exit.i:                ; preds = %273
   store i32 %309, ptr %2, align 16
   br label %thread-pre-split.i
 
-thread-pre-split.i.thread:                        ; preds = %.thread173.i, %._crit_edge5
-  %310 = phi ptr [ %.pre6, %._crit_edge5 ], [ %304, %.thread173.i ]
+thread-pre-split.i.thread:                        ; preds = %.thread220.i, %._crit_edge5
+  %310 = phi ptr [ %.pre6, %._crit_edge5 ], [ %304, %.thread220.i ]
   %311 = getelementptr i8, ptr %310, i64 8
   store ptr %311, ptr %11, align 8
   br label %thread-pre-split157.i.thread
@@ -3715,9 +3715,9 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   br label %19
 
 325:                                              ; preds = %171
-  %.2.idx192.i = select i1 %156, i64 16, i64 0
-  %.2193.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx192.i
-  %326 = getelementptr inbounds nuw i8, ptr %.2193.i, i64 8
+  %.2.idx239.i = select i1 %156, i64 16, i64 0
+  %.2240.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx239.i
+  %326 = getelementptr inbounds nuw i8, ptr %.2240.i, i64 8
   %327 = load i32, ptr %326, align 4
   %328 = icmp ne i32 %327, 0
   %329 = icmp ult i32 %100, 41
@@ -3745,9 +3745,9 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   br label %662
 
 342:                                              ; preds = %185, %178
-  %.2.idx181.i = select i1 %156, i64 16, i64 0
-  %.2182.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx181.i
-  %343 = getelementptr inbounds nuw i8, ptr %.2182.i, i64 8
+  %.2.idx228.i = select i1 %156, i64 16, i64 0
+  %.2229.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx228.i
+  %343 = getelementptr inbounds nuw i8, ptr %.2229.i, i64 8
   %344 = load i32, ptr %343, align 4
   %345 = icmp ult i32 %100, 41
   br i1 %345, label %346, label %351
@@ -3773,9 +3773,9 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   br label %662
 
 357:                                              ; preds = %192
-  %.2.idx197.i = select i1 %156, i64 16, i64 0
-  %.2198.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx197.i
-  %358 = getelementptr inbounds nuw i8, ptr %.2198.i, i64 8
+  %.2.idx244.i = select i1 %156, i64 16, i64 0
+  %.2245.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx244.i
+  %358 = getelementptr inbounds nuw i8, ptr %.2245.i, i64 8
   %359 = load i64, ptr %358, align 8
   %360 = icmp ult i32 %100, 41
   br i1 %360, label %361, label %366
@@ -3801,9 +3801,9 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   br label %662
 
 372:                                              ; preds = %199
-  %.2.idx202.i = select i1 %156, i64 16, i64 0
-  %.2203.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx202.i
-  %373 = getelementptr inbounds nuw i8, ptr %.2203.i, i64 8
+  %.2.idx249.i = select i1 %156, i64 16, i64 0
+  %.2250.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx249.i
+  %373 = getelementptr inbounds nuw i8, ptr %.2250.i, i64 8
   %374 = load float, ptr %373, align 4
   %375 = icmp ult i32 %100, 41
   br i1 %375, label %376, label %381
@@ -3829,9 +3829,9 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   br label %662
 
 387:                                              ; preds = %206
-  %.2.idx207.i = select i1 %156, i64 16, i64 0
-  %.2208.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx207.i
-  %388 = getelementptr inbounds nuw i8, ptr %.2208.i, i64 8
+  %.2.idx254.i = select i1 %156, i64 16, i64 0
+  %.2255.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx254.i
+  %388 = getelementptr inbounds nuw i8, ptr %.2255.i, i64 8
   %389 = load double, ptr %388, align 8
   %390 = icmp ult i32 %100, 41
   br i1 %390, label %391, label %396
@@ -3857,12 +3857,12 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   br label %662
 
 402:                                              ; preds = %spa_pod_is_string.exit.i.i, %209
-  %.2.idx187.i = select i1 %156, i64 16, i64 0
-  %.2188.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx187.i
-  %403 = getelementptr inbounds nuw i8, ptr %.2188.i, i64 4
+  %.2.idx234.i = select i1 %156, i64 16, i64 0
+  %.2235.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx234.i
+  %403 = getelementptr inbounds nuw i8, ptr %.2235.i, i64 4
   %404 = load i32, ptr %403, align 4
   %405 = icmp eq i32 %404, 1
-  %406 = ptrtoint ptr %.2188.i to i64
+  %406 = ptrtoint ptr %.2235.i to i64
   %407 = add i64 %406, 8
   %408 = inttoptr i64 %407 to ptr
   %409 = select i1 %405, ptr null, ptr %408
@@ -3890,12 +3890,12 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   br label %662
 
 422:                                              ; preds = %230
-  %.2.idx212.i = select i1 %156, i64 16, i64 0
-  %.2213.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx212.i
+  %.2.idx259.i = select i1 %156, i64 16, i64 0
+  %.2260.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx259.i
   %423 = icmp ult i32 %100, 41
-  br i1 %423, label %427, label %.thread245.i
+  br i1 %423, label %427, label %.thread292.i
 
-.thread245.i:                                     ; preds = %422
+.thread292.i:                                     ; preds = %422
   %424 = load ptr, ptr %11, align 8
   %425 = getelementptr i8, ptr %424, i64 8
   store ptr %425, ptr %11, align 8
@@ -3923,9 +3923,9 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   store i32 %437, ptr %2, align 16
   br label %442
 
-438:                                              ; preds = %._crit_edge, %.thread245.i
-  %439 = phi ptr [ %425, %.thread245.i ], [ %.pre, %._crit_edge ]
-  %440 = phi ptr [ %426, %.thread245.i ], [ %432, %._crit_edge ]
+438:                                              ; preds = %._crit_edge, %.thread292.i
+  %439 = phi ptr [ %425, %.thread292.i ], [ %.pre, %._crit_edge ]
+  %440 = phi ptr [ %426, %.thread292.i ], [ %432, %._crit_edge ]
   %441 = getelementptr i8, ptr %439, i64 8
   store ptr %441, ptr %11, align 8
   br label %442
@@ -3934,7 +3934,7 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   %443 = phi ptr [ %432, %434 ], [ %440, %438 ]
   %444 = phi ptr [ %436, %434 ], [ %439, %438 ]
   %445 = load i32, ptr %444, align 4
-  %446 = ptrtoint ptr %.2213.i to i64
+  %446 = ptrtoint ptr %.2260.i to i64
   %447 = add i64 %446, 8
   %448 = inttoptr i64 %447 to ptr
   %449 = add i32 %445, -1
@@ -3945,9 +3945,9 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   br label %662
 
 453:                                              ; preds = %236
-  %.2.idx217.i = select i1 %156, i64 16, i64 0
-  %.2218.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx217.i
-  %454 = ptrtoint ptr %.2218.i to i64
+  %.2.idx264.i = select i1 %156, i64 16, i64 0
+  %.2265.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx264.i
+  %454 = ptrtoint ptr %.2265.i to i64
   %455 = add i64 %454, 8
   %456 = inttoptr i64 %455 to ptr
   %457 = icmp ult i32 %100, 41
@@ -3971,7 +3971,7 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   %467 = phi ptr [ %461, %458 ], [ %464, %463 ]
   %468 = load ptr, ptr %467, align 8
   store ptr %456, ptr %468, align 8
-  %469 = load i32, ptr %.2218.i, align 4
+  %469 = load i32, ptr %.2265.i, align 4
   %470 = load i32, ptr %2, align 16
   %471 = icmp ult i32 %470, 41
   br i1 %471, label %472, label %477
@@ -3997,8 +3997,8 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   br label %662
 
 483:                                              ; preds = %243
-  %.2.idx222.i = select i1 %156, i64 16, i64 0
-  %.2223.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx222.i
+  %.2.idx269.i = select i1 %156, i64 16, i64 0
+  %.2270.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx269.i
   %484 = icmp ult i32 %100, 41
   br i1 %484, label %485, label %490
 
@@ -4019,14 +4019,14 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
 493:                                              ; preds = %490, %485
   %494 = phi ptr [ %488, %485 ], [ %491, %490 ]
   %495 = load ptr, ptr %494, align 8
-  %496 = getelementptr inbounds nuw i8, ptr %.2223.i, i64 8
+  %496 = getelementptr inbounds nuw i8, ptr %.2270.i, i64 8
   %497 = load i64, ptr %496, align 4
   store i64 %497, ptr %495, align 4
   br label %662
 
 498:                                              ; preds = %250
-  %.2.idx227.i = select i1 %156, i64 16, i64 0
-  %.2228.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx227.i
+  %.2.idx274.i = select i1 %156, i64 16, i64 0
+  %.2275.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx274.i
   %499 = icmp ult i32 %100, 41
   br i1 %499, label %500, label %505
 
@@ -4047,15 +4047,15 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
 508:                                              ; preds = %505, %500
   %509 = phi ptr [ %503, %500 ], [ %506, %505 ]
   %510 = load ptr, ptr %509, align 8
-  %511 = getelementptr inbounds nuw i8, ptr %.2228.i, i64 8
+  %511 = getelementptr inbounds nuw i8, ptr %.2275.i, i64 8
   %512 = load i64, ptr %511, align 4
   store i64 %512, ptr %510, align 4
   br label %662
 
 513:                                              ; preds = %257
-  %.2.idx232.i = select i1 %156, i64 16, i64 0
-  %.2233.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx232.i
-  %514 = ptrtoint ptr %.2233.i to i64
+  %.2.idx279.i = select i1 %156, i64 16, i64 0
+  %.2280.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx279.i
+  %514 = ptrtoint ptr %.2280.i to i64
   %515 = add i64 %514, 8
   %516 = inttoptr i64 %515 to ptr
   %517 = icmp ult i32 %100, 41
@@ -4082,9 +4082,9 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   br label %662
 
 529:                                              ; preds = %263
-  %.2.idx237.i = select i1 %156, i64 16, i64 0
-  %.2238.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx237.i
-  %530 = getelementptr inbounds nuw i8, ptr %.2238.i, i64 8
+  %.2.idx284.i = select i1 %156, i64 16, i64 0
+  %.2285.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx284.i
+  %530 = getelementptr inbounds nuw i8, ptr %.2285.i, i64 8
   %531 = load i32, ptr %530, align 4
   %532 = icmp ult i32 %100, 41
   br i1 %532, label %533, label %538
@@ -4107,7 +4107,7 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   %542 = phi ptr [ %536, %533 ], [ %539, %538 ]
   %543 = load ptr, ptr %542, align 8
   store i32 %531, ptr %543, align 4
-  %544 = getelementptr inbounds nuw i8, ptr %.2238.i, i64 12
+  %544 = getelementptr inbounds nuw i8, ptr %.2285.i, i64 12
   %545 = load i32, ptr %544, align 4
   %546 = load i32, ptr %2, align 16
   %547 = icmp ult i32 %546, 41
@@ -4136,7 +4136,7 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   br i1 %.not132.i, label %567, label %560
 
 560:                                              ; preds = %556
-  %561 = load i32, ptr %.2238.i, align 4
+  %561 = load i32, ptr %.2285.i, align 4
   %562 = zext i32 %561 to i64
   %563 = add nsw i64 %562, -8
   %564 = zext i32 %559 to i64
@@ -4168,7 +4168,7 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   %580 = phi ptr [ %574, %571 ], [ %577, %576 ]
   %581 = load ptr, ptr %580, align 8
   store i32 %568, ptr %581, align 4
-  %582 = ptrtoint ptr %.2238.i to i64
+  %582 = ptrtoint ptr %.2285.i to i64
   %583 = add i64 %582, 16
   %584 = inttoptr i64 %583 to ptr
   %585 = load i32, ptr %2, align 16
@@ -4196,9 +4196,9 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   br label %662
 
 598:                                              ; preds = %270
-  %.2.idx242.i = select i1 %156, i64 16, i64 0
-  %.2243.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx242.i
-  %599 = ptrtoint ptr %.2243.i to i64
+  %.2.idx289.i = select i1 %156, i64 16, i64 0
+  %.2290.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx289.i
+  %599 = ptrtoint ptr %.2290.i to i64
   %600 = add i64 %599, 8
   %601 = inttoptr i64 %600 to ptr
   %602 = load i32, ptr %601, align 8
@@ -4278,10 +4278,10 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   br label %662
 
 645:                                              ; preds = %spa_pod_is_object.exit.i.i, %279, %277, %277, %166, %159
-  %.lcssa47 = phi i1 [ %156, %spa_pod_is_object.exit.i.i ], [ %156, %279 ], [ %156, %277 ], [ %156, %277 ], [ %156, %166 ], [ true, %159 ]
+  %.lcssa72 = phi i1 [ %156, %spa_pod_is_object.exit.i.i ], [ %156, %279 ], [ %156, %277 ], [ %156, %277 ], [ %156, %166 ], [ true, %159 ]
   %.not130.ph.i = phi i64 [ 16, %spa_pod_is_object.exit.i.i ], [ 16, %279 ], [ 16, %277 ], [ 16, %277 ], [ 16, %166 ], [ 0, %159 ]
-  %.2.idx175.i = select i1 %.lcssa47, i64 %.not130.ph.i, i64 0
-  %.2176.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx175.i
+  %.2.idx222.i = select i1 %.lcssa72, i64 %.not130.ph.i, i64 0
+  %.2223.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx222.i
   %646 = icmp ult i32 %100, 41
   br i1 %646, label %647, label %652
 
@@ -4306,10 +4306,10 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   br i1 %.not131.i, label %662, label %658
 
 658:                                              ; preds = %655
-  %659 = getelementptr inbounds nuw i8, ptr %.2176.i, i64 4
+  %659 = getelementptr inbounds nuw i8, ptr %.2223.i, i64 4
   %660 = load i32, ptr %659, align 4
   %661 = icmp eq i32 %660, 1
-  %spec.select.i = select i1 %661, ptr null, ptr %.2176.i
+  %spec.select.i = select i1 %661, ptr null, ptr %.2223.i
   store ptr %spec.select.i, ptr %657, align 8
   br label %662
 
@@ -4785,14 +4785,14 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   br i1 %216, label %.lr.ph.preheader.i, label %._crit_edge.thread.i
 
 .lr.ph.preheader.i:                               ; preds = %213, %167
-  %.0206.i = phi ptr [ %spec.select.i, %213 ], [ %165, %167 ]
-  %.084205.i = phi i32 [ %215, %213 ], [ 1, %167 ]
+  %.0270.i = phi ptr [ %spec.select.i, %213 ], [ %165, %167 ]
+  %.084269.i = phi i32 [ %215, %213 ], [ 1, %167 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %spa_pod_builder_primitive.exit.i, %.lr.ph.preheader.i
-  %.in.i = phi i32 [ %217, %spa_pod_builder_primitive.exit.i ], [ %.084205.i, %.lr.ph.preheader.i ]
+  %.in.i = phi i32 [ %217, %spa_pod_builder_primitive.exit.i ], [ %.084269.i, %.lr.ph.preheader.i ]
   %217 = add nsw i32 %.in.i, -1
-  %218 = load i8, ptr %.0206.i, align 1
+  %218 = load i8, ptr %.0270.i, align 1
   switch i8 %218, label %spa_pod_builder_primitive.exit.i [
     i8 98, label %219
     i8 73, label %235
@@ -5042,9 +5042,9 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
 324:                                              ; preds = %.lr.ph.i
   %325 = load i32, ptr %16, align 16
   %326 = icmp ult i32 %325, 41
-  br i1 %326, label %330, label %.thread207.i
+  br i1 %326, label %330, label %.thread271.i
 
-.thread207.i:                                     ; preds = %324
+.thread271.i:                                     ; preds = %324
   %327 = load ptr, ptr %24, align 8
   %328 = getelementptr i8, ptr %327, i64 8
   store ptr %328, ptr %24, align 8
@@ -5072,9 +5072,9 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   store i32 %340, ptr %16, align 16
   br label %345
 
-341:                                              ; preds = %._crit_edge11, %.thread207.i
-  %342 = phi ptr [ %328, %.thread207.i ], [ %.pre12, %._crit_edge11 ]
-  %343 = phi ptr [ %329, %.thread207.i ], [ %335, %._crit_edge11 ]
+341:                                              ; preds = %._crit_edge11, %.thread271.i
+  %342 = phi ptr [ %328, %.thread271.i ], [ %.pre12, %._crit_edge11 ]
+  %343 = phi ptr [ %329, %.thread271.i ], [ %335, %._crit_edge11 ]
   %344 = getelementptr i8, ptr %342, i64 8
   store ptr %344, ptr %24, align 8
   br label %345
@@ -5089,9 +5089,9 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
 349:                                              ; preds = %.lr.ph.i
   %350 = load i32, ptr %16, align 16
   %351 = icmp ult i32 %350, 41
-  br i1 %351, label %355, label %.thread208.i
+  br i1 %351, label %355, label %.thread272.i
 
-.thread208.i:                                     ; preds = %349
+.thread272.i:                                     ; preds = %349
   %352 = load ptr, ptr %24, align 8
   %353 = getelementptr i8, ptr %352, i64 8
   store ptr %353, ptr %24, align 8
@@ -5119,9 +5119,9 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   store i32 %365, ptr %16, align 16
   br label %370
 
-366:                                              ; preds = %._crit_edge9, %.thread208.i
-  %367 = phi ptr [ %353, %.thread208.i ], [ %.pre10, %._crit_edge9 ]
-  %368 = phi ptr [ %354, %.thread208.i ], [ %360, %._crit_edge9 ]
+366:                                              ; preds = %._crit_edge9, %.thread272.i
+  %367 = phi ptr [ %353, %.thread272.i ], [ %.pre10, %._crit_edge9 ]
+  %368 = phi ptr [ %354, %.thread272.i ], [ %360, %._crit_edge9 ]
   %369 = getelementptr i8, ptr %367, i64 8
   store ptr %369, ptr %24, align 8
   br label %370
@@ -5261,14 +5261,14 @@ spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.
 431:                                              ; preds = %.lr.ph.i
   %432 = load i32, ptr %16, align 16
   %433 = icmp ult i32 %432, 41
-  br i1 %433, label %437, label %.thread209.i
+  br i1 %433, label %437, label %.thread273.i
 
-.thread209.i:                                     ; preds = %431
+.thread273.i:                                     ; preds = %431
   %434 = load ptr, ptr %24, align 8
   %435 = getelementptr i8, ptr %434, i64 8
   store ptr %435, ptr %24, align 8
   %436 = load i32, ptr %434, align 4
-  br label %.thread212.i
+  br label %.thread276.i
 
 437:                                              ; preds = %431
   %438 = load ptr, ptr %25, align 16
@@ -5278,19 +5278,19 @@ spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.
   store i32 %441, ptr %16, align 16
   %442 = load i32, ptr %440, align 4
   %443 = icmp samesign ult i32 %432, 33
-  br i1 %443, label %448, label %..thread212.i_crit_edge
+  br i1 %443, label %448, label %..thread276.i_crit_edge
 
-..thread212.i_crit_edge:                          ; preds = %437
+..thread276.i_crit_edge:                          ; preds = %437
   %.pre5 = load ptr, ptr %24, align 8
-  br label %.thread212.i
+  br label %.thread276.i
 
-.thread212.i:                                     ; preds = %..thread212.i_crit_edge, %.thread209.i
-  %444 = phi ptr [ %435, %.thread209.i ], [ %.pre5, %..thread212.i_crit_edge ]
-  %445 = phi i32 [ %436, %.thread209.i ], [ %442, %..thread212.i_crit_edge ]
+.thread276.i:                                     ; preds = %..thread276.i_crit_edge, %.thread273.i
+  %444 = phi ptr [ %435, %.thread273.i ], [ %.pre5, %..thread276.i_crit_edge ]
+  %445 = phi i32 [ %436, %.thread273.i ], [ %442, %..thread276.i_crit_edge ]
   %446 = getelementptr i8, ptr %444, i64 8
   store ptr %446, ptr %24, align 8
   %447 = load i32, ptr %444, align 4
-  br label %.thread215.i
+  br label %.thread279.i
 
 448:                                              ; preds = %437
   %449 = zext nneg i32 %441 to i64
@@ -5299,16 +5299,16 @@ spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.
   store i32 %451, ptr %16, align 16
   %452 = load i32, ptr %450, align 4
   %453 = icmp samesign ult i32 %432, 25
-  br i1 %453, label %459, label %..thread215.i_crit_edge
+  br i1 %453, label %459, label %..thread279.i_crit_edge
 
-..thread215.i_crit_edge:                          ; preds = %448
+..thread279.i_crit_edge:                          ; preds = %448
   %.pre6 = load ptr, ptr %24, align 8
-  br label %.thread215.i
+  br label %.thread279.i
 
-.thread215.i:                                     ; preds = %..thread215.i_crit_edge, %.thread212.i
-  %454 = phi ptr [ %446, %.thread212.i ], [ %.pre6, %..thread215.i_crit_edge ]
-  %455 = phi i32 [ %447, %.thread212.i ], [ %452, %..thread215.i_crit_edge ]
-  %456 = phi i32 [ %445, %.thread212.i ], [ %442, %..thread215.i_crit_edge ]
+.thread279.i:                                     ; preds = %..thread279.i_crit_edge, %.thread276.i
+  %454 = phi ptr [ %446, %.thread276.i ], [ %.pre6, %..thread279.i_crit_edge ]
+  %455 = phi i32 [ %447, %.thread276.i ], [ %452, %..thread279.i_crit_edge ]
+  %456 = phi i32 [ %445, %.thread276.i ], [ %442, %..thread279.i_crit_edge ]
   %457 = getelementptr i8, ptr %454, i64 8
   store ptr %457, ptr %24, align 8
   %458 = load i32, ptr %454, align 4
@@ -5334,11 +5334,11 @@ spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.
   store i32 %468, ptr %16, align 16
   br label %475
 
-469:                                              ; preds = %._crit_edge7, %.thread215.i
-  %470 = phi ptr [ %457, %.thread215.i ], [ %.pre8, %._crit_edge7 ]
-  %471 = phi i32 [ %458, %.thread215.i ], [ %463, %._crit_edge7 ]
-  %472 = phi i32 [ %456, %.thread215.i ], [ %442, %._crit_edge7 ]
-  %473 = phi i32 [ %455, %.thread215.i ], [ %452, %._crit_edge7 ]
+469:                                              ; preds = %._crit_edge7, %.thread279.i
+  %470 = phi ptr [ %457, %.thread279.i ], [ %.pre8, %._crit_edge7 ]
+  %471 = phi i32 [ %458, %.thread279.i ], [ %463, %._crit_edge7 ]
+  %472 = phi i32 [ %456, %.thread279.i ], [ %442, %._crit_edge7 ]
+  %473 = phi i32 [ %455, %.thread279.i ], [ %452, %._crit_edge7 ]
   %474 = getelementptr i8, ptr %470, i64 8
   store ptr %474, ptr %24, align 8
   br label %475
@@ -5418,9 +5418,9 @@ spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.
 506:                                              ; preds = %.lr.ph.i
   %507 = load i32, ptr %16, align 16
   %508 = icmp ult i32 %507, 41
-  br i1 %508, label %512, label %.thread216.i
+  br i1 %508, label %512, label %.thread280.i
 
-.thread216.i:                                     ; preds = %506
+.thread280.i:                                     ; preds = %506
   %509 = load ptr, ptr %24, align 8
   %510 = getelementptr i8, ptr %509, i64 8
   store ptr %510, ptr %24, align 8
@@ -5448,9 +5448,9 @@ spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.
   store i32 %522, ptr %16, align 16
   br label %527
 
-523:                                              ; preds = %._crit_edge3, %.thread216.i
-  %524 = phi ptr [ %510, %.thread216.i ], [ %.pre4, %._crit_edge3 ]
-  %525 = phi i32 [ %511, %.thread216.i ], [ %517, %._crit_edge3 ]
+523:                                              ; preds = %._crit_edge3, %.thread280.i
+  %524 = phi ptr [ %510, %.thread280.i ], [ %.pre4, %._crit_edge3 ]
+  %525 = phi i32 [ %511, %.thread280.i ], [ %517, %._crit_edge3 ]
   %526 = getelementptr i8, ptr %524, i64 8
   store ptr %526, ptr %24, align 8
   br label %527

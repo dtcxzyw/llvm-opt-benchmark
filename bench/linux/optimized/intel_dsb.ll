@@ -1253,18 +1253,18 @@ define dso_local void @intel_dsb_wait(ptr noundef %0) local_unnamed_addr #0 alig
   %264 = add i32 %263, 15
   %265 = and i32 %264, -16
   %266 = icmp ult i32 %262, %265
-  br i1 %266, label %.split, label %.loopexit.thread22, !llvm.loop !32
+  br i1 %266, label %.split, label %.loopexit.thread35, !llvm.loop !32
 
 .loopexit:                                        ; preds = %225
-  br i1 %221, label %.loopexit.thread, label %.loopexit.thread22
+  br i1 %221, label %.loopexit.thread, label %.loopexit.thread35
 
-.loopexit.thread22:                               ; preds = %.split, %.loopexit
+.loopexit.thread35:                               ; preds = %.split, %.loopexit
   %267 = getelementptr inbounds nuw i8, ptr %220, i64 8
   %268 = load ptr, ptr %267, align 8
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %.split.us, %.loopexit.thread22, %.loopexit
-  %269 = phi ptr [ %268, %.loopexit.thread22 ], [ null, %.loopexit ], [ null, %.split.us ]
+.loopexit.thread:                                 ; preds = %.split.us, %.loopexit.thread35, %.loopexit
+  %269 = phi ptr [ %268, %.loopexit.thread35 ], [ null, %.loopexit ], [ null, %.split.us ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %269, i32 noundef 2, ptr noundef nonnull @.str.10) #8
   br label %270
 

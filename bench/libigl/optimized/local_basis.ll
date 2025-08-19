@@ -234,9 +234,9 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEE10normalizedEv.exit: ;
   %.sroa.057.0.vec.insert = insertelement <2 x double> poison, double %111, i64 0
   %.sroa.057.8.vec.insert = insertelement <2 x double> %.sroa.057.0.vec.insert, double %114, i64 1
   %118 = fmul <2 x double> %.sroa.057.8.vec.insert, %.sroa.057.8.vec.insert
-  %shift108 = shufflevector <2 x double> %118, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop109 = fadd <2 x double> %118, %shift108
-  %119 = extractelement <2 x double> %foldExtExtBinop109, i64 0
+  %shift118 = shufflevector <2 x double> %118, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop119 = fadd <2 x double> %118, %shift118
+  %119 = extractelement <2 x double> %foldExtExtBinop119, i64 0
   %120 = fmul double %117, %117
   %121 = fadd double %120, %119
   %122 = fcmp ogt double %121, 0.000000e+00

@@ -3429,26 +3429,26 @@ _ZNK7rocksdb25TruncatedRangeDelIterator7end_keyEv.exit: ; preds = %118, %123
   br i1 %133, label %._crit_edge.thread.i.i.i, label %139
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %_ZNK7rocksdb25TruncatedRangeDelIterator7end_keyEv.exit
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %130, %_ZNK7rocksdb25TruncatedRangeDelIterator7end_keyEv.exit ]
+  %.019.lcssa29.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %130, %_ZNK7rocksdb25TruncatedRangeDelIterator7end_keyEv.exit ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %135 = load ptr, ptr %134, align 8, !tbaa !81
-  %136 = icmp eq ptr %.019.lcssa28.i.i.i, %135
+  %136 = icmp eq ptr %.019.lcssa29.i.i.i, %135
   br i1 %136, label %select.unfold.i.i, label %137
 
 137:                                              ; preds = %._crit_edge.thread.i.i.i
-  %138 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #27
+  %138 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i) #27
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %138, i64 32
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !71
   br label %139
 
 139:                                              ; preds = %137, %._crit_edge.i.i.i
   %140 = phi i64 [ %.pre.i.i, %137 ], [ %132, %._crit_edge.i.i.i ]
-  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %137 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %.019.lcssa28.i.i.i = phi ptr [ %.019.lcssa29.i.i.i, %137 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
   %141 = icmp ult i64 %140, %1
   br i1 %141, label %select.unfold.i.i, label %_ZNSt3setImSt4lessImESaImEE6insertERKm.exit
 
 select.unfold.i.i:                                ; preds = %139, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %139 ]
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa29.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa28.i.i.i, %139 ]
   %142 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %130
   br i1 %142, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %143
 
@@ -7146,26 +7146,26 @@ _ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit: ; preds = %60, %67
   br i1 %77, label %._crit_edge.thread.i.i.i, label %83
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %74, %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit ]
+  %.019.lcssa29.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %74, %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %79 = load ptr, ptr %78, align 8, !tbaa !81
-  %80 = icmp eq ptr %.019.lcssa28.i.i.i, %79
+  %80 = icmp eq ptr %.019.lcssa29.i.i.i, %79
   br i1 %80, label %select.unfold.i.i, label %81
 
 81:                                               ; preds = %._crit_edge.thread.i.i.i
-  %82 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #27
+  %82 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i) #27
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %82, i64 32
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !71
   br label %83
 
 83:                                               ; preds = %81, %._crit_edge.i.i.i
   %84 = phi i64 [ %.pre.i.i, %81 ], [ %76, %._crit_edge.i.i.i ]
-  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %81 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %.019.lcssa28.i.i.i = phi ptr [ %.019.lcssa29.i.i.i, %81 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
   %85 = icmp ult i64 %84, %1
   br i1 %85, label %select.unfold.i.i, label %_ZNSt3setImSt4lessImESaImEE6insertERKm.exit
 
 select.unfold.i.i:                                ; preds = %83, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %83 ]
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa29.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa28.i.i.i, %83 ]
   %86 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %74
   br i1 %86, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %87
 
@@ -10021,7 +10021,7 @@ define void @_ZN7rocksdb20MergeIteratorBuilder28AddPointAndTombstoneIteratorEPNS
   %22 = load ptr, ptr %21, align 8
   %.not = icmp ne ptr %22, null
   %or.cond.not = select i1 %16, i1 true, i1 %.not
-  br i1 %or.cond.not, label %23, label %.thread42
+  br i1 %or.cond.not, label %23, label %.thread57
 
 23:                                               ; preds = %20
   store i8 1, ptr %17, align 8, !tbaa !491
@@ -10036,7 +10036,7 @@ define void @_ZN7rocksdb20MergeIteratorBuilder28AddPointAndTombstoneIteratorEPNS
   store ptr null, ptr %21, align 8, !tbaa !482
   %.pre = load i8, ptr %17, align 8, !tbaa !491, !range !220
   %29 = trunc nuw i8 %.pre to i1
-  br i1 %29, label %.thread, label %.thread42
+  br i1 %29, label %.thread, label %.thread57
 
 .thread:                                          ; preds = %15, %23, %24
   %30 = load ptr, ptr %0, align 8, !tbaa !493
@@ -10306,12 +10306,12 @@ _ZNSt6vectorISt4pairImPPSt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14
   store ptr %153, ptr %128, align 8, !tbaa !495
   br label %_ZNSt6vectorISt4pairImPPSt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14default_deleteIS3_EEESaIS9_EE12emplace_backIJmRS8_EEERS9_DpOT_.exit
 
-.thread42:                                        ; preds = %20, %24
+.thread57:                                        ; preds = %20, %24
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %154, align 8, !tbaa !482
   br label %_ZNSt6vectorISt4pairImPPSt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14default_deleteIS3_EEESaIS9_EE12emplace_backIJmRS8_EEERS9_DpOT_.exit
 
-_ZNSt6vectorISt4pairImPPSt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14default_deleteIS3_EEESaIS9_EE12emplace_backIJmRS8_EEERS9_DpOT_.exit: ; preds = %_ZNSt6vectorISt4pairImPPSt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14default_deleteIS3_EEESaIS9_EE17_M_realloc_insertIJmRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i, %130, %_ZN7rocksdb15MergingIterator25AddRangeTombstoneIteratorEOSt10unique_ptrINS_25TruncatedRangeDelIteratorESt14default_deleteIS2_EE.exit13, %.thread42
+_ZNSt6vectorISt4pairImPPSt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14default_deleteIS3_EEESaIS9_EE12emplace_backIJmRS8_EEERS9_DpOT_.exit: ; preds = %_ZNSt6vectorISt4pairImPPSt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14default_deleteIS3_EEESaIS9_EE17_M_realloc_insertIJmRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i, %130, %_ZN7rocksdb15MergingIterator25AddRangeTombstoneIteratorEOSt10unique_ptrINS_25TruncatedRangeDelIteratorESt14default_deleteIS2_EE.exit13, %.thread57
   ret void
 }
 
@@ -10465,7 +10465,7 @@ _ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE6resizeEm.exit.i..lr.ph
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE6resizeEm.exit.i..lr.ph.i_crit_edge, %54, %52, %50
   %57 = phi ptr [ %.pre15, %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE6resizeEm.exit.i..lr.ph.i_crit_edge ], [ %44, %50 ], [ %44, %52 ], [ %44, %54 ]
-  %.pre-phi1316.i = phi i64 [ %.pre12.i, %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE6resizeEm.exit.i..lr.ph.i_crit_edge ], [ %41, %50 ], [ %41, %52 ], [ %41, %54 ]
+  %.pre-phi1321.i = phi i64 [ %.pre12.i, %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE6resizeEm.exit.i..lr.ph.i_crit_edge ], [ %41, %50 ], [ %41, %52 ], [ %41, %54 ]
   br label %58
 
 58:                                               ; preds = %58, %.lr.ph.i
@@ -10476,7 +10476,7 @@ _ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE6resizeEm.exit.i..lr.ph
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 72
   store i8 26, ptr %61, align 8, !tbaa !555
   %62 = add nuw i64 %.05.i, 1
-  %exitcond.not.i = icmp eq i64 %62, %.pre-phi1316.i
+  %exitcond.not.i = icmp eq i64 %62, %.pre-phi1321.i
   br i1 %exitcond.not.i, label %_ZN7rocksdb15MergingIterator6FinishEv.exit, label %58, !llvm.loop !556
 
 _ZN7rocksdb15MergingIterator6FinishEv.exit:       ; preds = %58, %30, %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE6resizeEm.exit.i
@@ -13501,17 +13501,17 @@ define linkonce_odr void @_ZN7rocksdb15MergingIterator18FindNextVisibleKeyEv(ptr
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %27 = load i32, ptr %26, align 8, !tbaa !266
   %28 = icmp eq i32 %27, 1
-  br i1 %28, label %.lr.ph104, label %_ZN7rocksdb15MergingIterator19PopDeleteRangeStartEv.exit
+  br i1 %28, label %.lr.ph120, label %_ZN7rocksdb15MergingIterator19PopDeleteRangeStartEv.exit
 
-.lr.ph.i:                                         ; preds = %.lr.ph104
+.lr.ph.i:                                         ; preds = %.lr.ph120
   %29 = load ptr, ptr %11, align 8
   %30 = load ptr, ptr %29, align 8, !tbaa !91
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %32 = load i32, ptr %31, align 8, !tbaa !266
   %33 = icmp eq i32 %32, 1
-  br i1 %33, label %.lr.ph104, label %_ZN7rocksdb15MergingIterator19PopDeleteRangeStartEv.exit, !llvm.loop !598
+  br i1 %33, label %.lr.ph120, label %_ZN7rocksdb15MergingIterator19PopDeleteRangeStartEv.exit, !llvm.loop !598
 
-.lr.ph104:                                        ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+.lr.ph120:                                        ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %34 = phi ptr [ %30, %.lr.ph.i ], [ %25, %.lr.ph.i.preheader ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load i64, ptr %35, align 8, !tbaa !295
@@ -13528,14 +13528,14 @@ define linkonce_odr void @_ZN7rocksdb15MergingIterator18FindNextVisibleKeyEv(ptr
   br i1 %45, label %.critedge, label %.lr.ph.i, !llvm.loop !598
 
 _ZN7rocksdb15MergingIterator19PopDeleteRangeStartEv.exit: ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %.lcssa102 = phi ptr [ %17, %.lr.ph.i.preheader ], [ %39, %.lr.ph.i ]
-  %.lcssa100 = phi ptr [ %16, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
-  %.lcssa98 = phi i64 [ %15, %.lr.ph.i.preheader ], [ %37, %.lr.ph.i ]
-  %.pre67 = ptrtoint ptr %.lcssa100 to i64
-  %.pre68 = ptrtoint ptr %.lcssa102 to i64
+  %.lcssa118 = phi ptr [ %17, %.lr.ph.i.preheader ], [ %39, %.lr.ph.i ]
+  %.lcssa116 = phi ptr [ %16, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
+  %.lcssa114 = phi i64 [ %15, %.lr.ph.i.preheader ], [ %37, %.lr.ph.i ]
+  %.pre67 = ptrtoint ptr %.lcssa116 to i64
+  %.pre68 = ptrtoint ptr %.lcssa118 to i64
   %.pre69 = sub i64 %.pre67, %.pre68
   %.pre70 = ashr exact i64 %.pre69, 3
-  %.pre71 = sub i64 0, %.lcssa98
+  %.pre71 = sub i64 0, %.lcssa114
   %46 = icmp eq i64 %.pre70, %.pre71
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 200
   br i1 %46, label %.critedge, label %.lr.ph
@@ -13601,7 +13601,7 @@ _ZN7rocksdb15MergingIterator19PopDeleteRangeStartEv.exit: ; preds = %.lr.ph.i, %
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 80
   %93 = load i32, ptr %92, align 8, !tbaa !266
   %94 = icmp eq i32 %93, 1
-  br i1 %94, label %.lr.ph107, label %_ZN7rocksdb15MergingIterator19PopDeleteRangeStartEv.exit2
+  br i1 %94, label %.lr.ph123, label %_ZN7rocksdb15MergingIterator19PopDeleteRangeStartEv.exit2
 
 .lr.ph.i1:                                        ; preds = %_ZN7rocksdb10BinaryHeapIPNS_15MergingIterator8HeapItemENS1_21MinHeapItemComparatorEE8downheapEm.exit
   %95 = load ptr, ptr %11, align 8
@@ -13609,9 +13609,9 @@ _ZN7rocksdb15MergingIterator19PopDeleteRangeStartEv.exit: ; preds = %.lr.ph.i, %
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 80
   %98 = load i32, ptr %97, align 8, !tbaa !266
   %99 = icmp eq i32 %98, 1
-  br i1 %99, label %.lr.ph107, label %_ZN7rocksdb15MergingIterator19PopDeleteRangeStartEv.exit2, !llvm.loop !598
+  br i1 %99, label %.lr.ph123, label %_ZN7rocksdb15MergingIterator19PopDeleteRangeStartEv.exit2, !llvm.loop !598
 
-.lr.ph107:                                        ; preds = %.lr.ph.i1.preheader, %.lr.ph.i1
+.lr.ph123:                                        ; preds = %.lr.ph.i1.preheader, %.lr.ph.i1
   %100 = phi ptr [ %96, %.lr.ph.i1 ], [ %91, %.lr.ph.i1.preheader ]
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %102 = load i64, ptr %101, align 8, !tbaa !295
@@ -13627,7 +13627,7 @@ _ZN7rocksdb15MergingIterator19PopDeleteRangeStartEv.exit: ; preds = %.lr.ph.i, %
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !599
   br i1 %110, label %120, label %111
 
-111:                                              ; preds = %.lr.ph107
+111:                                              ; preds = %.lr.ph123
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %113 = load ptr, ptr %112, align 8, !tbaa !188, !noalias !599
   %114 = load ptr, ptr %107, align 8, !tbaa !189, !noalias !599
@@ -13642,7 +13642,7 @@ _ZN7rocksdb15MergingIterator19PopDeleteRangeStartEv.exit: ; preds = %.lr.ph.i, %
   %119 = icmp slt i32 %118, 1
   br i1 %119, label %120, label %125
 
-120:                                              ; preds = %111, %.lr.ph107
+120:                                              ; preds = %111, %.lr.ph123
   %121 = load ptr, ptr %107, align 8, !tbaa !189, !noalias !599
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 136
   %123 = load ptr, ptr %122, align 8, !tbaa !193, !noalias !606
@@ -13687,25 +13687,25 @@ _ZNK7rocksdb25TruncatedRangeDelIterator7end_keyEv.exit.i: ; preds = %125, %120
   br i1 %133, label %._crit_edge.thread.i.i.i.i, label %138
 
 ._crit_edge.thread.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i, %_ZNK7rocksdb25TruncatedRangeDelIterator7end_keyEv.exit.i
-  %.019.lcssa28.i.i.i.i = phi ptr [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ], [ %54, %_ZNK7rocksdb25TruncatedRangeDelIterator7end_keyEv.exit.i ]
+  %.019.lcssa29.i.i.i.i = phi ptr [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ], [ %54, %_ZNK7rocksdb25TruncatedRangeDelIterator7end_keyEv.exit.i ]
   %134 = load ptr, ptr %55, align 8, !tbaa !81
-  %135 = icmp eq ptr %.019.lcssa28.i.i.i.i, %134
+  %135 = icmp eq ptr %.019.lcssa29.i.i.i.i, %134
   br i1 %135, label %select.unfold.i.i.i, label %136
 
 136:                                              ; preds = %._crit_edge.thread.i.i.i.i
-  %137 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i) #27
+  %137 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i) #27
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %137, i64 32
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !71
   br label %138
 
 138:                                              ; preds = %136, %._crit_edge.i.i.i.i
   %139 = phi i64 [ %.pre.i.i.i, %136 ], [ %132, %._crit_edge.i.i.i.i ]
-  %.019.lcssa29.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %136 ], [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.019.lcssa28.i.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %136 ], [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ]
   %140 = icmp ult i64 %139, %102
   br i1 %140, label %select.unfold.i.i.i, label %_ZN7rocksdb15MergingIterator29InsertRangeTombstoneToMinHeapEmbb.exit
 
 select.unfold.i.i.i:                              ; preds = %138, %._crit_edge.thread.i.i.i.i
-  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa29.i.i.i.i, %138 ]
+  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa28.i.i.i.i, %138 ]
   %141 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %54
   br i1 %141, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i, label %142
 
@@ -14092,18 +14092,18 @@ _ZN7rocksdb10BinaryHeapIPNS_15MergingIterator8HeapItemENS1_21MinHeapItemComparat
   br i1 %324, label %.critedge, label %.lr.ph.i1, !llvm.loop !598
 
 _ZN7rocksdb15MergingIterator19PopDeleteRangeStartEv.exit2: ; preds = %.lr.ph.i1, %.lr.ph.i1.preheader
-  %.lcssa96 = phi ptr [ %83, %.lr.ph.i1.preheader ], [ %316, %.lr.ph.i1 ]
-  %.lcssa94 = phi ptr [ %82, %.lr.ph.i1.preheader ], [ %318, %.lr.ph.i1 ]
-  %.lcssa92 = phi i64 [ %81, %.lr.ph.i1.preheader ], [ %317, %.lr.ph.i1 ]
-  %.pre62 = ptrtoint ptr %.lcssa94 to i64
-  %.pre63 = ptrtoint ptr %.lcssa96 to i64
+  %.lcssa112 = phi ptr [ %83, %.lr.ph.i1.preheader ], [ %316, %.lr.ph.i1 ]
+  %.lcssa110 = phi ptr [ %82, %.lr.ph.i1.preheader ], [ %318, %.lr.ph.i1 ]
+  %.lcssa108 = phi i64 [ %81, %.lr.ph.i1.preheader ], [ %317, %.lr.ph.i1 ]
+  %.pre62 = ptrtoint ptr %.lcssa110 to i64
+  %.pre63 = ptrtoint ptr %.lcssa112 to i64
   %.pre64 = sub i64 %.pre62, %.pre63
   %.pre65 = ashr exact i64 %.pre64, 3
-  %.pre66 = sub i64 0, %.lcssa92
+  %.pre66 = sub i64 0, %.lcssa108
   %325 = icmp eq i64 %.pre65, %.pre66
   br i1 %325, label %.critedge, label %67, !llvm.loop !609
 
-.critedge:                                        ; preds = %.lr.ph104, %80, %78, %_ZN7rocksdb15MergingIterator19PopDeleteRangeStartEv.exit2, %70, %_ZN7rocksdb10BinaryHeapIPNS_15MergingIterator8HeapItemENS1_21MinHeapItemComparatorEE8downheapEm.exit, %1, %_ZN7rocksdb15MergingIterator19PopDeleteRangeStartEv.exit
+.critedge:                                        ; preds = %.lr.ph120, %80, %78, %_ZN7rocksdb15MergingIterator19PopDeleteRangeStartEv.exit2, %70, %_ZN7rocksdb10BinaryHeapIPNS_15MergingIterator8HeapItemENS1_21MinHeapItemComparatorEE8downheapEm.exit, %1, %_ZN7rocksdb15MergingIterator19PopDeleteRangeStartEv.exit
   ret void
 }
 
@@ -14144,18 +14144,18 @@ define linkonce_odr void @_ZN7rocksdb15MergingIterator18FindPrevVisibleKeyEv(ptr
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 80
   %29 = load i32, ptr %28, align 8, !tbaa !266
   %30 = icmp eq i32 %29, 2
-  br i1 %30, label %.lr.ph128, label %_ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit
+  br i1 %30, label %.lr.ph144, label %_ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit
 
-.lr.ph.i:                                         ; preds = %.lr.ph128
+.lr.ph.i:                                         ; preds = %.lr.ph144
   %31 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8, !tbaa !91
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 80
   %35 = load i32, ptr %34, align 8, !tbaa !266
   %36 = icmp eq i32 %35, 2
-  br i1 %36, label %.lr.ph128, label %_ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit, !llvm.loop !610
+  br i1 %36, label %.lr.ph144, label %_ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit, !llvm.loop !610
 
-.lr.ph128:                                        ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+.lr.ph144:                                        ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %37 = phi ptr [ %33, %.lr.ph.i ], [ %27, %.lr.ph.i.preheader ]
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %39 = load i64, ptr %38, align 8, !tbaa !295
@@ -14179,7 +14179,7 @@ _ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit: ; preds = %.lr.ph.i, %.l
   %.pre50.pre.lcssa = phi ptr [ %18, %.lr.ph.i.preheader ], [ %46, %.lr.ph.i ]
   %.pre48.pre.lcssa = phi ptr [ %17, %.lr.ph.i.preheader ], [ %45, %.lr.ph.i ]
   %.pre.pre.lcssa = phi i64 [ %14, %.lr.ph.i.preheader ], [ %42, %.lr.ph.i ]
-  %.lcssa123 = phi ptr [ %12, %.lr.ph.i.preheader ], [ %40, %.lr.ph.i ]
+  %.lcssa139 = phi ptr [ %12, %.lr.ph.i.preheader ], [ %40, %.lr.ph.i ]
   %.pre95 = ptrtoint ptr %.pre48.pre.lcssa to i64
   %.pre96 = ptrtoint ptr %.pre50.pre.lcssa to i64
   %.pre97 = sub i64 %.pre95, %.pre96
@@ -14212,7 +14212,7 @@ _ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit: ; preds = %.lr.ph.i, %.l
   br label %72
 
 72:                                               ; preds = %.lr.ph, %_ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit2
-  %73 = phi ptr [ %.lcssa123, %.lr.ph ], [ %.lcssa118, %_ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit2 ]
+  %73 = phi ptr [ %.lcssa139, %.lr.ph ], [ %.lcssa134, %_ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit2 ]
   %74 = load i64, ptr %54, align 8, !tbaa !83
   %75 = icmp eq i64 %74, 0
   br i1 %75, label %76, label %85
@@ -14255,7 +14255,7 @@ _ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit: ; preds = %.lr.ph.i, %.l
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 80
   %105 = load i32, ptr %104, align 8, !tbaa !266
   %106 = icmp eq i32 %105, 2
-  br i1 %106, label %.lr.ph132, label %_ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit2
+  br i1 %106, label %.lr.ph148, label %_ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit2
 
 .lr.ph.i1:                                        ; preds = %_ZN7rocksdb10BinaryHeapIPNS_15MergingIterator8HeapItemENS1_21MaxHeapItemComparatorEE8downheapEm.exit
   %107 = getelementptr inbounds nuw i8, ptr %336, i64 80
@@ -14264,9 +14264,9 @@ _ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit: ; preds = %.lr.ph.i, %.l
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 80
   %111 = load i32, ptr %110, align 8, !tbaa !266
   %112 = icmp eq i32 %111, 2
-  br i1 %112, label %.lr.ph132, label %_ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit2, !llvm.loop !610
+  br i1 %112, label %.lr.ph148, label %_ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit2, !llvm.loop !610
 
-.lr.ph132:                                        ; preds = %.lr.ph.i1.preheader, %.lr.ph.i1
+.lr.ph148:                                        ; preds = %.lr.ph.i1.preheader, %.lr.ph.i1
   %113 = phi ptr [ %109, %.lr.ph.i1 ], [ %103, %.lr.ph.i1.preheader ]
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 40
   %115 = load i64, ptr %114, align 8, !tbaa !295
@@ -14282,7 +14282,7 @@ _ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit: ; preds = %.lr.ph.i, %.l
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !611
   br i1 %123, label %135, label %124
 
-124:                                              ; preds = %.lr.ph132
+124:                                              ; preds = %.lr.ph148
   %125 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %126 = load ptr, ptr %125, align 8, !tbaa !188, !noalias !611
   %127 = load ptr, ptr %120, align 8, !tbaa !189, !noalias !611
@@ -14299,7 +14299,7 @@ _ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit: ; preds = %.lr.ph.i, %.l
   %134 = icmp slt i32 %133, 1
   br i1 %134, label %135, label %142
 
-135:                                              ; preds = %124, %.lr.ph132
+135:                                              ; preds = %124, %.lr.ph148
   %136 = load ptr, ptr %120, align 8, !tbaa !189, !noalias !611
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 136
   %138 = load ptr, ptr %137, align 8, !tbaa !193, !noalias !618
@@ -14346,25 +14346,25 @@ _ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit.i: ; preds = %142, %135
   br i1 %150, label %._crit_edge.thread.i.i.i.i, label %155
 
 ._crit_edge.thread.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i, %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit.i
-  %.019.lcssa28.i.i.i.i = phi ptr [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ], [ %60, %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit.i ]
+  %.019.lcssa29.i.i.i.i = phi ptr [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ], [ %60, %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit.i ]
   %151 = load ptr, ptr %61, align 8, !tbaa !81
-  %152 = icmp eq ptr %.019.lcssa28.i.i.i.i, %151
+  %152 = icmp eq ptr %.019.lcssa29.i.i.i.i, %151
   br i1 %152, label %select.unfold.i.i.i, label %153
 
 153:                                              ; preds = %._crit_edge.thread.i.i.i.i
-  %154 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i) #27
+  %154 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i) #27
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %154, i64 32
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !71
   br label %155
 
 155:                                              ; preds = %153, %._crit_edge.i.i.i.i
   %156 = phi i64 [ %.pre.i.i.i, %153 ], [ %149, %._crit_edge.i.i.i.i ]
-  %.019.lcssa29.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %153 ], [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.019.lcssa28.i.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %153 ], [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ]
   %157 = icmp ult i64 %156, %115
   br i1 %157, label %select.unfold.i.i.i, label %_ZN7rocksdb15MergingIterator29InsertRangeTombstoneToMaxHeapEmbb.exit
 
 select.unfold.i.i.i:                              ; preds = %155, %._crit_edge.thread.i.i.i.i
-  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa29.i.i.i.i, %155 ]
+  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa28.i.i.i.i, %155 ]
   %158 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %60
   br i1 %158, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i, label %159
 
@@ -14756,7 +14756,7 @@ _ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit2: ; preds = %.lr.ph.i1, %
   %.pre58.pre.lcssa = phi ptr [ %94, %.lr.ph.i1.preheader ], [ %342, %.lr.ph.i1 ]
   %.pre56.pre.lcssa = phi ptr [ %93, %.lr.ph.i1.preheader ], [ %341, %.lr.ph.i1 ]
   %.pre54.pre.lcssa = phi i64 [ %90, %.lr.ph.i1.preheader ], [ %338, %.lr.ph.i1 ]
-  %.lcssa118 = phi ptr [ %88, %.lr.ph.i1.preheader ], [ %336, %.lr.ph.i1 ]
+  %.lcssa134 = phi ptr [ %88, %.lr.ph.i1.preheader ], [ %336, %.lr.ph.i1 ]
   %.pre90 = ptrtoint ptr %.pre56.pre.lcssa to i64
   %.pre91 = ptrtoint ptr %.pre58.pre.lcssa to i64
   %.pre92 = sub i64 %.pre90, %.pre91
@@ -14765,7 +14765,7 @@ _ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit2: ; preds = %.lr.ph.i1, %
   %349 = icmp eq i64 %.pre93, %.pre94
   br i1 %349, label %.critedge, label %72, !llvm.loop !621
 
-.critedge:                                        ; preds = %.lr.ph128, %87, %85, %_ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit2, %76, %_ZN7rocksdb10BinaryHeapIPNS_15MergingIterator8HeapItemENS1_21MaxHeapItemComparatorEE8downheapEm.exit, %1, %_ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit
+.critedge:                                        ; preds = %.lr.ph144, %87, %85, %_ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit2, %76, %_ZN7rocksdb10BinaryHeapIPNS_15MergingIterator8HeapItemENS1_21MaxHeapItemComparatorEE8downheapEm.exit, %1, %_ZN7rocksdb15MergingIterator17PopDeleteRangeEndEv.exit
   ret void
 }
 

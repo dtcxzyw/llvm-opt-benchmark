@@ -521,8 +521,8 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit19: ; preds = %_ZNSt10unique_
   %.021 = phi i32 [ %0, %40 ], [ %42, %41 ]
   call fastcc void @_ZL16CheckStackTrace2i(i32 noundef %.021)
   %42 = add nsw i32 %.021, -1
-  %.not25 = icmp eq i32 %.021, 0
-  br i1 %.not25, label %43, label %41, !llvm.loop !60
+  %.not26 = icmp eq i32 %.021, 0
+  br i1 %.not26, label %43, label %41, !llvm.loop !60
 
 43:                                               ; preds = %41
   call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !61
@@ -831,8 +831,8 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit19: ; preds = %_ZNSt10unique_
   %.021 = phi i32 [ %0, %40 ], [ %42, %41 ]
   call fastcc void @_ZL16CheckStackTrace3i(i32 noundef %.021)
   %42 = add nsw i32 %.021, -1
-  %.not25 = icmp eq i32 %.021, 0
-  br i1 %.not25, label %43, label %41, !llvm.loop !68
+  %.not26 = icmp eq i32 %.021, 0
+  br i1 %.not26, label %43, label %41, !llvm.loop !68
 
 43:                                               ; preds = %41
   call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !69
@@ -1039,8 +1039,8 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit19: ; preds = %_ZNSt10unique_
   %.021 = phi i32 [ %0, %40 ], [ %42, %41 ]
   call fastcc void @_ZL16CheckStackTrace4i(i32 noundef %.021)
   %42 = add nsw i32 %.021, -1
-  %.not25 = icmp eq i32 %.021, 0
-  br i1 %.not25, label %43, label %41, !llvm.loop !77
+  %.not26 = icmp eq i32 %.021, 0
+  br i1 %.not26, label %43, label %41, !llvm.loop !77
 
 43:                                               ; preds = %41
   call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !78
@@ -1200,8 +1200,8 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit18: ; preds = %_ZNSt10unique_
   %.020 = phi i32 [ %0, %40 ], [ %42, %41 ]
   call fastcc void @_ZL19CheckStackTraceLeafv()
   %42 = add nsw i32 %.020, -1
-  %.not24 = icmp eq i32 %.020, 0
-  br i1 %.not24, label %43, label %41, !llvm.loop !83
+  %.not25 = icmp eq i32 %.020, 0
+  br i1 %.not25, label %43, label %41, !llvm.loop !83
 
 43:                                               ; preds = %41
   call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !84

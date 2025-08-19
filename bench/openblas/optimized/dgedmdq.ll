@@ -591,12 +591,12 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br label %.sink.split
 
 .sink.split:                                      ; preds = %306, %323
-  %.sink474 = phi i32 [ %326, %323 ], [ %309, %306 ]
-  %.sink475 = load i32, ptr %30, align 4, !tbaa !3
-  %.neg465 = add i32 %.sink475, 1
-  %327 = sub i32 %.neg465, %.sink474
+  %.sink485 = phi i32 [ %326, %323 ], [ %309, %306 ]
+  %.sink486 = load i32, ptr %30, align 4, !tbaa !3
+  %.neg465 = add i32 %.sink486, 1
+  %327 = sub i32 %.neg465, %.sink485
   store i32 %327, ptr %35, align 4, !tbaa !3
-  %328 = sext i32 %.sink474 to i64
+  %328 = sext i32 %.sink485 to i64
   %329 = getelementptr inbounds double, ptr %51, i64 %328
   %330 = call i32 @dormqr_(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, ptr noundef nonnull %7, ptr noundef %17, ptr noundef nonnull %40, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %29, ptr noundef %20, ptr noundef nonnull %21, ptr noundef nonnull %329, ptr noundef nonnull %35, ptr noundef nonnull %38) #4
   br label %331

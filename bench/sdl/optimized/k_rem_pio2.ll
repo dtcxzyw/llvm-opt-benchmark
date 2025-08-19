@@ -240,8 +240,8 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   br i1 %.not284, label %112, label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph334, %110
-  %.sink508 = phi i32 [ 16777216, %110 ], [ 16777215, %.lr.ph334 ]
-  %111 = sub nsw i32 %.sink508, %108
+  %.sink512 = phi i32 [ 16777216, %110 ], [ 16777215, %.lr.ph334 ]
+  %111 = sub nsw i32 %.sink512, %108
   store i32 %111, ptr %107, align 4
   br label %112
 
@@ -258,24 +258,24 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 
 114:                                              ; preds = %._crit_edge335
   switch i32 %19, label %121 [
-    i32 1, label %.sink.split509
+    i32 1, label %.sink.split513
     i32 2, label %115
   ]
 
 115:                                              ; preds = %114
-  br label %.sink.split509
+  br label %.sink.split513
 
-.sink.split509:                                   ; preds = %114, %115
-  %.sink512 = phi i32 [ 4194303, %115 ], [ 8388607, %114 ]
+.sink.split513:                                   ; preds = %114, %115
+  %.sink516 = phi i32 [ 4194303, %115 ], [ 8388607, %114 ]
   %116 = add nsw i32 %.0259, -1
   %117 = sext i32 %116 to i64
   %118 = getelementptr inbounds [20 x i32], ptr %7, i64 0, i64 %117
   %119 = load i32, ptr %118, align 4
-  %120 = and i32 %119, %.sink512
+  %120 = and i32 %119, %.sink516
   store i32 %120, ptr %118, align 4
   br label %121
 
-121:                                              ; preds = %.sink.split509, %114, %._crit_edge335
+121:                                              ; preds = %.sink.split513, %114, %._crit_edge335
   %122 = icmp eq i32 %.0236292, 2
   br i1 %122, label %123, label %.thread293
 
@@ -506,8 +506,8 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   %200 = load double, ptr %199, align 8
   %201 = fadd double %.4389, %200
   %indvars.iv.next485 = add nsw i64 %indvars.iv484, -1
-  %.not516 = icmp eq i64 %indvars.iv484, 0
-  br i1 %.not516, label %._crit_edge391, label %.lr.ph390, !llvm.loop !18
+  %.not520 = icmp eq i64 %indvars.iv484, 0
+  br i1 %.not520, label %._crit_edge391, label %.lr.ph390, !llvm.loop !18
 
 ._crit_edge391:                                   ; preds = %.lr.ph390, %.preheader
   %.4.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %201, %.lr.ph390 ]
@@ -531,8 +531,8 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   %208 = load double, ptr %207, align 8
   %209 = fadd double %.5376, %208
   %indvars.iv.next477 = add nsw i64 %indvars.iv476, -1
-  %.not515 = icmp eq i64 %indvars.iv476, 0
-  br i1 %.not515, label %._crit_edge379, label %.lr.ph378, !llvm.loop !19
+  %.not519 = icmp eq i64 %indvars.iv476, 0
+  br i1 %.not519, label %._crit_edge379, label %.lr.ph378, !llvm.loop !19
 
 ._crit_edge379:                                   ; preds = %.lr.ph378, %205
   %.5.lcssa = phi double [ 0.000000e+00, %205 ], [ %209, %.lr.ph378 ]
@@ -569,8 +569,8 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   br label %259
 
 .preheader297:                                    ; preds = %.lr.ph367
-  %.not514 = icmp eq i32 %.2261, 1
-  br i1 %.not514, label %._crit_edge373, label %.lr.ph369.preheader
+  %.not518 = icmp eq i32 %.2261, 1
+  br i1 %.not518, label %._crit_edge373, label %.lr.ph369.preheader
 
 .lr.ph369.preheader:                              ; preds = %.preheader297
   %222 = zext nneg i32 %.2261 to i64

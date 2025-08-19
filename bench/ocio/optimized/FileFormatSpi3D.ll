@@ -1054,19 +1054,19 @@ _ZN19OpenColorIO_v2_5dev11NumberUtils10from_charsEPKcS2_Rf.exit158: ; preds = %_
 
 _ZN19OpenColorIO_v2_5dev11NumberUtils10from_charsEPKcS2_Rf.exit165.thread: ; preds = %313, %_ZN19OpenColorIO_v2_5dev11NumberUtils10from_charsEPKcS2_Rf.exit158
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.loopexit412
+  br label %.loopexit448
 
 _ZN19OpenColorIO_v2_5dev11NumberUtils10from_charsEPKcS2_Rf.exit165: ; preds = %313
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %or.cond = or i1 %301, %309
-  br i1 %or.cond, label %.loopexit412, label %358
+  br i1 %or.cond, label %.loopexit448, label %358
 
-.loopexit412:                                     ; preds = %_ZN19OpenColorIO_v2_5dev11NumberUtils10from_charsEPKcS2_Rf.exit165, %_ZN19OpenColorIO_v2_5dev11NumberUtils10from_charsEPKcS2_Rf.exit165.thread
+.loopexit448:                                     ; preds = %_ZN19OpenColorIO_v2_5dev11NumberUtils10from_charsEPKcS2_Rf.exit165, %_ZN19OpenColorIO_v2_5dev11NumberUtils10from_charsEPKcS2_Rf.exit165.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %28)
           to label %316 unwind label %340
 
-316:                                              ; preds = %.loopexit412
+316:                                              ; preds = %.loopexit448
   %317 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.5, i64 noundef 27)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit246 unwind label %342
 
@@ -1146,7 +1146,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit269: ; preds = %_ZSt
           cleanup
   br label %.body328
 
-340:                                              ; preds = %.loopexit412
+340:                                              ; preds = %.loopexit448
   %341 = landingpad { ptr, i32 }
           cleanup
   br label %357

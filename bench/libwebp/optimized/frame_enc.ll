@@ -2143,7 +2143,7 @@ define internal fastcc range(i32 0, 2) i32 @PutCoeffs(ptr noundef %0, i32 nounde
   br i1 %.not104, label %.loopexit, label %129, !llvm.loop !130
 
 .loopexit:                                        ; preds = %129, %60, %53, %81, %85, %39
-  %.sink117 = phi i64 [ 1, %39 ], [ 2, %85 ], [ 2, %81 ], [ 2, %53 ], [ 2, %60 ], [ 2, %129 ]
+  %.sink118 = phi i64 [ 1, %39 ], [ 2, %85 ], [ 2, %81 ], [ 2, %53 ], [ 2, %60 ], [ 2, %129 ]
   %138 = load ptr, ptr %5, align 8, !tbaa !126
   %139 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %indvars.iv.next
   %140 = load i8, ptr %139, align 1, !tbaa !24
@@ -2154,7 +2154,7 @@ define internal fastcc range(i32 0, 2) i32 @PutCoeffs(ptr noundef %0, i32 nounde
 143:                                              ; preds = %.loopexit
   %144 = zext i8 %140 to i64
   %.split = getelementptr inbounds nuw [3 x [11 x i8]], ptr %138, i64 %144
-  %145 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %.split, i64 0, i64 %.sink117
+  %145 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %.split, i64 0, i64 %.sink118
   %146 = load i32, ptr %11, align 4, !tbaa !127
   %147 = sext i32 %146 to i64
   %148 = icmp slt i64 %indvars.iv, %147

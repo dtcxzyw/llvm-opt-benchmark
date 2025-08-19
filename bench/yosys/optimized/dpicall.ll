@@ -1083,7 +1083,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
 442:                                              ; preds = %432
   %443 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.thread308
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.thread338
 
 444:                                              ; preds = %436, %444
   %indvars.iv303 = phi i64 [ 0, %436 ], [ %indvars.iv.next304, %444 ]
@@ -1122,7 +1122,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
           cleanup
   %461 = load ptr, ptr %12, align 8, !tbaa !77
   %.not.i.i.i180 = icmp eq ptr %461, null
-  br i1 %.not.i.i.i180, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.thread308, label %462
+  br i1 %.not.i.i.i180, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.thread338, label %462
 
 462:                                              ; preds = %459
   %463 = load ptr, ptr %438, align 8, !tbaa !78
@@ -1130,9 +1130,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   %465 = ptrtoint ptr %461 to i64
   %466 = sub i64 %464, %465
   call void @_ZdlPvm(ptr noundef nonnull %461, i64 noundef %466) #19
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.thread308
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.thread338
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.thread308: ; preds = %442, %459, %462
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.thread338: ; preds = %442, %459, %462
   %.pn132.pn = phi { ptr, i32 } [ %443, %442 ], [ %460, %459 ], [ %460, %462 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.sink.split
@@ -1177,8 +1177,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176: ; preds = %.l
   %.not.i.i.i185 = icmp eq ptr %.sroa.0193.0, null
   br i1 %.not.i.i.i185, label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit186, label %483
 
-.sink.split:                                      ; preds = %401, %421, %391, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.thread308
-  %.pn135263.ph = phi { ptr, i32 } [ %.pn132.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.thread308 ], [ %392, %391 ], [ %422, %421 ], [ %402, %401 ]
+.sink.split:                                      ; preds = %401, %421, %391, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.thread338
+  %.pn135263.ph = phi { ptr, i32 } [ %.pn132.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.thread338 ], [ %392, %391 ], [ %422, %421 ], [ %402, %401 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %483
 

@@ -382,12 +382,12 @@ define dso_local i64 @bpchar_name(ptr noundef readonly captures(none) %0) local_
   br i1 %31, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.thread, %29
-  %.035 = phi i32 [ %.0, %29 ], [ 8, %.thread ]
+  %.037 = phi i32 [ %.0, %29 ], [ 8, %.thread ]
   %32 = phi ptr [ %30, %29 ], [ %9, %.thread ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
-  %.130 = phi i32 [ %38, %37 ], [ %.035, %.lr.ph.preheader ]
+  %.130 = phi i32 [ %38, %37 ], [ %.037, %.lr.ph.preheader ]
   %33 = zext nneg i32 %.130 to i64
   %34 = getelementptr i8, ptr %32, i64 %33
   %35 = getelementptr i8, ptr %34, i64 -1

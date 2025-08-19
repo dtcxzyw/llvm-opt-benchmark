@@ -152,7 +152,7 @@ define dso_local i32 @cmd_remote_ext(i32 noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not16.i.i.i, label %parse_argv.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %46, %109
-  %.017.i.i.i = phi ptr [ %spec.select33.i2327.i.i, %109 ], [ %13, %46 ]
+  %.017.i.i.i = phi ptr [ %spec.select40.i3236.i.i, %109 ], [ %13, %46 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.strip_escapes.ret, i64 24, i1 false)
   br label %50
@@ -246,8 +246,8 @@ skip_prefix.exit.i.i.i.i:                         ; preds = %51, %50
   %74 = getelementptr inbounds nuw i8, ptr %.017.i.i.i, i64 %.05394.pn.i.i.i.i
   %spec.select.i.i.i = getelementptr inbounds nuw i8, ptr %74, i64 %spec.select.idx.i.i.i
   %.not63.i.i.i.i = icmp eq i8 %.089.i.fr.i.i.i, 0
-  %spec.select41.i.i.i = select i1 %.not63.i.i.i.i, i64 0, i64 2
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.017.i.i.i, i64 %spec.select41.i.i.i
+  %spec.select48.i.i.i = select i1 %.not63.i.i.i.i, i64 0, i64 2
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.017.i.i.i, i64 %spec.select48.i.i.i
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 1, !tbaa !11
   %.not6499.i.i.i.i = icmp eq i8 %.pre.i.i, 0
   br i1 %.not6499.i.i.i.i, label %.critedge4.i.i.i.i, label %.lr.ph102.i.i.i.i
@@ -255,7 +255,7 @@ skip_prefix.exit.i.i.i.i:                         ; preds = %51, %50
 .lr.ph102.i.i.i.i:                                ; preds = %.critedge.thread.i.thread.i.i.i, %100
   %75 = phi i8 [ %103, %100 ], [ %.pre.i.i, %.critedge.thread.i.thread.i.i.i ]
   %.252101.i.i.i.i = phi i32 [ %.3.i.i.i.i, %100 ], [ 0, %.critedge.thread.i.thread.i.i.i ]
-  %.154100.i.i.i.i = phi i64 [ %101, %100 ], [ %spec.select41.i.i.i, %.critedge.thread.i.thread.i.i.i ]
+  %.154100.i.i.i.i = phi i64 [ %101, %100 ], [ %spec.select48.i.i.i, %.critedge.thread.i.thread.i.i.i ]
   %.not65.i.i.i.i = icmp eq i32 %.252101.i.i.i.i, 0
   %.not66.i.i.i.i = icmp eq i8 %75, 32
   %or.cond67.i.i.i.i = and i1 %.not66.i.i.i.i, %.not65.i.i.i.i
@@ -372,7 +372,7 @@ strip_escapes.exit.thread.i.i.i:                  ; preds = %105, %.critedge4.i.
 
 strip_escapes.exit.i.i.i:                         ; preds = %.critedge4.i.i.i.i, %.critedge4.i.i.thread.i.i
   %106 = phi ptr [ %59, %.critedge4.i.i.thread.i.i ], [ %104, %.critedge4.i.i.i.i ]
-  %spec.select33.i2328.i.i = phi ptr [ %.017.i.i.i, %.critedge4.i.i.thread.i.i ], [ %spec.select.i.i.i, %.critedge4.i.i.i.i ]
+  %spec.select40.i3237.i.i = phi ptr [ %.017.i.i.i, %.critedge4.i.i.thread.i.i ], [ %spec.select.i.i.i, %.critedge4.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not5.i.i.i = icmp eq ptr %106, null
   br i1 %.not5.i.i.i, label %109, label %107
@@ -382,10 +382,10 @@ strip_escapes.exit.i.i.i:                         ; preds = %.critedge4.i.i.i.i,
   br label %109
 
 109:                                              ; preds = %107, %strip_escapes.exit.i.i.i, %strip_escapes.exit.thread.i.i.i
-  %spec.select33.i2327.i.i = phi ptr [ %spec.select.i.i.i, %strip_escapes.exit.thread.i.i.i ], [ %spec.select33.i2328.i.i, %107 ], [ %spec.select33.i2328.i.i, %strip_escapes.exit.i.i.i ]
+  %spec.select40.i3236.i.i = phi ptr [ %spec.select.i.i.i, %strip_escapes.exit.thread.i.i.i ], [ %spec.select40.i3237.i.i, %107 ], [ %spec.select40.i3237.i.i, %strip_escapes.exit.i.i.i ]
   %.055.i8.i.i.i = phi ptr [ null, %strip_escapes.exit.thread.i.i.i ], [ %106, %107 ], [ null, %strip_escapes.exit.i.i.i ]
   call void @free(ptr noundef %.055.i8.i.i.i) #14
-  %110 = load i8, ptr %spec.select33.i2327.i.i, align 1, !tbaa !11
+  %110 = load i8, ptr %spec.select40.i3236.i.i, align 1, !tbaa !11
   %.not.i.i.i = icmp eq i8 %110, 0
   br i1 %.not.i.i.i, label %parse_argv.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !29
 

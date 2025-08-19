@@ -3040,10 +3040,10 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %26,
   %35 = icmp eq ptr %34, null
   %36 = load i32, ptr %4, align 4, !tbaa !24
   %37 = icmp sgt i32 %36, 0
-  %or.cond349 = select i1 %35, i1 %37, i1 false
+  %or.cond377 = select i1 %35, i1 %37, i1 false
   %38 = icmp slt i32 %36, 0
-  %or.cond350 = select i1 %or.cond349, i1 true, i1 %38
-  br i1 %or.cond350, label %39, label %40
+  %or.cond378 = select i1 %or.cond377, i1 true, i1 %38
+  br i1 %or.cond378, label %39, label %40
 
 39:                                               ; preds = %33, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
   store i32 1, ptr %5, align 4, !tbaa !19
@@ -3529,9 +3529,9 @@ _ZL11appendToBufDsPiPDsi.exit263:                 ; preds = %148, %150
 
 298:                                              ; preds = %294
   %299 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef %.6)
-          to label %312 unwind label %.loopexit345
+          to label %312 unwind label %.loopexit373
 
-.loopexit345:                                     ; preds = %298
+.loopexit373:                                     ; preds = %298
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %300
@@ -3541,8 +3541,8 @@ _ZL11appendToBufDsPiPDsi.exit263:                 ; preds = %148, %150
           cleanup
   br label %300
 
-300:                                              ; preds = %.loopexit.split-lp, %.loopexit345
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit345 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+300:                                              ; preds = %.loopexit.split-lp, %.loopexit373
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit373 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3682,8 +3682,8 @@ _ZL11appendToBufDsPiPDsi.exit263:                 ; preds = %148, %150
   br label %.sink.split
 
 .sink.split:                                      ; preds = %354, %350
-  %.sink348 = phi i32 [ %353, %350 ], [ 0, %354 ]
-  store i32 %.sink348, ptr %4, align 4, !tbaa !24
+  %.sink376 = phi i32 [ %353, %350 ], [ 0, %354 ]
+  store i32 %.sink376, ptr %4, align 4, !tbaa !24
   br label %357
 
 357:                                              ; preds = %.sink.split, %345, %343
@@ -3771,10 +3771,10 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %21,
   %28 = icmp eq ptr %27, null
   %29 = load i32, ptr %2, align 4, !tbaa !24
   %30 = icmp sgt i32 %29, 0
-  %or.cond213 = select i1 %28, i1 %30, i1 false
+  %or.cond222 = select i1 %28, i1 %30, i1 false
   %31 = icmp slt i32 %29, 0
-  %or.cond214 = select i1 %or.cond213, i1 true, i1 %31
-  br i1 %or.cond214, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread.sink.split, label %32
+  %or.cond223 = select i1 %or.cond222, i1 true, i1 %31
+  br i1 %or.cond223, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread.sink.split, label %32
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40

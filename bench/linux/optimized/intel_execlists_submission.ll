@@ -1109,9 +1109,9 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
 
 .lr.ph122:                                        ; preds = %.thread55, %512
   %431 = phi ptr [ %513, %512 ], [ %429, %.thread55 ]
-  %432 = phi ptr [ %.lcssa83166, %512 ], [ %48, %.thread55 ]
-  %433 = phi ptr [ %.lcssa85164, %512 ], [ %427, %.thread55 ]
-  %434 = phi i8 [ %.lcssa87162, %512 ], [ %426, %.thread55 ]
+  %432 = phi ptr [ %.lcssa83225, %512 ], [ %48, %.thread55 ]
+  %433 = phi ptr [ %.lcssa85223, %512 ], [ %427, %.thread55 ]
+  %434 = phi i8 [ %.lcssa87221, %512 ], [ %426, %.thread55 ]
   %435 = getelementptr i8, ptr %431, i64 -16
   %436 = load ptr, ptr %435, align 8
   %437 = icmp eq ptr %436, %435
@@ -1226,17 +1226,17 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   br i1 %505, label %._crit_edge.thread, label %507
 
 ._crit_edge.thread:                               ; preds = %.lr.ph122, %._crit_edge
-  %.lcssa83167 = phi ptr [ %503, %._crit_edge ], [ %432, %.lr.ph122 ]
-  %.lcssa85165 = phi ptr [ %502, %._crit_edge ], [ %433, %.lr.ph122 ]
-  %.lcssa87163 = phi i8 [ %501, %._crit_edge ], [ %434, %.lr.ph122 ]
+  %.lcssa83226 = phi ptr [ %503, %._crit_edge ], [ %432, %.lr.ph122 ]
+  %.lcssa85224 = phi ptr [ %502, %._crit_edge ], [ %433, %.lr.ph122 ]
+  %.lcssa87222 = phi i8 [ %501, %._crit_edge ], [ %434, %.lr.ph122 ]
   %506 = call ptr @rb_next(ptr noundef nonnull %431) #17
   store ptr %506, ptr %267, align 8
   br label %507
 
 507:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %.lcssa83166 = phi ptr [ %.lcssa83167, %._crit_edge.thread ], [ %503, %._crit_edge ]
-  %.lcssa85164 = phi ptr [ %.lcssa85165, %._crit_edge.thread ], [ %502, %._crit_edge ]
-  %.lcssa87162 = phi i8 [ %.lcssa87163, %._crit_edge.thread ], [ %501, %._crit_edge ]
+  %.lcssa83225 = phi ptr [ %.lcssa83226, %._crit_edge.thread ], [ %503, %._crit_edge ]
+  %.lcssa85223 = phi ptr [ %.lcssa85224, %._crit_edge.thread ], [ %502, %._crit_edge ]
+  %.lcssa87221 = phi i8 [ %.lcssa87222, %._crit_edge.thread ], [ %501, %._crit_edge ]
   call void @rb_erase(ptr noundef nonnull %431, ptr noundef nonnull %428) #17
   %508 = getelementptr i8, ptr %431, i64 24
   %509 = load i32, ptr %508, align 8
@@ -1253,9 +1253,9 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   br i1 %514, label %._crit_edge123, label %.lr.ph122
 
 ._crit_edge123:                                   ; preds = %512, %.thread55
-  %.lcssa93 = phi i8 [ %426, %.thread55 ], [ %.lcssa87162, %512 ]
-  %.lcssa91 = phi ptr [ %427, %.thread55 ], [ %.lcssa85164, %512 ]
-  %.lcssa89 = phi ptr [ %48, %.thread55 ], [ %.lcssa83166, %512 ]
+  %.lcssa93 = phi i8 [ %426, %.thread55 ], [ %.lcssa87221, %512 ]
+  %.lcssa91 = phi ptr [ %427, %.thread55 ], [ %.lcssa85223, %512 ]
+  %.lcssa89 = phi ptr [ %48, %.thread55 ], [ %.lcssa83225, %512 ]
   %515 = icmp eq ptr %.lcssa91, null
   br i1 %515, label %528, label %.thread66
 
@@ -2873,7 +2873,7 @@ define internal fastcc void @execlists_reset(ptr noundef %0, ptr noundef %1) unn
   %167 = load volatile i64, ptr %166, align 8
   %168 = and i64 %167, 32
   %169 = icmp eq i64 %168, 0
-  br i1 %169, label %170, label %.thread49
+  br i1 %169, label %170, label %.thread70
 
 170:                                              ; preds = %165
   %171 = load ptr, ptr %17, align 8
@@ -3024,16 +3024,16 @@ define internal fastcc void @execlists_reset(ptr noundef %0, ptr noundef %1) unn
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %260) #17
   %.pre = load ptr, ptr %160, align 8
   %261 = icmp eq ptr %.pre, null
-  br i1 %261, label %.thread28, label %.thread49
+  br i1 %261, label %.thread28, label %.thread70
 
-.thread49:                                        ; preds = %165, %258
+.thread70:                                        ; preds = %165, %258
   %262 = phi ptr [ %.pre, %258 ], [ %163, %165 ]
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 56
   %264 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %263, i32 -1, ptr nonnull elementtype(i32) %263) #17, !srcloc !20
   %265 = icmp eq i32 %264, 1
   br i1 %265, label %269, label %266
 
-266:                                              ; preds = %.thread49
+266:                                              ; preds = %.thread70
   %267 = icmp sgt i32 %264, 0
   br i1 %267, label %.thread28, label %268, !prof !12
 
@@ -3041,7 +3041,7 @@ define internal fastcc void @execlists_reset(ptr noundef %0, ptr noundef %1) unn
   tail call void @refcount_warn_saturate(ptr noundef nonnull %263, i32 noundef 3) #17
   br label %.thread28
 
-269:                                              ; preds = %.thread49
+269:                                              ; preds = %.thread70
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   tail call void @dma_fence_release(ptr noundef nonnull %263) #17
   br label %.thread28

@@ -2249,8 +2249,8 @@ define internal i32 @dissect_mysql_pdu(ptr noundef %0, ptr noundef %1, ptr nound
   %80 = icmp eq i8 %73, 0
   %81 = load i32, ptr %.0, align 8
   %82 = icmp eq i32 %81, 0
-  %or.cond247 = select i1 %80, i1 %82, i1 false
-  br i1 %or.cond247, label %83, label %thread-pre-split
+  %or.cond284 = select i1 %80, i1 %82, i1 false
+  br i1 %or.cond284, label %83, label %thread-pre-split
 
 83:                                               ; preds = %79
   %84 = load ptr, ptr %67, align 8
@@ -2304,13 +2304,13 @@ mysql_set_conn_state.exit.i:                      ; preds = %94, %89
   br label %110
 
 110:                                              ; preds = %108, %106, %mysql_set_conn_state.exit.i
-  %.sink151.i = phi i32 [ -7, %108 ], [ -1, %106 ], [ -1, %mysql_set_conn_state.exit.i ]
-  %.sink149.i = phi i32 [ 11, %108 ], [ 5, %106 ], [ 5, %mysql_set_conn_state.exit.i ]
+  %.sink156.i = phi i32 [ -7, %108 ], [ -1, %106 ], [ -1, %mysql_set_conn_state.exit.i ]
+  %.sink154.i = phi i32 [ 11, %108 ], [ 5, %106 ], [ 5, %mysql_set_conn_state.exit.i ]
   %111 = load ptr, ptr %67, align 8
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %113 = load ptr, ptr %112, align 8
-  %114 = add i32 %.sink151.i, %103
-  %115 = call ptr @tvb_format_text(ptr noundef %113, ptr noundef %0, i32 noundef %.sink149.i, i32 noundef %114)
+  %114 = add i32 %.sink156.i, %103
+  %115 = call ptr @tvb_format_text(ptr noundef %113, ptr noundef %0, i32 noundef %.sink154.i, i32 noundef %114)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %111, i32 noundef 25, ptr noundef nonnull @.str.1207, ptr noundef %115)
   %116 = load ptr, ptr %67, align 8
   call void @col_set_fence(ptr noundef %116, i32 noundef 25)
@@ -3346,9 +3346,9 @@ tvb_get_fle.exit.i.i:                             ; preds = %594, %592, %589, %5
   br label %mysql_set_field_metas.exit.sink.split.i.i
 
 mysql_set_field_metas.exit.sink.split.i.i:        ; preds = %649, %621
-  %.sink119.i.i = phi ptr [ %650, %649 ], [ %623, %621 ]
+  %.sink121.i.i = phi ptr [ %650, %649 ], [ %623, %621 ]
   %651 = getelementptr inbounds nuw i8, ptr %.0143, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %651, ptr noundef readonly align 8 dereferenceable(32) %.sink119.i.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %651, ptr noundef readonly align 8 dereferenceable(32) %.sink121.i.i, i64 32, i1 false)
   br label %mysql_set_field_metas.exit.i312.i
 
 mysql_set_field_metas.exit.i312.i:                ; preds = %mysql_set_field_metas.exit.sink.split.i.i, %645, %641, %639, %621
@@ -4544,8 +4544,8 @@ mysql_set_conn_state.exit.i206:                   ; preds = %1150, %1146
   %.not473.i = icmp eq i8 %1212, 0
   %1213 = add nuw nsw i32 %.0437587.i, 1
   %exitcond609.not.i = icmp eq i32 %1213, %1187
-  %or.cond627.i = select i1 %.not473.i, i1 true, i1 %exitcond609.not.i
-  br i1 %or.cond627.i, label %._crit_edge590.i, label %.lr.ph589.i, !llvm.loop !16
+  %or.cond643.i = select i1 %.not473.i, i1 true, i1 %exitcond609.not.i
+  br i1 %or.cond643.i, label %._crit_edge590.i, label %.lr.ph589.i, !llvm.loop !16
 
 ._crit_edge590.i:                                 ; preds = %.lr.ph589.i
   %.pre617.i = load i32, ptr %6, align 4
@@ -5327,8 +5327,8 @@ thread-pre-split.i:                               ; preds = %1571, %1564
   %.not455.i = icmp eq i8 %1616, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i196 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  %or.cond628.i = select i1 %.not455.i, i1 true, i1 %exitcond.not.i196
-  br i1 %or.cond628.i, label %._crit_edge.loopexit.i, label %1604, !llvm.loop !22
+  %or.cond644.i = select i1 %.not455.i, i1 true, i1 %exitcond.not.i196
+  br i1 %or.cond644.i, label %._crit_edge.loopexit.i, label %1604, !llvm.loop !22
 
 ._crit_edge.loopexit.i:                           ; preds = %1612
   %.pre.i197 = load i32, ptr %6, align 4

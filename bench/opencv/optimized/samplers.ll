@@ -578,7 +578,7 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhhiNS_11scale_fixptEN
 
 .lr.ph:                                           ; preds = %.preheader198
   %invariant.gep = getelementptr i8, ptr %.0176235, i64 %67
-  %invariant.gep276 = getelementptr i8, ptr %.0176235, i64 %67
+  %invariant.gep285 = getelementptr i8, ptr %.0176235, i64 %67
   br label %73
 
 .preheader.loopexit:                              ; preds = %73
@@ -593,7 +593,7 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhhiNS_11scale_fixptEN
 .lr.ph232:                                        ; preds = %.preheader
   %71 = getelementptr i8, ptr %.0176235, i64 %1
   %72 = zext nneg i32 %.0182.lcssa to i64
-  %invariant.gep278 = getelementptr i8, ptr %.0176235, i64 %67
+  %invariant.gep287 = getelementptr i8, ptr %.0176235, i64 %67
   br label %120
 
 73:                                               ; preds = %.lr.ph, %73
@@ -602,8 +602,8 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhhiNS_11scale_fixptEN
   %75 = load i8, ptr %74, align 1, !tbaa !34
   %76 = zext i8 %75 to i32
   %77 = mul nsw i32 %31, %76
-  %gep277 = getelementptr i8, ptr %invariant.gep276, i64 %indvars.iv262
-  %78 = load i8, ptr %gep277, align 1, !tbaa !34
+  %gep286 = getelementptr i8, ptr %invariant.gep285, i64 %indvars.iv262
+  %78 = load i8, ptr %gep286, align 1, !tbaa !34
   %79 = zext i8 %78 to i32
   %80 = mul nsw i32 %35, %79
   %81 = add i64 %1, %indvars.iv262
@@ -620,7 +620,7 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhhiNS_11scale_fixptEN
   %91 = load i8, ptr %90, align 1, !tbaa !34
   %92 = zext i8 %91 to i32
   %93 = mul nsw i32 %31, %92
-  %94 = getelementptr i8, ptr %gep277, i64 1
+  %94 = getelementptr i8, ptr %gep286, i64 1
   %95 = load i8, ptr %94, align 1, !tbaa !34
   %96 = zext i8 %95 to i32
   %97 = mul nsw i32 %35, %96
@@ -658,8 +658,8 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhhiNS_11scale_fixptEN
   %122 = load i8, ptr %121, align 1, !tbaa !34
   %123 = zext i8 %122 to i32
   %124 = mul nsw i32 %31, %123
-  %gep279 = getelementptr i8, ptr %invariant.gep278, i64 %indvars.iv265
-  %125 = load i8, ptr %gep279, align 1, !tbaa !34
+  %gep288 = getelementptr i8, ptr %invariant.gep287, i64 %indvars.iv265
+  %125 = load i8, ptr %gep288, align 1, !tbaa !34
   %126 = zext i8 %125 to i32
   %127 = mul nsw i32 %35, %126
   %128 = getelementptr i8, ptr %71, i64 %indvars.iv265
@@ -791,8 +791,8 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhhiNS_11scale_fixptEN
 195:                                              ; preds = %.lr.ph202.us, %195
   %indvars.iv246 = phi i64 [ %163, %.lr.ph202.us ], [ %indvars.iv.next247, %195 ]
   %196 = mul nsw i64 %indvars.iv246, %164
-  %gep275 = getelementptr i8, ptr %invariant.gep274, i64 %196
-  store i8 %224, ptr %gep275, align 1, !tbaa !34
+  %gep284 = getelementptr i8, ptr %invariant.gep283, i64 %196
+  store i8 %224, ptr %gep284, align 1, !tbaa !34
   %indvars.iv.next247 = add nsw i64 %indvars.iv246, 1
   %exitcond250.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count249
   br i1 %exitcond250.not, label %._crit_edge203.us, label %195, !llvm.loop !51
@@ -800,8 +800,8 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhhiNS_11scale_fixptEN
 197:                                              ; preds = %.lr.ph.us, %197
   %indvars.iv241 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next242, %197 ]
   %198 = mul nuw nsw i64 %indvars.iv241, %162
-  %gep273 = getelementptr inbounds nuw i8, ptr %invariant.gep272, i64 %198
-  store i8 %211, ptr %gep273, align 1, !tbaa !34
+  %gep282 = getelementptr inbounds nuw i8, ptr %invariant.gep281, i64 %198
+  store i8 %211, ptr %gep282, align 1, !tbaa !34
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %wide.trip.count244
   br i1 %exitcond245.not, label %._crit_edge.us, label %197, !llvm.loop !52
@@ -820,7 +820,7 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhhiNS_11scale_fixptEN
   %209 = add i32 %208, %203
   %210 = lshr i32 %209, 16
   %211 = trunc i32 %210 to i8
-  %invariant.gep272 = getelementptr inbounds nuw i8, ptr %.1178213.us, i64 %indvars.iv251
+  %invariant.gep281 = getelementptr inbounds nuw i8, ptr %.1178213.us, i64 %indvars.iv251
   br label %197
 
 .lr.ph202.us:                                     ; preds = %._crit_edge.us
@@ -837,7 +837,7 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhhiNS_11scale_fixptEN
   %222 = add i32 %221, %216
   %223 = lshr i32 %222, 16
   %224 = trunc i32 %223 to i8
-  %invariant.gep274 = getelementptr i8, ptr %.1178213.us, i64 %indvars.iv251
+  %invariant.gep283 = getelementptr i8, ptr %.1178213.us, i64 %indvars.iv251
   br label %195
 
 ._crit_edge207.us:                                ; preds = %._crit_edge203.us
@@ -984,7 +984,7 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IfffNS_3nopIfEES2_EEvP
 
 .lr.ph:                                           ; preds = %.preheader198
   %invariant.gep = getelementptr float, ptr %.0176235, i64 %51
-  %invariant.gep276 = getelementptr float, ptr %.0176235, i64 %51
+  %invariant.gep285 = getelementptr float, ptr %.0176235, i64 %51
   br label %57
 
 .preheader.loopexit:                              ; preds = %57
@@ -999,15 +999,15 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IfffNS_3nopIfEES2_EEvP
 .lr.ph232:                                        ; preds = %.preheader
   %55 = getelementptr inbounds nuw float, ptr %.0176235, i64 %32
   %56 = zext nneg i32 %.0182.lcssa to i64
-  %invariant.gep278 = getelementptr float, ptr %.0176235, i64 %51
+  %invariant.gep287 = getelementptr float, ptr %.0176235, i64 %51
   br label %84
 
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv262 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next263, %57 ]
   %58 = getelementptr inbounds nuw float, ptr %.0176235, i64 %indvars.iv262
   %59 = load float, ptr %58, align 4, !tbaa !35
-  %gep277 = getelementptr float, ptr %invariant.gep276, i64 %indvars.iv262
-  %60 = load float, ptr %gep277, align 4, !tbaa !35
+  %gep286 = getelementptr float, ptr %invariant.gep285, i64 %indvars.iv262
+  %60 = load float, ptr %gep286, align 4, !tbaa !35
   %61 = fmul float %29, %60
   %62 = tail call float @llvm.fmuladd.f32(float %59, float %28, float %61)
   %63 = add nuw nsw i64 %32, %indvars.iv262
@@ -1020,7 +1020,7 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IfffNS_3nopIfEES2_EEvP
   %69 = or disjoint i64 %indvars.iv262, 1
   %70 = getelementptr inbounds nuw float, ptr %.0176235, i64 %69
   %71 = load float, ptr %70, align 4, !tbaa !35
-  %72 = getelementptr i8, ptr %gep277, i64 4
+  %72 = getelementptr i8, ptr %gep286, i64 4
   %73 = load float, ptr %72, align 4, !tbaa !35
   %74 = fmul float %29, %73
   %75 = tail call float @llvm.fmuladd.f32(float %71, float %28, float %74)
@@ -1042,8 +1042,8 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IfffNS_3nopIfEES2_EEvP
   %indvars.iv265 = phi i64 [ %56, %.lr.ph232 ], [ %indvars.iv.next266, %84 ]
   %85 = getelementptr inbounds nuw float, ptr %.0176235, i64 %indvars.iv265
   %86 = load float, ptr %85, align 4, !tbaa !35
-  %gep279 = getelementptr float, ptr %invariant.gep278, i64 %indvars.iv265
-  %87 = load float, ptr %gep279, align 4, !tbaa !35
+  %gep288 = getelementptr float, ptr %invariant.gep287, i64 %indvars.iv265
+  %87 = load float, ptr %gep288, align 4, !tbaa !35
   %88 = fmul float %29, %87
   %89 = tail call float @llvm.fmuladd.f32(float %86, float %28, float %88)
   %90 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv265
@@ -1156,7 +1156,7 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IfffNS_3nopIfEES2_EEvP
   br i1 %112, label %.lr.ph.us.preheader, label %._crit_edge.us
 
 .lr.ph.us.preheader:                              ; preds = %140
-  %invariant.gep272 = getelementptr inbounds nuw float, ptr %.1178213.us, i64 %indvars.iv251
+  %invariant.gep281 = getelementptr inbounds nuw float, ptr %.1178213.us, i64 %indvars.iv251
   br label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us, %140
@@ -1170,7 +1170,7 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IfffNS_3nopIfEES2_EEvP
   br i1 %116, label %.lr.ph202.us.preheader, label %._crit_edge203.us
 
 .lr.ph202.us.preheader:                           ; preds = %._crit_edge.us
-  %invariant.gep274 = getelementptr float, ptr %.1178213.us, i64 %indvars.iv251
+  %invariant.gep283 = getelementptr float, ptr %.1178213.us, i64 %indvars.iv251
   br label %.lr.ph202.us
 
 ._crit_edge203.us:                                ; preds = %.lr.ph202.us, %._crit_edge.us
@@ -1181,8 +1181,8 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IfffNS_3nopIfEES2_EEvP
 .lr.ph202.us:                                     ; preds = %.lr.ph202.us.preheader, %.lr.ph202.us
   %indvars.iv246 = phi i64 [ %119, %.lr.ph202.us.preheader ], [ %indvars.iv.next247, %.lr.ph202.us ]
   %155 = mul nsw i64 %indvars.iv246, %120
-  %gep275 = getelementptr float, ptr %invariant.gep274, i64 %155
-  store float %154, ptr %gep275, align 4, !tbaa !35
+  %gep284 = getelementptr float, ptr %invariant.gep283, i64 %155
+  store float %154, ptr %gep284, align 4, !tbaa !35
   %indvars.iv.next247 = add nsw i64 %indvars.iv246, 1
   %exitcond250.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count249
   br i1 %exitcond250.not, label %._crit_edge203.us, label %.lr.ph202.us, !llvm.loop !59
@@ -1190,8 +1190,8 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IfffNS_3nopIfEES2_EEvP
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvars.iv241 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next242, %.lr.ph.us ]
   %156 = mul nuw nsw i64 %indvars.iv241, %118
-  %gep273 = getelementptr inbounds nuw float, ptr %invariant.gep272, i64 %156
-  store float %147, ptr %gep273, align 4, !tbaa !35
+  %gep282 = getelementptr inbounds nuw float, ptr %invariant.gep281, i64 %156
+  store float %147, ptr %gep282, align 4, !tbaa !35
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %wide.trip.count244
   br i1 %exitcond245.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !60
@@ -1753,8 +1753,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %238 = getelementptr inbounds i8, ptr %147, i64 %237
   %239 = getelementptr i8, ptr %238, i64 %84
   %240 = mul nuw nsw i64 %indvars.iv286.i, %110
-  %invariant.gep296.i = getelementptr inbounds nuw i8, ptr %238, i64 %110
-  %invariant.gep298.i = getelementptr inbounds nuw float, ptr %.0228265.i, i64 %240
+  %invariant.gep304.i = getelementptr inbounds nuw i8, ptr %238, i64 %110
+  %invariant.gep306.i = getelementptr inbounds nuw float, ptr %.0228265.i, i64 %240
   br label %241
 
 241:                                              ; preds = %241, %235
@@ -1762,8 +1762,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %242 = getelementptr inbounds nuw i8, ptr %238, i64 %indvars.iv281.i
   %243 = load i8, ptr %242, align 1, !tbaa !34
   %244 = uitofp i8 %243 to float
-  %gep297.i = getelementptr inbounds nuw i8, ptr %invariant.gep296.i, i64 %indvars.iv281.i
-  %245 = load i8, ptr %gep297.i, align 1, !tbaa !34
+  %gep305.i = getelementptr inbounds nuw i8, ptr %invariant.gep304.i, i64 %indvars.iv281.i
+  %245 = load i8, ptr %gep305.i, align 1, !tbaa !34
   %246 = uitofp i8 %245 to float
   %247 = fmul float %157, %246
   %248 = call float @llvm.fmuladd.f32(float %244, float %156, float %247)
@@ -1775,8 +1775,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %254 = load i8, ptr %253, align 1, !tbaa !34
   %255 = uitofp i8 %254 to float
   %256 = call float @llvm.fmuladd.f32(float %255, float %159, float %252)
-  %gep299.i = getelementptr inbounds nuw float, ptr %invariant.gep298.i, i64 %indvars.iv281.i
-  store float %256, ptr %gep299.i, align 4, !tbaa !35
+  %gep307.i = getelementptr inbounds nuw float, ptr %invariant.gep306.i, i64 %indvars.iv281.i
+  store float %256, ptr %gep307.i, align 4, !tbaa !35
   %indvars.iv.next282.i = add nuw nsw i64 %indvars.iv281.i, 1
   %exitcond285.not.i = icmp eq i64 %indvars.iv.next282.i, %110
   br i1 %exitcond285.not.i, label %.loopexit.i, label %241, !llvm.loop !66
@@ -1841,7 +1841,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %293 = getelementptr inbounds i8, ptr %.0227.i, i64 %292
   %294 = getelementptr inbounds i8, ptr %.0.i, i64 %292
   %295 = mul nuw nsw i64 %indvars.iv276.i, %110
-  %invariant.gep294.i = getelementptr inbounds nuw float, ptr %.0228265.i, i64 %295
+  %invariant.gep302.i = getelementptr inbounds nuw float, ptr %.0228265.i, i64 %295
   br label %296
 
 296:                                              ; preds = %296, %290
@@ -1863,8 +1863,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %311 = load i8, ptr %310, align 1, !tbaa !34
   %312 = uitofp i8 %311 to float
   %313 = call float @llvm.fmuladd.f32(float %312, float %273, float %309)
-  %gep295.i = getelementptr inbounds nuw float, ptr %invariant.gep294.i, i64 %indvars.iv271.i
-  store float %313, ptr %gep295.i, align 4, !tbaa !35
+  %gep303.i = getelementptr inbounds nuw float, ptr %invariant.gep302.i, i64 %indvars.iv271.i
+  store float %313, ptr %gep303.i, align 4, !tbaa !35
   %indvars.iv.next272.i = add nuw nsw i64 %indvars.iv271.i, 1
   %exitcond275.not.i = icmp eq i64 %indvars.iv.next272.i, %110
   br i1 %exitcond275.not.i, label %.loopexit246.i, label %296, !llvm.loop !68
@@ -2344,7 +2344,7 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhffNS_3nopIfEES2_EEvP
 
 .lr.ph:                                           ; preds = %.preheader198
   %invariant.gep = getelementptr i8, ptr %.0176235, i64 %50
-  %invariant.gep276 = getelementptr i8, ptr %.0176235, i64 %50
+  %invariant.gep285 = getelementptr i8, ptr %.0176235, i64 %50
   br label %56
 
 .preheader.loopexit:                              ; preds = %56
@@ -2359,7 +2359,7 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhffNS_3nopIfEES2_EEvP
 .lr.ph232:                                        ; preds = %.preheader
   %54 = getelementptr i8, ptr %.0176235, i64 %1
   %55 = zext nneg i32 %.0182.lcssa to i64
-  %invariant.gep278 = getelementptr i8, ptr %.0176235, i64 %50
+  %invariant.gep287 = getelementptr i8, ptr %.0176235, i64 %50
   br label %91
 
 56:                                               ; preds = %.lr.ph, %56
@@ -2367,8 +2367,8 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhffNS_3nopIfEES2_EEvP
   %57 = getelementptr inbounds nuw i8, ptr %.0176235, i64 %indvars.iv262
   %58 = load i8, ptr %57, align 1, !tbaa !34
   %59 = uitofp i8 %58 to float
-  %gep277 = getelementptr i8, ptr %invariant.gep276, i64 %indvars.iv262
-  %60 = load i8, ptr %gep277, align 1, !tbaa !34
+  %gep286 = getelementptr i8, ptr %invariant.gep285, i64 %indvars.iv262
+  %60 = load i8, ptr %gep286, align 1, !tbaa !34
   %61 = uitofp i8 %60 to float
   %62 = fmul float %29, %61
   %63 = tail call float @llvm.fmuladd.f32(float %59, float %28, float %62)
@@ -2385,7 +2385,7 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhffNS_3nopIfEES2_EEvP
   %73 = getelementptr inbounds nuw i8, ptr %.0176235, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !34
   %75 = uitofp i8 %74 to float
-  %76 = getelementptr i8, ptr %gep277, i64 1
+  %76 = getelementptr i8, ptr %gep286, i64 1
   %77 = load i8, ptr %76, align 1, !tbaa !34
   %78 = uitofp i8 %77 to float
   %79 = fmul float %29, %78
@@ -2411,8 +2411,8 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhffNS_3nopIfEES2_EEvP
   %92 = getelementptr inbounds nuw i8, ptr %.0176235, i64 %indvars.iv265
   %93 = load i8, ptr %92, align 1, !tbaa !34
   %94 = uitofp i8 %93 to float
-  %gep279 = getelementptr i8, ptr %invariant.gep278, i64 %indvars.iv265
-  %95 = load i8, ptr %gep279, align 1, !tbaa !34
+  %gep288 = getelementptr i8, ptr %invariant.gep287, i64 %indvars.iv265
+  %95 = load i8, ptr %gep288, align 1, !tbaa !34
   %96 = uitofp i8 %95 to float
   %97 = fmul float %29, %96
   %98 = tail call float @llvm.fmuladd.f32(float %94, float %28, float %97)
@@ -2532,7 +2532,7 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhffNS_3nopIfEES2_EEvP
   br i1 %121, label %.lr.ph.us.preheader, label %._crit_edge.us
 
 .lr.ph.us.preheader:                              ; preds = %153
-  %invariant.gep272 = getelementptr inbounds nuw float, ptr %.1178213.us, i64 %indvars.iv251
+  %invariant.gep281 = getelementptr inbounds nuw float, ptr %.1178213.us, i64 %indvars.iv251
   br label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us, %153
@@ -2548,7 +2548,7 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhffNS_3nopIfEES2_EEvP
   br i1 %125, label %.lr.ph202.us.preheader, label %._crit_edge203.us
 
 .lr.ph202.us.preheader:                           ; preds = %._crit_edge.us
-  %invariant.gep274 = getelementptr float, ptr %.1178213.us, i64 %indvars.iv251
+  %invariant.gep283 = getelementptr float, ptr %.1178213.us, i64 %indvars.iv251
   br label %.lr.ph202.us
 
 ._crit_edge203.us:                                ; preds = %.lr.ph202.us, %._crit_edge.us
@@ -2559,8 +2559,8 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhffNS_3nopIfEES2_EEvP
 .lr.ph202.us:                                     ; preds = %.lr.ph202.us.preheader, %.lr.ph202.us
   %indvars.iv246 = phi i64 [ %128, %.lr.ph202.us.preheader ], [ %indvars.iv.next247, %.lr.ph202.us ]
   %172 = mul nsw i64 %indvars.iv246, %129
-  %gep275 = getelementptr float, ptr %invariant.gep274, i64 %172
-  store float %171, ptr %gep275, align 4, !tbaa !35
+  %gep284 = getelementptr float, ptr %invariant.gep283, i64 %172
+  store float %171, ptr %gep284, align 4, !tbaa !35
   %indvars.iv.next247 = add nsw i64 %indvars.iv246, 1
   %exitcond250.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count249
   br i1 %exitcond250.not, label %._crit_edge203.us, label %.lr.ph202.us, !llvm.loop !103
@@ -2568,8 +2568,8 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhffNS_3nopIfEES2_EEvP
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvars.iv241 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next242, %.lr.ph.us ]
   %173 = mul nuw nsw i64 %indvars.iv241, %127
-  %gep273 = getelementptr inbounds nuw float, ptr %invariant.gep272, i64 %173
-  store float %162, ptr %gep273, align 4, !tbaa !35
+  %gep282 = getelementptr inbounds nuw float, ptr %invariant.gep281, i64 %173
+  store float %162, ptr %gep282, align 4, !tbaa !35
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %wide.trip.count244
   br i1 %exitcond245.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !104

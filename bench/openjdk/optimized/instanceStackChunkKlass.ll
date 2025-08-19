@@ -1372,13 +1372,13 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE11is_compiledEv.exit.i: ; preds = %
   br i1 %33, label %_ZN31DoMethodsStackChunkFrameClosure8do_frameIL11ChunkFrames1E11RegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit.sink.split, label %_ZN31DoMethodsStackChunkFrameClosure8do_frameIL11ChunkFrames1E11RegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit
 
 _ZN31DoMethodsStackChunkFrameClosure8do_frameIL11ChunkFrames1E11RegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit.sink.split: ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE11is_compiledEv.exit.i, %28
-  %.sink18 = phi i64 [ 48, %28 ], [ 56, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE11is_compiledEv.exit.i ]
-  %.sink14 = phi ptr [ %29, %28 ], [ %30, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE11is_compiledEv.exit.i ]
+  %.sink24 = phi i64 [ 48, %28 ], [ 56, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE11is_compiledEv.exit.i ]
+  %.sink20 = phi ptr [ %29, %28 ], [ %30, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE11is_compiledEv.exit.i ]
   %34 = load ptr, ptr %1, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.sink18
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.sink24
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef %.sink14) #10
+  call void %37(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef %.sink20) #10
   br label %_ZN31DoMethodsStackChunkFrameClosure8do_frameIL11ChunkFrames1E11RegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit
 
 _ZN31DoMethodsStackChunkFrameClosure8do_frameIL11ChunkFrames1E11RegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit: ; preds = %_ZN31DoMethodsStackChunkFrameClosure8do_frameIL11ChunkFrames1E11RegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit.sink.split, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread.i, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE11is_compiledEv.exit.i
@@ -1438,13 +1438,13 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE11is_compiledEv.exit.i9: ; preds = 
   br i1 %60, label %_ZN31DoMethodsStackChunkFrameClosure8do_frameIL11ChunkFrames1E16SmallRegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit.sink.split, label %_ZN31DoMethodsStackChunkFrameClosure8do_frameIL11ChunkFrames1E16SmallRegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit
 
 _ZN31DoMethodsStackChunkFrameClosure8do_frameIL11ChunkFrames1E16SmallRegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit.sink.split: ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE11is_compiledEv.exit.i9, %55
-  %.sink24 = phi i64 [ 48, %55 ], [ 56, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE11is_compiledEv.exit.i9 ]
-  %.sink20 = phi ptr [ %56, %55 ], [ %57, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE11is_compiledEv.exit.i9 ]
+  %.sink30 = phi i64 [ 48, %55 ], [ 56, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE11is_compiledEv.exit.i9 ]
+  %.sink26 = phi ptr [ %56, %55 ], [ %57, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE11is_compiledEv.exit.i9 ]
   %61 = load ptr, ptr %1, align 8
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.sink24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.sink30
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef %.sink20) #10
+  call void %64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef %.sink26) #10
   br label %_ZN31DoMethodsStackChunkFrameClosure8do_frameIL11ChunkFrames1E16SmallRegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit
 
 _ZN31DoMethodsStackChunkFrameClosure8do_frameIL11ChunkFrames1E16SmallRegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit: ; preds = %_ZN31DoMethodsStackChunkFrameClosure8do_frameIL11ChunkFrames1E16SmallRegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit.sink.split, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread.i7, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE11is_compiledEv.exit.i9
@@ -4971,7 +4971,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit: ; preds = 
   br i1 %.not.i.i.i8, label %_ZNK5frame20is_interpreted_frameEv.exit.thread.i, label %_ZNK5frame20is_interpreted_frameEv.exit.i
 
 _ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit
-  %.ph26 = phi i32 [ %21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread ], [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ]
+  %.ph31 = phi i32 [ %21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread ], [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.pr.pre, i64 8
@@ -4999,7 +4999,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %_ZNK21StackChunkFra
 
 _ZNK5frame20is_interpreted_frameEv.exit.thread.i: ; preds = %10, %_ZNK5frame20is_interpreted_frameEv.exit.i, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit
   %.not.i.i.i817 = phi i1 [ false, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ true, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ true, %10 ]
-  %42 = phi i32 [ %.ph26, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ 0, %10 ]
+  %42 = phi i32 [ %.ph31, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ 0, %10 ]
   %43 = phi ptr [ %.pr.pre, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ null, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ null, %10 ]
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %45 = load ptr, ptr %44, align 8
@@ -5009,7 +5009,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread.i: ; preds = %10, %_ZNK5frame20is
 
 _ZNK5frame10frame_sizeEv.exit:                    ; preds = %32, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i
   %.not.i.i.i816 = phi i1 [ false, %32 ], [ %.not.i.i.i817, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i ]
-  %48 = phi i32 [ %.ph26, %32 ], [ %42, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i ]
+  %48 = phi i32 [ %.ph31, %32 ], [ %42, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i ]
   %49 = phi ptr [ %.pr.pre, %32 ], [ %43, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i ]
   %50 = phi i32 [ %41, %32 ], [ %47, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i ]
   %brmerge = or i1 %.not.i, %.not.i.i.i816
@@ -5167,7 +5167,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit: ; preds = 
   br i1 %.not.i.i.i8, label %_ZNK5frame20is_interpreted_frameEv.exit.thread.i, label %_ZNK5frame20is_interpreted_frameEv.exit.i
 
 _ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit
-  %.ph26 = phi i32 [ %21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread ], [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ]
+  %.ph31 = phi i32 [ %21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread ], [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.pr.pre, i64 8
@@ -5195,7 +5195,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %_ZNK21StackChunkFra
 
 _ZNK5frame20is_interpreted_frameEv.exit.thread.i: ; preds = %10, %_ZNK5frame20is_interpreted_frameEv.exit.i, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit
   %.not.i.i.i817 = phi i1 [ false, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ true, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ true, %10 ]
-  %42 = phi i32 [ %.ph26, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ 0, %10 ]
+  %42 = phi i32 [ %.ph31, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ 0, %10 ]
   %43 = phi ptr [ %.pr.pre, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ null, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ null, %10 ]
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %45 = load ptr, ptr %44, align 8
@@ -5205,7 +5205,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread.i: ; preds = %10, %_ZNK5frame20is
 
 _ZNK5frame10frame_sizeEv.exit:                    ; preds = %32, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i
   %.not.i.i.i816 = phi i1 [ false, %32 ], [ %.not.i.i.i817, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i ]
-  %48 = phi i32 [ %.ph26, %32 ], [ %42, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i ]
+  %48 = phi i32 [ %.ph31, %32 ], [ %42, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i ]
   %49 = phi ptr [ %.pr.pre, %32 ], [ %43, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i ]
   %50 = phi i32 [ %41, %32 ], [ %47, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i ]
   %brmerge = or i1 %.not.i, %.not.i.i.i816

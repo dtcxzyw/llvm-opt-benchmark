@@ -80,9 +80,9 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN102_$LT$core.
   br label %7
 
 7:                                                ; preds = %26, %1
-  %.lcssa36.i.i.i = phi ptr [ %.lcssa3544.i.i.i, %26 ], [ %.promoted34.i.i.i, %1 ]
+  %.lcssa36.i.i.i = phi ptr [ %.lcssa3546.i.i.i, %26 ], [ %.promoted34.i.i.i, %1 ]
   %8 = phi i16 [ %28, %26 ], [ %.promoted33.i.i.i, %1 ]
-  %.lcssa2032.i.i.i = phi ptr [ %.lcssa203145.i.i.i, %26 ], [ %.promoted30.i.i.i, %1 ]
+  %.lcssa2032.i.i.i = phi ptr [ %.lcssa203147.i.i.i, %26 ], [ %.promoted30.i.i.i, %1 ]
   %9 = phi i64 [ %27, %26 ], [ %.promoted.i.i.i, %1 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
@@ -95,7 +95,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN102_$LT$core.
   %.not.not.i11.i.i.i.i.i.i.i = icmp eq i16 %8, 0
   br i1 %.not.not.i11.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i"
 
-"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i
+"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i
   %12 = xor i16 %19, -1
   store ptr %21, ptr %5, align 8, !alias.scope !41, !noalias !30
   store ptr %20, ptr %0, align 8, !alias.scope !41, !noalias !30
@@ -115,7 +115,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN102_$LT$core.
   %20 = getelementptr inbounds i8, ptr %.val1012.i.i.i.i.i.i.i, i64 -1152
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.not.not.i.i.i.i.i.i.i.i = icmp eq i16 %19, -1
-  br i1 %.not.not.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i.i"
+  br i1 %.not.not.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i.i"
 
 "_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i": ; preds = %11
   %22 = add i16 %8, -1
@@ -126,16 +126,16 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN102_$LT$core.
   %25 = icmp eq ptr %.lcssa2032.i.i.i, null
   br i1 %25, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd7f2d709780f795aE.llvm.17312374178852649393.exit.thread", label %26
 
-26:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i", %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i.i"
-  %27 = phi i64 [ %15, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i.i" ], [ %24, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i" ]
-  %28 = phi i16 [ %14, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i.i" ], [ %23, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i" ]
-  %.lcssa.i.i.i.i46.i.i.i = phi i16 [ %12, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i.i" ], [ %8, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i" ]
-  %.lcssa203145.i.i.i = phi ptr [ %20, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i.i" ], [ %.lcssa2032.i.i.i, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i" ]
-  %.lcssa3544.i.i.i = phi ptr [ %21, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i.i" ], [ %.lcssa36.i.i.i, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i" ]
-  %29 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i.i.i46.i.i.i, i1 true)
+26:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i", %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i.i"
+  %27 = phi i64 [ %15, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i.i" ], [ %24, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i" ]
+  %28 = phi i16 [ %14, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i.i" ], [ %23, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i" ]
+  %.lcssa.i.i.i.i48.i.i.i = phi i16 [ %12, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i.i" ], [ %8, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i" ]
+  %.lcssa203147.i.i.i = phi ptr [ %20, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i.i" ], [ %.lcssa2032.i.i.i, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i" ]
+  %.lcssa3546.i.i.i = phi ptr [ %21, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i.i" ], [ %.lcssa36.i.i.i, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i" ]
+  %29 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i.i.i48.i.i.i, i1 true)
   %30 = zext nneg i16 %29 to i64
   %31 = sub nsw i64 0, %30
-  %32 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 } }, ptr %.lcssa203145.i.i.i, i64 %31
+  %32 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 } }, ptr %.lcssa203147.i.i.i, i64 %31
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %33 = getelementptr inbounds i8, ptr %32, i64 -8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
@@ -243,9 +243,9 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   br label %9
 
 9:                                                ; preds = %28, %2
-  %.lcssa36.i.i.i.i = phi ptr [ %.lcssa3544.i.i.i.i, %28 ], [ %.promoted34.i.i.i.i, %2 ]
+  %.lcssa36.i.i.i.i = phi ptr [ %.lcssa3546.i.i.i.i, %28 ], [ %.promoted34.i.i.i.i, %2 ]
   %10 = phi i16 [ %30, %28 ], [ %.promoted33.i.i.i.i, %2 ]
-  %.lcssa2032.i.i.i.i = phi ptr [ %.lcssa203145.i.i.i.i, %28 ], [ %.promoted30.i.i.i.i, %2 ]
+  %.lcssa2032.i.i.i.i = phi ptr [ %.lcssa203147.i.i.i.i, %28 ], [ %.promoted30.i.i.i.i, %2 ]
   %11 = phi i64 [ %29, %28 ], [ %.promoted.i.i.i.i, %2 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
@@ -258,7 +258,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %.not.not.i11.i.i.i.i.i.i.i.i = icmp eq i16 %10, 0
   br i1 %.not.not.i11.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i.i"
 
-"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i
+"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %14 = xor i16 %21, -1
   store ptr %23, ptr %7, align 8, !alias.scope !132, !noalias !122
   store ptr %22, ptr %1, align 8, !alias.scope !132, !noalias !122
@@ -278,7 +278,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %22 = getelementptr inbounds i8, ptr %.val1012.i.i.i.i.i.i.i.i, i64 -1152
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.not.not.i.i.i.i.i.i.i.i.i = icmp eq i16 %21, -1
-  br i1 %.not.not.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i.i.i"
+  br i1 %.not.not.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i.i.i"
 
 "_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i.i": ; preds = %13
   %24 = add i16 %10, -1
@@ -289,16 +289,16 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %27 = icmp eq ptr %.lcssa2032.i.i.i.i, null
   br i1 %27, label %38, label %28
 
-28:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i.i", %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i.i.i"
-  %29 = phi i64 [ %17, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i.i.i" ], [ %26, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i.i" ]
-  %30 = phi i16 [ %16, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i.i.i" ], [ %25, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i.i" ]
-  %.lcssa.i.i.i.i46.i.i.i.i = phi i16 [ %14, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i.i.i" ], [ %10, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i.i" ]
-  %.lcssa203145.i.i.i.i = phi ptr [ %22, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i.i.i" ], [ %.lcssa2032.i.i.i.i, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i.i" ]
-  %.lcssa3544.i.i.i.i = phi ptr [ %23, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i.i.i" ], [ %.lcssa36.i.i.i.i, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i.i" ]
-  %31 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i.i.i46.i.i.i.i, i1 true)
+28:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i.i", %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i.i.i"
+  %29 = phi i64 [ %17, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i.i.i" ], [ %26, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i.i" ]
+  %30 = phi i16 [ %16, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i.i.i" ], [ %25, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i.i" ]
+  %.lcssa.i.i.i.i48.i.i.i.i = phi i16 [ %14, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i.i.i" ], [ %10, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i.i" ]
+  %.lcssa203147.i.i.i.i = phi ptr [ %22, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i.i.i" ], [ %.lcssa2032.i.i.i.i, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i.i" ]
+  %.lcssa3546.i.i.i.i = phi ptr [ %23, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i.i.i" ], [ %.lcssa36.i.i.i.i, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i.i" ]
+  %31 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i.i.i48.i.i.i.i, i1 true)
   %32 = zext nneg i16 %31 to i64
   %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 } }, ptr %.lcssa203145.i.i.i.i, i64 %33
+  %34 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 } }, ptr %.lcssa203147.i.i.i.i, i64 %33
   tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
   %35 = getelementptr inbounds i8, ptr %34, i64 -8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
@@ -589,9 +589,9 @@ define hidden { ptr, ptr } @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$
   br label %7
 
 7:                                                ; preds = %26, %1
-  %.lcssa36.i.i = phi ptr [ %.lcssa3544.i.i, %26 ], [ %.promoted34.i.i, %1 ]
+  %.lcssa36.i.i = phi ptr [ %.lcssa3546.i.i, %26 ], [ %.promoted34.i.i, %1 ]
   %8 = phi i16 [ %28, %26 ], [ %.promoted33.i.i, %1 ]
-  %.lcssa2032.i.i = phi ptr [ %.lcssa203145.i.i, %26 ], [ %.promoted30.i.i, %1 ]
+  %.lcssa2032.i.i = phi ptr [ %.lcssa203147.i.i, %26 ], [ %.promoted30.i.i, %1 ]
   %9 = phi i64 [ %27, %26 ], [ %.promoted.i.i, %1 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !269)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
@@ -604,7 +604,7 @@ define hidden { ptr, ptr } @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$
   %.not.not.i11.i.i.i.i.i.i = icmp eq i16 %8, 0
   br i1 %.not.not.i11.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i"
 
-"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i": ; preds = %.lr.ph.i.i.i.i.i.i
+"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i": ; preds = %.lr.ph.i.i.i.i.i.i
   %12 = xor i16 %19, -1
   store ptr %21, ptr %5, align 8, !alias.scope !275, !noalias !267
   store ptr %20, ptr %0, align 8, !alias.scope !275, !noalias !267
@@ -624,7 +624,7 @@ define hidden { ptr, ptr } @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$
   %20 = getelementptr inbounds i8, ptr %.val1012.i.i.i.i.i.i, i64 -1152
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.not.not.i.i.i.i.i.i.i = icmp eq i16 %19, -1
-  br i1 %.not.not.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i"
+  br i1 %.not.not.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i"
 
 "_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i": ; preds = %11
   %22 = add i16 %8, -1
@@ -635,16 +635,16 @@ define hidden { ptr, ptr } @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$
   %25 = icmp eq ptr %.lcssa2032.i.i, null
   br i1 %25, label %_ZN4core4iter6traits8iterator8Iterator4find17hc09253d816e0ee43E.llvm.17312374178852649393.exit, label %26
 
-26:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i", %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i"
-  %27 = phi i64 [ %15, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i" ], [ %24, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i" ]
-  %28 = phi i16 [ %14, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i" ], [ %23, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i" ]
-  %.lcssa.i.i.i.i46.i.i = phi i16 [ %12, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i" ], [ %8, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i" ]
-  %.lcssa203145.i.i = phi ptr [ %20, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i" ], [ %.lcssa2032.i.i, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i" ]
-  %.lcssa3544.i.i = phi ptr [ %21, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i.i" ], [ %.lcssa36.i.i, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i" ]
-  %29 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i.i.i46.i.i, i1 true)
+26:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i", %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i"
+  %27 = phi i64 [ %15, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i" ], [ %24, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i" ]
+  %28 = phi i16 [ %14, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i" ], [ %23, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i" ]
+  %.lcssa.i.i.i.i48.i.i = phi i16 [ %12, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i" ], [ %8, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i" ]
+  %.lcssa203147.i.i = phi ptr [ %20, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i" ], [ %.lcssa2032.i.i, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i" ]
+  %.lcssa3546.i.i = phi ptr [ %21, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i.i" ], [ %.lcssa36.i.i, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i" ]
+  %29 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i.i.i48.i.i, i1 true)
   %30 = zext nneg i16 %29 to i64
   %31 = sub nsw i64 0, %30
-  %32 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 } }, ptr %.lcssa203145.i.i, i64 %31
+  %32 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 } }, ptr %.lcssa203147.i.i, i64 %31
   tail call void @llvm.experimental.noalias.scope.decl(metadata !282)
   %33 = getelementptr inbounds i8, ptr %32, i64 -8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !285)
@@ -899,7 +899,7 @@ define hidden noundef zeroext i1 @"_ZN18crossbeam_skiplist4base17Node$LT$K$C$V$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noalias noundef ptr @"_ZN18crossbeam_skiplist4base17Node$LT$K$C$V$GT$5alloc17ha0d78e61dfdd87f4E"(i64 noundef %0) unnamed_addr #3 {
+define internal fastcc noalias noundef nonnull ptr @"_ZN18crossbeam_skiplist4base17Node$LT$K$C$V$GT$5alloc17ha0d78e61dfdd87f4E"(i64 noundef %0) unnamed_addr #3 {
   %2 = add i64 %0, -1
   %or.cond.i = icmp ult i64 %2, 32
   br i1 %or.cond.i, label %"_ZN18crossbeam_skiplist4base17Node$LT$K$C$V$GT$10get_layout17h2f0534dfe64400d6E.llvm.17312374178852649393.exit", label %_ZN4core3ops5range11RangeBounds8contains17h3df8e33ae4dc4c0cE.llvm.17312374178852649393.exit.thread.i
@@ -1869,9 +1869,9 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator4find17hc09253
   br label %7
 
 7:                                                ; preds = %26, %2
-  %.lcssa36.i = phi ptr [ %.lcssa3544.i, %26 ], [ %.promoted34.i, %2 ]
+  %.lcssa36.i = phi ptr [ %.lcssa3546.i, %26 ], [ %.promoted34.i, %2 ]
   %8 = phi i16 [ %28, %26 ], [ %.promoted33.i, %2 ]
-  %.lcssa2032.i = phi ptr [ %.lcssa203145.i, %26 ], [ %.promoted30.i, %2 ]
+  %.lcssa2032.i = phi ptr [ %.lcssa203147.i, %26 ], [ %.promoted30.i, %2 ]
   %9 = phi i64 [ %27, %26 ], [ %.promoted.i, %2 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !584)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !585)
@@ -1884,7 +1884,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator4find17hc09253
   %.not.not.i11.i.i.i.i.i = icmp eq i16 %8, 0
   br i1 %.not.not.i11.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i"
 
-"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i": ; preds = %.lr.ph.i.i.i.i.i
+"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i": ; preds = %.lr.ph.i.i.i.i.i
   %12 = xor i16 %19, -1
   store ptr %21, ptr %5, align 8, !alias.scope !590, !noalias !575
   store ptr %20, ptr %0, align 8, !alias.scope !590, !noalias !575
@@ -1904,7 +1904,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator4find17hc09253
   %20 = getelementptr inbounds i8, ptr %.val1012.i.i.i.i.i, i64 -1152
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.not.not.i.i.i.i.i.i = icmp eq i16 %19, -1
-  br i1 %.not.not.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i"
+  br i1 %.not.not.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i"
 
 "_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i": ; preds = %11
   %22 = add i16 %8, -1
@@ -1915,16 +1915,16 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator4find17hc09253
   %25 = icmp eq ptr %.lcssa2032.i, null
   br i1 %25, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h9a2179b08cfe6155E.exit, label %26
 
-26:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i", %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i"
-  %27 = phi i64 [ %15, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i" ], [ %24, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i" ]
-  %28 = phi i16 [ %14, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i" ], [ %23, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i" ]
-  %.lcssa.i.i.i.i46.i = phi i16 [ %12, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i" ], [ %8, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i" ]
-  %.lcssa203145.i = phi ptr [ %20, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i" ], [ %.lcssa2032.i, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i" ]
-  %.lcssa3544.i = phi ptr [ %21, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread40.i" ], [ %.lcssa36.i, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i" ]
-  %29 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i.i.i46.i, i1 true)
+26:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i", %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i"
+  %27 = phi i64 [ %15, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i" ], [ %24, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i" ]
+  %28 = phi i16 [ %14, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i" ], [ %23, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i" ]
+  %.lcssa.i.i.i.i48.i = phi i16 [ %12, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i" ], [ %8, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i" ]
+  %.lcssa203147.i = phi ptr [ %20, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i" ], [ %.lcssa2032.i, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i" ]
+  %.lcssa3546.i = phi ptr [ %21, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread42.i" ], [ %.lcssa36.i, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i" ]
+  %29 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i.i.i48.i, i1 true)
   %30 = zext nneg i16 %29 to i64
   %31 = sub nsw i64 0, %30
-  %32 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 } }, ptr %.lcssa203145.i, i64 %31
+  %32 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 } }, ptr %.lcssa203147.i, i64 %31
   tail call void @llvm.experimental.noalias.scope.decl(metadata !597)
   %33 = getelementptr inbounds i8, ptr %32, i64 -8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !600)
@@ -4678,9 +4678,9 @@ define internal fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17
   %.val21 = load i64, ptr %6, align 8, !noundef !4
   %7 = add i64 %.val21, 1
   %.not.not4.i = icmp eq i64 %7, 0
-  br i1 %.not.not4.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread20, label %.lr.ph.i
+  br i1 %.not.not4.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread24, label %.lr.ph.i
 
-_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread20: ; preds = %4
+_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread24: ; preds = %4
   %8 = icmp ne ptr %.val20, null
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds nuw i8, ptr %.val20, i64 16
@@ -4700,9 +4700,9 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.ex
 
 ._crit_edge.i:                                    ; preds = %17
   %spec.select = tail call i64 @llvm.umax.i64(i64 %7, i64 16)
-  %spec.select28 = tail call i64 @llvm.umin.i64(i64 %7, i64 16)
+  %spec.select32 = tail call i64 @llvm.umin.i64(i64 %7, i64 16)
   %14 = getelementptr inbounds i8, ptr %.val20, i64 %spec.select
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull align 1 %.val20, i64 %spec.select28, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull align 1 %.val20, i64 %spec.select32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %15, align 8
@@ -4738,9 +4738,9 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.ex
   %27 = mul nuw i64 %26, 7
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread20, %._crit_edge.loopexit
-  %.pre-phi = phi i64 [ %27, %._crit_edge.loopexit ], [ 0, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread20 ]
-  %28 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ -1, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread20 ]
+._crit_edge:                                      ; preds = %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread24, %._crit_edge.loopexit
+  %.pre-phi = phi i64 [ %27, %._crit_edge.loopexit ], [ 0, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread24 ]
+  %28 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ -1, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread24 ]
   %29 = icmp ult i64 %28, 8
   %.0 = select i1 %29, i64 %28, i64 %.pre-phi
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6322,9 +6322,9 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %48, label %55, label %.thread.i.i.thread
 
 .thread.i.i.thread:                               ; preds = %34, %36, %.thread.i.i
-  %.sroa.6.051.i.i68 = phi i64 [ %.sroa.6.051.i.i, %.thread.i.i ], [ %..i.i.i, %34 ], [ 1, %36 ]
-  %49 = shl nuw i64 %.sroa.6.051.i.i68, 4
-  %50 = add nuw nsw i64 %.sroa.6.051.i.i68, 16
+  %.sroa.6.051.i.i76 = phi i64 [ %.sroa.6.051.i.i, %.thread.i.i ], [ %..i.i.i, %34 ], [ 1, %36 ]
+  %49 = shl nuw i64 %.sroa.6.051.i.i76, 4
+  %50 = add nuw nsw i64 %.sroa.6.051.i.i76, 16
   %51 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %49, i64 %50)
   %52 = extractvalue { i64, i1 } %51, 1
   %53 = extractvalue { i64, i1 } %51, 0
@@ -6353,9 +6353,9 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17hb2757a72cb7f4c29E.exit.thr
   br label %76
 
 _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.i: ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.17312374178852649393.exit.i.i.i
-  %61 = add nsw i64 %.sroa.6.051.i.i68, -1
+  %61 = add nsw i64 %.sroa.6.051.i.i76, -1
   %62 = icmp ult i64 %61, 8
-  %63 = lshr i64 %.sroa.6.051.i.i68, 3
+  %63 = lshr i64 %.sroa.6.051.i.i76, 3
   %64 = mul nuw nsw i64 %63, 7
   %.0.i.i.i = select i1 %62, i64 %61, i64 %64
   %65 = getelementptr inbounds i8, ptr %.fca.0.extract.i.i.i.i, i64 %49
@@ -6714,8 +6714,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %48, label %60, label %.thread.i.i.thread
 
 .thread.i.i.thread:                               ; preds = %34, %36, %.thread.i.i
-  %.sroa.6.051.i.i68 = phi i64 [ %.sroa.6.051.i.i, %.thread.i.i ], [ %..i.i.i, %34 ], [ 1, %36 ]
-  %49 = shl nuw i64 %.sroa.6.051.i.i68, 3
+  %.sroa.6.051.i.i76 = phi i64 [ %.sroa.6.051.i.i, %.thread.i.i ], [ %..i.i.i, %34 ], [ 1, %36 ]
+  %49 = shl nuw i64 %.sroa.6.051.i.i76, 3
   %50 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %49, i64 15)
   %51 = extractvalue { i64, i1 } %50, 1
   br i1 %51, label %60, label %52
@@ -6723,7 +6723,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 52:                                               ; preds = %.thread.i.i.thread
   %53 = extractvalue { i64, i1 } %50, 0
   %54 = and i64 %53, -16
-  %55 = add nuw nsw i64 %.sroa.6.051.i.i68, 16
+  %55 = add nuw nsw i64 %.sroa.6.051.i.i76, 16
   %56 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %54, i64 %55)
   %57 = extractvalue { i64, i1 } %56, 1
   %58 = extractvalue { i64, i1 } %56, 0
@@ -6752,9 +6752,9 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17hb2757a72cb7f4c29E.exit.thr
   br label %81
 
 _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.i: ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.17312374178852649393.exit.i.i.i
-  %66 = add nsw i64 %.sroa.6.051.i.i68, -1
+  %66 = add nsw i64 %.sroa.6.051.i.i76, -1
   %67 = icmp ult i64 %66, 8
-  %68 = lshr i64 %.sroa.6.051.i.i68, 3
+  %68 = lshr i64 %.sroa.6.051.i.i76, 3
   %69 = mul nuw nsw i64 %68, 7
   %.0.i.i.i = select i1 %67, i64 %66, i64 %69
   %70 = getelementptr inbounds i8, ptr %.fca.0.extract.i.i.i.i, i64 %54
@@ -7115,9 +7115,9 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %47, label %54, label %.thread.i.i.thread
 
 .thread.i.i.thread:                               ; preds = %33, %35, %.thread.i.i
-  %.sroa.6.051.i.i68 = phi i64 [ %.sroa.6.051.i.i, %.thread.i.i ], [ %..i.i.i, %33 ], [ 1, %35 ]
-  %48 = shl nuw i64 %.sroa.6.051.i.i68, 4
-  %49 = add nuw nsw i64 %.sroa.6.051.i.i68, 16
+  %.sroa.6.051.i.i76 = phi i64 [ %.sroa.6.051.i.i, %.thread.i.i ], [ %..i.i.i, %33 ], [ 1, %35 ]
+  %48 = shl nuw i64 %.sroa.6.051.i.i76, 4
+  %49 = add nuw nsw i64 %.sroa.6.051.i.i76, 16
   %50 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %48, i64 %49)
   %51 = extractvalue { i64, i1 } %50, 1
   %52 = extractvalue { i64, i1 } %50, 0
@@ -7145,9 +7145,9 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17hb2757a72cb7f4c29E.exit.thr
   br label %75
 
 _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.i: ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.17312374178852649393.exit.i.i.i
-  %60 = add nsw i64 %.sroa.6.051.i.i68, -1
+  %60 = add nsw i64 %.sroa.6.051.i.i76, -1
   %61 = icmp ult i64 %60, 8
-  %62 = lshr i64 %.sroa.6.051.i.i68, 3
+  %62 = lshr i64 %.sroa.6.051.i.i76, 3
   %63 = mul nuw nsw i64 %62, 7
   %.0.i.i.i = select i1 %61, i64 %60, i64 %63
   %64 = getelementptr inbounds i8, ptr %.fca.0.extract.i.i.i.i, i64 %48

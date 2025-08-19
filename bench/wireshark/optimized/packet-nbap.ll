@@ -36301,7 +36301,7 @@ copy_address_wmem.exit:                           ; preds = %58, %74
 .lr.ph164.preheader:                              ; preds = %._crit_edge152
   %140 = load i32, ptr %135, align 8
   %141 = icmp slt i32 %140, 128
-  br i1 %141, label %.lr.ph184, label %.critedge
+  br i1 %141, label %.lr.ph194, label %.critedge
 
 .loopexit:                                        ; preds = %184, %._crit_edge156
   %.idx = mul nsw i64 %152, 1040
@@ -36314,9 +36314,9 @@ copy_address_wmem.exit:                           ; preds = %58, %74
 .lr.ph164:                                        ; preds = %.loopexit
   %145 = load i32, ptr %135, align 8
   %146 = icmp slt i32 %145, 128
-  br i1 %146, label %.lr.ph184, label %.critedge, !llvm.loop !25
+  br i1 %146, label %.lr.ph194, label %.critedge, !llvm.loop !25
 
-.lr.ph184:                                        ; preds = %.lr.ph164.preheader, %.lr.ph164
+.lr.ph194:                                        ; preds = %.lr.ph164.preheader, %.lr.ph164
   %147 = phi i32 [ %145, %.lr.ph164 ], [ %140, %.lr.ph164.preheader ]
   %148 = phi i32 [ %144, %.lr.ph164 ], [ %139, %.lr.ph164.preheader ]
   %149 = add nsw i32 %147, 1
@@ -36335,7 +36335,7 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   %159 = icmp sgt i32 %155, 0
   br i1 %159, label %.lr.ph155, label %._crit_edge156
 
-.lr.ph155:                                        ; preds = %.lr.ph184
+.lr.ph155:                                        ; preds = %.lr.ph194
   %160 = getelementptr inbounds nuw i8, ptr %153, i64 12
   %161 = getelementptr inbounds nuw i8, ptr %153, i64 268
   %wide.trip.count176 = zext nneg i32 %155 to i64
@@ -36370,8 +36370,8 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   %.pre183 = sext i32 %.pre to i64
   br label %._crit_edge156
 
-._crit_edge156:                                   ; preds = %._crit_edge156.loopexit, %.lr.ph184
-  %.pre-phi = phi i64 [ %.pre183, %._crit_edge156.loopexit ], [ %157, %.lr.ph184 ]
+._crit_edge156:                                   ; preds = %._crit_edge156.loopexit, %.lr.ph194
+  %.pre-phi = phi i64 [ %.pre183, %._crit_edge156.loopexit ], [ %157, %.lr.ph194 ]
   %177 = getelementptr inbounds nuw i8, ptr %153, i64 524
   %178 = load i32, ptr %177, align 4
   %.idx143 = mul nsw i64 %.pre-phi, 1032
@@ -40202,8 +40202,8 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %40 = add i32 %36, 1
   %or.cond = icmp ult i32 %40, 2
   %.not = icmp eq i32 %36, %31
-  %or.cond20 = select i1 %or.cond, i1 true, i1 %.not
-  br i1 %or.cond20, label %45, label %41
+  %or.cond22 = select i1 %or.cond, i1 true, i1 %.not
+  br i1 %or.cond22, label %45, label %41
 
 41:                                               ; preds = %34
   %42 = zext i32 %36 to i64
@@ -46659,7 +46659,7 @@ copy_address_wmem.exit:                           ; preds = %68, %84
 .lr.ph163.preheader:                              ; preds = %._crit_edge151
   %141 = load i32, ptr %136, align 8
   %142 = icmp slt i32 %141, 128
-  br i1 %142, label %.lr.ph183, label %.critedge
+  br i1 %142, label %.lr.ph193, label %.critedge
 
 .loopexit:                                        ; preds = %185, %._crit_edge155
   %.idx = mul nsw i64 %153, 1040
@@ -46672,9 +46672,9 @@ copy_address_wmem.exit:                           ; preds = %68, %84
 .lr.ph163:                                        ; preds = %.loopexit
   %146 = load i32, ptr %136, align 8
   %147 = icmp slt i32 %146, 128
-  br i1 %147, label %.lr.ph183, label %.critedge, !llvm.loop !39
+  br i1 %147, label %.lr.ph193, label %.critedge, !llvm.loop !39
 
-.lr.ph183:                                        ; preds = %.lr.ph163.preheader, %.lr.ph163
+.lr.ph193:                                        ; preds = %.lr.ph163.preheader, %.lr.ph163
   %148 = phi i32 [ %146, %.lr.ph163 ], [ %141, %.lr.ph163.preheader ]
   %149 = phi i32 [ %145, %.lr.ph163 ], [ %140, %.lr.ph163.preheader ]
   %150 = add nsw i32 %148, 1
@@ -46693,7 +46693,7 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   %160 = icmp sgt i32 %156, 0
   br i1 %160, label %.lr.ph154, label %._crit_edge155
 
-.lr.ph154:                                        ; preds = %.lr.ph183
+.lr.ph154:                                        ; preds = %.lr.ph193
   %161 = getelementptr inbounds nuw i8, ptr %154, i64 12
   %162 = getelementptr inbounds nuw i8, ptr %154, i64 268
   %wide.trip.count175 = zext nneg i32 %156 to i64
@@ -46728,8 +46728,8 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   %.pre182 = sext i32 %.pre to i64
   br label %._crit_edge155
 
-._crit_edge155:                                   ; preds = %._crit_edge155.loopexit, %.lr.ph183
-  %.pre-phi = phi i64 [ %.pre182, %._crit_edge155.loopexit ], [ %158, %.lr.ph183 ]
+._crit_edge155:                                   ; preds = %._crit_edge155.loopexit, %.lr.ph193
+  %.pre-phi = phi i64 [ %.pre182, %._crit_edge155.loopexit ], [ %158, %.lr.ph193 ]
   %178 = getelementptr inbounds nuw i8, ptr %154, i64 524
   %179 = load i32, ptr %178, align 4
   %.idx141 = mul nsw i64 %.pre-phi, 1032

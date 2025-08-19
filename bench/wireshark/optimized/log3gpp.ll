@@ -1075,16 +1075,16 @@ define internal fastcc noundef zeroext i1 @parse_line(ptr noundef readonly captu
 
 ._crit_edge:                                      ; preds = %49, %.thread
   %.sink = phi i32 [ 0, %.thread ], [ %56, %49 ]
-  %.1141.lcssa309313 = phi i32 [ %40, %.thread ], [ %37, %49 ]
-  %.pn333 = phi i64 [ %23, %.thread ], [ %indvars.iv.next275, %49 ]
-  %42 = getelementptr i8, ptr %0, i64 %.pn333
+  %.1141.lcssa316320 = phi i32 [ %40, %.thread ], [ %37, %49 ]
+  %.pn340 = phi i64 [ %23, %.thread ], [ %indvars.iv.next275, %49 ]
+  %42 = getelementptr i8, ptr %0, i64 %.pn340
   store i32 %.sink, ptr %2, align 4
   %43 = load i8, ptr %42, align 1
   %.not149 = icmp eq i8 %43, 46
   br i1 %.not149, label %.preheader182, label %.loopexit
 
 .preheader182:                                    ; preds = %._crit_edge
-  %.2222 = add i32 %.1141.lcssa309313, 1
+  %.2222 = add i32 %.1141.lcssa316320, 1
   %44 = sext i32 %.2222 to i64
   %45 = getelementptr i8, ptr %0, i64 %44
   %46 = load i8, ptr %45, align 1
@@ -1148,18 +1148,18 @@ define internal fastcc noundef zeroext i1 @parse_line(ptr noundef readonly captu
   br i1 %75, label %.lr.ph232.preheader, label %._crit_edge233
 
 .lr.ph232.preheader:                              ; preds = %.critedge5, %.preheader181
-  %.2.in.lcssa314320 = phi i32 [ %73, %.preheader181 ], [ %.1141.lcssa309313, %.critedge5 ]
-  %.0136.lcssa315318 = phi i32 [ %74, %.preheader181 ], [ 0, %.critedge5 ]
+  %.2.in.lcssa321327 = phi i32 [ %73, %.preheader181 ], [ %.1141.lcssa316320, %.critedge5 ]
+  %.0136.lcssa322325 = phi i32 [ %74, %.preheader181 ], [ 0, %.critedge5 ]
   %76 = phi ptr [ %72, %.preheader181 ], [ %71, %.critedge5 ]
-  %77 = zext nneg i32 %.0136.lcssa315318 to i64
+  %77 = zext nneg i32 %.0136.lcssa322325 to i64
   %scevgep = getelementptr i8, ptr %10, i64 %77
-  %narrow = sub nuw nsw i32 4, %.0136.lcssa315318
+  %narrow = sub nuw nsw i32 4, %.0136.lcssa322325
   %78 = zext nneg i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 48, i64 %78, i1 false)
   br label %._crit_edge233
 
 ._crit_edge233:                                   ; preds = %.lr.ph232.preheader, %.preheader181
-  %.2.in.lcssa314319 = phi i32 [ %.2.in.lcssa314320, %.lr.ph232.preheader ], [ %73, %.preheader181 ]
+  %.2.in.lcssa321326 = phi i32 [ %.2.in.lcssa321327, %.lr.ph232.preheader ], [ %73, %.preheader181 ]
   %79 = phi ptr [ %76, %.lr.ph232.preheader ], [ %72, %.preheader181 ]
   %80 = load i8, ptr %10, align 1
   %81 = sext i8 %80 to i32
@@ -1186,7 +1186,7 @@ define internal fastcc noundef zeroext i1 @parse_line(ptr noundef readonly captu
   br i1 %.not151, label %100, label %.loopexit
 
 100:                                              ; preds = %._crit_edge233
-  %101 = add i32 %.2.in.lcssa314319, 2
+  %101 = add i32 %.2.in.lcssa321326, 2
   %102 = sext i32 %101 to i64
   %103 = getelementptr i8, ptr %0, i64 %102
   %104 = load i8, ptr %103, align 1

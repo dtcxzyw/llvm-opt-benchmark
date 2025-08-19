@@ -676,8 +676,8 @@ bytestream2_init.exit:                            ; preds = %bytestream2_get_le1
   %20 = sub nsw i32 %16, %14
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 %21
-  %.not133 = icmp eq i16 %13, 0
-  br i1 %.not133, label %.thread88, label %.lr.ph
+  %.not150 = icmp eq i16 %13, 0
+  br i1 %.not150, label %.thread88, label %.lr.ph
 
 .lr.ph:                                           ; preds = %bytestream2_init.exit
   %23 = ptrtoint ptr %22 to i64
@@ -939,7 +939,7 @@ bytestream2_get_byte.exit78.us.us112:             ; preds = %135, %131
   %.16494.us.us.us = phi i32 [ %.06398.us.us109, %bytestream2_get_byte.exit78.us.us112 ], [ %170, %169 ]
   %.06693.us.us.us = phi i32 [ 0, %bytestream2_get_byte.exit78.us.us112 ], [ %171, %169 ]
   %.sroa.0.392.us.us.us = phi ptr [ %.sroa.0.296.us.us111, %bytestream2_get_byte.exit78.us.us112 ], [ %.sroa.0.6.us.us.us, %169 ]
-  %137 = add nsw i32 %.16494.us.us.us, %1
+  %137 = add nsw i32 %.16494.us.us.us, 1
   %138 = load ptr, ptr %0, align 8, !tbaa !27
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 112
   %140 = load i32, ptr %139, align 8, !tbaa !33
@@ -1051,7 +1051,7 @@ bytestream2_get_byte.exit76:                      ; preds = %186, %187
   br i1 %196, label %.split100, label %197, !llvm.loop !49
 
 197:                                              ; preds = %bytestream2_get_byte.exit76
-  %198 = add nsw i32 %.059105, %2
+  %198 = add nsw i32 %.059105, 1
   %199 = load ptr, ptr %0, align 8, !tbaa !27
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 116
   %201 = load i32, ptr %200, align 4, !tbaa !34

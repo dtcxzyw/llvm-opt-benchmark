@@ -1727,7 +1727,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %50
   %.reass = mul i64 %factor.op.mul, %31
   %wide.trip.count = zext nneg i32 %5 to i64
   %.pre = load i64, ptr %43, align 8, !tbaa !17
-  %factor.op.mul78 = mul i64 %53, %.pre
+  %factor.op.mul91 = mul i64 %53, %.pre
   br label %78
 
 59:                                               ; preds = %42
@@ -1784,8 +1784,8 @@ _ZN4ncnn3MatD2Ev.exit59:                          ; preds = %63, %59, %69, %73, 
   %81 = mul i64 %.reass, %indvars.iv
   %82 = mul i64 %81, %80
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 %82
-  %.reass79 = mul i64 %factor.op.mul78, %indvars.iv
-  %84 = getelementptr inbounds nuw i8, ptr %51, i64 %.reass79
+  %.reass92 = mul i64 %factor.op.mul91, %indvars.iv
+  %84 = getelementptr inbounds nuw i8, ptr %51, i64 %.reass92
   %85 = mul i64 %80, %35
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr align 1 %83, i64 %85, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

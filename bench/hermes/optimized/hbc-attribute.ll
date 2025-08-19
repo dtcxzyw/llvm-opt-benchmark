@@ -2913,10 +2913,10 @@ if.then37.i:                                      ; preds = %if.end33.i
   br i1 %tobool.not.i61.i, label %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit65.i, label %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit65.thread.i
 
 _ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit65.thread.i: ; preds = %if.then37.i
-  %ref_.i67109.i = getelementptr inbounds nuw i8, ptr %40, i64 120
-  %data38.sroa.0.0.copyload110.i = load ptr, ptr %ref_.i67109.i, align 8
-  %data38.sroa.5.0.call43.sroa_idx111.i = getelementptr inbounds nuw i8, ptr %40, i64 128
-  %data38.sroa.5.0.copyload112.i = load i64, ptr %data38.sroa.5.0.call43.sroa_idx111.i, align 8
+  %ref_.i67114.i = getelementptr inbounds nuw i8, ptr %40, i64 120
+  %data38.sroa.0.0.copyload115.i = load ptr, ptr %ref_.i67114.i, align 8
+  %data38.sroa.5.0.call43.sroa_idx116.i = getelementptr inbounds nuw i8, ptr %40, i64 128
+  %data38.sroa.5.0.copyload117.i = load i64, ptr %data38.sroa.5.0.call43.sroa_idx116.i, align 8
   br label %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit73.i
 
 _ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit65.i: ; preds = %if.then37.i
@@ -2943,18 +2943,18 @@ if.then.i70.i:                                    ; preds = %_ZNK6hermes3hbc14BC
   br label %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit73.i
 
 _ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit73.i: ; preds = %if.then.i70.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit65.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit65.thread.i
-  %data38.sroa.5.0.copyload115.i = phi i64 [ %data38.sroa.5.0.copyload.i, %if.then.i70.i ], [ %data38.sroa.5.0.copyload.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit65.i ], [ %data38.sroa.5.0.copyload112.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit65.thread.i ]
-  %data38.sroa.0.0.copyload114.i = phi ptr [ %data38.sroa.0.0.copyload.i, %if.then.i70.i ], [ %data38.sroa.0.0.copyload.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit65.i ], [ %data38.sroa.0.0.copyload110.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit65.thread.i ]
+  %data38.sroa.5.0.copyload120.i = phi i64 [ %data38.sroa.5.0.copyload.i, %if.then.i70.i ], [ %data38.sroa.5.0.copyload.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit65.i ], [ %data38.sroa.5.0.copyload117.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit65.thread.i ]
+  %data38.sroa.0.0.copyload119.i = phi ptr [ %data38.sroa.0.0.copyload.i, %if.then.i70.i ], [ %data38.sroa.0.0.copyload.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit65.i ], [ %data38.sroa.0.0.copyload115.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit65.thread.i ]
   %43 = phi i32 [ %.pre103.i, %if.then.i70.i ], [ %.pre103.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit65.i ], [ %38, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit65.thread.i ]
   %44 = phi ptr [ %.pre.i72.i, %if.then.i70.i ], [ %.pre105.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit65.i ], [ %40, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit65.thread.i ]
   %scopeDescDataOffset_.i.i = getelementptr inbounds nuw i8, ptr %44, i64 80
   %45 = load i32, ptr %scopeDescDataOffset_.i.i, align 8
   %add49.i = add i32 %45, %43
-  %call53.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %data38.sroa.0.0.copyload114.i, i64 %data38.sroa.5.0.copyload115.i, i32 noundef %add49.i, ptr noundef nonnull %trash51.i) #22
+  %call53.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %data38.sroa.0.0.copyload119.i, i64 %data38.sroa.5.0.copyload120.i, i32 noundef %add49.i, ptr noundef nonnull %trash51.i) #22
   %add54.i = add i32 %add49.i, %call53.i
-  %call56.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %data38.sroa.0.0.copyload114.i, i64 %data38.sroa.5.0.copyload115.i, i32 noundef %add54.i, ptr noundef nonnull %trash51.i) #22
+  %call56.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %data38.sroa.0.0.copyload119.i, i64 %data38.sroa.5.0.copyload120.i, i32 noundef %add54.i, ptr noundef nonnull %trash51.i) #22
   %add57.i = add i32 %add54.i, %call56.i
-  %call59.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %data38.sroa.0.0.copyload114.i, i64 %data38.sroa.5.0.copyload115.i, i32 noundef %add57.i, ptr noundef nonnull %count.i) #22
+  %call59.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %data38.sroa.0.0.copyload119.i, i64 %data38.sroa.5.0.copyload120.i, i32 noundef %add57.i, ptr noundef nonnull %count.i) #22
   %add60.i = add i32 %add57.i, %call59.i
   %46 = load i64, ptr %count.i, align 8
   %cmp6394.i = icmp sgt i64 %46, 0
@@ -2963,7 +2963,7 @@ _ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit73.i: ; preds = %if.then.i70
 for.body64.i:                                     ; preds = %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit73.i, %for.body64.i
   %offset50.096.i = phi i32 [ %conv69.i, %for.body64.i ], [ %add60.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit73.i ]
   %i61.095.i = phi i64 [ %inc71.i, %for.body64.i ], [ 0, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit73.i ]
-  %call66.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %data38.sroa.0.0.copyload114.i, i64 %data38.sroa.5.0.copyload115.i, i32 noundef %offset50.096.i, ptr noundef nonnull %stringLength.i) #22
+  %call66.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %data38.sroa.0.0.copyload119.i, i64 %data38.sroa.5.0.copyload120.i, i32 noundef %offset50.096.i, ptr noundef nonnull %stringLength.i) #22
   %add67.i = add i32 %call66.i, %offset50.096.i
   %47 = load i64, ptr %stringLength.i, align 8
   %48 = trunc i64 %47 to i32
@@ -2996,10 +2996,10 @@ if.then81.i:                                      ; preds = %if.end76.i
   br i1 %tobool.not.i75.i, label %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit79.i, label %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit79.thread.i
 
 _ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit79.thread.i: ; preds = %if.then81.i
-  %ref_.i81116.i = getelementptr inbounds nuw i8, ptr %53, i64 120
-  %data82.sroa.0.0.copyload117.i = load ptr, ptr %ref_.i81116.i, align 8
-  %data82.sroa.4.0.call87.sroa_idx118.i = getelementptr inbounds nuw i8, ptr %53, i64 128
-  %data82.sroa.4.0.copyload119.i = load i64, ptr %data82.sroa.4.0.call87.sroa_idx118.i, align 8
+  %ref_.i81121.i = getelementptr inbounds nuw i8, ptr %53, i64 120
+  %data82.sroa.0.0.copyload122.i = load ptr, ptr %ref_.i81121.i, align 8
+  %data82.sroa.4.0.call87.sroa_idx123.i = getelementptr inbounds nuw i8, ptr %53, i64 128
+  %data82.sroa.4.0.copyload124.i = load i64, ptr %data82.sroa.4.0.call87.sroa_idx123.i, align 8
   br label %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit87.i
 
 _ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit79.i: ; preds = %if.then81.i
@@ -3026,14 +3026,14 @@ if.then.i84.i:                                    ; preds = %_ZNK6hermes3hbc14BC
   br label %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit87.i
 
 _ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit87.i: ; preds = %if.then.i84.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit79.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit79.thread.i
-  %data82.sroa.4.0.copyload122.i = phi i64 [ %data82.sroa.4.0.copyload.i, %if.then.i84.i ], [ %data82.sroa.4.0.copyload.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit79.i ], [ %data82.sroa.4.0.copyload119.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit79.thread.i ]
-  %data82.sroa.0.0.copyload121.i = phi ptr [ %data82.sroa.0.0.copyload.i, %if.then.i84.i ], [ %data82.sroa.0.0.copyload.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit79.i ], [ %data82.sroa.0.0.copyload117.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit79.thread.i ]
+  %data82.sroa.4.0.copyload127.i = phi i64 [ %data82.sroa.4.0.copyload.i, %if.then.i84.i ], [ %data82.sroa.4.0.copyload.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit79.i ], [ %data82.sroa.4.0.copyload124.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit79.thread.i ]
+  %data82.sroa.0.0.copyload126.i = phi ptr [ %data82.sroa.0.0.copyload.i, %if.then.i84.i ], [ %data82.sroa.0.0.copyload.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit79.i ], [ %data82.sroa.0.0.copyload122.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit79.thread.i ]
   %56 = phi i32 [ %.pre106.i, %if.then.i84.i ], [ %.pre106.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit79.i ], [ %51, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit79.thread.i ]
   %57 = phi ptr [ %.pre.i86.i, %if.then.i84.i ], [ %.pre108.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit79.i ], [ %53, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit79.thread.i ]
   %textifiedCalleeOffset_.i.i = getelementptr inbounds nuw i8, ptr %57, i64 84
   %58 = load i32, ptr %textifiedCalleeOffset_.i.i, align 4
   %add94.i = add i32 %58, %56
-  %call99.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %data82.sroa.0.0.copyload121.i, i64 %data82.sroa.4.0.copyload122.i, i32 noundef %add94.i, ptr noundef nonnull %count96.i) #22
+  %call99.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %data82.sroa.0.0.copyload126.i, i64 %data82.sroa.4.0.copyload127.i, i32 noundef %add94.i, ptr noundef nonnull %count96.i) #22
   %add100.i = add i32 %add94.i, %call99.i
   %59 = load i64, ptr %count96.i, align 8
   %cmp10398.i = icmp sgt i64 %59, 0
@@ -3042,9 +3042,9 @@ _ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit87.i: ; preds = %if.then.i84
 for.body104.i:                                    ; preds = %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit87.i, %for.body104.i
   %i101.0100.i = phi i64 [ %inc116.i, %for.body104.i ], [ 0, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit87.i ]
   %offset95.099.i = phi i32 [ %conv114.i, %for.body104.i ], [ %add100.i, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit87.i ]
-  %call106.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %data82.sroa.0.0.copyload121.i, i64 %data82.sroa.4.0.copyload122.i, i32 noundef %offset95.099.i, ptr noundef nonnull %trash97.i) #22
+  %call106.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %data82.sroa.0.0.copyload126.i, i64 %data82.sroa.4.0.copyload127.i, i32 noundef %offset95.099.i, ptr noundef nonnull %trash97.i) #22
   %add107.i = add i32 %call106.i, %offset95.099.i
-  %call110.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %data82.sroa.0.0.copyload121.i, i64 %data82.sroa.4.0.copyload122.i, i32 noundef %add107.i, ptr noundef nonnull %stringLength108.i) #22
+  %call110.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %data82.sroa.0.0.copyload126.i, i64 %data82.sroa.4.0.copyload127.i, i32 noundef %add107.i, ptr noundef nonnull %stringLength108.i) #22
   %add111.i = add i32 %add107.i, %call110.i
   %60 = load i64, ptr %stringLength108.i, align 8
   %61 = trunc i64 %60 to i32
@@ -4080,7 +4080,7 @@ if.end19.i.i.us77:                                ; preds = %while.body.us66
   br i1 %cmp.i.i.i.us80, label %land.rhs.i.i.i.us81, label %if.then.i.i28.us85
 
 land.rhs.i.i.i.us81:                              ; preds = %if.end19.i.i.us77
-  %bcmp.i.i.us = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload.i.fr, ptr %agg.tmp1.sroa.0.0.copyload.i.us73, i64 %agg.tmp.sroa.2.0.copyload.i.fr)
+  %bcmp.i.i.us = tail call i32 @bcmp(ptr nonnull inttoptr (i64 -2 to ptr), ptr %agg.tmp1.sroa.0.0.copyload.i.us73, i64 %agg.tmp.sroa.2.0.copyload.i.fr)
   %7 = icmp eq i32 %bcmp.i.i.us, 0
   br i1 %7, label %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us82, label %if.then.i.i28.us85
 
@@ -4141,7 +4141,7 @@ if.end19.i.i.us116:                               ; preds = %while.body.us105
   br i1 %cmp.i.i.i.us119, label %land.rhs.i.i.i.us120, label %if.then.i.i28.us125
 
 land.rhs.i.i.i.us120:                             ; preds = %if.end19.i.i.us116
-  %bcmp.i.i.us121 = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload.i.fr, ptr %agg.tmp1.sroa.0.0.copyload.i.us112, i64 %agg.tmp.sroa.2.0.copyload.i.fr)
+  %bcmp.i.i.us121 = tail call i32 @bcmp(ptr nonnull inttoptr (i64 -1 to ptr), ptr %agg.tmp1.sroa.0.0.copyload.i.us112, i64 %agg.tmp.sroa.2.0.copyload.i.fr)
   %12 = icmp eq i32 %bcmp.i.i.us121, 0
   br i1 %12, label %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us122, label %if.then.i.i28.us125
 

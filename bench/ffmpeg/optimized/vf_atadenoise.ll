@@ -652,7 +652,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %115 = load i32, ptr %53, align 8, !tbaa !71
   %116 = icmp eq i32 %115, 0
   %117 = select i1 %116, ptr @filter_row16, ptr @filter_row16_serial
-  br label %.sink.split142
+  br label %.sink.split146
 
 118:                                              ; preds = %.lr.ph.split
   %119 = fcmp nsz olt float %112, 3.276700e+04
@@ -662,15 +662,15 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %121 = load i32, ptr %53, align 8, !tbaa !71
   %122 = icmp eq i32 %121, 0
   %123 = select i1 %122, ptr @fweight_row16, ptr @fweight_row16_serial
-  br label %.sink.split142
+  br label %.sink.split146
 
-.sink.split142:                                   ; preds = %114, %120
-  %.sink143 = phi ptr [ %123, %120 ], [ %117, %114 ]
+.sink.split146:                                   ; preds = %114, %120
+  %.sink147 = phi ptr [ %123, %120 ], [ %117, %114 ]
   %124 = getelementptr inbounds nuw [4 x ptr], ptr %54, i64 0, i64 %indvars.iv
-  store ptr %.sink143, ptr %124, align 8, !tbaa !53
+  store ptr %.sink147, ptr %124, align 8, !tbaa !53
   br label %125
 
-125:                                              ; preds = %.sink.split142, %118
+125:                                              ; preds = %.sink.split146, %118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count122
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !72

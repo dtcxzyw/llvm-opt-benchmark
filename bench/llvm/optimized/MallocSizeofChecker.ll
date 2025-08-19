@@ -1216,11 +1216,11 @@ _ZN12_GLOBAL__N_123compatibleWithArrayTypeERN5clang10ASTContextENS0_8QualTypeES3
 
 _ZN12_GLOBAL__N_123compatibleWithArrayTypeERN5clang10ASTContextENS0_8QualTypeES3_.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_123compatibleWithArrayTypeERN5clang10ASTContextENS0_8QualTypeES3_.exit.i, %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit.i, %126
   %.pre-phi = phi i64 [ %124, %_ZN12_GLOBAL__N_123compatibleWithArrayTypeERN5clang10ASTContextENS0_8QualTypeES3_.exit.i ], [ %.pre, %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit.i ], [ %124, %126 ]
-  %.val60147.i = phi ptr [ %122, %_ZN12_GLOBAL__N_123compatibleWithArrayTypeERN5clang10ASTContextENS0_8QualTypeES3_.exit.i ], [ %308, %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit.i ], [ %122, %126 ]
+  %.val60160.i = phi ptr [ %122, %_ZN12_GLOBAL__N_123compatibleWithArrayTypeERN5clang10ASTContextENS0_8QualTypeES3_.exit.i ], [ %308, %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit.i ], [ %122, %126 ]
   %.val61.i = load ptr, ptr %61, align 8
   %355 = ptrtoint ptr %.val61.i to i64
   %356 = sub i64 %355, %.pre-phi
-  call void @_ZdlPvm(ptr noundef nonnull %.val60147.i, i64 noundef %356) #19
+  call void @_ZdlPvm(ptr noundef nonnull %.val60160.i, i64 noundef %356) #19
   br label %_ZN12_GLOBAL__N_112SizeofFinderD2Ev.exit.i
 
 _ZN12_GLOBAL__N_112SizeofFinderD2Ev.exit.i:       ; preds = %_ZN12_GLOBAL__N_123compatibleWithArrayTypeERN5clang10ASTContextENS0_8QualTypeES3_.exit.thread.i, %_ZN12_GLOBAL__N_123compatibleWithArrayTypeERN5clang10ASTContextENS0_8QualTypeES3_.exit.i

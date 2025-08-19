@@ -87,8 +87,8 @@ atomic_store_u8.exit.i:                           ; preds = %malloc_mutex_lock.e
   %16 = load ptr, ptr %15, align 8, !tbaa !19
   %17 = load ptr, ptr @tsd_nominal_tsds.0, align 8, !tbaa !15
   %.not8.i = icmp eq ptr %16, %17
-  %.not11.i = icmp eq ptr %16, null
-  %.not.i = or i1 %.not11.i, %.not8.i
+  %.not12.i = icmp eq ptr %16, null
+  %.not.i = or i1 %.not12.i, %.not8.i
   br i1 %.not.i, label %tsd_force_recompute.exit, label %atomic_store_u8.exit.i
 
 tsd_force_recompute.exit:                         ; preds = %atomic_store_u8.exit.i, %malloc_mutex_lock.exit.i
@@ -144,8 +144,8 @@ atomic_store_u8.exit.i:                           ; preds = %malloc_mutex_lock.e
   %16 = load ptr, ptr %15, align 8, !tbaa !19
   %17 = load ptr, ptr @tsd_nominal_tsds.0, align 8, !tbaa !15
   %.not8.i = icmp eq ptr %16, %17
-  %.not11.i = icmp eq ptr %16, null
-  %.not.i = or i1 %.not11.i, %.not8.i
+  %.not12.i = icmp eq ptr %16, null
+  %.not.i = or i1 %.not12.i, %.not8.i
   br i1 %.not.i, label %tsd_force_recompute.exit, label %atomic_store_u8.exit.i
 
 tsd_force_recompute.exit:                         ; preds = %atomic_store_u8.exit.i, %malloc_mutex_lock.exit.i

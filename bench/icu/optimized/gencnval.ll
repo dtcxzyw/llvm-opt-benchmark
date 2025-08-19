@@ -319,9 +319,9 @@ chomp.exit.i:                                     ; preds = %83, %.loopexit.i.i
   %.117.lcssa.i = phi i32 [ %.01675.i, %.preheader37.i ], [ %.218.i, %106 ]
   %.115.lcssa.i = phi i32 [ %.01476.i, %.preheader37.i ], [ %87, %106 ]
   %110 = icmp sgt i32 %.117.lcssa.i, 0
-  br i1 %110, label %.thread.i, label %.thread107.i
+  br i1 %110, label %.thread.i, label %.thread122.i
 
-.thread107.i:                                     ; preds = %._crit_edge.i
+.thread122.i:                                     ; preds = %._crit_edge.i
   %111 = load i32, ptr @lineNum, align 4, !tbaa !4
   %112 = add nsw i32 %111, 1
   store i32 %112, ptr @lineNum, align 4, !tbaa !4
@@ -841,7 +841,7 @@ parseLine.exit.i:                                 ; preds = %362, %.lr.ph.i, %ad
   store i32 %376, ptr @lineNum, align 4, !tbaa !4
   br i1 %.not.i, label %parseFile.exit, label %.preheader37.i, !llvm.loop !43
 
-parseFile.exit:                                   ; preds = %374, %.thread107.i
+parseFile.exit:                                   ; preds = %374, %.thread122.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @T_FileStream_close(ptr noundef nonnull %59) #16

@@ -251,7 +251,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
 83:                                               ; preds = %.sink.split.i, %.lr.ph.i30
   %84 = phi i64 [ %.sroa.03.sroa.10.0.copyload, %.lr.ph.i30 ], [ %.sink.i, %.sink.split.i ]
   %85 = phi i64 [ %79, %.lr.ph.i30 ], [ %97, %.sink.split.i ]
-  %86 = phi i64 [ %.sroa.03.sroa.8.0.copyload, %.lr.ph.i30 ], [ %.ph69.i, %.sink.split.i ]
+  %86 = phi i64 [ %.sroa.03.sroa.8.0.copyload, %.lr.ph.i30 ], [ %.ph76.i, %.sink.split.i ]
   %87 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload, i64 %85
   %88 = load i8, ptr %87, align 1, !alias.scope !32, !noalias !37, !noundef !12
   %89 = and i8 %88, 63
@@ -271,8 +271,8 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
 
 .sink.split.i:                                    ; preds = %128, %118, %94
   %.sink.i = phi i64 [ %82, %118 ], [ 0, %128 ], [ 0, %94 ]
-  %.ph69.i = phi i64 [ %119, %118 ], [ %130, %128 ], [ %95, %94 ]
-  %97 = add i64 %.ph69.i, %78
+  %.ph76.i = phi i64 [ %119, %118 ], [ %130, %128 ], [ %95, %94 ]
+  %97 = add i64 %.ph76.i, %78
   %98 = icmp ult i64 %97, %.sroa.03.sroa.13.0.copyload
   br i1 %98, label %83, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hc39c817243408a4fE.exit"
 

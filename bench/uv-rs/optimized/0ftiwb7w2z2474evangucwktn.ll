@@ -385,14 +385,14 @@ define void @_ZN8uv_types4hash12HashStrategy11get_package17h896011e201a6be8bE(pt
   %7 = alloca [16 x i8], align 8
   %8 = alloca [88 x i8], align 8
   %9 = load i8, ptr %1, align 8, !range !130, !noundef !4
-  switch i8 %9, label %default.unreachable45 [
+  switch i8 %9, label %default.unreachable46 [
     i8 0, label %10
     i8 1, label %11
     i8 2, label %15
     i8 3, label %33
   ]
 
-default.unreachable45:                            ; preds = %4
+default.unreachable46:                            ; preds = %4
   unreachable
 
 10:                                               ; preds = %4
@@ -618,14 +618,14 @@ define void @_ZN8uv_types4hash12HashStrategy7get_url17h87fb7efb8bb4507aE(ptr dea
   %4 = alloca [88 x i8], align 8
   %5 = alloca [88 x i8], align 8
   %6 = load i8, ptr %1, align 8, !range !130, !noundef !4
-  switch i8 %6, label %default.unreachable11 [
+  switch i8 %6, label %default.unreachable12 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %12
     i8 3, label %17
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %3
@@ -1048,10 +1048,10 @@ define void @_ZN8uv_types4hash12HashStrategy15from_resolution17heb91cd1f793990c1
   br label %77
 
 77:                                               ; preds = %79, %76
-  %.sink154 = phi i8 [ 2, %79 ], [ 3, %76 ]
+  %.sink162 = phi i8 [ 2, %79 ], [ 3, %76 ]
   %.sink = phi ptr [ %68, %79 ], [ %56, %76 ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink154, ptr %78, align 8
+  store i8 %.sink162, ptr %78, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink, ptr %.sroa.45.0..sroa_idx, align 8
   store i8 4, ptr %0, align 8

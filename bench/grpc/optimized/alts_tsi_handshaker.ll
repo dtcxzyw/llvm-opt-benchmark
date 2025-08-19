@@ -618,9 +618,9 @@ grpc_gcp_Identity_attributes_size.exit:           ; preds = %128
           to label %.noexc175 unwind label %196
 
 .noexc175:                                        ; preds = %.noexc174
-  br i1 %150, label %grpc_gcp_Identity_attributes_nextmutable.exit.thread236, label %grpc_gcp_Identity_attributes_nextmutable.exit
+  br i1 %150, label %grpc_gcp_Identity_attributes_nextmutable.exit.thread247, label %grpc_gcp_Identity_attributes_nextmutable.exit
 
-grpc_gcp_Identity_attributes_nextmutable.exit.thread236: ; preds = %.noexc175
+grpc_gcp_Identity_attributes_nextmutable.exit.thread247: ; preds = %.noexc175
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %grpc_gcp_Identity_attributes_size.exit.thread
 
@@ -726,9 +726,9 @@ grpc_gcp_AltsContext_peer_attributes_set.exit:    ; preds = %upb_Arena_Malloc.ex
           to label %.noexc191 unwind label %198
 
 .noexc191:                                        ; preds = %.noexc190
-  br i1 %190, label %grpc_gcp_Identity_attributes_nextmutable.exit192.thread242, label %grpc_gcp_Identity_attributes_nextmutable.exit192
+  br i1 %190, label %grpc_gcp_Identity_attributes_nextmutable.exit192.thread253, label %grpc_gcp_Identity_attributes_nextmutable.exit192
 
-grpc_gcp_Identity_attributes_nextmutable.exit192.thread242: ; preds = %.noexc191
+grpc_gcp_Identity_attributes_nextmutable.exit192.thread253: ; preds = %.noexc191
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %grpc_gcp_Identity_attributes_size.exit.thread
 
@@ -752,7 +752,7 @@ grpc_gcp_Identity_attributes_nextmutable.exit192: ; preds = %.noexc191
           cleanup
   br label %225
 
-grpc_gcp_Identity_attributes_size.exit.thread:    ; preds = %grpc_gcp_AltsContext_peer_attributes_set.exit, %grpc_gcp_Identity_attributes_nextmutable.exit192, %143, %grpc_gcp_Identity_attributes_nextmutable.exit192.thread242, %grpc_gcp_Identity_attributes_nextmutable.exit.thread236, %grpc_gcp_Identity_attributes_nextmutable.exit, %128, %grpc_gcp_Identity_attributes_size.exit
+grpc_gcp_Identity_attributes_size.exit.thread:    ; preds = %grpc_gcp_AltsContext_peer_attributes_set.exit, %grpc_gcp_Identity_attributes_nextmutable.exit192, %143, %grpc_gcp_Identity_attributes_nextmutable.exit192.thread253, %grpc_gcp_Identity_attributes_nextmutable.exit.thread247, %grpc_gcp_Identity_attributes_nextmutable.exit, %128, %grpc_gcp_Identity_attributes_size.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %200 = invoke i32 @upb_Encode(ptr noundef nonnull %.0.i.i.i, ptr noundef nonnull @grpc__gcp__AltsContext_msg_init, i32 noundef 0, ptr noundef nonnull %107, ptr noundef nonnull %4, ptr noundef nonnull %16)

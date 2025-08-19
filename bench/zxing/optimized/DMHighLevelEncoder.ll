@@ -203,7 +203,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 .thread:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br label %.thread545
+  br label %.thread629
 
 48:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %49 = invoke noundef i32 @_ZNKSt17basic_string_viewIwSt11char_traitsIwEE7compareEmmS2_(ptr noundef nonnull align 8 dereferenceable(16) %25, i64 noundef 0, i64 noundef 7, i64 7, ptr nonnull @.str) #21
@@ -226,7 +226,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 .thread136:                                       ; preds = %52
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br label %.thread545
+  br label %.thread629
 
 55:                                               ; preds = %52
   %56 = add i64 %.pre542, -2
@@ -284,7 +284,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
           cleanup
   br label %.body
 
-.thread545:                                       ; preds = %.thread136, %.thread
+.thread629:                                       ; preds = %.thread136, %.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   br label %.thread137
 
@@ -298,7 +298,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
   %80 = icmp ugt i64 %77, 7
   br i1 %80, label %81, label %.thread137
 
-.thread137:                                       ; preds = %.thread545, %76
+.thread137:                                       ; preds = %.thread629, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %99
 
@@ -445,7 +445,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
   %155 = sext i8 %154 to i32
   %156 = add nsw i32 %155, -48
   %157 = icmp ult i32 %156, 10
-  br i1 %157, label %158, label %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit646
+  br i1 %157, label %158, label %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit730
 
 158:                                              ; preds = %152
   %159 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 3
@@ -453,7 +453,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
   %161 = sext i8 %160 to i32
   %162 = add nsw i32 %161, -48
   %163 = icmp ult i32 %162, 10
-  br i1 %163, label %164, label %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit648
+  br i1 %163, label %164, label %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit732
 
 164:                                              ; preds = %158
   %165 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 4
@@ -511,16 +511,16 @@ _ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx
   %188 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 1
   br label %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i
 
-_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit646: ; preds = %152
+_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit730: ; preds = %152
   %189 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 2
   br label %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i
 
-_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit648: ; preds = %158
+_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit732: ; preds = %158
   %190 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 3
   br label %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i
 
-_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i: ; preds = %.lr.ph.i.i.i, %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit, %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit646, %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit648, %183, %176, %169, %._crit_edge.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %169 ], [ %.sroa.032.1.i.i.i, %176 ], [ %135, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %183 ], [ %188, %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit ], [ %189, %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit646 ], [ %190, %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit648 ], [ %.sroa.032.051.i.i.i, %.lr.ph.i.i.i ]
+_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i: ; preds = %.lr.ph.i.i.i, %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit, %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit730, %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit732, %183, %176, %169, %._crit_edge.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %169 ], [ %.sroa.032.1.i.i.i, %176 ], [ %135, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %183 ], [ %188, %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit ], [ %189, %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit730 ], [ %190, %_ZN5ZXing10DataMatrix12ASCIIEncoderL30DetermineConsecutiveDigitCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.loopexit.split.loop.exit732 ], [ %.sroa.032.051.i.i.i, %.lr.ph.i.i.i ]
   %191 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i to i64
   %192 = sub i64 %191, %137
   %193 = trunc i64 %192 to i32
@@ -2840,11 +2840,11 @@ _ZN5ZXing10DataMatrixL12IsNativeTextEi.exit:      ; preds = %_ZN5ZXing10DataMatr
   br label %89
 
 89:                                               ; preds = %_ZN5ZXing10DataMatrixL12IsNativeTextEi.exit.thread15, %_ZN5ZXing10DataMatrixL12IsNativeTextEi.exit, %_ZN5ZXing10DataMatrixL12IsNativeTextEi.exit.thread, %85, %88
-  %.sink117 = phi float [ 0x4005555560000000, %85 ], [ 0x3FE5555560000000, %_ZN5ZXing10DataMatrixL12IsNativeTextEi.exit.thread ], [ 0x3FE5555560000000, %_ZN5ZXing10DataMatrixL12IsNativeTextEi.exit ], [ 0x3FF5555560000000, %_ZN5ZXing10DataMatrixL12IsNativeTextEi.exit.thread15 ], [ 0x3FF5555560000000, %88 ]
+  %.sink127 = phi float [ 0x4005555560000000, %85 ], [ 0x3FE5555560000000, %_ZN5ZXing10DataMatrixL12IsNativeTextEi.exit.thread ], [ 0x3FE5555560000000, %_ZN5ZXing10DataMatrixL12IsNativeTextEi.exit ], [ 0x3FF5555560000000, %_ZN5ZXing10DataMatrixL12IsNativeTextEi.exit.thread15 ], [ 0x3FF5555560000000, %88 ]
   %90 = phi float [ %87, %85 ], [ %78, %_ZN5ZXing10DataMatrixL12IsNativeTextEi.exit.thread ], [ %82, %_ZN5ZXing10DataMatrixL12IsNativeTextEi.exit ], [ %81, %_ZN5ZXing10DataMatrixL12IsNativeTextEi.exit.thread15 ], [ %82, %88 ]
   %storemerge75 = phi float [ %86, %85 ], [ %storemerge77, %_ZN5ZXing10DataMatrixL12IsNativeTextEi.exit.thread ], [ %76, %_ZN5ZXing10DataMatrixL12IsNativeTextEi.exit ], [ %76, %_ZN5ZXing10DataMatrixL12IsNativeTextEi.exit.thread15 ], [ %76, %88 ]
   %or.cond6.i24913 = phi i1 [ false, %85 ], [ true, %_ZN5ZXing10DataMatrixL12IsNativeTextEi.exit.thread ], [ false, %_ZN5ZXing10DataMatrixL12IsNativeTextEi.exit ], [ false, %_ZN5ZXing10DataMatrixL12IsNativeTextEi.exit.thread15 ], [ false, %88 ]
-  %91 = fadd float %64, %.sink117
+  %91 = fadd float %64, %.sink127
   store float %91, ptr %15, align 4, !tbaa !63
   switch i8 %69, label %_ZN5ZXing10DataMatrixL12IsX12TermSepEi.exit.i [
     i8 42, label %_ZN5ZXing10DataMatrixL11IsNativeX12Ei.exit.thread
@@ -2860,9 +2860,9 @@ _ZN5ZXing10DataMatrixL12IsX12TermSepEi.exit.i:    ; preds = %89
 
 94:                                               ; preds = %_ZN5ZXing10DataMatrixL12IsX12TermSepEi.exit.i
   %.not61 = icmp sgt i8 %69, -1
-  br i1 %.not61, label %_ZN5ZXing10DataMatrixL11IsNativeX12Ei.exit.thread, label %.thread110
+  br i1 %.not61, label %_ZN5ZXing10DataMatrixL11IsNativeX12Ei.exit.thread, label %.thread120
 
-.thread110:                                       ; preds = %94
+.thread120:                                       ; preds = %94
   %95 = fadd float %63, 0x4011555560000000
   store float %95, ptr %16, align 4, !tbaa !63
   br label %101
@@ -2882,10 +2882,10 @@ _ZN5ZXing10DataMatrixL11IsNativeX12Ei.exit.thread: ; preds = %94, %_ZN5ZXing10Da
 100:                                              ; preds = %99
   br label %101
 
-101:                                              ; preds = %99, %.thread110, %_ZN5ZXing10DataMatrixL11IsNativeX12Ei.exit.thread, %100
-  %.sink119 = phi float [ 3.250000e+00, %100 ], [ 7.500000e-01, %_ZN5ZXing10DataMatrixL11IsNativeX12Ei.exit.thread ], [ 4.250000e+00, %.thread110 ], [ 4.250000e+00, %99 ]
-  %102 = phi float [ %96, %100 ], [ %96, %_ZN5ZXing10DataMatrixL11IsNativeX12Ei.exit.thread ], [ %95, %.thread110 ], [ %96, %99 ]
-  %103 = fadd float %62, %.sink119
+101:                                              ; preds = %99, %.thread120, %_ZN5ZXing10DataMatrixL11IsNativeX12Ei.exit.thread, %100
+  %.sink129 = phi float [ 3.250000e+00, %100 ], [ 7.500000e-01, %_ZN5ZXing10DataMatrixL11IsNativeX12Ei.exit.thread ], [ 4.250000e+00, %.thread120 ], [ 4.250000e+00, %99 ]
+  %102 = phi float [ %96, %100 ], [ %96, %_ZN5ZXing10DataMatrixL11IsNativeX12Ei.exit.thread ], [ %95, %.thread120 ], [ %96, %99 ]
+  %103 = fadd float %62, %.sink129
   store float %103, ptr %17, align 4, !tbaa !63
   %104 = fadd float %61, 1.000000e+00
   store float %104, ptr %18, align 4, !tbaa !63
@@ -3095,21 +3095,21 @@ define internal fastcc void @_ZN5ZXing10DataMatrix10C40EncoderL9EncodeC40ERNS0_1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = sext i32 %14 to i64
-  %.not.i.i247 = icmp ugt i64 %15, %24
-  br i1 %.not.i.i247, label %.lr.ph248, label %._crit_edge
+  %.not.i.i266 = icmp ugt i64 %15, %24
+  br i1 %.not.i.i266, label %.lr.ph267, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.backedge, %.lr.ph
-  %.lcssa225 = phi i64 [ %15, %.lr.ph ], [ %.be, %.backedge ]
+  %.lcssa244 = phi i64 [ %15, %.lr.ph ], [ %.be, %.backedge ]
   %.lcssa = phi i64 [ %24, %.lr.ph ], [ %139, %.backedge ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.7, i64 noundef %.lcssa, i64 noundef %.lcssa225) #23
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.7, i64 noundef %.lcssa, i64 noundef %.lcssa244) #23
           to label %.noexc unwind label %78
 
 .noexc:                                           ; preds = %._crit_edge
   unreachable
 
-.lr.ph248:                                        ; preds = %.lr.ph, %.backedge
+.lr.ph267:                                        ; preds = %.lr.ph, %.backedge
   %25 = phi i64 [ %139, %.backedge ], [ %24, %.lr.ph ]
-  %26 = phi i32 [ %.be188, %.backedge ], [ %14, %.lr.ph ]
+  %26 = phi i32 [ %.be207, %.backedge ], [ %14, %.lr.ph ]
   %27 = load ptr, ptr %0, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %25
   %29 = load i8, ptr %28, align 1, !tbaa !12
@@ -3122,14 +3122,14 @@ define internal fastcc void @_ZN5ZXing10DataMatrix10C40EncoderL9EncodeC40ERNS0_1
   %.not.i.i56 = icmp eq ptr %32, null
   br i1 %.not.i.i56, label %33, label %34
 
-33:                                               ; preds = %.lr.ph248
+33:                                               ; preds = %.lr.ph267
   invoke void @_ZSt25__throw_bad_function_callv() #23
           to label %.noexc57 unwind label %.loopexit.split-lp98
 
 .noexc57:                                         ; preds = %33
   unreachable
 
-34:                                               ; preds = %.lr.ph248
+34:                                               ; preds = %.lr.ph267
   %35 = load ptr, ptr %21, align 8, !tbaa !37
   %36 = invoke noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) #21
           to label %37 unwind label %.loopexit97
@@ -3406,10 +3406,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %_ZN
 
 .backedge:                                        ; preds = %130, %..thread_crit_edge
   %.be = phi i64 [ %.pre183, %..thread_crit_edge ], [ %52, %130 ]
-  %.be188 = phi i32 [ %.pre, %..thread_crit_edge ], [ %51, %130 ]
-  %139 = sext i32 %.be188 to i64
+  %.be207 = phi i32 [ %.pre, %..thread_crit_edge ], [ %51, %130 ]
+  %139 = sext i32 %.be207 to i64
   %.not.i.i = icmp ugt i64 %.be, %139
-  br i1 %.not.i.i, label %.lr.ph248, label %._crit_edge
+  br i1 %.not.i.i, label %.lr.ph267, label %._crit_edge
 
 140:                                              ; preds = %134
   %141 = landingpad { ptr, i32 }
@@ -4134,7 +4134,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm.exit13.i: ; preds = 
   br i1 %.not.i14.i, label %_ZN5ZXing10DataMatrix10C40EncoderL17EncodeToCodewordsERNS0_14EncoderContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit, label %7
 
 7:                                                ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm.exit13.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.7, i64 noundef 2, i64 noundef %.val3) #23
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.7, i64 noundef 2, i64 noundef 2) #23
   unreachable
 
 _ZN5ZXing10DataMatrix10C40EncoderL17EncodeToCodewordsERNS0_14EncoderContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm.exit13.i

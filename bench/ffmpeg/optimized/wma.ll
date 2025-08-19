@@ -69,10 +69,10 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !31
   %23 = icmp eq i32 %22, 86023
-  %spec.select355 = select i1 %23, i32 1, i32 2
+  %spec.select365 = select i1 %23, i32 1, i32 2
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store i32 %spec.select355, ptr %24, align 8, !tbaa !36
-  %25 = tail call i32 @ff_wma_get_frame_len_bits(i32 noundef %8, i32 noundef %spec.select355, i32 noundef 0) #7
+  store i32 %spec.select365, ptr %24, align 8, !tbaa !36
+  %25 = tail call i32 @ff_wma_get_frame_len_bits(i32 noundef %8, i32 noundef %spec.select365, i32 noundef 0) #7
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 1172
   store i32 %25, ptr %26, align 4, !tbaa !44
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 1188
@@ -294,9 +294,9 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
 147:                                              ; preds = %106, %109, %102, %120, %137, %145, %141, %126, %131, %130, %114, %116, %94, %95
   %.0269 = phi nsz float [ %50, %94 ], [ %98, %95 ], [ %50, %102 ], [ %108, %106 ], [ %111, %109 ], [ %115, %114 ], [ %119, %116 ], [ %123, %120 ], [ %127, %126 ], [ %50, %130 ], [ %134, %131 ], [ %138, %137 ], [ %144, %141 ], [ %146, %145 ]
   %148 = icmp eq i32 %51, 1
-  %spec.select356 = select i1 %148, i32 3, i32 0
+  %spec.select366 = select i1 %148, i32 3, i32 0
   %149 = getelementptr inbounds nuw i8, ptr %4, i64 412
-  store i32 %spec.select356, ptr %149, align 4, !tbaa !54
+  store i32 %spec.select366, ptr %149, align 4, !tbaa !54
   %150 = icmp sgt i32 %44, 0
   br i1 %150, label %.lr.ph318, label %._crit_edge321
 

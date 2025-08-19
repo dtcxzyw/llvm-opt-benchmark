@@ -2339,8 +2339,8 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710UnicodeSet11containsAllER
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %25
   %indvars.iv45 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next46, %25 ]
-  %.idx51 = shl nuw nsw i64 %indvars.iv45, 3
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx51
+  %.idx53 = shl nuw nsw i64 %indvars.iv45, 3
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx53
   %23 = load i32, ptr %22, align 4, !tbaa !12
   %24 = icmp slt i32 %23, %10
   br i1 %24, label %_ZNK6icu_7710UnicodeSet8containsEii.exit.thread, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us
@@ -2373,8 +2373,8 @@ _ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us: ; preds = %.lr.ph.split.us.s
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us.split.preheader, %35
   %indvars.iv40 = phi i64 [ 0, %.lr.ph.split.split.us.split.preheader ], [ %indvars.iv.next41, %35 ]
-  %.idx50 = shl nuw nsw i64 %indvars.iv40, 3
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx50
+  %.idx52 = shl nuw nsw i64 %indvars.iv40, 3
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx52
   %33 = load i32, ptr %32, align 4, !tbaa !12
   %34 = icmp slt i32 %33, %10
   br i1 %34, label %_ZNK6icu_7710UnicodeSet8containsEii.exit.thread, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us27
@@ -2832,8 +2832,8 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710UnicodeSet12containsNoneE
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %26
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %26 ], [ 0, %.lr.ph.split.us ]
-  %.idx63 = shl nuw nsw i64 %indvars.iv56, 3
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx63
+  %.idx67 = shl nuw nsw i64 %indvars.iv56, 3
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx67
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %23 = getelementptr i8, ptr %21, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !12
@@ -2856,8 +2856,8 @@ _ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us.us: ; preds = %_ZNK6icu_7710Uni
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %31
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %31 ], [ 0, %.lr.ph.split.us ]
-  %.idx62 = shl nuw nsw i64 %indvars.iv51, 3
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx62
+  %.idx66 = shl nuw nsw i64 %indvars.iv51, 3
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx66
   %29 = load i32, ptr %28, align 4, !tbaa !12
   %30 = icmp slt i32 %29, %10
   br i1 %30, label %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us, label %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.thread
@@ -2880,8 +2880,8 @@ _ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us: ; preds = %.lr.ph.split.us.spl
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split, %38
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %38 ], [ 0, %.lr.ph.split ]
-  %.idx61 = shl nuw nsw i64 %indvars.iv46, 3
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx61
+  %.idx65 = shl nuw nsw i64 %indvars.iv46, 3
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx65
   %36 = load i32, ptr %35, align 4, !tbaa !12
   %37 = icmp slt i32 %36, %10
   br i1 %37, label %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us30, label %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.thread
@@ -6479,7 +6479,7 @@ _ZNK6icu_7710UnicodeSet15stringsContainsERKNS_13UnicodeStringE.exit.thread: ; pr
   br i1 %46, label %48, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit
 
 48:                                               ; preds = %.thread, %43
-  %.0.i.ph20 = phi i32 [ %28, %.thread ], [ %47, %43 ]
+  %.0.i.ph23 = phi i32 [ %28, %.thread ], [ %47, %43 ]
   %49 = load i8, ptr %10, align 8, !tbaa !34
   %50 = and i8 %49, 1
   %.not2.i = icmp eq i8 %50, 0
@@ -6487,9 +6487,9 @@ _ZNK6icu_7710UnicodeSet15stringsContainsERKNS_13UnicodeStringE.exit.thread: ; pr
 
 51:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i32 %.0.i.ph20, ptr %3, align 4, !tbaa !12
+  store i32 %.0.i.ph23, ptr %3, align 4, !tbaa !12
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %53 = add nuw nsw i32 %.0.i.ph20, 1
+  %53 = add nuw nsw i32 %.0.i.ph23, 1
   store i32 %53, ptr %52, align 4, !tbaa !12
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1114112, ptr %54, align 4, !tbaa !12
@@ -6730,7 +6730,7 @@ _ZN6icu_7710UnicodeSet10setToBogusEv.exit59:      ; preds = %_ZN6icu_7710Unicode
   %47 = zext i16 %33 to i64
   %48 = zext nneg i32 %45 to i64
   %49 = zext nneg i32 %39 to i64
-  %invariant.gep71 = getelementptr inbounds nuw i16, ptr %1, i64 %48
+  %invariant.gep72 = getelementptr inbounds nuw i16, ptr %1, i64 %48
   br label %54
 
 50:                                               ; preds = %.lr.ph, %50
@@ -6748,11 +6748,11 @@ _ZN6icu_7710UnicodeSet10setToBogusEv.exit59:      ; preds = %_ZN6icu_7710Unicode
   %indvars.iv65 = phi i64 [ %46, %.lr.ph63 ], [ %indvars.iv.next66, %54 ]
   %55 = sub nuw nsw i64 %indvars.iv65, %47
   %.idx = shl nuw nsw i64 %55, 2
-  %gep72 = getelementptr inbounds nuw i8, ptr %invariant.gep71, i64 %.idx
-  %56 = load i16, ptr %gep72, align 2, !tbaa !67
+  %gep73 = getelementptr inbounds nuw i8, ptr %invariant.gep72, i64 %.idx
+  %56 = load i16, ptr %gep73, align 2, !tbaa !67
   %57 = zext i16 %56 to i32
   %58 = shl nuw i32 %57, 16
-  %59 = getelementptr i8, ptr %gep72, i64 2
+  %59 = getelementptr i8, ptr %gep73, i64 2
   %60 = load i16, ptr %59, align 2, !tbaa !67
   %61 = zext i16 %60 to i32
   %62 = or disjoint i32 %58, %61
@@ -6771,8 +6771,8 @@ _ZN6icu_7710UnicodeSet10setToBogusEv.exit59:      ; preds = %_ZN6icu_7710Unicode
   br i1 %66, label %._crit_edge._crit_edge, label %67
 
 67:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.1.lcssa69 = phi i32 [ %65, %._crit_edge.thread ], [ %34, %._crit_edge ]
-  %68 = zext nneg i32 %.1.lcssa69 to i64
+  %.1.lcssa71 = phi i32 [ %65, %._crit_edge.thread ], [ %34, %._crit_edge ]
+  %68 = zext nneg i32 %.1.lcssa71 to i64
   %69 = getelementptr i32, ptr %.pre.pre.pre, i64 %68
   %70 = getelementptr i8, ptr %69, i64 -4
   %71 = load i32, ptr %70, align 4, !tbaa !12
@@ -6780,7 +6780,7 @@ _ZN6icu_7710UnicodeSet10setToBogusEv.exit59:      ; preds = %_ZN6icu_7710Unicode
   br i1 %.not49, label %74, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge, %67
-  %.1.lcssa70 = phi i32 [ %.1.lcssa69, %67 ], [ 0, %._crit_edge ]
+  %.1.lcssa70 = phi i32 [ %.1.lcssa71, %67 ], [ 0, %._crit_edge ]
   %.pre-phi = phi i64 [ %68, %67 ], [ 0, %._crit_edge ]
   %72 = add nuw nsw i32 %.1.lcssa70, 1
   %73 = getelementptr inbounds nuw i32, ptr %.pre.pre.pre, i64 %.pre-phi
@@ -6788,7 +6788,7 @@ _ZN6icu_7710UnicodeSet10setToBogusEv.exit59:      ; preds = %_ZN6icu_7710Unicode
   br label %74
 
 74:                                               ; preds = %._crit_edge._crit_edge, %67
-  %.2 = phi i32 [ %72, %._crit_edge._crit_edge ], [ %.1.lcssa69, %67 ]
+  %.2 = phi i32 [ %72, %._crit_edge._crit_edge ], [ %.1.lcssa71, %67 ]
   store i32 %.2, ptr %10, align 4, !tbaa !33
   br label %75
 
@@ -6872,19 +6872,19 @@ define noundef range(i32 -2147483647, 32770) i32 @_ZNK6icu_7710UnicodeSet9serial
   %35 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !12
   %37 = icmp slt i32 %36, 65536
-  br i1 %37, label %38, label %.critedge.loopexit.split.loop.exit82
+  br i1 %37, label %38, label %.critedge.loopexit.split.loop.exit84
 
 38:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !71
 
-.critedge.loopexit.split.loop.exit82:             ; preds = %.lr.ph
+.critedge.loopexit.split.loop.exit84:             ; preds = %.lr.ph
   %39 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %38, %.critedge.loopexit.split.loop.exit82, %.preheader61
-  %.155.lcssa = phi i32 [ 0, %.preheader61 ], [ %39, %.critedge.loopexit.split.loop.exit82 ], [ %16, %38 ]
+.critedge:                                        ; preds = %38, %.critedge.loopexit.split.loop.exit84, %.preheader61
+  %.155.lcssa = phi i32 [ 0, %.preheader61 ], [ %39, %.critedge.loopexit.split.loop.exit84 ], [ %16, %38 ]
   %40 = sub nsw i32 %16, %.155.lcssa
   %41 = shl nsw i32 %40, 1
   %42 = add nsw i32 %41, %.155.lcssa

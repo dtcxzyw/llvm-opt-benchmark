@@ -714,7 +714,7 @@ define void @_ZN6icu_7713LikelySubtags17initLikelySubtagsER10UErrorCode(ptr noun
 11:                                               ; preds = %6
   %12 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 352) #17
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.thread30, label %14
+  br i1 %13, label %.thread39, label %14
 
 14:                                               ; preds = %11
   invoke void @_ZN6icu_7713LikelySubtagsC1ERNS_17LikelySubtagsDataE(ptr noundef nonnull align 8 dereferenceable(352) %12, ptr noundef nonnull align 8 dereferenceable(280) %5)
@@ -726,13 +726,13 @@ define void @_ZN6icu_7713LikelySubtags17initLikelySubtagsER10UErrorCode(ptr noun
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %20, label %_ZN6icu_7712_GLOBAL__N_121getStaticMacroregionsER10UErrorCode.exit.thread
 
-.thread30:                                        ; preds = %11
+.thread39:                                        ; preds = %11
   store ptr %12, ptr @_ZN6icu_7712_GLOBAL__N_114gLikelySubtagsE, align 8, !tbaa !28
   %18 = load i32, ptr %0, align 4, !tbaa !13
   %19 = icmp slt i32 %18, 1
   br i1 %19, label %20, label %_ZN6icu_7712_GLOBAL__N_121getStaticMacroregionsER10UErrorCode.exit.thread.thread
 
-_ZN6icu_7712_GLOBAL__N_121getStaticMacroregionsER10UErrorCode.exit.thread.thread: ; preds = %.thread30
+_ZN6icu_7712_GLOBAL__N_121getStaticMacroregionsER10UErrorCode.exit.thread.thread: ; preds = %.thread39
   store ptr null, ptr @_ZN6icu_7712_GLOBAL__N_113gMacroregionsE, align 8, !tbaa !30
   br label %.thread
 
@@ -740,7 +740,7 @@ _ZN6icu_7712_GLOBAL__N_121getStaticMacroregionsER10UErrorCode.exit.thread: ; pre
   store ptr null, ptr @_ZN6icu_7712_GLOBAL__N_113gMacroregionsE, align 8, !tbaa !30
   br label %127
 
-20:                                               ; preds = %.thread30, %15
+20:                                               ; preds = %.thread39, %15
   %21 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #17
   %22 = icmp eq ptr %21, null
   br i1 %22, label %24, label %23
@@ -761,7 +761,7 @@ _ZN6icu_7712_GLOBAL__N_121getStaticMacroregionsER10UErrorCode.exit.thread: ; pre
 _ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit.i: ; preds = %23
   %.pre.i = load i32, ptr %0, align 4, !tbaa !13
   %28 = icmp slt i32 %.pre.i, 1
-  br i1 %28, label %.preheader.i, label %.critedge.thread57.i
+  br i1 %28, label %.preheader.i, label %.critedge.thread65.i
 
 .preheader.i:                                     ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -776,7 +776,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit.i: ; preds = %23
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %21) #17
   br label %.body
 
-35:                                               ; preds = %.loopexit58.i
+35:                                               ; preds = %.loopexit66.i
   %.019.add.i = add nuw nsw i64 %.019.idx51.i, 8
   %.not28.i = icmp eq i64 %.019.add.i, 192
   br i1 %.not28.i, label %_ZN6icu_7712_GLOBAL__N_121getStaticMacroregionsER10UErrorCode.exit, label %36
@@ -820,7 +820,7 @@ _ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit.i:   ; preds = %.loopexit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.critedge.thread57.i
+  br label %.critedge.thread65.i
 
 48:                                               ; preds = %_ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit.i
   %49 = load i16, ptr %29, align 8, !tbaa !36
@@ -878,7 +878,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i.i:     ; preds = %69, %60
   %82 = load i32, ptr %0, align 4
   %83 = icmp sgt i32 %82, 0
   %or.cond50.i.i = select i1 %.not3149.i.i, i1 true, i1 %83
-  br i1 %or.cond50.i.i, label %.loopexit58.i, label %.lr.ph.i.i
+  br i1 %or.cond50.i.i, label %.loopexit66.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i.i, %.noexc33.i
   %84 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #17
@@ -931,7 +931,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit.i.i: ; pr
   %100 = load i32, ptr %0, align 4
   %101 = icmp sgt i32 %100, 0
   %or.cond.i32.i = select i1 %.not31.i.i, i1 true, i1 %101
-  br i1 %or.cond.i32.i, label %.loopexit58.i, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %or.cond.i32.i, label %.loopexit66.i, label %.lr.ph.i.i, !llvm.loop !44
 
 102:                                              ; preds = %.noexc.i
   %103 = landingpad { ptr, i32 }
@@ -964,7 +964,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit38.i.i: ; 
 
 _ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit38.i..critedge.i_crit_edge.i: ; preds = %_ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit38.i.i
   %.pre55.pre.i = load i32, ptr %0, align 4, !tbaa !13
-  br label %.loopexit58.i
+  br label %.loopexit66.i
 
 113:                                              ; preds = %108
   %114 = landingpad { ptr, i32 }
@@ -977,14 +977,14 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit38.i..crit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.body35.i
 
-.loopexit58.i:                                    ; preds = %.noexc33.i, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit38.i..critedge.i_crit_edge.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i.i
+.loopexit66.i:                                    ; preds = %.noexc33.i, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit38.i..critedge.i_crit_edge.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i.i
   %.pre55.i = phi i32 [ %.pre55.pre.i, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit38.i..critedge.i_crit_edge.i ], [ %82, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i.i ], [ %100, %.noexc33.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %116 = icmp slt i32 %.pre55.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %116, label %35, label %.critedge.thread57.i
+  br i1 %116, label %35, label %.critedge.thread65.i
 
 .loopexit.i:                                      ; preds = %_ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit.i.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -1010,15 +1010,15 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit38.i..crit
   call void %119(ptr noundef nonnull align 8 dereferenceable(40) %21) #17
   br label %.body
 
-.critedge.thread57.i:                             ; preds = %.loopexit58.i, %.thread.i, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit.i
+.critedge.thread65.i:                             ; preds = %.loopexit66.i, %.thread.i, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit.i
   %120 = load ptr, ptr %21, align 8, !tbaa !34
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8
   call void %122(ptr noundef nonnull align 8 dereferenceable(40) %21) #17
   br label %_ZN6icu_7712_GLOBAL__N_121getStaticMacroregionsER10UErrorCode.exit
 
-_ZN6icu_7712_GLOBAL__N_121getStaticMacroregionsER10UErrorCode.exit: ; preds = %35, %.critedge.thread57.i, %27, %24
-  %.0.i.ph = phi ptr [ null, %24 ], [ null, %27 ], [ null, %.critedge.thread57.i ], [ %21, %35 ]
+_ZN6icu_7712_GLOBAL__N_121getStaticMacroregionsER10UErrorCode.exit: ; preds = %35, %.critedge.thread65.i, %27, %24
+  %.0.i.ph = phi ptr [ null, %24 ], [ null, %27 ], [ null, %.critedge.thread65.i ], [ %21, %35 ]
   %.pr = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_114gLikelySubtagsE, align 8
   %.pre = load i32, ptr %0, align 4, !tbaa !13
   %123 = icmp sgt i32 %.pre, 0
@@ -3121,8 +3121,8 @@ define void @_ZNK6icu_7713LikelySubtags8maximizeENS_11StringPieceES1_S1_bR10UErr
   %or.cond233 = select i1 %.not225, i1 true, i1 %.not226
   %.sroa.229.0.copyload.pr.pre.pre = load i32, ptr %26, align 8
   %.not227 = icmp eq i32 %.sroa.229.0.copyload.pr.pre.pre, 0
-  %or.cond279 = select i1 %or.cond233, i1 true, i1 %.not227
-  br i1 %or.cond279, label %60, label %59
+  %or.cond283 = select i1 %or.cond233, i1 true, i1 %.not227
+  br i1 %or.cond283, label %60, label %59
 
 59:                                               ; preds = %55
   %.sroa.064.0.copyload = load ptr, ptr %10, align 8
@@ -3151,8 +3151,8 @@ define void @_ZNK6icu_7713LikelySubtags8maximizeENS_11StringPieceES1_S1_bR10UErr
   %73 = add nsw i32 %72, -97
   %or.cond = icmp ult i32 %73, 26
   %74 = icmp sgt i32 %.sroa.229.0.copyload.pr.pre.pre, 1
-  %or.cond280 = select i1 %or.cond, i1 %74, i1 false
-  br i1 %or.cond280, label %75, label %thread-pre-split
+  %or.cond284 = select i1 %or.cond, i1 %74, i1 false
+  br i1 %or.cond284, label %75, label %thread-pre-split
 
 75:                                               ; preds = %60
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 88

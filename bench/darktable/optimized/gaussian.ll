@@ -269,7 +269,7 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  br i1 %94, label %.preheader427.thread547, label %.lr.ph436
+  br i1 %94, label %.preheader427.thread565, label %.lr.ph436
 
 .lr.ph436:                                        ; preds = %._crit_edge
   br i1 %92, label %._crit_edge447, label %.lr.ph432.us
@@ -356,10 +356,10 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %136
 
-.preheader427.thread547:                          ; preds = %._crit_edge
+.preheader427.thread565:                          ; preds = %._crit_edge
   br i1 %92, label %._crit_edge447, label %.lr.ph438
 
-.lr.ph438:                                        ; preds = %._crit_edge433.us, %.preheader427.thread547
+.lr.ph438:                                        ; preds = %._crit_edge433.us, %.preheader427.thread565
   %151 = add nsw i64 %98, %indvars.iv505
   %152 = mul i64 %151, %93
   %153 = getelementptr float, ptr %1, i64 %152
@@ -457,7 +457,7 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
   %exitcond496.not = icmp eq i64 %indvars.iv.next493, %wide.trip.count495
   br i1 %exitcond496.not, label %.preheader426, label %186
 
-._crit_edge447:                                   ; preds = %..loopexit425_crit_edge.us, %.preheader426, %.preheader427.thread547, %.lr.ph436
+._crit_edge447:                                   ; preds = %..loopexit425_crit_edge.us, %.preheader426, %.preheader427.thread565, %.lr.ph436
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -496,7 +496,7 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  br i1 %91, label %.lr.ph462, label %.preheader423.thread548
+  br i1 %91, label %.lr.ph462, label %.preheader423.thread566
 
 .lr.ph462:                                        ; preds = %._crit_edge453
   %205 = mul nuw nsw i64 %indvars.iv538, %102
@@ -583,10 +583,10 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
   %exitcond514.not = icmp eq i64 %indvars.iv.next511, %wide.trip.count513
   br i1 %exitcond514.not, label %._crit_edge453, label %232
 
-.preheader423.thread548:                          ; preds = %._crit_edge453
+.preheader423.thread566:                          ; preds = %._crit_edge453
   br i1 %101, label %.lr.ph464, label %._crit_edge473
 
-.lr.ph464:                                        ; preds = %._crit_edge459.us, %.preheader423.thread548
+.lr.ph464:                                        ; preds = %._crit_edge459.us, %.preheader423.thread566
   %247 = add nuw nsw i64 %indvars.iv538, 1
   %248 = mul nsw i64 %247, %102
   %249 = add nsw i64 %248, -1
@@ -689,7 +689,7 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
   %exitcond529.not = icmp eq i64 %indvars.iv.next526, %wide.trip.count528
   br i1 %exitcond529.not, label %.preheader, label %284
 
-._crit_edge473:                                   ; preds = %..loopexit_crit_edge.us, %.preheader423.thread548, %.lr.ph462, %.lr.ph472, %.preheader
+._crit_edge473:                                   ; preds = %..loopexit_crit_edge.us, %.preheader423.thread566, %.lr.ph462, %.lr.ph472, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -2003,28 +2003,28 @@ _calc_9x9_gauss_coeffs.exit.i59:                  ; preds = %404
 
 .preheader353.us.preheader.i:                     ; preds = %454
   %459 = trunc nuw nsw i64 %indvars.iv380.i to i32
-  %.sroa.0.promoted146 = load float, ptr %.sroa.0, align 16
-  %.sroa.6.promoted149 = load float, ptr %.sroa.6, align 4
+  %.sroa.0.promoted167 = load float, ptr %.sroa.0, align 16
+  %.sroa.6.promoted170 = load float, ptr %.sroa.6, align 4
   br label %.preheader353.us.i
 
 .preheader353.us.i:                               ; preds = %.loopexit350.us.i, %.preheader353.us.preheader.i
-  %.lcssa145151 = phi float [ %.lcssa145150, %.loopexit350.us.i ], [ %.sroa.6.promoted149, %.preheader353.us.preheader.i ]
-  %.lcssa148 = phi float [ %.lcssa147, %.loopexit350.us.i ], [ %.sroa.0.promoted146, %.preheader353.us.preheader.i ]
+  %.lcssa166172 = phi float [ %.lcssa166171, %.loopexit350.us.i ], [ %.sroa.6.promoted170, %.preheader353.us.preheader.i ]
+  %.lcssa169 = phi float [ %.lcssa168, %.loopexit350.us.i ], [ %.sroa.0.promoted167, %.preheader353.us.preheader.i ]
   %.0335358.us.i = phi i32 [ %461, %.loopexit350.us.i ], [ -4, %.preheader353.us.preheader.i ]
   %460 = add nsw i32 %.0335358.us.i, %453
   %or.cond348.us.i = icmp ult i32 %460, %3
   br i1 %or.cond348.us.i, label %.preheader.us.i63, label %.loopexit350.us.i
 
 .loopexit350.us.i:                                ; preds = %.loopexit.us.i64, %.preheader353.us.i
-  %.lcssa145150 = phi float [ %.lcssa145151, %.preheader353.us.i ], [ %481, %.loopexit.us.i64 ]
-  %.lcssa147 = phi float [ %.lcssa148, %.preheader353.us.i ], [ %482, %.loopexit.us.i64 ]
+  %.lcssa166171 = phi float [ %.lcssa166172, %.preheader353.us.i ], [ %481, %.loopexit.us.i64 ]
+  %.lcssa168 = phi float [ %.lcssa169, %.preheader353.us.i ], [ %482, %.loopexit.us.i64 ]
   %461 = add nsw i32 %.0335358.us.i, 1
   %exitcond373.not.i = icmp eq i32 %461, 5
-  br i1 %exitcond373.not.i, label %.loopexit352.us.i.loopexit141, label %.preheader353.us.i
+  br i1 %exitcond373.not.i, label %.loopexit352.us.i.loopexit162, label %.preheader353.us.i
 
 462:                                              ; preds = %.preheader.us.i63, %.loopexit.us.i64
-  %463 = phi float [ %.lcssa145151, %.preheader.us.i63 ], [ %481, %.loopexit.us.i64 ]
-  %464 = phi float [ %.lcssa148, %.preheader.us.i63 ], [ %482, %.loopexit.us.i64 ]
+  %463 = phi float [ %.lcssa166172, %.preheader.us.i63 ], [ %481, %.loopexit.us.i64 ]
+  %464 = phi float [ %.lcssa169, %.preheader.us.i63 ], [ %482, %.loopexit.us.i64 ]
   %.0333357.us.i = phi i32 [ -4, %.preheader.us.i63 ], [ %483, %.loopexit.us.i64 ]
   %465 = add nsw i32 %.0333357.us.i, %459
   %or.cond349.us.i = icmp ult i32 %465, %2
@@ -2056,23 +2056,23 @@ _calc_9x9_gauss_coeffs.exit.i59:                  ; preds = %404
   %exitcond.not.i65 = icmp eq i32 %483, 5
   br i1 %exitcond.not.i65, label %.loopexit350.us.i, label %462
 
-.loopexit352.us.i.loopexit141:                    ; preds = %.loopexit350.us.i
-  store float %.lcssa147, ptr %.sroa.0, align 16
-  store float %.lcssa145150, ptr %.sroa.6, align 4
+.loopexit352.us.i.loopexit162:                    ; preds = %.loopexit350.us.i
+  store float %.lcssa168, ptr %.sroa.0, align 16
+  store float %.lcssa166171, ptr %.sroa.6, align 4
   br label %.loopexit352.us.i
 
-.loopexit352.us.i:                                ; preds = %490, %.loopexit352.us.i.loopexit141
+.loopexit352.us.i:                                ; preds = %490, %.loopexit352.us.i.loopexit162
   %484 = getelementptr inbounds nuw float, ptr %.0, i64 %456
-  %.sroa.0.0.144 = load float, ptr %.sroa.0, align 16, !tbaa !21
-  %485 = fcmp reassoc nsz arcp contract afn ult float %.sroa.0.0.144, %5
-  %.inv.us.i = fcmp reassoc nsz arcp contract afn ole float %.sroa.0.0.144, %6
-  %..us.i = select reassoc nsz arcp contract afn i1 %.inv.us.i, float %.sroa.0.0.144, float %6
+  %.sroa.0.0.165 = load float, ptr %.sroa.0, align 16, !tbaa !21
+  %485 = fcmp reassoc nsz arcp contract afn ult float %.sroa.0.0.165, %5
+  %.inv.us.i = fcmp reassoc nsz arcp contract afn ole float %.sroa.0.0.165, %6
+  %..us.i = select reassoc nsz arcp contract afn i1 %.inv.us.i, float %.sroa.0.0.165, float %6
   %486 = select reassoc nsz arcp contract afn i1 %485, float %5, float %..us.i
   store float %486, ptr %484, align 4, !tbaa !21
-  %.sroa.6.0.143 = load float, ptr %.sroa.6, align 4, !tbaa !21
-  %487 = fcmp reassoc nsz arcp contract afn ult float %.sroa.6.0.143, %5
-  %.inv.us.i.c = fcmp reassoc nsz arcp contract afn ole float %.sroa.6.0.143, %6
-  %..us.i.c = select reassoc nsz arcp contract afn i1 %.inv.us.i.c, float %.sroa.6.0.143, float %6
+  %.sroa.6.0.164 = load float, ptr %.sroa.6, align 4, !tbaa !21
+  %487 = fcmp reassoc nsz arcp contract afn ult float %.sroa.6.0.164, %5
+  %.inv.us.i.c = fcmp reassoc nsz arcp contract afn ole float %.sroa.6.0.164, %6
+  %..us.i.c = select reassoc nsz arcp contract afn i1 %.inv.us.i.c, float %.sroa.6.0.164, float %6
   %488 = select reassoc nsz arcp contract afn i1 %487, float %5, float %..us.i.c
   %489 = getelementptr inbounds nuw i8, ptr %484, i64 4
   store float %488, ptr %489, align 4, !tbaa !21
@@ -2583,7 +2583,7 @@ _calc_9x9_gauss_coeffs.exit.i89:                  ; preds = %810
   %875 = load float, ptr %874, align 4, !tbaa !21
   %876 = add nuw nsw i64 %867, %1115
   %.idx.i = shl i64 %876, 4
-  %invariant.gep399.i = getelementptr i8, ptr %0, i64 %.idx.i
+  %invariant.gep401.i = getelementptr i8, ptr %0, i64 %.idx.i
   br label %877
 
 .loopexit.us.i112:                                ; preds = %877, %866
@@ -2593,7 +2593,7 @@ _calc_9x9_gauss_coeffs.exit.i89:                  ; preds = %810
 
 877:                                              ; preds = %877, %869
   %indvars.iv.i113 = phi i64 [ %indvars.iv.next.i114, %877 ], [ 0, %869 ]
-  %gep.i = getelementptr float, ptr %invariant.gep399.i, i64 %indvars.iv.i113
+  %gep.i = getelementptr float, ptr %invariant.gep401.i, i64 %indvars.iv.i113
   %878 = load float, ptr %gep.i, align 4, !tbaa !21
   %879 = fmul reassoc nsz arcp contract afn float %878, %875
   %880 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %indvars.iv.i113

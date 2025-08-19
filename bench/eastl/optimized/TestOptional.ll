@@ -269,13 +269,13 @@ invoke.cont:
   %call234 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 359, ptr noundef nonnull @.str.47)
   store i32 2, ptr @_ZN15assignment_test18num_objects_initedE, align 4
   %call247 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 368, ptr noundef nonnull @.str.48)
-          to label %invoke.cont249 unwind label %ehcleanup280.thread1065
+          to label %invoke.cont249 unwind label %ehcleanup280.thread1073
 
 invoke.cont249:                                   ; preds = %invoke.cont
   %0 = load i32, ptr @_ZN15assignment_test18num_objects_initedE, align 4
   %cmp251 = icmp eq i32 %0, 2
   %call253 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp251, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 370, ptr noundef nonnull @.str.48)
-          to label %invoke.cont254 unwind label %ehcleanup280.thread1065
+          to label %invoke.cont254 unwind label %ehcleanup280.thread1073
 
 invoke.cont254:                                   ; preds = %invoke.cont249
   %1 = load i32, ptr @_ZN15assignment_test18num_objects_initedE, align 4
@@ -297,7 +297,7 @@ invoke.cont265:                                   ; preds = %invoke.cont259
   store i32 %dec.i.i.i.i161, ptr @_ZN15assignment_test18num_objects_initedE, align 4
   %cmp267 = icmp eq i32 %dec.i.i.i.i161, 2
   %call269 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp267, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @.str.48)
-          to label %invoke.cont270 unwind label %ehcleanup280.thread1065
+          to label %invoke.cont270 unwind label %ehcleanup280.thread1073
 
 invoke.cont270:                                   ; preds = %invoke.cont265
   %4 = load i32, ptr @_ZN15assignment_test18num_objects_initedE, align 4
@@ -350,8 +350,8 @@ _ZN5eastl8optionalI15assignment_testED2Ev.exit792.thread: ; preds = %invoke.cont
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = load i32, ptr @_ZN15assignment_test18num_objects_initedE, align 4
-  %dec.i.i.i.i7911074 = add nsw i32 %13, -1
-  store i32 %dec.i.i.i.i7911074, ptr @_ZN15assignment_test18num_objects_initedE, align 4
+  %dec.i.i.i.i7911082 = add nsw i32 %13, -1
+  store i32 %dec.i.i.i.i7911082, ptr @_ZN15assignment_test18num_objects_initedE, align 4
   br label %if.then.i.i795
 
 invoke.cont322:                                   ; preds = %invoke.cont316
@@ -542,8 +542,8 @@ _ZN5eastl8optionalIiEC2ERKS1_.exit.i.i.i.i.i.i:   ; preds = %if.then.i.i.i.i.i.i
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %first.addr.06.i.i.i.i.i.i.add, 32
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5eastl6vectorINS_8optionalIiEENS_9allocatorEEC2ESt16initializer_listIS2_ERKS3_.exit, label %for.body.i.i.i.i.i.i, !llvm.loop !13
 
-common.resume:                                    ; preds = %_ZN5eastl8optionalI15assignment_testED2Ev.exit792, %ehcleanup280.thread1065, %ehcleanup280.thread, %_ZN5eastl8optionalI15destructor_testED2Ev.exit816, %if.then.i.i783, %if.then.i.i795, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i837, %_ZN5eastl8optionalINS_12basic_stringIcNS_9allocatorEEEED2Ev.exit860, %if.then.i.i.i.i.i866, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i868
-  %common.resume.op = phi { ptr, i32 } [ %60, %_ZN5eastl8optionalI15destructor_testED2Ev.exit816 ], [ %lpad.thr_comm.split-lp1064, %if.then.i.i783 ], [ %.pn41069, %if.then.i.i795 ], [ %.pn10, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i837 ], [ %.pn12, %_ZN5eastl8optionalINS_12basic_stringIcNS_9allocatorEEEED2Ev.exit860 ], [ %.pn12, %if.then.i.i.i.i.i866 ], [ %.pn12, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i868 ], [ %lpad.thr_comm.split-lp, %ehcleanup280.thread ], [ %lpad.thr_comm1063, %ehcleanup280.thread1065 ], [ %57, %_ZN5eastl8optionalI15assignment_testED2Ev.exit792 ]
+common.resume:                                    ; preds = %_ZN5eastl8optionalI15assignment_testED2Ev.exit792, %ehcleanup280.thread1073, %ehcleanup280.thread, %_ZN5eastl8optionalI15destructor_testED2Ev.exit816, %if.then.i.i783, %if.then.i.i795, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i837, %_ZN5eastl8optionalINS_12basic_stringIcNS_9allocatorEEEED2Ev.exit860, %if.then.i.i.i.i.i866, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i868
+  %common.resume.op = phi { ptr, i32 } [ %60, %_ZN5eastl8optionalI15destructor_testED2Ev.exit816 ], [ %lpad.thr_comm.split-lp1072, %if.then.i.i783 ], [ %.pn41077, %if.then.i.i795 ], [ %.pn10, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i837 ], [ %.pn12, %_ZN5eastl8optionalINS_12basic_stringIcNS_9allocatorEEEED2Ev.exit860 ], [ %.pn12, %if.then.i.i.i.i.i866 ], [ %.pn12, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i868 ], [ %lpad.thr_comm.split-lp, %ehcleanup280.thread ], [ %lpad.thr_comm1071, %ehcleanup280.thread1073 ], [ %57, %_ZN5eastl8optionalI15assignment_testED2Ev.exit792 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5eastl6vectorINS_8optionalIiEENS_9allocatorEEC2ESt16initializer_listIS2_ERKS3_.exit: ; preds = %_ZN5eastl8optionalIiEC2ERKS1_.exit.i.i.i.i.i.i
@@ -780,16 +780,16 @@ ehcleanup280.thread:                              ; preds = %invoke.cont270, %in
   store i32 %dec.i.i.i.i774, ptr @_ZN15assignment_test18num_objects_initedE, align 4
   br label %common.resume
 
-ehcleanup280.thread1065:                          ; preds = %invoke.cont, %invoke.cont249, %invoke.cont265
-  %lpad.thr_comm1063 = landingpad { ptr, i32 }
+ehcleanup280.thread1073:                          ; preds = %invoke.cont, %invoke.cont249, %invoke.cont265
+  %lpad.thr_comm1071 = landingpad { ptr, i32 }
           cleanup
   %55 = load i32, ptr @_ZN15assignment_test18num_objects_initedE, align 4
-  %dec.i.i.i.i7791068 = add nsw i32 %55, -2
-  store i32 %dec.i.i.i.i7791068, ptr @_ZN15assignment_test18num_objects_initedE, align 4
+  %dec.i.i.i.i7791076 = add nsw i32 %55, -2
+  store i32 %dec.i.i.i.i7791076, ptr @_ZN15assignment_test18num_objects_initedE, align 4
   br label %common.resume
 
 if.then.i.i783:                                   ; preds = %invoke.cont259, %invoke.cont254
-  %lpad.thr_comm.split-lp1064 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp1072 = landingpad { ptr, i32 }
           cleanup
   %56 = load i32, ptr @_ZN15assignment_test18num_objects_initedE, align 4
   %dec.i.i.i.i784 = add nsw i32 %56, -3
@@ -810,7 +810,7 @@ ehcleanup328.thread:                              ; preds = %_ZN5eastl8optionalI
   br label %if.then.i.i795
 
 if.then.i.i795:                                   ; preds = %_ZN5eastl8optionalI15assignment_testED2Ev.exit792.thread, %ehcleanup328.thread
-  %.pn41069 = phi { ptr, i32 } [ %lpad.thr_comm, %ehcleanup328.thread ], [ %12, %_ZN5eastl8optionalI15assignment_testED2Ev.exit792.thread ]
+  %.pn41077 = phi { ptr, i32 } [ %lpad.thr_comm, %ehcleanup328.thread ], [ %12, %_ZN5eastl8optionalI15assignment_testED2Ev.exit792.thread ]
   %59 = load i32, ptr @_ZN15assignment_test18num_objects_initedE, align 4
   %dec.i.i.i.i796 = add nsw i32 %59, -1
   store i32 %dec.i.i.i.i796, ptr @_ZN15assignment_test18num_objects_initedE, align 4
@@ -1501,9 +1501,9 @@ _ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit22.i.i: ; preds = %if.then.i.i
   %6 = load i32, ptr %add.ptr, align 4
   %7 = load i32, ptr %add.ptr7, align 4
   %cmp.i21.i.i = icmp sge i32 %6, %7
-  %brmerge.not63.i.i = and i1 %cmp.i21.i.i, %tobool.i4.i.i.i
+  %brmerge.not64.i.i = and i1 %cmp.i21.i.i, %tobool.i4.i.i.i
   %b.mux.i.i = select i1 %cmp.i21.i.i, ptr %add.ptr7, ptr %add.ptr
-  br i1 %brmerge.not63.i.i, label %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit31.i.i, label %_ZN5eastl6medianINS_8optionalIiEEEEOT_S4_S4_S4_.exit
+  br i1 %brmerge.not64.i.i, label %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit31.i.i, label %_ZN5eastl6medianINS_8optionalIiEEEEOT_S4_S4_S4_.exit
 
 _ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit31.i.i: ; preds = %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit22.i.i
   %8 = load i32, ptr %first, align 4
@@ -1756,7 +1756,7 @@ if.then.i:                                        ; preds = %entry
 do.body.i:                                        ; preds = %_ZN5eastl8optionalIiEC2EOS1_.exit.i, %if.then.i
   %parentPosition.0.i = phi i64 [ %add.i, %if.then.i ], [ %dec.i, %_ZN5eastl8optionalIiEC2EOS1_.exit.i ]
   %dec.i = add nsw i64 %parentPosition.0.i, -1
-  %add.ptr.i = getelementptr inbounds %"class.eastl::optional", ptr %first, i64 %dec.i
+  %add.ptr.i = getelementptr inbounds nuw %"class.eastl::optional", ptr %first, i64 %dec.i
   %engaged.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   store i32 0, ptr %temp.i, align 4
   %0 = load i8, ptr %engaged.i.i, align 4

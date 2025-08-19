@@ -332,7 +332,7 @@ define dso_local range(i32 0, 23) i32 @hostlist2bitmap(ptr noundef %0, i1 nounde
 15:                                               ; preds = %.lr.ph
   %16 = tail call fastcc ptr @_find_node_record(ptr noundef nonnull %12, i1 noundef zeroext %1, i1 noundef zeroext true)
   %.not22.i = icmp eq ptr %16, null
-  br i1 %.not22.i, label %.thread30.i, label %.thread26.i
+  br i1 %.not22.i, label %.thread33.i, label %.thread26.i
 
 .thread26.i:                                      ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 208
@@ -344,14 +344,14 @@ define dso_local range(i32 0, 23) i32 @hostlist2bitmap(ptr noundef %0, i1 nounde
 20:                                               ; preds = %.lr.ph
   %21 = tail call fastcc i32 @_parse_hostlist_function(ptr noundef %13, ptr noundef nonnull %12)
   %.not14 = icmp eq i32 %21, 0
-  br i1 %.not14, label %_single_node_name2bitmap.exit, label %.thread30.i
+  br i1 %.not14, label %_single_node_name2bitmap.exit, label %.thread33.i
 
-.thread30.i:                                      ; preds = %15, %20
+.thread33.i:                                      ; preds = %15, %20
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.51, ptr noundef nonnull @__func__._single_node_name2bitmap, ptr noundef nonnull %12) #15
   br label %_single_node_name2bitmap.exit
 
-_single_node_name2bitmap.exit:                    ; preds = %.thread26.i, %20, %.thread30.i
-  %.2.i = phi i32 [ 22, %.thread30.i ], [ 0, %20 ], [ 0, %.thread26.i ]
+_single_node_name2bitmap.exit:                    ; preds = %.thread26.i, %20, %.thread33.i
+  %.2.i = phi i32 [ 22, %.thread33.i ], [ 0, %20 ], [ 0, %.thread26.i ]
   tail call void @free(ptr noundef nonnull %12) #15
   %23 = tail call ptr @hostlist_next(ptr noundef %10) #15
   %.not13 = icmp eq ptr %23, null
@@ -933,7 +933,7 @@ define dso_local i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr n
 .preheader:                                       ; preds = %78
   %81 = call ptr @hostlist_shift(ptr noundef nonnull %29) #15
   %.not158181 = icmp eq ptr %81, null
-  br i1 %.not158181, label %.thread216, label %.lr.ph
+  br i1 %.not158181, label %.thread231, label %.lr.ph
 
 82:                                               ; preds = %78
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.17, i32 noundef %66, i32 noundef %64) #16
@@ -1083,30 +1083,30 @@ define dso_local i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr n
 
 131:                                              ; preds = %130, %129
   %.not167 = icmp eq ptr %.2, null
-  br i1 %.not167, label %.thread216, label %132
+  br i1 %.not167, label %.thread231, label %132
 
 132:                                              ; preds = %131
   call void @free(ptr noundef nonnull %.2) #15
-  br label %.thread216
+  br label %.thread231
 
-.thread216:                                       ; preds = %.preheader, %132, %131
-  %.1117209214220 = phi i32 [ %120, %132 ], [ %120, %131 ], [ 0, %.preheader ]
+.thread231:                                       ; preds = %.preheader, %132, %131
+  %.1117224229235 = phi i32 [ %120, %132 ], [ %120, %131 ], [ 0, %.preheader ]
   %133 = load ptr, ptr %5, align 8
   %.not168 = icmp eq ptr %133, null
   br i1 %.not168, label %135, label %134
 
-134:                                              ; preds = %.thread216
+134:                                              ; preds = %.thread231
   call void @free(ptr noundef nonnull %133) #15
   br label %135
 
-135:                                              ; preds = %134, %.thread216
+135:                                              ; preds = %134, %.thread231
   call void @hostlist_destroy(ptr noundef nonnull %24) #15
   call void @hostlist_destroy(ptr noundef nonnull %29) #15
   call void @hostlist_destroy(ptr noundef nonnull %35) #15
   call void @hostlist_destroy(ptr noundef nonnull %41) #15
   call void @hostlist_destroy(ptr noundef nonnull %.0127) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.1117209214220
+  ret i32 %.1117224229235
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2911,8 +2911,8 @@ define internal fastcc range(i32 0, 23) i32 @_single_node_name2bitmap(ptr nounde
   br i1 %or.cond, label %15, label %25
 
 .thread:                                          ; preds = %6
-  %.not32 = icmp eq ptr %3, null
-  br i1 %.not32, label %.thread30, label %15
+  %.not35 = icmp eq ptr %3, null
+  br i1 %.not35, label %.thread33, label %15
 
 15:                                               ; preds = %.thread, %11
   %16 = tail call i32 @get_log_level() #15
@@ -2938,14 +2938,14 @@ define internal fastcc range(i32 0, 23) i32 @_single_node_name2bitmap(ptr nounde
   br label %27
 
 25:                                               ; preds = %11
-  br i1 %13, label %.thread30, label %27
+  br i1 %13, label %.thread33, label %27
 
-.thread30:                                        ; preds = %.thread, %25
+.thread33:                                        ; preds = %.thread, %25
   %26 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.51, ptr noundef nonnull @__func__._single_node_name2bitmap, ptr noundef nonnull %0) #15
   br label %27
 
-27:                                               ; preds = %.thread26, %21, %23, %25, %.thread30
-  %.2 = phi i32 [ 22, %.thread30 ], [ 0, %25 ], [ 0, %23 ], [ 0, %21 ], [ 0, %.thread26 ]
+27:                                               ; preds = %.thread26, %21, %23, %25, %.thread33
+  %.2 = phi i32 [ 22, %.thread33 ], [ 0, %25 ], [ 0, %23 ], [ 0, %21 ], [ 0, %.thread26 ]
   ret i32 %.2
 }
 
@@ -3100,9 +3100,9 @@ define dso_local i32 @cr_get_coremap_offset(i32 noundef %0) local_unnamed_addr #
   %.not10.i = icmp slt i64 %indvars.iv.next, %6
   %.not11.i = icmp slt i64 %indvars.iv, %5
   %or.cond.i = select i1 %.not10.i, i1 %.not11.i, i1 false
-  br i1 %or.cond.i, label %.preheader.i, label %next_node.exit.thread6, !llvm.loop !8
+  br i1 %or.cond.i, label %.preheader.i, label %next_node.exit.thread9, !llvm.loop !8
 
-next_node.exit.thread6:                           ; preds = %9
+next_node.exit.thread9:                           ; preds = %9
   %10 = sext i32 %.pre to i64
   br label %13
 
@@ -3114,8 +3114,8 @@ next_node.exit:                                   ; preds = %.preheader.i
   %12 = and i64 %indvars.iv, 4294967295
   br label %13
 
-13:                                               ; preds = %next_node.exit.thread, %next_node.exit.thread6, %next_node.exit
-  %14 = phi i64 [ %12, %next_node.exit ], [ %11, %next_node.exit.thread ], [ %10, %next_node.exit.thread6 ]
+13:                                               ; preds = %next_node.exit.thread, %next_node.exit.thread9, %next_node.exit
+  %14 = phi i64 [ %12, %next_node.exit ], [ %11, %next_node.exit.thread ], [ %10, %next_node.exit.thread9 ]
   %15 = load ptr, ptr @cr_node_cores_offset, align 8
   %.0.in = getelementptr inbounds i32, ptr %15, i64 %14
   %.0 = load i32, ptr %.0.in, align 4

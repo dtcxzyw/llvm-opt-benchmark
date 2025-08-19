@@ -1180,18 +1180,18 @@ _ZNK4ncnn3Mat5emptyEv.exit306:                    ; preds = %576
   %594 = mul nsw i32 %591, %593
   store i32 %594, ptr %14, align 4, !tbaa !31
   switch i32 %.0228, label %599 [
-    i32 8, label %.sink.split381
+    i32 8, label %.sink.split420
     i32 4, label %595
     i32 1, label %596
   ]
 
 595:                                              ; preds = %586
-  br label %.sink.split381
+  br label %.sink.split420
 
 596:                                              ; preds = %586
-  br label %.sink.split381
+  br label %.sink.split420
 
-.sink.split381:                                   ; preds = %586, %596, %595
+.sink.split420:                                   ; preds = %586, %596, %595
   %_ZNK4ncnn15Reshape_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.3.sink = phi ptr [ @_ZNK4ncnn15Reshape_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.3, %595 ], [ @_ZNK4ncnn15Reshape_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.4, %596 ], [ @_ZNK4ncnn15Reshape_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.2, %586 ]
   %597 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %598 = load i32, ptr %597, align 4, !tbaa !54
@@ -1199,7 +1199,7 @@ _ZNK4ncnn3Mat5emptyEv.exit306:                    ; preds = %576
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull %_ZNK4ncnn15Reshape_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.3.sink, ptr nonnull %2, ptr nonnull %12, ptr nonnull %14)
   br label %599
 
-599:                                              ; preds = %.sink.split381, %586
+599:                                              ; preds = %.sink.split420, %586
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZNK4ncnn3Mat5emptyEv.exit306.thread
 

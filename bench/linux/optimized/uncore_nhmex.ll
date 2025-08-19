@@ -850,26 +850,26 @@ define internal noundef ptr @nhmex_mbox_get_constraint(ptr noundef %0, ptr nound
   %30 = shl nuw nsw i32 1, %29
   %31 = and i32 %28, %30
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %.thread71
+  br i1 %32, label %33, label %.thread75
 
-.thread71:                                        ; preds = %27
+.thread75:                                        ; preds = %27
   store i32 255, ptr %.sroa.phi, align 4
   br label %105
 
 33:                                               ; preds = %27, %21
-  %.pr70 = load i32, ptr %.sroa.phi, align 4
-  %34 = icmp eq i32 %.pr70, 255
+  %.pr74 = load i32, ptr %.sroa.phi, align 4
+  %34 = icmp eq i32 %.pr74, 255
   br i1 %34, label %105, label %35
 
 35:                                               ; preds = %33
   %36 = shl nuw nsw i64 %23, 5
   %37 = lshr i64 %20, %36
   %38 = and i64 %37, 4294967295
-  %39 = icmp slt i32 %.pr70, 7
+  %39 = icmp slt i32 %.pr74, 7
   br i1 %39, label %40, label %53
 
 40:                                               ; preds = %35
-  %41 = sext i32 %.pr70 to i64
+  %41 = sext i32 %.pr74 to i64
   %42 = getelementptr [0 x %struct.intel_uncore_extra_reg], ptr %17, i64 0, i64 %41
   %43 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %42) #8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 32
@@ -895,8 +895,8 @@ define internal noundef ptr @nhmex_mbox_get_constraint(ptr noundef %0, ptr nound
   br label %226
 
 53:                                               ; preds = %35
-  %54 = add nsw i32 %.pr70, -7
-  %55 = icmp samesign ugt i32 %.pr70, 10
+  %54 = add nsw i32 %.pr74, -7
+  %55 = icmp samesign ugt i32 %.pr74, 10
   br i1 %55, label %nhmex_mbox_get_shared_reg.exit.thread, label %56, !prof !8
 
 nhmex_mbox_get_shared_reg.exit.thread:            ; preds = %53
@@ -978,8 +978,8 @@ nhmex_mbox_get_shared_reg.exit:                   ; preds = %82
   %104 = or i32 %103, %24
   br label %105
 
-105:                                              ; preds = %.thread71, %101, %33
-  %106 = phi i32 [ %24, %33 ], [ %104, %101 ], [ %24, %.thread71 ]
+105:                                              ; preds = %.thread75, %101, %33
+  %106 = phi i32 [ %24, %33 ], [ %104, %101 ], [ %24, %.thread75 ]
   br i1 %22, label %21, label %107, !llvm.loop !23
 
 107:                                              ; preds = %105
@@ -1185,7 +1185,7 @@ nhmex_mbox_get_shared_reg.exit11:                 ; preds = %162
   %228 = icmp eq i32 %.sroa.0.0..sroa.0.0..sroa.0.0.67, 255
   %.pre = and i32 %227, 1
   %229 = icmp eq i32 %.pre, 0
-  br i1 %228, label %split.thread74, label %230
+  br i1 %228, label %split.thread78, label %230
 
 230:                                              ; preds = %226
   %231 = icmp sgt i32 %.sroa.0.0..sroa.0.0..sroa.0.0.67, 6
@@ -1249,12 +1249,12 @@ split:                                            ; preds = %230
   %269 = icmp eq i32 %.pre, 0
   br i1 %269, label %split.thread, label %270
 
-split.thread74:                                   ; preds = %226
-  br i1 %229, label %split.thread, label %.thread78
+split.thread78:                                   ; preds = %226
+  br i1 %229, label %split.thread, label %.thread82
 
 270:                                              ; preds = %split
   %271 = icmp slt i32 %.sroa.0.0..sroa.0.0..sroa.0.0.67, 7
-  br i1 %271, label %272, label %.thread78
+  br i1 %271, label %272, label %.thread82
 
 272:                                              ; preds = %270
   %273 = sext i32 %.sroa.0.0..sroa.0.0..sroa.0.0.67 to i64
@@ -1264,15 +1264,15 @@ split.thread74:                                   ; preds = %226
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %275, ptr elementtype(i32) %275) #8, !srcloc !27
   br label %split.thread
 
-.thread78:                                        ; preds = %split.thread74, %270
-  %.sroa.0.0..sroa.0.0.687780 = phi i32 [ %.sroa.0.0..sroa.0.0..sroa.0.0.67, %270 ], [ 255, %split.thread74 ]
-  %276 = shl i32 %.sroa.0.0..sroa.0.0.687780, 3
+.thread82:                                        ; preds = %split.thread78, %270
+  %.sroa.0.0..sroa.0.0.688184 = phi i32 [ %.sroa.0.0..sroa.0.0..sroa.0.0.67, %270 ], [ 255, %split.thread78 ]
+  %276 = shl i32 %.sroa.0.0..sroa.0.0.688184, 3
   %277 = add i32 %276, -56
   %278 = shl nuw i32 1, %277
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15, i32 %278, ptr elementtype(i32) %15) #8, !srcloc !28
   br label %split.thread
 
-split.thread:                                     ; preds = %238, %split.thread74, %.thread78, %272, %split
+split.thread:                                     ; preds = %238, %split.thread78, %.thread82, %272, %split
   %279 = and i32 %227, 2
   %280 = icmp eq i32 %279, 0
   br i1 %280, label %291, label %281

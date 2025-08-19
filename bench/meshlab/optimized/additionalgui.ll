@@ -896,13 +896,13 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   %110 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, %104
-  br i1 %112, label %.loopexit79.loopexit.split.loop.exit112, label %113
+  br i1 %112, label %.loopexit79.loopexit.split.loop.exit133, label %113
 
 113:                                              ; preds = %109
   %114 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %115 = load ptr, ptr %114, align 8
   %116 = icmp eq ptr %115, %104
-  br i1 %116, label %.loopexit79.loopexit.split.loop.exit110, label %117
+  br i1 %116, label %.loopexit79.loopexit.split.loop.exit131, label %117
 
 117:                                              ; preds = %113
   %118 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
@@ -971,16 +971,16 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   %143 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   br label %.loopexit79
 
-.loopexit79.loopexit.split.loop.exit110:          ; preds = %113
+.loopexit79.loopexit.split.loop.exit131:          ; preds = %113
   %144 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   br label %.loopexit79
 
-.loopexit79.loopexit.split.loop.exit112:          ; preds = %109
+.loopexit79.loopexit.split.loop.exit133:          ; preds = %109
   %145 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   br label %.loopexit79
 
-.loopexit79:                                      ; preds = %106, %.loopexit79.loopexit.split.loop.exit, %.loopexit79.loopexit.split.loop.exit110, %.loopexit79.loopexit.split.loop.exit112, %139, %133, %127
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %127 ], [ %.1.i.i.i.i.i, %133 ], [ %.2.i.i.i.i.i, %139 ], [ %143, %.loopexit79.loopexit.split.loop.exit ], [ %144, %.loopexit79.loopexit.split.loop.exit110 ], [ %145, %.loopexit79.loopexit.split.loop.exit112 ], [ %.02946.i.i.i.i.i, %106 ]
+.loopexit79:                                      ; preds = %106, %.loopexit79.loopexit.split.loop.exit, %.loopexit79.loopexit.split.loop.exit131, %.loopexit79.loopexit.split.loop.exit133, %139, %133, %127
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %127 ], [ %.1.i.i.i.i.i, %133 ], [ %.2.i.i.i.i.i, %139 ], [ %143, %.loopexit79.loopexit.split.loop.exit ], [ %144, %.loopexit79.loopexit.split.loop.exit131 ], [ %145, %.loopexit79.loopexit.split.loop.exit133 ], [ %.02946.i.i.i.i.i, %106 ]
   %.not76 = icmp eq ptr %.028.i.i.i.i.i, %101
   br i1 %.not76, label %.thread, label %_ZN5QListIP7QActionE9push_backERKS1_.exit
 
@@ -1010,10 +1010,10 @@ _ZN5QListIP7QActionE9push_backERKS1_.exit:        ; preds = %.thread, %52, %.loo
   br i1 %22, label %305, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge.loopexit, %._crit_edge
-  %.pre107109 = phi ptr [ %.pre107.pre, %._crit_edge.loopexit ], [ @_ZN9QListData11shared_nullE, %._crit_edge ]
-  %155 = getelementptr inbounds nuw i8, ptr %.pre107109, i64 12
+  %.pre107130 = phi ptr [ %.pre107.pre, %._crit_edge.loopexit ], [ @_ZN9QListData11shared_nullE, %._crit_edge ]
+  %155 = getelementptr inbounds nuw i8, ptr %.pre107130, i64 12
   %156 = load i32, ptr %155, align 4
-  %157 = getelementptr inbounds nuw i8, ptr %.pre107109, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %.pre107130, i64 8
   %158 = load i32, ptr %157, align 8
   %159 = icmp sgt i32 %156, %158
   br i1 %159, label %.lr.ph96, label %._crit_edge97
@@ -1021,7 +1021,7 @@ _ZN5QListIP7QActionE9push_backERKS1_.exit:        ; preds = %.thread, %52, %.loo
 .lr.ph96:                                         ; preds = %.preheader, %238
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %238 ], [ 0, %.preheader ]
   %160 = phi i32 [ %243, %238 ], [ %158, %.preheader ]
-  %161 = phi ptr [ %239, %238 ], [ %.pre107109, %.preheader ]
+  %161 = phi ptr [ %239, %238 ], [ %.pre107130, %.preheader ]
   %162 = load atomic i32, ptr %161 monotonic, align 4
   %163 = icmp ugt i32 %162, 1
   br i1 %163, label %164, label %186
@@ -1902,7 +1902,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK10SearchMenu17nextEn
 
 .preheader.split:                                 ; preds = %.preheader, %61
   %.024 = phi i32 [ %50, %61 ], [ %2, %.preheader ]
-  %43 = add nsw i32 %.024, 1
+  %43 = add nuw nsw i32 %.024, 1
   %44 = load ptr, ptr %3, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %46 = load i32, ptr %45, align 4
@@ -1913,8 +1913,8 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK10SearchMenu17nextEn
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %52 = sext i32 %48 to i64
   %53 = getelementptr inbounds ptr, ptr %51, i64 %52
-  %54 = sext i32 %50 to i64
-  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
+  %54 = zext nneg i32 %50 to i64
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8
   %.not27 = icmp eq ptr %56, null
   br i1 %.not27, label %61, label %57

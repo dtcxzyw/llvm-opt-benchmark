@@ -143,7 +143,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.117 = private unnamed_addr constant [19 x i8] c" [%zu] %s => \22%s\22\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @get_font_mapping(ptr noundef %0) local_unnamed_addr #0 {
+define noalias nonnull ptr @get_font_mapping(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.availfonts_t, align 8
   %3 = alloca %struct.availfonts_t, align 8
   %4 = alloca ptr, align 8
@@ -476,10 +476,10 @@ get_faces.exit83.i:                               ; preds = %.loopexit.i79.i, %1
   unreachable
 
 strview_str.exit.i:                               ; preds = %102, %130, %.thread101.i, %.thread98.i, %.thread89.i, %gv_calloc.exit.split
-  %.sink189.i = phi ptr [ %131, %130 ], [ null, %gv_calloc.exit.split ], [ null, %.thread89.i ], [ null, %.thread98.i ], [ null, %.thread101.i ], [ null, %102 ]
+  %.sink195.i = phi ptr [ %131, %130 ], [ null, %gv_calloc.exit.split ], [ null, %.thread89.i ], [ null, %.thread98.i ], [ null, %.thread101.i ], [ null, %102 ]
   %.sink.i = phi i32 [ %.5.i, %130 ], [ 0, %gv_calloc.exit.split ], [ 0, %.thread89.i ], [ 0, %.thread98.i ], [ 0, %.thread101.i ], [ 0, %102 ]
   %137 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %.sink189.i, ptr %137, align 8, !tbaa !19, !alias.scope !8
+  store ptr %.sink195.i, ptr %137, align 8, !tbaa !19, !alias.scope !8
   %138 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 %.sink.i, ptr %138, align 8, !tbaa !20, !alias.scope !8
   %139 = add nuw nsw i64 %.055135.i, 1
@@ -1178,9 +1178,9 @@ agxblen.exit.i.i24:                               ; preds = %403
   br label %copyUpper.exit130.ithread-pre-split.sink.split
 
 copyUpper.exit130.ithread-pre-split.sink.split:   ; preds = %417, %397
-  %.sink96 = phi i64 [ 8, %397 ], [ 7, %417 ]
+  %.sink119 = phi i64 [ 8, %397 ], [ 7, %417 ]
   %421 = load i64, ptr %145, align 8, !tbaa !47
-  %422 = add i64 %421, %.sink96
+  %422 = add i64 %421, %.sink119
   store i64 %422, ptr %145, align 8, !tbaa !47
   br label %copyUpper.exit130.ithread-pre-split
 

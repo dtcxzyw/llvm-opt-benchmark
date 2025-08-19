@@ -227,8 +227,8 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %120 = zext nneg i32 %13 to i64
   %wide.trip.count332 = zext nneg i32 %4 to i64
   %121 = select i1 %.not284, i64 1, i64 %116
-  %narrow334 = select i1 %91, i32 %.1261, i32 1
-  %122 = sext i32 %narrow334 to i64
+  %narrow346 = select i1 %91, i32 %.1261, i32 1
+  %122 = sext i32 %narrow346 to i64
   br label %123
 
 123:                                              ; preds = %.lr.ph319, %168
@@ -252,8 +252,8 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 
 131:                                              ; preds = %130
   %132 = trunc i64 %124 to i32
-  %.tr335 = add i32 %5, %132
-  %133 = shl i32 %.tr335, 1
+  %.tr347 = add i32 %5, %132
+  %133 = shl i32 %.tr347, 1
   %134 = add i32 %133, 19
   %135 = and i32 %134, -4
   call void @llvm.lifetime.start.p0(ptr nonnull %16)

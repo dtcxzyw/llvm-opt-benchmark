@@ -2168,8 +2168,8 @@ define void @_Z19duDebugDrawContoursP11duDebugDrawRK12rcContourSetf(ptr noundef 
 144:                                              ; preds = %.lr.ph114, %144
   %indvars.iv124 = phi i64 [ 0, %.lr.ph114 ], [ %indvars.iv.next125, %144 ]
   %145 = load ptr, ptr %129, align 8
-  %.idx130 = shl nsw i64 %indvars.iv124, 4
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 %.idx130
+  %.idx131 = shl nsw i64 %indvars.iv124, 4
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 %.idx131
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 12
   %148 = load i32, ptr %147, align 4
   %149 = and i32 %148, 65536
@@ -2452,8 +2452,8 @@ define void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef %0,
   %indvars.iv221.sroa.phi.sroa.speculated.in = phi i16 [ %127, %128 ], [ %114, %124 ]
   %indvars.iv221.sroa.phi.sroa.speculated = zext i16 %indvars.iv221.sroa.phi.sroa.speculated.in to i64
   %130 = load ptr, ptr %1, align 8
-  %.idx259 = mul nuw nsw i64 %indvars.iv221.sroa.phi.sroa.speculated, 6
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 %.idx259
+  %.idx266 = mul nuw nsw i64 %indvars.iv221.sroa.phi.sroa.speculated, 6
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 %.idx266
   %132 = load float, ptr %11, align 8
   %133 = load i16, ptr %131, align 2
   %134 = uitofp i16 %133 to float
@@ -2517,7 +2517,7 @@ define void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef %0,
   %172 = mul i32 %164, %171
   %173 = sext i32 %172 to i64
   %174 = getelementptr inbounds i16, ptr %170, i64 %173
-  %invariant.gep249 = getelementptr i16, ptr %174, i64 %168
+  %invariant.gep256 = getelementptr i16, ptr %174, i64 %168
   br label %175
 
 175:                                              ; preds = %.lr.ph.us203, %.loopexit.us
@@ -2528,8 +2528,8 @@ define void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef %0,
   br i1 %178, label %._crit_edge.us204, label %179
 
 179:                                              ; preds = %175
-  %gep250 = getelementptr i16, ptr %invariant.gep249, i64 %indvars.iv235
-  %180 = load i16, ptr %gep250, align 2
+  %gep257 = getelementptr i16, ptr %invariant.gep256, i64 %indvars.iv235
+  %180 = load i16, ptr %gep257, align 2
   %181 = icmp sgt i16 %180, -1
   %.pre246 = add nuw nsw i64 %indvars.iv235, 1
   br i1 %181, label %.loopexit.us, label %182
@@ -2559,8 +2559,8 @@ define void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef %0,
   %indvars.iv232.sroa.phi.sroa.speculated.in = phi i16 [ %190, %192 ], [ %177, %187 ]
   %indvars.iv232.sroa.phi.sroa.speculated = zext i16 %indvars.iv232.sroa.phi.sroa.speculated.in to i64
   %194 = load ptr, ptr %1, align 8
-  %.idx260 = mul nuw nsw i64 %indvars.iv232.sroa.phi.sroa.speculated, 6
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 %.idx260
+  %.idx267 = mul nuw nsw i64 %indvars.iv232.sroa.phi.sroa.speculated, 6
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 %.idx267
   %196 = load float, ptr %11, align 8
   %197 = load i16, ptr %195, align 2
   %198 = uitofp i16 %197 to float
@@ -2680,8 +2680,8 @@ define void @_Z25duDebugDrawPolyMeshDetailP11duDebugDrawRK16rcPolyMeshDetail(ptr
 12:                                               ; preds = %.lr.ph146, %._crit_edge
   %indvars.iv177 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next178, %._crit_edge ]
   %13 = load ptr, ptr %1, align 8
-  %.idx214 = shl nsw i64 %indvars.iv177, 4
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx214
+  %.idx222 = shl nsw i64 %indvars.iv177, 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx222
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 4
@@ -2767,8 +2767,8 @@ define void @_Z25duDebugDrawPolyMeshDetailP11duDebugDrawRK16rcPolyMeshDetail(ptr
   %67 = phi i32 [ %62, %.lr.ph156 ], [ %116, %._crit_edge153 ]
   %indvars.iv189 = phi i64 [ 0, %.lr.ph156 ], [ %indvars.iv.next190, %._crit_edge153 ]
   %68 = load ptr, ptr %1, align 8
-  %.idx215 = shl nsw i64 %indvars.iv189, 4
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx215
+  %.idx223 = shl nsw i64 %indvars.iv189, 4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx223
   %70 = load i32, ptr %69, align 4
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %72 = load i32, ptr %71, align 4
@@ -2878,8 +2878,8 @@ define void @_Z25duDebugDrawPolyMeshDetailP11duDebugDrawRK16rcPolyMeshDetail(ptr
   %130 = phi i32 [ %125, %.lr.ph166 ], [ %175, %._crit_edge163 ]
   %indvars.iv201 = phi i64 [ 0, %.lr.ph166 ], [ %indvars.iv.next202, %._crit_edge163 ]
   %131 = load ptr, ptr %1, align 8
-  %.idx216 = shl nsw i64 %indvars.iv201, 4
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 %.idx216
+  %.idx224 = shl nsw i64 %indvars.iv201, 4
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 %.idx224
   %133 = load i32, ptr %132, align 4
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %135 = load i32, ptr %134, align 4
@@ -2983,8 +2983,8 @@ define void @_Z25duDebugDrawPolyMeshDetailP11duDebugDrawRK16rcPolyMeshDetail(ptr
   %188 = phi i32 [ %184, %.lr.ph174 ], [ %203, %._crit_edge171 ]
   %indvars.iv209 = phi i64 [ 0, %.lr.ph174 ], [ %indvars.iv.next210, %._crit_edge171 ]
   %189 = load ptr, ptr %1, align 8
-  %.idx217 = shl nsw i64 %indvars.iv209, 4
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 %.idx217
+  %.idx225 = shl nsw i64 %indvars.iv209, 4
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 %.idx225
   %191 = load i32, ptr %190, align 4
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 4
   %193 = load i32, ptr %192, align 4
@@ -3001,8 +3001,8 @@ define void @_Z25duDebugDrawPolyMeshDetailP11duDebugDrawRK16rcPolyMeshDetail(ptr
 
 .lr.ph170:                                        ; preds = %.lr.ph170.preheader, %.lr.ph170
   %indvars.iv204 = phi i64 [ 0, %.lr.ph170.preheader ], [ %indvars.iv.next205, %.lr.ph170 ]
-  %.idx218 = mul nuw nsw i64 %indvars.iv204, 12
-  %199 = getelementptr inbounds nuw i8, ptr %197, i64 %.idx218
+  %.idx226 = mul nuw nsw i64 %indvars.iv204, 12
+  %199 = getelementptr inbounds nuw i8, ptr %197, i64 %.idx226
   %200 = load ptr, ptr %0, align 8
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 40
   %202 = load ptr, ptr %201, align 8

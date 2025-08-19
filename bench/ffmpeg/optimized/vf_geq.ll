@@ -665,19 +665,19 @@ define internal i32 @geq_filter_frame(ptr noundef readonly captures(none) %0, pt
   %indvars.iv196.i.us = phi i64 [ %indvars.iv.next197.i.us, %.loopexit.us.i.us ], [ 0, %.preheader101.us.preheader.i ]
   %125 = mul nsw i64 %indvars.iv196.i.us, %124
   %126 = mul nuw nsw i64 %indvars.iv196.i.us, %123
-  %invariant.gep211.i.us = getelementptr i16, ptr %99, i64 %125
-  %invariant.gep213.i.us = getelementptr double, ptr %110, i64 %126
+  %invariant.gep215.i.us = getelementptr i16, ptr %99, i64 %125
+  %invariant.gep217.i.us = getelementptr double, ptr %110, i64 %126
   br label %127
 
 127:                                              ; preds = %127, %.preheader101.us.i.us
   %indvars.iv186.i.us = phi i64 [ 0, %.preheader101.us.i.us ], [ %indvars.iv.next187.i.us, %127 ]
   %.086114.us.i.us = phi double [ 0.000000e+00, %.preheader101.us.i.us ], [ %130, %127 ]
-  %gep212.i.us = getelementptr i16, ptr %invariant.gep211.i.us, i64 %indvars.iv186.i.us
-  %128 = load i16, ptr %gep212.i.us, align 2, !tbaa !75
+  %gep216.i.us = getelementptr i16, ptr %invariant.gep215.i.us, i64 %indvars.iv186.i.us
+  %128 = load i16, ptr %gep216.i.us, align 2, !tbaa !75
   %129 = uitofp i16 %128 to double
   %130 = fadd nsz double %.086114.us.i.us, %129
-  %gep214.i.us = getelementptr double, ptr %invariant.gep213.i.us, i64 %indvars.iv186.i.us
-  store double %130, ptr %gep214.i.us, align 8, !tbaa !53
+  %gep218.i.us = getelementptr double, ptr %invariant.gep217.i.us, i64 %indvars.iv186.i.us
+  store double %130, ptr %gep218.i.us, align 8, !tbaa !53
   %indvars.iv.next187.i.us = add nuw nsw i64 %indvars.iv186.i.us, 1
   %exitcond190.not.i.us = icmp eq i64 %indvars.iv.next187.i.us, %wide.trip.count189.i
   br i1 %exitcond190.not.i.us, label %.loopexit102.us.i.us, label %127, !llvm.loop !77
@@ -728,8 +728,8 @@ define internal i32 @geq_filter_frame(ptr noundef readonly captures(none) %0, pt
   %141 = load float, ptr %gep.i, align 4, !tbaa !80
   %142 = fpext nsz float %141 to double
   %143 = fadd nsz double %.0109.us.i, %142
-  %gep206.i = getelementptr inbounds nuw double, ptr %invariant.gep205.i, i64 %indvars.iv.i
-  store double %143, ptr %gep206.i, align 8, !tbaa !53
+  %gep210.i = getelementptr inbounds nuw double, ptr %invariant.gep209.i, i64 %indvars.iv.i
+  store double %143, ptr %gep210.i, align 8, !tbaa !53
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %138
   br i1 %exitcond.not.i, label %.loopexit106.us.i, label %140, !llvm.loop !82
@@ -737,12 +737,12 @@ define internal i32 @geq_filter_frame(ptr noundef readonly captures(none) %0, pt
 144:                                              ; preds = %.preheader103.us.i, %144
   %indvars.iv171.i = phi i64 [ 0, %.preheader103.us.i ], [ %indvars.iv.next172.i, %144 ]
   %.085111.us.i = phi double [ 0.000000e+00, %.preheader103.us.i ], [ %147, %144 ]
-  %gep208.i = getelementptr i8, ptr %invariant.gep207.i, i64 %indvars.iv171.i
-  %145 = load i8, ptr %gep208.i, align 1, !tbaa !83
+  %gep212.i = getelementptr i8, ptr %invariant.gep211.i, i64 %indvars.iv171.i
+  %145 = load i8, ptr %gep212.i, align 1, !tbaa !83
   %146 = uitofp i8 %145 to double
   %147 = fadd nsz double %.085111.us.i, %146
-  %gep210.i = getelementptr inbounds nuw double, ptr %invariant.gep209.i, i64 %indvars.iv171.i
-  store double %147, ptr %gep210.i, align 8, !tbaa !53
+  %gep214.i = getelementptr inbounds nuw double, ptr %invariant.gep213.i, i64 %indvars.iv171.i
+  store double %147, ptr %gep214.i, align 8, !tbaa !53
   %indvars.iv.next172.i = add nuw nsw i64 %indvars.iv171.i, 1
   %exitcond175.not.i = icmp eq i64 %indvars.iv.next172.i, %138
   br i1 %exitcond175.not.i, label %.loopexit106.us.i, label %144, !llvm.loop !84
@@ -773,15 +773,15 @@ define internal i32 @geq_filter_frame(ptr noundef readonly captures(none) %0, pt
 .preheader103.us.i:                               ; preds = %.lr.ph120.split.split.us.i
   %156 = mul nsw i64 %indvars.iv181.i, %139
   %157 = mul nuw nsw i64 %indvars.iv181.i, %138
-  %invariant.gep207.i = getelementptr i8, ptr %99, i64 %156
-  %invariant.gep209.i = getelementptr inbounds nuw double, ptr %110, i64 %157
+  %invariant.gep211.i = getelementptr i8, ptr %99, i64 %156
+  %invariant.gep213.i = getelementptr inbounds nuw double, ptr %110, i64 %157
   br label %144
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph120.split.split.us.i
   %158 = mul nsw i64 %indvars.iv181.i, %139
   %159 = mul nuw nsw i64 %indvars.iv181.i, %138
   %invariant.gep.i = getelementptr float, ptr %99, i64 %158
-  %invariant.gep205.i = getelementptr inbounds nuw double, ptr %110, i64 %159
+  %invariant.gep209.i = getelementptr inbounds nuw double, ptr %110, i64 %159
   br label %140
 
 .lr.ph117.us126.i:                                ; preds = %.loopexit106.us.i
@@ -1542,9 +1542,9 @@ define internal fastcc double @getpix_integrate_internal(ptr noundef %0, i32 nou
   %.not = icmp slt i32 %1, %4
   br i1 %.not, label %15, label %7
 
-common.ret59:                                     ; preds = %34, %26, %40, %36, %28, %16, %7
-  %common.ret59.op = phi double [ %14, %7 ], [ %23, %16 ], [ %31, %28 ], [ %39, %36 ], [ %49, %40 ], [ 0.000000e+00, %26 ], [ 0.000000e+00, %34 ]
-  ret double %common.ret59.op
+common.ret64:                                     ; preds = %34, %26, %40, %36, %28, %16, %7
+  %common.ret64.op = phi double [ %14, %7 ], [ %23, %16 ], [ %31, %28 ], [ %39, %36 ], [ %49, %40 ], [ 0.000000e+00, %26 ], [ 0.000000e+00, %34 ]
+  ret double %common.ret64.op
 
 7:                                                ; preds = %6
   %8 = add nsw i32 %4, -1
@@ -1554,7 +1554,7 @@ common.ret59:                                     ; preds = %34, %26, %40, %36, 
   %12 = tail call nsz fastcc double @getpix_integrate_internal(ptr noundef %0, i32 noundef %11, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %13 = fneg nsz double %12
   %14 = tail call nsz double @llvm.fmuladd.f64(double %9, double 2.000000e+00, double %13)
-  br label %common.ret59
+  br label %common.ret64
 
 15:                                               ; preds = %6
   %.not58 = icmp slt i32 %2, %5
@@ -1568,7 +1568,7 @@ common.ret59:                                     ; preds = %34, %26, %40, %36, 
   %21 = tail call nsz fastcc double @getpix_integrate_internal(ptr noundef %0, i32 noundef %1, i32 noundef %20, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %22 = fneg nsz double %21
   %23 = tail call nsz double @llvm.fmuladd.f64(double %18, double 2.000000e+00, double %22)
-  br label %common.ret59
+  br label %common.ret64
 
 24:                                               ; preds = %15
   %25 = icmp slt i32 %1, 0
@@ -1576,13 +1576,13 @@ common.ret59:                                     ; preds = %34, %26, %40, %36, 
 
 26:                                               ; preds = %24
   %27 = icmp eq i32 %1, -1
-  br i1 %27, label %common.ret59, label %28
+  br i1 %27, label %common.ret64, label %28
 
 28:                                               ; preds = %26
   %29 = sub nuw nsw i32 -2, %1
   %30 = tail call nsz fastcc double @getpix_integrate_internal(ptr noundef %0, i32 noundef %29, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %31 = fneg nsz double %30
-  br label %common.ret59
+  br label %common.ret64
 
 32:                                               ; preds = %24
   %33 = icmp slt i32 %2, 0
@@ -1590,13 +1590,13 @@ common.ret59:                                     ; preds = %34, %26, %40, %36, 
 
 34:                                               ; preds = %32
   %35 = icmp eq i32 %2, -1
-  br i1 %35, label %common.ret59, label %36
+  br i1 %35, label %common.ret64, label %36
 
 36:                                               ; preds = %34
   %37 = sub nuw nsw i32 -2, %2
   %38 = tail call nsz fastcc double @getpix_integrate_internal(ptr noundef %0, i32 noundef %1, i32 noundef %37, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %39 = fneg nsz double %38
-  br label %common.ret59
+  br label %common.ret64
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1208
@@ -1608,7 +1608,7 @@ common.ret59:                                     ; preds = %34, %26, %40, %36, 
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds double, ptr %44, i64 %47
   %49 = load double, ptr %48, align 8, !tbaa !53
-  br label %common.ret59
+  br label %common.ret64
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

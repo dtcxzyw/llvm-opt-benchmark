@@ -1047,9 +1047,9 @@ _ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit.thread: ; preds = %377
   %382 = getelementptr inbounds nuw i8, ptr %380, i64 8
   %383 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
   %.not.i.i.i.i.i = icmp eq i8 %383, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit, label %_ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit.thread564
+  br i1 %.not.i.i.i.i.i, label %_ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit, label %_ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit.thread632
 
-_ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit.thread564: ; preds = %381
+_ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit.thread632: ; preds = %381
   %384 = load i32, ptr %382, align 4, !tbaa !17
   %385 = add nsw i32 %384, 1
   store i32 %385, ptr %382, align 4, !tbaa !17
@@ -1068,9 +1068,9 @@ _ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit:       ; preds = %381
   %.not.i.i.i.i239 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i.i.i239, label %395, label %387
 
-387:                                              ; preds = %_ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit.thread564, %_ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit
-  %.pr567 = phi ptr [ %380, %_ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit.thread564 ], [ %.pr.pre, %_ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit ]
-  %388 = getelementptr inbounds nuw i8, ptr %.pr567, i64 8
+387:                                              ; preds = %_ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit.thread632, %_ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit
+  %.pr635 = phi ptr [ %380, %_ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit.thread632 ], [ %.pr.pre, %_ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit ]
+  %388 = getelementptr inbounds nuw i8, ptr %.pr635, i64 8
   %389 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
   %.not.i.i.i.i.i240 = icmp eq i8 %389, 0
   br i1 %.not.i.i.i.i.i240, label %393, label %390

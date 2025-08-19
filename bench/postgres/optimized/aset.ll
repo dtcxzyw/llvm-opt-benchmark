@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [57 x i8] c"%zu total in %zu blocks; %zu free (%zu chunks); %zu used\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @AllocSetContextCreateInternal(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define dso_local nonnull ptr @AllocSetContextCreateInternal(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq i64 %2, 0
   %7 = icmp eq i64 %3, 8192
   %or.cond = and i1 %6, %7
@@ -129,11 +129,11 @@ define dso_local ptr @AllocSetContextCreateInternal(ptr noundef %0, ptr noundef 
   br label %59
 
 59:                                               ; preds = %14, %57
-  %.sink102 = phi ptr [ %13, %14 ], [ %27, %57 ]
-  %.sink100 = phi i64 [ %25, %14 ], [ %26, %57 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.sink102, i64 8
-  store i64 %.sink100, ptr %60, align 8
-  ret ptr %.sink102
+  %.sink105 = phi ptr [ %13, %14 ], [ %27, %57 ]
+  %.sink103 = phi i64 [ %25, %14 ], [ %26, %57 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.sink105, i64 8
+  store i64 %.sink103, ptr %60, align 8
+  ret ptr %.sink105
 }
 
 declare void @MemoryContextCreate(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

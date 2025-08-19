@@ -10984,14 +10984,14 @@ define internal fastcc void @"_ZN5tokio3net3udp9UdpSocket5ready28_$u7b$$u7b$clos
   %4 = alloca { [9 x i8], i8, [6 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 97
   %6 = load i8, ptr %5, align 1, !range !15, !noundef !4
-  switch i8 %6, label %default.unreachable18 [
+  switch i8 %6, label %default.unreachable20 [
     i8 0, label %7
     i8 1, label %12
     i8 2, label %13
     i8 3, label %14
   ]
 
-default.unreachable18:                            ; preds = %3
+default.unreachable20:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %3
@@ -11677,14 +11677,14 @@ define internal fastcc void @"_ZN5tokio7runtime2io12registration12Registration9r
   %.sroa.926 = alloca [6 x i8], align 2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 81
   %6 = load i8, ptr %5, align 1, !range !15, !noundef !4
-  switch i8 %6, label %default.unreachable35 [
+  switch i8 %6, label %default.unreachable37 [
     i8 0, label %.thread
     i8 1, label %13
     i8 2, label %14
     i8 3, label %15
   ]
 
-default.unreachable35:                            ; preds = %15, %3
+default.unreachable37:                            ; preds = %15, %3
   unreachable
 
 .thread:                                          ; preds = %3
@@ -11717,7 +11717,7 @@ default.unreachable35:                            ; preds = %15, %3
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !range !15, !noalias !3167
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.630)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 65
-  switch i8 %.pre, label %default.unreachable35 [
+  switch i8 %.pre, label %default.unreachable37 [
     i8 0, label %17
     i8 1, label %.invoke
     i8 2, label %23
@@ -26891,14 +26891,14 @@ define hidden { i64, ptr } @"_ZN13wasmtime_wasi3tcp14TcpWriteStream16background_
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %10 = load i8, ptr %9, align 8, !range !15, !noundef !4
-  switch i8 %10, label %default.unreachable68 [
+  switch i8 %10, label %default.unreachable74 [
     i8 0, label %157
     i8 1, label %11
     i8 2, label %12
     i8 3, label %13
   ]
 
-default.unreachable68:                            ; preds = %107, %24, %13, %2
+default.unreachable74:                            ; preds = %107, %24, %13, %2
   unreachable
 
 11:                                               ; preds = %2
@@ -26914,16 +26914,16 @@ default.unreachable68:                            ; preds = %107, %24, %13, %2
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !15, !noalias !4451
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  switch i8 %.pre, label %default.unreachable68 [
-    i8 0, label %.thread23.i
+  switch i8 %.pre, label %default.unreachable74 [
+    i8 0, label %.thread25.i
     i8 1, label %.invoke
     i8 2, label %21
     i8 3, label %24
   ]
 
-.thread23.i:                                      ; preds = %.thread69, %13
-  %16 = phi ptr [ %171, %.thread69 ], [ %15, %13 ]
-  %17 = phi ptr [ %170, %.thread69 ], [ %14, %13 ]
+.thread25.i:                                      ; preds = %.thread75, %13
+  %16 = phi ptr [ %171, %.thread75 ], [ %15, %13 ]
+  %17 = phi ptr [ %170, %.thread75 ], [ %14, %13 ]
   %18 = load ptr, ptr %17, align 8, !noalias !4451, !nonnull !4, !align !95, !noundef !4
   %.sroa.815.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %18, ptr %.sroa.815.0..sroa_idx.i, align 8, !noalias !4451
@@ -26954,7 +26954,7 @@ default.unreachable68:                            ; preds = %107, %24, %13, %2
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 145
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !range !15, !noalias !4454
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  switch i8 %.pre.i, label %default.unreachable68 [
+  switch i8 %.pre.i, label %default.unreachable74 [
     i8 0, label %._crit_edge63
     i8 1, label %.invoke.i
     i8 2, label %33
@@ -26968,13 +26968,13 @@ default.unreachable68:                            ; preds = %107, %24, %13, %2
   %.pre67 = load i8, ptr %.phi.trans.insert66, align 8, !range !3113, !noalias !4454
   br label %26
 
-26:                                               ; preds = %._crit_edge63, %.thread23.i
-  %27 = phi ptr [ %16, %.thread23.i ], [ %15, %._crit_edge63 ]
-  %28 = phi ptr [ %17, %.thread23.i ], [ %14, %._crit_edge63 ]
-  %29 = phi i8 [ 2, %.thread23.i ], [ %.pre67, %._crit_edge63 ]
-  %30 = phi ptr [ %18, %.thread23.i ], [ %.pre65, %._crit_edge63 ]
-  %31 = phi ptr [ %.sroa.10.0..sroa_idx.i, %.thread23.i ], [ %.phi.trans.insert.i, %._crit_edge63 ]
-  %32 = phi ptr [ %19, %.thread23.i ], [ %25, %._crit_edge63 ]
+26:                                               ; preds = %._crit_edge63, %.thread25.i
+  %27 = phi ptr [ %16, %.thread25.i ], [ %15, %._crit_edge63 ]
+  %28 = phi ptr [ %17, %.thread25.i ], [ %14, %._crit_edge63 ]
+  %29 = phi i8 [ 2, %.thread25.i ], [ %.pre67, %._crit_edge63 ]
+  %30 = phi ptr [ %18, %.thread25.i ], [ %.pre65, %._crit_edge63 ]
+  %31 = phi ptr [ %.sroa.10.0..sroa_idx.i, %.thread25.i ], [ %.phi.trans.insert.i, %._crit_edge63 ]
+  %32 = phi ptr [ %19, %.thread25.i ], [ %25, %._crit_edge63 ]
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %30, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !noalias !4454
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -27185,7 +27185,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr79drop
   %108 = load ptr, ptr %104, align 8, !alias.scope !4481, !nonnull !4, !noundef !4
   %109 = ptrtoint ptr %108 to i64
   %110 = and i64 %109, 3
-  switch i64 %110, label %default.unreachable68 [
+  switch i64 %110, label %default.unreachable74 [
     i64 2, label %112
     i64 3, label %111
     i64 0, label %116
@@ -27314,7 +27314,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr79drop
   %158 = getelementptr i8, ptr %0, i64 16
   %.val = load i64, ptr %158, align 8, !noundef !4
   %159 = icmp eq i64 %.val, 0
-  br i1 %159, label %160, label %.thread69
+  br i1 %159, label %160, label %.thread75
 
 160:                                              ; preds = %157
   call void @llvm.experimental.noalias.scope.decl(metadata !4508)
@@ -27328,7 +27328,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr79drop
   invoke void %163(ptr noalias noundef nonnull align 8 dereferenceable(8) %164, ptr noundef %166, i64 noundef 0)
           to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17ha80e6b6bad139d64E.exit44" unwind label %172
 
-.thread69:                                        ; preds = %157
+.thread75:                                        ; preds = %157
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val25 = load ptr, ptr %167, align 8, !nonnull !4, !noundef !4
   %168 = getelementptr inbounds nuw i8, ptr %.val25, i64 16
@@ -27338,7 +27338,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr79drop
   store i8 0, ptr %.sroa.9.0..sroa_idx, align 8
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  br label %.thread23.i
+  br label %.thread25.i
 
 172:                                              ; preds = %160
   %173 = landingpad { ptr, i32 }
@@ -29264,14 +29264,14 @@ define internal noundef zeroext i1 @"_ZN13wasmtime_wasi4host3udp103_$LT$impl$u20
   %4 = alloca { i64, [1 x i64] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load i8, ptr %5, align 8, !range !15, !noundef !4
-  switch i8 %6, label %default.unreachable12 [
+  switch i8 %6, label %default.unreachable14 [
     i8 0, label %7
     i8 1, label %11
     i8 2, label %12
     i8 3, label %13
   ]
 
-default.unreachable12:                            ; preds = %2
+default.unreachable14:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -29480,14 +29480,14 @@ define internal noundef zeroext i1 @"_ZN13wasmtime_wasi4host3udp103_$LT$impl$u20
   %4 = alloca { i64, [1 x i64] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load i8, ptr %5, align 8, !range !15, !noundef !4
-  switch i8 %6, label %default.unreachable12 [
+  switch i8 %6, label %default.unreachable14 [
     i8 0, label %7
     i8 1, label %14
     i8 2, label %15
     i8 3, label %16
   ]
 
-default.unreachable12:                            ; preds = %2
+default.unreachable14:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2

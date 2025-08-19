@@ -1455,7 +1455,7 @@ define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 nound
   br label %68
 
 57:                                               ; preds = %8, %66
-  %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %66 ]
+  %indvars.iv = phi i64 [ 0, %8 ], [ 1, %66 ]
   %58 = phi ptr [ @_pdf_bpp, %8 ], [ %67, %66 ]
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i32, ptr %59, align 8, !tbaa !125

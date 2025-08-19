@@ -471,7 +471,7 @@ define hidden void @HIDAPI_JoystickDisconnected(ptr noundef captures(none) %0, i
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 140
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 1
-  br i1 %9, label %10, label %HIDAPI_JoystickInstanceIsUnique.exit.thread54
+  br i1 %9, label %10, label %HIDAPI_JoystickInstanceIsUnique.exit.thread60
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -481,13 +481,13 @@ define hidden void @HIDAPI_JoystickDisconnected(ptr noundef captures(none) %0, i
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %13, %16
-  br i1 %17, label %HIDAPI_JoystickInstanceIsUnique.exit.thread51, label %HIDAPI_JoystickInstanceIsUnique.exit.thread54
+  br i1 %17, label %HIDAPI_JoystickInstanceIsUnique.exit.thread57, label %HIDAPI_JoystickInstanceIsUnique.exit.thread60
 
-HIDAPI_JoystickInstanceIsUnique.exit.thread51:    ; preds = %10
+HIDAPI_JoystickInstanceIsUnique.exit.thread57:    ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 140
   br label %.lr.ph42
 
-HIDAPI_JoystickInstanceIsUnique.exit.thread54:    ; preds = %6, %10
+HIDAPI_JoystickInstanceIsUnique.exit.thread60:    ; preds = %6, %10
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 140
   br label %.lr.ph42
 
@@ -496,12 +496,12 @@ HIDAPI_JoystickInstanceIsUnique.exit:             ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 140
   br i1 %20, label %.lr.ph42, label %._crit_edge43
 
-.lr.ph42:                                         ; preds = %HIDAPI_JoystickInstanceIsUnique.exit.thread54, %HIDAPI_JoystickInstanceIsUnique.exit.thread51, %HIDAPI_JoystickInstanceIsUnique.exit
-  %22 = phi ptr [ %18, %HIDAPI_JoystickInstanceIsUnique.exit.thread51 ], [ %21, %HIDAPI_JoystickInstanceIsUnique.exit ], [ %19, %HIDAPI_JoystickInstanceIsUnique.exit.thread54 ]
-  %.053 = phi ptr [ %4, %HIDAPI_JoystickInstanceIsUnique.exit.thread51 ], [ %0, %HIDAPI_JoystickInstanceIsUnique.exit ], [ %0, %HIDAPI_JoystickInstanceIsUnique.exit.thread54 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.053, i64 144
-  %24 = getelementptr inbounds nuw i8, ptr %.053, i64 168
-  %25 = getelementptr inbounds nuw i8, ptr %.053, i64 176
+.lr.ph42:                                         ; preds = %HIDAPI_JoystickInstanceIsUnique.exit.thread60, %HIDAPI_JoystickInstanceIsUnique.exit.thread57, %HIDAPI_JoystickInstanceIsUnique.exit
+  %22 = phi ptr [ %18, %HIDAPI_JoystickInstanceIsUnique.exit.thread57 ], [ %21, %HIDAPI_JoystickInstanceIsUnique.exit ], [ %19, %HIDAPI_JoystickInstanceIsUnique.exit.thread60 ]
+  %.059 = phi ptr [ %4, %HIDAPI_JoystickInstanceIsUnique.exit.thread57 ], [ %0, %HIDAPI_JoystickInstanceIsUnique.exit ], [ %0, %HIDAPI_JoystickInstanceIsUnique.exit.thread60 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.059, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %.059, i64 168
+  %25 = getelementptr inbounds nuw i8, ptr %.059, i64 176
   br label %26
 
 26:                                               ; preds = %.lr.ph42, %90
@@ -1283,13 +1283,13 @@ HIDAPI_SetDeviceSerialW.exit:                     ; preds = %.preheader.i, %100,
 
 108:                                              ; preds = %35, %107, %._crit_edge
   %109 = load ptr, ptr @SDL_HIDAPI_devices, align 8
-  %.not49145148 = icmp eq ptr %109, null
-  br i1 %.not49145148, label %.preheader, label %.lr.ph147
+  %.not49155158 = icmp eq ptr %109, null
+  br i1 %.not49155158, label %.preheader, label %.lr.ph157
 
 .loopexit.loopexit:                               ; preds = %160, %._crit_edge98
   %110 = load ptr, ptr @SDL_HIDAPI_devices, align 8
-  %.not49145 = icmp eq ptr %110, null
-  br i1 %.not49145, label %.preheader, label %.lr.ph147.backedge
+  %.not49155 = icmp eq ptr %110, null
+  br i1 %.not49155, label %.preheader, label %.lr.ph157.backedge
 
 .preheader:                                       ; preds = %161, %.loopexit.loopexit, %108
   tail call void @SDL_AssertJoysticksLocked() #9
@@ -1310,41 +1310,41 @@ HIDAPI_SetDeviceSerialW.exit:                     ; preds = %.preheader.i, %100,
   %119 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br label %.lr.ph.i68
 
-.lr.ph147:                                        ; preds = %108, %.lr.ph147.backedge
-  %.1146 = phi ptr [ %.1146.be, %.lr.ph147.backedge ], [ %109, %108 ]
-  %120 = getelementptr inbounds nuw i8, ptr %.1146, i64 184
+.lr.ph157:                                        ; preds = %108, %.lr.ph157.backedge
+  %.1156 = phi ptr [ %.1156.be, %.lr.ph157.backedge ], [ %109, %108 ]
+  %120 = getelementptr inbounds nuw i8, ptr %.1156, i64 184
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %.1146, i64 152
+  %122 = getelementptr inbounds nuw i8, ptr %.1156, i64 152
   %123 = load i8, ptr %122, align 8, !range !6, !noundef !7
   %124 = trunc nuw i8 %123 to i1
   br i1 %124, label %125, label %138
 
-125:                                              ; preds = %.lr.ph147
-  %126 = getelementptr inbounds nuw i8, ptr %.1146, i64 104
+125:                                              ; preds = %.lr.ph157
+  %126 = getelementptr inbounds nuw i8, ptr %.1156, i64 104
   %127 = load ptr, ptr %126, align 8
   %.not50 = icmp eq ptr %127, null
   br i1 %.not50, label %128, label %131
 
 128:                                              ; preds = %125
-  %129 = getelementptr inbounds nuw i8, ptr %.1146, i64 176
+  %129 = getelementptr inbounds nuw i8, ptr %.1156, i64 176
   %130 = load ptr, ptr %129, align 8
   %.not51 = icmp eq ptr %130, null
   br i1 %.not51, label %153, label %131
 
 131:                                              ; preds = %128, %125
-  %132 = getelementptr inbounds nuw i8, ptr %.1146, i64 140
+  %132 = getelementptr inbounds nuw i8, ptr %.1156, i64 140
   %133 = load i32, ptr %132, align 4
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %135, label %153
 
 135:                                              ; preds = %131
-  %136 = getelementptr inbounds nuw i8, ptr %.1146, i64 128
+  %136 = getelementptr inbounds nuw i8, ptr %.1156, i64 128
   %137 = load ptr, ptr %136, align 8
   %.not52 = icmp eq ptr %137, null
   br i1 %.not52, label %138, label %153
 
-138:                                              ; preds = %135, %.lr.ph147
-  %139 = getelementptr inbounds nuw i8, ptr %.1146, i64 160
+138:                                              ; preds = %135, %.lr.ph157
+  %139 = getelementptr inbounds nuw i8, ptr %.1156, i64 160
   %140 = load ptr, ptr %139, align 8
   %.not53 = icmp eq ptr %140, null
   br i1 %.not53, label %152, label %.preheader81
@@ -1377,18 +1377,18 @@ HIDAPI_SetDeviceSerialW.exit:                     ; preds = %.preheader.i, %100,
   br label %.loopexit.loopexit
 
 152:                                              ; preds = %138
-  tail call fastcc void @HIDAPI_DelDevice(ptr noundef nonnull %.1146)
+  tail call fastcc void @HIDAPI_DelDevice(ptr noundef nonnull %.1156)
   store i32 0, ptr @SDL_HIDAPI_change_count, align 4
   br label %161
 
 153:                                              ; preds = %135, %131, %128
-  %154 = getelementptr inbounds nuw i8, ptr %.1146, i64 154
+  %154 = getelementptr inbounds nuw i8, ptr %.1156, i64 154
   %155 = load i8, ptr %154, align 2, !range !6, !noundef !7
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %157, label %161
 
 157:                                              ; preds = %153
-  %158 = getelementptr inbounds nuw i8, ptr %.1146, i64 160
+  %158 = getelementptr inbounds nuw i8, ptr %.1156, i64 160
   %159 = load ptr, ptr %158, align 8
   %.not55 = icmp eq ptr %159, null
   br i1 %.not55, label %161, label %160
@@ -1399,11 +1399,11 @@ HIDAPI_SetDeviceSerialW.exit:                     ; preds = %.preheader.i, %100,
 
 161:                                              ; preds = %152, %153, %157
   %.not49 = icmp eq ptr %121, null
-  br i1 %.not49, label %.preheader, label %.lr.ph147.backedge
+  br i1 %.not49, label %.preheader, label %.lr.ph157.backedge
 
-.lr.ph147.backedge:                               ; preds = %161, %.loopexit.loopexit
-  %.1146.be = phi ptr [ %121, %161 ], [ %110, %.loopexit.loopexit ]
-  br label %.lr.ph147
+.lr.ph157.backedge:                               ; preds = %161, %.loopexit.loopexit
+  %.1156.be = phi ptr [ %121, %161 ], [ %110, %.loopexit.loopexit ]
+  br label %.lr.ph157
 
 .lr.ph.i68:                                       ; preds = %.lr.ph.i68.backedge, %.lr.ph.i68.preheader.lr.ph
   %.02857.i = phi ptr [ %.02853.i99, %.lr.ph.i68.preheader.lr.ph ], [ %.02857.i.be, %.lr.ph.i68.backedge ]
@@ -3290,15 +3290,15 @@ define internal fastcc void @HIDAPI_DelDevice(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph.preheader:                                 ; preds = %.thread
   %43 = icmp eq ptr %.04354, %0
-  br i1 %43, label %.lr.ph._crit_edge, label %.lr.ph69
+  br i1 %43, label %.lr.ph._crit_edge, label %.lr.ph70
 
-.lr.ph:                                           ; preds = %.lr.ph69
+.lr.ph:                                           ; preds = %.lr.ph70
   %44 = icmp eq ptr %.043, %0
-  br i1 %44, label %.lr.ph._crit_edge, label %.lr.ph69, !llvm.loop !45
+  br i1 %44, label %.lr.ph._crit_edge, label %.lr.ph70, !llvm.loop !45
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.04357.lcssa = phi ptr [ %.04354, %.lr.ph.preheader ], [ %.043, %.lr.ph ]
-  %.04256.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0435768, %.lr.ph ]
+  %.04256.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0435769, %.lr.ph ]
   %.not51 = icmp eq ptr %.04256.lcssa, null
   %45 = getelementptr inbounds nuw i8, ptr %.04357.lcssa, i64 184
   %46 = load ptr, ptr %45, align 8
@@ -3372,14 +3372,14 @@ define internal fastcc void @HIDAPI_DelDevice(ptr noundef %0) unnamed_addr #0 {
   tail call void @SDL_free_REAL(ptr noundef nonnull %0) #9
   br label %.loopexit
 
-.lr.ph69:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0435768 = phi ptr [ %.043, %.lr.ph ], [ %.04354, %.lr.ph.preheader ]
-  %79 = getelementptr inbounds nuw i8, ptr %.0435768, i64 184
+.lr.ph70:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0435769 = phi ptr [ %.043, %.lr.ph ], [ %.04354, %.lr.ph.preheader ]
+  %79 = getelementptr inbounds nuw i8, ptr %.0435769, i64 184
   %.043 = load ptr, ptr %79, align 8
   %.not50 = icmp eq ptr %.043, null
   br i1 %.not50, label %.loopexit, label %.lr.ph, !llvm.loop !45
 
-.loopexit:                                        ; preds = %.lr.ph69, %.thread, %._crit_edge
+.loopexit:                                        ; preds = %.lr.ph70, %.thread, %._crit_edge
   ret void
 }
 

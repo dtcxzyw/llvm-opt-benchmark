@@ -82,18 +82,18 @@ define internal fastcc i32 @deccall3(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.sink.split.sink.split.sink.split
 
 .sink.split.sink.split.sink.split:                ; preds = %21, %24, %19, %17
-  %.sink34 = phi ptr [ %9, %17 ], [ %9, %19 ], [ %15, %24 ], [ %15, %21 ]
-  %.sink33.ph = phi ptr [ %12, %17 ], [ %12, %19 ], [ %9, %24 ], [ %9, %21 ]
+  %.sink37 = phi ptr [ %9, %17 ], [ %9, %19 ], [ %15, %24 ], [ %15, %21 ]
+  %.sink36.ph = phi ptr [ %12, %17 ], [ %12, %19 ], [ %9, %24 ], [ %9, %21 ]
   %.sink.ph.ph = phi ptr [ %15, %17 ], [ %15, %19 ], [ %12, %24 ], [ %12, %21 ]
   %.0.ph.ph.ph = phi i32 [ -1211, %17 ], [ -1211, %19 ], [ %22, %24 ], [ %22, %21 ]
-  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %.sink34) #16
+  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %.sink37) #16
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %.sink.split.sink.split.sink.split, %14
-  %.sink33 = phi ptr [ %9, %14 ], [ %.sink33.ph, %.sink.split.sink.split.sink.split ]
+  %.sink36 = phi ptr [ %9, %14 ], [ %.sink36.ph, %.sink.split.sink.split.sink.split ]
   %.sink.ph = phi ptr [ %12, %14 ], [ %.sink.ph.ph, %.sink.split.sink.split.sink.split ]
   %.0.ph.ph = phi i32 [ -1211, %14 ], [ %.0.ph.ph.ph, %.sink.split.sink.split.sink.split ]
-  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %.sink33) #16
+  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %.sink36) #16
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %11
@@ -1040,20 +1040,19 @@ getRightMostDot.exit:                             ; preds = %58, %54
   br label %85
 
 .thread161:                                       ; preds = %.thread, %81
-  %.1130157170 = phi i32 [ %.0129190, %81 ], [ 1, %.thread ]
   %.1127160167 = phi i32 [ %.0126191, %81 ], [ %spec.select146, %.thread ]
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %83 = load i8, ptr %82, align 1
   %84 = icmp eq i8 %83, 44
-  %spec.select212 = select i1 %84, i8 %.0118194, i8 %83
+  %spec.select219 = select i1 %84, i8 %.0118194, i8 %83
   br label %85
 
 85:                                               ; preds = %.thread161, %._crit_edge206
   %86 = phi i8 [ %.pre, %._crit_edge206 ], [ %83, %.thread161 ]
   %.not144172 = phi i1 [ true, %._crit_edge206 ], [ false, %.thread161 ]
-  %.1130157169 = phi i32 [ 0, %._crit_edge206 ], [ %.1130157170, %.thread161 ]
+  %.1130157169 = phi i32 [ 0, %._crit_edge206 ], [ 1, %.thread161 ]
   %.1127160166 = phi i32 [ %.0126191, %._crit_edge206 ], [ %.1127160167, %.thread161 ]
-  %.0 = phi i8 [ %.pre, %._crit_edge206 ], [ %spec.select212, %.thread161 ]
+  %.0 = phi i8 [ %.pre, %._crit_edge206 ], [ %spec.select219, %.thread161 ]
   %or.cond = and i1 %.not140, %64
   %87 = icmp ne i32 %.1127160166, 0
   %or.cond3 = select i1 %or.cond, i1 %87, i1 false
@@ -1250,7 +1249,7 @@ getRightMostDot.exit:                             ; preds = %58, %54
   br label %158
 
 158:                                              ; preds = %85, %155, %79
-  %.1127158 = phi i32 [ %.1127159, %79 ], [ %.1127160166, %85 ], [ %.1127160166, %155 ]
+  %.1127158 = phi i32 [ %.1127159, %79 ], [ 1, %85 ], [ %.1127160166, %155 ]
   %.1130155 = phi i32 [ %.1130156, %79 ], [ %.1130157169, %85 ], [ %.1130157169, %155 ]
   %.1135 = phi i32 [ %.0134187, %79 ], [ %.0134187, %85 ], [ %157, %155 ]
   %.1124 = phi i32 [ %.0123192, %79 ], [ %.0123192, %85 ], [ %.2125, %155 ]
@@ -1282,8 +1281,8 @@ getRightMostDot.exit:                             ; preds = %58, %54
   store i8 %166, ptr %4, align 2
   %167 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %4) #16
   %indvars.iv.next204 = add nsw i64 %indvars.iv203, -1
-  %.not213 = icmp eq i64 %indvars.iv203, 0
-  br i1 %.not213, label %._crit_edge, label %.lr.ph198, !llvm.loop !9
+  %.not220 = icmp eq i64 %indvars.iv203, 0
+  br i1 %.not220, label %._crit_edge, label %.lr.ph198, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph198, %.loopexit
   %168 = getelementptr inbounds nuw i8, ptr %2, i64 %161

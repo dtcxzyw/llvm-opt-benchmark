@@ -538,8 +538,8 @@ proto_item_set_generated.exit190:                 ; preds = %209, %206, %._crit_
   %216 = call i32 @_setjmp(ptr noundef nonnull %215) #5
   %.not174 = icmp eq i32 %216, 0
   %217 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sink204 = select i1 %.not174, ptr null, ptr %217
-  store volatile ptr %.sink204, ptr %12, align 8
+  %.sink217 = select i1 %.not174, ptr null, ptr %217
+  store volatile ptr %.sink217, ptr %12, align 8
   %.0..0..0..0. = load volatile i32, ptr %13, align 4
   %218 = and i32 %.0..0..0..0., 1
   %.not175 = icmp eq i32 %218, 0

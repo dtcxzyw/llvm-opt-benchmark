@@ -2128,11 +2128,11 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i178: ; preds = %122, %116, %113
   br i1 %136, label %.invoke, label %.critedge87, !prof !16
 
 .invoke:                                          ; preds = %135, %87
-  %.sink375 = phi i64 [ %76, %87 ], [ %124, %135 ]
-  %.sink374 = phi ptr [ %75, %87 ], [ %123, %135 ]
-  %137 = or i64 %.sink375, 1152920405095219200
-  store i64 %137, ptr %.sink374, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink374)
+  %.sink422 = phi i64 [ %76, %87 ], [ %124, %135 ]
+  %.sink421 = phi ptr [ %75, %87 ], [ %123, %135 ]
+  %137 = or i64 %.sink422, 1152920405095219200
+  store i64 %137, ptr %.sink421, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink421)
           to label %.critedge87 unwind label %89
 
 138:                                              ; preds = %106, %103

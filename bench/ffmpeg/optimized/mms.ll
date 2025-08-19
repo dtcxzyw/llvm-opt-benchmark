@@ -247,7 +247,7 @@ define range(i32 -1094995529, 1) i32 @ff_mms_asf_header_parser(ptr noundef initi
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 2
   %83 = load i16, ptr %82, align 1, !tbaa !19
   %84 = zext i16 %83 to i64
-  %85 = add i64 %75, %84
+  %85 = add nuw i64 %75, %84
   %.not111 = icmp eq i32 %80, 0
   br i1 %.not111, label %.preheader, label %.lr.ph, !llvm.loop !24
 

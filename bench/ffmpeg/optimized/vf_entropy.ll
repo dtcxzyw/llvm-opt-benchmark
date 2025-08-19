@@ -181,8 +181,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %exitcond147.not, label %.loopexit, label %.preheader.us, !llvm.loop !49
 
 .loopexit.thread:                                 ; preds = %.preheader.lr.ph, %.preheader111
-  %.pre163 = load i32, ptr %22, align 8, !tbaa !50
-  %.fr133164 = freeze i32 %.pre163
+  %.pre171 = load i32, ptr %22, align 8, !tbaa !50
+  %.fr133172 = freeze i32 %.pre171
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us120, %.preheader110.lr.ph, %.preheader112
@@ -192,9 +192,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not132, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit.thread, %.loopexit
-  %.fr133165 = phi i32 [ %.fr133164, %.loopexit.thread ], [ %.fr133, %.loopexit ]
+  %.fr133173 = phi i32 [ %.fr133172, %.loopexit.thread ], [ %.fr133, %.loopexit ]
   %81 = shl nuw nsw i32 1, %46
-  switch i32 %.fr133165, label %._crit_edge [
+  switch i32 %.fr133173, label %._crit_edge [
     i32 0, label %.lr.ph.split.us
     i32 1, label %.lr.ph.split.split.preheader
   ]
@@ -268,9 +268,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %exitcond152.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %113, %95, %.lr.ph, %.loopexit
-  %.fr133166 = phi i32 [ %.fr133, %.loopexit ], [ %.fr133165, %.lr.ph ], [ %.fr133165, %95 ], [ %.fr133165, %113 ]
+  %.fr133174 = phi i32 [ %.fr133, %.loopexit ], [ %.fr133173, %.lr.ph ], [ %.fr133173, %95 ], [ %.fr133173, %113 ]
   %.097.lcssa = phi float [ 0.000000e+00, %.loopexit ], [ 0.000000e+00, %.lr.ph ], [ %.198.us, %95 ], [ %.198, %113 ]
-  %.not106 = icmp eq i32 %.fr133166, 0
+  %.not106 = icmp eq i32 %.fr133174, 0
   %114 = select i1 %.not106, ptr @.str.5, ptr @.str.4
   %115 = and i64 %32, 4294967295
   %116 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 0, i64 %115

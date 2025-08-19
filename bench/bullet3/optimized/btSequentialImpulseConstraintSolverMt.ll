@@ -861,7 +861,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt31internalSetup
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i171, ptr %.sroa.425.0..sroa_idx, align 8, !tbaa !78
   %.not.i = icmp eq ptr %24, null
-  %indvars.iv.sroa.gep238 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %indvars.iv.sroa.gep239 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br i1 %.not.i, label %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit, label %59
 
 59:                                               ; preds = %3
@@ -971,10 +971,10 @@ _ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit179: ; p
   %.sroa.6.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i16.i177, %102 ], [ zeroinitializer, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit ]
   %foldExtExtBinop = fsub <2 x float> %.sroa.0218.0, %.sroa.0217.0
   %145 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop234 = fsub <2 x float> %.sroa.0218.0, %.sroa.0217.0
-  %146 = extractelement <2 x float> %foldExtExtBinop234, i64 1
-  %foldExtExtBinop236 = fsub <2 x float> %.sroa.6219.0, %.sroa.6.0
-  %147 = extractelement <2 x float> %foldExtExtBinop236, i64 0
+  %foldExtExtBinop235 = fsub <2 x float> %.sroa.0218.0, %.sroa.0217.0
+  %146 = extractelement <2 x float> %foldExtExtBinop235, i64 1
+  %foldExtExtBinop237 = fsub <2 x float> %.sroa.6219.0, %.sroa.6.0
+  %147 = extractelement <2 x float> %foldExtExtBinop237, i64 0
   %148 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %149 = load float, ptr %148, align 4, !tbaa !79
   %150 = getelementptr inbounds nuw i8, ptr %28, i64 68
@@ -1113,7 +1113,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %175, %188
 
 238:                                              ; preds = %232, %256
   %239 = phi i1 [ true, %232 ], [ false, %256 ]
-  %indvars.iv.sroa.phi = phi ptr [ %7, %232 ], [ %indvars.iv.sroa.gep238, %256 ]
+  %indvars.iv.sroa.phi = phi ptr [ %7, %232 ], [ %indvars.iv.sroa.gep239, %256 ]
   %indvars.iv = phi i64 [ 0, %232 ], [ 1, %256 ]
   %240 = load ptr, ptr %163, align 8, !tbaa !67
   %241 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %240, i64 %indvars.iv
@@ -1666,14 +1666,14 @@ _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %_ZN20btAlignedObjec
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %93 = load i8, ptr %92, align 8, !range !63
   %94 = trunc nuw i8 %93 to i1
-  %or.cond27.i = select i1 %.not.i5.i.i40, i1 %94, i1 false
-  br i1 %or.cond27.i, label %95, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
+  %or.cond29.i = select i1 %.not.i5.i.i40, i1 %94, i1 false
+  br i1 %or.cond29.i, label %95, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i: ; preds = %88
   %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %.old25.i = load i8, ptr %.old.i, align 8, !tbaa !7, !range !63, !noundef !93
-  %.old26.i = trunc nuw i8 %.old25.i to i1
-  br i1 %.old26.i, label %95, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
+  %.old27.i = load i8, ptr %.old.i, align 8, !tbaa !7, !range !63, !noundef !93
+  %.old28.i = trunc nuw i8 %.old27.i to i1
+  br i1 %.old28.i, label %95, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
 
 95:                                               ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %87)
@@ -2717,9 +2717,9 @@ _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %_ZN20btAlignedObjec
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i: ; preds = %186
   %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %.old3.i = load i8, ptr %.old.i, align 8, !tbaa !7, !range !63, !noundef !93
-  %.old4.i = trunc nuw i8 %.old3.i to i1
-  br i1 %.old4.i, label %193, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
+  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !7, !range !63, !noundef !93
+  %.old6.i = trunc nuw i8 %.old5.i to i1
+  br i1 %.old6.i, label %193, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
 
 193:                                              ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %185)
@@ -3889,8 +3889,8 @@ _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %17 = load i8, ptr %16, align 8, !range !63
   %18 = trunc nuw i8 %17 to i1
-  %or.cond27.i = select i1 %.not.i5.i.i, i1 %18, i1 false
-  br i1 %or.cond27.i, label %19, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
+  %or.cond29.i = select i1 %.not.i5.i.i, i1 %18, i1 false
+  br i1 %or.cond29.i, label %19, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
 
 19:                                               ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %15)

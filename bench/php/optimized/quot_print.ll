@@ -118,31 +118,31 @@ define dso_local noundef ptr @php_quot_print_decode(ptr noundef readonly capture
 
 .preheader.preheader:                             ; preds = %52
   switch i8 %27, label %.preheader._crit_edge [
-    i8 32, label %.lr.ph129.preheader
-    i8 9, label %.lr.ph129.preheader
+    i8 32, label %.lr.ph140.preheader
+    i8 9, label %.lr.ph140.preheader
   ]
 
-.lr.ph129.preheader:                              ; preds = %.preheader.preheader, %.preheader.preheader
-  br label %.lr.ph129
+.lr.ph140.preheader:                              ; preds = %.preheader.preheader, %.preheader.preheader
+  br label %.lr.ph140
 
 .preheader:                                       ; preds = %56
   switch i8 %58, label %.preheader._crit_edge [
-    i8 32, label %.lr.ph129.backedge
-    i8 9, label %.lr.ph129.backedge
+    i8 32, label %.lr.ph140.backedge
+    i8 9, label %.lr.ph140.backedge
   ]
 
-.lr.ph129.backedge:                               ; preds = %.preheader, %.preheader
-  br label %.lr.ph129
+.lr.ph140.backedge:                               ; preds = %.preheader, %.preheader
+  br label %.lr.ph140
 
-.lr.ph129:                                        ; preds = %.lr.ph129.backedge, %.lr.ph129.preheader
-  %.3128 = phi ptr [ %24, %.lr.ph129.preheader ], [ %57, %.lr.ph129.backedge ]
-  %.372127 = phi i64 [ %23, %.lr.ph129.preheader ], [ %54, %.lr.ph129.backedge ]
-  %54 = add i64 %.372127, -1
+.lr.ph140:                                        ; preds = %.lr.ph140.backedge, %.lr.ph140.preheader
+  %.3139 = phi ptr [ %24, %.lr.ph140.preheader ], [ %57, %.lr.ph140.backedge ]
+  %.372138 = phi i64 [ %23, %.lr.ph140.preheader ], [ %54, %.lr.ph140.backedge ]
+  %54 = add i64 %.372138, -1
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %63, label %56
 
-56:                                               ; preds = %.lr.ph129
-  %57 = getelementptr inbounds nuw i8, ptr %.3128, i64 1
+56:                                               ; preds = %.lr.ph140
+  %57 = getelementptr inbounds nuw i8, ptr %.3139, i64 1
   %58 = load i8, ptr %57, align 1, !tbaa !4
   %59 = zext i8 %58 to i64
   %60 = getelementptr inbounds nuw [256 x i32], ptr @php_quot_print_decode.hexval_tbl, i64 0, i64 %59
@@ -150,7 +150,7 @@ define dso_local noundef ptr @php_quot_print_decode(ptr noundef readonly capture
   %62 = icmp eq i32 %61, 64
   br i1 %62, label %63, label %.preheader
 
-63:                                               ; preds = %56, %.lr.ph129
+63:                                               ; preds = %56, %.lr.ph140
   tail call void @_efree(ptr noundef nonnull %16) #9
   br label %83
 

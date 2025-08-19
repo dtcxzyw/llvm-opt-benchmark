@@ -211,15 +211,15 @@ encodeRunShort.exit:                              ; preds = %43, %37, %74, %72, 
   br i1 %76, label %.lr.ph.i53, label %encodeRunShort.exit65
 
 .lr.ph.i53:                                       ; preds = %13, %.preheader.i52
-  %.039.lcssa7987 = phi i16 [ %.140, %.preheader.i52 ], [ %14, %13 ]
-  %.037.lcssa8086 = phi i32 [ %.138, %.preheader.i52 ], [ 1, %13 ]
-  %.0.lcssa8185 = phi ptr [ %.1, %.preheader.i52 ], [ %16, %13 ]
-  %77 = icmp eq i16 %.039.lcssa7987, -23131
+  %.039.lcssa8492 = phi i16 [ %.140, %.preheader.i52 ], [ %14, %13 ]
+  %.037.lcssa8591 = phi i32 [ %.138, %.preheader.i52 ], [ 1, %13 ]
+  %.0.lcssa8690 = phi ptr [ %.1, %.preheader.i52 ], [ %16, %13 ]
+  %77 = icmp eq i16 %.039.lcssa8492, -23131
   br i1 %77, label %.lr.ph.split.us.i59, label %.lr.ph.split.i54
 
 .lr.ph.split.us.i59:                              ; preds = %.lr.ph.i53, %87
   %.047.us.i60 = phi i32 [ %88, %87 ], [ 0, %.lr.ph.i53 ]
-  %.04046.us.i61 = phi ptr [ %.2.us.i63, %87 ], [ %.0.lcssa8185, %.lr.ph.i53 ]
+  %.04046.us.i61 = phi ptr [ %.2.us.i63, %87 ], [ %.0.lcssa8690, %.lr.ph.i53 ]
   %78 = icmp ult ptr %.04046.us.i61, %7
   br i1 %78, label %80, label %79
 
@@ -249,18 +249,18 @@ encodeRunShort.exit:                              ; preds = %43, %37, %74, %72, 
 87:                                               ; preds = %85, %84
   %.2.us.i63 = phi ptr [ %86, %85 ], [ %.1.us.i62, %84 ]
   %88 = add nuw nsw i32 %.047.us.i60, 1
-  %exitcond49.not.i64 = icmp eq i32 %88, %.037.lcssa8086
+  %exitcond49.not.i64 = icmp eq i32 %88, %.037.lcssa8591
   br i1 %exitcond49.not.i64, label %encodeRunShort.exit65, label %.lr.ph.split.us.i59, !llvm.loop !10
 
 .lr.ph.split.i54:                                 ; preds = %.lr.ph.i53, %93
   %.047.i55 = phi i32 [ %94, %93 ], [ 0, %.lr.ph.i53 ]
-  %.04046.i56 = phi ptr [ %.2.i57, %93 ], [ %.0.lcssa8185, %.lr.ph.i53 ]
+  %.04046.i56 = phi ptr [ %.2.i57, %93 ], [ %.0.lcssa8690, %.lr.ph.i53 ]
   %89 = icmp ult ptr %.04046.i56, %7
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %.lr.ph.split.i54
   %91 = getelementptr inbounds nuw i8, ptr %.04046.i56, i64 2
-  store i16 %.039.lcssa7987, ptr %.04046.i56, align 2, !tbaa !4
+  store i16 %.039.lcssa8492, ptr %.04046.i56, align 2, !tbaa !4
   br label %93
 
 92:                                               ; preds = %.lr.ph.split.i54
@@ -270,7 +270,7 @@ encodeRunShort.exit:                              ; preds = %43, %37, %74, %72, 
 93:                                               ; preds = %92, %90
   %.2.i57 = phi ptr [ %91, %90 ], [ %.04046.i56, %92 ]
   %94 = add nuw nsw i32 %.047.i55, 1
-  %exitcond.not.i58 = icmp eq i32 %94, %.037.lcssa8086
+  %exitcond.not.i58 = icmp eq i32 %94, %.037.lcssa8591
   br i1 %exitcond.not.i58, label %encodeRunShort.exit65, label %.lr.ph.split.i54, !llvm.loop !10
 
 95:                                               ; preds = %._crit_edge
@@ -550,8 +550,8 @@ appendEncodedByte.exit.us:                        ; preds = %18
 appendEncodedByte.exit.us.thread:                 ; preds = %22, %23
   %.016.i.us = phi ptr [ %28, %23 ], [ %.04493.us, %22 ]
   store i8 0, ptr %4, align 1, !tbaa !13
-  %.pr.us109 = load i32, ptr %5, align 4, !tbaa !8
-  %30 = icmp sgt i32 %.pr.us109, 0
+  %.pr.us114 = load i32, ptr %5, align 4, !tbaa !8
+  %30 = icmp sgt i32 %.pr.us114, 0
   br i1 %30, label %appendEncodedByte.exit53.us, label %.thread
 
 31:                                               ; preds = %appendEncodedByte.exit.us
@@ -739,11 +739,11 @@ appendEncodedByte.exit63:                         ; preds = %57, %91, %92
   %104 = or disjoint i16 %103, 165
   %105 = getelementptr inbounds nuw i8, ptr %.3.ph, i64 2
   store i16 %104, ptr %.3.ph, align 2, !tbaa !4
-  br label %.thread113
+  br label %.thread118
 
 106:                                              ; preds = %97
   store i32 15, ptr %5, align 4, !tbaa !8
-  br label %.thread113
+  br label %.thread118
 
 107:                                              ; preds = %95
   store i8 1, ptr %4, align 1, !tbaa !13
@@ -753,11 +753,11 @@ appendEncodedByte.exit63:                         ; preds = %57, %91, %92
   %109 = icmp sgt i32 %.pr84, 0
   br i1 %109, label %appendEncodedByte.exit78, label %111
 
-.thread113:                                       ; preds = %99, %106
+.thread118:                                       ; preds = %99, %106
   %.016.i66 = phi ptr [ %105, %99 ], [ %.3.ph, %106 ]
   store i8 0, ptr %4, align 1, !tbaa !13
-  %.pr84115 = load i32, ptr %5, align 4, !tbaa !8
-  %110 = icmp sgt i32 %.pr84115, 0
+  %.pr84120 = load i32, ptr %5, align 4, !tbaa !8
+  %110 = icmp sgt i32 %.pr84120, 0
   br i1 %110, label %appendEncodedByte.exit78, label %appendEncodedByte.exit73.thread
 
 111:                                              ; preds = %107
@@ -787,20 +787,20 @@ appendEncodedByte.exit73:                         ; preds = %113, %122
   %123 = icmp sgt i32 %.pr87.pr, 0
   br i1 %123, label %appendEncodedByte.exit78, label %138
 
-appendEncodedByte.exit73.thread:                  ; preds = %.thread113
+appendEncodedByte.exit73.thread:                  ; preds = %.thread118
   %124 = trunc i32 %.045.ph to i8
   store i8 1, ptr %4, align 1, !tbaa !13
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %124, ptr %125, align 1, !tbaa !13
-  %.pr87.pr121 = load i32, ptr %5, align 4, !tbaa !8
-  %126 = icmp sgt i32 %.pr87.pr121, 0
-  br i1 %126, label %appendEncodedByte.exit78, label %.thread123
+  %.pr87.pr126 = load i32, ptr %5, align 4, !tbaa !8
+  %126 = icmp sgt i32 %.pr87.pr126, 0
+  br i1 %126, label %appendEncodedByte.exit78, label %.thread128
 
-.thread123:                                       ; preds = %appendEncodedByte.exit73.thread
+.thread128:                                       ; preds = %appendEncodedByte.exit73.thread
   %127 = icmp ult ptr %.016.i66, %1
   br i1 %127, label %128, label %136
 
-128:                                              ; preds = %.thread123
+128:                                              ; preds = %.thread128
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %130 = load i8, ptr %129, align 1, !tbaa !13
   %131 = zext i8 %130 to i16
@@ -811,7 +811,7 @@ appendEncodedByte.exit73.thread:                  ; preds = %.thread113
   store i16 %134, ptr %.016.i66, align 2, !tbaa !4
   br label %137
 
-136:                                              ; preds = %.thread123
+136:                                              ; preds = %.thread128
   store i32 15, ptr %5, align 4, !tbaa !8
   br label %137
 
@@ -826,8 +826,8 @@ appendEncodedByte.exit73.thread:                  ; preds = %.thread113
   store i8 %2, ptr %139, align 1, !tbaa !13
   br label %appendEncodedByte.exit78
 
-appendEncodedByte.exit78:                         ; preds = %appendEncodedByte.exit53, %appendEncodedByte.exit53.us, %appendEncodedByte.exit73.thread, %.thread113, %.preheader, %appendEncodedByte.exit63, %appendEncodedByte.exit58, %107, %138, %137, %appendEncodedByte.exit73, %6, %7
-  %.043 = phi ptr [ null, %7 ], [ null, %6 ], [ %.016.i76, %137 ], [ %.016.i71, %138 ], [ null, %appendEncodedByte.exit73 ], [ null, %107 ], [ null, %appendEncodedByte.exit58 ], [ null, %appendEncodedByte.exit63 ], [ %0, %.preheader ], [ null, %.thread113 ], [ null, %appendEncodedByte.exit73.thread ], [ %.0.i52.us, %appendEncodedByte.exit53.us ], [ %.0.i52, %appendEncodedByte.exit53 ]
+appendEncodedByte.exit78:                         ; preds = %appendEncodedByte.exit53, %appendEncodedByte.exit53.us, %appendEncodedByte.exit73.thread, %.thread118, %.preheader, %appendEncodedByte.exit63, %appendEncodedByte.exit58, %107, %138, %137, %appendEncodedByte.exit73, %6, %7
+  %.043 = phi ptr [ null, %7 ], [ null, %6 ], [ %.016.i76, %137 ], [ %.016.i71, %138 ], [ null, %appendEncodedByte.exit73 ], [ null, %107 ], [ null, %appendEncodedByte.exit58 ], [ null, %appendEncodedByte.exit63 ], [ %0, %.preheader ], [ null, %.thread118 ], [ null, %appendEncodedByte.exit73.thread ], [ %.0.i52.us, %appendEncodedByte.exit53.us ], [ %.0.i52, %appendEncodedByte.exit53 ]
   ret ptr %.043
 }
 
@@ -1179,9 +1179,9 @@ default.unreachable:                              ; preds = %65, %33
   br i1 %.not78, label %69, label %.sink.split
 
 .sink.split:                                      ; preds = %.outer, %.loopexit, %24, %.thread
-  %.sink293 = phi i32 [ 15, %.thread ], [ 15, %24 ], [ 5, %.loopexit ], [ 5, %.outer ]
+  %.sink298 = phi i32 [ 15, %.thread ], [ 15, %24 ], [ 5, %.loopexit ], [ 5, %.outer ]
   %.066.ph = phi i32 [ %68, %.thread ], [ %22, %24 ], [ %.051.ph91.lcssa121.ph, %.loopexit ], [ 0, %.outer ]
-  store i32 %.sink293, ptr %4, align 4, !tbaa !8
+  store i32 %.sink298, ptr %4, align 4, !tbaa !8
   br label %69
 
 69:                                               ; preds = %.sink.split, %.loopexit, %15, %13, %5, %6

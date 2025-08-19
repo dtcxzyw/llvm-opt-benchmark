@@ -306,10 +306,10 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %73, %75
   br label %_ZNSt6vectorItSaItEED2Ev.exit26
 
 _ZNSt6vectorItSaItEED2Ev.exit26:                  ; preds = %2, %.critedge, %81
-  %.not.lcssa39 = phi i1 [ %.not.lcssa.ph, %.critedge ], [ %.not.lcssa.ph, %81 ], [ false, %2 ]
+  %.not.lcssa45 = phi i1 [ %.not.lcssa.ph, %.critedge ], [ %.not.lcssa.ph, %81 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %.not.lcssa39
+  ret i1 %.not.lcssa45
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -372,9 +372,9 @@ common.resume:                                    ; preds = %18, %297
   store ptr %11, ptr %26, align 8, !tbaa !33
   store ptr %13, ptr %12, align 8, !tbaa !35
   %.not117 = icmp eq ptr %11, null
-  br i1 %.not117, label %.thread152, label %31
+  br i1 %.not117, label %.thread185, label %31
 
-.thread152:                                       ; preds = %"_ZNSt10shared_ptrIKN5ZXing9BitMatrixEEC2IS2_ZNS0_6Pdf4178Detector6DetectERKNS0_12BinaryBitmapEbbE3$_0vEEPT_T0_.exit"
+.thread185:                                       ; preds = %"_ZNSt10shared_ptrIKN5ZXing9BitMatrixEEC2IS2_ZNS0_6Pdf4178Detector6DetectERKNS0_12BinaryBitmapEbbE3$_0vEEPT_T0_.exit"
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -1182,8 +1182,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i88: ; preds = %322, %
   %.not.i.i90 = icmp eq ptr %.pre147, null
   br i1 %.not.i.i90, label %_ZNSt12__shared_ptrIKN5ZXing9BitMatrixELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %327
 
-327:                                              ; preds = %.thread152, %326
-  %328 = phi ptr [ %13, %.thread152 ], [ %.pre147, %326 ]
+327:                                              ; preds = %.thread185, %326
+  %328 = phi ptr [ %13, %.thread185 ], [ %.pre147, %326 ]
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
   %330 = load atomic i64, ptr %329 acquire, align 8
   %331 = icmp eq i64 %330, 4294967297
@@ -2378,8 +2378,8 @@ _ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit101: ; preds
   br label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit101.thread.sink.split
 
 _ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit101.thread.sink.split: ; preds = %171, %.critedge76
-  %.068133.lcssa174.sink = phi i32 [ %.068133, %.critedge76 ], [ %172, %171 ]
-  store i32 %.068133.lcssa174.sink, ptr %7, align 4, !tbaa !63
+  %.068133.lcssa197.sink = phi i32 [ %.068133, %.critedge76 ], [ %172, %171 ]
+  store i32 %.068133.lcssa197.sink, ptr %7, align 4, !tbaa !63
   br label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit101.thread
 
 _ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit101.thread: ; preds = %.lr.ph17.i93, %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit101.thread.sink.split, %137, %._crit_edge.i91, %.critedge._crit_edge, %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit101

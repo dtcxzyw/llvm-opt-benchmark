@@ -1269,16 +1269,16 @@ lean_alloc_ctor.exit42:                           ; preds = %lean_dec.exit
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exit42, %36
-  %.sink53 = phi ptr [ %37, %36 ], [ %65, %lean_alloc_ctor.exit42 ]
+  %.sink59 = phi ptr [ %37, %36 ], [ %65, %lean_alloc_ctor.exit42 ]
   %.sink = phi ptr [ %17, %36 ], [ %59, %lean_alloc_ctor.exit42 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.sink53, i64 4
-  store i32 1, ptr %.sink53, align 4, !tbaa !4
+  %68 = getelementptr inbounds nuw i8, ptr %.sink59, i64 4
+  store i32 1, ptr %.sink59, align 4, !tbaa !4
   store i32 131096, ptr %68, align 4
-  %69 = getelementptr inbounds nuw i8, ptr %.sink53, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.sink59, i64 8
   store ptr %15, ptr %69, align 8, !tbaa !10
-  %70 = getelementptr inbounds nuw i8, ptr %.sink53, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.sink59, i64 16
   store ptr %.sink, ptr %70, align 8, !tbaa !10
-  ret ptr %.sink53
+  ret ptr %.sink59
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1537,18 +1537,18 @@ _init_l_Std_Sat_AIG_relabel___rarg___closed__3.exit: ; preds = %lean_dec_ref.exi
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Sat_AIG_relabel___rarg___closed__3.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %38, %_init_l_Std_Sat_AIG_relabel___rarg___closed__3.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !4
+  %.sink23 = phi ptr [ %4, %3 ], [ %38, %_init_l_Std_Sat_AIG_relabel___rarg___closed__3.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
+  store i32 1, ptr %.sink23, align 4, !tbaa !4
   store i32 131096, ptr %41, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.sink23, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %42, align 8, !tbaa !10
-  %43 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.sink23, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %43, align 8, !tbaa !10
   br label %44
 
 44:                                               ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink23, %.sink.split ]
   ret ptr %.0
 }
 

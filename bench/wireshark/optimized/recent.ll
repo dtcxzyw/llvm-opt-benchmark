@@ -2541,8 +2541,8 @@ define hidden void @recent_set_column_xalign(i32 noundef %0, i8 noundef signext 
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 .sink.split:                                      ; preds = %._crit_edge, %2
-  %.sink14 = phi ptr [ %4, %2 ], [ %12, %._crit_edge ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sink14, i64 4
+  %.sink16 = phi ptr [ %4, %2 ], [ %12, %._crit_edge ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sink16, i64 4
   store i8 %1, ptr %21, align 4
   br label %22
 

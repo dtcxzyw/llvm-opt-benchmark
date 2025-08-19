@@ -170,8 +170,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us38
   %64 = fsub double %.01929, %63
   %or.cond54 = fcmp ult double %64, %5
   %or.cond55 = fcmp ugt double %64, %7
-  %or.cond80 = select i1 %or.cond54, i1 true, i1 %or.cond55
-  br i1 %or.cond80, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21
+  %or.cond84 = select i1 %or.cond54, i1 true, i1 %or.cond55
+  br i1 %or.cond84, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread: ; preds = %.split.us, %37, %.split.split.us, %.split.split
   %65 = tail call double @llvm.fmuladd.f64(double %5, double %11, double %13)

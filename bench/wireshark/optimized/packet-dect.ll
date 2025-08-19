@@ -1119,7 +1119,7 @@ define internal fastcc void @dissect_afield(i1 noundef zeroext %0, ptr noundef w
   %69 = load i32, ptr @hf_dect_A_Tail_Qt_Qh, align 4
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %69, ptr noundef %3, i32 noundef 12, i32 noundef 1, i32 noundef 0)
   %71 = lshr i8 %12, 4
-  switch i8 %71, label %default.unreachable567 [
+  switch i8 %71, label %default.unreachable568 [
     i8 0, label %72
     i8 1, label %72
     i8 2, label %118
@@ -1334,7 +1334,7 @@ define internal fastcc void @dissect_afield(i1 noundef zeroext %0, ptr noundef w
   %226 = tail call ptr @proto_tree_add_string(ptr noundef %5, i32 noundef %225, ptr noundef %3, i32 noundef 12, i32 noundef 1, ptr noundef nonnull @.str.253)
   br label %370
 
-default.unreachable567:                           ; preds = %310, %308, %229, %66
+default.unreachable568:                           ; preds = %310, %308, %229, %66
   unreachable
 
 227:                                              ; preds = %65
@@ -1349,7 +1349,7 @@ default.unreachable567:                           ; preds = %310, %308, %229, %6
   %233 = zext i8 %12 to i32
   %234 = tail call ptr @proto_tree_add_uint(ptr noundef %42, i32 noundef %232, ptr noundef %3, i32 noundef 12, i32 noundef 1, i32 noundef %233)
   %235 = lshr i32 %233, 4
-  switch i32 %235, label %default.unreachable567 [
+  switch i32 %235, label %default.unreachable568 [
     i32 0, label %236
     i32 1, label %250
     i32 2, label %253
@@ -1479,7 +1479,7 @@ default.unreachable567:                           ; preds = %310, %308, %229, %6
   br label %308
 
 308:                                              ; preds = %306, %295
-  switch i32 %304, label %default.unreachable567 [
+  switch i32 %304, label %default.unreachable568 [
     i32 7, label %365
     i32 6, label %364
     i32 2, label %360
@@ -1509,7 +1509,7 @@ default.unreachable567:                           ; preds = %310, %308, %229, %6
   %319 = lshr i32 %318, 4
   %320 = tail call ptr @val_to_str(i32 noundef %319, ptr noundef nonnull @PTInfoType_vals, ptr noundef nonnull @.str.683)
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %10, ptr noundef nonnull @.str.714, ptr noundef %320)
-  switch i32 %319, label %default.unreachable567 [
+  switch i32 %319, label %default.unreachable568 [
     i32 0, label %321
     i32 1, label %366
     i32 7, label %366
@@ -1790,15 +1790,15 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr noundef r
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %43 ]
   %.184122.us = phi i16 [ %68, %58 ], [ %.083123.us, %43 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %.split.loop.exit175, label %58
+  br i1 %exitcond.not, label %.split.loop.exit177, label %58
 
-.split.loop.exit175:                              ; preds = %49
+.split.loop.exit177:                              ; preds = %49
   %50 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %58, %.split.loop.exit175
-  %.184.lcssa.us = phi i16 [ %.184122.us, %.split.loop.exit175 ], [ %68, %58 ]
-  %.lcssa120.us = phi i32 [ %50, %.split.loop.exit175 ], [ %indvars.iv.next135, %58 ]
+.split.loop.exit:                                 ; preds = %58, %.split.loop.exit177
+  %.184.lcssa.us = phi i16 [ %.184122.us, %.split.loop.exit177 ], [ %68, %58 ]
+  %.lcssa120.us = phi i32 [ %50, %.split.loop.exit177 ], [ %indvars.iv.next135, %58 ]
   %51 = load i32, ptr @hf_dect_B_Data, align 4
   %52 = call ptr @wmem_strbuf_get_str(ptr noundef %46)
   %53 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %35, i32 noundef %51, ptr noundef %2, i32 noundef %.1124.us, i32 noundef %.lcssa120.us, ptr noundef nonnull @.str.741, ptr noundef %52)
@@ -1848,7 +1848,7 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr noundef r
   br i1 %.ph, label %76, label %.loopexit.thread
 
 76:                                               ; preds = %73, %.loopexit
-  %.2168 = phi i32 [ 19, %73 ], [ %54, %.loopexit ]
+  %.2170 = phi i32 [ 19, %73 ], [ %54, %.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(21) %6, i8 noundef 0, i64 noundef 21, i1 noundef false) #6
   br label %77
@@ -1937,11 +1937,11 @@ calc_xcrc.exit:                                   ; preds = %.thread.i
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader.split, %73, %.loopexit, %calc_xcrc.exit
-  %.2165 = phi i32 [ %.2168, %calc_xcrc.exit ], [ %54, %.loopexit ], [ 19, %73 ], [ 19, %.preheader.split ]
-  %.094113148164 = phi i32 [ %.094.ph, %calc_xcrc.exit ], [ %.094.ph, %.loopexit ], [ %.094.ph, %73 ], [ 0, %.preheader.split ]
-  %.090150163 = phi ptr [ %27, %calc_xcrc.exit ], [ %27, %.loopexit ], [ %27, %73 ], [ null, %.preheader.split ]
+  %.2167 = phi i32 [ %.2170, %calc_xcrc.exit ], [ %54, %.loopexit ], [ 19, %73 ], [ 19, %.preheader.split ]
+  %.094113150166 = phi i32 [ %.094.ph, %calc_xcrc.exit ], [ %.094.ph, %.loopexit ], [ %.094.ph, %73 ], [ 0, %.preheader.split ]
+  %.090152165 = phi ptr [ %27, %calc_xcrc.exit ], [ %27, %.loopexit ], [ %27, %73 ], [ null, %.preheader.split ]
   %.093 = phi i32 [ %111, %calc_xcrc.exit ], [ 0, %.loopexit ], [ 0, %73 ], [ 0, %.preheader.split ]
-  %.not105.not = icmp ugt i32 %8, %.094113148164
+  %.not105.not = icmp ugt i32 %8, %.094113150166
   br i1 %.not105.not, label %112, label %122
 
 112:                                              ; preds = %.loopexit.thread
@@ -1954,16 +1954,16 @@ calc_xcrc.exit:                                   ; preds = %.thread.i
   br i1 %.not106, label %120, label %118
 
 118:                                              ; preds = %112
-  %119 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.090150163, i32 noundef %117, ptr noundef %2, i32 noundef %.2165, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.743, i32 noundef %.093, i32 noundef %116)
+  %119 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.090152165, i32 noundef %117, ptr noundef %2, i32 noundef %.2167, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.743, i32 noundef %.093, i32 noundef %116)
   br label %125
 
 120:                                              ; preds = %112
-  %121 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.090150163, i32 noundef %117, ptr noundef %2, i32 noundef %.2165, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.744, i32 noundef %.093, i32 noundef %.093)
+  %121 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.090152165, i32 noundef %117, ptr noundef %2, i32 noundef %.2167, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.744, i32 noundef %.093, i32 noundef %.093)
   br label %125
 
 122:                                              ; preds = %.loopexit.thread
   %123 = load i32, ptr @hf_dect_B_XCRC, align 4
-  %124 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.090150163, i32 noundef %123, ptr noundef %2, i32 noundef %.2165, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.745, i32 noundef %.093)
+  %124 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.090152165, i32 noundef %123, ptr noundef %2, i32 noundef %.2167, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.745, i32 noundef %.093)
   br label %125
 
 125:                                              ; preds = %118, %120, %122

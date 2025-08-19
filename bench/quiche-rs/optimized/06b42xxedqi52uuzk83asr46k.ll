@@ -4411,9 +4411,9 @@ _ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit.thread.split
   br label %220
 
 220:                                              ; preds = %204, %219, %197
-  %.sink501 = phi i8 [ %201, %197 ], [ 4, %219 ], [ 4, %204 ]
+  %.sink507 = phi i8 [ %201, %197 ], [ 4, %219 ], [ 4, %204 ]
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink501, ptr %221, align 8
+  store i8 %.sink507, ptr %221, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %390
@@ -4809,14 +4809,14 @@ _ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit.thread.split
   %338 = icmp ugt i64 %337, 98
   br i1 %338, label %_ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210.thread, label %_ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210
 
-_ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210.thread.split.loop.exit675: ; preds = %_ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210
+_ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210.thread.split.loop.exit681: ; preds = %_ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210
   %.sroa.5.sroa.0224.0.extract.trunc.le = trunc i64 %.sroa.5.0.copyload222 to i8
   br label %_ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210.thread
 
-_ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210.thread: ; preds = %336, %342, %329, %_ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210.thread.split.loop.exit675
-  %.sink503 = phi i8 [ %.sroa.5.sroa.0224.0.extract.trunc.le, %_ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210.thread.split.loop.exit675 ], [ 4, %329 ], [ 5, %342 ], [ 3, %336 ]
+_ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210.thread: ; preds = %336, %342, %329, %_ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210.thread.split.loop.exit681
+  %.sink509 = phi i8 [ %.sroa.5.sroa.0224.0.extract.trunc.le, %_ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210.thread.split.loop.exit681 ], [ 4, %329 ], [ 5, %342 ], [ 3, %336 ]
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink503, ptr %339, align 8
+  store i8 %.sink509, ptr %339, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
           to label %367 unwind label %.loopexit.split-lp
@@ -4827,7 +4827,7 @@ _ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210: ; preds 
   %.sroa.5.0..sroa_idx221 = getelementptr inbounds nuw i8, ptr %340, i64 8
   %.sroa.5.0.copyload222 = load i64, ptr %.sroa.5.0..sroa_idx221, align 8
   %341 = icmp eq ptr %.sroa.0220.0.copyload, null
-  br i1 %341, label %_ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210.thread.split.loop.exit675, label %342
+  br i1 %341, label %_ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210.thread.split.loop.exit681, label %342
 
 342:                                              ; preds = %_ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210
   %343 = load i64, ptr %101, align 8, !noundef !3
@@ -7291,14 +7291,14 @@ define { i64, i64 } @_ZN6quiche6packet11decrypt_hdr17hbb82173095a8ae18E(ptr noal
   br label %132
 
 66:                                               ; preds = %132
-  switch i8 %58, label %default.unreachable49 [
+  switch i8 %58, label %default.unreachable53 [
     i8 0, label %67
     i8 1, label %72
     i8 2, label %78
     i8 3, label %84
   ]
 
-default.unreachable49:                            ; preds = %66
+default.unreachable53:                            ; preds = %66
   unreachable
 
 67:                                               ; preds = %66
@@ -7604,10 +7604,10 @@ define void @_ZN6quiche6packet11decrypt_pkt17h27d8da506c7f1288E(ptr dead_on_unwi
   ret void
 
 59:                                               ; preds = %37, %33
-  %.sink18 = phi i64 [ %35, %33 ], [ %45, %37 ]
+  %.sink20 = phi i64 [ %35, %33 ], [ %45, %37 ]
   %.sink = phi i64 [ %36, %33 ], [ %47, %37 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink18, ptr %60, align 8
+  store i64 %.sink20, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %61, align 8
   store ptr null, ptr %0, align 8
@@ -8546,9 +8546,9 @@ define internal fastcc void @_ZN6quiche6packet27compute_retry_integrity_tag17h56
   ret void
 
 119:                                              ; preds = %115, %113
-  %.sink49 = phi i64 [ 16, %113 ], [ 8, %115 ]
+  %.sink52 = phi i64 [ 16, %113 ], [ 8, %115 ]
   %.sink = phi i64 [ %112, %113 ], [ 8, %115 ]
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink49
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink52
   store i64 %.sink, ptr %120, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
@@ -8916,8 +8916,8 @@ _ZN6quiche6stream8recv_buf7RecvBuf8max_data17h9df9b38f22cee639E.exit: ; preds = 
   %.not = icmp eq i64 %30, %43
   br i1 %.not, label %32, label %45
 
-45:                                               ; preds = %84, %.thread106, %54, %50, %44, %36, %_ZN6quiche6stream8recv_buf7RecvBuf8max_data17h9df9b38f22cee639E.exit
-  %.sroa.0.0 = phi i64 [ 10, %_ZN6quiche6stream8recv_buf7RecvBuf8max_data17h9df9b38f22cee639E.exit ], [ 14, %36 ], [ 14, %44 ], [ 14, %50 ], [ 20, %54 ], [ 20, %.thread106 ], [ 20, %84 ]
+45:                                               ; preds = %84, %.thread113, %54, %50, %44, %36, %_ZN6quiche6stream8recv_buf7RecvBuf8max_data17h9df9b38f22cee639E.exit
+  %.sroa.0.0 = phi i64 [ 10, %_ZN6quiche6stream8recv_buf7RecvBuf8max_data17h9df9b38f22cee639E.exit ], [ 14, %36 ], [ 14, %44 ], [ 14, %50 ], [ 20, %54 ], [ 20, %.thread113 ], [ 20, %84 ]
   tail call void @"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h7e82a75bdba22c89E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
   br label %239
 
@@ -8951,7 +8951,7 @@ _ZN6quiche6stream8recv_buf7RecvBuf8max_data17h9df9b38f22cee639E.exit: ; preds = 
 63:                                               ; preds = %54, %46
   %64 = load i8, ptr %33, align 8, !range !184, !noundef !3
   %65 = trunc nuw i8 %64 to i1
-  br i1 %65, label %69, label %.thread106
+  br i1 %65, label %69, label %.thread113
 
 66:                                               ; preds = %69
   store i64 1, ptr %0, align 8
@@ -8959,13 +8959,13 @@ _ZN6quiche6stream8recv_buf7RecvBuf8max_data17h9df9b38f22cee639E.exit: ; preds = 
   store i64 %70, ptr %67, align 8
   %.pre = load i8, ptr %33, align 8, !range !184
   %68 = trunc nuw i8 %.pre to i1
-  br i1 %68, label %79, label %.thread106
+  br i1 %68, label %79, label %.thread113
 
 69:                                               ; preds = %63
   %70 = invoke noundef i64 @"_ZN6quiche9range_buf17RangeBuf$LT$F$GT$7max_off17h16ae5aaa3fed9784E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
           to label %66 unwind label %242
 
-.thread106:                                       ; preds = %63, %66
+.thread113:                                       ; preds = %63, %66
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %72 = load i64, ptr %71, align 8, !noundef !3
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8977,7 +8977,7 @@ _ZN6quiche6stream8recv_buf7RecvBuf8max_data17h9df9b38f22cee639E.exit: ; preds = 
   %78 = icmp eq i64 %.neg10, %77
   br i1 %78, label %45, label %79
 
-79:                                               ; preds = %.thread106, %66
+79:                                               ; preds = %.thread113, %66
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %81 = load i64, ptr %80, align 8, !noundef !3
   %82 = invoke noundef i64 @"_ZN6quiche9range_buf17RangeBuf$LT$F$GT$7max_off17h16ae5aaa3fed9784E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
@@ -9304,7 +9304,7 @@ _ZN6quiche6stream8recv_buf7RecvBuf8max_data17h9df9b38f22cee639E.exit: ; preds = 
   %185 = load i64, ptr %174, align 8, !noundef !3
   %186 = add i64 %184, %185
   %.not17 = icmp ult i64 %169, %186
-  br i1 %.not17, label %.thread107, label %187
+  br i1 %.not17, label %.thread114, label %187
 
 187:                                              ; preds = %181
   %188 = invoke noundef i64 @"_ZN6quiche9range_buf17RangeBuf$LT$F$GT$7max_off17h16ae5aaa3fed9784E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %16)
@@ -9317,7 +9317,7 @@ _ZN6quiche6stream8recv_buf7RecvBuf8max_data17h9df9b38f22cee639E.exit: ; preds = 
   %.pre102 = sub i64 %.pre96, %.pre97
   %.pre104 = add i64 %.pre102, %.pre98
   %190 = icmp ult i64 %169, %.pre104
-  br i1 %190, label %.thread107, label %194
+  br i1 %190, label %.thread114, label %194
 
 191:                                              ; preds = %187
   %192 = invoke noundef i64 @"_ZN6quiche9range_buf17RangeBuf$LT$F$GT$7max_off17h16ae5aaa3fed9784E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %162)
@@ -9335,7 +9335,7 @@ _ZN6quiche6stream8recv_buf7RecvBuf8max_data17h9df9b38f22cee639E.exit: ; preds = 
   %195 = invoke noundef i64 @"_ZN6quiche9range_buf17RangeBuf$LT$F$GT$7max_off17h16ae5aaa3fed9784E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %162)
           to label %202 unwind label %.thread63.loopexit
 
-.thread107:                                       ; preds = %181, %202, %189, %211
+.thread114:                                       ; preds = %181, %202, %189, %211
   %196 = load i64, ptr %170, align 8, !noundef !3
   %197 = load i64, ptr %172, align 8, !noundef !3
   %198 = sub i64 %196, %197
@@ -9346,7 +9346,7 @@ _ZN6quiche6stream8recv_buf7RecvBuf8max_data17h9df9b38f22cee639E.exit: ; preds = 
 
 202:                                              ; preds = %194
   %203 = icmp ult i64 %169, %195
-  br i1 %203, label %204, label %.thread107
+  br i1 %203, label %204, label %.thread114
 
 204:                                              ; preds = %202
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -9371,13 +9371,13 @@ _ZN6quiche6stream8recv_buf7RecvBuf8max_data17h9df9b38f22cee639E.exit: ; preds = 
 211:                                              ; preds = %208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %13, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.thread107
+  br label %.thread114
 
-212:                                              ; preds = %.thread107
+212:                                              ; preds = %.thread114
   %213 = invoke noundef i64 @"_ZN6quiche9range_buf17RangeBuf$LT$F$GT$7max_off17h16ae5aaa3fed9784E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %16)
           to label %215 unwind label %.thread63.loopexit
 
-214:                                              ; preds = %215, %.thread107, %225
+214:                                              ; preds = %215, %.thread114, %225
   %.not.i.i = icmp eq ptr %.sroa.041.0.copyload, null
   br i1 %.not.i.i, label %"_ZN5alloc11collections5btree8navigate35LeafRange$LT$BorrowType$C$K$C$V$GT$8is_empty17h12e55267c40c993eE.exit.i", label %.lr.ph
 

@@ -102,12 +102,12 @@ define dso_local noundef ptr @write_idx_file(ptr noundef readonly captures(none)
   br i1 %.not164, label %sane_qsort.exit, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %14, %._crit_edge
-  %.0101.lcssa200 = phi i64 [ %spec.select, %._crit_edge ], [ 0, %14 ]
+  %.0101.lcssa219 = phi i64 [ %spec.select, %._crit_edge ], [ 0, %14 ]
   tail call void @qsort(ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %15, i64 noundef 8, ptr noundef nonnull @sha1_compare) #19
   br label %sane_qsort.exit
 
 sane_qsort.exit:                                  ; preds = %._crit_edge.thread, %._crit_edge, %6
-  %.2103 = phi i64 [ 0, %6 ], [ %spec.select, %._crit_edge ], [ %.0101.lcssa200, %._crit_edge.thread ]
+  %.2103 = phi i64 [ 0, %6 ], [ %spec.select, %._crit_edge ], [ %.0101.lcssa219, %._crit_edge.thread ]
   %.096 = phi ptr [ null, %6 ], [ %16, %._crit_edge ], [ %16, %._crit_edge.thread ]
   %.093 = phi ptr [ null, %6 ], [ %2, %._crit_edge ], [ %2, %._crit_edge.thread ]
   %22 = load i32, ptr %4, align 8, !tbaa !21

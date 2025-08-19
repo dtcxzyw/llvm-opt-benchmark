@@ -441,8 +441,8 @@ _ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit: ; preds = %74
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN2cv2ml21NormalBayesClassifierELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit.thread
 
 _ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit.thread: ; preds = %80, %77, %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit
-  %.pr25 = phi ptr [ %.pr.pre, %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit ], [ %53, %77 ], [ %53, %80 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.pr25, i64 8
+  %.pr27 = phi ptr [ %.pr.pre, %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit ], [ %53, %77 ], [ %53, %80 ]
+  %82 = getelementptr inbounds nuw i8, ptr %.pr27, i64 8
   %83 = load atomic i64, ptr %82 acquire, align 8
   %84 = icmp eq i64 %83, 4294967297
   %85 = trunc i64 %83 to i32
@@ -450,16 +450,16 @@ _ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit.thread: ; preds = %80, %
 
 86:                                               ; preds = %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit.thread
   store i32 0, ptr %82, align 8, !tbaa !8
-  %87 = getelementptr inbounds nuw i8, ptr %.pr25, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %.pr27, i64 12
   store i32 0, ptr %87, align 4, !tbaa !13
-  %88 = load ptr, ptr %.pr25, align 8, !tbaa !14
+  %88 = load ptr, ptr %.pr27, align 8, !tbaa !14
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
-  call void %90(ptr noundef nonnull align 8 dereferenceable(16) %.pr25) #22
-  %91 = load ptr, ptr %.pr25, align 8, !tbaa !14
+  call void %90(ptr noundef nonnull align 8 dereferenceable(16) %.pr27) #22
+  %91 = load ptr, ptr %.pr27, align 8, !tbaa !14
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = load ptr, ptr %92, align 8
-  call void %93(ptr noundef nonnull align 8 dereferenceable(16) %.pr25) #22
+  call void %93(ptr noundef nonnull align 8 dereferenceable(16) %.pr27) #22
   br label %_ZNSt12__shared_ptrIN2cv2ml21NormalBayesClassifierELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 94:                                               ; preds = %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit.thread
@@ -482,7 +482,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %98, %96
   br i1 %100, label %101, label %_ZNSt12__shared_ptrIN2cv2ml21NormalBayesClassifierELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !57
 
 101:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr25) #22
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr27) #22
   br label %_ZNSt12__shared_ptrIN2cv2ml21NormalBayesClassifierELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv2ml21NormalBayesClassifierELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit, %86, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %101
@@ -4869,11 +4869,11 @@ _ZN2cv3Mat2atIdEERT_i.exit.us:                    ; preds = %_ZN2cv3Mat2atIdEERT
   %.0212395.us = phi double [ 1.000000e+00, %.lr.ph398.split.us.split.split ], [ %626, %_ZN2cv3Mat2atIdEERT_i.exit.us ]
   %618 = sdiv i32 %.2210396.us, %614
   %619 = mul nsw i32 %618, %614
-  %.recomposed506 = srem i32 %.2210396.us, %614
+  %.recomposed541 = srem i32 %.2210396.us, %614
   %620 = sext i32 %618 to i64
   %621 = mul i64 %617, %620
   %622 = getelementptr inbounds nuw i8, ptr %615, i64 %621
-  %623 = sext i32 %.recomposed506 to i64
+  %623 = sext i32 %.recomposed541 to i64
   %624 = getelementptr inbounds double, ptr %622, i64 %623
   %625 = load double, ptr %624, align 8, !tbaa !104
   %626 = fmul double %.0212395.us, %625
@@ -4980,14 +4980,14 @@ _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %.lr.ph398.split, %_
   %665 = trunc nuw nsw i64 %indvars.iv477 to i32
   %666 = sdiv i32 %665, %664
   %667 = mul nsw i32 %666, %664
-  %.recomposed507 = srem i32 %665, %664
+  %.recomposed542 = srem i32 %665, %664
   %668 = load ptr, ptr %492, align 8, !tbaa !98
   %669 = load ptr, ptr %493, align 8, !tbaa !99
   %670 = load i64, ptr %669, align 8, !tbaa !74
   %671 = sext i32 %666 to i64
   %672 = mul i64 %670, %671
   %673 = getelementptr inbounds nuw i8, ptr %668, i64 %672
-  %674 = sext i32 %.recomposed507 to i64
+  %674 = sext i32 %.recomposed542 to i64
   %675 = getelementptr inbounds double, ptr %673, i64 %674
   br label %_ZN2cv3Mat2atIdEERT_i.exit360
 
@@ -6237,7 +6237,7 @@ _ZNK2cv3Mat2atIdEERKT_i.exit:                     ; preds = %132, %140, %148
   %294 = load i32, ptr %293, align 4, !tbaa !101
   %295 = sdiv i32 %.1.lcssa, %294
   %296 = mul nsw i32 %295, %294
-  %.recomposed289 = srem i32 %.1.lcssa, %294
+  %.recomposed306 = srem i32 %.1.lcssa, %294
   %297 = getelementptr inbounds nuw i8, ptr %266, i64 16
   %298 = load ptr, ptr %297, align 8, !tbaa !98
   %299 = getelementptr inbounds nuw i8, ptr %266, i64 72
@@ -6246,7 +6246,7 @@ _ZNK2cv3Mat2atIdEERKT_i.exit:                     ; preds = %132, %140, %148
   %302 = sext i32 %295 to i64
   %303 = mul i64 %301, %302
   %304 = getelementptr inbounds nuw i8, ptr %298, i64 %303
-  %305 = sext i32 %.recomposed289 to i64
+  %305 = sext i32 %.recomposed306 to i64
   %306 = getelementptr inbounds i32, ptr %304, i64 %305
   br label %_ZNK2cv3Mat2atIiEERKT_i.exit
 
@@ -6300,8 +6300,8 @@ _ZNK2cv3Mat2atIiEERKT_i.exit:                     ; preds = %274, %283, %292
   %329 = load ptr, ptr %3, align 8, !tbaa !146
   %.not.i.i123 = icmp eq ptr %329, %81
   %330 = icmp eq ptr %329, null
-  %or.cond226 = or i1 %.not.i.i123, %330
-  br i1 %or.cond226, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit124, label %331
+  %or.cond243 = or i1 %.not.i.i123, %330
+  br i1 %or.cond243, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit124, label %331
 
 331:                                              ; preds = %328
   call void @_ZdaPv(ptr noundef nonnull %329) #21

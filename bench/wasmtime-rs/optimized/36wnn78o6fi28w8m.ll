@@ -6269,10 +6269,10 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$bitflags..parser..ParseError
   br i1 %6, label %"_ZN4core3ptr53drop_in_place$LT$bitflags..parser..ParseErrorKind$GT$17h0002118cd046e98eE.llvm.1938814379164664089.exit", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9366eece0c45f17E.exit.sink.split.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9366eece0c45f17E.exit.sink.split.i": ; preds = %9, %3
-  %.sink3.i = phi i64 [ %11, %9 ], [ %5, %3 ]
+  %.sink4.i = phi i64 [ %11, %9 ], [ %5, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !alias.scope !2307, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink3.i, i64 noundef 1) #21, !noalias !2307
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink4.i, i64 noundef 1) #21, !noalias !2307
   br label %"_ZN4core3ptr53drop_in_place$LT$bitflags..parser..ParseErrorKind$GT$17h0002118cd046e98eE.llvm.1938814379164664089.exit"
 
 9:                                                ; preds = %1
@@ -7157,10 +7157,10 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$bitflags..parser..ParseError
   br i1 %6, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9366eece0c45f17E.exit", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9366eece0c45f17E.exit.sink.split"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9366eece0c45f17E.exit.sink.split": ; preds = %3, %9
-  %.sink3 = phi i64 [ %11, %9 ], [ %5, %3 ]
+  %.sink4 = phi i64 [ %11, %9 ], [ %5, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink3, i64 noundef 1) #21, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink4, i64 noundef 1) #21, !noalias !4
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9366eece0c45f17E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9366eece0c45f17E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9366eece0c45f17E.exit.sink.split", %9, %3, %1

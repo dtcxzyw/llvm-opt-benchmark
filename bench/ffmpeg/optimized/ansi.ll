@@ -145,7 +145,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %.01927.i = phi ptr [ %44, %39 ], [ %52, %56 ]
   %45 = mul nuw nsw i32 %.01828.i, 2621440
   %46 = add nuw nsw i32 %45, 3604480
-  %invariant.op158 = or i32 %46, -16777216
+  %invariant.op198 = or i32 %46, -16777216
   br label %.preheader21.i
 
 .preheader21.i:                                   ; preds = %54, %.preheader22.i
@@ -153,7 +153,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %.12025.i = phi ptr [ %.01927.i, %.preheader22.i ], [ %52, %54 ]
   %47 = mul nuw nsw i32 %.01726.i, 10240
   %48 = add nuw nsw i32 %47, 14080
-  %invariant.op.reass = or i32 %48, %invariant.op158
+  %invariant.op.reass = or i32 %48, %invariant.op198
   br label %49
 
 49:                                               ; preds = %49, %.preheader21.i
@@ -714,9 +714,9 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
   %322 = load i32, ptr %321, align 8, !tbaa !63
   %323 = icmp slt i32 %322, 2
   %324 = getelementptr inbounds nuw i8, ptr %216, i64 56
-  br i1 %323, label %.thread301.i, label %325
+  br i1 %323, label %.thread329.i, label %325
 
-.thread301.i:                                     ; preds = %320
+.thread329.i:                                     ; preds = %320
   store i32 3, ptr %324, align 8, !tbaa !42
   br label %329
 
@@ -747,7 +747,7 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
   store i32 8, ptr %328, align 8, !tbaa !31
   br label %342
 
-329:                                              ; preds = %325, %325, %.thread301.i
+329:                                              ; preds = %325, %325, %.thread329.i
   %330 = getelementptr inbounds nuw i8, ptr %216, i64 24
   store ptr @avpriv_vga16_font, ptr %330, align 8, !tbaa !28
   %331 = getelementptr inbounds nuw i8, ptr %216, i64 32
@@ -835,7 +835,7 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
   %.01927.i.i = phi ptr [ %369, %364 ], [ %377, %381 ]
   %370 = mul nuw nsw i32 %.01828.i.i, 2621440
   %371 = add nuw nsw i32 %370, 3604480
-  %invariant.op159 = or i32 %371, -16777216
+  %invariant.op199 = or i32 %371, -16777216
   br label %.preheader21.i.i
 
 .preheader21.i.i:                                 ; preds = %379, %.preheader22.i.i
@@ -843,7 +843,7 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
   %.12025.i.i = phi ptr [ %.01927.i.i, %.preheader22.i.i ], [ %377, %379 ]
   %372 = mul nuw nsw i32 %.01726.i.i, 10240
   %373 = add nuw nsw i32 %372, 14080
-  %invariant.op.reass160 = or i32 %373, %invariant.op159
+  %invariant.op.reass200 = or i32 %373, %invariant.op199
   br label %374
 
 374:                                              ; preds = %374, %.preheader21.i.i
@@ -851,7 +851,7 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
   %.223.i.i = phi ptr [ %.12025.i.i, %.preheader21.i.i ], [ %377, %374 ]
   %375 = mul nuw nsw i32 %.024.i.i, 40
   %376 = add nuw nsw i32 %375, 55
-  %.reass.i.reass.i.reass = or i32 %376, %invariant.op.reass160
+  %.reass.i.reass.i.reass = or i32 %376, %invariant.op.reass200
   %377 = getelementptr inbounds nuw i8, ptr %.223.i.i, i64 4
   store i32 %.reass.i.reass.i.reass, ptr %.223.i.i, align 4, !tbaa !42
   %378 = add nuw nsw i32 %.024.i.i, 1
@@ -1146,9 +1146,9 @@ erase_line.exit267.i:                             ; preds = %465, %457
   %557 = getelementptr inbounds nuw i8, ptr %216, i64 72
   %558 = load i32, ptr %557, align 8, !tbaa !63
   %559 = icmp eq i32 %558, 0
-  br i1 %559, label %.thread302.i, label %561
+  br i1 %559, label %.thread330.i, label %561
 
-.thread302.i:                                     ; preds = %556
+.thread330.i:                                     ; preds = %556
   store i32 1, ptr %557, align 8, !tbaa !63
   %560 = getelementptr inbounds nuw i8, ptr %216, i64 56
   store i32 0, ptr %560, align 8, !tbaa !42
@@ -1158,8 +1158,8 @@ erase_line.exit267.i:                             ; preds = %465, %457
   %562 = icmp sgt i32 %558, 0
   br i1 %562, label %.lr.ph.i105, label %.loopexit
 
-.lr.ph.i105:                                      ; preds = %561, %.thread302.i
-  %563 = phi i32 [ 1, %.thread302.i ], [ %558, %561 ]
+.lr.ph.i105:                                      ; preds = %561, %.thread330.i
+  %563 = phi i32 [ 1, %.thread330.i ], [ %558, %561 ]
   %564 = tail call i32 @llvm.umin.i32(i32 %563, i32 4)
   %565 = getelementptr inbounds nuw i8, ptr %216, i64 56
   %566 = getelementptr inbounds nuw i8, ptr %216, i64 36

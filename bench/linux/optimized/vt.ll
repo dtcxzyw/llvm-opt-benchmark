@@ -756,18 +756,18 @@ define internal fastcc void @do_update_region(ptr noundef %0, i64 noundef %1, i3
 
 .outer:                                           ; preds = %95, %25
   %.ph = phi i64 [ %96, %95 ], [ %26, %25 ]
-  %.ph33 = phi i32 [ %88, %95 ], [ %2, %25 ]
-  %.ph34 = phi i32 [ 0, %95 ], [ %27, %25 ]
-  %.ph35 = phi i32 [ %90, %95 ], [ %28, %25 ]
-  %.ph36.in = phi i64 [ %.ph, %95 ], [ %1, %25 ]
-  %.ph36 = inttoptr i64 %.ph36.in to ptr
+  %.ph48 = phi i32 [ %88, %95 ], [ %2, %25 ]
+  %.ph49 = phi i32 [ 0, %95 ], [ %27, %25 ]
+  %.ph50 = phi i32 [ %90, %95 ], [ %28, %25 ]
+  %.ph51.in = phi i64 [ %.ph, %95 ], [ %1, %25 ]
+  %.ph51 = inttoptr i64 %.ph51.in to ptr
   br label %30
 
 30:                                               ; preds = %.outer, %87
-  %31 = phi i32 [ %88, %87 ], [ %.ph33, %.outer ]
-  %32 = phi i32 [ 0, %87 ], [ %.ph34, %.outer ]
-  %33 = phi i32 [ %90, %87 ], [ %.ph35, %.outer ]
-  %34 = phi ptr [ %89, %87 ], [ %.ph36, %.outer ]
+  %31 = phi i32 [ %88, %87 ], [ %.ph48, %.outer ]
+  %32 = phi i32 [ 0, %87 ], [ %.ph49, %.outer ]
+  %33 = phi i32 [ %90, %87 ], [ %.ph50, %.outer ]
+  %34 = phi ptr [ %89, %87 ], [ %.ph51, %.outer ]
   %35 = load i32, ptr %29, align 4
   %36 = icmp ult i32 %32, %35
   %37 = icmp ne i32 %31, 0
@@ -3751,7 +3751,7 @@ define dso_local i32 @con_debug_leave() #0 align 16 {
 define dso_local noundef range(i32 -22, 1) i32 @do_unregister_con_driver(ptr noundef readnone captures(address) %0) #0 align 16 {
   %2 = load volatile i32, ptr @ignore_console_lock_warning, align 4
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %.preheader11
+  br i1 %3, label %4, label %.preheader12
 
 4:                                                ; preds = %1
   %5 = tail call i32 @is_console_locked() #25
@@ -3759,19 +3759,19 @@ define dso_local noundef range(i32 -22, 1) i32 @do_unregister_con_driver(ptr nou
   %7 = load i32, ptr @oops_in_progress, align 4
   %8 = icmp eq i32 %7, 0
   %9 = select i1 %6, i1 %8, i1 false
-  br i1 %9, label %10, label %.preheader11, !prof !6
+  br i1 %9, label %10, label %.preheader12, !prof !6
 
 10:                                               ; preds = %4
   tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #25, !srcloc !82
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 3939, i32 2305, i64 12) #25, !srcloc !83
   tail call void asm sideeffect "427: nop\0A\09.pushsection .discard.instr_end\0A\09.long 427b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 427) #25, !srcloc !84
-  br label %.preheader11
+  br label %.preheader12
 
-.preheader11:                                     ; preds = %10, %4, %1
+.preheader12:                                     ; preds = %10, %4, %1
   br label %11
 
-11:                                               ; preds = %.preheader11, %11
-  %12 = phi i64 [ %16, %11 ], [ 0, %.preheader11 ]
+11:                                               ; preds = %.preheader12, %11
+  %12 = phi i64 [ %16, %11 ], [ 0, %.preheader12 ]
   %13 = getelementptr [63 x ptr], ptr @con_driver_map, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %0
@@ -4199,12 +4199,12 @@ define dso_local noundef range(i32 -22, 1) i32 @do_take_over_console(ptr noundef
 
 .thread16.sink.split:                             ; preds = %46, %.preheader22, %214, %229, %233, %83, %24
   %.sink = phi ptr [ %5, %24 ], [ %61, %83 ], [ %61, %233 ], [ %61, %229 ], [ %61, %214 ], [ %61, %.preheader22 ], [ %5, %46 ]
-  %.ph61 = phi i32 [ -19, %24 ], [ 0, %83 ], [ 0, %233 ], [ 0, %229 ], [ 0, %214 ], [ 0, %.preheader22 ], [ -22, %46 ]
+  %.ph76 = phi i32 [ -19, %24 ], [ 0, %83 ], [ 0, %233 ], [ 0, %229 ], [ 0, %214 ], [ 0, %.preheader22 ], [ -22, %46 ]
   tail call void @module_put(ptr noundef %.sink) #25
   br label %.thread16
 
 .thread16:                                        ; preds = %.thread16.sink.split, %15, %.thread15
-  %235 = phi i32 [ 0, %.thread15 ], [ -19, %15 ], [ %.ph61, %.thread16.sink.split ]
+  %235 = phi i32 [ 0, %.thread15 ], [ -19, %15 ], [ %.ph76, %.thread16.sink.split ]
   ret i32 %235
 }
 

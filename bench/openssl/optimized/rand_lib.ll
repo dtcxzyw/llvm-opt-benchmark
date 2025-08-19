@@ -1034,11 +1034,11 @@ define internal fastcc ptr @rand_get0_primary(ptr noundef %0, ptr noundef nonnul
   br i1 %.not21.i, label %35, label %rand_new_seed.exit
 
 35:                                               ; preds = %33, %30, %23
-  %.sink22.i = phi i32 [ 625, %23 ], [ 631, %30 ], [ 635, %33 ]
+  %.sink25.i = phi i32 [ 625, %23 ], [ 631, %30 ], [ 635, %33 ]
   %.sink.i = phi i32 [ 144, %23 ], [ 143, %30 ], [ 108, %33 ]
   %.016.i = phi ptr [ null, %23 ], [ null, %30 ], [ %31, %33 ]
   tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink22.i, ptr noundef nonnull @__func__.rand_new_seed) #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink25.i, ptr noundef nonnull @__func__.rand_new_seed) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef %.sink.i, ptr noundef null) #8
   tail call void @EVP_RAND_CTX_free(ptr noundef %.016.i) #8
   br label %rand_new_seed.exit

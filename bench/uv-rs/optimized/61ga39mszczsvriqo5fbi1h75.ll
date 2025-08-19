@@ -1199,9 +1199,9 @@ default.unreachable:                              ; preds = %.noexc401, %.noexc4
   br label %261
 
 261:                                              ; preds = %362, %.noexc399.split.us
-  %.sink.i434.us.lcssa887 = phi i64 [ %.promoted, %.noexc399.split.us ], [ %.sink.i434.us.lcssa886, %362 ]
-  %.val1.i876 = phi i64 [ %.promoted675, %.noexc399.split.us ], [ %.val1.i875, %362 ]
-  %.ph69.i.lcssa679.us = phi i64 [ %.promoted675, %.noexc399.split.us ], [ %.ph69.i.lcssa678.us, %362 ]
+  %.sink.i434.us.lcssa922 = phi i64 [ %.promoted, %.noexc399.split.us ], [ %.sink.i434.us.lcssa921, %362 ]
+  %.val1.i911 = phi i64 [ %.promoted675, %.noexc399.split.us ], [ %.val1.i910, %362 ]
+  %.ph76.i.lcssa679.us = phi i64 [ %.promoted675, %.noexc399.split.us ], [ %.ph76.i.lcssa678.us, %362 ]
   %262 = phi i64 [ %.promoted, %.noexc399.split.us ], [ %360, %362 ]
   %.pre.i.i669.us = phi i64 [ 0, %.noexc399.split.us ], [ %.pre.i.i668.us, %362 ]
   %263 = phi i1 [ false, %.noexc399.split.us ], [ %361, %362 ]
@@ -1210,7 +1210,7 @@ default.unreachable:                              ; preds = %.noexc401, %.noexc4
 
 265:                                              ; preds = %261
   %266 = icmp eq i64 %262, -1
-  %267 = add i64 %.ph69.i.lcssa679.us, %254
+  %267 = add i64 %.ph76.i.lcssa679.us, %254
   %268 = icmp ult i64 %267, %.val1.i
   br i1 %266, label %312, label %269
 
@@ -1221,7 +1221,7 @@ default.unreachable:                              ; preds = %.noexc401, %.noexc4
 
 .lr.ph.i428.us:                                   ; preds = %269, %.sink.split.i.us
   %.sink.i434643.us = phi i64 [ %.sink.i434.us, %.sink.split.i.us ], [ %262, %269 ]
-  %270 = phi i64 [ %.ph69.i.us, %.sink.split.i.us ], [ %.ph69.i.lcssa679.us, %269 ]
+  %270 = phi i64 [ %.ph76.i.us, %.sink.split.i.us ], [ %.ph76.i.lcssa679.us, %269 ]
   %271 = phi i64 [ %310, %.sink.split.i.us ], [ %267, %269 ]
   %272 = getelementptr inbounds i8, ptr %.val.i, i64 %271
   %273 = load i8, ptr %272, align 1, !alias.scope !155, !noalias !160, !noundef !4
@@ -1244,7 +1244,7 @@ default.unreachable:                              ; preds = %.noexc401, %.noexc4
 .preheader569.us:                                 ; preds = %280, %289
   %.sroa.59.0.i432.us = phi i64 [ %284, %289 ], [ %.promoted670, %280 ]
   %282 = icmp ult i64 %.sink.i434643.us, %.sroa.59.0.i432.us
-  br i1 %282, label %283, label %.loopexit896
+  br i1 %282, label %283, label %.loopexit931
 
 283:                                              ; preds = %.preheader569.us
   %284 = add i64 %.sroa.59.0.i432.us, -1
@@ -1294,8 +1294,8 @@ default.unreachable:                              ; preds = %.noexc401, %.noexc4
 
 .sink.split.i.us:                                 ; preds = %308, %305, %294
   %.sink.i434.us = phi i64 [ %259, %294 ], [ 0, %305 ], [ 0, %308 ]
-  %.ph69.i.us = phi i64 [ %295, %294 ], [ %307, %305 ], [ %309, %308 ]
-  %310 = add i64 %.ph69.i.us, %254
+  %.ph76.i.us = phi i64 [ %295, %294 ], [ %307, %305 ], [ %309, %308 ]
+  %310 = add i64 %.ph76.i.us, %254
   %311 = icmp ult i64 %310, %.val1.i
   br i1 %311, label %.lr.ph.i428.us, label %._crit_edge.i426.us
 
@@ -1305,7 +1305,7 @@ default.unreachable:                              ; preds = %.noexc401, %.noexc4
   br i1 %268, label %.lr.ph.i.us, label %._crit_edge.i426.us
 
 .lr.ph.i.us:                                      ; preds = %312, %353
-  %313 = phi i64 [ %354, %353 ], [ %.ph69.i.lcssa679.us, %312 ]
+  %313 = phi i64 [ %354, %353 ], [ %.ph76.i.lcssa679.us, %312 ]
   %314 = phi i64 [ %355, %353 ], [ %267, %312 ]
   %315 = getelementptr inbounds i8, ptr %.val.i, i64 %314
   %316 = load i8, ptr %315, align 1, !alias.scope !164, !noalias !169, !noundef !4
@@ -1324,7 +1324,7 @@ default.unreachable:                              ; preds = %.noexc401, %.noexc4
 .preheader.us:                                    ; preds = %.preheader568.us, %328
   %.sroa.59.0.i.us = phi i64 [ %324, %328 ], [ %.promoted670, %.preheader568.us ]
   %.not555.us = icmp eq i64 %.sroa.59.0.i.us, 0
-  br i1 %.not555.us, label %.loopexit896, label %323
+  br i1 %.not555.us, label %.loopexit931, label %323
 
 323:                                              ; preds = %.preheader.us
   %324 = add i64 %.sroa.59.0.i.us, -1
@@ -1347,12 +1347,12 @@ default.unreachable:                              ; preds = %.noexc401, %.noexc4
   %334 = add i64 %313, %258
   br label %353
 
-.loopexit896:                                     ; preds = %.preheader569.us, %.preheader.us
-  %.lcssa850.sink = phi i64 [ %313, %.preheader.us ], [ %270, %.preheader569.us ]
-  %.sink.i434.us.lcssa885 = phi i64 [ %.sink.i434.us.lcssa887, %.preheader.us ], [ 0, %.preheader569.us ]
+.loopexit931:                                     ; preds = %.preheader569.us, %.preheader.us
+  %.lcssa885.sink = phi i64 [ %313, %.preheader.us ], [ %270, %.preheader569.us ]
+  %.sink.i434.us.lcssa920 = phi i64 [ %.sink.i434.us.lcssa922, %.preheader.us ], [ 0, %.preheader569.us ]
   %335 = phi i64 [ -1, %.preheader.us ], [ 0, %.preheader569.us ]
-  %336 = add i64 %.lcssa850.sink, %252
-  %337 = sub nuw i64 %.lcssa850.sink, %.pre.i.i669.us
+  %336 = add i64 %.lcssa885.sink, %252
+  %337 = sub nuw i64 %.lcssa885.sink, %.pre.i.i669.us
   %338 = getelementptr inbounds i8, ptr %.val.i, i64 %.pre.i.i669.us
   br label %.noexc400.us
 
@@ -1387,21 +1387,21 @@ default.unreachable:                              ; preds = %.noexc401, %.noexc4
   br i1 %356, label %.lr.ph.i.us, label %._crit_edge.i426.us
 
 ._crit_edge.i426.us:                              ; preds = %.sink.split.i.us, %353, %312, %269
-  %.sink.i434.us.lcssa884 = phi i64 [ %.sink.i434.us.lcssa887, %269 ], [ %.sink.i434.us.lcssa887, %312 ], [ %.sink.i434.us.lcssa887, %353 ], [ %.sink.i434.us, %.sink.split.i.us ]
+  %.sink.i434.us.lcssa919 = phi i64 [ %.sink.i434.us.lcssa922, %269 ], [ %.sink.i434.us.lcssa922, %312 ], [ %.sink.i434.us.lcssa922, %353 ], [ %.sink.i434.us, %.sink.split.i.us ]
   %357 = phi i64 [ %262, %269 ], [ -1, %312 ], [ -1, %353 ], [ %.sink.i434.us, %.sink.split.i.us ]
   %358 = sub nuw i64 %243, %.pre.i.i669.us
   %359 = getelementptr inbounds i8, ptr %.val.i, i64 %.pre.i.i669.us
   br label %.noexc400.us
 
-.noexc400.us:                                     ; preds = %._crit_edge.i426.us, %.loopexit896, %261
-  %.sink.i434.us.lcssa886 = phi i64 [ %.sink.i434.us.lcssa887, %261 ], [ %.sink.i434.us.lcssa885, %.loopexit896 ], [ %.sink.i434.us.lcssa884, %._crit_edge.i426.us ]
-  %.val1.i875 = phi i64 [ %.val1.i876, %261 ], [ %336, %.loopexit896 ], [ %.val1.i, %._crit_edge.i426.us ]
-  %.ph69.i.lcssa678.us = phi i64 [ %.ph69.i.lcssa679.us, %261 ], [ %336, %.loopexit896 ], [ %.val1.i, %._crit_edge.i426.us ]
-  %360 = phi i64 [ %262, %261 ], [ %335, %.loopexit896 ], [ %357, %._crit_edge.i426.us ]
-  %.pre.i.i668.us = phi i64 [ %.pre.i.i669.us, %261 ], [ %336, %.loopexit896 ], [ %.pre.i.i669.us, %._crit_edge.i426.us ]
-  %361 = phi i1 [ true, %261 ], [ false, %.loopexit896 ], [ true, %._crit_edge.i426.us ]
-  %.sroa.4.0.i.us = phi i64 [ undef, %261 ], [ %337, %.loopexit896 ], [ %358, %._crit_edge.i426.us ]
-  %.sroa.0.0.i.us = phi ptr [ null, %261 ], [ %338, %.loopexit896 ], [ %359, %._crit_edge.i426.us ]
+.noexc400.us:                                     ; preds = %._crit_edge.i426.us, %.loopexit931, %261
+  %.sink.i434.us.lcssa921 = phi i64 [ %.sink.i434.us.lcssa922, %261 ], [ %.sink.i434.us.lcssa920, %.loopexit931 ], [ %.sink.i434.us.lcssa919, %._crit_edge.i426.us ]
+  %.val1.i910 = phi i64 [ %.val1.i911, %261 ], [ %336, %.loopexit931 ], [ %.val1.i, %._crit_edge.i426.us ]
+  %.ph76.i.lcssa678.us = phi i64 [ %.ph76.i.lcssa679.us, %261 ], [ %336, %.loopexit931 ], [ %.val1.i, %._crit_edge.i426.us ]
+  %360 = phi i64 [ %262, %261 ], [ %335, %.loopexit931 ], [ %357, %._crit_edge.i426.us ]
+  %.pre.i.i668.us = phi i64 [ %.pre.i.i669.us, %261 ], [ %336, %.loopexit931 ], [ %.pre.i.i669.us, %._crit_edge.i426.us ]
+  %361 = phi i1 [ true, %261 ], [ false, %.loopexit931 ], [ true, %._crit_edge.i426.us ]
+  %.sroa.4.0.i.us = phi i64 [ undef, %261 ], [ %337, %.loopexit931 ], [ %358, %._crit_edge.i426.us ]
+  %.sroa.0.0.i.us = phi ptr [ null, %261 ], [ %338, %.loopexit931 ], [ %359, %._crit_edge.i426.us ]
   %.not.i.i382.us = icmp eq ptr %.sroa.0.0.i.us, null
   br i1 %264, label %362, label %.split746.us.loopexit
 
@@ -1545,18 +1545,18 @@ default.unreachable:                              ; preds = %.noexc401, %.noexc4
   br label %.lr.ph.i.i
 
 .split.us:                                        ; preds = %283
-  store i64 %.val1.i876, ptr %253, align 8
-  store i64 %.sink.i434.us.lcssa887, ptr %257, align 8
+  store i64 %.val1.i911, ptr %253, align 8
+  store i64 %.sink.i434.us.lcssa922, ptr %257, align 8
   br label %.split710.us.invoke
 
 .split700.us:                                     ; preds = %286
-  store i64 %.val1.i876, ptr %253, align 8
-  store i64 %.sink.i434.us.lcssa887, ptr %257, align 8
+  store i64 %.val1.i911, ptr %253, align 8
+  store i64 %.sink.i434.us.lcssa922, ptr %257, align 8
   br label %.split710.us.invoke
 
 .split710.us:                                     ; preds = %296
-  store i64 %.val1.i876, ptr %253, align 8
-  store i64 %.sink.i434.us.lcssa887, ptr %257, align 8
+  store i64 %.val1.i911, ptr %253, align 8
+  store i64 %.sink.i434.us.lcssa922, ptr %257, align 8
   %435 = add i64 %270, %.sroa.0.0.sroa.speculated.i.i430.us
   %umax.i435 = call i64 @llvm.umax.i64(i64 %.val1.i, i64 %435)
   br label %.split710.us.invoke
@@ -1572,18 +1572,18 @@ default.unreachable:                              ; preds = %.noexc401, %.noexc4
   unreachable
 
 .split721.us:                                     ; preds = %323
-  store i64 %.val1.i876, ptr %253, align 8
-  store i64 %.sink.i434.us.lcssa887, ptr %257, align 8
+  store i64 %.val1.i911, ptr %253, align 8
+  store i64 %.sink.i434.us.lcssa922, ptr %257, align 8
   br label %.split710.us.invoke
 
 .split729.us:                                     ; preds = %325
-  store i64 %.val1.i876, ptr %253, align 8
-  store i64 %.sink.i434.us.lcssa887, ptr %257, align 8
+  store i64 %.val1.i911, ptr %253, align 8
+  store i64 %.sink.i434.us.lcssa922, ptr %257, align 8
   br label %.split710.us.invoke
 
 .split737.us:                                     ; preds = %339
-  store i64 %.val1.i876, ptr %253, align 8
-  store i64 %.sink.i434.us.lcssa887, ptr %257, align 8
+  store i64 %.val1.i911, ptr %253, align 8
+  store i64 %.sink.i434.us.lcssa922, ptr %257, align 8
   %439 = add i64 %313, %.promoted670
   %umax.i = call i64 @llvm.umax.i64(i64 %.val1.i, i64 %439)
   br label %.split710.us.invoke
@@ -1613,24 +1613,24 @@ default.unreachable:                              ; preds = %.noexc401, %.noexc4
   %.sroa.4.0.i = phi i64 [ undef, %364 ], [ %447, %.loopexit.i.i ], [ %443, %440 ]
   %.sroa.0.0.i = phi ptr [ null, %364 ], [ %448, %.loopexit.i.i ], [ %444, %440 ]
   %.not.i.i382 = icmp eq ptr %.sroa.0.0.i, null
-  br i1 %369, label %453, label %.split746.us.loopexit827
+  br i1 %369, label %453, label %.split746.us.loopexit862
 
 453:                                              ; preds = %.noexc400
-  br i1 %.not.i.i382, label %.loopexit570.loopexit828, label %364
+  br i1 %.not.i.i382, label %.loopexit570.loopexit863, label %364
 
 .split746.us.loopexit:                            ; preds = %.noexc400.us
-  store i64 %.val1.i875, ptr %253, align 8
-  store i64 %.sink.i434.us.lcssa886, ptr %257, align 8
+  store i64 %.val1.i910, ptr %253, align 8
+  store i64 %.sink.i434.us.lcssa921, ptr %257, align 8
   br label %.split746.us
 
-.split746.us.loopexit827:                         ; preds = %.noexc400
+.split746.us.loopexit862:                         ; preds = %.noexc400
   store i8 %449, ptr %248, align 8
   br label %.split746.us
 
-.split746.us:                                     ; preds = %.split746.us.loopexit827, %.split746.us.loopexit
-  %.us-phi749 = phi i64 [ %.sroa.4.0.i.us, %.split746.us.loopexit ], [ %.sroa.4.0.i, %.split746.us.loopexit827 ]
-  %.us-phi750 = phi ptr [ %.sroa.0.0.i.us, %.split746.us.loopexit ], [ %.sroa.0.0.i, %.split746.us.loopexit827 ]
-  %.us-phi751 = phi i1 [ %.not.i.i382.us, %.split746.us.loopexit ], [ %.not.i.i382, %.split746.us.loopexit827 ]
+.split746.us:                                     ; preds = %.split746.us.loopexit862, %.split746.us.loopexit
+  %.us-phi749 = phi i64 [ %.sroa.4.0.i.us, %.split746.us.loopexit ], [ %.sroa.4.0.i, %.split746.us.loopexit862 ]
+  %.us-phi750 = phi ptr [ %.sroa.0.0.i.us, %.split746.us.loopexit ], [ %.sroa.0.0.i, %.split746.us.loopexit862 ]
+  %.us-phi751 = phi i1 [ %.not.i.i382.us, %.split746.us.loopexit ], [ %.not.i.i382, %.split746.us.loopexit862 ]
   br i1 %.us-phi751, label %.loopexit570, label %454
 
 454:                                              ; preds = %.split746.us
@@ -1765,15 +1765,15 @@ default.unreachable:                              ; preds = %.noexc401, %.noexc4
   br label %556
 
 .loopexit570.loopexit:                            ; preds = %362
-  store i64 %.val1.i875, ptr %253, align 8
-  store i64 %.sink.i434.us.lcssa886, ptr %257, align 8
+  store i64 %.val1.i910, ptr %253, align 8
+  store i64 %.sink.i434.us.lcssa921, ptr %257, align 8
   br label %.loopexit570
 
-.loopexit570.loopexit828:                         ; preds = %453
+.loopexit570.loopexit863:                         ; preds = %453
   store i8 %449, ptr %248, align 8
   br label %.loopexit570
 
-.loopexit570:                                     ; preds = %.loopexit570.loopexit, %.loopexit570.loopexit828, %.split746.us
+.loopexit570:                                     ; preds = %.loopexit570.loopexit, %.loopexit570.loopexit863, %.split746.us
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !151
   %482 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h787ea0ba59a7d36fE monotonic, align 8
   %483 = icmp ult i64 %482, 2

@@ -348,17 +348,17 @@ sub_0.preheader:                                  ; preds = %.preheader
   %.pre = load ptr, ptr %5, align 8, !tbaa !14
   br label %sub_0.outer
 
-sub_0.outer:                                      ; preds = %.thread41, %sub_0.preheader
-  %.ph = phi i32 [ %.pre40, %.thread41 ], [ %35, %sub_0.preheader ]
-  %.ph46 = phi ptr [ %46, %.thread41 ], [ %.pre, %sub_0.preheader ]
-  %indvars.iv.ph = phi i64 [ %indvars.iv.next43, %.thread41 ], [ 0, %sub_0.preheader ]
-  %.136.ph = phi i1 [ true, %.thread41 ], [ false, %sub_0.preheader ]
+sub_0.outer:                                      ; preds = %.thread49, %sub_0.preheader
+  %.ph = phi i32 [ %.pre40, %.thread49 ], [ %35, %sub_0.preheader ]
+  %.ph54 = phi ptr [ %46, %.thread49 ], [ %.pre, %sub_0.preheader ]
+  %indvars.iv.ph = phi i64 [ %indvars.iv.next51, %.thread49 ], [ 0, %sub_0.preheader ]
+  %.136.ph = phi i1 [ true, %.thread49 ], [ false, %sub_0.preheader ]
   %37 = sext i32 %.ph to i64
   br label %sub_0
 
 sub_0:                                            ; preds = %sub_0.outer, %.tail.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.tail.thread ], [ %indvars.iv.ph, %sub_0.outer ]
-  %38 = getelementptr inbounds nuw ptr, ptr %.ph46, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %.ph54, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !6
   %40 = load i8, ptr %39, align 1
   %.not = icmp eq i8 %40, 46
@@ -377,18 +377,18 @@ sub_0:                                            ; preds = %sub_0.outer, %.tail
   %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
   store ptr %45, ptr %47, align 8, !tbaa !6
   %48 = icmp eq ptr %45, null
-  br i1 %48, label %.loopexit, label %.thread41
+  br i1 %48, label %.loopexit, label %.thread49
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = icmp slt i64 %indvars.iv.next, %37
   br i1 %49, label %sub_0, label %._crit_edge, !llvm.loop !18
 
-.thread41:                                        ; preds = %44
+.thread49:                                        ; preds = %44
   %.pre40 = load i32, ptr %6, align 4, !tbaa !12
-  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv, 1
   %50 = sext i32 %.pre40 to i64
-  %51 = icmp slt i64 %indvars.iv.next43, %50
+  %51 = icmp slt i64 %indvars.iv.next51, %50
   br i1 %51, label %sub_0.outer, label %.thread, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.tail.thread
@@ -398,7 +398,7 @@ sub_0:                                            ; preds = %sub_0.outer, %.tail
   %52 = call i32 @pmix_argv_append(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %3) #14
   br label %.thread
 
-.thread:                                          ; preds = %.thread41, %path_env_load.exit, %.critedge, %._crit_edge
+.thread:                                          ; preds = %.thread49, %path_env_load.exit, %.critedge, %._crit_edge
   %53 = load ptr, ptr %5, align 8, !tbaa !14
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.loopexit, label %55
@@ -584,8 +584,8 @@ define noundef zeroext i1 @pmix_path_nfs(ptr noundef %0, ptr noundef writeonly c
   %46 = icmp eq i32 %45, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not32 = icmp eq i64 %indvars.iv.next, 6
-  %or.cond40 = select i1 %46, i1 true, i1 %.not32
-  br i1 %or.cond40, label %.loopexit, label %42, !llvm.loop !27
+  %or.cond45 = select i1 %46, i1 true, i1 %.not32
+  br i1 %or.cond45, label %.loopexit, label %42, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.backedge, %22
   %47 = call i32 @endmntent(ptr noundef nonnull %.023) #14

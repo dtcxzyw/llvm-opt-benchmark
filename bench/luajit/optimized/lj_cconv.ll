@@ -110,8 +110,8 @@ cconv_childqual.exit54:                           ; preds = %.preheader
   %.not39 = icmp eq i32 %19, %.062
   %37 = lshr i32 %34, 28
   %.not40 = icmp eq i32 %10, %37
-  %or.cond76 = and i1 %.not39, %.not40
-  br i1 %or.cond76, label %46, label %.thread
+  %or.cond80 = and i1 %.not39, %.not40
+  br i1 %or.cond80, label %46, label %.thread
 
 38:                                               ; preds = %33
   %39 = and i32 %3, 8
@@ -128,8 +128,8 @@ cconv_childqual.exit54:                           ; preds = %.preheader
   %43 = icmp eq i32 %.mask37, 1073741824
   %.mask38 = and i32 %34, -268435456
   %44 = icmp eq i32 %.mask38, 1073741824
-  %or.cond75 = or i1 %43, %44
-  br i1 %or.cond75, label %.thread, label %45
+  %or.cond79 = or i1 %43, %44
+  br i1 %or.cond79, label %.thread, label %45
 
 45:                                               ; preds = %42, %38
   %.old = lshr i32 %34, 28

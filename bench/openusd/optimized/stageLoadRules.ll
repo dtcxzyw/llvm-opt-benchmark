@@ -1780,8 +1780,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__n
 .preheader24.preheader:                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SG_ESG_SG_RKS4_RKT0_.exit
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.lcssa.i.i.i, i64 8
   %51 = load i32, ptr %50, align 4
-  %switch30 = icmp ult i32 %51, 2
-  br i1 %switch30, label %.loopexit, label %.preheader.preheader
+  %switch36 = icmp ult i32 %51, 2
+  br i1 %switch36, label %.loopexit, label %.preheader.preheader
 
 .preheader24.loopexit:                            ; preds = %54
   %52 = getelementptr inbounds nuw i8, ptr %storemerge.in.sroa.speculated.in.pn, i64 20
@@ -1790,17 +1790,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__n
   br i1 %switch, label %.loopexit, label %.preheader.preheader, !llvm.loop !18
 
 .preheader.preheader:                             ; preds = %.preheader24.preheader, %.preheader24.loopexit
-  %storemerge.in.sroa.speculated.in2531 = phi ptr [ %.sroa.0.0, %.preheader24.loopexit ], [ %.sroa.012.0.lcssa.i.i.i, %.preheader24.preheader ]
+  %storemerge.in.sroa.speculated.in2537 = phi ptr [ %.sroa.0.0, %.preheader24.loopexit ], [ %.sroa.012.0.lcssa.i.i.i, %.preheader24.preheader ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %54
-  %storemerge.in.sroa.speculated.in.pn = phi ptr [ %.sroa.0.0, %54 ], [ %storemerge.in.sroa.speculated.in2531, %.preheader.preheader ]
+  %storemerge.in.sroa.speculated.in.pn = phi ptr [ %.sroa.0.0, %54 ], [ %storemerge.in.sroa.speculated.in2537, %.preheader.preheader ]
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %storemerge.in.sroa.speculated.in.pn, i64 12
   %.not23 = icmp eq ptr %.sroa.0.0, %.sroa.03.0.lcssa.i.i
   br i1 %.not23, label %.loopexit, label %54
 
 54:                                               ; preds = %.preheader
-  %55 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.0, ptr noundef nonnull align 4 dereferenceable(8) %storemerge.in.sroa.speculated.in2531)
+  %55 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.0, ptr noundef nonnull align 4 dereferenceable(8) %storemerge.in.sroa.speculated.in2537)
   br i1 %55, label %.preheader, label %.preheader24.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader24.loopexit, %.preheader, %.preheader24.preheader, %16, %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SG_ESG_SG_RKS4_RKT0_.exit, %12, %8, %2

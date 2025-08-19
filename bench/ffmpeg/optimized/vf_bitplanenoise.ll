@@ -200,14 +200,14 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %109, label %.lr.ph442.split.preheader, label %._crit_edge443
 
 .lr.ph442.split.preheader:                        ; preds = %.thread
-  %invariant.gep541 = getelementptr i8, ptr %.0385448, i64 %68
+  %invariant.gep549 = getelementptr i8, ptr %.0385448, i64 %68
   br label %.lr.ph442.split
 
 .lr.ph442.split.us:                               ; preds = %98
   %smax = add nsw i32 %102, -1
   %wide.trip.count504 = zext nneg i32 %smax to i64
   %.pre517 = load i8, ptr %77, align 1, !tbaa !43
-  %invariant.gep543 = getelementptr i8, ptr %.0385448, i64 %68
+  %invariant.gep551 = getelementptr i8, ptr %.0385448, i64 %68
   br label %110
 
 110:                                              ; preds = %110, %.lr.ph442.split.us
@@ -231,8 +231,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %126 = icmp eq i32 %115, %125
   %127 = zext i1 %126 to i32
   %128 = add nuw nsw i32 %127, %121
-  %gep544 = getelementptr i8, ptr %invariant.gep543, i64 %indvars.iv501
-  %129 = load i8, ptr %gep544, align 1, !tbaa !43
+  %gep552 = getelementptr i8, ptr %invariant.gep551, i64 %indvars.iv501
+  %129 = load i8, ptr %gep552, align 1, !tbaa !43
   %130 = zext i8 %129 to i32
   %131 = and i32 %17, %130
   %132 = icmp eq i32 %115, %131
@@ -268,8 +268,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %152 = icmp eq i32 %141, %151
   %153 = zext i1 %152 to i32
   %154 = add nuw nsw i32 %153, %147
-  %gep542 = getelementptr i8, ptr %invariant.gep541, i64 %indvars.iv498
-  %155 = load i8, ptr %gep542, align 1, !tbaa !43
+  %gep550 = getelementptr i8, ptr %invariant.gep549, i64 %indvars.iv498
+  %155 = load i8, ptr %gep550, align 1, !tbaa !43
   %156 = zext i8 %155 to i32
   %157 = and i32 %17, %156
   %158 = icmp eq i32 %141, %157
@@ -595,27 +595,27 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %388 = add nuw nsw i32 %382, %387
   %389 = icmp samesign ugt i32 %388, 1
   %.not398 = icmp eq ptr %.0421, null
-  br i1 %.not398, label %390, label %.thread528
+  br i1 %.not398, label %390, label %.thread536
 
 390:                                              ; preds = %365
   %391 = uitofp i1 %389 to float
   %392 = fadd nsz float %storemerge399.lcssa411427, %391
   br i1 %360, label %.lr.ph.split.us.preheader, label %._crit_edge
 
-.thread528:                                       ; preds = %365
+.thread536:                                       ; preds = %365
   %393 = select i1 %389, i16 %42, i16 0
   store i16 %393, ptr %.0421, align 2, !tbaa !51
   %394 = uitofp i1 %389 to float
   %395 = fadd nsz float %storemerge399.lcssa411427, %394
   br i1 %360, label %.lr.ph.split.preheader, label %._crit_edge
 
-.lr.ph.split.preheader:                           ; preds = %.thread528
+.lr.ph.split.preheader:                           ; preds = %.thread536
   %invariant.gep = getelementptr i16, ptr %.0379419, i64 %355
   br label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %390
   %.pre515 = load i16, ptr %369, align 2, !tbaa !51
-  %invariant.gep539 = getelementptr i16, ptr %.0379419, i64 %355
+  %invariant.gep547 = getelementptr i16, ptr %.0379419, i64 %355
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
@@ -639,8 +639,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %410 = icmp eq i32 %399, %409
   %411 = zext i1 %410 to i32
   %412 = add nuw nsw i32 %411, %405
-  %gep540 = getelementptr i16, ptr %invariant.gep539, i64 %indvars.iv482
-  %413 = load i16, ptr %gep540, align 2, !tbaa !51
+  %gep548 = getelementptr i16, ptr %invariant.gep547, i64 %indvars.iv482
+  %413 = load i16, ptr %gep548, align 2, !tbaa !51
   %414 = zext i16 %413 to i32
   %415 = and i32 %17, %414
   %416 = icmp eq i32 %399, %415
@@ -689,9 +689,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !53
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.thread528, %390
-  %storemerge399.lcssa = phi float [ %392, %390 ], [ %395, %.thread528 ], [ %421, %.lr.ph.split.us ], [ %449, %.lr.ph.split ]
-  %.2390.lcssa = phi i32 [ 1, %390 ], [ 1, %.thread528 ], [ %363, %.lr.ph.split.us ], [ %359, %.lr.ph.split ]
+._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.thread536, %390
+  %storemerge399.lcssa = phi float [ %392, %390 ], [ %395, %.thread536 ], [ %421, %.lr.ph.split.us ], [ %449, %.lr.ph.split ]
+  %.2390.lcssa = phi i32 [ 1, %390 ], [ 1, %.thread536 ], [ %363, %.lr.ph.split.us ], [ %359, %.lr.ph.split ]
   %450 = zext nneg i32 %.2390.lcssa to i64
   %451 = getelementptr inbounds nuw i16, ptr %.0379419, i64 %450
   %452 = load i16, ptr %451, align 2, !tbaa !51

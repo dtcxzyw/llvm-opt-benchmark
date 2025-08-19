@@ -126,14 +126,14 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %8
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %48, %50, %40, %42
-  %.sink272 = phi ptr [ %41, %40 ], [ %43, %42 ], [ %49, %48 ], [ %51, %50 ]
+  %.sink291 = phi ptr [ %41, %40 ], [ %43, %42 ], [ %49, %48 ], [ %51, %50 ]
   %.sink = phi i32 [ 16, %40 ], [ 16, %42 ], [ %45, %48 ], [ %45, %50 ]
-  store ptr %.sink272, ptr %13, align 8, !tbaa !30
+  store ptr %.sink291, ptr %13, align 8, !tbaa !30
   store i32 %.sink, ptr %5, align 8, !tbaa !29
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %20
-  %.pre.i253 = phi ptr [ %19, %20 ], [ %.sink272, %Vec_IntPush.exit.sink.split ]
+  %.pre.i253 = phi ptr [ %19, %20 ], [ %.sink291, %Vec_IntPush.exit.sink.split ]
   %52 = add nsw i32 %34, 1
   store i32 %52, ptr %7, align 4, !tbaa !28
   %53 = sext i32 %34 to i64
@@ -347,13 +347,13 @@ Vec_BitStart.exit195:                             ; preds = %65, %72
 
 164:                                              ; preds = %.critedge6.thread, %.critedge6
   %165 = phi i32 [ %161, %.critedge6.thread ], [ %163, %.critedge6 ]
-  %.val159262269 = phi i32 [ %.val158, %.critedge6.thread ], [ %.val158220, %.critedge6 ]
+  %.val159262288 = phi i32 [ %.val158, %.critedge6.thread ], [ %.val158220, %.critedge6 ]
   call void @free(ptr noundef nonnull %78) #13
   br label %Vec_BitFree.exit
 
 Vec_BitFree.exit:                                 ; preds = %.critedge6, %164
   %166 = phi i32 [ %163, %.critedge6 ], [ %165, %164 ]
-  %.val159262270 = phi i32 [ %.val158220, %.critedge6 ], [ %.val159262269, %164 ]
+  %.val159262289 = phi i32 [ %.val158220, %.critedge6 ], [ %.val159262288, %164 ]
   %.not.i198 = icmp eq ptr %79, null
   br i1 %.not.i198, label %Vec_BitFree.exit199, label %167
 
@@ -367,7 +367,7 @@ Vec_BitFree.exit199:                              ; preds = %Vec_BitFree.exit, %
   br label %Vec_WecStart.exit
 
 Vec_WecStart.exit:                                ; preds = %Vec_BitFree.exit199, %.critedge2
-  %.val159263 = phi i32 [ %.val159262270, %Vec_BitFree.exit199 ], [ %.val158220255, %.critedge2 ]
+  %.val159263 = phi i32 [ %.val159262289, %Vec_BitFree.exit199 ], [ %.val158220255, %.critedge2 ]
   %.1140 = phi i32 [ %166, %Vec_BitFree.exit199 ], [ %.0139.lcssa, %.critedge2 ]
   %168 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %169 = add nsw i32 %.1140, -1
@@ -1745,8 +1745,8 @@ Vec_PtrFree.exit.i:                               ; preds = %167, %164
   br i1 %170, label %161, label %.critedge.i, !llvm.loop !138
 
 .critedge.i:                                      ; preds = %168, %Vec_PtrFree.exit, %._crit_edge
-  %.lcssa231266 = phi ptr [ %154, %._crit_edge ], [ %134, %Vec_PtrFree.exit ], [ %154, %168 ]
-  %171 = getelementptr inbounds nuw i8, ptr %.lcssa231266, i64 8
+  %.lcssa231305 = phi ptr [ %154, %._crit_edge ], [ %134, %Vec_PtrFree.exit ], [ %154, %168 ]
+  %171 = getelementptr inbounds nuw i8, ptr %.lcssa231305, i64 8
   %172 = load ptr, ptr %171, align 8, !tbaa !107
   %.not.i9.i = icmp eq ptr %172, null
   br i1 %.not.i9.i, label %Vec_VecFree.exit, label %173
@@ -1756,7 +1756,7 @@ Vec_PtrFree.exit.i:                               ; preds = %167, %164
   br label %Vec_VecFree.exit
 
 Vec_VecFree.exit:                                 ; preds = %.critedge.i, %173
-  tail call void @free(ptr noundef nonnull %.lcssa231266) #13
+  tail call void @free(ptr noundef nonnull %.lcssa231305) #13
   tail call void @Pdr_QueueStop(ptr noundef %0) #13
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %175 = load ptr, ptr %174, align 8, !tbaa !78
@@ -2813,10 +2813,10 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %147, %141
-  %.sink216 = phi i32 [ %146, %141 ], [ %159, %147 ]
-  %160 = and i32 %.sink216, 31
+  %.sink227 = phi i32 [ %146, %141 ], [ %159, %147 ]
+  %160 = and i32 %.sink227, 31
   %161 = shl nuw i32 1, %160
-  %162 = ashr i32 %.sink216, 5
+  %162 = ashr i32 %.sink227, 5
   %163 = sext i32 %162 to i64
   %164 = getelementptr inbounds i32, ptr %121, i64 %163
   %165 = load i32, ptr %164, align 4, !tbaa !33

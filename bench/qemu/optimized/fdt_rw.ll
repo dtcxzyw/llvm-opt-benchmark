@@ -1677,9 +1677,9 @@ define dso_local i32 @fdt_open_into(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 .sink.split:                                      ; preds = %82, %119
   %.sink = phi i32 [ %224, %119 ], [ %2, %82 ]
-  %.sink65 = phi i64 [ 28, %119 ], [ 4, %82 ]
+  %.sink73 = phi i64 [ 28, %119 ], [ 4, %82 ]
   %rev.i.i64 = call noundef i32 @llvm.bswap.i32(i32 %.sink)
-  %225 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink65
+  %225 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink73
   store i32 %rev.i.i64, ptr %225, align 4
   br label %226
 

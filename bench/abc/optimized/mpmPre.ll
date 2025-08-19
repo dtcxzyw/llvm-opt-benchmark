@@ -1315,13 +1315,13 @@ Vec_StrGrow.exit.i60:                             ; preds = %111, %109
   br label %.sink.split
 
 .sink.split:                                      ; preds = %122, %Vec_StrGrow.exit.i60, %.Vec_StrGrow.exit10_crit_edge.i55, %97, %Vec_StrGrow.exit.i53, %.Vec_StrGrow.exit10_crit_edge.i48
-  %.sink90 = phi ptr [ %.pre.i50, %.Vec_StrGrow.exit10_crit_edge.i48 ], [ %98, %97 ], [ %88, %Vec_StrGrow.exit.i53 ], [ %.pre.i57, %.Vec_StrGrow.exit10_crit_edge.i55 ], [ %123, %122 ], [ %113, %Vec_StrGrow.exit.i60 ]
+  %.sink107 = phi ptr [ %.pre.i50, %.Vec_StrGrow.exit10_crit_edge.i48 ], [ %98, %97 ], [ %88, %Vec_StrGrow.exit.i53 ], [ %.pre.i57, %.Vec_StrGrow.exit10_crit_edge.i55 ], [ %123, %122 ], [ %113, %Vec_StrGrow.exit.i60 ]
   %.sink = phi i8 [ %76, %.Vec_StrGrow.exit10_crit_edge.i48 ], [ %76, %97 ], [ %76, %Vec_StrGrow.exit.i53 ], [ %101, %.Vec_StrGrow.exit10_crit_edge.i55 ], [ %101, %122 ], [ %101, %Vec_StrGrow.exit.i60 ]
   %124 = load i32, ptr %6, align 4, !tbaa !52
   %125 = add nsw i32 %124, 1
   store i32 %125, ptr %6, align 4, !tbaa !52
   %126 = sext i32 %124 to i64
-  %127 = getelementptr inbounds i8, ptr %.sink90, i64 %126
+  %127 = getelementptr inbounds i8, ptr %.sink107, i64 %126
   store i8 %.sink, ptr %127, align 1, !tbaa !44
   br label %128
 
@@ -2992,8 +2992,8 @@ define void @Ifd_ManOperSuper_rec(ptr noundef readonly captures(none) %0, i32 no
   %9 = load i32, ptr %8, align 4
   %10 = lshr i32 %9, 29
   %11 = and i32 %10, 3
-  %.not1422 = icmp eq i32 %11, %2
-  br i1 %.not1422, label %tailrecurse, label %._crit_edge
+  %.not1425 = icmp eq i32 %11, %2
+  br i1 %.not1425, label %tailrecurse, label %._crit_edge
 
 .lr.ph:                                           ; preds = %tailrecurse
   %.val = load ptr, ptr %0, align 8, !tbaa !17
@@ -3628,16 +3628,16 @@ define ptr @Ifd_ManDsdTruths(i32 noundef %0) local_unnamed_addr #4 {
   %.not130.us253.us = icmp eq ptr %.val149.us252.us, null
   br i1 %.not130.us253.us, label %.critedge8.us.us, label %39, !llvm.loop !73
 
-39:                                               ; preds = %.lr.ph354, %.lr.ph234.split.us259.us
-  %.val149.us252.us353 = phi ptr [ %.val149.us252.us350, %.lr.ph354 ], [ %.val149.us252.us, %.lr.ph234.split.us259.us ]
-  %indvars.iv276352 = phi i64 [ %75, %.lr.ph354 ], [ %indvars.iv.next277, %.lr.ph234.split.us259.us ]
-  %40 = getelementptr inbounds %struct.Ifd_Obj_t_, ptr %.val149.us252.us353, i64 %indvars.iv276352
+39:                                               ; preds = %.lr.ph363, %.lr.ph234.split.us259.us
+  %.val149.us252.us362 = phi ptr [ %.val149.us252.us359, %.lr.ph363 ], [ %.val149.us252.us, %.lr.ph234.split.us259.us ]
+  %indvars.iv276361 = phi i64 [ %75, %.lr.ph363 ], [ %indvars.iv.next277, %.lr.ph234.split.us259.us ]
+  %40 = getelementptr inbounds %struct.Ifd_Obj_t_, ptr %.val149.us252.us362, i64 %indvars.iv276361
   %41 = load i32, ptr %40, align 4
   %.not131.us.us = icmp slt i32 %41, 0
   br i1 %.not131.us.us, label %50, label %42
 
 42:                                               ; preds = %39
-  %indvars.iv276.tr = trunc i64 %indvars.iv276352 to i32
+  %indvars.iv276.tr = trunc i64 %indvars.iv276361 to i32
   %43 = shl i32 %indvars.iv276.tr, 1
   %44 = tail call i32 @Ifd_ManHashFindOrAdd(ptr noundef nonnull %2, i32 noundef %96, i32 noundef %74, i32 noundef %43, i32 noundef 3)
   %45 = load i32, ptr %22, align 4
@@ -3654,7 +3654,7 @@ define ptr @Ifd_ManDsdTruths(i32 noundef %0) local_unnamed_addr #4 {
   br label %50
 
 50:                                               ; preds = %48, %46, %42, %39
-  %indvars.iv.next277 = add nsw i64 %indvars.iv276352, 1
+  %indvars.iv.next277 = add nsw i64 %indvars.iv276361, 1
   %51 = load ptr, ptr %3, align 8, !tbaa !36
   %52 = getelementptr i8, ptr %51, i64 8
   %.val.us256.us = load ptr, ptr %52, align 8, !tbaa !22
@@ -3668,12 +3668,12 @@ define ptr @Ifd_ManDsdTruths(i32 noundef %0) local_unnamed_addr #4 {
 ..critedge8.us.us.loopexit_crit_edge:             ; preds = %50
   br label %.critedge8.us.us, !llvm.loop !73
 
-..critedge8.us.us.loopexit332_crit_edge:          ; preds = %83
+..critedge8.us.us.loopexit341_crit_edge:          ; preds = %83
   br label %.critedge8.us.us, !llvm.loop !73
 
-.critedge8.us.us:                                 ; preds = %.lr.ph234.split.us.us.us, %.lr.ph234.split.us259.us, %.lr.ph234.split.us.us.us.preheader, %..critedge8.us.us.loopexit332_crit_edge, %.lr.ph234.split.us259.us.preheader, %..critedge8.us.us.loopexit_crit_edge, %33
-  %58 = phi ptr [ %30, %33 ], [ %51, %..critedge8.us.us.loopexit_crit_edge ], [ %30, %.lr.ph234.split.us259.us.preheader ], [ %85, %..critedge8.us.us.loopexit332_crit_edge ], [ %30, %.lr.ph234.split.us.us.us.preheader ], [ %51, %.lr.ph234.split.us259.us ], [ %85, %.lr.ph234.split.us.us.us ]
-  %59 = phi ptr [ %31, %33 ], [ %51, %..critedge8.us.us.loopexit_crit_edge ], [ %31, %.lr.ph234.split.us259.us.preheader ], [ %85, %..critedge8.us.us.loopexit332_crit_edge ], [ %31, %.lr.ph234.split.us.us.us.preheader ], [ %51, %.lr.ph234.split.us259.us ], [ %85, %.lr.ph234.split.us.us.us ]
+.critedge8.us.us:                                 ; preds = %.lr.ph234.split.us.us.us, %.lr.ph234.split.us259.us, %.lr.ph234.split.us.us.us.preheader, %..critedge8.us.us.loopexit341_crit_edge, %.lr.ph234.split.us259.us.preheader, %..critedge8.us.us.loopexit_crit_edge, %33
+  %58 = phi ptr [ %30, %33 ], [ %51, %..critedge8.us.us.loopexit_crit_edge ], [ %30, %.lr.ph234.split.us259.us.preheader ], [ %85, %..critedge8.us.us.loopexit341_crit_edge ], [ %30, %.lr.ph234.split.us.us.us.preheader ], [ %51, %.lr.ph234.split.us259.us ], [ %85, %.lr.ph234.split.us.us.us ]
+  %59 = phi ptr [ %31, %33 ], [ %51, %..critedge8.us.us.loopexit_crit_edge ], [ %31, %.lr.ph234.split.us259.us.preheader ], [ %85, %..critedge8.us.us.loopexit341_crit_edge ], [ %31, %.lr.ph234.split.us.us.us.preheader ], [ %51, %.lr.ph234.split.us259.us ], [ %85, %.lr.ph234.split.us.us.us ]
   %indvars.iv.next280 = add nsw i64 %indvars.iv279, 1
   %60 = getelementptr i8, ptr %59, i64 8
   %.val141.us.us = load ptr, ptr %60, align 8, !tbaa !22
@@ -3711,34 +3711,34 @@ define ptr @Ifd_ManDsdTruths(i32 noundef %0) local_unnamed_addr #4 {
   %.fr.us.us = freeze i1 %73
   %indvars.iv279.tr = trunc i64 %indvars.iv279 to i32
   %74 = shl i32 %indvars.iv279.tr, 1
-  %.val149.us252.us350 = load ptr, ptr %2, align 8, !tbaa !17
-  %.not130.us253.us351 = icmp eq ptr %.val149.us252.us350, null
+  %.val149.us252.us359 = load ptr, ptr %2, align 8, !tbaa !17
+  %.not130.us253.us360 = icmp eq ptr %.val149.us252.us359, null
   br i1 %.fr.us.us, label %.lr.ph234.split.us259.us.preheader, label %.lr.ph234.split.us.us.us.preheader
 
 .lr.ph234.split.us.us.us.preheader:               ; preds = %.lr.ph234.us.us
-  br i1 %.not130.us253.us351, label %.critedge8.us.us, label %.lr.ph345
+  br i1 %.not130.us253.us360, label %.critedge8.us.us, label %.lr.ph354
 
 .lr.ph234.split.us259.us.preheader:               ; preds = %.lr.ph234.us.us
-  br i1 %.not130.us253.us351, label %.critedge8.us.us, label %.lr.ph354
+  br i1 %.not130.us253.us360, label %.critedge8.us.us, label %.lr.ph363
 
-.lr.ph354:                                        ; preds = %.lr.ph234.split.us259.us.preheader
+.lr.ph363:                                        ; preds = %.lr.ph234.split.us259.us.preheader
   %75 = sext i32 %35 to i64
   br label %39
 
 .lr.ph234.split.us.us.us:                         ; preds = %83
   %.val149.us.us.us = load ptr, ptr %2, align 8, !tbaa !17
   %.not130.us.us.us = icmp eq ptr %.val149.us.us.us, null
-  br i1 %.not130.us.us.us, label %.critedge8.us.us, label %.lr.ph345, !llvm.loop !73
+  br i1 %.not130.us.us.us, label %.critedge8.us.us, label %.lr.ph354, !llvm.loop !73
 
-.lr.ph345:                                        ; preds = %.lr.ph234.split.us.us.us.preheader, %.lr.ph234.split.us.us.us
-  %.0233.us.us.us344 = phi i32 [ %84, %.lr.ph234.split.us.us.us ], [ %35, %.lr.ph234.split.us.us.us.preheader ]
-  %76 = shl nsw i32 %.0233.us.us.us344, 1
+.lr.ph354:                                        ; preds = %.lr.ph234.split.us.us.us.preheader, %.lr.ph234.split.us.us.us
+  %.0233.us.us.us353 = phi i32 [ %84, %.lr.ph234.split.us.us.us ], [ %35, %.lr.ph234.split.us.us.us.preheader ]
+  %76 = shl nsw i32 %.0233.us.us.us353, 1
   %77 = tail call i32 @Ifd_ManHashFindOrAdd(ptr noundef nonnull %2, i32 noundef %94, i32 noundef %74, i32 noundef %76, i32 noundef 3)
   %78 = load i32, ptr %22, align 4
   %.not132.us.us.us = icmp sgt i32 %78, -1
   br i1 %.not132.us.us.us, label %79, label %83
 
-79:                                               ; preds = %.lr.ph345
+79:                                               ; preds = %.lr.ph354
   %80 = load i32, ptr %32, align 4
   %.not133.us.us.us = icmp sgt i32 %80, -1
   br i1 %.not133.us.us.us, label %81, label %83
@@ -3747,8 +3747,8 @@ define ptr @Ifd_ManDsdTruths(i32 noundef %0) local_unnamed_addr #4 {
   %82 = tail call i32 @Ifd_ManHashFindOrAdd(ptr noundef nonnull %2, i32 noundef %95, i32 noundef %74, i32 noundef %76, i32 noundef 3)
   br label %83
 
-83:                                               ; preds = %81, %79, %.lr.ph345
-  %84 = add nsw i32 %.0233.us.us.us344, 1
+83:                                               ; preds = %81, %79, %.lr.ph354
+  %84 = add nsw i32 %.0233.us.us.us353, 1
   %85 = load ptr, ptr %3, align 8, !tbaa !36
   %86 = getelementptr i8, ptr %85, i64 8
   %.val.us.us.us = load ptr, ptr %86, align 8, !tbaa !22
@@ -3756,7 +3756,7 @@ define ptr @Ifd_ManDsdTruths(i32 noundef %0) local_unnamed_addr #4 {
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %89 = load i32, ptr %88, align 4, !tbaa !37
   %90 = icmp slt i32 %84, %89
-  br i1 %90, label %.lr.ph234.split.us.us.us, label %..critedge8.us.us.loopexit332_crit_edge, !llvm.loop !73
+  br i1 %90, label %.lr.ph234.split.us.us.us, label %..critedge8.us.us.loopexit341_crit_edge, !llvm.loop !73
 
 .lr.ph239.us.us:                                  ; preds = %23
   %91 = shl nsw i64 %indvars.iv282, 1
@@ -3834,13 +3834,13 @@ define ptr @Ifd_ManDsdTruths(i32 noundef %0) local_unnamed_addr #4 {
   %125 = trunc nsw i64 %121 to i32
   %126 = trunc nsw i64 %121 to i32
   %127 = trunc nsw i64 %119 to i32
-  %.val152335 = load ptr, ptr %2, align 8, !tbaa !17
-  %.not135336 = icmp eq ptr %.val152335, null
-  br i1 %.not135336, label %.critedge2, label %.lr.ph338
+  %.val152344 = load ptr, ptr %2, align 8, !tbaa !17
+  %.not135345 = icmp eq ptr %.val152344, null
+  br i1 %.not135345, label %.critedge2, label %.lr.ph347
 
-.lr.ph338:                                        ; preds = %.lr.ph
+.lr.ph347:                                        ; preds = %.lr.ph
   %128 = sext i32 %115 to i64
-  %129 = getelementptr inbounds %struct.Ifd_Obj_t_, ptr %.val152335, i64 %128
+  %129 = getelementptr inbounds %struct.Ifd_Obj_t_, ptr %.val152344, i64 %128
   br label %132
 
 130:                                              ; preds = %Ifd_ManOper.exit204
@@ -3849,11 +3849,11 @@ define ptr @Ifd_ManDsdTruths(i32 noundef %0) local_unnamed_addr #4 {
   %.not135 = icmp eq ptr %.val152, null
   br i1 %.not135, label %.critedge2, label %132, !llvm.loop !79
 
-132:                                              ; preds = %.lr.ph338, %130
-  %133 = phi ptr [ %129, %.lr.ph338 ], [ %131, %130 ]
-  %indvars.iv337 = phi i64 [ %128, %.lr.ph338 ], [ %indvars.iv.next, %130 ]
-  %134 = shl nsw i64 %indvars.iv337, 1
-  %135 = icmp eq i64 %indvars.iv337, 0
+132:                                              ; preds = %.lr.ph347, %130
+  %133 = phi ptr [ %129, %.lr.ph347 ], [ %131, %130 ]
+  %indvars.iv346 = phi i64 [ %128, %.lr.ph347 ], [ %indvars.iv.next, %130 ]
+  %134 = shl nsw i64 %indvars.iv346, 1
+  %135 = icmp eq i64 %indvars.iv346, 0
   %or.cond.i = or i1 %120, %135
   br i1 %or.cond.i, label %Ifd_ManOper.exit, label %136
 
@@ -4043,7 +4043,7 @@ Ifd_ManOper.exit179.thread:                       ; preds = %Ifd_ManOper.exit179
   br i1 %222, label %.lr.ph.i186, label %Ifd_ManOper.exit192, !llvm.loop !67
 
 Ifd_ManOper.exit192:                              ; preds = %.lr.ph.i186, %Ifd_ManOper.exit166, %202, %Ifd_ManOper.exit179.thread, %Ifd_ManOper.exit179
-  %223 = icmp slt i64 %indvars.iv337, 1
+  %223 = icmp slt i64 %indvars.iv346, 1
   %or.cond215 = or i1 %122, %223
   br i1 %or.cond215, label %Ifd_ManOper.exit204, label %224
 
@@ -4087,7 +4087,7 @@ Ifd_ManOper.exit192:                              ; preds = %.lr.ph.i186, %Ifd_M
   br i1 %243, label %.lr.ph.i198, label %Ifd_ManOper.exit204, !llvm.loop !67
 
 Ifd_ManOper.exit204:                              ; preds = %.lr.ph.i198, %180, %224, %Ifd_ManOper.exit192
-  %indvars.iv.next = add nsw i64 %indvars.iv337, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv346, 1
   %244 = load ptr, ptr %3, align 8, !tbaa !36
   %245 = getelementptr i8, ptr %244, i64 8
   %.val145 = load ptr, ptr %245, align 8, !tbaa !22
@@ -4323,14 +4323,14 @@ define noalias noundef ptr @Ifd_ManDsdPermJT(i32 noundef %0) local_unnamed_addr 
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %41, %43, %33, %35
-  %.sink121 = phi ptr [ %34, %33 ], [ %36, %35 ], [ %42, %41 ], [ %44, %43 ]
+  %.sink129 = phi ptr [ %34, %33 ], [ %36, %35 ], [ %42, %41 ], [ %44, %43 ]
   %.sink = phi i32 [ 16, %33 ], [ 16, %35 ], [ %38, %41 ], [ %38, %43 ]
-  store ptr %.sink121, ptr %5, align 8, !tbaa !22
+  store ptr %.sink129, ptr %5, align 8, !tbaa !22
   store i32 %.sink, ptr %2, align 8, !tbaa !21
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %15
-  %.pre.i115 = phi ptr [ %16, %15 ], [ %.sink121, %Vec_IntPush.exit.sink.split ]
+  %.pre.i115 = phi ptr [ %16, %15 ], [ %.sink129, %Vec_IntPush.exit.sink.split ]
   %45 = add nsw i32 %27, 1
   store i32 %45, ptr %3, align 4, !tbaa !18
   %46 = sext i32 %27 to i64
@@ -4453,15 +4453,15 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit93.sink.split
 
 Vec_IntPush.exit93.sink.split:                    ; preds = %96, %98, %88, %90
-  %.sink123 = phi ptr [ %89, %88 ], [ %91, %90 ], [ %97, %96 ], [ %99, %98 ]
-  %.sink122 = phi i32 [ 16, %88 ], [ 16, %90 ], [ %93, %96 ], [ %93, %98 ]
-  store ptr %.sink123, ptr %5, align 8, !tbaa !22
-  store i32 %.sink122, ptr %2, align 8, !tbaa !21
+  %.sink131 = phi ptr [ %89, %88 ], [ %91, %90 ], [ %97, %96 ], [ %99, %98 ]
+  %.sink130 = phi i32 [ 16, %88 ], [ 16, %90 ], [ %93, %96 ], [ %93, %98 ]
+  store ptr %.sink131, ptr %5, align 8, !tbaa !22
+  store i32 %.sink130, ptr %2, align 8, !tbaa !21
   br label %Vec_IntPush.exit93
 
 Vec_IntPush.exit93:                               ; preds = %Vec_IntPush.exit93.sink.split, %._crit_edge, %.loopexit
   %100 = phi i32 [ %.pre, %.loopexit ], [ 0, %._crit_edge ], [ %.pre, %Vec_IntPush.exit93.sink.split ]
-  %101 = phi ptr [ %.pre.i115, %.loopexit ], [ %4, %._crit_edge ], [ %.sink123, %Vec_IntPush.exit93.sink.split ]
+  %101 = phi ptr [ %.pre.i115, %.loopexit ], [ %4, %._crit_edge ], [ %.sink131, %Vec_IntPush.exit93.sink.split ]
   %102 = add nsw i32 %100, 1
   store i32 %102, ptr %3, align 4, !tbaa !18
   %103 = sext i32 %100 to i64
@@ -5151,14 +5151,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %Vec_IntPush.exit.sink.split.i
 
 Vec_IntPush.exit.sink.split.i:                    ; preds = %92, %90, %84, %82
-  %.sink21.i = phi ptr [ %83, %82 ], [ %85, %84 ], [ %91, %90 ], [ %93, %92 ]
+  %.sink25.i = phi ptr [ %83, %82 ], [ %85, %84 ], [ %91, %90 ], [ %93, %92 ]
   %.sink.i = phi i32 [ 16, %82 ], [ 16, %84 ], [ %87, %90 ], [ %87, %92 ]
-  store ptr %.sink21.i, ptr %71, align 8, !tbaa !22
+  store ptr %.sink25.i, ptr %71, align 8, !tbaa !22
   store i32 %.sink.i, ptr %68, align 8, !tbaa !21
   br label %Vec_IntPush.exit.i
 
 Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.sink.split.i, %.lr.ph.i
-  %.pre.i19.i = phi ptr [ %74, %.lr.ph.i ], [ %.sink21.i, %Vec_IntPush.exit.sink.split.i ]
+  %.pre.i19.i = phi ptr [ %74, %.lr.ph.i ], [ %.sink25.i, %Vec_IntPush.exit.sink.split.i ]
   %94 = add nsw i32 %76, 1
   store i32 %94, ptr %69, align 4, !tbaa !18
   %95 = sext i32 %76 to i64

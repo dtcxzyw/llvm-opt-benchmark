@@ -576,9 +576,9 @@ _ZN4absl12_GLOBAL__N_111EiselLemireIdEEbRKNS_16strings_internal11ParsedFloatEbPT
   br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i
 
 _ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i: ; preds = %274, %272
-  %.sink11.i.i.i.i = phi i64 [ %275, %274 ], [ %273, %272 ]
+  %.sink12.i.i.i.i = phi i64 [ %275, %274 ], [ %273, %272 ]
   %.sink.i.i.i.i = phi i32 [ 128, %274 ], [ 64, %272 ]
-  %276 = trunc nuw nsw i64 %.sink11.i.i.i.i to i32
+  %276 = trunc nuw nsw i64 %.sink12.i.i.i.i to i32
   %reass.sub.i110.i = sub nuw nsw i32 %.sink.i.i.i.i, %276
   %277 = add nsw i32 %reass.sub.i110.i, -58
   %278 = zext nneg i32 %277 to i128
@@ -592,32 +592,32 @@ _ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i: ; preds = %2
 281:                                              ; preds = %250, %245, %235
   %282 = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %219
   %283 = load i64, ptr %282, align 8, !tbaa !21
-  %.sroa.03.0.insert.ext.i.i.i.i13 = zext i64 %194 to i128
-  %.sroa.01.0.insert.ext.i.i.i107.i14 = zext i64 %283 to i128
-  %284 = mul nuw i128 %.sroa.01.0.insert.ext.i.i.i107.i14, %.sroa.03.0.insert.ext.i.i.i.i13
-  %.sroa.0.0.extract.trunc.i.i.i108.i15 = trunc i128 %284 to i64
-  %.sroa.2.0.extract.shift.i.i.i.i16 = lshr i128 %284, 64
-  %.sroa.2.0.extract.trunc.i.i.i.i17 = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i16 to i64
+  %.sroa.03.0.insert.ext.i.i.i.i25 = zext i64 %194 to i128
+  %.sroa.01.0.insert.ext.i.i.i107.i26 = zext i64 %283 to i128
+  %284 = mul nuw i128 %.sroa.01.0.insert.ext.i.i.i107.i26, %.sroa.03.0.insert.ext.i.i.i.i25
+  %.sroa.0.0.extract.trunc.i.i.i108.i27 = trunc i128 %284 to i64
+  %.sroa.2.0.extract.shift.i.i.i.i28 = lshr i128 %284, 64
+  %.sroa.2.0.extract.trunc.i.i.i.i29 = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i28 to i64
   %285 = add nsw i32 %215, -63
   %286 = icmp ult i32 %.val70.i, 28
-  %287 = icmp eq i64 %.sroa.2.0.extract.trunc.i.i.i.i17, 0
+  %287 = icmp eq i64 %.sroa.2.0.extract.trunc.i.i.i.i29, 0
   br i1 %286, label %298, label %288
 
 288:                                              ; preds = %281
   br i1 %287, label %289, label %291
 
 289:                                              ; preds = %288
-  %290 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.0.0.extract.trunc.i.i.i108.i15, i1 false)
+  %290 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.0.0.extract.trunc.i.i.i108.i27, i1 false)
   br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i
 
 291:                                              ; preds = %288
-  %292 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.2.0.extract.trunc.i.i.i.i17, i1 true)
+  %292 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.2.0.extract.trunc.i.i.i.i29, i1 true)
   br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i
 
 _ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i: ; preds = %291, %289
-  %.sink11.i.i38.i.i = phi i64 [ %292, %291 ], [ %290, %289 ]
+  %.sink12.i.i38.i.i = phi i64 [ %292, %291 ], [ %290, %289 ]
   %.sink.i.i39.i.i = phi i32 [ 128, %291 ], [ 64, %289 ]
-  %293 = trunc nuw nsw i64 %.sink11.i.i38.i.i to i32
+  %293 = trunc nuw nsw i64 %.sink12.i.i38.i.i to i32
   %reass.sub75.i.i = sub nuw nsw i32 %.sink.i.i39.i.i, %293
   %294 = add nsw i32 %reass.sub75.i.i, -63
   %295 = zext nneg i32 %294 to i128
@@ -632,24 +632,24 @@ _ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i: ; preds = 
   br i1 %287, label %299, label %301
 
 299:                                              ; preds = %298
-  %300 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.0.0.extract.trunc.i.i.i108.i15, i1 false)
+  %300 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.0.0.extract.trunc.i.i.i108.i27, i1 false)
   br label %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i
 
 301:                                              ; preds = %298
-  %302 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.2.0.extract.trunc.i.i.i.i17, i1 true)
+  %302 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.2.0.extract.trunc.i.i.i.i29, i1 true)
   br label %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i
 
 _ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i: ; preds = %301, %299
-  %.sink11.i.i.i = phi i64 [ %302, %301 ], [ %300, %299 ]
+  %.sink12.i.i.i = phi i64 [ %302, %301 ], [ %300, %299 ]
   %.sink.i.i.i = phi i32 [ 128, %301 ], [ 64, %299 ]
-  %303 = trunc nuw nsw i64 %.sink11.i.i.i to i32
+  %303 = trunc nuw nsw i64 %.sink12.i.i.i to i32
   %reass.sub4 = sub nuw nsw i32 %.sink.i.i.i, %303
   %304 = add nsw i32 %reass.sub4, -53
   br label %305
 
 305:                                              ; preds = %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i
-  %.sroa.053.0.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i108.i15, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ %.sroa.0.0.extract.trunc.i.i.i44.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i ], [ %.sroa.0.0.extract.trunc.i.i.i.i111.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
-  %.sroa.11.0.i.i = phi i64 [ %.sroa.2.0.extract.trunc.i.i.i.i17, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ %.sroa.2.0.extract.trunc.i.i.i46.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i ], [ %.sroa.2.0.extract.trunc.i.i.i.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
+  %.sroa.053.0.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i108.i27, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ %.sroa.0.0.extract.trunc.i.i.i44.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i ], [ %.sroa.0.0.extract.trunc.i.i.i.i111.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
+  %.sroa.11.0.i.i = phi i64 [ %.sroa.2.0.extract.trunc.i.i.i.i29, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ %.sroa.2.0.extract.trunc.i.i.i46.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i ], [ %.sroa.2.0.extract.trunc.i.i.i.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
   %.034.i.i = phi i32 [ %304, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ 10, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i ], [ 5, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
   %.033.i.i = phi i1 [ true, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ false, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i ], [ false, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
   %.032.i.i = phi i32 [ %285, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ %297, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i ], [ %280, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
@@ -1357,9 +1357,9 @@ _ZN4absl12_GLOBAL__N_111EiselLemireIfEEbRKNS_16strings_internal11ParsedFloatEbPT
   br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i
 
 _ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i: ; preds = %277, %275
-  %.sink11.i.i.i.i = phi i64 [ %278, %277 ], [ %276, %275 ]
+  %.sink12.i.i.i.i = phi i64 [ %278, %277 ], [ %276, %275 ]
   %.sink.i.i.i.i = phi i32 [ 128, %277 ], [ 64, %275 ]
-  %279 = trunc nuw nsw i64 %.sink11.i.i.i.i to i32
+  %279 = trunc nuw nsw i64 %.sink12.i.i.i.i to i32
   %reass.sub.i110.i = sub nuw nsw i32 %.sink.i.i.i.i, %279
   %280 = add nsw i32 %reass.sub.i110.i, -58
   %281 = zext nneg i32 %280 to i128
@@ -1373,32 +1373,32 @@ _ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i: ; preds = %2
 284:                                              ; preds = %250, %245, %235
   %285 = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %219
   %286 = load i64, ptr %285, align 8, !tbaa !21
-  %.sroa.03.0.insert.ext.i.i.i.i13 = zext i64 %194 to i128
-  %.sroa.01.0.insert.ext.i.i.i107.i14 = zext i64 %286 to i128
-  %287 = mul nuw i128 %.sroa.01.0.insert.ext.i.i.i107.i14, %.sroa.03.0.insert.ext.i.i.i.i13
-  %.sroa.0.0.extract.trunc.i.i.i108.i15 = trunc i128 %287 to i64
-  %.sroa.2.0.extract.shift.i.i.i.i16 = lshr i128 %287, 64
-  %.sroa.2.0.extract.trunc.i.i.i.i17 = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i16 to i64
+  %.sroa.03.0.insert.ext.i.i.i.i25 = zext i64 %194 to i128
+  %.sroa.01.0.insert.ext.i.i.i107.i26 = zext i64 %286 to i128
+  %287 = mul nuw i128 %.sroa.01.0.insert.ext.i.i.i107.i26, %.sroa.03.0.insert.ext.i.i.i.i25
+  %.sroa.0.0.extract.trunc.i.i.i108.i27 = trunc i128 %287 to i64
+  %.sroa.2.0.extract.shift.i.i.i.i28 = lshr i128 %287, 64
+  %.sroa.2.0.extract.trunc.i.i.i.i29 = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i28 to i64
   %288 = add nsw i32 %215, -63
   %289 = icmp ult i32 %.val70.i, 28
-  %290 = icmp eq i64 %.sroa.2.0.extract.trunc.i.i.i.i17, 0
+  %290 = icmp eq i64 %.sroa.2.0.extract.trunc.i.i.i.i29, 0
   br i1 %289, label %301, label %291
 
 291:                                              ; preds = %284
   br i1 %290, label %292, label %294
 
 292:                                              ; preds = %291
-  %293 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.0.0.extract.trunc.i.i.i108.i15, i1 false)
+  %293 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.0.0.extract.trunc.i.i.i108.i27, i1 false)
   br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i
 
 294:                                              ; preds = %291
-  %295 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.2.0.extract.trunc.i.i.i.i17, i1 true)
+  %295 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.2.0.extract.trunc.i.i.i.i29, i1 true)
   br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i
 
 _ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i: ; preds = %294, %292
-  %.sink11.i.i38.i.i = phi i64 [ %295, %294 ], [ %293, %292 ]
+  %.sink12.i.i38.i.i = phi i64 [ %295, %294 ], [ %293, %292 ]
   %.sink.i.i39.i.i = phi i32 [ 128, %294 ], [ 64, %292 ]
-  %296 = trunc nuw nsw i64 %.sink11.i.i38.i.i to i32
+  %296 = trunc nuw nsw i64 %.sink12.i.i38.i.i to i32
   %reass.sub75.i.i = sub nuw nsw i32 %.sink.i.i39.i.i, %296
   %297 = add nsw i32 %reass.sub75.i.i, -63
   %298 = zext nneg i32 %297 to i128
@@ -1413,24 +1413,24 @@ _ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i: ; preds = 
   br i1 %290, label %302, label %304
 
 302:                                              ; preds = %301
-  %303 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.0.0.extract.trunc.i.i.i108.i15, i1 false)
+  %303 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.0.0.extract.trunc.i.i.i108.i27, i1 false)
   br label %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i
 
 304:                                              ; preds = %301
-  %305 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.2.0.extract.trunc.i.i.i.i17, i1 true)
+  %305 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.2.0.extract.trunc.i.i.i.i29, i1 true)
   br label %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i
 
 _ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i: ; preds = %304, %302
-  %.sink11.i.i.i = phi i64 [ %305, %304 ], [ %303, %302 ]
+  %.sink12.i.i.i = phi i64 [ %305, %304 ], [ %303, %302 ]
   %.sink.i.i.i = phi i32 [ 128, %304 ], [ 64, %302 ]
-  %306 = trunc nuw nsw i64 %.sink11.i.i.i to i32
+  %306 = trunc nuw nsw i64 %.sink12.i.i.i to i32
   %reass.sub4 = sub nuw nsw i32 %.sink.i.i.i, %306
   %307 = add nsw i32 %reass.sub4, -24
   br label %308
 
 308:                                              ; preds = %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i
-  %.sroa.053.0.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i108.i15, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ %.sroa.0.0.extract.trunc.i.i.i44.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i ], [ %.sroa.0.0.extract.trunc.i.i.i.i111.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
-  %.sroa.11.0.i.i = phi i64 [ %.sroa.2.0.extract.trunc.i.i.i.i17, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ %.sroa.2.0.extract.trunc.i.i.i46.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i ], [ %.sroa.2.0.extract.trunc.i.i.i.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
+  %.sroa.053.0.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i108.i27, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ %.sroa.0.0.extract.trunc.i.i.i44.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i ], [ %.sroa.0.0.extract.trunc.i.i.i.i111.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
+  %.sroa.11.0.i.i = phi i64 [ %.sroa.2.0.extract.trunc.i.i.i.i29, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ %.sroa.2.0.extract.trunc.i.i.i46.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i ], [ %.sroa.2.0.extract.trunc.i.i.i.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
   %.034.i.i = phi i32 [ %307, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ 39, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i ], [ 34, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
   %.033.i.i = phi i1 [ true, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ false, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i ], [ false, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
   %.032.i.i = phi i32 [ %288, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ %300, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit47.i.i ], [ %283, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]

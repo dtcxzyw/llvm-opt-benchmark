@@ -32,32 +32,32 @@ define dso_local range(i32 0, 28) i32 @create_dir_hierarchy(ptr noundef readonly
 
 .lr.ph.preheader:                                 ; preds = %8
   %10 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str) #11
-  %.not4575 = icmp eq ptr %10, null
-  br i1 %.not4575, label %.loopexit, label %.lr.ph77
+  %.not4580 = icmp eq ptr %10, null
+  br i1 %.not4580, label %.loopexit, label %.lr.ph82
 
-.lr.ph77:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph82:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %11 = phi ptr [ %29, %.lr.ph ], [ %10, %.lr.ph.preheader ]
-  %.0346976 = phi ptr [ %11, %.lr.ph ], [ %9, %.lr.ph.preheader ]
+  %.0346981 = phi ptr [ %11, %.lr.ph ], [ %9, %.lr.ph.preheader ]
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #10
   %.not46 = icmp eq i64 %12, 0
   br i1 %.not46, label %17, label %13
 
-13:                                               ; preds = %.lr.ph77
+13:                                               ; preds = %.lr.ph82
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %15 = sub i64 %3, %12
-  %16 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %14, i64 noundef %15, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, ptr noundef nonnull %.0346976) #11
+  %16 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %14, i64 noundef %15, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, ptr noundef nonnull %.0346981) #11
   br label %23
 
-17:                                               ; preds = %.lr.ph77
-  %18 = icmp eq ptr %4, %.0346976
+17:                                               ; preds = %.lr.ph82
+  %18 = icmp eq ptr %4, %.0346981
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
-  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %.0346976) #11
+  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %.0346981) #11
   br label %23
 
 21:                                               ; preds = %17
-  %22 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %7, i64 noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, ptr noundef nonnull %.0346976) #11
+  %22 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %7, i64 noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, ptr noundef nonnull %.0346981) #11
   br label %23
 
 23:                                               ; preds = %13, %21, %19
@@ -68,36 +68,36 @@ define dso_local range(i32 0, 28) i32 @create_dir_hierarchy(ptr noundef readonly
 26:                                               ; preds = %23
   %27 = tail call ptr @__errno_location() #13
   %28 = load i32, ptr %27, align 4, !tbaa !7
-  switch i32 %28, label %.thread63.loopexit78 [
+  switch i32 %28, label %.thread63.loopexit83 [
     i32 13, label %.lr.ph
     i32 17, label %.lr.ph
-    i32 122, label %.thread63.loopexit74
+    i32 122, label %.thread63.loopexit79
     i32 36, label %.thread63
     i32 30, label %.thread63.loopexit70
-    i32 28, label %.thread63.loopexit73
+    i32 28, label %.thread63.loopexit78
   ]
 
 .thread63.loopexit70:                             ; preds = %26
   br label %.thread63
 
-.thread63.loopexit73:                             ; preds = %26
-  br label %.thread63
-
-.thread63.loopexit74:                             ; preds = %26
-  br label %.thread63
-
 .thread63.loopexit78:                             ; preds = %26
   br label %.thread63
 
-.thread63:                                        ; preds = %26, %.thread63.loopexit78, %.thread63.loopexit74, %.thread63.loopexit73, %.thread63.loopexit70
-  %.str.7.sink.i = phi ptr [ @.str.4, %.thread63.loopexit70 ], [ @.str.5, %.thread63.loopexit73 ], [ @.str.6, %.thread63.loopexit74 ], [ @.str.7, %.thread63.loopexit78 ], [ @.str.3, %26 ]
+.thread63.loopexit79:                             ; preds = %26
+  br label %.thread63
+
+.thread63.loopexit83:                             ; preds = %26
+  br label %.thread63
+
+.thread63:                                        ; preds = %26, %.thread63.loopexit83, %.thread63.loopexit79, %.thread63.loopexit78, %.thread63.loopexit70
+  %.str.7.sink.i = phi ptr [ @.str.4, %.thread63.loopexit70 ], [ @.str.5, %.thread63.loopexit78 ], [ @.str.6, %.thread63.loopexit79 ], [ @.str.7, %.thread63.loopexit83 ], [ @.str.3, %26 ]
   tail call void (ptr, ptr, ...) @errorf(ptr noundef %1, ptr noundef nonnull %.str.7.sink.i, ptr noundef nonnull %7) #11
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %26, %26, %23
   %29 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str) #11
   %.not45 = icmp eq ptr %29, null
-  br i1 %.not45, label %.loopexit, label %.lr.ph77
+  br i1 %.not45, label %.loopexit, label %.lr.ph82
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %8, %.thread63
   %.4 = phi i32 [ 23, %.thread63 ], [ 0, %8 ], [ 0, %.lr.ph.preheader ], [ 0, %.lr.ph ]

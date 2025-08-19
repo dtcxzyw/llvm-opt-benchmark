@@ -715,10 +715,10 @@ define hidden void @_Z10update_mapRiRN2cv3MatES2_(ptr noundef nonnull align 4 ca
   br label %52
 
 52:                                               ; preds = %.lr.ph.split.us.us, %48
-  %.sink120 = phi float [ %51, %48 ], [ 0.000000e+00, %.lr.ph.split.us.us ]
+  %.sink121 = phi float [ %51, %48 ], [ 0.000000e+00, %.lr.ph.split.us.us ]
   %.sink = phi float [ %37, %48 ], [ 0.000000e+00, %.lr.ph.split.us.us ]
   %53 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv102
-  store float %.sink120, ptr %53, align 4, !tbaa !63
+  store float %.sink121, ptr %53, align 4, !tbaa !63
   %54 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv102
   store float %.sink, ptr %54, align 4, !tbaa !63
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1

@@ -3950,8 +3950,8 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit436.i:         ; preds = %_ZNKSt7__cxx1112bas
           to label %1399 unwind label %1417
 
 1399:                                             ; preds = %1397
-  %sext558.i = shl i64 %1398, 32
-  %1400 = ashr exact i64 %sext558.i, 32
+  %sext621.i = shl i64 %1398, 32
+  %1400 = ashr exact i64 %sext621.i, 32
   %1401 = icmp slt i64 %indvars.iv546.i, %1400
   br i1 %1401, label %1419, label %._crit_edge.i.i.i437.i
 
@@ -4176,8 +4176,8 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit473.i:         ; preds = %_ZNKSt7__cxx1112bas
           to label %1490 unwind label %1508
 
 1490:                                             ; preds = %1488
-  %sext559.i = shl i64 %1489, 32
-  %1491 = ashr exact i64 %sext559.i, 32
+  %sext622.i = shl i64 %1489, 32
+  %1491 = ashr exact i64 %sext622.i, 32
   %1492 = icmp slt i64 %indvars.iv549.i, %1491
   br i1 %1492, label %1510, label %._crit_edge.i.i.i474.i
 
@@ -4270,14 +4270,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i476.i: ; preds 
   %1532 = trunc nuw nsw i64 %indvars.iv549.i to i32
   %1533 = sdiv i32 %1532, %1531
   %1534 = mul nsw i32 %1533, %1531
-  %.recomposed428 = srem i32 %1532, %1531
+  %.recomposed575 = srem i32 %1532, %1531
   %1535 = load ptr, ptr %1395, align 8, !tbaa !53
   %1536 = load ptr, ptr %1396, align 8, !tbaa !93
   %1537 = load i64, ptr %1536, align 8, !tbaa !21
   %1538 = sext i32 %1533 to i64
   %1539 = mul i64 %1537, %1538
   %1540 = getelementptr inbounds nuw i8, ptr %1535, i64 %1539
-  %1541 = sext i32 %.recomposed428 to i64
+  %1541 = sext i32 %.recomposed575 to i64
   %1542 = getelementptr inbounds i32, ptr %1540, i64 %1541
   br label %_ZNK2cv3Mat2atIiEERKT_i.exit488.i
 
@@ -4438,8 +4438,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i491.i: ; preds 
   %1604 = ptrtoint ptr %1602 to i64
   %1605 = sub i64 %1603, %1604
   %1606 = sdiv exact i64 %1605, 96
-  %sext560.i = shl i64 %1606, 32
-  %1607 = ashr exact i64 %sext560.i, 32
+  %sext623.i = shl i64 %1606, 32
+  %1607 = ashr exact i64 %sext623.i, 32
   %1608 = icmp slt i64 %indvars.iv.next553.i, %1607
   br i1 %1608, label %1591, label %._crit_edge.i.i.i489.i, !llvm.loop !100
 
@@ -4714,8 +4714,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i514.i: ; preds 
   %1702 = ptrtoint ptr %1700 to i64
   %1703 = sub i64 %1701, %1702
   %1704 = sdiv exact i64 %1703, 96
-  %sext561.i = shl i64 %1704, 32
-  %1705 = ashr exact i64 %sext561.i, 32
+  %sext624.i = shl i64 %1704, 32
+  %1705 = ashr exact i64 %sext624.i, 32
   %1706 = icmp slt i64 %indvars.iv.next556.i, %1705
   br i1 %1706, label %1689, label %._crit_edge.i.i.i512.i, !llvm.loop !104
 

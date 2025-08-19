@@ -60,9 +60,7 @@ define dso_local ptr @php_get_temporary_directory() local_unnamed_addr #0 {
   br i1 %.not33, label %17, label %.thread
 
 .thread:                                          ; preds = %14
-  %.phi.trans.insert = getelementptr i8, ptr %3, i64 %5
-  %.phi.trans.insert56 = getelementptr i8, ptr %.phi.trans.insert, i64 -1
-  %.pre = load i8, ptr %.phi.trans.insert56, align 1, !tbaa !21
+  %.pre = load i8, ptr %3, align 1, !tbaa !21
   %15 = icmp eq i8 %.pre, 47
   br i1 %15, label %17, label %.thread.thread
 
@@ -95,12 +93,12 @@ define dso_local ptr @php_get_temporary_directory() local_unnamed_addr #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %28, %.thread.thread, %12, %21
-  %.sink58 = phi ptr [ %27, %21 ], [ %13, %12 ], [ %16, %.thread.thread ], [ %29, %28 ]
-  store ptr %.sink58, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 512), align 8, !tbaa !4
+  %.sink63 = phi ptr [ %27, %21 ], [ %13, %12 ], [ %16, %.thread.thread ], [ %29, %28 ]
+  store ptr %.sink63, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 512), align 8, !tbaa !4
   br label %30
 
 30:                                               ; preds = %.sink.split, %0
-  %.0 = phi ptr [ %1, %0 ], [ %.sink58, %.sink.split ]
+  %.0 = phi ptr [ %1, %0 ], [ %.sink63, %.sink.split ]
   ret ptr %.0
 }
 

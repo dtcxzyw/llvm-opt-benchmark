@@ -1110,25 +1110,25 @@ _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272: ; preds = %.noexc287, %.spl
   br i1 %.not.i16.i.i275.not, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i277, label %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272.thread
 
 _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272.thread: ; preds = %350, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272
-  %.0.i.i274724 = phi i32 [ %.0.i.i274, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272 ], [ %342, %350 ]
-  %.0.i18.i.i273722 = phi ptr [ %.0.i18.i.i273, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272 ], [ %347, %350 ]
-  %.pre.i278720 = phi i32 [ %.pre.i278, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272 ], [ %337, %350 ]
+  %.0.i.i274817 = phi i32 [ %.0.i.i274, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272 ], [ %342, %350 ]
+  %.0.i18.i.i273815 = phi ptr [ %.0.i18.i.i273, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272 ], [ %347, %350 ]
+  %.pre.i278813 = phi i32 [ %.pre.i278, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272 ], [ %337, %350 ]
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %336)
           to label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i277 unwind label %334
 
 _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i277: ; preds = %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272.thread, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272
-  %.0.i.i274725 = phi i32 [ %.0.i.i274724, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272.thread ], [ %.0.i.i274, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272 ]
-  %.0.i18.i.i273723 = phi ptr [ %.0.i18.i.i273722, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272.thread ], [ %.0.i18.i.i273, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272 ]
-  %.pre.i278721 = phi i32 [ %.pre.i278720, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272.thread ], [ %.pre.i278, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272 ]
+  %.0.i.i274818 = phi i32 [ %.0.i.i274817, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272.thread ], [ %.0.i.i274, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272 ]
+  %.0.i18.i.i273816 = phi ptr [ %.0.i18.i.i273815, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272.thread ], [ %.0.i18.i.i273, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272 ]
+  %.pre.i278814 = phi i32 [ %.pre.i278813, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272.thread ], [ %.pre.i278, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i272 ]
   store i8 1, ptr %298, align 8, !tbaa !28
-  store ptr %.0.i18.i.i273723, ptr %299, align 8, !tbaa !24
-  store i32 %.0.i.i274725, ptr %301, align 8, !tbaa !30
+  store ptr %.0.i18.i.i273816, ptr %299, align 8, !tbaa !24
+  store i32 %.0.i.i274818, ptr %301, align 8, !tbaa !30
   br label %354
 
 354:                                              ; preds = %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i277, %340, %.lr.ph571
-  %355 = phi ptr [ %.0.i18.i.i273723, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i277 ], [ %336, %340 ], [ %336, %.lr.ph571 ]
-  %356 = phi i32 [ %.0.i.i274725, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i277 ], [ %337, %340 ], [ %337, %.lr.ph571 ]
-  %357 = phi i32 [ %.pre.i278721, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i277 ], [ %337, %340 ], [ %338, %.lr.ph571 ]
+  %355 = phi ptr [ %.0.i18.i.i273816, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i277 ], [ %336, %340 ], [ %336, %.lr.ph571 ]
+  %356 = phi i32 [ %.0.i.i274818, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i277 ], [ %337, %340 ], [ %337, %.lr.ph571 ]
+  %357 = phi i32 [ %.pre.i278814, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i277 ], [ %337, %340 ], [ %338, %.lr.ph571 ]
   %358 = sext i32 %357 to i64
   %359 = getelementptr inbounds i32, ptr %355, i64 %358
   store i32 %storemerge569, ptr %359, align 4, !tbaa !49
@@ -1294,8 +1294,8 @@ _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i321: ; preds = %.noexc336, %.spl
   br i1 %.not.i16.i.i324.not, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i326, label %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i321.thread
 
 _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i321.thread: ; preds = %413, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i321
-  %.0.i.i323732 = phi i32 [ %.0.i.i323, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i321 ], [ %405, %413 ]
-  %.0.i18.i.i322730 = phi ptr [ %.0.i18.i.i322, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i321 ], [ %410, %413 ]
+  %.0.i.i323825 = phi i32 [ %.0.i.i323, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i321 ], [ %405, %413 ]
+  %.0.i18.i.i322823 = phi ptr [ %.0.i18.i.i322, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i321 ], [ %410, %413 ]
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %383)
           to label %._ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i326_crit_edge unwind label %442
 
@@ -1304,17 +1304,17 @@ _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i321.thread: ; preds = %413, %_ZN
   br label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i326
 
 _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i326: ; preds = %._ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i326_crit_edge, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i321
-  %.0.i.i323733 = phi i32 [ %.0.i.i323732, %._ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i326_crit_edge ], [ %.0.i.i323, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i321 ]
-  %.0.i18.i.i322731 = phi ptr [ %.0.i18.i.i322730, %._ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i326_crit_edge ], [ %.0.i18.i.i322, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i321 ]
+  %.0.i.i323826 = phi i32 [ %.0.i.i323825, %._ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i326_crit_edge ], [ %.0.i.i323, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i321 ]
+  %.0.i18.i.i322824 = phi ptr [ %.0.i18.i.i322823, %._ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i326_crit_edge ], [ %.0.i18.i.i322, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i321 ]
   %.pre.i327 = phi i32 [ %.pre.i327.pre, %._ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i326_crit_edge ], [ %.pre.i327703, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i321 ]
   store i8 1, ptr %304, align 8, !tbaa !28
-  store ptr %.0.i18.i.i322731, ptr %305, align 8, !tbaa !24
-  store i32 %.0.i.i323733, ptr %307, align 8, !tbaa !30
+  store ptr %.0.i18.i.i322824, ptr %305, align 8, !tbaa !24
+  store i32 %.0.i.i323826, ptr %307, align 8, !tbaa !30
   br label %417
 
 417:                                              ; preds = %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i326, %403, %401
-  %418 = phi ptr [ %.0.i18.i.i322731, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i326 ], [ %382, %403 ], [ %382, %401 ]
-  %419 = phi i32 [ %.0.i.i323733, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i326 ], [ %384, %403 ], [ %384, %401 ]
+  %418 = phi ptr [ %.0.i18.i.i322824, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i326 ], [ %382, %403 ], [ %382, %401 ]
+  %419 = phi i32 [ %.0.i.i323826, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i326 ], [ %384, %403 ], [ %384, %401 ]
   %420 = phi i32 [ %.pre.i327, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i326 ], [ %384, %403 ], [ %385, %401 ]
   %421 = sext i32 %420 to i64
   %422 = getelementptr inbounds i32, ptr %418, i64 %421
@@ -2229,8 +2229,8 @@ _ZN8b3MyFaceD2Ev.exit.i.i:                        ; preds = %742, %734
   br i1 %748, label %_ZN20b3AlignedObjectArrayI8b3MyFaceE7destroyEii.exit.i, label %734, !llvm.loop !31
 
 _ZN20b3AlignedObjectArrayI8b3MyFaceE7destroyEii.exit.i: ; preds = %_ZN8b3MyFaceD2Ev.exit.i.i, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit.i, %.noexc463, %.split.i
-  %.029.i = phi i32 [ %690, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit.i ], [ %690, %.split.i ], [ 0, %.noexc463 ], [ %690, %_ZN8b3MyFaceD2Ev.exit.i.i ]
-  %.0.i2328.i = phi ptr [ %695, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit.i ], [ %695, %.split.i ], [ null, %.noexc463 ], [ %695, %_ZN8b3MyFaceD2Ev.exit.i.i ]
+  %.035.i = phi i32 [ %690, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit.i ], [ %690, %.split.i ], [ 0, %.noexc463 ], [ %690, %_ZN8b3MyFaceD2Ev.exit.i.i ]
+  %.0.i2334.i = phi ptr [ %695, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit.i ], [ %695, %.split.i ], [ null, %.noexc463 ], [ %695, %_ZN8b3MyFaceD2Ev.exit.i.i ]
   %749 = load ptr, ptr %327, align 8, !tbaa !23
   %.not.i21.i = icmp ne ptr %749, null
   %750 = load i8, ptr %333, align 16, !range !15
@@ -2244,8 +2244,8 @@ _ZN20b3AlignedObjectArrayI8b3MyFaceE7destroyEii.exit.i: ; preds = %_ZN8b3MyFaceD
 
 _ZN20b3AlignedObjectArrayI8b3MyFaceE10deallocateEv.exit.i: ; preds = %752, %_ZN20b3AlignedObjectArrayI8b3MyFaceE7destroyEii.exit.i
   store i8 1, ptr %333, align 16, !tbaa !33
-  store ptr %.0.i2328.i, ptr %327, align 8, !tbaa !23
-  store i32 %.029.i, ptr %325, align 16, !tbaa !34
+  store ptr %.0.i2334.i, ptr %327, align 8, !tbaa !23
+  store i32 %.035.i, ptr %325, align 16, !tbaa !34
   %.pre.i398.pre = load i32, ptr %324, align 4, !tbaa !19
   br label %.noexc399
 
@@ -2956,9 +2956,9 @@ _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit:   ; preds = %10, %19
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %120 = icmp sgt i32 %.pre130, 1
-  br i1 %120, label %.lr.ph141, label %.critedge
+  br i1 %120, label %.lr.ph145, label %.critedge
 
-.lr.ph141:                                        ; preds = %.preheader100, %.backedge
+.lr.ph145:                                        ; preds = %.preheader100, %.backedge
   %121 = phi i32 [ %125, %.backedge ], [ %.pre130, %.preheader100 ]
   %122 = zext nneg i32 %121 to i64
   %123 = getelementptr %struct.b3GrahamVector3, ptr %115, i64 %122
@@ -3003,7 +3003,7 @@ _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit:   ; preds = %10, %19
   %162 = fcmp ogt float %161, 0.000000e+00
   br i1 %162, label %163, label %.backedge
 
-163:                                              ; preds = %.lr.ph141
+163:                                              ; preds = %.lr.ph145
   %164 = load i32, ptr %113, align 8, !tbaa !69
   %165 = icmp eq i32 %121, %164
   br i1 %165, label %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E8allocateEi.exit.i.i, label %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit
@@ -3072,10 +3072,10 @@ _ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit: ; preds = %16
   store i32 %186, ptr %110, align 4, !tbaa !68
   br label %.critedge
 
-.backedge:                                        ; preds = %.lr.ph141
+.backedge:                                        ; preds = %.lr.ph145
   store i32 %125, ptr %110, align 4, !tbaa !68
   %187 = icmp sgt i32 %121, 2
-  br i1 %187, label %.lr.ph141, label %.critedge, !llvm.loop !92
+  br i1 %187, label %.lr.ph145, label %.critedge, !llvm.loop !92
 
 .critedge:                                        ; preds = %.backedge, %.preheader100, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit
   %.pre130131 = phi i32 [ %186, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit ], [ %.pre130, %.preheader100 ], [ %125, %.backedge ]
@@ -4523,8 +4523,8 @@ _ZN8b3MyFaceD2Ev.exit.i:                          ; preds = %33, %25
   br i1 %39, label %_ZN20b3AlignedObjectArrayI8b3MyFaceE7destroyEii.exit, label %25, !llvm.loop !31
 
 _ZN20b3AlignedObjectArrayI8b3MyFaceE7destroyEii.exit: ; preds = %_ZN8b3MyFaceD2Ev.exit.i, %.split, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit15, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit
-  %.029 = phi i32 [ %1, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit ], [ %1, %.split ], [ 0, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit15 ], [ %1, %_ZN8b3MyFaceD2Ev.exit.i ]
-  %.0.i2328 = phi ptr [ %9, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit ], [ %9, %.split ], [ null, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit15 ], [ %9, %_ZN8b3MyFaceD2Ev.exit.i ]
+  %.035 = phi i32 [ %1, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit ], [ %1, %.split ], [ 0, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit15 ], [ %1, %_ZN8b3MyFaceD2Ev.exit.i ]
+  %.0.i2334 = phi ptr [ %9, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit ], [ %9, %.split ], [ null, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit15 ], [ %9, %_ZN8b3MyFaceD2Ev.exit.i ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !23
   %.not.i21 = icmp ne ptr %41, null
@@ -4541,8 +4541,8 @@ _ZN20b3AlignedObjectArrayI8b3MyFaceE7destroyEii.exit: ; preds = %_ZN8b3MyFaceD2E
 _ZN20b3AlignedObjectArrayI8b3MyFaceE10deallocateEv.exit: ; preds = %45, %_ZN20b3AlignedObjectArrayI8b3MyFaceE7destroyEii.exit
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %46, align 8, !tbaa !33
-  store ptr %.0.i2328, ptr %40, align 8, !tbaa !23
-  store i32 %.029, ptr %3, align 8, !tbaa !34
+  store ptr %.0.i2334, ptr %40, align 8, !tbaa !23
+  store i32 %.035, ptr %3, align 8, !tbaa !34
   br label %47
 
 47:                                               ; preds = %_ZN20b3AlignedObjectArrayI8b3MyFaceE10deallocateEv.exit, %2

@@ -361,7 +361,7 @@ mbc_enc_len.exit:                                 ; preds = %50, %37, %24
   br i1 %62, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %52, %48, %35, %22, %mbc_enc_len.exit
-  %.0.i28 = phi i32 [ %61, %mbc_enc_len.exit ], [ 1, %22 ], [ 2, %35 ], [ 3, %48 ], [ 4, %52 ]
+  %.0.i35 = phi i32 [ %61, %mbc_enc_len.exit ], [ 1, %22 ], [ 2, %35 ], [ 3, %48 ], [ 4, %52 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -373,7 +373,7 @@ mbc_enc_len.exit:                                 ; preds = %50, %37, %24
   %65 = getelementptr inbounds nuw i8, ptr %.01820, i64 1
   store i8 %64, ptr %.01820, align 1, !tbaa !6
   %66 = add nuw nsw i32 %.022, 1
-  %exitcond.not = icmp eq i32 %66, %.0.i28
+  %exitcond.not = icmp eq i32 %66, %.0.i35
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -381,15 +381,15 @@ mbc_enc_len.exit:                                 ; preds = %50, %37, %24
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %52, %48, %35, %22, %._crit_edge.loopexit, %mbc_enc_len.exit
-  %.0.i27 = phi i32 [ %.0.i28, %._crit_edge.loopexit ], [ %61, %mbc_enc_len.exit ], [ -1, %22 ], [ -1, %35 ], [ -1, %48 ], [ -1, %52 ]
+  %.0.i34 = phi i32 [ %.0.i35, %._crit_edge.loopexit ], [ %61, %mbc_enc_len.exit ], [ -1, %22 ], [ -1, %35 ], [ -1, %48 ], [ -1, %52 ]
   %67 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %6, %mbc_enc_len.exit ], [ %6, %22 ], [ %6, %35 ], [ %6, %48 ], [ %6, %52 ]
-  %68 = sext i32 %.0.i27 to i64
+  %68 = sext i32 %.0.i34 to i64
   %69 = getelementptr inbounds i8, ptr %67, i64 %68
   br label %70
 
 70:                                               ; preds = %._crit_edge, %9
   %storemerge = phi ptr [ %69, %._crit_edge ], [ %14, %9 ]
-  %.017 = phi i32 [ %.0.i27, %._crit_edge ], [ 1, %9 ]
+  %.017 = phi i32 [ %.0.i34, %._crit_edge ], [ 1, %9 ]
   store ptr %storemerge, ptr %1, align 8, !tbaa !18
   ret i32 %.017
 }

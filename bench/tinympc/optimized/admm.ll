@@ -1495,9 +1495,9 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_9Transpose
   %251 = load <2 x double>, ptr %172, align 1, !tbaa !46
   %252 = load <2 x double>, ptr %250, align 1, !tbaa !46
   %253 = fmul <2 x double> %251, %252
-  %shift222 = shufflevector <2 x double> %253, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop223 = fadd <2 x double> %253, %shift222
-  %254 = extractelement <2 x double> %foldExtExtBinop223, i64 0
+  %shift245 = shufflevector <2 x double> %253, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop246 = fadd <2 x double> %253, %shift245
+  %254 = extractelement <2 x double> %foldExtExtBinop246, i64 0
   br label %.lr.ph85.i.i.i.i.i.i.us15.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph85.i.i.i.i.i.i.us15.i.i.i.i.i.i.i.i.i.i:    ; preds = %.lr.ph85.i.i.i.i.i.i.us15.i.i.i.i.i.i.i.i.i.i, %.lr.ph85.i.i.i.i.i.i.preheader.us21.i.i.i.i.i.i.i.i.i.i
@@ -1528,9 +1528,9 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_9Transpose
   %267 = load <2 x double>, ptr %172, align 1, !tbaa !46
   %268 = load <2 x double>, ptr %266, align 1, !tbaa !46
   %269 = fmul <2 x double> %267, %268
-  %shift225 = shufflevector <2 x double> %269, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop226 = fadd <2 x double> %269, %shift225
-  %270 = extractelement <2 x double> %foldExtExtBinop226, i64 0
+  %shift248 = shufflevector <2 x double> %269, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop249 = fadd <2 x double> %269, %shift248
+  %270 = extractelement <2 x double> %foldExtExtBinop249, i64 0
   %271 = getelementptr inbounds nuw double, ptr %179, i64 %.07.i.i.i.i.i.i.i.i.i.i
   %272 = fneg double %270
   store double %272, ptr %271, align 8, !tbaa !45
@@ -3156,27 +3156,27 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
   %shift = shufflevector <2 x double> %.0389.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %foldExtExtBinop = fadd <2 x double> %.0389.lcssa, %shift
   %39 = extractelement <2 x double> %foldExtExtBinop, i64 0
-  %shift626 = shufflevector <2 x double> %.0390.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop627 = fadd <2 x double> %.0390.lcssa, %shift626
-  %40 = extractelement <2 x double> %foldExtExtBinop627, i64 0
-  %shift629 = shufflevector <2 x double> %.0391.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop630 = fadd <2 x double> %.0391.lcssa, %shift629
-  %41 = extractelement <2 x double> %foldExtExtBinop630, i64 0
-  %shift632 = shufflevector <2 x double> %.0392.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop633 = fadd <2 x double> %.0392.lcssa, %shift632
-  %42 = extractelement <2 x double> %foldExtExtBinop633, i64 0
-  %shift635 = shufflevector <2 x double> %.0393.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop636 = fadd <2 x double> %.0393.lcssa, %shift635
-  %43 = extractelement <2 x double> %foldExtExtBinop636, i64 0
-  %shift638 = shufflevector <2 x double> %.0395.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop639 = fadd <2 x double> %.0395.lcssa, %shift638
-  %44 = extractelement <2 x double> %foldExtExtBinop639, i64 0
-  %shift641 = shufflevector <2 x double> %.0396.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop642 = fadd <2 x double> %.0396.lcssa, %shift641
-  %45 = extractelement <2 x double> %foldExtExtBinop642, i64 0
-  %shift644 = shufflevector <2 x double> %.0397.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop645 = fadd <2 x double> %.0397.lcssa, %shift644
-  %46 = extractelement <2 x double> %foldExtExtBinop645, i64 0
+  %shift640 = shufflevector <2 x double> %.0390.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop641 = fadd <2 x double> %.0390.lcssa, %shift640
+  %40 = extractelement <2 x double> %foldExtExtBinop641, i64 0
+  %shift643 = shufflevector <2 x double> %.0391.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop644 = fadd <2 x double> %.0391.lcssa, %shift643
+  %41 = extractelement <2 x double> %foldExtExtBinop644, i64 0
+  %shift646 = shufflevector <2 x double> %.0392.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop647 = fadd <2 x double> %.0392.lcssa, %shift646
+  %42 = extractelement <2 x double> %foldExtExtBinop647, i64 0
+  %shift649 = shufflevector <2 x double> %.0393.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop650 = fadd <2 x double> %.0393.lcssa, %shift649
+  %43 = extractelement <2 x double> %foldExtExtBinop650, i64 0
+  %shift652 = shufflevector <2 x double> %.0395.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop653 = fadd <2 x double> %.0395.lcssa, %shift652
+  %44 = extractelement <2 x double> %foldExtExtBinop653, i64 0
+  %shift655 = shufflevector <2 x double> %.0396.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop656 = fadd <2 x double> %.0396.lcssa, %shift655
+  %45 = extractelement <2 x double> %foldExtExtBinop656, i64 0
+  %shift658 = shufflevector <2 x double> %.0397.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop659 = fadd <2 x double> %.0397.lcssa, %shift658
+  %46 = extractelement <2 x double> %foldExtExtBinop659, i64 0
   br i1 %19, label %.lr.ph436, label %._crit_edge.._crit_edge437_crit_edge
 
 ._crit_edge.._crit_edge437_crit_edge:             ; preds = %._crit_edge
@@ -3395,18 +3395,18 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
   %.0401.lcssa = phi <2 x double> [ zeroinitializer, %.preheader407 ], [ %208, %193 ]
   %.0399.lcssa = phi <2 x double> [ zeroinitializer, %.preheader407 ], [ %204, %193 ]
   %.0398.lcssa = phi <2 x double> [ zeroinitializer, %.preheader407 ], [ %200, %193 ]
-  %shift647 = shufflevector <2 x double> %.0398.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop648 = fadd <2 x double> %.0398.lcssa, %shift647
-  %182 = extractelement <2 x double> %foldExtExtBinop648, i64 0
-  %shift650 = shufflevector <2 x double> %.0399.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop651 = fadd <2 x double> %.0399.lcssa, %shift650
-  %183 = extractelement <2 x double> %foldExtExtBinop651, i64 0
-  %shift653 = shufflevector <2 x double> %.0401.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop654 = fadd <2 x double> %.0401.lcssa, %shift653
-  %184 = extractelement <2 x double> %foldExtExtBinop654, i64 0
-  %shift656 = shufflevector <2 x double> %.0403.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop657 = fadd <2 x double> %.0403.lcssa, %shift656
-  %185 = extractelement <2 x double> %foldExtExtBinop657, i64 0
+  %shift661 = shufflevector <2 x double> %.0398.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop662 = fadd <2 x double> %.0398.lcssa, %shift661
+  %182 = extractelement <2 x double> %foldExtExtBinop662, i64 0
+  %shift664 = shufflevector <2 x double> %.0399.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop665 = fadd <2 x double> %.0399.lcssa, %shift664
+  %183 = extractelement <2 x double> %foldExtExtBinop665, i64 0
+  %shift667 = shufflevector <2 x double> %.0401.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop668 = fadd <2 x double> %.0401.lcssa, %shift667
+  %184 = extractelement <2 x double> %foldExtExtBinop668, i64 0
+  %shift670 = shufflevector <2 x double> %.0403.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop671 = fadd <2 x double> %.0403.lcssa, %shift670
+  %185 = extractelement <2 x double> %foldExtExtBinop671, i64 0
   br i1 %38, label %.lr.ph465, label %._crit_edge454.._crit_edge466_crit_edge
 
 ._crit_edge454.._crit_edge466_crit_edge:          ; preds = %._crit_edge454
@@ -3539,12 +3539,12 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
 ._crit_edge477:                                   ; preds = %266, %.preheader405
   %.0402.lcssa = phi <2 x double> [ zeroinitializer, %.preheader405 ], [ %273, %266 ]
   %.0400.lcssa = phi <2 x double> [ zeroinitializer, %.preheader405 ], [ %277, %266 ]
-  %shift659 = shufflevector <2 x double> %.0402.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop660 = fadd <2 x double> %.0402.lcssa, %shift659
-  %261 = extractelement <2 x double> %foldExtExtBinop660, i64 0
-  %shift662 = shufflevector <2 x double> %.0400.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop663 = fadd <2 x double> %.0400.lcssa, %shift662
-  %262 = extractelement <2 x double> %foldExtExtBinop663, i64 0
+  %shift673 = shufflevector <2 x double> %.0402.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop674 = fadd <2 x double> %.0402.lcssa, %shift673
+  %261 = extractelement <2 x double> %foldExtExtBinop674, i64 0
+  %shift676 = shufflevector <2 x double> %.0400.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop677 = fadd <2 x double> %.0400.lcssa, %shift676
+  %262 = extractelement <2 x double> %foldExtExtBinop677, i64 0
   br i1 %181, label %.lr.ph484, label %._crit_edge477.._crit_edge485_crit_edge
 
 ._crit_edge477.._crit_edge485_crit_edge:          ; preds = %._crit_edge477
@@ -3624,9 +3624,9 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
 
 ._crit_edge493:                                   ; preds = %306, %.preheader
   %.0394.lcssa = phi <2 x double> [ zeroinitializer, %.preheader ], [ %311, %306 ]
-  %shift665 = shufflevector <2 x double> %.0394.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop666 = fadd <2 x double> %.0394.lcssa, %shift665
-  %304 = extractelement <2 x double> %foldExtExtBinop666, i64 0
+  %shift679 = shufflevector <2 x double> %.0394.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop680 = fadd <2 x double> %.0394.lcssa, %shift679
+  %304 = extractelement <2 x double> %foldExtExtBinop680, i64 0
   br i1 %260, label %.lr.ph498, label %._crit_edge499
 
 .lr.ph498:                                        ; preds = %._crit_edge493
@@ -4558,9 +4558,9 @@ _ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddE
   %218 = load <2 x double>, ptr %217, align 1, !tbaa !46
   %219 = load <2 x double>, ptr %25, align 1, !tbaa !46
   %220 = fmul <2 x double> %218, %219
-  %shift89 = shufflevector <2 x double> %220, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop90 = fadd <2 x double> %220, %shift89
-  %221 = extractelement <2 x double> %foldExtExtBinop90, i64 0
+  %shift97 = shufflevector <2 x double> %220, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop98 = fadd <2 x double> %220, %shift97
+  %221 = extractelement <2 x double> %foldExtExtBinop98, i64 0
   br i1 %38, label %.lr.ph85.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS2_INS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS8_INS0_13scalar_sum_opIddEEKS6_KNS_7ProductIS5_S6_Li1EEEEEKNSE_INS_9TransposeIS5_EES6_Li1EEEEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit
 
 .lr.ph85.i.i.i.i.i.i:                             ; preds = %_ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEKNS_7ProductIS7_S8_Li1EEEEENS0_10IndexBasedESE_ddE5coeffEl.exit.i.i, %.lr.ph85.i.i.i.i.i.i

@@ -2939,20 +2939,20 @@ _ZNSt10unique_ptrIN17grpc_auth_context9ExtensionESt14default_deleteIS1_EED2Ev.ex
   store ptr null, ptr %28, align 8, !tbaa !152
   %33 = load ptr, ptr %2, align 8, !tbaa !69
   %.not.i6 = icmp eq ptr %33, null
-  br i1 %.not.i6, label %common.ret9, label %34
+  br i1 %.not.i6, label %common.ret14, label %34
 
 34:                                               ; preds = %_ZNSt10unique_ptrIN17grpc_auth_context9ExtensionESt14default_deleteIS1_EED2Ev.exit
   %35 = atomicrmw sub ptr %33, i64 1 acq_rel, align 8
   %36 = icmp eq i64 %35, 1
-  br i1 %36, label %37, label %common.ret9, !prof !29
+  br i1 %36, label %37, label %common.ret14, !prof !29
 
-common.ret9:                                      ; preds = %34, %_ZNSt10unique_ptrIN17grpc_auth_context9ExtensionESt14default_deleteIS1_EED2Ev.exit, %37
+common.ret14:                                     ; preds = %34, %_ZNSt10unique_ptrIN17grpc_auth_context9ExtensionESt14default_deleteIS1_EED2Ev.exit, %37
   ret void
 
 37:                                               ; preds = %34
   tail call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %33) #29
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(8) %33, i64 noundef 64) #33
-  br label %common.ret9
+  br label %common.ret14
 
 .loopexit:                                        ; preds = %.lr.ph, %.noexc
   %lpad.loopexit = landingpad { ptr, i32 }

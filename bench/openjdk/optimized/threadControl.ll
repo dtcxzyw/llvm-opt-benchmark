@@ -345,12 +345,12 @@ threadState.exit:                                 ; preds = %46, %51
   br label %.sink.split
 
 .sink.split:                                      ; preds = %67, %44, %39, %.thread55
-  %.sink60 = phi i16 [ 16, %.thread55 ], [ 4, %39 ], [ 8, %44 ], [ 8, %67 ]
+  %.sink69 = phi i16 [ 16, %.thread55 ], [ 4, %39 ], [ 8, %44 ], [ 8, %67 ]
   %.ph = phi i16 [ 32, %.thread55 ], [ 0, %39 ], [ 0, %44 ], [ 32, %67 ]
   %.039.ph = phi ptr [ %spec.select, %.thread55 ], [ %1, %39 ], [ %1, %44 ], [ %spec.select, %67 ]
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %72 = load i16, ptr %71, align 8
-  %73 = or i16 %72, %.sink60
+  %73 = or i16 %72, %.sink69
   store i16 %73, ptr %71, align 8
   br label %74
 
@@ -1661,8 +1661,8 @@ enumerateOverThreadList.exit43.i:                 ; preds = %resumeCopyHelper.ex
   br i1 %.not13.i45.i, label %commonResumeList.exit, label %.lr.ph.i46.i
 
 resumeCopyHelper.exit95.sink.split.i:             ; preds = %147, %143, %141, %136
-  %.sink17.i = phi i32 [ %137, %136 ], [ 0, %141 ], [ 0, %143 ], [ %148, %147 ]
-  store i32 %.sink17.i, ptr %133, align 8
+  %.sink35.i = phi i32 [ %137, %136 ], [ 0, %141 ], [ 0, %143 ], [ %148, %147 ]
+  store i32 %.sink35.i, ptr %133, align 8
   br label %resumeCopyHelper.exit95.i
 
 resumeCopyHelper.exit95.i:                        ; preds = %138, %.lr.ph.i46.i, %resumeCopyHelper.exit95.sink.split.i

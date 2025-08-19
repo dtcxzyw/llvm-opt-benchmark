@@ -5478,8 +5478,8 @@ _ZN6Assimp3MD517ConvertQuaternionERK10aiVector3tIfER13aiQuaterniontIfE.exit: ; p
   %251 = ptrtoint ptr %248 to i64
   %252 = sub i64 %250, %251
   %253 = sdiv exact i64 %252, 1204
-  %sext135 = shl i64 %253, 32
-  %254 = ashr exact i64 %sext135, 32
+  %sext136 = shl i64 %253, 32
+  %254 = ashr exact i64 %sext136, 32
   %255 = icmp slt i64 %indvars.iv.next126, %254
   br i1 %255, label %57, label %._crit_edge123.loopexit, !llvm.loop !48
 
@@ -6058,8 +6058,8 @@ _ZNK8aiStringneERKS_.exit.thread:                 ; preds = %78, %_ZNK8aiStringn
   %179 = ptrtoint ptr %176 to i64
   %180 = sub i64 %178, %179
   %181 = sdiv exact i64 %180, 1040
-  %sext123 = shl i64 %181, 32
-  %182 = ashr exact i64 %sext123, 32
+  %sext124 = shl i64 %181, 32
+  %182 = ashr exact i64 %sext124, 32
   %183 = icmp slt i64 %indvars.iv.next115, %182
   br i1 %183, label %57, label %._crit_edge111.loopexit, !llvm.loop !54
 
@@ -7197,7 +7197,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN6Assimp3MD510VertexDescESaIS2_EE1
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPN6Assimp3MD510VertexDescEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN6Assimp3MD510VertexDescEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 4
+  %19 = shl nuw nsw i64 %1, 4
   tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8

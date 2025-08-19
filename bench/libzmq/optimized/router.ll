@@ -387,26 +387,26 @@ define void @_ZN3zmq8router_t12xattach_pipeEPNS_6pipe_tEbb(ptr noundef nonnull a
   br i1 %46, label %._crit_edge.thread.i.i.i, label %52
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %41
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %43, %41 ]
+  %.019.lcssa29.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %43, %41 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 2136
   %48 = load ptr, ptr %47, align 8, !tbaa !105
-  %49 = icmp eq ptr %.019.lcssa28.i.i.i, %48
+  %49 = icmp eq ptr %.019.lcssa29.i.i.i, %48
   br i1 %49, label %select.unfold.i.i, label %50
 
 50:                                               ; preds = %._crit_edge.thread.i.i.i
-  %51 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #24
+  %51 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i) #24
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %51, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !123
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge.i.i.i
   %53 = phi ptr [ %.pre.i.i, %50 ], [ %45, %._crit_edge.i.i.i ]
-  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %50 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %.019.lcssa28.i.i.i = phi ptr [ %.019.lcssa29.i.i.i, %50 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
   %54 = icmp ult ptr %53, %1
   br i1 %54, label %select.unfold.i.i, label %_ZNSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EE6insertERKS2_.exit
 
 select.unfold.i.i:                                ; preds = %52, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %52 ]
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa29.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa28.i.i.i, %52 ]
   %55 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %43
   br i1 %55, label %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i, label %56
 

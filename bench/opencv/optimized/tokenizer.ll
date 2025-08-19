@@ -2289,7 +2289,7 @@ define hidden void @_ZN6google8protobuf2io9Tokenizer19ConsumeBlockCommentEPNSt7_
   br label %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit
 
 _ZN6google8protobuf2io9Tokenizer8NextCharEv.exit: ; preds = %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit.backedge, %33
-  %34 = phi i8 [ %.pre, %33 ], [ %.be90, %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit.backedge ]
+  %34 = phi i8 [ %.pre, %33 ], [ %.be118, %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit.backedge ]
   switch i8 %34, label %39 [
     i8 9, label %35
     i8 10, label %88
@@ -2329,7 +2329,7 @@ _ZN6google8protobuf2io9Tokenizer8NextCharEv.exit: ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit.backedge
 
 _ZN6google8protobuf2io9Tokenizer8NextCharEv.exit.backedge: ; preds = %47, %55, %87
-  %.be90 = phi i8 [ %51, %47 ], [ 0, %55 ], [ %.sink.i.i, %87 ]
+  %.be118 = phi i8 [ %51, %47 ], [ 0, %55 ], [ %.sink.i.i, %87 ]
   br label %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit, !llvm.loop !57
 
 52:                                               ; preds = %42
@@ -3145,18 +3145,18 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io9Tokenizer4NextEv(ptr no
 
 43:                                               ; preds = %35
   switch i8 %42, label %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit.thread [
-    i8 32, label %.preheader184
-    i8 13, label %.preheader184
-    i8 11, label %.preheader184
-    i8 9, label %.preheader184
-    i8 12, label %.preheader184
+    i8 32, label %.preheader209
+    i8 13, label %.preheader209
+    i8 11, label %.preheader209
+    i8 9, label %.preheader209
+    i8 12, label %.preheader209
   ]
 
-.preheader184:                                    ; preds = %43, %43, %43, %43, %43
+.preheader209:                                    ; preds = %43, %43, %43, %43, %43
   br label %44
 
-44:                                               ; preds = %.backedge, %.preheader184
-  %45 = phi i8 [ %42, %.preheader184 ], [ %101, %.backedge ]
+44:                                               ; preds = %.backedge, %.preheader209
+  %45 = phi i8 [ %42, %.preheader209 ], [ %101, %.backedge ]
   switch i8 %45, label %53 [
     i8 10, label %46
     i8 9, label %49
@@ -3294,19 +3294,19 @@ _ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit.thread56: ; preds 
 
 102:                                              ; preds = %35
   switch i8 %42, label %_ZN6google8protobuf2io9Tokenizer17TryConsumeNewlineEv.exit [
-    i8 32, label %.preheader186
-    i8 13, label %.preheader186
-    i8 11, label %.preheader186
-    i8 10, label %.preheader186
-    i8 9, label %.preheader186
-    i8 12, label %.preheader186
+    i8 32, label %.preheader211
+    i8 13, label %.preheader211
+    i8 11, label %.preheader211
+    i8 10, label %.preheader211
+    i8 9, label %.preheader211
+    i8 12, label %.preheader211
   ]
 
-.preheader186:                                    ; preds = %102, %102, %102, %102, %102, %102
+.preheader211:                                    ; preds = %102, %102, %102, %102, %102, %102
   br label %103
 
-103:                                              ; preds = %.backedge187, %.preheader186
-  %104 = phi i8 [ %42, %.preheader186 ], [ %160, %.backedge187 ]
+103:                                              ; preds = %.backedge212, %.preheader211
+  %104 = phi i8 [ %42, %.preheader211 ], [ %160, %.backedge212 ]
   switch i8 %104, label %112 [
     i8 10, label %105
     i8 9, label %108
@@ -3331,8 +3331,8 @@ _ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit.thread56: ; preds 
   br label %115
 
 115:                                              ; preds = %112, %108, %105
-  %.sink172 = phi i32 [ %114, %112 ], [ %111, %108 ], [ 0, %105 ]
-  store i32 %.sink172, ptr %20, align 8, !tbaa !25
+  %.sink197 = phi i32 [ %114, %112 ], [ %111, %108 ], [ 0, %105 ]
+  store i32 %.sink197, ptr %20, align 8, !tbaa !25
   %116 = load i32, ptr %23, align 4, !tbaa !40
   %117 = add nsw i32 %116, 1
   store i32 %117, ptr %23, align 4, !tbaa !40
@@ -3428,15 +3428,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i49: ; 
 _ZN6google8protobuf2io9Tokenizer8NextCharEv.exit: ; preds = %120, %159
   %160 = phi i8 [ %124, %120 ], [ %.sink.i.i, %159 ]
   switch i8 %160, label %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit [
-    i8 32, label %.backedge187
-    i8 13, label %.backedge187
-    i8 11, label %.backedge187
-    i8 10, label %.backedge187
-    i8 9, label %.backedge187
-    i8 12, label %.backedge187
+    i8 32, label %.backedge212
+    i8 13, label %.backedge212
+    i8 11, label %.backedge212
+    i8 10, label %.backedge212
+    i8 9, label %.backedge212
+    i8 12, label %.backedge212
   ]
 
-.backedge187:                                     ; preds = %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit, %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit, %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit, %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit, %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit, %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit
+.backedge212:                                     ; preds = %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit, %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit, %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit, %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit, %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit, %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit
   br label %103, !llvm.loop !60
 
 _ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit: ; preds = %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit, %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit.thread
@@ -3458,7 +3458,7 @@ _ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit.thread: ; preds = 
   br label %_ZN6google8protobuf2io9Tokenizer17TryConsumeNewlineEv.exit
 
 _ZN6google8protobuf2io9Tokenizer17TryConsumeNewlineEv.exit: ; preds = %102, %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit, %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit.thread, %166
-  %or.cond6.i161 = phi i1 [ false, %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit.thread ], [ true, %166 ], [ false, %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit ], [ false, %102 ]
+  %or.cond6.i186 = phi i1 [ false, %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit.thread ], [ true, %166 ], [ false, %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit ], [ false, %102 ]
   %167 = load i32, ptr %23, align 4, !tbaa !40
   %168 = load i32, ptr %24, align 8, !tbaa !27
   %.not.i.i = icmp eq i32 %167, %168
@@ -3490,7 +3490,7 @@ _ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit: ; preds = %_ZN6google8protobuf
   store i32 -1, ptr %24, align 8, !tbaa !27
   %182 = load i32, ptr %20, align 8, !tbaa !25
   store i32 %182, ptr %31, align 8, !tbaa !36
-  br i1 %or.cond6.i161, label %.critedge2.thread, label %199
+  br i1 %or.cond6.i186, label %.critedge2.thread, label %199
 
 .critedge19:                                      ; preds = %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit, %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit.thread56
   %183 = load i32, ptr %23, align 4, !tbaa !40
@@ -3902,8 +3902,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %_ZN
   br label %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_112AlphanumericEEEvv.exit
 
 _ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_112AlphanumericEEEvv.exit: ; preds = %.lr.ph.i, %258, %245, %256, %304, %307, %329, %306, %300
-  %.sink173 = phi i32 [ %257, %256 ], [ %305, %304 ], [ 5, %307 ], [ 6, %329 ], [ 5, %306 ], [ %301, %300 ], [ 2, %245 ], [ 6, %258 ], [ 2, %.lr.ph.i ]
-  store i32 %.sink173, ptr %0, align 8, !tbaa !37
+  %.sink198 = phi i32 [ %257, %256 ], [ %305, %304 ], [ 5, %307 ], [ 6, %329 ], [ 5, %306 ], [ %301, %300 ], [ 2, %245 ], [ 6, %258 ], [ 2, %.lr.ph.i ]
+  store i32 %.sink198, ptr %0, align 8, !tbaa !37
   %330 = load i32, ptr %23, align 4, !tbaa !40
   %331 = load i32, ptr %24, align 8, !tbaa !27
   %.not.i.i45 = icmp eq i32 %330, %331
@@ -4194,7 +4194,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke128, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit35.invoke, %.invoke, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_119WhitespaceNoNewlineEEEvv.exit, %173, %44, %48, %52, %148, %153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i, %172, %176, %182
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke165, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit35.invoke, %.invoke, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_119WhitespaceNoNewlineEEEvv.exit, %173, %44, %48, %52, %148, %153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i, %172, %176, %182
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -4243,7 +4243,7 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit: ; preds = %52, %41
   br label %.noexc23
 
 .noexc23:                                         ; preds = %.noexc23.backedge, %79
-  %88 = phi i8 [ %.pre, %79 ], [ %.be139, %.noexc23.backedge ]
+  %88 = phi i8 [ %.pre, %79 ], [ %.be176, %.noexc23.backedge ]
   switch i8 %88, label %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_119WhitespaceNoNewlineEEEvv.exit [
     i8 9, label %89
     i8 11, label %93
@@ -4308,7 +4308,7 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit: ; preds = %52, %41
   %119 = load i64, ptr %118, align 8, !tbaa !9
   %120 = sub i64 4611686018427387903, %119
   %121 = icmp ult i64 %120, %117
-  br i1 %121, label %.invoke128, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i64
+  br i1 %121, label %.invoke165, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i64
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i64: ; preds = %115
   %122 = load ptr, ptr %86, align 8, !tbaa !39
@@ -4362,7 +4362,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i64: ; 
   br label %.noexc23.backedge
 
 .noexc23.backedge:                                ; preds = %140, %109, %101
-  %.be139 = phi i8 [ %.sink.i.i, %140 ], [ 0, %109 ], [ %105, %101 ]
+  %.be176 = phi i8 [ %.sink.i.i, %140 ], [ 0, %109 ], [ %105, %101 ]
   br label %.noexc23, !llvm.loop !58
 
 _ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_119WhitespaceNoNewlineEEEvv.exit: ; preds = %.noexc23
@@ -4370,7 +4370,7 @@ _ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_119Whitespa
           to label %142 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 142:                                              ; preds = %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_119WhitespaceNoNewlineEEEvv.exit
-  switch i32 %141, label %default.unreachable124 [
+  switch i32 %141, label %default.unreachable161 [
     i32 0, label %143
     i32 1, label %169
     i32 2, label %.loopexit110
@@ -4427,13 +4427,13 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit.i: ; preds = %.noexc27, %153
   %161 = load i64, ptr %160, align 8, !tbaa !9
   %162 = sub i64 4611686018427387903, %161
   %163 = icmp ult i64 %162, %159
-  br i1 %163, label %.invoke128, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i
+  br i1 %163, label %.invoke165, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i
 
-.invoke128:                                       ; preds = %115, %311, %219, %355, %282, %156
+.invoke165:                                       ; preds = %115, %311, %219, %355, %282, %156
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.30) #25
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke128
+.cont:                                            ; preds = %.invoke165
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i: ; preds = %156
@@ -4506,7 +4506,7 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit35.invoke: ; preds = %179, %_
   invoke void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
           to label %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit37.thread unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-default.unreachable124:                           ; preds = %246, %142
+default.unreachable161:                           ; preds = %246, %142
   unreachable
 
 _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit37.thread: ; preds = %.invoke, %182, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit
@@ -4526,7 +4526,7 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit58: ; preds = %_ZN6google8pro
   br label %.noexc38
 
 .noexc38:                                         ; preds = %.noexc38.backedge, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit58
-  %192 = phi i8 [ %.pre121, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit58 ], [ %.be136, %.noexc38.backedge ]
+  %192 = phi i8 [ %.pre121, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit58 ], [ %.be173, %.noexc38.backedge ]
   switch i8 %192, label %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_119WhitespaceNoNewlineEEEvv.exit39 [
     i8 9, label %193
     i8 11, label %197
@@ -4548,8 +4548,8 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit58: ; preds = %_ZN6google8pro
   br label %200
 
 200:                                              ; preds = %197, %193
-  %storemerge125 = phi i32 [ %199, %197 ], [ %196, %193 ]
-  store i32 %storemerge125, ptr %184, align 8, !tbaa !25
+  %storemerge162 = phi i32 [ %199, %197 ], [ %196, %193 ]
+  store i32 %storemerge162, ptr %184, align 8, !tbaa !25
   %201 = load i32, ptr %185, align 4, !tbaa !40
   %202 = add nsw i32 %201, 1
   store i32 %202, ptr %185, align 4, !tbaa !40
@@ -4591,7 +4591,7 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit58: ; preds = %_ZN6google8pro
   %223 = load i64, ptr %222, align 8, !tbaa !9
   %224 = sub i64 4611686018427387903, %223
   %225 = icmp ult i64 %224, %221
-  br i1 %225, label %.invoke128, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i71
+  br i1 %225, label %.invoke165, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i71
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i71: ; preds = %219
   %226 = load ptr, ptr %190, align 8, !tbaa !39
@@ -4645,7 +4645,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i71: ; 
   br label %.noexc38.backedge
 
 .noexc38.backedge:                                ; preds = %244, %213, %205
-  %.be136 = phi i8 [ %.sink.i.i70, %244 ], [ 0, %213 ], [ %209, %205 ]
+  %.be173 = phi i8 [ %.sink.i.i70, %244 ], [ 0, %213 ], [ %209, %205 ]
   br label %.noexc38, !llvm.loop !58
 
 _ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_119WhitespaceNoNewlineEEEvv.exit39: ; preds = %.noexc38
@@ -4653,7 +4653,7 @@ _ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_119Whitespa
           to label %246 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 246:                                              ; preds = %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_119WhitespaceNoNewlineEEEvv.exit39
-  switch i32 %245, label %default.unreachable124 [
+  switch i32 %245, label %default.unreachable161 [
     i32 0, label %247
     i32 1, label %323
     i32 2, label %.loopexit110
@@ -4703,8 +4703,8 @@ _ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_119Whitespa
   br label %263
 
 263:                                              ; preds = %260, %256
-  %storemerge127 = phi i32 [ %259, %256 ], [ %262, %260 ]
-  store i32 %storemerge127, ptr %184, align 8, !tbaa !25
+  %storemerge164 = phi i32 [ %259, %256 ], [ %262, %260 ]
+  store i32 %storemerge164, ptr %184, align 8, !tbaa !25
   %264 = load i32, ptr %185, align 4, !tbaa !40
   %265 = add nsw i32 %264, 1
   store i32 %265, ptr %185, align 4, !tbaa !40
@@ -4746,7 +4746,7 @@ _ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_119Whitespa
   %286 = load i64, ptr %285, align 8, !tbaa !9
   %287 = sub i64 4611686018427387903, %286
   %288 = icmp ult i64 %287, %284
-  br i1 %288, label %.invoke128, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i79
+  br i1 %288, label %.invoke165, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i79
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i79: ; preds = %282
   %289 = load ptr, ptr %190, align 8, !tbaa !39
@@ -4821,7 +4821,7 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit.i45: ; preds = %.noexc48, %3
   %316 = load i64, ptr %315, align 8, !tbaa !9
   %317 = sub i64 4611686018427387903, %316
   %318 = icmp ult i64 %317, %314
-  br i1 %318, label %.invoke128, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i47
+  br i1 %318, label %.invoke165, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i47
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i47: ; preds = %311
   %319 = load ptr, ptr %190, align 8, !tbaa !39
@@ -4855,7 +4855,7 @@ _ZN6google8protobuf2io9Tokenizer18ConsumeLineCommentEPNSt7__cxx1112basic_stringI
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.preheader
-  %328 = phi i8 [ %.pre122, %.preheader.preheader ], [ %.be134, %.preheader.backedge ]
+  %328 = phi i8 [ %.pre122, %.preheader.preheader ], [ %.be171, %.preheader.backedge ]
   switch i8 %328, label %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit58.backedge [
     i8 9, label %329
     i8 11, label %333
@@ -4878,8 +4878,8 @@ _ZN6google8protobuf2io9Tokenizer18ConsumeLineCommentEPNSt7__cxx1112basic_stringI
   br label %336
 
 336:                                              ; preds = %333, %329
-  %storemerge126 = phi i32 [ %335, %333 ], [ %332, %329 ]
-  store i32 %storemerge126, ptr %184, align 8, !tbaa !25
+  %storemerge163 = phi i32 [ %335, %333 ], [ %332, %329 ]
+  store i32 %storemerge163, ptr %184, align 8, !tbaa !25
   %337 = load i32, ptr %185, align 4, !tbaa !40
   %338 = add nsw i32 %337, 1
   store i32 %338, ptr %185, align 4, !tbaa !40
@@ -4921,7 +4921,7 @@ _ZN6google8protobuf2io9Tokenizer18ConsumeLineCommentEPNSt7__cxx1112basic_stringI
   %359 = load i64, ptr %358, align 8, !tbaa !9
   %360 = sub i64 4611686018427387903, %359
   %361 = icmp ult i64 %360, %357
-  br i1 %361, label %.invoke128, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i87
+  br i1 %361, label %.invoke165, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i87
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i87: ; preds = %355
   %362 = load ptr, ptr %190, align 8, !tbaa !39
@@ -4975,7 +4975,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i87: ; 
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %380, %349, %341
-  %.be134 = phi i8 [ %.sink.i.i86, %380 ], [ 0, %349 ], [ %345, %341 ]
+  %.be171 = phi i8 [ %.sink.i.i86, %380 ], [ 0, %349 ], [ %345, %341 ]
   br label %.preheader, !llvm.loop !58
 
 381:                                              ; preds = %.preheader
@@ -5260,16 +5260,16 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io9Tokenizer12ParseInteger
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %12
-  %.02646 = phi i32 [ %.026, %12 ], [ 8, %7 ]
-  %.02745 = phi ptr [ %.027, %12 ], [ %4, %7 ]
+  %.02650 = phi i32 [ %.026, %12 ], [ 8, %7 ]
+  %.02749 = phi ptr [ %.027, %12 ], [ %4, %7 ]
   %14 = phi i8 [ %13, %12 ], [ 48, %7 ]
-  %15 = zext nneg i32 %.02646 to i64
+  %15 = zext nneg i32 %.02650 to i64
   br label %16
 
 16:                                               ; preds = %.lr.ph, %36
   %17 = phi i8 [ %14, %.lr.ph ], [ %40, %36 ]
   %.02439 = phi i64 [ 0, %.lr.ph ], [ %38, %36 ]
-  %.12838 = phi ptr [ %.02745, %.lr.ph ], [ %39, %36 ]
+  %.12838 = phi ptr [ %.02749, %.lr.ph ], [ %39, %36 ]
   %18 = sext i8 %17 to i32
   %19 = add i8 %17, -48
   %or.cond.i = icmp ult i8 %19, 10
@@ -5297,7 +5297,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io9Tokenizer12ParseInteger
 
 _ZN6google8protobuf2io12_GLOBAL__N_110DigitValueEc.exit: ; preds = %20, %24, %26
   %.0.i = phi i32 [ %21, %20 ], [ %25, %24 ], [ %spec.select.i, %26 ]
-  %or.cond = icmp ult i32 %.0.i, %.02646
+  %or.cond = icmp ult i32 %.0.i, %.02650
   br i1 %or.cond, label %29, label %.critedge
 
 29:                                               ; preds = %_ZN6google8protobuf2io12_GLOBAL__N_110DigitValueEc.exit
@@ -5864,8 +5864,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit110: ; pre
   %142 = phi i32 [ %157, %_ZN6google8protobuf2io12_GLOBAL__N_110DigitValueEc.exit.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %.01315.i.i = phi ptr [ %158, %_ZN6google8protobuf2io12_GLOBAL__N_110DigitValueEc.exit.i.i ], [ %.ptr, %.lr.ph.preheader.i.i ]
   %143 = load i8, ptr %.01315.i.i, align 1, !tbaa !12
-  %.not18.i.i = icmp eq i8 %143, 0
-  br i1 %.not18.i.i, label %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit.thread, label %144
+  %.not20.i.i = icmp eq i8 %143, 0
+  br i1 %.not20.i.i, label %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit.thread, label %144
 
 144:                                              ; preds = %.lr.ph.i.i
   %145 = shl i32 %142, 4
@@ -5909,21 +5909,21 @@ _ZN6google8protobuf2ioL13ReadHexDigitsEPKciPj.exit.i: ; preds = %_ZN6google8prot
 161:                                              ; preds = %_ZN6google8protobuf2ioL13ReadHexDigitsEPKciPj.exit.i
   %162 = load i8, ptr %.ptr127, align 1, !tbaa !12
   %163 = icmp eq i8 %162, 92
-  br i1 %163, label %164, label %.thread144
+  br i1 %163, label %164, label %.thread153
 
 164:                                              ; preds = %161
   %165 = getelementptr inbounds nuw i8, ptr %.ptr127, i64 1
   %166 = load i8, ptr %165, align 1, !tbaa !12
   %167 = icmp eq i8 %166, 117
-  br i1 %167, label %.lr.ph.i18.i, label %.thread144
+  br i1 %167, label %.lr.ph.i18.i, label %.thread153
 
 .lr.ph.i18.i:                                     ; preds = %164, %_ZN6google8protobuf2io12_GLOBAL__N_110DigitValueEc.exit.i25.i
   %168 = phi i32 [ %183, %_ZN6google8protobuf2io12_GLOBAL__N_110DigitValueEc.exit.i25.i ], [ 0, %164 ]
   %.01315.i19.idx.i = phi i64 [ %.01315.i19.add.i, %_ZN6google8protobuf2io12_GLOBAL__N_110DigitValueEc.exit.i25.i ], [ 2, %164 ]
   %.01315.i19.ptr.i = getelementptr inbounds nuw i8, ptr %.ptr127, i64 %.01315.i19.idx.i
   %169 = load i8, ptr %.01315.i19.ptr.i, align 1, !tbaa !12
-  %.not18.i20.i = icmp eq i8 %169, 0
-  br i1 %.not18.i20.i, label %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit, label %170
+  %.not20.i20.i = icmp eq i8 %169, 0
+  br i1 %.not20.i20.i, label %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit, label %170
 
 170:                                              ; preds = %.lr.ph.i18.i
   %171 = shl i32 %168, 4
@@ -5971,8 +5971,8 @@ _ZN6google8protobuf2io12_GLOBAL__N_110DigitValueEc.exit.i25.i: ; preds = %180, %
   %.add126 = add nuw nsw i64 %.add, 6
   br label %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit
 
-.thread144:                                       ; preds = %164, %161
-  %.0.i111.ptr134 = getelementptr inbounds nuw i8, ptr %.pn, i64 %.add
+.thread153:                                       ; preds = %164, %161
+  %.0.i111.ptr143 = getelementptr inbounds nuw i8, ptr %.pn, i64 %.add
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %216
 
@@ -6037,14 +6037,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit114: ; pre
   %215 = icmp ult i32 %.1, 65536
   br i1 %215, label %216, label %225
 
-216:                                              ; preds = %.thread144, %214
-  %.0.i111.ptr137142148 = phi ptr [ %.0.i111.ptr134, %.thread144 ], [ %.0.i111.ptr, %214 ]
-  %.1135143147 = phi i32 [ %157, %.thread144 ], [ %.1, %214 ]
-  %217 = shl nuw nsw i32 %.1135143147, 4
+216:                                              ; preds = %.thread153, %214
+  %.0.i111.ptr146151157 = phi ptr [ %.0.i111.ptr143, %.thread153 ], [ %.0.i111.ptr, %214 ]
+  %.1144152156 = phi i32 [ %157, %.thread153 ], [ %.1, %214 ]
+  %217 = shl nuw nsw i32 %.1144152156, 4
   %218 = and i32 %217, 983040
-  %219 = shl nuw nsw i32 %.1135143147, 2
+  %219 = shl nuw nsw i32 %.1144152156, 2
   %220 = and i32 %219, 16128
-  %221 = and i32 %.1135143147, 63
+  %221 = and i32 %.1144152156, 63
   %222 = or disjoint i32 %221, %220
   %223 = or disjoint i32 %222, %218
   %224 = or disjoint i32 %223, 14712960
@@ -6073,7 +6073,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit114: ; pre
   br label %_ZN6google8protobuf2ioL10AppendUTF8EjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 240:                                              ; preds = %227, %216, %208, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit
-  %.0.i111.ptr138 = phi ptr [ %.0.i111.ptr, %208 ], [ %.0.i111.ptr137142148, %216 ], [ %.0.i111.ptr, %227 ], [ %.0.i111.ptr, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit ]
+  %.0.i111.ptr147 = phi ptr [ %.0.i111.ptr, %208 ], [ %.0.i111.ptr146151157, %216 ], [ %.0.i111.ptr, %227 ], [ %.0.i111.ptr, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit ]
   %241 = phi i32 [ %213, %208 ], [ %224, %216 ], [ %238, %227 ], [ %.1, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit ]
   %.0.i115 = phi i64 [ 2, %208 ], [ 3, %216 ], [ 4, %227 ], [ 1, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit ]
   %242 = call noundef i32 @_ZN6google8protobuf6ghtonlEj(i32 noundef %241)
@@ -6094,9 +6094,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i: ; pred
   br label %_ZN6google8protobuf2ioL10AppendUTF8EjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6google8protobuf2ioL10AppendUTF8EjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %239, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i
-  %.0.i111.ptr136 = phi ptr [ %.0.i111.ptr, %239 ], [ %.0.i111.ptr138, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i ]
+  %.0.i111.ptr145 = phi ptr [ %.0.i111.ptr, %239 ], [ %.0.i111.ptr147, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %250 = getelementptr inbounds i8, ptr %.0.i111.ptr136, i64 -1
+  %250 = getelementptr inbounds i8, ptr %.0.i111.ptr145, i64 -1
   br label %.backedge
 
 251:                                              ; preds = %92

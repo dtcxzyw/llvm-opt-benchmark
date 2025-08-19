@@ -1208,9 +1208,9 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   %162 = icmp eq i32 %4, 0
   %163 = icmp slt i32 %154, 2
   %164 = select i1 %162, i1 true, i1 %163
-  br i1 %164, label %172, label %.thread90
+  br i1 %164, label %172, label %.thread100
 
-.thread90:                                        ; preds = %161
+.thread100:                                       ; preds = %161
   %165 = getelementptr inbounds nuw i8, ptr %13, i64 416
   %166 = getelementptr inbounds nuw i8, ptr %13, i64 420
   %167 = getelementptr inbounds nuw i8, ptr %13, i64 544
@@ -1238,15 +1238,15 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   %185 = icmp eq i32 %4, 0
   br i1 %185, label %.split.us, label %.split.preheader
 
-.split.preheader:                                 ; preds = %.thread90, %176
-  %186 = phi ptr [ %171, %.thread90 ], [ %184, %176 ]
-  %187 = phi ptr [ %170, %.thread90 ], [ %183, %176 ]
-  %188 = phi ptr [ %169, %.thread90 ], [ %182, %176 ]
-  %189 = phi ptr [ %168, %.thread90 ], [ %181, %176 ]
-  %190 = phi ptr [ %167, %.thread90 ], [ %180, %176 ]
-  %191 = phi ptr [ %166, %.thread90 ], [ %179, %176 ]
-  %192 = phi ptr [ %165, %.thread90 ], [ %178, %176 ]
-  %193 = phi i64 [ 0, %.thread90 ], [ %177, %176 ]
+.split.preheader:                                 ; preds = %.thread100, %176
+  %186 = phi ptr [ %171, %.thread100 ], [ %184, %176 ]
+  %187 = phi ptr [ %170, %.thread100 ], [ %183, %176 ]
+  %188 = phi ptr [ %169, %.thread100 ], [ %182, %176 ]
+  %189 = phi ptr [ %168, %.thread100 ], [ %181, %176 ]
+  %190 = phi ptr [ %167, %.thread100 ], [ %180, %176 ]
+  %191 = phi ptr [ %166, %.thread100 ], [ %179, %176 ]
+  %192 = phi ptr [ %165, %.thread100 ], [ %178, %176 ]
+  %193 = phi i64 [ 0, %.thread100 ], [ %177, %176 ]
   %194 = getelementptr inbounds nuw i8, ptr %13, i64 528
   %195 = getelementptr inbounds nuw i8, ptr %13, i64 536
   %196 = getelementptr inbounds nuw i8, ptr %13, i64 456

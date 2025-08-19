@@ -1426,9 +1426,9 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   %122 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %123 = load i64, ptr %122, align 8, !tbaa !14
   %124 = icmp eq i64 %123, 0
-  br i1 %124, label %.thread838, label %125
+  br i1 %124, label %.thread853, label %125
 
-.thread838:                                       ; preds = %121
+.thread853:                                       ; preds = %121
   store i32 0, ptr %116, align 8, !tbaa !92
   br label %.critedge
 
@@ -1466,8 +1466,8 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   store i32 1, ptr %143, align 4, !tbaa !93
   br label %.thread508
 
-.critedge:                                        ; preds = %.thread838, %131, %129
-  %.0414 = phi i32 [ %34, %129 ], [ %.1415, %131 ], [ %34, %.thread838 ]
+.critedge:                                        ; preds = %.thread853, %131, %129
+  %.0414 = phi i32 [ %34, %129 ], [ %.1415, %131 ], [ %34, %.thread853 ]
   %144 = getelementptr inbounds nuw i8, ptr %3, i64 1188
   %145 = load i32, ptr %144, align 4, !tbaa !50
   %.not482 = icmp eq i32 %145, 0
@@ -1624,8 +1624,8 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   %228 = load i32, ptr %227, align 8, !tbaa !47
   %.not492 = icmp ne i32 %228, 0
   %.not633 = icmp eq i32 %11, 0
-  %or.cond857 = select i1 %.not492, i1 true, i1 %.not633
-  br i1 %or.cond857, label %.loopexit550, label %.preheader548.us.preheader
+  %or.cond872 = select i1 %.not492, i1 true, i1 %.not633
+  br i1 %or.cond872, label %.loopexit550, label %.preheader548.us.preheader
 
 .preheader548.us.preheader:                       ; preds = %226
   %wide.trip.count = zext i32 %11 to i64
@@ -2424,7 +2424,7 @@ define internal void @metadata_callback(ptr readnone captures(none) %0, ptr noun
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %55 = load i32, ptr %54, align 8, !tbaa !14
   %.not161 = icmp eq i32 %53, %55
-  br i1 %.not161, label %.thread184, label %56
+  br i1 %.not161, label %.thread189, label %56
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 1224
@@ -2452,7 +2452,7 @@ define internal void @metadata_callback(ptr readnone captures(none) %0, ptr noun
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 1360
   store i32 %71, ptr %72, align 8, !tbaa !62
   %73 = icmp slt i32 %25, 0
-  br i1 %73, label %74, label %.thread184
+  br i1 %73, label %74, label %.thread189
 
 74:                                               ; preds = %63
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 1200
@@ -2470,7 +2470,7 @@ define internal void @metadata_callback(ptr readnone captures(none) %0, ptr noun
   store i32 1, ptr %82, align 8, !tbaa !76
   br label %.critedge
 
-.thread184:                                       ; preds = %51, %63
+.thread189:                                       ; preds = %51, %63
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %84 = load i64, ptr %83, align 8, !tbaa !14
   br label %104
@@ -2510,11 +2510,11 @@ define internal void @metadata_callback(ptr readnone captures(none) %0, ptr noun
   store i32 1, ptr %103, align 8, !tbaa !76
   br label %.critedge
 
-104:                                              ; preds = %.thread184, %97
-  %.0140183188 = phi i64 [ 0, %.thread184 ], [ %88, %97 ]
-  %105 = phi ptr [ %83, %.thread184 ], [ %89, %97 ]
-  %106 = phi i64 [ %84, %.thread184 ], [ %90, %97 ]
-  %107 = sub i64 %106, %.0140183188
+104:                                              ; preds = %.thread189, %97
+  %.0140188193 = phi i64 [ 0, %.thread189 ], [ %88, %97 ]
+  %105 = phi ptr [ %83, %.thread189 ], [ %89, %97 ]
+  %106 = phi i64 [ %84, %.thread189 ], [ %90, %97 ]
+  %107 = sub i64 %106, %.0140188193
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 1344
   store i64 %107, ptr %108, align 8, !tbaa !78
   %109 = load i32, ptr %24, align 8, !tbaa !60
@@ -2529,7 +2529,7 @@ define internal void @metadata_callback(ptr readnone captures(none) %0, ptr noun
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 1360
   %117 = load i32, ptr %116, align 8, !tbaa !62
   %118 = load i64, ptr %105, align 8, !tbaa !14
-  %119 = tail call fastcc i32 @canonicalize_until_specification(ptr noundef %113, ptr noundef %115, i32 noundef %117, i64 noundef %.0140183188, i64 noundef %118)
+  %119 = tail call fastcc i32 @canonicalize_until_specification(ptr noundef %113, ptr noundef %115, i32 noundef %117, i64 noundef %.0140188193, i64 noundef %118)
   %.not165 = icmp eq i32 %119, 0
   br i1 %.not165, label %120, label %122
 
@@ -4010,7 +4010,7 @@ define internal fastcc i32 @verify_streaminfo(ptr noundef nonnull readonly captu
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %13 = load i32, ptr %12, align 8, !tbaa !79
   %.not28 = icmp eq i32 %13, 0
-  br i1 %.not28, label %.thread39.sink.split, label %14
+  br i1 %.not28, label %.thread40.sink.split, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1344
@@ -4041,15 +4041,15 @@ define internal fastcc i32 @verify_streaminfo(ptr noundef nonnull readonly captu
   %31 = load i32, ptr %30, align 4, !tbaa !139
   %.not32 = icmp eq i32 %31, 0
   %spec.select = select i1 %.not32, ptr @.str.109, ptr @.str.110
-  br label %.thread39.sink.split
+  br label %.thread40.sink.split
 
 .thread:                                          ; preds = %17
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1340
   %33 = load i32, ptr %32, align 4, !tbaa !139
-  %.not3238 = icmp eq i32 %33, 0
-  br i1 %.not3238, label %.thread39.sink.split, label %.thread39
+  %.not3239 = icmp eq i32 %33, 0
+  br i1 %.not3239, label %.thread40.sink.split, label %.thread40
 
-.thread39.sink.split:                             ; preds = %29, %.thread, %11
+.thread40.sink.split:                             ; preds = %29, %.thread, %11
   %.str.109.sink = phi ptr [ @.str.108, %11 ], [ @.str.109, %.thread ], [ %spec.select, %29 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %35 = load ptr, ptr %34, align 8, !tbaa !54
@@ -4062,10 +4062,10 @@ define internal fastcc i32 @verify_streaminfo(ptr noundef nonnull readonly captu
   %40 = load i32, ptr %39, align 4, !tbaa !43
   %.not33 = icmp eq i32 %40, 0
   %41 = zext i1 %.not33 to i32
-  br label %.thread39
+  br label %.thread40
 
-.thread39:                                        ; preds = %.thread39.sink.split, %.thread
-  %.1.shrunk = phi i32 [ 1, %.thread ], [ %41, %.thread39.sink.split ]
+.thread40:                                        ; preds = %.thread40.sink.split, %.thread
+  %.1.shrunk = phi i32 [ 1, %.thread ], [ %41, %.thread40.sink.split ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %43 = load ptr, ptr %42, align 8, !tbaa !54
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 1368
@@ -4077,15 +4077,15 @@ define internal fastcc i32 @verify_streaminfo(ptr noundef nonnull readonly captu
   %.not36 = icmp eq i32 %48, 0
   br i1 %.not36, label %49, label %53
 
-49:                                               ; preds = %.thread39
+49:                                               ; preds = %.thread40
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1188
   %51 = load i32, ptr %50, align 4, !tbaa !50
   %.not37 = icmp eq i32 %51, 0
   %52 = select i1 %.not37, ptr @.str.114, ptr @.str.113
   br label %53
 
-53:                                               ; preds = %.thread39, %49
-  %54 = phi ptr [ %52, %49 ], [ @.str.112, %.thread39 ]
+53:                                               ; preds = %.thread40, %49
+  %54 = phi ptr [ %52, %49 ], [ @.str.112, %.thread40 ]
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %46, i32 noundef 2, ptr noundef nonnull @.str.111, ptr noundef nonnull %54) #15
   br label %55
 

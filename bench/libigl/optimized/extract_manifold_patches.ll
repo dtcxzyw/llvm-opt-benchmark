@@ -1419,8 +1419,8 @@ _ZNSt5queueIiSt5dequeIiSaIiEEE3popEv.exit:        ; preds = %57, %59
   br label %90
 
 90:                                               ; preds = %84, %87
-  %.sink10.i = phi i64 [ %89, %87 ], [ %85, %84 ]
-  %91 = trunc i64 %.sink10.i to i32
+  %.sink11.i = phi i64 [ %89, %87 ], [ %85, %84 ]
+  %91 = trunc i64 %.sink11.i to i32
   %92 = srem i32 %91, %9
   %93 = sext i32 %92 to i64
   %94 = load ptr, ptr %3, align 8, !tbaa !13
@@ -1912,8 +1912,8 @@ _ZNSt5queueIiSt5dequeIiSaIiEEE3popEv.exit:        ; preds = %57, %59
   br label %90
 
 90:                                               ; preds = %84, %87
-  %.sink10.i = phi i64 [ %89, %87 ], [ %85, %84 ]
-  %91 = trunc i64 %.sink10.i to i32
+  %.sink11.i = phi i64 [ %89, %87 ], [ %85, %84 ]
+  %91 = trunc i64 %.sink11.i to i32
   %92 = srem i32 %91, %9
   %93 = sext i32 %92 to i64
   %94 = load ptr, ptr %3, align 8, !tbaa !13

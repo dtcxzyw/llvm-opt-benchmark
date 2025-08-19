@@ -53,14 +53,14 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   %10 = lshr exact i64 %.034.ph117, 1
   %11 = and i64 %10, 31
   %12 = icmp eq i64 %11, 31
-  br i1 %12, label %.lr.ph186, label %._crit_edge
+  br i1 %12, label %.lr.ph188, label %._crit_edge
 
 13:                                               ; preds = %.loopexit
-  %14 = add i32 %.0110185, 1
+  %14 = add i32 %.0110187, 1
   %15 = lshr exact i64 %65, 1
   %16 = and i64 %15, 31
   %17 = icmp eq i64 %16, 31
-  br i1 %17, label %.lr.ph186, label %._crit_edge
+  br i1 %17, label %.lr.ph188, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %.loopexit, %2
   %.068.ph.lcssa109 = phi ptr [ null, %2 ], [ %.068.ph114, %.loopexit ], [ %.068.ph.be, %.outer.backedge ]
@@ -79,18 +79,18 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   %or.cond = select i1 %.not90, i1 %.not, i1 false
   br i1 %or.cond, label %26, label %24
 
-.lr.ph186:                                        ; preds = %.lr.ph, %13
-  %.0110185 = phi i32 [ %14, %13 ], [ %.0.ph115, %.lr.ph ]
-  %19 = icmp ult i32 %.0110185, 7
+.lr.ph188:                                        ; preds = %.lr.ph, %13
+  %.0110187 = phi i32 [ %14, %13 ], [ %.0.ph115, %.lr.ph ]
+  %19 = icmp ult i32 %.0110187, 7
   br i1 %19, label %21, label %20
 
-20:                                               ; preds = %.lr.ph186
+20:                                               ; preds = %.lr.ph188
   invoke void @_ZN3std6thread9yield_now17h644406618513f1f1E()
           to label %.loopexit unwind label %.loopexit91
 
-21:                                               ; preds = %.lr.ph186
-  %22 = mul nuw nsw i32 %.0110185, %.0110185
-  %.not.i = icmp eq i32 %.0110185, 0
+21:                                               ; preds = %.lr.ph188
+  %22 = mul nuw nsw i32 %.0110187, %.0110187
+  %.not.i = icmp eq i32 %.0110187, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i
@@ -278,14 +278,14 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   %10 = lshr exact i64 %.034.ph117, 1
   %11 = and i64 %10, 31
   %12 = icmp eq i64 %11, 31
-  br i1 %12, label %.lr.ph186, label %._crit_edge
+  br i1 %12, label %.lr.ph188, label %._crit_edge
 
 13:                                               ; preds = %.loopexit
-  %14 = add i32 %.0110185, 1
+  %14 = add i32 %.0110187, 1
   %15 = lshr exact i64 %66, 1
   %16 = and i64 %15, 31
   %17 = icmp eq i64 %16, 31
-  br i1 %17, label %.lr.ph186, label %._crit_edge
+  br i1 %17, label %.lr.ph188, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %.loopexit, %2
   %.068.ph.lcssa109 = phi ptr [ null, %2 ], [ %.068.ph114, %.loopexit ], [ %.068.ph.be, %.outer.backedge ]
@@ -304,18 +304,18 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   %or.cond = select i1 %.not90, i1 %.not, i1 false
   br i1 %or.cond, label %26, label %24
 
-.lr.ph186:                                        ; preds = %.lr.ph, %13
-  %.0110185 = phi i32 [ %14, %13 ], [ %.0.ph115, %.lr.ph ]
-  %19 = icmp ult i32 %.0110185, 7
+.lr.ph188:                                        ; preds = %.lr.ph, %13
+  %.0110187 = phi i32 [ %14, %13 ], [ %.0.ph115, %.lr.ph ]
+  %19 = icmp ult i32 %.0110187, 7
   br i1 %19, label %21, label %20
 
-20:                                               ; preds = %.lr.ph186
+20:                                               ; preds = %.lr.ph188
   invoke void @_ZN3std6thread9yield_now17h644406618513f1f1E()
           to label %.loopexit unwind label %.loopexit91
 
-21:                                               ; preds = %.lr.ph186
-  %22 = mul nuw nsw i32 %.0110185, %.0110185
-  %.not.i = icmp eq i32 %.0110185, 0
+21:                                               ; preds = %.lr.ph188
+  %22 = mul nuw nsw i32 %.0110187, %.0110187
+  %.not.i = icmp eq i32 %.0110187, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i
@@ -504,14 +504,14 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   %10 = lshr exact i64 %.034.ph117, 1
   %11 = and i64 %10, 31
   %12 = icmp eq i64 %11, 31
-  br i1 %12, label %.lr.ph186, label %._crit_edge
+  br i1 %12, label %.lr.ph188, label %._crit_edge
 
 13:                                               ; preds = %.loopexit
-  %14 = add i32 %.0110185, 1
+  %14 = add i32 %.0110187, 1
   %15 = lshr exact i64 %66, 1
   %16 = and i64 %15, 31
   %17 = icmp eq i64 %16, 31
-  br i1 %17, label %.lr.ph186, label %._crit_edge
+  br i1 %17, label %.lr.ph188, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %.loopexit, %2
   %.068.ph.lcssa109 = phi ptr [ null, %2 ], [ %.068.ph114, %.loopexit ], [ %.068.ph.be, %.outer.backedge ]
@@ -530,18 +530,18 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   %or.cond = select i1 %.not90, i1 %.not, i1 false
   br i1 %or.cond, label %26, label %24
 
-.lr.ph186:                                        ; preds = %.lr.ph, %13
-  %.0110185 = phi i32 [ %14, %13 ], [ %.0.ph115, %.lr.ph ]
-  %19 = icmp ult i32 %.0110185, 7
+.lr.ph188:                                        ; preds = %.lr.ph, %13
+  %.0110187 = phi i32 [ %14, %13 ], [ %.0.ph115, %.lr.ph ]
+  %19 = icmp ult i32 %.0110187, 7
   br i1 %19, label %21, label %20
 
-20:                                               ; preds = %.lr.ph186
+20:                                               ; preds = %.lr.ph188
   invoke void @_ZN3std6thread9yield_now17h644406618513f1f1E()
           to label %.loopexit unwind label %.loopexit91
 
-21:                                               ; preds = %.lr.ph186
-  %22 = mul nuw nsw i32 %.0110185, %.0110185
-  %.not.i = icmp eq i32 %.0110185, 0
+21:                                               ; preds = %.lr.ph188
+  %22 = mul nuw nsw i32 %.0110187, %.0110187
+  %.not.i = icmp eq i32 %.0110187, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i
@@ -1587,9 +1587,9 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i: ; pred
   br i1 %.not, label %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread48", label %130
 
 78:                                               ; preds = %55, %.thread41
-  %.lcssa73.sink = phi i64 [ 30, %.thread41 ], [ %22, %55 ]
+  %.lcssa84.sink = phi i64 [ 30, %.thread41 ], [ %22, %55 ]
   store ptr %.017.le.i, ptr %14, align 8, !alias.scope !4
-  store i64 %.lcssa73.sink, ptr %15, align 8, !alias.scope !4
+  store i64 %.lcssa84.sink, ptr %15, align 8, !alias.scope !4
   %79 = getelementptr inbounds nuw i8, ptr %.017.le.i, i64 8
   %80 = getelementptr inbounds nuw { { { [16 x i64] } }, { i64 } }, ptr %79, i64 %22
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 128
@@ -2064,9 +2064,9 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i: ; pred
   br i1 %.not, label %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread43", label %126
 
 80:                                               ; preds = %55, %.thread37
-  %.lcssa68.sink = phi i64 [ 30, %.thread37 ], [ %22, %55 ]
+  %.lcssa79.sink = phi i64 [ 30, %.thread37 ], [ %22, %55 ]
   store ptr %.017.le.i, ptr %14, align 8, !alias.scope !50
-  store i64 %.lcssa68.sink, ptr %15, align 8, !alias.scope !50
+  store i64 %.lcssa79.sink, ptr %15, align 8, !alias.scope !50
   %81 = getelementptr inbounds nuw { { { [15 x i64] } }, { i64 } }, ptr %.017.le.i, i64 %22
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 120
   %83 = load atomic i64, ptr %82 acquire, align 8, !noalias !53

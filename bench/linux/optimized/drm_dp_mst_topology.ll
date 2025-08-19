@@ -2123,14 +2123,14 @@ define dso_local range(i32 -22, 1) i32 @drm_dp_send_query_stream_enc_status(ptr 
   %24 = getelementptr i8, ptr %21, i64 -32
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %11
-  br i1 %26, label %.split.loop.exit6.split.loop.exit9, label %19, !llvm.loop !27
+  br i1 %26, label %.split.loop.exit6.split.loop.exit14, label %19, !llvm.loop !27
 
-.split.loop.exit6.split.loop.exit9:               ; preds = %23
+.split.loop.exit6.split.loop.exit14:              ; preds = %23
   %27 = getelementptr i8, ptr %21, i64 -32
   br label %.split.loop.exit6
 
-.split.loop.exit6:                                ; preds = %19, %.split.loop.exit6.split.loop.exit9
-  %28 = phi ptr [ %27, %.split.loop.exit6.split.loop.exit9 ], [ null, %19 ]
+.split.loop.exit6:                                ; preds = %19, %.split.loop.exit6.split.loop.exit14
+  %28 = phi ptr [ %27, %.split.loop.exit6.split.loop.exit14 ], [ null, %19 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 312
@@ -3408,15 +3408,15 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_dp_mst_hpd_irq_handle_event(
   %98 = zext nneg i8 %89 to i64
   br label %102
 
-.thread40:                                        ; preds = %.thread, %165
+.thread85:                                        ; preds = %.thread, %165
   %99 = phi i32 [ %174, %165 ], [ %144, %.thread ]
   %100 = add nuw nsw i64 %103, 1
   %101 = icmp eq i64 %100, %98
   br i1 %101, label %.loopexit33, label %102, !llvm.loop !58
 
-102:                                              ; preds = %.thread40, %96
-  %103 = phi i64 [ 0, %96 ], [ %100, %.thread40 ]
-  %104 = phi i32 [ 18, %96 ], [ %99, %.thread40 ]
+102:                                              ; preds = %.thread85, %96
+  %103 = phi i64 [ 0, %96 ], [ %100, %.thread85 ]
+  %104 = phi i32 [ 18, %96 ], [ %99, %.thread85 ]
   %105 = sext i32 %104 to i64
   %106 = getelementptr [256 x i8], ptr %67, i64 0, i64 %105
   %107 = load i8, ptr %106, align 1
@@ -3479,7 +3479,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_dp_mst_hpd_irq_handle_event(
   %145 = load i8, ptr %91, align 1
   %146 = zext i8 %145 to i32
   %147 = icmp sgt i32 %144, %146
-  br i1 %147, label %.loopexit, label %.thread40
+  br i1 %147, label %.loopexit, label %.thread85
 
 148:                                              ; preds = %135
   %149 = sext i32 %140 to i64
@@ -3519,7 +3519,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_dp_mst_hpd_irq_handle_event(
   %.pre34 = load i8, ptr %91, align 1
   %.pre36 = zext i8 %.pre34 to i32
   %175 = icmp sgt i32 %174, %.pre36
-  br i1 %175, label %.loopexit, label %.thread40
+  br i1 %175, label %.loopexit, label %.thread85
 
 .loopexit:                                        ; preds = %165, %157, %148, %135, %111, %.thread, %84
   %176 = phi i8 [ %92, %84 ], [ %145, %.thread ], [ %.pre34, %165 ], [ %162, %157 ], [ %154, %148 ], [ %141, %135 ], [ %121, %111 ]
@@ -3838,7 +3838,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_dp_mst_hpd_irq_handle_event(
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %382, ptr noundef nonnull @.str.133, i32 noundef %383, ptr noundef %394) #25
   br label %.loopexit33
 
-.loopexit33:                                      ; preds = %.thread40, %393, %331, %329, %321, %317, %305, %287, %275, %250, %243, %233, %225, %221, %217, %199, %187, %.loopexit, %94, %83, %83, %74
+.loopexit33:                                      ; preds = %.thread85, %393, %331, %329, %321, %317, %305, %287, %275, %250, %243, %233, %225, %221, %217, %199, %187, %.loopexit, %94, %83, %83, %74
   %395 = load i8, ptr %66, align 2
   %396 = icmp eq i8 %395, 1
   br i1 %396, label %397, label %433
@@ -5101,14 +5101,14 @@ define dso_local void @drm_dp_mst_atomic_wait_for_dependencies(ptr noundef reado
   %72 = getelementptr i8, ptr %69, i64 -32
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, %66
-  br i1 %74, label %.split.loop.exit10.split.loop.exit13, label %67, !llvm.loop !27
+  br i1 %74, label %.split.loop.exit10.split.loop.exit20, label %67, !llvm.loop !27
 
-.split.loop.exit10.split.loop.exit13:             ; preds = %71
+.split.loop.exit10.split.loop.exit20:             ; preds = %71
   %75 = getelementptr i8, ptr %69, i64 -32
   br label %.split.loop.exit10
 
-.split.loop.exit10:                               ; preds = %67, %.split.loop.exit10.split.loop.exit13
-  %76 = phi ptr [ %75, %.split.loop.exit10.split.loop.exit13 ], [ null, %67 ]
+.split.loop.exit10:                               ; preds = %67, %.split.loop.exit10.split.loop.exit20
+  %76 = phi ptr [ %75, %.split.loop.exit10.split.loop.exit20 ], [ null, %67 ]
   %77 = getelementptr i8, ptr %59, i64 -24
   %78 = load i8, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -7588,10 +7588,10 @@ define internal void @drm_dp_delayed_destroy_work(ptr noundef %0) #2 align 16 {
   %8 = icmp eq ptr %7, %3
   %9 = getelementptr i8, ptr %7, i64 -8
   %10 = icmp eq ptr %9, null
-  %.not41 = or i1 %8, %10
-  br i1 %.not41, label %.thread.thread, label %.lr.ph39
+  %.not71 = or i1 %8, %10
+  br i1 %.not71, label %.thread.thread, label %.lr.ph69
 
-.lr.ph39:                                         ; preds = %6, %.thread
+.lr.ph69:                                         ; preds = %6, %.thread
   %11 = phi ptr [ %190, %.thread ], [ %9, %6 ]
   %12 = phi ptr [ %188, %.thread ], [ %7, %6 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -7612,8 +7612,8 @@ define internal void @drm_dp_delayed_destroy_work(ptr noundef %0) #2 align 16 {
   %22 = icmp eq ptr %21, %20
   br i1 %22, label %.loopexit, label %.preheader14
 
-.preheader14:                                     ; preds = %.lr.ph39, %drm_dp_mst_topology_put_port.exit
-  %23 = phi ptr [ %25, %drm_dp_mst_topology_put_port.exit ], [ %21, %.lr.ph39 ]
+.preheader14:                                     ; preds = %.lr.ph69, %drm_dp_mst_topology_put_port.exit
+  %23 = phi ptr [ %25, %drm_dp_mst_topology_put_port.exit ], [ %21, %.lr.ph69 ]
   %24 = getelementptr i8, ptr %23, i64 -24
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr i8, ptr %23, i64 8
@@ -7739,7 +7739,7 @@ drm_dp_mst_topology_put_port.exit:                ; preds = %79, %67, %65, %43, 
   %95 = icmp eq ptr %25, %20
   br i1 %95, label %.loopexit, label %.preheader14, !llvm.loop !99
 
-.loopexit:                                        ; preds = %drm_dp_mst_topology_put_port.exit, %.lr.ph39
+.loopexit:                                        ; preds = %drm_dp_mst_topology_put_port.exit, %.lr.ph69
   tail call void @mutex_unlock(ptr noundef nonnull %19) #21
   %96 = load ptr, ptr %17, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 888
@@ -7909,7 +7909,7 @@ drm_dp_mst_put_port_malloc.exit:                  ; preds = %178, %166, %164, %1
   %190 = getelementptr i8, ptr %188, i64 -8
   %191 = icmp ne ptr %190, null
   %192 = and i1 %189, %191
-  br i1 %192, label %.lr.ph39, label %.thread.thread
+  br i1 %192, label %.lr.ph69, label %.thread.thread
 
 .lr.ph:                                           ; preds = %.thread.thread, %drm_dp_mst_put_port_malloc.exit12
   %193 = phi ptr [ %289, %drm_dp_mst_put_port_malloc.exit12 ], [ %185, %.thread.thread ]
@@ -8090,7 +8090,7 @@ drm_dp_mst_put_port_malloc.exit12:                ; preds = %282, %270, %268
 
 ._crit_edge:                                      ; preds = %.thread.thread
   tail call void @mutex_unlock(ptr noundef %2) #21
-  br i1 %.not41, label %292, label %6, !llvm.loop !101
+  br i1 %.not71, label %292, label %6, !llvm.loop !101
 
 ._crit_edge.thread:                               ; preds = %drm_dp_mst_put_port_malloc.exit12
   tail call void @mutex_unlock(ptr noundef %2) #21
@@ -8961,11 +8961,11 @@ define internal fastcc noundef range(i32 -5, 2) i32 @process_single_tx_qlock(ptr
 
 62:                                               ; preds = %58, %52
   %63 = phi i32 [ 1, %52 ], [ %61, %58 ]
-  %.8..8..8..8..sroa_idx52 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.8..8..8..8. = load i8, ptr %.8..8..8..8..sroa_idx52, align 8
+  %.8..8..8..8..sroa_idx56 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.8..8..8..8. = load i8, ptr %.8..8..8..8..sroa_idx56, align 8
   %64 = shl nuw i8 %.8..8..8..8., 7
-  %.9..9..9..9..sroa_idx53 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %.9..9..9..9. = load i8, ptr %.9..9..9..9..sroa_idx53, align 1
+  %.9..9..9..9..sroa_idx57 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %.9..9..9..9. = load i8, ptr %.9..9..9..9..sroa_idx57, align 1
   %65 = shl nuw nsw i8 %.9..9..9..9., 6
   %66 = and i8 %54, 63
   %67 = or disjoint i8 %64, %66
@@ -8973,11 +8973,11 @@ define internal fastcc noundef range(i32 -5, 2) i32 @process_single_tx_qlock(ptr
   %69 = zext nneg i32 %63 to i64
   %70 = getelementptr i8, ptr %4, i64 %69
   store i8 %68, ptr %70, align 1
-  %.11..11..11..11..sroa_idx54 = getelementptr inbounds nuw i8, ptr %5, i64 11
-  %.11..11..11..11. = load i8, ptr %.11..11..11..11..sroa_idx54, align 1
+  %.11..11..11..11..sroa_idx58 = getelementptr inbounds nuw i8, ptr %5, i64 11
+  %.11..11..11..11. = load i8, ptr %.11..11..11..11..sroa_idx58, align 1
   %71 = shl nuw i8 %.11..11..11..11., 7
-  %.12..12..12..12..sroa_idx55 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %.12..12..12..12. = load i8, ptr %.12..12..12..12..sroa_idx55, align 4
+  %.12..12..12..12..sroa_idx59 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %.12..12..12..12. = load i8, ptr %.12..12..12..12..sroa_idx59, align 4
   %72 = shl nuw nsw i8 %.12..12..12..12., 6
   %73 = or disjoint i8 %72, %71
   %.13..13..13..13..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 13
@@ -10261,7 +10261,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @drm_dp_check_and_send_link
 declare dso_local void @drm_kms_helper_hotplug_event(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @drm_dp_send_link_address(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 17, 16) i32 @drm_dp_send_link_address(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #2 align 16 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca %struct.drm_printer, align 8
   %5 = alloca %struct.drm_dp_sideband_msg_req_body, align 8
@@ -11316,12 +11316,12 @@ define internal fastcc range(i32 -12, 2) i32 @drm_dp_send_enum_path_resources(pt
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 349
   %81 = load i8, ptr %80, align 1, !range !9, !noundef !10
   %82 = icmp ne i8 %79, %81
-  %spec.select6 = zext i1 %82 to i32
+  %spec.select12 = zext i1 %82 to i32
   br label %83
 
 83:                                               ; preds = %77, %._crit_edge
   %84 = phi i8 [ %.pre.pre, %._crit_edge ], [ %81, %77 ]
-  %85 = phi i32 [ 1, %._crit_edge ], [ %spec.select6, %77 ]
+  %85 = phi i32 [ 1, %._crit_edge ], [ %spec.select12, %77 ]
   store i16 %75, ptr %73, align 2
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 1384
   store i8 %84, ptr %86, align 8

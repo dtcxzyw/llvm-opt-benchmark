@@ -709,18 +709,18 @@ define dso_local i32 @cmd_clone(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
   %176 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
   %.not4.i327 = icmp eq i32 %176, 0
   %.str.21..str.20 = select i1 %.not270, ptr @.str.21, ptr @.str.20
-  br i1 %.not4.i327, label %.sink.split455, label %.sink.split455.sink.split
+  br i1 %.not4.i327, label %.sink.split508, label %.sink.split508.sink.split
 
-.sink.split455.sink.split:                        ; preds = %173
+.sink.split508.sink.split:                        ; preds = %173
   %177 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.21..str.20, i32 noundef 5) #20
-  br label %.sink.split455
+  br label %.sink.split508
 
-.sink.split455:                                   ; preds = %173, %.sink.split455.sink.split
-  %.0.i.sink = phi ptr [ %177, %.sink.split455.sink.split ], [ %.str.21..str.20, %173 ]
+.sink.split508:                                   ; preds = %173, %.sink.split508.sink.split
+  %.0.i.sink = phi ptr [ %177, %.sink.split508.sink.split ], [ %.str.21..str.20, %173 ]
   %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef %.0.i.sink, ptr noundef %.0217) #23
   br label %179
 
-179:                                              ; preds = %.sink.split455, %170
+179:                                              ; preds = %.sink.split508, %170
   %180 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_recurse_submodules, i64 8), align 8, !tbaa !15
   %.not271 = icmp eq i64 %180, 0
   br i1 %.not271, label %213, label %181
@@ -743,12 +743,12 @@ define dso_local i32 @cmd_clone(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %186, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0199445459 = phi ptr [ %190, %.lr.ph ], [ %182, %.lr.ph.preheader ]
-  %187 = load ptr, ptr %.0199445459, align 8, !tbaa !20
+  %.0199445512 = phi ptr [ %190, %.lr.ph ], [ %182, %.lr.ph.preheader ]
+  %187 = load ptr, ptr %.0199445512, align 8, !tbaa !20
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %37, ptr noundef nonnull @.str.22, ptr noundef %187) #20
   %188 = call ptr @strbuf_detach(ptr noundef nonnull %37, ptr noundef null) #20
   %189 = call ptr @string_list_append(ptr noundef nonnull @option_config, ptr noundef %188) #20
-  %190 = getelementptr inbounds nuw i8, ptr %.0199445459, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %.0199445512, i64 16
   %191 = load ptr, ptr @option_recurse_submodules, align 8, !tbaa !19
   %192 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_recurse_submodules, i64 8), align 8, !tbaa !15
   %193 = getelementptr inbounds nuw %struct.string_list_item, ptr %191, i64 %192
@@ -783,15 +783,15 @@ define dso_local i32 @cmd_clone(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
 
 209:                                              ; preds = %202
   %brmerge = select i1 %204, i1 true, i1 %206
-  br i1 %brmerge, label %.sink.split456, label %212
+  br i1 %brmerge, label %.sink.split509, label %212
 
-.sink.split456:                                   ; preds = %209
+.sink.split509:                                   ; preds = %209
   %.str.27.mux = select i1 %204, ptr @.str.27, ptr @.str.28
   %210 = call ptr @string_list_append(ptr noundef nonnull @option_config, ptr noundef nonnull @.str.26) #20
   %211 = call ptr @string_list_append(ptr noundef nonnull @option_config, ptr noundef nonnull %.str.27.mux) #20
   br label %212
 
-212:                                              ; preds = %209, %.sink.split456
+212:                                              ; preds = %209, %.sink.split509
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %213
@@ -1476,7 +1476,7 @@ hashmap_get_size.exit:                            ; preds = %488
 501:                                              ; preds = %495
   %502 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
   %.not4.i363 = icmp eq i32 %502, 0
-  br i1 %.not4.i363, label %.sink.split457, label %.sink.split457.sink.split
+  br i1 %.not4.i363, label %.sink.split510, label %.sink.split510.sink.split
 
 503:                                              ; preds = %495
   %504 = load ptr, ptr @the_repository, align 8, !tbaa !8
@@ -1488,19 +1488,19 @@ hashmap_get_size.exit:                            ; preds = %488
 507:                                              ; preds = %503
   %508 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
   %.not4.i366 = icmp eq i32 %508, 0
-  br i1 %.not4.i366, label %.sink.split457, label %.sink.split457.sink.split
+  br i1 %.not4.i366, label %.sink.split510, label %.sink.split510.sink.split
 
-.sink.split457.sink.split:                        ; preds = %507, %501
+.sink.split510.sink.split:                        ; preds = %507, %501
   %.str.71.sink = phi ptr [ @.str.68, %501 ], [ @.str.71, %507 ]
   %509 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.71.sink, i32 noundef 5) #20
-  br label %.sink.split457
+  br label %.sink.split510
 
-.sink.split457:                                   ; preds = %.sink.split457.sink.split, %507, %501
-  %.0.i367.sink = phi ptr [ @.str.68, %501 ], [ @.str.71, %507 ], [ %509, %.sink.split457.sink.split ]
+.sink.split510:                                   ; preds = %.sink.split510.sink.split, %507, %501
+  %.0.i367.sink = phi ptr [ @.str.68, %501 ], [ @.str.71, %507 ], [ %509, %.sink.split510.sink.split ]
   call void (ptr, ...) @warning(ptr noundef %.0.i367.sink) #20
   br label %510
 
-510:                                              ; preds = %.sink.split457, %503
+510:                                              ; preds = %.sink.split510, %503
   %511 = load ptr, ptr @the_repository, align 8, !tbaa !8
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 392
   %513 = load ptr, ptr %512, align 8, !tbaa !70

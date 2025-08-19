@@ -604,8 +604,8 @@ namelist_add.exit:                                ; preds = %10, %14
 .thread.i:                                        ; preds = %.lr.ph.i
   %fputc11.i = call i32 @fputc(i32 10, ptr %1)
   %44 = add nuw i64 %.0912.i, 1
-  %exitcond.not17.i = icmp eq i64 %44, %35
-  br i1 %exitcond.not17.i, label %dump_hex.exit, label %.lr.ph.i.backedge
+  %exitcond.not19.i = icmp eq i64 %44, %35
+  br i1 %exitcond.not19.i, label %dump_hex.exit, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %.thread.i, %42
   %.013.i.be = phi i64 [ %40, %42 ], [ 0, %.thread.i ]
@@ -1101,8 +1101,8 @@ namelist_add.exit145:                             ; preds = %110, %113
   %174 = load i64, ptr %11, align 8, !tbaa !25
   %175 = call i32 @JS_DetectModule(ptr noundef nonnull %166, i64 noundef %174) #17
   %.fr38.i = freeze i32 %175
-  %.not330 = icmp eq i32 %.fr38.i, 0
-  %176 = select i1 %.not330, i32 32, i32 33
+  %.not348 = icmp eq i32 %.fr38.i, 0
+  %176 = select i1 %.not348, i32 32, i32 33
   br label %.thread.i
 
 .thread.i:                                        ; preds = %170, %173, %171

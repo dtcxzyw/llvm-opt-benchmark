@@ -2578,7 +2578,7 @@ TransactionIdOlder.exit125:                       ; preds = %TransactionIdOlder.
 
 127:                                              ; preds = %TransactionIdOlder.exit120.thread, %TransactionIdOlder.exit125
   %128 = phi i32 [ %120, %TransactionIdOlder.exit120.thread ], [ %126, %TransactionIdOlder.exit125 ]
-  %.0.i124181 = phi i32 [ %118, %TransactionIdOlder.exit120.thread ], [ %.0.i124, %TransactionIdOlder.exit125 ]
+  %.0.i124205 = phi i32 [ %118, %TransactionIdOlder.exit120.thread ], [ %.0.i124, %TransactionIdOlder.exit125 ]
   %129 = phi i32 [ %111, %TransactionIdOlder.exit120.thread ], [ %124, %TransactionIdOlder.exit125 ]
   %.not11.i127 = icmp eq i32 %128, 0
   br i1 %.not11.i127, label %TransactionIdOlder.exit130.thread, label %130
@@ -2615,7 +2615,7 @@ TransactionIdOlder.exit130.thread:                ; preds = %127
 
 TransactionIdOlder.exit135:                       ; preds = %TransactionIdOlder.exit130.thread, %TransactionIdOlder.exit130, %134, %135
   %137 = phi i32 [ %.0.i129, %TransactionIdOlder.exit130 ], [ %.0.i129, %134 ], [ %.pr160, %135 ], [ %129, %TransactionIdOlder.exit130.thread ]
-  %138 = phi i32 [ %132, %TransactionIdOlder.exit130 ], [ %133, %134 ], [ %..i133, %135 ], [ %.0.i124181, %TransactionIdOlder.exit130.thread ]
+  %138 = phi i32 [ %132, %TransactionIdOlder.exit130 ], [ %133, %134 ], [ %..i133, %135 ], [ %.0.i124205, %TransactionIdOlder.exit130.thread ]
   store i32 %138, ptr %7, align 4
   %139 = load i32, ptr %16, align 8
   %.not.i136 = icmp eq i32 %139, 0
@@ -2871,8 +2871,8 @@ define dso_local noundef ptr @GetSnapshotData(ptr noundef returned captures(ret:
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 56
   %.pre167 = load i64, ptr %.phi.trans.insert, align 8
   %.not.i = icmp eq i64 %.pre167, %40
-  %or.cond169 = select i1 %41, i1 %.not.i, i1 false
-  br i1 %or.cond169, label %42, label %._crit_edge166, !prof !39
+  %or.cond177 = select i1 %41, i1 %.not.i, i1 false
+  br i1 %or.cond177, label %42, label %._crit_edge166, !prof !39
 
 42:                                               ; preds = %35
   %43 = load ptr, ptr @MyProc, align 8
@@ -3669,8 +3669,8 @@ define dso_local noundef nonnull ptr @GetRunningTransactionData() local_unnamed_
   br i1 %93, label %73, label %.loopexit, !llvm.loop !48
 
 .loopexit:                                        ; preds = %90, %20, %67, %._crit_edge
-  %.0.lcssa103 = phi i32 [ %.1, %._crit_edge ], [ %.1, %67 ], [ %33, %20 ], [ %.1, %90 ]
-  %.056.lcssa101 = phi i32 [ %.157, %._crit_edge ], [ %.157, %67 ], [ %33, %20 ], [ %.157, %90 ]
+  %.0.lcssa109 = phi i32 [ %.1, %._crit_edge ], [ %.1, %67 ], [ %33, %20 ], [ %.1, %90 ]
+  %.056.lcssa107 = phi i32 [ %.157, %._crit_edge ], [ %.157, %67 ], [ %33, %20 ], [ %.157, %90 ]
   %94 = phi i32 [ 2, %._crit_edge ], [ 0, %67 ], [ 0, %20 ], [ 0, %90 ]
   %.065 = phi i32 [ 0, %._crit_edge ], [ 0, %67 ], [ 0, %20 ], [ %.267, %90 ]
   %.263 = phi i32 [ %.162, %._crit_edge ], [ %.162, %67 ], [ 0, %20 ], [ %.4, %90 ]
@@ -3684,8 +3684,8 @@ define dso_local noundef nonnull ptr @GetRunningTransactionData() local_unnamed_
   %99 = load i64, ptr %98, align 8
   %100 = trunc i64 %99 to i32
   store i32 %100, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 12), align 4
-  store i32 %.0.lcssa103, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 16), align 8
-  store i32 %.056.lcssa101, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 20), align 4
+  store i32 %.0.lcssa109, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 16), align 8
+  store i32 %.056.lcssa107, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 20), align 4
   store i32 %95, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 24), align 8
   ret ptr @GetRunningTransactionData.CurrentRunningXactsData
 }

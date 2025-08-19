@@ -1510,8 +1510,8 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   %274 = select i1 %.not363.i, ptr @.str.31, ptr @.str.30
   %275 = call i64 @TIME_getTime() #19
   %.not501.i = icmp eq i32 %.1316470.i, 0
-  %brmerge600.i = or i1 %.not495.i, %.not501.i
-  br i1 %brmerge600.i, label %._crit_edge457.i, label %.preheader.us.i
+  %brmerge616.i = or i1 %.not495.i, %.not501.i
+  br i1 %brmerge616.i, label %._crit_edge457.i, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %270, %.thread393.us.i
   %.7456.us.i = phi i32 [ %.9.us.i, %.thread393.us.i ], [ %.2.i, %270 ]

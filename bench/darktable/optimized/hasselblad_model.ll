@@ -182,8 +182,8 @@ define void @_ZN6LibRaw18process_Hassy_LensEi(ptr noundef nonnull align 8 derefe
   br i1 %.not18, label %40, label %.sink.split
 
 .sink.split:                                      ; preds = %37, %35
-  %.sink22 = phi i64 [ 3, %35 ], [ 2, %37 ]
-  %39 = add i64 %storemerge, %.sink22
+  %.sink23 = phi i64 [ 3, %35 ], [ 2, %37 ]
+  %39 = add i64 %storemerge, %.sink23
   store i64 %39, ptr %18, align 8, !tbaa !78
   br label %40
 
@@ -247,8 +247,8 @@ define void @_ZN6LibRaw15parseHassyModelEv(ptr noundef nonnull align 8 dereferen
   br i1 %.not100, label %31, label %.sink.split
 
 .sink.split:                                      ; preds = %26, %23, %20, %17
-  %.sink415 = phi ptr [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sink415, i64 1
+  %.sink430 = phi ptr [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.sink430, i64 1
   %30 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %29) #13
   br label %31
 
@@ -282,7 +282,7 @@ define void @_ZN6LibRaw15parseHassyModelEv(ptr noundef nonnull align 8 dereferen
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %43, ptr noundef nonnull dereferenceable(5) @.str.26, i64 5)
   %.not106 = icmp eq i32 %bcmp, 0
-  br i1 %.not106, label %44, label %.sink.split416
+  br i1 %.not106, label %44, label %.sink.split431
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 153717
@@ -292,14 +292,14 @@ define void @_ZN6LibRaw15parseHassyModelEv(ptr noundef nonnull align 8 dereferen
   %48 = load i8, ptr %47, align 4
   %.not108 = icmp eq i8 %48, 0
   %or.cond228 = select i1 %.not107, i1 true, i1 %.not108
-  br i1 %or.cond228, label %.sink.split416, label %49
+  br i1 %or.cond228, label %.sink.split431, label %49
 
 49:                                               ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 153508
   %51 = tail call noundef ptr @_ZN6LibRaw10strcasestrEPcPKc(ptr noundef nonnull %50, ptr noundef nonnull @.str.27)
   %.not109 = icmp eq ptr %51, null
-  %spec.select421 = select i1 %.not109, i32 6, i32 5
-  br label %.sink.split416
+  %spec.select436 = select i1 %.not109, i32 6, i32 5
+  br label %.sink.split431
 
 52:                                               ; preds = %39
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 2636
@@ -314,15 +314,15 @@ define void @_ZN6LibRaw15parseHassyModelEv(ptr noundef nonnull align 8 dereferen
   %60 = fcmp reassoc nsz arcp contract afn une double %59, 0.000000e+00
   %or.cond234 = select i1 %or.cond231.not395, i1 true, i1 %60
   %. = select i1 %or.cond234, i32 2, i32 1
-  br label %.sink.split416
+  br label %.sink.split431
 
-.sink.split416:                                   ; preds = %49, %52, %42, %44
-  %.sink = phi i32 [ 6, %44 ], [ 4, %42 ], [ %., %52 ], [ %spec.select421, %49 ]
+.sink.split431:                                   ; preds = %49, %52, %42, %44
+  %.sink = phi i32 [ 6, %44 ], [ 4, %42 ], [ %., %52 ], [ %spec.select436, %49 ]
   store i32 %.sink, ptr %37, align 8, !tbaa !82
   br label %61
 
-61:                                               ; preds = %.sink.split416, %36
-  %62 = phi i32 [ %38, %36 ], [ %.sink, %.sink.split416 ]
+61:                                               ; preds = %.sink.split431, %36
+  %62 = phi i32 [ %38, %36 ], [ %.sink, %.sink.split431 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 2568
   %64 = load i8, ptr %63, align 8, !tbaa !16
   %.not110 = icmp eq i8 %64, 0
@@ -459,13 +459,13 @@ define void @_ZN6LibRaw15parseHassyModelEv(ptr noundef nonnull align 8 dereferen
   store i8 0, ptr %123, align 1, !tbaa !16
   %124 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %121, i32 noundef 47) #12
   %.not121 = icmp eq ptr %124, null
-  br i1 %.not121, label %.preheader428, label %125
+  br i1 %.not121, label %.preheader443, label %125
 
 125:                                              ; preds = %120
   store i8 0, ptr %124, align 1, !tbaa !16
-  br label %.preheader428
+  br label %.preheader443
 
-.preheader428:                                    ; preds = %125, %120
+.preheader443:                                    ; preds = %125, %120
   br label %127
 
 126:                                              ; preds = %127
@@ -473,8 +473,8 @@ define void @_ZN6LibRaw15parseHassyModelEv(ptr noundef nonnull align 8 dereferen
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
   br i1 %exitcond.not, label %.loopexit396, label %127, !llvm.loop !85
 
-127:                                              ; preds = %.preheader428, %126
-  %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ 0, %.preheader428 ]
+127:                                              ; preds = %.preheader443, %126
+  %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ 0, %.preheader443 ]
   %128 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZN6LibRaw15parseHassyModelEvE15Hasselblad_Ctrl, i64 0, i64 %indvars.iv
   %129 = load ptr, ptr %128, align 8, !tbaa !86
   %130 = call noundef ptr @_ZN6LibRaw10strcasestrEPcPKc(ptr noundef nonnull %11, ptr noundef %129)
@@ -527,25 +527,25 @@ sub_2:                                            ; preds = %sub_1
   %.not125 = phi ptr [ %136, %sub_0 ], [ %136, %sub_1 ], [ %149, %sub_2 ]
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 2384
   %151 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %150, ptr noundef nonnull dereferenceable(1) %.not125, i64 noundef 7) #13
-  br label %.sink.split417
+  br label %.sink.split432
 
 152:                                              ; preds = %135
   %153 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %11, i64 noundef 63) #13
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 2519
   store i8 0, ptr %154, align 1, !tbaa !16
   %155 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 63) #13
-  br label %.sink.split417
+  br label %.sink.split432
 
-.sink.split417:                                   ; preds = %152, %.tail
-  %.sink419 = phi i64 [ 2391, %.tail ], [ 331, %152 ]
+.sink.split432:                                   ; preds = %152, %.tail
+  %.sink434 = phi i64 [ 2391, %.tail ], [ 331, %152 ]
   %.077.ph = phi i32 [ 0, %.tail ], [ 1, %152 ]
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink419
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink434
   store i8 0, ptr %156, align 1, !tbaa !16
   br label %157
 
-157:                                              ; preds = %.sink.split417, %.loopexit396
-  %.not130 = phi i1 [ false, %.loopexit396 ], [ %.not124, %.sink.split417 ]
-  %.077 = phi i32 [ 1, %.loopexit396 ], [ %.077.ph, %.sink.split417 ]
+157:                                              ; preds = %.sink.split432, %.loopexit396
+  %.not130 = phi i1 [ false, %.loopexit396 ], [ %.not124, %.sink.split432 ]
+  %.077 = phi i32 [ 1, %.loopexit396 ], [ %.077.ph, %.sink.split432 ]
   %158 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.30) #12
   %.not126 = icmp eq ptr %158, null
   br i1 %.not126, label %172, label %159

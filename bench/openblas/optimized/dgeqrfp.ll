@@ -152,14 +152,14 @@ define void @dgeqrfp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %72 = call i32 @llvm.smin.i32(i32 %71, i32 %62)
   store i32 %72, ptr %14, align 4, !tbaa !3
   %73 = load i32, ptr %0, align 4, !tbaa !3
-  %74 = add i32 %.0124.neg152, 1
+  %74 = add nsw i32 %.0124.neg152, 1
   %75 = add i32 %74, %73
   store i32 %75, ptr %11, align 4, !tbaa !3
   %76 = mul i32 %.0124151, %68
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds double, ptr %18, i64 %77
-  %79 = sext i32 %.0124151 to i64
-  %80 = getelementptr inbounds double, ptr %19, i64 %79
+  %79 = zext nneg i32 %.0124151 to i64
+  %80 = getelementptr inbounds nuw double, ptr %19, i64 %79
   call void @dgeqr2p_(ptr noundef nonnull %11, ptr noundef nonnull %14, ptr noundef %78, ptr noundef nonnull %3, ptr noundef nonnull %80, ptr noundef nonnull %5, ptr noundef nonnull %13) #4
   %81 = load i32, ptr %14, align 4, !tbaa !3
   %82 = add nsw i32 %81, %.0124151
@@ -192,11 +192,11 @@ define void @dgeqrfp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br label %101
 
 101:                                              ; preds = %69, %84
-  %102 = add nsw i32 %62, %.0124151
-  %.0124.neg = sub i32 0, %102
+  %102 = add nuw nsw i32 %62, %.0124151
+  %.0124.neg = sub nsw i32 0, %102
   %103 = load i32, ptr %9, align 4
-  %.not154 = icmp sgt i32 %102, %103
-  br i1 %.not154, label %.loopexit, label %69, !llvm.loop !9
+  %.not163 = icmp sgt i32 %102, %103
+  br i1 %.not163, label %.loopexit, label %69, !llvm.loop !9
 
 .loopexit:                                        ; preds = %101, %65, %61
   %.1 = phi i32 [ 1, %61 ], [ 1, %65 ], [ %102, %101 ]
@@ -216,8 +216,8 @@ define void @dgeqrfp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %110 = mul i32 %.1, %109
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds double, ptr %18, i64 %111
-  %113 = sext i32 %.1 to i64
-  %114 = getelementptr inbounds double, ptr %19, i64 %113
+  %113 = zext nneg i32 %.1 to i64
+  %114 = getelementptr inbounds nuw double, ptr %19, i64 %113
   call void @dgeqr2p_(ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %112, ptr noundef nonnull %3, ptr noundef nonnull %114, ptr noundef nonnull %5, ptr noundef nonnull %13) #4
   br label %115
 

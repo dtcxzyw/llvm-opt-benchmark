@@ -712,10 +712,10 @@ define hidden noundef zeroext i1 @pm_buffer_append_unicode_codepoint(ptr noundef
   store i64 %34, ptr %0, align 8, !tbaa !7
   %53 = getelementptr i8, ptr %52, i64 %33
   %54 = shl i16 %32, 8
-  %.sroa.461.0.insert.ext = and i16 %54, 16128
-  %.sroa.060.0.insert.ext = or disjoint i16 %.sroa.461.0.insert.ext, %31
-  %.sroa.060.0.insert.insert = or disjoint i16 %.sroa.060.0.insert.ext, -32576
-  store i16 %.sroa.060.0.insert.insert, ptr %53, align 1
+  %.sroa.478.0.insert.ext = and i16 %54, 16128
+  %.sroa.077.0.insert.ext = or disjoint i16 %.sroa.478.0.insert.ext, %31
+  %.sroa.077.0.insert.insert = or disjoint i16 %.sroa.077.0.insert.ext, -32576
+  store i16 %.sroa.077.0.insert.insert, ptr %53, align 1
   br label %pm_buffer_append_byte.exit
 
 55:                                               ; preds = %27
@@ -782,10 +782,10 @@ define hidden noundef zeroext i1 @pm_buffer_append_unicode_codepoint(ptr noundef
   store i64 %69, ptr %0, align 8, !tbaa !7
   %88 = getelementptr i8, ptr %87, i64 %68
   store i8 %60, ptr %88, align 1
-  %.sroa.458.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 1
-  store i8 %64, ptr %.sroa.458.0..sroa_idx, align 1
-  %.sroa.559.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 2
-  store i8 %67, ptr %.sroa.559.0..sroa_idx, align 1
+  %.sroa.475.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 1
+  store i8 %64, ptr %.sroa.475.0..sroa_idx, align 1
+  %.sroa.576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 2
+  store i8 %67, ptr %.sroa.576.0..sroa_idx, align 1
   br label %pm_buffer_append_byte.exit
 
 89:                                               ; preds = %55
@@ -1838,8 +1838,8 @@ pm_buffer_append_zeroes.exit:                     ; preds = %38, %43
   br label %pm_buffer_append_string.exit.sink.split
 
 pm_buffer_append_string.exit.sink.split:          ; preds = %pm_buffer_append_zeroes.exit, %25
-  %.sink26 = phi ptr [ %26, %25 ], [ %53, %pm_buffer_append_zeroes.exit ]
-  %54 = getelementptr i8, ptr %.sink26, i64 %1
+  %.sink35 = phi ptr [ %26, %25 ], [ %53, %pm_buffer_append_zeroes.exit ]
+  %54 = getelementptr i8, ptr %.sink35, i64 %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %54, ptr noundef nonnull align 1 %2, i64 noundef %3, i1 noundef false) #19
   br label %pm_buffer_append_string.exit
 

@@ -289,9 +289,9 @@ define range(i32 -1094995529, 2) i32 @ff_wmv2_decode_secondary_picture_header(pt
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 5696
   %17 = load i32, ptr %16, align 16, !tbaa !73
   %.not104 = icmp eq i32 %17, 0
-  br i1 %.not104, label %.thread178, label %19
+  br i1 %.not104, label %.thread208, label %19
 
-.thread178:                                       ; preds = %5
+.thread208:                                       ; preds = %5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 5700
   store i32 0, ptr %18, align 4, !tbaa !74
   br label %38
@@ -321,13 +321,13 @@ define range(i32 -1094995529, 2) i32 @ff_wmv2_decode_secondary_picture_header(pt
   %.not105 = icmp eq i32 %36, 0
   br i1 %.not105, label %38, label %152
 
-38:                                               ; preds = %.thread178, %19
+38:                                               ; preds = %.thread208, %19
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 5756
   %40 = load i32, ptr %39, align 4, !tbaa !75
   %.not106 = icmp eq i32 %40, 0
-  br i1 %.not106, label %.thread183, label %42
+  br i1 %.not106, label %.thread213, label %42
 
-.thread183:                                       ; preds = %38
+.thread213:                                       ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4832
   store i32 0, ptr %41, align 16, !tbaa !76
   br label %61
@@ -366,7 +366,7 @@ define range(i32 -1094995529, 2) i32 @ff_wmv2_decode_secondary_picture_header(pt
   %.pre177 = load i32, ptr %.phi.trans.insert176, align 8, !tbaa !66
   br label %120
 
-61:                                               ; preds = %.thread183, %42
+61:                                               ; preds = %.thread213, %42
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 4160
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 4176
   %64 = load i32, ptr %63, align 8, !tbaa !63
@@ -488,7 +488,7 @@ decode012.exit117:                                ; preds = %decode012.exit, %10
   br i1 %151, label %parse_mb_skip.exit.thread, label %152
 
 152:                                              ; preds = %120, %19
-  %.sink181 = phi i32 [ 0, %120 ], [ 1, %19 ]
+  %.sink211 = phi i32 [ 0, %120 ], [ 1, %19 ]
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 4152
   store i32 0, ptr %153, align 8, !tbaa !83
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 3344
@@ -512,7 +512,7 @@ decode012.exit117:                                ; preds = %decode012.exit, %10
   %168 = load i32, ptr %167, align 8, !tbaa !79
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 4832
   %170 = load i32, ptr %169, align 16, !tbaa !76
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %156, i32 noundef 48, ptr noundef nonnull @.str.1, i32 noundef %162, i32 noundef %164, i32 noundef %166, i32 noundef %168, i32 noundef %170, i32 noundef %.sink181) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %156, i32 noundef 48, ptr noundef nonnull @.str.1, i32 noundef %162, i32 noundef %164, i32 noundef %166, i32 noundef %168, i32 noundef %170, i32 noundef %.sink211) #7
   br label %.thread
 
 171:                                              ; preds = %1
@@ -1049,9 +1049,9 @@ decode012.exit130:                                ; preds = %453, %465
   %482 = getelementptr inbounds nuw i8, ptr %0, i64 5756
   %483 = load i32, ptr %482, align 4, !tbaa !75
   %.not101 = icmp eq i32 %483, 0
-  br i1 %.not101, label %.thread187, label %485
+  br i1 %.not101, label %.thread217, label %485
 
-.thread187:                                       ; preds = %480
+.thread217:                                       ; preds = %480
   %484 = getelementptr inbounds nuw i8, ptr %0, i64 4832
   store i32 0, ptr %484, align 16, !tbaa !76
   br label %498
@@ -1075,8 +1075,8 @@ decode012.exit130:                                ; preds = %453, %465
   %.not102 = icmp eq i32 %496, 0
   br i1 %.not102, label %498, label %526
 
-498:                                              ; preds = %.thread187, %485
-  %499 = phi i32 [ %481, %.thread187 ], [ %spec.select.i131, %485 ]
+498:                                              ; preds = %.thread217, %485
+  %499 = phi i32 [ %481, %.thread217 ], [ %spec.select.i131, %485 ]
   %500 = lshr i32 %499, 3
   %501 = zext nneg i32 %500 to i64
   %502 = getelementptr inbounds nuw i8, ptr %180, i64 %501
@@ -1119,7 +1119,7 @@ decode012.exit135:                                ; preds = %498, %511
   br label %526
 
 526:                                              ; preds = %decode012.exit135, %485
-  %.sink171190 = phi i32 [ 0, %decode012.exit135 ], [ 1, %485 ]
+  %.sink171220 = phi i32 [ 0, %decode012.exit135 ], [ 1, %485 ]
   %.val111 = phi i32 [ %.val111173, %decode012.exit135 ], [ %spec.select.i131, %485 ]
   %527 = sub nsw i32 %.val96.i, %.val111
   %528 = icmp slt i32 %527, 2
@@ -1179,7 +1179,7 @@ decode012.exit135:                                ; preds = %498, %511
   %569 = load i32, ptr %568, align 8, !tbaa !106
   %570 = getelementptr inbounds nuw i8, ptr %0, i64 5708
   %571 = load i32, ptr %570, align 4, !tbaa !107
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %559, i32 noundef 48, ptr noundef nonnull @.str.2, i32 noundef %565, i32 noundef %567, i32 noundef %540, i32 noundef %552, i32 noundef %.sink171190, i32 noundef %408, i32 noundef %435, i32 noundef %569, i32 noundef %571, i32 noundef %417, i32 noundef 0) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %559, i32 noundef 48, ptr noundef nonnull @.str.2, i32 noundef %565, i32 noundef %567, i32 noundef %540, i32 noundef %552, i32 noundef %.sink171220, i32 noundef %408, i32 noundef %435, i32 noundef %569, i32 noundef %571, i32 noundef %417, i32 noundef 0) #7
   br label %.thread
 
 .thread:                                          ; preds = %529, %563, %152, %160
@@ -1723,7 +1723,7 @@ get_vlc2.exit126:                                 ; preds = %117, %138
   br i1 %.not.i, label %.critedge.thread.i, label %194
 
 194:                                              ; preds = %175
-  br i1 %193, label %195, label %.critedge.thread.thread85.i
+  br i1 %193, label %195, label %.critedge.thread.thread88.i
 
 195:                                              ; preds = %194
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 4156
@@ -1787,9 +1787,9 @@ get_vlc2.exit126:                                 ; preds = %117, %138
   br label %wmv2_pred_motion.exit
 
 .critedge.thread.i:                               ; preds = %175
-  br i1 %193, label %.critedge.thread.thread.i, label %.critedge.thread.thread85.i
+  br i1 %193, label %.critedge.thread.thread.i, label %.critedge.thread.thread88.i
 
-.critedge.thread.thread85.i:                      ; preds = %.critedge.thread.i, %194
+.critedge.thread.thread88.i:                      ; preds = %.critedge.thread.i, %194
   %235 = load i16, ptr %184, align 2, !tbaa !136
   %236 = sext i16 %235 to i32
   store i32 %236, ptr %4, align 4, !tbaa !52
@@ -1855,8 +1855,8 @@ mid_pred.exit.i:                                  ; preds = %252, %250, %249, %2
   %.20.i80.i = call i32 @llvm.smax.i32(i32 range(i32 -32768, 32768) %261, i32 range(i32 -32768, 32768) %255)
   br label %wmv2_pred_motion.exit
 
-wmv2_pred_motion.exit:                            ; preds = %233, %234, %.critedge.thread.thread85.i, %263, %265, %266, %268
-  %.sink.i = phi i32 [ %213, %234 ], [ %239, %.critedge.thread.thread85.i ], [ %210, %233 ], [ %258, %263 ], [ %258, %266 ], [ %..i81.i, %265 ], [ %.20.i80.i, %268 ]
+wmv2_pred_motion.exit:                            ; preds = %233, %234, %.critedge.thread.thread88.i, %263, %265, %266, %268
+  %.sink.i = phi i32 [ %213, %234 ], [ %239, %.critedge.thread.thread88.i ], [ %210, %233 ], [ %258, %263 ], [ %258, %266 ], [ %..i81.i, %265 ], [ %.20.i80.i, %268 ]
   store i32 %.sink.i, ptr %5, align 4, !tbaa !52
   %.not117 = icmp eq i32 %.0111, 0
   br i1 %.not117, label %337, label %269
@@ -1961,9 +1961,9 @@ decode012.exit:                                   ; preds = %276, %294
   br label %.sink.split
 
 .sink.split:                                      ; preds = %309, %312, %334
-  %.sink183 = phi i64 [ 5708, %334 ], [ 5740, %312 ], [ 5740, %309 ]
+  %.sink192 = phi i64 [ 5708, %334 ], [ 5740, %312 ], [ 5740, %309 ]
   %.sink = phi i32 [ %335, %334 ], [ 0, %312 ], [ 0, %309 ]
-  %336 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink183
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink192
   store i32 %.sink, ptr %336, align 4, !tbaa !52
   br label %337
 
@@ -2154,9 +2154,9 @@ wmv2_decode_inter_block.exit:                     ; preds = %413
   br i1 %451, label %wmv2_decode_inter_block.exit.thread, label %wmv2_decode_inter_block.exit.thread152
 
 wmv2_decode_inter_block.exit.thread152.sink.split: ; preds = %442, %decode012.exit44.thread.i, %377
-  %.sink184 = phi i32 [ -1, %377 ], [ 63, %decode012.exit44.thread.i ], [ 63, %442 ]
+  %.sink193 = phi i32 [ -1, %377 ], [ 63, %decode012.exit44.thread.i ], [ 63, %442 ]
   %452 = getelementptr inbounds nuw [12 x i32], ptr %375, i64 0, i64 %indvars.iv173
-  store i32 %.sink184, ptr %452, align 4, !tbaa !52
+  store i32 %.sink193, ptr %452, align 4, !tbaa !52
   br label %wmv2_decode_inter_block.exit.thread152
 
 wmv2_decode_inter_block.exit.thread152:           ; preds = %wmv2_decode_inter_block.exit.thread152.sink.split, %wmv2_decode_inter_block.exit

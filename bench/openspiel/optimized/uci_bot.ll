@@ -615,10 +615,10 @@ define void @_ZN10open_spiel3uci6UCIBotC2ERKNSt7__cxx1112basic_stringIcSt11char_
   br label %83
 
 70:                                               ; preds = %54, %59, %49
-  %.sink30 = phi ptr [ %17, %54 ], [ %19, %59 ], [ %15, %49 ]
+  %.sink33 = phi ptr [ %17, %54 ], [ %19, %59 ], [ %15, %49 ]
   %.sink = phi ptr [ %18, %54 ], [ %20, %59 ], [ %16, %49 ]
-  %71 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %.sink30) #27
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink30) #27
+  %71 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %.sink33) #27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink33) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #27
   invoke void @_ZN10open_spiel3uci6UCIBot12StartProcessERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %72 unwind label %.loopexit.split-lp
@@ -3819,7 +3819,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %19 = load i8, ptr %18, align 1, !noalias !31
   %20 = and i8 %19, 8
   %.not9 = icmp eq i8 %20, 0
-  br i1 %.not9, label %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit30, label %21
+  br i1 %.not9, label %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit31, label %21
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i, i64 -3
@@ -3829,7 +3829,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %26 = load i8, ptr %25, align 1, !noalias !31
   %27 = and i8 %26, 8
   %.not10 = icmp eq i8 %27, 0
-  br i1 %.not10, label %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit28, label %28
+  br i1 %.not10, label %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit29, label %28
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i, i64 -4
@@ -3893,16 +3893,16 @@ _ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split
   %60 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i, i64 -3
   br label %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit
 
-_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit28: ; preds = %21
+_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit29: ; preds = %21
   %61 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i, i64 -2
   br label %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit
 
-_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit30: ; preds = %14
+_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit31: ; preds = %14
   %62 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i, i64 -1
   br label %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit
 
-_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit, %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit28, %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit30, %._crit_edge.i.i.i, %39, %46, %53
-  %.sink.i.i.i = phi ptr [ %.sroa.03.0.i.i, %39 ], [ %.sroa.03.2.i.i, %46 ], [ %0, %._crit_edge.i.i.i ], [ %spec.select.i.i, %53 ], [ %60, %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit ], [ %61, %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit28 ], [ %62, %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit30 ], [ %.sroa.03.3.i.i, %.lr.ph.i.i.i ]
+_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit, %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit29, %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit31, %._crit_edge.i.i.i, %39, %46, %53
+  %.sink.i.i.i = phi ptr [ %.sroa.03.0.i.i, %39 ], [ %.sroa.03.2.i.i, %46 ], [ %0, %._crit_edge.i.i.i ], [ %spec.select.i.i, %53 ], [ %60, %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit ], [ %61, %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit29 ], [ %62, %_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_.exit.loopexit.split.loop.exit31 ], [ %.sroa.03.3.i.i, %.lr.ph.i.i.i ]
   %63 = ptrtoint ptr %.sink.i.i.i to i64
   %64 = sub i64 %63, %4
   %65 = tail call noundef i64 @llvm.umin.i64(i64 %64, i64 %1)

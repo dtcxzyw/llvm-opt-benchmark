@@ -61,27 +61,27 @@ define dso_local range(i32 0, 2) i32 @prime_main(i32 noundef %0, ptr noundef %1)
 
 .outer:                                           ; preds = %5, %2
   %.not59 = phi i1 [ true, %2 ], [ false, %5 ]
-  %.041.ph = phi i32 [ 0, %2 ], [ %.041.ph157, %5 ]
-  %.039.ph = phi i32 [ 0, %2 ], [ %.039.ph161, %5 ]
-  %.037.ph = phi i32 [ 0, %2 ], [ %.037.ph164, %5 ]
-  br label %.outer156
+  %.041.ph = phi i32 [ 0, %2 ], [ %.041.ph163, %5 ]
+  %.039.ph = phi i32 [ 0, %2 ], [ %.039.ph167, %5 ]
+  %.037.ph = phi i32 [ 0, %2 ], [ %.037.ph170, %5 ]
+  br label %.outer162
 
-.outer156:                                        ; preds = %.outer, %10
-  %.041.ph157 = phi i32 [ %.041.ph, %.outer ], [ 1, %10 ]
-  %.039.ph158 = phi i32 [ %.039.ph, %.outer ], [ %.039.ph161, %10 ]
-  %.037.ph159 = phi i32 [ %.037.ph, %.outer ], [ %.037.ph164, %10 ]
-  br label %.outer160
+.outer162:                                        ; preds = %.outer, %10
+  %.041.ph163 = phi i32 [ %.041.ph, %.outer ], [ 1, %10 ]
+  %.039.ph164 = phi i32 [ %.039.ph, %.outer ], [ %.039.ph167, %10 ]
+  %.037.ph165 = phi i32 [ %.037.ph, %.outer ], [ %.037.ph170, %10 ]
+  br label %.outer166
 
-.outer160:                                        ; preds = %.outer156, %11
-  %.039.ph161 = phi i32 [ %.039.ph158, %.outer156 ], [ %14, %11 ]
-  %.037.ph162 = phi i32 [ %.037.ph159, %.outer156 ], [ %.037.ph164, %11 ]
-  br label %.outer163
+.outer166:                                        ; preds = %.outer162, %11
+  %.039.ph167 = phi i32 [ %.039.ph164, %.outer162 ], [ %14, %11 ]
+  %.037.ph168 = phi i32 [ %.037.ph165, %.outer162 ], [ %.037.ph170, %11 ]
+  br label %.outer169
 
-.outer163:                                        ; preds = %.outer160, %15
-  %.037.ph164 = phi i32 [ %.037.ph162, %.outer160 ], [ 1, %15 ]
+.outer169:                                        ; preds = %.outer166, %15
+  %.037.ph170 = phi i32 [ %.037.ph168, %.outer166 ], [ 1, %15 ]
   br label %5
 
-5:                                                ; preds = %.backedge, %.outer163
+5:                                                ; preds = %.backedge, %.outer169
   %6 = tail call i32 @opt_next() #4
   switch i32 %6, label %.backedge [
     i32 0, label %20
@@ -111,16 +111,16 @@ define dso_local range(i32 0, 2) i32 @prime_main(i32 noundef %0, ptr noundef %1)
   br label %.thread
 
 10:                                               ; preds = %5
-  br label %.outer156, !llvm.loop !9
+  br label %.outer162, !llvm.loop !9
 
 11:                                               ; preds = %5
   %12 = tail call ptr @opt_arg() #4
   %13 = tail call i64 @strtol(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #4
   %14 = trunc i64 %13 to i32
-  br label %.outer160, !llvm.loop !9
+  br label %.outer166, !llvm.loop !9
 
 15:                                               ; preds = %5
-  br label %.outer163, !llvm.loop !9
+  br label %.outer169, !llvm.loop !9
 
 16:                                               ; preds = %5
   %17 = tail call ptr @opt_arg() #4
@@ -132,7 +132,7 @@ define dso_local range(i32 0, 2) i32 @prime_main(i32 noundef %0, ptr noundef %1)
   br i1 %.not60, label %.thread, label %.backedge
 
 20:                                               ; preds = %5
-  %.not51 = icmp eq i32 %.041.ph157, 0
+  %.not51 = icmp eq i32 %.041.ph163, 0
   br i1 %.not51, label %23, label %21
 
 21:                                               ; preds = %20
@@ -210,7 +210,7 @@ check_num.exit.thread.us:                         ; preds = %.preheader.i.us
   br i1 %.not53.us, label %.thread, label %.preheader.i.preheader.us, !llvm.loop !17
 
 56:                                               ; preds = %30
-  %.not57 = icmp eq i32 %.039.ph161, 0
+  %.not57 = icmp eq i32 %.039.ph167, 0
   br i1 %.not57, label %57, label %60
 
 57:                                               ; preds = %56
@@ -230,7 +230,7 @@ check_num.exit.thread.us:                         ; preds = %.preheader.i.us
   br label %.thread
 
 66:                                               ; preds = %60
-  %67 = tail call i32 @BN_generate_prime_ex(ptr noundef nonnull %61, i32 noundef %.039.ph161, i32 noundef %.037.ph164, ptr noundef null, ptr noundef null, ptr noundef null) #4
+  %67 = tail call i32 @BN_generate_prime_ex(ptr noundef nonnull %61, i32 noundef %.039.ph167, i32 noundef %.037.ph170, ptr noundef null, ptr noundef null, ptr noundef null) #4
   %.not58 = icmp eq i32 %67, 0
   br i1 %.not58, label %68, label %71
 

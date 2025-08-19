@@ -2976,7 +2976,7 @@ DGifGetRecordType.exit.thread:                    ; preds = %26, %InternalRead.e
 111:                                              ; preds = %108
   %112 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %112, null
-  br i1 %.not, label %.preheader155, label %113
+  br i1 %.not, label %.preheader171, label %113
 
 113:                                              ; preds = %111
   %114 = load i32, ptr %5, align 4
@@ -2985,12 +2985,12 @@ DGifGetRecordType.exit.thread:                    ; preds = %26, %InternalRead.e
   %117 = getelementptr inbounds nuw i8, ptr %112, i64 1
   %118 = call i32 @GifAddExtensionBlock(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef %114, i32 noundef %116, ptr noundef nonnull %117) #14
   %119 = icmp eq i32 %118, 0
-  br i1 %119, label %DGifDecreaseImageCounter.exit, label %.preheader155
+  br i1 %119, label %DGifDecreaseImageCounter.exit, label %.preheader171
 
-.preheader155:                                    ; preds = %113, %111
+.preheader171:                                    ; preds = %113, %111
   br label %120
 
-120:                                              ; preds = %.preheader155, %153
+120:                                              ; preds = %.preheader171, %153
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %121 = load ptr, ptr %8, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 72

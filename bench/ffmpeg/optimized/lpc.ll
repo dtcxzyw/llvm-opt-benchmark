@@ -631,8 +631,8 @@ define i32 @ff_lpc_calc_coefs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
   br label %149
 
 .preheader:                                       ; preds = %._crit_edge248
-  %.not322 = icmp eq i32 %4, 1
-  br i1 %.not322, label %._crit_edge252, label %.lr.ph251.preheader
+  %.not327 = icmp eq i32 %4, 1
+  br i1 %.not327, label %._crit_edge252, label %.lr.ph251.preheader
 
 .lr.ph251.preheader:                              ; preds = %.preheader
   %148 = zext nneg i32 %4 to i64

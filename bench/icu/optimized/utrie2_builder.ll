@@ -316,7 +316,7 @@ define noundef ptr @utrie2_clone_77(ptr noundef readonly captures(address_is_nul
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store ptr %26, ptr %27, align 8, !tbaa !42
   %.not45 = icmp eq ptr %26, null
-  br i1 %.not45, label %.thread48, label %28
+  br i1 %.not45, label %.thread53, label %28
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 68
@@ -456,21 +456,21 @@ define noundef ptr @utrie2_clone_77(ptr noundef readonly captures(address_is_nul
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %17, i64 56
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !42
   %116 = icmp eq ptr %.pre, null
-  br i1 %116, label %.thread48, label %.thread
+  br i1 %116, label %.thread53, label %.thread
 
-.thread48:                                        ; preds = %22, %114
+.thread53:                                        ; preds = %22, %114
   %117 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %118 = load ptr, ptr %117, align 8, !tbaa !17
   %119 = icmp eq ptr %118, null
   br i1 %119, label %120, label %.thread
 
-120:                                              ; preds = %.thread48
+120:                                              ; preds = %.thread53
   store i32 7, ptr %1, align 4, !tbaa !3
   tail call void @uprv_free_77(ptr noundef nonnull %17)
   br label %.thread
 
-.thread:                                          ; preds = %45, %48, %114, %.thread48, %120, %2, %19, %15
-  %.039 = phi ptr [ null, %15 ], [ null, %19 ], [ null, %2 ], [ null, %120 ], [ %17, %.thread48 ], [ %17, %114 ], [ %17, %48 ], [ %17, %45 ]
+.thread:                                          ; preds = %45, %48, %114, %.thread53, %120, %2, %19, %15
+  %.039 = phi ptr [ null, %15 ], [ null, %19 ], [ null, %2 ], [ null, %120 ], [ %17, %.thread53 ], [ %17, %114 ], [ %17, %48 ], [ %17, %45 ]
   ret ptr %.039
 }
 
@@ -925,8 +925,8 @@ utrie2_set32ForLeadSurrogateCodeUnit_77.exit:     ; preds = %63, %62, %58, %50, 
   br i1 %76, label %77, label %.thread
 
 .thread:                                          ; preds = %70, %73
-  %.pre4246 = phi ptr [ %.pre42.pre, %73 ], [ %.pre42.pre43, %70 ]
-  call void @utrie2_close_77(ptr noundef %.pre4246)
+  %.pre4252 = phi ptr [ %.pre42.pre, %73 ], [ %.pre42.pre43, %70 ]
+  call void @utrie2_close_77(ptr noundef %.pre4252)
   br label %77
 
 77:                                               ; preds = %73, %.thread, %10, %3, %9
@@ -997,8 +997,8 @@ define void @utrie2_freeze_77(ptr noundef %0, i32 noundef %1, ptr noundef captur
   %.045.ph92.us.i.i = phi i32 [ %.146.us.i.i, %.outer64.us.i.i ], [ 1114112, %22 ]
   %.049.ph91.us.i.i = phi i64 [ %indvars.iv.next155.i.i, %.outer64.us.i.i ], [ 544, %22 ]
   %.151.ph90.us.i.i = phi i32 [ %37, %.outer64.us.i.i ], [ %29, %22 ]
-  %sext167.i.i = shl i64 %.049.ph91.us.i.i, 32
-  %34 = ashr exact i64 %sext167.i.i, 32
+  %sext172.i.i = shl i64 %.049.ph91.us.i.i, 32
+  %34 = ashr exact i64 %sext172.i.i, 32
   br label %35
 
 35:                                               ; preds = %60, %.lr.ph.us.i.i
@@ -1035,15 +1035,15 @@ define void @utrie2_freeze_77(ptr noundef %0, i32 noundef %1, ptr noundef captur
 
 .preheader.us.preheader.i.i:                      ; preds = %47
   %49 = sext i32 %45 to i64
-  %invariant.gep212.i.i = getelementptr i32, ptr %25, i64 %49
+  %invariant.gep217.i.i = getelementptr i32, ptr %25, i64 %49
   br label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %51, %.preheader.us.preheader.i.i
   %indvars.iv160.i.i = phi i64 [ 32, %.preheader.us.preheader.i.i ], [ %indvars.iv.next161.i.i, %51 ]
   %.486.us.i.i = phi i32 [ %indvars.iv162.in.i.i, %.preheader.us.preheader.i.i ], [ %52, %51 ]
   %indvars.iv.next161.i.i = add nsw i64 %indvars.iv160.i.i, -1
-  %gep213.i.i = getelementptr i32, ptr %invariant.gep212.i.i, i64 %indvars.iv.next161.i.i
-  %50 = load i32, ptr %gep213.i.i, align 4, !tbaa !26
+  %gep218.i.i = getelementptr i32, ptr %invariant.gep217.i.i, i64 %indvars.iv.next161.i.i
+  %50 = load i32, ptr %gep218.i.i, align 4, !tbaa !26
   %.not.us.i.i = icmp eq i32 %50, %23
   br i1 %.not.us.i.i, label %51, label %_ZL13findHighStartP9UNewTrie2j.exit.i
 
@@ -1079,8 +1079,8 @@ define void @utrie2_freeze_77(ptr noundef %0, i32 noundef %1, ptr noundef captur
   %.3.ph89.us.i.i = phi i32 [ %45, %.outer.us.i.i ], [ %.1.ph93.us.i.i, %.lr.ph81.us.preheader.i.i ]
   %.247.ph88.us.i.i = phi i32 [ %indvars.iv162.i.i, %.outer.us.i.i ], [ %.04578.us.i.i, %.lr.ph81.us.preheader.i.i ]
   %.052.ph87.us.i.i = phi i64 [ %indvars.iv.next158.i.i, %.outer.us.i.i ], [ 64, %.lr.ph81.us.preheader.i.i ]
-  %sext168.i.i = shl i64 %.052.ph87.us.i.i, 32
-  %63 = ashr exact i64 %sext168.i.i, 32
+  %sext173.i.i = shl i64 %.052.ph87.us.i.i, 32
+  %63 = ashr exact i64 %sext173.i.i, 32
   br label %42
 
 .lr.ph.i.i:                                       ; preds = %22, %.loopexit61.i.i
@@ -1160,8 +1160,8 @@ define void @utrie2_freeze_77(ptr noundef %0, i32 noundef %1, ptr noundef captur
   %.3.ph89.i.i = phi i32 [ %78, %.outer.i.i ], [ %.1.ph93.i.i, %.lr.ph81.preheader.i.i ]
   %.247.ph88.i.i = phi i32 [ %indvars.iv150.i.i, %.outer.i.i ], [ %.04578.i.i, %.lr.ph81.preheader.i.i ]
   %.052.ph87.i.i = phi i64 [ %indvars.iv.next146.i.i, %.outer.i.i ], [ 64, %.lr.ph81.preheader.i.i ]
-  %sext166.i.i = shl i64 %.052.ph87.i.i, 32
-  %90 = ashr exact i64 %sext166.i.i, 32
+  %sext171.i.i = shl i64 %.052.ph87.i.i, 32
+  %90 = ashr exact i64 %sext171.i.i, 32
   br label %75
 
 .loopexit61.i.i:                                  ; preds = %.outer.i.i, %80
@@ -2220,9 +2220,9 @@ _ZL13isInNullBlockP9UNewTrie2ia.exit:             ; preds = %89, %92
   br i1 %106, label %_ZL14getIndex2BlockP9UNewTrie2ia.exit.thread156, label %107
 
 107:                                              ; preds = %104
-  %108 = ashr i32 %.2175, 11
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds [544 x i32], ptr %15, i64 0, i64 %109
+  %108 = lshr i32 %.2175, 11
+  %109 = zext nneg i32 %108 to i64
+  %110 = getelementptr inbounds nuw [544 x i32], ptr %15, i64 0, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !26
   %112 = load i32, ptr %78, align 8, !tbaa !36
   %113 = icmp eq i32 %111, %112

@@ -1056,8 +1056,8 @@ define void @dt_datetime_add_subsec_to_exif(ptr noundef %0, i64 noundef %1, ptr 
   %13 = load i8, ptr %12, align 1, !tbaa !57
   %.not = icmp eq i8 %13, 0
   %exitcond.not = icmp eq i64 %indvars.iv, %10
-  %or.cond22 = or i1 %.not, %exitcond.not
-  br i1 %or.cond22, label %.critedge, label %16
+  %or.cond24 = or i1 %.not, %exitcond.not
+  br i1 %or.cond24, label %.critedge, label %16
 
 .critedge:                                        ; preds = %11, %16
   %14 = getelementptr i8, ptr %0, i64 %1

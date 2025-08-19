@@ -58,11 +58,11 @@ common.ret:                                       ; preds = %3
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !12
-  br label %common.ret31
+  br label %common.ret32
 
-common.ret31:                                     ; preds = %8, %common.ret
-  %common.ret31.op = phi i64 [ %7, %common.ret ], [ %32, %8 ]
-  ret i64 %common.ret31.op
+common.ret32:                                     ; preds = %8, %common.ret
+  %common.ret32.op = phi i64 [ %7, %common.ret ], [ %32, %8 ]
+  ret i64 %common.ret32.op
 
 8:                                                ; preds = %3
   %9 = sub nsw i32 %1, %2
@@ -92,7 +92,7 @@ common.ret31:                                     ; preds = %8, %common.ret
   %30 = xor i64 %28, %25
   %31 = and i64 %28, %25
   %32 = select i1 %29, i64 %30, i64 %31
-  br label %common.ret31
+  br label %common.ret32
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -189,10 +189,10 @@ Vec_WrdStart.exit93:                              ; preds = %6, %21
   store i32 %30, ptr %31, align 8, !tbaa !17
   %32 = sext i32 %30 to i64
   %33 = shl nsw i64 %32, 3
-  %calloc148 = tail call ptr @calloc(i64 1, i64 %33)
+  %calloc154 = tail call ptr @calloc(i64 1, i64 %33)
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr %calloc148, ptr %35, align 8, !tbaa !18
+  store ptr %calloc154, ptr %35, align 8, !tbaa !18
   store i32 %30, ptr %34, align 4, !tbaa !14
   %36 = icmp sgt i32 %.val75, 0
   br i1 %36, label %.lr.ph, label %Vec_WrdStart.exit97
@@ -217,7 +217,7 @@ Vec_WrdStart.exit93:                              ; preds = %6, %21
   %41 = getelementptr inbounds nuw i32, ptr %.val77, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = mul nuw nsw i64 %indvars.iv, %wide.trip.count.i
-  %44 = getelementptr inbounds nuw i64, ptr %calloc148, i64 %43
+  %44 = getelementptr inbounds nuw i64, ptr %calloc154, i64 %43
   %45 = sext i32 %42 to i64
   %46 = getelementptr inbounds i32, ptr %.val76, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !11
@@ -1206,7 +1206,7 @@ define range(i32 -2147483648, 2147483647) i32 @Gia_ManCountBdd(ptr noundef reado
   br i1 %exitcond.not.i32, label %.lr.ph.i36, label %.lr.ph.i29, !llvm.loop !39
 
 Abc_TtNot.exit33:                                 ; preds = %3
-  %24 = tail call ptr @Gia_TryPermOptNew(ptr noundef %.val20, i32 noundef %1, i32 noundef 1, i32 noundef %7, i32 noundef 50, i32 noundef 0) #14
+  %24 = tail call ptr @Gia_TryPermOptNew(ptr noundef %.val20, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648, i32 noundef 50, i32 noundef 0) #14
   br label %Abc_TtSharp.exit
 
 .lr.ph.i36:                                       ; preds = %.lr.ph.i29, %.lr.ph.i36
@@ -1299,7 +1299,7 @@ define ptr @Gia_ManDeriveBdd(ptr noundef readonly captures(none) %0, i32 noundef
   br i1 %exitcond.not.i32, label %.lr.ph.i36, label %.lr.ph.i29, !llvm.loop !39
 
 Abc_TtNot.exit33:                                 ; preds = %2
-  %23 = tail call ptr @Gia_TryPermOptNew(ptr noundef %.val20, i32 noundef %1, i32 noundef 1, i32 noundef %6, i32 noundef 50, i32 noundef 0) #14
+  %23 = tail call ptr @Gia_TryPermOptNew(ptr noundef %.val20, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648, i32 noundef 50, i32 noundef 0) #14
   br label %Abc_TtSharp.exit
 
 .lr.ph.i36:                                       ; preds = %.lr.ph.i29, %.lr.ph.i36

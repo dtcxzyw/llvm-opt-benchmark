@@ -354,10 +354,10 @@ _ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i45: ; preds = %105, %95
   br i1 %110, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit.sink.split, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
 
 _ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit.sink.split: ; preds = %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i45, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i
-  %.sink108 = phi ptr [ %86, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i ], [ %102, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i45 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.sink108, i64 380
+  %.sink114 = phi ptr [ %86, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i ], [ %102, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i45 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.sink114, i64 380
   %112 = load i32, ptr %111, align 4, !tbaa !89
-  call void @_ZN3tbb6detail2r15arena15request_workersEiib(ptr noundef nonnull align 128 dereferenceable(768) %.sink108, i32 noundef 0, i32 noundef %112, i1 noundef zeroext true)
+  call void @_ZN3tbb6detail2r15arena15request_workersEiib(ptr noundef nonnull align 128 dereferenceable(768) %.sink114, i32 noundef 0, i32 noundef %112, i1 noundef zeroext true)
   br label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
 
 _ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit: ; preds = %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit.sink.split, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i45, %105, %95, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i, %89, %79, %76, %_ZN3tbb6detail2r110arena_slot13get_task_implEmRNS1_18execution_data_extERbl.exit.thread58

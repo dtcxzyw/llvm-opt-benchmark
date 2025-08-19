@@ -493,10 +493,10 @@ switch.early.test:                                ; preds = %32
   br label %102
 
 .sink.split:                                      ; preds = %53, %51, %switch.early.test, %18
-  %.sink167 = phi i32 [ 608, %18 ], [ 616, %switch.early.test ], [ 644, %51 ], [ 653, %53 ]
+  %.sink177 = phi i32 [ 608, %18 ], [ 616, %switch.early.test ], [ 644, %51 ], [ 653, %53 ]
   %.sink = phi i32 [ 150, %18 ], [ 104, %switch.early.test ], [ 158, %51 ], [ 133, %53 ]
   tail call void @ERR_new() #3
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink167, ptr noundef nonnull @__func__.OSSL_CMP_SRV_process_request) #3
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink177, ptr noundef nonnull @__func__.OSSL_CMP_SRV_process_request) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink, ptr noundef null) #3
   br label %89
 
@@ -891,8 +891,8 @@ define internal fastcc ptr @process_non_polling_request(ptr noundef nonnull %0, 
   %switch.maskindex = trunc i32 %23 to i8
   %switch.shifted = lshr i8 -107, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond35 = select i1 %24, i1 %switch.lobit, i1 false
-  br i1 %or.cond35, label %switch.lookup, label %25
+  %or.cond55 = select i1 %24, i1 %switch.lobit, i1 false
+  br i1 %or.cond55, label %switch.lookup, label %25
 
 25:                                               ; preds = %22
   tail call void @ERR_new() #3
@@ -1332,10 +1332,10 @@ process_genm.exit:                                ; preds = %150, %152, %157
   br i1 %232, label %.critedge.sink.split.i, label %.critedge
 
 .critedge.sink.split.i:                           ; preds = %230, %208, %196, %189
-  %.sink50.i = phi i32 [ 415, %196 ], [ 415, %189 ], [ 433, %208 ], [ 451, %230 ]
+  %.sink57.i = phi i32 [ 415, %196 ], [ 415, %189 ], [ 433, %208 ], [ 451, %230 ]
   %.sink.i = phi i32 [ 160, %196 ], [ 160, %189 ], [ 108, %208 ], [ 122, %230 ]
   tail call void @ERR_new() #3
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink50.i, ptr noundef nonnull @__func__.process_certConf) #3
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink57.i, ptr noundef nonnull @__func__.process_certConf) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink.i, ptr noundef null) #3
   br label %.critedge
 

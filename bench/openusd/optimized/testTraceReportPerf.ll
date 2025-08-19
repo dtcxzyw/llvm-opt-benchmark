@@ -763,7 +763,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %59 = phi ptr [ %24, %.thread ], [ %58, %51 ]
   %60 = phi ptr [ %23, %.thread ], [ %57, %51 ]
   %61 = phi ptr [ %22, %.thread ], [ %56, %51 ]
-  %.033230 = phi i64 [ 1, %.thread ], [ %55, %51 ]
+  %.033243 = phi i64 [ 1, %.thread ], [ %55, %51 ]
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %._crit_edge.us
@@ -1288,7 +1288,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEED2Ev.exit87.us: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i86.us, %281, %268, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_13TraceReporterEED2Ev.exit.us
   %291 = add nuw i64 %.0175.us, 1
-  %exitcond.not = icmp eq i64 %291, %.033230
+  %exitcond.not = icmp eq i64 %291, %.033243
   br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !23
 
 ._crit_edge.us:                                   ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEED2Ev.exit87.us

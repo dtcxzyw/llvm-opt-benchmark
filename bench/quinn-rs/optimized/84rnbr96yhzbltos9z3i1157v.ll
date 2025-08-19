@@ -3465,16 +3465,16 @@ define internal fastcc void @"_ZN4core3ptr167drop_in_place$LT$$LT$alloc..collect
 .invoke.i.i:                                      ; preds = %16, %9
   %.sink.i = phi i64 [ 8, %16 ], [ 16, %9 ]
   %.sink.i.i = phi i64 [ 32, %16 ], [ 40, %9 ]
-  %.sink13.i.i = phi i64 [ 16, %16 ], [ 24, %9 ]
-  %.sink12.i.i = phi i64 [ 24, %16 ], [ 32, %9 ]
+  %.sink14.i.i = phi i64 [ 16, %16 ], [ 24, %9 ]
+  %.sink13.i.i = phi i64 [ 24, %16 ], [ 32, %9 ]
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink.i
-  %.sink15.i.i = load ptr, ptr %17, align 8, !alias.scope !381, !nonnull !10, !align !11, !noundef !10
-  %18 = getelementptr inbounds nuw i8, ptr %.sink15.i.i, i64 32
+  %.sink16.i.i = load ptr, ptr %17, align 8, !alias.scope !381, !nonnull !10, !align !11, !noundef !10
+  %18 = getelementptr inbounds nuw i8, ptr %.sink16.i.i, i64 32
   %19 = load ptr, ptr %18, align 8, !noalias !382, !nonnull !10, !noundef !10
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink13.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink14.i.i
   %22 = load ptr, ptr %21, align 8, !alias.scope !381, !noundef !10
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink12.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink13.i.i
   %24 = load i64, ptr %23, align 8, !alias.scope !381, !noundef !10
   invoke void %19(ptr noalias noundef nonnull align 8 dereferenceable(8) %20, ptr noundef %22, i64 noundef %24)
           to label %"_ZN4core3ptr51drop_in_place$LT$quinn_proto..connection..Event$GT$17h0ab48e15c60c60b4E.exit.i.i" unwind label %28
@@ -4923,16 +4923,16 @@ define internal fastcc void @"_ZN4core3ptr51drop_in_place$LT$quinn_proto..connec
   ]
 
 "_ZN4core3ptr62drop_in_place$LT$quinn_proto..connection..state..Handshake$GT$17h03ad1ee7cd513139E.exit.sink.split": ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit.i", %43
-  %.sink9 = phi ptr [ %.sink9.i.i, %43 ], [ %39, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit.i" ]
-  %.sink8 = phi i64 [ %.1.i, %43 ], [ 56, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit.i" ]
-  %.sink7 = phi i64 [ %.2.i, %43 ], [ 40, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit.i" ]
-  %.sink5 = phi i64 [ %.3.i, %43 ], [ 48, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit.i" ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sink9, i64 32
+  %.sink10 = phi ptr [ %.sink9.i.i, %43 ], [ %39, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit.i" ]
+  %.sink9 = phi i64 [ %.1.i, %43 ], [ 56, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit.i" ]
+  %.sink8 = phi i64 [ %.2.i, %43 ], [ 40, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit.i" ]
+  %.sink6 = phi i64 [ %.3.i, %43 ], [ 48, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit.i" ]
+  %9 = getelementptr inbounds nuw i8, ptr %.sink10, i64 32
   %10 = load ptr, ptr %9, align 8, !noalias !10, !nonnull !10, !noundef !10
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink7
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink9
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink8
   %13 = load ptr, ptr %12, align 8, !noundef !10
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink5
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink6
   %15 = load i64, ptr %14, align 8, !noundef !10
   tail call void %10(ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %13, i64 noundef %15)
   br label %"_ZN4core3ptr62drop_in_place$LT$quinn_proto..connection..state..Handshake$GT$17h03ad1ee7cd513139E.exit"
@@ -6068,16 +6068,16 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$quinn_proto..connection..Con
   ]
 
 "_ZN4core3ptr62drop_in_place$LT$quinn_proto..connection..state..Handshake$GT$17h03ad1ee7cd513139E.exit.sink.split.i": ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit.i.i", %104
-  %.sink9.i = phi ptr [ %.sink9.i.i.i, %104 ], [ %100, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit.i.i" ]
-  %.sink8.i = phi i64 [ %.1.i.i, %104 ], [ 56, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit.i.i" ]
-  %.sink7.i = phi i64 [ %.2.i.i, %104 ], [ 40, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit.i.i" ]
-  %.sink5.i = phi i64 [ %.3.i.i, %104 ], [ 48, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit.i.i" ]
-  %70 = getelementptr inbounds nuw i8, ptr %.sink9.i, i64 32
+  %.sink10.i = phi ptr [ %.sink9.i.i.i, %104 ], [ %100, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit.i.i" ]
+  %.sink9.i = phi i64 [ %.1.i.i, %104 ], [ 56, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit.i.i" ]
+  %.sink8.i = phi i64 [ %.2.i.i, %104 ], [ 40, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit.i.i" ]
+  %.sink6.i = phi i64 [ %.3.i.i, %104 ], [ 48, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit.i.i" ]
+  %70 = getelementptr inbounds nuw i8, ptr %.sink10.i, i64 32
   %71 = load ptr, ptr %70, align 8, !noalias !10, !nonnull !10, !noundef !10
-  %72 = getelementptr inbounds nuw i8, ptr %62, i64 %.sink8.i
-  %73 = getelementptr inbounds nuw i8, ptr %62, i64 %.sink7.i
+  %72 = getelementptr inbounds nuw i8, ptr %62, i64 %.sink9.i
+  %73 = getelementptr inbounds nuw i8, ptr %62, i64 %.sink8.i
   %74 = load ptr, ptr %73, align 8, !alias.scope !872, !noundef !10
-  %75 = getelementptr inbounds nuw i8, ptr %62, i64 %.sink5.i
+  %75 = getelementptr inbounds nuw i8, ptr %62, i64 %.sink6.i
   %76 = load i64, ptr %75, align 8, !alias.scope !872, !noundef !10
   invoke void %71(ptr noalias noundef nonnull align 8 dereferenceable(8) %72, ptr noundef %74, i64 noundef %76)
           to label %"_ZN4core3ptr51drop_in_place$LT$quinn_proto..connection..State$GT$17hf8e031648ceda38fE.exit" unwind label %108
@@ -6375,18 +6375,18 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$quinn_proto..connection..Con
   br label %.invoke
 
 .invoke:                                          ; preds = %184, %191
-  %.sink68 = phi i64 [ 4984, %191 ], [ 4992, %184 ]
+  %.sink73 = phi i64 [ 4984, %191 ], [ 4992, %184 ]
   %.sink = phi i64 [ 5008, %191 ], [ 5016, %184 ]
-  %.sink65 = phi i64 [ 4992, %191 ], [ 5000, %184 ]
-  %.sink64 = phi i64 [ 5000, %191 ], [ 5008, %184 ]
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink68
-  %.sink67 = load ptr, ptr %192, align 8, !alias.scope !937, !nonnull !10, !align !11, !noundef !10
-  %193 = getelementptr inbounds nuw i8, ptr %.sink67, i64 32
+  %.sink70 = phi i64 [ 4992, %191 ], [ 5000, %184 ]
+  %.sink69 = phi i64 [ 5000, %191 ], [ 5008, %184 ]
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink73
+  %.sink72 = load ptr, ptr %192, align 8, !alias.scope !937, !nonnull !10, !align !11, !noundef !10
+  %193 = getelementptr inbounds nuw i8, ptr %.sink72, i64 32
   %194 = load ptr, ptr %193, align 8, !noalias !937, !nonnull !10, !noundef !10
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink65
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink70
   %197 = load ptr, ptr %196, align 8, !alias.scope !937, !noundef !10
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink64
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink69
   %199 = load i64, ptr %198, align 8, !alias.scope !937, !noundef !10
   invoke void %194(ptr noalias noundef nonnull align 8 dereferenceable(8) %195, ptr noundef %197, i64 noundef %199)
           to label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$quinn_proto..connection..ConnectionError$GT$$GT$17h34145cf2a9360abeE.exit" unwind label %202
@@ -6957,8 +6957,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr71drop
   unreachable
 
 "_ZN4core3ptr63drop_in_place$LT$rustls..quic..connection..ClientConnection$GT$17h9cb99697ba598141E.exit": ; preds = %"_ZN4core3ptr106drop_in_place$LT$rustls..conn..ConnectionCore$LT$rustls..server..server_conn..ServerConnectionData$GT$$GT$17h78d16a381e8b67a1E.exit.i.i", %"_ZN4core3ptr106drop_in_place$LT$rustls..conn..ConnectionCore$LT$rustls..client..client_conn..ClientConnectionData$GT$$GT$17h76e883b0b7e5bdc2E.exit.i.i"
-  %.sink13 = phi i64 [ 952, %"_ZN4core3ptr106drop_in_place$LT$rustls..conn..ConnectionCore$LT$rustls..client..client_conn..ClientConnectionData$GT$$GT$17h76e883b0b7e5bdc2E.exit.i.i" ], [ 1056, %"_ZN4core3ptr106drop_in_place$LT$rustls..conn..ConnectionCore$LT$rustls..server..server_conn..ServerConnectionData$GT$$GT$17h78d16a381e8b67a1E.exit.i.i" ]
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink13
+  %.sink18 = phi i64 [ 952, %"_ZN4core3ptr106drop_in_place$LT$rustls..conn..ConnectionCore$LT$rustls..client..client_conn..ClientConnectionData$GT$$GT$17h76e883b0b7e5bdc2E.exit.i.i" ], [ 1056, %"_ZN4core3ptr106drop_in_place$LT$rustls..conn..ConnectionCore$LT$rustls..server..server_conn..ServerConnectionData$GT$$GT$17h78d16a381e8b67a1E.exit.i.i" ]
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   tail call fastcc void @"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17h2953efca301671daE"(ptr noalias noundef align 8 dereferenceable(56) %107)
   ret void
 }
@@ -12598,16 +12598,16 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$alloc..collections..vec_dequ
 .invoke.i.i:                                      ; preds = %32, %25
   %.sink.i = phi i64 [ 8, %32 ], [ 16, %25 ]
   %.sink.i.i = phi i64 [ 32, %32 ], [ 40, %25 ]
-  %.sink13.i.i = phi i64 [ 16, %32 ], [ 24, %25 ]
-  %.sink12.i.i = phi i64 [ 24, %32 ], [ 32, %25 ]
+  %.sink14.i.i = phi i64 [ 16, %32 ], [ 24, %25 ]
+  %.sink13.i.i = phi i64 [ 24, %32 ], [ 32, %25 ]
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 %.sink.i
-  %.sink15.i.i = load ptr, ptr %33, align 8, !alias.scope !2033, !nonnull !10, !align !11, !noundef !10
-  %34 = getelementptr inbounds nuw i8, ptr %.sink15.i.i, i64 32
+  %.sink16.i.i = load ptr, ptr %33, align 8, !alias.scope !2033, !nonnull !10, !align !11, !noundef !10
+  %34 = getelementptr inbounds nuw i8, ptr %.sink16.i.i, i64 32
   %35 = load ptr, ptr %34, align 8, !noalias !2034, !nonnull !10, !noundef !10
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 %.sink.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %19, i64 %.sink13.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 %.sink14.i.i
   %38 = load ptr, ptr %37, align 8, !alias.scope !2033, !noundef !10
-  %39 = getelementptr inbounds nuw i8, ptr %19, i64 %.sink12.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 %.sink13.i.i
   %40 = load i64, ptr %39, align 8, !alias.scope !2033, !noundef !10
   invoke void %35(ptr noalias noundef nonnull align 8 dereferenceable(8) %36, ptr noundef %38, i64 noundef %40)
           to label %"_ZN4core3ptr51drop_in_place$LT$quinn_proto..connection..Event$GT$17h0ab48e15c60c60b4E.exit.i.i" unwind label %44
@@ -12682,16 +12682,16 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$alloc..collections..vec_dequ
 .invoke.i.i.i.i:                                  ; preds = %65, %58
   %.sink.i.i.i = phi i64 [ 8, %65 ], [ 16, %58 ]
   %.sink.i.i.i.i = phi i64 [ 32, %65 ], [ 40, %58 ]
-  %.sink13.i.i.i.i = phi i64 [ 16, %65 ], [ 24, %58 ]
-  %.sink12.i.i.i.i = phi i64 [ 24, %65 ], [ 32, %58 ]
+  %.sink14.i.i.i.i = phi i64 [ 16, %65 ], [ 24, %58 ]
+  %.sink13.i.i.i.i = phi i64 [ 24, %65 ], [ 32, %58 ]
   %66 = getelementptr inbounds nuw i8, ptr %52, i64 %.sink.i.i.i
-  %.sink15.i.i.i.i = load ptr, ptr %66, align 8, !alias.scope !2044, !nonnull !10, !align !11, !noundef !10
-  %67 = getelementptr inbounds nuw i8, ptr %.sink15.i.i.i.i, i64 32
+  %.sink16.i.i.i.i = load ptr, ptr %66, align 8, !alias.scope !2044, !nonnull !10, !align !11, !noundef !10
+  %67 = getelementptr inbounds nuw i8, ptr %.sink16.i.i.i.i, i64 32
   %68 = load ptr, ptr %67, align 8, !noalias !2045, !nonnull !10, !noundef !10
   %69 = getelementptr inbounds nuw i8, ptr %52, i64 %.sink.i.i.i.i
-  %70 = getelementptr inbounds nuw i8, ptr %52, i64 %.sink13.i.i.i.i
+  %70 = getelementptr inbounds nuw i8, ptr %52, i64 %.sink14.i.i.i.i
   %71 = load ptr, ptr %70, align 8, !alias.scope !2044, !noundef !10
-  %72 = getelementptr inbounds nuw i8, ptr %52, i64 %.sink12.i.i.i.i
+  %72 = getelementptr inbounds nuw i8, ptr %52, i64 %.sink13.i.i.i.i
   %73 = load i64, ptr %72, align 8, !alias.scope !2044, !noundef !10
   invoke void %68(ptr noalias noundef nonnull align 8 dereferenceable(8) %69, ptr noundef %71, i64 noundef %73)
           to label %"_ZN4core3ptr51drop_in_place$LT$quinn_proto..connection..Event$GT$17h0ab48e15c60c60b4E.exit.i.i.i.i" unwind label %77

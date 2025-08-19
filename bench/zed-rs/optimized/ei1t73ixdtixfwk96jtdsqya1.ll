@@ -11722,17 +11722,17 @@ define internal noundef zeroext i1 @"_ZN69_$LT$live_kit_client..test..Room$u20$a
   %11 = alloca [8 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i8, ptr %12, align 8, !range !771, !noundef !4
-  switch i8 %13, label %default.unreachable25 [
-    i8 0, label %.thread26
+  switch i8 %13, label %default.unreachable35 [
+    i8 0, label %.thread36
     i8 1, label %24
     i8 2, label %25
     i8 3, label %26
   ]
 
-default.unreachable25:                            ; preds = %26, %2
+default.unreachable35:                            ; preds = %26, %2
   unreachable
 
-.thread26:                                        ; preds = %2
+.thread36:                                        ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
@@ -11774,14 +11774,14 @@ default.unreachable25:                            ; preds = %26, %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !779
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  switch i8 %.pre, label %default.unreachable25 [
+  switch i8 %.pre, label %default.unreachable35 [
     i8 0, label %28
     i8 1, label %187
     i8 2, label %188
   ]
 
-28:                                               ; preds = %.thread26, %26
-  %29 = phi ptr [ %18, %.thread26 ], [ %27, %26 ]
+28:                                               ; preds = %.thread36, %26
+  %29 = phi ptr [ %18, %.thread36 ], [ %27, %26 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %32 = load ptr, ptr %31, align 8, !nonnull !4, !align !22, !noundef !4

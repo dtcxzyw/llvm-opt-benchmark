@@ -1789,10 +1789,10 @@ invoke.cont22:                                    ; preds = %invoke.cont9, %_ZNS
           to label %if.end unwind label %lpad.loopexit.split-lp
 
 if.end:                                           ; preds = %invoke.cont22, %invoke.cont5
-  %len.addr.0.lcssa115 = phi i64 [ %sub56, %invoke.cont22 ], [ %len, %invoke.cont5 ]
-  %copied.0.lcssa112 = phi i64 [ %add51, %invoke.cont22 ], [ 0, %invoke.cont5 ]
+  %len.addr.0.lcssa130 = phi i64 [ %sub56, %invoke.cont22 ], [ %len, %invoke.cont5 ]
+  %copied.0.lcssa127 = phi i64 [ %add51, %invoke.cont22 ], [ 0, %invoke.cont5 ]
   %29 = load ptr, ptr %crtPos_.i, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %29, i64 %len.addr.0.lcssa115
+  %add.ptr = getelementptr inbounds i8, ptr %29, i64 %len.addr.0.lcssa130
   store ptr %add.ptr, ptr %crtPos_.i, align 8
   %30 = load ptr, ptr %crtEnd_.i, align 8
   %cmp.i28 = icmp eq ptr %add.ptr, %30
@@ -1859,7 +1859,7 @@ if.end23.i.i49:                                   ; preds = %if.then19.i.i52, %i
   br label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %if.end23.i.i49, %if.end.i.i36, %if.then.i.i55, %if.end
-  %add = add i64 %len.addr.0.lcssa115, %copied.0.lcssa112
+  %add = add i64 %len.addr.0.lcssa130, %copied.0.lcssa127
   br label %cleanup
 
 if.end26:                                         ; preds = %if.end26.lr.ph, %if.end55
@@ -2815,8 +2815,8 @@ if.then156:                                       ; preds = %if.end151
   %.pre381 = load i16, ptr %status_code178.phi.trans.insert, align 4
   %58 = add i16 %.pre381, -200
   %or.cond = icmp ult i16 %58, 100
-  %or.cond389 = select i1 %bf.cast161.not, i1 %or.cond, i1 false
-  br i1 %or.cond389, label %if.then172, label %if.else176
+  %or.cond404 = select i1 %bf.cast161.not, i1 %or.cond, i1 false
+  br i1 %or.cond404, label %if.then172, label %if.else176
 
 if.then172:                                       ; preds = %if.then156
   %bf.set175 = or i32 %bf.load158, 524288
@@ -3038,8 +3038,8 @@ if.else284:                                       ; preds = %if.else176
   %bf.load302.pre = load i8, ptr %parser_, align 8
   %78 = and i8 %bf.load302.pre, 64
   %tobool294.not = icmp eq i8 %78, 0
-  %or.cond390 = select i1 %tobool287.not, i1 %tobool294.not, i1 false
-  br i1 %or.cond390, label %if.end377, label %if.then295
+  %or.cond405 = select i1 %tobool287.not, i1 %tobool294.not, i1 false
+  br i1 %or.cond405, label %if.end377, label %if.then295
 
 if.then295:                                       ; preds = %if.else284
   %bf.clear299 = and i8 %bf.load286, 127
@@ -5167,9 +5167,9 @@ if.else252:                                       ; preds = %if.end247
   br label %if.end255
 
 if.end255:                                        ; preds = %if.else252, %if.then249
-  %call254.sink394 = phi ptr [ %call254, %if.else252 ], [ %call251, %if.then249 ]
-  %call.i178 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call254.sink394) #27
-  %call3.i180 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %call254.sink394) #27
+  %call254.sink399 = phi ptr [ %call254, %if.else252 ], [ %call251, %if.then249 ]
+  %call.i178 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call254.sink399) #27
+  %call3.i180 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %call254.sink399) #27
   call void @_ZN5folly10IOBufQueue6appendEPKvm(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef %call.i178, i64 noundef %call3.i180)
   %52 = load i64, ptr %len, align 8
   %add.i185 = add i64 %52, %call3.i180
@@ -5232,9 +5232,9 @@ if.else270:                                       ; preds = %land.lhs.true262, %
   br label %if.end273
 
 if.end273:                                        ; preds = %if.else270, %_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit
-  %url_.i201.sink396 = phi ptr [ %url_.i201, %if.else270 ], [ %_ZN8proxygen12empty_stringB5cxx11E..i, %_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit ]
-  %call.i202 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %url_.i201.sink396) #27
-  %call3.i204 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %url_.i201.sink396) #27
+  %url_.i201.sink401 = phi ptr [ %url_.i201, %if.else270 ], [ %_ZN8proxygen12empty_stringB5cxx11E..i, %_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit ]
+  %call.i202 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %url_.i201.sink401) #27
+  %call3.i204 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %url_.i201.sink401) #27
   call void @_ZN5folly10IOBufQueue6appendEPKvm(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef %call.i202, i64 noundef %call3.i204)
   %57 = load i64, ptr %len, align 8
   %add.i209 = add i64 %57, %call3.i204
@@ -9541,7 +9541,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp8.not.i, label %if.else.i, label %_ZSt27__uninitialized_default_n_aIPN5folly5RangeIPKcEEmS4_ET_S6_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPN5folly5RangeIPKcEEmS4_ET_S6_T0_RSaIT1_E.exit.i: ; preds = %if.then
-  %3 = shl nuw i64 %sub, 4
+  %3 = shl nuw nsw i64 %sub, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %3, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %0, i64 %3
   store ptr %scevgep.i.i.i.i, ptr %_M_finish.i, align 8
@@ -9586,7 +9586,7 @@ if.then.i28.i:                                    ; preds = %_ZNSt6vectorIN5foll
 
 _ZNSt12_Vector_baseIN5folly5RangeIPKcEESaIS4_EE13_M_deallocateEPS4_m.exit29.i: ; preds = %if.then.i28.i, %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr37.i = getelementptr inbounds %"class.folly::Range", ptr %add.ptr.i, i64 %sub
+  %add.ptr37.i = getelementptr inbounds nuw %"class.folly::Range", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %_M_finish.i, align 8
   %add.ptr40.i = getelementptr inbounds nuw %"class.folly::Range", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8

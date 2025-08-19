@@ -1124,7 +1124,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit59.i:  ; preds = %40, %36, %32
   call void @_ZN18vframeStreamCommon4nextEv(ptr noundef nonnull align 8 dereferenceable(5104) %2)
   %76 = load i32, ptr %43, align 8
   %77 = icmp eq i32 %76, 2
-  br i1 %77, label %.thread.thread99.i, label %47, !llvm.loop !6
+  br i1 %77, label %.thread.thread104.i, label %47, !llvm.loop !6
 
 78:                                               ; preds = %66
   %.pr.i = load i32, ptr %43, align 8
@@ -1194,13 +1194,13 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit59.i:  ; preds = %40, %36, %32
 
 .thread.i:                                        ; preds = %92, %80, %78
   %.not.i = icmp eq ptr %.04591.i, null
-  br i1 %.not.i, label %147, label %.thread.thread99.i
+  br i1 %.not.i, label %147, label %.thread.thread104.i
 
-.thread.thread99.i:                               ; preds = %75, %.thread.i
+.thread.thread104.i:                              ; preds = %75, %.thread.i
   %126 = phi i1 [ %79, %.thread.i ], [ true, %75 ]
-  %.04590102.i = phi ptr [ %.04591.i, %.thread.i ], [ %48, %75 ]
+  %.04590107.i = phi ptr [ %.04591.i, %.thread.i ], [ %48, %75 ]
   %127 = phi i32 [ %.pr.i, %.thread.i ], [ 2, %75 ]
-  %128 = getelementptr inbounds nuw i8, ptr %.04590102.i, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %.04590107.i, i64 8
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %131 = load ptr, ptr %130, align 8
@@ -1212,7 +1212,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit59.i:  ; preds = %40, %36, %32
   %137 = icmp eq ptr %135, %136
   br i1 %137, label %138, label %147
 
-138:                                              ; preds = %.thread.thread99.i
+138:                                              ; preds = %.thread.thread104.i
   %139 = getelementptr inbounds nuw i8, ptr %129, i64 36
   %140 = load i16, ptr %139, align 4
   %141 = getelementptr inbounds nuw i8, ptr %131, i64 72
@@ -1223,9 +1223,9 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit59.i:  ; preds = %40, %36, %32
   %146 = icmp eq ptr %144, %145
   br i1 %146, label %.critedge55.i, label %147
 
-147:                                              ; preds = %138, %.thread.thread99.i, %.thread.i
-  %148 = phi i1 [ %126, %138 ], [ %126, %.thread.thread99.i ], [ %79, %.thread.i ]
-  %149 = phi i32 [ %127, %138 ], [ %127, %.thread.thread99.i ], [ %.pr.i, %.thread.i ]
+147:                                              ; preds = %138, %.thread.thread104.i, %.thread.i
+  %148 = phi i1 [ %126, %138 ], [ %126, %.thread.thread104.i ], [ %79, %.thread.i ]
+  %149 = phi i32 [ %127, %138 ], [ %127, %.thread.thread104.i ], [ %.pr.i, %.thread.i ]
   br i1 %148, label %.critedge.i, label %150
 
 150:                                              ; preds = %147
@@ -11711,13 +11711,13 @@ _ZNK6HandleclEv.exit:                             ; preds = %55
   br label %81
 
 81:                                               ; preds = %45, %55, %_ZNK6HandleclEv.exit
-  %.sink90 = phi ptr [ %80, %_ZNK6HandleclEv.exit ], [ %52, %55 ], [ %52, %45 ]
+  %.sink96 = phi ptr [ %80, %_ZNK6HandleclEv.exit ], [ %52, %55 ], [ %52, %45 ]
   %.sroa.065.2 = phi ptr [ %.sroa.0.0.copyload.i, %_ZNK6HandleclEv.exit ], [ %.sroa.065.075, %55 ], [ %.sroa.065.075, %45 ]
   %.2 = phi i1 [ true, %_ZNK6HandleclEv.exit ], [ false, %55 ], [ false, %45 ]
-  %82 = load ptr, ptr %.sink90, align 8
+  %82 = load ptr, ptr %.sink96, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 232
   %84 = load ptr, ptr %83, align 8
-  %85 = call noundef ptr %84(ptr noundef nonnull align 8 dereferenceable(196) %.sink90) #16
+  %85 = call noundef ptr %84(ptr noundef nonnull align 8 dereferenceable(196) %.sink96) #16
   %86 = icmp ne ptr %.05176, %85
   %87 = icmp ne ptr %85, null
   %or.cond = and i1 %86, %87
@@ -11890,8 +11890,8 @@ _ZNK6HandleclEv.exit59:                           ; preds = %.lr.ph82, %157
   br i1 %.not73, label %.sink.split, label %174
 
 .sink.split:                                      ; preds = %._crit_edge83, %125
-  %.sink91 = phi ptr [ %126, %125 ], [ %171, %._crit_edge83 ]
-  %173 = call noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %7, ptr noundef %.sink91, i32 noundef 0) #16
+  %.sink97 = phi ptr [ %126, %125 ], [ %171, %._crit_edge83 ]
+  %173 = call noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %7, ptr noundef %.sink97, i32 noundef 0) #16
   br label %174
 
 174:                                              ; preds = %.sink.split, %123, %._crit_edge83, %129, %125
@@ -14790,7 +14790,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread: ; preds = %135
   br i1 %.not70, label %_ZNK14objArrayHandleclEv.exit, label %.lr.ph68.preheader
 
 .lr.ph68.preheader:                               ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
-  %storemerge.i.i82 = phi ptr [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread ], [ %.0.i.i.i.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ]
+  %storemerge.i.i90 = phi ptr [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread ], [ %.0.i.i.i.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ]
   %smax = call i32 @llvm.smax.i32(i32 %78, i32 1)
   %wide.trip.count76 = zext nneg i32 %smax to i64
   br label %.lr.ph68
@@ -14828,7 +14828,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread: ; preds = %135
   br i1 %.not64, label %173, label %.loopexit
 
 173:                                              ; preds = %165
-  %174 = load ptr, ptr %storemerge.i.i82, align 8
+  %174 = load ptr, ptr %storemerge.i.i90, align 8
   %175 = load i8, ptr @UseCompressedOops, align 1
   %176 = trunc i8 %175 to i1
   %177 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -14845,8 +14845,8 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread: ; preds = %135
   br i1 %exitcond77.not, label %._crit_edge69, label %.lr.ph68, !llvm.loop !35
 
 ._crit_edge69:                                    ; preds = %173, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
-  %storemerge.i.i81 = phi ptr [ %.0.i.i.i.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ %storemerge.i.i82, %173 ]
-  %183 = load ptr, ptr %storemerge.i.i81, align 8
+  %storemerge.i.i91 = phi ptr [ %.0.i.i.i.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ %storemerge.i.i90, %173 ]
+  %183 = load ptr, ptr %storemerge.i.i91, align 8
   br label %_ZNK14objArrayHandleclEv.exit
 
 _ZNK14objArrayHandleclEv.exit:                    ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread, %._crit_edge69
@@ -15732,7 +15732,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread: ; preds = %72
   br i1 %89, label %.lr.ph, label %_ZNK14objArrayHandleclEv.exit
 
 .lr.ph:                                           ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
-  %storemerge.i.i40 = phi ptr [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread ], [ %.0.i.i.i.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ]
+  %storemerge.i.i45 = phi ptr [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread ], [ %.0.i.i.i.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ]
   %90 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %wide.trip.count = zext nneg i32 %67 to i64
   br label %91
@@ -15747,7 +15747,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread: ; preds = %72
   br i1 %.not34, label %96, label %.loopexit
 
 96:                                               ; preds = %91
-  %97 = load ptr, ptr %storemerge.i.i40, align 8
+  %97 = load ptr, ptr %storemerge.i.i45, align 8
   %98 = load i8, ptr @UseCompressedOops, align 1
   %99 = trunc i8 %98 to i1
   %100 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -15764,8 +15764,8 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread: ; preds = %72
   br i1 %exitcond.not, label %._crit_edge, label %91, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %96, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
-  %storemerge.i.i39 = phi ptr [ %.0.i.i.i.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ %storemerge.i.i40, %96 ]
-  %106 = load ptr, ptr %storemerge.i.i39, align 8
+  %storemerge.i.i46 = phi ptr [ %.0.i.i.i.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ %storemerge.i.i45, %96 ]
+  %106 = load ptr, ptr %storemerge.i.i46, align 8
   br label %_ZNK14objArrayHandleclEv.exit
 
 _ZNK14objArrayHandleclEv.exit:                    ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread, %._crit_edge
@@ -16179,7 +16179,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread: ; preds = %132
   br i1 %149, label %.lr.ph17, label %_ZNK14objArrayHandleclEv.exit
 
 .lr.ph17:                                         ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
-  %storemerge.i.i28 = phi ptr [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread ], [ %.0.i.i.i.i.i56, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ]
+  %storemerge.i.i39 = phi ptr [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread ], [ %.0.i.i.i.i.i56, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ]
   %150 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 816
   %wide.trip.count23 = zext nneg i32 %.052.lcssa to i64
@@ -16247,8 +16247,8 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit62:      ; preds = %157, %163
   br i1 %.not10, label %_ZN12methodHandleC2EP6ThreadP6Method.exit62.thread, label %.critedge
 
 _ZN12methodHandleC2EP6ThreadP6Method.exit62.thread: ; preds = %179, %182, %_ZN12methodHandleC2EP6ThreadP6Method.exit62, %152
-  %.sink32 = phi ptr [ null, %152 ], [ null, %_ZN12methodHandleC2EP6ThreadP6Method.exit62 ], [ %180, %179 ], [ %183, %182 ]
-  %185 = load ptr, ptr %storemerge.i.i28, align 8
+  %.sink44 = phi ptr [ null, %152 ], [ null, %_ZN12methodHandleC2EP6ThreadP6Method.exit62 ], [ %180, %179 ], [ %183, %182 ]
+  %185 = load ptr, ptr %storemerge.i.i39, align 8
   %186 = load i8, ptr @UseCompressedOops, align 1
   %187 = trunc i8 %186 to i1
   %188 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -16259,15 +16259,15 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit62.thread: ; preds = %179, %182, %_ZN12
   %191 = shl nuw nsw i64 %indvars.iv20, %.8.i
   %192 = add nuw nsw i64 %190, %191
   %193 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %193(ptr noundef nonnull align 8 dereferenceable(16) %185, i64 noundef %192, ptr noundef %.sink32) #16
+  call void %193(ptr noundef nonnull align 8 dereferenceable(16) %185, i64 noundef %192, ptr noundef %.sink44) #16
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
   br i1 %exitcond24.not, label %._crit_edge18, label %152, !llvm.loop !41
 
 ._crit_edge18:                                    ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit62.thread, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
-  %storemerge.i.i27 = phi ptr [ %.0.i.i.i.i.i56, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ %storemerge.i.i28, %_ZN12methodHandleC2EP6ThreadP6Method.exit62.thread ]
-  %194 = load ptr, ptr %storemerge.i.i27, align 8
+  %storemerge.i.i40 = phi ptr [ %.0.i.i.i.i.i56, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ %storemerge.i.i39, %_ZN12methodHandleC2EP6ThreadP6Method.exit62.thread ]
+  %194 = load ptr, ptr %storemerge.i.i40, align 8
   br label %_ZNK14objArrayHandleclEv.exit
 
 _ZNK14objArrayHandleclEv.exit:                    ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread, %._crit_edge18
@@ -17261,17 +17261,17 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit83: ; preds = %226, %228
   br i1 %.not74119, label %_ZNK7oopDesc4is_aEP5Klass.exit.thread.sink.split.sink.split, label %.lr.ph121.preheader
 
 _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit83.thread: ; preds = %215
-  %.not74119131 = icmp slt i32 %.069.lcssa, 0
-  br i1 %.not74119131, label %_ZNK7oopDesc4is_aEP5Klass.exit.thread.sink.split, label %.lr.ph121.preheader
+  %.not74119141 = icmp slt i32 %.069.lcssa, 0
+  br i1 %.not74119141, label %_ZNK7oopDesc4is_aEP5Klass.exit.thread.sink.split, label %.lr.ph121.preheader
 
 .lr.ph121.preheader:                              ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit83.thread, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit83
-  %storemerge.i.i82134 = phi ptr [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit83.thread ], [ %.0.i.i.i.i.i81, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit83 ]
+  %storemerge.i.i82143 = phi ptr [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit83.thread ], [ %.0.i.i.i.i.i81, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit83 ]
   %wide.trip.count127 = zext i32 %.pre to i64
   br label %.lr.ph121
 
 .lr.ph121:                                        ; preds = %.lr.ph121.preheader, %.lr.ph121
   %indvars.iv124 = phi i64 [ 0, %.lr.ph121.preheader ], [ %indvars.iv.next125, %.lr.ph121 ]
-  %230 = load ptr, ptr %storemerge.i.i82134, align 8
+  %230 = load ptr, ptr %storemerge.i.i82143, align 8
   %231 = load ptr, ptr %.0.i.i.i.i.i, align 8
   %232 = load i8, ptr @UseCompressedOops, align 1
   %233 = trunc i8 %232 to i1
@@ -17300,8 +17300,8 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit83.thread: ; preds = %215
   br i1 %exitcond128.not, label %_ZNK7oopDesc4is_aEP5Klass.exit.thread.sink.split.sink.split, label %.lr.ph121, !llvm.loop !43
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread.sink.split.sink.split: ; preds = %.lr.ph121, %._crit_edge, %_ZNK5Klass11java_mirrorEv.exit, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit83
-  %storemerge.i.i82133.sink = phi ptr [ %.0.i.i.i.i.i81, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit83 ], [ %.0.i.i.i.i.i, %_ZNK5Klass11java_mirrorEv.exit ], [ %.0.i.i.i.i.i, %._crit_edge ], [ %storemerge.i.i82134, %.lr.ph121 ]
-  %249 = load ptr, ptr %storemerge.i.i82133.sink, align 8
+  %storemerge.i.i82144.sink = phi ptr [ %.0.i.i.i.i.i81, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit83 ], [ %.0.i.i.i.i.i, %_ZNK5Klass11java_mirrorEv.exit ], [ %.0.i.i.i.i.i, %._crit_edge ], [ %storemerge.i.i82143, %.lr.ph121 ]
+  %249 = load ptr, ptr %storemerge.i.i82144.sink, align 8
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread.sink.split
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread.sink.split: ; preds = %_ZNK7oopDesc4is_aEP5Klass.exit.thread.sink.split.sink.split, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit83.thread
@@ -17776,13 +17776,13 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit63.thread: ; preds = %184
   br i1 %201, label %.lr.ph94.preheader, label %_ZNK7oopDesc4is_aEP5Klass.exit.thread.sink.split
 
 .lr.ph94.preheader:                               ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit63.thread, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit63
-  %storemerge.i.i62105 = phi ptr [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit63.thread ], [ %.0.i.i.i.i.i61, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit63 ]
+  %storemerge.i.i62112 = phi ptr [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit63.thread ], [ %.0.i.i.i.i.i61, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit63 ]
   %wide.trip.count100 = zext nneg i32 %.054.lcssa to i64
   br label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %.lr.ph94.preheader, %.lr.ph94
   %indvars.iv97 = phi i64 [ 0, %.lr.ph94.preheader ], [ %indvars.iv.next98, %.lr.ph94 ]
-  %202 = load ptr, ptr %storemerge.i.i62105, align 8
+  %202 = load ptr, ptr %storemerge.i.i62112, align 8
   %203 = load ptr, ptr %storemerge.i.i, align 8
   %204 = load i8, ptr @UseCompressedOops, align 1
   %205 = trunc i8 %204 to i1
@@ -17815,7 +17815,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit63.thread: ; preds = %184
   br i1 %222, label %_ZNK7oopDesc4is_aEP5Klass.exit.thread.sink.split, label %_ZNK7oopDesc4is_aEP5Klass.exit.thread.sink.split.sink.split
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread.sink.split.sink.split: ; preds = %.lr.ph94, %221, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit63
-  %storemerge.i.i.sink = phi ptr [ %.0.i.i.i.i.i61, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit63 ], [ %storemerge.i.i, %221 ], [ %storemerge.i.i62105, %.lr.ph94 ]
+  %storemerge.i.i.sink = phi ptr [ %.0.i.i.i.i.i61, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit63 ], [ %storemerge.i.i, %221 ], [ %storemerge.i.i62112, %.lr.ph94 ]
   %223 = load ptr, ptr %storemerge.i.i.sink, align 8
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread.sink.split
 
@@ -35630,7 +35630,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread: ; preds = %42
   br i1 %59, label %.lr.ph.preheader, label %_ZNK14objArrayHandleclEv.exit
 
 .lr.ph.preheader:                                 ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
-  %storemerge.i.i32 = phi ptr [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread ], [ %.0.i.i.i.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ]
+  %storemerge.i.i34 = phi ptr [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread ], [ %.0.i.i.i.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ]
   %wide.trip.count = zext nneg i32 %37 to i64
   br label %.lr.ph
 
@@ -35641,7 +35641,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread: ; preds = %42
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw %class.instanceHandle, ptr %62, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load ptr, ptr %63, align 8
-  %64 = load ptr, ptr %storemerge.i.i32, align 8
+  %64 = load ptr, ptr %storemerge.i.i34, align 8
   %65 = icmp eq ptr %.sroa.0.0.copyload.i, null
   br i1 %65, label %_ZNK6HandleclEv.exit, label %66
 
@@ -35667,8 +35667,8 @@ _ZNK6HandleclEv.exit:                             ; preds = %.lr.ph, %66
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %_ZNK6HandleclEv.exit, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
-  %storemerge.i.i31 = phi ptr [ %.0.i.i.i.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ %storemerge.i.i32, %_ZNK6HandleclEv.exit ]
-  %77 = load ptr, ptr %storemerge.i.i31, align 8
+  %storemerge.i.i35 = phi ptr [ %.0.i.i.i.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ %storemerge.i.i34, %_ZNK6HandleclEv.exit ]
+  %77 = load ptr, ptr %storemerge.i.i35, align 8
   br label %_ZNK14objArrayHandleclEv.exit
 
 _ZNK14objArrayHandleclEv.exit:                    ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread, %._crit_edge
@@ -38968,14 +38968,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #16, !srcloc !67
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #16, !srcloc !67
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -39109,14 +39109,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i18.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i19.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i18 = or i64 %.0.i.i18.in, 48
+  %.0.i.i19 = or i64 %.0.i.i19.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i17.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #16, !srcloc !67
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i19, i64 %.0.i17.i, ptr nonnull %0) #16, !srcloc !67
   %71 = icmp eq i64 %70, %.0.i17.i
   br i1 %71, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %72
 
@@ -43944,14 +43944,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #16, !srcloc !67
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #16, !srcloc !67
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -44543,14 +44543,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #16, !srcloc !67
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #16, !srcloc !67
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -48836,8 +48836,8 @@ _ZN16InstanceRefKlass12try_discoverIP7oopDesc22ZLoadBarrierOopClosureEEbS2_13Ref
   unreachable
 
 _ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc22ZLoadBarrierOopClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split: ; preds = %40, %51, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc22ZLoadBarrierOopClosureEEbS2_13ReferenceTypePT0_.exit.thread.i
-  %.sink16 = phi i64 [ %39, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc22ZLoadBarrierOopClosureEEbS2_13ReferenceTypePT0_.exit.thread.i ], [ %55, %51 ], [ %50, %40 ]
-  %58 = inttoptr i64 %.sink16 to ptr
+  %.sink17 = phi i64 [ %39, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc22ZLoadBarrierOopClosureEEbS2_13ReferenceTypePT0_.exit.thread.i ], [ %55, %51 ], [ %50, %40 ]
+  %58 = inttoptr i64 %.sink17 to ptr
   %59 = load volatile i64, ptr %58, align 8
   %60 = tail call noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_(ptr noundef nonnull %58, i64 noundef %59)
   br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc22ZLoadBarrierOopClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
@@ -49412,7 +49412,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br i1 %.not36.i.i.i.i.i, label %53, label %59, !llvm.loop !96
 
 59:                                               ; preds = %56
-  %60 = shl i64 %54, 6
+  %60 = shl nuw i64 %54, 6
   br label %61
 
 61:                                               ; preds = %59, %48
@@ -49606,7 +49606,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !96
 
 57:                                               ; preds = %54
-  %58 = shl i64 %52, 6
+  %58 = shl nuw i64 %52, 6
   br label %59
 
 59:                                               ; preds = %57, %50
@@ -50697,7 +50697,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br i1 %.not36.i.i.i.i.i, label %53, label %59, !llvm.loop !96
 
 59:                                               ; preds = %56
-  %60 = shl i64 %54, 6
+  %60 = shl nuw i64 %54, 6
   br label %61
 
 61:                                               ; preds = %59, %48
@@ -50883,7 +50883,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !96
 
 57:                                               ; preds = %54
-  %58 = shl i64 %52, 6
+  %58 = shl nuw i64 %52, 6
   br label %59
 
 59:                                               ; preds = %57, %50

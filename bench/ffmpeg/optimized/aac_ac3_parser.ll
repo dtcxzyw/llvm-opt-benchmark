@@ -186,7 +186,7 @@ define i32 @ff_aac_ac3_parse(ptr noundef captures(none) initializes((232, 236)) 
   %86 = zext nneg i32 %83 to i64
   %87 = call i32 @avpriv_ac3_parse_header(ptr noundef nonnull %11, ptr noundef %81, i64 noundef %86) #5
   %88 = icmp slt i32 %87, 0
-  br i1 %88, label %.thread138, label %.lr.ph222
+  br i1 %88, label %.thread138, label %.lr.ph237
 
 thread-pre-split:                                 ; preds = %100
   %89 = load ptr, ptr %7, align 8, !tbaa !4
@@ -198,16 +198,16 @@ thread-pre-split:                                 ; preds = %100
   %93 = zext nneg i32 %92 to i64
   %94 = call i32 @avpriv_ac3_parse_header(ptr noundef nonnull %11, ptr noundef %91, i64 noundef %93) #5
   %95 = icmp slt i32 %94, 0
-  br i1 %95, label %.thread138, label %.lr.ph222
+  br i1 %95, label %.thread138, label %.lr.ph237
 
-.lr.ph222:                                        ; preds = %.lr.ph180, %thread-pre-split
+.lr.ph237:                                        ; preds = %.lr.ph180, %thread-pre-split
   %96 = load i16, ptr %85, align 2, !tbaa !47
   %97 = zext i16 %96 to i32
   %98 = load i32, ptr %8, align 4, !tbaa !9
   %99 = icmp slt i32 %98, %97
   br i1 %99, label %.thread138, label %100
 
-100:                                              ; preds = %.lr.ph222
+100:                                              ; preds = %.lr.ph237
   %101 = icmp samesign ugt i32 %98, %97
   br i1 %101, label %thread-pre-split, label %102
 
@@ -263,7 +263,7 @@ thread-pre-split:                                 ; preds = %100
   store i32 %127, ptr %128, align 4, !tbaa !57
   br label %129
 
-.thread138:                                       ; preds = %thread-pre-split, %.lr.ph222, %.lr.ph180, %75, %102
+.thread138:                                       ; preds = %thread-pre-split, %.lr.ph237, %.lr.ph180, %75, %102
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread148

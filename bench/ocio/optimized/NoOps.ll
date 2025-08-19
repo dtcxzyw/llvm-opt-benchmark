@@ -1149,10 +1149,10 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120DefinesGpuAllocationERKSt10shared_ptrINS
   br label %156
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_127GetGpuUnsupportedIndexRangeEPiS1_RKNS_10OpRcPtrVecE.exit: ; preds = %4, %.preheader.i, %40, %55, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %70
-  %.018.lcssa41.i = phi i32 [ %.1.i, %40 ], [ %.1.i, %70 ], [ %.1.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ %.1.i, %55 ], [ %.1.i, %.preheader.i ], [ -1, %4 ]
+  %.018.lcssa42.i = phi i32 [ %.1.i, %40 ], [ %.1.i, %70 ], [ %.1.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ %.1.i, %55 ], [ %.1.i, %.preheader.i ], [ -1, %4 ]
   %.226.i = phi i32 [ %41, %40 ], [ %41, %70 ], [ %41, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ %41, %55 ], [ %.120.i, %.preheader.i ], [ -1, %4 ]
   %73 = icmp eq i32 %.226.i, -1
-  %74 = icmp eq i32 %.018.lcssa41.i, -1
+  %74 = icmp eq i32 %.018.lcssa42.i, -1
   %or.cond = select i1 %73, i1 %74, i1 false
   br i1 %or.cond, label %.preheader, label %.preheader99
 
@@ -1343,8 +1343,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev
 
 156:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %157 = phi ptr [ %72, %._crit_edge.thread ], [ %122, %._crit_edge ]
-  %.226.i128131137 = phi i32 [ 0, %._crit_edge.thread ], [ %.226.i, %._crit_edge ]
-  %.018.lcssa41.i127132135 = phi i32 [ %.1.i, %._crit_edge.thread ], [ %.018.lcssa41.i, %._crit_edge ]
+  %.226.i150153159 = phi i32 [ 0, %._crit_edge.thread ], [ %.226.i, %._crit_edge ]
+  %.018.lcssa42.i149154157 = phi i32 [ %.1.i, %._crit_edge.thread ], [ %.018.lcssa42.i, %._crit_edge ]
   %158 = load ptr, ptr %12, align 8, !tbaa !36
   %159 = load ptr, ptr %3, align 8, !tbaa !39
   %160 = ptrtoint ptr %158 to i64
@@ -1352,13 +1352,13 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %162 = sub i64 %160, %161
   %163 = lshr exact i64 %162, 4
   %164 = trunc i64 %163 to i32
-  %.not = icmp slt i32 %.226.i128131137, %164
+  %.not = icmp slt i32 %.226.i150153159, %164
   br i1 %.not, label %209, label %165
 
 165:                                              ; preds = %156, %._crit_edge
   %166 = phi ptr [ %157, %156 ], [ %122, %._crit_edge ]
-  %.226.i128131138 = phi i32 [ %.226.i128131137, %156 ], [ %.226.i, %._crit_edge ]
-  %.018.lcssa41.i127132136 = phi i32 [ %.018.lcssa41.i127132135, %156 ], [ %.018.lcssa41.i, %._crit_edge ]
+  %.226.i150153160 = phi i32 [ %.226.i150153159, %156 ], [ %.226.i, %._crit_edge ]
+  %.018.lcssa42.i149154158 = phi i32 [ %.018.lcssa42.i149154157, %156 ], [ %.018.lcssa42.i, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %167 unwind label %191
@@ -1372,7 +1372,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %167
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit64 unwind label %193
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit64: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %170 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %.226.i128131138)
+  %170 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %.226.i150153160)
           to label %171 unwind label %193
 
 171:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit64
@@ -1384,7 +1384,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit65: ; preds = %171
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit66 unwind label %193
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit66: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit65
-  %174 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %.018.lcssa41.i127132136)
+  %174 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %.018.lcssa42.i149154158)
           to label %175 unwind label %193
 
 175:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit66
@@ -1481,7 +1481,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %196
   br label %.body
 
 209:                                              ; preds = %156
-  %210 = zext nneg i32 %.226.i128131137 to i64
+  %210 = zext nneg i32 %.226.i150153159 to i64
   %211 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %159, i64 %210
   %.val = load ptr, ptr %211, align 8, !tbaa !11
   %212 = getelementptr i8, ptr %211, i64 8
@@ -1691,7 +1691,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %289, %28
           to label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116GetGpuAllocationERNS_14AllocationDataERKSt10shared_ptrINS_2OpEE.exit unwind label %189
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116GetGpuAllocationERNS_14AllocationDataERKSt10shared_ptrINS_2OpEE.exit: ; preds = %209, %214, %294
-  %.not47104 = icmp sgt i32 %.226.i128131137, %.018.lcssa41.i127132135
+  %.not47104 = icmp sgt i32 %.226.i150153159, %.018.lcssa42.i149154157
   br i1 %.not47104, label %.preheader98, label %.lr.ph106
 
 .lr.ph106:                                        ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116GetGpuAllocationERNS_14AllocationDataERKSt10shared_ptrINS_2OpEE.exit
@@ -1699,7 +1699,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116GetGpuAllocationERNS_14AllocationDataERK
   br label %306
 
 .preheader98:                                     ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit74, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116GetGpuAllocationERNS_14AllocationDataERKSt10shared_ptrINS_2OpEE.exit
-  %.0107 = add nsw i32 %.018.lcssa41.i127132135, 1
+  %.0107 = add nsw i32 %.018.lcssa42.i149154157, 1
   %296 = load ptr, ptr %12, align 8, !tbaa !36
   %297 = load ptr, ptr %3, align 8, !tbaa !39
   %298 = ptrtoint ptr %296 to i64
@@ -1784,7 +1784,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %337 = trunc nuw i64 %indvars.iv118 to i32
-  %.not47.not = icmp sgt i32 %.018.lcssa41.i127132135, %337
+  %.not47.not = icmp sgt i32 %.018.lcssa42.i149154157, %337
   br i1 %.not47.not, label %306, label %.preheader98, !llvm.loop !74
 
 338:                                              ; preds = %306

@@ -467,7 +467,7 @@ define hidden range(i32 0, 44) i32 @Curl_headers_push(ptr noundef %0, ptr nounde
   %58 = getelementptr inbounds nuw [1 x i8], ptr %57, i64 0, i64 %.046
   store i8 0, ptr %58, align 1, !tbaa !94
   %59 = icmp eq i8 %2, 16
-  br i1 %59, label %60, label %.preheader105
+  br i1 %59, label %60, label %.preheader114
 
 60:                                               ; preds = %56
   %61 = load i8, ptr %57, align 1, !tbaa !94
@@ -476,14 +476,14 @@ define hidden range(i32 0, 44) i32 @Curl_headers_push(ptr noundef %0, ptr nounde
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %55, i64 54
-  br label %.preheader105
+  br label %.preheader114
 
-.preheader105:                                    ; preds = %62, %56
+.preheader114:                                    ; preds = %62, %56
   %.1.i.ph = phi ptr [ %57, %56 ], [ %63, %62 ]
   br label %64
 
-64:                                               ; preds = %.preheader105, %66
-  %.1.i = phi ptr [ %67, %66 ], [ %.1.i.ph, %.preheader105 ]
+64:                                               ; preds = %.preheader114, %66
+  %.1.i = phi ptr [ %67, %66 ], [ %.1.i.ph, %.preheader114 ]
   %65 = load i8, ptr %.1.i, align 1, !tbaa !94
   switch i8 %65, label %66 [
     i8 0, label %namevalue.exit

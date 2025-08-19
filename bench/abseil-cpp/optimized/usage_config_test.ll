@@ -1362,32 +1362,32 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_st
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E9_M_invokeERKSt9_Any_dataOS3_, ptr %332, align 8, !tbaa !34
   %333 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr @_ZN12_GLOBAL__N_120TstContainsHelpFlagsESt17basic_string_viewIcSt11char_traitsIcEE, ptr %333, align 8
-  %.sroa.4287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 40
-  store i64 0, ptr %.sroa.4287.0..sroa_idx, align 8
+  %.sroa.4376.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 40
+  store i64 0, ptr %.sroa.4376.0..sroa_idx, align 8
   %334 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %334, align 8, !tbaa !34
   %335 = getelementptr inbounds nuw i8, ptr %27, i64 56
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E9_M_invokeERKSt9_Any_dataOS3_, ptr %335, align 8, !tbaa !34
   %336 = getelementptr inbounds nuw i8, ptr %27, i64 64
   store ptr @_ZN12_GLOBAL__N_127TstContainsHelppackageFlagsESt17basic_string_viewIcSt11char_traitsIcEE, ptr %336, align 8
-  %.sroa.4289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 72
-  store i64 0, ptr %.sroa.4289.0..sroa_idx, align 8
+  %.sroa.4378.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 72
+  store i64 0, ptr %.sroa.4378.0..sroa_idx, align 8
   %337 = getelementptr inbounds nuw i8, ptr %27, i64 80
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %337, align 8, !tbaa !34
   %338 = getelementptr inbounds nuw i8, ptr %27, i64 88
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E9_M_invokeERKSt9_Any_dataOS3_, ptr %338, align 8, !tbaa !34
   %339 = getelementptr inbounds nuw i8, ptr %27, i64 96
   store ptr @_ZN12_GLOBAL__N_116TstVersionStringB5cxx11Ev, ptr %339, align 8
-  %.sroa.4291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 104
-  store i64 0, ptr %.sroa.4291.0..sroa_idx, align 8
+  %.sroa.4380.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 104
+  store i64 0, ptr %.sroa.4380.0..sroa_idx, align 8
   %340 = getelementptr inbounds nuw i8, ptr %27, i64 112
   store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %340, align 8, !tbaa !34
   %341 = getelementptr inbounds nuw i8, ptr %27, i64 120
   store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %341, align 8, !tbaa !34
   %342 = getelementptr inbounds nuw i8, ptr %27, i64 128
   store ptr @_ZN12_GLOBAL__N_120TstNormalizeFilenameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr %342, align 8
-  %.sroa.4293.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 136
-  store i64 0, ptr %.sroa.4293.0..sroa_idx, align 8
+  %.sroa.4382.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 136
+  store i64 0, ptr %.sroa.4382.0..sroa_idx, align 8
   %343 = getelementptr inbounds nuw i8, ptr %27, i64 144
   store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EEPS8_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %343, align 8, !tbaa !34
   %344 = getelementptr inbounds nuw i8, ptr %27, i64 152

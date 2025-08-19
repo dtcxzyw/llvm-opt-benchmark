@@ -426,29 +426,29 @@ define void @epsf_emit_body(ptr noundef %0, ptr noundef readonly captures(none) 
   %.053 = phi ptr [ %.0.be, %.backedge ], [ %4, %2 ]
   %7 = tail call i32 @strncasecmp(ptr noundef nonnull %.053, ptr noundef nonnull @.str.6, i64 noundef 5) #17
   %.not31 = icmp eq i32 %7, 0
-  br i1 %.not31, label %.preheader75, label %8
+  br i1 %.not31, label %.preheader76, label %8
 
 8:                                                ; preds = %.lr.ph
   %9 = tail call i32 @strncasecmp(ptr noundef nonnull %.053, ptr noundef nonnull @.str.7, i64 noundef 7) #17
   %.not32 = icmp eq i32 %9, 0
-  br i1 %.not32, label %.preheader75, label %10
+  br i1 %.not32, label %.preheader76, label %10
 
 10:                                               ; preds = %8
   %11 = tail call i32 @strncasecmp(ptr noundef nonnull %.053, ptr noundef nonnull @.str.8, i64 noundef 5) #17
   %.not33 = icmp eq i32 %11, 0
-  br i1 %.not33, label %.preheader75, label %12
+  br i1 %.not33, label %.preheader76, label %12
 
 12:                                               ; preds = %10
   %13 = tail call i32 @strncasecmp(ptr noundef nonnull %.053, ptr noundef nonnull @.str.9, i64 noundef 9) #17
   %.not34 = icmp eq i32 %13, 0
-  br i1 %.not34, label %.preheader75, label %.preheader
+  br i1 %.not34, label %.preheader76, label %.preheader
 
-.preheader75:                                     ; preds = %12, %10, %8, %.lr.ph
+.preheader76:                                     ; preds = %12, %10, %8, %.lr.ph
   br label %14
 
-14:                                               ; preds = %.preheader75, %16
-  %15 = phi i8 [ %.pre61, %16 ], [ %6, %.preheader75 ]
-  %.1 = phi ptr [ %17, %16 ], [ %.053, %.preheader75 ]
+14:                                               ; preds = %.preheader76, %16
+  %15 = phi i8 [ %.pre61, %16 ], [ %6, %.preheader76 ]
+  %.1 = phi ptr [ %17, %16 ], [ %.053, %.preheader76 ]
   switch i8 %15, label %16 [
     i8 13, label %18
     i8 0, label %.loopexit.loopexit
@@ -506,7 +506,7 @@ define void @epsf_emit_body(ptr noundef %0, ptr noundef readonly captures(none) 
   %33 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %34 = load i8, ptr %33, align 1, !tbaa !15
   %35 = icmp eq i8 %34, 10
-  %spec.select74 = select i1 %35, i64 2, i64 1
+  %spec.select75 = select i1 %35, i64 2, i64 1
   br label %.loopexit44
 
 .loopexit44.loopexit:                             ; preds = %.preheader, %.preheader
@@ -515,7 +515,7 @@ define void @epsf_emit_body(ptr noundef %0, ptr noundef readonly captures(none) 
   br label %.loopexit44
 
 .loopexit44:                                      ; preds = %32, %.loopexit44.loopexit
-  %.not42.sink = phi i64 [ %37, %.loopexit44.loopexit ], [ %spec.select74, %32 ]
+  %.not42.sink = phi i64 [ %37, %.loopexit44.loopexit ], [ %spec.select75, %32 ]
   %spec.select43 = getelementptr inbounds nuw i8, ptr %.3, i64 %.not42.sink
   %38 = tail call i32 @gvputc(ptr noundef %0, i32 noundef 10) #16
   br label %.backedge

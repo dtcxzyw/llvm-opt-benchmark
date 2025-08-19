@@ -956,8 +956,8 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i22:     ; preds = %_ZN9Stockfish10Thre
   %188 = trunc i8 %.pre.i29 to i1
   %.pre44 = load ptr, ptr %3, align 8
   %.not.i.i.i25 = icmp ne ptr %.pre44, null
-  %or.cond51.not = select i1 %188, i1 %.not.i.i.i25, i1 false
-  br i1 %or.cond51.not, label %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread.i24.thread", label %_ZN9Stockfish6Thread24wait_for_search_finishedEv.exit30
+  %or.cond76.not = select i1 %188, i1 %.not.i.i.i25, i1 false
+  br i1 %or.cond76.not, label %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread.i24.thread", label %_ZN9Stockfish6Thread24wait_for_search_finishedEv.exit30
 
 "_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread.i24.thread": ; preds = %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i28", %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i22
   %189 = phi ptr [ %180, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i22 ], [ %.pre44, %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i28" ]
@@ -2590,8 +2590,8 @@ _ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i: ; pre
 _ZSt10_ConstructIN9Stockfish6Search8RootMoveEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i.thread, %33, %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i
   %34 = phi ptr [ %22, %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i.thread ], [ %30, %33 ], [ %30, %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i ]
   %35 = phi ptr [ null, %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i.thread ], [ %28, %33 ], [ %28, %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i ]
-  %.pre-phi1114 = phi i64 [ 0, %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i.thread ], [ %.pre10, %33 ], [ 0, %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %35, i64 %.pre-phi1114
+  %.pre-phi1121 = phi i64 [ 0, %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i.thread ], [ %.pre10, %33 ], [ 0, %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i ]
+  %36 = getelementptr inbounds i8, ptr %35, i64 %.pre-phi1121
   store ptr %36, ptr %34, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i.i.i.i, i64 56
   %38 = getelementptr inbounds nuw i8, ptr %.010.i.i.i.i, i64 56

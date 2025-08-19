@@ -102,17 +102,14 @@ define hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$
 17:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1242.i.i.i.i)
-  switch i8 %15, label %default.unreachable.i [
+  switch i8 %15, label %default.unreachable [
     i8 0, label %18
     i8 1, label %28
     i8 2, label %29
     i8 3, label %21
   ]
 
-default.unreachable:                              ; preds = %30
-  unreachable
-
-default.unreachable.i:                            ; preds = %17
+default.unreachable:                              ; preds = %30, %17
   unreachable
 
 18:                                               ; preds = %17
@@ -550,17 +547,14 @@ define hidden { i64, ptr } @"_ZN102_$LT$futures_util..future..future..map..Map$L
 
 15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  switch i8 %13, label %default.unreachable.i [
+  switch i8 %13, label %default.unreachable [
     i8 0, label %16
     i8 1, label %26
     i8 2, label %27
     i8 3, label %19
   ]
 
-default.unreachable:                              ; preds = %28
-  unreachable
-
-default.unreachable.i:                            ; preds = %15
+default.unreachable:                              ; preds = %28, %15
   unreachable
 
 16:                                               ; preds = %15
@@ -1001,17 +995,14 @@ define hidden { i64, ptr } @"_ZN102_$LT$futures_util..future..future..map..Map$L
 
 15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  switch i8 %13, label %default.unreachable.i [
+  switch i8 %13, label %default.unreachable [
     i8 0, label %16
     i8 1, label %26
     i8 2, label %27
     i8 3, label %19
   ]
 
-default.unreachable:                              ; preds = %28
-  unreachable
-
-default.unreachable.i:                            ; preds = %15
+default.unreachable:                              ; preds = %28, %15
   unreachable
 
 16:                                               ; preds = %15
@@ -1500,14 +1491,14 @@ define internal fastcc void @"_ZN3rpc4peer4Peer15request_dynamic28_$u7b$$u7b$clo
   %7 = alloca [408 x i8], align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %9 = load i8, ptr %8, align 1, !range !21, !noundef !5
-  switch i8 %9, label %default.unreachable86 [
+  switch i8 %9, label %default.unreachable87 [
     i8 0, label %11
     i8 1, label %27
     i8 2, label %28
     i8 3, label %10
   ]
 
-default.unreachable86:                            ; preds = %3
+default.unreachable87:                            ; preds = %3
   unreachable
 
 10:                                               ; preds = %3
@@ -7042,14 +7033,14 @@ define hidden void @"_ZN7project14worktree_store13WorktreeStore15create_worktree
   %8 = alloca [32 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %10 = load i8, ptr %9, align 8, !range !21, !noundef !5
-  switch i8 %10, label %default.unreachable54 [
+  switch i8 %10, label %default.unreachable57 [
     i8 0, label %12
     i8 1, label %19
     i8 2, label %20
     i8 3, label %11
   ]
 
-default.unreachable54:                            ; preds = %3
+default.unreachable57:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -7471,14 +7462,14 @@ define hidden void @"_ZN7project14worktree_store13WorktreeStore19create_ssh_work
   %20 = alloca [8 x i8], align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 177
   %22 = load i8, ptr %21, align 1, !range !21, !noundef !5
-  switch i8 %22, label %default.unreachable94 [
+  switch i8 %22, label %default.unreachable106 [
     i8 0, label %23
     i8 1, label %52
     i8 2, label %53
     i8 3, label %54
   ]
 
-default.unreachable94:                            ; preds = %54, %3
+default.unreachable106:                           ; preds = %54, %3
   unreachable
 
 23:                                               ; preds = %3
@@ -7572,7 +7563,7 @@ default.unreachable94:                            ; preds = %54, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  switch i8 %.pre, label %default.unreachable94 [
+  switch i8 %.pre, label %default.unreachable106 [
     i8 0, label %58
     i8 1, label %66
     i8 2, label %67
@@ -8321,14 +8312,14 @@ define hidden void @"_ZN7project14worktree_store13WorktreeStore21create_local_wo
   %.sroa.862.sroa.8 = alloca [16 x i8], align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 274
   %20 = load i8, ptr %19, align 2, !range !21, !noundef !5
-  switch i8 %20, label %default.unreachable100 [
+  switch i8 %20, label %default.unreachable111 [
     i8 0, label %21
     i8 1, label %39
     i8 2, label %40
     i8 3, label %41
   ]
 
-default.unreachable100:                           ; preds = %41, %3
+default.unreachable111:                           ; preds = %41, %3
   unreachable
 
 21:                                               ; preds = %3
@@ -8397,7 +8388,7 @@ default.unreachable100:                           ; preds = %41, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  switch i8 %.pre, label %default.unreachable100 [
+  switch i8 %.pre, label %default.unreachable111 [
     i8 0, label %51
     i8 1, label %93
     i8 2, label %94
@@ -9444,7 +9435,7 @@ define hidden void @"_ZN7project14worktree_store13WorktreeStore26create_dev_serv
   %21 = alloca [8 x i8], align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %23 = load i8, ptr %22, align 8, !range !4, !noundef !5
-  switch i8 %23, label %default.unreachable171 [
+  switch i8 %23, label %default.unreachable188 [
     i8 0, label %24
     i8 1, label %129
     i8 2, label %130
@@ -9452,7 +9443,7 @@ define hidden void @"_ZN7project14worktree_store13WorktreeStore26create_dev_serv
     i8 4, label %45
   ]
 
-default.unreachable171:                           ; preds = %131, %3
+default.unreachable188:                           ; preds = %131, %3
   unreachable
 
 24:                                               ; preds = %3
@@ -9802,7 +9793,7 @@ default.unreachable171:                           ; preds = %131, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %134 = load i8, ptr %133, align 8, !range !21, !noalias !1452, !noundef !5
-  switch i8 %134, label %default.unreachable171 [
+  switch i8 %134, label %default.unreachable188 [
     i8 0, label %136
     i8 1, label %142
     i8 2, label %143
@@ -11589,7 +11580,7 @@ define hidden noundef zeroext i1 @"_ZN8headless4init28_$u7b$$u7b$closure$u7d$$u7
   %7 = alloca [4 x i8], align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i8, ptr %8, align 8, !range !21, !noundef !5
-  switch i8 %9, label %default.unreachable25 [
+  switch i8 %9, label %default.unreachable26 [
     i8 0, label %10
     i8 1, label %14
     i8 2, label %15
@@ -11601,7 +11592,7 @@ define hidden noundef zeroext i1 @"_ZN8headless4init28_$u7b$$u7b$closure$u7d$$u7
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !1827, !noalias !1830
   br label %16
 
-default.unreachable25:                            ; preds = %2
+default.unreachable26:                            ; preds = %2
   unreachable
 
 10:                                               ; preds = %2
@@ -11825,7 +11816,7 @@ define hidden { i64, ptr } @"_ZN8headless4init28_$u7b$$u7b$closure$u7d$$u7d$28_$
   %7 = alloca [8 x i8], align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8, !range !21, !noundef !5
-  switch i8 %9, label %default.unreachable21 [
+  switch i8 %9, label %default.unreachable26 [
     i8 0, label %10
     i8 1, label %26
     i8 2, label %27
@@ -11839,7 +11830,7 @@ define hidden { i64, ptr } @"_ZN8headless4init28_$u7b$$u7b$closure$u7d$$u7d$28_$
   %.pre20 = load ptr, ptr %.phi.trans.insert19, align 8, !alias.scope !1856, !noalias !1861
   br label %28
 
-default.unreachable21:                            ; preds = %2
+default.unreachable26:                            ; preds = %2
   unreachable
 
 10:                                               ; preds = %2
@@ -12125,14 +12116,14 @@ define hidden { i64, ptr } @"_ZN8headless9DevServer6rejoin28_$u7b$$u7b$closure$u
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %12 = load i8, ptr %11, align 8, !range !21, !noundef !5
-  switch i8 %12, label %default.unreachable72 [
+  switch i8 %12, label %default.unreachable78 [
     i8 0, label %13
     i8 1, label %15
     i8 2, label %16
     i8 3, label %17
   ]
 
-default.unreachable72:                            ; preds = %2
+default.unreachable78:                            ; preds = %2
   unreachable
 
 13:                                               ; preds = %2

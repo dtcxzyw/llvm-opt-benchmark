@@ -135,13 +135,13 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = icmp eq ptr %2, null
-  %.sink175.sroa.gep198 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  %.sink176.sroa.gep199 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  %.sink181.sroa.gep204 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  %.sink182.sroa.gep205 = getelementptr inbounds nuw i8, ptr %5, i64 120
   br i1 %10, label %.thread133, label %11
 
 11:                                               ; preds = %4
-  %.sink176.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 176
-  %.sink175.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 216
+  %.sink182.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 176
+  %.sink181.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 216
   store i32 %1, ptr %6, align 8, !tbaa !20
   %12 = icmp eq i32 %1, 1
   br i1 %12, label %16, label %13
@@ -155,11 +155,11 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   br label %.thread133
 
 16:                                               ; preds = %13, %11
-  %.sink176.sroa.phi = phi ptr [ %.sink176.sroa.gep, %11 ], [ %.sink176.sroa.gep199, %13 ]
-  %.sink175.sroa.phi = phi ptr [ %.sink175.sroa.gep, %11 ], [ %.sink175.sroa.gep198, %13 ]
+  %.sink182.sroa.phi = phi ptr [ %.sink182.sroa.gep, %11 ], [ %.sink182.sroa.gep205, %13 ]
+  %.sink181.sroa.phi = phi ptr [ %.sink181.sroa.gep, %11 ], [ %.sink181.sroa.gep204, %13 ]
   %.090 = phi ptr [ @.str.2, %11 ], [ @.str.3, %13 ]
-  store ptr %.sink176.sroa.phi, ptr %5, align 8, !tbaa !22
-  store ptr %2, ptr %.sink175.sroa.phi, align 8, !tbaa !22
+  store ptr %.sink182.sroa.phi, ptr %5, align 8, !tbaa !22
+  store ptr %2, ptr %.sink181.sroa.phi, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %17, align 8, !tbaa !22
   %18 = call ptr @BUF_MEM_new() #14
@@ -254,18 +254,18 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   %64 = call i32 @stat(ptr noundef %63, ptr noundef nonnull %9) #14
   %65 = icmp sgt i32 %64, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %65, label %.lr.ph184, label %.thread
+  br i1 %65, label %.lr.ph190, label %.thread
 
-.lr.ph184:                                        ; preds = %.split.us.preheader, %.split.us
-  %.297.us183 = phi i32 [ %70, %.split.us ], [ 0, %.split.us.preheader ]
+.lr.ph190:                                        ; preds = %.split.us.preheader, %.split.us
+  %.297.us189 = phi i32 [ %70, %.split.us ], [ 0, %.split.us.preheader ]
   %66 = load ptr, ptr %28, align 8, !tbaa !32
   %67 = load i32, ptr %58, align 8, !tbaa !35
   %68 = call i32 @X509_load_cert_file(ptr noundef %0, ptr noundef %66, i32 noundef %67) #14
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %.thread, label %.split.us
 
-.split.us:                                        ; preds = %.lr.ph184
-  %70 = add nuw nsw i32 %.297.us183, 1
+.split.us:                                        ; preds = %.lr.ph190
+  %70 = add nuw nsw i32 %.297.us189, 1
   %71 = load ptr, ptr %28, align 8, !tbaa !32
   %72 = load i64, ptr %29, align 8, !tbaa !34
   %73 = load ptr, ptr %36, align 8, !tbaa !23
@@ -275,7 +275,7 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   %76 = call i32 @stat(ptr noundef %75, ptr noundef nonnull %9) #14
   %77 = icmp sgt i32 %76, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %77, label %.lr.ph184, label %.thread
+  br i1 %77, label %.lr.ph190, label %.thread
 
 .split.split.us.preheader:                        ; preds = %44, %56
   %.196.ph = phi i32 [ 0, %44 ], [ %.095, %56 ]
@@ -290,18 +290,18 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   %84 = call i32 @stat(ptr noundef %83, ptr noundef nonnull %9) #14
   %85 = icmp sgt i32 %84, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %85, label %.lr.ph187, label %.thread
+  br i1 %85, label %.lr.ph193, label %.thread
 
-.lr.ph187:                                        ; preds = %.split.split.us.preheader, %.split.split.us
-  %.297.us140186 = phi i32 [ %90, %.split.split.us ], [ %.196.ph, %.split.split.us.preheader ]
+.lr.ph193:                                        ; preds = %.split.split.us.preheader, %.split.split.us
+  %.297.us140192 = phi i32 [ %90, %.split.split.us ], [ %.196.ph, %.split.split.us.preheader ]
   %86 = load ptr, ptr %28, align 8, !tbaa !32
   %87 = load i32, ptr %78, align 8, !tbaa !35
   %88 = call i32 @X509_load_crl_file(ptr noundef %0, ptr noundef %86, i32 noundef %87) #14
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %.thread, label %.split.split.us
 
-.split.split.us:                                  ; preds = %.lr.ph187
-  %90 = add nsw i32 %.297.us140186, 1
+.split.split.us:                                  ; preds = %.lr.ph193
+  %90 = add nsw i32 %.297.us140192, 1
   %91 = load ptr, ptr %28, align 8, !tbaa !32
   %92 = load i64, ptr %29, align 8, !tbaa !34
   %93 = load ptr, ptr %36, align 8, !tbaa !23
@@ -311,7 +311,7 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   %96 = call i32 @stat(ptr noundef %95, ptr noundef nonnull %9) #14
   %97 = icmp sgt i32 %96, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %97, label %.lr.ph187, label %.thread
+  br i1 %97, label %.lr.ph193, label %.thread
 
 .split.split:                                     ; preds = %57, %.split.split
   %.297 = phi i32 [ %spec.select, %.split.split ], [ 0, %57 ]
@@ -328,9 +328,9 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   %spec.select = add nuw nsw i32 %.297, %105
   br i1 %104, label %.split.split, label %.thread
 
-.thread:                                          ; preds = %.split.split, %.lr.ph184, %.split.us, %.lr.ph187, %.split.split.us, %.split.us.preheader, %.split.split.us.preheader
-  %.1159 = phi ptr [ %.1.ph, %.split.split.us.preheader ], [ null, %.split.us.preheader ], [ %.1.ph, %.split.split.us ], [ %.1.ph, %.lr.ph187 ], [ null, %.split.us ], [ null, %.lr.ph184 ], [ null, %.split.split ]
-  %.us-phi = phi i32 [ %.196.ph, %.split.split.us.preheader ], [ 0, %.split.us.preheader ], [ %.297.us140186, %.lr.ph187 ], [ %90, %.split.split.us ], [ %.297.us183, %.lr.ph184 ], [ %70, %.split.us ], [ %spec.select, %.split.split ]
+.thread:                                          ; preds = %.split.split, %.lr.ph190, %.split.us, %.lr.ph193, %.split.split.us, %.split.us.preheader, %.split.split.us.preheader
+  %.1165 = phi ptr [ %.1.ph, %.split.split.us.preheader ], [ null, %.split.us.preheader ], [ %.1.ph, %.split.split.us ], [ %.1.ph, %.lr.ph193 ], [ null, %.split.us ], [ null, %.lr.ph190 ], [ null, %.split.split ]
+  %.us-phi = phi i32 [ %.196.ph, %.split.split.us.preheader ], [ 0, %.split.us.preheader ], [ %.297.us140192, %.lr.ph193 ], [ %90, %.split.split.us ], [ %.297.us189, %.lr.ph190 ], [ %70, %.split.us ], [ %spec.select, %.split.split ]
   %106 = load ptr, ptr %30, align 8, !tbaa !36
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %107) #14
@@ -358,7 +358,7 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
 
 121:                                              ; preds = %118
   call void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef nonnull @g_ent_hashes_lock) #14
-  %.not107 = icmp eq ptr %.1159, null
+  %.not107 = icmp eq ptr %.1165, null
   br i1 %.not107, label %122, label %.thread123
 
 122:                                              ; preds = %121
@@ -400,7 +400,7 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   br label %.thread128
 
 .thread123:                                       ; preds = %121, %126
-  %.2126 = phi ptr [ %129, %126 ], [ %.1159, %121 ]
+  %.2126 = phi ptr [ %129, %126 ], [ %.1165, %121 ]
   %138 = getelementptr inbounds nuw i8, ptr %.2126, i64 8
   %139 = load i32, ptr %138, align 8, !tbaa !31
   %140 = icmp slt i32 %139, %.us-phi

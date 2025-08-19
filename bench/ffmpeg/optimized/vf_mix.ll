@@ -1756,42 +1756,42 @@ define internal fastcc range(i32 -22, 1) i32 @parse_weights(ptr noundef %0) unna
   %11 = load ptr, ptr %10, align 8, !tbaa !136
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = call ptr @av_strtok(ptr noundef %11, ptr noundef nonnull @.str.26, ptr noundef nonnull %2) #12
-  %.not80 = icmp eq ptr %13, null
-  br i1 %.not80, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph82
+  %.not83 = icmp eq ptr %13, null
+  br i1 %.not83, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph85
 
 14:                                               ; preds = %35
   %15 = call ptr @av_strtok(ptr noundef null, ptr noundef nonnull @.str.26, ptr noundef nonnull %2) #12
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph82, !llvm.loop !137
+  br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph85, !llvm.loop !137
 
 .._crit_edge.loopexit_crit_edge:                  ; preds = %14, %.lr.ph
   %indvars.iv.lcssa = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %.052.lcssa = phi i64 [ 0, %.lr.ph ], [ %indvars.iv81, %14 ]
+  %.052.lcssa = phi i64 [ 0, %.lr.ph ], [ %indvars.iv84, %14 ]
   %.pre.pre = load i32, ptr %7, align 8, !tbaa !36
   br label %._crit_edge.loopexit
 
-.lr.ph82:                                         ; preds = %.lr.ph, %14
+.lr.ph85:                                         ; preds = %.lr.ph, %14
   %16 = phi ptr [ %15, %14 ], [ %13, %.lr.ph ]
-  %indvars.iv81 = phi i64 [ %indvars.iv.next, %14 ], [ 0, %.lr.ph ]
+  %indvars.iv84 = phi i64 [ %indvars.iv.next, %14 ], [ 0, %.lr.ph ]
   %17 = load ptr, ptr %12, align 8, !tbaa !38
-  %18 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv81
+  %18 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv84
   %19 = call i32 (ptr, ptr, ...) @av_sscanf(ptr noundef nonnull %16, ptr noundef nonnull @.str.27, ptr noundef %18) #12
   %.not45 = icmp eq i32 %19, 1
   br i1 %.not45, label %22, label %20
 
-20:                                               ; preds = %.lr.ph82
-  %21 = trunc nuw nsw i64 %indvars.iv81 to i32
+20:                                               ; preds = %.lr.ph85
+  %21 = trunc nuw nsw i64 %indvars.iv84 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.28, i32 noundef %21) #12
   br label %60
 
-22:                                               ; preds = %.lr.ph82
+22:                                               ; preds = %.lr.ph85
   %23 = load ptr, ptr %12, align 8, !tbaa !38
-  %24 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv81
+  %24 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv84
   %25 = load float, ptr %24, align 4, !tbaa !111
   %26 = load float, ptr %6, align 4, !tbaa !99
   %27 = fadd nsz float %25, %26
   store float %27, ptr %6, align 4, !tbaa !99
-  %.not46 = icmp eq i64 %indvars.iv81, 0
+  %.not46 = icmp eq i64 %indvars.iv84, 0
   br i1 %.not46, label %35, label %28
 
 28:                                               ; preds = %22
@@ -1805,7 +1805,7 @@ define internal fastcc range(i32 -22, 1) i32 @parse_weights(ptr noundef %0) unna
   br label %35
 
 35:                                               ; preds = %28, %22
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv81, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv84, 1
   %36 = load i32, ptr %7, align 8, !tbaa !36
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
@@ -1814,7 +1814,7 @@ define internal fastcc range(i32 -22, 1) i32 @parse_weights(ptr noundef %0) unna
 ._crit_edge.loopexit:                             ; preds = %35, %.._crit_edge.loopexit_crit_edge
   %.pre = phi i32 [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ %36, %35 ]
   %.040.lcssa.ph.in = phi i64 [ %indvars.iv.lcssa, %.._crit_edge.loopexit_crit_edge ], [ %indvars.iv.next, %35 ]
-  %.0.lcssa.ph = phi i64 [ %.052.lcssa, %.._crit_edge.loopexit_crit_edge ], [ %indvars.iv81, %35 ]
+  %.0.lcssa.ph = phi i64 [ %.052.lcssa, %.._crit_edge.loopexit_crit_edge ], [ %indvars.iv84, %35 ]
   %.040.lcssa.ph = trunc i64 %.040.lcssa.ph.in to i32
   %39 = and i64 %.0.lcssa.ph, 4294967295
   br label %._crit_edge

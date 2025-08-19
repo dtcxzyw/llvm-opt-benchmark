@@ -1370,8 +1370,8 @@ _ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit:     ; preds = %"_ZN4core3str21_$LT
   br i1 %.not18.i, label %_ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread273, label %221
 
 221:                                              ; preds = %.preheader.i
-  %222 = add i64 %.sroa.6.0.i, -1
-  %223 = getelementptr inbounds [0 x i8], ptr %.pn3.i173, i64 0, i64 %222
+  %222 = add nsw i64 %.sroa.6.0.i, -1
+  %223 = getelementptr inbounds nuw [0 x i8], ptr %.pn3.i173, i64 0, i64 %222
   %224 = load i8, ptr %223, align 1, !alias.scope !286, !noundef !4
   %225 = icmp sgt i8 %224, -1
   br i1 %225, label %.preheader.i, label %_ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread
@@ -2314,8 +2314,8 @@ _ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit:     ; preds = %"_ZN4core3str21_$LT
   br i1 %.not18.i, label %_ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread284, label %224
 
 224:                                              ; preds = %.preheader.i
-  %225 = add i64 %.sroa.6.0.i, -1
-  %226 = getelementptr inbounds [0 x i8], ptr %.pn3.i178, i64 0, i64 %225
+  %225 = add nsw i64 %.sroa.6.0.i, -1
+  %226 = getelementptr inbounds nuw [0 x i8], ptr %.pn3.i178, i64 0, i64 %225
   %227 = load i8, ptr %226, align 1, !alias.scope !476, !noundef !4
   %228 = icmp sgt i8 %227, -1
   br i1 %228, label %.preheader.i, label %_ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread
@@ -2667,9 +2667,9 @@ _ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread284: ; preds = %.pr
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !541
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2263410e68d04d69E.llvm.8740116509709696285"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
-          to label %.noexc197 unwind label %.thread307
+          to label %.noexc197 unwind label %.thread331
 
-.thread307:                                       ; preds = %320
+.thread331:                                       ; preds = %320
   %321 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -2729,10 +2729,10 @@ _ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread284: ; preds = %.pr
           to label %38 unwind label %262
 
 "_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hdcf0eb9a2b9c1ef6E.exit200": ; preds = %.thread
-  resume { ptr, i32 } %.pn134306
+  resume { ptr, i32 } %.pn134330
 
-.thread:                                          ; preds = %38, %.thread307
-  %.pn134306 = phi { ptr, i32 } [ %321, %.thread307 ], [ %.pn132, %38 ]
+.thread:                                          ; preds = %38, %.thread331
+  %.pn134330 = phi { ptr, i32 } [ %321, %.thread331 ], [ %.pn132, %38 ]
   %339 = load i32, ptr %35, align 4, !alias.scope !570, !noundef !4
   %340 = invoke noundef i32 @close(i32 noundef %339)
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hdcf0eb9a2b9c1ef6E.exit200" unwind label %262

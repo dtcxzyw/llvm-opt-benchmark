@@ -363,7 +363,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ._crit_edge290:                                   ; preds = %._crit_edge290.loopexit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   %92 = phi ptr [ %58, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.pre318, %._crit_edge290.loopexit ]
-  %.077.lcssa = phi i32 [ 0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.178.lcssa321, %._crit_edge290.loopexit ]
+  %.077.lcssa = phi i32 [ 0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.178.lcssa407, %._crit_edge290.loopexit ]
   %.not.i.i.i108 = icmp eq ptr %92, null
   br i1 %.not.i.i.i108, label %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit, label %93
 
@@ -388,7 +388,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge290,
   br label %common.resume
 
 101:                                              ; preds = %.lr.ph289, %_ZNSt6vectorIN5Yosys3MemESaIS1_EED2Ev.exit
-  %.077288 = phi i32 [ 0, %.lr.ph289 ], [ %.178.lcssa321, %_ZNSt6vectorIN5Yosys3MemESaIS1_EED2Ev.exit ]
+  %.077288 = phi i32 [ 0, %.lr.ph289 ], [ %.178.lcssa407, %_ZNSt6vectorIN5Yosys3MemESaIS1_EED2Ev.exit ]
   %.sroa.0187.0287 = phi ptr [ %58, %.lr.ph289 ], [ %114, %_ZNSt6vectorIN5Yosys3MemESaIS1_EED2Ev.exit ]
   %102 = load ptr, ptr %.sroa.0187.0287, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -423,7 +423,7 @@ _ZSt8_DestroyIPN5Yosys3MemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = 
   br label %_ZSt8_DestroyIPN5Yosys3MemES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN5Yosys3MemES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %103, %_ZSt8_DestroyIPN5Yosys3MemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %._crit_edge284
-  %.178.lcssa321 = phi i32 [ %.279, %_ZSt8_DestroyIPN5Yosys3MemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.279, %._crit_edge284 ], [ %.077288, %103 ]
+  %.178.lcssa407 = phi i32 [ %.279, %_ZSt8_DestroyIPN5Yosys3MemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.279, %._crit_edge284 ], [ %.077288, %103 ]
   %108 = phi ptr [ %.pr.i113, %_ZSt8_DestroyIPN5Yosys3MemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %._crit_edge284 ], [ %104, %103 ]
   %.not.i.i.i114 = icmp eq ptr %108, null
   br i1 %.not.i.i.i114, label %_ZNSt6vectorIN5Yosys3MemESaIS1_EED2Ev.exit, label %109

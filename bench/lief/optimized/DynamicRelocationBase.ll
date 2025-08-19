@@ -263,12 +263,12 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_17DynamicRelocation24IMAGE_DYNAMIC
   br label %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
 
 _ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i: ; preds = %4, %3, %2
-  %.sink11.i.i.i.i.i.i = phi i64 [ %5, %4 ], [ 120, %3 ], [ 72, %2 ]
-  %6 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONE.enums2str, i64 %.sink11.i.i.i.i.i.i
+  %.sink12.i.i.i.i.i.i = phi i64 [ %5, %4 ], [ 120, %3 ], [ 72, %2 ]
+  %6 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONE.enums2str, i64 %.sink12.i.i.i.i.i.i
   %7 = load i32, ptr %6, align 8, !tbaa !22
   %.not.i6.i.i.i.i.i.i.i = icmp slt i32 %7, %0
   %.idx.i.i.i.i.i.i.i.i = select i1 %.not.i6.i.i.i.i.i.i.i, i64 16, i64 0
-  %8 = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i, %.sink11.i.i.i.i.i.i
+  %8 = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i, %.sink12.i.i.i.i.i.i
   %.not.i.i = icmp samesign eq i64 %8, 136
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
 
@@ -278,7 +278,7 @@ _ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt
   %.pre.i.i = load i32, ptr %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx.sroa.sel, align 8, !tbaa !22
   %.pre.i.i.fr = freeze i32 %.pre.i.i
   %9 = icmp slt i32 %0, %.pre.i.i.fr
-  %10 = add nuw nsw i64 %.sink11.i.i.i.i.i.i, %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx.sroa.sel.idx
+  %10 = add nuw nsw i64 %.sink12.i.i.i.i.i.i, %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx.sroa.sel.idx
   %.not = icmp samesign eq i64 %10, 136
   %or.cond = select i1 %9, i1 true, i1 %.not
   br i1 %or.cond, label %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %11

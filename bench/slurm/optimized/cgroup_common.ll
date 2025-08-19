@@ -105,14 +105,14 @@ define dso_local range(i32 -1, 1) i32 @common_file_read_uints(ptr noundef %0, pt
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  switch i32 %3, label %.thread88 [
+  switch i32 %3, label %.thread91 [
     i32 32, label %20
     i32 64, label %29
   ]
 
 ._crit_edge.thread:                               ; preds = %12
   %19 = icmp eq i32 %3, 32
-  br i1 %19, label %.sink.split.sink.split, label %.thread88
+  br i1 %19, label %.sink.split.sink.split, label %.thread91
 
 20:                                               ; preds = %._crit_edge
   %21 = zext nneg i32 %15 to i64
@@ -162,26 +162,26 @@ define dso_local range(i32 -1, 1) i32 @common_file_read_uints(ptr noundef %0, pt
   %40 = trunc nuw i64 %indvars.iv.next to i32
   br label %.sink.split.sink.split
 
-.thread88:                                        ; preds = %._crit_edge, %._crit_edge.thread
-  %.037.lcssa8391 = phi i32 [ 0, %._crit_edge.thread ], [ %15, %._crit_edge ]
+.thread91:                                        ; preds = %._crit_edge, %._crit_edge.thread
+  %.037.lcssa8694 = phi i32 [ 0, %._crit_edge.thread ], [ %15, %._crit_edge ]
   call void @slurm_xfree(ptr noundef nonnull %5) #8
   %41 = icmp eq i32 %3, 64
   br i1 %41, label %.sink.split, label %42
 
 .sink.split.sink.split:                           ; preds = %._crit_edge.thread, %20, %.loopexit.loopexit, %.loopexit.loopexit75, %29
-  %.05898.sink.ph = phi ptr [ %31, %29 ], [ %31, %.loopexit.loopexit75 ], [ null, %._crit_edge.thread ], [ %22, %20 ], [ %22, %.loopexit.loopexit ]
+  %.058101.sink.ph = phi ptr [ %31, %29 ], [ %31, %.loopexit.loopexit75 ], [ null, %._crit_edge.thread ], [ %22, %20 ], [ %22, %.loopexit.loopexit ]
   %.23950.ph.ph = phi i32 [ 0, %29 ], [ %40, %.loopexit.loopexit75 ], [ 0, %._crit_edge.thread ], [ 0, %20 ], [ %39, %.loopexit.loopexit ]
   call void @slurm_xfree(ptr noundef nonnull %5) #8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %.thread88
-  %.05898.sink = phi ptr [ null, %.thread88 ], [ %.05898.sink.ph, %.sink.split.sink.split ]
-  %.23950.ph = phi i32 [ %.037.lcssa8391, %.thread88 ], [ %.23950.ph.ph, %.sink.split.sink.split ]
-  store ptr %.05898.sink, ptr %1, align 8
+.sink.split:                                      ; preds = %.sink.split.sink.split, %.thread91
+  %.058101.sink = phi ptr [ null, %.thread91 ], [ %.058101.sink.ph, %.sink.split.sink.split ]
+  %.23950.ph = phi i32 [ %.037.lcssa8694, %.thread91 ], [ %.23950.ph.ph, %.sink.split.sink.split ]
+  store ptr %.058101.sink, ptr %1, align 8
   br label %42
 
-42:                                               ; preds = %.sink.split, %.thread88
-  %.23950 = phi i32 [ %.037.lcssa8391, %.thread88 ], [ %.23950.ph, %.sink.split ]
+42:                                               ; preds = %.sink.split, %.thread91
+  %.23950 = phi i32 [ %.037.lcssa8694, %.thread91 ], [ %.23950.ph, %.sink.split ]
   store i32 %.23950, ptr %2, align 4
   br label %43
 
@@ -193,7 +193,7 @@ define dso_local range(i32 -1, 1) i32 @common_file_read_uints(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_read_cg_file(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
+define internal fastcc range(i64 -1, -9223372036854775808) i64 @_read_cg_file(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0, i32 noundef 448) #8
@@ -1029,7 +1029,7 @@ _is_empty_dir.exit.thread:                        ; preds = %15, %_is_empty_dir.
   %65 = load ptr, ptr %5, align 8
   %66 = call i32 @rmdir(ptr noundef %65) #8
   %67 = icmp slt i32 %66, 0
-  br i1 %67, label %12, label %.critedge.thread63, !llvm.loop !18
+  br i1 %67, label %12, label %.critedge.thread69, !llvm.loop !18
 
 68:                                               ; preds = %60
   %69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -1054,27 +1054,27 @@ _is_empty_dir.exit.thread:                        ; preds = %15, %_is_empty_dir.
 
 .critedge:                                        ; preds = %12
   %.not20 = icmp eq i32 %.043, 0
-  br i1 %.not20, label %.loopexit, label %.critedge.thread63
+  br i1 %.not20, label %.loopexit, label %.critedge.thread69
 
-.critedge.thread63:                               ; preds = %62, %.critedge
-  %.0.lcssa66 = phi i32 [ %.043, %.critedge ], [ %64, %62 ]
+.critedge.thread69:                               ; preds = %62, %.critedge
+  %.0.lcssa72 = phi i32 [ %.043, %.critedge ], [ %64, %62 ]
   %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %80 = and i64 %79, 36028797018963968
   %.not21 = icmp eq i64 %80, 0
   br i1 %.not21, label %.loopexit, label %81
 
-81:                                               ; preds = %.critedge.thread63
+81:                                               ; preds = %.critedge.thread69
   %82 = call i32 @get_log_level() #8
   %83 = icmp sgt i32 %82, 3
   br i1 %83, label %84, label %.loopexit
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %5, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.27, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_cgroup_delete, ptr noundef %85, i32 noundef %.0.lcssa66) #8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.27, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_cgroup_delete, ptr noundef %85, i32 noundef %.0.lcssa72) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %50, %.preheader, %.critedge, %81, %84, %.critedge.thread63, %76, %71, %74, %68, %55, %58, %40, %47, %44, %10
-  %.015 = phi i32 [ 0, %10 ], [ -1, %44 ], [ -1, %47 ], [ -1, %40 ], [ -1, %58 ], [ -1, %55 ], [ -1, %68 ], [ -1, %74 ], [ -1, %71 ], [ -1, %76 ], [ 0, %.critedge.thread63 ], [ 0, %84 ], [ 0, %81 ], [ 0, %.critedge ], [ 0, %.preheader ], [ -1, %50 ]
+.loopexit:                                        ; preds = %50, %.preheader, %.critedge, %81, %84, %.critedge.thread69, %76, %71, %74, %68, %55, %58, %40, %47, %44, %10
+  %.015 = phi i32 [ 0, %10 ], [ -1, %44 ], [ -1, %47 ], [ -1, %40 ], [ -1, %58 ], [ -1, %55 ], [ -1, %68 ], [ -1, %74 ], [ -1, %71 ], [ -1, %76 ], [ 0, %.critedge.thread69 ], [ 0, %84 ], [ 0, %81 ], [ 0, %.critedge ], [ 0, %.preheader ], [ -1, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.015

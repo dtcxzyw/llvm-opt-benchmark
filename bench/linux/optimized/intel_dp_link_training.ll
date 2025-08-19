@@ -664,7 +664,7 @@ intel_dp_phy_is_downstream_of_source.exit5:       ; preds = %.loopexit12
   %217 = select i1 %215, i8 %170, i8 %216
   %218 = lshr i8 %217, 3
   %219 = and i8 %218, 3
-  switch i8 %219, label %default.unreachable17 [
+  switch i8 %219, label %default.unreachable24 [
     i8 0, label %223
     i8 1, label %220
     i8 2, label %221
@@ -677,7 +677,7 @@ intel_dp_phy_is_downstream_of_source.exit5:       ; preds = %.loopexit12
 221:                                              ; preds = %214
   br label %223
 
-default.unreachable17:                            ; preds = %214
+default.unreachable24:                            ; preds = %214
   unreachable
 
 222:                                              ; preds = %214
@@ -2311,8 +2311,8 @@ define dso_local void @intel_dp_start_link_train(ptr noundef %0, ptr noundef %1)
   call void @usleep_range_state(i64 noundef 2000, i64 noundef 3000, i32 noundef 2) #7
   %716 = load volatile i64, ptr @jiffies, align 64
   %717 = sub i64 %378, %716
-  %.lobit95 = lshr i64 %717, 63
-  %718 = trunc nuw nsw i64 %.lobit95 to i8
+  %.lobit148 = lshr i64 %717, 63
+  %718 = trunc nuw nsw i64 %.lobit148 to i8
   %719 = call i32 @drm_dp_dpcd_read_link_status(ptr noundef nonnull %100, ptr noundef nonnull %8) #7
   %720 = icmp slt i32 %719, 0
   br i1 %720, label %.loopexit, label %626, !llvm.loop !40

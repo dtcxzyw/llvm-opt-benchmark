@@ -663,8 +663,8 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit.i:           ; preds = %252, %.body.i
   %254 = load ptr, ptr %16, align 8, !tbaa !29
   %.not.i.i144.i = icmp eq ptr %254, %105
   %255 = icmp eq ptr %254, null
-  %or.cond331.i = or i1 %.not.i.i144.i, %255
-  br i1 %or.cond331.i, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit145.i, label %256
+  %or.cond340.i = or i1 %.not.i.i144.i, %255
+  br i1 %or.cond340.i, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit145.i, label %256
 
 256:                                              ; preds = %253
   call void @_ZdaPv(ptr noundef nonnull %254) #19
@@ -1094,8 +1094,8 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit.i46:         ; preds = %427, %424
   %429 = load ptr, ptr %10, align 8, !tbaa !29
   %.not.i.i162.i = icmp eq ptr %429, %287
   %430 = icmp eq ptr %429, null
-  %or.cond344.i = or i1 %.not.i.i162.i, %430
-  br i1 %or.cond344.i, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit163.i, label %431
+  %or.cond354.i = or i1 %.not.i.i162.i, %430
+  br i1 %or.cond354.i, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit163.i, label %431
 
 431:                                              ; preds = %428
   call void @_ZdaPv(ptr noundef nonnull %429) #19
@@ -1376,8 +1376,8 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %44, %41
   %53 = load ptr, ptr %9, align 8, !tbaa !64
   %.not.i.i22 = icmp eq ptr %53, %28
   %54 = icmp eq ptr %53, null
-  %or.cond24 = or i1 %.not.i.i22, %54
-  br i1 %or.cond24, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit23, label %55
+  %or.cond28 = or i1 %.not.i.i22, %54
+  br i1 %or.cond28, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit23, label %55
 
 55:                                               ; preds = %52
   call void @_ZdaPv(ptr noundef nonnull %53) #19

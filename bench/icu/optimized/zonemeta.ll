@@ -1234,8 +1234,8 @@ _ZN6icu_77L15olsonToMetaInitER10UErrorCode.exit:  ; preds = %23, %24
   %31 = icmp slt i32 %30, 1
   %.pr = load i32, ptr %2, align 4
   %32 = icmp slt i32 %.pr, 1
-  %or.cond33 = select i1 %31, i1 %32, i1 false
-  br i1 %or.cond33, label %33, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread
+  %or.cond39 = select i1 %31, i1 %32, i1 false
+  br i1 %or.cond39, label %33, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread
 
 33:                                               ; preds = %29, %_ZN6icu_77L15olsonToMetaInitER10UErrorCode.exit
   call void @umtx_lock_77(ptr noundef nonnull @_ZL13gZoneMetaLock)
@@ -1540,9 +1540,9 @@ define noundef ptr @_ZN6icu_778ZoneMeta22createMetazoneMappingsERKNS_13UnicodeSt
   %88 = load i32, ptr %3, align 4
   %89 = icmp sgt i32 %88, 0
   %or.cond.i74 = select i1 %87, i1 true, i1 %89
-  br i1 %or.cond.i74, label %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEEC2EPS1_R10UErrorCode.exit, label %.thread164
+  br i1 %or.cond.i74, label %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEEC2EPS1_R10UErrorCode.exit, label %.thread168
 
-.thread164:                                       ; preds = %85
+.thread168:                                       ; preds = %85
   store i32 7, ptr %3, align 4, !tbaa !3
   br label %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit.thread
 
@@ -1550,7 +1550,7 @@ _ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEEC2EPS1_R10UErrorCode.exit
   %90 = icmp slt i32 %88, 1
   br i1 %90, label %92, label %109
 
-.thread106:                                       ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit.thread162
+.thread106:                                       ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit.thread166
   %91 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit75
@@ -1562,7 +1562,7 @@ _ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEEC2EPS1_R10UErrorCode.exit
   %94 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store double %77, ptr %94, align 8, !tbaa !55
   %.not = icmp eq ptr %.sroa.082.5.ph, null
-  br i1 %.not, label %95, label %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit.thread162
+  br i1 %.not, label %95, label %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit.thread166
 
 95:                                               ; preds = %92
   %96 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #14
@@ -1576,7 +1576,7 @@ _ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEEC2EPS1_R10UErrorCode.exit
 99:                                               ; preds = %98
   %100 = load i32, ptr %3, align 4, !tbaa !3
   %101 = icmp sgt i32 %100, 0
-  br i1 %101, label %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit, label %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit.thread162
+  br i1 %101, label %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit, label %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit.thread166
 
 .thread:                                          ; preds = %95
   %102 = load i32, ptr %3, align 4, !tbaa !3
@@ -1597,7 +1597,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UEr
   call void @llvm.assume(i1 %108)
   br label %.thread95
 
-_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit.thread162: ; preds = %99, %92
+_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit.thread166: ; preds = %99, %92
   %.sroa.082.11 = phi ptr [ %.sroa.082.5.ph, %92 ], [ %96, %99 ]
   invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.082.11, ptr noundef nonnull %86, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit unwind label %.thread106
@@ -1610,7 +1610,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UEr
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %86) #14
   br label %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit.thread
 
-_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit: ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit.thread162
+_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit: ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit.thread166
   %111 = load i32, ptr %3, align 4, !tbaa !3
   %.inv = icmp sgt i32 %111, 0
   br i1 %.inv, label %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit.thread, label %.preheader.outer
@@ -1622,9 +1622,9 @@ _ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit: ; preds = %_ZN
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %86) #14
   br label %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit75
 
-_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit.thread: ; preds = %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit, %52, %.thread164, %.thread95, %109
-  %.sroa.082.7 = phi ptr [ %.sroa.082.5.ph, %.thread95 ], [ %.sroa.082.5.ph, %109 ], [ %.sroa.082.5.ph, %.thread164 ], [ %.sroa.082.5.ph, %52 ], [ %.sroa.082.11, %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit ]
-  %.141 = phi ptr [ %54, %.thread95 ], [ %54, %109 ], [ %54, %.thread164 ], [ %.040, %52 ], [ %54, %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit ]
+_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit.thread: ; preds = %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit, %52, %.thread168, %.thread95, %109
+  %.sroa.082.7 = phi ptr [ %.sroa.082.5.ph, %.thread95 ], [ %.sroa.082.5.ph, %109 ], [ %.sroa.082.5.ph, %.thread168 ], [ %.sroa.082.5.ph, %52 ], [ %.sroa.082.11, %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit ]
+  %.141 = phi ptr [ %54, %.thread95 ], [ %54, %109 ], [ %54, %.thread168 ], [ %.040, %52 ], [ %54, %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit ]
   invoke void @ures_close_77(ptr noundef %.141)
           to label %114 unwind label %.loopexit.split-lp
 
@@ -1684,8 +1684,8 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %116, %119, %121
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit76
 
 _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit76: ; preds = %.body.thread, %.body, %127
-  %.pn69167 = phi { ptr, i32 } [ %20, %.body.thread ], [ %.pn69, %.body ], [ %.pn69, %127 ]
-  resume { ptr, i32 } %.pn69167
+  %.pn69171 = phi { ptr, i32 } [ %20, %.body.thread ], [ %.pn69, %.body ], [ %.pn69, %127 ]
+  resume { ptr, i32 } %.pn69171
 }
 
 ; Function Attrs: allocsize(0)
@@ -1732,9 +1732,9 @@ define internal fastcc noundef double @_ZN6icu_77L9parseDateEPKDsR10UErrorCode(p
   %14 = add nsw i32 %12, -48
   %15 = select i1 %or.cond, i32 %14, i32 -1
   %16 = icmp sgt i32 %15, -1
-  br i1 %16, label %17, label %.critedge.preheader.thread204
+  br i1 %16, label %17, label %.critedge.preheader.thread214
 
-.critedge.preheader.thread204:                    ; preds = %.lr.ph
+.critedge.preheader.thread214:                    ; preds = %.lr.ph
   store i32 3, ptr %1, align 4, !tbaa !3
   br label %.critedge5
 
@@ -1760,7 +1760,7 @@ define internal fastcc noundef double @_ZN6icu_77L9parseDateEPKDsR10UErrorCode(p
   %26 = add nsw i32 %24, -48
   %27 = select i1 %or.cond118, i32 %26, i32 -1
   %28 = icmp sgt i32 %27, -1
-  br i1 %28, label %.critedge, label %.critedge3.preheader.thread186
+  br i1 %28, label %.critedge, label %.critedge3.preheader.thread196
 
 .critedge:                                        ; preds = %.lr.ph137
   %29 = mul nsw i32 %.098135, 10
@@ -1769,7 +1769,7 @@ define internal fastcc noundef double @_ZN6icu_77L9parseDateEPKDsR10UErrorCode(p
   %31 = icmp samesign ugt i64 %indvars.iv155, 5
   br i1 %31, label %.lr.ph142.preheader, label %.lr.ph137, !llvm.loop !60
 
-.critedge3.preheader.thread186:                   ; preds = %.lr.ph137
+.critedge3.preheader.thread196:                   ; preds = %.lr.ph137
   store i32 3, ptr %1, align 4, !tbaa !3
   %32 = add nsw i32 %.098135, -1
   br label %.critedge5
@@ -1798,11 +1798,11 @@ define internal fastcc noundef double @_ZN6icu_77L9parseDateEPKDsR10UErrorCode(p
   %42 = icmp samesign ugt i64 %indvars.iv158, 8
   br i1 %42, label %.critedge5, label %.lr.ph142, !llvm.loop !61
 
-.critedge5:                                       ; preds = %.critedge3, %.critedge.preheader.thread204, %8, %.critedge3.thread, %.critedge3.preheader.thread186
-  %.098.lcssa181 = phi i32 [ %32, %.critedge3.preheader.thread186 ], [ %21, %.critedge3.thread ], [ -1, %8 ], [ -1, %.critedge.preheader.thread204 ], [ %21, %.critedge3 ]
-  %.0100.lcssa173180 = phi i32 [ %19, %.critedge3.preheader.thread186 ], [ %19, %.critedge3.thread ], [ 0, %8 ], [ %.0100132, %.critedge.preheader.thread204 ], [ %19, %.critedge3 ]
-  %.promoted144 = phi i32 [ 3, %.critedge3.preheader.thread186 ], [ 3, %.critedge3.thread ], [ %.promoted, %8 ], [ 3, %.critedge.preheader.thread204 ], [ %.promoted, %.critedge3 ]
-  %.096.lcssa = phi i32 [ 0, %.critedge3.preheader.thread186 ], [ %.096140, %.critedge3.thread ], [ 0, %8 ], [ 0, %.critedge.preheader.thread204 ], [ %41, %.critedge3 ]
+.critedge5:                                       ; preds = %.critedge3, %.critedge.preheader.thread214, %8, %.critedge3.thread, %.critedge3.preheader.thread196
+  %.098.lcssa191 = phi i32 [ %32, %.critedge3.preheader.thread196 ], [ %21, %.critedge3.thread ], [ -1, %8 ], [ -1, %.critedge.preheader.thread214 ], [ %21, %.critedge3 ]
+  %.0100.lcssa183190 = phi i32 [ %19, %.critedge3.preheader.thread196 ], [ %19, %.critedge3.thread ], [ 0, %8 ], [ %.0100132, %.critedge.preheader.thread214 ], [ %19, %.critedge3 ]
+  %.promoted144 = phi i32 [ 3, %.critedge3.preheader.thread196 ], [ 3, %.critedge3.thread ], [ %.promoted, %8 ], [ 3, %.critedge.preheader.thread214 ], [ %.promoted, %.critedge3 ]
+  %.096.lcssa = phi i32 [ 0, %.critedge3.preheader.thread196 ], [ %.096140, %.critedge3.thread ], [ 0, %8 ], [ 0, %.critedge.preheader.thread214 ], [ %41, %.critedge3 ]
   %43 = icmp eq i32 %6, 16
   br i1 %43, label %.preheader, label %.critedge9
 
@@ -1821,9 +1821,9 @@ define internal fastcc noundef double @_ZN6icu_77L9parseDateEPKDsR10UErrorCode(p
   %49 = add nsw i32 %47, -48
   %50 = select i1 %or.cond120, i32 %49, i32 -1
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %52, label %.critedge7.preheader.thread207
+  br i1 %51, label %52, label %.critedge7.preheader.thread217
 
-.critedge7.preheader.thread207:                   ; preds = %.lr.ph147
+.critedge7.preheader.thread217:                   ; preds = %.lr.ph147
   store i32 3, ptr %1, align 4, !tbaa !3
   br label %.critedge9.thread
 
@@ -1859,9 +1859,9 @@ define internal fastcc noundef double @_ZN6icu_77L9parseDateEPKDsR10UErrorCode(p
   br i1 %65, label %.critedge9.loopexit, label %.lr.ph152, !llvm.loop !63
 
 .critedge9.loopexit:                              ; preds = %.critedge7, %.critedge7.thread
-  %.292201 = phi i32 [ %.191150, %.critedge7.thread ], [ %64, %.critedge7 ]
+  %.292211 = phi i32 [ %.191150, %.critedge7.thread ], [ %64, %.critedge7 ]
   %66 = phi i32 [ 3, %.critedge7.thread ], [ %.promoted144, %.critedge7 ]
-  %67 = mul nsw i32 %.292201, 60000
+  %67 = mul nsw i32 %.292211, 60000
   %68 = sext i32 %67 to i64
   %69 = mul nsw i32 %54, 3600000
   %70 = sext i32 %69 to i64
@@ -1875,15 +1875,15 @@ define internal fastcc noundef double @_ZN6icu_77L9parseDateEPKDsR10UErrorCode(p
   br i1 %72, label %.critedge9.thread, label %73
 
 73:                                               ; preds = %.critedge9
-  %74 = tail call noundef i64 @_ZN6icu_775Grego11fieldsToDayEiii(i32 noundef %.0100.lcssa173180, i32 noundef %.098.lcssa181, i32 noundef %.096.lcssa)
+  %74 = tail call noundef i64 @_ZN6icu_775Grego11fieldsToDayEiii(i32 noundef %.0100.lcssa183190, i32 noundef %.098.lcssa191, i32 noundef %.096.lcssa)
   %75 = mul nsw i64 %74, 86400000
   %76 = add nsw i64 %.090, %.093
   %77 = add i64 %76, %75
   %78 = sitofp i64 %77 to double
   br label %.critedge9.thread
 
-.critedge9.thread:                                ; preds = %.critedge7.preheader.thread207, %.preheader, %7, %.critedge9, %73, %2
-  %.0 = phi double [ 0.000000e+00, %2 ], [ 0.000000e+00, %7 ], [ %78, %73 ], [ 0.000000e+00, %.critedge9 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.critedge7.preheader.thread207 ]
+.critedge9.thread:                                ; preds = %.critedge7.preheader.thread217, %.preheader, %7, %.critedge9, %73, %2
+  %.0 = phi double [ 0.000000e+00, %2 ], [ 0.000000e+00, %7 ], [ %78, %73 ], [ 0.000000e+00, %.critedge9 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.critedge7.preheader.thread217 ]
   ret double %.0
 }
 

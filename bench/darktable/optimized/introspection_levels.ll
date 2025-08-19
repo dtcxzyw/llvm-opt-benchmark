@@ -499,15 +499,15 @@ compute_lut.exit.i:                               ; preds = %69, %19, %16
 141:                                              ; preds = %._crit_edge.i.i
   %142 = load float, ptr %100, align 4, !tbaa !15
   %143 = fcmp reassoc nsz arcp contract afn une float %142, 0xC7EFFFFFE0000000
-  br i1 %143, label %.thread54.i.i, label %dt_iop_levels_compute_levels_automatic.exit.i
+  br i1 %143, label %.thread58.i.i, label %dt_iop_levels_compute_levels_automatic.exit.i
 
 .thread.i.i:                                      ; preds = %._crit_edge.i.i
   store float 1.000000e+00, ptr %116, align 4, !tbaa !15
   %144 = load float, ptr %100, align 4, !tbaa !15
   %145 = fcmp reassoc nsz arcp contract afn une float %144, 0xC7EFFFFFE0000000
-  br i1 %145, label %.thread54.i.i, label %dt_iop_levels_compute_levels_automatic.exit.i
+  br i1 %145, label %.thread58.i.i, label %dt_iop_levels_compute_levels_automatic.exit.i
 
-.thread54.i.i:                                    ; preds = %.thread.i.i, %141
+.thread58.i.i:                                    ; preds = %.thread.i.i, %141
   %146 = phi float [ 1.000000e+00, %.thread.i.i ], [ %117, %141 ]
   %147 = phi float [ %144, %.thread.i.i ], [ %142, %141 ]
   %.in.in.i.i = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -520,9 +520,9 @@ compute_lut.exit.i:                               ; preds = %69, %19, %16
   store float %151, ptr %152, align 4, !tbaa !15
   br label %dt_iop_levels_compute_levels_automatic.exit.i
 
-dt_iop_levels_compute_levels_automatic.exit.i:    ; preds = %.thread54.i.i, %.thread.i.i, %141, %.dt_iop_levels_compute_levels_automatic.exit_crit_edge.i
-  %153 = phi float [ %.pre62.i, %.dt_iop_levels_compute_levels_automatic.exit_crit_edge.i ], [ 0xC7EFFFFFE0000000, %141 ], [ 0xC7EFFFFFE0000000, %.thread.i.i ], [ %147, %.thread54.i.i ]
-  %154 = phi float [ %.pre.i, %.dt_iop_levels_compute_levels_automatic.exit_crit_edge.i ], [ %117, %141 ], [ 1.000000e+00, %.thread.i.i ], [ %146, %.thread54.i.i ]
+dt_iop_levels_compute_levels_automatic.exit.i:    ; preds = %.thread58.i.i, %.thread.i.i, %141, %.dt_iop_levels_compute_levels_automatic.exit_crit_edge.i
+  %153 = phi float [ %.pre62.i, %.dt_iop_levels_compute_levels_automatic.exit_crit_edge.i ], [ 0xC7EFFFFFE0000000, %141 ], [ 0xC7EFFFFFE0000000, %.thread.i.i ], [ %147, %.thread58.i.i ]
+  %154 = phi float [ %.pre.i, %.dt_iop_levels_compute_levels_automatic.exit_crit_edge.i ], [ %117, %141 ], [ 1.000000e+00, %.thread.i.i ], [ %146, %.thread58.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %155 = fsub reassoc nsz arcp contract afn float %154, %153
   %156 = fmul reassoc nsz arcp contract afn float %155, 5.000000e-01
@@ -1656,7 +1656,8 @@ define internal noundef i32 @dt_iop_levels_motion_notify(ptr noundef %0, ptr nou
   br label %107
 
 107:                                              ; preds = %97, %115
-  %indvars.iv = phi i64 [ 1, %97 ], [ %indvars.iv.next, %115 ]
+  %exitcond.not = phi i1 [ false, %97 ], [ true, %115 ]
+  %indvars.iv = phi i64 [ 1, %97 ], [ 2, %115 ]
   %.082 = phi float [ %106, %97 ], [ %.1, %115 ]
   %108 = getelementptr inbounds nuw [3 x float], ptr %103, i64 0, i64 %indvars.iv
   %109 = load float, ptr %108, align 4, !tbaa !15
@@ -1672,8 +1673,6 @@ define internal noundef i32 @dt_iop_levels_motion_notify(ptr noundef %0, ptr nou
 
 115:                                              ; preds = %113, %107
   %.1 = phi nsz float [ %111, %113 ], [ %.082, %107 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %107
 
 .loopexit:                                        ; preds = %115, %86
@@ -2092,7 +2091,7 @@ define internal fastcc void @dt_iop_levels_move_handle(ptr captures(none) %.704.
   br i1 %or.cond38, label %70, label %6
 
 6:                                                ; preds = %4
-  switch i32 %0, label %default.unreachable [
+  switch i32 %0, label %default.unreachable6 [
     i32 0, label %7
     i32 1, label %40
     i32 2, label %24
@@ -2135,7 +2134,7 @@ define internal fastcc void @dt_iop_levels_move_handle(ptr captures(none) %.704.
   %39 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %38, float %31)
   br label %52
 
-default.unreachable:                              ; preds = %6
+default.unreachable6:                             ; preds = %6
   unreachable
 
 40:                                               ; preds = %6

@@ -2270,7 +2270,7 @@ _ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit.i.i: ; preds = %.thread3
   %1397 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1393, i64 %1396
   %1398 = load i8, ptr %1397, align 8, !tbaa !224
   switch i8 %1398, label %_ZN4llvm5X86II24isX86_64NonExtLowByteRegENS_10MCRegisterE.exit.us.i.i [
-    i8 1, label %switch.lookup87
+    i8 1, label %switch.lookup107
     i8 5, label %1399
   ]
 
@@ -2293,7 +2293,7 @@ _ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit.i.i: ; preds = %.thread3
 1407:                                             ; preds = %1403, %1403
   br label %_ZN4llvm5X86II24isX86_64NonExtLowByteRegENS_10MCRegisterE.exit.us.i.i
 
-switch.lookup87:                                  ; preds = %.lr.ph.split.us.i.i
+switch.lookup107:                                 ; preds = %.lr.ph.split.us.i.i
   %1408 = getelementptr inbounds nuw i8, ptr %1397, i64 8
   %1409 = load i32, ptr %1408, align 8, !tbaa !48
   %switch.tableidx = add i32 %1409, -1
@@ -2301,8 +2301,8 @@ switch.lookup87:                                  ; preds = %.lr.ph.split.us.i.i
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 16905, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond88 = select i1 %1410, i1 %switch.lobit, i1 false
-  %spec.select = select i1 %or.cond88, i1 true, i1 %.06217.us.i.i
+  %or.cond108 = select i1 %1410, i1 %switch.lobit, i1 false
+  %spec.select = select i1 %or.cond108, i1 true, i1 %.06217.us.i.i
   switch i32 %1409, label %_ZN4llvm5X86II24isX86_64NonExtLowByteRegENS_10MCRegisterE.exit.us.i.i [
     i32 67, label %1411
     i32 8, label %1411
@@ -2310,13 +2310,13 @@ switch.lookup87:                                  ; preds = %.lr.ph.split.us.i.i
     i32 18, label %1411
   ]
 
-1411:                                             ; preds = %switch.lookup87, %switch.lookup87, %switch.lookup87, %switch.lookup87
+1411:                                             ; preds = %switch.lookup107, %switch.lookup107, %switch.lookup107, %switch.lookup107
   br label %_ZN4llvm5X86II24isX86_64NonExtLowByteRegENS_10MCRegisterE.exit.us.i.i
 
-_ZN4llvm5X86II24isX86_64NonExtLowByteRegENS_10MCRegisterE.exit.us.i.i: ; preds = %1411, %switch.lookup87, %1407, %1403, %1399, %.lr.ph.split.us.i.i
-  %1412 = phi i32 [ 1, %1407 ], [ %1395, %1399 ], [ 1, %1411 ], [ %1395, %switch.lookup87 ], [ %1395, %.lr.ph.split.us.i.i ], [ %1395, %1403 ]
-  %1413 = phi i32 [ 1, %1407 ], [ %1394, %1399 ], [ 1, %1411 ], [ %1394, %switch.lookup87 ], [ %1394, %.lr.ph.split.us.i.i ], [ %1394, %1403 ]
-  %.2.us.i.i = phi i1 [ %.06217.us.i.i, %1407 ], [ %.06217.us.i.i, %1399 ], [ %spec.select, %1411 ], [ %spec.select, %switch.lookup87 ], [ %.06217.us.i.i, %.lr.ph.split.us.i.i ], [ %.06217.us.i.i, %1403 ]
+_ZN4llvm5X86II24isX86_64NonExtLowByteRegENS_10MCRegisterE.exit.us.i.i: ; preds = %1411, %switch.lookup107, %1407, %1403, %1399, %.lr.ph.split.us.i.i
+  %1412 = phi i32 [ 1, %1407 ], [ %1395, %1399 ], [ 1, %1411 ], [ %1395, %switch.lookup107 ], [ %1395, %.lr.ph.split.us.i.i ], [ %1395, %1403 ]
+  %1413 = phi i32 [ 1, %1407 ], [ %1394, %1399 ], [ 1, %1411 ], [ %1394, %switch.lookup107 ], [ %1394, %.lr.ph.split.us.i.i ], [ %1394, %1403 ]
+  %.2.us.i.i = phi i1 [ %.06217.us.i.i, %1407 ], [ %.06217.us.i.i, %1399 ], [ %spec.select, %1411 ], [ %spec.select, %switch.lookup107 ], [ %.06217.us.i.i, %.lr.ph.split.us.i.i ], [ %.06217.us.i.i, %1403 ]
   %1414 = add i32 %.06316.us.i.i, 1
   %.not65.us.i.i = icmp eq i32 %1414, %1343
   br i1 %.not65.us.i.i, label %._crit_edge.i.i, label %.lr.ph.split.us.i.i, !llvm.loop !230
@@ -2348,18 +2348,18 @@ _ZN4llvm5X86II24isX86_64NonExtLowByteRegENS_10MCRegisterE.exit.us.i.i: ; preds =
   %1426 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1393, i64 %1425
   %1427 = load i8, ptr %1426, align 8, !tbaa !224
   %cond.i.i = icmp eq i8 %1427, 1
-  br i1 %cond.i.i, label %switch.lookup91, label %_ZN4llvm5X86II24isX86_64NonExtLowByteRegENS_10MCRegisterE.exit.i.i
+  br i1 %cond.i.i, label %switch.lookup111, label %_ZN4llvm5X86II24isX86_64NonExtLowByteRegENS_10MCRegisterE.exit.i.i
 
-switch.lookup91:                                  ; preds = %.lr.ph.split.i.i
+switch.lookup111:                                 ; preds = %.lr.ph.split.i.i
   %1428 = getelementptr inbounds nuw i8, ptr %1426, i64 8
   %1429 = load i32, ptr %1428, align 8, !tbaa !48
-  %switch.tableidx90 = add i32 %1429, -1
-  %1430 = icmp ult i32 %switch.tableidx90, 15
-  %switch.maskindex92 = trunc i32 %switch.tableidx90 to i16
-  %switch.shifted93 = lshr i16 16905, %switch.maskindex92
-  %switch.lobit94 = trunc i16 %switch.shifted93 to i1
-  %or.cond95 = select i1 %1430, i1 %switch.lobit94, i1 false
-  %spec.select96 = select i1 %or.cond95, i1 true, i1 %.06217.i.i
+  %switch.tableidx110 = add i32 %1429, -1
+  %1430 = icmp ult i32 %switch.tableidx110, 15
+  %switch.maskindex112 = trunc i32 %switch.tableidx110 to i16
+  %switch.shifted113 = lshr i16 16905, %switch.maskindex112
+  %switch.lobit114 = trunc i16 %switch.shifted113 to i1
+  %or.cond115 = select i1 %1430, i1 %switch.lobit114, i1 false
+  %spec.select116 = select i1 %or.cond115, i1 true, i1 %.06217.i.i
   switch i32 %1429, label %_ZN4llvm5X86II24isX86_64NonExtLowByteRegENS_10MCRegisterE.exit.i.i [
     i32 67, label %1431
     i32 8, label %1431
@@ -2367,13 +2367,13 @@ switch.lookup91:                                  ; preds = %.lr.ph.split.i.i
     i32 18, label %1431
   ]
 
-1431:                                             ; preds = %switch.lookup91, %switch.lookup91, %switch.lookup91, %switch.lookup91
+1431:                                             ; preds = %switch.lookup111, %switch.lookup111, %switch.lookup111, %switch.lookup111
   br label %_ZN4llvm5X86II24isX86_64NonExtLowByteRegENS_10MCRegisterE.exit.i.i
 
-_ZN4llvm5X86II24isX86_64NonExtLowByteRegENS_10MCRegisterE.exit.i.i: ; preds = %1431, %switch.lookup91, %.lr.ph.split.i.i
-  %1432 = phi i32 [ 1, %1431 ], [ %1424, %switch.lookup91 ], [ %1424, %.lr.ph.split.i.i ]
-  %1433 = phi i32 [ 1, %1431 ], [ %1423, %switch.lookup91 ], [ %1423, %.lr.ph.split.i.i ]
-  %.2.i.i = phi i1 [ %spec.select96, %1431 ], [ %spec.select96, %switch.lookup91 ], [ %.06217.i.i, %.lr.ph.split.i.i ]
+_ZN4llvm5X86II24isX86_64NonExtLowByteRegENS_10MCRegisterE.exit.i.i: ; preds = %1431, %switch.lookup111, %.lr.ph.split.i.i
+  %1432 = phi i32 [ 1, %1431 ], [ %1424, %switch.lookup111 ], [ %1424, %.lr.ph.split.i.i ]
+  %1433 = phi i32 [ 1, %1431 ], [ %1423, %switch.lookup111 ], [ %1423, %.lr.ph.split.i.i ]
+  %.2.i.i = phi i1 [ %spec.select116, %1431 ], [ %spec.select116, %switch.lookup111 ], [ %.06217.i.i, %.lr.ph.split.i.i ]
   %1434 = add i32 %.06316.i.i, 1
   %.not65.i.i = icmp eq i32 %1434, %1343
   br i1 %.not65.i.i, label %._crit_edge.i.i, label %.lr.ph.split.i.i, !llvm.loop !230
@@ -3605,9 +3605,9 @@ _ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit: ; preds = %20, %29, %42
     i64 10, label %86
     i64 9, label %87
     i64 1, label %95
-    i64 3, label %switch.lookup496
-    i64 7, label %switch.lookup499
-    i64 8, label %switch.lookup502
+    i64 3, label %switch.lookup510
+    i64 7, label %switch.lookup513
+    i64 8, label %switch.lookup516
     i64 2, label %149
     i64 40, label %165
     i64 18, label %185
@@ -3774,7 +3774,7 @@ switch.lookup:                                    ; preds = %100
   tail call fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter13emitImmediateERKN4llvm9MCOperandENS1_5SMLocEjNS1_11MCFixupKindEmRNS1_15SmallVectorImplIcEERNS7_INS1_7MCFixupEEEi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %107, ptr %.sroa.0.0.copyload.i, i32 noundef %switch.load, i32 noundef 139, i64 noundef %69, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
   br label %630
 
-switch.lookup496:                                 ; preds = %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
+switch.lookup510:                                 ; preds = %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
   tail call fastcc void @_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE(i8 noundef zeroext %spec.store.select, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %111 = load i32, ptr %6, align 4, !tbaa !36
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3785,15 +3785,15 @@ switch.lookup496:                                 ; preds = %_ZN4llvm5X86II14get
   %.sroa.0.0.copyload.i422 = load ptr, ptr %116, align 8, !tbaa !232
   %117 = add nsw i64 %72, -262144
   %118 = lshr exact i64 %117, 18
-  %switch.gep497 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.31, i64 0, i64 %118
-  %switch.load498 = load i32, ptr %switch.gep497, align 4
+  %switch.gep511 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.31, i64 0, i64 %118
+  %switch.load512 = load i32, ptr %switch.gep511, align 4
   %119 = tail call fastcc noundef i32 @_ZL15getImmFixupKindm(i64 noundef %17)
-  tail call fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter13emitImmediateERKN4llvm9MCOperandENS1_5SMLocEjNS1_11MCFixupKindEmRNS1_15SmallVectorImplIcEERNS7_INS1_7MCFixupEEEi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %115, ptr %.sroa.0.0.copyload.i422, i32 noundef %switch.load498, i32 noundef %119, i64 noundef %69, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
+  tail call fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter13emitImmediateERKN4llvm9MCOperandENS1_5SMLocEjNS1_11MCFixupKindEmRNS1_15SmallVectorImplIcEERNS7_INS1_7MCFixupEEEi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %115, ptr %.sroa.0.0.copyload.i422, i32 noundef %switch.load512, i32 noundef %119, i64 noundef %69, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
   %120 = add i32 %111, 2
   store i32 %120, ptr %6, align 4, !tbaa !36
   br label %630
 
-switch.lookup499:                                 ; preds = %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
+switch.lookup513:                                 ; preds = %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
   tail call fastcc void @_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE(i8 noundef zeroext %spec.store.select, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %121 = load i32, ptr %6, align 4, !tbaa !36
   %122 = add i32 %121, 1
@@ -3805,10 +3805,10 @@ switch.lookup499:                                 ; preds = %_ZN4llvm5X86II14get
   %.sroa.0.0.copyload.i425 = load ptr, ptr %127, align 8, !tbaa !232
   %128 = add nsw i64 %72, -262144
   %129 = lshr exact i64 %128, 18
-  %switch.gep500 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.31, i64 0, i64 %129
-  %switch.load501 = load i32, ptr %switch.gep500, align 4
+  %switch.gep514 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.31, i64 0, i64 %129
+  %switch.load515 = load i32, ptr %switch.gep514, align 4
   %130 = tail call fastcc noundef i32 @_ZL15getImmFixupKindm(i64 noundef %17)
-  tail call fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter13emitImmediateERKN4llvm9MCOperandENS1_5SMLocEjNS1_11MCFixupKindEmRNS1_15SmallVectorImplIcEERNS7_INS1_7MCFixupEEEi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %126, ptr %.sroa.0.0.copyload.i425, i32 noundef %switch.load501, i32 noundef %130, i64 noundef %69, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
+  tail call fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter13emitImmediateERKN4llvm9MCOperandENS1_5SMLocEjNS1_11MCFixupKindEmRNS1_15SmallVectorImplIcEERNS7_INS1_7MCFixupEEEi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %126, ptr %.sroa.0.0.copyload.i425, i32 noundef %switch.load515, i32 noundef %130, i64 noundef %69, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
   %131 = add i32 %121, 2
   store i32 %131, ptr %6, align 4, !tbaa !36
   %132 = zext i32 %122 to i64
@@ -3818,7 +3818,7 @@ switch.lookup499:                                 ; preds = %_ZN4llvm5X86II14get
   tail call fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter13emitImmediateERKN4llvm9MCOperandENS1_5SMLocEjNS1_11MCFixupKindEmRNS1_15SmallVectorImplIcEERNS7_INS1_7MCFixupEEEi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %134, ptr %.sroa.0.0.copyload.i428, i32 noundef 1, i32 noundef 1, i64 noundef %69, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
   br label %630
 
-switch.lookup502:                                 ; preds = %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
+switch.lookup516:                                 ; preds = %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
   tail call fastcc void @_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE(i8 noundef zeroext %spec.store.select, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %135 = load i32, ptr %6, align 4, !tbaa !36
   %136 = add i32 %135, 1
@@ -3830,10 +3830,10 @@ switch.lookup502:                                 ; preds = %_ZN4llvm5X86II14get
   %.sroa.0.0.copyload.i429 = load ptr, ptr %141, align 8, !tbaa !232
   %142 = add nsw i64 %72, -262144
   %143 = lshr exact i64 %142, 18
-  %switch.gep503 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.31, i64 0, i64 %143
-  %switch.load504 = load i32, ptr %switch.gep503, align 4
+  %switch.gep517 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.31, i64 0, i64 %143
+  %switch.load518 = load i32, ptr %switch.gep517, align 4
   %144 = tail call fastcc noundef i32 @_ZL15getImmFixupKindm(i64 noundef %17)
-  tail call fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter13emitImmediateERKN4llvm9MCOperandENS1_5SMLocEjNS1_11MCFixupKindEmRNS1_15SmallVectorImplIcEERNS7_INS1_7MCFixupEEEi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %140, ptr %.sroa.0.0.copyload.i429, i32 noundef %switch.load504, i32 noundef %144, i64 noundef %69, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
+  tail call fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter13emitImmediateERKN4llvm9MCOperandENS1_5SMLocEjNS1_11MCFixupKindEmRNS1_15SmallVectorImplIcEERNS7_INS1_7MCFixupEEEi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %140, ptr %.sroa.0.0.copyload.i429, i32 noundef %switch.load518, i32 noundef %144, i64 noundef %69, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
   %145 = add i32 %135, 2
   store i32 %145, ptr %6, align 4, !tbaa !36
   %146 = zext i32 %136 to i64
@@ -3974,7 +3974,7 @@ switch.lookup502:                                 ; preds = %_ZN4llvm5X86II14get
   %spec.select361 = add nuw nsw i32 %spec.select361.v, %232
   %.1351 = add i32 %spec.select361, %231
   %233 = zext i1 %80 to i32
-  %spec.select493 = add i32 %231, %233
+  %spec.select507 = add i32 %231, %233
   %234 = icmp eq i64 %18, 23
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %236 = zext i32 %.1351 to i64
@@ -3992,7 +3992,7 @@ switch.lookup502:                                 ; preds = %_ZN4llvm5X86II14get
   %244 = load i16, ptr %243, align 2, !tbaa !221
   %245 = and i16 %244, 7
   %246 = zext nneg i16 %245 to i32
-  tail call fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter16emitMemModRMByteERKN4llvm6MCInstEjjmNS_10PrefixKindEmRNS1_15SmallVectorImplIcEERNS6_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %spec.select493, i32 noundef %246, i64 noundef %17, i32 noundef %70, i64 noundef %69, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(304) %4, i1 noundef zeroext %234)
+  tail call fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter16emitMemModRMByteERKN4llvm6MCInstEjjmNS_10PrefixKindEmRNS1_15SmallVectorImplIcEERNS6_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %spec.select507, i32 noundef %246, i64 noundef %17, i32 noundef %70, i64 noundef %69, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(304) %4, i1 noundef zeroext %234)
   %247 = add i32 %.1351, 1
   store i32 %247, ptr %6, align 4, !tbaa !36
   br label %630
@@ -4156,10 +4156,10 @@ switch.lookup502:                                 ; preds = %_ZN4llvm5X86II14get
 348:                                              ; preds = %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
   %.pre488 = load i32, ptr %6, align 4, !tbaa !36
   %349 = zext i1 %80 to i32
-  %spec.select494 = add i32 %.pre488, %349
-  %350 = add i32 %spec.select494, 1
-  %351 = add i32 %spec.select494, 2
-  %352 = add i32 %spec.select494, 3
+  %spec.select508 = add i32 %.pre488, %349
+  %350 = add i32 %spec.select508, 1
+  %351 = add i32 %spec.select508, 2
+  %352 = add i32 %spec.select508, 3
   store i32 %352, ptr %6, align 4, !tbaa !36
   %353 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %354 = zext i32 %351 to i64
@@ -4171,7 +4171,7 @@ switch.lookup502:                                 ; preds = %_ZN4llvm5X86II14get
   tail call fastcc void @_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE(i8 noundef zeroext %359, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %360 = zext i32 %350 to i64
   %361 = load ptr, ptr %353, align 8, !tbaa !41
-  %362 = zext i32 %spec.select494 to i64
+  %362 = zext i32 %spec.select508 to i64
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val385 = load ptr, ptr %363, align 8, !tbaa !49
   %364 = getelementptr %"class.llvm::MCOperand", ptr %361, i64 %362, i32 1
@@ -4305,10 +4305,10 @@ switch.lookup502:                                 ; preds = %_ZN4llvm5X86II14get
 444:                                              ; preds = %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
   %.pre = load i32, ptr %6, align 4, !tbaa !36
   %445 = zext i1 %80 to i32
-  %spec.select495 = add i32 %.pre, %445
-  %446 = add i32 %spec.select495, 1
-  %447 = add i32 %spec.select495, 6
-  %448 = add i32 %spec.select495, 7
+  %spec.select509 = add i32 %.pre, %445
+  %446 = add i32 %spec.select509, 1
+  %447 = add i32 %spec.select509, 6
+  %448 = add i32 %spec.select509, 7
   store i32 %448, ptr %6, align 4, !tbaa !36
   %449 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %450 = zext i32 %447 to i64
@@ -4318,7 +4318,7 @@ switch.lookup502:                                 ; preds = %_ZN4llvm5X86II14get
   %454 = trunc i64 %453 to i8
   %455 = add i8 %spec.store.select, %454
   tail call fastcc void @_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE(i8 noundef zeroext %455, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %456 = zext i32 %spec.select495 to i64
+  %456 = zext i32 %spec.select509 to i64
   %457 = load ptr, ptr %449, align 8, !tbaa !41
   %458 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val393 = load ptr, ptr %458, align 8, !tbaa !49
@@ -4629,9 +4629,9 @@ _ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit447: ; preds = %_ZN
   store i64 %629, ptr %68, align 8, !tbaa !43
   br label %630
 
-630:                                              ; preds = %95, %100, %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit447, %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit441, %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit435, %548, %533, %_ZNK12_GLOBAL__N_116X86MCCodeEmitter16emitRegModRMByteERKN4llvm9MCOperandEjRNS1_15SmallVectorImplIcEE.exit, %467, %444, %418, %402, %348, %323, %305, %302, %248, %230, %210, %185, %165, %149, %switch.lookup502, %switch.lookup499, %switch.lookup496, %switch.lookup, %86
-  %.0344 = phi i32 [ 0, %86 ], [ 0, %switch.lookup ], [ 0, %100 ], [ 0, %95 ], [ 0, %switch.lookup496 ], [ 0, %switch.lookup499 ], [ 0, %switch.lookup502 ], [ 0, %149 ], [ 0, %165 ], [ 0, %185 ], [ 0, %210 ], [ 0, %230 ], [ 0, %248 ], [ %.1345, %302 ], [ 0, %305 ], [ %337, %323 ], [ 0, %348 ], [ 0, %402 ], [ %432, %418 ], [ 0, %444 ], [ 0, %467 ], [ 0, %_ZNK12_GLOBAL__N_116X86MCCodeEmitter16emitRegModRMByteERKN4llvm9MCOperandEjRNS1_15SmallVectorImplIcEE.exit ], [ 0, %533 ], [ 0, %548 ], [ 0, %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit435 ], [ 0, %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit441 ], [ 0, %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit447 ]
-  %.1 = phi i32 [ %23, %86 ], [ %.0, %switch.lookup ], [ %.0, %100 ], [ %.0, %95 ], [ %23, %switch.lookup496 ], [ %23, %switch.lookup499 ], [ %23, %switch.lookup502 ], [ %23, %149 ], [ %23, %165 ], [ %23, %185 ], [ %23, %210 ], [ %23, %230 ], [ %23, %248 ], [ %spec.select363, %302 ], [ %23, %305 ], [ %23, %323 ], [ %23, %348 ], [ %23, %402 ], [ %23, %418 ], [ %23, %444 ], [ %23, %467 ], [ %23, %_ZNK12_GLOBAL__N_116X86MCCodeEmitter16emitRegModRMByteERKN4llvm9MCOperandEjRNS1_15SmallVectorImplIcEE.exit ], [ %23, %533 ], [ %23, %548 ], [ %23, %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit435 ], [ %23, %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit441 ], [ %23, %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit447 ]
+630:                                              ; preds = %95, %100, %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit447, %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit441, %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit435, %548, %533, %_ZNK12_GLOBAL__N_116X86MCCodeEmitter16emitRegModRMByteERKN4llvm9MCOperandEjRNS1_15SmallVectorImplIcEE.exit, %467, %444, %418, %402, %348, %323, %305, %302, %248, %230, %210, %185, %165, %149, %switch.lookup516, %switch.lookup513, %switch.lookup510, %switch.lookup, %86
+  %.0344 = phi i32 [ 0, %86 ], [ 0, %switch.lookup ], [ 0, %100 ], [ 0, %95 ], [ 0, %switch.lookup510 ], [ 0, %switch.lookup513 ], [ 0, %switch.lookup516 ], [ 0, %149 ], [ 0, %165 ], [ 0, %185 ], [ 0, %210 ], [ 0, %230 ], [ 0, %248 ], [ %.1345, %302 ], [ 0, %305 ], [ %337, %323 ], [ 0, %348 ], [ 0, %402 ], [ %432, %418 ], [ 0, %444 ], [ 0, %467 ], [ 0, %_ZNK12_GLOBAL__N_116X86MCCodeEmitter16emitRegModRMByteERKN4llvm9MCOperandEjRNS1_15SmallVectorImplIcEE.exit ], [ 0, %533 ], [ 0, %548 ], [ 0, %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit435 ], [ 0, %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit441 ], [ 0, %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit447 ]
+  %.1 = phi i32 [ %23, %86 ], [ %.0, %switch.lookup ], [ %.0, %100 ], [ %.0, %95 ], [ %23, %switch.lookup510 ], [ %23, %switch.lookup513 ], [ %23, %switch.lookup516 ], [ %23, %149 ], [ %23, %165 ], [ %23, %185 ], [ %23, %210 ], [ %23, %230 ], [ %23, %248 ], [ %spec.select363, %302 ], [ %23, %305 ], [ %23, %323 ], [ %23, %348 ], [ %23, %402 ], [ %23, %418 ], [ %23, %444 ], [ %23, %467 ], [ %23, %_ZNK12_GLOBAL__N_116X86MCCodeEmitter16emitRegModRMByteERKN4llvm9MCOperandEjRNS1_15SmallVectorImplIcEE.exit ], [ %23, %533 ], [ %23, %548 ], [ %23, %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit435 ], [ %23, %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit441 ], [ %23, %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit447 ]
   %.pre490 = load i32, ptr %6, align 4, !tbaa !36
   br i1 %73, label %631, label %.thread461
 
@@ -4683,7 +4683,7 @@ _ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit447: ; preds = %_ZN
   %652 = add nsw i64 %72, -262144
   %653 = lshr exact i64 %652, 18
   %switch.i.i = icmp eq i64 %72, 2097152
-  %switch.gep506 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.32, i64 0, i64 %653
+  %switch.gep520 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.32, i64 0, i64 %653
   br label %654
 
 654:                                              ; preds = %.lr.ph, %_ZL15getImmFixupKindm.exit
@@ -4695,9 +4695,9 @@ _ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit447: ; preds = %_ZN
   %659 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %658, i64 %657
   %.sroa.0.0.copyload.i449 = load ptr, ptr %651, align 8, !tbaa !232
   switch i64 %653, label %660 [
-    i64 0, label %switch.lookup505
-    i64 1, label %switch.lookup505
-    i64 2, label %switch.lookup505
+    i64 0, label %switch.lookup519
+    i64 1, label %switch.lookup519
+    i64 2, label %switch.lookup519
     i64 3, label %661
     i64 4, label %661
     i64 5, label %662
@@ -4710,14 +4710,14 @@ _ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit447: ; preds = %_ZN
   unreachable
 
 661:                                              ; preds = %654, %654
-  br label %switch.lookup505
+  br label %switch.lookup519
 
 662:                                              ; preds = %654, %654, %654
-  br label %switch.lookup505
+  br label %switch.lookup519
 
-switch.lookup505:                                 ; preds = %662, %661, %654, %654, %654
+switch.lookup519:                                 ; preds = %662, %661, %654, %654, %654
   %.0.i450 = phi i32 [ 2, %661 ], [ 4, %662 ], [ 1, %654 ], [ 1, %654 ], [ 1, %654 ]
-  %switch.load507 = load i32, ptr %switch.gep506, align 4
+  %switch.load521 = load i32, ptr %switch.gep520, align 4
   switch i64 %653, label %663 [
     i64 1, label %_ZN4llvm5X86II10isImmPCRelEm.exit.i
     i64 4, label %_ZN4llvm5X86II10isImmPCRelEm.exit.i
@@ -4729,18 +4729,18 @@ switch.lookup505:                                 ; preds = %662, %661, %654, %6
     i64 7, label %_ZN4llvm5X86II12getSizeOfImmEm.exit.thread.i
   ]
 
-663:                                              ; preds = %switch.lookup505
+663:                                              ; preds = %switch.lookup519
   unreachable
 
-_ZN4llvm5X86II12getSizeOfImmEm.exit.thread.i:     ; preds = %654, %switch.lookup505, %switch.lookup505, %switch.lookup505, %switch.lookup505, %switch.lookup505
-  %.0.i450467 = phi i32 [ %.0.i450, %switch.lookup505 ], [ %.0.i450, %switch.lookup505 ], [ %.0.i450, %switch.lookup505 ], [ %.0.i450, %switch.lookup505 ], [ %.0.i450, %switch.lookup505 ], [ 8, %654 ]
-  %.0.i9.i = phi i32 [ %switch.load507, %switch.lookup505 ], [ %switch.load507, %switch.lookup505 ], [ %switch.load507, %switch.lookup505 ], [ %switch.load507, %switch.lookup505 ], [ %switch.load507, %switch.lookup505 ], [ 8, %654 ]
+_ZN4llvm5X86II12getSizeOfImmEm.exit.thread.i:     ; preds = %654, %switch.lookup519, %switch.lookup519, %switch.lookup519, %switch.lookup519, %switch.lookup519
+  %.0.i450467 = phi i32 [ %.0.i450, %switch.lookup519 ], [ %.0.i450, %switch.lookup519 ], [ %.0.i450, %switch.lookup519 ], [ %.0.i450, %switch.lookup519 ], [ %.0.i450, %switch.lookup519 ], [ 8, %654 ]
+  %.0.i9.i = phi i32 [ %switch.load521, %switch.lookup519 ], [ %switch.load521, %switch.lookup519 ], [ %switch.load521, %switch.lookup519 ], [ %switch.load521, %switch.lookup519 ], [ %switch.load521, %switch.lookup519 ], [ 8, %654 ]
   br label %_ZN4llvm5X86II10isImmPCRelEm.exit.i
 
-_ZN4llvm5X86II10isImmPCRelEm.exit.i:              ; preds = %_ZN4llvm5X86II12getSizeOfImmEm.exit.thread.i, %switch.lookup505, %switch.lookup505, %switch.lookup505
-  %.0.i450466 = phi i32 [ %.0.i450467, %_ZN4llvm5X86II12getSizeOfImmEm.exit.thread.i ], [ %.0.i450, %switch.lookup505 ], [ %.0.i450, %switch.lookup505 ], [ %.0.i450, %switch.lookup505 ]
-  %.0.i10.i = phi i32 [ %.0.i9.i, %_ZN4llvm5X86II12getSizeOfImmEm.exit.thread.i ], [ %switch.load507, %switch.lookup505 ], [ %switch.load507, %switch.lookup505 ], [ %switch.load507, %switch.lookup505 ]
-  %.0.i6.i = phi i1 [ false, %_ZN4llvm5X86II12getSizeOfImmEm.exit.thread.i ], [ true, %switch.lookup505 ], [ true, %switch.lookup505 ], [ true, %switch.lookup505 ]
+_ZN4llvm5X86II10isImmPCRelEm.exit.i:              ; preds = %_ZN4llvm5X86II12getSizeOfImmEm.exit.thread.i, %switch.lookup519, %switch.lookup519, %switch.lookup519
+  %.0.i450466 = phi i32 [ %.0.i450467, %_ZN4llvm5X86II12getSizeOfImmEm.exit.thread.i ], [ %.0.i450, %switch.lookup519 ], [ %.0.i450, %switch.lookup519 ], [ %.0.i450, %switch.lookup519 ]
+  %.0.i10.i = phi i32 [ %.0.i9.i, %_ZN4llvm5X86II12getSizeOfImmEm.exit.thread.i ], [ %switch.load521, %switch.lookup519 ], [ %switch.load521, %switch.lookup519 ], [ %switch.load521, %switch.lookup519 ]
+  %.0.i6.i = phi i1 [ false, %_ZN4llvm5X86II12getSizeOfImmEm.exit.thread.i ], [ true, %switch.lookup519 ], [ true, %switch.lookup519 ], [ true, %switch.lookup519 ]
   br i1 %switch.i.i, label %_ZL15getImmFixupKindm.exit, label %664
 
 664:                                              ; preds = %_ZN4llvm5X86II10isImmPCRelEm.exit.i
@@ -6067,13 +6067,13 @@ _ZN4llvm5X86II7needSIBENS_10MCRegisterES1_b.exit.thread: ; preds = %173, %167
   br label %244
 
 244:                                              ; preds = %241, %235, %_ZN4llvm5X86II7needSIBENS_10MCRegisterES1_b.exit.thread, %.thread239, %.thread240
-  %.sink254 = phi i8 [ -124, %.thread240 ], [ 4, %.thread239 ], [ 4, %_ZN4llvm5X86II7needSIBENS_10MCRegisterES1_b.exit.thread ], [ 4, %235 ], [ 68, %241 ]
+  %.sink262 = phi i8 [ -124, %.thread240 ], [ 4, %.thread239 ], [ 4, %_ZN4llvm5X86II7needSIBENS_10MCRegisterES1_b.exit.thread ], [ 4, %235 ], [ 68, %241 ]
   %.0183 = phi i1 [ false, %.thread240 ], [ false, %.thread239 ], [ false, %_ZN4llvm5X86II7needSIBENS_10MCRegisterES1_b.exit.thread ], [ false, %235 ], [ true, %241 ]
   %.0182 = phi i1 [ true, %.thread240 ], [ true, %.thread239 ], [ true, %_ZN4llvm5X86II7needSIBENS_10MCRegisterES1_b.exit.thread ], [ false, %235 ], [ false, %241 ]
   %.0179 = phi i32 [ %79, %.thread240 ], [ 5, %.thread239 ], [ 5, %_ZN4llvm5X86II7needSIBENS_10MCRegisterES1_b.exit.thread ], [ %79, %235 ], [ %79, %241 ]
   %.tr248 = trunc nsw i32 %3 to i8
   %245 = shl i8 %.tr248, 3
-  %246 = or i8 %245, %.sink254
+  %246 = or i8 %245, %.sink262
   tail call fastcc void @_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE(i8 noundef zeroext %246, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %247 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %18, i64 %22, i32 1
   %248 = load i64, ptr %247, align 8, !tbaa !48

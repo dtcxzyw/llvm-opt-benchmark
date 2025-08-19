@@ -211,19 +211,19 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
   %118 = shl nuw i64 1, %117
   %119 = and i64 %116, %118
   %.not204 = icmp eq i64 %119, 0
-  br i1 %.not204, label %120, label %.critedge.loopexit.split.loop.exit283
+  br i1 %.not204, label %120, label %.critedge.loopexit.split.loop.exit304
 
 120:                                              ; preds = %.lr.ph222
   %indvars.iv.next267 = add nsw i64 %indvars.iv266, -1
   %121 = icmp sgt i64 %indvars.iv266, 0
   br i1 %121, label %.lr.ph222, label %.critedge
 
-.critedge.loopexit.split.loop.exit283:            ; preds = %.lr.ph222
+.critedge.loopexit.split.loop.exit304:            ; preds = %.lr.ph222
   %122 = trunc nuw nsw i64 %indvars.iv266 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %120, %.critedge.loopexit.split.loop.exit283, %103
-  %.0162.lcssa = phi i32 [ %.0166244, %103 ], [ %122, %.critedge.loopexit.split.loop.exit283 ], [ -1, %120 ]
+.critedge:                                        ; preds = %120, %.critedge.loopexit.split.loop.exit304, %103
+  %.0162.lcssa = phi i32 [ %.0166244, %103 ], [ %122, %.critedge.loopexit.split.loop.exit304 ], [ -1, %120 ]
   %123 = add nsw i32 %.0162.lcssa, %111
   %124 = tail call i32 @llvm.smax.i32(i32 %.0166244, i32 %123)
   %125 = add nsw i32 %.0162.lcssa, 1

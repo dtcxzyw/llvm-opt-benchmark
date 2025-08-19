@@ -1119,8 +1119,8 @@ for.end108:                                       ; preds = %for.cond96.preheade
   br label %for.end131
 
 for.cond116.preheader.lr.ph:                      ; preds = %for.body99
-  %weak_field_map_offset194 = getelementptr inbounds nuw i8, ptr %call12, i64 72
-  store i32 -1, ptr %weak_field_map_offset194, align 8
+  %weak_field_map_offset209 = getelementptr inbounds nuw i8, ptr %call12, i64 72
+  store i32 -1, ptr %weak_field_map_offset209, align 8
   store i32 %add105, ptr %call12, align 8
   %oneof_decls_.i.i = getelementptr inbounds nuw i8, ptr %type, i64 64
   %82 = load ptr, ptr %oneof_decls_.i.i, align 8
@@ -1194,9 +1194,9 @@ for.inc129:                                       ; preds = %_ZNK6google8protobu
   br i1 %exitcond189.not, label %for.end131, label %for.cond116.preheader, !llvm.loop !18
 
 for.end131:                                       ; preds = %for.inc129, %for.end108
-  %weak_field_map_offset197 = phi ptr [ %weak_field_map_offset, %for.end108 ], [ %weak_field_map_offset194, %for.inc129 ]
-  %size.5.lcssa195 = phi i32 [ %size.3.lcssa, %for.end108 ], [ %add105, %for.inc129 ]
-  %conv132 = sext i32 %size.5.lcssa195 to i64
+  %weak_field_map_offset212 = phi ptr [ %weak_field_map_offset, %for.end108 ], [ %weak_field_map_offset209, %for.inc129 ]
+  %size.5.lcssa210 = phi i32 [ %size.3.lcssa, %for.end108 ], [ %add105, %for.inc129 ]
+  %conv132 = sext i32 %size.5.lcssa210 to i64
   %call133 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv132) #24
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call133, i8 0, i64 %conv132, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %call133, i64 8
@@ -1234,7 +1234,7 @@ for.end131:                                       ; preds = %for.inc129, %for.en
   %98 = load i32, ptr %call12, align 8
   store i32 %98, ptr %object_size_, align 8
   %weak_field_map_offset_ = getelementptr inbounds nuw i8, ptr %schema, i64 44
-  %99 = load i32, ptr %weak_field_map_offset197, align 8
+  %99 = load i32, ptr %weak_field_map_offset212, align 8
   store i32 %99, ptr %weak_field_map_offset_, align 4
   %inlined_string_indices_ = getelementptr inbounds nuw i8, ptr %schema, i64 48
   store ptr null, ptr %inlined_string_indices_, align 8

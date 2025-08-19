@@ -429,7 +429,7 @@ expand_bottom_edge.exit:                          ; preds = %expand_bottom_edge.
 .thread:                                          ; preds = %.preheader80, %._crit_edge.loopexit
   %86 = phi i32 [ %.pre97, %._crit_edge.loopexit ], [ %69, %.preheader80 ]
   store i32 %86, ptr %16, align 4, !tbaa !62
-  %.pre101102 = load i32, ptr %5, align 4, !tbaa !65
+  %.pre101114 = load i32, ptr %5, align 4, !tbaa !65
   br label %91
 
 87:                                               ; preds = %67, %.loopexit
@@ -440,12 +440,12 @@ expand_bottom_edge.exit:                          ; preds = %expand_bottom_edge.
   br i1 %90, label %91, label %106
 
 91:                                               ; preds = %.thread, %87
-  %.pre101103 = phi i32 [ %.pre101102, %.thread ], [ %.pre101, %87 ]
+  %.pre101115 = phi i32 [ %.pre101114, %.thread ], [ %.pre101, %87 ]
   %92 = load ptr, ptr %23, align 8, !tbaa !41
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8, !tbaa !75
   %95 = load i32, ptr %24, align 8, !tbaa !63
-  tail call void %94(ptr noundef %0, ptr noundef nonnull %19, i32 noundef %95, ptr noundef %4, i32 noundef %.pre101103) #4
+  tail call void %94(ptr noundef %0, ptr noundef nonnull %19, i32 noundef %95, ptr noundef %4, i32 noundef %.pre101115) #4
   %96 = load i32, ptr %5, align 4, !tbaa !65
   %97 = add i32 %96, 1
   store i32 %97, ptr %5, align 4, !tbaa !65

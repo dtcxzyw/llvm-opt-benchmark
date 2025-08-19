@@ -140,8 +140,8 @@ define dso_local nonnull ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %47
-  %.not60 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not60, label %105, label %52
+  %.not63 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not63, label %105, label %52
 
 52:                                               ; preds = %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 16 dereferenceable(96) %35, i64 96, i1 false)

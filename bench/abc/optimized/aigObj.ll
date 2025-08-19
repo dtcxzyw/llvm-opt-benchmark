@@ -610,7 +610,7 @@ Aig_ManFetchMemory.exit:                          ; preds = %.Vec_PtrGrow.exit11
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %56 = load ptr, ptr %55, align 8, !tbaa !35
   %.not = icmp eq ptr %56, null
-  br i1 %.not, label %108, label %57
+  br i1 %.not, label %117, label %57
 
 57:                                               ; preds = %Aig_ManFetchMemory.exit
   %58 = getelementptr i8, ptr %5, i64 8
@@ -635,84 +635,98 @@ Aig_ObjFaninId0.exit:                             ; preds = %57, %59
   %69 = load float, ptr %68, align 4, !tbaa !29
   %70 = getelementptr i8, ptr %5, i64 16
   %.val30 = load ptr, ptr %70, align 8, !tbaa !32
-  %.not.i33 = icmp eq ptr %.val30, null
-  %.pre = ptrtoint ptr %.val30 to i64
-  br i1 %.not.i33, label %Aig_ObjFaninId1.exit, label %71
+  %.val30.fr = freeze ptr %.val30
+  %.not.i33 = icmp eq ptr %.val30.fr, null
+  br i1 %.not.i33, label %Aig_ObjFaninId1.exit.thread, label %Aig_ObjFaninId1.exit
 
-71:                                               ; preds = %Aig_ObjFaninId0.exit
-  %72 = and i64 %.pre, -2
-  %73 = inttoptr i64 %72 to ptr
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 36
-  %75 = load i32, ptr %74, align 4, !tbaa !24
-  %76 = sext i32 %75 to i64
-  br label %Aig_ObjFaninId1.exit
+Aig_ObjFaninId1.exit.thread:                      ; preds = %Aig_ObjFaninId0.exit
+  %71 = getelementptr inbounds i8, ptr %.val28, i64 -4
+  %72 = load float, ptr %71, align 4, !tbaa !29
+  %73 = ptrtoint ptr %.val27 to i64
+  %74 = and i64 %73, 1
+  %.not2545 = icmp eq i64 %74, 0
+  %75 = fsub float 1.000000e+00, %69
+  %76 = select i1 %.not2545, float %69, float %75
+  br label %93
 
-Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exit, %71
-  %77 = phi i64 [ %76, %71 ], [ -1, %Aig_ObjFaninId0.exit ]
-  %78 = getelementptr inbounds i32, ptr %.val28, i64 %77
-  %79 = load float, ptr %78, align 4, !tbaa !29
-  %80 = ptrtoint ptr %.val27 to i64
-  %81 = and i64 %80, 1
-  %.not25 = icmp eq i64 %81, 0
-  %82 = fsub float 1.000000e+00, %69
-  %83 = select i1 %.not25, float %69, float %82
-  %84 = and i64 %.pre, 1
-  %.not26 = icmp eq i64 %84, 0
-  %85 = fsub float 1.000000e+00, %79
-  %86 = select i1 %.not26, float %79, float %85
-  %87 = load i32, ptr %9, align 4, !tbaa !24
-  %88 = fmul float %83, %86
-  %89 = add nsw i32 %87, 1
-  %90 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %91 = load i32, ptr %90, align 4, !tbaa !38
-  %.not.i.not.i = icmp slt i32 %87, %91
-  br i1 %.not.i.not.i, label %Vec_IntSetEntry.exit, label %92
+Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exit
+  %77 = ptrtoint ptr %.val30.fr to i64
+  %78 = and i64 %77, -2
+  %79 = inttoptr i64 %78 to ptr
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 36
+  %81 = load i32, ptr %80, align 4, !tbaa !24
+  %82 = sext i32 %81 to i64
+  %83 = and i64 %77, 1
+  %84 = icmp eq i64 %83, 0
+  %85 = getelementptr inbounds i32, ptr %.val28, i64 %82
+  %86 = load float, ptr %85, align 4, !tbaa !29
+  %87 = ptrtoint ptr %.val27 to i64
+  %88 = and i64 %87, 1
+  %.not25 = icmp eq i64 %88, 0
+  %89 = fsub float 1.000000e+00, %69
+  %90 = select i1 %.not25, float %69, float %89
+  %91 = fsub float 1.000000e+00, %86
+  br i1 %84, label %92, label %93
 
 92:                                               ; preds = %Aig_ObjFaninId1.exit
-  %93 = load i32, ptr %56, align 8, !tbaa !39
-  %.not.i.i.not.i = icmp sgt i32 %93, %87
+  br label %93
+
+93:                                               ; preds = %Aig_ObjFaninId1.exit.thread, %Aig_ObjFaninId1.exit, %92
+  %94 = phi float [ %90, %Aig_ObjFaninId1.exit ], [ %76, %Aig_ObjFaninId1.exit.thread ], [ %90, %92 ]
+  %95 = phi float [ %91, %Aig_ObjFaninId1.exit ], [ %72, %Aig_ObjFaninId1.exit.thread ], [ %86, %92 ]
+  %96 = load i32, ptr %9, align 4, !tbaa !24
+  %97 = fmul float %94, %95
+  %98 = add nsw i32 %96, 1
+  %99 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %100 = load i32, ptr %99, align 4, !tbaa !38
+  %.not.i.not.i = icmp slt i32 %96, %100
+  br i1 %.not.i.not.i, label %Vec_IntSetEntry.exit, label %101
+
+101:                                              ; preds = %93
+  %102 = load i32, ptr %56, align 8, !tbaa !39
+  %.not.i.i.not.i = icmp sgt i32 %102, %96
   br i1 %.not.i.i.not.i, label %Vec_IntGrow.exit.i.i, label %Vec_IntGrow.exit.sink.split.i.i
 
-Vec_IntGrow.exit.sink.split.i.i:                  ; preds = %92
-  %94 = shl nsw i32 %93, 1
-  %. = tail call i32 @llvm.smax.i32(i32 %94, i32 %89)
-  %95 = sext i32 %. to i64
-  %96 = shl nsw i64 %95, 2
-  %97 = tail call ptr @realloc(ptr noundef nonnull %.val28, i64 noundef %96) #12
-  store ptr %97, ptr %67, align 8, !tbaa !36
+Vec_IntGrow.exit.sink.split.i.i:                  ; preds = %101
+  %103 = shl nsw i32 %102, 1
+  %. = tail call i32 @llvm.smax.i32(i32 %103, i32 %98)
+  %104 = sext i32 %. to i64
+  %105 = shl nsw i64 %104, 2
+  %106 = tail call ptr @realloc(ptr noundef nonnull %.val28, i64 noundef %105) #12
+  store ptr %106, ptr %67, align 8, !tbaa !36
   store i32 %., ptr %56, align 8, !tbaa !39
-  %.pre.i = load i32, ptr %90, align 4, !tbaa !38
+  %.pre.i = load i32, ptr %99, align 4, !tbaa !38
   br label %Vec_IntGrow.exit.i.i
 
-Vec_IntGrow.exit.i.i:                             ; preds = %92, %Vec_IntGrow.exit.sink.split.i.i
-  %98 = phi ptr [ %97, %Vec_IntGrow.exit.sink.split.i.i ], [ %.val28, %92 ]
-  %99 = phi i32 [ %.pre.i, %Vec_IntGrow.exit.sink.split.i.i ], [ %91, %92 ]
-  %.not4.i = icmp sgt i32 %99, %87
+Vec_IntGrow.exit.i.i:                             ; preds = %101, %Vec_IntGrow.exit.sink.split.i.i
+  %107 = phi ptr [ %106, %Vec_IntGrow.exit.sink.split.i.i ], [ %.val28, %101 ]
+  %108 = phi i32 [ %.pre.i, %Vec_IntGrow.exit.sink.split.i.i ], [ %100, %101 ]
+  %.not4.i = icmp sgt i32 %108, %96
   br i1 %.not4.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %Vec_IntGrow.exit.i.i
-  %100 = sext i32 %99 to i64
-  %101 = shl nsw i64 %100, 2
-  %scevgep.i.i = getelementptr i8, ptr %98, i64 %101
-  %102 = sub i32 %87, %99
-  %103 = zext i32 %102 to i64
-  %104 = shl nuw nsw i64 %103, 2
-  %105 = add nuw nsw i64 %104, 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i, i8 0, i64 %105, i1 false), !tbaa !29
+  %109 = sext i32 %108 to i64
+  %110 = shl nsw i64 %109, 2
+  %scevgep.i.i = getelementptr i8, ptr %107, i64 %110
+  %111 = sub i32 %96, %108
+  %112 = zext i32 %111 to i64
+  %113 = shl nuw nsw i64 %112, 2
+  %114 = add nuw nsw i64 %113, 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i, i8 0, i64 %114, i1 false), !tbaa !29
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %Vec_IntGrow.exit.i.i
-  store i32 %89, ptr %90, align 4, !tbaa !38
+  store i32 %98, ptr %99, align 4, !tbaa !38
   br label %Vec_IntSetEntry.exit
 
-Vec_IntSetEntry.exit:                             ; preds = %Aig_ObjFaninId1.exit, %._crit_edge.i.i
-  %.val.i36 = phi ptr [ %.val28, %Aig_ObjFaninId1.exit ], [ %98, %._crit_edge.i.i ]
-  %106 = sext i32 %87 to i64
-  %107 = getelementptr inbounds i32, ptr %.val.i36, i64 %106
-  store float %88, ptr %107, align 4, !tbaa !29
-  br label %108
+Vec_IntSetEntry.exit:                             ; preds = %93, %._crit_edge.i.i
+  %.val.i36 = phi ptr [ %.val28, %93 ], [ %107, %._crit_edge.i.i ]
+  %115 = sext i32 %96 to i64
+  %116 = getelementptr inbounds i32, ptr %.val.i36, i64 %115
+  store float %97, ptr %116, align 4, !tbaa !29
+  br label %117
 
-108:                                              ; preds = %Vec_IntSetEntry.exit, %Aig_ManFetchMemory.exit
+117:                                              ; preds = %Vec_IntSetEntry.exit, %Aig_ManFetchMemory.exit
   ret ptr %5
 }
 
@@ -955,8 +969,8 @@ tailrecurse:                                      ; preds = %74, %3
   %.pre41 = load i64, ptr %11, align 8
   %24 = and i64 %.pre41, 7
   %.not12.i = icmp eq i64 %24, 4
-  %or.cond42 = select i1 %.not.i, i1 %.not12.i, i1 false
-  br i1 %or.cond42, label %25, label %Aig_ObjDelete.exit
+  %or.cond43 = select i1 %.not.i, i1 %.not12.i, i1 false
+  br i1 %or.cond43, label %25, label %Aig_ObjDelete.exit
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %5, align 8, !tbaa !40

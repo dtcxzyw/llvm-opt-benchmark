@@ -398,9 +398,9 @@ Vec_PtrPush.exit184.sink.split:                   ; preds = %Extra_ProgressBarUp
   %183 = shl nuw nsw i32 %179, 1
   %184 = zext nneg i32 %183 to i64
   %185 = shl nuw nsw i64 %184, 3
-  %.sink273 = select i1 %182, i64 128, i64 %185
+  %.sink292 = select i1 %182, i64 128, i64 %185
   %.sink = select i1 %182, i32 16, i32 %183
-  %186 = tail call ptr @realloc(ptr noundef nonnull %.val, i64 noundef %.sink273) #11
+  %186 = tail call ptr @realloc(ptr noundef nonnull %.val, i64 noundef %.sink292) #11
   store ptr %186, ptr %58, align 8, !tbaa !32
   store i32 %.sink, ptr %46, align 8, !tbaa !30
   br label %Vec_PtrPush.exit184

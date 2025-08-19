@@ -118,7 +118,7 @@ define void @dlalsd_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %60 = add nsw i32 %46, -1
   %61 = sext i32 %26 to i64
   %invariant.gep = getelementptr double, ptr %28, i64 %61
-  %invariant.gep706 = getelementptr double, ptr %28, i64 %61
+  %invariant.gep718 = getelementptr double, ptr %28, i64 %61
   %62 = sext i32 %60 to i64
   br label %.lr.ph
 
@@ -145,8 +145,8 @@ define void @dlalsd_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
 
 75:                                               ; preds = %.lr.ph
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
-  %gep707 = getelementptr double, ptr %invariant.gep706, i64 %indvars.iv.next
-  call void @drot_(ptr noundef nonnull @c__1, ptr noundef %gep, ptr noundef nonnull @c__1, ptr noundef %gep707, ptr noundef nonnull @c__1, ptr noundef nonnull %20, ptr noundef nonnull %21) #5
+  %gep719 = getelementptr double, ptr %invariant.gep718, i64 %indvars.iv.next
+  call void @drot_(ptr noundef nonnull @c__1, ptr noundef %gep, ptr noundef nonnull @c__1, ptr noundef %gep719, ptr noundef nonnull @c__1, ptr noundef nonnull %20, ptr noundef nonnull %21) #5
   br label %81
 
 76:                                               ; preds = %.lr.ph
@@ -193,26 +193,26 @@ define void @dlalsd_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
 .lr.ph643:                                        ; preds = %.lr.ph648.split
   %89 = mul nsw i64 %indvars.iv682, %86
   %wide.trip.count = zext nneg i32 %88 to i64
-  %invariant.gep708 = getelementptr double, ptr %28, i64 %89
-  %invariant.gep710 = getelementptr double, ptr %28, i64 %89
+  %invariant.gep720 = getelementptr double, ptr %28, i64 %89
+  %invariant.gep722 = getelementptr double, ptr %28, i64 %89
   br label %90
 
 90:                                               ; preds = %.lr.ph643, %90
   %indvars.iv679 = phi i64 [ 1, %.lr.ph643 ], [ %indvars.iv.next680, %90 ]
-  %sext703 = shl i64 %indvars.iv679, 33
-  %91 = ashr exact i64 %sext703, 29
+  %sext715 = shl i64 %indvars.iv679, 33
+  %91 = ashr exact i64 %sext715, 29
   %92 = getelementptr i8, ptr %29, i64 %91
   %93 = getelementptr i8, ptr %92, i64 -8
   %94 = load double, ptr %93, align 8, !tbaa !7
   store double %94, ptr %20, align 8, !tbaa !7
-  %.idx704 = shl nuw i64 %indvars.iv679, 4
-  %95 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx704
+  %.idx716 = shl nuw i64 %indvars.iv679, 4
+  %95 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx716
   %96 = load double, ptr %95, align 8, !tbaa !7
   store double %96, ptr %21, align 8, !tbaa !7
-  %gep709 = getelementptr double, ptr %invariant.gep708, i64 %indvars.iv679
+  %gep721 = getelementptr double, ptr %invariant.gep720, i64 %indvars.iv679
   %indvars.iv.next680 = add nuw nsw i64 %indvars.iv679, 1
-  %gep711 = getelementptr double, ptr %invariant.gep710, i64 %indvars.iv.next680
-  call void @drot_(ptr noundef nonnull @c__1, ptr noundef %gep709, ptr noundef nonnull @c__1, ptr noundef %gep711, ptr noundef nonnull @c__1, ptr noundef nonnull %20, ptr noundef nonnull %21) #5
+  %gep723 = getelementptr double, ptr %invariant.gep722, i64 %indvars.iv.next680
+  call void @drot_(ptr noundef nonnull @c__1, ptr noundef %gep721, ptr noundef nonnull @c__1, ptr noundef %gep723, ptr noundef nonnull @c__1, ptr noundef nonnull %20, ptr noundef nonnull %21) #5
   %exitcond.not = icmp eq i64 %indvars.iv.next680, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge644, label %90, !llvm.loop !12
 
@@ -267,8 +267,8 @@ define void @dlalsd_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
 
 .lr.ph652.preheader:                              ; preds = %111
   %121 = sext i32 %26 to i64
-  %invariant.gep712 = getelementptr double, ptr %28, i64 %121
-  %invariant.gep714 = getelementptr double, ptr %28, i64 %121
+  %invariant.gep724 = getelementptr double, ptr %28, i64 %121
+  %invariant.gep726 = getelementptr double, ptr %28, i64 %121
   %122 = zext nneg i32 %120 to i64
   br label %.lr.ph652
 
@@ -280,13 +280,13 @@ define void @dlalsd_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   br i1 %125, label %127, label %126
 
 126:                                              ; preds = %.lr.ph652
-  %gep713 = getelementptr double, ptr %invariant.gep712, i64 %indvars.iv685
-  call void @dlaset_(ptr noundef nonnull @.str.2, ptr noundef nonnull @c__1, ptr noundef nonnull %3, ptr noundef nonnull @c_b6, ptr noundef nonnull @c_b6, ptr noundef %gep713, ptr noundef nonnull %7) #5
+  %gep725 = getelementptr double, ptr %invariant.gep724, i64 %indvars.iv685
+  call void @dlaset_(ptr noundef nonnull @.str.2, ptr noundef nonnull @c__1, ptr noundef nonnull %3, ptr noundef nonnull @c_b6, ptr noundef nonnull @c_b6, ptr noundef %gep725, ptr noundef nonnull %7) #5
   br label %130
 
 127:                                              ; preds = %.lr.ph652
-  %gep715 = getelementptr double, ptr %invariant.gep714, i64 %indvars.iv685
-  call void @dlascl_(ptr noundef nonnull @.str.3, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %123, ptr noundef nonnull @c_b11, ptr noundef nonnull @c__1, ptr noundef nonnull %3, ptr noundef %gep715, ptr noundef nonnull %7, ptr noundef nonnull %12) #5
+  %gep727 = getelementptr double, ptr %invariant.gep726, i64 %indvars.iv685
+  call void @dlascl_(ptr noundef nonnull @.str.3, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %123, ptr noundef nonnull @c_b11, ptr noundef nonnull @c__1, ptr noundef nonnull %3, ptr noundef %gep727, ptr noundef nonnull %7, ptr noundef nonnull %12) #5
   %128 = load i32, ptr %9, align 4, !tbaa !3
   %129 = add nsw i32 %128, 1
   store i32 %129, ptr %9, align 4, !tbaa !3
@@ -596,8 +596,8 @@ define void @dlalsd_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
 
 .lr.ph669.preheader:                              ; preds = %._crit_edge665
   %324 = sext i32 %157 to i64
-  %invariant.gep716 = getelementptr double, ptr %29, i64 %324
-  %invariant.gep718 = getelementptr double, ptr %29, i64 %324
+  %invariant.gep728 = getelementptr double, ptr %29, i64 %324
+  %invariant.gep730 = getelementptr double, ptr %29, i64 %324
   %325 = zext nneg i32 %323 to i64
   br label %.lr.ph669
 
@@ -610,8 +610,8 @@ define void @dlalsd_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   br i1 %329, label %332, label %330
 
 330:                                              ; preds = %.lr.ph669
-  %gep717 = getelementptr double, ptr %invariant.gep716, i64 %indvars.iv696
-  %331 = getelementptr i8, ptr %gep717, i64 -8
+  %gep729 = getelementptr double, ptr %invariant.gep728, i64 %indvars.iv696
+  %331 = getelementptr i8, ptr %gep729, i64 -8
   call void @dlaset_(ptr noundef nonnull @.str.2, ptr noundef nonnull @c__1, ptr noundef nonnull %3, ptr noundef nonnull @c_b6, ptr noundef nonnull @c_b6, ptr noundef %331, ptr noundef nonnull %2) #5
   br label %336
 
@@ -619,8 +619,8 @@ define void @dlalsd_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %333 = load i32, ptr %9, align 4, !tbaa !3
   %334 = add nsw i32 %333, 1
   store i32 %334, ptr %9, align 4, !tbaa !3
-  %gep719 = getelementptr double, ptr %invariant.gep718, i64 %indvars.iv696
-  %335 = getelementptr i8, ptr %gep719, i64 -8
+  %gep731 = getelementptr double, ptr %invariant.gep730, i64 %indvars.iv696
+  %335 = getelementptr i8, ptr %gep731, i64 -8
   call void @dlascl_(ptr noundef nonnull @.str.3, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %326, ptr noundef nonnull @c_b11, ptr noundef nonnull @c__1, ptr noundef nonnull %3, ptr noundef %335, ptr noundef nonnull %2, ptr noundef nonnull %12) #5
   br label %336
 

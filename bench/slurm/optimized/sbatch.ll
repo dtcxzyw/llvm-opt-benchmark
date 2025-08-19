@@ -1075,7 +1075,7 @@ _fill_job_desc_from_opts.exit:                    ; preds = %302
 438:                                              ; preds = %436
   %439 = tail call ptr @__errno_location() #17
   %440 = load i32, ptr %439, align 4
-  switch i32 %440, label %.thread237 [
+  switch i32 %440, label %.thread263 [
     i32 2007, label %443
     i32 2016, label %441
     i32 2059, label %441
@@ -1088,7 +1088,7 @@ _fill_job_desc_from_opts.exit:                    ; preds = %302
 442:                                              ; preds = %438
   br label %443
 
-.thread237:                                       ; preds = %438
+.thread263:                                       ; preds = %438
   store ptr null, ptr @main.msg, align 8
   br label %.loopexit
 
@@ -1098,7 +1098,7 @@ _fill_job_desc_from_opts.exit:                    ; preds = %302
   %444 = icmp samesign ugt i32 %.097, 14
   br i1 %444, label %.loopexit, label %447
 
-.loopexit:                                        ; preds = %443, %.thread237
+.loopexit:                                        ; preds = %443, %.thread263
   %445 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13) #14
   %446 = load i32, ptr @error_exit, align 4
   call void @exit(i32 noundef %446) #15
@@ -1297,12 +1297,12 @@ _fill_job_desc_from_opts.exit:                    ; preds = %302
   br label %498, !llvm.loop !21
 
 _job_wait.exit:                                   ; preds = %._crit_edge.i163, %._crit_edge.thread.i, %.thread.i159
-  %.32839.i = phi i32 [ %.02535.ph.i, %.thread.i159 ], [ %.02535.ph.i, %._crit_edge.thread.i ], [ %.227.i, %._crit_edge.i163 ]
+  %.32840.i = phi i32 [ %.02535.ph.i, %.thread.i159 ], [ %.02535.ph.i, %._crit_edge.thread.i ], [ %.227.i, %._crit_edge.i163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %530
 
 530:                                              ; preds = %_job_wait.exit, %492
-  %.3 = phi i32 [ %.32839.i, %_job_wait.exit ], [ %.2, %492 ]
+  %.3 = phi i32 [ %.32840.i, %_job_wait.exit ], [ %.2, %492 ]
   call void @slurm_xfree(ptr noundef nonnull %14) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

@@ -97,24 +97,24 @@ define dso_local noundef zeroext i1 @_ZN5clang6format13matchFilePathEN4llvm9Stri
   %49 = getelementptr inbounds nuw i8, ptr %17, i64 %47
   %50 = load i8, ptr %49, align 1, !tbaa !3
   %51 = icmp eq i8 %50, 42
-  br i1 %51, label %.lr.ph369, label %_ZNK4llvm9StringRef4findEcm.exit.loopexit
+  br i1 %51, label %.lr.ph390, label %_ZNK4llvm9StringRef4findEcm.exit.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph369
+.lr.ph:                                           ; preds = %.lr.ph390
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 %58
   %53 = load i8, ptr %52, align 1, !tbaa !3
   %54 = icmp eq i8 %53, 42
-  br i1 %54, label %.lr.ph369, label %_ZNK4llvm9StringRef4findEcm.exit.loopexit, !llvm.loop !6
+  br i1 %54, label %.lr.ph390, label %_ZNK4llvm9StringRef4findEcm.exit.loopexit, !llvm.loop !6
 
-.lr.ph369:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0129246368 = phi i32 [ %56, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+.lr.ph390:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0129246389 = phi i32 [ %56, %.lr.ph ], [ 1, %.lr.ph.preheader ]
   %55 = phi i32 [ %57, %.lr.ph ], [ %46, %.lr.ph.preheader ]
-  %56 = add nuw nsw i32 %.0129246368, 1
+  %56 = add nuw nsw i32 %.0129246389, 1
   %57 = add i32 %55, 1
   %58 = zext i32 %57 to i64
   %59 = icmp ugt i64 %1, %58
   br i1 %59, label %.lr.ph, label %._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge, !llvm.loop !6
 
-._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge: ; preds = %.lr.ph369
+._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge: ; preds = %.lr.ph390
   br label %_ZNK4llvm9StringRef4findEcm.exit.loopexit, !llvm.loop !6
 
 _ZNK4llvm9StringRef4findEcm.exit.loopexit:        ; preds = %.lr.ph, %._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge, %.lr.ph.preheader
@@ -204,9 +204,9 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %_ZNK4llvm9StringRef
 
 .loopexit.thread:                                 ; preds = %88
   %99 = load i64, ptr %6, align 8, !tbaa !8
-  %.sroa.speculated4.i315 = call i64 @llvm.umin.i64(i64 %99, i64 %90)
-  %100 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.speculated4.i315
-  %101 = sub i64 %99, %.sroa.speculated4.i315
+  %.sroa.speculated4.i336 = call i64 @llvm.umin.i64(i64 %99, i64 %90)
+  %100 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.speculated4.i336
+  %101 = sub i64 %99, %.sroa.speculated4.i336
   %102 = zext i32 %.0123257 to i64
   %103 = icmp ugt i64 %3, %102
   br i1 %103, label %.critedge7.us.preheader, label %.thread214
@@ -230,8 +230,8 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %_ZNK4llvm9StringRef
   %112 = add i32 %.3126271.us, 1
   %113 = zext i32 %112 to i64
   %114 = icmp ule i64 %3, %113
-  %or.cond380.not = select i1 %111, i1 true, i1 %114
-  br i1 %or.cond380.not, label %.thread214, label %.critedge7.us, !llvm.loop !13
+  %or.cond401.not = select i1 %111, i1 true, i1 %114
+  br i1 %or.cond401.not, label %.thread214, label %.critedge7.us, !llvm.loop !13
 
 115:                                              ; preds = %.critedge7
   %116 = add i32 %.3126271, 1

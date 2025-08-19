@@ -634,7 +634,7 @@ _ZL20clear_surface_pointsP23methoddata_insolidangle.exit: ; preds = %65, %_ZL19f
 
 152:                                              ; preds = %.lr.ph.i21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %153 = trunc nuw i64 %indvars.iv.next to i32
+  %153 = trunc nuw nsw i64 %indvars.iv.next to i32
   %154 = uitofp nneg i32 %153 to float
   %155 = fmul float %146, %154
   %156 = fcmp ogt float %155, %148

@@ -388,18 +388,18 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 .loopexit.i:                                      ; preds = %._crit_edge.i, %.thread.i
   %.13446.i = phi i32 [ %134, %.thread.i ], [ %.033.lcssa.i, %._crit_edge.i ]
   %.b.i = load i1, ptr @debug_flag, align 1
-  br i1 %.b.i, label %137, label %.preheader220
+  br i1 %.b.i, label %137, label %.preheader248
 
 137:                                              ; preds = %.loopexit.i
   %138 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.58)
-  br label %.preheader220
+  br label %.preheader248
 
-.preheader220:                                    ; preds = %137, %.loopexit.i
+.preheader248:                                    ; preds = %137, %.loopexit.i
   br label %139
 
-139:                                              ; preds = %.preheader220, %165
-  %.235.i = phi i32 [ 0, %165 ], [ %.13446.i, %.preheader220 ]
-  %.0.i = phi i32 [ %167, %165 ], [ %120, %.preheader220 ]
+139:                                              ; preds = %.preheader248, %165
+  %.235.i = phi i32 [ 0, %165 ], [ %.13446.i, %.preheader248 ]
+  %.0.i = phi i32 [ %167, %165 ], [ %120, %.preheader248 ]
   %140 = add nuw nsw i32 %.235.i, 1
   %141 = icmp slt i32 %140, %.0.i
   br i1 %141, label %.lr.ph58.i, label %._crit_edge59.i

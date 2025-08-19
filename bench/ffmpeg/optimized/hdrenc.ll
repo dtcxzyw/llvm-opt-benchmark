@@ -371,7 +371,7 @@ float2rgbe.exit86:                                ; preds = %.lr.ph, %134
   br i1 %or.cond61.i, label %.thread.i, label %197
 
 .thread.i:                                        ; preds = %186
-  %190 = trunc nuw i32 %.05568.i to i8
+  %190 = trunc nuw nsw i32 %.05568.i to i8
   %191 = or disjoint i8 %190, -128
   %192 = shl nsw i32 %.05277.i, 2
   %193 = sext i32 %192 to i64

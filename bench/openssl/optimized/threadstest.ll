@@ -1047,7 +1047,7 @@ start_threads.exit:                               ; preds = %19
   br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph.i, %.lr.ph, %.loopexit
-  %.0535 = phi i32 [ %spec.select, %.loopexit ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
+  %.0539 = phi i32 [ %spec.select, %.loopexit ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
   %43 = load ptr, ptr @multi_provider, align 16, !tbaa !24
   %.not4.i = icmp eq ptr %43, null
   br i1 %.not4.i, label %thead_teardown_libctx.exit, label %.lr.ph.i15
@@ -1069,7 +1069,7 @@ thead_teardown_libctx.exit:                       ; preds = %.lr.ph.i15, %._crit
   store i64 0, ptr @multi_num_threads, align 8, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) @multi_threads, i8 0, i64 80, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) @multi_provider, i8 0, i64 40, i1 false)
-  ret i32 %.0535
+  ret i32 %.0539
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1117,51 +1117,49 @@ thread_setup_libctx.exit:                         ; preds = %0
   br i1 %.not.i, label %teardown_threads.exit, label %.preheader.i
 
 22:                                               ; preds = %.preheader.i
-  %23 = add nuw nsw i64 %.07.i, 1
-  %exitcond.not.i = icmp eq i64 %23, 2
   br i1 %exitcond.not.i, label %start_threads.exit, label %.preheader.i, !llvm.loop !21
 
 .preheader.i:                                     ; preds = %18, %22
-  %.07.i = phi i64 [ %23, %22 ], [ 0, %18 ]
-  %24 = load i64, ptr @multi_num_threads, align 8, !tbaa !12
-  %25 = add i64 %24, 1
-  store i64 %25, ptr @multi_num_threads, align 8, !tbaa !12
-  %26 = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %24
-  %27 = tail call i32 @pthread_create(ptr noundef nonnull %26, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef nonnull @thread_provider_load_unload) #11
-  %28 = icmp eq i32 %27, 0
-  %29 = zext i1 %28 to i32
-  %30 = tail call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 784, ptr noundef nonnull @.str.51, i32 noundef %29) #11
-  %.not6.i = icmp eq i32 %30, 0
+  %exitcond.not.i = phi i1 [ true, %22 ], [ false, %18 ]
+  %23 = load i64, ptr @multi_num_threads, align 8, !tbaa !12
+  %24 = add i64 %23, 1
+  store i64 %24, ptr @multi_num_threads, align 8, !tbaa !12
+  %25 = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %23
+  %26 = tail call i32 @pthread_create(ptr noundef nonnull %25, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef nonnull @thread_provider_load_unload) #11
+  %27 = icmp eq i32 %26, 0
+  %28 = zext i1 %27 to i32
+  %29 = tail call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 784, ptr noundef nonnull @.str.51, i32 noundef %28) #11
+  %.not6.i = icmp eq i32 %29, 0
   br i1 %.not6.i, label %teardown_threads.exit, label %22
 
 start_threads.exit:                               ; preds = %22
   tail call void @thread_provider_load_unload()
-  %31 = load i64, ptr @multi_num_threads, align 8, !tbaa !12
-  %.not8.i = icmp eq i64 %31, 0
+  %30 = load i64, ptr @multi_num_threads, align 8, !tbaa !12
+  %.not8.i = icmp eq i64 %30, 0
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
 
-32:                                               ; preds = %.lr.ph.i
-  %33 = add nuw i64 %.05.i11, 1
-  %34 = load i64, ptr @multi_num_threads, align 8, !tbaa !12
-  %35 = icmp ult i64 %33, %34
-  br i1 %35, label %.lr.ph.i, label %.loopexit, !llvm.loop !22
+31:                                               ; preds = %.lr.ph.i
+  %32 = add nuw i64 %.05.i11, 1
+  %33 = load i64, ptr @multi_num_threads, align 8, !tbaa !12
+  %34 = icmp ult i64 %32, %33
+  br i1 %34, label %.lr.ph.i, label %.loopexit, !llvm.loop !22
 
-.lr.ph.i:                                         ; preds = %start_threads.exit, %32
-  %.05.i11 = phi i64 [ %33, %32 ], [ 0, %start_threads.exit ]
-  %36 = getelementptr inbounds nuw [10 x i64], ptr @multi_threads, i64 0, i64 %.05.i11
-  %37 = load i64, ptr %36, align 8, !tbaa !12
-  %38 = tail call i32 @pthread_join(i64 noundef %37, ptr noundef null) #11
-  %39 = icmp eq i32 %38, 0
-  %40 = zext i1 %39 to i32
-  %41 = tail call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 771, ptr noundef nonnull @.str.52, i32 noundef %40) #11
-  %.not.i12 = icmp eq i32 %41, 0
-  br i1 %.not.i12, label %teardown_threads.exit, label %32
+.lr.ph.i:                                         ; preds = %start_threads.exit, %31
+  %.05.i11 = phi i64 [ %32, %31 ], [ 0, %start_threads.exit ]
+  %35 = getelementptr inbounds nuw [10 x i64], ptr @multi_threads, i64 0, i64 %.05.i11
+  %36 = load i64, ptr %35, align 8, !tbaa !12
+  %37 = tail call i32 @pthread_join(i64 noundef %36, ptr noundef null) #11
+  %38 = icmp eq i32 %37, 0
+  %39 = zext i1 %38 to i32
+  %40 = tail call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 771, ptr noundef nonnull @.str.52, i32 noundef %39) #11
+  %.not.i12 = icmp eq i32 %40, 0
+  br i1 %.not.i12, label %teardown_threads.exit, label %31
 
-.loopexit:                                        ; preds = %32, %start_threads.exit
+.loopexit:                                        ; preds = %31, %start_threads.exit
   %.b = load i1, ptr @multi_success, align 4
-  %42 = zext i1 %.b to i32
-  %43 = tail call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 1076, ptr noundef nonnull @.str.44, i32 noundef %42) #11
-  %.not10 = icmp ne i32 %43, 0
+  %41 = zext i1 %.b to i32
+  %42 = tail call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 1076, ptr noundef nonnull @.str.44, i32 noundef %41) #11
+  %.not10 = icmp ne i32 %42, 0
   %spec.select = zext i1 %.not10 to i32
   br label %teardown_threads.exit
 
@@ -1169,24 +1167,24 @@ teardown_threads.exit:                            ; preds = %.preheader.i, %.lr.
   %.04 = phi ptr [ %11, %13 ], [ %11, %9 ], [ null, %thread_setup_libctx.exit ], [ %11, %.loopexit ], [ null, %0 ], [ %11, %18 ], [ %11, %.lr.ph.i ], [ %11, %.preheader.i ]
   %.03 = phi ptr [ %7, %13 ], [ %7, %9 ], [ %7, %thread_setup_libctx.exit ], [ null, %.loopexit ], [ null, %0 ], [ null, %18 ], [ null, %.lr.ph.i ], [ null, %.preheader.i ]
   %.0 = phi i32 [ 0, %13 ], [ 0, %9 ], [ 0, %thread_setup_libctx.exit ], [ %spec.select, %.loopexit ], [ 0, %0 ], [ 0, %18 ], [ 0, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %44 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %.03) #11
+  %43 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %.03) #11
   tail call void @EVP_MD_free(ptr noundef %.04) #11
-  %45 = load ptr, ptr @multi_provider, align 16, !tbaa !24
-  %.not4.i = icmp eq ptr %45, null
+  %44 = load ptr, ptr @multi_provider, align 16, !tbaa !24
+  %.not4.i = icmp eq ptr %44, null
   br i1 %.not4.i, label %thead_teardown_libctx.exit, label %.lr.ph.i13
 
 .lr.ph.i13:                                       ; preds = %teardown_threads.exit, %.lr.ph.i13
-  %46 = phi ptr [ %49, %.lr.ph.i13 ], [ %45, %teardown_threads.exit ]
-  %.05.i14 = phi ptr [ %48, %.lr.ph.i13 ], [ @multi_provider, %teardown_threads.exit ]
-  %47 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %46) #11
-  %48 = getelementptr inbounds nuw i8, ptr %.05.i14, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !24
-  %.not.i15 = icmp eq ptr %49, null
+  %45 = phi ptr [ %48, %.lr.ph.i13 ], [ %44, %teardown_threads.exit ]
+  %.05.i14 = phi ptr [ %47, %.lr.ph.i13 ], [ @multi_provider, %teardown_threads.exit ]
+  %46 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %45) #11
+  %47 = getelementptr inbounds nuw i8, ptr %.05.i14, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !24
+  %.not.i15 = icmp eq ptr %48, null
   br i1 %.not.i15, label %thead_teardown_libctx.exit, label %.lr.ph.i13, !llvm.loop !26
 
 thead_teardown_libctx.exit:                       ; preds = %.lr.ph.i13, %teardown_threads.exit
-  %50 = load ptr, ptr @multi_libctx, align 8, !tbaa !16
-  tail call void @OSSL_LIB_CTX_free(ptr noundef %50) #11
+  %49 = load ptr, ptr @multi_libctx, align 8, !tbaa !16
+  tail call void @OSSL_LIB_CTX_free(ptr noundef %49) #11
   store i1 true, ptr @multi_success, align 4
   store ptr null, ptr @multi_libctx, align 8, !tbaa !16
   store i64 0, ptr @multi_num_threads, align 8, !tbaa !12

@@ -10647,10 +10647,10 @@ _ZN9TypeTuple6fieldsEj.exit37:                    ; preds = %65, %67
   unreachable
 
 _ZN4Type14get_const_typeEP6ciTypeNS_17InterfaceHandlingE.exit40: ; preds = %105, %101, %107, %93, %87
-  %.sink49 = phi i32 [ 1, %107 ], [ 2, %93 ], [ 2, %87 ], [ 1, %101 ], [ 1, %105 ]
+  %.sink53 = phi i32 [ 1, %107 ], [ 2, %93 ], [ 2, %87 ], [ 1, %101 ], [ 1, %105 ]
   %.144.sink = phi i32 [ %.144, %107 ], [ %95, %93 ], [ %89, %87 ], [ %.144, %101 ], [ %.144, %105 ]
   %.sink = phi ptr [ %108, %107 ], [ %98, %93 ], [ %92, %87 ], [ %104, %101 ], [ %106, %105 ]
-  %111 = add i32 %.144, %.sink49
+  %111 = add i32 %.144, %.sink53
   %112 = zext i32 %.144.sink to i64
   %113 = getelementptr inbounds nuw ptr, ptr %.031, i64 %112
   store ptr %.sink, ptr %113, align 8
@@ -14197,12 +14197,12 @@ _ZN13GrowableArrayIP15ciInstanceKlassEC2EP5ArenaiiRKS1_.exit: ; preds = %2, %.lr
   br i1 %.not.not9.i.i.i, label %.lr.ph.i4.i.i, label %.._crit_edge_crit_edge.i.i.i
 
 .._crit_edge_crit_edge.i.i.i:                     ; preds = %61
-  %.pre13.i.i.i = zext nneg i32 %.0.i.ph.i.i to i64
+  %.pre13.i.i.i = sext i32 %.0.i.ph.i.i to i64
   br label %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit.i.i
 
 .lr.ph.i4.i.i:                                    ; preds = %61
   %63 = sext i32 %62 to i64
-  %64 = zext nneg i32 %.0.i.ph.i.i to i64
+  %64 = sext i32 %.0.i.ph.i.i to i64
   br label %65
 
 65:                                               ; preds = %65, %.lr.ph.i4.i.i
@@ -14226,7 +14226,7 @@ _ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE13insert_
   %71 = add nsw i32 %70, 1
   store i32 %71, ptr %5, align 8
   %72 = load ptr, ptr %17, align 8
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %.pre-phi.i.i.i
+  %73 = getelementptr inbounds ptr, ptr %72, i64 %.pre-phi.i.i.i
   store ptr %34, ptr %73, align 8
   %.pre = load i32, ptr %1, align 4
   br label %_ZN14TypeInterfaces3addEP15ciInstanceKlass.exit
@@ -14312,13 +14312,13 @@ define hidden void @_ZN14TypeInterfaces3addEP15ciInstanceKlass(ptr noundef nonnu
   br i1 %.not.not9.i.i, label %.lr.ph.i4.i, label %.._crit_edge_crit_edge.i.i
 
 .._crit_edge_crit_edge.i.i:                       ; preds = %32
-  %.pre13.i.i = zext nneg i32 %.0.i.ph.i to i64
+  %.pre13.i.i = sext i32 %.0.i.ph.i to i64
   br label %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit.i
 
 .lr.ph.i4.i:                                      ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = sext i32 %33 to i64
-  %36 = zext nneg i32 %.0.i.ph.i to i64
+  %36 = sext i32 %.0.i.ph.i to i64
   br label %37
 
 37:                                               ; preds = %37, %.lr.ph.i4.i
@@ -14343,7 +14343,7 @@ _ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE13insert_
   store i32 %43, ptr %3, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %.pre-phi.i.i
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %.pre-phi.i.i
   store ptr %1, ptr %46, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE13insert_sortedIXadL_ZN14TypeInterfaces7compareERKS1_S8_EEEES1_S8_.exit
 
@@ -14903,8 +14903,8 @@ define hidden noundef nonnull ptr @_ZNK14TypeInterfaces10union_withEPKS_(ptr nou
 
 .thread.outer:                                    ; preds = %.thread.outer.backedge, %2
   %.ph = phi ptr [ %4, %2 ], [ %.ph.be, %.thread.outer.backedge ]
-  %.ph185 = phi i32 [ 2, %2 ], [ %.ph185.be, %.thread.outer.backedge ]
-  %.ph186 = phi i32 [ 0, %2 ], [ %.ph186.be, %.thread.outer.backedge ]
+  %.ph190 = phi i32 [ 2, %2 ], [ %.ph190.be, %.thread.outer.backedge ]
+  %.ph191 = phi i32 [ 0, %2 ], [ %.ph191.be, %.thread.outer.backedge ]
   %.038.ph = phi i32 [ 0, %2 ], [ %.038.ph.be, %.thread.outer.backedge ]
   %.0.ph = phi i32 [ 0, %2 ], [ %.0.ph.be, %.thread.outer.backedge ]
   %12 = sext i32 %.038.ph to i64
@@ -14912,8 +14912,8 @@ define hidden noundef nonnull ptr @_ZNK14TypeInterfaces10union_withEPKS_(ptr nou
 
 .thread:                                          ; preds = %.thread.outer, %.critedge2
   %13 = phi ptr [ %.lcssa94, %.critedge2 ], [ %.ph, %.thread.outer ]
-  %14 = phi i32 [ %.lcssa93, %.critedge2 ], [ %.ph185, %.thread.outer ]
-  %15 = phi i32 [ %.lcssa, %.critedge2 ], [ %.ph186, %.thread.outer ]
+  %14 = phi i32 [ %.lcssa93, %.critedge2 ], [ %.ph190, %.thread.outer ]
+  %15 = phi i32 [ %.lcssa, %.critedge2 ], [ %.ph191, %.thread.outer ]
   %.0 = phi i32 [ %.1.lcssa, %.critedge2 ], [ %.0.ph, %.thread.outer ]
   %16 = load i32, ptr %9, align 8
   %17 = icmp slt i32 %.0, %16
@@ -15228,8 +15228,8 @@ _ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS
 
 .thread.outer.backedge:                           ; preds = %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS1_.exit51, %116, %.thread.loopexit
   %.ph.be = phi ptr [ %109, %.thread.loopexit ], [ %74, %116 ], [ %148, %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS1_.exit51 ]
-  %.ph185.be = phi i32 [ %110, %.thread.loopexit ], [ %73, %116 ], [ %149, %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS1_.exit51 ]
-  %.ph186.be = phi i32 [ %.pre-phi, %.thread.loopexit ], [ %75, %116 ], [ %150, %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS1_.exit51 ]
+  %.ph190.be = phi i32 [ %110, %.thread.loopexit ], [ %73, %116 ], [ %149, %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS1_.exit51 ]
+  %.ph191.be = phi i32 [ %.pre-phi, %.thread.loopexit ], [ %75, %116 ], [ %150, %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS1_.exit51 ]
   %.038.ph.be = phi i32 [ %155, %.thread.loopexit ], [ %118, %116 ], [ %154, %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS1_.exit51 ]
   %.0.ph.be = phi i32 [ %.1.lcssa, %.thread.loopexit ], [ %.1.lcssa, %116 ], [ %153, %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS1_.exit51 ]
   br label %.thread.outer, !llvm.loop !26
@@ -15356,9 +15356,9 @@ define hidden noundef nonnull ptr @_ZNK14TypeInterfaces17intersection_withEPKS_(
   br i1 %.lcssa, label %.lr.ph61.split.us, label %.critedge6
 
 .lr.ph61.split.us:                                ; preds = %.lr.ph.split.us, %.lr.ph61
-  %.1.lcssa8084 = phi i32 [ %.1.lcssa, %.lr.ph61 ], [ %.0, %.lr.ph.split.us ]
+  %.1.lcssa8488 = phi i32 [ %.1.lcssa, %.lr.ph61 ], [ %.0, %.lr.ph.split.us ]
   %36 = load ptr, ptr %10, align 8
-  %37 = sext i32 %.1.lcssa8084 to i64
+  %37 = sext i32 %.1.lcssa8488 to i64
   %38 = getelementptr inbounds ptr, ptr %36, i64 %37
   %39 = load ptr, ptr %11, align 8
   %40 = load ptr, ptr %38, align 8
@@ -15451,7 +15451,7 @@ _ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS
   %79 = sext i32 %15 to i64
   %80 = getelementptr inbounds ptr, ptr %76, i64 %79
   store ptr %75, ptr %80, align 8
-  %81 = add nsw i32 %.1.lcssa8084, 1
+  %81 = add nsw i32 %.1.lcssa8488, 1
   %82 = add nsw i32 %47, 1
   br label %.critedge6
 
@@ -15460,7 +15460,7 @@ _ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS
   %84 = phi i32 [ %77, %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %14, %.split.us ], [ %14, %.critedge2 ], [ %14, %.lr.ph61 ], [ %14, %.critedge8.us ]
   %85 = phi i32 [ %78, %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %15, %.split.us ], [ %15, %.critedge2 ], [ %15, %.lr.ph61 ], [ %15, %.critedge8.us ]
   %.237 = phi i32 [ %82, %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %47, %.split.us ], [ %.035, %.critedge2 ], [ %.pre.pre, %.lr.ph61 ], [ %.pre.pre, %.critedge8.us ]
-  %.2 = phi i32 [ %81, %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.1.lcssa8084, %.split.us ], [ %.1.lcssa, %.critedge2 ], [ %.1.lcssa, %.lr.ph61 ], [ %.1.lcssa8084, %.critedge8.us ]
+  %.2 = phi i32 [ %81, %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.1.lcssa8488, %.split.us ], [ %.1.lcssa, %.critedge2 ], [ %.1.lcssa, %.lr.ph61 ], [ %.1.lcssa8488, %.critedge8.us ]
   br label %12, !llvm.loop !30
 
 86:                                               ; preds = %18
@@ -15721,8 +15721,8 @@ define hidden void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14Ty
   %.pre = load i32, ptr %17, align 4
   %129 = load i32, ptr @_ZN19InstanceMirrorKlass24_offset_of_static_fieldsE, align 4
   %.not37 = icmp slt i32 %.pre, %129
-  %or.cond56 = select i1 %128, i1 true, i1 %.not37
-  br i1 %or.cond56, label %153, label %130
+  %or.cond62 = select i1 %128, i1 true, i1 %.not37
+  br i1 %or.cond62, label %153, label %130
 
 130:                                              ; preds = %122
   %131 = load ptr, ptr %19, align 8
@@ -19269,10 +19269,10 @@ _ZNK10ciMetadata9is_loadedEv.exit79.thread:       ; preds = %_ZNK10ciMetadata9is
   br label %.sink.split
 
 .sink.split:                                      ; preds = %36, %86, %94
-  %.sink97 = phi ptr [ %90, %86 ], [ %96, %94 ], [ %10, %36 ]
+  %.sink99 = phi ptr [ %90, %86 ], [ %96, %94 ], [ %10, %36 ]
   %.sink.shrunk = phi i1 [ %.072, %86 ], [ false, %94 ], [ %18, %36 ]
   %.0.ph = phi i32 [ 2, %86 ], [ 4, %94 ], [ 0, %36 ]
-  store ptr %.sink97, ptr %4, align 8
+  store ptr %.sink99, ptr %4, align 8
   %.sink = zext i1 %.sink.shrunk to i8
   store i8 %.sink, ptr %5, align 1
   br label %97
@@ -20928,8 +20928,8 @@ _ZNK4Type8make_ptrEv.exit9.i23:                   ; preds = %55, %52, %49
 
 62:                                               ; preds = %_ZNK4Type8make_ptrEv.exit9.i23
   %63 = and i32 %44, -2
-  %switch37 = icmp eq i32 %63, 6
-  br i1 %switch37, label %_ZNK4Type8make_ptrEv.exit11.i26.sink.split, label %_ZNK4Type8make_ptrEv.exit11.i26
+  %switch38 = icmp eq i32 %63, 6
+  br i1 %switch38, label %_ZNK4Type8make_ptrEv.exit11.i26.sink.split, label %_ZNK4Type8make_ptrEv.exit11.i26
 
 _ZNK4Type8make_ptrEv.exit11.i26.sink.split:       ; preds = %62
   %64 = getelementptr inbounds nuw i8, ptr %.0.i19, i64 24
@@ -21428,8 +21428,8 @@ _ZNK4Type8make_ptrEv.exit._ZNK4Type8make_ptrEv.exit.thread10_crit_edge: ; preds 
 _ZNK4Type8make_ptrEv.exit.thread10:               ; preds = %_ZNK4Type8make_ptrEv.exit._ZNK4Type8make_ptrEv.exit.thread10_crit_edge, %13
   %16 = phi i32 [ %.pre, %_ZNK4Type8make_ptrEv.exit._ZNK4Type8make_ptrEv.exit.thread10_crit_edge ], [ %11, %13 ]
   %17 = phi ptr [ %15, %_ZNK4Type8make_ptrEv.exit._ZNK4Type8make_ptrEv.exit.thread10_crit_edge ], [ %9, %13 ]
-  %.not21 = icmp eq i32 %16, 22
-  br i1 %.not21, label %tailrecurse, label %_ZNK4Type8make_ptrEv.exit.thread.loopexit
+  %.not23 = icmp eq i32 %16, 22
+  br i1 %.not23, label %tailrecurse, label %_ZNK4Type8make_ptrEv.exit.thread.loopexit
 
 tailrecurse:                                      ; preds = %_ZNK4Type8make_ptrEv.exit.thread10
   %18 = add nuw nsw i32 %accumulator.tr13, 1
@@ -23986,8 +23986,8 @@ _ZNK4Type8make_ptrEv.exit:                        ; preds = %176
 
 _ZNK4Type8make_ptrEv.exit.thread152:              ; preds = %181, %_ZNK4Type8make_ptrEv.exit
   %184 = and i32 %179, -2
-  %switch158 = icmp eq i32 %184, 6
-  br i1 %switch158, label %_ZNK4Type8make_ptrEv.exit150.sink.split, label %_ZNK4Type8make_ptrEv.exit150
+  %switch159 = icmp eq i32 %184, 6
+  br i1 %switch159, label %_ZNK4Type8make_ptrEv.exit150.sink.split, label %_ZNK4Type8make_ptrEv.exit150
 
 _ZNK4Type8make_ptrEv.exit150.sink.split:          ; preds = %_ZNK4Type8make_ptrEv.exit.thread152
   %185 = getelementptr inbounds nuw i8, ptr %177, i64 24
@@ -24033,9 +24033,9 @@ _ZNK4Type8make_ptrEv.exit.thread:                 ; preds = %181, %191, %_ZNK4Ty
   br label %215
 
 197:                                              ; preds = %193
-  %or.cond159 = icmp sgt i32 %139, 2
-  %brmerge.not = and i1 %or.cond159, %133
-  %not.or.cond159 = xor i1 %or.cond159, true
+  %or.cond160 = icmp sgt i32 %139, 2
+  %brmerge.not = and i1 %or.cond160, %133
+  %not.or.cond160 = xor i1 %or.cond160, true
   br i1 %brmerge.not, label %198, label %215
 
 198:                                              ; preds = %197
@@ -24044,7 +24044,7 @@ _ZNK4Type8make_ptrEv.exit.thread:                 ; preds = %181, %191, %_ZNK4Ty
   %201 = load ptr, ptr %200, align 8
   %202 = tail call noundef zeroext i1 %201(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %3) #17
   %203 = select i1 %64, i1 %121, i1 false
-  %spec.select161 = select i1 %202, i1 true, i1 %203
+  %spec.select162 = select i1 %202, i1 true, i1 %203
   br label %215
 
 204:                                              ; preds = %193, %193
@@ -24071,10 +24071,10 @@ _ZNK4Type8make_ptrEv.exit.thread:                 ; preds = %181, %191, %_ZNK4Ty
   unreachable
 
 215:                                              ; preds = %198, %204, %206, %207, %197, %194, %_ZNK4Type8make_ptrEv.exit.thread, %152
-  %.sink157.shrunk = phi i1 [ %spec.select, %194 ], [ false, %_ZNK4Type8make_ptrEv.exit.thread ], [ false, %152 ], [ %not.or.cond159, %197 ], [ %spec.select161, %198 ], [ %137, %204 ], [ false, %206 ], [ %spec.select155, %207 ]
+  %.sink158.shrunk = phi i1 [ %spec.select, %194 ], [ false, %_ZNK4Type8make_ptrEv.exit.thread ], [ false, %152 ], [ %not.or.cond160, %197 ], [ %spec.select162, %198 ], [ %137, %204 ], [ false, %206 ], [ %spec.select155, %207 ]
   %.083 = phi i32 [ %.0, %194 ], [ 3, %_ZNK4Type8make_ptrEv.exit.thread ], [ 3, %152 ], [ %.0, %197 ], [ %.0, %198 ], [ %.0, %204 ], [ %.0, %206 ], [ %.0, %207 ]
-  %.sink157 = zext i1 %.sink157.shrunk to i8
-  store i8 %.sink157, ptr %5, align 1
+  %.sink158 = zext i1 %.sink158.shrunk to i8
+  store i8 %.sink158, ptr %5, align 1
   ret i32 %.083
 }
 
@@ -25432,8 +25432,8 @@ _ZNK7TypePtr11meet_offsetEi.exit49:               ; preds = %83, %89, %91
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %109 = load ptr, ptr %108, align 8
   %110 = icmp eq ptr %109, %106
-  %or.cond55 = select i1 %107, i1 true, i1 %110
-  br i1 %or.cond55, label %111, label %142
+  %or.cond65 = select i1 %107, i1 true, i1 %110
+  br i1 %or.cond65, label %111, label %142
 
 111:                                              ; preds = %.thread, %104
   %112 = phi ptr [ %103, %.thread ], [ %106, %104 ]
@@ -27858,10 +27858,10 @@ _ZNK10ciMetadata9is_loadedEv.exit79.thread:       ; preds = %_ZNK10ciMetadata9is
   br label %.sink.split
 
 .sink.split:                                      ; preds = %36, %86, %94
-  %.sink97 = phi ptr [ %90, %86 ], [ %96, %94 ], [ %10, %36 ]
+  %.sink99 = phi ptr [ %90, %86 ], [ %96, %94 ], [ %10, %36 ]
   %.sink.shrunk = phi i1 [ %.072, %86 ], [ false, %94 ], [ %18, %36 ]
   %.0.ph = phi i32 [ 2, %86 ], [ 4, %94 ], [ 0, %36 ]
-  store ptr %.sink97, ptr %4, align 8
+  store ptr %.sink99, ptr %4, align 8
   %.sink = zext i1 %.sink.shrunk to i8
   store i8 %.sink, ptr %5, align 1
   br label %97
@@ -29725,8 +29725,8 @@ _ZNK4Type8make_ptrEv.exit:                        ; preds = %86
 
 _ZNK4Type8make_ptrEv.exit.thread116:              ; preds = %91, %_ZNK4Type8make_ptrEv.exit
   %94 = and i32 %89, -2
-  %switch122 = icmp eq i32 %94, 6
-  br i1 %switch122, label %_ZNK4Type8make_ptrEv.exit114.sink.split, label %_ZNK4Type8make_ptrEv.exit114
+  %switch123 = icmp eq i32 %94, 6
+  br i1 %switch123, label %_ZNK4Type8make_ptrEv.exit114.sink.split, label %_ZNK4Type8make_ptrEv.exit114
 
 _ZNK4Type8make_ptrEv.exit114.sink.split:          ; preds = %_ZNK4Type8make_ptrEv.exit.thread116
   %95 = getelementptr inbounds nuw i8, ptr %87, i64 24
@@ -29772,9 +29772,9 @@ _ZNK4Type8make_ptrEv.exit.thread:                 ; preds = %91, %101, %_ZNK4Typ
   br label %125
 
 107:                                              ; preds = %103
-  %or.cond123 = icmp sgt i32 %49, 2
-  %brmerge.not = and i1 %or.cond123, %43
-  %not.or.cond123 = xor i1 %or.cond123, true
+  %or.cond124 = icmp sgt i32 %49, 2
+  %brmerge.not = and i1 %or.cond124, %43
+  %not.or.cond124 = xor i1 %or.cond124, true
   br i1 %brmerge.not, label %108, label %125
 
 108:                                              ; preds = %107
@@ -29783,7 +29783,7 @@ _ZNK4Type8make_ptrEv.exit.thread:                 ; preds = %91, %101, %_ZNK4Typ
   %111 = load ptr, ptr %110, align 8
   %112 = tail call noundef zeroext i1 %111(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull %3) #17
   %113 = select i1 %19, i1 %31, i1 false
-  %spec.select125 = select i1 %112, i1 true, i1 %113
+  %spec.select126 = select i1 %112, i1 true, i1 %113
   br label %125
 
 114:                                              ; preds = %103, %103
@@ -29810,10 +29810,10 @@ _ZNK4Type8make_ptrEv.exit.thread:                 ; preds = %91, %101, %_ZNK4Typ
   unreachable
 
 125:                                              ; preds = %108, %114, %116, %117, %107, %104, %_ZNK4Type8make_ptrEv.exit.thread, %62
-  %.sink121.shrunk = phi i1 [ %spec.select, %104 ], [ false, %_ZNK4Type8make_ptrEv.exit.thread ], [ false, %62 ], [ %not.or.cond123, %107 ], [ %spec.select125, %108 ], [ %47, %114 ], [ false, %116 ], [ %spec.select119, %117 ]
+  %.sink122.shrunk = phi i1 [ %spec.select, %104 ], [ false, %_ZNK4Type8make_ptrEv.exit.thread ], [ false, %62 ], [ %not.or.cond124, %107 ], [ %spec.select126, %108 ], [ %47, %114 ], [ false, %116 ], [ %spec.select119, %117 ]
   %.083 = phi i32 [ %.0, %104 ], [ 3, %_ZNK4Type8make_ptrEv.exit.thread ], [ 3, %62 ], [ %.0, %107 ], [ %.0, %108 ], [ %.0, %114 ], [ %.0, %116 ], [ %.0, %117 ]
-  %.sink121 = zext i1 %.sink121.shrunk to i8
-  store i8 %.sink121, ptr %5, align 1
+  %.sink122 = zext i1 %.sink122.shrunk to i8
+  store i8 %.sink122, ptr %5, align 1
   ret i32 %.083
 }
 
@@ -29831,7 +29831,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7TypePtr35is_java_subtype_of_h
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(64) %1) #17
   %9 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
   %10 = icmp eq ptr %8, %9
-  br i1 %10, label %11, label %.preheader73
+  br i1 %10, label %11, label %.preheader75
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -29841,13 +29841,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7TypePtr35is_java_subtype_of_h
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(64) %13) #17
   %or.cond = and i1 %3, %17
-  br i1 %or.cond, label %.critedge, label %.preheader73
+  br i1 %or.cond, label %.critedge, label %.preheader75
 
-.preheader73:                                     ; preds = %11, %4
+.preheader75:                                     ; preds = %11, %4
   br label %18
 
-18:                                               ; preds = %.preheader73, %18
-  %.pn.i = phi ptr [ %.0.i, %18 ], [ %0, %.preheader73 ]
+18:                                               ; preds = %.preheader75, %18
+  %.pn.i = phi ptr [ %.0.i, %18 ], [ %0, %.preheader75 ]
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 64
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16

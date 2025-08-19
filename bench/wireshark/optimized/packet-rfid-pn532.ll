@@ -1578,12 +1578,12 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread13
   %438 = icmp eq i8 %426, 0
   %439 = load i32, ptr @hf_pn532_passive_initiator_data, align 4
   %. = select i1 %438, i32 4, i32 5
-  %.1400 = select i1 %438, i32 9, i32 10
+  %.1411 = select i1 %438, i32 9, i32 10
   %440 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %439, ptr noundef %0, i32 noundef 5, i32 noundef %., i32 noundef 0)
   br label %441
 
 441:                                              ; preds = %.sink.split, %421
-  %.5 = phi i32 [ 5, %421 ], [ %.1400, %.sink.split ]
+  %.5 = phi i32 [ 5, %421 ], [ %.1411, %.sink.split ]
   %442 = and i32 %436, 2
   %.not1328 = icmp eq i32 %442, 0
   br i1 %.not1328, label %447, label %443

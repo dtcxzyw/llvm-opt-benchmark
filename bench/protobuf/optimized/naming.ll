@@ -2176,7 +2176,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit: ; pred
   ret void
 
 lpad.body:                                        ; preds = %lpad.i.thread, %lpad.i, %if.then.i.i3.i
-  %lpad.phi8 = phi { ptr, i32 } [ %lpad.thr_comm, %lpad.i.thread ], [ %lpad.thr_comm.split-lp, %lpad.i ], [ %lpad.thr_comm.split-lp, %if.then.i.i3.i ]
+  %lpad.phi10 = phi { ptr, i32 } [ %lpad.thr_comm, %lpad.i.thread ], [ %lpad.thr_comm.split-lp, %lpad.i ], [ %lpad.thr_comm.split-lp, %if.then.i.i3.i ]
   %3 = load ptr, ptr %v, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit5, label %if.then.i.i.i4
@@ -2186,7 +2186,7 @@ if.then.i.i.i4:                                   ; preds = %lpad.body
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit5
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit5: ; preds = %lpad.body, %if.then.i.i.i4
-  resume { ptr, i32 } %lpad.phi8
+  resume { ptr, i32 } %lpad.phi10
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2312,7 +2312,7 @@ do.body.i:                                        ; preds = %_ZNKSt17basic_strin
 
 do.cond.thread:                                   ; preds = %do.body.i
   store i32 2, ptr %state_.i.i, align 8
-  %inc43 = add nuw nsw i64 %index.0, 1
+  %inc46 = add nuw nsw i64 %index.0, 1
   br label %do.end
 
 if.end.i:                                         ; preds = %do.body.i
@@ -2364,9 +2364,9 @@ do.cond:                                          ; preds = %_ZNKSt17basic_strin
   br i1 %or.cond, label %do.end, label %do.body, !llvm.loop !47
 
 do.end:                                           ; preds = %do.cond, %do.cond.thread
-  %inc46 = phi i64 [ %inc43, %do.cond.thread ], [ %inc, %do.cond ]
+  %inc49 = phi i64 [ %inc46, %do.cond.thread ], [ %inc, %do.cond ]
   %19 = load ptr, ptr %_M_finish.i, align 8
-  %add.ptr = getelementptr inbounds nuw %struct.raw_view, ptr %ar, i64 %inc46
+  %add.ptr = getelementptr inbounds nuw %struct.raw_view, ptr %ar, i64 %inc49
   %20 = load ptr, ptr %agg.result, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %20 to i64

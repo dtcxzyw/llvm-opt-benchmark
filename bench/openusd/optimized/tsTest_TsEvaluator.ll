@@ -405,7 +405,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_ConvertToT
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 0, ptr %32, align 8
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef 1, ptr noundef nonnull @.str.1)
-  br label %.sink.split125
+  br label %.sink.split127
 
 33:                                               ; preds = %2
   %34 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData8GetKnotsEv(ptr noundef nonnull align 8 dereferenceable(160) %1)
@@ -439,7 +439,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_ConvertToT
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %51, align 8
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %4, i32 noundef 1, ptr noundef nonnull @.str.2)
-  br label %.sink.split125
+  br label %.sink.split127
 
 .critedge:                                        ; preds = %38, %33, %42
   %52 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData20GetPostExtrapolationEv(ptr noundef nonnull align 8 dereferenceable(160) %1)
@@ -472,7 +472,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_ConvertToT
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %68, align 8
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %5, i32 noundef 1, ptr noundef nonnull @.str.3)
-  br label %.sink.split125
+  br label %.sink.split127
 
 .critedge2:                                       ; preds = %55, %.critedge, %59
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__8TsSplineC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -961,9 +961,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit97: ; preds = %254, %259
   br label %396
 
 .sink.split:                                      ; preds = %268, %226
-  %.sink121 = phi ptr [ %15, %226 ], [ %18, %268 ]
+  %.sink123 = phi ptr [ %15, %226 ], [ %18, %268 ]
   %.sink = phi ptr [ %13, %226 ], [ %16, %268 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.sink121) #20
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.sink123) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.sink) #20
   br label %276
 
@@ -1044,7 +1044,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit100: ; preds = %298, %304
 
 313:                                              ; preds = %312
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8TsSpline11SetKeyFrameENS_10TsKeyFrameEPNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %21, ptr noundef null)
-          to label %.sink.split122 unwind label %318
+          to label %.sink.split124 unwind label %318
 
 314:                                              ; preds = %312, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit100, %296
   %315 = landingpad { ptr, i32 }
@@ -1144,7 +1144,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit104: ; preds = %343, %348
 
 357:                                              ; preds = %356
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8TsSpline11SetKeyFrameENS_10TsKeyFrameEPNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %24, ptr noundef null)
-          to label %.sink.split122 unwind label %362
+          to label %.sink.split124 unwind label %362
 
 358:                                              ; preds = %356, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit104, %335
   %359 = landingpad { ptr, i32 }
@@ -1168,14 +1168,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit104: ; preds = %343, %348
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %22) #20
   br label %396
 
-.sink.split122:                                   ; preds = %357, %313
-  %.sink124 = phi ptr [ %21, %313 ], [ %24, %357 ]
-  %.sink123 = phi ptr [ %19, %313 ], [ %22, %357 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.sink124) #20
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.sink123) #20
+.sink.split124:                                   ; preds = %357, %313
+  %.sink126 = phi ptr [ %21, %313 ], [ %24, %357 ]
+  %.sink125 = phi ptr [ %19, %313 ], [ %22, %357 ]
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.sink126) #20
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.sink125) #20
   br label %365
 
-365:                                              ; preds = %.sink.split122, %322, %325
+365:                                              ; preds = %.sink.split124, %322, %325
   %366 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData18GetInnerLoopParamsEv(ptr noundef nonnull align 8 dereferenceable(160) %1)
           to label %367 unwind label %.loopexit.split-lp
 
@@ -1232,11 +1232,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit104: ; preds = %343, %348
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   resume { ptr, i32 } %.pn78.pn
 
-.sink.split125:                                   ; preds = %28, %47, %64
+.sink.split127:                                   ; preds = %28, %47, %64
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TsSplineC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
   br label %397
 
-397:                                              ; preds = %.sink.split125, %367, %395
+397:                                              ; preds = %.sink.split127, %367, %395
   ret void
 }
 

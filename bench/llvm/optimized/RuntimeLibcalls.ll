@@ -1991,7 +1991,7 @@ _ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread: 
   %659 = trunc i64 %657 to i32
   %660 = icmp ugt i32 %659, 8
   %.not64 = select i1 %658, i1 true, i1 %660
-  br i1 %.not64, label %661, label %thread-pre-split78
+  br i1 %.not64, label %661, label %thread-pre-split79
 
 661:                                              ; preds = %655, %647
   store ptr @.str.553, ptr %199, align 8, !tbaa !3
@@ -1999,14 +1999,14 @@ _ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread: 
   store ptr @.str.555, ptr %201, align 8, !tbaa !3
   store ptr @.str.555, ptr %202, align 8, !tbaa !3
   store ptr @.str.555, ptr %203, align 8, !tbaa !3
-  br label %thread-pre-split78
+  br label %thread-pre-split79
 
-thread-pre-split78:                               ; preds = %655, %661
+thread-pre-split79:                               ; preds = %655, %661
   %.pr.pre76.pr = load i32, ptr %604, align 4, !tbaa !20
   br label %662
 
-662:                                              ; preds = %thread-pre-split78, %653
-  %.pr.pre76 = phi i32 [ %.pr.pre76.pr, %thread-pre-split78 ], [ %651, %653 ]
+662:                                              ; preds = %thread-pre-split79, %653
+  %.pr.pre76 = phi i32 [ %.pr.pre76.pr, %thread-pre-split79 ], [ %651, %653 ]
   %663 = load i32, ptr %593, align 8, !tbaa !8
   %664 = icmp eq i32 %663, 38
   %665 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -2015,8 +2015,8 @@ thread-pre-split78:                               ; preds = %655, %661
   %or.cond.i.i = select i1 %664, i1 %667, i1 false
   %668 = add i32 %.pr.pre76, -23
   %spec.select.i49 = icmp ult i32 %668, 2
-  %or.cond79 = select i1 %or.cond.i.i, i1 %spec.select.i49, i1 false
-  br i1 %or.cond79, label %669, label %thread-pre-split
+  %or.cond80 = select i1 %or.cond.i.i, i1 %spec.select.i49, i1 false
+  br i1 %or.cond80, label %669, label %thread-pre-split
 
 669:                                              ; preds = %662
   store ptr @.str.553, ptr %199, align 8, !tbaa !3

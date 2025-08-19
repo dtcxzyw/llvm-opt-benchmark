@@ -97,10 +97,10 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %.critedge30
   br label %41
 
 41:                                               ; preds = %2, %38
-  %.sink40 = phi i32 [ %40, %38 ], [ %4, %2 ]
+  %.sink45 = phi i32 [ %40, %38 ], [ %4, %2 ]
   %.pn = phi ptr [ %39, %38 ], [ %9, %2 ]
   %.sink = getelementptr inbounds nuw i8, ptr %.pn, i64 8
-  %42 = sext i32 %.sink40 to i64
+  %42 = sext i32 %.sink45 to i64
   %43 = getelementptr inbounds [268435454 x ptr], ptr %.sink, i64 0, i64 %42
   ret ptr %43
 }

@@ -1546,23 +1546,23 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
   %.not98 = icmp eq i8 %72, 0
   %238 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 176), align 8
   %239 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 208), align 8
-  %.sink117 = select i1 %.not98, ptr %238, ptr %239
-  call void %.sink117(i32 noundef 2884)
+  %.sink125 = select i1 %.not98, ptr %238, ptr %239
+  call void %.sink125(i32 noundef 2884)
   %.not99 = icmp eq i8 %74, 0
   %240 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 176), align 8
   %241 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 208), align 8
-  %.sink118 = select i1 %.not99, ptr %240, ptr %241
-  call void %.sink118(i32 noundef 2929)
+  %.sink126 = select i1 %.not99, ptr %240, ptr %241
+  call void %.sink126(i32 noundef 2929)
   %.not100 = icmp eq i8 %76, 0
   %242 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 176), align 8
   %243 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 208), align 8
-  %.sink119 = select i1 %.not100, ptr %242, ptr %243
-  call void %.sink119(i32 noundef 2960)
+  %.sink127 = select i1 %.not100, ptr %242, ptr %243
+  call void %.sink127(i32 noundef 2960)
   %.not101 = icmp eq i8 %78, 0
   %244 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 176), align 8
   %245 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 208), align 8
-  %.sink120 = select i1 %.not101, ptr %244, ptr %245
-  call void %.sink120(i32 noundef 3089)
+  %.sink128 = select i1 %.not101, ptr %244, ptr %245
+  call void %.sink128(i32 noundef 3089)
   %246 = load i32, ptr %38, align 8, !tbaa !33
   %247 = icmp ugt i32 %246, 309
   br i1 %247, label %.sink.split, label %250
@@ -1570,8 +1570,8 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
 .sink.split:                                      ; preds = %221
   %248 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 208), align 8
   %249 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 176), align 8
-  %.sink121 = select i1 %.not102, ptr %249, ptr %248
-  call void %.sink121(i32 noundef 36765)
+  %.sink129 = select i1 %.not102, ptr %249, ptr %248
+  call void %.sink129(i32 noundef 36765)
   br label %250
 
 250:                                              ; preds = %.sink.split, %221

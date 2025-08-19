@@ -149,8 +149,8 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Expr_hasAnyFVar_visit___at___private_Le
   br i1 %4, label %lean_dec.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %lean_dec.exit
-  %.05097 = phi ptr [ %.151, %lean_dec.exit ], [ %1, %2 ]
-  %5 = ptrtoint ptr %.05097 to i64
+  %.05099 = phi ptr [ %.151, %lean_dec.exit ], [ %1, %2 ]
+  %5 = ptrtoint ptr %.05099 to i64
   %6 = and i64 %5, 1
   %.not.i73 = icmp eq i64 %6, 0
   br i1 %.not.i73, label %10, label %7
@@ -161,7 +161,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Expr_hasAnyFVar_visit___at___private_Le
   br label %lean_obj_tag.exit
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr i8, ptr %.05097, i64 4
+  %11 = getelementptr i8, ptr %.05099, i64 4
   %.val.i = load i32, ptr %11, align 4
   %12 = lshr i32 %.val.i, 24
   br label %lean_obj_tag.exit
@@ -179,7 +179,7 @@ lean_obj_tag.exit:                                ; preds = %7, %10
   ]
 
 13:                                               ; preds = %lean_obj_tag.exit
-  %14 = getelementptr inbounds nuw i8, ptr %.05097, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.05099, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !10
   %16 = tail call ptr @l_Lean_RBNode_findCore___at___private_Lean_Meta_FunInfo_0__Lean_Meta_getFunInfoAux___spec__2(ptr noundef %0, ptr noundef %15) #3
   %17 = ptrtoint ptr %16 to i64
@@ -218,38 +218,38 @@ lean_obj_tag.exit77.thread:                       ; preds = %13
   br label %lean_dec.exit.thread
 
 29:                                               ; preds = %lean_obj_tag.exit
-  %30 = getelementptr inbounds nuw i8, ptr %.05097, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.05099, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !10
-  %32 = getelementptr inbounds nuw i8, ptr %.05097, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.05099, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !10
   %34 = tail call zeroext i8 @l_Lean_Expr_hasAnyFVar_visit___at___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_typeDepOn___spec__1(ptr noundef %0, ptr noundef %31)
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %lean_dec.exit, label %lean_dec.exit.thread
 
 36:                                               ; preds = %lean_obj_tag.exit
-  %37 = getelementptr inbounds nuw i8, ptr %.05097, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.05099, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !10
-  %39 = getelementptr inbounds nuw i8, ptr %.05097, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %.05099, i64 24
   %40 = load ptr, ptr %39, align 8, !tbaa !10
   %41 = tail call zeroext i8 @l_Lean_Expr_hasAnyFVar_visit___at___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_typeDepOn___spec__1(ptr noundef %0, ptr noundef %38)
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %lean_dec.exit, label %lean_dec.exit.thread
 
 43:                                               ; preds = %lean_obj_tag.exit
-  %44 = getelementptr inbounds nuw i8, ptr %.05097, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.05099, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !10
-  %46 = getelementptr inbounds nuw i8, ptr %.05097, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.05099, i64 24
   %47 = load ptr, ptr %46, align 8, !tbaa !10
   %48 = tail call zeroext i8 @l_Lean_Expr_hasAnyFVar_visit___at___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_typeDepOn___spec__1(ptr noundef %0, ptr noundef %45)
   %49 = icmp eq i8 %48, 0
   br i1 %49, label %lean_dec.exit, label %lean_dec.exit.thread
 
 50:                                               ; preds = %lean_obj_tag.exit
-  %51 = getelementptr inbounds nuw i8, ptr %.05097, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.05099, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !10
-  %53 = getelementptr inbounds nuw i8, ptr %.05097, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.05099, i64 24
   %54 = load ptr, ptr %53, align 8, !tbaa !10
-  %55 = getelementptr inbounds nuw i8, ptr %.05097, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %.05099, i64 32
   %56 = load ptr, ptr %55, align 8, !tbaa !10
   %57 = tail call zeroext i8 @l_Lean_Expr_hasAnyFVar_visit___at___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_typeDepOn___spec__1(ptr noundef %0, ptr noundef %52)
   %58 = icmp eq i8 %57, 0
@@ -264,8 +264,8 @@ lean_obj_tag.exit77.thread:                       ; preds = %13
   br label %lean_dec.exit.sink.split
 
 lean_dec.exit.sink.split:                         ; preds = %lean_obj_tag.exit, %62
-  %.sink95 = phi i64 [ 24, %62 ], [ 16, %lean_obj_tag.exit ]
-  %63 = getelementptr inbounds nuw i8, ptr %.05097, i64 %.sink95
+  %.sink97 = phi i64 [ 24, %62 ], [ 16, %lean_obj_tag.exit ]
+  %63 = getelementptr inbounds nuw i8, ptr %.05099, i64 %.sink97
   %64 = load ptr, ptr %63, align 8, !tbaa !10
   br label %lean_dec.exit
 
@@ -2083,18 +2083,18 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %18, %lean_dec_ref.exit ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !4
+  %.sink12 = phi ptr [ %4, %3 ], [ %18, %lean_dec_ref.exit ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sink12, i64 4
+  store i32 1, ptr %.sink12, align 4, !tbaa !4
   store i32 131096, ptr %21, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %22, align 8, !tbaa !10
-  %23 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %23, align 8, !tbaa !10
   br label %24
 
 24:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink12, %.sink.split ]
   ret ptr %.0
 }
 

@@ -2070,8 +2070,8 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10JSONParser10skipSpacesEPc(ptr no
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::allocator.13", align 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not71156 = icmp eq ptr %1, null
-  br i1 %.not71156, label %14, label %.lr.ph
+  %.not71171 = icmp eq ptr %1, null
+  br i1 %.not71171, label %14, label %.lr.ph
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %13, align 8, !tbaa !32
@@ -2121,8 +2121,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %174
 
 .lr.ph:                                           ; preds = %2, %.lr.ph.backedge
-  %.051114157 = phi ptr [ %.051114157.be, %.lr.ph.backedge ], [ %1, %2 ]
-  %31 = load i8, ptr %.051114157, align 1, !tbaa !41
+  %.051114172 = phi ptr [ %.051114172.be, %.lr.ph.backedge ], [ %1, %2 ]
+  %31 = load i8, ptr %.051114172, align 1, !tbaa !41
   switch i8 %31, label %115 [
     i8 47, label %32
     i8 9, label %105
@@ -2133,7 +2133,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   ]
 
 32:                                               ; preds = %.lr.ph
-  %33 = getelementptr inbounds nuw i8, ptr %.051114157, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.051114172, i64 1
   %34 = load i8, ptr %33, align 1, !tbaa !41
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %36, label %44
@@ -2305,7 +2305,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93: ; preds = %_ZN
   br label %174
 
 105:                                              ; preds = %.lr.ph, %.lr.ph
-  %106 = getelementptr inbounds nuw i8, ptr %.051114157, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %.051114172, i64 1
   br label %.lr.ph.backedge
 
 107:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph
@@ -2323,7 +2323,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93: ; preds = %_ZN
   br i1 %.not75, label %.thread, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %.preheader, %.preheader, %113, %84, %105
-  %.051114157.be = phi ptr [ %85, %84 ], [ %106, %105 ], [ %112, %113 ], [ %.354, %.preheader ], [ %.354, %.preheader ]
+  %.051114172.be = phi ptr [ %85, %84 ], [ %106, %105 ], [ %112, %113 ], [ %.354, %.preheader ], [ %.354, %.preheader ]
   br label %.lr.ph, !llvm.loop !57
 
 115:                                              ; preds = %.lr.ph
@@ -2483,7 +2483,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102: ; preds = %_Z
   br label %174
 
 173:                                              ; preds = %115
-  ret ptr %.051114157
+  ret ptr %.051114172
 
 174:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn88.pn = phi { ptr, i32 } [ %.pn88, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96 ], [ %.pn78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93 ], [ %.pn72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99 ]
@@ -4504,16 +4504,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit199: ; preds = %_Z
   br label %.sink.split
 
 .sink.split:                                      ; preds = %230, %336
-  %.sink302 = phi ptr [ %337, %336 ], [ %233, %230 ]
+  %.sink337 = phi ptr [ %337, %336 ], [ %233, %230 ]
   %.199.ph = phi ptr [ %.098243, %336 ], [ %233, %230 ]
-  %.394.ph301 = phi i32 [ %.091244, %336 ], [ %170, %230 ]
-  store ptr %.sink302, ptr %4, align 8, !tbaa !55
+  %.394.ph336 = phi i32 [ %.091244, %336 ], [ %170, %230 ]
+  store ptr %.sink337, ptr %4, align 8, !tbaa !55
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %270
-  %.091244.be = phi i32 [ %.495, %270 ], [ %.394.ph301, %.sink.split ]
+  %.091244.be = phi i32 [ %.495, %270 ], [ %.394.ph336, %.sink.split ]
   %.098243.be = phi ptr [ %269, %270 ], [ %.199.ph, %.sink.split ]
-  %.be = phi ptr [ %269, %270 ], [ %.sink302, %.sink.split ]
+  %.be = phi ptr [ %269, %270 ], [ %.sink337, %.sink.split ]
   br label %135, !llvm.loop !63
 
 338:                                              ; preds = %315, %289

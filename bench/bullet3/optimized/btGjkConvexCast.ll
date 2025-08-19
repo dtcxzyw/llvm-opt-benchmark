@@ -281,7 +281,7 @@ define dso_local noundef zeroext i1 @_ZN15btGjkConvexCast16calcTimeOfImpactERK11
   %.sroa.11.0.copyload89.sink = phi float [ %.sroa.11.0.copyload89, %119 ], [ %.sroa.11.0.lcssa, %130 ]
   %.sroa.14.0.copyload98.sink = phi float [ %.sroa.14.0.copyload98, %119 ], [ %.sroa.14.0.lcssa, %130 ]
   %.sroa.17.0.copyload107.sink = phi float [ %.sroa.17.0.copyload107, %119 ], [ %.sroa.17.0.lcssa, %130 ]
-  %.sink157 = phi ptr [ %66, %119 ], [ %.sroa.079, %130 ]
+  %.sink159 = phi ptr [ %66, %119 ], [ %.sroa.079, %130 ]
   %132 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store float %.sroa.082.0.copyload84.sink, ptr %132, align 8
   %.sroa.11.0..sroa_idx90 = getelementptr inbounds nuw i8, ptr %5, i64 140
@@ -291,7 +291,7 @@ define dso_local noundef zeroext i1 @_ZN15btGjkConvexCast16calcTimeOfImpactERK11
   %.sroa.17.0..sroa_idx108 = getelementptr inbounds nuw i8, ptr %5, i64 148
   store float %.sroa.17.0.copyload107.sink, ptr %.sroa.17.0..sroa_idx108, align 4, !tbaa !29
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 4 dereferenceable(16) %.sink157, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 4 dereferenceable(16) %.sink159, i64 16, i1 false)
   br label %.thread
 
 .thread:                                          ; preds = %86, %77, %75, %.thread.sink.split, %6, %._crit_edge

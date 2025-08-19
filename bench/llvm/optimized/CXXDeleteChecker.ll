@@ -1020,8 +1020,8 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit21.thread: ; preds = %_ZNK5clang1
 57:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i6.i = load i64, ptr %58, align 8
-  %59 = and i64 %.0.copyload.i.i.i.i6.i, -8
+  %.0.copyload.i.i.i.i7.i = load i64, ptr %58, align 8
+  %59 = and i64 %.0.copyload.i.i.i.i7.i, -8
   %60 = inttoptr i64 %59 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2583,8 +2583,8 @@ _ZNK5clang13CXXMethodDecl9isVirtualEv.exit:       ; preds = %_ZNK5clang13CXXReco
 57:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i6.i = load i64, ptr %58, align 8
-  %59 = and i64 %.0.copyload.i.i.i.i6.i, -8
+  %.0.copyload.i.i.i.i7.i = load i64, ptr %58, align 8
+  %59 = and i64 %.0.copyload.i.i.i.i7.i, -8
   %60 = inttoptr i64 %59 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 8

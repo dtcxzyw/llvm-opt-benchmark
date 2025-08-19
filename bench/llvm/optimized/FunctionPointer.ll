@@ -181,8 +181,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %12, %14
   %.not.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i, 7
   %23 = and i64 %.0.copyload.i.i.i.i.i.i, 4
   %.not.i = icmp eq i64 %23, 0
-  %or.cond15 = and i1 %.not.i.i.i, %.not.i
-  br i1 %or.cond15, label %27, label %._crit_edge.i.i.i
+  %or.cond.i = and i1 %.not.i.i.i, %.not.i
+  br i1 %or.cond.i, label %27, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -200,11 +200,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %12, %14
   call void @_ZNK5clang9NamedDecl24getQualifiedNameAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(48) %29) #7
   %.pre = load ptr, ptr %3, align 8, !tbaa !33
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.pre16 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !30
+  %.pre15 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !30
   br label %_ZNK5clang6interp8Function7getNameB5cxx11Ev.exit
 
 _ZNK5clang6interp8Function7getNameB5cxx11Ev.exit: ; preds = %._crit_edge.i.i.i, %27
-  %30 = phi i64 [ 8, %._crit_edge.i.i.i ], [ %.pre16, %27 ]
+  %30 = phi i64 [ 8, %._crit_edge.i.i.i ], [ %.pre15, %27 ]
   %31 = phi ptr [ %24, %._crit_edge.i.i.i ], [ %.pre, %27 ]
   %32 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %31, i64 noundef %30) #7
   %33 = load ptr, ptr %3, align 8, !tbaa !33

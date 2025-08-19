@@ -620,10 +620,10 @@ initial_setup.exit:                               ; preds = %85, %._crit_edge.i,
   %331 = icmp sgt i32 %330, -1
   %.not199.i = icmp eq i32 %.fr.i, %330
   %332 = and i1 %.not199.i, %331
-  %or.cond294.i = and i1 %.not200.fr.i, %332
-  br i1 %or.cond294.i, label %339, label %.sink.split290.i
+  %or.cond301.i = and i1 %.not200.fr.i, %332
+  br i1 %or.cond301.i, label %339, label %.sink.split297.i
 
-.sink.split290.i:                                 ; preds = %.lr.ph223.split.i
+.sink.split297.i:                                 ; preds = %.lr.ph223.split.i
   %333 = load ptr, ptr %0, align 8
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 40
   store i32 17, ptr %334, align 8
@@ -635,7 +635,7 @@ initial_setup.exit:                               ; preds = %85, %._crit_edge.i,
   tail call void %338(ptr noundef nonnull %0) #5
   br label %339
 
-339:                                              ; preds = %.sink.split290.i, %.lr.ph223.split.i
+339:                                              ; preds = %.sink.split297.i, %.lr.ph223.split.i
   store i32 %262, ptr %329, align 4
   %indvars.iv.next252.i = add nsw i64 %indvars.iv251.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next252.i to i32

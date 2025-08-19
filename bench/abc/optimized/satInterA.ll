@@ -1357,16 +1357,16 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %184, label %.critedge.thread, label %187
 
 .critedge.thread:                                 ; preds = %182, %.critedge
-  %.1166369 = phi i32 [ %.1166, %.critedge ], [ %179, %182 ]
+  %.1166379 = phi i32 [ %.1166, %.critedge ], [ %179, %182 ]
   %185 = load i32, ptr %107, align 8, !tbaa !51
   %186 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %185, i32 noundef %115)
   br label %187
 
 187:                                              ; preds = %.critedge.thread, %.critedge
-  %.1166368 = phi i32 [ %.1166369, %.critedge.thread ], [ %.1166, %.critedge ]
+  %.1166378 = phi i32 [ %.1166379, %.critedge.thread ], [ %.1166, %.critedge ]
   %188 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %189 = load i32, ptr %188, align 8, !tbaa !29
-  %190 = xor i32 %189, %.1166368
+  %190 = xor i32 %189, %.1166378
   %.not185 = icmp eq i32 %190, 1
   br i1 %.not185, label %194, label %191
 
@@ -1392,7 +1392,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %205 ]
   %202 = getelementptr inbounds nuw i32, ptr %200, i64 %indvars.iv.i
   %203 = load i32, ptr %202, align 4, !tbaa !29
-  %204 = icmp eq i32 %203, %.1166368
+  %204 = icmp eq i32 %203, %.1166378
   br i1 %204, label %._crit_edge.loopexit.i, label %205
 
 205:                                              ; preds = %201
@@ -1449,7 +1449,7 @@ Vec_IntRemove.exit:                               ; preds = %205, %._crit_edge.i
 
 .preheader251:                                    ; preds = %Vec_IntRemove.exit, %275
   %indvars.iv338 = phi i64 [ %indvars.iv.next339, %275 ], [ 1, %Vec_IntRemove.exit ]
-  %.2167293 = phi i32 [ %.4373, %275 ], [ %.1166368, %Vec_IntRemove.exit ]
+  %.2167293 = phi i32 [ %.4383, %275 ], [ %.1166378, %Vec_IntRemove.exit ]
   %224 = load ptr, ptr %109, align 8, !tbaa !12
   %225 = getelementptr i8, ptr %224, i64 4
   %.val191 = load i32, ptr %225, align 4, !tbaa !3
@@ -1488,7 +1488,7 @@ Vec_IntRemove.exit:                               ; preds = %205, %._crit_edge.i
   br i1 %236, label %.critedge2.thread, label %268
 
 .critedge2.thread:                                ; preds = %234, %.critedge2
-  %.4374 = phi i32 [ %.4, %.critedge2 ], [ %232, %234 ]
+  %.4384 = phi i32 [ %.4, %.critedge2 ], [ %232, %234 ]
   %237 = getelementptr inbounds nuw [0 x i32], ptr %188, i64 0, i64 %indvars.iv338
   %238 = load i32, ptr %237, align 4, !tbaa !29
   %239 = load i32, ptr %224, align 8, !tbaa !10
@@ -1569,7 +1569,7 @@ Vec_IntPush.exit227:                              ; preds = %.Vec_IntGrow.exit10
   br label %275
 
 275:                                              ; preds = %268, %272, %Vec_IntPush.exit227
-  %.4373 = phi i32 [ %.4, %268 ], [ %.4, %272 ], [ %.4374, %Vec_IntPush.exit227 ]
+  %.4383 = phi i32 [ %.4, %268 ], [ %.4, %272 ], [ %.4384, %Vec_IntPush.exit227 ]
   %indvars.iv.next339 = add nuw nsw i64 %indvars.iv338, 1
   %276 = load i32, ptr %125, align 4
   %277 = lshr i32 %276, 3

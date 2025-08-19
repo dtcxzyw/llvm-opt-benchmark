@@ -3248,8 +3248,8 @@ percpu_arena_ind_limit.exit:                      ; preds = %26
   %or.cond.i = and i1 %29, %31
   %32 = and i32 %30, 1
   %33 = lshr i32 %30, 1
-  %spec.select55 = add nuw i32 %33, %32
-  %.0.i = select i1 %or.cond.i, i32 %spec.select55, i32 %30
+  %spec.select62 = add nuw i32 %33, %32
+  %.0.i = select i1 %or.cond.i, i32 %spec.select62, i32 %30
   %34 = icmp ult i32 %.038, %.0.i
   br i1 %34, label %.thread, label %35
 
@@ -8043,8 +8043,8 @@ arena_get.exit.thread:                            ; preds = %26
   br label %.sink.split
 
 .thread104.sink.split:                            ; preds = %58, %50
-  %.sink113 = phi ptr [ %47, %50 ], [ %.0.i.i98, %58 ]
-  store ptr %.sink113, ptr %3, align 8, !tbaa !223
+  %.sink124 = phi ptr [ %47, %50 ], [ %.0.i.i98, %58 ]
+  store ptr %.sink124, ptr %3, align 8, !tbaa !223
   br label %.thread104
 
 .thread104:                                       ; preds = %.thread104.sink.split, %45, %39, %52, %37
@@ -9465,16 +9465,16 @@ define internal fastcc noundef i32 @ctl_arena_init(ptr noundef %0, ptr noundef n
 
 10:                                               ; preds = %7
   %11 = icmp eq ptr %5, %9
-  br i1 %11, label %12, label %.thread28
+  br i1 %11, label %12, label %.thread31
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !219
   store ptr %14, ptr %4, align 8, !tbaa !45
   %15 = icmp eq ptr %14, %9
-  br i1 %15, label %28, label %.thread28
+  br i1 %15, label %28, label %.thread31
 
-.thread28:                                        ; preds = %10, %12
+.thread31:                                        ; preds = %10, %12
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !219
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -9502,8 +9502,8 @@ define internal fastcc noundef i32 @ctl_arena_init(ptr noundef %0, ptr noundef n
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %30
 
-30:                                               ; preds = %.thread28, %28, %.thread
-  %.020.in = phi ptr [ %29, %.thread ], [ %9, %28 ], [ %9, %.thread28 ]
+30:                                               ; preds = %.thread31, %28, %.thread
+  %.020.in = phi ptr [ %29, %.thread ], [ %9, %28 ], [ %9, %.thread31 ]
   %.020 = load i32, ptr %.020.in, align 8, !tbaa !96
   %31 = zext i32 %.020 to i64
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24

@@ -133,17 +133,17 @@ define void @lv_draw_sw_arc(ptr noundef %0, ptr noundef readonly captures(none) 
   %76 = sub nsw i32 %70, %72
   store i32 %76, ptr %71, align 4, !tbaa !34
   %77 = fptosi float %.pre to i32
-  %.fr177 = freeze i32 %77
+  %.fr187 = freeze i32 %77
   %78 = fptosi float %.pre171 to i32
-  %.fr178 = freeze i32 %78
-  %79 = call i32 @llvm.smax.i32(i32 %.fr177, i32 359)
+  %.fr188 = freeze i32 %78
+  %79 = call i32 @llvm.smax.i32(i32 %.fr187, i32 359)
   %80 = urem i32 %79, 360
   %.neg = sub nsw i32 %80, %79
-  %81 = add i32 %.neg, %.fr177
-  %82 = call i32 @llvm.smax.i32(i32 %.fr178, i32 359)
+  %81 = add i32 %.neg, %.fr187
+  %82 = call i32 @llvm.smax.i32(i32 %.fr188, i32 359)
   %83 = urem i32 %82, 360
-  %.neg179 = sub nsw i32 %83, %82
-  %84 = add i32 %.neg179, %.fr178
+  %.neg189 = sub nsw i32 %83, %82
+  %84 = add i32 %.neg189, %.fr188
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %85 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %85, i8 0, i64 16, i1 false)

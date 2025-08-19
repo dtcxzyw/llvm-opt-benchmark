@@ -35,7 +35,7 @@ define noalias nonnull ptr @l_Lean_RArray_ofFn_go___rarg(ptr noundef %0, ptr nou
   br label %lean_nat_add.exit35
 
 17:                                               ; preds = %9
-  %18 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %11) #3
+  %18 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_nat_add.exit35
 
 .critedge.i33:                                    ; preds = %6
@@ -2260,18 +2260,18 @@ lean_dec_ref.exit22:                              ; preds = %44, %46, %47
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit22, %3
-  %.sink33 = phi ptr [ %4, %3 ], [ %60, %lean_dec_ref.exit22 ]
-  %63 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
-  store i32 1, ptr %.sink33, align 4, !tbaa !6
+  %.sink42 = phi ptr [ %4, %3 ], [ %60, %lean_dec_ref.exit22 ]
+  %63 = getelementptr inbounds nuw i8, ptr %.sink42, i64 4
+  store i32 1, ptr %.sink42, align 4, !tbaa !6
   store i32 131096, ptr %63, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.sink42, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %64, align 8, !tbaa !11
-  %65 = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.sink42, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %65, align 8, !tbaa !11
   br label %66
 
 66:                                               ; preds = %.sink.split, %lean_dec_ref.exit20, %lean_dec_ref.exit18, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit18 ], [ %38, %lean_dec_ref.exit20 ], [ %.sink33, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit18 ], [ %38, %lean_dec_ref.exit20 ], [ %.sink42, %.sink.split ]
   ret ptr %.0
 }
 

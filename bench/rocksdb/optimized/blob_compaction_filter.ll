@@ -1655,8 +1655,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 53:                                               ; preds = %._crit_edge.i.i.thread, %._crit_edge.i.i
-  %.0.lcssa.i.i61 = phi i32 [ 1, %._crit_edge.i.i.thread ], [ %17, %._crit_edge.i.i ]
-  %54 = trunc nuw nsw i32 %.0.lcssa.i.i61 to i8
+  %.0.lcssa.i.i78 = phi i32 [ 1, %._crit_edge.i.i.thread ], [ %17, %._crit_edge.i.i ]
+  %54 = trunc nuw nsw i32 %.0.lcssa.i.i78 to i8
   %55 = or disjoint i8 %54, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -1849,11 +1849,11 @@ _ZN7rocksdb11GetVarint64EPNS_5SliceEPm.exit:      ; preds = %110
   br label %148
 
 .thread:                                          ; preds = %106, %116
-  %.sroa.14.065 = phi i64 [ %119, %116 ], [ %108, %106 ]
-  %.sroa.021.064 = phi ptr [ %113, %116 ], [ %107, %106 ]
+  %.sroa.14.082 = phi i64 [ %119, %116 ], [ %108, %106 ]
+  %.sroa.021.081 = phi ptr [ %113, %116 ], [ %107, %106 ]
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %124 = getelementptr inbounds nuw i8, ptr %.sroa.021.064, i64 %.sroa.14.065
-  %125 = tail call noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef nonnull %.sroa.021.064, ptr noundef nonnull %124, ptr noundef nonnull %123)
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.021.081, i64 %.sroa.14.082
+  %125 = tail call noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef nonnull %.sroa.021.081, ptr noundef nonnull %124, ptr noundef nonnull %123)
   %.not50 = icmp eq ptr %125, null
   br i1 %.not50, label %_ZN7rocksdb11GetVarint64EPNS_5SliceEPm.exit18, label %126
 

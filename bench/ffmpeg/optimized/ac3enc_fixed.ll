@@ -349,14 +349,14 @@ apply_mdct.exit:                                  ; preds = %42, %2
   %135 = load ptr, ptr %132, align 8, !tbaa !48
   %gep375.us.us.us.us.us.i = getelementptr inbounds nuw [6 x [7 x [16 x i64]]], ptr %gep.us.us.us.i, i64 0, i64 %indvars.iv531.i
   %.promoted.us.us.us.us.us.i = load i64, ptr %gep375.us.us.us.us.us.i, align 8, !tbaa !66
-  %invariant.gep622.i = getelementptr i32, ptr %135, i64 %113
+  %invariant.gep640.i = getelementptr i32, ptr %135, i64 %113
   br label %136
 
 136:                                              ; preds = %136, %.lr.ph369.us.us.us.us.us.i
   %indvars.iv526.i = phi i64 [ %indvars.iv.next527.i, %136 ], [ 0, %.lr.ph369.us.us.us.us.us.i ]
   %137 = phi i64 [ %141, %136 ], [ %.promoted.us.us.us.us.us.i, %.lr.ph369.us.us.us.us.us.i ]
-  %gep623.i = getelementptr i32, ptr %invariant.gep622.i, i64 %indvars.iv526.i
-  %138 = load i32, ptr %gep623.i, align 4, !tbaa !56
+  %gep641.i = getelementptr i32, ptr %invariant.gep640.i, i64 %indvars.iv526.i
+  %138 = load i32, ptr %gep641.i, align 4, !tbaa !56
   %139 = sext i32 %138 to i64
   %140 = mul nsw i64 %139, %139
   %141 = add nsw i64 %140, %137
@@ -569,7 +569,7 @@ calc_cpl_coord.exit.i:                            ; preds = %ff_sqrt.exit.i.i, %
   %indvars.iv586.i = phi i64 [ 0, %.preheader339.us.preheader.i ], [ %indvars.iv.next587.i, %._crit_edge462.us.i ]
   %.0288466.us.i = phi i32 [ undef, %.preheader339.us.preheader.i ], [ %.2290.us.i, %._crit_edge462.us.i ]
   %invariant.gep464.us.i = getelementptr [16 x i32], ptr %4, i64 0, i64 %indvars.iv586.i
-  %invariant.gep628.i = getelementptr [16 x i64], ptr %5, i64 0, i64 %indvars.iv586.i
+  %invariant.gep646.i = getelementptr [16 x i64], ptr %5, i64 0, i64 %indvars.iv586.i
   br label %245
 
 245:                                              ; preds = %.loopexit338.us.i, %.preheader339.us.i
@@ -591,8 +591,8 @@ calc_cpl_coord.exit.i:                            ; preds = %ff_sqrt.exit.i.i, %
   br i1 %.not304.us.i, label %342, label %253
 
 253:                                              ; preds = %250
-  %254 = load i64, ptr %gep629.i, align 8, !tbaa !66
-  %gep.us.i = getelementptr inbounds nuw [7 x [16 x i64]], ptr %gep629.i, i64 0, i64 %indvars.iv581.i
+  %254 = load i64, ptr %gep647.i, align 8, !tbaa !66
+  %gep.us.i = getelementptr inbounds nuw [7 x [16 x i64]], ptr %gep647.i, i64 0, i64 %indvars.iv581.i
   %255 = load i64, ptr %gep.us.i, align 8, !tbaa !66
   br i1 %348, label %.lr.ph444.us.i, label %.critedge.us.i
 
@@ -605,16 +605,16 @@ calc_cpl_coord.exit.i:                            ; preds = %ff_sqrt.exit.i.i, %
   %258 = getelementptr inbounds nuw [7 x i8], ptr %257, i64 0, i64 %indvars.iv581.i
   %259 = load i8, ptr %258, align 1, !tbaa !41
   %.not305.us.i = icmp eq i8 %259, 0
-  br i1 %.not305.us.i, label %329, label %.critedge.us.loopexit.split.loop.exit624.i
+  br i1 %.not305.us.i, label %329, label %.critedge.us.loopexit.split.loop.exit642.i
 
-.critedge.us.loopexit.split.loop.exit624.i:       ; preds = %.lr.ph444.us.i
+.critedge.us.loopexit.split.loop.exit642.i:       ; preds = %.lr.ph444.us.i
   %260 = trunc nsw i64 %indvars.iv577.i to i32
   br label %.critedge.us.i
 
-.critedge.us.i:                                   ; preds = %341, %.critedge.us.loopexit.split.loop.exit624.i, %253
-  %.0284.lcssa.us.i = phi i64 [ %255, %253 ], [ %.0284440.us.i, %.critedge.us.loopexit.split.loop.exit624.i ], [ %.1285.us.i, %341 ]
-  %.0282.lcssa.us.i = phi i64 [ %254, %253 ], [ %.0282441.us.i, %.critedge.us.loopexit.split.loop.exit624.i ], [ %.1283.us.i, %341 ]
-  %.5293.lcssa.us.i = phi i32 [ %.5293439.us.i, %253 ], [ %260, %.critedge.us.loopexit.split.loop.exit624.i ], [ %237, %341 ]
+.critedge.us.i:                                   ; preds = %341, %.critedge.us.loopexit.split.loop.exit642.i, %253
+  %.0284.lcssa.us.i = phi i64 [ %255, %253 ], [ %.0284440.us.i, %.critedge.us.loopexit.split.loop.exit642.i ], [ %.1285.us.i, %341 ]
+  %.0282.lcssa.us.i = phi i64 [ %254, %253 ], [ %.0282441.us.i, %.critedge.us.loopexit.split.loop.exit642.i ], [ %.1283.us.i, %341 ]
+  %.5293.lcssa.us.i = phi i32 [ %.5293439.us.i, %253 ], [ %260, %.critedge.us.loopexit.split.loop.exit642.i ], [ %237, %341 ]
   %261 = icmp slt i64 %.0282.lcssa.us.i, 16777216
   br i1 %261, label %calc_cpl_coord.exit334.us.i, label %262
 
@@ -768,7 +768,7 @@ calc_cpl_coord.exit334.us.i:                      ; preds = %ff_sqrt.exit.i331.u
 
 .lr.ph455.us.i:                                   ; preds = %.preheader337.us.i
   %347 = getelementptr inbounds nuw i8, ptr %247, i64 580
-  %gep629.i = getelementptr [6 x [7 x [16 x i64]]], ptr %invariant.gep628.i, i64 0, i64 %246
+  %gep647.i = getelementptr [6 x [7 x [16 x i64]]], ptr %invariant.gep646.i, i64 0, i64 %246
   %.5293439.us.i = add nsw i32 %.4460.us.i, 1
   %348 = icmp slt i32 %.5293439.us.i, %237
   %gep465.us.i = getelementptr [7 x [16 x i32]], ptr %invariant.gep464.us.i, i64 %246

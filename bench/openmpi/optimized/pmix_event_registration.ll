@@ -2062,7 +2062,7 @@ pmix_obj_run_destructors.exit594:                 ; preds = %.lr.ph.i591, %564
   %706 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 520), align 8, !tbaa !103
   %707 = add i64 %706, -1
   store i64 %707, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 520), align 8, !tbaa !103
-  %708 = call i32 @pthread_mutex_lock(ptr noundef %359) #14
+  %708 = call i32 @pthread_mutex_lock(ptr noundef nonnull %359) #14
   %709 = icmp eq i32 %708, 35
   br i1 %709, label %710, label %pmix_obj_update.exit529
 
@@ -2077,7 +2077,7 @@ pmix_obj_update.exit529:                          ; preds = %705
   %712 = load i32, ptr %367, align 8, !tbaa !16
   %713 = add nsw i32 %712, -1
   store i32 %713, ptr %367, align 8, !tbaa !16
-  %714 = call i32 @pthread_mutex_unlock(ptr noundef %359) #14
+  %714 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %359) #14
   %715 = icmp eq i32 %713, 0
   br i1 %715, label %716, label %pmix_obj_new_tma.exit
 
@@ -2928,9 +2928,9 @@ _send_to_server.exit.thread.i:                    ; preds = %1140, %1138, %pmix_
 
 _send_to_server.exit.i:                           ; preds = %1084, %1082, %1050, %1048, %1014, %1012, %979, %977, %947, %945
   %.091119.i.sink.i = phi i32 [ %952, %947 ], [ -22, %945 ], [ %985, %979 ], [ -22, %977 ], [ %1023, %1014 ], [ -22, %1012 ], [ %1055, %1050 ], [ -22, %1048 ], [ %1093, %1084 ], [ -22, %1082 ]
-  %.sink222.i = phi i32 [ 198, %947 ], [ 198, %945 ], [ 204, %979 ], [ 204, %977 ], [ 211, %1014 ], [ 211, %1012 ], [ 219, %1050 ], [ 219, %1048 ], [ 226, %1084 ], [ 226, %1082 ]
+  %.sink262.i = phi i32 [ 198, %947 ], [ 198, %945 ], [ 204, %979 ], [ 204, %977 ], [ 211, %1014 ], [ 211, %1012 ], [ 219, %1050 ], [ 219, %1048 ], [ 226, %1084 ], [ 226, %1082 ]
   %1141 = call ptr @PMIx_Error_string(i32 noundef %.091119.i.sink.i) #14
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef %1141, ptr noundef nonnull @.str.3, i32 noundef %.sink222.i) #14
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef %1141, ptr noundef nonnull @.str.3, i32 noundef %.sink262.i) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not136.i = icmp eq i32 %.091119.i.sink.i, 0
   br i1 %.not136.i, label %_add_hdlr.exit, label %1142
@@ -3335,7 +3335,7 @@ pmix_obj_run_destructors.exit619:                 ; preds = %.lr.ph.i616, %._cri
   br label %1323
 
 1323:                                             ; preds = %1307, %1310, %1313, %1309
-  %1324 = call i32 @pthread_mutex_lock(ptr noundef %.0424) #14
+  %1324 = call i32 @pthread_mutex_lock(ptr noundef nonnull %.0424) #14
   %1325 = icmp eq i32 %1324, 35
   br i1 %1325, label %1326, label %pmix_obj_update.exit527
 
@@ -3351,7 +3351,7 @@ pmix_obj_update.exit527:                          ; preds = %1323
   %1329 = load i32, ptr %1328, align 8, !tbaa !16
   %1330 = add nsw i32 %1329, -1
   store i32 %1330, ptr %1328, align 8, !tbaa !16
-  %1331 = call i32 @pthread_mutex_unlock(ptr noundef %.0424) #14
+  %1331 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %.0424) #14
   %1332 = icmp eq i32 %1330, 0
   br i1 %1332, label %1333, label %pmix_obj_new_tma.exit
 

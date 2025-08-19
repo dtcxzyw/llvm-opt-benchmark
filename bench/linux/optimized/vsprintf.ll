@@ -2432,7 +2432,7 @@ widen_string.exit.thread.i:                       ; preds = %99
 .preheader.i25.i:                                 ; preds = %201, %194
   %196 = phi i32 [ %198, %201 ], [ %195, %194 ]
   %197 = phi ptr [ %202, %201 ], [ %189, %194 ]
-  %198 = add i32 %196, -1
+  %198 = add nsw i32 %196, -1
   %199 = icmp ult ptr %197, %100
   br i1 %199, label %200, label %201
 
@@ -2489,7 +2489,7 @@ widen_string.exit.thread.i:                       ; preds = %99
 .preheader.i27.i:                                 ; preds = %232, %225
   %227 = phi i32 [ %229, %232 ], [ %226, %225 ]
   %228 = phi ptr [ %233, %232 ], [ %220, %225 ]
-  %229 = add i32 %227, -1
+  %229 = add nsw i32 %227, -1
   %230 = icmp ult ptr %228, %100
   br i1 %230, label %231, label %232
 
@@ -2546,7 +2546,7 @@ widen_string.exit.thread.i:                       ; preds = %99
 .preheader.i29.i:                                 ; preds = %263, %256
   %258 = phi i32 [ %260, %263 ], [ %257, %256 ]
   %259 = phi ptr [ %264, %263 ], [ %251, %256 ]
-  %260 = add i32 %258, -1
+  %260 = add nsw i32 %258, -1
   %261 = icmp ult ptr %259, %100
   br i1 %261, label %262, label %263
 
@@ -2603,7 +2603,7 @@ widen_string.exit.thread.i:                       ; preds = %99
 .preheader.i31.i:                                 ; preds = %294, %287
   %289 = phi i32 [ %291, %294 ], [ %288, %287 ]
   %290 = phi ptr [ %295, %294 ], [ %282, %287 ]
-  %291 = add i32 %289, -1
+  %291 = add nsw i32 %289, -1
   %292 = icmp ult ptr %290, %100
   br i1 %292, label %293, label %294
 
@@ -2707,7 +2707,7 @@ widen_string.exit26.i:                            ; preds = %201, %232, %263, %2
 .preheader.i35.i:                                 ; preds = %347, %340
   %342 = phi i32 [ %344, %347 ], [ %341, %340 ]
   %343 = phi ptr [ %348, %347 ], [ %335, %340 ]
-  %344 = add i32 %342, -1
+  %344 = add nsw i32 %342, -1
   %345 = icmp ult ptr %343, %100
   br i1 %345, label %346, label %347
 
@@ -2804,7 +2804,7 @@ widen_string.exit26.thread.i:                     ; preds = %.preheader6.i, %318
 .preheader.i37.i:                                 ; preds = %403, %396
   %398 = phi i32 [ %400, %403 ], [ %397, %396 ]
   %399 = phi ptr [ %404, %403 ], [ %391, %396 ]
-  %400 = add i32 %398, -1
+  %400 = add nsw i32 %398, -1
   %401 = icmp ult ptr %399, %100
   br i1 %401, label %402, label %403
 
@@ -2863,7 +2863,7 @@ widen_string.exit38.i:                            ; preds = %403, %394, %373
 .preheader.i39.i:                                 ; preds = %435, %428
   %430 = phi i32 [ %432, %435 ], [ %429, %428 ]
   %431 = phi ptr [ %436, %435 ], [ %423, %428 ]
-  %432 = add i32 %430, -1
+  %432 = add nsw i32 %430, -1
   %433 = icmp ult ptr %431, %100
   br i1 %433, label %434, label %435
 
@@ -2922,7 +2922,7 @@ widen_string.exit40.i:                            ; preds = %435, %426, %widen_s
 .preheader.i41.i:                                 ; preds = %467, %460
   %462 = phi i32 [ %464, %467 ], [ %461, %460 ]
   %463 = phi ptr [ %468, %467 ], [ %455, %460 ]
-  %464 = add i32 %462, -1
+  %464 = add nsw i32 %462, -1
   %465 = icmp ult ptr %463, %100
   br i1 %465, label %466, label %467
 
@@ -2981,7 +2981,7 @@ widen_string.exit42.i:                            ; preds = %467, %458, %widen_s
 .preheader.i43.i:                                 ; preds = %499, %492
   %494 = phi i32 [ %496, %499 ], [ %493, %492 ]
   %495 = phi ptr [ %500, %499 ], [ %487, %492 ]
-  %496 = add i32 %494, -1
+  %496 = add nsw i32 %494, -1
   %497 = icmp ult ptr %495, %100
   br i1 %497, label %498, label %499
 
@@ -3033,7 +3033,7 @@ widen_string.exit42.i:                            ; preds = %467, %458, %widen_s
 .preheader.i45.i:                                 ; preds = %527, %520
   %522 = phi i32 [ %524, %527 ], [ %521, %520 ]
   %523 = phi ptr [ %528, %527 ], [ %515, %520 ]
-  %524 = add i32 %522, -1
+  %524 = add nsw i32 %522, -1
   %525 = icmp ult ptr %523, %100
   br i1 %525, label %526, label %527
 
@@ -7135,14 +7135,14 @@ widen_string.exit.thread.i145:                    ; preds = %2797
   br label %.thread35.i.preheader
 
 .thread35.i.preheader:                            ; preds = %2887, %._crit_edge73.i, %2875
-  %.ph798 = phi i8 [ 0, %2875 ], [ 1, %._crit_edge73.i ], [ 1, %2887 ]
-  %.ph799 = phi ptr [ %2876, %2875 ], [ %2904, %._crit_edge73.i ], [ %2888, %2887 ]
+  %.ph1260 = phi i8 [ 0, %2875 ], [ 1, %._crit_edge73.i ], [ 1, %2887 ]
+  %.ph1261 = phi ptr [ %2876, %2875 ], [ %2904, %._crit_edge73.i ], [ %2888, %2887 ]
   br label %.thread35.i
 
 .thread35.i:                                      ; preds = %.thread35.i.preheader, %2939
   %2905 = phi i64 [ %2942, %2939 ], [ 0, %.thread35.i.preheader ]
-  %2906 = phi i8 [ %2941, %2939 ], [ %.ph798, %.thread35.i.preheader ]
-  %2907 = phi ptr [ %2940, %2939 ], [ %.ph799, %.thread35.i.preheader ]
+  %2906 = phi i8 [ %2941, %2939 ], [ %.ph1260, %.thread35.i.preheader ]
+  %2907 = phi ptr [ %2940, %2939 ], [ %.ph1261, %.thread35.i.preheader ]
   %2908 = getelementptr [5 x %struct.page_flags_fields], ptr @pff, i64 0, i64 %2905
   %2909 = load i32, ptr %2908, align 16
   %2910 = icmp eq i32 %2909, 0
@@ -9310,14 +9310,14 @@ define dso_local i32 @vbin_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
 
 .loopexitthread-pre-split:                        ; preds = %179, %55, %56, %74, %78, %92, %107, %203, %207, %224, %228, %245, %249, %266, %270, %283, %287, %305, %309, %327, %331, %.lr.ph, %.lr.ph
   %.ph = phi ptr [ %13, %.lr.ph ], [ %13, %.lr.ph ], [ %37, %56 ], [ %37, %55 ], [ %329, %327 ], [ %329, %331 ], [ %307, %305 ], [ %307, %309 ], [ %285, %283 ], [ %285, %287 ], [ %268, %266 ], [ %268, %270 ], [ %247, %245 ], [ %247, %249 ], [ %226, %224 ], [ %226, %228 ], [ %205, %203 ], [ %205, %207 ], [ %105, %92 ], [ %105, %107 ], [ %76, %74 ], [ %76, %78 ], [ %178, %179 ]
-  %.ph40 = phi ptr [ %16, %.lr.ph ], [ %16, %.lr.ph ], [ %16, %56 ], [ %16, %55 ], [ %16, %327 ], [ %16, %331 ], [ %16, %305 ], [ %16, %309 ], [ %16, %283 ], [ %16, %287 ], [ %16, %266 ], [ %16, %270 ], [ %16, %245 ], [ %16, %249 ], [ %16, %224 ], [ %16, %228 ], [ %16, %203 ], [ %16, %207 ], [ %16, %92 ], [ %16, %107 ], [ %16, %74 ], [ %16, %78 ], [ %180, %179 ]
-  %.pr = load i8, ptr %.ph40, align 1
+  %.ph76 = phi ptr [ %16, %.lr.ph ], [ %16, %.lr.ph ], [ %16, %56 ], [ %16, %55 ], [ %16, %327 ], [ %16, %331 ], [ %16, %305 ], [ %16, %309 ], [ %16, %283 ], [ %16, %287 ], [ %16, %266 ], [ %16, %270 ], [ %16, %245 ], [ %16, %249 ], [ %16, %224 ], [ %16, %228 ], [ %16, %203 ], [ %16, %207 ], [ %16, %92 ], [ %16, %107 ], [ %16, %74 ], [ %16, %78 ], [ %180, %179 ]
+  %.pr = load i8, ptr %.ph76, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexitthread-pre-split, %40
   %333 = phi i8 [ %.pr, %.loopexitthread-pre-split ], [ %41, %40 ]
   %334 = phi ptr [ %.ph, %.loopexitthread-pre-split ], [ %37, %40 ]
-  %335 = phi ptr [ %.ph40, %.loopexitthread-pre-split ], [ %16, %40 ]
+  %335 = phi ptr [ %.ph76, %.loopexitthread-pre-split ], [ %16, %40 ]
   %336 = icmp eq i8 %333, 0
   br i1 %336, label %.thread, label %.lr.ph
 
@@ -12490,13 +12490,13 @@ widen_string.exit.thread:                         ; preds = %5
 .outer:                                           ; preds = %83, %79
   %.not = phi i32 [ 1900, %79 ], [ 0, %83 ]
   %.ph = phi i32 [ 1, %79 ], [ 0, %83 ]
-  %.ph22 = phi i8 [ 1, %79 ], [ %84, %83 ]
-  %.ph23 = phi i32 [ %82, %79 ], [ %86, %83 ]
+  %.ph37 = phi i8 [ 1, %79 ], [ %84, %83 ]
+  %.ph38 = phi i32 [ %82, %79 ], [ %86, %83 ]
   br label %83
 
 83:                                               ; preds = %.outer, %90
-  %84 = phi i8 [ 0, %90 ], [ %.ph22, %.outer ]
-  %85 = phi i32 [ %86, %90 ], [ %.ph23, %.outer ]
+  %84 = phi i8 [ 0, %90 ], [ %.ph37, %.outer ]
+  %85 = phi i32 [ %86, %90 ], [ %.ph38, %.outer ]
   %86 = add i32 %85, 1
   %87 = sext i32 %85 to i64
   %88 = getelementptr i8, ptr %4, i64 %87

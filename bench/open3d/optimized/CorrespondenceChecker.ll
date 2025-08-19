@@ -138,9 +138,9 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration38CorrespondenceCh
   %55 = load <2 x double>, ptr %54, align 1, !tbaa !13
   %56 = fsub <2 x double> %33, %55
   %57 = fmul <2 x double> %56, %56
-  %shift54 = shufflevector <2 x double> %57, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop55 = fadd <2 x double> %57, %shift54
-  %58 = extractelement <2 x double> %foldExtExtBinop55, i64 0
+  %shift57 = shufflevector <2 x double> %57, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop58 = fadd <2 x double> %57, %shift57
+  %58 = extractelement <2 x double> %foldExtExtBinop58, i64 0
   %59 = getelementptr i8, ptr %54, i64 16
   %60 = load double, ptr %59, align 8, !tbaa !14
   %61 = fsub double %35, %60
@@ -196,8 +196,8 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration36CorrespondenceCh
   %27 = load ptr, ptr %26, align 8, !tbaa !19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load double, ptr %28, align 8, !tbaa !22
-  %.sroa.0.8..sroa_idx57 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
-  %.sroa.0.16..sroa_idx58 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
+  %.sroa.0.8..sroa_idx59 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
+  %.sroa.0.16..sroa_idx60 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
   %.sroa.0.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 24
   %.sroa.0.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
   %.sroa.0.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
@@ -218,9 +218,9 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration36CorrespondenceCh
   %40 = load double, ptr %37, align 8, !tbaa !14
   store double %40, ptr %.sroa.0, align 16, !tbaa !14
   %41 = load double, ptr %38, align 8, !tbaa !14
-  store double %41, ptr %.sroa.0.8..sroa_idx57, align 8, !tbaa !14
+  store double %41, ptr %.sroa.0.8..sroa_idx59, align 8, !tbaa !14
   %42 = load double, ptr %39, align 8, !tbaa !14
-  store double %42, ptr %.sroa.0.16..sroa_idx58, align 16, !tbaa !14
+  store double %42, ptr %.sroa.0.16..sroa_idx60, align 16, !tbaa !14
   store double 1.000000e+00, ptr %.sroa.0.24..sroa_idx, align 8, !tbaa !14
   %.sroa.0.0..sroa.0.0..sroa.0.0. = load <2 x double>, ptr %.sroa.0, align 16
   %43 = shufflevector <2 x double> %.sroa.0.0..sroa.0.0..sroa.0.0., <2 x double> poison, <2 x i32> zeroinitializer
@@ -255,9 +255,9 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration36CorrespondenceCh
   %69 = load <2 x double>, ptr %68, align 1, !tbaa !13
   %70 = fsub <2 x double> %69, %53
   %71 = fmul <2 x double> %70, %70
-  %shift54 = shufflevector <2 x double> %71, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop55 = fadd <2 x double> %71, %shift54
-  %72 = extractelement <2 x double> %foldExtExtBinop55, i64 0
+  %shift56 = shufflevector <2 x double> %71, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop57 = fadd <2 x double> %71, %shift56
+  %72 = extractelement <2 x double> %foldExtExtBinop57, i64 0
   %73 = getelementptr i8, ptr %68, i64 16
   %74 = load double, ptr %73, align 8, !tbaa !14
   %75 = fsub double %74, %64
@@ -362,8 +362,8 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread: ; preds = %21, %5, %
   %56 = load <2 x double>, ptr %55, align 16, !tbaa !13
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %58 = load <2 x double>, ptr %57, align 16, !tbaa !13
-  %.sroa.0.8..sroa_idx62 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
-  %.sroa.0.16..sroa_idx63 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
+  %.sroa.0.8..sroa_idx69 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
+  %.sroa.0.16..sroa_idx70 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
   %.sroa.0.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 24
   %.sroa.0.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
   %.sroa.0.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
@@ -384,9 +384,9 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread: ; preds = %21, %5, %
   %69 = load double, ptr %66, align 8, !tbaa !14
   store double %69, ptr %.sroa.0, align 16, !tbaa !14
   %70 = load double, ptr %67, align 8, !tbaa !14
-  store double %70, ptr %.sroa.0.8..sroa_idx62, align 8, !tbaa !14
+  store double %70, ptr %.sroa.0.8..sroa_idx69, align 8, !tbaa !14
   %71 = load double, ptr %68, align 8, !tbaa !14
-  store double %71, ptr %.sroa.0.16..sroa_idx63, align 16, !tbaa !14
+  store double %71, ptr %.sroa.0.16..sroa_idx70, align 16, !tbaa !14
   store double 0.000000e+00, ptr %.sroa.0.24..sroa_idx, align 8, !tbaa !14
   %.sroa.0.0..sroa.0.0..sroa.0.0. = load <2 x double>, ptr %.sroa.0, align 16
   %72 = shufflevector <2 x double> %.sroa.0.0..sroa.0.0..sroa.0.0., <2 x double> poison, <2 x i32> zeroinitializer
@@ -420,9 +420,9 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread: ; preds = %21, %5, %
   %97 = getelementptr inbounds nuw %"class.Eigen::Matrix.20", ptr %32, i64 %96
   %98 = load <2 x double>, ptr %97, align 1, !tbaa !13
   %99 = fmul <2 x double> %82, %98
-  %shift59 = shufflevector <2 x double> %99, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop60 = fadd <2 x double> %99, %shift59
-  %100 = extractelement <2 x double> %foldExtExtBinop60, i64 0
+  %shift66 = shufflevector <2 x double> %99, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop67 = fadd <2 x double> %99, %shift66
+  %100 = extractelement <2 x double> %foldExtExtBinop67, i64 0
   %101 = getelementptr i8, ptr %97, i64 16
   %102 = load double, ptr %101, align 8, !tbaa !14
   %103 = fmul double %93, %102

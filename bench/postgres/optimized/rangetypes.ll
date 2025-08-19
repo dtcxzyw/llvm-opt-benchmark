@@ -699,7 +699,7 @@ fetch_att.exit:                                   ; preds = %23
   br i1 %41, label %fetch_att.exit.thread, label %44
 
 fetch_att.exit.thread:                            ; preds = %35, %32, %29, %26, %fetch_att.exit
-  %.0.i83 = phi i64 [ %40, %fetch_att.exit ], [ %36, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ]
+  %.0.i84 = phi i64 [ %40, %fetch_att.exit ], [ %36, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ]
   %42 = zext nneg i32 %24 to i64
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 %42
   br label %73
@@ -753,7 +753,7 @@ fetch_att.exit.thread:                            ; preds = %35, %32, %29, %26, 
 
 73:                                               ; preds = %5, %fetch_att.exit.thread, %69
   %.054 = phi ptr [ %43, %fetch_att.exit.thread ], [ %72, %69 ], [ %21, %5 ]
-  %.053 = phi i64 [ %.0.i83, %fetch_att.exit.thread ], [ %40, %69 ], [ 0, %5 ]
+  %.053 = phi i64 [ %.0.i84, %fetch_att.exit.thread ], [ %40, %69 ], [ 0, %5 ]
   %74 = and i8 %11, 81
   %.not60 = icmp eq i8 %74, 0
   br i1 %.not60, label %78, label %fetch_att.exit67
@@ -6815,8 +6815,8 @@ datum_compute_size.exit.thread:                   ; preds = %86
   %.pre140 = load i8, ptr %130, align 1
   %132 = and i8 %.pre140, 3
   %133 = icmp eq i8 %132, 0
-  %or.cond148 = select i1 %.not137, i1 %133, i1 false
-  br i1 %or.cond148, label %134, label %.thread.i91
+  %or.cond154 = select i1 %.not137, i1 %133, i1 false
+  br i1 %or.cond154, label %134, label %.thread.i91
 
 134:                                              ; preds = %.thread109
   %135 = load i32, ptr %130, align 4

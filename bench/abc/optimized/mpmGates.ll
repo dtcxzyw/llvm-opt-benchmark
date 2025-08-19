@@ -399,14 +399,14 @@ define noalias noundef ptr @Mpm_ManFindMappedNodes(ptr noundef readonly captures
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %44, %46, %36, %38
-  %.sink36 = phi ptr [ %37, %36 ], [ %39, %38 ], [ %45, %44 ], [ %47, %46 ]
+  %.sink39 = phi ptr [ %37, %36 ], [ %39, %38 ], [ %45, %44 ], [ %47, %46 ]
   %.sink = phi i32 [ 16, %36 ], [ 16, %38 ], [ %41, %44 ], [ %41, %46 ]
-  store ptr %.sink36, ptr %5, align 8, !tbaa !48
+  store ptr %.sink39, ptr %5, align 8, !tbaa !48
   store i32 %.sink, ptr %2, align 8, !tbaa !47
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %29
-  %.pre.i32 = phi ptr [ %21, %29 ], [ %.sink36, %Vec_IntPush.exit.sink.split ]
+  %.pre.i32 = phi ptr [ %21, %29 ], [ %.sink39, %Vec_IntPush.exit.sink.split ]
   %48 = add nsw i32 %30, 1
   store i32 %48, ptr %3, align 4, !tbaa !46
   %49 = sext i32 %30 to i64

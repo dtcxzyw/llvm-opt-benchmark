@@ -833,12 +833,12 @@ dwt_get_image_layer.exit.i:                       ; preds = %356, %336, %334
   br i1 %372, label %78, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %dwt_get_image_layer.exit.i, %.preheader.i
-  %.072.lcssa117.i = phi i64 [ 0, %.preheader.i ], [ %81, %dwt_get_image_layer.exit.i ]
+  %.072.lcssa136.i = phi i64 [ 0, %.preheader.i ], [ %81, %dwt_get_image_layer.exit.i ]
   %373 = phi i32 [ 0, %.preheader.i ], [ %371, %dwt_get_image_layer.exit.i ]
   br i1 %.not.i, label %378, label %374
 
 374:                                              ; preds = %._crit_edge.thread.i
-  %375 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %.072.lcssa117.i
+  %375 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %.072.lcssa136.i
   %376 = load ptr, ptr %375, align 8, !tbaa !22
   %377 = add nsw i32 %373, 1
   call void %1(ptr noundef %376, ptr noundef nonnull %0, i32 noundef %377) #15
@@ -853,7 +853,7 @@ dwt_get_image_layer.exit.i:                       ; preds = %356, %336, %334
   br i1 %382, label %383, label %397
 
 383:                                              ; preds = %378
-  %384 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %.072.lcssa117.i
+  %384 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %.072.lcssa136.i
   %385 = load ptr, ptr %384, align 8, !tbaa !22
   %386 = load ptr, ptr %0, align 8, !tbaa !6
   %.not.i85.i = icmp eq ptr %386, %385
@@ -900,7 +900,7 @@ dwt_get_image_layer.exit.i:                       ; preds = %356, %336, %334
   %411 = phi i32 [ %.pre110.i, %402 ], [ %.pre111.i, %399 ]
   %412 = phi i32 [ %.pre108.i, %402 ], [ %.pre109.i, %399 ]
   %413 = load ptr, ptr %4, align 8, !tbaa !22
-  %414 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %.072.lcssa117.i
+  %414 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %.072.lcssa136.i
   %415 = load ptr, ptr %414, align 8, !tbaa !22
   %416 = sext i32 %412 to i64
   %417 = sext i32 %411 to i64
@@ -1216,7 +1216,7 @@ dwt_interleave_rows.exit.us50.i:                  ; preds = %.lr.ph48.split.i, %
   br i1 %135, label %.lr.ph124.preheader.i, label %._crit_edge.i
 
 .lr.ph124.preheader.i:                            ; preds = %.preheader121.i
-  %invariant.gep155.i = getelementptr float, ptr %141, i64 %132
+  %invariant.gep158.i = getelementptr float, ptr %141, i64 %132
   br label %.lr.ph124.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -1263,8 +1263,8 @@ dwt_interleave_rows.exit.us50.i:                  ; preds = %.lr.ph48.split.i, %
   %170 = getelementptr inbounds float, ptr %141, i64 %169
   %171 = load float, ptr %170, align 4, !tbaa !39, !alias.scope !55, !noalias !58
   %172 = fadd reassoc nsz arcp contract afn float %168, %171
-  %gep156.i = getelementptr float, ptr %invariant.gep155.i, i64 %indvars.iv141.i
-  %173 = load float, ptr %gep156.i, align 4, !tbaa !39, !alias.scope !55, !noalias !58
+  %gep159.i = getelementptr float, ptr %invariant.gep158.i, i64 %indvars.iv141.i
+  %173 = load float, ptr %gep159.i, align 4, !tbaa !39, !alias.scope !55, !noalias !58
   %174 = fadd reassoc nsz arcp contract afn float %172, %173
   %175 = fmul reassoc nsz arcp contract afn float %174, 6.250000e-02
   %176 = getelementptr inbounds float, ptr %140, i64 %indvars.iv141.i

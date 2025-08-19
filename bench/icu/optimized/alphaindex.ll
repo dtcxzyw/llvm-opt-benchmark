@@ -1191,7 +1191,7 @@ define noundef ptr @_ZNK6icu_7715AlphabeticIndex16createBucketListER10UErrorCode
 _ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit: ; preds = %39
   %.pre = load i32, ptr %1, align 4, !tbaa !40
   %44 = icmp slt i32 %.pre, 1
-  br i1 %44, label %48, label %.thread635
+  br i1 %44, label %48, label %.thread665
 
 45:                                               ; preds = %39
   %46 = landingpad { ptr, i32 }
@@ -1229,17 +1229,17 @@ _ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit: ; preds = %39
 60:                                               ; preds = %50
   %61 = load i32, ptr %1, align 4
   %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.thread643, label %63
+  br i1 %62, label %.thread673, label %63
 
 63:                                               ; preds = %60
   store i32 7, ptr %1, align 4, !tbaa !40
-  br label %.thread643
+  br label %.thread673
 
 _ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit: ; preds = %58
   store ptr %51, ptr %12, align 8, !tbaa !57
   %.pre609 = load i32, ptr %1, align 4, !tbaa !40
   %64 = icmp slt i32 %.pre609, 1
-  br i1 %64, label %68, label %.thread624
+  br i1 %64, label %68, label %.thread654
 
 .thread481:                                       ; preds = %53, %58
   %65 = landingpad { ptr, i32 }
@@ -1985,9 +1985,9 @@ _ZN6icu_7712_GLOBAL__N_125hasMultiplePrimaryWeightsERKNS_17RuleBasedCollatorEjRK
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit356
 
 .thread459.thread:                                ; preds = %72, %.thread459
-  %.0192.lcssa621 = phi i8 [ %.6198.ph, %.thread459 ], [ 0, %72 ]
-  %.0202.lcssa620 = phi i1 [ %366, %.thread459 ], [ true, %72 ]
-  %.0215.lcssa619 = phi ptr [ %.2217, %.thread459 ], [ %74, %72 ]
+  %.0192.lcssa651 = phi i8 [ %.6198.ph, %.thread459 ], [ 0, %72 ]
+  %.0202.lcssa650 = phi i1 [ %366, %.thread459 ], [ true, %72 ]
+  %.0215.lcssa649 = phi ptr [ %.2217, %.thread459 ], [ %74, %72 ]
   %369 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %370 = load i32, ptr %369, align 8, !tbaa !18
   %371 = icmp eq i32 %370, 1
@@ -2025,7 +2025,7 @@ _ZN6icu_7712_GLOBAL__N_125hasMultiplePrimaryWeightsERKNS_17RuleBasedCollatorEjRK
           to label %387 unwind label %393
 
 387:                                              ; preds = %382
-  invoke void @_ZN6icu_7715AlphabeticIndex6BucketC1ERKNS_13UnicodeStringES4_25UAlphabeticIndexLabelType(ptr noundef nonnull align 8 dereferenceable(168) %380, ptr noundef nonnull align 8 dereferenceable(64) %386, ptr noundef nonnull align 8 dereferenceable(64) %.0215.lcssa619, i32 noundef 3)
+  invoke void @_ZN6icu_7715AlphabeticIndex6BucketC1ERKNS_13UnicodeStringES4_25UAlphabeticIndexLabelType(ptr noundef nonnull align 8 dereferenceable(168) %380, ptr noundef nonnull align 8 dereferenceable(64) %386, ptr noundef nonnull align 8 dereferenceable(64) %.0215.lcssa649, i32 noundef 3)
           to label %388 unwind label %393
 
 388:                                              ; preds = %387, %379
@@ -2047,11 +2047,11 @@ _ZN6icu_7712_GLOBAL__N_125hasMultiplePrimaryWeightsERKNS_17RuleBasedCollatorEjRK
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit356
 
 395:                                              ; preds = %390
-  br i1 %.0202.lcssa620, label %.loopexit, label %.preheader485
+  br i1 %.0202.lcssa650, label %.loopexit, label %.preheader485
 
 .preheader485:                                    ; preds = %395, %404
   %indvars.iv = phi i64 [ %indvars.iv.next, %404 ], [ 0, %395 ]
-  %.8200568 = phi i8 [ %.9201, %404 ], [ %.0192.lcssa621, %395 ]
+  %.8200568 = phi i8 [ %.9201, %404 ], [ %.0192.lcssa651, %395 ]
   %.0207566 = phi ptr [ %spec.select301, %404 ], [ null, %395 ]
   %396 = getelementptr inbounds nuw [26 x ptr], ptr %10, i64 0, i64 %indvars.iv
   %397 = load ptr, ptr %396, align 8, !tbaa !61
@@ -2076,7 +2076,7 @@ _ZN6icu_7712_GLOBAL__N_125hasMultiplePrimaryWeightsERKNS_17RuleBasedCollatorEjRK
   br i1 %exitcond.not, label %.loopexit, label %.preheader485, !llvm.loop !72
 
 .loopexit:                                        ; preds = %404, %395
-  %.7199 = phi i8 [ %.0192.lcssa621, %395 ], [ %.9201, %404 ]
+  %.7199 = phi i8 [ %.0192.lcssa651, %395 ], [ %.9201, %404 ]
   %.not273 = icmp eq i8 %.7199, 0
   br i1 %.not273, label %405, label %412
 
@@ -2178,7 +2178,7 @@ _ZN6icu_7712_GLOBAL__N_19getBucketERKNS_7UVectorEi.exit349._crit_edge: ; preds =
 _ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit353: ; preds = %438
   %.pre612 = load i32, ptr %1, align 4, !tbaa !40
   %443 = icmp slt i32 %.pre612, 1
-  br i1 %443, label %.preheader, label %.thread623
+  br i1 %443, label %.preheader, label %.thread653
 
 .preheader:                                       ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit353
   %444 = load i32, ptr %369, align 8, !tbaa !18
@@ -2194,7 +2194,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit353: ; preds = %4
 ._crit_edge:                                      ; preds = %456
   %.pre613 = load i32, ptr %1, align 4, !tbaa !40
   %448 = icmp slt i32 %.pre613, 1
-  br i1 %448, label %._crit_edge.thread, label %.thread623
+  br i1 %448, label %._crit_edge.thread, label %.thread653
 
 .lr.ph572:                                        ; preds = %.preheader, %456
   %.0182571 = phi i32 [ %457, %456 ], [ 0, %.preheader ]
@@ -2233,7 +2233,7 @@ _ZN6icu_7712_GLOBAL__N_19getBucketERKNS_7UVectorEi.exit355: ; preds = %.lr.ph572
 
 463:                                              ; preds = %._crit_edge.thread
   store i32 7, ptr %1, align 4, !tbaa !40
-  br label %.thread623
+  br label %.thread653
 
 464:                                              ; preds = %462
   %465 = landingpad { ptr, i32 }
@@ -2241,7 +2241,7 @@ _ZN6icu_7712_GLOBAL__N_19getBucketERKNS_7UVectorEi.exit355: ; preds = %.lr.ph572
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %460) #16
   br label %469
 
-.thread623:                                       ; preds = %._crit_edge, %463, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit353
+.thread653:                                       ; preds = %._crit_edge, %463, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit353
   %466 = load ptr, ptr %436, align 8, !tbaa !3
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 8
   %468 = load ptr, ptr %467, align 8
@@ -2256,9 +2256,9 @@ _ZN6icu_7712_GLOBAL__N_19getBucketERKNS_7UVectorEi.exit355: ; preds = %.lr.ph572
   call void %472(ptr noundef nonnull align 8 dereferenceable(40) %436) #16
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit356
 
-_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %360, %.critedge299, %129, %218, %442, %439, %349, %.critedge297, %462, %.thread623, %408, %375, %409, %390, %376, %.thread459
-  %.sroa.0371.2 = phi ptr [ %37, %376 ], [ %37, %409 ], [ %37, %390 ], [ %37, %.thread459 ], [ null, %375 ], [ null, %408 ], [ %37, %.thread623 ], [ null, %462 ], [ %37, %.critedge297 ], [ %37, %349 ], [ %37, %439 ], [ %37, %442 ], [ %37, %218 ], [ %37, %129 ], [ %37, %.critedge299 ], [ %37, %360 ]
-  %.12 = phi ptr [ null, %376 ], [ null, %409 ], [ null, %390 ], [ null, %.thread459 ], [ %373, %375 ], [ %406, %408 ], [ null, %.thread623 ], [ %460, %462 ], [ null, %.critedge297 ], [ null, %349 ], [ null, %439 ], [ null, %442 ], [ null, %218 ], [ null, %129 ], [ null, %.critedge299 ], [ null, %360 ]
+_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %360, %.critedge299, %129, %218, %442, %439, %349, %.critedge297, %462, %.thread653, %408, %375, %409, %390, %376, %.thread459
+  %.sroa.0371.2 = phi ptr [ %37, %376 ], [ %37, %409 ], [ %37, %390 ], [ %37, %.thread459 ], [ null, %375 ], [ null, %408 ], [ %37, %.thread653 ], [ null, %462 ], [ %37, %.critedge297 ], [ %37, %349 ], [ %37, %439 ], [ %37, %442 ], [ %37, %218 ], [ %37, %129 ], [ %37, %.critedge299 ], [ %37, %360 ]
+  %.12 = phi ptr [ null, %376 ], [ null, %409 ], [ null, %390 ], [ null, %.thread459 ], [ %373, %375 ], [ %406, %408 ], [ null, %.thread653 ], [ %460, %462 ], [ null, %.critedge297 ], [ null, %349 ], [ null, %439 ], [ null, %442 ], [ null, %218 ], [ null, %129 ], [ null, %.critedge299 ], [ null, %360 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit.thread
@@ -2269,20 +2269,20 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit356: ; preds = %.loopexit487, %.l
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %478
 
-.thread643:                                       ; preds = %63, %60
+.thread673:                                       ; preds = %63, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.thread635
+  br label %.thread665
 
 _ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit.thread: ; preds = %69, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit
   %.sroa.0371.1.ph.ph = phi ptr [ %.sroa.0371.2, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit ], [ %37, %69 ]
   %.2.ph.ph = phi ptr [ %.12, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit ], [ null, %69 ]
   %.pr.pr = load ptr, ptr %12, align 8, !tbaa !57
   %473 = icmp eq ptr %.pr.pr, null
-  br i1 %473, label %485, label %.thread624
+  br i1 %473, label %485, label %.thread654
 
-.thread624:                                       ; preds = %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit, %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit.thread
-  %.2629 = phi ptr [ %.2.ph.ph, %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit.thread ], [ null, %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit ]
-  %.sroa.0371.1627 = phi ptr [ %.sroa.0371.1.ph.ph, %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit.thread ], [ %37, %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit ]
+.thread654:                                       ; preds = %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit, %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit.thread
+  %.2659 = phi ptr [ %.2.ph.ph, %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit.thread ], [ null, %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit ]
+  %.sroa.0371.1657 = phi ptr [ %.sroa.0371.1.ph.ph, %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit.thread ], [ %37, %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit ]
   %474 = phi ptr [ %.pr.pr, %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit.thread ], [ %51, %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit ]
   %475 = load ptr, ptr %474, align 8, !tbaa !3
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 8
@@ -2303,24 +2303,24 @@ _ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit.
   call void %484(ptr noundef nonnull align 8 dereferenceable(168) %479) #16
   br label %490
 
-485:                                              ; preds = %.thread624, %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit.thread
-  %.2630 = phi ptr [ %.2.ph.ph, %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit.thread ], [ %.2629, %.thread624 ]
-  %.sroa.0371.1628 = phi ptr [ %.sroa.0371.1.ph.ph, %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit.thread ], [ %.sroa.0371.1627, %.thread624 ]
+485:                                              ; preds = %.thread654, %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit.thread
+  %.2660 = phi ptr [ %.2.ph.ph, %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit.thread ], [ %.2659, %.thread654 ]
+  %.sroa.0371.1658 = phi ptr [ %.sroa.0371.1.ph.ph, %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit.thread ], [ %.sroa.0371.1657, %.thread654 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %486 = icmp eq ptr %.sroa.0371.1628, null
-  br i1 %486, label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit358, label %.thread635
+  %486 = icmp eq ptr %.sroa.0371.1658, null
+  br i1 %486, label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit358, label %.thread665
 
-.thread635:                                       ; preds = %.thread643, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit, %485
-  %.1639 = phi ptr [ %.2630, %485 ], [ null, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit ], [ null, %.thread643 ]
-  %.sroa.0371.0638 = phi ptr [ %.sroa.0371.1628, %485 ], [ %37, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit ], [ %37, %.thread643 ]
-  %487 = load ptr, ptr %.sroa.0371.0638, align 8, !tbaa !3
+.thread665:                                       ; preds = %.thread673, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit, %485
+  %.1669 = phi ptr [ %.2660, %485 ], [ null, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit ], [ null, %.thread673 ]
+  %.sroa.0371.0668 = phi ptr [ %.sroa.0371.1658, %485 ], [ %37, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit ], [ %37, %.thread673 ]
+  %487 = load ptr, ptr %.sroa.0371.0668, align 8, !tbaa !3
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 8
   %489 = load ptr, ptr %488, align 8
-  call void %489(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0371.0638) #16
+  call void %489(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0371.0668) #16
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit358
 
-_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit358: ; preds = %43, %40, %485, %.thread635
-  %.1634 = phi ptr [ %.2630, %485 ], [ %.1639, %.thread635 ], [ null, %40 ], [ null, %43 ]
+_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit358: ; preds = %43, %40, %485, %.thread665
+  %.1664 = phi ptr [ %.2660, %485 ], [ %.1669, %.thread665 ], [ null, %40 ], [ null, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN6icu_779UVector64D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
@@ -2356,7 +2356,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit359: ; preds = %491, %45
   br label %498
 
 497:                                              ; preds = %17, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit358
-  %.0 = phi ptr [ %.1634, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit358 ], [ null, %17 ]
+  %.0 = phi ptr [ %.1664, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit358 ], [ null, %17 ]
   call void @_ZN6icu_777UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
@@ -2476,33 +2476,33 @@ define void @_ZN6icu_7715AlphabeticIndex11initBucketsER10UErrorCode(ptr noundef 
   %45 = load ptr, ptr %40, align 8, !tbaa !46
   %46 = tail call noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareERKNS_13UnicodeStringES3_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %45, ptr noundef nonnull align 8 dereferenceable(64) %44, ptr noundef nonnull align 8 dereferenceable(64) %.14685, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %47 = icmp sgt i32 %46, -1
-  br i1 %47, label %.lr.ph101, label %.critedge
+  br i1 %47, label %.lr.ph105, label %.critedge
 
-.lr.ph101:                                        ; preds = %.lr.ph, %54
-  %.24273100 = phi ptr [ %56, %54 ], [ %.14186, %.lr.ph ]
-  %.27499 = phi i32 [ %55, %54 ], [ %.13987, %.lr.ph ]
+.lr.ph105:                                        ; preds = %.lr.ph, %54
+  %.24273104 = phi ptr [ %56, %54 ], [ %.14186, %.lr.ph ]
+  %.274103 = phi i32 [ %55, %54 ], [ %.13987, %.lr.ph ]
   %48 = load ptr, ptr %6, align 8, !tbaa !49
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !6
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !18
-  %53 = icmp slt i32 %.27499, %52
+  %53 = icmp slt i32 %.274103, %52
   br i1 %53, label %54, label %.critedge
 
-54:                                               ; preds = %.lr.ph101
-  %55 = add nsw i32 %.27499, 1
-  %56 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %50, i32 noundef %.27499)
+54:                                               ; preds = %.lr.ph105
+  %55 = add nsw i32 %.274103, 1
+  %56 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %50, i32 noundef %.274103)
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 72
   %58 = load ptr, ptr %40, align 8, !tbaa !46
   %59 = tail call noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareERKNS_13UnicodeStringES3_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %58, ptr noundef nonnull align 8 dereferenceable(64) %44, ptr noundef nonnull align 8 dereferenceable(64) %57, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %60 = icmp sgt i32 %59, -1
-  br i1 %60, label %.lr.ph101, label %.critedge, !llvm.loop !75
+  br i1 %60, label %.lr.ph105, label %.critedge, !llvm.loop !75
 
-.critedge:                                        ; preds = %54, %.lr.ph101, %.lr.ph, %41
-  %.247.lcssa = phi ptr [ null, %41 ], [ %.14685, %.lr.ph ], [ null, %.lr.ph101 ], [ %57, %54 ]
-  %.242.lcssa = phi ptr [ %.14186, %41 ], [ %.14186, %.lr.ph ], [ %.24273100, %.lr.ph101 ], [ %56, %54 ]
-  %.2.lcssa = phi i32 [ %.13987, %41 ], [ %.13987, %.lr.ph ], [ %.27499, %.lr.ph101 ], [ %55, %54 ]
-  %.1.lcssa = phi ptr [ %.088, %41 ], [ %.088, %.lr.ph ], [ %.24273100, %.lr.ph101 ], [ %.24273100, %54 ]
+.critedge:                                        ; preds = %54, %.lr.ph105, %.lr.ph, %41
+  %.247.lcssa = phi ptr [ null, %41 ], [ %.14685, %.lr.ph ], [ null, %.lr.ph105 ], [ %57, %54 ]
+  %.242.lcssa = phi ptr [ %.14186, %41 ], [ %.14186, %.lr.ph ], [ %.24273104, %.lr.ph105 ], [ %56, %54 ]
+  %.2.lcssa = phi i32 [ %.13987, %41 ], [ %.13987, %.lr.ph ], [ %.274103, %.lr.ph105 ], [ %55, %54 ]
+  %.1.lcssa = phi ptr [ %.088, %41 ], [ %.088, %.lr.ph ], [ %.24273104, %.lr.ph105 ], [ %.24273104, %54 ]
   %61 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 144
   %62 = load ptr, ptr %61, align 8, !tbaa !24
   %.not60 = icmp eq ptr %62, null
@@ -3781,7 +3781,7 @@ define noundef ptr @_ZN6icu_7715AlphabeticIndex20firstStringsInScriptER10UErrorC
 _ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit: ; preds = %10
   %.pre = load i32, ptr %1, align 4, !tbaa !40
   %15 = icmp slt i32 %.pre, 1
-  br i1 %15, label %19, label %.thread84
+  br i1 %15, label %19, label %.thread87
 
 16:                                               ; preds = %10
   %17 = landingpad { ptr, i32 }
@@ -3812,7 +3812,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit: ; preds = %10
 25:                                               ; preds = %22
   %26 = load i32, ptr %1, align 4, !tbaa !40
   %27 = icmp slt i32 %26, 1
-  br i1 %27, label %30, label %.thread89
+  br i1 %27, label %30, label %.thread92
 
 .thread74:                                        ; preds = %21
   %28 = landingpad { ptr, i32 }
@@ -3837,7 +3837,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit: ; preds = %10
 
 33:                                               ; preds = %32
   store i32 16, ptr %1, align 4, !tbaa !40
-  br label %.thread89
+  br label %.thread92
 
 34:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3932,10 +3932,10 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit56: ; preds = %_ZN6icu_771
           cleanup
   br label %70
 
-.thread89:                                        ; preds = %33, %25
+.thread92:                                        ; preds = %33, %25
   call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %3) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread84
+  br label %.thread87
 
 65:                                               ; preds = %36, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit
   %.sroa.060.2 = phi ptr [ null, %36 ], [ %8, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit ]
@@ -3945,15 +3945,15 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit56: ; preds = %_ZN6icu_771
   call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %3) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %66 = icmp eq ptr %.sroa.060.2, null
-  br i1 %66, label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit, label %.thread84
+  br i1 %66, label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit, label %.thread87
 
-.thread84:                                        ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit, %.thread89, %65
-  %.188 = phi ptr [ %.6, %65 ], [ null, %.thread89 ], [ null, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit ]
-  %.sroa.060.087 = phi ptr [ %.sroa.060.2, %65 ], [ %8, %.thread89 ], [ %8, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit ]
-  %67 = load ptr, ptr %.sroa.060.087, align 8, !tbaa !3
+.thread87:                                        ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit, %.thread92, %65
+  %.191 = phi ptr [ %.6, %65 ], [ null, %.thread92 ], [ null, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit ]
+  %.sroa.060.090 = phi ptr [ %.sroa.060.2, %65 ], [ %8, %.thread92 ], [ %8, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit ]
+  %67 = load ptr, ptr %.sroa.060.090, align 8, !tbaa !3
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
-  call void %69(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.060.087) #16
+  call void %69(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.060.090) #16
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit
 
 70:                                               ; preds = %46, %50, %48, %62, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit56
@@ -3976,8 +3976,8 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit57: ; preds = %71, %16
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %17, %16 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn72, %71 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn
 
-_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %11, %14, %.thread84, %65, %2
-  %.0 = phi ptr [ null, %2 ], [ %.6, %65 ], [ %.188, %.thread84 ], [ null, %14 ], [ null, %11 ]
+_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %11, %14, %.thread87, %65, %2
+  %.0 = phi ptr [ null, %2 ], [ %.6, %65 ], [ %.191, %.thread87 ], [ null, %14 ], [ null, %11 ]
   ret ptr %.0
 }
 

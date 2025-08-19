@@ -927,11 +927,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit76: ; preds = %_ZStl
   unreachable
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers23QueryGeneratorSampleSatESt14default_deleteIS4_EED2Ev.exit.sink.split: ; preds = %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers19QueryGeneratorBasicEJRNS1_3EnvEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers19QueryGeneratorUnsatEJRNS1_3EnvEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers23QueryGeneratorSampleSatEJRNS1_3EnvERmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %.sink102 = phi ptr [ %267, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers23QueryGeneratorSampleSatEJRNS1_3EnvERmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %279, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers19QueryGeneratorUnsatEJRNS1_3EnvEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %289, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers19QueryGeneratorBasicEJRNS1_3EnvEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
-  %304 = load ptr, ptr %.sink102, align 8, !tbaa !3
+  %.sink126 = phi ptr [ %267, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers23QueryGeneratorSampleSatEJRNS1_3EnvERmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %279, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers19QueryGeneratorUnsatEJRNS1_3EnvEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %289, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers19QueryGeneratorBasicEJRNS1_3EnvEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
+  %304 = load ptr, ptr %.sink126, align 8, !tbaa !3
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %306 = load ptr, ptr %305, align 8
-  call void %306(ptr noundef nonnull align 8 dereferenceable(128) %.sink102) #21
+  call void %306(ptr noundef nonnull align 8 dereferenceable(128) %.sink126) #21
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers23QueryGeneratorSampleSatESt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers23QueryGeneratorSampleSatESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers23QueryGeneratorSampleSatESt14default_deleteIS4_EED2Ev.exit.sink.split, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers19QueryGeneratorBasicEJRNS1_3EnvEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers19QueryGeneratorUnsatEJRNS1_3EnvEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers23QueryGeneratorSampleSatEJRNS1_3EnvERmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
@@ -977,18 +977,18 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit80: ; preds = %_ZStl
   unreachable
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11ExprMinerIdESt14default_deleteIS4_EE5resetEPS4_.exit: ; preds = %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers15RewriteVerifierEEclEPS4_.exit.i.i, %245, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers24CandidateRewriteDatabaseEEclEPS4_.exit.i.i, %233, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11ExprMinerIdEEclEPS4_.exit.i.i, %200, %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers23QueryGeneratorSampleSatESt14default_deleteIS4_EED2Ev.exit
-  %.sink103 = phi ptr [ %308, %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers23QueryGeneratorSampleSatESt14default_deleteIS4_EED2Ev.exit ], [ %196, %200 ], [ %.pre97, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11ExprMinerIdEEclEPS4_.exit.i.i ], [ %215, %233 ], [ %.pre96, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers24CandidateRewriteDatabaseEEclEPS4_.exit.i.i ], [ %242, %245 ], [ %.pre98, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers15RewriteVerifierEEclEPS4_.exit.i.i ]
+  %.sink127 = phi ptr [ %308, %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers23QueryGeneratorSampleSatESt14default_deleteIS4_EED2Ev.exit ], [ %196, %200 ], [ %.pre97, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11ExprMinerIdEEclEPS4_.exit.i.i ], [ %215, %233 ], [ %.pre96, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers24CandidateRewriteDatabaseEEclEPS4_.exit.i.i ], [ %242, %245 ], [ %.pre98, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers15RewriteVerifierEEclEPS4_.exit.i.i ]
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %.sink103, ptr %321, align 8, !tbaa !346
-  %.not = icmp eq ptr %.sink103, null
+  store ptr %.sink127, ptr %321, align 8, !tbaa !346
+  %.not = icmp eq ptr %.sink127, null
   br i1 %.not, label %327, label %322
 
 322:                                              ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11ExprMinerIdESt14default_deleteIS4_EE5resetEPS4_.exit
   %323 = load ptr, ptr %122, align 8, !tbaa !316
-  %324 = load ptr, ptr %.sink103, align 8, !tbaa !3
+  %324 = load ptr, ptr %.sink127, align 8, !tbaa !3
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 16
   %326 = load ptr, ptr %325, align 8
-  invoke void %326(ptr noundef nonnull align 8 dereferenceable(120) %.sink103, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %323)
+  invoke void %326(ptr noundef nonnull align 8 dereferenceable(120) %.sink127, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %323)
           to label %327 unwind label %116
 
 327:                                              ; preds = %322, %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11ExprMinerIdESt14default_deleteIS4_EE5resetEPS4_.exit
@@ -1707,23 +1707,23 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit75: ; preds = %_ZNSolsEPFRSoS_E.ex
   br i1 %237, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !76
 
 .invoke:                                          ; preds = %236, %132
-  %.sink109 = phi i64 [ %127, %132 ], [ %231, %236 ]
-  %.sink108 = phi ptr [ %126, %132 ], [ %230, %236 ]
-  %238 = or i64 %.sink109, 1152920405095219200
-  store i64 %238, ptr %.sink108, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink108)
+  %.sink124 = phi i64 [ %127, %132 ], [ %231, %236 ]
+  %.sink123 = phi ptr [ %126, %132 ], [ %230, %236 ]
+  %238 = or i64 %.sink124, 1152920405095219200
+  store i64 %238, ptr %.sink123, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink123)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %136
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %228, %125
-  %.sink115 = phi i32 [ %130, %125 ], [ %234, %228 ]
+  %.sink130 = phi i32 [ %130, %125 ], [ %234, %228 ]
   %.sink = phi i64 [ %127, %125 ], [ %231, %228 ]
-  %.sink110 = phi ptr [ %126, %125 ], [ %230, %228 ]
-  %239 = add nuw nsw i32 %.sink115, 1
+  %.sink125 = phi ptr [ %126, %125 ], [ %230, %228 ]
+  %239 = add nuw nsw i32 %.sink130, 1
   %240 = zext nneg i32 %239 to i64
   %241 = shl nuw nsw i64 %240, 40
   %242 = and i64 %.sink, -1152920405095219201
   %243 = or i64 %241, %242
-  store i64 %243, ptr %.sink110, align 8
+  store i64 %243, ptr %.sink125, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %236, %132
@@ -1758,9 +1758,9 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit79: ; preds = %_ZN4cvc58internal12
   br label %258
 
 257:                                              ; preds = %136, %138, %227, %134
-  %.sink116 = phi ptr [ %6, %134 ], [ %5, %227 ], [ %5, %138 ], [ %5, %136 ]
+  %.sink131 = phi ptr [ %6, %134 ], [ %5, %227 ], [ %5, %138 ], [ %5, %136 ]
   %.pn19.pn = phi { ptr, i32 } [ %135, %134 ], [ %.pn16.pn, %227 ], [ %139, %138 ], [ %137, %136 ]
-  call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink116) #21
+  call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink131) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn19.pn
 

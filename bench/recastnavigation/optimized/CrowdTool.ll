@@ -1264,18 +1264,18 @@ switch.lookup:                                    ; preds = %457
   %638 = getelementptr inbounds nuw i8, ptr %628, i64 440
   %639 = getelementptr inbounds nuw i8, ptr %628, i64 592
   %640 = load i8, ptr %639, align 8
-  %switch.tableidx517 = add i8 %640, -1
-  %641 = icmp ult i8 %switch.tableidx517, 6
-  br i1 %641, label %switch.lookup516, label %643
+  %switch.tableidx538 = add i8 %640, -1
+  %641 = icmp ult i8 %switch.tableidx538, 6
+  br i1 %641, label %switch.lookup537, label %643
 
-switch.lookup516:                                 ; preds = %631
-  %642 = zext nneg i8 %switch.tableidx517 to i64
-  %switch.gep518 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN14CrowdToolState12handleRenderEv.1, i64 0, i64 %642
-  %switch.load519 = load i32, ptr %switch.gep518, align 4
+switch.lookup537:                                 ; preds = %631
+  %642 = zext nneg i8 %switch.tableidx538 to i64
+  %switch.gep539 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN14CrowdToolState12handleRenderEv.1, i64 0, i64 %642
+  %switch.load540 = load i32, ptr %switch.gep539, align 4
   br label %643
 
-643:                                              ; preds = %switch.lookup516, %631
-  %.0 = phi i32 [ -1059267364, %631 ], [ %switch.load519, %switch.lookup516 ]
+643:                                              ; preds = %switch.lookup537, %631
+  %.0 = phi i32 [ -1059267364, %631 ], [ %switch.load540, %switch.lookup537 ]
   %644 = load float, ptr %636, align 4
   %645 = getelementptr inbounds nuw i8, ptr %628, i64 420
   %646 = load float, ptr %645, align 4

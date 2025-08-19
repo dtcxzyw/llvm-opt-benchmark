@@ -130,7 +130,7 @@ define dso_local range(i32 -1, 1) i32 @FuzzerTestOneInput(ptr noundef readonly c
   store ptr %17, ptr %18, align 8, !tbaa !26
   %.lhs.trunc = and i8 %13, 63
   %19 = urem i8 %.lhs.trunc, 6
-  switch i8 %19, label %default.unreachable58 [
+  switch i8 %19, label %default.unreachable60 [
     i8 0, label %20
     i8 1, label %50
     i8 2, label %69
@@ -401,14 +401,14 @@ ossl_ht_fz_FUZZER_VALUE_get.exit:                 ; preds = %69, %79, %82
   %141 = load i64, ptr @filters, align 8, !tbaa !20
   br label %.critedge.sink.split
 
-default.unreachable58:                            ; preds = %12
+default.unreachable60:                            ; preds = %12
   unreachable
 
 .critedge.sink.split:                             ; preds = %10, %100, %95, %67, %48, %46, %140, %128, %117
-  %.sink61 = phi i64 [ %118, %117 ], [ %129, %128 ], [ %141, %140 ], [ %47, %46 ], [ %49, %48 ], [ %68, %67 ], [ %96, %95 ], [ %98, %100 ], [ %11, %10 ]
+  %.sink63 = phi i64 [ %118, %117 ], [ %129, %128 ], [ %141, %140 ], [ %47, %46 ], [ %49, %48 ], [ %68, %67 ], [ %96, %95 ], [ %98, %100 ], [ %11, %10 ]
   %flushes.sink = phi ptr [ @flushes, %117 ], [ @foreaches, %128 ], [ @filters, %140 ], [ @replacements, %46 ], [ @inserts, %48 ], [ @deletes, %67 ], [ @lookups, %95 ], [ @flushes, %100 ], [ @skipped_values, %10 ]
   %.0.ph = phi i32 [ 0, %117 ], [ 0, %128 ], [ 0, %140 ], [ 0, %46 ], [ 0, %48 ], [ 0, %67 ], [ 0, %95 ], [ 0, %100 ], [ -1, %10 ]
-  %142 = add i64 %.sink61, 1
+  %142 = add i64 %.sink63, 1
   store i64 %142, ptr %flushes.sink, align 8, !tbaa !20
   br label %.critedge
 

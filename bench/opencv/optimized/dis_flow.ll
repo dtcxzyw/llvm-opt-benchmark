@@ -2462,8 +2462,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv10AutoBufferI
 
 ._crit_edge332.thread:                            ; preds = %.preheader288
   %287 = trunc nsw i64 %indvars.iv385 to i32
-  %reass.sub399 = sub i32 %287, %230
-  %288 = add i32 %reass.sub399, 1
+  %reass.sub421 = sub i32 %287, %230
+  %288 = add i32 %reass.sub421, 1
   %289 = srem i32 %288, %237
   %290 = icmp eq i32 %289, 0
   br i1 %290, label %._crit_edge335, label %354
@@ -2572,17 +2572,17 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %160
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not.i.i282 = icmp eq ptr %.pre391.pre, %145
   %356 = icmp eq ptr %.pre391.pre, null
-  %or.cond410 = or i1 %.not.i.i282, %356
-  br i1 %or.cond410, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit283, label %357
+  %or.cond432 = or i1 %.not.i.i282, %356
+  br i1 %or.cond432, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit283, label %357
 
 357:                                              ; preds = %_ZN2cv10AutoBufferIfLm264EED2Ev.exit, %.thread
   %358 = phi ptr [ %147, %.thread ], [ %.pre391.pre, %_ZN2cv10AutoBufferIfLm264EED2Ev.exit ]
-  %.pn402404 = phi { ptr, i32 } [ %219, %.thread ], [ %355, %_ZN2cv10AutoBufferIfLm264EED2Ev.exit ]
+  %.pn424426 = phi { ptr, i32 } [ %219, %.thread ], [ %355, %_ZN2cv10AutoBufferIfLm264EED2Ev.exit ]
   call void @_ZdaPv(ptr noundef nonnull %358) #24
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit283
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit283:          ; preds = %357, %_ZN2cv10AutoBufferIfLm264EED2Ev.exit, %217
-  %.pn.pn = phi { ptr, i32 } [ %218, %217 ], [ %355, %_ZN2cv10AutoBufferIfLm264EED2Ev.exit ], [ %.pn402404, %357 ]
+  %.pn.pn = phi { ptr, i32 } [ %218, %217 ], [ %355, %_ZN2cv10AutoBufferIfLm264EED2Ev.exit ], [ %.pn424426, %357 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %359 = load ptr, ptr %11, align 8, !tbaa !106
   %.not.i.i284 = icmp eq ptr %359, %141
@@ -2606,8 +2606,8 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit285:          ; preds = %363, %_ZN2cv10AutoB
   %364 = load ptr, ptr %10, align 8, !tbaa !106
   %.not.i.i286 = icmp eq ptr %364, %61
   %365 = icmp eq ptr %364, null
-  %or.cond411 = or i1 %.not.i.i286, %365
-  br i1 %or.cond411, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit287, label %366
+  %or.cond433 = or i1 %.not.i.i286, %365
+  br i1 %or.cond433, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit287, label %366
 
 366:                                              ; preds = %_ZN2cv10AutoBufferIfLm264EED2Ev.exit285
   call void @_ZdaPv(ptr noundef nonnull %364) #24
@@ -4126,7 +4126,7 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl21Densification_ParBodyclERKNS_5R
   %smin = sext i32 %56 to i64
   %57 = add i32 %.sroa.speculated185, %56
   %58 = sub i32 %57, %.sroa.speculated189
-  %invariant.op270 = sub nsw i64 %55, %53
+  %invariant.op276 = sub nsw i64 %55, %53
   %wide.trip.count = zext nneg i32 %46 to i64
   %invariant.op = sub nsw i64 %54, %53
   %wide.trip.count262 = zext nneg i32 %46 to i64
@@ -4139,7 +4139,7 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl21Densification_ParBodyclERKNS_5R
   %59 = trunc nsw i64 %indvars.iv264 to i32
   %60 = srem i32 %59, %42
   %61 = icmp eq i32 %60, 0
-  %.not.us = icmp sle i64 %indvars.iv264, %invariant.op270
+  %.not.us = icmp sle i64 %indvars.iv264, %invariant.op276
   %narrow.us = select i1 %61, i1 %.not.us, i1 false
   %spec.select152.us = zext i1 %narrow.us to i32
   %.3142.us = add nsw i32 %.2141225.us, %spec.select152.us

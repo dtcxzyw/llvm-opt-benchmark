@@ -343,8 +343,8 @@ define dso_local i32 @gimme_tour(ptr noundef %0, ptr noundef captures(none) %1, 
   %34 = getelementptr inbounds nuw [4 x i32], ptr %24, i64 0, i64 %indvars.iv.i
   %35 = add nsw i32 %26, -1
   store i32 %35, ptr %25, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [4 x i32], ptr %24, i64 0, i64 %36
+  %36 = zext nneg i32 %35 to i64
+  %37 = getelementptr inbounds nuw [4 x i32], ptr %24, i64 0, i64 %36
   %38 = load i32, ptr %37, align 4
   store i32 %38, ptr %34, align 4
   br label %.loopexit.i

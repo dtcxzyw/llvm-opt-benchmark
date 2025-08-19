@@ -2689,7 +2689,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %_ZN4llvm15Bitstream
   br label %.thread
 
 42:                                               ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit
-  switch i32 %.sroa.0.0.extract.trunc, label %default.unreachable [
+  switch i32 %.sroa.0.0.extract.trunc, label %default.unreachable153 [
     i32 1, label %43
     i32 0, label %71
     i32 2, label %90
@@ -2873,7 +2873,7 @@ _ZN4llvm7ErrorOrIN5clang16serialized_diags26SerializedDiagnosticReader6CursorEEC
   store ptr %.0.i.i2.i.i.i.i37, ptr %.sroa.21.0..sroa_idx.i, align 8
   br label %.thread
 
-default.unreachable:                              ; preds = %42
+default.unreachable153:                           ; preds = %42
   unreachable
 
 .thread57:                                        ; preds = %_ZN4llvm5ErrorD2Ev.exit34, %104

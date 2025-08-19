@@ -145,7 +145,7 @@ define noundef i32 @dsyrk_thread_UN(ptr noundef %0, ptr noundef %1, ptr noundef 
 81:                                               ; preds = %79
   %82 = sub nsw i64 %58, %.0105
   %.neg = sdiv i64 %82, -32
-  %.neg117 = shl i64 %.neg, 5
+  %.neg117 = shl nsw i64 %.neg, 5
   %83 = add i64 %.neg117, %58
   br label %84
 

@@ -3350,7 +3350,7 @@ define hidden void @_ZN11quinn_proto10connection14packet_builder13PacketBuilder3
   %.not121 = icmp eq i64 %94, 5
   br i1 %.not121, label %.thread158, label %95
 
-default.unreachable177:                           ; preds = %179
+default.unreachable189:                           ; preds = %179
   unreachable
 
 95:                                               ; preds = %92
@@ -3645,7 +3645,7 @@ _ZN7tracing4span4Span7entered17h341c927d8c4bdfd8E.exit: ; preds = %.noexc139, %1
 
 179:                                              ; preds = %177
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  switch i8 %3, label %default.unreachable177 [
+  switch i8 %3, label %default.unreachable189 [
     i8 0, label %180
     i8 1, label %185
     i8 2, label %192

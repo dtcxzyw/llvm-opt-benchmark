@@ -103,13 +103,13 @@ define hidden i32 @GuessControllerType(i32 noundef %0, i32 noundef %1) local_unn
   %11 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.9, i32 noundef %0, i32 noundef %1) #4
   %12 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %6, ptr noundef nonnull %3) #4
   %.not20.i = icmp eq ptr %12, null
-  br i1 %.not20.i, label %GetControllerTypeOverride.exit.thread25, label %13
+  br i1 %.not20.i, label %GetControllerTypeOverride.exit.thread28, label %13
 
-GetControllerTypeOverride.exit.thread25:          ; preds = %10
+GetControllerTypeOverride.exit.thread28:          ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %2, %GetControllerTypeOverride.exit.thread25
+.preheader.preheader:                             ; preds = %2, %GetControllerTypeOverride.exit.thread28
   br label %.preheader
 
 13:                                               ; preds = %10, %7

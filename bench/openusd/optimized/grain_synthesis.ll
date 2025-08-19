@@ -189,8 +189,8 @@ copy_rect.exit:                                   ; preds = %copy_rect.exit.loop
   %wide.trip.count.i = zext nneg i32 %85 to i64
   %invariant.gep.i = getelementptr i16, ptr %87, i64 %99
   %100 = and i32 %88, -2
-  %ident.check113.not = icmp eq i32 %100, 2
-  br i1 %ident.check113.not, label %.lr.ph.i95.ph, label %.lr.ph.i95.lver.orig
+  %ident.check116.not = icmp eq i32 %100, 2
+  br i1 %ident.check116.not, label %.lr.ph.i95.ph, label %.lr.ph.i95.lver.orig
 
 .lr.ph.i95.lver.orig:                             ; preds = %.lr.ph.i95.lver.check, %.lr.ph.i95.lver.orig
   %indvars.iv.i.lver.orig = phi i64 [ %indvars.iv.next.i.lver.orig, %.lr.ph.i95.lver.orig ], [ 0, %.lr.ph.i95.lver.check ]
@@ -206,15 +206,15 @@ copy_rect.exit:                                   ; preds = %copy_rect.exit.loop
 .lr.ph.i95.ph:                                    ; preds = %.lr.ph.i95.lver.check
   %104 = shl nsw i64 %99, 1
   %105 = getelementptr i8, ptr %87, i64 %104
-  %scevgep115 = getelementptr i8, ptr %105, i64 -2
-  %load_initial116 = load i16, ptr %scevgep115, align 2
+  %scevgep118 = getelementptr i8, ptr %105, i64 -2
+  %load_initial119 = load i16, ptr %scevgep118, align 2
   br label %.lr.ph.i95
 
 .lr.ph.i95:                                       ; preds = %.lr.ph.i95, %.lr.ph.i95.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i95.ph ], [ %indvars.iv.next.i, %.lr.ph.i95 ]
   %106 = mul nuw nsw i64 %indvars.iv.i, %98
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %106
-  store i16 %load_initial116, ptr %gep.i, align 2
+  store i16 %load_initial119, ptr %gep.i, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit53.i, label %.lr.ph.i95, !llvm.loop !6
@@ -1985,18 +1985,18 @@ ver_boundary_overlap.exit774:                     ; preds = %853, %837, %809, %.
   %879 = trunc nuw nsw i64 %indvars.iv to i32
   %880 = shl i32 %879, %665
   %881 = sext i32 %880 to i64
-  br i1 %.not654, label %.thread983, label %.thread1051
+  br i1 %.not654, label %.thread983, label %.thread1079
 
 882:                                              ; preds = %734
   br i1 %or.cond3, label %890, label %1160
 
-.thread1051:                                      ; preds = %ver_boundary_overlap.exit774
+.thread1079:                                      ; preds = %ver_boundary_overlap.exit774
   %.idx = shl i64 %indvars.iv, 2
   %883 = getelementptr inbounds i8, ptr %705, i64 %.idx
   %884 = getelementptr inbounds i16, ptr %709, i64 %881
   %885 = getelementptr inbounds i16, ptr %710, i64 %881
   tail call fastcc void @add_noise_to_block_hbd(ptr noundef %0, ptr noundef nonnull %883, ptr noundef %884, ptr noundef %885, i32 noundef %6, i32 noundef %7, ptr noundef %712, ptr noundef %716, ptr noundef %717, i32 noundef 2, i32 noundef %667, i32 noundef %720, i32 noundef 1, i32 noundef %32, i32 noundef %9, i32 noundef %10, i32 noundef %11)
-  br i1 %or.cond3, label %.thread1050, label %._crit_edge1034
+  br i1 %or.cond3, label %.thread1078, label %._crit_edge1034
 
 .thread983:                                       ; preds = %ver_boundary_overlap.exit774
   %886 = shl nuw i64 %indvars.iv, 1
@@ -2004,20 +2004,20 @@ ver_boundary_overlap.exit774:                     ; preds = %853, %837, %809, %.
   %888 = getelementptr inbounds i8, ptr %722, i64 %881
   %889 = getelementptr inbounds i8, ptr %723, i64 %881
   tail call fastcc void @add_noise_to_block(ptr noundef %0, ptr noundef nonnull %887, ptr noundef %888, ptr noundef %889, i32 noundef %6, i32 noundef %7, ptr noundef %712, ptr noundef %716, ptr noundef %717, i32 noundef 2, i32 noundef %667, i32 noundef %720, i32 noundef 1, i32 noundef %32, i32 noundef %9, i32 noundef %10, i32 noundef %11)
-  br i1 %.not1015, label %.thread989, label %.thread1050
+  br i1 %.not1015, label %.thread989, label %.thread1078
 
 890:                                              ; preds = %882
-  br i1 %758, label %.thread1050, label %hor_boundary_overlap.exit802
+  br i1 %758, label %.thread1078, label %hor_boundary_overlap.exit802
 
-.thread1050:                                      ; preds = %.thread1051, %.thread983, %890
-  %.idx1049 = shl i64 %indvars.iv, 3
-  %891 = getelementptr inbounds i8, ptr %109, i64 %.idx1049
+.thread1078:                                      ; preds = %.thread1079, %.thread983, %890
+  %.idx1077 = shl i64 %indvars.iv, 3
+  %891 = getelementptr inbounds i8, ptr %109, i64 %.idx1077
   br label %892
 
-892:                                              ; preds = %892, %.thread1050
-  %.130.i = phi ptr [ %915, %892 ], [ %891, %.thread1050 ]
-  %.128.i = phi ptr [ %916, %892 ], [ %116, %.thread1050 ]
-  %.126.i = phi i32 [ %917, %892 ], [ 2, %.thread1050 ]
+892:                                              ; preds = %892, %.thread1078
+  %.130.i = phi ptr [ %915, %892 ], [ %891, %.thread1078 ]
+  %.128.i = phi ptr [ %916, %892 ], [ %116, %.thread1078 ]
+  %.126.i = phi i32 [ %917, %892 ], [ 2, %.thread1078 ]
   %893 = load i32, ptr %.130.i, align 4
   %894 = mul nsw i32 %893, 27
   %895 = load i32, ptr %.128.i, align 4
@@ -2421,8 +2421,8 @@ hor_boundary_overlap.exit842:                     ; preds = %1118, %1100, %1069,
   %.pre1035 = zext nneg i32 %757 to i64
   br label %.thread989
 
-._crit_edge1034:                                  ; preds = %.thread1051, %1160
-  %1161 = phi i32 [ 0, %1160 ], [ 1, %.thread1051 ]
+._crit_edge1034:                                  ; preds = %.thread1079, %1160
+  %1161 = phi i32 [ 0, %1160 ], [ 1, %.thread1079 ]
   %.pre1039 = trunc nuw nsw i64 %indvars.iv to i32
   %.pre1041 = zext nneg i32 %757 to i64
   %1162 = trunc i64 %indvars.iv to i32
@@ -2934,10 +2934,10 @@ define internal fastcc void @add_noise_to_block_hbd(ptr noundef readonly capture
   %90 = mul nsw i64 %indvars.iv176, %85
   %91 = sext i32 %88 to i64
   %invariant.gep = getelementptr i16, ptr %1, i64 %91
-  %invariant.gep202 = getelementptr i16, ptr %2, i64 %89
-  %invariant.gep204 = getelementptr i32, ptr %7, i64 %90
-  %invariant.gep206 = getelementptr i16, ptr %3, i64 %89
-  %invariant.gep208 = getelementptr i32, ptr %8, i64 %90
+  %invariant.gep207 = getelementptr i16, ptr %2, i64 %89
+  %invariant.gep209 = getelementptr i32, ptr %7, i64 %90
+  %invariant.gep211 = getelementptr i16, ptr %3, i64 %89
+  %invariant.gep213 = getelementptr i32, ptr %8, i64 %90
   br label %92
 
 92:                                               ; preds = %.preheader160.us, %182
@@ -2971,8 +2971,8 @@ define internal fastcc void @add_noise_to_block_hbd(ptr noundef readonly capture
   br i1 %54, label %111, label %146
 
 111:                                              ; preds = %110
-  %gep203 = getelementptr i16, ptr %invariant.gep202, i64 %indvars.iv
-  %112 = load i16, ptr %gep203, align 2
+  %gep208 = getelementptr i16, ptr %invariant.gep207, i64 %indvars.iv
+  %112 = load i16, ptr %gep208, align 2
   %113 = zext i16 %112 to i32
   %114 = mul nsw i32 %.0134.us, %.0142
   %115 = mul nsw i32 %.0141, %113
@@ -3003,8 +3003,8 @@ define internal fastcc void @add_noise_to_block_hbd(ptr noundef readonly capture
 
 scale_LUT.exit.us:                                ; preds = %127, %111
   %.0.i.us = phi i32 [ %135, %127 ], [ %126, %111 ]
-  %gep205 = getelementptr i32, ptr %invariant.gep204, i64 %indvars.iv
-  %136 = load i32, ptr %gep205, align 4
+  %gep210 = getelementptr i32, ptr %invariant.gep209, i64 %indvars.iv
+  %136 = load i32, ptr %gep210, align 4
   %137 = mul nsw i32 %136, %.0.i.us
   %138 = add nsw i32 %137, %43
   %139 = load i32, ptr %40, align 4
@@ -3014,15 +3014,15 @@ scale_LUT.exit.us:                                ; preds = %127, %111
   %143 = tail call i32 @llvm.smin.i32(i32 %141, i32 %.0137)
   %144 = select i1 %142, i32 %.0138, i32 %143
   %145 = trunc i32 %144 to i16
-  store i16 %145, ptr %gep203, align 2
+  store i16 %145, ptr %gep208, align 2
   br label %146
 
 146:                                              ; preds = %scale_LUT.exit.us, %110
   br i1 %59, label %147, label %182
 
 147:                                              ; preds = %146
-  %gep207 = getelementptr i16, ptr %invariant.gep206, i64 %indvars.iv
-  %148 = load i16, ptr %gep207, align 2
+  %gep212 = getelementptr i16, ptr %invariant.gep211, i64 %indvars.iv
+  %148 = load i16, ptr %gep212, align 2
   %149 = zext i16 %148 to i32
   %150 = mul nsw i32 %.0134.us, %.0146
   %151 = mul nsw i32 %.0144, %149
@@ -3053,8 +3053,8 @@ scale_LUT.exit.us:                                ; preds = %127, %111
 
 scale_LUT.exit154.us:                             ; preds = %163, %147
   %.0.i153.us = phi i32 [ %171, %163 ], [ %162, %147 ]
-  %gep209 = getelementptr i32, ptr %invariant.gep208, i64 %indvars.iv
-  %172 = load i32, ptr %gep209, align 4
+  %gep214 = getelementptr i32, ptr %invariant.gep213, i64 %indvars.iv
+  %172 = load i32, ptr %gep214, align 4
   %173 = mul nsw i32 %172, %.0.i153.us
   %174 = add nsw i32 %173, %43
   %175 = load i32, ptr %40, align 4
@@ -3064,7 +3064,7 @@ scale_LUT.exit154.us:                             ; preds = %163, %147
   %179 = tail call i32 @llvm.smin.i32(i32 %177, i32 %.0137)
   %180 = select i1 %178, i32 %.0138, i32 %179
   %181 = trunc i32 %180 to i16
-  store i16 %181, ptr %gep207, align 2
+  store i16 %181, ptr %gep212, align 2
   br label %182
 
 182:                                              ; preds = %scale_LUT.exit154.us, %146
@@ -3106,20 +3106,20 @@ scale_LUT.exit154.us:                             ; preds = %163, %147
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %._crit_edge.split.us.us.us ], [ 0, %.preheader.lr.ph.split.us ]
   %193 = mul nsw i64 %indvars.iv196, %191
   %194 = mul nsw i64 %indvars.iv196, %192
-  %invariant.gep214 = getelementptr i16, ptr %1, i64 %193
-  %invariant.gep216 = getelementptr i32, ptr %6, i64 %194
+  %invariant.gep219 = getelementptr i16, ptr %1, i64 %193
+  %invariant.gep221 = getelementptr i32, ptr %6, i64 %194
   br label %scale_LUT.exit158.us.us.us
 
 scale_LUT.exit158.us.us.us:                       ; preds = %scale_LUT.exit158.us.us.us, %.preheader.us.us
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %scale_LUT.exit158.us.us.us ], [ 0, %.preheader.us.us ]
-  %gep215 = getelementptr i16, ptr %invariant.gep214, i64 %indvars.iv191
-  %195 = load i16, ptr %gep215, align 2
+  %gep220 = getelementptr i16, ptr %invariant.gep219, i64 %indvars.iv191
+  %195 = load i16, ptr %gep220, align 2
   %196 = zext i16 %195 to i32
   %197 = zext i16 %195 to i64
   %198 = getelementptr inbounds nuw i32, ptr @scaling_lut_y, i64 %197
   %199 = load i32, ptr %198, align 4
-  %gep217 = getelementptr i32, ptr %invariant.gep216, i64 %indvars.iv191
-  %200 = load i32, ptr %gep217, align 4
+  %gep222 = getelementptr i32, ptr %invariant.gep221, i64 %indvars.iv191
+  %200 = load i32, ptr %gep222, align 4
   %201 = mul nsw i32 %200, %199
   %202 = add nsw i32 %201, %43
   %203 = load i32, ptr %40, align 4
@@ -3129,7 +3129,7 @@ scale_LUT.exit158.us.us.us:                       ; preds = %scale_LUT.exit158.u
   %207 = tail call i32 @llvm.smin.i32(i32 %205, i32 %.0139)
   %208 = select i1 %206, i32 %.0138, i32 %207
   %209 = trunc i32 %208 to i16
-  store i16 %209, ptr %gep215, align 2
+  store i16 %209, ptr %gep220, align 2
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count194
   br i1 %exitcond195.not, label %._crit_edge.split.us.us.us, label %scale_LUT.exit158.us.us.us, !llvm.loop !40
@@ -3143,14 +3143,14 @@ scale_LUT.exit158.us.us.us:                       ; preds = %scale_LUT.exit158.u
   %indvars.iv186 = phi i64 [ %indvars.iv.next187, %._crit_edge.split.us168 ], [ 0, %.preheader.lr.ph.split.us ]
   %210 = mul nsw i64 %indvars.iv186, %191
   %211 = mul nsw i64 %indvars.iv186, %192
-  %invariant.gep210 = getelementptr i16, ptr %1, i64 %210
-  %invariant.gep212 = getelementptr i32, ptr %6, i64 %211
+  %invariant.gep215 = getelementptr i16, ptr %1, i64 %210
+  %invariant.gep217 = getelementptr i32, ptr %6, i64 %211
   br label %212
 
 212:                                              ; preds = %.preheader.us, %scale_LUT.exit158.us167
   %indvars.iv181 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next182, %scale_LUT.exit158.us167 ]
-  %gep211 = getelementptr i16, ptr %invariant.gep210, i64 %indvars.iv181
-  %213 = load i16, ptr %gep211, align 2
+  %gep216 = getelementptr i16, ptr %invariant.gep215, i64 %indvars.iv181
+  %213 = load i16, ptr %gep216, align 2
   %214 = zext i16 %213 to i32
   %215 = lshr i32 %214, %26
   %216 = icmp eq i32 %215, 255
@@ -3172,8 +3172,8 @@ scale_LUT.exit158.us.us.us:                       ; preds = %scale_LUT.exit158.u
 
 scale_LUT.exit158.us167:                          ; preds = %220, %212
   %.0.i157.us = phi i32 [ %228, %220 ], [ %219, %212 ]
-  %gep213 = getelementptr i32, ptr %invariant.gep212, i64 %indvars.iv181
-  %229 = load i32, ptr %gep213, align 4
+  %gep218 = getelementptr i32, ptr %invariant.gep217, i64 %indvars.iv181
+  %229 = load i32, ptr %gep218, align 4
   %230 = mul nsw i32 %229, %.0.i157.us
   %231 = add nsw i32 %230, %43
   %232 = load i32, ptr %40, align 4
@@ -3183,7 +3183,7 @@ scale_LUT.exit158.us167:                          ; preds = %220, %212
   %236 = tail call i32 @llvm.smin.i32(i32 %234, i32 %.0139)
   %237 = select i1 %235, i32 %.0138, i32 %236
   %238 = trunc i32 %237 to i16
-  store i16 %238, ptr %gep211, align 2
+  store i16 %238, ptr %gep216, align 2
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count194
   br i1 %exitcond185.not, label %._crit_edge.split.us168, label %212, !llvm.loop !40
@@ -3296,10 +3296,10 @@ define internal fastcc void @add_noise_to_block(ptr noundef readonly captures(no
   %75 = mul nsw i64 %indvars.iv148, %70
   %76 = sext i32 %73 to i64
   %invariant.gep = getelementptr i8, ptr %1, i64 %76
-  %invariant.gep163 = getelementptr i8, ptr %2, i64 %74
-  %invariant.gep165 = getelementptr i32, ptr %7, i64 %75
-  %invariant.gep167 = getelementptr i8, ptr %3, i64 %74
-  %invariant.gep169 = getelementptr i32, ptr %8, i64 %75
+  %invariant.gep167 = getelementptr i8, ptr %2, i64 %74
+  %invariant.gep169 = getelementptr i32, ptr %7, i64 %75
+  %invariant.gep171 = getelementptr i8, ptr %3, i64 %74
+  %invariant.gep173 = getelementptr i32, ptr %8, i64 %75
   br label %77
 
 77:                                               ; preds = %.preheader138.us, %145
@@ -3333,8 +3333,8 @@ define internal fastcc void @add_noise_to_block(ptr noundef readonly captures(no
   br i1 %50, label %96, label %120
 
 96:                                               ; preds = %95
-  %gep164 = getelementptr i8, ptr %invariant.gep163, i64 %indvars.iv
-  %97 = load i8, ptr %gep164, align 1
+  %gep168 = getelementptr i8, ptr %invariant.gep167, i64 %indvars.iv
+  %97 = load i8, ptr %gep168, align 1
   %98 = zext i8 %97 to i32
   %99 = mul nsw i32 %.0120.us, %.0128
   %100 = mul nsw i32 %.0127, %98
@@ -3347,8 +3347,8 @@ define internal fastcc void @add_noise_to_block(ptr noundef readonly captures(no
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds i32, ptr @scaling_lut_cb, i64 %107
   %109 = load i32, ptr %108, align 4
-  %gep166 = getelementptr i32, ptr %invariant.gep165, i64 %indvars.iv
-  %110 = load i32, ptr %gep166, align 4
+  %gep170 = getelementptr i32, ptr %invariant.gep169, i64 %indvars.iv
+  %110 = load i32, ptr %gep170, align 4
   %111 = mul nsw i32 %110, %109
   %112 = add nsw i32 %111, %39
   %113 = load i32, ptr %36, align 4
@@ -3358,15 +3358,15 @@ define internal fastcc void @add_noise_to_block(ptr noundef readonly captures(no
   %117 = tail call i32 @llvm.smin.i32(i32 %115, i32 %.0123)
   %118 = select i1 %116, i32 %.0124, i32 %117
   %119 = trunc i32 %118 to i8
-  store i8 %119, ptr %gep164, align 1
+  store i8 %119, ptr %gep168, align 1
   br label %120
 
 120:                                              ; preds = %96, %95
   br i1 %55, label %121, label %145
 
 121:                                              ; preds = %120
-  %gep168 = getelementptr i8, ptr %invariant.gep167, i64 %indvars.iv
-  %122 = load i8, ptr %gep168, align 1
+  %gep172 = getelementptr i8, ptr %invariant.gep171, i64 %indvars.iv
+  %122 = load i8, ptr %gep172, align 1
   %123 = zext i8 %122 to i32
   %124 = mul nsw i32 %.0120.us, %.0132
   %125 = mul nsw i32 %.0130, %123
@@ -3379,8 +3379,8 @@ define internal fastcc void @add_noise_to_block(ptr noundef readonly captures(no
   %132 = sext i32 %131 to i64
   %133 = getelementptr inbounds i32, ptr @scaling_lut_cr, i64 %132
   %134 = load i32, ptr %133, align 4
-  %gep170 = getelementptr i32, ptr %invariant.gep169, i64 %indvars.iv
-  %135 = load i32, ptr %gep170, align 4
+  %gep174 = getelementptr i32, ptr %invariant.gep173, i64 %indvars.iv
+  %135 = load i32, ptr %gep174, align 4
   %136 = mul nsw i32 %135, %134
   %137 = add nsw i32 %136, %39
   %138 = load i32, ptr %36, align 4
@@ -3390,7 +3390,7 @@ define internal fastcc void @add_noise_to_block(ptr noundef readonly captures(no
   %142 = tail call i32 @llvm.smin.i32(i32 %140, i32 %.0123)
   %143 = select i1 %141, i32 %.0124, i32 %142
   %144 = trunc i32 %143 to i8
-  store i8 %144, ptr %gep168, align 1
+  store i8 %144, ptr %gep172, align 1
   br label %145
 
 145:                                              ; preds = %121, %120
@@ -3427,20 +3427,20 @@ define internal fastcc void @add_noise_to_block(ptr noundef readonly captures(no
   %indvars.iv158 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next159, %._crit_edge.us144 ]
   %152 = mul nsw i64 %indvars.iv158, %150
   %153 = mul nsw i64 %indvars.iv158, %151
-  %invariant.gep171 = getelementptr i8, ptr %1, i64 %152
-  %invariant.gep173 = getelementptr i32, ptr %6, i64 %153
+  %invariant.gep175 = getelementptr i8, ptr %1, i64 %152
+  %invariant.gep177 = getelementptr i32, ptr %6, i64 %153
   br label %154
 
 154:                                              ; preds = %.preheader.us, %154
   %indvars.iv153 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next154, %154 ]
-  %gep172 = getelementptr i8, ptr %invariant.gep171, i64 %indvars.iv153
-  %155 = load i8, ptr %gep172, align 1
+  %gep176 = getelementptr i8, ptr %invariant.gep175, i64 %indvars.iv153
+  %155 = load i8, ptr %gep176, align 1
   %156 = zext i8 %155 to i32
   %157 = zext i8 %155 to i64
   %158 = getelementptr inbounds nuw i32, ptr @scaling_lut_y, i64 %157
   %159 = load i32, ptr %158, align 4
-  %gep174 = getelementptr i32, ptr %invariant.gep173, i64 %indvars.iv153
-  %160 = load i32, ptr %gep174, align 4
+  %gep178 = getelementptr i32, ptr %invariant.gep177, i64 %indvars.iv153
+  %160 = load i32, ptr %gep178, align 4
   %161 = mul nsw i32 %160, %159
   %162 = add nsw i32 %161, %39
   %163 = load i32, ptr %36, align 4
@@ -3450,7 +3450,7 @@ define internal fastcc void @add_noise_to_block(ptr noundef readonly captures(no
   %167 = tail call i32 @llvm.smin.i32(i32 %165, i32 %.0125)
   %168 = select i1 %166, i32 %.0124, i32 %167
   %169 = trunc i32 %168 to i8
-  store i8 %169, ptr %gep172, align 1
+  store i8 %169, ptr %gep176, align 1
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
   br i1 %exitcond157.not, label %._crit_edge.us144, label %154, !llvm.loop !44

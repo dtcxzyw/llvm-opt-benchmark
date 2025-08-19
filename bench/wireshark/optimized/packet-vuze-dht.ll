@@ -350,19 +350,19 @@ define internal i32 @dissect_vuze_dht(ptr noundef %0, ptr noundef readonly captu
 
 29:                                               ; preds = %13
   %30 = icmp samesign ugt i8 %25, 8
-  br i1 %30, label %31, label %.thread63.i
+  br i1 %30, label %31, label %.thread64.i
 
 31:                                               ; preds = %.thread, %29
-  %.0.i101 = phi i32 [ 18, %.thread ], [ 17, %29 ]
+  %.0.i105 = phi i32 [ 18, %.thread ], [ 17, %29 ]
   %32 = load i32, ptr @hf_vuze_dht_network_id, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %32, ptr noundef %0, i32 noundef %.0.i101, i32 noundef 4, i32 noundef 0)
-  %34 = or disjoint i32 %.0.i101, 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %32, ptr noundef %0, i32 noundef %.0.i105, i32 noundef 4, i32 noundef 0)
+  %34 = or disjoint i32 %.0.i105, 4
   %35 = load i32, ptr @hf_vuze_dht_local_proto_ver, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 1, i32 noundef 0)
-  %37 = add nuw nsw i32 %.0.i101, 5
-  br label %.thread63.i
+  %37 = add nuw nsw i32 %.0.i105, 5
+  br label %.thread64.i
 
-.thread63.i:                                      ; preds = %31, %29
+.thread64.i:                                      ; preds = %31, %29
   %.2.i = phi i32 [ %37, %31 ], [ 17, %29 ]
   %38 = tail call fastcc i32 @dissect_vuze_dht_address(ptr noundef %0, ptr noundef readonly %1, ptr noundef %11, i32 noundef %.2.i, ptr noundef nonnull @.str.179)
   %39 = load i32, ptr @hf_vuze_dht_instance_id, align 4
@@ -374,7 +374,7 @@ define internal i32 @dissect_vuze_dht(ptr noundef %0, ptr noundef readonly captu
   %45 = icmp ugt i8 %25, 50
   br i1 %45, label %46, label %dissect_vuze_dht_request_header.exit
 
-46:                                               ; preds = %.thread63.i
+46:                                               ; preds = %.thread64.i
   %47 = load i32, ptr @hf_vuze_dht_generic_flags, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %47, ptr noundef %0, i32 noundef %44, i32 noundef 1, i32 noundef 0)
   %49 = add i32 %38, 13
@@ -402,9 +402,9 @@ define internal i32 @dissect_vuze_dht(ptr noundef %0, ptr noundef readonly captu
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %65, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
   %67 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 16)
   %68 = icmp ugt i8 %67, 13
-  br i1 %68, label %.thread102, label %71
+  br i1 %68, label %.thread106, label %71
 
-.thread102:                                       ; preds = %55
+.thread106:                                       ; preds = %55
   %69 = load i32, ptr @hf_vuze_dht_vendor_id, align 4
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %69, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
   br label %73
@@ -413,11 +413,11 @@ define internal i32 @dissect_vuze_dht(ptr noundef %0, ptr noundef readonly captu
   %72 = icmp samesign ugt i8 %67, 8
   br i1 %72, label %73, label %77
 
-73:                                               ; preds = %.thread102, %71
-  %.0.i50104 = phi i32 [ 18, %.thread102 ], [ 17, %71 ]
+73:                                               ; preds = %.thread106, %71
+  %.0.i50108 = phi i32 [ 18, %.thread106 ], [ 17, %71 ]
   %74 = load i32, ptr @hf_vuze_dht_network_id, align 4
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %74, ptr noundef %0, i32 noundef %.0.i50104, i32 noundef 4, i32 noundef 0)
-  %76 = or disjoint i32 %.0.i50104, 4
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %74, ptr noundef %0, i32 noundef %.0.i50108, i32 noundef 4, i32 noundef 0)
+  %76 = or disjoint i32 %.0.i50108, 4
   br label %77
 
 77:                                               ; preds = %73, %71
@@ -441,10 +441,10 @@ define internal i32 @dissect_vuze_dht(ptr noundef %0, ptr noundef readonly captu
   %90 = add nuw nsw i32 %.1.i, 6
   br label %dissect_vuze_dht_request_header.exit
 
-dissect_vuze_dht_request_header.exit:             ; preds = %87, %82, %77, %51, %46, %.thread63.i
-  %.091 = phi i32 [ %18, %.thread63.i ], [ %18, %46 ], [ %18, %51 ], [ %58, %77 ], [ %58, %82 ], [ %58, %87 ]
-  %.090.in = phi i8 [ %25, %.thread63.i ], [ %25, %46 ], [ %25, %51 ], [ %67, %77 ], [ %67, %82 ], [ %67, %87 ]
-  %.0 = phi i32 [ %44, %.thread63.i ], [ %49, %46 ], [ %54, %51 ], [ %80, %77 ], [ %85, %82 ], [ %90, %87 ]
+dissect_vuze_dht_request_header.exit:             ; preds = %87, %82, %77, %51, %46, %.thread64.i
+  %.091 = phi i32 [ %18, %.thread64.i ], [ %18, %46 ], [ %18, %51 ], [ %58, %77 ], [ %58, %82 ], [ %58, %87 ]
+  %.090.in = phi i8 [ %25, %.thread64.i ], [ %25, %46 ], [ %25, %51 ], [ %67, %77 ], [ %67, %82 ], [ %67, %87 ]
+  %.0 = phi i32 [ %44, %.thread64.i ], [ %49, %46 ], [ %54, %51 ], [ %80, %77 ], [ %85, %82 ], [ %90, %87 ]
   %.090 = zext i8 %.090.in to i32
   switch i32 %.091, label %dissect_vuze_dht_reply_ping.exit [
     i32 1036, label %278

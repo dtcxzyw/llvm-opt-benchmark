@@ -39,9 +39,9 @@ define noundef i16 @"_ZN9softposit7quire167convert43_$LT$impl$u20$softposit..qui
   br label %.preheader66
 
 .preheader66:                                     ; preds = %.thread, %6
-  %.sroa.01.082 = phi i64 [ %8, %.thread ], [ %.sroa.01.0, %6 ]
-  %.sroa.10.080 = phi i64 [ 0, %.thread ], [ %.sroa.10.0, %6 ]
-  %9 = icmp sgt i64 %.sroa.01.082, -1
+  %.sroa.01.086 = phi i64 [ %8, %.thread ], [ %.sroa.01.0, %6 ]
+  %.sroa.10.084 = phi i64 [ 0, %.thread ], [ %.sroa.10.0, %6 ]
+  %9 = icmp sgt i64 %.sroa.01.086, -1
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .preheader:                                       ; preds = %6
@@ -99,23 +99,23 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
 
 .lr.ph:                                           ; preds = %.preheader66, %.lr.ph
   %.05068 = phi i8 [ %35, %.lr.ph ], [ 0, %.preheader66 ]
-  %.15967 = phi i64 [ %36, %.lr.ph ], [ %.sroa.01.082, %.preheader66 ]
+  %.15967 = phi i64 [ %36, %.lr.ph ], [ %.sroa.01.086, %.preheader66 ]
   %35 = add i8 %.05068, 1
   %36 = shl nuw i64 %.15967, 1
   %37 = icmp sgt i64 %36, -1
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader66
-  %.159.lcssa = phi i64 [ %.sroa.01.082, %.preheader66 ], [ %36, %.lr.ph ]
+  %.159.lcssa = phi i64 [ %.sroa.01.086, %.preheader66 ], [ %36, %.lr.ph ]
   %.050.lcssa = phi i8 [ 0, %.preheader66 ], [ %35, %.lr.ph ]
   %38 = sub i8 0, %.050.lcssa
   %39 = and i8 %38, 63
   %40 = zext nneg i8 %39 to i64
-  %41 = lshr i64 %.sroa.10.080, %40
+  %41 = lshr i64 %.sroa.10.084, %40
   %42 = add i64 %41, %.159.lcssa
   %43 = and i8 %.050.lcssa, 63
   %44 = zext nneg i8 %43 to i64
-  %45 = shl i64 %.sroa.10.080, %44
+  %45 = shl i64 %.sroa.10.084, %44
   %46 = icmp ne i64 %45, 0
   %spec.select = zext i1 %46 to i8
   br label %.loopexit
@@ -123,13 +123,13 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
 47:                                               ; preds = %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit
   %48 = and i64 %.2, 9223372036854775807
   %49 = icmp eq i8 %.sroa.51.0.in.i, 14
-  br i1 %49, label %60, label %.thread85
+  br i1 %49, label %60, label %.thread89
 
 50:                                               ; preds = %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit
   %. = select i1 %22, i16 1, i16 32767
   br label %74
 
-.thread85:                                        ; preds = %47
+.thread89:                                        ; preds = %47
   %narrow = add nuw nsw i8 %.sroa.51.0.in.i, 50
   %51 = zext nneg i8 %narrow to i64
   %52 = lshr i64 %48, %51
@@ -149,24 +149,24 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %61 = icmp eq i8 %21, 0
   br i1 %61, label %62, label %69
 
-62:                                               ; preds = %.thread85, %60
-  %.15593 = phi i8 [ %spec.select64, %.thread85 ], [ %spec.select63, %60 ]
-  %.056.shrunk91 = phi i1 [ %56, %.thread85 ], [ false, %60 ]
-  %.05790 = phi i16 [ %53, %.thread85 ], [ 0, %60 ]
+62:                                               ; preds = %.thread89, %60
+  %.15597 = phi i8 [ %spec.select64, %.thread89 ], [ %spec.select63, %60 ]
+  %.056.shrunk95 = phi i1 [ %56, %.thread89 ], [ false, %60 ]
+  %.05794 = phi i16 [ %53, %.thread89 ], [ 0, %60 ]
   %63 = zext nneg i8 %21 to i16
   %64 = zext nneg i8 %.sroa.51.0.in.i to i16
   %65 = sub nsw i16 13, %64
   %66 = shl nuw nsw i16 %63, %65
   %.049 = select i1 %49, i16 0, i16 %66
   %67 = add nuw i16 %.049, %.sroa.0.0.i
-  %68 = add nuw i16 %67, %.05790
-  br i1 %.056.shrunk91, label %69, label %74
+  %68 = add nuw i16 %67, %.05794
+  br i1 %.056.shrunk95, label %69, label %74
 
 69:                                               ; preds = %60, %62
-  %.15592 = phi i8 [ %.15593, %62 ], [ %spec.select63, %60 ]
+  %.15596 = phi i8 [ %.15597, %62 ], [ %spec.select63, %60 ]
   %.052 = phi i16 [ %68, %62 ], [ %.sroa.0.0.i, %60 ]
   %70 = and i16 %.052, 1
-  %71 = zext nneg i8 %.15592 to i16
+  %71 = zext nneg i8 %.15596 to i16
   %72 = or i16 %70, %71
   %73 = add nuw i16 %72, %.052
   br label %74

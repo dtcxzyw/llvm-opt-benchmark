@@ -2482,7 +2482,7 @@ define internal fastcc void @_ZN11uu_realpath28canonicalize_relative_option17h72
   store i64 %.sroa.516.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !755
   %25 = icmp eq i8 %2, 1
   %26 = inttoptr i64 %.sroa.516.0.copyload.i to ptr
-  br i1 %25, label %27, label %.thread45
+  br i1 %25, label %27, label %.thread49
 
 27:                                               ; preds = %24
   %28 = invoke noundef zeroext i1 @_ZN3std4path4Path6is_dir17h8f2800c096ff84c6E(ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %.sroa.516.0.copyload.i)
@@ -2495,7 +2495,7 @@ define internal fastcc void @_ZN11uu_realpath28canonicalize_relative_option17h72
           to label %.body unwind label %49, !noalias !759
 
 31:                                               ; preds = %27
-  br i1 %28, label %.thread45, label %32
+  br i1 %28, label %.thread49, label %32
 
 32:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !755
@@ -2557,9 +2557,9 @@ define internal fastcc void @_ZN11uu_realpath28canonicalize_relative_option17h72
   unreachable
 
 51:                                               ; preds = %4, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h9a9d20dfc8bf4f3fE.exit"
-  %.sroa.6.sroa.0.0 = phi ptr [ %.sroa.7.0.copyload50, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h9a9d20dfc8bf4f3fE.exit" ], [ undef, %4 ]
-  %.sroa.6.sroa.5.0 = phi ptr [ %.sroa.11.0.copyload49, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h9a9d20dfc8bf4f3fE.exit" ], [ undef, %4 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.030.0.copyload51, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h9a9d20dfc8bf4f3fE.exit" ], [ -9223372036854775808, %4 ]
+  %.sroa.6.sroa.0.0 = phi ptr [ %.sroa.7.0.copyload54, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h9a9d20dfc8bf4f3fE.exit" ], [ undef, %4 ]
+  %.sroa.6.sroa.5.0 = phi ptr [ %.sroa.11.0.copyload53, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h9a9d20dfc8bf4f3fE.exit" ], [ undef, %4 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.030.0.copyload55, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h9a9d20dfc8bf4f3fE.exit" ], [ -9223372036854775808, %4 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6.sroa.0.0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -2582,7 +2582,7 @@ define internal fastcc void @_ZN11uu_realpath28canonicalize_relative_option17h72
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !755
   br label %56
 
-.thread45:                                        ; preds = %24, %31
+.thread49:                                        ; preds = %24, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !755
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc48bdb83e1037863E.exit"
 
@@ -2602,10 +2602,10 @@ define internal fastcc void @_ZN11uu_realpath28canonicalize_relative_option17h72
   %58 = invoke noundef nonnull align 8 ptr @"_ZN131_$LT$std..io..error..Error$u20$as$u20$uucore..mods..error..FromIo$LT$alloc..boxed..Box$LT$uucore..mods..error..UIoError$GT$$GT$$GT$15map_err_context17ha022de76238e8a74E"(ptr noundef nonnull %.sroa.7.03236, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
           to label %65 unwind label %52
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc48bdb83e1037863E.exit": ; preds = %.thread45, %54
-  %.sroa.030.0.copyload51 = phi i64 [ %20, %.thread45 ], [ %.sroa.030.0.copyload.pre, %54 ]
-  %.sroa.7.0.copyload50 = phi ptr [ %23, %.thread45 ], [ %.sroa.7.0.copyload.pre, %54 ]
-  %.sroa.11.0.copyload49 = phi ptr [ %26, %.thread45 ], [ %.sroa.11.0.copyload.pre, %54 ]
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc48bdb83e1037863E.exit": ; preds = %.thread49, %54
+  %.sroa.030.0.copyload55 = phi i64 [ %20, %.thread49 ], [ %.sroa.030.0.copyload.pre, %54 ]
+  %.sroa.7.0.copyload54 = phi ptr [ %23, %.thread49 ], [ %.sroa.7.0.copyload.pre, %54 ]
+  %.sroa.11.0.copyload53 = phi ptr [ %26, %.thread49 ], [ %.sroa.11.0.copyload.pre, %54 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !793
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h128f125934f4fbe1E.llvm.9586570785940372809"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 8

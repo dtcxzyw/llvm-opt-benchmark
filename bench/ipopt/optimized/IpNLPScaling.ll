@@ -2291,9 +2291,9 @@ _ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit78: ; preds = %_ZN5Ipopt8SmartPtr
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %156 = load ptr, ptr %155, align 8
   invoke void (ptr, i32, i32, ptr, ...) %156(ptr noundef nonnull align 8 dereferenceable(40) %152, i32 noundef 6, i32 noundef 2, ptr noundef nonnull @.str.3, double noundef %153)
-          to label %.invoke232 unwind label %163
+          to label %.invoke313 unwind label %163
 
-.invoke232:                                       ; preds = %151
+.invoke313:                                       ; preds = %151
   %157 = load ptr, ptr %74, align 8, !tbaa !20
   %.not = icmp eq ptr %157, null
   %158 = load ptr, ptr %144, align 8, !tbaa !10
@@ -2302,9 +2302,9 @@ _ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit78: ; preds = %_ZN5Ipopt8SmartPtr
   %161 = load ptr, ptr %160, align 8
   %162 = select i1 %.not, ptr @.str.5, ptr @.str.4
   invoke void (ptr, i32, i32, ptr, ...) %161(ptr noundef nonnull align 8 dereferenceable(40) %158, i32 noundef 6, i32 noundef 2, ptr noundef nonnull %162)
-          to label %.invoke231 unwind label %163
+          to label %.invoke312 unwind label %163
 
-163:                                              ; preds = %.invoke232, %.invoke231, %.invoke, %600, %485, %369, %237, %151, %139
+163:                                              ; preds = %.invoke313, %.invoke312, %.invoke, %600, %485, %369, %237, %151, %139
   %164 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit92
@@ -2437,7 +2437,7 @@ _ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit90: ; preds = %213, %208, %_ZN5Ip
   store ptr null, ptr %20, align 8, !tbaa !17
   br label %_ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit92
 
-.invoke231:                                       ; preds = %.invoke232
+.invoke312:                                       ; preds = %.invoke313
   %227 = load ptr, ptr %18, align 8, !tbaa !20
   %.not218 = icmp eq ptr %227, null
   %228 = load ptr, ptr %144, align 8, !tbaa !10
@@ -2448,7 +2448,7 @@ _ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit90: ; preds = %213, %208, %_ZN5Ip
   invoke void (ptr, i32, i32, ptr, ...) %231(ptr noundef nonnull align 8 dereferenceable(40) %228, i32 noundef 6, i32 noundef 2, ptr noundef nonnull %.str.7..str.6)
           to label %.invoke unwind label %163
 
-.invoke:                                          ; preds = %.invoke231
+.invoke:                                          ; preds = %.invoke312
   %232 = load ptr, ptr %19, align 8, !tbaa !20
   %.not219 = icmp eq ptr %232, null
   %233 = load ptr, ptr %144, align 8, !tbaa !10
@@ -3066,12 +3066,12 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit157:     ; preds = %438, %433, %430
   br i1 %477, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEEaSEPS2_.exit.sink.split, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEEaSEPS2_.exit
 
 _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEEaSEPS2_.exit.sink.split: ; preds = %473, %425
-  %.sink236 = phi ptr [ %424, %425 ], [ %472, %473 ]
+  %.sink317 = phi ptr [ %424, %425 ], [ %472, %473 ]
   %storemerge.ph = phi ptr [ %418, %425 ], [ %466, %473 ]
-  %478 = load ptr, ptr %.sink236, align 8, !tbaa !8
+  %478 = load ptr, ptr %.sink317, align 8, !tbaa !8
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 8
   %480 = load ptr, ptr %479, align 8
-  call void %480(ptr noundef nonnull align 8 dereferenceable(20) %.sink236) #17
+  call void %480(ptr noundef nonnull align 8 dereferenceable(20) %.sink317) #17
   br label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEEaSEPS2_.exit
 
 _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEEaSEPS2_.exit: ; preds = %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEEaSEPS2_.exit.sink.split, %473, %471, %425, %423
@@ -3309,12 +3309,12 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit178:     ; preds = %554, %549, %546
   br i1 %593, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEEaSEPS2_.exit176.sink.split, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEEaSEPS2_.exit176
 
 _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEEaSEPS2_.exit176.sink.split: ; preds = %589, %541
-  %.sink241 = phi ptr [ %540, %541 ], [ %588, %589 ]
+  %.sink322 = phi ptr [ %540, %541 ], [ %588, %589 ]
   %storemerge223.ph = phi ptr [ %534, %541 ], [ %582, %589 ]
-  %594 = load ptr, ptr %.sink241, align 8, !tbaa !8
+  %594 = load ptr, ptr %.sink322, align 8, !tbaa !8
   %595 = getelementptr inbounds nuw i8, ptr %594, i64 8
   %596 = load ptr, ptr %595, align 8
-  call void %596(ptr noundef nonnull align 8 dereferenceable(20) %.sink241) #17
+  call void %596(ptr noundef nonnull align 8 dereferenceable(20) %.sink322) #17
   br label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEEaSEPS2_.exit176
 
 _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEEaSEPS2_.exit176: ; preds = %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEEaSEPS2_.exit176.sink.split, %589, %587, %541, %539
@@ -3510,17 +3510,17 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit191:     ; preds = %623
   br i1 %688, label %_ZN5Ipopt8SmartPtrIKNS_14SymMatrixSpaceEEaSEPS2_.exit.sink.split, label %_ZN5Ipopt8SmartPtrIKNS_14SymMatrixSpaceEEaSEPS2_.exit
 
 _ZN5Ipopt8SmartPtrIKNS_14SymMatrixSpaceEEaSEPS2_.exit.sink.split: ; preds = %684, %677, %639
-  %.sink246 = phi ptr [ %638, %639 ], [ %676, %677 ], [ %683, %684 ]
-  %.sink242.ph = phi ptr [ %637, %639 ], [ %675, %677 ], [ null, %684 ]
-  %689 = load ptr, ptr %.sink246, align 8, !tbaa !8
+  %.sink327 = phi ptr [ %638, %639 ], [ %676, %677 ], [ %683, %684 ]
+  %.sink323.ph = phi ptr [ %637, %639 ], [ %675, %677 ], [ null, %684 ]
+  %689 = load ptr, ptr %.sink327, align 8, !tbaa !8
   %690 = getelementptr inbounds nuw i8, ptr %689, i64 8
   %691 = load ptr, ptr %690, align 8
-  call void %691(ptr noundef nonnull align 8 dereferenceable(20) %.sink246) #17
+  call void %691(ptr noundef nonnull align 8 dereferenceable(20) %.sink327) #17
   br label %_ZN5Ipopt8SmartPtrIKNS_14SymMatrixSpaceEEaSEPS2_.exit
 
 _ZN5Ipopt8SmartPtrIKNS_14SymMatrixSpaceEEaSEPS2_.exit: ; preds = %_ZN5Ipopt8SmartPtrIKNS_14SymMatrixSpaceEEaSEPS2_.exit.sink.split, %684, %682, %677, %674, %639, %636
-  %.sink242 = phi ptr [ %637, %636 ], [ %637, %639 ], [ %675, %674 ], [ %675, %677 ], [ null, %682 ], [ null, %684 ], [ %.sink242.ph, %_ZN5Ipopt8SmartPtrIKNS_14SymMatrixSpaceEEaSEPS2_.exit.sink.split ]
-  store ptr %.sink242, ptr %9, align 8, !tbaa !90
+  %.sink323 = phi ptr [ %637, %636 ], [ %637, %639 ], [ %675, %674 ], [ %675, %677 ], [ null, %682 ], [ null, %684 ], [ %.sink323.ph, %_ZN5Ipopt8SmartPtrIKNS_14SymMatrixSpaceEEaSEPS2_.exit.sink.split ]
+  store ptr %.sink323, ptr %9, align 8, !tbaa !90
   %692 = load ptr, ptr %19, align 8, !tbaa !20
   %.not.i.i202 = icmp eq ptr %692, null
   br i1 %.not.i.i202, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit, label %693

@@ -213,9 +213,9 @@ _lv_svg_token_process.exit:                       ; preds = %51
   br i1 %88, label %.thread.sink.split, label %.thread
 
 .thread.sink.split:                               ; preds = %86, %82
-  %.sink98 = phi i32 [ 128, %82 ], [ 256, %86 ]
+  %.sink107 = phi i32 [ 128, %82 ], [ 256, %86 ]
   %89 = and i32 %.val, -97
-  %90 = or i32 %89, %.sink98
+  %90 = or i32 %89, %.sink107
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i32 %90, ptr %6, align 8, !tbaa !14
   br label %.thread
@@ -417,7 +417,7 @@ define internal fastcc noundef zeroext i1 @_svg_parser_tag(ptr noundef nonnull c
   %17 = phi ptr [ %7, %.lr.ph ], [ %49, %.backedge ]
   %18 = load i32, ptr %0, align 8, !tbaa !14
   %19 = and i32 %18, 7
-  switch i32 %19, label %default.unreachable182 [
+  switch i32 %19, label %default.unreachable186 [
     i32 0, label %20
     i32 1, label %28
     i32 2, label %51
@@ -672,9 +672,9 @@ switch.early.test151:                             ; preds = %101
   br label %123
 
 123:                                              ; preds = %121, %122
-  %.sink185 = phi i32 [ 16, %122 ], [ 8, %121 ]
+  %.sink189 = phi i32 [ 16, %122 ], [ 8, %121 ]
   %124 = and i32 %18, -25
-  %125 = or disjoint i32 %124, %.sink185
+  %125 = or disjoint i32 %124, %.sink189
   br label %.thread.sink.split
 
 126:                                              ; preds = %121
@@ -788,14 +788,14 @@ switch.early.test157:                             ; preds = %151
   store ptr %174, ptr %5, align 8, !tbaa !16
   br label %.backedge, !llvm.loop !27
 
-default.unreachable182:                           ; preds = %16
+default.unreachable186:                           ; preds = %16
   unreachable
 
 .thread.sink.split:                               ; preds = %switch.early.test151, %123
   %.sink = phi i32 [ %125, %123 ], [ %18, %switch.early.test151 ]
-  %.sink187 = phi i32 [ 6, %123 ], [ 5, %switch.early.test151 ]
+  %.sink191 = phi i32 [ 6, %123 ], [ 5, %switch.early.test151 ]
   %175 = and i32 %.sink, -8
-  %176 = or disjoint i32 %175, %.sink187
+  %176 = or disjoint i32 %175, %.sink191
   store i32 %176, ptr %0, align 8, !tbaa !14
   br label %.thread
 

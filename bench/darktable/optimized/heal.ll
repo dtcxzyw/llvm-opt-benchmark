@@ -388,9 +388,9 @@ _heal_sub.exit:                                   ; preds = %.loopexit.us.i, %._
   br label %_collect_color_runs.exit.i.i
 
 _collect_color_runs.exit.i.i:                     ; preds = %172, %195, %154
-  %.162.lcssa88.i.i.i = phi i64 [ %175, %195 ], [ %.061.i.i.i, %154 ], [ %.16275.i.ph.i.i, %172 ]
+  %.162.lcssa92.i.i.i = phi i64 [ %175, %195 ], [ %.061.i.i.i, %154 ], [ %.16275.i.ph.i.i, %172 ]
   %.3.i.i.i = phi i64 [ %196, %195 ], [ %.063.i.i.i, %154 ], [ %.265.i.i.i, %172 ]
-  %197 = add i64 %.162.lcssa88.i.i.i, %.087.i
+  %197 = add i64 %.162.lcssa92.i.i.i, %.087.i
   %exitcond.not.i.i = icmp eq i64 %141, %25
   br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i48.i, label %.lr.ph.i.i
 
@@ -522,9 +522,9 @@ _collect_color_runs.exit.i.i:                     ; preds = %172, %195, %154
   br label %_collect_color_runs.exit.i55.i
 
 _collect_color_runs.exit.i55.i:                   ; preds = %231, %254, %213
-  %.162.lcssa88.i.i56.i = phi i64 [ %234, %254 ], [ %.061.i.i53.i, %213 ], [ %.16275.i.ph.i64.i, %231 ]
+  %.162.lcssa92.i.i56.i = phi i64 [ %234, %254 ], [ %.061.i.i53.i, %213 ], [ %.16275.i.ph.i64.i, %231 ]
   %.3.i.i57.i = phi i64 [ %255, %254 ], [ %.063.i.i52.i, %213 ], [ %.265.i.i76.i, %231 ]
-  %256 = add i64 %.162.lcssa88.i.i56.i, %.086.i
+  %256 = add i64 %.162.lcssa92.i.i56.i, %.086.i
   %exitcond.not.i58.i = icmp eq i64 %199, %25
   br i1 %exitcond.not.i58.i, label %collect_runs.exit78.loopexit.i, label %.lr.ph.i50.i
 
@@ -555,8 +555,8 @@ collect_runs.exit78.i:                            ; preds = %collect_runs.exit78
   %271 = fcmp reassoc nsz arcp contract afn olt float %270, %266
   %272 = add nuw nsw i32 %.0108.i, 1
   %exitcond.not.i36 = icmp eq i32 %272, %6
-  %or.cond135.i = select i1 %271, i1 true, i1 %exitcond.not.i36
-  br i1 %or.cond135.i, label %.thread.i, label %.lr.ph.i
+  %or.cond151.i = select i1 %271, i1 true, i1 %exitcond.not.i36
+  br i1 %or.cond151.i, label %.thread.i, label %.lr.ph.i
 
 .loopexit.i34:                                    ; preds = %collect_runs.exit78.i, %138
   br i1 %136, label %.thread.i, label %273

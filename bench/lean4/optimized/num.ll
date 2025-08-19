@@ -461,7 +461,7 @@ define hidden void @_ZN4lean14unfold_num_appERKNS_11environmentERKNS_4exprE(ptr 
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %19, 1
   %.not.i.i.i = icmp eq i64 %20, 0
-  br i1 %.not.i.i.i, label %21, label %.critedge18.thread31
+  br i1 %.not.i.i.i, label %21, label %.critedge18.thread33
 
 21:                                               ; preds = %16
   %22 = load i32, ptr %18, align 4, !tbaa !17
@@ -471,15 +471,15 @@ define hidden void @_ZN4lean14unfold_num_appERKNS_11environmentERKNS_4exprE(ptr 
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !17
-  br label %.critedge18.thread31
+  br label %.critedge18.thread33
 
 26:                                               ; preds = %21
   %.not.i.i.i.i = icmp eq i32 %22, 0
-  br i1 %.not.i.i.i.i, label %.critedge18.thread31, label %27
+  br i1 %.not.i.i.i.i, label %.critedge18.thread33, label %27
 
 27:                                               ; preds = %26
   invoke void @lean_dec_ref_cold(ptr noundef nonnull %18)
-          to label %.critedge18.thread31 unwind label %28
+          to label %.critedge18.thread33 unwind label %28
 
 28:                                               ; preds = %27
   %29 = landingpad { ptr, i32 }
@@ -521,11 +521,11 @@ define hidden void @_ZN4lean14unfold_num_appERKNS_11environmentERKNS_4exprE(ptr 
   tail call void @__clang_call_terminate(ptr %45) #10
   unreachable
 
-.critedge18.thread31:                             ; preds = %27, %26, %24, %16
+.critedge18.thread33:                             ; preds = %27, %26, %24, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge18.thread.sink.split
 
-.critedge18.thread.sink.split:                    ; preds = %31, %39, %41, %42, %.critedge18.thread31
+.critedge18.thread.sink.split:                    ; preds = %31, %39, %41, %42, %.critedge18.thread33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge18.thread
 
@@ -781,9 +781,9 @@ define internal fastcc noundef zeroext i1 @_ZN4leanL6is_numERKNS_4exprEb(ptr nou
   br i1 %74, label %.invoke, label %78
 
 .invoke:                                          ; preds = %72, %60
-  %.sink19 = phi i64 [ 16, %60 ], [ 24, %72 ]
+  %.sink24 = phi i64 [ 16, %60 ], [ 24, %72 ]
   %75 = load ptr, ptr %3, align 8, !tbaa !44
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 %.sink19
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 %.sink24
   %77 = invoke fastcc noundef zeroext i1 @_ZN4leanL6is_numERKNS_4exprEb(ptr noundef nonnull align 8 dereferenceable(8) %76, i1 noundef zeroext false)
           to label %thread-pre-split unwind label %12
 
@@ -923,12 +923,12 @@ _ZN4lean6is_numERKNS_4exprE.exit:                 ; preds = %7
   unreachable
 
 _ZN4lean8optionalINS_4exprEED2Ev.exit:            ; preds = %4, %_ZN4lean6is_numERKNS_4exprE.exit, %13, %21, %23, %24
-  %.15 = phi i1 [ %9, %_ZN4lean6is_numERKNS_4exprE.exit ], [ %9, %13 ], [ %9, %21 ], [ %9, %23 ], [ %9, %24 ], [ false, %4 ]
+  %.17 = phi i1 [ %9, %_ZN4lean6is_numERKNS_4exprE.exit ], [ %9, %13 ], [ %9, %21 ], [ %9, %23 ], [ %9, %24 ], [ false, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %28
 
 28:                                               ; preds = %1, %_ZN4lean8optionalINS_4exprEED2Ev.exit
-  %.0 = phi i1 [ %.15, %_ZN4lean8optionalINS_4exprEED2Ev.exit ], [ true, %1 ]
+  %.0 = phi i1 [ %.17, %_ZN4lean8optionalINS_4exprEED2Ev.exit ], [ true, %1 ]
   ret i1 %.0
 }
 

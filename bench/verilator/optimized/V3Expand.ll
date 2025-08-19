@@ -3772,9 +3772,9 @@ _ZN7AstNode9dtypeFromEPKS_.exit.i:                ; preds = %85, %82
   br i1 %.not.i.i55, label %_ZNK7AstNode6isQuadEv.exit58.thread, label %_ZNK7AstNode6isQuadEv.exit58
 
 _ZNK7AstNode6isQuadEv.exit58:                     ; preds = %_ZNK7AstNode6isQuadEv.exit51, %_ZNK7AstNode6isQuadEv.exit, %94
-  %.032.ph107 = phi ptr [ %73, %94 ], [ %50, %_ZNK7AstNode6isQuadEv.exit ], [ %50, %_ZNK7AstNode6isQuadEv.exit51 ]
-  %.pr106 = phi ptr [ %83, %94 ], [ %63, %_ZNK7AstNode6isQuadEv.exit ], [ %63, %_ZNK7AstNode6isQuadEv.exit51 ]
-  %97 = getelementptr inbounds nuw i8, ptr %.pr106, i64 152
+  %.032.ph129 = phi ptr [ %73, %94 ], [ %50, %_ZNK7AstNode6isQuadEv.exit ], [ %50, %_ZNK7AstNode6isQuadEv.exit51 ]
+  %.pr128 = phi ptr [ %83, %94 ], [ %63, %_ZNK7AstNode6isQuadEv.exit ], [ %63, %_ZNK7AstNode6isQuadEv.exit51 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.pr128, i64 152
   %98 = load i32, ptr %97, align 8, !tbaa !105
   %99 = add i32 %98, -33
   %spec.select.i57 = icmp ult i32 %99, 32
@@ -3855,7 +3855,7 @@ _ZN8AstCCastC2EP8FileLineP11AstNodeExprP7AstNode.exit76: ; preds = %_ZN7AstNode9
   br label %179
 
 _ZNK7AstNode6isQuadEv.exit58.thread:              ; preds = %_ZNK7AstNode8widthMinEv.exit, %94, %_ZN8AstCCastC2EP8FileLineP11AstNodeExprP7AstNode.exit76, %_ZNK7AstNode6isQuadEv.exit62, %_ZNK7AstNode6isQuadEv.exit58
-  %.03298100 = phi ptr [ %.032.ph107, %_ZNK7AstNode6isQuadEv.exit62 ], [ %.032.ph107, %_ZNK7AstNode6isQuadEv.exit58 ], [ %.032.ph107, %_ZN8AstCCastC2EP8FileLineP11AstNodeExprP7AstNode.exit76 ], [ %73, %94 ], [ %50, %_ZNK7AstNode8widthMinEv.exit ]
+  %.03298100 = phi ptr [ %.032.ph129, %_ZNK7AstNode6isQuadEv.exit62 ], [ %.032.ph129, %_ZNK7AstNode6isQuadEv.exit58 ], [ %.032.ph129, %_ZN8AstCCastC2EP8FileLineP11AstNodeExprP7AstNode.exit76 ], [ %73, %94 ], [ %50, %_ZNK7AstNode8widthMinEv.exit ]
   %.031 = phi ptr [ %53, %_ZNK7AstNode6isQuadEv.exit62 ], [ %53, %_ZNK7AstNode6isQuadEv.exit58 ], [ %105, %_ZN8AstCCastC2EP8FileLineP11AstNodeExprP7AstNode.exit76 ], [ %53, %94 ], [ %53, %_ZNK7AstNode8widthMinEv.exit ]
   %128 = call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #27
   %129 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #27
@@ -5321,13 +5321,13 @@ _ZN8V3NumberD2Ev.exit127:                         ; preds = %_ZNKSt7__cxx1112bas
   br label %257
 
 _ZN7AstNode12user1SetOnceEv.exit.sink.split:      ; preds = %.noexc99, %168, %_ZN8V3NumberD2Ev.exit127
-  %.sink200 = phi ptr [ %207, %_ZN8V3NumberD2Ev.exit127 ], [ %71, %168 ], [ %71, %.noexc99 ]
-  %254 = getelementptr inbounds nuw i8, ptr %.sink200, i64 104
+  %.sink225 = phi ptr [ %207, %_ZN8V3NumberD2Ev.exit127 ], [ %71, %168 ], [ %71, %.noexc99 ]
+  %254 = getelementptr inbounds nuw i8, ptr %.sink225, i64 104
   store i64 1, ptr %254, align 8, !tbaa !14
   %255 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !23
-  %256 = getelementptr inbounds nuw i8, ptr %.sink200, i64 112
+  %256 = getelementptr inbounds nuw i8, ptr %.sink225, i64 112
   store i32 %255, ptr %256, align 8, !tbaa !103
-  call void @_ZN7AstNode11replaceWithEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %.sink200)
+  call void @_ZN7AstNode11replaceWithEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %.sink225)
   call void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %1)
   br label %_ZN7AstNode12user1SetOnceEv.exit
 
@@ -5779,20 +5779,20 @@ _ZN8AstConstC2EP8FileLineNS_12WidthedValueEij.exit: ; preds = %.noexc76
   br label %168
 
 _ZN7AstNode12user1SetOnceEv.exit.sink.split.sink.split: ; preds = %102, %157
-  %.sink96.ph = phi ptr [ %139, %157 ], [ %64, %102 ]
+  %.sink111.ph = phi ptr [ %139, %157 ], [ %64, %102 ]
   %163 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8, !tbaa !63
   %164 = add i64 %163, 1
   store i64 %164, ptr @_ZN7AstNode12s_editCntGblE, align 8, !tbaa !63
   br label %_ZN7AstNode12user1SetOnceEv.exit.sink.split
 
 _ZN7AstNode12user1SetOnceEv.exit.sink.split:      ; preds = %_ZN7AstNode12user1SetOnceEv.exit.sink.split.sink.split, %.noexc84, %.noexc61
-  %.sink96 = phi ptr [ %64, %.noexc61 ], [ %139, %.noexc84 ], [ %.sink96.ph, %_ZN7AstNode12user1SetOnceEv.exit.sink.split.sink.split ]
-  %165 = getelementptr inbounds nuw i8, ptr %.sink96, i64 104
+  %.sink111 = phi ptr [ %64, %.noexc61 ], [ %139, %.noexc84 ], [ %.sink111.ph, %_ZN7AstNode12user1SetOnceEv.exit.sink.split.sink.split ]
+  %165 = getelementptr inbounds nuw i8, ptr %.sink111, i64 104
   store i64 1, ptr %165, align 8, !tbaa !14
   %166 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !23
-  %167 = getelementptr inbounds nuw i8, ptr %.sink96, i64 112
+  %167 = getelementptr inbounds nuw i8, ptr %.sink111, i64 112
   store i32 %166, ptr %167, align 8, !tbaa !103
-  call void @_ZN7AstNode11replaceWithEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %.sink96)
+  call void @_ZN7AstNode11replaceWithEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %.sink111)
   call void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %1)
   br label %_ZN7AstNode12user1SetOnceEv.exit
 
@@ -7765,13 +7765,13 @@ _ZN7AstNode12user1SetOnceEv.exit.sink.split.sink.split: ; preds = %_ZNK7AstNode6
   br label %_ZN7AstNode12user1SetOnceEv.exit.sink.split
 
 _ZN7AstNode12user1SetOnceEv.exit.sink.split:      ; preds = %_ZN7AstNode12user1SetOnceEv.exit.sink.split.sink.split, %_ZNK7AstNode6isQuadEv.exit294.thread, %_ZN5AstOrC2EP8FileLineP11AstNodeExprS3_.exit251
-  %.0.sink310 = phi ptr [ %.1127, %_ZN5AstOrC2EP8FileLineP11AstNodeExprS3_.exit251 ], [ %.0, %_ZNK7AstNode6isQuadEv.exit294.thread ], [ %.0.sink, %_ZN7AstNode12user1SetOnceEv.exit.sink.split.sink.split ]
-  %417 = getelementptr inbounds nuw i8, ptr %.0.sink310, i64 104
+  %.0.sink348 = phi ptr [ %.1127, %_ZN5AstOrC2EP8FileLineP11AstNodeExprS3_.exit251 ], [ %.0, %_ZNK7AstNode6isQuadEv.exit294.thread ], [ %.0.sink, %_ZN7AstNode12user1SetOnceEv.exit.sink.split.sink.split ]
+  %417 = getelementptr inbounds nuw i8, ptr %.0.sink348, i64 104
   store i64 1, ptr %417, align 8, !tbaa !14
   %418 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !23
-  %419 = getelementptr inbounds nuw i8, ptr %.0.sink310, i64 112
+  %419 = getelementptr inbounds nuw i8, ptr %.0.sink348, i64 112
   store i32 %418, ptr %419, align 8, !tbaa !103
-  call void @_ZN7AstNode11replaceWithEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %.0.sink310)
+  call void @_ZN7AstNode11replaceWithEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %.0.sink348)
   call void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %1)
   br label %_ZN7AstNode12user1SetOnceEv.exit
 
@@ -8729,7 +8729,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN12V3NumberData9ValueAndXEmS1_ET_S3_T0_RSaIT1_E.exit, label %23
 
@@ -10462,12 +10462,12 @@ _ZNK7AstNode10widthWordsEv.exit:                  ; preds = %_ZNK7AstNode10width
   br i1 %.not.i.i, label %_ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread, label %_ZNK7AstNode10widthWordsEv.exit, !llvm.loop !159
 
 _ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread.sink.split: ; preds = %_ZNK7AstNode10widthWordsEv.exit.i, %47
-  %.sink24 = phi i64 [ 64, %47 ], [ 56, %_ZNK7AstNode10widthWordsEv.exit.i ]
-  %.sink23 = phi double [ 1.000000e+00, %47 ], [ 0.000000e+00, %_ZNK7AstNode10widthWordsEv.exit.i ]
+  %.sink30 = phi i64 [ 64, %47 ], [ 56, %_ZNK7AstNode10widthWordsEv.exit.i ]
+  %.sink29 = phi double [ 1.000000e+00, %47 ], [ 0.000000e+00, %_ZNK7AstNode10widthWordsEv.exit.i ]
   %.0.i17.ph = phi i1 [ false, %47 ], [ true, %_ZNK7AstNode10widthWordsEv.exit.i ]
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink24
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink30
   %69 = load double, ptr %68, align 8, !tbaa !64
-  %70 = fadd double %69, %.sink23
+  %70 = fadd double %69, %.sink29
   store double %70, ptr %68, align 8, !tbaa !64
   br label %_ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread
 
@@ -11485,12 +11485,12 @@ _ZNK7AstNode10widthWordsEv.exit:                  ; preds = %_ZNK7AstNode10width
   br i1 %.not.i.i, label %_ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread, label %_ZNK7AstNode10widthWordsEv.exit, !llvm.loop !163
 
 _ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread.sink.split: ; preds = %_ZNK7AstNode10widthWordsEv.exit.i, %55
-  %.sink27 = phi i64 [ 64, %55 ], [ 56, %_ZNK7AstNode10widthWordsEv.exit.i ]
-  %.sink26 = phi double [ 1.000000e+00, %55 ], [ 0.000000e+00, %_ZNK7AstNode10widthWordsEv.exit.i ]
+  %.sink34 = phi i64 [ 64, %55 ], [ 56, %_ZNK7AstNode10widthWordsEv.exit.i ]
+  %.sink33 = phi double [ 1.000000e+00, %55 ], [ 0.000000e+00, %_ZNK7AstNode10widthWordsEv.exit.i ]
   %.0.i20.ph = phi i1 [ false, %55 ], [ true, %_ZNK7AstNode10widthWordsEv.exit.i ]
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink27
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink34
   %77 = load double, ptr %76, align 8, !tbaa !64
-  %78 = fadd double %77, %.sink26
+  %78 = fadd double %77, %.sink33
   store double %78, ptr %76, align 8, !tbaa !64
   br label %_ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread
 
@@ -12652,12 +12652,12 @@ _ZN6AstAndC2EP8FileLineP11AstNodeExprS3_.exit:    ; preds = %77, %72, %.noexc26
   br label %92
 
 _ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread.sink.split: ; preds = %_ZNK7AstNode10widthWordsEv.exit.i, %47
-  %.sink34 = phi i64 [ 64, %47 ], [ 56, %_ZNK7AstNode10widthWordsEv.exit.i ]
-  %.sink33 = phi double [ 1.000000e+00, %47 ], [ 0.000000e+00, %_ZNK7AstNode10widthWordsEv.exit.i ]
+  %.sink42 = phi i64 [ 64, %47 ], [ 56, %_ZNK7AstNode10widthWordsEv.exit.i ]
+  %.sink41 = phi double [ 1.000000e+00, %47 ], [ 0.000000e+00, %_ZNK7AstNode10widthWordsEv.exit.i ]
   %.0.i28.ph = phi i1 [ false, %47 ], [ true, %_ZNK7AstNode10widthWordsEv.exit.i ]
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink34
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink42
   %90 = load double, ptr %89, align 8, !tbaa !64
-  %91 = fadd double %90, %.sink33
+  %91 = fadd double %90, %.sink41
   store double %91, ptr %89, align 8, !tbaa !64
   br label %_ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread
 
@@ -12883,12 +12883,12 @@ _ZN5AstOrC2EP8FileLineP11AstNodeExprS3_.exit:     ; preds = %77, %72, %.noexc26
   br label %92
 
 _ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread.sink.split: ; preds = %_ZNK7AstNode10widthWordsEv.exit.i, %47
-  %.sink34 = phi i64 [ 64, %47 ], [ 56, %_ZNK7AstNode10widthWordsEv.exit.i ]
-  %.sink33 = phi double [ 1.000000e+00, %47 ], [ 0.000000e+00, %_ZNK7AstNode10widthWordsEv.exit.i ]
+  %.sink42 = phi i64 [ 64, %47 ], [ 56, %_ZNK7AstNode10widthWordsEv.exit.i ]
+  %.sink41 = phi double [ 1.000000e+00, %47 ], [ 0.000000e+00, %_ZNK7AstNode10widthWordsEv.exit.i ]
   %.0.i28.ph = phi i1 [ false, %47 ], [ true, %_ZNK7AstNode10widthWordsEv.exit.i ]
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink34
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink42
   %90 = load double, ptr %89, align 8, !tbaa !64
-  %91 = fadd double %90, %.sink33
+  %91 = fadd double %90, %.sink41
   store double %91, ptr %89, align 8, !tbaa !64
   br label %_ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread
 
@@ -13125,12 +13125,12 @@ _ZN6AstNotC2EP8FileLineP11AstNodeExpr.exit:       ; preds = %79, %.noexc23, %.no
   br label %94
 
 _ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread.sink.split: ; preds = %_ZNK7AstNode10widthWordsEv.exit.i, %47
-  %.sink31 = phi i64 [ 64, %47 ], [ 56, %_ZNK7AstNode10widthWordsEv.exit.i ]
-  %.sink30 = phi double [ 1.000000e+00, %47 ], [ 0.000000e+00, %_ZNK7AstNode10widthWordsEv.exit.i ]
+  %.sink40 = phi i64 [ 64, %47 ], [ 56, %_ZNK7AstNode10widthWordsEv.exit.i ]
+  %.sink39 = phi double [ 1.000000e+00, %47 ], [ 0.000000e+00, %_ZNK7AstNode10widthWordsEv.exit.i ]
   %.0.i25.ph = phi i1 [ false, %47 ], [ true, %_ZNK7AstNode10widthWordsEv.exit.i ]
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink31
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink40
   %92 = load double, ptr %91, align 8, !tbaa !64
-  %93 = fadd double %92, %.sink30
+  %93 = fadd double %92, %.sink39
   store double %93, ptr %91, align 8, !tbaa !64
   br label %_ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread
 
@@ -13356,12 +13356,12 @@ _ZN6AstXorC2EP8FileLineP11AstNodeExprS3_.exit:    ; preds = %77, %72, %.noexc26
   br label %92
 
 _ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread.sink.split: ; preds = %_ZNK7AstNode10widthWordsEv.exit.i, %47
-  %.sink34 = phi i64 [ 64, %47 ], [ 56, %_ZNK7AstNode10widthWordsEv.exit.i ]
-  %.sink33 = phi double [ 1.000000e+00, %47 ], [ 0.000000e+00, %_ZNK7AstNode10widthWordsEv.exit.i ]
+  %.sink42 = phi i64 [ 64, %47 ], [ 56, %_ZNK7AstNode10widthWordsEv.exit.i ]
+  %.sink41 = phi double [ 1.000000e+00, %47 ], [ 0.000000e+00, %_ZNK7AstNode10widthWordsEv.exit.i ]
   %.0.i28.ph = phi i1 [ false, %47 ], [ true, %_ZNK7AstNode10widthWordsEv.exit.i ]
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink34
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink42
   %90 = load double, ptr %89, align 8, !tbaa !64
-  %91 = fadd double %90, %.sink33
+  %91 = fadd double %90, %.sink41
   store double %91, ptr %89, align 8, !tbaa !64
   br label %_ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread
 
@@ -13564,12 +13564,12 @@ _ZN11AstNodeExpr13cloneTreePureEb.exit:           ; preds = %64
   br label %87
 
 _ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread.sink.split: ; preds = %_ZNK7AstNode10widthWordsEv.exit.i, %47
-  %.sink31 = phi i64 [ 64, %47 ], [ 56, %_ZNK7AstNode10widthWordsEv.exit.i ]
-  %.sink30 = phi double [ 1.000000e+00, %47 ], [ 0.000000e+00, %_ZNK7AstNode10widthWordsEv.exit.i ]
+  %.sink37 = phi i64 [ 64, %47 ], [ 56, %_ZNK7AstNode10widthWordsEv.exit.i ]
+  %.sink36 = phi double [ 1.000000e+00, %47 ], [ 0.000000e+00, %_ZNK7AstNode10widthWordsEv.exit.i ]
   %.0.i25.ph = phi i1 [ false, %47 ], [ true, %_ZNK7AstNode10widthWordsEv.exit.i ]
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink31
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink37
   %85 = load double, ptr %84, align 8, !tbaa !64
-  %86 = fadd double %85, %.sink30
+  %86 = fadd double %85, %.sink36
   store double %86, ptr %84, align 8, !tbaa !64
   br label %_ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread
 

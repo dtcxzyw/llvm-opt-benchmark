@@ -2658,7 +2658,7 @@ _ZN16WirelessTimeline15find_packet_tsfEm.exit:    ; preds = %.lr.ph.i, %278, %.n
   br i1 %.not182284, label %_ZL14accumulate_rgbPA3_fiiffff.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %278, %_ZN16WirelessTimeline15find_packet_tsfEm.exit
-  %.0.i216296 = phi i32 [ %.0.i216, %_ZN16WirelessTimeline15find_packet_tsfEm.exit ], [ %286, %278 ]
+  %.0.i216316 = phi i32 [ %.0.i216, %_ZN16WirelessTimeline15find_packet_tsfEm.exit ], [ %286, %278 ]
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %315 = sitofp i32 %47 to float
   %316 = sitofp i32 %44 to float
@@ -2683,7 +2683,7 @@ _ZN16WirelessTimeline15find_packet_tsfEm.exit:    ; preds = %.lr.ph.i, %278, %.n
   br label %335
 
 335:                                              ; preds = %.lr.ph, %.loopexit
-  %.0152286 = phi i32 [ %.0.i216296, %.lr.ph ], [ %568, %.loopexit ]
+  %.0152286 = phi i32 [ %.0.i216316, %.lr.ph ], [ %568, %.loopexit ]
   %.0153285 = phi i32 [ -1, %.lr.ph ], [ %.1154.ph, %.loopexit ]
   %336 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 256), align 8
   %337 = invoke ptr @frame_data_sequence_find(ptr noundef %336, i32 noundef %.0152286)

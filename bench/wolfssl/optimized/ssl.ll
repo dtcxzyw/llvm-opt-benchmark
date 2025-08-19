@@ -1744,10 +1744,10 @@ define range(i64 0, 2) i64 @wolfSSL_CTX_set_session_cache_mode(ptr noundef captu
   br i1 %.not, label %11, label %.sink.split
 
 .sink.split:                                      ; preds = %6, %4
-  %.sink9 = phi i16 [ 16, %4 ], [ 32, %6 ]
+  %.sink11 = phi i16 [ 16, %4 ], [ 32, %6 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 169
   %9 = load i16, ptr %8, align 1
-  %10 = or i16 %9, %.sink9
+  %10 = or i16 %9, %.sink11
   store i16 %10, ptr %8, align 1
   br label %11
 
@@ -7368,8 +7368,8 @@ ProcessUserCert.exit.thread.i:                    ; preds = %ProcessUserCert.exi
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %254, %207, %.loopexit.sink.split.i, %168
-  %.sroa.0.0132.i = phi ptr [ %16, %168 ], [ %.sroa.0.0.ph.i, %.loopexit.sink.split.i ], [ %.sroa.0.0.ph.i, %207 ], [ %.sroa.0.0.ph.i, %254 ]
-  %.not.i75129.i = phi i1 [ true, %168 ], [ %167, %.loopexit.sink.split.i ], [ %167, %207 ], [ %167, %254 ]
+  %.sroa.0.0142.i = phi ptr [ %16, %168 ], [ %.sroa.0.0.ph.i, %.loopexit.sink.split.i ], [ %.sroa.0.0.ph.i, %207 ], [ %.sroa.0.0.ph.i, %254 ]
+  %.not.i75139.i = phi i1 [ true, %168 ], [ %167, %.loopexit.sink.split.i ], [ %167, %207 ], [ %167, %254 ]
   %.057113.i = phi i64 [ %162, %168 ], [ %.057116.i149, %.loopexit.sink.split.i ], [ %209, %207 ], [ %256, %254 ]
   %.050111.i = phi i32 [ 0, %168 ], [ %.050118.i152, %.loopexit.sink.split.i ], [ %210, %207 ], [ %257, %254 ]
   %.049109.i = phi i32 [ -125, %168 ], [ %.049109.ph.i, %.loopexit.sink.split.i ], [ 0, %207 ], [ 0, %254 ]
@@ -7402,7 +7402,7 @@ ProcessUserCert.exit.thread.i:                    ; preds = %ProcessUserCert.exi
 
 269:                                              ; preds = %267, %264
   %270 = getelementptr inbounds nuw i8, ptr %5, i64 600
-  %271 = call i32 @AllocCopyDer(ptr noundef nonnull %270, ptr noundef nonnull %.sroa.0.0132.i, i32 noundef range(i32 1, 0) %.179.i, i32 noundef %4, ptr noundef %161) #22
+  %271 = call i32 @AllocCopyDer(ptr noundef nonnull %270, ptr noundef nonnull %.sroa.0.0142.i, i32 noundef range(i32 1, 0) %.179.i, i32 noundef %4, ptr noundef %161) #22
   %272 = icmp eq i32 %271, 0
   %273 = zext i1 %272 to i8
   store i8 %273, ptr %265, align 1, !tbaa !199
@@ -7416,7 +7416,7 @@ ProcessUserCert.exit.thread.i:                    ; preds = %ProcessUserCert.exi
 276:                                              ; preds = %275
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @FreeDer(ptr noundef nonnull %277) #22
-  %278 = call i32 @AllocCopyDer(ptr noundef nonnull %277, ptr noundef nonnull %.sroa.0.0132.i, i32 noundef range(i32 1, 0) %.179.i, i32 noundef %4, ptr noundef %161) #22
+  %278 = call i32 @AllocCopyDer(ptr noundef nonnull %277, ptr noundef nonnull %.sroa.0.0142.i, i32 noundef range(i32 1, 0) %.179.i, i32 noundef %4, ptr noundef %161) #22
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %.050111.i, ptr %279, align 8, !tbaa !201
   br label %ProcessUserChainRetain.exit.i
@@ -7424,10 +7424,10 @@ ProcessUserCert.exit.thread.i:                    ; preds = %ProcessUserCert.exi
 ProcessUserChainRetain.exit.i:                    ; preds = %276, %275, %269, %260
   %.4.i = phi i32 [ %.049109.i, %260 ], [ %271, %269 ], [ %278, %276 ], [ 0, %275 ]
   %.4.i.fr = freeze i32 %.4.i
-  br i1 %.not.i75129.i, label %ProcessUserChain.exit, label %280
+  br i1 %.not.i75139.i, label %ProcessUserChain.exit, label %280
 
 280:                                              ; preds = %ProcessUserChainRetain.exit.i
-  call void @wolfSSL_Free(ptr noundef nonnull %.sroa.0.0132.i) #22
+  call void @wolfSSL_Free(ptr noundef nonnull %.sroa.0.0142.i) #22
   br label %ProcessUserChain.exit
 
 ProcessUserChain.exit:                            ; preds = %ProcessUserChainRetain.exit.i, %280
@@ -7636,20 +7636,20 @@ wolfSSL_CTX_GetDevId.exit.i.i96:                  ; preds = %319, %314, %.thread
   br i1 %.not.i3543.i.i, label %ProcessBufferCertSetHave.exit.sink.split.i.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %357, %356
-  %.sink49.i.i = phi i64 [ 16777216, %356 ], [ 8388608, %357 ]
+  %.sink54.i.i = phi i64 [ 16777216, %356 ], [ 8388608, %357 ]
   %358 = getelementptr inbounds nuw i8, ptr %5, i64 1024
   %359 = load i64, ptr %358, align 8
-  %360 = or i64 %359, %.sink49.i.i
+  %360 = or i64 %359, %.sink54.i.i
   store i64 %360, ptr %358, align 8
   %361 = and i64 %359, 128
-  %.not2645.i.i = icmp eq i64 %361, 0
+  %.not2650.i.i = icmp eq i64 %361, 0
   br label %373
 
 ProcessBufferCertSetHave.exit.sink.split.i.i:     ; preds = %357, %356
-  %.sink52.i.i = phi i16 [ 512, %356 ], [ 256, %357 ]
+  %.sink57.i.i = phi i16 [ 512, %356 ], [ 256, %357 ]
   %362 = getelementptr inbounds nuw i8, ptr %0, i64 169
   %363 = load i16, ptr %362, align 1
-  %364 = or i16 %363, %.sink52.i.i
+  %364 = or i16 %363, %.sink57.i.i
   store i16 %364, ptr %362, align 1
   br label %ProcessBufferCertSetHave.exit.i.i
 
@@ -7672,7 +7672,7 @@ ProcessBufferCertSetHave.exit.i.i:                ; preds = %ProcessBufferCertSe
   br label %373
 
 373:                                              ; preds = %369, %365, %.thread.i.i
-  %.0.in.i.i = phi i1 [ %.not26.i.i, %365 ], [ %.not27.i.i, %369 ], [ %.not2645.i.i, %.thread.i.i ]
+  %.0.in.i.i = phi i1 [ %.not26.i.i, %365 ], [ %.not27.i.i, %369 ], [ %.not2650.i.i, %.thread.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -9539,7 +9539,7 @@ define range(i32 1, 0) i32 @wolfSSL_CTX_SetTmpDH(ptr noundef captures(address_is
   %8 = icmp ne ptr %3, null
   %9 = and i1 %7, %8
   %or.cond3.not = and i1 %6, %9
-  br i1 %or.cond3.not, label %10, label %.thread70
+  br i1 %or.cond3.not, label %10, label %.thread74
 
 10:                                               ; preds = %5
   %11 = sext i32 %2 to i64
@@ -9561,7 +9561,7 @@ define range(i32 1, 0) i32 @wolfSSL_CTX_SetTmpDH(ptr noundef captures(address_is
   %.2 = phi i32 [ %17, %.thread ], [ -125, %10 ]
   %18 = icmp ne i32 %.2, 1
   %or.cond7 = and i1 %6, %18
-  br i1 %or.cond7, label %19, label %.thread70
+  br i1 %or.cond7, label %19, label %.thread74
 
 19:                                               ; preds = %.thread51
   %.not = icmp eq ptr %12, null
@@ -9573,15 +9573,15 @@ define range(i32 1, 0) i32 @wolfSSL_CTX_SetTmpDH(ptr noundef captures(address_is
 
 21:                                               ; preds = %20, %19
   %.not42 = icmp eq ptr %14, null
-  br i1 %.not42, label %.thread70, label %22
+  br i1 %.not42, label %.thread74, label %22
 
 22:                                               ; preds = %21
   tail call void @wolfSSL_Free(ptr noundef nonnull %14) #22
-  br label %.thread70
+  br label %.thread74
 
-.thread70:                                        ; preds = %5, %21, %22, %.thread51
-  %.261 = phi i32 [ %.2, %21 ], [ %.2, %22 ], [ %.2, %.thread51 ], [ -173, %5 ]
-  ret i32 %.261
+.thread74:                                        ; preds = %5, %21, %22, %.thread51
+  %.265 = phi i32 [ %.2, %21 ], [ %.2, %22 ], [ %.2, %.thread51 ], [ -173, %5 ]
+  ret i32 %.265
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9741,9 +9741,9 @@ define internal fastcc i32 @ws_ctx_ssl_set_tmp_dh(ptr noundef captures(address_i
 31:                                               ; preds = %25, %16
   %.1 = phi i32 [ %spec.store.select, %16 ], [ %26, %25 ]
   %32 = icmp eq i32 %.1, 1
-  br i1 %32, label %33, label %.thread136
+  br i1 %32, label %33, label %.thread142
 
-.thread136:                                       ; preds = %31
+.thread142:                                       ; preds = %31
   call void @FreeDer(ptr noundef nonnull %6) #22
   br label %63
 
@@ -9765,7 +9765,7 @@ define internal fastcc i32 @ws_ctx_ssl_set_tmp_dh(ptr noundef captures(address_i
 42:                                               ; preds = %39
   %43 = call i32 @PemToDer(ptr noundef %2, i64 noundef %3, i32 noundef 26, ptr noundef nonnull %6, ptr noundef %17, ptr noundef null, ptr noundef null) #22
   %44 = icmp slt i32 %43, 0
-  br i1 %44, label %.thread126, label %.thread96
+  br i1 %44, label %.thread132, label %.thread96
 
 45:                                               ; preds = %33
   br i1 %or.cond9.not, label %.thread96, label %60
@@ -9777,7 +9777,7 @@ define internal fastcc i32 @ws_ctx_ssl_set_tmp_dh(ptr noundef captures(address_i
   %49 = load i32, ptr %48, align 8, !tbaa !34
   %50 = call i32 @wc_DhParamsLoad(ptr noundef %47, i32 noundef %49, ptr noundef nonnull %34, ptr noundef nonnull %7, ptr noundef nonnull %35, ptr noundef nonnull %8) #22
   %51 = icmp slt i32 %50, 0
-  br i1 %51, label %.thread126, label %52
+  br i1 %51, label %.thread132, label %52
 
 52:                                               ; preds = %.thread96
   %.not76 = icmp eq ptr %1, null
@@ -9797,25 +9797,25 @@ define internal fastcc i32 @ws_ctx_ssl_set_tmp_dh(ptr noundef captures(address_i
   %.4 = phi i32 [ %56, %55 ], [ %58, %57 ]
   call void @FreeDer(ptr noundef nonnull %6) #22
   %.not77 = icmp eq i32 %.4, 1
-  br i1 %.not77, label %63, label %.thread116
+  br i1 %.not77, label %63, label %.thread122
 
-.thread126:                                       ; preds = %.thread96, %42
+.thread132:                                       ; preds = %.thread96, %42
   %.4.ph.ph = phi i32 [ %43, %42 ], [ -462, %.thread96 ]
   call void @FreeDer(ptr noundef nonnull %6) #22
-  br label %.thread116
+  br label %.thread122
 
 60:                                               ; preds = %45
   call void @FreeDer(ptr noundef nonnull %6) #22
   %.not78 = icmp eq ptr %34, null
-  br i1 %.not78, label %61, label %.thread116
+  br i1 %.not78, label %61, label %.thread122
 
-.thread116:                                       ; preds = %59, %.thread126, %60
-  %.4110121 = phi i32 [ -125, %60 ], [ %.4.ph.ph, %.thread126 ], [ %.4, %59 ]
+.thread122:                                       ; preds = %59, %.thread132, %60
+  %.4110127 = phi i32 [ -125, %60 ], [ %.4.ph.ph, %.thread132 ], [ %.4, %59 ]
   call void @wolfSSL_Free(ptr noundef nonnull %34) #22
   br label %61
 
-61:                                               ; preds = %.thread116, %60
-  %.4110122 = phi i32 [ %.4110121, %.thread116 ], [ -125, %60 ]
+61:                                               ; preds = %.thread122, %60
+  %.4110128 = phi i32 [ %.4110127, %.thread122 ], [ -125, %60 ]
   %.not79 = icmp eq ptr %35, null
   br i1 %.not79, label %63, label %62
 
@@ -9823,8 +9823,8 @@ define internal fastcc i32 @ws_ctx_ssl_set_tmp_dh(ptr noundef captures(address_i
   call void @wolfSSL_Free(ptr noundef nonnull %35) #22
   br label %63
 
-63:                                               ; preds = %.thread136, %61, %62, %59
-  %.4111 = phi i32 [ %.4110122, %61 ], [ %.4110122, %62 ], [ 1, %59 ], [ %.1, %.thread136 ]
+63:                                               ; preds = %.thread142, %61, %62, %59
+  %.4111 = phi i32 [ %.4110128, %61 ], [ %.4110128, %62 ], [ 1, %59 ], [ %.1, %.thread142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -10554,7 +10554,7 @@ define range(i32 -303, -2147483648) i32 @wolfSSL_writev(ptr noundef %0, ptr noun
   br i1 %exitcond50.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !243
 
 ._crit_edge44:                                    ; preds = %.lr.ph43, %3
-  %.02954 = phi ptr [ %4, %3 ], [ %.029.ph, %.lr.ph43 ]
+  %.02957 = phi ptr [ %4, %3 ], [ %.029.ph, %.lr.ph43 ]
   %23 = phi i64 [ 0, %3 ], [ %10, %.lr.ph43 ]
   %24 = phi i1 [ true, %3 ], [ %11, %.lr.ph43 ]
   %25 = icmp eq ptr %0, null
@@ -10563,7 +10563,7 @@ define range(i32 -303, -2147483648) i32 @wolfSSL_writev(ptr noundef %0, ptr noun
 26:                                               ; preds = %._crit_edge44
   %27 = tail call ptr @__errno_location() #24
   store i32 0, ptr %27, align 4, !tbaa !3
-  %28 = call i32 @SendData(ptr noundef nonnull %0, ptr noundef nonnull %.02954, i64 noundef %23) #22
+  %28 = call i32 @SendData(ptr noundef nonnull %0, ptr noundef nonnull %.02957, i64 noundef %23) #22
   %..i = call i32 @llvm.smax.i32(i32 %28, i32 -1)
   br label %wolfSSL_write_internal.exit
 
@@ -10572,7 +10572,7 @@ wolfSSL_write_internal.exit:                      ; preds = %._crit_edge44, %26
   br i1 %24, label %30, label %29
 
 29:                                               ; preds = %wolfSSL_write_internal.exit
-  call void @wolfSSL_Free(ptr noundef nonnull %.02954) #22
+  call void @wolfSSL_Free(ptr noundef nonnull %.02957) #22
   br label %30
 
 30:                                               ; preds = %wolfSSL_write_internal.exit, %29, %12

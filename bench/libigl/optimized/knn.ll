@@ -2134,7 +2134,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.0.0.copyload, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.2.0.copyload, i64 8
   %20 = or disjoint i64 %10, 1
-  %21 = getelementptr inbounds i32, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i32, ptr %0, i64 %16
   br label %23
 
@@ -4595,7 +4595,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.0.0.copyload, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.2.0.copyload, i64 8
   %20 = or disjoint i64 %10, 1
-  %21 = getelementptr inbounds i32, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i32, ptr %0, i64 %16
   br label %23
 

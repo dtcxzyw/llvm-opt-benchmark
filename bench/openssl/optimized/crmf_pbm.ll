@@ -67,10 +67,10 @@ define ptr @OSSL_CRMF_pbmp_new(ptr noundef %0, i64 noundef %1, i32 noundef %2, i
   br label %38
 
 .sink.split:                                      ; preds = %31, %27, %25, %23, %18, %11
-  %.sink26 = phi i32 [ 57, %11 ], [ 69, %18 ], [ 84, %23 ], [ 88, %25 ], [ 93, %27 ], [ 103, %31 ]
+  %.sink29 = phi i32 [ 57, %11 ], [ 69, %18 ], [ 84, %23 ], [ 88, %25 ], [ 93, %27 ], [ 103, %31 ]
   %.sink = phi i32 [ 107, %11 ], [ 111, %18 ], [ 108, %23 ], [ 100, %25 ], [ 102, %27 ], [ 110, %31 ]
   tail call void @ERR_new() #3
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink26, ptr noundef nonnull @__func__.OSSL_CRMF_pbmp_new) #3
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink29, ptr noundef nonnull @__func__.OSSL_CRMF_pbmp_new) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 56, i32 noundef %.sink, ptr noundef null) #3
   br label %37
 

@@ -1989,8 +1989,8 @@ define noundef ptr @_Z35grpc_convert_grpc_to_tsi_cert_pairsPK26grpc_ssl_pem_key_
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %24, %2
-  %.050 = phi ptr [ null, %2 ], [ %13, %24 ]
-  ret ptr %.050
+  %.053 = phi ptr [ null, %2 ], [ %13, %24 ]
+  ret ptr %.053
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %.02347 = phi i64 [ %30, %24 ], [ 0, %.lr.ph.preheader ]

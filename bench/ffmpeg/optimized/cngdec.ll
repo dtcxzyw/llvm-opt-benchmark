@@ -180,9 +180,9 @@ define internal i32 @cng_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %66 = load i32, ptr %65, align 8, !tbaa !32
   %67 = icmp sgt i32 %66, 0
   %.pre136 = load ptr, ptr %7, align 8, !tbaa !37
-  br i1 %67, label %.lr.ph100, label %.loopexit.thread144
+  br i1 %67, label %.lr.ph100, label %.loopexit.thread152
 
-.loopexit.thread144:                              ; preds = %57
+.loopexit.thread152:                              ; preds = %57
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -294,10 +294,10 @@ define internal i32 @cng_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %.pre142 = load i32, ptr %99, align 8, !tbaa !32
   br label %make_lpc_coefs.exit
 
-make_lpc_coefs.exit.thread:                       ; preds = %.loopexit, %.loopexit.thread144
-  %.ph = phi ptr [ %69, %.loopexit.thread144 ], [ %97, %.loopexit ]
-  %.ph145 = phi ptr [ %68, %.loopexit.thread144 ], [ %95, %.loopexit ]
-  %.ph146 = phi i32 [ %66, %.loopexit.thread144 ], [ %.pre137, %.loopexit ]
+make_lpc_coefs.exit.thread:                       ; preds = %.loopexit, %.loopexit.thread152
+  %.ph = phi ptr [ %69, %.loopexit.thread152 ], [ %97, %.loopexit ]
+  %.ph153 = phi ptr [ %68, %.loopexit.thread152 ], [ %95, %.loopexit ]
+  %.ph154 = phi i32 [ %66, %.loopexit.thread152 ], [ %.pre137, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %._crit_edge
 
@@ -328,8 +328,8 @@ make_lpc_coefs.exit:                              ; preds = %._crit_edge38.i, %1
   br i1 %exitcond127.not, label %._crit_edge, label %121, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %121, %make_lpc_coefs.exit.thread, %make_lpc_coefs.exit
-  %130 = phi i32 [ %118, %make_lpc_coefs.exit ], [ %.ph146, %make_lpc_coefs.exit.thread ], [ %118, %121 ]
-  %131 = phi ptr [ %101, %make_lpc_coefs.exit ], [ %.ph145, %make_lpc_coefs.exit.thread ], [ %101, %121 ]
+  %130 = phi i32 [ %118, %make_lpc_coefs.exit ], [ %.ph154, %make_lpc_coefs.exit.thread ], [ %118, %121 ]
+  %131 = phi ptr [ %101, %make_lpc_coefs.exit ], [ %.ph153, %make_lpc_coefs.exit.thread ], [ %101, %121 ]
   %132 = phi ptr [ %99, %make_lpc_coefs.exit ], [ %.ph, %make_lpc_coefs.exit.thread ], [ %99, %121 ]
   %.088.lcssa = phi float [ 1.000000e+00, %make_lpc_coefs.exit ], [ 1.000000e+00, %make_lpc_coefs.exit.thread ], [ %129, %121 ]
   %133 = getelementptr inbounds nuw i8, ptr %7, i64 28

@@ -2137,8 +2137,8 @@ thread-pre-split:                                 ; preds = %40, %42
   %98 = lshr i64 %68, 39
   br label %99
 
-99:                                               ; preds = %.thread33, %97
-  %100 = phi ptr [ %95, %97 ], [ %147, %.thread33 ]
+99:                                               ; preds = %.thread44, %97
+  %100 = phi ptr [ %95, %97 ], [ %147, %.thread44 ]
   %101 = getelementptr i8, ptr %100, i64 -8
   %102 = load i64, ptr @vmemmap_base, align 8
   %103 = ptrtoint ptr %101 to i64
@@ -2188,7 +2188,7 @@ thread-pre-split:                                 ; preds = %40, %42
   %135 = xor i64 %.pre29, %129
   %136 = and i64 %135, 4503599627366400
   %137 = icmp eq i64 %136, 0
-  br i1 %137, label %.thread33, label %138, !prof !10
+  br i1 %137, label %.thread44, label %138, !prof !10
 
 138:                                              ; preds = %134
   tail call void asm sideeffect "502: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 502b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 502) #18, !srcloc !33
@@ -2196,7 +2196,7 @@ thread-pre-split:                                 ; preds = %40, %42
   unreachable
 
 139:                                              ; preds = %125
-  br i1 %132, label %.thread, label %.thread33
+  br i1 %132, label %.thread, label %.thread44
 
 .thread:                                          ; preds = %133, %139
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2229,15 +2229,15 @@ thread-pre-split:                                 ; preds = %40, %42
 
 146:                                              ; preds = %144, %141
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread33
+  br label %.thread44
 
-.thread33:                                        ; preds = %134, %146, %139
+.thread44:                                        ; preds = %134, %146, %139
   tail call void @_raw_spin_unlock(ptr noundef nonnull %128) #18
   %147 = load ptr, ptr %100, align 8
   %148 = icmp eq ptr %147, @pgd_list
   br i1 %148, label %.loopexit25, label %99, !llvm.loop !35
 
-.loopexit25:                                      ; preds = %.thread33, %94
+.loopexit25:                                      ; preds = %.thread44, %94
   tail call void @_raw_spin_unlock(ptr noundef nonnull @pgd_lock) #18
   br label %149
 

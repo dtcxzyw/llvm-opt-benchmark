@@ -392,8 +392,8 @@ define i32 @idaDlsDenseDQJac(i64 noundef %0, double noundef %1, double noundef %
   br label %65
 
 65:                                               ; preds = %56, %62
-  %.sink103 = phi double [ %64, %62 ], [ %38, %56 ]
-  %66 = tail call double @SUNRabs(double noundef %.sink103) #7
+  %.sink108 = phi double [ %64, %62 ], [ %38, %56 ]
+  %66 = tail call double @SUNRabs(double noundef %.sink108) #7
   %67 = fmul double %26, %66
   br label %68
 
@@ -584,8 +584,8 @@ define i32 @idaDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   br label %72
 
 72:                                               ; preds = %63, %69
-  %.sink203 = phi double [ %71, %69 ], [ %45, %63 ]
-  %73 = tail call double @SUNRabs(double noundef %.sink203) #7
+  %.sink212 = phi double [ %71, %69 ], [ %45, %63 ]
+  %73 = tail call double @SUNRabs(double noundef %.sink212) #7
   %74 = fmul double %31, %73
   br label %75
 
@@ -689,8 +689,8 @@ define i32 @idaDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   br label %140
 
 140:                                              ; preds = %.lr.ph192, %137
-  %.sink204 = phi double [ %139, %137 ], [ %120, %.lr.ph192 ]
-  %141 = tail call double @SUNRabs(double noundef %.sink204) #7
+  %.sink213 = phi double [ %139, %137 ], [ %120, %.lr.ph192 ]
+  %141 = tail call double @SUNRabs(double noundef %.sink213) #7
   %142 = fmul double %31, %141
   %143 = fdiv double 1.000000e+00, %131
   %144 = fcmp ogt double %142, %143
@@ -710,8 +710,8 @@ define i32 @idaDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   br label %154
 
 154:                                              ; preds = %145, %151
-  %.sink205 = phi double [ %153, %151 ], [ %120, %145 ]
-  %155 = tail call double @SUNRabs(double noundef %.sink205) #7
+  %.sink214 = phi double [ %153, %151 ], [ %120, %145 ]
+  %155 = tail call double @SUNRabs(double noundef %.sink214) #7
   %156 = fmul double %31, %155
   br label %157
 

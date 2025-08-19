@@ -1263,35 +1263,35 @@ mkOverlapSet.exit:                                ; preds = %.lr.ph14.split.us.i
   br i1 %exitcond.not.i90, label %computeScale.exit, label %.lr.ph.i89, !llvm.loop !93
 
 257:                                              ; preds = %.thread, %252
-  %.sroa.30.0.lcssa151156.i105119 = phi i64 [ 0, %.thread ], [ %.sroa.30.1.lcssa.i, %252 ]
+  %.sroa.30.0.lcssa164169.i105119 = phi i64 [ 0, %.thread ], [ %.sroa.30.1.lcssa.i, %252 ]
   %.sroa.0.4.i106117 = phi ptr [ null, %.thread ], [ %.sroa.0.4.i, %252 ]
   store double 1.000000e+00, ptr %.sroa.0.4.i106117, align 8, !tbaa !94
   %258 = getelementptr inbounds nuw i8, ptr %.sroa.0.4.i106117, i64 8
   store double 0x7FF0000000000000, ptr %258, align 8, !tbaa !95
   %259 = getelementptr inbounds nuw i8, ptr %.sroa.0.4.i106117, i64 16
-  %260 = add i64 %.sroa.30.0.lcssa151156.i105119, -1
+  %260 = add i64 %.sroa.30.0.lcssa164169.i105119, -1
   call void @qsort(ptr noundef nonnull %259, i64 noundef %260, i64 noundef 16, ptr noundef nonnull @sortf) #17
-  %.not.i.i = icmp eq i64 %.sroa.30.0.lcssa151156.i105119, 0
+  %.not.i.i = icmp eq i64 %.sroa.30.0.lcssa164169.i105119, 0
   br i1 %.not.i.i, label %._crit_edge.thread.i, label %261
 
 261:                                              ; preds = %257
-  %mul.ov.i.i = icmp ugt i64 %.sroa.30.0.lcssa151156.i105119, 1152921504606846975
+  %mul.ov.i.i = icmp ugt i64 %.sroa.30.0.lcssa164169.i105119, 1152921504606846975
   br i1 %mul.ov.i.i, label %262, label %265
 
 262:                                              ; preds = %261
   %263 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %264 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %263, ptr noundef nonnull @.str.2, i64 noundef range(i64 2, 1) %.sroa.30.0.lcssa151156.i105119, i64 noundef 16) #19
+  %264 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %263, ptr noundef nonnull @.str.2, i64 noundef range(i64 2, 1) %.sroa.30.0.lcssa164169.i105119, i64 noundef 16) #19
   call fastcc void @graphviz_exit() #20
   unreachable
 
 265:                                              ; preds = %261
-  %266 = call noalias ptr @calloc(i64 noundef range(i64 2, 1) %.sroa.30.0.lcssa151156.i105119, i64 noundef 16) #18
+  %266 = call noalias ptr @calloc(i64 noundef range(i64 2, 1) %.sroa.30.0.lcssa164169.i105119, i64 noundef 16) #18
   %267 = icmp eq ptr %266, null
   br i1 %267, label %268, label %.lr.ph.split.us.preheader.i
 
 268:                                              ; preds = %265
   %269 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %270 = shl nuw i64 %.sroa.30.0.lcssa151156.i105119, 4
+  %270 = shl nuw i64 %.sroa.30.0.lcssa164169.i105119, 4
   %271 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %269, ptr noundef nonnull @.str.3, i64 noundef %270) #19
   call fastcc void @graphviz_exit() #20
   unreachable
@@ -1313,7 +1313,7 @@ mkOverlapSet.exit:                                ; preds = %.lr.ph14.split.us.i
   store double %278, ptr %279, align 8, !tbaa !94
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
   store double 1.000000e+00, ptr %280, align 8, !tbaa !95
-  %281 = add nsw i64 %.sroa.30.0.lcssa151156.i105119, -2
+  %281 = add nsw i64 %.sroa.30.0.lcssa164169.i105119, -2
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.preheader.i
@@ -1347,7 +1347,7 @@ mkOverlapSet.exit:                                ; preds = %.lr.ph14.split.us.i
   %.143.i = select i1 %299, double %298, double %.04247.i
   %.1.i91 = select i1 %299, i64 %.049.i, i64 %.04048.i
   %300 = add nuw nsw i64 %.049.i, 1
-  %exitcond.not.i92 = icmp eq i64 %300, %.sroa.30.0.lcssa151156.i105119
+  %exitcond.not.i92 = icmp eq i64 %300, %.sroa.30.0.lcssa164169.i105119
   br i1 %exitcond.not.i92, label %computeScaleXY.exit.loopexit, label %.lr.ph51.i, !llvm.loop !96
 
 computeScaleXY.exit.loopexit:                     ; preds = %.lr.ph51.i
@@ -1795,8 +1795,8 @@ gv_calloc.exit158:                                ; preds = %._crit_edge219
 
 .lr.ph235:                                        ; preds = %._crit_edge224, %._crit_edge229
   %.3233 = phi ptr [ %196, %._crit_edge229 ], [ %180, %._crit_edge224 ]
-  %.4232 = phi i32 [ %.5275, %._crit_edge229 ], [ -2147483647, %._crit_edge224 ]
-  %.0115231 = phi ptr [ %.1116273, %._crit_edge229 ], [ null, %._crit_edge224 ]
+  %.4232 = phi i32 [ %.5311, %._crit_edge229 ], [ -2147483647, %._crit_edge224 ]
+  %.0115231 = phi ptr [ %.1116309, %._crit_edge229 ], [ null, %._crit_edge224 ]
   %181 = getelementptr inbounds nuw i8, ptr %.3233, i64 16
   %182 = load i32, ptr %181, align 8, !tbaa !53
   %.not132 = icmp eq i32 %.4232, %182
@@ -1819,13 +1819,13 @@ gv_calloc.exit158:                                ; preds = %._crit_edge219
   br i1 %.not135225, label %._crit_edge229, label %.lr.ph228
 
 .lr.ph228:                                        ; preds = %183, %.loopexit
-  %.5274 = phi i32 [ %.4232, %.loopexit ], [ %182, %183 ]
-  %.1116272 = phi ptr [ %.0115231, %.loopexit ], [ %.2117, %183 ]
+  %.5310 = phi i32 [ %.4232, %.loopexit ], [ %182, %183 ]
+  %.1116308 = phi ptr [ %.0115231, %.loopexit ], [ %.2117, %183 ]
   %186 = getelementptr inbounds nuw i8, ptr %.3233, i64 48
   br label %187
 
 187:                                              ; preds = %.lr.ph228, %194
-  %.0125226 = phi ptr [ %.1116272, %.lr.ph228 ], [ %195, %194 ]
+  %.0125226 = phi ptr [ %.1116308, %.lr.ph228 ], [ %195, %194 ]
   %188 = tail call i32 %1(ptr noundef nonnull %.3233, ptr noundef nonnull %.0125226) #17, !callees !127
   %.not136 = icmp eq i32 %188, 0
   br i1 %.not136, label %194, label %189
@@ -1843,8 +1843,8 @@ gv_calloc.exit158:                                ; preds = %._crit_edge219
   br i1 %.not135, label %._crit_edge229, label %187, !llvm.loop !128
 
 ._crit_edge229:                                   ; preds = %194, %.loopexit
-  %.5275 = phi i32 [ %.4232, %.loopexit ], [ %.5274, %194 ]
-  %.1116273 = phi ptr [ null, %.loopexit ], [ %.1116272, %194 ]
+  %.5311 = phi i32 [ %.4232, %.loopexit ], [ %.5310, %194 ]
+  %.1116309 = phi ptr [ null, %.loopexit ], [ %.1116308, %194 ]
   %196 = load ptr, ptr %.3233, align 8, !tbaa !98
   %.not131 = icmp eq ptr %196, null
   br i1 %.not131, label %.critedge, label %.lr.ph235, !llvm.loop !129

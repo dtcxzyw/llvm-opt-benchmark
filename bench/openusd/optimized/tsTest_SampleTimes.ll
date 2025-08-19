@@ -863,20 +863,20 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   br i1 %.0.lcssa.i, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %2
-  %.021.lcssa40.i = phi ptr [ %.021.lcssa.i, %._crit_edge.i ], [ %5, %2 ]
+  %.021.lcssa43.i = phi ptr [ %.021.lcssa.i, %._crit_edge.i ], [ %5, %2 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %.021.lcssa40.i, %24
+  %25 = icmp eq ptr %.021.lcssa43.i, %24
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa40.i) #17
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa43.i) #17
   %.pre = load double, ptr %1, align 8
   br label %28
 
 28:                                               ; preds = %26, %._crit_edge.i
   %29 = phi double [ %.pre, %26 ], [ %6, %._crit_edge.i ]
-  %.021.lcssa39.i = phi ptr [ %.021.lcssa40.i, %26 ], [ %.021.lcssa.i, %._crit_edge.i ]
+  %.021.lcssa42.i = phi ptr [ %.021.lcssa43.i, %26 ], [ %.021.lcssa.i, %._crit_edge.i ]
   %.sroa.07.0.i = phi ptr [ %27, %26 ], [ %.021.lcssa.i, %._crit_edge.i ]
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i, i64 32
   %31 = load double, ptr %30, align 8
@@ -897,7 +897,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   br i1 %41, label %43, label %select.unfold
 
 select.unfold:                                    ; preds = %33, %._crit_edge.thread.i, %28
-  %.sroa.4.0.i.ph = phi ptr [ %.021.lcssa39.i, %28 ], [ %.021.lcssa40.i, %._crit_edge.thread.i ], [ %.021.lcssa39.i, %33 ]
+  %.sroa.4.0.i.ph = phi ptr [ %.021.lcssa42.i, %28 ], [ %.021.lcssa43.i, %._crit_edge.thread.i ], [ %.021.lcssa42.i, %33 ]
   store ptr %0, ptr %3, align 8
   %42 = call ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef null, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %43
@@ -1090,20 +1090,20 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   br i1 %.0.lcssa.i, label %._crit_edge.thread.i, label %48
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread107
-  %.021.lcssa40.i = phi ptr [ %.021.lcssa.i, %._crit_edge.i ], [ %4, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread107 ]
+  %.021.lcssa43.i = phi ptr [ %.021.lcssa.i, %._crit_edge.i ], [ %4, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread107 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %.021.lcssa40.i, %44
+  %45 = icmp eq ptr %.021.lcssa43.i, %44
   br i1 %45, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread, label %46
 
 46:                                               ; preds = %._crit_edge.thread.i
-  %47 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa40.i) #17
+  %47 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa43.i) #17
   %.pre = load double, ptr %2, align 8
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i
   %49 = phi double [ %.pre, %46 ], [ %26, %._crit_edge.i ]
-  %.021.lcssa39.i = phi ptr [ %.021.lcssa40.i, %46 ], [ %.021.lcssa.i, %._crit_edge.i ]
+  %.021.lcssa42.i = phi ptr [ %.021.lcssa43.i, %46 ], [ %.021.lcssa.i, %._crit_edge.i ]
   %.sroa.07.0.i = phi ptr [ %47, %46 ], [ %.021.lcssa.i, %._crit_edge.i ]
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i, i64 32
   %51 = load double, ptr %50, align 8
@@ -1122,7 +1122,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   %61 = xor i1 %60, true
   %or.cond.i = select i1 %or.cond.i.i5.i, i1 %61, i1 false
   %spec.select.i = select i1 %or.cond.i, ptr null, ptr %.sroa.07.0.i
-  %spec.select28.i = select i1 %or.cond.i, ptr %.021.lcssa39.i, ptr null
+  %spec.select28.i = select i1 %or.cond.i, ptr %.021.lcssa42.i, ptr null
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread
 
 62:                                               ; preds = %3
@@ -1237,16 +1237,16 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   br i1 %.0.lcssa.i26, label %._crit_edge.thread.i37, label %113
 
 ._crit_edge.thread.i37:                           ; preds = %._crit_edge.i24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit13.thread109
-  %.021.lcssa40.i38 = phi ptr [ %.021.lcssa.i25, %._crit_edge.i24 ], [ %4, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit13.thread109 ]
-  %110 = icmp eq ptr %.021.lcssa40.i38, %76
+  %.021.lcssa43.i38 = phi ptr [ %.021.lcssa.i25, %._crit_edge.i24 ], [ %4, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit13.thread109 ]
+  %110 = icmp eq ptr %.021.lcssa43.i38, %76
   br i1 %110, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread, label %111
 
 111:                                              ; preds = %._crit_edge.thread.i37
-  %112 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa40.i38) #17
+  %112 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa43.i38) #17
   br label %113
 
 113:                                              ; preds = %111, %._crit_edge.i24
-  %.021.lcssa39.i27 = phi ptr [ %.021.lcssa40.i38, %111 ], [ %.021.lcssa.i25, %._crit_edge.i24 ]
+  %.021.lcssa42.i27 = phi ptr [ %.021.lcssa43.i38, %111 ], [ %.021.lcssa.i25, %._crit_edge.i24 ]
   %.sroa.07.0.i28 = phi ptr [ %112, %111 ], [ %.021.lcssa.i25, %._crit_edge.i24 ]
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i28, i64 32
   %115 = load double, ptr %114, align 8
@@ -1262,7 +1262,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   %122 = xor i1 %90, true
   %or.cond.i30 = and i1 %or.cond.i.i5.i29, %122
   %spec.select.i31 = select i1 %or.cond.i30, ptr null, ptr %.sroa.07.0.i28
-  %spec.select28.i32 = select i1 %or.cond.i30, ptr %.021.lcssa39.i27, ptr null
+  %spec.select28.i32 = select i1 %or.cond.i30, ptr %.021.lcssa42.i27, ptr null
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit11.thread108: ; preds = %67, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit11
@@ -1365,18 +1365,18 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   br i1 %.0.lcssa.i64, label %._crit_edge.thread.i75, label %165
 
 ._crit_edge.thread.i75:                           ; preds = %._crit_edge.i62, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit51.thread111
-  %.021.lcssa40.i76 = phi ptr [ %.021.lcssa.i63, %._crit_edge.i62 ], [ %4, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit51.thread111 ]
+  %.021.lcssa43.i76 = phi ptr [ %.021.lcssa.i63, %._crit_edge.i62 ], [ %4, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit51.thread111 ]
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %161 = load ptr, ptr %160, align 8
-  %162 = icmp eq ptr %.021.lcssa40.i76, %161
+  %162 = icmp eq ptr %.021.lcssa43.i76, %161
   br i1 %162, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread, label %163
 
 163:                                              ; preds = %._crit_edge.thread.i75
-  %164 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa40.i76) #17
+  %164 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa43.i76) #17
   br label %165
 
 165:                                              ; preds = %163, %._crit_edge.i62
-  %.021.lcssa39.i65 = phi ptr [ %.021.lcssa40.i76, %163 ], [ %.021.lcssa.i63, %._crit_edge.i62 ]
+  %.021.lcssa42.i65 = phi ptr [ %.021.lcssa43.i76, %163 ], [ %.021.lcssa.i63, %._crit_edge.i62 ]
   %.sroa.07.0.i66 = phi ptr [ %164, %163 ], [ %.021.lcssa.i63, %._crit_edge.i62 ]
   %166 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i66, i64 32
   %167 = load double, ptr %166, align 8
@@ -1392,12 +1392,12 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   %174 = xor i1 %71, true
   %or.cond.i68 = and i1 %or.cond.i.i5.i67, %174
   %spec.select.i69 = select i1 %or.cond.i68, ptr null, ptr %.sroa.07.0.i66
-  %spec.select28.i70 = select i1 %or.cond.i68, ptr %.021.lcssa39.i65, ptr null
+  %spec.select28.i70 = select i1 %or.cond.i68, ptr %.021.lcssa42.i65, ptr null
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread: ; preds = %169, %165, %._crit_edge.thread.i75, %117, %113, %._crit_edge.thread.i37, %53, %48, %._crit_edge.thread.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit51.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit13.thread, %16, %124, %9, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit49.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit11.thread
   %.sroa.0106.0 = phi ptr [ %76, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit11.thread ], [ null, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit49.thread ], [ null, %9 ], [ %1, %124 ], [ null, %16 ], [ %spec.select, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit13.thread ], [ %spec.select124, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit51.thread ], [ null, %._crit_edge.thread.i ], [ null, %48 ], [ %spec.select.i, %53 ], [ null, %._crit_edge.thread.i37 ], [ null, %113 ], [ %spec.select.i31, %117 ], [ null, %._crit_edge.thread.i75 ], [ null, %165 ], [ %spec.select.i69, %169 ]
-  %.sroa.12.0 = phi ptr [ %76, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit11.thread ], [ %130, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit49.thread ], [ %11, %9 ], [ null, %124 ], [ %11, %16 ], [ %spec.select119, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit13.thread ], [ %spec.select125, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit51.thread ], [ %.021.lcssa40.i, %._crit_edge.thread.i ], [ %.021.lcssa39.i, %48 ], [ %spec.select28.i, %53 ], [ %.021.lcssa40.i38, %._crit_edge.thread.i37 ], [ %.021.lcssa39.i27, %113 ], [ %spec.select28.i32, %117 ], [ %.021.lcssa40.i76, %._crit_edge.thread.i75 ], [ %.021.lcssa39.i65, %165 ], [ %spec.select28.i70, %169 ]
+  %.sroa.12.0 = phi ptr [ %76, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit11.thread ], [ %130, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit49.thread ], [ %11, %9 ], [ null, %124 ], [ %11, %16 ], [ %spec.select119, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit13.thread ], [ %spec.select125, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit51.thread ], [ %.021.lcssa43.i, %._crit_edge.thread.i ], [ %.021.lcssa42.i, %48 ], [ %spec.select28.i, %53 ], [ %.021.lcssa43.i38, %._crit_edge.thread.i37 ], [ %.021.lcssa42.i27, %113 ], [ %spec.select28.i32, %117 ], [ %.021.lcssa43.i76, %._crit_edge.thread.i75 ], [ %.021.lcssa42.i65, %165 ], [ %spec.select28.i70, %169 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0106.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

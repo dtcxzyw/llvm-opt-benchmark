@@ -350,7 +350,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   switch i32 %.1232, label %594 [
     i32 0, label %147
     i32 1, label %.loopexit.sink.split.loopexit
-    i32 2, label %.loopexit.sink.split.loopexit1547
+    i32 2, label %.loopexit.sink.split.loopexit1575
     i32 3, label %.loopexit.backedge
     i32 4, label %.loopexit.sink.split
     i32 5, label %151
@@ -1323,7 +1323,7 @@ _ZL18yy_get_next_bufferPv.exit:                   ; preds = %._crit_edge141.i, %
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 8
   %491 = load ptr, ptr %490, align 8, !tbaa !28
   store ptr %491, ptr %77, align 8, !tbaa !33
-  switch i32 %.0103.i, label %default.unreachable1045 [
+  switch i32 %.0103.i, label %default.unreachable1073 [
     i32 1, label %_ZL21yy_get_previous_statePv.exit275
     i32 0, label %492
     i32 2, label %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread292_crit_edge
@@ -1340,8 +1340,8 @@ _ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread292_crit_edg
   %495 = sub i64 %493, %494
   %496 = trunc i64 %495 to i32
   %497 = shl i64 %495, 32
-  %sext1257 = add i64 %497, -4294967296
-  %498 = ashr exact i64 %sext1257, 32
+  %sext1285 = add i64 %497, -4294967296
+  %498 = ashr exact i64 %sext1285, 32
   %499 = getelementptr inbounds i8, ptr %491, i64 %498
   store ptr %499, ptr %72, align 8, !tbaa !16
   %500 = load i32, ptr %74, align 4, !tbaa !17
@@ -1512,7 +1512,7 @@ _ZL18yy_get_next_bufferPv.exit.thread292:         ; preds = %383, %_ZL18yy_get_n
   %exitcond.not.i289 = icmp eq ptr %588, %545
   br i1 %exitcond.not.i289, label %.preheader.outer.backedge, label %.lr.ph32.i277, !llvm.loop !51
 
-default.unreachable1045:                          ; preds = %_ZL18yy_get_next_bufferPv.exit
+default.unreachable1073:                          ; preds = %_ZL18yy_get_next_bufferPv.exit
   unreachable
 
 _ZL21yy_get_previous_statePv.exit275:             ; preds = %_ZL18yy_get_next_bufferPv.exit, %383
@@ -1532,11 +1532,11 @@ _ZL21yy_get_previous_statePv.exit275:             ; preds = %_ZL18yy_get_next_bu
 .loopexit.sink.split.loopexit:                    ; preds = %145
   br label %.loopexit.sink.split
 
-.loopexit.sink.split.loopexit1547:                ; preds = %145
+.loopexit.sink.split.loopexit1575:                ; preds = %145
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %145, %.loopexit.sink.split.loopexit1547, %.loopexit.sink.split.loopexit
-  %.sink = phi i32 [ 3, %.loopexit.sink.split.loopexit ], [ 1, %.loopexit.sink.split.loopexit1547 ], [ 5, %145 ]
+.loopexit.sink.split:                             ; preds = %145, %.loopexit.sink.split.loopexit1575, %.loopexit.sink.split.loopexit
+  %.sink = phi i32 [ 3, %.loopexit.sink.split.loopexit ], [ 1, %.loopexit.sink.split.loopexit1575 ], [ 5, %145 ]
   store i32 %.sink, ptr %74, align 4, !tbaa !17
   br label %.loopexit.backedge
 
@@ -1750,9 +1750,9 @@ define internal fastcc void @_ZL28cmDependsJava_yy_init_bufferP15yy_buffer_state
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !21
   %.not15.i = icmp eq ptr %17, null
-  br i1 %.not15.i, label %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit.thread20, label %19
+  br i1 %.not15.i, label %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit.thread24, label %19
 
-_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit.thread20: ; preds = %6
+_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit.thread24: ; preds = %6
   store ptr %1, ptr %0, align 8, !tbaa !34
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %18, align 4, !tbaa !53
@@ -1809,7 +1809,7 @@ _Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit: ; preds = %3
   %45 = icmp eq ptr %0, %44
   br i1 %45, label %48, label %.critedge
 
-.critedge:                                        ; preds = %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit.thread20, %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit, %39
+.critedge:                                        ; preds = %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit.thread24, %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit, %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 1, ptr %46, align 4, !tbaa !59
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2150,9 +2150,9 @@ _ZL35cmDependsJava_yyensure_buffer_stackPv.exit:  ; preds = %10, %13, %24
   br label %.critedge29
 
 .critedge29:                                      ; preds = %_ZL35cmDependsJava_yyensure_buffer_stackPv.exit, %32
-  %.pr33 = phi ptr [ %39, %32 ], [ %28, %_ZL35cmDependsJava_yyensure_buffer_stackPv.exit ]
+  %.pr37 = phi ptr [ %39, %32 ], [ %28, %_ZL35cmDependsJava_yyensure_buffer_stackPv.exit ]
   %48 = phi i64 [ %47, %32 ], [ %27, %_ZL35cmDependsJava_yyensure_buffer_stackPv.exit ]
-  %49 = getelementptr inbounds nuw ptr, ptr %.pr33, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr %.pr37, i64 %48
   store ptr %0, ptr %49, align 8, !tbaa !23
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %51 = load i32, ptr %50, align 4, !tbaa !30

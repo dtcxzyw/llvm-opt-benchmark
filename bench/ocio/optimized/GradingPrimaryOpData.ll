@@ -948,9 +948,9 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11Ra
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.thread, %22
-  %.sink22 = phi ptr [ %26, %22 ], [ %31, %.thread ]
+  %.sink24 = phi ptr [ %26, %22 ], [ %31, %.thread ]
   %.sink = phi ptr [ %23, %22 ], [ %28, %.thread ]
-  store ptr %.sink22, ptr %0, align 8, !tbaa !91
+  store ptr %.sink24, ptr %0, align 8, !tbaa !91
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %33, align 8, !tbaa !56
   ret void

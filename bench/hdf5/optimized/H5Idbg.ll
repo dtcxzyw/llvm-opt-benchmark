@@ -83,8 +83,8 @@ define noundef i32 @H5I_dump_ids_for_type(i32 noundef %0) local_unnamed_addr #0 
   br i1 %.not18, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36, %H5I__id_dump_cb.exit
-  %.sink28 = phi ptr [ %44, %H5I__id_dump_cb.exit ], [ %42, %36 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.sink28, i64 72
+  %.sink31 = phi ptr [ %44, %H5I__id_dump_cb.exit ], [ %42, %36 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.sink31, i64 72
   %44 = load ptr, ptr %43, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %45 = load i8, ptr @H5I_init_g, align 1, !tbaa !3, !range !7, !noundef !8
@@ -97,18 +97,18 @@ define noundef i32 @H5I_dump_ids_for_type(i32 noundef %0) local_unnamed_addr #0 
 
 51:                                               ; preds = %.lr.ph
   %52 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %53 = load i64, ptr %.sink28, align 8, !tbaa !33
+  %53 = load i64, ptr %.sink31, align 8, !tbaa !33
   %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.8, i64 noundef %53) #5
   %55 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %56 = getelementptr inbounds nuw i8, ptr %.sink28, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.sink31, i64 8
   %57 = load i32, ptr %56, align 8, !tbaa !34
   %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.9, i32 noundef %57) #5
   %59 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %60 = getelementptr inbounds nuw i8, ptr %.sink28, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %.sink31, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !35
   %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.10, ptr noundef %61) #5
   %63 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %64 = getelementptr inbounds nuw i8, ptr %.sink28, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %.sink31, i64 48
   %65 = load i8, ptr %64, align 8, !tbaa !36, !range !7, !noundef !8
   %66 = zext nneg i8 %65 to i32
   %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.11, i32 noundef %66) #5

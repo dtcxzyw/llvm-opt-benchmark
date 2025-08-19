@@ -513,9 +513,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
   br label %193
 
 193:                                              ; preds = %47, %49, %192, %45
-  %.sink69 = phi ptr [ %8, %45 ], [ %7, %192 ], [ %7, %49 ], [ %7, %47 ]
+  %.sink82 = phi ptr [ %8, %45 ], [ %7, %192 ], [ %7, %49 ], [ %7, %47 ]
   %.pn41.pn.pn = phi { ptr, i32 } [ %46, %45 ], [ %.pn41, %192 ], [ %50, %49 ], [ %48, %47 ]
-  call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink69) #14
+  call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink82) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn41.pn.pn
 }
@@ -1361,7 +1361,7 @@ _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-spl
   br label %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit23, %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %.critedge
-  %.lcssa39 = phi i1 [ %47, %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %47, %.critedge ], [ false, %_ZN4absl12lts_202407226StatusD2Ev.exit23 ]
+  %.lcssa47 = phi i1 [ %47, %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %47, %.critedge ], [ false, %_ZN4absl12lts_202407226StatusD2Ev.exit23 ]
   %65 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %.critedge ], [ %37, %_ZN4absl12lts_202407226StatusD2Ev.exit23 ]
   %.not.i.i.i = icmp eq ptr %65, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit, label %66
@@ -1385,7 +1385,7 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
   br label %74
 
 73:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit, %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit
-  %.0 = phi i1 [ %.lcssa39, %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit ], [ true, %_ZN4absl12lts_202407226StatusD2Ev.exit ]
+  %.0 = phi i1 [ %.lcssa47, %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit ], [ true, %_ZN4absl12lts_202407226StatusD2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 

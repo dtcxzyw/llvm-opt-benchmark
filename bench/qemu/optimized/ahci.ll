@@ -2059,10 +2059,10 @@ trace_ahci_check_irq.exit._crit_edge:             ; preds = %trace_ahci_check_ir
   br label %trace_ahci_irq_raise.exit
 
 trace_ahci_irq_raise.exit:                        ; preds = %79, %73, %67, %65, %63, %62, %56, %50, %48, %47
-  %.sink28 = phi i32 [ 1, %47 ], [ 1, %48 ], [ 1, %50 ], [ 1, %56 ], [ 1, %62 ], [ 0, %63 ], [ 0, %65 ], [ 0, %67 ], [ 0, %73 ], [ 0, %79 ]
+  %.sink29 = phi i32 [ 1, %47 ], [ 1, %48 ], [ 1, %50 ], [ 1, %56 ], [ 1, %62 ], [ 0, %63 ], [ 0, %65 ], [ 0, %67 ], [ 0, %73 ], [ 0, %79 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %81 = load ptr, ptr %80, align 16
-  tail call void @qemu_set_irq(ptr noundef %81, i32 noundef %.sink28) #14
+  tail call void @qemu_set_irq(ptr noundef %81, i32 noundef %.sink29) #14
   ret void
 }
 

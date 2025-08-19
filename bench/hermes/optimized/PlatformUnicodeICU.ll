@@ -156,8 +156,8 @@ if.end.i18:                                       ; preds = %if.then6.i
   br i1 %cmp13.not20.i, label %if.end15.sink.split.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.then6.i, %if.end.i18
-  %conv.i17.pre-phi.i.in88 = phi i32 [ %.pre.i21, %if.end.i18 ], [ %10, %if.then6.i ]
-  %conv.i17.pre-phi.i = zext i32 %conv.i17.pre-phi.i.in88 to i64
+  %conv.i17.pre-phi.i.in91 = phi i32 [ %.pre.i21, %if.end.i18 ], [ %10, %if.then6.i ]
+  %conv.i17.pre-phi.i = zext i32 %conv.i17.pre-phi.i.in91 to i64
   %12 = load ptr, ptr %buf, align 8
   %add.ptr.i.i19 = getelementptr i16, ptr %12, i64 %conv.i17.pre-phi.i
   %13 = shl nuw nsw i64 %conv.i17.pre-phi.i, 1
@@ -291,9 +291,9 @@ for.body.preheader.i74:                           ; preds = %if.end.i71
   br label %if.end23.sink.split.sink.split
 
 if.end23.sink.split.sink.split:                   ; preds = %for.body.preheader.i54, %for.body.preheader.i74
-  %.sink89 = phi i64 [ %29, %for.body.preheader.i74 ], [ %25, %for.body.preheader.i54 ]
+  %.sink92 = phi i64 [ %29, %for.body.preheader.i74 ], [ %25, %for.body.preheader.i54 ]
   %add.ptr.i.i75.sink = phi ptr [ %add.ptr.i.i75, %for.body.preheader.i74 ], [ %add.ptr.i.i55, %for.body.preheader.i54 ]
-  %30 = shl nsw i64 %.sink89, 1
+  %30 = shl nsw i64 %.sink92, 1
   call void @llvm.memset.p0.i64(ptr align 2 %add.ptr.i.i75.sink, i8 0, i64 %30, i1 false)
   br label %if.end23.sink.split
 

@@ -1171,8 +1171,8 @@ define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(pt
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.1..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %14, ptr %.sroa.0.1..sroa_idx12, align 1, !alias.scope !263
+  %.sroa.0.1..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %14, ptr %.sroa.0.1..sroa_idx15, align 1, !alias.scope !263
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
 
 15:                                               ; preds = %6
@@ -1184,13 +1184,13 @@ define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(pt
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %22, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !263
+  %.sroa.0.1..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %22, ptr %.sroa.0.1..sroa_idx14, align 1, !alias.scope !263
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.2..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  store i8 %25, ptr %.sroa.0.2..sroa_idx13, align 2, !alias.scope !263
+  %.sroa.0.2..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  store i8 %25, ptr %.sroa.0.2..sroa_idx16, align 2, !alias.scope !263
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
 
 26:                                               ; preds = %6
@@ -4567,10 +4567,10 @@ define noundef nonnull ptr @_ZN6syntax3ast4make10impl_trait17h63a0fdba5f6d723eE(
   store ptr %9, ptr %57, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   %spec.select = select i1 %0, ptr @anon.71a00e24a2c7390c1e7382da0b7942fb.351, ptr @anon.71a00e24a2c7390c1e7382da0b7942fb.7.llvm.7950680404849827918
-  %spec.select227 = select i1 %0, i64 7, i64 0
+  %spec.select263 = select i1 %0, i64 7, i64 0
   store ptr %spec.select, ptr %53, align 8
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i64 %spec.select227, ptr %58, align 8
+  store i64 %spec.select263, ptr %58, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   %59 = icmp eq ptr %2, null
@@ -5103,11 +5103,11 @@ _ZN6syntax3ast9generated5nodes16GenericParamList14generic_params17hc02b52ae461c8
 
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17hf5e301a47ae27996E.exit": ; preds = %"_ZN6syntax3ast4make10impl_trait28_$u7b$$u7b$closure$u7d$$u7d$17hdc237bf251f8bf75E.exit.i", %187
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
-  %spec.select228 = select i1 %5, ptr @anon.71a00e24a2c7390c1e7382da0b7942fb.352, ptr @anon.71a00e24a2c7390c1e7382da0b7942fb.7.llvm.7950680404849827918
-  %spec.select229 = select i1 %5, i64 2, i64 0
-  store ptr %spec.select228, ptr %49, align 8
+  %spec.select264 = select i1 %5, ptr @anon.71a00e24a2c7390c1e7382da0b7942fb.352, ptr @anon.71a00e24a2c7390c1e7382da0b7942fb.7.llvm.7950680404849827918
+  %spec.select265 = select i1 %5, i64 2, i64 0
+  store ptr %spec.select264, ptr %49, align 8
   %215 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i64 %spec.select229, ptr %215, align 8
+  store i64 %spec.select265, ptr %215, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %.not = icmp ne ptr %11, null
   %.not94 = icmp ne ptr %10, null
@@ -5142,12 +5142,12 @@ _ZN6syntax3ast9generated5nodes16GenericParamList14generic_params17hc02b52ae461c8
   br label %226
 
 226:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf5e301a47ae27996E.exit", %222
-  %.sink231 = phi i64 [ %223, %222 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf5e301a47ae27996E.exit" ]
-  %.sink230 = phi ptr [ %224, %222 ], [ inttoptr (i64 1 to ptr), %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf5e301a47ae27996E.exit" ]
+  %.sink267 = phi i64 [ %223, %222 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf5e301a47ae27996E.exit" ]
+  %.sink266 = phi ptr [ %224, %222 ], [ inttoptr (i64 1 to ptr), %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf5e301a47ae27996E.exit" ]
   %.sink = phi i64 [ 1, %222 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf5e301a47ae27996E.exit" ]
-  store i64 %.sink231, ptr %48, align 8
+  store i64 %.sink267, ptr %48, align 8
   %.sroa.452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store ptr %.sink230, ptr %.sroa.452.0..sroa_idx, align 8
+  store ptr %.sink266, ptr %.sroa.452.0..sroa_idx, align 8
   %.sroa.553.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i64 %.sink, ptr %.sroa.553.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
@@ -18237,10 +18237,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7950680404849827918.exit112: ; pre
 127:                                              ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..Visibility$GT$17h6a06bfe318e9465bE.exit124", %126
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %spec.select = select i1 %7, ptr @anon.71a00e24a2c7390c1e7382da0b7942fb.557, ptr @anon.71a00e24a2c7390c1e7382da0b7942fb.7.llvm.7950680404849827918
-  %spec.select200 = select i1 %7, i64 6, i64 0
+  %spec.select217 = select i1 %7, i64 6, i64 0
   store ptr %spec.select, ptr %26, align 8
   %128 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i64 %spec.select200, ptr %128, align 8
+  store i64 %spec.select217, ptr %128, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %anon.71a00e24a2c7390c1e7382da0b7942fb.7.llvm.7950680404849827918.sink197 = select i1 %8, ptr @anon.71a00e24a2c7390c1e7382da0b7942fb.558, ptr @anon.71a00e24a2c7390c1e7382da0b7942fb.7.llvm.7950680404849827918
   %.sink196 = select i1 %8, i64 6, i64 0
@@ -18783,10 +18783,10 @@ define noundef nonnull ptr @_ZN6syntax3ast4make7struct_17h9abe5825c01de5eeE(ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %27 = icmp eq i64 %3, 1
   %spec.select = select i1 %27, ptr @anon.71a00e24a2c7390c1e7382da0b7942fb.302.llvm.7950680404849827918, ptr @anon.71a00e24a2c7390c1e7382da0b7942fb.7.llvm.7950680404849827918
-  %spec.select71 = zext i1 %27 to i64
+  %spec.select80 = zext i1 %27 to i64
   store ptr %spec.select, ptr %23, align 8
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i64 %spec.select71, ptr %28, align 8
+  store i64 %spec.select80, ptr %28, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5320)
   %29 = icmp eq ptr %2, null

@@ -336,8 +336,8 @@ define void @_ZN5ZXing9GenericGFC2Eiii(ptr noundef nonnull align 8 dereferenceab
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 0, ptr %5, align 2, !tbaa !18
-  %.not66 = icmp eq i32 %2, 0
-  br i1 %.not66, label %_ZNSt6vectorIsSaIsEE6resizeEmRKs.exit, label %11
+  %.not78 = icmp eq i32 %2, 0
+  br i1 %.not78, label %_ZNSt6vectorIsSaIsEE6resizeEmRKs.exit, label %11
 
 11:                                               ; preds = %4
   %12 = sext i32 %10 to i64
@@ -426,7 +426,7 @@ _ZNSt6vectorIsSaIsEE6resizeEmRKs.exit41.._crit_edge_crit_edge: ; preds = %_ZNSt6
   %39 = trunc i32 %.03244 to i16
   %40 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
   store i16 %39, ptr %40, align 2, !tbaa !18
-  %41 = shl nsw i32 %.03244, 1
+  %41 = shl nuw nsw i32 %.03244, 1
   %.not = icmp slt i32 %41, %2
   %42 = xor i32 %41, %1
   %43 = and i32 %42, %31

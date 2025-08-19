@@ -924,9 +924,9 @@ makeJsonLexContext.exit:                          ; preds = %15, %24, %28
   br label %.sink.split
 
 .sink.split:                                      ; preds = %53, %.thread
-  %.sink36 = phi i64 [ 72, %.thread ], [ 32, %53 ]
+  %.sink37 = phi i64 [ 72, %.thread ], [ 32, %53 ]
   %get_scalar.sink = phi ptr [ @get_scalar, %.thread ], [ @get_array_end, %53 ]
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink36
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink37
   store ptr %get_scalar.sink, ptr %57, align 8
   br label %58
 
@@ -1688,7 +1688,7 @@ define dso_local i64 @jsonb_get_element(ptr noundef %0, ptr noundef readonly cap
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %12, %.preheader
-  %.085125129 = phi i1 [ %.085, %.preheader ], [ false, %12 ]
+  %.085129133 = phi i1 [ %.085, %.preheader ], [ false, %12 ]
   %20 = add nsw i32 %2, -1
   %21 = zext nneg i32 %20 to i64
   br label %31
@@ -1712,7 +1712,7 @@ define dso_local i64 @jsonb_get_element(ptr noundef %0, ptr noundef readonly cap
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %110 ]
   %.067117 = phi ptr [ %7, %.lr.ph ], [ %.168, %110 ]
   %.181115 = phi i1 [ %.not, %.lr.ph ], [ %.282, %110 ]
-  %.186114 = phi i1 [ %.085125129, %.lr.ph ], [ %.287, %110 ]
+  %.186114 = phi i1 [ %.085129133, %.lr.ph ], [ %.287, %110 ]
   br i1 %.181115, label %32, label %63
 
 32:                                               ; preds = %31
@@ -2336,7 +2336,7 @@ setPathArray.exit:                                ; preds = %.thread, %145, %156
   %192 = icmp eq i8 %188, 18
   %193 = select i1 %192, i32 16, i32 0
   %194 = select i1 %or.cond156.i65, i32 8, i32 %193
-  br label %.thread100
+  br label %.thread112
 
 195:                                              ; preds = %176
   %196 = and i32 %185, 1
@@ -2346,15 +2346,15 @@ setPathArray.exit:                                ; preds = %.thread, %145, %156
 197:                                              ; preds = %195
   %198 = lshr i32 %185, 1
   %199 = add nsw i32 %198, -1
-  br label %.thread100
+  br label %.thread112
 
 200:                                              ; preds = %195
   %201 = load i32, ptr %.0126.i, align 4
   %202 = lshr i32 %201, 2
   %203 = add nsw i32 %202, -4
-  br label %.thread100
+  br label %.thread112
 
-.thread100:                                       ; preds = %187, %197, %200
+.thread112:                                       ; preds = %187, %197, %200
   %204 = phi i32 [ %194, %187 ], [ %199, %197 ], [ %203, %200 ]
   store i32 %204, ptr %182, align 8
   %205 = call ptr @pushJsonbValue(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %14) #15
@@ -2554,8 +2554,8 @@ setPathArray.exit:                                ; preds = %.thread, %145, %156
   %exitcond.not = icmp eq i32 %310, %162
   br i1 %exitcond.not, label %._crit_edge, label %218, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %.loopexit84, %.thread100, %207
-  %.1123.i.lcssa = phi i8 [ %.0122.i, %207 ], [ %.0122.i, %.thread100 ], [ %.2124.i, %.loopexit84 ]
+._crit_edge:                                      ; preds = %.loopexit84, %.thread112, %207
+  %.1123.i.lcssa = phi i8 [ %.0122.i, %207 ], [ %.0122.i, %.thread112 ], [ %.2124.i, %.loopexit84 ]
   %311 = trunc nuw i8 %.1123.i.lcssa to i1
   %312 = and i32 %7, 32
   %.not142.i51 = icmp eq i32 %312, 0
@@ -5462,16 +5462,16 @@ define dso_local i64 @jsonb_delete_array(ptr noundef readonly captures(none) %0)
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %41 = call i32 @JsonbIteratorNext(ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext false) #15
-  %.not498589 = icmp eq i32 %41, 0
-  br i1 %.not498589, label %.outer._crit_edge, label %.lr.ph86
+  %.not498892 = icmp eq i32 %41, 0
+  br i1 %.not498892, label %.outer._crit_edge, label %.lr.ph89
 
-.lr.ph86:                                         ; preds = %37, %.thread
+.lr.ph89:                                         ; preds = %37, %.thread
   %42 = phi i32 [ %100, %.thread ], [ %41, %37 ]
-  %.039.ph90 = phi ptr [ %99, %.thread ], [ null, %37 ]
+  %.039.ph93 = phi ptr [ %99, %.thread ], [ null, %37 ]
   br label %43
 
-43:                                               ; preds = %.lr.ph86, %96
-  %44 = phi i32 [ %42, %.lr.ph86 ], [ %97, %96 ]
+43:                                               ; preds = %.lr.ph89, %96
+  %44 = phi i32 [ %42, %.lr.ph89 ], [ %97, %96 ]
   %45 = icmp eq i32 %44, 3
   %46 = icmp eq i32 %44, 1
   %or.cond = or i1 %45, %46
@@ -5574,11 +5574,11 @@ define dso_local i64 @jsonb_delete_array(ptr noundef readonly captures(none) %0)
   %. = select i1 %98, ptr %7, ptr null
   %99 = call ptr @pushJsonbValue(ptr noundef nonnull %5, i32 noundef %44, ptr noundef %.) #15
   %100 = call i32 @JsonbIteratorNext(ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext true) #15
-  %.not4985 = icmp eq i32 %100, 0
-  br i1 %.not4985, label %.outer._crit_edge, label %.lr.ph86, !llvm.loop !30
+  %.not4988 = icmp eq i32 %100, 0
+  br i1 %.not4988, label %.outer._crit_edge, label %.lr.ph89, !llvm.loop !30
 
 .outer._crit_edge:                                ; preds = %.thread, %96, %37
-  %.039.ph.lcssa = phi ptr [ null, %37 ], [ %.039.ph90, %96 ], [ %99, %.thread ]
+  %.039.ph.lcssa = phi ptr [ null, %37 ], [ %.039.ph93, %96 ], [ %99, %.thread ]
   %101 = call ptr @JsonbValueToJsonb(ptr noundef %.039.ph.lcssa) #15
   br label %102
 
@@ -8366,9 +8366,9 @@ define internal fastcc void @prepare_column_cache(ptr noundef initializes((0, 8)
   br label %37
 
 37:                                               ; preds = %33, %29
-  %.sink56 = phi i64 [ 88, %33 ], [ 96, %29 ]
+  %.sink57 = phi i64 [ 88, %33 ], [ 96, %29 ]
   %.sink = phi ptr [ %36, %33 ], [ null, %29 ]
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink56
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink57
   store ptr null, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.sink, ptr %39, align 8
@@ -8503,7 +8503,7 @@ define internal fastcc i64 @populate_composite(ptr noundef %0, i32 noundef %1, p
 update_cached_tupdesc.exit:                       ; preds = %17, %29, %35
   %36 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %118, label %38
+  br i1 %37, label %113, label %38
 
 38:                                               ; preds = %update_cached_tupdesc.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -8573,137 +8573,126 @@ get_json_object_as_hash.exit.i:                   ; preds = %70, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.0.i.i, ptr %73, align 8
-  br label %95
+  br label %90
 
 74:                                               ; preds = %38
   %75 = load i32, ptr %42, align 8
-  %76 = icmp eq i32 %75, 18
-  br i1 %76, label %77, label %84
-
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %79 = load ptr, ptr %78, align 8
-  %80 = load i32, ptr %79, align 4
-  %81 = and i32 %80, 536870912
-  %.not.i36 = icmp eq i32 %81, 0
-  br i1 %.not.i36, label %.thread28.i, label %82
-
-82:                                               ; preds = %77
-  %83 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %79, ptr %83, align 8
-  br label %95
-
-84:                                               ; preds = %74
-  %85 = icmp ult i32 %75, 4
-  br i1 %85, label %90, label %86
-
-86:                                               ; preds = %84
   switch i32 %75, label %.fold.split.i [
-    i32 32, label %90
-    i32 18, label %..thread28_crit_edge.i
+    i32 18, label %76
+    i32 32, label %85
+    i32 3, label %85
+    i32 2, label %85
+    i32 1, label %85
+    i32 0, label %85
   ]
 
-..thread28_crit_edge.i:                           ; preds = %86
-  %.phi.trans.insert.i34 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %.pre.i35 = load ptr, ptr %.phi.trans.insert.i34, align 8
-  %.pre29.i = load i32, ptr %.pre.i35, align 4
-  br label %.thread28.i
+76:                                               ; preds = %74
+  %77 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %78 = load ptr, ptr %77, align 8
+  %79 = load i32, ptr %78, align 4
+  %80 = and i32 %79, 536870912
+  %.not.i34 = icmp eq i32 %80, 0
+  br i1 %.not.i34, label %.thread28.i, label %81
 
-.thread28.i:                                      ; preds = %..thread28_crit_edge.i, %77
-  %87 = phi i32 [ %.pre29.i, %..thread28_crit_edge.i ], [ %80, %77 ]
-  %88 = and i32 %87, 268435456
-  %.not30.i = icmp eq i32 %88, 0
-  %89 = select i1 %.not30.i, ptr @.str.3, ptr @.str
+81:                                               ; preds = %76
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %78, ptr %82, align 8
   br label %90
 
-.fold.split.i:                                    ; preds = %86
-  br label %90
+.thread28.i:                                      ; preds = %76
+  %83 = and i32 %79, 268435456
+  %.not33.i = icmp eq i32 %83, 0
+  %84 = select i1 %.not33.i, ptr @.str.3, ptr @.str
+  br label %85
 
-90:                                               ; preds = %.fold.split.i, %.thread28.i, %86, %84
-  %.str..str.3.i = phi ptr [ @.str, %86 ], [ @.str, %84 ], [ %89, %.thread28.i ], [ @.str.3, %.fold.split.i ]
-  %91 = tail call zeroext i1 @errsave_start(ptr noundef %6, ptr noundef null) #15
-  br i1 %91, label %92, label %95
+.fold.split.i:                                    ; preds = %74
+  br label %85
 
-92:                                               ; preds = %90
-  %93 = tail call i32 @errcode(i32 noundef 50856066) #15
-  %94 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str..str.3.i, ptr noundef nonnull @.str.76) #15
+85:                                               ; preds = %.fold.split.i, %.thread28.i, %74, %74, %74, %74, %74
+  %.str..str.3.i = phi ptr [ %84, %.thread28.i ], [ @.str.3, %.fold.split.i ], [ @.str, %74 ], [ @.str, %74 ], [ @.str, %74 ], [ @.str, %74 ], [ @.str, %74 ]
+  %86 = tail call zeroext i1 @errsave_start(ptr noundef %6, ptr noundef null) #15
+  br i1 %86, label %87, label %90
+
+87:                                               ; preds = %85
+  %88 = tail call i32 @errcode(i32 noundef 50856066) #15
+  %89 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str..str.3.i, ptr noundef nonnull @.str.76) #15
   tail call void @errsave_finish(ptr noundef %6, ptr noundef nonnull @.str.2, i32 noundef 3019, ptr noundef nonnull @__func__.JsValueToJsObject) #15
-  br label %95
+  br label %90
 
-95:                                               ; preds = %92, %90, %82, %get_json_object_as_hash.exit.i
-  %96 = phi ptr [ undef, %92 ], [ undef, %90 ], [ %79, %82 ], [ %.0.i.i, %get_json_object_as_hash.exit.i ]
+90:                                               ; preds = %87, %85, %81, %get_json_object_as_hash.exit.i
+  %91 = phi ptr [ undef, %87 ], [ undef, %85 ], [ %78, %81 ], [ %.0.i.i, %get_json_object_as_hash.exit.i ]
   %.not27.i = icmp eq ptr %6, null
-  br i1 %.not27.i, label %.thread1, label %99
+  br i1 %.not27.i, label %.thread1, label %94
 
-.thread1:                                         ; preds = %95
-  %97 = load ptr, ptr %10, align 8
-  %98 = call fastcc ptr @populate_record(ptr noundef %97, ptr noundef nonnull %0, ptr noundef %3, ptr noundef %2, ptr noundef %9, ptr noundef null)
+.thread1:                                         ; preds = %90
+  %92 = load ptr, ptr %10, align 8
+  %93 = call fastcc ptr @populate_record(ptr noundef %92, ptr noundef nonnull %0, ptr noundef %3, ptr noundef %2, ptr noundef %9, ptr noundef null)
+  br label %108
+
+94:                                               ; preds = %90
+  %95 = load i32, ptr %6, align 4
+  %96 = icmp eq i32 %95, 446
+  br i1 %96, label %JsValueToJsObject.exit, label %.thread
+
+JsValueToJsObject.exit:                           ; preds = %94
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %98 = load i8, ptr %97, align 4, !range !4, !noundef !5
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %.critedge, label %.thread
+
+.thread:                                          ; preds = %94, %JsValueToJsObject.exit
+  %100 = load ptr, ptr %10, align 8
+  %101 = call fastcc ptr @populate_record(ptr noundef %100, ptr noundef nonnull %0, ptr noundef %3, ptr noundef %2, ptr noundef %9, ptr noundef nonnull %6)
+  %102 = load i32, ptr %6, align 4
+  %103 = icmp eq i32 %102, 446
+  br i1 %103, label %104, label %108
+
+104:                                              ; preds = %.thread
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %106 = load i8, ptr %105, align 4, !range !4, !noundef !5
+  %107 = trunc nuw i8 %106 to i1
+  br i1 %107, label %.critedge, label %108
+
+108:                                              ; preds = %.thread1, %104, %.thread
+  %109 = phi ptr [ %101, %104 ], [ %101, %.thread ], [ %93, %.thread1 ]
+  %110 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %109) #15
+  br i1 %40, label %111, label %112
+
+111:                                              ; preds = %108
+  call void @hash_destroy(ptr noundef %91) #15
+  br label %112
+
+112:                                              ; preds = %108, %111
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %113
 
-99:                                               ; preds = %95
-  %100 = load i32, ptr %6, align 4
-  %101 = icmp eq i32 %100, 446
-  br i1 %101, label %JsValueToJsObject.exit, label %.thread
+113:                                              ; preds = %112, %update_cached_tupdesc.exit
+  %.030 = phi i64 [ %110, %112 ], [ 0, %update_cached_tupdesc.exit ]
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %115 = load i32, ptr %114, align 8
+  %116 = icmp ne i32 %1, %115
+  %117 = icmp ne i32 %1, 2249
+  %or.cond = and i1 %117, %116
+  br i1 %or.cond, label %118, label %124
 
-JsValueToJsObject.exit:                           ; preds = %99
-  %102 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %103 = load i8, ptr %102, align 4, !range !4, !noundef !5
-  %104 = trunc nuw i8 %103 to i1
-  br i1 %104, label %.critedge, label %.thread
-
-.thread:                                          ; preds = %99, %JsValueToJsObject.exit
-  %105 = load ptr, ptr %10, align 8
-  %106 = call fastcc ptr @populate_record(ptr noundef %105, ptr noundef nonnull %0, ptr noundef %3, ptr noundef %2, ptr noundef %9, ptr noundef nonnull %6)
-  %107 = load i32, ptr %6, align 4
-  %108 = icmp eq i32 %107, 446
-  br i1 %108, label %109, label %113
-
-109:                                              ; preds = %.thread
-  %110 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %111 = load i8, ptr %110, align 4, !range !4, !noundef !5
-  %112 = trunc nuw i8 %111 to i1
-  br i1 %112, label %.critedge, label %113
-
-113:                                              ; preds = %.thread1, %109, %.thread
-  %114 = phi ptr [ %106, %109 ], [ %106, %.thread ], [ %98, %.thread1 ]
-  %115 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %114) #15
-  br i1 %40, label %116, label %117
-
-116:                                              ; preds = %113
-  call void @hash_destroy(ptr noundef %96) #15
-  br label %117
-
-117:                                              ; preds = %113, %116
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %118
-
-118:                                              ; preds = %117, %update_cached_tupdesc.exit
-  %.030 = phi i64 [ %115, %117 ], [ 0, %update_cached_tupdesc.exit ]
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %120 = load i32, ptr %119, align 8
-  %121 = icmp ne i32 %1, %120
-  %122 = icmp ne i32 %1, 2249
-  %or.cond = and i1 %122, %121
-  br i1 %or.cond, label %123, label %129
+118:                                              ; preds = %113
+  %119 = load i8, ptr %5, align 1, !range !4, !noundef !5
+  %120 = trunc nuw i8 %119 to i1
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %122 = call zeroext i1 @domain_check_safe(i64 noundef %.030, i1 noundef zeroext %120, i32 noundef %1, ptr noundef nonnull %121, ptr noundef %2, ptr noundef %6) #15
+  br i1 %122, label %124, label %123
 
 123:                                              ; preds = %118
-  %124 = load i8, ptr %5, align 1, !range !4, !noundef !5
-  %125 = trunc nuw i8 %124 to i1
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %127 = call zeroext i1 @domain_check_safe(i64 noundef %.030, i1 noundef zeroext %125, i32 noundef %1, ptr noundef nonnull %126, ptr noundef %2, ptr noundef %6) #15
-  br i1 %127, label %129, label %128
-
-128:                                              ; preds = %123
   store i8 1, ptr %5, align 1
-  br label %129
+  br label %124
 
-.critedge:                                        ; preds = %109, %JsValueToJsObject.exit
+.critedge:                                        ; preds = %104, %JsValueToJsObject.exit
   store i8 1, ptr %5, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %129
+  br label %124
 
-129:                                              ; preds = %118, %123, %.critedge, %128
-  %.1 = phi i64 [ 0, %128 ], [ 0, %.critedge ], [ %.030, %123 ], [ %.030, %118 ]
+124:                                              ; preds = %113, %118, %.critedge, %123
+  %.1 = phi i64 [ 0, %123 ], [ 0, %.critedge ], [ %.030, %118 ], [ %.030, %113 ]
   ret i64 %.1
 }
 
@@ -10437,8 +10426,8 @@ push_null_elements.exit:                          ; preds = %.lr.ph.i, %40
   %67 = getelementptr inbounds i32, ptr %13, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, 17
-  %.64 = select i1 %69, i32 7, i32 5
-  %70 = call ptr @pushJsonbValue(ptr noundef nonnull %0, i32 noundef %.64, ptr noundef null) #15
+  %.67 = select i1 %69, i32 7, i32 5
+  %70 = call ptr @pushJsonbValue(ptr noundef nonnull %0, i32 noundef %.67, ptr noundef null) #15
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
   %71 = icmp sgt i64 %indvars.iv.next56, %59
   br i1 %71, label %.lr.ph52, label %._crit_edge, !llvm.loop !41

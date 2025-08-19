@@ -1623,7 +1623,7 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   br label %.outer
 
 .outer:                                           ; preds = %.thread, %.lr.ph44
-  %indvars.iv49.ph = phi i64 [ %indvars.iv.next5053, %.thread ], [ 0, %.lr.ph44 ]
+  %indvars.iv49.ph = phi i64 [ %indvars.iv.next5054, %.thread ], [ 0, %.lr.ph44 ]
   %.02941.ph = phi i64 [ %50, %.thread ], [ 0, %.lr.ph44 ]
   %.03140.ph = phi i1 [ false, %.thread ], [ true, %.lr.ph44 ]
   br label %41
@@ -1690,13 +1690,13 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   %48 = getelementptr inbounds nuw [16 x i64], ptr %19, i64 0, i64 %indvars.iv49
   %49 = load i64, ptr %48, align 8
   %50 = shl i64 %49, 5
-  %indvars.iv.next5053 = add nuw nsw i64 %indvars.iv49, 1
-  %exitcond.not54 = icmp eq i64 %indvars.iv.next5053, %wide.trip.count
-  br i1 %exitcond.not54, label %._crit_edge45.thread, label %.outer, !llvm.loop !17
+  %indvars.iv.next5054 = add nuw nsw i64 %indvars.iv49, 1
+  %exitcond.not55 = icmp eq i64 %indvars.iv.next5054, %wide.trip.count
+  br i1 %exitcond.not55, label %._crit_edge45.thread, label %.outer, !llvm.loop !17
 
 ._crit_edge45.thread:                             ; preds = %.thread, %._crit_edge45
-  %.15659 = phi i64 [ %.02941.ph, %._crit_edge45 ], [ %50, %.thread ]
-  call fastcc void @SlruReportIOError(ptr noundef nonnull %0, i64 noundef %.15659, i32 noundef 0)
+  %.15760 = phi i64 [ %.02941.ph, %._crit_edge45 ], [ %50, %.thread ]
+  call fastcc void @SlruReportIOError(ptr noundef nonnull %0, i64 noundef %.15760, i32 noundef 0)
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %._crit_edge45.thread, %._crit_edge45
@@ -2090,8 +2090,8 @@ SimpleLruWaitIO.exit:                             ; preds = %75, %61, %43, %42, 
   br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 .split47.us.loopexit:                             ; preds = %.split, %._crit_edge
-  %.1.lcssa50 = phi i32 [ %.2, %._crit_edge ], [ %.0, %.split ]
-  %81 = zext nneg i32 %.1.lcssa50 to i64
+  %.1.lcssa54 = phi i32 [ %.2, %._crit_edge ], [ %.0, %.split ]
+  %81 = zext nneg i32 %.1.lcssa54 to i64
   br label %.split47.us
 
 .split47.us:                                      ; preds = %.split47.us.loopexit, %2

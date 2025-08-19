@@ -309,9 +309,9 @@ define void @_ZN9CryptData8SetKey20EPKc(ptr noundef nonnull align 8 dereferencea
 .split49.us:                                      ; preds = %._crit_edge46.us
   %35 = and i64 %5, 15
   %.not = icmp eq i64 %35, 0
-  br i1 %.not, label %.lr.ph.preheader, label %.loopexit.thread57
+  br i1 %.not, label %.lr.ph.preheader, label %.loopexit.thread60
 
-.loopexit.thread57:                               ; preds = %.split49.us
+.loopexit.thread60:                               ; preds = %.split49.us
   %36 = or i64 %5, 15
   %scevgep = getelementptr i8, ptr %3, i64 %5
   %37 = add i64 %5, 1
@@ -321,7 +321,7 @@ define void @_ZN9CryptData8SetKey20EPKc(ptr noundef nonnull align 8 dereferencea
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %39, i1 false), !tbaa !3
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.split49.us, %.loopexit.thread57
+.lr.ph.preheader:                                 ; preds = %.split49.us, %.loopexit.thread60
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -1103,9 +1103,9 @@ define internal fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_
 19:                                               ; preds = %18
   %20 = load i8, ptr %6, align 1, !tbaa !49, !range !36, !noundef !37
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %.thread66, label %22
+  br i1 %21, label %.thread68, label %22
 
-.thread66:                                        ; preds = %19
+.thread68:                                        ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %5, i64 104, i1 false), !tbaa.struct !53
   br label %33
 
@@ -1149,7 +1149,7 @@ define internal fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_
   store i8 1, ptr %6, align 1, !tbaa !49
   br label %33
 
-33:                                               ; preds = %.thread66, %32, %30, %._crit_edge
+33:                                               ; preds = %.thread68, %32, %30, %._crit_edge
   call void @_Z14sha256_processP14sha256_contextPKvm(ptr noundef nonnull %13, ptr noundef %2, i64 noundef %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_Z11sha256_doneP14sha256_contextPh(ptr noundef nonnull %13, ptr noundef nonnull %14)
@@ -1160,9 +1160,9 @@ define internal fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_
 34:                                               ; preds = %33
   %35 = load i8, ptr %8, align 1, !tbaa !49, !range !36, !noundef !37
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread67, label %37
+  br i1 %36, label %.thread69, label %37
 
-.thread67:                                        ; preds = %34
+.thread69:                                        ; preds = %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(104) %7, i64 104, i1 false), !tbaa.struct !53
   br label %48
 
@@ -1206,7 +1206,7 @@ define internal fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_
   store i8 1, ptr %8, align 1, !tbaa !49
   br label %48
 
-48:                                               ; preds = %.thread67, %47, %45, %._crit_edge60
+48:                                               ; preds = %.thread69, %47, %45, %._crit_edge60
   call void @_Z14sha256_processP14sha256_contextPKvm(ptr noundef nonnull %15, ptr noundef nonnull %14, i64 noundef 32)
   call void @_Z11sha256_doneP14sha256_contextPh(ptr noundef nonnull %15, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

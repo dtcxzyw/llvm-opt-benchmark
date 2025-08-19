@@ -163,11 +163,11 @@ define hidden void @_ZN9act_cache8dec_refsEv(ptr noundef nonnull readonly align 
   ret void
 
 .lr.ph.outer:                                     ; preds = %.lr.ph.i.i7, %.lr.ph.preheader
-  %.sroa.08.013.ph30 = phi ptr [ %.sroa.08.013.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i7 ]
+  %.sroa.08.013.ph35 = phi ptr [ %.sroa.08.013.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i7 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %_ZN11ast_manager7dec_refEP3ast.exit6
-  %.sroa.9.014 = phi ptr [ %39, %_ZN11ast_manager7dec_refEP3ast.exit6 ], [ %.sroa.08.013.ph30, %.lr.ph.outer ]
+  %.sroa.9.014 = phi ptr [ %39, %_ZN11ast_manager7dec_refEP3ast.exit6 ], [ %.sroa.08.013.ph35, %.lr.ph.outer ]
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.9.014, i64 8
   %19 = load ptr, ptr %0, align 8, !tbaa !37
   %20 = load ptr, ptr %18, align 8, !tbaa !38
@@ -215,7 +215,7 @@ _ZN11ast_manager7dec_refEP3ast.exit6:             ; preds = %_ZN11ast_manager7de
   br i1 %40, label %41, label %.lr.ph
 
 41:                                               ; preds = %_ZN11ast_manager7dec_refEP3ast.exit6
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.ph30, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.ph35, i64 32
   %.not2.i.i = icmp eq ptr %42, %7
   br i1 %.not2.i.i, label %._crit_edge, label %.lr.ph.i.i7
 

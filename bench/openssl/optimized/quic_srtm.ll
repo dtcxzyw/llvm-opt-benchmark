@@ -488,15 +488,15 @@ srtm_check_lh.exit.thread:                        ; preds = %27
   br label %srtm_check_lh.exit
 
 srtm_check_lh.exit:                               ; preds = %27, %33, %35
-  %.0152.i.lcssa36 = phi ptr [ %11, %27 ], [ %11, %33 ], [ %22, %35 ]
+  %.0152.i.lcssa44 = phi ptr [ %11, %27 ], [ %11, %33 ], [ %22, %35 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !12
-  %41 = call ptr @OPENSSL_LH_retrieve(ptr noundef %40, ptr noundef nonnull %.0152.i.lcssa36) #9
-  %42 = icmp eq ptr %41, %.0152.i.lcssa36
+  %41 = call ptr @OPENSSL_LH_retrieve(ptr noundef %40, ptr noundef nonnull %.0152.i.lcssa44) #9
+  %42 = icmp eq ptr %41, %.0152.i.lcssa44
   br i1 %42, label %43, label %.preheader.i
 
 43:                                               ; preds = %srtm_check_lh.exit
-  %44 = load ptr, ptr %.0152.i.lcssa36, align 8, !tbaa !29
+  %44 = load ptr, ptr %.0152.i.lcssa44, align 8, !tbaa !29
   %.not21.i = icmp eq ptr %44, null
   %45 = load ptr, ptr %39, align 8, !tbaa !12
   br i1 %.not21.i, label %50, label %46
@@ -509,17 +509,17 @@ srtm_check_lh.exit:                               ; preds = %27, %33, %35
   br i1 %.not.i.i, label %57, label %srtm_remove_from_rev.exit
 
 50:                                               ; preds = %43
-  %51 = call ptr @OPENSSL_LH_delete(ptr noundef %45, ptr noundef nonnull %.0152.i.lcssa36) #9
+  %51 = call ptr @OPENSSL_LH_delete(ptr noundef %45, ptr noundef nonnull %.0152.i.lcssa44) #9
   br label %57
 
 .preheader.i:                                     ; preds = %srtm_check_lh.exit, %.preheader.i
   %.0.i21 = phi ptr [ %52, %.preheader.i ], [ %41, %srtm_check_lh.exit ]
   %52 = load ptr, ptr %.0.i21, align 8, !tbaa !29
-  %.not.i22 = icmp eq ptr %52, %.0152.i.lcssa36
+  %.not.i22 = icmp eq ptr %52, %.0152.i.lcssa44
   br i1 %.not.i22, label %53, label %.preheader.i, !llvm.loop !30
 
 53:                                               ; preds = %.preheader.i
-  %54 = load ptr, ptr %.0152.i.lcssa36, align 8, !tbaa !29
+  %54 = load ptr, ptr %.0152.i.lcssa44, align 8, !tbaa !29
   store ptr %54, ptr %.0.i21, align 8, !tbaa !29
   br label %57
 
@@ -530,7 +530,7 @@ srtm_remove_from_rev.exit:                        ; preds = %46
   br label %58
 
 57:                                               ; preds = %46, %50, %53
-  call void @CRYPTO_free(ptr noundef nonnull %.0152.i.lcssa36, ptr noundef nonnull @.str, i32 noundef 411) #9
+  call void @CRYPTO_free(ptr noundef nonnull %.0152.i.lcssa44, ptr noundef nonnull @.str, i32 noundef 411) #9
   br label %58
 
 58:                                               ; preds = %srtm_remove_from_rev.exit, %srtm_check_lh.exit.thread, %srtm_find.exit.thread, %3, %57

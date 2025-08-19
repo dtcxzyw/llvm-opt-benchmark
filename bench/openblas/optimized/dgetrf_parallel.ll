@@ -122,7 +122,7 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr readnone captures(none) %1, ptr 
   br label %252
 
 73:                                               ; preds = %.lr.ph395, %250
-  %.0300393 = phi i64 [ 0, %.lr.ph395 ], [ %.1.lcssa413, %250 ]
+  %.0300393 = phi i64 [ 0, %.lr.ph395 ], [ %.1.lcssa424, %250 ]
   %.1302392 = phi i64 [ %spec.select, %.lr.ph395 ], [ %spec.select356375, %250 ]
   %.0303391 = phi i64 [ 0, %.lr.ph395 ], [ %75, %250 ]
   %.1320390 = phi i32 [ %52, %.lr.ph395 ], [ %.3322, %250 ]
@@ -465,7 +465,7 @@ blas_quickdivide.exit371:                         ; preds = %blas_quickdivide.ex
   br label %250
 
 250:                                              ; preds = %.thread, %247, %239
-  %.1.lcssa413 = phi i64 [ %.pre-phi406, %239 ], [ 0, %.thread ], [ 0, %247 ]
+  %.1.lcssa424 = phi i64 [ %.pre-phi406, %239 ], [ 0, %.thread ], [ 0, %247 ]
   %spec.select356375 = phi i64 [ %spec.select356, %239 ], [ %spec.select356374, %.thread ], [ %spec.select356374, %247 ]
   %.3322 = phi i32 [ %.2321, %239 ], [ %.1320390, %.thread ], [ %249, %247 ]
   %251 = icmp slt i64 %75, %43

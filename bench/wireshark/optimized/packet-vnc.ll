@@ -3157,9 +3157,9 @@ vnc_get_bytes_per_pixel.exit.i163.i.i:            ; preds = %992
   br label %1121
 
 1121:                                             ; preds = %1113, %1099
-  %.sink141.i.i.i = phi i32 [ %1120, %1113 ], [ 3, %1099 ]
+  %.sink146.i.i.i = phi i32 [ %1120, %1113 ], [ 3, %1099 ]
   %1122 = load i32, ptr %6, align 4
-  %1123 = add i32 %1122, %.sink141.i.i.i
+  %1123 = add i32 %1122, %.sink146.i.i.i
   store i32 %1123, ptr %6, align 4
   br label %vnc_raw_encoding.exit.i.i
 
@@ -4616,9 +4616,9 @@ define internal fastcc range(i32 0, 65536) i32 @vnc_mirrorlink(ptr noundef %0, p
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %32, %59, %94, %133, %178, %185, %216, %223, %230, %257, %319, %326
-  %.sink342 = phi i32 [ 2, %326 ], [ %316, %319 ], [ 2, %257 ], [ 2, %230 ], [ 4, %223 ], [ 4, %216 ], [ 2, %185 ], [ 4, %178 ], [ 4, %133 ], [ 4, %94 ], [ 2, %59 ], [ 4, %32 ]
+  %.sink350 = phi i32 [ 2, %326 ], [ %316, %319 ], [ 2, %257 ], [ 2, %230 ], [ 4, %223 ], [ 4, %216 ], [ 2, %185 ], [ 4, %178 ], [ 4, %133 ], [ 4, %94 ], [ 2, %59 ], [ 4, %32 ]
   %330 = load i32, ptr %2, align 4
-  %331 = add i32 %330, %.sink342
+  %331 = add i32 %330, %.sink350
   store i32 %331, ptr %2, align 4
   br label %.loopexit
 

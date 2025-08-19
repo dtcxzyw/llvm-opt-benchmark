@@ -2205,8 +2205,8 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread: ; preds = %101
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load i16, ptr %111, align 8
   %113 = and i16 %112, 124
-  %spec.select.i.i63134 = icmp eq i16 %113, 56
-  br i1 %spec.select.i.i63134, label %114, label %.thread111
+  %spec.select.i.i63135 = icmp eq i16 %113, 56
+  br i1 %spec.select.i.i63135, label %114, label %.thread111
 
 114:                                              ; preds = %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread
   %115 = load ptr, ptr %106, align 8, !tbaa !408

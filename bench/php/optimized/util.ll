@@ -952,14 +952,14 @@ zend_string_starts_with_cstr_ci.exit:             ; preds = %17
   %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 424), align 8, !tbaa !60
   %28 = zext i32 %27 to i64
   %.not50 = icmp ult i64 %26, %28
-  br i1 %.not50, label %.thread66, label %29
+  br i1 %.not50, label %.thread74, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 31
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 416), align 8, !tbaa !61
   %bcmp = tail call i32 @bcmp(ptr nonnull %30, ptr %31, i64 %28)
   %.not51 = icmp eq i32 %bcmp, 0
-  br i1 %.not51, label %32, label %.thread66
+  br i1 %.not51, label %32, label %.thread74
 
 32:                                               ; preds = %29
   %33 = tail call noalias ptr @_estrndup(ptr noundef %31, i64 noundef %28) #16
@@ -972,14 +972,14 @@ zend_string_starts_with_cstr_ci.exit:             ; preds = %17
   br label %51
 
 37:                                               ; preds = %zend_string_starts_with_cstr_ci.exit
-  br i1 %.not.i58, label %.thread66, label %.thread
+  br i1 %.not.i58, label %.thread74, label %.thread
 
-.thread66:                                        ; preds = %25, %29, %37
+.thread74:                                        ; preds = %25, %29, %37
   %38 = call i32 @phar_split_fname(ptr noundef nonnull %21, i64 noundef %19, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef 1, i32 noundef 0) #16
   %.not52 = icmp eq i32 %38, 0
   br i1 %.not52, label %39, label %.thread
 
-39:                                               ; preds = %.thread66
+39:                                               ; preds = %.thread74
   %40 = load ptr, ptr %5, align 8, !tbaa !18
   call void @_efree(ptr noundef %40) #16
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1106,8 +1106,8 @@ zend_hash_str_find_ptr.exit57:                    ; preds = %101
   br i1 %.not.i, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %107, %101
-  %.sink68 = phi ptr [ %104, %101 ], [ %110, %107 ]
-  %111 = load ptr, ptr %.sink68, align 8, !tbaa !19, !nonnull !27, !noundef !27
+  %.sink76 = phi ptr [ %104, %101 ], [ %110, %107 ]
+  %111 = load ptr, ptr %.sink76, align 8, !tbaa !19, !nonnull !27, !noundef !27
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %107
@@ -1122,13 +1122,13 @@ zend_hash_str_find_ptr.exit57:                    ; preds = %101
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %49, %67, %74, %112
-  %.sink67 = phi ptr [ %114, %112 ], [ %57, %74 ], [ %57, %67 ], [ %50, %49 ]
+  %.sink75 = phi ptr [ %114, %112 ], [ %57, %74 ], [ %57, %67 ], [ %50, %49 ]
   %.0.ph = phi ptr [ %91, %112 ], [ %76, %74 ], [ %69, %67 ], [ null, %49 ]
-  call void @_efree(ptr noundef %.sink67) #16
+  call void @_efree(ptr noundef %.sink75) #16
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %93, %17, %15, %79, %zend_string_starts_with_cstr_ci.exit60, %99, %37, %.thread66, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %15 ], [ null, %.thread66 ], [ null, %37 ], [ %91, %99 ], [ %91, %zend_string_starts_with_cstr_ci.exit60 ], [ null, %79 ], [ null, %17 ], [ %91, %93 ], [ %.0.ph, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %93, %17, %15, %79, %zend_string_starts_with_cstr_ci.exit60, %99, %37, %.thread74, %11
+  %.0 = phi ptr [ null, %11 ], [ null, %15 ], [ null, %.thread74 ], [ null, %37 ], [ %91, %99 ], [ %91, %zend_string_starts_with_cstr_ci.exit60 ], [ null, %79 ], [ null, %17 ], [ %91, %93 ], [ %.0.ph, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2086,8 +2086,8 @@ define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef captures(add
   br label %234
 
 219:                                              ; preds = %207, %216
-  %.sink236 = phi ptr [ %217, %216 ], [ %.0112149, %207 ]
-  %220 = tail call fastcc i64 @phar_get_fp_offset(ptr noundef nonnull %.sink236)
+  %.sink248 = phi ptr [ %217, %216 ], [ %.0112149, %207 ]
+  %220 = tail call fastcc i64 @phar_get_fp_offset(ptr noundef nonnull %.sink248)
   %221 = load ptr, ptr %0, align 8, !tbaa !76
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 24
   store i64 %220, ptr %222, align 8, !tbaa !87
@@ -4826,11 +4826,11 @@ zend_string_alloc.exit:                           ; preds = %zend_hash_str_find_
   br label %zend_string_alloc.exit73
 
 zend_string_alloc.exit73:                         ; preds = %27, %zend_string_alloc.exit
-  %.sink91 = phi ptr [ %28, %27 ], [ %21, %zend_string_alloc.exit ]
-  %.sink89 = phi i32 [ 6, %27 ], [ 262, %zend_string_alloc.exit ]
-  store ptr %.sink91, ptr %17, align 16, !tbaa !19
+  %.sink97 = phi ptr [ %28, %27 ], [ %21, %zend_string_alloc.exit ]
+  %.sink95 = phi i32 [ 6, %27 ], [ 262, %zend_string_alloc.exit ]
+  store ptr %.sink97, ptr %17, align 16, !tbaa !19
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i32 %.sink89, ptr %29, align 8, !tbaa !19
+  store i32 %.sink95, ptr %29, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %31 = and i64 %4, -8
   %32 = add i64 %31, 32
@@ -4877,9 +4877,9 @@ zend_string_alloc.exit73:                         ; preds = %27, %zend_string_al
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %switch.selectcmp = icmp eq i32 %7, 17
   %switch.select = select i1 %switch.selectcmp, i64 7, i64 1
-  %switch.selectcmp93 = icmp eq i32 %7, 18
-  %switch.select94 = select i1 %switch.selectcmp93, i64 9, i64 %switch.select
-  store i64 %switch.select94, ptr %52, align 16, !tbaa !19
+  %switch.selectcmp99 = icmp eq i32 %7, 18
+  %switch.select100 = select i1 %switch.selectcmp99, i64 9, i64 %switch.select
+  store i64 %switch.select100, ptr %52, align 16, !tbaa !19
   store i32 4, ptr %53, align 8, !tbaa !19
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %55 = load i64, ptr %54, align 8, !tbaa !25
@@ -4908,11 +4908,11 @@ zval_ptr_dtor_str.exit:                           ; preds = %56, %57, %61
   br i1 %.not, label %63, label %zval_ptr_dtor_str.exit77
 
 63:                                               ; preds = %zval_ptr_dtor_str.exit
-  %64 = load i32, ptr %.sink91, align 4, !tbaa !21
+  %64 = load i32, ptr %.sink97, align 4, !tbaa !21
   %65 = icmp ne i32 %64, 0
   tail call void @llvm.assume(i1 %65)
   %66 = add i32 %64, -1
-  store i32 %66, ptr %.sink91, align 4, !tbaa !21
+  store i32 %66, ptr %.sink97, align 4, !tbaa !21
   %.not3.i76 = icmp eq i32 %66, 0
   br i1 %.not3.i76, label %67, label %zval_ptr_dtor_str.exit77
 
@@ -4958,9 +4958,9 @@ zval_ptr_dtor_str.exit77:                         ; preds = %zval_ptr_dtor_str.e
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %86 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %87 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %.sink91, ptr %85, align 8, !tbaa !19
+  store ptr %.sink97, ptr %85, align 8, !tbaa !19
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  store i32 %.sink89, ptr %88, align 8, !tbaa !19
+  store i32 %.sink95, ptr %88, align 8, !tbaa !19
   %89 = getelementptr inbounds nuw i8, ptr %83, i64 24
   store ptr null, ptr %89, align 8, !tbaa !19
   store ptr %83, ptr %86, align 16, !tbaa !19
@@ -4969,9 +4969,9 @@ zval_ptr_dtor_str.exit77:                         ; preds = %zval_ptr_dtor_str.e
 
 90:                                               ; preds = %77
   tail call void @llvm.assume(i1 %.not)
-  %91 = load i32, ptr %.sink91, align 4, !tbaa !21
+  %91 = load i32, ptr %.sink97, align 4, !tbaa !21
   %92 = add i32 %91, 1
-  store i32 %92, ptr %.sink91, align 4, !tbaa !21
+  store i32 %92, ptr %.sink97, align 4, !tbaa !21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 41
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !19
   %.pre88 = load ptr, ptr %30, align 16, !tbaa !19

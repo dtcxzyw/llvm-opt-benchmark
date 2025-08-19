@@ -1261,9 +1261,9 @@ Vec_IntFree.exit:                                 ; preds = %.loopexit, %301
 
 .critedge.sink.split:                             ; preds = %302, %Vec_IntFree.exit
   %.0141.ph = phi i32 [ 0, %Vec_IntFree.exit ], [ -1, %302 ]
-  %.sink249 = trunc i64 %indvars.iv242 to i32
+  %.sink256 = trunc i64 %indvars.iv242 to i32
   %.val177 = load i32, ptr %201, align 8, !tbaa !34
-  %308 = sdiv i32 %.sink249, %.val177
+  %308 = sdiv i32 %.sink256, %.val177
   store i32 %308, ptr %6, align 4, !tbaa !3
   br label %.critedge
 

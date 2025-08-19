@@ -4143,9 +4143,9 @@ define internal i32 @dissect_ndps_ipx(ptr noundef %0, ptr noundef %1, ptr nounde
   %64 = load i8, ptr %3, align 1, !range !6, !noundef !7
   %65 = trunc nuw i8 %64 to i1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  br i1 %65, label %66, label %.thread87.i
+  br i1 %65, label %66, label %.thread92.i
 
-.thread87.i:                                      ; preds = %63
+.thread92.i:                                      ; preds = %63
   store i8 1, ptr %.phi.trans.insert.i, align 4
   br label %74
 
@@ -4162,7 +4162,7 @@ define internal i32 @dissect_ndps_ipx(ptr noundef %0, ptr noundef %1, ptr nounde
   %73 = icmp eq i32 %70, %72
   br i1 %73, label %74, label %126
 
-74:                                               ; preds = %68, %66, %.thread87.i
+74:                                               ; preds = %68, %66, %.thread92.i
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %76 = load i32, ptr %75, align 4
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -7780,12 +7780,12 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   br i1 %exitcond3665.not, label %._crit_edge, label %.lr.ph3408, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %454, %.thread
-  %.lcssa3737.sink = phi i32 [ %.183407, %.thread ], [ %458, %454 ]
+  %.lcssa3829.sink = phi i32 [ %.183407, %.thread ], [ %458, %454 ]
   %460 = load ptr, ptr %10, align 8
-  call void @proto_item_set_end(ptr noundef %460, ptr noundef %0, i32 noundef %.lcssa3737.sink)
+  call void @proto_item_set_end(ptr noundef %460, ptr noundef %0, i32 noundef %.lcssa3829.sink)
   %461 = load i32, ptr @hf_ndps_operator, align 4
-  %462 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %461, ptr noundef %0, i32 noundef %.lcssa3737.sink, i32 noundef 4, i32 noundef 0)
-  %463 = add i32 %.lcssa3737.sink, 4
+  %462 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %461, ptr noundef %0, i32 noundef %.lcssa3829.sink, i32 noundef 4, i32 noundef 0)
+  %463 = add i32 %.lcssa3829.sink, 4
   %464 = call fastcc i32 @commonarguments(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %463)
   br label %.loopexit3185
 
@@ -10599,9 +10599,9 @@ define internal fastcc i32 @ndps_string(ptr noundef %0, i32 noundef %1, ptr noun
   br label %20
 
 20:                                               ; preds = %17, %14
-  %.sink43 = phi i32 [ 0, %14 ], [ %spec.select, %17 ]
+  %.sink45 = phi i32 [ 0, %14 ], [ %spec.select, %17 ]
   %21 = tail call ptr @wmem_packet_scope()
-  %22 = tail call ptr @tvb_get_string_enc(ptr noundef %21, ptr noundef %0, i32 noundef %7, i32 noundef %6, i32 noundef %.sink43)
+  %22 = tail call ptr @tvb_get_string_enc(ptr noundef %21, ptr noundef %0, i32 noundef %7, i32 noundef %6, i32 noundef %.sink45)
   %23 = add i32 %6, %7
   %24 = add i32 %6, 4
   %25 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef %24, ptr noundef %22)
@@ -12817,7 +12817,7 @@ define internal fastcc i32 @objectidentifier(ptr noundef %0, ptr noundef %1, i32
   %22 = tail call noalias ptr @wmem_strdup(ptr noundef %21, ptr noundef nonnull @.str.1410)
   %23 = load i32, ptr @hf_ndps_object_ids_7, align 4
   %24 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %23, ptr noundef %0, i32 noundef %13, i32 noundef 9, i32 noundef %16, ptr noundef nonnull @.str.1856, ptr noundef %22)
-  br label %.thread210
+  br label %.thread220
 
 25:                                               ; preds = %12
   %26 = add i32 %2, 10
@@ -12836,7 +12836,7 @@ define internal fastcc i32 @objectidentifier(ptr noundef %0, ptr noundef %1, i32
   %33 = tail call noalias ptr @wmem_strdup(ptr noundef %32, ptr noundef nonnull @.str.1410)
   %34 = load i32, ptr @hf_ndps_object_ids_8, align 4
   %35 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %34, ptr noundef %0, i32 noundef %13, i32 noundef 10, i32 noundef %27, ptr noundef nonnull @.str.1856, ptr noundef %33)
-  br label %.thread210
+  br label %.thread220
 
 36:                                               ; preds = %12
   %37 = add i32 %2, 11
@@ -12855,7 +12855,7 @@ define internal fastcc i32 @objectidentifier(ptr noundef %0, ptr noundef %1, i32
   %44 = tail call noalias ptr @wmem_strdup(ptr noundef %43, ptr noundef nonnull @.str.1410)
   %45 = load i32, ptr @hf_ndps_object_ids_9, align 4
   %46 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %45, ptr noundef %0, i32 noundef %13, i32 noundef 11, i32 noundef %38, ptr noundef nonnull @.str.1856, ptr noundef %44)
-  br label %.thread210
+  br label %.thread220
 
 47:                                               ; preds = %12
   %48 = add i32 %2, 12
@@ -12874,7 +12874,7 @@ define internal fastcc i32 @objectidentifier(ptr noundef %0, ptr noundef %1, i32
   %55 = tail call noalias ptr @wmem_strdup(ptr noundef %54, ptr noundef nonnull @.str.1410)
   %56 = load i32, ptr @hf_ndps_object_ids_10, align 4
   %57 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %56, ptr noundef %0, i32 noundef %13, i32 noundef 12, i32 noundef %49, ptr noundef nonnull @.str.1856, ptr noundef %55)
-  br label %.thread210
+  br label %.thread220
 
 58:                                               ; preds = %12
   %59 = add i32 %2, 13
@@ -12893,7 +12893,7 @@ define internal fastcc i32 @objectidentifier(ptr noundef %0, ptr noundef %1, i32
   %66 = tail call noalias ptr @wmem_strdup(ptr noundef %65, ptr noundef nonnull @.str.1410)
   %67 = load i32, ptr @hf_ndps_object_ids_11, align 4
   %68 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %67, ptr noundef %0, i32 noundef %13, i32 noundef 13, i32 noundef %60, ptr noundef nonnull @.str.1856, ptr noundef %66)
-  br label %.thread210
+  br label %.thread220
 
 69:                                               ; preds = %12
   %70 = add i32 %2, 14
@@ -12912,7 +12912,7 @@ define internal fastcc i32 @objectidentifier(ptr noundef %0, ptr noundef %1, i32
   %77 = tail call noalias ptr @wmem_strdup(ptr noundef %76, ptr noundef nonnull @.str.1410)
   %78 = load i32, ptr @hf_ndps_object_ids_12, align 4
   %79 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %78, ptr noundef %0, i32 noundef %13, i32 noundef 14, i32 noundef %71, ptr noundef nonnull @.str.1856, ptr noundef %77)
-  br label %.thread210
+  br label %.thread220
 
 80:                                               ; preds = %12
   %81 = add i32 %2, 15
@@ -12931,7 +12931,7 @@ define internal fastcc i32 @objectidentifier(ptr noundef %0, ptr noundef %1, i32
   %88 = tail call noalias ptr @wmem_strdup(ptr noundef %87, ptr noundef nonnull @.str.1410)
   %89 = load i32, ptr @hf_ndps_object_ids_13, align 4
   %90 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %89, ptr noundef %0, i32 noundef %13, i32 noundef 15, i32 noundef %82, ptr noundef nonnull @.str.1856, ptr noundef %88)
-  br label %.thread210
+  br label %.thread220
 
 91:                                               ; preds = %12
   %92 = add i32 %2, 16
@@ -12950,7 +12950,7 @@ define internal fastcc i32 @objectidentifier(ptr noundef %0, ptr noundef %1, i32
   %99 = tail call noalias ptr @wmem_strdup(ptr noundef %98, ptr noundef nonnull @.str.1410)
   %100 = load i32, ptr @hf_ndps_object_ids_14, align 4
   %101 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %100, ptr noundef %0, i32 noundef %13, i32 noundef 16, i32 noundef %93, ptr noundef nonnull @.str.1856, ptr noundef %99)
-  br label %.thread210
+  br label %.thread220
 
 102:                                              ; preds = %12
   %103 = add i32 %2, 17
@@ -12969,7 +12969,7 @@ define internal fastcc i32 @objectidentifier(ptr noundef %0, ptr noundef %1, i32
   %110 = tail call noalias ptr @wmem_strdup(ptr noundef %109, ptr noundef nonnull @.str.1410)
   %111 = load i32, ptr @hf_ndps_object_ids_15, align 4
   %112 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %111, ptr noundef %0, i32 noundef %13, i32 noundef 17, i32 noundef %104, ptr noundef nonnull @.str.1856, ptr noundef %110)
-  br label %.thread210
+  br label %.thread220
 
 113:                                              ; preds = %12
   %114 = add i32 %2, 18
@@ -12986,14 +12986,14 @@ define internal fastcc i32 @objectidentifier(ptr noundef %0, ptr noundef %1, i32
 .thread:                                          ; preds = %12
   %119 = load i32, ptr @hf_ndps_object_ids_7, align 4
   %120 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %119, ptr noundef %0, i32 noundef %13, i32 noundef %4, i32 noundef 1, ptr noundef nonnull @.str.1410)
-  br label %.thread210
+  br label %.thread220
 
 121:                                              ; preds = %113
   %122 = tail call ptr @wmem_packet_scope()
   %123 = tail call noalias ptr @wmem_strdup(ptr noundef %122, ptr noundef nonnull @.str.1410)
   %124 = load i32, ptr @hf_ndps_object_ids_16, align 4
   %125 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %124, ptr noundef %0, i32 noundef %13, i32 noundef 18, i32 noundef %115, ptr noundef nonnull @.str.1856, ptr noundef %123)
-  br label %.thread210
+  br label %.thread220
 
 126:                                              ; preds = %.thread199, %.thread197, %.thread195, %.thread193, %.thread191, %.thread189, %.thread187, %.thread185, %.thread183, %.thread181
   %.0148178 = phi ptr [ %118, %.thread181 ], [ %19, %.thread183 ], [ %30, %.thread185 ], [ %41, %.thread187 ], [ %52, %.thread189 ], [ %63, %.thread191 ], [ %74, %.thread193 ], [ %85, %.thread195 ], [ %96, %.thread197 ], [ %107, %.thread199 ]
@@ -13002,18 +13002,18 @@ define internal fastcc i32 @objectidentifier(ptr noundef %0, ptr noundef %1, i32
   %128 = trunc nuw i8 %127 to i1
   br i1 %128, label %132, label %146
 
-.thread210:                                       ; preds = %.thread, %121, %20, %31, %42, %53, %64, %75, %86, %97, %108
+.thread220:                                       ; preds = %.thread, %121, %20, %31, %42, %53, %64, %75, %86, %97, %108
   %.0148177 = phi ptr [ %120, %.thread ], [ %125, %121 ], [ %24, %20 ], [ %35, %31 ], [ %46, %42 ], [ %57, %53 ], [ %68, %64 ], [ %79, %75 ], [ %90, %86 ], [ %101, %97 ], [ %112, %108 ]
   %129 = tail call ptr @try_val_to_str(i32 noundef 1, ptr noundef nonnull @object_ids_7)
   %130 = load i8, ptr @ndps_show_oids, align 1, !range !6, !noundef !7
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %132, label %144
 
-132:                                              ; preds = %.thread210, %126
-  %.11218 = phi ptr [ %129, %.thread210 ], [ %.11, %126 ]
-  %.0148178215 = phi ptr [ %.0148177, %.thread210 ], [ %.0148178, %126 ]
+132:                                              ; preds = %.thread220, %126
+  %.11228 = phi ptr [ %129, %.thread220 ], [ %.11, %126 ]
+  %.0148178225 = phi ptr [ %.0148177, %.thread220 ], [ %.0148178, %126 ]
   %133 = load i32, ptr @ett_ndps, align 4
-  %134 = tail call ptr @proto_item_add_subtree(ptr noundef %.0148178215, i32 noundef %133)
+  %134 = tail call ptr @proto_item_add_subtree(ptr noundef %.0148178225, i32 noundef %133)
   %135 = load i32, ptr @hf_oid_asn1_type, align 4
   %136 = tail call ptr @proto_tree_add_item(ptr noundef %134, i32 noundef %135, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef 0)
   %137 = add i32 %2, 5
@@ -13025,7 +13025,7 @@ define internal fastcc i32 @objectidentifier(ptr noundef %0, ptr noundef %1, i32
   %143 = add i32 %140, %139
   br label %152
 
-144:                                              ; preds = %.thread210
+144:                                              ; preds = %.thread220
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %13, i32 noundef %4)
   %145 = add i32 %4, %13
   br label %152
@@ -13040,10 +13040,10 @@ define internal fastcc i32 @objectidentifier(ptr noundef %0, ptr noundef %1, i32
   br label %152
 
 152:                                              ; preds = %144, %146, %132
-  %.11216 = phi ptr [ %.11218, %132 ], [ %.11, %146 ], [ %129, %144 ]
+  %.11226 = phi ptr [ %.11228, %132 ], [ %.11, %146 ], [ %129, %144 ]
   %.0162 = phi i32 [ %143, %132 ], [ %151, %146 ], [ %145, %144 ]
   %.0161 = phi i32 [ %139, %132 ], [ %149, %146 ], [ %4, %144 ]
-  store ptr %.11216, ptr @global_attribute_name, align 8
+  store ptr %.11226, ptr @global_attribute_name, align 8
   %153 = and i32 %.0161, 1
   %154 = add i32 %153, %.0162
   br label %155

@@ -1004,17 +1004,17 @@ define noundef ptr @dt_gui_preferences_enum(ptr noundef %0, ptr noundef %1) loca
 .lr.ph.preheader:                                 ; preds = %8
   %12 = load i8, ptr %9, align 1, !tbaa !59
   %13 = icmp eq i8 %12, 91
-  br i1 %13, label %.lr.ph56, label %.critedge
+  br i1 %13, label %.lr.ph57, label %.critedge
 
-.lr.ph56:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph57:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.pn = phi ptr [ %30, %.lr.ph ], [ %9, %.lr.ph.preheader ]
-  %.0375055 = phi i32 [ %31, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.0375056 = phi i32 [ %31, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %14 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !59
   %.not41 = icmp eq i8 %15, 0
   br i1 %.not41, label %.critedge, label %16
 
-16:                                               ; preds = %.lr.ph56
+16:                                               ; preds = %.lr.ph57
   %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 93) #15
   %.not42 = icmp eq ptr %17, null
   br i1 %.not42, label %.critedge, label %18
@@ -1041,18 +1041,18 @@ define noundef ptr @dt_gui_preferences_enum(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not44, label %29, label %.lr.ph
 
 29:                                               ; preds = %27
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %3, i32 noundef %.0375055) #13
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %3, i32 noundef %.0375056) #13
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %29
   tail call void @g_free(ptr noundef %22) #13
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 1
-  %31 = add nuw nsw i32 %.0375055, 1
+  %31 = add nuw nsw i32 %.0375056, 1
   %32 = load i8, ptr %30, align 1, !tbaa !59
   %33 = icmp eq i8 %32, 91
-  br i1 %33, label %.lr.ph56, label %.critedge
+  br i1 %33, label %.lr.ph57, label %.critedge
 
-.critedge:                                        ; preds = %16, %.lr.ph, %.lr.ph56, %.lr.ph.preheader, %8
+.critedge:                                        ; preds = %16, %.lr.ph, %.lr.ph57, %.lr.ph.preheader, %8
   %34 = tail call ptr @g_type_check_instance_cast(ptr noundef %3, i64 noundef 80) #13
   %35 = tail call i64 @g_signal_connect_data(ptr noundef %34, ptr noundef nonnull @.str.15, ptr noundef nonnull @_gui_preferences_enum_callback, ptr noundef %1, ptr noundef null, i32 noundef 0) #13
   ret ptr %3
@@ -16073,9 +16073,9 @@ define internal fastcc void @_update_preset_line(ptr noundef %0, ptr noundef %1,
   br label %.critedge3
 
 .critedge3:                                       ; preds = %.critedge3.loopexit, %60
-  %.089.lcssa150 = phi i32 [ 0, %60 ], [ %.089.lcssa, %.critedge3.loopexit ]
+  %.089.lcssa155 = phi i32 [ 0, %60 ], [ %.089.lcssa, %.critedge3.loopexit ]
   %.087.lcssa = phi i32 [ 0, %60 ], [ %72, %.critedge3.loopexit ]
-  %73 = icmp eq i32 %.089.lcssa150, 0
+  %73 = icmp eq i32 %.089.lcssa155, 0
   %74 = add nsw i32 %61, -1
   %75 = icmp eq i32 %.087.lcssa, %74
   %or.cond107 = select i1 %73, i1 %75, i1 false
@@ -16086,12 +16086,12 @@ define internal fastcc void @_update_preset_line(ptr noundef %0, ptr noundef %1,
   br label %85
 
 .critedge3.thread:                                ; preds = %71, %.critedge3
-  %.087.lcssa155 = phi i32 [ %.087.lcssa, %.critedge3 ], [ %61, %71 ]
-  %.089.lcssa150154 = phi i32 [ %.089.lcssa150, %.critedge3 ], [ %.089.lcssa, %71 ]
-  %78 = zext nneg i32 %.089.lcssa150154 to i64
+  %.087.lcssa160 = phi i32 [ %.087.lcssa, %.critedge3 ], [ %61, %71 ]
+  %.089.lcssa155159 = phi i32 [ %.089.lcssa155, %.critedge3 ], [ %.089.lcssa, %71 ]
+  %78 = zext nneg i32 %.089.lcssa155159 to i64
   %79 = getelementptr inbounds nuw [0 x ptr], ptr @dt_gui_presets_exposure_value_str, i64 0, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !75
-  %81 = zext nneg i32 %.087.lcssa155 to i64
+  %81 = zext nneg i32 %.087.lcssa160 to i64
   %82 = getelementptr inbounds nuw [0 x ptr], ptr @dt_gui_presets_exposure_value_str, i64 0, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !75
   %84 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.481, ptr noundef %80, ptr noundef %83) #13
@@ -16145,9 +16145,9 @@ define internal fastcc void @_update_preset_line(ptr noundef %0, ptr noundef %1,
   br label %.critedge7
 
 .critedge7:                                       ; preds = %.critedge7.loopexit, %85
-  %.190.lcssa157 = phi i32 [ 0, %85 ], [ %.190.lcssa, %.critedge7.loopexit ]
+  %.190.lcssa162 = phi i32 [ 0, %85 ], [ %.190.lcssa, %.critedge7.loopexit ]
   %.188.lcssa = phi i32 [ 0, %85 ], [ %97, %.critedge7.loopexit ]
-  %98 = icmp eq i32 %.190.lcssa157, 0
+  %98 = icmp eq i32 %.190.lcssa162, 0
   %99 = add nsw i32 %86, -1
   %100 = icmp eq i32 %.188.lcssa, %99
   %or.cond109 = select i1 %98, i1 %100, i1 false
@@ -16158,12 +16158,12 @@ define internal fastcc void @_update_preset_line(ptr noundef %0, ptr noundef %1,
   br label %110
 
 .critedge7.thread:                                ; preds = %96, %.critedge7
-  %.188.lcssa162 = phi i32 [ %.188.lcssa, %.critedge7 ], [ %86, %96 ]
-  %.190.lcssa157161 = phi i32 [ %.190.lcssa157, %.critedge7 ], [ %.190.lcssa, %96 ]
-  %103 = zext nneg i32 %.190.lcssa157161 to i64
+  %.188.lcssa167 = phi i32 [ %.188.lcssa, %.critedge7 ], [ %86, %96 ]
+  %.190.lcssa162166 = phi i32 [ %.190.lcssa162, %.critedge7 ], [ %.190.lcssa, %96 ]
+  %103 = zext nneg i32 %.190.lcssa162166 to i64
   %104 = getelementptr inbounds nuw [0 x ptr], ptr @dt_gui_presets_aperture_value_str, i64 0, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !75
-  %106 = zext nneg i32 %.188.lcssa162 to i64
+  %106 = zext nneg i32 %.188.lcssa167 to i64
   %107 = getelementptr inbounds nuw [0 x ptr], ptr @dt_gui_presets_aperture_value_str, i64 0, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !75
   %109 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.481, ptr noundef %105, ptr noundef %108) #13

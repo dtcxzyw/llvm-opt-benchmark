@@ -1943,7 +1943,7 @@ _ZN4llvm15SmallVectorImplIiE6insertEPiRKi.exit:   ; preds = %_ZSt13move_backward
   %249 = and i32 %248, %.0
   store i32 %249, ptr %247, align 4, !tbaa !38
   %.not.i128214 = icmp eq i32 %indvars, 0
-  br i1 %.not.i128214, label %.outer._crit_edge.thread255, label %.lr.ph215, !llvm.loop !178
+  br i1 %.not.i128214, label %.outer._crit_edge.thread297, label %.lr.ph215, !llvm.loop !178
 
 .lr.ph215.split:                                  ; preds = %.lr.ph215
   %250 = trunc nuw i64 %indvars.iv to i32
@@ -2058,7 +2058,7 @@ _ZN4llvm18ExecutionDomainFix4killEi.exit140:      ; preds = %_ZN4llvm18Execution
 .loopexit196:                                     ; preds = %_ZN4llvm18ExecutionDomainFix4killEi.exit140, %260, %258, %228, %255
   %300 = load i32, ptr %113, align 8, !tbaa !12
   %.not.i128 = icmp eq i32 %300, 0
-  br i1 %.not.i128, label %.outer._crit_edge.thread255, label %228
+  br i1 %.not.i128, label %.outer._crit_edge.thread297, label %228
 
 .outer._crit_edge.thread:                         ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit.thread, %.preheader
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -2126,9 +2126,9 @@ _ZN4llvm18ExecutionDomainFix5allocEi.exit:        ; preds = %_ZN4llvm24SpecificB
   %337 = phi ptr [ %.0.i.i.i.i.i.i, %_ZN4llvm24SpecificBumpPtrAllocatorINS_11DomainValueEE8AllocateEm.exit.i ], [ %335, %329 ]
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 4
   store i32 %.0, ptr %338, align 4, !tbaa !38
-  br label %.outer._crit_edge.thread255
+  br label %.outer._crit_edge.thread297
 
-.outer._crit_edge.thread255:                      ; preds = %.lr.ph215.split.us, %.loopexit196, %_ZN4llvm18ExecutionDomainFix5allocEi.exit
+.outer._crit_edge.thread297:                      ; preds = %.lr.ph215.split.us, %.loopexit196, %_ZN4llvm18ExecutionDomainFix5allocEi.exit
   %.191 = phi ptr [ %337, %_ZN4llvm18ExecutionDomainFix5allocEi.exit ], [ %.090.ph226, %.loopexit196 ], [ %246, %.lr.ph215.split.us ]
   %339 = getelementptr inbounds nuw i8, ptr %.191, i64 16
   %340 = getelementptr inbounds nuw i8, ptr %.191, i64 24
@@ -2138,7 +2138,7 @@ _ZN4llvm18ExecutionDomainFix5allocEi.exit:        ; preds = %_ZN4llvm24SpecificB
   %.not.i.i.not.i142 = icmp ult i32 %341, %343
   br i1 %.not.i.i.not.i142, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit, label %344, !prof !28
 
-344:                                              ; preds = %.outer._crit_edge.thread255
+344:                                              ; preds = %.outer._crit_edge.thread297
   %345 = zext i32 %341 to i64
   %346 = add nuw nsw i64 %345, 1
   %347 = getelementptr inbounds nuw i8, ptr %.191, i64 32
@@ -2146,8 +2146,8 @@ _ZN4llvm18ExecutionDomainFix5allocEi.exit:        ; preds = %_ZN4llvm24SpecificB
   %.pre.i143 = load i32, ptr %340, align 8, !tbaa !12
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit: ; preds = %.outer._crit_edge.thread255, %344
-  %348 = phi i32 [ %341, %.outer._crit_edge.thread255 ], [ %.pre.i143, %344 ]
+_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit: ; preds = %.outer._crit_edge.thread297, %344
+  %348 = phi i32 [ %341, %.outer._crit_edge.thread297 ], [ %.pre.i143, %344 ]
   %349 = load ptr, ptr %339, align 8, !tbaa !9
   %350 = zext i32 %348 to i64
   %351 = getelementptr inbounds nuw ptr, ptr %349, i64 %350
@@ -3312,8 +3312,8 @@ _ZNK4llvm4Pass11getAnalysisINS_19ReachingDefAnalysisEEERT_v.exit: ; preds = %.lr
   %66 = load ptr, ptr %23, align 8, !tbaa !286
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load i32, ptr %67, align 8, !tbaa !296
-  %.not93 = icmp eq i32 %68, 0
-  br i1 %.not93, label %_ZNSt6vectorIN4llvm11SmallVectorIiLj1EEESaIS2_EE6resizeEm.exit, label %69
+  %.not120 = icmp eq i32 %68, 0
+  br i1 %.not120, label %_ZNSt6vectorIN4llvm11SmallVectorIiLj1EEESaIS2_EE6resizeEm.exit, label %69
 
 69:                                               ; preds = %65
   %70 = zext i32 %68 to i64

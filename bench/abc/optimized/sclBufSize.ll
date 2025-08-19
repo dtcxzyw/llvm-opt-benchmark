@@ -155,16 +155,16 @@ Abc_SclGetTotalArea.exit:                         ; preds = %21, %.critedge.loop
 62:                                               ; preds = %Abc_SclGetTotalArea.exit
   %63 = load ptr, ptr %60, align 8, !tbaa !60
   %.not.i55 = icmp eq ptr %63, null
-  br i1 %.not.i55, label %.thread87, label %64
+  br i1 %.not.i55, label %.thread95, label %64
 
 64:                                               ; preds = %62
   %65 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %63) #25
   %66 = add i64 %65, 1
   %67 = tail call noalias ptr @malloc(i64 noundef %66) #26
   %68 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull readonly dereferenceable(1) %63) #24
-  br label %.thread87
+  br label %.thread95
 
-.thread87:                                        ; preds = %64, %62
+.thread95:                                        ; preds = %64, %62
   %69 = phi ptr [ %67, %64 ], [ null, %62 ]
   store ptr %69, ptr %18, align 8, !tbaa !28
   br label %73
@@ -176,8 +176,8 @@ Abc_SclGetTotalArea.exit:                         ; preds = %21, %.critedge.loop
   %.not47 = icmp eq ptr %71, null
   br i1 %.not47, label %.thread, label %73
 
-73:                                               ; preds = %.thread87, %70
-  %74 = phi ptr [ %60, %.thread87 ], [ %71, %70 ]
+73:                                               ; preds = %.thread95, %70
+  %74 = phi ptr [ %60, %.thread95 ], [ %71, %70 ]
   %75 = tail call i32 @Abc_NtkGetFanoutMax(ptr noundef nonnull %0) #24
   %76 = tail call ptr @Abc_SclFindWireCaps(ptr noundef nonnull %74, i32 noundef %75) #24
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 48

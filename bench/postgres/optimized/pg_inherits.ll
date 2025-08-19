@@ -605,21 +605,21 @@ define dso_local ptr @find_all_inheritors(i32 noundef %0, i32 noundef %1, ptr no
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load i32, ptr %15, align 4
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph78, label %.critedge
+  br i1 %18, label %.lr.ph80, label %.critedge
 
-.lr.ph78:                                         ; preds = %.lr.ph65, %.critedge46
-  %.0336377 = phi ptr [ %.134.lcssa, %.critedge46 ], [ %14, %.lr.ph65 ]
-  %.06476 = phi ptr [ %.1.lcssa, %.critedge46 ], [ %13, %.lr.ph65 ]
-  %indvars.iv7275 = phi i64 [ %indvars.iv.next73, %.critedge46 ], [ 0, %.lr.ph65 ]
+.lr.ph80:                                         ; preds = %.lr.ph65, %.critedge46
+  %.0336379 = phi ptr [ %.134.lcssa, %.critedge46 ], [ %14, %.lr.ph65 ]
+  %.06478 = phi ptr [ %.1.lcssa, %.critedge46 ], [ %13, %.lr.ph65 ]
+  %indvars.iv7277 = phi i64 [ %indvars.iv.next73, %.critedge46 ], [ 0, %.lr.ph65 ]
   %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv7275
+  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv7277
   %21 = load i32, ptr %20, align 8
   %22 = call ptr @find_inheritance_children_extended(i32 noundef %21, i1 noundef zeroext true, i32 noundef %1, ptr noundef null, ptr noundef null)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.not43 = icmp eq ptr %22, null
   br i1 %.not43, label %.critedge46, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph78
+.lr.ph:                                           ; preds = %.lr.ph80
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load i32, ptr %23, align 4
   %26 = icmp sgt i32 %25, 0
@@ -633,8 +633,8 @@ define dso_local ptr @find_all_inheritors(i32 noundef %0, i32 noundef %1, ptr no
 
 .lr.ph60:                                         ; preds = %.lr.ph, %53
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.lr.ph ]
-  %.1344858 = phi ptr [ %.235, %53 ], [ %.0336377, %.lr.ph ]
-  %.14957 = phi ptr [ %.2, %53 ], [ %.06476, %.lr.ph ]
+  %.1344858 = phi ptr [ %.235, %53 ], [ %.0336379, %.lr.ph ]
+  %.14957 = phi ptr [ %.2, %53 ], [ %.06478, %.lr.ph ]
   %27 = load ptr, ptr %24, align 8
   %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -646,14 +646,14 @@ define dso_local ptr @find_all_inheritors(i32 noundef %0, i32 noundef %1, ptr no
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %36, label %44
 
-.critedge46:                                      ; preds = %53, %.lr.ph, %.lr.ph78
-  %.134.lcssa = phi ptr [ %.0336377, %.lr.ph78 ], [ %.0336377, %.lr.ph ], [ %.235, %53 ]
-  %.1.lcssa = phi ptr [ %.06476, %.lr.ph78 ], [ %.06476, %.lr.ph ], [ %.2, %53 ]
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv7275, 1
+.critedge46:                                      ; preds = %53, %.lr.ph, %.lr.ph80
+  %.134.lcssa = phi ptr [ %.0336379, %.lr.ph80 ], [ %.0336379, %.lr.ph ], [ %.235, %53 ]
+  %.1.lcssa = phi ptr [ %.06478, %.lr.ph80 ], [ %.06478, %.lr.ph ], [ %.2, %53 ]
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv7277, 1
   %33 = load i32, ptr %15, align 4
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next73, %34
-  br i1 %35, label %.lr.ph78, label %.critedge
+  br i1 %35, label %.lr.ph80, label %.critedge
 
 36:                                               ; preds = %.lr.ph60
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 4

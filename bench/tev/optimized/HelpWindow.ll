@@ -446,9 +446,9 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
           to label %_ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i.sink.split unwind label %643
 
 _ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i.sink.split: ; preds = %194, %182
-  %.sink843 = phi ptr [ null, %182 ], [ %198, %194 ]
+  %.sink886 = phi ptr [ null, %182 ], [ %198, %194 ]
   %199 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %.sink843, ptr %199, align 16
+  store ptr %.sink886, ptr %199, align 16
   br label %_ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i
 
 _ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i:        ; preds = %_ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i.sink.split, %189
@@ -900,7 +900,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
   store ptr %376, ptr %378, align 8, !alias.scope !14
   %379 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %367, ptr %379, align 8, !alias.scope !14
-  %.pre818 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !17
+  %.pre861 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !17
   br label %383
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i404: ; preds = %369
@@ -918,9 +918,9 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i407
 
 383:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i404.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i404
-  %.pre819 = phi ptr [ %.pre818, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i404.thread ], [ %.pre, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i404 ]
+  %.pre862 = phi ptr [ %.pre861, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i404.thread ], [ %.pre, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i404 ]
   %384 = phi ptr [ %376, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i404.thread ], [ %382, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i404 ]
-  %385 = select i1 %.not.i.i403, ptr getelementptr inbounds nuw (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1), ptr %.pre819
+  %385 = select i1 %.not.i.i403, ptr getelementptr inbounds nuw (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1), ptr %.pre862
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %384, ptr align 1 %385, i64 %366, i1 false)
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i407
 

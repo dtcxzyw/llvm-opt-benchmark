@@ -68,6 +68,7 @@ define internal i64 @tcp_init(i32 noundef %0, ptr noundef readonly captures(none
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %11 = load i64, ptr @tcp_init.keyword_ids, align 16, !tbaa !6
   %.not = icmp eq i64 %11, 0
+  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
   br i1 %.not, label %12, label %17
 
 12:                                               ; preds = %3
@@ -158,123 +159,122 @@ rbimpl_intern_const.exit40:                       ; preds = %.lr.ph.i38, %rbimpl
   %33 = icmp samesign ult i32 %.0.i, 2
   br i1 %33, label %.thread, label %.preheader56
 
-.preheader56:                                     ; preds = %32, %39
-  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %32 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %35 = load ptr, ptr %34, align 8, !tbaa !12
-  %.not105.i = icmp eq ptr %35, null
-  br i1 %.not105.i, label %39, label %36
+.preheader56:                                     ; preds = %32, %38
+  %exitcond.not = phi i1 [ true, %38 ], [ false, %32 ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %38 ], [ %10, %32 ]
+  %indvars.iv = phi i64 [ 1, %38 ], [ 0, %32 ]
+  %34 = load ptr, ptr %indvars.iv.sroa.phi, align 8, !tbaa !12
+  %.not105.i = icmp eq ptr %34, null
+  br i1 %.not105.i, label %38, label %35
 
-36:                                               ; preds = %.preheader56
-  %37 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
-  %38 = load i64, ptr %37, align 8, !tbaa !6
-  store i64 %38, ptr %35, align 8, !tbaa !6
-  br label %39
+35:                                               ; preds = %.preheader56
+  %36 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %37 = load i64, ptr %36, align 8, !tbaa !6
+  store i64 %37, ptr %34, align 8, !tbaa !6
+  br label %38
 
-39:                                               ; preds = %36, %.preheader56
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 2
+38:                                               ; preds = %35, %.preheader56
   br i1 %exitcond.not, label %.preheader, label %.preheader56, !llvm.loop !15
 
-.preheader:                                       ; preds = %39, %53
-  %indvars.iv77 = phi i64 [ %indvars.iv.next78, %53 ], [ 2, %39 ]
-  %40 = phi i1 [ false, %53 ], [ true, %39 ]
-  %.185.i64 = phi i32 [ %.286.i, %53 ], [ 2, %39 ]
+.preheader:                                       ; preds = %38, %52
+  %indvars.iv77 = phi i64 [ %indvars.iv.next78, %52 ], [ 2, %38 ]
+  %39 = phi i1 [ false, %52 ], [ true, %38 ]
+  %.185.i64 = phi i32 [ %.286.i, %52 ], [ 2, %38 ]
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
-  %41 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv77
-  %42 = load ptr, ptr %41, align 8, !tbaa !12
-  %43 = icmp slt i32 %.185.i64, %.0.i
-  %.not104.i = icmp eq ptr %42, null
-  br i1 %43, label %44, label %51
+  %40 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv77
+  %41 = load ptr, ptr %40, align 8, !tbaa !12
+  %42 = icmp slt i32 %.185.i64, %.0.i
+  %.not104.i = icmp eq ptr %41, null
+  br i1 %42, label %43, label %50
 
-44:                                               ; preds = %.preheader
-  br i1 %.not104.i, label %49, label %45
+43:                                               ; preds = %.preheader
+  br i1 %.not104.i, label %48, label %44
 
-45:                                               ; preds = %44
-  %46 = sext i32 %.185.i64 to i64
-  %47 = getelementptr inbounds i64, ptr %1, i64 %46
-  %48 = load i64, ptr %47, align 8, !tbaa !6
-  store i64 %48, ptr %42, align 8, !tbaa !6
-  br label %49
+44:                                               ; preds = %43
+  %45 = sext i32 %.185.i64 to i64
+  %46 = getelementptr inbounds i64, ptr %1, i64 %45
+  %47 = load i64, ptr %46, align 8, !tbaa !6
+  store i64 %47, ptr %41, align 8, !tbaa !6
+  br label %48
 
-49:                                               ; preds = %45, %44
-  %50 = add nsw i32 %.185.i64, 1
-  br label %53
+48:                                               ; preds = %44, %43
+  %49 = add nsw i32 %.185.i64, 1
+  br label %52
 
-51:                                               ; preds = %.preheader
-  br i1 %.not104.i, label %53, label %52
+50:                                               ; preds = %.preheader
+  br i1 %.not104.i, label %52, label %51
 
-52:                                               ; preds = %51
-  store i64 4, ptr %42, align 8, !tbaa !6
-  br label %53
+51:                                               ; preds = %50
+  store i64 4, ptr %41, align 8, !tbaa !6
+  br label %52
 
-53:                                               ; preds = %52, %51, %49
-  %.286.i = phi i32 [ %50, %49 ], [ %.185.i64, %52 ], [ %.185.i64, %51 ]
-  br i1 %40, label %.preheader, label %54, !llvm.loop !16
+52:                                               ; preds = %51, %50, %48
+  %.286.i = phi i32 [ %49, %48 ], [ %.185.i64, %51 ], [ %.185.i64, %50 ]
+  br i1 %39, label %.preheader, label %53, !llvm.loop !16
 
-54:                                               ; preds = %53
+53:                                               ; preds = %52
   store i64 %.087.i, ptr %8, align 8, !tbaa !6
-  %55 = icmp eq i32 %.286.i, %.0.i
-  br i1 %55, label %rb_scan_args_set.exit, label %.thread
+  %54 = icmp eq i32 %.286.i, %.0.i
+  br i1 %54, label %rb_scan_args_set.exit, label %.thread
 
-.thread:                                          ; preds = %17, %54, %32
-  %.0.i43 = phi i32 [ %.0.i, %54 ], [ %.0.i, %32 ], [ %0, %17 ]
+.thread:                                          ; preds = %17, %53, %32
+  %.0.i43 = phi i32 [ %.0.i, %53 ], [ %.0.i, %32 ], [ %0, %17 ]
   call void @rb_error_arity(i32 noundef %.0.i43, i32 noundef 2, i32 noundef 4) #8
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %54
-  %56 = load i64, ptr %8, align 8, !tbaa !6
-  %57 = icmp eq i64 %56, 4
-  br i1 %57, label %.thread44, label %58
+rb_scan_args_set.exit:                            ; preds = %53
+  %55 = load i64, ptr %8, align 8, !tbaa !6
+  %56 = icmp eq i64 %55, 4
+  br i1 %56, label %.thread44, label %57
 
-58:                                               ; preds = %rb_scan_args_set.exit
-  %59 = call i32 @rb_get_kwargs(i64 noundef %56, ptr noundef nonnull @tcp_init.keyword_ids, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %9) #6
-  %60 = load i64, ptr %9, align 16, !tbaa !6
-  %.not17 = icmp eq i64 %60, 36
-  %spec.select = select i1 %.not17, i64 4, i64 %60
-  %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %62 = load i64, ptr %61, align 8, !tbaa !6
-  %.not18 = icmp eq i64 %62, 36
-  %.110 = select i1 %.not18, i64 4, i64 %62
-  %63 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %64 = load i64, ptr %63, align 16, !tbaa !6
-  %65 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %66 = load i64, ptr %65, align 8, !tbaa !6
-  %.not20 = icmp eq i64 %66, 36
-  %spec.select21 = select i1 %.not20, i64 4, i64 %66
-  switch i64 %64, label %71 [
+57:                                               ; preds = %rb_scan_args_set.exit
+  %58 = call i32 @rb_get_kwargs(i64 noundef %55, ptr noundef nonnull @tcp_init.keyword_ids, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %9) #6
+  %59 = load i64, ptr %9, align 16, !tbaa !6
+  %.not17 = icmp eq i64 %59, 36
+  %spec.select = select i1 %.not17, i64 4, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %61 = load i64, ptr %60, align 8, !tbaa !6
+  %.not18 = icmp eq i64 %61, 36
+  %.110 = select i1 %.not18, i64 4, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %63 = load i64, ptr %62, align 16, !tbaa !6
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %65 = load i64, ptr %64, align 8, !tbaa !6
+  %.not20 = icmp eq i64 %65, 36
+  %spec.select21 = select i1 %.not20, i64 4, i64 %65
+  switch i64 %63, label %70 [
     i64 36, label %.thread44
     i64 4, label %.thread44
   ]
 
-.thread44:                                        ; preds = %58, %58, %rb_scan_args_set.exit
-  %.054 = phi i64 [ 4, %rb_scan_args_set.exit ], [ %spec.select21, %58 ], [ %spec.select21, %58 ]
-  %.0952 = phi i64 [ 4, %rb_scan_args_set.exit ], [ %.110, %58 ], [ %.110, %58 ]
-  %.01150 = phi i64 [ 4, %rb_scan_args_set.exit ], [ %spec.select, %58 ], [ %spec.select, %58 ]
-  %67 = load i64, ptr @rb_cSocket, align 8, !tbaa !6
-  %68 = load i64, ptr @tcp_fast_fallback, align 8, !tbaa !6
-  %69 = call i64 @rb_ivar_get(i64 noundef %67, i64 noundef %68) #6
-  %70 = icmp eq i64 %69, 4
-  %spec.store.select = select i1 %70, i64 20, i64 %69
-  br label %71
+.thread44:                                        ; preds = %57, %57, %rb_scan_args_set.exit
+  %.054 = phi i64 [ 4, %rb_scan_args_set.exit ], [ %spec.select21, %57 ], [ %spec.select21, %57 ]
+  %.0952 = phi i64 [ 4, %rb_scan_args_set.exit ], [ %.110, %57 ], [ %.110, %57 ]
+  %.01150 = phi i64 [ 4, %rb_scan_args_set.exit ], [ %spec.select, %57 ], [ %spec.select, %57 ]
+  %66 = load i64, ptr @rb_cSocket, align 8, !tbaa !6
+  %67 = load i64, ptr @tcp_fast_fallback, align 8, !tbaa !6
+  %68 = call i64 @rb_ivar_get(i64 noundef %66, i64 noundef %67) #6
+  %69 = icmp eq i64 %68, 4
+  %spec.store.select = select i1 %69, i64 20, i64 %68
+  br label %70
 
-71:                                               ; preds = %58, %.thread44
-  %.053 = phi i64 [ %.054, %.thread44 ], [ %spec.select21, %58 ]
-  %.0951 = phi i64 [ %.0952, %.thread44 ], [ %.110, %58 ]
-  %.01149 = phi i64 [ %.01150, %.thread44 ], [ %spec.select, %58 ]
-  %.2 = phi i64 [ %spec.store.select, %.thread44 ], [ %64, %58 ]
-  %72 = load i64, ptr %4, align 8, !tbaa !6
-  %73 = load i64, ptr %5, align 8, !tbaa !6
-  %74 = load i64, ptr %6, align 8, !tbaa !6
-  %75 = load i64, ptr %7, align 8, !tbaa !6
-  %76 = call i64 @rsock_init_inetsock(i64 noundef %2, i64 noundef %72, i64 noundef %73, i64 noundef %74, i64 noundef %75, i32 noundef 0, i64 noundef %.01149, i64 noundef %.0951, i64 noundef %.2, i64 noundef %.053) #6
+70:                                               ; preds = %57, %.thread44
+  %.053 = phi i64 [ %.054, %.thread44 ], [ %spec.select21, %57 ]
+  %.0951 = phi i64 [ %.0952, %.thread44 ], [ %.110, %57 ]
+  %.01149 = phi i64 [ %.01150, %.thread44 ], [ %spec.select, %57 ]
+  %.2 = phi i64 [ %spec.store.select, %.thread44 ], [ %63, %57 ]
+  %71 = load i64, ptr %4, align 8, !tbaa !6
+  %72 = load i64, ptr %5, align 8, !tbaa !6
+  %73 = load i64, ptr %6, align 8, !tbaa !6
+  %74 = load i64, ptr %7, align 8, !tbaa !6
+  %75 = call i64 @rsock_init_inetsock(i64 noundef %2, i64 noundef %71, i64 noundef %72, i64 noundef %73, i64 noundef %74, i32 noundef 0, i64 noundef %.01149, i64 noundef %.0951, i64 noundef %.2, i64 noundef %.053) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %76
+  ret i64 %75
 }
 
 ; Function Attrs: cold

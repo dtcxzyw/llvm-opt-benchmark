@@ -1547,7 +1547,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
   br i1 %.not521, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader499
-  %wide.trip.count548 = zext i32 %.0302405434 to i64
+  %wide.trip.count548 = zext nneg i32 %.0302405434 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %671
@@ -1587,7 +1587,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
   br i1 %.not522, label %._crit_edge520, label %.lr.ph519.preheader
 
 .lr.ph519.preheader:                              ; preds = %.preheader
-  %wide.trip.count553 = zext i32 %.0302405434 to i64
+  %wide.trip.count553 = zext nneg i32 %.0302405434 to i64
   br label %.lr.ph519
 
 .lr.ph519:                                        ; preds = %.lr.ph519.preheader, %679

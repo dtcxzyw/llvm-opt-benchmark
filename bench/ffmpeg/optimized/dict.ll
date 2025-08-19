@@ -154,8 +154,8 @@ av_dict_iterate.exit.us:                          ; preds = %17
   %.not42.us = icmp ne i8 %45, 0
   %.not43.us = icmp ne i8 %44, 0
   %or.cond46.us = and i1 %.not44, %.not43.us
-  %or.cond132 = or i1 %.not42.us, %or.cond46.us
-  br i1 %or.cond132, label %.lr.ph.split.us, label %av_dict_iterate.exit.thread
+  %or.cond134 = or i1 %.not42.us, %or.cond46.us
+  br i1 %or.cond134, label %.lr.ph.split.us, label %av_dict_iterate.exit.thread
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not44, label %.lr.ph.split.split.split, label %.lr.ph.split.split.us.split
@@ -253,8 +253,8 @@ av_dict_iterate.exit:                             ; preds = %75
 
 .critedge.loopexit56:                             ; preds = %80
   %88 = or i8 %85, %83
-  %or.cond127 = icmp eq i8 %88, 0
-  br i1 %or.cond127, label %av_dict_iterate.exit.thread, label %.lr.ph.split.split.split
+  %or.cond129 = icmp eq i8 %88, 0
+  br i1 %or.cond129, label %av_dict_iterate.exit.thread, label %.lr.ph.split.split.split
 
 av_dict_iterate.exit.thread:                      ; preds = %av_dict_iterate.exit.us75, %.critedge.loopexit56.us, %54, %av_dict_iterate.exit, %75, %.critedge.loopexit56, %av_dict_iterate.exit.us, %17, %.critedge.loopexit.us, %.preheader57, %4
   %.0 = phi ptr [ null, %4 ], [ null, %.preheader57 ], [ null, %av_dict_iterate.exit.us ], [ null, %17 ], [ %20, %.critedge.loopexit.us ], [ null, %av_dict_iterate.exit ], [ null, %75 ], [ %78, %.critedge.loopexit56 ], [ null, %av_dict_iterate.exit.us75 ], [ %57, %.critedge.loopexit56.us ], [ null, %54 ]
@@ -433,9 +433,9 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
   %61 = sext i32 %60 to i64
   %62 = tail call ptr @av_realloc_array(ptr noundef %58, i64 noundef %61, i64 noundef 16) #8
   %.not100 = icmp eq ptr %62, null
-  br i1 %.not100, label %.thread137, label %.thread151
+  br i1 %.not100, label %.thread137, label %.thread165
 
-.thread151:                                       ; preds = %56
+.thread165:                                       ; preds = %56
   store ptr %62, ptr %57, align 8, !tbaa !11
   br label %72
 
@@ -454,7 +454,7 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
   %71 = icmp eq ptr %.pr.pre, null
   br i1 %71, label %.thread126, label %72
 
-72:                                               ; preds = %.thread151, %63
+72:                                               ; preds = %.thread165, %63
   %73 = getelementptr inbounds nuw i8, ptr %.2119, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !11
   %75 = load i32, ptr %.2119, align 8, !tbaa !4

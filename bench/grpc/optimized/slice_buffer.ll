@@ -238,11 +238,11 @@ _ZL14maybe_embiggenP17grpc_slice_buffer.exit:     ; preds = %68, %70, %81
   br label %101
 
 ._crit_edge:                                      ; preds = %16, %13
-  %.sroa.2.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.2.0.copyload72 = load i64, ptr %.sroa.2.0..sroa_idx71, align 8
-  %.sroa.3.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.2.0..sroa_idx77 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.2.0.copyload78 = load i64, ptr %.sroa.2.0..sroa_idx77, align 8
+  %.sroa.3.0..sroa_idx79 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx73, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx79, i64 16, i1 false)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre68 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !17
   br label %101
@@ -262,7 +262,7 @@ _ZL14maybe_embiggenP17grpc_slice_buffer.exit:     ; preds = %68, %70, %81
 
 101:                                              ; preds = %._crit_edge, %.thread61
   %102 = phi ptr [ %7, %.thread61 ], [ %.pre68, %._crit_edge ]
-  %.sroa.2.0.copyload66 = phi i64 [ %.sroa.2.0.copyload63, %.thread61 ], [ %.sroa.2.0.copyload72, %._crit_edge ]
+  %.sroa.2.0.copyload66 = phi i64 [ %.sroa.2.0.copyload63, %.thread61 ], [ %.sroa.2.0.copyload78, %._crit_edge ]
   %103 = phi i1 [ %40, %.thread61 ], [ false, %._crit_edge ]
   %104 = load ptr, ptr %0, align 8, !tbaa !25
   %105 = ptrtoint ptr %102 to i64
@@ -1954,8 +1954,8 @@ define void @grpc_slice_buffer_move_first_into_buffer(ptr noundef captures(none)
   %.sroa.5.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.6.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %15 = load i64, ptr %10, align 8, !tbaa !13, !noalias !75
-  %.not.i61 = icmp eq i64 %15, 0
-  br i1 %.not.i61, label %._crit_edge, label %grpc_slice_buffer_take_first.exit, !prof !78
+  %.not.i66 = icmp eq i64 %15, 0
+  br i1 %.not.i66, label %._crit_edge, label %grpc_slice_buffer_take_first.exit, !prof !78
 
 16:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1975,8 +1975,8 @@ define void @grpc_slice_buffer_move_first_into_buffer(ptr noundef captures(none)
 
 grpc_slice_buffer_take_first.exit:                ; preds = %.lr.ph, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
   %21 = phi i64 [ %69, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit ], [ %15, %.lr.ph ]
-  %.0254063 = phi ptr [ %59, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit ], [ %2, %.lr.ph ]
-  %.04162 = phi i64 [ %60, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit ], [ %1, %.lr.ph ]
+  %.0254068 = phi ptr [ %59, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit ], [ %2, %.lr.ph ]
+  %.04167 = phi i64 [ %60, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit ], [ %1, %.lr.ph ]
   %22 = load ptr, ptr %11, align 8, !tbaa !17, !noalias !75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -1993,14 +1993,14 @@ grpc_slice_buffer_take_first.exit:                ; preds = %.lr.ph, %_ZN9grpc_c
   store i64 %30, ptr %8, align 8, !tbaa !20, !noalias !75
   %31 = and i64 %26, 255
   %32 = select i1 %.not7.i, i64 %31, i64 %26
-  %33 = icmp ugt i64 %32, %.04162
+  %33 = icmp ugt i64 %32, %.04167
   br i1 %33, label %34, label %45
 
 34:                                               ; preds = %grpc_slice_buffer_take_first.exit
   %35 = load ptr, ptr %13, align 8
   %36 = select i1 %.not7.i, ptr %14, ptr %35
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0254063, ptr align 1 %36, i64 %.04162, i1 false)
-  call void @grpc_slice_sub_no_ref(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %7, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %6, i64 noundef %.04162, i64 noundef %32)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0254068, ptr align 1 %36, i64 %.04167, i1 false)
+  call void @grpc_slice_sub_no_ref(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %7, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %6, i64 noundef %.04167, i64 noundef %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   %.sroa.034.0.copyload35 = load ptr, ptr %7, align 8
   %.sroa.5.0.copyload37 = load i64, ptr %.sroa.5.0..sroa_idx36, align 8
@@ -2026,13 +2026,13 @@ grpc_slice_buffer_take_first.exit:                ; preds = %.lr.ph, %_ZN9grpc_c
   br label %.critedge._crit_edge
 
 45:                                               ; preds = %grpc_slice_buffer_take_first.exit
-  %46 = icmp eq i64 %32, %.04162
+  %46 = icmp eq i64 %32, %.04167
   %47 = load ptr, ptr %13, align 8
   %48 = select i1 %.not7.i, ptr %14, ptr %47
   br i1 %46, label %49, label %58
 
 49:                                               ; preds = %45
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0254063, ptr align 1 %48, i64 %.04162, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0254068, ptr align 1 %48, i64 %.04167, i1 false)
   %50 = load ptr, ptr %6, align 8
   %51 = icmp ugt ptr %50, inttoptr (i64 1 to ptr)
   br i1 %51, label %52, label %.critedge._crit_edge
@@ -2049,9 +2049,9 @@ grpc_slice_buffer_take_first.exit:                ; preds = %.lr.ph, %_ZN9grpc_c
   br label %.critedge._crit_edge
 
 58:                                               ; preds = %45
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0254063, ptr align 1 %48, i64 %32, i1 false)
-  %59 = getelementptr inbounds nuw i8, ptr %.0254063, i64 %32
-  %60 = sub i64 %.04162, %32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0254068, ptr align 1 %48, i64 %32, i1 false)
+  %59 = getelementptr inbounds nuw i8, ptr %.0254068, i64 %32
+  %60 = sub i64 %.04167, %32
   %61 = load ptr, ptr %6, align 8
   %62 = icmp ugt ptr %61, inttoptr (i64 1 to ptr)
   br i1 %62, label %63, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -2390,25 +2390,25 @@ grpc_slice_buffer_add_indexed.exit44:             ; preds = %98, %100, %110
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit45
 
 .split.us.thread:                                 ; preds = %.lr.ph.split.us, %.split.us
-  %.us-phi101142 = phi ptr [ %.us-phi101, %.split.us ], [ %20, %.lr.ph.split.us ]
-  %.us-phi100141 = phi i64 [ %.us-phi100, %.split.us ], [ %17, %.lr.ph.split.us ]
-  %118 = icmp ugt ptr %.us-phi101142, inttoptr (i64 1 to ptr)
+  %.us-phi101163 = phi ptr [ %.us-phi101, %.split.us ], [ %20, %.lr.ph.split.us ]
+  %.us-phi100162 = phi i64 [ %.us-phi100, %.split.us ], [ %17, %.lr.ph.split.us ]
+  %118 = icmp ugt ptr %.us-phi101163, inttoptr (i64 1 to ptr)
   br i1 %118, label %119, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit45
 
 119:                                              ; preds = %.split.us.thread
-  %120 = atomicrmw sub ptr %.us-phi101142, i64 1 acq_rel, align 8
+  %120 = atomicrmw sub ptr %.us-phi101163, i64 1 acq_rel, align 8
   %121 = icmp eq i64 %120, 1
   br i1 %121, label %122, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit45
 
 122:                                              ; preds = %119
-  %123 = getelementptr inbounds nuw i8, ptr %.us-phi101142, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %.us-phi101163, i64 8
   %124 = load ptr, ptr %123, align 8, !tbaa !21
-  tail call void %124(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi101142)
+  tail call void %124(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi101163)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit45
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit45: ; preds = %122, %119, %.split.us.thread, %grpc_slice_buffer_add_indexed.exit44
-  %.us-phi100140 = phi i64 [ %.us-phi100141, %122 ], [ %.us-phi100141, %119 ], [ %.us-phi100141, %.split.us.thread ], [ %.us-phi100, %grpc_slice_buffer_add_indexed.exit44 ]
-  store i64 %.us-phi100140, ptr %13, align 8, !tbaa !13
+  %.us-phi100161 = phi i64 [ %.us-phi100162, %122 ], [ %.us-phi100162, %119 ], [ %.us-phi100162, %.split.us.thread ], [ %.us-phi100, %grpc_slice_buffer_add_indexed.exit44 ]
+  store i64 %.us-phi100161, ptr %13, align 8, !tbaa !13
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.thread
 
 125:                                              ; preds = %.lr.ph.split
@@ -2724,25 +2724,25 @@ grpc_slice_buffer_add_indexed.exit44:             ; preds = %98, %100, %110
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit45
 
 .split.us.thread:                                 ; preds = %.lr.ph.split.us, %.split.us
-  %.us-phi101142 = phi ptr [ %.us-phi101, %.split.us ], [ %20, %.lr.ph.split.us ]
-  %.us-phi100141 = phi i64 [ %.us-phi100, %.split.us ], [ %17, %.lr.ph.split.us ]
-  %118 = icmp ugt ptr %.us-phi101142, inttoptr (i64 1 to ptr)
+  %.us-phi101163 = phi ptr [ %.us-phi101, %.split.us ], [ %20, %.lr.ph.split.us ]
+  %.us-phi100162 = phi i64 [ %.us-phi100, %.split.us ], [ %17, %.lr.ph.split.us ]
+  %118 = icmp ugt ptr %.us-phi101163, inttoptr (i64 1 to ptr)
   br i1 %118, label %119, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit45
 
 119:                                              ; preds = %.split.us.thread
-  %120 = atomicrmw sub ptr %.us-phi101142, i64 1 acq_rel, align 8
+  %120 = atomicrmw sub ptr %.us-phi101163, i64 1 acq_rel, align 8
   %121 = icmp eq i64 %120, 1
   br i1 %121, label %122, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit45
 
 122:                                              ; preds = %119
-  %123 = getelementptr inbounds nuw i8, ptr %.us-phi101142, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %.us-phi101163, i64 8
   %124 = load ptr, ptr %123, align 8, !tbaa !21
-  tail call void %124(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi101142)
+  tail call void %124(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi101163)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit45
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit45: ; preds = %122, %119, %.split.us.thread, %grpc_slice_buffer_add_indexed.exit44
-  %.us-phi100140 = phi i64 [ %.us-phi100141, %122 ], [ %.us-phi100141, %119 ], [ %.us-phi100141, %.split.us.thread ], [ %.us-phi100, %grpc_slice_buffer_add_indexed.exit44 ]
-  store i64 %.us-phi100140, ptr %13, align 8, !tbaa !13
+  %.us-phi100161 = phi i64 [ %.us-phi100162, %122 ], [ %.us-phi100162, %119 ], [ %.us-phi100162, %.split.us.thread ], [ %.us-phi100, %grpc_slice_buffer_add_indexed.exit44 ]
+  store i64 %.us-phi100161, ptr %13, align 8, !tbaa !13
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.thread
 
 125:                                              ; preds = %.lr.ph.split

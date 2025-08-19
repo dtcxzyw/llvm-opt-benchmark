@@ -3135,7 +3135,7 @@ _ZNSt10unique_ptrIN10cmDebugger27cmDebuggerBreakpointManagerESt14default_deleteI
   unreachable
 
 _ZNSt6threadD2Ev.exit213:                         ; preds = %.thread, %929
-  %.pn26.pn.pn.pn.pn.pn.pn260 = phi { ptr, i32 } [ %95, %.thread ], [ %.pn26.pn.pn.pn.pn.pn, %929 ]
+  %.pn26.pn.pn.pn.pn.pn.pn320 = phi { ptr, i32 } [ %95, %.thread ], [ %.pn26.pn.pn.pn.pn.pn, %929 ]
   call void @_ZNSt12__shared_ptrIN3dap6WriterELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %39) #24
   %932 = load ptr, ptr %38, align 8, !tbaa !74
   %.not.i214 = icmp eq ptr %932, null
@@ -3151,7 +3151,7 @@ _ZNKSt14default_deleteIN3dap7SessionEEclEPS1_.exit.i215: ; preds = %_ZNSt6thread
 _ZNSt10unique_ptrIN3dap7SessionESt14default_deleteIS1_EED2Ev.exit216: ; preds = %_ZNSt6threadD2Ev.exit213, %_ZNKSt14default_deleteIN3dap7SessionEEclEPS1_.exit.i215
   store ptr null, ptr %38, align 8, !tbaa !74
   call void @_ZNSt12__shared_ptrIN10cmDebugger20cmDebuggerConnectionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
-  resume { ptr, i32 } %.pn26.pn.pn.pn.pn.pn.pn260
+  resume { ptr, i32 } %.pn26.pn.pn.pn.pn.pn.pn320
 
 936:                                              ; preds = %511
   unreachable
@@ -7139,7 +7139,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3dap3anyESaIS1_EE17_M_default_
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPN3dap3anyEmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN3dap3anyEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 56
+  %19 = mul nuw nsw i64 %1, 56
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !160

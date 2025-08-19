@@ -1216,7 +1216,7 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %4
 
 37:                                               ; preds = %.lr.ph77, %36
   %indvars.iv81 = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next82, %36 ]
-  %.175 = phi i1 [ false, %.lr.ph77 ], [ %.488, %36 ]
+  %.175 = phi i1 [ false, %.lr.ph77 ], [ %.498, %36 ]
   %38 = load ptr, ptr %24, align 8, !tbaa !44
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv81
   %40 = load ptr, ptr %39, align 8, !tbaa !51
@@ -1384,8 +1384,8 @@ _ZN6icu_7715MeasureUnitImplD2Ev.exit:             ; preds = %._crit_edge.i.i, %7
   br i1 %107, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %120, %_ZN6icu_7715MeasureUnitImplD2Ev.exit, %._crit_edge
-  %.488 = phi i1 [ %.4.ph, %._crit_edge ], [ %.175, %_ZN6icu_7715MeasureUnitImplD2Ev.exit ], [ %.4.ph, %120 ]
-  %.not50.not.lcssa87 = phi i1 [ %106, %._crit_edge ], [ false, %_ZN6icu_7715MeasureUnitImplD2Ev.exit ], [ %106, %120 ]
+  %.498 = phi i1 [ %.4.ph, %._crit_edge ], [ %.175, %_ZN6icu_7715MeasureUnitImplD2Ev.exit ], [ %.4.ph, %120 ]
+  %.not50.not.lcssa97 = phi i1 [ %106, %._crit_edge ], [ false, %_ZN6icu_7715MeasureUnitImplD2Ev.exit ], [ %106, %120 ]
   %108 = load i8, ptr %31, align 4, !tbaa !46
   %.not.i.i.i = icmp eq i8 %108, 0
   br i1 %.not.i.i.i, label %124, label %109
@@ -1425,7 +1425,7 @@ _ZN6icu_7715MeasureUnitImplD2Ev.exit:             ; preds = %._crit_edge.i.i, %7
 
 124:                                              ; preds = %109, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not50.not.lcssa87, label %.thread, label %36
+  br i1 %.not50.not.lcssa97, label %.thread, label %36
 
 125:                                              ; preds = %93, %91
   %.pn = phi { ptr, i32 } [ %94, %93 ], [ %92, %91 ]
@@ -1438,7 +1438,7 @@ _ZN6icu_7715MeasureUnitImplD2Ev.exit:             ; preds = %._crit_edge.i.i, %7
   br label %common.resume
 
 .thread:                                          ; preds = %124
-  br i1 %.488, label %.critedge, label %127
+  br i1 %.498, label %.critedge, label %127
 
 127:                                              ; preds = %.thread
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %13) #21
@@ -3082,8 +3082,8 @@ _ZN6icu_775units6Factor8divideByERKS1_.exit:      ; preds = %51, %40
   %58 = phi double [ %38, %40 ], [ %47, %51 ]
   %59 = phi double [ %37, %40 ], [ %49, %51 ]
   %.pn = phi double [ %38, %40 ], [ %49, %51 ]
-  %.pn104 = phi double [ %37, %40 ], [ %47, %51 ]
-  %.promoted.i = fmul double %23, %.pn104
+  %.pn105 = phi double [ %37, %40 ], [ %47, %51 ]
+  %.promoted.i = fmul double %23, %.pn105
   %.promoted13.i = fmul double %25, %.pn
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %61 = load double, ptr %60, align 8, !tbaa !20

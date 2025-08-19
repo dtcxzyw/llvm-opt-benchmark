@@ -364,7 +364,7 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   %69 = phi i32 [ 268435456, %48 ], [ %140, %139 ]
   %70 = phi i32 [ 268435456, %48 ], [ %141, %139 ]
   %71 = add nsw i64 %indvars.iv98.i, -1
-  %72 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !21
   %74 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %indvars.iv98.i
   %75 = load i32, ptr %74, align 4, !tbaa !21
@@ -383,7 +383,7 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %87 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %indvars.iv.next99.i
   store i32 %86, ptr %87, align 4, !tbaa !21
-  %88 = getelementptr inbounds [6 x i32], ptr %5, i64 0, i64 %71
+  %88 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %71
   %89 = load i32, ptr %88, align 4, !tbaa !21
   %90 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %indvars.iv98.i
   %91 = load i32, ptr %90, align 4, !tbaa !21
@@ -651,7 +651,7 @@ define void @ff_g723_1_inverse_quant(ptr noundef captures(none) initializes((0, 
 
 89:                                               ; preds = %79
   %90 = lshr i32 %87, 1
-  %91 = trunc i32 %90 to i16
+  %91 = trunc nuw i32 %90 to i16
   %92 = sub i16 %82, %91
   store i16 %92, ptr %81, align 2, !tbaa !4
   %93 = add i16 %85, %91

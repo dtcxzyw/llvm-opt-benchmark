@@ -103,38 +103,38 @@ define void @AES_ige_encrypt(ptr noundef readonly captures(address) %0, ptr noun
 
 .lr.ph181.preheader:                              ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %.sroa.5213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.5213.0.copyload = load i64, ptr %.sroa.5213.0..sroa_idx, align 1, !tbaa !9
+  %.sroa.5221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.5221.0.copyload = load i64, ptr %.sroa.5221.0..sroa_idx, align 1, !tbaa !9
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.0.0.copyload = load i64, ptr %48, align 1
-  %.sroa.5208.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.5208.0.copyload = load i64, ptr %.sroa.5208.0..sroa_idx, align 1, !tbaa !9
+  %.sroa.5216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sroa.5216.0.copyload = load i64, ptr %.sroa.5216.0..sroa_idx, align 1, !tbaa !9
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %.lr.ph181
 
 .lr.ph181:                                        ; preds = %.lr.ph181.preheader, %.lr.ph181
-  %.sroa.5208.0 = phi i64 [ %.sroa.5208.0.copyload, %.lr.ph181.preheader ], [ %.sroa.6.0.copyload, %.lr.ph181 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload, %.lr.ph181.preheader ], [ %.sroa.0216.0.copyload, %.lr.ph181 ]
-  %.sroa.0211.0.in = phi ptr [ %4, %.lr.ph181.preheader ], [ %7, %.lr.ph181 ]
-  %.sroa.5213.0 = phi i64 [ %.sroa.5213.0.copyload, %.lr.ph181.preheader ], [ %56, %.lr.ph181 ]
+  %.sroa.5216.0 = phi i64 [ %.sroa.5216.0.copyload, %.lr.ph181.preheader ], [ %.sroa.6.0.copyload, %.lr.ph181 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload, %.lr.ph181.preheader ], [ %.sroa.0224.0.copyload, %.lr.ph181 ]
+  %.sroa.0219.0.in = phi ptr [ %4, %.lr.ph181.preheader ], [ %7, %.lr.ph181 ]
+  %.sroa.5221.0 = phi i64 [ %.sroa.5221.0.copyload, %.lr.ph181.preheader ], [ %56, %.lr.ph181 ]
   %.1179 = phi ptr [ %0, %.lr.ph181.preheader ], [ %58, %.lr.ph181 ]
   %.1120178 = phi ptr [ %1, %.lr.ph181.preheader ], [ %59, %.lr.ph181 ]
   %.1130177 = phi i64 [ %10, %.lr.ph181.preheader ], [ %57, %.lr.ph181 ]
-  %.sroa.0211.0 = load i64, ptr %.sroa.0211.0.in, align 1
-  %.sroa.0216.0.copyload = load i64, ptr %.1179, align 1
+  %.sroa.0219.0 = load i64, ptr %.sroa.0219.0.in, align 1
+  %.sroa.0224.0.copyload = load i64, ptr %.1179, align 1
   %.sroa.6.0..1179.sroa_idx = getelementptr inbounds nuw i8, ptr %.1179, i64 8
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..1179.sroa_idx, align 1, !tbaa !9
-  %51 = xor i64 %.sroa.0211.0, %.sroa.0216.0.copyload
+  %51 = xor i64 %.sroa.0219.0, %.sroa.0224.0.copyload
   store i64 %51, ptr %7, align 8, !tbaa !3
-  %52 = xor i64 %.sroa.5213.0, %.sroa.6.0.copyload
+  %52 = xor i64 %.sroa.5221.0, %.sroa.6.0.copyload
   store i64 %52, ptr %49, align 8, !tbaa !3
   call void @AES_encrypt(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %3) #6
   %53 = load i64, ptr %7, align 8, !tbaa !3
   %54 = xor i64 %53, %.sroa.0.0
   store i64 %54, ptr %7, align 8, !tbaa !3
   %55 = load i64, ptr %50, align 8, !tbaa !3
-  %56 = xor i64 %55, %.sroa.5208.0
+  %56 = xor i64 %55, %.sroa.5216.0
   store i64 %56, ptr %50, align 8, !tbaa !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.1120178, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !10
   %57 = add nsw i64 %.1130177, -1
@@ -145,7 +145,7 @@ define void @AES_ige_encrypt(ptr noundef readonly captures(address) %0, ptr noun
 
 ._crit_edge182:                                   ; preds = %.lr.ph181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  store i64 %.sroa.0216.0.copyload, ptr %48, align 1
+  store i64 %.sroa.0224.0.copyload, ptr %48, align 1
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -201,9 +201,9 @@ define void @AES_ige_encrypt(ptr noundef readonly captures(address) %0, ptr noun
 
 .lr.ph161.preheader:                              ; preds = %60
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %.sroa.0201.0.copyload = load i64, ptr %4, align 1
-  %.sroa.5203.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.5203.0.copyload = load i64, ptr %.sroa.5203.0..sroa_idx, align 1, !tbaa !9
+  %.sroa.0209.0.copyload = load i64, ptr %4, align 1
+  %.sroa.5211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.5211.0.copyload = load i64, ptr %.sroa.5211.0..sroa_idx, align 1, !tbaa !9
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !9
@@ -212,30 +212,30 @@ define void @AES_ige_encrypt(ptr noundef readonly captures(address) %0, ptr noun
   br label %.lr.ph161
 
 .lr.ph161:                                        ; preds = %.lr.ph161.preheader, %.lr.ph161
-  %.sroa.5203.0 = phi i64 [ %.sroa.5203.0.copyload, %.lr.ph161.preheader ], [ %.sroa.0.sroa.5.0.copyload, %.lr.ph161 ]
-  %.sroa.0201.0 = phi i64 [ %.sroa.0201.0.copyload, %.lr.ph161.preheader ], [ %.sroa.0.sroa.0.0.copyload, %.lr.ph161 ]
+  %.sroa.5211.0 = phi i64 [ %.sroa.5211.0.copyload, %.lr.ph161.preheader ], [ %.sroa.0.sroa.5.0.copyload, %.lr.ph161 ]
+  %.sroa.0209.0 = phi i64 [ %.sroa.0209.0.copyload, %.lr.ph161.preheader ], [ %.sroa.0.sroa.0.0.copyload, %.lr.ph161 ]
   %.sroa.5.0 = phi i64 [ %.sroa.5.0.copyload, %.lr.ph161.preheader ], [ %92, %.lr.ph161 ]
-  %.sroa.0197.0.in = phi ptr [ %82, %.lr.ph161.preheader ], [ %9, %.lr.ph161 ]
+  %.sroa.0205.0.in = phi ptr [ %82, %.lr.ph161.preheader ], [ %9, %.lr.ph161 ]
   %.3159 = phi ptr [ %0, %.lr.ph161.preheader ], [ %94, %.lr.ph161 ]
   %.3122158 = phi ptr [ %1, %.lr.ph161.preheader ], [ %95, %.lr.ph161 ]
   %.3132157 = phi i64 [ %10, %.lr.ph161.preheader ], [ %93, %.lr.ph161 ]
-  %.sroa.0197.0 = load i64, ptr %.sroa.0197.0.in, align 1
+  %.sroa.0205.0 = load i64, ptr %.sroa.0205.0.in, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(16) %.3159, i64 16, i1 false), !tbaa.struct !10
   %.sroa.0.sroa.0.0.copyload = load i64, ptr %.3159, align 1
   %.sroa.0.sroa.5.0..3159.sroa_idx = getelementptr inbounds nuw i8, ptr %.3159, i64 8
   %.sroa.0.sroa.5.0.copyload = load i64, ptr %.sroa.0.sroa.5.0..3159.sroa_idx, align 1
   %85 = load i64, ptr %9, align 8, !tbaa !3
-  %86 = xor i64 %85, %.sroa.0197.0
+  %86 = xor i64 %85, %.sroa.0205.0
   store i64 %86, ptr %9, align 8, !tbaa !3
   %87 = load i64, ptr %83, align 8, !tbaa !3
   %88 = xor i64 %87, %.sroa.5.0
   store i64 %88, ptr %83, align 8, !tbaa !3
   call void @AES_decrypt(ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %3) #6
   %89 = load i64, ptr %9, align 8, !tbaa !3
-  %90 = xor i64 %89, %.sroa.0201.0
+  %90 = xor i64 %89, %.sroa.0209.0
   store i64 %90, ptr %9, align 8, !tbaa !3
   %91 = load i64, ptr %84, align 8, !tbaa !3
-  %92 = xor i64 %91, %.sroa.5203.0
+  %92 = xor i64 %91, %.sroa.5211.0
   store i64 %92, ptr %84, align 8, !tbaa !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.3122158, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !10
   %93 = add nsw i64 %.3132157, -1

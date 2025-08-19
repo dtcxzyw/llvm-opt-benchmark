@@ -194,7 +194,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i12:
   store i32 0, ptr %50, align 4, !tbaa !12
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %51, ptr %0, align 8, !tbaa !6, !alias.scope !19
-  %.idx.i.i42 = shl nuw nsw i64 %46, 2
+  %.idx.i.i55 = shl nuw nsw i64 %46, 2
   br label %._crit_edge.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i12.thread: ; preds = %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit
@@ -292,7 +292,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i.
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.thread, %.noexc17, %71
-  %.idx.i.i43 = phi i64 [ %.idx.i.i, %.noexc17 ], [ %.idx.i.i, %71 ], [ %.idx.i.i42, %.thread ]
+  %.idx.i.i56 = phi i64 [ %.idx.i.i, %.noexc17 ], [ %.idx.i.i, %71 ], [ %.idx.i.i55, %.thread ]
   %81 = phi ptr [ %72, %.noexc17 ], [ %72, %71 ], [ %44, %.thread ]
   %.pre8.i.i.i = phi ptr [ %80, %.noexc17 ], [ %75, %71 ], [ %51, %.thread ]
   switch i64 %45, label %84 [
@@ -306,13 +306,13 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i.
   br label %85
 
 84:                                               ; preds = %._crit_edge.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.pre8.i.i.i, ptr nonnull align 4 %81, i64 %.idx.i.i43, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.pre8.i.i.i, ptr nonnull align 4 %81, i64 %.idx.i.i56, i1 false)
   br label %85
 
 85:                                               ; preds = %84, %82, %._crit_edge.i.i.i
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %46, ptr %86, align 8, !tbaa !14, !alias.scope !19
-  %87 = getelementptr inbounds nuw i8, ptr %.pre8.i.i.i, i64 %.idx.i.i43
+  %87 = getelementptr inbounds nuw i8, ptr %.pre8.i.i.i, i64 %.idx.i.i56
   store i32 0, ptr %87, align 4, !tbaa !12
   %88 = icmp eq ptr %81, %6
   br i1 %88, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i.i
@@ -1579,10 +1579,10 @@ _ZN7jsonnet8internal13UStringStreamlsEDi.exit:    ; preds = %_ZNKSt7__cxx1112bas
 
 474:                                              ; preds = %50, %48, %._crit_edge.i.i.i
   %475 = phi i64 [ %.pre190, %50 ], [ 1, %48 ], [ %.pre190, %._crit_edge.i.i.i ]
-  %.idx.i.i193196 = phi i64 [ %.idx.i.i, %50 ], [ 4, %48 ], [ %.pre190, %._crit_edge.i.i.i ]
+  %.idx.i.i230233 = phi i64 [ %.idx.i.i, %50 ], [ 4, %48 ], [ %.pre190, %._crit_edge.i.i.i ]
   %476 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %475, ptr %476, align 8, !tbaa !14, !alias.scope !25
-  %477 = getelementptr inbounds nuw i8, ptr %.pre8.i.i.i, i64 %.idx.i.i193196
+  %477 = getelementptr inbounds nuw i8, ptr %.pre8.i.i.i, i64 %.idx.i.i230233
   store i32 0, ptr %477, align 4, !tbaa !12
   %478 = icmp eq ptr %.pre189, %8
   br i1 %478, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i128, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i.i126

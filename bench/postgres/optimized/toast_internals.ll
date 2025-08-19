@@ -212,7 +212,7 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   br i1 %55, label %56, label %.thread
 
 .thread:                                          ; preds = %53, %54
-  %.pre.pre93 = load ptr, ptr %5, align 8
+  %.pre.pre96 = load ptr, ptr %5, align 8
   br label %.preheader
 
 56:                                               ; preds = %54
@@ -225,10 +225,10 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   br i1 %58, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.thread, %56
-  %.pre.pre95 = phi ptr [ %.pre.pre93, %.thread ], [ %.pre.pre, %56 ]
-  %.294 = phi i32 [ %.066, %.thread ], [ %spec.select, %56 ]
+  %.pre.pre98 = phi ptr [ %.pre.pre96, %.thread ], [ %.pre.pre, %56 ]
+  %.297 = phi i32 [ %.066, %.thread ], [ %spec.select, %56 ]
   %59 = sext i32 %19 to i64
-  %60 = getelementptr inbounds ptr, ptr %.pre.pre95, i64 %59
+  %60 = getelementptr inbounds ptr, ptr %.pre.pre98, i64 %59
   br label %61
 
 61:                                               ; preds = %.preheader, %61
@@ -243,9 +243,9 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   br i1 %68, label %61, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %61, %56, %43
-  %.pre = phi ptr [ %.pre.pre, %56 ], [ %46, %43 ], [ %.pre.pre95, %61 ]
+  %.pre = phi ptr [ %.pre.pre, %56 ], [ %46, %43 ], [ %.pre.pre98, %61 ]
   %.sroa.17.077 = phi i32 [ %42, %56 ], [ %45, %43 ], [ %42, %61 ]
-  %.1 = phi i32 [ %spec.select, %56 ], [ %.066, %43 ], [ %.294, %61 ]
+  %.1 = phi i32 [ %spec.select, %56 ], [ %.066, %43 ], [ %.297, %61 ]
   %.sroa.9.0 = phi i32 [ %.sroa.3.0.copyload, %56 ], [ %52, %43 ], [ %65, %61 ]
   %69 = zext i32 %.sroa.9.0 to i64
   store i64 %69, ptr %6, align 16

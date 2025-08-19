@@ -286,7 +286,7 @@ define void @_ZN4cvc58internal24IllegalArgumentException14formatVariadicB5cxx11E
   br i1 %.not.not, label %.thread, label %14
 
 14:                                               ; preds = %10
-  %15 = sext i32 %.028 to i64
+  %15 = zext nneg i32 %.028 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -1
   store i8 0, ptr %17, align 1, !tbaa !21

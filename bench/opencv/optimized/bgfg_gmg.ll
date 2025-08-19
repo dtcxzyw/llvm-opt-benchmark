@@ -801,10 +801,10 @@ _ZN2cv6bgsegmL11findFeatureEiPKiPKfi.exit:        ; preds = %85, %84, %89
   br label %_ZN2cv6bgsegmL13insertFeatureEifPiPfRii.exit
 
 _ZN2cv6bgsegmL13insertFeatureEifPiPfRii.exit:     ; preds = %115, %125
-  %.sink143 = phi i64 [ %121, %115 ], [ %129, %125 ]
+  %.sink149 = phi i64 [ %121, %115 ], [ %129, %125 ]
   %.04247.i = phi float [ %118, %115 ], [ %123, %125 ]
   %130 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %130, ptr align 4 %76, i64 %.sink143, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %130, ptr align 4 %76, i64 %.sink149, i1 false)
   store i32 %81, ptr %71, align 4, !tbaa !57
   store float %.04247.i, ptr %76, align 4, !tbaa !64
   br label %148
@@ -923,10 +923,10 @@ _ZN2cv6bgsegmL18normalizeHistogramEPfi.exit:      ; preds = %.lr.ph18.i, %135, %
   br label %_ZN2cv6bgsegmL13insertFeatureEifPiPfRii.exit75
 
 178:                                              ; preds = %168, %160
-  %.sink144 = phi i64 [ %172, %168 ], [ %166, %160 ]
+  %.sink150 = phi i64 [ %172, %168 ], [ %166, %160 ]
   %.04247.i68 = phi float [ 1.000000e+00, %168 ], [ %163, %160 ]
   %179 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %179, ptr align 4 %76, i64 %.sink144, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %179, ptr align 4 %76, i64 %.sink150, i1 false)
   store i32 %81, ptr %71, align 4, !tbaa !57
   store float %.04247.i68, ptr %76, align 4, !tbaa !64
   br label %_ZN2cv6bgsegmL13insertFeatureEifPiPfRii.exit75
@@ -1395,13 +1395,13 @@ switch.lookup:                                    ; preds = %69
   %switch.gep = getelementptr inbounds nuw [5 x double], ptr @switch.table._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEd, i64 0, i64 %71
   %switch.load = load double, ptr %switch.gep, align 8
   %72 = zext nneg i32 %20 to i64
-  %switch.gep70 = getelementptr inbounds nuw [5 x double], ptr @switch.table._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEd.3, i64 0, i64 %72
-  %switch.load71 = load double, ptr %switch.gep70, align 8
+  %switch.gep74 = getelementptr inbounds nuw [5 x double], ptr @switch.table._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEd.3, i64 0, i64 %72
+  %switch.load75 = load double, ptr %switch.gep74, align 8
   br label %73
 
 73:                                               ; preds = %switch.lookup, %69, %62
   %.046 = phi double [ %64, %62 ], [ 0.000000e+00, %69 ], [ %switch.load, %switch.lookup ]
-  %.045 = phi double [ %66, %62 ], [ 1.000000e+00, %69 ], [ %switch.load71, %switch.lookup ]
+  %.045 = phi double [ %66, %62 ], [ 1.000000e+00, %69 ], [ %switch.load75, %switch.lookup ]
   invoke void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5Size_IiEEdd(ptr noundef nonnull align 8 dereferenceable(408) %0, i64 %.sroa.0.0.insert.insert.i, double noundef %.046, double noundef %.045)
           to label %76 unwind label %74
 

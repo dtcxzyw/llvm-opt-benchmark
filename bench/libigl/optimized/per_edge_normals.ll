@@ -240,14 +240,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEll.ex
   %46 = load ptr, ptr %6, align 8
   %47 = load ptr, ptr %4, align 8
   %48 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv108
-  %invariant.gep114 = getelementptr i32, ptr %46, i64 %indvars.iv108
+  %invariant.gep117 = getelementptr i32, ptr %46, i64 %indvars.iv108
   br label %.lr.ph.i.i.i.i.i.i.preheader.us.us.us.us
 
 .lr.ph.i.i.i.i.i.i.preheader.us.us.us.us:         ; preds = %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEpLINS1_IKS3_Li1ELin1ELb0EEEEERS4_RKNS0_IT_EE.exit.loopexit.us.us.us.us, %.preheader.us.us
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEpLINS1_IKS3_Li1ELin1ELb0EEEEERS4_RKNS0_IT_EE.exit.loopexit.us.us.us.us ], [ 0, %.preheader.us.us ]
   %49 = mul nuw nsw i64 %indvars.iv104, %45
-  %gep115 = getelementptr i32, ptr %invariant.gep114, i64 %49
-  %50 = load i32, ptr %gep115, align 4, !tbaa !21
+  %gep118 = getelementptr i32, ptr %invariant.gep117, i64 %49
+  %50 = load i32, ptr %gep118, align 4, !tbaa !21
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds double, ptr %47, i64 %51
   br label %.lr.ph.i.i.i.i.i.i.us.us.us.us
@@ -492,14 +492,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEll.ex
   %46 = load ptr, ptr %6, align 8
   %47 = load ptr, ptr %4, align 8
   %48 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv108
-  %invariant.gep114 = getelementptr i32, ptr %46, i64 %indvars.iv108
+  %invariant.gep117 = getelementptr i32, ptr %46, i64 %indvars.iv108
   br label %.lr.ph.i.i.i.i.i.i.preheader.us.us.us.us
 
 .lr.ph.i.i.i.i.i.i.preheader.us.us.us.us:         ; preds = %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEpLINS1_IKS3_Li1ELin1ELb0EEEEERS4_RKNS0_IT_EE.exit.loopexit.us.us.us.us, %.preheader.us.us
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEpLINS1_IKS3_Li1ELin1ELb0EEEEERS4_RKNS0_IT_EE.exit.loopexit.us.us.us.us ], [ 0, %.preheader.us.us ]
   %49 = mul nuw nsw i64 %indvars.iv104, %45
-  %gep115 = getelementptr i32, ptr %invariant.gep114, i64 %49
-  %50 = load i32, ptr %gep115, align 4, !tbaa !21
+  %gep118 = getelementptr i32, ptr %invariant.gep117, i64 %49
+  %50 = load i32, ptr %gep118, align 4, !tbaa !21
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds double, ptr %47, i64 %51
   br label %.lr.ph.i.i.i.i.i.i.us.us.us.us
@@ -745,14 +745,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE7setZeroEll.exit
   %39 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv92
   %40 = getelementptr inbounds double, ptr %39, i64 %35
   %41 = getelementptr inbounds i8, ptr %39, i64 %.idx2.i.i.i.i.i.i.i.i.i.us.us
-  %invariant.gep98 = getelementptr i32, ptr %37, i64 %indvars.iv92
+  %invariant.gep99 = getelementptr i32, ptr %37, i64 %indvars.iv92
   br label %42
 
 42:                                               ; preds = %42, %.preheader.us
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %42 ], [ 0, %.preheader.us ]
   %43 = mul nuw nsw i64 %indvars.iv88, %36
-  %gep99 = getelementptr i32, ptr %invariant.gep98, i64 %43
-  %44 = load i32, ptr %gep99, align 4, !tbaa !21
+  %gep100 = getelementptr i32, ptr %invariant.gep99, i64 %43
+  %44 = load i32, ptr %gep100, align 4, !tbaa !21
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds double, ptr %38, i64 %45
   %47 = load double, ptr %39, align 8, !tbaa !18
@@ -958,14 +958,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE7setZeroEll.exit
   %39 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv92
   %40 = getelementptr inbounds double, ptr %39, i64 %35
   %41 = getelementptr inbounds i8, ptr %39, i64 %.idx2.i.i.i.i.i.i.i.i.i.us.us
-  %invariant.gep98 = getelementptr i32, ptr %37, i64 %indvars.iv92
+  %invariant.gep99 = getelementptr i32, ptr %37, i64 %indvars.iv92
   br label %42
 
 42:                                               ; preds = %42, %.preheader.us
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %42 ], [ 0, %.preheader.us ]
   %43 = mul nuw nsw i64 %indvars.iv88, %36
-  %gep99 = getelementptr i32, ptr %invariant.gep98, i64 %43
-  %44 = load i32, ptr %gep99, align 4, !tbaa !21
+  %gep100 = getelementptr i32, ptr %invariant.gep99, i64 %43
+  %44 = load i32, ptr %gep100, align 4, !tbaa !21
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds double, ptr %38, i64 %45
   %47 = load double, ptr %39, align 8, !tbaa !18
@@ -1195,14 +1195,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEll.ex
   %46 = load ptr, ptr %6, align 8
   %47 = load ptr, ptr %4, align 8
   %48 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv108
-  %invariant.gep114 = getelementptr i32, ptr %46, i64 %indvars.iv108
+  %invariant.gep117 = getelementptr i32, ptr %46, i64 %indvars.iv108
   br label %.lr.ph.i.i.i.i.i.i.preheader.us.us.us.us
 
 .lr.ph.i.i.i.i.i.i.preheader.us.us.us.us:         ; preds = %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEpLINS1_IKS3_Li1ELin1ELb0EEEEERS4_RKNS0_IT_EE.exit.loopexit.us.us.us.us, %.preheader.us.us
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEpLINS1_IKS3_Li1ELin1ELb0EEEEERS4_RKNS0_IT_EE.exit.loopexit.us.us.us.us ], [ 0, %.preheader.us.us ]
   %49 = mul nuw nsw i64 %indvars.iv104, %45
-  %gep115 = getelementptr i32, ptr %invariant.gep114, i64 %49
-  %50 = load i32, ptr %gep115, align 4, !tbaa !21
+  %gep118 = getelementptr i32, ptr %invariant.gep117, i64 %49
+  %50 = load i32, ptr %gep118, align 4, !tbaa !21
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds double, ptr %47, i64 %51
   br label %.lr.ph.i.i.i.i.i.i.us.us.us.us
@@ -1423,14 +1423,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE7setZeroEll.exit
   %39 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv92
   %40 = getelementptr inbounds double, ptr %39, i64 %35
   %41 = getelementptr inbounds i8, ptr %39, i64 %.idx2.i.i.i.i.i.i.i.i.i.us.us
-  %invariant.gep98 = getelementptr i32, ptr %37, i64 %indvars.iv92
+  %invariant.gep99 = getelementptr i32, ptr %37, i64 %indvars.iv92
   br label %42
 
 42:                                               ; preds = %42, %.preheader.us
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %42 ], [ 0, %.preheader.us ]
   %43 = mul nuw nsw i64 %indvars.iv88, %36
-  %gep99 = getelementptr i32, ptr %invariant.gep98, i64 %43
-  %44 = load i32, ptr %gep99, align 4, !tbaa !21
+  %gep100 = getelementptr i32, ptr %invariant.gep99, i64 %43
+  %44 = load i32, ptr %gep100, align 4, !tbaa !21
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds double, ptr %38, i64 %45
   %47 = load double, ptr %39, align 8, !tbaa !18
@@ -1656,14 +1656,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE7setZeroEll.ex
   %46 = load ptr, ptr %6, align 8
   %47 = load ptr, ptr %4, align 8
   %48 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv109
-  %invariant.gep115 = getelementptr i32, ptr %46, i64 %indvars.iv109
+  %invariant.gep118 = getelementptr i32, ptr %46, i64 %indvars.iv109
   br label %.lr.ph.i.i.i.i.i.i.preheader.us.us.us.us
 
 .lr.ph.i.i.i.i.i.i.preheader.us.us.us.us:         ; preds = %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEpLINS1_IKS3_Li1ELin1ELb0EEEEERS4_RKNS0_IT_EE.exit.loopexit.us.us.us.us, %.preheader.us.us
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEpLINS1_IKS3_Li1ELin1ELb0EEEEERS4_RKNS0_IT_EE.exit.loopexit.us.us.us.us ], [ 0, %.preheader.us.us ]
   %49 = mul nuw nsw i64 %indvars.iv105, %45
-  %gep116 = getelementptr i32, ptr %invariant.gep115, i64 %49
-  %50 = load i32, ptr %gep116, align 4, !tbaa !21
+  %gep119 = getelementptr i32, ptr %invariant.gep118, i64 %49
+  %50 = load i32, ptr %gep119, align 4, !tbaa !21
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds float, ptr %47, i64 %51
   br label %.lr.ph.i.i.i.i.i.i.us.us.us.us
@@ -1883,14 +1883,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEEE7setZeroEll.exit
   %39 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv93
   %40 = getelementptr inbounds float, ptr %39, i64 %35
   %41 = getelementptr inbounds i8, ptr %39, i64 %.idx2.i.i.i.i.i.i.i.i.i.us.us
-  %invariant.gep99 = getelementptr i32, ptr %37, i64 %indvars.iv93
+  %invariant.gep100 = getelementptr i32, ptr %37, i64 %indvars.iv93
   br label %42
 
 42:                                               ; preds = %42, %.preheader.us
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %42 ], [ 0, %.preheader.us ]
   %43 = mul nuw nsw i64 %indvars.iv89, %36
-  %gep100 = getelementptr i32, ptr %invariant.gep99, i64 %43
-  %44 = load i32, ptr %gep100, align 4, !tbaa !21
+  %gep101 = getelementptr i32, ptr %invariant.gep100, i64 %43
+  %44 = load i32, ptr %gep101, align 4, !tbaa !21
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds float, ptr %38, i64 %45
   %47 = load float, ptr %39, align 4, !tbaa !109
@@ -2117,14 +2117,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE7setZeroEll.ex
   %46 = load ptr, ptr %6, align 8
   %47 = load ptr, ptr %4, align 8
   %48 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv109
-  %invariant.gep115 = getelementptr i32, ptr %46, i64 %indvars.iv109
+  %invariant.gep118 = getelementptr i32, ptr %46, i64 %indvars.iv109
   br label %.lr.ph.i.i.i.i.i.i.preheader.us.us.us.us
 
 .lr.ph.i.i.i.i.i.i.preheader.us.us.us.us:         ; preds = %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEpLINS1_IKS3_Li1ELin1ELb0EEEEERS4_RKNS0_IT_EE.exit.loopexit.us.us.us.us, %.preheader.us.us
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEpLINS1_IKS3_Li1ELin1ELb0EEEEERS4_RKNS0_IT_EE.exit.loopexit.us.us.us.us ], [ 0, %.preheader.us.us ]
   %49 = mul nuw nsw i64 %indvars.iv105, %45
-  %gep116 = getelementptr i32, ptr %invariant.gep115, i64 %49
-  %50 = load i32, ptr %gep116, align 4, !tbaa !21
+  %gep119 = getelementptr i32, ptr %invariant.gep118, i64 %49
+  %50 = load i32, ptr %gep119, align 4, !tbaa !21
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds float, ptr %47, i64 %51
   br label %.lr.ph.i.i.i.i.i.i.us.us.us.us
@@ -2344,14 +2344,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEEE7setZeroEll.exit
   %39 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv93
   %40 = getelementptr inbounds float, ptr %39, i64 %35
   %41 = getelementptr inbounds i8, ptr %39, i64 %.idx2.i.i.i.i.i.i.i.i.i.us.us
-  %invariant.gep99 = getelementptr i32, ptr %37, i64 %indvars.iv93
+  %invariant.gep100 = getelementptr i32, ptr %37, i64 %indvars.iv93
   br label %42
 
 42:                                               ; preds = %42, %.preheader.us
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %42 ], [ 0, %.preheader.us ]
   %43 = mul nuw nsw i64 %indvars.iv89, %36
-  %gep100 = getelementptr i32, ptr %invariant.gep99, i64 %43
-  %44 = load i32, ptr %gep100, align 4, !tbaa !21
+  %gep101 = getelementptr i32, ptr %invariant.gep100, i64 %43
+  %44 = load i32, ptr %gep101, align 4, !tbaa !21
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds float, ptr %38, i64 %45
   %47 = load float, ptr %39, align 4, !tbaa !109
@@ -3001,14 +3001,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEll.ex
   %46 = load ptr, ptr %6, align 8
   %47 = load ptr, ptr %4, align 8
   %48 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv107
-  %invariant.gep113 = getelementptr i32, ptr %46, i64 %indvars.iv107
+  %invariant.gep116 = getelementptr i32, ptr %46, i64 %indvars.iv107
   br label %.lr.ph.i.i.i.i.i.i.preheader.us.us.us.us
 
 .lr.ph.i.i.i.i.i.i.preheader.us.us.us.us:         ; preds = %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEpLINS1_IKNS2_IdLin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEEEERS4_RKNS0_IT_EE.exit.loopexit.us.us.us.us, %.preheader.us.us
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEpLINS1_IKNS2_IdLin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEEEERS4_RKNS0_IT_EE.exit.loopexit.us.us.us.us ], [ 0, %.preheader.us.us ]
   %49 = mul nuw nsw i64 %indvars.iv103, %45
-  %gep114 = getelementptr i32, ptr %invariant.gep113, i64 %49
-  %50 = load i32, ptr %gep114, align 4, !tbaa !21
+  %gep117 = getelementptr i32, ptr %invariant.gep116, i64 %49
+  %50 = load i32, ptr %gep117, align 4, !tbaa !21
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds double, ptr %47, i64 %51
   br label %.lr.ph.i.i.i.i.i.i.us.us.us.us

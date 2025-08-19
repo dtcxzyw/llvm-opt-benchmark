@@ -1105,7 +1105,7 @@ _ZN5boost6fibers9scheduler19remote_ready2ready_Ev.exit: ; preds = %_ZN5boost6fib
   br i1 %.not11.i, label %_ZN5boost6fibers9scheduler12sleep2ready_Ev.exit, label %.lr.ph.i6
 
 .lr.ph.i6:                                        ; preds = %_ZN5boost6fibers9scheduler19remote_ready2ready_Ev.exit, %_ZN5boost9intrusive11bstree_implINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEEvNS3_9scheduler14timepoint_lessEmLb0ELNS0_10algo_typesE5EvE5eraseENS0_13tree_iteratorISE_Lb1EEE.exit.i
-  %.sroa.05.012.i = phi ptr [ %.013.i.i.i.i27, %_ZN5boost9intrusive11bstree_implINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEEvNS3_9scheduler14timepoint_lessEmLb0ELNS0_10algo_typesE5EvE5eraseENS0_13tree_iteratorISE_Lb1EEE.exit.i ], [ %159, %_ZN5boost6fibers9scheduler19remote_ready2ready_Ev.exit ]
+  %.sroa.05.012.i = phi ptr [ %.013.i.i.i.i54, %_ZN5boost9intrusive11bstree_implINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEEvNS3_9scheduler14timepoint_lessEmLb0ELNS0_10algo_typesE5EvE5eraseENS0_13tree_iteratorISE_Lb1EEE.exit.i ], [ %159, %_ZN5boost6fibers9scheduler19remote_ready2ready_Ev.exit ]
   %160 = ptrtoint ptr %.sroa.05.012.i to i64
   %161 = add i64 %160, -112
   %162 = inttoptr i64 %161 to ptr
@@ -1142,7 +1142,7 @@ _ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_me
   %172 = select i1 %.not16.i.i.i.i, ptr %.014.i.i.i.i, ptr %.0.i.i.i.i
   %173 = getelementptr inbounds nuw i8, ptr %.sroa.05.012.i, i64 8
   %174 = load ptr, ptr %173, align 8, !tbaa !23, !noalias !106
-  %.not.i1125 = icmp eq ptr %174, null
+  %.not.i1152 = icmp eq ptr %174, null
   br label %.thread.i
 
 _ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i: ; preds = %.preheader17.i.i.i.i
@@ -1159,10 +1159,10 @@ _ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_me
   br i1 %.not.i.i12, label %182, label %.preheader99.i, !llvm.loop !34
 
 .thread.i:                                        ; preds = %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i.thread, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i
-  %.not.i1131 = phi i1 [ %.not.i1125, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i.thread ], [ true, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i ]
+  %.not.i1158 = phi i1 [ %.not.i1152, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i.thread ], [ true, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i ]
   %177 = phi ptr [ %174, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i.thread ], [ %176, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i ]
-  %.013.i.i.i.i29 = phi ptr [ %172, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i.thread ], [ %.05.i.i.i.i.i, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i ]
-  %.mux = select i1 %.not.i1131, ptr %166, ptr %177
+  %.013.i.i.i.i56 = phi ptr [ %172, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i.thread ], [ %.05.i.i.i.i.i, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i ]
+  %.mux = select i1 %.not.i1158, ptr %166, ptr %177
   %178 = load ptr, ptr %.sroa.05.012.i, align 8, !tbaa !35, !noalias !106
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %180 = load ptr, ptr %179, align 8, !tbaa !23, !noalias !106
@@ -1225,9 +1225,9 @@ _ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_me
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE.exit
 
 200:                                              ; preds = %182, %.thread.i
-  %.not.i1130 = phi i1 [ %.not.i1131, %.thread.i ], [ false, %182 ]
+  %.not.i1157 = phi i1 [ %.not.i1158, %.thread.i ], [ false, %182 ]
   %201 = phi ptr [ %177, %.thread.i ], [ %176, %182 ]
-  %.013.i.i.i.i28 = phi ptr [ %.013.i.i.i.i29, %.thread.i ], [ %.05.i.i.i.i.i, %182 ]
+  %.013.i.i.i.i55 = phi ptr [ %.013.i.i.i.i56, %.thread.i ], [ %.05.i.i.i.i.i, %182 ]
   %202 = phi i1 [ %181, %.thread.i ], [ %188, %182 ]
   %203 = phi ptr [ %179, %.thread.i ], [ %186, %182 ]
   %204 = phi ptr [ %178, %.thread.i ], [ %185, %182 ]
@@ -1303,7 +1303,7 @@ _ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7m
   br i1 %223, label %224, label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE.exit
 
 224:                                              ; preds = %221
-  br i1 %.not.i1130, label %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i, label %.preheader.i
+  br i1 %.not.i1157, label %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %224, %.preheader.i
   %.05.i87.i = phi ptr [ %.0.i89.i, %.preheader.i ], [ %201, %224 ]
@@ -1318,7 +1318,7 @@ _ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7m
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE.exit
 
 _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE.exit: ; preds = %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i, %221, %198, %197, %195
-  %.013.i.i.i.i27 = phi ptr [ %.013.i.i.i.i28, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %.013.i.i.i.i28, %221 ], [ %.05.i.i.i.i.i, %195 ], [ %.05.i.i.i.i.i, %197 ], [ %.05.i.i.i.i.i, %198 ]
+  %.013.i.i.i.i54 = phi ptr [ %.013.i.i.i.i55, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %.013.i.i.i.i55, %221 ], [ %.05.i.i.i.i.i, %195 ], [ %.05.i.i.i.i.i, %197 ], [ %.05.i.i.i.i.i, %198 ]
   %.096.i = phi ptr [ %.097.i, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %.097.i, %221 ], [ %.05.i.i, %195 ], [ %.05.i.i, %197 ], [ %.05.i.i, %198 ]
   %.06294.i = phi ptr [ %.06295.i, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %.06295.i, %221 ], [ %184, %195 ], [ %184, %197 ], [ %184, %198 ]
   %.1.i13 = phi ptr [ %204, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %204, %221 ], [ %.063.i, %195 ], [ %.063.i, %197 ], [ %.063.i, %198 ]
@@ -1352,7 +1352,7 @@ _ZN5boost9intrusive11bstree_implINS0_8mhtraitsINS_6fibers7contextENS0_15set_memb
   store i64 9223372036854775807, ptr %163, align 8, !tbaa !29
   %236 = getelementptr inbounds nuw i8, ptr %162, i64 144
   %237 = call noundef zeroext i1 @_ZNK5boost6fibers5waker4wakeEv(ptr noundef nonnull align 8 dereferenceable(16) %236) #21
-  %.not.i = icmp eq ptr %.013.i.i.i.i27, %24
+  %.not.i = icmp eq ptr %.013.i.i.i.i54, %24
   br i1 %.not.i, label %_ZN5boost6fibers9scheduler12sleep2ready_Ev.exit, label %.lr.ph.i6, !llvm.loop !42
 
 _ZN5boost6fibers9scheduler12sleep2ready_Ev.exit:  ; preds = %.lr.ph.i6, %_ZN5boost9intrusive11bstree_implINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEEvNS3_9scheduler14timepoint_lessEmLb0ELNS0_10algo_typesE5EvE5eraseENS0_13tree_iteratorISE_Lb1EEE.exit.i, %_ZN5boost6fibers9scheduler19remote_ready2ready_Ev.exit
@@ -2435,7 +2435,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotat
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %44 = load i32, ptr %43, align 8, !tbaa !39
   %45 = icmp eq i32 %44, 1
-  br i1 %45, label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit121, label %.thread252
+  br i1 %45, label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit121, label %.thread275
 
 46:                                               ; preds = %37
   %47 = getelementptr inbounds nuw i8, ptr %.091, i64 8
@@ -2446,7 +2446,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotat
   %.phi.trans.insert248 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %.pre249 = load i32, ptr %.phi.trans.insert248, align 8, !tbaa !39
   %48 = icmp eq i32 %.pre249, 1
-  br i1 %48, label %49, label %.thread252
+  br i1 %48, label %49, label %.thread275
 
 49:                                               ; preds = %.thread, %46
   %50 = getelementptr inbounds nuw i8, ptr %34, i64 24
@@ -2490,7 +2490,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotat
   store ptr %34, ptr %64, align 8, !tbaa !30
   br label %68
 
-.thread252:                                       ; preds = %42, %.thread
+.thread275:                                       ; preds = %42, %.thread
   %65 = getelementptr inbounds nuw i8, ptr %.086200, i64 24
   %66 = load i32, ptr %65, align 8, !tbaa !39
   %67 = getelementptr inbounds nuw i8, ptr %.091, i64 24
@@ -2510,9 +2510,9 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotat
   %.not116 = icmp eq ptr %.pre251, null
   br i1 %.not116, label %77, label %73
 
-73:                                               ; preds = %.thread252, %68
-  %74 = phi ptr [ %.091, %.thread252 ], [ %69, %68 ]
-  %75 = phi ptr [ %36, %.thread252 ], [ %.pre251, %68 ]
+73:                                               ; preds = %.thread275, %68
+  %74 = phi ptr [ %.091, %.thread275 ], [ %69, %68 ]
+  %75 = phi ptr [ %36, %.thread275 ], [ %.pre251, %68 ]
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store i32 1, ptr %76, align 8, !tbaa !39
   br label %77
@@ -2627,7 +2627,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE12rotat
   %121 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %122 = load i32, ptr %121, align 8, !tbaa !39
   %123 = icmp eq i32 %122, 1
-  br i1 %123, label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit121, label %.thread255
+  br i1 %123, label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit121, label %.thread278
 
 124:                                              ; preds = %115
   %125 = getelementptr inbounds nuw i8, ptr %.093, i64 16
@@ -2638,7 +2638,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE12rotat
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %112, i64 24
   %.pre244 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !39
   %126 = icmp eq i32 %.pre244, 1
-  br i1 %126, label %127, label %.thread255
+  br i1 %126, label %127, label %.thread278
 
 127:                                              ; preds = %.thread136, %124
   %128 = getelementptr inbounds nuw i8, ptr %114, i64 24
@@ -2682,7 +2682,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotat
   store ptr %114, ptr %142, align 8, !tbaa !30
   br label %146
 
-.thread255:                                       ; preds = %120, %.thread136
+.thread278:                                       ; preds = %120, %.thread136
   %143 = getelementptr inbounds nuw i8, ptr %.086200, i64 24
   %144 = load i32, ptr %143, align 8, !tbaa !39
   %145 = getelementptr inbounds nuw i8, ptr %.093, i64 24
@@ -2702,9 +2702,9 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotat
   %.not112 = icmp eq ptr %.pre246, null
   br i1 %.not112, label %155, label %151
 
-151:                                              ; preds = %.thread255, %146
-  %152 = phi ptr [ %.093, %.thread255 ], [ %147, %146 ]
-  %153 = phi ptr [ %112, %.thread255 ], [ %.pre246, %146 ]
+151:                                              ; preds = %.thread278, %146
+  %152 = phi ptr [ %.093, %.thread278 ], [ %147, %146 ]
+  %153 = phi ptr [ %112, %.thread278 ], [ %.pre246, %146 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 24
   store i32 1, ptr %154, align 8, !tbaa !39
   br label %155

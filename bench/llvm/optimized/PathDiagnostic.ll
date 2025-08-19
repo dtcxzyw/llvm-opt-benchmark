@@ -715,9 +715,9 @@ _ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_p
   %48 = load ptr, ptr %6, align 8, !tbaa !60
   %.not54 = icmp eq ptr %48, null
   %.pre58 = load ptr, ptr %12, align 8, !tbaa !42
-  br i1 %.not54, label %54, label %.thread60
+  br i1 %.not54, label %54, label %.thread71
 
-.thread60:                                        ; preds = %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+.thread71:                                        ; preds = %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %49 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -778,7 +778,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i37: ; preds = %72, %70
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pre58) #25
   br label %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit39
 
-_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit39: ; preds = %.thread60, %54, %60, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i37, %75
+_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit39: ; preds = %.thread71, %54, %60, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i37, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %141
 
@@ -2674,7 +2674,7 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit117: ; preds = %_ZN
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.sink.split.sink.split: ; preds = %399, %395
   %.sink = phi i32 [ %397, %395 ], [ %401, %399 ]
-  %.sink233.ph = phi ptr [ %396, %395 ], [ %400, %399 ]
+  %.sink261.ph = phi ptr [ %396, %395 ], [ %400, %399 ]
   %403 = zext i32 %.sink to i64
   %404 = add nuw nsw i64 %403, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %45, i64 noundef %404, i64 noundef 8) #25
@@ -2682,12 +2682,12 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.sink.split.sink.split: ; preds = %39
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.sink.split
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.sink.split: ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.sink.split.sink.split, %399, %395
-  %.sink235 = phi i32 [ %397, %395 ], [ %401, %399 ], [ %.pre.i128, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.sink.split.sink.split ]
-  %.sink233 = phi ptr [ %396, %395 ], [ %400, %399 ], [ %.sink233.ph, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.sink.split.sink.split ]
+  %.sink263 = phi i32 [ %397, %395 ], [ %401, %399 ], [ %.pre.i128, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.sink.split.sink.split ]
+  %.sink261 = phi ptr [ %396, %395 ], [ %400, %399 ], [ %.sink261.ph, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.sink.split.sink.split ]
   %405 = load ptr, ptr %6, align 8, !tbaa !124
-  %406 = zext i32 %.sink235 to i64
+  %406 = zext i32 %.sink263 to i64
   %407 = getelementptr inbounds nuw ptr, ptr %405, i64 %406
-  %408 = ptrtoint ptr %.sink233 to i64
+  %408 = ptrtoint ptr %.sink261 to i64
   store i64 %408, ptr %407, align 1
   %409 = load i32, ptr %46, align 8, !tbaa !167
   %410 = add i32 %409, 1
@@ -7842,9 +7842,9 @@ _ZNSt16allocator_traitsISaISt10_List_nodeISt10shared_ptrIN5clang4ento19PathDiagn
   br i1 %.not.i.i7, label %_ZNSt7__cxx1110_List_baseISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EED2Ev.exit, label %.lr.ph.i.i6, !llvm.loop !51
 
 _ZNSt7__cxx1110_List_baseISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i, %4, %31
-  %.sroa.05.012 = phi ptr [ %.sroa.05.0, %31 ], [ %1, %4 ], [ %.sroa.05.0, %_ZNSt16allocator_traitsISaISt10_List_nodeISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i ]
+  %.sroa.05.021 = phi ptr [ %.sroa.05.0, %31 ], [ %1, %4 ], [ %.sroa.05.0, %_ZNSt16allocator_traitsISaISt10_List_nodeISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %.sroa.05.012
+  ret ptr %.sroa.05.021
 }
 
 ; Function Attrs: nounwind
@@ -8156,13 +8156,13 @@ _ZN4llvmneENS_9StringRefES0_.exit.i.i:            ; preds = %23
   br i1 %.not249.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread232.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i: ; preds = %14
-  %.sroa.speculated.i.i269.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %18)
-  %25 = icmp eq i64 %.sroa.speculated.i.i269.i.i, 0
+  %.sroa.speculated.i.i282.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %18)
+  %25 = icmp eq i64 %.sroa.speculated.i.i282.i.i, 0
   br i1 %25, label %.thread.i.i.thread.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.i.i
-  %.sroa.speculated.i.i270.i.i = phi i64 [ %.sroa.speculated.i.i269.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i ], [ %18, %_ZN4llvmneENS_9StringRefES0_.exit.i.i ]
-  %26 = tail call i32 @memcmp(ptr noundef %16, ptr noundef %20, i64 noundef %.sroa.speculated.i.i270.i.i) #29
+  %.sroa.speculated.i.i283.i.i = phi i64 [ %.sroa.speculated.i.i282.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i ], [ %18, %_ZN4llvmneENS_9StringRefES0_.exit.i.i ]
+  %26 = tail call i32 @memcmp(ptr noundef %16, ptr noundef %20, i64 noundef %.sroa.speculated.i.i283.i.i) #29
   %.fr.i.i.i.i = freeze i32 %26
   %.not.not.i.i.i.i = icmp ne i32 %.fr.i.i.i.i, 0
   %.inv.i.i.i.i = icmp sgt i32 %.fr.i.i.i.i, -1
@@ -8203,13 +8203,13 @@ _ZN4llvmneENS_9StringRefES0_.exit109.i.i:         ; preds = %38
   br i1 %.not250.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit109.thread235.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.i
 
 _ZN4llvmneENS_9StringRefES0_.exit109.thread.thread.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread232.i.i
-  %.sroa.speculated.i.i114271.i.i = tail call i64 @llvm.umin.i64(i64 %37, i64 %33)
-  %40 = icmp eq i64 %.sroa.speculated.i.i114271.i.i, 0
+  %.sroa.speculated.i.i114284.i.i = tail call i64 @llvm.umin.i64(i64 %37, i64 %33)
+  %40 = icmp eq i64 %.sroa.speculated.i.i114284.i.i, 0
   br i1 %40, label %.thread.i.i121.thread.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit109.thread.thread.i.i, %_ZN4llvmneENS_9StringRefES0_.exit109.i.i
-  %.sroa.speculated.i.i114272.i.i = phi i64 [ %.sroa.speculated.i.i114271.i.i, %_ZN4llvmneENS_9StringRefES0_.exit109.thread.thread.i.i ], [ %33, %_ZN4llvmneENS_9StringRefES0_.exit109.i.i ]
-  %41 = tail call i32 @memcmp(ptr noundef %31, ptr noundef %35, i64 noundef %.sroa.speculated.i.i114272.i.i) #29
+  %.sroa.speculated.i.i114285.i.i = phi i64 [ %.sroa.speculated.i.i114284.i.i, %_ZN4llvmneENS_9StringRefES0_.exit109.thread.thread.i.i ], [ %33, %_ZN4llvmneENS_9StringRefES0_.exit109.i.i ]
+  %41 = tail call i32 @memcmp(ptr noundef %31, ptr noundef %35, i64 noundef %.sroa.speculated.i.i114285.i.i) #29
   %.fr.i.i116.i.i = freeze i32 %41
   %.not.not.i.i117.i.i = icmp ne i32 %.fr.i.i116.i.i, 0
   %.inv.i.i118.i.i = icmp sgt i32 %.fr.i.i116.i.i, -1
@@ -8250,13 +8250,13 @@ _ZN4llvmneENS_9StringRefES0_.exit130.i.i:         ; preds = %53
   br i1 %.not251.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit130.thread238.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.i
 
 _ZN4llvmneENS_9StringRefES0_.exit130.thread.thread.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit109.thread235.i.i
-  %.sroa.speculated.i.i135273.i.i = tail call i64 @llvm.umin.i64(i64 %52, i64 %48)
-  %55 = icmp eq i64 %.sroa.speculated.i.i135273.i.i, 0
+  %.sroa.speculated.i.i135286.i.i = tail call i64 @llvm.umin.i64(i64 %52, i64 %48)
+  %55 = icmp eq i64 %.sroa.speculated.i.i135286.i.i, 0
   br i1 %55, label %.thread.i.i142.thread.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit130.thread.thread.i.i, %_ZN4llvmneENS_9StringRefES0_.exit130.i.i
-  %.sroa.speculated.i.i135274.i.i = phi i64 [ %.sroa.speculated.i.i135273.i.i, %_ZN4llvmneENS_9StringRefES0_.exit130.thread.thread.i.i ], [ %48, %_ZN4llvmneENS_9StringRefES0_.exit130.i.i ]
-  %56 = tail call i32 @memcmp(ptr noundef %46, ptr noundef %50, i64 noundef %.sroa.speculated.i.i135274.i.i) #29
+  %.sroa.speculated.i.i135287.i.i = phi i64 [ %.sroa.speculated.i.i135286.i.i, %_ZN4llvmneENS_9StringRefES0_.exit130.thread.thread.i.i ], [ %48, %_ZN4llvmneENS_9StringRefES0_.exit130.i.i ]
+  %56 = tail call i32 @memcmp(ptr noundef %46, ptr noundef %50, i64 noundef %.sroa.speculated.i.i135287.i.i) #29
   %.fr.i.i137.i.i = freeze i32 %56
   %.not.not.i.i138.i.i = icmp ne i32 %.fr.i.i137.i.i, 0
   %.inv.i.i139.i.i = icmp sgt i32 %.fr.i.i137.i.i, -1
@@ -8851,7 +8851,7 @@ _ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread: ; preds = 
 50:                                               ; preds = %39
   %51 = call noundef zeroext i1 @_ZNK5clang13FullSourceLoc29isBeforeInTranslationUnitThanENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 %.sroa.0.0.copyload.i37) #25
   %52 = zext i1 %51 to i8
-  br label %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread131
+  br label %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread139
 
 53:                                               ; preds = %39
   %54 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -8880,13 +8880,13 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmneENS_9Stri
   br i1 %64, label %_ZN4llvmltENS_9StringRefES0_.exit, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread.thread:  ; preds = %53
-  %.sroa.speculated.i.i124 = call i64 @llvm.umin.i64(i64 %61, i64 %57)
-  %65 = icmp eq i64 %.sroa.speculated.i.i124, 0
+  %.sroa.speculated.i.i132 = call i64 @llvm.umin.i64(i64 %61, i64 %57)
+  %65 = icmp eq i64 %.sroa.speculated.i.i132, 0
   br i1 %65, label %.thread.i.i.thread, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread, %_ZN4llvmneENS_9StringRefES0_.exit.thread
-  %.sroa.speculated.i.i125 = phi i64 [ %.sroa.speculated.i.i124, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread ], [ %.sroa.speculated.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread ]
-  %66 = call i32 @memcmp(ptr noundef %55, ptr noundef %59, i64 noundef %.sroa.speculated.i.i125) #29
+  %.sroa.speculated.i.i133 = phi i64 [ %.sroa.speculated.i.i132, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread ], [ %.sroa.speculated.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread ]
+  %66 = call i32 @memcmp(ptr noundef %55, ptr noundef %59, i64 noundef %.sroa.speculated.i.i133) #29
   %.fr.i.i = freeze i32 %66
   %.not.not.i.i = icmp ne i32 %.fr.i.i, 0
   %.fr.i.i.lobit = lshr i32 %.fr.i.i, 31
@@ -8901,7 +8901,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %_ZN4llvmneENS_9St
 _ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i.thread
   %.1.i.i = phi i32 [ %68, %.thread.i.i.thread ], [ %.fr.i.i.lobit, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit.thread ]
   %69 = trunc nuw nsw i32 %.1.i.i to i8
-  br label %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread131
+  br label %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread139
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread108:      ; preds = %62, %_ZN4llvmneENS_9StringRefES0_.exit
   %70 = getelementptr inbounds nuw i8, ptr %30, i64 80
@@ -8926,7 +8926,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread108:      ; preds = %62, %_ZN4llvmneENS_
 86:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread108
   %87 = icmp ult i64 %77, %85
   %88 = zext i1 %87 to i8
-  br label %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread131
+  br label %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread139
 
 89:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread108
   %90 = and i64 %76, 34359738360
@@ -8963,14 +8963,14 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread108:      ; preds = %62, %_ZN4llvmneENS_
 100:                                              ; preds = %99
   %101 = call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %48, i32 %.sroa.063.0.extract.trunc, i32 %.sroa.060.0.extract.trunc) #25
   %102 = zext i1 %101 to i8
-  br label %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread131
+  br label %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread139
 
 103:                                              ; preds = %99
   %.sroa.7.0.extract.trunc.le = trunc nuw i64 %.sroa.7.0.extract.shift to i32
   %.sroa.764.0.extract.trunc.le = trunc nuw i64 %.sroa.764.0.extract.shift to i32
   %104 = call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %48, i32 %.sroa.764.0.extract.trunc.le, i32 %.sroa.7.0.extract.trunc.le) #25
   %105 = zext i1 %104 to i8
-  br label %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread131
+  br label %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread139
 
 .critedge50.i:                                    ; preds = %91, %89
   %106 = load i32, ptr %33, align 8, !tbaa !22
@@ -9151,7 +9151,7 @@ _ZL11compareCallRKN5clang4ento23PathDiagnosticCallPieceES3_.exit: ; preds = %131
 156:                                              ; preds = %.critedge50.i
   unreachable
 
-_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread131: ; preds = %50, %_ZN4llvmltENS_9StringRefES0_.exit, %86, %100, %103
+_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread139: ; preds = %50, %_ZN4llvmltENS_9StringRefES0_.exit, %86, %100, %103
   %.sroa.083.1.ph = phi i8 [ %105, %103 ], [ %102, %100 ], [ %88, %86 ], [ %69, %_ZN4llvmltENS_9StringRefES0_.exit ], [ %52, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
@@ -9164,9 +9164,9 @@ _ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit: ; preds = %_ZL18c
   %.not111 = icmp eq i16 %157, 0
   br i1 %.not111, label %.critedge9, label %.critedge, !llvm.loop !511
 
-.critedge:                                        ; preds = %.critedge9, %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit, %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread, %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread131, %23
-  %.sroa.054.0 = phi i8 [ %25, %23 ], [ %38, %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread ], [ %.sroa.083.1.ph, %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread131 ], [ undef, %.critedge9 ], [ %.sroa.083.1, %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit ]
-  %.sroa.3.0 = phi i16 [ 256, %23 ], [ 256, %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread ], [ 256, %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread131 ], [ 0, %.critedge9 ], [ 256, %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit ]
+.critedge:                                        ; preds = %.critedge9, %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit, %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread, %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread139, %23
+  %.sroa.054.0 = phi i8 [ %25, %23 ], [ %38, %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread ], [ %.sroa.083.1.ph, %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread139 ], [ undef, %.critedge9 ], [ %.sroa.083.1, %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit ]
+  %.sroa.3.0 = phi i16 [ 256, %23 ], [ 256, %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread ], [ 256, %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread139 ], [ 0, %.critedge9 ], [ 256, %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit ]
   %.sroa.054.0.insert.ext = zext i8 %.sroa.054.0 to i16
   %.sroa.054.0.insert.insert = or disjoint i16 %.sroa.3.0, %.sroa.054.0.insert.ext
   ret i16 %.sroa.054.0.insert.insert

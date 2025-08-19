@@ -493,8 +493,8 @@ define dso_local noundef zeroext i1 @__percpu_counter_limited_add(ptr noundef %0
 
 43:                                               ; preds = %40
   %44 = add i64 %38, %11
-  %.not7 = icmp sgt i64 %44, %1
-  br i1 %.not7, label %50, label %82
+  %.not10 = icmp sgt i64 %44, %1
+  br i1 %.not10, label %50, label %82
 
 45:                                               ; preds = %35
   %46 = add i64 %38, %11

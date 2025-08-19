@@ -1369,13 +1369,13 @@ define i32 @Cloud_SupportSize(ptr noundef readonly captures(none) %0, ptr nounde
   br i1 %.not, label %15, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %._crit_edge
-  %.0.lcssa21 = phi i32 [ 0, %._crit_edge ], [ %spec.select, %.lr.ph ]
+  %.0.lcssa22 = phi i32 [ 0, %._crit_edge ], [ %spec.select, %.lr.ph ]
   tail call void @free(ptr noundef nonnull %5) #14
   br label %15
 
 15:                                               ; preds = %._crit_edge, %._crit_edge.thread
-  %.0.lcssa22 = phi i32 [ 0, %._crit_edge ], [ %.0.lcssa21, %._crit_edge.thread ]
-  ret i32 %.0.lcssa22
+  %.0.lcssa23 = phi i32 [ 0, %._crit_edge ], [ %.0.lcssa22, %._crit_edge.thread ]
+  ret i32 %.0.lcssa23
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

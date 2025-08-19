@@ -232,12 +232,12 @@ define dso_local void @srun_node_fail(ptr noundef readonly captures(address_is_n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge, %44
-  %.sink62 = phi ptr [ %45, %44 ], [ null, %.critedge ]
-  %.sink61.in = phi ptr [ %39, %44 ], [ %22, %.critedge ]
-  %.sink53 = phi ptr [ %48, %44 ], [ %28, %.critedge ]
-  %.sink52.in = phi ptr [ %55, %44 ], [ getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1168), %.critedge ]
-  %.sink52 = load i32, ptr %.sink52.in, align 8
-  %.sink61 = load ptr, ptr %.sink61.in, align 8
+  %.sink64 = phi ptr [ %45, %44 ], [ null, %.critedge ]
+  %.sink63.in = phi ptr [ %39, %44 ], [ %22, %.critedge ]
+  %.sink55 = phi ptr [ %48, %44 ], [ %28, %.critedge ]
+  %.sink54.in = phi ptr [ %55, %44 ], [ getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1168), %.critedge ]
+  %.sink54 = load i32, ptr %.sink54.in, align 8
+  %.sink63 = load ptr, ptr %.sink63.in, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 908
   %57 = load i16, ptr %56, align 4
   %58 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 61, ptr noundef nonnull @__func__._srun_agent_launch) #6
@@ -245,15 +245,15 @@ define dso_local void @srun_node_fail(ptr noundef readonly captures(address_is_n
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i16 0, ptr %59, align 4
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  store ptr %.sink62, ptr %60, align 8
-  %61 = call ptr @hostlist_create(ptr noundef %.sink61) #6
+  store ptr %.sink64, ptr %60, align 8
+  %61 = call ptr @hostlist_create(ptr noundef %.sink63) #6
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store ptr %61, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 36
   store i32 7003, ptr %63, align 4
   %64 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  store ptr %.sink53, ptr %64, align 8
-  call void @set_agent_arg_r_uid(ptr noundef nonnull %58, i32 noundef %.sink52) #6
+  store ptr %.sink55, ptr %64, align 8
+  call void @set_agent_arg_r_uid(ptr noundef nonnull %58, i32 noundef %.sink54) #6
   %65 = call i16 @llvm.umin.i16(i16 %57, i16 11008)
   %66 = getelementptr inbounds nuw i8, ptr %58, i64 32
   store i16 %65, ptr %66, align 8

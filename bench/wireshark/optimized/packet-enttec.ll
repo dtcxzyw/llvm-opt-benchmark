@@ -255,8 +255,8 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %65 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %64)
   %66 = add i16 %.0152174.i, 3
   %67 = zext i8 %61 to i16
-  %.not.i = icmp eq i8 %61, 0
-  br i1 %.not.i, label %.loopexit.i, label %.lr.ph172.preheader.i
+  %.not216.i = icmp eq i8 %61, 0
+  br i1 %.not216.i, label %.loopexit.i, label %.lr.ph172.preheader.i
 
 .lr.ph172.preheader.i:                            ; preds = %59
   %68 = zext nneg i16 %.0151175.i to i64
@@ -331,9 +331,9 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   br i1 %exitcond.not.i, label %._crit_edge177.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge177.i:                                 ; preds = %.lr.ph.i, %.loopexit.i, %.preheader165.i, %.preheader166.i
-  %.4.lcssa.sink205.i = phi i16 [ 0, %.preheader165.i ], [ 0, %.preheader166.i ], [ %.2.i, %.loopexit.i ], [ %spec.store.select.i, %.lr.ph.i ]
+  %.4.lcssa.sink218.i = phi i16 [ 0, %.preheader165.i ], [ 0, %.preheader166.i ], [ %.2.i, %.loopexit.i ], [ %spec.store.select.i, %.lr.ph.i ]
   %.4.lcssa.sink.i = phi i16 [ 0, %.preheader165.i ], [ 0, %.preheader166.i ], [ %.1153.i, %.loopexit.i ], [ %spec.store.select.i, %.lr.ph.i ]
-  %103 = zext i16 %.4.lcssa.sink205.i to i64
+  %103 = zext i16 %.4.lcssa.sink218.i to i64
   %104 = getelementptr i16, ptr %44, i64 %103
   store i16 %.4.lcssa.sink.i, ptr %104, align 2
   %105 = icmp eq i8 %49, 1
@@ -349,7 +349,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %111 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %110, ptr noundef %0, i32 noundef 9, i32 noundef %108, i32 noundef 0)
   %112 = load i32, ptr @ett_enttec, align 4
   %113 = tail call ptr @proto_item_add_subtree(ptr noundef %111, i32 noundef %112)
-  %114 = zext i16 %.4.lcssa.sink205.i to i32
+  %114 = zext i16 %.4.lcssa.sink218.i to i32
   %115 = load i32, ptr @global_disp_col_count, align 4
   %116 = sdiv i32 %114, %115
   %117 = srem i32 %114, %115

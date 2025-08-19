@@ -765,8 +765,8 @@ refr_invalid_areas.exit:                          ; preds = %310, %203
   br label %refr_invalid_areas.exit.thread.sink.split
 
 refr_invalid_areas.exit.thread.sink.split:        ; preds = %34, %.loopexit
-  %.sink62 = phi ptr [ %350, %.loopexit ], [ %44, %34 ]
-  %351 = getelementptr inbounds nuw i8, ptr %.sink62, i64 640
+  %.sink78 = phi ptr [ %350, %.loopexit ], [ %44, %34 ]
+  %351 = getelementptr inbounds nuw i8, ptr %.sink78, i64 640
   store i32 0, ptr %351, align 8, !tbaa !54
   br label %refr_invalid_areas.exit.thread
 
@@ -2026,8 +2026,8 @@ wait_for_flushing.exit:                           ; preds = %.preheader.i, %18
   br label %.sink.split
 
 .sink.split:                                      ; preds = %70, %76
-  %.sink27 = phi ptr [ %78, %76 ], [ %74, %70 ]
-  store ptr %.sink27, ptr %71, align 8, !tbaa !46
+  %.sink28 = phi ptr [ %78, %76 ], [ %74, %70 ]
+  store ptr %.sink28, ptr %71, align 8, !tbaa !46
   br label %79
 
 79:                                               ; preds = %.sink.split, %66, %64

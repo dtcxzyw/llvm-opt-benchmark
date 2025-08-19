@@ -541,10 +541,10 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br i1 %.not62, label %.thread73, label %71
 
 .thread73:                                        ; preds = %66, %62
-  %.sink86 = phi i32 [ 552, %62 ], [ 558, %66 ]
+  %.sink89 = phi i32 [ 552, %62 ], [ 558, %66 ]
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef %.sink86, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %69) #6
+  %70 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef %.sink89, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %69) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread77
 
@@ -782,8 +782,8 @@ define internal fastcc noundef range(i32 2, 6) i32 @_yaml_to_data(i32 noundef %0
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @yaml_parser_parse(ptr noundef nonnull %1, ptr noundef nonnull %5) #6
-  %.not39 = icmp eq i32 %10, 0
-  br i1 %.not39, label %.thread31, label %.lr.ph
+  %.not40 = icmp eq i32 %10, 0
+  br i1 %.not40, label %.thread31, label %.lr.ph
 
 11:                                               ; preds = %4
   %12 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__._yaml_to_data, i32 noundef %0, ptr noundef %2) #6

@@ -4184,7 +4184,7 @@ define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..E
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = load i64, ptr %0, align 8, !range !772, !noundef !4
-  switch i64 %7, label %default.unreachable29 [
+  switch i64 %7, label %default.unreachable43 [
     i64 0, label %33
     i64 1, label %47
     i64 2, label %61
@@ -4203,7 +4203,7 @@ define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..E
     i64 15, label %8
   ]
 
-default.unreachable29:                            ; preds = %1
+default.unreachable43:                            ; preds = %1
   unreachable
 
 8:                                                ; preds = %1
@@ -5075,7 +5075,7 @@ define internal fastcc void @"_ZN9sqlx_core4pool14Pool$LT$DB$GT$5begin28_$u7b$$u
   %.sroa.1043 = alloca [10 x i32], align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i8, ptr %15, align 8, !range !31, !noundef !4
-  switch i8 %16, label %default.unreachable68 [
+  switch i8 %16, label %default.unreachable69 [
     i8 0, label %17
     i8 1, label %27
     i8 2, label %28
@@ -5083,7 +5083,7 @@ define internal fastcc void @"_ZN9sqlx_core4pool14Pool$LT$DB$GT$5begin28_$u7b$$u
     i8 4, label %23
   ]
 
-default.unreachable68:                            ; preds = %81, %40, %29, %3
+default.unreachable69:                            ; preds = %81, %40, %29, %3
   unreachable
 
 17:                                               ; preds = %3
@@ -5093,7 +5093,7 @@ default.unreachable68:                            ; preds = %81, %40, %29, %3
   %19 = load ptr, ptr %18, align 8, !alias.scope !913, !noalias !914, !nonnull !4, !noundef !4
   %20 = atomicrmw add ptr %19, i64 1 monotonic, align 8, !noalias !916
   %21 = icmp slt i64 %20, 0
-  br i1 %21, label %22, label %.thread69
+  br i1 %21, label %22, label %.thread70
 
 22:                                               ; preds = %17
   tail call void @llvm.trap()
@@ -5106,7 +5106,7 @@ default.unreachable68:                            ; preds = %81, %40, %29, %3
   %.pre67 = load ptr, ptr %.phi.trans.insert66, align 8, !alias.scope !917, !noalias !922
   br label %235
 
-.thread69:                                        ; preds = %17
+.thread70:                                        ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %19, ptr %24, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 1728
@@ -5141,16 +5141,16 @@ default.unreachable68:                            ; preds = %81, %40, %29, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.442.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.633.i)
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 1728
-  switch i8 %.pre, label %default.unreachable68 [
+  switch i8 %.pre, label %default.unreachable69 [
     i8 0, label %.thread.i
     i8 1, label %.invoke
     i8 2, label %37
     i8 3, label %40
   ]
 
-.thread.i:                                        ; preds = %.thread69, %29
-  %32 = phi ptr [ %26, %.thread69 ], [ %31, %29 ]
-  %33 = phi ptr [ %25, %.thread69 ], [ %30, %29 ]
+.thread.i:                                        ; preds = %.thread70, %29
+  %32 = phi ptr [ %26, %.thread70 ], [ %31, %29 ]
+  %33 = phi ptr [ %25, %.thread70 ], [ %30, %29 ]
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %33, ptr %34, align 8, !noalias !925
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 1720
@@ -5184,7 +5184,7 @@ default.unreachable68:                            ; preds = %81, %40, %29, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10.i)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.856.i.i)
-  switch i8 %.pre.i, label %default.unreachable68 [
+  switch i8 %.pre.i, label %default.unreachable69 [
     i8 0, label %._crit_edge
     i8 1, label %.invoke.i
     i8 2, label %78
@@ -5299,7 +5299,7 @@ default.unreachable68:                            ; preds = %81, %40, %29, %3
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 8, !range !40, !noalias !937
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i.sroa.5.i.i)
-  switch i8 %.pre.i.i, label %default.unreachable68 [
+  switch i8 %.pre.i.i, label %default.unreachable69 [
     i8 0, label %._crit_edge55.i
     i8 1, label %.invoke.i.i
     i8 2, label %126
@@ -6819,14 +6819,14 @@ define internal { i64, ptr } @"_ZN145_$LT$ockam_vault..storage..secrets_reposito
   %16 = alloca { { ptr, [1 x i64] }, { ptr, [2 x i64] }, i8, {}, [7 x i8] }, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 154
   %18 = load i8, ptr %17, align 2, !range !40, !noundef !4
-  switch i8 %18, label %default.unreachable88 [
+  switch i8 %18, label %default.unreachable94 [
     i8 0, label %22
     i8 1, label %80
     i8 2, label %81
     i8 3, label %82
   ]
 
-default.unreachable88:                            ; preds = %2
+default.unreachable94:                            ; preds = %2
   unreachable
 
 19:                                               ; preds = %130, %.loopexit.split-lp
@@ -6903,11 +6903,11 @@ common.ret:                                       ; preds = %89, %20
   br label %72
 
 46:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdd83bb8b3fa0b627E.exit", %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdd83bb8b3fa0b627E.exit62"
-  %.pn90 = phi { ptr, i64 } [ %32, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdd83bb8b3fa0b627E.exit" ], [ %37, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdd83bb8b3fa0b627E.exit62" ]
+  %.pn96 = phi { ptr, i64 } [ %32, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdd83bb8b3fa0b627E.exit" ], [ %37, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdd83bb8b3fa0b627E.exit62" ]
   %.sink = phi i64 [ 15, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdd83bb8b3fa0b627E.exit" ], [ 20, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdd83bb8b3fa0b627E.exit62" ]
-  %.sink89 = extractvalue { ptr, i64 } %.pn90, 1
+  %.sink95 = extractvalue { ptr, i64 } %.pn96, 1
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %.sink89, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !4
+  store i64 %.sink95, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !4
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %.sink, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !4
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -7330,7 +7330,7 @@ define internal void @"_ZN145_$LT$ockam_vault..storage..secrets_repository_sql..
   %35 = alloca { i8, [39 x i8] }, align 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %37 = load i8, ptr %36, align 4, !range !94, !noundef !4
-  switch i8 %37, label %default.unreachable335 [
+  switch i8 %37, label %default.unreachable355 [
     i8 0, label %38
     i8 1, label %57
     i8 2, label %58
@@ -7340,7 +7340,7 @@ define internal void @"_ZN145_$LT$ockam_vault..storage..secrets_repository_sql..
     i8 6, label %44
   ]
 
-default.unreachable335:                           ; preds = %117, %3
+default.unreachable355:                           ; preds = %117, %3
   unreachable
 
 38:                                               ; preds = %3
@@ -7672,7 +7672,7 @@ common.ret:                                       ; preds = %311, %265, %201, %8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i.sroa.6)
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  switch i8 %.pre, label %default.unreachable335 [
+  switch i8 %.pre, label %default.unreachable355 [
     i8 0, label %120
     i8 1, label %.invoke
     i8 2, label %134
@@ -8781,14 +8781,14 @@ define internal void @"_ZN145_$LT$ockam_vault..storage..secrets_repository_sql..
   %18 = alloca { i8, [39 x i8] }, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %20 = load i8, ptr %19, align 8, !range !40, !noundef !4
-  switch i8 %20, label %default.unreachable116 [
+  switch i8 %20, label %default.unreachable117 [
     i8 0, label %21
     i8 1, label %40
     i8 2, label %41
     i8 3, label %42
   ]
 
-default.unreachable116:                           ; preds = %42, %3
+default.unreachable117:                           ; preds = %42, %3
   unreachable
 
 21:                                               ; preds = %3
@@ -8925,7 +8925,7 @@ common.ret:                                       ; preds = %134, %22
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i.sroa.6)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  switch i8 %.pre, label %default.unreachable116 [
+  switch i8 %.pre, label %default.unreachable117 [
     i8 0, label %45
     i8 1, label %.invoke
     i8 2, label %67
@@ -9452,14 +9452,14 @@ define internal void @"_ZN145_$LT$ockam_vault..storage..secrets_repository_sql..
   %10 = alloca { { ptr, i64 }, i64 }, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %12 = load i8, ptr %11, align 8, !range !40, !noundef !4
-  switch i8 %12, label %default.unreachable74 [
-    i8 0, label %.thread75
+  switch i8 %12, label %default.unreachable76 [
+    i8 0, label %.thread77
     i8 1, label %22
     i8 2, label %23
     i8 3, label %24
   ]
 
-default.unreachable74:                            ; preds = %.noexc.i, %24, %3
+default.unreachable76:                            ; preds = %.noexc.i, %24, %3
   unreachable
 
 common.ret:                                       ; preds = %86, %13
@@ -9482,7 +9482,7 @@ common.ret:                                       ; preds = %86, %13
   store i64 %.sroa.761.0, ptr %.sroa.761.0..sroa_idx, align 8
   br label %common.ret
 
-.thread75:                                        ; preds = %3
+.thread77:                                        ; preds = %3
   %15 = load ptr, ptr %1, align 8, !nonnull !4, !align !39, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -9539,16 +9539,16 @@ common.ret:                                       ; preds = %86, %13
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  switch i8 %.pre, label %default.unreachable74 [
+  switch i8 %.pre, label %default.unreachable76 [
     i8 0, label %27
     i8 1, label %.invoke
     i8 2, label %41
     i8 3, label %44
   ]
 
-27:                                               ; preds = %.thread75, %24
-  %28 = phi ptr [ %18, %.thread75 ], [ %26, %24 ]
-  %29 = phi ptr [ %17, %.thread75 ], [ %25, %24 ]
+27:                                               ; preds = %.thread77, %24
+  %28 = phi ptr [ %18, %.thread77 ], [ %26, %24 ]
+  %29 = phi ptr [ %17, %.thread77 ], [ %25, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %30, i64 48, i1 false), !noalias !1519
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -9619,7 +9619,7 @@ common.ret:                                       ; preds = %86, %13
 .noexc.i:                                         ; preds = %50
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1545)
   %55 = load i64, ptr %5, align 8, !range !1548, !alias.scope !1549, !noalias !1551, !noundef !4
-  switch i64 %55, label %default.unreachable74 [
+  switch i64 %55, label %default.unreachable76 [
     i64 2, label %.thread24.i
     i64 0, label %.thread.i
     i64 1, label %56
@@ -9908,14 +9908,14 @@ define internal { i64, ptr } @"_ZN145_$LT$ockam_vault..storage..secrets_reposito
   %11 = alloca { { ptr, [1 x i64] }, { ptr, [2 x i64] }, i8, {}, [7 x i8] }, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 161
   %13 = load i8, ptr %12, align 1, !range !40, !noundef !4
-  switch i8 %13, label %default.unreachable59 [
+  switch i8 %13, label %default.unreachable61 [
     i8 0, label %17
     i8 1, label %47
     i8 2, label %48
     i8 3, label %49
   ]
 
-default.unreachable59:                            ; preds = %2
+default.unreachable61:                            ; preds = %2
   unreachable
 
 14:                                               ; preds = %72, %43
@@ -10229,7 +10229,7 @@ define internal void @"_ZN145_$LT$ockam_vault..storage..secrets_repository_sql..
   %34 = alloca { i8, [39 x i8] }, align 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %36 = load i8, ptr %35, align 4, !range !94, !noundef !4
-  switch i8 %36, label %default.unreachable333 [
+  switch i8 %36, label %default.unreachable346 [
     i8 0, label %37
     i8 1, label %56
     i8 2, label %57
@@ -10239,7 +10239,7 @@ define internal void @"_ZN145_$LT$ockam_vault..storage..secrets_repository_sql..
     i8 6, label %43
   ]
 
-default.unreachable333:                           ; preds = %116, %3
+default.unreachable346:                           ; preds = %116, %3
   unreachable
 
 37:                                               ; preds = %3
@@ -10566,7 +10566,7 @@ common.ret:                                       ; preds = %321, %283, %195, %8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.i.sroa.5)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i.sroa.6)
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  switch i8 %.pre, label %default.unreachable333 [
+  switch i8 %.pre, label %default.unreachable346 [
     i8 0, label %119
     i8 1, label %.invoke
     i8 2, label %133
@@ -11564,14 +11564,14 @@ define internal void @"_ZN145_$LT$ockam_vault..storage..secrets_repository_sql..
   %19 = alloca { i8, [39 x i8] }, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %21 = load i8, ptr %20, align 8, !range !40, !noundef !4
-  switch i8 %21, label %default.unreachable126 [
+  switch i8 %21, label %default.unreachable128 [
     i8 0, label %22
     i8 1, label %39
     i8 2, label %40
     i8 3, label %41
   ]
 
-default.unreachable126:                           ; preds = %41, %3
+default.unreachable128:                           ; preds = %41, %3
   unreachable
 
 22:                                               ; preds = %3
@@ -11705,7 +11705,7 @@ common.ret:                                       ; preds = %128, %"_ZN4core6opt
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.i.sroa.5)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i.sroa.6)
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  switch i8 %.pre, label %default.unreachable126 [
+  switch i8 %.pre, label %default.unreachable128 [
     i8 0, label %44
     i8 1, label %.invoke
     i8 2, label %66
@@ -12240,14 +12240,14 @@ define internal void @"_ZN145_$LT$ockam_vault..storage..secrets_repository_sql..
   %12 = alloca { { ptr, i64 }, i64 }, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %14 = load i8, ptr %13, align 8, !range !40, !noundef !4
-  switch i8 %14, label %default.unreachable85 [
-    i8 0, label %.thread86
+  switch i8 %14, label %default.unreachable86 [
+    i8 0, label %.thread87
     i8 1, label %24
     i8 2, label %25
     i8 3, label %26
   ]
 
-default.unreachable85:                            ; preds = %.noexc.i, %26, %3
+default.unreachable86:                            ; preds = %.noexc.i, %26, %3
   unreachable
 
 common.ret:                                       ; preds = %87, %15
@@ -12270,7 +12270,7 @@ common.ret:                                       ; preds = %87, %15
   store i64 %.sroa.766.0, ptr %.sroa.766.0..sroa_idx, align 8
   br label %common.ret
 
-.thread86:                                        ; preds = %3
+.thread87:                                        ; preds = %3
   %17 = load ptr, ptr %1, align 8, !nonnull !4, !align !39, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -12327,16 +12327,16 @@ common.ret:                                       ; preds = %87, %15
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  switch i8 %.pre, label %default.unreachable85 [
+  switch i8 %.pre, label %default.unreachable86 [
     i8 0, label %29
     i8 1, label %.invoke
     i8 2, label %43
     i8 3, label %46
   ]
 
-29:                                               ; preds = %.thread86, %26
-  %30 = phi ptr [ %20, %.thread86 ], [ %28, %26 ]
-  %31 = phi ptr [ %19, %.thread86 ], [ %27, %26 ]
+29:                                               ; preds = %.thread87, %26
+  %30 = phi ptr [ %20, %.thread87 ], [ %28, %26 ]
+  %31 = phi ptr [ %19, %.thread87 ], [ %27, %26 ]
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %32, i64 48, i1 false), !noalias !1956
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -12407,7 +12407,7 @@ common.ret:                                       ; preds = %87, %15
 .noexc.i:                                         ; preds = %52
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1982)
   %57 = load i64, ptr %8, align 8, !range !1985, !alias.scope !1986, !noalias !1988, !noundef !4
-  switch i64 %57, label %default.unreachable85 [
+  switch i64 %57, label %default.unreachable86 [
     i64 3, label %.thread.i
     i64 2, label %.thread30.i.i
     i64 0, label %58
@@ -12746,7 +12746,7 @@ define internal { i64, ptr } @"_ZN145_$LT$ockam_vault..storage..secrets_reposito
   %13 = alloca { i32, [17 x i32] }, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load i8, ptr %14, align 8, !range !94, !noundef !4
-  switch i8 %15, label %default.unreachable168 [
+  switch i8 %15, label %default.unreachable174 [
     i8 0, label %20
     i8 1, label %27
     i8 2, label %28
@@ -12756,7 +12756,7 @@ define internal { i64, ptr } @"_ZN145_$LT$ockam_vault..storage..secrets_reposito
     i8 6, label %141
   ]
 
-default.unreachable168:                           ; preds = %2
+default.unreachable174:                           ; preds = %2
   unreachable
 
 16:                                               ; preds = %2

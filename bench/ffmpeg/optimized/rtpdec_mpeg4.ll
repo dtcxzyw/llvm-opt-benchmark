@@ -228,7 +228,7 @@ define internal range(i32 -2147483648, 2) i32 @aac_parse_packet(ptr noundef %0, 
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds i8, ptr %5, i64 %109
   %111 = sub nsw i32 %6, %108
-  %.pre136 = load i32, ptr %104, align 4, !tbaa !34
+  %.pre153 = load i32, ptr %104, align 4, !tbaa !34
   br label %334
 
 .lr.ph.i:                                         ; preds = %103
@@ -519,8 +519,8 @@ rtp_parse_mp4_au.exit:                            ; preds = %95, %84, %74, %68, 
   %291 = icmp eq i32 %105, 1
   %.pre = load i32, ptr %104, align 4, !tbaa !34
   %292 = icmp slt i32 %290, %.pre
-  %or.cond145 = select i1 %291, i1 %292, i1 false
-  br i1 %or.cond145, label %293, label %334
+  %or.cond162 = select i1 %291, i1 %292, i1 false
+  br i1 %or.cond162, label %293, label %334
 
 293:                                              ; preds = %.loopexit
   %294 = getelementptr inbounds nuw i8, ptr %1, i64 8256
@@ -612,10 +612,10 @@ rtp_parse_mp4_au.exit:                            ; preds = %95, %84, %74, %68, 
   br label %368
 
 334:                                              ; preds = %.loopexit.thread, %.loopexit
-  %.pre137 = phi i32 [ %.pre136, %.loopexit.thread ], [ %.pre, %.loopexit ]
+  %.pre154 = phi i32 [ %.pre153, %.loopexit.thread ], [ %.pre, %.loopexit ]
   %335 = phi i32 [ %111, %.loopexit.thread ], [ %290, %.loopexit ]
   %336 = phi ptr [ %110, %.loopexit.thread ], [ %289, %.loopexit ]
-  %337 = icmp slt i32 %335, %.pre137
+  %337 = icmp slt i32 %335, %.pre154
   br i1 %337, label %338, label %339
 
 338:                                              ; preds = %334
@@ -623,7 +623,7 @@ rtp_parse_mp4_au.exit:                            ; preds = %95, %84, %74, %68, 
   br label %368
 
 339:                                              ; preds = %334
-  %340 = tail call i32 @av_new_packet(ptr noundef %3, i32 noundef %.pre137) #7
+  %340 = tail call i32 @av_new_packet(ptr noundef %3, i32 noundef %.pre154) #7
   %341 = icmp slt i32 %340, 0
   br i1 %341, label %342, label %343
 

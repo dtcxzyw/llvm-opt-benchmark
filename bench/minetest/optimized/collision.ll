@@ -1152,8 +1152,8 @@ for.cond223.preheader:                            ; preds = %for.cond223.for.inc
   %98 = insertelement <2 x float> poison, float %mul2.i1416, i64 0
   %invariant.op = or disjoint i48 %p2.sroa.19.0.insert.shift2019, %p.sroa.0.0.insert.ext2064
   %invariant.op112 = or disjoint i48 %p2.sroa.19.0.insert.shift2015, %p.sroa.0.0.insert.ext2064
-  %invariant.op331 = or disjoint i48 %p.sroa.0.0.insert.ext2064, %p.sroa.20.0.insert.shift2075
-  %invariant.op332 = or disjoint i48 %p.sroa.0.0.insert.ext2064, %p.sroa.20.0.insert.shift2075
+  %invariant.op419 = or disjoint i48 %p.sroa.0.0.insert.ext2064, %p.sroa.20.0.insert.shift2075
+  %invariant.op420 = or disjoint i48 %p.sroa.0.0.insert.ext2064, %p.sroa.20.0.insert.shift2075
   br label %for.body229
 
 for.body229:                                      ; preds = %cleanup348, %for.cond223.preheader
@@ -1444,7 +1444,7 @@ call3.i.noexc1370:                                ; preds = %call.i.noexc1368
   %agg.tmp276.sroa.0.0.copyload = load i32, ptr %n, align 4, !tbaa.struct !113
   %p2.sroa.23.0.insert.ext2041 = zext i16 %dec275 to i48
   %p2.sroa.23.0.insert.shift2042 = shl nuw i48 %p2.sroa.23.0.insert.ext2041, 32
-  %p2.sroa.0.0.insert.insert1985.reass.reass.reass = or disjoint i48 %p2.sroa.23.0.insert.shift2042, %invariant.op331
+  %p2.sroa.0.0.insert.insert1985.reass.reass.reass = or disjoint i48 %p2.sroa.23.0.insert.shift2042, %invariant.op419
   %call.i1377 = invoke i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %call, i48 %p2.sroa.0.0.insert.insert1985.reass.reass.reass, ptr noundef null)
           to label %call.i.noexc1376 unwind label %lpad269
 
@@ -1471,7 +1471,7 @@ call3.i.noexc1386:                                ; preds = %call.i.noexc1384
   %agg.tmp284.sroa.0.0.copyload = load i32, ptr %n, align 4, !tbaa.struct !113
   %p2.sroa.23.0.insert.ext2033 = zext i16 %inc283 to i48
   %p2.sroa.23.0.insert.shift2034 = shl nuw i48 %p2.sroa.23.0.insert.ext2033, 32
-  %p2.sroa.0.0.insert.insert1979.reass.reass.reass = or disjoint i48 %p2.sroa.23.0.insert.shift2034, %invariant.op332
+  %p2.sroa.0.0.insert.insert1979.reass.reass.reass = or disjoint i48 %p2.sroa.23.0.insert.shift2034, %invariant.op420
   %call.i1393 = invoke i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %call, i48 %p2.sroa.0.0.insert.insert1979.reass.reass.reass, ptr noundef null)
           to label %call.i.noexc1392 unwind label %lpad269
 
@@ -2711,7 +2711,7 @@ land.end.thread:                                  ; preds = %if.end.i1628
   br i1 %cmp66373, label %invoke.cont703, label %invoke.cont690
 
 if.then666:                                       ; preds = %land.end
-  switch i32 %nearest_collided.2, label %invoke.cont703 [
+  switch i32 %nearest_collided.2, label %default.unreachable [
     i32 0, label %if.then668
     i32 1, label %if.then673
     i32 2, label %if.then678
@@ -2756,10 +2756,13 @@ invoke.cont690:                                   ; preds = %land.end.thread, %l
   %sub697 = fsub nsz float %dtime.addr.12209, %nearest_dtime.2
   br label %invoke.cont703
 
-invoke.cont703:                                   ; preds = %land.end.thread, %invoke.cont690, %if.then678, %if.then673, %if.then668, %if.then666
-  %div74 = phi float [ %div, %if.then678 ], [ %div, %if.then673 ], [ %div75, %invoke.cont690 ], [ %div, %if.then668 ], [ %div, %if.then666 ], [ %div72, %land.end.thread ]
-  %322 = phi i1 [ false, %if.then678 ], [ false, %if.then673 ], [ %310, %invoke.cont690 ], [ false, %if.then668 ], [ false, %if.then666 ], [ true, %land.end.thread ]
-  %dtime.addr.2 = phi float [ %dtime.addr.12209, %if.then678 ], [ %dtime.addr.12209, %if.then673 ], [ %sub697, %invoke.cont690 ], [ %dtime.addr.12209, %if.then668 ], [ %dtime.addr.12209, %if.then666 ], [ %dtime.addr.12209, %land.end.thread ]
+default.unreachable:                              ; preds = %if.then666
+  unreachable
+
+invoke.cont703:                                   ; preds = %land.end.thread, %invoke.cont690, %if.then678, %if.then673, %if.then668
+  %div74 = phi float [ %div, %if.then678 ], [ %div, %if.then673 ], [ %div75, %invoke.cont690 ], [ %div, %if.then668 ], [ %div72, %land.end.thread ]
+  %322 = phi i1 [ false, %if.then678 ], [ false, %if.then673 ], [ %310, %invoke.cont690 ], [ false, %if.then668 ], [ true, %land.end.thread ]
+  %dtime.addr.2 = phi float [ %dtime.addr.12209, %if.then678 ], [ %dtime.addr.12209, %if.then673 ], [ %sub697, %invoke.cont690 ], [ %dtime.addr.12209, %if.then668 ], [ %dtime.addr.12209, %land.end.thread ]
   %323 = load i8, ptr %add.ptr.i1621, align 8, !tbaa !118, !range !63, !noundef !64
   %spec.store.select = xor i8 %323, 1
   %obj.i = getelementptr inbounds nuw i8, ptr %add.ptr.i1621, i64 8

@@ -950,7 +950,7 @@ _ZNK12_GLOBAL__N_117ConversionChecker12isLossOfSignEPKN5clang16ImplicitCastExprE
 
 147:                                              ; preds = %143
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i6.i.i = load i64, ptr %148, align 8
+  %.0.copyload.i.i.i.i7.i.i = load i64, ptr %148, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i
 
@@ -964,7 +964,7 @@ _ZNK12_GLOBAL__N_117ConversionChecker12isLossOfSignEPKN5clang16ImplicitCastExprE
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i: ; preds = %149, %147
-  %.in.in.i = phi i64 [ %.0.copyload.i.i.i.i6.i.i, %147 ], [ %.0.copyload.i.i.i.i.i98.i, %149 ]
+  %.in.in.i = phi i64 [ %.0.copyload.i.i.i.i7.i.i, %147 ], [ %.0.copyload.i.i.i.i.i98.i, %149 ]
   store ptr %146, ptr %8, align 8, !tbaa !218
   %.in.i = and i64 %.in.in.i, -8
   %151 = inttoptr i64 %.in.i to ptr

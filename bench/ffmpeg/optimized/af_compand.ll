@@ -536,7 +536,7 @@ count_items.exit376:                              ; preds = %34
   br i1 %112, label %.lr.ph418.preheader, label %._crit_edge419.thread
 
 ._crit_edge419.thread:                            ; preds = %._crit_edge413
-  %.pre478.pre492 = load ptr, ptr %61, align 8, !tbaa !62
+  %.pre478.pre505 = load ptr, ptr %61, align 8, !tbaa !62
   br label %142
 
 .lr.ph418.preheader:                              ; preds = %._crit_edge413
@@ -613,22 +613,22 @@ count_items.exit376:                              ; preds = %34
   br i1 %141, label %142, label %144
 
 142:                                              ; preds = %._crit_edge419.thread, %._crit_edge419
-  %.pre478.pre495 = phi ptr [ %.pre478.pre492, %._crit_edge419.thread ], [ %.pre478.pre, %._crit_edge419 ]
-  %.4332.lcssa493 = phi i32 [ 0, %._crit_edge419.thread ], [ %.0387, %._crit_edge419 ]
-  %143 = add nuw nsw i32 %.4332.lcssa493, 1
+  %.pre478.pre508 = phi ptr [ %.pre478.pre505, %._crit_edge419.thread ], [ %.pre478.pre, %._crit_edge419 ]
+  %.4332.lcssa506 = phi i32 [ 0, %._crit_edge419.thread ], [ %.0387, %._crit_edge419 ]
+  %143 = add nuw nsw i32 %.4332.lcssa506, 1
   br label %144
 
 144:                                              ; preds = %142, %._crit_edge419
-  %.pre478.pre494 = phi ptr [ %.pre478.pre495, %142 ], [ %.pre478.pre, %._crit_edge419 ]
+  %.pre478.pre507 = phi ptr [ %.pre478.pre508, %142 ], [ %.pre478.pre, %._crit_edge419 ]
   %.0334 = phi i32 [ %143, %142 ], [ %.0387, %._crit_edge419 ]
-  %145 = getelementptr inbounds nuw i8, ptr %.pre478.pre494, i64 64
+  %145 = getelementptr inbounds nuw i8, ptr %.pre478.pre507, i64 64
   %146 = load double, ptr %145, align 8, !tbaa !63
   %147 = load double, ptr %8, align 8, !tbaa !73
   %148 = call nsz double @llvm.fmuladd.f64(double %147, double -2.000000e+00, double %146)
-  store double %148, ptr %.pre478.pre494, align 8, !tbaa !63
-  %149 = getelementptr inbounds nuw i8, ptr %.pre478.pre494, i64 72
+  store double %148, ptr %.pre478.pre507, align 8, !tbaa !63
+  %149 = getelementptr inbounds nuw i8, ptr %.pre478.pre507, i64 72
   %150 = load double, ptr %149, align 8, !tbaa !67
-  %151 = getelementptr inbounds nuw i8, ptr %.pre478.pre494, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %.pre478.pre507, i64 8
   store double %150, ptr %151, align 8, !tbaa !67
   %152 = icmp sgt i32 %.0334, 1
   br i1 %152, label %.lr.ph427.preheader, label %.preheader393
@@ -642,7 +642,7 @@ count_items.exit376:                              ; preds = %34
   br label %.preheader393
 
 .preheader393:                                    ; preds = %.preheader393.loopexit, %144
-  %.pre486.pre = phi ptr [ %.pre486.pre.pre, %.preheader393.loopexit ], [ %.pre478.pre494, %144 ]
+  %.pre486.pre = phi ptr [ %.pre486.pre.pre, %.preheader393.loopexit ], [ %.pre478.pre507, %144 ]
   %154 = load i32, ptr %58, align 8, !tbaa !61
   %155 = icmp sgt i32 %154, 0
   br i1 %155, label %.lr.ph429, label %.lr.ph437
@@ -702,11 +702,11 @@ count_items.exit376:                              ; preds = %34
 .lr.ph423:                                        ; preds = %.lr.ph423.preheader, %.lr.ph423
   %indvars.iv459 = phi i64 [ %192, %.lr.ph423.preheader ], [ %indvars.iv.next460, %.lr.ph423 ]
   %193 = load ptr, ptr %61, align 8, !tbaa !62
-  %.idx489 = shl nsw i64 %indvars.iv459, 6
-  %194 = getelementptr inbounds i8, ptr %193, i64 %.idx489
+  %.idx502 = shl nsw i64 %indvars.iv459, 6
+  %194 = getelementptr inbounds i8, ptr %193, i64 %.idx502
   %indvars.iv.next460 = add nsw i64 %indvars.iv459, 1
-  %.idx490 = shl nsw i64 %indvars.iv.next460, 6
-  %195 = getelementptr inbounds i8, ptr %193, i64 %.idx490
+  %.idx503 = shl nsw i64 %indvars.iv.next460, 6
+  %195 = getelementptr inbounds i8, ptr %193, i64 %.idx503
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %194, ptr noundef nonnull align 8 dereferenceable(32) %195, i64 32, i1 false), !tbaa.struct !86
   %lftr.wideiv = trunc i64 %indvars.iv.next460 to i32
   %exitcond462.not = icmp eq i32 %189, %lftr.wideiv

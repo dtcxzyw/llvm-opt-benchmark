@@ -109,9 +109,9 @@ copy.exit:                                        ; preds = %select.unfold.i, %2
 
 51:                                               ; preds = %49
   %52 = icmp samesign ugt i32 %.147223, 63
-  br i1 %52, label %.thread257, label %62
+  br i1 %52, label %.thread275, label %62
 
-.thread257:                                       ; preds = %51
+.thread275:                                       ; preds = %51
   %53 = lshr i32 %.147223, 5
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.1221, i64 1
   %55 = load i8, ptr %.sroa.0.1221, align 1, !tbaa !8
@@ -321,18 +321,18 @@ get_len.exit94:                                   ; preds = %127, %125, %.loopex
   unreachable
 
 get_len.exit94.thread:                            ; preds = %119, %get_len.exit94
-  %.0.i79256 = phi i32 [ %131, %get_len.exit94 ], [ %.147223, %119 ]
-  %.sroa.0.13255 = phi ptr [ %.sroa.0.12, %get_len.exit94 ], [ %.sroa.0.1221, %119 ]
-  %.sroa.64.14254 = phi i32 [ %.sroa.64.13, %get_len.exit94 ], [ 0, %119 ]
-  %134 = add nsw i32 %.0.i79256, 3
+  %.0.i79274 = phi i32 [ %131, %get_len.exit94 ], [ %.147223, %119 ]
+  %.sroa.0.13273 = phi ptr [ %.sroa.0.12, %get_len.exit94 ], [ %.sroa.0.1221, %119 ]
+  %.sroa.64.14272 = phi i32 [ %.sroa.64.13, %get_len.exit94 ], [ 0, %119 ]
+  %134 = add nsw i32 %.0.i79274, 3
   %135 = zext nneg i32 %134 to i64
-  %136 = ptrtoint ptr %.sroa.0.13255 to i64
+  %136 = ptrtoint ptr %.sroa.0.13273 to i64
   %137 = sub i64 %45, %136
   %138 = icmp slt i64 %137, %135
   %spec.select39.i100 = tail call i64 @llvm.smax.i64(i64 %137, i64 0)
   %spec.select.i101 = trunc nuw nsw i64 %spec.select39.i100 to i32
   %139 = zext i1 %138 to i32
-  %.sroa.64.15 = or i32 %.sroa.64.14254, %139
+  %.sroa.64.15 = or i32 %.sroa.64.14272, %139
   %.pre-phi.i95 = select i1 %138, i64 %spec.select39.i100, i64 %135
   %.0.i96 = select i1 %138, i32 %spec.select.i101, i32 %134
   %140 = ptrtoint ptr %.sroa.48.1219 to i64
@@ -347,14 +347,14 @@ get_len.exit94.thread:                            ; preds = %119, %get_len.exit9
   br i1 %144, label %select.unfold.i97, label %.thread.i99
 
 .thread.i99:                                      ; preds = %143
-  %147 = load i32, ptr %.sroa.0.13255, align 1, !tbaa !8
+  %147 = load i32, ptr %.sroa.0.13273, align 1, !tbaa !8
   store i32 %147, ptr %.sroa.48.1219, align 1, !tbaa !8
   br label %copy.exit102
 
 select.unfold.i97:                                ; preds = %143, %get_len.exit94.thread
   %.sroa.64.16 = phi i32 [ %146, %143 ], [ %.sroa.64.15, %get_len.exit94.thread ]
   %.1.i98 = phi i32 [ %145, %143 ], [ %.0.i96, %get_len.exit94.thread ]
-  %148 = load i32, ptr %.sroa.0.13255, align 1, !tbaa !8
+  %148 = load i32, ptr %.sroa.0.13273, align 1, !tbaa !8
   store i32 %148, ptr %.sroa.48.1219, align 1, !tbaa !8
   %149 = add nsw i32 %.1.i98, -4
   %150 = icmp samesign ugt i32 %.1.i98, 4
@@ -362,7 +362,7 @@ select.unfold.i97:                                ; preds = %143, %get_len.exit9
 
 151:                                              ; preds = %select.unfold.i97
   %152 = getelementptr inbounds nuw i8, ptr %.sroa.48.1219, i64 4
-  %153 = getelementptr inbounds nuw i8, ptr %.sroa.0.13255, i64 4
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.0.13273, i64 4
   %154 = zext nneg i32 %149 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %152, ptr nonnull align 1 %153, i64 %154, i1 false)
   br label %copy.exit102
@@ -371,7 +371,7 @@ copy.exit102:                                     ; preds = %.thread.i99, %selec
   %.sroa.64.17 = phi i32 [ %.sroa.64.16, %151 ], [ %.sroa.64.16, %select.unfold.i97 ], [ %146, %.thread.i99 ]
   %155 = phi i32 [ %149, %151 ], [ %149, %select.unfold.i97 ], [ -4, %.thread.i99 ]
   %156 = getelementptr inbounds nuw i8, ptr %.sroa.48.1219, i64 4
-  %157 = getelementptr inbounds nuw i8, ptr %.sroa.0.13255, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %.sroa.0.13273, i64 4
   %158 = sext i32 %155 to i64
   %159 = getelementptr inbounds i8, ptr %157, i64 %158
   %160 = getelementptr inbounds i8, ptr %156, i64 %158
@@ -416,13 +416,13 @@ copy.exit102:                                     ; preds = %.thread.i99, %selec
   tail call void @abort() #6
   unreachable
 
-.thread:                                          ; preds = %.thread257, %165, %173, %181
-  %185 = phi i32 [ %182, %181 ], [ 2, %173 ], [ 3, %165 ], [ %.reass, %.thread257 ]
-  %.0170 = phi i32 [ %.0, %181 ], [ %180, %173 ], [ %172, %165 ], [ %61, %.thread257 ]
-  %.3169 = phi i32 [ %.3, %181 ], [ %.147223, %173 ], [ %163, %165 ], [ %.147223, %.thread257 ]
-  %.sroa.0.4168 = phi ptr [ %.sroa.0.4, %181 ], [ %174, %173 ], [ %166, %165 ], [ %54, %.thread257 ]
-  %.sroa.64.5167 = phi i32 [ %.sroa.64.5, %181 ], [ 0, %173 ], [ %.sroa.64.17, %165 ], [ 0, %.thread257 ]
-  %.sroa.48.4166 = phi ptr [ %.sroa.48.1219, %181 ], [ %.sroa.48.1219, %173 ], [ %160, %165 ], [ %.sroa.48.1219, %.thread257 ]
+.thread:                                          ; preds = %.thread275, %165, %173, %181
+  %185 = phi i32 [ %182, %181 ], [ 2, %173 ], [ 3, %165 ], [ %.reass, %.thread275 ]
+  %.0170 = phi i32 [ %.0, %181 ], [ %180, %173 ], [ %172, %165 ], [ %61, %.thread275 ]
+  %.3169 = phi i32 [ %.3, %181 ], [ %.147223, %173 ], [ %163, %165 ], [ %.147223, %.thread275 ]
+  %.sroa.0.4168 = phi ptr [ %.sroa.0.4, %181 ], [ %174, %173 ], [ %166, %165 ], [ %54, %.thread275 ]
+  %.sroa.64.5167 = phi i32 [ %.sroa.64.5, %181 ], [ 0, %173 ], [ %.sroa.64.17, %165 ], [ 0, %.thread275 ]
+  %.sroa.48.4166 = phi ptr [ %.sroa.48.1219, %181 ], [ %.sroa.48.1219, %173 ], [ %160, %165 ], [ %.sroa.48.1219, %.thread275 ]
   %186 = ptrtoint ptr %.sroa.48.4166 to i64
   %187 = sub i64 %186, %48
   %188 = zext nneg i32 %.0170 to i64

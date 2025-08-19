@@ -384,12 +384,12 @@ define zeroext i1 @pmix_net_addr_isipv4public(ptr noundef readonly captures(none
   %18 = shl i32 %16, %17
   %19 = tail call noundef i32 @llvm.bswap.i32(i32 %18)
   %20 = and i32 %19, %8
-  %.not19.not = icmp ne i32 %13, %20
-  br i1 %.not19.not, label %9, label %.loopexit
+  %.not21.not = icmp ne i32 %13, %20
+  br i1 %.not21.not, label %9, label %.loopexit
 
 .loopexit:                                        ; preds = %12, %9, %.preheader, %3
   %.1 = phi i1 [ true, %3 ], [ undef, %.preheader ], [ false, %9 ], [ false, %12 ]
-  %switch = phi i1 [ false, %3 ], [ true, %.preheader ], [ %.not19.not, %9 ], [ %.not19.not, %12 ]
+  %switch = phi i1 [ false, %3 ], [ true, %.preheader ], [ %.not21.not, %9 ], [ %.not21.not, %12 ]
   %spec.select = or i1 %.1, %switch
   br label %23
 

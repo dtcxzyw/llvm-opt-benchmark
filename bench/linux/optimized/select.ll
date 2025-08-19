@@ -782,23 +782,23 @@ define internal fastcc i32 @do_select(i32 noundef %0, ptr noundef readonly captu
   br label %.critedge.outer
 
 .critedge.outer:                                  ; preds = %347, %.thread27
-  %.ph108 = phi i32 [ 0, %347 ], [ %168, %.thread27 ]
-  %.ph109 = phi i32 [ %326, %347 ], [ %10, %.thread27 ]
-  %.ph110 = phi i64 [ %349, %347 ], [ 0, %.thread27 ]
-  %.ph111 = phi ptr [ %.ph115, %347 ], [ null, %.thread27 ]
-  %178 = icmp eq i64 %.ph110, 0
-  br label %.critedge.outer112
+  %.ph128 = phi i32 [ 0, %347 ], [ %168, %.thread27 ]
+  %.ph129 = phi i32 [ %326, %347 ], [ %10, %.thread27 ]
+  %.ph130 = phi i64 [ %349, %347 ], [ 0, %.thread27 ]
+  %.ph131 = phi ptr [ %.ph135, %347 ], [ null, %.thread27 ]
+  %178 = icmp eq i64 %.ph130, 0
+  br label %.critedge.outer132
 
-.critedge.outer112:                               ; preds = %.critedge.outer, %378
-  %.ph113 = phi i32 [ %.ph108, %.critedge.outer ], [ %379, %378 ]
-  %.ph114 = phi i32 [ %.ph109, %.critedge.outer ], [ 0, %378 ]
-  %.ph115 = phi ptr [ %.ph111, %.critedge.outer ], [ %370, %378 ]
-  %179 = icmp ne i32 %.ph113, 0
+.critedge.outer132:                               ; preds = %.critedge.outer, %378
+  %.ph133 = phi i32 [ %.ph128, %.critedge.outer ], [ %379, %378 ]
+  %.ph134 = phi i32 [ %.ph129, %.critedge.outer ], [ 0, %378 ]
+  %.ph135 = phi ptr [ %.ph131, %.critedge.outer ], [ %370, %378 ]
+  %179 = icmp ne i32 %.ph133, 0
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.outer112, %353
-  %180 = phi i1 [ false, %353 ], [ %179, %.critedge.outer112 ]
-  %181 = phi i32 [ %326, %353 ], [ %.ph114, %.critedge.outer112 ]
+.critedge:                                        ; preds = %.critedge.outer132, %353
+  %180 = phi i1 [ false, %353 ], [ %179, %.critedge.outer132 ]
+  %181 = phi i32 [ %326, %353 ], [ %.ph134, %.critedge.outer132 ]
   br i1 %175, label %.loopexit, label %182
 
 182:                                              ; preds = %.critedge
@@ -1057,14 +1057,14 @@ define internal fastcc i32 @do_select(i32 noundef %0, ptr noundef readonly captu
 
 353:                                              ; preds = %350
   %354 = zext i32 %351 to i64
-  %355 = add nuw nsw i64 %.ph110, %354
+  %355 = add nuw nsw i64 %.ph130, %354
   %356 = call i64 @local_clock() #10
   %357 = lshr i64 %356, 10
   %358 = icmp samesign ult i64 %355, %357
   br i1 %358, label %359, label %.critedge, !llvm.loop !26
 
 359:                                              ; preds = %353, %350, %342, %341
-  %360 = icmp ne ptr %.ph115, null
+  %360 = icmp ne ptr %.ph135, null
   %361 = select i1 %121, i1 true, i1 %360
   br i1 %361, label %369, label %362
 
@@ -1079,7 +1079,7 @@ define internal fastcc i32 @do_select(i32 noundef %0, ptr noundef readonly captu
   br label %369
 
 369:                                              ; preds = %362, %359
-  %370 = phi ptr [ %.ph115, %359 ], [ %6, %362 ]
+  %370 = phi ptr [ %.ph135, %359 ], [ %6, %362 ]
   %371 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %177, i32 1, ptr nonnull elementtype(i32) %177) #10, !srcloc !27
   %372 = load i32, ptr %117, align 8
   %373 = icmp eq i32 %372, 0
@@ -1095,7 +1095,7 @@ define internal fastcc i32 @do_select(i32 noundef %0, ptr noundef readonly captu
   %379 = phi i32 [ 0, %369 ], [ %377, %374 ]
   store volatile i32 0, ptr %177, align 8
   %380 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %117, i32 0, ptr nonnull elementtype(i32) %117) #10, !srcloc !28
-  br label %.critedge.outer112
+  br label %.critedge.outer132
 
 381:                                              ; preds = %334, %.loopexit, %338, %330
   %.ph = phi i32 [ 0, %330 ], [ %339, %338 ], [ %325, %.loopexit ], [ 0, %334 ]
@@ -2195,7 +2195,7 @@ define internal fastcc noundef i32 @poll_select_finish(ptr noundef readonly capt
 57:                                               ; preds = %56, %43
   %58 = phi i64 [ 0, %56 ], [ %54, %43 ]
   %59 = phi i64 [ 0, %56 ], [ %52, %43 ]
-  switch i32 %2, label %default.unreachable1 [
+  switch i32 %2, label %default.unreachable2 [
     i32 0, label %60
     i32 1, label %65
     i32 2, label %72
@@ -2236,7 +2236,7 @@ define internal fastcc noundef i32 @poll_select_finish(ptr noundef readonly capt
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %80, label %78
 
-default.unreachable1:                             ; preds = %57
+default.unreachable2:                             ; preds = %57
   unreachable
 
 78:                                               ; preds = %75, %72, %65, %60, %31
@@ -2439,22 +2439,22 @@ define internal fastcc i32 @do_sys_poll(ptr noundef %0, i32 noundef %1, ptr noun
 
 .outer:                                           ; preds = %232, %.thread
   %.ph = phi ptr [ %224, %232 ], [ null, %.thread ]
-  %.ph51 = phi i32 [ %233, %232 ], [ %105, %.thread ]
-  %.ph52 = phi i32 [ 0, %232 ], [ %57, %.thread ]
-  %.ph53 = phi i64 [ %.ph57, %232 ], [ 0, %.thread ]
-  %109 = icmp ne i32 %.ph51, 0
-  br label %.outer54
+  %.ph67 = phi i32 [ %233, %232 ], [ %105, %.thread ]
+  %.ph68 = phi i32 [ 0, %232 ], [ %57, %.thread ]
+  %.ph69 = phi i64 [ %.ph73, %232 ], [ 0, %.thread ]
+  %109 = icmp ne i32 %.ph67, 0
+  br label %.outer70
 
-.outer54:                                         ; preds = %.outer, %201
-  %.ph55 = phi i1 [ %109, %.outer ], [ false, %201 ]
-  %.ph56 = phi i32 [ %.ph52, %.outer ], [ %175, %201 ]
-  %.ph57 = phi i64 [ %.ph53, %.outer ], [ %203, %201 ]
-  %110 = icmp eq i64 %.ph57, 0
+.outer70:                                         ; preds = %.outer, %201
+  %.ph71 = phi i1 [ %109, %.outer ], [ false, %201 ]
+  %.ph72 = phi i32 [ %.ph68, %.outer ], [ %175, %201 ]
+  %.ph73 = phi i64 [ %.ph69, %.outer ], [ %203, %201 ]
+  %110 = icmp eq i64 %.ph73, 0
   br label %111
 
-111:                                              ; preds = %.outer54, %207
-  %112 = phi i1 [ false, %207 ], [ %.ph55, %.outer54 ]
-  %113 = phi i32 [ %175, %207 ], [ %.ph56, %.outer54 ]
+111:                                              ; preds = %.outer70, %207
+  %112 = phi i1 [ false, %207 ], [ %.ph71, %.outer70 ]
+  %113 = phi i32 [ %175, %207 ], [ %.ph72, %.outer70 ]
   br label %114
 
 114:                                              ; preds = %.loopexit25, %111
@@ -2596,7 +2596,7 @@ define internal fastcc i32 @do_sys_poll(ptr noundef %0, i32 noundef %1, ptr noun
 201:                                              ; preds = %200
   %202 = call i64 @local_clock() #10
   %203 = lshr i64 %202, 10
-  br label %.outer54, !llvm.loop !42
+  br label %.outer70, !llvm.loop !42
 
 204:                                              ; preds = %200
   %205 = load volatile i32, ptr @sysctl_net_busy_poll, align 4
@@ -2605,7 +2605,7 @@ define internal fastcc i32 @do_sys_poll(ptr noundef %0, i32 noundef %1, ptr noun
 
 207:                                              ; preds = %204
   %208 = zext i32 %205 to i64
-  %209 = add nuw nsw i64 %.ph57, %208
+  %209 = add nuw nsw i64 %.ph73, %208
   %210 = call i64 @local_clock() #10
   %211 = lshr i64 %210, 10
   %212 = icmp samesign ult i64 %209, %211

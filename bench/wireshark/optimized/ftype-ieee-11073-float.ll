@@ -1274,8 +1274,8 @@ switch.lookup:                                    ; preds = %4
   %83 = getelementptr [136 x i8], ptr %6, i64 0, i64 %82
   store i8 46, ptr %83, align 1
   %84 = or disjoint i32 %.070, 2
-  %.not81 = icmp eq i32 %53, %52
-  br i1 %.not81, label %93, label %85
+  %.not88 = icmp eq i32 %53, %52
+  br i1 %.not88, label %93, label %85
 
 85:                                               ; preds = %79
   %86 = sub nuw nsw i32 %52, %53
@@ -1492,8 +1492,8 @@ float_to_normal_form.exit76.i:                    ; preds = %._crit_edge.i66.i, 
   %57 = ashr i32 %.019.i.i, 24
   %58 = ashr i32 %.019.i70.i, 24
   %59 = icmp slt i32 %57, %58
-  %or.cond23.i = select i1 %56, i1 %59, i1 false
-  br i1 %or.cond23.i, label %float_ieee_11073_cmp_lt.exit.thread, label %._crit_edge.i
+  %or.cond26.i = select i1 %56, i1 %59, i1 false
+  br i1 %or.cond26.i, label %float_ieee_11073_cmp_lt.exit.thread, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %51
   %60 = icmp eq i32 %57, %58

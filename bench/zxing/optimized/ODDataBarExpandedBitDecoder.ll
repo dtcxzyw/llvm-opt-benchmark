@@ -437,7 +437,7 @@ _ZN5ZXing4OneD7DataBarL21DecodeAI01AndOtherAIsB5cxx11ERNS_12BitArrayViewE.exit: 
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN5ZXing4OneD7DataBarL11DecodeAnyAIB5cxx11ERNS_12BitArrayViewE.exit.thread
 
-138:                                              ; preds = %.invoke42, %switch.lookup, %276, %222, %178, %.noexc10, %171, %.noexc, %22, %2, %272, %270, %267, %220, %176, %173, %169, %165, %20, %14
+138:                                              ; preds = %.invoke74, %switch.lookup, %276, %222, %178, %.noexc10, %171, %.noexc, %22, %2, %272, %270, %267, %220, %176, %173, %169, %165, %20, %14
   %139 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5ZXing5ErrorE
@@ -771,13 +771,13 @@ _ZN5ZXing4OneD7DataBarL14DecodeAI01320xB5cxx11ERNS_12BitArrayViewE.exit: ; preds
 
 270:                                              ; preds = %269
   %271 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 5) #19
-          to label %.invoke42 unwind label %138
+          to label %.invoke74 unwind label %138
 
 272:                                              ; preds = %269
   %273 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 5) #19
-          to label %.invoke42 unwind label %138
+          to label %.invoke74 unwind label %138
 
-.invoke42:                                        ; preds = %272, %270
+.invoke74:                                        ; preds = %272, %270
   %274 = phi ptr [ %271, %270 ], [ %273, %272 ]
   %275 = phi i8 [ 50, %270 ], [ 51, %272 ]
   invoke fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI0139yxB5cxx11ERNS_12BitArrayViewEc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %274, i8 noundef signext %275) #19
@@ -800,12 +800,12 @@ switch.lookup:                                    ; preds = %278
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE, i64 0, i64 %282
   %switch.load = load ptr, ptr %switch.gep, align 8
   %283 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep46 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE.3, i64 0, i64 %283
-  %switch.load47 = load ptr, ptr %switch.gep46, align 8
-  invoke fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load47) #19
+  %switch.gep78 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE.3, i64 0, i64 %283
+  %switch.load79 = load ptr, ptr %switch.gep78, align 8
+  invoke fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load79) #19
           to label %_ZN5ZXing4OneD7DataBarL11DecodeAnyAIB5cxx11ERNS_12BitArrayViewE.exit.thread unwind label %138
 
-_ZN5ZXing4OneD7DataBarL11DecodeAnyAIB5cxx11ERNS_12BitArrayViewE.exit.thread: ; preds = %.invoke42, %switch.lookup, %_ZN5ZXing4OneD7DataBarL21DecodeAI01AndOtherAIsB5cxx11ERNS_12BitArrayViewE.exit, %_ZN5ZXing4OneD7DataBarL14DecodeAI013103B5cxx11ERNS_12BitArrayViewE.exit, %_ZN5ZXing4OneD7DataBarL14DecodeAI01320xB5cxx11ERNS_12BitArrayViewE.exit, %.noexc10
+_ZN5ZXing4OneD7DataBarL11DecodeAnyAIB5cxx11ERNS_12BitArrayViewE.exit.thread: ; preds = %.invoke74, %switch.lookup, %_ZN5ZXing4OneD7DataBarL21DecodeAI01AndOtherAIsB5cxx11ERNS_12BitArrayViewE.exit, %_ZN5ZXing4OneD7DataBarL14DecodeAI013103B5cxx11ERNS_12BitArrayViewE.exit, %_ZN5ZXing4OneD7DataBarL14DecodeAI01320xB5cxx11ERNS_12BitArrayViewE.exit, %.noexc10
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %284
 
@@ -2080,9 +2080,9 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
 88:                                               ; preds = %84
   %89 = trunc i32 %83 to i8
   %90 = add i8 %89, 33
-  br label %.invoke126
+  br label %.invoke141
 
-91:                                               ; preds = %.invoke126, %82
+91:                                               ; preds = %.invoke141, %82
   %92 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -2096,9 +2096,9 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   %97 = getelementptr i8, ptr @.str.19, i64 %96
   %98 = getelementptr i8, ptr %97, i64 -58
   %99 = load i8, ptr %98, align 1, !tbaa !29
-  br label %.invoke126
+  br label %.invoke141
 
-.invoke126:                                       ; preds = %88, %95
+.invoke141:                                       ; preds = %88, %95
   %100 = phi i8 [ %99, %95 ], [ %90, %88 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %100) #19
           to label %"_ZZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5cxx11ERNS_12BitArrayViewEENK3$_0clEZNS1_L24DecodeGeneralPurposeBitsB5cxx11ES3_E5StateS3_.exit79" unwind label %91
@@ -2284,14 +2284,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i82
 177:                                              ; preds = %.noexc100
   %178 = trunc i32 %159 to i8
   %179 = add i8 %178, 43
-  br label %.invoke127
+  br label %.invoke142
 
-.invoke127:                                       ; preds = %187, %177
+.invoke142:                                       ; preds = %187, %177
   %180 = phi i8 [ %179, %177 ], [ %192, %187 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %180) #19
           to label %"_ZZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5cxx11ERNS_12BitArrayViewEENK3$_0clEZNS1_L24DecodeGeneralPurposeBitsB5cxx11ES3_E5StateS3_.exit79" unwind label %181
 
-181:                                              ; preds = %.invoke127, %185, %175, %172, %162, %158, %154
+181:                                              ; preds = %.invoke142, %185, %175, %172, %162, %158, %154
   %182 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -2312,7 +2312,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i82
   %.v = select i1 %190, i32 1, i32 7
   %191 = add nsw i32 %.v, %186
   %192 = trunc i32 %191 to i8
-  br label %.invoke127
+  br label %.invoke142
 
 193:                                              ; preds = %183
   %194 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8) #19
@@ -2382,8 +2382,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
 default.unreachable:                              ; preds = %19
   unreachable
 
-"_ZZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5cxx11ERNS_12BitArrayViewEENK3$_0clEZNS1_L24DecodeGeneralPurposeBitsB5cxx11ES3_E5StateS3_.exit79": ; preds = %.invoke127, %.invoke126, %._crit_edge.i.invoke, %.invoke, %.noexc100, %.noexc83, %.noexc102, %.noexc101, %175, %._crit_edge.i88, %.noexc85, %.noexc84, %139, %217, %34, %41, %56
-  %.1 = phi i32 [ 0, %41 ], [ 0, %34 ], [ 0, %56 ], [ 2, %217 ], [ 0, %.noexc85 ], [ 0, %.noexc84 ], [ 1, %139 ], [ 2, %._crit_edge.i88 ], [ 0, %.noexc102 ], [ 0, %.noexc101 ], [ 0, %175 ], [ 2, %.noexc83 ], [ 1, %.noexc100 ], [ 0, %.invoke ], [ 1, %._crit_edge.i.invoke ], [ 1, %.invoke126 ], [ 2, %.invoke127 ]
+"_ZZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5cxx11ERNS_12BitArrayViewEENK3$_0clEZNS1_L24DecodeGeneralPurposeBitsB5cxx11ES3_E5StateS3_.exit79": ; preds = %.invoke142, %.invoke141, %._crit_edge.i.invoke, %.invoke, %.noexc100, %.noexc83, %.noexc102, %.noexc101, %175, %._crit_edge.i88, %.noexc85, %.noexc84, %139, %217, %34, %41, %56
+  %.1 = phi i32 [ 0, %41 ], [ 0, %34 ], [ 0, %56 ], [ 2, %217 ], [ 0, %.noexc85 ], [ 0, %.noexc84 ], [ 1, %139 ], [ 2, %._crit_edge.i88 ], [ 0, %.noexc102 ], [ 0, %.noexc101 ], [ 0, %175 ], [ 2, %.noexc83 ], [ 1, %.noexc100 ], [ 0, %.invoke ], [ 1, %._crit_edge.i.invoke ], [ 1, %.invoke141 ], [ 2, %.invoke142 ]
   %222 = load ptr, ptr %1, align 8, !tbaa !36
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
   %224 = load ptr, ptr %223, align 8, !tbaa !8

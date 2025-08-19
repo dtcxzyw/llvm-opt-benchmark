@@ -7558,19 +7558,19 @@ handle_packet_header.exit.thread:                 ; preds = %57, %session_key_is
   br label %.thread.sink.split
 
 handle_packet_header.exit:                        ; preds = %156, %71
-  %.sink96 = phi ptr [ %73, %71 ], [ %155, %156 ]
+  %.sink104 = phi ptr [ %73, %71 ], [ %155, %156 ]
   %171 = call ptr @wmem_file_scope()
   %172 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %171, i64 noundef 8) #5
   %173 = load i64, ptr %5, align 8
   store i64 %173, ptr %172, align 8
   %174 = load ptr, ptr %41, align 8
-  %175 = call ptr @wmem_map_insert(ptr noundef %174, ptr noundef %172, ptr noundef %.sink96)
+  %175 = call ptr @wmem_map_insert(ptr noundef %174, ptr noundef %172, ptr noundef %.sink104)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not = icmp eq ptr %.sink96, null
+  %.not = icmp eq ptr %.sink104, null
   br i1 %.not, label %.thread.sink.split, label %176
 
 176:                                              ; preds = %handle_packet_header.exit.thread61, %handle_packet_header.exit
-  %.0.i64 = phi ptr [ %56, %handle_packet_header.exit.thread61 ], [ %.sink96, %handle_packet_header.exit ]
+  %.0.i64 = phi ptr [ %56, %handle_packet_header.exit.thread61 ], [ %.sink104, %handle_packet_header.exit ]
   %177 = load i8, ptr %.0.i64, align 1
   %178 = zext i8 %177 to i32
   %179 = shl nuw nsw i32 %178, 8
@@ -8904,14 +8904,14 @@ add_cstring.exit:                                 ; preds = %208, %209
 338:                                              ; preds = %335, %.sink.split
   %339 = load i32, ptr %76, align 4
   %340 = and i32 %339, 4112
-  %or.cond6081 = icmp eq i32 %340, 0
-  br i1 %or.cond6081, label %341, label %.sink.split6061
+  %or.cond6113 = icmp eq i32 %340, 0
+  br i1 %or.cond6113, label %341, label %.sink.split6093
 
-.sink.split6061:                                  ; preds = %338
+.sink.split6093:                                  ; preds = %338
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   br label %341
 
-341:                                              ; preds = %338, %.sink.split6061
+341:                                              ; preds = %338, %.sink.split6093
   %342 = load i32, ptr %76, align 4
   %343 = and i32 %342, 32
   %.not5262 = icmp eq i32 %343, 0
@@ -8963,14 +8963,14 @@ add_cstring.exit:                                 ; preds = %208, %209
 369:                                              ; preds = %368, %365
   %370 = phi i32 [ %.pre6011, %368 ], [ %366, %365 ]
   %371 = and i32 %370, 33280
-  %or.cond6082 = icmp eq i32 %371, 0
-  br i1 %or.cond6082, label %372, label %.sink.split6062
+  %or.cond6114 = icmp eq i32 %371, 0
+  br i1 %or.cond6114, label %372, label %.sink.split6094
 
-.sink.split6062:                                  ; preds = %369
+.sink.split6094:                                  ; preds = %369
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   br label %372
 
-372:                                              ; preds = %369, %.sink.split6062
+372:                                              ; preds = %369, %.sink.split6094
   call void @ptvcursor_pop_subtree(ptr noundef %82)
   br label %.loopexit
 
@@ -10276,19 +10276,19 @@ add_cstring.exit5272:                             ; preds = %1011, %1012
   %1202 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %1201, i32 noundef 4, i32 noundef -2147483648)
   %1203 = load i32, ptr %51, align 4
   switch i32 %1203, label %1205 [
-    i32 6, label %.sink.split6063
+    i32 6, label %.sink.split6095
     i32 14, label %1204
   ]
 
 1204:                                             ; preds = %1198
-  br label %.sink.split6063
+  br label %.sink.split6095
 
-.sink.split6063:                                  ; preds = %1198, %1204
+.sink.split6095:                                  ; preds = %1198, %1204
   %hf_woww_channel.sink = phi ptr [ @hf_woww_channel, %1204 ], [ @hf_woww_target_player, %1198 ]
   call fastcc void @add_cstring(ptr noundef %82, ptr noundef nonnull %hf_woww_channel.sink)
   br label %1205
 
-1205:                                             ; preds = %.sink.split6063, %1198
+1205:                                             ; preds = %.sink.split6095, %1198
   call fastcc void @add_cstring(ptr noundef %82, ptr noundef nonnull @hf_woww_message)
   br label %.loopexit
 
@@ -11107,24 +11107,24 @@ add_cstring.exit5272:                             ; preds = %1011, %1012
 1776:                                             ; preds = %1775, %1764
   %1777 = phi i32 [ %.pre5974, %1775 ], [ %1773, %1764 ]
   %1778 = and i32 %1777, 2176
-  %or.cond6083 = icmp eq i32 %1778, 0
-  br i1 %or.cond6083, label %1779, label %.sink.split6064
+  %or.cond6115 = icmp eq i32 %1778, 0
+  br i1 %or.cond6115, label %1779, label %.sink.split6096
 
-.sink.split6064:                                  ; preds = %1776
+.sink.split6096:                                  ; preds = %1776
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   br label %1779
 
-1779:                                             ; preds = %1776, %.sink.split6064
+1779:                                             ; preds = %1776, %.sink.split6096
   %1780 = load i32, ptr %76, align 4
   %1781 = and i32 %1780, 4112
-  %or.cond6084 = icmp eq i32 %1781, 0
-  br i1 %or.cond6084, label %1782, label %.sink.split6065
+  %or.cond6116 = icmp eq i32 %1781, 0
+  br i1 %or.cond6116, label %1782, label %.sink.split6097
 
-.sink.split6065:                                  ; preds = %1779
+.sink.split6097:                                  ; preds = %1779
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   br label %1782
 
-1782:                                             ; preds = %1779, %.sink.split6065
+1782:                                             ; preds = %1779, %.sink.split6097
   %1783 = load i32, ptr %76, align 4
   %1784 = and i32 %1783, 32
   %.not5190 = icmp eq i32 %1784, 0
@@ -11176,14 +11176,14 @@ add_cstring.exit5272:                             ; preds = %1011, %1012
 1810:                                             ; preds = %1809, %1806
   %1811 = phi i32 [ %.pre5977, %1809 ], [ %1807, %1806 ]
   %1812 = and i32 %1811, 33280
-  %or.cond6085 = icmp eq i32 %1812, 0
-  br i1 %or.cond6085, label %1813, label %.sink.split6066
+  %or.cond6117 = icmp eq i32 %1812, 0
+  br i1 %or.cond6117, label %1813, label %.sink.split6098
 
-.sink.split6066:                                  ; preds = %1810
+.sink.split6098:                                  ; preds = %1810
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   br label %1813
 
-1813:                                             ; preds = %1810, %.sink.split6066
+1813:                                             ; preds = %1810, %.sink.split6098
   call void @ptvcursor_pop_subtree(ptr noundef %82)
   br label %.loopexit
 
@@ -11636,24 +11636,24 @@ add_cstring.exit5272:                             ; preds = %1011, %1012
 2118:                                             ; preds = %2117, %2104
   %2119 = phi i32 [ %.pre5970, %2117 ], [ %2115, %2104 ]
   %2120 = and i32 %2119, 2176
-  %or.cond6086 = icmp eq i32 %2120, 0
-  br i1 %or.cond6086, label %2121, label %.sink.split6067
+  %or.cond6118 = icmp eq i32 %2120, 0
+  br i1 %or.cond6118, label %2121, label %.sink.split6099
 
-.sink.split6067:                                  ; preds = %2118
+.sink.split6099:                                  ; preds = %2118
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   br label %2121
 
-2121:                                             ; preds = %2118, %.sink.split6067
+2121:                                             ; preds = %2118, %.sink.split6099
   %2122 = load i32, ptr %76, align 4
   %2123 = and i32 %2122, 4112
-  %or.cond6087 = icmp eq i32 %2123, 0
-  br i1 %or.cond6087, label %2124, label %.sink.split6068
+  %or.cond6119 = icmp eq i32 %2123, 0
+  br i1 %or.cond6119, label %2124, label %.sink.split6100
 
-.sink.split6068:                                  ; preds = %2121
+.sink.split6100:                                  ; preds = %2121
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   br label %2124
 
-2124:                                             ; preds = %2121, %.sink.split6068
+2124:                                             ; preds = %2121, %.sink.split6100
   %2125 = load i32, ptr %76, align 4
   %2126 = and i32 %2125, 32
   %.not5177 = icmp eq i32 %2126, 0
@@ -11705,14 +11705,14 @@ add_cstring.exit5272:                             ; preds = %1011, %1012
 2152:                                             ; preds = %2151, %2148
   %2153 = phi i32 [ %.pre5973, %2151 ], [ %2149, %2148 ]
   %2154 = and i32 %2153, 33280
-  %or.cond6088 = icmp eq i32 %2154, 0
-  br i1 %or.cond6088, label %2155, label %.sink.split6069
+  %or.cond6120 = icmp eq i32 %2154, 0
+  br i1 %or.cond6120, label %2155, label %.sink.split6101
 
-.sink.split6069:                                  ; preds = %2152
+.sink.split6101:                                  ; preds = %2152
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   br label %2155
 
-2155:                                             ; preds = %2152, %.sink.split6069
+2155:                                             ; preds = %2152, %.sink.split6101
   call void @ptvcursor_pop_subtree(ptr noundef %82)
   br label %.loopexit
 
@@ -19608,25 +19608,25 @@ add_cstring.exit5337:                             ; preds = %6935, %6936
   %7433 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %7432, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %63)
   %7434 = load i32, ptr %63, align 4
   %7435 = icmp eq i32 %7434, 0
-  br i1 %7435, label %.sink.split6070, label %7436
+  br i1 %7435, label %.sink.split6102, label %7436
 
 7436:                                             ; preds = %.lr.ph5542
   %7437 = add i32 %7434, -3
   %or.cond5 = icmp ult i32 %7437, 2
-  br i1 %or.cond5, label %.sink.split6070, label %7438
+  br i1 %or.cond5, label %.sink.split6102, label %7438
 
 7438:                                             ; preds = %7436
   %7439 = icmp eq i32 %7434, 2
-  br i1 %7439, label %.sink.split6070, label %7442
+  br i1 %7439, label %.sink.split6102, label %7442
 
-.sink.split6070:                                  ; preds = %7438, %7436, %.lr.ph5542
+.sink.split6102:                                  ; preds = %7438, %7436, %.lr.ph5542
   %hf_woww_sender_id.sink = phi ptr [ @hf_woww_sender, %.lr.ph5542 ], [ @hf_woww_sender_id, %7436 ], [ @hf_woww_auction_id, %7438 ]
-  %.sink6071 = phi i32 [ 8, %.lr.ph5542 ], [ 4, %7436 ], [ 4, %7438 ]
+  %.sink6103 = phi i32 [ 8, %.lr.ph5542 ], [ 4, %7436 ], [ 4, %7438 ]
   %7440 = load i32, ptr %hf_woww_sender_id.sink, align 4
-  %7441 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %7440, i32 noundef %.sink6071, i32 noundef -2147483648)
+  %7441 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %7440, i32 noundef %.sink6103, i32 noundef -2147483648)
   br label %7442
 
-7442:                                             ; preds = %.sink.split6070, %7438
+7442:                                             ; preds = %.sink.split6102, %7438
   %7443 = call ptr @ptvcursor_tvbuff(ptr noundef %82)
   %7444 = call i32 @ptvcursor_current_offset(ptr noundef %82)
   br label %7445
@@ -20540,41 +20540,41 @@ add_cstring.exit5347:                             ; preds = %7664, %7665
   switch i32 %7942, label %7952 [
     i32 89, label %7943
     i32 3, label %7943
-    i32 20, label %.sink.split6072
-    i32 8, label %.sink.split6072
-    i32 24, label %.sink.split6072.sink.split
-    i32 21, label %.sink.split6072.sink.split
-    i32 64, label %.sink.split6072.sink.split.sink.split
+    i32 20, label %.sink.split6104
+    i32 8, label %.sink.split6104
+    i32 24, label %.sink.split6104.sink.split
+    i32 21, label %.sink.split6104.sink.split
+    i32 64, label %.sink.split6104.sink.split.sink.split
   ]
 
 7943:                                             ; preds = %.lr.ph5536, %.lr.ph5536
   %7944 = load i32, ptr @hf_woww_damage, align 4
   %7945 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %7944, i32 noundef 4, i32 noundef -2147483648)
-  br label %.sink.split6072.sink.split.sink.split
+  br label %.sink.split6104.sink.split.sink.split
 
-.sink.split6072.sink.split.sink.split:            ; preds = %.lr.ph5536, %7943
+.sink.split6104.sink.split.sink.split:            ; preds = %.lr.ph5536, %7943
   %hf_woww_misc_value.sink = phi ptr [ @hf_woww_spell_school, %7943 ], [ @hf_woww_misc_value, %.lr.ph5536 ]
-  %.sink6089 = phi i32 [ 1, %7943 ], [ 4, %.lr.ph5536 ]
+  %.sink6121 = phi i32 [ 1, %7943 ], [ 4, %.lr.ph5536 ]
   %hf_woww_absorbed.sink.ph = phi ptr [ @hf_woww_absorbed, %7943 ], [ @hf_woww_damage, %.lr.ph5536 ]
   %hf_woww_damage.sink.ph.ph = phi ptr [ @hf_woww_resisted, %7943 ], [ @hf_woww_gain_multiplier, %.lr.ph5536 ]
   %7946 = load i32, ptr %hf_woww_misc_value.sink, align 4
-  %7947 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %7946, i32 noundef %.sink6089, i32 noundef -2147483648)
-  br label %.sink.split6072.sink.split
+  %7947 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %7946, i32 noundef %.sink6121, i32 noundef -2147483648)
+  br label %.sink.split6104.sink.split
 
-.sink.split6072.sink.split:                       ; preds = %.sink.split6072.sink.split.sink.split, %.lr.ph5536, %.lr.ph5536
-  %hf_woww_absorbed.sink = phi ptr [ @hf_woww_misc_value, %.lr.ph5536 ], [ @hf_woww_misc_value, %.lr.ph5536 ], [ %hf_woww_absorbed.sink.ph, %.sink.split6072.sink.split.sink.split ]
-  %hf_woww_damage.sink.ph = phi ptr [ @hf_woww_damage, %.lr.ph5536 ], [ @hf_woww_damage, %.lr.ph5536 ], [ %hf_woww_damage.sink.ph.ph, %.sink.split6072.sink.split.sink.split ]
+.sink.split6104.sink.split:                       ; preds = %.sink.split6104.sink.split.sink.split, %.lr.ph5536, %.lr.ph5536
+  %hf_woww_absorbed.sink = phi ptr [ @hf_woww_misc_value, %.lr.ph5536 ], [ @hf_woww_misc_value, %.lr.ph5536 ], [ %hf_woww_absorbed.sink.ph, %.sink.split6104.sink.split.sink.split ]
+  %hf_woww_damage.sink.ph = phi ptr [ @hf_woww_damage, %.lr.ph5536 ], [ @hf_woww_damage, %.lr.ph5536 ], [ %hf_woww_damage.sink.ph.ph, %.sink.split6104.sink.split.sink.split ]
   %7948 = load i32, ptr %hf_woww_absorbed.sink, align 4
   %7949 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %7948, i32 noundef 4, i32 noundef -2147483648)
-  br label %.sink.split6072
+  br label %.sink.split6104
 
-.sink.split6072:                                  ; preds = %.sink.split6072.sink.split, %.lr.ph5536, %.lr.ph5536
-  %hf_woww_damage.sink = phi ptr [ @hf_woww_damage, %.lr.ph5536 ], [ @hf_woww_damage, %.lr.ph5536 ], [ %hf_woww_damage.sink.ph, %.sink.split6072.sink.split ]
+.sink.split6104:                                  ; preds = %.sink.split6104.sink.split, %.lr.ph5536, %.lr.ph5536
+  %hf_woww_damage.sink = phi ptr [ @hf_woww_damage, %.lr.ph5536 ], [ @hf_woww_damage, %.lr.ph5536 ], [ %hf_woww_damage.sink.ph, %.sink.split6104.sink.split ]
   %7950 = load i32, ptr %hf_woww_damage.sink, align 4
   %7951 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %7950, i32 noundef 4, i32 noundef -2147483648)
   br label %7952
 
-7952:                                             ; preds = %.sink.split6072, %.lr.ph5536
+7952:                                             ; preds = %.sink.split6104, %.lr.ph5536
   call void @ptvcursor_pop_subtree(ptr noundef %82)
   %7953 = add nuw i32 %.047825534, 1
   %7954 = load i32, ptr %8, align 4
@@ -21689,7 +21689,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
     i32 10, label %8713
     i32 30, label %8718
     i32 19, label %8723
-    i32 24, label %.sink.split6073
+    i32 24, label %.sink.split6105
     i32 68, label %8726
     i32 111, label %8729
     i32 101, label %8734
@@ -21736,53 +21736,53 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %8710 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8709, i32 noundef 4, i32 noundef -2147483648)
   %8711 = load i32, ptr @hf_woww_power, align 4
   %8712 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8711, i32 noundef 4, i32 noundef -2147483648)
-  br label %.sink.split6073
+  br label %.sink.split6105
 
 8713:                                             ; preds = %.lr.ph5468, %.lr.ph5468
   %8714 = load i32, ptr @hf_woww_target, align 4
   %8715 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8714, i32 noundef 8, i32 noundef -2147483648)
   %8716 = load i32, ptr @hf_woww_heal_amount, align 4
   %8717 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8716, i32 noundef 4, i32 noundef -2147483648)
-  br label %.sink.split6073
+  br label %.sink.split6105
 
 8718:                                             ; preds = %.lr.ph5468
   %8719 = load i32, ptr @hf_woww_target, align 4
   %8720 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8719, i32 noundef 8, i32 noundef -2147483648)
   %8721 = load i32, ptr @hf_woww_energize_amount, align 4
   %8722 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8721, i32 noundef 4, i32 noundef -2147483648)
-  br label %.sink.split6073
+  br label %.sink.split6105
 
 8723:                                             ; preds = %.lr.ph5468
   %8724 = load i32, ptr @hf_woww_target, align 4
   %8725 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8724, i32 noundef 8, i32 noundef -2147483648)
-  br label %.sink.split6073
+  br label %.sink.split6105
 
 8726:                                             ; preds = %.lr.ph5468
   %8727 = load i32, ptr @hf_woww_target, align 4
   %8728 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8727, i32 noundef 8, i32 noundef -2147483648)
-  br label %.sink.split6073
+  br label %.sink.split6105
 
 8729:                                             ; preds = %.lr.ph5468
   %8730 = load i32, ptr @hf_woww_target, align 4
   %8731 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8730, i32 noundef 8, i32 noundef -2147483648)
   %8732 = load i32, ptr @hf_woww_item_to_damage, align 4
   %8733 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8732, i32 noundef 4, i32 noundef -2147483648)
-  br label %.sink.split6073
+  br label %.sink.split6105
 
 8734:                                             ; preds = %.lr.ph5468
-  br label %.sink.split6073
+  br label %.sink.split6105
 
 8735:                                             ; preds = %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468
-  br label %.sink.split6073
+  br label %.sink.split6105
 
-.sink.split6073:                                  ; preds = %.lr.ph5468, %8706, %8718, %8729, %8735, %8734, %8726, %8723, %8713
+.sink.split6105:                                  ; preds = %.lr.ph5468, %8706, %8718, %8729, %8735, %8734, %8726, %8723, %8713
   %hf_woww_heal_critical.sink = phi ptr [ @hf_woww_heal_critical, %8713 ], [ @hf_woww_extra_attacks, %8723 ], [ @hf_woww_interrupted_spell, %8726 ], [ @hf_woww_feed_pet_item, %8734 ], [ @hf_woww_target, %8735 ], [ @hf_woww_unknown_int, %8729 ], [ @hf_woww_energize_power, %8718 ], [ @hf_woww_multiplier, %8706 ], [ @hf_woww_item, %.lr.ph5468 ]
-  %.sink6074 = phi i32 [ 4, %8713 ], [ 4, %8723 ], [ 4, %8726 ], [ 4, %8734 ], [ 8, %8735 ], [ 4, %8729 ], [ 4, %8718 ], [ 4, %8706 ], [ 4, %.lr.ph5468 ]
+  %.sink6106 = phi i32 [ 4, %8713 ], [ 4, %8723 ], [ 4, %8726 ], [ 4, %8734 ], [ 8, %8735 ], [ 4, %8729 ], [ 4, %8718 ], [ 4, %8706 ], [ 4, %.lr.ph5468 ]
   %8736 = load i32, ptr %hf_woww_heal_critical.sink, align 4
-  %8737 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8736, i32 noundef %.sink6074, i32 noundef -2147483648)
+  %8737 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8736, i32 noundef %.sink6106, i32 noundef -2147483648)
   br label %8738
 
-8738:                                             ; preds = %.sink.split6073, %.lr.ph5468
+8738:                                             ; preds = %.sink.split6105, %.lr.ph5468
   call void @ptvcursor_pop_subtree(ptr noundef %82)
   %8739 = add nuw i32 %.047595466, 1
   %8740 = load i32, ptr %14, align 4
@@ -21955,24 +21955,24 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
 8853:                                             ; preds = %8852, %._crit_edge5460
   %8854 = phi i32 [ %.pre5829, %8852 ], [ %8841, %._crit_edge5460 ]
   %8855 = and i32 %8854, 2176
-  %or.cond6090 = icmp eq i32 %8855, 0
-  br i1 %or.cond6090, label %8856, label %.sink.split6075
+  %or.cond6122 = icmp eq i32 %8855, 0
+  br i1 %or.cond6122, label %8856, label %.sink.split6107
 
-.sink.split6075:                                  ; preds = %8853
+.sink.split6107:                                  ; preds = %8853
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   br label %8856
 
-8856:                                             ; preds = %8853, %.sink.split6075
+8856:                                             ; preds = %8853, %.sink.split6107
   %8857 = load i32, ptr %76, align 4
   %8858 = and i32 %8857, 4112
-  %or.cond6091 = icmp eq i32 %8858, 0
-  br i1 %or.cond6091, label %8859, label %.sink.split6076
+  %or.cond6123 = icmp eq i32 %8858, 0
+  br i1 %or.cond6123, label %8859, label %.sink.split6108
 
-.sink.split6076:                                  ; preds = %8856
+.sink.split6108:                                  ; preds = %8856
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   br label %8859
 
-8859:                                             ; preds = %8856, %.sink.split6076
+8859:                                             ; preds = %8856, %.sink.split6108
   %8860 = load i32, ptr %76, align 4
   %8861 = and i32 %8860, 32
   %.not4902 = icmp eq i32 %8861, 0
@@ -22024,14 +22024,14 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
 8887:                                             ; preds = %8886, %8883
   %8888 = phi i32 [ %.pre5832, %8886 ], [ %8884, %8883 ]
   %8889 = and i32 %8888, 33280
-  %or.cond6092 = icmp eq i32 %8889, 0
-  br i1 %or.cond6092, label %8890, label %.sink.split6077
+  %or.cond6124 = icmp eq i32 %8889, 0
+  br i1 %or.cond6124, label %8890, label %.sink.split6109
 
-.sink.split6077:                                  ; preds = %8887
+.sink.split6109:                                  ; preds = %8887
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   br label %8890
 
-8890:                                             ; preds = %8887, %.sink.split6077
+8890:                                             ; preds = %8887, %.sink.split6109
   call void @ptvcursor_pop_subtree(ptr noundef %82)
   %8891 = load i32, ptr %56, align 4
   %8892 = and i32 %8891, 32
@@ -22071,24 +22071,24 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
 8912:                                             ; preds = %8911, %8898
   %8913 = phi i32 [ %.pre5825, %8911 ], [ %8909, %8898 ]
   %8914 = and i32 %8913, 2176
-  %or.cond6093 = icmp eq i32 %8914, 0
-  br i1 %or.cond6093, label %8915, label %.sink.split6078
+  %or.cond6125 = icmp eq i32 %8914, 0
+  br i1 %or.cond6125, label %8915, label %.sink.split6110
 
-.sink.split6078:                                  ; preds = %8912
+.sink.split6110:                                  ; preds = %8912
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   br label %8915
 
-8915:                                             ; preds = %8912, %.sink.split6078
+8915:                                             ; preds = %8912, %.sink.split6110
   %8916 = load i32, ptr %76, align 4
   %8917 = and i32 %8916, 4112
-  %or.cond6094 = icmp eq i32 %8917, 0
-  br i1 %or.cond6094, label %8918, label %.sink.split6079
+  %or.cond6126 = icmp eq i32 %8917, 0
+  br i1 %or.cond6126, label %8918, label %.sink.split6111
 
-.sink.split6079:                                  ; preds = %8915
+.sink.split6111:                                  ; preds = %8915
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   br label %8918
 
-8918:                                             ; preds = %8915, %.sink.split6079
+8918:                                             ; preds = %8915, %.sink.split6111
   %8919 = load i32, ptr %76, align 4
   %8920 = and i32 %8919, 32
   %.not4891 = icmp eq i32 %8920, 0
@@ -22140,14 +22140,14 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
 8946:                                             ; preds = %8945, %8942
   %8947 = phi i32 [ %.pre5828, %8945 ], [ %8943, %8942 ]
   %8948 = and i32 %8947, 33280
-  %or.cond6095 = icmp eq i32 %8948, 0
-  br i1 %or.cond6095, label %8949, label %.sink.split6080
+  %or.cond6127 = icmp eq i32 %8948, 0
+  br i1 %or.cond6127, label %8949, label %.sink.split6112
 
-.sink.split6080:                                  ; preds = %8946
+.sink.split6112:                                  ; preds = %8946
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   br label %8949
 
-8949:                                             ; preds = %8946, %.sink.split6080
+8949:                                             ; preds = %8946, %.sink.split6112
   call void @ptvcursor_pop_subtree(ptr noundef %82)
   %8950 = load i32, ptr %56, align 4
   %8951 = and i32 %8950, 32

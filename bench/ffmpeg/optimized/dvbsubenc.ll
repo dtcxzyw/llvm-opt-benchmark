@@ -622,10 +622,10 @@ define internal i32 @dvb_encode_rle2(ptr noundef captures(none) %0, i32 noundef 
 
 .sink.split:                                      ; preds = %19, %.thread409.us.sink.split, %17
   %.23250415.us.sink = phi i32 [ %.3230.us, %17 ], [ %.3230.us, %19 ], [ 0, %.thread409.us.sink.split ]
-  %.24414.us.sink447 = phi ptr [ %.4256.us, %17 ], [ %.4256.us, %19 ], [ %21, %.thread409.us.sink.split ]
+  %.24414.us.sink456 = phi ptr [ %.4256.us, %17 ], [ %.4256.us, %19 ], [ %21, %.thread409.us.sink.split ]
   %22 = trunc i32 %.23250415.us.sink to i8
-  %23 = getelementptr inbounds nuw i8, ptr %.24414.us.sink447, i64 1
-  store i8 %22, ptr %.24414.us.sink447, align 1, !tbaa !34
+  %23 = getelementptr inbounds nuw i8, ptr %.24414.us.sink456, i64 1
+  store i8 %22, ptr %.24414.us.sink456, align 1, !tbaa !34
   br label %24
 
 24:                                               ; preds = %.sink.split, %19

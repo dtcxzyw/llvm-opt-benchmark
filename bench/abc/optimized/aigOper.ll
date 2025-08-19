@@ -472,8 +472,8 @@ tailrecurse.backedge:                             ; preds = %61, %68, %89, %95, 
   %236 = icmp eq ptr %.val27.i, %.val26.i
   %or.cond.i = or i1 %236, %.not22.i
   %237 = icmp eq ptr %.val29.i, %.val28.i
-  %or.cond36.i = or i1 %237, %or.cond.i
-  br i1 %or.cond36.i, label %Aig_ObjIsExorType.exit.thread, label %Aig_ObjIsExorType.exit
+  %or.cond38.i = or i1 %237, %or.cond.i
+  br i1 %or.cond38.i, label %Aig_ObjIsExorType.exit.thread, label %Aig_ObjIsExorType.exit
 
 Aig_ObjIsExorType.exit:                           ; preds = %230
   %238 = tail call ptr @Aig_Exor(ptr noundef nonnull %0, ptr noundef %.val26.i, ptr noundef %.val28.i)

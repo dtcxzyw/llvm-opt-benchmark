@@ -1210,24 +1210,24 @@ DecodeRemaining.exit:                             ; preds = %DecodeRemaining.exi
 336:                                              ; preds = %333
   %337 = load i64, ptr %327, align 8, !tbaa !18
   %338 = icmp ult i64 %326, %337
-  br i1 %338, label %DecodeVP8LHeader.exit.sink.split, label %.thread32.i
+  br i1 %338, label %DecodeVP8LHeader.exit.sink.split, label %.thread35.i
 
 339:                                              ; preds = %333
   %340 = and i32 %334, -3
   %or.cond.i.i = icmp eq i32 %340, 5
-  br i1 %or.cond.i.i, label %DecodeVP8LHeader.exit, label %.thread32.i
+  br i1 %or.cond.i.i, label %DecodeVP8LHeader.exit, label %.thread35.i
 
-.thread32.i:                                      ; preds = %339, %336
+.thread35.i:                                      ; preds = %339, %336
   %341 = load i32, ptr %0, align 8, !tbaa !3
   %342 = icmp eq i32 %341, 3
   br i1 %342, label %343, label %IDecError.exit.i.i
 
-343:                                              ; preds = %.thread32.i
+343:                                              ; preds = %.thread35.i
   %344 = load ptr, ptr %320, align 8, !tbaa !25
   %345 = call i32 @VP8ExitCritical(ptr noundef %344, ptr noundef nonnull %319) #7
   br label %IDecError.exit.i.i
 
-IDecError.exit.i.i:                               ; preds = %343, %.thread32.i
+IDecError.exit.i.i:                               ; preds = %343, %.thread35.i
   store i32 7, ptr %0, align 8, !tbaa !3
   br label %.critedge
 

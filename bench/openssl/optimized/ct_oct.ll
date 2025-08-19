@@ -344,10 +344,10 @@ define i32 @i2o_SCT_signature(ptr noundef %0, ptr noundef captures(address_is_nu
   br label %37
 
 .sink.split:                                      ; preds = %4, %2
-  %.sink34 = phi i32 [ 159, %2 ], [ 164, %4 ]
+  %.sink36 = phi i32 [ 159, %2 ], [ 164, %4 ]
   %.sink = phi i32 [ 107, %2 ], [ 103, %4 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink34, ptr noundef nonnull @__func__.i2o_SCT_signature) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink36, ptr noundef nonnull @__func__.i2o_SCT_signature) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 50, i32 noundef %.sink, ptr noundef null) #4
   br label %36
 
@@ -761,8 +761,8 @@ i2o_SCT.exit50:                                   ; preds = %14, %21
   br i1 %33, label %i2o_SCT_LIST.exit.thread, label %i2o_SCT_LIST.exit
 
 i2o_SCT_LIST.exit:                                ; preds = %.preheader, %._crit_edge
-  %.0.i.lcssa72 = phi i64 [ %29, %._crit_edge ], [ 2, %.preheader ]
-  %34 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %.0.i.lcssa72, ptr noundef nonnull @.str, i32 noundef 329) #4
+  %.0.i.lcssa78 = phi i64 [ %29, %._crit_edge ], [ 2, %.preheader ]
+  %34 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %.0.i.lcssa78, ptr noundef nonnull @.str, i32 noundef 329) #4
   store ptr %34, ptr %1, align 8, !tbaa !11
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.loopexit.thread, label %36
@@ -779,7 +779,7 @@ i2o_SCT_LIST.exit.thread:                         ; preds = %i2o_SCT.exit50, %._
   store ptr %38, ptr %3, align 8, !tbaa !11
   %39 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #4
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.lr.ph63.split, label %._crit_edge64.thread.thread86
+  br i1 %40, label %.lr.ph63.split, label %._crit_edge64.thread.thread92
 
 .thread:                                          ; preds = %2
   %41 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #4
@@ -863,41 +863,41 @@ i2o_SCT.exit.thread:                              ; preds = %.lr.ph63.split.us
   br label %.loopexit.thread
 
 ._crit_edge64:                                    ; preds = %72, %60
-  %.03374 = phi i1 [ true, %60 ], [ %6, %72 ]
+  %.03380 = phi i1 [ true, %60 ], [ %6, %72 ]
   %.0.lcssa = phi i64 [ %63, %60 ], [ %79, %72 ]
   %83 = icmp ugt i64 %.0.lcssa, 65535
   br i1 %83, label %.loopexit, label %._crit_edge64.thread
 
 ._crit_edge64.thread:                             ; preds = %._crit_edge64
-  br i1 %.not, label %._crit_edge64.thread.thread, label %._crit_edge64.thread.thread86
+  br i1 %.not, label %._crit_edge64.thread.thread, label %._crit_edge64.thread.thread92
 
-._crit_edge64.thread.thread86:                    ; preds = %36, %._crit_edge64.thread
-  %.033748190 = phi i1 [ %.03374, %._crit_edge64.thread ], [ %6, %36 ]
-  %.0.lcssa8289 = phi i64 [ %.0.lcssa, %._crit_edge64.thread ], [ 2, %36 ]
+._crit_edge64.thread.thread92:                    ; preds = %36, %._crit_edge64.thread
+  %.033808796 = phi i1 [ %.03380, %._crit_edge64.thread ], [ %6, %36 ]
+  %.0.lcssa8895 = phi i64 [ %.0.lcssa, %._crit_edge64.thread ], [ 2, %36 ]
   %84 = load ptr, ptr %1, align 8, !tbaa !11
-  %85 = add nsw i64 %.0.lcssa8289, -2
+  %85 = add nsw i64 %.0.lcssa8895, -2
   %86 = lshr i64 %85, 8
   %87 = trunc i64 %86 to i8
   store i8 %87, ptr %84, align 1, !tbaa !12
   %88 = trunc i64 %85 to i8
   %89 = getelementptr inbounds nuw i8, ptr %84, i64 1
   store i8 %88, ptr %89, align 1, !tbaa !12
-  br i1 %.033748190, label %90, label %._crit_edge64.thread.thread
+  br i1 %.033808796, label %90, label %._crit_edge64.thread.thread
 
-90:                                               ; preds = %._crit_edge64.thread.thread86
+90:                                               ; preds = %._crit_edge64.thread.thread92
   %91 = load ptr, ptr %1, align 8, !tbaa !11
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %.0.lcssa8289
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %.0.lcssa8895
   store ptr %92, ptr %1, align 8, !tbaa !11
   br label %._crit_edge64.thread.thread
 
-._crit_edge64.thread.thread:                      ; preds = %.thread, %._crit_edge64.thread.thread86, %90, %._crit_edge64.thread
-  %.0.lcssa8285 = phi i64 [ %.0.lcssa8289, %._crit_edge64.thread.thread86 ], [ %.0.lcssa8289, %90 ], [ %.0.lcssa, %._crit_edge64.thread ], [ 2, %.thread ]
-  %93 = trunc nuw nsw i64 %.0.lcssa8285 to i32
+._crit_edge64.thread.thread:                      ; preds = %.thread, %._crit_edge64.thread.thread92, %90, %._crit_edge64.thread
+  %.0.lcssa8891 = phi i64 [ %.0.lcssa8895, %._crit_edge64.thread.thread92 ], [ %.0.lcssa8895, %90 ], [ %.0.lcssa, %._crit_edge64.thread ], [ 2, %.thread ]
+  %93 = trunc nuw nsw i64 %.0.lcssa8891 to i32
   br label %.loopexit.thread
 
 .loopexit:                                        ; preds = %.lr.ph63.split, %._crit_edge64
-  %.03376 = phi i1 [ %.03374, %._crit_edge64 ], [ %6, %.lr.ph63.split ]
-  br i1 %.03376, label %.loopexit.thread, label %94
+  %.03382 = phi i1 [ %.03380, %._crit_edge64 ], [ %6, %.lr.ph63.split ]
+  br i1 %.03382, label %.loopexit.thread, label %94
 
 94:                                               ; preds = %.loopexit
   %95 = load ptr, ptr %1, align 8, !tbaa !11

@@ -135,7 +135,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br label %16
 
 .critedge.preheader:                              ; preds = %1
-  br i1 %.not158, label %.thread189, label %.lr.ph136
+  br i1 %.not158, label %.thread192, label %.lr.ph136
 
 .lr.ph136:                                        ; preds = %.critedge.preheader
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -184,24 +184,24 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br i1 %38, label %51, label %39
 
 39:                                               ; preds = %35, %.critedge._crit_edge
-  %.087.lcssa188 = phi i32 [ %29, %35 ], [ 0, %.critedge._crit_edge ]
-  %40 = icmp eq i32 %.087.lcssa188, %31
-  br i1 %40, label %.thread189, label %45
+  %.087.lcssa191 = phi i32 [ %29, %35 ], [ 0, %.critedge._crit_edge ]
+  %40 = icmp eq i32 %.087.lcssa191, %31
+  br i1 %40, label %.thread192, label %45
 
-.thread189:                                       ; preds = %.critedge.preheader, %39
+.thread192:                                       ; preds = %.critedge.preheader, %39
   %41 = phi i32 [ %31, %39 ], [ 0, %.critedge.preheader ]
-  %.095.lcssa187195 = phi i1 [ %34, %39 ], [ true, %.critedge.preheader ]
-  %.087.lcssa188193 = phi i32 [ %.087.lcssa188, %39 ], [ 0, %.critedge.preheader ]
+  %.095.lcssa190198 = phi i1 [ %34, %39 ], [ true, %.critedge.preheader ]
+  %.087.lcssa191196 = phi i32 [ %.087.lcssa191, %39 ], [ 0, %.critedge.preheader ]
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %43 = load i32, ptr %42, align 4, !tbaa !39
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %51, label %45
 
-45:                                               ; preds = %.thread189, %39
-  %46 = phi i32 [ %41, %.thread189 ], [ %31, %39 ]
-  %.095.lcssa187194 = phi i1 [ %.095.lcssa187195, %.thread189 ], [ %34, %39 ]
-  %.087.lcssa188192 = phi i32 [ %.087.lcssa188193, %.thread189 ], [ %.087.lcssa188, %39 ]
-  br i1 %.095.lcssa187194, label %54, label %47
+45:                                               ; preds = %.thread192, %39
+  %46 = phi i32 [ %41, %.thread192 ], [ %31, %39 ]
+  %.095.lcssa190197 = phi i1 [ %.095.lcssa190198, %.thread192 ], [ %34, %39 ]
+  %.087.lcssa191195 = phi i32 [ %.087.lcssa191196, %.thread192 ], [ %.087.lcssa191, %39 ]
+  br i1 %.095.lcssa190197, label %54, label %47
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 12
@@ -209,7 +209,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %50 = icmp eq i32 %49, 2
   br i1 %50, label %51, label %54
 
-51:                                               ; preds = %47, %.thread189, %35
+51:                                               ; preds = %47, %.thread192, %35
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %53 = load i64, ptr %52, align 8, !tbaa !40
   call void @ff_avfilter_link_set_in_status(ptr noundef %8, i32 noundef -541478725, i64 noundef %53) #8
@@ -240,7 +240,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br i1 %64, label %56, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %56
-  %65 = sub i32 %62, %.087.lcssa188192
+  %65 = sub i32 %62, %.087.lcssa191195
   %.not107 = icmp ult i32 %spec.select113, %65
   br i1 %.not107, label %116, label %.preheader
 
@@ -397,7 +397,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
 ._crit_edge154:                                   ; preds = %54, %.preheader, %._crit_edge154.loopexit, %116
   %.386.lcssa = phi i32 [ 0, %116 ], [ %139, %._crit_edge154.loopexit ], [ 0, %.preheader ], [ 0, %54 ]
   %.lcssa = phi i32 [ 0, %116 ], [ %136, %._crit_edge154.loopexit ], [ 0, %.preheader ], [ 0, %54 ]
-  %140 = sub i32 %.lcssa, %.087.lcssa188192
+  %140 = sub i32 %.lcssa, %.087.lcssa191195
   %141 = icmp eq i32 %.386.lcssa, %140
   br i1 %141, label %142, label %.loopexit
 

@@ -298,8 +298,8 @@ define hidden i32 @SDL_SYS_HapticInstanceID(i32 noundef %0) local_unnamed_addr #
 
 .preheader.i:                                     ; preds = %1
   %.09.i = load ptr, ptr @SDL_hapticlist, align 8
-  %.not12.i = icmp eq i32 %0, 0
-  br i1 %.not12.i, label %HapticByDevIndex.exit, label %.lr.ph.i
+  %.not13.i = icmp eq i32 %0, 0
+  br i1 %.not13.i, label %HapticByDevIndex.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.011.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.09.i, %.preheader.i ]
@@ -334,8 +334,8 @@ define hidden ptr @SDL_SYS_HapticName(i32 noundef %0) local_unnamed_addr #0 {
 
 .preheader.i:                                     ; preds = %1
   %.09.i = load ptr, ptr @SDL_hapticlist, align 8
-  %.not12.i = icmp eq i32 %0, 0
-  br i1 %.not12.i, label %HapticByDevIndex.exit, label %.lr.ph.i
+  %.not13.i = icmp eq i32 %0, 0
+  br i1 %.not13.i, label %HapticByDevIndex.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.011.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.09.i, %.preheader.i ]

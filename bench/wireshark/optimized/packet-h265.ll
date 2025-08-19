@@ -1354,14 +1354,14 @@ define internal fastcc noundef ptr @dissect_h265_unescap_nal_unit(ptr noundef %0
   br label %21
 
 21:                                               ; preds = %.lr.ph, %12, %15
-  %.sink46 = phi i32 [ %20, %15 ], [ %.040, %12 ], [ %.040, %.lr.ph ]
-  %.sink45 = phi i32 [ 2, %15 ], [ 1, %12 ], [ 1, %.lr.ph ]
-  %.sink44 = phi i32 [ %17, %15 ], [ %.03438, %12 ], [ %.03438, %.lr.ph ]
+  %.sink48 = phi i32 [ %20, %15 ], [ %.040, %12 ], [ %.040, %.lr.ph ]
+  %.sink47 = phi i32 [ 2, %15 ], [ 1, %12 ], [ 1, %.lr.ph ]
+  %.sink46 = phi i32 [ %17, %15 ], [ %.03438, %12 ], [ %.03438, %.lr.ph ]
   %.sink = phi i32 [ 3, %15 ], [ 1, %12 ], [ 1, %.lr.ph ]
   %.133 = phi i32 [ %10, %15 ], [ %.03239, %12 ], [ %.03239, %.lr.ph ]
-  %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.sink46)
-  %23 = add i32 %.03438, %.sink45
-  %24 = sext i32 %.sink44 to i64
+  %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.sink48)
+  %23 = add i32 %.03438, %.sink47
+  %24 = sext i32 %.sink46 to i64
   %25 = getelementptr i8, ptr %8, i64 %24
   store i8 %22, ptr %25, align 1
   %26 = add i32 %.040, %.sink
@@ -4158,11 +4158,11 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   br i1 %142, label %.lr.ph324.preheader, label %.preheader
 
 .lr.ph324.preheader:                              ; preds = %113, %.preheader315
-  %.1253.ph358 = phi i32 [ %132, %.preheader315 ], [ -2147483648, %113 ]
-  %.0254312.ph357 = phi i32 [ %134, %.preheader315 ], [ -1, %113 ]
-  %.0250313.ph355 = phi i32 [ %.1251, %.preheader315 ], [ %114, %113 ]
-  %.0248314.ph354 = phi i32 [ %.0248, %.preheader315 ], [ %.1249, %113 ]
-  %.ph352 = phi i32 [ %141, %.preheader315 ], [ %117, %113 ]
+  %.1253.ph368 = phi i32 [ %132, %.preheader315 ], [ -2147483648, %113 ]
+  %.0254312.ph367 = phi i32 [ %134, %.preheader315 ], [ -1, %113 ]
+  %.0250313.ph365 = phi i32 [ %.1251, %.preheader315 ], [ %114, %113 ]
+  %.0248314.ph364 = phi i32 [ %.0248, %.preheader315 ], [ %.1249, %113 ]
+  %.ph362 = phi i32 [ %141, %.preheader315 ], [ %117, %113 ]
   br label %.lr.ph324
 
 143:                                              ; preds = %113, %.thread304
@@ -4186,9 +4186,9 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   br label %213
 
 .preheader:                                       ; preds = %162, %.preheader315
-  %.0254312.ph356 = phi i32 [ %134, %.preheader315 ], [ %.0254312.ph357, %162 ]
-  %.0248314.ph353 = phi i32 [ %.0248, %.preheader315 ], [ %.0248314.ph354, %162 ]
-  %.ph351 = phi i32 [ %141, %.preheader315 ], [ %.ph352, %162 ]
+  %.0254312.ph366 = phi i32 [ %134, %.preheader315 ], [ %.0254312.ph367, %162 ]
+  %.0248314.ph363 = phi i32 [ %.0248, %.preheader315 ], [ %.0248314.ph364, %162 ]
+  %.ph361 = phi i32 [ %141, %.preheader315 ], [ %.ph362, %162 ]
   %.3.lcssa = phi i32 [ %47, %.preheader315 ], [ %indvars.iv, %162 ]
   %154 = and i32 %.3.lcssa, 7
   %.not269326 = icmp eq i32 %154, 0
@@ -4197,7 +4197,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
 .lr.ph324:                                        ; preds = %.lr.ph324.preheader, %162
   %.0242323 = phi i32 [ %167, %162 ], [ 0, %.lr.ph324.preheader ]
   %.3322 = phi i32 [ %163, %162 ], [ %47, %.lr.ph324.preheader ]
-  %.1253321 = phi i32 [ %166, %162 ], [ %.1253.ph358, %.lr.ph324.preheader ]
+  %.1253321 = phi i32 [ %166, %162 ], [ %.1253.ph368, %.lr.ph324.preheader ]
   %.not274 = icmp ne i32 %.3322, 0
   %155 = and i32 %.3322, 3
   %.not275 = icmp eq i32 %155, 0
@@ -4220,7 +4220,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
 
 162:                                              ; preds = %160, %158
   %163 = add i32 %.3322, 1
-  %164 = and i32 %.1253321, %.0250313.ph355
+  %164 = and i32 %.1253321, %.0250313.ph365
   %.not277 = icmp eq i32 %164, 0
   %.str.668..str.667 = select i1 %.not277, ptr @.str.668, ptr @.str.667
   %165 = tail call i64 @g_strlcat(ptr noundef %28, ptr noundef nonnull %.str.668..str.667, i64 noundef 256)
@@ -4275,8 +4275,8 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   br i1 %.not271, label %190, label %187
 
 187:                                              ; preds = %184
-  %188 = tail call ptr @val_to_str_const(i32 noundef %.0254312.ph356, ptr noundef nonnull %186, ptr noundef nonnull @.str.671)
-  %189 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef 1, i32 noundef %.0254312.ph356, ptr noundef nonnull @.str.674, ptr noundef %28, ptr noundef %188, i32 noundef %.0254312.ph356)
+  %188 = tail call ptr @val_to_str_const(i32 noundef %.0254312.ph366, ptr noundef nonnull %186, ptr noundef nonnull @.str.671)
+  %189 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef 1, i32 noundef %.0254312.ph366, ptr noundef nonnull @.str.674, ptr noundef %28, ptr noundef %188, i32 noundef %.0254312.ph366)
   br label %212
 
 190:                                              ; preds = %184
@@ -4288,11 +4288,11 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   ]
 
 193:                                              ; preds = %190
-  %194 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef 1, i32 noundef %.0254312.ph356, ptr noundef nonnull @.str.675, ptr noundef %28, i32 noundef %.0254312.ph356)
+  %194 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef 1, i32 noundef %.0254312.ph366, ptr noundef nonnull @.str.675, ptr noundef %28, i32 noundef %.0254312.ph366)
   br label %212
 
 195:                                              ; preds = %190
-  %196 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef 1, i32 noundef %.0254312.ph356, ptr noundef nonnull @.str.676, ptr noundef %28, i32 noundef %.0254312.ph356)
+  %196 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef 1, i32 noundef %.0254312.ph366, ptr noundef nonnull @.str.676, ptr noundef %28, i32 noundef %.0254312.ph366)
   br label %212
 
 197:                                              ; preds = %190
@@ -4306,8 +4306,8 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   br i1 %.not270, label %204, label %201
 
 201:                                              ; preds = %198
-  %202 = tail call ptr @val_to_str_const(i32 noundef %.0254312.ph356, ptr noundef nonnull %200, ptr noundef nonnull @.str.671)
-  %203 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef 1, i32 noundef %.0254312.ph356, ptr noundef nonnull @.str.670, ptr noundef %28, ptr noundef %202, i32 noundef %.0248314.ph353)
+  %202 = tail call ptr @val_to_str_const(i32 noundef %.0254312.ph366, ptr noundef nonnull %200, ptr noundef nonnull @.str.671)
+  %203 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef 1, i32 noundef %.0254312.ph366, ptr noundef nonnull @.str.670, ptr noundef %28, ptr noundef %202, i32 noundef %.0248314.ph363)
   br label %210
 
 204:                                              ; preds = %198
@@ -4317,7 +4317,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   br i1 %cond1, label %207, label %209
 
 207:                                              ; preds = %204
-  %208 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef 1, i32 noundef %.0254312.ph356, ptr noundef nonnull @.str.672, ptr noundef %28, i32 noundef %.0248314.ph353)
+  %208 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef 1, i32 noundef %.0254312.ph366, ptr noundef nonnull @.str.672, ptr noundef %28, i32 noundef %.0248314.ph363)
   br label %210
 
 209:                                              ; preds = %204
@@ -4325,7 +4325,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   unreachable
 
 210:                                              ; preds = %207, %201
-  store i32 %.ph351, ptr %4, align 4
+  store i32 %.ph361, ptr %4, align 4
   br label %213
 
 211:                                              ; preds = %181
@@ -4333,11 +4333,11 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   unreachable
 
 212:                                              ; preds = %193, %195, %187, %._crit_edge
-  store i32 %.ph351, ptr %4, align 4
+  store i32 %.ph361, ptr %4, align 4
   br label %213
 
 213:                                              ; preds = %._crit_edge333, %89, %97, %95, %70, %81, %75, %212, %210, %151, %148
-  %.0246 = phi i32 [ %.0248311, %148 ], [ -1, %151 ], [ %.0254312.ph356, %212 ], [ %.0248314.ph353, %210 ], [ 0, %75 ], [ 0, %81 ], [ 0, %70 ], [ 0, %95 ], [ 0, %97 ], [ 0, %89 ], [ 0, %._crit_edge333 ]
+  %.0246 = phi i32 [ %.0248311, %148 ], [ -1, %151 ], [ %.0254312.ph366, %212 ], [ %.0248314.ph363, %210 ], [ 0, %75 ], [ 0, %81 ], [ 0, %70 ], [ 0, %95 ], [ 0, %97 ], [ 0, %89 ], [ 0, %._crit_edge333 ]
   ret i32 %.0246
 }
 
@@ -4650,18 +4650,18 @@ define internal fastcc i32 @dissect_h265_scaling_list_data(ptr noundef %0, ptr n
   br label %.loopexit
 
 21:                                               ; preds = %12
-  br i1 %9, label %22, label %.preheader37
+  br i1 %9, label %22, label %.preheader38
 
 22:                                               ; preds = %21
   %23 = load i32, ptr @hf_h265_scaling_list_dc_coef_minus8, align 4
   %24 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %23, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef 2)
-  br label %.preheader37
+  br label %.preheader38
 
-.preheader37:                                     ; preds = %22, %21
+.preheader38:                                     ; preds = %22, %21
   br label %25
 
-25:                                               ; preds = %.preheader37, %25
-  %.03033 = phi i32 [ %28, %25 ], [ 0, %.preheader37 ]
+25:                                               ; preds = %.preheader38, %25
+  %.03033 = phi i32 [ %28, %25 ], [ 0, %.preheader38 ]
   %26 = load i32, ptr @hf_h265_scaling_list_delta_coef, align 4
   %27 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %26, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef 2)
   %28 = add nuw nsw i32 %.03033, 1

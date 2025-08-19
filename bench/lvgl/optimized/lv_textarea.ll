@@ -362,14 +362,14 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
   %104 = icmp ne i8 %103, 0
   %105 = icmp eq i32 %72, 1
   %or.cond12.i = select i1 %104, i1 true, i1 %105
-  br i1 %or.cond12.i, label %106, label %.thread100.i
+  br i1 %or.cond12.i, label %106, label %.thread107.i
 
 106:                                              ; preds = %101, %.thread.i
   call void @lv_textarea_set_cursor_pos(ptr noundef nonnull %46, i32 noundef %.080.i)
   %.pre98.i = load i8, ptr %83, align 8
   %.pre99.i = and i8 %.pre98.i, 1
   %107 = icmp eq i8 %.pre99.i, 0
-  br i1 %107, label %.thread100.i, label %108
+  br i1 %107, label %.thread107.i, label %108
 
 108:                                              ; preds = %106
   %109 = getelementptr inbounds nuw i8, ptr %46, i64 144
@@ -439,19 +439,19 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
 136:                                              ; preds = %.sink.split.i, %131, %126, %117
   %137 = and i32 %72, -9
   %or.cond14.i = icmp eq i32 %137, 3
-  br i1 %or.cond14.i, label %138, label %.thread100.i
+  br i1 %or.cond14.i, label %138, label %.thread107.i
 
 138:                                              ; preds = %136
   %139 = load i8, ptr %83, align 8
   %140 = and i8 %139, -2
   store i8 %140, ptr %83, align 8
-  br label %.thread100.i
+  br label %.thread107.i
 
-.thread100.i:                                     ; preds = %138, %136, %106, %101
+.thread107.i:                                     ; preds = %138, %136, %106, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %141
 
-141:                                              ; preds = %.thread100.i, %57
+141:                                              ; preds = %.thread107.i, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

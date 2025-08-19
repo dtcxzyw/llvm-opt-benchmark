@@ -1245,8 +1245,8 @@ Aig_ObjPrepareCuts.exit:                          ; preds = %._crit_edge.i, %36,
   %68 = load i8, ptr %67, align 1, !tbaa !35
   %69 = icmp sgt i8 %68, 0
   %70 = icmp sgt i32 %66, 0
-  %or.cond175 = and i1 %69, %70
-  br i1 %or.cond175, label %.lr.ph, label %.loopexit133
+  %or.cond204 = and i1 %69, %70
+  br i1 %or.cond204, label %.lr.ph, label %.loopexit133
 
 .lr.ph:                                           ; preds = %65
   %.val = load ptr, ptr %15, align 8, !tbaa !30
@@ -1374,7 +1374,7 @@ Aig_CutFindFree.exit:                             ; preds = %.lr.ph.i53, %._crit
 
 .preheader103.lr.ph.i97:                          ; preds = %.preheader104.i90
   %142 = getelementptr inbounds nuw i8, ptr %.042140, i64 24
-  %143 = zext i32 %105 to i64
+  %143 = zext nneg i32 %105 to i64
   br label %.preheader103.i98
 
 .preheader103.i98:                                ; preds = %.thread.i101, %.preheader103.lr.ph.i97
@@ -1540,7 +1540,7 @@ Aig_CutFindFree.exit:                             ; preds = %.lr.ph.i53, %._crit
 
 .preheader103.lr.ph.i:                            ; preds = %.preheader104.i
   %216 = getelementptr inbounds nuw i8, ptr %.042140, i64 24
-  %217 = zext i32 %105 to i64
+  %217 = zext nneg i32 %105 to i64
   br label %.preheader103.i
 
 .preheader101.i:                                  ; preds = %213

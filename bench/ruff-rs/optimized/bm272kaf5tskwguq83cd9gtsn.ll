@@ -5050,8 +5050,8 @@ switch.lookup:                                    ; preds = %3
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4jiff3fmt8friendly7printer11SpanPrinter14print_duration17h7e74f8a7b61cc67aE, i64 0, i64 %40
   %switch.load = load ptr, ptr %switch.gep, align 8
   %41 = zext nneg i8 %39 to i64
-  %switch.gep69 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4jiff3fmt8friendly7printer11SpanPrinter14print_duration17h7e74f8a7b61cc67aE.137, i64 0, i64 %41
-  %switch.load70 = load ptr, ptr %switch.gep69, align 8
+  %switch.gep75 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4jiff3fmt8friendly7printer11SpanPrinter14print_duration17h7e74f8a7b61cc67aE.137, i64 0, i64 %41
+  %switch.load76 = load ptr, ptr %switch.gep75, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load i8, ptr %42, align 1, !range !531, !alias.scope !532, !noalias !533, !noundef !15
   switch i8 %43, label %default.unreachable [
@@ -5136,7 +5136,7 @@ _ZN4jiff3fmt8friendly7printer9Direction4sign17hf6bdad7f431e76fcE.exit.i.i: ; pre
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %26, i64 48
   store i64 10, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !526, !noalias !535
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %26, i64 56
-  store ptr %switch.load70, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !alias.scope !526, !noalias !535
+  store ptr %switch.load76, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !alias.scope !526, !noalias !535
   %.sroa.13.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %26, i64 64
   store i64 10, ptr %.sroa.13.0..sroa_idx.i.i, align 8, !alias.scope !526, !noalias !535
   store i64 %.sroa.0.0.i.i, ptr %26, align 8, !alias.scope !526, !noalias !535

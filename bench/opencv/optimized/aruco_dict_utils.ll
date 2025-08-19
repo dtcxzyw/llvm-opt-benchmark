@@ -2156,9 +2156,9 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i323: ; preds = %677
           to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i325.invoke unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i325.invoke.sink.split: ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i323, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i312, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i301
-  %.sink348 = phi ptr [ %404, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i301 ], [ %647, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i312 ], [ %683, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i323 ]
+  %.sink402 = phi ptr [ %404, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i301 ], [ %647, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i312 ], [ %683, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i323 ]
   %.ph = phi ptr [ @_ZSt4cerr, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i301 ], [ %640, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i312 ], [ %676, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i323 ]
-  %691 = getelementptr inbounds nuw i8, ptr %.sink348, i64 67
+  %691 = getelementptr inbounds nuw i8, ptr %.sink402, i64 67
   %692 = load i8, ptr %691, align 1, !tbaa !15
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i325.invoke
 

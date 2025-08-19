@@ -1018,7 +1018,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__acpi_get_override_irq(i32
   %71 = load i16, ptr %70, align 2
   %72 = lshr i16 %71, 2
   %73 = and i16 %72, 3
-  switch i16 %73, label %default.unreachable19 [
+  switch i16 %73, label %default.unreachable24 [
     i16 0, label %74
     i16 1, label %84
     i16 2, label %81
@@ -1039,7 +1039,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__acpi_get_override_irq(i32
   %82 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.30) #22
   br label %83
 
-default.unreachable19:                            ; preds = %84, %67
+default.unreachable24:                            ; preds = %84, %67
   unreachable
 
 83:                                               ; preds = %81, %67
@@ -1050,7 +1050,7 @@ default.unreachable19:                            ; preds = %84, %67
   store i8 %85, ptr %1, align 1
   %86 = load i16, ptr %70, align 2
   %87 = and i16 %86, 3
-  switch i16 %87, label %default.unreachable19 [
+  switch i16 %87, label %default.unreachable24 [
     i16 0, label %88
     i16 1, label %98
     i16 2, label %95
@@ -1726,21 +1726,21 @@ define dso_local i32 @IO_APIC_get_PCI_irq_vector(i32 noundef %0, i32 noundef %1,
   %.fr15 = freeze i8 %46
   %47 = icmp eq i8 %.fr15, -1
   %48 = zext nneg i32 %42 to i64
-  br i1 %47, label %.loopexit19, label %.split
+  br i1 %47, label %.loopexit23, label %.split
 
 .split:                                           ; preds = %44, %53
   %49 = phi i64 [ %54, %53 ], [ 0, %44 ]
   %50 = getelementptr [128 x %struct.ioapic], ptr @ioapics, i64 0, i64 %49, i32 2, i32 1
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, %.fr15
-  br i1 %52, label %.loopexit19, label %53
+  br i1 %52, label %.loopexit23, label %53
 
 53:                                               ; preds = %.split
   %54 = add nuw nsw i64 %49, 1
   %55 = icmp eq i64 %54, %48
   br i1 %55, label %.loopexit, label %.split, !llvm.loop !38
 
-.loopexit19:                                      ; preds = %.split, %44
+.loopexit23:                                      ; preds = %.split, %44
   %.us-phi = phi i64 [ 0, %44 ], [ %49, %.split ]
   %56 = trunc i64 %.us-phi to i32
   %57 = getelementptr inbounds nuw i8, ptr %25, i64 7
@@ -1753,7 +1753,7 @@ define dso_local i32 @IO_APIC_get_PCI_irq_vector(i32 noundef %0, i32 noundef %1,
   %63 = icmp eq ptr %62, null
   br i1 %63, label %mp_map_pin_to_irq.exit.thread, label %64
 
-64:                                               ; preds = %.loopexit19
+64:                                               ; preds = %.loopexit23
   %65 = icmp sgt i32 %59, -1
   br i1 %65, label %66, label %.thread
 
@@ -1811,7 +1811,7 @@ mp_map_pin_to_irq.exit:                           ; preds = %79, %80
   %96 = icmp eq i64 %95, 0
   br i1 %96, label %.loopexit, label %mp_map_pin_to_irq.exit.thread
 
-mp_map_pin_to_irq.exit.thread:                    ; preds = %71, %.loopexit19, %91, %mp_map_pin_to_irq.exit
+mp_map_pin_to_irq.exit.thread:                    ; preds = %71, %.loopexit23, %91, %mp_map_pin_to_irq.exit
   %97 = load i8, ptr %35, align 1
   %98 = and i8 %97, 3
   %99 = zext nneg i8 %98 to i32
@@ -2190,9 +2190,9 @@ define dso_local void @enable_IO_APIC() local_unnamed_addr #7 section ".init.tex
   %35 = icmp eq i32 %34, -1
   %36 = icmp sgt i32 %32, -1
   %37 = select i1 %35, i1 %36, i1 false
-  br i1 %37, label %.thread15, label %39
+  br i1 %37, label %.thread17, label %39
 
-.thread15:                                        ; preds = %.loopexit7
+.thread17:                                        ; preds = %.loopexit7
   %38 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12) #22
   store i32 %32, ptr @ioapic_i8259.0, align 4
   store i32 %33, ptr @ioapic_i8259.1, align 4
@@ -2207,8 +2207,8 @@ define dso_local void @enable_IO_APIC() local_unnamed_addr #7 section ".init.tex
   %42 = icmp ne i32 %34, %32
   %43 = or i32 %34, %32
   %44 = icmp sgt i32 %43, -1
-  %or.cond18 = and i1 %44, %42
-  br i1 %or.cond18, label %47, label %49
+  %or.cond20 = and i1 %44, %42
+  br i1 %or.cond20, label %47, label %49
 
 45:                                               ; preds = %39
   %46 = or i32 %32, %34
@@ -2219,7 +2219,7 @@ define dso_local void @enable_IO_APIC() local_unnamed_addr #7 section ".init.tex
   %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13) #22
   br label %49
 
-49:                                               ; preds = %.thread15, %47, %45, %41
+49:                                               ; preds = %.thread17, %47, %45, %41
   tail call void @clear_IO_APIC()
   br label %50
 
@@ -2311,16 +2311,16 @@ define internal fastcc i32 @find_isa_irq_apic(i32 noundef range(i32 0, 9) %0, i3
 
 ._crit_edge:                                      ; preds = %18
   %.pre.pre = load i32, ptr @mp_irq_entries, align 4
-  br label %.loopexit7
+  br label %.loopexit11
 
 23:                                               ; preds = %18, %13, %.preheader
   %24 = add nuw nsw i64 %5, 1
   %25 = load i32, ptr @mp_irq_entries, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %24, %26
-  br i1 %27, label %.preheader, label %.loopexit7, !llvm.loop !48
+  br i1 %27, label %.preheader, label %.loopexit11, !llvm.loop !48
 
-.loopexit7:                                       ; preds = %23, %._crit_edge
+.loopexit11:                                      ; preds = %23, %._crit_edge
   %.pre = phi i32 [ %.pre.pre, %._crit_edge ], [ %25, %23 ]
   %28 = phi i64 [ %5, %._crit_edge ], [ %24, %23 ]
   %29 = trunc i64 %28 to i32
@@ -2329,7 +2329,7 @@ define internal fastcc i32 @find_isa_irq_apic(i32 noundef range(i32 0, 9) %0, i3
   %31 = ashr exact i64 %sext, 32
   br i1 %30, label %32, label %.loopexit
 
-32:                                               ; preds = %.loopexit7
+32:                                               ; preds = %.loopexit11
   %33 = load i32, ptr @nr_ioapics, align 4
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %35, label %.loopexit
@@ -2356,8 +2356,8 @@ define internal fastcc i32 @find_isa_irq_apic(i32 noundef range(i32 0, 9) %0, i3
   %48 = trunc i64 %40 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %44, %2, %47, %32, %.loopexit7
-  %49 = phi i32 [ -1, %.loopexit7 ], [ -1, %32 ], [ %48, %47 ], [ -1, %2 ], [ -1, %44 ]
+.loopexit:                                        ; preds = %44, %2, %47, %32, %.loopexit11
+  %49 = phi i32 [ -1, %.loopexit11 ], [ -1, %32 ], [ %48, %47 ], [ -1, %2 ], [ -1, %44 ]
   ret i32 %49
 }
 

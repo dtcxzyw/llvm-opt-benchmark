@@ -786,18 +786,18 @@ _init_l_Id_hasBind.exit:                          ; preds = %_init_l_Id_instMona
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Id_hasBind.exit, %3
-  %.sink10 = phi ptr [ %4, %3 ], [ %101, %_init_l_Id_hasBind.exit ]
-  %104 = getelementptr inbounds nuw i8, ptr %.sink10, i64 4
-  store i32 1, ptr %.sink10, align 4, !tbaa !4
+  %.sink22 = phi ptr [ %4, %3 ], [ %101, %_init_l_Id_hasBind.exit ]
+  %104 = getelementptr inbounds nuw i8, ptr %.sink22, i64 4
+  store i32 1, ptr %.sink22, align 4, !tbaa !4
   store i32 131096, ptr %104, align 4
-  %105 = getelementptr inbounds nuw i8, ptr %.sink10, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %.sink22, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %105, align 8, !tbaa !11
-  %106 = getelementptr inbounds nuw i8, ptr %.sink10, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %.sink22, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %106, align 8, !tbaa !11
   br label %107
 
 107:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink10, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink22, %.sink.split ]
   ret ptr %.0
 }
 

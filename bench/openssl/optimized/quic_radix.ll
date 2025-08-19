@@ -779,7 +779,7 @@ bindings_process_finish.exit:                     ; preds = %RADIX_PROCESS_clean
   br label %201
 
 201:                                              ; preds = %bindings_process_finish.exit, %RADIX_PROCESS_join_all_threads.exit.i, %198, %40, %bindings_process_init.exit
-  %.04 = phi i32 [ 0, %bindings_process_init.exit ], [ 0, %40 ], [ %46, %bindings_process_finish.exit ], [ 0, %RADIX_PROCESS_join_all_threads.exit.i ], [ 0, %198 ]
+  %.04 = phi i32 [ 0, %bindings_process_init.exit ], [ 0, %40 ], [ 1, %bindings_process_finish.exit ], [ 0, %RADIX_PROCESS_join_all_threads.exit.i ], [ 0, %198 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.04
 }
@@ -6317,16 +6317,16 @@ report_ssl_state.exit.i:                          ; preds = %59, %stream_state_t
   %61 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.226) #12
   %62 = load i64, ptr %5, align 8, !tbaa !82
   %63 = icmp ult i32 %48, 7
-  br i1 %63, label %switch.lookup7, label %stream_state_to_str.exit.i53.i
+  br i1 %63, label %switch.lookup9, label %stream_state_to_str.exit.i53.i
 
-switch.lookup7:                                   ; preds = %report_ssl_state.exit.i
+switch.lookup9:                                   ; preds = %report_ssl_state.exit.i
   %64 = zext nneg i32 %48 to i64
-  %switch.gep8 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.report_obj.24, i64 0, i64 %64
-  %switch.load9 = load ptr, ptr %switch.gep8, align 8
+  %switch.gep10 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.report_obj.24, i64 0, i64 %64
+  %switch.load11 = load ptr, ptr %switch.gep10, align 8
   br label %stream_state_to_str.exit.i53.i
 
-stream_state_to_str.exit.i53.i:                   ; preds = %report_ssl_state.exit.i, %switch.lookup7
-  %.0.i.i54.i = phi ptr [ %switch.load9, %switch.lookup7 ], [ @.str.299, %report_ssl_state.exit.i ]
+stream_state_to_str.exit.i53.i:                   ; preds = %report_ssl_state.exit.i, %switch.lookup9
+  %.0.i.i54.i = phi ptr [ %switch.load11, %switch.lookup9 ], [ @.str.299, %report_ssl_state.exit.i ]
   %65 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.307, ptr noundef nonnull @.str.293, ptr noundef nonnull @.str.308, ptr noundef nonnull %.0.i.i54.i, i32 noundef %48) #12
   %.not9.i55.i = icmp eq i64 %62, -1
   br i1 %.not9.i55.i, label %report_ssl_state.exit56.i, label %66

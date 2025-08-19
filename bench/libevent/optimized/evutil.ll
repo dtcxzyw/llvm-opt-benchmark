@@ -777,20 +777,20 @@ evutil_getaddrinfo_infer_protocols.exit.thread:   ; preds = %27
 
 28:                                               ; preds = %._crit_edge.i
   switch i32 %24, label %31 [
-    i32 132, label %evutil_getaddrinfo_infer_protocols.exit.thread115
-    i32 17, label %evutil_getaddrinfo_infer_protocols.exit.thread114
-    i32 6, label %evutil_getaddrinfo_infer_protocols.exit.thread113
+    i32 132, label %evutil_getaddrinfo_infer_protocols.exit.thread126
+    i32 17, label %evutil_getaddrinfo_infer_protocols.exit.thread125
+    i32 6, label %evutil_getaddrinfo_infer_protocols.exit.thread124
   ]
 
-evutil_getaddrinfo_infer_protocols.exit.thread114: ; preds = %28
+evutil_getaddrinfo_infer_protocols.exit.thread125: ; preds = %28
   store i32 2, ptr %25, align 8
   br label %29
 
-evutil_getaddrinfo_infer_protocols.exit.thread113: ; preds = %28
+evutil_getaddrinfo_infer_protocols.exit.thread124: ; preds = %28
   store i32 1, ptr %25, align 8
   br label %evutil_unparse_protoname.exit
 
-evutil_getaddrinfo_infer_protocols.exit.thread115: ; preds = %28
+evutil_getaddrinfo_infer_protocols.exit.thread126: ; preds = %28
   store i32 1, ptr %25, align 8
   br label %30
 
@@ -801,10 +801,10 @@ evutil_getaddrinfo_infer_protocols.exit:          ; preds = %._crit_edge.i
     i32 17, label %29
   ]
 
-29:                                               ; preds = %evutil_getaddrinfo_infer_protocols.exit.thread114, %evutil_getaddrinfo_infer_protocols.exit.thread90, %evutil_getaddrinfo_infer_protocols.exit
+29:                                               ; preds = %evutil_getaddrinfo_infer_protocols.exit.thread125, %evutil_getaddrinfo_infer_protocols.exit.thread90, %evutil_getaddrinfo_infer_protocols.exit
   br label %evutil_unparse_protoname.exit
 
-30:                                               ; preds = %evutil_getaddrinfo_infer_protocols.exit, %evutil_getaddrinfo_infer_protocols.exit.thread115
+30:                                               ; preds = %evutil_getaddrinfo_infer_protocols.exit, %evutil_getaddrinfo_infer_protocols.exit.thread126
   br label %evutil_unparse_protoname.exit
 
 31:                                               ; preds = %28, %evutil_getaddrinfo_infer_protocols.exit
@@ -816,8 +816,8 @@ evutil_getaddrinfo_infer_protocols.exit:          ; preds = %._crit_edge.i
   %34 = load ptr, ptr %32, align 8
   br label %evutil_unparse_protoname.exit
 
-evutil_unparse_protoname.exit:                    ; preds = %evutil_getaddrinfo_infer_protocols.exit, %evutil_getaddrinfo_infer_protocols.exit.thread, %evutil_getaddrinfo_infer_protocols.exit.thread113, %27, %29, %30, %31, %33
-  %.05.i = phi ptr [ @.str.28, %29 ], [ @.str.29, %30 ], [ %34, %33 ], [ null, %31 ], [ null, %27 ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit.thread113 ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit.thread ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit ]
+evutil_unparse_protoname.exit:                    ; preds = %evutil_getaddrinfo_infer_protocols.exit, %evutil_getaddrinfo_infer_protocols.exit.thread, %evutil_getaddrinfo_infer_protocols.exit.thread124, %27, %29, %30, %31, %33
+  %.05.i = phi ptr [ @.str.28, %29 ], [ @.str.29, %30 ], [ %34, %33 ], [ null, %31 ], [ null, %27 ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit.thread124 ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit.thread ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit ]
   br i1 %18, label %evutil_parse_servname.exit, label %35
 
 35:                                               ; preds = %evutil_unparse_protoname.exit
@@ -2501,7 +2501,7 @@ declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noun
 define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [64 x i8], align 16
   %6 = alloca [8 x i16], align 16
-  switch i32 %0, label %134 [
+  switch i32 %0, label %132 [
     i32 2, label %7
     i32 10, label %19
   ]
@@ -2521,7 +2521,7 @@ define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none)
   %.not117 = icmp ugt i64 %3, %18
   %or.cond118 = select i1 %17, i1 %.not117, i1 false
   %.0109 = select i1 %or.cond118, ptr %2, ptr null
-  br label %134
+  br label %132
 
 19:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2565,9 +2565,9 @@ define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none)
   %45 = load i16, ptr %44, align 8
   %46 = icmp eq i16 %45, 0
   %or.cond15 = select i1 %or.cond11, i1 %46, i1 false
-  br i1 %or.cond15, label %47, label %.preheader166
+  br i1 %or.cond15, label %47, label %.preheader165
 
-.preheader166:                                    ; preds = %47, %32
+.preheader165:                                    ; preds = %47, %32
   br label %79
 
 47:                                               ; preds = %32
@@ -2585,7 +2585,7 @@ define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none)
   %or.cond23 = select i1 %or.cond19, i1 %57, i1 false
   %58 = icmp eq i16 %49, -1
   %or.cond27 = or i1 %58, %or.cond23
-  br i1 %or.cond27, label %59, label %.preheader166
+  br i1 %or.cond27, label %59, label %.preheader165
 
 59:                                               ; preds = %47
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -2613,12 +2613,12 @@ define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none)
 76:                                               ; preds = %74, %72
   %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #32
   %78 = icmp ugt i64 %77, %3
-  br i1 %78, label %133, label %.sink.split
+  br i1 %78, label %131, label %.sink.split
 
-79:                                               ; preds = %.preheader166, %94
-  %.1133 = phi i32 [ %.3, %94 ], [ 0, %.preheader166 ]
-  %.0101132 = phi i32 [ %.1102, %94 ], [ -1, %.preheader166 ]
-  %.0104131 = phi i32 [ %.1105, %94 ], [ 0, %.preheader166 ]
+79:                                               ; preds = %.preheader165, %94
+  %.1133 = phi i32 [ %.3, %94 ], [ 0, %.preheader165 ]
+  %.0101132 = phi i32 [ %.1102, %94 ], [ -1, %.preheader165 ]
+  %.0104131 = phi i32 [ %.1105, %94 ], [ 0, %.preheader165 ]
   %80 = sext i32 %.1133 to i64
   %81 = getelementptr inbounds [8 x i16], ptr %6, i64 0, i64 %80
   %82 = load i16, ptr %81, align 2
@@ -2641,7 +2641,7 @@ define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none)
   %87 = getelementptr inbounds [8 x i16], ptr %6, i64 0, i64 %indvars.iv142
   %88 = load i16, ptr %87, align 2
   %89 = icmp eq i16 %88, 0
-  br i1 %89, label %90, label %.critedge.loopexit.split.loop.exit157
+  br i1 %89, label %90, label %.critedge.loopexit.split.loop.exit156
 
 90:                                               ; preds = %.lr.ph
   %91 = add nuw nsw i32 %.0125, 1
@@ -2649,13 +2649,13 @@ define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none)
   %exitcond145.not = icmp eq i64 %indvars.iv.next143, 8
   br i1 %exitcond145.not, label %.critedge, label %.lr.ph, !llvm.loop !15
 
-.critedge.loopexit.split.loop.exit157:            ; preds = %.lr.ph
+.critedge.loopexit.split.loop.exit156:            ; preds = %.lr.ph
   %92 = trunc nsw i64 %indvars.iv142 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %90, %.critedge.loopexit.split.loop.exit157, %.preheader
-  %.0.lcssa = phi i32 [ 1, %.preheader ], [ %.0125, %.critedge.loopexit.split.loop.exit157 ], [ %86, %90 ]
-  %.2.lcssa = phi i32 [ %.2124, %.preheader ], [ %92, %.critedge.loopexit.split.loop.exit157 ], [ 8, %90 ]
+.critedge:                                        ; preds = %90, %.critedge.loopexit.split.loop.exit156, %.preheader
+  %.0.lcssa = phi i32 [ 1, %.preheader ], [ %.0125, %.critedge.loopexit.split.loop.exit156 ], [ %86, %90 ]
+  %.2.lcssa = phi i32 [ %.2124, %.preheader ], [ %92, %.critedge.loopexit.split.loop.exit156 ], [ 8, %90 ]
   %93 = icmp sgt i32 %.0.lcssa, %.0104131
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.0.lcssa, i32 %.0104131)
   %spec.select119 = select i1 %93, i32 %.1133, i32 %.0101132
@@ -2674,96 +2674,92 @@ define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none)
   %98 = ptrtoint ptr %5 to i64
   %.neg = add i64 %98, 64
   %99 = icmp eq i32 %spec.select120, 0
-  %100 = icmp slt i32 %spec.select120, 8
-  %101 = sext i32 %spec.select120 to i64
-  br label %102
+  %100 = sext i32 %spec.select120 to i64
+  br label %101
 
-102:                                              ; preds = %96, %.critedge29
+101:                                              ; preds = %96, %.critedge29
   %.4140 = phi i32 [ 0, %96 ], [ %.6, %.critedge29 ]
   %.0106139 = phi ptr [ %5, %96 ], [ %.2108, %.critedge29 ]
-  %103 = sext i32 %.4140 to i64
-  %104 = getelementptr inbounds [8 x i16], ptr %6, i64 0, i64 %103
-  %105 = load i16, ptr %104, align 2
-  %106 = icmp eq i16 %105, 0
-  %107 = icmp eq i32 %spec.select120, %.4140
-  %or.cond121 = select i1 %106, i1 %107, i1 false
-  br i1 %or.cond121, label %108, label %118
+  %102 = sext i32 %.4140 to i64
+  %103 = getelementptr inbounds [8 x i16], ptr %6, i64 0, i64 %102
+  %104 = load i16, ptr %103, align 2
+  %105 = icmp eq i16 %104, 0
+  %106 = icmp eq i32 %spec.select120, %.4140
+  %or.cond121 = select i1 %105, i1 %106, i1 false
+  br i1 %or.cond121, label %107, label %116
 
-108:                                              ; preds = %102
+107:                                              ; preds = %101
+  br i1 %99, label %108, label %.lr.ph135.preheader
+
+108:                                              ; preds = %107
   %109 = getelementptr inbounds nuw i8, ptr %.0106139, i64 1
   store i8 58, ptr %.0106139, align 1
-  br i1 %99, label %.thread, label %111
-
-.thread:                                          ; preds = %108
-  %110 = getelementptr inbounds nuw i8, ptr %.0106139, i64 2
-  store i8 58, ptr %109, align 1
   br label %.lr.ph135.preheader
 
-111:                                              ; preds = %108
-  br i1 %100, label %.lr.ph135.preheader, label %.critedge29.thread
-
-.lr.ph135.preheader:                              ; preds = %.thread, %111
-  %112 = phi ptr [ %110, %.thread ], [ %109, %111 ]
+.lr.ph135.preheader:                              ; preds = %107, %108
+  %.1107 = phi ptr [ %109, %108 ], [ %.0106139, %107 ]
+  %110 = getelementptr inbounds nuw i8, ptr %.1107, i64 1
+  store i8 58, ptr %.1107, align 1
   br label %.lr.ph135
 
-.lr.ph135:                                        ; preds = %.lr.ph135.preheader, %116
-  %indvars.iv146 = phi i64 [ %101, %.lr.ph135.preheader ], [ %indvars.iv.next147, %116 ]
-  %113 = getelementptr inbounds [8 x i16], ptr %6, i64 0, i64 %indvars.iv146
-  %114 = load i16, ptr %113, align 2
-  %115 = icmp eq i16 %114, 0
-  br i1 %115, label %116, label %.critedge29.loopexit
+.lr.ph135:                                        ; preds = %.lr.ph135.preheader, %114
+  %indvars.iv146 = phi i64 [ %100, %.lr.ph135.preheader ], [ %indvars.iv.next147, %114 ]
+  %111 = getelementptr inbounds [8 x i16], ptr %6, i64 0, i64 %indvars.iv146
+  %112 = load i16, ptr %111, align 2
+  %113 = icmp eq i16 %112, 0
+  br i1 %113, label %114, label %.critedge29.loopexit
 
-116:                                              ; preds = %.lr.ph135
+114:                                              ; preds = %.lr.ph135
   %indvars.iv.next147 = add nsw i64 %indvars.iv146, 1
-  %117 = and i64 %indvars.iv.next147, 4294967295
-  %exitcond149.not = icmp eq i64 %117, 8
+  %115 = and i64 %indvars.iv.next147, 4294967295
+  %exitcond149.not = icmp eq i64 %115, 8
   br i1 %exitcond149.not, label %.critedge29.thread, label %.lr.ph135, !llvm.loop !17
 
-118:                                              ; preds = %102
-  %119 = ptrtoint ptr %.0106139 to i64
-  %120 = sub i64 %.neg, %119
-  %121 = zext i16 %105 to i32
-  %122 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef %.0106139, i64 noundef %120, ptr noundef nonnull @.str.21, i32 noundef %121)
-  %123 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106139) #32
-  %124 = getelementptr inbounds nuw i8, ptr %.0106139, i64 %123
+116:                                              ; preds = %101
+  %117 = ptrtoint ptr %.0106139 to i64
+  %118 = sub i64 %.neg, %117
+  %119 = zext i16 %104 to i32
+  %120 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef %.0106139, i64 noundef %118, ptr noundef nonnull @.str.21, i32 noundef %119)
+  %121 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106139) #32
+  %122 = getelementptr inbounds nuw i8, ptr %.0106139, i64 %121
   %.not = icmp eq i32 %.4140, 7
-  br i1 %.not, label %.critedge29.thread, label %125
+  br i1 %.not, label %.critedge29.thread, label %123
 
-125:                                              ; preds = %118
-  %126 = getelementptr inbounds nuw i8, ptr %124, i64 1
-  store i8 58, ptr %124, align 1
-  %127 = add nsw i32 %.4140, 1
+123:                                              ; preds = %116
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 1
+  store i8 58, ptr %122, align 1
+  %125 = add nsw i32 %.4140, 1
   br label %.critedge29
 
 .critedge29.loopexit:                             ; preds = %.lr.ph135
-  %128 = trunc nsw i64 %indvars.iv146 to i32
+  %126 = trunc nsw i64 %indvars.iv146 to i32
   br label %.critedge29
 
-.critedge29:                                      ; preds = %.critedge29.loopexit, %125
-  %.2108 = phi ptr [ %126, %125 ], [ %112, %.critedge29.loopexit ]
-  %.6 = phi i32 [ %127, %125 ], [ %128, %.critedge29.loopexit ]
-  %129 = icmp slt i32 %.6, 8
-  br i1 %129, label %102, label %.critedge29.thread, !llvm.loop !18
+.critedge29:                                      ; preds = %.critedge29.loopexit, %123
+  %.2108 = phi ptr [ %124, %123 ], [ %110, %.critedge29.loopexit ]
+  %.6 = phi i32 [ %125, %123 ], [ %126, %.critedge29.loopexit ]
+  %127 = icmp slt i32 %.6, 8
+  br i1 %127, label %101, label %.critedge29.thread, !llvm.loop !18
 
-.critedge29.thread:                               ; preds = %111, %118, %.critedge29, %116
-  %.2108153 = phi ptr [ %112, %116 ], [ %124, %118 ], [ %109, %111 ], [ %.2108, %.critedge29 ]
-  store i8 0, ptr %.2108153, align 1
-  %130 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #32
-  %131 = icmp ugt i64 %130, %3
-  br i1 %131, label %133, label %.sink.split
+.critedge29.thread:                               ; preds = %116, %.critedge29, %114
+  %.2108152 = phi ptr [ %110, %114 ], [ %122, %116 ], [ %.2108, %.critedge29 ]
+  store i8 0, ptr %.2108152, align 1
+  %128 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #32
+  %129 = icmp ugt i64 %128, %3
+  br i1 %129, label %131, label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge29.thread, %76
-  %132 = call i64 @event_strlcpy_(ptr noundef %2, ptr noundef nonnull %5, i64 noundef %3) #30
-  br label %133
+  %130 = call i64 @event_strlcpy_(ptr noundef %2, ptr noundef nonnull %5, i64 noundef %3) #30
+  br label %131
 
-133:                                              ; preds = %.sink.split, %.critedge29.thread, %76
+131:                                              ; preds = %.sink.split, %.critedge29.thread, %76
   %.2111 = phi ptr [ null, %76 ], [ null, %.critedge29.thread ], [ %2, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %134
+  br label %132
 
-134:                                              ; preds = %4, %133, %7
-  %.1110 = phi ptr [ %.0109, %7 ], [ %.2111, %133 ], [ null, %4 ]
+132:                                              ; preds = %4, %131, %7
+  %.1110 = phi ptr [ %.0109, %7 ], [ %.2111, %131 ], [ null, %4 ]
   ret ptr %.1110
 }
 
@@ -2887,8 +2883,8 @@ define range(i32 -1, 1) i32 @evutil_parse_sockaddr_port(ptr noundef %0, ptr noun
   %41 = tail call i64 @strtol(ptr noundef nonnull captures(none) %29, ptr noundef null, i32 noundef 10) #30
   %42 = trunc i64 %41 to i32
   %43 = add i32 %42, -65536
-  %or.cond84 = icmp ult i32 %43, -65535
-  br i1 %or.cond84, label %.critedge, label %.critedge63.thread.thread
+  %or.cond91 = icmp ult i32 %43, -65535
+  br i1 %or.cond91, label %.critedge, label %.critedge63.thread.thread
 
 44:                                               ; preds = %.critedge63
   %45 = trunc i64 %37 to i16
@@ -3682,9 +3678,9 @@ define range(i32 -1, 1) i32 @evutil_ersatz_socketpair_(i32 noundef %0, i32 nound
 43:                                               ; preds = %40, %40
   %44 = and i32 %1, 2048
   %.not56 = icmp eq i32 %44, 0
-  br i1 %.not56, label %.thread, label %.thread88
+  br i1 %.not56, label %.thread, label %.thread98
 
-.thread88:                                        ; preds = %43
+.thread98:                                        ; preds = %43
   store i32 16, ptr %7, align 4
   br label %.split
 
@@ -3699,7 +3695,7 @@ define range(i32 -1, 1) i32 @evutil_ersatz_socketpair_(i32 noundef %0, i32 nound
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %.thread, label %.critedge65
 
-.split:                                           ; preds = %.thread88, %45
+.split:                                           ; preds = %.thread98, %45
   %49 = call i32 @accept(i32 noundef %17, ptr nonnull %5, ptr noundef nonnull %7) #30
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %.lr.ph, label %.critedge65

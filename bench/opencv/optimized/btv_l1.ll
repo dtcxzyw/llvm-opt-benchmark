@@ -3229,15 +3229,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit215.i: ; preds = %
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %368 = load double, ptr %367, align 8
   %369 = fcmp oeq double %349, %368
-  %or.cond.not388.i = select i1 %.not.i81, i1 %369, i1 false
+  %or.cond.not439.i = select i1 %.not.i81, i1 %369, i1 false
   %.pre.i = load ptr, ptr %111, align 8, !tbaa !86
   %.pre380.i = load i32, ptr %.pre.i, align 8, !tbaa !107
   %.pre384.i = and i32 %.pre380.i, 4095
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %371 = load i32, ptr %370, align 8
   %.not118.i = icmp eq i32 %.pre384.i, %371
-  %or.cond386.i = select i1 %or.cond.not388.i, i1 %.not118.i, i1 false
-  br i1 %or.cond386.i, label %374, label %._crit_edge383.i
+  %or.cond437.i = select i1 %or.cond.not439.i, i1 %.not118.i, i1 false
+  br i1 %or.cond437.i, label %374, label %._crit_edge383.i
 
 ._crit_edge383.i:                                 ; preds = %364
   store i32 %332, ptr %365, align 8, !tbaa !72
@@ -5784,13 +5784,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !111
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !111
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -6447,7 +6447,7 @@ define internal void @_ZNK12_GLOBAL__N_121BtvRegularizationBodyIfEclERKN2cv5Rang
   %32 = load float, ptr %31, align 4, !tbaa !111
   %33 = load ptr, ptr %23, align 8
   %34 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv66
-  %invariant.gep76 = getelementptr float, ptr %8, i64 %indvars.iv66
+  %invariant.gep79 = getelementptr float, ptr %8, i64 %indvars.iv66
   %.promoted = load float, ptr %34, align 4, !tbaa !111
   br label %.lr.ph.us
 
@@ -6459,10 +6459,10 @@ define internal void @_ZNK12_GLOBAL__N_121BtvRegularizationBodyIfEclERKN2cv5Rang
 35:                                               ; preds = %.lr.ph.us, %35
   %indvars.iv57 = phi i64 [ %60, %.lr.ph.us ], [ %indvars.iv.next58, %35 ]
   %indvars.iv = phi i64 [ %24, %.lr.ph.us ], [ %indvars.iv.next, %35 ]
-  %36 = phi float [ %.promoted.us78, %.lr.ph.us ], [ %52, %35 ]
+  %36 = phi float [ %.promoted.us81, %.lr.ph.us ], [ %52, %35 ]
   %37 = getelementptr inbounds float, ptr %33, i64 %indvars.iv57
   %38 = load float, ptr %37, align 4, !tbaa !111
-  %gep = getelementptr float, ptr %gep77, i64 %indvars.iv
+  %gep = getelementptr float, ptr %gep80, i64 %indvars.iv
   %39 = load float, ptr %gep, align 4, !tbaa !111
   %40 = fcmp ogt float %32, %39
   %41 = fcmp olt float %32, %39
@@ -6484,7 +6484,7 @@ define internal void @_ZNK12_GLOBAL__N_121BtvRegularizationBodyIfEclERKN2cv5Rang
   br i1 %53, label %35, label %._crit_edge.us, !llvm.loop !221
 
 .lr.ph.us:                                        ; preds = %.lr.ph41.us, %._crit_edge.us
-  %.promoted.us78 = phi float [ %52, %._crit_edge.us ], [ %.promoted, %.lr.ph41.us ]
+  %.promoted.us81 = phi float [ %52, %._crit_edge.us ], [ %.promoted, %.lr.ph41.us ]
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %._crit_edge.us ], [ 0, %.lr.ph41.us ]
   %.03239.us = phi i64 [ %indvars.iv.next58, %._crit_edge.us ], [ 0, %.lr.ph41.us ]
   %54 = sub nsw i64 %indvars.iv71, %indvars.iv62
@@ -6495,7 +6495,7 @@ define internal void @_ZNK12_GLOBAL__N_121BtvRegularizationBodyIfEclERKN2cv5Rang
   %59 = xor i64 %indvars.iv62, -1
   %sext = shl i64 %.03239.us, 32
   %60 = ashr exact i64 %sext, 32
-  %gep77 = getelementptr i8, ptr %invariant.gep76, i64 %58
+  %gep80 = getelementptr i8, ptr %invariant.gep79, i64 %58
   br label %35
 
 ._crit_edge42.us:                                 ; preds = %._crit_edge.us
@@ -6600,10 +6600,10 @@ define internal void @_ZNK12_GLOBAL__N_121BtvRegularizationBodyIN2cv7Point3_IfEE
   %33 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %30, i64 %indvars.iv118
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %invariant.gep128 = getelementptr %"class.cv::Point3_", ptr %8, i64 %indvars.iv118
+  %invariant.gep131 = getelementptr %"class.cv::Point3_", ptr %8, i64 %indvars.iv118
   %.promoted = load float, ptr %33, align 4, !tbaa !225
-  %.promoted131 = load float, ptr %34, align 4, !tbaa !227
-  %.promoted133 = load float, ptr %35, align 4, !tbaa !228
+  %.promoted134 = load float, ptr %34, align 4, !tbaa !227
+  %.promoted136 = load float, ptr %35, align 4, !tbaa !228
   br label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %36
@@ -6614,12 +6614,12 @@ define internal void @_ZNK12_GLOBAL__N_121BtvRegularizationBodyIN2cv7Point3_IfEE
 36:                                               ; preds = %.lr.ph.us, %36
   %indvars.iv109 = phi i64 [ %24, %.lr.ph.us ], [ %indvars.iv.next110, %36 ]
   %indvars.iv = phi i64 [ %84, %.lr.ph.us ], [ %indvars.iv.next, %36 ]
-  %37 = phi float [ %.promoted88.us134, %.lr.ph.us ], [ %76, %36 ]
-  %38 = phi float [ %.promoted87.us132, %.lr.ph.us ], [ %75, %36 ]
-  %39 = phi float [ %.promoted.us130, %.lr.ph.us ], [ %74, %36 ]
+  %37 = phi float [ %.promoted88.us137, %.lr.ph.us ], [ %76, %36 ]
+  %38 = phi float [ %.promoted87.us135, %.lr.ph.us ], [ %75, %36 ]
+  %39 = phi float [ %.promoted.us133, %.lr.ph.us ], [ %74, %36 ]
   %40 = getelementptr inbounds float, ptr %32, i64 %indvars.iv
   %41 = load float, ptr %40, align 4, !tbaa !111
-  %gep = getelementptr %"class.cv::Point3_", ptr %gep129, i64 %indvars.iv109
+  %gep = getelementptr %"class.cv::Point3_", ptr %gep132, i64 %indvars.iv109
   %.sroa.025.0.copyload.us = load <2 x float>, ptr %gep, align 4
   %.sroa.226.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %.sroa.226.0.copyload.us = load float, ptr %.sroa.226.0..sroa_idx.us, align 4, !tbaa !111
@@ -6674,9 +6674,9 @@ define internal void @_ZNK12_GLOBAL__N_121BtvRegularizationBodyIN2cv7Point3_IfEE
   br i1 %77, label %36, label %._crit_edge.us, !llvm.loop !230
 
 .lr.ph.us:                                        ; preds = %.lr.ph93.us, %._crit_edge.us
-  %.promoted88.us134 = phi float [ %76, %._crit_edge.us ], [ %.promoted133, %.lr.ph93.us ]
-  %.promoted87.us132 = phi float [ %75, %._crit_edge.us ], [ %.promoted131, %.lr.ph93.us ]
-  %.promoted.us130 = phi float [ %74, %._crit_edge.us ], [ %.promoted, %.lr.ph93.us ]
+  %.promoted88.us137 = phi float [ %76, %._crit_edge.us ], [ %.promoted136, %.lr.ph93.us ]
+  %.promoted87.us135 = phi float [ %75, %._crit_edge.us ], [ %.promoted134, %.lr.ph93.us ]
+  %.promoted.us133 = phi float [ %74, %._crit_edge.us ], [ %.promoted, %.lr.ph93.us ]
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %._crit_edge.us ], [ 0, %.lr.ph93.us ]
   %.06190.us = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.lr.ph93.us ]
   %78 = sub nsw i64 %indvars.iv123, %indvars.iv114
@@ -6687,7 +6687,7 @@ define internal void @_ZNK12_GLOBAL__N_121BtvRegularizationBodyIN2cv7Point3_IfEE
   %83 = xor i64 %indvars.iv114, -1
   %sext = shl i64 %.06190.us, 32
   %84 = ashr exact i64 %sext, 32
-  %gep129 = getelementptr i8, ptr %invariant.gep128, i64 %82
+  %gep132 = getelementptr i8, ptr %invariant.gep131, i64 %82
   br label %36
 
 ._crit_edge94.us:                                 ; preds = %._crit_edge.us

@@ -264,10 +264,10 @@ DSO_ctrl.exit:                                    ; preds = %5
   br i1 %.not28, label %28, label %31
 
 28:                                               ; preds = %26, %20, %12, %17, %16, %9
-  %.sink38 = phi i32 [ 125, %9 ], [ 134, %16 ], [ 134, %17 ], [ 139, %12 ], [ 143, %20 ], [ 147, %26 ]
+  %.sink42 = phi i32 [ 125, %9 ], [ 134, %16 ], [ 134, %17 ], [ 139, %12 ], [ 143, %20 ], [ 147, %26 ]
   %.sink = phi i32 [ 110, %9 ], [ 112, %16 ], [ 112, %17 ], [ 111, %12 ], [ 108, %20 ], [ 103, %26 ]
   tail call void @ERR_new() #3
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink38, ptr noundef nonnull @__func__.DSO_load) #3
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink42, ptr noundef nonnull @__func__.DSO_load) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef %.sink, ptr noundef null) #3
   br i1 %.not37, label %29, label %31
 
@@ -406,10 +406,10 @@ define ptr @DSO_bind_func(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %12, label %.sink.split, label %13
 
 .sink.split:                                      ; preds = %10, %5, %2
-  %.sink13 = phi i32 [ 163, %2 ], [ 167, %5 ], [ 171, %10 ]
+  %.sink17 = phi i32 [ 163, %2 ], [ 167, %5 ], [ 171, %10 ]
   %.sink = phi i32 [ 786690, %2 ], [ 108, %5 ], [ 106, %10 ]
   tail call void @ERR_new() #3
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink13, ptr noundef nonnull @__func__.DSO_bind_func) #3
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink17, ptr noundef nonnull @__func__.DSO_bind_func) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef %.sink, ptr noundef null) #3
   br label %13
 

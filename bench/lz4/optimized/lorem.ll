@@ -457,10 +457,10 @@ init_word_distrib.exit:                           ; preds = %._crit_edge.i, %5
 
 writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i: ; preds = %89, %76
   %94 = phi i64 [ %56, %76 ], [ %70, %89 ]
-  %.sink9.i.i.i = phi i64 [ %74, %76 ], [ %87, %89 ]
+  %.sink14.i.i.i = phi i64 [ %74, %76 ], [ %87, %89 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 %94
   %96 = getelementptr i8, ptr %95, i64 1
-  %97 = add i64 %.sink9.i.i.i, -2
+  %97 = add i64 %.sink14.i.i.i, -2
   tail call void @llvm.memset.p0.i64(ptr align 1 %96, i8 32, i64 %97, i1 false)
   br label %writeLastCharacters.exit.sink.split.sink.split.i.i.i
 
@@ -545,10 +545,10 @@ generateWord.exit.i:                              ; preds = %79, %92, %writeLast
 
 writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i16.i: ; preds = %134, %125
   %139 = phi i64 [ %108, %125 ], [ %119, %134 ]
-  %.sink9.i.i18.i = phi i64 [ %123, %125 ], [ %132, %134 ]
+  %.sink14.i.i18.i = phi i64 [ %123, %125 ], [ %132, %134 ]
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 %139
   %141 = getelementptr i8, ptr %140, i64 1
-  %142 = add i64 %.sink9.i.i18.i, -2
+  %142 = add i64 %.sink14.i.i18.i, -2
   tail call void @llvm.memset.p0.i64(ptr align 1 %141, i8 32, i64 %142, i1 false)
   br label %writeLastCharacters.exit.sink.split.sink.split.i.i14.i
 
@@ -748,10 +748,10 @@ generateFirstSentence.exit:                       ; preds = %128, %137, %writeLa
 
 writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i.i: ; preds = %281, %268
   %286 = phi i64 [ %237, %268 ], [ %262, %281 ]
-  %.sink9.i.i.i.i = phi i64 [ %266, %268 ], [ %279, %281 ]
+  %.sink14.i.i.i.i = phi i64 [ %266, %268 ], [ %279, %281 ]
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 %286
   %288 = getelementptr i8, ptr %287, i64 1
-  %289 = add i64 %.sink9.i.i.i.i, -2
+  %289 = add i64 %.sink14.i.i.i.i, -2
   tail call void @llvm.memset.p0.i64(ptr align 1 %288, i8 32, i64 %289, i1 false)
   br label %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i
 

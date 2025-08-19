@@ -187,22 +187,22 @@ define i64 @av_strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef read
 .lr.ph.preheader:                                 ; preds = %3
   %5 = add i64 %2, -1
   %6 = load i8, ptr %1, align 1, !tbaa !4
-  %.not48 = icmp eq i8 %6, 0
-  br i1 %.not48, label %.critedge, label %.lr.ph51
+  %.not50 = icmp eq i8 %6, 0
+  br i1 %.not50, label %.critedge, label %.lr.ph53
 
-.lr.ph:                                           ; preds = %.lr.ph51
+.lr.ph:                                           ; preds = %.lr.ph53
   %7 = load i8, ptr %10, align 1, !tbaa !4
   %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %.critedge, label %.lr.ph51, !llvm.loop !15
+  br i1 %.not, label %.critedge, label %.lr.ph53, !llvm.loop !15
 
-.lr.ph51:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph53:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %8 = phi i8 [ %7, %.lr.ph ], [ %6, %.lr.ph.preheader ]
-  %.0101350 = phi ptr [ %10, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %.091449 = phi ptr [ %11, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.0101352 = phi ptr [ %10, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.091451 = phi ptr [ %11, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %9 = phi i64 [ %12, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %10 = getelementptr inbounds nuw i8, ptr %.0101350, i64 1
-  %11 = getelementptr inbounds nuw i8, ptr %.091449, i64 1
-  store i8 %8, ptr %.091449, align 1, !tbaa !4
+  %10 = getelementptr inbounds nuw i8, ptr %.0101352, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.091451, i64 1
+  store i8 %8, ptr %.091451, align 1, !tbaa !4
   %12 = add nuw i64 %9, 1
   %exitcond.not = icmp eq i64 %12, %2
   br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !15
@@ -215,18 +215,18 @@ define i64 @av_strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef read
   %.not12 = icmp ugt i64 %.lcssa, %2
   br i1 %.not12, label %13, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.lr.ph51, %.critedge
-  %.0.lcssa32 = phi i64 [ %.0.lcssa, %.critedge ], [ %5, %.lr.ph51 ]
-  %.09.lcssa31 = phi ptr [ %.09.lcssa, %.critedge ], [ %11, %.lr.ph51 ]
-  %.010.lcssa29 = phi ptr [ %.010.lcssa, %.critedge ], [ %10, %.lr.ph51 ]
-  store i8 0, ptr %.09.lcssa31, align 1, !tbaa !4
+.critedge.thread:                                 ; preds = %.lr.ph53, %.critedge
+  %.0.lcssa34 = phi i64 [ %.0.lcssa, %.critedge ], [ %5, %.lr.ph53 ]
+  %.09.lcssa33 = phi ptr [ %.09.lcssa, %.critedge ], [ %11, %.lr.ph53 ]
+  %.010.lcssa31 = phi ptr [ %.010.lcssa, %.critedge ], [ %10, %.lr.ph53 ]
+  store i8 0, ptr %.09.lcssa33, align 1, !tbaa !4
   br label %13
 
 13:                                               ; preds = %.critedge.thread, %.critedge
-  %.0.lcssa33 = phi i64 [ %.0.lcssa32, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
-  %.010.lcssa30 = phi ptr [ %.010.lcssa29, %.critedge.thread ], [ %.010.lcssa, %.critedge ]
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.010.lcssa30) #18
-  %15 = add i64 %14, %.0.lcssa33
+  %.0.lcssa35 = phi i64 [ %.0.lcssa34, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
+  %.010.lcssa32 = phi ptr [ %.010.lcssa31, %.critedge.thread ], [ %.010.lcssa, %.critedge ]
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.010.lcssa32) #18
+  %15 = add i64 %14, %.0.lcssa35
   ret i64 %15
 }
 
@@ -279,17 +279,17 @@ define i64 @av_strlcat(ptr noundef captures(none) %0, ptr noundef readonly captu
   br i1 %.not12.i, label %av_strlcpy.exit, label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %.lr.ph, %.critedge.i
-  %.0.lcssa32.i = phi i64 [ %.0.lcssa.i, %.critedge.i ], [ %12, %.lr.ph ]
-  %.09.lcssa31.i = phi ptr [ %.09.lcssa.i, %.critedge.i ], [ %18, %.lr.ph ]
-  %.010.lcssa29.i = phi ptr [ %.010.lcssa.i, %.critedge.i ], [ %17, %.lr.ph ]
-  store i8 0, ptr %.09.lcssa31.i, align 1, !tbaa !4
+  %.0.lcssa34.i = phi i64 [ %.0.lcssa.i, %.critedge.i ], [ %12, %.lr.ph ]
+  %.09.lcssa33.i = phi ptr [ %.09.lcssa.i, %.critedge.i ], [ %18, %.lr.ph ]
+  %.010.lcssa31.i = phi ptr [ %.010.lcssa.i, %.critedge.i ], [ %17, %.lr.ph ]
+  store i8 0, ptr %.09.lcssa33.i, align 1, !tbaa !4
   br label %av_strlcpy.exit
 
 av_strlcpy.exit:                                  ; preds = %.critedge.i, %.critedge.thread.i
-  %.0.lcssa33.i = phi i64 [ %.0.lcssa32.i, %.critedge.thread.i ], [ %.0.lcssa.i, %.critedge.i ]
-  %.010.lcssa30.i = phi ptr [ %.010.lcssa29.i, %.critedge.thread.i ], [ %.010.lcssa.i, %.critedge.i ]
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.010.lcssa30.i) #18
-  %21 = add i64 %20, %.0.lcssa33.i
+  %.0.lcssa35.i = phi i64 [ %.0.lcssa34.i, %.critedge.thread.i ], [ %.0.lcssa.i, %.critedge.i ]
+  %.010.lcssa32.i = phi ptr [ %.010.lcssa31.i, %.critedge.thread.i ], [ %.010.lcssa.i, %.critedge.i ]
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.010.lcssa32.i) #18
+  %21 = add i64 %20, %.0.lcssa35.i
   br label %22
 
 22:                                               ; preds = %av_strlcpy.exit, %6
@@ -797,8 +797,8 @@ define noalias ptr @av_append_path_component(ptr noundef %0, ptr noundef %1) loc
   br i1 %.not12.i, label %av_strlcpy.exit, label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %25, %.critedge.i
-  %.09.lcssa31.i = phi ptr [ %.09.lcssa.i, %.critedge.i ], [ %27, %25 ]
-  store i8 0, ptr %.09.lcssa31.i, align 1, !tbaa !4
+  %.09.lcssa33.i = phi ptr [ %.09.lcssa.i, %.critedge.i ], [ %27, %25 ]
+  store i8 0, ptr %.09.lcssa33.i, align 1, !tbaa !4
   br label %av_strlcpy.exit
 
 av_strlcpy.exit:                                  ; preds = %.critedge.i, %.critedge.thread.i
@@ -857,8 +857,8 @@ av_strlcpy.exit:                                  ; preds = %.critedge.i, %.crit
 
 .critedge.thread.i53:                             ; preds = %45, %av_strlcpy.exit, %.critedge.i47
   %49 = phi ptr [ %40, %.critedge.i47 ], [ %29, %av_strlcpy.exit ], [ %40, %45 ]
-  %.09.lcssa31.i55 = phi ptr [ %.09.lcssa.i49, %.critedge.i47 ], [ %29, %av_strlcpy.exit ], [ %47, %45 ]
-  store i8 0, ptr %.09.lcssa31.i55, align 1, !tbaa !4
+  %.09.lcssa33.i55 = phi ptr [ %.09.lcssa.i49, %.critedge.i47 ], [ %29, %av_strlcpy.exit ], [ %47, %45 ]
+  store i8 0, ptr %.09.lcssa33.i55, align 1, !tbaa !4
   br label %av_strlcpy.exit66
 
 av_strlcpy.exit66:                                ; preds = %.critedge.i47, %.critedge.thread.i53
@@ -1078,9 +1078,9 @@ define range(i32 -84, 1) i32 @av_utf8_decode(ptr noundef writeonly captures(none
 
 41:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %42 = phi i64 [ %21, %._crit_edge.thread ], [ %38, %._crit_edge ]
-  %.056.lcssa114 = phi i32 [ 0, %._crit_edge.thread ], [ %22, %._crit_edge ]
-  %.165.lcssa113 = phi ptr [ %7, %._crit_edge.thread ], [ %28, %._crit_edge ]
-  %43 = zext nneg i32 %.056.lcssa114 to i64
+  %.056.lcssa119 = phi i32 [ 0, %._crit_edge.thread ], [ %22, %._crit_edge ]
+  %.165.lcssa118 = phi ptr [ %7, %._crit_edge.thread ], [ %28, %._crit_edge ]
+  %43 = zext nneg i32 %.056.lcssa119 to i64
   %44 = getelementptr inbounds nuw [6 x i32], ptr @__const.av_utf8_decode.overlong_encoding_mins, i64 0, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !28
   %46 = zext i32 %45 to i64
@@ -1122,7 +1122,7 @@ define range(i32 -84, 1) i32 @av_utf8_decode(ptr noundef writeonly captures(none
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %23, %.lr.ph, %6, %41, %49
-  %.sink = phi ptr [ %7, %6 ], [ %.165.lcssa113, %41 ], [ %.165.lcssa113, %49 ], [ %7, %.lr.ph ], [ %7, %23 ]
+  %.sink = phi ptr [ %7, %6 ], [ %.165.lcssa118, %41 ], [ %.165.lcssa118, %49 ], [ %7, %.lr.ph ], [ %7, %23 ]
   %.0.ph = phi i32 [ -84, %6 ], [ -84, %41 ], [ %spec.select, %49 ], [ -84, %.lr.ph ], [ -84, %23 ]
   store ptr %.sink, ptr %1, align 8, !tbaa !9
   br label %.critedge

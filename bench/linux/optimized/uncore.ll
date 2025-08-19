@@ -2005,7 +2005,7 @@ define internal i32 @intel_uncore_init() #8 section ".init.text" align 16 {
 
 13:                                               ; preds = %10
   %14 = tail call zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef null) #18
-  br i1 %14, label %.thread5, label %62
+  br i1 %14, label %.thread9, label %62
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -2019,25 +2019,25 @@ define internal i32 @intel_uncore_init() #8 section ".init.text" align 16 {
   br i1 %20, label %23, label %22
 
 22:                                               ; preds = %15
-  br i1 %21, label %.thread5, label %62
+  br i1 %21, label %.thread9, label %62
 
 23:                                               ; preds = %15
-  br i1 %21, label %.thread5, label %24
+  br i1 %21, label %.thread9, label %24
 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef %26) #18
-  br i1 %27, label %.thread5, label %62
+  br i1 %27, label %.thread9, label %62
 
-.thread5:                                         ; preds = %22, %24, %23, %13
+.thread9:                                         ; preds = %22, %24, %23, %13
   %28 = phi ptr [ %18, %24 ], [ %18, %23 ], [ @generic_uncore_init, %13 ], [ %18, %22 ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %38, label %32
 
-32:                                               ; preds = %.thread5
+32:                                               ; preds = %.thread9
   %33 = tail call i32 %30() #18
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %38
@@ -2047,8 +2047,8 @@ define internal i32 @intel_uncore_init() #8 section ".init.text" align 16 {
   %37 = icmp ne i32 %36, 0
   br label %38
 
-38:                                               ; preds = %35, %32, %.thread5
-  %39 = phi i1 [ true, %32 ], [ %37, %35 ], [ false, %.thread5 ]
+38:                                               ; preds = %35, %32, %.thread9
+  %39 = phi i1 [ true, %32 ], [ %37, %35 ], [ false, %.thread9 ]
   %40 = load ptr, ptr %28, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %46, label %42

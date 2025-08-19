@@ -233,8 +233,8 @@ define void @_ZN6Assimp17ScenePreprocessor11ProcessMeshEP6aiMesh(ptr nonnull rea
   %.pre = load ptr, ptr %13, align 8
   %18 = load i32, ptr %5, align 4
   %19 = zext i32 %18 to i64
-  %.idx109 = mul nuw nsw i64 %19, 12
-  %20 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx109
+  %.idx112 = mul nuw nsw i64 %19, 12
+  %20 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx112
   br label %.preheader77
 
 21:                                               ; preds = %16
@@ -324,8 +324,8 @@ switch.lookup:                                    ; preds = %39
   br label %45
 
 45:                                               ; preds = %39, %switch.lookup
-  %.sink113 = phi i32 [ %switch.load, %switch.lookup ], [ 8, %39 ]
-  %46 = or i32 %40, %.sink113
+  %.sink116 = phi i32 [ %switch.load, %switch.lookup ], [ 8, %39 ]
+  %46 = or i32 %40, %.sink116
   store i32 %46, ptr %1, align 8
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count
@@ -435,8 +435,8 @@ define void @_ZN6Assimp17ScenePreprocessor16ProcessAnimationEP11aiAnimation(ptr 
   br label %20
 
 ._crit_edge:                                      ; preds = %108, %2
-  %.0110.lcssa = phi double [ -1.000000e+11, %2 ], [ %.1111160, %108 ]
-  %.0109.lcssa = phi double [ 1.000000e+11, %2 ], [ %.1162, %108 ]
+  %.0110.lcssa = phi double [ -1.000000e+11, %2 ], [ %.1111166, %108 ]
+  %.0109.lcssa = phi double [ 1.000000e+11, %2 ], [ %.1168, %108 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %18 = load double, ptr %17, align 8
   %19 = fcmp oeq double %18, -1.000000e+00
@@ -444,8 +444,8 @@ define void @_ZN6Assimp17ScenePreprocessor16ProcessAnimationEP11aiAnimation(ptr 
 
 20:                                               ; preds = %.lr.ph136, %108
   %indvars.iv154 = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next155, %108 ]
-  %.0109134 = phi double [ 1.000000e+11, %.lr.ph136 ], [ %.1162, %108 ]
-  %.0110133 = phi double [ -1.000000e+11, %.lr.ph136 ], [ %.1111160, %108 ]
+  %.0109134 = phi double [ 1.000000e+11, %.lr.ph136 ], [ %.1168, %108 ]
+  %.0110133 = phi double [ -1.000000e+11, %.lr.ph136 ], [ %.1111166, %108 ]
   %21 = load ptr, ptr %8, align 8
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv154
   %23 = load ptr, ptr %22, align 8
@@ -537,9 +537,9 @@ define void @_ZN6Assimp17ScenePreprocessor16ProcessAnimationEP11aiAnimation(ptr 
   %.sroa.speculated88 = select i1 %53, double %51, double %.4114127
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
-  br i1 %exitcond153.not, label %.loopexit.thread164, label %49, !llvm.loop !15
+  br i1 %exitcond153.not, label %.loopexit.thread170, label %49, !llvm.loop !15
 
-.loopexit.thread164:                              ; preds = %49
+.loopexit.thread170:                              ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %23, i64 1040
   br label %57
 
@@ -550,10 +550,10 @@ define void @_ZN6Assimp17ScenePreprocessor16ProcessAnimationEP11aiAnimation(ptr 
   %56 = getelementptr inbounds nuw i8, ptr %23, i64 1040
   br i1 %55, label %64, label %57
 
-57:                                               ; preds = %.loopexit.thread164, %.loopexit
-  %58 = phi ptr [ %54, %.loopexit.thread164 ], [ %56, %.loopexit ]
-  %.1169 = phi double [ %.sroa.speculated101, %.loopexit.thread164 ], [ %.0109134, %.loopexit ]
-  %.1111168 = phi double [ %.sroa.speculated88, %.loopexit.thread164 ], [ %.0110133, %.loopexit ]
+57:                                               ; preds = %.loopexit.thread170, %.loopexit
+  %58 = phi ptr [ %54, %.loopexit.thread170 ], [ %56, %.loopexit ]
+  %.1175 = phi double [ %.sroa.speculated101, %.loopexit.thread170 ], [ %.0109134, %.loopexit ]
+  %.1111174 = phi double [ %.sroa.speculated88, %.loopexit.thread170 ], [ %.0110133, %.loopexit ]
   %59 = getelementptr inbounds nuw i8, ptr %23, i64 1028
   %60 = load i32, ptr %59, align 4
   %.not69 = icmp eq i32 %60, 0
@@ -567,8 +567,8 @@ define void @_ZN6Assimp17ScenePreprocessor16ProcessAnimationEP11aiAnimation(ptr 
 
 64:                                               ; preds = %.loopexit.thread, %61, %57, %.loopexit
   %65 = phi ptr [ %41, %.loopexit.thread ], [ %58, %61 ], [ %58, %57 ], [ %56, %.loopexit ]
-  %.1163 = phi double [ %.3.lcssa, %.loopexit.thread ], [ %.1169, %61 ], [ %.1169, %57 ], [ %.0109134, %.loopexit ]
-  %.1111161 = phi double [ %.3113.lcssa, %.loopexit.thread ], [ %.1111168, %61 ], [ %.1111168, %57 ], [ %.0110133, %.loopexit ]
+  %.1169 = phi double [ %.3.lcssa, %.loopexit.thread ], [ %.1175, %61 ], [ %.1175, %57 ], [ %.0109134, %.loopexit ]
+  %.1111167 = phi double [ %.3113.lcssa, %.loopexit.thread ], [ %.1111174, %61 ], [ %.1111174, %57 ], [ %.0110133, %.loopexit ]
   %66 = load ptr, ptr %0, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
@@ -688,8 +688,8 @@ define void @_ZN6Assimp17ScenePreprocessor16ProcessAnimationEP11aiAnimation(ptr 
   br label %108
 
 108:                                              ; preds = %64, %107, %61
-  %.1162 = phi double [ %.1163, %64 ], [ %.1163, %107 ], [ %.1169, %61 ]
-  %.1111160 = phi double [ %.1111161, %64 ], [ %.1111161, %107 ], [ %.1111168, %61 ]
+  %.1168 = phi double [ %.1169, %64 ], [ %.1169, %107 ], [ %.1175, %61 ]
+  %.1111166 = phi double [ %.1111167, %64 ], [ %.1111167, %107 ], [ %.1111174, %61 ]
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %109 = load i32, ptr %6, align 8
   %110 = zext i32 %109 to i64

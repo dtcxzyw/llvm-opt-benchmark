@@ -63,8 +63,8 @@ common.resume:                                    ; preds = %103, %22
 
 .preheader87.loopexit:                            ; preds = %18
   %.pre = load ptr, ptr %6, align 8
-  %sext119 = shl i64 %14, 32
-  %25 = ashr exact i64 %sext119, 32
+  %sext126 = shl i64 %14, 32
+  %25 = ashr exact i64 %sext126, 32
   br label %.preheader87
 
 .preheader87:                                     ; preds = %.preheader87.loopexit, %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IliEERKT_RKT0_.exit.preheader

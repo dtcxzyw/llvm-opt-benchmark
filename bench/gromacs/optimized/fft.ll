@@ -38,7 +38,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
   %indvars.iv273 = phi i64 [ 0, %.preheader253.us.preheader ], [ %indvars.iv.next274, %._crit_edge.us ]
   %17 = mul nuw nsw i64 %indvars.iv273, %16
   %invariant.gep = getelementptr inbounds nuw %struct.t_complex, ptr %0, i64 %17
-  %invariant.gep300 = getelementptr inbounds nuw %struct.t_complex, ptr %1, i64 %indvars.iv273
+  %invariant.gep309 = getelementptr inbounds nuw %struct.t_complex, ptr %1, i64 %indvars.iv273
   br label %18
 
 18:                                               ; preds = %.preheader253.us, %18
@@ -46,11 +46,11 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
   %gep = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep, i64 %indvars.iv
   %19 = load float, ptr %gep, align 4, !tbaa !4
   %20 = mul nuw nsw i64 %indvars.iv, %15
-  %gep301 = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep300, i64 %20
-  store float %19, ptr %gep301, align 4, !tbaa !4
+  %gep310 = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep309, i64 %20
+  store float %19, ptr %gep310, align 4, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %gep, i64 4
   %22 = load float, ptr %21, align 4, !tbaa !9
-  %23 = getelementptr inbounds nuw i8, ptr %gep301, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %gep310, i64 4
   store float %22, ptr %23, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %16
@@ -91,24 +91,24 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
 
 .lr.ph263:                                        ; preds = %.lr.ph265
   %31 = mul nuw nsw i64 %indvars.iv291, %28
-  %invariant.gep302 = getelementptr inbounds nuw %struct.t_complex, ptr %0, i64 %31
-  %invariant.gep304 = getelementptr inbounds nuw %struct.t_complex, ptr %0, i64 %indvars.iv291
+  %invariant.gep311 = getelementptr inbounds nuw %struct.t_complex, ptr %0, i64 %31
+  %invariant.gep313 = getelementptr inbounds nuw %struct.t_complex, ptr %0, i64 %indvars.iv291
   br label %32
 
 32:                                               ; preds = %.lr.ph263, %32
   %indvars.iv286 = phi i64 [ %indvars.iv284, %.lr.ph263 ], [ %indvars.iv.next287, %32 ]
-  %gep303 = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep302, i64 %indvars.iv286
-  %33 = load float, ptr %gep303, align 4, !tbaa !4
-  %34 = getelementptr inbounds nuw i8, ptr %gep303, i64 4
+  %gep312 = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep311, i64 %indvars.iv286
+  %33 = load float, ptr %gep312, align 4, !tbaa !4
+  %34 = getelementptr inbounds nuw i8, ptr %gep312, i64 4
   %35 = load float, ptr %34, align 4, !tbaa !9
   %36 = mul nuw nsw i64 %indvars.iv286, %28
-  %gep305 = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep304, i64 %36
-  %37 = load float, ptr %gep305, align 4, !tbaa !4
-  store float %37, ptr %gep303, align 4, !tbaa !4
-  %38 = getelementptr inbounds nuw i8, ptr %gep305, i64 4
+  %gep314 = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep313, i64 %36
+  %37 = load float, ptr %gep314, align 4, !tbaa !4
+  store float %37, ptr %gep312, align 4, !tbaa !4
+  %38 = getelementptr inbounds nuw i8, ptr %gep314, i64 4
   %39 = load float, ptr %38, align 4, !tbaa !9
   store float %39, ptr %34, align 4, !tbaa !9
-  store float %33, ptr %gep305, align 4, !tbaa !4
+  store float %33, ptr %gep314, align 4, !tbaa !4
   store float %35, ptr %38, align 4, !tbaa !9
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next287, %28
@@ -186,7 +186,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
   br label %77
 
 77:                                               ; preds = %74, %72
-  %78 = add nsw i32 %.2202, 2
+  %78 = add nuw nsw i32 %.2202, 2
   %79 = icmp eq i32 %66, %.4
   br i1 %79, label %99, label %80
 

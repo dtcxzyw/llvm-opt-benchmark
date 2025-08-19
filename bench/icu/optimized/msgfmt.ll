@@ -1821,7 +1821,7 @@ _ZN6icu_7713MessageFormat16allocateArgTypesEiR10UErrorCode.exit: ; preds = %33, 
   br i1 %.not66, label %57, label %55
 
 55:                                               ; preds = %51
-  %56 = add nsw i32 %54, 1
+  %56 = add nuw nsw i32 %54, 1
   store i32 %56, ptr %22, align 8, !tbaa !46
   br label %57
 
@@ -4348,7 +4348,7 @@ _ZNK6icu_7713UnicodeString7compareERKS0_.exit.i:  ; preds = %.sink.split.i.i.i.i
   br label %468
 
 201:                                              ; preds = %_ZNK6icu_7713UnicodeString7compareERKS0_.exit.i
-  br i1 %.not, label %.thread253, label %.thread292
+  br i1 %.not, label %.thread253, label %.thread307
 
 .thread253:                                       ; preds = %173, %172, %166, %201
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -4440,7 +4440,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %220, %218, %211
 
 247:                                              ; preds = %166
   %248 = zext nneg i32 %169 to i64
-  br i1 %.not, label %249, label %.thread292
+  br i1 %.not, label %249, label %.thread307
 
 249:                                              ; preds = %247
   %250 = load ptr, ptr %6, align 8, !tbaa !110
@@ -4461,13 +4461,13 @@ _ZN6icu_7717AppendableWrapper6appendEPKDsi.exit:  ; preds = %249
           cleanup
   br label %468
 
-.thread292:                                       ; preds = %201, %247
+.thread307:                                       ; preds = %201, %247
   %indvars.iv.i.pn = phi i64 [ %248, %247 ], [ %indvars.iv.i, %201 ]
-  %.1167252295 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %3, i64 %indvars.iv.i.pn
+  %.1167252310 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %3, i64 %indvars.iv.i.pn
   %259 = add nsw i32 %.0160.in285, 3
   br i1 %.not194, label %300, label %260
 
-260:                                              ; preds = %.thread292
+260:                                              ; preds = %.thread307
   %261 = load i32, ptr %41, align 8, !tbaa !122
   %262 = icmp eq i32 %261, %.0160288
   br i1 %262, label %263, label %300
@@ -4528,7 +4528,7 @@ _ZN6icu_7717AppendableWrapper6appendERKNS_13UnicodeStringE.exit.i230: ; preds = 
   br label %_ZN6icu_7717AppendableWrapper15formatAndAppendEPKNS_6FormatERKNS_11FormattableERKNS_13UnicodeStringER10UErrorCode.exit
 
 .invoke:                                          ; preds = %266, %263
-  %296 = phi ptr [ %.1167252295, %263 ], [ %45, %266 ]
+  %296 = phi ptr [ %.1167252310, %263 ], [ %45, %266 ]
   %297 = load ptr, ptr %43, align 8, !tbaa !116
   invoke void @_ZN6icu_7717AppendableWrapper15formatAndAppendEPKNS_6FormatERKNS_11FormattableER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef %297, ptr noundef nonnull align 8 dereferenceable(112) %296, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %_ZN6icu_7717AppendableWrapper15formatAndAppendEPKNS_6FormatERKNS_11FormattableERKNS_13UnicodeStringER10UErrorCode.exit unwind label %298
@@ -4538,7 +4538,7 @@ _ZN6icu_7717AppendableWrapper6appendERKNS_13UnicodeStringE.exit.i230: ; preds = 
           cleanup
   br label %468
 
-300:                                              ; preds = %260, %.thread292
+300:                                              ; preds = %260, %.thread307
   %301 = load ptr, ptr %49, align 8, !tbaa !44
   %302 = icmp eq ptr %301, null
   br i1 %302, label %369, label %303
@@ -4575,7 +4575,7 @@ _ZNK6icu_7713MessageFormat18getCachedFormatterEi.exit: ; preds = %305
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %14, align 8, !tbaa !15
   store i16 2, ptr %50, align 8, !tbaa !49
-  %314 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_776Format6formatERKNS_11FormattableERNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %304, ptr noundef nonnull align 8 dereferenceable(112) %.1167252295, ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %314 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_776Format6formatERKNS_11FormattableERNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %304, ptr noundef nonnull align 8 dereferenceable(112) %.1167252310, ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %315 unwind label %337
 
 315:                                              ; preds = %313
@@ -4689,7 +4689,7 @@ _ZN6icu_7717AppendableWrapper6appendERKNS_13UnicodeStringE.exit246: ; preds = %_
   br label %468
 
 368:                                              ; preds = %311
-  invoke void @_ZN6icu_7717AppendableWrapper15formatAndAppendEPKNS_6FormatERKNS_11FormattableER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull %304, ptr noundef nonnull align 8 dereferenceable(112) %.1167252295, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  invoke void @_ZN6icu_7717AppendableWrapper15formatAndAppendEPKNS_6FormatERKNS_11FormattableER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull %304, ptr noundef nonnull align 8 dereferenceable(112) %.1167252310, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %_ZN6icu_7717AppendableWrapper15formatAndAppendEPKNS_6FormatERKNS_11FormattableERKNS_13UnicodeStringER10UErrorCode.exit unwind label %257
 
 369:                                              ; preds = %.noexc237, %305, %300
@@ -4710,7 +4710,7 @@ _ZN6icu_7717AppendableWrapper6appendERKNS_13UnicodeStringE.exit246: ; preds = %_
   br i1 %.not197, label %415, label %376
 
 376:                                              ; preds = %375, %369
-  %377 = invoke noundef signext i8 @_ZNK6icu_7711Formattable9isNumericEv(ptr noundef nonnull align 8 dereferenceable(112) %.1167252295)
+  %377 = invoke noundef signext i8 @_ZNK6icu_7711Formattable9isNumericEv(ptr noundef nonnull align 8 dereferenceable(112) %.1167252310)
           to label %378 unwind label %257
 
 378:                                              ; preds = %376
@@ -4756,7 +4756,7 @@ _ZN6icu_7717AppendableWrapper6appendERKNS_13UnicodeStringE.exit246: ; preds = %_
 
 _ZNK6icu_7713MessageFormat22getDefaultNumberFormatER10UErrorCode.exit248: ; preds = %394, %393, %392, %379
   %395 = phi ptr [ null, %392 ], [ null, %394 ], [ %383, %393 ], [ %380, %379 ]
-  invoke void @_ZN6icu_7717AppendableWrapper15formatAndAppendEPKNS_6FormatERKNS_11FormattableER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef %395, ptr noundef nonnull align 8 dereferenceable(112) %.1167252295, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  invoke void @_ZN6icu_7717AppendableWrapper15formatAndAppendEPKNS_6FormatERKNS_11FormattableER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef %395, ptr noundef nonnull align 8 dereferenceable(112) %.1167252310, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %_ZN6icu_7717AppendableWrapper15formatAndAppendEPKNS_6FormatERKNS_11FormattableERKNS_13UnicodeStringER10UErrorCode.exit unwind label %396
 
 396:                                              ; preds = %382, %_ZNK6icu_7713MessageFormat22getDefaultNumberFormatER10UErrorCode.exit248
@@ -4765,7 +4765,7 @@ _ZNK6icu_7713MessageFormat22getDefaultNumberFormatER10UErrorCode.exit248: ; pred
   br label %468
 
 398:                                              ; preds = %378
-  %399 = invoke noundef i32 @_ZNK6icu_7711Formattable7getTypeEv(ptr noundef nonnull align 8 dereferenceable(112) %.1167252295)
+  %399 = invoke noundef i32 @_ZNK6icu_7711Formattable7getTypeEv(ptr noundef nonnull align 8 dereferenceable(112) %.1167252310)
           to label %400 unwind label %257
 
 400:                                              ; preds = %398
@@ -4792,7 +4792,7 @@ _ZNK6icu_7713MessageFormat22getDefaultNumberFormatER10UErrorCode.exit248: ; pred
 
 _ZNK6icu_7713MessageFormat20getDefaultDateFormatER10UErrorCode.exit: ; preds = %408, %.noexc249, %402
   %409 = phi ptr [ %406, %.noexc249 ], [ null, %408 ], [ %403, %402 ]
-  invoke void @_ZN6icu_7717AppendableWrapper15formatAndAppendEPKNS_6FormatERKNS_11FormattableER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef %409, ptr noundef nonnull align 8 dereferenceable(112) %.1167252295, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  invoke void @_ZN6icu_7717AppendableWrapper15formatAndAppendEPKNS_6FormatERKNS_11FormattableER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef %409, ptr noundef nonnull align 8 dereferenceable(112) %.1167252310, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %_ZN6icu_7717AppendableWrapper15formatAndAppendEPKNS_6FormatERKNS_11FormattableERKNS_13UnicodeStringER10UErrorCode.exit unwind label %410
 
 410:                                              ; preds = %405, %_ZNK6icu_7713MessageFormat20getDefaultDateFormatER10UErrorCode.exit
@@ -4801,7 +4801,7 @@ _ZNK6icu_7713MessageFormat20getDefaultDateFormatER10UErrorCode.exit: ; preds = %
   br label %468
 
 412:                                              ; preds = %400
-  %413 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7711Formattable9getStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %.1167252295, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %413 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7711Formattable9getStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %.1167252310, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %414 unwind label %257
 
 414:                                              ; preds = %412
@@ -4813,7 +4813,7 @@ _ZNK6icu_7713MessageFormat20getDefaultDateFormatER10UErrorCode.exit: ; preds = %
   br i1 %416, label %417, label %429
 
 417:                                              ; preds = %415
-  %418 = invoke noundef signext i8 @_ZNK6icu_7711Formattable9isNumericEv(ptr noundef nonnull align 8 dereferenceable(112) %.1167252295)
+  %418 = invoke noundef signext i8 @_ZNK6icu_7711Formattable9isNumericEv(ptr noundef nonnull align 8 dereferenceable(112) %.1167252310)
           to label %419 unwind label %257
 
 419:                                              ; preds = %417
@@ -4821,7 +4821,7 @@ _ZNK6icu_7713MessageFormat20getDefaultDateFormatER10UErrorCode.exit: ; preds = %
   br i1 %.not201, label %_ZN6icu_7717AppendableWrapper15formatAndAppendEPKNS_6FormatERKNS_11FormattableERKNS_13UnicodeStringER10UErrorCode.exit.thread274, label %420
 
 420:                                              ; preds = %419
-  %421 = invoke noundef double @_ZNK6icu_7711Formattable9getDoubleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %.1167252295, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %421 = invoke noundef double @_ZNK6icu_7711Formattable9getDoubleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %.1167252310, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %422 unwind label %425
 
 422:                                              ; preds = %420
@@ -4851,7 +4851,7 @@ _ZNK6icu_7713MessageFormat20getDefaultDateFormatER10UErrorCode.exit: ; preds = %
   ]
 
 431:                                              ; preds = %429, %429
-  %432 = invoke noundef signext i8 @_ZNK6icu_7711Formattable9isNumericEv(ptr noundef nonnull align 8 dereferenceable(112) %.1167252295)
+  %432 = invoke noundef signext i8 @_ZNK6icu_7711Formattable9isNumericEv(ptr noundef nonnull align 8 dereferenceable(112) %.1167252310)
           to label %433 unwind label %257
 
 433:                                              ; preds = %431
@@ -4866,11 +4866,11 @@ _ZNK6icu_7713MessageFormat20getDefaultDateFormatER10UErrorCode.exit: ; preds = %
 
 437:                                              ; preds = %434
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  invoke fastcc void @_ZN6icu_7712_GLOBAL__N_121PluralSelectorContextC2EiRKNS_13UnicodeStringERKNS_11FormattableEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %16, i32 noundef %259, ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(112) %.1167252295, double noundef %436, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  invoke fastcc void @_ZN6icu_7712_GLOBAL__N_121PluralSelectorContextC2EiRKNS_13UnicodeStringERKNS_11FormattableEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %16, i32 noundef %259, ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(112) %.1167252310, double noundef %436, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %438 unwind label %446
 
 438:                                              ; preds = %437
-  %439 = invoke noundef double @_ZNK6icu_7711Formattable9getDoubleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %.1167252295, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %439 = invoke noundef double @_ZNK6icu_7711Formattable9getDoubleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %.1167252310, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %440 unwind label %448
 
 440:                                              ; preds = %438
@@ -4910,7 +4910,7 @@ _ZNK6icu_7713MessageFormat20getDefaultDateFormatER10UErrorCode.exit: ; preds = %
   br label %468
 
 451:                                              ; preds = %429
-  %452 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7711Formattable9getStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %.1167252295, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %452 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7711Formattable9getStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %.1167252310, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %453 unwind label %456
 
 453:                                              ; preds = %451
@@ -6558,7 +6558,7 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit.thread: ; preds = %.sink.split.i.
   br label %_ZN6icu_7710LocalArrayINS_11FormattableEED2Ev.exit
 
 _ZN6icu_7710LocalArrayINS_11FormattableEED2Ev.exit: ; preds = %.thread215.thread, %.thread215, %.loopexit.i
-  %.2221311 = phi ptr [ %45, %.thread215.thread ], [ null, %.thread215 ], [ null, %.loopexit.i ]
+  %.2221324 = phi ptr [ %45, %.thread215.thread ], [ null, %.thread215 ], [ null, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %311
 
@@ -6568,7 +6568,7 @@ _ZN6icu_7710LocalArrayINS_11FormattableEED2Ev.exit: ; preds = %.thread215.thread
   resume { ptr, i32 } %.pn172.pn.pn.pn.pn
 
 311:                                              ; preds = %_ZN6icu_7710LocalArrayINS_11FormattableEED2Ev.exit, %26, %18
-  %.0 = phi ptr [ null, %18 ], [ null, %26 ], [ %.2221311, %_ZN6icu_7710LocalArrayINS_11FormattableEED2Ev.exit ]
+  %.0 = phi ptr [ null, %18 ], [ null, %26 ], [ %.2221324, %_ZN6icu_7710LocalArrayINS_11FormattableEED2Ev.exit ]
   ret ptr %.0
 }
 
@@ -7767,7 +7767,7 @@ define void @_ZNK6icu_7713MessageFormat22PluralSelectorProvider6selectEPvdR10UEr
   br label %.outer
 
 .outer:                                           ; preds = %.thread.i, %38
-  %.ph73 = phi ptr [ %85, %.thread.i ], [ %.pre.i, %38 ]
+  %.ph79 = phi ptr [ %85, %.thread.i ], [ %.pre.i, %38 ]
   %.022.in.i.ph = phi i32 [ %..i.i, %.thread.i ], [ %42, %38 ]
   br label %53
 
@@ -7775,7 +7775,7 @@ define void @_ZNK6icu_7713MessageFormat22PluralSelectorProvider6selectEPvdR10UEr
   %.022.in.i = phi i32 [ %.022.i, %53 ], [ %.022.in.i.ph, %.outer ]
   %.022.i = add nsw i32 %.022.in.i, 1
   %54 = sext i32 %.022.i to i64
-  %55 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %.ph73, i64 %54
+  %55 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %.ph79, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !58
   switch i32 %56, label %53 [
     i32 1, label %_ZNK6icu_7713MessageFormat24findFirstPluralNumberArgEiRKNS_13UnicodeStringE.exit.thread
@@ -7806,7 +7806,7 @@ define void @_ZNK6icu_7713MessageFormat22PluralSelectorProvider6selectEPvdR10UEr
 
 .sink.split.i.i.i.i.i:                            ; preds = %62
   %69 = sext i32 %.022.in.i to i64
-  %70 = getelementptr %"class.icu_77::MessagePattern::Part", ptr %.ph73, i64 %69
+  %70 = getelementptr %"class.icu_77::MessagePattern::Part", ptr %.ph79, i64 %69
   %71 = getelementptr i8, ptr %70, i64 40
   %72 = load i16, ptr %71, align 4, !tbaa !72
   %73 = zext i16 %72 to i32
@@ -7836,7 +7836,7 @@ _ZNK6icu_7714MessagePattern20partSubstringMatchesERKNS0_4PartERKNS_13UnicodeStri
   br label %.thread.i
 
 .thread.i:                                        ; preds = %_ZNK6icu_7714MessagePattern20partSubstringMatchesERKNS0_4PartERKNS_13UnicodeStringE.exit..thread_crit_edge.i, %57
-  %85 = phi ptr [ %.pre38.i, %_ZNK6icu_7714MessagePattern20partSubstringMatchesERKNS0_4PartERKNS_13UnicodeStringE.exit..thread_crit_edge.i ], [ %.ph73, %57 ]
+  %85 = phi ptr [ %.pre38.i, %_ZNK6icu_7714MessagePattern20partSubstringMatchesERKNS0_4PartERKNS_13UnicodeStringE.exit..thread_crit_edge.i ], [ %.ph79, %57 ]
   %86 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %85, i64 %54, i32 4
   %87 = load i32, ptr %86, align 4, !tbaa !78
   %..i.i = tail call noundef i32 @llvm.smax.i32(i32 %87, i32 %.022.i)

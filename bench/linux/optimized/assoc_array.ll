@@ -336,7 +336,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @assoc_array_walk(ptr noundef
 
 .preheader:                                       ; preds = %4, %.preheader.backedge
   %7 = phi i32 [ %.be, %.preheader.backedge ], [ 0, %4 ]
-  %8 = phi ptr [ %.be112, %.preheader.backedge ], [ %5, %4 ]
+  %8 = phi ptr [ %.be118, %.preheader.backedge ], [ %5, %4 ]
   %9 = load ptr, ptr %1, align 8
   %10 = tail call i64 %9(ptr noundef %2, i32 noundef %7) #8
   %11 = ptrtoint ptr %8 to i64
@@ -483,7 +483,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @assoc_array_walk(ptr noundef
 
 .preheader.backedge:                              ; preds = %42, %99
   %.be = phi i32 [ %88, %99 ], [ %43, %42 ]
-  %.be112 = phi ptr [ %101, %99 ], [ %30, %42 ]
+  %.be118 = phi ptr [ %101, %99 ], [ %30, %42 ]
   br label %.preheader
 
 104:                                              ; preds = %91, %34, %4
@@ -566,13 +566,13 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
 
 .thread8.us.preheader:                            ; preds = %37, %35, %.thread.us
   %.ph = phi ptr [ %26, %.thread.us ], [ %9, %35 ], [ %9, %37 ]
-  %.ph107 = phi ptr [ %31, %.thread.us ], [ %14, %35 ], [ %14, %37 ]
+  %.ph120 = phi ptr [ %31, %.thread.us ], [ %14, %35 ], [ %14, %37 ]
   br label %.thread8.us
 
 .thread8.us:                                      ; preds = %.thread8.us.preheader, %72
   %42 = phi i32 [ %77, %72 ], [ 0, %.thread8.us.preheader ]
   %43 = phi ptr [ %74, %72 ], [ %.ph, %.thread8.us.preheader ]
-  %44 = phi ptr [ %76, %72 ], [ %.ph107, %.thread8.us.preheader ]
+  %44 = phi ptr [ %76, %72 ], [ %.ph120, %.thread8.us.preheader ]
   %45 = icmp slt i32 %42, 16
   br i1 %45, label %.split.us.us.us, label %.loopexit.split.us.us.us
 
@@ -719,8 +719,8 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
   br i1 %118, label %.thread8.preheader, label %119
 
 .thread8.preheader:                               ; preds = %.thread, %119, %117
-  %.ph115 = phi ptr [ %91, %117 ], [ %91, %119 ], [ %108, %.thread ]
-  %.ph116 = phi ptr [ %96, %117 ], [ %96, %119 ], [ %114, %.thread ]
+  %.ph128 = phi ptr [ %91, %117 ], [ %91, %119 ], [ %108, %.thread ]
+  %.ph129 = phi ptr [ %96, %117 ], [ %96, %119 ], [ %114, %.thread ]
   br label %.thread8
 
 119:                                              ; preds = %117
@@ -737,8 +737,8 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
 
 .thread8:                                         ; preds = %.thread8.preheader, %167
   %124 = phi i32 [ %172, %167 ], [ 0, %.thread8.preheader ]
-  %125 = phi ptr [ %169, %167 ], [ %.ph115, %.thread8.preheader ]
-  %126 = phi ptr [ %171, %167 ], [ %.ph116, %.thread8.preheader ]
+  %125 = phi ptr [ %169, %167 ], [ %.ph128, %.thread8.preheader ]
+  %126 = phi ptr [ %171, %167 ], [ %.ph129, %.thread8.preheader ]
   %127 = icmp slt i32 %124, 16
   br i1 %127, label %.split, label %.loopexit.split
 
@@ -862,7 +862,7 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 248
   store i64 1, ptr %18, align 8
   %19 = call fastcc i32 @assoc_array_walk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5), !range !13
-  switch i32 %19, label %default.unreachable75 [
+  switch i32 %19, label %default.unreachable104 [
     i32 0, label %20
     i32 1, label %35
     i32 2, label %391
@@ -1703,7 +1703,7 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   store ptr %538, ptr %534, align 8
   br label %554
 
-default.unreachable75:                            ; preds = %14
+default.unreachable104:                           ; preds = %14
   unreachable
 
 539:                                              ; preds = %497, %442, %424, %317, %80, %76, %20

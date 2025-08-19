@@ -127,19 +127,19 @@ define i32 @Gia_ManCombMarkUsed(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %5, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %1
-  %.val83 = load ptr, ptr %2, align 8, !tbaa !28
-  %.not84 = icmp eq ptr %.val83, null
-  br i1 %.not84, label %.critedge, label %.lr.ph86
+  %.val85 = load ptr, ptr %2, align 8, !tbaa !28
+  %.not86 = icmp eq ptr %.val85, null
+  br i1 %.not86, label %.critedge, label %.lr.ph88
 
 .lr.ph:                                           ; preds = %19
   %.val = load ptr, ptr %2, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv.next
   %.not = icmp eq ptr %.val, null
-  br i1 %.not, label %.critedge, label %.lr.ph86, !llvm.loop !33
+  br i1 %.not, label %.critedge, label %.lr.ph88, !llvm.loop !33
 
-.lr.ph86:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %7 = phi ptr [ %6, %.lr.ph ], [ %.val83, %.lr.ph.preheader ]
-  %indvars.iv85 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph88:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %7 = phi ptr [ %6, %.lr.ph ], [ %.val85, %.lr.ph.preheader ]
+  %indvars.iv87 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.val44 = load i64, ptr %7, align 4
   %8 = and i64 %.val44, 2147483648
   %.not.i = icmp eq i64 %8, 0
@@ -148,7 +148,7 @@ define i32 @Gia_ManCombMarkUsed(ptr noundef %0) local_unnamed_addr #0 {
   %narrow.i = and i1 %.not.i, %10
   br i1 %narrow.i, label %11, label %19
 
-11:                                               ; preds = %.lr.ph86
+11:                                               ; preds = %.lr.ph88
   %12 = trunc i64 %.val44 to i32
   %13 = and i32 %12, 536870911
   %14 = lshr i64 %.val44, 32
@@ -160,12 +160,12 @@ define i32 @Gia_ManCombMarkUsed(ptr noundef %0) local_unnamed_addr #0 {
   %18 = select i1 %or.cond.not.i, i64 0, i64 1073741824
   br label %19
 
-19:                                               ; preds = %11, %.lr.ph86
-  %20 = phi i64 [ 0, %.lr.ph86 ], [ %18, %11 ]
+19:                                               ; preds = %11, %.lr.ph88
+  %20 = phi i64 [ 0, %.lr.ph88 ], [ %18, %11 ]
   %21 = and i64 %.val44, -1073741825
   %22 = or disjoint i64 %20, %21
   store i64 %22, ptr %7, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv85, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv87, 1
   %23 = load i32, ptr %3, align 8, !tbaa !32
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24

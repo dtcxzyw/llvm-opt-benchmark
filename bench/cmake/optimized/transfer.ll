@@ -197,8 +197,8 @@ define dso_local i32 @Curl_sendrecv(ptr noundef %0, ptr noundef %1) local_unname
   %.pre.i.pre = load i32, ptr %.phi.trans.insert.i.phi.trans.insert, align 8, !tbaa !100
   %13 = and i32 %.pre.i.pre, 16
   %.not5.i = icmp eq i32 %13, 0
-  %or.cond119 = select i1 %.not.i, i1 %.not5.i, i1 false
-  br i1 %or.cond119, label %select_bits_paused.exit.thread, label %._crit_edge
+  %or.cond143 = select i1 %.not.i, i1 %.not5.i, i1 false
+  br i1 %or.cond143, label %select_bits_paused.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10
   %14 = and i32 %11, 2
@@ -851,7 +851,7 @@ define dso_local i32 @Curl_pretransfer(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4480
   %3 = load ptr, ptr %2, align 8, !tbaa !125
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %.thread169
+  br i1 %.not, label %4, label %.thread178
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2528
@@ -870,15 +870,15 @@ define dso_local i32 @Curl_pretransfer(ptr noundef %0) local_unnamed_addr #0 {
   %.not126 = icmp eq i32 %11, 0
   br i1 %.not126, label %19, label %.thread
 
-.thread169:                                       ; preds = %1
+.thread178:                                       ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4876
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 65536
-  %.not126170 = icmp eq i32 %14, 0
-  br i1 %.not126170, label %.critedge, label %.thread
+  %.not126179 = icmp eq i32 %14, 0
+  br i1 %.not126179, label %.critedge, label %.thread
 
-.thread:                                          ; preds = %.thread169, %8
-  %15 = phi ptr [ %12, %.thread169 ], [ %9, %8 ]
+.thread:                                          ; preds = %.thread178, %8
+  %15 = phi ptr [ %12, %.thread178 ], [ %9, %8 ]
   %16 = load ptr, ptr @Curl_cfree, align 8, !tbaa !127
   tail call void %16(ptr noundef %3) #6
   store ptr null, ptr %2, align 8, !tbaa !125
@@ -908,8 +908,8 @@ define dso_local i32 @Curl_pretransfer(ptr noundef %0) local_unnamed_addr #0 {
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #6
   br label %.thread155
 
-.critedge:                                        ; preds = %.thread169, %23, %19
-  %30 = phi ptr [ %20, %23 ], [ %20, %19 ], [ %12, %.thread169 ]
+.critedge:                                        ; preds = %.thread178, %23, %19
+  %30 = phi ptr [ %20, %23 ], [ %20, %19 ], [ %12, %.thread178 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %32 = load ptr, ptr %31, align 8, !tbaa !128
   %.not130 = icmp eq ptr %32, null

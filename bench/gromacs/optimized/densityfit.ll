@@ -426,11 +426,11 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_s
   br label %.body
 
 _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default_deleteIS2_EED2Ev.exit.sink.split: ; preds = %65, %37, %_ZSt11make_uniqueIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductEJRNS0_12basic_mdspanIKfNS0_7extentsIJLln1ELln1ELln1EEEENS0_12layout_rightENS0_14accessor_basicIS4_EEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %.sink83 = phi ptr [ %11, %_ZSt11make_uniqueIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductEJRNS0_12basic_mdspanIKfNS0_7extentsIJLln1ELln1ELln1EEEENS0_12layout_rightENS0_14accessor_basicIS4_EEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %38, %37 ], [ %66, %65 ]
-  %81 = load ptr, ptr %.sink83, align 8, !tbaa !21
+  %.sink90 = phi ptr [ %11, %_ZSt11make_uniqueIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductEJRNS0_12basic_mdspanIKfNS0_7extentsIJLln1ELln1ELln1EEEENS0_12layout_rightENS0_14accessor_basicIS4_EEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %38, %37 ], [ %66, %65 ]
+  %81 = load ptr, ptr %.sink90, align 8, !tbaa !21
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
-  tail call void %83(ptr noundef nonnull align 8 dereferenceable(8) %.sink83) #29
+  tail call void %83(ptr noundef nonnull align 8 dereferenceable(8) %.sink90) #29
   br label %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default_deleteIS2_EED2Ev.exit.sink.split, %65, %37, %_ZSt11make_uniqueIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductEJRNS0_12basic_mdspanIKfNS0_7extentsIJLln1ELln1ELln1EEEENS0_12layout_rightENS0_14accessor_basicIS4_EEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
@@ -927,7 +927,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_129DensitySimilarityInnerProduct8gradi
 .backedge:                                        ; preds = %.backedge.backedge, %3
   %.010.i.i = phi i64 [ 0, %3 ], [ %.010.i.i.be, %.backedge.backedge ]
   %.07.in9.i.i = phi i1 [ true, %3 ], [ %.07.in9.i.i.be, %.backedge.backedge ]
-  br i1 %.07.in9.i.i, label %19, label %.thread16
+  br i1 %.07.in9.i.i, label %19, label %.thread17
 
 19:                                               ; preds = %.backedge
   %20 = icmp eq i64 %.010.i.i, 0
@@ -950,20 +950,20 @@ define internal void @_ZN3gmx12_GLOBAL__N_129DensitySimilarityInnerProduct8gradi
   %exitcond.not.i.i = icmp eq i64 %32, 3
   br i1 %exitcond.not.i.i, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %28, %.thread16
-  %.010.i.i.be = phi i64 [ %32, %28 ], [ %33, %.thread16 ]
-  %.07.in9.i.i.be = phi i1 [ %31, %28 ], [ false, %.thread16 ]
+.backedge.backedge:                               ; preds = %28, %.thread17
+  %.010.i.i.be = phi i64 [ %32, %28 ], [ %33, %.thread17 ]
+  %.07.in9.i.i.be = phi i1 [ %31, %28 ], [ false, %.thread17 ]
   br label %.backedge, !llvm.loop !78
 
-.thread16:                                        ; preds = %.backedge
+.thread17:                                        ; preds = %.backedge
   %33 = add nuw nsw i64 %.010.i.i, 1
-  %exitcond.not.i.i17 = icmp eq i64 %33, 3
-  br i1 %exitcond.not.i.i17, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread, label %.backedge.backedge
+  %exitcond.not.i.i18 = icmp eq i64 %33, 3
+  br i1 %exitcond.not.i.i18, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread, label %.backedge.backedge
 
 _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit: ; preds = %28
   br i1 %31, label %44, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread
 
-_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread: ; preds = %.thread16, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit
+_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread: ; preds = %.thread17, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit
   %34 = tail call ptr @__cxa_allocate_exception(i64 24) #29
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.3)
@@ -1063,7 +1063,7 @@ define internal noundef float @_ZN3gmx12_GLOBAL__N_129DensitySimilarityInnerProd
 .backedge:                                        ; preds = %.backedge.backedge, %2
   %.010.i.i = phi i64 [ 0, %2 ], [ %.010.i.i.be, %.backedge.backedge ]
   %.07.in9.i.i = phi i1 [ true, %2 ], [ %.07.in9.i.i.be, %.backedge.backedge ]
-  br i1 %.07.in9.i.i, label %18, label %.thread19
+  br i1 %.07.in9.i.i, label %18, label %.thread21
 
 18:                                               ; preds = %.backedge
   %19 = icmp eq i64 %.010.i.i, 0
@@ -1086,20 +1086,20 @@ define internal noundef float @_ZN3gmx12_GLOBAL__N_129DensitySimilarityInnerProd
   %exitcond.not.i.i = icmp eq i64 %31, 3
   br i1 %exitcond.not.i.i, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %27, %.thread19
-  %.010.i.i.be = phi i64 [ %31, %27 ], [ %32, %.thread19 ]
-  %.07.in9.i.i.be = phi i1 [ %30, %27 ], [ false, %.thread19 ]
+.backedge.backedge:                               ; preds = %27, %.thread21
+  %.010.i.i.be = phi i64 [ %31, %27 ], [ %32, %.thread21 ]
+  %.07.in9.i.i.be = phi i1 [ %30, %27 ], [ false, %.thread21 ]
   br label %.backedge, !llvm.loop !78
 
-.thread19:                                        ; preds = %.backedge
+.thread21:                                        ; preds = %.backedge
   %32 = add nuw nsw i64 %.010.i.i, 1
-  %exitcond.not.i.i20 = icmp eq i64 %32, 3
-  br i1 %exitcond.not.i.i20, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread, label %.backedge.backedge
+  %exitcond.not.i.i22 = icmp eq i64 %32, 3
+  br i1 %exitcond.not.i.i22, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread, label %.backedge.backedge
 
 _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit: ; preds = %27
   br i1 %30, label %43, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread
 
-_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread: ; preds = %.thread19, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit
+_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread: ; preds = %.thread21, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit
   %33 = tail call ptr @__cxa_allocate_exception(i64 24) #29
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.3)
@@ -1248,13 +1248,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !75
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !75
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -1687,7 +1687,7 @@ define internal noundef float @_ZN3gmx12_GLOBAL__N_132DensitySimilarityRelativeE
 .backedge:                                        ; preds = %.backedge.backedge, %2
   %.010.i.i = phi i64 [ 0, %2 ], [ %.010.i.i.be, %.backedge.backedge ]
   %.07.in9.i.i = phi i1 [ true, %2 ], [ %.07.in9.i.i.be, %.backedge.backedge ]
-  br i1 %.07.in9.i.i, label %18, label %.thread21
+  br i1 %.07.in9.i.i, label %18, label %.thread25
 
 18:                                               ; preds = %.backedge
   %19 = icmp eq i64 %.010.i.i, 0
@@ -1710,20 +1710,20 @@ define internal noundef float @_ZN3gmx12_GLOBAL__N_132DensitySimilarityRelativeE
   %exitcond.not.i.i = icmp eq i64 %31, 3
   br i1 %exitcond.not.i.i, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %27, %.thread21
-  %.010.i.i.be = phi i64 [ %31, %27 ], [ %32, %.thread21 ]
-  %.07.in9.i.i.be = phi i1 [ %30, %27 ], [ false, %.thread21 ]
+.backedge.backedge:                               ; preds = %27, %.thread25
+  %.010.i.i.be = phi i64 [ %31, %27 ], [ %32, %.thread25 ]
+  %.07.in9.i.i.be = phi i1 [ %30, %27 ], [ false, %.thread25 ]
   br label %.backedge, !llvm.loop !78
 
-.thread21:                                        ; preds = %.backedge
+.thread25:                                        ; preds = %.backedge
   %32 = add nuw nsw i64 %.010.i.i, 1
-  %exitcond.not.i.i22 = icmp eq i64 %32, 3
-  br i1 %exitcond.not.i.i22, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread, label %.backedge.backedge
+  %exitcond.not.i.i26 = icmp eq i64 %32, 3
+  br i1 %exitcond.not.i.i26, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread, label %.backedge.backedge
 
 _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit: ; preds = %27
   br i1 %30, label %43, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread
 
-_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread: ; preds = %.thread21, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit
+_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread: ; preds = %.thread25, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit
   %33 = tail call ptr @__cxa_allocate_exception(i64 24) #29
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.3)
@@ -2268,7 +2268,7 @@ define internal noundef float @_ZN3gmx12_GLOBAL__N_133DensitySimilarityCrossCorr
 .backedge:                                        ; preds = %.backedge.backedge, %2
   %.010.i.i = phi i64 [ 0, %2 ], [ %.010.i.i.be, %.backedge.backedge ]
   %.07.in9.i.i = phi i1 [ true, %2 ], [ %.07.in9.i.i.be, %.backedge.backedge ]
-  br i1 %.07.in9.i.i, label %18, label %.thread50
+  br i1 %.07.in9.i.i, label %18, label %.thread53
 
 18:                                               ; preds = %.backedge
   %19 = icmp eq i64 %.010.i.i, 0
@@ -2291,20 +2291,20 @@ define internal noundef float @_ZN3gmx12_GLOBAL__N_133DensitySimilarityCrossCorr
   %exitcond.not.i.i = icmp eq i64 %31, 3
   br i1 %exitcond.not.i.i, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %27, %.thread50
-  %.010.i.i.be = phi i64 [ %31, %27 ], [ %32, %.thread50 ]
-  %.07.in9.i.i.be = phi i1 [ %30, %27 ], [ false, %.thread50 ]
+.backedge.backedge:                               ; preds = %27, %.thread53
+  %.010.i.i.be = phi i64 [ %31, %27 ], [ %32, %.thread53 ]
+  %.07.in9.i.i.be = phi i1 [ %30, %27 ], [ false, %.thread53 ]
   br label %.backedge, !llvm.loop !78
 
-.thread50:                                        ; preds = %.backedge
+.thread53:                                        ; preds = %.backedge
   %32 = add nuw nsw i64 %.010.i.i, 1
-  %exitcond.not.i.i51 = icmp eq i64 %32, 3
-  br i1 %exitcond.not.i.i51, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread, label %.backedge.backedge
+  %exitcond.not.i.i54 = icmp eq i64 %32, 3
+  br i1 %exitcond.not.i.i54, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread, label %.backedge.backedge
 
 _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit: ; preds = %27
   br i1 %30, label %43, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread
 
-_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread: ; preds = %.thread50, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit
+_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread: ; preds = %.thread53, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit
   %33 = tail call ptr @__cxa_allocate_exception(i64 24) #29
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.3)

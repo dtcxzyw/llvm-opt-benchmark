@@ -364,13 +364,13 @@ define dso_local noundef ptr @_ZNK5clang22ComparisonCategoryInfo15lookupValueInf
   %17 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i, i64 32
   %.val33.i.i.i.i = load i8, ptr %17, align 8, !tbaa !36
   %18 = icmp eq i8 %.val33.i.i.i.i, %1
-  br i1 %18, label %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit32", label %19
+  br i1 %18, label %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit35", label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i, i64 48
   %.val35.i.i.i.i = load i8, ptr %20, align 8, !tbaa !36
   %21 = icmp eq i8 %.val35.i.i.i.i, %1
-  br i1 %21, label %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit34", label %22
+  br i1 %21, label %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit37", label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i, i64 64
@@ -385,7 +385,7 @@ define dso_local noundef ptr @_ZNK5clang22ComparisonCategoryInfo15lookupValueInf
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %2
   %.pre-phi60.i.i.i.i = phi i32 [ %26, %._crit_edge.loopexit.i.i.i.i ], [ %.val6, %2 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %.val, %2 ]
-  switch i32 %.pre-phi60.i.i.i.i, label %._crit_edge.i.i.i.unreachabledefault.i [
+  switch i32 %.pre-phi60.i.i.i.i, label %default.unreachable [
     i32 3, label %27
     i32 2, label %._crit_edge._crit_edge.i.i.i.i
     i32 1, label %._crit_edge._crit_edge57.i.i.i.i
@@ -417,7 +417,7 @@ define dso_local noundef ptr @_ZNK5clang22ComparisonCategoryInfo15lookupValueInf
   %34 = icmp eq i8 %.2.val.i.i.i.i, %1
   br i1 %34, label %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit", label %35
 
-._crit_edge.i.i.i.unreachabledefault.i:           ; preds = %._crit_edge.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
   unreachable
 
 35:                                               ; preds = %._crit_edge._crit_edge57.i.i.i.i, %._crit_edge.i.i.i.i
@@ -427,16 +427,16 @@ define dso_local noundef ptr @_ZNK5clang22ComparisonCategoryInfo15lookupValueInf
   %36 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i, i64 16
   br label %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit"
 
-"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit32": ; preds = %16
+"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit35": ; preds = %16
   %37 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i, i64 32
   br label %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit"
 
-"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit34": ; preds = %19
+"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit37": ; preds = %19
   %38 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i, i64 48
   br label %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit"
 
-"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit": ; preds = %11, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit32", %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit34", %27, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i, %35
-  %.028.i.i.i.i = phi ptr [ %8, %35 ], [ %.029.lcssa.i.i.i.i, %27 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %36, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit" ], [ %37, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit32" ], [ %38, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit34" ], [ %.02950.i.i.i.i, %11 ]
+"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit": ; preds = %11, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit35", %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit37", %27, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i, %35
+  %.028.i.i.i.i = phi ptr [ %8, %35 ], [ %.029.lcssa.i.i.i.i, %27 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %36, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit" ], [ %37, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit35" ], [ %38, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit37" ], [ %.02950.i.i.i.i, %11 ]
   %39 = getelementptr inbounds nuw %"struct.clang::ComparisonCategoryInfo::ValueInfo", ptr %.val, i64 %7
   %.not = icmp eq ptr %.028.i.i.i.i, %39
   br i1 %.not, label %switch.lookup, label %.critedge
@@ -456,9 +456,9 @@ switch.lookup:                                    ; preds = %"_ZN4llvm7find_ifIR
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE, i64 0, i64 %50
   %switch.load = load i64, ptr %switch.gep, align 8
   %51 = zext nneg i8 %1 to i64
-  %switch.gep44 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE.8, i64 0, i64 %51
-  %switch.load45 = load ptr, ptr %switch.gep44, align 8
-  %52 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %49, ptr nonnull %switch.load45, i64 %switch.load)
+  %switch.gep47 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE.8, i64 0, i64 %51
+  %switch.load48 = load ptr, ptr %switch.gep47, align 8
+  %52 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %49, ptr nonnull %switch.load48, i64 %switch.load)
   %53 = ptrtoint ptr %52 to i64
   %54 = tail call i64 @_ZNK5clang11DeclContext6lookupENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(32) %46, i64 %53) #13
   %.not.i.i = icmp ult i64 %54, 8
@@ -743,10 +743,10 @@ _ZL18lookupStdNamespaceRKN5clang10ASTContextERPNS_13NamespaceDeclE.exit.thread: 
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE, i64 0, i64 %66
   %switch.load = load i64, ptr %switch.gep, align 8
   %67 = zext nneg i8 %1 to i64
-  %switch.gep28 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.11, i64 0, i64 %67
-  %switch.load29 = load ptr, ptr %switch.gep28, align 8
+  %switch.gep36 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.11, i64 0, i64 %67
+  %switch.load37 = load ptr, ptr %switch.gep36, align 8
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  %69 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %.val, ptr nonnull %switch.load29, i64 %switch.load)
+  %69 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %.val, ptr nonnull %switch.load37, i64 %switch.load)
   %70 = ptrtoint ptr %69 to i64
   %71 = tail call i64 @_ZNK5clang11DeclContext6lookupENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(32) %68, i64 %70) #13
   %.not.i.i.i11 = icmp ult i64 %71, 8
@@ -920,13 +920,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseM
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %12, %58
-  %.sink30 = phi i32 [ %70, %58 ], [ %10, %12 ], [ %10, %26 ]
-  %.sink28 = phi ptr [ %69, %58 ], [ %8, %12 ], [ %8, %26 ]
-  %.sink27 = phi ptr [ %49, %58 ], [ %18, %12 ], [ %32, %26 ]
+  %.sink34 = phi i32 [ %70, %58 ], [ %10, %12 ], [ %10, %26 ]
+  %.sink32 = phi ptr [ %69, %58 ], [ %8, %12 ], [ %8, %26 ]
+  %.sink31 = phi ptr [ %49, %58 ], [ %18, %12 ], [ %32, %26 ]
   %.sink = phi i8 [ 1, %58 ], [ 0, %12 ], [ 0, %26 ]
-  %71 = zext i32 %.sink30 to i64
-  %72 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink28, i64 %71
-  store ptr %.sink27, ptr %0, align 8
+  %71 = zext i32 %.sink34 to i64
+  %72 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink32, i64 %71
+  store ptr %.sink31, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %72, ptr %.sroa.4.0..sroa_idx, align 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1043,10 +1043,10 @@ switch.lookup:                                    ; preds = %.preheader, %_ZN4ll
   %46 = zext nneg i32 %.mask to i64
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE, i64 0, i64 %46
   %switch.load = load i64, ptr %switch.gep, align 8
-  %.mask63 = and i32 %.02650, 255
-  %47 = zext nneg i32 %.mask63 to i64
-  %switch.gep61 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.11, i64 0, i64 %47
-  %switch.load62 = load ptr, ptr %switch.gep61, align 8
+  %.mask72 = and i32 %.02650, 255
+  %47 = zext nneg i32 %.mask72 to i64
+  %switch.gep70 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.11, i64 0, i64 %47
+  %switch.load71 = load ptr, ptr %switch.gep70, align 8
   %48 = load i64, ptr %44, align 8, !tbaa !461
   %49 = and i64 %48, 7
   %50 = icmp ne i64 %49, 0
@@ -1066,7 +1066,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %switch.lookup
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %switch.load62, ptr noundef nonnull dereferenceable(1) %58, i64 %switch.load)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %switch.load71, ptr noundef nonnull dereferenceable(1) %58, i64 %switch.load)
   %59 = icmp eq i32 %bcmp.i, 0
   br i1 %59, label %60, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 

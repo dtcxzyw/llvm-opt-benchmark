@@ -151,9 +151,9 @@ define internal i32 @idcin_read_header(ptr noundef %0) #1 {
   br label %87
 
 30:                                               ; preds = %21, %27
-  %.sink110 = phi i32 [ 1, %27 ], [ 0, %21 ]
+  %.sink114 = phi i32 [ 1, %27 ], [ 0, %21 ]
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  store i32 %.sink110, ptr %31, align 4, !tbaa !32
+  store i32 %.sink114, ptr %31, align 4, !tbaa !32
   %32 = tail call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #5
   %.not103 = icmp eq ptr %32, null
   br i1 %.not103, label %87, label %33
@@ -224,9 +224,9 @@ define internal i32 @idcin_read_header(ptr noundef %0) #1 {
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 156
   store i32 %63, ptr %69, align 4, !tbaa !56
   %70 = icmp eq i32 %9, 1
-  %spec.select112 = select i1 %70, i32 65541, i32 65536
+  %spec.select116 = select i1 %70, i32 65541, i32 65536
   %71 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  store i32 %spec.select112, ptr %71, align 4, !tbaa !47
+  store i32 %spec.select116, ptr %71, align 4, !tbaa !47
   %72 = urem i32 %8, 14
   %.not106 = icmp eq i32 %72, 0
   %73 = udiv i32 %8, 14

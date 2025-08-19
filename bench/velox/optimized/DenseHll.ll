@@ -330,7 +330,7 @@ if.end:                                           ; preds = %_ZNK8facebook5velox
   br i1 %cmp10, label %if.then11, label %if.end20
 
 if.then11:                                        ; preds = %if.end
-  %12 = trunc i32 %sub to i8
+  %12 = trunc nuw i32 %sub to i8
   %conv13 = add i8 %12, -15
   %overflows_.i17 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %13 = load i16, ptr %overflows_.i17, align 8
@@ -1241,17 +1241,17 @@ land.rhs:                                         ; preds = %for.cond3
   %add.ptr2.i21 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.next36
   %4 = load i16, ptr %add.ptr2.i21, align 2
   %cmp10 = icmp ugt i16 %4, %3
-  br i1 %cmp10, label %for.cond3, label %for.end.split.loop.exit39, !llvm.loop !16
+  br i1 %cmp10, label %for.cond3, label %for.end.split.loop.exit40, !llvm.loop !16
 
-for.end.split.loop.exit39:                        ; preds = %land.rhs
+for.end.split.loop.exit40:                        ; preds = %land.rhs
   %5 = trunc nuw nsw i64 %indvars.iv35 to i32
   %6 = shl i64 %indvars.iv.next36, 32
   %7 = ashr exact i64 %6, 32
   br label %for.end
 
-for.end:                                          ; preds = %for.cond3, %for.end.split.loop.exit39
-  %j.0.in.lcssa = phi i32 [ %5, %for.end.split.loop.exit39 ], [ 0, %for.cond3 ]
-  %j.0.lcssa = phi i64 [ %7, %for.end.split.loop.exit39 ], [ -1, %for.cond3 ]
+for.end:                                          ; preds = %for.cond3, %for.end.split.loop.exit40
+  %j.0.in.lcssa = phi i32 [ %5, %for.end.split.loop.exit40 ], [ 0, %for.cond3 ]
+  %j.0.lcssa = phi i64 [ %7, %for.end.split.loop.exit40 ], [ -1, %for.cond3 ]
   %8 = sext i32 %j.0.in.lcssa to i64
   %cmp12 = icmp sgt i64 %indvars.iv, %8
   br i1 %cmp12, label %if.then, label %for.inc48
@@ -1494,17 +1494,17 @@ land.rhs.i:                                       ; preds = %for.cond3.i
   %add.ptr2.i21.i = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.next36.i
   %4 = load i16, ptr %add.ptr2.i21.i, align 2
   %cmp10.i = icmp ugt i16 %4, %3
-  br i1 %cmp10.i, label %for.cond3.i, label %for.end.split.loop.exit39.i, !llvm.loop !16
+  br i1 %cmp10.i, label %for.cond3.i, label %for.end.split.loop.exit40.i, !llvm.loop !16
 
-for.end.split.loop.exit39.i:                      ; preds = %land.rhs.i
+for.end.split.loop.exit40.i:                      ; preds = %land.rhs.i
   %5 = trunc nuw nsw i64 %indvars.iv35.i to i32
   %6 = shl i64 %indvars.iv.next36.i, 32
   %7 = ashr exact i64 %6, 32
   br label %for.end.i
 
-for.end.i:                                        ; preds = %for.cond3.i, %for.end.split.loop.exit39.i
-  %j.0.in.lcssa.i = phi i32 [ %5, %for.end.split.loop.exit39.i ], [ 0, %for.cond3.i ]
-  %j.0.lcssa.i = phi i64 [ %7, %for.end.split.loop.exit39.i ], [ -1, %for.cond3.i ]
+for.end.i:                                        ; preds = %for.cond3.i, %for.end.split.loop.exit40.i
+  %j.0.in.lcssa.i = phi i32 [ %5, %for.end.split.loop.exit40.i ], [ 0, %for.cond3.i ]
+  %j.0.lcssa.i = phi i64 [ %7, %for.end.split.loop.exit40.i ], [ -1, %for.cond3.i ]
   %8 = sext i32 %j.0.in.lcssa.i to i64
   %cmp12.i = icmp sgt i64 %indvars.iv.i, %8
   br i1 %cmp12.i, label %if.then.i, label %for.inc48.i
@@ -2049,7 +2049,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
   br i1 %cmp9.not.i61, label %if.else.i63, label %_ZSt27__uninitialized_default_n_aIPtmN8facebook5velox12StlAllocatorItEEET_S5_T0_RT1_.exit.i
 
 _ZSt27__uninitialized_default_n_aIPtmN8facebook5velox12StlAllocatorItEEET_S5_T0_RT1_.exit.i: ; preds = %if.then.i.i.i
-  %23 = shl nuw i64 %sub.i.i.i, 1
+  %23 = shl nuw nsw i64 %sub.i.i.i, 1
   tail call void @llvm.memset.p0.i64(ptr align 2 %20, i8 0, i64 %23, i1 false)
   %scevgep.i.i62 = getelementptr i8, ptr %20, i64 %23
   store ptr %scevgep.i.i62, ptr %_M_finish.i.i.i.i, align 8
@@ -2144,7 +2144,7 @@ terminate.lpad.i.i.i.i89:                         ; preds = %if.end.i.i.i26.i, %
 
 _ZNSt12_Vector_baseItN8facebook5velox12StlAllocatorItEEE13_M_deallocateEPtm.exit.i: ; preds = %if.end.i.i.i26.i, %if.then.i.i.i28.i, %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE11_S_relocateEPtS5_S5_RS3_.exit.i
   store ptr %cond.i17.i76, ptr %add.ptr.i.i, align 8
-  %add.ptr45.i = getelementptr inbounds i16, ptr %add.ptr26.i77, i64 %sub.i.i.i
+  %add.ptr45.i = getelementptr inbounds nuw i16, ptr %add.ptr26.i77, i64 %sub.i.i.i
   store ptr %add.ptr45.i, ptr %_M_finish.i.i.i.i, align 8
   %add.ptr49.i = getelementptr inbounds nuw i16, ptr %cond.i17.i76, i64 %24
   store ptr %add.ptr49.i, ptr %_M_end_of_storage.i55, align 8
@@ -2285,7 +2285,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i25.i, %
 
 _ZNSt12_Vector_baseIaN8facebook5velox12StlAllocatorIaEEE13_M_deallocateEPam.exit.i: ; preds = %if.end.i.i.i25.i, %if.then.i.i.i27.i, %_ZNSt6vectorIaN8facebook5velox12StlAllocatorIaEEE11_S_relocateEPaS5_S5_RS3_.exit.i
   store ptr %cond.i17.i, ptr %add.ptr.i23, align 8
-  %add.ptr44.i = getelementptr inbounds i8, ptr %cond.i17.i, i64 %add5.pre-phi.i.i
+  %add.ptr44.i = getelementptr inbounds nuw i8, ptr %cond.i17.i, i64 %add5.pre-phi.i.i
   store ptr %add.ptr44.i, ptr %_M_finish.i.i2.i.i, align 8
   %add.ptr48.i = getelementptr inbounds nuw i8, ptr %cond.i17.i, i64 %36
   store ptr %add.ptr48.i, ptr %_M_end_of_storage.i, align 8
@@ -2754,7 +2754,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i25, %if
 
 _ZNSt12_Vector_baseIaN8facebook5velox12StlAllocatorIaEEE13_M_deallocateEPam.exit: ; preds = %_ZNSt6vectorIaN8facebook5velox12StlAllocatorIaEEE11_S_relocateEPaS5_S5_RS3_.exit, %if.then.i.i.i27, %if.end.i.i.i25
   store ptr %cond.i17, ptr %add.ptr.i, align 8
-  %add.ptr44 = getelementptr inbounds i8, ptr %add.ptr26, i64 %__n
+  %add.ptr44 = getelementptr inbounds nuw i8, ptr %add.ptr26, i64 %__n
   store ptr %add.ptr44, ptr %_M_finish.i, align 8
   %add.ptr48 = getelementptr inbounds nuw i8, ptr %cond.i17, i64 %3
   store ptr %add.ptr48, ptr %_M_end_of_storage, align 8
@@ -2800,7 +2800,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp9.not, label %if.else, label %_ZSt27__uninitialized_default_n_aIPtmN8facebook5velox12StlAllocatorItEEET_S5_T0_RT1_.exit
 
 _ZSt27__uninitialized_default_n_aIPtmN8facebook5velox12StlAllocatorItEEET_S5_T0_RT1_.exit: ; preds = %if.then
-  %3 = shl nuw i64 %__n, 1
+  %3 = shl nuw nsw i64 %__n, 1
   tail call void @llvm.memset.p0.i64(ptr align 2 %0, i8 0, i64 %3, i1 false)
   %scevgep.i = getelementptr i8, ptr %0, i64 %3
   store ptr %scevgep.i, ptr %_M_finish.i, align 8
@@ -2895,7 +2895,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i26, %if
 
 _ZNSt12_Vector_baseItN8facebook5velox12StlAllocatorItEEE13_M_deallocateEPtm.exit: ; preds = %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE11_S_relocateEPtS5_S5_RS3_.exit, %if.then.i.i.i28, %if.end.i.i.i26
   store ptr %cond.i17, ptr %add.ptr.i, align 8
-  %add.ptr45 = getelementptr inbounds i16, ptr %add.ptr26, i64 %__n
+  %add.ptr45 = getelementptr inbounds nuw i16, ptr %add.ptr26, i64 %__n
   store ptr %add.ptr45, ptr %_M_finish.i, align 8
   %add.ptr49 = getelementptr inbounds nuw i16, ptr %cond.i17, i64 %4
   store ptr %add.ptr49, ptr %_M_end_of_storage, align 8

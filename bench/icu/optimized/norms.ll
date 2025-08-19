@@ -101,14 +101,14 @@ define dso_local void @_ZN6icu_7723BuilderReorderingBuffer6appendEih(ptr noundef
   %34 = load i32, ptr %33, align 4, !tbaa !9
   %35 = trunc i32 %34 to i8
   %36 = icmp ult i8 %2, %35
-  br i1 %36, label %30, label %.critedge.split.loop.exit30, !llvm.loop !11
+  br i1 %36, label %30, label %.critedge.split.loop.exit32, !llvm.loop !11
 
-.critedge.split.loop.exit30:                      ; preds = %32
+.critedge.split.loop.exit32:                      ; preds = %32
   %37 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %30, %.critedge.split.loop.exit30
-  %.018.in.lcssa = phi i32 [ %37, %.critedge.split.loop.exit30 ], [ %20, %30 ]
+.critedge:                                        ; preds = %30, %.critedge.split.loop.exit32
+  %.018.in.lcssa = phi i32 [ %37, %.critedge.split.loop.exit32 ], [ %20, %30 ]
   %38 = icmp slt i32 %.018.in.lcssa, %7
   %39 = sext i32 %.018.in.lcssa to i64
   br i1 %38, label %.lr.ph, label %._crit_edge
@@ -637,14 +637,14 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %3, %15, %17
   %79 = load i32, ptr %78, align 4, !tbaa !9
   %80 = trunc i32 %79 to i8
   %81 = icmp ult i8 %52, %80
-  br i1 %81, label %75, label %.critedge.split.loop.exit30.i, !llvm.loop !11
+  br i1 %81, label %75, label %.critedge.split.loop.exit32.i, !llvm.loop !11
 
-.critedge.split.loop.exit30.i:                    ; preds = %77
+.critedge.split.loop.exit32.i:                    ; preds = %77
   %82 = trunc nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %75, %.critedge.split.loop.exit30.i
-  %.018.in.lcssa.i = phi i32 [ %82, %.critedge.split.loop.exit30.i ], [ %67, %75 ]
+.critedge.i:                                      ; preds = %75, %.critedge.split.loop.exit32.i
+  %.018.in.lcssa.i = phi i32 [ %82, %.critedge.split.loop.exit32.i ], [ %67, %75 ]
   %83 = icmp slt i32 %.018.in.lcssa.i, %55
   %84 = sext i32 %.018.in.lcssa.i to i64
   br i1 %83, label %.lr.ph.i, label %._crit_edge.i
@@ -1267,10 +1267,10 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %9, %16, %18
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.lhs.trunc = trunc nuw i32 %153 to i16
   %156 = urem i16 %.lhs.trunc, 28
-  %.lhs.trunc152 = trunc nuw i32 %153 to i16
-  %157 = udiv i16 %.lhs.trunc152, 28
-  %.lhs.trunc154 = trunc nuw i32 %153 to i16
-  %158 = udiv i16 %.lhs.trunc154, 588
+  %.lhs.trunc159 = trunc nuw i32 %153 to i16
+  %157 = udiv i16 %.lhs.trunc159, 28
+  %.lhs.trunc161 = trunc nuw i32 %153 to i16
+  %158 = udiv i16 %.lhs.trunc161, 588
   %159 = or disjoint i16 %158, 4352
   store i16 %159, ptr %5, align 2, !tbaa !60
   %160 = urem i16 %157, 21

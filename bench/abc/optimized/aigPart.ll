@@ -639,14 +639,14 @@ Vec_IntAlloc.exit:                                ; preds = %1, %7
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %33, %35, %25, %27
-  %.sink11 = phi ptr [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %36, %35 ]
+  %.sink12 = phi ptr [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %36, %35 ]
   %.sink = phi i32 [ 16, %25 ], [ 16, %27 ], [ %30, %33 ], [ %30, %35 ]
-  store ptr %.sink11, ptr %12, align 8, !tbaa !37
+  store ptr %.sink12, ptr %12, align 8, !tbaa !37
   store i32 %.sink, ptr %4, align 8, !tbaa !36
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %15
-  %.pre.i10 = phi ptr [ %16, %15 ], [ %.sink11, %Vec_IntPush.exit.sink.split ]
+  %.pre.i10 = phi ptr [ %16, %15 ], [ %.sink12, %Vec_IntPush.exit.sink.split ]
   %37 = add nsw i32 %19, 1
   store i32 %37, ptr %6, align 4, !tbaa !33
   %38 = sext i32 %19 to i64
@@ -3073,13 +3073,13 @@ Aig_ManSuppCharAdd.exit:                          ; preds = %273, %Vec_IntFree.e
   br i1 %exitcond.not, label %.critedge2.thread, label %287, !llvm.loop !83
 
 .critedge2:                                       ; preds = %Abc_Clock.exit110, %.critedge.preheader
-  %.pre230 = phi ptr [ %.pre.pre, %.critedge.preheader ], [ %33, %Abc_Clock.exit110 ]
-  %.not.i141 = icmp eq ptr %.pre230, null
+  %.pre262 = phi ptr [ %.pre.pre, %.critedge.preheader ], [ %33, %Abc_Clock.exit110 ]
+  %.not.i141 = icmp eq ptr %.pre262, null
   br i1 %.not.i141, label %Vec_PtrFree.exit, label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %.critedge, %.critedge2
-  %.pre230233 = phi ptr [ %.pre230, %.critedge2 ], [ %.pre.pre, %.critedge ]
-  call void @free(ptr noundef nonnull %.pre230233) #24
+  %.pre262265 = phi ptr [ %.pre262, %.critedge2 ], [ %.pre.pre, %.critedge ]
+  call void @free(ptr noundef nonnull %.pre262265) #24
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge2, %.critedge2.thread
@@ -4185,13 +4185,13 @@ Aig_ManSuppCharAdd.exit:                          ; preds = %310, %Vec_IntFree.e
   br i1 %exitcond.not, label %.critedge4.thread, label %324, !llvm.loop !94
 
 .critedge4:                                       ; preds = %Abc_Clock.exit117, %.critedge2.preheader
-  %.pre256 = phi ptr [ %.pre.pre, %.critedge2.preheader ], [ %72, %Abc_Clock.exit117 ]
-  %.not.i155 = icmp eq ptr %.pre256, null
+  %.pre290 = phi ptr [ %.pre.pre, %.critedge2.preheader ], [ %72, %Abc_Clock.exit117 ]
+  %.not.i155 = icmp eq ptr %.pre290, null
   br i1 %.not.i155, label %Vec_PtrFree.exit, label %.critedge4.thread
 
 .critedge4.thread:                                ; preds = %.critedge2, %.critedge4
-  %.pre256259 = phi ptr [ %.pre256, %.critedge4 ], [ %.pre.pre, %.critedge2 ]
-  call void @free(ptr noundef nonnull %.pre256259) #24
+  %.pre290293 = phi ptr [ %.pre290, %.critedge4 ], [ %.pre.pre, %.critedge2 ]
+  call void @free(ptr noundef nonnull %.pre290293) #24
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge4, %.critedge4.thread
@@ -7031,10 +7031,10 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   %181 = icmp slt i32 %178, %180
   %182 = load ptr, ptr %116, align 8, !tbaa !120
   %..i = tail call i32 @llvm.smax.i32(i32 %178, i32 %180)
-  %.16.i = select i1 %181, ptr %176, ptr %175
+  %.19.i = select i1 %181, ptr %176, ptr %175
   %183 = sext i32 %..i to i64
   %184 = getelementptr inbounds ptr, ptr %182, i64 %183
-  store ptr %.16.i, ptr %184, align 8, !tbaa !137
+  store ptr %.19.i, ptr %184, align 8, !tbaa !137
   br label %Aig_ObjSetRepr_.exit
 
 Aig_ObjSetRepr_.exit:                             ; preds = %158, %.sink.split.i

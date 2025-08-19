@@ -92,15 +92,15 @@ define hidden i32 @mbedtls_rsa_deduce_primes(ptr noundef %0, ptr noundef %1, ptr
   %51 = zext i8 %50 to i64
   %52 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %7, i64 noundef %51)
   %53 = call i32 @mbedtls_mpi_gcd(ptr noundef %3, ptr noundef nonnull %7, ptr noundef %0)
-  %.not5886 = icmp eq i32 %53, 0
-  br i1 %.not5886, label %.lr.ph, label %.loopexit
+  %.not58100 = icmp eq i32 %53, 0
+  br i1 %.not58100, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.split.preheader
   %spec.store.select = zext i1 %46 to i16
   br label %54
 
 54:                                               ; preds = %.lr.ph, %.split.backedge
-  %.0397387 = phi i16 [ %spec.store.select, %.lr.ph ], [ %.03973.be, %.split.backedge ]
+  %.03973101 = phi i16 [ %spec.store.select, %.lr.ph ], [ %.03973.be, %.split.backedge ]
   %55 = call i32 @mbedtls_mpi_cmp_int(ptr noundef %3, i64 noundef 1)
   %.not59 = icmp eq i32 %55, 0
   br i1 %.not59, label %56, label %82
@@ -163,16 +163,16 @@ define hidden i32 @mbedtls_rsa_deduce_primes(ptr noundef %0, ptr noundef %1, ptr
 ._crit_edge:                                      ; preds = %58, %.preheader
   %80 = call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %7, i64 noundef 1)
   %.not67 = icmp eq i32 %80, 0
-  %81 = icmp samesign ult i16 %.0397387, 53
+  %81 = icmp samesign ult i16 %.03973101, 53
   %or.cond78 = and i1 %.not67, %81
   br i1 %or.cond78, label %.split.backedge, label %.loopexit
 
 82:                                               ; preds = %54
-  %.old77 = icmp samesign ult i16 %.0397387, 53
+  %.old77 = icmp samesign ult i16 %.03973101, 53
   br i1 %.old77, label %.split.backedge, label %.loopexit
 
 .split.backedge:                                  ; preds = %82, %._crit_edge
-  %.03973.be = add nuw nsw i16 %.0397387, 1
+  %.03973.be = add nuw nsw i16 %.03973101, 1
   %83 = zext nneg i16 %.03973.be to i64
   %84 = getelementptr inbounds nuw [54 x i8], ptr @__const.mbedtls_rsa_deduce_primes.primes, i64 0, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !12

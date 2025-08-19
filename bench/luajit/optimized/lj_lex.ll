@@ -433,7 +433,7 @@ lex_savenext.exit:                                ; preds = %37, %41
     i32 11, label %95
     i32 12, label %95
     i32 45, label %110
-    i32 91, label %.preheader193
+    i32 91, label %.preheader247
     i32 61, label %205
     i32 60, label %227
     i32 62, label %249
@@ -679,7 +679,7 @@ lex_next.exit97:                                  ; preds = %166, %170
   store i32 %172, ptr %6, align 8, !tbaa !26
   br label %.thread, !llvm.loop !61
 
-.preheader193:                                    ; preds = %62, %lex_savenext.exit.i108
+.preheader247:                                    ; preds = %62, %lex_savenext.exit.i108
   %173 = phi i8 [ 61, %lex_savenext.exit.i108 ], [ 91, %62 ]
   %.0.i105 = phi i32 [ %197, %lex_savenext.exit.i108 ], [ 0, %62 ]
   %174 = load ptr, ptr %13, align 8, !tbaa !51
@@ -691,12 +691,12 @@ lex_next.exit97:                                  ; preds = %166, %170
   %180 = icmp eq i64 %179, 0
   br i1 %180, label %181, label %lj_buf_more.exit.i106, !prof !54
 
-181:                                              ; preds = %.preheader193
+181:                                              ; preds = %.preheader247
   %182 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
   br label %lj_buf_more.exit.i106
 
-lj_buf_more.exit.i106:                            ; preds = %181, %.preheader193
-  %.0.i.i107 = phi ptr [ %182, %181 ], [ %175, %.preheader193 ]
+lj_buf_more.exit.i106:                            ; preds = %181, %.preheader247
+  %.0.i.i107 = phi ptr [ %182, %181 ], [ %175, %.preheader247 ]
   %183 = getelementptr inbounds nuw i8, ptr %.0.i.i107, i64 1
   store i8 %173, ptr %.0.i.i107, align 1, !tbaa !29
   store ptr %183, ptr %3, align 8, !tbaa !53
@@ -723,7 +723,7 @@ lex_savenext.exit.i108:                           ; preds = %191, %187
   %195 = icmp samesign ult i32 %.0.i105, 536870912
   %196 = select i1 %194, i1 %195, i1 false
   %197 = add nuw nsw i32 %.0.i105, 1
-  br i1 %196, label %.preheader193, label %lex_skipeq.exit109, !llvm.loop !60
+  br i1 %196, label %.preheader247, label %lex_skipeq.exit109, !llvm.loop !60
 
 lex_skipeq.exit109:                               ; preds = %lex_savenext.exit.i108
   %198 = icmp ne i32 %193, 91

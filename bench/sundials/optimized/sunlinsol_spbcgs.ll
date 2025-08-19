@@ -176,9 +176,9 @@ define range(i32 -806, 805) i32 @SUNLinSolSetup_SPBCGS(ptr noundef readonly capt
   br label %13
 
 13:                                               ; preds = %2, %6, %10
-  %.sink16 = phi ptr [ %.pre, %10 ], [ %.pre, %6 ], [ %3, %2 ]
+  %.sink18 = phi ptr [ %.pre, %10 ], [ %.pre, %6 ], [ %3, %2 ]
   %.sink = phi i32 [ %12, %10 ], [ 0, %6 ], [ 0, %2 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sink16, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.sink18, i64 24
   store i32 %.sink, ptr %14, align 8, !tbaa !27
   ret i32 %.sink
 }

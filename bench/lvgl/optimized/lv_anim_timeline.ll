@@ -668,7 +668,7 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
 
 135:                                              ; preds = %130
   %136 = and i8 %134, -2
-  br label %.sink.split158
+  br label %.sink.split173
 
 137:                                              ; preds = %130
   %138 = and i8 %134, 1
@@ -689,14 +689,14 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
 143:                                              ; preds = %142, %139, %137
   %144 = phi i8 [ %.pre154, %142 ], [ %134, %139 ], [ %134, %137 ]
   %145 = or i8 %144, 1
-  br label %.sink.split158
+  br label %.sink.split173
 
-.sink.split158:                                   ; preds = %143, %135
-  %.sink159 = phi i8 [ %136, %135 ], [ %145, %143 ]
-  store i8 %.sink159, ptr %133, align 4
+.sink.split173:                                   ; preds = %143, %135
+  %.sink174 = phi i8 [ %136, %135 ], [ %145, %143 ]
+  store i8 %.sink174, ptr %133, align 4
   br label %146
 
-146:                                              ; preds = %.sink.split158, %.thread.thread
+146:                                              ; preds = %.sink.split173, %.thread.thread
   %147 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %148 = load i32, ptr %147, align 8, !tbaa !30
   %149 = getelementptr inbounds nuw i8, ptr %10, i64 8

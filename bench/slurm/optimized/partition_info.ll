@@ -217,19 +217,19 @@ define dso_local ptr @slurm_sprint_partition_info(ptr noundef readonly captures(
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %28 = load ptr, ptr %27, align 8
   %.not138 = icmp eq ptr %28, null
-  %spec.select160 = select i1 %.not138, ptr @.str.8, ptr %28
-  %spec.select161 = select i1 %.not138, ptr @.str.7, ptr @.str.9
+  %spec.select178 = select i1 %.not138, ptr @.str.8, ptr %28
+  %spec.select179 = select i1 %.not138, ptr @.str.7, ptr @.str.9
   br label %.thread
 
 29:                                               ; preds = %23
   %30 = load i8, ptr %25, align 1
   %31 = icmp eq i8 %30, 0
-  %spec.select162 = select i1 %31, ptr @.str.8, ptr %25
+  %spec.select180 = select i1 %31, ptr @.str.8, ptr %25
   br label %.thread
 
 .thread:                                          ; preds = %29, %26
-  %.str.8.sink = phi ptr [ %spec.select162, %29 ], [ %spec.select160, %26 ]
-  %.0 = phi ptr [ @.str.7, %29 ], [ %spec.select161, %26 ]
+  %.str.8.sink = phi ptr [ %spec.select180, %29 ], [ %spec.select178, %26 ]
+  %.0 = phi ptr [ @.str.7, %29 ], [ %spec.select179, %26 ]
   store ptr %.str.8.sink, ptr %4, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.10, ptr noundef nonnull %.0, ptr noundef nonnull %.str.8.sink) #11
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -241,21 +241,21 @@ define dso_local ptr @slurm_sprint_partition_info(ptr noundef readonly captures(
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %36 = load ptr, ptr %35, align 8
   %.not140 = icmp eq ptr %36, null
-  %spec.select163 = select i1 %.not140, ptr @.str.8, ptr %36
-  %spec.select164 = select i1 %.not140, ptr @.str.7, ptr @.str.9
+  %spec.select181 = select i1 %.not140, ptr @.str.8, ptr %36
+  %spec.select182 = select i1 %.not140, ptr @.str.7, ptr @.str.9
   br label %.thread158
 
 37:                                               ; preds = %.thread
   %38 = load i8, ptr %33, align 1
   %39 = icmp eq i8 %38, 0
-  %spec.select165 = select i1 %39, ptr @.str.8, ptr %33
+  %spec.select183 = select i1 %39, ptr @.str.8, ptr %33
   br label %.thread158
 
 .thread158:                                       ; preds = %37, %34
-  %.str.8.sink159 = phi ptr [ %spec.select165, %37 ], [ %spec.select163, %34 ]
-  %.1 = phi ptr [ @.str.7, %37 ], [ %spec.select164, %34 ]
-  store ptr %.str.8.sink159, ptr %4, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, ptr noundef nonnull %.1, ptr noundef nonnull %.str.8.sink159) #11
+  %.str.8.sink177 = phi ptr [ %spec.select183, %37 ], [ %spec.select181, %34 ]
+  %.1 = phi ptr [ @.str.7, %37 ], [ %spec.select182, %34 ]
+  store ptr %.str.8.sink177, ptr %4, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, ptr noundef nonnull %.1, ptr noundef nonnull %.str.8.sink177) #11
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %8) #11
   %40 = load ptr, ptr %0, align 8
   %41 = icmp eq ptr %40, null

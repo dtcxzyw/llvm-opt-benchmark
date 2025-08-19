@@ -629,7 +629,7 @@ get_unary.exit:                                   ; preds = %get_unary.exit.loop
 
 167:                                              ; preds = %162
   %168 = add i32 %156, -1
-  br label %.sink.split306
+  br label %.sink.split320
 
 169:                                              ; preds = %162, %155
   %170 = add i32 %156, 1
@@ -637,14 +637,14 @@ get_unary.exit:                                   ; preds = %get_unary.exit.loop
   %172 = getelementptr inbounds nuw i32, ptr %85, i64 %171
   %173 = load i32, ptr %172, align 4, !tbaa !70
   %174 = icmp ugt i32 %161, %173
-  br i1 %174, label %.sink.split306, label %175
+  br i1 %174, label %.sink.split320, label %175
 
-.sink.split306:                                   ; preds = %169, %167
-  %.sink307 = phi i32 [ %168, %167 ], [ %170, %169 ]
-  store i32 %.sink307, ptr %93, align 4, !tbaa !74
+.sink.split320:                                   ; preds = %169, %167
+  %.sink321 = phi i32 [ %168, %167 ], [ %170, %169 ]
+  store i32 %.sink321, ptr %93, align 4, !tbaa !74
   br label %175
 
-175:                                              ; preds = %.sink.split306, %169
+175:                                              ; preds = %.sink.split320, %169
   %176 = ashr i32 %.1171, 1
   %177 = and i32 %.1171, 1
   %178 = add nsw i32 %177, -1

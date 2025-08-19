@@ -1021,11 +1021,11 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit:        ; preds = %133
   br label %.sink.split
 
 .sink.split:                                      ; preds = %139, %146
-  %.sink287 = phi i64 [ %147, %146 ], [ %.sroa.0.0.copyload.i131, %139 ]
+  %.sink301 = phi i64 [ %147, %146 ], [ %.sroa.0.0.copyload.i131, %139 ]
   %.ph = phi ptr [ %129, %146 ], [ %142, %139 ]
-  %.ph283 = phi ptr [ %128, %146 ], [ %141, %139 ]
-  %.ph284 = phi ptr [ %127, %146 ], [ %140, %139 ]
-  %148 = and i64 %.sink287, -16
+  %.ph297 = phi ptr [ %128, %146 ], [ %141, %139 ]
+  %.ph298 = phi ptr [ %127, %146 ], [ %140, %139 ]
+  %148 = and i64 %.sink301, -16
   %149 = inttoptr i64 %148 to ptr
   %150 = load ptr, ptr %149, align 16, !tbaa !48
   br label %151
@@ -1033,8 +1033,8 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit:        ; preds = %133
 151:                                              ; preds = %.sink.split, %.thread263
   %.sink = phi ptr [ %132, %.thread263 ], [ %150, %.sink.split ]
   %152 = phi ptr [ %129, %.thread263 ], [ %.ph, %.sink.split ]
-  %153 = phi ptr [ %128, %.thread263 ], [ %.ph283, %.sink.split ]
-  %154 = phi ptr [ %127, %.thread263 ], [ %.ph284, %.sink.split ]
+  %153 = phi ptr [ %128, %.thread263 ], [ %.ph297, %.sink.split ]
+  %154 = phi ptr [ %127, %.thread263 ], [ %.ph298, %.sink.split ]
   %155 = call noundef ptr @_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24) %.sink)
   %.not88 = icmp eq ptr %155, null
   br i1 %.not88, label %.critedge, label %156

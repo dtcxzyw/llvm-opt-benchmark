@@ -528,7 +528,7 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   br i1 %.071.ph, label %260, label %.thread115
 
 260:                                              ; preds = %220, %251, %259
-  %.068113122 = phi i32 [ -1, %251 ], [ -1, %259 ], [ 0, %220 ]
+  %.068113129 = phi i32 [ -1, %251 ], [ -1, %259 ], [ 0, %220 ]
   %261 = phi ptr [ %255, %251 ], [ %248, %259 ], [ %223, %220 ]
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %263 = load ptr, ptr %262, align 8, !tbaa !60
@@ -543,7 +543,7 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   br label %.thread115
 
 .thread115:                                       ; preds = %220, %251, %22, %19, %260, %266, %259
-  %.078 = phi i32 [ -1, %266 ], [ %.068113122, %260 ], [ -1, %259 ], [ 0, %19 ], [ 0, %22 ], [ -1, %251 ], [ 0, %220 ]
+  %.078 = phi i32 [ -1, %266 ], [ %.068113129, %260 ], [ -1, %259 ], [ 0, %19 ], [ 0, %22 ], [ -1, %251 ], [ 0, %220 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.078

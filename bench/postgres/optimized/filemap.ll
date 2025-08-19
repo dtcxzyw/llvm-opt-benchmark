@@ -1308,10 +1308,10 @@ define internal i32 @final_filemap_cmp(ptr noundef readonly captures(none) %0, p
 .sink.split:                                      ; preds = %10
   %12 = icmp eq i32 %6, 6
   %. = select i1 %12, ptr %4, ptr %3
-  %.17 = select i1 %12, ptr %3, ptr %4
+  %.19 = select i1 %12, ptr %3, ptr %4
   %13 = getelementptr inbounds nuw i8, ptr %., i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %.17, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.19, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %16) #15
   br label %18

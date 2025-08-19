@@ -126,8 +126,8 @@ define internal i32 @sierpinski_request_frame(ptr noundef %0) #0 {
   br i1 %68, label %.sink.split.i, label %70
 
 .sink.split.i:                                    ; preds = %67, %65
-  %.sink40.i = phi i32 [ 1, %65 ], [ -1, %67 ]
-  %69 = add nsw i32 %.sink40.i, %24
+  %.sink45.i = phi i32 [ 1, %65 ], [ -1, %67 ]
+  %69 = add nsw i32 %.sink45.i, %24
   store i32 %69, ptr %23, align 4, !tbaa !45
   br label %70
 

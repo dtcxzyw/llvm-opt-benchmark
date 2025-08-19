@@ -477,11 +477,11 @@ define internal void @trace_event_raw_event_iommu_group_event(ptr noundef %0, i3
 35:                                               ; preds = %28
   %36 = load ptr, ptr %2, align 8
   %37 = icmp eq ptr %36, null
-  %spec.select9 = select i1 %37, ptr @.str, ptr %36
+  %spec.select13 = select i1 %37, ptr @.str, ptr %36
   br label %.thread6
 
 .thread6:                                         ; preds = %35, %28
-  %38 = phi ptr [ %34, %28 ], [ %spec.select9, %35 ]
+  %38 = phi ptr [ %34, %28 ], [ %spec.select13, %35 ]
   %39 = call ptr @strcpy(ptr noundef %33, ptr noundef nonnull dereferenceable(1) %38) #8
   call void @trace_event_buffer_commit(ptr noundef nonnull %4) #8
   br label %40
@@ -564,11 +564,11 @@ define internal void @perf_trace_iommu_group_event(ptr noundef %0, i32 noundef %
 46:                                               ; preds = %32
   %47 = load ptr, ptr %2, align 8
   %48 = icmp eq ptr %47, null
-  %spec.select9 = select i1 %48, ptr @.str, ptr %47
+  %spec.select13 = select i1 %48, ptr @.str, ptr %47
   br label %.thread6
 
 .thread6:                                         ; preds = %46, %32
-  %49 = phi ptr [ %45, %32 ], [ %spec.select9, %46 ]
+  %49 = phi ptr [ %45, %32 ], [ %spec.select13, %46 ]
   %50 = call ptr @strcpy(ptr noundef %44, ptr noundef nonnull dereferenceable(1) %49) #8
   %51 = load i32, ptr %5, align 4
   %52 = load ptr, ptr %4, align 8
@@ -643,11 +643,11 @@ define internal void @trace_event_raw_event_iommu_device_event(ptr noundef %0, p
 33:                                               ; preds = %27
   %34 = load ptr, ptr %1, align 8
   %35 = icmp eq ptr %34, null
-  %spec.select9 = select i1 %35, ptr @.str, ptr %34
+  %spec.select13 = select i1 %35, ptr @.str, ptr %34
   br label %.thread6
 
 .thread6:                                         ; preds = %33, %27
-  %36 = phi ptr [ %32, %27 ], [ %spec.select9, %33 ]
+  %36 = phi ptr [ %32, %27 ], [ %spec.select13, %33 ]
   %37 = call ptr @strcpy(ptr noundef %31, ptr noundef nonnull dereferenceable(1) %36) #8
   call void @trace_event_buffer_commit(ptr noundef nonnull %3) #8
   br label %38
@@ -727,11 +727,11 @@ define internal void @perf_trace_iommu_device_event(ptr noundef %0, ptr noundef 
 43:                                               ; preds = %30
   %44 = load ptr, ptr %1, align 8
   %45 = icmp eq ptr %44, null
-  %spec.select9 = select i1 %45, ptr @.str, ptr %44
+  %spec.select13 = select i1 %45, ptr @.str, ptr %44
   br label %.thread6
 
 .thread6:                                         ; preds = %43, %30
-  %46 = phi ptr [ %42, %30 ], [ %spec.select9, %43 ]
+  %46 = phi ptr [ %42, %30 ], [ %spec.select13, %43 ]
   %47 = call ptr @strcpy(ptr noundef %41, ptr noundef nonnull dereferenceable(1) %46) #8
   %48 = load i32, ptr %4, align 4
   %49 = load ptr, ptr %3, align 8
@@ -1013,11 +1013,11 @@ define internal void @trace_event_raw_event_iommu_error(ptr noundef %0, ptr noun
 49:                                               ; preds = %41
   %50 = load ptr, ptr %1, align 8
   %51 = icmp eq ptr %50, null
-  %spec.select9 = select i1 %51, ptr @.str, ptr %50
+  %spec.select13 = select i1 %51, ptr @.str, ptr %50
   br label %.thread6
 
 .thread6:                                         ; preds = %49, %41
-  %52 = phi ptr [ %48, %41 ], [ %spec.select9, %49 ]
+  %52 = phi ptr [ %48, %41 ], [ %spec.select13, %49 ]
   %53 = call ptr @strcpy(ptr noundef %47, ptr noundef nonnull dereferenceable(1) %52) #8
   %54 = and i32 %43, 65535
   %55 = zext nneg i32 %54 to i64
@@ -1135,11 +1135,11 @@ define internal void @perf_trace_iommu_error(ptr noundef %0, ptr noundef %1, i64
 60:                                               ; preds = %46
   %61 = load ptr, ptr %1, align 8
   %62 = icmp eq ptr %61, null
-  %spec.select9 = select i1 %62, ptr @.str, ptr %61
+  %spec.select13 = select i1 %62, ptr @.str, ptr %61
   br label %.thread6
 
 .thread6:                                         ; preds = %60, %46
-  %63 = phi ptr [ %59, %46 ], [ %spec.select9, %60 ]
+  %63 = phi ptr [ %59, %46 ], [ %spec.select13, %60 ]
   %64 = call ptr @strcpy(ptr noundef %58, ptr noundef nonnull dereferenceable(1) %63) #8
   %65 = and i32 %26, 65535
   %66 = zext nneg i32 %65 to i64

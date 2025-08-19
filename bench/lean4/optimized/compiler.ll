@@ -512,9 +512,9 @@ define hidden noundef zeroext i1 @_ZN4lean10is_main_fnERKNS_16elab_environmentER
   unreachable
 
 _ZN4lean8optionalINS_4nameEED2Ev.exit:            ; preds = %5, %13, %15, %23, %25, %26
-  %.18 = phi i1 [ %10, %13 ], [ %10, %15 ], [ %10, %23 ], [ %10, %25 ], [ %10, %26 ], [ undef, %5 ]
+  %.19 = phi i1 [ %10, %13 ], [ %10, %15 ], [ %10, %23 ], [ %10, %25 ], [ %10, %26 ], [ undef, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %spec.select = and i1 %.18, %7
+  %spec.select = and i1 %.19, %7
   br label %30
 
 30:                                               ; preds = %_ZN4lean8optionalINS_4nameEED2Ev.exit, %2
@@ -6171,8 +6171,8 @@ _ZN4lean10object_refD2Ev.exit35.i:                ; preds = %1771, %1770, %1768,
   br i1 %1788, label %1789, label %1791, !prof !128
 
 1789:                                             ; preds = %.thread, %1787
-  %.val.i.i.i.i8821625 = phi i32 [ %1650, %.thread ], [ %.val.i.i.i.i882.pr, %1787 ]
-  %1790 = add nuw nsw i32 %.val.i.i.i.i8821625, 1
+  %.val.i.i.i.i8821917 = phi i32 [ %1650, %.thread ], [ %.val.i.i.i.i882.pr, %1787 ]
+  %1790 = add nuw nsw i32 %.val.i.i.i.i8821917, 1
   store i32 %1790, ptr %1645, align 4, !tbaa !25
   br label %_ZN4lean3incEP11lean_object.exit.i.i
 

@@ -2705,7 +2705,7 @@ define noundef ptr @_ZN6uv_dev22generate_cli_reference4main17h5b085b46db4d01a7E(
 .lr.ph.i55.us.i.i:                                ; preds = %160, %.sink.split.i.us.i.i
   %161 = phi i64 [ %.sink.i.us.i.i, %.sink.split.i.us.i.i ], [ %.sroa.3079.0.us.i.i, %160 ]
   %162 = phi i64 [ %202, %.sink.split.i.us.i.i ], [ %158, %160 ]
-  %163 = phi i64 [ %.ph69.i.us.i.i, %.sink.split.i.us.i.i ], [ %.sroa.18.0.us.i.i, %160 ]
+  %163 = phi i64 [ %.ph76.i.us.i.i, %.sink.split.i.us.i.i ], [ %.sroa.18.0.us.i.i, %160 ]
   %164 = getelementptr inbounds i8, ptr %.sroa.12114.0.copyload.i.i, i64 %162
   %165 = load i8, ptr %164, align 1, !alias.scope !317, !noalias !322, !noundef !4
   %166 = and i8 %165, 63
@@ -2777,8 +2777,8 @@ define noundef ptr @_ZN6uv_dev22generate_cli_reference4main17h5b085b46db4d01a7E(
 
 .sink.split.i.us.i.i:                             ; preds = %200, %197, %186
   %.sink.i.us.i.i = phi i64 [ %154, %186 ], [ 0, %197 ], [ 0, %200 ]
-  %.ph69.i.us.i.i = phi i64 [ %187, %186 ], [ %199, %197 ], [ %201, %200 ]
-  %202 = add i64 %.ph69.i.us.i.i, %153
+  %.ph76.i.us.i.i = phi i64 [ %187, %186 ], [ %199, %197 ], [ %201, %200 ]
+  %202 = add i64 %.ph76.i.us.i.i, %153
   %203 = icmp ult i64 %202, %.sroa.13115.0.copyload.i.i
   br i1 %203, label %.lr.ph.i55.us.i.i, label %.critedge.i.i
 
@@ -3464,13 +3464,13 @@ _ZN3std4path4Path4join17h53ba53907a6981e7E.exit182: ; preds = %_ZN3std4path4Path
   call void @llvm.lifetime.end.p0(ptr nonnull %90)
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
   %457 = load i8, ptr %0, align 1, !range !445, !noundef !4
-  switch i8 %457, label %default.unreachable499 [
+  switch i8 %457, label %default.unreachable533 [
     i8 0, label %458
     i8 1, label %459
     i8 2, label %460
   ]
 
-default.unreachable499:                           ; preds = %456
+default.unreachable533:                           ; preds = %456
   unreachable
 
 458:                                              ; preds = %456
@@ -3492,8 +3492,8 @@ default.unreachable499:                           ; preds = %456
 
 461:                                              ; preds = %458
   %462 = load i64, ptr %64, align 8, !range !5, !noundef !4
-  %.not607 = icmp eq i64 %462, -9223372036854775808
-  br i1 %.not607, label %467, label %463
+  %.not641 = icmp eq i64 %462, -9223372036854775808
+  br i1 %.not641, label %467, label %463
 
 463:                                              ; preds = %461
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
@@ -3987,8 +3987,8 @@ default.unreachable499:                           ; preds = %456
 604:                                              ; preds = %459
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   %605 = load i64, ptr %82, align 8, !range !5, !noundef !4
-  %.not606 = icmp eq i64 %605, -9223372036854775808
-  br i1 %.not606, label %609, label %606
+  %.not640 = icmp eq i64 %605, -9223372036854775808
+  br i1 %.not640, label %609, label %606
 
 606:                                              ; preds = %604
   call void @llvm.lifetime.start.p0(ptr nonnull %80)
@@ -5653,9 +5653,9 @@ default.unreachable:                              ; preds = %.noexc358
   call void @llvm.lifetime.start.p0(ptr nonnull %198)
   %565 = getelementptr inbounds nuw i8, ptr %.sroa.071.0.ph, i64 16
   %566 = load i64, ptr %565, align 8, !noundef !4
-  %storemerge1275.in = getelementptr inbounds nuw i8, ptr %.sroa.071.0.ph, i64 8
-  %storemerge1275 = load ptr, ptr %storemerge1275.in, align 8, !nonnull !4, !noundef !4
-  store ptr %storemerge1275, ptr %198, align 8
+  %storemerge1363.in = getelementptr inbounds nuw i8, ptr %.sroa.071.0.ph, i64 8
+  %storemerge1363 = load ptr, ptr %storemerge1363.in, align 8, !nonnull !4, !noundef !4
+  store ptr %storemerge1363, ptr %198, align 8
   store i64 %566, ptr %510, align 8
   store ptr %219, ptr %199, align 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h13c314facdce79c8E", ptr %.sroa.476.0..sroa_idx, align 8
@@ -6969,13 +6969,13 @@ default.unreachable:                              ; preds = %.noexc358
   call void @llvm.experimental.noalias.scope.decl(metadata !1241)
   call void @llvm.experimental.noalias.scope.decl(metadata !1244)
   %993 = icmp eq i64 %792, 0
-  br i1 %993, label %.thread1276, label %996
+  br i1 %993, label %.thread1364, label %996
 
-.thread1276:                                      ; preds = %.loopexit963
+.thread1364:                                      ; preds = %.loopexit963
   store i64 1, ptr %170, align 8, !alias.scope !1236, !noalias !1239
   %994 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store ptr null, ptr %994, align 8, !alias.scope !1236, !noalias !1239
-  %.pre12741279 = load i64, ptr %295, align 8, !alias.scope !1247
+  %.pre12741367 = load i64, ptr %295, align 8, !alias.scope !1247
   br label %1182
 
 .thread906:                                       ; preds = %1003, %1014
@@ -7348,8 +7348,8 @@ default.unreachable:                              ; preds = %.noexc358
   store i64 %1181, ptr %295, align 8, !alias.scope !1289
   br label %1182
 
-1182:                                             ; preds = %.thread1276, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17ha581c6abef46e533E.exit527"
-  %1183 = phi i64 [ %1181, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17ha581c6abef46e533E.exit527" ], [ %.pre12741279, %.thread1276 ]
+1182:                                             ; preds = %.thread1364, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17ha581c6abef46e533E.exit527"
+  %1183 = phi i64 [ %1181, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17ha581c6abef46e533E.exit527" ], [ %.pre12741367, %.thread1364 ]
   %1184 = load i64, ptr %0, align 8, !range !106, !alias.scope !1247, !noundef !4
   %1185 = sub i64 %1184, %1183
   %1186 = icmp ult i64 %1185, 2

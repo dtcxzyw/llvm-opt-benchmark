@@ -528,7 +528,7 @@ _ZNSt10unique_ptrIN5arrow6dlpack12_GLOBAL__N_110ManagerCtxESt14default_deleteIS3
   br label %_ZN5arrow6ResultI10DLDataTypeED2Ev.exit
 
 _ZN5arrow6ResultI10DLDataTypeED2Ev.exit:          ; preds = %.thread, %184, %186, %190
-  %.pn57 = phi { ptr, i32 } [ %124, %.thread ], [ %185, %184 ], [ %185, %186 ], [ %185, %190 ]
+  %.pn73 = phi { ptr, i32 } [ %124, %.thread ], [ %185, %184 ], [ %185, %186 ], [ %185, %190 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body
 
@@ -602,7 +602,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   br label %221
 
 .body:                                            ; preds = %110, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i, %_ZN5arrow6ResultI10DLDataTypeED2Ev.exit
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn57, %_ZN5arrow6ResultI10DLDataTypeED2Ev.exit ], [ %111, %110 ], [ %eh.lpad-body.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn73, %_ZN5arrow6ResultI10DLDataTypeED2Ev.exit ], [ %111, %110 ], [ %eh.lpad-body.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i ]
   call void @_ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %220 = load ptr, ptr %8, align 8, !tbaa !3

@@ -2928,8 +2928,8 @@ blend_non_normal_pixel.exit.us.i132:              ; preds = %lv_color_8_8_mix.ex
   %1396 = or i8 %1381, %1395
   %1397 = xor i8 %1395, -1
   %1398 = and i8 %1381, %1397
-  %.sink284.i = select i1 %.not195.not.us.i, i8 %1396, i8 %1398
-  store i8 %.sink284.i, ptr %1380, align 1, !tbaa !19
+  %.sink300.i = select i1 %.not195.not.us.i, i8 %1396, i8 %1398
+  store i8 %.sink300.i, ptr %1380, align 1, !tbaa !19
   br label %1399
 
 1399:                                             ; preds = %.sink.split.i, %1364

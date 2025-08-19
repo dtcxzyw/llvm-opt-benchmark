@@ -246,8 +246,8 @@ define void @_ZN7rocksdb28FaultInjectionSecondaryCache12ResultHandle7WaitAllEPS0
 .noexc16.thread:                                  ; preds = %._crit_edge.thread, %._crit_edge
   %14 = phi i64 [ 0, %._crit_edge.thread ], [ %12, %._crit_edge ]
   %15 = phi ptr [ %8, %._crit_edge.thread ], [ %10, %._crit_edge ]
-  %.sroa.034.0.lcssa78 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.034.1, %._crit_edge ]
-  %.sroa.15.0.lcssa76 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.15.1, %._crit_edge ]
+  %.sroa.034.0.lcssa88 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.034.1, %._crit_edge ]
+  %.sroa.15.0.lcssa86 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.15.1, %._crit_edge ]
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -370,8 +370,8 @@ _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE12emplace_backIJS2_E
 51:                                               ; preds = %21, %.noexc16.thread
   %52 = phi i64 [ %14, %.noexc16.thread ], [ %12, %21 ]
   %53 = phi ptr [ %15, %.noexc16.thread ], [ %10, %21 ]
-  %.sroa.034.0.lcssa77 = phi ptr [ %.sroa.034.0.lcssa78, %.noexc16.thread ], [ %.sroa.034.1, %21 ]
-  %.sroa.15.0.lcssa75 = phi ptr [ %.sroa.15.0.lcssa76, %.noexc16.thread ], [ %.sroa.15.1, %21 ]
+  %.sroa.034.0.lcssa87 = phi ptr [ %.sroa.034.0.lcssa88, %.noexc16.thread ], [ %.sroa.034.1, %21 ]
+  %.sroa.15.0.lcssa85 = phi ptr [ %.sroa.15.0.lcssa86, %.noexc16.thread ], [ %.sroa.15.1, %21 ]
   %54 = phi ptr [ %17, %.noexc16.thread ], [ %24, %21 ]
   %55 = phi ptr [ null, %.noexc16.thread ], [ %23, %21 ]
   %56 = phi ptr [ %16, %.noexc16.thread ], [ %22, %21 ]
@@ -402,13 +402,13 @@ _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit: ; preds =
   br i1 %.not4363, label %._crit_edge66, label %.lr.ph65
 
 ._crit_edge66:                                    ; preds = %88, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit
-  %.not.i.i.i20 = icmp eq ptr %.sroa.034.0.lcssa77, null
+  %.not.i.i.i20 = icmp eq ptr %.sroa.034.0.lcssa87, null
   br i1 %.not.i.i.i20, label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit21, label %69
 
 69:                                               ; preds = %._crit_edge66
-  %70 = ptrtoint ptr %.sroa.15.0.lcssa75 to i64
+  %70 = ptrtoint ptr %.sroa.15.0.lcssa85 to i64
   %71 = sub i64 %70, %52
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.034.0.lcssa77, i64 noundef %71) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.034.0.lcssa87, i64 noundef %71) #18
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit21
 
 _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit21: ; preds = %._crit_edge66, %69
@@ -457,8 +457,8 @@ _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit21: ; preds
   br i1 %.not43, label %._crit_edge66, label %.lr.ph65
 
 _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit23: ; preds = %.loopexit, %.loopexit.split-lp, %77, %74, %86, %72
-  %.sroa.15.054 = phi ptr [ %.sroa.15.0.lcssa75, %86 ], [ %.sroa.15.1, %72 ], [ %.sroa.15.0.lcssa75, %74 ], [ %.sroa.15.0.lcssa75, %77 ], [ %.sroa.10.059, %.loopexit ], [ %.sroa.10.059, %.loopexit.split-lp ]
-  %.sroa.034.048 = phi ptr [ %.sroa.034.0.lcssa77, %86 ], [ %.sroa.034.1, %72 ], [ %.sroa.034.0.lcssa77, %74 ], [ %.sroa.034.0.lcssa77, %77 ], [ %.sroa.034.060, %.loopexit ], [ %.sroa.034.060, %.loopexit.split-lp ]
+  %.sroa.15.054 = phi ptr [ %.sroa.15.0.lcssa85, %86 ], [ %.sroa.15.1, %72 ], [ %.sroa.15.0.lcssa85, %74 ], [ %.sroa.15.0.lcssa85, %77 ], [ %.sroa.10.059, %.loopexit ], [ %.sroa.10.059, %.loopexit.split-lp ]
+  %.sroa.034.048 = phi ptr [ %.sroa.034.0.lcssa87, %86 ], [ %.sroa.034.1, %72 ], [ %.sroa.034.0.lcssa87, %74 ], [ %.sroa.034.0.lcssa87, %77 ], [ %.sroa.034.060, %.loopexit ], [ %.sroa.034.060, %.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %87, %86 ], [ %73, %72 ], [ %75, %74 ], [ %75, %77 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i24 = icmp eq ptr %.sroa.034.048, null
   br i1 %.not.i.i.i24, label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit25, label %90
@@ -753,8 +753,8 @@ _ZN7rocksdb28FaultInjectionSecondaryCache15GetErrorContextEv.exit: ; preds = %8,
 .noexc9.thread:                                   ; preds = %._crit_edge.thread, %._crit_edge
   %30 = phi i64 [ 0, %._crit_edge.thread ], [ %28, %._crit_edge ]
   %31 = phi ptr [ %23, %._crit_edge.thread ], [ %26, %._crit_edge ]
-  %.sroa.033.0.lcssa70 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.033.1, %._crit_edge ]
-  %.sroa.15.0.lcssa68 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.15.1, %._crit_edge ]
+  %.sroa.033.0.lcssa80 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.033.1, %._crit_edge ]
+  %.sroa.15.0.lcssa78 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.15.1, %._crit_edge ]
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -888,8 +888,8 @@ _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE9push_backERKS2_.exi
 78:                                               ; preds = %37, %.noexc9.thread
   %79 = phi i64 [ %30, %.noexc9.thread ], [ %28, %37 ]
   %80 = phi ptr [ %31, %.noexc9.thread ], [ %26, %37 ]
-  %.sroa.033.0.lcssa69 = phi ptr [ %.sroa.033.0.lcssa70, %.noexc9.thread ], [ %.sroa.033.1, %37 ]
-  %.sroa.15.0.lcssa67 = phi ptr [ %.sroa.15.0.lcssa68, %.noexc9.thread ], [ %.sroa.15.1, %37 ]
+  %.sroa.033.0.lcssa79 = phi ptr [ %.sroa.033.0.lcssa80, %.noexc9.thread ], [ %.sroa.033.1, %37 ]
+  %.sroa.15.0.lcssa77 = phi ptr [ %.sroa.15.0.lcssa78, %.noexc9.thread ], [ %.sroa.15.1, %37 ]
   %81 = phi ptr [ %33, %.noexc9.thread ], [ %40, %37 ]
   %82 = phi ptr [ null, %.noexc9.thread ], [ %39, %37 ]
   %83 = phi ptr [ %32, %.noexc9.thread ], [ %38, %37 ]
@@ -914,13 +914,13 @@ _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE9push_backERKS2_.exi
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit: ; preds = %87, %89
-  %.not.i.i.i14 = icmp eq ptr %.sroa.033.0.lcssa69, null
+  %.not.i.i.i14 = icmp eq ptr %.sroa.033.0.lcssa79, null
   br i1 %.not.i.i.i14, label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit15, label %94
 
 94:                                               ; preds = %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit
-  %95 = ptrtoint ptr %.sroa.15.0.lcssa67 to i64
+  %95 = ptrtoint ptr %.sroa.15.0.lcssa77 to i64
   %96 = sub i64 %95, %79
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.033.0.lcssa69, i64 noundef %96) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.033.0.lcssa79, i64 noundef %96) #18
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit15
 
 97:                                               ; preds = %_ZNSt16allocator_traitsISaIPN7rocksdb26SecondaryCacheResultHandleEEE8allocateERS3_m.exit.i.i.i.i, %.noexc.i.i
@@ -944,8 +944,8 @@ _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit: ; preds =
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit17
 
 _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit17: ; preds = %.loopexit, %.loopexit.split-lp, %102, %99, %97
-  %.sroa.15.050 = phi ptr [ %.sroa.15.1, %97 ], [ %.sroa.15.0.lcssa67, %99 ], [ %.sroa.15.0.lcssa67, %102 ], [ %.sroa.10.055, %.loopexit ], [ %.sroa.10.055, %.loopexit.split-lp ]
-  %.sroa.033.044 = phi ptr [ %.sroa.033.1, %97 ], [ %.sroa.033.0.lcssa69, %99 ], [ %.sroa.033.0.lcssa69, %102 ], [ %.sroa.033.056, %.loopexit ], [ %.sroa.033.056, %.loopexit.split-lp ]
+  %.sroa.15.050 = phi ptr [ %.sroa.15.1, %97 ], [ %.sroa.15.0.lcssa77, %99 ], [ %.sroa.15.0.lcssa77, %102 ], [ %.sroa.10.055, %.loopexit ], [ %.sroa.10.055, %.loopexit.split-lp ]
+  %.sroa.033.044 = phi ptr [ %.sroa.033.1, %97 ], [ %.sroa.033.0.lcssa79, %99 ], [ %.sroa.033.0.lcssa79, %102 ], [ %.sroa.033.056, %.loopexit ], [ %.sroa.033.056, %.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %98, %97 ], [ %100, %99 ], [ %100, %102 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i18 = icmp eq ptr %.sroa.033.044, null
   br i1 %.not.i.i.i18, label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit19, label %107

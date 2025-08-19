@@ -500,15 +500,15 @@ engine_list_add.exit:                             ; preds = %36, %48
   br label %51
 
 CRYPTO_DOWN_REF.exit.i.sink.split:                ; preds = %45, %33, %28
-  %.sink10.ph = phi i32 [ 89, %28 ], [ 97, %33 ], [ 106, %45 ]
+  %.sink12.ph = phi i32 [ 89, %28 ], [ 97, %33 ], [ 106, %45 ]
   fence acquire
   br label %CRYPTO_DOWN_REF.exit.i
 
 CRYPTO_DOWN_REF.exit.i:                           ; preds = %CRYPTO_DOWN_REF.exit.i.sink.split, %45, %33, %28, %._crit_edge.i
-  %.sink10 = phi i32 [ 73, %._crit_edge.i ], [ 89, %28 ], [ 97, %33 ], [ 106, %45 ], [ %.sink10.ph, %CRYPTO_DOWN_REF.exit.i.sink.split ]
+  %.sink12 = phi i32 [ 73, %._crit_edge.i ], [ 89, %28 ], [ 97, %33 ], [ 106, %45 ], [ %.sink12.ph, %CRYPTO_DOWN_REF.exit.i.sink.split ]
   %.sink = phi i32 [ 103, %._crit_edge.i ], [ 110, %28 ], [ 110, %33 ], [ 110, %45 ], [ 110, %CRYPTO_DOWN_REF.exit.i.sink.split ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink10, ptr noundef nonnull @__func__.engine_list_add) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink12, ptr noundef nonnull @__func__.engine_list_add) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 38, i32 noundef %.sink, ptr noundef null) #4
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 353, ptr noundef nonnull @__func__.ENGINE_add) #4

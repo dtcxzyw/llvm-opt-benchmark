@@ -2961,9 +2961,9 @@ Py_DECREF.exit.thread48:                          ; preds = %24, %21, %dotjoinat
   br i1 %45, label %Py_XDECREF.exit23.sink.split, label %Py_XDECREF.exit23
 
 Py_XDECREF.exit23.sink.split:                     ; preds = %43, %34
-  %.sink60 = phi ptr [ %4, %34 ], [ %.23152, %43 ]
+  %.sink68 = phi ptr [ %4, %34 ], [ %.23152, %43 ]
   %.0.ph = phi ptr [ null, %34 ], [ %4, %43 ]
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.sink60) #7
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.sink68) #7
   br label %Py_XDECREF.exit23
 
 Py_XDECREF.exit23:                                ; preds = %Py_XDECREF.exit23.sink.split, %.preheader, %34, %Py_XDECREF.exit, %43, %41, %._crit_edge, %1

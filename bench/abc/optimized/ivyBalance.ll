@@ -149,13 +149,13 @@ Vec_PtrFree.exit.i:                               ; preds = %80, %77
   br i1 %exitcond.not, label %.critedge.i.thread, label %.lr.ph.i, !llvm.loop !33
 
 .critedge.i:                                      ; preds = %.critedge, %.critedge2
-  %.pre50 = phi ptr [ %.pre.pre, %.critedge2 ], [ %38, %.critedge ]
-  %.not.i9.i = icmp eq ptr %.pre50, null
+  %.pre51 = phi ptr [ %.pre.pre, %.critedge2 ], [ %38, %.critedge ]
+  %.not.i9.i = icmp eq ptr %.pre51, null
   br i1 %.not.i9.i, label %Vec_VecFree.exit, label %.critedge.i.thread
 
 .critedge.i.thread:                               ; preds = %81, %.critedge.i
-  %.pre5053 = phi ptr [ %.pre50, %.critedge.i ], [ %.pre.pre, %81 ]
-  tail call void @free(ptr noundef nonnull %.pre5053) #9
+  %.pre5154 = phi ptr [ %.pre51, %.critedge.i ], [ %.pre.pre, %81 ]
+  tail call void @free(ptr noundef nonnull %.pre5154) #9
   br label %Vec_VecFree.exit
 
 Vec_VecFree.exit:                                 ; preds = %.critedge.i, %.critedge.i.thread
@@ -596,8 +596,8 @@ Ivy_NodeBalanceFindLeft.exit:                     ; preds = %41, %._crit_edge.sp
   %51 = getelementptr i8, ptr %50, i64 -8
   %52 = load ptr, ptr %51, align 8, !tbaa !22
   %.fr.i = freeze ptr %52
-  %53 = sext i32 %46 to i64
-  %54 = getelementptr inbounds ptr, ptr %.val46.i, i64 %53
+  %53 = zext nneg i32 %46 to i64
+  %54 = getelementptr inbounds nuw ptr, ptr %.val46.i, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !22
   %56 = ptrtoint ptr %.fr.i to i64
   %57 = and i64 %56, -2
@@ -727,7 +727,7 @@ Ivy_ObjCreateGhost.exit.i:                        ; preds = %96, %Ivy_ObjFaninId
 .loopexit.sink.split.i:                           ; preds = %99, %.split.us.i
   %.us-phi67.sink.i = phi ptr [ %.us-phi67.i, %99 ], [ %.us-phi63.i, %.split.us.i ]
   %.val50.i = load ptr, ptr %12, align 8, !tbaa !21
-  %101 = getelementptr inbounds ptr, ptr %.val50.i, i64 %53
+  %101 = getelementptr inbounds nuw ptr, ptr %.val50.i, i64 %53
   store ptr %.us-phi67.sink.i, ptr %101, align 8, !tbaa !22
   br label %Ivy_NodeBalancePermute.exit
 

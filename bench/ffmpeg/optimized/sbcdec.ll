@@ -175,21 +175,21 @@ define internal i32 @sbc_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %70, label %75, label %._crit_edge340.i
 
 ._crit_edge340.i.sink.split:                      ; preds = %59, %.thread.i
-  %.sink47.in = phi ptr [ %20, %.thread.i ], [ %32, %59 ]
+  %.sink62.in = phi ptr [ %20, %.thread.i ], [ %32, %59 ]
   %.sink = phi i8 [ %.pre.i, %.thread.i ], [ %57, %59 ]
   %.ph = phi ptr [ %27, %.thread.i ], [ %43, %59 ]
-  %.ph44 = phi i8 [ 8, %.thread.i ], [ %54, %59 ]
-  %.ph45 = phi i8 [ 1, %.thread.i ], [ %45, %59 ]
-  %.sink47 = load i8, ptr %.sink47.in, align 1, !tbaa !40
-  store i8 %.sink47, ptr %5, align 1, !tbaa !40
+  %.ph59 = phi i8 [ 8, %.thread.i ], [ %54, %59 ]
+  %.ph60 = phi i8 [ 1, %.thread.i ], [ %45, %59 ]
+  %.sink62 = load i8, ptr %.sink62.in, align 1, !tbaa !40
+  store i8 %.sink62, ptr %5, align 1, !tbaa !40
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %.sink, ptr %71, align 1, !tbaa !40
   br label %._crit_edge340.i
 
 ._crit_edge340.i:                                 ; preds = %._crit_edge340.i.sink.split, %67
   %72 = phi ptr [ %43, %67 ], [ %.ph, %._crit_edge340.i.sink.split ]
-  %73 = phi i8 [ %54, %67 ], [ %.ph44, %._crit_edge340.i.sink.split ]
-  %74 = phi i8 [ %45, %67 ], [ %.ph45, %._crit_edge340.i.sink.split ]
+  %73 = phi i8 [ %54, %67 ], [ %.ph59, %._crit_edge340.i.sink.split ]
+  %74 = phi i8 [ %45, %67 ], [ %.ph60, %._crit_edge340.i.sink.split ]
   %.pre341.i = shl nsw i64 %15, 3
   %.pre342.i = zext nneg i8 %73 to i32
   br label %99
@@ -314,7 +314,7 @@ define internal i32 @sbc_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   call void @ff_sbc_calculate_bits(ptr noundef nonnull %12, ptr noundef nonnull %6) #7
   %141 = load i8, ptr %104, align 8, !tbaa !45
   %.not284.i = icmp eq i8 %141, 0
-  br i1 %.not284.i, label %.preheader214.thread345.i, label %.preheader215.lr.ph.i
+  br i1 %.not284.i, label %.preheader214.thread351.i, label %.preheader215.lr.ph.i
 
 .preheader215.lr.ph.i:                            ; preds = %140
   %142 = load i8, ptr %102, align 16, !tbaa !46
@@ -355,17 +355,17 @@ define internal i32 @sbc_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %.not286.i = icmp eq i8 %151, 0
   br i1 %.not286.i, label %sbc_unpack_frame.exit, label %.preheader213.lr.ph.split.us.i
 
-.preheader214.thread345.i:                        ; preds = %140
+.preheader214.thread351.i:                        ; preds = %140
   %152 = getelementptr inbounds nuw i8, ptr %9, i64 17
   %153 = load i8, ptr %152, align 1, !tbaa !42
-  %.not286346.i = icmp eq i8 %153, 0
-  br i1 %.not286346.i, label %sbc_unpack_frame.exit, label %._crit_edge267.i
+  %.not286352.i = icmp eq i8 %153, 0
+  br i1 %.not286352.i, label %sbc_unpack_frame.exit, label %._crit_edge267.i
 
 .preheader214.thread.i:                           ; preds = %.preheader215.lr.ph.i
   %154 = getelementptr inbounds nuw i8, ptr %9, i64 17
   %155 = load i8, ptr %154, align 1, !tbaa !42
-  %.not286344.i = icmp eq i8 %155, 0
-  br i1 %.not286344.i, label %sbc_unpack_frame.exit, label %._crit_edge267.i
+  %.not286350.i = icmp eq i8 %155, 0
+  br i1 %.not286350.i, label %sbc_unpack_frame.exit, label %._crit_edge267.i
 
 .preheader213.lr.ph.split.us.i:                   ; preds = %.preheader214.i
   %156 = getelementptr inbounds nuw i8, ptr %9, i64 1136
@@ -456,10 +456,10 @@ define internal i32 @sbc_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %exitcond314.not.i, label %._crit_edge252.us.us.us.loopexit.i, label %.lr.ph251.us.us.us.i, !llvm.loop !55
 
 201:                                              ; preds = %._crit_edge252.us.us.us.i, %162
-  %.sink352.i = phi i32 [ %182, %._crit_edge252.us.us.us.i ], [ 0, %162 ]
+  %.sink358.i = phi i32 [ %182, %._crit_edge252.us.us.us.i ], [ 0, %162 ]
   %.6.ph.us.us.us.i = phi i32 [ %.7.lcssa.us.us.us.i, %._crit_edge252.us.us.us.i ], [ %.5255.us.us.us.i, %162 ]
   %202 = getelementptr inbounds nuw [8 x i32], ptr %161, i64 0, i64 %indvars.iv315.i
-  store i32 %.sink352.i, ptr %202, align 4, !tbaa !33
+  store i32 %.sink358.i, ptr %202, align 4, !tbaa !33
   %indvars.iv.next316.i = add nuw nsw i64 %indvars.iv315.i, 1
   %exitcond319.not.i = icmp eq i64 %indvars.iv.next316.i, %wide.trip.count307.i
   br i1 %exitcond319.not.i, label %._crit_edge258.us.us.us.i, label %162, !llvm.loop !56
@@ -474,9 +474,9 @@ define internal i32 @sbc_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %exitcond329.not.i = icmp eq i64 %indvars.iv.next326.i, %wide.trip.count328.i
   br i1 %exitcond329.not.i, label %._crit_edge267.i, label %.preheader213.us.us.i, !llvm.loop !58
 
-._crit_edge267.i:                                 ; preds = %._crit_edge262.split.us.us.us.i, %.preheader214.thread.i, %.preheader214.thread345.i
-  %203 = phi i8 [ %153, %.preheader214.thread345.i ], [ %155, %.preheader214.thread.i ], [ %151, %._crit_edge262.split.us.us.us.i ]
-  %.3185.lcssa.i = phi i32 [ %132, %.preheader214.thread345.i ], [ %132, %.preheader214.thread.i ], [ %.6.ph.us.us.us.i, %._crit_edge262.split.us.us.us.i ]
+._crit_edge267.i:                                 ; preds = %._crit_edge262.split.us.us.us.i, %.preheader214.thread.i, %.preheader214.thread351.i
+  %203 = phi i8 [ %153, %.preheader214.thread351.i ], [ %155, %.preheader214.thread.i ], [ %151, %._crit_edge262.split.us.us.us.i ]
+  %.3185.lcssa.i = phi i32 [ %132, %.preheader214.thread351.i ], [ %132, %.preheader214.thread.i ], [ %.6.ph.us.us.us.i, %._crit_edge262.split.us.us.us.i ]
   %204 = load i32, ptr %100, align 4, !tbaa !44
   %205 = icmp eq i32 %204, 3
   br i1 %205, label %.preheader.lr.ph.i, label %sbc_unpack_frame.exit
@@ -537,9 +537,9 @@ sbc_unpack_frame.exit.thread:                     ; preds = %.lr.ph251.us.us.us.
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %526
 
-sbc_unpack_frame.exit:                            ; preds = %._crit_edge280.us.i, %.preheader214.i, %.preheader214.thread345.i, %.preheader214.thread.i, %._crit_edge267.i, %.preheader.lr.ph.i
-  %.3185.lcssa350.i = phi i32 [ %.3185.lcssa.i, %._crit_edge267.i ], [ %.3185.lcssa.i, %.preheader.lr.ph.i ], [ %132, %.preheader214.i ], [ %132, %.preheader214.thread.i ], [ %132, %.preheader214.thread345.i ], [ %.3185.lcssa.i, %._crit_edge280.us.i ]
-  %.3185.biased.i = add i32 %.3185.lcssa350.i, 7
+sbc_unpack_frame.exit:                            ; preds = %._crit_edge280.us.i, %.preheader214.i, %.preheader214.thread351.i, %.preheader214.thread.i, %._crit_edge267.i, %.preheader.lr.ph.i
+  %.3185.lcssa356.i = phi i32 [ %.3185.lcssa.i, %._crit_edge267.i ], [ %.3185.lcssa.i, %.preheader.lr.ph.i ], [ %132, %.preheader214.i ], [ %132, %.preheader214.thread.i ], [ %132, %.preheader214.thread351.i ], [ %.3185.lcssa.i, %._crit_edge280.us.i ]
+  %.3185.biased.i = add i32 %.3185.lcssa356.i, 7
   %225 = lshr i32 %.3185.biased.i, 3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

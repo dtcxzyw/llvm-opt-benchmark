@@ -384,7 +384,7 @@ define internal i32 @acpi_cpufreq_cpu_init(ptr noundef %0) #2 align 16 {
   store i32 0, ptr %138, align 8
   %139 = load i32, ptr %94, align 8
   %140 = icmp eq i32 %139, 0
-  br i1 %140, label %.thread15, label %141
+  br i1 %140, label %.thread27, label %141
 
 141:                                              ; preds = %136
   %142 = getelementptr inbounds nuw i8, ptr %37, i64 48
@@ -436,7 +436,7 @@ define internal i32 @acpi_cpufreq_cpu_init(ptr noundef %0) #2 align 16 {
 .thread:                                          ; preds = %.loopexit, %166, %164
   %.pr.pr = load i32, ptr %94, align 8
   %168 = icmp eq i32 %.pr.pr, 0
-  br i1 %168, label %.thread15, label %169
+  br i1 %168, label %.thread27, label %169
 
 169:                                              ; preds = %.thread
   %170 = getelementptr inbounds nuw i8, ptr %37, i64 48
@@ -488,9 +488,9 @@ define internal i32 @acpi_cpufreq_cpu_init(ptr noundef %0) #2 align 16 {
 
 200:                                              ; preds = %196
   %201 = zext i32 %197 to i64
-  br label %.thread15
+  br label %.thread27
 
-.thread15:                                        ; preds = %136, %200, %.thread
+.thread27:                                        ; preds = %136, %200, %.thread
   %202 = phi i64 [ 0, %.thread ], [ %201, %200 ], [ 0, %136 ]
   %203 = getelementptr %struct.cpufreq_frequency_table, ptr %134, i64 %202, i32 2
   store i32 -2, ptr %203, align 4
@@ -498,7 +498,7 @@ define internal i32 @acpi_cpufreq_cpu_init(ptr noundef %0) #2 align 16 {
   %205 = icmp eq i64 %204, 0
   br i1 %205, label %213, label %206
 
-206:                                              ; preds = %.thread15
+206:                                              ; preds = %.thread27
   %207 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %208 = load i32, ptr %207, align 8
   %209 = zext i32 %208 to i64
@@ -508,7 +508,7 @@ define internal i32 @acpi_cpufreq_cpu_init(ptr noundef %0) #2 align 16 {
   store i32 %212, ptr %137, align 8
   br label %214
 
-213:                                              ; preds = %.thread15
+213:                                              ; preds = %.thread27
   tail call void @arch_set_max_freq_ratio(i1 noundef zeroext true) #16
   br label %214
 

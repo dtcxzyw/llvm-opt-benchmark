@@ -254,8 +254,8 @@ define internal fastcc float @calc_rank(ptr noundef readonly captures(none) %0, 
 
 .lr.ph102.i:                                      ; preds = %.preheader85.i
   %41 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv127.i
-  %.not132.i = icmp eq i64 %indvars.iv127.i, 0
-  br i1 %.not132.i, label %.lr.ph102.split.i, label %.lr.ph102.split.us.i
+  %.not136.i = icmp eq i64 %indvars.iv127.i, 0
+  br i1 %.not136.i, label %.lr.ph102.split.i, label %.lr.ph102.split.us.i
 
 .lr.ph102.split.us.i:                             ; preds = %.lr.ph102.i, %._crit_edge.us.i
   %.2101.us.i = phi float [ %.us-phi99.us.i, %._crit_edge.us.i ], [ %.074107.i, %.lr.ph102.i ]
@@ -280,11 +280,11 @@ define internal fastcc float @calc_rank(ptr noundef readonly captures(none) %0, 
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %44, %.lr.ph102.split.us.i
-  %storemerge133.i = phi ptr [ %54, %44 ], [ %5, %.lr.ph102.split.us.i ]
-  store ptr %storemerge133.i, ptr %41, align 8
-  %55 = load i16, ptr %storemerge133.i, align 2
+  %storemerge137.i = phi ptr [ %54, %44 ], [ %5, %.lr.ph102.split.us.i ]
+  store ptr %storemerge137.i, ptr %41, align 8
+  %55 = load i16, ptr %storemerge137.i, align 2
   %.fr.i = freeze i16 %55
-  %56 = getelementptr inbounds nuw i8, ptr %storemerge133.i, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %storemerge137.i, i64 2
   %.not111.i = icmp eq i16 %.fr.i, 0
   br i1 %.not111.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.preheader.i
 
@@ -1122,8 +1122,8 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
 
 get_docrep.exit.thread:                           ; preds = %._crit_edge146.i.get_docrep.exit.thread_crit_edge, %26
   %157 = phi ptr [ %.pre, %._crit_edge146.i.get_docrep.exit.thread_crit_edge ], [ %31, %26 ]
-  %.094.lcssa181.i = phi ptr [ %.195.i, %._crit_edge146.i.get_docrep.exit.thread_crit_edge ], [ %38, %26 ]
-  tail call void @pfree(ptr noundef %.094.lcssa181.i) #10
+  %.094.lcssa186.i = phi ptr [ %.195.i, %._crit_edge146.i.get_docrep.exit.thread_crit_edge ], [ %38, %26 ]
+  tail call void @pfree(ptr noundef %.094.lcssa186.i) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   tail call void @pfree(ptr noundef %157) #10
   br label %443
@@ -1145,8 +1145,8 @@ get_docrep.exit:                                  ; preds = %152, %115
   %161 = sdiv exact i64 %160, 24
   %sext = shl i64 %161, 32
   %162 = ashr exact i64 %sext, 32
-  %sext195 = shl i64 %161, 32
-  %163 = ashr exact i64 %sext195, 32
+  %sext215 = shl i64 %161, 32
+  %163 = ashr exact i64 %sext215, 32
   br label %164
 
 164:                                              ; preds = %get_docrep.exit, %._crit_edge
@@ -1155,8 +1155,8 @@ get_docrep.exit:                                  ; preds = %152, %115
   %.089 = phi double [ %357, %._crit_edge ], [ 0.000000e+00, %get_docrep.exit ]
   %.087 = phi double [ %.188, %._crit_edge ], [ 0.000000e+00, %get_docrep.exit ]
   %.086 = phi double [ %354, %._crit_edge ], [ 0.000000e+00, %get_docrep.exit ]
-  %sext196 = shl i64 %.promoted162, 32
-  %165 = ashr exact i64 %sext196, 32
+  %sext216 = shl i64 %.promoted162, 32
+  %165 = ashr exact i64 %sext216, 32
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %.loopexit.i108.thread, %164

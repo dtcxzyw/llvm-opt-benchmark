@@ -789,8 +789,8 @@ select.unfold:                                    ; preds = %14, %18
 
 30:                                               ; preds = %25, %.thread
   %31 = tail call ptr @ident_default_email()
-  %.b123 = load i1, ptr @default_email_is_bogus, align 4
-  %or.cond7 = select i1 %22, i1 %.b123, i1 false
+  %.b133 = load i1, ptr @default_email_is_bogus, align 4
+  %or.cond7 = select i1 %22, i1 %.b133, i1 false
   br i1 %or.cond7, label %32, label %.thread105
 
 32:                                               ; preds = %30

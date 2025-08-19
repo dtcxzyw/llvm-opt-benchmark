@@ -126,18 +126,18 @@ define { i64, i64 } @f128_sqrt(i64 %0, i64 %1) local_unnamed_addr #0 {
   %68 = mul nuw i64 %67, %57
   %69 = lshr i64 %65, 32
   %70 = icmp ult i64 %62, %66
-  %.neg.i252 = sext i1 %70 to i64
+  %.neg.i259 = sext i1 %70 to i64
   %71 = add nuw i64 %68, %69
   %72 = sub i64 %61, %71
-  %73 = add i64 %72, %.neg.i252
-  %.not179253 = icmp sgt i64 %73, -1
-  br i1 %.not179253, label %._crit_edge, label %.lr.ph
+  %73 = add i64 %72, %.neg.i259
+  %.not179260 = icmp sgt i64 %73, -1
+  br i1 %.not179260, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %50, %.lr.ph
-  %.0170255 = phi i64 [ %74, %.lr.ph ], [ %57, %50 ]
-  %.0171254 = phi i64 [ %75, %.lr.ph ], [ %60, %50 ]
-  %74 = add i64 %.0170255, -1
-  %75 = add i64 %.0171254, -8
+  %.0170262 = phi i64 [ %74, %.lr.ph ], [ %57, %50 ]
+  %.0171261 = phi i64 [ %75, %.lr.ph ], [ %60, %50 ]
+  %74 = add i64 %.0170262, -1
+  %75 = add i64 %.0171261, -8
   %76 = add i64 %75, %58
   %77 = and i64 %75, 4294967288
   %78 = and i64 %74, 4294967295
@@ -157,13 +157,13 @@ define { i64, i64 } @f128_sqrt(i64 %0, i64 %1) local_unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %.lr.ph, %50
   %.0171.lcssa = phi i64 [ %60, %50 ], [ %75, %.lr.ph ]
   %.0170.lcssa = phi i64 [ %57, %50 ], [ %74, %.lr.ph ]
-  %.lcssa251 = phi i64 [ %66, %50 ], [ %80, %.lr.ph ]
-  %.lcssa250 = phi i64 [ %73, %50 ], [ %87, %.lr.ph ]
-  %88 = sub i64 %62, %.lcssa251
-  %89 = lshr i64 %.lcssa250, 2
+  %.lcssa258 = phi i64 [ %66, %50 ], [ %80, %.lr.ph ]
+  %.lcssa257 = phi i64 [ %73, %50 ], [ %87, %.lr.ph ]
+  %88 = sub i64 %62, %.lcssa258
+  %89 = lshr i64 %.lcssa257, 2
   %90 = mul i64 %89, %42
   %91 = lshr i64 %90, 32
-  %92 = call i64 @llvm.fshl.i64(i64 %.lcssa250, i64 %88, i64 29)
+  %92 = call i64 @llvm.fshl.i64(i64 %.lcssa257, i64 %88, i64 29)
   %93 = lshr i64 %.0171.lcssa, 31
   %94 = and i64 %93, 4294967295
   %95 = shl i64 %.0171.lcssa, 33

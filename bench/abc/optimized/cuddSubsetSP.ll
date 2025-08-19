@@ -1197,8 +1197,8 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %263, %277
-  %.sink267 = phi i32 [ %278, %277 ], [ %264, %263 ]
-  %283 = add i32 %.sink267, 1
+  %.sink279 = phi i32 [ %278, %277 ], [ %264, %263 ]
+  %283 = add i32 %.sink279, 1
   store i32 %283, ptr %253, align 4, !tbaa !55
   br label %284
 

@@ -1293,7 +1293,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory2eq7EqProof34expandTr
   %110 = lshr exact i64 %109, 3
   %111 = trunc i64 %110 to i32
   %.not2780 = icmp eq i32 %111, 0
-  %indvars.iv2824.sroa.gep2964 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %indvars.iv2824.sroa.gep3251 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %indvars.iv2830.sroa.gep = getelementptr inbounds nuw i8, ptr %39, i64 24
   br i1 %.not2780, label %._crit_edge.thread, label %.preheader2667.preheader
 
@@ -1308,8 +1308,8 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory2eq7EqProof34expandTr
   br label %112
 
 ._crit_edge:                                      ; preds = %.loopexit2668
-  %.not2895 = icmp eq i32 %.12594, %111
-  br i1 %.not2895, label %._crit_edge.thread, label %.lr.ph
+  %.not3182 = icmp eq i32 %.12594, %111
+  br i1 %.not3182, label %._crit_edge.thread, label %.lr.ph
 
 112:                                              ; preds = %.preheader2667, %270
   %113 = phi i1 [ true, %.preheader2667 ], [ false, %270 ]
@@ -2975,7 +2975,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit790: ; preds = %_ZNSt6vectorIN4cvc
 
 .preheader2665:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit790, %.loopexit2666
   %951 = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit790 ], [ false, %.loopexit2666 ]
-  %indvars.iv2824.sroa.phi = phi ptr [ %39, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit790 ], [ %indvars.iv2824.sroa.gep2964, %.loopexit2666 ]
+  %indvars.iv2824.sroa.phi = phi ptr [ %39, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit790 ], [ %indvars.iv2824.sroa.gep3251, %.loopexit2666 ]
   %indvars.iv2824 = phi i64 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit790 ], [ 1, %.loopexit2666 ]
   %.03342773 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit790 ], [ %.1335, %.loopexit2666 ]
   %.03472771 = phi i32 [ -1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit790 ], [ %.1348, %.loopexit2666 ]
@@ -26326,14 +26326,14 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2346: ; preds = %5100, %5104, %511
 
 _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i.i: ; preds = %.critedge937.thread, %.critedge937
   %5248 = phi i64 [ 1, %.critedge937.thread ], [ %5247, %.critedge937 ]
-  %.33400 = phi i32 [ 0, %.critedge937.thread ], [ %.3, %.critedge937 ]
+  %.33852 = phi i32 [ 0, %.critedge937.thread ], [ %.3, %.critedge937 ]
   %5249 = shl nuw nsw i64 %5248, 3
   %5250 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %5249) #22
           to label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2EmRKS4_.exit.i unwind label %5289
 
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2EmRKS4_.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i.i, %.critedge937
   %5251 = phi i64 [ 0, %.critedge937 ], [ %5248, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i.i ]
-  %.33401 = phi i32 [ %.3, %.critedge937 ], [ %.33400, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i.i ]
+  %.33853 = phi i32 [ %.3, %.critedge937 ], [ %.33852, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i.i ]
   %5252 = phi ptr [ null, %.critedge937 ], [ %5250, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i.i ]
   store ptr %5252, ptr %202, align 8, !tbaa !70
   %5253 = getelementptr inbounds nuw i8, ptr %202, i64 8
@@ -28241,7 +28241,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2571: ; preds = %6017, %5996, %600
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2669: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2571, %6142, %6148
   call void @llvm.lifetime.end.p0(ptr nonnull %203)
   %6152 = add i32 %.05603320, 1
-  %.not654 = icmp ugt i32 %6152, %.33401
+  %.not654 = icmp ugt i32 %6152, %.33853
   br i1 %.not654, label %5276, label %5291, !llvm.loop !625
 
 6153:                                             ; preds = %6029, %6137, %6135, %6133, %6042, %.loopexit3243, %5971, %5965, %5723, %5492

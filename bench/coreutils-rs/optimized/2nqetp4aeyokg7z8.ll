@@ -391,7 +391,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   br i1 %24, label %25, label %62
 
 25:                                               ; preds = %23
-  switch i8 %7, label %default.unreachable25.i.i.i.i.i.i [
+  switch i8 %7, label %default.unreachable [
     i8 0, label %26
     i8 1, label %31
     i8 2, label %35
@@ -400,7 +400,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
     i8 5, label %46
   ]
 
-default.unreachable25.i.i.i.i.i.i:                ; preds = %25
+default.unreachable:                              ; preds = %25
   unreachable
 
 26:                                               ; preds = %25
@@ -434,8 +434,8 @@ default.unreachable25.i.i.i.i.i.i:                ; preds = %25
 
 35:                                               ; preds = %25
   %36 = icmp eq i8 %.sroa.2.0.copyload, %.sroa.2.0.copyload.i.i
-  %cond.fr23.i.i = freeze i1 %36
-  br i1 %cond.fr23.i.i, label %60, label %62
+  %cond.fr25.i.i = freeze i1 %36
+  br i1 %cond.fr25.i.i, label %60, label %62
 
 37:                                               ; preds = %25
   %.not.i7.i.i.i.i.i.i = icmp eq i64 %.sroa.57.0.copyload, %.sroa.56.0.copyload.i.i
@@ -468,8 +468,8 @@ default.unreachable25.i.i.i.i.i.i:                ; preds = %25
 
 46:                                               ; preds = %25
   %47 = icmp eq i8 %.sroa.2.0.copyload, %.sroa.2.0.copyload.i.i
-  %cond.fr24.i.i = freeze i1 %47
-  br i1 %cond.fr24.i.i, label %60, label %62
+  %cond.fr26.i.i = freeze i1 %47
+  br i1 %cond.fr26.i.i, label %60, label %62
 
 48:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd12fd383d1db8493E.exit6.i.i.i.i.i.i"
   %49 = icmp ne ptr %.sroa.67.0.copyload.i.i, null
@@ -709,7 +709,7 @@ define hidden noundef ptr @_ZN6uucore8features7fsxattr11copy_xattrs17h12b6565331
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.5.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.5.0..sroa_idx104 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %32
 
@@ -769,10 +769,10 @@ define hidden noundef ptr @_ZN6uucore8features7fsxattr11copy_xattrs17h12b6565331
           to label %49 unwind label %.loopexit67
 
 .sink.split.sink.split:                           ; preds = %40, %94
-  %.sink82 = phi i64 [ %95, %94 ], [ %41, %40 ]
+  %.sink97 = phi i64 [ %95, %94 ], [ %41, %40 ]
   %.1.ph.ph = phi ptr [ %.2, %94 ], [ null, %40 ]
   %46 = load ptr, ptr %12, align 8, !nonnull !10, !noundef !10
-  call void @__rust_dealloc(ptr noundef nonnull %46, i64 noundef %.sink82, i64 noundef 1) #15, !noalias !10
+  call void @__rust_dealloc(ptr noundef nonnull %46, i64 noundef %.sink97, i64 noundef 1) #15, !noalias !10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %40, %94
@@ -813,7 +813,7 @@ define hidden noundef ptr @_ZN6uucore8features7fsxattr11copy_xattrs17h12b6565331
 52:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %50, ptr %8, align 8
-  store ptr %51, ptr %.sroa.5.0..sroa_idx89, align 8
+  store ptr %51, ptr %.sroa.5.0..sroa_idx104, align 8
   store i64 %.sroa.530.0.copyload, ptr %.sroa.6.0..sroa_idx, align 8
   %53 = load ptr, ptr %22, align 8, !alias.scope !197, !noalias !202, !nonnull !10, !noundef !10
   %54 = load i64, ptr %23, align 8, !alias.scope !197, !noalias !202, !noundef !10

@@ -280,9 +280,9 @@ _ZN10serde_json3ser10CharEscape17from_escape_table17h564b67f94c51d082E.exit.thre
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h5086bcb2463a0e51E.exit
 
 _ZN10serde_json3ser9Formatter17write_char_escape17h5086bcb2463a0e51E.exit: ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit4.i"
-  %.sink95 = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit4.i" ]
+  %.sink98 = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit4.i" ]
   %91 = load i64, ptr %6, align 8, !noalias !13, !noundef !13
-  %92 = add i64 %91, %.sink95
+  %92 = add i64 %91, %.sink98
   store i64 %92, ptr %6, align 8, !noalias !13
   br label %.outer
 
@@ -751,8 +751,8 @@ default.unreachable:                              ; preds = %45, %2
 170:                                              ; preds = %45
   %171 = load double, ptr %48, align 8, !alias.scope !238, !noundef !13
   %172 = tail call double @llvm.fabs.f64(double %171)
-  %or.cond3.i.i = fcmp ueq double %172, 0x7FF0000000000000
-  br i1 %or.cond3.i.i, label %select.unfold.i.i, label %173
+  %or.cond4.i.i = fcmp ueq double %172, 0x7FF0000000000000
+  br i1 %or.cond4.i.i, label %select.unfold.i.i, label %173
 
 173:                                              ; preds = %170
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !238
@@ -1295,9 +1295,9 @@ _ZN10serde_json3ser6indent17hef4c431d91718ccfE.exit.i.i: ; preds = %15
   br label %49
 
 49:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit6.i.i19", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i"
-  %.sink3.i.i = phi i64 [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i" ], [ 1, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit6.i.i19" ]
+  %.sink6.i.i = phi i64 [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i" ], [ 1, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit6.i.i19" ]
   %50 = load i64, ptr %33, align 8, !noalias !608, !noundef !13
-  %51 = add i64 %50, %.sink3.i.i
+  %51 = add i64 %50, %.sink6.i.i
   store i64 %51, ptr %33, align 8, !noalias !608
   %52 = load i64, ptr %6, align 8, !alias.scope !604, !noalias !596, !noundef !13
   %53 = load ptr, ptr %29, align 8, !alias.scope !604, !noalias !596, !nonnull !13, !align !462, !noundef !13

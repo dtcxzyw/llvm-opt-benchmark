@@ -1069,8 +1069,8 @@ kvm_virtio_pci_vector_vq_use.exit.thread:         ; preds = %.lr.ph.i96, %.threa
   %101 = phi i32 [ %103, %.lr.ph123 ], [ %98, %.preheader ]
   %102 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef nonnull %0, i32 noundef %101, i1 noundef zeroext false, i1 noundef zeroext %15)
   %103 = add nsw i32 %101, -1
-  %.not129 = icmp eq i32 %101, 0
-  br i1 %.not129, label %._crit_edge124, label %.lr.ph123, !llvm.loop !11
+  %.not144 = icmp eq i32 %101, 0
+  br i1 %.not144, label %._crit_edge124, label %.lr.ph123, !llvm.loop !11
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.preheader
   %104 = load ptr, ptr %49, align 16
@@ -1394,12 +1394,12 @@ virtio_pci_modern_mem_region_map.exit101:         ; preds = %58
   %106 = getelementptr inbounds i8, ptr %104, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 2
   store i8 16, ptr %107, align 1
-  %.sroa.0111.sroa.6.2..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 3
-  store i8 %100, ptr %.sroa.0111.sroa.6.2..sroa_idx, align 1
-  %.sroa.0111.sroa.9.2..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 4
-  store i8 %94, ptr %.sroa.0111.sroa.9.2..sroa_idx, align 1
-  %.sroa.0111.sroa.12.2..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 5
-  store i24 0, ptr %.sroa.0111.sroa.12.2..sroa_idx, align 1
+  %.sroa.0113.sroa.6.2..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 3
+  store i8 %100, ptr %.sroa.0113.sroa.6.2..sroa_idx, align 1
+  %.sroa.0113.sroa.9.2..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 4
+  store i8 %94, ptr %.sroa.0113.sroa.9.2..sroa_idx, align 1
+  %.sroa.0113.sroa.12.2..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 5
+  store i24 0, ptr %.sroa.0113.sroa.12.2..sroa_idx, align 1
   %.sroa.12.2..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i32 %101, ptr %.sroa.12.2..sroa_idx, align 1
   %.sroa.15.2..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 12
@@ -1421,16 +1421,16 @@ virtio_pci_modern_mem_region_map.exit101:         ; preds = %58
   %121 = getelementptr inbounds i8, ptr %119, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 2
   store i8 16, ptr %122, align 1
-  %.sroa.0111.sroa.6.2..sroa_idx128 = getelementptr inbounds nuw i8, ptr %121, i64 3
-  store i8 %115, ptr %.sroa.0111.sroa.6.2..sroa_idx128, align 1
-  %.sroa.0111.sroa.9.2..sroa_idx132 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  store i8 %109, ptr %.sroa.0111.sroa.9.2..sroa_idx132, align 1
-  %.sroa.0111.sroa.12.2..sroa_idx136 = getelementptr inbounds nuw i8, ptr %121, i64 5
-  store i24 0, ptr %.sroa.0111.sroa.12.2..sroa_idx136, align 1
-  %.sroa.12.2..sroa_idx118 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  store i32 %116, ptr %.sroa.12.2..sroa_idx118, align 1
-  %.sroa.15.2..sroa_idx122 = getelementptr inbounds nuw i8, ptr %121, i64 12
-  store i32 %117, ptr %.sroa.15.2..sroa_idx122, align 1
+  %.sroa.0113.sroa.6.2..sroa_idx130 = getelementptr inbounds nuw i8, ptr %121, i64 3
+  store i8 %115, ptr %.sroa.0113.sroa.6.2..sroa_idx130, align 1
+  %.sroa.0113.sroa.9.2..sroa_idx134 = getelementptr inbounds nuw i8, ptr %121, i64 4
+  store i8 %109, ptr %.sroa.0113.sroa.9.2..sroa_idx134, align 1
+  %.sroa.0113.sroa.12.2..sroa_idx138 = getelementptr inbounds nuw i8, ptr %121, i64 5
+  store i24 0, ptr %.sroa.0113.sroa.12.2..sroa_idx138, align 1
+  %.sroa.12.2..sroa_idx120 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  store i32 %116, ptr %.sroa.12.2..sroa_idx120, align 1
+  %.sroa.15.2..sroa_idx124 = getelementptr inbounds nuw i8, ptr %121, i64 12
+  store i32 %117, ptr %.sroa.15.2..sroa_idx124, align 1
   %123 = load i32, ptr %92, align 4
   %124 = trunc i32 %123 to i8
   %125 = getelementptr inbounds nuw i8, ptr %3, i64 3872
@@ -1448,16 +1448,16 @@ virtio_pci_modern_mem_region_map.exit101:         ; preds = %58
   %136 = getelementptr inbounds i8, ptr %134, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 2
   store i8 16, ptr %137, align 1
-  %.sroa.0111.sroa.6.2..sroa_idx130 = getelementptr inbounds nuw i8, ptr %136, i64 3
-  store i8 %130, ptr %.sroa.0111.sroa.6.2..sroa_idx130, align 1
-  %.sroa.0111.sroa.9.2..sroa_idx134 = getelementptr inbounds nuw i8, ptr %136, i64 4
-  store i8 %124, ptr %.sroa.0111.sroa.9.2..sroa_idx134, align 1
-  %.sroa.0111.sroa.12.2..sroa_idx137 = getelementptr inbounds nuw i8, ptr %136, i64 5
-  store i24 0, ptr %.sroa.0111.sroa.12.2..sroa_idx137, align 1
-  %.sroa.12.2..sroa_idx120 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  store i32 %131, ptr %.sroa.12.2..sroa_idx120, align 1
-  %.sroa.15.2..sroa_idx124 = getelementptr inbounds nuw i8, ptr %136, i64 12
-  store i32 %132, ptr %.sroa.15.2..sroa_idx124, align 1
+  %.sroa.0113.sroa.6.2..sroa_idx132 = getelementptr inbounds nuw i8, ptr %136, i64 3
+  store i8 %130, ptr %.sroa.0113.sroa.6.2..sroa_idx132, align 1
+  %.sroa.0113.sroa.9.2..sroa_idx136 = getelementptr inbounds nuw i8, ptr %136, i64 4
+  store i8 %124, ptr %.sroa.0113.sroa.9.2..sroa_idx136, align 1
+  %.sroa.0113.sroa.12.2..sroa_idx139 = getelementptr inbounds nuw i8, ptr %136, i64 5
+  store i24 0, ptr %.sroa.0113.sroa.12.2..sroa_idx139, align 1
+  %.sroa.12.2..sroa_idx122 = getelementptr inbounds nuw i8, ptr %136, i64 8
+  store i32 %131, ptr %.sroa.12.2..sroa_idx122, align 1
+  %.sroa.15.2..sroa_idx126 = getelementptr inbounds nuw i8, ptr %136, i64 12
+  store i32 %132, ptr %.sroa.15.2..sroa_idx126, align 1
   %138 = load i32, ptr %92, align 4
   %139 = trunc i32 %138 to i8
   %140 = getelementptr inbounds nuw i8, ptr %3, i64 4160
@@ -1475,18 +1475,18 @@ virtio_pci_modern_mem_region_map.exit101:         ; preds = %58
   %151 = getelementptr inbounds i8, ptr %149, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 2
   store i8 20, ptr %152, align 1
-  %.sroa.0106.sroa.5.2..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 3
-  store i8 %145, ptr %.sroa.0106.sroa.5.2..sroa_idx, align 1
-  %.sroa.0106.sroa.6.2..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 4
-  store i8 %139, ptr %.sroa.0106.sroa.6.2..sroa_idx, align 1
-  %.sroa.0106.sroa.7.2..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 5
-  store i24 0, ptr %.sroa.0106.sroa.7.2..sroa_idx, align 1
-  %.sroa.7108.2..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 8
-  store i32 %146, ptr %.sroa.7108.2..sroa_idx, align 1
-  %.sroa.8109.2..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 12
-  store i32 %147, ptr %.sroa.8109.2..sroa_idx, align 1
-  %.sroa.9110.2..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 16
-  store i32 %61, ptr %.sroa.9110.2..sroa_idx, align 1
+  %.sroa.0108.sroa.5.2..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 3
+  store i8 %145, ptr %.sroa.0108.sroa.5.2..sroa_idx, align 1
+  %.sroa.0108.sroa.6.2..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 4
+  store i8 %139, ptr %.sroa.0108.sroa.6.2..sroa_idx, align 1
+  %.sroa.0108.sroa.7.2..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 5
+  store i24 0, ptr %.sroa.0108.sroa.7.2..sroa_idx, align 1
+  %.sroa.7110.2..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 8
+  store i32 %146, ptr %.sroa.7110.2..sroa_idx, align 1
+  %.sroa.8111.2..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 12
+  store i32 %147, ptr %.sroa.8111.2..sroa_idx, align 1
+  %.sroa.9112.2..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 16
+  store i32 %61, ptr %.sroa.9112.2..sroa_idx, align 1
   br i1 %.not, label %virtio_pci_add_mem_cap.exit, label %virtio_pci_modern_io_region_map.exit
 
 virtio_pci_modern_io_region_map.exit:             ; preds = %virtio_pci_modern_mem_region_map.exit101
@@ -1520,8 +1520,8 @@ virtio_pci_modern_io_region_map.exit:             ; preds = %virtio_pci_modern_m
   store i8 %158, ptr %.sroa.6.2..sroa_idx, align 1
   %.sroa.7.2..sroa_idx = getelementptr inbounds nuw i8, ptr %170, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.7.2..sroa_idx, ptr noundef nonnull align 8 dereferenceable(3) %.sroa.7, i64 3, i1 false)
-  %.sroa.7105.2..sroa_idx = getelementptr inbounds nuw i8, ptr %170, i64 8
-  store i32 %165, ptr %.sroa.7105.2..sroa_idx, align 1
+  %.sroa.7107.2..sroa_idx = getelementptr inbounds nuw i8, ptr %170, i64 8
+  store i32 %165, ptr %.sroa.7107.2..sroa_idx, align 1
   %.sroa.8.2..sroa_idx = getelementptr inbounds nuw i8, ptr %170, i64 12
   store i32 %166, ptr %.sroa.8.2..sroa_idx, align 1
   %.sroa.9.2..sroa_idx = getelementptr inbounds nuw i8, ptr %170, i64 16
@@ -4977,8 +4977,8 @@ define internal void @virtio_pci_realize(ptr noundef %0, ptr noundef %1) #0 {
   %.val = load i32, ptr %63, align 4
   %64 = and i32 %.val, 4
   %.not80 = icmp ne i32 %64, 0
-  %or.cond107.not = select i1 %18, i1 %.not80, i1 false
-  br i1 %or.cond107.not, label %65, label %._crit_edge102
+  %or.cond110.not = select i1 %18, i1 %.not80, i1 false
+  br i1 %or.cond110.not, label %65, label %._crit_edge102
 
 65:                                               ; preds = %62
   %66 = tail call i32 @pcie_endpoint_cap_init(ptr noundef nonnull %0, i8 noundef zeroext 0) #15

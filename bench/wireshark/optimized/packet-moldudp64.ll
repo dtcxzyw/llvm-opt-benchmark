@@ -260,9 +260,9 @@ dissect_moldudp64_msgblk.exit:                    ; preds = %.lr.ph, %67, %71
 
 ._crit_edge.thread:                               ; preds = %24, %._crit_edge
   %83 = phi i32 [ %79, %._crit_edge ], [ 0, %24 ]
-  %.058.lcssa70 = phi i16 [ %75, %._crit_edge ], [ 0, %24 ]
+  %.058.lcssa72 = phi i16 [ %75, %._crit_edge ], [ 0, %24 ]
   %84 = icmp ne i16 %12, 0
-  %85 = icmp eq i16 %.058.lcssa70, 0
+  %85 = icmp eq i16 %.058.lcssa72, 0
   %or.cond5 = select i1 %84, i1 %85, i1 false
   br i1 %or.cond5, label %86, label %88
 
@@ -271,7 +271,7 @@ dissect_moldudp64_msgblk.exit:                    ; preds = %.lr.ph, %67, %71
   br label %91
 
 88:                                               ; preds = %._crit_edge.thread
-  %.not63 = icmp eq i16 %.058.lcssa70, %12
+  %.not63 = icmp eq i16 %.058.lcssa72, %12
   br i1 %.not63, label %91, label %89
 
 89:                                               ; preds = %88

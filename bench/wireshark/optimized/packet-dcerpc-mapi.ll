@@ -8744,9 +8744,9 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_CLIENTINFO(ptr noundef %0, i32 n
 
 .sink.split:                                      ; preds = %69, %70
   %hf_mapi_AUX_PERF_CLIENTINFO_ClientIPV6.sink = phi ptr [ @hf_mapi_AUX_PERF_CLIENTINFO_ClientIPV6, %70 ], [ @hf_mapi_AUX_PERF_CLIENTINFO_ClientIPV4, %69 ]
-  %.sink180 = phi i32 [ 16, %70 ], [ 4, %69 ]
+  %.sink186 = phi i32 [ 16, %70 ], [ 4, %69 ]
   %71 = load i32, ptr %hf_mapi_AUX_PERF_CLIENTINFO_ClientIPV6.sink, align 4
-  %72 = call ptr @proto_tree_add_item(ptr noundef %.0150, i32 noundef %71, ptr noundef %0, i32 noundef %65, i32 noundef %.sink180, i32 noundef 0)
+  %72 = call ptr @proto_tree_add_item(ptr noundef %.0150, i32 noundef %71, ptr noundef %0, i32 noundef %65, i32 noundef %.sink186, i32 noundef 0)
   br label %73
 
 73:                                               ; preds = %.sink.split, %69
@@ -9937,9 +9937,9 @@ define hidden i32 @mapi_dissect_struct_AuxInfo(ptr noundef %0, i32 noundef %1, p
   br label %32
 
 32:                                               ; preds = %26, %.thread
-  %.152 = phi i32 [ %.043, %.thread ], [ %28, %26 ]
+  %.156 = phi i32 [ %.043, %.thread ], [ %28, %26 ]
   %33 = phi i32 [ %25, %.thread ], [ %spec.select, %26 ]
-  %34 = call fastcc i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %.152, ptr noundef %2, ptr noundef %.041, ptr noundef %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9)
+  %34 = call fastcc i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %.156, ptr noundef %2, ptr noundef %.041, ptr noundef %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9)
   %35 = load ptr, ptr %9, align 8
   %.not46 = icmp eq ptr %35, null
   br i1 %.not46, label %66, label %36
@@ -10238,9 +10238,9 @@ define internal fastcc i32 @mapi_dissect_RgbInOut(ptr noundef %0, i32 noundef %1
   br label %30
 
 30:                                               ; preds = %24, %.thread
-  %.06273 = phi i32 [ %1, %.thread ], [ %26, %24 ]
+  %.06276 = phi i32 [ %1, %.thread ], [ %26, %24 ]
   %31 = phi i32 [ %23, %.thread ], [ %spec.select, %24 ]
-  %32 = call fastcc i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %.06273, ptr noundef %2, ptr noundef %.060, ptr noundef %4, ptr noundef %5, i32 noundef %31, ptr noundef nonnull %8)
+  %32 = call fastcc i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %.06276, ptr noundef %2, ptr noundef %.060, ptr noundef %4, ptr noundef %5, i32 noundef %31, ptr noundef nonnull %8)
   %33 = load ptr, ptr %8, align 8
   %.not65 = icmp eq ptr %33, null
   br i1 %.not65, label %91, label %34

@@ -890,10 +890,10 @@ if.then.i:                                        ; preds = %cleanup
   br label %_ZN12_GLOBAL__N_18FDCloserD2Ev.exit
 
 _ZN12_GLOBAL__N_18FDCloserD2Ev.exit:              ; preds = %cleanup.thread, %cleanup, %if.then.i
-  %retval.sroa.5.068 = phi ptr [ %call21, %cleanup.thread ], [ %retval.sroa.5.0, %cleanup ], [ %retval.sroa.5.0, %if.then.i ]
-  %retval.sroa.0.067 = phi i32 [ %4, %cleanup.thread ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.0, %if.then.i ]
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.067, 0
-  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.5.068, 1
+  %retval.sroa.5.071 = phi ptr [ %call21, %cleanup.thread ], [ %retval.sroa.5.0, %cleanup ], [ %retval.sroa.5.0, %if.then.i ]
+  %retval.sroa.0.070 = phi i32 [ %4, %cleanup.thread ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.0, %if.then.i ]
+  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.070, 0
+  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.5.071, 1
   ret { i32, ptr } %.fca.1.insert
 }
 

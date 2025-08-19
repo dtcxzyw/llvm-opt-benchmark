@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h0bdfc2e6e76b7313E"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h0bdfc2e6e76b7313E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca [0 x i8], align 1
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h6bc34384bc47a689E"(ptr nonnull align 1 %1, i64 8, i64 144)
   %3 = extractvalue { ptr, i64 } %2, 0
@@ -20,7 +20,7 @@ define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h0bdfc2e6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h3baadbc6678413caE"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h3baadbc6678413caE"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca [0 x i8], align 1
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h6bc34384bc47a689E"(ptr nonnull align 1 %1, i64 8, i64 680)
   %3 = extractvalue { ptr, i64 } %2, 0
@@ -36,7 +36,7 @@ define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h3baadbc6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h64220cd9a1876d85E"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h64220cd9a1876d85E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca [0 x i8], align 1
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h6bc34384bc47a689E"(ptr nonnull align 1 %1, i64 8, i64 144)
   %3 = extractvalue { ptr, i64 } %2, 0
@@ -52,7 +52,7 @@ define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h64220cd9
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h972913d45a392e91E"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h972913d45a392e91E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca [0 x i8], align 1
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h6bc34384bc47a689E"(ptr nonnull align 1 %1, i64 8, i64 240)
   %3 = extractvalue { ptr, i64 } %2, 0
@@ -68,7 +68,7 @@ define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h972913d4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h9ea73820857d05feE"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h9ea73820857d05feE"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca [0 x i8], align 1
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h6bc34384bc47a689E"(ptr nonnull align 1 %1, i64 8, i64 240)
   %3 = extractvalue { ptr, i64 } %2, 0
@@ -84,7 +84,7 @@ define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h9ea73820
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 4 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17haa38dee6695b1035E"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 4 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17haa38dee6695b1035E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca [0 x i8], align 1
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h6bc34384bc47a689E"(ptr nonnull align 1 %1, i64 4, i64 1024)
   %3 = extractvalue { ptr, i64 } %2, 0
@@ -100,7 +100,7 @@ define align 4 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17haa38dee6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hc200ed6d3ba73b0fE"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hc200ed6d3ba73b0fE"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca [0 x i8], align 1
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h6bc34384bc47a689E"(ptr nonnull align 1 %1, i64 8, i64 40)
   %3 = extractvalue { ptr, i64 } %2, 0
@@ -116,7 +116,7 @@ define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hc200ed6d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17he14a0e1fda88ee5dE"() unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17he14a0e1fda88ee5dE"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca [0 x i8], align 1
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h6bc34384bc47a689E"(ptr nonnull align 1 %1, i64 8, i64 584)
   %3 = extractvalue { ptr, i64 } %2, 0
@@ -236,7 +236,7 @@ define align 8 ptr @"_ZN5alloc5boxed60Box$LT$core..mem..maybe_uninit..MaybeUnini
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a5217163086b843E"(ptr align 8 %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a5217163086b843E"(ptr align 8 %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca [0 x i8], align 1
   %3 = alloca [8 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -276,7 +276,7 @@ define align 8 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 4 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h704df7b15f25d3e2E"(ptr align 8 %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define nonnull align 4 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h704df7b15f25d3e2E"(ptr align 8 %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca [0 x i8], align 1
   %3 = alloca [8 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

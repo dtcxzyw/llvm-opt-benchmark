@@ -122,7 +122,7 @@ define internal i32 @mbc_to_code(ptr noundef readonly captures(address) %0, ptr 
 
 11:                                               ; preds = %3
   %12 = icmp eq i8 %8, -1
-  br i1 %12, label %mbc_enc_len.exit.thread, label %mbc_enc_len.exit.thread27
+  br i1 %12, label %mbc_enc_len.exit.thread, label %mbc_enc_len.exit.thread32
 
 13:                                               ; preds = %3
   %14 = icmp eq ptr %4, %1
@@ -142,7 +142,7 @@ define internal i32 @mbc_to_code(ptr noundef readonly captures(address) %0, ptr 
 24:                                               ; preds = %15
   %25 = icmp eq i8 %21, -1
   %26 = select i1 %25, i32 2, i32 -1
-  br label %mbc_enc_len.exit.thread27
+  br label %mbc_enc_len.exit.thread32
 
 27:                                               ; preds = %15
   %28 = icmp eq ptr %17, %1
@@ -156,13 +156,13 @@ define internal i32 @mbc_to_code(ptr noundef readonly captures(address) %0, ptr 
   %34 = load i8, ptr %33, align 1, !tbaa !6
   %35 = icmp eq i8 %34, -1
   %36 = select i1 %35, i32 3, i32 -1
-  br label %mbc_enc_len.exit.thread27
+  br label %mbc_enc_len.exit.thread32
 
 mbc_enc_len.exit.thread:                          ; preds = %11
   %37 = zext i8 %5 to i32
   br label %.loopexit
 
-mbc_enc_len.exit.thread27:                        ; preds = %11, %24, %29
+mbc_enc_len.exit.thread32:                        ; preds = %11, %24, %29
   %.0.i.ph = phi i32 [ %36, %29 ], [ %26, %24 ], [ -1, %11 ]
   %38 = zext i8 %5 to i32
   br label %.preheader
@@ -176,10 +176,10 @@ mbc_enc_len.exit:                                 ; preds = %27, %13
   %43 = icmp eq i32 %41, 1
   br i1 %43, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %mbc_enc_len.exit.thread27, %mbc_enc_len.exit
-  %44 = phi i32 [ %38, %mbc_enc_len.exit.thread27 ], [ %42, %mbc_enc_len.exit ]
-  %.0.i29 = phi i32 [ %.0.i.ph, %mbc_enc_len.exit.thread27 ], [ %41, %mbc_enc_len.exit ]
-  %45 = icmp sgt i32 %.0.i29, 1
+.preheader:                                       ; preds = %mbc_enc_len.exit.thread32, %mbc_enc_len.exit
+  %44 = phi i32 [ %38, %mbc_enc_len.exit.thread32 ], [ %42, %mbc_enc_len.exit ]
+  %.0.i34 = phi i32 [ %.0.i.ph, %mbc_enc_len.exit.thread32 ], [ %41, %mbc_enc_len.exit ]
+  %45 = icmp sgt i32 %.0.i34, 1
   %.not22 = icmp ult ptr %4, %1
   %or.cond23 = select i1 %45, i1 %.not22, i1 false
   br i1 %or.cond23, label %.lr.ph, label %.loopexit
@@ -194,7 +194,7 @@ mbc_enc_len.exit:                                 ; preds = %27, %13
   %49 = or disjoint i32 %48, %47
   %50 = add nuw nsw i32 %.01724, 1
   %.018 = getelementptr inbounds nuw i8, ptr %.01826, i64 1
-  %51 = icmp slt i32 %50, %.0.i29
+  %51 = icmp slt i32 %50, %.0.i34
   %.not = icmp ult ptr %.018, %1
   %or.cond = select i1 %51, i1 %.not, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit, !llvm.loop !11
@@ -361,7 +361,7 @@ define internal range(i32 -400, 4) i32 @mbc_case_fold(i32 %0, ptr noundef captur
 
 24:                                               ; preds = %15
   %25 = icmp eq i8 %19, -1
-  br i1 %25, label %mbc_enc_len.exit.thread.i, label %mbc_enc_len.exit.thread27.i
+  br i1 %25, label %mbc_enc_len.exit.thread.i, label %mbc_enc_len.exit.thread32.i
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw [3 x [256 x i8]], ptr @trans, i64 0, i64 %20
@@ -377,7 +377,7 @@ define internal range(i32 -400, 4) i32 @mbc_case_fold(i32 %0, ptr noundef captur
 35:                                               ; preds = %26
   %36 = icmp eq i8 %32, -1
   %37 = select i1 %36, i32 2, i32 -1
-  br label %mbc_enc_len.exit.thread27.i
+  br label %mbc_enc_len.exit.thread32.i
 
 38:                                               ; preds = %26
   %39 = icmp eq ptr %28, %2
@@ -391,13 +391,13 @@ define internal range(i32 -400, 4) i32 @mbc_case_fold(i32 %0, ptr noundef captur
   %45 = load i8, ptr %44, align 1, !tbaa !6
   %46 = icmp eq i8 %45, -1
   %47 = select i1 %46, i32 3, i32 -1
-  br label %mbc_enc_len.exit.thread27.i
+  br label %mbc_enc_len.exit.thread32.i
 
 mbc_enc_len.exit.thread.i:                        ; preds = %24
   %48 = zext i8 %7 to i32
   br label %mbc_to_code.exit
 
-mbc_enc_len.exit.thread27.i:                      ; preds = %40, %35, %24
+mbc_enc_len.exit.thread32.i:                      ; preds = %40, %35, %24
   %.0.i.ph.i = phi i32 [ %47, %40 ], [ %37, %35 ], [ -1, %24 ]
   %49 = zext i8 %7 to i32
   br label %.preheader.i
@@ -411,10 +411,10 @@ mbc_enc_len.exit.i:                               ; preds = %38, %22
   %54 = icmp eq i32 %52, 1
   br i1 %54, label %mbc_to_code.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %mbc_enc_len.exit.i, %mbc_enc_len.exit.thread27.i
-  %55 = phi i32 [ %49, %mbc_enc_len.exit.thread27.i ], [ %53, %mbc_enc_len.exit.i ]
-  %.0.i29.i = phi i32 [ %.0.i.ph.i, %mbc_enc_len.exit.thread27.i ], [ %52, %mbc_enc_len.exit.i ]
-  %56 = icmp sgt i32 %.0.i29.i, 1
+.preheader.i:                                     ; preds = %mbc_enc_len.exit.i, %mbc_enc_len.exit.thread32.i
+  %55 = phi i32 [ %49, %mbc_enc_len.exit.thread32.i ], [ %53, %mbc_enc_len.exit.i ]
+  %.0.i34.i = phi i32 [ %.0.i.ph.i, %mbc_enc_len.exit.thread32.i ], [ %52, %mbc_enc_len.exit.i ]
+  %56 = icmp sgt i32 %.0.i34.i, 1
   %.not22.i = icmp ult ptr %16, %2
   %or.cond23.i = select i1 %56, i1 %.not22.i, i1 false
   br i1 %or.cond23.i, label %.lr.ph.i, label %mbc_to_code.exit
@@ -429,7 +429,7 @@ mbc_enc_len.exit.i:                               ; preds = %38, %22
   %60 = or disjoint i32 %59, %58
   %61 = add nuw nsw i32 %.01724.i, 1
   %.018.i = getelementptr inbounds nuw i8, ptr %.01826.i, i64 1
-  %62 = icmp slt i32 %61, %.0.i29.i
+  %62 = icmp slt i32 %61, %.0.i34.i
   %.not.i = icmp ult ptr %.018.i, %2
   %or.cond.i = select i1 %62, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %.lr.ph.i, label %mbc_to_code.exit, !llvm.loop !11
@@ -591,7 +591,7 @@ define internal i32 @get_case_fold_codes_by_str(i32 noundef %0, ptr noundef %1, 
 
 13:                                               ; preds = %5
   %14 = icmp eq i8 %10, -1
-  br i1 %14, label %mbc_to_code.exit.thread40, label %mbc_enc_len.exit.thread27.i
+  br i1 %14, label %mbc_to_code.exit.thread40, label %mbc_enc_len.exit.thread32.i
 
 15:                                               ; preds = %5
   %16 = icmp eq ptr %6, %2
@@ -611,7 +611,7 @@ define internal i32 @get_case_fold_codes_by_str(i32 noundef %0, ptr noundef %1, 
 26:                                               ; preds = %17
   %27 = icmp eq i8 %23, -1
   %28 = select i1 %27, i32 2, i32 -1
-  br label %mbc_enc_len.exit.thread27.i
+  br label %mbc_enc_len.exit.thread32.i
 
 29:                                               ; preds = %17
   %30 = icmp eq ptr %19, %2
@@ -625,9 +625,9 @@ define internal i32 @get_case_fold_codes_by_str(i32 noundef %0, ptr noundef %1, 
   %36 = load i8, ptr %35, align 1, !tbaa !6
   %37 = icmp eq i8 %36, -1
   %38 = select i1 %37, i32 3, i32 -1
-  br label %mbc_enc_len.exit.thread27.i
+  br label %mbc_enc_len.exit.thread32.i
 
-mbc_enc_len.exit.thread27.i:                      ; preds = %31, %26, %13
+mbc_enc_len.exit.thread32.i:                      ; preds = %31, %26, %13
   %.0.i.ph.i = phi i32 [ %38, %31 ], [ %28, %26 ], [ -1, %13 ]
   %39 = zext i8 %7 to i32
   br label %.preheader.i
@@ -641,10 +641,10 @@ mbc_enc_len.exit.i:                               ; preds = %29, %15
   %44 = icmp eq i32 %42, 1
   br i1 %44, label %mbc_to_code.exit.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %mbc_enc_len.exit.i, %mbc_enc_len.exit.thread27.i
-  %45 = phi i32 [ %39, %mbc_enc_len.exit.thread27.i ], [ %43, %mbc_enc_len.exit.i ]
-  %.0.i29.i = phi i32 [ %.0.i.ph.i, %mbc_enc_len.exit.thread27.i ], [ %42, %mbc_enc_len.exit.i ]
-  %46 = icmp sgt i32 %.0.i29.i, 1
+.preheader.i:                                     ; preds = %mbc_enc_len.exit.i, %mbc_enc_len.exit.thread32.i
+  %45 = phi i32 [ %39, %mbc_enc_len.exit.thread32.i ], [ %43, %mbc_enc_len.exit.i ]
+  %.0.i34.i = phi i32 [ %.0.i.ph.i, %mbc_enc_len.exit.thread32.i ], [ %42, %mbc_enc_len.exit.i ]
+  %46 = icmp sgt i32 %.0.i34.i, 1
   %.not22.i = icmp ult ptr %6, %2
   %or.cond23.i = select i1 %46, i1 %.not22.i, i1 false
   br i1 %or.cond23.i, label %.lr.ph.i, label %mbc_to_code.exit
@@ -659,7 +659,7 @@ mbc_enc_len.exit.i:                               ; preds = %29, %15
   %50 = or disjoint i32 %49, %48
   %51 = add nuw nsw i32 %.01724.i, 1
   %.018.i = getelementptr inbounds nuw i8, ptr %.01826.i, i64 1
-  %52 = icmp slt i32 %51, %.0.i29.i
+  %52 = icmp slt i32 %51, %.0.i34.i
   %.not.i = icmp ult ptr %.018.i, %2
   %or.cond.i = select i1 %52, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %.lr.ph.i, label %mbc_to_code.exit, !llvm.loop !11

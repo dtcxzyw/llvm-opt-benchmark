@@ -339,25 +339,25 @@ define linkonce_odr void @_ZNSt3setIcSt4lessIcESaIcEEC2ESt16initializer_listIcER
   br i1 %22, label %._crit_edge.thread.i.i, label %27
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %19
-  %.019.lcssa28.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %7, %19 ]
+  %.019.lcssa29.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %7, %19 ]
   %23 = load ptr, ptr %9, align 8
-  %24 = icmp eq ptr %.019.lcssa28.i.i, %23
+  %24 = icmp eq ptr %.019.lcssa29.i.i, %23
   br i1 %24, label %select.unfold, label %25
 
 25:                                               ; preds = %._crit_edge.thread.i.i
-  %26 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #29
+  %26 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i) #29
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %26, i64 32
   %.pre81.i = load i8, ptr %.phi.trans.insert80.i, align 1
   br label %27
 
 27:                                               ; preds = %25, %._crit_edge.i.i
   %28 = phi i8 [ %.pre81.i, %25 ], [ %21, %._crit_edge.i.i ]
-  %.019.lcssa29.i.i = phi ptr [ %.019.lcssa28.i.i, %25 ], [ %.02024.i.i, %._crit_edge.i.i ]
+  %.019.lcssa28.i.i = phi ptr [ %.019.lcssa29.i.i, %25 ], [ %.02024.i.i, %._crit_edge.i.i ]
   %29 = icmp slt i8 %28, %.pre.i.i.i.pre.pre.pre
   br i1 %29, label %select.unfold, label %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE17_M_insert_unique_IRKcNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIcESt23_Rb_tree_const_iteratorIcEOT_RT0_.exit.i
 
 select.unfold:                                    ; preds = %27, %14, %._crit_edge.thread.i.i
-  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %15, %14 ], [ %.019.lcssa29.i.i, %27 ]
+  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %15, %14 ], [ %.019.lcssa28.i.i, %27 ]
   %30 = icmp eq ptr %.sroa.12.0.i.ph, %7
   br i1 %30, label %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE10_M_insert_IRKcNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIcEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %31
 
@@ -811,8 +811,8 @@ _ZN4pkpy5Lexer17skip_line_commentEv.exit:         ; preds = %9, %.preheader47, %
   %35 = sub i64 %33, %34
   %36 = icmp eq ptr %32, %20
   %37 = shl i64 %35, 31
-  %sext9.i.i.i = ashr i64 %37, 32
-  %38 = and i64 %sext9.i.i.i, -2
+  %sext11.i.i.i = ashr i64 %37, 32
+  %38 = and i64 %sext11.i.i.i, -2
   %39 = shl nsw i64 %38, 2
   %sext.i.i.i = shl i64 %35, 30
   br i1 %36, label %42, label %40
@@ -1354,7 +1354,7 @@ define noundef range(i32 0, 5) i32 @_ZN4pkpy5Lexer8eat_nameEv(ptr noundef nonnul
   br i1 %57, label %_ZN4pkpyL18is_unicode_Lo_charEj.exit.thread, label %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i.preheader
 
 _ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i.preheader:   ; preds = %.preheader, %._crit_edge
-  %.038.lcssa146 = phi i32 [ %.139, %._crit_edge ], [ 0, %.preheader ]
+  %.038.lcssa168 = phi i32 [ %.139, %._crit_edge ], [ 0, %.preheader ]
   br label %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i:             ; preds = %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i
@@ -1363,7 +1363,7 @@ _ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i:             ; preds = %_ZSt7advanceIPKjlEv
   %58 = lshr i64 %.01116.i.i.i, 1
   %59 = getelementptr inbounds nuw i32, ptr %.017.i.i.i, i64 %58
   %60 = load i32, ptr %59, align 4
-  %61 = icmp ult i32 %60, %.038.lcssa146
+  %61 = icmp ult i32 %60, %.038.lcssa168
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %63 = xor i64 %58, -1
   %64 = add nsw i64 %.01116.i.i.i, %63
@@ -1378,7 +1378,7 @@ _ZSt11lower_boundIPKjjET_S2_S2_RKT0_.exit.i:      ; preds = %_ZSt7advanceIPKjlEv
   %68 = ashr exact i64 %67, 2
   %69 = getelementptr inbounds [476 x i32], ptr @_ZN4pkpyL9kLoRangeAE, i64 0, i64 %68
   %70 = load i32, ptr %69, align 4
-  %71 = icmp eq i32 %.038.lcssa146, %70
+  %71 = icmp eq i32 %.038.lcssa168, %70
   br i1 %71, label %_ZN4pkpyL18is_unicode_Lo_charEj.exit.thread, label %72
 
 72:                                               ; preds = %_ZSt11lower_boundIPKjjET_S2_S2_RKT0_.exit.i
@@ -1389,13 +1389,13 @@ _ZSt11lower_boundIPKjjET_S2_S2_RKT0_.exit.i:      ; preds = %_ZSt7advanceIPKjlEv
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw [476 x i32], ptr @_ZN4pkpyL9kLoRangeAE, i64 0, i64 %73
   %77 = load i32, ptr %76, align 4
-  %.not.i = icmp ult i32 %.038.lcssa146, %77
+  %.not.i = icmp ult i32 %.038.lcssa168, %77
   br i1 %.not.i, label %.thread, label %_ZN4pkpyL18is_unicode_Lo_charEj.exit
 
 _ZN4pkpyL18is_unicode_Lo_charEj.exit:             ; preds = %75
   %78 = getelementptr inbounds nuw [476 x i32], ptr @_ZN4pkpyL9kLoRangeBE, i64 0, i64 %73
   %79 = load i32, ptr %78, align 4
-  %.not134 = icmp ugt i32 %.038.lcssa146, %79
+  %.not134 = icmp ugt i32 %.038.lcssa168, %79
   br i1 %.not134, label %.thread, label %_ZN4pkpyL18is_unicode_Lo_charEj.exit.thread
 
 .thread:                                          ; preds = %_ZN4pkpyL18is_unicode_Lo_charEj.exit, %72, %75
@@ -1562,8 +1562,8 @@ _ZN4pkpy2TKEPKc.exit70:                           ; preds = %138, %136
 
 140:                                              ; preds = %_ZN4pkpy2TKEPKc.exit70
   %141 = load i8, ptr %139, align 8
-  %switch.tableidx165 = add i8 %141, 1
-  %142 = icmp ult i8 %switch.tableidx165, 4
+  %switch.tableidx187 = add i8 %141, 1
+  %142 = icmp ult i8 %switch.tableidx187, 4
   br i1 %142, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit.sink.split
 
 143:                                              ; preds = %_ZN4pkpy2TKEPKc.exit70
@@ -1591,8 +1591,8 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 149:                                              ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit82
   %150 = load i8, ptr %148, align 8
-  %switch.tableidx167 = add i8 %150, 1
-  %151 = icmp ult i8 %switch.tableidx167, 4
+  %switch.tableidx189 = add i8 %150, 1
+  %151 = icmp ult i8 %switch.tableidx189, 4
   br i1 %151, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit.sink.split
 
 152:                                              ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit82
@@ -1687,8 +1687,8 @@ _ZNKSt3mapISt17basic_string_viewIcSt11char_traitsIcEEhSt4lessIS3_ESaISt4pairIKS3
 
 175:                                              ; preds = %171
   %176 = load i8, ptr %174, align 8
-  %switch.tableidx169 = add i8 %176, 1
-  %177 = icmp ult i8 %switch.tableidx169, 4
+  %switch.tableidx191 = add i8 %176, 1
+  %177 = icmp ult i8 %switch.tableidx191, 4
   br i1 %177, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit.sink.split
 
 178:                                              ; preds = %171
@@ -1750,8 +1750,8 @@ _ZN4pkpy2TKEPKc.exit112:                          ; preds = %195, %193
 
 197:                                              ; preds = %_ZN4pkpy2TKEPKc.exit112
   %198 = load i8, ptr %196, align 8
-  %switch.tableidx171 = add i8 %198, 1
-  %199 = icmp ult i8 %switch.tableidx171, 4
+  %switch.tableidx193 = add i8 %198, 1
+  %199 = icmp ult i8 %switch.tableidx193, 4
   br i1 %199, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit.sink.split
 
 200:                                              ; preds = %_ZN4pkpy2TKEPKc.exit112
@@ -1776,9 +1776,9 @@ _ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit: ; preds = %.backedge, %197,
   ret i32 %.1
 
 _ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit53.sink.split: ; preds = %200, %178, %152, %143, %120
-  %.sink150 = phi ptr [ %4, %120 ], [ %5, %143 ], [ %6, %152 ], [ %7, %178 ], [ %8, %200 ]
+  %.sink172 = phi ptr [ %4, %120 ], [ %5, %143 ], [ %6, %152 ], [ %7, %178 ], [ %8, %200 ]
   %.pn.ph = phi { ptr, i32 } [ %121, %120 ], [ %144, %143 ], [ %153, %152 ], [ %179, %178 ], [ %201, %200 ]
-  call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %.sink150) #28
+  call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %.sink172) #28
   br label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit53
 
 _ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit53: ; preds = %200, %200, %200, %200, %178, %178, %178, %178, %152, %152, %152, %152, %143, %143, %143, %143, %120, %120, %120, %120, %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit53.sink.split
@@ -1992,9 +1992,9 @@ _ZNSt7variantIJSt9monostateldN4pkpy3StrEEEC2ERKS3_.exit: ; preds = %._ZNSt7varia
 _ZN4pkpy2TKEPKc.exit26:                           ; preds = %82, %80
   %.015.i24 = phi i8 [ %81, %80 ], [ -1, %82 ]
   %83 = icmp eq i8 %66, %.015.i24
-  br i1 %83, label %.preheader140, label %.preheader193
+  br i1 %83, label %.preheader140, label %.preheader227
 
-.preheader193:                                    ; preds = %_ZN4pkpy2TKEPKc.exit39, %_ZN4pkpy2TKEPKc.exit26
+.preheader227:                                    ; preds = %_ZN4pkpy2TKEPKc.exit39, %_ZN4pkpy2TKEPKc.exit26
   br label %118
 
 .preheader140:                                    ; preds = %_ZN4pkpy2TKEPKc.exit26, %98
@@ -2039,7 +2039,7 @@ _ZN4pkpy2TKEPKc.exit26:                           ; preds = %82, %80
 _ZN4pkpy2TKEPKc.exit39:                           ; preds = %98, %96
   %.015.i37 = phi i8 [ %97, %96 ], [ -1, %98 ]
   %99 = icmp eq i8 %1, %.015.i37
-  br i1 %99, label %.preheader, label %.preheader193
+  br i1 %99, label %.preheader, label %.preheader227
 
 .preheader:                                       ; preds = %_ZN4pkpy2TKEPKc.exit39, %114
   %indvars.iv.i40 = phi i64 [ %indvars.iv.next.i48, %114 ], [ 0, %_ZN4pkpy2TKEPKc.exit39 ]
@@ -2100,8 +2100,8 @@ _ZN4pkpy2TKEPKc.exit52:                           ; preds = %114, %112
     i8 0, label %common.resume
   ]
 
-118:                                              ; preds = %.preheader193, %133
-  %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i61, %133 ], [ 0, %.preheader193 ]
+118:                                              ; preds = %.preheader227, %133
+  %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i61, %133 ], [ 0, %.preheader227 ]
   %119 = getelementptr inbounds nuw [95 x ptr], ptr @_ZN4pkpyL7kTokensE, i64 0, i64 %indvars.iv.i53
   %120 = load ptr, ptr %119, align 8
   %121 = load i8, ptr %120, align 1
@@ -2142,9 +2142,9 @@ _ZN4pkpy2TKEPKc.exit52:                           ; preds = %114, %112
 _ZN4pkpy2TKEPKc.exit65:                           ; preds = %133, %131
   %.015.i63 = phi i8 [ %132, %131 ], [ -1, %133 ]
   %134 = icmp eq i8 %66, %.015.i63
-  br i1 %134, label %.preheader139, label %.preheader190
+  br i1 %134, label %.preheader139, label %.preheader224
 
-.preheader190:                                    ; preds = %_ZN4pkpy2TKEPKc.exit78, %_ZN4pkpy2TKEPKc.exit65
+.preheader224:                                    ; preds = %_ZN4pkpy2TKEPKc.exit78, %_ZN4pkpy2TKEPKc.exit65
   br label %166
 
 .preheader139:                                    ; preds = %_ZN4pkpy2TKEPKc.exit65, %149
@@ -2189,7 +2189,7 @@ _ZN4pkpy2TKEPKc.exit65:                           ; preds = %133, %131
 _ZN4pkpy2TKEPKc.exit78:                           ; preds = %149, %147
   %.015.i76 = phi i8 [ %148, %147 ], [ -1, %149 ]
   %150 = icmp eq i8 %1, %.015.i76
-  br i1 %150, label %.preheader136, label %.preheader190
+  br i1 %150, label %.preheader136, label %.preheader224
 
 .preheader136:                                    ; preds = %_ZN4pkpy2TKEPKc.exit78, %165
   %indvars.iv.i79 = phi i64 [ %indvars.iv.next.i87, %165 ], [ 0, %_ZN4pkpy2TKEPKc.exit78 ]
@@ -2235,8 +2235,8 @@ _ZN4pkpy2TKEPKc.exit91:                           ; preds = %165, %163
   store i8 %.015.i89, ptr %65, align 8
   br label %_ZNSt6vectorIN4pkpy5TokenESaIS1_EE9push_backERKS1_.exit
 
-166:                                              ; preds = %.preheader190, %181
-  %indvars.iv.i92 = phi i64 [ %indvars.iv.next.i100, %181 ], [ 0, %.preheader190 ]
+166:                                              ; preds = %.preheader224, %181
+  %indvars.iv.i92 = phi i64 [ %indvars.iv.next.i100, %181 ], [ 0, %.preheader224 ]
   %167 = getelementptr inbounds nuw [95 x ptr], ptr @_ZN4pkpyL7kTokensE, i64 0, i64 %indvars.iv.i92
   %168 = load ptr, ptr %167, align 8
   %169 = load i8, ptr %168, align 1
@@ -2735,9 +2735,9 @@ _ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit: ; preds = %50, %50, %50, %5
   ret void
 
 _ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit10.sink.split: ; preds = %52, %46
-  %.sink19 = phi ptr [ %5, %46 ], [ %6, %52 ]
+  %.sink26 = phi ptr [ %5, %46 ], [ %6, %52 ]
   %.pn.ph = phi { ptr, i32 } [ %47, %46 ], [ %53, %52 ]
-  call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %.sink19) #28
+  call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %.sink26) #28
   br label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit10
 
 _ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit10: ; preds = %52, %52, %52, %52, %46, %46, %46, %46, %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit10.sink.split
@@ -4571,9 +4571,9 @@ _ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit: ; preds = %142, %142, %142,
   br label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit28.sink.split
 
 _ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit28.sink.split: ; preds = %144, %117, %87, %63, %91, %148
-  %.sink127 = phi ptr [ %9, %148 ], [ %5, %91 ], [ %2, %63 ], [ %4, %87 ], [ %7, %117 ], [ %8, %144 ]
+  %.sink149 = phi ptr [ %9, %148 ], [ %5, %91 ], [ %2, %63 ], [ %4, %87 ], [ %7, %117 ], [ %8, %144 ]
   %.pn.ph = phi { ptr, i32 } [ %149, %148 ], [ %92, %91 ], [ %64, %63 ], [ %88, %87 ], [ %118, %117 ], [ %145, %144 ]
-  call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink127) #28
+  call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink149) #28
   br label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit28
 
 _ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit28: ; preds = %144, %144, %144, %144, %117, %117, %117, %117, %87, %87, %87, %87, %63, %63, %63, %63, %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit28.sink.split
@@ -4918,7 +4918,7 @@ define noundef zeroext i1 @_ZN4pkpy5Lexer13lex_one_tokenEv(ptr noundef nonnull a
     i8 10, label %52
     i8 39, label %81
     i8 34, label %81
-    i8 35, label %.preheader1029
+    i8 35, label %.preheader1174
     i8 126, label %.preheader647
     i8 123, label %.preheader648
     i8 125, label %.preheader649
@@ -4944,14 +4944,14 @@ define noundef zeroext i1 @_ZN4pkpy5Lexer13lex_one_tokenEv(ptr noundef nonnull a
     i8 33, label %714
     i8 42, label %745
     i8 47, label %761
-    i8 32, label %.preheader1230
-    i8 9, label %.preheader1230
+    i8 32, label %.preheader1375
+    i8 9, label %.preheader1375
     i8 98, label %815
     i8 102, label %803
     i8 114, label %809
   ]
 
-.preheader1230:                                   ; preds = %48, %48
+.preheader1375:                                   ; preds = %48, %48
   br label %769
 
 52:                                               ; preds = %48
@@ -5009,7 +5009,7 @@ _ZN4pkpy5Lexer23eatchar_include_newlineEv.exit.thread: ; preds = %52, %63, %65, 
   call void @_ZN4pkpy5Lexer10eat_stringEcNS_10StringTypeE(ptr noundef nonnull align 8 dereferenceable(132) %0, i8 noundef signext %50, i32 noundef 0)
   br label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit
 
-.preheader1029:                                   ; preds = %48, %_ZN4pkpy5Lexer7eatcharEv.exit.i
+.preheader1174:                                   ; preds = %48, %_ZN4pkpy5Lexer7eatcharEv.exit.i
   %82 = phi ptr [ %84, %_ZN4pkpy5Lexer7eatcharEv.exit.i ], [ %51, %48 ]
   %83 = load i8, ptr %82, align 1
   switch i8 %83, label %_ZN4pkpy5Lexer7eatcharEv.exit.i [
@@ -5017,10 +5017,10 @@ _ZN4pkpy5Lexer23eatchar_include_newlineEv.exit.thread: ; preds = %52, %63, %65, 
     i8 0, label %_ZN4pkpy5Lexer17skip_line_commentEv.exit
   ]
 
-_ZN4pkpy5Lexer7eatcharEv.exit.i:                  ; preds = %.preheader1029
+_ZN4pkpy5Lexer7eatcharEv.exit.i:                  ; preds = %.preheader1174
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 1
   store ptr %84, ptr %43, align 8
-  br label %.preheader1029, !llvm.loop !11
+  br label %.preheader1174, !llvm.loop !11
 
 .preheader647:                                    ; preds = %48, %99
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %99 ], [ 0, %48 ]
@@ -5141,8 +5141,8 @@ _ZN4pkpy2TKEPKc.exit74:                           ; preds = %123, %121
 
 125:                                              ; preds = %_ZN4pkpy2TKEPKc.exit74
   %126 = load i8, ptr %124, align 8
-  %switch.tableidx1157 = add i8 %126, 1
-  %127 = icmp ult i8 %switch.tableidx1157, 4
+  %switch.tableidx1302 = add i8 %126, 1
+  %127 = icmp ult i8 %switch.tableidx1302, 4
   br i1 %127, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %128
 
 128:                                              ; preds = %125
@@ -5212,8 +5212,8 @@ _ZN4pkpy2TKEPKc.exit95:                           ; preds = %147, %145
 
 149:                                              ; preds = %_ZN4pkpy2TKEPKc.exit95
   %150 = load i8, ptr %148, align 8
-  %switch.tableidx1159 = add i8 %150, 1
-  %151 = icmp ult i8 %switch.tableidx1159, 4
+  %switch.tableidx1304 = add i8 %150, 1
+  %151 = icmp ult i8 %switch.tableidx1304, 4
   br i1 %151, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %152
 
 152:                                              ; preds = %149
@@ -5283,8 +5283,8 @@ _ZN4pkpy2TKEPKc.exit116:                          ; preds = %171, %169
 
 173:                                              ; preds = %_ZN4pkpy2TKEPKc.exit116
   %174 = load i8, ptr %172, align 8
-  %switch.tableidx1161 = add i8 %174, 1
-  %175 = icmp ult i8 %switch.tableidx1161, 4
+  %switch.tableidx1306 = add i8 %174, 1
+  %175 = icmp ult i8 %switch.tableidx1306, 4
   br i1 %175, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %176
 
 176:                                              ; preds = %173
@@ -5354,8 +5354,8 @@ _ZN4pkpy2TKEPKc.exit137:                          ; preds = %195, %193
 
 197:                                              ; preds = %_ZN4pkpy2TKEPKc.exit137
   %198 = load i8, ptr %196, align 8
-  %switch.tableidx1163 = add i8 %198, 1
-  %199 = icmp ult i8 %switch.tableidx1163, 4
+  %switch.tableidx1308 = add i8 %198, 1
+  %199 = icmp ult i8 %switch.tableidx1308, 4
   br i1 %199, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %200
 
 200:                                              ; preds = %197
@@ -5425,8 +5425,8 @@ _ZN4pkpy2TKEPKc.exit158:                          ; preds = %219, %217
 
 221:                                              ; preds = %_ZN4pkpy2TKEPKc.exit158
   %222 = load i8, ptr %220, align 8
-  %switch.tableidx1165 = add i8 %222, 1
-  %223 = icmp ult i8 %switch.tableidx1165, 4
+  %switch.tableidx1310 = add i8 %222, 1
+  %223 = icmp ult i8 %switch.tableidx1310, 4
   br i1 %223, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %224
 
 224:                                              ; preds = %221
@@ -5496,8 +5496,8 @@ _ZN4pkpy2TKEPKc.exit179:                          ; preds = %243, %241
 
 245:                                              ; preds = %_ZN4pkpy2TKEPKc.exit179
   %246 = load i8, ptr %244, align 8
-  %switch.tableidx1167 = add i8 %246, 1
-  %247 = icmp ult i8 %switch.tableidx1167, 4
+  %switch.tableidx1312 = add i8 %246, 1
+  %247 = icmp ult i8 %switch.tableidx1312, 4
   br i1 %247, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %248
 
 248:                                              ; preds = %245
@@ -5567,8 +5567,8 @@ _ZN4pkpy2TKEPKc.exit200:                          ; preds = %267, %265
 
 269:                                              ; preds = %_ZN4pkpy2TKEPKc.exit200
   %270 = load i8, ptr %268, align 8
-  %switch.tableidx1169 = add i8 %270, 1
-  %271 = icmp ult i8 %switch.tableidx1169, 4
+  %switch.tableidx1314 = add i8 %270, 1
+  %271 = icmp ult i8 %switch.tableidx1314, 4
   br i1 %271, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %272
 
 272:                                              ; preds = %269
@@ -5638,8 +5638,8 @@ _ZN4pkpy2TKEPKc.exit221:                          ; preds = %291, %289
 
 293:                                              ; preds = %_ZN4pkpy2TKEPKc.exit221
   %294 = load i8, ptr %292, align 8
-  %switch.tableidx1171 = add i8 %294, 1
-  %295 = icmp ult i8 %switch.tableidx1171, 4
+  %switch.tableidx1316 = add i8 %294, 1
+  %295 = icmp ult i8 %switch.tableidx1316, 4
   br i1 %295, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %296
 
 296:                                              ; preds = %293
@@ -5709,8 +5709,8 @@ _ZN4pkpy2TKEPKc.exit242:                          ; preds = %315, %313
 
 317:                                              ; preds = %_ZN4pkpy2TKEPKc.exit242
   %318 = load i8, ptr %316, align 8
-  %switch.tableidx1173 = add i8 %318, 1
-  %319 = icmp ult i8 %switch.tableidx1173, 4
+  %switch.tableidx1318 = add i8 %318, 1
+  %319 = icmp ult i8 %switch.tableidx1318, 4
   br i1 %319, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %320
 
 320:                                              ; preds = %317
@@ -5780,8 +5780,8 @@ _ZN4pkpy2TKEPKc.exit263:                          ; preds = %339, %337
 
 341:                                              ; preds = %_ZN4pkpy2TKEPKc.exit263
   %342 = load i8, ptr %340, align 8
-  %switch.tableidx1175 = add i8 %342, 1
-  %343 = icmp ult i8 %switch.tableidx1175, 4
+  %switch.tableidx1320 = add i8 %342, 1
+  %343 = icmp ult i8 %switch.tableidx1320, 4
   br i1 %343, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %344
 
 344:                                              ; preds = %341
@@ -6280,8 +6280,8 @@ _ZN4pkpy2TKEPKc.exit383:                          ; preds = %522, %520
 
 532:                                              ; preds = %528
   %533 = load i8, ptr %531, align 8
-  %switch.tableidx1177 = add i8 %533, 1
-  %534 = icmp ult i8 %switch.tableidx1177, 4
+  %switch.tableidx1322 = add i8 %533, 1
+  %534 = icmp ult i8 %switch.tableidx1322, 4
   br i1 %534, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %535
 
 535:                                              ; preds = %532
@@ -6312,8 +6312,8 @@ _ZN4pkpy5Lexer9matchcharEc.exit386:               ; preds = %525
 
 542:                                              ; preds = %_ZN4pkpy5Lexer9matchcharEc.exit386
   %543 = load i8, ptr %541, align 8
-  %switch.tableidx1179 = add i8 %543, 1
-  %544 = icmp ult i8 %switch.tableidx1179, 4
+  %switch.tableidx1324 = add i8 %543, 1
+  %544 = icmp ult i8 %switch.tableidx1324, 4
   br i1 %544, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %545
 
 545:                                              ; preds = %542
@@ -6353,8 +6353,8 @@ _ZN4pkpy5Lexer9matchcharEc.exit:                  ; preds = %523
 
 555:                                              ; preds = %552
   %556 = load i8, ptr %554, align 8
-  %switch.tableidx1181 = add i8 %556, 1
-  %557 = icmp ult i8 %switch.tableidx1181, 4
+  %switch.tableidx1326 = add i8 %556, 1
+  %557 = icmp ult i8 %switch.tableidx1326, 4
   br i1 %557, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %558
 
 558:                                              ; preds = %555
@@ -6479,8 +6479,8 @@ _ZN4pkpy2TKEPKc.exit436:                          ; preds = %593, %591
 
 600:                                              ; preds = %596
   %601 = load i8, ptr %599, align 8
-  %switch.tableidx1183 = add i8 %601, 1
-  %602 = icmp ult i8 %switch.tableidx1183, 4
+  %switch.tableidx1328 = add i8 %601, 1
+  %602 = icmp ult i8 %switch.tableidx1328, 4
   br i1 %602, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %603
 
 603:                                              ; preds = %600
@@ -6526,8 +6526,8 @@ _ZN4pkpy5Lexer9matchcharEc.exit438:               ; preds = %594
 
 616:                                              ; preds = %612
   %617 = load i8, ptr %615, align 8
-  %switch.tableidx1185 = add i8 %617, 1
-  %618 = icmp ult i8 %switch.tableidx1185, 4
+  %switch.tableidx1330 = add i8 %617, 1
+  %618 = icmp ult i8 %switch.tableidx1330, 4
   br i1 %618, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %619
 
 619:                                              ; preds = %616
@@ -6566,8 +6566,8 @@ _ZN4pkpy5Lexer9matchcharEc.exit458:               ; preds = %610
 
 630:                                              ; preds = %_ZN4pkpy5Lexer9matchcharEc.exit458
   %631 = load i8, ptr %629, align 8
-  %switch.tableidx1187 = add i8 %631, 1
-  %632 = icmp ult i8 %switch.tableidx1187, 4
+  %switch.tableidx1332 = add i8 %631, 1
+  %632 = icmp ult i8 %switch.tableidx1332, 4
   br i1 %632, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %633
 
 633:                                              ; preds = %630
@@ -6607,8 +6607,8 @@ _ZN4pkpy5Lexer9matchcharEc.exit458:               ; preds = %610
 
 644:                                              ; preds = %640
   %645 = load i8, ptr %643, align 8
-  %switch.tableidx1189 = add i8 %645, 1
-  %646 = icmp ult i8 %switch.tableidx1189, 4
+  %switch.tableidx1334 = add i8 %645, 1
+  %646 = icmp ult i8 %switch.tableidx1334, 4
   br i1 %646, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %647
 
 647:                                              ; preds = %644
@@ -6647,8 +6647,8 @@ _ZN4pkpy5Lexer9matchcharEc.exit478:               ; preds = %638
 
 658:                                              ; preds = %_ZN4pkpy5Lexer9matchcharEc.exit478
   %659 = load i8, ptr %657, align 8
-  %switch.tableidx1191 = add i8 %659, 1
-  %660 = icmp ult i8 %switch.tableidx1191, 4
+  %switch.tableidx1336 = add i8 %659, 1
+  %660 = icmp ult i8 %switch.tableidx1336, 4
   br i1 %660, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %661
 
 661:                                              ; preds = %658
@@ -6689,8 +6689,8 @@ _ZN4pkpy5Lexer9matchcharEc.exit478:               ; preds = %638
 
 672:                                              ; preds = %668
   %673 = load i8, ptr %671, align 8
-  %switch.tableidx1193 = add i8 %673, 1
-  %674 = icmp ult i8 %switch.tableidx1193, 4
+  %switch.tableidx1338 = add i8 %673, 1
+  %674 = icmp ult i8 %switch.tableidx1338, 4
   br i1 %674, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %675
 
 675:                                              ; preds = %672
@@ -6723,8 +6723,8 @@ _ZN4pkpy5Lexer9matchcharEc.exit478:               ; preds = %638
 
 684:                                              ; preds = %680
   %685 = load i8, ptr %683, align 8
-  %switch.tableidx1195 = add i8 %685, 1
-  %686 = icmp ult i8 %switch.tableidx1195, 4
+  %switch.tableidx1340 = add i8 %685, 1
+  %686 = icmp ult i8 %switch.tableidx1340, 4
   br i1 %686, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %687
 
 687:                                              ; preds = %684
@@ -6757,8 +6757,8 @@ _ZN4pkpy5Lexer9matchcharEc.exit478:               ; preds = %638
 
 696:                                              ; preds = %692
   %697 = load i8, ptr %695, align 8
-  %switch.tableidx1197 = add i8 %697, 1
-  %698 = icmp ult i8 %switch.tableidx1197, 4
+  %switch.tableidx1342 = add i8 %697, 1
+  %698 = icmp ult i8 %switch.tableidx1342, 4
   br i1 %698, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %699
 
 699:                                              ; preds = %696
@@ -6789,8 +6789,8 @@ _ZN4pkpy5Lexer9matchcharEc.exit508:               ; preds = %666
 
 706:                                              ; preds = %_ZN4pkpy5Lexer9matchcharEc.exit508
   %707 = load i8, ptr %705, align 8
-  %switch.tableidx1199 = add i8 %707, 1
-  %708 = icmp ult i8 %switch.tableidx1199, 4
+  %switch.tableidx1344 = add i8 %707, 1
+  %708 = icmp ult i8 %switch.tableidx1344, 4
   br i1 %708, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %709
 
 709:                                              ; preds = %706
@@ -6930,8 +6930,8 @@ _ZN4pkpy5Lexer9matchcharEc.exit526:               ; preds = %714
 
 751:                                              ; preds = %747
   %752 = load i8, ptr %750, align 8
-  %switch.tableidx1201 = add i8 %752, 1
-  %753 = icmp ult i8 %switch.tableidx1201, 4
+  %switch.tableidx1346 = add i8 %752, 1
+  %753 = icmp ult i8 %switch.tableidx1346, 4
   br i1 %753, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %754
 
 754:                                              ; preds = %751
@@ -6978,8 +6978,8 @@ _ZN4pkpy5Lexer9matchcharEc.exit559:               ; preds = %761
   call void @_ZN4pkpy5Lexer11add_token_2Echh(ptr noundef nonnull align 8 dereferenceable(132) %0, i8 noundef signext 61, i8 noundef zeroext %767, i8 noundef zeroext %768)
   br label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit
 
-769:                                              ; preds = %.preheader1230, %_ZN4pkpy5Lexer7eatcharEv.exit.i562
-  %770 = phi ptr [ %772, %_ZN4pkpy5Lexer7eatcharEv.exit.i562 ], [ %51, %.preheader1230 ]
+769:                                              ; preds = %.preheader1375, %_ZN4pkpy5Lexer7eatcharEv.exit.i562
+  %770 = phi ptr [ %772, %_ZN4pkpy5Lexer7eatcharEv.exit.i562 ], [ %51, %.preheader1375 ]
   %771 = load i8, ptr %770, align 1
   switch i8 %771, label %_ZN4pkpy5Lexer17skip_line_commentEv.exit [
     i8 32, label %_ZN4pkpy5Lexer7eatcharEv.exit.i562
@@ -7156,7 +7156,7 @@ _ZN4pkpy5Lexer9matchcharEc.exit589:               ; preds = %48
 
 _ZN4pkpy5Lexer9matchcharEc.exit589.thread642:     ; preds = %815, %809, %803, %_ZN4pkpy5Lexer9matchcharEc.exit589
   %823 = call noundef i32 @_ZN4pkpy5Lexer8eat_nameEv(ptr noundef nonnull align 8 dereferenceable(132) %0)
-  switch i32 %823, label %default.unreachable848 [
+  switch i32 %823, label %default.unreachable993 [
     i32 0, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit
     i32 1, label %824
     i32 2, label %841
@@ -7316,10 +7316,10 @@ _ZN4pkpy5Lexer9matchcharEc.exit589.thread642:     ; preds = %815, %809, %803, %_
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #28
   br label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit61
 
-default.unreachable848:                           ; preds = %_ZN4pkpy5Lexer9matchcharEc.exit589.thread642
+default.unreachable993:                           ; preds = %_ZN4pkpy5Lexer9matchcharEc.exit589.thread642
   unreachable
 
-_ZN4pkpy5Lexer17skip_line_commentEv.exit:         ; preds = %769, %.preheader1029, %.preheader1029, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateldN4pkpy3StrEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_ldS5_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i542, %734, %742
+_ZN4pkpy5Lexer17skip_line_commentEv.exit:         ; preds = %769, %.preheader1174, %.preheader1174, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateldN4pkpy3StrEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_ldS5_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i542, %734, %742
   %866 = load ptr, ptr %43, align 8
   %867 = load i8, ptr %866, align 1
   %.not = icmp eq i8 %867, 0
@@ -7394,8 +7394,8 @@ _ZN4pkpy2TKEPKc.exit612:                          ; preds = %896, %894
 
 898:                                              ; preds = %_ZN4pkpy2TKEPKc.exit612
   %899 = load i8, ptr %897, align 8
-  %switch.tableidx1203 = add i8 %899, 1
-  %900 = icmp ult i8 %switch.tableidx1203, 4
+  %switch.tableidx1348 = add i8 %899, 1
+  %900 = icmp ult i8 %switch.tableidx1348, 4
   br i1 %900, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %901
 
 901:                                              ; preds = %898
@@ -7465,8 +7465,8 @@ _ZN4pkpy2TKEPKc.exit633:                          ; preds = %920, %918
 
 922:                                              ; preds = %_ZN4pkpy2TKEPKc.exit633
   %923 = load i8, ptr %921, align 8
-  %switch.tableidx1205 = add i8 %923, 1
-  %924 = icmp ult i8 %switch.tableidx1205, 4
+  %switch.tableidx1350 = add i8 %923, 1
+  %924 = icmp ult i8 %switch.tableidx1350, 4
   br i1 %924, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %925
 
 925:                                              ; preds = %922
@@ -7907,8 +7907,8 @@ _ZN4pkpy5TokenD2Ev.exit:                          ; preds = %_ZNSt6vectorIN4pkpy
   %65 = sub i64 %63, %64
   %66 = icmp eq ptr %62, %21
   %67 = shl i64 %65, 31
-  %sext9.i.i.i = ashr i64 %67, 32
-  %68 = and i64 %sext9.i.i.i, -2
+  %sext11.i.i.i = ashr i64 %67, 32
+  %68 = and i64 %sext11.i.i.i, -2
   %69 = shl nsw i64 %68, 2
   %sext.i.i.i = shl i64 %65, 30
   br i1 %66, label %72, label %70
@@ -8668,18 +8668,18 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit: ; preds
   br i1 %11, label %._crit_edge.thread, label %17
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.033.lcssa42 = phi ptr [ %.03438, %._crit_edge ], [ %4, %2 ]
+  %.033.lcssa44 = phi ptr [ %.03438, %._crit_edge ], [ %4, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %.033.lcssa42, %13
+  %14 = icmp eq ptr %.033.lcssa44, %13
   br i1 %14, label %24, label %15
 
 15:                                               ; preds = %._crit_edge.thread
-  %16 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.033.lcssa42) #29
+  %16 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.033.lcssa44) #29
   br label %17
 
 17:                                               ; preds = %15, %._crit_edge
-  %.033.lcssa43 = phi ptr [ %.033.lcssa42, %15 ], [ %.03438, %._crit_edge ]
+  %.033.lcssa43 = phi ptr [ %.033.lcssa44, %15 ], [ %.03438, %._crit_edge ]
   %.sroa.019.0 = phi ptr [ %16, %15 ], [ %.03438, %._crit_edge ]
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 32
   %.sroa.01.0.copyload.i5 = load i64, ptr %18, align 8
@@ -8713,7 +8713,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18: ; pre
 
 24:                                               ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18, %._crit_edge.thread
   %.sroa.032.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18 ]
-  %.sroa.4.0 = phi ptr [ %.033.lcssa42, %._crit_edge.thread ], [ %spec.select35, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18 ]
+  %.sroa.4.0 = phi ptr [ %.033.lcssa44, %._crit_edge.thread ], [ %spec.select35, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.032.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -9604,7 +9604,7 @@ _ZN4pkpy2TKEPKc.exit.i.i:                         ; preds = %.critedge.i.i.i
           to label %28 unwind label %30
 
 28:                                               ; preds = %23
-  %29 = trunc i64 %indvars.iv.i.i to i8
+  %29 = trunc nuw nsw i64 %indvars.iv.i.i to i8
   store i8 %29, ptr %27, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 95

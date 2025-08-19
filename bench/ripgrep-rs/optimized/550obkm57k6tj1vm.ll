@@ -560,13 +560,13 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 30:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0efeaf134ed99dfeE.exit.lr.ph", %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0efeaf134ed99dfeE.exit"
   %31 = phi i64 [ 1, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0efeaf134ed99dfeE.exit.lr.ph" ], [ %28, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0efeaf134ed99dfeE.exit" ]
-  %.sroa.8.0210407 = phi i64 [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0efeaf134ed99dfeE.exit.lr.ph" ], [ %31, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0efeaf134ed99dfeE.exit" ]
-  %.sroa.02.0211406 = phi ptr [ %.8.val, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0efeaf134ed99dfeE.exit.lr.ph" ], [ %32, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0efeaf134ed99dfeE.exit" ]
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.02.0211406, i64 24
-  %33 = trunc nuw nsw i64 %.sroa.8.0210407 to i32
-  %34 = getelementptr i8, ptr %.sroa.02.0211406, i64 8
+  %.sroa.8.0210426 = phi i64 [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0efeaf134ed99dfeE.exit.lr.ph" ], [ %31, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0efeaf134ed99dfeE.exit" ]
+  %.sroa.02.0211425 = phi ptr [ %.8.val, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0efeaf134ed99dfeE.exit.lr.ph" ], [ %32, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0efeaf134ed99dfeE.exit" ]
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.02.0211425, i64 24
+  %33 = trunc nuw nsw i64 %.sroa.8.0210426 to i32
+  %34 = getelementptr i8, ptr %.sroa.02.0211425, i64 8
   %.val.i = load ptr, ptr %34, align 8, !nonnull !5, !noundef !5
-  %35 = getelementptr i8, ptr %.sroa.02.0211406, i64 16
+  %35 = getelementptr i8, ptr %.sroa.02.0211425, i64 16
   %.val1.i = load i64, ptr %35, align 8, !noundef !5
   %36 = icmp ugt i64 %.val1.i, 2147483646
   br i1 %36, label %44, label %38
@@ -592,7 +592,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %42 = load i64, ptr %16, align 16, !noundef !5
   store i64 %42, ptr %8, align 8
-  %43 = icmp eq i64 %.sroa.8.0210407, %42
+  %43 = icmp eq i64 %.sroa.8.0210426, %42
   br i1 %43, label %46, label %45
 
 44:                                               ; preds = %30
@@ -618,16 +618,16 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 46:                                               ; preds = %38
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %47 = load i64, ptr %17, align 16, !alias.scope !24, !noundef !5
-  %48 = icmp eq i64 %.sroa.8.0210407, %47
+  %48 = icmp eq i64 %.sroa.8.0210426, %47
   br i1 %48, label %49, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1d7fa3332db0c379E.exit"
 
 49:                                               ; preds = %46
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb2fa401b5dc65e9fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %.sroa.8.0210407)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb2fa401b5dc65e9fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %.sroa.8.0210426)
   %.pre.i = load i64, ptr %16, align 16, !alias.scope !24
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1d7fa3332db0c379E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1d7fa3332db0c379E.exit": ; preds = %46, %49
-  %50 = phi i64 [ %.pre.i, %49 ], [ %.sroa.8.0210407, %46 ]
+  %50 = phi i64 [ %.pre.i, %49 ], [ %.sroa.8.0210426, %46 ]
   %51 = load ptr, ptr %18, align 8, !alias.scope !24, !nonnull !5, !noundef !5
   %52 = getelementptr inbounds i32, ptr %51, i64 %50
   store i32 %39, ptr %52, align 4

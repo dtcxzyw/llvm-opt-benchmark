@@ -6457,10 +6457,10 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hfd753cb3289f5eb9E.exit.i.i", %137, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h4e673d41baac3664E.exit", %139
-  %.sroa.0.035 = phi i64 [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h4e673d41baac3664E.exit" ], [ %.sroa.0.0, %137 ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hfd753cb3289f5eb9E.exit.i.i" ]
+  %.sroa.0.045 = phi i64 [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h4e673d41baac3664E.exit" ], [ %.sroa.0.0, %137 ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hfd753cb3289f5eb9E.exit.i.i" ]
   %.sroa.01.1 = phi i64 [ %143, %139 ], [ %.sroa.14.018, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h4e673d41baac3664E.exit" ], [ %.sroa.14.018, %137 ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hfd753cb3289f5eb9E.exit.i.i" ]
-  %144 = sub nuw i64 %.sroa.01.1, %.sroa.0.035
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.035
+  %144 = sub nuw i64 %.sroa.01.1, %.sroa.0.045
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.045
   %146 = insertvalue { ptr, i64 } poison, ptr %145, 0
   %147 = insertvalue { ptr, i64 } %146, i64 %144, 1
   ret { ptr, i64 } %147
@@ -7410,8 +7410,8 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hbc0
 
 83:                                               ; preds = %78
   %84 = udiv i32 %.sroa.724.018.i, 10000000
-  %.lhs.trunc59.i = trunc nuw nsw i32 %84 to i8
-  %85 = urem i8 %.lhs.trunc59.i, 10
+  %.lhs.trunc61.i = trunc nuw nsw i32 %84 to i8
+  %85 = urem i8 %.lhs.trunc61.i, 10
   %86 = icmp eq i8 %85, 0
   br i1 %86, label %88, label %90
 
@@ -22401,9 +22401,9 @@ define hidden void @"_ZN98_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u
   call void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready17hcddd5829f13a020fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(336) %14, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !4102
   %15 = load i64, ptr %4, align 8, !range !6, !noalias !4101, !noundef !4
   %16 = trunc nuw i64 %15 to i1
-  br i1 %16, label %.thread43, label %24
+  br i1 %16, label %.thread45, label %24
 
-.thread43:                                        ; preds = %13
+.thread45:                                        ; preds = %13
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !4101
   br label %50
 
@@ -22422,7 +22422,7 @@ define hidden void @"_ZN98_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %22 = load ptr, ptr %21, align 8, !noalias !4101, !align !3, !noundef !4
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %23, label %.thread37
+  br i1 %.not.i, label %23, label %.thread39
 
 23:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4101
@@ -22438,7 +22438,7 @@ define hidden void @"_ZN98_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !4101
   br label %.thread
 
-.thread37:                                        ; preds = %20
+.thread39:                                        ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %29 = load ptr, ptr %28, align 8, !noalias !4101, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4101
@@ -22486,21 +22486,21 @@ define hidden void @"_ZN98_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !4101
   br label %47
 
-47:                                               ; preds = %44, %.thread37
-  %.sroa.11.23342 = phi ptr [ %29, %.thread37 ], [ %46, %44 ]
-  %.sroa.8.23441 = phi ptr [ %22, %.thread37 ], [ %26, %44 ]
+47:                                               ; preds = %44, %.thread39
+  %.sroa.11.23544 = phi ptr [ %29, %.thread39 ], [ %46, %44 ]
+  %.sroa.8.23643 = phi ptr [ %22, %.thread39 ], [ %26, %44 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.23441, ptr %48, align 8
+  store ptr %.sroa.8.23643, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.11.23342, ptr %49, align 8
+  store ptr %.sroa.11.23544, ptr %49, align 8
   br label %50
 
 .thread:                                          ; preds = %27, %23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %42
 
-50:                                               ; preds = %.thread43, %"_ZN98_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready17h27a8542d142e3afbE.exit.thread", %47
-  %storemerge22 = phi i64 [ 0, %47 ], [ 1, %"_ZN98_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready17h27a8542d142e3afbE.exit.thread" ], [ 1, %.thread43 ]
+50:                                               ; preds = %.thread45, %"_ZN98_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready17h27a8542d142e3afbE.exit.thread", %47
+  %storemerge22 = phi i64 [ 0, %47 ], [ 1, %"_ZN98_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready17h27a8542d142e3afbE.exit.thread" ], [ 1, %.thread45 ]
   store i64 %storemerge22, ptr %0, align 8
   br label %42
 }
@@ -22606,9 +22606,9 @@ define hidden void @"_ZN98_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u
   call void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready17h28a9e6e8960df569E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(288) %14, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !4110
   %15 = load i64, ptr %4, align 8, !range !6, !noalias !4109, !noundef !4
   %16 = trunc nuw i64 %15 to i1
-  br i1 %16, label %.thread43, label %24
+  br i1 %16, label %.thread45, label %24
 
-.thread43:                                        ; preds = %13
+.thread45:                                        ; preds = %13
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !4109
   br label %50
 
@@ -22627,7 +22627,7 @@ define hidden void @"_ZN98_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %22 = load ptr, ptr %21, align 8, !noalias !4109, !align !3, !noundef !4
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %23, label %.thread37
+  br i1 %.not.i, label %23, label %.thread39
 
 23:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4109
@@ -22643,7 +22643,7 @@ define hidden void @"_ZN98_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !4109
   br label %.thread
 
-.thread37:                                        ; preds = %20
+.thread39:                                        ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %29 = load ptr, ptr %28, align 8, !noalias !4109, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4109
@@ -22691,21 +22691,21 @@ define hidden void @"_ZN98_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !4109
   br label %47
 
-47:                                               ; preds = %44, %.thread37
-  %.sroa.11.23342 = phi ptr [ %29, %.thread37 ], [ %46, %44 ]
-  %.sroa.8.23441 = phi ptr [ %22, %.thread37 ], [ %26, %44 ]
+47:                                               ; preds = %44, %.thread39
+  %.sroa.11.23544 = phi ptr [ %29, %.thread39 ], [ %46, %44 ]
+  %.sroa.8.23643 = phi ptr [ %22, %.thread39 ], [ %26, %44 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.23441, ptr %48, align 8
+  store ptr %.sroa.8.23643, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.11.23342, ptr %49, align 8
+  store ptr %.sroa.11.23544, ptr %49, align 8
   br label %50
 
 .thread:                                          ; preds = %27, %23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %42
 
-50:                                               ; preds = %.thread43, %"_ZN98_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready17h429d6001295cc2e8E.exit.thread", %47
-  %storemerge22 = phi i64 [ 0, %47 ], [ 1, %"_ZN98_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready17h429d6001295cc2e8E.exit.thread" ], [ 1, %.thread43 ]
+50:                                               ; preds = %.thread45, %"_ZN98_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready17h429d6001295cc2e8E.exit.thread", %47
+  %storemerge22 = phi i64 [ 0, %47 ], [ 1, %"_ZN98_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready17h429d6001295cc2e8E.exit.thread" ], [ 1, %.thread45 ]
   store i64 %storemerge22, ptr %0, align 8
   br label %42
 }

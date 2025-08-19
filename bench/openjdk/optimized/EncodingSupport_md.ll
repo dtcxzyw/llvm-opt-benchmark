@@ -142,9 +142,9 @@ utfInitialize.exit:                               ; preds = %utfInitialize.exitt
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %57, %52
-  %.sink27.i.i = phi i64 [ %58, %57 ], [ %56, %52 ]
+  %.sink32.i.i = phi i64 [ %58, %57 ], [ %56, %52 ]
   %.0.ph.i.i = phi i32 [ %1, %57 ], [ %55, %52 ]
-  %59 = getelementptr inbounds i8, ptr %2, i64 %.sink27.i.i
+  %59 = getelementptr inbounds i8, ptr %2, i64 %.sink32.i.i
   store i8 0, ptr %59, align 1
   br label %utf8ToPlatform.exit
 

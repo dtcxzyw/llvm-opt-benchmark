@@ -1032,19 +1032,19 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree12GetLeafByMapERKSt13unordere
   %23 = zext nneg i32 %.0104 to i64
   %24 = getelementptr inbounds nuw i32, ptr %7, i64 %23
   %25 = load i32, ptr %24, align 4
-  br i1 %.not.not.i.i.i, label %.preheader150, label %30
+  br i1 %.not.not.i.i.i, label %.preheader168, label %30
 
-.preheader150:                                    ; preds = %22, %26
+.preheader168:                                    ; preds = %22, %26
   %.sroa.06.0.in.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %26 ], [ %13, %22 ]
   %.sroa.06.0.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i, align 8, !tbaa !176
   %.not.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i, null
   br i1 %.not.i.i.i, label %.thread63, label %26
 
-26:                                               ; preds = %.preheader150
+26:                                               ; preds = %.preheader168
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i, i64 8
   %28 = load i32, ptr %27, align 4, !tbaa !154
   %29 = icmp eq i32 %25, %28
-  br i1 %29, label %.loopexit76, label %.preheader150, !llvm.loop !177
+  br i1 %29, label %.loopexit76, label %.preheader168, !llvm.loop !177
 
 30:                                               ; preds = %22
   %31 = sext i32 %25 to i64
@@ -1083,24 +1083,24 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree12GetLeafByMapERKSt13unordere
   br label %.thread63, !llvm.loop !182
 
 .loopexit76:                                      ; preds = %40, %26
-  br i1 %.not.not.i.i.i, label %.preheader147, label %.loopexit76..thread_crit_edge
+  br i1 %.not.not.i.i.i, label %.preheader165, label %.loopexit76..thread_crit_edge
 
 .loopexit76..thread_crit_edge:                    ; preds = %.loopexit76
   %.pre = sext i32 %25 to i64
   %.pre124 = urem i64 %.pre, %11
   br label %.thread
 
-.preheader147:                                    ; preds = %.loopexit76, %48
+.preheader165:                                    ; preds = %.loopexit76, %48
   %.sroa.06.0.in.i.i.i22 = phi ptr [ %.sroa.06.0.i.i.i23, %48 ], [ %13, %.loopexit76 ]
   %.sroa.06.0.i.i.i23 = load ptr, ptr %.sroa.06.0.in.i.i.i22, align 8, !tbaa !176
   %.not.i.i.i24 = icmp eq ptr %.sroa.06.0.i.i.i23, null
   br i1 %.not.i.i.i24, label %.loopexit.i.i, label %48
 
-48:                                               ; preds = %.preheader147
+48:                                               ; preds = %.preheader165
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i23, i64 8
   %50 = load i32, ptr %49, align 4, !tbaa !154
   %51 = icmp eq i32 %25, %50
-  br i1 %51, label %.loopexit, label %.preheader147, !llvm.loop !177
+  br i1 %51, label %.loopexit, label %.preheader165, !llvm.loop !177
 
 .thread:                                          ; preds = %.loopexit76..thread_crit_edge, %35
   %.pre-phi125 = phi i64 [ %.pre124, %.loopexit76..thread_crit_edge ], [ %32, %35 ]
@@ -1137,7 +1137,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree12GetLeafByMapERKSt13unordere
 ..loopexit_crit_edge21.i.i.i.i.i20:               ; preds = %62
   br label %.loopexit.i.i, !llvm.loop !182
 
-.loopexit.i.i:                                    ; preds = %.thread, %.lr.ph.i.i.i.i.i16, %.preheader147, %..loopexit_crit_edge21.i.i.i.i.i20
+.loopexit.i.i:                                    ; preds = %.thread, %.lr.ph.i.i.i.i.i16, %.preheader165, %..loopexit_crit_edge21.i.i.i.i.i20
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str) #12
   unreachable
 
@@ -1151,7 +1151,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree12GetLeafByMapERKSt13unordere
   %.not.i = icmp eq i8 %71, 0
   br i1 %.not.i, label %99, label %75
 
-.thread63:                                        ; preds = %.lr.ph.i.i.i.i.i, %.preheader150, %..loopexit_crit_edge21.i.i.i.i.i, %30
+.thread63:                                        ; preds = %.lr.ph.i.i.i.i.i, %.preheader168, %..loopexit_crit_edge21.i.i.i.i.i, %30
   %72 = getelementptr inbounds nuw i8, ptr %15, i64 %23
   %73 = load i8, ptr %72, align 1, !tbaa !156
   %74 = and i8 %73, 1
@@ -1250,19 +1250,19 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %75, %.thread65, %_Z
   %121 = zext nneg i32 %.2103 to i64
   %122 = getelementptr inbounds nuw i32, ptr %7, i64 %121
   %123 = load i32, ptr %122, align 4
-  br i1 %.not.not.i.i.i, label %.preheader157, label %128
+  br i1 %.not.not.i.i.i, label %.preheader175, label %128
 
-.preheader157:                                    ; preds = %.preheader86, %124
+.preheader175:                                    ; preds = %.preheader86, %124
   %.sroa.06.0.in.i.i.i37 = phi ptr [ %.sroa.06.0.i.i.i38, %124 ], [ %13, %.preheader86 ]
   %.sroa.06.0.i.i.i38 = load ptr, ptr %.sroa.06.0.in.i.i.i37, align 8, !tbaa !176
   %.not.i.i.i39 = icmp eq ptr %.sroa.06.0.i.i.i38, null
   br i1 %.not.i.i.i39, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit40.thread, label %124
 
-124:                                              ; preds = %.preheader157
+124:                                              ; preds = %.preheader175
   %125 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i38, i64 8
   %126 = load i32, ptr %125, align 4, !tbaa !154
   %127 = icmp eq i32 %123, %126
-  br i1 %127, label %.loopexit83, label %.preheader157, !llvm.loop !177
+  br i1 %127, label %.loopexit83, label %.preheader175, !llvm.loop !177
 
 128:                                              ; preds = %.preheader86
   %129 = sext i32 %123 to i64
@@ -1301,24 +1301,24 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %75, %.thread65, %_Z
   br label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit40.thread, !llvm.loop !182
 
 .loopexit83:                                      ; preds = %138, %124
-  br i1 %.not.not.i.i.i, label %.preheader154, label %.loopexit83..thread70_crit_edge
+  br i1 %.not.not.i.i.i, label %.preheader172, label %.loopexit83..thread70_crit_edge
 
 .loopexit83..thread70_crit_edge:                  ; preds = %.loopexit83
   %.pre126 = sext i32 %123 to i64
   %.pre128 = urem i64 %.pre126, %11
   br label %.thread70
 
-.preheader154:                                    ; preds = %.loopexit83, %146
+.preheader172:                                    ; preds = %.loopexit83, %146
   %.sroa.06.0.in.i.i.i50 = phi ptr [ %.sroa.06.0.i.i.i51, %146 ], [ %13, %.loopexit83 ]
   %.sroa.06.0.i.i.i51 = load ptr, ptr %.sroa.06.0.in.i.i.i50, align 8, !tbaa !176
   %.not.i.i.i52 = icmp eq ptr %.sroa.06.0.i.i.i51, null
   br i1 %.not.i.i.i52, label %.loopexit.i.i48, label %146
 
-146:                                              ; preds = %.preheader154
+146:                                              ; preds = %.preheader172
   %147 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i51, i64 8
   %148 = load i32, ptr %147, align 4, !tbaa !154
   %149 = icmp eq i32 %123, %148
-  br i1 %149, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit53, label %.preheader154, !llvm.loop !177
+  br i1 %149, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit53, label %.preheader172, !llvm.loop !177
 
 .thread70:                                        ; preds = %.loopexit83..thread70_crit_edge, %133
   %.pre-phi129 = phi i64 [ %.pre128, %.loopexit83..thread70_crit_edge ], [ %130, %133 ]
@@ -1355,7 +1355,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %75, %.thread65, %_Z
 ..loopexit_crit_edge21.i.i.i.i.i47:               ; preds = %160
   br label %.loopexit.i.i48, !llvm.loop !182
 
-.loopexit.i.i48:                                  ; preds = %.thread70, %.lr.ph.i.i.i.i.i43, %.preheader154, %..loopexit_crit_edge21.i.i.i.i.i47
+.loopexit.i.i48:                                  ; preds = %.thread70, %.lr.ph.i.i.i.i.i43, %.preheader172, %..loopexit_crit_edge21.i.i.i.i.i47
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str) #12
   unreachable
 
@@ -1365,8 +1365,8 @@ _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit53
   %166 = load double, ptr %165, align 8, !tbaa !155
   br label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit40.thread
 
-_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit40.thread: ; preds = %.lr.ph.i.i.i.i.i29, %.preheader157, %..loopexit_crit_edge21.i.i.i.i.i33, %128, %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit53
-  %167 = phi double [ %166, %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit53 ], [ 0.000000e+00, %128 ], [ 0.000000e+00, %..loopexit_crit_edge21.i.i.i.i.i33 ], [ 0.000000e+00, %.preheader157 ], [ 0.000000e+00, %.lr.ph.i.i.i.i.i29 ]
+_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit40.thread: ; preds = %.lr.ph.i.i.i.i.i29, %.preheader175, %..loopexit_crit_edge21.i.i.i.i.i33, %128, %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit53
+  %167 = phi double [ %166, %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit53 ], [ 0.000000e+00, %128 ], [ 0.000000e+00, %..loopexit_crit_edge21.i.i.i.i.i33 ], [ 0.000000e+00, %.preheader175 ], [ 0.000000e+00, %.lr.ph.i.i.i.i.i29 ]
   %168 = getelementptr inbounds nuw i8, ptr %15, i64 %121
   %169 = load i8, ptr %168, align 1, !tbaa !156
   %170 = lshr i8 %169, 2

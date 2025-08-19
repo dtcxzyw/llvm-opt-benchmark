@@ -789,7 +789,7 @@ _channelref_find.exit.i.i:                        ; preds = %.lr.ph.i.i.i
   br i1 %.not21.i.i, label %_channels_lookup.exit.thread.i, label %30
 
 _channels_lookup.exit.thread.i:                   ; preds = %26, %_channelref_find.exit.i.i, %.lr.ph, %20
-  %.09.i.ph.i = phi i32 [ -2, %20 ], [ -3, %26 ], [ -3, %_channelref_find.exit.i.i ], [ -2, %.lr.ph ]
+  %.013.i.ph.i = phi i32 [ -2, %20 ], [ -3, %26 ], [ -3, %_channelref_find.exit.i.i ], [ -2, %.lr.ph ]
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !25
   call void @PyThread_release_lock(ptr noundef %29) #7
   br label %channel_is_associated.exit
@@ -807,10 +807,10 @@ _channels_lookup.exit.thread.i:                   ; preds = %26, %_channelref_fi
   br i1 %.not12.i, label %.critedge.i, label %channel_is_associated.exit
 
 .critedge.i:                                      ; preds = %32, %30
-  %.sink14.i = phi i64 [ 16, %32 ], [ 24, %30 ]
+  %.sink19.i = phi i64 [ 16, %32 ], [ 24, %30 ]
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !35
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %.sink14.i
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %.sink19.i
   %38 = load ptr, ptr %37, align 8, !tbaa !79
   %.not12.i.i = icmp eq ptr %38, null
   br i1 %.not12.i.i, label %.thread, label %.lr.ph.i.i
@@ -828,7 +828,7 @@ _channels_lookup.exit.thread.i:                   ; preds = %26, %_channelref_fi
   br i1 %.not.i.i, label %.thread, label %.lr.ph.i.i, !llvm.loop !84
 
 channel_is_associated.exit:                       ; preds = %32, %_channels_lookup.exit.thread.i
-  %.0.i = phi i32 [ %.09.i.ph.i, %_channels_lookup.exit.thread.i ], [ -3, %32 ]
+  %.0.i = phi i32 [ %.013.i.ph.i, %_channels_lookup.exit.thread.i ], [ -3, %32 ]
   %44 = call fastcc i32 @handle_channel_error(i32 noundef %.0.i, ptr noundef %0, i64 noundef %9)
   br label %.thread51
 
@@ -1140,7 +1140,7 @@ _channels_lookup.exit.thread26.i:                 ; preds = %_channelref_find.ex
   br label %_channels_lookup.exit.thread.i
 
 _channels_lookup.exit.i:                          ; preds = %21, %27, %_channelref_find.exit.i.i, %14
-  %.014.i.ph.i = phi i32 [ -2, %14 ], [ -3, %_channelref_find.exit.i.i ], [ -3, %27 ], [ -2, %21 ]
+  %.018.i.ph.i = phi i32 [ -2, %14 ], [ -3, %_channelref_find.exit.i.i ], [ -3, %27 ], [ -2, %21 ]
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !25
   call void @PyThread_release_lock(ptr noundef %32) #7
   br label %channel_recv.exit.thread
@@ -1427,7 +1427,7 @@ channel_recv.exit:                                ; preds = %_channel_next.exit.
   br label %_Py_NewRef.exit
 
 channel_recv.exit.thread:                         ; preds = %131, %_waiting_release.exit40.i, %101, %Py_DECREF.exit.i, %_waiting_release.exit38.i, %_release_xid_data.exit.i, %_waiting_release.exit.i, %_channels_lookup.exit.i, %12, %channel_recv.exit
-  %.0.i24 = phi i32 [ %.0.i32.i, %channel_recv.exit ], [ 0, %131 ], [ 0, %_waiting_release.exit40.i ], [ 0, %101 ], [ -1, %Py_DECREF.exit.i ], [ -1, %_waiting_release.exit38.i ], [ -1, %_release_xid_data.exit.i ], [ -1, %_waiting_release.exit.i ], [ %.014.i.ph.i, %_channels_lookup.exit.i ], [ %..i, %12 ]
+  %.0.i24 = phi i32 [ %.0.i32.i, %channel_recv.exit ], [ 0, %131 ], [ 0, %_waiting_release.exit40.i ], [ 0, %101 ], [ -1, %Py_DECREF.exit.i ], [ -1, %_waiting_release.exit38.i ], [ -1, %_release_xid_data.exit.i ], [ -1, %_waiting_release.exit.i ], [ %.018.i.ph.i, %_channels_lookup.exit.i ], [ %..i, %12 ]
   %.11523 = phi i32 [ %.014, %channel_recv.exit ], [ %.014, %131 ], [ %.014, %_waiting_release.exit40.i ], [ %.014, %101 ], [ %.014, %Py_DECREF.exit.i ], [ %.014, %_waiting_release.exit38.i ], [ %.014, %_release_xid_data.exit.i ], [ %.014, %_waiting_release.exit.i ], [ 0, %_channels_lookup.exit.i ], [ 0, %12 ]
   %.11722 = phi ptr [ null, %channel_recv.exit ], [ %104, %131 ], [ %104, %_waiting_release.exit40.i ], [ null, %101 ], [ null, %Py_DECREF.exit.i ], [ null, %_waiting_release.exit38.i ], [ null, %_release_xid_data.exit.i ], [ null, %_waiting_release.exit.i ], [ null, %_channels_lookup.exit.i ], [ null, %12 ]
   %145 = call fastcc i32 @handle_channel_error(i32 noundef %.0.i24, ptr noundef %0, i64 noundef %9)
@@ -1806,7 +1806,7 @@ _channels_lookup.exit.thread18.i:                 ; preds = %_channelref_find.ex
   br label %_channels_lookup.exit.thread.i
 
 _channels_lookup.exit.i:                          ; preds = %29, %35, %_channelref_find.exit.i.i, %22
-  %.014.i.ph.i = phi i32 [ -2, %22 ], [ -3, %_channelref_find.exit.i.i ], [ -3, %35 ], [ -2, %29 ]
+  %.018.i.ph.i = phi i32 [ -2, %22 ], [ -3, %_channelref_find.exit.i.i ], [ -3, %35 ], [ -2, %29 ]
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !25
   br label %.sink.split.i
 
@@ -1992,7 +1992,7 @@ _channel_release_interpreter.exit.i:              ; preds = %_channelends_is_ope
 
 .sink.split.i:                                    ; preds = %_channel_release_interpreter.exit.i, %_channels_lookup.exit.i
   %.sink.i = phi ptr [ %38, %_channel_release_interpreter.exit.i ], [ %40, %_channels_lookup.exit.i ]
-  %.0.ph.i = phi i32 [ %.0.i13.i, %_channel_release_interpreter.exit.i ], [ %.014.i.ph.i, %_channels_lookup.exit.i ]
+  %.0.ph.i = phi i32 [ %.0.i13.i, %_channel_release_interpreter.exit.i ], [ %.018.i.ph.i, %_channels_lookup.exit.i ]
   call void @PyThread_release_lock(ptr noundef %.sink.i) #7
   br label %channel_release.exit
 
@@ -2065,7 +2065,7 @@ _channels_lookup.exit.thread18.i:                 ; preds = %_channelref_find.ex
   br label %_channels_lookup.exit.thread.i
 
 _channels_lookup.exit.i:                          ; preds = %14, %20, %_channelref_find.exit.i.i, %7
-  %.014.i.ph.i = phi i32 [ -2, %7 ], [ -3, %_channelref_find.exit.i.i ], [ -3, %20 ], [ -2, %14 ]
+  %.018.i.ph.i = phi i32 [ -2, %7 ], [ -3, %_channelref_find.exit.i.i ], [ -3, %20 ], [ -2, %14 ]
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !25
   br label %_channel_get_count.exit
 
@@ -2078,7 +2078,7 @@ _channels_lookup.exit.thread.i:                   ; preds = %_channels_lookup.ex
 _channel_get_count.exit:                          ; preds = %_channels_lookup.exit.i, %_channels_lookup.exit.thread.i
   %.sink = phi ptr [ %25, %_channels_lookup.exit.i ], [ %23, %_channels_lookup.exit.thread.i ]
   %.08 = phi i64 [ -1, %_channels_lookup.exit.i ], [ %28, %_channels_lookup.exit.thread.i ]
-  %.0.i = phi i32 [ %.014.i.ph.i, %_channels_lookup.exit.i ], [ 0, %_channels_lookup.exit.thread.i ]
+  %.0.i = phi i32 [ %.018.i.ph.i, %_channels_lookup.exit.i ], [ 0, %_channels_lookup.exit.thread.i ]
   call void @PyThread_release_lock(ptr noundef %.sink) #7
   %29 = call fastcc i32 @handle_channel_error(i32 noundef %.0.i, ptr noundef %0, i64 noundef %8)
   %.not7 = icmp eq i32 %29, 0
@@ -2677,22 +2677,22 @@ _channelref_find.exit.thread.i:                   ; preds = %20
   br i1 %24, label %_channelref_find.exit.thread.thread.i, label %_channels_lookup.exit
 
 _channelref_find.exit.thread.thread.i:            ; preds = %14, %7, %_channelref_find.exit.i, %20, %_channelref_find.exit.thread.i
-  %.01713.i20 = phi ptr [ %18, %_channelref_find.exit.thread.i ], [ null, %20 ], [ null, %_channelref_find.exit.i ], [ null, %7 ], [ null, %14 ]
-  %.014.i18 = phi i32 [ 0, %_channelref_find.exit.thread.i ], [ -3, %20 ], [ -3, %_channelref_find.exit.i ], [ -2, %7 ], [ -2, %14 ]
+  %.01717.i20 = phi ptr [ %18, %_channelref_find.exit.thread.i ], [ null, %20 ], [ null, %_channelref_find.exit.i ], [ null, %7 ], [ null, %14 ]
+  %.018.i18 = phi i32 [ 0, %_channelref_find.exit.thread.i ], [ -3, %20 ], [ -3, %_channelref_find.exit.i ], [ -2, %7 ], [ -2, %14 ]
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !25
   call void @PyThread_release_lock(ptr noundef %25) #7
   br label %_channels_lookup.exit
 
 _channels_lookup.exit:                            ; preds = %_channelref_find.exit.thread.i, %_channelref_find.exit.thread.thread.i
-  %.01713.i19 = phi ptr [ %18, %_channelref_find.exit.thread.i ], [ %.01713.i20, %_channelref_find.exit.thread.thread.i ]
-  %.014.i17 = phi i32 [ 0, %_channelref_find.exit.thread.i ], [ %.014.i18, %_channelref_find.exit.thread.thread.i ]
+  %.01717.i19 = phi ptr [ %18, %_channelref_find.exit.thread.i ], [ %.01717.i20, %_channelref_find.exit.thread.thread.i ]
+  %.018.i17 = phi i32 [ 0, %_channelref_find.exit.thread.i ], [ %.018.i18, %_channelref_find.exit.thread.thread.i ]
   %.01115 = phi ptr [ %23, %_channelref_find.exit.thread.i ], [ null, %_channelref_find.exit.thread.thread.i ]
-  %26 = call fastcc i32 @handle_channel_error(i32 noundef %.014.i17, ptr noundef %0, i64 noundef %8)
+  %26 = call fastcc i32 @handle_channel_error(i32 noundef %.018.i17, ptr noundef %0, i64 noundef %8)
   %.not9 = icmp eq i32 %26, 0
   br i1 %.not9, label %27, label %31
 
 27:                                               ; preds = %_channels_lookup.exit
-  %28 = getelementptr inbounds nuw i8, ptr %.01713.i19, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.01717.i19, i64 24
   %29 = load i32, ptr %28, align 8, !tbaa !51
   call void @PyThread_release_lock(ptr noundef %.01115) #7
   %30 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.50, i32 noundef %29) #7
@@ -3278,9 +3278,9 @@ define internal fastcc range(i32 -2, 1) i32 @channel_destroy(i64 noundef %0) unn
 .lr.ph.i.preheader.i:                             ; preds = %1
   %5 = load i64, ptr %4, align 8, !tbaa !55
   %6 = icmp eq i64 %5, %0
-  br i1 %6, label %_channelref_find.exit.thread9.i, label %.lr.ph.i
+  br i1 %6, label %_channelref_find.exit.thread14.i, label %.lr.ph.i
 
-_channelref_find.exit.thread9.i:                  ; preds = %.lr.ph.i.preheader.i
+_channelref_find.exit.thread14.i:                 ; preds = %.lr.ph.i.preheader.i
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !60
   br label %16
@@ -3303,9 +3303,9 @@ _channelref_find.exit.i:                          ; preds = %.lr.ph.i.i
   %15 = load ptr, ptr %14, align 8, !tbaa !60
   br i1 %13, label %16, label %18
 
-16:                                               ; preds = %_channelref_find.exit.i, %_channelref_find.exit.thread9.i
-  %17 = phi ptr [ %8, %_channelref_find.exit.thread9.i ], [ %15, %_channelref_find.exit.i ]
-  %.014.i.lcssa13.i = phi ptr [ %4, %_channelref_find.exit.thread9.i ], [ %12, %_channelref_find.exit.i ]
+16:                                               ; preds = %_channelref_find.exit.i, %_channelref_find.exit.thread14.i
+  %17 = phi ptr [ %8, %_channelref_find.exit.thread14.i ], [ %15, %_channelref_find.exit.i ]
+  %.014.i.lcssa18.i = phi ptr [ %4, %_channelref_find.exit.thread14.i ], [ %12, %_channelref_find.exit.i ]
   store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 16), align 8, !tbaa !59
   br label %20
 
@@ -3315,11 +3315,11 @@ _channelref_find.exit.i:                          ; preds = %.lr.ph.i.i
   br label %20
 
 20:                                               ; preds = %18, %16
-  %.014.i.lcssa12.i = phi ptr [ %12, %18 ], [ %.014.i.lcssa13.i, %16 ]
+  %.014.i.lcssa17.i = phi ptr [ %12, %18 ], [ %.014.i.lcssa18.i, %16 ]
   %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 24), align 8, !tbaa !61
   %22 = add i64 %21, -1
   store i64 %22, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 24), align 8, !tbaa !61
-  %23 = getelementptr inbounds nuw i8, ptr %.014.i.lcssa12.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.014.i.lcssa17.i, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !58
   %.not.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i, label %.critedge, label %25
@@ -3340,7 +3340,7 @@ _channelref_find.exit.i:                          ; preds = %.lr.ph.i.i
 _channel_clear_closing.exit.i.i.i:                ; preds = %30, %25
   %31 = load ptr, ptr %24, align 8, !tbaa !28
   tail call void @PyThread_release_lock(ptr noundef %31) #7
-  tail call void @PyMem_RawFree(ptr noundef nonnull %.014.i.lcssa12.i) #7
+  tail call void @PyMem_RawFree(ptr noundef nonnull %.014.i.lcssa17.i) #7
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !25
   tail call void @PyThread_release_lock(ptr noundef %32) #7
   tail call fastcc void @_channel_free(ptr noundef nonnull %24)
@@ -3352,7 +3352,7 @@ _channels_remove.exit.thread:                     ; preds = %.lr.ph.i, %1
   br label %35
 
 .critedge:                                        ; preds = %20
-  tail call void @PyMem_RawFree(ptr noundef nonnull %.014.i.lcssa12.i) #7
+  tail call void @PyMem_RawFree(ptr noundef nonnull %.014.i.lcssa17.i) #7
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !25
   tail call void @PyThread_release_lock(ptr noundef %34) #7
   br label %35
@@ -3776,12 +3776,12 @@ _channelqueue_find.exit.i.i.i:                    ; preds = %.preheader.i.i.i.i
   br label %_channelqueue_remove.exit.i.i
 
 _channelqueue_remove.exit.i.i:                    ; preds = %66, %_channelqueue_find.exit.i.i.i, %_channels_lookup.exit.thread.i
-  %.08.i4.i = phi ptr [ null, %_channels_lookup.exit.thread.i ], [ %70, %66 ], [ null, %_channelqueue_find.exit.i.i.i ]
-  %.0.i5.i = phi ptr [ null, %_channels_lookup.exit.thread.i ], [ %72, %66 ], [ null, %_channelqueue_find.exit.i.i.i ]
+  %.08.i.i = phi ptr [ null, %_channels_lookup.exit.thread.i ], [ %70, %66 ], [ null, %_channelqueue_find.exit.i.i.i ]
+  %.0.i4.i = phi ptr [ null, %_channels_lookup.exit.thread.i ], [ %72, %66 ], [ null, %_channelqueue_find.exit.i.i.i ]
   %73 = load ptr, ptr %32, align 8, !tbaa !28
   call void @PyThread_release_lock(ptr noundef %73) #7
   %74 = call ptr @PyErr_GetRaisedException() #7
-  %75 = call i32 @_PyXIData_ReleaseAndRawFree(ptr noundef %.08.i4.i) #7
+  %75 = call i32 @_PyXIData_ReleaseAndRawFree(ptr noundef %.08.i.i) #7
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %.thread.i5.i.i, label %_release_xid_data.exit.i.i
 
@@ -3791,18 +3791,18 @@ _channelqueue_remove.exit.i.i:                    ; preds = %66, %_channelqueue_
 
 _release_xid_data.exit.i.i:                       ; preds = %.thread.i5.i.i, %_channelqueue_remove.exit.i.i
   call void @PyErr_SetRaisedException(ptr noundef %74) #7
-  %.not.i.i = icmp eq ptr %.0.i5.i, null
+  %.not.i.i = icmp eq ptr %.0.i4.i, null
   br i1 %.not.i.i, label %83, label %77
 
 77:                                               ; preds = %_release_xid_data.exit.i.i
-  %78 = getelementptr inbounds nuw i8, ptr %.0.i5.i, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i4.i, i64 8
   store i32 2, ptr %78, align 8, !tbaa !45
-  %79 = load ptr, ptr %.0.i5.i, align 8, !tbaa !47
+  %79 = load ptr, ptr %.0.i4.i, align 8, !tbaa !47
   call void @PyThread_release_lock(ptr noundef %79) #7
-  %80 = getelementptr inbounds nuw i8, ptr %.0.i5.i, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %.0.i4.i, i64 12
   %81 = load i32, ptr %80, align 4, !tbaa !48
-  %.not.i.i6.i = icmp eq i32 %81, 0
-  br i1 %.not.i.i6.i, label %_waiting_release.exit.i.i, label %82
+  %.not.i.i5.i = icmp eq i32 %81, 0
+  br i1 %.not.i.i5.i, label %_waiting_release.exit.i.i, label %82
 
 82:                                               ; preds = %77
   store i32 0, ptr %80, align 4, !tbaa !48
@@ -3949,7 +3949,7 @@ _channels_lookup.exit.thread22:                   ; preds = %_channelref_find.ex
   br label %_channels_lookup.exit.thread
 
 _channels_lookup.exit:                            ; preds = %18, %24, %_channelref_find.exit.i, %12
-  %.014.i.ph = phi i32 [ -2, %12 ], [ -3, %_channelref_find.exit.i ], [ -3, %24 ], [ -2, %18 ]
+  %.018.i.ph = phi i32 [ -2, %12 ], [ -3, %_channelref_find.exit.i ], [ -3, %24 ], [ -2, %18 ]
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !25
   call void @PyThread_release_lock(ptr noundef %29) #7
   br label %44
@@ -3995,7 +3995,7 @@ _channels_lookup.exit.thread:                     ; preds = %_channelref_find.ex
   br label %44
 
 44:                                               ; preds = %32, %42, %40, %39, %36, %_channels_lookup.exit, %8
-  %.1 = phi i32 [ -1, %8 ], [ -3, %32 ], [ %.014.i.ph, %_channels_lookup.exit ], [ -1, %36 ], [ -1, %39 ], [ %41, %42 ], [ 0, %40 ]
+  %.1 = phi i32 [ -1, %8 ], [ -3, %32 ], [ %.018.i.ph, %_channels_lookup.exit ], [ -1, %36 ], [ -1, %39 ], [ %41, %42 ], [ 0, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %45
 

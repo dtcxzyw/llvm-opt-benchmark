@@ -183,13 +183,13 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !5
 
 .preheader:                                       ; preds = %.preheader.preheader
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93125, 1
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93127, 1
   %exitcond96 = icmp eq i64 %indvars.iv.next94, 3
   br i1 %exitcond96, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.preheader.preheader, %.preheader
-  %indvars.iv93125 = phi i64 [ %indvars.iv.next94, %.preheader ], [ 0, %.preheader.preheader.preheader ]
-  %15 = getelementptr inbounds nuw [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv93125
+  %indvars.iv93127 = phi i64 [ %indvars.iv.next94, %.preheader ], [ 0, %.preheader.preheader.preheader ]
+  %15 = getelementptr inbounds nuw [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv93127
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %10) #9
   %18 = icmp eq i32 %17, 0

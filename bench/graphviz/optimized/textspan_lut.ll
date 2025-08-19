@@ -255,8 +255,8 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
   br i1 %.not.i.i, label %.preheader.i.i, label %.lr.ph58.i.i, !llvm.loop !25
 
 .preheader.i.i:                                   ; preds = %51, %29, %.preheader37.i.i
-  %.033.ph.lcssa4181.i.i = phi i64 [ %.033.ph.lcssa41.i.i, %.preheader37.i.i ], [ %.033.ph52.i.i, %29 ], [ %.033.ph.lcssa41.i.i, %51 ]
-  %.not3559.i.i = icmp eq i64 %.033.ph.lcssa4181.i.i, %22
+  %.033.ph.lcssa4187.i.i = phi i64 [ %.033.ph.lcssa41.i.i, %.preheader37.i.i ], [ %.033.ph52.i.i, %29 ], [ %.033.ph.lcssa41.i.i, %51 ]
+  %.not3559.i.i = icmp eq i64 %.033.ph.lcssa4187.i.i, %22
   br i1 %.not3559.i.i, label %.loopexit, label %.lr.ph61.i.i
 
 .lr.ph58.i.i:                                     ; preds = %.preheader37.i.i, %51
@@ -275,7 +275,7 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
   br i1 %.not35.i.i, label %.loopexit, label %.lr.ph61.i.i, !llvm.loop !18
 
 .lr.ph61.i.i:                                     ; preds = %.preheader.i.i, %59
-  %.13460.i.i = phi i64 [ %60, %59 ], [ %.033.ph.lcssa4181.i.i, %.preheader.i.i ]
+  %.13460.i.i = phi i64 [ %60, %59 ], [ %.033.ph.lcssa4187.i.i, %.preheader.i.i ]
   %61 = getelementptr inbounds nuw i8, ptr %21, i64 %.13460.i.i
   %62 = load i8, ptr %61, align 1, !tbaa !3
   %63 = and i8 %62, -33

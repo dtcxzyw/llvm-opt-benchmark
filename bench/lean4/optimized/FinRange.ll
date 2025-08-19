@@ -223,18 +223,18 @@ _init_l_Vector_finRange___closed__1.exit:         ; preds = %lean_dec_ref.exit10
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Vector_finRange___closed__1.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %35, %_init_l_Vector_finRange___closed__1.exit ]
-  %38 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !4
+  %.sink23 = phi ptr [ %4, %3 ], [ %35, %_init_l_Vector_finRange___closed__1.exit ]
+  %38 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
+  store i32 1, ptr %.sink23, align 4, !tbaa !4
   store i32 131096, ptr %38, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.sink23, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %39, align 8, !tbaa !10
-  %40 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.sink23, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %40, align 8, !tbaa !10
   br label %41
 
 41:                                               ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink23, %.sink.split ]
   ret ptr %.0
 }
 

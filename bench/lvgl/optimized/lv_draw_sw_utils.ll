@@ -43,8 +43,8 @@ define void @lv_draw_sw_i1_to_argb8888(ptr noundef readonly captures(none) %0, p
   %20 = getelementptr inbounds nuw i8, ptr %.127.us, i64 4
   store i32 %19, ptr %.127.us, align 4, !tbaa !8
   %21 = add nsw i32 %.028.us, -1
-  %.not39 = icmp eq i32 %.028.us, 0
-  br i1 %.not39, label %13, label %14, !llvm.loop !10
+  %.not40 = icmp eq i32 %.028.us, 0
+  br i1 %.not40, label %13, label %14, !llvm.loop !10
 
 .preheader.us:                                    ; preds = %.preheader26.us, %13
   %indvars.iv = phi i64 [ 0, %.preheader26.us ], [ %indvars.iv.next, %13 ]
@@ -297,8 +297,8 @@ define void @lv_draw_sw_i1_convert_to_vtiled(ptr noundef readonly captures(addre
   tail call void @lv_memset(ptr noundef nonnull %4, i8 noundef zeroext 0, i64 noundef %18) #4
   %.not58 = icmp eq i32 %3, 0
   %.not59 = icmp eq i32 %2, 0
-  %or.cond66 = or i1 %.not58, %.not59
-  br i1 %or.cond66, label %._crit_edge54, label %.preheader48.lr.ph.split.us
+  %or.cond73 = or i1 %.not58, %.not59
+  br i1 %or.cond73, label %._crit_edge54, label %.preheader48.lr.ph.split.us
 
 .preheader48.lr.ph.split.us:                      ; preds = %17
   br i1 %6, label %.preheader48.us.us, label %.preheader48.us
@@ -499,7 +499,7 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   %44 = add nsw i64 %43, %40
   %45 = mul nsw i64 %44, %41
   %invariant.gep.i92 = getelementptr i8, ptr %0, i64 %42
-  %invariant.gep36.i = getelementptr i8, ptr %1, i64 %45
+  %invariant.gep37.i = getelementptr i8, ptr %1, i64 %45
   br label %46
 
 46:                                               ; preds = %46, %.preheader.us.i
@@ -508,15 +508,15 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   %48 = mul nuw nsw i64 %indvars.iv.i93, 3
   %gep.i94 = getelementptr i8, ptr %invariant.gep.i92, i64 %47
   %49 = load i8, ptr %gep.i94, align 1, !tbaa !5
-  %gep37.i = getelementptr i8, ptr %invariant.gep36.i, i64 %48
-  store i8 %49, ptr %gep37.i, align 1, !tbaa !5
+  %gep38.i = getelementptr i8, ptr %invariant.gep37.i, i64 %48
+  store i8 %49, ptr %gep38.i, align 1, !tbaa !5
   %50 = getelementptr i8, ptr %gep.i94, i64 1
   %51 = load i8, ptr %50, align 1, !tbaa !5
-  %52 = getelementptr i8, ptr %gep37.i, i64 1
+  %52 = getelementptr i8, ptr %gep38.i, i64 1
   store i8 %51, ptr %52, align 1, !tbaa !5
   %53 = getelementptr i8, ptr %gep.i94, i64 2
   %54 = load i8, ptr %53, align 1, !tbaa !5
-  %55 = getelementptr i8, ptr %gep37.i, i64 2
+  %55 = getelementptr i8, ptr %gep38.i, i64 2
   store i8 %54, ptr %55, align 1, !tbaa !5
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i93, 1
   %exitcond.not.i96 = icmp eq i64 %indvars.iv.next.i95, %wide.trip.count.i91
@@ -682,7 +682,7 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   %116 = add nsw i64 %115, %112
   %117 = mul nsw i64 %116, %113
   %invariant.gep.i140 = getelementptr i8, ptr %0, i64 %114
-  %invariant.gep38.i = getelementptr i8, ptr %1, i64 %117
+  %invariant.gep39.i = getelementptr i8, ptr %1, i64 %117
   br label %118
 
 118:                                              ; preds = %118, %.preheader.us.i139
@@ -693,15 +693,15 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   %122 = mul nsw i64 %121, 3
   %gep.i142 = getelementptr i8, ptr %invariant.gep.i140, i64 %119
   %123 = load i8, ptr %gep.i142, align 1, !tbaa !5
-  %gep39.i = getelementptr i8, ptr %invariant.gep38.i, i64 %122
-  store i8 %123, ptr %gep39.i, align 1, !tbaa !5
+  %gep40.i = getelementptr i8, ptr %invariant.gep39.i, i64 %122
+  store i8 %123, ptr %gep40.i, align 1, !tbaa !5
   %124 = getelementptr i8, ptr %gep.i142, i64 1
   %125 = load i8, ptr %124, align 1, !tbaa !5
-  %126 = getelementptr i8, ptr %gep39.i, i64 1
+  %126 = getelementptr i8, ptr %gep40.i, i64 1
   store i8 %125, ptr %126, align 1, !tbaa !5
   %127 = getelementptr i8, ptr %gep.i142, i64 2
   %128 = load i8, ptr %127, align 1, !tbaa !5
-  %129 = getelementptr i8, ptr %gep39.i, i64 2
+  %129 = getelementptr i8, ptr %gep40.i, i64 2
   store i8 %128, ptr %129, align 1, !tbaa !5
   %indvars.iv.next.i143 = add nuw nsw i64 %indvars.iv.i141, 1
   %exitcond.not.i144 = icmp eq i64 %indvars.iv.next.i143, %110
@@ -865,7 +865,7 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   %186 = mul nuw nsw i64 %indvars.iv31.i194, 3
   %187 = mul nsw i64 %indvars.iv31.i194, %185
   %invariant.gep.i195 = getelementptr i8, ptr %0, i64 %186
-  %invariant.gep36.i196 = getelementptr i8, ptr %1, i64 %187
+  %invariant.gep37.i196 = getelementptr i8, ptr %1, i64 %187
   br label %188
 
 188:                                              ; preds = %188, %.preheader.us.i193
@@ -876,15 +876,15 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   %192 = mul nsw i64 %191, 3
   %gep.i198 = getelementptr i8, ptr %invariant.gep.i195, i64 %189
   %193 = load i8, ptr %gep.i198, align 1, !tbaa !5
-  %gep37.i199 = getelementptr i8, ptr %invariant.gep36.i196, i64 %192
-  store i8 %193, ptr %gep37.i199, align 1, !tbaa !5
+  %gep38.i199 = getelementptr i8, ptr %invariant.gep37.i196, i64 %192
+  store i8 %193, ptr %gep38.i199, align 1, !tbaa !5
   %194 = getelementptr i8, ptr %gep.i198, i64 1
   %195 = load i8, ptr %194, align 1, !tbaa !5
-  %196 = getelementptr i8, ptr %gep37.i199, i64 1
+  %196 = getelementptr i8, ptr %gep38.i199, i64 1
   store i8 %195, ptr %196, align 1, !tbaa !5
   %197 = getelementptr i8, ptr %gep.i198, i64 2
   %198 = load i8, ptr %197, align 1, !tbaa !5
-  %199 = getelementptr i8, ptr %gep37.i199, i64 2
+  %199 = getelementptr i8, ptr %gep38.i199, i64 2
   store i8 %198, ptr %199, align 1, !tbaa !5
   %indvars.iv.next.i200 = add nuw nsw i64 %indvars.iv.i197, 1
   %exitcond.not.i201 = icmp eq i64 %indvars.iv.next.i200, %184

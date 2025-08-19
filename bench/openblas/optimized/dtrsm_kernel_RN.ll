@@ -49,16 +49,16 @@ define noundef i32 @dtrsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   br label %24
 
 24:                                               ; preds = %.split47.us.i, %22
-  %indvars.iv63.i = phi i64 [ 0, %22 ], [ %indvars.iv.next64.i, %.split47.us.i ]
+  %25 = phi i1 [ true, %22 ], [ false, %.split47.us.i ]
+  %exitcond66.not.i = phi i1 [ false, %22 ], [ true, %.split47.us.i ]
+  %indvars.iv63.i = phi i64 [ 0, %22 ], [ 1, %.split47.us.i ]
   %indvars.iv54.i = phi i64 [ 1, %22 ], [ %indvars.iv.next55.i, %.split47.us.i ]
   %.03649.i = phi ptr [ %23, %22 ], [ %.us-phi.i, %.split47.us.i ]
   %.03748.i = phi ptr [ %18, %22 ], [ %45, %.split47.us.i ]
-  %25 = getelementptr inbounds nuw double, ptr %.03748.i, i64 %indvars.iv63.i
-  %26 = load double, ptr %25, align 8, !tbaa !3
-  %27 = mul nuw nsw i64 %indvars.iv63.i, %7
-  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %28 = icmp eq i64 %indvars.iv63.i, 0
-  br i1 %28, label %.lr.ph.us.preheader.i, label %.split.i
+  %26 = getelementptr inbounds nuw double, ptr %.03748.i, i64 %indvars.iv63.i
+  %27 = load double, ptr %26, align 8, !tbaa !3
+  %28 = mul nuw nsw i64 %indvars.iv63.i, %7
+  br i1 %25, label %.lr.ph.us.preheader.i, label %.split.i
 
 .lr.ph.us.preheader.i:                            ; preds = %24
   %29 = getelementptr inbounds nuw double, ptr %.03748.i, i64 %indvars.iv54.i
@@ -69,9 +69,9 @@ define noundef i32 @dtrsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %indvars.iv59.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next60.i, %.lr.ph.us.i ]
   %.144.us.i = phi ptr [ %.03649.i, %.lr.ph.us.preheader.i ], [ %40, %.lr.ph.us.i ]
   %31 = getelementptr inbounds nuw double, ptr %.1126, i64 %indvars.iv59.i
-  %32 = getelementptr inbounds nuw double, ptr %31, i64 %27
+  %32 = getelementptr inbounds nuw double, ptr %31, i64 %28
   %33 = load double, ptr %32, align 8, !tbaa !3
-  %34 = fmul double %26, %33
+  %34 = fmul double %27, %33
   store double %34, ptr %.144.us.i, align 8, !tbaa !3
   store double %34, ptr %32, align 8, !tbaa !3
   %35 = fneg double %34
@@ -86,7 +86,7 @@ define noundef i32 @dtrsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   br i1 %exitcond62.not.i, label %.split47.us.i, label %.lr.ph.us.i, !llvm.loop !7
 
 .split.i:                                         ; preds = %24
-  %invariant.gep.i = getelementptr double, ptr %.1126, i64 %27
+  %invariant.gep.i = getelementptr double, ptr %.1126, i64 %28
   br label %41
 
 41:                                               ; preds = %41, %.split.i
@@ -94,7 +94,7 @@ define noundef i32 @dtrsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %.144.i = phi ptr [ %.03649.i, %.split.i ], [ %44, %41 ]
   %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv.i
   %42 = load double, ptr %gep.i, align 8, !tbaa !3
-  %43 = fmul double %26, %42
+  %43 = fmul double %27, %42
   store double %43, ptr %.144.i, align 8, !tbaa !3
   store double %43, ptr %gep.i, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw i8, ptr %.144.i, i64 8
@@ -106,7 +106,6 @@ define noundef i32 @dtrsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %.us-phi.i = phi ptr [ %40, %.lr.ph.us.i ], [ %44, %41 ]
   %45 = getelementptr inbounds nuw i8, ptr %.03748.i, i64 16
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
-  %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, 2
   br i1 %exitcond66.not.i, label %solve.exit, label %24, !llvm.loop !9
 
 solve.exit:                                       ; preds = %.split47.us.i
@@ -148,16 +147,16 @@ solve.exit:                                       ; preds = %.split47.us.i
   br label %60
 
 60:                                               ; preds = %.split47.us.i169, %57
-  %indvars.iv63.i157 = phi i64 [ 0, %57 ], [ %indvars.iv.next64.i161, %.split47.us.i169 ]
+  %61 = phi i1 [ true, %57 ], [ false, %.split47.us.i169 ]
+  %exitcond66.not.i172 = phi i1 [ false, %57 ], [ true, %.split47.us.i169 ]
+  %indvars.iv63.i157 = phi i64 [ 0, %57 ], [ 1, %.split47.us.i169 ]
   %indvars.iv54.i158 = phi i64 [ 1, %57 ], [ %indvars.iv.next55.i171, %.split47.us.i169 ]
   %.03649.i159 = phi ptr [ %59, %57 ], [ %.us-phi.i170, %.split47.us.i169 ]
   %.03748.i160 = phi ptr [ %51, %57 ], [ %81, %.split47.us.i169 ]
-  %61 = getelementptr inbounds nuw double, ptr %.03748.i160, i64 %indvars.iv63.i157
-  %62 = load double, ptr %61, align 8, !tbaa !3
-  %63 = mul nuw nsw i64 %indvars.iv63.i157, %7
-  %indvars.iv.next64.i161 = add nuw nsw i64 %indvars.iv63.i157, 1
-  %64 = icmp eq i64 %indvars.iv63.i157, 0
-  br i1 %64, label %.lr.ph.us.preheader.i173, label %.split.i162
+  %62 = getelementptr inbounds nuw double, ptr %.03748.i160, i64 %indvars.iv63.i157
+  %63 = load double, ptr %62, align 8, !tbaa !3
+  %64 = mul nuw nsw i64 %indvars.iv63.i157, %7
+  br i1 %61, label %.lr.ph.us.preheader.i173, label %.split.i162
 
 .lr.ph.us.preheader.i173:                         ; preds = %60
   %65 = getelementptr inbounds nuw double, ptr %.03748.i160, i64 %indvars.iv54.i158
@@ -168,9 +167,9 @@ solve.exit:                                       ; preds = %.split47.us.i
   %indvars.iv59.i175 = phi i64 [ 0, %.lr.ph.us.preheader.i173 ], [ %indvars.iv.next60.i177, %.lr.ph.us.i174 ]
   %.144.us.i176 = phi ptr [ %.03649.i159, %.lr.ph.us.preheader.i173 ], [ %76, %.lr.ph.us.i174 ]
   %67 = getelementptr inbounds nuw double, ptr %.2127242, i64 %indvars.iv59.i175
-  %68 = getelementptr inbounds nuw double, ptr %67, i64 %63
+  %68 = getelementptr inbounds nuw double, ptr %67, i64 %64
   %69 = load double, ptr %68, align 8, !tbaa !3
-  %70 = fmul double %62, %69
+  %70 = fmul double %63, %69
   store double %70, ptr %.144.us.i176, align 8, !tbaa !3
   store double %70, ptr %68, align 8, !tbaa !3
   %71 = fneg double %70
@@ -185,7 +184,7 @@ solve.exit:                                       ; preds = %.split47.us.i
   br i1 %exitcond62.not.i178, label %.split47.us.i169, label %.lr.ph.us.i174, !llvm.loop !7
 
 .split.i162:                                      ; preds = %60
-  %invariant.gep.i163 = getelementptr double, ptr %.2127242, i64 %63
+  %invariant.gep.i163 = getelementptr double, ptr %.2127242, i64 %64
   br label %77
 
 77:                                               ; preds = %77, %.split.i162
@@ -193,7 +192,7 @@ solve.exit:                                       ; preds = %.split47.us.i
   %.144.i165 = phi ptr [ %.03649.i159, %.split.i162 ], [ %80, %77 ]
   %gep.i166 = getelementptr double, ptr %invariant.gep.i163, i64 %indvars.iv.i164
   %78 = load double, ptr %gep.i166, align 8, !tbaa !3
-  %79 = fmul double %62, %78
+  %79 = fmul double %63, %78
   store double %79, ptr %.144.i165, align 8, !tbaa !3
   store double %79, ptr %gep.i166, align 8, !tbaa !3
   %80 = getelementptr inbounds nuw i8, ptr %.144.i165, i64 8
@@ -205,7 +204,6 @@ solve.exit:                                       ; preds = %.split47.us.i
   %.us-phi.i170 = phi ptr [ %76, %.lr.ph.us.i174 ], [ %80, %77 ]
   %81 = getelementptr inbounds nuw i8, ptr %.03748.i160, i64 16
   %indvars.iv.next55.i171 = add nuw nsw i64 %indvars.iv54.i158, 1
-  %exitcond66.not.i172 = icmp eq i64 %indvars.iv.next64.i161, 2
   br i1 %exitcond66.not.i172, label %solve.exit179, label %60, !llvm.loop !9
 
 solve.exit179:                                    ; preds = %.split47.us.i169

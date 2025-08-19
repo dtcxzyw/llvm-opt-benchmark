@@ -2409,7 +2409,7 @@ define internal fastcc void @spl_filesystem_object_create_type(i32 noundef %0, p
   br label %212
 
 22:                                               ; preds = %5, %16
-  switch i32 %2, label %default.unreachable89 [
+  switch i32 %2, label %default.unreachable95 [
     i32 0, label %23
     i32 2, label %104
     i32 1, label %209
@@ -2792,7 +2792,7 @@ zend_string_copy.exit:                            ; preds = %spl_filesystem_obje
   %211 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %210, i64 noundef 0, ptr noundef nonnull @.str.42) #18
   br label %212
 
-default.unreachable89:                            ; preds = %22
+default.unreachable95:                            ; preds = %22
   unreachable
 
 .critedge:                                        ; preds = %113, %108, %207
@@ -4373,9 +4373,9 @@ spl_filesystem_object_get_pathname.exit.thread.i: ; preds = %spl_filesystem_obje
   br label %41
 
 41:                                               ; preds = %spl_filesystem_object_get_pathname.exit.thread.i, %37, %33
-  %.sink122.i = phi i32 [ 262, %37 ], [ 6, %spl_filesystem_object_get_pathname.exit.thread.i ], [ 6, %33 ]
+  %.sink132.i = phi i32 [ 262, %37 ], [ 6, %spl_filesystem_object_get_pathname.exit.thread.i ], [ 6, %33 ]
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %.sink122.i, ptr %42, align 8, !tbaa !18
+  store i32 %.sink132.i, ptr %42, align 8, !tbaa !18
   %43 = load ptr, ptr @spl_ce_SplFileInfo, align 8, !tbaa !66
   call void @spl_set_private_debug_info_property(ptr noundef %43, ptr noundef nonnull @.str.43, i64 noundef 8, ptr noundef %23, ptr noundef nonnull %4) #18
   %44 = getelementptr inbounds i8, ptr %11, i64 -4192
@@ -4569,8 +4569,8 @@ spl_intern_is_glob.exit.i:                        ; preds = %115
   br label %spl_intern_is_glob.exit.thread.i
 
 spl_intern_is_glob.exit.thread.i:                 ; preds = %125, %119, %spl_intern_is_glob.exit.i, %115
-  %.sink124.i = phi i32 [ 262, %125 ], [ 6, %119 ], [ 2, %115 ], [ 2, %spl_intern_is_glob.exit.i ]
-  store i32 %.sink124.i, ptr %42, align 8, !tbaa !18
+  %.sink134.i = phi i32 [ 262, %125 ], [ 6, %119 ], [ 2, %115 ], [ 2, %spl_intern_is_glob.exit.i ]
+  store i32 %.sink134.i, ptr %42, align 8, !tbaa !18
   %128 = load ptr, ptr @spl_ce_DirectoryIterator, align 8, !tbaa !66
   call void @spl_set_private_debug_info_property(ptr noundef %128, ptr noundef nonnull @.str.45, i64 noundef 4, ptr noundef %23, ptr noundef nonnull %4) #18
   %129 = getelementptr inbounds i8, ptr %11, i64 -4144
@@ -4598,8 +4598,8 @@ spl_intern_is_glob.exit.thread.i:                 ; preds = %125, %119, %spl_int
   br label %140
 
 140:                                              ; preds = %138, %135, %131
-  %.sink126.i = phi i32 [ 262, %135 ], [ 6, %138 ], [ 6, %131 ]
-  store i32 %.sink126.i, ptr %42, align 8, !tbaa !18
+  %.sink136.i = phi i32 [ 262, %135 ], [ 6, %138 ], [ 6, %131 ]
+  store i32 %.sink136.i, ptr %42, align 8, !tbaa !18
   %141 = load ptr, ptr @spl_ce_RecursiveDirectoryIterator, align 8, !tbaa !66
   call void @spl_set_private_debug_info_property(ptr noundef %141, ptr noundef nonnull @.str.46, i64 noundef 11, ptr noundef %23, ptr noundef nonnull %4) #18
   %.pr.i = load i32, ptr %24, align 8, !tbaa !4
@@ -5240,9 +5240,9 @@ zend_string_alloc.exit:                           ; preds = %49, %56
   br label %84
 
 84:                                               ; preds = %zend_string_alloc.exit, %zend_string_alloc.exit53
-  %.sink54 = phi ptr [ %78, %zend_string_alloc.exit ], [ %63, %zend_string_alloc.exit53 ]
+  %.sink57 = phi ptr [ %78, %zend_string_alloc.exit ], [ %63, %zend_string_alloc.exit53 ]
   %85 = getelementptr inbounds i8, ptr %50, i64 -4144
-  store ptr %.sink54, ptr %85, align 8, !tbaa !18
+  store ptr %.sink57, ptr %85, align 8, !tbaa !18
   %86 = getelementptr inbounds i8, ptr %5, i64 -4160
   %87 = load ptr, ptr %86, align 8, !tbaa !72
   %88 = getelementptr inbounds i8, ptr %50, i64 -4160
@@ -6469,7 +6469,7 @@ define hidden void @zim_SplFileObject_current(ptr noundef readonly captures(none
   %20 = getelementptr inbounds i8, ptr %4, i64 -4112
   %21 = load i8, ptr %20, align 8, !tbaa !18
   %22 = icmp eq i8 %21, 0
-  br i1 %22, label %23, label %.thread41
+  br i1 %22, label %23, label %.thread42
 
 23:                                               ; preds = %19
   %24 = tail call fastcc i32 @spl_filesystem_file_read_line(ptr noundef nonnull %3, ptr noundef nonnull %5, i1 noundef zeroext true)
@@ -6489,7 +6489,7 @@ define hidden void @zim_SplFileObject_current(ptr noundef readonly captures(none
   %30 = getelementptr inbounds i8, ptr %4, i64 -4112
   %31 = load i8, ptr %30, align 8, !tbaa !18
   %32 = icmp eq i8 %31, 0
-  br i1 %32, label %33, label %.thread41
+  br i1 %32, label %33, label %.thread42
 
 33:                                               ; preds = %.thread, %29
   store ptr %25, ptr %1, align 8, !tbaa !18
@@ -6515,9 +6515,9 @@ define hidden void @zim_SplFileObject_current(ptr noundef readonly captures(none
 43:                                               ; preds = %23
   %.pre.pr = load i8, ptr %20, align 8, !tbaa !18
   %44 = icmp eq i8 %.pre.pr, 0
-  br i1 %44, label %54, label %.thread41
+  br i1 %44, label %54, label %.thread42
 
-.thread41:                                        ; preds = %29, %19, %43
+.thread42:                                        ; preds = %29, %19, %43
   %45 = getelementptr inbounds i8, ptr %4, i64 -4112
   %46 = getelementptr inbounds i8, ptr %4, i64 -4120
   %47 = load ptr, ptr %46, align 8, !tbaa !18
@@ -6529,7 +6529,7 @@ define hidden void @zim_SplFileObject_current(ptr noundef readonly captures(none
   %.not33 = icmp eq i32 %50, 0
   br i1 %.not33, label %56, label %51
 
-51:                                               ; preds = %.thread41
+51:                                               ; preds = %.thread42
   %52 = load i32, ptr %47, align 4, !tbaa !32
   %53 = add i32 %52, 1
   store i32 %53, ptr %47, align 4, !tbaa !32
@@ -6540,7 +6540,7 @@ define hidden void @zim_SplFileObject_current(ptr noundef readonly captures(none
   store i32 2, ptr %55, align 8, !tbaa !18
   br label %56
 
-56:                                               ; preds = %.thread41, %51, %37, %39, %54, %13, %8
+56:                                               ; preds = %.thread42, %51, %37, %39, %54, %13, %8
   ret void
 }
 
@@ -8065,8 +8065,8 @@ zend_parse_arg_long_ex.exit:                      ; preds = %22
 .critedge.thread:                                 ; preds = %zend_parse_arg_long_ex.exit
   %31 = getelementptr inbounds i8, ptr %6, i64 -4152
   %32 = load ptr, ptr %31, align 8, !tbaa !18
-  %.not65125 = icmp eq ptr %32, null
-  br i1 %.not65125, label %33, label %.thread
+  %.not65127 = icmp eq ptr %32, null
+  br i1 %.not65127, label %33, label %.thread
 
 33:                                               ; preds = %.critedge.thread, %.critedge
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
@@ -10519,9 +10519,9 @@ spl_filesystem_file_free_line.exit:               ; preds = %36, %40
 67:                                               ; preds = %65
   %68 = load i8, ptr %37, align 8, !tbaa !18
   %69 = icmp eq i8 %68, 0
-  br i1 %69, label %spl_filesystem_file_free_line.exit29, label %.thread.thread32
+  br i1 %69, label %spl_filesystem_file_free_line.exit29, label %.thread.thread35
 
-.thread.thread32:                                 ; preds = %67
+.thread.thread35:                                 ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %71 = load i64, ptr %70, align 8, !tbaa !18
   %72 = add nsw i64 %71, 1
@@ -10558,7 +10558,7 @@ spl_filesystem_file_free_line.exit:               ; preds = %36, %40
   %86 = icmp eq i8 %.pre, 0
   br i1 %86, label %spl_filesystem_file_free_line.exit29, label %87
 
-87:                                               ; preds = %.thread.thread32, %.thread
+87:                                               ; preds = %.thread.thread35, %.thread
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 104
   call void @zval_ptr_dtor(ptr noundef nonnull %88) #18
   store i32 0, ptr %37, align 8, !tbaa !18

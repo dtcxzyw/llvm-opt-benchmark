@@ -1531,9 +1531,9 @@ define dso_local range(i32 0, 2) i32 @init_actions(ptr noundef %0) local_unnamed
   br label %.critedge
 
 .sink.split:                                      ; preds = %23, %19
-  %.sink74 = phi i32 [ 4, %19 ], [ 8, %23 ]
+  %.sink76 = phi i32 [ 4, %19 ], [ 8, %23 ]
   %29 = load i32, ptr @loginfected, align 4, !tbaa !13
-  %30 = or i32 %29, %.sink74
+  %30 = or i32 %29, %.sink76
   store i32 %30, ptr @loginfected, align 4, !tbaa !13
   br label %31
 
@@ -1577,8 +1577,8 @@ switch.lookup:                                    ; preds = %43
   br label %52
 
 52:                                               ; preds = %switch.lookup, %39
-  %.sink75 = phi i32 [ 4, %39 ], [ %switch.load, %switch.lookup ]
-  store i32 %.sink75, ptr @FailAction, align 4, !tbaa !13
+  %.sink77 = phi i32 [ 4, %39 ], [ %switch.load, %switch.lookup ]
+  store i32 %.sink77, ptr @FailAction, align 4, !tbaa !13
   %53 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.44) #19
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = load i32, ptr %54, align 8, !tbaa !37
@@ -1590,21 +1590,21 @@ switch.lookup:                                    ; preds = %43
   %58 = load ptr, ptr %57, align 8, !tbaa !41
   %59 = tail call fastcc i32 @parse_action(ptr noundef %58)
   %60 = icmp ult i32 %59, 5
-  br i1 %60, label %switch.lookup76, label %61
+  br i1 %60, label %switch.lookup78, label %61
 
 61:                                               ; preds = %56
   %62 = load ptr, ptr %57, align 8, !tbaa !41
   %63 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.45, ptr noundef %62) #19
   br label %.critedge
 
-switch.lookup76:                                  ; preds = %56
+switch.lookup78:                                  ; preds = %56
   %64 = zext nneg i32 %59 to i64
-  %switch.gep77 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.init_actions.1, i64 0, i64 %64
-  %switch.load78 = load ptr, ptr %switch.gep77, align 8
+  %switch.gep79 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.init_actions.1, i64 0, i64 %64
+  %switch.load80 = load ptr, ptr %switch.gep79, align 8
   br label %65
 
-65:                                               ; preds = %switch.lookup76, %52
-  %action_accept.sink = phi ptr [ @action_accept, %52 ], [ %switch.load78, %switch.lookup76 ]
+65:                                               ; preds = %switch.lookup78, %52
+  %action_accept.sink = phi ptr [ @action_accept, %52 ], [ %switch.load80, %switch.lookup78 ]
   store ptr %action_accept.sink, ptr @CleanAction, align 8, !tbaa !30
   %66 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.46) #19
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32

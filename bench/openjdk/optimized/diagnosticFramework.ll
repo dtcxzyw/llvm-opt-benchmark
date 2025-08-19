@@ -207,7 +207,7 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
   br i1 %18, label %.critedge.thread, label %29
 
 .critedge.thread:                                 ; preds = %16, %.critedge
-  %.lcssa43.promoted85 = phi i64 [ %.lcssa43.promoted, %.critedge ], [ %7, %16 ]
+  %.lcssa43.promoted96 = phi i64 [ %.lcssa43.promoted, %.critedge ], [ %7, %16 ]
   %19 = getelementptr inbounds i8, ptr %.pre.pre, i64 %7
   %20 = load i8, ptr %19, align 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -227,11 +227,11 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
   br label %106
 
 29:                                               ; preds = %.critedge.thread, %.critedge
-  %.lcssa43.promoted84 = phi i64 [ %.lcssa43.promoted85, %.critedge.thread ], [ %.lcssa43.promoted, %.critedge ]
-  %30 = getelementptr inbounds i8, ptr %.pre.pre, i64 %.lcssa43.promoted84
+  %.lcssa43.promoted95 = phi i64 [ %.lcssa43.promoted96, %.critedge.thread ], [ %.lcssa43.promoted, %.critedge ]
+  %30 = getelementptr inbounds i8, ptr %.pre.pre, i64 %.lcssa43.promoted95
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %30, ptr %31, align 8
-  %.not51 = icmp ugt i64 %.lcssa43.promoted84, %7
+  %.not51 = icmp ugt i64 %.lcssa43.promoted95, %7
   br i1 %.not51, label %.critedge2.thread, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %29
@@ -240,7 +240,7 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
   br label %33
 
 33:                                               ; preds = %.lr.ph52, %55
-  %.lcssa43.promoted54 = phi i64 [ %.lcssa43.promoted84, %.lr.ph52 ], [ %56, %55 ]
+  %.lcssa43.promoted54 = phi i64 [ %.lcssa43.promoted95, %.lr.ph52 ], [ %56, %55 ]
   %34 = getelementptr inbounds i8, ptr %.pre.pre, i64 %.lcssa43.promoted54
   %35 = load i8, ptr %34, align 1
   %.not24 = icmp eq i8 %35, 61
@@ -296,31 +296,31 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
   br label %106
 
 55:                                               ; preds = %36
-  %56 = add i64 %.lcssa43.promoted54, 1
+  %56 = add nuw i64 %.lcssa43.promoted54, 1
   store i64 %56, ptr %6, align 8
-  %.not = icmp ugt i64 %56, %7
-  br i1 %.not, label %.critedge2.thread, label %33, !llvm.loop !11
+  %.not.not = icmp ult i64 %.lcssa43.promoted54, %7
+  br i1 %.not.not, label %33, label %.critedge2.thread, !llvm.loop !11
 
 .critedge2.thread:                                ; preds = %55, %33, %29
-  %57 = phi i64 [ %.lcssa43.promoted84, %29 ], [ %56, %55 ], [ %.lcssa43.promoted54, %33 ]
-  %gepdiff82 = sub nsw i64 %57, %.lcssa43.promoted84
+  %57 = phi i64 [ %.lcssa43.promoted95, %29 ], [ %56, %55 ], [ %.lcssa43.promoted54, %33 ]
+  %gepdiff93 = sub nsw i64 %57, %.lcssa43.promoted95
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %gepdiff82, ptr %58, align 8
+  store i64 %gepdiff93, ptr %58, align 8
   br label %62
 
 ._crit_edge.thread:                               ; preds = %37, %._crit_edge
   %59 = phi i64 [ %43, %._crit_edge ], [ %.lcssa43.promoted54, %37 ]
-  %.neg = xor i64 %.lcssa43.promoted84, -1
-  %gepdiff81 = add i64 %59, %.neg
+  %.neg = xor i64 %.lcssa43.promoted95, -1
+  %gepdiff92 = add i64 %59, %.neg
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %gepdiff81, ptr %60, align 8
+  store i64 %gepdiff92, ptr %60, align 8
   %61 = add i64 %59, 1
   store i64 %61, ptr %6, align 8
   br label %62
 
 62:                                               ; preds = %.critedge2.thread, %._crit_edge.thread
   %63 = phi i64 [ %57, %.critedge2.thread ], [ %61, %._crit_edge.thread ]
-  %64 = phi i64 [ %gepdiff82, %.critedge2.thread ], [ %gepdiff81, %._crit_edge.thread ]
+  %64 = phi i64 [ %gepdiff93, %.critedge2.thread ], [ %gepdiff92, %._crit_edge.thread ]
   %.not28 = icmp ugt i64 %63, %7
   br i1 %.not28, label %102, label %65
 
@@ -331,13 +331,13 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
   br i1 %68, label %69, label %102
 
 69:                                               ; preds = %65
-  %70 = add i64 %63, 1
+  %70 = add nuw i64 %63, 1
   store i64 %70, ptr %6, align 8
   %71 = getelementptr inbounds i8, ptr %.pre.pre, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %71, ptr %72, align 8
-  %.not2959 = icmp ugt i64 %70, %7
-  br i1 %.not2959, label %.critedge4, label %.lr.ph61
+  %.not2959.not = icmp ult i64 %63, %7
+  br i1 %.not2959.not, label %.lr.ph61, label %.critedge4
 
 .lr.ph61:                                         ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -399,10 +399,10 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
   br label %106
 
 96:                                               ; preds = %77
-  %97 = add i64 %.lcssa43.promoted65, 1
+  %97 = add nuw i64 %.lcssa43.promoted65, 1
   store i64 %97, ptr %6, align 8
-  %.not29 = icmp ugt i64 %97, %7
-  br i1 %.not29, label %.critedge4, label %74, !llvm.loop !13
+  %.not29.not = icmp ult i64 %.lcssa43.promoted65, %7
+  br i1 %.not29.not, label %74, label %.critedge4, !llvm.loop !13
 
 .critedge4:                                       ; preds = %74, %96, %69
   %.lcssa = phi i64 [ %70, %69 ], [ %97, %96 ], [ %.lcssa43.promoted65, %74 ]
@@ -1435,12 +1435,12 @@ define hidden void @_ZN4DCmd17parse_and_executeE10DCmdSourceP12outputStreamPKccP
   br label %.loopexit
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.backedge
-  %.sroa.7.04150 = phi i64 [ 0, %.lr.ph ], [ %53, %.backedge ]
+  %.sroa.7.04166 = phi i64 [ 0, %.lr.ph ], [ %53, %.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !33)
   br label %21
 
 21:                                               ; preds = %24, %.lr.ph.i
-  %.05.i = phi i64 [ %.sroa.7.04150, %.lr.ph.i ], [ %25, %24 ]
+  %.05.i = phi i64 [ %.sroa.7.04166, %.lr.ph.i ], [ %25, %24 ]
   %22 = getelementptr inbounds i8, ptr %2, i64 %.05.i
   %23 = load i8, ptr %22, align 1, !noalias !33
   %.not.i = icmp eq i8 %23, 10
@@ -1453,8 +1453,8 @@ define hidden void @_ZN4DCmd17parse_and_executeE10DCmdSourceP12outputStreamPKccP
 
 .critedge.i:                                      ; preds = %24, %21
   %.0.lcssa.i = phi i64 [ %10, %24 ], [ %.05.i, %21 ]
-  %26 = getelementptr inbounds i8, ptr %2, i64 %.sroa.7.04150
-  %27 = sub i64 %.0.lcssa.i, %.sroa.7.04150
+  %26 = getelementptr inbounds i8, ptr %2, i64 %.sroa.7.04166
+  %27 = sub i64 %.0.lcssa.i, %.sroa.7.04166
   store ptr %26, ptr %6, align 8, !alias.scope !33
   %28 = getelementptr inbounds i8, ptr %2, i64 %.0.lcssa.i
   %29 = icmp sgt i64 %27, 0

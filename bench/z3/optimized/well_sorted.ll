@@ -607,11 +607,11 @@ _Z9is_lambdaPK3ast.exit.thread.i.i.i:             ; preds = %_Z9is_lambdaPK3ast.
 
 _ZN12_GLOBAL__N_116well_sorted_procclEP10quantifier.exit.i.i: ; preds = %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i117.i.i, %._crit_edge.i119.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i93.i.i, %._crit_edge.i95.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74.i.i, %._crit_edge.i76.i.i
   %.sink.i.i = phi i32 [ %78, %._crit_edge.i76.i.i ], [ %.pre2.i75.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74.i.i ], [ %99, %._crit_edge.i95.i.i ], [ %.pre2.i94.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i93.i.i ], [ %180, %._crit_edge.i119.i.i ], [ %.pre2.i118.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i117.i.i ]
-  %.sink320.i.i = phi ptr [ %.pre.i77.i.i, %._crit_edge.i76.i.i ], [ %84, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74.i.i ], [ %.pre.i96.i.i, %._crit_edge.i95.i.i ], [ %105, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i93.i.i ], [ %.pre.i120.i.i, %._crit_edge.i119.i.i ], [ %186, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i117.i.i ]
-  %.0.i275.sink.i.i = phi ptr [ %47, %._crit_edge.i76.i.i ], [ %47, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74.i.i ], [ %47, %._crit_edge.i95.i.i ], [ %47, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i93.i.i ], [ %.0.i.i.i, %._crit_edge.i119.i.i ], [ %.0.i.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i117.i.i ]
+  %.sink337.i.i = phi ptr [ %.pre.i77.i.i, %._crit_edge.i76.i.i ], [ %84, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74.i.i ], [ %.pre.i96.i.i, %._crit_edge.i95.i.i ], [ %105, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i93.i.i ], [ %.pre.i120.i.i, %._crit_edge.i119.i.i ], [ %186, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i117.i.i ]
+  %.0.i292.sink.i.i = phi ptr [ %47, %._crit_edge.i76.i.i ], [ %47, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74.i.i ], [ %47, %._crit_edge.i95.i.i ], [ %47, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i93.i.i ], [ %.0.i.i.i, %._crit_edge.i119.i.i ], [ %.0.i.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i117.i.i ]
   %209 = zext i32 %.sink.i.i to i64
-  %210 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink320.i.i, i64 %209
-  store ptr %.0.i275.sink.i.i, ptr %210, align 8
+  %210 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink337.i.i, i64 %209
+  store ptr %.0.i292.sink.i.i, ptr %210, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %210, i64 8
   store i32 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8
   %211 = load i32, ptr %21, align 8, !tbaa !23
@@ -737,8 +737,8 @@ _ZNK9func_decl14is_associativeEv.exit:            ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 17
   %21 = load i16, ptr %20, align 1
   %22 = and i16 %21, 3
-  %or.cond92.not = icmp eq i16 %22, 0
-  br i1 %or.cond92.not, label %_ZNK9func_decl19is_left_associativeEv.exit.thread, label %24
+  %or.cond106.not = icmp eq i16 %22, 0
+  br i1 %or.cond106.not, label %_ZNK9func_decl19is_left_associativeEv.exit.thread, label %24
 
 _ZNK9func_decl19is_left_associativeEv.exit.thread: ; preds = %_ZNK9func_decl14is_associativeEv.exit, %17
   tail call void (ptr, ...) @_Z11warning_msgPKcz(ptr noundef nonnull @.str.2)

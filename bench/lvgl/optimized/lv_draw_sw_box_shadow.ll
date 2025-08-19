@@ -290,9 +290,9 @@ define void @lv_draw_sw_box_shadow(ptr noundef %0, ptr noundef readonly captures
 
 .sink.split.i:                                    ; preds = %156, %153
   %.pn.i = phi i32 [ %158, %156 ], [ 16320, %153 ]
-  %.sink143.in.i = udiv i32 %.pn.i, %149
-  %.sink143.i = trunc i32 %.sink143.in.i to i16
-  store i16 %.sink143.i, ptr %154, align 2, !tbaa !29
+  %.sink148.in.i = udiv i32 %.pn.i, %149
+  %.sink148.i = trunc i32 %.sink148.in.i to i16
+  store i16 %.sink148.i, ptr %154, align 2, !tbaa !29
   br label %159
 
 159:                                              ; preds = %.sink.split.i, %153

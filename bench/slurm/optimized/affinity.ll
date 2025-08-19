@@ -86,8 +86,8 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
 
 ._crit_edge:                                      ; preds = %28
   %33 = urem i32 %2, %spec.select
-  %.not151 = icmp eq i32 %33, 0
-  br i1 %.not151, label %._crit_edge128, label %.lr.ph127
+  %.not156 = icmp eq i32 %33, 0
+  br i1 %.not156, label %._crit_edge128, label %.lr.ph127
 
 .lr.ph127:                                        ; preds = %._crit_edge, %.lr.ph127
   %34 = phi i8 [ %38, %.lr.ph127 ], [ %23, %._crit_edge ]

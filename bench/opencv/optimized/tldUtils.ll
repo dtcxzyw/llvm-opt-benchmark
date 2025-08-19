@@ -384,8 +384,8 @@ _ZNSt6vectorIdSaIdEE6assignEmRKd.exit:            ; preds = %_ZNSt6vectorIdSaIdE
           to label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit.preheader unwind label %188
 
 _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit.preheader: ; preds = %_ZNSt6vectorIdSaIdEE6assignEmRKd.exit
-  %.not179 = icmp eq i32 %2, 0
-  br i1 %.not179, label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit._crit_edge.thread, label %.lr.ph
+  %.not190 = icmp eq i32 %2, 0
+  br i1 %.not190, label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit._crit_edge.thread, label %.lr.ph
 
 _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit._crit_edge.thread: ; preds = %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -665,7 +665,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   br i1 %159, label %.preheader, label %180
 
 .preheader:                                       ; preds = %152
-  br i1 %.not179, label %._crit_edge, label %.lr.ph136
+  br i1 %.not190, label %._crit_edge, label %.lr.ph136
 
 .lr.ph136:                                        ; preds = %.preheader, %163
   %indvars.iv159 = phi i64 [ %indvars.iv.next160, %163 ], [ 0, %.preheader ]

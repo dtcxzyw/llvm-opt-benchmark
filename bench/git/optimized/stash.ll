@@ -2296,9 +2296,9 @@ _.exit67:                                         ; preds = %68, %70
   %87 = phi ptr [ @.str.39, %85 ], [ @.str.36, %79 ]
   %.not46 = icmp eq i32 %3, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 72
-  br i1 %.not46, label %88, label %.thread92
+  br i1 %.not46, label %88, label %.thread93
 
-.thread92:                                        ; preds = %86
+.thread93:                                        ; preds = %86
   store i32 0, ptr %.phi.trans.insert, align 8, !tbaa !138
   br label %97
 
@@ -2325,7 +2325,7 @@ _.exit72:                                         ; preds = %90, %92
   %96 = call i32 (ptr, ...) @printf_ln(ptr noundef %.0.i71, ptr noundef %95, ptr noundef %94) #15
   br label %97
 
-97:                                               ; preds = %.thread92, %_.exit72, %88
+97:                                               ; preds = %.thread93, %_.exit72, %88
   %98 = load ptr, ptr %11, align 8, !tbaa !139
   %99 = call ptr @lookup_tree(ptr noundef %98, ptr noundef nonnull %12) #15
   %100 = load ptr, ptr %11, align 8, !tbaa !139

@@ -372,12 +372,12 @@ define internal fastcc ptr @module_name(ptr noundef readonly captures(none) %0) 
   %or.cond24 = icmp ult i8 %14, 26
   %15 = or i8 %7, 32
   %spec.select = select i1 %or.cond24, i8 %15, i8 95
-  %spec.select28 = select i1 %or.cond24, i8 1, i8 %.026
+  %spec.select29 = select i1 %or.cond24, i8 1, i8 %.026
   br label %16
 
 16:                                               ; preds = %12, %9, %11
   %.sink = phi i8 [ %7, %11 ], [ %7, %9 ], [ %spec.select, %12 ]
-  %.1 = phi i8 [ 1, %11 ], [ 1, %9 ], [ %spec.select28, %12 ]
+  %.1 = phi i8 [ 1, %11 ], [ 1, %9 ], [ %spec.select29, %12 ]
   tail call void @scratch_buffer_append_char(i8 noundef signext %.sink) #9
   %17 = add nuw i64 %.02325, 1
   %exitcond.not = icmp eq i64 %17, %4

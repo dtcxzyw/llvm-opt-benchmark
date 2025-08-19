@@ -660,9 +660,9 @@ spl_object_storage_free_hash.exit.thread:         ; preds = %.thread, %spl_objec
   br i1 %.not61, label %73, label %.sink.split
 
 .sink.split:                                      ; preds = %60, %63
-  %.sink138 = phi i32 [ %67, %63 ], [ %58, %60 ]
+  %.sink139 = phi i32 [ %67, %63 ], [ %58, %60 ]
   %.sink.in = phi ptr [ %65, %63 ], [ %56, %60 ]
-  %69 = and i32 %.sink138, 65280
+  %69 = and i32 %.sink139, 65280
   %70 = icmp ne i32 %69, 0
   call void @llvm.assume(i1 %70)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !4
@@ -2913,8 +2913,8 @@ instanceof_function.exit.thread:                  ; preds = %instanceof_function
   store ptr null, ptr %4, align 8, !tbaa !87
   %37 = load i64, ptr %32, align 8, !tbaa !4
   store i64 %37, ptr %5, align 8, !tbaa !78
-  %.pn145 = load ptr, ptr %6, align 8, !tbaa !4
-  %38 = getelementptr inbounds i8, ptr %.pn145, i64 -88
+  %.pn151 = load ptr, ptr %6, align 8, !tbaa !4
+  %38 = getelementptr inbounds i8, ptr %.pn151, i64 -88
   br label %47
 
 zend_parse_arg_str_or_long.exit:                  ; preds = %31
@@ -2953,18 +2953,18 @@ zend_parse_arg_str_or_long.exit:                  ; preds = %31
 
 47:                                               ; preds = %.critedge.thread135.thread, %.critedge.thread135
   %48 = phi ptr [ %38, %.critedge.thread135.thread ], [ %41, %.critedge.thread135 ]
-  %.pn148 = phi ptr [ %.pn145, %.critedge.thread135.thread ], [ %.pn, %.critedge.thread135 ]
+  %.pn154 = phi ptr [ %.pn151, %.critedge.thread135.thread ], [ %.pn, %.critedge.thread135 ]
   %49 = load i64, ptr %5, align 8, !tbaa !78
   store i64 %49, ptr %3, align 8, !tbaa !4
   br label %50
 
 50:                                               ; preds = %47, %42
   %51 = phi ptr [ %48, %47 ], [ %41, %42 ]
-  %.pn147 = phi ptr [ %.pn148, %47 ], [ %.pn, %42 ]
+  %.pn153 = phi ptr [ %.pn154, %47 ], [ %.pn, %42 ]
   %.sink = phi i32 [ 4, %47 ], [ %46, %42 ]
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sink, ptr %52, align 8, !tbaa !4
-  %53 = getelementptr inbounds i8, ptr %.pn147, i64 -24
+  %53 = getelementptr inbounds i8, ptr %.pn153, i64 -24
   call void @zend_hash_internal_pointer_reset_ex(ptr noundef nonnull %51, ptr noundef nonnull %53) #10
   %54 = call ptr @zend_hash_get_current_data_ex(ptr noundef nonnull %51, ptr noundef nonnull %53) #10
   %.not.i78141 = icmp eq ptr %54, null
@@ -4167,9 +4167,9 @@ define internal ptr @spl_object_storage_read_dimension(ptr noundef %0, ptr nound
   br i1 %.not33, label %45, label %.sink.split
 
 .sink.split:                                      ; preds = %32, %35
-  %.sink41 = phi i32 [ %39, %35 ], [ %30, %32 ]
+  %.sink43 = phi i32 [ %39, %35 ], [ %30, %32 ]
   %.sink.in = phi ptr [ %37, %35 ], [ %28, %32 ]
-  %41 = and i32 %.sink41, 65280
+  %41 = and i32 %.sink43, 65280
   %42 = icmp ne i32 %41, 0
   tail call void @llvm.assume(i1 %42)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !4

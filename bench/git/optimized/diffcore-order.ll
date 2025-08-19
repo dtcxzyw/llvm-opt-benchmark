@@ -88,10 +88,10 @@ define dso_local void @order_objects(ptr noundef %0, ptr noundef readonly captur
   br label %.critedge.us.thread.i
 
 .critedge.us.thread.i:                            ; preds = %26, %.critedge.us.i, %.critedge.us.i, %.preheader.us.i
-  %.lcssa.us54.i = phi i64 [ %.lcssa.us.i, %.critedge.us.i ], [ %.lcssa.us.i, %26 ], [ %.lcssa.us.i, %.critedge.us.i ], [ 1, %.preheader.us.i ]
-  %.0.lcssa.us53.i = phi ptr [ %24, %.critedge.us.i ], [ %24, %26 ], [ %24, %.critedge.us.i ], [ %.03138.us.i, %.preheader.us.i ]
+  %.lcssa.us59.i = phi i64 [ %.lcssa.us.i, %.critedge.us.i ], [ %.lcssa.us.i, %26 ], [ %.lcssa.us.i, %.critedge.us.i ], [ 1, %.preheader.us.i ]
+  %.0.lcssa.us58.i = phi ptr [ %24, %.critedge.us.i ], [ %24, %26 ], [ %24, %.critedge.us.i ], [ %.03138.us.i, %.preheader.us.i ]
   %.129.us.i = phi i32 [ %.02839.us.i, %.critedge.us.i ], [ %27, %26 ], [ %.02839.us.i, %.critedge.us.i ], [ %.02839.us.i, %.preheader.us.i ]
-  %spec.select.us.i = getelementptr inbounds nuw i8, ptr %.0.lcssa.us53.i, i64 %.lcssa.us54.i
+  %spec.select.us.i = getelementptr inbounds nuw i8, ptr %.0.lcssa.us58.i, i64 %.lcssa.us59.i
   %28 = icmp ult ptr %spec.select.us.i, %16
   br i1 %28, label %.preheader.us.i, label %._crit_edge.i, !llvm.loop !16
 

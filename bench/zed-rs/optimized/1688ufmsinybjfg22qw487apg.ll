@@ -2381,7 +2381,7 @@ define internal fastcc { i64, ptr } @"_ZN16snippet_provider15process_updates28_$
   %12 = alloca [24 x i8], align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %14 = load i8, ptr %13, align 8, !range !235, !noundef !4
-  switch i8 %14, label %default.unreachable103 [
+  switch i8 %14, label %default.unreachable116 [
     i8 0, label %15
     i8 1, label %49
     i8 2, label %50
@@ -2389,7 +2389,7 @@ define internal fastcc { i64, ptr } @"_ZN16snippet_provider15process_updates28_$
     i8 4, label %23
   ]
 
-default.unreachable103:                           ; preds = %2
+default.unreachable116:                           ; preds = %2
   unreachable
 
 15:                                               ; preds = %2
@@ -3218,7 +3218,7 @@ define hidden { i64, ptr } @"_ZN16snippet_provider15SnippetProvider15watch_direc
   %18 = alloca [16 x i8], align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 163
   %20 = load i8, ptr %19, align 1, !range !36, !noundef !4
-  switch i8 %20, label %default.unreachable183 [
+  switch i8 %20, label %default.unreachable210 [
     i8 0, label %21
     i8 1, label %119
     i8 2, label %120
@@ -3233,7 +3233,7 @@ define hidden { i64, ptr } @"_ZN16snippet_provider15SnippetProvider15watch_direc
   %.pre182 = load ptr, ptr %.phi.trans.insert181, align 8, !alias.scope !573, !noalias !576
   br label %517
 
-default.unreachable183:                           ; preds = %121, %2
+default.unreachable210:                           ; preds = %121, %2
   unreachable
 
 21:                                               ; preds = %2
@@ -3487,7 +3487,7 @@ default.unreachable183:                           ; preds = %121, %2
   %.pre = load i8, ptr %.phi.trans.insert, align 4, !range !165, !noalias !609
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 396
-  switch i8 %.pre, label %default.unreachable183 [
+  switch i8 %.pre, label %default.unreachable210 [
     i8 0, label %124
     i8 1, label %174
     i8 2, label %175
@@ -3701,7 +3701,7 @@ default.unreachable183:                           ; preds = %121, %2
 "_ZN4core3ptr389drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$std..path..PathBuf$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hb1d5a4d5a1ac6c26E.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9899833156714210745.exit.i.i.i.i", %195
   %211 = load ptr, ptr %191, align 8, !noalias !609, !noundef !4
   %212 = icmp eq ptr %211, null
-  br i1 %212, label %.thread142.i, label %216
+  br i1 %212, label %.thread154.i, label %216
 
 213:                                              ; preds = %309
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 395
@@ -3710,7 +3710,7 @@ default.unreachable183:                           ; preds = %121, %2
   %.phi.trans.insert139.i = getelementptr inbounds nuw i8, ptr %0, i64 280
   %.pre140.i = load ptr, ptr %.phi.trans.insert139.i, align 8, !noalias !609
   %215 = icmp eq ptr %.pre140.i, null
-  br i1 %215, label %.thread142.i, label %311
+  br i1 %215, label %.thread154.i, label %311
 
 216:                                              ; preds = %"_ZN4core3ptr389drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$std..path..PathBuf$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hb1d5a4d5a1ac6c26E.exit.i"
   store i8 0, ptr %190, align 8, !noalias !609
@@ -4027,16 +4027,16 @@ default.unreachable183:                           ; preds = %121, %2
   %314 = trunc nuw i8 %313 to i1
   br i1 %314, label %326, label %"_ZN4core3ptr257drop_in_place$LT$core..result..Result$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$std..path..PathBuf$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$anyhow..Error$GT$$GT$17h38ecf348f1db7d3aE.exit.i"
 
-.thread142.i:                                     ; preds = %213, %"_ZN4core3ptr389drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$std..path..PathBuf$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hb1d5a4d5a1ac6c26E.exit.i"
+.thread154.i:                                     ; preds = %213, %"_ZN4core3ptr389drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$std..path..PathBuf$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hb1d5a4d5a1ac6c26E.exit.i"
   %315 = phi ptr [ %296, %213 ], [ %177, %"_ZN4core3ptr389drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$std..path..PathBuf$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hb1d5a4d5a1ac6c26E.exit.i" ]
   %316 = phi ptr [ %297, %213 ], [ %178, %"_ZN4core3ptr389drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$std..path..PathBuf$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hb1d5a4d5a1ac6c26E.exit.i" ]
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 288
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %317)
           to label %"_ZN4core3ptr257drop_in_place$LT$core..result..Result$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$std..path..PathBuf$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$anyhow..Error$GT$$GT$17h38ecf348f1db7d3aE.exit.i" unwind label %346
 
-"_ZN4core3ptr257drop_in_place$LT$core..result..Result$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$std..path..PathBuf$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$anyhow..Error$GT$$GT$17h38ecf348f1db7d3aE.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9899833156714210745.exit.i.i.i64.i", %331, %.thread142.i, %311
-  %318 = phi ptr [ %296, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9899833156714210745.exit.i.i.i64.i" ], [ %296, %331 ], [ %315, %.thread142.i ], [ %296, %311 ]
-  %319 = phi ptr [ %297, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9899833156714210745.exit.i.i.i64.i" ], [ %297, %331 ], [ %316, %.thread142.i ], [ %297, %311 ]
+"_ZN4core3ptr257drop_in_place$LT$core..result..Result$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$std..path..PathBuf$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$anyhow..Error$GT$$GT$17h38ecf348f1db7d3aE.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9899833156714210745.exit.i.i.i64.i", %331, %.thread154.i, %311
+  %318 = phi ptr [ %296, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9899833156714210745.exit.i.i.i64.i" ], [ %296, %331 ], [ %315, %.thread154.i ], [ %296, %311 ]
+  %319 = phi ptr [ %297, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9899833156714210745.exit.i.i.i64.i" ], [ %297, %331 ], [ %316, %.thread154.i ], [ %297, %311 ]
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store i8 0, ptr %320, align 8, !noalias !609
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -4095,9 +4095,9 @@ default.unreachable183:                           ; preds = %121, %2
   call void @__rust_dealloc(ptr noundef nonnull %.pre140.i, i64 noundef %341, i64 noundef %343) #30, !noalias !723
   br label %.body.i
 
-346:                                              ; preds = %409, %.thread142.i
-  %347 = phi ptr [ %284, %409 ], [ %315, %.thread142.i ]
-  %348 = phi ptr [ %285, %409 ], [ %316, %.thread142.i ]
+346:                                              ; preds = %409, %.thread154.i
+  %347 = phi ptr [ %284, %409 ], [ %315, %.thread154.i ]
+  %348 = phi ptr [ %285, %409 ], [ %316, %.thread154.i ]
   %349 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i

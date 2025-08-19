@@ -317,7 +317,7 @@ Npn_ManObj.exit:                                  ; preds = %27
   %35 = getelementptr inbounds %struct.Npn_Obj_t_, ptr %33, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !22
   %37 = icmp eq i64 %36, %1
-  br i1 %37, label %.lr.ph._crit_edge, label %.lr.ph56
+  br i1 %37, label %.lr.ph._crit_edge, label %.lr.ph62
 
 .lr.ph._crit_edge:                                ; preds = %Npn_ManObj.exit41, %Npn_ManObj.exit
   %.03648.lcssa = phi ptr [ %35, %Npn_ManObj.exit ], [ %45, %Npn_ManObj.exit41 ]
@@ -327,23 +327,23 @@ Npn_ManObj.exit:                                  ; preds = %27
   store i32 %40, ptr %38, align 8, !tbaa !27
   br label %59
 
-.lr.ph56:                                         ; preds = %Npn_ManObj.exit, %Npn_ManObj.exit41
-  %.0364855 = phi ptr [ %45, %Npn_ManObj.exit41 ], [ %35, %Npn_ManObj.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.0364855, i64 12
+.lr.ph62:                                         ; preds = %Npn_ManObj.exit, %Npn_ManObj.exit41
+  %.0364861 = phi ptr [ %45, %Npn_ManObj.exit41 ], [ %35, %Npn_ManObj.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.0364861, i64 12
   %42 = load i32, ptr %41, align 4, !tbaa !19
   %.not.i40 = icmp eq i32 %42, 0
   br i1 %.not.i40, label %Npn_ManObj.exit43.loopexit, label %Npn_ManObj.exit41
 
-Npn_ManObj.exit41:                                ; preds = %.lr.ph56
+Npn_ManObj.exit41:                                ; preds = %.lr.ph62
   %43 = load ptr, ptr %0, align 8, !tbaa !18
   %44 = sext i32 %42 to i64
   %45 = getelementptr inbounds %struct.Npn_Obj_t_, ptr %43, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !22
   %47 = icmp eq i64 %46, %1
-  br i1 %47, label %.lr.ph._crit_edge, label %.lr.ph56, !llvm.loop !28
+  br i1 %47, label %.lr.ph._crit_edge, label %.lr.ph62, !llvm.loop !28
 
-Npn_ManObj.exit43.loopexit:                       ; preds = %.lr.ph56
-  %48 = getelementptr inbounds nuw i8, ptr %.0364855, i64 12
+Npn_ManObj.exit43.loopexit:                       ; preds = %.lr.ph62
+  %48 = getelementptr inbounds nuw i8, ptr %.0364861, i64 12
   br label %Npn_ManObj.exit43
 
 Npn_ManObj.exit43:                                ; preds = %Npn_ManObj.exit43.loopexit, %27

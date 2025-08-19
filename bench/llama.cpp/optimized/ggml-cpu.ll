@@ -1106,7 +1106,7 @@ _Z39ggml_backend_cpu_get_extra_buffers_typev.exit: ; preds = %10, %13, %16
 42:                                               ; preds = %.critedge83
   %43 = load i32, ptr %1, align 8, !tbaa !101
   %44 = icmp ult i32 %43, 30
-  br i1 %44, label %switch.lookup96, label %switch.edge
+  br i1 %44, label %switch.lookup105, label %switch.edge
 
 45:                                               ; preds = %.critedge83
   %46 = load i32, ptr %6, align 8, !tbaa !101
@@ -1184,14 +1184,14 @@ _Z39ggml_backend_cpu_get_extra_buffers_typev.exit: ; preds = %10, %13, %16
   %91 = icmp eq i32 %90, 0
   br label %switch.edge
 
-switch.lookup96:                                  ; preds = %42
+switch.lookup105:                                 ; preds = %42
   %switch.cast = trunc nuw i32 %43 to i30
   %switch.downshift = lshr i30 529596415, %switch.cast
   %switch.masked = trunc i30 %switch.downshift to i1
   br label %switch.edge
 
-switch.edge:                                      ; preds = %26, %37, %2, %42, %switch.lookup96, %.critedge83, %72, %74, %80, %86, %89, %63, %66, %54, %57, %45, %48, %60
-  %.0 = phi i1 [ %62, %60 ], [ true, %45 ], [ %53, %48 ], [ false, %57 ], [ false, %54 ], [ false, %63 ], [ %68, %66 ], [ false, %86 ], [ false, %80 ], [ false, %74 ], [ false, %72 ], [ %91, %89 ], [ true, %.critedge83 ], [ %switch.masked, %switch.lookup96 ], [ true, %42 ], [ true, %2 ], [ false, %37 ], [ true, %26 ]
+switch.edge:                                      ; preds = %26, %37, %2, %42, %switch.lookup105, %.critedge83, %72, %74, %80, %86, %89, %63, %66, %54, %57, %45, %48, %60
+  %.0 = phi i1 [ %62, %60 ], [ true, %45 ], [ %53, %48 ], [ false, %57 ], [ false, %54 ], [ false, %63 ], [ %68, %66 ], [ false, %86 ], [ false, %80 ], [ false, %74 ], [ false, %72 ], [ %91, %89 ], [ true, %.critedge83 ], [ %switch.masked, %switch.lookup105 ], [ true, %42 ], [ true, %2 ], [ false, %37 ], [ true, %26 ]
   ret i1 %.0
 }
 

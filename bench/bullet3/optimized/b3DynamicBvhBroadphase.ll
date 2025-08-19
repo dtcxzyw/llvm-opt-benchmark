@@ -592,19 +592,19 @@ _ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE4copyEiiPS2_.exit15.i.i: ; preds = %.n
   br label %_ZN20b3AlignedObjectArrayIPK10b3DbvtNodeE9push_backERKS2_.exit
 
 _ZN20b3AlignedObjectArrayIPK10b3DbvtNodeE9push_backERKS2_.exit: ; preds = %.noexc20, %.noexc22, %.noexc12
-  %.sink79 = phi ptr [ %11, %.noexc12 ], [ %13, %.noexc22 ], [ %13, %.noexc20 ]
+  %.sink94 = phi ptr [ %11, %.noexc12 ], [ %13, %.noexc22 ], [ %13, %.noexc20 ]
   %.sink = phi i32 [ 64, %.noexc12 ], [ 0, %.noexc22 ], [ 1, %.noexc20 ]
   store i8 1, ptr %7, align 8, !tbaa !68
-  store ptr %.sink79, ptr %8, align 8, !tbaa !69
+  store ptr %.sink94, ptr %8, align 8, !tbaa !69
   store i32 %.sink, ptr %10, align 8, !tbaa !71
-  store ptr %1, ptr %.sink79, align 8, !tbaa !72
+  store ptr %1, ptr %.sink94, align 8, !tbaa !72
   br label %15
 
 15:                                               ; preds = %_ZN20b3AlignedObjectArrayIPK10b3DbvtNodeE9push_backERKS2_.exit, %thread-pre-split
-  %16 = phi ptr [ %.sink79, %_ZN20b3AlignedObjectArrayIPK10b3DbvtNodeE9push_backERKS2_.exit ], [ %109, %thread-pre-split ]
+  %16 = phi ptr [ %.sink94, %_ZN20b3AlignedObjectArrayIPK10b3DbvtNodeE9push_backERKS2_.exit ], [ %109, %thread-pre-split ]
   %17 = phi i32 [ %.sink, %_ZN20b3AlignedObjectArrayIPK10b3DbvtNodeE9push_backERKS2_.exit ], [ %110, %thread-pre-split ]
   %18 = phi i32 [ %.sink, %_ZN20b3AlignedObjectArrayIPK10b3DbvtNodeE9push_backERKS2_.exit ], [ %111, %thread-pre-split ]
-  %19 = phi ptr [ %.sink79, %_ZN20b3AlignedObjectArrayIPK10b3DbvtNodeE9push_backERKS2_.exit ], [ %112, %thread-pre-split ]
+  %19 = phi ptr [ %.sink94, %_ZN20b3AlignedObjectArrayIPK10b3DbvtNodeE9push_backERKS2_.exit ], [ %112, %thread-pre-split ]
   %20 = phi i32 [ 1, %_ZN20b3AlignedObjectArrayIPK10b3DbvtNodeE9push_backERKS2_.exit ], [ %113, %thread-pre-split ]
   %21 = add nsw i32 %20, -1
   %22 = sext i32 %21 to i64
@@ -1716,8 +1716,8 @@ _ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit: ; preds =
   %44 = icmp sgt i32 %43, %42
   %45 = load i32, ptr %33, align 8
   %46 = icmp slt i32 %45, %43
-  %or.cond101 = select i1 %44, i1 %46, i1 false
-  br i1 %or.cond101, label %47, label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit72
+  %or.cond111 = select i1 %44, i1 %46, i1 false
+  br i1 %or.cond111, label %47, label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit72
 
 47:                                               ; preds = %41
   %.not.i.i.i = icmp eq i32 %42, 0
@@ -2357,11 +2357,11 @@ _Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread:   ; preds = %104, %128, %133, %1
   br i1 %169, label %104, label %._crit_edge, !llvm.loop !99
 
 ._crit_edge.thread:                               ; preds = %91, %._crit_edge
-  %.042.lcssa69 = phi i32 [ %.143, %._crit_edge ], [ %.sroa.speculated, %91 ]
+  %.042.lcssa77 = phi i32 [ %.143, %._crit_edge ], [ %.sroa.speculated, %91 ]
   %170 = phi i32 [ %.pre66, %._crit_edge ], [ %89, %91 ]
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %172 = load i32, ptr %171, align 4, !tbaa !36
-  %173 = add nsw i32 %172, %.042.lcssa69
+  %173 = add nsw i32 %172, %.042.lcssa77
   %174 = srem i32 %173, %170
   store i32 %174, ptr %171, align 4, !tbaa !36
   br label %177
@@ -2706,9 +2706,9 @@ define dso_local void @_ZNK22b3DynamicBvhBroadphase17getBroadphaseAabbER9b3Vecto
   %25 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i
   %26 = load float, ptr %25, align 4, !tbaa !81
   %27 = fcmp ogt float %24, %26
-  %.sink27.i = select i1 %27, float %24, float %26
+  %.sink30.i = select i1 %27, float %24, float %26
   %28 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i
-  store float %.sink27.i, ptr %28, align 4, !tbaa !81
+  store float %.sink30.i, ptr %28, align 4, !tbaa !81
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %_Z7b3MergeRK12b3DbvtAabbMmS1_RS_.exit, label %16, !llvm.loop !105

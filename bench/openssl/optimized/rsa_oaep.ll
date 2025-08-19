@@ -497,7 +497,7 @@ define i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef captures(none) %0, i32
 .lr.ph205:                                        ; preds = %.preheader
   %108 = and i32 %93, 255
   %wide.trip.count226 = zext nneg i32 %103 to i64
-  %invariant.gep234 = getelementptr inbounds nuw i8, ptr %32, i64 %48
+  %invariant.gep246 = getelementptr inbounds nuw i8, ptr %32, i64 %48
   br label %132
 
 109:                                              ; preds = %.lr.ph203, %._crit_edge200
@@ -514,7 +514,7 @@ define i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef captures(none) %0, i32
   %115 = xor i32 %113, -1
   %116 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %115) #6, !srcloc !13
   %117 = sext i32 %.0146201 to i64
-  %118 = sext i32 %110 to i64
+  %118 = zext nneg i32 %110 to i64
   %invariant.gep = getelementptr i8, ptr %32, i64 %117
   br label %119
 
@@ -532,7 +532,7 @@ define i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef captures(none) %0, i32
   %128 = trunc nuw i32 %127 to i8
   store i8 %128, ptr %121, align 1, !tbaa !3
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
-  %129 = icmp slt i64 %indvars.iv.next221, %118
+  %129 = icmp samesign ult i64 %indvars.iv.next221, %118
   br i1 %129, label %119, label %._crit_edge200, !llvm.loop !15
 
 ._crit_edge200:                                   ; preds = %119, %109
@@ -546,8 +546,8 @@ define i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef captures(none) %0, i32
   %134 = sub i32 %133, %89
   %135 = or i32 %134, %89
   %isneg = icmp slt i32 %135, 0
-  %gep235 = getelementptr inbounds nuw i8, ptr %invariant.gep234, i64 %indvars.iv223
-  %136 = getelementptr inbounds nuw i8, ptr %gep235, i64 1
+  %gep247 = getelementptr inbounds nuw i8, ptr %invariant.gep246, i64 %indvars.iv223
+  %136 = getelementptr inbounds nuw i8, ptr %gep247, i64 1
   %137 = load i8, ptr %136, align 1, !tbaa !3
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv223
   %139 = load i8, ptr %138, align 1, !tbaa !3

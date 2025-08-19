@@ -960,8 +960,8 @@ write_bin_error.exit156.i:                        ; preds = %128, %125
   br label %206
 
 .thread158.sink.split.i:                          ; preds = %145, %139
-  %.sink171.i = phi i16 [ 12, %145 ], [ 0, %139 ]
-  store i16 %.sink171.i, ptr %65, align 8, !tbaa !48
+  %.sink174.i = phi i16 [ 12, %145 ], [ 0, %139 ]
+  store i16 %.sink174.i, ptr %65, align 8, !tbaa !48
   br label %.thread158.i
 
 .thread158.i:                                     ; preds = %.thread158.sink.split.i, %147, %147
@@ -991,8 +991,8 @@ write_bin_error.exit156.i:                        ; preds = %128, %125
   br label %206
 
 .thread160.sink.split.i:                          ; preds = %143, %139
-  %.sink172.i = phi i16 [ 6, %143 ], [ 5, %139 ]
-  store i16 %.sink172.i, ptr %65, align 8, !tbaa !48
+  %.sink175.i = phi i16 [ 6, %143 ], [ 5, %139 ]
+  store i16 %.sink175.i, ptr %65, align 8, !tbaa !48
   br label %.thread160.i
 
 .thread160.i:                                     ; preds = %.thread160.sink.split.i, %147, %147
@@ -1008,8 +1008,8 @@ write_bin_error.exit156.i:                        ; preds = %128, %125
   br label %206
 
 .thread162.sink.split.i:                          ; preds = %144, %139
-  %.sink173.i = phi i16 [ 15, %144 ], [ 14, %139 ]
-  store i16 %.sink173.i, ptr %65, align 8, !tbaa !48
+  %.sink176.i = phi i16 [ 15, %144 ], [ 14, %139 ]
+  store i16 %.sink176.i, ptr %65, align 8, !tbaa !48
   br label %.thread162.i
 
 .thread162.i:                                     ; preds = %.thread162.sink.split.i, %147, %147
@@ -1070,8 +1070,8 @@ write_bin_error.exit156.i:                        ; preds = %128, %125
   br label %206
 
 .thread164.sink.split.i:                          ; preds = %146, %139
-  %.sink174.i = phi i16 [ 35, %146 ], [ 29, %139 ]
-  store i16 %.sink174.i, ptr %65, align 8, !tbaa !48
+  %.sink177.i = phi i16 [ 35, %146 ], [ 29, %139 ]
+  store i16 %.sink177.i, ptr %65, align 8, !tbaa !48
   br label %.thread164.i
 
 .thread164.i:                                     ; preds = %.thread164.sink.split.i, %147, %147, %147
@@ -1499,9 +1499,9 @@ define internal fastcc void @process_bin_update(ptr noundef %0, ptr noundef nonn
   %29 = load i32, ptr %28, align 8, !tbaa !37
   %switch.selectcmp = icmp eq i16 %26, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.33, ptr @.str.34
-  %switch.selectcmp97 = icmp eq i16 %26, 2
-  %switch.select98 = select i1 %switch.selectcmp97, ptr @.str.32, ptr %switch.select
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull %switch.select98, i32 noundef %29) #12
+  %switch.selectcmp101 = icmp eq i16 %26, 2
+  %switch.select102 = select i1 %switch.selectcmp101, ptr @.str.32, ptr %switch.select
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull %switch.select102, i32 noundef %29) #12
   %.not95 = icmp eq i16 %.val91, 0
   br i1 %.not95, label %._crit_edge, label %.lr.ph.preheader
 

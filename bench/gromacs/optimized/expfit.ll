@@ -506,7 +506,7 @@ _ZL8safe_expd.exit30:                             ; preds = %26, %27
 
 _ZL8safe_expd.exit30.thread:                      ; preds = %22
   %. = select i1 %25, double 0x51F73F60EA79F5B9, double 0x2DF6061812054CFA
-  %.66 = select i1 %25, double 0x51F73F60EA79F5B9, double 0x2DE6061812054CFA
+  %.68 = select i1 %25, double 0x51F73F60EA79F5B9, double 0x2DE6061812054CFA
   br label %_ZL8safe_expd.exit36
 
 _ZL8safe_expd.exit32:                             ; preds = %_ZL8safe_expd.exit30
@@ -522,11 +522,11 @@ _ZL8safe_expd.exit32:                             ; preds = %_ZL8safe_expd.exit3
   br label %_ZL8safe_expd.exit36
 
 _ZL8safe_expd.exit36:                             ; preds = %_ZL8safe_expd.exit30.thread, %_ZL8safe_expd.exit32, %31
-  %.0.i3352 = phi double [ %35, %31 ], [ 0x51F73F60EA79F5B9, %_ZL8safe_expd.exit32 ], [ 0x2DE6061812054CFA, %_ZL8safe_expd.exit30.thread ]
-  %.pn65 = phi double [ %34, %31 ], [ %30, %_ZL8safe_expd.exit32 ], [ %., %_ZL8safe_expd.exit30.thread ]
-  %.0.i35 = phi double [ %36, %31 ], [ 0x2DE6061812054CFA, %_ZL8safe_expd.exit32 ], [ %.66, %_ZL8safe_expd.exit30.thread ]
-  %37 = fmul double %23, %.pn65
-  %38 = fsub double %.0.i3352, %.0.i35
+  %.0.i3354 = phi double [ %35, %31 ], [ 0x51F73F60EA79F5B9, %_ZL8safe_expd.exit32 ], [ 0x2DE6061812054CFA, %_ZL8safe_expd.exit30.thread ]
+  %.pn67 = phi double [ %34, %31 ], [ %30, %_ZL8safe_expd.exit32 ], [ %., %_ZL8safe_expd.exit30.thread ]
+  %.0.i35 = phi double [ %36, %31 ], [ 0x2DE6061812054CFA, %_ZL8safe_expd.exit32 ], [ %.68, %_ZL8safe_expd.exit30.thread ]
+  %37 = fmul double %23, %.pn67
+  %38 = fsub double %.0.i3354, %.0.i35
   %39 = fmul double %23, %38
   br label %45
 
@@ -1917,7 +1917,7 @@ _Z11effnNparamsi.exit121.thread:                  ; preds = %_Z15effnDescription
   %wide.trip.count197 = zext nneg i32 %0 to i64
   %wide.trip.count205 = zext nneg i32 %0 to i64
   %not. = xor i1 %50, true
-  %storemerge212 = select i1 %57, double 0x3FEE666666666666, double 1.000000e+00
+  %storemerge217 = select i1 %57, double 0x3FEE666666666666, double 1.000000e+00
   %storemerge = select i1 %57, double %64, double 1.000000e+00
   %70 = add i32 %1, -11
   %brmerge = icmp ult i32 %70, -10
@@ -1990,9 +1990,9 @@ _Z11effnNparamsi.exit121.thread:                  ; preds = %_Z15effnDescription
   br label %100
 
 100:                                              ; preds = %98, %.critedge2
-  %storemerge213 = select i1 %57, double %62, double %.2105
-  store double %storemerge213, ptr %10, align 16, !tbaa !13
-  store double %storemerge212, ptr %58, align 8, !tbaa !13
+  %storemerge218 = select i1 %57, double %62, double %.2105
+  store double %storemerge218, ptr %10, align 16, !tbaa !13
+  store double %storemerge217, ptr %58, align 8, !tbaa !13
   store double %storemerge, ptr %59, align 16, !tbaa !13
   br i1 %55, label %.lr.ph177, label %._crit_edge
 

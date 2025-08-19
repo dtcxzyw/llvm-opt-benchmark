@@ -400,15 +400,15 @@ _ZN6icu_7712LocalPointerINS_7PackageEED2Ev.exit:  ; preds = %thread-pre-split, %
 
 25:                                               ; preds = %_ZN6icu_7712LocalPointerINS_7PackageEED2Ev.exit.thread, %_ZN6icu_7712LocalPointerINS_7PackageEED2Ev.exit
   %26 = phi ptr [ %11, %_ZN6icu_7712LocalPointerINS_7PackageEED2Ev.exit.thread ], [ %21, %_ZN6icu_7712LocalPointerINS_7PackageEED2Ev.exit ]
-  %.0122224 = phi i32 [ 1, %_ZN6icu_7712LocalPointerINS_7PackageEED2Ev.exit.thread ], [ 0, %_ZN6icu_7712LocalPointerINS_7PackageEED2Ev.exit ]
+  %.0122527 = phi i32 [ 1, %_ZN6icu_7712LocalPointerINS_7PackageEED2Ev.exit.thread ], [ 0, %_ZN6icu_7712LocalPointerINS_7PackageEED2Ev.exit ]
   tail call void @_ZN6icu_777PackageD1Ev(ptr noundef nonnull align 8 dereferenceable(201237) %26) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef 201240) #14
   br label %_ZN6icu_7712LocalPointerINS_7PackageEED2Ev.exit19
 
 _ZN6icu_7712LocalPointerINS_7PackageEED2Ev.exit19: ; preds = %_ZN6icu_7712LocalPointerINS_7PackageEED2Ev.exit, %25
-  %.0122225 = phi i32 [ 0, %_ZN6icu_7712LocalPointerINS_7PackageEED2Ev.exit ], [ %.0122224, %25 ]
+  %.0122528 = phi i32 [ 0, %_ZN6icu_7712LocalPointerINS_7PackageEED2Ev.exit ], [ %.0122527, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.0122225
+  ret i32 %.0122528
 
 27:                                               ; preds = %15, %13
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %16, %15 ]

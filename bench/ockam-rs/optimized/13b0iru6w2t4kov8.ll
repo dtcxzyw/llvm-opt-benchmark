@@ -8085,14 +8085,14 @@ define hidden void @"_ZN98_$LT$ockam_transport_uds..router..handle..UdsRouterHan
   %39 = alloca { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { ptr, ptr }, { ptr, ptr } }, align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 888
   %41 = load i8, ptr %40, align 8, !range !189, !noundef !10
-  switch i8 %41, label %default.unreachable112 [
+  switch i8 %41, label %default.unreachable116 [
     i8 0, label %44
     i8 1, label %85
     i8 2, label %86
     i8 3, label %42
   ]
 
-default.unreachable112:                           ; preds = %385, %253, %242, %226, %104, %87, %3
+default.unreachable116:                           ; preds = %385, %253, %242, %226, %104, %87, %3
   unreachable
 
 42:                                               ; preds = %3
@@ -8280,7 +8280,7 @@ common.ret:                                       ; preds = %491, %43
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 880
   %90 = load i8, ptr %89, align 8, !range !189, !noalias !1255, !noundef !10
-  switch i8 %90, label %default.unreachable112 [
+  switch i8 %90, label %default.unreachable116 [
     i8 0, label %91
     i8 1, label %.invoke
     i8 2, label %101
@@ -8343,7 +8343,7 @@ common.ret:                                       ; preds = %491, %43
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i.i)
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 559
   %107 = load i8, ptr %106, align 1, !range !190, !noalias !1264, !noundef !10
-  switch i8 %107, label %default.unreachable112 [
+  switch i8 %107, label %default.unreachable116 [
     i8 0, label %108
     i8 1, label %.invoke.i
     i8 2, label %223
@@ -8715,7 +8715,7 @@ _ZN5tokio7runtime6handle6Handle11spawn_named17hf11f06d570c1028fE.llvm.6972814350
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 1, !range !189, !noalias !1321
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8145.i.i)
   %227 = getelementptr inbounds nuw i8, ptr %1, i64 560
-  switch i8 %.pre.i.i, label %default.unreachable112 [
+  switch i8 %.pre.i.i, label %default.unreachable116 [
     i8 0, label %..thread.i.i_crit_edge.i
     i8 1, label %.invoke.i.i
     i8 2, label %239
@@ -8765,7 +8765,7 @@ _ZN5tokio7runtime6handle6Handle11spawn_named17hf11f06d570c1028fE.llvm.6972814350
 242:                                              ; preds = %226
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 680
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i, align 8, !range !189, !noalias !1325
-  switch i8 %.pre.i.i.i, label %default.unreachable112 [
+  switch i8 %.pre.i.i.i, label %default.unreachable116 [
     i8 0, label %..thread.i.i_crit_edge.i.i
     i8 1, label %.invoke.i.i.i
     i8 2, label %250
@@ -8811,7 +8811,7 @@ _ZN5tokio7runtime6handle6Handle11spawn_named17hf11f06d570c1028fE.llvm.6972814350
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 608
   %.pre.i.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i.i, align 8, !range !190, !noalias !1329
   %254 = getelementptr inbounds nuw i8, ptr %1, i64 576
-  switch i8 %.pre.i.i.i.i, label %default.unreachable112 [
+  switch i8 %.pre.i.i.i.i, label %default.unreachable116 [
     i8 0, label %._crit_edge38.i.i.i
     i8 1, label %.invoke.i.i.i.i
     i8 2, label %268
@@ -9112,7 +9112,7 @@ _ZN5tokio7runtime6handle6Handle11spawn_named17hf11f06d570c1028fE.llvm.6972814350
 
 372:                                              ; preds = %367
   %373 = icmp eq i8 %.sroa.024.0.i222.i.i, 15
-  br i1 %373, label %.thread243.i.i, label %374
+  br i1 %373, label %.thread245.i.i, label %374
 
 374:                                              ; preds = %372
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1360
@@ -9127,7 +9127,7 @@ _ZN5tokio7runtime6handle6Handle11spawn_named17hf11f06d570c1028fE.llvm.6972814350
           cleanup
   br label %383
 
-.thread243.i.i:                                   ; preds = %372
+.thread245.i.i:                                   ; preds = %372
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1264
   %378 = getelementptr inbounds nuw i8, ptr %1, i64 448
   store ptr %378, ptr %368, align 8, !noalias !1264
@@ -9172,9 +9172,9 @@ _ZN5tokio7runtime6handle6Handle11spawn_named17hf11f06d570c1028fE.llvm.6972814350
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1264
   %.phi.trans.insert240.i.i = getelementptr inbounds nuw i8, ptr %1, i64 576
   %.pre241.i.i = load i8, ptr %.phi.trans.insert240.i.i, align 8, !range !189, !noalias !1363
-  switch i8 %.pre241.i.i, label %default.unreachable112 [
+  switch i8 %.pre241.i.i, label %default.unreachable116 [
     i8 0, label %386
-    i8 1, label %.invoke244.i.i
+    i8 1, label %.invoke246.i.i
     i8 2, label %391
     i8 3, label %._crit_edge.i.i.i
   ]
@@ -9184,8 +9184,8 @@ _ZN5tokio7runtime6handle6Handle11spawn_named17hf11f06d570c1028fE.llvm.6972814350
   %.pre.i129.i.i = load ptr, ptr %.phi.trans.insert.i128.i.i, align 8, !alias.scope !1367, !noalias !1372
   br label %394
 
-386:                                              ; preds = %385, %.thread243.i.i
-  %387 = phi ptr [ %.sroa.8174.0..sroa_idx.i.i, %.thread243.i.i ], [ %.phi.trans.insert240.i.i, %385 ]
+386:                                              ; preds = %385, %.thread245.i.i
+  %387 = phi ptr [ %.sroa.8174.0..sroa_idx.i.i, %.thread245.i.i ], [ %.phi.trans.insert240.i.i, %385 ]
   %388 = getelementptr inbounds nuw i8, ptr %1, i64 560
   %389 = load ptr, ptr %388, align 8, !noalias !1363, !nonnull !10, !align !27, !noundef !10
   %390 = getelementptr inbounds nuw i8, ptr %1, i64 568
@@ -9193,15 +9193,15 @@ _ZN5tokio7runtime6handle6Handle11spawn_named17hf11f06d570c1028fE.llvm.6972814350
   br label %394
 
 391:                                              ; preds = %385
-  br label %.invoke244.i.i
+  br label %.invoke246.i.i
 
-.invoke244.i.i:                                   ; preds = %391, %385
+.invoke246.i.i:                                   ; preds = %391, %385
   %392 = phi ptr [ @str.1, %391 ], [ @str.0, %385 ]
   %393 = phi i64 [ 34, %391 ], [ 35, %385 ]
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 %392, i64 noundef %393, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.35fdec169de678b13bb93ce4d87aeabf.27) #31
-          to label %.cont245.i.i unwind label %414, !noalias !1275
+          to label %.cont247.i.i unwind label %414, !noalias !1275
 
-.cont245.i.i:                                     ; preds = %.invoke244.i.i
+.cont247.i.i:                                     ; preds = %.invoke246.i.i
   unreachable
 
 394:                                              ; preds = %386, %._crit_edge.i.i.i
@@ -9274,7 +9274,7 @@ _ZN5tokio7runtime6handle6Handle11spawn_named17hf11f06d570c1028fE.llvm.6972814350
   store i8 2, ptr %395, align 8, !noalias !1363
   br label %.body136.i.i
 
-414:                                              ; preds = %.invoke244.i.i
+414:                                              ; preds = %.invoke246.i.i
   %415 = landingpad { ptr, i32 }
           cleanup
   br label %.body136.i.i

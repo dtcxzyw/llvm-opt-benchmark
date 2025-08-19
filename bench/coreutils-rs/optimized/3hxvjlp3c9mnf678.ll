@@ -1497,12 +1497,12 @@ define hidden void @_ZN6uu_fmt9linebreak14slice_if_fresh17he2750172105604aaE(ptr
   br i1 %18, label %24, label %23
 
 20:                                               ; preds = %24, %10
-  %.sink5 = phi i64 [ 0, %24 ], [ %.0.i, %10 ]
-  %.sink3 = phi ptr [ %26, %24 ], [ %2, %10 ]
+  %.sink6 = phi i64 [ 0, %24 ], [ %.0.i, %10 ]
+  %.sink4 = phi ptr [ %26, %24 ], [ %2, %10 ]
   %.sink = phi i64 [ %25, %24 ], [ %3, %10 ]
-  store i64 %.sink5, ptr %0, align 8
+  store i64 %.sink6, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink3, ptr %21, align 8
+  store ptr %.sink4, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %22, align 8
   ret void

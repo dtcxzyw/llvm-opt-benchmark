@@ -376,12 +376,12 @@ define internal void @_ZL14_SCSUToUnicodeP23UConverterToUnicodeArgsP10UErrorCode
   br label %.sink.split
 
 .sink.split:                                      ; preds = %71, %74, %91
-  %.sink631 = phi i8 [ 1, %91 ], [ 2, %74 ], [ 2, %71 ]
+  %.sink659 = phi i8 [ 1, %91 ], [ 2, %74 ], [ 2, %71 ]
   %.5233.us.ph = phi i8 [ %.7235.us, %91 ], [ 2, %74 ], [ 5, %71 ]
   %.5223.us.ph = phi i8 [ %.4222430.us, %91 ], [ %70, %74 ], [ %73, %71 ]
   %.5214.us.ph = phi i8 [ %.7216.us, %91 ], [ %.4213431.us, %74 ], [ %.4213431.us, %71 ]
   %.5205.us.ph = phi i8 [ %.7207.us, %91 ], [ %.4204432.us, %74 ], [ %72, %71 ]
-  store i8 %.sink631, ptr %67, align 8, !tbaa !20
+  store i8 %.sink659, ptr %67, align 8, !tbaa !20
   br label %92
 
 92:                                               ; preds = %.sink.split, %.lr.ph434.split.us
@@ -532,10 +532,10 @@ define internal void @_ZL14_SCSUToUnicodeP23UConverterToUnicodeArgsP10UErrorCode
   br label %.loopexit
 
 162:                                              ; preds = %146, %156, %151
-  %.sink632 = phi i32 [ %147, %146 ], [ %160, %156 ], [ %153, %151 ]
+  %.sink660 = phi i32 [ %147, %146 ], [ %160, %156 ], [ %153, %151 ]
   %163 = sext i8 %.4204432.us to i64
   %164 = getelementptr inbounds [8 x i32], ptr %6, i64 0, i64 %163
-  store i32 %.sink632, ptr %164, align 4, !tbaa !44
+  store i32 %.sink660, ptr %164, align 4, !tbaa !44
   br label %.loopexit285.split.us
 
 165:                                              ; preds = %2
@@ -608,7 +608,7 @@ define internal void @_ZL14_SCSUToUnicodeP23UConverterToUnicodeArgsP10UErrorCode
 
 190:                                              ; preds = %.lr.ph393.split.us
   store i8 %189, ptr %185, align 1, !tbaa !16
-  br label %.sink.split635
+  br label %.sink.split663
 
 191:                                              ; preds = %.lr.ph393.split.us
   %192 = add i8 %189, 32
@@ -631,22 +631,22 @@ define internal void @_ZL14_SCSUToUnicodeP23UConverterToUnicodeArgsP10UErrorCode
 
 199:                                              ; preds = %198
   store i8 -16, ptr %187, align 1, !tbaa !16
-  br label %.sink.split635
+  br label %.sink.split663
 
 200:                                              ; preds = %191
   store i8 %189, ptr %187, align 1, !tbaa !16
-  br label %.sink.split635
+  br label %.sink.split663
 
-.sink.split635:                                   ; preds = %190, %199, %200
-  %.sink636 = phi i8 [ 1, %200 ], [ 1, %199 ], [ 2, %190 ]
+.sink.split663:                                   ; preds = %190, %199, %200
+  %.sink664 = phi i8 [ 1, %200 ], [ 1, %199 ], [ 2, %190 ]
   %.10238.us.ph = phi i8 [ 2, %200 ], [ 1, %199 ], [ 2, %190 ]
   %.9227.us.ph = phi i8 [ %189, %200 ], [ %.8226391.us, %199 ], [ %189, %190 ]
-  store i8 %.sink636, ptr %186, align 8, !tbaa !20
+  store i8 %.sink664, ptr %186, align 8, !tbaa !20
   br label %201
 
-201:                                              ; preds = %.sink.split635, %.lr.ph393.split.us
-  %.10238.us = phi i8 [ %.9237390.us, %.lr.ph393.split.us ], [ %.10238.us.ph, %.sink.split635 ]
-  %.9227.us = phi i8 [ %.8226391.us, %.lr.ph393.split.us ], [ %.9227.us.ph, %.sink.split635 ]
+201:                                              ; preds = %.sink.split663, %.lr.ph393.split.us
+  %.10238.us = phi i8 [ %.9237390.us, %.lr.ph393.split.us ], [ %.10238.us.ph, %.sink.split663 ]
+  %.9227.us = phi i8 [ %.8226391.us, %.lr.ph393.split.us ], [ %.9227.us.ph, %.sink.split663 ]
   %exitcond.not = icmp eq ptr %188, %10
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph393.split.us, !llvm.loop !50
 
@@ -964,12 +964,12 @@ define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %87, %90, %107
-  %.sink812 = phi i8 [ 1, %107 ], [ 2, %90 ], [ 2, %87 ]
+  %.sink840 = phi i8 [ 1, %107 ], [ 2, %90 ], [ 2, %87 ]
   %.5308.us.ph = phi i8 [ %.7310.us, %107 ], [ 2, %90 ], [ 5, %87 ]
   %.5298.us.ph = phi i8 [ %.4297569.us, %107 ], [ %85, %90 ], [ %89, %87 ]
   %.5289.us.ph = phi i8 [ %.7291.us, %107 ], [ %.4288570.us, %90 ], [ %.4288570.us, %87 ]
   %.5280.us.ph = phi i8 [ %.7282.us, %107 ], [ %.4279571.us, %90 ], [ %88, %87 ]
-  store i8 %.sink812, ptr %82, align 8, !tbaa !20
+  store i8 %.sink840, ptr %82, align 8, !tbaa !20
   br label %108
 
 108:                                              ; preds = %.sink.split, %.lr.ph574.split.us
@@ -1165,10 +1165,10 @@ define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
   br label %.loopexit
 
 195:                                              ; preds = %179, %189, %184
-  %.sink813 = phi i32 [ %180, %179 ], [ %193, %189 ], [ %186, %184 ]
+  %.sink841 = phi i32 [ %180, %179 ], [ %193, %189 ], [ %186, %184 ]
   %196 = sext i8 %.4279571.us to i64
   %197 = getelementptr inbounds [8 x i32], ptr %6, i64 0, i64 %196
-  store i32 %.sink813, ptr %197, align 4, !tbaa !44
+  store i32 %.sink841, ptr %197, align 4, !tbaa !44
   br label %.loopexit389.split.us
 
 198:                                              ; preds = %2
@@ -1262,7 +1262,7 @@ define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
 
 228:                                              ; preds = %.lr.ph522.split.us
   store i8 %226, ptr %222, align 1, !tbaa !16
-  br label %.sink.split816
+  br label %.sink.split844
 
 229:                                              ; preds = %.lr.ph522.split.us
   %230 = add i8 %226, 32
@@ -1285,22 +1285,22 @@ define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
 
 237:                                              ; preds = %236
   store i8 -16, ptr %224, align 1, !tbaa !16
-  br label %.sink.split816
+  br label %.sink.split844
 
 238:                                              ; preds = %229
   store i8 %226, ptr %224, align 1, !tbaa !16
-  br label %.sink.split816
+  br label %.sink.split844
 
-.sink.split816:                                   ; preds = %228, %237, %238
-  %.sink817 = phi i8 [ 1, %238 ], [ 1, %237 ], [ 2, %228 ]
+.sink.split844:                                   ; preds = %228, %237, %238
+  %.sink845 = phi i8 [ 1, %238 ], [ 1, %237 ], [ 2, %228 ]
   %.10313.us.ph = phi i8 [ 2, %238 ], [ 1, %237 ], [ 2, %228 ]
   %.9302.us.ph = phi i8 [ %226, %238 ], [ %.8301519.us, %237 ], [ %226, %228 ]
-  store i8 %.sink817, ptr %223, align 8, !tbaa !20
+  store i8 %.sink845, ptr %223, align 8, !tbaa !20
   br label %239
 
-239:                                              ; preds = %.sink.split816, %.lr.ph522.split.us
-  %.10313.us = phi i8 [ %.9312518.us, %.lr.ph522.split.us ], [ %.10313.us.ph, %.sink.split816 ]
-  %.9302.us = phi i8 [ %.8301519.us, %.lr.ph522.split.us ], [ %.9302.us.ph, %.sink.split816 ]
+239:                                              ; preds = %.sink.split844, %.lr.ph522.split.us
+  %.10313.us = phi i8 [ %.9312518.us, %.lr.ph522.split.us ], [ %.10313.us.ph, %.sink.split844 ]
+  %.9302.us = phi i8 [ %.8301519.us, %.lr.ph522.split.us ], [ %.9302.us.ph, %.sink.split844 ]
   %exitcond.not = icmp eq ptr %225, %10
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph522.split.us, !llvm.loop !55
 
@@ -1950,40 +1950,40 @@ _ZL9getWindowPKjj.exit370.thread:                 ; preds = %255, %_ZL9getWindow
 
 .lr.ph.preheader:                                 ; preds = %.preheader466
   %304 = icmp slt i32 %.0272, 1
-  br i1 %304, label %.loopexit.sink.split, label %.lr.ph791
+  br i1 %304, label %.loopexit.sink.split, label %.lr.ph819
 
 .lr.ph:                                           ; preds = %313
-  %305 = add nsw i32 %.8547788, -2
-  %306 = icmp slt i32 %.8547788, 3
-  br i1 %306, label %.loopexit.sink.split, label %.lr.ph791, !llvm.loop !67
+  %305 = add nsw i32 %.8547816, -2
+  %306 = icmp slt i32 %.8547816, 3
+  br i1 %306, label %.loopexit.sink.split, label %.lr.ph819, !llvm.loop !67
 
-.lr.ph791:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.9297545790 = phi ptr [ %307, %.lr.ph ], [ %.0288, %.lr.ph.preheader ]
-  %.9546789 = phi ptr [ %318, %.lr.ph ], [ %.0279, %.lr.ph.preheader ]
-  %.8547788 = phi i32 [ %305, %.lr.ph ], [ %.0272, %.lr.ph.preheader ]
-  %307 = getelementptr inbounds nuw i8, ptr %.9297545790, i64 2
-  %308 = load i16, ptr %.9297545790, align 2, !tbaa !27
+.lr.ph819:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.9297545818 = phi ptr [ %307, %.lr.ph ], [ %.0288, %.lr.ph.preheader ]
+  %.9546817 = phi ptr [ %318, %.lr.ph ], [ %.0279, %.lr.ph.preheader ]
+  %.8547816 = phi i32 [ %305, %.lr.ph ], [ %.0272, %.lr.ph.preheader ]
+  %307 = getelementptr inbounds nuw i8, ptr %.9297545818, i64 2
+  %308 = load i16, ptr %.9297545818, align 2, !tbaa !27
   %309 = zext i16 %308 to i32
   %310 = add nsw i32 %309, -13312
   %311 = icmp ult i32 %310, 41984
   br i1 %311, label %312, label %320
 
-312:                                              ; preds = %.lr.ph791
-  %.not319 = icmp eq i32 %.8547788, 1
+312:                                              ; preds = %.lr.ph819
+  %.not319 = icmp eq i32 %.8547816, 1
   br i1 %.not319, label %.thread, label %313
 
 313:                                              ; preds = %312
   %314 = lshr i16 %308, 8
   %315 = trunc nuw i16 %314 to i8
-  %316 = getelementptr inbounds nuw i8, ptr %.9546789, i64 1
-  store i8 %315, ptr %.9546789, align 1, !tbaa !16
+  %316 = getelementptr inbounds nuw i8, ptr %.9546817, i64 1
+  store i8 %315, ptr %.9546817, align 1, !tbaa !16
   %317 = trunc i16 %308 to i8
-  %318 = getelementptr inbounds nuw i8, ptr %.9546789, i64 2
+  %318 = getelementptr inbounds nuw i8, ptr %.9546817, i64 2
   store i8 %317, ptr %316, align 1, !tbaa !16
   %319 = icmp ult ptr %307, %11
   br i1 %319, label %.lr.ph, label %.loopexit, !llvm.loop !67
 
-320:                                              ; preds = %.lr.ph791
+320:                                              ; preds = %.lr.ph819
   %321 = icmp ugt i32 %310, 48895
   br i1 %321, label %322, label %397
 
@@ -2126,8 +2126,8 @@ _ZL9getWindowPKjj.exit376.thread:                 ; preds = %343, %_ZL9getWindow
 
 402:                                              ; preds = %399, %302
   %.8296 = phi ptr [ %.0288, %302 ], [ %307, %399 ]
-  %.8287 = phi ptr [ %.0279, %302 ], [ %.9546789, %399 ]
-  %.7 = phi i32 [ %.0272, %302 ], [ %.8547788, %399 ]
+  %.8287 = phi ptr [ %.0279, %302 ], [ %.9546817, %399 ]
+  %.7 = phi i32 [ %.0272, %302 ], [ %.8547816, %399 ]
   %.5 = phi i32 [ %.0261, %302 ], [ %309, %399 ]
   %403 = icmp ult ptr %.8296, %11
   br i1 %403, label %404, label %.loopexit
@@ -2368,13 +2368,13 @@ _ZL16getDynamicOffsetjPj.exit414.thread444:       ; preds = %480, %469, %460, %_
   br label %531
 
 .loopexit.sink.split:                             ; preds = %399, %404, %64, %69, %38, %.lr.ph.preheader, %.lr.ph, %579, %564
-  %.sink720 = phi i32 [ 15, %564 ], [ 15, %579 ], [ 15, %.lr.ph ], [ 15, %38 ], [ 12, %69 ], [ 12, %64 ], [ 12, %404 ], [ 12, %399 ], [ 15, %.lr.ph.preheader ]
+  %.sink748 = phi i32 [ 15, %564 ], [ 15, %579 ], [ 15, %.lr.ph ], [ 15, %38 ], [ 12, %69 ], [ 12, %64 ], [ 12, %404 ], [ 12, %399 ], [ 15, %.lr.ph.preheader ]
   %.7295.ph = phi ptr [ %.4292455, %564 ], [ %.4292455, %579 ], [ %307, %.lr.ph ], [ %.2290, %38 ], [ %.1289, %69 ], [ %41, %64 ], [ %.8296, %404 ], [ %307, %399 ], [ %.0288, %.lr.ph.preheader ]
-  %.7286.ph = phi ptr [ %.4283456, %564 ], [ %581, %579 ], [ %318, %.lr.ph ], [ %.2281, %38 ], [ %.1280, %69 ], [ %.2281, %64 ], [ %.8287, %404 ], [ %.9546789, %399 ], [ %.0279, %.lr.ph.preheader ]
+  %.7286.ph = phi ptr [ %.4283456, %564 ], [ %581, %579 ], [ %318, %.lr.ph ], [ %.2281, %38 ], [ %.1280, %69 ], [ %.2281, %64 ], [ %.8287, %404 ], [ %.9546817, %399 ], [ %.0279, %.lr.ph.preheader ]
   %.2271.ph = phi i8 [ %.1270458, %564 ], [ %.1270458, %579 ], [ 0, %.lr.ph ], [ %.0269, %38 ], [ %.0269, %69 ], [ %.0269, %64 ], [ 0, %404 ], [ 0, %399 ], [ 0, %.lr.ph.preheader ]
   %.2268.ph = phi i8 [ %.1267459, %564 ], [ %.1267459, %579 ], [ %.0266, %.lr.ph ], [ %.0266, %.lr.ph.preheader ], [ %.0266, %38 ], [ %.0266, %69 ], [ %.0266, %64 ], [ %.0266, %404 ], [ %.0266, %399 ]
   %.4.ph = phi i32 [ 0, %564 ], [ 0, %579 ], [ 0, %.lr.ph ], [ %.2263, %38 ], [ %.1262, %69 ], [ %43, %64 ], [ %.5, %404 ], [ %309, %399 ], [ %.0261, %.lr.ph.preheader ]
-  store i32 %.sink720, ptr %1, align 4, !tbaa !25
+  store i32 %.sink748, ptr %1, align 4, !tbaa !25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %67, %36, %402, %.preheader466, %313, %.loopexit.sink.split
@@ -2393,8 +2393,8 @@ _ZL16getDynamicOffsetjPj.exit414.thread444:       ; preds = %480, %469, %460, %_
 
 531:                                              ; preds = %324, %_ZL9getWindowPKjj.exit376.thread, %529, %_ZL16getDynamicOffsetjPj.exit414.thread444, %_ZL16useDynamicWindowP8SCSUDataa.exit427, %_ZL16useDynamicWindowP8SCSUDataa.exit406, %379, %_ZL16useDynamicWindowP8SCSUDataa.exit388, %334, %296, %294, %268, %258, %_ZL24isInOffsetWindowOrDirectjj.exit.thread, %_ZL16useDynamicWindowP8SCSUDataa.exit365, %193, %187, %_ZL16getDynamicOffsetjPj.exit.thread432, %_ZL16useDynamicWindowP8SCSUDataa.exit347, %_ZL16useDynamicWindowP8SCSUDataa.exit, %56
   %.4292 = phi ptr [ %41, %56 ], [ %41, %187 ], [ %41, %193 ], [ %41, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %41, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %41, %258 ], [ %41, %268 ], [ %41, %294 ], [ %41, %296 ], [ %75, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %75, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %75, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %410, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %410, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %410, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %307, %334 ], [ %307, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %307, %379 ], [ %307, %529 ], [ %307, %_ZL9getWindowPKjj.exit376.thread ], [ %307, %324 ]
-  %.4283 = phi ptr [ %.2281, %56 ], [ %.2281, %187 ], [ %.2281, %193 ], [ %.2281, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %.2281, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2281, %258 ], [ %.2281, %268 ], [ %.2281, %294 ], [ %.2281, %296 ], [ %.1280, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1280, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %181, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %.8287, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %.8287, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %.8287, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %.9546789, %334 ], [ %.9546789, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %.9546789, %379 ], [ %.9546789, %529 ], [ %.9546789, %_ZL9getWindowPKjj.exit376.thread ], [ %.9546789, %324 ]
-  %.4276 = phi i32 [ %.2274, %56 ], [ %.2274, %187 ], [ %.2274, %193 ], [ %.2274, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %.2274, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2274, %258 ], [ %.2274, %268 ], [ %.2274, %294 ], [ %.2274, %296 ], [ %.1273, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1273, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %182, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %.7, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %.7, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %.7, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %.8547788, %334 ], [ %.8547788, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %.8547788, %379 ], [ %.8547788, %529 ], [ %.8547788, %_ZL9getWindowPKjj.exit376.thread ], [ %.8547788, %324 ]
+  %.4283 = phi ptr [ %.2281, %56 ], [ %.2281, %187 ], [ %.2281, %193 ], [ %.2281, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %.2281, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2281, %258 ], [ %.2281, %268 ], [ %.2281, %294 ], [ %.2281, %296 ], [ %.1280, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1280, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %181, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %.8287, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %.8287, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %.8287, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %.9546817, %334 ], [ %.9546817, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %.9546817, %379 ], [ %.9546817, %529 ], [ %.9546817, %_ZL9getWindowPKjj.exit376.thread ], [ %.9546817, %324 ]
+  %.4276 = phi i32 [ %.2274, %56 ], [ %.2274, %187 ], [ %.2274, %193 ], [ %.2274, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %.2274, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2274, %258 ], [ %.2274, %268 ], [ %.2274, %294 ], [ %.2274, %296 ], [ %.1273, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1273, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %182, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %.7, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %.7, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %.7, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %.8547816, %334 ], [ %.8547816, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %.8547816, %379 ], [ %.8547816, %529 ], [ %.8547816, %_ZL9getWindowPKjj.exit376.thread ], [ %.8547816, %324 ]
   %.1270 = phi i8 [ %.0269, %56 ], [ %.0269, %187 ], [ %.0269, %193 ], [ %.0269, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %.0269, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.0269, %258 ], [ %.0269, %268 ], [ 0, %294 ], [ %.0269, %296 ], [ %.0269, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.0269, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ 0, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ 0, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ 1, %334 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ 1, %379 ], [ 0, %529 ], [ 0, %_ZL9getWindowPKjj.exit376.thread ], [ 0, %324 ]
   %.1267 = phi i8 [ %.0266, %56 ], [ %.0266, %187 ], [ %.0266, %193 ], [ %200, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %.0266, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.0266, %258 ], [ %272, %268 ], [ %.0266, %294 ], [ %.0266, %296 ], [ %86, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %148, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %.0266, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %494, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %.0266, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %420, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %.0266, %334 ], [ %344, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %383, %379 ], [ %.0266, %529 ], [ %.0266, %_ZL9getWindowPKjj.exit376.thread ], [ %.0266, %324 ]
   %.1265 = phi i32 [ %.0264, %56 ], [ %.0264, %187 ], [ %.0264, %193 ], [ %219, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %.0264, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.0264, %258 ], [ %275, %268 ], [ %.0264, %294 ], [ %.0264, %296 ], [ %91, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %144, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %.0264, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %490, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %.0264, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %431, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %.0264, %334 ], [ %349, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %386, %379 ], [ %.0264, %529 ], [ %.0264, %_ZL9getWindowPKjj.exit376.thread ], [ %.0264, %324 ]
@@ -2404,7 +2404,7 @@ _ZL16getDynamicOffsetjPj.exit414.thread444:       ; preds = %480, %469, %460, %_
   br i1 %.not327, label %.thread, label %532
 
 532:                                              ; preds = %531
-  switch i32 %.0260, label %default.unreachable637 [
+  switch i32 %.0260, label %default.unreachable665 [
     i32 4, label %533
     i32 3, label %537
     i32 2, label %541
@@ -2437,7 +2437,7 @@ _ZL16getDynamicOffsetjPj.exit414.thread444:       ; preds = %480, %469, %460, %_
   %547 = sub nsw i32 %.4276, %.0260
   br label %32
 
-default.unreachable637:                           ; preds = %532
+default.unreachable665:                           ; preds = %532
   unreachable
 
 .thread:                                          ; preds = %531, %312
@@ -2446,7 +2446,7 @@ default.unreachable637:                           ; preds = %532
   %.1267459 = phi i8 [ %.0266, %312 ], [ %.1267, %531 ]
   %.1270458 = phi i8 [ 0, %312 ], [ %.1270, %531 ]
   %.4276457 = phi i32 [ 1, %312 ], [ %.4276, %531 ]
-  %.4283456 = phi ptr [ %.9546789, %312 ], [ %.4283, %531 ]
+  %.4283456 = phi ptr [ %.9546817, %312 ], [ %.4283, %531 ]
   %.4292455 = phi ptr [ %307, %312 ], [ %.4292, %531 ]
   %548 = sub nsw i32 %.0260461, %.4276457
   %549 = getelementptr inbounds nuw i8, ptr %5, i64 104
@@ -3156,48 +3156,48 @@ _ZL9getWindowPKjj.exit471.thread:                 ; preds = %278, %_ZL9getWindow
 
 .lr.ph.preheader:                                 ; preds = %.preheader590
   %324 = icmp slt i32 %.0351, 1
-  br i1 %324, label %.loopexit.sink.split, label %.lr.ph968
+  br i1 %324, label %.loopexit.sink.split, label %.lr.ph996
 
 .lr.ph:                                           ; preds = %343
-  %325 = add nsw i32 %.8359682965, -2
-  %326 = icmp slt i32 %.8359682965, 3
-  br i1 %326, label %.loopexit.sink.split, label %.lr.ph968, !llvm.loop !71
+  %325 = add nsw i32 %.8359682993, -2
+  %326 = icmp slt i32 %.8359682993, 3
+  br i1 %326, label %.loopexit.sink.split, label %.lr.ph996, !llvm.loop !71
 
-.lr.ph968:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.9389680967 = phi ptr [ %327, %.lr.ph ], [ %.0380, %.lr.ph.preheader ]
-  %.9369681966 = phi ptr [ %339, %.lr.ph ], [ %.0360, %.lr.ph.preheader ]
-  %.8359682965 = phi i32 [ %325, %.lr.ph ], [ %.0351, %.lr.ph.preheader ]
-  %.14683964 = phi ptr [ %.15, %.lr.ph ], [ %.0342, %.lr.ph.preheader ]
-  %.5326685963 = phi i32 [ %330, %.lr.ph ], [ %.0321, %.lr.ph.preheader ]
-  %.8686962 = phi i32 [ %330, %.lr.ph ], [ %.0318, %.lr.ph.preheader ]
-  %327 = getelementptr inbounds nuw i8, ptr %.9389680967, i64 2
-  %328 = load i16, ptr %.9389680967, align 2, !tbaa !27
+.lr.ph996:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.9389680995 = phi ptr [ %327, %.lr.ph ], [ %.0380, %.lr.ph.preheader ]
+  %.9369681994 = phi ptr [ %339, %.lr.ph ], [ %.0360, %.lr.ph.preheader ]
+  %.8359682993 = phi i32 [ %325, %.lr.ph ], [ %.0351, %.lr.ph.preheader ]
+  %.14683992 = phi ptr [ %.15, %.lr.ph ], [ %.0342, %.lr.ph.preheader ]
+  %.5326685991 = phi i32 [ %330, %.lr.ph ], [ %.0321, %.lr.ph.preheader ]
+  %.8686990 = phi i32 [ %330, %.lr.ph ], [ %.0318, %.lr.ph.preheader ]
+  %327 = getelementptr inbounds nuw i8, ptr %.9389680995, i64 2
+  %328 = load i16, ptr %.9389680995, align 2, !tbaa !27
   %329 = zext i16 %328 to i32
-  %330 = add nsw i32 %.8686962, 1
+  %330 = add nsw i32 %.8686990, 1
   %331 = add nsw i32 %329, -13312
   %332 = icmp ult i32 %331, 41984
   br i1 %332, label %333, label %345
 
-333:                                              ; preds = %.lr.ph968
-  %.not411 = icmp eq i32 %.8359682965, 1
+333:                                              ; preds = %.lr.ph996
+  %.not411 = icmp eq i32 %.8359682993, 1
   br i1 %.not411, label %.thread, label %334
 
 334:                                              ; preds = %333
   %335 = lshr i16 %328, 8
   %336 = trunc nuw i16 %335 to i8
-  %337 = getelementptr inbounds nuw i8, ptr %.9369681966, i64 1
-  store i8 %336, ptr %.9369681966, align 1, !tbaa !16
+  %337 = getelementptr inbounds nuw i8, ptr %.9369681994, i64 1
+  store i8 %336, ptr %.9369681994, align 1, !tbaa !16
   %338 = trunc i16 %328 to i8
-  %339 = getelementptr inbounds nuw i8, ptr %.9369681966, i64 2
+  %339 = getelementptr inbounds nuw i8, ptr %.9369681994, i64 2
   store i8 %338, ptr %337, align 1, !tbaa !16
-  %.not412 = icmp eq ptr %.14683964, null
+  %.not412 = icmp eq ptr %.14683992, null
   br i1 %.not412, label %343, label %340
 
 340:                                              ; preds = %334
-  %341 = getelementptr inbounds nuw i8, ptr %.14683964, i64 4
-  store i32 %.5326685963, ptr %.14683964, align 4, !tbaa !44
-  %342 = getelementptr inbounds nuw i8, ptr %.14683964, i64 8
-  store i32 %.5326685963, ptr %341, align 4, !tbaa !44
+  %341 = getelementptr inbounds nuw i8, ptr %.14683992, i64 4
+  store i32 %.5326685991, ptr %.14683992, align 4, !tbaa !44
+  %342 = getelementptr inbounds nuw i8, ptr %.14683992, i64 8
+  store i32 %.5326685991, ptr %341, align 4, !tbaa !44
   br label %343
 
 343:                                              ; preds = %340, %334
@@ -3205,7 +3205,7 @@ _ZL9getWindowPKjj.exit471.thread:                 ; preds = %278, %_ZL9getWindow
   %344 = icmp ult ptr %327, %11
   br i1 %344, label %.lr.ph, label %.loopexit, !llvm.loop !71
 
-345:                                              ; preds = %.lr.ph968
+345:                                              ; preds = %.lr.ph996
   %346 = icmp ugt i32 %331, 48895
   br i1 %346, label %347, label %422
 
@@ -3348,11 +3348,11 @@ _ZL9getWindowPKjj.exit477.thread:                 ; preds = %368, %_ZL9getWindow
 
 427:                                              ; preds = %424, %322
   %.8388 = phi ptr [ %.0380, %322 ], [ %327, %424 ]
-  %.8368 = phi ptr [ %.0360, %322 ], [ %.9369681966, %424 ]
-  %.7358 = phi i32 [ %.0351, %322 ], [ %.8359682965, %424 ]
-  %.13 = phi ptr [ %.0342, %322 ], [ %.14683964, %424 ]
+  %.8368 = phi ptr [ %.0360, %322 ], [ %.9369681994, %424 ]
+  %.7358 = phi i32 [ %.0351, %322 ], [ %.8359682993, %424 ]
+  %.13 = phi ptr [ %.0342, %322 ], [ %.14683992, %424 ]
   %.5332 = phi i32 [ %.0327, %322 ], [ %329, %424 ]
-  %.4325 = phi i32 [ %.0321, %322 ], [ %.5326685963, %424 ]
+  %.4325 = phi i32 [ %.0321, %322 ], [ %.5326685991, %424 ]
   %.7 = phi i32 [ %.0318, %322 ], [ %330, %424 ]
   %428 = icmp ult ptr %.8388, %11
   br i1 %428, label %429, label %.loopexit
@@ -3596,8 +3596,8 @@ _ZL16getDynamicOffsetjPj.exit515.thread545:       ; preds = %506, %495, %486, %_
 .loopexit.sink.split:                             ; preds = %424, %429, %78, %83, %42, %.lr.ph.preheader, %.lr.ph, %636, %639, %610, %.thread577
   %.sink = phi i32 [ 15, %.thread577 ], [ 15, %610 ], [ 15, %639 ], [ 15, %636 ], [ 15, %.lr.ph ], [ 15, %42 ], [ 12, %83 ], [ 12, %78 ], [ 12, %429 ], [ 12, %424 ], [ 15, %.lr.ph.preheader ]
   %.7387.ph = phi ptr [ %.4384559, %.thread577 ], [ %.4384559, %610 ], [ %.4384559, %639 ], [ %.4384559, %636 ], [ %327, %.lr.ph ], [ %.2382, %42 ], [ %.1381, %83 ], [ %45, %78 ], [ %.8388, %429 ], [ %327, %424 ], [ %.0380, %.lr.ph.preheader ]
-  %.7367.ph = phi ptr [ %635, %.thread577 ], [ %.4364560, %610 ], [ %640, %639 ], [ %638, %636 ], [ %339, %.lr.ph ], [ %.2362, %42 ], [ %.1361, %83 ], [ %.2362, %78 ], [ %.8368, %429 ], [ %.9369681966, %424 ], [ %.0360, %.lr.ph.preheader ]
-  %.10.ph = phi ptr [ null, %.thread577 ], [ %.6348562, %610 ], [ %641, %639 ], [ null, %636 ], [ %.15, %.lr.ph ], [ %.2344, %42 ], [ %.1343, %83 ], [ %.2344, %78 ], [ %.13, %429 ], [ %.14683964, %424 ], [ %.0342, %.lr.ph.preheader ]
+  %.7367.ph = phi ptr [ %635, %.thread577 ], [ %.4364560, %610 ], [ %640, %639 ], [ %638, %636 ], [ %339, %.lr.ph ], [ %.2362, %42 ], [ %.1361, %83 ], [ %.2362, %78 ], [ %.8368, %429 ], [ %.9369681994, %424 ], [ %.0360, %.lr.ph.preheader ]
+  %.10.ph = phi ptr [ null, %.thread577 ], [ %.6348562, %610 ], [ %641, %639 ], [ null, %636 ], [ %.15, %.lr.ph ], [ %.2344, %42 ], [ %.1343, %83 ], [ %.2344, %78 ], [ %.13, %429 ], [ %.14683992, %424 ], [ %.0342, %.lr.ph.preheader ]
   %.2341.ph = phi i8 [ %.1340563, %.thread577 ], [ %.1340563, %610 ], [ %.1340563, %639 ], [ %.1340563, %636 ], [ 0, %.lr.ph ], [ %.0339, %42 ], [ %.0339, %83 ], [ %.0339, %78 ], [ 0, %429 ], [ 0, %424 ], [ 0, %.lr.ph.preheader ]
   %.2338.ph = phi i8 [ %.1337564, %.thread577 ], [ %.1337564, %610 ], [ %.1337564, %639 ], [ %.1337564, %636 ], [ %.0336, %.lr.ph ], [ %.0336, %.lr.ph.preheader ], [ %.0336, %42 ], [ %.0336, %83 ], [ %.0336, %78 ], [ %.0336, %429 ], [ %.0336, %424 ]
   %.4331.ph = phi i32 [ 0, %.thread577 ], [ 0, %610 ], [ 0, %639 ], [ 0, %636 ], [ 0, %.lr.ph ], [ %.2329, %42 ], [ %.1328, %83 ], [ %47, %78 ], [ %.5332, %429 ], [ %329, %424 ], [ %.0327, %.lr.ph.preheader ]
@@ -3622,14 +3622,14 @@ _ZL16getDynamicOffsetjPj.exit515.thread545:       ; preds = %506, %495, %486, %_
 
 557:                                              ; preds = %349, %_ZL9getWindowPKjj.exit477.thread, %555, %_ZL16getDynamicOffsetjPj.exit515.thread545, %_ZL16useDynamicWindowP8SCSUDataa.exit528, %_ZL16useDynamicWindowP8SCSUDataa.exit507, %404, %_ZL16useDynamicWindowP8SCSUDataa.exit489, %359, %319, %317, %291, %281, %_ZL24isInOffsetWindowOrDirectjj.exit.thread, %_ZL16useDynamicWindowP8SCSUDataa.exit466, %216, %210, %204, %_ZL16useDynamicWindowP8SCSUDataa.exit448, %_ZL16useDynamicWindowP8SCSUDataa.exit, %65
   %.4384 = phi ptr [ %45, %65 ], [ %45, %210 ], [ %45, %216 ], [ %45, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %45, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %45, %281 ], [ %45, %291 ], [ %45, %317 ], [ %45, %319 ], [ %89, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %89, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %89, %204 ], [ %435, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %435, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %435, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %327, %359 ], [ %327, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %327, %404 ], [ %327, %555 ], [ %327, %_ZL9getWindowPKjj.exit477.thread ], [ %327, %349 ]
-  %.4364 = phi ptr [ %.2362, %65 ], [ %.2362, %210 ], [ %.2362, %216 ], [ %.2362, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.2362, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2362, %281 ], [ %.2362, %291 ], [ %.2362, %317 ], [ %.2362, %319 ], [ %.1361, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1361, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %201, %204 ], [ %.8368, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.8368, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %.8368, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.9369681966, %359 ], [ %.9369681966, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %.9369681966, %404 ], [ %.9369681966, %555 ], [ %.9369681966, %_ZL9getWindowPKjj.exit477.thread ], [ %.9369681966, %349 ]
-  %.4355 = phi i32 [ %.2353, %65 ], [ %.2353, %210 ], [ %.2353, %216 ], [ %.2353, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.2353, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2353, %281 ], [ %.2353, %291 ], [ %.2353, %317 ], [ %.2353, %319 ], [ %.1352, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1352, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %205, %204 ], [ %.7358, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.7358, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %.7358, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.8359682965, %359 ], [ %.8359682965, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %.8359682965, %404 ], [ %.8359682965, %555 ], [ %.8359682965, %_ZL9getWindowPKjj.exit477.thread ], [ %.8359682965, %349 ]
-  %.6348 = phi ptr [ %.2344, %65 ], [ %.2344, %210 ], [ %.2344, %216 ], [ %.2344, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.2344, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2344, %281 ], [ %.2344, %291 ], [ %.2344, %317 ], [ %.2344, %319 ], [ %.1343, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1343, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %.12, %204 ], [ %.13, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.13, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %.13, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.14683964, %359 ], [ %.14683964, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %.14683964, %404 ], [ %.14683964, %555 ], [ %.14683964, %_ZL9getWindowPKjj.exit477.thread ], [ %.14683964, %349 ]
+  %.4364 = phi ptr [ %.2362, %65 ], [ %.2362, %210 ], [ %.2362, %216 ], [ %.2362, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.2362, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2362, %281 ], [ %.2362, %291 ], [ %.2362, %317 ], [ %.2362, %319 ], [ %.1361, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1361, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %201, %204 ], [ %.8368, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.8368, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %.8368, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.9369681994, %359 ], [ %.9369681994, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %.9369681994, %404 ], [ %.9369681994, %555 ], [ %.9369681994, %_ZL9getWindowPKjj.exit477.thread ], [ %.9369681994, %349 ]
+  %.4355 = phi i32 [ %.2353, %65 ], [ %.2353, %210 ], [ %.2353, %216 ], [ %.2353, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.2353, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2353, %281 ], [ %.2353, %291 ], [ %.2353, %317 ], [ %.2353, %319 ], [ %.1352, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1352, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %205, %204 ], [ %.7358, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.7358, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %.7358, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.8359682993, %359 ], [ %.8359682993, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %.8359682993, %404 ], [ %.8359682993, %555 ], [ %.8359682993, %_ZL9getWindowPKjj.exit477.thread ], [ %.8359682993, %349 ]
+  %.6348 = phi ptr [ %.2344, %65 ], [ %.2344, %210 ], [ %.2344, %216 ], [ %.2344, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.2344, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2344, %281 ], [ %.2344, %291 ], [ %.2344, %317 ], [ %.2344, %319 ], [ %.1343, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1343, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %.12, %204 ], [ %.13, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.13, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %.13, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.14683992, %359 ], [ %.14683992, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %.14683992, %404 ], [ %.14683992, %555 ], [ %.14683992, %_ZL9getWindowPKjj.exit477.thread ], [ %.14683992, %349 ]
   %.1340 = phi i8 [ %.0339, %65 ], [ %.0339, %210 ], [ %.0339, %216 ], [ %.0339, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.0339, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.0339, %281 ], [ %.0339, %291 ], [ 0, %317 ], [ %.0339, %319 ], [ %.0339, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.0339, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ 0, %204 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ 0, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ 1, %359 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ 1, %404 ], [ 0, %555 ], [ 0, %_ZL9getWindowPKjj.exit477.thread ], [ 0, %349 ]
   %.1337 = phi i8 [ %.0336, %65 ], [ %.0336, %210 ], [ %.0336, %216 ], [ %223, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.0336, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.0336, %281 ], [ %295, %291 ], [ %.0336, %317 ], [ %.0336, %319 ], [ %106, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %168, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %.0336, %204 ], [ %520, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.0336, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %446, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.0336, %359 ], [ %369, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %408, %404 ], [ %.0336, %555 ], [ %.0336, %_ZL9getWindowPKjj.exit477.thread ], [ %.0336, %349 ]
   %.1335 = phi i32 [ %.0334, %65 ], [ %.0334, %210 ], [ %.0334, %216 ], [ %242, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.0334, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.0334, %281 ], [ %298, %291 ], [ %.0334, %317 ], [ %.0334, %319 ], [ %111, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %164, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %.0334, %204 ], [ %516, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.0334, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %457, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.0334, %359 ], [ %374, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %411, %404 ], [ %.0334, %555 ], [ %.0334, %_ZL9getWindowPKjj.exit477.thread ], [ %.0334, %349 ]
   %.3330 = phi i32 [ %66, %65 ], [ %212, %210 ], [ %217, %216 ], [ %268, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %273, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %288, %281 ], [ %308, %291 ], [ %318, %317 ], [ %320, %319 ], [ %137, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %200, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %207, %204 ], [ %552, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %554, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %484, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %363, %359 ], [ %401, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %421, %404 ], [ %556, %555 ], [ %329, %_ZL9getWindowPKjj.exit477.thread ], [ %329, %349 ]
-  %.3324 = phi i32 [ %.2323, %65 ], [ %.2323, %210 ], [ %.2323, %216 ], [ %.2323, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.2323, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2323, %281 ], [ %.2323, %291 ], [ %.2323, %317 ], [ %.2323, %319 ], [ %.1322, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1322, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %.1322, %204 ], [ %.4325, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.4325, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %.4325, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.5326685963, %359 ], [ %.5326685963, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %.5326685963, %404 ], [ %.5326685963, %555 ], [ %.5326685963, %_ZL9getWindowPKjj.exit477.thread ], [ %.5326685963, %349 ]
+  %.3324 = phi i32 [ %.2323, %65 ], [ %.2323, %210 ], [ %.2323, %216 ], [ %.2323, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.2323, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2323, %281 ], [ %.2323, %291 ], [ %.2323, %317 ], [ %.2323, %319 ], [ %.1322, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1322, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %.1322, %204 ], [ %.4325, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.4325, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %.4325, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.5326685991, %359 ], [ %.5326685991, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %.5326685991, %404 ], [ %.5326685991, %555 ], [ %.5326685991, %_ZL9getWindowPKjj.exit477.thread ], [ %.5326685991, %349 ]
   %.4 = phi i32 [ %48, %65 ], [ %48, %210 ], [ %48, %216 ], [ %48, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %48, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %48, %281 ], [ %48, %291 ], [ %48, %317 ], [ %48, %319 ], [ %90, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %90, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %90, %204 ], [ %436, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %436, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %436, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %330, %359 ], [ %330, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %330, %404 ], [ %330, %555 ], [ %330, %_ZL9getWindowPKjj.exit477.thread ], [ %330, %349 ]
   %.0317 = phi i32 [ 2, %65 ], [ 2, %210 ], [ 3, %216 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ 2, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ 2, %281 ], [ 3, %291 ], [ 3, %317 ], [ 3, %319 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ 4, %204 ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ 4, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ 2, %359 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ 3, %404 ], [ 3, %555 ], [ 2, %_ZL9getWindowPKjj.exit477.thread ], [ 2, %349 ]
   %.not423 = icmp sgt i32 %.0317, %.4355
@@ -3640,7 +3640,7 @@ _ZL16getDynamicOffsetjPj.exit515.thread545:       ; preds = %506, %495, %486, %_
   br i1 %559, label %560, label %574
 
 560:                                              ; preds = %558
-  switch i32 %.0317, label %default.unreachable789 [
+  switch i32 %.0317, label %default.unreachable817 [
     i32 4, label %561
     i32 3, label %565
     i32 2, label %569
@@ -3672,7 +3672,7 @@ _ZL16getDynamicOffsetjPj.exit515.thread545:       ; preds = %506, %495, %486, %_
   br label %592
 
 574:                                              ; preds = %558
-  switch i32 %.0317, label %default.unreachable789 [
+  switch i32 %.0317, label %default.unreachable817 [
     i32 4, label %575
     i32 3, label %580
     i32 2, label %585
@@ -3713,7 +3713,7 @@ _ZL16getDynamicOffsetjPj.exit515.thread545:       ; preds = %506, %495, %486, %_
   store i32 %.3324, ptr %588, align 4, !tbaa !44
   br label %592
 
-default.unreachable789:                           ; preds = %574, %560
+default.unreachable817:                           ; preds = %574, %560
   unreachable
 
 592:                                              ; preds = %585, %569
@@ -3725,13 +3725,13 @@ default.unreachable789:                           ; preds = %574, %560
 
 .thread:                                          ; preds = %557, %333
   %.0317567 = phi i32 [ 2, %333 ], [ %.0317, %557 ]
-  %.3324566 = phi i32 [ %.5326685963, %333 ], [ %.3324, %557 ]
+  %.3324566 = phi i32 [ %.5326685991, %333 ], [ %.3324, %557 ]
   %.3330565 = phi i32 [ %329, %333 ], [ %.3330, %557 ]
   %.1337564 = phi i8 [ %.0336, %333 ], [ %.1337, %557 ]
   %.1340563 = phi i8 [ 0, %333 ], [ %.1340, %557 ]
-  %.6348562 = phi ptr [ %.14683964, %333 ], [ %.6348, %557 ]
+  %.6348562 = phi ptr [ %.14683992, %333 ], [ %.6348, %557 ]
   %.4355561 = phi i32 [ 1, %333 ], [ %.4355, %557 ]
-  %.4364560 = phi ptr [ %.9369681966, %333 ], [ %.4364, %557 ]
+  %.4364560 = phi ptr [ %.9369681994, %333 ], [ %.4364, %557 ]
   %.4384559 = phi ptr [ %327, %333 ], [ %.4384, %557 ]
   %594 = sub nsw i32 %.0317567, %.4355561
   %595 = getelementptr inbounds nuw i8, ptr %5, i64 104

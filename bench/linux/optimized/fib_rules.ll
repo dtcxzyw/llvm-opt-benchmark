@@ -1649,8 +1649,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @fib_nl2rule(ptr %.24.val.4
   %208 = load i8, ptr %207, align 1
   %209 = icmp eq i8 %208, 0
   %210 = icmp eq i32 %167, 0
-  %or.cond3 = select i1 %209, i1 true, i1 %210
-  br i1 %or.cond3, label %213, label %211
+  %or.cond31 = select i1 %209, i1 true, i1 %210
+  br i1 %or.cond31, label %213, label %211
 
 211:                                              ; preds = %206
   call void @do_trace_netlink_extack(ptr noundef nonnull @fib_nl2rule.__msg.12) #16
@@ -2428,13 +2428,13 @@ define dso_local i32 @fib_nl_delrule(ptr noundef readonly captures(none) %0, ptr
 
 .sink.split:                                      ; preds = %.thread32.thread, %.thread32, %..thread39_crit_edge, %53
   %.sink = phi ptr [ %59, %53 ], [ null, %.thread32 ], [ %.pre51, %..thread39_crit_edge ], [ null, %.thread32.thread ]
-  %.ph58 = phi i32 [ -2, %53 ], [ %46, %.thread32 ], [ %51, %..thread39_crit_edge ], [ -22, %.thread32.thread ]
+  %.ph91 = phi i32 [ -2, %53 ], [ %46, %.thread32 ], [ %51, %..thread39_crit_edge ], [ -22, %.thread32.thread ]
   call void @kfree(ptr noundef %.sink) #16
   br label %323
 
 323:                                              ; preds = %.sink.split, %.thread34
   %324 = phi ptr [ %321, %.thread34 ], [ %30, %.sink.split ]
-  %325 = phi i32 [ %320, %.thread34 ], [ %.ph58, %.sink.split ]
+  %325 = phi i32 [ %320, %.thread34 ], [ %.ph91, %.sink.split ]
   %326 = getelementptr inbounds nuw i8, ptr %324, i64 144
   %327 = load ptr, ptr %326, align 8
   call void @module_put(ptr noundef %327) #16
@@ -3055,7 +3055,7 @@ define internal i32 @fib_nl_dumprule(ptr noundef %0, ptr noundef captures(none) 
 
 52:                                               ; preds = %46
   %53 = icmp eq i32 %.pre, 28
-  br i1 %53, label %.thread28, label %54
+  br i1 %53, label %.thread42, label %54
 
 54:                                               ; preds = %52
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @fib_valid_dumprule_req.__msg.19) #16
@@ -3069,14 +3069,14 @@ define internal i32 @fib_nl_dumprule(ptr noundef %0, ptr noundef captures(none) 
 
 58:                                               ; preds = %2
   %59 = icmp eq i32 %.pre, 16
-  br i1 %59, label %.thread12, label %.thread28
+  br i1 %59, label %.thread12, label %.thread42
 
 .thread12:                                        ; preds = %58
   tail call void @__rcu_read_lock() #16
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 352
   br label %108
 
-.thread28:                                        ; preds = %52, %58
+.thread42:                                        ; preds = %52, %58
   %61 = getelementptr i8, ptr %4, i64 16
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
@@ -3085,8 +3085,8 @@ define internal i32 @fib_nl_dumprule(ptr noundef %0, ptr noundef captures(none) 
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 352
   br i1 %64, label %108, label %.preheader15
 
-.preheader15:                                     ; preds = %.thread28, %69
-  %66 = phi ptr [ %67, %69 ], [ %65, %.thread28 ]
+.preheader15:                                     ; preds = %.thread42, %69
+  %66 = phi ptr [ %67, %69 ], [ %65, %.thread42 ]
   %67 = load volatile ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, %65
   br i1 %68, label %.thread14, label %69
@@ -3162,8 +3162,8 @@ split:                                            ; preds = %92, %._crit_edge, %
   tail call void @module_put(ptr noundef %107) #16
   br label %161
 
-108:                                              ; preds = %.thread12, %.thread28
-  %109 = phi ptr [ %60, %.thread12 ], [ %65, %.thread28 ]
+108:                                              ; preds = %.thread12, %.thread42
+  %109 = phi ptr [ %60, %.thread12 ], [ %65, %.thread42 ]
   %110 = load volatile ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, %109
   br i1 %111, label %split22, label %112

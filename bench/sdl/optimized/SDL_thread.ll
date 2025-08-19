@@ -345,16 +345,16 @@ define hidden noundef zeroext i1 @SDL_Generic_SetTLSData(ptr noundef %0) local_u
 .lr.ph.preheader:                                 ; preds = %1
   %4 = load i64, ptr %.02334, align 8
   %5 = icmp eq i64 %4, %2
-  br i1 %5, label %.lr.ph._crit_edge, label %.lr.ph45
+  br i1 %5, label %.lr.ph._crit_edge, label %.lr.ph47
 
-.lr.ph:                                           ; preds = %.lr.ph45
+.lr.ph:                                           ; preds = %.lr.ph47
   %6 = load i64, ptr %.023, align 8
   %7 = icmp eq i64 %6, %2
-  br i1 %7, label %.lr.ph._crit_edge, label %.lr.ph45, !llvm.loop !6
+  br i1 %7, label %.lr.ph._crit_edge, label %.lr.ph47, !llvm.loop !6
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.02337.lcssa = phi ptr [ %.02334, %.lr.ph.preheader ], [ %.023, %.lr.ph ]
-  %.02436.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0233744, %.lr.ph ]
+  %.02436.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0233746, %.lr.ph ]
   %.not27 = icmp eq ptr %0, null
   br i1 %.not27, label %10, label %8
 
@@ -382,14 +382,14 @@ define hidden noundef zeroext i1 @SDL_Generic_SetTLSData(ptr noundef %0) local_u
   tail call void @SDL_free_REAL(ptr noundef nonnull %.02337.lcssa) #6
   br label %.thread
 
-.lr.ph45:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0233744 = phi ptr [ %.023, %.lr.ph ], [ %.02334, %.lr.ph.preheader ]
-  %17 = getelementptr inbounds nuw i8, ptr %.0233744, i64 16
+.lr.ph47:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0233746 = phi ptr [ %.023, %.lr.ph ], [ %.02334, %.lr.ph.preheader ]
+  %17 = getelementptr inbounds nuw i8, ptr %.0233746, i64 16
   %.023 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %.023, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph45, %1
+._crit_edge:                                      ; preds = %.lr.ph47, %1
   %.not31 = icmp eq ptr %0, null
   br i1 %.not31, label %.thread, label %18
 

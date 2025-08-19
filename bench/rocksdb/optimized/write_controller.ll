@@ -119,7 +119,7 @@ define noundef range(i64 1000, 1) i64 @_ZN7rocksdb15WriteController8GetDelayEPNS
   br i1 %23, label %.thread, label %24
 
 .thread:                                          ; preds = %15
-  %.pre30 = load i64, ptr %11, align 8, !tbaa !27
+  %.pre37 = load i64, ptr %11, align 8, !tbaa !27
   br label %25
 
 24:                                               ; preds = %15
@@ -134,7 +134,7 @@ define noundef range(i64 1000, 1) i64 @_ZN7rocksdb15WriteController8GetDelayEPNS
   br label %.critedge
 
 25:                                               ; preds = %.thread, %24
-  %.pre31 = phi i64 [ %.pre30, %.thread ], [ %.pre, %24 ]
+  %.pre38 = phi i64 [ %.pre37, %.thread ], [ %.pre, %24 ]
   %26 = phi i64 [ %20, %.thread ], [ %22, %24 ]
   %27 = add nuw nsw i64 %20, 1000
   %28 = sub nuw nsw i64 %27, %26
@@ -145,7 +145,7 @@ define noundef range(i64 1000, 1) i64 @_ZN7rocksdb15WriteController8GetDelayEPNS
   %33 = uitofp i64 %32 to double
   %34 = tail call double @llvm.fmuladd.f64(double %30, double %33, double 0x3FEFFFFDE7210BE9)
   %35 = fptoui double %34 to i64
-  %36 = add i64 %.pre31, %35
+  %36 = add i64 %.pre38, %35
   store i64 %27, ptr %21, align 8, !tbaa !28
   %.not23 = icmp ult i64 %36, %2
   br i1 %.not23, label %.critedge, label %37

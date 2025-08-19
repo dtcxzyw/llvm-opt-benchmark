@@ -1173,7 +1173,7 @@ define internal void @do_mt_hash_work() #0 {
 
 39:                                               ; preds = %23
   %40 = and i32 %26, 3
-  switch i32 %40, label %default.unreachable47 [
+  switch i32 %40, label %default.unreachable52 [
     i32 0, label %41
     i32 1, label %64
     i32 2, label %64
@@ -1344,7 +1344,7 @@ ossl_ht_mt_TEST_MT_ENTRY_insert.exit:             ; preds = %70, %75
   %.not33 = icmp eq ptr %116, null
   br i1 %.not33, label %117, label %.loopexit
 
-default.unreachable47:                            ; preds = %39
+default.unreachable52:                            ; preds = %39
   unreachable
 
 117:                                              ; preds = %58, %87, %111

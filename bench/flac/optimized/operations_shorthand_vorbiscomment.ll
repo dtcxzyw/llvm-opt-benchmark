@@ -187,17 +187,17 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__vorbis_comment(ptr
   br i1 %70, label %77, label %.preheader48.i
 
 .preheader48.i:                                   ; preds = %65, %68
-  %.039.lcssa59.i = phi i32 [ %69, %68 ], [ 200, %65 ]
+  %.039.lcssa61.i = phi i32 [ %69, %68 ], [ 200, %65 ]
   %71 = getelementptr inbounds nuw i8, ptr %.060, i64 32
   %72 = load i32, ptr %71, align 8, !tbaa !17
   %.not52.i = icmp eq i32 %72, 0
   br i1 %.not52.i, label %remove_vc_all_except.exit, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %.preheader48.i
-  %73 = add nsw i32 %.039.lcssa59.i, -1
+  %73 = add nsw i32 %.039.lcssa61.i, -1
   %74 = getelementptr inbounds nuw i8, ptr %.060, i64 40
   %75 = zext nneg i32 %73 to i64
-  %wide.trip.count.i = zext nneg i32 %.039.lcssa59.i to i64
+  %wide.trip.count.i = zext nneg i32 %.039.lcssa61.i to i64
   %76 = getelementptr inbounds nuw [200 x ptr], ptr %10, i64 0, i64 %75
   br label %.preheader.i
 
@@ -368,7 +368,7 @@ remove_vc_all_except.exit:                        ; preds = %106, %.preheader48.
   %158 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %153, i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef %0, ptr noundef %154, ptr noundef %157) #11
   br label %import_vc_from.exit
 
-.lr.ph:                                           ; preds = %.preheader.i76, %.backedge
+.lr.ph:                                           ; preds = %.preheader.i76, %.backedge.i
   %159 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 65536, ptr noundef nonnull %.024.i)
   %.not31.i = icmp eq ptr %159, null
   br i1 %.not31.i, label %.critedge.i, label %160
@@ -376,7 +376,7 @@ remove_vc_all_except.exit:                        ; preds = %106, %.preheader48.
 160:                                              ; preds = %.lr.ph
   %161 = call i32 @feof(ptr noundef nonnull %.024.i) #11
   %.not32.i = icmp eq i32 %161, 0
-  br i1 %.not32.i, label %162, label %.backedge
+  br i1 %.not32.i, label %162, label %.backedge.i
 
 162:                                              ; preds = %160
   %163 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %7, i32 noundef 10) #12
@@ -441,15 +441,15 @@ remove_vc_all_except.exit:                        ; preds = %106, %.preheader48.
 187:                                              ; preds = %186, %184
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.3.i, label %.critedge.i, label %.backedge
+  br i1 %.3.i, label %.critedge.i, label %.backedge.i
 
-.backedge:                                        ; preds = %187, %160
+.backedge.i:                                      ; preds = %187, %160
   %188 = call i32 @feof(ptr noundef nonnull %.024.i) #11
   %.not30.i = icmp eq i32 %188, 0
   br i1 %.not30.i, label %.lr.ph, label %.critedge.i, !llvm.loop !30
 
-.critedge.i:                                      ; preds = %.backedge, %.lr.ph, %187, %.preheader.i76, %.thread.i
-  %.023.lcssa.i = phi i32 [ 0, %.thread.i ], [ 1, %.preheader.i76 ], [ 1, %.backedge ], [ 1, %.lr.ph ], [ 0, %187 ]
+.critedge.i:                                      ; preds = %.backedge.i, %.lr.ph, %187, %.preheader.i76, %.thread.i
+  %.023.lcssa.i = phi i32 [ 0, %.thread.i ], [ 1, %.preheader.i76 ], [ 1, %.backedge.i ], [ 1, %.lr.ph ], [ 0, %187 ]
   %189 = load ptr, ptr @stdin, align 8, !tbaa !14
   %.not37.i = icmp eq ptr %.024.i, %189
   br i1 %.not37.i, label %import_vc_from.exit, label %190

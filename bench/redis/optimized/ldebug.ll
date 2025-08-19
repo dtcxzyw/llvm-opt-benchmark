@@ -668,8 +668,8 @@ auxgetinfo.exit:                                  ; preds = %23, %12
 
 auxgetinfo.exit.thread:                           ; preds = %43
   %159 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 102) #12
-  %.not3146 = icmp eq ptr %159, null
-  br i1 %.not3146, label %.thread63, label %164
+  %.not3148 = icmp eq ptr %159, null
+  br i1 %.not3148, label %.thread65, label %164
 
 160:                                              ; preds = %auxgetinfo.exit
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -689,9 +689,9 @@ auxgetinfo.exit.thread:                           ; preds = %43
 
 168:                                              ; preds = %164, %160
   %169 = phi i1 [ false, %164 ], [ true, %160 ]
-  %.0394761 = phi ptr [ %.0, %164 ], [ %.040, %160 ]
-  %.028364960 = phi ptr [ %.028, %164 ], [ null, %160 ]
-  %.023.i5157 = phi i32 [ %.0.i, %164 ], [ 1, %160 ]
+  %.0394963 = phi ptr [ %.0, %164 ], [ %.040, %160 ]
+  %.028365162 = phi ptr [ %.028, %164 ], [ null, %160 ]
+  %.023.i5359 = phi i32 [ %.0.i, %164 ], [ 1, %160 ]
   %170 = phi ptr [ %.pre, %164 ], [ %162, %160 ]
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %172 = load ptr, ptr %171, align 8, !tbaa !59
@@ -713,41 +713,41 @@ auxgetinfo.exit.thread:                           ; preds = %43
   br label %182
 
 182:                                              ; preds = %179, %auxgetinfo.exit
-  %.023.i52 = phi i32 [ %.023.i5157, %179 ], [ 1, %auxgetinfo.exit ]
-  %.0283650 = phi ptr [ %.028364960, %179 ], [ null, %auxgetinfo.exit ]
-  %.03948 = phi ptr [ %.0394761, %179 ], [ %.040, %auxgetinfo.exit ]
+  %.023.i54 = phi i32 [ %.023.i5359, %179 ], [ 1, %auxgetinfo.exit ]
+  %.0283652 = phi ptr [ %.028365162, %179 ], [ null, %auxgetinfo.exit ]
+  %.03950 = phi ptr [ %.0394963, %179 ], [ %.040, %auxgetinfo.exit ]
   %183 = phi i1 [ %169, %179 ], [ true, %auxgetinfo.exit ]
-  %184 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03948, i32 noundef 76) #12
+  %184 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03950, i32 noundef 76) #12
   %.not32 = icmp eq ptr %184, null
   br i1 %.not32, label %226, label %186
 
-.thread63:                                        ; preds = %auxgetinfo.exit.thread
+.thread65:                                        ; preds = %auxgetinfo.exit.thread
   %185 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 76) #12
-  %.not3267 = icmp eq ptr %185, null
-  br i1 %.not3267, label %226, label %.thread71
+  %.not3269 = icmp eq ptr %185, null
+  br i1 %.not3269, label %226, label %.thread73
 
 186:                                              ; preds = %182
-  br i1 %183, label %189, label %.thread71
+  br i1 %183, label %189, label %.thread73
 
-.thread71:                                        ; preds = %.thread63, %186
-  %.023.i526876 = phi i32 [ %.023.i52, %186 ], [ %.0.i, %.thread63 ]
-  %.02836507074 = phi ptr [ %.0283650, %186 ], [ %.028, %.thread63 ]
-  %187 = getelementptr inbounds nuw i8, ptr %.02836507074, i64 10
+.thread73:                                        ; preds = %.thread65, %186
+  %.023.i547078 = phi i32 [ %.023.i54, %186 ], [ %.0.i, %.thread65 ]
+  %.02836527276 = phi ptr [ %.0283652, %186 ], [ %.028, %.thread65 ]
+  %187 = getelementptr inbounds nuw i8, ptr %.02836527276, i64 10
   %188 = load i8, ptr %187, align 2, !tbaa !26
   %.not.i = icmp eq i8 %188, 0
   br i1 %.not.i, label %193, label %189
 
-189:                                              ; preds = %.thread71, %186
-  %.023.i526877 = phi i32 [ %.023.i526876, %.thread71 ], [ %.023.i52, %186 ]
+189:                                              ; preds = %.thread73, %186
+  %.023.i547079 = phi i32 [ %.023.i547078, %.thread73 ], [ %.023.i54, %186 ]
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %191 = load ptr, ptr %190, align 8, !tbaa !44
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store i32 0, ptr %192, align 8, !tbaa !33
   br label %214
 
-193:                                              ; preds = %.thread71
+193:                                              ; preds = %.thread73
   %194 = tail call ptr @luaH_new(ptr noundef %0, i32 noundef 0, i32 noundef 0) #11
-  %195 = getelementptr inbounds nuw i8, ptr %.02836507074, i64 32
+  %195 = getelementptr inbounds nuw i8, ptr %.02836527276, i64 32
   %196 = load ptr, ptr %195, align 8, !tbaa !26
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 40
   %198 = load ptr, ptr %197, align 8, !tbaa !52
@@ -782,7 +782,7 @@ auxgetinfo.exit.thread:                           ; preds = %43
   br label %214
 
 214:                                              ; preds = %._crit_edge.i, %189
-  %.023.i526875 = phi i32 [ %.023.i526876, %._crit_edge.i ], [ %.023.i526877, %189 ]
+  %.023.i547077 = phi i32 [ %.023.i547078, %._crit_edge.i ], [ %.023.i547079, %189 ]
   %215 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %191, %189 ]
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %217 = load ptr, ptr %216, align 8, !tbaa !59
@@ -805,9 +805,9 @@ collectvalidlines.exit:                           ; preds = %214, %222
   store ptr %225, ptr %224, align 8, !tbaa !44
   br label %226
 
-226:                                              ; preds = %.thread63, %collectvalidlines.exit, %182
-  %.023.i5269 = phi i32 [ %.0.i, %.thread63 ], [ %.023.i526875, %collectvalidlines.exit ], [ %.023.i52, %182 ]
-  ret i32 %.023.i5269
+226:                                              ; preds = %.thread65, %collectvalidlines.exit, %182
+  %.023.i5471 = phi i32 [ %.0.i, %.thread65 ], [ %.023.i547077, %collectvalidlines.exit ], [ %.023.i54, %182 ]
+  ret i32 %.023.i5471
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -935,7 +935,7 @@ precheck.exit:                                    ; preds = %26
   %59 = load i8, ptr %58, align 1, !tbaa !26
   %60 = zext i8 %59 to i32
   %61 = and i32 %60, 3
-  switch i32 %61, label %default.unreachable293 [
+  switch i32 %61, label %default.unreachable307 [
     i32 0, label %62
     i32 1, label %92
     i32 2, label %99
@@ -946,7 +946,7 @@ precheck.exit:                                    ; preds = %26
   %63 = lshr i32 %50, 23
   %64 = lshr i32 %60, 4
   %65 = and i32 %64, 3
-  switch i32 %65, label %default.unreachable293 [
+  switch i32 %65, label %default.unreachable307 [
     i32 0, label %66
     i32 3, label %70
     i32 2, label %68
@@ -980,7 +980,7 @@ checkArgMode.exit:                                ; preds = %75, %71, %68, %66, 
   %78 = and i32 %77, 511
   %79 = lshr i8 %59, 2
   %80 = and i8 %79, 3
-  switch i8 %80, label %default.unreachable293 [
+  switch i8 %80, label %default.unreachable307 [
     i8 0, label %81
     i8 3, label %85
     i8 2, label %83
@@ -1066,7 +1066,7 @@ checkArgMode.exit:                                ; preds = %75, %71, %68, %66, 
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %.critedge, label %.critedge232
 
-default.unreachable293:                           ; preds = %checkArgMode.exit, %62, %56
+default.unreachable307:                           ; preds = %checkArgMode.exit, %62, %56
   unreachable
 
 .critedge:                                        ; preds = %90, %86, %83, %81, %checkArgMode.exit, %109, %._crit_edge, %99, %92, %96, %56

@@ -371,11 +371,11 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit: ; preds = %115, %_ZL10readVa
   br i1 %.not473, label %.loopexit775.preheader, label %.lr.ph, !llvm.loop !49
 
 .loopexit775.preheader:                           ; preds = %138, %103, %._crit_edge
-  %.ph1225 = phi i64 [ %.3860, %103 ], [ %.1739.lcssa, %._crit_edge ], [ %.3, %138 ]
+  %.ph1251 = phi i64 [ %.3860, %103 ], [ %.1739.lcssa, %._crit_edge ], [ %.3, %138 ]
   br label %.loopexit775
 
 .loopexit775:                                     ; preds = %.loopexit775.preheader, %.loopexit775
-  %139 = phi i64 [ %141, %.loopexit775 ], [ %.ph1225, %.loopexit775.preheader ]
+  %139 = phi i64 [ %141, %.loopexit775 ], [ %.ph1251, %.loopexit775.preheader ]
   %.08.i532 = phi i32 [ %146, %.loopexit775 ], [ 0, %.loopexit775.preheader ]
   %.0.i533 = phi i32 [ %145, %.loopexit775 ], [ 0, %.loopexit775.preheader ]
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 %139
@@ -541,13 +541,13 @@ _ZL10readVarIntPKcmRm.exit553:                    ; preds = %.preheader752
   br label %219
 
 219:                                              ; preds = %218, %212
-  %.sink1107 = phi i64 [ 1, %218 ], [ 2, %212 ]
-  %.sink1105 = phi i64 [ 2, %218 ], [ 3, %212 ]
+  %.sink1133 = phi i64 [ 1, %218 ], [ 2, %212 ]
+  %.sink1131 = phi i64 [ 2, %218 ], [ 3, %212 ]
   %220 = load ptr, ptr %209, align 8, !tbaa !67
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 %.sink1107
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 %.sink1133
   store i8 0, ptr %221, align 1, !tbaa !19
   %222 = load ptr, ptr %209, align 8, !tbaa !67
-  %223 = getelementptr inbounds nuw i8, ptr %222, i64 %.sink1105
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 %.sink1131
   store i8 0, ptr %223, align 1, !tbaa !19
   %224 = load ptr, ptr %209, align 8, !tbaa !67
   %225 = zext nneg i32 %198 to i64
@@ -772,11 +772,11 @@ _ZL10readVarIntPKcmRm.exit80.i:                   ; preds = %_ZL10readVarIntPKcm
   br i1 %exitcond119.not.i, label %_ZL18remapUserdataTypesPcmPhj.exit.preheader, label %.preheader.i, !llvm.loop !71
 
 _ZL18remapUserdataTypesPcmPhj.exit.preheader:     ; preds = %_ZL10readVarIntPKcmRm.exit80.i, %307, %_ZL10readVarIntPKcmRm.exit559, %245, %_ZL10readVarIntPKcmRm.exit553._crit_edge, %229, %170
-  %.ph1173 = phi i64 [ %249, %307 ], [ %181, %170 ], [ %185, %229 ], [ %249, %245 ], [ %232, %_ZL10readVarIntPKcmRm.exit559 ], [ %228, %_ZL10readVarIntPKcmRm.exit553._crit_edge ], [ %249, %_ZL10readVarIntPKcmRm.exit80.i ]
+  %.ph1199 = phi i64 [ %249, %307 ], [ %181, %170 ], [ %185, %229 ], [ %249, %245 ], [ %232, %_ZL10readVarIntPKcmRm.exit559 ], [ %228, %_ZL10readVarIntPKcmRm.exit553._crit_edge ], [ %249, %_ZL10readVarIntPKcmRm.exit80.i ]
   br label %_ZL18remapUserdataTypesPcmPhj.exit
 
 _ZL18remapUserdataTypesPcmPhj.exit:               ; preds = %_ZL18remapUserdataTypesPcmPhj.exit.preheader, %_ZL18remapUserdataTypesPcmPhj.exit
-  %327 = phi i64 [ %329, %_ZL18remapUserdataTypesPcmPhj.exit ], [ %.ph1173, %_ZL18remapUserdataTypesPcmPhj.exit.preheader ]
+  %327 = phi i64 [ %329, %_ZL18remapUserdataTypesPcmPhj.exit ], [ %.ph1199, %_ZL18remapUserdataTypesPcmPhj.exit.preheader ]
   %.08.i567 = phi i32 [ %334, %_ZL18remapUserdataTypesPcmPhj.exit ], [ 0, %_ZL18remapUserdataTypesPcmPhj.exit.preheader ]
   %.0.i568 = phi i32 [ %333, %_ZL18remapUserdataTypesPcmPhj.exit ], [ 0, %_ZL18remapUserdataTypesPcmPhj.exit.preheader ]
   %328 = getelementptr inbounds nuw i8, ptr %2, i64 %327
@@ -899,7 +899,7 @@ _ZL10readVarIntPKcmRm.exit577:                    ; preds = %348
   br i1 %.not916, label %.preheader750.preheader, label %.lr.ph874
 
 .preheader750.preheader:                          ; preds = %515, %371
-  %.ph1172 = phi i64 [ %351, %371 ], [ %.9, %515 ]
+  %.ph1198 = phi i64 [ %351, %371 ], [ %.9, %515 ]
   br label %.preheader750
 
 .lr.ph874:                                        ; preds = %371, %.lr.ph874
@@ -911,7 +911,7 @@ _ZL10readVarIntPKcmRm.exit577:                    ; preds = %348
   br i1 %exitcond991.not, label %.lr.ph881, label %.lr.ph874, !llvm.loop !79
 
 .preheader750:                                    ; preds = %.preheader750.preheader, %.preheader750
-  %375 = phi i64 [ %377, %.preheader750 ], [ %.ph1172, %.preheader750.preheader ]
+  %375 = phi i64 [ %377, %.preheader750 ], [ %.ph1198, %.preheader750.preheader ]
   %.08.i580 = phi i32 [ %382, %.preheader750 ], [ 0, %.preheader750.preheader ]
   %.0.i581 = phi i32 [ %381, %.preheader750 ], [ 0, %.preheader750.preheader ]
   %376 = getelementptr inbounds nuw i8, ptr %2, i64 %375
@@ -936,7 +936,7 @@ _ZL10readVarIntPKcmRm.exit577:                    ; preds = %348
     i8 1, label %385
     i8 2, label %392
     i8 7, label %398
-    i8 3, label %.preheader1108
+    i8 3, label %.preheader1134
     i8 4, label %426
     i8 5, label %.preheader744
   ]
@@ -983,10 +983,10 @@ _ZL10readVarIntPKcmRm.exit577:                    ; preds = %348
   store i32 4, ptr %407, align 4, !tbaa !20
   br label %515
 
-.preheader1108:                                   ; preds = %.lr.ph881, %.preheader1108
-  %408 = phi i64 [ %410, %.preheader1108 ], [ %384, %.lr.ph881 ]
-  %.08.i.i593 = phi i32 [ %415, %.preheader1108 ], [ 0, %.lr.ph881 ]
-  %.0.i.i594 = phi i32 [ %414, %.preheader1108 ], [ 0, %.lr.ph881 ]
+.preheader1134:                                   ; preds = %.lr.ph881, %.preheader1134
+  %408 = phi i64 [ %410, %.preheader1134 ], [ %384, %.lr.ph881 ]
+  %.08.i.i593 = phi i32 [ %415, %.preheader1134 ], [ 0, %.lr.ph881 ]
+  %.0.i.i594 = phi i32 [ %414, %.preheader1134 ], [ 0, %.lr.ph881 ]
   %409 = getelementptr inbounds nuw i8, ptr %2, i64 %408
   %.0.copyload.i.i.i595 = load i8, ptr %409, align 1
   %410 = add i64 %408, 1
@@ -996,9 +996,9 @@ _ZL10readVarIntPKcmRm.exit577:                    ; preds = %348
   %414 = or i32 %413, %.0.i.i594
   %415 = add i32 %.08.i.i593, 7
   %.not.i.i596 = icmp sgt i8 %.0.copyload.i.i.i595, -1
-  br i1 %.not.i.i596, label %_ZL10readVarIntPKcmRm.exit.i597, label %.preheader1108, !llvm.loop !38
+  br i1 %.not.i.i596, label %_ZL10readVarIntPKcmRm.exit.i597, label %.preheader1134, !llvm.loop !38
 
-_ZL10readVarIntPKcmRm.exit.i597:                  ; preds = %.preheader1108
+_ZL10readVarIntPKcmRm.exit.i597:                  ; preds = %.preheader1134
   %416 = icmp eq i32 %414, 0
   br i1 %416, label %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit598, label %417
 
@@ -1246,7 +1246,7 @@ _ZL10readVarIntPKcmRm.exit584:                    ; preds = %.preheader750
   br i1 %.not917, label %.preheader749.preheader, label %.preheader741
 
 .preheader749.preheader:                          ; preds = %_ZL10readVarIntPKcmRm.exit631, %527
-  %.ph1171 = phi i64 [ %377, %527 ], [ %541, %_ZL10readVarIntPKcmRm.exit631 ]
+  %.ph1197 = phi i64 [ %377, %527 ], [ %541, %_ZL10readVarIntPKcmRm.exit631 ]
   br label %.preheader749
 
 .preheader741:                                    ; preds = %527, %_ZL10readVarIntPKcmRm.exit631
@@ -1255,7 +1255,7 @@ _ZL10readVarIntPKcmRm.exit584:                    ; preds = %.preheader750
   br label %538
 
 .preheader749:                                    ; preds = %.preheader749.preheader, %.preheader749
-  %530 = phi i64 [ %532, %.preheader749 ], [ %.ph1171, %.preheader749.preheader ]
+  %530 = phi i64 [ %532, %.preheader749 ], [ %.ph1197, %.preheader749.preheader ]
   %.08.i621 = phi i32 [ %537, %.preheader749 ], [ 0, %.preheader749.preheader ]
   %.0.i622 = phi i32 [ %536, %.preheader749 ], [ 0, %.preheader749.preheader ]
   %531 = getelementptr inbounds nuw i8, ptr %2, i64 %530
@@ -1475,11 +1475,11 @@ _ZL10readVarIntPKcmRm.exit649:                    ; preds = %.preheader746
   br i1 %.not918, label %.preheader745.preheader, label %.lr.ph901
 
 .preheader745.preheader:                          ; preds = %_ZL10readVarIntPKcmRm.exit674, %630
-  %.ph1170 = phi i64 [ %616, %630 ], [ %679, %_ZL10readVarIntPKcmRm.exit674 ]
+  %.ph1196 = phi i64 [ %616, %630 ], [ %679, %_ZL10readVarIntPKcmRm.exit674 ]
   br label %.preheader745
 
 .preheader745:                                    ; preds = %.preheader745.preheader, %.preheader745
-  %633 = phi i64 [ %635, %.preheader745 ], [ %.ph1170, %.preheader745.preheader ]
+  %633 = phi i64 [ %635, %.preheader745 ], [ %.ph1196, %.preheader745.preheader ]
   %.08.i651 = phi i32 [ %640, %.preheader745 ], [ 0, %.preheader745.preheader ]
   %.0.i652 = phi i32 [ %639, %.preheader745 ], [ 0, %.preheader745.preheader ]
   %634 = getelementptr inbounds nuw i8, ptr %2, i64 %633

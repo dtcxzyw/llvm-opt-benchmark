@@ -4096,18 +4096,18 @@ _ZNKSt4lessIN25cmGlobVerificationManager13CacheEntryKeyEEclERKS1_S4_.exit: ; pre
   br i1 %.0.i.i54, label %._crit_edge.thread, label %68
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.048.lcssa75 = phi ptr [ %.04969, %._crit_edge ], [ %4, %2 ]
+  %.048.lcssa89 = phi ptr [ %.04969, %._crit_edge ], [ %4, %2 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %64 = load ptr, ptr %63, align 8, !tbaa !49
-  %65 = icmp eq ptr %.048.lcssa75, %64
+  %65 = icmp eq ptr %.048.lcssa89, %64
   br i1 %65, label %_ZNKSt4lessIN25cmGlobVerificationManager13CacheEntryKeyEEclERKS1_S4_.exit6, label %66
 
 66:                                               ; preds = %._crit_edge.thread
-  %67 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.048.lcssa75) #27
+  %67 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.048.lcssa89) #27
   br label %68
 
 68:                                               ; preds = %66, %._crit_edge
-  %.048.lcssa74 = phi ptr [ %.048.lcssa75, %66 ], [ %.04969, %._crit_edge ]
+  %.048.lcssa88 = phi ptr [ %.048.lcssa89, %66 ], [ %.04969, %._crit_edge ]
   %.sroa.034.0 = phi ptr [ %67, %66 ], [ %.04969, %._crit_edge ]
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.034.0, i64 32
   %70 = load i8, ptr %69, align 8, !tbaa !75, !range !62, !noundef !63
@@ -4165,7 +4165,7 @@ _ZNKSt4lessIN25cmGlobVerificationManager13CacheEntryKeyEEclERKS1_S4_.exit: ; pre
 
 _ZNKSt4lessIN25cmGlobVerificationManager13CacheEntryKeyEEclERKS1_S4_.exit6: ; preds = %73, %81, %89, %95, %101, %97, %91, %83, %75, %68, %._crit_edge.thread
   %.sroa.047.0 = phi ptr [ null, %._crit_edge.thread ], [ null, %68 ], [ null, %75 ], [ null, %83 ], [ null, %91 ], [ null, %97 ], [ %.sroa.034.0, %101 ], [ %.sroa.034.0, %95 ], [ %.sroa.034.0, %89 ], [ %.sroa.034.0, %81 ], [ %.sroa.034.0, %73 ]
-  %.sroa.4.0 = phi ptr [ %.048.lcssa75, %._crit_edge.thread ], [ %.048.lcssa74, %68 ], [ %.048.lcssa74, %75 ], [ %.048.lcssa74, %83 ], [ %.048.lcssa74, %91 ], [ %.048.lcssa74, %97 ], [ null, %101 ], [ null, %95 ], [ null, %89 ], [ null, %81 ], [ null, %73 ]
+  %.sroa.4.0 = phi ptr [ %.048.lcssa89, %._crit_edge.thread ], [ %.048.lcssa88, %68 ], [ %.048.lcssa88, %75 ], [ %.048.lcssa88, %83 ], [ %.048.lcssa88, %91 ], [ %.048.lcssa88, %97 ], [ null, %101 ], [ null, %95 ], [ null, %89 ], [ null, %81 ], [ null, %73 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.047.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

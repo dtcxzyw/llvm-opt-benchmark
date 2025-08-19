@@ -1932,7 +1932,7 @@ calc_codebook_idx.exit.thread.i:                  ; preds = %983
   br i1 %1000, label %.lr.ph.preheader.i273.i, label %._crit_edge.i272.i
 
 .lr.ph.preheader.i273.i:                          ; preds = %999, %.thread.i.i
-  %.024.i.i = phi i32 [ %995, %.thread.i.i ], [ 0, %999 ]
+  %.025.i.i = phi i32 [ %995, %.thread.i.i ], [ 0, %999 ]
   %.phi.trans.insert.i274.i = getelementptr inbounds nuw i8, ptr %563, i64 52
   %.pre.i275.i = load i32, ptr %.phi.trans.insert.i274.i, align 4, !tbaa !39
   %.phi.trans.insert20.i.i = getelementptr inbounds nuw i8, ptr %563, i64 56
@@ -2000,7 +2000,7 @@ calc_codebook_idx.exit.thread.i:                  ; preds = %983
   %1029 = load i32, ptr %1028, align 4, !tbaa !39
   %1030 = sub nsw i32 %1029, %..i280.i
   %1031 = icmp sgt i32 %1030, 1
-  %1032 = add nsw i32 %.024.i.i, %.neg.i281.i
+  %1032 = add nsw i32 %.025.i.i, %.neg.i281.i
   %1033 = icmp sge i32 %1029, %1032
   %narrow.i.i = select i1 %1031, i1 %1033, i1 false
   %1034 = zext i1 %narrow.i.i to i32
@@ -2049,7 +2049,7 @@ read_coeffs_fine.exit.thread.i:                   ; preds = %calc_codebook_idx.e
   br i1 %.not.not.i.i, label %1058, label %.lr.ph.i286.i
 
 .lr.ph.i286.i:                                    ; preds = %1045
-  %1056 = sub i32 31, %1054
+  %1056 = sub nsw i32 31, %1054
   %1057 = shl nsw i32 -1, %1056
   %umax.i.i = call i32 @llvm.umax.i32(i32 %1052, i32 1)
   %wide.trip.count.i287.i = zext nneg i32 %umax.i.i to i64
@@ -2193,9 +2193,9 @@ read_coeffs_coarse.exit.i:                        ; preds = %.loopexit.i291.i
   %1146 = getelementptr inbounds nuw i8, ptr %563, i64 1776
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %1146, i8 0, i64 1024, i1 false)
   %1147 = icmp sgt i32 %1143, 0
-  br i1 %1147, label %.lr.ph3.i297.i, label %read_coeffs_fine.exit.thread418.i
+  br i1 %1147, label %.lr.ph3.i297.i, label %read_coeffs_fine.exit.thread457.i
 
-read_coeffs_fine.exit.thread418.i:                ; preds = %read_coeffs_coarse.exit.i
+read_coeffs_fine.exit.thread457.i:                ; preds = %read_coeffs_coarse.exit.i
   %1148 = getelementptr inbounds nuw i8, ptr %563, i64 2800
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %1148, i8 0, i64 1024, i1 false)
   br label %dequantize.exit320.i
@@ -2316,8 +2316,8 @@ read_coeffs_fine.exit.i:                          ; preds = %.loopexit.i300.i
   %exitcond.not.i319.i = icmp eq i64 %indvars.iv.next.i318.i, %wide.trip.count.i315.i
   br i1 %exitcond.not.i319.i, label %.loopexit.i312.i, label %.lr.ph.i316.i, !llvm.loop !72
 
-dequantize.exit320.i:                             ; preds = %.loopexit.i312.i, %read_coeffs_fine.exit.i, %read_coeffs_fine.exit.thread418.i, %read_coeffs_fine.exit.thread.i
-  %.sroa.16.12 = phi i32 [ %.sroa.16.18, %read_coeffs_fine.exit.i ], [ %.sroa.16.16, %read_coeffs_fine.exit.thread418.i ], [ %.sroa.16.11, %read_coeffs_fine.exit.thread.i ], [ %.sroa.16.18, %.loopexit.i312.i ]
+dequantize.exit320.i:                             ; preds = %.loopexit.i312.i, %read_coeffs_fine.exit.i, %read_coeffs_fine.exit.thread457.i, %read_coeffs_fine.exit.thread.i
+  %.sroa.16.12 = phi i32 [ %.sroa.16.18, %read_coeffs_fine.exit.i ], [ %.sroa.16.16, %read_coeffs_fine.exit.thread457.i ], [ %.sroa.16.11, %read_coeffs_fine.exit.thread.i ], [ %.sroa.16.18, %.loopexit.i312.i ]
   %indvars.iv.next389.i = add nuw nsw i64 %indvars.iv388.i, 1
   %exitcond391.not.i = icmp eq i64 %indvars.iv.next389.i, %wide.trip.count.i
   br i1 %exitcond391.not.i, label %.critedge221.i, label %562, !llvm.loop !124

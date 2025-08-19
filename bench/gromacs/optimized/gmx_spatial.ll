@@ -504,8 +504,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %152
   %183 = getelementptr inbounds nuw [3 x i32], ptr %24, i64 0, i64 %indvars.iv553
   store i32 %182, ptr %183, align 4, !tbaa !4
   %indvars.iv.next554 = add nsw i64 %indvars.iv553, -1
-  %.not597 = icmp eq i64 %indvars.iv553, 0
-  br i1 %.not597, label %152, label %168, !llvm.loop !61
+  %.not641 = icmp eq i64 %indvars.iv553, 0
+  br i1 %.not641, label %152, label %168, !llvm.loop !61
 
 .loopexit402:                                     ; preds = %.noexc266, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.10.0 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %167, %.noexc266 ]
@@ -766,9 +766,9 @@ _ZNK3gmx12basic_mdspanIiNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14ac
   %323 = load i32, ptr @_ZZ11gmx_spatialiPPcE12iIGNOREOUTER, align 4, !tbaa !4
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %323, i32 0)
   store i32 %.sroa.speculated, ptr @_ZZ11gmx_spatialiPPcE12iIGNOREOUTER, align 4, !tbaa !4
-  %324 = add i32 %.sroa.speculated, %.1169.lcssa
-  %325 = add i32 %.sroa.speculated, %.1173.lcssa
-  %326 = add i32 %.sroa.speculated, %.1177.lcssa
+  %324 = add nuw i32 %.sroa.speculated, %.1169.lcssa
+  %325 = add nuw i32 %.sroa.speculated, %.1173.lcssa
+  %326 = add nuw i32 %.sroa.speculated, %.1177.lcssa
   %327 = sub nsw i32 %.1181.lcssa, %.sroa.speculated
   %328 = sub nsw i32 %.1185.lcssa, %.sroa.speculated
   %329 = sub nsw i32 %.1189.lcssa, %.sroa.speculated
@@ -862,17 +862,17 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit271:       ; preds = %_ZNKSt7__cxx1112bas
 .preheader400:                                    ; preds = %418, %_ZNSt10filesystem7__cxx114pathD2Ev.exit271
   %386 = icmp sgt i32 %153, 0
   %387 = icmp sgt i32 %.fr, 0
-  %or.cond616 = and i1 %386, %387
+  %or.cond660 = and i1 %386, %387
   %388 = icmp sgt i32 %.fr528, 0
-  %or.cond617 = and i1 %or.cond616, %388
-  br i1 %or.cond617, label %.lr.ph467.split.us.split.us.preheader, label %.preheader396
+  %or.cond661 = and i1 %or.cond660, %388
+  br i1 %or.cond661, label %.lr.ph467.split.us.split.us.preheader, label %.preheader396
 
 .lr.ph467.split.us.split.us.preheader:            ; preds = %.preheader400
-  %389 = sext i32 %.1177.lcssa to i64
+  %389 = zext nneg i32 %.1177.lcssa to i64
   %390 = sext i32 %.1189.lcssa to i64
-  %391 = sext i32 %.1173.lcssa to i64
+  %391 = zext nneg i32 %.1173.lcssa to i64
   %392 = sext i32 %.1185.lcssa to i64
-  %393 = sext i32 %.1169.lcssa to i64
+  %393 = zext nneg i32 %.1169.lcssa to i64
   %394 = sext i32 %.1181.lcssa to i64
   %wide.trip.count577 = zext nneg i32 %153 to i64
   %wide.trip.count572 = zext nneg i32 %.fr to i64
@@ -881,7 +881,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit271:       ; preds = %_ZNKSt7__cxx1112bas
 
 .lr.ph467.split.us.split.us:                      ; preds = %.lr.ph467.split.us.split.us.preheader, %..loopexit399_crit_edge.split.us.us.us
   %indvars.iv574 = phi i64 [ 0, %.lr.ph467.split.us.split.us.preheader ], [ %indvars.iv.next575, %..loopexit399_crit_edge.split.us.us.us ]
-  %395 = icmp slt i64 %indvars.iv574, %393
+  %395 = icmp samesign ult i64 %indvars.iv574, %393
   %396 = icmp sgt i64 %indvars.iv574, %394
   %or.cond257.us.us = select i1 %395, i1 true, i1 %396
   br i1 %or.cond257.us.us, label %.preheader398.us.us, label %..loopexit399_crit_edge.split.us.us.us
@@ -893,7 +893,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit271:       ; preds = %_ZNKSt7__cxx1112bas
 
 .preheader398.us.us:                              ; preds = %.lr.ph467.split.us.split.us, %..loopexit_crit_edge.us.us.us
   %indvars.iv569 = phi i64 [ %indvars.iv.next570, %..loopexit_crit_edge.us.us.us ], [ 0, %.lr.ph467.split.us.split.us ]
-  %397 = icmp slt i64 %indvars.iv569, %391
+  %397 = icmp samesign ult i64 %indvars.iv569, %391
   %398 = icmp sgt i64 %indvars.iv569, %392
   %or.cond258.us.us.us = select i1 %397, i1 true, i1 %398
   br i1 %or.cond258.us.us.us, label %.preheader397.us.us.us, label %..loopexit_crit_edge.us.us.us
@@ -905,7 +905,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit271:       ; preds = %_ZNKSt7__cxx1112bas
 
 399:                                              ; preds = %.preheader397.us.us.us, %411
   %indvars.iv564 = phi i64 [ 0, %.preheader397.us.us.us ], [ %indvars.iv.next565, %411 ]
-  %400 = icmp slt i64 %indvars.iv564, %389
+  %400 = icmp samesign ult i64 %indvars.iv564, %389
   %401 = icmp sgt i64 %indvars.iv564, %390
   %or.cond259.us.us.us = select i1 %400, i1 true, i1 %401
   br i1 %or.cond259.us.us.us, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i272.us.us.us, label %411
@@ -1003,10 +1003,10 @@ _ZNK3gmx12basic_mdspanIiNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14ac
 .preheader396:                                    ; preds = %..loopexit399_crit_edge.split.us.us.us, %.preheader400
   %453 = icmp slt i32 %324, %327
   %454 = icmp slt i32 %325, %328
-  %or.cond618 = select i1 %453, i1 %454, i1 false
+  %or.cond662 = select i1 %453, i1 %454, i1 false
   %455 = icmp slt i32 %326, %329
-  %or.cond619 = select i1 %or.cond618, i1 %455, i1 false
-  br i1 %or.cond619, label %.preheader395.us.us.preheader, label %._crit_edge502
+  %or.cond663 = select i1 %or.cond662, i1 %455, i1 false
+  br i1 %or.cond663, label %.preheader395.us.us.preheader, label %._crit_edge502
 
 .preheader395.us.us.preheader:                    ; preds = %.preheader396
   %456 = sext i32 %326 to i64

@@ -89,11 +89,11 @@ define range(i32 0, 2) i32 @a2i_ASN1_STRING(ptr noundef %0, ptr noundef writeonl
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph128, label %.loopexit96
 
-.lr.ph128:                                        ; preds = %4, %70
-  %.073126 = phi i32 [ %.1, %70 ], [ 0, %4 ]
-  %.074125 = phi i32 [ %48, %70 ], [ 0, %4 ]
-  %.079124 = phi ptr [ %.281, %70 ], [ null, %4 ]
-  %.082123 = phi i32 [ %71, %70 ], [ %5, %4 ]
+.lr.ph128:                                        ; preds = %4, %68
+  %.073126 = phi i32 [ %.1, %68 ], [ 0, %4 ]
+  %.074125 = phi i32 [ %47, %68 ], [ 0, %4 ]
+  %.079124 = phi ptr [ %.281, %68 ], [ null, %4 ]
+  %.082123 = phi i32 [ %69, %68 ], [ %5, %4 ]
   %7 = zext nneg i32 %.082123 to i64
   %8 = getelementptr i8, ptr %2, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -1
@@ -140,142 +140,137 @@ define range(i32 0, 2) i32 @a2i_ASN1_STRING(ptr noundef %0, ptr noundef writeonl
   br i1 %29, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.thread93
-  %30 = zext nneg i32 %.17895 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %30
-  store i8 0, ptr %31, align 1, !tbaa !12
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  store i8 0, ptr %30, align 1, !tbaa !12
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %.thread93, %36
-  %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ %25, %.thread93 ]
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %33 = load i8, ptr %32, align 1, !tbaa !12
-  %34 = sext i8 %33 to i32
-  %35 = tail call i32 @ossl_ctype_check(i32 noundef %34, i32 noundef 16) #3
-  %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %._crit_edge.split.loop.exit174, label %36
+.lr.ph:                                           ; preds = %.thread93, %35
+  %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ %25, %.thread93 ]
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
+  %32 = load i8, ptr %31, align 1, !tbaa !12
+  %33 = sext i8 %32 to i32
+  %34 = tail call i32 @ossl_ctype_check(i32 noundef %33, i32 noundef 16) #3
+  %.not = icmp eq i32 %34, 0
+  br i1 %.not, label %._crit_edge.split.loop.exit175, label %35
 
-36:                                               ; preds = %.lr.ph
+35:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %37 = icmp sgt i64 %indvars.iv, 1
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  %36 = icmp sgt i64 %indvars.iv, 1
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
-._crit_edge.split.loop.exit174:                   ; preds = %.lr.ph
-  %38 = trunc nuw nsw i64 %indvars.iv to i32
+._crit_edge.split.loop.exit175:                   ; preds = %.lr.ph
+  %37 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %36, %._crit_edge.split.loop.exit174
-  %.2 = phi i32 [ %38, %._crit_edge.split.loop.exit174 ], [ %.17895, %36 ]
-  %39 = zext nneg i32 %.2 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 %39
-  store i8 0, ptr %40, align 1, !tbaa !12
-  %41 = icmp slt i32 %.2, 2
-  br i1 %41, label %.loopexit, label %42
+._crit_edge:                                      ; preds = %35, %._crit_edge.split.loop.exit175
+  %.2 = phi i32 [ %37, %._crit_edge.split.loop.exit175 ], [ %.17895, %35 ]
+  %38 = zext nneg i32 %.2 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 %38
+  store i8 0, ptr %39, align 1, !tbaa !12
+  %40 = icmp slt i32 %.2, 2
+  br i1 %40, label %.loopexit, label %41
 
-42:                                               ; preds = %._crit_edge
-  %43 = add i32 %.2, %.neg
-  %44 = and i32 %43, 1
-  %.not89 = icmp eq i32 %44, 0
-  br i1 %.not89, label %46, label %45
+41:                                               ; preds = %._crit_edge
+  %42 = add nsw i32 %.2, %.neg
+  %43 = and i32 %42, 1
+  %.not89 = icmp eq i32 %43, 0
+  br i1 %.not89, label %45, label %44
 
-45:                                               ; preds = %42
+44:                                               ; preds = %41
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 92, ptr noundef nonnull @__func__.a2i_ASN1_STRING) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 145, ptr noundef null) #3
   tail call void @CRYPTO_free(ptr noundef %.079124, ptr noundef nonnull @.str.2, i32 noundef 93) #3
-  br label %74
+  br label %72
 
-46:                                               ; preds = %42
-  %47 = lshr exact i32 %43, 1
-  %48 = add nuw nsw i32 %47, %.074125
-  %49 = icmp sgt i32 %48, %.073126
-  br i1 %49, label %50, label %56
+45:                                               ; preds = %41
+  %46 = lshr exact i32 %42, 1
+  %47 = add nuw nsw i32 %46, %.074125
+  %48 = icmp sgt i32 %47, %.073126
+  br i1 %48, label %49, label %.preheader.preheader
 
-50:                                               ; preds = %46
-  %51 = add i32 %43, %.074125
-  %52 = zext i32 %51 to i64
-  %53 = tail call ptr @CRYPTO_realloc(ptr noundef %.079124, i64 noundef %52, ptr noundef nonnull @.str.2, i32 noundef 98) #3
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %55, label %56
+49:                                               ; preds = %45
+  %50 = add i32 %42, %.074125
+  %51 = zext i32 %50 to i64
+  %52 = tail call ptr @CRYPTO_realloc(ptr noundef %.079124, i64 noundef %51, ptr noundef nonnull @.str.2, i32 noundef 98) #3
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %.preheader.preheader
 
-55:                                               ; preds = %50
+54:                                               ; preds = %49
   tail call void @CRYPTO_free(ptr noundef %.079124, ptr noundef nonnull @.str.2, i32 noundef 100) #3
-  br label %74
+  br label %72
 
-56:                                               ; preds = %50, %46
-  %.281 = phi ptr [ %.079124, %46 ], [ %53, %50 ]
-  %.1 = phi i32 [ %.073126, %46 ], [ %51, %50 ]
-  %.not133 = icmp eq i32 %43, 0
-  br i1 %.not133, label %._crit_edge122, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %56
-  %57 = zext nneg i32 %.074125 to i64
-  %wide.trip.count = zext nneg i32 %47 to i64
-  %invariant.gep176 = getelementptr inbounds nuw i8, ptr %.281, i64 %57
+.preheader.preheader:                             ; preds = %45, %49
+  %.281 = phi ptr [ %.079124, %45 ], [ %52, %49 ]
+  %.1 = phi i32 [ %.073126, %45 ], [ %50, %49 ]
+  %55 = zext nneg i32 %.074125 to i64
+  %wide.trip.count = zext nneg i32 %46 to i64
+  %invariant.gep177 = getelementptr inbounds nuw i8, ptr %.281, i64 %55
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %69
-  %indvars.iv150 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next151, %69 ]
-  %indvars.iv148 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next149, %69 ]
-  %gep177 = getelementptr inbounds nuw i8, ptr %invariant.gep176, i64 %indvars.iv148
+.preheader:                                       ; preds = %.preheader.preheader, %67
+  %indvars.iv150 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next151, %67 ]
+  %indvars.iv148 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next149, %67 ]
+  %gep178 = getelementptr inbounds nuw i8, ptr %invariant.gep177, i64 %indvars.iv148
   %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv150
-  br label %58
+  br label %56
 
-58:                                               ; preds = %.preheader, %64
-  %59 = phi i1 [ true, %.preheader ], [ false, %64 ]
-  %indvars.iv145 = phi i64 [ 0, %.preheader ], [ 1, %64 ]
+56:                                               ; preds = %.preheader, %62
+  %57 = phi i1 [ true, %.preheader ], [ false, %62 ]
+  %indvars.iv145 = phi i64 [ 0, %.preheader ], [ 1, %62 ]
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv145
-  %60 = load i8, ptr %gep, align 1, !tbaa !12
-  %61 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %60) #3
-  %62 = icmp slt i32 %61, 0
-  br i1 %62, label %63, label %64
+  %58 = load i8, ptr %gep, align 1, !tbaa !12
+  %59 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %58) #3
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %61, label %62
 
-63:                                               ; preds = %58
+61:                                               ; preds = %56
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 110, ptr noundef nonnull @__func__.a2i_ASN1_STRING) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 141, ptr noundef null) #3
   tail call void @CRYPTO_free(ptr noundef %.281, ptr noundef nonnull @.str.2, i32 noundef 111) #3
-  br label %74
+  br label %72
 
-64:                                               ; preds = %58
-  %65 = load i8, ptr %gep177, align 1, !tbaa !12
-  %66 = shl i8 %65, 4
-  %67 = trunc i32 %61 to i8
-  %68 = or i8 %66, %67
-  store i8 %68, ptr %gep177, align 1, !tbaa !12
-  br i1 %59, label %58, label %69, !llvm.loop !16
+62:                                               ; preds = %56
+  %63 = load i8, ptr %gep178, align 1, !tbaa !12
+  %64 = shl i8 %63, 4
+  %65 = trunc i32 %59 to i8
+  %66 = or i8 %64, %65
+  store i8 %66, ptr %gep178, align 1, !tbaa !12
+  br i1 %57, label %56, label %67, !llvm.loop !16
 
-69:                                               ; preds = %64
+67:                                               ; preds = %62
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 2
   %exitcond.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge122, label %.preheader, !llvm.loop !17
 
-._crit_edge122:                                   ; preds = %69, %56
-  br i1 %28, label %70, label %.loopexit96
+._crit_edge122:                                   ; preds = %67
+  br i1 %28, label %68, label %.loopexit96
 
-70:                                               ; preds = %._crit_edge122
-  %71 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3) #3
-  %72 = icmp slt i32 %71, 1
-  br i1 %72, label %.loopexit, label %.lr.ph128
+68:                                               ; preds = %._crit_edge122
+  %69 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3) #3
+  %70 = icmp slt i32 %69, 1
+  br i1 %70, label %.loopexit, label %.lr.ph128
 
 .loopexit96:                                      ; preds = %._crit_edge122, %4
   %.180 = phi ptr [ null, %4 ], [ %.281, %._crit_edge122 ]
-  %.175 = phi i32 [ 0, %4 ], [ %48, %._crit_edge122 ]
+  %.175 = phi i32 [ 0, %4 ], [ %47, %._crit_edge122 ]
   store i32 %.175, ptr %1, align 8, !tbaa !3
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %.180, ptr %73, align 8, !tbaa !11
-  br label %74
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %.180, ptr %71, align 8, !tbaa !11
+  br label %72
 
-.loopexit:                                        ; preds = %._crit_edge, %19, %12, %70, %._crit_edge.thread
-  %.079112 = phi ptr [ %.079124, %._crit_edge.thread ], [ %.079124, %._crit_edge ], [ %.079124, %19 ], [ %.079124, %12 ], [ %.281, %70 ]
+.loopexit:                                        ; preds = %._crit_edge, %19, %12, %68, %._crit_edge.thread
+  %.079112 = phi ptr [ %.079124, %._crit_edge.thread ], [ %.079124, %._crit_edge ], [ %.079124, %19 ], [ %.079124, %12 ], [ %.281, %68 ]
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 129, ptr noundef nonnull @__func__.a2i_ASN1_STRING) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 150, ptr noundef null) #3
   tail call void @CRYPTO_free(ptr noundef %.079112, ptr noundef nonnull @.str.2, i32 noundef 130) #3
-  br label %74
+  br label %72
 
-74:                                               ; preds = %.loopexit, %.loopexit96, %63, %55, %45
-  %.076 = phi i32 [ 1, %.loopexit96 ], [ 0, %.loopexit ], [ 0, %45 ], [ 0, %55 ], [ 0, %63 ]
+72:                                               ; preds = %.loopexit, %.loopexit96, %61, %54, %44
+  %.076 = phi i32 [ 1, %.loopexit96 ], [ 0, %.loopexit ], [ 0, %44 ], [ 0, %54 ], [ 0, %61 ]
   ret i32 %.076
 }
 

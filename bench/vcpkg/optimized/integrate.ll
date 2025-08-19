@@ -4470,7 +4470,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit283:          ; preds = %773, %777
   %793 = load ptr, ptr %792, align 8, !tbaa !101, !noalias !120
   %794 = load ptr, ptr %62, align 8, !tbaa !104, !noalias !120
   %795 = icmp eq ptr %793, %794
-  %spec.select537 = zext i1 %795 to i8
+  %spec.select723 = zext i1 %795 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.26) #19, !noalias !120
   %796 = load ptr, ptr %4, align 8, !noalias !120
   %797 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4478,7 +4478,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit283:          ; preds = %773, %777
   %799 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i8 1, ptr %799, align 8, !tbaa !17, !alias.scope !120
   %800 = getelementptr inbounds nuw i8, ptr %61, i64 9
-  store i8 %spec.select537, ptr %800, align 1, !tbaa !22, !alias.scope !120
+  store i8 %spec.select723, ptr %800, align 1, !tbaa !22, !alias.scope !120
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EESB_EE, i64 16), ptr %61, align 8, !tbaa !23, !alias.scope !120
   %801 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store ptr %62, ptr %801, align 8, !tbaa !105, !alias.scope !120
@@ -5096,7 +5096,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit373:          ; preds = %1001, %1005
   %1021 = load ptr, ptr %1020, align 8, !tbaa !101, !noalias !126
   %1022 = load ptr, ptr %77, align 8, !tbaa !104, !noalias !126
   %1023 = icmp eq ptr %1021, %1022
-  %spec.select538 = zext i1 %1023 to i8
+  %spec.select724 = zext i1 %1023 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.26) #19, !noalias !126
   %1024 = load ptr, ptr %1, align 8, !noalias !126
   %1025 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5104,7 +5104,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit373:          ; preds = %1001, %1005
   %1027 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i8 1, ptr %1027, align 8, !tbaa !17, !alias.scope !126
   %1028 = getelementptr inbounds nuw i8, ptr %76, i64 9
-  store i8 %spec.select538, ptr %1028, align 1, !tbaa !22, !alias.scope !126
+  store i8 %spec.select724, ptr %1028, align 1, !tbaa !22, !alias.scope !126
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EESB_EE, i64 16), ptr %76, align 8, !tbaa !23, !alias.scope !126
   %1029 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store ptr %77, ptr %1029, align 8, !tbaa !105, !alias.scope !126
@@ -5340,7 +5340,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit410:          ; preds = %1086, %1090
   %1106 = load ptr, ptr %1105, align 8, !tbaa !101, !noalias !129
   %1107 = load ptr, ptr %84, align 8, !tbaa !104, !noalias !129
   %1108 = icmp eq ptr %1106, %1107
-  %spec.select539 = zext i1 %1108 to i8
+  %spec.select725 = zext i1 %1108 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.26) #19, !noalias !129
   %1109 = load ptr, ptr %0, align 8, !noalias !129
   %1110 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5348,7 +5348,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit410:          ; preds = %1086, %1090
   %1112 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i8 1, ptr %1112, align 8, !tbaa !17, !alias.scope !129
   %1113 = getelementptr inbounds nuw i8, ptr %83, i64 9
-  store i8 %spec.select539, ptr %1113, align 1, !tbaa !22, !alias.scope !129
+  store i8 %spec.select725, ptr %1113, align 1, !tbaa !22, !alias.scope !129
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EESB_EE, i64 16), ptr %83, align 8, !tbaa !23, !alias.scope !129
   %1114 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store ptr %84, ptr %1114, align 8, !tbaa !105, !alias.scope !129
@@ -10530,7 +10530,7 @@ _ZN5vcpkg15ZshAutocompleteD2Ev.exit718:           ; preds = %_ZSt8_DestroyIPNSt7
   %1974 = load ptr, ptr %296, align 8, !tbaa !101, !noalias !192
   %1975 = load ptr, ptr %57, align 8, !tbaa !104, !noalias !192
   %1976 = icmp eq ptr %1974, %1975
-  %spec.select1341 = zext i1 %1976 to i8
+  %spec.select1730 = zext i1 %1976 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull @.str.26) #19, !noalias !192
   %1977 = load ptr, ptr %23, align 8, !noalias !192
   %1978 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -10538,7 +10538,7 @@ _ZN5vcpkg15ZshAutocompleteD2Ev.exit718:           ; preds = %_ZSt8_DestroyIPNSt7
   %1980 = getelementptr inbounds nuw i8, ptr %167, i64 8
   store i8 1, ptr %1980, align 8, !tbaa !17, !alias.scope !192
   %1981 = getelementptr inbounds nuw i8, ptr %167, i64 9
-  store i8 %spec.select1341, ptr %1981, align 1, !tbaa !22, !alias.scope !192
+  store i8 %spec.select1730, ptr %1981, align 1, !tbaa !22, !alias.scope !192
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EESB_EE, i64 16), ptr %167, align 8, !tbaa !23, !alias.scope !192
   %1982 = getelementptr inbounds nuw i8, ptr %167, i64 16
   store ptr %57, ptr %1982, align 8, !tbaa !105, !alias.scope !192
@@ -11035,7 +11035,7 @@ _ZN5vcpkg15ZshAutocompleteD2Ev.exit772:           ; preds = %_ZSt8_DestroyIPNSt7
   %2154 = load ptr, ptr %296, align 8, !tbaa !101, !noalias !201
   %2155 = load ptr, ptr %57, align 8, !tbaa !104, !noalias !201
   %2156 = icmp eq ptr %2154, %2155
-  %spec.select1342 = zext i1 %2156 to i8
+  %spec.select1731 = zext i1 %2156 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull @.str.26) #19, !noalias !201
   %2157 = load ptr, ptr %20, align 8, !noalias !201
   %2158 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -11043,7 +11043,7 @@ _ZN5vcpkg15ZshAutocompleteD2Ev.exit772:           ; preds = %_ZSt8_DestroyIPNSt7
   %2160 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i8 1, ptr %2160, align 8, !tbaa !17, !alias.scope !201
   %2161 = getelementptr inbounds nuw i8, ptr %182, i64 9
-  store i8 %spec.select1342, ptr %2161, align 1, !tbaa !22, !alias.scope !201
+  store i8 %spec.select1731, ptr %2161, align 1, !tbaa !22, !alias.scope !201
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EESB_EE, i64 16), ptr %182, align 8, !tbaa !23, !alias.scope !201
   %2162 = getelementptr inbounds nuw i8, ptr %182, i64 16
   store ptr %57, ptr %2162, align 8, !tbaa !105, !alias.scope !201
@@ -11540,7 +11540,7 @@ _ZN5vcpkg15ZshAutocompleteD2Ev.exit826:           ; preds = %_ZSt8_DestroyIPNSt7
   %2334 = load ptr, ptr %296, align 8, !tbaa !101, !noalias !210
   %2335 = load ptr, ptr %57, align 8, !tbaa !104, !noalias !210
   %2336 = icmp eq ptr %2334, %2335
-  %spec.select1343 = zext i1 %2336 to i8
+  %spec.select1732 = zext i1 %2336 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull @.str.26) #19, !noalias !210
   %2337 = load ptr, ptr %17, align 8, !noalias !210
   %2338 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -11548,7 +11548,7 @@ _ZN5vcpkg15ZshAutocompleteD2Ev.exit826:           ; preds = %_ZSt8_DestroyIPNSt7
   %2340 = getelementptr inbounds nuw i8, ptr %197, i64 8
   store i8 1, ptr %2340, align 8, !tbaa !17, !alias.scope !210
   %2341 = getelementptr inbounds nuw i8, ptr %197, i64 9
-  store i8 %spec.select1343, ptr %2341, align 1, !tbaa !22, !alias.scope !210
+  store i8 %spec.select1732, ptr %2341, align 1, !tbaa !22, !alias.scope !210
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EESB_EE, i64 16), ptr %197, align 8, !tbaa !23, !alias.scope !210
   %2342 = getelementptr inbounds nuw i8, ptr %197, i64 16
   store ptr %57, ptr %2342, align 8, !tbaa !105, !alias.scope !210
@@ -12045,7 +12045,7 @@ _ZN5vcpkg15ZshAutocompleteD2Ev.exit880:           ; preds = %_ZSt8_DestroyIPNSt7
   %2514 = load ptr, ptr %296, align 8, !tbaa !101, !noalias !219
   %2515 = load ptr, ptr %57, align 8, !tbaa !104, !noalias !219
   %2516 = icmp eq ptr %2514, %2515
-  %spec.select1344 = zext i1 %2516 to i8
+  %spec.select1733 = zext i1 %2516 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull @.str.26) #19, !noalias !219
   %2517 = load ptr, ptr %14, align 8, !noalias !219
   %2518 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -12053,7 +12053,7 @@ _ZN5vcpkg15ZshAutocompleteD2Ev.exit880:           ; preds = %_ZSt8_DestroyIPNSt7
   %2520 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store i8 1, ptr %2520, align 8, !tbaa !17, !alias.scope !219
   %2521 = getelementptr inbounds nuw i8, ptr %212, i64 9
-  store i8 %spec.select1344, ptr %2521, align 1, !tbaa !22, !alias.scope !219
+  store i8 %spec.select1733, ptr %2521, align 1, !tbaa !22, !alias.scope !219
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EESB_EE, i64 16), ptr %212, align 8, !tbaa !23, !alias.scope !219
   %2522 = getelementptr inbounds nuw i8, ptr %212, i64 16
   store ptr %57, ptr %2522, align 8, !tbaa !105, !alias.scope !219
@@ -12551,7 +12551,7 @@ _ZN5vcpkg15ZshAutocompleteD2Ev.exit934:           ; preds = %_ZSt8_DestroyIPNSt7
   %2695 = load ptr, ptr %296, align 8, !tbaa !101, !noalias !228
   %2696 = load ptr, ptr %57, align 8, !tbaa !104, !noalias !228
   %2697 = icmp eq ptr %2695, %2696
-  %spec.select1345 = zext i1 %2697 to i8
+  %spec.select1734 = zext i1 %2697 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull @.str.26) #19, !noalias !228
   %2698 = load ptr, ptr %11, align 8, !noalias !228
   %2699 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -12559,7 +12559,7 @@ _ZN5vcpkg15ZshAutocompleteD2Ev.exit934:           ; preds = %_ZSt8_DestroyIPNSt7
   %2701 = getelementptr inbounds nuw i8, ptr %227, i64 8
   store i8 1, ptr %2701, align 8, !tbaa !17, !alias.scope !228
   %2702 = getelementptr inbounds nuw i8, ptr %227, i64 9
-  store i8 %spec.select1345, ptr %2702, align 1, !tbaa !22, !alias.scope !228
+  store i8 %spec.select1734, ptr %2702, align 1, !tbaa !22, !alias.scope !228
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EESB_EE, i64 16), ptr %227, align 8, !tbaa !23, !alias.scope !228
   %2703 = getelementptr inbounds nuw i8, ptr %227, i64 16
   store ptr %57, ptr %2703, align 8, !tbaa !105, !alias.scope !228
@@ -13056,7 +13056,7 @@ _ZN5vcpkg15ZshAutocompleteD2Ev.exit988:           ; preds = %_ZSt8_DestroyIPNSt7
   %2875 = load ptr, ptr %296, align 8, !tbaa !101, !noalias !237
   %2876 = load ptr, ptr %57, align 8, !tbaa !104, !noalias !237
   %2877 = icmp eq ptr %2875, %2876
-  %spec.select1346 = zext i1 %2877 to i8
+  %spec.select1735 = zext i1 %2877 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str.26) #19, !noalias !237
   %2878 = load ptr, ptr %8, align 8, !noalias !237
   %2879 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -13064,7 +13064,7 @@ _ZN5vcpkg15ZshAutocompleteD2Ev.exit988:           ; preds = %_ZSt8_DestroyIPNSt7
   %2881 = getelementptr inbounds nuw i8, ptr %242, i64 8
   store i8 1, ptr %2881, align 8, !tbaa !17, !alias.scope !237
   %2882 = getelementptr inbounds nuw i8, ptr %242, i64 9
-  store i8 %spec.select1346, ptr %2882, align 1, !tbaa !22, !alias.scope !237
+  store i8 %spec.select1735, ptr %2882, align 1, !tbaa !22, !alias.scope !237
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EESB_EE, i64 16), ptr %242, align 8, !tbaa !23, !alias.scope !237
   %2883 = getelementptr inbounds nuw i8, ptr %242, i64 16
   store ptr %57, ptr %2883, align 8, !tbaa !105, !alias.scope !237
@@ -13561,7 +13561,7 @@ _ZN5vcpkg15ZshAutocompleteD2Ev.exit1042:          ; preds = %_ZSt8_DestroyIPNSt7
   %3055 = load ptr, ptr %296, align 8, !tbaa !101, !noalias !246
   %3056 = load ptr, ptr %57, align 8, !tbaa !104, !noalias !246
   %3057 = icmp eq ptr %3055, %3056
-  %spec.select1347 = zext i1 %3057 to i8
+  %spec.select1736 = zext i1 %3057 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.26) #19, !noalias !246
   %3058 = load ptr, ptr %5, align 8, !noalias !246
   %3059 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -13569,7 +13569,7 @@ _ZN5vcpkg15ZshAutocompleteD2Ev.exit1042:          ; preds = %_ZSt8_DestroyIPNSt7
   %3061 = getelementptr inbounds nuw i8, ptr %257, i64 8
   store i8 1, ptr %3061, align 8, !tbaa !17, !alias.scope !246
   %3062 = getelementptr inbounds nuw i8, ptr %257, i64 9
-  store i8 %spec.select1347, ptr %3062, align 1, !tbaa !22, !alias.scope !246
+  store i8 %spec.select1736, ptr %3062, align 1, !tbaa !22, !alias.scope !246
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EESB_EE, i64 16), ptr %257, align 8, !tbaa !23, !alias.scope !246
   %3063 = getelementptr inbounds nuw i8, ptr %257, i64 16
   store ptr %57, ptr %3063, align 8, !tbaa !105, !alias.scope !246
@@ -14067,7 +14067,7 @@ _ZN5vcpkg15ZshAutocompleteD2Ev.exit1096:          ; preds = %_ZSt8_DestroyIPNSt7
   %3236 = load ptr, ptr %296, align 8, !tbaa !101, !noalias !255
   %3237 = load ptr, ptr %57, align 8, !tbaa !104, !noalias !255
   %3238 = icmp eq ptr %3236, %3237
-  %spec.select1348 = zext i1 %3238 to i8
+  %spec.select1737 = zext i1 %3238 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.26) #19, !noalias !255
   %3239 = load ptr, ptr %2, align 8, !noalias !255
   %3240 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14075,7 +14075,7 @@ _ZN5vcpkg15ZshAutocompleteD2Ev.exit1096:          ; preds = %_ZSt8_DestroyIPNSt7
   %3242 = getelementptr inbounds nuw i8, ptr %272, i64 8
   store i8 1, ptr %3242, align 8, !tbaa !17, !alias.scope !255
   %3243 = getelementptr inbounds nuw i8, ptr %272, i64 9
-  store i8 %spec.select1348, ptr %3243, align 1, !tbaa !22, !alias.scope !255
+  store i8 %spec.select1737, ptr %3243, align 1, !tbaa !22, !alias.scope !255
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EESB_EE, i64 16), ptr %272, align 8, !tbaa !23, !alias.scope !255
   %3244 = getelementptr inbounds nuw i8, ptr %272, i64 16
   store ptr %57, ptr %3244, align 8, !tbaa !105, !alias.scope !255

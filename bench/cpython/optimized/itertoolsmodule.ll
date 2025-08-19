@@ -4849,12 +4849,12 @@ define internal ptr @itertools_count(ptr noundef %0, ptr noundef %1, ptr noundef
   %22 = load ptr, ptr %21, align 8, !tbaa !38
   %23 = call i32 @PyNumber_Check(ptr noundef nonnull %19) #7
   %.not52.i = icmp eq i32 %23, 0
-  br i1 %.not52.i, label %31, label %.thread138
+  br i1 %.not52.i, label %31, label %.thread148
 
 .thread50.thread:                                 ; preds = %20
   %24 = call i32 @PyNumber_Check(ptr noundef nonnull %19) #7
-  %.not52.i169 = icmp eq i32 %24, 0
-  br i1 %.not52.i169, label %31, label %.thread149
+  %.not52.i179 = icmp eq i32 %24, 0
+  br i1 %.not52.i179, label %31, label %.thread159
 
 25:                                               ; preds = %18
   %26 = getelementptr i8, ptr %16, i64 8
@@ -4862,26 +4862,26 @@ define internal ptr @itertools_count(ptr noundef %0, ptr noundef %1, ptr noundef
   %.not53.i = icmp eq ptr %27, null
   br i1 %.not53.i, label %.thread68.i, label %28
 
-.thread138:                                       ; preds = %.thread50
-  %.not53.i141 = icmp eq ptr %22, null
-  br i1 %.not53.i141, label %.thread149, label %.thread154
+.thread148:                                       ; preds = %.thread50
+  %.not53.i151 = icmp eq ptr %22, null
+  br i1 %.not53.i151, label %.thread159, label %.thread164
 
 28:                                               ; preds = %25
   %29 = call i32 @PyNumber_Check(ptr noundef nonnull %27) #7
   %.not54.i = icmp eq i32 %29, 0
-  br i1 %.not54.i, label %31, label %.thread122
+  br i1 %.not54.i, label %31, label %.thread132
 
-.thread154:                                       ; preds = %.thread138
+.thread164:                                       ; preds = %.thread148
   %30 = call i32 @PyNumber_Check(ptr noundef nonnull %22) #7
-  %.not54.i158 = icmp eq i32 %30, 0
-  br i1 %.not54.i158, label %31, label %.thread129
+  %.not54.i168 = icmp eq i32 %30, 0
+  br i1 %.not54.i168, label %31, label %.thread139
 
-31:                                               ; preds = %.thread50.thread, %.thread154, %28, %.thread50
+31:                                               ; preds = %.thread50.thread, %.thread164, %28, %.thread50
   %32 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !38
   call void @PyErr_SetString(ptr noundef %32, ptr noundef nonnull @.str.51) #7
   br label %itertools_count_impl.exit
 
-.thread149:                                       ; preds = %.thread50.thread, %.thread138
+.thread159:                                       ; preds = %.thread50.thread, %.thread148
   %33 = getelementptr i8, ptr %19, i64 8
   %.val64.i = load ptr, ptr %33, align 8, !tbaa !39
   %34 = getelementptr i8, ptr %.val64.i, i64 168
@@ -4890,16 +4890,16 @@ define internal ptr @itertools_count(ptr noundef %0, ptr noundef %1, ptr noundef
   %.not55.i = icmp eq i64 %35, 0
   br i1 %.not55.i, label %.thread68.i, label %.critedge
 
-.thread129:                                       ; preds = %.thread154
+.thread139:                                       ; preds = %.thread164
   %36 = getelementptr i8, ptr %19, i64 8
-  %.val64.i131 = load ptr, ptr %36, align 8, !tbaa !39
-  %37 = getelementptr i8, ptr %.val64.i131, i64 168
-  %.val66.i132 = load i64, ptr %37, align 8, !tbaa !184
-  %38 = and i64 %.val66.i132, 16777216
-  %.not55.i133 = icmp eq i64 %38, 0
-  br i1 %.not55.i133, label %.thread68.i, label %43
+  %.val64.i141 = load ptr, ptr %36, align 8, !tbaa !39
+  %37 = getelementptr i8, ptr %.val64.i141, i64 168
+  %.val66.i142 = load i64, ptr %37, align 8, !tbaa !184
+  %38 = and i64 %.val66.i142, 16777216
+  %.not55.i143 = icmp eq i64 %38, 0
+  br i1 %.not55.i143, label %.thread68.i, label %43
 
-.thread122:                                       ; preds = %28
+.thread132:                                       ; preds = %28
   %39 = getelementptr i8, ptr %27, i64 8
   %.val.i = load ptr, ptr %39, align 8, !tbaa !39
   %40 = getelementptr i8, ptr %.val.i, i64 168
@@ -4908,18 +4908,18 @@ define internal ptr @itertools_count(ptr noundef %0, ptr noundef %1, ptr noundef
   %42 = icmp ne i64 %41, 0
   br label %.thread68.i
 
-43:                                               ; preds = %.thread129
+43:                                               ; preds = %.thread139
   %44 = getelementptr i8, ptr %22, i64 8
-  %.val.i119 = load ptr, ptr %44, align 8, !tbaa !39
-  %45 = getelementptr i8, ptr %.val.i119, i64 168
-  %.val65.i120 = load i64, ptr %45, align 8, !tbaa !184
-  %46 = and i64 %.val65.i120, 16777216
-  %.not174 = icmp eq i64 %46, 0
-  br i1 %.not174, label %.thread68.i, label %.critedge
+  %.val.i129 = load ptr, ptr %44, align 8, !tbaa !39
+  %45 = getelementptr i8, ptr %.val.i129, i64 168
+  %.val65.i130 = load i64, ptr %45, align 8, !tbaa !184
+  %46 = and i64 %.val65.i130, 16777216
+  %.not184 = icmp eq i64 %46, 0
+  br i1 %.not184, label %.thread68.i, label %.critedge
 
-.critedge:                                        ; preds = %.thread149, %43
-  %.not53.i146 = phi i1 [ false, %43 ], [ true, %.thread149 ]
-  %.04766125134136 = phi ptr [ %22, %43 ], [ null, %.thread149 ]
+.critedge:                                        ; preds = %.thread159, %43
+  %.not53.i156 = phi i1 [ false, %43 ], [ true, %.thread159 ]
+  %.04766135144146 = phi ptr [ %22, %43 ], [ null, %.thread159 ]
   %47 = call i64 @PyLong_AsSsize_t(ptr noundef nonnull %19) #7
   %48 = icmp eq i64 %47, -1
   br i1 %48, label %49, label %.thread68.i
@@ -4933,12 +4933,12 @@ define internal ptr @itertools_count(ptr noundef %0, ptr noundef %1, ptr noundef
   call void @PyErr_Clear() #7
   br label %.thread68.i
 
-.thread68.i:                                      ; preds = %25, %.thread129, %.thread122, %.thread40, %51, %49, %.critedge, %43, %.thread149
-  %.not53.i6874 = phi i1 [ %.not53.i146, %51 ], [ %.not53.i146, %49 ], [ %.not53.i146, %.critedge ], [ false, %43 ], [ true, %.thread149 ], [ true, %.thread40 ], [ false, %.thread122 ], [ false, %.thread129 ], [ true, %25 ]
-  %.048 = phi ptr [ %.04766125134136, %51 ], [ %.04766125134136, %49 ], [ %.04766125134136, %.critedge ], [ %22, %43 ], [ null, %.thread149 ], [ null, %.thread40 ], [ %27, %.thread122 ], [ %22, %.thread129 ], [ null, %25 ]
-  %.040.i = phi ptr [ %19, %51 ], [ %19, %49 ], [ %19, %.critedge ], [ %19, %43 ], [ %19, %.thread149 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), %.thread40 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), %.thread122 ], [ %19, %.thread129 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), %25 ]
-  %.029.i = phi i64 [ -1, %51 ], [ -1, %49 ], [ %47, %.critedge ], [ 0, %43 ], [ 0, %.thread149 ], [ 0, %.thread40 ], [ 0, %.thread122 ], [ 0, %.thread129 ], [ 0, %25 ]
-  %.028.shrunk.i = phi i1 [ false, %51 ], [ true, %49 ], [ true, %.critedge ], [ false, %43 ], [ false, %.thread149 ], [ true, %.thread40 ], [ %42, %.thread122 ], [ false, %.thread129 ], [ true, %25 ]
+.thread68.i:                                      ; preds = %25, %.thread139, %.thread132, %.thread40, %51, %49, %.critedge, %43, %.thread159
+  %.not53.i6874 = phi i1 [ %.not53.i156, %51 ], [ %.not53.i156, %49 ], [ %.not53.i156, %.critedge ], [ false, %43 ], [ true, %.thread159 ], [ true, %.thread40 ], [ false, %.thread132 ], [ false, %.thread139 ], [ true, %25 ]
+  %.048 = phi ptr [ %.04766135144146, %51 ], [ %.04766135144146, %49 ], [ %.04766135144146, %.critedge ], [ %22, %43 ], [ null, %.thread159 ], [ null, %.thread40 ], [ %27, %.thread132 ], [ %22, %.thread139 ], [ null, %25 ]
+  %.040.i = phi ptr [ %19, %51 ], [ %19, %49 ], [ %19, %.critedge ], [ %19, %43 ], [ %19, %.thread159 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), %.thread40 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), %.thread132 ], [ %19, %.thread139 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), %25 ]
+  %.029.i = phi i64 [ -1, %51 ], [ -1, %49 ], [ %47, %.critedge ], [ 0, %43 ], [ 0, %.thread159 ], [ 0, %.thread40 ], [ 0, %.thread132 ], [ 0, %.thread139 ], [ 0, %25 ]
+  %.028.shrunk.i = phi i1 [ false, %51 ], [ true, %49 ], [ true, %.critedge ], [ false, %43 ], [ false, %.thread159 ], [ true, %.thread40 ], [ %42, %.thread132 ], [ false, %.thread139 ], [ true, %25 ]
   %52 = load i32, ptr %.040.i, align 8, !tbaa !37
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %Py_INCREF.exit63.i, label %54
@@ -6875,9 +6875,9 @@ _Py_NewRef.exit.i31:                              ; preds = %71, %68
   br i1 %85, label %Py_DECREF.exit.sink.split, label %Py_DECREF.exit
 
 Py_DECREF.exit.sink.split:                        ; preds = %32, %83
-  %.lcssa41.sink = phi ptr [ %66, %83 ], [ %17, %32 ]
+  %.lcssa58.sink = phi ptr [ %66, %83 ], [ %17, %32 ]
   %.3.ph = phi ptr [ %81, %83 ], [ null, %32 ]
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.lcssa41.sink) #7
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.lcssa58.sink) #7
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %15, %13, %Py_DECREF.exit.sink.split, %Py_XDECREF.exit, %32, %30, %83, %78
@@ -8812,7 +8812,7 @@ define internal ptr @itertools_permutations(ptr noundef %0, ptr noundef %1, ptr 
   %62 = load ptr, ptr %61, align 8, !tbaa !70
   %63 = call ptr %62(ptr noundef %0, i64 noundef 0) #7
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %.thread87.i, label %65
+  br i1 %64, label %.thread93.i, label %65
 
 65:                                               ; preds = %._crit_edge.i
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 16
@@ -8835,20 +8835,20 @@ define internal ptr @itertools_permutations(ptr noundef %0, ptr noundef %1, ptr 
   %75 = phi ptr [ %52, %50 ], [ null, %47 ]
   %76 = call ptr @PyErr_NoMemory() #7
   %.not65.i = icmp eq ptr %48, null
-  br i1 %.not65.i, label %77, label %.thread87.i
+  br i1 %.not65.i, label %77, label %.thread93.i
 
-.thread87.i:                                      ; preds = %74, %._crit_edge.i
-  %.05090.i = phi ptr [ %75, %74 ], [ %52, %._crit_edge.i ]
+.thread93.i:                                      ; preds = %74, %._crit_edge.i
+  %.05096.i = phi ptr [ %75, %74 ], [ %52, %._crit_edge.i ]
   call void @PyMem_Free(ptr noundef nonnull %48) #7
   br label %77
 
-77:                                               ; preds = %.thread87.i, %74
-  %.05091.i = phi ptr [ %.05090.i, %.thread87.i ], [ %75, %74 ]
-  %.not66.i = icmp eq ptr %.05091.i, null
+77:                                               ; preds = %.thread93.i, %74
+  %.05097.i = phi ptr [ %.05096.i, %.thread93.i ], [ %75, %74 ]
+  %.not66.i = icmp eq ptr %.05097.i, null
   br i1 %.not66.i, label %.thread77.thread.i, label %78
 
 78:                                               ; preds = %77
-  call void @PyMem_Free(ptr noundef nonnull %.05091.i) #7
+  call void @PyMem_Free(ptr noundef nonnull %.05097.i) #7
   br label %.thread77.thread.i
 
 .thread77.thread.i:                               ; preds = %78, %77, %.thread.i, %37, %32
@@ -9350,8 +9350,8 @@ Py_DECREF.exit:                                   ; preds = %17, %18, %21
   br label %Py_XDECREF.exit
 
 .preheader87:                                     ; preds = %43
-  %.not99 = icmp eq i64 %.053, 0
-  br i1 %.not99, label %.preheader, label %.lr.ph
+  %.not112 = icmp eq i64 %.053, 0
+  br i1 %.not112, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader87
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -9372,7 +9372,7 @@ Py_DECREF.exit:                                   ; preds = %17, %18, %21
   %52 = load ptr, ptr %51, align 8, !tbaa !38
   %53 = call ptr @PySequence_Tuple(ptr noundef %52) #7
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %.thread81.thread95, label %55
+  br i1 %54, label %.thread81.thread108, label %55
 
 55:                                               ; preds = %50
   %56 = getelementptr [1 x ptr], ptr %47, i64 0, i64 %.05789
@@ -9411,7 +9411,7 @@ Py_INCREF.exit:                                   ; preds = %59, %65
   %71 = load ptr, ptr %70, align 8, !tbaa !70
   %72 = call ptr %71(ptr noundef %0, i64 noundef 0) #7
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %.thread81.thread95, label %74
+  br i1 %73, label %.thread81.thread108, label %74
 
 74:                                               ; preds = %._crit_edge
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
@@ -9424,13 +9424,13 @@ Py_INCREF.exit:                                   ; preds = %59, %65
   store i32 0, ptr %78, align 8, !tbaa !244
   br label %Py_XDECREF.exit
 
-.thread81.thread95:                               ; preds = %50, %._crit_edge
+.thread81.thread108:                              ; preds = %50, %._crit_edge
   call void @PyMem_Free(ptr noundef nonnull %40) #7
   %79 = load i32, ptr %44, align 8, !tbaa !37
   %.not.i.i = icmp sgt i32 %79, -1
   br i1 %.not.i.i, label %80, label %Py_XDECREF.exit
 
-80:                                               ; preds = %.thread81.thread95
+80:                                               ; preds = %.thread81.thread108
   %81 = add nsw i32 %79, -1
   store i32 %81, ptr %44, align 8, !tbaa !37
   %82 = icmp eq i32 %81, 0
@@ -9444,8 +9444,8 @@ Py_INCREF.exit:                                   ; preds = %59, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %.thread81.thread, %83, %80, %.thread81.thread95, %.thread84, %.critedge, %74, %32
-  %.2 = phi ptr [ %72, %74 ], [ null, %32 ], [ null, %.critedge ], [ null, %.thread84 ], [ null, %.thread81.thread95 ], [ null, %80 ], [ null, %83 ], [ null, %.thread81.thread ]
+Py_XDECREF.exit:                                  ; preds = %.thread81.thread, %83, %80, %.thread81.thread108, %.thread84, %.critedge, %74, %32
+  %.2 = phi ptr [ %72, %74 ], [ null, %32 ], [ null, %.critedge ], [ null, %.thread84 ], [ null, %.thread81.thread108 ], [ null, %80 ], [ null, %83 ], [ null, %.thread81.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.2
 }
@@ -10918,7 +10918,7 @@ Py_INCREF.exit.i:                                 ; preds = %61, %54
   br i1 %exitcond.not.i, label %._crit_edge.i, label %54, !llvm.loop !259
 
 ._crit_edge.i:                                    ; preds = %Py_INCREF.exit.i
-  %64 = trunc i64 %.val35.i to i32
+  %64 = trunc nuw nsw i64 %.val35.i to i32
   store i32 %64, ptr %41, align 8, !tbaa !254
   %65 = icmp eq i64 %.val35.i, 57
   br i1 %65, label %66, label %76

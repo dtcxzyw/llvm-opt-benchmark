@@ -522,8 +522,8 @@ _ZNSt6vectorIfSaIfEE6assignIPKfvEEvT_S5_.exit:    ; preds = %.lr.ph260
   %116 = ptrtoint ptr %114 to i64
   %117 = sub i64 %115, %116
   %118 = sdiv exact i64 %117, 24
-  %sext278 = shl i64 %118, 32
-  %119 = ashr exact i64 %sext278, 32
+  %sext333 = shl i64 %118, 32
+  %119 = ashr exact i64 %sext333, 32
   %120 = icmp slt i64 %indvars.iv.next273, %119
   br i1 %120, label %.lr.ph260, label %.loopexit, !llvm.loop !27
 
@@ -834,8 +834,8 @@ _ZNSt6vectorIfSaIfEE6assignIPKfvEEvT_S5_.exit56:  ; preds = %.lr.ph258
   %224 = ptrtoint ptr %222 to i64
   %225 = sub i64 %223, %224
   %226 = sdiv exact i64 %225, 24
-  %sext277 = shl i64 %226, 32
-  %227 = ashr exact i64 %sext277, 32
+  %sext332 = shl i64 %226, 32
+  %227 = ashr exact i64 %sext332, 32
   %228 = icmp slt i64 %indvars.iv.next270, %227
   br i1 %228, label %.lr.ph258, label %.loopexit, !llvm.loop !28
 
@@ -1225,7 +1225,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm(p
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = shl nuw i64 %12, 3
+  %21 = shl nuw nsw i64 %12, 3
   tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %21, i1 false), !tbaa !30
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !10
@@ -3369,7 +3369,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit101: ; preds = %124, %122, %116
   br i1 %.not28.i.i, label %161, label %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i
 
 _ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i: ; preds = %152
-  %160 = shl nuw i64 %153, 3
+  %160 = shl nuw nsw i64 %153, 3
   call void @llvm.memset.p0.i64(ptr align 4 %.sroa.14.0155, i8 0, i64 %160, i1 false), !tbaa !30
   %scevgep.i.i.i.i.i117 = getelementptr i8, ptr %.sroa.14.0155, i64 %160
   br label %.noexc102
@@ -3612,13 +3612,13 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit112: ; preds = %232, %230
   br i1 %.not.i.i.i113, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit114, label %233
 
 233:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit112.thread, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit112
-  %.pn39.pn.pn.pn.pn175 = phi { ptr, i32 } [ %115, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit112.thread ], [ %.pn39.pn.pn.pn, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit112 ]
+  %.pn39.pn.pn.pn.pn207 = phi { ptr, i32 } [ %115, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit112.thread ], [ %.pn39.pn.pn.pn, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit112 ]
   %234 = phi ptr [ %47, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit112.thread ], [ %60, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit112 ]
   call void @_ZdlPv(ptr noundef nonnull %234) #31
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit114
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit114: ; preds = %233, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit112, %113
-  %.pn39.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %114, %113 ], [ %.pn39.pn.pn.pn, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit112 ], [ %.pn39.pn.pn.pn.pn175, %233 ]
+  %.pn39.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %114, %113 ], [ %.pn39.pn.pn.pn, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit112 ], [ %.pn39.pn.pn.pn.pn207, %233 ]
   %235 = load ptr, ptr %7, align 8, !tbaa !3
   %.not.i.i.i115 = icmp eq ptr %235, null
   br i1 %.not.i.i.i115, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit116, label %236
@@ -3655,12 +3655,12 @@ define linkonce_odr hidden void @_ZNK2cv3MatcvNS_4MatxIT_XT0_EXT1_EEEIfLi3ELi3EE
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 3
-  %or.cond15 = select i1 %or.cond, i1 %14, i1 false
+  %or.cond16 = select i1 %or.cond, i1 %14, i1 false
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 3
-  %or.cond18 = select i1 %or.cond15, i1 %17, i1 false
-  br i1 %or.cond18, label %18, label %22
+  %or.cond19 = select i1 %or.cond16, i1 %17, i1 false
+  br i1 %or.cond19, label %18, label %22
 
 18:                                               ; preds = %2
   %19 = load i32, ptr %1, align 8, !tbaa !147

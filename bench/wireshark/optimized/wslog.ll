@@ -1649,12 +1649,12 @@ free_log_filter.exit.i35:                         ; preds = %43, %46
 
 ws_log_set_domain_filter.exit.sink.split:         ; preds = %free_log_filter.exit.i35, %free_log_filter.exit.i
   %spec.select.i.i38.sink = phi ptr [ %spec.select.i.i, %free_log_filter.exit.i ], [ %spec.select.i.i38, %free_log_filter.exit.i35 ]
-  %.sink63 = phi i1 [ %38, %free_log_filter.exit.i ], [ %50, %free_log_filter.exit.i35 ]
+  %.sink80 = phi i1 [ %38, %free_log_filter.exit.i ], [ %50, %free_log_filter.exit.i35 ]
   %53 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #21
   %54 = tail call ptr @g_strsplit_set(ptr noundef %spec.select.i.i38.sink, ptr noundef nonnull @.str.61, i32 noundef -1)
   store ptr %54, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %56 = zext i1 %.sink63 to i8
+  %56 = zext i1 %.sink80 to i8
   store i8 %56, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i32 0, ptr %57, align 4
@@ -1719,12 +1719,12 @@ free_log_filter.exit.i44:                         ; preds = %71, %74
 
 ws_log_set_fatal_domain_filter.exit.sink.split:   ; preds = %free_log_filter.exit.i44, %free_log_filter.exit.i40
   %spec.select.i.i47.sink = phi ptr [ %spec.select.i.i43, %free_log_filter.exit.i40 ], [ %spec.select.i.i47, %free_log_filter.exit.i44 ]
-  %.sink71 = phi i1 [ %66, %free_log_filter.exit.i40 ], [ %78, %free_log_filter.exit.i44 ]
+  %.sink88 = phi i1 [ %66, %free_log_filter.exit.i40 ], [ %78, %free_log_filter.exit.i44 ]
   %81 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #21
   %82 = tail call ptr @g_strsplit_set(ptr noundef %spec.select.i.i47.sink, ptr noundef nonnull @.str.61, i32 noundef -1)
   store ptr %82, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %84 = zext i1 %.sink71 to i8
+  %84 = zext i1 %.sink88 to i8
   store i8 %84, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 12
   store i32 0, ptr %85, align 4

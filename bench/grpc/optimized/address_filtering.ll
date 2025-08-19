@@ -1333,15 +1333,15 @@ _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.us: ; preds = %
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit8.i.i.us: ; preds = %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.us
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !15
-  %.fr51 = freeze i64 %12
-  %13 = add i64 %.fr51, -1
+  %.fr57 = freeze i64 %12
+  %13 = add i64 %.fr57, -1
   %14 = icmp sgt i64 %13, -1
-  %spec.select50 = select i1 %14, i64 16, i64 24
+  %spec.select56 = select i1 %14, i64 16, i64 24
   br label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit8.i.i.us.thread
 
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit8.i.i.us.thread: ; preds = %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit8.i.i.us, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.us
-  %.sroa.0.0.i4.i.i.us44 = phi i1 [ false, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.us ], [ %14, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit8.i.i.us ]
-  %15 = phi i64 [ 24, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.us ], [ %spec.select50, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit8.i.i.us ]
+  %.sroa.0.0.i4.i.i.us50 = phi i1 [ false, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.us ], [ %14, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit8.i.i.us ]
+  %15 = phi i64 [ 24, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.us ], [ %spec.select56, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit8.i.i.us ]
   %.in.us = getelementptr inbounds nuw i8, ptr %.03438.us, i64 %15
   %.034.us = load ptr, ptr %.in.us, align 8, !tbaa !65
   %.not.us = icmp eq ptr %.034.us, null
@@ -1395,22 +1395,22 @@ _ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_
 
 ._crit_edge:                                      ; preds = %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit8.i.i.us.thread
   %.033.lcssa = phi ptr [ %.03438.us, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit8.i.i.us.thread ], [ %.03438, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit ]
-  %.0.lcssa = phi i1 [ %.sroa.0.0.i4.i.i.us44, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit8.i.i.us.thread ], [ %29, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit ]
+  %.0.lcssa = phi i1 [ %.sroa.0.0.i4.i.i.us50, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit8.i.i.us.thread ], [ %29, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit ]
   br i1 %.0.lcssa, label %._crit_edge.thread, label %35
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.033.lcssa47 = phi ptr [ %.033.lcssa, %._crit_edge ], [ %4, %2 ]
+  %.033.lcssa54 = phi ptr [ %.033.lcssa, %._crit_edge ], [ %4, %2 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !30
-  %32 = icmp eq ptr %.033.lcssa47, %31
+  %32 = icmp eq ptr %.033.lcssa54, %31
   br i1 %32, label %54, label %33
 
 33:                                               ; preds = %._crit_edge.thread
-  %34 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.033.lcssa47) #28
+  %34 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.033.lcssa54) #28
   br label %35
 
 35:                                               ; preds = %33, %._crit_edge
-  %.033.lcssa48 = phi ptr [ %.033.lcssa47, %33 ], [ %.033.lcssa, %._crit_edge ]
+  %.033.lcssa53 = phi ptr [ %.033.lcssa54, %33 ], [ %.033.lcssa, %._crit_edge ]
   %.sroa.019.0 = phi ptr [ %34, %33 ], [ %.033.lcssa, %._crit_edge ]
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !12
@@ -1459,12 +1459,12 @@ _ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_
   %.0.i.i.i.i13 = phi i32 [ %.0.i4.i.i.i.i17, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i14 ], [ %50, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12 ]
   %53 = icmp slt i32 %.0.i.i.i.i13, 0
   %spec.select = select i1 %53, ptr null, ptr %.sroa.019.0
-  %spec.select35 = select i1 %53, ptr %.033.lcssa48, ptr null
+  %spec.select35 = select i1 %53, ptr %.033.lcssa53, ptr null
   br label %54
 
 54:                                               ; preds = %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit18, %._crit_edge.thread
   %.sroa.032.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit18 ]
-  %.sroa.4.0 = phi ptr [ %.033.lcssa47, %._crit_edge.thread ], [ %spec.select35, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit18 ]
+  %.sroa.4.0 = phi ptr [ %.033.lcssa54, %._crit_edge.thread ], [ %spec.select35, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit18 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.032.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

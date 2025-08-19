@@ -248,8 +248,8 @@ list_length.exit:                                 ; preds = %2
   br i1 %.not.i32, label %list_length.exit33, label %list_length.exit33.thread
 
 list_length.exit.thread:                          ; preds = %2
-  %.not.i3241 = icmp eq ptr %1, null
-  br i1 %.not.i3241, label %.thread, label %list_length.exit33.thread.thread
+  %.not.i3245 = icmp eq ptr %1, null
+  br i1 %.not.i3245, label %.thread, label %list_length.exit33.thread.thread
 
 list_length.exit33:                               ; preds = %list_length.exit
   %.not = icmp eq i32 %4, 0
@@ -258,13 +258,13 @@ list_length.exit33:                               ; preds = %list_length.exit
 list_length.exit33.thread:                        ; preds = %list_length.exit
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
-  %.not40 = icmp eq i32 %4, %6
-  br i1 %.not40, label %.preheader.split.split.preheader, label %.thread
+  %.not44 = icmp eq i32 %4, %6
+  br i1 %.not44, label %.preheader.split.split.preheader, label %.thread
 
 list_length.exit33.thread.thread:                 ; preds = %list_length.exit.thread
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
-  %.not4044 = icmp eq i32 %8, 0
+  %.not4448 = icmp eq i32 %8, 0
   br label %.thread
 
 .preheader.split.split.preheader:                 ; preds = %list_length.exit33.thread
@@ -313,7 +313,7 @@ list_length.exit33.thread.thread:                 ; preds = %list_length.exit.th
   br i1 %36, label %.preheader.split.split, label %.thread, !llvm.loop !6
 
 .thread:                                          ; preds = %19, %28, %24, %list_length.exit33.thread.thread, %list_length.exit33, %list_length.exit.thread, %list_length.exit33.thread
-  %.0 = phi i1 [ false, %list_length.exit33.thread ], [ true, %list_length.exit.thread ], [ %.not4044, %list_length.exit33.thread.thread ], [ %.not, %list_length.exit33 ], [ true, %19 ], [ false, %28 ], [ true, %24 ]
+  %.0 = phi i1 [ false, %list_length.exit33.thread ], [ true, %list_length.exit.thread ], [ %.not4448, %list_length.exit33.thread.thread ], [ %.not, %list_length.exit33 ], [ true, %19 ], [ false, %28 ], [ true, %24 ]
   ret i1 %.0
 }
 
@@ -1396,9 +1396,9 @@ list_length.exit21:                               ; preds = %18, %19
 
 .sink.split:                                      ; preds = %list_length.exit, %list_length.exit21
   %.sink = phi ptr [ %25, %list_length.exit21 ], [ %16, %list_length.exit ]
-  %.sink24 = phi i32 [ %22, %list_length.exit21 ], [ %13, %list_length.exit ]
+  %.sink26 = phi i32 [ %22, %list_length.exit21 ], [ %13, %list_length.exit ]
   store ptr %.sink, ptr %7, align 8
-  %26 = add i32 %.sink24, -1
+  %26 = add i32 %.sink26, -1
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i32, ptr %.sink, i64 %27
   store i32 %2, ptr %28, align 4
@@ -1569,20 +1569,20 @@ define dso_local void @apply_pathtarget_labeling_to_tlist(ptr noundef readonly c
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %9, align 4
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.lr.ph95, label %.critedge
+  br i1 %14, label %.lr.ph100, label %.critedge
 
-.lr.ph95:                                         ; preds = %.lr.ph, %95
-  %indvars.iv94 = phi i64 [ %indvars.iv.next, %95 ], [ 0, %.lr.ph ]
+.lr.ph100:                                        ; preds = %.lr.ph, %95
+  %indvars.iv99 = phi i64 [ %indvars.iv.next, %95 ], [ 0, %.lr.ph ]
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv94
+  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv99
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv94
+  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv99
   %20 = load i32, ptr %19, align 4
   %.not30 = icmp eq i32 %20, 0
   br i1 %.not30, label %95, label %21
 
-21:                                               ; preds = %.lr.ph95
+21:                                               ; preds = %.lr.ph100
   %.not31 = icmp eq ptr %17, null
   br i1 %.not31, label %.split, label %34
 
@@ -1718,7 +1718,7 @@ tlist_member.exit:                                ; preds = %.lr.ph31.i37, %80, 
   %89 = load i32, ptr %88, align 8
   %.not33 = icmp eq i32 %89, 0
   %.pre = load ptr, ptr %3, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv94
+  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv99
   %.pre73 = load i32, ptr %.phi.trans.insert, align 4
   br i1 %.not33, label %tlist_member.exit._crit_edge, label %90
 
@@ -1738,12 +1738,12 @@ tlist_member.exit._crit_edge:                     ; preds = %tlist_member.exit, 
   store i32 %94, ptr %88, align 8
   br label %95
 
-95:                                               ; preds = %tlist_member.exit._crit_edge, %.lr.ph95
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv94, 1
+95:                                               ; preds = %tlist_member.exit._crit_edge, %.lr.ph100
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv99, 1
   %96 = load i32, ptr %9, align 4
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next, %97
-  br i1 %98, label %.lr.ph95, label %.critedge
+  br i1 %98, label %.lr.ph100, label %.critedge
 
 .critedge:                                        ; preds = %95, %.lr.ph, %6, %2
   ret void
@@ -2485,9 +2485,9 @@ list_length.exit21.i:                             ; preds = %69, %68
 
 .sink.split.i:                                    ; preds = %list_length.exit21.i, %list_length.exit.i
   %.sink.i = phi ptr [ %75, %list_length.exit21.i ], [ %66, %list_length.exit.i ]
-  %.sink24.i = phi i32 [ %72, %list_length.exit21.i ], [ %63, %list_length.exit.i ]
+  %.sink26.i = phi i32 [ %72, %list_length.exit21.i ], [ %63, %list_length.exit.i ]
   store ptr %.sink.i, ptr %57, align 8
-  %76 = add i32 %.sink24.i, -1
+  %76 = add i32 %.sink26.i, -1
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i32, ptr %.sink.i, i64 %77
   store i32 %54, ptr %78, align 4

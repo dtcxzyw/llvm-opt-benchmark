@@ -1375,12 +1375,12 @@ define internal ptr @typevartuple(ptr readnone captures(none) %0, ptr noundef %1
 .thread38.thread:                                 ; preds = %10
   %20 = load ptr, ptr %12, align 8, !tbaa !16
   %21 = getelementptr i8, ptr %20, i64 8
-  %.val40 = load ptr, ptr %21, align 8, !tbaa !18
-  %22 = getelementptr i8, ptr %.val40, i64 168
-  %.val3441 = load i64, ptr %22, align 8, !tbaa !19
-  %23 = and i64 %.val3441, 268435456
-  %.not3242 = icmp eq i64 %23, 0
-  br i1 %.not3242, label %24, label %.thread43
+  %.val51 = load ptr, ptr %21, align 8, !tbaa !18
+  %22 = getelementptr i8, ptr %.val51, i64 168
+  %.val3452 = load i64, ptr %22, align 8, !tbaa !19
+  %23 = and i64 %.val3452, 268435456
+  %.not3253 = icmp eq i64 %23, 0
+  br i1 %.not3253, label %24, label %.thread54
 
 24:                                               ; preds = %.thread38.thread, %.thread38
   %25 = phi ptr [ %20, %.thread38.thread ], [ %16, %.thread38 ]
@@ -1388,14 +1388,14 @@ define internal ptr @typevartuple(ptr readnone captures(none) %0, ptr noundef %1
   br label %typevartuple_impl.exit
 
 26:                                               ; preds = %.thread38
-  br i1 %.not33, label %.thread43, label %27
+  br i1 %.not33, label %.thread54, label %27
 
 27:                                               ; preds = %26
   %28 = getelementptr i8, ptr %15, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !16
-  br label %.thread43
+  br label %.thread54
 
-.thread43:                                        ; preds = %.thread38.thread, %26, %27
+.thread54:                                        ; preds = %.thread38.thread, %26, %27
   %30 = phi ptr [ %16, %27 ], [ %16, %26 ], [ %20, %.thread38.thread ]
   %.0 = phi ptr [ %29, %27 ], [ @_Py_NoDefaultStruct, %26 ], [ @_Py_NoDefaultStruct, %.thread38.thread ]
   %31 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -1405,7 +1405,7 @@ define internal ptr @typevartuple(ptr readnone captures(none) %0, ptr noundef %1
   %35 = icmp eq ptr %34, null
   br i1 %35, label %caller.exit.i, label %36
 
-36:                                               ; preds = %.thread43
+36:                                               ; preds = %.thread54
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !27
   %39 = icmp eq i64 %38, 0
@@ -1431,8 +1431,8 @@ define internal ptr @typevartuple(ptr readnone captures(none) %0, ptr noundef %1
   store i32 %48, ptr %42, align 8, !tbaa !27
   br label %caller.exit.i
 
-caller.exit.i:                                    ; preds = %47, %44, %43, %36, %.thread43
-  %.0.i.i = phi ptr [ @_Py_NoneStruct, %.thread43 ], [ @_Py_NoneStruct, %36 ], [ @_Py_NoneStruct, %43 ], [ %42, %44 ], [ %42, %47 ]
+caller.exit.i:                                    ; preds = %47, %44, %43, %36, %.thread54
+  %.0.i.i = phi ptr [ @_Py_NoneStruct, %.thread54 ], [ @_Py_NoneStruct, %36 ], [ @_Py_NoneStruct, %43 ], [ %42, %44 ], [ %42, %47 ]
   %49 = load ptr, ptr %31, align 8, !tbaa !28
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !39
@@ -2582,14 +2582,14 @@ get_type_param_default.exit.i.i:                  ; preds = %_Py_XNewRef.exit.i2
   br i1 %104, label %typealias_new_impl.exit, label %get_type_param_default.exit.thread.i.i
 
 get_type_param_default.exit.thread.sink.split.i.i: ; preds = %88, %68, %48
-  %.sink52.i.i = phi i32 [ %49, %48 ], [ %69, %68 ], [ %89, %88 ]
-  %.sink51.i.i = phi ptr [ %47, %48 ], [ %67, %68 ], [ %87, %88 ]
-  %105 = add nuw i32 %.sink52.i.i, 1
-  store i32 %105, ptr %.sink51.i.i, align 8, !tbaa !27
+  %.sink70.i.i = phi i32 [ %49, %48 ], [ %69, %68 ], [ %89, %88 ]
+  %.sink69.i.i = phi ptr [ %47, %48 ], [ %67, %68 ], [ %87, %88 ]
+  %105 = add nuw i32 %.sink70.i.i, 1
+  store i32 %105, ptr %.sink69.i.i, align 8, !tbaa !27
   br label %get_type_param_default.exit.thread.i.i
 
 get_type_param_default.exit.thread.i.i:           ; preds = %get_type_param_default.exit.thread.sink.split.i.i, %get_type_param_default.exit.i.i, %88, %68, %48
-  %.0.i36.i.i = phi ptr [ %.0.i.i.i, %get_type_param_default.exit.i.i ], [ %87, %88 ], [ %67, %68 ], [ %47, %48 ], [ %.sink51.i.i, %get_type_param_default.exit.thread.sink.split.i.i ]
+  %.0.i36.i.i = phi ptr [ %.0.i.i.i, %get_type_param_default.exit.i.i ], [ %87, %88 ], [ %67, %68 ], [ %47, %48 ], [ %.sink69.i.i, %get_type_param_default.exit.thread.sink.split.i.i ]
   %106 = icmp eq ptr %.0.i36.i.i, @_Py_NoDefaultStruct
   br i1 %106, label %get_type_param_default.exit.thread.thread.i.i, label %110
 
@@ -5826,12 +5826,12 @@ define internal ptr @paramspec_new(ptr readnone captures(none) %0, ptr noundef %
 .thread85.thread:                                 ; preds = %10
   %22 = load ptr, ptr %12, align 8, !tbaa !16
   %23 = getelementptr i8, ptr %22, i64 8
-  %.val109 = load ptr, ptr %23, align 8, !tbaa !18
-  %24 = getelementptr i8, ptr %.val109, i64 168
-  %.val81110 = load i64, ptr %24, align 8, !tbaa !19
-  %25 = and i64 %.val81110, 268435456
-  %.not71111 = icmp eq i64 %25, 0
-  br i1 %.not71111, label %26, label %.thread99
+  %.val137 = load ptr, ptr %23, align 8, !tbaa !18
+  %24 = getelementptr i8, ptr %.val137, i64 168
+  %.val81138 = load i64, ptr %24, align 8, !tbaa !19
+  %25 = and i64 %.val81138, 268435456
+  %.not71139 = icmp eq i64 %25, 0
+  br i1 %.not71139, label %26, label %.thread99
 
 26:                                               ; preds = %.thread85.thread, %.thread85
   %27 = phi ptr [ %22, %.thread85.thread ], [ %18, %.thread85 ]
@@ -7309,14 +7309,14 @@ define internal ptr @typealias_module(ptr noundef readonly captures(none) %0, pt
   br i1 %15, label %_Py_NewRef.exit, label %_Py_NewRef.exit.sink.split
 
 _Py_NewRef.exit.sink.split:                       ; preds = %13, %5
-  %.sink16 = phi i32 [ %6, %5 ], [ %14, %13 ]
-  %.sink15 = phi ptr [ %4, %5 ], [ %12, %13 ]
-  %16 = add nuw i32 %.sink16, 1
-  store i32 %16, ptr %.sink15, align 8, !tbaa !27
+  %.sink21 = phi i32 [ %6, %5 ], [ %14, %13 ]
+  %.sink20 = phi ptr [ %4, %5 ], [ %12, %13 ]
+  %16 = add nuw i32 %.sink21, 1
+  store i32 %16, ptr %.sink20, align 8, !tbaa !27
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit.sink.split, %13, %8, %11, %5
-  %.0 = phi ptr [ %4, %5 ], [ @_Py_NoneStruct, %11 ], [ @_Py_NoneStruct, %8 ], [ %12, %13 ], [ %.sink15, %_Py_NewRef.exit.sink.split ]
+  %.0 = phi ptr [ %4, %5 ], [ @_Py_NoneStruct, %11 ], [ @_Py_NoneStruct, %8 ], [ %12, %13 ], [ %.sink20, %_Py_NewRef.exit.sink.split ]
   ret ptr %.0
 }
 

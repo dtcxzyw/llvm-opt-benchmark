@@ -2362,9 +2362,9 @@ define internal fastcc i64 @node_children(i64 noundef %0, ptr noundef %1) unname
   %800 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %801 = load ptr, ptr %800, align 8, !tbaa !345
   %.not472 = icmp eq ptr %801, null
-  br i1 %.not472, label %.thread533, label %803
+  br i1 %.not472, label %.thread595, label %803
 
-.thread533:                                       ; preds = %799
+.thread595:                                       ; preds = %799
   %802 = tail call i64 @rb_ary_new_capa(i64 noundef 0) #11
   br label %._crit_edge
 
@@ -2403,8 +2403,8 @@ var_name.exit:                                    ; preds = %809, %812, %814
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %809, !llvm.loop !350
 
-._crit_edge:                                      ; preds = %var_name.exit, %.thread533, %803
-  %817 = phi i64 [ %802, %.thread533 ], [ %806, %803 ], [ %806, %var_name.exit ]
+._crit_edge:                                      ; preds = %var_name.exit, %.thread595, %803
+  %817 = phi i64 [ %802, %.thread595 ], [ %806, %803 ], [ %806, %var_name.exit ]
   %818 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %819 = load ptr, ptr %818, align 8, !tbaa !351
   %.not473 = icmp eq ptr %819, null

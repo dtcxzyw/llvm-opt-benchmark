@@ -883,20 +883,20 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
   %43 = load ptr, ptr %42, align 8, !tbaa !48
   %44 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %5) #19
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.loopexit98.loopexit.split.loop.exit139, label %46
+  br i1 %45, label %.loopexit98.loopexit.split.loop.exit145, label %46
 
 46:                                               ; preds = %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit98, label %41, !llvm.loop !52
 
-.loopexit98.loopexit.split.loop.exit139:          ; preds = %41
+.loopexit98.loopexit.split.loop.exit145:          ; preds = %41
   %47 = trunc nuw i64 %indvars.iv to i32
   br label %.loopexit98
 
-.loopexit98:                                      ; preds = %46, %.loopexit98.loopexit.split.loop.exit139, %37
-  %.077 = phi i32 [ 0, %37 ], [ 1, %.loopexit98.loopexit.split.loop.exit139 ], [ 0, %46 ]
-  %.075 = phi i32 [ 0, %37 ], [ %47, %.loopexit98.loopexit.split.loop.exit139 ], [ 0, %46 ]
+.loopexit98:                                      ; preds = %46, %.loopexit98.loopexit.split.loop.exit145, %37
+  %.077 = phi i32 [ 0, %37 ], [ 1, %.loopexit98.loopexit.split.loop.exit145 ], [ 0, %46 ]
+  %.075 = phi i32 [ 0, %37 ], [ %47, %.loopexit98.loopexit.split.loop.exit145 ], [ 0, %46 ]
   store i32 %.pre, ptr %3, align 4, !tbaa !50
   %.not83 = icmp eq i32 %6, 0
   br i1 %.not83, label %48, label %.loopexit96
@@ -950,8 +950,8 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
   %69 = load i32, ptr %68, align 8, !tbaa !40
   %70 = icmp eq i32 %69, 1
   %71 = icmp ult i32 %67, 2049
-  %or.cond144 = select i1 %70, i1 %71, i1 false
-  br i1 %or.cond144, label %72, label %.thread91
+  %or.cond150 = select i1 %70, i1 %71, i1 false
+  br i1 %or.cond150, label %72, label %.thread91
 
 72:                                               ; preds = %.loopexit96
   %73 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %64, i64 %65, i32 2
@@ -966,8 +966,8 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
   br i1 %79, label %.preheader, label %90
 
 .preheader:                                       ; preds = %76
-  %.not137 = icmp eq i32 %67, 0
-  br i1 %.not137, label %.loopexit, label %.lr.ph112
+  %.not143 = icmp eq i32 %67, 0
+  br i1 %.not143, label %.loopexit, label %.lr.ph112
 
 .lr.ph112:                                        ; preds = %.preheader
   %80 = mul nuw nsw i32 %67, 6
@@ -1000,8 +1000,8 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
 
 .preheader94:                                     ; preds = %90
   %94 = mul nuw nsw i32 %67, 3
-  %.not136 = icmp eq i32 %67, 0
-  br i1 %.not136, label %.loopexit, label %.lr.ph107
+  %.not142 = icmp eq i32 %67, 0
+  br i1 %.not142, label %.loopexit, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %.preheader94
   %95 = getelementptr inbounds nuw i8, ptr %68, i64 24
@@ -1017,7 +1017,7 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
   %101 = zext nneg i32 %98 to i64
   %wide.trip.count128 = zext nneg i32 %67 to i64
   %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 %100
-  %invariant.gep142 = getelementptr inbounds nuw i8, ptr %1, i64 %101
+  %invariant.gep148 = getelementptr inbounds nuw i8, ptr %1, i64 %101
   br label %108
 
 102:                                              ; preds = %.lr.ph107, %102
@@ -1041,8 +1041,8 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
   %113 = fptoui float %112 to i8
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv125
   store i8 %113, ptr %gep, align 1, !tbaa !32
-  %gep143 = getelementptr inbounds nuw i8, ptr %invariant.gep142, i64 %indvars.iv125
-  store i8 %113, ptr %gep143, align 1, !tbaa !32
+  %gep149 = getelementptr inbounds nuw i8, ptr %invariant.gep148, i64 %indvars.iv125
+  store i8 %113, ptr %gep149, align 1, !tbaa !32
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 %110
   store i8 %113, ptr %114, align 1, !tbaa !32
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1

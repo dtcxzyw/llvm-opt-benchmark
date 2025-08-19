@@ -1256,18 +1256,18 @@ _ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.outer: 
   %.045.ph = phi i1 [ false, %81 ], [ true, %33 ]
   %.042.ph = phi i64 [ %82, %81 ], [ 0, %33 ]
   %.041.ph = phi i64 [ %80, %81 ], [ 0, %33 ]
-  br label %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.outer88
+  br label %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.outer93
 
-_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.outer88: ; preds = %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.outer, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit
-  %.045.ph89 = phi i1 [ %.045.ph, %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.outer ], [ false, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit ]
-  %.041.ph90 = phi i64 [ %.041.ph, %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.outer ], [ %80, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit ]
-  %38 = sub i64 %.042.ph, %.041.ph90
+_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.outer93: ; preds = %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.outer, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit
+  %.045.ph94 = phi i1 [ %.045.ph, %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.outer ], [ false, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit ]
+  %.041.ph95 = phi i64 [ %.041.ph, %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.outer ], [ %80, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit ]
+  %38 = sub i64 %.042.ph, %.041.ph95
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %38, i64 2147483647)
   %39 = trunc nuw nsw i64 %.sroa.speculated to i32
   br label %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit
 
-_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit: ; preds = %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.outer88, %78
-  %.045 = phi i1 [ false, %78 ], [ %.045.ph89, %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.outer88 ]
+_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit: ; preds = %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.outer93, %78
+  %.045 = phi i1 [ false, %78 ], [ %.045.ph94, %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.outer93 ]
   %brmerge = or i1 %11, %.045
   %not..045 = xor i1 %.045, true
   %.mux = sext i1 %not..045 to i32
@@ -1368,7 +1368,7 @@ _ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit: ; pred
 
 _ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit: ; preds = %79
   %.not.i.not = icmp ult i64 %80, %.042.ph
-  br i1 %.not.i.not, label %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.outer88, label %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit.thread56
+  br i1 %.not.i.not, label %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.outer93, label %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit.thread56
 
 _ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit.thread56: ; preds = %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit, %77
   %83 = tail call ptr @__errno_location() #26

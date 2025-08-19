@@ -836,7 +836,7 @@ dt_get_debug_wtime.exit:                          ; preds = %176, %178
 246:                                              ; preds = %243
   %247 = load ptr, ptr %225, align 8, !tbaa !98
   %248 = mul nsw i32 %244, %.reass539
-  %249 = add i32 %.reass526.us, %248
+  %249 = add nuw i32 %.reass526.us, %248
   %250 = sext i32 %249 to i64
   %251 = getelementptr inbounds float, ptr %247, i64 %250
   %252 = load float, ptr %251, align 4, !tbaa !97
@@ -1045,13 +1045,13 @@ dt_get_debug_wtime.exit:                          ; preds = %176, %178
   br i1 %347, label %.lr.ph561.split.us.us, label %.lr.ph561.split.us570.preheader
 
 .lr.ph561.split.us570.preheader:                  ; preds = %.preheader.us
-  %invariant.gep698 = getelementptr inbounds nuw float, ptr %344, i64 %348
+  %invariant.gep717 = getelementptr inbounds nuw float, ptr %344, i64 %348
   br label %.lr.ph561.split.us570
 
 .lr.ph561.split.us570:                            ; preds = %.lr.ph561.split.us570.preheader, %.lr.ph561.split.us570
   %indvars.iv648 = phi i64 [ 0, %.lr.ph561.split.us570.preheader ], [ %indvars.iv.next649, %.lr.ph561.split.us570 ]
-  %gep699 = getelementptr inbounds nuw float, ptr %invariant.gep698, i64 %indvars.iv648
-  store float %345, ptr %gep699, align 4, !tbaa !97
+  %gep718 = getelementptr inbounds nuw float, ptr %invariant.gep717, i64 %indvars.iv648
+  store float %345, ptr %gep718, align 4, !tbaa !97
   %indvars.iv.next649 = add nuw nsw i64 %indvars.iv648, 1
   %exitcond652.not = icmp eq i64 %indvars.iv.next649, %160
   br i1 %exitcond652.not, label %._crit_edge562.us, label %.lr.ph561.split.us570
@@ -1067,13 +1067,13 @@ dt_get_debug_wtime.exit:                          ; preds = %176, %178
   br i1 %350, label %.lr.ph561.split.us.split.us.us, label %.lr.ph561.split.us.split.us573.preheader
 
 .lr.ph561.split.us.split.us573.preheader:         ; preds = %.lr.ph561.split.us.us
-  %invariant.gep700 = getelementptr inbounds nuw float, ptr %344, i64 %348
+  %invariant.gep719 = getelementptr inbounds nuw float, ptr %344, i64 %348
   br label %.lr.ph561.split.us.split.us573
 
 .lr.ph561.split.us.split.us573:                   ; preds = %.lr.ph561.split.us.split.us573.preheader, %.lr.ph561.split.us.split.us573
   %indvars.iv653 = phi i64 [ 0, %.lr.ph561.split.us.split.us573.preheader ], [ %indvars.iv.next654, %.lr.ph561.split.us.split.us573 ]
-  %gep701 = getelementptr inbounds nuw float, ptr %invariant.gep700, i64 %indvars.iv653
-  store float %345, ptr %gep701, align 4, !tbaa !97
+  %gep720 = getelementptr inbounds nuw float, ptr %invariant.gep719, i64 %indvars.iv653
+  store float %345, ptr %gep720, align 4, !tbaa !97
   %indvars.iv.next654 = add nuw nsw i64 %indvars.iv653, 1
   %exitcond657.not = icmp eq i64 %indvars.iv.next654, %160
   br i1 %exitcond657.not, label %._crit_edge562.us, label %.lr.ph561.split.us.split.us573
@@ -1081,7 +1081,7 @@ dt_get_debug_wtime.exit:                          ; preds = %176, %178
 .lr.ph561.split.us.split.us.us:                   ; preds = %.lr.ph561.split.us.us
   %351 = load i32, ptr %337, align 4, !tbaa !96
   %invariant.op563.us = sub i32 %.0438., %351
-  %invariant.gep702 = getelementptr inbounds nuw float, ptr %344, i64 %348
+  %invariant.gep721 = getelementptr inbounds nuw float, ptr %344, i64 %348
   br label %352
 
 352:                                              ; preds = %365, %.lr.ph561.split.us.split.us.us
@@ -1099,7 +1099,7 @@ dt_get_debug_wtime.exit:                          ; preds = %176, %178
 358:                                              ; preds = %355
   %359 = load ptr, ptr %339, align 8, !tbaa !98
   %360 = mul nsw i32 %356, %.reass575
-  %361 = add i32 %.reass564.us, %360
+  %361 = add nuw i32 %.reass564.us, %360
   %362 = sext i32 %361 to i64
   %363 = getelementptr inbounds float, ptr %359, i64 %362
   %364 = load float, ptr %363, align 4, !tbaa !97
@@ -1108,8 +1108,8 @@ dt_get_debug_wtime.exit:                          ; preds = %176, %178
 
 365:                                              ; preds = %358, %355, %352
   %.pre-phi = phi float [ %.pre685, %358 ], [ %345, %355 ], [ %345, %352 ]
-  %gep703 = getelementptr inbounds nuw float, ptr %invariant.gep702, i64 %indvars.iv658
-  store float %.pre-phi, ptr %gep703, align 4, !tbaa !97
+  %gep722 = getelementptr inbounds nuw float, ptr %invariant.gep721, i64 %indvars.iv658
+  store float %.pre-phi, ptr %gep722, align 4, !tbaa !97
   %indvars.iv.next659 = add nuw nsw i64 %indvars.iv658, 1
   %exitcond662.not = icmp eq i64 %indvars.iv.next659, %160
   br i1 %exitcond662.not, label %._crit_edge562.us, label %352
@@ -1803,18 +1803,18 @@ _is_handling_form.exit.thread:                    ; preds = %45, %48, %51, %54, 
   %.pre150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !13
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.thread159
+._crit_edge:                                      ; preds = %.thread171
   %.not126 = icmp eq ptr %.1110, null
   br i1 %.not126, label %._crit_edge.thread, label %138
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread159
-  %100 = phi ptr [ %135, %.thread159 ], [ %.pre150, %.lr.ph.preheader ]
-  %.0102147 = phi ptr [ %.0102, %.thread159 ], [ %.0102140, %.lr.ph.preheader ]
-  %.0101146 = phi i32 [ %136, %.thread159 ], [ 0, %.lr.ph.preheader ]
-  %.0103145 = phi float [ %.1104, %.thread159 ], [ 0x47EFFFFFE0000000, %.lr.ph.preheader ]
-  %.0105144 = phi i32 [ %.1106, %.thread159 ], [ 0, %.lr.ph.preheader ]
-  %.0107143 = phi ptr [ %.1108, %.thread159 ], [ null, %.lr.ph.preheader ]
-  %.0109142 = phi ptr [ %.1110, %.thread159 ], [ null, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread171
+  %100 = phi ptr [ %135, %.thread171 ], [ %.pre150, %.lr.ph.preheader ]
+  %.0102147 = phi ptr [ %.0102, %.thread171 ], [ %.0102140, %.lr.ph.preheader ]
+  %.0101146 = phi i32 [ %136, %.thread171 ], [ 0, %.lr.ph.preheader ]
+  %.0103145 = phi float [ %.1104, %.thread171 ], [ 0x47EFFFFFE0000000, %.lr.ph.preheader ]
+  %.0105144 = phi i32 [ %.1106, %.thread171 ], [ 0, %.lr.ph.preheader ]
+  %.0107143 = phi ptr [ %.1108, %.thread171 ], [ null, %.lr.ph.preheader ]
+  %.0109142 = phi ptr [ %.1110, %.thread171 ], [ null, %.lr.ph.preheader ]
   %101 = load ptr, ptr %.0102147, align 8, !tbaa !11
   %102 = load i32, ptr %101, align 4, !tbaa !51
   %103 = call ptr @dt_masks_get_from_id(ptr noundef %100, i32 noundef %102) #12
@@ -1840,19 +1840,19 @@ _is_handling_form.exit.thread:                    ; preds = %45, %48, %51, %54, 
   %113 = fmul reassoc nsz arcp contract afn float %1, %109
   %114 = fmul reassoc nsz arcp contract afn float %2, %112
   %.not128 = icmp eq ptr %103, null
-  br i1 %.not128, label %.thread159, label %115
+  br i1 %.not128, label %.thread171, label %115
 
 115:                                              ; preds = %.lr.ph
   %116 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %117 = load ptr, ptr %116, align 8, !tbaa !54
   %.not129 = icmp eq ptr %117, null
-  br i1 %.not129, label %.thread159, label %118
+  br i1 %.not129, label %.thread171, label %118
 
 118:                                              ; preds = %115
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 64
   %120 = load ptr, ptr %119, align 8, !tbaa !184
   %.not130 = icmp eq ptr %120, null
-  br i1 %.not130, label %.thread159, label %121
+  br i1 %.not130, label %.thread171, label %121
 
 121:                                              ; preds = %118
   %122 = load ptr, ptr %103, align 8, !tbaa !59
@@ -1870,17 +1870,17 @@ _is_handling_form.exit.thread:                    ; preds = %45, %48, %51, %54, 
   %128 = select i1 %126, i1 true, i1 %127
   %129 = icmp ne i32 %.pre154, 0
   %130 = select i1 %128, i1 true, i1 %129
-  br i1 %130, label %131, label %.thread159
+  br i1 %130, label %131, label %.thread171
 
 131:                                              ; preds = %121
   %132 = load float, ptr %15, align 4, !tbaa !97
   %133 = fcmp reassoc nsz arcp contract afn ogt float %.0103145, %132
-  br i1 %133, label %134, label %.thread159
+  br i1 %133, label %134, label %.thread171
 
 134:                                              ; preds = %131
-  br label %.thread159
+  br label %.thread171
 
-.thread159:                                       ; preds = %.lr.ph, %115, %118, %131, %134, %121
+.thread171:                                       ; preds = %.lr.ph, %115, %118, %131, %134, %121
   %135 = phi ptr [ %.pre, %134 ], [ %.pre, %131 ], [ %.pre, %121 ], [ %104, %118 ], [ %104, %115 ], [ %104, %.lr.ph ]
   %.1110 = phi ptr [ %103, %134 ], [ %.0109142, %131 ], [ %.0109142, %121 ], [ %.0109142, %118 ], [ %.0109142, %115 ], [ %.0109142, %.lr.ph ]
   %.1108 = phi ptr [ %101, %134 ], [ %.0107143, %131 ], [ %.0107143, %121 ], [ %.0107143, %118 ], [ %.0107143, %115 ], [ %.0107143, %.lr.ph ]

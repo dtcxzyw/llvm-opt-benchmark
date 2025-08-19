@@ -1550,7 +1550,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %52, %5
 
 73:                                               ; preds = %72
   %or.cond3.not = and i1 %22, %41
-  br i1 %or.cond3.not, label %74, label %.invoke58
+  br i1 %or.cond3.not, label %74, label %.invoke62
 
 74:                                               ; preds = %73
   %75 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.15)
@@ -1565,17 +1565,17 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %52, %5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   br label %120
 
-79:                                               ; preds = %.invoke58, %93, %105, %99, %97, %95, %83, %74
+79:                                               ; preds = %.invoke62, %93, %105, %99, %97, %95, %83, %74
   %80 = landingpad { ptr, i32 }
           cleanup
   br label %118
 
-.invoke58:                                        ; preds = %73
+.invoke62:                                        ; preds = %73
   %81 = getelementptr inbounds nuw i8, ptr %., i64 16
   %82 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath7GetTextEv(ptr noundef nonnull align 4 dereferenceable(8) %81)
           to label %83 unwind label %79
 
-83:                                               ; preds = %.invoke58
+83:                                               ; preds = %.invoke62
   invoke void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull @.str.16, ptr noundef %82)
           to label %84 unwind label %79
 

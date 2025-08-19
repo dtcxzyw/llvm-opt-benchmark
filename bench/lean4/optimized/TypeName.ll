@@ -14940,18 +14940,18 @@ lean_dec_ref.exit:                                ; preds = %253, %255, %256
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink16 = phi ptr [ %4, %3 ], [ %257, %lean_dec_ref.exit ]
-  %260 = getelementptr inbounds nuw i8, ptr %.sink16, i64 4
-  store i32 1, ptr %.sink16, align 4, !tbaa !8
+  %.sink27 = phi ptr [ %4, %3 ], [ %257, %lean_dec_ref.exit ]
+  %260 = getelementptr inbounds nuw i8, ptr %.sink27, i64 4
+  store i32 1, ptr %.sink27, align 4, !tbaa !8
   store i32 131096, ptr %260, align 4
-  %261 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
+  %261 = getelementptr inbounds nuw i8, ptr %.sink27, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %261, align 8, !tbaa !4
-  %262 = getelementptr inbounds nuw i8, ptr %.sink16, i64 16
+  %262 = getelementptr inbounds nuw i8, ptr %.sink27, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %262, align 8, !tbaa !4
   br label %263
 
 263:                                              ; preds = %.sink.split, %_init_l_Lean_Elab_initFn____x40_Lean_Elab_Deriving_TypeName___hyg_688____closed__1.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %247, %_init_l_Lean_Elab_initFn____x40_Lean_Elab_Deriving_TypeName___hyg_688____closed__1.exit ], [ %.sink16, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %247, %_init_l_Lean_Elab_initFn____x40_Lean_Elab_Deriving_TypeName___hyg_688____closed__1.exit ], [ %.sink27, %.sink.split ]
   ret ptr %.0
 }
 

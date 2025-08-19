@@ -4577,8 +4577,8 @@ get_CDR_ulong.exit:                               ; preds = %15, %17
   %59 = and i32 %48, 3
   %.not9.i142 = icmp eq i32 %59, 3
   %60 = or i32 %42, -4
-  %sub177 = select i1 %.not9.i142, i32 0, i32 %60
-  %61 = sub i32 %42, %sub177
+  %sub182 = select i1 %.not9.i142, i32 0, i32 %60
+  %61 = sub i32 %42, %sub182
   store i32 %61, ptr %7, align 4
   br i1 %4, label %62, label %64
 
@@ -4984,8 +4984,8 @@ get_CDR_string.exit:                              ; preds = %42, %44
   %64 = icmp slt i32 %63, 1
   %65 = and i32 %62, 7
   %.not3.i = icmp eq i32 %65, 4
-  %or.cond100 = or i1 %64, %.not3.i
-  br i1 %or.cond100, label %set_new_alignment.exit, label %.lr.ph.i
+  %or.cond104 = or i1 %64, %.not3.i
+  br i1 %or.cond104, label %set_new_alignment.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %61, %.lr.ph.i
   %66 = phi i32 [ %67, %.lr.ph.i ], [ %62, %61 ]
@@ -6178,7 +6178,7 @@ get_CDR_ulong.exit.i:                             ; preds = %92, %90
   br i1 %.not121.i, label %.sink.split.i, label %141
 
 .sink.split.i:                                    ; preds = %119, %118
-  %.sink155.i = phi i32 [ 0, %119 ], [ 1, %118 ]
+  %.sink160.i = phi i32 [ 0, %119 ], [ 1, %118 ]
   %125 = load ptr, ptr @giop_objkey_hash, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %126 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -6206,7 +6206,7 @@ insert_in_objkey_hash.exit:                       ; preds = %.sink.split.i, %128
   %138 = call noalias ptr @wmem_strdup(ptr noundef %137, ptr noundef nonnull %6)
   store ptr %138, ptr %136, align 8
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  store i32 %.sink155.i, ptr %139, align 8
+  store i32 %.sink160.i, ptr %139, align 8
   %140 = call i32 @g_hash_table_insert(ptr noundef %125, ptr noundef %131, ptr noundef %136)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre = load i32, ptr %3, align 4

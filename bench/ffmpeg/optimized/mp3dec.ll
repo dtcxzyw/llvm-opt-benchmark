@@ -56,7 +56,7 @@ define internal range(i32 0, 52) i32 @mp3_read_probe(ptr noundef readonly captur
 .critedge:                                        ; preds = %.lr.ph, %12, %1
   %.074.lcssa = phi ptr [ %4, %1 ], [ %13, %12 ], [ %.074105, %.lr.ph ]
   %15 = icmp ult ptr %.074.lcssa, %9
-  br i1 %15, label %.preheader.lr.ph, label %.thread165
+  br i1 %15, label %.preheader.lr.ph, label %.thread174
 
 .preheader.lr.ph:                                 ; preds = %.critedge
   %16 = ptrtoint ptr %9 to i64
@@ -166,28 +166,28 @@ define internal range(i32 0, 52) i32 @mp3_read_probe(ptr noundef readonly captur
   %62 = load i32, ptr %5, align 8, !tbaa !11
   %63 = shl nuw nsw i32 %51, 1
   %64 = icmp slt i32 %62, %63
-  br i1 %64, label %85, label %.thread165
+  br i1 %64, label %85, label %.thread174
 
 65:                                               ; preds = %59
   %66 = icmp sgt i32 %50, 3
-  br i1 %66, label %.thread96, label %.thread165
+  br i1 %66, label %.thread96, label %.thread174
 
 .thread96:                                        ; preds = %65
   %.pre = load i32, ptr %5, align 8, !tbaa !11
   %.pre138 = shl nuw nsw i32 %51, 1
   %67 = icmp slt i32 %.pre, %.pre138
-  br i1 %67, label %85, label %.thread165
+  br i1 %67, label %85, label %.thread174
 
-.thread165:                                       ; preds = %61, %.critedge, %.thread96, %65
-  %.076.lcssa146160 = phi i1 [ %57, %.thread96 ], [ %57, %65 ], [ false, %.critedge ], [ %57, %61 ]
-  %.070.lcssa147157 = phi i32 [ %.1, %.thread96 ], [ %.1, %65 ], [ 0, %.critedge ], [ %.1, %61 ]
-  %.068.lcssa148154 = phi i32 [ %50, %.thread96 ], [ %50, %65 ], [ 0, %.critedge ], [ %50, %61 ]
-  %.078.lcssa145 = phi i32 [ %51, %.thread96 ], [ %51, %65 ], [ 0, %.critedge ], [ %51, %61 ]
+.thread174:                                       ; preds = %61, %.critedge, %.thread96, %65
+  %.076.lcssa155169 = phi i1 [ %57, %.thread96 ], [ %57, %65 ], [ false, %.critedge ], [ %57, %61 ]
+  %.070.lcssa156166 = phi i32 [ %.1, %.thread96 ], [ %.1, %65 ], [ 0, %.critedge ], [ %.1, %61 ]
+  %.068.lcssa157163 = phi i32 [ %50, %.thread96 ], [ %50, %65 ], [ 0, %.critedge ], [ %50, %61 ]
+  %.078.lcssa154 = phi i32 [ %51, %.thread96 ], [ %51, %65 ], [ 0, %.critedge ], [ %51, %61 ]
   %68 = call i32 @ff_id3v2_match(ptr noundef %.074.lcssa, ptr noundef nonnull @.str.8) #6
   %.not88 = icmp eq i32 %68, 0
   br i1 %.not88, label %76, label %69
 
-69:                                               ; preds = %.thread165
+69:                                               ; preds = %.thread174
   %70 = call i32 @ff_id3v2_tag_len(ptr noundef %.074.lcssa) #6
   %71 = shl nsw i32 %70, 1
   %72 = load i32, ptr %5, align 8, !tbaa !11
@@ -199,18 +199,18 @@ define internal range(i32 0, 52) i32 @mp3_read_probe(ptr noundef readonly captur
   %75 = select i1 %74, i32 12, i32 48
   br label %85
 
-76:                                               ; preds = %69, %.thread165
-  %77 = icmp sgt i32 %.070.lcssa147157, 1
-  %or.cond = select i1 %77, i1 %.076.lcssa146160, i1 false
+76:                                               ; preds = %69, %.thread174
+  %77 = icmp sgt i32 %.070.lcssa156166, 1
+  %or.cond = select i1 %77, i1 %.076.lcssa155169, i1 false
   br i1 %or.cond, label %85, label %78
 
 78:                                               ; preds = %76
-  %79 = icmp sgt i32 %.068.lcssa148154, 0
+  %79 = icmp sgt i32 %.068.lcssa157163, 0
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %78
   %81 = load i32, ptr %5, align 8, !tbaa !11
-  %82 = mul nsw i32 %.078.lcssa145, 10
+  %82 = mul nsw i32 %.078.lcssa154, 10
   %83 = icmp slt i32 %81, %82
   br i1 %83, label %85, label %84
 

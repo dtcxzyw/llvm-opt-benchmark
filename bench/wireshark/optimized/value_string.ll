@@ -116,8 +116,8 @@ define ptr @try_val_to_str(i32 noundef %0, ptr noundef readonly captures(address
   br i1 %8, label %try_val_to_str_idx.exit, label %.lr.ph, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.020.i3 = phi i32 [ %9, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %9 = add i32 %.020.i3, 1
+  %.020.i5 = phi i32 [ %9, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %9 = add i32 %.020.i5, 1
   %10 = sext i32 %9 to i64
   %11 = getelementptr %struct._value_string, ptr %1, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -422,8 +422,8 @@ define ptr @try_val64_to_str(i64 noundef %0, ptr noundef readonly captures(addre
   br i1 %8, label %try_val64_to_str_idx.exit, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.020.i3 = phi i32 [ %9, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %9 = add i32 %.020.i3, 1
+  %.020.i5 = phi i32 [ %9, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %9 = add i32 %.020.i5, 1
   %10 = sext i32 %9 to i64
   %11 = getelementptr %struct._val64_string, ptr %1, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1489,8 +1489,8 @@ define ptr @try_str_to_str(ptr noundef readonly captures(none) %0, ptr noundef r
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
   %5 = load ptr, ptr %1, align 8
   %6 = tail call i32 @strcmp(ptr noundef %5, ptr noundef readonly %0) #15
-  %.not14.i4 = icmp eq i32 %6, 0
-  br i1 %.not14.i4, label %try_str_to_str_idx.exit, label %.lr.ph
+  %.not14.i6 = icmp eq i32 %6, 0
+  br i1 %.not14.i6, label %try_str_to_str_idx.exit, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %7 = load ptr, ptr %11, align 8
@@ -1499,8 +1499,8 @@ define ptr @try_str_to_str(ptr noundef readonly captures(none) %0, ptr noundef r
   br i1 %.not14.i, label %try_str_to_str_idx.exit, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.018.i5 = phi i32 [ %9, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %9 = add i32 %.018.i5, 1
+  %.018.i7 = phi i32 [ %9, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %9 = add i32 %.018.i7, 1
   %10 = sext i32 %9 to i64
   %11 = getelementptr %struct._string_string, ptr %1, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8

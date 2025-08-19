@@ -3710,7 +3710,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i19.lr.ph: ; preds = %.preheader
           cleanup
   br label %110
 
-.loopexit.split-lp:                               ; preds = %.invoke15, %.invoke, %106, %._crit_edge
+.loopexit.split-lp:                               ; preds = %.invoke21, %.invoke, %106, %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %110
@@ -3809,15 +3809,15 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i21: ; preds = %.noexc24, %11
           to label %152 unwind label %.loopexit
 
 152:                                              ; preds = %147
-  br i1 %151, label %155, label %.invoke15
+  br i1 %151, label %155, label %.invoke21
 
-.invoke15:                                        ; preds = %174, %152
+.invoke21:                                        ; preds = %174, %152
   %153 = phi i32 [ 182, %152 ], [ 186, %174 ]
   %154 = phi ptr [ @.str.39, %152 ], [ @.str.43, %174 ]
   invoke void @_ZN4pbrt8LogFatalIJRA43_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.24, i32 noundef %153, ptr noundef nonnull @.str.28, ptr noundef nonnull align 1 dereferenceable(43) %154) #25
-          to label %.cont16 unwind label %.loopexit.split-lp
+          to label %.cont22 unwind label %.loopexit.split-lp
 
-.cont16:                                          ; preds = %.invoke15
+.cont22:                                          ; preds = %.invoke21
   unreachable
 
 155:                                              ; preds = %152, %145
@@ -3854,7 +3854,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i21: ; preds = %.noexc24, %11
           to label %174 unwind label %.loopexit
 
 174:                                              ; preds = %169
-  br i1 %173, label %175, label %.invoke15
+  br i1 %173, label %175, label %.invoke21
 
 175:                                              ; preds = %174, %167
   %176 = load ptr, ptr %7, align 8, !tbaa !22

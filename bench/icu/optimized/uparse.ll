@@ -260,7 +260,7 @@ _ZL15getMissingLimitPKc.exit:                     ; preds = %u_rtrim.exit, %.pre
   %58 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0.i, i32 noundef 35) #9
   %59 = ptrtoint ptr %58 to i64
   %.not81 = icmp eq ptr %58, null
-  br i1 %.not81, label %.preheader129, label %.preheader92
+  br i1 %.not81, label %.preheader137, label %.preheader92
 
 .preheader92:                                     ; preds = %57
   %60 = icmp ugt ptr %58, %.0.i
@@ -289,13 +289,13 @@ _ZL15getMissingLimitPKc.exit:                     ; preds = %u_rtrim.exit, %.pre
 .critedge:                                        ; preds = %.critedge5, %.lr.ph, %.preheader92
   %.067.lcssa = phi ptr [ %58, %.preheader92 ], [ %.067100, %.lr.ph ], [ %scevgep, %.critedge5 ]
   store i8 0, ptr %.067.lcssa, align 1, !tbaa !3
-  br label %.preheader129
+  br label %.preheader137
 
-.preheader129:                                    ; preds = %.critedge, %57
+.preheader137:                                    ; preds = %.critedge, %57
   br label %65
 
-65:                                               ; preds = %.preheader129, %.critedge.i
-  %.0.i89 = phi ptr [ %67, %.critedge.i ], [ %.0.i, %.preheader129 ]
+65:                                               ; preds = %.preheader137, %.critedge.i
+  %.0.i89 = phi ptr [ %67, %.critedge.i ], [ %.0.i, %.preheader137 ]
   %66 = load i8, ptr %.0.i89, align 1, !tbaa !3
   switch i8 %66, label %.preheader [
     i8 32, label %.critedge.i
@@ -352,7 +352,7 @@ _ZL15getMissingLimitPKc.exit:                     ; preds = %u_rtrim.exit, %.pre
   br i1 %78, label %79, label %._crit_edge
 
 79:                                               ; preds = %.loopexit
-  call void %4(ptr noundef %5, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %6)
+  call void %4(ptr noundef %5, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %6)
   %80 = load i32, ptr %6, align 4, !tbaa !9
   %81 = icmp slt i32 %80, 1
   br i1 %81, label %.backedge, label %._crit_edge

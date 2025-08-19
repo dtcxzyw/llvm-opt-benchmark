@@ -805,14 +805,14 @@ define internal fastcc noalias noundef nonnull ptr @_ZN16uv_configuration17depen
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  switch i8 %21, label %default.unreachable108 [
+  switch i8 %21, label %default.unreachable111 [
     i8 3, label %31
     i8 0, label %36
     i8 1, label %40
     i8 2, label %44
   ]
 
-default.unreachable108:                           ; preds = %19
+default.unreachable111:                           ; preds = %19
   unreachable
 
 31:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h01eb37b16f4d857bE.exit87", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h01eb37b16f4d857bE.exit80", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h01eb37b16f4d857bE.exit", %19
@@ -1374,11 +1374,11 @@ _ZN3std4sync6poison4once4Once9call_once17h45020d121e053630E.exit70: ; preds = %.
           to label %18 unwind label %231
 
 236:                                              ; preds = %237, %18
-  %.pn60109 = phi { ptr, i32 } [ %.pn60110, %237 ], [ %.pn58, %18 ]
-  resume { ptr, i32 } %.pn60109
+  %.pn60112 = phi { ptr, i32 } [ %.pn60113, %237 ], [ %.pn58, %18 ]
+  resume { ptr, i32 } %.pn60112
 
 237:                                              ; preds = %.thread, %18
-  %.pn60110 = phi { ptr, i32 } [ %.pn58, %18 ], [ %17, %.thread ]
+  %.pn60113 = phi { ptr, i32 } [ %.pn58, %18 ], [ %17, %.thread ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$uv_configuration..dependency_groups..DependencyGroupsHistory$GT$17h2388fb46a54d3717E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0) #33
           to label %236 unwind label %231
 }

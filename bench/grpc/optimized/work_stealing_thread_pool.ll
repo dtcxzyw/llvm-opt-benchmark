@@ -5750,12 +5750,12 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyImEENS0_13hash_internal4HashImEESt8equal_toImESaImEE26find_or_prepare_insert_sooImEESt4pairINSB_8iteratorEbERKT_.exit
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyImEENS0_13hash_internal4HashImEESt8equal_toImESaImEE26find_or_prepare_insert_sooImEESt4pairINSB_8iteratorEbERKT_.exit: ; preds = %.critedge21.i, %.thread.i, %17, %12, %10
-  %.sink72.i.sink = phi ptr [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %10 ], [ %27, %17 ], [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %12 ], [ %71, %.thread.i ], [ %77, %.critedge21.i ]
-  %.sink71.i.sink = phi ptr [ %11, %10 ], [ %29, %17 ], [ %13, %12 ], [ %72, %.thread.i ], [ %76, %.critedge21.i ]
+  %.sink74.i.sink = phi ptr [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %10 ], [ %27, %17 ], [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %12 ], [ %71, %.thread.i ], [ %77, %.critedge21.i ]
+  %.sink73.i.sink = phi ptr [ %11, %10 ], [ %29, %17 ], [ %13, %12 ], [ %72, %.thread.i ], [ %76, %.critedge21.i ]
   %.sink.i4.sink = phi i8 [ 1, %10 ], [ 1, %17 ], [ 0, %12 ], [ 1, %.thread.i ], [ 0, %.critedge21.i ]
-  store ptr %.sink72.i.sink, ptr %0, align 8
+  store ptr %.sink74.i.sink, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink71.i.sink, ptr %.sroa.4.0..sroa_idx.i, align 8
+  store ptr %.sink73.i.sink, ptr %.sroa.4.0..sroa_idx.i, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink.i4.sink, ptr %78, align 8, !tbaa !160
   ret void

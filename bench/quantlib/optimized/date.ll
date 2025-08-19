@@ -5977,8 +5977,8 @@ if.then.i.i41:                                    ; preds = %entry
   %add.ptr21.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i19, i64 288
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.sroa.0)
-  %ref.tmp.sroa.0.16..sroa_idx393 = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %ref.tmp.sroa.0.16..sroa_idx393, ptr noundef nonnull align 1 dereferenceable(5) @_ZN5boost9date_time24date_generator_formatterINS_9gregorian4dateEcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE12first_stringE, i64 5, i1 false)
+  %ref.tmp.sroa.0.16..sroa_idx463 = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %ref.tmp.sroa.0.16..sroa_idx463, ptr noundef nonnull align 1 dereferenceable(5) @_ZN5boost9date_time24date_generator_formatterINS_9gregorian4dateEcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE12first_stringE, i64 5, i1 false)
   %0 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i19, i64 16
   store ptr %0, ptr %call5.i.i.i.i19, align 8, !tbaa !17
   %ref.tmp.sroa.0.16..sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0, i64 16
@@ -10758,8 +10758,8 @@ for.body13.preheader.i.i.i22:                     ; preds = %if.then5, %for.inc2
   %indvars.iv143.in = phi i64 [ %indvars.iv143, %for.inc29.critedge.i.i.i32 ], [ %14, %if.then5 ]
   %OuterIt.sroa.0.029.i.i.i23 = phi ptr [ %incdec.ptr.i11.i.i.i33, %for.inc29.critedge.i.i.i32 ], [ %.pre155.pre156.pre159, %if.then5 ]
   %indvars.iv143 = add i64 %indvars.iv143.in, -1
-  %.not166 = icmp eq i64 %indvars.iv143, 0
-  %15 = select i1 %.not166, i64 1, i64 2
+  %.not177 = icmp eq i64 %indvars.iv143, 0
+  %15 = select i1 %.not177, i64 1, i64 2
   br label %for.body13.i.i.i24
 
 for.body13.i.i.i24:                               ; preds = %for.inc.i.i.i40, %for.body13.preheader.i.i.i22
@@ -10843,8 +10843,8 @@ for.body13.preheader.i.i.i62:                     ; preds = %if.then12, %for.inc
   %indvars.iv147.in = phi i64 [ %indvars.iv147, %for.inc29.critedge.i.i.i72 ], [ %23, %if.then12 ]
   %OuterIt.sroa.0.029.i.i.i63 = phi ptr [ %incdec.ptr.i11.i.i.i73, %for.inc29.critedge.i.i.i72 ], [ %.pre155.pre156, %if.then12 ]
   %indvars.iv147 = add i64 %indvars.iv147.in, -1
-  %.not167 = icmp eq i64 %indvars.iv147, 0
-  %24 = select i1 %.not167, i64 1, i64 2
+  %.not178 = icmp eq i64 %indvars.iv147, 0
+  %24 = select i1 %.not178, i64 1, i64 2
   br label %for.body13.i.i.i64
 
 for.body13.i.i.i64:                               ; preds = %for.inc.i.i.i80, %for.body13.preheader.i.i.i62
@@ -10928,8 +10928,8 @@ for.body13.preheader.i.i.i102:                    ; preds = %if.then18, %for.inc
   %indvars.iv151.in = phi i64 [ %indvars.iv151, %for.inc29.critedge.i.i.i112 ], [ %32, %if.then18 ]
   %OuterIt.sroa.0.029.i.i.i103 = phi ptr [ %incdec.ptr.i11.i.i.i113, %for.inc29.critedge.i.i.i112 ], [ %.pre155, %if.then18 ]
   %indvars.iv151 = add i64 %indvars.iv151.in, -1
-  %.not168 = icmp eq i64 %indvars.iv151, 0
-  %33 = select i1 %.not168, i64 1, i64 2
+  %.not179 = icmp eq i64 %indvars.iv151, 0
+  %33 = select i1 %.not179, i64 1, i64 2
   br label %for.body13.i.i.i104
 
 for.body13.i.i.i104:                              ; preds = %for.inc.i.i.i120, %for.body13.preheader.i.i.i102
@@ -12324,7 +12324,7 @@ land.lhs.true.i.i:                                ; preds = %_ZNSt5dequeIcSaIcEE
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 %add10.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %14, i64 %add10.i
   br label %_ZStplRKSt15_Deque_iteratorIcRcPcEl.exit
 
 cond.true.i.i:                                    ; preds = %land.lhs.true.i.i

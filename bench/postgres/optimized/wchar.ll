@@ -305,10 +305,10 @@ define internal i32 @pg_eucjp2wchar_with_len(ptr noundef readonly captures(none)
   br label %39
 
 39:                                               ; preds = %33, %30, %19, %10
-  %.sink47.i = phi i32 [ %29, %19 ], [ %38, %33 ], [ %15, %10 ], [ %6, %30 ]
+  %.sink48.i = phi i32 [ %29, %19 ], [ %38, %33 ], [ %15, %10 ], [ %6, %30 ]
   %.sink.i = phi i32 [ -3, %19 ], [ -2, %33 ], [ -2, %10 ], [ -1, %30 ]
   %.137.i = phi ptr [ %26, %19 ], [ %35, %33 ], [ %12, %10 ], [ %32, %30 ]
-  store i32 %.sink47.i, ptr %.03540.i, align 4
+  store i32 %.sink48.i, ptr %.03540.i, align 4
   %40 = add nsw i32 %.sink.i, %.03441.i
   %41 = getelementptr inbounds nuw i8, ptr %.03540.i, i64 4
   %42 = add i32 %.042.i, 1
@@ -681,10 +681,10 @@ define internal i32 @pg_euccn2wchar_with_len(ptr noundef readonly captures(none)
   br label %44
 
 44:                                               ; preds = %34, %23, %38, %10
-  %.sink49 = phi i32 [ %33, %23 ], [ %43, %38 ], [ %20, %10 ], [ %6, %34 ]
+  %.sink50 = phi i32 [ %33, %23 ], [ %43, %38 ], [ %20, %10 ], [ %6, %34 ]
   %.sink = phi i32 [ -3, %23 ], [ -2, %38 ], [ -3, %10 ], [ -1, %34 ]
   %.139 = phi ptr [ %30, %23 ], [ %40, %38 ], [ %17, %10 ], [ %37, %34 ]
-  store i32 %.sink49, ptr %.03742, align 4
+  store i32 %.sink50, ptr %.03742, align 4
   %45 = add nsw i32 %.03643, %.sink
   %46 = getelementptr inbounds nuw i8, ptr %.03742, i64 4
   %47 = add i32 %.044, 1
@@ -864,10 +864,10 @@ define internal i32 @pg_euckr2wchar_with_len(ptr noundef readonly captures(none)
   br label %39
 
 39:                                               ; preds = %33, %30, %19, %10
-  %.sink47.i = phi i32 [ %29, %19 ], [ %38, %33 ], [ %15, %10 ], [ %6, %30 ]
+  %.sink48.i = phi i32 [ %29, %19 ], [ %38, %33 ], [ %15, %10 ], [ %6, %30 ]
   %.sink.i = phi i32 [ -3, %19 ], [ -2, %33 ], [ -2, %10 ], [ -1, %30 ]
   %.137.i = phi ptr [ %26, %19 ], [ %35, %33 ], [ %12, %10 ], [ %32, %30 ]
-  store i32 %.sink47.i, ptr %.03540.i, align 4
+  store i32 %.sink48.i, ptr %.03540.i, align 4
   %40 = add nsw i32 %.sink.i, %.03441.i
   %41 = getelementptr inbounds nuw i8, ptr %.03540.i, i64 4
   %42 = add i32 %.042.i, 1
@@ -1000,10 +1000,10 @@ define internal i32 @pg_euctw2wchar_with_len(ptr noundef readonly captures(none)
   br label %50
 
 50:                                               ; preds = %40, %29, %44, %10
-  %.sink51 = phi i32 [ %39, %29 ], [ %49, %44 ], [ %25, %10 ], [ %6, %40 ]
+  %.sink52 = phi i32 [ %39, %29 ], [ %49, %44 ], [ %25, %10 ], [ %6, %40 ]
   %.sink = phi i32 [ -3, %29 ], [ -2, %44 ], [ -4, %10 ], [ -1, %40 ]
   %.141 = phi ptr [ %36, %29 ], [ %46, %44 ], [ %22, %10 ], [ %43, %40 ]
-  store i32 %.sink51, ptr %.03944, align 4
+  store i32 %.sink52, ptr %.03944, align 4
   %51 = add nsw i32 %.03845, %.sink
   %52 = getelementptr inbounds nuw i8, ptr %.03944, i64 4
   %53 = add i32 %.046, 1
@@ -1294,10 +1294,10 @@ define internal i32 @pg_utf2wchar_with_len(ptr noundef readonly captures(none) %
   br label %73
 
 73:                                               ; preds = %16, %50, %71, %30, %9
-  %.sink64 = phi i32 [ %24, %16 ], [ %70, %50 ], [ %6, %71 ], [ %44, %30 ], [ %6, %9 ]
+  %.sink65 = phi i32 [ %24, %16 ], [ %70, %50 ], [ %6, %71 ], [ %44, %30 ], [ %6, %9 ]
   %.sink = phi i32 [ -2, %16 ], [ -4, %50 ], [ -1, %71 ], [ -3, %30 ], [ -1, %9 ]
   %.1 = phi ptr [ %18, %16 ], [ %60, %50 ], [ %72, %71 ], [ %36, %30 ], [ %10, %9 ]
-  store i32 %.sink64, ptr %.04547, align 4
+  store i32 %.sink65, ptr %.04547, align 4
   %74 = add nsw i32 %.04348, %.sink
   %75 = getelementptr inbounds nuw i8, ptr %.04547, i64 4
   %76 = add i32 %.04249, 1
@@ -1383,12 +1383,12 @@ unicode_to_utf8.exit.thread:                      ; preds = %6
   br label %41
 
 41:                                               ; preds = %26, %17, %11
-  %.sink26 = phi i64 [ 3, %26 ], [ 2, %17 ], [ 1, %11 ]
+  %.sink27 = phi i64 [ 3, %26 ], [ 2, %17 ], [ 1, %11 ]
   %.pr = phi i8 [ %30, %26 ], [ %20, %17 ], [ %14, %11 ]
   %42 = trunc i32 %5 to i8
   %43 = and i8 %42, 63
   %44 = or disjoint i8 %43, -128
-  %45 = getelementptr inbounds nuw i8, ptr %.01416, i64 %.sink26
+  %45 = getelementptr inbounds nuw i8, ptr %.01416, i64 %.sink27
   store i8 %44, ptr %45, align 1
   %46 = zext i8 %.pr to i32
   %47 = and i32 %46, 224
@@ -1629,7 +1629,7 @@ define internal i32 @pg_utf8_verifystr(ptr noundef %0, i32 noundef %1) #6 {
   %.12859 = phi i32 [ %28, %26 ], [ %1, %2 ]
   %.04158 = phi i32 [ %.142, %26 ], [ 11, %2 ]
   %.not36 = icmp eq i32 %.04158, 11
-  br i1 %.not36, label %.preheader53, label %.preheader85
+  br i1 %.not36, label %.preheader53, label %.preheader91
 
 .preheader53:                                     ; preds = %.preheader54, %.preheader53
   %.013.i = phi <2 x i64> [ %10, %.preheader53 ], [ zeroinitializer, %.preheader54 ]
@@ -1650,15 +1650,15 @@ is_valid_ascii.exit:                              ; preds = %.preheader53
   %12 = icmp slt <16 x i8> %11, zeroinitializer
   %13 = bitcast <16 x i1> %12 to i16
   %.not.i = icmp eq i16 %13, 0
-  br i1 %.not.i, label %26, label %.preheader85
+  br i1 %.not.i, label %26, label %.preheader91
 
-.preheader85:                                     ; preds = %is_valid_ascii.exit, %.preheader54
+.preheader91:                                     ; preds = %is_valid_ascii.exit, %.preheader54
   br label %14
 
-14:                                               ; preds = %.preheader85, %14
-  %.07.i = phi i32 [ %23, %14 ], [ 32, %.preheader85 ]
-  %.056.i = phi ptr [ %16, %14 ], [ %.160, %.preheader85 ]
-  %15 = phi i32 [ %22, %14 ], [ %.04158, %.preheader85 ]
+14:                                               ; preds = %.preheader91, %14
+  %.07.i = phi i32 [ %23, %14 ], [ 32, %.preheader91 ]
+  %.056.i = phi ptr [ %16, %14 ], [ %.160, %.preheader91 ]
+  %15 = phi i32 [ %22, %14 ], [ %.04158, %.preheader91 ]
   %16 = getelementptr inbounds nuw i8, ptr %.056.i, i64 1
   %17 = load i8, ptr %.056.i, align 1
   %18 = zext i8 %17 to i64
@@ -1899,10 +1899,10 @@ define internal i32 @pg_mule2wchar_with_len(ptr noundef readonly captures(none) 
   br label %73
 
 73:                                               ; preds = %25, %57, %.thread72, %39, %12
-  %.sink82 = phi i32 [ %34, %25 ], [ %71, %57 ], [ %6, %.thread72 ], [ %50, %39 ], [ %18, %12 ]
+  %.sink83 = phi i32 [ %34, %25 ], [ %71, %57 ], [ %6, %.thread72 ], [ %50, %39 ], [ %18, %12 ]
   %.sink = phi i32 [ -3, %25 ], [ -4, %57 ], [ -1, %.thread72 ], [ -3, %39 ], [ -2, %12 ]
   %.160 = phi ptr [ %31, %25 ], [ %68, %57 ], [ %72, %.thread72 ], [ %47, %39 ], [ %15, %12 ]
-  store i32 %.sink82, ptr %.05875, align 4
+  store i32 %.sink83, ptr %.05875, align 4
   %74 = add nsw i32 %.05776, %.sink
   %75 = getelementptr inbounds nuw i8, ptr %.05875, i64 4
   %76 = add i32 %.077, 1
@@ -2187,7 +2187,7 @@ pg_mule_mblen.exit.i:                             ; preds = %12, %9, %7
   %.013 = phi i32 [ 1, %5 ], [ %.0.i.i, %.preheader.i ]
   %19 = zext nneg i32 %.013 to i64
   %20 = getelementptr inbounds nuw i8, ptr %.01427, i64 %19
-  %21 = sub i32 %.01526, %.013
+  %21 = sub nsw i32 %.01526, %.013
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %.thread
 

@@ -143,7 +143,7 @@ lean_dec.exit:                                    ; preds = %22, %21, %19, %13
   %23 = ptrtoint ptr %0 to i64
   %24 = and i64 %23, 1
   %.not43 = icmp eq i64 %24, 0
-  br i1 %.not43, label %25, label %common.ret44
+  br i1 %.not43, label %25, label %common.ret46
 
 25:                                               ; preds = %lean_dec.exit
   %.val.i28 = load i32, ptr %0, align 4, !tbaa !8
@@ -153,15 +153,15 @@ lean_dec.exit:                                    ; preds = %22, %21, %19, %13
 27:                                               ; preds = %25
   %28 = add nuw i32 %.val.i28, 1
   store i32 %28, ptr %0, align 4, !tbaa !8
-  br label %common.ret44
+  br label %common.ret46
 
 29:                                               ; preds = %25
   %.not.i29 = icmp eq i32 %.val.i28, 0
-  br i1 %.not.i29, label %common.ret44, label %30
+  br i1 %.not.i29, label %common.ret46, label %30
 
 30:                                               ; preds = %29
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %0) #3
-  br label %common.ret44
+  br label %common.ret46
 
 31:                                               ; preds = %lean_obj_tag.exit
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -263,14 +263,14 @@ lean_dec.exit21:                                  ; preds = %58, %57, %55, %lean
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_inc.exit24
 
-common.ret44:                                     ; preds = %lean_dec.exit, %27, %29, %30, %lean_inc.exit24
-  %common.ret44.op = phi ptr [ %71, %lean_inc.exit24 ], [ %0, %30 ], [ %0, %29 ], [ %0, %27 ], [ %0, %lean_dec.exit ]
-  ret ptr %common.ret44.op
+common.ret46:                                     ; preds = %lean_dec.exit, %27, %29, %30, %lean_inc.exit24
+  %common.ret46.op = phi ptr [ %71, %lean_inc.exit24 ], [ %0, %30 ], [ %0, %29 ], [ %0, %27 ], [ %0, %lean_dec.exit ]
+  ret ptr %common.ret46.op
 
 lean_inc.exit24:                                  ; preds = %69, %68, %66, %lean_dec.exit21
   %70 = tail call ptr @l___private_Lean_ToExpr_0__Lean_List_toExprAux___at___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search__path_x25__1___spec__2(ptr noundef %0, ptr noundef %1, ptr noundef %43)
   %71 = tail call ptr @l_Lean_mkAppB(ptr noundef %1, ptr noundef %61, ptr noundef %70) #3
-  br label %common.ret44
+  br label %common.ret46
 }
 
 declare ptr @l_Lean_mkStrLit(ptr noundef) local_unnamed_addr #1
@@ -1151,18 +1151,18 @@ _init_l___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search_
   unreachable
 
 .sink.split:                                      ; preds = %_init_l___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search__path_x25__1___closed__10.exit, %3
-  %.sink25 = phi ptr [ %4, %3 ], [ %117, %_init_l___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search__path_x25__1___closed__10.exit ]
-  %120 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
-  store i32 1, ptr %.sink25, align 4, !tbaa !8
+  %.sink37 = phi ptr [ %4, %3 ], [ %117, %_init_l___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search__path_x25__1___closed__10.exit ]
+  %120 = getelementptr inbounds nuw i8, ptr %.sink37, i64 4
+  store i32 1, ptr %.sink37, align 4, !tbaa !8
   store i32 131096, ptr %120, align 4
-  %121 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %.sink37, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %121, align 8, !tbaa !4
-  %122 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %.sink37, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %122, align 8, !tbaa !4
   br label %123
 
 123:                                              ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit14 ], [ %.sink25, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit14 ], [ %.sink37, %.sink.split ]
   ret ptr %.0
 }
 

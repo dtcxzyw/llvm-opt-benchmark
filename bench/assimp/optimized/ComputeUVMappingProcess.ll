@@ -215,19 +215,19 @@ define hidden void @_Z13RemoveUVSeamsP6aiMeshP10aiVector3tIfE(ptr noundef readon
   %52 = load float, ptr %51, align 4
   %53 = fcmp ule float %52, 0x3FECCCCCC0000000
   %or.cond = select i1 %53, i1 true, i1 %.171
-  br i1 %or.cond, label %54, label %.sink.split110
+  br i1 %or.cond, label %54, label %.sink.split111
 
 54:                                               ; preds = %.lr.ph.split
   %55 = fcmp uge float %52, 0x3FB99999A0000000
   %or.cond3 = select i1 %55, i1 true, i1 %.169
-  br i1 %or.cond3, label %56, label %.sink.split110
+  br i1 %or.cond3, label %56, label %.sink.split111
 
-.sink.split110:                                   ; preds = %54, %.lr.ph.split
-  %.sink111 = phi float [ 0.000000e+00, %.lr.ph.split ], [ 1.000000e+00, %54 ]
-  store float %.sink111, ptr %51, align 4
+.sink.split111:                                   ; preds = %54, %.lr.ph.split
+  %.sink112 = phi float [ 0.000000e+00, %.lr.ph.split ], [ 1.000000e+00, %54 ]
+  store float %.sink112, ptr %51, align 4
   br label %56
 
-56:                                               ; preds = %.sink.split110, %54
+56:                                               ; preds = %.sink.split111, %54
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %57 = load i32, ptr %8, align 8
   %58 = zext i32 %57 to i64

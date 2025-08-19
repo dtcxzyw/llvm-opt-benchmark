@@ -185,7 +185,7 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
   %32 = add i32 %37, 1
   %33 = sext i32 %32 to i64
   %34 = icmp ugt i64 %3, %33
-  br i1 %34, label %.preheader23, label %.preheader38, !llvm.loop !13
+  br i1 %34, label %.preheader23, label %.preheader51, !llvm.loop !13
 
 .preheader23:                                     ; preds = %8, %.thread15
   %35 = phi i64 [ %33, %.thread15 ], [ 0, %8 ]
@@ -228,17 +228,17 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
   %62 = phi i32 [ %36, %45 ], [ -22, %55 ]
   br i1 %61, label %.thread17, label %.thread15
 
-63:                                               ; preds = %.preheader38
+63:                                               ; preds = %.preheader51
   %64 = add i32 %70, 1
   %65 = sext i32 %64 to i64
   %66 = icmp ugt i64 %3, %65
-  br i1 %66, label %.preheader38, label %67, !llvm.loop !15
+  br i1 %66, label %.preheader51, label %67, !llvm.loop !15
 
 67:                                               ; preds = %63
   %68 = lshr i64 %4, 1
   br label %77
 
-.preheader38:                                     ; preds = %.thread15, %63
+.preheader51:                                     ; preds = %.thread15, %63
   %69 = phi i64 [ %65, %63 ], [ 0, %.thread15 ]
   %70 = phi i32 [ %64, %63 ], [ 0, %.thread15 ]
   %71 = getelementptr [16 x %struct.kexec_segment], ptr %7, i64 0, i64 %69
@@ -308,8 +308,8 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
   %.not20 = icmp ugt i64 %116, %100
   br i1 %.not20, label %.thread17, label %101
 
-.thread17:                                        ; preds = %28, %22, %12, %60, %.preheader38, %77, %105, %112, %101, %1, %94, %92
-  %117 = phi i32 [ -22, %92 ], [ 0, %94 ], [ 0, %1 ], [ -99, %105 ], [ -99, %112 ], [ 0, %101 ], [ -22, %77 ], [ -22, %.preheader38 ], [ %62, %60 ], [ -99, %12 ], [ -99, %22 ], [ -99, %28 ]
+.thread17:                                        ; preds = %28, %22, %12, %60, %.preheader51, %77, %105, %112, %101, %1, %94, %92
+  %117 = phi i32 [ -22, %92 ], [ 0, %94 ], [ 0, %1 ], [ -99, %105 ], [ -99, %112 ], [ 0, %101 ], [ -22, %77 ], [ -22, %.preheader51 ], [ %62, %60 ], [ -99, %12 ], [ -99, %22 ], [ -99, %28 ]
   ret i32 %117
 }
 

@@ -475,14 +475,14 @@ define dso_local void @WalReceiverMain(ptr noundef readnone captures(none) %0, i
   br i1 %169, label %.sink.split, label %176
 
 .sink.split:                                      ; preds = %170
-  %.278 = select i1 %.079203, i32 421, i32 425
+  %.310 = select i1 %.079203, i32 421, i32 425
   %.str.12..str.13 = select i1 %.079203, ptr @.str.12, ptr @.str.13
   %171 = lshr i64 %.0202, 32
   %172 = trunc nuw i64 %171 to i32
   %173 = trunc i64 %.0202 to i32
   %174 = load i32, ptr %16, align 4
   %175 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.12..str.13, i32 noundef %172, i32 noundef %173, i32 noundef %174) #16
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.278, ptr noundef nonnull @__func__.WalReceiverMain) #16
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.310, ptr noundef nonnull @__func__.WalReceiverMain) #16
   br label %176
 
 176:                                              ; preds = %170, %.sink.split
@@ -662,8 +662,8 @@ ProcessWalRcvInterrupts.exit:                     ; preds = %214
   br label %WalRcvComputeNextWakeup.exit116
 
 247:                                              ; preds = %240
-  %.277 = select i1 %or.cond.not.i115, i64 %227, i64 9223372036854775807
-  store i64 %.277, ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 24), align 8
+  %.309 = select i1 %or.cond.not.i115, i64 %227, i64 9223372036854775807
+  store i64 %.309, ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 24), align 8
   call fastcc void @XLogWalRcvSendHSFeedback(i1 noundef zeroext true)
   br label %252
 
@@ -781,7 +781,7 @@ WalRcvComputeNextWakeup.exit118:                  ; preds = %.lr.ph, %262
   %291 = udiv i64 %.03036.i.i, %290
   %292 = load i64, ptr @recvSegNo, align 8
   %293 = icmp eq i64 %291, %292
-  br i1 %293, label %.thread50.i.i, label %294
+  br i1 %293, label %.thread53.i.i, label %294
 
 294:                                              ; preds = %289
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -911,9 +911,9 @@ XLogWalRcvClose.exit136:                          ; preds = %346, %347
   store i32 %273, ptr @recvFileTLI, align 4
   %.pre47.i.i = load i32, ptr @wal_segment_size, align 4
   %.pre239 = sext i32 %.pre47.i.i to i64
-  br label %.thread50.i.i
+  br label %.thread53.i.i
 
-.thread50.i.i:                                    ; preds = %.thread.i.i, %289
+.thread53.i.i:                                    ; preds = %.thread.i.i, %289
   %.pre-phi240 = phi i64 [ %.pre239, %.thread.i.i ], [ %290, %289 ]
   %352 = phi i32 [ %351, %.thread.i.i ], [ %287, %289 ]
   %353 = phi i32 [ %.pre47.i.i, %.thread.i.i ], [ %.pre46.i.i, %289 ]
@@ -934,7 +934,7 @@ XLogWalRcvClose.exit136:                          ; preds = %346, %347
   %366 = icmp slt i32 %365, 1
   br i1 %366, label %367, label %379
 
-367:                                              ; preds = %.thread50.i.i
+367:                                              ; preds = %.thread53.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %368 = load i32, ptr %362, align 4
   %369 = icmp eq i32 %368, 0
@@ -958,7 +958,7 @@ XLogWalRcvClose.exit136:                          ; preds = %346, %347
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 962, ptr noundef nonnull @__func__.XLogWalRcvWrite) #16
   unreachable
 
-379:                                              ; preds = %.thread50.i.i
+379:                                              ; preds = %.thread53.i.i
   %380 = and i64 %364, 2147483647
   %381 = add i64 %380, %.03036.i.i
   %382 = sub i64 %.02937.i.i, %380

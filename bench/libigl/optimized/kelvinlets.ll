@@ -1320,8 +1320,8 @@ define linkonce_odr dso_local void @_ZN3igl19kelvinlet_evaluatorIN5Eigen6MatrixI
   %.sroa.6121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 16
   store ptr %9, ptr %.sroa.6121.0..sroa_idx, align 16, !tbaa !94
   store ptr %57, ptr %10, align 8
-  %.sroa.4156.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %.sroa.4156.0..sroa_idx, align 8
+  %.sroa.4157.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 0, ptr %.sroa.4157.0..sroa_idx, align 8
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorIS2_S2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEES9_RKNS0_10MatrixBaseIT_EERKNSB_IT0_EERKNSB_IT1_EERKNSB_IT2_EERKNS6_15KelvinletParamsIS9_EEEUlS4_E0_E10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %59, align 8, !tbaa !24
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -1344,8 +1344,8 @@ define linkonce_odr dso_local void @_ZN3igl19kelvinlet_evaluatorIN5Eigen6MatrixI
   %.sroa.6118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 16
   store ptr %9, ptr %.sroa.6118.0..sroa_idx, align 16, !tbaa !94
   store ptr %64, ptr %10, align 8
-  %.sroa.4159.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %.sroa.4159.0..sroa_idx, align 8
+  %.sroa.4160.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 0, ptr %.sroa.4160.0..sroa_idx, align 8
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorIS2_S2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEES9_RKNS0_10MatrixBaseIT_EERKNSB_IT0_EERKNSB_IT1_EERKNSB_IT2_EERKNS6_15KelvinletParamsIS9_EEEUlS4_E1_E10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %66, align 8, !tbaa !24
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -1370,8 +1370,8 @@ define linkonce_odr dso_local void @_ZN3igl19kelvinlet_evaluatorIN5Eigen6MatrixI
   %.sroa.7115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 24
   store ptr %6, ptr %.sroa.7115.0..sroa_idx, align 8, !tbaa !13
   store ptr %71, ptr %10, align 8
-  %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %.sroa.4162.0..sroa_idx, align 8
+  %.sroa.4163.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 0, ptr %.sroa.4163.0..sroa_idx, align 8
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorIS2_S2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEES9_RKNS0_10MatrixBaseIT_EERKNSB_IT0_EERKNSB_IT1_EERKNSB_IT2_EERKNS6_15KelvinletParamsIS9_EEEUlS4_E2_E10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %73, align 8, !tbaa !24
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -1787,8 +1787,8 @@ define linkonce_odr dso_local void @_ZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseB
   %.sroa.6121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 16
   store ptr %9, ptr %.sroa.6121.0..sroa_idx, align 16, !tbaa !94
   store ptr %79, ptr %10, align 8
-  %.sroa.4156.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %.sroa.4156.0..sroa_idx, align 8
+  %.sroa.4157.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 0, ptr %.sroa.4157.0..sroa_idx, align 8
   %81 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKS2_KNS8_INS9_17scalar_product_opIddEEKNS8_ISE_KNS0_14CwiseNullaryOpINS9_18scalar_constant_opIdEESC_EESC_EESJ_EEEES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS0_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS6_15KelvinletParamsISQ_EEEUlS4_E0_E10_M_managerERSt9_Any_dataRKS1F_St18_Manager_operation, ptr %81, align 8, !tbaa !24
   %82 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -1811,8 +1811,8 @@ define linkonce_odr dso_local void @_ZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseB
   %.sroa.6118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr %9, ptr %.sroa.6118.0..sroa_idx, align 16, !tbaa !94
   store ptr %86, ptr %10, align 8
-  %.sroa.4159.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %.sroa.4159.0..sroa_idx, align 8
+  %.sroa.4160.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 0, ptr %.sroa.4160.0..sroa_idx, align 8
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKS2_KNS8_INS9_17scalar_product_opIddEEKNS8_ISE_KNS0_14CwiseNullaryOpINS9_18scalar_constant_opIdEESC_EESC_EESJ_EEEES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS0_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS6_15KelvinletParamsISQ_EEEUlS4_E1_E10_M_managerERSt9_Any_dataRKS1F_St18_Manager_operation, ptr %88, align 8, !tbaa !24
   %89 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -1837,8 +1837,8 @@ define linkonce_odr dso_local void @_ZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseB
   %.sroa.7115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 24
   store ptr %6, ptr %.sroa.7115.0..sroa_idx, align 8, !tbaa !13
   store ptr %93, ptr %10, align 8
-  %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %.sroa.4162.0..sroa_idx, align 8
+  %.sroa.4163.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 0, ptr %.sroa.4163.0..sroa_idx, align 8
   %95 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKS2_KNS8_INS9_17scalar_product_opIddEEKNS8_ISE_KNS0_14CwiseNullaryOpINS9_18scalar_constant_opIdEESC_EESC_EESJ_EEEES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS0_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS6_15KelvinletParamsISQ_EEEUlS4_E2_E10_M_managerERSt9_Any_dataRKS1F_St18_Manager_operation, ptr %95, align 8, !tbaa !24
   %96 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -2277,8 +2277,8 @@ define linkonce_odr dso_local void @_ZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseB
   %.sroa.6121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %100, i64 16
   store ptr %9, ptr %.sroa.6121.0..sroa_idx, align 16, !tbaa !94
   store ptr %100, ptr %10, align 8
-  %.sroa.4156.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %.sroa.4156.0..sroa_idx, align 8
+  %.sroa.4157.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 0, ptr %.sroa.4157.0..sroa_idx, align 8
   %102 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS8_ISB_KS2_KNS8_INS9_17scalar_product_opIddEEKNS8_ISE_KNS0_14CwiseNullaryOpINS9_18scalar_constant_opIdEESC_EESC_EESJ_EEEESN_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESS_RKNS0_10MatrixBaseIT_EERKNSU_IT0_EERKNSU_IT1_EERKNSU_IT2_EERKNS6_15KelvinletParamsISS_EEEUlS4_E0_E10_M_managerERSt9_Any_dataRKS1H_St18_Manager_operation, ptr %102, align 8, !tbaa !24
   %103 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -2301,8 +2301,8 @@ define linkonce_odr dso_local void @_ZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseB
   %.sroa.6118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 16
   store ptr %9, ptr %.sroa.6118.0..sroa_idx, align 16, !tbaa !94
   store ptr %107, ptr %10, align 8
-  %.sroa.4159.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %.sroa.4159.0..sroa_idx, align 8
+  %.sroa.4160.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 0, ptr %.sroa.4160.0..sroa_idx, align 8
   %109 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS8_ISB_KS2_KNS8_INS9_17scalar_product_opIddEEKNS8_ISE_KNS0_14CwiseNullaryOpINS9_18scalar_constant_opIdEESC_EESC_EESJ_EEEESN_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESS_RKNS0_10MatrixBaseIT_EERKNSU_IT0_EERKNSU_IT1_EERKNSU_IT2_EERKNS6_15KelvinletParamsISS_EEEUlS4_E1_E10_M_managerERSt9_Any_dataRKS1H_St18_Manager_operation, ptr %109, align 8, !tbaa !24
   %110 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -2327,8 +2327,8 @@ define linkonce_odr dso_local void @_ZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseB
   %.sroa.7115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %114, i64 24
   store ptr %6, ptr %.sroa.7115.0..sroa_idx, align 8, !tbaa !13
   store ptr %114, ptr %10, align 8
-  %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %.sroa.4162.0..sroa_idx, align 8
+  %.sroa.4163.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 0, ptr %.sroa.4163.0..sroa_idx, align 8
   %116 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS8_ISB_KS2_KNS8_INS9_17scalar_product_opIddEEKNS8_ISE_KNS0_14CwiseNullaryOpINS9_18scalar_constant_opIdEESC_EESC_EESJ_EEEESN_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESS_RKNS0_10MatrixBaseIT_EERKNSU_IT0_EERKNSU_IT1_EERKNSU_IT2_EERKNS6_15KelvinletParamsISS_EEEUlS4_E2_E10_M_managerERSt9_Any_dataRKS1H_St18_Manager_operation, ptr %116, align 8, !tbaa !24
   %117 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -2792,8 +2792,8 @@ define linkonce_odr dso_local void @_ZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseB
   %.sroa.6121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %120, i64 16
   store ptr %9, ptr %.sroa.6121.0..sroa_idx, align 16, !tbaa !94
   store ptr %120, ptr %10, align 8
-  %.sroa.4156.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %.sroa.4156.0..sroa_idx, align 8
+  %.sroa.4157.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 0, ptr %.sroa.4157.0..sroa_idx, align 8
   %122 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS8_ISB_KNS8_ISB_KS2_KNS8_INS9_17scalar_product_opIddEEKNS8_ISE_KNS0_14CwiseNullaryOpINS9_18scalar_constant_opIdEESC_EESC_EESJ_EEEESN_EESN_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESU_RKNS0_10MatrixBaseIT_EERKNSW_IT0_EERKNSW_IT1_EERKNSW_IT2_EERKNS6_15KelvinletParamsISU_EEEUlS4_E0_E10_M_managerERSt9_Any_dataRKS1J_St18_Manager_operation, ptr %122, align 8, !tbaa !24
   %123 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -2816,8 +2816,8 @@ define linkonce_odr dso_local void @_ZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseB
   %.sroa.6118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %127, i64 16
   store ptr %9, ptr %.sroa.6118.0..sroa_idx, align 16, !tbaa !94
   store ptr %127, ptr %10, align 8
-  %.sroa.4159.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %.sroa.4159.0..sroa_idx, align 8
+  %.sroa.4160.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 0, ptr %.sroa.4160.0..sroa_idx, align 8
   %129 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS8_ISB_KNS8_ISB_KS2_KNS8_INS9_17scalar_product_opIddEEKNS8_ISE_KNS0_14CwiseNullaryOpINS9_18scalar_constant_opIdEESC_EESC_EESJ_EEEESN_EESN_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESU_RKNS0_10MatrixBaseIT_EERKNSW_IT0_EERKNSW_IT1_EERKNSW_IT2_EERKNS6_15KelvinletParamsISU_EEEUlS4_E1_E10_M_managerERSt9_Any_dataRKS1J_St18_Manager_operation, ptr %129, align 8, !tbaa !24
   %130 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -2842,8 +2842,8 @@ define linkonce_odr dso_local void @_ZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseB
   %.sroa.7115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 24
   store ptr %6, ptr %.sroa.7115.0..sroa_idx, align 8, !tbaa !13
   store ptr %134, ptr %10, align 8
-  %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %.sroa.4162.0..sroa_idx, align 8
+  %.sroa.4163.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 0, ptr %.sroa.4163.0..sroa_idx, align 8
   %136 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS8_ISB_KNS8_ISB_KS2_KNS8_INS9_17scalar_product_opIddEEKNS8_ISE_KNS0_14CwiseNullaryOpINS9_18scalar_constant_opIdEESC_EESC_EESJ_EEEESN_EESN_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESU_RKNS0_10MatrixBaseIT_EERKNSW_IT0_EERKNSW_IT1_EERKNSW_IT2_EERKNS6_15KelvinletParamsISU_EEEUlS4_E2_E10_M_managerERSt9_Any_dataRKS1J_St18_Manager_operation, ptr %136, align 8, !tbaa !24
   %137 = getelementptr inbounds nuw i8, ptr %10, i64 24

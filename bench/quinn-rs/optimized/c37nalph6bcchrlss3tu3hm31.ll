@@ -66,7 +66,7 @@ define hidden noundef range(i64 1, 65) i64 @_ZN9quinn_udp3imp3gso16max_gso_segme
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %26 = load i32, ptr %25, align 4, !range !6
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %22, label %27, label %.thread86
+  br i1 %22, label %27, label %.thread88
 
 27:                                               ; preds = %0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
@@ -103,22 +103,22 @@ common.resume:                                    ; preds = %40, %126, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !7
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb858fcf5550044c4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4), !noalias !7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread86
+  br label %.thread88
 
-.thread86:                                        ; preds = %0, %35
+.thread88:                                        ; preds = %0, %35
   %38 = phi i32 [ %37, %35 ], [ %26, %0 ]
   store i32 %38, ptr %20, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %39 = invoke noundef ptr @_ZN9quinn_udp3imp17set_socket_option17h61fe286f5a61cae7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %20, i32 noundef 17, i32 noundef 103, i32 noundef 1500)
           to label %42 unwind label %40
 
-40:                                               ; preds = %.thread86
+40:                                               ; preds = %.thread88
   %41 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$std..net..udp..UdpSocket$GT$17h4f6b0bcf9782475bE"(ptr noalias noundef nonnull align 4 dereferenceable(4) %20) #11
           to label %common.resume unwind label %131
 
-42:                                               ; preds = %.thread86
+42:                                               ; preds = %.thread88
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %43, label %46
 

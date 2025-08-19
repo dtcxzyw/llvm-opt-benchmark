@@ -1233,12 +1233,12 @@ define linkonce_odr hidden void @_ZNK2cv3MatcvNS_4MatxIT_XT0_EXT1_EEEIdLi3ELi1EE
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 3
-  %or.cond15 = select i1 %or.cond, i1 %14, i1 false
+  %or.cond16 = select i1 %or.cond, i1 %14, i1 false
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 1
-  %or.cond18 = select i1 %or.cond15, i1 %17, i1 false
-  br i1 %or.cond18, label %18, label %22
+  %or.cond19 = select i1 %or.cond16, i1 %17, i1 false
+  br i1 %or.cond19, label %18, label %22
 
 18:                                               ; preds = %2
   %19 = load i32, ptr %1, align 8, !tbaa !31
@@ -1576,10 +1576,10 @@ _ZN2cv3Mat2atIdEERT_i.exit123:                    ; preds = %84, %78, %.thread
   %131 = icmp eq i32 %130, 1
   %132 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %133 = load ptr, ptr %132, align 8
-  %.pn252 = load double, ptr %133, align 8, !tbaa !6
-  %storemerge253 = fmul double %119, %.pn252
-  store double %storemerge253, ptr %12, align 16, !tbaa !6
-  br i1 %131, label %.thread259, label %134
+  %.pn267 = load double, ptr %133, align 8, !tbaa !6
+  %storemerge268 = fmul double %119, %.pn267
+  store double %storemerge268, ptr %12, align 16, !tbaa !6
+  br i1 %131, label %.thread274, label %134
 
 134:                                              ; preds = %127
   %135 = getelementptr inbounds nuw i8, ptr %129, i64 4
@@ -1637,14 +1637,14 @@ _ZN2cv3Mat2atIdEERT_i.exit123:                    ; preds = %84, %78, %.thread
   %174 = load i32, ptr %173, align 4, !tbaa !46
   %175 = sdiv i32 2, %174
   %176 = mul nsw i32 %175, %174
-  %.recomposed270 = srem i32 2, %174
+  %.recomposed285 = srem i32 2, %174
   %177 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %178 = load ptr, ptr %177, align 8, !tbaa !43
   %179 = load i64, ptr %178, align 8, !tbaa !44
   %180 = sext i32 %175 to i64
   %181 = mul i64 %179, %180
   %182 = getelementptr inbounds nuw i8, ptr %133, i64 %181
-  %183 = sext i32 %.recomposed270 to i64
+  %183 = sext i32 %.recomposed285 to i64
   %184 = getelementptr inbounds double, ptr %182, i64 %183
   br label %185
 
@@ -1672,22 +1672,22 @@ _ZN2cv3Mat2atIdEERT_i.exit123:                    ; preds = %84, %78, %.thread
   %200 = load i32, ptr %199, align 4, !tbaa !46
   %201 = sdiv i32 6, %200
   %202 = mul nsw i32 %201, %200
-  %.recomposed271 = srem i32 6, %200
+  %.recomposed286 = srem i32 6, %200
   %203 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %204 = load ptr, ptr %203, align 8, !tbaa !43
   %205 = load i64, ptr %204, align 8, !tbaa !44
   %206 = sext i32 %201 to i64
   %207 = mul i64 %205, %206
   %208 = getelementptr inbounds nuw i8, ptr %133, i64 %207
-  %209 = sext i32 %.recomposed271 to i64
+  %209 = sext i32 %.recomposed286 to i64
   %210 = getelementptr inbounds double, ptr %208, i64 %209
   br label %211
 
 211:                                              ; preds = %192, %198
   %.pn233.in.ph = phi ptr [ %197, %192 ], [ %210, %198 ]
-  %.pn233257 = load double, ptr %.pn233.in.ph, align 8, !tbaa !6
-  %storemerge232258 = fmul double %124, %.pn233257
-  store double %storemerge232258, ptr %13, align 16, !tbaa !6
+  %.pn233272 = load double, ptr %.pn233.in.ph, align 8, !tbaa !6
+  %storemerge232273 = fmul double %124, %.pn233272
+  store double %storemerge232273, ptr %13, align 16, !tbaa !6
   %212 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %213 = load i32, ptr %212, align 4, !tbaa !41
   %214 = icmp eq i32 %213, 1
@@ -1706,14 +1706,14 @@ _ZN2cv3Mat2atIdEERT_i.exit123:                    ; preds = %84, %78, %.thread
   %223 = load i32, ptr %222, align 4, !tbaa !46
   %224 = sdiv i32 7, %223
   %225 = mul nsw i32 %224, %223
-  %.recomposed272 = srem i32 7, %223
+  %.recomposed287 = srem i32 7, %223
   %226 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %227 = load ptr, ptr %226, align 8, !tbaa !43
   %228 = load i64, ptr %227, align 8, !tbaa !44
   %229 = sext i32 %224 to i64
   %230 = mul i64 %228, %229
   %231 = getelementptr inbounds nuw i8, ptr %133, i64 %230
-  %232 = sext i32 %.recomposed272 to i64
+  %232 = sext i32 %.recomposed287 to i64
   %233 = getelementptr inbounds double, ptr %231, i64 %232
   br label %252
 
@@ -1723,30 +1723,30 @@ _ZN2cv3Mat2atIdEERT_i.exit138:                    ; preds = %_ZN2cv3Mat2atIdEERT
   %236 = load double, ptr %235, align 8, !tbaa !6
   %237 = fmul double %119, %236
   store double %237, ptr %12, align 16, !tbaa !6
-  br label %.thread259
+  br label %.thread274
 
-.thread259:                                       ; preds = %127, %_ZN2cv3Mat2atIdEERT_i.exit138
-  %.sink269 = phi ptr [ %235, %_ZN2cv3Mat2atIdEERT_i.exit138 ], [ %133, %127 ]
-  %238 = getelementptr inbounds nuw i8, ptr %.sink269, i64 8
+.thread274:                                       ; preds = %127, %_ZN2cv3Mat2atIdEERT_i.exit138
+  %.sink284 = phi ptr [ %235, %_ZN2cv3Mat2atIdEERT_i.exit138 ], [ %133, %127 ]
+  %238 = getelementptr inbounds nuw i8, ptr %.sink284, i64 8
   %239 = load double, ptr %238, align 8, !tbaa !6
   %240 = fmul double %119, %239
   %241 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double %240, ptr %241, align 8, !tbaa !6
-  %242 = getelementptr inbounds nuw i8, ptr %.sink269, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %.sink284, i64 16
   %243 = load double, ptr %242, align 8, !tbaa !6
   %244 = fmul double %119, %243
   %245 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store double %244, ptr %245, align 16, !tbaa !6
-  %246 = getelementptr inbounds nuw i8, ptr %.sink269, i64 48
+  %246 = getelementptr inbounds nuw i8, ptr %.sink284, i64 48
   %.pn233 = load double, ptr %246, align 8, !tbaa !6
   %storemerge232 = fmul double %124, %.pn233
   store double %storemerge232, ptr %13, align 16, !tbaa !6
-  %247 = getelementptr inbounds nuw i8, ptr %.sink269, i64 56
+  %247 = getelementptr inbounds nuw i8, ptr %.sink284, i64 56
   %248 = load double, ptr %247, align 8, !tbaa !6
   %249 = fmul double %124, %248
   %250 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store double %249, ptr %250, align 8, !tbaa !6
-  %251 = getelementptr inbounds nuw i8, ptr %.sink269, i64 64
+  %251 = getelementptr inbounds nuw i8, ptr %.sink284, i64 64
   br label %_ZN2cv3Mat2atIdEERT_i.exit141
 
 252:                                              ; preds = %221, %215
@@ -1773,19 +1773,19 @@ _ZN2cv3Mat2atIdEERT_i.exit138:                    ; preds = %_ZN2cv3Mat2atIdEERT
   %267 = load i32, ptr %266, align 4, !tbaa !46
   %268 = sdiv i32 8, %267
   %269 = mul nsw i32 %268, %267
-  %.recomposed273 = srem i32 8, %267
+  %.recomposed288 = srem i32 8, %267
   %270 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %271 = load ptr, ptr %270, align 8, !tbaa !43
   %272 = load i64, ptr %271, align 8, !tbaa !44
   %273 = sext i32 %268 to i64
   %274 = mul i64 %272, %273
   %275 = getelementptr inbounds nuw i8, ptr %133, i64 %274
-  %276 = sext i32 %.recomposed273 to i64
+  %276 = sext i32 %.recomposed288 to i64
   %277 = getelementptr inbounds double, ptr %275, i64 %276
   br label %_ZN2cv3Mat2atIdEERT_i.exit141
 
-_ZN2cv3Mat2atIdEERT_i.exit141:                    ; preds = %265, %259, %.thread259
-  %.0.i140 = phi ptr [ %251, %.thread259 ], [ %264, %259 ], [ %277, %265 ]
+_ZN2cv3Mat2atIdEERT_i.exit141:                    ; preds = %265, %259, %.thread274
+  %.0.i140 = phi ptr [ %251, %.thread274 ], [ %264, %259 ], [ %277, %265 ]
   %278 = load double, ptr %.0.i140, align 8, !tbaa !6
   %279 = fmul double %124, %278
   %280 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -4068,12 +4068,12 @@ define linkonce_odr hidden void @_ZNK2cv3MatcvNS_4MatxIT_XT0_EXT1_EEEIdLi3ELi3EE
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 3
-  %or.cond15 = select i1 %or.cond, i1 %14, i1 false
+  %or.cond16 = select i1 %or.cond, i1 %14, i1 false
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 3
-  %or.cond18 = select i1 %or.cond15, i1 %17, i1 false
-  br i1 %or.cond18, label %18, label %22
+  %or.cond19 = select i1 %or.cond16, i1 %17, i1 false
+  br i1 %or.cond19, label %18, label %22
 
 18:                                               ; preds = %2
   %19 = load i32, ptr %1, align 8, !tbaa !31
@@ -4979,12 +4979,12 @@ _ZN2cv3Mat2atINS_6Point_IfEEEERT_i.exit:          ; preds = %260, %265, %269
   %292 = trunc nuw nsw i64 %indvars.iv258 to i32
   %293 = sdiv i32 %292, %169
   %294 = mul nsw i32 %293, %169
-  %.recomposed284 = srem i32 %292, %169
+  %.recomposed300 = srem i32 %292, %169
   %295 = load i64, ptr %173, align 8, !tbaa !44
   %296 = sext i32 %293 to i64
   %297 = mul i64 %295, %296
   %298 = getelementptr inbounds nuw i8, ptr %171, i64 %297
-  %299 = sext i32 %.recomposed284 to i64
+  %299 = sext i32 %.recomposed300 to i64
   %300 = getelementptr inbounds %"class.cv::Point_", ptr %298, i64 %299
   br label %_ZN2cv3Mat2atINS_6Point_IfEEEERT_i.exit160
 
@@ -5774,7 +5774,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv23HomographyDecomposition13_Ca
   br i1 %.not37, label %20, label %_ZSt27__uninitialized_default_n_aIPN2cv23HomographyDecomposition13_CameraMotionEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN2cv23HomographyDecomposition13_CameraMotionEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 120
+  %19 = mul nuw nsw i64 %1, 120
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !127

@@ -3121,16 +3121,16 @@ lean_nat_eq.exit:                                 ; preds = %4
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %18, %14
-  %.sink24 = phi ptr [ %15, %14 ], [ %19, %18 ]
+  %.sink26 = phi ptr [ %15, %14 ], [ %19, %18 ]
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %18 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.sink24, i64 4
-  store i32 1, ptr %.sink24, align 4, !tbaa !8
+  %22 = getelementptr inbounds nuw i8, ptr %.sink26, i64 4
+  store i32 1, ptr %.sink26, align 4, !tbaa !8
   store i32 131096, ptr %22, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %.sink24, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
   store ptr %.sink, ptr %23, align 8, !tbaa !4
-  %24 = getelementptr inbounds nuw i8, ptr %.sink24, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.sink26, i64 16
   store ptr %3, ptr %24, align 8, !tbaa !4
-  ret ptr %.sink24
+  ret ptr %.sink26
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3306,7 +3306,7 @@ lean_dec.exit550:                                 ; preds = %62, %61, %59, %lean
   br label %lean_dec.exit549
 
 77:                                               ; preds = %69
-  %78 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %71) #4
+  %78 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %lean_dec.exit549
 
 79:                                               ; preds = %66
@@ -3764,7 +3764,7 @@ lean_dec.exit542:                                 ; preds = %247, %246, %244, %l
   br label %lean_dec.exit541
 
 256:                                              ; preds = %248
-  %257 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %250) #4
+  %257 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %lean_dec.exit541
 
 258:                                              ; preds = %lean_dec.exit542
@@ -4864,7 +4864,7 @@ lean_dec.exit523:                                 ; preds = %677, %676, %674, %l
   br label %lean_dec.exit522
 
 686:                                              ; preds = %678
-  %687 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %680) #4
+  %687 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %lean_dec.exit522
 
 688:                                              ; preds = %lean_dec.exit523
@@ -5338,7 +5338,7 @@ lean_dec.exit515:                                 ; preds = %862, %861, %859, %l
   br label %lean_dec.exit514
 
 871:                                              ; preds = %863
-  %872 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %865) #4
+  %872 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %lean_dec.exit514
 
 873:                                              ; preds = %lean_dec.exit515
@@ -7140,18 +7140,18 @@ _init_l_Std_Barrier_wait___lambda__2___closed__1.exit: ; preds = %_init_l_Std_Ba
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Barrier_wait___lambda__2___closed__1.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %31, %_init_l_Std_Barrier_wait___lambda__2___closed__1.exit ]
-  %34 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !8
+  %.sink14 = phi ptr [ %4, %3 ], [ %31, %_init_l_Std_Barrier_wait___lambda__2___closed__1.exit ]
+  %34 = getelementptr inbounds nuw i8, ptr %.sink14, i64 4
+  store i32 1, ptr %.sink14, align 4, !tbaa !8
   store i32 131096, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.sink14, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %35, align 8, !tbaa !4
-  %36 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.sink14, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %36, align 8, !tbaa !4
   br label %37
 
 37:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink14, %.sink.split ]
   ret ptr %.0
 }
 

@@ -1687,7 +1687,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit93.i.i:           ; preds = %630, %628, %167, %1
 
 _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121PseudoLoweringEmitter6OpDataELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i.i.i.i: ; preds = %._crit_edge.i9.i, %._crit_edge.thread.i.i
   %740 = phi i64 [ 1, %._crit_edge.thread.i.i ], [ %739, %._crit_edge.i9.i ]
-  %.0.lcssa180.i.i = phi i32 [ 1, %._crit_edge.thread.i.i ], [ %738, %._crit_edge.i9.i ]
+  %.0.lcssa193.i.i = phi i32 [ 1, %._crit_edge.thread.i.i ], [ %738, %._crit_edge.i9.i ]
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(33) %32, ptr noundef nonnull %64, i64 noundef range(i64 0, 4294967296) %740, i64 noundef 16) #15
   %.val.i.i.i.i.pre.i.i = load ptr, ptr %32, align 8, !tbaa !8
   %.pre6.pre.i.i.i.i.i.i = load i32, ptr %65, align 8, !tbaa !11
@@ -1708,7 +1708,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121PseudoLoweringEmitter6OpDataE
 
 _ZN4llvm10IndexedMapIN12_GLOBAL__N_121PseudoLoweringEmitter6OpDataENS_8identityIjEEE6resizeEm.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
   %.pre.i.i.i.i.i.i = load i32, ptr %65, align 8, !tbaa !11
-  %744 = add i32 %.pre.i.i.i.i.i.i, %.0.lcssa180.i.i
+  %744 = add i32 %.pre.i.i.i.i.i.i, %.0.lcssa193.i.i
   store i32 %744, ptr %65, align 8, !tbaa !11
   br label %_ZN4llvm10IndexedMapIN12_GLOBAL__N_121PseudoLoweringEmitter6OpDataENS_8identityIjEEE4growEj.exit.i.i
 

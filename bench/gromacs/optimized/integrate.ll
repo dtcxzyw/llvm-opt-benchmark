@@ -131,7 +131,7 @@ define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef cap
   br i1 %.not, label %72, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %30, %._crit_edge
-  %.034.lcssa82 = phi float [ %.034.lcssa, %._crit_edge ], [ %.135.us50, %30 ]
+  %.034.lcssa87 = phi float [ %.034.lcssa, %._crit_edge ], [ %.135.us50, %30 ]
   %49 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 2, i64 1, ptr nonnull %0)
   %.not42 = icmp eq ptr %4, null
   br i1 %.not42, label %72, label %.preheader
@@ -185,8 +185,8 @@ define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef cap
   br label %72
 
 72:                                               ; preds = %._crit_edge.thread, %._crit_edge55, %._crit_edge
-  %.034.lcssa83 = phi float [ %.034.lcssa82, %._crit_edge.thread ], [ %.034.lcssa82, %._crit_edge55 ], [ %.034.lcssa, %._crit_edge ]
-  %73 = fmul float %.034.lcssa83, 5.000000e-01
+  %.034.lcssa88 = phi float [ %.034.lcssa87, %._crit_edge.thread ], [ %.034.lcssa87, %._crit_edge55 ], [ %.034.lcssa, %._crit_edge ]
+  %73 = fmul float %.034.lcssa88, 5.000000e-01
   ret float %73
 }
 
@@ -460,14 +460,14 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr nou
   br label %138
 
 .split.us.thread:                                 ; preds = %121, %94, %.split.us
-  %.us-phi71127 = phi double [ %.us-phi71, %.split.us ], [ %98, %94 ], [ %125, %121 ]
-  %.us-phi70126 = phi double [ %.us-phi70, %.split.us ], [ 0.000000e+00, %94 ], [ %131, %121 ]
-  %137 = tail call double @sqrt(double noundef %.us-phi70126) #15, !tbaa !12
+  %.us-phi71131 = phi double [ %.us-phi71, %.split.us ], [ %98, %94 ], [ %125, %121 ]
+  %.us-phi70130 = phi double [ %.us-phi70, %.split.us ], [ 0.000000e+00, %94 ], [ %131, %121 ]
+  %137 = tail call double @sqrt(double noundef %.us-phi70130) #15, !tbaa !12
   br label %138
 
 138:                                              ; preds = %.split.us.thread, %133
   %storemerge.in = phi double [ %137, %.split.us.thread ], [ %136, %133 ]
-  %.1 = phi double [ %.us-phi71127, %.split.us.thread ], [ %135, %133 ]
+  %.1 = phi double [ %.us-phi71131, %.split.us.thread ], [ %135, %133 ]
   %storemerge = fptrunc double %storemerge.in to float
   store float %storemerge, ptr %5, align 4, !tbaa !4
   %139 = fptrunc double %.1 to float

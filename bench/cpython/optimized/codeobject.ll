@@ -4319,14 +4319,14 @@ get_localsplus_names.exit.thread17.i:             ; preds = %46, %.preheader.i.i
   br i1 %51, label %get_cached_locals.exit, label %_Py_NewRef.exit.sink.split.i
 
 _Py_NewRef.exit.sink.split.i:                     ; preds = %get_localsplus_names.exit.thread17.i, %11
-  %.sink22.i = phi i32 [ %12, %11 ], [ %50, %get_localsplus_names.exit.thread17.i ]
-  %.sink21.i = phi ptr [ %10, %11 ], [ %18, %get_localsplus_names.exit.thread17.i ]
-  %52 = add nuw i32 %.sink22.i, 1
-  store i32 %52, ptr %.sink21.i, align 8, !tbaa !97
+  %.sink27.i = phi i32 [ %12, %11 ], [ %50, %get_localsplus_names.exit.thread17.i ]
+  %.sink26.i = phi ptr [ %10, %11 ], [ %18, %get_localsplus_names.exit.thread17.i ]
+  %52 = add nuw i32 %.sink27.i, 1
+  store i32 %52, ptr %.sink26.i, align 8, !tbaa !97
   br label %get_cached_locals.exit
 
 get_cached_locals.exit:                           ; preds = %_Py_NewRef.exit.sink.split.i, %get_localsplus_names.exit.thread17.i, %14, %11, %init_co_cached.exit
-  %.0 = phi ptr [ null, %init_co_cached.exit ], [ %10, %11 ], [ %18, %get_localsplus_names.exit.thread17.i ], [ null, %14 ], [ %.sink21.i, %_Py_NewRef.exit.sink.split.i ]
+  %.0 = phi ptr [ null, %init_co_cached.exit ], [ %10, %11 ], [ %18, %get_localsplus_names.exit.thread17.i ], [ null, %14 ], [ %.sink26.i, %_Py_NewRef.exit.sink.split.i ]
   ret ptr %.0
 }
 
@@ -4441,14 +4441,14 @@ get_localsplus_names.exit.thread17.i:             ; preds = %46, %.preheader.i.i
   br i1 %51, label %get_cached_locals.exit, label %_Py_NewRef.exit.sink.split.i
 
 _Py_NewRef.exit.sink.split.i:                     ; preds = %get_localsplus_names.exit.thread17.i, %11
-  %.sink22.i = phi i32 [ %12, %11 ], [ %50, %get_localsplus_names.exit.thread17.i ]
-  %.sink21.i = phi ptr [ %10, %11 ], [ %18, %get_localsplus_names.exit.thread17.i ]
-  %52 = add nuw i32 %.sink22.i, 1
-  store i32 %52, ptr %.sink21.i, align 8, !tbaa !97
+  %.sink27.i = phi i32 [ %12, %11 ], [ %50, %get_localsplus_names.exit.thread17.i ]
+  %.sink26.i = phi ptr [ %10, %11 ], [ %18, %get_localsplus_names.exit.thread17.i ]
+  %52 = add nuw i32 %.sink27.i, 1
+  store i32 %52, ptr %.sink26.i, align 8, !tbaa !97
   br label %get_cached_locals.exit
 
 get_cached_locals.exit:                           ; preds = %_Py_NewRef.exit.sink.split.i, %get_localsplus_names.exit.thread17.i, %14, %11, %init_co_cached.exit
-  %.0 = phi ptr [ null, %init_co_cached.exit ], [ %10, %11 ], [ %18, %get_localsplus_names.exit.thread17.i ], [ null, %14 ], [ %.sink21.i, %_Py_NewRef.exit.sink.split.i ]
+  %.0 = phi ptr [ null, %init_co_cached.exit ], [ %10, %11 ], [ %18, %get_localsplus_names.exit.thread17.i ], [ null, %14 ], [ %.sink26.i, %_Py_NewRef.exit.sink.split.i ]
   ret ptr %.0
 }
 
@@ -4562,14 +4562,14 @@ get_localsplus_names.exit.thread17.i:             ; preds = %45, %.preheader.i.i
   br i1 %50, label %get_cached_locals.exit, label %_Py_NewRef.exit.sink.split.i
 
 _Py_NewRef.exit.sink.split.i:                     ; preds = %get_localsplus_names.exit.thread17.i, %11
-  %.sink22.i = phi i32 [ %12, %11 ], [ %49, %get_localsplus_names.exit.thread17.i ]
-  %.sink21.i = phi ptr [ %10, %11 ], [ %18, %get_localsplus_names.exit.thread17.i ]
-  %51 = add nuw i32 %.sink22.i, 1
-  store i32 %51, ptr %.sink21.i, align 8, !tbaa !97
+  %.sink27.i = phi i32 [ %12, %11 ], [ %49, %get_localsplus_names.exit.thread17.i ]
+  %.sink26.i = phi ptr [ %10, %11 ], [ %18, %get_localsplus_names.exit.thread17.i ]
+  %51 = add nuw i32 %.sink27.i, 1
+  store i32 %51, ptr %.sink26.i, align 8, !tbaa !97
   br label %get_cached_locals.exit
 
 get_cached_locals.exit:                           ; preds = %_Py_NewRef.exit.sink.split.i, %get_localsplus_names.exit.thread17.i, %14, %11, %init_co_cached.exit
-  %.0 = phi ptr [ null, %init_co_cached.exit ], [ %10, %11 ], [ %18, %get_localsplus_names.exit.thread17.i ], [ null, %14 ], [ %.sink21.i, %_Py_NewRef.exit.sink.split.i ]
+  %.0 = phi ptr [ null, %init_co_cached.exit ], [ %10, %11 ], [ %18, %get_localsplus_names.exit.thread17.i ], [ null, %14 ], [ %.sink26.i, %_Py_NewRef.exit.sink.split.i ]
   ret ptr %.0
 }
 
@@ -5529,8 +5529,8 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit86, %
   br i1 %117, label %Py_DECREF.exit88, label %.thread100
 
 .thread100:                                       ; preds = %.lr.ph, %116, %45, %39, %33, %27, %21, %15, %9, %109
-  %.sink105 = phi i32 [ 2, %109 ], [ 3, %9 ], [ 3, %15 ], [ 3, %21 ], [ 3, %27 ], [ 3, %33 ], [ 3, %39 ], [ 3, %45 ], [ 3, %116 ], [ 3, %.lr.ph ]
-  %118 = icmp eq i32 %2, %.sink105
+  %.sink117 = phi i32 [ 2, %109 ], [ 3, %9 ], [ 3, %15 ], [ 3, %21 ], [ 3, %27 ], [ 3, %33 ], [ 3, %39 ], [ 3, %45 ], [ 3, %116 ], [ 3, %.lr.ph ]
+  %118 = icmp eq i32 %2, %.sink117
   %_Py_TrueStruct._Py_FalseStruct84 = select i1 %118, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
   %119 = load i32, ptr %_Py_TrueStruct._Py_FalseStruct84, align 8, !tbaa !97
   %120 = icmp slt i32 %119, 0
@@ -7454,14 +7454,14 @@ define internal ptr @code__varname_from_oparg(ptr noundef readonly captures(none
   br i1 %29, label %code__varname_from_oparg_impl.exit, label %code__varname_from_oparg_impl.exit.sink.split
 
 code__varname_from_oparg_impl.exit.sink.split:    ; preds = %27, %19
-  %.sink27 = phi i32 [ %20, %19 ], [ %28, %27 ]
-  %.sink26 = phi ptr [ %17, %19 ], [ %25, %27 ]
-  %30 = add nuw i32 %.sink27, 1
-  store i32 %30, ptr %.sink26, align 8, !tbaa !97
+  %.sink34 = phi i32 [ %20, %19 ], [ %28, %27 ]
+  %.sink33 = phi ptr [ %17, %19 ], [ %25, %27 ]
+  %30 = add nuw i32 %.sink34, 1
+  store i32 %30, ptr %.sink33, align 8, !tbaa !97
   br label %code__varname_from_oparg_impl.exit
 
 code__varname_from_oparg_impl.exit:               ; preds = %code__varname_from_oparg_impl.exit.sink.split, %27, %.split18, %19, %.split, %22, %9
-  %.0 = phi ptr [ null, %22 ], [ null, %9 ], [ null, %.split ], [ %17, %19 ], [ null, %.split18 ], [ %25, %27 ], [ %.sink26, %code__varname_from_oparg_impl.exit.sink.split ]
+  %.0 = phi ptr [ null, %22 ], [ null, %9 ], [ null, %.split ], [ %17, %19 ], [ null, %.split18 ], [ %25, %27 ], [ %.sink33, %code__varname_from_oparg_impl.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

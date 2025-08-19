@@ -950,8 +950,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   %14 = icmp ne i64 %11, 5
   %15 = and i64 %10, 49152
   %.not.i = icmp eq i64 %15, 0
-  %or.cond8.i = or i1 %14, %.not.i
-  br i1 %or.cond8.i, label %rb_check_frozen_inline.exit, label %16, !prof !61
+  %or.cond9.i = or i1 %14, %.not.i
+  br i1 %or.cond9.i, label %rb_check_frozen_inline.exit, label %16, !prof !61
 
 16:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   tail call void @rb_str_modify(i64 noundef %0) #9

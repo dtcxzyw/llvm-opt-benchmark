@@ -3359,7 +3359,7 @@ define hidden void @_ZN16wasmtime_runtime8instance9allocator7pooling11memory_poo
 31:                                               ; preds = %3
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %33 = load i8, ptr %32, align 4, !range !441, !noundef !4
-  switch i8 %33, label %default.unreachable237 [
+  switch i8 %33, label %default.unreachable246 [
     i8 0, label %37
     i8 1, label %49
     i8 2, label %.split106
@@ -3389,7 +3389,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %3
   store i64 -9223372036854775808, ptr %0, align 8
   br label %89
 
-default.unreachable237:                           ; preds = %31
+default.unreachable246:                           ; preds = %31
   unreachable
 
 37:                                               ; preds = %31

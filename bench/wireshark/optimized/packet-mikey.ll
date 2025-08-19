@@ -394,7 +394,7 @@ define internal i32 @dissect_mikey(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not77, label %.thread.us.preheader, label %.split
 
 .thread.us.preheader:                             ; preds = %13, %14
-  %.058116 = phi ptr [ %16, %14 ], [ null, %13 ]
+  %.058125 = phi ptr [ %16, %14 ], [ null, %13 ]
   br label %.thread.us
 
 .thread.us:                                       ; preds = %.thread.us.preheader, %32
@@ -519,15 +519,15 @@ dissect_payload.exit:                             ; preds = %56
   br i1 %or.cond103, label %.thread92, label %.split
 
 .thread92:                                        ; preds = %63, %32
-  %.058115 = phi ptr [ %.058116, %32 ], [ %16, %63 ]
-  %.not79 = icmp eq ptr %.058115, null
+  %.058124 = phi ptr [ %.058125, %32 ], [ %16, %63 ]
+  %.not79 = icmp eq ptr %.058124, null
   br i1 %.not79, label %70, label %66
 
 66:                                               ; preds = %.thread92
   %67 = load i8, ptr %.064, align 1
   %68 = zext i8 %67 to i32
   %69 = tail call ptr @val_to_str_ext_const(i32 noundef %68, ptr noundef nonnull @data_type_vals_ext, ptr noundef nonnull @.str.301)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.058115, ptr noundef nonnull @.str.300, ptr noundef %69)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.058124, ptr noundef nonnull @.str.300, ptr noundef %69)
   br label %70
 
 70:                                               ; preds = %66, %.thread92

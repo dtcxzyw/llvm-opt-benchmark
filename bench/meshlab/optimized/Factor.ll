@@ -996,15 +996,15 @@ define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr noundef readonly captu
   %41 = getelementptr double, ptr %14, i64 %indvars.iv164
   %42 = getelementptr double, ptr %41, i64 %40
   %43 = load double, ptr %42, align 8
-  %invariant.gep174 = getelementptr double, ptr %14, i64 %40
+  %invariant.gep176 = getelementptr double, ptr %14, i64 %40
   br label %.lr.ph131
 
 .lr.ph131:                                        ; preds = %.lr.ph131.preheader, %.lr.ph131
   %indvars.iv149 = phi i64 [ 0, %.lr.ph131.preheader ], [ %indvars.iv.next150, %.lr.ph131 ]
-  %gep175 = getelementptr double, ptr %invariant.gep174, i64 %indvars.iv149
-  %44 = load double, ptr %gep175, align 8
+  %gep177 = getelementptr double, ptr %invariant.gep176, i64 %indvars.iv149
+  %44 = load double, ptr %gep177, align 8
   %45 = fdiv double %44, %43
-  store double %45, ptr %gep175, align 8
+  store double %45, ptr %gep177, align 8
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %22
   br i1 %exitcond153.not, label %.lr.ph139.preheader, label %.lr.ph131, !llvm.loop !7
@@ -1015,8 +1015,8 @@ define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr noundef readonly captu
   %48 = fdiv double %47, %43
   store double %48, ptr %46, align 8
   %49 = zext i32 %.1113 to i64
-  %invariant.gep180 = getelementptr double, ptr %14, i64 %indvars.iv164
-  %invariant.gep176 = getelementptr double, ptr %14, i64 %40
+  %invariant.gep182 = getelementptr double, ptr %14, i64 %indvars.iv164
+  %invariant.gep178 = getelementptr double, ptr %14, i64 %40
   br label %.lr.ph139
 
 .lr.ph139:                                        ; preds = %.lr.ph139.preheader, %63
@@ -1026,20 +1026,20 @@ define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr noundef readonly captu
 
 .lr.ph135:                                        ; preds = %.lr.ph139
   %51 = mul nuw nsw i64 %indvars.iv159, %5
-  %gep181 = getelementptr double, ptr %invariant.gep180, i64 %51
-  %52 = load double, ptr %gep181, align 8
-  %invariant.gep178 = getelementptr double, ptr %14, i64 %51
+  %gep183 = getelementptr double, ptr %invariant.gep182, i64 %51
+  %52 = load double, ptr %gep183, align 8
+  %invariant.gep180 = getelementptr double, ptr %14, i64 %51
   br label %53
 
 53:                                               ; preds = %.lr.ph135, %53
   %indvars.iv154 = phi i64 [ 0, %.lr.ph135 ], [ %indvars.iv.next155, %53 ]
-  %gep177 = getelementptr double, ptr %invariant.gep176, i64 %indvars.iv154
-  %54 = load double, ptr %gep177, align 8
   %gep179 = getelementptr double, ptr %invariant.gep178, i64 %indvars.iv154
-  %55 = load double, ptr %gep179, align 8
+  %54 = load double, ptr %gep179, align 8
+  %gep181 = getelementptr double, ptr %invariant.gep180, i64 %indvars.iv154
+  %55 = load double, ptr %gep181, align 8
   %56 = fneg double %54
   %57 = tail call double @llvm.fmuladd.f64(double %56, double %52, double %55)
-  store double %57, ptr %gep179, align 8
+  store double %57, ptr %gep181, align 8
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next155, %22
   br i1 %exitcond158.not, label %._crit_edge136, label %53, !llvm.loop !8

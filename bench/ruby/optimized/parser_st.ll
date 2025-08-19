@@ -2900,13 +2900,13 @@ find_entry.exit.thread:                           ; preds = %51, %find_entry.exi
 
 127:                                              ; preds = %._crit_edge.i117.us, %.split.us
   %.val32.i119.us.sink = phi i8 [ %.val32.i119.us, %._crit_edge.i117.us ], [ %.val.i109.us, %.split.us ]
-  %.sink303 = phi i64 [ %169, %._crit_edge.i117.us ], [ %34, %.split.us ]
+  %.sink332 = phi i64 [ %169, %._crit_edge.i117.us ], [ %34, %.split.us ]
   %.val32.pre.i118.us249 = phi i8 [ %.val32.pre.i118.us250, %._crit_edge.i117.us ], [ %.val.i109.us, %.split.us ]
   %.033.i111.us = phi i64 [ %166, %._crit_edge.i117.us ], [ %34, %.split.us ]
   %128 = zext nneg i8 %.val32.i119.us.sink to i64
   %notmask.i.i.i.i120.us = shl nsw i64 -1, %128
   %129 = xor i64 %notmask.i.i.i.i120.us, -1
-  %130 = and i64 %.sink303, %129
+  %130 = and i64 %.sink332, %129
   %131 = load ptr, ptr %8, align 8, !tbaa !23
   %.val31.i113.us = load i8, ptr %22, align 2, !tbaa !22
   switch i8 %.val31.i113.us, label %144 [
@@ -3002,7 +3002,7 @@ get_bin.exit.i114.us:                             ; preds = %144, %140, %136, %1
   br i1 %173, label %.lr.ph.i96, label %update_range_for_deleted.exit
 
 .lr.ph.i96:                                       ; preds = %.split, %.backedge
-  %.pre.i97 = phi i32 [ %.pre.i97245265, %.backedge ], [ %.pre.i97248, %.split ]
+  %.pre.i97 = phi i32 [ %.pre.i97245294, %.backedge ], [ %.pre.i97248, %.split ]
   %174 = phi i64 [ %195, %.backedge ], [ %172, %.split ]
   %175 = phi i64 [ %194, %.backedge ], [ %171, %.split ]
   %176 = load ptr, ptr %9, align 8, !tbaa !25
@@ -3055,7 +3055,7 @@ find_entry.exit108:                               ; preds = %.thread.i105, %.loo
   ], !prof !40
 
 .backedge:                                        ; preds = %.loopexit.split.loop.exit31.i102, %.thread.i105, %find_entry.exit108
-  %.pre.i97245265 = phi i32 [ %.pre.i97245, %find_entry.exit108 ], [ %.pre.i97246, %.thread.i105 ], [ %.pre39.i104, %.loopexit.split.loop.exit31.i102 ]
+  %.pre.i97245294 = phi i32 [ %.pre.i97245, %find_entry.exit108 ], [ %.pre.i97246, %.thread.i105 ], [ %.pre39.i104, %.loopexit.split.loop.exit31.i102 ]
   %194 = load i64, ptr %12, align 8, !tbaa !30
   %195 = load i64, ptr %10, align 8, !tbaa !31
   %196 = icmp ult i64 %195, %194
@@ -3130,7 +3130,7 @@ set_bin.exit:                                     ; preds = %find_entry.exit108,
 update_range_for_deleted.exit:                    ; preds = %find_entry.exit108, %.backedge, %.thread146, %164, %.split, %.critedge.i, %set_bin.exit, %120, %121, %26
   %.178 = phi i64 [ %.077197, %26 ], [ %.279, %120 ], [ %.279, %121 ], [ %.279, %set_bin.exit ], [ %.279, %.critedge.i ], [ %.279, %.split ], [ %.279, %164 ], [ %.279, %.thread146 ], [ %.279, %.backedge ], [ %.279, %find_entry.exit108 ]
   %.175 = phi ptr [ %.074198, %26 ], [ %.276, %120 ], [ %.276, %121 ], [ %.276, %set_bin.exit ], [ %.276, %.critedge.i ], [ %.276, %.split ], [ %.276, %164 ], [ %.276, %.thread146 ], [ %.276, %.backedge ], [ %.276, %find_entry.exit108 ]
-  %.1 = phi i32 [ %.071199, %26 ], [ %.2, %120 ], [ %.2, %121 ], [ %.2, %set_bin.exit ], [ %.2, %.critedge.i ], [ %.2, %.split ], [ 0, %164 ], [ %.2, %.thread146 ], [ %.2, %.backedge ], [ %.2, %find_entry.exit108 ]
+  %.1 = phi i32 [ %.071199, %26 ], [ %.2, %120 ], [ %.2, %121 ], [ %.2, %set_bin.exit ], [ %.2, %.critedge.i ], [ 1, %.split ], [ 0, %164 ], [ 1, %.thread146 ], [ 1, %.backedge ], [ 1, %find_entry.exit108 ]
   %227 = add i64 %.178, 1
   %228 = load i64, ptr %12, align 8, !tbaa !30
   %229 = icmp ult i64 %227, %228
@@ -3388,7 +3388,7 @@ define dso_local i64 @rb_parser_st_hash(ptr noundef %0, i64 noundef %1, i64 noun
   %.035 = phi i64 [ %2, %3 ], [ %14, %.preheader ]
   %.033 = phi ptr [ %0, %3 ], [ %15, %.preheader ]
   %.0 = phi i64 [ %1, %3 ], [ %16, %.preheader ]
-  switch i64 %.0, label %.unreachabledefault [
+  switch i64 %.0, label %default.unreachable [
     i64 7, label %18
     i64 6, label %23
     i64 5, label %29
@@ -3463,7 +3463,7 @@ define dso_local i64 @rb_parser_st_hash(ptr noundef %0, i64 noundef %1, i64 noun
   %58 = mul i64 %57, 5545529020109919103
   br label %59
 
-.unreachabledefault:                              ; preds = %.loopexit
+default.unreachable:                              ; preds = %.loopexit
   unreachable
 
 59:                                               ; preds = %.loopexit, %54
@@ -3685,7 +3685,7 @@ define internal i64 @strhash(i64 noundef %0) #15 {
   %.035.i = phi i64 [ 2166136261, %1 ], [ %14, %.preheader.i ]
   %.033.i = phi ptr [ %2, %1 ], [ %15, %.preheader.i ]
   %.0.i = phi i64 [ %3, %1 ], [ %16, %.preheader.i ]
-  switch i64 %.0.i, label %.unreachabledefault.i [
+  switch i64 %.0.i, label %default.unreachable [
     i64 7, label %18
     i64 6, label %23
     i64 5, label %29
@@ -3760,7 +3760,7 @@ define internal i64 @strhash(i64 noundef %0) #15 {
   %58 = mul i64 %57, 5545529020109919103
   br label %rb_parser_st_hash.exit
 
-.unreachabledefault.i:                            ; preds = %.loopexit.i
+default.unreachable:                              ; preds = %.loopexit.i
   unreachable
 
 rb_parser_st_hash.exit:                           ; preds = %.loopexit.i, %54

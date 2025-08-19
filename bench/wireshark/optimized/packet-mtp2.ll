@@ -832,7 +832,7 @@ new_byte.exit.i:                                  ; preds = %._crit_edge.i.i, %2
   br label %333
 
 333:                                              ; preds = %332, %330, %326, %325
-  %334 = phi i8 [ 0, %332 ], [ %265, %330 ], [ %265, %326 ], [ 1, %325 ]
+  %334 = phi i8 [ 0, %332 ], [ 1, %330 ], [ %265, %326 ], [ 1, %325 ]
   %.4149.i = phi ptr [ null, %332 ], [ null, %330 ], [ %.2147.i, %326 ], [ %.3148.i, %325 ]
   %.4144.i = phi i8 [ 0, %332 ], [ 0, %330 ], [ %.2142.i, %326 ], [ 0, %325 ]
   %.3116.i = phi i8 [ %.2115.i, %332 ], [ %.2115.i, %330 ], [ %.2115.i, %326 ], [ %.pre-phi.i, %325 ]
@@ -857,26 +857,26 @@ new_byte.exit.i:                                  ; preds = %._crit_edge.i.i, %2
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %335, %._crit_edge.i, %232
-  %.1.lcssa194.i = phi i8 [ %276, %335 ], [ %276, %._crit_edge.i ], [ %.0.i167, %232 ]
-  %.096.lcssa193.i = phi i8 [ %.5.i, %335 ], [ %.5.i, %._crit_edge.i ], [ %236, %232 ]
-  %.099.lcssa192.i = phi i8 [ %.5104.i, %335 ], [ %.5104.i, %._crit_edge.i ], [ %238, %232 ]
-  %.0108.lcssa191.i = phi i32 [ %.4112.i, %335 ], [ %.4112.i, %._crit_edge.i ], [ %240, %232 ]
-  %.0113.lcssa190.i = phi i8 [ %.3116.i, %335 ], [ %.3116.i, %._crit_edge.i ], [ %242, %232 ]
-  %.0145.lcssa189.i = phi ptr [ %.4149.i, %335 ], [ %.4149.i, %._crit_edge.i ], [ null, %232 ]
+  %.1.lcssa199.i = phi i8 [ %276, %335 ], [ %276, %._crit_edge.i ], [ %.0.i167, %232 ]
+  %.096.lcssa198.i = phi i8 [ %.5.i, %335 ], [ %.5.i, %._crit_edge.i ], [ %236, %232 ]
+  %.099.lcssa197.i = phi i8 [ %.5104.i, %335 ], [ %.5104.i, %._crit_edge.i ], [ %238, %232 ]
+  %.0108.lcssa196.i = phi i32 [ %.4112.i, %335 ], [ %.4112.i, %._crit_edge.i ], [ %240, %232 ]
+  %.0113.lcssa195.i = phi i8 [ %.3116.i, %335 ], [ %.3116.i, %._crit_edge.i ], [ %242, %232 ]
+  %.0145.lcssa194.i = phi ptr [ %.4149.i, %335 ], [ %.4149.i, %._crit_edge.i ], [ null, %232 ]
   %341 = load ptr, ptr %245, align 8
   %342 = icmp eq ptr %341, null
   br i1 %342, label %343, label %347
 
 343:                                              ; preds = %._crit_edge.thread.i
   %344 = tail call ptr @wmem_packet_scope()
-  %345 = tail call ptr @wmem_memdup(ptr noundef %344, ptr noundef %.0145.lcssa189.i, i64 noundef 0) #10
+  %345 = tail call ptr @wmem_memdup(ptr noundef %344, ptr noundef %.0145.lcssa194.i, i64 noundef 0) #10
   %346 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %345, i32 noundef 0, i32 noundef 0)
   store ptr %346, ptr %245, align 8
   br label %347
 
 347:                                              ; preds = %343, %._crit_edge.thread.i
   %348 = phi ptr [ %346, %343 ], [ %341, %._crit_edge.thread.i ]
-  %.not120.i = icmp eq i32 %.0108.lcssa191.i, 0
+  %.not120.i = icmp eq i32 %.0108.lcssa196.i, 0
   br i1 %.not120.i, label %349, label %dissect_mtp2_tvb.exit
 
 349:                                              ; preds = %347
@@ -884,9 +884,9 @@ new_byte.exit.i:                                  ; preds = %._crit_edge.i.i, %2
 
 dissect_mtp2_tvb.exit:                            ; preds = %347, %349
   %.sink.i = phi i8 [ 0, %349 ], [ 1, %347 ]
-  %.099.lcssa.sink.i = phi i8 [ 0, %349 ], [ %.099.lcssa192.i, %347 ]
-  %.096.lcssa.sink.i = phi i8 [ 0, %349 ], [ %.096.lcssa193.i, %347 ]
-  %.1.lcssa.sink.i = phi i8 [ 0, %349 ], [ %.1.lcssa194.i, %347 ]
+  %.099.lcssa.sink.i = phi i8 [ 0, %349 ], [ %.099.lcssa197.i, %347 ]
+  %.096.lcssa.sink.i = phi i8 [ 0, %349 ], [ %.096.lcssa198.i, %347 ]
+  %.1.lcssa.sink.i = phi i8 [ 0, %349 ], [ %.1.lcssa199.i, %347 ]
   %350 = getelementptr inbounds nuw i8, ptr %245, i64 24
   store i8 %.sink.i, ptr %350, align 8
   %351 = getelementptr inbounds nuw i8, ptr %245, i64 41
@@ -896,8 +896,8 @@ dissect_mtp2_tvb.exit:                            ; preds = %347, %349
   %353 = getelementptr inbounds nuw i8, ptr %245, i64 25
   store i8 %.1.lcssa.sink.i, ptr %353, align 1
   %354 = getelementptr inbounds nuw i8, ptr %245, i64 44
-  store i32 %.0108.lcssa191.i, ptr %354, align 4
-  store i8 %.0113.lcssa190.i, ptr %253, align 2
+  store i32 %.0108.lcssa196.i, ptr %354, align 4
+  store i8 %.0113.lcssa195.i, ptr %253, align 2
   %355 = load ptr, ptr %5, align 8
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 57
   %357 = load i16, ptr %356, align 1

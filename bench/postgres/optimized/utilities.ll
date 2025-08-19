@@ -1085,11 +1085,11 @@ define hidden i32 @find_among(ptr noundef %0, ptr noundef readonly captures(none
   %.064.ph = phi i32 [ %40, %43 ], [ 0, %3 ]
   br label %select.unfold
 
-select.unfold:                                    ; preds = %.thread139, %.outer
-  %.074 = phi i32 [ %.074.ph, %.outer ], [ %38, %.thread139 ]
-  %.072 = phi i32 [ %.072.ph, %.outer ], [ %39, %.thread139 ]
-  %.070 = phi i32 [ %.070.ph, %.outer ], [ %37, %.thread139 ]
-  %.064 = phi i32 [ %.064.ph, %.outer ], [ %40, %.thread139 ]
+select.unfold:                                    ; preds = %.thread145, %.outer
+  %.074 = phi i32 [ %.074.ph, %.outer ], [ %38, %.thread145 ]
+  %.072 = phi i32 [ %.072.ph, %.outer ], [ %39, %.thread145 ]
+  %.070 = phi i32 [ %.070.ph, %.outer ], [ %37, %.thread145 ]
+  %.064 = phi i32 [ %.064.ph, %.outer ], [ %40, %.thread145 ]
   %12 = sub i32 %.074, %.064
   %13 = ashr i32 %12, 1
   %14 = add i32 %13, %.064
@@ -1098,7 +1098,7 @@ select.unfold:                                    ; preds = %.thread139, %.outer
   %17 = getelementptr inbounds %struct.among, ptr %1, i64 %16
   %18 = load i32, ptr %17, align 8
   %19 = icmp slt i32 %15, %18
-  br i1 %19, label %.lr.ph, label %.thread139
+  br i1 %19, label %.lr.ph, label %.thread145
 
 .lr.ph:                                           ; preds = %select.unfold
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -1108,7 +1108,7 @@ select.unfold:                                    ; preds = %.thread139, %.outer
   %.06089 = phi i32 [ %15, %.lr.ph ], [ %35, %34 ]
   %22 = add i32 %.06089, %5
   %23 = icmp eq i32 %22, %7
-  br i1 %23, label %.thread139, label %24
+  br i1 %23, label %.thread145, label %24
 
 24:                                               ; preds = %21
   %25 = sext i32 %.06089 to i64
@@ -1127,25 +1127,25 @@ select.unfold:                                    ; preds = %.thread139, %.outer
 34:                                               ; preds = %24
   %35 = add nsw i32 %.06089, 1
   %exitcond.not = icmp eq i32 %35, %18
-  br i1 %exitcond.not, label %.thread139, label %21, !llvm.loop !16
+  br i1 %exitcond.not, label %.thread145, label %21, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %24
   %36 = icmp slt i32 %.fr, 0
-  br i1 %36, label %.thread146, label %.thread139
+  br i1 %36, label %.thread152, label %.thread145
 
-.thread146:                                       ; preds = %._crit_edge
-  br label %.thread139
+.thread152:                                       ; preds = %._crit_edge
+  br label %.thread145
 
-.thread139:                                       ; preds = %34, %21, %._crit_edge, %select.unfold, %.thread146
-  %37 = phi i32 [ %.070, %select.unfold ], [ %.070, %._crit_edge ], [ %.06089, %.thread146 ], [ %.070, %34 ], [ %11, %21 ]
-  %38 = phi i32 [ %.074, %select.unfold ], [ %.074, %._crit_edge ], [ %14, %.thread146 ], [ %.074, %34 ], [ %14, %21 ]
-  %39 = phi i32 [ %15, %select.unfold ], [ %.06089, %._crit_edge ], [ %.072, %.thread146 ], [ %18, %34 ], [ %.072, %21 ]
-  %40 = phi i32 [ %14, %select.unfold ], [ %14, %._crit_edge ], [ %.064, %.thread146 ], [ %14, %34 ], [ %.064, %21 ]
+.thread145:                                       ; preds = %34, %21, %._crit_edge, %select.unfold, %.thread152
+  %37 = phi i32 [ %.070, %select.unfold ], [ %.070, %._crit_edge ], [ %.06089, %.thread152 ], [ %.070, %34 ], [ %11, %21 ]
+  %38 = phi i32 [ %.074, %select.unfold ], [ %.074, %._crit_edge ], [ %14, %.thread152 ], [ %.074, %34 ], [ %14, %21 ]
+  %39 = phi i32 [ %15, %select.unfold ], [ %.06089, %._crit_edge ], [ %.072, %.thread152 ], [ %18, %34 ], [ %.072, %21 ]
+  %40 = phi i32 [ %14, %select.unfold ], [ %14, %._crit_edge ], [ %.064, %.thread152 ], [ %14, %34 ], [ %.064, %21 ]
   %41 = sub i32 %38, %40
   %42 = icmp slt i32 %41, 2
   br i1 %42, label %43, label %select.unfold
 
-43:                                               ; preds = %.thread139
+43:                                               ; preds = %.thread145
   %44 = icmp slt i32 %40, 1
   %45 = icmp ne i32 %38, %40
   %or.cond.not = and i1 %44, %45
@@ -1215,11 +1215,11 @@ define hidden i32 @find_among_b(ptr noundef %0, ptr noundef readonly captures(no
   %.064.ph = phi i32 [ %47, %50 ], [ 0, %3 ]
   br label %select.unfold
 
-select.unfold:                                    ; preds = %.thread139, %.outer
-  %.074 = phi i32 [ %.074.ph, %.outer ], [ %45, %.thread139 ]
-  %.072 = phi i32 [ %.072.ph, %.outer ], [ %46, %.thread139 ]
-  %.070 = phi i32 [ %.070.ph, %.outer ], [ %44, %.thread139 ]
-  %.064 = phi i32 [ %.064.ph, %.outer ], [ %47, %.thread139 ]
+select.unfold:                                    ; preds = %.thread143, %.outer
+  %.074 = phi i32 [ %.074.ph, %.outer ], [ %45, %.thread143 ]
+  %.072 = phi i32 [ %.072.ph, %.outer ], [ %46, %.thread143 ]
+  %.070 = phi i32 [ %.070.ph, %.outer ], [ %44, %.thread143 ]
+  %.064 = phi i32 [ %.064.ph, %.outer ], [ %47, %.thread143 ]
   %13 = sub i32 %.074, %.064
   %14 = ashr i32 %13, 1
   %15 = add i32 %14, %.064
@@ -1230,7 +1230,7 @@ select.unfold:                                    ; preds = %.thread139, %.outer
   %20 = xor i32 %16, -1
   %21 = add i32 %19, %20
   %22 = icmp sgt i32 %21, -1
-  br i1 %22, label %.lr.ph, label %.thread139
+  br i1 %22, label %.lr.ph, label %.thread143
 
 .lr.ph:                                           ; preds = %select.unfold
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -1241,7 +1241,7 @@ select.unfold:                                    ; preds = %.thread139, %.outer
   %.06188 = phi i32 [ %16, %.lr.ph ], [ %40, %39 ]
   %25 = sub i32 %5, %.06188
   %26 = icmp eq i32 %25, %7
-  br i1 %26, label %.thread139, label %27
+  br i1 %26, label %.thread143, label %27
 
 27:                                               ; preds = %24
   %28 = sub i32 0, %.06188
@@ -1263,25 +1263,25 @@ select.unfold:                                    ; preds = %.thread139, %.outer
   %40 = add i32 %.06188, 1
   %41 = add nsw i32 %.06089, -1
   %42 = icmp sgt i32 %.06089, 0
-  br i1 %42, label %24, label %.thread139, !llvm.loop !17
+  br i1 %42, label %24, label %.thread143, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %27
   %43 = icmp slt i32 %.fr, 0
-  br i1 %43, label %.thread146, label %.thread139
+  br i1 %43, label %.thread150, label %.thread143
 
-.thread146:                                       ; preds = %._crit_edge
-  br label %.thread139
+.thread150:                                       ; preds = %._crit_edge
+  br label %.thread143
 
-.thread139:                                       ; preds = %39, %24, %._crit_edge, %select.unfold, %.thread146
-  %44 = phi i32 [ %.070, %select.unfold ], [ %.070, %._crit_edge ], [ %.06188, %.thread146 ], [ %.070, %39 ], [ %12, %24 ]
-  %45 = phi i32 [ %.074, %select.unfold ], [ %.074, %._crit_edge ], [ %15, %.thread146 ], [ %.074, %39 ], [ %15, %24 ]
-  %46 = phi i32 [ %16, %select.unfold ], [ %.06188, %._crit_edge ], [ %.072, %.thread146 ], [ %19, %39 ], [ %.072, %24 ]
-  %47 = phi i32 [ %15, %select.unfold ], [ %15, %._crit_edge ], [ %.064, %.thread146 ], [ %15, %39 ], [ %.064, %24 ]
+.thread143:                                       ; preds = %39, %24, %._crit_edge, %select.unfold, %.thread150
+  %44 = phi i32 [ %.070, %select.unfold ], [ %.070, %._crit_edge ], [ %.06188, %.thread150 ], [ %.070, %39 ], [ %12, %24 ]
+  %45 = phi i32 [ %.074, %select.unfold ], [ %.074, %._crit_edge ], [ %15, %.thread150 ], [ %.074, %39 ], [ %15, %24 ]
+  %46 = phi i32 [ %16, %select.unfold ], [ %.06188, %._crit_edge ], [ %.072, %.thread150 ], [ %19, %39 ], [ %.072, %24 ]
+  %47 = phi i32 [ %15, %select.unfold ], [ %15, %._crit_edge ], [ %.064, %.thread150 ], [ %15, %39 ], [ %.064, %24 ]
   %48 = sub i32 %45, %47
   %49 = icmp slt i32 %48, 2
   br i1 %49, label %50, label %select.unfold
 
-50:                                               ; preds = %.thread139
+50:                                               ; preds = %.thread143
   %51 = icmp slt i32 %47, 1
   %52 = icmp ne i32 %45, %47
   %or.cond.not = and i1 %51, %52

@@ -308,8 +308,8 @@ define internal i32 @rv10_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %24 = sub nsw i32 %16, %17
   br label %25
 
-25:                                               ; preds = %19, %655
-  %.094166 = phi i32 [ 0, %19 ], [ %657, %655 ]
+25:                                               ; preds = %19, %651
+  %.094166 = phi i32 [ 0, %19 ], [ %657, %651 ]
   %26 = shl nsw i32 %.094166, 3
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %21, i64 %27
@@ -691,13 +691,13 @@ define internal i32 @rv10_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br label %267
 
 267:                                              ; preds = %258, %255
-  %.sink220.i.i = phi i32 [ %266, %258 ], [ 16, %255 ]
-  %.sink219.i.i = phi i32 [ %265, %258 ], [ %257, %255 ]
-  %.sink218.i.i = phi i32 [ 32764, %258 ], [ 32640, %255 ]
-  %268 = tail call i32 @llvm.umin.i32(i32 %62, i32 %.sink220.i.i)
+  %.sink225.i.i = phi i32 [ %266, %258 ], [ 16, %255 ]
+  %.sink224.i.i = phi i32 [ %265, %258 ], [ %257, %255 ]
+  %.sink223.i.i = phi i32 [ 32764, %258 ], [ 32640, %255 ]
+  %268 = tail call i32 @llvm.umin.i32(i32 %62, i32 %.sink225.i.i)
   store i32 %268, ptr %67, align 8, !tbaa !4
-  %269 = lshr i32 %.sink219.i.i, 17
-  %270 = and i32 %269, %.sink218.i.i
+  %269 = lshr i32 %.sink224.i.i, 17
+  %270 = and i32 %269, %.sink223.i.i
   %271 = getelementptr inbounds nuw i8, ptr %55, i64 472
   %272 = load ptr, ptr %271, align 8, !tbaa !17
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 72
@@ -921,9 +921,9 @@ define internal i32 @rv10_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
 
 404:                                              ; preds = %387
   store i64 %402, ptr %389, align 8, !tbaa !91
-  br i1 %403, label %.thread.i.i, label %.thread217.i.i
+  br i1 %403, label %.thread.i.i, label %.thread222.i.i
 
-.thread217.i.i:                                   ; preds = %404
+.thread222.i.i:                                   ; preds = %404
   %405 = getelementptr inbounds nuw i8, ptr %55, i64 4072
   %406 = load i64, ptr %405, align 8, !tbaa !92
   %407 = sub nsw i64 %402, %406
@@ -973,8 +973,8 @@ rv10_decode_picture_header.exit.thread.thread198.i: ; preds = %418
   %.pre211.pre.i.i = load i32, ptr %71, align 8, !tbaa !77
   br label %423
 
-423:                                              ; preds = %422, %417, %.thread217.i.i
-  %.pre211.i.i = phi i32 [ %.pre211.pre.i.i, %422 ], [ %.pre210.i.i, %417 ], [ %.pre210.i.i, %.thread217.i.i ]
+423:                                              ; preds = %422, %417, %.thread222.i.i
+  %.pre211.i.i = phi i32 [ %.pre211.pre.i.i, %422 ], [ %.pre210.i.i, %417 ], [ %.pre210.i.i, %.thread222.i.i ]
   %424 = load i32, ptr %67, align 8, !tbaa !4
   %425 = load ptr, ptr %57, align 8, !tbaa !12
   %426 = lshr i32 %424, 3
@@ -997,8 +997,8 @@ rv10_decode_picture_header.exit.thread.thread198.i: ; preds = %418
   %440 = and i32 %439, 266338304
   %441 = icmp eq i32 %440, 0
   %442 = icmp eq i32 %.pre211.i.i, 3
-  %or.cond221.i.i = select i1 %441, i1 %442, i1 false
-  br i1 %or.cond221.i.i, label %443, label %446
+  %or.cond226.i.i = select i1 %441, i1 %442, i1 false
+  br i1 %or.cond226.i.i, label %443, label %446
 
 443:                                              ; preds = %423
   %444 = add i32 %spec.select.i198.i.i, 5
@@ -1203,11 +1203,11 @@ rv10_decode_picture_header.exit.thread.thread.i:  ; preds = %379, %333, %328, %r
   %541 = getelementptr inbounds nuw i8, ptr %55, i64 68
   %542 = load i32, ptr %541, align 4, !tbaa !96
   %.not153.i = icmp eq i32 %542, 0
-  %spec.select223.i = select i1 %.not153.i, ptr @ff_mpeg12_dc_scale_table, ptr @ff_aic_dc_scale_table
+  %spec.select239.i = select i1 %.not153.i, ptr @ff_mpeg12_dc_scale_table, ptr @ff_aic_dc_scale_table
   %543 = getelementptr inbounds nuw i8, ptr %55, i64 1336
-  store ptr %spec.select223.i, ptr %543, align 8, !tbaa !110
+  store ptr %spec.select239.i, ptr %543, align 8, !tbaa !110
   %544 = getelementptr inbounds nuw i8, ptr %55, i64 1328
-  store ptr %spec.select223.i, ptr %544, align 8, !tbaa !111
+  store ptr %spec.select239.i, ptr %544, align 8, !tbaa !111
   %545 = getelementptr inbounds nuw i8, ptr %55, i64 4032
   %546 = load i32, ptr %545, align 8, !tbaa !97
   %.not154.i = icmp eq i32 %546, 0
@@ -1236,7 +1236,7 @@ rv10_decode_picture_header.exit.thread.thread.i:  ; preds = %379, %333, %328, %r
 
 .._crit_edge_crit_edge.i:                         ; preds = %549
   %.pre221.i = load i32, ptr %484, align 4, !tbaa !80
-  br label %rv10_decode_packet.exit
+  br label %651
 
 .lr.ph.i:                                         ; preds = %549
   %556 = getelementptr inbounds nuw i8, ptr %55, i64 472
@@ -1400,34 +1400,33 @@ rv10_decode_picture_header.exit.thread.thread.i:  ; preds = %379, %333, %328, %r
 
 643:                                              ; preds = %642, %638
   %644 = icmp eq i32 %.2.ph.i, -2
-  br i1 %644, label %rv10_decode_packet.exit, label %645
+  br i1 %644, label %rv10_decode_packet.exit.loopexit, label %645
 
 645:                                              ; preds = %643
   %646 = load i32, ptr %555, align 8, !tbaa !113
   %647 = add nsw i32 %646, -1
   store i32 %647, ptr %555, align 8, !tbaa !113
   %648 = icmp sgt i32 %646, 1
-  br i1 %648, label %573, label %rv10_decode_packet.exit, !llvm.loop !118
+  br i1 %648, label %573, label %rv10_decode_packet.exit.loopexit, !llvm.loop !118
 
-rv10_decode_packet.exit:                          ; preds = %643, %645, %.._crit_edge_crit_edge.i
-  %649 = phi i32 [ %.pre221.i, %.._crit_edge_crit_edge.i ], [ %639, %645 ], [ %639, %643 ]
-  %.1137.i = phi i32 [ %56, %.._crit_edge_crit_edge.i ], [ %.2138.ph.i, %645 ], [ %.2138.ph.i, %643 ]
-  %650 = getelementptr inbounds nuw i8, ptr %55, i64 4336
-  %651 = load i32, ptr %540, align 4, !tbaa !99
-  %652 = add nsw i32 %649, -1
-  %653 = load i32, ptr %487, align 8, !tbaa !81
-  tail call void @ff_er_add_slice(ptr noundef nonnull %650, i32 noundef %539, i32 noundef %651, i32 noundef %652, i32 noundef %653, i32 noundef 112) #8
-  %654 = icmp slt i32 %.1137.i, 0
-  br i1 %654, label %.thread, label %655
+rv10_decode_packet.exit.loopexit:                 ; preds = %645, %643
+  %649 = icmp sgt i32 %.2138.ph.i, %56
+  %650 = select i1 %649, i32 %31, i32 %.094166
+  br label %651
 
-655:                                              ; preds = %rv10_decode_packet.exit
-  %656 = icmp sgt i32 %.1137.i, %56
-  %spec.select = select i1 %656, i32 %31, i32 %.094166
-  %657 = add nsw i32 %spec.select, 1
-  %.not110.not = icmp slt i32 %spec.select, %14
+651:                                              ; preds = %.._crit_edge_crit_edge.i, %rv10_decode_packet.exit.loopexit
+  %652 = phi i32 [ %.pre221.i, %.._crit_edge_crit_edge.i ], [ %639, %rv10_decode_packet.exit.loopexit ]
+  %.1137.i = phi i32 [ %.094166, %.._crit_edge_crit_edge.i ], [ %650, %rv10_decode_packet.exit.loopexit ]
+  %653 = getelementptr inbounds nuw i8, ptr %55, i64 4336
+  %654 = load i32, ptr %540, align 4, !tbaa !99
+  %655 = add nsw i32 %652, -1
+  %656 = load i32, ptr %487, align 8, !tbaa !81
+  tail call void @ff_er_add_slice(ptr noundef nonnull %653, i32 noundef %539, i32 noundef %654, i32 noundef %655, i32 noundef %656, i32 noundef 112) #8
+  %657 = add nsw i32 %.1137.i, 1
+  %.not110.not = icmp slt i32 %.1137.i, %14
   br i1 %.not110.not, label %25, label %658, !llvm.loop !120
 
-658:                                              ; preds = %655
+658:                                              ; preds = %651
   %659 = getelementptr inbounds nuw i8, ptr %8, i64 1160
   %660 = getelementptr inbounds nuw i8, ptr %8, i64 1208
   %661 = load ptr, ptr %660, align 8, !tbaa !98
@@ -1477,10 +1476,10 @@ rv10_decode_packet.exit:                          ; preds = %643, %645, %.._crit
   br i1 %686, label %.thread, label %.sink.split
 
 .sink.split:                                      ; preds = %683, %675
-  %.sink302.in = phi ptr [ %660, %675 ], [ %681, %683 ]
-  %.sink302 = load ptr, ptr %.sink302.in, align 8, !tbaa !121
-  tail call void @ff_print_debug_info(ptr noundef nonnull %8, ptr noundef %.sink302, ptr noundef %1) #8
-  %.sink = load ptr, ptr %.sink302.in, align 8, !tbaa !121
+  %.sink326.in = phi ptr [ %660, %675 ], [ %681, %683 ]
+  %.sink326 = load ptr, ptr %.sink326.in, align 8, !tbaa !121
+  tail call void @ff_print_debug_info(ptr noundef nonnull %8, ptr noundef %.sink326, ptr noundef %1) #8
+  %.sink = load ptr, ptr %.sink326.in, align 8, !tbaa !121
   %687 = tail call i32 @ff_mpv_export_qp_table(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %.sink, i32 noundef 0) #8
   br label %688
 
@@ -1508,8 +1507,8 @@ rv10_decode_packet.exit:                          ; preds = %643, %645, %.._crit
   %697 = load i32, ptr %5, align 8, !tbaa !71
   br label %.thread
 
-.thread:                                          ; preds = %.thread.i, %503, %rv10_decode_packet.exit, %45, %48, %25, %rv10_decode_picture_header.exit.thread.thread198.i, %.thread189.i, %rv10_decode_picture_header.exit.thread.i, %rv10_decode_picture_header.exit.thread.thread.i, %522, %500, %._crit_edge212.i, %683, %675, %4, %696, %18
-  %.092 = phi i32 [ -1094995529, %18 ], [ %697, %696 ], [ 0, %4 ], [ %678, %675 ], [ %685, %683 ], [ -1094995529, %rv10_decode_picture_header.exit.thread.thread198.i ], [ -1094995529, %.thread189.i ], [ -1094995529, %rv10_decode_picture_header.exit.thread.i ], [ -1094995529, %rv10_decode_picture_header.exit.thread.thread.i ], [ -1094995529, %522 ], [ -1094995529, %500 ], [ -1094995529, %._crit_edge212.i ], [ -1094995529, %503 ], [ %515, %.thread.i ], [ -1094995529, %25 ], [ -1094995529, %48 ], [ -1094995529, %45 ], [ %.1137.i, %rv10_decode_packet.exit ]
+.thread:                                          ; preds = %.thread.i, %503, %45, %48, %25, %rv10_decode_picture_header.exit.thread.thread198.i, %.thread189.i, %rv10_decode_picture_header.exit.thread.i, %rv10_decode_picture_header.exit.thread.thread.i, %522, %500, %._crit_edge212.i, %683, %675, %4, %696, %18
+  %.092 = phi i32 [ -1094995529, %18 ], [ %697, %696 ], [ 0, %4 ], [ %678, %675 ], [ %685, %683 ], [ -1094995529, %rv10_decode_picture_header.exit.thread.thread198.i ], [ -1094995529, %.thread189.i ], [ -1094995529, %rv10_decode_picture_header.exit.thread.i ], [ -1094995529, %rv10_decode_picture_header.exit.thread.thread.i ], [ -1094995529, %522 ], [ -1094995529, %500 ], [ -1094995529, %._crit_edge212.i ], [ -1094995529, %503 ], [ %515, %.thread.i ], [ -1094995529, %25 ], [ -1094995529, %48 ], [ -1094995529, %45 ]
   ret i32 %.092
 }
 

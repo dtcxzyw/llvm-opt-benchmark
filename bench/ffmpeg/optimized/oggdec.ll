@@ -443,7 +443,7 @@ ogg_reset.exit.i:                                 ; preds = %163, %136
   br i1 %.not65.i, label %199, label %191
 
 191:                                              ; preds = %189
-  br i1 %190, label %192, label %.thread82.i
+  br i1 %190, label %192, label %.thread93.i
 
 192:                                              ; preds = %191
   %193 = load ptr, ptr %67, align 8, !tbaa !35
@@ -460,22 +460,22 @@ ogg_reset.exit.i:                                 ; preds = %163, %136
   br label %.thread.i
 
 199:                                              ; preds = %189
-  br i1 %190, label %.thread.i, label %.thread82.i
+  br i1 %190, label %.thread.i, label %.thread93.i
 
-.thread82.i:                                      ; preds = %199, %191
+.thread93.i:                                      ; preds = %199, %191
   %200 = load ptr, ptr %67, align 8, !tbaa !35
   %201 = getelementptr inbounds nuw %struct.ogg_stream, ptr %200, i64 %183, i32 23
   %202 = load i32, ptr %201, align 8, !tbaa !66
   %.not68.i = icmp eq i32 %202, 0
   br i1 %.not68.i, label %203, label %.thread.i
 
-203:                                              ; preds = %.thread82.i
+203:                                              ; preds = %.thread93.i
   store i32 1, ptr %201, align 8, !tbaa !66
   %204 = add nsw i32 %.277.i, -1
   br label %.thread.i
 
-.thread.i:                                        ; preds = %203, %.thread82.i, %199, %196, %192, %180, %177
-  %.3.i = phi i32 [ %.277.i, %177 ], [ %.277.i, %180 ], [ %.277.i, %.thread82.i ], [ %204, %203 ], [ %.277.i, %199 ], [ %198, %196 ], [ %.277.i, %192 ]
+.thread.i:                                        ; preds = %203, %.thread93.i, %199, %196, %192, %180, %177
+  %.3.i = phi i32 [ %.277.i, %177 ], [ %.277.i, %180 ], [ %.277.i, %.thread93.i ], [ %204, %203 ], [ %.277.i, %199 ], [ %198, %196 ], [ %.277.i, %192 ]
   %205 = icmp sgt i32 %.3.i, 0
   br i1 %205, label %175, label %.critedge.i
 
@@ -1414,10 +1414,10 @@ ogg_find_codec.exit:                              ; preds = %46
   %58 = getelementptr inbounds nuw i8, ptr %22, i64 116
   %smax = tail call i32 @llvm.smax.i32(i32 %55, i32 %57)
   %wide.trip.count = sext i32 %smax to i64
-  %exitcond.not303.not = icmp slt i32 %55, %57
-  br i1 %exitcond.not303.not, label %.lr.ph306, label %.critedge162
+  %exitcond.not319.not = icmp slt i32 %55, %57
+  br i1 %exitcond.not319.not, label %.lr.ph322, label %.critedge162
 
-.lr.ph306:                                        ; preds = %54
+.lr.ph322:                                        ; preds = %54
   %59 = sext i32 %55 to i64
   br label %61
 
@@ -1425,13 +1425,13 @@ ogg_find_codec.exit:                              ; preds = %46
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge162, label %61
 
-61:                                               ; preds = %.lr.ph306, %60
-  %indvars.iv304 = phi i64 [ %59, %.lr.ph306 ], [ %indvars.iv.next, %60 ]
-  %62 = phi i32 [ %56, %.lr.ph306 ], [ %67, %60 ]
-  %indvars.iv.next = add nsw i64 %indvars.iv304, 1
+61:                                               ; preds = %.lr.ph322, %60
+  %indvars.iv320 = phi i64 [ %59, %.lr.ph322 ], [ %indvars.iv.next, %60 ]
+  %62 = phi i32 [ %56, %.lr.ph322 ], [ %67, %60 ]
+  %indvars.iv.next = add nsw i64 %indvars.iv320, 1
   %63 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %63, ptr %27, align 8, !tbaa !80
-  %64 = getelementptr inbounds [255 x i8], ptr %58, i64 0, i64 %indvars.iv304
+  %64 = getelementptr inbounds [255 x i8], ptr %58, i64 0, i64 %indvars.iv320
   %65 = load i8, ptr %64, align 1, !tbaa !11
   %66 = zext i8 %65 to i32
   %67 = add i32 %62, %66
@@ -1440,9 +1440,9 @@ ogg_find_codec.exit:                              ; preds = %46
   br i1 %.not142, label %60, label %.critedge
 
 .critedge162:                                     ; preds = %60, %54
-  %.lcssa281 = phi i32 [ %56, %54 ], [ %67, %60 ]
-  %.lcssa279 = phi i32 [ %55, %54 ], [ %63, %60 ]
-  %68 = icmp eq i32 %.lcssa279, %57
+  %.lcssa297 = phi i32 [ %56, %54 ], [ %67, %60 ]
+  %.lcssa295 = phi i32 [ %55, %54 ], [ %63, %60 ]
+  %68 = icmp eq i32 %.lcssa295, %57
   br i1 %68, label %69, label %.backedge
 
 .backedge:                                        ; preds = %.critedge162, %69
@@ -1450,7 +1450,7 @@ ogg_find_codec.exit:                              ; preds = %46
 
 69:                                               ; preds = %.critedge162
   store i32 -1, ptr %11, align 8, !tbaa !27
-  %70 = icmp ne i32 %.lcssa281, 0
+  %70 = icmp ne i32 %.lcssa297, 0
   %71 = zext i1 %70 to i32
   %72 = getelementptr inbounds nuw i8, ptr %22, i64 372
   store i32 %71, ptr %72, align 4, !tbaa !81
@@ -1853,7 +1853,7 @@ define internal fastcc range(i32 -2147483648, 2147483647) i32 @ogg_read_page(ptr
   %90 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %91 = load i32, ptr %90, align 8, !tbaa !34
   %92 = icmp sgt i32 %91, 0
-  br i1 %92, label %.lr.ph.i, label %.thread218
+  br i1 %92, label %.lr.ph.i, label %.thread229
 
 .lr.ph.i:                                         ; preds = %._crit_edge
   %93 = load ptr, ptr %10, align 8, !tbaa !35
@@ -1870,7 +1870,7 @@ define internal fastcc range(i32 -2147483648, 2147483647) i32 @ogg_read_page(ptr
 98:                                               ; preds = %94
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread218, label %94, !llvm.loop !126
+  br i1 %exitcond.not.i, label %.thread229, label %94, !llvm.loop !126
 
 ogg_find_stream.exit:                             ; preds = %94
   %99 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1910,27 +1910,27 @@ ogg_find_stream.exit:                             ; preds = %94
   %121 = icmp slt i32 %120, %.0162.lcssa
   br i1 %121, label %126, label %130
 
-.thread218:                                       ; preds = %98, %._crit_edge
+.thread229:                                       ; preds = %98, %._crit_edge
   %122 = zext nneg i32 %.0162.lcssa to i64
   %123 = call noalias ptr @av_malloc(i64 noundef %122) #9
   %124 = call i32 @avio_read(ptr noundef %8, ptr noundef %123, i32 noundef %.0162.lcssa) #9
   %125 = icmp slt i32 %124, %.0162.lcssa
-  br i1 %125, label %.thread228, label %130
+  br i1 %125, label %.thread239, label %130
 
-.thread228:                                       ; preds = %.thread218
+.thread239:                                       ; preds = %.thread229
   call void @av_free(ptr noundef %123) #9
   br label %126
 
-126:                                              ; preds = %115, %.thread228
-  %127 = phi i32 [ %124, %.thread228 ], [ %120, %115 ]
+126:                                              ; preds = %115, %.thread239
+  %127 = phi i32 [ %124, %.thread239 ], [ %120, %115 ]
   %128 = icmp slt i32 %127, 0
   %129 = select i1 %128, i32 %127, i32 -541478725
   br label %buf_realloc.exit
 
-130:                                              ; preds = %.thread218, %115
-  %.0150227 = phi ptr [ undef, %.thread218 ], [ %101, %115 ]
-  %.0156225 = phi ptr [ %123, %.thread218 ], [ %119, %115 ]
-  %.07.i198222 = phi i32 [ -1, %.thread218 ], [ %99, %115 ]
+130:                                              ; preds = %.thread229, %115
+  %.0150238 = phi ptr [ undef, %.thread229 ], [ %101, %115 ]
+  %.0156236 = phi ptr [ %123, %.thread229 ], [ %119, %115 ]
+  %.07.i198233 = phi i32 [ -1, %.thread229 ], [ %99, %115 ]
   %131 = zext i32 %73 to i64
   %132 = call i64 @ffio_get_checksum(ptr noundef %8) #9
   %.not177 = icmp eq i64 %132, %131
@@ -1938,11 +1938,11 @@ ogg_find_stream.exit:                             ; preds = %94
 
 133:                                              ; preds = %130
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.13) #9
-  %134 = icmp slt i32 %.07.i198222, 0
+  %134 = icmp slt i32 %.07.i198233, 0
   br i1 %134, label %135, label %136
 
 135:                                              ; preds = %133
-  call void @av_free(ptr noundef %.0156225) #9
+  call void @av_free(ptr noundef %.0156236) #9
   br label %136
 
 136:                                              ; preds = %135, %133
@@ -1956,11 +1956,11 @@ ogg_find_stream.exit:                             ; preds = %94
 
 139:                                              ; preds = %138
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.14) #9
-  %140 = icmp slt i32 %.07.i198222, 0
+  %140 = icmp slt i32 %.07.i198233, 0
   br i1 %140, label %141, label %142
 
 141:                                              ; preds = %139
-  call void @av_free(ptr noundef %.0156225) #9
+  call void @av_free(ptr noundef %.0156236) #9
   br label %142
 
 142:                                              ; preds = %141, %139
@@ -1969,7 +1969,7 @@ ogg_find_stream.exit:                             ; preds = %94
   br label %buf_realloc.exit
 
 144:                                              ; preds = %138
-  %145 = icmp slt i32 %.07.i198222, 0
+  %145 = icmp slt i32 %.07.i198233, 0
   br i1 %145, label %146, label %173
 
 146:                                              ; preds = %144
@@ -1995,7 +1995,7 @@ ogg_find_stream.exit:                             ; preds = %94
   br i1 %.not.i188, label %150, label %data_packets_seen.exit
 
 data_packets_seen.exit:                           ; preds = %151
-  %154 = call fastcc i32 @ogg_replace_stream(ptr noundef %0, i32 noundef %70, ptr noundef %.0156225, i32 noundef %.0162.lcssa, i32 noundef %2)
+  %154 = call fastcc i32 @ogg_replace_stream(ptr noundef %0, i32 noundef %70, ptr noundef %.0156236, i32 noundef %.0162.lcssa, i32 noundef %2)
   br label %156
 
 .loopexit:                                        ; preds = %150, %146
@@ -2009,7 +2009,7 @@ data_packets_seen.exit:                           ; preds = %151
 
 158:                                              ; preds = %156
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.15) #9
-  call void @av_free(ptr noundef %.0156225) #9
+  call void @av_free(ptr noundef %.0156236) #9
   br label %buf_realloc.exit
 
 159:                                              ; preds = %156
@@ -2021,7 +2021,7 @@ data_packets_seen.exit:                           ; preds = %151
   br i1 %164, label %165, label %166
 
 165:                                              ; preds = %159
-  call void @av_free(ptr noundef %.0156225) #9
+  call void @av_free(ptr noundef %.0156236) #9
   br label %buf_realloc.exit
 
 166:                                              ; preds = %159
@@ -2031,13 +2031,13 @@ data_packets_seen.exit:                           ; preds = %151
   %170 = zext i32 %169 to i64
   %171 = getelementptr inbounds nuw i8, ptr %167, i64 %170
   %172 = zext nneg i32 %.0162.lcssa to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %171, ptr align 1 %.0156225, i64 %172, i1 false)
-  call void @av_free(ptr noundef %.0156225) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %171, ptr align 1 %.0156236, i64 %172, i1 false)
+  call void @av_free(ptr noundef %.0156236) #9
   br label %173
 
 173:                                              ; preds = %166, %144
-  %.0160 = phi i32 [ %.1161, %166 ], [ %.07.i198222, %144 ]
-  %.1151 = phi ptr [ %162, %166 ], [ %.0150227, %144 ]
+  %.0160 = phi i32 [ %.1161, %166 ], [ %.07.i198233, %144 ]
+  %.1151 = phi ptr [ %162, %166 ], [ %.0150238, %144 ]
   store i64 %79, ptr %14, align 8, !tbaa !62
   %174 = getelementptr inbounds nuw i8, ptr %.1151, i64 80
   store i64 %79, ptr %174, align 8, !tbaa !78
@@ -2426,7 +2426,7 @@ define internal fastcc range(i32 -12, 1) i32 @ogg_save(ptr noundef %0) unnamed_a
   br label %48
 
 48:                                               ; preds = %._crit_edge.thread, %._crit_edge, %47, %1
-  %.0 = phi i32 [ -12, %1 ], [ %.1, %47 ], [ %.1, %._crit_edge ], [ 0, %._crit_edge.thread ]
+  %.0 = phi i32 [ -12, %1 ], [ %.1, %47 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ]
   ret i32 %.0
 }
 

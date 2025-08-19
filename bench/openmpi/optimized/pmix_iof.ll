@@ -1056,9 +1056,9 @@ pmix_obj_new_tma.exit268.thread346:               ; preds = %455
 
 pmix_obj_new_tma.exit268:                         ; preds = %436, %434, %404, %402, %370, %368, %336, %334, %302, %300, %270, %268, %238, %236
   %.7333.sink = phi i32 [ %243, %238 ], [ -22, %236 ], [ %275, %270 ], [ -22, %268 ], [ %309, %302 ], [ -22, %300 ], [ %341, %336 ], [ -22, %334 ], [ %377, %370 ], [ -22, %368 ], [ %409, %404 ], [ -22, %402 ], [ %441, %436 ], [ -22, %434 ]
-  %.sink396 = phi i32 [ 333, %238 ], [ 333, %236 ], [ 338, %270 ], [ 338, %268 ], [ 343, %302 ], [ 343, %300 ], [ 348, %336 ], [ 348, %334 ], [ 354, %370 ], [ 354, %368 ], [ 360, %404 ], [ 360, %402 ], [ 365, %436 ], [ 365, %434 ]
+  %.sink436 = phi i32 [ 333, %238 ], [ 333, %236 ], [ 338, %270 ], [ 338, %268 ], [ 343, %302 ], [ 343, %300 ], [ 348, %336 ], [ 348, %334 ], [ 354, %370 ], [ 354, %368 ], [ 360, %404 ], [ 360, %402 ], [ 365, %436 ], [ 365, %434 ]
   %472 = call ptr @PMIx_Error_string(i32 noundef %.7333.sink) #18
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %472, ptr noundef nonnull @.str.2, i32 noundef %.sink396) #18
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %472, ptr noundef nonnull @.str.2, i32 noundef %.sink436) #18
   %cond = icmp eq i32 %.7333.sink, 0
   br i1 %cond, label %541, label %pmix_obj_new_tma.exit268.thread341
 
@@ -3319,9 +3319,9 @@ pmix_obj_run_destructors.exit173:                 ; preds = %.lr.ph.i170, %153
 
 .thread:                                          ; preds = %256, %254, %222, %220, %190, %188
   %.3201.sink = phi i32 [ %195, %190 ], [ -22, %188 ], [ %227, %222 ], [ -22, %220 ], [ %263, %256 ], [ -22, %254 ]
-  %.sink223 = phi i32 [ 452, %190 ], [ 452, %188 ], [ 457, %222 ], [ 457, %220 ], [ 463, %256 ], [ 463, %254 ]
+  %.sink251 = phi i32 [ 452, %190 ], [ 452, %188 ], [ 457, %222 ], [ 457, %220 ], [ 463, %256 ], [ 463, %254 ]
   %325 = call ptr @PMIx_Error_string(i32 noundef %.3201.sink) #18
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %325, ptr noundef nonnull @.str.2, i32 noundef %.sink223) #18
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %325, ptr noundef nonnull @.str.2, i32 noundef %.sink251) #18
   %cond = icmp eq i32 %.3201.sink, 0
   br i1 %cond, label %366, label %.thread205
 
@@ -3560,7 +3560,7 @@ define i32 @PMIx_IOF_push(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr no
 .lr.ph448:                                        ; preds = %.preheader
   %.not320 = icmp eq i32 %12, 0
   %.not325 = icmp eq ptr %0, null
-  %.not452 = icmp eq ptr %3, null
+  %.not502 = icmp eq ptr %3, null
   br label %26
 
 26:                                               ; preds = %.lr.ph448, %pmix_iof_stdin_check.exit
@@ -3684,7 +3684,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %67, %6
   br label %85
 
 85:                                               ; preds = %79, %pmix_obj_new_tma.exit
-  br i1 %.not452, label %.loopexit436, label %.lr.ph443.preheader
+  br i1 %.not502, label %.loopexit436, label %.lr.ph443.preheader
 
 .lr.ph443.preheader:                              ; preds = %85
   %86 = tail call ptr @PMIx_Info_create(i64 noundef %25) #18
@@ -3847,7 +3847,7 @@ pmix_obj_new_tma.exit349:                         ; preds = %.lr.ph.i.i346, %142
   br label %160
 
 160:                                              ; preds = %154, %pmix_obj_new_tma.exit349
-  br i1 %.not452, label %.loopexit, label %.lr.ph446.preheader
+  br i1 %.not502, label %.loopexit, label %.lr.ph446.preheader
 
 .lr.ph446.preheader:                              ; preds = %160
   %161 = tail call ptr @PMIx_Info_create(i64 noundef %25) #18
@@ -5128,8 +5128,8 @@ define void @pmix_iof_read_local_handler(i32 %0, i16 signext %1, ptr noundef ini
   br label %53
 
 53:                                               ; preds = %49, %52
-  %.sink357 = phi i64 [ 1464, %52 ], [ 1456, %49 ]
-  %54 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink357
+  %.sink394 = phi i64 [ 1464, %52 ], [ 1456, %49 ]
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink394
   %55 = load ptr, ptr %54, align 8, !tbaa !68
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 284
   %57 = call i32 @pmix_iof_write_output(ptr noundef nonnull %56, i16 noundef zeroext %51, ptr noundef nonnull %6)
@@ -7549,13 +7549,13 @@ define range(i32 -172, 1) i32 @pmix_iof_write_output(ptr noundef %0, i16 noundef
   %.not = xor i1 %58, true
   %59 = trunc nuw i8 %55 to i1
   %or.cond = select i1 %.not, i1 %59, i1 false
-  br i1 %or.cond, label %60, label %.thread268
+  br i1 %or.cond, label %60, label %.thread280
 
 60:                                               ; preds = %54
   %61 = and i32 %6, 2
   %.not188 = icmp eq i32 %61, 0
   %not..not188 = xor i1 %.not188, true
-  br label %.thread268
+  br label %.thread280
 
 62:                                               ; preds = %30
   %63 = getelementptr inbounds nuw i8, ptr %.0165218, i64 1616
@@ -7623,21 +7623,21 @@ define range(i32 -172, 1) i32 @pmix_iof_write_output(ptr noundef %0, i16 noundef
   %.not2 = xor i1 %90, true
   %91 = trunc nuw i8 %87 to i1
   %or.cond4 = select i1 %.not2, i1 %91, i1 false
-  br i1 %or.cond4, label %92, label %.thread268
+  br i1 %or.cond4, label %92, label %.thread280
 
 92:                                               ; preds = %86
   %93 = and i32 %6, 2
   %.not185 = icmp eq i32 %93, 0
   %not..not185 = xor i1 %.not185, true
-  br label %.thread268
+  br label %.thread280
 
 94:                                               ; preds = %15, %.thread, %17
   %.1164 = phi i8 [ %16, %17 ], [ %8, %.thread ], [ %16, %15 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 2896), i64 32, i1 false)
   %95 = trunc nuw i8 %.1164 to i1
-  br i1 %95, label %.thread260, label %238
+  br i1 %95, label %.thread272, label %238
 
-.thread268:                                       ; preds = %54, %86, %60, %92
+.thread280:                                       ; preds = %54, %86, %60, %92
   %.2.ph = phi ptr [ %.4, %92 ], [ %.1168, %60 ], [ %.4, %86 ], [ %.1168, %54 ]
   %.0161.ph = phi i1 [ %not..not185, %92 ], [ %not..not188, %60 ], [ false, %86 ], [ false, %54 ]
   %.0159.ph = phi i1 [ %.not185, %92 ], [ %.not188, %60 ], [ false, %86 ], [ false, %54 ]
@@ -7646,24 +7646,24 @@ define range(i32 -172, 1) i32 @pmix_iof_write_output(ptr noundef %0, i16 noundef
 
 96:                                               ; preds = %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false), !tbaa.struct !211
-  br label %.thread260
+  br label %.thread272
 
-.thread260:                                       ; preds = %94, %96
+.thread272:                                       ; preds = %94, %96
   %97 = and i32 %6, 2
   %.not189 = icmp eq i32 %97, 0
   br i1 %.not189, label %98, label %102
 
-98:                                               ; preds = %.thread260
+98:                                               ; preds = %.thread272
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 25
   %100 = load i8, ptr %99, align 1, !tbaa !192, !range !19, !noundef !20
   %101 = trunc nuw i8 %100 to i1
   %.198 = select i1 %101, ptr getelementptr inbounds nuw (i8, ptr @pmix_client_globals, i64 1192), ptr getelementptr inbounds nuw (i8, ptr @pmix_client_globals, i64 2064)
   br label %102
 
-102:                                              ; preds = %.thread268, %98, %.thread260
-  %.1162258266 = phi i1 [ false, %.thread260 ], [ false, %98 ], [ %.0161.ph, %.thread268 ]
-  %.1160259264 = phi i1 [ false, %.thread260 ], [ false, %98 ], [ %.0159.ph, %.thread268 ]
-  %.6 = phi ptr [ getelementptr inbounds nuw (i8, ptr @pmix_client_globals, i64 1192), %.thread260 ], [ %.198, %98 ], [ %.2.ph, %.thread268 ]
+102:                                              ; preds = %.thread280, %98, %.thread272
+  %.1162270278 = phi i1 [ false, %.thread272 ], [ false, %98 ], [ %.0161.ph, %.thread280 ]
+  %.1160271276 = phi i1 [ false, %.thread272 ], [ false, %98 ], [ %.0159.ph, %.thread280 ]
+  %.6 = phi ptr [ getelementptr inbounds nuw (i8, ptr @pmix_client_globals, i64 1192), %.thread272 ], [ %.198, %98 ], [ %.2.ph, %.thread280 ]
   %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_client_globals, i64 768), align 8, !tbaa !23
   %or.cond6 = icmp ult i32 %103, 64
   br i1 %or.cond6, label %104, label %117
@@ -7805,16 +7805,16 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %158
   br i1 %.not241, label %._crit_edge239, label %.lr.ph238
 
 .lr.ph238:                                        ; preds = %123, %.loopexit
-  %.0155280 = phi i64 [ %.0155, %.loopexit ], [ %119, %123 ]
-  %.0156278 = phi ptr [ %.0156, %.loopexit ], [ %124, %123 ]
-  %.not190.not209276 = phi i1 [ %.not190.not209, %.loopexit ], [ true, %123 ]
+  %.0155292 = phi i64 [ %.0155, %.loopexit ], [ %119, %123 ]
+  %.0156290 = phi ptr [ %.0156, %.loopexit ], [ %124, %123 ]
+  %.not190.not209288 = phi i1 [ %.not190.not209, %.loopexit ], [ true, %123 ]
   %174 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %175
 
 175:                                              ; preds = %.lr.ph238, %186
   %.0169236 = phi i64 [ 0, %.lr.ph238 ], [ %.1170, %186 ]
   %.0171235 = phi i64 [ 0, %.lr.ph238 ], [ %.pre-phi, %186 ]
-  %176 = getelementptr inbounds nuw i8, ptr %.0156278, i64 %.0171235
+  %176 = getelementptr inbounds nuw i8, ptr %.0156290, i64 %.0171235
   %177 = load i8, ptr %176, align 1, !tbaa !9
   %178 = icmp eq i8 %177, 10
   br i1 %178, label %179, label %._crit_edge250
@@ -7824,34 +7824,34 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %158
   br label %186
 
 179:                                              ; preds = %175
-  %180 = getelementptr inbounds nuw i8, ptr %.0156278, i64 %.0169236
+  %180 = getelementptr inbounds nuw i8, ptr %.0156290, i64 %.0169236
   store ptr %180, ptr %4, align 8, !tbaa !166
   %181 = add nuw i64 %.0171235, 1
   %182 = sub i64 %181, %.0169236
   store i64 %182, ptr %174, align 8, !tbaa !168
-  %183 = call fastcc i32 @write_output_line(ptr noundef %0, ptr noundef nonnull %.6, ptr noundef nonnull %5, i16 noundef zeroext %1, i1 noundef zeroext %.1162258266, i1 noundef zeroext %.1160259264, ptr noundef nonnull %4)
+  %183 = call fastcc i32 @write_output_line(ptr noundef %0, ptr noundef nonnull %.6, ptr noundef nonnull %5, i16 noundef zeroext %1, i1 noundef zeroext %.1162270278, i1 noundef zeroext %.1160271276, ptr noundef nonnull %4)
   %.not194 = icmp eq i32 %183, 0
   br i1 %.not194, label %186, label %184
 
 184:                                              ; preds = %179
-  br i1 %.not190.not209276, label %238, label %185
+  br i1 %.not190.not209288, label %238, label %185
 
 185:                                              ; preds = %184
-  tail call void @free(ptr noundef nonnull %.0156278) #18
+  tail call void @free(ptr noundef nonnull %.0156290) #18
   br label %238
 
 186:                                              ; preds = %179, %._crit_edge250
   %.pre-phi = phi i64 [ %.pre251, %._crit_edge250 ], [ %181, %179 ]
   %.1170 = phi i64 [ %.0169236, %._crit_edge250 ], [ %181, %179 ]
-  %exitcond.not = icmp eq i64 %.pre-phi, %.0155280
+  %exitcond.not = icmp eq i64 %.pre-phi, %.0155292
   br i1 %exitcond.not, label %._crit_edge239, label %175, !llvm.loop !222
 
 ._crit_edge239:                                   ; preds = %186, %.loopexit
-  %.0155281 = phi i64 [ 0, %.loopexit ], [ %.0155280, %186 ]
-  %.0156279 = phi ptr [ %.0156, %.loopexit ], [ %.0156278, %186 ]
-  %.not190.not209277 = phi i1 [ %.not190.not209, %.loopexit ], [ %.not190.not209276, %186 ]
+  %.0155293 = phi i64 [ 0, %.loopexit ], [ %.0155292, %186 ]
+  %.0156291 = phi ptr [ %.0156, %.loopexit ], [ %.0156290, %186 ]
+  %.not190.not209289 = phi i1 [ %.not190.not209, %.loopexit ], [ %.not190.not209288, %186 ]
   %.0169.lcssa = phi i64 [ 0, %.loopexit ], [ %.1170, %186 ]
-  %187 = icmp ult i64 %.0169.lcssa, %.0155281
+  %187 = icmp ult i64 %.0169.lcssa, %.0155293
   br i1 %187, label %188, label %236
 
 188:                                              ; preds = %._crit_edge239
@@ -7861,20 +7861,20 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %158
   br i1 %191, label %192, label %199
 
 192:                                              ; preds = %188
-  %193 = getelementptr inbounds nuw i8, ptr %.0156279, i64 %.0169.lcssa
+  %193 = getelementptr inbounds nuw i8, ptr %.0156291, i64 %.0169.lcssa
   store ptr %193, ptr %4, align 8, !tbaa !166
-  %194 = sub i64 %.0155281, %.0169.lcssa
+  %194 = sub i64 %.0155293, %.0169.lcssa
   %195 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %194, ptr %195, align 8, !tbaa !168
-  %196 = call fastcc i32 @write_output_line(ptr noundef %0, ptr noundef nonnull %.6, ptr noundef nonnull %5, i16 noundef zeroext %1, i1 noundef zeroext %.1162258266, i1 noundef zeroext %.1160259264, ptr noundef nonnull %4)
+  %196 = call fastcc i32 @write_output_line(ptr noundef %0, ptr noundef nonnull %.6, ptr noundef nonnull %5, i16 noundef zeroext %1, i1 noundef zeroext %.1162270278, i1 noundef zeroext %.1160271276, ptr noundef nonnull %4)
   %.not193 = icmp eq i32 %196, 0
   br i1 %.not193, label %236, label %197
 
 197:                                              ; preds = %192
-  br i1 %.not190.not209277, label %238, label %198
+  br i1 %.not190.not209289, label %238, label %198
 
 198:                                              ; preds = %197
-  tail call void @free(ptr noundef %.0156279) #18
+  tail call void @free(ptr noundef %.0156291) #18
   br label %238
 
 199:                                              ; preds = %188
@@ -7927,16 +7927,16 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %205, %
   %220 = getelementptr inbounds nuw i8, ptr %201, i64 448
   store i16 %1, ptr %220, align 8, !tbaa !215
   %221 = getelementptr inbounds nuw i8, ptr %201, i64 450
-  %222 = zext i1 %.1162258266 to i8
+  %222 = zext i1 %.1162270278 to i8
   store i8 %222, ptr %221, align 2, !tbaa !224
   %223 = getelementptr inbounds nuw i8, ptr %201, i64 451
-  %224 = zext i1 %.1160259264 to i8
+  %224 = zext i1 %.1160271276 to i8
   store i8 %224, ptr %223, align 1, !tbaa !225
-  %225 = sub i64 %.0155281, %.0169.lcssa
+  %225 = sub i64 %.0155293, %.0169.lcssa
   %226 = tail call noalias ptr @malloc(i64 noundef %225) #19
   %227 = getelementptr inbounds nuw i8, ptr %201, i64 456
   store ptr %226, ptr %227, align 8, !tbaa !218
-  %228 = getelementptr inbounds nuw i8, ptr %.0156279, i64 %.0169.lcssa
+  %228 = getelementptr inbounds nuw i8, ptr %.0156291, i64 %.0169.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %226, ptr align 1 %228, i64 %225, i1 false)
   %229 = getelementptr inbounds nuw i8, ptr %201, i64 464
   store i64 %225, ptr %229, align 8, !tbaa !217
@@ -7954,10 +7954,10 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %205, %
   br label %236
 
 236:                                              ; preds = %pmix_obj_new_tma.exit, %192, %._crit_edge239
-  br i1 %.not190.not209277, label %238, label %237
+  br i1 %.not190.not209289, label %238, label %237
 
 237:                                              ; preds = %236
-  tail call void @free(ptr noundef %.0156279) #18
+  tail call void @free(ptr noundef %.0156291) #18
   br label %238
 
 238:                                              ; preds = %236, %237, %197, %198, %184, %185, %94, %._crit_edge228, %._crit_edge, %28, %3, %121
@@ -10354,26 +10354,26 @@ pmix_obj_run_destructors.exit519:                 ; preds = %.lr.ph.i516, %628
   %680 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %681 = load i8, ptr %680, align 2, !tbaa !184, !range !19, !noundef !20
   %682 = trunc nuw i8 %681 to i1
-  br i1 %682, label %.thread, label %.thread588
+  br i1 %682, label %.thread, label %.thread629
 
 .thread:                                          ; preds = %672, %679
   %683 = call i32 (ptr, i64, ptr, ...) @pmix_snprintf(ptr noundef nonnull %9, i64 noundef 1024, ptr noundef nonnull @.str.77, ptr noundef nonnull %663) #18
   br label %692
 
 684:                                              ; preds = %661
-  br i1 %671, label %688, label %.thread588
+  br i1 %671, label %688, label %.thread629
 
-.thread588:                                       ; preds = %679, %684
+.thread629:                                       ; preds = %679, %684
   %685 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %686 = load i8, ptr %685, align 2, !tbaa !184, !range !19, !noundef !20
   %687 = trunc nuw i8 %686 to i1
   br i1 %687, label %688, label %690
 
-688:                                              ; preds = %.thread588, %684
+688:                                              ; preds = %.thread629, %684
   %689 = call i32 (ptr, i64, ptr, ...) @pmix_snprintf(ptr noundef nonnull %9, i64 noundef 1024, ptr noundef nonnull @.str.78, ptr noundef nonnull %663) #18
   br label %692
 
-690:                                              ; preds = %.thread588
+690:                                              ; preds = %.thread629
   %691 = call i32 (ptr, i64, ptr, ...) @pmix_snprintf(ptr noundef nonnull %9, i64 noundef 1024, ptr noundef nonnull @.str.76, ptr noundef nonnull %663, ptr noundef nonnull %.0375) #18
   br label %692
 
@@ -10411,13 +10411,13 @@ pmix_obj_run_destructors.exit519:                 ; preds = %.lr.ph.i516, %628
 702:                                              ; preds = %700, %699
   %703 = load i8, ptr %80, align 1, !tbaa !186, !range !19, !noundef !20
   %704 = trunc nuw i8 %703 to i1
-  br i1 %704, label %705, label %.thread589
+  br i1 %704, label %705, label %.thread630
 
 705:                                              ; preds = %702
   %706 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %12, ptr noundef nonnull @.str.79) #18
   %.pre585 = load i8, ptr %80, align 1, !tbaa !186, !range !19
   %707 = trunc nuw i8 %.pre585 to i1
-  br i1 %707, label %708, label %.thread589
+  br i1 %707, label %708, label %.thread630
 
 708:                                              ; preds = %705
   %709 = load i64, ptr %65, align 8, !tbaa !168
@@ -10568,15 +10568,15 @@ pmix_obj_run_destructors.exit519:                 ; preds = %.lr.ph.i516, %628
   %776 = load ptr, ptr %6, align 8, !tbaa !166
   br label %.loopexit541
 
-.thread589:                                       ; preds = %702, %705
+.thread630:                                       ; preds = %702, %705
   %777 = load ptr, ptr %6, align 8, !tbaa !166
   %778 = load i64, ptr %65, align 8, !tbaa !168
   br label %.loopexit541
 
-.loopexit541:                                     ; preds = %.loopexit540, %735, %._crit_edge.thread, %.thread589
-  %.0396 = phi ptr [ %776, %._crit_edge.thread ], [ %777, %.thread589 ], [ %calloc, %735 ], [ %calloc, %.loopexit540 ]
-  %.0390 = phi i1 [ false, %._crit_edge.thread ], [ false, %.thread589 ], [ true, %735 ], [ true, %.loopexit540 ]
-  %.2385 = phi i64 [ %775, %._crit_edge.thread ], [ %778, %.thread589 ], [ %.1384, %735 ], [ %.1384, %.loopexit540 ]
+.loopexit541:                                     ; preds = %.loopexit540, %735, %._crit_edge.thread, %.thread630
+  %.0396 = phi ptr [ %776, %._crit_edge.thread ], [ %777, %.thread630 ], [ %calloc, %735 ], [ %calloc, %.loopexit540 ]
+  %.0390 = phi i1 [ false, %._crit_edge.thread ], [ false, %.thread630 ], [ true, %735 ], [ true, %.loopexit540 ]
+  %.2385 = phi i64 [ %775, %._crit_edge.thread ], [ %778, %.thread630 ], [ %.1384, %735 ], [ %.1384, %.loopexit540 ]
   %779 = load ptr, ptr %12, align 8, !tbaa !234
   %.not438 = icmp eq ptr %779, null
   br i1 %.not438, label %.loopexit539, label %.preheader538

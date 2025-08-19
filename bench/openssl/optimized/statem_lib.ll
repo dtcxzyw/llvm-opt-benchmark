@@ -594,10 +594,10 @@ select.unfold115:                                 ; preds = %85, %.thread114, %.
   br label %125
 
 125:                                              ; preds = %121, %117
-  %.sink135 = phi i64 [ 120, %117 ], [ %spec.select, %121 ]
+  %.sink141 = phi i64 [ 120, %117 ], [ %spec.select, %121 ]
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 2952
   %127 = load ptr, ptr %126, align 8, !tbaa !105
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 %.sink135
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 %.sink141
   %129 = atomicrmw add ptr %128, i32 1 monotonic, align 4
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %130, i8 0, i64 32, i1 false)
@@ -655,18 +655,18 @@ define range(i32 0, 786692) i32 @ssl_get_min_max_version(ptr noundef %0, ptr nou
   %.036 = phi ptr [ @dtls_version_table, %12 ], [ @tls_version_table, %4 ]
   store i32 0, ptr %1, align 4, !tbaa !101
   %.not60 = icmp eq ptr %3, null
-  br i1 %.not60, label %14, label %.thread63
+  br i1 %.not60, label %14, label %.thread70
 
 14:                                               ; preds = %13
   %15 = load i32, ptr %.036, align 16, !tbaa !94
   %.not55 = icmp eq i32 %15, 0
   br i1 %.not55, label %._crit_edge.thread, label %.lr.ph.split.us
 
-.thread63:                                        ; preds = %13
+.thread70:                                        ; preds = %13
   store i32 0, ptr %3, align 4, !tbaa !101
   %16 = load i32, ptr %.036, align 16, !tbaa !94
-  %.not5564 = icmp eq i32 %16, 0
-  br i1 %.not5564, label %._crit_edge.thread, label %.lr.ph.split
+  %.not5571 = icmp eq i32 %16, 0
+  br i1 %.not5571, label %._crit_edge.thread, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %14, %31
   %17 = phi i32 [ %33, %31 ], [ %15, %14 ]
@@ -723,12 +723,12 @@ define range(i32 0, 786692) i32 @ssl_get_min_max_version(ptr noundef %0, ptr nou
   %.not.us = icmp eq i32 %33, 0
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !97
 
-.lr.ph.split:                                     ; preds = %.thread63, %49
-  %34 = phi i32 [ %51, %49 ], [ %16, %.thread63 ]
-  %.03559 = phi ptr [ %50, %49 ], [ %.036, %.thread63 ]
-  %.03758 = phi i32 [ %.1, %49 ], [ 0, %.thread63 ]
-  %.03857 = phi i32 [ %.139, %49 ], [ 1, %.thread63 ]
-  %.04056 = phi i32 [ %.141, %49 ], [ 0, %.thread63 ]
+.lr.ph.split:                                     ; preds = %.thread70, %49
+  %34 = phi i32 [ %51, %49 ], [ %16, %.thread70 ]
+  %.03559 = phi ptr [ %50, %49 ], [ %.036, %.thread70 ]
+  %.03758 = phi i32 [ %.1, %49 ], [ 0, %.thread70 ]
+  %.03857 = phi i32 [ %.139, %49 ], [ 1, %.thread70 ]
+  %.04056 = phi i32 [ %.141, %49 ], [ 0, %.thread70 ]
   %35 = getelementptr inbounds nuw i8, ptr %.03559, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !96
   %37 = icmp eq ptr %36, null
@@ -755,39 +755,39 @@ define range(i32 0, 786692) i32 @ssl_get_min_max_version(ptr noundef %0, ptr nou
 
 45:                                               ; preds = %44
   %46 = load i32, ptr %39, align 8, !tbaa !87
-  br label %.sink.split72
+  br label %.sink.split79
 
 .thread51:                                        ; preds = %44
   %.not61 = icmp eq i32 %.04056, 0
   br i1 %.not61, label %47, label %.thread51.thread
 
 .thread51.thread:                                 ; preds = %.thread, %.thread51
-  %.2505467 = phi i32 [ %.04056, %.thread51 ], [ %34, %.thread ]
-  store i32 %.2505467, ptr %3, align 4, !tbaa !101
+  %.2505474 = phi i32 [ %.04056, %.thread51 ], [ %34, %.thread ]
+  store i32 %.2505474, ptr %3, align 4, !tbaa !101
   br label %47
 
 47:                                               ; preds = %.thread51.thread, %.thread51
-  %.2505468 = phi i32 [ %.2505467, %.thread51.thread ], [ 0, %.thread51 ]
+  %.2505475 = phi i32 [ %.2505474, %.thread51.thread ], [ 0, %.thread51 ]
   %48 = load i32, ptr %39, align 8, !tbaa !87
-  br label %.sink.split72
+  br label %.sink.split79
 
-.sink.split72:                                    ; preds = %45, %47
-  %.sink73 = phi i32 [ %48, %47 ], [ %46, %45 ]
-  %.141.ph = phi i32 [ %.2505468, %47 ], [ %.04056, %45 ]
+.sink.split79:                                    ; preds = %45, %47
+  %.sink80 = phi i32 [ %48, %47 ], [ %46, %45 ]
+  %.141.ph = phi i32 [ %.2505475, %47 ], [ %.04056, %45 ]
   %.1.ph = phi i32 [ %48, %47 ], [ %.03758, %45 ]
-  store i32 %.sink73, ptr %1, align 4, !tbaa !101
+  store i32 %.sink80, ptr %1, align 4, !tbaa !101
   br label %49
 
-49:                                               ; preds = %.sink.split72, %.thread, %43, %.lr.ph.split
-  %.141 = phi i32 [ 0, %.lr.ph.split ], [ %.04056, %43 ], [ %34, %.thread ], [ %.141.ph, %.sink.split72 ]
-  %.139 = phi i32 [ 1, %.lr.ph.split ], [ 1, %43 ], [ 1, %.thread ], [ 0, %.sink.split72 ]
-  %.1 = phi i32 [ %.03758, %.lr.ph.split ], [ %.03758, %43 ], [ %.03758, %.thread ], [ %.1.ph, %.sink.split72 ]
+49:                                               ; preds = %.sink.split79, %.thread, %43, %.lr.ph.split
+  %.141 = phi i32 [ 0, %.lr.ph.split ], [ %.04056, %43 ], [ %34, %.thread ], [ %.141.ph, %.sink.split79 ]
+  %.139 = phi i32 [ 1, %.lr.ph.split ], [ 1, %43 ], [ 1, %.thread ], [ 0, %.sink.split79 ]
+  %.1 = phi i32 [ %.03758, %.lr.ph.split ], [ %.03758, %43 ], [ %.03758, %.thread ], [ %.1.ph, %.sink.split79 ]
   %50 = getelementptr inbounds nuw i8, ptr %.03559, i64 24
   %51 = load i32, ptr %50, align 8, !tbaa !94
   %.not = icmp eq i32 %51, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !97
 
-._crit_edge.thread:                               ; preds = %14, %.thread63
+._crit_edge.thread:                               ; preds = %14, %.thread70
   store i32 0, ptr %2, align 4, !tbaa !101
   br label %53
 
@@ -1784,13 +1784,13 @@ define range(i32 0, 2) i32 @tls_construct_finished(ptr noundef %0, ptr noundef %
   br label %38
 
 38:                                               ; preds = %36, %.thread
-  %.sink71 = phi i64 [ 32, %.thread ], [ 48, %36 ]
-  %.sink69 = phi i64 [ 40, %.thread ], [ 56, %36 ]
+  %.sink72 = phi i64 [ 32, %.thread ], [ 48, %36 ]
+  %.sink70 = phi i64 [ 40, %.thread ], [ 56, %36 ]
   %39 = load ptr, ptr %11, align 8, !tbaa !93
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 216
   %41 = load ptr, ptr %40, align 8, !tbaa !82
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %.sink71
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %.sink69
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %.sink72
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %.sink70
   %.049 = load i64, ptr %43, align 8, !tbaa !72
   %.050 = load ptr, ptr %42, align 8, !tbaa !78
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 24
@@ -2274,10 +2274,10 @@ define range(i32 0, 2) i32 @tls_process_finished(ptr noundef %0, ptr noundef rea
   %81 = load i32, ptr %13, align 8, !tbaa !100
   %.not88 = icmp eq i32 %81, 0
   %. = select i1 %.not88, i64 1128, i64 1056
-  %.111 = select i1 %.not88, i64 1192, i64 1120
+  %.113 = select i1 %.not88, i64 1192, i64 1120
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %82, ptr nonnull align 8 %74, i64 %70, i1 false)
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 %.111
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 %.113
   store i64 %70, ptr %83, align 8, !tbaa !72
   %84 = load ptr, ptr %42, align 8, !tbaa !81
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 216
@@ -2647,18 +2647,18 @@ PACKET_get_net_3.exit.thread:                     ; preds = %44, %47
   br label %146
 
 .thread:                                          ; preds = %65, %72, %95
-  %.0104129 = phi i64 [ %90, %95 ], [ %60, %72 ], [ %60, %65 ]
-  %.val.i.i89128 = phi i64 [ %92, %95 ], [ %60, %72 ], [ %60, %65 ]
+  %.0104137 = phi i64 [ %90, %95 ], [ %60, %72 ], [ %60, %65 ]
+  %.val.i.i89136 = phi i64 [ %92, %95 ], [ %60, %72 ], [ %60, %65 ]
   %98 = phi ptr [ %91, %95 ], [ %61, %72 ], [ %61, %65 ]
   store ptr %98, ptr %6, align 8, !tbaa !78
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 %.0104129
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 %.0104137
   store ptr %99, ptr %1, align 8, !tbaa !147
-  %100 = sub nuw nsw i64 %.val.i.i89128, %.0104129
+  %100 = sub nuw nsw i64 %.val.i.i89136, %.0104137
   store i64 %100, ptr %45, align 8, !tbaa !145
   %101 = load ptr, ptr %8, align 8, !tbaa !119
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 1152
   %103 = load ptr, ptr %102, align 8, !tbaa !134
-  %104 = call ptr @d2i_PUBKEY_ex(ptr noundef null, ptr noundef nonnull %6, i64 noundef %.0104129, ptr noundef %101, ptr noundef %103) #11
+  %104 = call ptr @d2i_PUBKEY_ex(ptr noundef null, ptr noundef nonnull %6, i64 noundef %.0104137, ptr noundef %101, ptr noundef %103) #11
   %105 = icmp ne ptr %104, null
   %106 = load ptr, ptr %6, align 8
   %.not66 = icmp eq ptr %106, %99
@@ -2702,7 +2702,7 @@ PACKET_get_net_3.exit.thread:                     ; preds = %44, %47
 121:                                              ; preds = %118
   %.val78 = load i64, ptr %45, align 8, !tbaa !145
   %122 = add nsw i64 %60, -3
-  %123 = sub nsw i64 %122, %.0104129
+  %123 = sub nsw i64 %122, %.0104137
   %.not70 = icmp eq i64 %.val78, %123
   br i1 %.not70, label %125, label %124
 
@@ -3555,8 +3555,8 @@ define range(i32 0, 2) i32 @tls_get_message_header(ptr noundef %0, ptr noundef w
   %.not66 = icmp ne i32 %66, 1
   %.pre77 = load i8, ptr %10, align 1, !tbaa !148
   %67 = icmp eq i8 %.pre77, 0
-  %or.cond78 = select i1 %.not66, i1 %67, i1 false
-  br i1 %or.cond78, label %68, label %.critedge
+  %or.cond81 = select i1 %.not66, i1 %67, i1 false
+  br i1 %or.cond81, label %68, label %.critedge
 
 68:                                               ; preds = %65
   %69 = load i8, ptr %15, align 1, !tbaa !148
@@ -4575,8 +4575,8 @@ ssl_version_cmp.exit91:                           ; preds = %80, %82, %62
   br i1 %.not75, label %89, label %PACKET_as_length_prefixed_1.exit.thread
 
 .outer._crit_edge.thread:                         ; preds = %.preheader
-  %.not75171 = icmp eq i64 %53, 0
-  %spec.select186 = select i1 %.not75171, i32 258, i32 159
+  %.not75183 = icmp eq i64 %53, 0
+  %spec.select198 = select i1 %.not75183, i32 258, i32 159
   br label %PACKET_as_length_prefixed_1.exit.thread
 
 89:                                               ; preds = %.outer._crit_edge
@@ -4606,7 +4606,7 @@ ssl_version_cmp.exit91:                           ; preds = %80, %82, %62
   br label %PACKET_as_length_prefixed_1.exit.thread
 
 PACKET_as_length_prefixed_1.exit.thread:          ; preds = %.outer._crit_edge.thread, %51, %49, %89, %94, %93, %.outer._crit_edge, %55
-  %.1 = phi i32 [ 292, %55 ], [ 159, %.outer._crit_edge ], [ %., %93 ], [ %.84, %94 ], [ 258, %89 ], [ 159, %49 ], [ 159, %51 ], [ %spec.select186, %.outer._crit_edge.thread ]
+  %.1 = phi i32 [ 292, %55 ], [ 159, %.outer._crit_edge ], [ %., %93 ], [ %.84, %94 ], [ 258, %89 ], [ 159, %49 ], [ 159, %51 ], [ %spec.select198, %.outer._crit_edge.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ssl_version_cmp.exit
 
@@ -4887,21 +4887,21 @@ define range(i32 0, 2) i32 @ssl_choose_client_version(ptr noundef %0, i32 nounde
 24:                                               ; preds = %14, %.thread
   %.064102 = phi ptr [ @tls_version_table, %.thread ], [ @dtls_version_table, %14 ]
   %25 = load i32, ptr %.064102, align 16, !tbaa !94
-  %.not5564.i = icmp eq i32 %25, 0
-  br i1 %.not5564.i, label %._crit_edge.thread.i, label %.lr.ph.split.i
+  %.not5571.i = icmp eq i32 %25, 0
+  br i1 %.not5571.i, label %._crit_edge.thread.i, label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %24, %.sink.split72.i
-  %.096 = phi i32 [ %.197, %.sink.split72.i ], [ 0, %24 ]
-  %.1 = phi i32 [ %.2, %.sink.split72.i ], [ 0, %24 ]
-  %26 = phi i32 [ %42, %.sink.split72.i ], [ %25, %24 ]
-  %.03559.i = phi ptr [ %41, %.sink.split72.i ], [ %.064102, %24 ]
-  %.03758.i = phi i32 [ %.1.i, %.sink.split72.i ], [ 0, %24 ]
-  %.03857.i = phi i32 [ %.139.i, %.sink.split72.i ], [ 1, %24 ]
-  %.04056.i = phi i32 [ %.141.i, %.sink.split72.i ], [ 0, %24 ]
+.lr.ph.split.i:                                   ; preds = %24, %.sink.split79.i
+  %.096 = phi i32 [ %.197, %.sink.split79.i ], [ 0, %24 ]
+  %.1 = phi i32 [ %.2, %.sink.split79.i ], [ 0, %24 ]
+  %26 = phi i32 [ %42, %.sink.split79.i ], [ %25, %24 ]
+  %.03559.i = phi ptr [ %41, %.sink.split79.i ], [ %.064102, %24 ]
+  %.03758.i = phi i32 [ %.1.i, %.sink.split79.i ], [ 0, %24 ]
+  %.03857.i = phi i32 [ %.139.i, %.sink.split79.i ], [ 1, %24 ]
+  %.04056.i = phi i32 [ %.141.i, %.sink.split79.i ], [ 0, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.03559.i, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !96
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.sink.split72.i, label %30
+  br i1 %29, label %.sink.split79.i, label %30
 
 30:                                               ; preds = %.lr.ph.split.i
   %31 = tail call ptr %28() #11
@@ -4913,10 +4913,10 @@ define range(i32 0, 2) i32 @ssl_choose_client_version(ptr noundef %0, i32 nounde
   br i1 %or.cond.i, label %.thread.i, label %35
 
 35:                                               ; preds = %30
-  br i1 %.not4549.i, label %36, label %.sink.split72.i
+  br i1 %.not4549.i, label %36, label %.sink.split79.i
 
 .thread.i:                                        ; preds = %30
-  br i1 %.not4549.i, label %.thread51.thread.i, label %.sink.split72.i
+  br i1 %.not4549.i, label %.thread51.thread.i, label %.sink.split79.i
 
 36:                                               ; preds = %35
   %.not46.i = icmp eq i32 %.03857.i, 0
@@ -4924,7 +4924,7 @@ define range(i32 0, 2) i32 @ssl_choose_client_version(ptr noundef %0, i32 nounde
 
 37:                                               ; preds = %36
   %38 = load i32, ptr %31, align 8, !tbaa !87
-  br label %.sink.split72.i
+  br label %.sink.split79.i
 
 .thread51.i:                                      ; preds = %36
   %spec.select = select i1 %33, i32 %.1, i32 %.04056.i
@@ -4932,15 +4932,15 @@ define range(i32 0, 2) i32 @ssl_choose_client_version(ptr noundef %0, i32 nounde
 
 .thread51.thread.i:                               ; preds = %.thread51.i, %.thread.i
   %.4 = phi i32 [ %26, %.thread.i ], [ %spec.select, %.thread51.i ]
-  %.2505468.i = phi i32 [ %26, %.thread.i ], [ %.04056.i, %.thread51.i ]
+  %.2505475.i = phi i32 [ %26, %.thread.i ], [ %.04056.i, %.thread51.i ]
   %39 = load i32, ptr %31, align 8, !tbaa !87
   %40 = freeze i32 %39
-  br label %.sink.split72.i
+  br label %.sink.split79.i
 
-.sink.split72.i:                                  ; preds = %37, %.thread51.thread.i, %.thread.i, %35, %.lr.ph.split.i
+.sink.split79.i:                                  ; preds = %37, %.thread51.thread.i, %.thread.i, %35, %.lr.ph.split.i
   %.197 = phi i32 [ %.096, %.lr.ph.split.i ], [ %.096, %.thread.i ], [ %.096, %35 ], [ %40, %.thread51.thread.i ], [ %38, %37 ]
   %.2 = phi i32 [ %.1, %.lr.ph.split.i ], [ %.1, %.thread.i ], [ %.1, %35 ], [ %.4, %.thread51.thread.i ], [ %.1, %37 ]
-  %.141.i = phi i32 [ 0, %.lr.ph.split.i ], [ %26, %.thread.i ], [ %.04056.i, %35 ], [ %.2505468.i, %.thread51.thread.i ], [ %.04056.i, %37 ]
+  %.141.i = phi i32 [ 0, %.lr.ph.split.i ], [ %26, %.thread.i ], [ %.04056.i, %35 ], [ %.2505475.i, %.thread51.thread.i ], [ %.04056.i, %37 ]
   %.139.i = phi i32 [ 1, %.lr.ph.split.i ], [ 1, %.thread.i ], [ 1, %35 ], [ 0, %.thread51.thread.i ], [ 0, %37 ]
   %.1.i = phi i32 [ %.03758.i, %.lr.ph.split.i ], [ %.03758.i, %.thread.i ], [ %.03758.i, %35 ], [ %40, %.thread51.thread.i ], [ %.03758.i, %37 ]
   %41 = getelementptr inbounds nuw i8, ptr %.03559.i, i64 24
@@ -4948,7 +4948,7 @@ define range(i32 0, 2) i32 @ssl_choose_client_version(ptr noundef %0, i32 nounde
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !97
 
-._crit_edge.i:                                    ; preds = %.sink.split72.i
+._crit_edge.i:                                    ; preds = %.sink.split79.i
   %43 = icmp eq i32 %.1.i, 0
   br i1 %43, label %._crit_edge.thread.i, label %ssl_get_min_max_version.exit
 
@@ -5440,7 +5440,7 @@ PACKET_get_length_prefixed_2.exit:                ; preds = %9
   %29 = load i8, ptr %28, align 1, !tbaa !148
   %30 = zext i8 %29 to i64
   %31 = or disjoint i64 %27, %30
-  %32 = add i64 %.sroa.7.062, -2
+  %32 = add nsw i64 %.sroa.7.062, -2
   %33 = icmp ult i64 %32, %31
   br i1 %33, label %PACKET_get_net_2.exit.thread, label %34
 
@@ -5454,7 +5454,7 @@ PACKET_get_net_2.exit.thread:                     ; preds = %24, %.lr.ph
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.063, i64 2
   store ptr %35, ptr %3, align 8, !tbaa !78
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %31
-  %37 = sub nuw i64 %32, %31
+  %37 = sub nuw nsw i64 %32, %31
   %38 = call ptr @d2i_X509_NAME(ptr noundef null, ptr noundef nonnull %3, i64 noundef %31) #11
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %41

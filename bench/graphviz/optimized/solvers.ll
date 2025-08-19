@@ -139,9 +139,9 @@ define range(i32 0, 5) i32 @solve3(ptr noundef readonly captures(none) %0, ptr n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %58, %92
-  %.sink69 = phi i64 [ 8, %92 ], [ 16, %58 ]
+  %.sink71 = phi i64 [ 8, %92 ], [ 16, %58 ]
   %.sink = phi double [ %93, %92 ], [ %81, %58 ]
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink69
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink71
   store double %.sink, ptr %95, align 8, !tbaa !3
   br label %96
 

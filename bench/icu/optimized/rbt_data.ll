@@ -308,13 +308,13 @@ _ZNK6icu_779Hashtable11nextElementERi.exit:       ; preds = %_ZN6icu_779Hashtabl
   br i1 %83, label %99, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit.thread, %.loopexit
-  %.03077 = phi i32 [ %77, %.loopexit.thread ], [ %.030.ph, %.loopexit ]
+  %.03081 = phi i32 [ %77, %.loopexit.thread ], [ %.030.ph, %.loopexit ]
   %84 = phi ptr [ %74, %.loopexit.thread ], [ %.ph, %.loopexit ]
-  %85 = icmp sgt i32 %.03077, 0
+  %85 = icmp sgt i32 %.03081, 0
   br i1 %85, label %.lr.ph63.preheader, label %._crit_edge
 
 .lr.ph63.preheader:                               ; preds = %.preheader
-  %86 = zext nneg i32 %.03077 to i64
+  %86 = zext nneg i32 %.03081 to i64
   br label %.lr.ph63
 
 ._crit_edge.loopexit:                             ; preds = %96

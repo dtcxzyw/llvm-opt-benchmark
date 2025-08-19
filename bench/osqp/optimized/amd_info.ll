@@ -43,7 +43,7 @@ define void @amd_l_info(ptr noundef readonly captures(address_is_null) %0) local
 
 5:                                                ; preds = %3, %1
   %.not134 = icmp eq ptr %0, null
-  br i1 %.not134, label %.thread166, label %6
+  br i1 %.not134, label %.thread206, label %6
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -241,7 +241,7 @@ define void @amd_l_info(ptr noundef readonly captures(address_is_null) %0) local
 113:                                              ; preds = %111, %105
   %114 = phi ptr [ %.pr, %111 ], [ %106, %105 ]
   %.not141 = icmp eq ptr %114, null
-  br i1 %.not141, label %.thread166, label %115
+  br i1 %.not141, label %.thread206, label %115
 
 115:                                              ; preds = %113
   %116 = tail call i32 (ptr, ...) %114(ptr noundef nonnull @.str.16) #2
@@ -324,7 +324,7 @@ define void @amd_l_info(ptr noundef readonly captures(address_is_null) %0) local
   %or.cond7 = and i1 %or.cond5, %140
   %154 = icmp ne ptr %153, null
   %or.cond37 = select i1 %or.cond7, i1 %154, i1 false
-  br i1 %or.cond37, label %155, label %.thread166
+  br i1 %or.cond37, label %155, label %.thread206
 
 155:                                              ; preds = %152
   %156 = fadd double %8, %10
@@ -336,9 +336,9 @@ define void @amd_l_info(ptr noundef readonly captures(address_is_null) %0) local
   %162 = fmul double %14, 8.000000e+00
   %163 = tail call double @llvm.fmuladd.f64(double %10, double 9.000000e+00, double %162)
   %164 = tail call i32 (ptr, ...) %153(ptr noundef nonnull @.str.23, double noundef %157, double noundef %158, double noundef %160, double noundef %161, double noundef %163) #2
-  br label %.thread166
+  br label %.thread206
 
-.thread166:                                       ; preds = %113, %152, %155, %5
+.thread206:                                       ; preds = %113, %152, %155, %5
   ret void
 }
 

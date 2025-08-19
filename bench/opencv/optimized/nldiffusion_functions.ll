@@ -1325,7 +1325,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit119:              ; preds = %52
   %142 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %143 = load i32, ptr %142, align 4, !tbaa !89
   %144 = icmp sgt i32 %143, 2
-  %145 = sitofp i32 %3 to float
+  %145 = uitofp nneg i32 %3 to float
   br i1 %144, label %.lr.ph.us147.preheader, label %._crit_edge145
 
 .lr.ph.us147.preheader:                           ; preds = %.lr.ph144
@@ -1501,7 +1501,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %203
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %206
-  %210 = sitofp i32 %3 to float
+  %210 = uitofp nneg i32 %3 to float
   %211 = fdiv float %.072.lcssa, %210
   %212 = fmul float %128, %211
   %.093 = select i1 %.lcssa, float 0x3F9EB851E0000000, float %212
@@ -1840,12 +1840,12 @@ _ZNSt6vectorIfSaIfEE6assignEmRKf.exit:            ; preds = %_ZNSt6vectorIfSaIfE
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit, %81
-  %.sink118 = phi float [ -1.000000e+00, %81 ], [ %35, %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit ]
-  %.sink116 = phi float [ 0.000000e+00, %81 ], [ %41, %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit ]
+  %.sink120 = phi float [ -1.000000e+00, %81 ], [ %35, %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit ]
+  %.sink118 = phi float [ 0.000000e+00, %81 ], [ %41, %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit ]
   %.sink = phi float [ 1.000000e+00, %81 ], [ %35, %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit ]
-  store float %.sink118, ptr %.sroa.0.2, align 4, !tbaa !36
+  store float %.sink120, ptr %.sroa.0.2, align 4, !tbaa !36
   %82 = getelementptr inbounds nuw float, ptr %.sroa.0.2, i64 %39
-  store float %.sink116, ptr %82, align 4, !tbaa !36
+  store float %.sink118, ptr %82, align 4, !tbaa !36
   %83 = getelementptr inbounds nuw float, ptr %.sroa.0.2, i64 %40
   store float %.sink, ptr %83, align 4, !tbaa !36
   br label %84

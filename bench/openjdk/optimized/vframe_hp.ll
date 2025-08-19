@@ -1619,10 +1619,10 @@ _ZNK6HandleclEv.exit50:                           ; preds = %130, %134
   br i1 %144, label %_ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE4pushERKS1_.exit48.sink.split, label %_ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE4pushERKS1_.exit48
 
 _ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE4pushERKS1_.exit48.sink.split: ; preds = %_ZNK6HandleclEv.exit50, %_ZNK6HandleclEv.exit43
-  %.sink93 = phi i32 [ %127, %_ZNK6HandleclEv.exit43 ], [ %142, %_ZNK6HandleclEv.exit50 ]
+  %.sink106 = phi i32 [ %127, %_ZNK6HandleclEv.exit43 ], [ %142, %_ZNK6HandleclEv.exit50 ]
   %.sink.ph = phi ptr [ %120, %_ZNK6HandleclEv.exit43 ], [ %131, %_ZNK6HandleclEv.exit50 ]
-  %145 = add nsw i32 %.sink93, 1
-  %146 = icmp sgt i32 %.sink93, -1
+  %145 = add nsw i32 %.sink106, 1
+  %146 = icmp sgt i32 %.sink106, -1
   %147 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %145)
   %148 = icmp samesign ult i32 %147, 2
   %or.cond.i.i.i.i.i52 = select i1 %146, i1 %148, i1 false
@@ -1635,12 +1635,12 @@ _ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE4pushERKS1_.e
   br label %_ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE4pushERKS1_.exit48
 
 _ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE4pushERKS1_.exit48: ; preds = %_ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE4pushERKS1_.exit48.sink.split, %_ZNK6HandleclEv.exit50, %_ZNK6HandleclEv.exit43
-  %.sink82 = phi i32 [ %127, %_ZNK6HandleclEv.exit43 ], [ %142, %_ZNK6HandleclEv.exit50 ], [ %.pre.i.i54, %_ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE4pushERKS1_.exit48.sink.split ]
+  %.sink95 = phi i32 [ %127, %_ZNK6HandleclEv.exit43 ], [ %142, %_ZNK6HandleclEv.exit50 ], [ %.pre.i.i54, %_ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE4pushERKS1_.exit48.sink.split ]
   %.sink = phi ptr [ %120, %_ZNK6HandleclEv.exit43 ], [ %131, %_ZNK6HandleclEv.exit50 ], [ %.sink.ph, %_ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE4pushERKS1_.exit48.sink.split ]
-  %152 = add nsw i32 %.sink82, 1
+  %152 = add nsw i32 %.sink95, 1
   store i32 %152, ptr %45, align 8
   %153 = load ptr, ptr %55, align 8
-  %154 = sext i32 %.sink82 to i64
+  %154 = sext i32 %.sink95 to i64
   %155 = getelementptr inbounds ptr, ptr %153, i64 %154
   store ptr %.sink, ptr %155, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2934,7 +2934,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP26jvmtiDeferre
   br i1 %.not, label %_ZN13GrowableArrayIP26jvmtiDeferredLocalVariableE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -2946,8 +2946,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP26jvmtiDeferre
   br label %_ZN13GrowableArrayIP26jvmtiDeferredLocalVariableE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP26jvmtiDeferredLocalVariableE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP26jvmtiDeferredLocalVariableE10deallocateEPS1_.exit

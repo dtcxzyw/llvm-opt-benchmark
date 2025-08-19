@@ -1206,12 +1206,12 @@ _ZL27hasUnrollAndJamEnablePragmaPKN4llvm4LoopE.exit.i.i: ; preds = %307, %_ZL28u
   br label %.critedge.i28.i.sink.split, !llvm.loop !164
 
 .critedge.i28.i.sink.split:                       ; preds = %335, %..critedge.i28.i.loopexit_crit_edge21
-  %indvars.i.lcssa28.sink = phi i32 [ 0, %..critedge.i28.i.loopexit_crit_edge21 ], [ %indvars.i, %335 ]
-  store i32 %indvars.i.lcssa28.sink, ptr %77, align 4, !tbaa !146
+  %indvars.i.lcssa52.sink = phi i32 [ 0, %..critedge.i28.i.loopexit_crit_edge21 ], [ %indvars.i, %335 ]
+  store i32 %indvars.i.lcssa52.sink, ptr %77, align 4, !tbaa !146
   br label %.critedge.i28.i
 
 .critedge.i28.i:                                  ; preds = %.critedge.i28.i.sink.split, %.lr.ph.i.i, %.preheader145.i.i, %317
-  %338 = phi i32 [ 0, %.preheader145.i.i ], [ %.pre32.i, %317 ], [ %.pre32.i, %.lr.ph.i.i ], [ %indvars.i.lcssa28.sink, %.critedge.i28.i.sink.split ]
+  %338 = phi i32 [ 0, %.preheader145.i.i ], [ %.pre32.i, %317 ], [ %.pre32.i, %.lr.ph.i.i ], [ %indvars.i.lcssa52.sink, %.critedge.i28.i.sink.split ]
   br i1 %311, label %_ZL24computeUnrollAndJamCountPN4llvm4LoopES1_RKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPNS_25OptimizationRemarkEmitterEjjRKNS_19UnrollCostEstimatorEjjRNS2_20UnrollingPreferencesERNS2_18PeelingPreferencesE.exit.i, label %339
 
 339:                                              ; preds = %.critedge.i28.i
@@ -1234,8 +1234,8 @@ _ZL27hasUnrollAndJamEnablePragmaPKN4llvm4LoopE.exit.i.i: ; preds = %307, %_ZL28u
   %351 = sub i64 %349, %350
   %.not107.i.i = icmp ne i64 %351, 8
   %.not108153.i.i = icmp eq ptr %346, %348
-  %or.cond36.i = or i1 %.not108153.i.i, %.not107.i.i
-  br i1 %or.cond36.i, label %_ZL24computeUnrollAndJamCountPN4llvm4LoopES1_RKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPNS_25OptimizationRemarkEmitterEjjRKNS_19UnrollCostEstimatorEjjRNS2_20UnrollingPreferencesERNS2_18PeelingPreferencesE.exit.thread.i, label %.lr.ph156.i.i
+  %or.cond58.i = or i1 %.not108153.i.i, %.not107.i.i
+  br i1 %or.cond58.i, label %_ZL24computeUnrollAndJamCountPN4llvm4LoopES1_RKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPNS_25OptimizationRemarkEmitterEjjRKNS_19UnrollCostEstimatorEjjRNS2_20UnrollingPreferencesERNS2_18PeelingPreferencesE.exit.thread.i, label %.lr.ph156.i.i
 
 ._crit_edge157.i.i:                               ; preds = %._crit_edge.i29.i
   %352 = icmp eq i32 %.197.lcssa.i.i, 0

@@ -822,12 +822,12 @@ define internal void @after_value(ptr noundef captures(none) %0, ptr readnone ca
   br label %22
 
 22:                                               ; preds = %17, %21
-  %.sink154 = phi i1 [ false, %21 ], [ true, %17 ]
+  %.sink169 = phi i1 [ false, %21 ], [ true, %17 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 408
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call fastcc ptr @get_json_string(ptr noundef %26, ptr noundef %2, i1 noundef zeroext %.sink154)
+  %27 = tail call fastcc ptr @get_json_string(ptr noundef %26, ptr noundef %2, i1 noundef zeroext %.sink169)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = icmp eq ptr %16, null
   %30 = icmp eq ptr %27, null
@@ -950,7 +950,7 @@ proto_item_set_hidden.exit147:                    ; preds = %84, %81, %proto_ite
   tail call void @wmem_list_prepend(ptr noundef %88, ptr noundef %16)
   %89 = load ptr, ptr %12, align 8
   tail call void @wmem_list_prepend(ptr noundef %89, ptr noundef %14)
-  switch i32 %9, label %default.unreachable [
+  switch i32 %9, label %default.unreachable166 [
     i32 1, label %90
     i32 0, label %107
     i32 2, label %114
@@ -1026,7 +1026,7 @@ proto_item_set_hidden.exit147:                    ; preds = %84, %81, %proto_ite
   %137 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %133, ptr noundef %134, i32 noundef %135, i32 noundef %136, i32 noundef 0)
   br label %138
 
-default.unreachable:                              ; preds = %proto_item_set_hidden.exit147
+default.unreachable166:                           ; preds = %proto_item_set_hidden.exit147
   unreachable
 
 138:                                              ; preds = %93, %96, %102, %132, %126, %120, %114, %107
@@ -1100,7 +1100,7 @@ default.unreachable:                              ; preds = %proto_item_set_hidd
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %191 = load i32, ptr %190, align 8
   %192 = icmp eq i32 %191, 6
-  br i1 %192, label %193, label %.thread152
+  br i1 %192, label %193, label %.thread167
 
 193:                                              ; preds = %189
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %188, ptr noundef nonnull @.str.128)
@@ -1110,19 +1110,19 @@ default.unreachable:                              ; preds = %proto_item_set_hidd
 
 thread-pre-split:                                 ; preds = %193
   %.pr = load i32, ptr %190, align 8
-  br label %.thread152
+  br label %.thread167
 
-.thread152:                                       ; preds = %189, %thread-pre-split
+.thread167:                                       ; preds = %189, %thread-pre-split
   %195 = phi i32 [ %.pr, %thread-pre-split ], [ %191, %189 ]
   %196 = icmp eq i32 %195, 5
   br i1 %196, label %197, label %.thread149
 
-197:                                              ; preds = %.thread152
+197:                                              ; preds = %.thread167
   %198 = tail call ptr @proto_tree_get_parent(ptr noundef %179)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %198, ptr noundef nonnull @.str.147, ptr noundef %186)
   br label %204
 
-.thread149:                                       ; preds = %176, %.thread152, %193
+.thread149:                                       ; preds = %176, %.thread167, %193
   %199 = load i32, ptr @hf_json_array_item_raw, align 4
   %200 = load ptr, ptr %45, align 8
   %201 = load i32, ptr %47, align 8
@@ -2128,20 +2128,20 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr noundef readonly
   br i1 %spec.select.i, label %97, label %.thread170.i
 
 97:                                               ; preds = %96, %91
-  %.10209.i = phi i64 [ %.9.i, %91 ], [ %.6.i, %96 ]
-  %.4153208.i = phi i32 [ %95, %91 ], [ %.0149.lcssa.i, %96 ]
-  %98 = call i32 @g_unichar_validate(i32 noundef %.4153208.i) #9
+  %.10220.i = phi i64 [ %.9.i, %91 ], [ %.6.i, %96 ]
+  %.4153219.i = phi i32 [ %95, %91 ], [ %.0149.lcssa.i, %96 ]
+  %98 = call i32 @g_unichar_validate(i32 noundef %.4153219.i) #9
   %.not165.i = icmp eq i32 %98, 0
   br i1 %.not165.i, label %.thread176.i, label %99
 
 99:                                               ; preds = %97
-  %100 = call i32 @g_unichar_isprint(i32 noundef %.4153208.i) #9
+  %100 = call i32 @g_unichar_isprint(i32 noundef %.4153219.i) #9
   %.not166.i = icmp eq i32 %100, 0
   br i1 %.not166.i, label %.thread176.i, label %101
 
 101:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %102 = call i32 @g_unichar_to_utf8(i32 noundef %.4153208.i, ptr noundef nonnull %4)
+  %102 = call i32 @g_unichar_to_utf8(i32 noundef %.4153219.i, ptr noundef nonnull %4)
   %103 = icmp sgt i32 %102, 0
   br i1 %103, label %.lr.ph194.preheader.i, label %._crit_edge.i
 
@@ -2172,7 +2172,7 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr noundef readonly
   unreachable
 
 .thread176.i:                                     ; preds = %.lr.ph.i, %.thread170.i, %._crit_edge.i, %99, %97, %47, %45, %43, %41, %39, %37, %.preheader.i
-  %.3.i = phi i64 [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %.10174.i, %.thread170.i ], [ %.10209.i, %._crit_edge.i ], [ %.10209.i, %99 ], [ %.10209.i, %97 ], [ %.0129195.i, %.preheader.i ], [ %27, %.lr.ph.i ]
+  %.3.i = phi i64 [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %.10174.i, %.thread170.i ], [ %.10220.i, %._crit_edge.i ], [ %.10220.i, %99 ], [ %.10220.i, %97 ], [ %.0129195.i, %.preheader.i ], [ %27, %.lr.ph.i ]
   %107 = icmp ult i64 %.3.i, %14
   br i1 %107, label %.lr.ph197.i, label %json_string_unescape.exit
 

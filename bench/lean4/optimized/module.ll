@@ -185,22 +185,22 @@ define ptr @lean_save_module_data_parts(ptr noundef %0, ptr noundef %1, ptr noun
 27:                                               ; preds = %3
   %.val.i.i.i.i = load i32, ptr %0, align 4, !tbaa !3
   %28 = icmp sgt i32 %.val.i.i.i.i, 0
-  br i1 %28, label %.thread313, label %31, !prof !8
+  br i1 %28, label %.thread378, label %31, !prof !8
 
-.thread313:                                       ; preds = %27
+.thread378:                                       ; preds = %27
   %29 = add nuw nsw i32 %.val.i.i.i.i, 1
   store i32 %29, ptr %0, align 4, !tbaa !3
   %30 = getelementptr i8, ptr %0, i64 24
-  %.val.i.i.i314 = load i64, ptr %30, align 8, !tbaa !9
+  %.val.i.i.i379 = load i64, ptr %30, align 8, !tbaa !9
   br label %36
 
 31:                                               ; preds = %27
   %.not.i.i.i.i = icmp eq i32 %.val.i.i.i.i, 0
-  br i1 %.not.i.i.i.i, label %.thread319, label %33
+  br i1 %.not.i.i.i.i, label %.thread384, label %33
 
-.thread319:                                       ; preds = %31
+.thread384:                                       ; preds = %31
   %32 = getelementptr i8, ptr %0, i64 24
-  %.val.i.i.i317 = load i64, ptr %32, align 8, !tbaa !9
+  %.val.i.i.i382 = load i64, ptr %32, align 8, !tbaa !9
   br label %_ZN4lean10object_refD2Ev.exit
 
 33:                                               ; preds = %31
@@ -211,9 +211,9 @@ define ptr @lean_save_module_data_parts(ptr noundef %0, ptr noundef %1, ptr noun
   %35 = icmp sgt i32 %.pr, 1
   br i1 %35, label %36, label %39, !prof !11
 
-36:                                               ; preds = %.thread313, %33
-  %.val.i.i.i315 = phi i64 [ %.val.i.i.i314, %.thread313 ], [ %.val.i.i.i, %33 ]
-  %37 = phi i32 [ %29, %.thread313 ], [ %.pr, %33 ]
+36:                                               ; preds = %.thread378, %33
+  %.val.i.i.i380 = phi i64 [ %.val.i.i.i379, %.thread378 ], [ %.val.i.i.i, %33 ]
+  %37 = phi i32 [ %29, %.thread378 ], [ %.pr, %33 ]
   %38 = add nsw i32 %37, -1
   store i32 %38, ptr %0, align 4, !tbaa !3
   br label %_ZN4lean10object_refD2Ev.exit
@@ -233,8 +233,8 @@ define ptr @lean_save_module_data_parts(ptr noundef %0, ptr noundef %1, ptr noun
   tail call void @__clang_call_terminate(ptr %43) #28
   unreachable
 
-_ZN4lean10object_refD2Ev.exit:                    ; preds = %.thread319, %3, %36, %39, %40
-  %.0.i.i.i211 = phi i64 [ %.val.i.i.i315, %36 ], [ %.val.i.i.i, %39 ], [ %.val.i.i.i, %40 ], [ 1723, %3 ], [ %.val.i.i.i317, %.thread319 ]
+_ZN4lean10object_refD2Ev.exit:                    ; preds = %.thread384, %3, %36, %39, %40
+  %.0.i.i.i211 = phi i64 [ %.val.i.i.i380, %36 ], [ %.val.i.i.i, %39 ], [ %.val.i.i.i, %40 ], [ 1723, %3 ], [ %.val.i.i.i382, %.thread384 ]
   %44 = urem i64 %.0.i.i.i211, 139637976727552
   %45 = and i64 %44, 140737488289792
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -5542,9 +5542,9 @@ _ZNSt12_Vector_baseIN4lean11module_fileESaIS1_EE13_M_deallocateEPS1_m.exit: ; pr
   br label %109
 
 .body.thread:                                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %.body
-  %.sink42 = phi { ptr, i32 } [ %100, %.body ], [ %52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
+  %.sink55 = phi { ptr, i32 } [ %100, %.body ], [ %52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
   %.0.lpad-body38 = phi ptr [ %60, %.body ], [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
-  %105 = extractvalue { ptr, i32 } %.sink42, 0
+  %105 = extractvalue { ptr, i32 } %.sink55, 0
   %106 = tail call ptr @__cxa_begin_catch(ptr %105) #27
   invoke void @_ZSt8_DestroyIPN4lean11module_fileEEvT_S3_(ptr noundef nonnull %22, ptr noundef nonnull %.0.lpad-body38)
           to label %109 unwind label %107

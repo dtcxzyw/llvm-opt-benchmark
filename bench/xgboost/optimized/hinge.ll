@@ -1142,18 +1142,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !48
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #35
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #35
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !12
@@ -1187,7 +1187,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -5435,11 +5435,11 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForImZNS_6linalg21ElementW
 .split.i8.i.i:                                    ; preds = %27
   %37 = udiv i32 %28, %31
   %38 = mul i32 %37, %31
-  %.recomposed143 = urem i32 %28, %31
+  %.recomposed155 = urem i32 %28, %31
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i: ; preds = %.split.i8.i.i, %.split.us.i11.i.i
-  %.us-phi.i9.i.i = phi i32 [ %.recomposed143, %.split.i8.i.i ], [ %36, %.split.us.i11.i.i ]
+  %.us-phi.i9.i.i = phi i32 [ %.recomposed155, %.split.i8.i.i ], [ %36, %.split.us.i11.i.i ]
   %.us-phi23.i10.i.i = phi i32 [ %37, %.split.i8.i.i ], [ %35, %.split.us.i11.i.i ]
   %.sroa.5.1.le.i.i.i = zext i32 %.us-phi.i9.i.i to i64
   %39 = zext i32 %.us-phi23.i10.i.i to i64
@@ -5673,7 +5673,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 126:                                              ; preds = %125
   %127 = add nuw i64 %.057104, 1
   %exitcond124.not = icmp eq i64 %127, %0
-  br i1 %exitcond124.not, label %thread-pre-split127, label %125, !llvm.loop !224
+  br i1 %exitcond124.not, label %thread-pre-split139, label %125, !llvm.loop !224
 
 128:                                              ; preds = %125
   %129 = landingpad { ptr, i32 }
@@ -5709,7 +5709,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 133:                                              ; preds = %132
   %134 = add nuw i64 %.059102, 1
   %exitcond123.not = icmp eq i64 %134, %0
-  br i1 %exitcond123.not, label %thread-pre-split127, label %132, !llvm.loop !225
+  br i1 %exitcond123.not, label %thread-pre-split139, label %132, !llvm.loop !225
 
 135:                                              ; preds = %132
   %136 = landingpad { ptr, i32 }
@@ -5726,7 +5726,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 138:                                              ; preds = %137
   %139 = add nuw i64 %.060100, 1
   %exitcond122.not = icmp eq i64 %139, %0
-  br i1 %exitcond122.not, label %thread-pre-split127, label %137, !llvm.loop !226
+  br i1 %exitcond122.not, label %thread-pre-split139, label %137, !llvm.loop !226
 
 140:                                              ; preds = %137
   %141 = landingpad { ptr, i32 }
@@ -5762,7 +5762,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 145:                                              ; preds = %144
   %146 = add nuw i64 %.06198, 1
   %exitcond121.not = icmp eq i64 %146, %0
-  br i1 %exitcond121.not, label %thread-pre-split127, label %144, !llvm.loop !227
+  br i1 %exitcond121.not, label %thread-pre-split139, label %144, !llvm.loop !227
 
 147:                                              ; preds = %144
   %148 = landingpad { ptr, i32 }
@@ -5779,7 +5779,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 150:                                              ; preds = %149
   %151 = add nuw i64 %.05896, 1
   %exitcond120.not = icmp eq i64 %151, %0
-  br i1 %exitcond120.not, label %thread-pre-split127, label %149, !llvm.loop !228
+  br i1 %exitcond120.not, label %thread-pre-split139, label %149, !llvm.loop !228
 
 152:                                              ; preds = %149
   %153 = landingpad { ptr, i32 }
@@ -5796,19 +5796,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 155:                                              ; preds = %154
   %156 = add nuw i64 %.05395, 1
   %exitcond.not = icmp eq i64 %156, %0
-  br i1 %exitcond.not, label %thread-pre-split127, label %154, !llvm.loop !229
+  br i1 %exitcond.not, label %thread-pre-split139, label %154, !llvm.loop !229
 
 157:                                              ; preds = %154
   %158 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split127:                              ; preds = %155, %150, %145, %138, %133, %126
+thread-pre-split139:                              ; preds = %155, %150, %145, %138, %133, %126
   %.pr83.pr = load ptr, ptr %11, align 8, !tbaa !230
   br label %159
 
-159:                                              ; preds = %thread-pre-split127, %.preheader84, %.preheader85, %.preheader87, %.preheader89, %.preheader91, %.preheader93
-  %.pr83 = phi ptr [ %.pr83.pr, %thread-pre-split127 ], [ null, %.preheader84 ], [ null, %.preheader85 ], [ null, %.preheader87 ], [ null, %.preheader89 ], [ null, %.preheader91 ], [ null, %.preheader93 ]
+159:                                              ; preds = %thread-pre-split139, %.preheader84, %.preheader85, %.preheader87, %.preheader89, %.preheader91, %.preheader93
+  %.pr83 = phi ptr [ %.pr83.pr, %thread-pre-split139 ], [ null, %.preheader84 ], [ null, %.preheader85 ], [ null, %.preheader87 ], [ null, %.preheader89 ], [ null, %.preheader91 ], [ null, %.preheader93 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i76 = icmp eq ptr %.pr83, null
   br i1 %.not.i76, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -5911,11 +5911,11 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementW
 .split.i8.i.i:                                    ; preds = %16
   %26 = udiv i32 %17, %20
   %27 = mul i32 %26, %20
-  %.recomposed18 = urem i32 %17, %20
+  %.recomposed19 = urem i32 %17, %20
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i: ; preds = %.split.i8.i.i, %.split.us.i11.i.i
-  %.us-phi.i9.i.i = phi i32 [ %.recomposed18, %.split.i8.i.i ], [ %25, %.split.us.i11.i.i ]
+  %.us-phi.i9.i.i = phi i32 [ %.recomposed19, %.split.i8.i.i ], [ %25, %.split.us.i11.i.i ]
   %.us-phi23.i10.i.i = phi i32 [ %26, %.split.i8.i.i ], [ %24, %.split.us.i11.i.i ]
   %.sroa.5.1.le.i.i.i = zext i32 %.us-phi.i9.i.i to i64
   %28 = zext i32 %.us-phi23.i10.i.i to i64
@@ -6306,7 +6306,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 58:                                               ; preds = %.lr.ph93
   %59 = add nuw i64 %.04492, 1
   %exitcond112.not = icmp eq i64 %59, %0
-  br i1 %exitcond112.not, label %thread-pre-split115, label %.lr.ph93, !llvm.loop !253
+  br i1 %exitcond112.not, label %thread-pre-split126, label %.lr.ph93, !llvm.loop !253
 
 60:                                               ; preds = %.lr.ph93
   %61 = landingpad { ptr, i32 }
@@ -6332,7 +6332,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 64:                                               ; preds = %.lr.ph91
   %65 = add nuw i64 %.04390, 1
   %exitcond111.not = icmp eq i64 %65, %0
-  br i1 %exitcond111.not, label %thread-pre-split115, label %.lr.ph91, !llvm.loop !254
+  br i1 %exitcond111.not, label %thread-pre-split126, label %.lr.ph91, !llvm.loop !254
 
 66:                                               ; preds = %.lr.ph91
   %67 = landingpad { ptr, i32 }
@@ -6347,7 +6347,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 68:                                               ; preds = %.lr.ph89
   %69 = add nuw i64 %.04288, 1
   %exitcond110.not = icmp eq i64 %69, %0
-  br i1 %exitcond110.not, label %thread-pre-split115, label %.lr.ph89, !llvm.loop !255
+  br i1 %exitcond110.not, label %thread-pre-split126, label %.lr.ph89, !llvm.loop !255
 
 70:                                               ; preds = %.lr.ph89
   %71 = landingpad { ptr, i32 }
@@ -6373,7 +6373,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 74:                                               ; preds = %.lr.ph87
   %75 = add nuw i64 %.04186, 1
   %exitcond109.not = icmp eq i64 %75, %0
-  br i1 %exitcond109.not, label %thread-pre-split115, label %.lr.ph87, !llvm.loop !256
+  br i1 %exitcond109.not, label %thread-pre-split126, label %.lr.ph87, !llvm.loop !256
 
 76:                                               ; preds = %.lr.ph87
   %77 = landingpad { ptr, i32 }
@@ -6388,7 +6388,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 78:                                               ; preds = %.lr.ph85
   %79 = add nuw i64 %.04084, 1
   %exitcond108.not = icmp eq i64 %79, %0
-  br i1 %exitcond108.not, label %thread-pre-split115, label %.lr.ph85, !llvm.loop !257
+  br i1 %exitcond108.not, label %thread-pre-split126, label %.lr.ph85, !llvm.loop !257
 
 80:                                               ; preds = %.lr.ph85
   %81 = landingpad { ptr, i32 }
@@ -6403,19 +6403,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 82:                                               ; preds = %.lr.ph
   %83 = add nuw i64 %.083, 1
   %exitcond.not = icmp eq i64 %83, %0
-  br i1 %exitcond.not, label %thread-pre-split115, label %.lr.ph, !llvm.loop !258
+  br i1 %exitcond.not, label %thread-pre-split126, label %.lr.ph, !llvm.loop !258
 
 84:                                               ; preds = %.lr.ph
   %85 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split115:                              ; preds = %82, %78, %74, %68, %64, %58
+thread-pre-split126:                              ; preds = %82, %78, %74, %68, %64, %58
   %.pr71.pr = load ptr, ptr %11, align 8, !tbaa !230
   br label %86
 
-86:                                               ; preds = %thread-pre-split115, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
-  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split115 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
+86:                                               ; preds = %thread-pre-split126, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
+  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split126 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i64 = icmp eq ptr %.pr71, null
   br i1 %.not.i64, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i

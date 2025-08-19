@@ -377,9 +377,9 @@ define dso_local void @_ZN4absl19substitute_internal3ArgC2EPKv(ptr noundef nonnu
   br label %19
 
 19:                                               ; preds = %2, %13
-  %.sink14 = phi i64 [ %18, %13 ], [ 4, %2 ]
+  %.sink15 = phi i64 [ %18, %13 ], [ 4, %2 ]
   %.sink = phi ptr [ %15, %13 ], [ @.str.3, %2 ]
-  store i64 %.sink14, ptr %0, align 8, !tbaa !19
+  store i64 %.sink15, ptr %0, align 8, !tbaa !19
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !20
   ret void

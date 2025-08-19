@@ -211,14 +211,14 @@ define internal void @"_ZN10tokio_util4sync4mpsc19make_acquire_future28_$u7b$$u7
   %5 = alloca [48 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load i8, ptr %6, align 8, !range !33, !noundef !9
-  switch i8 %7, label %default.unreachable20 [
+  switch i8 %7, label %default.unreachable23 [
     i8 0, label %8
     i8 1, label %22
     i8 2, label %23
     i8 3, label %24
   ]
 
-default.unreachable20:                            ; preds = %37, %24, %3
+default.unreachable23:                            ; preds = %37, %24, %3
   unreachable
 
 8:                                                ; preds = %3
@@ -278,7 +278,7 @@ default.unreachable20:                            ; preds = %37, %24, %3
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !33, !noalias !39
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  switch i8 %.pre, label %default.unreachable20 [
+  switch i8 %.pre, label %default.unreachable23 [
     i8 0, label %.thread.i
     i8 1, label %35
     i8 2, label %36
@@ -326,7 +326,7 @@ default.unreachable20:                            ; preds = %37, %24, %3
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !42, !noalias !43
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i.i)
-  switch i8 %.pre.i, label %default.unreachable20 [
+  switch i8 %.pre.i, label %default.unreachable23 [
     i8 0, label %._crit_edge15
     i8 1, label %46
     i8 2, label %47
@@ -1523,12 +1523,12 @@ define internal fastcc void @_ZN5alloc7raw_vec11finish_grow17h64e60e3e47cf6fa7E(
   %30 = icmp eq ptr %.sroa.012.0.i.i.pn, null
   %31 = inttoptr i64 %1 to ptr
   %spec.select = select i1 %30, ptr %31, ptr %.sroa.012.0.i.i.pn
-  %spec.select4 = zext i1 %30 to i64
+  %spec.select6 = zext i1 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %33, align 8
-  store i64 %spec.select4, ptr %0, align 8
+  store i64 %spec.select6, ptr %0, align 8
   ret void
 }
 

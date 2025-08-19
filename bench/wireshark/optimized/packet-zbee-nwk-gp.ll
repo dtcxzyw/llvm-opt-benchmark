@@ -542,12 +542,12 @@ define internal void @gp_uat_key_records_byte_order_set_cb(ptr noundef writeonly
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -555,10 +555,10 @@ define internal void @gp_uat_key_records_byte_order_set_cb(ptr noundef writeonly
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !6
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !6
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -567,7 +567,7 @@ define internal void @gp_uat_key_records_byte_order_set_cb(ptr noundef writeonly
   store i8 %19, ptr %8, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -585,11 +585,11 @@ define internal void @gp_uat_key_records_byte_order_tostr_cb(ptr noundef readonl
   %10 = zext i8 %9 to i32
   %11 = load i32, ptr %3, align 8
   %12 = icmp eq i32 %11, %10
-  br i1 %12, label %._crit_edge21, label %.lr.ph20
+  br i1 %12, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %18
-  %.01519 = phi i32 [ %13, %18 ], [ 0, %.lr.ph ]
-  %13 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %18
+  %.01520 = phi i32 [ %13, %18 ], [ 0, %.lr.ph ]
+  %13 = add i32 %.01520, 1
   %14 = zext i32 %13 to i64
   %15 = getelementptr %struct._value_string, ptr %3, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -597,12 +597,12 @@ define internal void @gp_uat_key_records_byte_order_tostr_cb(ptr noundef readonl
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %._crit_edge, label %18, !llvm.loop !8
 
-18:                                               ; preds = %.lr.ph20
+18:                                               ; preds = %.lr.ph21
   %19 = load i32, ptr %15, align 8
   %20 = icmp eq i32 %19, %10
-  br i1 %20, label %._crit_edge21, label %.lr.ph20, !llvm.loop !8
+  br i1 %20, label %._crit_edge22, label %.lr.ph21, !llvm.loop !8
 
-._crit_edge21:                                    ; preds = %18, %.lr.ph
+._crit_edge22:                                    ; preds = %18, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %17, %18 ]
   %21 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %21, ptr %1, align 8
@@ -610,13 +610,13 @@ define internal void @gp_uat_key_records_byte_order_tostr_cb(ptr noundef readonl
   %23 = trunc i64 %22 to i32
   br label %25
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %24 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.296)
   store ptr %24, ptr %1, align 8
   br label %25
 
-25:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 6, %._crit_edge ], [ %23, %._crit_edge21 ]
+25:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 6, %._crit_edge ], [ %23, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -915,10 +915,10 @@ define internal i32 @dissect_zbee_nwk_gp(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %30, label %44, label %41
 
 41:                                               ; preds = %8
-  %.not239 = icmp eq i8 %28, 0
-  br i1 %.not239, label %65, label %.thread229
+  %.not243 = icmp eq i8 %28, 0
+  br i1 %.not243, label %65, label %.thread233
 
-.thread229:                                       ; preds = %41
+.thread233:                                       ; preds = %41
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i8 0, ptr %43, align 4
@@ -958,14 +958,14 @@ define internal i32 @dissect_zbee_nwk_gp(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not, label %76, label %65
 
 65:                                               ; preds = %44, %41, %63
-  %.0151216 = phi i32 [ 2, %44 ], [ 1, %41 ], [ 2, %63 ]
+  %.0151220 = phi i32 [ 2, %44 ], [ 1, %41 ], [ 2, %63 ]
   %66 = phi i8 [ 0, %44 ], [ 0, %41 ], [ %48, %63 ]
   %67 = phi i8 [ %51, %44 ], [ 0, %41 ], [ %51, %63 ]
-  %68 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0151216)
+  %68 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0151220)
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %68, ptr %69, align 8
   %70 = load i32, ptr @hf_zbee_nwk_gp_zgpd_src_id, align 4
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %70, ptr noundef %0, i32 noundef %.0151216, i32 noundef 4, i32 noundef -2147483648)
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %70, ptr noundef %0, i32 noundef %.0151220, i32 noundef 4, i32 noundef -2147483648)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.306, i32 noundef %68)
   %72 = load ptr, ptr %12, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %72, i32 noundef 25, ptr noundef nonnull @.str.306, i32 noundef %68)
@@ -973,7 +973,7 @@ define internal i32 @dissect_zbee_nwk_gp(ptr noundef %0, ptr noundef %1, ptr nou
   tail call void @col_clear(ptr noundef %73, i32 noundef 37)
   %74 = load ptr, ptr %12, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %74, i32 noundef 37, ptr noundef nonnull @.str.307, i32 noundef %68)
-  %75 = or disjoint i32 %.0151216, 4
+  %75 = or disjoint i32 %.0151220, 4
   br label %76
 
 76:                                               ; preds = %65, %63, %61
@@ -1003,8 +1003,8 @@ define internal i32 @dissect_zbee_nwk_gp(ptr noundef %0, ptr noundef %1, ptr nou
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i8 0, ptr %91, align 4
   %switch = icmp ult i8 %90, 3
-  %or.cond237 = and i1 %30, %switch
-  br i1 %or.cond237, label %92, label %104
+  %or.cond241 = and i1 %30, %switch
+  br i1 %or.cond241, label %92, label %104
 
 92:                                               ; preds = %89
   %93 = icmp eq i8 %78, 1
@@ -1031,12 +1031,12 @@ define internal i32 @dissect_zbee_nwk_gp(ptr noundef %0, ptr noundef %1, ptr nou
   %103 = add nuw nsw i32 %.2, 4
   br label %104
 
-104:                                              ; preds = %.thread229, %98, %96, %95, %89
-  %105 = phi ptr [ %91, %95 ], [ %91, %98 ], [ %91, %96 ], [ %91, %89 ], [ %43, %.thread229 ]
-  %106 = phi i8 [ 1, %95 ], [ %78, %98 ], [ %78, %96 ], [ %78, %89 ], [ 0, %.thread229 ]
-  %107 = phi ptr [ %79, %95 ], [ %79, %98 ], [ %79, %96 ], [ %79, %89 ], [ %42, %.thread229 ]
-  %108 = phi i8 [ 2, %95 ], [ 4, %98 ], [ 0, %96 ], [ 0, %89 ], [ 0, %.thread229 ]
-  %.3 = phi i32 [ %.2, %95 ], [ %103, %98 ], [ %.2, %96 ], [ %.2, %89 ], [ 1, %.thread229 ]
+104:                                              ; preds = %.thread233, %98, %96, %95, %89
+  %105 = phi ptr [ %91, %95 ], [ %91, %98 ], [ %91, %96 ], [ %91, %89 ], [ %43, %.thread233 ]
+  %106 = phi i8 [ 1, %95 ], [ %78, %98 ], [ %78, %96 ], [ %78, %89 ], [ 0, %.thread233 ]
+  %107 = phi ptr [ %79, %95 ], [ %79, %98 ], [ %79, %96 ], [ %79, %89 ], [ %42, %.thread233 ]
+  %108 = phi i8 [ 2, %95 ], [ 4, %98 ], [ 0, %96 ], [ 0, %89 ], [ 0, %.thread233 ]
+  %.3 = phi i32 [ %.2, %95 ], [ %103, %98 ], [ %.2, %96 ], [ %.2, %89 ], [ 1, %.thread233 ]
   %109 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %110 = zext nneg i8 %108 to i32
   %111 = add nuw nsw i32 %.3, %110
@@ -2279,9 +2279,9 @@ define internal fastcc noundef zeroext i1 @zbee_gp_security_parse_key(ptr nounde
   store i8 %.13748.us, ptr %21, align 1
   %22 = getelementptr i8, ptr %.14147.us, i64 1
   %23 = add nsw i32 %.03549.us, -1
-  %.not56 = icmp eq i32 %.03549.us, 0
+  %.not57 = icmp eq i32 %.03549.us, 0
   %indvars.iv.next54 = add i64 %indvars.iv53, %15
-  br i1 %.not56, label %.loopexit, label %.split.us, !llvm.loop !23
+  br i1 %.not57, label %.loopexit, label %.split.us, !llvm.loop !23
 
 .split:                                           ; preds = %.split.preheader, %41
   %indvars.iv = phi i64 [ %10, %.split.preheader ], [ %indvars.iv.next, %41 ]
@@ -2332,9 +2332,9 @@ define internal fastcc noundef zeroext i1 @zbee_gp_security_parse_key(ptr nounde
   %46 = getelementptr i8, ptr %.343, i64 2
   %.2 = load i8, ptr %42, align 1
   %47 = add nsw i32 %.03549, -1
-  %.not55 = icmp eq i32 %.03549, 0
+  %.not56 = icmp eq i32 %.03549, 0
   %indvars.iv.next = add i64 %indvars.iv, %11
-  br i1 %.not55, label %.loopexit, label %.split, !llvm.loop !23
+  br i1 %.not56, label %.loopexit, label %.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %27, %32, %41, %20, %.split.us, %3
   %.039 = phi i1 [ false, %3 ], [ %.not46.us.not.not, %.split.us ], [ %.not46.us.not.not, %20 ], [ true, %41 ], [ false, %32 ], [ false, %27 ]

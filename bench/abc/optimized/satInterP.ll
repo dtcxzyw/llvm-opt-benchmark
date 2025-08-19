@@ -1100,15 +1100,15 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %155, label %._crit_edge224.thread, label %158
 
 ._crit_edge224.thread:                            ; preds = %153, %._crit_edge224
-  %.0155.lcssa308 = phi i32 [ %.0155.lcssa, %._crit_edge224 ], [ %145, %153 ]
+  %.0155.lcssa322 = phi i32 [ %.0155.lcssa, %._crit_edge224 ], [ %145, %153 ]
   %156 = load i32, ptr %99, align 8, !tbaa !44
   %157 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %156, i32 noundef %106)
   br label %158
 
 158:                                              ; preds = %._crit_edge224.thread, %._crit_edge224
-  %.0155.lcssa307 = phi i32 [ %.0155.lcssa308, %._crit_edge224.thread ], [ %.0155.lcssa, %._crit_edge224 ]
+  %.0155.lcssa321 = phi i32 [ %.0155.lcssa322, %._crit_edge224.thread ], [ %.0155.lcssa, %._crit_edge224 ]
   %159 = load ptr, ptr %97, align 8, !tbaa !16
-  %160 = zext i32 %.0155.lcssa307 to i64
+  %160 = zext i32 %.0155.lcssa321 to i64
   %161 = getelementptr inbounds nuw i32, ptr %159, i64 %160
   %162 = load i32, ptr %161, align 4, !tbaa !46
   %163 = getelementptr inbounds nuw i8, ptr %114, i64 32
@@ -1126,7 +1126,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %170 = load i32, ptr %98, align 8, !tbaa !64
   %171 = add nsw i32 %170, -1
   store i32 %171, ptr %98, align 8, !tbaa !64
-  %172 = icmp slt i32 %.0155.lcssa307, %171
+  %172 = icmp slt i32 %.0155.lcssa321, %171
   br i1 %172, label %.lr.ph231, label %.preheader209
 
 .lr.ph231:                                        ; preds = %169
@@ -1635,7 +1635,7 @@ define range(i32 0, 2) i32 @Intp_ManProofRecordOne(ptr noundef captures(none) %0
 31:                                               ; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %33 = load ptr, ptr %32, align 8, !tbaa !21
-  %calloc158 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
+  %calloc176 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !17
   %36 = load i32, ptr %33, align 8, !tbaa !19
@@ -1701,7 +1701,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store i32 %62, ptr %34, align 4, !tbaa !17
   %63 = sext i32 %61 to i64
   %64 = getelementptr inbounds ptr, ptr %60, i64 %63
-  store ptr %calloc158, ptr %64, align 8, !tbaa !42
+  store ptr %calloc176, ptr %64, align 8, !tbaa !42
   br label %.loopexit
 
 65:                                               ; preds = %.lr.ph111, %81
@@ -1847,7 +1847,7 @@ Intp_ManCancelUntil.exit:                         ; preds = %124, %._crit_edge11
   store i32 %113, ptr %114, align 8, !tbaa !52
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %132 = load ptr, ptr %131, align 8, !tbaa !21
-  %calloc157 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
+  %calloc175 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %134 = load i32, ptr %133, align 4, !tbaa !17
   %135 = load i32, ptr %132, align 8, !tbaa !19
@@ -1913,7 +1913,7 @@ Vec_PtrPush.exit82:                               ; preds = %.Vec_PtrGrow.exit11
   store i32 %161, ptr %133, align 4, !tbaa !17
   %162 = sext i32 %160 to i64
   %163 = getelementptr inbounds ptr, ptr %159, i64 %162
-  store ptr %calloc157, ptr %163, align 8, !tbaa !42
+  store ptr %calloc175, ptr %163, align 8, !tbaa !42
   br label %.loopexit
 
 .critedge:                                        ; preds = %.preheader106.lr.ph, %._crit_edge118, %91
@@ -2617,9 +2617,9 @@ Vec_IntPush.exit39:                               ; preds = %.Vec_IntGrow.exit10
 
 .sink.split:                                      ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit39
   %.sink = phi i32 [ %86, %Vec_IntPush.exit39 ], [ %42, %Vec_IntPush.exit ]
-  %.sink43 = phi ptr [ %85, %Vec_IntPush.exit39 ], [ %41, %Vec_IntPush.exit ]
+  %.sink50 = phi ptr [ %85, %Vec_IntPush.exit39 ], [ %41, %Vec_IntPush.exit ]
   %88 = sext i32 %.sink to i64
-  %89 = getelementptr inbounds i32, ptr %.sink43, i64 %88
+  %89 = getelementptr inbounds i32, ptr %.sink50, i64 %88
   store i32 %1, ptr %89, align 4, !tbaa !46
   br label %90
 

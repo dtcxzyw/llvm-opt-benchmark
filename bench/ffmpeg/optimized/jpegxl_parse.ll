@@ -389,8 +389,8 @@ jpegxl_width_from_ratio.exit.thread.i:            ; preds = %jpegxl_width_from_r
   br label %jxl_u32.exit23.sink.split.i
 
 jxl_u32.exit23.sink.split.i:                      ; preds = %243, %241
-  %.sink46.i = phi i32 [ %247, %243 ], [ %242, %241 ]
-  %248 = tail call i32 @llvm.umin.i32(i32 %114, i32 %.sink46.i)
+  %.sink49.i = phi i32 [ %247, %243 ], [ %242, %241 ]
+  %248 = tail call i32 @llvm.umin.i32(i32 %114, i32 %.sink49.i)
   store i32 %248, ptr %48, align 8, !tbaa !15
   br label %jxl_u32.exit23.i
 
@@ -579,8 +579,8 @@ jpegxl_width_from_ratio.exit37.thread.i:          ; preds = %jpegxl_width_from_r
   br label %jxl_u32.exit29.sink.split.i
 
 jxl_u32.exit29.sink.split.i:                      ; preds = %348, %346
-  %.sink48.i = phi i32 [ %352, %348 ], [ %347, %346 ]
-  %353 = tail call i32 @llvm.umin.i32(i32 %114, i32 %.sink48.i)
+  %.sink51.i = phi i32 [ %352, %348 ], [ %347, %346 ]
+  %353 = tail call i32 @llvm.umin.i32(i32 %114, i32 %.sink51.i)
   store i32 %353, ptr %48, align 8, !tbaa !15
   br label %jxl_u32.exit29.i
 
@@ -823,8 +823,8 @@ jxl_u32.exit229:                                  ; preds = %jxl_u32.exit, %get_
   br label %518
 
 .sink.split:                                      ; preds = %494, %492
-  %.sink374 = phi i32 [ %493, %492 ], [ %498, %494 ]
-  %500 = tail call i32 @llvm.umin.i32(i32 %114, i32 %.sink374)
+  %.sink402 = phi i32 [ %493, %492 ], [ %498, %494 ]
+  %500 = tail call i32 @llvm.umin.i32(i32 %114, i32 %.sink402)
   store i32 %500, ptr %48, align 8, !tbaa !15
   br label %501
 
@@ -1124,8 +1124,8 @@ jxl_enum.exit.i:                                  ; preds = %get_bits_long.exit.
   br label %jxl_u32.exit42.sink.split.i
 
 jxl_u32.exit42.sink.split.i:                      ; preds = %667, %665
-  %.sink67.i = phi i32 [ %671, %667 ], [ %666, %665 ]
-  %672 = tail call i32 @llvm.umin.i32(i32 %649, i32 %.sink67.i)
+  %.sink72.i = phi i32 [ %671, %667 ], [ %666, %665 ]
+  %672 = tail call i32 @llvm.umin.i32(i32 %649, i32 %.sink72.i)
   store i32 %672, ptr %48, align 8, !tbaa !15
   br label %jxl_u32.exit42.i
 
@@ -1293,8 +1293,8 @@ get_bits_long.exit48.i:                           ; preds = %702, %696
   br label %jxl_u32.exit.sink.split.i
 
 jxl_u32.exit.sink.split.i:                        ; preds = %757, %755
-  %.sink69.i = phi i32 [ %761, %757 ], [ %756, %755 ]
-  %762 = tail call i32 @llvm.umin.i32(i32 %725, i32 %.sink69.i)
+  %.sink74.i = phi i32 [ %761, %757 ], [ %756, %755 ]
+  %762 = tail call i32 @llvm.umin.i32(i32 %725, i32 %.sink74.i)
   store i32 %762, ptr %48, align 8, !tbaa !15
   br label %jxl_u32.exit.i285
 
@@ -2796,18 +2796,18 @@ bytestream2_get_be64.exit:                        ; preds = %36, %bytestream2_ge
 
 .thread.thread:                                   ; preds = %34
   %43 = icmp eq i32 %.0.i71, 1886156906
-  br i1 %43, label %45, label %.thread124.thread175
+  br i1 %43, label %45, label %.thread124.thread176
 
-.thread124.thread175:                             ; preds = %.thread.thread
+.thread124.thread176:                             ; preds = %.thread.thread
   %44 = icmp eq i32 %.0.i71, 1668053098
-  %spec.select65178 = zext i1 %44 to i32
+  %spec.select65179 = zext i1 %44 to i32
   br label %.thread124.thread
 
 45:                                               ; preds = %.thread.thread, %.thread
   %46 = phi i64 [ 0, %.thread.thread ], [ %spec.select, %.thread ]
-  %.041108115174 = phi i64 [ 16, %.thread.thread ], [ %.041, %.thread ]
-  %.sroa.0.2106117170 = phi ptr [ %9, %.thread.thread ], [ %.sroa.0.2, %.thread ]
-  %47 = ptrtoint ptr %.sroa.0.2106117170 to i64
+  %.041108115175 = phi i64 [ 16, %.thread.thread ], [ %.041, %.thread ]
+  %.sroa.0.2106117171 = phi ptr [ %9, %.thread.thread ], [ %.sroa.0.2, %.thread ]
+  %47 = ptrtoint ptr %.sroa.0.2106117171 to i64
   %48 = sub i64 %10, %47
   %49 = trunc i64 %48 to i32
   %50 = icmp slt i32 %49, 4
@@ -2818,8 +2818,8 @@ bytestream2_get_be64.exit:                        ; preds = %36, %bytestream2_ge
   br i1 %52, label %bytestream2_get_be32.exit70.thread, label %bytestream2_get_be32.exit70
 
 bytestream2_get_be32.exit70:                      ; preds = %51
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.2106117170, i64 4
-  %54 = load i32, ptr %.sroa.0.2106117170, align 1, !tbaa !14
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.2106117171, i64 4
+  %54 = load i32, ptr %.sroa.0.2106117171, align 1, !tbaa !14
   %.fr = freeze i32 %54
   %.mask = lshr i32 %.fr, 7
   %.mask.lobit = and i32 %.mask, 1
@@ -2845,9 +2845,9 @@ bytestream2_get_be32.exit70.thread:               ; preds = %bytestream2_get_be3
   %.not60 = icmp eq i64 %spec.select, 0
   br i1 %.not60, label %.thread124.thread, label %63
 
-.thread124.thread:                                ; preds = %.thread124.thread175, %bytestream2_get_be32.exit70.thread, %.thread124
-  %spec.select65153 = phi i32 [ %spec.select65, %.thread124 ], [ %55, %bytestream2_get_be32.exit70.thread ], [ %spec.select65178, %.thread124.thread175 ]
-  %.sroa.0.3150 = phi ptr [ %.sroa.0.2, %.thread124 ], [ %.sroa.0.7123, %bytestream2_get_be32.exit70.thread ], [ %9, %.thread124.thread175 ]
+.thread124.thread:                                ; preds = %.thread124.thread176, %bytestream2_get_be32.exit70.thread, %.thread124
+  %spec.select65153 = phi i32 [ %spec.select65, %.thread124 ], [ %55, %bytestream2_get_be32.exit70.thread ], [ %spec.select65179, %.thread124.thread176 ]
+  %.sroa.0.3150 = phi ptr [ %.sroa.0.2, %.thread124 ], [ %.sroa.0.7123, %bytestream2_get_be32.exit70.thread ], [ %9, %.thread124.thread176 ]
   %60 = ptrtoint ptr %.sroa.0.3150 to i64
   %61 = sub i64 %10, %60
   %sext = shl i64 %61, 32
@@ -2855,11 +2855,11 @@ bytestream2_get_be32.exit70.thread:               ; preds = %bytestream2_get_be3
   br label %66
 
 63:                                               ; preds = %.thread124.thread154, %.thread124
-  %.041108115172 = phi i64 [ %.041108115174, %.thread124.thread154 ], [ %.041, %.thread124 ]
+  %.041108115173 = phi i64 [ %.041108115175, %.thread124.thread154 ], [ %.041, %.thread124 ]
   %spec.select65162 = phi i32 [ %55, %.thread124.thread154 ], [ %spec.select65, %.thread124 ]
   %.247161 = phi i64 [ %58, %.thread124.thread154 ], [ %spec.select, %.thread124 ]
   %.sroa.0.3160 = phi ptr [ %.sroa.0.7123, %.thread124.thread154 ], [ %.sroa.0.2, %.thread124 ]
-  %64 = add i64 %.041108115172, %.042
+  %64 = add i64 %.041108115173, %.042
   %65 = add i64 %64, %.247161
   br label %66
 

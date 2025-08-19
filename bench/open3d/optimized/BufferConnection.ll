@@ -840,7 +840,7 @@ _ZN7msgpack2v17sbuffer5writeEPKcm.exit:           ; preds = %._crit_edge.i, %_ZN
   br i1 %31, label %32, label %57
 
 32:                                               ; preds = %30
-  %.sroa.447.0.insert.ext = trunc nuw i32 %1 to i16
+  %.sroa.457.0.insert.ext = trunc nuw i32 %1 to i16
   %33 = load ptr, ptr %0, align 8, !tbaa !50
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i64, ptr %34, align 8, !tbaa !27
@@ -895,9 +895,9 @@ _ZN7msgpack2v17sbuffer5writeEPKcm.exit19:         ; preds = %._crit_edge.i8, %_Z
   %52 = phi i64 [ %36, %._crit_edge.i8 ], [ %.pre5.i17, %_ZN7msgpack2v17sbuffer13expand_bufferEm.exit.i16 ]
   %53 = phi ptr [ %.pre.i10, %._crit_edge.i8 ], [ %49, %_ZN7msgpack2v17sbuffer13expand_bufferEm.exit.i16 ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 %52
-  %.sroa.447.0.insert.shift = shl nuw i16 %.sroa.447.0.insert.ext, 8
-  %.sroa.046.0.insert.insert = or disjoint i16 %.sroa.447.0.insert.shift, 217
-  store i16 %.sroa.046.0.insert.insert, ptr %54, align 1
+  %.sroa.457.0.insert.shift = shl nuw i16 %.sroa.457.0.insert.ext, 8
+  %.sroa.056.0.insert.insert = or disjoint i16 %.sroa.457.0.insert.shift, 217
+  store i16 %.sroa.056.0.insert.insert, ptr %54, align 1
   %55 = load i64, ptr %33, align 8, !tbaa !25
   %56 = add i64 %55, 2
   store i64 %56, ptr %33, align 8, !tbaa !25
@@ -965,8 +965,8 @@ _ZN7msgpack2v17sbuffer5writeEPKcm.exit31:         ; preds = %._crit_edge.i20, %_
   %81 = phi ptr [ %.pre.i22, %._crit_edge.i20 ], [ %77, %_ZN7msgpack2v17sbuffer13expand_bufferEm.exit.i28 ]
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 %80
   store i8 -38, ptr %82, align 1
-  %.sroa.445.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 1
-  store i16 %rev.i, ptr %.sroa.445.0..sroa_idx, align 1
+  %.sroa.455.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 1
+  store i16 %rev.i, ptr %.sroa.455.0..sroa_idx, align 1
   %83 = load i64, ptr %61, align 8, !tbaa !25
   %84 = add i64 %83, 3
   store i64 %84, ptr %61, align 8, !tbaa !25
@@ -1255,8 +1255,8 @@ _ZN7msgpack2v17sbuffer5writeEPKcm.exit:           ; preds = %._crit_edge.i, %_ZN
   %28 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %24, %_ZN7msgpack2v17sbuffer13expand_bufferEm.exit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %27
   store i8 -46, ptr %29, align 1
-  %.sroa.497.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store i32 %7, ptr %.sroa.497.0..sroa_idx, align 1
+  %.sroa.4113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 1
+  store i32 %7, ptr %.sroa.4113.0..sroa_idx, align 1
   %30 = load i64, ptr %8, align 8, !tbaa !25
   %31 = add i64 %30, 5
   store i64 %31, ptr %8, align 8, !tbaa !25
@@ -1324,8 +1324,8 @@ _ZN7msgpack2v17sbuffer5writeEPKcm.exit27:         ; preds = %._crit_edge.i16, %_
   %56 = phi ptr [ %.pre.i18, %._crit_edge.i16 ], [ %52, %_ZN7msgpack2v17sbuffer13expand_bufferEm.exit.i24 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %55
   store i8 -47, ptr %57, align 1
-  %.sroa.495.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 1
-  store i16 %rev.i, ptr %.sroa.495.0..sroa_idx, align 1
+  %.sroa.4111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 1
+  store i16 %rev.i, ptr %.sroa.4111.0..sroa_idx, align 1
   %58 = load i64, ptr %36, align 8, !tbaa !25
   %59 = add i64 %58, 3
   store i64 %59, ptr %36, align 8, !tbaa !25
@@ -1387,9 +1387,9 @@ _ZN7msgpack2v17sbuffer5writeEPKcm.exit39:         ; preds = %._crit_edge.i28, %_
   %80 = phi i64 [ %64, %._crit_edge.i28 ], [ %.pre5.i37, %_ZN7msgpack2v17sbuffer13expand_bufferEm.exit.i36 ]
   %81 = phi ptr [ %.pre.i30, %._crit_edge.i28 ], [ %77, %_ZN7msgpack2v17sbuffer13expand_bufferEm.exit.i36 ]
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 %80
-  %.sroa.493.0.insert.shift = shl nsw i16 %.sroa.0.0.extract.trunc.i, 8
-  %.sroa.092.0.insert.insert = or disjoint i16 %.sroa.493.0.insert.shift, 208
-  store i16 %.sroa.092.0.insert.insert, ptr %82, align 1
+  %.sroa.4109.0.insert.shift = shl nsw i16 %.sroa.0.0.extract.trunc.i, 8
+  %.sroa.0108.0.insert.insert = or disjoint i16 %.sroa.4109.0.insert.shift, 208
+  store i16 %.sroa.0108.0.insert.insert, ptr %82, align 1
   %83 = load i64, ptr %61, align 8, !tbaa !25
   %84 = add i64 %83, 2
   store i64 %84, ptr %61, align 8, !tbaa !25
@@ -1520,9 +1520,9 @@ _ZN7msgpack2v17sbuffer5writeEPKcm.exit63:         ; preds = %._crit_edge.i52, %_
   %133 = phi i64 [ %117, %._crit_edge.i52 ], [ %.pre5.i61, %_ZN7msgpack2v17sbuffer13expand_bufferEm.exit.i60 ]
   %134 = phi ptr [ %.pre.i54, %._crit_edge.i52 ], [ %130, %_ZN7msgpack2v17sbuffer13expand_bufferEm.exit.i60 ]
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 %133
-  %.sroa.491.0.insert.shift = shl nuw i16 %.sroa.0.0.extract.trunc.i14, 8
-  %.sroa.090.0.insert.insert = or disjoint i16 %.sroa.491.0.insert.shift, 204
-  store i16 %.sroa.090.0.insert.insert, ptr %135, align 1
+  %.sroa.4107.0.insert.shift = shl nuw i16 %.sroa.0.0.extract.trunc.i14, 8
+  %.sroa.0106.0.insert.insert = or disjoint i16 %.sroa.4107.0.insert.shift, 204
+  store i16 %.sroa.0106.0.insert.insert, ptr %135, align 1
   %136 = load i64, ptr %114, align 8, !tbaa !25
   %137 = add i64 %136, 2
   store i64 %137, ptr %114, align 8, !tbaa !25
@@ -1590,8 +1590,8 @@ _ZN7msgpack2v17sbuffer5writeEPKcm.exit75:         ; preds = %._crit_edge.i64, %_
   %162 = phi ptr [ %.pre.i66, %._crit_edge.i64 ], [ %158, %_ZN7msgpack2v17sbuffer13expand_bufferEm.exit.i72 ]
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 %161
   store i8 -51, ptr %163, align 1
-  %.sroa.489.0..sroa_idx = getelementptr inbounds nuw i8, ptr %163, i64 1
-  store i16 %rev.i15, ptr %.sroa.489.0..sroa_idx, align 1
+  %.sroa.4105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %163, i64 1
+  store i16 %rev.i15, ptr %.sroa.4105.0..sroa_idx, align 1
   %164 = load i64, ptr %142, align 8, !tbaa !25
   %165 = add i64 %164, 3
   store i64 %165, ptr %142, align 8, !tbaa !25

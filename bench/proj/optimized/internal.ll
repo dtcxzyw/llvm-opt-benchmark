@@ -1042,8 +1042,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %.lo
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %68 = load i64, ptr %67, align 8, !tbaa !12, !noalias !56
-  %.not73 = icmp ult i64 %17, %68
-  br i1 %.not73, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i26, label %69
+  %.not93 = icmp ult i64 %17, %68
+  br i1 %.not93, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i26, label %69
 
 69:                                               ; preds = %._crit_edge
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i64 noundef %57, i64 noundef %68) #23
@@ -1054,12 +1054,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %.lo
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i26: ; preds = %._crit_edge.thread, %._crit_edge
   %70 = phi i64 [ %10, %._crit_edge.thread ], [ %68, %._crit_edge ]
-  %.015.lcssa65 = phi i64 [ 0, %._crit_edge.thread ], [ %57, %._crit_edge ]
+  %.015.lcssa85 = phi i64 [ 0, %._crit_edge.thread ], [ %57, %._crit_edge ]
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %71, ptr %7, align 8, !tbaa !3, !alias.scope !56
   %72 = load ptr, ptr %1, align 8, !tbaa !9, !noalias !56
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 %.015.lcssa65
-  %74 = sub nuw i64 %70, %.015.lcssa65
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 %.015.lcssa85
+  %74 = sub nuw i64 %70, %.015.lcssa85
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !56
   store i64 %74, ptr %4, align 8, !tbaa !13, !noalias !56
   %75 = icmp ugt i64 %74, 15
@@ -1464,12 +1464,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %.lo
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i27: ; preds = %._crit_edge.thread, %._crit_edge
   %76 = phi i64 [ %13, %._crit_edge.thread ], [ %73, %._crit_edge ]
-  %.016.lcssa66 = phi i64 [ 0, %._crit_edge.thread ], [ %61, %._crit_edge ]
+  %.016.lcssa86 = phi i64 [ 0, %._crit_edge.thread ], [ %61, %._crit_edge ]
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %77, ptr %7, align 8, !tbaa !3, !alias.scope !67
   %78 = load ptr, ptr %1, align 8, !tbaa !9, !noalias !67
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %.016.lcssa66
-  %80 = sub nuw i64 %76, %.016.lcssa66
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %.016.lcssa86
+  %80 = sub nuw i64 %76, %.016.lcssa86
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !67
   store i64 %80, ptr %4, align 8, !tbaa !13, !noalias !67
   %81 = icmp ugt i64 %80, 15

@@ -46,9 +46,9 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr noundef captur
   store i32 %12, ptr %13, align 4
   %14 = add nuw nsw i64 %9, 1
   %15 = icmp eq i64 %14, %7
-  br i1 %15, label %.preheader2, label %8, !llvm.loop !5
+  br i1 %15, label %.preheader4, label %8, !llvm.loop !5
 
-.preheader2:                                      ; preds = %8, %126
+.preheader4:                                      ; preds = %8, %126
   %16 = phi i64 [ %127, %126 ], [ 0, %8 ]
   %17 = phi i32 [ %133, %126 ], [ 1, %8 ]
   %18 = trunc i64 %16 to i32
@@ -111,7 +111,7 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr noundef captur
     i32 32, label %74
   ]
 
-69:                                               ; preds = %.preheader2
+69:                                               ; preds = %.preheader4
   %70 = icmp samesign ugt i64 %16, 6
   br i1 %70, label %135, label %71
 
@@ -120,7 +120,7 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr noundef captur
   %73 = load i32, ptr %72, align 4
   br label %115
 
-74:                                               ; preds = %.preheader2
+74:                                               ; preds = %.preheader4
   %75 = icmp samesign ugt i64 %16, 5
   br i1 %75, label %135, label %76
 
@@ -182,7 +182,7 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr noundef captur
   store i32 %124, ptr %125, align 4
   br label %126
 
-126:                                              ; preds = %115, %.preheader2
+126:                                              ; preds = %115, %.preheader4
   %127 = add nuw nsw i64 %16, 1
   %128 = shl i32 %17, 1
   %129 = and i32 %128, -16843010
@@ -191,7 +191,7 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr noundef captur
   %132 = mul nuw nsw i32 %131, 27
   %133 = xor i32 %132, %129
   %134 = icmp eq i64 %127, 10
-  br i1 %134, label %135, label %.preheader2, !llvm.loop !8
+  br i1 %134, label %135, label %.preheader4, !llvm.loop !8
 
 135:                                              ; preds = %126, %74, %69
   %136 = add i32 %2, 24

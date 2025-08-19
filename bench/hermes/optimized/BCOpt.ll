@@ -636,10 +636,10 @@ _ZN4llvh8DenseMapIN6hermes8RegisterEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMap
   br i1 %cmp.i348, label %if.end12.i, label %if.end.i349
 
 if.end.i349:                                      ; preds = %for.body.i.i404, %_ZN4llvh8DenseMapIN6hermes8RegisterEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE4growEj.exit
-  %.pr778856 = phi i32 [ %.pr778.pre, %_ZN4llvh8DenseMapIN6hermes8RegisterEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE4growEj.exit ], [ %52, %for.body.i.i404 ]
+  %.pr778872 = phi i32 [ %.pr778.pre, %_ZN4llvh8DenseMapIN6hermes8RegisterEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE4growEj.exit ], [ %52, %for.body.i.i404 ]
   %59 = phi ptr [ %.pre845, %_ZN4llvh8DenseMapIN6hermes8RegisterEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE4growEj.exit ], [ %call.i.i390, %for.body.i.i404 ]
   %call.i.i351 = call noundef i32 @_ZN4llvh12DenseMapInfoIN6hermes8RegisterEE12getHashValueES2_(i32 %call17) #10
-  %sub.i352 = add i32 %.pr778856, -1
+  %sub.i352 = add i32 %.pr778872, -1
   %BucketNo.017.i353 = and i32 %call.i.i351, %sub.i352
   %idx.ext18.i354 = zext i32 %BucketNo.017.i353 to i64
   %add.ptr19.i355 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %59, i64 %idx.ext18.i354
@@ -978,10 +978,10 @@ _ZN4llvh8DenseMapIN6hermes8RegisterEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMap
   br i1 %cmp.i511, label %if.end12.i251, label %if.end.i512
 
 if.end.i512:                                      ; preds = %for.body.i.i608, %_ZN4llvh8DenseMapIN6hermes8RegisterEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE4growEj.exit612
-  %.pr783859 = phi i32 [ %.pr783.pre, %_ZN4llvh8DenseMapIN6hermes8RegisterEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE4growEj.exit612 ], [ %73, %for.body.i.i608 ]
+  %.pr783875 = phi i32 [ %.pr783.pre, %_ZN4llvh8DenseMapIN6hermes8RegisterEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE4growEj.exit612 ], [ %73, %for.body.i.i608 ]
   %80 = phi ptr [ %.pre847, %_ZN4llvh8DenseMapIN6hermes8RegisterEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE4growEj.exit612 ], [ %call.i.i567, %for.body.i.i608 ]
   %call.i.i514 = call noundef i32 @_ZN4llvh12DenseMapInfoIN6hermes8RegisterEE12getHashValueES2_(i32 %call69) #10
-  %sub.i515 = add i32 %.pr783859, -1
+  %sub.i515 = add i32 %.pr783875, -1
   %BucketNo.017.i516 = and i32 %call.i.i514, %sub.i515
   %idx.ext18.i517 = zext i32 %BucketNo.017.i516 to i64
   %add.ptr19.i518 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %80, i64 %idx.ext18.i517
@@ -1176,10 +1176,10 @@ _ZN4llvh8DenseMapIN6hermes8RegisterEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMap
   br i1 %cmp.i408, label %if.end12.i251, label %if.end.i409
 
 if.end.i409:                                      ; preds = %for.body.i.i505, %_ZN4llvh8DenseMapIN6hermes8RegisterEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE4growEj.exit509
-  %.pr785862 = phi i32 [ %.pr785.pre, %_ZN4llvh8DenseMapIN6hermes8RegisterEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE4growEj.exit509 ], [ %84, %for.body.i.i505 ]
+  %.pr785878 = phi i32 [ %.pr785.pre, %_ZN4llvh8DenseMapIN6hermes8RegisterEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE4growEj.exit509 ], [ %84, %for.body.i.i505 ]
   %91 = phi ptr [ %.pre849, %_ZN4llvh8DenseMapIN6hermes8RegisterEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE4growEj.exit509 ], [ %call.i.i464, %for.body.i.i505 ]
   %call.i.i411 = call noundef i32 @_ZN4llvh12DenseMapInfoIN6hermes8RegisterEE12getHashValueES2_(i32 %call69) #10
-  %sub.i412 = add i32 %.pr785862, -1
+  %sub.i412 = add i32 %.pr785878, -1
   %BucketNo.017.i413 = and i32 %call.i.i411, %sub.i412
   %idx.ext18.i414 = zext i32 %BucketNo.017.i413 to i64
   %add.ptr19.i415 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %91, i64 %idx.ext18.i414

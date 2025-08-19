@@ -3323,13 +3323,13 @@ define internal fastcc void @ieee80211_assign_perm_addr(ptr noundef %0, ptr noun
 .loopexit10:                                      ; preds = %63, %.thread, %.loopexit12
   %.pre-phi45 = phi i32 [ %.pre44, %.thread ], [ %13, %.loopexit12 ], [ %13, %63 ]
   %.in = phi i16 [ %.pre42, %.thread ], [ %11, %.loopexit12 ], [ %11, %63 ]
-  %.in46 = phi i32 [ %.pre40, %.thread ], [ %9, %.loopexit12 ], [ %9, %63 ]
+  %.in55 = phi i32 [ %.pre40, %.thread ], [ %9, %.loopexit12 ], [ %9, %63 ]
   %86 = phi ptr [ %.pre, %.thread ], [ %7, %.loopexit12 ], [ %7, %63 ]
   %87 = icmp eq i32 %.pre-phi45, 0
   br i1 %87, label %.loopexit, label %88
 
 88:                                               ; preds = %.loopexit10
-  %89 = and i32 %.in46, 255
+  %89 = and i32 %.in55, 255
   %90 = zext nneg i32 %89 to i64
   %91 = shl nuw nsw i64 %90, 40
   %92 = getelementptr i8, ptr %86, i64 39
@@ -5550,26 +5550,26 @@ define internal fastcc i32 @ieee80211_check_concurrent_iface(ptr noundef %0, i32
 
 86:                                               ; preds = %84
   %87 = icmp eq i32 %.pre17, 6
-  br i1 %87, label %.thread25, label %.loopexit
+  br i1 %87, label %.thread34, label %.loopexit
 
 88:                                               ; preds = %84
-  switch i32 %.pre17, label %.thread25 [
+  switch i32 %.pre17, label %.thread34 [
     i32 11, label %.loopexit
     i32 1, label %.loopexit
   ]
 
 ._crit_edge18:                                    ; preds = %84
   %89 = icmp eq i32 %.pre17, 1
-  br i1 %89, label %.loopexit, label %.thread25
+  br i1 %89, label %.loopexit, label %.thread34
 
-.thread25:                                        ; preds = %88, %86, %._crit_edge18
+.thread34:                                        ; preds = %88, %86, %._crit_edge18
   %90 = phi i32 [ %.pre17, %._crit_edge18 ], [ 6, %86 ], [ %.pre17, %88 ]
   %91 = getelementptr inbounds nuw i8, ptr %77, i64 4906
   %92 = load i8, ptr %91, align 2, !range !6, !noundef !7
   %93 = icmp eq i8 %92, 0
   br i1 %93, label %94, label %.loopexit
 
-94:                                               ; preds = %.thread25
+94:                                               ; preds = %.thread34
   %95 = getelementptr inbounds nuw i8, ptr %77, i64 5062
   %96 = load i32, ptr %17, align 4
   %97 = load i32, ptr %95, align 4
@@ -5614,29 +5614,29 @@ define internal fastcc i32 @ieee80211_check_concurrent_iface(ptr noundef %0, i32
   %125 = load i32, ptr %15, align 8
   switch i32 %125, label %130 [
     i32 11, label %126
-    i32 6, label %.thread26
+    i32 6, label %.thread35
   ]
 
 126:                                              ; preds = %124
   %127 = getelementptr inbounds nuw i8, ptr %117, i64 4056
   %128 = load i32, ptr %127, align 8
   %129 = icmp eq i32 %128, 6
-  br i1 %129, label %.thread26, label %.loopexit
+  br i1 %129, label %.thread35, label %.loopexit
 
 130:                                              ; preds = %124
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %117, i64 4056
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %131 = icmp eq i32 %.pre, 11
-  br i1 %131, label %.loopexit, label %.thread26
+  br i1 %131, label %.loopexit, label %.thread35
 
-.thread26:                                        ; preds = %126, %130, %124
+.thread35:                                        ; preds = %126, %130, %124
   %132 = getelementptr inbounds nuw i8, ptr %117, i64 4056
   %133 = getelementptr inbounds nuw i8, ptr %117, i64 4906
   %134 = load i8, ptr %133, align 2, !range !6, !noundef !7
   %135 = icmp eq i8 %134, 0
   br i1 %135, label %136, label %.loopexit
 
-136:                                              ; preds = %.thread26
+136:                                              ; preds = %.thread35
   %137 = getelementptr inbounds nuw i8, ptr %117, i64 5062
   %138 = load i32, ptr %17, align 4
   %139 = load i32, ptr %137, align 4
@@ -5670,8 +5670,8 @@ define internal fastcc i32 @ieee80211_check_concurrent_iface(ptr noundef %0, i32
   %160 = tail call i32 @ieee80211_check_combinations(ptr noundef %0, ptr noundef null, i32 noundef 0, i8 noundef zeroext 0) #15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %148, %.thread26, %130, %126, %86, %._crit_edge18, %.thread25, %106, %88, %88, %69, %44, %40, %38, %34, %61, %.loopexit5
-  %161 = phi i32 [ %160, %.loopexit5 ], [ -95, %69 ], [ -76, %61 ], [ -16, %44 ], [ -16, %40 ], [ -16, %34 ], [ -16, %38 ], [ -16, %88 ], [ -76, %106 ], [ -16, %.thread25 ], [ -16, %._crit_edge18 ], [ -16, %86 ], [ -16, %88 ], [ -76, %148 ], [ -16, %.thread26 ], [ -16, %126 ], [ -16, %130 ]
+.loopexit:                                        ; preds = %148, %.thread35, %130, %126, %86, %._crit_edge18, %.thread34, %106, %88, %88, %69, %44, %40, %38, %34, %61, %.loopexit5
+  %161 = phi i32 [ %160, %.loopexit5 ], [ -95, %69 ], [ -76, %61 ], [ -16, %44 ], [ -16, %40 ], [ -16, %34 ], [ -16, %38 ], [ -16, %88 ], [ -76, %106 ], [ -16, %.thread34 ], [ -16, %._crit_edge18 ], [ -16, %86 ], [ -16, %88 ], [ -76, %148 ], [ -16, %.thread35 ], [ -16, %126 ], [ -16, %130 ]
   ret i32 %161
 }
 

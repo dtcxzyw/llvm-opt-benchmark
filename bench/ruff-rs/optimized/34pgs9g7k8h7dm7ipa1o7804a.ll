@@ -2560,11 +2560,11 @@ define hidden void @"_ZN9hashbrown3map24HashMap$LT$K$C$V$C$S$GT$24with_capacity_
   br i1 %or.cond.i.i.i, label %29, label %16, !prof !268
 
 16:                                               ; preds = %9, %.thread.i
-  %.sroa.4.0.i.ph.i8.i = phi i64 [ %..i.i.i, %.thread.i ], [ %15, %9 ]
-  %17 = mul nuw i64 %.sroa.4.0.i.ph.i8.i, 72
+  %.sroa.4.0.i.ph.i10.i = phi i64 [ %..i.i.i, %.thread.i ], [ %15, %9 ]
+  %17 = mul nuw i64 %.sroa.4.0.i.ph.i10.i, 72
   %18 = add nuw i64 %17, 15
   %19 = and i64 %18, -16
-  %20 = add nuw nsw i64 %.sroa.4.0.i.ph.i8.i, 16
+  %20 = add nuw nsw i64 %.sroa.4.0.i.ph.i10.i, 16
   %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %19, i64 %20)
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %29, label %23, !prof !29
@@ -2601,9 +2601,9 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17hefa158585c974504E.exit.thr
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in17h74c9c53a5d9fd6e4E.exit"
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17hefa158585c974504E.exit.i.i: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h429698438490c537E.exit.i.i.i"
-  %37 = icmp samesign ult i64 %.sroa.4.0.i.ph.i8.i, 9
-  %38 = add nsw i64 %.sroa.4.0.i.ph.i8.i, -1
-  %39 = lshr i64 %.sroa.4.0.i.ph.i8.i, 3
+  %37 = icmp samesign ult i64 %.sroa.4.0.i.ph.i10.i, 9
+  %38 = add nsw i64 %.sroa.4.0.i.ph.i10.i, -1
+  %39 = lshr i64 %.sroa.4.0.i.ph.i10.i, 3
   %40 = mul nuw nsw i64 %39, 7
   %.sroa.02.0.i.i.i = select i1 %37, i64 %38, i64 %40
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 %19
@@ -4356,8 +4356,8 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17ha910026f64bb7729E.ex
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %2, ptr %26, align 8
   store ptr %0, ptr %5, align 8
-  %.not14 = icmp eq i64 %7, 0
-  br i1 %.not14, label %._crit_edge, label %.lr.ph.preheader
+  %.not16 = icmp eq i64 %7, 0
+  br i1 %.not16, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17ha910026f64bb7729E.exit.thread, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17ha910026f64bb7729E.exit
   br label %.lr.ph
@@ -5841,11 +5841,11 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
   br i1 %or.cond.i.i, label %51, label %38, !prof !268
 
 38:                                               ; preds = %.thread, %31
-  %.sroa.4.0.i.ph.i34 = phi i64 [ %..i.i, %.thread ], [ %37, %31 ]
-  %39 = mul nuw i64 %.sroa.4.0.i.ph.i34, 72
+  %.sroa.4.0.i.ph.i41 = phi i64 [ %..i.i, %.thread ], [ %37, %31 ]
+  %39 = mul nuw i64 %.sroa.4.0.i.ph.i41, 72
   %40 = add nuw i64 %39, 15
   %41 = and i64 %40, -16
-  %42 = add nuw nsw i64 %.sroa.4.0.i.ph.i34, 16
+  %42 = add nuw nsw i64 %.sroa.4.0.i.ph.i41, 16
   %43 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %41, i64 %42)
   %44 = extractvalue { i64, i1 } %43, 1
   br i1 %44, label %51, label %45, !prof !29
@@ -5874,9 +5874,9 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hf592e34f3ddd8252E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hf592e34f3ddd8252E.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h429698438490c537E.exit.i.i"
-  %57 = icmp samesign ult i64 %.sroa.4.0.i.ph.i34, 9
-  %58 = add nsw i64 %.sroa.4.0.i.ph.i34, -1
-  %59 = lshr i64 %.sroa.4.0.i.ph.i34, 3
+  %57 = icmp samesign ult i64 %.sroa.4.0.i.ph.i41, 9
+  %58 = add nsw i64 %.sroa.4.0.i.ph.i41, -1
+  %59 = lshr i64 %.sroa.4.0.i.ph.i41, 3
   %60 = mul nuw nsw i64 %59, 7
   %.sroa.02.0.i.i = select i1 %57, i64 %58, i64 %60
   %61 = getelementptr inbounds nuw i8, ptr %49, i64 %41

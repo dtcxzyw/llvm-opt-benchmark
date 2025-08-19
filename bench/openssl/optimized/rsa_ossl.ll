@@ -1051,8 +1051,8 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   br i1 %.not320, label %41, label %.preheader421
 
 .preheader421:                                    ; preds = %34
-  %.not436 = icmp eq i32 %.0302, 0
-  br i1 %.not436, label %._crit_edge, label %.lr.ph
+  %.not449 = icmp eq i32 %.0302, 0
+  br i1 %.not449, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader421
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 136

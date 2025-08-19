@@ -7859,7 +7859,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %38
   br label %100
 
 56:                                               ; preds = %11
-  br i1 %13, label %.invoke87, label %57
+  br i1 %13, label %.invoke91, label %57
 
 57:                                               ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -7868,10 +7868,10 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %38
   %61 = add nsw i32 %60, -3
   %62 = icmp ult i32 %61, 2
   %63 = icmp eq ptr %2, null
-  %or.cond88 = or i1 %62, %63
-  br i1 %or.cond88, label %.invoke87, label %66
+  %or.cond92 = or i1 %62, %63
+  br i1 %or.cond92, label %.invoke91, label %66
 
-64:                                               ; preds = %.invoke87
+64:                                               ; preds = %.invoke91
   %65 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
@@ -7883,9 +7883,9 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %38
   %69 = and i32 %68, 65535
   %70 = add nsw i32 %69, -5
   %71 = icmp ult i32 %70, -2
-  br i1 %71, label %72, label %.invoke87
+  br i1 %71, label %72, label %.invoke91
 
-.invoke87:                                        ; preds = %56, %57, %66
+.invoke91:                                        ; preds = %56, %57, %66
   invoke void @_ZN3api7context14set_error_codeE13Z3_error_codePKc(ptr noundef nonnull align 8 dereferenceable(3056) %0, i32 noundef 3, ptr noundef nonnull @.str)
           to label %98 unwind label %64
 
@@ -7965,8 +7965,8 @@ _Z11check_sortsP11_Z3_contextP3ast.exit78:        ; preds = %80
           cleanup
   br label %100
 
-98:                                               ; preds = %.invoke87, %.invoke, %93, %51, %44, %86
-  %.0 = phi ptr [ %36, %44 ], [ %78, %86 ], [ null, %51 ], [ null, %93 ], [ null, %.invoke ], [ null, %.invoke87 ]
+98:                                               ; preds = %.invoke91, %.invoke, %93, %51, %44, %86
+  %.0 = phi ptr [ %36, %44 ], [ %78, %86 ], [ null, %51 ], [ null, %93 ], [ null, %.invoke ], [ null, %.invoke91 ]
   br i1 %8, label %99, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 99:                                               ; preds = %98

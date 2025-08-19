@@ -90,9 +90,9 @@ bytestream2_init.exit:                            ; preds = %4
 20:                                               ; preds = %bytestream2_init.exit
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %10, ptr noundef nonnull dereferenceable(6) @gif87a_sig, i64 6)
   %21 = icmp eq i32 %bcmp, 0
-  br i1 %21, label %.thread80, label %26
+  br i1 %21, label %.thread115, label %26
 
-.thread80:                                        ; preds = %20
+.thread115:                                       ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 2192
   store i32 1, ptr %22, align 8, !tbaa !41
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 2192
@@ -113,8 +113,8 @@ bytestream2_init.exit:                            ; preds = %4
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 2192
   br i1 %27, label %31, label %117
 
-31:                                               ; preds = %.thread80, %26
-  %32 = phi ptr [ %23, %.thread80 ], [ %30, %26 ]
+31:                                               ; preds = %.thread115, %26
+  %32 = phi ptr [ %23, %.thread115 ], [ %30, %26 ]
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 2196
   store i32 0, ptr %33, align 4, !tbaa !42
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 60
@@ -326,7 +326,7 @@ bytestream2_get_byte.exit.i:                      ; preds = %.lr.ph.i, %141
   %147 = zext i8 %146 to i32
   %148 = load ptr, ptr %137, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %148, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef %147, i32 noundef %147) #8
-  switch i8 %146, label %gif_parse_next_image.exit.thread.loopexit104 [
+  switch i8 %146, label %gif_parse_next_image.exit.thread.loopexit139 [
     i8 44, label %149
     i8 33, label %474
     i8 59, label %gif_parse_next_image.exit.thread
@@ -833,7 +833,7 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
   %.sext.i.i = sext i32 %431 to i64
   %.idx.i.i = shl nsw i64 %420, 3
   %432 = sdiv i32 %419, 4
-  %.sext298.i.i = sext i32 %432 to i64
+  %.sext328.i.i = sext i32 %432 to i64
   %.pre296.i.i = load ptr, ptr %428, align 8, !tbaa !59
   %.idx290.i.i = shl nsw i64 %429, 2
   %433 = icmp sgt i32 %.0186.i.i, 0
@@ -924,12 +924,12 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
   br i1 %.not233.i.i, label %..loopexit_crit_edge.i.i, label %.lr.ph277.i.i, !llvm.loop !80
 
 468:                                              ; preds = %._crit_edge.i.i
-  %469 = getelementptr inbounds i32, ptr %.0190286.i.i, i64 %.sext298.i.i
+  %469 = getelementptr inbounds i32, ptr %.0190286.i.i, i64 %.sext328.i.i
   br label %.loopexit.i.i
 
 ..loopexit_crit_edge.i.i:                         ; preds = %.lr.ph277.i.i
   %470 = zext nneg i32 %466 to i64
-  %471 = mul nsw i64 %470, %.sext298.i.i
+  %471 = mul nsw i64 %470, %.sext328.i.i
   %472 = getelementptr inbounds i32, ptr %426, i64 %471
   br label %.loopexit.i.i
 
@@ -1071,11 +1071,11 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
   %548 = trunc i64 %547 to i32
   br label %gif_parse_next_image.exit.thread
 
-gif_parse_next_image.exit.thread.loopexit104:     ; preds = %bytestream2_get_byte.exit.i
+gif_parse_next_image.exit.thread.loopexit139:     ; preds = %bytestream2_get_byte.exit.i
   br label %gif_parse_next_image.exit.thread
 
-gif_parse_next_image.exit.thread:                 ; preds = %488, %474, %.loopexit.i, %.lr.ph.i16.i, %bytestream2_get_byte.exit.i, %gif_parse_next_image.exit.thread.loopexit104, %128, %bytestream2_get_byte.exit.thread.i, %260, %274, %415, %205, %149, %174, %364, %gif_copy_img_rect.exit261.i.i, %gif_read_header1.exit.thread, %.loopexit, %122, %109, %104, %532, %121
-  %.0 = phi i32 [ %548, %532 ], [ -1094995529, %121 ], [ %107, %104 ], [ -12, %109 ], [ %126, %122 ], [ %530, %.loopexit ], [ -1094995529, %gif_read_header1.exit.thread ], [ -541478725, %128 ], [ -1094995529, %bytestream2_get_byte.exit.thread.i ], [ -1094995529, %260 ], [ -1094995529, %274 ], [ %413, %415 ], [ -1094995529, %205 ], [ -1094995529, %149 ], [ -1094995529, %174 ], [ -12, %364 ], [ -1094995529, %gif_copy_img_rect.exit261.i.i ], [ -541478725, %bytestream2_get_byte.exit.i ], [ -1094995529, %.lr.ph.i16.i ], [ -541478725, %.loopexit.i ], [ -1094995529, %474 ], [ -1094995529, %488 ], [ -1094995529, %gif_parse_next_image.exit.thread.loopexit104 ]
+gif_parse_next_image.exit.thread:                 ; preds = %488, %474, %.loopexit.i, %.lr.ph.i16.i, %bytestream2_get_byte.exit.i, %gif_parse_next_image.exit.thread.loopexit139, %128, %bytestream2_get_byte.exit.thread.i, %260, %274, %415, %205, %149, %174, %364, %gif_copy_img_rect.exit261.i.i, %gif_read_header1.exit.thread, %.loopexit, %122, %109, %104, %532, %121
+  %.0 = phi i32 [ %548, %532 ], [ -1094995529, %121 ], [ %107, %104 ], [ -12, %109 ], [ %126, %122 ], [ %530, %.loopexit ], [ -1094995529, %gif_read_header1.exit.thread ], [ -541478725, %128 ], [ -1094995529, %bytestream2_get_byte.exit.thread.i ], [ -1094995529, %260 ], [ -1094995529, %274 ], [ %413, %415 ], [ -1094995529, %205 ], [ -1094995529, %149 ], [ -1094995529, %174 ], [ -12, %364 ], [ -1094995529, %gif_copy_img_rect.exit261.i.i ], [ -541478725, %bytestream2_get_byte.exit.i ], [ -1094995529, %.lr.ph.i16.i ], [ -541478725, %.loopexit.i ], [ -1094995529, %474 ], [ -1094995529, %488 ], [ -1094995529, %gif_parse_next_image.exit.thread.loopexit139 ]
   ret i32 %.0
 }
 

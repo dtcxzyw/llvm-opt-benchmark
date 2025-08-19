@@ -320,22 +320,22 @@ ftp_retrieve.exit.thread:                         ; preds = %24, %ftp_send_comma
   %.not = icmp ne ptr %39, null
   %40 = icmp eq i32 %22, 2
   %or.cond = and i1 %.not, %40
-  br i1 %or.cond, label %.thread80, label %68
+  br i1 %or.cond, label %.thread87, label %68
 
 .thread:                                          ; preds = %ftp_send_command.exit.i, %ftp_send_command.exit.i
   store i32 2, ptr %9, align 4, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %41 = load ptr, ptr %12, align 8, !tbaa !24
-  %.not79 = icmp eq ptr %41, null
-  br i1 %.not79, label %68, label %.thread80
+  %.not86 = icmp eq ptr %41, null
+  br i1 %.not86, label %68, label %.thread87
 
-.thread80:                                        ; preds = %38, %.thread
+.thread87:                                        ; preds = %38, %.thread
   %42 = phi ptr [ %41, %.thread ], [ %39, %38 ]
   %43 = call i32 @ffurl_read2(ptr noundef nonnull %42, ptr noundef %1, i32 noundef %2) #10
   %44 = icmp sgt i32 %43, -1
   br i1 %44, label %58, label %45
 
-45:                                               ; preds = %.thread80
+45:                                               ; preds = %.thread87
   %46 = icmp eq i32 %43, -541478725
   br i1 %46, label %47, label %.thread61
 
@@ -375,7 +375,7 @@ ftp_retrieve.exit.thread:                         ; preds = %24, %ftp_send_comma
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread61
 
-58:                                               ; preds = %.thread80
+58:                                               ; preds = %.thread87
   %59 = zext nneg i32 %43 to i64
   %60 = load i64, ptr %13, align 8, !tbaa !25
   %61 = add nsw i64 %60, %59
@@ -483,23 +483,23 @@ ftp_store.exit.thread:                            ; preds = %16, %ftp_send_comma
   %.not = icmp ne ptr %34, null
   %35 = icmp eq i32 %14, 3
   %or.cond = and i1 %.not, %35
-  br i1 %or.cond, label %.thread30, label %48
+  br i1 %or.cond, label %.thread38, label %48
 
 .thread:                                          ; preds = %ftp_send_command.exit.i, %ftp_send_command.exit.i
   store i32 3, ptr %7, align 4, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !24
-  %.not29 = icmp eq ptr %37, null
-  br i1 %.not29, label %48, label %.thread30
+  %.not37 = icmp eq ptr %37, null
+  br i1 %.not37, label %48, label %.thread38
 
-.thread30:                                        ; preds = %32, %.thread
+.thread38:                                        ; preds = %32, %.thread
   %38 = phi ptr [ %37, %.thread ], [ %34, %32 ]
   %39 = call i32 @ffurl_write2(ptr noundef nonnull %38, ptr noundef %1, i32 noundef %2) #10
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %49
 
-41:                                               ; preds = %.thread30
+41:                                               ; preds = %.thread38
   %42 = zext nneg i32 %39 to i64
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 1112
   %44 = load i64, ptr %43, align 8, !tbaa !25
@@ -515,8 +515,8 @@ ftp_store.exit.thread:                            ; preds = %16, %ftp_send_comma
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.34) #10
   br label %49
 
-49:                                               ; preds = %ftp_store.exit.thread, %.thread30, %41, %10, %48
-  %.0 = phi i32 [ -5, %48 ], [ %11, %10 ], [ %39, %41 ], [ %39, %.thread30 ], [ %.0.i.ph, %ftp_store.exit.thread ]
+49:                                               ; preds = %ftp_store.exit.thread, %.thread38, %41, %10, %48
+  %.0 = phi i32 [ -5, %48 ], [ %11, %10 ], [ %39, %41 ], [ %39, %.thread38 ], [ %.0.i.ph, %ftp_store.exit.thread ]
   ret i32 %.0
 }
 
@@ -1337,11 +1337,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect(ptr noundef %0
   br label %43
 
 43:                                               ; preds = %40, %27
-  %.sink66 = phi i64 [ 1080, %40 ], [ 1088, %27 ]
-  %.sink64 = phi ptr [ %42, %40 ], [ %30, %27 ]
+  %.sink73 = phi i64 [ 1080, %40 ], [ 1088, %27 ]
+  %.sink71 = phi ptr [ %42, %40 ], [ %30, %27 ]
   %.1 = phi ptr [ %.2, %40 ], [ %.042, %27 ]
-  %44 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink66
-  store ptr %.sink64, ptr %44, align 8, !tbaa !20
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink73
+  store ptr %.sink71, ptr %44, align 8, !tbaa !20
   %45 = call noalias ptr @av_strdup(ptr noundef nonnull %7) #10
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 1072
   store ptr %45, ptr %46, align 8, !tbaa !54

@@ -1316,7 +1316,7 @@ define hidden range(i64 0, 9007194959773699) i64 @_ZN12regex_syntax5debug11utf8_
 5:                                                ; preds = %2
   %6 = load i8, ptr %0, align 1, !noundef !4
   %7 = icmp sgt i8 %6, -1
-  br i1 %7, label %.thread61, label %8
+  br i1 %7, label %.thread66, label %8
 
 8:                                                ; preds = %5
   %9 = icmp samesign ult i8 %6, -64
@@ -1334,9 +1334,9 @@ _ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit: ; preds = %12
   %14 = icmp samesign ult i8 %6, -8
   br i1 %14, label %.thread, label %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43
 
-15:                                               ; preds = %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43, %.thread61, %64, %2, %62
-  %.sroa.7.sroa.0.0 = phi i64 [ %.sroa.7.sroa.0.2, %62 ], [ 0, %2 ], [ %.sroa.4.1.insert.ext, %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43 ], [ %.sroa.418.1.insert.ext, %64 ], [ %.sroa.420.4.insert.shift, %.thread61 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.2, %62 ], [ 2, %2 ], [ 1, %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43 ], [ 1, %64 ], [ 0, %.thread61 ]
+15:                                               ; preds = %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43, %.thread66, %64, %2, %62
+  %.sroa.7.sroa.0.0 = phi i64 [ %.sroa.7.sroa.0.2, %62 ], [ 0, %2 ], [ %.sroa.4.1.insert.ext, %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43 ], [ %.sroa.418.1.insert.ext, %64 ], [ %.sroa.420.4.insert.shift, %.thread66 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.2, %62 ], [ 2, %2 ], [ 1, %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43 ], [ 1, %64 ], [ 0, %.thread66 ]
   %.sroa.7.0.insert.ext = shl nuw nsw i64 %.sroa.7.sroa.0.0, 8
   %.sroa.0.0.insert.insert = add nuw nsw i64 %.sroa.7.0.insert.ext, %.sroa.0.0
   ret i64 %.sroa.0.0.insert.insert
@@ -1362,7 +1362,7 @@ _ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43: ; pr
   %trunc = trunc nuw i64 %18 to i1
   br i1 %trunc, label %63, label %19
 
-.thread61:                                        ; preds = %5
+.thread66:                                        ; preds = %5
   %.sroa.420.4.insert.ext = zext nneg i8 %6 to i64
   %.sroa.420.4.insert.shift = shl nuw nsw i64 %.sroa.420.4.insert.ext, 24
   br label %15

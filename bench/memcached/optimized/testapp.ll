@@ -2089,7 +2089,7 @@ close_conn.exit:                                  ; preds = %0, %9
   %14 = load ptr, ptr @con, align 8, !tbaa !35
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !39
-  %17 = getelementptr inbounds i8, ptr @.str.232, i64 %.0.i
+  %17 = getelementptr inbounds nuw i8, ptr @.str.232, i64 %.0.i
   %18 = sub nuw nsw i64 23, %.0.i
   %19 = tail call i64 %16(ptr noundef %14, ptr noundef nonnull %17, i64 noundef %18) #21
   %20 = icmp eq i64 %19, -1
@@ -2132,7 +2132,7 @@ send_ascii_command.exit:                          ; preds = %30
   %34 = load ptr, ptr @con, align 8, !tbaa !35
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !39
-  %37 = getelementptr inbounds i8, ptr @.str.235, i64 %.0.i3
+  %37 = getelementptr inbounds nuw i8, ptr @.str.235, i64 %.0.i3
   %38 = sub nuw nsw i64 25, %.0.i3
   %39 = call i64 %36(ptr noundef %34, ptr noundef nonnull %37, i64 noundef %38) #21
   %40 = icmp eq i64 %39, -1
@@ -2388,7 +2388,7 @@ send_ascii_command.exit14:                        ; preds = %84
   %88 = load ptr, ptr @con, align 8, !tbaa !35
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8, !tbaa !39
-  %91 = getelementptr inbounds i8, ptr @.str.245, i64 %.0.i15
+  %91 = getelementptr inbounds nuw i8, ptr @.str.245, i64 %.0.i15
   %92 = sub nuw nsw i64 2, %.0.i15
   %93 = call i64 %90(ptr noundef %88, ptr noundef nonnull %91, i64 noundef %92) #21
   %94 = icmp eq i64 %93, -1
@@ -2475,7 +2475,7 @@ send_ascii_command.exit22:                        ; preds = %128
   %132 = load ptr, ptr @con, align 8, !tbaa !35
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load ptr, ptr %133, align 8, !tbaa !39
-  %135 = getelementptr inbounds i8, ptr @.str.245, i64 %.0.i23
+  %135 = getelementptr inbounds nuw i8, ptr @.str.245, i64 %.0.i23
   %136 = sub nuw nsw i64 2, %.0.i23
   %137 = call i64 %134(ptr noundef %132, ptr noundef nonnull %135, i64 noundef %136) #21
   %138 = icmp eq i64 %137, -1
@@ -2627,7 +2627,7 @@ define internal noundef i32 @test_binary_noop() #0 {
   %7 = load ptr, ptr @con, align 8, !tbaa !35
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !39
-  %10 = getelementptr inbounds i8, ptr %1, i64 %.0.us.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.us.i
   %11 = call i64 %9(ptr noundef %7, ptr noundef nonnull %10, i64 noundef %6) #21
   %12 = icmp eq i64 %11, -1
   br i1 %12, label %15, label %13
@@ -2833,7 +2833,7 @@ define internal noundef i32 @test_binary_version() #0 {
   %7 = load ptr, ptr @con, align 8, !tbaa !35
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !39
-  %10 = getelementptr inbounds i8, ptr %1, i64 %.0.us.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.us.i
   %11 = call i64 %9(ptr noundef %7, ptr noundef nonnull %10, i64 noundef %6) #21
   %12 = icmp eq i64 %11, -1
   br i1 %12, label %15, label %13
@@ -2943,7 +2943,7 @@ define internal noundef i32 @test_binary_stat() #0 {
   %7 = load ptr, ptr @con, align 8, !tbaa !35
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !39
-  %10 = getelementptr inbounds i8, ptr %1, i64 %.0.us.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.us.i
   %11 = call i64 %9(ptr noundef %7, ptr noundef nonnull %10, i64 noundef %6) #21
   %12 = icmp eq i64 %11, -1
   br i1 %12, label %15, label %13
@@ -3031,7 +3031,7 @@ define internal noundef i32 @test_binary_illegal() #0 {
   %10 = load ptr, ptr @con, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !39
-  %13 = getelementptr inbounds i8, ptr %1, i64 %.0.us.i
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.us.i
   %14 = call i64 %12(ptr noundef %10, ptr noundef nonnull %13, i64 noundef %9) #21
   %15 = icmp eq i64 %14, -1
   br i1 %15, label %18, label %16
@@ -3406,7 +3406,7 @@ test_binary_pipeline_hickup_chunk.exit:           ; preds = %88, %24, %.thread.i
   %99 = load ptr, ptr @con, align 8, !tbaa !35
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load ptr, ptr %100, align 8, !tbaa !39
-  %102 = getelementptr inbounds i8, ptr %4, i64 %.0.us.i
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.us.i
   %103 = call i64 %101(ptr noundef %99, ptr noundef nonnull %102, i64 noundef %98) #21
   %104 = icmp eq i64 %103, -1
   br i1 %104, label %107, label %105
@@ -3485,7 +3485,7 @@ close_conn.exit:                                  ; preds = %0, %9
   %14 = load ptr, ptr @con, align 8, !tbaa !35
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !39
-  %17 = getelementptr inbounds i8, ptr @.str.306, i64 %.0.i
+  %17 = getelementptr inbounds nuw i8, ptr @.str.306, i64 %.0.i
   %18 = sub nuw nsw i64 10, %.0.i
   %19 = tail call i64 %16(ptr noundef %14, ptr noundef nonnull %17, i64 noundef %18) #21
   %20 = icmp eq i64 %19, -1
@@ -4900,7 +4900,7 @@ define internal fastcc void @test_binary_quit_impl(i8 noundef zeroext range(i8 7
   %8 = load ptr, ptr @con, align 8, !tbaa !35
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !39
-  %11 = getelementptr inbounds i8, ptr %2, i64 %.0.us.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.us.i
   %12 = call i64 %10(ptr noundef %8, ptr noundef nonnull %11, i64 noundef %7) #21
   %13 = icmp eq i64 %12, -1
   br i1 %13, label %16, label %14
@@ -5058,11 +5058,11 @@ storage_command.exit:                             ; preds = %2
 
 .split.us.i.us:                                   ; preds = %39, %.split.us.i.preheader.us
   %.0.us.i.us = phi i64 [ %.1.us.i.us, %39 ], [ 0, %.split.us.i.preheader.us ]
-  %27 = sub i64 %6, %.0.us.i.us
+  %27 = sub nsw i64 %6, %.0.us.i.us
   %28 = load ptr, ptr @con, align 8, !tbaa !35
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !39
-  %31 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i.us
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i.us
   %32 = call i64 %30(ptr noundef %28, ptr noundef nonnull %31, i64 noundef %27) #21
   %33 = icmp eq i64 %32, -1
   br i1 %33, label %36, label %34
@@ -5112,11 +5112,11 @@ safe_recv_packet.exit.us:                         ; preds = %42, %safe_send.exit
 
 .split.us.i:                                      ; preds = %.split.us.i.preheader, %62
   %.0.us.i = phi i64 [ %.1.us.i, %62 ], [ 0, %.split.us.i.preheader ]
-  %50 = sub i64 %6, %.0.us.i
+  %50 = sub nsw i64 %6, %.0.us.i
   %51 = load ptr, ptr @con, align 8, !tbaa !35
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !39
-  %54 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i
   %55 = call i64 %53(ptr noundef %51, ptr noundef nonnull %54, i64 noundef %50) #21
   %56 = icmp eq i64 %55, -1
   br i1 %56, label %59, label %57
@@ -5162,11 +5162,11 @@ safe_send.exit:                                   ; preds = %62
 
 .split.us.i15:                                    ; preds = %85, %69
   %.0.us.i16 = phi i64 [ %.1.us.i17, %85 ], [ 0, %69 ]
-  %73 = sub i64 %6, %.0.us.i16
+  %73 = sub nsw i64 %6, %.0.us.i16
   %74 = load ptr, ptr @con, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8, !tbaa !39
-  %77 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i16
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i16
   %78 = call i64 %76(ptr noundef %74, ptr noundef nonnull %77, i64 noundef %73) #21
   %79 = icmp eq i64 %78, -1
   br i1 %79, label %82, label %80
@@ -5289,11 +5289,11 @@ storage_command.exit:                             ; preds = %2
 
 .split.us.i.us:                                   ; preds = %39, %.split.us.i.preheader.us
   %.0.us.i.us = phi i64 [ %.1.us.i.us, %39 ], [ 0, %.split.us.i.preheader.us ]
-  %27 = sub i64 %6, %.0.us.i.us
+  %27 = sub nsw i64 %6, %.0.us.i.us
   %28 = load ptr, ptr @con, align 8, !tbaa !35
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !39
-  %31 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i.us
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i.us
   %32 = call i64 %30(ptr noundef %28, ptr noundef nonnull %31, i64 noundef %27) #21
   %33 = icmp eq i64 %32, -1
   br i1 %33, label %36, label %34
@@ -5345,11 +5345,11 @@ safe_recv_packet.exit13.us:                       ; preds = %safe_send.exit.us, 
 
 .split.us.i:                                      ; preds = %.split.us.i.preheader, %62
   %.0.us.i = phi i64 [ %.1.us.i, %62 ], [ 0, %.split.us.i.preheader ]
-  %50 = sub i64 %6, %.0.us.i
+  %50 = sub nsw i64 %6, %.0.us.i
   %51 = load ptr, ptr @con, align 8, !tbaa !35
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !39
-  %54 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i
   %55 = call i64 %53(ptr noundef %51, ptr noundef nonnull %54, i64 noundef %50) #21
   %56 = icmp eq i64 %55, -1
   br i1 %56, label %59, label %57
@@ -5459,11 +5459,11 @@ storage_command.exit:                             ; preds = %2
 
 .split.us.i:                                      ; preds = %34, %storage_command.exit
   %.0.us.i = phi i64 [ %.1.us.i, %34 ], [ 0, %storage_command.exit ]
-  %22 = sub i64 %6, %.0.us.i
+  %22 = sub nsw i64 %6, %.0.us.i
   %23 = load ptr, ptr @con, align 8, !tbaa !35
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !39
-  %26 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i
   %27 = call i64 %25(ptr noundef %23, ptr noundef nonnull %26, i64 noundef %22) #21
   %28 = icmp eq i64 %27, -1
   br i1 %28, label %31, label %29
@@ -5545,11 +5545,11 @@ storage_command.exit17:                           ; preds = %safe_recv_packet.ex
 
 .split.us.i18:                                    ; preds = %72, %storage_command.exit17
   %.0.us.i19 = phi i64 [ %.1.us.i20, %72 ], [ 0, %storage_command.exit17 ]
-  %60 = sub i64 %52, %.0.us.i19
+  %60 = sub nsw i64 %52, %.0.us.i19
   %61 = load ptr, ptr @con, align 8, !tbaa !35
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !39
-  %64 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i19
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i19
   %65 = call i64 %63(ptr noundef %61, ptr noundef nonnull %64, i64 noundef %60) #21
   %66 = icmp eq i64 %65, -1
   br i1 %66, label %69, label %67
@@ -5640,11 +5640,11 @@ storage_command.exit29:                           ; preds = %safe_recv_packet.ex
 
 .split.us.i30.us:                                 ; preds = %115, %.split.us.i30.preheader.us
   %.0.us.i31.us = phi i64 [ %.1.us.i32.us, %115 ], [ 0, %.split.us.i30.preheader.us ]
-  %103 = sub i64 %90, %.0.us.i31.us
+  %103 = sub nsw i64 %90, %.0.us.i31.us
   %104 = load ptr, ptr @con, align 8, !tbaa !35
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = load ptr, ptr %105, align 8, !tbaa !39
-  %107 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i31.us
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i31.us
   %108 = call i64 %106(ptr noundef %104, ptr noundef nonnull %107, i64 noundef %103) #21
   %109 = icmp eq i64 %108, -1
   br i1 %109, label %112, label %110
@@ -5694,11 +5694,11 @@ safe_recv_packet.exit39.us:                       ; preds = %118, %safe_send.exi
 
 .split.us.i30:                                    ; preds = %.split.us.i30.preheader, %138
   %.0.us.i31 = phi i64 [ %.1.us.i32, %138 ], [ 0, %.split.us.i30.preheader ]
-  %126 = sub i64 %90, %.0.us.i31
+  %126 = sub nsw i64 %90, %.0.us.i31
   %127 = load ptr, ptr @con, align 8, !tbaa !35
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %129 = load ptr, ptr %128, align 8, !tbaa !39
-  %130 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i31
+  %130 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i31
   %131 = call i64 %129(ptr noundef %127, ptr noundef nonnull %130, i64 noundef %126) #21
   %132 = icmp eq i64 %131, -1
   br i1 %132, label %135, label %133
@@ -5781,11 +5781,11 @@ raw_command.exit:                                 ; preds = %2
 
 .split.us.i:                                      ; preds = %29, %raw_command.exit
   %.0.us.i = phi i64 [ %.1.us.i, %29 ], [ 0, %raw_command.exit ]
-  %17 = sub i64 %6, %.0.us.i
+  %17 = sub nsw i64 %6, %.0.us.i
   %18 = load ptr, ptr @con, align 8, !tbaa !35
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !39
-  %21 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i
   %22 = call i64 %20(ptr noundef %18, ptr noundef nonnull %21, i64 noundef %17) #21
   %23 = icmp eq i64 %22, -1
   br i1 %23, label %26, label %24
@@ -5868,11 +5868,11 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
 
 .split.us.i15:                                    ; preds = %69, %storage_command.exit
   %.0.us.i16 = phi i64 [ %.1.us.i17, %69 ], [ 0, %storage_command.exit ]
-  %57 = sub i64 %47, %.0.us.i16
+  %57 = sub nsw i64 %47, %.0.us.i16
   %58 = load ptr, ptr @con, align 8, !tbaa !35
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !39
-  %61 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i16
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i16
   %62 = call i64 %60(ptr noundef %58, ptr noundef nonnull %61, i64 noundef %57) #21
   %63 = icmp eq i64 %62, -1
   br i1 %63, label %66, label %64
@@ -5948,11 +5948,11 @@ raw_command.exit27:                               ; preds = %safe_recv_packet.ex
 
 .split.us.i28:                                    ; preds = %105, %raw_command.exit27
   %.0.us.i29 = phi i64 [ %.1.us.i30, %105 ], [ 0, %raw_command.exit27 ]
-  %93 = sub i64 %87, %.0.us.i29
+  %93 = sub nsw i64 %87, %.0.us.i29
   %94 = load ptr, ptr @con, align 8, !tbaa !35
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
   %96 = load ptr, ptr %95, align 8, !tbaa !39
-  %97 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i29
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i29
   %98 = call i64 %96(ptr noundef %94, ptr noundef nonnull %97, i64 noundef %93) #21
   %99 = icmp eq i64 %98, -1
   br i1 %99, label %102, label %100
@@ -6014,11 +6014,11 @@ safe_recv_packet.exit37:                          ; preds = %111, %113
 
 .split.us.i38:                                    ; preds = %.split.us.i38.preheader, %136
   %.0.us.i39 = phi i64 [ %.1.us.i40, %136 ], [ 0, %.split.us.i38.preheader ]
-  %124 = sub i64 %87, %.0.us.i39
+  %124 = sub nsw i64 %87, %.0.us.i39
   %125 = load ptr, ptr @con, align 8, !tbaa !35
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = load ptr, ptr %126, align 8, !tbaa !39
-  %128 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i39
+  %128 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i39
   %129 = call i64 %127(ptr noundef %125, ptr noundef nonnull %128, i64 noundef %124) #21
   %130 = icmp eq i64 %129, -1
   br i1 %130, label %133, label %131
@@ -6134,11 +6134,11 @@ ext_command.exit:                                 ; preds = %14, %25
 
 .split.us.i:                                      ; preds = %40, %ext_command.exit
   %.0.us.i = phi i64 [ %.1.us.i, %40 ], [ 0, %ext_command.exit ]
-  %28 = sub i64 %11, %.0.us.i
+  %28 = sub nsw i64 %11, %.0.us.i
   %29 = load ptr, ptr @con, align 8, !tbaa !35
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !39
-  %32 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i
   %33 = call i64 %31(ptr noundef %29, ptr noundef nonnull %32, i64 noundef %28) #21
   %34 = icmp eq i64 %33, -1
   br i1 %34, label %37, label %35
@@ -6221,11 +6221,11 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
 
 .split.us.i32:                                    ; preds = %80, %storage_command.exit
   %.0.us.i33 = phi i64 [ %.1.us.i34, %80 ], [ 0, %storage_command.exit ]
-  %68 = sub i64 %58, %.0.us.i33
+  %68 = sub nsw i64 %58, %.0.us.i33
   %69 = load ptr, ptr @con, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !39
-  %72 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i33
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i33
   %73 = call i64 %71(ptr noundef %69, ptr noundef nonnull %72, i64 noundef %68) #21
   %74 = icmp eq i64 %73, -1
   br i1 %74, label %77, label %75
@@ -6522,11 +6522,11 @@ ext_command.exit27:                               ; preds = %44, %48
 
 .split.us.i:                                      ; preds = %64, %ext_command.exit27
   %.0.us.i = phi i64 [ %.1.us.i, %64 ], [ 0, %ext_command.exit27 ]
-  %52 = sub i64 %51, %.0.us.i
+  %52 = sub nsw i64 %51, %.0.us.i
   %53 = load ptr, ptr @con, align 8, !tbaa !35
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !39
-  %56 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i
   %57 = call i64 %55(ptr noundef %53, ptr noundef nonnull %56, i64 noundef %52) #21
   %58 = icmp eq i64 %57, -1
   br i1 %58, label %61, label %59
@@ -6892,8 +6892,8 @@ safe_recv_packet.exit.us:                         ; preds = %45, %safe_send.exit
 
 56:                                               ; preds = %safe_recv_packet.exit.us
   %57 = add nsw i32 %.023.us, -1
-  %.not28 = icmp eq i32 %.023.us, 0
-  br i1 %.not28, label %.split.us.i12.preheader, label %.split.us.i.preheader.us, !llvm.loop !83
+  %.not33 = icmp eq i32 %.023.us, 0
+  br i1 %.not33, label %.split.us.i12.preheader, label %.split.us.i.preheader.us, !llvm.loop !83
 
 .split.us.i12.preheader:                          ; preds = %safe_send.exit, %56
   br label %.split.us.i12
@@ -7063,11 +7063,11 @@ storage_command.exit:                             ; preds = %2
 
 .split.us.i:                                      ; preds = %33, %storage_command.exit
   %.0.us.i = phi i64 [ %.1.us.i, %33 ], [ 0, %storage_command.exit ]
-  %21 = sub i64 %6, %.0.us.i
+  %21 = sub nsw i64 %6, %.0.us.i
   %22 = load ptr, ptr @con, align 8, !tbaa !35
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !39
-  %25 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i
   %26 = call i64 %24(ptr noundef %22, ptr noundef nonnull %25, i64 noundef %21) #21
   %27 = icmp eq i64 %26, -1
   br i1 %27, label %30, label %28
@@ -7133,7 +7133,7 @@ safe_recv_packet.exit:                            ; preds = %safe_send.exit, %39
   %51 = load ptr, ptr @con, align 8, !tbaa !35
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !39
-  %54 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i26
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i26
   %55 = call i64 %53(ptr noundef %51, ptr noundef nonnull %54, i64 noundef %50) #21
   %56 = icmp eq i64 %55, -1
   br i1 %56, label %59, label %57
@@ -7215,11 +7215,11 @@ raw_command.exit:                                 ; preds = %81
 
 .split.us.i35:                                    ; preds = %101, %raw_command.exit
   %.0.us.i36 = phi i64 [ %.1.us.i37, %101 ], [ 0, %raw_command.exit ]
-  %89 = sub i64 %83, %.0.us.i36
+  %89 = sub nsw i64 %83, %.0.us.i36
   %90 = load ptr, ptr @con, align 8, !tbaa !35
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8, !tbaa !39
-  %93 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i36
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i36
   %94 = call i64 %92(ptr noundef %90, ptr noundef nonnull %93, i64 noundef %89) #21
   %95 = icmp eq i64 %94, -1
   br i1 %95, label %98, label %96
@@ -7275,11 +7275,11 @@ safe_recv_packet.exit44:                          ; preds = %safe_send.exit40, %
 
 .split.us.i45:                                    ; preds = %131, %safe_recv_packet.exit44
   %.0.us.i46 = phi i64 [ %.1.us.i47, %131 ], [ 0, %safe_recv_packet.exit44 ]
-  %119 = sub i64 %83, %.0.us.i46
+  %119 = sub nsw i64 %83, %.0.us.i46
   %120 = load ptr, ptr @con, align 8, !tbaa !35
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load ptr, ptr %121, align 8, !tbaa !39
-  %123 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i46
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i46
   %124 = call i64 %122(ptr noundef %120, ptr noundef nonnull %123, i64 noundef %119) #21
   %125 = icmp eq i64 %124, -1
   br i1 %125, label %128, label %126
@@ -7367,11 +7367,11 @@ storage_command.exit56:                           ; preds = %152
 
 .split.us.i57:                                    ; preds = %174, %storage_command.exit56
   %.0.us.i58 = phi i64 [ %.1.us.i59, %174 ], [ 0, %storage_command.exit56 ]
-  %162 = sub i64 %155, %.0.us.i58
+  %162 = sub nsw i64 %155, %.0.us.i58
   %163 = load ptr, ptr @con, align 8, !tbaa !35
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
   %165 = load ptr, ptr %164, align 8, !tbaa !39
-  %166 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i58
+  %166 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i58
   %167 = call i64 %165(ptr noundef %163, ptr noundef nonnull %166, i64 noundef %162) #21
   %168 = icmp eq i64 %167, -1
   br i1 %168, label %171, label %169
@@ -7435,11 +7435,11 @@ flush_command.exit:                               ; preds = %safe_recv_packet.ex
 
 .split.us.i68:                                    ; preds = %200, %flush_command.exit
   %.0.us.i69 = phi i64 [ %.1.us.i70, %200 ], [ 0, %flush_command.exit ]
-  %188 = sub i64 %.0.i67, %.0.us.i69
+  %188 = sub nsw i64 %.0.i67, %.0.us.i69
   %189 = load ptr, ptr @con, align 8, !tbaa !35
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 16
   %191 = load ptr, ptr %190, align 8, !tbaa !39
-  %192 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i69
+  %192 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i69
   %193 = call i64 %191(ptr noundef %189, ptr noundef nonnull %192, i64 noundef %188) #21
   %194 = icmp eq i64 %193, -1
   br i1 %194, label %197, label %195
@@ -7516,11 +7516,11 @@ raw_command.exit80:                               ; preds = %214
 
 .split.us.i81:                                    ; preds = %234, %raw_command.exit80
   %.0.us.i82 = phi i64 [ %.1.us.i83, %234 ], [ 0, %raw_command.exit80 ]
-  %222 = sub i64 %216, %.0.us.i82
+  %222 = sub nsw i64 %216, %.0.us.i82
   %223 = load ptr, ptr @con, align 8, !tbaa !35
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 16
   %225 = load ptr, ptr %224, align 8, !tbaa !39
-  %226 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i82
+  %226 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i82
   %227 = call i64 %225(ptr noundef %223, ptr noundef nonnull %226, i64 noundef %222) #21
   %228 = icmp eq i64 %227, -1
   br i1 %228, label %231, label %229
@@ -7615,11 +7615,11 @@ raw_command.exit:                                 ; preds = %2
 
 .split.us.i:                                      ; preds = %32, %raw_command.exit
   %.0.us.i = phi i64 [ %.1.us.i, %32 ], [ 0, %raw_command.exit ]
-  %20 = sub i64 %6, %.0.us.i
+  %20 = sub nsw i64 %6, %.0.us.i
   %21 = load ptr, ptr @con, align 8, !tbaa !35
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !39
-  %24 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i
   %25 = call i64 %23(ptr noundef %21, ptr noundef nonnull %24, i64 noundef %20) #21
   %26 = icmp eq i64 %25, -1
   br i1 %26, label %29, label %27
@@ -7704,11 +7704,11 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
 
 .split.us.i47:                                    ; preds = %73, %storage_command.exit
   %.0.us.i48 = phi i64 [ %.1.us.i49, %73 ], [ 0, %storage_command.exit ]
-  %61 = sub i64 %50, %.0.us.i48
+  %61 = sub nsw i64 %50, %.0.us.i48
   %62 = load ptr, ptr @con, align 8, !tbaa !35
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !39
-  %65 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i48
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i48
   %66 = call i64 %64(ptr noundef %62, ptr noundef nonnull %65, i64 noundef %61) #21
   %67 = icmp eq i64 %66, -1
   br i1 %67, label %70, label %68
@@ -7788,11 +7788,11 @@ raw_command.exit59:                               ; preds = %safe_recv_packet.ex
 
 .split.us.i60:                                    ; preds = %112, %raw_command.exit59
   %.0.us.i61 = phi i64 [ %.1.us.i62, %112 ], [ 0, %raw_command.exit59 ]
-  %100 = sub i64 %91, %.0.us.i61
+  %100 = sub nsw i64 %91, %.0.us.i61
   %101 = load ptr, ptr @con, align 8, !tbaa !35
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %103 = load ptr, ptr %102, align 8, !tbaa !39
-  %104 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i61
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i61
   %105 = call i64 %103(ptr noundef %101, ptr noundef nonnull %104, i64 noundef %100) #21
   %106 = icmp eq i64 %105, -1
   br i1 %106, label %109, label %107
@@ -7841,7 +7841,7 @@ safe_send.exit65:                                 ; preds = %112
   %121 = load ptr, ptr @con, align 8, !tbaa !35
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %123 = load ptr, ptr %122, align 8, !tbaa !39
-  %124 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i71
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i71
   %125 = call i64 %123(ptr noundef %121, ptr noundef nonnull %124, i64 noundef %120) #21
   %126 = icmp eq i64 %125, -1
   br i1 %126, label %129, label %127
@@ -7919,11 +7919,11 @@ raw_command.exit82:                               ; preds = %safe_recv_packet.ex
 
 .split.us.i83:                                    ; preds = %167, %raw_command.exit82
   %.0.us.i84 = phi i64 [ %.1.us.i85, %167 ], [ 0, %raw_command.exit82 ]
-  %155 = sub i64 %149, %.0.us.i84
+  %155 = sub nsw i64 %149, %.0.us.i84
   %156 = load ptr, ptr @con, align 8, !tbaa !35
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %158 = load ptr, ptr %157, align 8, !tbaa !39
-  %159 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i84
+  %159 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.us.i84
   %160 = call i64 %158(ptr noundef %156, ptr noundef nonnull %159, i64 noundef %155) #21
   %161 = icmp eq i64 %160, -1
   br i1 %161, label %164, label %162

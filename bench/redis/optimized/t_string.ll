@@ -182,7 +182,7 @@ getGenericCommand.exit.thread:                    ; preds = %30, %44, %getExpire
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 56
   %77 = load i32, ptr %76, align 8, !tbaa !54
   call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str, ptr noundef %2, i32 noundef %77) #11
-  br i1 %11, label %78, label %.thread94
+  br i1 %11, label %78, label %.thread98
 
 78:                                               ; preds = %64
   %79 = load ptr, ptr %45, align 8, !tbaa !32
@@ -209,17 +209,17 @@ getGenericCommand.exit.thread:                    ; preds = %30, %44, %getExpire
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef %2, i32 noundef %91) #11
   br i1 %.not81, label %.thread, label %131
 
-.thread94:                                        ; preds = %64
-  br i1 %.not81, label %.thread, label %.thread95
+.thread98:                                        ; preds = %64
+  br i1 %.not81, label %.thread, label %.thread99
 
-.thread:                                          ; preds = %.thread94, %88
+.thread:                                          ; preds = %.thread98, %88
   %.not83 = icmp eq ptr %6, null
   %92 = load ptr, ptr @shared, align 8
   %93 = select i1 %.not83, ptr %92, ptr %6
   call void @addReply(ptr noundef nonnull %0, ptr noundef %93) #11
   br label %131
 
-.thread95:                                        ; preds = %.thread94
+.thread99:                                        ; preds = %.thread98
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %95 = load i32, ptr %94, align 8, !tbaa !59
   %96 = add nsw i32 %95, -1
@@ -230,7 +230,7 @@ getGenericCommand.exit.thread:                    ; preds = %30, %44, %getExpire
   %101 = icmp sgt i32 %100, 0
   br i1 %101, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.thread95
+.lr.ph:                                           ; preds = %.thread99
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %103
 
@@ -292,8 +292,8 @@ getGenericCommand.exit.thread:                    ; preds = %30, %44, %getExpire
   %130 = icmp slt i64 %indvars.iv.next, %129
   br i1 %130, label %103, label %._crit_edge, !llvm.loop !63
 
-._crit_edge:                                      ; preds = %127, %.thread95
-  %.075.lcssa = phi i32 [ 0, %.thread95 ], [ %.1, %127 ]
+._crit_edge:                                      ; preds = %127, %.thread99
+  %.075.lcssa = phi i32 [ 0, %.thread99 ], [ %.1, %127 ]
   call void @replaceClientCommandVector(ptr noundef nonnull %0, i32 noundef %.075.lcssa, ptr noundef %99) #11
   br label %131
 
@@ -461,8 +461,8 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedStringArgumentsOrReply(ptr n
   br label %171
 
 56:                                               ; preds = %43, %50, %46
-  %cond215 = icmp eq i8 %28, 103
-  br i1 %cond215, label %57, label %70
+  %cond220 = icmp eq i8 %28, 103
+  br i1 %cond220, label %57, label %70
 
 57:                                               ; preds = %56, %42, %26, %26
   %58 = getelementptr inbounds nuw i8, ptr %20, i64 1
@@ -1784,7 +1784,7 @@ define dso_local void @msetGenericCommand(ptr noundef %0, i32 noundef %1) local_
 8:                                                ; preds = %2
   %.not = icmp eq i32 %1, 0
   %9 = icmp sgt i32 %4, 1
-  br i1 %.not, label %.loopexit.thread49, label %.preheader
+  br i1 %.not, label %.loopexit.thread53, label %.preheader
 
 .preheader:                                       ; preds = %8
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -1820,10 +1820,10 @@ define dso_local void @msetGenericCommand(ptr noundef %0, i32 noundef %1) local_
   %24 = icmp sgt i32 %13, 1
   br i1 %24, label %.lr.ph38, label %._crit_edge
 
-.loopexit.thread49:                               ; preds = %8
+.loopexit.thread53:                               ; preds = %8
   br i1 %9, label %.lr.ph38.thread, label %._crit_edge
 
-.lr.ph38.thread:                                  ; preds = %.loopexit.thread49
+.lr.ph38.thread:                                  ; preds = %.loopexit.thread53
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.lr.ph38.split.us
@@ -1888,8 +1888,8 @@ define dso_local void @msetGenericCommand(ptr noundef %0, i32 noundef %1) local_
   %66 = icmp sgt i32 %64, %65
   br i1 %66, label %.lr.ph38.split, label %._crit_edge, !llvm.loop !82
 
-._crit_edge:                                      ; preds = %.lr.ph38.split, %.lr.ph38.split.us, %.preheader, %.loopexit.thread49, %.loopexit
-  %.lcssa = phi i32 [ %13, %.loopexit ], [ %4, %.loopexit.thread49 ], [ %4, %.preheader ], [ %45, %.lr.ph38.split.us ], [ %64, %.lr.ph38.split ]
+._crit_edge:                                      ; preds = %.lr.ph38.split, %.lr.ph38.split.us, %.preheader, %.loopexit.thread53, %.loopexit
+  %.lcssa = phi i32 [ %13, %.loopexit ], [ %4, %.loopexit.thread53 ], [ %4, %.preheader ], [ %45, %.lr.ph38.split.us ], [ %64, %.lr.ph38.split ]
   %67 = add nsw i32 %.lcssa, -1
   %68 = sdiv i32 %67, 2
   %69 = sext i32 %68 to i64
@@ -2583,9 +2583,9 @@ define dso_local void @lcsCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 ._crit_edge.thread:                               ; preds = %33, %._crit_edge
-  %.0235.lcssa388 = phi i1 [ %73, %._crit_edge ], [ false, %33 ]
-  %.0238.lcssa387 = phi i1 [ %74, %._crit_edge ], [ false, %33 ]
-  %.0244.lcssa386 = phi i32 [ %.2246.ph, %._crit_edge ], [ 0, %33 ]
+  %.0235.lcssa401 = phi i1 [ %73, %._crit_edge ], [ false, %33 ]
+  %.0238.lcssa400 = phi i1 [ %74, %._crit_edge ], [ false, %33 ]
+  %.0244.lcssa399 = phi i32 [ %.2246.ph, %._crit_edge ], [ 0, %33 ]
   %76 = getelementptr inbounds i8, ptr %36, i64 -1
   %77 = load i8, ptr %76, align 1, !tbaa !62
   %78 = zext i8 %77 to i32
@@ -2784,8 +2784,8 @@ sdslen.exit281:                                   ; preds = %sdslen.exit279, %12
   %167 = zext i32 %166 to i64
   %168 = getelementptr inbounds nuw i32, ptr %152, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !65
-  %170 = xor i1 %.0235.lcssa388, true
-  %171 = or i1 %.0238.lcssa387, %170
+  %170 = xor i1 %.0235.lcssa401, true
+  %171 = or i1 %.0238.lcssa400, %170
   br i1 %171, label %205, label %.critedge.thread
 
 .split.us:                                        ; preds = %204, %.preheader.split.us.preheader
@@ -2849,7 +2849,7 @@ sdslen.exit281:                                   ; preds = %sdslen.exit279, %12
   %206 = load ptr, ptr @SDS_NOINIT, align 8, !tbaa !90
   %207 = zext i32 %169 to i64
   %208 = call ptr @sdsnewlen(ptr noundef %206, i64 noundef %207) #11
-  br i1 %.0238.lcssa387, label %209, label %.thread297
+  br i1 %.0238.lcssa400, label %209, label %.thread297
 
 209:                                              ; preds = %205
   call void @addReplyMapLen(ptr noundef %0, i64 noundef 2) #11
@@ -2867,9 +2867,9 @@ sdslen.exit281:                                   ; preds = %sdslen.exit279, %12
 .lr.ph368:                                        ; preds = %.thread297
   %213 = icmp ne ptr %.0230, null
   %.old12.not = icmp eq ptr %.0230, null
-  %214 = add nuw nsw i32 %.0244.lcssa386, 2
+  %214 = add nuw nsw i32 %.0244.lcssa399, 2
   %215 = zext nneg i32 %214 to i64
-  %.not266 = icmp eq i32 %.0244.lcssa386, 0
+  %.not266 = icmp eq i32 %.0244.lcssa399, 0
   br label %216
 
 216:                                              ; preds = %.lr.ph368, %.thread325
@@ -2917,10 +2917,10 @@ sdslen.exit281:                                   ; preds = %sdslen.exit279, %12
 .thread:                                          ; preds = %231
   %237 = icmp eq i32 %.0226361, 0
   %238 = icmp eq i32 %.0220363, 0
-  %or.cond9400 = select i1 %237, i1 true, i1 %238
-  br i1 %or.cond9400, label %.thread302, label %.thread406
+  %or.cond9413 = select i1 %237, i1 true, i1 %238
+  br i1 %or.cond9413, label %.thread302, label %.thread419
 
-.thread406:                                       ; preds = %.thread
+.thread419:                                       ; preds = %.thread
   %239 = sub i32 %.0223362, %.0226361
   br label %253
 
@@ -2952,15 +2952,15 @@ sdslen.exit281:                                   ; preds = %sdslen.exit279, %12
   %252 = sub i32 %.2225.ph, %.2228.ph
   br label %253
 
-253:                                              ; preds = %.thread406, %.thread302
-  %.in = phi i32 [ %252, %.thread302 ], [ %239, %.thread406 ]
-  %.1323 = phi i32 [ %.1.ph, %.thread302 ], [ %217, %.thread406 ]
-  %.4321 = phi i32 [ %.4.ph, %.thread302 ], [ %221, %.thread406 ]
-  %.2219319 = phi i32 [ %.2219.ph, %.thread302 ], [ %.0217364, %.thread406 ]
-  %.2222317 = phi i32 [ %.2222.ph, %.thread302 ], [ %.0220363, %.thread406 ]
-  %.2225315 = phi i32 [ %.2225.ph, %.thread302 ], [ %.0223362, %.thread406 ]
-  %.2228314 = phi i32 [ %.2228.ph, %.thread302 ], [ %.0226361, %.thread406 ]
-  %.1234312 = phi i32 [ %.1234.ph, %.thread302 ], [ %227, %.thread406 ]
+253:                                              ; preds = %.thread419, %.thread302
+  %.in = phi i32 [ %252, %.thread302 ], [ %239, %.thread419 ]
+  %.1323 = phi i32 [ %.1.ph, %.thread302 ], [ %217, %.thread419 ]
+  %.4321 = phi i32 [ %.4.ph, %.thread302 ], [ %221, %.thread419 ]
+  %.2219319 = phi i32 [ %.2219.ph, %.thread302 ], [ %.0217364, %.thread419 ]
+  %.2222317 = phi i32 [ %.2222.ph, %.thread302 ], [ %.0220363, %.thread419 ]
+  %.2225315 = phi i32 [ %.2225.ph, %.thread302 ], [ %.0223362, %.thread419 ]
+  %.2228314 = phi i32 [ %.2228.ph, %.thread302 ], [ %.0226361, %.thread419 ]
+  %.1234312 = phi i32 [ %.1234.ph, %.thread302 ], [ %227, %.thread419 ]
   %254 = add i32 %.in, 1
   %255 = load i64, ptr %2, align 8, !tbaa !5
   %256 = icmp eq i64 %255, 0
@@ -3029,8 +3029,8 @@ sdslen.exit281:                                   ; preds = %sdslen.exit279, %12
   br label %278
 
 .critedge.thread:                                 ; preds = %164, %.critedge
-  %.0231299393416 = phi ptr [ %208, %.critedge ], [ null, %164 ]
-  br i1 %.0235.lcssa388, label %275, label %277
+  %.0231299406429 = phi ptr [ %208, %.critedge ], [ null, %164 ]
+  br i1 %.0235.lcssa401, label %275, label %277
 
 275:                                              ; preds = %.critedge.thread
   %276 = zext i32 %169 to i64
@@ -3038,11 +3038,11 @@ sdslen.exit281:                                   ; preds = %sdslen.exit279, %12
   br label %278
 
 277:                                              ; preds = %.critedge.thread
-  call void @addReplyBulkSds(ptr noundef %0, ptr noundef %.0231299393416) #11
+  call void @addReplyBulkSds(ptr noundef %0, ptr noundef %.0231299406429) #11
   br label %278
 
 278:                                              ; preds = %275, %277, %273
-  %.1232 = phi ptr [ %208, %273 ], [ %.0231299393416, %275 ], [ null, %277 ]
+  %.1232 = phi ptr [ %208, %273 ], [ %.0231299406429, %275 ], [ null, %277 ]
   call void @sdsfree(ptr noundef %.1232) #11
   call void @zfree(ptr noundef nonnull %152) #11
   br label %.loopexit

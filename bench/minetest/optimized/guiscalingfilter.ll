@@ -1719,7 +1719,7 @@ for.body19:                                       ; preds = %_Z23draw2DImageFilt
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %src, ptr noundef nonnull align 4 dereferenceable(16) %srcrect, i64 16, i1 false), !tbaa.struct !89
   call void @llvm.lifetime.start.p0(ptr nonnull %dest)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dest, ptr noundef nonnull align 4 dereferenceable(16) %destrect, i64 16, i1 false), !tbaa.struct !89
-  switch i32 %x.0157, label %default.unreachable [
+  switch i32 %x.0157, label %default.unreachable4 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb33
     i32 2, label %sw.bb51
@@ -1758,11 +1758,11 @@ sw.bb51:                                          ; preds = %for.body19
   store i32 %sub61, ptr %src, align 4, !tbaa !51
   br label %sw.epilog
 
-default.unreachable:                              ; preds = %sw.epilog, %for.body19
+default.unreachable4:                             ; preds = %sw.epilog, %for.body19
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb51, %sw.bb33, %sw.bb
-  switch i32 %y.0158, label %default.unreachable [
+  switch i32 %y.0158, label %default.unreachable4 [
     i32 0, label %sw.bb64
     i32 1, label %sw.bb79
     i32 2, label %sw.bb98

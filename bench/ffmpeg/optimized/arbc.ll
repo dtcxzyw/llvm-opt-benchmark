@@ -568,8 +568,8 @@ bytestream2_get_le16.exit.us.us:                  ; preds = %64, %61
   %68 = add nuw nsw i32 %66, %1
   %.not.us.us = icmp slt i32 %66, %40
   %.not108.us.us = icmp slt i32 %65, %39
-  %or.cond177 = select i1 %.not.us.us, i1 %.not108.us.us, i1 false
-  br i1 %or.cond177, label %.preheader118.us.us.us.us, label %.loopexit.split.us.split.us.us.us
+  %or.cond189 = select i1 %.not.us.us, i1 %.not108.us.us, i1 false
+  br i1 %or.cond189, label %.preheader118.us.us.us.us, label %.loopexit.split.us.split.us.us.us
 
 .loopexit.split.us.split.us.us.us:                ; preds = %.split.us.split.us.us.us.us.us, %bytestream2_get_le16.exit.us.us
   %69 = phi i32 [ %39, %bytestream2_get_le16.exit.us.us ], [ %78, %.split.us.split.us.us.us.us.us ]

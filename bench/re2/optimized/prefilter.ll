@@ -236,13 +236,13 @@ entry:
   br i1 %switch6, label %if.end.preheader, label %return
 
 if.end.preheader:                                 ; preds = %entry
-  %subs_15 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %subs_15, align 8
+  %subs_16 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %1 = load ptr, ptr %subs_16, align 8
   %2 = load ptr, ptr %1, align 8
-  %_M_finish.i.i16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3 = load ptr, ptr %_M_finish.i.i16, align 8
-  %cmp.i.i17 = icmp eq ptr %2, %3
-  br i1 %cmp.i.i17, label %if.then4, label %if.end11
+  %_M_finish.i.i17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %_M_finish.i.i17, align 8
+  %cmp.i.i18 = icmp eq ptr %2, %3
+  br i1 %cmp.i.i18, label %if.then4, label %if.end11
 
 if.end:                                           ; preds = %_ZNSt6vectorIPN3re29PrefilterESaIS2_EE5clearEv.exit
   %subs_ = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -263,9 +263,9 @@ if.then4:                                         ; preds = %if.end, %if.end.pre
 
 if.end11:                                         ; preds = %if.end.preheader, %if.end
   %7 = phi ptr [ %6, %if.end ], [ %3, %if.end.preheader ]
-  %_M_finish.i.i19 = phi ptr [ %_M_finish.i.i, %if.end ], [ %_M_finish.i.i16, %if.end.preheader ]
+  %_M_finish.i.i20 = phi ptr [ %_M_finish.i.i, %if.end ], [ %_M_finish.i.i17, %if.end.preheader ]
   %8 = phi ptr [ %5, %if.end ], [ %2, %if.end.preheader ]
-  %this.tr718 = phi ptr [ %9, %if.end ], [ %this, %if.end.preheader ]
+  %this.tr719 = phi ptr [ %9, %if.end ], [ %this, %if.end.preheader ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -274,16 +274,16 @@ if.end11:                                         ; preds = %if.end.preheader, %
 
 _ZNSt6vectorIPN3re29PrefilterESaIS2_EE5clearEv.exit: ; preds = %if.end11
   %9 = load ptr, ptr %8, align 8
-  store ptr %8, ptr %_M_finish.i.i19, align 8
-  tail call void @_ZN3re29PrefilterD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %this.tr718) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %this.tr718) #20
+  store ptr %8, ptr %_M_finish.i.i20, align 8
+  tail call void @_ZN3re29PrefilterD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %this.tr719) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this.tr719) #20
   %10 = load i32, ptr %9, align 8
   %.off = add i32 %10, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %if.end, label %return
 
 return:                                           ; preds = %if.end11, %_ZNSt6vectorIPN3re29PrefilterESaIS2_EE5clearEv.exit, %entry, %if.then4
-  %this.tr4 = phi ptr [ %this.tr7.lcssa, %if.then4 ], [ %this, %entry ], [ %this.tr718, %if.end11 ], [ %9, %_ZNSt6vectorIPN3re29PrefilterESaIS2_EE5clearEv.exit ]
+  %this.tr4 = phi ptr [ %this.tr7.lcssa, %if.then4 ], [ %this, %entry ], [ %this.tr719, %if.end11 ], [ %9, %_ZNSt6vectorIPN3re29PrefilterESaIS2_EE5clearEv.exit ]
   ret ptr %this.tr4
 }
 
@@ -359,11 +359,11 @@ if.end.i17.preheader:                             ; preds = %_ZN3re29Prefilter8S
   br i1 %cmp.i.i.i21193, label %if.then4.i30, label %if.end11.i22.preheader
 
 if.end11.i22.preheader:                           ; preds = %if.end.i17.preheader
-  %sub.ptr.lhs.cast.i.i23231 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i24232 = ptrtoint ptr %13 to i64
-  %sub.ptr.sub.i.i25233 = sub i64 %sub.ptr.lhs.cast.i.i23231, %sub.ptr.rhs.cast.i.i24232
-  %cmp14.i26234 = icmp eq i64 %sub.ptr.sub.i.i25233, 8
-  br i1 %cmp14.i26234, label %_ZNSt6vectorIPN3re29PrefilterESaIS2_EE5clearEv.exit.i27, label %_ZN3re29Prefilter8SimplifyEv.exit33
+  %sub.ptr.lhs.cast.i.i23252 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i24253 = ptrtoint ptr %13 to i64
+  %sub.ptr.sub.i.i25254 = sub i64 %sub.ptr.lhs.cast.i.i23252, %sub.ptr.rhs.cast.i.i24253
+  %cmp14.i26255 = icmp eq i64 %sub.ptr.sub.i.i25254, 8
+  br i1 %cmp14.i26255, label %_ZNSt6vectorIPN3re29PrefilterESaIS2_EE5clearEv.exit.i27, label %_ZN3re29Prefilter8SimplifyEv.exit33
 
 if.end.i17:                                       ; preds = %_ZNSt6vectorIPN3re29PrefilterESaIS2_EE5clearEv.exit.i27
   %subs_.i19 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -390,13 +390,13 @@ if.end11.i22:                                     ; preds = %if.end.i17
   br i1 %cmp14.i26, label %_ZNSt6vectorIPN3re29PrefilterESaIS2_EE5clearEv.exit.i27, label %_ZN3re29Prefilter8SimplifyEv.exit33
 
 _ZNSt6vectorIPN3re29PrefilterESaIS2_EE5clearEv.exit.i27: ; preds = %if.end11.i22.preheader, %if.end11.i22
-  %this.tr7.i18194236 = phi ptr [ %19, %if.end11.i22 ], [ %b, %if.end11.i22.preheader ]
+  %this.tr7.i18194257 = phi ptr [ %19, %if.end11.i22 ], [ %b, %if.end11.i22.preheader ]
   %18 = phi ptr [ %16, %if.end11.i22 ], [ %13, %if.end11.i22.preheader ]
-  %_M_finish.i.i.i20195235 = phi ptr [ %_M_finish.i.i.i20, %if.end11.i22 ], [ %_M_finish.i.i.i20192, %if.end11.i22.preheader ]
+  %_M_finish.i.i.i20195256 = phi ptr [ %_M_finish.i.i.i20, %if.end11.i22 ], [ %_M_finish.i.i.i20192, %if.end11.i22.preheader ]
   %19 = load ptr, ptr %18, align 8
-  store ptr %18, ptr %_M_finish.i.i.i20195235, align 8
-  tail call void @_ZN3re29PrefilterD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %this.tr7.i18194236) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %this.tr7.i18194236) #20
+  store ptr %18, ptr %_M_finish.i.i.i20195256, align 8
+  tail call void @_ZN3re29PrefilterD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %this.tr7.i18194257) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this.tr7.i18194257) #20
   %20 = load i32, ptr %19, align 8
   %.off.i28 = add i32 %20, -3
   %switch.i29 = icmp ult i32 %.off.i28, 2
@@ -4960,8 +4960,8 @@ _ZNSt5stackIN3re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.e
   %add.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 432
   store ptr %add.ptr8.i.i.i, ptr %_M_finish.i.i.i, align 8
   %47 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i6984 = icmp eq ptr %add.ptr8.i.i.i, %47
-  br i1 %cmp.i.i.i6984, label %return, label %_ZNSt5stackIN3re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3topEv.exit78
+  %cmp.i.i.i6993 = icmp eq ptr %add.ptr8.i.i.i, %47
+  br i1 %cmp.i.i.i6993, label %return, label %_ZNSt5stackIN3re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3topEv.exit78
 
 if.end93:                                         ; preds = %_ZNSt5stackIN3re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit
   %48 = icmp eq ptr %incdec.ptr.i.i, %43

@@ -398,7 +398,7 @@ define internal i32 @dissect_v5ua(ptr noundef %0, ptr noundef %1, ptr noundef %2
   switch i16 %19, label %33 [
     i16 1, label %20
     i16 2, label %.thread.sink.split
-    i16 3, label %.thread62
+    i16 3, label %.thread67
     i16 17, label %36
     i16 13, label %36
     i16 12, label %36
@@ -428,7 +428,7 @@ define internal i32 @dissect_v5ua(ptr noundef %0, ptr noundef %1, ptr noundef %2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.167)
   br label %.thread.sink.split
 
-.thread62:                                        ; preds = %.lr.ph
+.thread67:                                        ; preds = %.lr.ph
   store i1 false, ptr @iua_version, align 4
   br label %._crit_edge
 
@@ -460,7 +460,7 @@ define internal i32 @dissect_v5ua(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.not = icmp eq i32 %.14652, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %38, %.thread62, %4
+._crit_edge:                                      ; preds = %38, %.thread67, %4
   %39 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef 8)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %40 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %39, i32 noundef 2)

@@ -1325,8 +1325,8 @@ define dso_local i32 @_ZN5clang11ASTNodeKind28getMostDerivedCommonAncestorES0_S0
   br i1 %brmerge, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2, %.split
-  %.017 = phi i32 [ %14, %.split ], [ %0, %2 ]
-  %.not.i = icmp eq i32 %.fr9, %.017
+  %.018 = phi i32 [ %14, %.split ], [ %0, %2 ]
+  %.not.i = icmp eq i32 %.fr9, %.018
   br i1 %.not.i, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
@@ -1334,24 +1334,24 @@ define dso_local i32 @_ZN5clang11ASTNodeKind28getMostDerivedCommonAncestorES0_S0
   %5 = zext i32 %.011.i to i64
   %6 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %5
   %7 = load i32, ptr %6, align 16, !tbaa !8
-  %8 = icmp ne i32 %7, %.017
+  %8 = icmp ne i32 %7, %.018
   %9 = icmp ne i32 %7, 0
   %10 = and i1 %8, %9
   br i1 %10, label %.lr.ph.i, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit, !llvm.loop !12
 
 _ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit: ; preds = %.lr.ph.i
-  %11 = icmp eq i32 %7, %.017
+  %11 = icmp eq i32 %7, %.018
   br i1 %11, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit.thread, label %.split
 
 .split:                                           ; preds = %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit
-  %12 = zext i32 %.017 to i64
+  %12 = zext i32 %.018 to i64
   %13 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 16, !tbaa !8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit.thread, label %.preheader.i, !llvm.loop !19
 
 _ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit.thread: ; preds = %.preheader.i, %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit, %.split, %2
-  %.us-phi = phi i32 [ 0, %2 ], [ 0, %.split ], [ %.017, %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit ], [ %.fr9, %.preheader.i ]
+  %.us-phi = phi i32 [ 0, %2 ], [ 0, %.split ], [ %.018, %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit ], [ %.fr9, %.preheader.i ]
   ret i32 %.us-phi
 }
 
@@ -1572,8 +1572,8 @@ _ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i.i102
   br label %68
 
 _ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i.i.i102, %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit
-  %cond136 = icmp eq i32 %.sroa.0.0.copyload.i, 450
-  br i1 %cond136, label %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit, label %.lr.ph.i.i.i.i107
+  %cond137 = icmp eq i32 %.sroa.0.0.copyload.i, 450
+  br i1 %cond137, label %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit, label %.lr.ph.i.i.i.i107
 
 .lr.ph.i.i.i.i107:                                ; preds = %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread, %.lr.ph.i.i.i.i107
   %.011.i.i.i.i108 = phi i32 [ %44, %.lr.ph.i.i.i.i107 ], [ %.sroa.0.0.copyload.i, %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread ]
@@ -1604,8 +1604,8 @@ _ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i.i107
   br label %68
 
 _ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i.i.i107, %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit
-  %cond137 = icmp eq i32 %.sroa.0.0.copyload.i, 614
-  br i1 %cond137, label %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit, label %.lr.ph.i.i.i.i112
+  %cond138 = icmp eq i32 %.sroa.0.0.copyload.i, 614
+  br i1 %cond138, label %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit, label %.lr.ph.i.i.i.i112
 
 .lr.ph.i.i.i.i112:                                ; preds = %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit.thread, %.lr.ph.i.i.i.i112
   %.011.i.i.i.i113 = phi i32 [ %52, %.lr.ph.i.i.i.i112 ], [ %.sroa.0.0.copyload.i, %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit.thread ]
@@ -2027,7 +2027,7 @@ _ZNK5clang12DynTypedNode3getINS_9OMPClauseEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i
 
 _ZNK5clang12DynTypedNode3getINS_9OMPClauseEEEPKT_v.exit.thread.thread: ; preds = %.loopexit233, %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit.thread, %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread, %_ZNK5clang12DynTypedNode3getINS_9OMPClauseEEEPKT_v.exit, %7
   %.ph = phi ptr [ %4, %.loopexit233 ], [ %4, %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit.thread ], [ %4, %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread ], [ null, %_ZNK5clang12DynTypedNode3getINS_9OMPClauseEEEPKT_v.exit ], [ %4, %7 ]
-  %.not52.not231234 = icmp eq ptr %.ph, null
+  %.not52.not231237 = icmp eq ptr %.ph, null
   br label %37
 
 _ZNK5clang12DynTypedNode3getINS_9OMPClauseEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i.i.i94
@@ -2044,7 +2044,7 @@ _ZNK5clang12DynTypedNode3getINS_9OMPClauseEEEPKT_v.exit.thread: ; preds = %.lr.p
   br label %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread.thread.thread
 
 37:                                               ; preds = %_ZNK5clang12DynTypedNode3getINS_9OMPClauseEEEPKT_v.exit.thread.thread, %_ZNK5clang12DynTypedNode3getINS_9OMPClauseEEEPKT_v.exit.thread
-  %.not52.not231236 = phi i1 [ %.not52.not231234, %_ZNK5clang12DynTypedNode3getINS_9OMPClauseEEEPKT_v.exit.thread.thread ], [ %.not52.not231, %_ZNK5clang12DynTypedNode3getINS_9OMPClauseEEEPKT_v.exit.thread ]
+  %.not52.not231239 = phi i1 [ %.not52.not231237, %_ZNK5clang12DynTypedNode3getINS_9OMPClauseEEEPKT_v.exit.thread.thread ], [ %.not52.not231, %_ZNK5clang12DynTypedNode3getINS_9OMPClauseEEEPKT_v.exit.thread ]
   %38 = phi ptr [ %.ph, %_ZNK5clang12DynTypedNode3getINS_9OMPClauseEEEPKT_v.exit.thread.thread ], [ %4, %_ZNK5clang12DynTypedNode3getINS_9OMPClauseEEEPKT_v.exit.thread ]
   switch i32 %.sroa.0.0.copyload.i, label %.lr.ph.i.i.i.i104 [
     i32 0, label %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread.thread.thread
@@ -2062,7 +2062,7 @@ _ZNK5clang12DynTypedNode3getINS_9OMPClauseEEEPKT_v.exit.thread: ; preds = %.lr.p
   ]
 
 _ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i.i104, %37
-  br i1 %.not52.not231236, label %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread, label %42
+  br i1 %.not52.not231239, label %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread, label %42
 
 42:                                               ; preds = %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -2083,7 +2083,7 @@ _ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i
 
 _ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread.thread: ; preds = %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread
   %47 = icmp ne i32 %.sroa.0.0.copyload.i, 1046
-  %.not55.not = select i1 %47, i1 true, i1 %.not52.not231236
+  %.not55.not = select i1 %47, i1 true, i1 %.not52.not231239
   br i1 %.not55.not, label %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread.thread.thread, label %48
 
 48:                                               ; preds = %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread.thread

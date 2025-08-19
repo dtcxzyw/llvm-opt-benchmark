@@ -784,7 +784,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights29allocWei
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !14
   %11 = icmp eq i32 %10, %2
-  br i1 %11, label %12, label %.critedge.loopexit.split.loop.exit110
+  br i1 %11, label %12, label %.critedge.loopexit.split.loop.exit119
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -794,13 +794,13 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights29allocWei
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !27
 
-.critedge.loopexit.split.loop.exit110:            ; preds = %.lr.ph
+.critedge.loopexit.split.loop.exit119:            ; preds = %.lr.ph
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %12, %.critedge.loopexit.split.loop.exit110, %3
-  %.051.lcssa = phi i32 [ 0, %3 ], [ %.05174, %.critedge.loopexit.split.loop.exit110 ], [ %15, %12 ]
-  %.050.lcssa = phi i32 [ 0, %3 ], [ %16, %.critedge.loopexit.split.loop.exit110 ], [ %6, %12 ]
+.critedge:                                        ; preds = %12, %.critedge.loopexit.split.loop.exit119, %3
+  %.051.lcssa = phi i32 [ 0, %3 ], [ %.05174, %.critedge.loopexit.split.loop.exit119 ], [ %15, %12 ]
+  %.050.lcssa = phi i32 [ 0, %3 ], [ %16, %.critedge.loopexit.split.loop.exit119 ], [ %6, %12 ]
   %17 = add nsw i32 %2, 1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = sext i32 %17 to i64

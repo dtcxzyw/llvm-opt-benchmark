@@ -3784,7 +3784,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_def
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPSt5arrayIiLm3EEmS1_ET_S3_T0_RSaIT1_E.exit, label %23
 
@@ -3942,17 +3942,17 @@ _ZNSi7getlineEPcl.exit:                           ; preds = %21, %24
 
 39:                                               ; preds = %37
   %40 = call noundef zeroext i1 @_ZN3igl11starts_withEPKcS1_(ptr noundef nonnull %4, ptr noundef nonnull @.str.16)
-  br i1 %40, label %.thread44, label %41
+  br i1 %40, label %.thread45, label %41
 
 41:                                               ; preds = %39
   %42 = call noundef zeroext i1 @_ZN3igl11starts_withEPKcS1_(ptr noundef nonnull %4, ptr noundef nonnull @.str.17)
-  br i1 %42, label %.thread44, label %43
+  br i1 %42, label %.thread45, label %43
 
 43:                                               ; preds = %41
   %44 = call noundef zeroext i1 @_ZN3igl11starts_withEPKcS1_(ptr noundef nonnull %4, ptr noundef nonnull @.str.18)
-  br i1 %44, label %45, label %.thread44
+  br i1 %44, label %45, label %.thread45
 
-.thread44:                                        ; preds = %43, %39, %41
+.thread45:                                        ; preds = %43, %39, %41
   br i1 %.02340, label %select.unfold, label %.thread
 
 45:                                               ; preds = %43
@@ -3964,9 +3964,9 @@ _ZNSi7getlineEPcl.exit:                           ; preds = %21, %24
   %49 = add i64 %.01741, 1
   br i1 %.02340, label %select.unfold, label %.thread
 
-select.unfold:                                    ; preds = %34, %.thread44, %48, %_ZNSi7getlineEPcl.exit
-  %.124 = phi i1 [ %.02340, %_ZNSi7getlineEPcl.exit ], [ true, %48 ], [ true, %.thread44 ], [ true, %34 ]
-  %.219 = phi i64 [ %.01741, %_ZNSi7getlineEPcl.exit ], [ %49, %48 ], [ %.01741, %.thread44 ], [ %.01741, %34 ]
+select.unfold:                                    ; preds = %34, %.thread45, %48, %_ZNSi7getlineEPcl.exit
+  %.124 = phi i1 [ %.02340, %_ZNSi7getlineEPcl.exit ], [ true, %48 ], [ true, %.thread45 ], [ true, %34 ]
+  %.219 = phi i64 [ %.01741, %_ZNSi7getlineEPcl.exit ], [ %49, %48 ], [ %.01741, %.thread45 ], [ %.01741, %34 ]
   %50 = load ptr, ptr %1, align 8, !tbaa !4
   %51 = getelementptr i8, ptr %50, i64 -24
   %52 = load i64, ptr %51, align 8
@@ -3977,8 +3977,8 @@ select.unfold:                                    ; preds = %34, %.thread44, %48
   %.not = icmp eq i32 %56, 0
   br i1 %.not, label %13, label %.thread
 
-.thread:                                          ; preds = %37, %select.unfold, %48, %.thread44
-  %.118 = phi i64 [ %.219, %select.unfold ], [ %49, %48 ], [ %.01741, %.thread44 ], [ %.01741, %37 ]
+.thread:                                          ; preds = %37, %select.unfold, %48, %.thread45
+  %.118 = phi i64 [ %.219, %select.unfold ], [ %49, %48 ], [ %.01741, %.thread45 ], [ %.01741, %37 ]
   switch i64 %.118, label %57 [
     i64 0, label %.thread34
     i64 3, label %.thread34
@@ -5104,17 +5104,17 @@ _ZNSi7getlineEPcl.exit:                           ; preds = %21, %24
 
 39:                                               ; preds = %37
   %40 = call noundef zeroext i1 @_ZN3igl11starts_withEPKcS1_(ptr noundef nonnull %4, ptr noundef nonnull @.str.16)
-  br i1 %40, label %.thread44, label %41
+  br i1 %40, label %.thread45, label %41
 
 41:                                               ; preds = %39
   %42 = call noundef zeroext i1 @_ZN3igl11starts_withEPKcS1_(ptr noundef nonnull %4, ptr noundef nonnull @.str.17)
-  br i1 %42, label %.thread44, label %43
+  br i1 %42, label %.thread45, label %43
 
 43:                                               ; preds = %41
   %44 = call noundef zeroext i1 @_ZN3igl11starts_withEPKcS1_(ptr noundef nonnull %4, ptr noundef nonnull @.str.18)
-  br i1 %44, label %45, label %.thread44
+  br i1 %44, label %45, label %.thread45
 
-.thread44:                                        ; preds = %43, %39, %41
+.thread45:                                        ; preds = %43, %39, %41
   br i1 %.02340, label %select.unfold, label %.thread
 
 45:                                               ; preds = %43
@@ -5126,9 +5126,9 @@ _ZNSi7getlineEPcl.exit:                           ; preds = %21, %24
   %49 = add i64 %.01741, 1
   br i1 %.02340, label %select.unfold, label %.thread
 
-select.unfold:                                    ; preds = %34, %.thread44, %48, %_ZNSi7getlineEPcl.exit
-  %.124 = phi i1 [ %.02340, %_ZNSi7getlineEPcl.exit ], [ true, %48 ], [ true, %.thread44 ], [ true, %34 ]
-  %.219 = phi i64 [ %.01741, %_ZNSi7getlineEPcl.exit ], [ %49, %48 ], [ %.01741, %.thread44 ], [ %.01741, %34 ]
+select.unfold:                                    ; preds = %34, %.thread45, %48, %_ZNSi7getlineEPcl.exit
+  %.124 = phi i1 [ %.02340, %_ZNSi7getlineEPcl.exit ], [ true, %48 ], [ true, %.thread45 ], [ true, %34 ]
+  %.219 = phi i64 [ %.01741, %_ZNSi7getlineEPcl.exit ], [ %49, %48 ], [ %.01741, %.thread45 ], [ %.01741, %34 ]
   %50 = load ptr, ptr %1, align 8, !tbaa !4
   %51 = getelementptr i8, ptr %50, i64 -24
   %52 = load i64, ptr %51, align 8
@@ -5139,8 +5139,8 @@ select.unfold:                                    ; preds = %34, %.thread44, %48
   %.not = icmp eq i32 %56, 0
   br i1 %.not, label %13, label %.thread
 
-.thread:                                          ; preds = %37, %select.unfold, %48, %.thread44
-  %.118 = phi i64 [ %.219, %select.unfold ], [ %49, %48 ], [ %.01741, %.thread44 ], [ %.01741, %37 ]
+.thread:                                          ; preds = %37, %select.unfold, %48, %.thread45
+  %.118 = phi i64 [ %.219, %select.unfold ], [ %49, %48 ], [ %.01741, %.thread45 ], [ %.01741, %37 ]
   switch i64 %.118, label %57 [
     i64 0, label %.thread34
     i64 3, label %.thread34
@@ -6205,7 +6205,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt5arrayIjLm3EESaIS1_EE17_M_def
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPSt5arrayIjLm3EEmS1_ET_S3_T0_RSaIT1_E.exit, label %23
 
@@ -6363,17 +6363,17 @@ _ZNSi7getlineEPcl.exit:                           ; preds = %21, %24
 
 39:                                               ; preds = %37
   %40 = call noundef zeroext i1 @_ZN3igl11starts_withEPKcS1_(ptr noundef nonnull %4, ptr noundef nonnull @.str.16)
-  br i1 %40, label %.thread44, label %41
+  br i1 %40, label %.thread45, label %41
 
 41:                                               ; preds = %39
   %42 = call noundef zeroext i1 @_ZN3igl11starts_withEPKcS1_(ptr noundef nonnull %4, ptr noundef nonnull @.str.17)
-  br i1 %42, label %.thread44, label %43
+  br i1 %42, label %.thread45, label %43
 
 43:                                               ; preds = %41
   %44 = call noundef zeroext i1 @_ZN3igl11starts_withEPKcS1_(ptr noundef nonnull %4, ptr noundef nonnull @.str.18)
-  br i1 %44, label %45, label %.thread44
+  br i1 %44, label %45, label %.thread45
 
-.thread44:                                        ; preds = %43, %39, %41
+.thread45:                                        ; preds = %43, %39, %41
   br i1 %.02340, label %select.unfold, label %.thread
 
 45:                                               ; preds = %43
@@ -6385,9 +6385,9 @@ _ZNSi7getlineEPcl.exit:                           ; preds = %21, %24
   %49 = add i64 %.01741, 1
   br i1 %.02340, label %select.unfold, label %.thread
 
-select.unfold:                                    ; preds = %34, %.thread44, %48, %_ZNSi7getlineEPcl.exit
-  %.124 = phi i1 [ %.02340, %_ZNSi7getlineEPcl.exit ], [ true, %48 ], [ true, %.thread44 ], [ true, %34 ]
-  %.219 = phi i64 [ %.01741, %_ZNSi7getlineEPcl.exit ], [ %49, %48 ], [ %.01741, %.thread44 ], [ %.01741, %34 ]
+select.unfold:                                    ; preds = %34, %.thread45, %48, %_ZNSi7getlineEPcl.exit
+  %.124 = phi i1 [ %.02340, %_ZNSi7getlineEPcl.exit ], [ true, %48 ], [ true, %.thread45 ], [ true, %34 ]
+  %.219 = phi i64 [ %.01741, %_ZNSi7getlineEPcl.exit ], [ %49, %48 ], [ %.01741, %.thread45 ], [ %.01741, %34 ]
   %50 = load ptr, ptr %1, align 8, !tbaa !4
   %51 = getelementptr i8, ptr %50, i64 -24
   %52 = load i64, ptr %51, align 8
@@ -6398,8 +6398,8 @@ select.unfold:                                    ; preds = %34, %.thread44, %48
   %.not = icmp eq i32 %56, 0
   br i1 %.not, label %13, label %.thread
 
-.thread:                                          ; preds = %37, %select.unfold, %48, %.thread44
-  %.118 = phi i64 [ %.219, %select.unfold ], [ %49, %48 ], [ %.01741, %.thread44 ], [ %.01741, %37 ]
+.thread:                                          ; preds = %37, %select.unfold, %48, %.thread45
+  %.118 = phi i64 [ %.219, %select.unfold ], [ %49, %48 ], [ %.01741, %.thread45 ], [ %.01741, %37 ]
   switch i64 %.118, label %57 [
     i64 0, label %.thread34
     i64 3, label %.thread34

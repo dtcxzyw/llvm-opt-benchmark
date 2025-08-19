@@ -71,9 +71,9 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %16
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %27 = zext nneg i32 %spec.store.select to i64
   %28 = shl nuw nsw i64 %27, 2
-  %.sink39 = select i1 %.not.i19, i64 64, i64 %28
+  %.sink46 = select i1 %.not.i19, i64 64, i64 %28
   %storemerge = select i1 %.not.i19, i32 16, i32 %spec.store.select
-  %29 = tail call noalias ptr @malloc(i64 noundef %.sink39) #21
+  %29 = tail call noalias ptr @malloc(i64 noundef %.sink46) #21
   store ptr %29, ptr %26, align 8, !tbaa !19
   store i32 %storemerge, ptr %25, align 8, !tbaa !20
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -1060,9 +1060,9 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   %.not.i29 = icmp sgt i32 %.sroa.4.0.copyload, 0
   %19 = zext nneg i32 %18 to i64
   %20 = shl nuw nsw i64 %19, 2
-  %.sink72 = select i1 %.not.i29, i64 %20, i64 64
+  %.sink86 = select i1 %.not.i29, i64 %20, i64 64
   %.sink = select i1 %.not.i29, i32 %18, i32 16
-  %21 = tail call noalias ptr @malloc(i64 noundef %.sink72) #21
+  %21 = tail call noalias ptr @malloc(i64 noundef %.sink86) #21
   store ptr %21, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !19
   store i32 %.sink, ptr %17, align 8, !tbaa !20
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !21

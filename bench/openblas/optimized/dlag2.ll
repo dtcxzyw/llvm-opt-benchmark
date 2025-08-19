@@ -340,11 +340,11 @@ define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   br label %258
 
 258:                                              ; preds = %254, %250
-  %.sink494 = phi i1 [ %257, %254 ], [ %253, %250 ]
-  %.pn497 = phi double [ %256, %254 ], [ %252, %250 ]
-  %.sink493 = fmul double %.pn497, %248
-  %259 = select i1 %.sink494, double %49, double %106
-  %260 = fmul double %259, %.sink493
+  %.sink499 = phi i1 [ %257, %254 ], [ %253, %250 ]
+  %.pn502 = phi double [ %256, %254 ], [ %252, %250 ]
+  %.sink498 = fmul double %.pn502, %248
+  %259 = select i1 %.sink499, double %49, double %106
+  %260 = fmul double %259, %.sink498
   store double %260, ptr %5, align 8, !tbaa !7
   %261 = load double, ptr %7, align 8, !tbaa !7
   %262 = fmul double %248, %261
@@ -416,11 +416,11 @@ thread-pre-split:                                 ; preds = %269, %265
   br label %303
 
 303:                                              ; preds = %299, %295
-  %.sink496 = phi i1 [ %302, %299 ], [ %298, %295 ]
-  %.pn498 = phi double [ %301, %299 ], [ %297, %295 ]
-  %.sink495 = fmul double %.pn498, %293
-  %304 = select i1 %.sink496, double %49, double %106
-  %305 = fmul double %304, %.sink495
+  %.sink501 = phi i1 [ %302, %299 ], [ %298, %295 ]
+  %.pn503 = phi double [ %301, %299 ], [ %297, %295 ]
+  %.sink500 = fmul double %.pn503, %293
+  %304 = select i1 %.sink501, double %49, double %106
+  %305 = fmul double %304, %.sink500
   store double %305, ptr %6, align 8, !tbaa !7
   %306 = load double, ptr %8, align 8, !tbaa !7
   %307 = fmul double %293, %306

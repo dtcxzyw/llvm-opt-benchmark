@@ -466,7 +466,7 @@ define dso_local i32 @i915_vm_alloc_pt_stash(ptr noundef %0, ptr noundef capture
 
 .lr.ph:                                           ; preds = %7, %40
   %.in = phi i64 [ %25, %40 ], [ %17, %7 ]
-  %25 = add i64 %.in, -1
+  %25 = add nsw i64 %.in, -1
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %27 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 27840, i64 noundef 24) #7
   %28 = icmp eq ptr %27, null
@@ -519,7 +519,7 @@ define dso_local i32 @i915_vm_alloc_pt_stash(ptr noundef %0, ptr noundef capture
 
 .lr.ph15:                                         ; preds = %43, %74
   %.in17 = phi i64 [ %54, %74 ], [ %52, %43 ]
-  %54 = add i64 %.in17, -1
+  %54 = add nsw i64 %.in17, -1
   %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %56 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %55, i32 noundef 28096, i64 noundef 40) #7
   %57 = icmp eq ptr %56, null
@@ -582,12 +582,12 @@ alloc_pd.exit:                                    ; preds = %63
   br i1 %81, label %43, label %.loopexit, !llvm.loop !29
 
 .loopexit.sink.split:                             ; preds = %.thread.sink.split.i, %.thread7.loopexit, %33, %.thread6.loopexit
-  %.ph32 = phi i32 [ -12, %33 ], [ %39, %.thread6.loopexit ], [ -12, %.thread.sink.split.i ], [ %73, %.thread7.loopexit ]
+  %.ph40 = phi i32 [ -12, %33 ], [ %39, %.thread6.loopexit ], [ -12, %.thread.sink.split.i ], [ %73, %.thread7.loopexit ]
   tail call void @i915_vm_free_pt_stash(ptr poison, ptr noundef %1)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge16, %.loopexit.sink.split, %._crit_edge, %3
-  %82 = phi i32 [ 0, %3 ], [ 0, %._crit_edge ], [ %.ph32, %.loopexit.sink.split ], [ 0, %._crit_edge16 ]
+  %82 = phi i32 [ 0, %3 ], [ 0, %._crit_edge ], [ %.ph40, %.loopexit.sink.split ], [ 0, %._crit_edge16 ]
   ret i32 %82
 }
 

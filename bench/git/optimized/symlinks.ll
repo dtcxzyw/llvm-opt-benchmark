@@ -577,8 +577,8 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
 ..critedge.us_crit_edge:                          ; preds = %79
   %82 = trunc nsw i64 %indvars.iv.next to i32
   %83 = trunc nsw i64 %indvars.iv to i32
-  %sext172 = shl i64 %indvars.iv.next, 32
-  %.pre171 = ashr exact i64 %sext172, 32
+  %sext186 = shl i64 %indvars.iv.next, 32
+  %.pre171 = ashr exact i64 %sext186, 32
   br label %.critedge.us, !llvm.loop !29
 
 .critedge.us:                                     ; preds = %.preheader.us, %..critedge.us_crit_edge
@@ -609,7 +609,7 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
   %93 = load i32, ptr %70, align 8, !tbaa !30
   %94 = trunc i32 %93 to i16
   %trunc.us = and i16 %94, -4096
-  switch i16 %trunc.us, label %.loopexit.sink.split.loopexit235 [
+  switch i16 %trunc.us, label %.loopexit.sink.split.loopexit249 [
     i16 16384, label %.split.us
     i16 -24576, label %.loopexit.sink.split
   ]
@@ -649,8 +649,8 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
 104:                                              ; preds = %.critedge
   %105 = trunc nsw i64 %indvars.iv162 to i32
   %106 = load ptr, ptr %69, align 8, !tbaa !28
-  %sext201 = shl i64 %indvars.iv.next163, 32
-  %107 = ashr exact i64 %sext201, 32
+  %sext215 = shl i64 %indvars.iv.next163, 32
+  %107 = ashr exact i64 %sext215, 32
   %108 = getelementptr inbounds i8, ptr %106, i64 %107
   store i8 0, ptr %108, align 1, !tbaa !18
   %.not112.not = icmp sgt i32 %5, %105
@@ -684,22 +684,22 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
   %119 = load i32, ptr %70, align 8, !tbaa !30
   %120 = trunc i32 %119 to i16
   %trunc = and i16 %120, -4096
-  switch i16 %trunc, label %.loopexit.sink.split.loopexit225 [
+  switch i16 %trunc, label %.loopexit.sink.split.loopexit239 [
     i16 16384, label %.split
     i16 -24576, label %.loopexit.sink.split
   ]
 
-.loopexit.sink.split.loopexit225:                 ; preds = %118
+.loopexit.sink.split.loopexit239:                 ; preds = %118
   br label %.loopexit.sink.split
 
-.loopexit.sink.split.loopexit235:                 ; preds = %92
+.loopexit.sink.split.loopexit249:                 ; preds = %92
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %92, %118, %.loopexit.sink.split.loopexit235, %.loopexit.sink.split.loopexit225, %.split133.us
-  %spec.store.select.sink = phi i32 [ %spec.store.select, %.split133.us ], [ 16, %.loopexit.sink.split.loopexit225 ], [ 16, %.loopexit.sink.split.loopexit235 ], [ 4, %118 ], [ 4, %92 ]
-  %.089128.ph = phi i32 [ %.us-phi134, %.split133.us ], [ %.089, %.loopexit.sink.split.loopexit225 ], [ %.089.us, %.loopexit.sink.split.loopexit235 ], [ %.089, %118 ], [ %.089.us, %92 ]
-  %.394.ph = phi i32 [ %.us-phi135, %.split133.us ], [ %103, %.loopexit.sink.split.loopexit225 ], [ %.lcssa153, %.loopexit.sink.split.loopexit235 ], [ %103, %118 ], [ %.lcssa153, %92 ]
-  %.0.ph = phi i32 [ %116, %.split133.us ], [ 0, %.loopexit.sink.split.loopexit225 ], [ 0, %.loopexit.sink.split.loopexit235 ], [ 0, %118 ], [ 0, %92 ]
+.loopexit.sink.split:                             ; preds = %92, %118, %.loopexit.sink.split.loopexit249, %.loopexit.sink.split.loopexit239, %.split133.us
+  %spec.store.select.sink = phi i32 [ %spec.store.select, %.split133.us ], [ 16, %.loopexit.sink.split.loopexit239 ], [ 16, %.loopexit.sink.split.loopexit249 ], [ 4, %118 ], [ 4, %92 ]
+  %.089128.ph = phi i32 [ %.us-phi134, %.split133.us ], [ %.089, %.loopexit.sink.split.loopexit239 ], [ %.089.us, %.loopexit.sink.split.loopexit249 ], [ %.089, %118 ], [ %.089.us, %92 ]
+  %.394.ph = phi i32 [ %.us-phi135, %.split133.us ], [ %103, %.loopexit.sink.split.loopexit239 ], [ %.lcssa153, %.loopexit.sink.split.loopexit249 ], [ %103, %118 ], [ %.lcssa153, %92 ]
+  %.0.ph = phi i32 [ %116, %.split133.us ], [ 0, %.loopexit.sink.split.loopexit239 ], [ 0, %.loopexit.sink.split.loopexit249 ], [ 0, %118 ], [ 0, %92 ]
   store i32 %spec.store.select.sink, ptr %3, align 4
   br label %.loopexit
 

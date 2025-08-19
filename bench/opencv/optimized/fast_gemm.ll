@@ -358,16 +358,16 @@ _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us: ; preds = %.l
 
 .lr.ph104.preheader.i.us.us:                      ; preds = %130
   %invariant.gep.i.us.us = getelementptr float, ptr %132, i64 %40
-  %invariant.gep123.i.us.us = getelementptr float, ptr %132, i64 %41
-  %invariant.gep125.i.us.us = getelementptr float, ptr %132, i64 %42
-  %invariant.gep127.i.us.us = getelementptr float, ptr %132, i64 %43
-  %invariant.gep129.i.us.us = getelementptr float, ptr %132, i64 %44
-  %invariant.gep131.i.us.us = getelementptr float, ptr %132, i64 %45
-  %invariant.gep133.i.us.us = getelementptr float, ptr %132, i64 %46
-  %invariant.gep135.i.us.us = getelementptr float, ptr %132, i64 %47
-  %invariant.gep137.i.us.us = getelementptr float, ptr %132, i64 %48
-  %invariant.gep139.i.us.us = getelementptr float, ptr %132, i64 %49
-  %invariant.gep141.i.us.us = getelementptr float, ptr %132, i64 %50
+  %invariant.gep124.i.us.us = getelementptr float, ptr %132, i64 %41
+  %invariant.gep126.i.us.us = getelementptr float, ptr %132, i64 %42
+  %invariant.gep128.i.us.us = getelementptr float, ptr %132, i64 %43
+  %invariant.gep130.i.us.us = getelementptr float, ptr %132, i64 %44
+  %invariant.gep132.i.us.us = getelementptr float, ptr %132, i64 %45
+  %invariant.gep134.i.us.us = getelementptr float, ptr %132, i64 %46
+  %invariant.gep136.i.us.us = getelementptr float, ptr %132, i64 %47
+  %invariant.gep138.i.us.us = getelementptr float, ptr %132, i64 %48
+  %invariant.gep140.i.us.us = getelementptr float, ptr %132, i64 %49
+  %invariant.gep142.i.us.us = getelementptr float, ptr %132, i64 %50
   br label %.lr.ph104.i.us.us
 
 .lr.ph104.i.us.us:                                ; preds = %.lr.ph104.i.us.us, %.lr.ph104.preheader.i.us.us
@@ -377,26 +377,26 @@ _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us: ; preds = %.l
   %134 = load float, ptr %133, align 4, !tbaa !12
   %gep.i.us.us = getelementptr float, ptr %invariant.gep.i.us.us, i64 %indvars.iv116.i.us.us
   %135 = load float, ptr %gep.i.us.us, align 4, !tbaa !12
-  %gep124.i.us.us = getelementptr float, ptr %invariant.gep123.i.us.us, i64 %indvars.iv116.i.us.us
-  %136 = load float, ptr %gep124.i.us.us, align 4, !tbaa !12
-  %gep126.i.us.us = getelementptr float, ptr %invariant.gep125.i.us.us, i64 %indvars.iv116.i.us.us
-  %137 = load float, ptr %gep126.i.us.us, align 4, !tbaa !12
-  %gep128.i.us.us = getelementptr float, ptr %invariant.gep127.i.us.us, i64 %indvars.iv116.i.us.us
-  %138 = load float, ptr %gep128.i.us.us, align 4, !tbaa !12
-  %gep130.i.us.us = getelementptr float, ptr %invariant.gep129.i.us.us, i64 %indvars.iv116.i.us.us
-  %139 = load float, ptr %gep130.i.us.us, align 4, !tbaa !12
-  %gep132.i.us.us = getelementptr float, ptr %invariant.gep131.i.us.us, i64 %indvars.iv116.i.us.us
-  %140 = load float, ptr %gep132.i.us.us, align 4, !tbaa !12
-  %gep134.i.us.us = getelementptr float, ptr %invariant.gep133.i.us.us, i64 %indvars.iv116.i.us.us
-  %141 = load float, ptr %gep134.i.us.us, align 4, !tbaa !12
-  %gep136.i.us.us = getelementptr float, ptr %invariant.gep135.i.us.us, i64 %indvars.iv116.i.us.us
-  %142 = load float, ptr %gep136.i.us.us, align 4, !tbaa !12
-  %gep138.i.us.us = getelementptr float, ptr %invariant.gep137.i.us.us, i64 %indvars.iv116.i.us.us
-  %143 = load float, ptr %gep138.i.us.us, align 4, !tbaa !12
-  %gep140.i.us.us = getelementptr float, ptr %invariant.gep139.i.us.us, i64 %indvars.iv116.i.us.us
-  %144 = load float, ptr %gep140.i.us.us, align 4, !tbaa !12
-  %gep142.i.us.us = getelementptr float, ptr %invariant.gep141.i.us.us, i64 %indvars.iv116.i.us.us
-  %145 = load float, ptr %gep142.i.us.us, align 4, !tbaa !12
+  %gep125.i.us.us = getelementptr float, ptr %invariant.gep124.i.us.us, i64 %indvars.iv116.i.us.us
+  %136 = load float, ptr %gep125.i.us.us, align 4, !tbaa !12
+  %gep127.i.us.us = getelementptr float, ptr %invariant.gep126.i.us.us, i64 %indvars.iv116.i.us.us
+  %137 = load float, ptr %gep127.i.us.us, align 4, !tbaa !12
+  %gep129.i.us.us = getelementptr float, ptr %invariant.gep128.i.us.us, i64 %indvars.iv116.i.us.us
+  %138 = load float, ptr %gep129.i.us.us, align 4, !tbaa !12
+  %gep131.i.us.us = getelementptr float, ptr %invariant.gep130.i.us.us, i64 %indvars.iv116.i.us.us
+  %139 = load float, ptr %gep131.i.us.us, align 4, !tbaa !12
+  %gep133.i.us.us = getelementptr float, ptr %invariant.gep132.i.us.us, i64 %indvars.iv116.i.us.us
+  %140 = load float, ptr %gep133.i.us.us, align 4, !tbaa !12
+  %gep135.i.us.us = getelementptr float, ptr %invariant.gep134.i.us.us, i64 %indvars.iv116.i.us.us
+  %141 = load float, ptr %gep135.i.us.us, align 4, !tbaa !12
+  %gep137.i.us.us = getelementptr float, ptr %invariant.gep136.i.us.us, i64 %indvars.iv116.i.us.us
+  %142 = load float, ptr %gep137.i.us.us, align 4, !tbaa !12
+  %gep139.i.us.us = getelementptr float, ptr %invariant.gep138.i.us.us, i64 %indvars.iv116.i.us.us
+  %143 = load float, ptr %gep139.i.us.us, align 4, !tbaa !12
+  %gep141.i.us.us = getelementptr float, ptr %invariant.gep140.i.us.us, i64 %indvars.iv116.i.us.us
+  %144 = load float, ptr %gep141.i.us.us, align 4, !tbaa !12
+  %gep143.i.us.us = getelementptr float, ptr %invariant.gep142.i.us.us, i64 %indvars.iv116.i.us.us
+  %145 = load float, ptr %gep143.i.us.us, align 4, !tbaa !12
   store float %134, ptr %.1102.i.us.us, align 4
   %.sroa.420.0..sroa_idx.i.us.us = getelementptr inbounds nuw i8, ptr %.1102.i.us.us, i64 4
   store float %135, ptr %.sroa.420.0..sroa_idx.i.us.us, align 4
@@ -960,8 +960,8 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKci
   %109 = icmp sgt i32 %., 0
   %or.cond = select i1 %108, i1 %109, i1 false
   %110 = icmp sgt i32 %82, 0
-  %or.cond40 = select i1 %or.cond, i1 %110, i1 false
-  br i1 %or.cond40, label %.lr.ph.us.preheader, label %.loopexit
+  %or.cond47 = select i1 %or.cond, i1 %110, i1 false
+  br i1 %or.cond47, label %.lr.ph.us.preheader, label %.loopexit
 
 .lr.ph.us.preheader:                              ; preds = %107
   %111 = sext i32 %84 to i64
@@ -1068,12 +1068,12 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKci
 
 .lr.ph84.preheader.i:                             ; preds = %165
   %invariant.gep.i = getelementptr float, ptr %167, i64 %155
-  %invariant.gep103.i = getelementptr float, ptr %167, i64 %156
-  %invariant.gep105.i = getelementptr float, ptr %167, i64 %157
-  %invariant.gep107.i = getelementptr float, ptr %167, i64 %158
-  %invariant.gep109.i = getelementptr float, ptr %167, i64 %159
-  %invariant.gep111.i = getelementptr float, ptr %167, i64 %160
-  %invariant.gep113.i = getelementptr float, ptr %167, i64 %161
+  %invariant.gep104.i = getelementptr float, ptr %167, i64 %156
+  %invariant.gep106.i = getelementptr float, ptr %167, i64 %157
+  %invariant.gep108.i = getelementptr float, ptr %167, i64 %158
+  %invariant.gep110.i = getelementptr float, ptr %167, i64 %159
+  %invariant.gep112.i = getelementptr float, ptr %167, i64 %160
+  %invariant.gep114.i = getelementptr float, ptr %167, i64 %161
   br label %.lr.ph84.i
 
 .lr.ph84.i:                                       ; preds = %.lr.ph84.i, %.lr.ph84.preheader.i
@@ -1083,18 +1083,18 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKci
   %169 = load float, ptr %168, align 4, !tbaa !12
   %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %indvars.iv96.i
   %170 = load float, ptr %gep.i, align 4, !tbaa !12
-  %gep104.i = getelementptr float, ptr %invariant.gep103.i, i64 %indvars.iv96.i
-  %171 = load float, ptr %gep104.i, align 4, !tbaa !12
-  %gep106.i = getelementptr float, ptr %invariant.gep105.i, i64 %indvars.iv96.i
-  %172 = load float, ptr %gep106.i, align 4, !tbaa !12
-  %gep108.i = getelementptr float, ptr %invariant.gep107.i, i64 %indvars.iv96.i
-  %173 = load float, ptr %gep108.i, align 4, !tbaa !12
-  %gep110.i = getelementptr float, ptr %invariant.gep109.i, i64 %indvars.iv96.i
-  %174 = load float, ptr %gep110.i, align 4, !tbaa !12
-  %gep112.i = getelementptr float, ptr %invariant.gep111.i, i64 %indvars.iv96.i
-  %175 = load float, ptr %gep112.i, align 4, !tbaa !12
-  %gep114.i = getelementptr float, ptr %invariant.gep113.i, i64 %indvars.iv96.i
-  %176 = load float, ptr %gep114.i, align 4, !tbaa !12
+  %gep105.i = getelementptr float, ptr %invariant.gep104.i, i64 %indvars.iv96.i
+  %171 = load float, ptr %gep105.i, align 4, !tbaa !12
+  %gep107.i = getelementptr float, ptr %invariant.gep106.i, i64 %indvars.iv96.i
+  %172 = load float, ptr %gep107.i, align 4, !tbaa !12
+  %gep109.i = getelementptr float, ptr %invariant.gep108.i, i64 %indvars.iv96.i
+  %173 = load float, ptr %gep109.i, align 4, !tbaa !12
+  %gep111.i = getelementptr float, ptr %invariant.gep110.i, i64 %indvars.iv96.i
+  %174 = load float, ptr %gep111.i, align 4, !tbaa !12
+  %gep113.i = getelementptr float, ptr %invariant.gep112.i, i64 %indvars.iv96.i
+  %175 = load float, ptr %gep113.i, align 4, !tbaa !12
+  %gep115.i = getelementptr float, ptr %invariant.gep114.i, i64 %indvars.iv96.i
+  %176 = load float, ptr %gep115.i, align 4, !tbaa !12
   store float %169, ptr %.182.i, align 4
   %.sroa.416.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.182.i, i64 4
   store float %170, ptr %.sroa.416.0..sroa_idx.i, align 4
@@ -1258,16 +1258,16 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %_ZN2cv
 
 .lr.ph104.preheader.i:                            ; preds = %256
   %invariant.gep.i85 = getelementptr float, ptr %258, i64 %242
-  %invariant.gep123.i = getelementptr float, ptr %258, i64 %243
-  %invariant.gep125.i = getelementptr float, ptr %258, i64 %244
-  %invariant.gep127.i = getelementptr float, ptr %258, i64 %245
-  %invariant.gep129.i = getelementptr float, ptr %258, i64 %246
-  %invariant.gep131.i = getelementptr float, ptr %258, i64 %247
-  %invariant.gep133.i = getelementptr float, ptr %258, i64 %248
-  %invariant.gep135.i = getelementptr float, ptr %258, i64 %249
-  %invariant.gep137.i = getelementptr float, ptr %258, i64 %250
-  %invariant.gep139.i = getelementptr float, ptr %258, i64 %251
-  %invariant.gep141.i = getelementptr float, ptr %258, i64 %252
+  %invariant.gep124.i = getelementptr float, ptr %258, i64 %243
+  %invariant.gep126.i = getelementptr float, ptr %258, i64 %244
+  %invariant.gep128.i = getelementptr float, ptr %258, i64 %245
+  %invariant.gep130.i = getelementptr float, ptr %258, i64 %246
+  %invariant.gep132.i = getelementptr float, ptr %258, i64 %247
+  %invariant.gep134.i = getelementptr float, ptr %258, i64 %248
+  %invariant.gep136.i = getelementptr float, ptr %258, i64 %249
+  %invariant.gep138.i = getelementptr float, ptr %258, i64 %250
+  %invariant.gep140.i = getelementptr float, ptr %258, i64 %251
+  %invariant.gep142.i = getelementptr float, ptr %258, i64 %252
   br label %.lr.ph104.i
 
 .lr.ph104.i:                                      ; preds = %.lr.ph104.i, %.lr.ph104.preheader.i
@@ -1277,26 +1277,26 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %_ZN2cv
   %260 = load float, ptr %259, align 4, !tbaa !12
   %gep.i86 = getelementptr float, ptr %invariant.gep.i85, i64 %indvars.iv116.i
   %261 = load float, ptr %gep.i86, align 4, !tbaa !12
-  %gep124.i = getelementptr float, ptr %invariant.gep123.i, i64 %indvars.iv116.i
-  %262 = load float, ptr %gep124.i, align 4, !tbaa !12
-  %gep126.i = getelementptr float, ptr %invariant.gep125.i, i64 %indvars.iv116.i
-  %263 = load float, ptr %gep126.i, align 4, !tbaa !12
-  %gep128.i = getelementptr float, ptr %invariant.gep127.i, i64 %indvars.iv116.i
-  %264 = load float, ptr %gep128.i, align 4, !tbaa !12
-  %gep130.i = getelementptr float, ptr %invariant.gep129.i, i64 %indvars.iv116.i
-  %265 = load float, ptr %gep130.i, align 4, !tbaa !12
-  %gep132.i = getelementptr float, ptr %invariant.gep131.i, i64 %indvars.iv116.i
-  %266 = load float, ptr %gep132.i, align 4, !tbaa !12
-  %gep134.i = getelementptr float, ptr %invariant.gep133.i, i64 %indvars.iv116.i
-  %267 = load float, ptr %gep134.i, align 4, !tbaa !12
-  %gep136.i = getelementptr float, ptr %invariant.gep135.i, i64 %indvars.iv116.i
-  %268 = load float, ptr %gep136.i, align 4, !tbaa !12
-  %gep138.i = getelementptr float, ptr %invariant.gep137.i, i64 %indvars.iv116.i
-  %269 = load float, ptr %gep138.i, align 4, !tbaa !12
-  %gep140.i = getelementptr float, ptr %invariant.gep139.i, i64 %indvars.iv116.i
-  %270 = load float, ptr %gep140.i, align 4, !tbaa !12
-  %gep142.i = getelementptr float, ptr %invariant.gep141.i, i64 %indvars.iv116.i
-  %271 = load float, ptr %gep142.i, align 4, !tbaa !12
+  %gep125.i = getelementptr float, ptr %invariant.gep124.i, i64 %indvars.iv116.i
+  %262 = load float, ptr %gep125.i, align 4, !tbaa !12
+  %gep127.i = getelementptr float, ptr %invariant.gep126.i, i64 %indvars.iv116.i
+  %263 = load float, ptr %gep127.i, align 4, !tbaa !12
+  %gep129.i = getelementptr float, ptr %invariant.gep128.i, i64 %indvars.iv116.i
+  %264 = load float, ptr %gep129.i, align 4, !tbaa !12
+  %gep131.i = getelementptr float, ptr %invariant.gep130.i, i64 %indvars.iv116.i
+  %265 = load float, ptr %gep131.i, align 4, !tbaa !12
+  %gep133.i = getelementptr float, ptr %invariant.gep132.i, i64 %indvars.iv116.i
+  %266 = load float, ptr %gep133.i, align 4, !tbaa !12
+  %gep135.i = getelementptr float, ptr %invariant.gep134.i, i64 %indvars.iv116.i
+  %267 = load float, ptr %gep135.i, align 4, !tbaa !12
+  %gep137.i = getelementptr float, ptr %invariant.gep136.i, i64 %indvars.iv116.i
+  %268 = load float, ptr %gep137.i, align 4, !tbaa !12
+  %gep139.i = getelementptr float, ptr %invariant.gep138.i, i64 %indvars.iv116.i
+  %269 = load float, ptr %gep139.i, align 4, !tbaa !12
+  %gep141.i = getelementptr float, ptr %invariant.gep140.i, i64 %indvars.iv116.i
+  %270 = load float, ptr %gep141.i, align 4, !tbaa !12
+  %gep143.i = getelementptr float, ptr %invariant.gep142.i, i64 %indvars.iv116.i
+  %271 = load float, ptr %gep143.i, align 4, !tbaa !12
   store float %260, ptr %.1102.i, align 4
   %.sroa.420.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.1102.i, i64 4
   store float %261, ptr %.sroa.420.0..sroa_idx.i, align 4
@@ -1783,8 +1783,8 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKci
   %93 = icmp sgt i32 %., 0
   %or.cond = select i1 %92, i1 %93, i1 false
   %94 = icmp sgt i32 %60, 0
-  %or.cond43 = select i1 %or.cond, i1 %94, i1 false
-  br i1 %or.cond43, label %.lr.ph.us.preheader, label %.loopexit
+  %or.cond51 = select i1 %or.cond, i1 %94, i1 false
+  br i1 %or.cond51, label %.lr.ph.us.preheader, label %.loopexit
 
 .lr.ph.us.preheader:                              ; preds = %91
   %95 = sext i32 %62 to i64
@@ -1970,12 +1970,12 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKci
   %189 = mul nsw i64 %indvars.iv99.i.us, %145
   %190 = getelementptr inbounds float, ptr %134, i64 %189
   %invariant.gep.i.us = getelementptr float, ptr %190, i64 %145
-  %invariant.gep103.i.us = getelementptr float, ptr %190, i64 %146
-  %invariant.gep105.i.us = getelementptr float, ptr %190, i64 %147
-  %invariant.gep107.i.us = getelementptr float, ptr %190, i64 %148
-  %invariant.gep109.i.us = getelementptr float, ptr %190, i64 %149
-  %invariant.gep111.i.us = getelementptr float, ptr %190, i64 %150
-  %invariant.gep113.i.us = getelementptr float, ptr %190, i64 %151
+  %invariant.gep104.i.us = getelementptr float, ptr %190, i64 %146
+  %invariant.gep106.i.us = getelementptr float, ptr %190, i64 %147
+  %invariant.gep108.i.us = getelementptr float, ptr %190, i64 %148
+  %invariant.gep110.i.us = getelementptr float, ptr %190, i64 %149
+  %invariant.gep112.i.us = getelementptr float, ptr %190, i64 %150
+  %invariant.gep114.i.us = getelementptr float, ptr %190, i64 %151
   br label %.lr.ph84.i.us
 
 .lr.ph84.i.us:                                    ; preds = %.lr.ph84.i.us, %.lr.ph84.preheader.i.us
@@ -1985,18 +1985,18 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKci
   %192 = load float, ptr %191, align 4, !tbaa !12
   %gep.i.us = getelementptr float, ptr %invariant.gep.i.us, i64 %indvars.iv96.i.us
   %193 = load float, ptr %gep.i.us, align 4, !tbaa !12
-  %gep104.i.us = getelementptr float, ptr %invariant.gep103.i.us, i64 %indvars.iv96.i.us
-  %194 = load float, ptr %gep104.i.us, align 4, !tbaa !12
-  %gep106.i.us = getelementptr float, ptr %invariant.gep105.i.us, i64 %indvars.iv96.i.us
-  %195 = load float, ptr %gep106.i.us, align 4, !tbaa !12
-  %gep108.i.us = getelementptr float, ptr %invariant.gep107.i.us, i64 %indvars.iv96.i.us
-  %196 = load float, ptr %gep108.i.us, align 4, !tbaa !12
-  %gep110.i.us = getelementptr float, ptr %invariant.gep109.i.us, i64 %indvars.iv96.i.us
-  %197 = load float, ptr %gep110.i.us, align 4, !tbaa !12
-  %gep112.i.us = getelementptr float, ptr %invariant.gep111.i.us, i64 %indvars.iv96.i.us
-  %198 = load float, ptr %gep112.i.us, align 4, !tbaa !12
-  %gep114.i.us = getelementptr float, ptr %invariant.gep113.i.us, i64 %indvars.iv96.i.us
-  %199 = load float, ptr %gep114.i.us, align 4, !tbaa !12
+  %gep105.i.us = getelementptr float, ptr %invariant.gep104.i.us, i64 %indvars.iv96.i.us
+  %194 = load float, ptr %gep105.i.us, align 4, !tbaa !12
+  %gep107.i.us = getelementptr float, ptr %invariant.gep106.i.us, i64 %indvars.iv96.i.us
+  %195 = load float, ptr %gep107.i.us, align 4, !tbaa !12
+  %gep109.i.us = getelementptr float, ptr %invariant.gep108.i.us, i64 %indvars.iv96.i.us
+  %196 = load float, ptr %gep109.i.us, align 4, !tbaa !12
+  %gep111.i.us = getelementptr float, ptr %invariant.gep110.i.us, i64 %indvars.iv96.i.us
+  %197 = load float, ptr %gep111.i.us, align 4, !tbaa !12
+  %gep113.i.us = getelementptr float, ptr %invariant.gep112.i.us, i64 %indvars.iv96.i.us
+  %198 = load float, ptr %gep113.i.us, align 4, !tbaa !12
+  %gep115.i.us = getelementptr float, ptr %invariant.gep114.i.us, i64 %indvars.iv96.i.us
+  %199 = load float, ptr %gep115.i.us, align 4, !tbaa !12
   store float %192, ptr %.182.i.us, align 4
   %.sroa.416.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.182.i.us, i64 4
   store float %193, ptr %.sroa.416.0..sroa_idx.i.us, align 4
@@ -2570,7 +2570,7 @@ common.resume:                                    ; preds = %.thread, %29
   br i1 %.not.i, label %19, label %.preheader.i
 
 19:                                               ; preds = %13
-  invoke void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef 0, i32 noundef %spec.select.i, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172) #29
+  invoke void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef 0, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172) #29
           to label %.noexc unwind label %29
 
 .noexc:                                           ; preds = %19
@@ -3797,7 +3797,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn12MatMulHelperC2Ev(ptr noundef nonnul
   store ptr %31, ptr %30, align 8, !tbaa !145
   store ptr %31, ptr %29, align 8, !tbaa !146
   %32 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
-          to label %33 unwind label %_ZNSt6vectorImSaImEED2Ev.exit23.thread155
+          to label %33 unwind label %_ZNSt6vectorImSaImEED2Ev.exit23.thread181
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -3848,7 +3848,7 @@ _ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit21: ; preds = %33
           cleanup
   br label %_ZNSt6vectorImSaImEED2Ev.exit25
 
-_ZNSt6vectorImSaImEED2Ev.exit23.thread155:        ; preds = %28
+_ZNSt6vectorImSaImEED2Ev.exit23.thread181:        ; preds = %28
   %53 = landingpad { ptr, i32 }
           cleanup
   br label %55
@@ -3861,14 +3861,14 @@ _ZNSt6vectorImSaImEED2Ev.exit23:                  ; preds = %33
   %.not.i.i.i24 = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i24, label %_ZNSt6vectorImSaImEED2Ev.exit25, label %55
 
-55:                                               ; preds = %_ZNSt6vectorImSaImEED2Ev.exit23.thread155, %_ZNSt6vectorImSaImEED2Ev.exit23
-  %56 = phi ptr [ %27, %_ZNSt6vectorImSaImEED2Ev.exit23.thread155 ], [ %.pre, %_ZNSt6vectorImSaImEED2Ev.exit23 ]
-  %.pn151158 = phi { ptr, i32 } [ %53, %_ZNSt6vectorImSaImEED2Ev.exit23.thread155 ], [ %54, %_ZNSt6vectorImSaImEED2Ev.exit23 ]
+55:                                               ; preds = %_ZNSt6vectorImSaImEED2Ev.exit23.thread181, %_ZNSt6vectorImSaImEED2Ev.exit23
+  %56 = phi ptr [ %27, %_ZNSt6vectorImSaImEED2Ev.exit23.thread181 ], [ %.pre, %_ZNSt6vectorImSaImEED2Ev.exit23 ]
+  %.pn177184 = phi { ptr, i32 } [ %53, %_ZNSt6vectorImSaImEED2Ev.exit23.thread181 ], [ %54, %_ZNSt6vectorImSaImEED2Ev.exit23 ]
   tail call void @_ZdlPv(ptr noundef nonnull %56) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit25
 
 _ZNSt6vectorImSaImEED2Ev.exit25:                  ; preds = %51, %49, %47, %45, %43, %_ZNSt6vectorImSaImEED2Ev.exit23, %55
-  %.pn151154 = phi { ptr, i32 } [ %54, %_ZNSt6vectorImSaImEED2Ev.exit23 ], [ %.pn151158, %55 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ]
+  %.pn177180 = phi { ptr, i32 } [ %54, %_ZNSt6vectorImSaImEED2Ev.exit23 ], [ %.pn177184, %55 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ]
   %57 = load ptr, ptr %4, align 8, !tbaa !136
   %.not.i.i.i26 = icmp eq ptr %57, null
   br i1 %.not.i.i.i26, label %_ZNSt6vectorImSaImEED2Ev.exit27, label %58
@@ -3905,7 +3905,7 @@ _ZNSt6vectorImSaImEED2Ev.exit31:                  ; preds = %_ZNSt6vectorImSaImE
   br label %_ZNSt6vectorImSaImEED2Ev.exit33
 
 _ZNSt6vectorImSaImEED2Ev.exit33:                  ; preds = %_ZNSt6vectorImSaImEED2Ev.exit31, %64
-  resume { ptr, i32 } %.pn151154
+  resume { ptr, i32 } %.pn177180
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4420,8 +4420,8 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit134:         ; preds = %.lr.ph.i.i.i.i.i.i.
   %233 = add nuw nsw i64 %232, 8
   %scevgep = getelementptr i8, ptr %.sroa.0146.0, i64 %233
   %load_initial = load i64, ptr %scevgep, align 8
-  %scevgep222 = getelementptr i8, ptr %.sroa.0155.0189, i64 %233
-  %load_initial223 = load i64, ptr %scevgep222, align 8
+  %scevgep258 = getelementptr i8, ptr %.sroa.0155.0189, i64 %233
+  %load_initial259 = load i64, ptr %scevgep258, align 8
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit134
@@ -4465,14 +4465,14 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
   br label %314
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %store_forwarded224 = phi i64 [ %load_initial223, %.lr.ph.preheader ], [ %260, %.lr.ph ]
+  %store_forwarded260 = phi i64 [ %load_initial259, %.lr.ph.preheader ], [ %260, %.lr.ph ]
   %store_forwarded = phi i64 [ %load_initial, %.lr.ph.preheader ], [ %265, %.lr.ph ]
   %indvars.iv = phi i64 [ %231, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %256 = add nuw nsw i64 %indvars.iv, 1
   %257 = getelementptr inbounds nuw i32, ptr %.sroa.0178.0, i64 %256
   %258 = load i32, ptr %257, align 4, !tbaa !17
   %259 = sext i32 %258 to i64
-  %260 = mul i64 %store_forwarded224, %259
+  %260 = mul i64 %store_forwarded260, %259
   %261 = getelementptr inbounds nuw i64, ptr %.sroa.0155.0189, i64 %indvars.iv
   store i64 %260, ptr %261, align 8, !tbaa !21
   %262 = getelementptr inbounds nuw i32, ptr %.sroa.0166.0, i64 %256
@@ -4482,8 +4482,8 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
   %266 = getelementptr inbounds nuw i64, ptr %.sroa.0146.0, i64 %indvars.iv
   store i64 %265, ptr %266, align 8, !tbaa !21
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not218 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not218, label %.preheader, label %.lr.ph, !llvm.loop !149
+  %.not254 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not254, label %.preheader, label %.lr.ph, !llvm.loop !149
 
 ._crit_edge201:                                   ; preds = %._crit_edge, %.preheader
   %.not.i.i.i135 = icmp eq ptr %.sroa.0146.0, null
@@ -5827,8 +5827,8 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPK
   %141 = icmp sgt i32 %., 0
   %or.cond = select i1 %140, i1 %141, i1 false
   %142 = icmp sgt i32 %90, 0
-  %or.cond40 = select i1 %or.cond, i1 %142, i1 false
-  br i1 %or.cond40, label %.lr.ph.us.preheader, label %.loopexit
+  %or.cond47 = select i1 %or.cond, i1 %142, i1 false
+  br i1 %or.cond47, label %.lr.ph.us.preheader, label %.loopexit
 
 .lr.ph.us.preheader:                              ; preds = %139
   %143 = sext i32 %92 to i64
@@ -5933,12 +5933,12 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPK
 
 .lr.ph84.preheader.i:                             ; preds = %195
   %invariant.gep.i = getelementptr float, ptr %197, i64 %185
-  %invariant.gep103.i = getelementptr float, ptr %197, i64 %186
-  %invariant.gep105.i = getelementptr float, ptr %197, i64 %187
-  %invariant.gep107.i = getelementptr float, ptr %197, i64 %188
-  %invariant.gep109.i = getelementptr float, ptr %197, i64 %189
-  %invariant.gep111.i = getelementptr float, ptr %197, i64 %190
-  %invariant.gep113.i = getelementptr float, ptr %197, i64 %191
+  %invariant.gep104.i = getelementptr float, ptr %197, i64 %186
+  %invariant.gep106.i = getelementptr float, ptr %197, i64 %187
+  %invariant.gep108.i = getelementptr float, ptr %197, i64 %188
+  %invariant.gep110.i = getelementptr float, ptr %197, i64 %189
+  %invariant.gep112.i = getelementptr float, ptr %197, i64 %190
+  %invariant.gep114.i = getelementptr float, ptr %197, i64 %191
   br label %.lr.ph84.i
 
 .lr.ph84.i:                                       ; preds = %.lr.ph84.i, %.lr.ph84.preheader.i
@@ -5948,18 +5948,18 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPK
   %199 = load float, ptr %198, align 4, !tbaa !12
   %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %indvars.iv96.i
   %200 = load float, ptr %gep.i, align 4, !tbaa !12
-  %gep104.i = getelementptr float, ptr %invariant.gep103.i, i64 %indvars.iv96.i
-  %201 = load float, ptr %gep104.i, align 4, !tbaa !12
-  %gep106.i = getelementptr float, ptr %invariant.gep105.i, i64 %indvars.iv96.i
-  %202 = load float, ptr %gep106.i, align 4, !tbaa !12
-  %gep108.i = getelementptr float, ptr %invariant.gep107.i, i64 %indvars.iv96.i
-  %203 = load float, ptr %gep108.i, align 4, !tbaa !12
-  %gep110.i = getelementptr float, ptr %invariant.gep109.i, i64 %indvars.iv96.i
-  %204 = load float, ptr %gep110.i, align 4, !tbaa !12
-  %gep112.i = getelementptr float, ptr %invariant.gep111.i, i64 %indvars.iv96.i
-  %205 = load float, ptr %gep112.i, align 4, !tbaa !12
-  %gep114.i = getelementptr float, ptr %invariant.gep113.i, i64 %indvars.iv96.i
-  %206 = load float, ptr %gep114.i, align 4, !tbaa !12
+  %gep105.i = getelementptr float, ptr %invariant.gep104.i, i64 %indvars.iv96.i
+  %201 = load float, ptr %gep105.i, align 4, !tbaa !12
+  %gep107.i = getelementptr float, ptr %invariant.gep106.i, i64 %indvars.iv96.i
+  %202 = load float, ptr %gep107.i, align 4, !tbaa !12
+  %gep109.i = getelementptr float, ptr %invariant.gep108.i, i64 %indvars.iv96.i
+  %203 = load float, ptr %gep109.i, align 4, !tbaa !12
+  %gep111.i = getelementptr float, ptr %invariant.gep110.i, i64 %indvars.iv96.i
+  %204 = load float, ptr %gep111.i, align 4, !tbaa !12
+  %gep113.i = getelementptr float, ptr %invariant.gep112.i, i64 %indvars.iv96.i
+  %205 = load float, ptr %gep113.i, align 4, !tbaa !12
+  %gep115.i = getelementptr float, ptr %invariant.gep114.i, i64 %indvars.iv96.i
+  %206 = load float, ptr %gep115.i, align 4, !tbaa !12
   store float %199, ptr %.182.i, align 4
   %.sroa.416.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.182.i, i64 4
   store float %200, ptr %.sroa.416.0..sroa_idx.i, align 4
@@ -6121,16 +6121,16 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %_ZN2cv
 
 .lr.ph104.preheader.i:                            ; preds = %284
   %invariant.gep.i94 = getelementptr float, ptr %286, i64 %270
-  %invariant.gep123.i = getelementptr float, ptr %286, i64 %271
-  %invariant.gep125.i = getelementptr float, ptr %286, i64 %272
-  %invariant.gep127.i = getelementptr float, ptr %286, i64 %273
-  %invariant.gep129.i = getelementptr float, ptr %286, i64 %274
-  %invariant.gep131.i = getelementptr float, ptr %286, i64 %275
-  %invariant.gep133.i = getelementptr float, ptr %286, i64 %276
-  %invariant.gep135.i = getelementptr float, ptr %286, i64 %277
-  %invariant.gep137.i = getelementptr float, ptr %286, i64 %278
-  %invariant.gep139.i = getelementptr float, ptr %286, i64 %279
-  %invariant.gep141.i = getelementptr float, ptr %286, i64 %280
+  %invariant.gep124.i = getelementptr float, ptr %286, i64 %271
+  %invariant.gep126.i = getelementptr float, ptr %286, i64 %272
+  %invariant.gep128.i = getelementptr float, ptr %286, i64 %273
+  %invariant.gep130.i = getelementptr float, ptr %286, i64 %274
+  %invariant.gep132.i = getelementptr float, ptr %286, i64 %275
+  %invariant.gep134.i = getelementptr float, ptr %286, i64 %276
+  %invariant.gep136.i = getelementptr float, ptr %286, i64 %277
+  %invariant.gep138.i = getelementptr float, ptr %286, i64 %278
+  %invariant.gep140.i = getelementptr float, ptr %286, i64 %279
+  %invariant.gep142.i = getelementptr float, ptr %286, i64 %280
   br label %.lr.ph104.i
 
 .lr.ph104.i:                                      ; preds = %.lr.ph104.i, %.lr.ph104.preheader.i
@@ -6140,26 +6140,26 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %_ZN2cv
   %288 = load float, ptr %287, align 4, !tbaa !12
   %gep.i95 = getelementptr float, ptr %invariant.gep.i94, i64 %indvars.iv116.i
   %289 = load float, ptr %gep.i95, align 4, !tbaa !12
-  %gep124.i = getelementptr float, ptr %invariant.gep123.i, i64 %indvars.iv116.i
-  %290 = load float, ptr %gep124.i, align 4, !tbaa !12
-  %gep126.i = getelementptr float, ptr %invariant.gep125.i, i64 %indvars.iv116.i
-  %291 = load float, ptr %gep126.i, align 4, !tbaa !12
-  %gep128.i = getelementptr float, ptr %invariant.gep127.i, i64 %indvars.iv116.i
-  %292 = load float, ptr %gep128.i, align 4, !tbaa !12
-  %gep130.i = getelementptr float, ptr %invariant.gep129.i, i64 %indvars.iv116.i
-  %293 = load float, ptr %gep130.i, align 4, !tbaa !12
-  %gep132.i = getelementptr float, ptr %invariant.gep131.i, i64 %indvars.iv116.i
-  %294 = load float, ptr %gep132.i, align 4, !tbaa !12
-  %gep134.i = getelementptr float, ptr %invariant.gep133.i, i64 %indvars.iv116.i
-  %295 = load float, ptr %gep134.i, align 4, !tbaa !12
-  %gep136.i = getelementptr float, ptr %invariant.gep135.i, i64 %indvars.iv116.i
-  %296 = load float, ptr %gep136.i, align 4, !tbaa !12
-  %gep138.i = getelementptr float, ptr %invariant.gep137.i, i64 %indvars.iv116.i
-  %297 = load float, ptr %gep138.i, align 4, !tbaa !12
-  %gep140.i = getelementptr float, ptr %invariant.gep139.i, i64 %indvars.iv116.i
-  %298 = load float, ptr %gep140.i, align 4, !tbaa !12
-  %gep142.i = getelementptr float, ptr %invariant.gep141.i, i64 %indvars.iv116.i
-  %299 = load float, ptr %gep142.i, align 4, !tbaa !12
+  %gep125.i = getelementptr float, ptr %invariant.gep124.i, i64 %indvars.iv116.i
+  %290 = load float, ptr %gep125.i, align 4, !tbaa !12
+  %gep127.i = getelementptr float, ptr %invariant.gep126.i, i64 %indvars.iv116.i
+  %291 = load float, ptr %gep127.i, align 4, !tbaa !12
+  %gep129.i = getelementptr float, ptr %invariant.gep128.i, i64 %indvars.iv116.i
+  %292 = load float, ptr %gep129.i, align 4, !tbaa !12
+  %gep131.i = getelementptr float, ptr %invariant.gep130.i, i64 %indvars.iv116.i
+  %293 = load float, ptr %gep131.i, align 4, !tbaa !12
+  %gep133.i = getelementptr float, ptr %invariant.gep132.i, i64 %indvars.iv116.i
+  %294 = load float, ptr %gep133.i, align 4, !tbaa !12
+  %gep135.i = getelementptr float, ptr %invariant.gep134.i, i64 %indvars.iv116.i
+  %295 = load float, ptr %gep135.i, align 4, !tbaa !12
+  %gep137.i = getelementptr float, ptr %invariant.gep136.i, i64 %indvars.iv116.i
+  %296 = load float, ptr %gep137.i, align 4, !tbaa !12
+  %gep139.i = getelementptr float, ptr %invariant.gep138.i, i64 %indvars.iv116.i
+  %297 = load float, ptr %gep139.i, align 4, !tbaa !12
+  %gep141.i = getelementptr float, ptr %invariant.gep140.i, i64 %indvars.iv116.i
+  %298 = load float, ptr %gep141.i, align 4, !tbaa !12
+  %gep143.i = getelementptr float, ptr %invariant.gep142.i, i64 %indvars.iv116.i
+  %299 = load float, ptr %gep143.i, align 4, !tbaa !12
   store float %288, ptr %.1102.i, align 4
   %.sroa.420.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.1102.i, i64 4
   store float %289, ptr %.sroa.420.0..sroa_idx.i, align 4
@@ -6522,8 +6522,8 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPK
   %123 = icmp sgt i32 %., 0
   %or.cond = select i1 %122, i1 %123, i1 false
   %124 = icmp sgt i32 %68, 0
-  %or.cond43 = select i1 %or.cond, i1 %124, i1 false
-  br i1 %or.cond43, label %.lr.ph.us.preheader, label %.loopexit
+  %or.cond51 = select i1 %or.cond, i1 %124, i1 false
+  br i1 %or.cond51, label %.lr.ph.us.preheader, label %.loopexit
 
 .lr.ph.us.preheader:                              ; preds = %121
   %125 = sext i32 %70 to i64
@@ -6707,12 +6707,12 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPK
   %217 = mul nsw i64 %indvars.iv99.i.us, %173
   %218 = getelementptr inbounds float, ptr %162, i64 %217
   %invariant.gep.i.us = getelementptr float, ptr %218, i64 %173
-  %invariant.gep103.i.us = getelementptr float, ptr %218, i64 %174
-  %invariant.gep105.i.us = getelementptr float, ptr %218, i64 %175
-  %invariant.gep107.i.us = getelementptr float, ptr %218, i64 %176
-  %invariant.gep109.i.us = getelementptr float, ptr %218, i64 %177
-  %invariant.gep111.i.us = getelementptr float, ptr %218, i64 %178
-  %invariant.gep113.i.us = getelementptr float, ptr %218, i64 %179
+  %invariant.gep104.i.us = getelementptr float, ptr %218, i64 %174
+  %invariant.gep106.i.us = getelementptr float, ptr %218, i64 %175
+  %invariant.gep108.i.us = getelementptr float, ptr %218, i64 %176
+  %invariant.gep110.i.us = getelementptr float, ptr %218, i64 %177
+  %invariant.gep112.i.us = getelementptr float, ptr %218, i64 %178
+  %invariant.gep114.i.us = getelementptr float, ptr %218, i64 %179
   br label %.lr.ph84.i.us
 
 .lr.ph84.i.us:                                    ; preds = %.lr.ph84.i.us, %.lr.ph84.preheader.i.us
@@ -6722,18 +6722,18 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPK
   %220 = load float, ptr %219, align 4, !tbaa !12
   %gep.i.us = getelementptr float, ptr %invariant.gep.i.us, i64 %indvars.iv96.i.us
   %221 = load float, ptr %gep.i.us, align 4, !tbaa !12
-  %gep104.i.us = getelementptr float, ptr %invariant.gep103.i.us, i64 %indvars.iv96.i.us
-  %222 = load float, ptr %gep104.i.us, align 4, !tbaa !12
-  %gep106.i.us = getelementptr float, ptr %invariant.gep105.i.us, i64 %indvars.iv96.i.us
-  %223 = load float, ptr %gep106.i.us, align 4, !tbaa !12
-  %gep108.i.us = getelementptr float, ptr %invariant.gep107.i.us, i64 %indvars.iv96.i.us
-  %224 = load float, ptr %gep108.i.us, align 4, !tbaa !12
-  %gep110.i.us = getelementptr float, ptr %invariant.gep109.i.us, i64 %indvars.iv96.i.us
-  %225 = load float, ptr %gep110.i.us, align 4, !tbaa !12
-  %gep112.i.us = getelementptr float, ptr %invariant.gep111.i.us, i64 %indvars.iv96.i.us
-  %226 = load float, ptr %gep112.i.us, align 4, !tbaa !12
-  %gep114.i.us = getelementptr float, ptr %invariant.gep113.i.us, i64 %indvars.iv96.i.us
-  %227 = load float, ptr %gep114.i.us, align 4, !tbaa !12
+  %gep105.i.us = getelementptr float, ptr %invariant.gep104.i.us, i64 %indvars.iv96.i.us
+  %222 = load float, ptr %gep105.i.us, align 4, !tbaa !12
+  %gep107.i.us = getelementptr float, ptr %invariant.gep106.i.us, i64 %indvars.iv96.i.us
+  %223 = load float, ptr %gep107.i.us, align 4, !tbaa !12
+  %gep109.i.us = getelementptr float, ptr %invariant.gep108.i.us, i64 %indvars.iv96.i.us
+  %224 = load float, ptr %gep109.i.us, align 4, !tbaa !12
+  %gep111.i.us = getelementptr float, ptr %invariant.gep110.i.us, i64 %indvars.iv96.i.us
+  %225 = load float, ptr %gep111.i.us, align 4, !tbaa !12
+  %gep113.i.us = getelementptr float, ptr %invariant.gep112.i.us, i64 %indvars.iv96.i.us
+  %226 = load float, ptr %gep113.i.us, align 4, !tbaa !12
+  %gep115.i.us = getelementptr float, ptr %invariant.gep114.i.us, i64 %indvars.iv96.i.us
+  %227 = load float, ptr %gep115.i.us, align 4, !tbaa !12
   store float %220, ptr %.182.i.us, align 4
   %.sroa.416.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.182.i.us, i64 4
   store float %221, ptr %.sroa.416.0..sroa_idx.i.us, align 4
@@ -6855,13 +6855,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !12
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !12
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

@@ -493,9 +493,9 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; pr
   %.sroa.0.16..sroa.0.16..sroa.0.16.89 = select i1 %148, <2 x double> %152, <2 x double> %142
   %.sroa.0.0..sroa.0.0..sroa.0.0.84 = select i1 %148, <2 x double> %151, <2 x double> %143
   %153 = fmul <2 x double> %108, %108
-  %shift198 = shufflevector <2 x double> %153, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop199 = fadd <2 x double> %153, %shift198
-  %154 = extractelement <2 x double> %foldExtExtBinop199, i64 0
+  %shift205 = shufflevector <2 x double> %153, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop206 = fadd <2 x double> %153, %shift205
+  %154 = extractelement <2 x double> %foldExtExtBinop206, i64 0
   %155 = fmul double %109, %109
   %156 = fadd double %155, %154
   %.scalar.i = tail call noundef double @llvm.sqrt.f64(double %156)
@@ -608,9 +608,9 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; pr
   %239 = fmul <2 x double> %238, %238
   %240 = fmul <2 x double> %237, %237
   %241 = fadd <2 x double> %240, %239
-  %shift201 = shufflevector <2 x double> %241, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop202 = fadd <2 x double> %241, %shift201
-  %242 = extractelement <2 x double> %foldExtExtBinop202, i64 0
+  %shift208 = shufflevector <2 x double> %241, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop209 = fadd <2 x double> %241, %shift208
+  %242 = extractelement <2 x double> %foldExtExtBinop209, i64 0
   %243 = fcmp ogt double %242, 0.000000e+00
   br i1 %243, label %244, label %_ZNK3g2o7SE3QuatmlERKS0_.exit29
 
@@ -768,9 +768,9 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   %364 = fmul <2 x double> %363, %363
   %365 = fmul <2 x double> %362, %362
   %366 = fadd <2 x double> %365, %364
-  %shift204 = shufflevector <2 x double> %366, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop205 = fadd <2 x double> %366, %shift204
-  %367 = extractelement <2 x double> %foldExtExtBinop205, i64 0
+  %shift211 = shufflevector <2 x double> %366, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop212 = fadd <2 x double> %366, %shift211
+  %367 = extractelement <2 x double> %foldExtExtBinop212, i64 0
   %368 = fcmp ogt double %367, 0.000000e+00
   %.scalar.i.i.i.i52 = tail call double @llvm.sqrt.f64(double %367)
   %369 = insertelement <2 x double> poison, double %.scalar.i.i.i.i52, i64 0
@@ -780,9 +780,9 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   %.sroa.0122.16..sroa.0122.16..sroa.0122.16.128 = select i1 %368, <2 x double> %372, <2 x double> %362
   %.sroa.0122.0..sroa.0122.0..sroa.0122.0.123 = select i1 %368, <2 x double> %371, <2 x double> %363
   %373 = fmul <2 x double> %328, %328
-  %shift207 = shufflevector <2 x double> %373, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop208 = fadd <2 x double> %373, %shift207
-  %374 = extractelement <2 x double> %foldExtExtBinop208, i64 0
+  %shift214 = shufflevector <2 x double> %373, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop215 = fadd <2 x double> %373, %shift214
+  %374 = extractelement <2 x double> %foldExtExtBinop215, i64 0
   %375 = fmul double %329, %329
   %376 = fadd double %375, %374
   %.scalar.i54 = tail call noundef double @llvm.sqrt.f64(double %376)
@@ -895,9 +895,9 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   %459 = fmul <2 x double> %458, %458
   %460 = fmul <2 x double> %457, %457
   %461 = fadd <2 x double> %460, %459
-  %shift210 = shufflevector <2 x double> %461, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop211 = fadd <2 x double> %461, %shift210
-  %462 = extractelement <2 x double> %foldExtExtBinop211, i64 0
+  %shift217 = shufflevector <2 x double> %461, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop218 = fadd <2 x double> %461, %shift217
+  %462 = extractelement <2 x double> %foldExtExtBinop218, i64 0
   %463 = fcmp ogt double %462, 0.000000e+00
   br i1 %463, label %464, label %_ZNK3g2o7SE3QuatmlERKS0_.exit65
 

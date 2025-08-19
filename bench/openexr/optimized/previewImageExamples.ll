@@ -703,15 +703,15 @@ _ZN7Imf_3_45ArrayINS_4RgbaEED2Ev.exit:            ; preds = %_ZN7Imf_3_47Array2D
   br i1 %139, label %_ZN7Imf_3_45ArrayINS_4RgbaEED2Ev.exit53, label %140
 
 140:                                              ; preds = %.thread, %138
-  %.pn43.pn.pn.pn.pn.pn67 = phi { ptr, i32 } [ %117, %.thread ], [ %.pn43.pn.pn.pn.pn, %138 ]
+  %.pn43.pn.pn.pn.pn.pn73 = phi { ptr, i32 } [ %117, %.thread ], [ %.pn43.pn.pn.pn.pn, %138 ]
   %141 = phi ptr [ %13, %.thread ], [ %.pre, %138 ]
   call void @_ZdaPv(ptr noundef nonnull %141) #14
   br label %_ZN7Imf_3_45ArrayINS_4RgbaEED2Ev.exit53
 
 _ZN7Imf_3_45ArrayINS_4RgbaEED2Ev.exit53:          ; preds = %138, %140
-  %.pn43.pn.pn.pn.pn.pn68 = phi { ptr, i32 } [ %.pn43.pn.pn.pn.pn, %138 ], [ %.pn43.pn.pn.pn.pn.pn67, %140 ]
+  %.pn43.pn.pn.pn.pn.pn74 = phi { ptr, i32 } [ %.pn43.pn.pn.pn.pn, %138 ], [ %.pn43.pn.pn.pn.pn.pn73, %140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.pn43.pn.pn.pn.pn.pn68
+  resume { ptr, i32 } %.pn43.pn.pn.pn.pn.pn74
 }
 
 declare void @_Z10drawImage7RN7Imf_3_45ArrayINS_4RgbaEEEiii(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0

@@ -142,19 +142,19 @@ define internal fastcc ptr @TidQualFromRestrictInfoList(ptr noundef %0, ptr noun
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %9 = load i32, ptr %6, align 4
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph171, label %._crit_edge
+  br i1 %10, label %.lr.ph173, label %._crit_edge
 
-.lr.ph171:                                        ; preds = %.lr.ph138, %.critedge.thread
-  %.059132170 = phi ptr [ %.4.ph, %.critedge.thread ], [ null, %.lr.ph138 ]
-  %.055135169 = phi ptr [ %.358.ph, %.critedge.thread ], [ null, %.lr.ph138 ]
-  %indvars.iv147168 = phi i64 [ %indvars.iv.next148, %.critedge.thread ], [ 0, %.lr.ph138 ]
+.lr.ph173:                                        ; preds = %.lr.ph138, %.critedge.thread
+  %.059132172 = phi ptr [ %.4.ph, %.critedge.thread ], [ null, %.lr.ph138 ]
+  %.055135171 = phi ptr [ %.358.ph, %.critedge.thread ], [ null, %.lr.ph138 ]
+  %indvars.iv147170 = phi i64 [ %indvars.iv.next148, %.critedge.thread ], [ 0, %.lr.ph138 ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv147168
+  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv147170
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i1 @restriction_is_or_clause(ptr noundef %13) #6
   br i1 %14, label %15, label %59
 
-15:                                               ; preds = %.lr.ph171
+15:                                               ; preds = %.lr.ph173
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -235,13 +235,13 @@ is_andclause.exit.thread:                         ; preds = %.lr.ph129, %27, %is
   br i1 %.not79, label %.critedge.thread, label %51
 
 51:                                               ; preds = %.critedge
-  %52 = icmp eq ptr %.059132170, null
+  %52 = icmp eq ptr %.059132172, null
   br i1 %52, label %58, label %list_length.exit83
 
 list_length.exit83:                               ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %.059132170, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.059132172, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = icmp slt i32 %54, %56
   br i1 %57, label %58, label %.critedge.thread
@@ -249,7 +249,7 @@ list_length.exit83:                               ; preds = %51
 58:                                               ; preds = %list_length.exit83, %51
   br label %.critedge.thread
 
-59:                                               ; preds = %.lr.ph171
+59:                                               ; preds = %.lr.ph173
   %60 = tail call fastcc zeroext i1 @RestrictInfoIsTidQual(ptr noundef %0, ptr noundef %13, ptr noundef %2)
   br i1 %60, label %61, label %.critedge.thread
 
@@ -272,18 +272,18 @@ IsCurrentOfClause.exit:                           ; preds = %63
   br i1 %69, label %74, label %IsCurrentOfClause.exit.thread
 
 IsCurrentOfClause.exit.thread:                    ; preds = %61, %63, %IsCurrentOfClause.exit
-  %70 = icmp eq ptr %.055135169, null
-  %spec.select = select i1 %70, ptr %13, ptr %.055135169
+  %70 = icmp eq ptr %.055135171, null
+  %spec.select = select i1 %70, ptr %13, ptr %.055135171
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %is_andclause.exit.thread, %45, %.lr.ph, %15, %.critedge, %58, %list_length.exit83, %59, %IsCurrentOfClause.exit.thread
-  %.4.ph = phi ptr [ %.059132170, %IsCurrentOfClause.exit.thread ], [ %.059132170, %.critedge ], [ %.059132170, %list_length.exit83 ], [ %47, %58 ], [ %.059132170, %59 ], [ %.059132170, %15 ], [ %.059132170, %.lr.ph ], [ %.059132170, %45 ], [ %.059132170, %is_andclause.exit.thread ]
-  %.358.ph = phi ptr [ %spec.select, %IsCurrentOfClause.exit.thread ], [ %.055135169, %.critedge ], [ %.055135169, %list_length.exit83 ], [ %.055135169, %58 ], [ %.055135169, %59 ], [ %.055135169, %15 ], [ %.055135169, %.lr.ph ], [ %.055135169, %45 ], [ %.055135169, %is_andclause.exit.thread ]
-  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147168, 1
+  %.4.ph = phi ptr [ %.059132172, %IsCurrentOfClause.exit.thread ], [ %.059132172, %.critedge ], [ %.059132172, %list_length.exit83 ], [ %47, %58 ], [ %.059132172, %59 ], [ %.059132172, %15 ], [ %.059132172, %.lr.ph ], [ %.059132172, %45 ], [ %.059132172, %is_andclause.exit.thread ]
+  %.358.ph = phi ptr [ %spec.select, %IsCurrentOfClause.exit.thread ], [ %.055135171, %.critedge ], [ %.055135171, %list_length.exit83 ], [ %.055135171, %58 ], [ %.055135171, %59 ], [ %.055135171, %15 ], [ %.055135171, %.lr.ph ], [ %.055135171, %45 ], [ %.055135171, %is_andclause.exit.thread ]
+  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147170, 1
   %71 = load i32, ptr %6, align 4
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next148, %72
-  br i1 %73, label %.lr.ph171, label %._crit_edge
+  br i1 %73, label %.lr.ph173, label %._crit_edge
 
 74:                                               ; preds = %IsCurrentOfClause.exit
   store i8 1, ptr %3, align 1
@@ -296,8 +296,8 @@ IsCurrentOfClause.exit.thread:                    ; preds = %61, %63, %IsCurrent
   br i1 %.not80, label %._crit_edge.thread, label %._crit_edge.thread.sink.split
 
 ._crit_edge.thread.sink.split:                    ; preds = %._crit_edge, %74
-  %.lcssa160.sink = phi ptr [ %13, %74 ], [ %.055135.lcssa, %._crit_edge ]
-  %75 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %.lcssa160.sink) #6
+  %.lcssa162.sink = phi ptr [ %13, %74 ], [ %.055135.lcssa, %._crit_edge ]
+  %75 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %.lcssa162.sink) #6
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %4, %._crit_edge

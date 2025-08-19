@@ -605,7 +605,7 @@ ERR_lib_error_string.exit:                        ; preds = %7
   br label %ERR_reason_error_string.exit
 
 ERR_lib_error_string.exit.thread:                 ; preds = %7, %ERR_lib_error_string.exit
-  %.0.i62 = phi ptr [ %12, %ERR_lib_error_string.exit ], [ null, %7 ]
+  %.0.i71 = phi ptr [ %12, %ERR_lib_error_string.exit ], [ null, %7 ]
   %18 = icmp samesign ult i32 %8, 33
   br i1 %18, label %19, label %23
 
@@ -689,18 +689,18 @@ bsearch.exit.i.i:                                 ; preds = %45
   br label %ERR_reason_error_string.exit
 
 ERR_reason_error_string.exit:                     ; preds = %48, %14, %16, %19, %25, %26, %27, %28, %29, %30, %31, %34, %bsearch.exit.i.i
-  %.0.i61 = phi ptr [ %12, %16 ], [ %.0.i62, %19 ], [ %.0.i62, %30 ], [ %.0.i62, %26 ], [ %.0.i62, %27 ], [ %.0.i62, %28 ], [ %.0.i62, %29 ], [ %12, %14 ], [ %.0.i62, %25 ], [ %.0.i62, %31 ], [ %.0.i62, %bsearch.exit.i.i ], [ %.0.i62, %34 ], [ %.0.i62, %48 ]
-  %.pre-phi59 = phi i32 [ 2, %16 ], [ %.pre, %19 ], [ %.pre, %30 ], [ %.pre, %26 ], [ %.pre, %27 ], [ %.pre, %28 ], [ %.pre, %29 ], [ 2, %14 ], [ %.pre, %25 ], [ %.pre, %31 ], [ %.pre, %bsearch.exit.i.i ], [ %.pre, %34 ], [ %.pre, %48 ]
+  %.0.i70 = phi ptr [ %12, %16 ], [ %.0.i71, %19 ], [ %.0.i71, %30 ], [ %.0.i71, %26 ], [ %.0.i71, %27 ], [ %.0.i71, %28 ], [ %.0.i71, %29 ], [ %12, %14 ], [ %.0.i71, %25 ], [ %.0.i71, %31 ], [ %.0.i71, %bsearch.exit.i.i ], [ %.0.i71, %34 ], [ %.0.i71, %48 ]
+  %.pre-phi68 = phi i32 [ 2, %16 ], [ %.pre, %19 ], [ %.pre, %30 ], [ %.pre, %26 ], [ %.pre, %27 ], [ %.pre, %28 ], [ %.pre, %29 ], [ 2, %14 ], [ %.pre, %25 ], [ %.pre, %31 ], [ %.pre, %bsearch.exit.i.i ], [ %.pre, %34 ], [ %.pre, %48 ]
   %.0.i42 = phi ptr [ %17, %16 ], [ %22, %19 ], [ null, %30 ], [ @.str.5, %26 ], [ @.str.6, %27 ], [ @.str.7, %28 ], [ @.str.8, %29 ], [ null, %14 ], [ @.str.4, %25 ], [ null, %31 ], [ %52, %bsearch.exit.i.i ], [ null, %34 ], [ null, %48 ]
-  %53 = icmp eq ptr %.0.i61, null
+  %53 = icmp eq ptr %.0.i70, null
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %ERR_reason_error_string.exit
-  %55 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull @.str, i32 noundef %.pre-phi59) #17
+  %55 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull @.str, i32 noundef %.pre-phi68) #17
   br label %56
 
 56:                                               ; preds = %54, %ERR_reason_error_string.exit
-  %.0 = phi ptr [ %4, %54 ], [ %.0.i61, %ERR_reason_error_string.exit ]
+  %.0 = phi ptr [ %4, %54 ], [ %.0.i70, %ERR_reason_error_string.exit ]
   %57 = icmp eq ptr %.0.i42, null
   br i1 %57, label %58, label %60
 

@@ -1259,9 +1259,9 @@ _ZN10duckdb_re28PODArrayIiEC2Ei.exit:             ; preds = %4
   %.idx235 = shl nsw i64 %17, 2
   %18 = getelementptr inbounds i8, ptr %15, i64 %.idx235
   %.not214 = icmp eq i32 %16, 0
-  br i1 %.not214, label %.thread244, label %.lr.ph
+  br i1 %.not214, label %.thread263, label %.lr.ph
 
-.thread244:                                       ; preds = %_ZN10duckdb_re28PODArrayIiEC2Ei.exit
+.thread263:                                       ; preds = %_ZN10duckdb_re28PODArrayIiEC2Ei.exit
   %19 = and i32 %3, 256
   br label %91
 
@@ -1421,15 +1421,15 @@ _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread188: ; preds = %50, %41, %_ZN10
   %.6 = phi i32 [ %.080.lcssa, %._crit_edge ], [ %spec.select131, %81 ]
   %88 = icmp eq i32 %.086.lcssa.fr, 0
   %89 = and i32 %3, 256
-  %spec.select266 = select i1 %88, i32 %89, i32 %3
+  %spec.select285 = select i1 %88, i32 %89, i32 %3
   %90 = shl i32 %.086.lcssa.fr, 16
   br label %91
 
-91:                                               ; preds = %87, %.thread244
-  %.6250 = phi i32 [ 0, %.thread244 ], [ %.6, %87 ]
-  %.086.lcssa243248 = phi i32 [ 0, %.thread244 ], [ %90, %87 ]
-  %92 = phi i32 [ %19, %.thread244 ], [ %spec.select266, %87 ]
-  %93 = or i32 %.6250, %92
+91:                                               ; preds = %87, %.thread263
+  %.6269 = phi i32 [ 0, %.thread263 ], [ %.6, %87 ]
+  %.086.lcssa262267 = phi i32 [ 0, %.thread263 ], [ %90, %87 ]
+  %92 = phi i32 [ %19, %.thread263 ], [ %spec.select285, %87 ]
+  %93 = or i32 %.6269, %92
   %or.cond4 = icmp eq i32 %93, 0
   br i1 %or.cond4, label %_ZN10duckdb_re28PODArrayIiED2Ev.exit, label %94
 
@@ -1440,10 +1440,10 @@ _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread188: ; preds = %50, %41, %_ZN10
   br i1 %97, label %98, label %thread-pre-split
 
 98:                                               ; preds = %94
-  %99 = sext i32 %.6250 to i64
+  %99 = sext i32 %.6269 to i64
   %.idx236 = shl nsw i64 %99, 2
   %100 = getelementptr inbounds i8, ptr %13, i64 %.idx236
-  %101 = icmp sgt i32 %.6250, 0
+  %101 = icmp sgt i32 %.6269, 0
   br i1 %101, label %.preheader, label %_ZSt4sortIPiEvT_S1_.exit173
 
 .preheader:                                       ; preds = %98, %_ZSt4sortIPiEvT_S1_.exit
@@ -1469,16 +1469,16 @@ _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread188: ; preds = %50, %41, %_ZN10
   br i1 %.not.i.i, label %_ZSt4sortIPiEvT_S1_.exit, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %104, %.critedge
-  %.095.ptr.lcssa256 = phi ptr [ %.095.ptr225.le, %.critedge ], [ %.095.ptr, %104 ]
-  %.095.idx.lcssa255 = phi i64 [ %.095.idx224, %.critedge ], [ %.095.add, %104 ]
-  %106 = ptrtoint ptr %.095.ptr.lcssa256 to i64
+  %.095.ptr.lcssa275 = phi ptr [ %.095.ptr225.le, %.critedge ], [ %.095.ptr, %104 ]
+  %.095.idx.lcssa274 = phi i64 [ %.095.idx224, %.critedge ], [ %.095.add, %104 ]
+  %106 = ptrtoint ptr %.095.ptr.lcssa275 to i64
   %107 = ptrtoint ptr %.0100226 to i64
   %108 = sub i64 %106, %107
   %109 = ashr exact i64 %108, 2
   %110 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %109, i1 true)
   %111 = shl nuw nsw i64 %110, 1
   %112 = xor i64 %111, 126
-  invoke void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef nonnull %.0100226, ptr noundef nonnull %.095.ptr.lcssa256, i64 noundef %112)
+  invoke void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef nonnull %.0100226, ptr noundef nonnull %.095.ptr.lcssa275, i64 noundef %112)
           to label %.noexc unwind label %150
 
 .noexc:                                           ; preds = %.critedge.thread
@@ -1522,7 +1522,7 @@ _ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i, !llvm.loop !122
 
 _ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i: ; preds = %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
-  %.not5.i.i.i.i = icmp eq i64 %.095.idx.lcssa255, 64
+  %.not5.i.i.i.i = icmp eq i64 %.095.idx.lcssa274, 64
   br i1 %.not5.i.i.i.i, label %_ZSt4sortIPiEvT_S1_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i
@@ -1551,11 +1551,11 @@ _ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %.09.lcssa.i.i.i.i.i = phi ptr [ %.06.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.013.i.i11.i.i.i, %.lr.ph.i.i10.i.i.i ]
   store i32 %125, ptr %.09.lcssa.i.i.i.i.i, align 4, !tbaa !77
   %131 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 4
-  %.not.i9.i.i.i = icmp eq ptr %131, %.095.ptr.lcssa256
+  %.not.i9.i.i.i = icmp eq ptr %131, %.095.ptr.lcssa275
   br i1 %.not.i9.i.i.i, label %_ZSt4sortIPiEvT_S1_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !123
 
 132:                                              ; preds = %.noexc
-  %.not17.i.i.i.i = icmp eq i64 %.095.idx.lcssa255, 4
+  %.not17.i.i.i.i = icmp eq i64 %.095.idx.lcssa274, 4
   br i1 %.not17.i.i.i.i, label %_ZSt4sortIPiEvT_S1_.exit, label %.lr.ph.i15.i.i.i
 
 .lr.ph.i15.i.i.i:                                 ; preds = %132, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i
@@ -1595,14 +1595,14 @@ _ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %.sink.i19.i.i.i = phi ptr [ %.0100226, %136 ], [ %.019.i16.i.i.i, %143 ], [ %.013.i.i23.i.i.i, %.lr.ph.i.i22.i.i.i ]
   store i32 %133, ptr %.sink.i19.i.i.i, align 4, !tbaa !77
   %.0.i20.i.i.i = getelementptr inbounds nuw i8, ptr %.019.i16.i.i.i, i64 4
-  %.not.i21.i.i.i = icmp eq ptr %.0.i20.i.i.i, %.095.ptr.lcssa256
+  %.not.i21.i.i.i = icmp eq ptr %.0.i20.i.i.i, %.095.ptr.lcssa275
   br i1 %.not.i21.i.i.i, label %_ZSt4sortIPiEvT_S1_.exit, label %.lr.ph.i15.i.i.i, !llvm.loop !122
 
 _ZSt4sortIPiEvT_S1_.exit:                         ; preds = %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i, %132, %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, %.critedge
-  %.not127262 = phi i1 [ %.not127, %132 ], [ %.not127, %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i ], [ true, %.critedge ], [ %.not127, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ %.not127, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
-  %.095.ptr.lcssa257 = phi ptr [ %.095.ptr.lcssa256, %132 ], [ %.095.ptr.lcssa256, %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i ], [ %.095.ptr225.le, %.critedge ], [ %.095.ptr.lcssa256, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ %.095.ptr.lcssa256, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
-  %spec.select133.idx = select i1 %.not127262, i64 4, i64 0
-  %spec.select133 = getelementptr inbounds nuw i8, ptr %.095.ptr.lcssa257, i64 %spec.select133.idx
+  %.not127281 = phi i1 [ %.not127, %132 ], [ %.not127, %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i ], [ true, %.critedge ], [ %.not127, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ %.not127, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
+  %.095.ptr.lcssa276 = phi ptr [ %.095.ptr.lcssa275, %132 ], [ %.095.ptr.lcssa275, %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i ], [ %.095.ptr225.le, %.critedge ], [ %.095.ptr.lcssa275, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ %.095.ptr.lcssa275, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
+  %spec.select133.idx = select i1 %.not127281, i64 4, i64 0
+  %spec.select133 = getelementptr inbounds nuw i8, ptr %.095.ptr.lcssa276, i64 %spec.select133.idx
   %149 = icmp ult ptr %spec.select133, %100
   br i1 %149, label %.preheader, label %thread-pre-split.loopexit, !llvm.loop !124
 
@@ -1621,10 +1621,10 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lo
   br i1 %153, label %154, label %_ZSt4sortIPiEvT_S1_.exit173
 
 154:                                              ; preds = %thread-pre-split
-  %155 = sext i32 %.6250 to i64
+  %155 = sext i32 %.6269 to i64
   %.idx = shl nsw i64 %155, 2
   %156 = getelementptr inbounds i8, ptr %13, i64 %.idx
-  %.not.i.i134 = icmp eq i32 %.6250, 0
+  %.not.i.i134 = icmp eq i32 %.6269, 0
   br i1 %.not.i.i134, label %_ZSt4sortIPiEvT_S1_.exit173, label %157
 
 157:                                              ; preds = %154
@@ -1636,7 +1636,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lo
           to label %.noexc172 unwind label %198
 
 .noexc172:                                        ; preds = %157
-  %162 = icmp sgt i32 %.6250, 16
+  %162 = icmp sgt i32 %.6269, 16
   %scevgep.i.i.i135 = getelementptr i8, ptr %13, i64 4
   br i1 %162, label %.preheader.i148, label %181
 
@@ -1705,7 +1705,7 @@ _ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   br i1 %.not.i9.i.i.i163, label %_ZSt4sortIPiEvT_S1_.exit173, label %.lr.ph.i.i.i.i158, !llvm.loop !123
 
 181:                                              ; preds = %.noexc172
-  %.not17.i.i.i.i136 = icmp eq i32 %.6250, 1
+  %.not17.i.i.i.i136 = icmp eq i32 %.6269, 1
   br i1 %.not17.i.i.i.i136, label %_ZSt4sortIPiEvT_S1_.exit173, label %.lr.ph.i15.i.i.i137
 
 .lr.ph.i15.i.i.i137:                              ; preds = %181, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i140
@@ -1758,8 +1758,8 @@ _ZSt4sortIPiEvT_S1_.exit173:                      ; preds = %_ZSt25__unguarded_l
   br i1 %.not123, label %.loopexit, label %200
 
 200:                                              ; preds = %_ZSt4sortIPiEvT_S1_.exit173
-  %201 = add nsw i32 %.6250, 1
-  %202 = sext i32 %.6250 to i64
+  %201 = add nsw i32 %.6269, 1
+  %202 = sext i32 %.6269 to i64
   %203 = getelementptr inbounds nuw i32, ptr %13, i64 %202
   store i32 -2, ptr %203, align 4, !tbaa !77
   %204 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1804,8 +1804,8 @@ _ZSt4sortIPiEvT_S1_.exit173:                      ; preds = %_ZSt25__unguarded_l
   br i1 %.not124, label %.loopexit, label %212, !llvm.loop !125
 
 .loopexit:                                        ; preds = %225, %200, %_ZSt4sortIPiEvT_S1_.exit173
-  %.7 = phi i32 [ %.6250, %_ZSt4sortIPiEvT_S1_.exit173 ], [ %201, %200 ], [ %.9, %225 ]
-  %227 = or i32 %92, %.086.lcssa243248
+  %.7 = phi i32 [ %.6269, %_ZSt4sortIPiEvT_S1_.exit173 ], [ %201, %200 ], [ %.9, %225 ]
+  %227 = or i32 %92, %.086.lcssa262267
   %228 = invoke noundef ptr @_ZN10duckdb_re23DFA11CachedStateEPiij(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %13, i32 noundef %.7, i32 noundef %227)
           to label %_ZN10duckdb_re28PODArrayIiED2Ev.exit unwind label %229
 
@@ -2050,16 +2050,16 @@ define hidden void @_ZN10duckdb_re23DFA10AddToQueueEPNS0_5WorkqEij(ptr noundef n
   %.040.ph = phi i32 [ %29, %25 ], [ %114, %.outer.backedge ]
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 120
-  br label %.backedge65
+  br label %.backedge70
 
-.backedge65:                                      ; preds = %.backedge65.backedge, %.outer
-  %.040 = phi i32 [ %.040.ph, %.outer ], [ %.040.be, %.backedge65.backedge ]
+.backedge70:                                      ; preds = %.backedge70.backedge, %.outer
+  %.040 = phi i32 [ %.040.ph, %.outer ], [ %.040.be, %.backedge70.backedge ]
   switch i32 %.040, label %50 [
     i32 -1, label %32
     i32 0, label %.backedge
   ]
 
-32:                                               ; preds = %.backedge65
+32:                                               ; preds = %.backedge70
   %33 = load i8, ptr %10, align 4, !tbaa !90, !range !117, !noundef !118
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %.backedge, label %35
@@ -2090,12 +2090,12 @@ define hidden void @_ZN10duckdb_re23DFA10AddToQueueEPNS0_5WorkqEij(ptr noundef n
   store i32 %48, ptr %1, align 8, !tbaa !81
   br label %.backedge
 
-.backedge:                                        ; preds = %125, %select.unfold, %.backedge65, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit, %_ZN10LogMessageD2Ev.exit, %40, %35, %32
-  %.041.be = phi i32 [ %.142.ph, %32 ], [ %.142.ph, %35 ], [ %.142.ph, %40 ], [ %.142.ph, %_ZN10LogMessageD2Ev.exit ], [ %.142.ph, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit ], [ %.142.ph, %.backedge65 ], [ %.142.ph, %select.unfold ], [ %.6, %125 ]
+.backedge:                                        ; preds = %125, %select.unfold, %.backedge70, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit, %_ZN10LogMessageD2Ev.exit, %40, %35, %32
+  %.041.be = phi i32 [ %.142.ph, %32 ], [ %.142.ph, %35 ], [ %.142.ph, %40 ], [ %.142.ph, %_ZN10LogMessageD2Ev.exit ], [ %.142.ph, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit ], [ %.142.ph, %.backedge70 ], [ %.142.ph, %select.unfold ], [ %.6, %125 ]
   %49 = icmp sgt i32 %.041.be, 0
   br i1 %49, label %25, label %133, !llvm.loop !133
 
-50:                                               ; preds = %.backedge65
+50:                                               ; preds = %.backedge70
   %51 = load ptr, ptr %9, align 8, !tbaa !85
   %.not.i.i = icmp ne ptr %51, null
   %52 = load i32, ptr %8, align 8
@@ -2253,7 +2253,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 
 115:                                              ; preds = %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit
   %116 = add nuw nsw i32 %.040, 1
-  br label %.backedge65.backedge
+  br label %.backedge70.backedge
 
 117:                                              ; preds = %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit
   %118 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %69, i64 %.pre-phi
@@ -2286,12 +2286,12 @@ select.unfold:                                    ; preds = %_ZN10duckdb_re23DFA
   %.lobit = lshr exact i32 %131, 3
   %132 = xor i32 %.lobit, 1
   %spec.select53 = add nuw nsw i32 %132, %.040
-  %.not86 = icmp eq i32 %131, 0
-  br i1 %.not86, label %.backedge65.backedge, label %.backedge
+  %.not91 = icmp eq i32 %131, 0
+  br i1 %.not91, label %.backedge70.backedge, label %.backedge
 
-.backedge65.backedge:                             ; preds = %select.unfold, %115
+.backedge70.backedge:                             ; preds = %select.unfold, %115
   %.040.be = phi i32 [ %spec.select53, %select.unfold ], [ %116, %115 ]
-  br label %.backedge65
+  br label %.backedge70
 
 133:                                              ; preds = %.backedge
   ret void
@@ -3940,8 +3940,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %cond4 = phi i1 [ true, %152 ], [ false, %.sink.split ]
   %.1123 = phi ptr [ %151, %152 ], [ null, %.sink.split ]
   %168 = icmp eq ptr %136, null
-  %or.cond413 = or i1 %.not.i200.not, %168
-  br i1 %or.cond413, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %169
+  %or.cond442 = or i1 %.not.i200.not, %168
+  br i1 %or.cond442, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %169
 
 169:                                              ; preds = %167
   call void @_ZdaPv(ptr noundef nonnull %136) #23
@@ -3950,8 +3950,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 _ZN10duckdb_re23DFA10StateSaverD2Ev.exit:         ; preds = %167, %169
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %170 = icmp eq ptr %123, null
-  %or.cond414 = or i1 %.not.i.not, %170
-  br i1 %or.cond414, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204, label %171
+  %or.cond443 = or i1 %.not.i.not, %170
+  br i1 %or.cond443, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204, label %171
 
 171:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %123) #23
@@ -3964,8 +3964,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit204:      ; preds = %_ZN10duckdb_re23DFA
 172:                                              ; preds = %166, %148
   %.pn174.pn = phi { ptr, i32 } [ %.pn174, %166 ], [ %149, %148 ]
   %173 = icmp eq ptr %136, null
-  %or.cond415 = or i1 %.not.i200.not, %173
-  br i1 %or.cond415, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit205, label %174
+  %or.cond444 = or i1 %.not.i200.not, %173
+  br i1 %or.cond444, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit205, label %174
 
 174:                                              ; preds = %172
   call void @_ZdaPv(ptr noundef nonnull %136) #23
@@ -3975,8 +3975,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit205:      ; preds = %174, %172, %146
   %.pn174.pn.pn = phi { ptr, i32 } [ %147, %146 ], [ %.pn174.pn, %172 ], [ %.pn174.pn, %174 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %175 = icmp eq ptr %123, null
-  %or.cond416 = or i1 %.not.i.not, %175
-  br i1 %or.cond416, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit206, label %176
+  %or.cond445 = or i1 %.not.i.not, %175
+  br i1 %or.cond445, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit206, label %176
 
 176:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit205
   call void @_ZdaPv(ptr noundef nonnull %123) #23
@@ -4190,7 +4190,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit219: ; preds = %247, %251
 
 272:                                              ; preds = %270
   %273 = icmp eq ptr %271, null
-  br i1 %273, label %.sink.split417, label %276
+  br i1 %273, label %.sink.split446, label %276
 
 274:                                              ; preds = %276, %270, %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit219
   %275 = landingpad { ptr, i32 }
@@ -4219,7 +4219,7 @@ _ZN10LogMessageC2EPKci.exit221:                   ; preds = %280
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223: ; preds = %_ZN10LogMessageC2EPKci.exit221
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %7) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split417
+  br label %.sink.split446
 
 283:                                              ; preds = %280
   %284 = landingpad { ptr, i32 }
@@ -4237,17 +4237,17 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223: ; preds = %_ZN1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %292
 
-.sink.split417:                                   ; preds = %272, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223
+.sink.split446:                                   ; preds = %272, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223
   %288 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i8 1, ptr %288, align 8, !tbaa !178
   br label %289
 
-289:                                              ; preds = %.sink.split417, %278
-  %cond1 = phi i1 [ true, %278 ], [ false, %.sink.split417 ]
-  %.1104 = phi ptr [ %277, %278 ], [ null, %.sink.split417 ]
+289:                                              ; preds = %.sink.split446, %278
+  %cond1 = phi i1 [ true, %278 ], [ false, %.sink.split446 ]
+  %.1104 = phi ptr [ %277, %278 ], [ null, %.sink.split446 ]
   %290 = icmp eq ptr %267, null
-  %or.cond418 = or i1 %.not.i218.not, %290
-  br i1 %or.cond418, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit224, label %291
+  %or.cond447 = or i1 %.not.i218.not, %290
+  br i1 %or.cond447, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit224, label %291
 
 291:                                              ; preds = %289
   call void @_ZdaPv(ptr noundef nonnull %267) #23
@@ -4260,8 +4260,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit224:      ; preds = %289, %291
 292:                                              ; preds = %287, %274
   %.pn.pn = phi { ptr, i32 } [ %.pn, %287 ], [ %275, %274 ]
   %293 = icmp eq ptr %267, null
-  %or.cond420 = or i1 %.not.i218.not, %293
-  br i1 %or.cond420, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit225, label %294
+  %or.cond449 = or i1 %.not.i218.not, %293
+  br i1 %or.cond449, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit225, label %294
 
 294:                                              ; preds = %292
   call void @_ZdaPv(ptr noundef nonnull %267) #23
@@ -4732,8 +4732,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %cond4 = phi i1 [ true, %152 ], [ false, %.sink.split ]
   %.1133 = phi ptr [ %151, %152 ], [ null, %.sink.split ]
   %168 = icmp eq ptr %136, null
-  %or.cond418 = or i1 %.not.i215.not, %168
-  br i1 %or.cond418, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %169
+  %or.cond448 = or i1 %.not.i215.not, %168
+  br i1 %or.cond448, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %169
 
 169:                                              ; preds = %167
   call void @_ZdaPv(ptr noundef nonnull %136) #23
@@ -4742,8 +4742,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 _ZN10duckdb_re23DFA10StateSaverD2Ev.exit:         ; preds = %167, %169
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %170 = icmp eq ptr %123, null
-  %or.cond419 = or i1 %.not.i.not, %170
-  br i1 %or.cond419, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219, label %171
+  %or.cond449 = or i1 %.not.i.not, %170
+  br i1 %or.cond449, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219, label %171
 
 171:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %123) #23
@@ -4756,8 +4756,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit219:      ; preds = %_ZN10duckdb_re23DFA
 172:                                              ; preds = %166, %148
   %.pn186.pn = phi { ptr, i32 } [ %.pn186, %166 ], [ %149, %148 ]
   %173 = icmp eq ptr %136, null
-  %or.cond420 = or i1 %.not.i215.not, %173
-  br i1 %or.cond420, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit220, label %174
+  %or.cond450 = or i1 %.not.i215.not, %173
+  br i1 %or.cond450, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit220, label %174
 
 174:                                              ; preds = %172
   call void @_ZdaPv(ptr noundef nonnull %136) #23
@@ -4767,8 +4767,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit220:      ; preds = %174, %172, %146
   %.pn186.pn.pn = phi { ptr, i32 } [ %147, %146 ], [ %.pn186.pn, %172 ], [ %.pn186.pn, %174 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %175 = icmp eq ptr %123, null
-  %or.cond421 = or i1 %.not.i.not, %175
-  br i1 %or.cond421, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit221, label %176
+  %or.cond451 = or i1 %.not.i.not, %175
+  br i1 %or.cond451, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit221, label %176
 
 176:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit220
   call void @_ZdaPv(ptr noundef nonnull %123) #23
@@ -4987,7 +4987,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit234: ; preds = %249, %253
 
 274:                                              ; preds = %272
   %275 = icmp eq ptr %273, null
-  br i1 %275, label %.sink.split422, label %278
+  br i1 %275, label %.sink.split452, label %278
 
 276:                                              ; preds = %278, %272, %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit234
   %277 = landingpad { ptr, i32 }
@@ -5016,7 +5016,7 @@ _ZN10LogMessageC2EPKci.exit236:                   ; preds = %282
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit238: ; preds = %_ZN10LogMessageC2EPKci.exit236
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %7) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split422
+  br label %.sink.split452
 
 285:                                              ; preds = %282
   %286 = landingpad { ptr, i32 }
@@ -5034,17 +5034,17 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit238: ; preds = %_ZN1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %294
 
-.sink.split422:                                   ; preds = %274, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit238
+.sink.split452:                                   ; preds = %274, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit238
   %290 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i8 1, ptr %290, align 8, !tbaa !178
   br label %291
 
-291:                                              ; preds = %.sink.split422, %280
-  %cond1 = phi i1 [ true, %280 ], [ false, %.sink.split422 ]
-  %.1114 = phi ptr [ %279, %280 ], [ null, %.sink.split422 ]
+291:                                              ; preds = %.sink.split452, %280
+  %cond1 = phi i1 [ true, %280 ], [ false, %.sink.split452 ]
+  %.1114 = phi ptr [ %279, %280 ], [ null, %.sink.split452 ]
   %292 = icmp eq ptr %269, null
-  %or.cond423 = or i1 %.not.i233.not, %292
-  br i1 %or.cond423, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit239, label %293
+  %or.cond453 = or i1 %.not.i233.not, %292
+  br i1 %or.cond453, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit239, label %293
 
 293:                                              ; preds = %291
   call void @_ZdaPv(ptr noundef nonnull %269) #23
@@ -5057,8 +5057,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit239:      ; preds = %291, %293
 294:                                              ; preds = %289, %276
   %.pn.pn = phi { ptr, i32 } [ %.pn, %289 ], [ %277, %276 ]
   %295 = icmp eq ptr %269, null
-  %or.cond425 = or i1 %.not.i233.not, %295
-  br i1 %or.cond425, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit240, label %296
+  %or.cond455 = or i1 %.not.i233.not, %295
+  br i1 %or.cond455, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit240, label %296
 
 296:                                              ; preds = %294
   call void @_ZdaPv(ptr noundef nonnull %269) #23
@@ -5529,8 +5529,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %cond4 = phi i1 [ true, %153 ], [ false, %.sink.split ]
   %.1127 = phi ptr [ %152, %153 ], [ null, %.sink.split ]
   %169 = icmp eq ptr %137, null
-  %or.cond393 = or i1 %.not.i200.not, %169
-  br i1 %or.cond393, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %170
+  %or.cond423 = or i1 %.not.i200.not, %169
+  br i1 %or.cond423, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %170
 
 170:                                              ; preds = %168
   call void @_ZdaPv(ptr noundef nonnull %137) #23
@@ -5539,8 +5539,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 _ZN10duckdb_re23DFA10StateSaverD2Ev.exit:         ; preds = %168, %170
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %171 = icmp eq ptr %124, null
-  %or.cond394 = or i1 %.not.i.not, %171
-  br i1 %or.cond394, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204, label %172
+  %or.cond424 = or i1 %.not.i.not, %171
+  br i1 %or.cond424, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204, label %172
 
 172:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %124) #23
@@ -5553,8 +5553,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit204:      ; preds = %_ZN10duckdb_re23DFA
 173:                                              ; preds = %167, %149
   %.pn172.pn = phi { ptr, i32 } [ %.pn172, %167 ], [ %150, %149 ]
   %174 = icmp eq ptr %137, null
-  %or.cond395 = or i1 %.not.i200.not, %174
-  br i1 %or.cond395, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit205, label %175
+  %or.cond425 = or i1 %.not.i200.not, %174
+  br i1 %or.cond425, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit205, label %175
 
 175:                                              ; preds = %173
   call void @_ZdaPv(ptr noundef nonnull %137) #23
@@ -5564,8 +5564,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit205:      ; preds = %175, %173, %147
   %.pn172.pn.pn = phi { ptr, i32 } [ %148, %147 ], [ %.pn172.pn, %173 ], [ %.pn172.pn, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %176 = icmp eq ptr %124, null
-  %or.cond396 = or i1 %.not.i.not, %176
-  br i1 %or.cond396, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit206, label %177
+  %or.cond426 = or i1 %.not.i.not, %176
+  br i1 %or.cond426, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit206, label %177
 
 177:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit205
   call void @_ZdaPv(ptr noundef nonnull %124) #23
@@ -5769,7 +5769,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit219: ; preds = %250, %254
 
 274:                                              ; preds = %272
   %275 = icmp eq ptr %273, null
-  br i1 %275, label %.sink.split397, label %278
+  br i1 %275, label %.sink.split427, label %278
 
 276:                                              ; preds = %278, %272, %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit219
   %277 = landingpad { ptr, i32 }
@@ -5798,7 +5798,7 @@ _ZN10LogMessageC2EPKci.exit221:                   ; preds = %282
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223: ; preds = %_ZN10LogMessageC2EPKci.exit221
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %7) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split397
+  br label %.sink.split427
 
 285:                                              ; preds = %282
   %286 = landingpad { ptr, i32 }
@@ -5816,16 +5816,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223: ; preds = %_ZN1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %293
 
-.sink.split397:                                   ; preds = %274, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223
+.sink.split427:                                   ; preds = %274, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223
   store i8 1, ptr %42, align 8, !tbaa !178
   br label %290
 
-290:                                              ; preds = %.sink.split397, %280
-  %cond1 = phi i1 [ true, %280 ], [ false, %.sink.split397 ]
-  %.1108 = phi ptr [ %279, %280 ], [ null, %.sink.split397 ]
+290:                                              ; preds = %.sink.split427, %280
+  %cond1 = phi i1 [ true, %280 ], [ false, %.sink.split427 ]
+  %.1108 = phi ptr [ %279, %280 ], [ null, %.sink.split427 ]
   %291 = icmp eq ptr %270, null
-  %or.cond398 = or i1 %.not.i218.not, %291
-  br i1 %or.cond398, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit224, label %292
+  %or.cond428 = or i1 %.not.i218.not, %291
+  br i1 %or.cond428, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit224, label %292
 
 292:                                              ; preds = %290
   call void @_ZdaPv(ptr noundef nonnull %270) #23
@@ -5838,8 +5838,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit224:      ; preds = %290, %292
 293:                                              ; preds = %289, %276
   %.pn.pn = phi { ptr, i32 } [ %.pn, %289 ], [ %277, %276 ]
   %294 = icmp eq ptr %270, null
-  %or.cond400 = or i1 %.not.i218.not, %294
-  br i1 %or.cond400, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit225, label %295
+  %or.cond430 = or i1 %.not.i218.not, %294
+  br i1 %or.cond430, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit225, label %295
 
 295:                                              ; preds = %293
   call void @_ZdaPv(ptr noundef nonnull %270) #23
@@ -6306,8 +6306,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %cond4 = phi i1 [ true, %153 ], [ false, %.sink.split ]
   %.1137 = phi ptr [ %152, %153 ], [ null, %.sink.split ]
   %169 = icmp eq ptr %137, null
-  %or.cond397 = or i1 %.not.i215.not, %169
-  br i1 %or.cond397, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %170
+  %or.cond428 = or i1 %.not.i215.not, %169
+  br i1 %or.cond428, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %170
 
 170:                                              ; preds = %168
   call void @_ZdaPv(ptr noundef nonnull %137) #23
@@ -6316,8 +6316,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 _ZN10duckdb_re23DFA10StateSaverD2Ev.exit:         ; preds = %168, %170
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %171 = icmp eq ptr %124, null
-  %or.cond398 = or i1 %.not.i.not, %171
-  br i1 %or.cond398, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219, label %172
+  %or.cond429 = or i1 %.not.i.not, %171
+  br i1 %or.cond429, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219, label %172
 
 172:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %124) #23
@@ -6330,8 +6330,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit219:      ; preds = %_ZN10duckdb_re23DFA
 173:                                              ; preds = %167, %149
   %.pn184.pn = phi { ptr, i32 } [ %.pn184, %167 ], [ %150, %149 ]
   %174 = icmp eq ptr %137, null
-  %or.cond399 = or i1 %.not.i215.not, %174
-  br i1 %or.cond399, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit220, label %175
+  %or.cond430 = or i1 %.not.i215.not, %174
+  br i1 %or.cond430, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit220, label %175
 
 175:                                              ; preds = %173
   call void @_ZdaPv(ptr noundef nonnull %137) #23
@@ -6341,8 +6341,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit220:      ; preds = %175, %173, %147
   %.pn184.pn.pn = phi { ptr, i32 } [ %148, %147 ], [ %.pn184.pn, %173 ], [ %.pn184.pn, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %176 = icmp eq ptr %124, null
-  %or.cond400 = or i1 %.not.i.not, %176
-  br i1 %or.cond400, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit221, label %177
+  %or.cond431 = or i1 %.not.i.not, %176
+  br i1 %or.cond431, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit221, label %177
 
 177:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit220
   call void @_ZdaPv(ptr noundef nonnull %124) #23
@@ -6550,7 +6550,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit234: ; preds = %252, %256
 
 276:                                              ; preds = %274
   %277 = icmp eq ptr %275, null
-  br i1 %277, label %.sink.split401, label %280
+  br i1 %277, label %.sink.split432, label %280
 
 278:                                              ; preds = %280, %274, %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit234
   %279 = landingpad { ptr, i32 }
@@ -6579,7 +6579,7 @@ _ZN10LogMessageC2EPKci.exit236:                   ; preds = %284
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit238: ; preds = %_ZN10LogMessageC2EPKci.exit236
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %7) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split401
+  br label %.sink.split432
 
 287:                                              ; preds = %284
   %288 = landingpad { ptr, i32 }
@@ -6597,16 +6597,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit238: ; preds = %_ZN1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %295
 
-.sink.split401:                                   ; preds = %276, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit238
+.sink.split432:                                   ; preds = %276, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit238
   store i8 1, ptr %42, align 8, !tbaa !178
   br label %292
 
-292:                                              ; preds = %.sink.split401, %282
-  %cond1 = phi i1 [ true, %282 ], [ false, %.sink.split401 ]
-  %.1118 = phi ptr [ %281, %282 ], [ null, %.sink.split401 ]
+292:                                              ; preds = %.sink.split432, %282
+  %cond1 = phi i1 [ true, %282 ], [ false, %.sink.split432 ]
+  %.1118 = phi ptr [ %281, %282 ], [ null, %.sink.split432 ]
   %293 = icmp eq ptr %272, null
-  %or.cond402 = or i1 %.not.i233.not, %293
-  br i1 %or.cond402, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit239, label %294
+  %or.cond433 = or i1 %.not.i233.not, %293
+  br i1 %or.cond433, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit239, label %294
 
 294:                                              ; preds = %292
   call void @_ZdaPv(ptr noundef nonnull %272) #23
@@ -6619,8 +6619,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit239:      ; preds = %292, %294
 295:                                              ; preds = %291, %278
   %.pn.pn = phi { ptr, i32 } [ %.pn, %291 ], [ %279, %278 ]
   %296 = icmp eq ptr %272, null
-  %or.cond404 = or i1 %.not.i233.not, %296
-  br i1 %or.cond404, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit240, label %297
+  %or.cond435 = or i1 %.not.i233.not, %296
+  br i1 %or.cond435, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit240, label %297
 
 297:                                              ; preds = %295
   call void @_ZdaPv(ptr noundef nonnull %272) #23
@@ -7127,8 +7127,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %cond4 = phi i1 [ true, %174 ], [ false, %.sink.split ]
   %.1125 = phi ptr [ %173, %174 ], [ null, %.sink.split ]
   %190 = icmp eq ptr %158, null
-  %or.cond410 = or i1 %.not.i204.not, %190
-  br i1 %or.cond410, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %191
+  %or.cond439 = or i1 %.not.i204.not, %190
+  br i1 %or.cond439, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %191
 
 191:                                              ; preds = %189
   call void @_ZdaPv(ptr noundef nonnull %158) #23
@@ -7137,8 +7137,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 _ZN10duckdb_re23DFA10StateSaverD2Ev.exit:         ; preds = %189, %191
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %192 = icmp eq ptr %145, null
-  %or.cond411 = or i1 %.not.i203.not, %192
-  br i1 %or.cond411, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208, label %193
+  %or.cond440 = or i1 %.not.i203.not, %192
+  br i1 %or.cond440, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208, label %193
 
 193:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %145) #23
@@ -7151,8 +7151,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit208:      ; preds = %_ZN10duckdb_re23DFA
 194:                                              ; preds = %188, %170
   %.pn.pn = phi { ptr, i32 } [ %.pn, %188 ], [ %171, %170 ]
   %195 = icmp eq ptr %158, null
-  %or.cond412 = or i1 %.not.i204.not, %195
-  br i1 %or.cond412, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit209, label %196
+  %or.cond441 = or i1 %.not.i204.not, %195
+  br i1 %or.cond441, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit209, label %196
 
 196:                                              ; preds = %194
   call void @_ZdaPv(ptr noundef nonnull %158) #23
@@ -7162,8 +7162,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit209:      ; preds = %196, %194, %168
   %.pn.pn.pn = phi { ptr, i32 } [ %169, %168 ], [ %.pn.pn, %194 ], [ %.pn.pn, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %197 = icmp eq ptr %145, null
-  %or.cond413 = or i1 %.not.i203.not, %197
-  br i1 %or.cond413, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit210, label %198
+  %or.cond442 = or i1 %.not.i203.not, %197
+  br i1 %or.cond442, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit210, label %198
 
 198:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit209
   call void @_ZdaPv(ptr noundef nonnull %145) #23
@@ -7381,7 +7381,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit224: ; preds = %269, %273
 
 294:                                              ; preds = %292
   %295 = icmp eq ptr %293, null
-  br i1 %295, label %.sink.split414, label %298
+  br i1 %295, label %.sink.split443, label %298
 
 296:                                              ; preds = %298, %292, %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit224
   %297 = landingpad { ptr, i32 }
@@ -7410,7 +7410,7 @@ _ZN10LogMessageC2EPKci.exit226:                   ; preds = %302
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit228: ; preds = %_ZN10LogMessageC2EPKci.exit226
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %7) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split414
+  br label %.sink.split443
 
 305:                                              ; preds = %302
   %306 = landingpad { ptr, i32 }
@@ -7428,17 +7428,17 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit228: ; preds = %_ZN1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %314
 
-.sink.split414:                                   ; preds = %294, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit228
+.sink.split443:                                   ; preds = %294, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit228
   %310 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i8 1, ptr %310, align 8, !tbaa !178
   br label %311
 
-311:                                              ; preds = %.sink.split414, %300
-  %cond1 = phi i1 [ true, %300 ], [ false, %.sink.split414 ]
-  %.1106 = phi ptr [ %299, %300 ], [ null, %.sink.split414 ]
+311:                                              ; preds = %.sink.split443, %300
+  %cond1 = phi i1 [ true, %300 ], [ false, %.sink.split443 ]
+  %.1106 = phi ptr [ %299, %300 ], [ null, %.sink.split443 ]
   %312 = icmp eq ptr %289, null
-  %or.cond415 = or i1 %.not.i223.not, %312
-  br i1 %or.cond415, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, label %313
+  %or.cond444 = or i1 %.not.i223.not, %312
+  br i1 %or.cond444, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, label %313
 
 313:                                              ; preds = %311
   call void @_ZdaPv(ptr noundef nonnull %289) #23
@@ -7451,8 +7451,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit229:      ; preds = %311, %313
 314:                                              ; preds = %309, %296
   %.pn178.pn = phi { ptr, i32 } [ %.pn178, %309 ], [ %297, %296 ]
   %315 = icmp eq ptr %289, null
-  %or.cond417 = or i1 %.not.i223.not, %315
-  br i1 %or.cond417, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230, label %316
+  %or.cond446 = or i1 %.not.i223.not, %315
+  br i1 %or.cond446, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230, label %316
 
 316:                                              ; preds = %314
   call void @_ZdaPv(ptr noundef nonnull %289) #23
@@ -7963,8 +7963,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %cond4 = phi i1 [ true, %174 ], [ false, %.sink.split ]
   %.1140 = phi ptr [ %173, %174 ], [ null, %.sink.split ]
   %190 = icmp eq ptr %158, null
-  %or.cond417 = or i1 %.not.i225.not, %190
-  br i1 %or.cond417, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %191
+  %or.cond447 = or i1 %.not.i225.not, %190
+  br i1 %or.cond447, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %191
 
 191:                                              ; preds = %189
   call void @_ZdaPv(ptr noundef nonnull %158) #23
@@ -7973,8 +7973,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 _ZN10duckdb_re23DFA10StateSaverD2Ev.exit:         ; preds = %189, %191
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %192 = icmp eq ptr %145, null
-  %or.cond418 = or i1 %.not.i224.not, %192
-  br i1 %or.cond418, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, label %193
+  %or.cond448 = or i1 %.not.i224.not, %192
+  br i1 %or.cond448, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, label %193
 
 193:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %145) #23
@@ -7987,8 +7987,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit229:      ; preds = %_ZN10duckdb_re23DFA
 194:                                              ; preds = %188, %170
   %.pn.pn = phi { ptr, i32 } [ %.pn, %188 ], [ %171, %170 ]
   %195 = icmp eq ptr %158, null
-  %or.cond419 = or i1 %.not.i225.not, %195
-  br i1 %or.cond419, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230, label %196
+  %or.cond449 = or i1 %.not.i225.not, %195
+  br i1 %or.cond449, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230, label %196
 
 196:                                              ; preds = %194
   call void @_ZdaPv(ptr noundef nonnull %158) #23
@@ -7998,8 +7998,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit230:      ; preds = %196, %194, %168
   %.pn.pn.pn = phi { ptr, i32 } [ %169, %168 ], [ %.pn.pn, %194 ], [ %.pn.pn, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %197 = icmp eq ptr %145, null
-  %or.cond420 = or i1 %.not.i224.not, %197
-  br i1 %or.cond420, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit231, label %198
+  %or.cond450 = or i1 %.not.i224.not, %197
+  br i1 %or.cond450, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit231, label %198
 
 198:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230
   call void @_ZdaPv(ptr noundef nonnull %145) #23
@@ -8222,7 +8222,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit245: ; preds = %271, %275
 
 296:                                              ; preds = %294
   %297 = icmp eq ptr %295, null
-  br i1 %297, label %.sink.split421, label %300
+  br i1 %297, label %.sink.split451, label %300
 
 298:                                              ; preds = %300, %294, %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit245
   %299 = landingpad { ptr, i32 }
@@ -8251,7 +8251,7 @@ _ZN10LogMessageC2EPKci.exit247:                   ; preds = %304
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit249: ; preds = %_ZN10LogMessageC2EPKci.exit247
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %7) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split421
+  br label %.sink.split451
 
 307:                                              ; preds = %304
   %308 = landingpad { ptr, i32 }
@@ -8269,17 +8269,17 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit249: ; preds = %_ZN1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %316
 
-.sink.split421:                                   ; preds = %296, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit249
+.sink.split451:                                   ; preds = %296, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit249
   %312 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i8 1, ptr %312, align 8, !tbaa !178
   br label %313
 
-313:                                              ; preds = %.sink.split421, %302
-  %cond1 = phi i1 [ true, %302 ], [ false, %.sink.split421 ]
-  %.1121 = phi ptr [ %301, %302 ], [ null, %.sink.split421 ]
+313:                                              ; preds = %.sink.split451, %302
+  %cond1 = phi i1 [ true, %302 ], [ false, %.sink.split451 ]
+  %.1121 = phi ptr [ %301, %302 ], [ null, %.sink.split451 ]
   %314 = icmp eq ptr %291, null
-  %or.cond422 = or i1 %.not.i244.not, %314
-  br i1 %or.cond422, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit250, label %315
+  %or.cond452 = or i1 %.not.i244.not, %314
+  br i1 %or.cond452, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit250, label %315
 
 315:                                              ; preds = %313
   call void @_ZdaPv(ptr noundef nonnull %291) #23
@@ -8292,8 +8292,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit250:      ; preds = %313, %315
 316:                                              ; preds = %311, %298
   %.pn196.pn = phi { ptr, i32 } [ %.pn196, %311 ], [ %299, %298 ]
   %317 = icmp eq ptr %291, null
-  %or.cond424 = or i1 %.not.i244.not, %317
-  br i1 %or.cond424, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit251, label %318
+  %or.cond454 = or i1 %.not.i244.not, %317
+  br i1 %or.cond454, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit251, label %318
 
 318:                                              ; preds = %316
   call void @_ZdaPv(ptr noundef nonnull %291) #23
@@ -8804,8 +8804,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %cond4 = phi i1 [ true, %175 ], [ false, %.sink.split ]
   %.1129 = phi ptr [ %174, %175 ], [ null, %.sink.split ]
   %191 = icmp eq ptr %159, null
-  %or.cond399 = or i1 %.not.i204.not, %191
-  br i1 %or.cond399, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %192
+  %or.cond428 = or i1 %.not.i204.not, %191
+  br i1 %or.cond428, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %192
 
 192:                                              ; preds = %190
   call void @_ZdaPv(ptr noundef nonnull %159) #23
@@ -8814,8 +8814,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 _ZN10duckdb_re23DFA10StateSaverD2Ev.exit:         ; preds = %190, %192
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %193 = icmp eq ptr %146, null
-  %or.cond400 = or i1 %.not.i203.not, %193
-  br i1 %or.cond400, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208, label %194
+  %or.cond429 = or i1 %.not.i203.not, %193
+  br i1 %or.cond429, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208, label %194
 
 194:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %146) #23
@@ -8828,8 +8828,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit208:      ; preds = %_ZN10duckdb_re23DFA
 195:                                              ; preds = %189, %171
   %.pn.pn = phi { ptr, i32 } [ %.pn, %189 ], [ %172, %171 ]
   %196 = icmp eq ptr %159, null
-  %or.cond401 = or i1 %.not.i204.not, %196
-  br i1 %or.cond401, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit209, label %197
+  %or.cond430 = or i1 %.not.i204.not, %196
+  br i1 %or.cond430, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit209, label %197
 
 197:                                              ; preds = %195
   call void @_ZdaPv(ptr noundef nonnull %159) #23
@@ -8839,8 +8839,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit209:      ; preds = %197, %195, %169
   %.pn.pn.pn = phi { ptr, i32 } [ %170, %169 ], [ %.pn.pn, %195 ], [ %.pn.pn, %197 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %198 = icmp eq ptr %146, null
-  %or.cond402 = or i1 %.not.i203.not, %198
-  br i1 %or.cond402, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit210, label %199
+  %or.cond431 = or i1 %.not.i203.not, %198
+  br i1 %or.cond431, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit210, label %199
 
 199:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit209
   call void @_ZdaPv(ptr noundef nonnull %146) #23
@@ -9045,7 +9045,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit224: ; preds = %272, %276
 
 296:                                              ; preds = %294
   %297 = icmp eq ptr %295, null
-  br i1 %297, label %.sink.split403, label %300
+  br i1 %297, label %.sink.split432, label %300
 
 298:                                              ; preds = %300, %294, %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit224
   %299 = landingpad { ptr, i32 }
@@ -9074,7 +9074,7 @@ _ZN10LogMessageC2EPKci.exit226:                   ; preds = %304
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit228: ; preds = %_ZN10LogMessageC2EPKci.exit226
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %7) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split403
+  br label %.sink.split432
 
 307:                                              ; preds = %304
   %308 = landingpad { ptr, i32 }
@@ -9092,16 +9092,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit228: ; preds = %_ZN1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %315
 
-.sink.split403:                                   ; preds = %296, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit228
+.sink.split432:                                   ; preds = %296, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit228
   store i8 1, ptr %43, align 8, !tbaa !178
   br label %312
 
-312:                                              ; preds = %.sink.split403, %302
-  %cond1 = phi i1 [ true, %302 ], [ false, %.sink.split403 ]
-  %.1110 = phi ptr [ %301, %302 ], [ null, %.sink.split403 ]
+312:                                              ; preds = %.sink.split432, %302
+  %cond1 = phi i1 [ true, %302 ], [ false, %.sink.split432 ]
+  %.1110 = phi ptr [ %301, %302 ], [ null, %.sink.split432 ]
   %313 = icmp eq ptr %292, null
-  %or.cond404 = or i1 %.not.i223.not, %313
-  br i1 %or.cond404, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, label %314
+  %or.cond433 = or i1 %.not.i223.not, %313
+  br i1 %or.cond433, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, label %314
 
 314:                                              ; preds = %312
   call void @_ZdaPv(ptr noundef nonnull %292) #23
@@ -9114,8 +9114,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit229:      ; preds = %312, %314
 315:                                              ; preds = %311, %298
   %.pn176.pn = phi { ptr, i32 } [ %.pn176, %311 ], [ %299, %298 ]
   %316 = icmp eq ptr %292, null
-  %or.cond406 = or i1 %.not.i223.not, %316
-  br i1 %or.cond406, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230, label %317
+  %or.cond435 = or i1 %.not.i223.not, %316
+  br i1 %or.cond435, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230, label %317
 
 317:                                              ; preds = %315
   call void @_ZdaPv(ptr noundef nonnull %292) #23
@@ -9622,8 +9622,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %cond4 = phi i1 [ true, %175 ], [ false, %.sink.split ]
   %.1144 = phi ptr [ %174, %175 ], [ null, %.sink.split ]
   %191 = icmp eq ptr %159, null
-  %or.cond405 = or i1 %.not.i225.not, %191
-  br i1 %or.cond405, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %192
+  %or.cond435 = or i1 %.not.i225.not, %191
+  br i1 %or.cond435, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %192
 
 192:                                              ; preds = %190
   call void @_ZdaPv(ptr noundef nonnull %159) #23
@@ -9632,8 +9632,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 _ZN10duckdb_re23DFA10StateSaverD2Ev.exit:         ; preds = %190, %192
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %193 = icmp eq ptr %146, null
-  %or.cond406 = or i1 %.not.i224.not, %193
-  br i1 %or.cond406, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, label %194
+  %or.cond436 = or i1 %.not.i224.not, %193
+  br i1 %or.cond436, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, label %194
 
 194:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %146) #23
@@ -9646,8 +9646,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit229:      ; preds = %_ZN10duckdb_re23DFA
 195:                                              ; preds = %189, %171
   %.pn.pn = phi { ptr, i32 } [ %.pn, %189 ], [ %172, %171 ]
   %196 = icmp eq ptr %159, null
-  %or.cond407 = or i1 %.not.i225.not, %196
-  br i1 %or.cond407, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230, label %197
+  %or.cond437 = or i1 %.not.i225.not, %196
+  br i1 %or.cond437, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230, label %197
 
 197:                                              ; preds = %195
   call void @_ZdaPv(ptr noundef nonnull %159) #23
@@ -9657,8 +9657,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit230:      ; preds = %197, %195, %169
   %.pn.pn.pn = phi { ptr, i32 } [ %170, %169 ], [ %.pn.pn, %195 ], [ %.pn.pn, %197 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %198 = icmp eq ptr %146, null
-  %or.cond408 = or i1 %.not.i224.not, %198
-  br i1 %or.cond408, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit231, label %199
+  %or.cond438 = or i1 %.not.i224.not, %198
+  br i1 %or.cond438, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit231, label %199
 
 199:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230
   call void @_ZdaPv(ptr noundef nonnull %146) #23
@@ -9867,7 +9867,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit245: ; preds = %274, %278
 
 298:                                              ; preds = %296
   %299 = icmp eq ptr %297, null
-  br i1 %299, label %.sink.split409, label %302
+  br i1 %299, label %.sink.split439, label %302
 
 300:                                              ; preds = %302, %296, %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit245
   %301 = landingpad { ptr, i32 }
@@ -9896,7 +9896,7 @@ _ZN10LogMessageC2EPKci.exit247:                   ; preds = %306
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit249: ; preds = %_ZN10LogMessageC2EPKci.exit247
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %7) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split409
+  br label %.sink.split439
 
 309:                                              ; preds = %306
   %310 = landingpad { ptr, i32 }
@@ -9914,16 +9914,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit249: ; preds = %_ZN1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %317
 
-.sink.split409:                                   ; preds = %298, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit249
+.sink.split439:                                   ; preds = %298, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit249
   store i8 1, ptr %43, align 8, !tbaa !178
   br label %314
 
-314:                                              ; preds = %.sink.split409, %304
-  %cond1 = phi i1 [ true, %304 ], [ false, %.sink.split409 ]
-  %.1125 = phi ptr [ %303, %304 ], [ null, %.sink.split409 ]
+314:                                              ; preds = %.sink.split439, %304
+  %cond1 = phi i1 [ true, %304 ], [ false, %.sink.split439 ]
+  %.1125 = phi ptr [ %303, %304 ], [ null, %.sink.split439 ]
   %315 = icmp eq ptr %294, null
-  %or.cond410 = or i1 %.not.i244.not, %315
-  br i1 %or.cond410, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit250, label %316
+  %or.cond440 = or i1 %.not.i244.not, %315
+  br i1 %or.cond440, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit250, label %316
 
 316:                                              ; preds = %314
   call void @_ZdaPv(ptr noundef nonnull %294) #23
@@ -9936,8 +9936,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit250:      ; preds = %314, %316
 317:                                              ; preds = %313, %300
   %.pn194.pn = phi { ptr, i32 } [ %.pn194, %313 ], [ %301, %300 ]
   %318 = icmp eq ptr %294, null
-  %or.cond412 = or i1 %.not.i244.not, %318
-  br i1 %or.cond412, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit251, label %319
+  %or.cond442 = or i1 %.not.i244.not, %318
+  br i1 %or.cond442, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit251, label %319
 
 319:                                              ; preds = %317
   call void @_ZdaPv(ptr noundef nonnull %294) #23
@@ -12344,8 +12344,8 @@ _ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_S
 
 212:                                              ; preds = %204, %202
   %213 = add nsw i32 %.054251, -1
-  %.not284 = icmp eq i32 %.054251, 0
-  br i1 %.not284, label %.loopexit214, label %199, !llvm.loop !266
+  %.not302 = icmp eq i32 %.054251, 0
+  br i1 %.not302, label %.loopexit214, label %199, !llvm.loop !266
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit158: ; preds = %208
   %214 = add nuw nsw i32 %.058253, 1
@@ -12931,7 +12931,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_le
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw i32, ptr %0, i64 %16
   br label %.split
 
@@ -12969,20 +12969,20 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_le
   %.01317.i.i.us = phi i64 [ %.018.i.i.us, %40 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.018.in.i.i.us = add nsw i64 %.01317.i.i.us, -1
   %.018.i.i.us = sdiv i64 %.018.in.i.i.us, 2
-  %37 = getelementptr inbounds i32, ptr %0, i64 %.018.i.i.us
+  %37 = getelementptr inbounds nuw i32, ptr %0, i64 %.018.i.i.us
   %38 = load i32, ptr %37, align 4, !tbaa !77
   %39 = icmp slt i32 %38, %21
   br i1 %39, label %40, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us
 
 40:                                               ; preds = %.lr.ph.i.i.us
-  %41 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i.us
+  %41 = getelementptr inbounds nuw i32, ptr %0, i64 %.01317.i.i.us
   store i32 %38, ptr %41, align 4, !tbaa !77
   %42 = icmp sgt i64 %.018.i.i.us, %.013.us
   br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, !llvm.loop !271
 
 _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %40, %.split.us, %._crit_edge.i.us
   %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.018.i.i.us, %40 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
-  %43 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.us
+  %43 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.us
   store i32 %21, ptr %43, align 4, !tbaa !77
   %.not.us = icmp eq i64 %.013.us, 0
   %44 = add nsw i64 %.013.us, -1
@@ -13033,20 +13033,20 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %.01317.i.i = phi i64 [ %.018.i.i, %69 ], [ %.128.i, %64 ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %66 = getelementptr inbounds i32, ptr %0, i64 %.018.i.i
+  %66 = getelementptr inbounds nuw i32, ptr %0, i64 %.018.i.i
   %67 = load i32, ptr %66, align 4, !tbaa !77
   %68 = icmp slt i32 %67, %46
   br i1 %68, label %69, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 
 69:                                               ; preds = %.lr.ph.i.i
-  %70 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i
+  %70 = getelementptr inbounds nuw i32, ptr %0, i64 %.01317.i.i
   store i32 %67, ptr %70, align 4, !tbaa !77
   %71 = icmp sgt i64 %.018.i.i, %.013
   br i1 %71, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit, !llvm.loop !271
 
 _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit: ; preds = %.lr.ph.i.i, %69, %64
   %.013.lcssa.i.i = phi i64 [ %.128.i, %64 ], [ %.018.i.i, %69 ], [ %.01317.i.i, %.lr.ph.i.i ]
-  %72 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i
+  %72 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i
   store i32 %46, ptr %72, align 4, !tbaa !77
   %.not = icmp eq i64 %.013, 0
   %73 = add nsw i64 %.013, -1

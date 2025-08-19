@@ -3571,8 +3571,8 @@ define void @Cec_ManSatSolveCSat(ptr noundef %0, ptr noundef %1, ptr noundef rea
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %29 = load ptr, ptr %28, align 8, !tbaa !110
   %30 = getelementptr i8, ptr %29, i64 4
-  %.val415363 = load i32, ptr %30, align 4, !tbaa !76
-  %31 = icmp sgt i32 %.val415363, 0
+  %.val415367 = load i32, ptr %30, align 4, !tbaa !76
+  %31 = icmp sgt i32 %.val415367, 0
   br i1 %31, label %.lr.ph.split.preheader, label %.critedge
 
 .lr.ph.split.preheader:                           ; preds = %.thread
@@ -3817,10 +3817,10 @@ define void @Cec_ManSatSolveSeq_rec(ptr noundef captures(none) %0, ptr noundef r
 
 .lr.ph.preheader:                                 ; preds = %6
   store i32 %18, ptr %16, align 4, !tbaa !34
-  %.val2849 = load i64, ptr %2, align 4
-  %19 = and i64 %.val2849, 2684354559
-  %narrow.i.not50 = icmp eq i64 %19, 2684354559
-  br i1 %narrow.i.not50, label %.lr.ph._crit_edge, label %tailrecurse
+  %.val2850 = load i64, ptr %2, align 4
+  %19 = and i64 %.val2850, 2684354559
+  %narrow.i.not51 = icmp eq i64 %19, 2684354559
+  br i1 %narrow.i.not51, label %.lr.ph._crit_edge, label %tailrecurse
 
 .lr.ph:                                           ; preds = %tailrecurse
   store i32 %75, ptr %73, align 4, !tbaa !34
@@ -3831,7 +3831,7 @@ define void @Cec_ManSatSolveSeq_rec(ptr noundef captures(none) %0, ptr noundef r
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi i64 [ %11, %.lr.ph.preheader ], [ %68, %.lr.ph ]
-  %.val28.lcssa = phi i64 [ %.val2849, %.lr.ph.preheader ], [ %.val28, %.lr.ph ]
+  %.val28.lcssa = phi i64 [ %.val2850, %.lr.ph.preheader ], [ %.val28, %.lr.ph ]
   %21 = lshr i64 %.val28.lcssa, 32
   %22 = trunc nuw i64 %21 to i32
   %23 = and i32 %22, 536870911
@@ -3886,17 +3886,17 @@ define void @Cec_ManSatSolveSeq_rec(ptr noundef captures(none) %0, ptr noundef r
   br label %.loopexit
 
 tailrecurse:                                      ; preds = %.lr.ph.preheader, %.lr.ph
-  %.val2852 = phi i64 [ %.val28, %.lr.ph ], [ %.val2849, %.lr.ph.preheader ]
-  %.tr344251 = phi ptr [ %66, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %59 = and i64 %.val2852, 536870911
+  %.val2853 = phi i64 [ %.val28, %.lr.ph ], [ %.val2850, %.lr.ph.preheader ]
+  %.tr344252 = phi ptr [ %66, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %59 = and i64 %.val2853, 536870911
   %60 = sub nsw i64 0, %59
-  %61 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.tr344251, i64 %60
+  %61 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.tr344252, i64 %60
   tail call void @Cec_ManSatSolveSeq_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %61, ptr noundef %3, i32 noundef %4, i32 noundef %5)
-  %62 = load i64, ptr %.tr344251, align 4
+  %62 = load i64, ptr %.tr344252, align 4
   %63 = lshr i64 %62, 32
   %64 = and i64 %63, 536870911
   %65 = sub nsw i64 0, %64
-  %66 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.tr344251, i64 %65
+  %66 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.tr344252, i64 %65
   %67 = load ptr, ptr %7, align 8, !tbaa !73
   %.val.i = load ptr, ptr %8, align 8, !tbaa !17
   %68 = ptrtoint ptr %66 to i64
@@ -4557,13 +4557,13 @@ Vec_IntGrow.exit.i27:                             ; preds = %60
   br label %Vec_IntPush.exit28.sink.split
 
 Vec_IntPush.exit28.sink.split:                    ; preds = %64, %Vec_IntGrow.exit.i27
-  %.sink42 = phi i32 [ 16, %Vec_IntGrow.exit.i27 ], [ %65, %64 ]
-  %.ph41 = phi ptr [ %63, %Vec_IntGrow.exit.i27 ], [ %69, %64 ]
-  store i32 %.sink42, ptr %0, align 8, !tbaa !77
+  %.sink51 = phi i32 [ 16, %Vec_IntGrow.exit.i27 ], [ %65, %64 ]
+  %.ph50 = phi ptr [ %63, %Vec_IntGrow.exit.i27 ], [ %69, %64 ]
+  store i32 %.sink51, ptr %0, align 8, !tbaa !77
   br label %Vec_IntPush.exit28
 
 Vec_IntPush.exit28:                               ; preds = %Vec_IntPush.exit28.sink.split, %55
-  %70 = phi ptr [ %30, %55 ], [ %.ph41, %Vec_IntPush.exit28.sink.split ]
+  %70 = phi ptr [ %30, %55 ], [ %.ph50, %Vec_IntPush.exit28.sink.split ]
   %71 = load i32, ptr %4, align 4, !tbaa !76
   %72 = add nsw i32 %71, 1
   store i32 %72, ptr %4, align 4, !tbaa !76
@@ -4595,11 +4595,11 @@ Vec_IntPush.exit35.sink.split:                    ; preds = %77
   %85 = shl nuw nsw i32 %81, 1
   %86 = zext nneg i32 %85 to i64
   %87 = shl nuw nsw i64 %86, 2
-  %.sink45 = select i1 %84, i64 64, i64 %87
-  %.sink43 = select i1 %84, i32 16, i32 %85
-  %88 = tail call ptr @realloc(ptr noundef nonnull %78, i64 noundef %.sink45) #17
+  %.sink54 = select i1 %84, i64 64, i64 %87
+  %.sink52 = select i1 %84, i32 16, i32 %85
+  %88 = tail call ptr @realloc(ptr noundef nonnull %78, i64 noundef %.sink54) #17
   store ptr %88, ptr %.phi.trans.insert.i30, align 8, !tbaa !78
-  store i32 %.sink43, ptr %0, align 8, !tbaa !77
+  store i32 %.sink52, ptr %0, align 8, !tbaa !77
   br label %Vec_IntPush.exit35
 
 Vec_IntPush.exit35:                               ; preds = %Vec_IntPush.exit35.sink.split, %77
@@ -4641,10 +4641,10 @@ define void @Cec_ManSatSolveMiter_rec(ptr noundef captures(none) %0, ptr noundef
 
 .lr.ph.preheader:                                 ; preds = %3
   store i32 %15, ptr %13, align 4, !tbaa !34
-  %.val36 = load i64, ptr %2, align 4
-  %16 = and i64 %.val36, 2684354559
-  %narrow.i.not37 = icmp eq i64 %16, 2684354559
-  br i1 %narrow.i.not37, label %.lr.ph._crit_edge, label %tailrecurse
+  %.val40 = load i64, ptr %2, align 4
+  %16 = and i64 %.val40, 2684354559
+  %narrow.i.not41 = icmp eq i64 %16, 2684354559
+  br i1 %narrow.i.not41, label %.lr.ph._crit_edge, label %tailrecurse
 
 .lr.ph:                                           ; preds = %tailrecurse
   store i32 %89, ptr %87, align 4, !tbaa !34
@@ -4758,17 +4758,17 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.loopexit
 
 tailrecurse:                                      ; preds = %.lr.ph.preheader, %.lr.ph
-  %.val39 = phi i64 [ %.val, %.lr.ph ], [ %.val36, %.lr.ph.preheader ]
-  %.tr232938 = phi ptr [ %80, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %73 = and i64 %.val39, 536870911
+  %.val43 = phi i64 [ %.val, %.lr.ph ], [ %.val40, %.lr.ph.preheader ]
+  %.tr232942 = phi ptr [ %80, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %73 = and i64 %.val43, 536870911
   %74 = sub nsw i64 0, %73
-  %75 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.tr232938, i64 %74
+  %75 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.tr232942, i64 %74
   tail call void @Cec_ManSatSolveMiter_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %75)
-  %76 = load i64, ptr %.tr232938, align 4
+  %76 = load i64, ptr %.tr232942, align 4
   %77 = lshr i64 %76, 32
   %78 = and i64 %77, 536870911
   %79 = sub nsw i64 0, %78
-  %80 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.tr232938, i64 %79
+  %80 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.tr232942, i64 %79
   %81 = load ptr, ptr %4, align 8, !tbaa !73
   %.val.i = load ptr, ptr %5, align 8, !tbaa !17
   %82 = ptrtoint ptr %80 to i64

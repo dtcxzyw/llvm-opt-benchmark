@@ -21493,7 +21493,7 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit: ; preds = %56, %57
 
 ._crit_edge:                                      ; preds = %87, %77
   %90 = shl nsw i32 %52, 6
-  switch i32 %53, label %default.unreachable165 [
+  switch i32 %53, label %default.unreachable166 [
     i32 0, label %275
     i32 1, label %91
     i32 2, label %100
@@ -21942,7 +21942,7 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit: ; preds = %56, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %275
 
-default.unreachable165:                           ; preds = %._crit_edge
+default.unreachable166:                           ; preds = %._crit_edge
   unreachable
 
 275:                                              ; preds = %._crit_edge, %91, %100, %115, %130, %161, %146, %201, %186, %246, %231
@@ -23154,10 +23154,10 @@ _ZN14MacroAssembler5alignEj.exit276:              ; preds = %305, %317
   br label %384
 
 384:                                              ; preds = %375, %167
-  %.sink303 = phi ptr [ %34, %375 ], [ %25, %167 ]
+  %.sink307 = phi ptr [ %34, %375 ], [ %25, %167 ]
   %.sink = phi ptr [ %33, %375 ], [ %24, %167 ]
   call void @_ZN9Assembler4addqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, i32 noundef 8) #18
-  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %.sink303) #18
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %.sink307) #18
   call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef %76) #18
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 13, ptr noundef nonnull align 8 dereferenceable(33) %.sink, i1 noundef zeroext true) #18
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %17) #18
@@ -23213,8 +23213,8 @@ _ZN14MacroAssembler5testlE8Registeri.exit:        ; preds = %391, %392
   %405 = add nsw i32 %.0282285293, -1
   %406 = shl nuw nsw i32 1, %405
   %407 = icmp ugt i32 %405, 6
-  %brmerge304 = or i1 %407, %spec.select.i.i
-  br i1 %brmerge304, label %409, label %408
+  %brmerge308 = or i1 %407, %spec.select.i.i
+  br i1 %brmerge308, label %409, label %408
 
 408:                                              ; preds = %401
   call void @_ZN9Assembler5testbE8Registerib(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef %406, i1 noundef zeroext true) #18

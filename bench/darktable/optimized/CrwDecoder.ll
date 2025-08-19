@@ -1881,7 +1881,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123: ; preds = %_Z
   br label %208
 
 208:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123.thread
-  %.sroa.0.0.i.i.i169 = phi i16 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123.thread ], [ %207, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123 ]
+  %.sroa.0.0.i.i.i207 = phi i16 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123.thread ], [ %207, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123 ]
   %209 = phi i16 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123.thread ], [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123 ]
   %210 = sdiv i32 %175, 2
   %211 = add nsw i32 %210, 1
@@ -1913,7 +1913,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126: ; preds = %_Z
   br label %340
 
 221:                                              ; preds = %208
-  %222 = xor i16 %212, %.sroa.0.0.i.i.i169
+  %222 = xor i16 %212, %.sroa.0.0.i.i.i207
   %223 = uitofp i16 %222 to float
   %224 = load ptr, ptr %13, align 8, !tbaa !24
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 256
@@ -2040,11 +2040,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126: ; preds = %_Z
           to label %.thread164.sink.split unwind label %270
 
 .thread164.sink.split:                            ; preds = %286, %265
-  %.sink173 = phi i16 [ %269, %265 ], [ %293, %286 ]
-  %.sink172 = phi i64 [ 268, %265 ], [ 264, %286 ]
-  %294 = uitofp i16 %.sink173 to float
+  %.sink211 = phi i16 [ %269, %265 ], [ %293, %286 ]
+  %.sink210 = phi i64 [ 268, %265 ], [ 264, %286 ]
+  %294 = uitofp i16 %.sink211 to float
   %295 = load ptr, ptr %13, align 8, !tbaa !24
-  %296 = getelementptr inbounds nuw i8, ptr %295, i64 %.sink172
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 %.sink210
   store float %294, ptr %296, align 4, !tbaa !70
   br label %.thread164
 

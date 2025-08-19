@@ -283,7 +283,7 @@ define dso_local void @intel_uc_fw_init_early(ptr noundef captures(none) %0, i32
   br i1 %62, label %63, label %96
 
 63:                                               ; preds = %58
-  switch i32 %1, label %default.unreachable [
+  switch i32 %1, label %default.unreachable71 [
     i32 0, label %66
     i32 1, label %65
     i32 2, label %64
@@ -351,7 +351,7 @@ define dso_local void @intel_uc_fw_init_early(ptr noundef captures(none) %0, i32
 
 110:                                              ; preds = %105
   %111 = load ptr, ptr %39, align 8
-  switch i32 %1, label %default.unreachable [
+  switch i32 %1, label %default.unreachable71 [
     i32 0, label %114
     i32 1, label %112
     i32 2, label %113
@@ -363,7 +363,7 @@ define dso_local void @intel_uc_fw_init_early(ptr noundef captures(none) %0, i32
 113:                                              ; preds = %110
   br label %114
 
-default.unreachable:                              ; preds = %110, %63, %204
+default.unreachable71:                            ; preds = %110, %63, %204
   unreachable
 
 114:                                              ; preds = %113, %112, %110
@@ -495,7 +495,7 @@ default.unreachable:                              ; preds = %110, %63, %204
 
 204:                                              ; preds = %202, %201
   %205 = phi ptr [ %203, %202 ], [ null, %201 ]
-  switch i32 %1, label %default.unreachable [
+  switch i32 %1, label %default.unreachable71 [
     i32 0, label %208
     i32 1, label %206
     i32 2, label %207

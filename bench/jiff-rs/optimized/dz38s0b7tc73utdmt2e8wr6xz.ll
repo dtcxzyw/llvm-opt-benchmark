@@ -1618,9 +1618,9 @@ _ZN4jiff3fmt7strtime5parse6Parser1f17h47c7c6b0a511c9deE.exit631: ; preds = %_ZN4
   unreachable
 
 .thread.thread.i:                                 ; preds = %696, %.thread.i
-  %.sroa.06.0.i7287.i = phi i64 [ %.sroa.06.0.i73.i, %.thread.i ], [ %.sroa.12.0.ph.i, %696 ]
-  %700 = getelementptr inbounds nuw i8, ptr %.sroa.723.0.ph.i, i64 %.sroa.06.0.i7287.i
-  %701 = sub nuw i64 %.sroa.12.0.ph.i, %.sroa.06.0.i7287.i
+  %.sroa.06.0.i7293.i = phi i64 [ %.sroa.06.0.i73.i, %.thread.i ], [ %.sroa.12.0.ph.i, %696 ]
+  %700 = getelementptr inbounds nuw i8, ptr %.sroa.723.0.ph.i, i64 %.sroa.06.0.i7293.i
+  %701 = sub nuw i64 %.sroa.12.0.ph.i, %.sroa.06.0.i7293.i
   call void @llvm.lifetime.start.p0(ptr nonnull %181), !noalias !42
   call void @llvm.experimental.noalias.scope.decl(metadata !43)
   br label %702
@@ -1694,7 +1694,7 @@ _ZN4jiff3fmt7strtime5parse6Parser1f17h47c7c6b0a511c9deE.exit631: ; preds = %_ZN4
   call void @llvm.lifetime.start.p0(ptr nonnull %167), !noalias !46
   call void @llvm.lifetime.start.p0(ptr nonnull %166), !noalias !46
   store ptr %.sroa.723.0.ph.i, ptr %166, align 8, !noalias !46
-  store i64 %.sroa.06.0.i7287.i, ptr %276, align 8, !noalias !46
+  store i64 %.sroa.06.0.i7293.i, ptr %276, align 8, !noalias !46
   store ptr %166, ptr %167, align 8, !noalias !46
   store ptr @"_ZN72_$LT$jiff..shared..util..escape..Bytes$u20$as$u20$core..fmt..Display$GT$3fmt17h437ed408f4fbe4ccE", ptr %.sroa.425.0..sroa_idx.i.i, align 8, !noalias !46
   store ptr @anon.9b39c701aec730dc9da9cb3578b47497.234, ptr %168, align 8, !noalias !46
@@ -1730,14 +1730,14 @@ _ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit.i: ; preds = %_ZN4jiff4util5par
   br i1 %731, label %.loopexit1720, label %737
 
 common.resume.sink.split:                         ; preds = %2935, %3050
-  %.lcssa3953.sink4478 = phi ptr [ %3045, %3050 ], [ %2930, %2935 ]
-  %.lcssa3954.sink = phi ptr [ %3043, %3050 ], [ %2928, %2935 ]
-  %.lcssa3951.sink = phi i64 [ %3037, %3050 ], [ %2922, %2935 ]
+  %.lcssa4102.sink4627 = phi ptr [ %3045, %3050 ], [ %2930, %2935 ]
+  %.lcssa4103.sink = phi ptr [ %3043, %3050 ], [ %2928, %2935 ]
+  %.lcssa4100.sink = phi i64 [ %3037, %3050 ], [ %2922, %2935 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %3051, %3050 ], [ %2936, %2935 ]
-  %.sroa.538.0..sroa_idx.i1507 = getelementptr inbounds nuw i8, ptr %.lcssa3953.sink4478, i64 48
-  store ptr %.lcssa3954.sink, ptr %.sroa.538.0..sroa_idx.i1507, align 8, !noalias !3
-  %.sroa.641.0..sroa_idx.i1508 = getelementptr inbounds nuw i8, ptr %.lcssa3953.sink4478, i64 56
-  store i64 %.lcssa3951.sink, ptr %.sroa.641.0..sroa_idx.i1508, align 8, !noalias !3
+  %.sroa.538.0..sroa_idx.i1507 = getelementptr inbounds nuw i8, ptr %.lcssa4102.sink4627, i64 48
+  store ptr %.lcssa4103.sink, ptr %.sroa.538.0..sroa_idx.i1507, align 8, !noalias !3
+  %.sroa.641.0..sroa_idx.i1508 = getelementptr inbounds nuw i8, ptr %.lcssa4102.sink4627, i64 56
+  store i64 %.lcssa4100.sink, ptr %.sroa.641.0..sroa_idx.i1508, align 8, !noalias !3
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %3262, %3259, %3211, %3209, %3157, %3155, %3127, %3125, %3097, %3094, %3083, %3080, %3063, %3060, %2948, %2945, %2793, %2791, %2747, %2749, %2767, %2769, %2696, %2694, %2648, %2650, %2673, %2675, %2588, %2586, %2547, %2549, %2563, %2567, %2496, %2494, %2454, %2456, %2474, %2476, %2403, %2401, %2360, %2362, %2381, %2383, %2309, %2307, %2261, %2263, %2287, %2289, %2210, %2208, %2168, %2170, %2188, %2190, %2105, %2103, %2076, %2074, %1919, %1921, %1979, %1981, %1859, %1857, %1816, %1818, %1837, %1839, %1765, %1763, %1735, %1732, %1721, %1718, %1695, %1692, %1681, %1679, %1638, %1640, %1659, %1661, %1587, %1585, %1545, %1547, %1565, %1567, %1494, %1491, %1480, %1477, %1466, %1464, %1423, %1425, %1444, %1446, %1372, %1369, %1358, %1355, %1344, %1341, %1330, %1328, %1284, %1286, %1304, %1306, %1233, %1231, %1185, %1187, %1210, %1212, %1125, %1122, %1111, %1109, %1082, %1079, %1068, %1065, %1054, %1052, %1025, %1023, %972, %974, %1002, %1004, %912, %909, %898, %895, %884, %882, %865, %813, %810, %799, %797, %732, %734
@@ -1866,10 +1866,10 @@ common.resume:                                    ; preds = %common.resume.sink.
   unreachable
 
 .loopexit:                                        ; preds = %766, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i.i"
-  %.sroa.02.0.i6589.i = phi i64 [ %.sroa.02.0.i75.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i.i" ], [ %umax.i, %766 ]
-  %.sroa.5.0.i61.i = trunc i64 %.sroa.02.0.i6589.i to i32
-  %769 = sub nuw i64 %.sroa.18.0.ph.i, %.sroa.02.0.i6589.i
-  %770 = getelementptr inbounds nuw i8, ptr %.sroa.1125.2.ph.i, i64 %.sroa.02.0.i6589.i
+  %.sroa.02.0.i6595.i = phi i64 [ %.sroa.02.0.i75.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i.i" ], [ %umax.i, %766 ]
+  %.sroa.5.0.i61.i = trunc i64 %.sroa.02.0.i6595.i to i32
+  %769 = sub nuw i64 %.sroa.18.0.ph.i, %.sroa.02.0.i6595.i
+  %770 = getelementptr inbounds nuw i8, ptr %.sroa.1125.2.ph.i, i64 %.sroa.02.0.i6595.i
   store ptr %770, ptr %0, align 8, !alias.scope !28, !noalias !56
   store i64 %769, ptr %268, align 8, !alias.scope !28, !noalias !56
   %.sroa.4.2.insert.insert = or disjoint i32 %.sroa.9.0.ph.i, %.sroa.024.2.ph.i
@@ -1878,7 +1878,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %.sroa.4.4.insert.insert = or i32 %771, %.sroa.0.0.ph.i
   %.sroa.25.0.extract.shift = lshr i32 %.sroa.4.4.insert.insert, 24
   %.sroa.25.0.extract.trunc = trunc nuw i32 %.sroa.25.0.extract.shift to i8
-  %.not.i633 = icmp eq i64 %.sroa.18.0.ph.i, %.sroa.02.0.i6589.i
+  %.not.i633 = icmp eq i64 %.sroa.18.0.ph.i, %.sroa.02.0.i6595.i
   br i1 %.not.i633, label %772, label %_ZN4jiff3fmt7strtime5parse6Parser1f17h47c7c6b0a511c9deE.exit634
 
 772:                                              ; preds = %.loopexit
@@ -5587,7 +5587,7 @@ _ZN4jiff9timestamp9Timestamp3new17hda3c25d8ab2aad40E.exit.i: ; preds = %"_ZN4jif
 1995:                                             ; preds = %1986
   %.not.i.i.i.i.i = icmp eq i64 %spec.select.i.i.i.i.i, 0
   %1996 = add nsw i32 %1988, 1000000000
-  br i1 %.not.i.i.i.i.i, label %.thread14.i.i.i.i, label %2000
+  br i1 %.not.i.i.i.i.i, label %.thread15.i.i.i.i, label %2000
 
 1997:                                             ; preds = %2000, %1986
   %.sroa.011.0.i.i.i.i.i = phi i32 [ %1996, %2000 ], [ %1988, %1986 ]
@@ -5595,7 +5595,7 @@ _ZN4jiff9timestamp9Timestamp3new17hda3c25d8ab2aad40E.exit.i: ; preds = %"_ZN4jif
   %1998 = icmp eq i64 %.sroa.04.0.i.i.i.i.i, 0
   br i1 %1998, label %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit.i, label %2002
 
-.thread14.i.i.i.i:                                ; preds = %1995
+.thread15.i.i.i.i:                                ; preds = %1995
   %1999 = add i32 %1991, -1
   br label %2008
 
@@ -5611,11 +5611,11 @@ _ZN4jiff9timestamp9Timestamp3new17hda3c25d8ab2aad40E.exit.i: ; preds = %"_ZN4jif
   %2007 = icmp eq i32 %2006, 0
   br i1 %2007, label %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit.i, label %2008
 
-2008:                                             ; preds = %2002, %.thread14.i.i.i.i
-  %2009 = phi i32 [ 3599, %.thread14.i.i.i.i ], [ %2006, %2002 ]
-  %2010 = phi i8 [ 23, %.thread14.i.i.i.i ], [ %2005, %2002 ]
-  %.sroa.011.0.i919.i.i.i.i = phi i32 [ %1996, %.thread14.i.i.i.i ], [ %.sroa.011.0.i.i.i.i.i, %2002 ]
-  %.sroa.02.0.i1218.i.i.i.i = phi i32 [ %1999, %.thread14.i.i.i.i ], [ %1991, %2002 ]
+2008:                                             ; preds = %2002, %.thread15.i.i.i.i
+  %2009 = phi i32 [ 3599, %.thread15.i.i.i.i ], [ %2006, %2002 ]
+  %2010 = phi i8 [ 23, %.thread15.i.i.i.i ], [ %2005, %2002 ]
+  %.sroa.011.0.i1020.i.i.i.i = phi i32 [ %1996, %.thread15.i.i.i.i ], [ %.sroa.011.0.i.i.i.i.i, %2002 ]
+  %.sroa.02.0.i1319.i.i.i.i = phi i32 [ %1999, %.thread15.i.i.i.i ], [ %1991, %2002 ]
   %.lhs.trunc2.i.i.i.i = trunc nuw nsw i32 %2009 to i16
   %2011 = udiv i16 %.lhs.trunc2.i.i.i.i, 60
   %2012 = zext nneg i16 %2011 to i64
@@ -5626,12 +5626,12 @@ _ZN4jiff9timestamp9Timestamp3new17hda3c25d8ab2aad40E.exit.i: ; preds = %"_ZN4jif
   br label %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit.i
 
 _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit.i: ; preds = %2008, %2002, %1997
-  %.sroa.02.0.i13.i.i.i.i = phi i32 [ %1991, %1997 ], [ %1991, %2002 ], [ %.sroa.02.0.i1218.i.i.i.i, %2008 ]
-  %.sroa.011.0.i10.i.i.i.i = phi i32 [ %.sroa.011.0.i.i.i.i.i, %1997 ], [ %.sroa.011.0.i.i.i.i.i, %2002 ], [ %.sroa.011.0.i919.i.i.i.i, %2008 ]
+  %.sroa.02.0.i14.i.i.i.i = phi i32 [ %1991, %1997 ], [ %1991, %2002 ], [ %.sroa.02.0.i1319.i.i.i.i, %2008 ]
+  %.sroa.011.0.i11.i.i.i.i = phi i32 [ %.sroa.011.0.i.i.i.i.i, %1997 ], [ %.sroa.011.0.i.i.i.i.i, %2002 ], [ %.sroa.011.0.i1020.i.i.i.i, %2008 ]
   %.sroa.5.0.i.i.i.i.i = phi i64 [ 0, %1997 ], [ 0, %2002 ], [ %2015, %2008 ]
   %.sroa.4.0.i.i.i.i.i = phi i64 [ 0, %1997 ], [ 0, %2002 ], [ %2016, %2008 ]
   %.sroa.3.0.i.i.i.i.i = phi i8 [ 0, %1997 ], [ %2005, %2002 ], [ %2010, %2008 ]
-  %2017 = shl i32 %.sroa.02.0.i13.i.i.i.i, 2
+  %2017 = shl i32 %.sroa.02.0.i14.i.i.i.i, 2
   %2018 = add i32 %2017, 50797691
   %2019 = urem i32 %2018, 146097
   %2020 = or i32 %2019, 3
@@ -5697,14 +5697,14 @@ _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit.i: ; preds = %20
   %2055 = getelementptr inbounds nuw i8, ptr %2040, i64 64
   store i32 1, ptr %2055, align 8, !noalias !452
   %2056 = getelementptr inbounds nuw i8, ptr %2040, i64 68
-  store i32 %.sroa.011.0.i10.i.i.i.i, ptr %2056, align 4, !noalias !452
+  store i32 %.sroa.011.0.i11.i.i.i.i, ptr %2056, align 4, !noalias !452
   %.sroa.655.0.insert.shift.i = and i64 %.sroa.3.0.insert.insert.i.i, 71776119061217280
   %.sroa.554.0.insert.shift.i = and i64 %.sroa.4.0.i.i.i.i.i, 280375465082880
   %.sroa.554.0.insert.insert.i = or disjoint i64 %.sroa.554.0.insert.shift.i, %.sroa.655.0.insert.shift.i
   %.sroa.453.0.insert.ext.i = zext nneg i8 %.sroa.3.0.i.i.i.i.i to i64
   %.sroa.453.0.insert.shift.i = shl nuw nsw i64 %.sroa.453.0.insert.ext.i, 32
   %.sroa.453.0.insert.insert.i = or disjoint i64 %.sroa.554.0.insert.insert.i, %.sroa.453.0.insert.shift.i
-  %.sroa.052.0.insert.ext.i = zext i32 %.sroa.011.0.i10.i.i.i.i to i64
+  %.sroa.052.0.insert.ext.i = zext i32 %.sroa.011.0.i11.i.i.i.i to i64
   %.sroa.052.0.insert.insert.i = or disjoint i64 %.sroa.453.0.insert.insert.i, %.sroa.052.0.insert.ext.i
   %2057 = call noundef zeroext i1 @"_ZN99_$LT$jiff..fmt..strtime..Meridiem$u20$as$u20$core..convert..From$LT$jiff..civil..time..Time$GT$$GT$4from17ha3a738eaa2c85e39E"(i64 %.sroa.052.0.insert.insert.i), !noalias !452
   %2058 = zext i1 %2057 to i8
@@ -9267,9 +9267,9 @@ _ZN4jiff3fmt7strtime5parse6Parser19parse_offset_colon317h42a5f8cb64d19f5fE.exit:
   unreachable
 
 .thread1675.thread:                               ; preds = %3173, %.thread1675
-  %.sroa.06.0.i17523642 = phi i64 [ %.sroa.06.0.i2533, %.thread1675 ], [ %2827, %3173 ]
-  %3177 = getelementptr inbounds nuw i8, ptr %2828, i64 %.sroa.06.0.i17523642
-  %3178 = sub nuw i64 %2827, %.sroa.06.0.i17523642
+  %.sroa.06.0.i17523791 = phi i64 [ %.sroa.06.0.i2533, %.thread1675 ], [ %2827, %3173 ]
+  %3177 = getelementptr inbounds nuw i8, ptr %2828, i64 %.sroa.06.0.i17523791
+  %3178 = sub nuw i64 %2827, %.sroa.06.0.i17523791
   call void @llvm.lifetime.start.p0(ptr nonnull %207), !noalias !923
   call void @llvm.experimental.noalias.scope.decl(metadata !924)
   br label %3179
@@ -9343,7 +9343,7 @@ _ZN4jiff3fmt7strtime5parse6Parser19parse_offset_colon317h42a5f8cb64d19f5fE.exit:
   call void @llvm.lifetime.start.p0(ptr nonnull %193), !noalias !927
   call void @llvm.lifetime.start.p0(ptr nonnull %192), !noalias !927
   store ptr %2828, ptr %192, align 8, !noalias !927
-  store i64 %.sroa.06.0.i17523642, ptr %290, align 8, !noalias !927
+  store i64 %.sroa.06.0.i17523791, ptr %290, align 8, !noalias !927
   store ptr %192, ptr %193, align 8, !noalias !927
   store ptr @"_ZN72_$LT$jiff..shared..util..escape..Bytes$u20$as$u20$core..fmt..Display$GT$3fmt17h437ed408f4fbe4ccE", ptr %.sroa.425.0..sroa_idx.i, align 8, !noalias !927
   store ptr @anon.9b39c701aec730dc9da9cb3578b47497.234, ptr %194, align 8, !noalias !927

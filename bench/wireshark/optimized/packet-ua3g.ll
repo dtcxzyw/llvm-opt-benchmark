@@ -2843,19 +2843,19 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
 
 .sink.split:                                      ; preds = %124, %119, %117, %115, %113, %111, %109, %107, %106, %106
   %hf_ua3g_ip_device_routing_start_rtp_parameter_uint.sink = phi ptr [ @hf_ua3g_ip_device_routing_start_rtp_parameter_ip, %106 ], [ @hf_ua3g_ip_device_routing_start_rtp_parameter_ip, %106 ], [ @hf_ua3g_ip_device_routing_start_rtp_parameter_ip, %107 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_compressor.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %109 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_enabler.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %111 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_send_qos.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %113 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_dtmf_sending.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %115 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_rfc2198.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %117 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_srtp_encryption.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %119 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_uint.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %124 ]
-  %.sink906 = phi i32 [ 4, %106 ], [ 4, %106 ], [ 4, %107 ], [ %93, %109 ], [ %93, %111 ], [ %93, %113 ], [ %93, %115 ], [ %93, %117 ], [ %93, %119 ], [ %93, %124 ]
+  %.sink924 = phi i32 [ 4, %106 ], [ 4, %106 ], [ 4, %107 ], [ %93, %109 ], [ %93, %111 ], [ %93, %113 ], [ %93, %115 ], [ %93, %117 ], [ %93, %119 ], [ %93, %124 ]
   %.ph = phi ptr [ %86, %106 ], [ %86, %106 ], [ %108, %107 ], [ %86, %109 ], [ %86, %111 ], [ %86, %113 ], [ %86, %115 ], [ %86, %117 ], [ %86, %119 ], [ %86, %124 ]
-  %.ph904 = phi i32 [ %87, %106 ], [ %87, %106 ], [ 4, %107 ], [ %87, %109 ], [ %87, %111 ], [ %87, %113 ], [ %87, %115 ], [ %87, %117 ], [ %87, %119 ], [ %87, %124 ]
-  %.ph905 = phi i32 [ %88, %106 ], [ %88, %106 ], [ 2, %107 ], [ %88, %109 ], [ %88, %111 ], [ %88, %113 ], [ %88, %115 ], [ %88, %117 ], [ %88, %119 ], [ %88, %124 ]
+  %.ph922 = phi i32 [ %87, %106 ], [ %87, %106 ], [ 4, %107 ], [ %87, %109 ], [ %87, %111 ], [ %87, %113 ], [ %87, %115 ], [ %87, %117 ], [ %87, %119 ], [ %87, %124 ]
+  %.ph923 = phi i32 [ %88, %106 ], [ %88, %106 ], [ 2, %107 ], [ %88, %109 ], [ %88, %111 ], [ %88, %113 ], [ %88, %115 ], [ %88, %117 ], [ %88, %119 ], [ %88, %124 ]
   %.2730.ph = phi i32 [ %.0728851, %106 ], [ %.0728851, %106 ], [ %.0728851, %107 ], [ %.0728851, %109 ], [ %.0728851, %111 ], [ %.0728851, %113 ], [ %.0728851, %115 ], [ %.0728851, %117 ], [ %.0728851, %119 ], [ %.3731, %124 ]
   %126 = load i32, ptr %hf_ua3g_ip_device_routing_start_rtp_parameter_uint.sink, align 4
-  %127 = tail call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %126, ptr noundef %1, i32 noundef %104, i32 noundef %.sink906, i32 noundef 0)
+  %127 = tail call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %126, ptr noundef %1, i32 noundef %104, i32 noundef %.sink924, i32 noundef 0)
   br label %128
 
 128:                                              ; preds = %.sink.split, %106, %106
   %129 = phi ptr [ %86, %106 ], [ %86, %106 ], [ %.ph, %.sink.split ]
-  %130 = phi i32 [ %87, %106 ], [ %87, %106 ], [ %.ph904, %.sink.split ]
-  %131 = phi i32 [ %88, %106 ], [ %88, %106 ], [ %.ph905, %.sink.split ]
+  %130 = phi i32 [ %87, %106 ], [ %87, %106 ], [ %.ph922, %.sink.split ]
+  %131 = phi i32 [ %88, %106 ], [ %88, %106 ], [ %.ph923, %.sink.split ]
   %.2730 = phi i32 [ %.0728851, %106 ], [ %.0728851, %106 ], [ %.2730.ph, %.sink.split ]
   %132 = add i32 %104, %93
   %133 = sub i32 %105, %93
@@ -2887,8 +2887,8 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %142 = trunc nuw i8 %141 to i1
   %143 = icmp ne i32 %.0728.lcssa, 0
   %144 = select i1 %142, i1 %140, i1 false
-  %or.cond907 = select i1 %144, i1 %143, i1 false
-  br i1 %or.cond907, label %145, label %150
+  %or.cond925 = select i1 %144, i1 %143, i1 false
+  br i1 %or.cond925, label %145, label %150
 
 145:                                              ; preds = %139
   %146 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -2978,9 +2978,9 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
 
 195:                                              ; preds = %193, %192, %192
   %hf_ua3g_ip_device_routing_redirect_parameter_uint.sink = phi ptr [ @hf_ua3g_ip_device_routing_redirect_parameter_ip, %192 ], [ @hf_ua3g_ip_device_routing_redirect_parameter_ip, %192 ], [ %hf_ua3g_ip_device_routing_redirect_parameter_uint.hf_ua3g_ip_device_routing_redirect_parameter_value, %193 ]
-  %.sink908 = phi i32 [ 4, %192 ], [ 4, %192 ], [ %179, %193 ]
+  %.sink926 = phi i32 [ 4, %192 ], [ 4, %192 ], [ %179, %193 ]
   %196 = load i32, ptr %hf_ua3g_ip_device_routing_redirect_parameter_uint.sink, align 4
-  %197 = tail call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %196, ptr noundef %1, i32 noundef %190, i32 noundef %.sink908, i32 noundef 0)
+  %197 = tail call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %196, ptr noundef %1, i32 noundef %190, i32 noundef %.sink926, i32 noundef 0)
   %198 = add i32 %190, %179
   %199 = sub i32 %191, %179
   br label %200
@@ -3008,8 +3008,8 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
 
 .loopexit779:                                     ; preds = %212
   %211 = add i32 %210, %.6710838
-  %.not884 = icmp eq i32 %211, 0
-  br i1 %.not884, label %.loopexit, label %.preheader778, !llvm.loop !14
+  %.not902 = icmp eq i32 %211, 0
+  br i1 %.not902, label %.loopexit, label %.preheader778, !llvm.loop !14
 
 .preheader778:                                    ; preds = %.preheader778.preheader, %.loopexit779
   %.6839 = phi i32 [ %236, %.loopexit779 ], [ 5, %.preheader778.preheader ]
@@ -3124,9 +3124,9 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
 
 283:                                              ; preds = %281, %280, %280
   %hf_ua3g_ip_device_routing_listen_rtp_parameter_port.sink = phi ptr [ @hf_ua3g_ip_device_routing_listen_rtp_parameter_ip, %280 ], [ @hf_ua3g_ip_device_routing_listen_rtp_parameter_ip, %280 ], [ %hf_ua3g_ip_device_routing_listen_rtp_parameter_port.hf_ua3g_ip_device_routing_listen_rtp_parameter_value, %281 ]
-  %.sink909 = phi i32 [ 1, %280 ], [ 1, %280 ], [ %267, %281 ]
+  %.sink927 = phi i32 [ 1, %280 ], [ 1, %280 ], [ %267, %281 ]
   %284 = load i32, ptr %hf_ua3g_ip_device_routing_listen_rtp_parameter_port.sink, align 4
-  %285 = tail call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %284, ptr noundef %1, i32 noundef %278, i32 noundef %.sink909, i32 noundef 0)
+  %285 = tail call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %284, ptr noundef %1, i32 noundef %278, i32 noundef %.sink927, i32 noundef 0)
   %286 = add i32 %278, %267
   %287 = sub i32 %279, %267
   br label %288
@@ -3235,9 +3235,9 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
 
 325:                                              ; preds = %323, %310, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311
   %hf_ua3g_ip_device_routing_set_param_req_parameter_uint.sink = phi ptr [ @hf_ua3g_ip_device_routing_set_param_req_parameter_audio_env, %322 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_busy_light, %321 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_als_device, %320 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_usb_boost, %319 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_language_id, %318 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_skin_id, %317 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_stable_mode, %316 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_security_flag_filter, %315 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_record_rtp_auth, %314 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_set_pc_port_status, %313 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_tftp_backup_ip, %312 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_err_string, %311 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_compressor, %310 ], [ %hf_ua3g_ip_device_routing_set_param_req_parameter_uint.hf_ua3g_ip_device_routing_set_param_req_parameter_value, %323 ]
-  %.sink910 = phi i32 [ 1, %322 ], [ 1, %321 ], [ 1, %320 ], [ 1, %319 ], [ 2, %318 ], [ 1, %317 ], [ 1, %316 ], [ 1, %315 ], [ 1, %314 ], [ 1, %313 ], [ 4, %312 ], [ %297, %311 ], [ 1, %310 ], [ %297, %323 ]
+  %.sink928 = phi i32 [ 1, %322 ], [ 1, %321 ], [ 1, %320 ], [ 1, %319 ], [ 2, %318 ], [ 1, %317 ], [ 1, %316 ], [ 1, %315 ], [ 1, %314 ], [ 1, %313 ], [ 4, %312 ], [ %297, %311 ], [ 1, %310 ], [ %297, %323 ]
   %326 = load i32, ptr %hf_ua3g_ip_device_routing_set_param_req_parameter_uint.sink, align 4
-  %327 = tail call ptr @proto_tree_add_item(ptr noundef %303, i32 noundef %326, ptr noundef %1, i32 noundef %308, i32 noundef %.sink910, i32 noundef 0)
+  %327 = tail call ptr @proto_tree_add_item(ptr noundef %303, i32 noundef %326, ptr noundef %1, i32 noundef %308, i32 noundef %.sink928, i32 noundef 0)
   %328 = add i32 %308, %297
   %329 = sub i32 %309, %297
   br label %330
@@ -3299,7 +3299,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
 359:                                              ; preds = %13, %13
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not751798 = icmp eq i32 %16, 0
-  br i1 %.not751798, label %.thread885, label %.lr.ph803
+  br i1 %.not751798, label %.thread903, label %.lr.ph803
 
 .lr.ph803:                                        ; preds = %359
   %360 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -3367,14 +3367,14 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
 
 395:                                              ; preds = %387, %392, %.thread, %389, %385, %384
   %hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint.sink = phi ptr [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_remote_ip, %384 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_remote_ip, %385 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint, %389 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint, %.thread ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint, %392 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_value, %387 ]
-  %.sink911 = phi i32 [ 4, %384 ], [ 4, %385 ], [ %371, %389 ], [ %371, %.thread ], [ %371, %392 ], [ %371, %387 ]
+  %.sink929 = phi i32 [ 4, %384 ], [ 4, %385 ], [ %371, %389 ], [ %371, %.thread ], [ %371, %392 ], [ %371, %387 ]
   %396 = phi ptr [ %364, %384 ], [ %386, %385 ], [ %364, %389 ], [ %364, %.thread ], [ %364, %392 ], [ %364, %387 ]
   %397 = phi i32 [ %365, %384 ], [ 4, %385 ], [ %365, %389 ], [ %365, %.thread ], [ %365, %392 ], [ %365, %387 ]
   %398 = phi i32 [ %366, %384 ], [ 2, %385 ], [ %366, %389 ], [ %366, %.thread ], [ %366, %392 ], [ %366, %387 ]
   %.2698 = phi i32 [ %.0696801, %384 ], [ %.0696801, %385 ], [ %.0696801, %389 ], [ %391, %.thread ], [ %.0696801, %392 ], [ %.0696801, %387 ]
   %.2 = phi i32 [ %.0695802, %384 ], [ %.0695802, %385 ], [ %.0695802, %389 ], [ %.0695802, %.thread ], [ %394, %392 ], [ %.0695802, %387 ]
   %399 = load i32, ptr %hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint.sink, align 4
-  %400 = tail call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %399, ptr noundef %1, i32 noundef %382, i32 noundef %.sink911, i32 noundef 0)
+  %400 = tail call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %399, ptr noundef %1, i32 noundef %382, i32 noundef %.sink929, i32 noundef 0)
   %401 = add i32 %382, %371
   %402 = sub i32 %383, %371
   br label %403
@@ -3399,7 +3399,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %409 = load i8, ptr @setup_conversations_enabled, align 1, !range !10, !noundef !11
   %410 = trunc nuw i8 %409 to i1
   %or.cond6 = select i1 %410, i1 %408, i1 false
-  br i1 %or.cond6, label %411, label %.thread885
+  br i1 %or.cond6, label %411, label %.thread903
 
 411:                                              ; preds = %407
   %.not752 = icmp eq i32 %.1697, 0
@@ -3416,7 +3416,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
 
 417:                                              ; preds = %412, %411
   %.not753 = icmp eq i32 %.1, 0
-  br i1 %.not753, label %.thread885, label %418
+  br i1 %.not753, label %.thread903, label %418
 
 418:                                              ; preds = %417
   %419 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -3425,9 +3425,9 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %421 = add nuw nsw i32 %.1, 1
   %422 = load i32, ptr %419, align 4
   call void @rtcp_add_address(ptr noundef %2, ptr noundef nonnull %7, i32 noundef %421, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %422)
-  br label %.thread885
+  br label %.thread903
 
-.thread885:                                       ; preds = %359, %418, %417, %407
+.thread903:                                       ; preds = %359, %418, %417, %407
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
@@ -3564,9 +3564,9 @@ switch.lookup:                                    ; preds = %483
 
 489:                                              ; preds = %switch.lookup, %485
   %hf_ua3g_ip_device_routing_appl_parameter_uint.sink = phi ptr [ %hf_ua3g_ip_device_routing_appl_parameter_uint.hf_ua3g_ip_device_routing_appl_parameter_value, %485 ], [ %switch.load, %switch.lookup ]
-  %.sink912 = phi i32 [ 0, %485 ], [ %switch.load16, %switch.lookup ]
+  %.sink930 = phi i32 [ 0, %485 ], [ %switch.load16, %switch.lookup ]
   %490 = load i32, ptr %hf_ua3g_ip_device_routing_appl_parameter_uint.sink, align 4
-  %491 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %490, ptr noundef %1, i32 noundef %481, i32 noundef %470, i32 noundef %.sink912)
+  %491 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %490, ptr noundef %1, i32 noundef %481, i32 noundef %470, i32 noundef %.sink930)
   %492 = add i32 %481, %470
   %493 = sub i32 %482, %470
   br label %494
@@ -3577,7 +3577,7 @@ switch.lookup:                                    ; preds = %483
   %.not749 = icmp eq i32 %.21725, 0
   br i1 %.not749, label %.loopexit, label %.lr.ph797, !llvm.loop !23
 
-.loopexit:                                        ; preds = %465, %494, %358, %330, %.lr.ph824, %288, %.loopexit779, %200, %174, %.preheader789, %.preheader787, %334, %.preheader784, %.preheader782, %262, %201, %.preheader776, %.preheader, %150, %._crit_edge834, %331, %.thread885, %18, %17, %13, %37, %54, %75, %72, %69, %66, %63, %60, %57, %4
+.loopexit:                                        ; preds = %465, %494, %358, %330, %.lr.ph824, %288, %.loopexit779, %200, %174, %.preheader789, %.preheader787, %334, %.preheader784, %.preheader782, %262, %201, %.preheader776, %.preheader, %150, %._crit_edge834, %331, %.thread903, %18, %17, %13, %37, %54, %75, %72, %69, %66, %63, %60, %57, %4
   ret void
 }
 
@@ -5065,9 +5065,9 @@ define internal fastcc void @decode_cs_ip_device_routing(ptr noundef %0, ptr nou
 
 .loopexit285.sink.split:                          ; preds = %116, %123, %124, %125, %126, %127, %128, %161, %162, %163, %164, %165, %182
   %hf_ua3g_cs_ip_device_routing_cmd03_parameter_uint.sink = phi ptr [ @hf_ua3g_cs_ip_device_routing_cmd03_parameter_uint, %182 ], [ @hf_ua3g_cs_ip_device_routing_cmd03_parameter_diffserv, %165 ], [ @hf_ua3g_cs_ip_device_routing_cmd03_parameter_vlan_id, %164 ], [ @hf_ua3g_cs_ip_device_routing_cmd03_parameter_8021P_priority, %163 ], [ @hf_ua3g_cs_ip_device_routing_cmd03_parameter_8021Q_used, %162 ], [ @hf_ua3g_cs_ip_device_routing_cmd03_parameter_firmware_version, %161 ], [ @hf_ua3g_cs_ip_device_routing_cmd03_parameter_voice_mode, %128 ], [ @hf_ua3g_cs_ip_device_routing_cmd03_parameter_ece, %127 ], [ @hf_ua3g_cs_ip_device_routing_cmd03_parameter_vad, %126 ], [ @hf_ua3g_cs_ip_device_routing_cmd03_parameter_codec, %125 ], [ @hf_ua3g_cs_ip_device_routing_cmd03_parameter_string, %124 ], [ @hf_ua3g_cs_ip_device_routing_cmd03_parameter_ip, %123 ], [ @hf_ua3g_cs_ip_device_routing_cmd03_parameter_type_of_equip, %116 ]
-  %.sink351 = phi i32 [ %103, %182 ], [ 1, %165 ], [ 2, %164 ], [ 1, %163 ], [ 1, %162 ], [ 2, %161 ], [ 1, %128 ], [ 1, %127 ], [ 1, %126 ], [ 1, %125 ], [ %103, %124 ], [ 4, %123 ], [ 2, %116 ]
+  %.sink354 = phi i32 [ %103, %182 ], [ 1, %165 ], [ 2, %164 ], [ 1, %163 ], [ 1, %162 ], [ 2, %161 ], [ 1, %128 ], [ 1, %127 ], [ 1, %126 ], [ 1, %125 ], [ %103, %124 ], [ 4, %123 ], [ 2, %116 ]
   %183 = load i32, ptr %hf_ua3g_cs_ip_device_routing_cmd03_parameter_uint.sink, align 4
-  %184 = tail call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %183, ptr noundef %1, i32 noundef %114, i32 noundef %.sink351, i32 noundef 0)
+  %184 = tail call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %183, ptr noundef %1, i32 noundef %114, i32 noundef %.sink354, i32 noundef 0)
   br label %.loopexit285
 
 .loopexit285:                                     ; preds = %.lr.ph, %.lr.ph300, %.lr.ph302, %.lr.ph304, %.lr.ph306, %.lr.ph308, %.loopexit285.sink.split, %.preheader294, %.preheader292, %.preheader290, %.preheader288, %.preheader286, %.preheader284
@@ -5083,9 +5083,9 @@ define internal fastcc void @decode_cs_ip_device_routing(ptr noundef %0, ptr nou
 
 .loopexit.sink.split:                             ; preds = %17, %14
   %hf_ua3g_cs_ip_device_routing_cmd00_characteristic_number.sink = phi ptr [ @hf_ua3g_cs_ip_device_routing_cmd00_characteristic_number, %14 ], [ @hf_ua3g_cs_ip_device_routing_cmd01_incident_0, %17 ]
-  %.sink352 = phi i32 [ 5, %14 ], [ 4, %17 ]
+  %.sink355 = phi i32 [ 5, %14 ], [ 4, %17 ]
   %188 = load i32, ptr %hf_ua3g_cs_ip_device_routing_cmd00_characteristic_number.sink, align 4
-  %189 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %188, ptr noundef %1, i32 noundef %.sink352, i32 noundef 1, i32 noundef 0)
+  %189 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %188, ptr noundef %1, i32 noundef %.sink355, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %187, %98, %.lr.ph321, %.loopexit.sink.split, %.preheader296, %.preheader282, %17, %10, %4

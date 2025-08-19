@@ -1319,10 +1319,10 @@ dissect_extrememesh_ps_arep.exit:                 ; preds = %70, %.backedge.i63,
 
 .backedge.sink.split.i65:                         ; preds = %126, %119, %114, %102
   %hf_extrememesh_ps_breq_old_mpr.sink.i = phi ptr [ @hf_extrememesh_ps_breq_orig_pri, %114 ], [ @hf_extrememesh_ps_breq_vlan_id, %119 ], [ @hf_extrememesh_ps_breq_seq, %126 ], [ @hf_extrememesh_ps_breq_old_mpr, %102 ]
-  %.sink21.i = phi i32 [ 1, %114 ], [ 2, %119 ], [ 4, %126 ], [ 6, %102 ]
+  %.sink23.i = phi i32 [ 1, %114 ], [ 2, %119 ], [ 4, %126 ], [ 6, %102 ]
   %.sink.i66 = phi i32 [ 3, %114 ], [ 4, %119 ], [ 6, %126 ], [ 8, %102 ]
   %127 = load i32, ptr %hf_extrememesh_ps_breq_old_mpr.sink.i, align 4
-  %128 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %127, ptr noundef %0, i32 noundef %106, i32 noundef %.sink21.i, i32 noundef 0)
+  %128 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %127, ptr noundef %0, i32 noundef %106, i32 noundef %.sink23.i, i32 noundef 0)
   %129 = add i32 %.sink.i66, %.0799.i
   br label %.backedge.i67
 
@@ -1410,14 +1410,14 @@ dissect_extrememesh_ps_brep.exit:                 ; preds = %.lr.ph.i69, %.backe
   %176 = icmp ugt i32 %175, 16
   br i1 %176, label %.lr.ph.i73, label %dissect_extrememesh_ps_bann.exit
 
-.lr.ph.i73:                                       ; preds = %161, %.backedge.i77
-  %.0571.i = phi i32 [ %.057.be.i, %.backedge.i77 ], [ 16, %161 ]
+.lr.ph.i73:                                       ; preds = %161, %.backedge.i76
+  %.0571.i = phi i32 [ %.057.be.i, %.backedge.i76 ], [ 16, %161 ]
   %177 = load i32, ptr @hf_extrememesh_ps_bann_option, align 4
   %178 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %177, ptr noundef %0, i32 noundef %.0571.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %11)
   %179 = add nuw i32 %.0571.i, 1
   %180 = load i32, ptr %11, align 4
   %181 = icmp eq i32 %180, 0
-  br i1 %181, label %.backedge.i77, label %182
+  br i1 %181, label %.backedge.i76, label %182
 
 182:                                              ; preds = %.lr.ph.i73
   %183 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %179)
@@ -1433,18 +1433,18 @@ dissect_extrememesh_ps_brep.exit:                 ; preds = %.lr.ph.i69, %.backe
   ]
 
 188:                                              ; preds = %182
-  %.old2.not.i78 = icmp eq i8 %183, 0
-  br i1 %.old2.not.i78, label %.backedge.i77, label %.preheader.i79
+  %.old2.not.i77 = icmp eq i8 %183, 0
+  br i1 %.old2.not.i77, label %.backedge.i76, label %.preheader.i78
 
-.preheader.i79:                                   ; preds = %188, %.preheader.i79
-  %.1.i80 = phi i32 [ %192, %.preheader.i79 ], [ %186, %188 ]
-  %.0.i81 = phi i8 [ %191, %.preheader.i79 ], [ %183, %188 ]
+.preheader.i78:                                   ; preds = %188, %.preheader.i78
+  %.1.i79 = phi i32 [ %192, %.preheader.i78 ], [ %186, %188 ]
+  %.0.i80 = phi i8 [ %191, %.preheader.i78 ], [ %183, %188 ]
   %189 = load i32, ptr @hf_extrememesh_ps_bann_proxy_addr, align 4
-  %190 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %189, ptr noundef %0, i32 noundef %.1.i80, i32 noundef 6, i32 noundef 0)
-  %191 = add i8 %.0.i81, -6
-  %192 = add i32 %.1.i80, 6
+  %190 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %189, ptr noundef %0, i32 noundef %.1.i79, i32 noundef 6, i32 noundef 0)
+  %191 = add i8 %.0.i80, -6
+  %192 = add i32 %.1.i79, 6
   %193 = icmp ugt i8 %191, 5
-  br i1 %193, label %.preheader.i79, label %.backedge.i77, !llvm.loop !32
+  br i1 %193, label %.preheader.i78, label %.backedge.i76, !llvm.loop !32
 
 194:                                              ; preds = %182
   br label %.backedge.sink.split.i74
@@ -1454,20 +1454,20 @@ dissect_extrememesh_ps_brep.exit:                 ; preds = %.lr.ph.i69, %.backe
 
 .backedge.sink.split.i74:                         ; preds = %195, %194, %182
   %hf_extrememesh_ps_bann_old_root.sink.i = phi ptr [ @hf_extrememesh_ps_bann_vlan_id, %194 ], [ @hf_extrememesh_ps_bann_seq, %195 ], [ @hf_extrememesh_ps_bann_old_root, %182 ]
-  %.sink4.i75 = phi i32 [ 2, %194 ], [ 4, %195 ], [ 6, %182 ]
-  %.sink.i76 = phi i32 [ 4, %194 ], [ 6, %195 ], [ 8, %182 ]
+  %.sink5.i = phi i32 [ 2, %194 ], [ 4, %195 ], [ 6, %182 ]
+  %.sink.i75 = phi i32 [ 4, %194 ], [ 6, %195 ], [ 8, %182 ]
   %196 = load i32, ptr %hf_extrememesh_ps_bann_old_root.sink.i, align 4
-  %197 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %196, ptr noundef %0, i32 noundef %186, i32 noundef %.sink4.i75, i32 noundef 0)
-  %198 = add i32 %.sink.i76, %.0571.i
-  br label %.backedge.i77
+  %197 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %196, ptr noundef %0, i32 noundef %186, i32 noundef %.sink5.i, i32 noundef 0)
+  %198 = add i32 %.sink.i75, %.0571.i
+  br label %.backedge.i76
 
-.backedge.i77:                                    ; preds = %.preheader.i79, %.backedge.sink.split.i74, %188, %.lr.ph.i73
-  %.057.be.i = phi i32 [ %179, %.lr.ph.i73 ], [ %186, %188 ], [ %198, %.backedge.sink.split.i74 ], [ %192, %.preheader.i79 ]
+.backedge.i76:                                    ; preds = %.preheader.i78, %.backedge.sink.split.i74, %188, %.lr.ph.i73
+  %.057.be.i = phi i32 [ %179, %.lr.ph.i73 ], [ %186, %188 ], [ %198, %.backedge.sink.split.i74 ], [ %192, %.preheader.i78 ]
   %199 = call i32 @tvb_captured_length(ptr noundef %0)
   %200 = icmp ugt i32 %199, %.057.be.i
   br i1 %200, label %.lr.ph.i73, label %dissect_extrememesh_ps_bann.exit, !llvm.loop !33
 
-dissect_extrememesh_ps_bann.exit:                 ; preds = %182, %.backedge.i77, %161
+dissect_extrememesh_ps_bann.exit:                 ; preds = %182, %.backedge.i76, %161
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %dissect_extrememesh_ps_perr.exit
 
@@ -1491,18 +1491,18 @@ dissect_extrememesh_ps_bann.exit:                 ; preds = %182, %.backedge.i77
   %214 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %213, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
   %215 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %216 = icmp ugt i32 %215, 16
-  br i1 %216, label %.lr.ph.i82, label %dissect_extrememesh_ps_bred.exit
+  br i1 %216, label %.lr.ph.i81, label %dissect_extrememesh_ps_bred.exit
 
-.lr.ph.i82:                                       ; preds = %201, %.backedge.i84
-  %.01.i83 = phi i32 [ %.0.be.i85, %.backedge.i84 ], [ 16, %201 ]
+.lr.ph.i81:                                       ; preds = %201, %.backedge.i83
+  %.01.i82 = phi i32 [ %.0.be.i84, %.backedge.i83 ], [ 16, %201 ]
   %217 = load i32, ptr @hf_extrememesh_ps_bred_option, align 4
-  %218 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %217, ptr noundef %0, i32 noundef %.01.i83, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10)
-  %219 = add nuw i32 %.01.i83, 1
+  %218 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %217, ptr noundef %0, i32 noundef %.01.i82, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10)
+  %219 = add nuw i32 %.01.i82, 1
   %220 = load i32, ptr %10, align 4
   %221 = icmp eq i32 %220, 0
-  br i1 %221, label %.backedge.i84, label %222
+  br i1 %221, label %.backedge.i83, label %222
 
-222:                                              ; preds = %.lr.ph.i82
+222:                                              ; preds = %.lr.ph.i81
   %223 = load i32, ptr @hf_extrememesh_ps_bred_option_len, align 4
   %224 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %223, ptr noundef %0, i32 noundef %219, i32 noundef 1, i32 noundef 0)
   %225 = load i32, ptr %10, align 4
@@ -1510,19 +1510,19 @@ dissect_extrememesh_ps_bann.exit:                 ; preds = %182, %.backedge.i77
   br i1 %cond.i, label %226, label %dissect_extrememesh_ps_bred.exit
 
 226:                                              ; preds = %222
-  %227 = add i32 %.01.i83, 2
+  %227 = add i32 %.01.i82, 2
   %228 = load i32, ptr @hf_extrememesh_ps_bred_seq, align 4
   %229 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %228, ptr noundef %0, i32 noundef %227, i32 noundef 4, i32 noundef 0)
-  %230 = add i32 %.01.i83, 6
-  br label %.backedge.i84
+  %230 = add i32 %.01.i82, 6
+  br label %.backedge.i83
 
-.backedge.i84:                                    ; preds = %226, %.lr.ph.i82
-  %.0.be.i85 = phi i32 [ %219, %.lr.ph.i82 ], [ %230, %226 ]
+.backedge.i83:                                    ; preds = %226, %.lr.ph.i81
+  %.0.be.i84 = phi i32 [ %219, %.lr.ph.i81 ], [ %230, %226 ]
   %231 = call i32 @tvb_captured_length(ptr noundef %0)
-  %232 = icmp ugt i32 %231, %.0.be.i85
-  br i1 %232, label %.lr.ph.i82, label %dissect_extrememesh_ps_bred.exit, !llvm.loop !34
+  %232 = icmp ugt i32 %231, %.0.be.i84
+  br i1 %232, label %.lr.ph.i81, label %dissect_extrememesh_ps_bred.exit, !llvm.loop !34
 
-dissect_extrememesh_ps_bred.exit:                 ; preds = %222, %.backedge.i84, %201
+dissect_extrememesh_ps_bred.exit:                 ; preds = %222, %.backedge.i83, %201
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %dissect_extrememesh_ps_perr.exit
 
@@ -1548,38 +1548,38 @@ dissect_extrememesh_ps_bred.exit:                 ; preds = %222, %.backedge.i84
   %248 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %247, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0)
   %249 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %250 = icmp ugt i32 %249, 18
-  br i1 %250, label %.lr.ph.i86, label %dissect_extrememesh_ps_sreq.exit
+  br i1 %250, label %.lr.ph.i85, label %dissect_extrememesh_ps_sreq.exit
 
-.lr.ph.i86:                                       ; preds = %233, %.backedge.i89
-  %.01.i87 = phi i32 [ %.0.be.i90, %.backedge.i89 ], [ 18, %233 ]
+.lr.ph.i85:                                       ; preds = %233, %.backedge.i88
+  %.01.i86 = phi i32 [ %.0.be.i89, %.backedge.i88 ], [ 18, %233 ]
   %251 = load i32, ptr @hf_extrememesh_ps_sreq_option, align 4
-  %252 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %251, ptr noundef %0, i32 noundef %.01.i87, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9)
-  %253 = add i32 %.01.i87, 2
+  %252 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %251, ptr noundef %0, i32 noundef %.01.i86, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9)
+  %253 = add i32 %.01.i86, 2
   %254 = load i32, ptr %9, align 4
   %255 = icmp eq i32 %254, 0
-  br i1 %255, label %.backedge.i89, label %256
+  br i1 %255, label %.backedge.i88, label %256
 
-256:                                              ; preds = %.lr.ph.i86
+256:                                              ; preds = %.lr.ph.i85
   %257 = load i32, ptr @hf_extrememesh_ps_sreq_option_len, align 4
   %258 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %257, ptr noundef %0, i32 noundef %253, i32 noundef 2, i32 noundef 0)
   %259 = load i32, ptr %9, align 4
-  %cond.i88 = icmp eq i32 %259, 10
-  br i1 %cond.i88, label %260, label %dissect_extrememesh_ps_sreq.exit
+  %cond.i87 = icmp eq i32 %259, 10
+  br i1 %cond.i87, label %260, label %dissect_extrememesh_ps_sreq.exit
 
 260:                                              ; preds = %256
-  %261 = add i32 %.01.i87, 4
+  %261 = add i32 %.01.i86, 4
   %262 = load i32, ptr @hf_extrememesh_ps_sreq_vlan_id, align 4
   %263 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %262, ptr noundef %0, i32 noundef %261, i32 noundef 2, i32 noundef 0)
-  %264 = add i32 %.01.i87, 6
-  br label %.backedge.i89
+  %264 = add i32 %.01.i86, 6
+  br label %.backedge.i88
 
-.backedge.i89:                                    ; preds = %260, %.lr.ph.i86
-  %.0.be.i90 = phi i32 [ %253, %.lr.ph.i86 ], [ %264, %260 ]
+.backedge.i88:                                    ; preds = %260, %.lr.ph.i85
+  %.0.be.i89 = phi i32 [ %253, %.lr.ph.i85 ], [ %264, %260 ]
   %265 = call i32 @tvb_captured_length(ptr noundef %0)
-  %266 = icmp ugt i32 %265, %.0.be.i90
-  br i1 %266, label %.lr.ph.i86, label %dissect_extrememesh_ps_sreq.exit, !llvm.loop !35
+  %266 = icmp ugt i32 %265, %.0.be.i89
+  br i1 %266, label %.lr.ph.i85, label %dissect_extrememesh_ps_sreq.exit, !llvm.loop !35
 
-dissect_extrememesh_ps_sreq.exit:                 ; preds = %256, %.backedge.i89, %233
+dissect_extrememesh_ps_sreq.exit:                 ; preds = %256, %.backedge.i88, %233
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_extrememesh_ps_perr.exit
 
@@ -1613,38 +1613,38 @@ dissect_extrememesh_ps_sreq.exit:                 ; preds = %256, %.backedge.i89
   %290 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %289, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0)
   %291 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %292 = icmp ugt i32 %291, 24
-  br i1 %292, label %.lr.ph.i91, label %dissect_extrememesh_ps_srep.exit
+  br i1 %292, label %.lr.ph.i90, label %dissect_extrememesh_ps_srep.exit
 
-.lr.ph.i91:                                       ; preds = %267, %.backedge.i94
-  %.01.i92 = phi i32 [ %.0.be.i95, %.backedge.i94 ], [ 24, %267 ]
+.lr.ph.i90:                                       ; preds = %267, %.backedge.i93
+  %.01.i91 = phi i32 [ %.0.be.i94, %.backedge.i93 ], [ 24, %267 ]
   %293 = load i32, ptr @hf_extrememesh_ps_srep_option, align 4
-  %294 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %293, ptr noundef %0, i32 noundef %.01.i92, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8)
-  %295 = add i32 %.01.i92, 2
+  %294 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %293, ptr noundef %0, i32 noundef %.01.i91, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8)
+  %295 = add i32 %.01.i91, 2
   %296 = load i32, ptr %8, align 4
   %297 = icmp eq i32 %296, 0
-  br i1 %297, label %.backedge.i94, label %298
+  br i1 %297, label %.backedge.i93, label %298
 
-298:                                              ; preds = %.lr.ph.i91
+298:                                              ; preds = %.lr.ph.i90
   %299 = load i32, ptr @hf_extrememesh_ps_srep_option_len, align 4
   %300 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %299, ptr noundef %0, i32 noundef %295, i32 noundef 2, i32 noundef 0)
   %301 = load i32, ptr %8, align 4
-  %cond.i93 = icmp eq i32 %301, 10
-  br i1 %cond.i93, label %302, label %dissect_extrememesh_ps_srep.exit
+  %cond.i92 = icmp eq i32 %301, 10
+  br i1 %cond.i92, label %302, label %dissect_extrememesh_ps_srep.exit
 
 302:                                              ; preds = %298
-  %303 = add i32 %.01.i92, 4
+  %303 = add i32 %.01.i91, 4
   %304 = load i32, ptr @hf_extrememesh_ps_srep_vlan_id, align 4
   %305 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %304, ptr noundef %0, i32 noundef %303, i32 noundef 2, i32 noundef 0)
-  %306 = add i32 %.01.i92, 6
-  br label %.backedge.i94
+  %306 = add i32 %.01.i91, 6
+  br label %.backedge.i93
 
-.backedge.i94:                                    ; preds = %302, %.lr.ph.i91
-  %.0.be.i95 = phi i32 [ %295, %.lr.ph.i91 ], [ %306, %302 ]
+.backedge.i93:                                    ; preds = %302, %.lr.ph.i90
+  %.0.be.i94 = phi i32 [ %295, %.lr.ph.i90 ], [ %306, %302 ]
   %307 = call i32 @tvb_captured_length(ptr noundef %0)
-  %308 = icmp ugt i32 %307, %.0.be.i95
-  br i1 %308, label %.lr.ph.i91, label %dissect_extrememesh_ps_srep.exit, !llvm.loop !36
+  %308 = icmp ugt i32 %307, %.0.be.i94
+  br i1 %308, label %.lr.ph.i90, label %dissect_extrememesh_ps_srep.exit, !llvm.loop !36
 
-dissect_extrememesh_ps_srep.exit:                 ; preds = %298, %.backedge.i94, %267
+dissect_extrememesh_ps_srep.exit:                 ; preds = %298, %.backedge.i93, %267
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_extrememesh_ps_perr.exit
 
@@ -1714,18 +1714,18 @@ dissect_extrememesh_ps_srep.exit:                 ; preds = %298, %.backedge.i94
   %368 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %367, ptr noundef %0, i32 noundef 42, i32 noundef 2, i32 noundef 0)
   %369 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %370 = icmp ugt i32 %369, 44
-  br i1 %370, label %.lr.ph.i96, label %dissect_extrememesh_ps_preq.exit
+  br i1 %370, label %.lr.ph.i95, label %dissect_extrememesh_ps_preq.exit
 
-.lr.ph.i96:                                       ; preds = %309, %.backedge.i100
-  %.01321.i = phi i32 [ %.0132.be.i, %.backedge.i100 ], [ 44, %309 ]
+.lr.ph.i95:                                       ; preds = %309, %.backedge.i99
+  %.01321.i = phi i32 [ %.0132.be.i, %.backedge.i99 ], [ 44, %309 ]
   %371 = load i32, ptr @hf_extrememesh_ps_preq_option, align 4
   %372 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %371, ptr noundef %0, i32 noundef %.01321.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7)
   %373 = add i32 %.01321.i, 2
   %374 = load i32, ptr %7, align 4
   %375 = icmp eq i32 %374, 0
-  br i1 %375, label %.backedge.i100, label %376
+  br i1 %375, label %.backedge.i99, label %376
 
-376:                                              ; preds = %.lr.ph.i96
+376:                                              ; preds = %.lr.ph.i95
   %377 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %373)
   %378 = load i32, ptr @hf_extrememesh_ps_preq_option_len, align 4
   %379 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %378, ptr noundef %0, i32 noundef %373, i32 noundef 2, i32 noundef 0)
@@ -1733,43 +1733,43 @@ dissect_extrememesh_ps_srep.exit:                 ; preds = %298, %.backedge.i94
   %381 = load i32, ptr %7, align 4
   switch i32 %381, label %dissect_extrememesh_ps_preq.exit [
     i32 1, label %382
-    i32 10, label %.backedge.sink.split.i97
+    i32 10, label %.backedge.sink.split.i96
     i32 14, label %388
   ]
 
 382:                                              ; preds = %376
-  %.old2.not.i101 = icmp eq i16 %377, 0
-  br i1 %.old2.not.i101, label %.backedge.i100, label %.preheader.i102
+  %.old2.not.i100 = icmp eq i16 %377, 0
+  br i1 %.old2.not.i100, label %.backedge.i99, label %.preheader.i101
 
-.preheader.i102:                                  ; preds = %382, %.preheader.i102
-  %.1.i103 = phi i32 [ %386, %.preheader.i102 ], [ %380, %382 ]
-  %.0.i104 = phi i16 [ %385, %.preheader.i102 ], [ %377, %382 ]
+.preheader.i101:                                  ; preds = %382, %.preheader.i101
+  %.1.i102 = phi i32 [ %386, %.preheader.i101 ], [ %380, %382 ]
+  %.0.i103 = phi i16 [ %385, %.preheader.i101 ], [ %377, %382 ]
   %383 = load i32, ptr @hf_extrememesh_ps_preq_mcast_sub, align 4
-  %384 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %383, ptr noundef %0, i32 noundef %.1.i103, i32 noundef 6, i32 noundef 0)
-  %385 = add i16 %.0.i104, -6
-  %386 = add i32 %.1.i103, 6
+  %384 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %383, ptr noundef %0, i32 noundef %.1.i102, i32 noundef 6, i32 noundef 0)
+  %385 = add i16 %.0.i103, -6
+  %386 = add i32 %.1.i102, 6
   %387 = icmp ugt i16 %385, 5
-  br i1 %387, label %.preheader.i102, label %.backedge.i100, !llvm.loop !37
+  br i1 %387, label %.preheader.i101, label %.backedge.i99, !llvm.loop !37
 
 388:                                              ; preds = %376
-  br label %.backedge.sink.split.i97
+  br label %.backedge.sink.split.i96
 
-.backedge.sink.split.i97:                         ; preds = %388, %376
+.backedge.sink.split.i96:                         ; preds = %388, %376
   %hf_extrememesh_ps_preq_vlan_id.sink.i = phi ptr [ @hf_extrememesh_ps_preq_mint_id, %388 ], [ @hf_extrememesh_ps_preq_vlan_id, %376 ]
-  %.sink4.i98 = phi i32 [ 4, %388 ], [ 2, %376 ]
-  %.sink.i99 = phi i32 [ 8, %388 ], [ 6, %376 ]
+  %.sink5.i97 = phi i32 [ 4, %388 ], [ 2, %376 ]
+  %.sink.i98 = phi i32 [ 8, %388 ], [ 6, %376 ]
   %389 = load i32, ptr %hf_extrememesh_ps_preq_vlan_id.sink.i, align 4
-  %390 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %389, ptr noundef %0, i32 noundef %380, i32 noundef %.sink4.i98, i32 noundef 0)
-  %391 = add i32 %.sink.i99, %.01321.i
-  br label %.backedge.i100
+  %390 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %389, ptr noundef %0, i32 noundef %380, i32 noundef %.sink5.i97, i32 noundef 0)
+  %391 = add i32 %.sink.i98, %.01321.i
+  br label %.backedge.i99
 
-.backedge.i100:                                   ; preds = %.preheader.i102, %.backedge.sink.split.i97, %382, %.lr.ph.i96
-  %.0132.be.i = phi i32 [ %373, %.lr.ph.i96 ], [ %380, %382 ], [ %391, %.backedge.sink.split.i97 ], [ %386, %.preheader.i102 ]
+.backedge.i99:                                    ; preds = %.preheader.i101, %.backedge.sink.split.i96, %382, %.lr.ph.i95
+  %.0132.be.i = phi i32 [ %373, %.lr.ph.i95 ], [ %380, %382 ], [ %391, %.backedge.sink.split.i96 ], [ %386, %.preheader.i101 ]
   %392 = call i32 @tvb_captured_length(ptr noundef %0)
   %393 = icmp ugt i32 %392, %.0132.be.i
-  br i1 %393, label %.lr.ph.i96, label %dissect_extrememesh_ps_preq.exit, !llvm.loop !38
+  br i1 %393, label %.lr.ph.i95, label %dissect_extrememesh_ps_preq.exit, !llvm.loop !38
 
-dissect_extrememesh_ps_preq.exit:                 ; preds = %376, %.backedge.i100, %309
+dissect_extrememesh_ps_preq.exit:                 ; preds = %376, %.backedge.i99, %309
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_extrememesh_ps_perr.exit
 
@@ -1831,18 +1831,18 @@ dissect_extrememesh_ps_preq.exit:                 ; preds = %376, %.backedge.i10
   %445 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %444, ptr noundef %0, i32 noundef 38, i32 noundef 2, i32 noundef 0)
   %446 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %447 = icmp ugt i32 %446, 40
-  br i1 %447, label %.lr.ph.i105, label %dissect_extrememesh_ps_prep.exit
+  br i1 %447, label %.lr.ph.i104, label %dissect_extrememesh_ps_prep.exit
 
-.lr.ph.i105:                                      ; preds = %394, %.backedge.i109
-  %.01191.i = phi i32 [ %.0119.be.i, %.backedge.i109 ], [ 40, %394 ]
+.lr.ph.i104:                                      ; preds = %394, %.backedge.i108
+  %.01191.i = phi i32 [ %.0119.be.i, %.backedge.i108 ], [ 40, %394 ]
   %448 = load i32, ptr @hf_extrememesh_ps_prep_option, align 4
   %449 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %448, ptr noundef %0, i32 noundef %.01191.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6)
   %450 = add i32 %.01191.i, 2
   %451 = load i32, ptr %6, align 4
   %452 = icmp eq i32 %451, 0
-  br i1 %452, label %.backedge.i109, label %453
+  br i1 %452, label %.backedge.i108, label %453
 
-453:                                              ; preds = %.lr.ph.i105
+453:                                              ; preds = %.lr.ph.i104
   %454 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %450)
   %455 = load i32, ptr @hf_extrememesh_ps_prep_option_len, align 4
   %456 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %455, ptr noundef %0, i32 noundef %450, i32 noundef 2, i32 noundef 0)
@@ -1850,43 +1850,43 @@ dissect_extrememesh_ps_preq.exit:                 ; preds = %376, %.backedge.i10
   %458 = load i32, ptr %6, align 4
   switch i32 %458, label %dissect_extrememesh_ps_prep.exit [
     i32 1, label %459
-    i32 10, label %.backedge.sink.split.i106
+    i32 10, label %.backedge.sink.split.i105
     i32 14, label %465
   ]
 
 459:                                              ; preds = %453
-  %.old2.not.i110 = icmp eq i16 %454, 0
-  br i1 %.old2.not.i110, label %.backedge.i109, label %.preheader.i111
+  %.old2.not.i109 = icmp eq i16 %454, 0
+  br i1 %.old2.not.i109, label %.backedge.i108, label %.preheader.i110
 
-.preheader.i111:                                  ; preds = %459, %.preheader.i111
-  %.1.i112 = phi i32 [ %463, %.preheader.i111 ], [ %457, %459 ]
-  %.0.i113 = phi i16 [ %462, %.preheader.i111 ], [ %454, %459 ]
+.preheader.i110:                                  ; preds = %459, %.preheader.i110
+  %.1.i111 = phi i32 [ %463, %.preheader.i110 ], [ %457, %459 ]
+  %.0.i112 = phi i16 [ %462, %.preheader.i110 ], [ %454, %459 ]
   %460 = load i32, ptr @hf_extrememesh_ps_prep_mcast_sub, align 4
-  %461 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %460, ptr noundef %0, i32 noundef %.1.i112, i32 noundef 6, i32 noundef 0)
-  %462 = add i16 %.0.i113, -6
-  %463 = add i32 %.1.i112, 6
+  %461 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %460, ptr noundef %0, i32 noundef %.1.i111, i32 noundef 6, i32 noundef 0)
+  %462 = add i16 %.0.i112, -6
+  %463 = add i32 %.1.i111, 6
   %464 = icmp ugt i16 %462, 5
-  br i1 %464, label %.preheader.i111, label %.backedge.i109, !llvm.loop !39
+  br i1 %464, label %.preheader.i110, label %.backedge.i108, !llvm.loop !39
 
 465:                                              ; preds = %453
-  br label %.backedge.sink.split.i106
+  br label %.backedge.sink.split.i105
 
-.backedge.sink.split.i106:                        ; preds = %465, %453
+.backedge.sink.split.i105:                        ; preds = %465, %453
   %hf_extrememesh_ps_prep_vlan_id.sink.i = phi ptr [ @hf_extrememesh_ps_prep_mint_id, %465 ], [ @hf_extrememesh_ps_prep_vlan_id, %453 ]
-  %.sink4.i107 = phi i32 [ 4, %465 ], [ 2, %453 ]
-  %.sink.i108 = phi i32 [ 8, %465 ], [ 6, %453 ]
+  %.sink5.i106 = phi i32 [ 4, %465 ], [ 2, %453 ]
+  %.sink.i107 = phi i32 [ 8, %465 ], [ 6, %453 ]
   %466 = load i32, ptr %hf_extrememesh_ps_prep_vlan_id.sink.i, align 4
-  %467 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %466, ptr noundef %0, i32 noundef %457, i32 noundef %.sink4.i107, i32 noundef 0)
-  %468 = add i32 %.sink.i108, %.01191.i
-  br label %.backedge.i109
+  %467 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %466, ptr noundef %0, i32 noundef %457, i32 noundef %.sink5.i106, i32 noundef 0)
+  %468 = add i32 %.sink.i107, %.01191.i
+  br label %.backedge.i108
 
-.backedge.i109:                                   ; preds = %.preheader.i111, %.backedge.sink.split.i106, %459, %.lr.ph.i105
-  %.0119.be.i = phi i32 [ %450, %.lr.ph.i105 ], [ %457, %459 ], [ %468, %.backedge.sink.split.i106 ], [ %463, %.preheader.i111 ]
+.backedge.i108:                                   ; preds = %.preheader.i110, %.backedge.sink.split.i105, %459, %.lr.ph.i104
+  %.0119.be.i = phi i32 [ %450, %.lr.ph.i104 ], [ %457, %459 ], [ %468, %.backedge.sink.split.i105 ], [ %463, %.preheader.i110 ]
   %469 = call i32 @tvb_captured_length(ptr noundef %0)
   %470 = icmp ugt i32 %469, %.0119.be.i
-  br i1 %470, label %.lr.ph.i105, label %dissect_extrememesh_ps_prep.exit, !llvm.loop !40
+  br i1 %470, label %.lr.ph.i104, label %dissect_extrememesh_ps_prep.exit, !llvm.loop !40
 
-dissect_extrememesh_ps_prep.exit:                 ; preds = %453, %.backedge.i109, %394
+dissect_extrememesh_ps_prep.exit:                 ; preds = %453, %.backedge.i108, %394
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_extrememesh_ps_perr.exit
 
@@ -1912,11 +1912,11 @@ dissect_extrememesh_ps_prep.exit:                 ; preds = %453, %.backedge.i10
   %488 = load i32, ptr @hf_extrememesh_ps_perr_dest_count, align 4
   %489 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %488, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %.not1.i = icmp eq i8 %473, 0
-  br i1 %.not1.i, label %dissect_extrememesh_ps_perr.exit, label %.lr.ph.i114
+  br i1 %.not1.i, label %dissect_extrememesh_ps_perr.exit, label %.lr.ph.i113
 
-.lr.ph.i114:                                      ; preds = %471, %.lr.ph.i114
-  %.03.i = phi i8 [ %490, %.lr.ph.i114 ], [ %473, %471 ]
-  %.0382.i = phi i32 [ %496, %.lr.ph.i114 ], [ 4, %471 ]
+.lr.ph.i113:                                      ; preds = %471, %.lr.ph.i113
+  %.03.i = phi i8 [ %490, %.lr.ph.i113 ], [ %473, %471 ]
+  %.0382.i = phi i32 [ %496, %.lr.ph.i113 ], [ 4, %471 ]
   %490 = add i8 %.03.i, -1
   %491 = load i32, ptr @hf_extrememesh_ps_perr_unrch_dest, align 4
   %492 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %491, ptr noundef %0, i32 noundef %.0382.i, i32 noundef 6, i32 noundef 0)
@@ -1924,8 +1924,8 @@ dissect_extrememesh_ps_prep.exit:                 ; preds = %453, %.backedge.i10
   %494 = load i32, ptr @hf_extrememesh_ps_perr_unrch_dest_seq, align 4
   %495 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %494, ptr noundef %0, i32 noundef %493, i32 noundef 4, i32 noundef 0)
   %496 = add nuw nsw i32 %.0382.i, 10
-  %.not.i115 = icmp eq i8 %490, 0
-  br i1 %.not.i115, label %dissect_extrememesh_ps_perr.exit, label %.lr.ph.i114, !llvm.loop !41
+  %.not.i114 = icmp eq i8 %490, 0
+  br i1 %.not.i114, label %dissect_extrememesh_ps_perr.exit, label %.lr.ph.i113, !llvm.loop !41
 
 497:                                              ; preds = %3
   %498 = getelementptr i8, ptr %1, i64 8
@@ -1969,18 +1969,18 @@ dissect_extrememesh_ps_prep.exit:                 ; preds = %453, %.backedge.i10
   %528 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %527, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
   %529 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %530 = icmp ugt i32 %529, 16
-  br i1 %530, label %.lr.ph.i116, label %dissect_extrememesh_ps_prem.exit
+  br i1 %530, label %.lr.ph.i115, label %dissect_extrememesh_ps_prem.exit
 
-.lr.ph.i116:                                      ; preds = %515, %.backedge.i120
-  %.0574.i = phi i32 [ %.057.be.i121, %.backedge.i120 ], [ 16, %515 ]
+.lr.ph.i115:                                      ; preds = %515, %.backedge.i119
+  %.0574.i = phi i32 [ %.057.be.i120, %.backedge.i119 ], [ 16, %515 ]
   %531 = load i32, ptr @hf_extrememesh_ps_prem_option, align 4
   %532 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %531, ptr noundef %0, i32 noundef %.0574.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
   %533 = add nuw i32 %.0574.i, 1
   %534 = load i32, ptr %5, align 4
   %535 = icmp eq i32 %534, 0
-  br i1 %535, label %.backedge.i120, label %536
+  br i1 %535, label %.backedge.i119, label %536
 
-536:                                              ; preds = %.lr.ph.i116
+536:                                              ; preds = %.lr.ph.i115
   %537 = call signext i8 @tvb_get_int8(ptr noundef %0, i32 noundef %533)
   %538 = load i32, ptr @hf_extrememesh_ps_prem_option_len, align 4
   %539 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %538, ptr noundef %0, i32 noundef %533, i32 noundef 1, i32 noundef 0)
@@ -1992,40 +1992,40 @@ dissect_extrememesh_ps_prep.exit:                 ; preds = %453, %.backedge.i10
   ]
 
 542:                                              ; preds = %536
-  %.old2.not.i122 = icmp eq i8 %537, 0
-  br i1 %.old2.not.i122, label %.backedge.i120, label %.preheader.i123
+  %.old2.not.i121 = icmp eq i8 %537, 0
+  br i1 %.old2.not.i121, label %.backedge.i119, label %.preheader.i122
 
-.preheader.i123:                                  ; preds = %542, %.preheader.i123
-  %.158.i = phi i32 [ %546, %.preheader.i123 ], [ %540, %542 ]
-  %.0.i124 = phi i8 [ %545, %.preheader.i123 ], [ %537, %542 ]
+.preheader.i122:                                  ; preds = %542, %.preheader.i122
+  %.158.i = phi i32 [ %546, %.preheader.i122 ], [ %540, %542 ]
+  %.0.i123 = phi i8 [ %545, %.preheader.i122 ], [ %537, %542 ]
   %543 = load i32, ptr @hf_extrememesh_ps_prem_proxy_addr, align 4
   %544 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %543, ptr noundef %0, i32 noundef %.158.i, i32 noundef 6, i32 noundef 0)
-  %545 = add i8 %.0.i124, -6
+  %545 = add i8 %.0.i123, -6
   %546 = add i32 %.158.i, 6
   %547 = icmp ugt i8 %545, 5
-  br i1 %547, label %.preheader.i123, label %.backedge.i120, !llvm.loop !42
+  br i1 %547, label %.preheader.i122, label %.backedge.i119, !llvm.loop !42
 
 548:                                              ; preds = %536
-  %.old5.not.i117 = icmp eq i8 %537, 0
-  br i1 %.old5.not.i117, label %.backedge.i120, label %.preheader1.i118
+  %.old5.not.i116 = icmp eq i8 %537, 0
+  br i1 %.old5.not.i116, label %.backedge.i119, label %.preheader1.i117
 
-.preheader1.i118:                                 ; preds = %548, %.preheader1.i118
-  %.3.i = phi i32 [ %552, %.preheader1.i118 ], [ %540, %548 ]
-  %.1.i119 = phi i8 [ %551, %.preheader1.i118 ], [ %537, %548 ]
+.preheader1.i117:                                 ; preds = %548, %.preheader1.i117
+  %.3.i = phi i32 [ %552, %.preheader1.i117 ], [ %540, %548 ]
+  %.1.i118 = phi i8 [ %551, %.preheader1.i117 ], [ %537, %548 ]
   %549 = load i32, ptr @hf_extrememesh_ps_prem_proxy_vlan_id, align 4
   %550 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %549, ptr noundef %0, i32 noundef %.3.i, i32 noundef 2, i32 noundef 0)
-  %551 = add i8 %.1.i119, -2
+  %551 = add i8 %.1.i118, -2
   %552 = add i32 %.3.i, 2
   %553 = icmp ugt i8 %551, 1
-  br i1 %553, label %.preheader1.i118, label %.backedge.i120, !llvm.loop !43
+  br i1 %553, label %.preheader1.i117, label %.backedge.i119, !llvm.loop !43
 
-.backedge.i120:                                   ; preds = %.preheader1.i118, %.preheader.i123, %548, %542, %.lr.ph.i116
-  %.057.be.i121 = phi i32 [ %533, %.lr.ph.i116 ], [ %540, %542 ], [ %540, %548 ], [ %546, %.preheader.i123 ], [ %552, %.preheader1.i118 ]
+.backedge.i119:                                   ; preds = %.preheader1.i117, %.preheader.i122, %548, %542, %.lr.ph.i115
+  %.057.be.i120 = phi i32 [ %533, %.lr.ph.i115 ], [ %540, %542 ], [ %540, %548 ], [ %546, %.preheader.i122 ], [ %552, %.preheader1.i117 ]
   %554 = call i32 @tvb_captured_length(ptr noundef %0)
-  %555 = icmp ugt i32 %554, %.057.be.i121
-  br i1 %555, label %.lr.ph.i116, label %dissect_extrememesh_ps_prem.exit, !llvm.loop !44
+  %555 = icmp ugt i32 %554, %.057.be.i120
+  br i1 %555, label %.lr.ph.i115, label %dissect_extrememesh_ps_prem.exit, !llvm.loop !44
 
-dissect_extrememesh_ps_prem.exit:                 ; preds = %536, %.backedge.i120, %515
+dissect_extrememesh_ps_prem.exit:                 ; preds = %536, %.backedge.i119, %515
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_extrememesh_ps_perr.exit
 
@@ -2054,18 +2054,18 @@ dissect_extrememesh_ps_prem.exit:                 ; preds = %536, %.backedge.i12
   %576 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %575, ptr noundef %0, i32 noundef 9, i32 noundef 6, i32 noundef 0)
   %577 = load i32, ptr @hf_extrememesh_ps_trace_hop_count, align 4
   %578 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %577, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
-  %.not1.i125 = icmp eq i8 %558, 0
-  br i1 %.not1.i125, label %dissect_extrememesh_ps_perr.exit, label %.lr.ph.i126
+  %.not1.i124 = icmp eq i8 %558, 0
+  br i1 %.not1.i124, label %dissect_extrememesh_ps_perr.exit, label %.lr.ph.i125
 
-.lr.ph.i126:                                      ; preds = %556, %.lr.ph.i126
-  %.03.i127 = phi i8 [ %579, %.lr.ph.i126 ], [ %558, %556 ]
-  %.0422.i = phi i32 [ %582, %.lr.ph.i126 ], [ 16, %556 ]
-  %579 = add i8 %.03.i127, -1
+.lr.ph.i125:                                      ; preds = %556, %.lr.ph.i125
+  %.03.i126 = phi i8 [ %579, %.lr.ph.i125 ], [ %558, %556 ]
+  %.0422.i = phi i32 [ %582, %.lr.ph.i125 ], [ 16, %556 ]
+  %579 = add i8 %.03.i126, -1
   %580 = load i32, ptr @hf_extrememesh_ps_trace_addl_path, align 4
   %581 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %580, ptr noundef %0, i32 noundef %.0422.i, i32 noundef 6, i32 noundef 0)
   %582 = add nuw nsw i32 %.0422.i, 6
-  %.not.i128 = icmp eq i8 %579, 0
-  br i1 %.not.i128, label %dissect_extrememesh_ps_perr.exit, label %.lr.ph.i126, !llvm.loop !45
+  %.not.i127 = icmp eq i8 %579, 0
+  br i1 %.not.i127, label %dissect_extrememesh_ps_perr.exit, label %.lr.ph.i125, !llvm.loop !45
 
 583:                                              ; preds = %3
   %584 = getelementptr i8, ptr %1, i64 8
@@ -2093,42 +2093,42 @@ dissect_extrememesh_ps_prem.exit:                 ; preds = %536, %.backedge.i12
   %602 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %601, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0)
   %603 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %604 = icmp ugt i32 %603, 24
-  br i1 %604, label %.lr.ph.i129, label %dissect_extrememesh_ps_prer.exit
+  br i1 %604, label %.lr.ph.i128, label %dissect_extrememesh_ps_prer.exit
 
-.lr.ph.i129:                                      ; preds = %583, %.backedge.i132
-  %.01.i130 = phi i32 [ %.0.be.i133, %.backedge.i132 ], [ 24, %583 ]
+.lr.ph.i128:                                      ; preds = %583, %.backedge.i131
+  %.01.i129 = phi i32 [ %.0.be.i132, %.backedge.i131 ], [ 24, %583 ]
   %605 = load i32, ptr @hf_extrememesh_ps_prer_option, align 4
-  %606 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %605, ptr noundef %0, i32 noundef %.01.i130, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4)
-  %607 = add i32 %.01.i130, 2
+  %606 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %605, ptr noundef %0, i32 noundef %.01.i129, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4)
+  %607 = add i32 %.01.i129, 2
   %608 = load i32, ptr %4, align 4
   %609 = icmp eq i32 %608, 0
-  br i1 %609, label %.backedge.i132, label %610
+  br i1 %609, label %.backedge.i131, label %610
 
-610:                                              ; preds = %.lr.ph.i129
+610:                                              ; preds = %.lr.ph.i128
   %611 = load i32, ptr @hf_extrememesh_ps_prer_option_len, align 4
   %612 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %611, ptr noundef %0, i32 noundef %607, i32 noundef 2, i32 noundef 0)
   %613 = load i32, ptr %4, align 4
-  %cond.i131 = icmp eq i32 %613, 11
-  br i1 %cond.i131, label %614, label %dissect_extrememesh_ps_prer.exit
+  %cond.i130 = icmp eq i32 %613, 11
+  br i1 %cond.i130, label %614, label %dissect_extrememesh_ps_prer.exit
 
 614:                                              ; preds = %610
-  %615 = add i32 %.01.i130, 4
+  %615 = add i32 %.01.i129, 4
   %616 = load i32, ptr @hf_extrememesh_ps_prer_vlan_id, align 4
   %617 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %616, ptr noundef %0, i32 noundef %615, i32 noundef 2, i32 noundef 0)
-  %618 = add i32 %.01.i130, 6
-  br label %.backedge.i132
+  %618 = add i32 %.01.i129, 6
+  br label %.backedge.i131
 
-.backedge.i132:                                   ; preds = %614, %.lr.ph.i129
-  %.0.be.i133 = phi i32 [ %607, %.lr.ph.i129 ], [ %618, %614 ]
+.backedge.i131:                                   ; preds = %614, %.lr.ph.i128
+  %.0.be.i132 = phi i32 [ %607, %.lr.ph.i128 ], [ %618, %614 ]
   %619 = call i32 @tvb_captured_length(ptr noundef %0)
-  %620 = icmp ugt i32 %619, %.0.be.i133
-  br i1 %620, label %.lr.ph.i129, label %dissect_extrememesh_ps_prer.exit, !llvm.loop !46
+  %620 = icmp ugt i32 %619, %.0.be.i132
+  br i1 %620, label %.lr.ph.i128, label %dissect_extrememesh_ps_prer.exit, !llvm.loop !46
 
-dissect_extrememesh_ps_prer.exit:                 ; preds = %610, %.backedge.i132, %583
+dissect_extrememesh_ps_prer.exit:                 ; preds = %610, %.backedge.i131, %583
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %dissect_extrememesh_ps_perr.exit
 
-dissect_extrememesh_ps_perr.exit:                 ; preds = %.lr.ph.i126, %.lr.ph.i114, %556, %471, %3, %dissect_extrememesh_ps_prer.exit, %dissect_extrememesh_ps_prem.exit, %497, %dissect_extrememesh_ps_prep.exit, %dissect_extrememesh_ps_preq.exit, %dissect_extrememesh_ps_srep.exit, %dissect_extrememesh_ps_sreq.exit, %dissect_extrememesh_ps_bred.exit, %dissect_extrememesh_ps_bann.exit, %dissect_extrememesh_ps_brep.exit, %dissect_extrememesh_ps_breq.exit, %dissect_extrememesh_ps_arep.exit, %dissect_extrememesh_ps_areq.exit
+dissect_extrememesh_ps_perr.exit:                 ; preds = %.lr.ph.i125, %.lr.ph.i113, %556, %471, %3, %dissect_extrememesh_ps_prer.exit, %dissect_extrememesh_ps_prem.exit, %497, %dissect_extrememesh_ps_prep.exit, %dissect_extrememesh_ps_preq.exit, %dissect_extrememesh_ps_srep.exit, %dissect_extrememesh_ps_sreq.exit, %dissect_extrememesh_ps_bred.exit, %dissect_extrememesh_ps_bann.exit, %dissect_extrememesh_ps_brep.exit, %dissect_extrememesh_ps_breq.exit, %dissect_extrememesh_ps_arep.exit, %dissect_extrememesh_ps_areq.exit
   ret void
 }
 

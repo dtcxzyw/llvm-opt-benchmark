@@ -283,7 +283,7 @@ stb_include_isspace.exit116.thread:               ; preds = %stb_include_isspace
 
 .loopexit119.sink.split:                          ; preds = %31, %31, %31, %stb_include_isspace.exit116.thread, %stb_include_isspace.exit116.thread, %stb_include_isspace.exit116.thread
   %.6.lcssa.sink = phi ptr [ %.7, %stb_include_isspace.exit116.thread ], [ %.7, %stb_include_isspace.exit116.thread ], [ %.7, %stb_include_isspace.exit116.thread ], [ %.6, %31 ], [ %.6, %31 ], [ %.6, %31 ]
-  %.sink158 = phi ptr [ null, %stb_include_isspace.exit116.thread ], [ null, %stb_include_isspace.exit116.thread ], [ null, %stb_include_isspace.exit116.thread ], [ %29, %31 ], [ %29, %31 ], [ %29, %31 ]
+  %.sink159 = phi ptr [ null, %stb_include_isspace.exit116.thread ], [ null, %stb_include_isspace.exit116.thread ], [ null, %stb_include_isspace.exit116.thread ], [ %29, %31 ], [ %29, %31 ], [ %29, %31 ]
   %43 = add nsw i32 %.087130, 1
   %44 = ptrtoint ptr %.090129 to i64
   %45 = sub i64 %44, %4
@@ -301,7 +301,7 @@ stb_include_isspace.exit116.thread:               ; preds = %stb_include_isspace
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 %49, ptr %56, align 4, !tbaa !13
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store ptr %.sink158, ptr %57, align 8, !tbaa !14
+  store ptr %.sink159, ptr %57, align 8, !tbaa !14
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i32 %50, ptr %58, align 8, !tbaa !15
   br label %.loopexit119

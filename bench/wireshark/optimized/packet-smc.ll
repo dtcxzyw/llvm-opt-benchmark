@@ -1256,11 +1256,11 @@ define internal i32 @dissect_smc_tcp_pdu(ptr noundef %0, ptr noundef readonly ca
   %.not = icmp eq i8 %6, 4
   %19 = and i8 %9, 3
   %spec.select = select i1 %.not, i8 0, i8 %19
-  %spec.select124 = select i1 %10, ptr @.str.347, ptr @.str.300
+  %spec.select135 = select i1 %10, ptr @.str.347, ptr @.str.300
   br label %20
 
 20:                                               ; preds = %18, %.thread
-  %.str.300.sink = phi ptr [ @.str.347, %.thread ], [ %spec.select124, %18 ]
+  %.str.300.sink = phi ptr [ @.str.347, %.thread ], [ %spec.select135, %18 ]
   %.087112 = phi i8 [ %17, %.thread ], [ %spec.select, %18 ]
   %.088110 = phi i8 [ %15, %.thread ], [ %spec.select, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1477,14 +1477,14 @@ switch.early.test234.i:                           ; preds = %122
   ]
 
 .thread.sink.split.i:                             ; preds = %switch.early.test234.i, %switch.early.test234.i, %122
-  %hf_smc_reserved.sink269.ph.i = phi ptr [ @hf_smc_reserved, %switch.early.test234.i ], [ @hf_smc_reserved, %switch.early.test234.i ], [ @hf_smc_proposal_smc_chid, %122 ]
+  %hf_smc_reserved.sink272.ph.i = phi ptr [ @hf_smc_reserved, %switch.early.test234.i ], [ @hf_smc_reserved, %switch.early.test234.i ], [ @hf_smc_proposal_smc_chid, %122 ]
   %123 = load i32, ptr @hf_smc_proposal_ism_gid, align 4
   %124 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %123, ptr noundef %0, i32 noundef 40, i32 noundef 8, i32 noundef 0)
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.sink.split.i, %switch.early.test234.i
-  %hf_smc_reserved.sink269.i = phi ptr [ @hf_smc_reserved, %switch.early.test234.i ], [ %hf_smc_reserved.sink269.ph.i, %.thread.sink.split.i ]
-  %125 = load i32, ptr %hf_smc_reserved.sink269.i, align 4
+  %hf_smc_reserved.sink272.i = phi ptr [ @hf_smc_reserved, %switch.early.test234.i ], [ %hf_smc_reserved.sink272.ph.i, %.thread.sink.split.i ]
+  %125 = load i32, ptr %hf_smc_reserved.sink272.i, align 4
   %126 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %125, ptr noundef %0, i32 noundef 48, i32 noundef 2, i32 noundef 0)
   br i1 %83, label %127, label %133
 

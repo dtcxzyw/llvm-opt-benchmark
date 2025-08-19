@@ -687,26 +687,26 @@ define dso_local noundef i64 @_ZN4Luau12editDistanceESt17basic_string_viewIcSt11
   br i1 %18, label %.critedge2, label %.lr.ph148.preheader
 
 .lr.ph148.preheader:                              ; preds = %.lr.ph, %.critedge
-  %.sroa.15.0.lcssa170 = phi ptr [ %.sroa.15.0.lcssa, %.critedge ], [ %.sroa.15.0137, %.lr.ph ]
-  %.sroa.0111.0.lcssa169 = phi i64 [ %.sroa.0111.0.lcssa, %.critedge ], [ %.sroa.0111.0136, %.lr.ph ]
-  %.sroa.16.0.lcssa168 = phi ptr [ %.sroa.16.0.lcssa, %.critedge ], [ %.sroa.16.0135, %.lr.ph ]
-  %.sroa.094.0.lcssa167 = phi i64 [ %.sroa.094.0.lcssa, %.critedge ], [ %.sroa.094.0134, %.lr.ph ]
-  %19 = sub i64 %.sroa.0111.0.lcssa169, %.sroa.094.0.lcssa167
-  %20 = sub i64 %.sroa.094.0.lcssa167, %.sroa.0111.0.lcssa169
-  %21 = add i64 %.sroa.0111.0.lcssa169, 2
-  %22 = add i64 %.sroa.094.0.lcssa167, 2
+  %.sroa.15.0.lcssa177 = phi ptr [ %.sroa.15.0.lcssa, %.critedge ], [ %.sroa.15.0137, %.lr.ph ]
+  %.sroa.0111.0.lcssa176 = phi i64 [ %.sroa.0111.0.lcssa, %.critedge ], [ %.sroa.0111.0136, %.lr.ph ]
+  %.sroa.16.0.lcssa175 = phi ptr [ %.sroa.16.0.lcssa, %.critedge ], [ %.sroa.16.0135, %.lr.ph ]
+  %.sroa.094.0.lcssa174 = phi i64 [ %.sroa.094.0.lcssa, %.critedge ], [ %.sroa.094.0134, %.lr.ph ]
+  %19 = sub i64 %.sroa.0111.0.lcssa176, %.sroa.094.0.lcssa174
+  %20 = sub i64 %.sroa.094.0.lcssa174, %.sroa.0111.0.lcssa176
+  %21 = add i64 %.sroa.0111.0.lcssa176, 2
+  %22 = add i64 %.sroa.094.0.lcssa174, 2
   %23 = mul i64 %21, %22
   %24 = shl i64 %23, 3
   %25 = add i64 %24, -8
-  %26 = add i64 %.sroa.094.0.lcssa167, %.sroa.0111.0.lcssa169
+  %26 = add i64 %.sroa.094.0.lcssa174, %.sroa.0111.0.lcssa176
   %27 = shl i64 %26, 3
   br label %.lr.ph148
 
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %39
   %loop-idiom.iv = phi i64 [ %25, %.lr.ph148.preheader ], [ %loop-idiom.iv.next, %39 ]
   %indvar = phi i64 [ 0, %.lr.ph148.preheader ], [ %indvar.next, %39 ]
-  %.sroa.0111.1147 = phi i64 [ %.sroa.0111.0.lcssa169, %.lr.ph148.preheader ], [ %40, %39 ]
-  %.sroa.094.1146 = phi i64 [ %.sroa.094.0.lcssa167, %.lr.ph148.preheader ], [ %41, %39 ]
+  %.sroa.0111.1147 = phi i64 [ %.sroa.0111.0.lcssa176, %.lr.ph148.preheader ], [ %40, %39 ]
+  %.sroa.094.1146 = phi i64 [ %.sroa.094.0.lcssa174, %.lr.ph148.preheader ], [ %41, %39 ]
   %28 = shl i64 %indvar, 4
   %reass.sub = sub i64 %28, %27
   %29 = add i64 %reass.sub, -24
@@ -714,10 +714,10 @@ define dso_local noundef i64 @_ZN4Luau12editDistanceESt17basic_string_viewIcSt11
   br i1 %30, label %.critedge2, label %31
 
 31:                                               ; preds = %.lr.ph148
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.15.0.lcssa170, i64 %.sroa.0111.1147
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.15.0.lcssa177, i64 %.sroa.0111.1147
   %33 = getelementptr inbounds i8, ptr %32, i64 -1
   %34 = load i8, ptr %33, align 1, !tbaa !14
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.16.0.lcssa168, i64 %.sroa.094.1146
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.16.0.lcssa175, i64 %.sroa.094.1146
   %36 = getelementptr inbounds i8, ptr %35, i64 -1
   %37 = load i8, ptr %36, align 1, !tbaa !14
   %38 = icmp eq i8 %34, %37
@@ -794,7 +794,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc67, %_ZNSt6ve
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZNSt5arrayImLm256EE4fillERKm.exit
   %.051157 = phi i64 [ %68, %_ZNSt5arrayImLm256EE4fillERKm.exit ], [ 1, %.preheader.preheader ]
-  %64 = getelementptr i8, ptr %.sroa.15.0.lcssa170, i64 %.051157
+  %64 = getelementptr i8, ptr %.sroa.15.0.lcssa177, i64 %.051157
   %65 = getelementptr i8, ptr %64, i64 -1
   %66 = mul i64 %.051157, %46
   %67 = getelementptr i64, ptr %.sroa.077.0, i64 %66
@@ -830,7 +830,7 @@ _ZNSt5arrayImLm256EE4fillERKm.exit:               ; preds = %82
   %83 = phi i64 [ %.pre, %.preheader ], [ %111, %82 ]
   %.049155 = phi i64 [ 1, %.preheader ], [ %104, %82 ]
   %.050154 = phi i64 [ 0, %.preheader ], [ %spec.select, %82 ]
-  %84 = getelementptr i8, ptr %.sroa.16.0.lcssa168, i64 %.049155
+  %84 = getelementptr i8, ptr %.sroa.16.0.lcssa175, i64 %.049155
   %85 = getelementptr i8, ptr %84, i64 -1
   %86 = load i8, ptr %85, align 1, !tbaa !14
   %87 = zext i8 %86 to i64

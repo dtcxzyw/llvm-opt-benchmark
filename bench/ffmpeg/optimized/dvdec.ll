@@ -773,13 +773,13 @@ define internal noundef i32 @dv_decode_video_segment(ptr noundef %0, ptr noundef
   br label %120
 
 120:                                              ; preds = %162, %109
-  %.sink670 = phi i64 [ %175, %162 ], [ 1, %109 ]
-  %.sink667 = phi i32 [ %146, %162 ], [ %76, %109 ]
+  %.sink708 = phi i64 [ %175, %162 ], [ 1, %109 ]
+  %.sink705 = phi i32 [ %146, %162 ], [ %76, %109 ]
   %.057.i = phi i32 [ %160, %162 ], [ 0, %109 ]
-  %121 = getelementptr inbounds nuw i8, ptr %.1272499, i64 %.sink670
+  %121 = getelementptr inbounds nuw i8, ptr %.1272499, i64 %.sink708
   %122 = load i32, ptr %121, align 1, !tbaa !28
   %123 = tail call i32 @llvm.bswap.i32(i32 %122)
-  %124 = and i32 %.sink667, 7
+  %124 = and i32 %.sink705, 7
   %125 = shl i32 %123, %124
   %126 = lshr i32 %125, 22
   %127 = zext nneg i32 %126 to i64
@@ -807,12 +807,12 @@ define internal noundef i32 @dv_decode_video_segment(ptr noundef %0, ptr noundef
   %143 = getelementptr inbounds [1664 x %struct.VLCElem], ptr @dv_rl_vlc, i64 0, i64 %142
   %144 = load i16, ptr %143, align 4, !tbaa !28
   %145 = sext i16 %144 to i32
-  %146 = add i32 %.056.i, %.sink667
+  %146 = add nsw i32 %.056.i, %.sink705
   %147 = icmp ugt i32 %146, %55
   br i1 %147, label %148, label %156
 
 148:                                              ; preds = %141
-  %149 = sub i32 %55, %.sink667
+  %149 = sub nsw i32 %55, %.sink705
   %150 = trunc i32 %149 to i8
   store i8 %150, ptr %119, align 8, !tbaa !91
   %151 = and i32 %149, 255
@@ -876,7 +876,7 @@ dv_decode_ac.exit:                                ; preds = %156, %148
   %188 = and i32 %.sroa.18.7, 7
   %189 = shl i32 %187, %188
   %190 = lshr i32 %189, 7
-  %191 = add nsw i32 %.sroa.18.7, 25
+  %191 = add nuw nsw i32 %.sroa.18.7, 25
   %192 = tail call i32 @llvm.umin.i32(i32 %56, i32 %191)
   %193 = icmp sgt i32 %181, 25
   br i1 %193, label %194, label %197
@@ -1093,7 +1093,7 @@ flush_put_bits.exit:                              ; preds = %265, %put_bits32.ex
   %288 = and i32 %.sroa.18.0509, 7
   %289 = shl i32 %287, %288
   %.not.i301 = icmp eq i8 %282, 0
-  br i1 %.not.i301, label %.preheader702, label %290
+  br i1 %.not.i301, label %.preheader740, label %290
 
 290:                                              ; preds = %276
   %291 = zext i8 %282 to i32
@@ -1101,19 +1101,19 @@ flush_put_bits.exit:                              ; preds = %265, %put_bits32.ex
   %293 = getelementptr inbounds nuw i8, ptr %.1265510, i64 36
   %294 = load i32, ptr %293, align 4, !tbaa !92
   %295 = or i32 %294, %292
-  %296 = sub i32 %.sroa.18.0509, %291
+  %296 = sub nsw i32 %.sroa.18.0509, %291
   store i8 0, ptr %281, align 8, !tbaa !91
-  br label %.preheader702
+  br label %.preheader740
 
-.preheader702:                                    ; preds = %290, %276
+.preheader740:                                    ; preds = %290, %276
   %.154.i305.ph = phi i32 [ %.sroa.18.0509, %276 ], [ %296, %290 ]
   %.1.i306.ph = phi i32 [ %289, %276 ], [ %295, %290 ]
   br label %297
 
-297:                                              ; preds = %.preheader702, %334
-  %.057.i304 = phi i32 [ %332, %334 ], [ %280, %.preheader702 ]
-  %.154.i305 = phi i32 [ %318, %334 ], [ %.154.i305.ph, %.preheader702 ]
-  %.1.i306 = phi i32 [ %352, %334 ], [ %.1.i306.ph, %.preheader702 ]
+297:                                              ; preds = %.preheader740, %334
+  %.057.i304 = phi i32 [ %332, %334 ], [ %280, %.preheader740 ]
+  %.154.i305 = phi i32 [ %318, %334 ], [ %.154.i305.ph, %.preheader740 ]
+  %.1.i306 = phi i32 [ %352, %334 ], [ %.1.i306.ph, %.preheader740 ]
   %298 = lshr i32 %.1.i306, 22
   %299 = zext nneg i32 %298 to i64
   %300 = getelementptr inbounds nuw [1664 x %struct.VLCElem], ptr @dv_rl_vlc, i64 0, i64 %299
@@ -1445,7 +1445,7 @@ flush_put_bits.exit337:                           ; preds = %441, %put_bits32.ex
   %472 = and i32 %.sroa.18.4531, 7
   %473 = shl i32 %471, %472
   %.not.i338 = icmp eq i8 %466, 0
-  br i1 %.not.i338, label %.preheader701, label %474
+  br i1 %.not.i338, label %.preheader739, label %474
 
 474:                                              ; preds = %460
   %475 = zext i8 %466 to i32
@@ -1453,19 +1453,19 @@ flush_put_bits.exit337:                           ; preds = %441, %put_bits32.ex
   %477 = getelementptr inbounds nuw i8, ptr %.3267532, i64 36
   %478 = load i32, ptr %477, align 4, !tbaa !92
   %479 = or i32 %478, %476
-  %480 = sub i32 %.sroa.18.4531, %475
+  %480 = sub nsw i32 %.sroa.18.4531, %475
   store i8 0, ptr %465, align 8, !tbaa !91
-  br label %.preheader701
+  br label %.preheader739
 
-.preheader701:                                    ; preds = %474, %460
+.preheader739:                                    ; preds = %474, %460
   %.154.i342.ph = phi i32 [ %.sroa.18.4531, %460 ], [ %480, %474 ]
   %.1.i343.ph = phi i32 [ %473, %460 ], [ %479, %474 ]
   br label %481
 
-481:                                              ; preds = %.preheader701, %518
-  %.057.i341 = phi i32 [ %516, %518 ], [ %464, %.preheader701 ]
-  %.154.i342 = phi i32 [ %502, %518 ], [ %.154.i342.ph, %.preheader701 ]
-  %.1.i343 = phi i32 [ %536, %518 ], [ %.1.i343.ph, %.preheader701 ]
+481:                                              ; preds = %.preheader739, %518
+  %.057.i341 = phi i32 [ %516, %518 ], [ %464, %.preheader739 ]
+  %.154.i342 = phi i32 [ %502, %518 ], [ %.154.i342.ph, %.preheader739 ]
+  %.1.i343 = phi i32 [ %536, %518 ], [ %.1.i343.ph, %.preheader739 ]
   %482 = lshr i32 %.1.i343, 22
   %483 = zext nneg i32 %482 to i64
   %484 = getelementptr inbounds nuw [1664 x %struct.VLCElem], ptr @dv_rl_vlc, i64 0, i64 %483
@@ -2038,7 +2038,8 @@ dv100_idct_put_last_row_field_luma.exit:          ; preds = %714, %728, %732
   br label %765
 
 765:                                              ; preds = %dv100_idct_put_last_row_field_luma.exit, %879
-  %indvars.iv610 = phi i64 [ 2, %dv100_idct_put_last_row_field_luma.exit ], [ %indvars.iv.next611, %879 ]
+  %.not280 = phi i1 [ false, %dv100_idct_put_last_row_field_luma.exit ], [ true, %879 ]
+  %indvars.iv610 = phi i64 [ 2, %dv100_idct_put_last_row_field_luma.exit ], [ 1, %879 ]
   %.5261560 = phi ptr [ %746, %dv100_idct_put_last_row_field_luma.exit ], [ %.6262, %879 ]
   %.5269559 = phi ptr [ %745, %dv100_idct_put_last_row_field_luma.exit ], [ %.6270, %879 ]
   %766 = load ptr, ptr %556, align 8, !tbaa !57
@@ -2310,8 +2311,6 @@ dv100_idct_put_last_row_field_chroma.exit:        ; preds = %853
 879:                                              ; preds = %dv100_idct_put_last_row_field_chroma.exit, %872, %._crit_edge625, %._crit_edge558
   %.6270 = phi ptr [ %794, %._crit_edge558 ], [ %857, %dv100_idct_put_last_row_field_chroma.exit ], [ %873, %872 ], [ %863, %._crit_edge625 ]
   %.6262 = phi ptr [ %793, %._crit_edge558 ], [ %858, %dv100_idct_put_last_row_field_chroma.exit ], [ %878, %872 ], [ %867, %._crit_edge625 ]
-  %indvars.iv.next611 = add nsw i64 %indvars.iv610, -1
-  %.not280 = icmp eq i64 %indvars.iv.next611, 0
   br i1 %.not280, label %880, label %765, !llvm.loop !143
 
 880:                                              ; preds = %879

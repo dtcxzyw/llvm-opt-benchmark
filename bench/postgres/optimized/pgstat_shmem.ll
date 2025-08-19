@@ -1928,7 +1928,7 @@ define internal i32 @pgstat_hash_hash_key(ptr noundef readonly captures(none) %0
   %.07.lcssa.i.i = phi i64 [ %1, %3 ], [ %13, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi ptr [ %0, %3 ], [ %12, %.lr.ph.i.i ]
   %.sroa.12.0.lcssa.i.i = phi i64 [ %.sroa.12.010.i.i, %3 ], [ %.sroa.12.0.i.i, %.lr.ph.i.i ]
-  switch i64 %.07.lcssa.i.i, label %default.unreachable19.i.i.i [
+  switch i64 %.07.lcssa.i.i, label %default.unreachable [
     i64 0, label %fasthash32.exit
     i64 7, label %15
     i64 6, label %20
@@ -1994,7 +1994,7 @@ define internal i32 @pgstat_hash_hash_key(ptr noundef readonly captures(none) %0
   %54 = or i64 %51, %53
   br label %55
 
-default.unreachable19.i.i.i:                      ; preds = %._crit_edge.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i
   unreachable
 
 55:                                               ; preds = %50, %34

@@ -64,12 +64,12 @@ define dso_local void @RemoveObjects(ptr noundef readonly captures(none) %0) loc
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load i32, ptr %9, align 4
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.lr.ph230, label %.critedge
+  br i1 %14, label %.lr.ph280, label %.critedge
 
-.lr.ph230:                                        ; preds = %.lr.ph, %534
-  %indvars.iv229 = phi i64 [ %indvars.iv.next, %534 ], [ 0, %.lr.ph ]
+.lr.ph280:                                        ; preds = %.lr.ph, %534
+  %indvars.iv279 = phi i64 [ %indvars.iv.next, %534 ], [ 0, %.lr.ph ]
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv229
+  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv279
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -95,7 +95,7 @@ define dso_local void @RemoveObjects(ptr noundef readonly captures(none) %0) loc
   call void @free_object_addresses(ptr noundef %6) #5
   ret void
 
-27:                                               ; preds = %.lr.ph230
+27:                                               ; preds = %.lr.ph280
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1231,8 +1231,8 @@ schema_does_not_exist_skipping.exit176.i:         ; preds = %470
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %499, %494
-  %.sink213.i = phi i32 [ 523, %499 ], [ 521, %494 ]
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink213.i, ptr noundef nonnull @__func__.does_not_exist_skipping) #5
+  %.sink235.i = phi i32 [ 523, %499 ], [ 521, %494 ]
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink235.i, ptr noundef nonnull @__func__.does_not_exist_skipping) #5
   br label %does_not_exist_skipping.exit
 
 does_not_exist_skipping.exit:                     ; preds = %.thread200.i, %497, %.sink.split.i
@@ -1240,7 +1240,7 @@ does_not_exist_skipping.exit:                     ; preds = %.thread200.i, %497,
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %534
 
-502:                                              ; preds = %.lr.ph230
+502:                                              ; preds = %.lr.ph280
   %503 = icmp eq i32 %24, 19
   br i1 %503, label %504, label %515
 
@@ -1314,11 +1314,11 @@ does_not_exist_skipping.exit:                     ; preds = %.thread200.i, %497,
 534:                                              ; preds = %533, %does_not_exist_skipping.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv229, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv279, 1
   %535 = load i32, ptr %9, align 4
   %536 = sext i32 %535 to i64
   %537 = icmp slt i64 %indvars.iv.next, %536
-  br i1 %537, label %.lr.ph230, label %.critedge
+  br i1 %537, label %.lr.ph280, label %.critedge
 }
 
 declare ptr @new_object_addresses() local_unnamed_addr #1

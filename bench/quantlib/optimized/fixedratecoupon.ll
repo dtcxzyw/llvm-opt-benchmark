@@ -2240,11 +2240,11 @@ if.then27:                                        ; preds = %if.else
   br i1 %cmp7.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN8QuantLib12InterestRateESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %if.then27
-  %sub.ptr.div11.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i, 40
+  %sub.ptr.div12.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i, 40
   br label %for.body.i.i.i.i.i26
 
 for.body.i.i.i.i.i26:                             ; preds = %_ZN8QuantLib12InterestRateaSERKS0_.exit.i.i.i.i.i, %for.body.preheader.i.i.i.i.i
-  %__n.010.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZN8QuantLib12InterestRateaSERKS0_.exit.i.i.i.i.i ], [ %sub.ptr.div11.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
+  %__n.010.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZN8QuantLib12InterestRateaSERKS0_.exit.i.i.i.i.i ], [ %sub.ptr.div12.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
   %__result.addr.09.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZN8QuantLib12InterestRateaSERKS0_.exit.i.i.i.i.i ], [ %3, %for.body.preheader.i.i.i.i.i ]
   %__first.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i31, %_ZN8QuantLib12InterestRateaSERKS0_.exit.i.i.i.i.i ], [ %1, %for.body.preheader.i.i.i.i.i ]
   %20 = load double, ptr %__first.addr.08.i.i.i.i.i, align 8, !tbaa !44
@@ -2380,11 +2380,11 @@ if.else49:                                        ; preds = %if.else
   br i1 %cmp7.i.i.i.i.i58, label %for.body.preheader.i.i.i.i.i60, label %_ZSt4copyIPN8QuantLib12InterestRateES2_ET0_T_S4_S3_.exit
 
 for.body.preheader.i.i.i.i.i60:                   ; preds = %if.else49
-  %sub.ptr.div11.i.i.i.i.i61 = udiv exact i64 %sub.ptr.sub.i23, 40
+  %sub.ptr.div12.i.i.i.i.i61 = udiv exact i64 %sub.ptr.sub.i23, 40
   br label %for.body.i.i.i.i.i62
 
 for.body.i.i.i.i.i62:                             ; preds = %_ZN8QuantLib12InterestRateaSERKS0_.exit.i.i.i.i.i78, %for.body.preheader.i.i.i.i.i60
-  %__n.010.i.i.i.i.i63 = phi i64 [ %dec.i.i.i.i.i83, %_ZN8QuantLib12InterestRateaSERKS0_.exit.i.i.i.i.i78 ], [ %sub.ptr.div11.i.i.i.i.i61, %for.body.preheader.i.i.i.i.i60 ]
+  %__n.010.i.i.i.i.i63 = phi i64 [ %dec.i.i.i.i.i83, %_ZN8QuantLib12InterestRateaSERKS0_.exit.i.i.i.i.i78 ], [ %sub.ptr.div12.i.i.i.i.i61, %for.body.preheader.i.i.i.i.i60 ]
   %__result.addr.09.i.i.i.i.i64 = phi ptr [ %incdec.ptr1.i.i.i.i.i82, %_ZN8QuantLib12InterestRateaSERKS0_.exit.i.i.i.i.i78 ], [ %3, %for.body.preheader.i.i.i.i.i60 ]
   %__first.addr.08.i.i.i.i.i65 = phi ptr [ %incdec.ptr.i.i.i.i.i81, %_ZN8QuantLib12InterestRateaSERKS0_.exit.i.i.i.i.i78 ], [ %1, %for.body.preheader.i.i.i.i.i60 ]
   %39 = load double, ptr %__first.addr.08.i.i.i.i.i65, align 8, !tbaa !44
@@ -3193,8 +3193,8 @@ invoke.cont69:                                    ; preds = %_ZNSt12_Vector_base
 
 invoke.cont69.thread:                             ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(ptr nonnull %start)
-  %cmp.not.i.i.i.not870 = icmp eq ptr %46, %47
-  br i1 %cmp.not.i.i.i.not870, label %if.then.i.i.i, label %invoke.cont72.thread
+  %cmp.not.i.i.i.not921 = icmp eq ptr %46, %47
+  br i1 %cmp.not.i.i.i.not921, label %if.then.i.i.i, label %invoke.cont72.thread
 
 invoke.cont72.thread:                             ; preds = %invoke.cont69.thread
   %48 = load i64, ptr %47, align 8, !tbaa !121
@@ -4486,14 +4486,14 @@ if.end314:                                        ; preds = %_ZN8QuantLib12Inter
   %lastPeriodDC_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   %244 = load ptr, ptr %lastPeriodDC_, align 8, !tbaa !40
   %cmp.i.i443 = icmp eq ptr %244, null
-  %dc_.i.val868 = load ptr, ptr %dc_.i, align 8
-  %245 = select i1 %cmp.i.i443, ptr %dc_.i.val868, ptr %244
+  %dc_.i.val919 = load ptr, ptr %dc_.i, align 8
+  %245 = select i1 %cmp.i.i443, ptr %dc_.i.val919, ptr %244
   store ptr %245, ptr %agg.tmp331, align 8, !tbaa !40
   %pn.i.i445 = getelementptr inbounds nuw i8, ptr %agg.tmp331, i64 8
   %lastPeriodDC_.sroa.gep = getelementptr inbounds nuw i8, ptr %this, i64 208
-  %dc_.i.sroa.gep.val869 = load ptr, ptr %dc_.i.sroa.gep, align 8
+  %dc_.i.sroa.gep.val920 = load ptr, ptr %dc_.i.sroa.gep, align 8
   %lastPeriodDC_.sroa.gep.val = load ptr, ptr %lastPeriodDC_.sroa.gep, align 8
-  %246 = select i1 %cmp.i.i443, ptr %dc_.i.sroa.gep.val869, ptr %lastPeriodDC_.sroa.gep.val
+  %246 = select i1 %cmp.i.i443, ptr %dc_.i.sroa.gep.val920, ptr %lastPeriodDC_.sroa.gep.val
   store ptr %246, ptr %pn.i.i445, align 8, !tbaa !43
   %cmp.not.i.i.i447 = icmp eq ptr %246, null
   br i1 %cmp.not.i.i.i447, label %_ZN8QuantLib10DayCounterC2ERKS0_.exit450, label %if.then.i.i.i448
@@ -7091,7 +7091,7 @@ for.body.i.i.i:                                   ; preds = %if.then, %for.inc.i
           to label %for.inc.i.i.i unwind label %lpad.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
-  %dec.i.i.i = add i64 %__n.addr.08.i.i.i, -1
+  %dec.i.i.i = add nsw i64 %__n.addr.08.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN8QuantLib12InterestRateEmS1_ET_S3_T0_RSaIT1_E.exit, label %for.body.i.i.i, !llvm.loop !149
@@ -7156,7 +7156,7 @@ for.body.i.i.i21:                                 ; preds = %_ZNKSt6vectorIN8Qua
           to label %for.inc.i.i.i30 unwind label %lpad.i.i.i24
 
 for.inc.i.i.i30:                                  ; preds = %for.body.i.i.i21
-  %dec.i.i.i31 = add i64 %__n.addr.08.i.i.i23, -1
+  %dec.i.i.i31 = add nsw i64 %__n.addr.08.i.i.i23, -1
   %incdec.ptr.i.i.i32 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i22, i64 40
   %cmp.not.i.i.i33 = icmp eq i64 %dec.i.i.i31, 0
   br i1 %cmp.not.i.i.i33, label %try.cont, label %for.body.i.i.i21, !llvm.loop !149

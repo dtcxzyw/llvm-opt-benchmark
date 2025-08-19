@@ -199,7 +199,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %25, label %if.then73, label %if.end74
 
 if.then73:                                        ; preds = %entry, %for.end
-  %bWaitAtEnd.0.lcssa101 = phi i1 [ %bWaitAtEnd.1, %for.end ], [ false, %entry ]
+  %bWaitAtEnd.0.lcssa102 = phi i1 [ %bWaitAtEnd.1, %for.end ], [ false, %entry ]
   tail call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.6)
   tail call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.7)
   tail call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.8)
@@ -208,7 +208,7 @@ if.then73:                                        ; preds = %entry, %for.end
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then73, %for.end
-  %bWaitAtEnd.0.lcssa100 = phi i1 [ %bWaitAtEnd.0.lcssa101, %if.then73 ], [ %bWaitAtEnd.1, %for.end ]
+  %bWaitAtEnd.0.lcssa101 = phi i1 [ %bWaitAtEnd.0.lcssa102, %if.then73 ], [ %bWaitAtEnd.1, %for.end ]
   %call75 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN9Benchmark14GetEnvironmentEv()
   %call76 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(24) %call75, ptr noundef nonnull @.str.11)
   %call77 = tail call noundef ptr @_Z13GetStdSTLNamev()
@@ -252,7 +252,7 @@ invoke.cont98:                                    ; preds = %invoke.cont96
           to label %invoke.cont100 unwind label %lpad95
 
 invoke.cont100:                                   ; preds = %invoke.cont98
-  br i1 %bWaitAtEnd.0.lcssa100, label %if.then102, label %if.end106
+  br i1 %bWaitAtEnd.0.lcssa101, label %if.then102, label %if.end106
 
 if.then102:                                       ; preds = %invoke.cont100
   invoke void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.14)

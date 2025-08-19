@@ -861,7 +861,7 @@ define internal i32 @dissect_zbee_aps(ptr noundef %0, ptr noundef %1, ptr nounde
 81:                                               ; preds = %77
   %82 = load i8, ptr %48, align 8
   %83 = icmp ugt i8 %82, 1
-  br i1 %83, label %.thread353, label %.thread292
+  br i1 %83, label %.thread367, label %.thread292
 
 .thread292:                                       ; preds = %77, %78, %81
   %84 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @ei_zbee_aps_invalid_delivery_mode)
@@ -869,7 +869,7 @@ define internal i32 @dissect_zbee_aps(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %453
 
 86:                                               ; preds = %78
-  br i1 %27, label %.thread351.thread, label %.thread
+  br i1 %27, label %.thread365.thread, label %.thread
 
 .thread:                                          ; preds = %75, %86
   %87 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
@@ -879,13 +879,13 @@ define internal i32 @dissect_zbee_aps(ptr noundef %0, ptr noundef %1, ptr nounde
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.499, i32 noundef %89)
   %91 = load ptr, ptr %18, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %91, i32 noundef 25, ptr noundef nonnull @.str.499, i32 noundef %89)
-  br label %.thread351
+  br label %.thread365
 
 92:                                               ; preds = %59
   %93 = icmp eq i8 %25, 3
-  br i1 %93, label %.thread353, label %.thread351
+  br i1 %93, label %.thread367, label %.thread365
 
-.thread353:                                       ; preds = %81, %92
+.thread367:                                       ; preds = %81, %92
   %94 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1)
   %95 = load i32, ptr @hf_zbee_aps_group, align 4
   %96 = zext i16 %94 to i32
@@ -893,15 +893,15 @@ define internal i32 @dissect_zbee_aps(ptr noundef %0, ptr noundef %1, ptr nounde
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.500, i32 noundef %96)
   %98 = load ptr, ptr %18, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %98, i32 noundef 25, ptr noundef nonnull @.str.500, i32 noundef %96)
-  br label %.thread351
+  br label %.thread365
 
-.thread351:                                       ; preds = %.thread, %.thread353, %92
-  %.2.ph = phi i8 [ 2, %.thread ], [ 1, %92 ], [ 3, %.thread353 ]
+.thread365:                                       ; preds = %.thread, %.thread367, %92
+  %.2.ph = phi i8 [ 2, %.thread ], [ 1, %92 ], [ 3, %.thread367 ]
   %.pr = load i8, ptr %48, align 8
   %99 = icmp ugt i8 %.pr, 1
-  br i1 %99, label %100, label %.thread351.thread
+  br i1 %99, label %100, label %.thread365.thread
 
-100:                                              ; preds = %.thread351
+100:                                              ; preds = %.thread365
   %101 = zext nneg i8 %.2.ph to i32
   %102 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %101)
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -946,9 +946,9 @@ define internal i32 @dissect_zbee_aps(ptr noundef %0, ptr noundef %1, ptr nounde
   %127 = trunc nuw nsw i32 %104 to i8
   br label %136
 
-.thread351.thread:                                ; preds = %86, %.thread351
-  %.2367 = phi i8 [ %.2.ph, %.thread351 ], [ 1, %86 ]
-  %128 = zext nneg i8 %.2367 to i32
+.thread365.thread:                                ; preds = %86, %.thread365
+  %.2381 = phi i8 [ %.2.ph, %.thread365 ], [ 1, %86 ]
+  %128 = zext nneg i8 %.2381 to i32
   %129 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %128)
   %130 = zext i8 %129 to i16
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -956,11 +956,11 @@ define internal i32 @dissect_zbee_aps(ptr noundef %0, ptr noundef %1, ptr nounde
   %132 = load i32, ptr @hf_zbee_aps_cluster, align 4
   %133 = zext i8 %129 to i32
   %134 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %17, i32 noundef %132, ptr noundef %0, i32 noundef %128, i32 noundef 1, i32 noundef %133, ptr noundef nonnull @.str.504, i32 noundef %133)
-  %135 = add nuw nsw i8 %.2367, 1
+  %135 = add nuw nsw i8 %.2381, 1
   br label %136
 
-136:                                              ; preds = %.thread351.thread, %126
-  %.3 = phi i8 [ %127, %126 ], [ %135, %.thread351.thread ]
+136:                                              ; preds = %.thread365.thread, %126
+  %.3 = phi i8 [ %127, %126 ], [ %135, %.thread365.thread ]
   %137 = zext nneg i8 %.3 to i32
   %138 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %137)
   %139 = load ptr, ptr @zbee_aps_dissector_table, align 8
@@ -1019,8 +1019,8 @@ define internal i32 @dissect_zbee_aps(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.thread293.thread
 
 .thread293.thread:                                ; preds = %136, %162, %.thread293
-  %.0270361 = phi ptr [ %.0270, %162 ], [ %.0270, %.thread293 ], [ %141, %136 ]
-  %.sroa.34.0360 = phi i16 [ %.sroa.34.0, %162 ], [ %.sroa.34.0, %.thread293 ], [ %138, %136 ]
+  %.0270375 = phi ptr [ %.0270, %162 ], [ %.0270, %.thread293 ], [ %141, %136 ]
+  %.sroa.34.0374 = phi i16 [ %.sroa.34.0, %162 ], [ %.sroa.34.0, %.thread293 ], [ %138, %136 ]
   %.sroa.39.0 = phi i32 [ %169, %162 ], [ 0, %.thread293 ], [ 0, %136 ]
   %.5 = phi i8 [ %168, %162 ], [ %.0263, %.thread293 ], [ %144, %136 ]
   %170 = tail call ptr @wmem_file_scope()
@@ -1097,7 +1097,7 @@ zbee_aps_calculate_extended_counter.exit.i:       ; preds = %203, %201
 
 zbee_aps_node_packet_info.exit:                   ; preds = %.thread293.thread, %zbee_aps_calculate_extended_counter.exit.i
   %.0.i = phi ptr [ %193, %zbee_aps_calculate_extended_counter.exit.i ], [ %172, %.thread293.thread ]
-  br i1 %.not, label %.thread362, label %207
+  br i1 %.not, label %.thread376, label %207
 
 207:                                              ; preds = %zbee_aps_node_packet_info.exit
   %208 = zext nneg i8 %.5 to i32
@@ -1111,7 +1111,7 @@ zbee_aps_node_packet_info.exit:                   ; preds = %.thread293.thread, 
   %216 = call ptr @proto_tree_add_uint(ptr noundef %213, i32 noundef %214, ptr noundef %0, i32 noundef %208, i32 noundef 1, i32 noundef %215)
   %217 = add nuw nsw i8 %.5, 1
   %.not281 = icmp eq i8 %211, 0
-  br i1 %.not281, label %.thread362, label %218
+  br i1 %.not281, label %.thread376, label %218
 
 218:                                              ; preds = %207
   %219 = zext nneg i8 %217 to i32
@@ -1121,7 +1121,7 @@ zbee_aps_node_packet_info.exit:                   ; preds = %.thread293.thread, 
   %223 = call ptr @proto_tree_add_uint(ptr noundef %213, i32 noundef %221, ptr noundef %0, i32 noundef %219, i32 noundef 1, i32 noundef %222)
   %224 = add nuw nsw i8 %.5, 2
   %225 = icmp eq i8 %23, 2
-  br i1 %225, label %226, label %.thread362
+  br i1 %225, label %226, label %.thread376
 
 226:                                              ; preds = %218
   %227 = zext nneg i8 %224 to i32
@@ -1129,9 +1129,9 @@ zbee_aps_node_packet_info.exit:                   ; preds = %.thread293.thread, 
   %229 = load i32, ptr @ett_zbee_aps_frag_ack, align 4
   %230 = call ptr @proto_tree_add_bitmask(ptr noundef %213, ptr noundef %0, i32 noundef %227, i32 noundef %228, i32 noundef %229, ptr noundef nonnull @dissect_zbee_aps.frag_ack_flags, i32 noundef 0)
   %231 = add nuw nsw i8 %.5, 3
-  br label %.thread362
+  br label %.thread376
 
-.thread362:                                       ; preds = %207, %zbee_aps_node_packet_info.exit, %218, %226
+.thread376:                                       ; preds = %207, %zbee_aps_node_packet_info.exit, %218, %226
   %.sroa.41.0 = phi i8 [ %211, %226 ], [ %211, %218 ], [ 0, %zbee_aps_node_packet_info.exit ], [ 0, %207 ]
   %.sroa.46.1 = phi i8 [ %220, %226 ], [ %220, %218 ], [ 0, %zbee_aps_node_packet_info.exit ], [ 0, %207 ]
   %.7 = phi i8 [ %231, %226 ], [ %224, %218 ], [ %.5, %zbee_aps_node_packet_info.exit ], [ %217, %207 ]
@@ -1141,7 +1141,7 @@ zbee_aps_node_packet_info.exit:                   ; preds = %.thread293.thread, 
   %or.cond20 = select i1 %234, i1 %31, i1 false
   br i1 %or.cond20, label %235, label %240
 
-235:                                              ; preds = %.thread362
+235:                                              ; preds = %.thread376
   %236 = call ptr @dissect_zbee_secure(ptr noundef %0, ptr noundef %1, ptr noundef %17, i32 noundef %232)
   %237 = icmp eq ptr %236, null
   br i1 %237, label %238, label %245
@@ -1150,7 +1150,7 @@ zbee_aps_node_packet_info.exit:                   ; preds = %.thread293.thread, 
   %239 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %453
 
-240:                                              ; preds = %.thread362
+240:                                              ; preds = %.thread376
   %241 = call i32 @tvb_captured_length(ptr noundef %0)
   %242 = icmp ugt i32 %241, %232
   br i1 %242, label %243, label %.thread295
@@ -1232,16 +1232,16 @@ zbee_aps_node_packet_info.exit:                   ; preds = %.thread293.thread, 
 
 277:                                              ; preds = %274
   %278 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr %.0270361, ptr %278, align 8
+  store ptr %.0270375, ptr %278, align 8
   %279 = load ptr, ptr @zbee_apf_handle, align 8
   br label %292
 
 280:                                              ; preds = %274
-  %281 = icmp eq ptr %.0270361, null
+  %281 = icmp eq ptr %.0270375, null
   br i1 %281, label %282, label %292
 
 282:                                              ; preds = %280
-  %283 = icmp eq i16 %.sroa.34.0360, 32513
+  %283 = icmp eq i16 %.sroa.34.0374, 32513
   br i1 %283, label %.thread301, label %288
 
 .thread301:                                       ; preds = %282
@@ -1261,7 +1261,7 @@ zbee_aps_node_packet_info.exit:                   ; preds = %.thread293.thread, 
   br label %.thread306
 
 292:                                              ; preds = %280, %277
-  %.1271 = phi ptr [ %279, %277 ], [ %.0270361, %280 ]
+  %.1271 = phi ptr [ %279, %277 ], [ %.0270375, %280 ]
   %293 = call i32 @call_dissector_with_data(ptr noundef %.1271, ptr noundef nonnull %.1266, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3)
   %294 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %453

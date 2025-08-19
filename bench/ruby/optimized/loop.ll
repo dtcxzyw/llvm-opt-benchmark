@@ -194,7 +194,7 @@ loop_get_int32.exit:                              ; preds = %11, %17, %18
   %.0.i = phi i32 [ %16, %11 ], [ %20, %18 ], [ 0, %17 ]
   %21 = and i64 %.021, 3
   %22 = trunc i32 %.0.i to i8
-  switch i64 %21, label %default.unreachable28 [
+  switch i64 %21, label %default.unreachable32 [
     i64 0, label %23
     i64 3, label %loop_get_int32.exit._crit_edge23
     i64 2, label %loop_get_int32.exit._crit_edge22
@@ -232,7 +232,7 @@ loop_get_int32.exit._crit_edge:                   ; preds = %loop_get_int32.exit
   %.not = icmp eq i64 %31, 0
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !24
 
-default.unreachable28:                            ; preds = %loop_get_int32.exit
+default.unreachable32:                            ; preds = %loop_get_int32.exit
   unreachable
 
 ._crit_edge:                                      ; preds = %loop_get_int32.exit._crit_edge, %3

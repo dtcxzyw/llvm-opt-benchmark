@@ -1646,8 +1646,8 @@ _ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit.thread: ; preds = %_ZN4llvm16Ma
 
 73:                                               ; preds = %_ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit.thread, %_ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit
   %74 = phi ptr [ %64, %_ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit.thread ], [ %55, %_ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit ]
-  %.sroa.3.0.i52 = phi i64 [ 16, %_ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit.thread ], [ %54, %_ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit ]
-  %75 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %74, ptr noundef nonnull %51, i64 noundef %.sroa.3.0.i52) #20
+  %.sroa.3.0.i57 = phi i64 [ 16, %_ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit.thread ], [ %54, %_ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit ]
+  %75 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %74, ptr noundef nonnull %51, i64 noundef %.sroa.3.0.i57) #20
   br label %_ZN4llvm16MachObjectWriter16writeWithPaddingENS_9StringRefEm.exit24
 
 76:                                               ; preds = %_ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit
@@ -1655,19 +1655,19 @@ _ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit.thread: ; preds = %_ZN4llvm16Ma
   br i1 %.not.i.i23, label %_ZN4llvm16MachObjectWriter16writeWithPaddingENS_9StringRefEm.exit24, label %.thread
 
 .thread:                                          ; preds = %_ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit.thread, %76
-  %.sroa.3.0.i5357 = phi i64 [ %54, %76 ], [ 16, %_ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit.thread ]
+  %.sroa.3.0.i5660 = phi i64 [ %54, %76 ], [ 16, %_ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit.thread ]
   %77 = phi ptr [ %58, %76 ], [ %67, %_ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit.thread ]
   %78 = phi ptr [ %59, %76 ], [ %68, %_ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit.thread ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %78, ptr noundef nonnull align 4 dereferenceable(1) %51, i64 %.sroa.3.0.i5357, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %78, ptr noundef nonnull align 4 dereferenceable(1) %51, i64 %.sroa.3.0.i5660, i1 false)
   %79 = load ptr, ptr %77, align 8, !tbaa !213
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %.sroa.3.0.i5357
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %.sroa.3.0.i5660
   store ptr %80, ptr %77, align 8, !tbaa !213
   br label %_ZN4llvm16MachObjectWriter16writeWithPaddingENS_9StringRefEm.exit24
 
 _ZN4llvm16MachObjectWriter16writeWithPaddingENS_9StringRefEm.exit24: ; preds = %73, %76, %.thread
-  %.sroa.3.0.i54 = phi i64 [ %.sroa.3.0.i52, %73 ], [ 0, %76 ], [ %.sroa.3.0.i5357, %.thread ]
+  %.sroa.3.0.i55 = phi i64 [ %.sroa.3.0.i57, %73 ], [ 0, %76 ], [ %.sroa.3.0.i5660, %.thread ]
   %81 = load ptr, ptr %25, align 8, !tbaa !200
-  %82 = trunc i64 %.sroa.3.0.i54 to i32
+  %82 = trunc i64 %.sroa.3.0.i55 to i32
   %83 = sub i32 16, %82
   %84 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(48) %81, i32 noundef %83) #20
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2413,7 +2413,7 @@ _ZNK4llvm8MCSymbol11isUndefinedEb.exit68.thread:  ; preds = %89, %_ZNK4llvm8MCSy
   br i1 %.not.i.i59, label %100, label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread
 
 100:                                              ; preds = %.thread157.thread, %.thread157
-  %.2161.ph.ph208 = phi i8 [ %86, %.thread157.thread ], [ %88, %.thread157 ]
+  %.2161.ph.ph215 = phi i8 [ %86, %.thread157.thread ], [ %88, %.thread157 ]
   %101 = getelementptr inbounds nuw i8, ptr %.097, i64 8
   %102 = load i64, ptr %101, align 8
   %103 = and i64 %102, 28800
@@ -2435,7 +2435,7 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit._ZNK4llvm8MCSymbol9isDefinedEv.exit.thread18
   br label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread187
 
 _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread:       ; preds = %_ZNK4llvm8MCSymbol11isUndefinedEb.exit63, %76, %.thread162, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit68, %.thread157, %_ZNK4llvm8MCSymbol9isDefinedEv.exit
-  %.2161180186 = phi i8 [ %.2161.ph.ph208, %_ZNK4llvm8MCSymbol9isDefinedEv.exit ], [ %88, %.thread157 ], [ %.2166, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit68 ], [ %.2166, %.thread162 ], [ %spec.select, %76 ], [ %spec.select, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit63 ]
+  %.2161180186 = phi i8 [ %.2161.ph.ph215, %_ZNK4llvm8MCSymbol9isDefinedEv.exit ], [ %88, %.thread157 ], [ %.2166, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit68 ], [ %.2166, %.thread162 ], [ %spec.select, %76 ], [ %spec.select, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit63 ]
   %108 = tail call noundef i64 @_ZNK4llvm16MachObjectWriter16getSymbolAddressERKNS_8MCSymbolERKNS_11MCAssemblerE(ptr noundef nonnull align 8 dereferenceable(2032) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(364) %2)
   br label %117
 
@@ -2454,7 +2454,7 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread187:    ; preds = %_ZNK4llvm8MCSymbol9
   br label %117
 
 117:                                              ; preds = %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread, %114, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread187, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit68.thread
-  %.2160 = phi i8 [ %.2166, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit68.thread ], [ %.2161180186, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread ], [ %.2161.ph.ph208, %114 ], [ %.2161.ph.ph208, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread187 ]
+  %.2160 = phi i8 [ %.2166, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit68.thread ], [ %.2161180186, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread ], [ %.2161.ph.ph215, %114 ], [ %.2161.ph.ph215, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread187 ]
   %.043 = phi i64 [ %99, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit68.thread ], [ %108, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread ], [ %116, %114 ], [ 0, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread187 ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 2016
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5027,9 +5027,9 @@ _ZN4llvm16MachObjectWriter22populateAddrSigSectionERNS_11MCAssemblerE.exit: ; pr
   %119 = and i8 %118, 1
   %.not419 = icmp eq i8 %119, 0
   %. = select i1 %.not419, i64 68, i64 80
-  %.561 = select i1 %.not419, i64 56, i64 72
+  %.610 = select i1 %.not419, i64 56, i64 72
   %120 = mul nuw nsw i64 %., %115
-  %121 = add nuw nsw i64 %120, %.561
+  %121 = add nuw nsw i64 %120, %.610
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 1920
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 1928
   %124 = load i32, ptr %123, align 8, !tbaa !59
@@ -7582,13 +7582,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEjNS_12DenseMapInfoIS4_vEENS_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %65 = zext i32 %.sink28 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %.sink26, i64 %65
-  store ptr %.sink25, ptr %0, align 8
+  %65 = zext i32 %.sink32 to i64
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %.sink30, i64 %65
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16

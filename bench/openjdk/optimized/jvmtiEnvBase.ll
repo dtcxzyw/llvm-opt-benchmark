@@ -6538,7 +6538,7 @@ define hidden void @_ZN26GetSingleStackTraceClosure4doitEv(ptr noundef nonnull a
   br i1 %.old1.not, label %_ZN12ResourceMarkD2Ev.exit, label %.split7
 
 .split7:                                          ; preds = %14, %8
-  %.sink14 = phi ptr [ %3, %8 ], [ null, %14 ]
+  %.sink17 = phi ptr [ %3, %8 ], [ null, %14 ]
   %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 800
@@ -6553,7 +6553,7 @@ define hidden void @_ZN26GetSingleStackTraceClosure4doitEv(ptr noundef nonnull a
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load ptr, ptr %4, align 8
-  tail call void @_ZN28MultipleStackTracesCollector11fill_framesEP8_jobjectP10JavaThreadP7oopDesc(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef %28, ptr noundef %.sink14, ptr noundef nonnull %6)
+  tail call void @_ZN28MultipleStackTracesCollector11fill_framesEP8_jobjectP10JavaThreadP7oopDesc(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef %28, ptr noundef %.sink17, ptr noundef nonnull %6)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
@@ -7731,8 +7731,8 @@ declare void @_ZN20ClassLoaderDataGraph20modules_do_keepaliveEPFvP11ModuleEntryE
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN27UpdateForPopTopFrameClosure4doitEP6Thread(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.HandleMark, align 8
-  %.sroa.048 = alloca i8, align 1
-  %.sroa.249 = alloca i8, align 1
+  %.sroa.051 = alloca i8, align 1
+  %.sroa.252 = alloca i8, align 1
   %.sroa.0 = alloca ptr, align 16
   %.sroa.2 = alloca ptr, align 8
   %4 = alloca %class.vframeStream, align 8
@@ -7800,7 +7800,7 @@ define hidden void @_ZN27UpdateForPopTopFrameClosure4doitEP6Thread(ptr noundef n
 45:                                               ; preds = %.lr.ph, %95
   %.not38 = phi i1 [ true, %.lr.ph ], [ false, %95 ]
   %.02139.sroa.phi = phi ptr [ %.sroa.0, %.lr.ph ], [ %.sroa.2, %95 ]
-  %.02139.sroa.phi44 = phi ptr [ %.sroa.048, %.lr.ph ], [ %.sroa.249, %95 ]
+  %.02139.sroa.phi47 = phi ptr [ %.sroa.051, %.lr.ph ], [ %.sroa.252, %95 ]
   %46 = load ptr, ptr %38, align 8, !nonnull !71, !noundef !71
   store ptr %46, ptr %5, align 8
   store ptr %7, ptr %39, align 8
@@ -7868,7 +7868,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
 
 _ZNK18vframeStreamCommon20is_interpreted_frameEv.exit: ; preds = %69, %71
   %82 = phi i8 [ 0, %69 ], [ %81, %71 ]
-  store i8 %82, ptr %.02139.sroa.phi44, align 1
+  store i8 %82, ptr %.02139.sroa.phi47, align 1
   %83 = load i8, ptr %42, align 4
   %84 = trunc i8 %83 to i1
   br i1 %84, label %85, label %93
@@ -7916,8 +7916,8 @@ _ZNK18vframeStreamCommon8frame_idEv.exit:         ; preds = %85, %93
 .preheader:                                       ; preds = %_ZNK18vframeStreamCommon8frame_idEv.exit, %108
   %103 = phi i1 [ false, %108 ], [ true, %_ZNK18vframeStreamCommon8frame_idEv.exit ]
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.2, %108 ], [ %.sroa.0, %_ZNK18vframeStreamCommon8frame_idEv.exit ]
-  %indvars.iv.sroa.phi46 = phi ptr [ %.sroa.249, %108 ], [ %.sroa.048, %_ZNK18vframeStreamCommon8frame_idEv.exit ]
-  %104 = load i8, ptr %indvars.iv.sroa.phi46, align 1
+  %indvars.iv.sroa.phi49 = phi ptr [ %.sroa.252, %108 ], [ %.sroa.051, %_ZNK18vframeStreamCommon8frame_idEv.exit ]
+  %104 = load i8, ptr %indvars.iv.sroa.phi49, align 1
   %105 = trunc i8 %104 to i1
   br i1 %105, label %108, label %106
 
@@ -11075,14 +11075,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #18, !srcloc !79
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #18, !srcloc !79
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -11216,14 +11216,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i18.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i19.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i18 = or i64 %.0.i.i18.in, 48
+  %.0.i.i19 = or i64 %.0.i.i19.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i17.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #18, !srcloc !79
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i19, i64 %.0.i17.i, ptr nonnull %0) #18, !srcloc !79
   %71 = icmp eq i64 %70, %.0.i17.i
   br i1 %71, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %72
 
@@ -12535,7 +12535,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPh13GrowableArr
   br i1 %.not, label %_ZN13GrowableArrayIPhE10deallocateEPS0_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -12547,8 +12547,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPh13GrowableArr
   br label %_ZN13GrowableArrayIPhE10deallocateEPS0_.exit
 
 _ZN13GrowableArrayIPhE10deallocateEPS0_.exit:     ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIPhE10deallocateEPS0_.exit

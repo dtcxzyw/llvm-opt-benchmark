@@ -785,8 +785,8 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit:      ; preds = %.noexc513, %_ZN2cv1
   br i1 %.not643, label %.loopexit669, label %.preheader668.preheader
 
 .preheader668.preheader:                          ; preds = %239
-  %sext785 = shl i64 %166, 32
-  %240 = ashr exact i64 %sext785, 32
+  %sext829 = shl i64 %166, 32
+  %240 = ashr exact i64 %sext829, 32
   br label %.preheader668
 
 .preheader668:                                    ; preds = %.preheader668.preheader, %.preheader668
@@ -1015,10 +1015,10 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit:      ; preds = %.noexc513, %_ZN2cv1
   %343 = zext nneg i32 %342 to i64
   %344 = getelementptr inbounds nuw double, ptr %190, i64 %343
   %wide.trip.count737 = zext nneg i32 %72 to i64
-  br i1 %340, label %.preheader808, label %.preheader809
+  br i1 %340, label %.preheader852, label %.preheader853
 
-.preheader809:                                    ; preds = %339, %.preheader809
-  %indvars.iv730 = phi i64 [ %indvars.iv.next731, %.preheader809 ], [ 0, %339 ]
+.preheader853:                                    ; preds = %339, %.preheader853
+  %indvars.iv730 = phi i64 [ %indvars.iv.next731, %.preheader853 ], [ 0, %339 ]
   %345 = getelementptr inbounds nuw double, ptr %.0401, i64 %indvars.iv730
   %346 = load double, ptr %345, align 8, !tbaa !49
   %347 = getelementptr inbounds nuw double, ptr %.0400, i64 %indvars.iv730
@@ -1037,10 +1037,10 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit:      ; preds = %.noexc513, %_ZN2cv1
   store float %356, ptr %357, align 4, !tbaa !3
   %indvars.iv.next731 = add nuw nsw i64 %indvars.iv730, 1
   %exitcond733.not = icmp eq i64 %indvars.iv.next731, %wide.trip.count737
-  br i1 %exitcond733.not, label %.loopexit666, label %.preheader809, !llvm.loop !62
+  br i1 %exitcond733.not, label %.loopexit666, label %.preheader853, !llvm.loop !62
 
-.preheader808:                                    ; preds = %339, %.preheader808
-  %indvars.iv734 = phi i64 [ %indvars.iv.next735, %.preheader808 ], [ 0, %339 ]
+.preheader852:                                    ; preds = %339, %.preheader852
+  %indvars.iv734 = phi i64 [ %indvars.iv.next735, %.preheader852 ], [ 0, %339 ]
   %358 = getelementptr inbounds nuw double, ptr %.0401, i64 %indvars.iv734
   %359 = load double, ptr %358, align 8, !tbaa !49
   %360 = getelementptr inbounds nuw double, ptr %.0400, i64 %indvars.iv734
@@ -1059,11 +1059,11 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit:      ; preds = %.noexc513, %_ZN2cv1
   store double %369, ptr %370, align 8, !tbaa !49
   %indvars.iv.next735 = add nuw nsw i64 %indvars.iv734, 1
   %exitcond738.not = icmp eq i64 %indvars.iv.next735, %wide.trip.count737
-  br i1 %exitcond738.not, label %.loopexit666, label %.preheader808, !llvm.loop !63
+  br i1 %exitcond738.not, label %.loopexit666, label %.preheader852, !llvm.loop !63
 
-.loopexit666:                                     ; preds = %.preheader809, %.preheader808
-  %.0388 = phi ptr [ null, %.preheader808 ], [ %344, %.preheader809 ]
-  %.0385 = phi ptr [ %344, %.preheader808 ], [ null, %.preheader809 ]
+.loopexit666:                                     ; preds = %.preheader853, %.preheader852
+  %.0388 = phi ptr [ null, %.preheader852 ], [ %344, %.preheader853 ]
+  %.0385 = phi ptr [ %344, %.preheader852 ], [ null, %.preheader853 ]
   %371 = zext nneg i32 %69 to i64
   %372 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN2cvL7randTabE, i64 0, i64 %371
   br label %373
@@ -1548,8 +1548,8 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit556:   ; preds = %544, %.noexc555
 
 .preheader657.preheader:                          ; preds = %.preheader658
   %556 = and i32 %70, 511
-  %narrow787 = add nuw nsw i32 %556, 1
-  %557 = zext nneg i32 %narrow787 to i64
+  %narrow831 = add nuw nsw i32 %556, 1
+  %557 = zext nneg i32 %narrow831 to i64
   %558 = zext nneg i32 %543 to i64
   %wide.trip.count770 = zext nneg i32 %72 to i64
   br label %.preheader657
@@ -1559,22 +1559,22 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit556:   ; preds = %544, %.noexc555
 
 .preheader655.preheader:                          ; preds = %.preheader656
   %559 = and i32 %70, 511
-  %narrow788 = add nuw nsw i32 %559, 1
-  %560 = zext nneg i32 %narrow788 to i64
+  %narrow832 = add nuw nsw i32 %559, 1
+  %560 = zext nneg i32 %narrow832 to i64
   %561 = zext nneg i32 %543 to i64
   %wide.trip.count778 = zext nneg i32 %72 to i64
   br label %.preheader655
 
 .preheader657:                                    ; preds = %.preheader657.preheader, %568
   %indvars.iv772 = phi i64 [ 0, %.preheader657.preheader ], [ %indvars.iv.next773, %568 ]
-  %invariant.gep797 = getelementptr inbounds nuw %"struct.cv::DivStruct", ptr %552, i64 %indvars.iv772
+  %invariant.gep841 = getelementptr inbounds nuw %"struct.cv::DivStruct", ptr %552, i64 %indvars.iv772
   br label %562
 
 562:                                              ; preds = %.preheader657, %562
   %indvars.iv767 = phi i64 [ 0, %.preheader657 ], [ %indvars.iv.next768, %562 ]
   %563 = getelementptr inbounds nuw %"struct.cv::DivStruct", ptr %.2393, i64 %indvars.iv767
-  %gep798 = getelementptr inbounds nuw %"struct.cv::DivStruct", ptr %invariant.gep797, i64 %indvars.iv767
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %gep798, ptr noundef nonnull align 4 dereferenceable(20) %563, i64 20, i1 false), !tbaa.struct !77
+  %gep842 = getelementptr inbounds nuw %"struct.cv::DivStruct", ptr %invariant.gep841, i64 %indvars.iv767
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %gep842, ptr noundef nonnull align 4 dereferenceable(20) %563, i64 20, i1 false), !tbaa.struct !77
   %indvars.iv.next768 = add nuw nsw i64 %indvars.iv767, 1
   %exitcond771.not = icmp eq i64 %indvars.iv.next768, %wide.trip.count770
   br i1 %exitcond771.not, label %568, label %562, !llvm.loop !78
@@ -1596,15 +1596,15 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit556:   ; preds = %544, %.noexc555
 
 .preheader655:                                    ; preds = %.preheader655.preheader, %573
   %indvars.iv780 = phi i64 [ 0, %.preheader655.preheader ], [ %indvars.iv.next781, %573 ]
-  %invariant.gep799 = getelementptr inbounds nuw %"class.cv::Vec", ptr %552, i64 %indvars.iv780
+  %invariant.gep843 = getelementptr inbounds nuw %"class.cv::Vec", ptr %552, i64 %indvars.iv780
   br label %570
 
 570:                                              ; preds = %.preheader655, %570
   %indvars.iv775 = phi i64 [ 0, %.preheader655 ], [ %indvars.iv.next776, %570 ]
   %571 = getelementptr inbounds nuw %"class.cv::Vec", ptr %.1384, i64 %indvars.iv775
-  %gep800 = getelementptr inbounds nuw %"class.cv::Vec", ptr %invariant.gep799, i64 %indvars.iv775
+  %gep844 = getelementptr inbounds nuw %"class.cv::Vec", ptr %invariant.gep843, i64 %indvars.iv775
   %572 = load i64, ptr %571, align 4
-  store i64 %572, ptr %gep800, align 4
+  store i64 %572, ptr %gep844, align 4
   %indvars.iv.next776 = add nuw nsw i64 %indvars.iv775, 1
   %exitcond779.not = icmp eq i64 %indvars.iv.next776, %wide.trip.count778
   br i1 %exitcond779.not, label %573, label %570, !llvm.loop !80
@@ -1635,8 +1635,8 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit556:   ; preds = %544, %.noexc555
 
 .preheader660.preheader:                          ; preds = %.preheader661
   %580 = and i32 %70, 511
-  %narrow786 = add nuw nsw i32 %580, 1
-  %581 = zext nneg i32 %narrow786 to i64
+  %narrow830 = add nuw nsw i32 %580, 1
+  %581 = zext nneg i32 %narrow830 to i64
   %582 = zext nneg i32 %543 to i64
   %wide.trip.count762 = zext nneg i32 %72 to i64
   br label %.preheader660
@@ -1671,14 +1671,14 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit556:   ; preds = %544, %.noexc555
 
 .preheader660:                                    ; preds = %.preheader660.preheader, %594
   %indvars.iv764 = phi i64 [ 0, %.preheader660.preheader ], [ %indvars.iv.next765, %594 ]
-  %invariant.gep795 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr %552, i64 %indvars.iv764
+  %invariant.gep839 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr %552, i64 %indvars.iv764
   br label %592
 
 592:                                              ; preds = %.preheader660, %592
   %indvars.iv759 = phi i64 [ 0, %.preheader660 ], [ %indvars.iv.next760, %592 ]
   %593 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr %.2387, i64 %indvars.iv759
-  %gep796 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr %invariant.gep795, i64 %indvars.iv759
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gep796, ptr noundef nonnull align 8 dereferenceable(16) %593, i64 16, i1 false)
+  %gep840 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr %invariant.gep839, i64 %indvars.iv759
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gep840, ptr noundef nonnull align 8 dereferenceable(16) %593, i64 16, i1 false)
   %indvars.iv.next760 = add nuw nsw i64 %indvars.iv759, 1
   %exitcond763.not = icmp eq i64 %indvars.iv.next760, %wide.trip.count762
   br i1 %exitcond763.not, label %594, label %592, !llvm.loop !84
@@ -1818,8 +1818,8 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit556:   ; preds = %544, %.noexc555
   %643 = load ptr, ptr %34, align 8, !tbaa !41
   %.not.i.i562 = icmp eq ptr %643, %541
   %644 = icmp eq ptr %643, null
-  %or.cond801 = or i1 %.not.i.i562, %644
-  br i1 %or.cond801, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit, label %645
+  %or.cond845 = or i1 %.not.i.i562, %644
+  br i1 %or.cond845, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit, label %645
 
 645:                                              ; preds = %.split703.us
   call void @_ZdaPv(ptr noundef nonnull %643) #22
@@ -1833,8 +1833,8 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %645, %.split703.us
   %646 = load ptr, ptr %12, align 8, !tbaa !41
   %.not.i.i564 = icmp eq ptr %646, %73
   %647 = icmp eq ptr %646, null
-  %or.cond802 = or i1 %.not.i.i564, %647
-  br i1 %or.cond802, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit566, label %648
+  %or.cond846 = or i1 %.not.i.i564, %647
+  br i1 %or.cond846, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit566, label %648
 
 648:                                              ; preds = %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %646) #22
@@ -1860,8 +1860,8 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit566:          ; preds = %648, %_ZN2cv10AutoB
   %650 = load ptr, ptr %34, align 8, !tbaa !41
   %.not.i.i568 = icmp eq ptr %650, %541
   %651 = icmp eq ptr %650, null
-  %or.cond803 = or i1 %.not.i.i568, %651
-  br i1 %or.cond803, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit570, label %652
+  %or.cond847 = or i1 %.not.i.i568, %651
+  br i1 %or.cond847, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit570, label %652
 
 652:                                              ; preds = %.split705.us
   call void @_ZdaPv(ptr noundef nonnull %650) #22

@@ -76,22 +76,22 @@ jdwpTag.exit.thread:                              ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 17
   %26 = load i8, ptr %25, align 1
   %.not13.i = icmp eq i8 %26, 0
-  %.pr2850 = load i8, ptr %21, align 1
-  br i1 %.not13.i, label %jdwpTag.exit.thread44, label %27
+  %.pr2856 = load i8, ptr %21, align 1
+  br i1 %.not13.i, label %jdwpTag.exit.thread50, label %27
 
 27:                                               ; preds = %24
-  switch i8 %.pr2850, label %jdwpTag.exit [
-    i8 76, label %jdwpTag.exit.thread44
-    i8 91, label %jdwpTag.exit.thread44
-    i8 90, label %jdwpTag.exit.thread44
-    i8 66, label %jdwpTag.exit.thread44
-    i8 67, label %jdwpTag.exit.thread44
-    i8 68, label %jdwpTag.exit.thread44
-    i8 70, label %jdwpTag.exit.thread44
-    i8 73, label %jdwpTag.exit.thread44
-    i8 74, label %jdwpTag.exit.thread44
-    i8 83, label %jdwpTag.exit.thread44
-    i8 86, label %jdwpTag.exit.thread44
+  switch i8 %.pr2856, label %jdwpTag.exit [
+    i8 76, label %jdwpTag.exit.thread50
+    i8 91, label %jdwpTag.exit.thread50
+    i8 90, label %jdwpTag.exit.thread50
+    i8 66, label %jdwpTag.exit.thread50
+    i8 67, label %jdwpTag.exit.thread50
+    i8 68, label %jdwpTag.exit.thread50
+    i8 70, label %jdwpTag.exit.thread50
+    i8 73, label %jdwpTag.exit.thread50
+    i8 74, label %jdwpTag.exit.thread50
+    i8 83, label %jdwpTag.exit.thread50
+    i8 86, label %jdwpTag.exit.thread50
   ]
 
 jdwpTag.exit:                                     ; preds = %27
@@ -99,18 +99,18 @@ jdwpTag.exit:                                     ; preds = %27
   %.pr.pre.pre = load ptr, ptr @gdata, align 8
   %.pr28 = load i8, ptr %21, align 1
   %.not.i24 = icmp eq ptr %.pr.pre.pre, null
-  br i1 %.not.i24, label %isReferenceTag.exit, label %jdwpTag.exit.thread44
+  br i1 %.not.i24, label %isReferenceTag.exit, label %jdwpTag.exit.thread50
 
-jdwpTag.exit.thread44:                            ; preds = %24, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %jdwpTag.exit
-  %28 = phi i8 [ %.pr28, %jdwpTag.exit ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %24 ]
-  %.pr47 = phi ptr [ %.pr.pre.pre, %jdwpTag.exit ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %24 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.pr47, i64 17
+jdwpTag.exit.thread50:                            ; preds = %24, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %jdwpTag.exit
+  %28 = phi i8 [ %.pr28, %jdwpTag.exit ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %24 ]
+  %.pr53 = phi ptr [ %.pr.pre.pre, %jdwpTag.exit ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %24 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.pr53, i64 17
   %30 = load i8, ptr %29, align 1
   %.fr.i = freeze i8 %30
   %31 = icmp eq i8 %.fr.i, 0
   br i1 %31, label %isReferenceTag.exit, label %switch.early.test.i
 
-switch.early.test.i:                              ; preds = %jdwpTag.exit.thread44
+switch.early.test.i:                              ; preds = %jdwpTag.exit.thread50
   %switch.tableidx = add i8 %28, -66
   %32 = icmp ult i8 %switch.tableidx, 26
   br i1 %32, label %switch.hole_check, label %33
@@ -131,8 +131,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %isReferenceTag.exit
 
-isReferenceTag.exit:                              ; preds = %switch.lookup, %jdwpTag.exit.thread, %jdwpTag.exit, %jdwpTag.exit.thread44, %33
-  %35 = phi i8 [ %23, %jdwpTag.exit.thread ], [ %.pr28, %jdwpTag.exit ], [ %28, %jdwpTag.exit.thread44 ], [ %28, %33 ], [ %switch.load, %switch.lookup ]
+isReferenceTag.exit:                              ; preds = %switch.lookup, %jdwpTag.exit.thread, %jdwpTag.exit, %jdwpTag.exit.thread50, %33
+  %35 = phi i8 [ %23, %jdwpTag.exit.thread ], [ %.pr28, %jdwpTag.exit ], [ %28, %jdwpTag.exit.thread50 ], [ %28, %33 ], [ %switch.load, %switch.lookup ]
   switch i8 %35, label %121 [
     i8 91, label %36
     i8 76, label %36

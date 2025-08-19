@@ -338,8 +338,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %139 = lshr i64 %.val102, 32
   %140 = and i64 %139, 536870911
   %141 = sub nsw i64 %indvars.iv214, %140
-  %sext228 = shl i64 %141, 32
-  %142 = ashr exact i64 %sext228, 28
+  %sext275 = shl i64 %141, 32
+  %142 = ashr exact i64 %sext275, 28
   %143 = getelementptr inbounds i8, ptr %77, i64 %142
   %144 = and i64 %.val102, 536870912
   %.not81 = icmp eq i64 %144, 0
@@ -854,8 +854,8 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i,
   %362 = and i64 %.val108, 536870912
   %.not79 = icmp ne i64 %362, 0
   %363 = icmp sgt i32 %361, 0
-  %or.cond233 = select i1 %.not79, i1 %363, i1 false
-  br i1 %or.cond233, label %.lr.ph.i187, label %Vec_IntFlopBit.exit196
+  %or.cond280 = select i1 %.not79, i1 %363, i1 false
+  br i1 %or.cond280, label %.lr.ph.i187, label %Vec_IntFlopBit.exit196
 
 .lr.ph.i187:                                      ; preds = %Vec_IntAppend.exit
   %364 = getelementptr inbounds nuw i8, ptr %300, i64 8
@@ -1153,15 +1153,15 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 .thread:                                          ; preds = %.lr.ph, %17
   %putchar = call i32 @putchar(i32 10)
   %27 = getelementptr i8, ptr %0, i64 72
-  %.val5976106 = load ptr, ptr %27, align 8, !tbaa !34
-  %28 = getelementptr i8, ptr %.val5976106, i64 4
-  %.val59.val77107 = load i32, ptr %28, align 4, !tbaa !3
-  %29 = icmp sgt i32 %.val59.val77107, 0
+  %.val5976113 = load ptr, ptr %27, align 8, !tbaa !34
+  %28 = getelementptr i8, ptr %.val5976113, i64 4
+  %.val59.val77114 = load i32, ptr %28, align 4, !tbaa !3
+  %29 = icmp sgt i32 %.val59.val77114, 0
   br i1 %29, label %.lr.ph82.split.preheader, label %._crit_edge83
 
 .lr.ph82.split.preheader:                         ; preds = %.thread
   %30 = getelementptr i8, ptr %11, i64 8
-  %.val62112 = load ptr, ptr %30, align 8, !tbaa !37
+  %.val62119 = load ptr, ptr %30, align 8, !tbaa !37
   %31 = sext i32 %.val57.val to i64
   br label %.lr.ph82.split
 
@@ -1244,7 +1244,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph82.split.preheader ], [ %indvars.iv.next, %.critedge ]
   %.04480 = phi i32 [ 0, %.lr.ph82.split.preheader ], [ %.145.lcssa, %.critedge ]
   %.04779 = phi i32 [ 0, %.lr.ph82.split.preheader ], [ %.148.lcssa, %.critedge ]
-  %65 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val62112, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val62119, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr align 1 %16, i8 32, i64 %31, i1 false)
   %66 = getelementptr i8, ptr %65, i64 4
   %.val5568 = load i32, ptr %66, align 4, !tbaa !3
@@ -1315,8 +1315,8 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   br i1 %97, label %.lr.ph82.split, label %._crit_edge83, !llvm.loop !56
 
 ._crit_edge83:                                    ; preds = %.critedge, %.critedge.us, %.thread, %23
-  %.val58.val97 = phi i32 [ %.val59.val77, %23 ], [ %.val59.val77107, %.thread ], [ %.val59.val77, %.critedge.us ], [ %.val59.val, %.critedge ]
-  %.val59.lcssa = phi ptr [ %.val5976, %23 ], [ %.val5976106, %.thread ], [ %.val5976, %.critedge.us ], [ %.val59, %.critedge ]
+  %.val58.val97 = phi i32 [ %.val59.val77, %23 ], [ %.val59.val77114, %.thread ], [ %.val59.val77, %.critedge.us ], [ %.val59.val, %.critedge ]
+  %.val59.lcssa = phi ptr [ %.val5976, %23 ], [ %.val5976113, %.thread ], [ %.val5976, %.critedge.us ], [ %.val59, %.critedge ]
   %.047.lcssa = phi i32 [ 0, %23 ], [ 0, %.thread ], [ %.148.lcssa.us, %.critedge.us ], [ %.148.lcssa, %.critedge ]
   %.044.lcssa = phi i32 [ 0, %23 ], [ 0, %.thread ], [ %.145.lcssa.us, %.critedge.us ], [ %.145.lcssa, %.critedge ]
   %.not53 = icmp eq ptr %16, null

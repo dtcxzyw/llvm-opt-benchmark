@@ -1793,10 +1793,10 @@ define internal fastcc range(i32 -1, 2) i32 @SDL_PrivateAddGamepadMapping(ptr no
   br i1 %spec.select95, label %SDL_ConvertMappingToPositionalAXBY.exit.thread, label %117
 
 SDL_ConvertMappingToPositionalAXBY.exit.thread.sink.split: ; preds = %110, %83
-  %.sink129 = phi ptr [ %77, %83 ], [ %98, %110 ]
+  %.sink144 = phi ptr [ %77, %83 ], [ %98, %110 ]
   %.168.ph.ph = phi ptr [ %72, %83 ], [ %91, %110 ]
-  %113 = getelementptr inbounds nuw i8, ptr %.sink129, i64 5
-  %114 = getelementptr inbounds nuw i8, ptr %.sink129, i64 6
+  %113 = getelementptr inbounds nuw i8, ptr %.sink144, i64 5
+  %114 = getelementptr inbounds nuw i8, ptr %.sink144, i64 6
   %115 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %113) #10
   %116 = add i64 %115, 1
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %114, ptr nonnull align 1 %113, i64 %116, i1 false)
@@ -3027,8 +3027,8 @@ HasSameOutput.exit.thread.i:                      ; preds = %HasSameOutput.exit.
   %76 = getelementptr inbounds nuw i8, ptr %.1.i, i64 28
   %77 = load i32, ptr %76, align 4
   %.not81.i = icmp eq i32 %75, %77
-  %or.cond99.i = select i1 %.not80.i, i1 %.not81.i, i1 false
-  br i1 %or.cond99.i, label %89, label %._crit_edge.i
+  %or.cond109.i = select i1 %.not80.i, i1 %.not81.i, i1 false
+  br i1 %or.cond109.i, label %89, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %70
   %78 = sub nsw i32 %26, %69
@@ -5026,8 +5026,8 @@ define hidden signext i16 @SDL_GetGamepadAxis_REAL(ptr noundef %0, i32 noundef %
   %42 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %43 = load i32, ptr %42, align 4
   %.not88 = icmp eq i32 %33, %43
-  %or.cond109 = select i1 %.not87, i1 %.not88, i1 false
-  br i1 %or.cond109, label %74, label %._crit_edge
+  %or.cond118 = select i1 %.not87, i1 %.not88, i1 false
+  br i1 %or.cond118, label %74, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %39
   %44 = sub nsw i32 %29, %31
@@ -7193,18 +7193,18 @@ define internal fastcc ptr @SDL_PrivateMatchGamepadMappingForGUID(i64 %0, i64 %1
   tail call void @SDL_AssertJoysticksLocked() #10
   call void @SDL_GetJoystickGUIDInfo_REAL(i64 %0, i64 %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %6) #10
   call void @SDL_SetJoystickGUIDCRC(ptr noundef nonnull %5, i16 noundef zeroext 0) #10
-  br i1 %2, label %9, label %.thread79
+  br i1 %2, label %9, label %.thread82
 
 9:                                                ; preds = %4
   %.01844 = load ptr, ptr @s_pSupportedGamepads, align 8
   %.not45 = icmp eq ptr %.01844, null
   br i1 %.not45, label %.loopexit, label %.lr.ph.split.us
 
-.thread79:                                        ; preds = %4
+.thread82:                                        ; preds = %4
   call void @SDL_SetJoystickGUIDVersion(ptr noundef nonnull %5, i16 noundef zeroext 0) #10
-  %.0184480 = load ptr, ptr @s_pSupportedGamepads, align 8
-  %.not4581 = icmp eq ptr %.0184480, null
-  br i1 %.not4581, label %.loopexit, label %.lr.ph.split
+  %.0184483 = load ptr, ptr @s_pSupportedGamepads, align 8
+  %.not4584 = icmp eq ptr %.0184483, null
+  br i1 %.not4584, label %.loopexit, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %9
   br i1 %3, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
@@ -7298,11 +7298,11 @@ define internal fastcc ptr @SDL_PrivateMatchGamepadMappingForGUID(i64 %0, i64 %1
   %.not.us = icmp eq ptr %.018.us, null
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !63
 
-.lr.ph.split:                                     ; preds = %.thread79
+.lr.ph.split:                                     ; preds = %.thread82
   br i1 %3, label %.lr.ph.split.split, label %.lr.ph.split.split.us
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.thread.us58
-  %.01847.us50 = phi ptr [ %.018.us60, %.thread.us58 ], [ %.0184480, %.lr.ph.split ]
+  %.01847.us50 = phi ptr [ %.018.us60, %.thread.us58 ], [ %.0184483, %.lr.ph.split ]
   %.02246.us51 = phi ptr [ %.12335.us59, %.thread.us58 ], [ null, %.lr.ph.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %44 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.01847.us50, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
@@ -7345,7 +7345,7 @@ define internal fastcc ptr @SDL_PrivateMatchGamepadMappingForGUID(i64 %0, i64 %1
   br i1 %.not.us61, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !63
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.thread
-  %.01847 = phi ptr [ %.018, %.thread ], [ %.0184480, %.lr.ph.split ]
+  %.01847 = phi ptr [ %.018, %.thread ], [ %.0184483, %.lr.ph.split ]
   %.02246 = phi ptr [ %.12335, %.thread ], [ null, %.lr.ph.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %60 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.01847, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
@@ -7397,8 +7397,8 @@ define internal fastcc ptr @SDL_PrivateMatchGamepadMappingForGUID(i64 %0, i64 %1
   %.not = icmp eq ptr %.018, null
   br i1 %.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !63
 
-.loopexit:                                        ; preds = %.thread.us58, %.thread, %.thread.us.us, %.thread.us, %.thread79, %9, %.thread38
-  %.5 = phi ptr [ %.us-phi, %.thread38 ], [ null, %9 ], [ null, %.thread79 ], [ %.12335.us, %.thread.us ], [ %.12335.us.us, %.thread.us.us ], [ %.12335, %.thread ], [ %.12335.us59, %.thread.us58 ]
+.loopexit:                                        ; preds = %.thread.us58, %.thread, %.thread.us.us, %.thread.us, %.thread82, %9, %.thread38
+  %.5 = phi ptr [ %.us-phi, %.thread38 ], [ null, %9 ], [ null, %.thread82 ], [ %.12335.us, %.thread.us ], [ %.12335.us.us, %.thread.us.us ], [ %.12335, %.thread ], [ %.12335.us59, %.thread.us58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.5
 }
@@ -7826,9 +7826,9 @@ SDL_PrivateGetGamepadButtonFromString.exit:       ; preds = %42, %switch.lookup,
   br label %84
 
 84:                                               ; preds = %77, %82, %83
-  %.sink108 = phi i32 [ 0, %82 ], [ -32768, %83 ], [ 0, %77 ]
+  %.sink112 = phi i32 [ 0, %82 ], [ -32768, %83 ], [ 0, %77 ]
   %.sink = phi i32 [ -32768, %82 ], [ 32767, %83 ], [ 32767, %77 ]
-  store i32 %.sink108, ptr %80, align 4
+  store i32 %.sink112, ptr %80, align 4
   store i32 %.sink, ptr %81, align 4
   br i1 %69, label %85, label %121
 
@@ -7836,7 +7836,7 @@ SDL_PrivateGetGamepadButtonFromString.exit:       ; preds = %42, %switch.lookup,
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %.sink, ptr %86, align 4
-  store i32 %.sink108, ptr %87, align 4
+  store i32 %.sink112, ptr %87, align 4
   br label %121
 
 thread-pre-split:                                 ; preds = %72

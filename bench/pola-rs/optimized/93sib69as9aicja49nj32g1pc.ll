@@ -845,7 +845,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h06d0dcc19238bdb1E.exit.thread
 
 98:                                               ; preds = %.lr.ph.i.i
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %100 = sub nuw i64 %.sroa.0.020.i.i, %96
+  %100 = sub nuw nsw i64 %.sroa.0.020.i.i, %96
   %101 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %102 = icmp eq ptr %99, %77
   br i1 %102, label %_ZN11polars_core5utils22index_to_chunked_index17hc8eca7129576b57fE.exit.i, label %.lr.ph.i.i
@@ -1097,7 +1097,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h1512dd32395fd810E.exit.thread
 
 98:                                               ; preds = %.lr.ph.i.i
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %100 = sub nuw i64 %.sroa.0.020.i.i, %96
+  %100 = sub nuw nsw i64 %.sroa.0.020.i.i, %96
   %101 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %102 = icmp eq ptr %99, %77
   br i1 %102, label %_ZN11polars_core5utils22index_to_chunked_index17hc8eca7129576b57fE.exit.i, label %.lr.ph.i.i
@@ -1336,7 +1336,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h1512dd32395fd810E.exit.i: ; p
 
 90:                                               ; preds = %.lr.ph.i.i
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %92 = sub nuw i64 %.sroa.0.020.i.i, %88
+  %92 = sub nuw nsw i64 %.sroa.0.020.i.i, %88
   %93 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %94 = icmp eq ptr %91, %69
   br i1 %94, label %_ZN11polars_core5utils22index_to_chunked_index17hc8eca7129576b57fE.exit.i, label %.lr.ph.i.i
@@ -1578,7 +1578,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h06d0dcc19238bdb1E.exit.i: ; p
 
 90:                                               ; preds = %.lr.ph.i.i
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %92 = sub nuw i64 %.sroa.0.020.i.i, %88
+  %92 = sub nuw nsw i64 %.sroa.0.020.i.i, %88
   %93 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %94 = icmp eq ptr %91, %69
   br i1 %94, label %_ZN11polars_core5utils22index_to_chunked_index17hc8eca7129576b57fE.exit.i, label %.lr.ph.i.i
@@ -2171,7 +2171,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
   %17 = alloca [2 x i8], align 2
   store i16 %2, ptr %17, align 2
   %18 = load i8, ptr %1, align 16, !range !94, !noundef !6
-  switch i8 %18, label %default.unreachable129 [
+  switch i8 %18, label %default.unreachable131 [
     i8 0, label %19
     i8 1, label %21
     i8 2, label %23
@@ -2202,7 +2202,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
     i8 27, label %109
   ], !prof !175
 
-default.unreachable129:                           ; preds = %109, %3
+default.unreachable131:                           ; preds = %109, %3
   unreachable
 
 19:                                               ; preds = %3
@@ -2494,7 +2494,7 @@ common.resume:                                    ; preds = %142, %97, %83
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %111 = load i128, ptr %110, align 16, !range !201, !noundef !6
   %112 = trunc nuw nsw i128 %111 to i64
-  switch i64 %112, label %default.unreachable129 [
+  switch i64 %112, label %default.unreachable131 [
     i64 0, label %137
     i64 1, label %152
     i64 2, label %140
@@ -4344,7 +4344,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !203, !noundef !6
-  switch i8 %23, label %default.unreachable61 [
+  switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -4386,7 +4386,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable61:                            ; preds = %2
+default.unreachable66:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2

@@ -263,8 +263,8 @@ _ZN3net17HpackOutputStream10AppendBitsEhm.exit15: ; preds = %27, %31
   br i1 %48, label %._crit_edge.thread, label %53
 
 ._crit_edge.thread:                               ; preds = %_ZN3net17HpackOutputStream10AppendBitsEhm.exit15, %._crit_edge
-  %.0.lcssa20 = phi i32 [ %46, %._crit_edge ], [ %39, %_ZN3net17HpackOutputStream10AppendBitsEhm.exit15 ]
-  %49 = trunc nuw nsw i32 %.0.lcssa20 to i8
+  %.0.lcssa25 = phi i32 [ %46, %._crit_edge ], [ %39, %_ZN3net17HpackOutputStream10AppendBitsEhm.exit15 ]
+  %49 = trunc nuw nsw i32 %.0.lcssa25 to i8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !9
   %52 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %51, i64 noundef 0, i64 noundef 1, i8 noundef signext %49)

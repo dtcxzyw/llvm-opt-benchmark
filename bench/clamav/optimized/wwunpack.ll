@@ -235,7 +235,7 @@ define range(i32 0, 27) i32 @wwunpack(ptr noundef %0, i32 noundef %1, ptr nounde
 
 113:                                              ; preds = %97
   %.not1253 = icmp ult ptr %.2993, %62
-  br i1 %.not1253, label %.thread1532, label %114
+  br i1 %.not1253, label %.thread1565, label %114
 
 114:                                              ; preds = %113
   %115 = ptrtoint ptr %.2993 to i64
@@ -245,7 +245,7 @@ define range(i32 0, 27) i32 @wwunpack(ptr noundef %0, i32 noundef %1, ptr nounde
   %or.cond1359 = and i1 %.not1254, %117
   %118 = icmp ugt i64 %66, %115
   %or.cond1360 = and i1 %118, %or.cond1359
-  br i1 %or.cond1360, label %119, label %.thread1532
+  br i1 %or.cond1360, label %119, label %.thread1565
 
 119:                                              ; preds = %114
   %120 = load i32, ptr %.2993, align 1, !tbaa !9
@@ -264,19 +264,19 @@ define range(i32 0, 27) i32 @wwunpack(ptr noundef %0, i32 noundef %1, ptr nounde
   %126 = icmp eq i32 %.0935, 3
   br i1 %126, label %129, label %219
 
-.thread1532:                                      ; preds = %113, %114
+.thread1565:                                      ; preds = %113, %114
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #5
   %127 = icmp eq i32 %98, 3
-  br i1 %127, label %.thread1547, label %.thread1555
+  br i1 %127, label %.thread1580, label %.thread1588
 
-.thread1555:                                      ; preds = %.thread1532
+.thread1588:                                      ; preds = %.thread1565
   %128 = lshr i32 %.4951, 29
   br label %235
 
 129:                                              ; preds = %125
   %130 = lshr i32 %.8955, 30
   %131 = icmp ugt i8 %.31042, 1
-  br i1 %131, label %132, label %.thread1547
+  br i1 %131, label %132, label %.thread1580
 
 132:                                              ; preds = %129
   %133 = add i8 %.31042, -2
@@ -307,16 +307,16 @@ define range(i32 0, 27) i32 @wwunpack(ptr noundef %0, i32 noundef %1, ptr nounde
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #5
   br label %158
 
-.thread1547:                                      ; preds = %.thread1532, %129
-  %145 = phi i32 [ %130, %129 ], [ 3, %.thread1532 ]
-  %.799815401554 = phi ptr [ %.7998, %129 ], [ %.2993, %.thread1532 ]
-  %.895515421553 = phi i32 [ %.8955, %129 ], [ %.4951, %.thread1532 ]
-  %.1015451552 = phi i32 [ %.10, %129 ], [ 1, %.thread1532 ]
-  %.not1319 = icmp ult ptr %.799815401554, %62
+.thread1580:                                      ; preds = %.thread1565, %129
+  %145 = phi i32 [ %130, %129 ], [ 3, %.thread1565 ]
+  %.799815741587 = phi ptr [ %.7998, %129 ], [ %.2993, %.thread1565 ]
+  %.895515751586 = phi i32 [ %.8955, %129 ], [ %.4951, %.thread1565 ]
+  %.1015781585 = phi i32 [ %.10, %129 ], [ 1, %.thread1565 ]
+  %.not1319 = icmp ult ptr %.799815741587, %62
   br i1 %.not1319, label %157, label %146
 
-146:                                              ; preds = %.thread1547
-  %147 = ptrtoint ptr %.799815401554 to i64
+146:                                              ; preds = %.thread1580
+  %147 = ptrtoint ptr %.799815741587 to i64
   %148 = add i64 %147, 4
   %.not1320 = icmp ule i64 %148, %66
   %149 = icmp ugt i64 %148, %64
@@ -326,23 +326,23 @@ define range(i32 0, 27) i32 @wwunpack(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %or.cond1364, label %151, label %157
 
 151:                                              ; preds = %146
-  %152 = load i32, ptr %.799815401554, align 1, !tbaa !9
-  %153 = getelementptr inbounds nuw i8, ptr %.799815401554, i64 4
+  %152 = load i32, ptr %.799815741587, align 1, !tbaa !9
+  %153 = getelementptr inbounds nuw i8, ptr %.799815741587, i64 4
   %154 = lshr i32 %152, 31
   %155 = or i32 %154, %145
   %156 = shl i32 %152, 1
   br label %158
 
-157:                                              ; preds = %146, %.thread1547
+157:                                              ; preds = %146, %.thread1580
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #5
   br label %158
 
 158:                                              ; preds = %141, %144, %151, %157, %132
   %.41043 = phi i8 [ %133, %132 ], [ 31, %151 ], [ 1, %157 ], [ 32, %144 ], [ 32, %141 ]
-  %.91000 = phi ptr [ %.7998, %132 ], [ %153, %151 ], [ %.799815401554, %157 ], [ %.7998, %144 ], [ %143, %141 ]
-  %.10957 = phi i32 [ %134, %132 ], [ %156, %151 ], [ %.895515421553, %157 ], [ %134, %144 ], [ %142, %141 ]
+  %.91000 = phi ptr [ %.7998, %132 ], [ %153, %151 ], [ %.799815741587, %157 ], [ %.7998, %144 ], [ %143, %141 ]
+  %.10957 = phi i32 [ %134, %132 ], [ %156, %151 ], [ %.895515751586, %157 ], [ %134, %144 ], [ %142, %141 ]
   %.1936 = phi i32 [ %130, %132 ], [ %155, %151 ], [ %145, %157 ], [ %130, %144 ], [ %130, %141 ]
-  %.12 = phi i32 [ %.10, %132 ], [ %.1015451552, %151 ], [ 1, %157 ], [ 1, %144 ], [ %.10, %141 ]
+  %.12 = phi i32 [ %.10, %132 ], [ %.1015781585, %151 ], [ 1, %157 ], [ 1, %144 ], [ %.10, %141 ]
   %159 = icmp samesign ugt i32 %.1936, 1
   %spec.select.v = select i1 %159, i32 6, i32 5
   %spec.select = add nuw nsw i32 %spec.select.v, %.1936
@@ -494,18 +494,18 @@ define range(i32 0, 27) i32 @wwunpack(ptr noundef %0, i32 noundef %1, ptr nounde
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #5
   br label %252
 
-235:                                              ; preds = %.thread1555, %219
-  %236 = phi i32 [ %128, %.thread1555 ], [ %220, %219 ]
-  %.3104215381566 = phi i8 [ 1, %.thread1555 ], [ %.31042, %219 ]
-  %.799815411565 = phi ptr [ %.2993, %.thread1555 ], [ %.7998, %219 ]
-  %.895515431564 = phi i32 [ %.4951, %.thread1555 ], [ %.8955, %219 ]
-  %.093515441563 = phi i32 [ %98, %.thread1555 ], [ %.0935, %219 ]
-  %.1015461561 = phi i32 [ 1, %.thread1555 ], [ %.10, %219 ]
-  %.not1258 = icmp ult ptr %.799815411565, %62
+235:                                              ; preds = %.thread1588, %219
+  %236 = phi i32 [ %128, %.thread1588 ], [ %220, %219 ]
+  %.3104215711599 = phi i8 [ 1, %.thread1588 ], [ %.31042, %219 ]
+  %.799815731598 = phi ptr [ %.2993, %.thread1588 ], [ %.7998, %219 ]
+  %.895515761597 = phi i32 [ %.4951, %.thread1588 ], [ %.8955, %219 ]
+  %.093515771596 = phi i32 [ %98, %.thread1588 ], [ %.0935, %219 ]
+  %.1015791594 = phi i32 [ 1, %.thread1588 ], [ %.10, %219 ]
+  %.not1258 = icmp ult ptr %.799815731598, %62
   br i1 %.not1258, label %251, label %237
 
 237:                                              ; preds = %235
-  %238 = ptrtoint ptr %.799815411565 to i64
+  %238 = ptrtoint ptr %.799815731598 to i64
   %239 = add i64 %238, 4
   %.not1259 = icmp ule i64 %239, %66
   %240 = icmp ugt i64 %239, %64
@@ -515,9 +515,9 @@ define range(i32 0, 27) i32 @wwunpack(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %or.cond1377, label %242, label %251
 
 242:                                              ; preds = %237
-  %243 = load i32, ptr %.799815411565, align 1, !tbaa !9
-  %244 = getelementptr inbounds nuw i8, ptr %.799815411565, i64 4
-  %245 = add nuw nsw i8 %.3104215381566, 29
+  %243 = load i32, ptr %.799815731598, align 1, !tbaa !9
+  %244 = getelementptr inbounds nuw i8, ptr %.799815731598, i64 4
+  %245 = add nuw nsw i8 %.3104215711599, 29
   %246 = zext nneg i8 %245 to i32
   %247 = lshr i32 %243, %246
   %248 = or i32 %247, %236
@@ -530,17 +530,17 @@ define range(i32 0, 27) i32 @wwunpack(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %252
 
 252:                                              ; preds = %231, %234, %242, %251, %222
-  %.093515441562 = phi i32 [ %.0935, %222 ], [ %.093515441563, %242 ], [ %.093515441563, %251 ], [ %.0935, %234 ], [ %.0935, %231 ]
-  %.61045 = phi i8 [ %223, %222 ], [ %245, %242 ], [ %.3104215381566, %251 ], [ 32, %234 ], [ 32, %231 ]
-  %.131004 = phi ptr [ %.7998, %222 ], [ %244, %242 ], [ %.799815411565, %251 ], [ %.7998, %234 ], [ %233, %231 ]
-  %.14961 = phi i32 [ %224, %222 ], [ %250, %242 ], [ %.895515431564, %251 ], [ %224, %234 ], [ %232, %231 ]
+  %.093515771595 = phi i32 [ %.0935, %222 ], [ %.093515771596, %242 ], [ %.093515771596, %251 ], [ %.0935, %234 ], [ %.0935, %231 ]
+  %.61045 = phi i8 [ %223, %222 ], [ %245, %242 ], [ %.3104215711599, %251 ], [ 32, %234 ], [ 32, %231 ]
+  %.131004 = phi ptr [ %.7998, %222 ], [ %244, %242 ], [ %.799815731598, %251 ], [ %.7998, %234 ], [ %233, %231 ]
+  %.14961 = phi i32 [ %224, %222 ], [ %250, %242 ], [ %.895515761597, %251 ], [ %224, %234 ], [ %232, %231 ]
   %.3938 = phi i32 [ %220, %222 ], [ %248, %242 ], [ %236, %251 ], [ %220, %234 ], [ %220, %231 ]
-  %.18 = phi i32 [ %.10, %222 ], [ %.1015461561, %242 ], [ 1, %251 ], [ 1, %234 ], [ %.10, %231 ]
+  %.18 = phi i32 [ %.10, %222 ], [ %.1015791594, %242 ], [ 1, %251 ], [ 1, %234 ], [ %.10, %231 ]
   %253 = icmp samesign ult i32 %.3938, 6
   br i1 %253, label %254, label %313
 
 254:                                              ; preds = %252
-  switch i32 %.3938, label %default.unreachable [
+  switch i32 %.3938, label %default.unreachable1560 [
     i32 4, label %255
     i32 3, label %256
     i32 0, label %272
@@ -600,7 +600,7 @@ define range(i32 0, 27) i32 @wwunpack(ptr noundef %0, i32 noundef %1, ptr nounde
   %273 = add nuw nsw i32 %.2, 5
   br label %274
 
-default.unreachable:                              ; preds = %254
+default.unreachable1560:                          ; preds = %254
   unreachable
 
 274:                                              ; preds = %254, %272
@@ -840,7 +840,7 @@ default.unreachable:                              ; preds = %254
   %.21968 = phi i32 [ %.20967, %309 ], [ %.23970, %347 ], [ %.25972, %381 ]
   %.5940 = phi i32 [ %312, %309 ], [ %348, %347 ], [ %382, %381 ]
   %.25 = phi i32 [ %.24, %309 ], [ %.27, %347 ], [ %.29, %381 ]
-  %.not1282 = icmp eq i32 %.093515441562, 0
+  %.not1282 = icmp eq i32 %.093515771595, 0
   br i1 %.not1282, label %384, label %539
 
 384:                                              ; preds = %383
@@ -1204,7 +1204,7 @@ default.unreachable:                              ; preds = %254
   br label %541
 
 539:                                              ; preds = %383
-  %540 = add nuw nsw i32 %.093515441562, 2
+  %540 = add nuw nsw i32 %.093515771595, 2
   br label %541
 
 541:                                              ; preds = %412, %482, %536, %447, %539

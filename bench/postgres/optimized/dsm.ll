@@ -805,8 +805,8 @@ define dso_local ptr @dsm_attach(i32 noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1, %2
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dsm_segment_list, i64 8), align 8
   %.not = icmp eq ptr %4, null
-  %.not354356 = icmp eq ptr %4, @dsm_segment_list
-  %.not3543 = or i1 %.not, %.not354356
+  %.not354362 = icmp eq ptr %4, @dsm_segment_list
+  %.not3543 = or i1 %.not, %.not354362
   br i1 %.not3543, label %select.unfold._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %select.unfold
@@ -1418,8 +1418,8 @@ declare void @dsm_impl_unpin_segment(i32 noundef, ptr noundef) local_unnamed_add
 define dso_local ptr @dsm_find_mapping(i32 noundef %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dsm_segment_list, i64 8), align 8
   %.not = icmp eq ptr %2, null
-  %.not91013 = icmp eq ptr %2, @dsm_segment_list
-  %.not910 = or i1 %.not, %.not91013
+  %.not91014 = icmp eq ptr %2, @dsm_segment_list
+  %.not910 = or i1 %.not, %.not91014
   br i1 %.not910, label %select.unfold._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %select.unfold

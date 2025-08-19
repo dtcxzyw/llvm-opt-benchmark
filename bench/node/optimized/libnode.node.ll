@@ -2446,11 +2446,11 @@ if.then.i.i.i.i108:                               ; preds = %if.then.i63
   br i1 %cmp.i.i.i.i.i.i110, label %if.end130, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i108
-  %40 = shl i64 %sub.i, 3
-  %41 = add i64 %40, -8
+  %40 = shl nuw nsw i64 %sub.i, 3
+  %41 = add nsw i64 %40, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i109, i8 0, i64 %41, i1 false)
-  %add.ptr.idx.i.i.i.i.i.i = shl nsw i64 %sub.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i.i109, i64 %add.ptr.idx.i.i.i.i.i.i
+  %add.ptr.idx.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i, 3
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i109, i64 %add.ptr.idx.i.i.i.i.i.i
   br label %if.end130
 
 if.else.i111:                                     ; preds = %if.then.i63
@@ -2489,7 +2489,7 @@ if.then.i.i.i29.i:                                ; preds = %_ZSt27__uninitializ
 
 _ZNSt12_Vector_baseIPcSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %if.then.i.i.i29.i, %_ZSt27__uninitialized_default_n_aIPPcmS0_ET_S2_T0_RSaIT1_E.exit28.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #23
-  %add.ptr34.i = getelementptr inbounds ptr, ptr %add.ptr.i113, i64 %sub.i
+  %add.ptr34.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i113, i64 %sub.i
   br label %if.end130
 
 if.else.i60:                                      ; preds = %for.end126
@@ -2557,12 +2557,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br i1 %exitcond.not, label %if.then.i.i.i83, label %for.body135, !llvm.loop !41
 
 if.then.i.i.i83:                                  ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit, %if.end130
-  %.150 = phi i32 [ 0, %if.end130 ], [ 9, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit ]
+  %.165 = phi i32 [ 0, %if.end130 ], [ 9, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit ]
   call void @_ZdlPv(ptr noundef nonnull %v8_args_as_char_ptr.sroa.0.0) #23
   br label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit
 
 _ZNSt6vectorIPcSaIS0_EED2Ev.exit:                 ; preds = %_ZNSt6vectorIPcSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i, %if.then.i.i.i83
-  %.151 = phi i32 [ %.150, %if.then.i.i.i83 ], [ 0, %_ZNSt6vectorIPcSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %.166 = phi i32 [ %.165, %if.then.i.i.i83 ], [ 0, %_ZNSt6vectorIPcSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
   br i1 %cmp.not.i.i.i, label %cleanup148, label %if.then.i.i.i86
 
 if.then.i.i.i86:                                  ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit
@@ -2634,7 +2634,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %cleanup148
 
 cleanup148:                                       ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZNSt6vectorIPcSaIS0_EED2Ev.exit, %if.else.i, %if.then.i, %if.then23
-  %retval.1 = phi i32 [ 12, %if.then23 ], [ 12, %if.then.i ], [ 12, %if.else.i ], [ %.151, %_ZNSt6vectorIPcSaIS0_EED2Ev.exit ], [ %.151, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %.151, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %.151, %if.end8.sink.split.i.i.i.i ]
+  %retval.1 = phi i32 [ 12, %if.then23 ], [ 12, %if.then.i ], [ 12, %if.else.i ], [ %.166, %_ZNSt6vectorIPcSaIS0_EED2Ev.exit ], [ %.166, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %.166, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %.166, %if.end8.sink.split.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %revert_error) #22
   br label %cleanup149
 
@@ -7687,18 +7687,18 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %while.end.i, %entry
-  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i.i, %entry ]
+  %__y.0.lcssa26.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i.i, %entry ]
   %_M_left.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %5 = load ptr, ptr %_M_left.i3.i, align 8
-  %cmp.i.i = icmp eq ptr %__y.0.lcssa25.i, %5
+  %cmp.i.i = icmp eq ptr %__y.0.lcssa26.i, %5
   br i1 %cmp.i.i, label %if.then, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #29
+  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i) #29
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
-  %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
+  %__y.0.lcssa25.i = phi ptr [ %__y.0.lcssa26.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %_M_storage.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0.i, i64 32
   %call.i.i4.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i3, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i) #22
@@ -7706,7 +7706,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   br i1 %cmp.i.i5.i, label %if.then, label %if.then.i9
 
 if.then:                                          ; preds = %if.end12.i, %if.then.i
-  %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa25.i, %if.then.i ], [ %__y.0.lcssa26.i, %if.end12.i ]
+  %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa26.i, %if.then.i ], [ %__y.0.lcssa25.i, %if.end12.i ]
   %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i.i, label %cleanup.thread, label %lor.rhs.i.i
 

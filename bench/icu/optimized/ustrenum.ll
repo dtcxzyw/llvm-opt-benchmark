@@ -137,7 +137,7 @@ define noundef ptr @_ZN6icu_7717StringEnumeration4nextEPiR10UErrorCode(ptr nound
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %27 = load i32, ptr %26, align 8, !tbaa !16
   %.not14 = icmp slt i32 %21, %27
-  br i1 %.not14, label %_ZN6icu_7717StringEnumeration19ensureCharsCapacityEiR10UErrorCode.exit.thread15, label %28
+  br i1 %.not14, label %_ZN6icu_7717StringEnumeration19ensureCharsCapacityEiR10UErrorCode.exit.thread20, label %28
 
 28:                                               ; preds = %25
   %29 = sdiv i32 %27, 2
@@ -170,13 +170,13 @@ _ZN6icu_7717StringEnumeration19ensureCharsCapacityEiR10UErrorCode.exit: ; preds 
   store i32 %spec.select.i, ptr %26, align 8, !tbaa !16
   %.pre = load i32, ptr %2, align 4, !tbaa !17
   %40 = icmp sgt i32 %.pre, 0
-  br i1 %40, label %_ZN6icu_7717StringEnumeration19ensureCharsCapacityEiR10UErrorCode.exit.thread, label %_ZN6icu_7717StringEnumeration19ensureCharsCapacityEiR10UErrorCode.exit.thread15
+  br i1 %40, label %_ZN6icu_7717StringEnumeration19ensureCharsCapacityEiR10UErrorCode.exit.thread, label %_ZN6icu_7717StringEnumeration19ensureCharsCapacityEiR10UErrorCode.exit.thread20
 
-_ZN6icu_7717StringEnumeration19ensureCharsCapacityEiR10UErrorCode.exit.thread15: ; preds = %25, %_ZN6icu_7717StringEnumeration19ensureCharsCapacityEiR10UErrorCode.exit
+_ZN6icu_7717StringEnumeration19ensureCharsCapacityEiR10UErrorCode.exit.thread20: ; preds = %25, %_ZN6icu_7717StringEnumeration19ensureCharsCapacityEiR10UErrorCode.exit
   %.not13 = icmp eq ptr %1, null
   br i1 %.not13, label %48, label %41
 
-41:                                               ; preds = %_ZN6icu_7717StringEnumeration19ensureCharsCapacityEiR10UErrorCode.exit.thread15
+41:                                               ; preds = %_ZN6icu_7717StringEnumeration19ensureCharsCapacityEiR10UErrorCode.exit.thread20
   %42 = load i16, ptr %14, align 8, !tbaa !6
   %43 = icmp slt i16 %42, 0
   %44 = ashr i16 %42, 5
@@ -186,7 +186,7 @@ _ZN6icu_7717StringEnumeration19ensureCharsCapacityEiR10UErrorCode.exit.thread15:
   store i32 %47, ptr %1, align 4, !tbaa !19
   br label %48
 
-48:                                               ; preds = %41, %_ZN6icu_7717StringEnumeration19ensureCharsCapacityEiR10UErrorCode.exit.thread15
+48:                                               ; preds = %41, %_ZN6icu_7717StringEnumeration19ensureCharsCapacityEiR10UErrorCode.exit.thread20
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %50 = load ptr, ptr %49, align 8, !tbaa !8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -636,9 +636,9 @@ define noalias noundef ptr @uenum_openFromStringEnumeration_77(ptr noundef %0, p
 6:                                                ; preds = %2
   %7 = tail call noalias dereferenceable_or_null(56) ptr @uprv_malloc_77(i64 noundef 56) #20
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.thread18, label %.thread
+  br i1 %8, label %.thread19, label %.thread
 
-.thread18:                                        ; preds = %6
+.thread19:                                        ; preds = %6
   store i32 7, ptr %1, align 4, !tbaa !17
   br label %12
 
@@ -652,7 +652,7 @@ define noalias noundef ptr @uenum_openFromStringEnumeration_77(ptr noundef %0, p
   %11 = icmp eq ptr %0, null
   br i1 %11, label %16, label %12
 
-12:                                               ; preds = %.thread18, %10
+12:                                               ; preds = %.thread19, %10
   %13 = load ptr, ptr %0, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8

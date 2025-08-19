@@ -184,7 +184,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit23:                  ; preds = %_ZNKSt6vectorIiSaIi
   br label %_ZNSt6vectorIPKN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit25.thread
 
 _ZNSt6vectorIPKN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit25.thread: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit23.thread, %_ZNSt6vectorIiSaIiEED2Ev.exit23
-  %.pn3740 = phi { ptr, i32 } [ %19, %_ZNSt6vectorIiSaIiEED2Ev.exit23.thread ], [ %20, %_ZNSt6vectorIiSaIiEED2Ev.exit23 ]
+  %.pn4144 = phi { ptr, i32 } [ %19, %_ZNSt6vectorIiSaIiEED2Ev.exit23.thread ], [ %20, %_ZNSt6vectorIiSaIiEED2Ev.exit23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 8) #22
   br label %_ZNSt6vectorIPKN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit27
@@ -196,11 +196,11 @@ _ZNSt6vectorIPKN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit25: ; pr
   br label %_ZNSt6vectorIPKN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit27
 
 _ZNSt6vectorIPKN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit27: ; preds = %_ZNSt6vectorIPKN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit25, %_ZNSt6vectorIPKN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit25.thread
-  %.pn374151 = phi { ptr, i32 } [ %.pn3740, %_ZNSt6vectorIPKN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit25.thread ], [ %21, %_ZNSt6vectorIPKN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit25 ]
+  %.pn414555 = phi { ptr, i32 } [ %.pn4144, %_ZNSt6vectorIPKN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit25.thread ], [ %21, %_ZNSt6vectorIPKN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 8) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.pn374151
+  resume { ptr, i32 } %.pn414555
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -966,8 +966,8 @@ _ZNK3igl6embree17EmbreeIntersector12intersectRayERKN5Eigen6MatrixIfLi1ELi3ELi1EL
   %or.cond84 = select i1 %8, i1 %161, i1 %162
   %163 = icmp eq i32 %155, %7
   %164 = or i1 %137, %163
-  %or.cond102 = and i1 %or.cond84, %164
-  br i1 %or.cond102, label %165, label %.critedge
+  %or.cond106 = and i1 %or.cond84, %164
+  br i1 %or.cond106, label %165, label %.critedge
 
 165:                                              ; preds = %156
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !117

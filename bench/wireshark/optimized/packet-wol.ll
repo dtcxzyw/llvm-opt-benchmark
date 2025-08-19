@@ -128,11 +128,11 @@ define internal fastcc range(i32 0, 109) i32 @dissect_wol_pdu(ptr noundef %0, pt
   br i1 %21, label %.sink.split, label %24
 
 .sink.split:                                      ; preds = %20, %18
-  %.sink3 = phi i32 [ 2, %18 ], [ 1, %20 ]
+  %.sink5 = phi i32 [ 2, %18 ], [ 1, %20 ]
   %.060.ph = phi i32 [ 106, %18 ], [ 108, %20 ]
   %.ph = xor i1 %or.cond, true
   %22 = load ptr, ptr %10, align 8
-  %23 = tail call ptr @tvb_address_to_str(ptr noundef %22, ptr noundef %0, i32 noundef %.sink3, i32 noundef 102)
+  %23 = tail call ptr @tvb_address_to_str(ptr noundef %22, ptr noundef %0, i32 noundef %.sink5, i32 noundef 102)
   br label %24
 
 24:                                               ; preds = %.sink.split, %20

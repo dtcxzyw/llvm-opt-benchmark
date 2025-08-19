@@ -232,22 +232,22 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5devl
   br label %128
 
 128:                                              ; preds = %44, %86, %4
-  %.sink74 = phi i64 [ %85, %44 ], [ %127, %86 ], [ %41, %4 ]
-  %.sink72 = phi ptr [ %43, %44 ], [ %1, %86 ], [ %3, %4 ]
-  %129 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %.sink74)
+  %.sink75 = phi i64 [ %85, %44 ], [ %127, %86 ], [ %41, %4 ]
+  %.sink73 = phi ptr [ %43, %44 ], [ %1, %86 ], [ %3, %4 ]
+  %129 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %.sink75)
   %130 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %129, ptr noundef nonnull @.str.2, i64 noundef 2)
   %131 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.8, i64 noundef 13)
-  %132 = load ptr, ptr %.sink72, align 8, !tbaa !17
+  %132 = load ptr, ptr %.sink73, align 8, !tbaa !17
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 72
   %134 = load ptr, ptr %133, align 8
-  %135 = tail call noundef i64 %134(ptr noundef nonnull align 8 dereferenceable(8) %.sink72)
+  %135 = tail call noundef i64 %134(ptr noundef nonnull align 8 dereferenceable(8) %.sink73)
   %136 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %135)
   %137 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %136, ptr noundef nonnull @.str.2, i64 noundef 2)
   %138 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.9, i64 noundef 13)
-  %139 = load ptr, ptr %.sink72, align 8, !tbaa !17
+  %139 = load ptr, ptr %.sink73, align 8, !tbaa !17
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 80
   %141 = load ptr, ptr %140, align 8
-  %142 = tail call noundef i64 %141(ptr noundef nonnull align 8 dereferenceable(8) %.sink72)
+  %142 = tail call noundef i64 %141(ptr noundef nonnull align 8 dereferenceable(8) %.sink73)
   %143 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %142)
   %144 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %143, ptr noundef nonnull @.str.10, i64 noundef 0)
   %145 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.11, i64 noundef 1)

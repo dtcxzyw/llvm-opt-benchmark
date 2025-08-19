@@ -229,7 +229,7 @@ sz_boot_index2size_tab.exit:                      ; preds = %sz_boot_pind2sz_tab
 .lr.ph.i7:                                        ; preds = %sz_boot_index2size_tab.exit
   %64 = trunc nuw i64 %indvars.iv.i6 to i8
   %scevgep.i = getelementptr i8, ptr @je_sz_size2index_tab, i64 %.020.i
-  %65 = tail call i64 @llvm.usub.sat.i64(i64 512, i64 %.020.i)
+  %65 = sub nuw nsw i64 512, %.020.i
   %66 = sub nuw nsw i64 %63, %.020.i
   %umin.i = tail call i64 @llvm.umin.i64(i64 %65, i64 %66)
   %67 = add nuw nsw i64 %umin.i, 1
@@ -264,9 +264,6 @@ declare i64 @llvm.umin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -465,9 +465,9 @@ _ZNSt10unique_ptrIN4base8internal12_GLOBAL__N_119ListHiddenRootValueESt14default
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
 
 .sink.split:                                      ; preds = %100, %_ZNSt10unique_ptrIN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN4base8internal12_GLOBAL__N_119ListHiddenRootValueESt14default_deleteIS3_EED2Ev.exit
-  %.sink60 = phi ptr [ %130, %_ZNSt10unique_ptrIN4base8internal12_GLOBAL__N_119ListHiddenRootValueESt14default_deleteIS3_EED2Ev.exit ], [ %115, %_ZNSt10unique_ptrIN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueESt14default_deleteIS3_EED2Ev.exit ], [ null, %100 ]
+  %.sink70 = phi ptr [ %130, %_ZNSt10unique_ptrIN4base8internal12_GLOBAL__N_119ListHiddenRootValueESt14default_deleteIS3_EED2Ev.exit ], [ %115, %_ZNSt10unique_ptrIN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueESt14default_deleteIS3_EED2Ev.exit ], [ null, %100 ]
   %.ph = phi ptr [ null, %_ZNSt10unique_ptrIN4base8internal12_GLOBAL__N_119ListHiddenRootValueESt14default_deleteIS3_EED2Ev.exit ], [ null, %_ZNSt10unique_ptrIN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueESt14default_deleteIS3_EED2Ev.exit ], [ %58, %100 ]
-  store ptr %.sink60, ptr %0, align 8, !tbaa !37
+  store ptr %.sink70, ptr %0, align 8, !tbaa !37
   br label %146
 
 146:                                              ; preds = %.sink.split, %144
@@ -1282,13 +1282,13 @@ define void @_ZN4base8internal10JSONParser24EatWhitespaceAndCommentsEv(ptr nound
 _ZN4base8internal10JSONParser10EatCommentEv.exit.sink.split: ; preds = %26, %48
   %.sink = phi ptr [ %50, %48 ], [ %29, %26 ]
   %.ph = phi i32 [ %12, %48 ], [ %27, %26 ]
-  %.ph29 = phi i32 [ %49, %48 ], [ %28, %26 ]
+  %.ph33 = phi i32 [ %49, %48 ], [ %28, %26 ]
   store ptr %.sink, ptr %2, align 8, !tbaa !30
   br label %_ZN4base8internal10JSONParser10EatCommentEv.exit
 
 _ZN4base8internal10JSONParser10EatCommentEv.exit: ; preds = %37, %37, %_ZN4base8internal10JSONParser10EatCommentEv.exit.sink.split
   %51 = phi i32 [ %.ph, %_ZN4base8internal10JSONParser10EatCommentEv.exit.sink.split ], [ %12, %37 ], [ %12, %37 ]
-  %52 = phi i32 [ %.ph29, %_ZN4base8internal10JSONParser10EatCommentEv.exit.sink.split ], [ %38, %37 ], [ %38, %37 ]
+  %52 = phi i32 [ %.ph33, %_ZN4base8internal10JSONParser10EatCommentEv.exit.sink.split ], [ %38, %37 ], [ %38, %37 ]
   %53 = phi ptr [ %.sink, %_ZN4base8internal10JSONParser10EatCommentEv.exit.sink.split ], [ %36, %37 ], [ %36, %37 ]
   %54 = icmp ult ptr %53, %4
   br i1 %54, label %11, label %_ZN4base8internal10JSONParser10EatCommentEv.exit.thread, !llvm.loop !66

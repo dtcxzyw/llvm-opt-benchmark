@@ -58,15 +58,15 @@ define hidden void @_ZN4lean30lean_promise_resolve_with_codeEiP11lean_object(i32
   unreachable
 
 _ZN4lean12mk_except_okEP11lean_object.exit:       ; preds = %8, %4
-  %.sink8 = phi ptr [ %5, %4 ], [ %10, %8 ]
-  %.sink5 = phi i32 [ 16842768, %4 ], [ 65552, %8 ]
+  %.sink10 = phi ptr [ %5, %4 ], [ %10, %8 ]
+  %.sink7 = phi i32 [ 16842768, %4 ], [ 65552, %8 ]
   %.sink = phi ptr [ inttoptr (i64 1 to ptr), %4 ], [ %9, %8 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sink8, i64 4
-  store i32 1, ptr %.sink8, align 4, !tbaa !3
-  store i32 %.sink5, ptr %13, align 4
-  %14 = getelementptr inbounds nuw i8, ptr %.sink8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.sink10, i64 4
+  store i32 1, ptr %.sink10, align 4, !tbaa !3
+  store i32 %.sink7, ptr %13, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %.sink10, i64 8
   store ptr %.sink, ptr %14, align 8, !tbaa !8
-  tail call void @_ZN4lean20lean_promise_resolveEP11lean_objectS1_(ptr noundef nonnull %.sink8, ptr noundef %1)
+  tail call void @_ZN4lean20lean_promise_resolveEP11lean_objectS1_(ptr noundef nonnull %.sink10, ptr noundef %1)
   ret void
 }
 
@@ -456,17 +456,17 @@ _ZN4lean17event_loop_unlockEPNS_12event_loop_tE.exit: ; preds = %.thread20, %30
   unreachable
 
 _ZL20lean_io_result_mk_okP11lean_object.exit:     ; preds = %_ZN4lean17event_loop_unlockEPNS_12event_loop_tE.exit, %23, %15
-  %.sink28 = phi ptr [ %17, %15 ], [ %25, %23 ], [ %31, %_ZN4lean17event_loop_unlockEPNS_12event_loop_tE.exit ]
-  %.sink25 = phi i32 [ 16908312, %15 ], [ 16908312, %23 ], [ 131096, %_ZN4lean17event_loop_unlockEPNS_12event_loop_tE.exit ]
+  %.sink32 = phi ptr [ %17, %15 ], [ %25, %23 ], [ %31, %_ZN4lean17event_loop_unlockEPNS_12event_loop_tE.exit ]
+  %.sink29 = phi i32 [ 16908312, %15 ], [ 16908312, %23 ], [ 131096, %_ZN4lean17event_loop_unlockEPNS_12event_loop_tE.exit ]
   %.sink = phi ptr [ %16, %15 ], [ %24, %23 ], [ inttoptr (i64 1 to ptr), %_ZN4lean17event_loop_unlockEPNS_12event_loop_tE.exit ]
-  %34 = getelementptr inbounds nuw i8, ptr %.sink28, i64 4
-  store i32 1, ptr %.sink28, align 4, !tbaa !3
-  store i32 %.sink25, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %.sink28, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.sink32, i64 4
+  store i32 1, ptr %.sink32, align 4, !tbaa !3
+  store i32 %.sink29, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %.sink32, i64 8
   store ptr %.sink, ptr %35, align 8, !tbaa !8
-  %36 = getelementptr inbounds nuw i8, ptr %.sink28, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.sink32, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %36, align 8, !tbaa !8
-  ret ptr %.sink28
+  ret ptr %.sink32
 }
 
 declare i32 @uv_loop_configure(ptr noundef, i32 noundef, ...) local_unnamed_addr #1

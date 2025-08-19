@@ -2557,16 +2557,16 @@ define internal fastcc void @intel_psr_disable_locked(ptr noundef %0) unnamed_ad
   br i1 %144, label %152, label %.sink.split
 
 .sink.split:                                      ; preds = %140, %128
-  %.sink11 = phi i32 [ %139, %128 ], [ 288052, %140 ]
-  %.sink9 = phi i32 [ -129, %128 ], [ -2097153, %140 ]
+  %.sink14 = phi i32 [ %139, %128 ], [ 288052, %140 ]
+  %.sink12 = phi i32 [ -129, %128 ], [ -2097153, %140 ]
   %145 = getelementptr inbounds nuw i8, ptr %5, i64 7368
   %146 = getelementptr inbounds nuw i8, ptr %5, i64 7512
   %147 = load ptr, ptr %146, align 8
-  %148 = tail call i32 %147(ptr noundef nonnull %145, i32 %.sink11, i1 noundef zeroext true) #10
-  %149 = and i32 %148, %.sink9
+  %148 = tail call i32 %147(ptr noundef nonnull %145, i32 %.sink14, i1 noundef zeroext true) #10
+  %149 = and i32 %148, %.sink12
   %150 = getelementptr inbounds nuw i8, ptr %5, i64 7544
   %151 = load ptr, ptr %150, align 8
-  tail call void %151(ptr noundef nonnull %145, i32 %.sink11, i32 noundef %149, i1 noundef zeroext true) #10
+  tail call void %151(ptr noundef nonnull %145, i32 %.sink14, i32 noundef %149, i1 noundef zeroext true) #10
   br label %152
 
 152:                                              ; preds = %.sink.split, %140, %96
@@ -3483,14 +3483,14 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
 
 291:                                              ; preds = %274
   %292 = icmp samesign ugt i16 %275, 8
-  br i1 %292, label %.thread34, label %.thread13
+  br i1 %292, label %.thread47, label %.thread13
 
 .thread13:                                        ; preds = %291
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 3306
   %294 = load i8, ptr %293, align 2, !range !5, !noundef !6
   br label %317
 
-.thread34:                                        ; preds = %291
+.thread47:                                        ; preds = %291
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 3308
   %296 = load i8, ptr %295, align 4
   %297 = zext i8 %296 to i32
@@ -3502,7 +3502,7 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
   %303 = mul nuw nsw i32 %302, 6144
   %304 = and i32 %303, 6144
   %305 = or disjoint i32 %304, %299
-  %.ph37 = or i32 %305, %229
+  %.ph50 = or i32 %305, %229
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 3306
   %307 = load i8, ptr %306, align 2, !range !5, !noundef !6
   br label %317
@@ -3523,11 +3523,11 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
   %316 = and i32 %315, 196608
   br label %317
 
-317:                                              ; preds = %.thread34, %.thread13, %312, %308
-  %318 = phi i8 [ %310, %312 ], [ %310, %308 ], [ %294, %.thread13 ], [ %307, %.thread34 ]
-  %319 = phi i32 [ %.ph, %312 ], [ %.ph, %308 ], [ %229, %.thread13 ], [ %.ph37, %.thread34 ]
-  %320 = phi i16 [ %.pr, %312 ], [ %.pr, %308 ], [ %275, %.thread13 ], [ %275, %.thread34 ]
-  %321 = phi i32 [ %316, %312 ], [ 0, %308 ], [ 0, %.thread13 ], [ 0, %.thread34 ]
+317:                                              ; preds = %.thread47, %.thread13, %312, %308
+  %318 = phi i8 [ %310, %312 ], [ %310, %308 ], [ %294, %.thread13 ], [ %307, %.thread47 ]
+  %319 = phi i32 [ %.ph, %312 ], [ %.ph, %308 ], [ %229, %.thread13 ], [ %.ph50, %.thread47 ]
+  %320 = phi i16 [ %.pr, %312 ], [ %.pr, %308 ], [ %275, %.thread13 ], [ %275, %.thread47 ]
+  %321 = phi i32 [ %316, %312 ], [ 0, %308 ], [ 0, %.thread13 ], [ 0, %.thread47 ]
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 3304
   %323 = load i8, ptr %322, align 8, !range !5, !noundef !6
   %324 = icmp eq i8 %323, 0
@@ -6115,8 +6115,8 @@ psr_irq_control.exit:                             ; preds = %49, %.thread.i
   br label %110
 
 .thread:                                          ; preds = %97, %90
-  %.lcssa20.sink = phi ptr [ %91, %90 ], [ %98, %97 ]
-  %107 = ptrtoint ptr %.lcssa20.sink to i64
+  %.lcssa33.sink = phi ptr [ %91, %90 ], [ %98, %97 ]
+  %107 = ptrtoint ptr %.lcssa33.sink to i64
   %108 = trunc i64 %107 to i32
   call void @drm_connector_list_iter_end(ptr noundef nonnull %3) #10
   %109 = icmp eq i32 %108, 0
@@ -6801,8 +6801,8 @@ define internal void @intel_psr_work(ptr noundef %0) #1 align 16 {
   br i1 %16, label %66, label %.thread
 
 .thread:                                          ; preds = %8, %12
-  %.in1 = getelementptr i8, ptr %0, i64 -3656
-  %17 = load ptr, ptr %.in1, align 8
+  %.in2 = getelementptr i8, ptr %0, i64 -3656
+  %17 = load ptr, ptr %.in2, align 8
   %.in = getelementptr i8, ptr %0, i64 -12
   %18 = load i32, ptr %.in, align 4
   %19 = getelementptr i8, ptr %0, i64 39
@@ -7004,7 +7004,7 @@ thread-pre-split:                                 ; preds = %41
   %55 = load i8, ptr %8, align 1
   %56 = and i8 %55, 7
   %57 = icmp eq i8 %56, 0
-  br i1 %57, label %.thread14, label %58
+  br i1 %57, label %.thread23, label %58
 
 58:                                               ; preds = %51, %54
   call fastcc void @intel_psr_disable_locked(ptr noundef %0)
@@ -7015,7 +7015,7 @@ thread-pre-split:                                 ; preds = %41
   %60 = icmp ne i8 %.pre, 7
   %61 = icmp ne i8 %.pre9, 0
   %62 = select i1 %60, i1 true, i1 %61
-  br i1 %62, label %.thread14, label %63
+  br i1 %62, label %.thread23, label %63
 
 63:                                               ; preds = %58
   %64 = icmp eq ptr %10, null
@@ -7030,15 +7030,15 @@ thread-pre-split:                                 ; preds = %41
   %69 = phi ptr [ %67, %65 ], [ null, %63 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %69, i32 noundef 2, ptr noundef nonnull @.str.20) #10
   %.pre10 = load i8, ptr %8, align 1
-  br label %.thread14
+  br label %.thread23
 
-.thread14:                                        ; preds = %54, %68, %58
+.thread23:                                        ; preds = %54, %68, %58
   %70 = phi i8 [ %.pre10, %68 ], [ %.pre9, %58 ], [ %55, %54 ]
   %71 = and i8 %70, 2
   %72 = icmp eq i8 %71, 0
   br i1 %72, label %80, label %73
 
-73:                                               ; preds = %.thread14
+73:                                               ; preds = %.thread23
   %74 = icmp eq ptr %10, null
   br i1 %74, label %78, label %75
 
@@ -7053,8 +7053,8 @@ thread-pre-split:                                 ; preds = %41
   %.pre11 = load i8, ptr %8, align 1
   br label %80
 
-80:                                               ; preds = %78, %.thread14
-  %81 = phi i8 [ %.pre11, %78 ], [ %70, %.thread14 ]
+80:                                               ; preds = %78, %.thread23
+  %81 = phi i8 [ %.pre11, %78 ], [ %70, %.thread23 ]
   %82 = and i8 %81, 4
   %83 = icmp eq i8 %82, 0
   br i1 %83, label %91, label %84

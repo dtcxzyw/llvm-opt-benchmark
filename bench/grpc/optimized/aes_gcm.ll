@@ -378,7 +378,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !32
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 
@@ -1560,9 +1560,9 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
   br i1 %121, label %123, label %126
 
 ._crit_edge233.thread:                            ; preds = %.preheader
-  br i1 %82, label %123, label %.thread263
+  br i1 %82, label %123, label %.thread278
 
-.thread263:                                       ; preds = %._crit_edge233.thread
+.thread278:                                       ; preds = %._crit_edge233.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %129
 
@@ -1583,16 +1583,16 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
   %128 = getelementptr inbounds nuw i8, ptr %14, i64 %.1124
   br label %129
 
-129:                                              ; preds = %.thread263, %127, %126
-  %.2144.lcssa259270 = phi i64 [ %119, %127 ], [ %119, %126 ], [ 0, %.thread263 ]
-  %.0129.lcssa260269 = phi i64 [ %.1130, %127 ], [ %.1130, %126 ], [ %79, %.thread263 ]
-  %.0 = phi ptr [ %128, %127 ], [ %14, %126 ], [ %14, %.thread263 ]
-  %130 = icmp ult i64 %.2144.lcssa259270, %6
+129:                                              ; preds = %.thread278, %127, %126
+  %.2144.lcssa274285 = phi i64 [ %119, %127 ], [ %119, %126 ], [ 0, %.thread278 ]
+  %.0129.lcssa275284 = phi i64 [ %.1130, %127 ], [ %.1130, %126 ], [ %79, %.thread278 ]
+  %.0 = phi ptr [ %128, %127 ], [ %14, %126 ], [ %14, %.thread278 ]
+  %130 = icmp ult i64 %.2144.lcssa274285, %6
   br i1 %130, label %.lr.ph244, label %._crit_edge245
 
 .lr.ph244:                                        ; preds = %129, %143
   %.1242 = phi ptr [ %.2, %143 ], [ %.0, %129 ]
-  %.3145241 = phi i64 [ %144, %143 ], [ %.2144.lcssa259270, %129 ]
+  %.3145241 = phi i64 [ %144, %143 ], [ %.2144.lcssa274285, %129 ]
   %131 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.3145241
   %132 = load ptr, ptr %131, align 8, !tbaa !53
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
@@ -1668,7 +1668,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
 
 162:                                              ; preds = %157
   %163 = load i64, ptr %78, align 8, !tbaa !55
-  %164 = sub i64 %163, %.0129.lcssa260269
+  %164 = sub i64 %163, %.0129.lcssa275284
   store i64 %164, ptr %8, align 8, !tbaa !52
   br label %165
 

@@ -727,7 +727,7 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not62, label %.lr.ph105.split.split.us, label %.lr.ph105.split.split
 
 .lr.ph105.split.split.us:                         ; preds = %.lr.ph105.split, %106
-  %.049104.us = phi ptr [ %.150.us119, %106 ], [ %0, %.lr.ph105.split ]
+  %.049104.us = phi ptr [ %.150.us126, %106 ], [ %0, %.lr.ph105.split ]
   %.053103.us = phi i32 [ %107, %106 ], [ 0, %.lr.ph105.split ]
   %20 = icmp ne ptr %.049104.us, %0
   %or.cond.us = or i1 %.not60, %20
@@ -790,8 +790,8 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.150.us.ph = phi ptr [ %52, %37 ], [ %33, %28 ], [ %25, %24 ]
   store i64 %.sink, ptr %12, align 8, !tbaa !30
   %56 = icmp ne ptr %.150.us.ph, %15
-  %or.cond64.us117 = or i1 %.not60, %56
-  %.152.us118 = select i1 %or.cond64.us117, i8 %.051.us, i8 64
+  %or.cond64.us124 = or i1 %.not60, %56
+  %.152.us125 = select i1 %or.cond64.us124, i8 %.051.us, i8 64
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %62
@@ -809,10 +809,10 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %61, label %do_esc_char.exit84.thread, label %62
 
 62:                                               ; preds = %.thread, %57
-  %.152.us118.pn = phi i8 [ %.152.us118, %.thread ], [ %.152.us, %57 ]
-  %.150.us119 = phi ptr [ %.150.us.ph, %.thread ], [ %59, %57 ]
+  %.152.us125.pn = phi i8 [ %.152.us125, %.thread ], [ %.152.us, %57 ]
+  %.150.us126 = phi ptr [ %.150.us.ph, %.thread ], [ %59, %57 ]
   %63 = phi i64 [ %.sink, %.thread ], [ %.pre115, %57 ]
-  %64 = or disjoint i8 %.152.us118.pn, %3
+  %64 = or disjoint i8 %.152.us125.pn, %3
   %65 = icmp samesign ugt i64 %63, 65535
   br i1 %65, label %103, label %66
 
@@ -910,7 +910,7 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %107 = add nuw nsw i32 %.030.i71.us, %.053103.us
-  %.not.us = icmp eq ptr %.150.us119, %15
+  %.not.us = icmp eq ptr %.150.us126, %15
   br i1 %.not.us, label %.loopexit, label %.lr.ph105.split.split.us, !llvm.loop !31
 
 .lr.ph105.split.split:                            ; preds = %.lr.ph105.split, %.critedge

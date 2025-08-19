@@ -504,14 +504,14 @@ default.unreachable:                              ; preds = %1
   ]
 
 .sink.split.sink.split.i.i:                       ; preds = %20, %14
-  %.sink5.i.i = phi ptr [ %16, %14 ], [ %22, %20 ]
-  %.sink4.i.i = phi i64 [ %18, %14 ], [ %24, %20 ]
-  %13 = load ptr, ptr %.sink5.i.i, align 8, !noalias !227, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef %.sink4.i.i, i64 noundef 1) #21, !noalias !227
+  %.sink6.i.i = phi ptr [ %16, %14 ], [ %22, %20 ]
+  %.sink5.i.i = phi i64 [ %18, %14 ], [ %24, %20 ]
+  %13 = load ptr, ptr %.sink6.i.i, align 8, !noalias !227, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef %.sink5.i.i, i64 noundef 1) #21, !noalias !227
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %20, %14, %.sink.split.sink.split.i.i
-  %.sink.i.i = phi ptr [ %16, %14 ], [ %22, %20 ], [ %.sink5.i.i, %.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi ptr [ %16, %14 ], [ %22, %20 ], [ %.sink6.i.i, %.sink.split.sink.split.i.i ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.sink.i.i, i64 noundef 16, i64 noundef 8) #21, !noalias !227
   br label %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$mbe..ExpandError$GT$$GT$17hd5d04a4bbe53bcebE.llvm.3275366238967248396.exit"
 
@@ -2153,14 +2153,14 @@ define hidden void @"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h58393
   ]
 
 .sink.split.sink.split:                           ; preds = %11, %5
-  %.sink5 = phi ptr [ %7, %5 ], [ %13, %11 ]
-  %.sink4 = phi i64 [ %9, %5 ], [ %15, %11 ]
-  %3 = load ptr, ptr %.sink5, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %.sink4, i64 noundef 1) #21, !noalias !4
+  %.sink6 = phi ptr [ %7, %5 ], [ %13, %11 ]
+  %.sink5 = phi i64 [ %9, %5 ], [ %15, %11 ]
+  %3 = load ptr, ptr %.sink6, align 8, !noalias !4, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %.sink5, i64 noundef 1) #21, !noalias !4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %11, %5
-  %.sink = phi ptr [ %7, %5 ], [ %13, %11 ], [ %.sink5, %.sink.split.sink.split ]
+  %.sink = phi ptr [ %7, %5 ], [ %13, %11 ], [ %.sink6, %.sink.split.sink.split ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.sink, i64 noundef 16, i64 noundef 8) #21, !noalias !4
   br label %4
 
@@ -2759,14 +2759,14 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$mbe..expander..matcher..Matc
   ]
 
 .sink.split.sink.split.i.i:                       ; preds = %16, %10
-  %.sink5.i.i = phi ptr [ %12, %10 ], [ %18, %16 ]
-  %.sink4.i.i = phi i64 [ %14, %10 ], [ %20, %16 ]
-  %9 = load ptr, ptr %.sink5.i.i, align 8, !noalias !1201, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %.sink4.i.i, i64 noundef 1) #21, !noalias !1201
+  %.sink6.i.i = phi ptr [ %12, %10 ], [ %18, %16 ]
+  %.sink5.i.i = phi i64 [ %14, %10 ], [ %20, %16 ]
+  %9 = load ptr, ptr %.sink6.i.i, align 8, !noalias !1201, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %.sink5.i.i, i64 noundef 1) #21, !noalias !1201
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %16, %10, %.sink.split.sink.split.i.i
-  %.sink.i.i = phi ptr [ %12, %10 ], [ %18, %16 ], [ %.sink5.i.i, %.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi ptr [ %12, %10 ], [ %18, %16 ], [ %.sink6.i.i, %.sink.split.sink.split.i.i ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.sink.i.i, i64 noundef 16, i64 noundef 8) #21, !noalias !1201
   br label %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$mbe..ExpandError$GT$$GT$17hd5d04a4bbe53bcebE.llvm.3275366238967248396.exit"
 
@@ -3492,14 +3492,14 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$mbe.
   ]
 
 .sink.split.sink.split.i:                         ; preds = %12, %6
-  %.sink5.i = phi ptr [ %8, %6 ], [ %14, %12 ]
-  %.sink4.i = phi i64 [ %10, %6 ], [ %16, %12 ]
-  %5 = load ptr, ptr %.sink5.i, align 8, !noalias !1514, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %.sink4.i, i64 noundef 1) #21, !noalias !1514
+  %.sink6.i = phi ptr [ %8, %6 ], [ %14, %12 ]
+  %.sink5.i = phi i64 [ %10, %6 ], [ %16, %12 ]
+  %5 = load ptr, ptr %.sink6.i, align 8, !noalias !1514, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %.sink5.i, i64 noundef 1) #21, !noalias !1514
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %6, %.sink.split.sink.split.i
-  %.sink.i = phi ptr [ %8, %6 ], [ %14, %12 ], [ %.sink5.i, %.sink.split.sink.split.i ]
+  %.sink.i = phi ptr [ %8, %6 ], [ %14, %12 ], [ %.sink6.i, %.sink.split.sink.split.i ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.sink.i, i64 noundef 16, i64 noundef 8) #21, !noalias !1514
   br label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h583938f8180d161cE.llvm.3275366238967248396.exit"
 

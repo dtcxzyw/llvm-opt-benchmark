@@ -674,7 +674,7 @@ get_scale_idx.exit228:                            ; preds = %283, %294
   br i1 %exitcond355.not, label %._crit_edge, label %.preheader285, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %336, %46, %.preheader288
-  %.0194.lcssa371376 = phi i32 [ %.1195, %.preheader288 ], [ -1, %46 ], [ %.1195, %336 ]
+  %.0194.lcssa386391 = phi i32 [ %.1195, %.preheader288 ], [ -1, %46 ], [ %.1195, %336 ]
   %.sroa.17.8.lcssa = phi i32 [ %.sroa.17.4, %.preheader288 ], [ %47, %46 ], [ %.sroa.17.11, %336 ]
   %337 = getelementptr inbounds nuw i8, ptr %8, i64 2012
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9216) %337, i8 0, i64 9216, i1 false)
@@ -1039,7 +1039,7 @@ idx_to_quant.exit:                                ; preds = %562, %get_vlc2.exit
 577:                                              ; preds = %576
   %578 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %579 = load ptr, ptr %578, align 8, !tbaa !73
-  tail call void @ff_mpc_dequantize_and_synth(ptr noundef nonnull %8, i32 noundef %.0194.lcssa371376, ptr noundef %579, i32 noundef 2) #8
+  tail call void @ff_mpc_dequantize_and_synth(ptr noundef nonnull %8, i32 noundef %.0194.lcssa386391, ptr noundef %579, i32 noundef 2) #8
   %.not209 = icmp eq i8 %26, 0
   br i1 %.not209, label %583, label %580
 

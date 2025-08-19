@@ -80,8 +80,8 @@ define hidden noundef zeroext i1 @SDL_ChannelMapIsDefault(ptr noundef readonly c
   %.not11 = icmp eq i64 %indvars.iv, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond19.not = select i1 %.not11, i1 %exitcond.not, i1 false
-  br i1 %or.cond19.not, label %.lr.ph, label %.thread, !llvm.loop !5
+  %or.cond20.not = select i1 %.not11, i1 %exitcond.not, i1 false
+  br i1 %or.cond20.not, label %.lr.ph, label %.thread, !llvm.loop !5
 
 .thread:                                          ; preds = %.lr.ph, %2
   %.1 = phi i1 [ true, %2 ], [ %.not11, %.lr.ph ]
@@ -168,7 +168,7 @@ define hidden void @ConvertAudio(i32 noundef %0, ptr noundef %1, i32 noundef %2,
   br label %73
 
 .thread165.thread:                                ; preds = %.thread162, %32, %.thread165
-  %.0182 = phi ptr [ %.0, %32 ], [ %.0, %.thread165 ], [ %1, %.thread162 ]
+  %.0201 = phi ptr [ %.0, %32 ], [ %.0, %.thread165 ], [ %1, %.thread162 ]
   %39 = phi ptr [ %21, %32 ], [ %21, %.thread165 ], [ %8, %.thread162 ]
   %.not152 = icmp eq ptr %9, null
   %spec.select159 = select i1 %.not152, ptr %5, ptr %9
@@ -181,11 +181,11 @@ define hidden void @ConvertAudio(i32 noundef %0, ptr noundef %1, i32 noundef %2,
   %or.cond3 = or i1 %41, %40
   %43 = select i1 %or.cond3, ptr %spec.select159, ptr %5
   %44 = mul nsw i32 %3, %0
-  tail call void @ConvertAudioToFloat(ptr noundef %43, ptr noundef %.0182, i32 noundef %44, i32 noundef %2) #11
+  tail call void @ConvertAudioToFloat(ptr noundef %43, ptr noundef %.0201, i32 noundef %44, i32 noundef %2) #11
   br label %45
 
 45:                                               ; preds = %42, %.thread165.thread
-  %.2 = phi ptr [ %43, %42 ], [ %.0182, %.thread165.thread ]
+  %.2 = phi ptr [ %43, %42 ], [ %.0201, %.thread165.thread ]
   %46 = fcmp une float %10, 1.000000e+00
   br i1 %46, label %47, label %.loopexit
 
@@ -1891,7 +1891,7 @@ define hidden zeroext i1 @SDL_PutAudioStreamPlanarData_REAL(ptr noundef %0, ptr 
 
 9:                                                ; preds = %4
   %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #11
-  br label %134
+  br label %128
 
 11:                                               ; preds = %4
   %.not42 = icmp eq ptr %1, null
@@ -1899,7 +1899,7 @@ define hidden zeroext i1 @SDL_PutAudioStreamPlanarData_REAL(ptr noundef %0, ptr 
 
 12:                                               ; preds = %11
   %13 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #11
-  br label %134
+  br label %128
 
 14:                                               ; preds = %11
   %15 = icmp slt i32 %3, 0
@@ -1907,11 +1907,11 @@ define hidden zeroext i1 @SDL_PutAudioStreamPlanarData_REAL(ptr noundef %0, ptr 
 
 16:                                               ; preds = %14
   %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #11
-  br label %134
+  br label %128
 
 18:                                               ; preds = %14
   %19 = icmp eq i32 %3, 0
-  br i1 %19, label %134, label %20
+  br i1 %19, label %128, label %20
 
 20:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1937,7 +1937,7 @@ CheckAudioStreamIsFullySetup.exit:                ; preds = %20, %25
 30:                                               ; preds = %CheckAudioStreamIsFullySetup.exit
   %31 = load ptr, ptr %0, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %31) #11
-  br label %133
+  br label %127
 
 CheckAudioStreamIsFullySetup.exit.thread:         ; preds = %25, %CheckAudioStreamIsFullySetup.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %22, i64 12, i1 false)
@@ -1968,7 +1968,7 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
   %43 = and i32 %42, 31
   %44 = mul i32 %43, %3
   %45 = tail call zeroext i1 @SDL_PutAudioStreamData_REAL(ptr noundef nonnull %0, ptr noundef %40, i32 noundef %44)
-  br label %133
+  br label %127
 
 46:                                               ; preds = %CheckAudioStreamIsFullySetup.exit.thread._crit_edge
   %47 = load i32, ptr %6, align 4
@@ -1984,7 +1984,7 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
   %54 = zext nneg i32 %51 to i64
   %55 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %54) #11
   %.not44 = icmp eq ptr %55, null
-  br i1 %.not44, label %132, label %56
+  br i1 %.not44, label %126, label %56
 
 56:                                               ; preds = %53, %46
   %.031 = phi ptr [ %8, %46 ], [ %55, %53 ]
@@ -2030,135 +2030,123 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
   %.0120125.i = phi ptr [ %5, %.thread.i ], [ %1, %.lr.ph.i ]
   %70 = tail call i32 @SDL_GetSilenceValueForFormat_REAL(i32 noundef %47) #11
   %trunc56.i = trunc i32 %47 to i8
-  switch i8 %trunc56.i, label %106 [
-    i8 8, label %71
-    i8 16, label %83
-    i8 32, label %95
+  switch i8 %trunc56.i, label %100 [
+    i8 8, label %.preheader.us.preheader.i.i
+    i8 16, label %.preheader.us.preheader.i57.i
+    i8 32, label %.preheader.us.preheader.i71.i
   ]
 
-71:                                               ; preds = %.thread122.i
-  %72 = icmp sgt i32 %.pre, 0
-  %73 = trunc i32 %70 to i8
-  br i1 %72, label %.preheader.us.preheader.i.i, label %InterleaveAudioChannels.exit
-
-.preheader.us.preheader.i.i:                      ; preds = %71
+.preheader.us.preheader.i.i:                      ; preds = %.thread122.i
+  %71 = trunc i32 %70 to i8
   %wide.trip.count29.i.i = zext nneg i32 %3 to i64
   %wide.trip.count.i.i = zext nneg i32 %.pre to i64
   br label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %._crit_edge.us.i.i, %.preheader.us.preheader.i.i
   %indvars.iv26.i.i = phi i64 [ 0, %.preheader.us.preheader.i.i ], [ %indvars.iv.next27.i.i, %._crit_edge.us.i.i ]
-  %.01620.us.i.i = phi ptr [ %.031, %.preheader.us.preheader.i.i ], [ %82, %._crit_edge.us.i.i ]
-  br label %74
+  %.01620.us.i.i = phi ptr [ %.031, %.preheader.us.preheader.i.i ], [ %80, %._crit_edge.us.i.i ]
+  br label %72
 
-74:                                               ; preds = %80, %.preheader.us.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i, %80 ]
-  %.118.us.i.i = phi ptr [ %.01620.us.i.i, %.preheader.us.i.i ], [ %82, %80 ]
-  %75 = getelementptr inbounds nuw ptr, ptr %.0120125.i, i64 %indvars.iv.i.i
-  %76 = load ptr, ptr %75, align 8
-  %.not.us.i.i = icmp eq ptr %76, null
-  br i1 %.not.us.i.i, label %80, label %77
+72:                                               ; preds = %78, %.preheader.us.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i, %78 ]
+  %.118.us.i.i = phi ptr [ %.01620.us.i.i, %.preheader.us.i.i ], [ %80, %78 ]
+  %73 = getelementptr inbounds nuw ptr, ptr %.0120125.i, i64 %indvars.iv.i.i
+  %74 = load ptr, ptr %73, align 8
+  %.not.us.i.i = icmp eq ptr %74, null
+  br i1 %.not.us.i.i, label %78, label %75
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 %indvars.iv26.i.i
-  %79 = load i8, ptr %78, align 1
-  br label %80
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %indvars.iv26.i.i
+  %77 = load i8, ptr %76, align 1
+  br label %78
 
-80:                                               ; preds = %77, %74
-  %81 = phi i8 [ %79, %77 ], [ %73, %74 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.118.us.i.i, i64 1
-  store i8 %81, ptr %.118.us.i.i, align 1
+78:                                               ; preds = %75, %72
+  %79 = phi i8 [ %77, %75 ], [ %71, %72 ]
+  %80 = getelementptr inbounds nuw i8, ptr %.118.us.i.i, i64 1
+  store i8 %79, ptr %.118.us.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %74, !llvm.loop !38
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %72, !llvm.loop !38
 
-._crit_edge.us.i.i:                               ; preds = %80
+._crit_edge.us.i.i:                               ; preds = %78
   %indvars.iv.next27.i.i = add nuw nsw i64 %indvars.iv26.i.i, 1
   %exitcond30.not.i.i = icmp eq i64 %indvars.iv.next27.i.i, %wide.trip.count29.i.i
   br i1 %exitcond30.not.i.i, label %InterleaveAudioChannels.exit, label %.preheader.us.i.i, !llvm.loop !39
 
-83:                                               ; preds = %.thread122.i
-  %84 = icmp sgt i32 %.pre, 0
-  %85 = trunc i32 %70 to i16
-  br i1 %84, label %.preheader.us.preheader.i57.i, label %InterleaveAudioChannels.exit
-
-.preheader.us.preheader.i57.i:                    ; preds = %83
+.preheader.us.preheader.i57.i:                    ; preds = %.thread122.i
+  %81 = trunc i32 %70 to i16
   %wide.trip.count29.i58.i = zext nneg i32 %3 to i64
   %wide.trip.count.i59.i = zext nneg i32 %.pre to i64
   br label %.preheader.us.i60.i
 
 .preheader.us.i60.i:                              ; preds = %._crit_edge.us.i68.i, %.preheader.us.preheader.i57.i
   %indvars.iv26.i61.i = phi i64 [ 0, %.preheader.us.preheader.i57.i ], [ %indvars.iv.next27.i69.i, %._crit_edge.us.i68.i ]
-  %.01620.us.i62.i = phi ptr [ %.031, %.preheader.us.preheader.i57.i ], [ %94, %._crit_edge.us.i68.i ]
-  br label %86
+  %.01620.us.i62.i = phi ptr [ %.031, %.preheader.us.preheader.i57.i ], [ %90, %._crit_edge.us.i68.i ]
+  br label %82
 
-86:                                               ; preds = %92, %.preheader.us.i60.i
-  %indvars.iv.i63.i = phi i64 [ 0, %.preheader.us.i60.i ], [ %indvars.iv.next.i66.i, %92 ]
-  %.118.us.i64.i = phi ptr [ %.01620.us.i62.i, %.preheader.us.i60.i ], [ %94, %92 ]
-  %87 = getelementptr inbounds nuw ptr, ptr %.0120125.i, i64 %indvars.iv.i63.i
-  %88 = load ptr, ptr %87, align 8
-  %.not.us.i65.i = icmp eq ptr %88, null
-  br i1 %.not.us.i65.i, label %92, label %89
+82:                                               ; preds = %88, %.preheader.us.i60.i
+  %indvars.iv.i63.i = phi i64 [ 0, %.preheader.us.i60.i ], [ %indvars.iv.next.i66.i, %88 ]
+  %.118.us.i64.i = phi ptr [ %.01620.us.i62.i, %.preheader.us.i60.i ], [ %90, %88 ]
+  %83 = getelementptr inbounds nuw ptr, ptr %.0120125.i, i64 %indvars.iv.i63.i
+  %84 = load ptr, ptr %83, align 8
+  %.not.us.i65.i = icmp eq ptr %84, null
+  br i1 %.not.us.i65.i, label %88, label %85
 
-89:                                               ; preds = %86
-  %90 = getelementptr inbounds nuw i16, ptr %88, i64 %indvars.iv26.i61.i
-  %91 = load i16, ptr %90, align 2
-  br label %92
+85:                                               ; preds = %82
+  %86 = getelementptr inbounds nuw i16, ptr %84, i64 %indvars.iv26.i61.i
+  %87 = load i16, ptr %86, align 2
+  br label %88
 
-92:                                               ; preds = %89, %86
-  %93 = phi i16 [ %91, %89 ], [ %85, %86 ]
-  %94 = getelementptr inbounds nuw i8, ptr %.118.us.i64.i, i64 2
-  store i16 %93, ptr %.118.us.i64.i, align 2
+88:                                               ; preds = %85, %82
+  %89 = phi i16 [ %87, %85 ], [ %81, %82 ]
+  %90 = getelementptr inbounds nuw i8, ptr %.118.us.i64.i, i64 2
+  store i16 %89, ptr %.118.us.i64.i, align 2
   %indvars.iv.next.i66.i = add nuw nsw i64 %indvars.iv.i63.i, 1
   %exitcond.not.i67.i = icmp eq i64 %indvars.iv.next.i66.i, %wide.trip.count.i59.i
-  br i1 %exitcond.not.i67.i, label %._crit_edge.us.i68.i, label %86, !llvm.loop !40
+  br i1 %exitcond.not.i67.i, label %._crit_edge.us.i68.i, label %82, !llvm.loop !40
 
-._crit_edge.us.i68.i:                             ; preds = %92
+._crit_edge.us.i68.i:                             ; preds = %88
   %indvars.iv.next27.i69.i = add nuw nsw i64 %indvars.iv26.i61.i, 1
   %exitcond30.not.i70.i = icmp eq i64 %indvars.iv.next27.i69.i, %wide.trip.count29.i58.i
   br i1 %exitcond30.not.i70.i, label %InterleaveAudioChannels.exit, label %.preheader.us.i60.i, !llvm.loop !41
 
-95:                                               ; preds = %.thread122.i
-  %96 = icmp sgt i32 %.pre, 0
-  br i1 %96, label %.preheader.us.preheader.i71.i, label %InterleaveAudioChannels.exit
-
-.preheader.us.preheader.i71.i:                    ; preds = %95
+.preheader.us.preheader.i71.i:                    ; preds = %.thread122.i
   %wide.trip.count29.i72.i = zext nneg i32 %3 to i64
   %wide.trip.count.i73.i = zext nneg i32 %.pre to i64
   br label %.preheader.us.i74.i
 
 .preheader.us.i74.i:                              ; preds = %._crit_edge.us.i82.i, %.preheader.us.preheader.i71.i
   %indvars.iv26.i75.i = phi i64 [ 0, %.preheader.us.preheader.i71.i ], [ %indvars.iv.next27.i83.i, %._crit_edge.us.i82.i ]
-  %.01620.us.i76.i = phi ptr [ %.031, %.preheader.us.preheader.i71.i ], [ %105, %._crit_edge.us.i82.i ]
+  %.01620.us.i76.i = phi ptr [ %.031, %.preheader.us.preheader.i71.i ], [ %99, %._crit_edge.us.i82.i ]
+  br label %91
+
+91:                                               ; preds = %97, %.preheader.us.i74.i
+  %indvars.iv.i77.i = phi i64 [ 0, %.preheader.us.i74.i ], [ %indvars.iv.next.i80.i, %97 ]
+  %.118.us.i78.i = phi ptr [ %.01620.us.i76.i, %.preheader.us.i74.i ], [ %99, %97 ]
+  %92 = getelementptr inbounds nuw ptr, ptr %.0120125.i, i64 %indvars.iv.i77.i
+  %93 = load ptr, ptr %92, align 8
+  %.not.us.i79.i = icmp eq ptr %93, null
+  br i1 %.not.us.i79.i, label %97, label %94
+
+94:                                               ; preds = %91
+  %95 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv26.i75.i
+  %96 = load i32, ptr %95, align 4
   br label %97
 
-97:                                               ; preds = %103, %.preheader.us.i74.i
-  %indvars.iv.i77.i = phi i64 [ 0, %.preheader.us.i74.i ], [ %indvars.iv.next.i80.i, %103 ]
-  %.118.us.i78.i = phi ptr [ %.01620.us.i76.i, %.preheader.us.i74.i ], [ %105, %103 ]
-  %98 = getelementptr inbounds nuw ptr, ptr %.0120125.i, i64 %indvars.iv.i77.i
-  %99 = load ptr, ptr %98, align 8
-  %.not.us.i79.i = icmp eq ptr %99, null
-  br i1 %.not.us.i79.i, label %103, label %100
-
-100:                                              ; preds = %97
-  %101 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv26.i75.i
-  %102 = load i32, ptr %101, align 4
-  br label %103
-
-103:                                              ; preds = %100, %97
-  %104 = phi i32 [ %102, %100 ], [ %70, %97 ]
-  %105 = getelementptr inbounds nuw i8, ptr %.118.us.i78.i, i64 4
-  store i32 %104, ptr %.118.us.i78.i, align 4
+97:                                               ; preds = %94, %91
+  %98 = phi i32 [ %96, %94 ], [ %70, %91 ]
+  %99 = getelementptr inbounds nuw i8, ptr %.118.us.i78.i, i64 4
+  store i32 %98, ptr %.118.us.i78.i, align 4
   %indvars.iv.next.i80.i = add nuw nsw i64 %indvars.iv.i77.i, 1
   %exitcond.not.i81.i = icmp eq i64 %indvars.iv.next.i80.i, %wide.trip.count.i73.i
-  br i1 %exitcond.not.i81.i, label %._crit_edge.us.i82.i, label %97, !llvm.loop !42
+  br i1 %exitcond.not.i81.i, label %._crit_edge.us.i82.i, label %91, !llvm.loop !42
 
-._crit_edge.us.i82.i:                             ; preds = %103
+._crit_edge.us.i82.i:                             ; preds = %97
   %indvars.iv.next27.i83.i = add nuw nsw i64 %indvars.iv26.i75.i, 1
   %exitcond30.not.i84.i = icmp eq i64 %indvars.iv.next27.i83.i, %wide.trip.count29.i72.i
   br i1 %exitcond30.not.i84.i, label %InterleaveAudioChannels.exit, label %.preheader.us.i74.i, !llvm.loop !43
 
-106:                                              ; preds = %.thread122.i
+100:                                              ; preds = %.thread122.i
   %.pre66 = mul i32 %49, %3
   %.pre67 = mul i32 %.pre66, %.pre
   br label %InterleaveAudioChannelsWithNullsGeneric8.exit.sink.split.i
@@ -2166,132 +2154,132 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
 ._crit_edge.i:                                    ; preds = %66, %._crit_edge148.i
   %trunc.i = trunc i32 %47 to i8
   switch i8 %trunc.i, label %InterleaveAudioChannelsWithNullsGeneric8.exit.sink.split.i [
-    i8 8, label %107
-    i8 16, label %114
-    i8 32, label %121
+    i8 8, label %101
+    i8 16, label %108
+    i8 32, label %115
   ]
 
-107:                                              ; preds = %._crit_edge.i
+101:                                              ; preds = %._crit_edge.i
   br i1 %65, label %.preheader.us.preheader.i85.i, label %InterleaveAudioChannels.exit
 
-.preheader.us.preheader.i85.i:                    ; preds = %107
+.preheader.us.preheader.i85.i:                    ; preds = %101
   %wide.trip.count24.i.i = zext nneg i32 %3 to i64
   %wide.trip.count.i86.i = zext nneg i32 %.pre to i64
   br label %.preheader.us.i87.i
 
 .preheader.us.i87.i:                              ; preds = %._crit_edge.us.i91.i, %.preheader.us.preheader.i85.i
   %indvars.iv21.i.i = phi i64 [ 0, %.preheader.us.preheader.i85.i ], [ %indvars.iv.next22.i.i, %._crit_edge.us.i91.i ]
-  %.01215.us.i.i = phi ptr [ %.031, %.preheader.us.preheader.i85.i ], [ %113, %._crit_edge.us.i91.i ]
-  br label %108
+  %.01215.us.i.i = phi ptr [ %.031, %.preheader.us.preheader.i85.i ], [ %107, %._crit_edge.us.i91.i ]
+  br label %102
 
-108:                                              ; preds = %108, %.preheader.us.i87.i
-  %indvars.iv.i88.i = phi i64 [ 0, %.preheader.us.i87.i ], [ %indvars.iv.next.i89.i, %108 ]
-  %.113.us.i.i = phi ptr [ %.01215.us.i.i, %.preheader.us.i87.i ], [ %113, %108 ]
-  %109 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i88.i
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %indvars.iv21.i.i
-  %112 = load i8, ptr %111, align 1
-  %113 = getelementptr inbounds nuw i8, ptr %.113.us.i.i, i64 1
-  store i8 %112, ptr %.113.us.i.i, align 1
+102:                                              ; preds = %102, %.preheader.us.i87.i
+  %indvars.iv.i88.i = phi i64 [ 0, %.preheader.us.i87.i ], [ %indvars.iv.next.i89.i, %102 ]
+  %.113.us.i.i = phi ptr [ %.01215.us.i.i, %.preheader.us.i87.i ], [ %107, %102 ]
+  %103 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i88.i
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 %indvars.iv21.i.i
+  %106 = load i8, ptr %105, align 1
+  %107 = getelementptr inbounds nuw i8, ptr %.113.us.i.i, i64 1
+  store i8 %106, ptr %.113.us.i.i, align 1
   %indvars.iv.next.i89.i = add nuw nsw i64 %indvars.iv.i88.i, 1
   %exitcond.not.i90.i = icmp eq i64 %indvars.iv.next.i89.i, %wide.trip.count.i86.i
-  br i1 %exitcond.not.i90.i, label %._crit_edge.us.i91.i, label %108, !llvm.loop !44
+  br i1 %exitcond.not.i90.i, label %._crit_edge.us.i91.i, label %102, !llvm.loop !44
 
-._crit_edge.us.i91.i:                             ; preds = %108
+._crit_edge.us.i91.i:                             ; preds = %102
   %indvars.iv.next22.i.i = add nuw nsw i64 %indvars.iv21.i.i, 1
   %exitcond25.not.i.i = icmp eq i64 %indvars.iv.next22.i.i, %wide.trip.count24.i.i
   br i1 %exitcond25.not.i.i, label %InterleaveAudioChannels.exit, label %.preheader.us.i87.i, !llvm.loop !45
 
-114:                                              ; preds = %._crit_edge.i
+108:                                              ; preds = %._crit_edge.i
   br i1 %65, label %.preheader.us.preheader.i92.i, label %InterleaveAudioChannels.exit
 
-.preheader.us.preheader.i92.i:                    ; preds = %114
+.preheader.us.preheader.i92.i:                    ; preds = %108
   %wide.trip.count24.i93.i = zext nneg i32 %3 to i64
   %wide.trip.count.i94.i = zext nneg i32 %.pre to i64
   br label %.preheader.us.i95.i
 
 .preheader.us.i95.i:                              ; preds = %._crit_edge.us.i102.i, %.preheader.us.preheader.i92.i
   %indvars.iv21.i96.i = phi i64 [ 0, %.preheader.us.preheader.i92.i ], [ %indvars.iv.next22.i103.i, %._crit_edge.us.i102.i ]
-  %.01215.us.i97.i = phi ptr [ %.031, %.preheader.us.preheader.i92.i ], [ %120, %._crit_edge.us.i102.i ]
-  br label %115
+  %.01215.us.i97.i = phi ptr [ %.031, %.preheader.us.preheader.i92.i ], [ %114, %._crit_edge.us.i102.i ]
+  br label %109
 
-115:                                              ; preds = %115, %.preheader.us.i95.i
-  %indvars.iv.i98.i = phi i64 [ 0, %.preheader.us.i95.i ], [ %indvars.iv.next.i100.i, %115 ]
-  %.113.us.i99.i = phi ptr [ %.01215.us.i97.i, %.preheader.us.i95.i ], [ %120, %115 ]
-  %116 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i98.i
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds nuw i16, ptr %117, i64 %indvars.iv21.i96.i
-  %119 = load i16, ptr %118, align 2
-  %120 = getelementptr inbounds nuw i8, ptr %.113.us.i99.i, i64 2
-  store i16 %119, ptr %.113.us.i99.i, align 2
+109:                                              ; preds = %109, %.preheader.us.i95.i
+  %indvars.iv.i98.i = phi i64 [ 0, %.preheader.us.i95.i ], [ %indvars.iv.next.i100.i, %109 ]
+  %.113.us.i99.i = phi ptr [ %.01215.us.i97.i, %.preheader.us.i95.i ], [ %114, %109 ]
+  %110 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i98.i
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds nuw i16, ptr %111, i64 %indvars.iv21.i96.i
+  %113 = load i16, ptr %112, align 2
+  %114 = getelementptr inbounds nuw i8, ptr %.113.us.i99.i, i64 2
+  store i16 %113, ptr %.113.us.i99.i, align 2
   %indvars.iv.next.i100.i = add nuw nsw i64 %indvars.iv.i98.i, 1
   %exitcond.not.i101.i = icmp eq i64 %indvars.iv.next.i100.i, %wide.trip.count.i94.i
-  br i1 %exitcond.not.i101.i, label %._crit_edge.us.i102.i, label %115, !llvm.loop !46
+  br i1 %exitcond.not.i101.i, label %._crit_edge.us.i102.i, label %109, !llvm.loop !46
 
-._crit_edge.us.i102.i:                            ; preds = %115
+._crit_edge.us.i102.i:                            ; preds = %109
   %indvars.iv.next22.i103.i = add nuw nsw i64 %indvars.iv21.i96.i, 1
   %exitcond25.not.i104.i = icmp eq i64 %indvars.iv.next22.i103.i, %wide.trip.count24.i93.i
   br i1 %exitcond25.not.i104.i, label %InterleaveAudioChannels.exit, label %.preheader.us.i95.i, !llvm.loop !47
 
-121:                                              ; preds = %._crit_edge.i
+115:                                              ; preds = %._crit_edge.i
   br i1 %65, label %.preheader.us.preheader.i105.i, label %InterleaveAudioChannels.exit
 
-.preheader.us.preheader.i105.i:                   ; preds = %121
+.preheader.us.preheader.i105.i:                   ; preds = %115
   %wide.trip.count24.i106.i = zext nneg i32 %3 to i64
   %wide.trip.count.i107.i = zext nneg i32 %.pre to i64
   br label %.preheader.us.i108.i
 
 .preheader.us.i108.i:                             ; preds = %._crit_edge.us.i115.i, %.preheader.us.preheader.i105.i
   %indvars.iv21.i109.i = phi i64 [ 0, %.preheader.us.preheader.i105.i ], [ %indvars.iv.next22.i116.i, %._crit_edge.us.i115.i ]
-  %.01215.us.i110.i = phi ptr [ %.031, %.preheader.us.preheader.i105.i ], [ %127, %._crit_edge.us.i115.i ]
-  br label %122
+  %.01215.us.i110.i = phi ptr [ %.031, %.preheader.us.preheader.i105.i ], [ %121, %._crit_edge.us.i115.i ]
+  br label %116
 
-122:                                              ; preds = %122, %.preheader.us.i108.i
-  %indvars.iv.i111.i = phi i64 [ 0, %.preheader.us.i108.i ], [ %indvars.iv.next.i113.i, %122 ]
-  %.113.us.i112.i = phi ptr [ %.01215.us.i110.i, %.preheader.us.i108.i ], [ %127, %122 ]
-  %123 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i111.i
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv21.i109.i
-  %126 = load i32, ptr %125, align 4
-  %127 = getelementptr inbounds nuw i8, ptr %.113.us.i112.i, i64 4
-  store i32 %126, ptr %.113.us.i112.i, align 4
+116:                                              ; preds = %116, %.preheader.us.i108.i
+  %indvars.iv.i111.i = phi i64 [ 0, %.preheader.us.i108.i ], [ %indvars.iv.next.i113.i, %116 ]
+  %.113.us.i112.i = phi ptr [ %.01215.us.i110.i, %.preheader.us.i108.i ], [ %121, %116 ]
+  %117 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i111.i
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv21.i109.i
+  %120 = load i32, ptr %119, align 4
+  %121 = getelementptr inbounds nuw i8, ptr %.113.us.i112.i, i64 4
+  store i32 %120, ptr %.113.us.i112.i, align 4
   %indvars.iv.next.i113.i = add nuw nsw i64 %indvars.iv.i111.i, 1
   %exitcond.not.i114.i = icmp eq i64 %indvars.iv.next.i113.i, %wide.trip.count.i107.i
-  br i1 %exitcond.not.i114.i, label %._crit_edge.us.i115.i, label %122, !llvm.loop !48
+  br i1 %exitcond.not.i114.i, label %._crit_edge.us.i115.i, label %116, !llvm.loop !48
 
-._crit_edge.us.i115.i:                            ; preds = %122
+._crit_edge.us.i115.i:                            ; preds = %116
   %indvars.iv.next22.i116.i = add nuw nsw i64 %indvars.iv21.i109.i, 1
   %exitcond25.not.i117.i = icmp eq i64 %indvars.iv.next22.i116.i, %wide.trip.count24.i106.i
   br i1 %exitcond25.not.i117.i, label %InterleaveAudioChannels.exit, label %.preheader.us.i108.i, !llvm.loop !49
 
-InterleaveAudioChannelsWithNullsGeneric8.exit.sink.split.i: ; preds = %._crit_edge.i, %106
-  %.pre-phi68 = phi i32 [ %.pre67, %106 ], [ %51, %._crit_edge.i ]
-  %128 = zext i32 %.pre-phi68 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %.031, i8 0, i64 %128, i1 false)
+InterleaveAudioChannelsWithNullsGeneric8.exit.sink.split.i: ; preds = %._crit_edge.i, %100
+  %.pre-phi68 = phi i32 [ %.pre67, %100 ], [ %51, %._crit_edge.i ]
+  %122 = zext i32 %.pre-phi68 to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %.031, i8 0, i64 %122, i1 false)
   br label %InterleaveAudioChannels.exit
 
-InterleaveAudioChannels.exit:                     ; preds = %._crit_edge.us.i115.i, %._crit_edge.us.i102.i, %._crit_edge.us.i91.i, %._crit_edge.us.i82.i, %._crit_edge.us.i68.i, %._crit_edge.us.i.i, %71, %83, %95, %107, %114, %121, %InterleaveAudioChannelsWithNullsGeneric8.exit.sink.split.i
+InterleaveAudioChannels.exit:                     ; preds = %._crit_edge.us.i115.i, %._crit_edge.us.i102.i, %._crit_edge.us.i91.i, %._crit_edge.us.i82.i, %._crit_edge.us.i68.i, %._crit_edge.us.i.i, %101, %108, %115, %InterleaveAudioChannelsWithNullsGeneric8.exit.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %129 = load ptr, ptr %0, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %129) #11
-  %130 = call fastcc zeroext i1 @PutAudioStreamBufferInternal(ptr noundef %0, ptr noundef %6, ptr noundef %.033, ptr noundef %.031, i32 noundef %51, ptr noundef %.0)
-  %131 = load ptr, ptr %0, align 8
-  call void @SDL_UnlockMutex_REAL(ptr noundef %131) #11
-  br label %132
+  %123 = load ptr, ptr %0, align 8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %123) #11
+  %124 = call fastcc zeroext i1 @PutAudioStreamBufferInternal(ptr noundef %0, ptr noundef %6, ptr noundef %.033, ptr noundef %.031, i32 noundef %51, ptr noundef %.0)
+  %125 = load ptr, ptr %0, align 8
+  call void @SDL_UnlockMutex_REAL(ptr noundef %125) #11
+  br label %126
 
-132:                                              ; preds = %53, %InterleaveAudioChannels.exit
-  %.2 = phi i1 [ %130, %InterleaveAudioChannels.exit ], [ false, %53 ]
+126:                                              ; preds = %53, %InterleaveAudioChannels.exit
+  %.2 = phi i1 [ %124, %InterleaveAudioChannels.exit ], [ false, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %133
+  br label %127
 
-133:                                              ; preds = %132, %39, %30
-  %.1 = phi i1 [ %45, %39 ], [ %.2, %132 ], [ false, %30 ]
+127:                                              ; preds = %126, %39, %30
+  %.1 = phi i1 [ %45, %39 ], [ %.2, %126 ], [ false, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %134
+  br label %128
 
-134:                                              ; preds = %18, %133, %16, %12, %9
-  %.032 = phi i1 [ %17, %16 ], [ %.1, %133 ], [ %13, %12 ], [ %10, %9 ], [ true, %18 ]
+128:                                              ; preds = %18, %127, %16, %12, %9
+  %.032 = phi i1 [ %17, %16 ], [ %.1, %127 ], [ %13, %12 ], [ %10, %9 ], [ true, %18 ]
   ret i1 %.032
 }
 
@@ -2575,9 +2563,9 @@ GetAudioStreamAvailableFrames.exit:               ; preds = %thread-pre-split.i,
   %111 = call ptr @SDL_BeginAudioQueueIter(ptr noundef %110) #11
   store ptr %111, ptr %5, align 8
   %.not.i95 = icmp eq ptr %111, null
-  br i1 %.not.i95, label %.thread157, label %GetAudioStreamHead.exit
+  br i1 %.not.i95, label %.thread174, label %GetAudioStreamHead.exit
 
-.thread157:                                       ; preds = %109
+.thread174:                                       ; preds = %109
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread123
 
@@ -2830,8 +2818,8 @@ GetAudioStreamDataInternal.exit:                  ; preds = %214
   %234 = select i1 %.not93.le, i32 -1, i32 %.078149
   br label %.thread123
 
-.thread123:                                       ; preds = %115, %.thread157, %.thread123.loopexit.split.loop.exit141, %.thread123.loopexit.split.loop.exit143, %UpdateAudioStreamInputSpec.exit, %.thread
-  %.2.ph = phi i32 [ %227, %.thread ], [ %134, %UpdateAudioStreamInputSpec.exit ], [ %233, %.thread123.loopexit.split.loop.exit141 ], [ %234, %.thread123.loopexit.split.loop.exit143 ], [ %.078149, %.thread157 ], [ %.078149, %115 ]
+.thread123:                                       ; preds = %115, %.thread174, %.thread123.loopexit.split.loop.exit141, %.thread123.loopexit.split.loop.exit143, %UpdateAudioStreamInputSpec.exit, %.thread
+  %.2.ph = phi i32 [ %227, %.thread ], [ %134, %UpdateAudioStreamInputSpec.exit ], [ %233, %.thread123.loopexit.split.loop.exit141 ], [ %234, %.thread123.loopexit.split.loop.exit143 ], [ %.078149, %.thread174 ], [ %.078149, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

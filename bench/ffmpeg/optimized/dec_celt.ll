@@ -1208,7 +1208,7 @@ celt_denormalize.exit:                            ; preds = %._crit_edge.i319, %
   %619 = load ptr, ptr %618, align 8, !tbaa !67
   %620 = getelementptr inbounds nuw i8, ptr %0, i64 8720
   %621 = getelementptr inbounds nuw i8, ptr %0, i64 25616
-  %622 = add nsw i32 %4, 15
+  %622 = add nuw nsw i32 %4, 15
   %623 = and i32 %622, -16
   tail call void %619(ptr noundef nonnull %620, ptr noundef nonnull %621, float noundef 1.000000e+00, i32 noundef %623) #8
   br label %631

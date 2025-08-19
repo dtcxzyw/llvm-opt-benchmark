@@ -46,7 +46,7 @@ define hidden noundef i32 @Curl_http_proxy_get_destination(ptr noundef readonly 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !12
   %13 = icmp eq i32 %12, 1
-  br i1 %13, label %.thread, label %.thread24
+  br i1 %13, label %.thread, label %.thread25
 
 .thread:                                          ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 128
@@ -54,7 +54,7 @@ define hidden noundef i32 @Curl_http_proxy_get_destination(ptr noundef readonly 
   store ptr %15, ptr %1, align 8, !tbaa !35
   br label %22
 
-.thread24:                                        ; preds = %10
+.thread25:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %17 = load ptr, ptr %16, align 8, !tbaa !36
   store ptr %17, ptr %1, align 8, !tbaa !35
@@ -76,8 +76,8 @@ define hidden noundef i32 @Curl_http_proxy_get_destination(ptr noundef readonly 
   %26 = zext i16 %25 to i32
   br label %37
 
-27:                                               ; preds = %.thread24, %18
-  %28 = phi ptr [ %17, %.thread24 ], [ %20, %18 ]
+27:                                               ; preds = %.thread25, %18
+  %28 = phi ptr [ %17, %.thread25 ], [ %20, %18 ]
   %29 = load i64, ptr %7, align 8
   %30 = and i64 %29, 512
   %.not22 = icmp eq i64 %30, 0
@@ -143,14 +143,14 @@ define hidden i32 @Curl_http_proxy_create_CONNECT(ptr noundef writeonly captures
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load i32, ptr %14, align 8, !tbaa !12
   %16 = icmp eq i32 %15, 1
-  br i1 %16, label %.thread.i, label %.thread24.i
+  br i1 %16, label %.thread.i, label %.thread25.i
 
 .thread.i:                                        ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %18 = load ptr, ptr %17, align 8, !tbaa !13
   br label %25
 
-.thread24.i:                                      ; preds = %13
+.thread25.i:                                      ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %20 = load ptr, ptr %19, align 8, !tbaa !36
   br label %29
@@ -170,8 +170,8 @@ define hidden i32 @Curl_http_proxy_create_CONNECT(ptr noundef writeonly captures
   %28 = zext i16 %27 to i32
   br label %37
 
-29:                                               ; preds = %21, %.thread24.i
-  %.061 = phi ptr [ %20, %.thread24.i ], [ %23, %21 ]
+29:                                               ; preds = %21, %.thread25.i
+  %.061 = phi ptr [ %20, %.thread25.i ], [ %23, %21 ]
   %30 = and i64 %11, 512
   %.not22.i = icmp eq i64 %30, 0
   br i1 %.not22.i, label %34, label %31
@@ -764,34 +764,34 @@ define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 no
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %81 = load i32, ptr %80, align 8, !tbaa !127
   %82 = icmp sgt i32 %81, 0
-  br i1 %82, label %83, label %.thread109
+  br i1 %82, label %83, label %.thread121
 
 83:                                               ; preds = %77, %79
   %84 = load ptr, ptr %0, align 8, !tbaa !123
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 12
   %86 = load i32, ptr %85, align 4, !tbaa !129
   %87 = icmp sgt i32 %86, 0
-  br i1 %87, label %88, label %.thread109
+  br i1 %87, label %88, label %.thread121
 
 88:                                               ; preds = %83
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #6
   %.pre = load i64, ptr %37, align 2
   %.pre108 = and i64 %.pre, 2147483648
   %89 = icmp eq i64 %.pre108, 0
-  br i1 %89, label %.critedge, label %.thread109
+  br i1 %89, label %.critedge, label %.thread121
 
-.thread109:                                       ; preds = %79, %83, %88
+.thread121:                                       ; preds = %79, %83, %88
   %90 = load ptr, ptr %38, align 8, !tbaa !126
   %.not80 = icmp eq ptr %90, null
   br i1 %.not80, label %95, label %91
 
-91:                                               ; preds = %.thread109
+91:                                               ; preds = %.thread121
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %93 = load i32, ptr %92, align 8, !tbaa !127
   %94 = icmp sgt i32 %93, 0
   br i1 %94, label %95, label %.critedge
 
-95:                                               ; preds = %91, %.thread109
+95:                                               ; preds = %91, %.thread121
   %96 = icmp ne i32 %74, 1
   %97 = zext i1 %96 to i32
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.20, i32 noundef %97) #6

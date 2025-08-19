@@ -2384,8 +2384,8 @@ define dso_local void @md_bitmap_end_sync(ptr noundef %0, i64 noundef %1, ptr no
   br label %.thread4
 
 36:                                               ; preds = %27, %.thread5
-  %.sink9 = phi i64 [ %26, %.thread5 ], [ %10, %27 ]
-  %37 = shl nuw i64 1, %.sink9
+  %.sink11 = phi i64 [ %26, %.thread5 ], [ %10, %27 ]
+  %37 = shl nuw i64 1, %.sink11
   %38 = add i64 %37, -1
   %39 = and i64 %38, %1
   %40 = sub i64 %37, %39
@@ -4097,7 +4097,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   br i1 %101, label %.thread, label %102
 
 102:                                              ; preds = %.critedge
-  br i1 %78, label %103, label %.thread87
+  br i1 %78, label %103, label %.thread122
 
 103:                                              ; preds = %102
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4111,9 +4111,9 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %108 = sext i32 %97 to i64
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %108, ptr %109, align 8
-  br label %.thread87
+  br label %.thread122
 
-.thread87:                                        ; preds = %102, %107
+.thread122:                                       ; preds = %102, %107
   %110 = phi ptr [ %105, %107 ], [ null, %102 ]
   %111 = phi i32 [ 1, %107 ], [ 0, %102 ]
   %112 = zext nneg i32 %111 to i64
@@ -4126,17 +4126,17 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %117 = icmp ugt i64 %95, %116
   br i1 %117, label %.preheader58, label %.loopexit59, !llvm.loop !67
 
-.preheader58:                                     ; preds = %.thread87, %114
-  %118 = phi i64 [ %116, %114 ], [ %112, %.thread87 ]
-  %119 = phi i32 [ %115, %114 ], [ %111, %.thread87 ]
+.preheader58:                                     ; preds = %.thread122, %114
+  %118 = phi i64 [ %116, %114 ], [ %112, %.thread122 ]
+  %119 = phi i32 [ %115, %114 ], [ %111, %.thread122 ]
   %120 = tail call ptr @alloc_pages(i32 noundef 3520, i32 noundef 0) #19
   %121 = getelementptr ptr, ptr %99, i64 %118
   store ptr %120, ptr %121, align 8
   %122 = icmp eq ptr %120, null
   br i1 %122, label %132, label %114
 
-.loopexit59:                                      ; preds = %114, %.thread87
-  %123 = phi i64 [ %112, %.thread87 ], [ %116, %114 ]
+.loopexit59:                                      ; preds = %114, %.thread122
+  %123 = phi i64 [ %112, %.thread122 ], [ %116, %114 ]
   store i64 %123, ptr %.sroa.gep1, align 8
   %124 = shl nuw nsw i64 %95, 2
   %125 = add nuw nsw i64 %124, 7

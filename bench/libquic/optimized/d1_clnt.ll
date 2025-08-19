@@ -315,12 +315,12 @@ dtls1_get_hello_verify.exit._crit_edge:           ; preds = %dtls1_get_hello_ver
   %120 = load i8, ptr %119, align 8
   %121 = and i8 %120, 1
   %.not206 = icmp eq i8 %121, 0
-  %.225 = select i1 %.not206, i32 4354, i32 4592
+  %.247 = select i1 %.not206, i32 4354, i32 4592
   br label %122
 
 122:                                              ; preds = %109, %117
-  %.sink224 = phi i32 [ %.225, %117 ], [ 4416, %109 ]
-  store i32 %.sink224, ptr %14, align 4, !tbaa !42
+  %.sink246 = phi i32 [ %.247, %117 ], [ 4416, %109 ]
+  store i32 %.sink246, ptr %14, align 4, !tbaa !42
   store i32 0, ptr %18, align 8, !tbaa !44
   br label %230
 

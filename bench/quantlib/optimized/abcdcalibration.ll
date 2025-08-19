@@ -1833,8 +1833,8 @@ invoke.cont59:                                    ; preds = %invoke.cont40
   store i64 %48, ptr %call5.i.i.i.i1.i.i, align 8, !tbaa !8
   %49 = load i8, ptr %dIsFixed_, align 1, !tbaa !44, !range !67, !noundef !68
   %50 = shl nuw nsw i8 %49, 3
-  %storemerge214224 = or disjoint i8 %47, %50
-  %storemerge214 = zext nneg i8 %storemerge214224 to i64
+  %storemerge214253 = or disjoint i8 %47, %50
+  %storemerge214 = zext nneg i8 %storemerge214253 to i64
   store i64 %storemerge214, ptr %call5.i.i.i.i1.i.i, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %inversedTransformatedGuess)
   %51 = load ptr, ptr %transformation_, align 8, !tbaa !75
@@ -3145,8 +3145,8 @@ invoke.cont40:                                    ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body.lr.ph:                                   ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %__first.addr.0.i.i.i.i.i.ph = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
-  %_M_finish.i.i7.i95 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %__first.addr.0.i.i.i.i.i.ph, ptr %_M_finish.i.i7.i95, align 8, !tbaa !51
+  %_M_finish.i.i7.i104 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store ptr %__first.addr.0.i.i.i.i.i.ph, ptr %_M_finish.i.i7.i104, align 8, !tbaa !51
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont48
@@ -3734,15 +3734,15 @@ lpad.body:                                        ; preds = %for.body.i
   br i1 %cmp.not.i.i5, label %_ZN8QuantLib5ArrayD2Ev.exit7, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i6
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i6: ; preds = %lpad.body.thread, %lpad.body
-  %eh.lpad-body12 = phi { ptr, i32 } [ %23, %lpad.body.thread ], [ %24, %lpad.body ]
+  %eh.lpad-body15 = phi { ptr, i32 } [ %23, %lpad.body.thread ], [ %24, %lpad.body ]
   %25 = phi ptr [ %4, %lpad.body.thread ], [ %.pre, %lpad.body ]
   call void @_ZdaPv(ptr noundef nonnull %25) #24
   br label %_ZN8QuantLib5ArrayD2Ev.exit7
 
 _ZN8QuantLib5ArrayD2Ev.exit7:                     ; preds = %lpad.body, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i6
-  %eh.lpad-body13 = phi { ptr, i32 } [ %24, %lpad.body ], [ %eh.lpad-body12, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i6 ]
+  %eh.lpad-body16 = phi { ptr, i32 } [ %24, %lpad.body ], [ %eh.lpad-body15, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %y)
-  resume { ptr, i32 } %eh.lpad-body13
+  resume { ptr, i32 } %eh.lpad-body16
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -3890,13 +3890,13 @@ define hidden { i64, i64 } @_ZN4core5slice5index5range17hb1451309ba06ba66E(ptr n
   %.val = load i64, ptr %0, align 8, !range !9, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val21 = load ptr, ptr %4, align 8
-  switch i64 %.val, label %default.unreachable24 [
+  switch i64 %.val, label %default.unreachable26 [
     i64 0, label %5
     i64 1, label %8
     i64 2, label %12
   ]
 
-default.unreachable24:                            ; preds = %12, %3
+default.unreachable26:                            ; preds = %12, %3
   unreachable
 
 5:                                                ; preds = %3
@@ -3918,7 +3918,7 @@ default.unreachable24:                            ; preds = %12, %3
   %.val22 = load i64, ptr %13, align 8, !range !9, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val23 = load ptr, ptr %14, align 8
-  switch i64 %.val22, label %default.unreachable24 [
+  switch i64 %.val22, label %default.unreachable26 [
     i64 0, label %18
     i64 1, label %22
     i64 2, label %28
@@ -15686,9 +15686,9 @@ _ZN4gpui4view7AnyView8downcast17ha07b728f2554160eE.exit.thread.i.i.i.i.i.i: ; pr
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17hdfe366aa18eb55beE.llvm.14949747552819550463.exit.i.i"
 
 "_ZN4gpui6window21WindowHandle$LT$V$GT$6update17h98719f92ec62414cE.exit.i.i": ; preds = %"_ZN68_$LT$gpui..window..ViewContext$LT$V$GT$$u20$as$u20$gpui..Context$GT$13update_window17h4c7cf43155380168E.exit.i.i.i", %"_ZN68_$LT$gpui..window..ViewContext$LT$V$GT$$u20$as$u20$gpui..Context$GT$13update_window17h4c7cf43155380168E.exit.thread.i.i.i"
-  %.pre-phi1619.i.i.i = phi ptr [ %.sroa.01.0.i.i.i.i.i.i, %"_ZN68_$LT$gpui..window..ViewContext$LT$V$GT$$u20$as$u20$gpui..Context$GT$13update_window17h4c7cf43155380168E.exit.thread.i.i.i" ], [ %74, %"_ZN68_$LT$gpui..window..ViewContext$LT$V$GT$$u20$as$u20$gpui..Context$GT$13update_window17h4c7cf43155380168E.exit.i.i.i" ]
-  store ptr %.pre-phi1619.i.i.i, ptr %10, align 8, !noalias !3384
-  %140 = icmp eq ptr %.pre-phi1619.i.i.i, null
+  %.pre-phi1620.i.i.i = phi ptr [ %.sroa.01.0.i.i.i.i.i.i, %"_ZN68_$LT$gpui..window..ViewContext$LT$V$GT$$u20$as$u20$gpui..Context$GT$13update_window17h4c7cf43155380168E.exit.thread.i.i.i" ], [ %74, %"_ZN68_$LT$gpui..window..ViewContext$LT$V$GT$$u20$as$u20$gpui..Context$GT$13update_window17h4c7cf43155380168E.exit.i.i.i" ]
+  store ptr %.pre-phi1620.i.i.i, ptr %10, align 8, !noalias !3384
+  %140 = icmp eq ptr %.pre-phi1620.i.i.i, null
   br i1 %140, label %.noexc14, label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17hdfe366aa18eb55beE.llvm.14949747552819550463.exit.i.i"
 
 .noexc14:                                         ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17hdfe366aa18eb55beE.llvm.14949747552819550463.exit.i.i", %"_ZN4gpui6window21WindowHandle$LT$V$GT$6update17h98719f92ec62414cE.exit.i.i"

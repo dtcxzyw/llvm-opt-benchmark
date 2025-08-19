@@ -778,9 +778,9 @@ set_push_cert_flags.exit:                         ; preds = %4, %.sink.split.i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %308, %311, %310
-  %.sink60 = phi i32 [ 256, %310 ], [ 32768, %311 ], [ 64, %308 ]
+  %.sink72 = phi i32 [ 256, %310 ], [ 32768, %311 ], [ 64, %308 ]
   %312 = load i32, ptr %8, align 4, !tbaa !4
-  %313 = or i32 %312, %.sink60
+  %313 = or i32 %312, %.sink72
   store i32 %313, ptr %8, align 4, !tbaa !4
   br label %314
 
@@ -1090,22 +1090,22 @@ set_refspecs.exit:                                ; preds = %408, %331
 .lr.ph:                                           ; preds = %436
   %.idx = shl nuw nsw i64 %.pre58, 4
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 %.idx
-  %.not63 = icmp eq i64 %.pre58, 0
-  br i1 %.not63, label %.critedge, label %.lr.ph62
+  %.not75 = icmp eq i64 %.pre58, 0
+  br i1 %.not75, label %.critedge, label %.lr.ph74
 
-439:                                              ; preds = %.lr.ph62
-  %440 = getelementptr inbounds nuw i8, ptr %.05561, i64 16
+439:                                              ; preds = %.lr.ph74
+  %440 = getelementptr inbounds nuw i8, ptr %.05573, i64 16
   %441 = icmp ult ptr %440, %438
-  br i1 %441, label %.lr.ph62, label %.critedge
+  br i1 %441, label %.lr.ph74, label %.critedge
 
-.lr.ph62:                                         ; preds = %.lr.ph, %439
-  %.05561 = phi ptr [ %440, %439 ], [ %437, %.lr.ph ]
-  %442 = load ptr, ptr %.05561, align 8, !tbaa !51
+.lr.ph74:                                         ; preds = %.lr.ph, %439
+  %.05573 = phi ptr [ %440, %439 ], [ %437, %.lr.ph ]
+  %442 = load ptr, ptr %.05573, align 8, !tbaa !51
   %443 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %442, i32 noundef 10) #16
   %.not40 = icmp eq ptr %443, null
   br i1 %.not40, label %439, label %444
 
-444:                                              ; preds = %.lr.ph62
+444:                                              ; preds = %.lr.ph74
   %445 = call fastcc ptr @_(ptr noundef nonnull @.str.67)
   call void (ptr, ...) @die(ptr noundef %445) #15
   unreachable
@@ -1605,8 +1605,8 @@ define internal i32 @git_push_config(ptr noundef %0, ptr noundef %1, ptr noundef
   %.not46 = icmp eq i32 %7, 0
   %8 = load i32, ptr %3, align 4, !tbaa !4
   %9 = and i32 %8, -1025
-  %masksel65 = select i1 %.not46, i32 0, i32 1024
-  %storemerge = or disjoint i32 %9, %masksel65
+  %masksel67 = select i1 %.not46, i32 0, i32 1024
+  %storemerge = or disjoint i32 %9, %masksel67
   store i32 %storemerge, ptr %3, align 4, !tbaa !4
   br label %78
 

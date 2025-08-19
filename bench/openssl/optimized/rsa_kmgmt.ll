@@ -509,11 +509,11 @@ define internal range(i32 0, 2) i32 @rsa_match(ptr noundef %0, ptr noundef %1, i
   %24 = tail call ptr @RSA_get0_d(ptr noundef %1) #6
   %25 = icmp eq ptr %23, null
   %26 = icmp eq ptr %24, null
-  %or.cond3.not59 = select i1 %25, i1 true, i1 %26
-  %.not55 = xor i1 %9, true
-  %brmerge = select i1 %or.cond3.not59, i1 true, i1 %.not55
-  %not.or.cond3.not59 = xor i1 %or.cond3.not59, true
-  %.mux56 = select i1 %or.cond3.not59, i1 %9, i1 false
+  %or.cond3.not63 = select i1 %25, i1 true, i1 %26
+  %.not59 = xor i1 %9, true
+  %brmerge = select i1 %or.cond3.not63, i1 true, i1 %.not59
+  %not.or.cond3.not63 = xor i1 %or.cond3.not63, true
+  %.mux60 = select i1 %or.cond3.not63, i1 %9, i1 false
   br i1 %brmerge, label %30, label %27
 
 27:                                               ; preds = %22
@@ -522,8 +522,8 @@ define internal range(i32 0, 2) i32 @rsa_match(ptr noundef %0, ptr noundef %1, i
   br label %30
 
 30:                                               ; preds = %22, %.thread49, %27, %.thread, %20
-  %.232 = phi i1 [ true, %20 ], [ false, %.thread ], [ true, %27 ], [ %not.or.cond3.not59, %22 ], [ true, %.thread49 ]
-  %.3 = phi i1 [ false, %20 ], [ %9, %.thread ], [ %29, %27 ], [ %.mux56, %22 ], [ %19, %.thread49 ]
+  %.232 = phi i1 [ true, %20 ], [ false, %.thread ], [ true, %27 ], [ %not.or.cond3.not63, %22 ], [ true, %.thread49 ]
+  %.3 = phi i1 [ false, %20 ], [ %9, %.thread ], [ %29, %27 ], [ %.mux60, %22 ], [ %19, %.thread49 ]
   %31 = and i1 %.232, %.3
   br label %32
 

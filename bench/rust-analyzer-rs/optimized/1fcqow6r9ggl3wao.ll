@@ -545,10 +545,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h2e5860c3d3cf
   unreachable
 
 ._crit_edge.thread:                               ; preds = %76, %._crit_edge
-  %.0.lcssa50 = phi ptr [ %21, %._crit_edge ], [ %77, %76 ]
-  %storemerge.lcssa49 = phi i64 [ %18, %._crit_edge ], [ %28, %76 ]
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.0.lcssa50, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
-  %59 = add i64 %storemerge.lcssa49, 1
+  %.0.lcssa53 = phi ptr [ %21, %._crit_edge ], [ %77, %76 ]
+  %storemerge.lcssa52 = phi i64 [ %18, %._crit_edge ], [ %28, %76 ]
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.0.lcssa53, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
+  %59 = add i64 %storemerge.lcssa52, 1
   store i64 %59, ptr %10, align 8
   br label %"_ZN4core3ptr43drop_in_place$LT$vfs..file_set..FileSet$GT$17h16599295c397eb20E.exit"
 

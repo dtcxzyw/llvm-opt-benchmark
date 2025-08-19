@@ -1317,7 +1317,7 @@ define hidden i64 @get_xawt_root_shell(ptr noundef %0) local_unnamed_addr #0 {
 21:                                               ; preds = %7, %13
   %.pr = load ptr, ptr @get_xawt_root_shell.classXRootWindow, align 8
   %.not = icmp eq ptr %.pr, null
-  br i1 %.not, label %.thread26, label %22
+  br i1 %.not, label %.thread29, label %22
 
 22:                                               ; preds = %21, %4
   %23 = phi ptr [ %.pr, %21 ], [ %5, %4 ]
@@ -1330,7 +1330,7 @@ define hidden i64 @get_xawt_root_shell(ptr noundef %0) local_unnamed_addr #0 {
   %28 = icmp ne ptr %.pre, null
   %29 = icmp ne ptr %27, null
   %or.cond = select i1 %28, i1 %29, i1 false
-  br i1 %or.cond, label %30, label %.thread26
+  br i1 %or.cond, label %30, label %.thread29
 
 30:                                               ; preds = %22
   %31 = load ptr, ptr %0, align 8
@@ -1338,9 +1338,9 @@ define hidden i64 @get_xawt_root_shell(ptr noundef %0) local_unnamed_addr #0 {
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i64 (ptr, ptr, ptr, ...) %33(ptr noundef nonnull %0, ptr noundef nonnull %.pre, ptr noundef nonnull %27) #13
   store i64 %34, ptr @get_xawt_root_shell.xawt_root_shell, align 8
-  br label %.thread26
+  br label %.thread29
 
-.thread26:                                        ; preds = %21, %30, %22
+.thread29:                                        ; preds = %21, %30, %22
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1824
   %37 = load ptr, ptr %36, align 8
@@ -1348,7 +1348,7 @@ define hidden i64 @get_xawt_root_shell(ptr noundef %0) local_unnamed_addr #0 {
   %.not23 = icmp eq i8 %38, 0
   br i1 %.not23, label %46, label %39
 
-39:                                               ; preds = %.thread26
+39:                                               ; preds = %.thread29
   %40 = load ptr, ptr %0, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 128
   %42 = load ptr, ptr %41, align 8
@@ -1359,7 +1359,7 @@ define hidden i64 @get_xawt_root_shell(ptr noundef %0) local_unnamed_addr #0 {
   tail call void %45(ptr noundef nonnull %0) #13
   br label %46
 
-46:                                               ; preds = %.thread26, %39, %1
+46:                                               ; preds = %.thread29, %39, %1
   %47 = load i64, ptr @get_xawt_root_shell.xawt_root_shell, align 8
   ret i64 %47
 }

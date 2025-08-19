@@ -687,13 +687,13 @@ pmix_obj_run_destructors.exit343:                 ; preds = %.lr.ph.i340, %291
   %319 = call i32 @prte_rmaps_base_get_ncpus(ptr noundef nonnull %.0254484, ptr noundef null, ptr noundef nonnull %1) #11
   %320 = load i32, ptr %149, align 8, !tbaa !76
   %321 = icmp sgt i32 %320, %319
-  br i1 %321, label %322, label %.preheader670
+  br i1 %321, label %322, label %.preheader714
 
 322:                                              ; preds = %316
   %323 = getelementptr inbounds nuw i8, ptr %.0254484, i64 224
   %324 = load i32, ptr %323, align 8, !tbaa !77
   %.not302 = icmp sgt i32 %320, %324
-  br i1 %.not302, label %.preheader670, label %325
+  br i1 %.not302, label %.preheader714, label %325
 
 325:                                              ; preds = %322
   %326 = load ptr, ptr %22, align 8, !tbaa !36
@@ -701,19 +701,19 @@ pmix_obj_run_destructors.exit343:                 ; preds = %.lr.ph.i340, %291
   %328 = load i16, ptr %327, align 4, !tbaa !70
   %329 = and i16 %328, 16384
   %.not303 = icmp eq i16 %329, 0
-  br i1 %.not303, label %330, label %.preheader670
+  br i1 %.not303, label %330, label %.preheader714
 
 330:                                              ; preds = %325
   store i16 1, ptr %6, align 4, !tbaa !8
   store i16 1, ptr %327, align 4, !tbaa !70
-  br label %.preheader670
+  br label %.preheader714
 
-.preheader670:                                    ; preds = %330, %325, %322, %316
+.preheader714:                                    ; preds = %330, %325, %322, %316
   br label %331
 
-331:                                              ; preds = %.preheader670, %.critedge15
-  %.5473 = phi i32 [ %.6, %.critedge15 ], [ %.0256483, %.preheader670 ]
-  %.0260472 = phi i32 [ %422, %.critedge15 ], [ 0, %.preheader670 ]
+331:                                              ; preds = %.preheader714, %.critedge15
+  %.5473 = phi i32 [ %.6, %.critedge15 ], [ %.0256483, %.preheader714 ]
+  %.0260472 = phi i32 [ %422, %.critedge15 ], [ 0, %.preheader714 ]
   %332 = load i32, ptr %199, align 8, !tbaa !63
   %333 = icmp slt i32 %.5473, %332
   br i1 %333, label %334, label %.critedge

@@ -1949,10 +1949,10 @@ proto_item_set_hidden.exit398:                    ; preds = %proto_item_set_hidd
   %109 = udiv i8 %.lhs.trunc, 3
   %narrow = add nuw nsw i8 %109, 1
   %110 = zext nneg i8 %narrow to i32
-  %.lhs.trunc436 = trunc i32 %108 to i8
-  %111 = urem i8 %.lhs.trunc436, 3
-  %narrow445 = add nuw nsw i8 %111, 1
-  %112 = zext nneg i8 %narrow445 to i32
+  %.lhs.trunc475 = trunc i32 %108 to i8
+  %111 = urem i8 %.lhs.trunc475, 3
+  %narrow484 = add nuw nsw i8 %111, 1
+  %112 = zext nneg i8 %narrow484 to i32
   %113 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %69, ptr noundef nonnull @ei_udp_possible_traceroute, ptr noundef nonnull @.str.115, i32 noundef %110, i32 noundef %112)
   br label %114
 
@@ -1965,14 +1965,14 @@ proto_item_set_hidden.exit398:                    ; preds = %proto_item_set_hidd
 117:                                              ; preds = %114
   %118 = zext i16 %115 to i32
   %119 = add nsw i32 %118, -33435
-  %.lhs.trunc438 = trunc i32 %119 to i8
-  %120 = udiv i8 %.lhs.trunc438, 3
-  %narrow446 = add nuw nsw i8 %120, 1
-  %121 = zext nneg i8 %narrow446 to i32
-  %.lhs.trunc440 = trunc i32 %119 to i8
-  %122 = urem i8 %.lhs.trunc440, 3
-  %narrow447 = add nuw nsw i8 %122, 1
-  %123 = zext nneg i8 %narrow447 to i32
+  %.lhs.trunc477 = trunc i32 %119 to i8
+  %120 = udiv i8 %.lhs.trunc477, 3
+  %narrow485 = add nuw nsw i8 %120, 1
+  %121 = zext nneg i8 %narrow485 to i32
+  %.lhs.trunc479 = trunc i32 %119 to i8
+  %122 = urem i8 %.lhs.trunc479, 3
+  %narrow486 = add nuw nsw i8 %122, 1
+  %123 = zext nneg i8 %narrow486 to i32
   %124 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %71, ptr noundef nonnull @ei_udp_possible_traceroute, ptr noundef nonnull @.str.115, i32 noundef %121, i32 noundef %123)
   br label %125
 
@@ -2049,12 +2049,12 @@ proto_item_set_hidden.exit398:                    ; preds = %proto_item_set_hidd
 
 162:                                              ; preds = %161
   %163 = icmp ult i32 %.pre427, 65536
-  br i1 %163, label %164, label %.thread434
+  br i1 %163, label %164, label %.thread473
 
 164:                                              ; preds = %162
   %165 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %132, ptr noundef nonnull @ei_udp_length_bad_zero)
   %.pre428 = load i32, ptr %129, align 4
-  br label %.thread434
+  br label %.thread473
 
 166:                                              ; preds = %125
   %167 = load i32, ptr @hf_udplite_checksum_coverage, align 4
@@ -2092,8 +2092,8 @@ proto_item_set_generated.exit:                    ; preds = %172, %175, %178
   %183 = icmp ult i32 %182, 8
   %.pre = load i32, ptr %129, align 4
   %184 = icmp ugt i32 %182, %.pre
-  %or.cond442 = select i1 %183, i1 true, i1 %184
-  br i1 %or.cond442, label %185, label %194
+  %or.cond481 = select i1 %183, i1 true, i1 %184
+  br i1 %or.cond481, label %185, label %194
 
 185:                                              ; preds = %proto_item_set_generated.exit
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %168, ptr noundef nonnull @.str.122, i32 noundef %.pre)
@@ -2123,7 +2123,7 @@ proto_item_set_generated.exit:                    ; preds = %172, %175, %178
   %200 = icmp eq i16 %198, 0
   br i1 %200, label %208, label %244
 
-.thread434:                                       ; preds = %164, %162
+.thread473:                                       ; preds = %164, %162
   %201 = phi i32 [ %.pre427, %162 ], [ %.pre428, %164 ]
   %202 = load ptr, ptr %37, align 8
   %203 = add i32 %201, -8
@@ -2134,29 +2134,29 @@ proto_item_set_generated.exit:                    ; preds = %172, %175, %178
   %206 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i16 %205, ptr %206, align 4
   %207 = icmp eq i16 %205, 0
-  br i1 %207, label %.thread435, label %244
+  br i1 %207, label %.thread474, label %244
 
 208:                                              ; preds = %194
-  br i1 %39, label %.thread435, label %.thread416
+  br i1 %39, label %.thread474, label %.thread416
 
 .thread416:                                       ; preds = %208
   %209 = load i32, ptr @hf_udp_checksum, align 4
   %210 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %209, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
   br label %221
 
-.thread435:                                       ; preds = %.thread434, %208
+.thread474:                                       ; preds = %.thread473, %208
   %211 = load i32, ptr %18, align 8
   switch i32 %211, label %214 [
     i32 2, label %.thread415
     i32 0, label %.thread415
   ]
 
-.thread415:                                       ; preds = %.thread435, %.thread435
+.thread415:                                       ; preds = %.thread474, %.thread474
   %212 = load i32, ptr @hf_udp_checksum, align 4
   %213 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %212, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
   br label %226
 
-214:                                              ; preds = %.thread435
+214:                                              ; preds = %.thread474
   %215 = icmp eq i32 %211, 3
   %216 = load i8, ptr @udp_ignore_ipv6_zero_checksum, align 1, !range !6
   %217 = trunc nuw i8 %216 to i1
@@ -2208,8 +2208,8 @@ proto_item_set_generated.exit:                    ; preds = %172, %175, %178
   store i32 %243, ptr %241, align 4
   br label %proto_item_set_generated.exit403
 
-244:                                              ; preds = %.thread434, %194
-  %245 = phi ptr [ %206, %.thread434 ], [ %199, %194 ]
+244:                                              ; preds = %.thread473, %194
+  %245 = phi ptr [ %206, %.thread473 ], [ %199, %194 ]
   %246 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %247 = load i8, ptr %246, align 8, !range !6, !noundef !7
   %248 = trunc nuw i8 %247 to i1

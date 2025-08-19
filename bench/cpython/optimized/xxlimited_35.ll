@@ -486,9 +486,9 @@ define internal noundef ptr @Xxo_demo(ptr readnone captures(none) %0, ptr nounde
   br i1 %17, label %_Py_NewRef.exit, label %_Py_NewRef.exit.sink.split
 
 _Py_NewRef.exit.sink.split:                       ; preds = %15, %11
-  %.sink6 = phi i32 [ %13, %11 ], [ %16, %15 ]
+  %.sink9 = phi i32 [ %13, %11 ], [ %16, %15 ]
   %_Py_NoneStruct.sink = phi ptr [ %12, %11 ], [ @_Py_NoneStruct, %15 ]
-  %18 = add nuw i32 %.sink6, 1
+  %18 = add nuw i32 %.sink9, 1
   store i32 %18, ptr %_Py_NoneStruct.sink, align 8, !tbaa !3
   br label %_Py_NewRef.exit
 

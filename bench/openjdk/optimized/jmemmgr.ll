@@ -459,7 +459,7 @@ define internal nonnull ptr @alloc_barray(ptr noundef %0, i32 noundef %1, i32 no
 
 .sink.split:                                      ; preds = %8, %4
   %.ph = phi i64 [ poison, %4 ], [ %11, %8 ]
-  %.ph54 = phi i64 [ 0, %4 ], [ %9, %8 ]
+  %.ph57 = phi i64 [ 0, %4 ], [ %9, %8 ]
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 70, ptr %14, align 8
@@ -470,7 +470,7 @@ define internal nonnull ptr @alloc_barray(ptr noundef %0, i32 noundef %1, i32 no
 
 17:                                               ; preds = %.sink.split, %8
   %18 = phi i64 [ %11, %8 ], [ %.ph, %.sink.split ]
-  %19 = phi i64 [ %9, %8 ], [ %.ph54, %.sink.split ]
+  %19 = phi i64 [ %9, %8 ], [ %.ph57, %.sink.split ]
   %20 = zext i32 %3 to i64
   %.04145 = tail call i64 @llvm.umin.i64(i64 %18, i64 %20)
   %.041 = trunc nuw i64 %.04145 to i32
@@ -1161,8 +1161,8 @@ do_sarray_io.exit80:                              ; preds = %123, %.lr.ph.split.
   store i32 %6, ptr %136, align 8
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %151 = load i32, ptr %150, align 4
-  %.not75102 = icmp eq i32 %151, 0
-  br i1 %.not75102, label %.loopexit.thread107, label %154
+  %.not75115 = icmp eq i32 %151, 0
+  br i1 %.not75115, label %.loopexit.thread120, label %154
 
 .thread90:                                        ; preds = %141
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -1207,14 +1207,14 @@ do_sarray_io.exit80:                              ; preds = %123, %.lr.ph.split.
 
 .loopexit:                                        ; preds = %.lr.ph, %154, %do_sarray_io.exit80
   %.not76 = icmp eq i32 %4, 0
-  br i1 %.not76, label %171, label %.loopexit.thread107
+  br i1 %.not76, label %171, label %.loopexit.thread120
 
-.loopexit.thread107:                              ; preds = %.thread, %.loopexit
+.loopexit.thread120:                              ; preds = %.thread, %.loopexit
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 1, ptr %170, align 8
   br label %171
 
-171:                                              ; preds = %.loopexit.thread, %.loopexit.thread107, %.loopexit
+171:                                              ; preds = %.loopexit.thread, %.loopexit.thread120, %.loopexit
   %172 = load ptr, ptr %1, align 8
   %173 = load i32, ptr %23, align 4
   %174 = sub i32 %2, %173
@@ -1466,8 +1466,8 @@ do_barray_io.exit80:                              ; preds = %125, %.lr.ph.split.
   store i32 %6, ptr %138, align 8
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %153 = load i32, ptr %152, align 4
-  %.not75102 = icmp eq i32 %153, 0
-  br i1 %.not75102, label %.loopexit.thread107, label %156
+  %.not75115 = icmp eq i32 %153, 0
+  br i1 %.not75115, label %.loopexit.thread120, label %156
 
 .thread90:                                        ; preds = %143
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -1513,14 +1513,14 @@ do_barray_io.exit80:                              ; preds = %125, %.lr.ph.split.
 
 .loopexit:                                        ; preds = %.lr.ph, %156, %do_barray_io.exit80
   %.not76 = icmp eq i32 %4, 0
-  br i1 %.not76, label %174, label %.loopexit.thread107
+  br i1 %.not76, label %174, label %.loopexit.thread120
 
-.loopexit.thread107:                              ; preds = %.thread, %.loopexit
+.loopexit.thread120:                              ; preds = %.thread, %.loopexit
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 1, ptr %173, align 8
   br label %174
 
-174:                                              ; preds = %.loopexit.thread, %.loopexit.thread107, %.loopexit
+174:                                              ; preds = %.loopexit.thread, %.loopexit.thread120, %.loopexit
   %175 = load ptr, ptr %1, align 8
   %176 = load i32, ptr %23, align 4
   %177 = sub i32 %2, %176

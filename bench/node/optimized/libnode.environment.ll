@@ -432,11 +432,11 @@ if.else:                                          ; preds = %if.end.i.i10, %_ZN4
   br label %if.end54
 
 if.end54:                                         ; preds = %if.else, %if.then40
-  %.sink25 = phi ptr [ %18, %if.else ], [ %17, %if.then40 ]
-  %vtable48 = load ptr, ptr %.sink25, align 8
+  %.sink26 = phi ptr [ %18, %if.else ], [ %17, %if.then40 ]
+  %vtable48 = load ptr, ptr %.sink26, align 8
   %vfn49 = getelementptr inbounds nuw i8, ptr %vtable48, i64 696
   %19 = load ptr, ptr %vfn49, align 8
-  %call50 = tail call ptr %19(ptr noundef nonnull align 8 dereferenceable(872) %.sink25) #12
+  %call50 = tail call ptr %19(ptr noundef nonnull align 8 dereferenceable(872) %.sink26) #12
   %cmp.i = icmp eq ptr %call50, null
   br i1 %cmp.i, label %if.then56, label %if.end80
 
@@ -2307,10 +2307,10 @@ if.else:                                          ; preds = %if.then85
   br i1 %cmp.not.i30, label %if.end92.sink.split, label %if.end92.sink.split.sink.split
 
 if.end92.sink.split.sink.split:                   ; preds = %if.else, %if.then87
-  %.sink35 = phi ptr [ %8, %if.then87 ], [ %9, %if.else ]
+  %.sink38 = phi ptr [ %8, %if.then87 ], [ %9, %if.else ]
   %agg.tmp88.sink.ph = phi ptr [ %agg.tmp88, %if.then87 ], [ %agg.tmp90, %if.else ]
-  call void @_ZN4node9inspector21ParentInspectorHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink35) #12
-  call void @_ZdlPv(ptr noundef nonnull %.sink35) #23
+  call void @_ZN4node9inspector21ParentInspectorHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink38) #12
+  call void @_ZdlPv(ptr noundef nonnull %.sink38) #23
   br label %if.end92.sink.split
 
 if.end92.sink.split:                              ; preds = %if.end92.sink.split.sink.split, %if.else, %if.then87
@@ -3700,7 +3700,7 @@ entry:
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %handler, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %1, null
-  %_M_manager.i.i.i117 = getelementptr inbounds nuw i8, ptr %movedHandler, i64 16
+  %_M_manager.i.i.i122 = getelementptr inbounds nuw i8, ptr %movedHandler, i64 16
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFvPN4node11EnvironmentEiEEC2EOS4_.exit.thread, label %if.then.i3
 
 _ZNSt8functionIFvPN4node11EnvironmentEiEEC2EOS4_.exit.thread: ; preds = %entry
@@ -3709,7 +3709,7 @@ _ZNSt8functionIFvPN4node11EnvironmentEiEEC2EOS4_.exit.thread: ; preds = %entry
 
 if.then.i3:                                       ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %movedHandler, ptr noundef nonnull align 8 dereferenceable(32) %handler, i64 16, i1 false)
-  store ptr %1, ptr %_M_manager.i.i.i117, align 8
+  store ptr %1, ptr %_M_manager.i.i.i122, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
   %_M_manager.i.i.i1 = getelementptr inbounds nuw i8, ptr %movedHandler, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, i8 0, i64 32, i1 false)
@@ -3723,7 +3723,7 @@ if.then.i3:                                       ; preds = %entry
   br label %_ZNSt8functionIFvPN4node11EnvironmentEiEEC2ERKS4_.exit
 
 _ZNSt8functionIFvPN4node11EnvironmentEiEEC2ERKS4_.exit: ; preds = %_ZNSt8functionIFvPN4node11EnvironmentEiEEC2EOS4_.exit.thread, %if.then.i3
-  %_M_manager.i.i.i119 = phi ptr [ %_M_manager.i.i.i1, %if.then.i3 ], [ %_M_manager.i.i.i117, %_ZNSt8functionIFvPN4node11EnvironmentEiEEC2EOS4_.exit.thread ]
+  %_M_manager.i.i.i124 = phi ptr [ %_M_manager.i.i.i1, %if.then.i3 ], [ %_M_manager.i.i.i122, %_ZNSt8functionIFvPN4node11EnvironmentEiEEC2EOS4_.exit.thread ]
   %4 = phi ptr [ %3, %if.then.i3 ], [ null, %_ZNSt8functionIFvPN4node11EnvironmentEiEEC2EOS4_.exit.thread ]
   %5 = phi ptr [ %2, %if.then.i3 ], [ null, %_ZNSt8functionIFvPN4node11EnvironmentEiEEC2EOS4_.exit.thread ]
   %call.i.i.i = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
@@ -3776,7 +3776,7 @@ if.then.i.i.i11:                                  ; preds = %_ZNSt8functionIFvPN
   br label %"_ZZN4node21SetProcessExitHandlerEPNS_11EnvironmentEOSt8functionIFvS1_iEEEN3$_0D2Ev.exit"
 
 "_ZZN4node21SetProcessExitHandlerEPNS_11EnvironmentEOSt8functionIFvS1_iEEEN3$_0D2Ev.exit": ; preds = %_ZNSt8functionIFvPN4node11EnvironmentENS0_8ExitCodeEEED2Ev.exit, %if.then.i.i.i11
-  %8 = load ptr, ptr %_M_manager.i.i.i119, align 8
+  %8 = load ptr, ptr %_M_manager.i.i.i124, align 8
   %tobool.not.i.i14 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i14, label %_ZNSt8functionIFvPN4node11EnvironmentEiEED2Ev.exit, label %if.then.i.i15
 

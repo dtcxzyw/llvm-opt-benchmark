@@ -1763,19 +1763,19 @@ sub_1:                                            ; preds = %sub_0
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 7
   %34 = load i8, ptr %33, align 1
   %.not31 = icmp eq i8 %34, 52
-  br i1 %.not31, label %.tail, label %sub_026.thread40
+  br i1 %.not31, label %.tail, label %sub_026.thread43
 
 .tail:                                            ; preds = %sub_1
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 0
-  br i1 %37, label %.tail25, label %sub_026.thread40
+  br i1 %37, label %.tail25, label %sub_026.thread43
 
 sub_122:                                          ; preds = %sub_0
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 7
   %39 = load i8, ptr %38, align 1
   %.not33 = icmp eq i8 %39, 50
-  br i1 %.not33, label %.tail20, label %sub_026.thread40
+  br i1 %.not33, label %.tail20, label %sub_026.thread43
 
 .tail20:                                          ; preds = %sub_122
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1784,7 +1784,7 @@ sub_122:                                          ; preds = %sub_0
   %spec.select = select i1 %42, i32 32, i32 8
   br label %.tail25
 
-sub_026.thread40:                                 ; preds = %sub_122, %sub_1, %.tail
+sub_026.thread43:                                 ; preds = %sub_122, %sub_1, %.tail
   br label %.tail25
 
 sub_127:                                          ; preds = %sub_0
@@ -1800,8 +1800,8 @@ sub_228:                                          ; preds = %sub_127
   %48 = select i1 %47, i32 16, i32 8
   br label %.tail25
 
-.tail25:                                          ; preds = %.tail20, %sub_0, %sub_228, %sub_127, %sub_026.thread40, %.tail
-  %49 = phi i32 [ 64, %.tail ], [ 8, %sub_127 ], [ %48, %sub_228 ], [ 8, %sub_026.thread40 ], [ %spec.select, %.tail20 ], [ 8, %sub_0 ]
+.tail25:                                          ; preds = %.tail20, %sub_0, %sub_228, %sub_127, %sub_026.thread43, %.tail
+  %49 = phi i32 [ 64, %.tail ], [ 8, %sub_127 ], [ %48, %sub_228 ], [ 8, %sub_026.thread43 ], [ %spec.select, %.tail20 ], [ 8, %sub_0 ]
   %50 = tail call i32 @_ZN4llvm22getX86SubSuperRegisterENS_10MCRegisterEjb(i32 %28, i32 noundef %49, i1 noundef zeroext false) #17
   br label %51
 
@@ -3492,8 +3492,8 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit18: ; preds = %.thread
   br label %52
 
 52:                                               ; preds = %48, %51, %50
-  %.sink18 = phi i32 [ 247, %51 ], [ 191, %50 ], [ 135, %48 ]
-  %53 = add nsw i32 %49, %.sink18
+  %.sink23 = phi i32 [ 247, %51 ], [ 191, %50 ], [ 135, %48 ]
+  %53 = add nsw i32 %49, %.sink23
   br i1 %4, label %54, label %_ZN4llvm11raw_ostreamlsEc.exit
 
 54:                                               ; preds = %52

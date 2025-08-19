@@ -907,9 +907,9 @@ ir_operands_count.exit:                           ; preds = %227, %239
   %395 = getelementptr inbounds nuw [0 x ptr], ptr @ir_rule_name, i64 0, i64 %394
   %396 = zext nneg i32 %387 to i64
   %397 = getelementptr inbounds nuw [108 x ptr], ptr @ir_op_name, i64 0, i64 %396
-  %.sink482.in = select i1 %392, ptr %397, ptr %395
-  %.sink482 = load ptr, ptr %.sink482.in, align 8, !tbaa !9
-  %398 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.51, ptr noundef %.sink482) #5
+  %.sink527.in = select i1 %392, ptr %397, ptr %395
+  %.sink527 = load ptr, ptr %.sink527.in, align 8, !tbaa !9
+  %398 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.51, ptr noundef %.sink527) #5
   %.not419 = icmp sgt i32 %386, -1
   br i1 %.not419, label %401, label %399
 

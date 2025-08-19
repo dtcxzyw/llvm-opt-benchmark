@@ -2096,9 +2096,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit24: ; preds = %61
   br label %88
 
 84:                                               ; preds = %73, %81
-  %.sink28 = phi ptr [ %80, %81 ], [ null, %73 ]
+  %.sink29 = phi ptr [ %80, %81 ], [ null, %73 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.sink28, ptr %85, align 8, !tbaa !60
+  store ptr %.sink29, ptr %85, align 8, !tbaa !60
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %86, ptr noundef nonnull align 8 dereferenceable(9) %87, i64 9, i1 false)

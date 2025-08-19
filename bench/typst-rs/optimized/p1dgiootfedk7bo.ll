@@ -409,7 +409,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit108.us.us: ; preds = %.lr.ph166.s
   %193 = mul nuw i32 %165, %189
   %194 = and i32 %193, -16711936
   %195 = or disjoint i32 %192, %194
-  %196 = getelementptr inbounds [0 x i32], ptr %38, i64 0, i64 %184
+  %196 = getelementptr inbounds nuw [0 x i32], ptr %38, i64 0, i64 %184
   %197 = load i32, ptr %196, align 4, !noundef !7
   %198 = lshr i32 %193, 24
   %199 = sub nuw nsw i32 256, %198
@@ -430,7 +430,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit108.us.us: ; preds = %.lr.ph166.s
   br i1 %186, label %211, label %.split179.us, !prof !10
 
 211:                                              ; preds = %210
-  %212 = getelementptr inbounds [0 x i32], ptr %38, i64 0, i64 %184
+  %212 = getelementptr inbounds nuw [0 x i32], ptr %38, i64 0, i64 %184
   store i32 %.fr, ptr %212, align 4
   br label %.backedge.us168.us
 
@@ -481,7 +481,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit108.us: ; preds = %.lr.ph166.spli
   %237 = mul nuw i32 %165, %233
   %238 = and i32 %237, -16711936
   %239 = or disjoint i32 %236, %238
-  %240 = getelementptr inbounds [0 x i32], ptr %38, i64 0, i64 %230
+  %240 = getelementptr inbounds nuw [0 x i32], ptr %38, i64 0, i64 %230
   %241 = load i32, ptr %240, align 4, !noundef !7
   %242 = lshr i32 %237, 24
   %243 = sub nuw nsw i32 256, %242
@@ -1031,7 +1031,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit109.us: ; preds = %_ZN4core3cmp3O
   %239 = mul nuw i32 %238, %233
   %240 = and i32 %239, -16711936
   %241 = or disjoint i32 %236, %240
-  %242 = getelementptr inbounds [0 x i32], ptr %48, i64 0, i64 %225
+  %242 = getelementptr inbounds nuw [0 x i32], ptr %48, i64 0, i64 %225
   %243 = load i32, ptr %242, align 4, !noundef !7
   %244 = lshr i32 %239, 24
   %245 = sub nuw nsw i32 256, %244
@@ -1052,7 +1052,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit109.us: ; preds = %_ZN4core3cmp3O
   br i1 %229, label %257, label %.split181.us, !prof !10
 
 257:                                              ; preds = %256
-  %258 = getelementptr inbounds [0 x i32], ptr %48, i64 0, i64 %225
+  %258 = getelementptr inbounds nuw [0 x i32], ptr %48, i64 0, i64 %225
   store i32 %222, ptr %258, align 4
   br label %.backedge.us
 
@@ -1587,7 +1587,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit107.us: ; preds = %_ZN4core3cmp3O
   %265 = mul nuw i32 %264, %259
   %266 = and i32 %265, -16711936
   %267 = or disjoint i32 %262, %266
-  %268 = getelementptr inbounds [0 x i32], ptr %42, i64 0, i64 %251
+  %268 = getelementptr inbounds nuw [0 x i32], ptr %42, i64 0, i64 %251
   %269 = load i32, ptr %268, align 4, !noundef !7
   %270 = lshr i32 %265, 24
   %271 = sub nuw nsw i32 256, %270
@@ -1608,7 +1608,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit107.us: ; preds = %_ZN4core3cmp3O
   br i1 %255, label %283, label %.split182.us, !prof !10
 
 283:                                              ; preds = %282
-  %284 = getelementptr inbounds [0 x i32], ptr %42, i64 0, i64 %251
+  %284 = getelementptr inbounds nuw [0 x i32], ptr %42, i64 0, i64 %251
   store i32 %.1.extract.trunc.i112.us, ptr %284, align 4
   br label %.backedge.us
 

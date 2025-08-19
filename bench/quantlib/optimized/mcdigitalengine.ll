@@ -1135,7 +1135,7 @@ ehcleanup236:                                     ; preds = %lpad37.loopexit, %l
   br i1 %tobool.not.i.i.i198, label %ehcleanup254, label %if.then.i.i.i199
 
 if.then.i.i.i199:                                 ; preds = %ehcleanup236.thread, %ehcleanup236
-  %.pn53.pn.pn.pn.pn.pn.pn278 = phi { ptr, i32 } [ %lpad.loopexit.split-lp259, %ehcleanup236.thread ], [ %.pn53.pn.pn.pn.pn.pn.pn, %ehcleanup236 ]
+  %.pn53.pn.pn.pn.pn.pn.pn310 = phi { ptr, i32 } [ %lpad.loopexit.split-lp259, %ehcleanup236.thread ], [ %.pn53.pn.pn.pn.pn.pn.pn, %ehcleanup236 ]
   %sub.ptr.lhs.cast.i.i201 = ptrtoint ptr %add.ptr.i.i.i215 to i64
   %sub.ptr.rhs.cast.i.i202 = ptrtoint ptr %cond.i.i.i.i214 to i64
   %sub.ptr.sub.i.i203 = sub i64 %sub.ptr.lhs.cast.i.i201, %sub.ptr.rhs.cast.i.i202
@@ -1143,7 +1143,7 @@ if.then.i.i.i199:                                 ; preds = %ehcleanup236.thread
   br label %ehcleanup254
 
 ehcleanup254:                                     ; preds = %if.then.i.i.i199, %ehcleanup236, %ehcleanup24
-  %.pn53.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup24 ], [ %.pn53.pn.pn.pn.pn.pn.pn, %ehcleanup236 ], [ %.pn53.pn.pn.pn.pn.pn.pn278, %if.then.i.i.i199 ]
+  %.pn53.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup24 ], [ %.pn53.pn.pn.pn.pn.pn.pn, %ehcleanup236 ], [ %.pn53.pn.pn.pn.pn.pn.pn310, %if.then.i.i.i199 ]
   resume { ptr, i32 } %.pn53.pn.pn.pn.pn.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont214, %invoke.cont14

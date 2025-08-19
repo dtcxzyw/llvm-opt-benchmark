@@ -3370,7 +3370,7 @@ define linkonce_odr void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_less_iter
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw i32, ptr %0, i64 %16
   br label %.split
 
@@ -3408,20 +3408,20 @@ define linkonce_odr void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_less_iter
   %.01317.i.i.us = phi i64 [ %.018.i.i.us, %40 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.018.in.i.i.us = add nsw i64 %.01317.i.i.us, -1
   %.018.i.i.us = sdiv i64 %.018.in.i.i.us, 2
-  %37 = getelementptr inbounds i32, ptr %0, i64 %.018.i.i.us
+  %37 = getelementptr inbounds nuw i32, ptr %0, i64 %.018.i.i.us
   %38 = load i32, ptr %37, align 4, !tbaa !36
   %39 = icmp slt i32 %38, %21
   br i1 %39, label %40, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us
 
 40:                                               ; preds = %.lr.ph.i.i.us
-  %41 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i.us
+  %41 = getelementptr inbounds nuw i32, ptr %0, i64 %.01317.i.i.us
   store i32 %38, ptr %41, align 4, !tbaa !36
   %42 = icmp sgt i64 %.018.i.i.us, %.013.us
   br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, !llvm.loop !120
 
 _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %40, %.split.us, %._crit_edge.i.us
   %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.018.i.i.us, %40 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
-  %43 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.us
+  %43 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.us
   store i32 %21, ptr %43, align 4, !tbaa !36
   %.not.us = icmp eq i64 %.013.us, 0
   %44 = add nsw i64 %.013.us, -1
@@ -3472,20 +3472,20 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %.01317.i.i = phi i64 [ %.018.i.i, %69 ], [ %.128.i, %64 ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %66 = getelementptr inbounds i32, ptr %0, i64 %.018.i.i
+  %66 = getelementptr inbounds nuw i32, ptr %0, i64 %.018.i.i
   %67 = load i32, ptr %66, align 4, !tbaa !36
   %68 = icmp slt i32 %67, %46
   br i1 %68, label %69, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 
 69:                                               ; preds = %.lr.ph.i.i
-  %70 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i
+  %70 = getelementptr inbounds nuw i32, ptr %0, i64 %.01317.i.i
   store i32 %67, ptr %70, align 4, !tbaa !36
   %71 = icmp sgt i64 %.018.i.i, %.013
   br i1 %71, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit, !llvm.loop !120
 
 _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit: ; preds = %.lr.ph.i.i, %69, %64
   %.013.lcssa.i.i = phi i64 [ %.128.i, %64 ], [ %.018.i.i, %69 ], [ %.01317.i.i, %.lr.ph.i.i ]
-  %72 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i
+  %72 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i
   store i32 %46, ptr %72, align 4, !tbaa !36
   %.not = icmp eq i64 %.013, 0
   %73 = add nsw i64 %.013, -1
@@ -3633,8 +3633,8 @@ define noundef zeroext i1 @_Z22gmx_ana_index_containsP15gmx_ana_index_tS0_(ptr n
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
   %.1.lcssa = phi i32 [ %.01321, %.preheader ], [ %19, %.critedge.loopexit ]
-  %.not34.not = icmp ne i32 %.1.lcssa, %6
-  br i1 %.not34.not, label %20, label %._crit_edge
+  %.not35.not = icmp ne i32 %.1.lcssa, %6
+  br i1 %.not35.not, label %20, label %._crit_edge
 
 20:                                               ; preds = %.critedge
   %21 = add nsw i32 %.1.lcssa, 1
@@ -3643,7 +3643,7 @@ define noundef zeroext i1 @_Z22gmx_ana_index_containsP15gmx_ana_index_tS0_(ptr n
   br i1 %exitcond30.not, label %._crit_edge, label %.preheader, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %.critedge, %20, %18, %2
-  %.lcssa15 = phi i1 [ true, %2 ], [ false, %18 ], [ %.not34.not, %20 ], [ %.not34.not, %.critedge ]
+  %.lcssa15 = phi i1 [ true, %2 ], [ false, %18 ], [ %.not35.not, %20 ], [ %.not35.not, %.critedge ]
   ret i1 %.lcssa15
 }
 
@@ -3740,7 +3740,7 @@ define void @_Z24gmx_ana_index_differenceP15gmx_ana_index_tS0_S0_(ptr noundef ca
   %9 = phi i32 [ %4, %.preheader.lr.ph ], [ %38, %37 ]
   %indvars.iv34 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next35, %37 ]
   %.031 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1, %37 ]
-  %.02130 = phi i32 [ 0, %.preheader.lr.ph ], [ %.122.lcssa41, %37 ]
+  %.02130 = phi i32 [ 0, %.preheader.lr.ph ], [ %.122.lcssa43, %37 ]
   %10 = load i32, ptr %2, align 8, !tbaa !73
   %11 = icmp slt i32 %.02130, %10
   br i1 %11, label %.lr.ph, label %.critedge
@@ -3775,7 +3775,7 @@ define void @_Z24gmx_ana_index_differenceP15gmx_ana_index_tS0_S0_(ptr noundef ca
   br i1 %23, label %.critedge._crit_edge, label %24
 
 .critedge._crit_edge:                             ; preds = %21, %.critedge
-  %.122.lcssa42 = phi i32 [ %.122.lcssa, %.critedge ], [ %10, %21 ]
+  %.122.lcssa44 = phi i32 [ %.122.lcssa, %.critedge ], [ %10, %21 ]
   %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre.pre.pre, i64 %indvars.iv34
   %.pre37 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !36
   br label %31
@@ -3791,7 +3791,7 @@ define void @_Z24gmx_ana_index_differenceP15gmx_ana_index_tS0_S0_(ptr noundef ca
   br i1 %.not, label %37, label %31
 
 31:                                               ; preds = %.critedge._crit_edge, %24
-  %.122.lcssa40 = phi i32 [ %.122.lcssa42, %.critedge._crit_edge ], [ %.122.lcssa, %24 ]
+  %.122.lcssa42 = phi i32 [ %.122.lcssa44, %.critedge._crit_edge ], [ %.122.lcssa, %24 ]
   %32 = phi i32 [ %.pre37, %.critedge._crit_edge ], [ %30, %24 ]
   %33 = load ptr, ptr %8, align 8, !tbaa !108
   %34 = add nsw i32 %.031, 1
@@ -3802,7 +3802,7 @@ define void @_Z24gmx_ana_index_differenceP15gmx_ana_index_tS0_S0_(ptr noundef ca
   br label %37
 
 37:                                               ; preds = %24, %31
-  %.122.lcssa41 = phi i32 [ %.122.lcssa40, %31 ], [ %.122.lcssa, %24 ]
+  %.122.lcssa43 = phi i32 [ %.122.lcssa42, %31 ], [ %.122.lcssa, %24 ]
   %38 = phi i32 [ %.pre38, %31 ], [ %9, %24 ]
   %.1 = phi i32 [ %34, %31 ], [ %.031, %24 ]
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
@@ -3878,12 +3878,12 @@ define noundef i32 @_Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_(ptr n
   br i1 %.not, label %31, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %19, %22, %.critedge
-  %.118.lcssa35 = phi i32 [ %.118.lcssa, %22 ], [ %.118.lcssa, %.critedge ], [ %6, %19 ]
+  %.118.lcssa37 = phi i32 [ %.118.lcssa, %22 ], [ %.118.lcssa, %.critedge ], [ %6, %19 ]
   %30 = add nsw i32 %.027, 1
   br label %31
 
 31:                                               ; preds = %22, %.critedge.thread
-  %.118.lcssa36 = phi i32 [ %.118.lcssa35, %.critedge.thread ], [ %.118.lcssa, %22 ]
+  %.118.lcssa36 = phi i32 [ %.118.lcssa37, %.critedge.thread ], [ %.118.lcssa, %22 ]
   %.1 = phi i32 [ %30, %.critedge.thread ], [ %.027, %22 ]
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count
@@ -3987,8 +3987,8 @@ define void @_Z23gmx_ana_index_partitionP15gmx_ana_index_tS0_S0_S0_(ptr noundef 
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, -1
   %46 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv54
   store i32 %45, ptr %46, align 4, !tbaa !36
-  %.not65 = icmp eq i64 %indvars.iv56, 0
-  br i1 %.not65, label %._crit_edge, label %43, !llvm.loop !139
+  %.not67 = icmp eq i64 %indvars.iv56, 0
+  br i1 %.not67, label %._crit_edge, label %43, !llvm.loop !139
 
 ._crit_edge:                                      ; preds = %43, %.preheader
   %47 = load i32, ptr %3, align 8, !tbaa !73
@@ -4071,12 +4071,12 @@ define void @_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_(ptr noundef capture
   br i1 %.not.i, label %31, label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %19, %22, %.critedge.i
-  %.118.lcssa35.i = phi i32 [ %.118.lcssa.i, %22 ], [ %.pre, %.critedge.i ], [ %.pre, %19 ]
+  %.118.lcssa37.i = phi i32 [ %.118.lcssa.i, %22 ], [ %.pre, %.critedge.i ], [ %.pre, %19 ]
   %30 = add nsw i32 %.027.i, 1
   br label %31
 
 31:                                               ; preds = %.critedge.thread.i, %22
-  %.118.lcssa36.i = phi i32 [ %.118.lcssa35.i, %.critedge.thread.i ], [ %.118.lcssa.i, %22 ]
+  %.118.lcssa36.i = phi i32 [ %.118.lcssa37.i, %.critedge.thread.i ], [ %.118.lcssa.i, %22 ]
   %.1.i = phi i32 [ %30, %.critedge.thread.i ], [ %.027.i, %22 ]
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next31.i, %wide.trip.count.i
@@ -4249,12 +4249,12 @@ _Z26gmx_ana_index_check_sortedP15gmx_ana_index_t.exit: ; preds = %8, %9
   br i1 %.not.i.i, label %42, label %.critedge.thread.i.i
 
 .critedge.thread.i.i:                             ; preds = %30, %33, %.critedge.i.i
-  %.118.lcssa35.i.i = phi i32 [ %.118.lcssa.i.i, %33 ], [ %.pre.i, %.critedge.i.i ], [ %.pre.i, %30 ]
+  %.118.lcssa37.i.i = phi i32 [ %.118.lcssa.i.i, %33 ], [ %.pre.i, %.critedge.i.i ], [ %.pre.i, %30 ]
   %41 = add nsw i32 %.027.i.i, 1
   br label %42
 
 42:                                               ; preds = %.critedge.thread.i.i, %33
-  %.118.lcssa36.i.i = phi i32 [ %.118.lcssa35.i.i, %.critedge.thread.i.i ], [ %.118.lcssa.i.i, %33 ]
+  %.118.lcssa36.i.i = phi i32 [ %.118.lcssa37.i.i, %.critedge.thread.i.i ], [ %.118.lcssa.i.i, %33 ]
   %.1.i.i = phi i32 [ %41, %.critedge.thread.i.i ], [ %.027.i.i, %33 ]
   %indvars.iv.next31.i.i = add nuw nsw i64 %indvars.iv30.i.i, 1
   %exitcond33.not.i.i = icmp eq i64 %indvars.iv.next31.i.i, %wide.trip.count.i.i
@@ -4437,12 +4437,12 @@ _Z31gmx_ana_index_remove_duplicatesP15gmx_ana_index_t.exit: ; preds = %95
   br i1 %.not.i.i39, label %119, label %.critedge.thread.i.i40
 
 .critedge.thread.i.i40:                           ; preds = %108, %111, %.critedge.i.i37
-  %.118.lcssa35.i.i41 = phi i32 [ %.118.lcssa.i.i38, %111 ], [ %.pre.i14, %.critedge.i.i37 ], [ %.pre.i14, %108 ]
+  %.118.lcssa37.i.i41 = phi i32 [ %.118.lcssa.i.i38, %111 ], [ %.pre.i14, %.critedge.i.i37 ], [ %.pre.i14, %108 ]
   %118 = add nsw i32 %.027.i.i35, 1
   br label %119
 
 119:                                              ; preds = %.critedge.thread.i.i40, %111
-  %.118.lcssa36.i.i42 = phi i32 [ %.118.lcssa35.i.i41, %.critedge.thread.i.i40 ], [ %.118.lcssa.i.i38, %111 ]
+  %.118.lcssa36.i.i42 = phi i32 [ %.118.lcssa37.i.i41, %.critedge.thread.i.i40 ], [ %.118.lcssa.i.i38, %111 ]
   %.1.i.i43 = phi i32 [ %118, %.critedge.thread.i.i40 ], [ %.027.i.i35, %111 ]
   %indvars.iv.next31.i.i44 = add nuw nsw i64 %indvars.iv30.i.i34, 1
   %exitcond33.not.i.i45 = icmp eq i64 %indvars.iv.next31.i.i44, %wide.trip.count.i.i32
@@ -4790,8 +4790,8 @@ define void @_Z24gmx_ana_index_make_blockP8t_blockaPK10gmx_mtop_tP15gmx_ana_inde
   %108 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %105, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4, !tbaa !210
-  %.fr196 = freeze i32 %110
-  %111 = icmp slt i32 %89, %.fr196
+  %.fr207 = freeze i32 %110
+  %111 = icmp slt i32 %89, %.fr207
   br i1 %111, label %162, label %112
 
 112:                                              ; preds = %106
@@ -4801,7 +4801,7 @@ define void @_Z24gmx_ana_index_make_blockP8t_blockaPK10gmx_mtop_tP15gmx_ana_inde
   br i1 %.not.i.us.us, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.us.us, label %162
 
 _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.us.us: ; preds = %112
-  %115 = sub i32 %89, %.fr196
+  %115 = sub i32 %89, %.fr207
   %116 = load i32, ptr %108, align 4, !tbaa !213
   %117 = srem i32 %115, %116
   %118 = sub nsw i32 %115, %117
@@ -4819,7 +4819,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.us.us: ; preds = %112
   %130 = load i32, ptr %124, align 8, !tbaa !231
   %131 = sext i32 %130 to i64
   %132 = add nsw i32 %89, 1
-  %133 = sub i32 %132, %.fr196
+  %133 = sub i32 %132, %.fr207
   br label %134
 
 134:                                              ; preds = %136, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.us.us
@@ -4857,7 +4857,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.us.us: ; preds = %112
 
 .critedge5.us.us:                                 ; preds = %145, %142
   %.0125.in.us.us.lcssa = phi i32 [ %143, %145 ], [ %smin, %142 ]
-  %150 = add nsw i32 %.fr196, %118
+  %150 = add nsw i32 %.fr207, %118
   %151 = add i32 %150, %.0125.in.us.us.lcssa
   %152 = add i32 %150, %140
   %.not132156.us.us = icmp sgt i32 %151, %152
@@ -4893,7 +4893,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.us.us: ; preds = %112
 
 .lr.ph158.us.us:                                  ; preds = %.critedge5.us.us
   %166 = load ptr, ptr %86, align 8, !tbaa !142
-  %167 = add i32 %.fr196, %indvars.iv187
+  %167 = add i32 %.fr207, %indvars.iv187
   br label %153
 
 .lr.ph161.split.us.split.us163:                   ; preds = %.lr.ph161.split.us, %.loopexit153.us.us
@@ -5688,7 +5688,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit17: ; preds = %
   %71 = load i32, ptr %60, align 4, !tbaa !213
   %72 = sdiv i32 %70, %71
   %73 = mul nsw i32 %72, %71
-  %.recomposed51 = srem i32 %70, %71
+  %.recomposed55 = srem i32 %70, %71
   %74 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %59
   %75 = load i32, ptr %74, align 8, !tbaa !214
   %76 = sext i32 %75 to i64
@@ -5701,7 +5701,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit17: ; preds = %
   %83 = add nsw i32 %82, %79
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %85 = load ptr, ptr %84, align 8, !tbaa !222
-  %86 = sext i32 %.recomposed51 to i64
+  %86 = sext i32 %.recomposed55 to i64
   %87 = getelementptr inbounds %struct.t_atom, ptr %85, i64 %86, i32 7
   %88 = load i32, ptr %87, align 4, !tbaa !227
   %89 = add nsw i32 %83, %88
@@ -6741,8 +6741,8 @@ _ZL9set_atomsP18gmx_ana_indexmap_tiPi.exit129:    ; preds = %92, %.preheader.i12
   %.3113163 = phi i32 [ 0, %.preheader138.lr.ph ], [ %spec.select, %.critedge ]
   %111 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv192
   %112 = load i32, ptr %111, align 4, !tbaa !36
-  %sext204 = shl i64 %.0108164, 32
-  %113 = ashr exact i64 %sext204, 32
+  %sext214 = shl i64 %.0108164, 32
+  %113 = ashr exact i64 %sext214, 32
   br label %119
 
 .preheader:                                       ; preds = %.critedge, %.preheader139..preheader_crit_edge
@@ -6773,39 +6773,39 @@ _ZL9set_atomsP18gmx_ana_indexmap_tiPi.exit129:    ; preds = %92, %.preheader.i12
 
 .lr.ph159:                                        ; preds = %.preheader137
   %125 = sext i32 %.3113163 to i64
-  %indvars.iv.next190214 = add nsw i64 %125, 1
-  %126 = getelementptr inbounds i32, ptr %109, i64 %indvars.iv.next190214
+  %indvars.iv.next190224 = add nsw i64 %125, 1
+  %126 = getelementptr inbounds i32, ptr %109, i64 %indvars.iv.next190224
   %127 = load i32, ptr %126, align 4, !tbaa !36
-  %.not121215 = icmp sgt i32 %127, %122
-  br i1 %.not121215, label %.critedge.loopexit, label %.lr.ph218.preheader
+  %.not121225 = icmp sgt i32 %127, %122
+  br i1 %.not121225, label %.critedge.loopexit, label %.lr.ph228.preheader
 
-.lr.ph218.preheader:                              ; preds = %.lr.ph159
+.lr.ph228.preheader:                              ; preds = %.lr.ph159
   %128 = load ptr, ptr %108, align 8, !tbaa !260
-  br label %.lr.ph218
+  br label %.lr.ph228
 
-129:                                              ; preds = %.lr.ph218
-  %indvars.iv.next190 = add nsw i64 %indvars.iv.next190217, 1
+129:                                              ; preds = %.lr.ph228
+  %indvars.iv.next190 = add nsw i64 %indvars.iv.next190227, 1
   %130 = getelementptr inbounds i32, ptr %109, i64 %indvars.iv.next190
   %131 = load i32, ptr %130, align 4, !tbaa !36
   %.not121 = icmp sgt i32 %131, %122
-  br i1 %.not121, label %.critedge.loopexit, label %.lr.ph218, !llvm.loop !276
+  br i1 %.not121, label %.critedge.loopexit, label %.lr.ph228, !llvm.loop !276
 
-.lr.ph218:                                        ; preds = %.lr.ph218.preheader, %129
-  %indvars.iv.next190217 = phi i64 [ %indvars.iv.next190, %129 ], [ %indvars.iv.next190214, %.lr.ph218.preheader ]
-  %indvars.iv189216 = phi i64 [ %indvars.iv.next190217, %129 ], [ %125, %.lr.ph218.preheader ]
-  %132 = getelementptr inbounds i32, ptr %128, i64 %indvars.iv189216
+.lr.ph228:                                        ; preds = %.lr.ph228.preheader, %129
+  %indvars.iv.next190227 = phi i64 [ %indvars.iv.next190, %129 ], [ %indvars.iv.next190224, %.lr.ph228.preheader ]
+  %indvars.iv189226 = phi i64 [ %indvars.iv.next190227, %129 ], [ %125, %.lr.ph228.preheader ]
+  %132 = getelementptr inbounds i32, ptr %128, i64 %indvars.iv189226
   store i32 -1, ptr %132, align 4, !tbaa !36
   %133 = load i32, ptr %36, align 8, !tbaa !259
   %134 = sext i32 %133 to i64
-  %135 = icmp slt i64 %indvars.iv.next190217, %134
+  %135 = icmp slt i64 %indvars.iv.next190227, %134
   br i1 %135, label %129, label %..critedge.loopexit_crit_edge, !llvm.loop !276
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph218
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph228
   br label %.critedge.loopexit, !llvm.loop !276
 
 .critedge.loopexit:                               ; preds = %129, %..critedge.loopexit_crit_edge, %.lr.ph159
   %136 = phi i32 [ %133, %..critedge.loopexit_crit_edge ], [ %123, %.lr.ph159 ], [ %133, %129 ]
-  %.4.lcssa.ph.in = phi i64 [ %indvars.iv.next190217, %..critedge.loopexit_crit_edge ], [ %125, %.lr.ph159 ], [ %indvars.iv.next190217, %129 ]
+  %.4.lcssa.ph.in = phi i64 [ %indvars.iv.next190227, %..critedge.loopexit_crit_edge ], [ %125, %.lr.ph159 ], [ %indvars.iv.next190227, %129 ]
   %.4.lcssa.ph = trunc i64 %.4.lcssa.ph.in to i32
   %.pre202 = load i32, ptr %1, align 8, !tbaa !73
   br label %.critedge
@@ -6932,17 +6932,17 @@ _ZL9set_atomsP18gmx_ana_indexmap_tiPi.exit136:    ; preds = %_ZL9set_atomsP18gmx
 
 193:                                              ; preds = %191
   %indvars.iv.next181 = add nsw i64 %indvars.iv180, 1
-  %194 = getelementptr inbounds i32, ptr %171, i64 %indvars.iv.next181
+  %194 = getelementptr inbounds nuw i32, ptr %171, i64 %indvars.iv.next181
   %195 = load i32, ptr %194, align 4, !tbaa !36
   %.not119 = icmp sgt i32 %195, %184
-  br i1 %.not119, label %.critedge3.split.loop.exit208, label %191, !llvm.loop !280
+  br i1 %.not119, label %.critedge3.split.loop.exit218, label %191, !llvm.loop !280
 
-.critedge3.split.loop.exit208:                    ; preds = %193
+.critedge3.split.loop.exit218:                    ; preds = %193
   %196 = trunc nsw i64 %indvars.iv180 to i32
   br label %.critedge3
 
-.critedge3:                                       ; preds = %191, %.critedge3.split.loop.exit208
-  %.8.lcssa = phi i32 [ %196, %.critedge3.split.loop.exit208 ], [ %smax, %191 ]
+.critedge3:                                       ; preds = %191, %.critedge3.split.loop.exit218
+  %.8.lcssa = phi i32 [ %196, %.critedge3.split.loop.exit218 ], [ %smax, %191 ]
   %197 = load ptr, ptr %172, align 8, !tbaa !260
   %198 = sext i32 %.0114153 to i64
   %199 = getelementptr inbounds i32, ptr %197, i64 %198

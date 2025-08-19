@@ -4859,7 +4859,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h27
 
 55:                                               ; preds = %48, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %48 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %48 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %48 ], [ 1, %._crit_edge.i.i ]
   %56 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %57 = bitcast <16 x i1> %56 to i16
   %.not.i.i = icmp eq i16 %57, 0
@@ -5087,7 +5087,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h5c
 
 55:                                               ; preds = %48, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %48 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %48 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %48 ], [ 1, %._crit_edge.i.i ]
   %56 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %57 = bitcast <16 x i1> %56 to i16
   %.not.i.i = icmp eq i16 %57, 0
@@ -5385,7 +5385,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hac
 
 76:                                               ; preds = %69, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %69 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i10, %69 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i10, %69 ], [ 1, %._crit_edge.i.i ]
   %77 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %78 = bitcast <16 x i1> %77 to i16
   %.not.i.i = icmp eq i16 %78, 0
@@ -5670,7 +5670,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 
 79:                                               ; preds = %72, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %72 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %72 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %72 ], [ 1, %._crit_edge.i.i ]
   %80 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %81 = bitcast <16 x i1> %80 to i16
   %.not.i.i = icmp eq i16 %81, 0
@@ -5869,7 +5869,7 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 
 45:                                               ; preds = %38, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %38 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %38 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %38 ], [ 1, %._crit_edge.i.i ]
   %46 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %47 = bitcast <16 x i1> %46 to i16
   %.not.i.i = icmp eq i16 %47, 0
@@ -6069,7 +6069,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hea
 
 55:                                               ; preds = %48, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %48 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %48 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %48 ], [ 1, %._crit_edge.i.i ]
   %56 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %57 = bitcast <16 x i1> %56 to i16
   %.not.i.i = icmp eq i16 %57, 0
@@ -6296,7 +6296,7 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 
 47:                                               ; preds = %40, %._crit_edge.i.us.i
   %.sroa.6.1.i.us.i = phi i64 [ %.sroa.3.0.i.i.us.i, %40 ], [ %.sroa.6.0.i.us.i, %._crit_edge.i.us.i ]
-  %.sroa.01.1.i.us.i = phi i64 [ %.sroa.0.0.i.i.us.i, %40 ], [ %.sroa.01.0.i.us.i, %._crit_edge.i.us.i ]
+  %.sroa.01.1.i.us.i = phi i64 [ %.sroa.0.0.i.i.us.i, %40 ], [ 1, %._crit_edge.i.us.i ]
   %48 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.us.i, splat (i8 -1)
   %49 = bitcast <16 x i1> %48 to i16
   %.not.i.us.i = icmp eq i16 %49, 0
@@ -6391,7 +6391,7 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 
 93:                                               ; preds = %86, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %86 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %86 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %86 ], [ 1, %._crit_edge.i.i ]
   %94 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %95 = bitcast <16 x i1> %94 to i16
   %.not.i.i = icmp eq i16 %95, 0
@@ -6644,7 +6644,7 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 
 54:                                               ; preds = %47, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %47 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %47 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %47 ], [ 1, %._crit_edge.i.i ]
   %55 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %56 = bitcast <16 x i1> %55 to i16
   %.not.i.i = icmp eq i16 %56, 0
@@ -6878,7 +6878,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 
 53:                                               ; preds = %46, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %46 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %46 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %46 ], [ 1, %._crit_edge.i.i ]
   %54 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %55 = bitcast <16 x i1> %54 to i16
   %.not.i.i = icmp eq i16 %55, 0
@@ -7430,7 +7430,7 @@ _ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hc6d54d5516b1859cE.exit: ; pr
 
 35:                                               ; preds = %._crit_edge, %28
   %.sroa.6.1 = phi i64 [ %.sroa.3.0.i, %28 ], [ %.sroa.6.0, %._crit_edge ]
-  %.sroa.01.1 = phi i64 [ %.sroa.0.0.i, %28 ], [ %.sroa.01.0, %._crit_edge ]
+  %.sroa.01.1 = phi i64 [ %.sroa.0.0.i, %28 ], [ 1, %._crit_edge ]
   %36 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40, splat (i8 -1)
   %37 = bitcast <16 x i1> %36 to i16
   %.not = icmp eq i16 %37, 0
@@ -7568,7 +7568,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
 
 42:                                               ; preds = %35, %._crit_edge.i
   %.sroa.6.1.i = phi i64 [ %.sroa.3.0.i.i, %35 ], [ %.sroa.6.0.i, %._crit_edge.i ]
-  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %35 ], [ %.sroa.01.0.i, %._crit_edge.i ]
+  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %35 ], [ 1, %._crit_edge.i ]
   %43 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i, splat (i8 -1)
   %44 = bitcast <16 x i1> %43 to i16
   %.not.i = icmp eq i16 %44, 0
@@ -7691,7 +7691,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
 
 42:                                               ; preds = %35, %._crit_edge.i
   %.sroa.6.1.i = phi i64 [ %.sroa.3.0.i.i, %35 ], [ %.sroa.6.0.i, %._crit_edge.i ]
-  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %35 ], [ %.sroa.01.0.i, %._crit_edge.i ]
+  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %35 ], [ 1, %._crit_edge.i ]
   %43 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i, splat (i8 -1)
   %44 = bitcast <16 x i1> %43 to i16
   %.not.i = icmp eq i16 %44, 0
@@ -8784,7 +8784,7 @@ define hidden void @"_ZN15context_servers7manager1_90_$LT$impl$u20$serde..ser..S
   store i64 -9223372036854775803, ptr %0, align 8
   br label %117
 
-.body.thread65:                                   ; preds = %.invoke80, %.invoke78, %.invoke, %32, %24, %42, %56, %61, %62, %81, %96, %101, %102
+.body.thread65:                                   ; preds = %.invoke88, %.invoke86, %.invoke, %32, %24, %42, %56, %61, %62, %81, %96, %101, %102
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -8810,7 +8810,7 @@ define hidden void @"_ZN15context_servers7manager1_90_$LT$impl$u20$serde..ser..S
   call void @llvm.experimental.noalias.scope.decl(metadata !2322)
   %40 = load i64, ptr %19, align 8, !range !27, !alias.scope !2322, !noalias !2325, !noundef !9
   %41 = icmp eq i64 %40, -9223372036854775808
-  br i1 %41, label %.invoke80, label %42
+  br i1 %41, label %.invoke88, label %42
 
 42:                                               ; preds = %38
   call void @llvm.experimental.noalias.scope.decl(metadata !2327)
@@ -8832,7 +8832,7 @@ define hidden void @"_ZN15context_servers7manager1_90_$LT$impl$u20$serde..ser..S
   %.sroa.01.0.copyload.i.i.i = load i64, ptr %49, align 8, !alias.scope !2333, !noalias !2334
   store i64 -9223372036854775808, ptr %49, align 8, !alias.scope !2333, !noalias !2334
   %50 = icmp eq i64 %.sroa.01.0.copyload.i.i.i, -9223372036854775808
-  br i1 %50, label %.invoke78, label %51
+  br i1 %50, label %.invoke86, label %51
 
 .invoke:                                          ; preds = %84, %45
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.ee1927f9ba4cd4ec7c2c1b084b4900eb.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ee1927f9ba4cd4ec7c2c1b084b4900eb.26) #47
@@ -8841,11 +8841,11 @@ define hidden void @"_ZN15context_servers7manager1_90_$LT$impl$u20$serde..ser..S
 .cont:                                            ; preds = %.invoke
   unreachable
 
-.invoke78:                                        ; preds = %87, %48
+.invoke86:                                        ; preds = %87, %48
   invoke void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ee1927f9ba4cd4ec7c2c1b084b4900eb.24, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ee1927f9ba4cd4ec7c2c1b084b4900eb.25) #47
-          to label %.cont79 unwind label %.body.thread65
+          to label %.cont87 unwind label %.body.thread65
 
-.cont79:                                          ; preds = %.invoke78
+.cont87:                                          ; preds = %.invoke86
   unreachable
 
 51:                                               ; preds = %48
@@ -8925,7 +8925,7 @@ _ZN10serde_json5value8to_value17ha4b9ba51ad7f1cb7E.exit.i.i.i: ; preds = %51
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #43, !noalias !2338
   unreachable
 
-.invoke80:                                        ; preds = %77, %38
+.invoke88:                                        ; preds = %77, %38
   %76 = invoke noundef nonnull align 8 ptr @_ZN10serde_json5value3ser17invalid_raw_value17h0f9079c6462af873E()
           to label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hfa17a85a3538367dE.exit.thread" unwind label %.body.thread65
 
@@ -8944,7 +8944,7 @@ _ZN10serde_json5value8to_value17ha4b9ba51ad7f1cb7E.exit.i.i.i: ; preds = %51
   call void @llvm.experimental.noalias.scope.decl(metadata !2362)
   %79 = load i64, ptr %19, align 8, !range !27, !alias.scope !2359, !noalias !2362, !noundef !9
   %80 = icmp eq i64 %79, -9223372036854775808
-  br i1 %80, label %.invoke80, label %81
+  br i1 %80, label %.invoke88, label %81
 
 81:                                               ; preds = %77
   call void @llvm.experimental.noalias.scope.decl(metadata !2364)
@@ -8967,7 +8967,7 @@ _ZN10serde_json5value8to_value17ha4b9ba51ad7f1cb7E.exit.i.i.i: ; preds = %51
   %.sroa.01.0.copyload.i.i.i45 = load i64, ptr %49, align 8, !alias.scope !2374, !noalias !2375
   store i64 -9223372036854775808, ptr %49, align 8, !alias.scope !2374, !noalias !2375
   %88 = icmp eq i64 %.sroa.01.0.copyload.i.i.i45, -9223372036854775808
-  br i1 %88, label %.invoke78, label %89
+  br i1 %88, label %.invoke86, label %89
 
 89:                                               ; preds = %87
   %.sroa.5.0..sroa_idx.i.i.i47 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -9079,8 +9079,8 @@ _ZN10serde_json5value8to_value17h146291a7b85c9d39E.exit.i.i.i: ; preds = %92
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret void
 
-"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hfa17a85a3538367dE.exit.thread": ; preds = %.invoke80, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h015862d26f5738bfE.exit", %.noexc50, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hfa17a85a3538367dE.exit", %.noexc, %36, %30
-  %.sroa.0.0.i4474.sink = phi ptr [ %27, %30 ], [ %35, %36 ], [ %64, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hfa17a85a3538367dE.exit" ], [ %43, %.noexc ], [ %104, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h015862d26f5738bfE.exit" ], [ %82, %.noexc50 ], [ %76, %.invoke80 ]
+"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hfa17a85a3538367dE.exit.thread": ; preds = %.invoke88, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h015862d26f5738bfE.exit", %.noexc50, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hfa17a85a3538367dE.exit", %.noexc, %36, %30
+  %.sroa.0.0.i4474.sink = phi ptr [ %27, %30 ], [ %35, %36 ], [ %64, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hfa17a85a3538367dE.exit" ], [ %43, %.noexc ], [ %104, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h015862d26f5738bfE.exit" ], [ %82, %.noexc50 ], [ %76, %.invoke88 ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i4474.sink, ptr %118, align 8
   store i64 -9223372036854775803, ptr %0, align 8

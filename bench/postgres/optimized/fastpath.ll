@@ -421,8 +421,8 @@ parse_fcall_arguments.exit:                       ; preds = %186, %127
   br i1 %or.cond, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %parse_fcall_arguments.exit
-  %sext73 = shl i32 %108, 16
-  %192 = ashr exact i32 %sext73, 16
+  %sext79 = shl i32 %108, 16
+  %192 = ashr exact i32 %sext79, 16
   %193 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %wide.trip.count = zext i32 %192 to i64
   br label %195

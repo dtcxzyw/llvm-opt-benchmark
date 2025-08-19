@@ -3476,12 +3476,12 @@ define internal void @before_tag(ptr noundef %0, ptr readnone captures(none) %1,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %62
-  %.sink79 = phi ptr [ %63, %62 ], [ %43, %19 ]
-  %.sink78 = phi ptr [ %52, %62 ], [ %41, %19 ]
+  %.sink83 = phi ptr [ %63, %62 ], [ %43, %19 ]
+  %.sink82 = phi ptr [ %52, %62 ], [ %41, %19 ]
   %.067.ph = phi ptr [ %54, %62 ], [ %41, %19 ]
-  %64 = getelementptr inbounds nuw i8, ptr %.sink79, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %.sink83, i64 40
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call ptr @wmem_map_lookup(ptr noundef %65, ptr noundef %.sink78)
+  %66 = tail call ptr @wmem_map_lookup(ptr noundef %65, ptr noundef %.sink82)
   %.not75 = icmp eq ptr %66, null
   %spec.store.select = select i1 %.not75, ptr @unknown_ns, ptr %66
   br label %67
@@ -3489,7 +3489,7 @@ define internal void @before_tag(ptr noundef %0, ptr readnone captures(none) %1,
 67:                                               ; preds = %.sink.split, %44, %19, %58
   %.1 = phi ptr [ %61, %58 ], [ @unknown_ns, %19 ], [ @unknown_ns, %44 ], [ %spec.store.select, %.sink.split ]
   %.067 = phi ptr [ %54, %58 ], [ %41, %19 ], [ %54, %44 ], [ %.067.ph, %.sink.split ]
-  %.0 = phi ptr [ %52, %58 ], [ %41, %19 ], [ %52, %44 ], [ %.sink78, %.sink.split ]
+  %.0 = phi ptr [ %52, %58 ], [ %41, %19 ], [ %52, %44 ], [ %.sink82, %.sink.split ]
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %.1, i64 16

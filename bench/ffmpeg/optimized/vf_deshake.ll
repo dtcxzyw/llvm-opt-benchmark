@@ -1259,13 +1259,13 @@ clean_mean.exit:                                  ; preds = %.lr.ph201.i, %305
   br label %._crit_edge201.thread
 
 ._crit_edge201.thread:                            ; preds = %._crit_edge201, %._crit_edge174, %clean_mean.exit, %320
-  %.lcssa168256 = phi i32 [ %214, %320 ], [ %214, %clean_mean.exit ], [ %214, %._crit_edge201 ], [ %34, %._crit_edge174 ]
+  %.lcssa168288 = phi i32 [ %214, %320 ], [ %214, %clean_mean.exit ], [ %214, %._crit_edge201 ], [ %34, %._crit_edge174 ]
   %321 = phi i32 [ %216, %320 ], [ %216, %clean_mean.exit ], [ %216, %._crit_edge201 ], [ %33, %._crit_edge174 ]
   %322 = phi double [ 0.000000e+00, %320 ], [ %318, %clean_mean.exit ], [ 0.000000e+00, %._crit_edge201 ], [ 0.000000e+00, %._crit_edge174 ]
   %.3116 = phi i32 [ %306, %320 ], [ %306, %clean_mean.exit ], [ %.1114.lcssa, %._crit_edge201 ], [ 0, %._crit_edge174 ]
   %.3 = phi i32 [ %307, %320 ], [ %307, %clean_mean.exit ], [ %.1111.lcssa, %._crit_edge201 ], [ 0, %._crit_edge174 ]
-  %323 = shl i32 %.lcssa168256, 1
-  %324 = icmp sgt i32 %.lcssa168256, -1
+  %323 = shl i32 %.lcssa168288, 1
+  %324 = icmp sgt i32 %.lcssa168288, -1
   %325 = shl i32 %321, 1
   br i1 %324, label %.preheader.lr.ph, label %._crit_edge214
 
@@ -1287,7 +1287,7 @@ clean_mean.exit:                                  ; preds = %.lr.ph201.i, %305
   %.0121212 = phi i32 [ 0, %.preheader.preheader ], [ %.2123, %._crit_edge210 ]
   %invariant.gep = getelementptr inbounds nuw [129 x i32], ptr %326, i64 0, i64 %indvars.iv237
   %330 = trunc nuw i64 %indvars.iv237 to i32
-  %331 = sub nsw i32 %330, %.lcssa168256
+  %331 = sub nsw i32 %330, %.lcssa168288
   %332 = sitofp i32 %331 to double
   br label %333
 
@@ -1352,7 +1352,7 @@ clean_mean.exit:                                  ; preds = %.lr.ph201.i, %305
   %370 = fpext nsz float %..i to double
   store double %370, ptr %6, align 8, !tbaa !65
   %371 = fptrunc nsz double %363 to float
-  %.neg127 = mul i32 %.lcssa168256, -2
+  %.neg127 = mul i32 %.lcssa168288, -2
   %372 = sitofp i32 %.neg127 to float
   %373 = sitofp i32 %323 to float
   %374 = fcmp nsz ogt float %371, %372

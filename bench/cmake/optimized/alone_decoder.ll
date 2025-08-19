@@ -95,15 +95,15 @@ define internal i32 @alone_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.pre = load i32, ptr %13, align 8, !tbaa !16
   %25 = icmp eq i32 %.pre, 4
-  br i1 %25, label %.critedge4.thread, label %.lr.ph107
+  br i1 %25, label %.critedge4.thread, label %.lr.ph111
 
-.lr.ph107:                                        ; preds = %.lr.ph, %97
+.lr.ph111:                                        ; preds = %.lr.ph, %97
   %26 = phi i32 [ %98, %97 ], [ %.pre, %.lr.ph ]
   %27 = load i64, ptr %3, align 8, !tbaa !15
   %28 = icmp ult i64 %27, %4
   br i1 %28, label %.critedge4, label %.critedge
 
-.critedge4:                                       ; preds = %.lr.ph107
+.critedge4:                                       ; preds = %.lr.ph111
   switch i32 %26, label %.critedge [
     i32 0, label %29
     i32 1, label %35
@@ -243,14 +243,14 @@ define internal i32 @alone_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
 97:                                               ; preds = %92, %67, %64, %33
   %98 = phi i32 [ 4, %92 ], [ 2, %67 ], [ %65, %64 ], [ 1, %33 ]
   %99 = icmp eq i32 %98, 4
-  br i1 %99, label %.critedge4.thread, label %.lr.ph107
+  br i1 %99, label %.critedge4.thread, label %.lr.ph111
 
 .critedge91:                                      ; preds = %90
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
-.critedge:                                        ; preds = %50, %29, %86, %.critedge4, %.lr.ph107, %79, %9, %.critedge91, %.critedge4.thread
-  %.1 = phi i32 [ %96, %.critedge4.thread ], [ %91, %.critedge91 ], [ 0, %9 ], [ 7, %79 ], [ 0, %.lr.ph107 ], [ 11, %.critedge4 ], [ 6, %86 ], [ 7, %29 ], [ 7, %50 ]
+.critedge:                                        ; preds = %50, %29, %86, %.critedge4, %.lr.ph111, %79, %9, %.critedge91, %.critedge4.thread
+  %.1 = phi i32 [ %96, %.critedge4.thread ], [ %91, %.critedge91 ], [ 0, %9 ], [ 7, %79 ], [ 0, %.lr.ph111 ], [ 11, %.critedge4 ], [ 6, %86 ], [ 7, %29 ], [ 7, %50 ]
   ret i32 %.1
 }
 

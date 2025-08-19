@@ -3382,9 +3382,9 @@ for.body.lr.ph:                                   ; preds = %if.then.i.i.i.i.i, 
   %add.ptr.i.i.i.i.i.i.i.sink = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %invoke.cont ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i.i.i.i.i.i.i.sink, ptr %_M_finish.i.i7.i, align 8, !tbaa !129
-  %sub.ptr.rhs.cast.i36 = ptrtoint ptr %call5.i.i.i.i2.i.i5 to i64
+  %sub.ptr.rhs.cast.i37 = ptrtoint ptr %call5.i.i.i.i2.i.i5 to i64
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i.i.i.i.i.i.i.sink to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i36
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i37
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   br label %for.body

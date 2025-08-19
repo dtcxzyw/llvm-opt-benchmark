@@ -1614,7 +1614,7 @@ define internal fastcc i32 @__dquot_initialize(ptr noundef %0, i32 noundef %1) u
   br i1 %47, label %48, label %77
 
 48:                                               ; preds = %38
-  switch i32 %40, label %default.unreachable [
+  switch i32 %40, label %default.unreachable28 [
     i32 0, label %65
     i32 1, label %61
     i32 2, label %49
@@ -1726,7 +1726,10 @@ define internal fastcc i32 @__dquot_initialize(ptr noundef %0, i32 noundef %1) u
   %112 = or disjoint i64 %111, 8589934592
   br label %113
 
-default.unreachable:                              ; preds = %93, %48
+default.unreachable28:                            ; preds = %48
+  unreachable
+
+default.unreachable:                              ; preds = %93
   unreachable
 
 113:                                              ; preds = %109, %97, %94
@@ -4216,8 +4219,8 @@ select.unfold33:                                  ; preds = %189, %186
   %208 = getelementptr inbounds nuw i8, ptr %133, i64 184
   %209 = load i64, ptr %208, align 8
   %210 = icmp slt i64 %209, %137
-  %or.cond81 = select i1 %207, i1 %210, i1 false
-  br i1 %or.cond81, label %213, label %.thread35._crit_edge
+  %or.cond115 = select i1 %207, i1 %210, i1 false
+  br i1 %or.cond115, label %213, label %.thread35._crit_edge
 
 .thread35._crit_edge:                             ; preds = %.thread35
   %211 = getelementptr inbounds nuw i8, ptr %133, i64 184
@@ -4250,9 +4253,9 @@ select.unfold33:                                  ; preds = %189, %186
   %226 = icmp eq i32 %225, 0
   %.pre71 = load i64, ptr %174, align 8
   %227 = icmp slt i64 %.pre71, %45
-  %or.cond82 = select i1 %226, i1 %227, i1 false
+  %or.cond116 = select i1 %226, i1 %227, i1 false
   %228 = sub i64 %.pre71, %45
-  %229 = select i1 %or.cond82, i64 0, i64 %228
+  %229 = select i1 %or.cond116, i64 0, i64 %228
   store i64 %229, ptr %174, align 8
   %230 = load i64, ptr %176, align 8
   %231 = add i64 %230, %229
@@ -4485,8 +4488,8 @@ select.unfold33:                                  ; preds = %189, %186
   %372 = getelementptr inbounds nuw i8, ptr %364, i64 184
   %373 = load i64, ptr %372, align 8
   %374 = icmp slt i64 %373, %365
-  %or.cond83 = select i1 %371, i1 %374, i1 false
-  br i1 %or.cond83, label %377, label %._crit_edge63
+  %or.cond117 = select i1 %371, i1 %374, i1 false
+  br i1 %or.cond117, label %377, label %._crit_edge63
 
 ._crit_edge63:                                    ; preds = %360
   %375 = getelementptr inbounds nuw i8, ptr %364, i64 184
@@ -4523,8 +4526,8 @@ select.unfold33:                                  ; preds = %189, %186
   %394 = getelementptr inbounds nuw i8, ptr %387, i64 152
   %395 = load i64, ptr %394, align 8
   %396 = icmp slt i64 %395, %45
-  %or.cond84 = select i1 %393, i1 %396, i1 false
-  br i1 %or.cond84, label %399, label %._crit_edge66
+  %or.cond118 = select i1 %393, i1 %396, i1 false
+  br i1 %or.cond118, label %399, label %._crit_edge66
 
 ._crit_edge66:                                    ; preds = %385
   %397 = getelementptr inbounds nuw i8, ptr %387, i64 152

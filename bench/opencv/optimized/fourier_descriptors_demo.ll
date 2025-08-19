@@ -253,7 +253,7 @@ _ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i192: ; preds 
   br label %.lr.ph.i.i.i.i.i.i.i212
 
 .lr.ph.i.i.i.i.i.i.i212:                          ; preds = %.noexc221, %.lr.ph.i.i.i.i.i.i.i212
-  %.012.i.i.i.i.i.i.i213.idx = phi i64 [ %.012.i.i.i.i.i.i.i213.add1323, %.lr.ph.i.i.i.i.i.i.i212 ], [ 0, %.noexc221 ]
+  %.012.i.i.i.i.i.i.i213.idx = phi i64 [ %.012.i.i.i.i.i.i.i213.add1460, %.lr.ph.i.i.i.i.i.i.i212 ], [ 0, %.noexc221 ]
   %.0911.i.i.i.i.i.i.i214.idx = phi i64 [ %.0911.i.i.i.i.i.i.i214.add, %.lr.ph.i.i.i.i.i.i.i212 ], [ 0, %.noexc221 ]
   %.012.i.i.i.i.i.i.i213.ptr = getelementptr inbounds nuw i8, ptr %106, i64 %.012.i.i.i.i.i.i.i213.idx
   %.0911.i.i.i.i.i.i.i214.ptr = getelementptr inbounds nuw i8, ptr %101, i64 %.0911.i.i.i.i.i.i.i214.idx
@@ -262,7 +262,7 @@ _ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i192: ; preds 
   %108 = load i64, ptr %.0911.i.i.i.i.i.i.i214.ptr, align 4, !alias.scope !20, !noalias !17
   store i64 %108, ptr %.012.i.i.i.i.i.i.i213.ptr, align 4, !alias.scope !17, !noalias !20
   %.0911.i.i.i.i.i.i.i214.add = add nuw nsw i64 %.0911.i.i.i.i.i.i.i214.idx, 8
-  %.012.i.i.i.i.i.i.i213.add1323 = add nuw nsw i64 %.012.i.i.i.i.i.i.i213.idx, 8
+  %.012.i.i.i.i.i.i.i213.add1460 = add nuw nsw i64 %.012.i.i.i.i.i.i.i213.idx, 8
   %.not.i.i.i.i.i.i.i215 = icmp eq i64 %.0911.i.i.i.i.i.i.i214.add, 16
   br i1 %.not.i.i.i.i.i.i.i215, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i219, label %.lr.ph.i.i.i.i.i.i.i212, !llvm.loop !22
 
@@ -2220,8 +2220,8 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit454: ; preds
   %848 = ptrtoint ptr %846 to i64
   %849 = sub i64 %847, %848
   %850 = sdiv exact i64 %849, 24
-  %sext1213 = shl i64 %850, 32
-  %851 = ashr exact i64 %sext1213, 32
+  %sext1350 = shl i64 %850, 32
+  %851 = ashr exact i64 %sext1350, 32
   %852 = icmp slt i64 %indvars.iv.next1208, %851
   br i1 %852, label %.lr.ph1148, label %._crit_edge1149, !llvm.loop !110
 
@@ -3874,11 +3874,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit402: ; preds = %_Z
 
 thread-pre-split:                                 ; preds = %156, %158, %160, %162, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit402
   %.pn181.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %157, %156 ], [ %159, %158 ], [ %161, %160 ], [ %163, %162 ], [ %.pn181.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit402 ]
-  %.pr1215 = load ptr, ptr %24, align 8, !tbaa !4
+  %.pr1352 = load ptr, ptr %24, align 8, !tbaa !4
   br label %1242
 
 1242:                                             ; preds = %thread-pre-split, %154
-  %1243 = phi ptr [ %.pr1215, %thread-pre-split ], [ null, %154 ]
+  %1243 = phi ptr [ %.pr1352, %thread-pre-split ], [ null, %154 ]
   %.pn181.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn181.pn.pn.pn.pn.ph, %thread-pre-split ], [ %155, %154 ]
   %.not.i.i.i709 = icmp eq ptr %1243, null
   br i1 %.not.i.i.i709, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit710, label %1244

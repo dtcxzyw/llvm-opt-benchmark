@@ -15882,7 +15882,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h95e468b5e933248fE.exit": ; preds = %15, %20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !2950, !noalias !2953, !nonnull !5, !noundef !5
-  %23 = getelementptr inbounds { { [1 x i64] }, i32, [1 x i32] }, ptr %22, i64 %9
+  %23 = getelementptr inbounds nuw { { [1 x i64] }, i32, [1 x i32] }, ptr %22, i64 %9
   store i64 %1, ptr %23, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -16300,14 +16300,14 @@ define hidden { i64, ptr } @"_ZN77_$LT$snippets_ui..ScopeSelectorDelegate$u20$as
   %9 = alloca [24 x i8], align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %11 = load i8, ptr %10, align 8, !range !366, !noundef !5
-  switch i8 %11, label %default.unreachable57 [
+  switch i8 %11, label %default.unreachable62 [
     i8 0, label %13
     i8 1, label %36
     i8 2, label %37
     i8 3, label %12
   ]
 
-default.unreachable57:                            ; preds = %38, %2
+default.unreachable62:                            ; preds = %38, %2
   unreachable
 
 12:                                               ; preds = %2
@@ -16407,7 +16407,7 @@ default.unreachable57:                            ; preds = %38, %2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %41 = load i8, ptr %40, align 8, !range !366, !noalias !3033, !noundef !5
-  switch i8 %41, label %default.unreachable57 [
+  switch i8 %41, label %default.unreachable62 [
     i8 0, label %42
     i8 1, label %45
     i8 2, label %46
@@ -16864,14 +16864,14 @@ define hidden noundef zeroext i1 @"_ZN77_$LT$snippets_ui..ScopeSelectorDelegate$
   %22 = alloca [448 x i8], align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %24 = load i8, ptr %23, align 8, !range !366, !noundef !5
-  switch i8 %24, label %default.unreachable69 [
+  switch i8 %24, label %default.unreachable84 [
     i8 0, label %26
     i8 1, label %55
     i8 2, label %56
     i8 3, label %25
   ]
 
-default.unreachable69:                            ; preds = %186, %57, %2
+default.unreachable84:                            ; preds = %186, %57, %2
   unreachable
 
 25:                                               ; preds = %2
@@ -16978,7 +16978,7 @@ default.unreachable69:                            ; preds = %186, %57, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 602
   %60 = load i8, ptr %59, align 2, !range !366, !noalias !3105, !noundef !5
-  switch i8 %60, label %default.unreachable69 [
+  switch i8 %60, label %default.unreachable84 [
     i8 0, label %61
     i8 1, label %184
     i8 2, label %185
@@ -17322,7 +17322,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hcd8175c7ec71b477E.exit.i: ; pre
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 377
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !range !366, !noalias !3186
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !3105
-  switch i8 %.pre.i, label %default.unreachable69 [
+  switch i8 %.pre.i, label %default.unreachable84 [
     i8 0, label %._crit_edge
     i8 1, label %277
     i8 2, label %278

@@ -680,10 +680,10 @@ CBS_get_bytes.exit.i:                             ; preds = %CBS_get_bytes.exit.
   br i1 %5, label %cbs_get_any_asn1_element.exit, label %CBS_get_bytes.exit53.sink.split.i
 
 CBS_get_bytes.exit53.sink.split.i:                ; preds = %55, %.thread.i
-  %.sink97.i = phi i64 [ 2, %.thread.i ], [ %.031.i, %55 ]
+  %.sink107.i = phi i64 [ 2, %.thread.i ], [ %.031.i, %55 ]
   store ptr %.sroa.067.0.copyload.i, ptr %1, align 8, !tbaa !6
   %.sroa.gep54.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %.sink97.i, ptr %.sroa.gep54.i, align 8, !tbaa !13
+  store i64 %.sink107.i, ptr %.sroa.gep54.i, align 8, !tbaa !13
   br label %cbs_get_any_asn1_element.exit
 
 cbs_get_any_asn1_element.exit:                    ; preds = %4, %7, %10, %31, %.thread.i, %33, %cbs_get_u.exit.i, %43, %CBS_get_bytes.exit.i, %55, %CBS_get_bytes.exit53.sink.split.i

@@ -1360,11 +1360,11 @@ define internal void @trace_event_raw_event_intel_pipe_enable(ptr noundef %0, pt
 40:                                               ; preds = %30
   %41 = load ptr, ptr %37, align 8
   %42 = icmp eq ptr %41, null
-  %spec.select11 = select i1 %42, ptr @.str, ptr %41
+  %spec.select17 = select i1 %42, ptr @.str, ptr %41
   br label %.thread8
 
 .thread8:                                         ; preds = %40, %30
-  %43 = phi ptr [ %39, %30 ], [ %spec.select11, %40 ]
+  %43 = phi ptr [ %39, %30 ], [ %spec.select17, %40 ]
   %44 = call ptr @strcpy(ptr noundef %35, ptr noundef nonnull dereferenceable(1) %43) #9
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 736
   %46 = load ptr, ptr %45, align 8
@@ -1485,11 +1485,11 @@ define internal void @perf_trace_intel_pipe_enable(ptr noundef %0, ptr noundef r
 51:                                               ; preds = %34
   %52 = load ptr, ptr %48, align 8
   %53 = icmp eq ptr %52, null
-  %spec.select11 = select i1 %53, ptr @.str, ptr %52
+  %spec.select17 = select i1 %53, ptr @.str, ptr %52
   br label %.thread8
 
 .thread8:                                         ; preds = %51, %34
-  %54 = phi ptr [ %50, %34 ], [ %spec.select11, %51 ]
+  %54 = phi ptr [ %50, %34 ], [ %spec.select17, %51 ]
   %55 = call ptr @strcpy(ptr noundef %46, ptr noundef nonnull dereferenceable(1) %54) #9
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 736
   %57 = load ptr, ptr %56, align 8
@@ -1604,11 +1604,11 @@ define internal void @trace_event_raw_event_intel_pipe_disable(ptr noundef %0, p
 40:                                               ; preds = %30
   %41 = load ptr, ptr %37, align 8
   %42 = icmp eq ptr %41, null
-  %spec.select11 = select i1 %42, ptr @.str, ptr %41
+  %spec.select17 = select i1 %42, ptr @.str, ptr %41
   br label %.thread8
 
 .thread8:                                         ; preds = %40, %30
-  %43 = phi ptr [ %39, %30 ], [ %spec.select11, %40 ]
+  %43 = phi ptr [ %39, %30 ], [ %spec.select17, %40 ]
   %44 = call ptr @strcpy(ptr noundef %35, ptr noundef nonnull dereferenceable(1) %43) #9
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 736
   %46 = load ptr, ptr %45, align 8
@@ -1729,11 +1729,11 @@ define internal void @perf_trace_intel_pipe_disable(ptr noundef %0, ptr noundef 
 51:                                               ; preds = %34
   %52 = load ptr, ptr %48, align 8
   %53 = icmp eq ptr %52, null
-  %spec.select11 = select i1 %53, ptr @.str, ptr %52
+  %spec.select17 = select i1 %53, ptr @.str, ptr %52
   br label %.thread8
 
 .thread8:                                         ; preds = %51, %34
-  %54 = phi ptr [ %50, %34 ], [ %spec.select11, %51 ]
+  %54 = phi ptr [ %50, %34 ], [ %spec.select17, %51 ]
   %55 = call ptr @strcpy(ptr noundef %46, ptr noundef nonnull dereferenceable(1) %54) #9
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 736
   %57 = load ptr, ptr %56, align 8
@@ -1842,11 +1842,11 @@ define internal void @trace_event_raw_event_intel_pipe_crc(ptr noundef %0, ptr n
 41:                                               ; preds = %31
   %42 = load ptr, ptr %38, align 8
   %43 = icmp eq ptr %42, null
-  %spec.select9 = select i1 %43, ptr @.str, ptr %42
+  %spec.select13 = select i1 %43, ptr @.str, ptr %42
   br label %.thread6
 
 .thread6:                                         ; preds = %41, %31
-  %44 = phi ptr [ %40, %31 ], [ %spec.select9, %41 ]
+  %44 = phi ptr [ %40, %31 ], [ %spec.select13, %41 ]
   %45 = call ptr @strcpy(ptr noundef %35, ptr noundef nonnull dereferenceable(1) %44) #9
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %47 = load i32, ptr %46, align 8
@@ -1945,11 +1945,11 @@ define internal void @perf_trace_intel_pipe_crc(ptr noundef %0, ptr noundef %1, 
 51:                                               ; preds = %34
   %52 = load ptr, ptr %48, align 8
   %53 = icmp eq ptr %52, null
-  %spec.select9 = select i1 %53, ptr @.str, ptr %52
+  %spec.select13 = select i1 %53, ptr @.str, ptr %52
   br label %.thread6
 
 .thread6:                                         ; preds = %51, %34
-  %54 = phi ptr [ %50, %34 ], [ %spec.select9, %51 ]
+  %54 = phi ptr [ %50, %34 ], [ %spec.select13, %51 ]
   %55 = call ptr @strcpy(ptr noundef %45, ptr noundef nonnull dereferenceable(1) %54) #9
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %57 = load i32, ptr %56, align 8
@@ -2040,11 +2040,11 @@ define internal void @trace_event_raw_event_intel_cpu_fifo_underrun(ptr noundef 
 44:                                               ; preds = %30
   %45 = load ptr, ptr %41, align 8
   %46 = icmp eq ptr %45, null
-  %spec.select9 = select i1 %46, ptr @.str, ptr %45
+  %spec.select13 = select i1 %46, ptr @.str, ptr %45
   br label %.thread6
 
 .thread6:                                         ; preds = %44, %30
-  %47 = phi ptr [ %43, %30 ], [ %spec.select9, %44 ]
+  %47 = phi ptr [ %43, %30 ], [ %spec.select13, %44 ]
   %48 = call ptr @strcpy(ptr noundef %38, ptr noundef nonnull dereferenceable(1) %47) #9
   %49 = getelementptr inbounds nuw i8, ptr %28, i64 12
   store i32 %2, ptr %49, align 4
@@ -2143,11 +2143,11 @@ define internal void @perf_trace_intel_cpu_fifo_underrun(ptr noundef %0, ptr nou
 55:                                               ; preds = %34
   %56 = load ptr, ptr %52, align 8
   %57 = icmp eq ptr %56, null
-  %spec.select9 = select i1 %57, ptr @.str, ptr %56
+  %spec.select13 = select i1 %57, ptr @.str, ptr %56
   br label %.thread6
 
 .thread6:                                         ; preds = %55, %34
-  %58 = phi ptr [ %54, %34 ], [ %spec.select9, %55 ]
+  %58 = phi ptr [ %54, %34 ], [ %spec.select13, %55 ]
   %59 = call ptr @strcpy(ptr noundef %49, ptr noundef nonnull dereferenceable(1) %58) #9
   %60 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i32 %2, ptr %60, align 4
@@ -2232,11 +2232,11 @@ define internal void @trace_event_raw_event_intel_pch_fifo_underrun(ptr noundef 
 42:                                               ; preds = %30
   %43 = load ptr, ptr %39, align 8
   %44 = icmp eq ptr %43, null
-  %spec.select9 = select i1 %44, ptr @.str, ptr %43
+  %spec.select13 = select i1 %44, ptr @.str, ptr %43
   br label %.thread6
 
 .thread6:                                         ; preds = %42, %30
-  %45 = phi ptr [ %41, %30 ], [ %spec.select9, %42 ]
+  %45 = phi ptr [ %41, %30 ], [ %spec.select13, %42 ]
   %46 = call ptr @strcpy(ptr noundef %38, ptr noundef nonnull dereferenceable(1) %45) #9
   %47 = getelementptr inbounds nuw i8, ptr %28, i64 12
   store i32 %2, ptr %47, align 4
@@ -2333,11 +2333,11 @@ define internal void @perf_trace_intel_pch_fifo_underrun(ptr noundef %0, ptr nou
 53:                                               ; preds = %34
   %54 = load ptr, ptr %50, align 8
   %55 = icmp eq ptr %54, null
-  %spec.select9 = select i1 %55, ptr @.str, ptr %54
+  %spec.select13 = select i1 %55, ptr @.str, ptr %54
   br label %.thread6
 
 .thread6:                                         ; preds = %53, %34
-  %56 = phi ptr [ %52, %34 ], [ %spec.select9, %53 ]
+  %56 = phi ptr [ %52, %34 ], [ %spec.select13, %53 ]
   %57 = call ptr @strcpy(ptr noundef %49, ptr noundef nonnull dereferenceable(1) %56) #9
   %58 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i32 %2, ptr %58, align 4
@@ -2420,11 +2420,11 @@ define internal void @trace_event_raw_event_intel_memory_cxsr(ptr noundef %0, pt
 41:                                               ; preds = %33
   %42 = load ptr, ptr %38, align 8
   %43 = icmp eq ptr %42, null
-  %spec.select11 = select i1 %43, ptr @.str, ptr %42
+  %spec.select17 = select i1 %43, ptr @.str, ptr %42
   br label %.thread8
 
 .thread8:                                         ; preds = %41, %33
-  %44 = phi ptr [ %40, %33 ], [ %spec.select11, %41 ]
+  %44 = phi ptr [ %40, %33 ], [ %spec.select17, %41 ]
   %45 = call ptr @strcpy(ptr noundef %37, ptr noundef nonnull dereferenceable(1) %44) #9
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 736
   %47 = load ptr, ptr %46, align 8
@@ -2544,11 +2544,11 @@ define internal void @perf_trace_intel_memory_cxsr(ptr noundef %0, ptr noundef r
 52:                                               ; preds = %37
   %53 = load ptr, ptr %49, align 8
   %54 = icmp eq ptr %53, null
-  %spec.select11 = select i1 %54, ptr @.str, ptr %53
+  %spec.select17 = select i1 %54, ptr @.str, ptr %53
   br label %.thread8
 
 .thread8:                                         ; preds = %52, %37
-  %55 = phi ptr [ %51, %37 ], [ %spec.select11, %52 ]
+  %55 = phi ptr [ %51, %37 ], [ %spec.select17, %52 ]
   %56 = call ptr @strcpy(ptr noundef %48, ptr noundef nonnull dereferenceable(1) %55) #9
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 736
   %58 = load ptr, ptr %57, align 8
@@ -2657,11 +2657,11 @@ define internal void @trace_event_raw_event_g4x_wm(ptr noundef %0, ptr noundef %
 41:                                               ; preds = %31
   %42 = load ptr, ptr %38, align 8
   %43 = icmp eq ptr %42, null
-  %spec.select9 = select i1 %43, ptr @.str, ptr %42
+  %spec.select13 = select i1 %43, ptr @.str, ptr %42
   br label %.thread6
 
 .thread6:                                         ; preds = %41, %31
-  %44 = phi ptr [ %40, %31 ], [ %spec.select9, %41 ]
+  %44 = phi ptr [ %40, %31 ], [ %spec.select13, %41 ]
   %45 = call ptr @strcpy(ptr noundef %35, ptr noundef nonnull dereferenceable(1) %44) #9
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %47 = load i32, ptr %46, align 8
@@ -2813,11 +2813,11 @@ define internal void @perf_trace_g4x_wm(ptr noundef %0, ptr noundef %1, ptr noun
 52:                                               ; preds = %35
   %53 = load ptr, ptr %49, align 8
   %54 = icmp eq ptr %53, null
-  %spec.select9 = select i1 %54, ptr @.str, ptr %53
+  %spec.select13 = select i1 %54, ptr @.str, ptr %53
   br label %.thread6
 
 .thread6:                                         ; preds = %52, %35
-  %55 = phi ptr [ %51, %35 ], [ %spec.select9, %52 ]
+  %55 = phi ptr [ %51, %35 ], [ %spec.select13, %52 ]
   %56 = call ptr @strcpy(ptr noundef %46, ptr noundef nonnull dereferenceable(1) %55) #9
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %58 = load i32, ptr %57, align 8
@@ -2957,11 +2957,11 @@ define internal void @trace_event_raw_event_vlv_wm(ptr noundef %0, ptr noundef %
 41:                                               ; preds = %31
   %42 = load ptr, ptr %38, align 8
   %43 = icmp eq ptr %42, null
-  %spec.select9 = select i1 %43, ptr @.str, ptr %42
+  %spec.select13 = select i1 %43, ptr @.str, ptr %42
   br label %.thread6
 
 .thread6:                                         ; preds = %41, %31
-  %44 = phi ptr [ %40, %31 ], [ %spec.select9, %41 ]
+  %44 = phi ptr [ %40, %31 ], [ %spec.select13, %41 ]
   %45 = call ptr @strcpy(ptr noundef %35, ptr noundef nonnull dereferenceable(1) %44) #9
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %47 = load i32, ptr %46, align 8
@@ -3107,11 +3107,11 @@ define internal void @perf_trace_vlv_wm(ptr noundef %0, ptr noundef %1, ptr noun
 52:                                               ; preds = %35
   %53 = load ptr, ptr %49, align 8
   %54 = icmp eq ptr %53, null
-  %spec.select9 = select i1 %54, ptr @.str, ptr %53
+  %spec.select13 = select i1 %54, ptr @.str, ptr %53
   br label %.thread6
 
 .thread6:                                         ; preds = %52, %35
-  %55 = phi ptr [ %51, %35 ], [ %spec.select9, %52 ]
+  %55 = phi ptr [ %51, %35 ], [ %spec.select13, %52 ]
   %56 = call ptr @strcpy(ptr noundef %46, ptr noundef nonnull dereferenceable(1) %55) #9
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %58 = load i32, ptr %57, align 8
@@ -3245,11 +3245,11 @@ define internal void @trace_event_raw_event_vlv_fifo_size(ptr noundef %0, ptr no
 43:                                               ; preds = %33
   %44 = load ptr, ptr %40, align 8
   %45 = icmp eq ptr %44, null
-  %spec.select9 = select i1 %45, ptr @.str, ptr %44
+  %spec.select13 = select i1 %45, ptr @.str, ptr %44
   br label %.thread6
 
 .thread6:                                         ; preds = %43, %33
-  %46 = phi ptr [ %42, %33 ], [ %spec.select9, %43 ]
+  %46 = phi ptr [ %42, %33 ], [ %spec.select13, %43 ]
   %47 = call ptr @strcpy(ptr noundef %37, ptr noundef nonnull dereferenceable(1) %46) #9
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %49 = load i32, ptr %48, align 8
@@ -3352,11 +3352,11 @@ define internal void @perf_trace_vlv_fifo_size(ptr noundef %0, ptr noundef %1, i
 53:                                               ; preds = %36
   %54 = load ptr, ptr %50, align 8
   %55 = icmp eq ptr %54, null
-  %spec.select9 = select i1 %55, ptr @.str, ptr %54
+  %spec.select13 = select i1 %55, ptr @.str, ptr %54
   br label %.thread6
 
 .thread6:                                         ; preds = %53, %36
-  %56 = phi ptr [ %52, %36 ], [ %spec.select9, %53 ]
+  %56 = phi ptr [ %52, %36 ], [ %spec.select13, %53 ]
   %57 = call ptr @strcpy(ptr noundef %47, ptr noundef nonnull dereferenceable(1) %56) #9
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %59 = load i32, ptr %58, align 8
@@ -3461,11 +3461,11 @@ define internal void @trace_event_raw_event_intel_plane_update_noarm(ptr noundef
 53:                                               ; preds = %39
   %54 = load ptr, ptr %50, align 8
   %55 = icmp eq ptr %54, null
-  %spec.select9 = select i1 %55, ptr @.str, ptr %54
+  %spec.select13 = select i1 %55, ptr @.str, ptr %54
   br label %.thread6
 
 .thread6:                                         ; preds = %53, %39
-  %56 = phi ptr [ %52, %39 ], [ %spec.select9, %53 ]
+  %56 = phi ptr [ %52, %39 ], [ %spec.select13, %53 ]
   %57 = call ptr @strcpy(ptr noundef %47, ptr noundef nonnull dereferenceable(1) %56) #9
   %58 = and i32 %41, 65535
   %59 = zext nneg i32 %58 to i64
@@ -3592,11 +3592,11 @@ define internal void @perf_trace_intel_plane_update_noarm(ptr noundef %0, ptr no
 64:                                               ; preds = %46
   %65 = load ptr, ptr %61, align 8
   %66 = icmp eq ptr %65, null
-  %spec.select9 = select i1 %66, ptr @.str, ptr %65
+  %spec.select13 = select i1 %66, ptr @.str, ptr %65
   br label %.thread6
 
 .thread6:                                         ; preds = %64, %46
-  %67 = phi ptr [ %63, %46 ], [ %spec.select9, %64 ]
+  %67 = phi ptr [ %63, %46 ], [ %spec.select13, %64 ]
   %68 = call ptr @strcpy(ptr noundef %58, ptr noundef nonnull dereferenceable(1) %67) #9
   %69 = and i32 %26, 65535
   %70 = zext nneg i32 %69 to i64
@@ -3711,11 +3711,11 @@ define internal void @trace_event_raw_event_intel_plane_update_arm(ptr noundef %
 53:                                               ; preds = %39
   %54 = load ptr, ptr %50, align 8
   %55 = icmp eq ptr %54, null
-  %spec.select9 = select i1 %55, ptr @.str, ptr %54
+  %spec.select13 = select i1 %55, ptr @.str, ptr %54
   br label %.thread6
 
 .thread6:                                         ; preds = %53, %39
-  %56 = phi ptr [ %52, %39 ], [ %spec.select9, %53 ]
+  %56 = phi ptr [ %52, %39 ], [ %spec.select13, %53 ]
   %57 = call ptr @strcpy(ptr noundef %47, ptr noundef nonnull dereferenceable(1) %56) #9
   %58 = and i32 %41, 65535
   %59 = zext nneg i32 %58 to i64
@@ -3842,11 +3842,11 @@ define internal void @perf_trace_intel_plane_update_arm(ptr noundef %0, ptr noun
 64:                                               ; preds = %46
   %65 = load ptr, ptr %61, align 8
   %66 = icmp eq ptr %65, null
-  %spec.select9 = select i1 %66, ptr @.str, ptr %65
+  %spec.select13 = select i1 %66, ptr @.str, ptr %65
   br label %.thread6
 
 .thread6:                                         ; preds = %64, %46
-  %67 = phi ptr [ %63, %46 ], [ %spec.select9, %64 ]
+  %67 = phi ptr [ %63, %46 ], [ %spec.select13, %64 ]
   %68 = call ptr @strcpy(ptr noundef %58, ptr noundef nonnull dereferenceable(1) %67) #9
   %69 = and i32 %26, 65535
   %70 = zext nneg i32 %69 to i64
@@ -3961,11 +3961,11 @@ define internal void @trace_event_raw_event_intel_plane_disable_arm(ptr noundef 
 53:                                               ; preds = %39
   %54 = load ptr, ptr %50, align 8
   %55 = icmp eq ptr %54, null
-  %spec.select9 = select i1 %55, ptr @.str, ptr %54
+  %spec.select13 = select i1 %55, ptr @.str, ptr %54
   br label %.thread6
 
 .thread6:                                         ; preds = %53, %39
-  %56 = phi ptr [ %52, %39 ], [ %spec.select9, %53 ]
+  %56 = phi ptr [ %52, %39 ], [ %spec.select13, %53 ]
   %57 = call ptr @strcpy(ptr noundef %47, ptr noundef nonnull dereferenceable(1) %56) #9
   %58 = and i32 %41, 65535
   %59 = zext nneg i32 %58 to i64
@@ -4083,11 +4083,11 @@ define internal void @perf_trace_intel_plane_disable_arm(ptr noundef %0, ptr nou
 64:                                               ; preds = %46
   %65 = load ptr, ptr %61, align 8
   %66 = icmp eq ptr %65, null
-  %spec.select9 = select i1 %66, ptr @.str, ptr %65
+  %spec.select13 = select i1 %66, ptr @.str, ptr %65
   br label %.thread6
 
 .thread6:                                         ; preds = %64, %46
-  %67 = phi ptr [ %63, %46 ], [ %spec.select9, %64 ]
+  %67 = phi ptr [ %63, %46 ], [ %spec.select13, %64 ]
   %68 = call ptr @strcpy(ptr noundef %58, ptr noundef nonnull dereferenceable(1) %67) #9
   %69 = and i32 %26, 65535
   %70 = zext nneg i32 %69 to i64
@@ -4200,11 +4200,11 @@ define internal void @trace_event_raw_event_intel_fbc_activate(ptr noundef %0, p
 59:                                               ; preds = %38
   %60 = load ptr, ptr %56, align 8
   %61 = icmp eq ptr %60, null
-  %spec.select9 = select i1 %61, ptr @.str, ptr %60
+  %spec.select13 = select i1 %61, ptr @.str, ptr %60
   br label %.thread6
 
 .thread6:                                         ; preds = %59, %38
-  %62 = phi ptr [ %58, %38 ], [ %spec.select9, %59 ]
+  %62 = phi ptr [ %58, %38 ], [ %spec.select13, %59 ]
   %63 = call ptr @strcpy(ptr noundef %53, ptr noundef nonnull dereferenceable(1) %62) #9
   %64 = load i32, ptr %45, align 4
   %65 = and i32 %64, 65535
@@ -4330,11 +4330,11 @@ define internal void @perf_trace_intel_fbc_activate(ptr noundef %0, ptr noundef 
 70:                                               ; preds = %45
   %71 = load ptr, ptr %67, align 8
   %72 = icmp eq ptr %71, null
-  %spec.select9 = select i1 %72, ptr @.str, ptr %71
+  %spec.select13 = select i1 %72, ptr @.str, ptr %71
   br label %.thread6
 
 .thread6:                                         ; preds = %70, %45
-  %73 = phi ptr [ %69, %45 ], [ %spec.select9, %70 ]
+  %73 = phi ptr [ %69, %45 ], [ %spec.select13, %70 ]
   %74 = call ptr @strcpy(ptr noundef %64, ptr noundef nonnull dereferenceable(1) %73) #9
   %75 = load i32, ptr %56, align 4
   %76 = and i32 %75, 65535
@@ -4448,11 +4448,11 @@ define internal void @trace_event_raw_event_intel_fbc_deactivate(ptr noundef %0,
 59:                                               ; preds = %38
   %60 = load ptr, ptr %56, align 8
   %61 = icmp eq ptr %60, null
-  %spec.select9 = select i1 %61, ptr @.str, ptr %60
+  %spec.select13 = select i1 %61, ptr @.str, ptr %60
   br label %.thread6
 
 .thread6:                                         ; preds = %59, %38
-  %62 = phi ptr [ %58, %38 ], [ %spec.select9, %59 ]
+  %62 = phi ptr [ %58, %38 ], [ %spec.select13, %59 ]
   %63 = call ptr @strcpy(ptr noundef %53, ptr noundef nonnull dereferenceable(1) %62) #9
   %64 = load i32, ptr %45, align 4
   %65 = and i32 %64, 65535
@@ -4578,11 +4578,11 @@ define internal void @perf_trace_intel_fbc_deactivate(ptr noundef %0, ptr nounde
 70:                                               ; preds = %45
   %71 = load ptr, ptr %67, align 8
   %72 = icmp eq ptr %71, null
-  %spec.select9 = select i1 %72, ptr @.str, ptr %71
+  %spec.select13 = select i1 %72, ptr @.str, ptr %71
   br label %.thread6
 
 .thread6:                                         ; preds = %70, %45
-  %73 = phi ptr [ %69, %45 ], [ %spec.select9, %70 ]
+  %73 = phi ptr [ %69, %45 ], [ %spec.select13, %70 ]
   %74 = call ptr @strcpy(ptr noundef %64, ptr noundef nonnull dereferenceable(1) %73) #9
   %75 = load i32, ptr %56, align 4
   %76 = and i32 %75, 65535
@@ -4696,11 +4696,11 @@ define internal void @trace_event_raw_event_intel_fbc_nuke(ptr noundef %0, ptr n
 59:                                               ; preds = %38
   %60 = load ptr, ptr %56, align 8
   %61 = icmp eq ptr %60, null
-  %spec.select9 = select i1 %61, ptr @.str, ptr %60
+  %spec.select13 = select i1 %61, ptr @.str, ptr %60
   br label %.thread6
 
 .thread6:                                         ; preds = %59, %38
-  %62 = phi ptr [ %58, %38 ], [ %spec.select9, %59 ]
+  %62 = phi ptr [ %58, %38 ], [ %spec.select13, %59 ]
   %63 = call ptr @strcpy(ptr noundef %53, ptr noundef nonnull dereferenceable(1) %62) #9
   %64 = load i32, ptr %45, align 4
   %65 = and i32 %64, 65535
@@ -4826,11 +4826,11 @@ define internal void @perf_trace_intel_fbc_nuke(ptr noundef %0, ptr noundef read
 70:                                               ; preds = %45
   %71 = load ptr, ptr %67, align 8
   %72 = icmp eq ptr %71, null
-  %spec.select9 = select i1 %72, ptr @.str, ptr %71
+  %spec.select13 = select i1 %72, ptr @.str, ptr %71
   br label %.thread6
 
 .thread6:                                         ; preds = %70, %45
-  %73 = phi ptr [ %69, %45 ], [ %spec.select9, %70 ]
+  %73 = phi ptr [ %69, %45 ], [ %spec.select13, %70 ]
   %74 = call ptr @strcpy(ptr noundef %64, ptr noundef nonnull dereferenceable(1) %73) #9
   %75 = load i32, ptr %56, align 4
   %76 = and i32 %75, 65535
@@ -4924,11 +4924,11 @@ define internal void @trace_event_raw_event_intel_crtc_vblank_work_start(ptr nou
 40:                                               ; preds = %30
   %41 = load ptr, ptr %37, align 8
   %42 = icmp eq ptr %41, null
-  %spec.select9 = select i1 %42, ptr @.str, ptr %41
+  %spec.select13 = select i1 %42, ptr @.str, ptr %41
   br label %.thread6
 
 .thread6:                                         ; preds = %40, %30
-  %43 = phi ptr [ %39, %30 ], [ %spec.select9, %40 ]
+  %43 = phi ptr [ %39, %30 ], [ %spec.select13, %40 ]
   %44 = call ptr @strcpy(ptr noundef %34, ptr noundef nonnull dereferenceable(1) %43) #9
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %46 = load i32, ptr %45, align 8
@@ -5026,11 +5026,11 @@ define internal void @perf_trace_intel_crtc_vblank_work_start(ptr noundef %0, pt
 51:                                               ; preds = %34
   %52 = load ptr, ptr %48, align 8
   %53 = icmp eq ptr %52, null
-  %spec.select9 = select i1 %53, ptr @.str, ptr %52
+  %spec.select13 = select i1 %53, ptr @.str, ptr %52
   br label %.thread6
 
 .thread6:                                         ; preds = %51, %34
-  %54 = phi ptr [ %50, %34 ], [ %spec.select9, %51 ]
+  %54 = phi ptr [ %50, %34 ], [ %spec.select13, %51 ]
   %55 = call ptr @strcpy(ptr noundef %45, ptr noundef nonnull dereferenceable(1) %54) #9
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %57 = load i32, ptr %56, align 8
@@ -5116,11 +5116,11 @@ define internal void @trace_event_raw_event_intel_crtc_vblank_work_end(ptr nound
 40:                                               ; preds = %30
   %41 = load ptr, ptr %37, align 8
   %42 = icmp eq ptr %41, null
-  %spec.select9 = select i1 %42, ptr @.str, ptr %41
+  %spec.select13 = select i1 %42, ptr @.str, ptr %41
   br label %.thread6
 
 .thread6:                                         ; preds = %40, %30
-  %43 = phi ptr [ %39, %30 ], [ %spec.select9, %40 ]
+  %43 = phi ptr [ %39, %30 ], [ %spec.select13, %40 ]
   %44 = call ptr @strcpy(ptr noundef %34, ptr noundef nonnull dereferenceable(1) %43) #9
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %46 = load i32, ptr %45, align 8
@@ -5218,11 +5218,11 @@ define internal void @perf_trace_intel_crtc_vblank_work_end(ptr noundef %0, ptr 
 51:                                               ; preds = %34
   %52 = load ptr, ptr %48, align 8
   %53 = icmp eq ptr %52, null
-  %spec.select9 = select i1 %53, ptr @.str, ptr %52
+  %spec.select13 = select i1 %53, ptr @.str, ptr %52
   br label %.thread6
 
 .thread6:                                         ; preds = %51, %34
-  %54 = phi ptr [ %50, %34 ], [ %spec.select9, %51 ]
+  %54 = phi ptr [ %50, %34 ], [ %spec.select13, %51 ]
   %55 = call ptr @strcpy(ptr noundef %45, ptr noundef nonnull dereferenceable(1) %54) #9
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %57 = load i32, ptr %56, align 8
@@ -5308,11 +5308,11 @@ define internal void @trace_event_raw_event_intel_pipe_update_start(ptr noundef 
 40:                                               ; preds = %30
   %41 = load ptr, ptr %37, align 8
   %42 = icmp eq ptr %41, null
-  %spec.select9 = select i1 %42, ptr @.str, ptr %41
+  %spec.select13 = select i1 %42, ptr @.str, ptr %41
   br label %.thread6
 
 .thread6:                                         ; preds = %40, %30
-  %43 = phi ptr [ %39, %30 ], [ %spec.select9, %40 ]
+  %43 = phi ptr [ %39, %30 ], [ %spec.select13, %40 ]
   %44 = call ptr @strcpy(ptr noundef %34, ptr noundef nonnull dereferenceable(1) %43) #9
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %46 = load i32, ptr %45, align 8
@@ -5418,11 +5418,11 @@ define internal void @perf_trace_intel_pipe_update_start(ptr noundef %0, ptr nou
 51:                                               ; preds = %34
   %52 = load ptr, ptr %48, align 8
   %53 = icmp eq ptr %52, null
-  %spec.select9 = select i1 %53, ptr @.str, ptr %52
+  %spec.select13 = select i1 %53, ptr @.str, ptr %52
   br label %.thread6
 
 .thread6:                                         ; preds = %51, %34
-  %54 = phi ptr [ %50, %34 ], [ %spec.select9, %51 ]
+  %54 = phi ptr [ %50, %34 ], [ %spec.select13, %51 ]
   %55 = call ptr @strcpy(ptr noundef %45, ptr noundef nonnull dereferenceable(1) %54) #9
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %57 = load i32, ptr %56, align 8
@@ -5516,11 +5516,11 @@ define internal void @trace_event_raw_event_intel_pipe_update_vblank_evaded(ptr 
 40:                                               ; preds = %30
   %41 = load ptr, ptr %37, align 8
   %42 = icmp eq ptr %41, null
-  %spec.select9 = select i1 %42, ptr @.str, ptr %41
+  %spec.select13 = select i1 %42, ptr @.str, ptr %41
   br label %.thread6
 
 .thread6:                                         ; preds = %40, %30
-  %43 = phi ptr [ %39, %30 ], [ %spec.select9, %40 ]
+  %43 = phi ptr [ %39, %30 ], [ %spec.select13, %40 ]
   %44 = call ptr @strcpy(ptr noundef %34, ptr noundef nonnull dereferenceable(1) %43) #9
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %46 = load i32, ptr %45, align 8
@@ -5628,11 +5628,11 @@ define internal void @perf_trace_intel_pipe_update_vblank_evaded(ptr noundef %0,
 51:                                               ; preds = %34
   %52 = load ptr, ptr %48, align 8
   %53 = icmp eq ptr %52, null
-  %spec.select9 = select i1 %53, ptr @.str, ptr %52
+  %spec.select13 = select i1 %53, ptr @.str, ptr %52
   br label %.thread6
 
 .thread6:                                         ; preds = %51, %34
-  %54 = phi ptr [ %50, %34 ], [ %spec.select9, %51 ]
+  %54 = phi ptr [ %50, %34 ], [ %spec.select13, %51 ]
   %55 = call ptr @strcpy(ptr noundef %45, ptr noundef nonnull dereferenceable(1) %54) #9
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %57 = load i32, ptr %56, align 8
@@ -5728,11 +5728,11 @@ define internal void @trace_event_raw_event_intel_pipe_update_end(ptr noundef %0
 42:                                               ; preds = %32
   %43 = load ptr, ptr %39, align 8
   %44 = icmp eq ptr %43, null
-  %spec.select9 = select i1 %44, ptr @.str, ptr %43
+  %spec.select13 = select i1 %44, ptr @.str, ptr %43
   br label %.thread6
 
 .thread6:                                         ; preds = %42, %32
-  %45 = phi ptr [ %41, %32 ], [ %spec.select9, %42 ]
+  %45 = phi ptr [ %41, %32 ], [ %spec.select13, %42 ]
   %46 = call ptr @strcpy(ptr noundef %36, ptr noundef nonnull dereferenceable(1) %45) #9
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %48 = load i32, ptr %47, align 8
@@ -5828,11 +5828,11 @@ define internal void @perf_trace_intel_pipe_update_end(ptr noundef %0, ptr nound
 53:                                               ; preds = %36
   %54 = load ptr, ptr %50, align 8
   %55 = icmp eq ptr %54, null
-  %spec.select9 = select i1 %55, ptr @.str, ptr %54
+  %spec.select13 = select i1 %55, ptr @.str, ptr %54
   br label %.thread6
 
 .thread6:                                         ; preds = %53, %36
-  %56 = phi ptr [ %52, %36 ], [ %spec.select9, %53 ]
+  %56 = phi ptr [ %52, %36 ], [ %spec.select13, %53 ]
   %57 = call ptr @strcpy(ptr noundef %47, ptr noundef nonnull dereferenceable(1) %56) #9
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %59 = load i32, ptr %58, align 8
@@ -5913,11 +5913,11 @@ define internal void @trace_event_raw_event_intel_frontbuffer_invalidate(ptr nou
 39:                                               ; preds = %31
   %40 = load ptr, ptr %36, align 8
   %41 = icmp eq ptr %40, null
-  %spec.select9 = select i1 %41, ptr @.str, ptr %40
+  %spec.select13 = select i1 %41, ptr @.str, ptr %40
   br label %.thread6
 
 .thread6:                                         ; preds = %39, %31
-  %42 = phi ptr [ %38, %31 ], [ %spec.select9, %39 ]
+  %42 = phi ptr [ %38, %31 ], [ %spec.select13, %39 ]
   %43 = call ptr @strcpy(ptr noundef %35, ptr noundef nonnull dereferenceable(1) %42) #9
   %44 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store i32 %2, ptr %44, align 4
@@ -6005,11 +6005,11 @@ define internal void @perf_trace_intel_frontbuffer_invalidate(ptr noundef %0, pt
 49:                                               ; preds = %34
   %50 = load ptr, ptr %46, align 8
   %51 = icmp eq ptr %50, null
-  %spec.select9 = select i1 %51, ptr @.str, ptr %50
+  %spec.select13 = select i1 %51, ptr @.str, ptr %50
   br label %.thread6
 
 .thread6:                                         ; preds = %49, %34
-  %52 = phi ptr [ %48, %34 ], [ %spec.select9, %49 ]
+  %52 = phi ptr [ %48, %34 ], [ %spec.select13, %49 ]
   %53 = call ptr @strcpy(ptr noundef %45, ptr noundef nonnull dereferenceable(1) %52) #9
   %54 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i32 %2, ptr %54, align 4
@@ -6086,11 +6086,11 @@ define internal void @trace_event_raw_event_intel_frontbuffer_flush(ptr noundef 
 39:                                               ; preds = %31
   %40 = load ptr, ptr %36, align 8
   %41 = icmp eq ptr %40, null
-  %spec.select9 = select i1 %41, ptr @.str, ptr %40
+  %spec.select13 = select i1 %41, ptr @.str, ptr %40
   br label %.thread6
 
 .thread6:                                         ; preds = %39, %31
-  %42 = phi ptr [ %38, %31 ], [ %spec.select9, %39 ]
+  %42 = phi ptr [ %38, %31 ], [ %spec.select13, %39 ]
   %43 = call ptr @strcpy(ptr noundef %35, ptr noundef nonnull dereferenceable(1) %42) #9
   %44 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store i32 %2, ptr %44, align 4
@@ -6178,11 +6178,11 @@ define internal void @perf_trace_intel_frontbuffer_flush(ptr noundef %0, ptr nou
 49:                                               ; preds = %34
   %50 = load ptr, ptr %46, align 8
   %51 = icmp eq ptr %50, null
-  %spec.select9 = select i1 %51, ptr @.str, ptr %50
+  %spec.select13 = select i1 %51, ptr @.str, ptr %50
   br label %.thread6
 
 .thread6:                                         ; preds = %49, %34
-  %52 = phi ptr [ %48, %34 ], [ %spec.select9, %49 ]
+  %52 = phi ptr [ %48, %34 ], [ %spec.select13, %49 ]
   %53 = call ptr @strcpy(ptr noundef %45, ptr noundef nonnull dereferenceable(1) %52) #9
   %54 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i32 %2, ptr %54, align 4

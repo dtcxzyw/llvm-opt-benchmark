@@ -1697,14 +1697,14 @@ get_pix_fmt_depth.exit209:                        ; preds = %get_pix_fmt_depth.e
 33:                                               ; preds = %._crit_edge.i
   %34 = and i64 %11, 1024
   %.not13.i = icmp eq i64 %34, 0
-  %spec.select317 = select i1 %.not13.i, i32 2, i32 4
+  %spec.select329 = select i1 %.not13.i, i32 2, i32 4
   br label %get_color_type.exit
 
 get_color_type.exit:                              ; preds = %33, %get_pix_fmt_depth.exit209, %27, %30, %._crit_edge.i
   %.not170 = phi i1 [ false, %get_pix_fmt_depth.exit209 ], [ false, %27 ], [ false, %30 ], [ false, %._crit_edge.i ], [ %.not13.i, %33 ]
   %.not171 = phi i1 [ false, %get_pix_fmt_depth.exit209 ], [ true, %27 ], [ false, %30 ], [ false, %._crit_edge.i ], [ false, %33 ]
   %or.cond3 = phi i1 [ false, %get_pix_fmt_depth.exit209 ], [ false, %27 ], [ true, %30 ], [ false, %._crit_edge.i ], [ true, %33 ]
-  %.0.i210 = phi i32 [ 0, %get_pix_fmt_depth.exit209 ], [ 1, %27 ], [ 3, %30 ], [ 0, %._crit_edge.i ], [ %spec.select317, %33 ]
+  %.0.i210 = phi i32 [ 0, %get_pix_fmt_depth.exit209 ], [ 1, %27 ], [ 3, %30 ], [ 0, %._crit_edge.i ], [ %spec.select329, %33 ]
   %35 = load i64, ptr %14, align 16, !tbaa !8
   %36 = and i64 %35, 2
   %.not.i212 = icmp eq i64 %36, 0
@@ -1737,12 +1737,12 @@ get_color_type.exit:                              ; preds = %33, %get_pix_fmt_de
 45:                                               ; preds = %42
   %46 = and i64 %43, 1024
   %.not13.i221 = icmp eq i64 %46, 0
-  %spec.select318 = select i1 %.not13.i221, i32 2, i32 4
+  %spec.select330 = select i1 %.not13.i221, i32 2, i32 4
   br label %get_color_type.exit223
 
 get_color_type.exit223:                           ; preds = %45, %get_color_type.exit, %37, %40, %42
   %47 = phi i1 [ true, %get_color_type.exit ], [ false, %37 ], [ true, %40 ], [ true, %42 ], [ true, %45 ]
-  %.0.i213 = phi i32 [ 0, %get_color_type.exit ], [ 1, %37 ], [ 3, %40 ], [ 0, %42 ], [ %spec.select318, %45 ]
+  %.0.i213 = phi i32 [ 0, %get_color_type.exit ], [ 1, %37 ], [ 3, %40 ], [ 0, %42 ], [ %spec.select330, %45 ]
   %48 = icmp eq i32 %0, 11
   br i1 %48, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -1750,21 +1750,21 @@ get_color_type.exit223:                           ; preds = %45, %get_color_type
   %narrow237 = tail call i8 @llvm.umin.i8(i8 %23, i8 4)
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %50 = and i32 %3, 2
-  %.not182306 = icmp eq i32 %50, 0
+  %.not182318 = icmp eq i32 %50, 0
   %51 = and i32 %3, 128
-  %.not183307 = icmp eq i32 %51, 0
+  %.not183319 = icmp eq i32 %51, 0
   %52 = udiv i8 7, %narrow237
   %.zext = zext nneg i8 %52 to i32
   %53 = xor i32 %.zext, -1
   %54 = lshr exact i32 65536, %.zext
-  br i1 %.not182306, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split.preheader
+  br i1 %.not182318, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split.preheader
 
 .lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us
   %wide.trip.count297 = zext nneg i8 %narrow237 to i64
   br label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
-  br i1 %.not183307, label %._crit_edge, label %.lr.ph.split.us.split.us.split.preheader
+  br i1 %.not183319, label %._crit_edge, label %.lr.ph.split.us.split.us.split.preheader
 
 .lr.ph.split.us.split.us.split.preheader:         ; preds = %.lr.ph.split.us.split.us
   %wide.trip.count302 = zext nneg i8 %narrow237 to i64
@@ -1805,7 +1805,7 @@ get_color_type.exit223:                           ; preds = %45, %get_color_type
 
 68:                                               ; preds = %.lr.ph.split.us.split
   %69 = icmp eq i32 %63, 0
-  %or.cond186.us = or i1 %.not183307, %69
+  %or.cond186.us = or i1 %.not183319, %69
   br i1 %or.cond186.us, label %73, label %70
 
 70:                                               ; preds = %68
@@ -1918,10 +1918,10 @@ get_color_type.exit223:                           ; preds = %45, %get_color_type
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %112, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %73, %.lr.ph.split.us.split.us.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split.us
-  %.0132309.in = phi i8 [ %narrow237, %.lr.ph.split.us.split.us ], [ %.184, %.lr.ph.split.split.us ], [ %narrow237, %.lr.ph.split.us.split.us.split ], [ %narrow237, %73 ], [ %.184, %.lr.ph.split.split.us.split ], [ %.184, %.lr.ph.split.split.split.us ], [ %.184, %112 ]
+  %.0132321.in = phi i8 [ %narrow237, %.lr.ph.split.us.split.us ], [ %.184, %.lr.ph.split.split.us ], [ %narrow237, %.lr.ph.split.us.split.us.split ], [ %narrow237, %73 ], [ %.184, %.lr.ph.split.split.us.split ], [ %.184, %.lr.ph.split.split.split.us ], [ %.184, %112 ]
   %.0134.lcssa = phi i32 [ 0, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.split.us ], [ %.1135.us.us, %.lr.ph.split.us.split.us.split ], [ %.1135.us, %73 ], [ %.1135.us252, %.lr.ph.split.split.us.split ], [ %.1135.us264, %.lr.ph.split.split.split.us ], [ %.1135, %112 ]
   %.0131.lcssa = phi i32 [ 2147483646, %.lr.ph.split.us.split.us ], [ 2147483646, %.lr.ph.split.split.us ], [ %.1.us.us, %.lr.ph.split.us.split.us.split ], [ %.1.us, %73 ], [ %.1.us253, %.lr.ph.split.split.us.split ], [ %.1.us265, %.lr.ph.split.split.split.us ], [ %.1, %112 ]
-  %.0132309 = zext i8 %.0132309.in to i32
+  %.0132321 = zext i8 %.0132321.in to i32
   %113 = and i32 %3, 1
   %.not163 = icmp eq i32 %113, 0
   br i1 %.not163, label %137, label %114
@@ -2068,7 +2068,7 @@ get_color_type.exit223:                           ; preds = %45, %get_color_type
   br i1 %.not173, label %191, label %182
 
 182:                                              ; preds = %180
-  %183 = shl nuw nsw i32 %.0132309, 16
+  %183 = shl nuw nsw i32 %.0132321, 16
   %184 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %185 = load i32, ptr %184, align 8, !tbaa !31
   %186 = getelementptr inbounds nuw i8, ptr %6, i64 40

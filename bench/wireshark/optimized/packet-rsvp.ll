@@ -3587,12 +3587,12 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   br label %copy_address_wmem.exit.sink.split
 
 copy_address_wmem.exit.sink.split:                ; preds = %188, %201, %214, %227, %240, %253, %266
-  %.sink105 = phi ptr [ %268, %266 ], [ %255, %253 ], [ %242, %240 ], [ %229, %227 ], [ %216, %214 ], [ %203, %201 ], [ %190, %188 ]
+  %.sink115 = phi ptr [ %268, %266 ], [ %255, %253 ], [ %242, %240 ], [ %229, %227 ], [ %216, %214 ], [ %203, %201 ], [ %190, %188 ]
   %.sink = phi i32 [ %262, %266 ], [ %249, %253 ], [ %236, %240 ], [ %223, %227 ], [ %210, %214 ], [ %197, %201 ], [ %184, %188 ]
   %269 = getelementptr inbounds nuw i8, ptr %176, i64 24
-  store ptr %.sink105, ptr %269, align 8
+  store ptr %.sink115, ptr %269, align 8
   %270 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  store ptr %.sink105, ptr %270, align 8
+  store ptr %.sink115, ptr %270, align 8
   %271 = getelementptr inbounds nuw i8, ptr %176, i64 12
   store i32 %.sink, ptr %271, align 4
   br label %copy_address_wmem.exit
@@ -4550,10 +4550,10 @@ proto_item_set_hidden.exit.i454:                  ; preds = %235, %232, %227
 
 .thread.sink.split.i:                             ; preds = %244, %243, %242, %241
   %hf_rsvp_error_error_node_ipv4.sink.i = phi ptr [ @hf_rsvp_error_error_node_ipv4, %241 ], [ @hf_rsvp_error_error_node_ipv6, %242 ], [ @hf_rsvp_error_error_node_ipv4, %243 ], [ @hf_rsvp_error_error_node_ipv6, %244 ]
-  %.sink103.i = phi i32 [ 4, %241 ], [ 16, %242 ], [ 4, %243 ], [ 16, %244 ]
+  %.sink105.i = phi i32 [ 4, %241 ], [ 16, %242 ], [ 4, %243 ], [ 16, %244 ]
   %.sink.i = phi i32 [ 8, %241 ], [ 20, %242 ], [ 8, %243 ], [ 20, %244 ]
   %252 = load i32, ptr %hf_rsvp_error_error_node_ipv4.sink.i, align 4
-  %253 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %252, ptr noundef %0, i32 noundef %229, i32 noundef %.sink103.i, i32 noundef 0)
+  %253 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %252, ptr noundef %0, i32 noundef %229, i32 noundef %.sink105.i, i32 noundef 0)
   %254 = add i32 %.sink.i, %.0712
   br label %.thread.i
 
@@ -7320,8 +7320,8 @@ proto_item_set_hidden.exit.i575:                  ; preds = %1962, %1959, %1954
   %2011 = add i32 %1972, 4
   %2012 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_rsvp_filter, i64 408), align 8
   %2013 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_rsvp_filter, i64 404), align 4
-  %.sink486.i = select i1 %1979, i32 %2013, i32 %2012
-  %2014 = call ptr @proto_tree_add_item(ptr noundef %2004, i32 noundef %.sink486.i, ptr noundef %0, i32 noundef %2011, i32 noundef 16, i32 noundef 0)
+  %.sink490.i = select i1 %1979, i32 %2013, i32 %2012
+  %2014 = call ptr @proto_tree_add_item(ptr noundef %2004, i32 noundef %.sink490.i, ptr noundef %0, i32 noundef %2011, i32 noundef 16, i32 noundef 0)
   %2015 = icmp slt i32 %.0459479.i, 4
   br i1 %2015, label %2016, label %2215
 
@@ -7859,10 +7859,10 @@ proto_item_set_hidden.exit.i586:                  ; preds = %2329, %2326, %2322
 
 2352:                                             ; preds = %2351, %.lr.ph420.i
   %hf_rsvp_3gpp_obj_ue_ipv6_addr.sink.i = phi ptr [ @hf_rsvp_3gpp_obj_ue_ipv6_addr, %2351 ], [ @hf_rsvp_3gpp_obj_ue_ipv4_addr, %.lr.ph420.i ]
-  %.sink427.i = phi i32 [ 16, %2351 ], [ 4, %.lr.ph420.i ]
+  %.sink431.i = phi i32 [ 16, %2351 ], [ 4, %.lr.ph420.i ]
   %.sink.i587 = phi i32 [ 20, %2351 ], [ 8, %.lr.ph420.i ]
   %2353 = load i32, ptr %hf_rsvp_3gpp_obj_ue_ipv6_addr.sink.i, align 4
-  %2354 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %2353, ptr noundef %0, i32 noundef %2350, i32 noundef %.sink427.i, i32 noundef 0)
+  %2354 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %2353, ptr noundef %0, i32 noundef %2350, i32 noundef %.sink431.i, i32 noundef 0)
   %2355 = add i32 %.sink.i587, %.0418.i
   %2356 = load i32, ptr @hf_rsvp_3gpp_obj_tft_d, align 4
   %2357 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %2356, ptr noundef %0, i32 noundef %2355, i32 noundef 4, i32 noundef 0)
@@ -8245,11 +8245,11 @@ proto_item_set_hidden.exit.i586:                  ; preds = %2329, %2326, %2322
 
 2616:                                             ; preds = %2597, %2588
   %hf_rsvp_3gpp_qos_attribute_delay_var_sensitive.sink.i = phi ptr [ @hf_rsvp_3gpp_qos_attribute_delay_var_sensitive, %2597 ], [ @hf_rsvp_3gpp_qos_attribute_prof_id, %2588 ]
-  %.sink430.i = phi i32 [ %2615, %2597 ], [ %2596, %2588 ]
-  %.sink428.i = phi i32 [ 80, %2597 ], [ 28, %2588 ]
+  %.sink434.i = phi i32 [ %2615, %2597 ], [ %2596, %2588 ]
+  %.sink432.i = phi i32 [ 80, %2597 ], [ 28, %2588 ]
   %2617 = load i32, ptr %hf_rsvp_3gpp_qos_attribute_delay_var_sensitive.sink.i, align 4
-  %2618 = call ptr @proto_tree_add_bits_item(ptr noundef %2584, i32 noundef %2617, ptr noundef %0, i32 noundef %.sink430.i, i32 noundef 16, i32 noundef 0)
-  %2619 = add i32 %.sink428.i, %.0388415.i
+  %2618 = call ptr @proto_tree_add_bits_item(ptr noundef %2584, i32 noundef %2617, ptr noundef %0, i32 noundef %.sink434.i, i32 noundef 16, i32 noundef 0)
+  %2619 = add i32 %.sink432.i, %.0388415.i
   %2620 = and i32 %2619, 7
   %.not404.i = icmp eq i32 %2620, 0
   br i1 %.not404.i, label %2625, label %2621
@@ -8268,7 +8268,7 @@ proto_item_set_hidden.exit.i586:                  ; preds = %2329, %2326, %2322
 
 ._crit_edge.i593:                                 ; preds = %2625, %.lr.ph.i591, %.preheader.i
   %2627 = add i32 %2562, %2565
-  %2628 = sub i32 %2563, %2565
+  %2628 = sub nsw i32 %2563, %2565
   %2629 = add i8 %2559, 2
   br i1 %2544, label %2630, label %2636
 
@@ -11582,18 +11582,18 @@ define internal fastcc void @dissect_rsvp_ro_subobjects(ptr noundef %0, ptr noun
 
 394:                                              ; preds = %391
   %395 = icmp slt i32 %.0660, 4
-  br i1 %395, label %.sink.split666, label %396
+  br i1 %395, label %.sink.split667, label %396
 
 396:                                              ; preds = %394
   %397 = icmp eq i32 %.0660, 4
-  br i1 %397, label %.sink.split666, label %398
+  br i1 %397, label %.sink.split667, label %398
 
-.sink.split666:                                   ; preds = %396, %394
+.sink.split667:                                   ; preds = %396, %394
   %.str.1748.sink = phi ptr [ @.str.1747, %394 ], [ @.str.1748, %396 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %0, ptr noundef nonnull %.str.1748.sink)
   br label %398
 
-398:                                              ; preds = %.sink.split666, %396
+398:                                              ; preds = %.sink.split667, %396
   %399 = add i32 %.0660, 1
   br label %20
 

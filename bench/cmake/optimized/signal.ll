@@ -432,7 +432,7 @@ define internal fastcc void @uv__signal_stop(ptr noundef captures(address) %0) u
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 136
   %136 = load i32, ptr %135, align 8, !tbaa !23
   %137 = icmp eq i32 %136, 0
-  br i1 %137, label %289, label %.thread76.i.i
+  br i1 %137, label %289, label %.thread98.i.i
 
 split.i.i:                                        ; preds = %126
   %138 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 112
@@ -446,9 +446,9 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
   %141 = getelementptr inbounds nuw i8, ptr %.pre61.i.i, i64 136
   %142 = load i32, ptr %141, align 8, !tbaa !23
   %143 = icmp eq i32 %142, 0
-  br i1 %143, label %148, label %.thread76.i.i
+  br i1 %143, label %148, label %.thread98.i.i
 
-.thread76.i.i:                                    ; preds = %134, %split.thread.i.thread.i
+.thread98.i.i:                                    ; preds = %134, %split.thread.i.thread.i
   %144 = phi ptr [ %.pre61.i.i, %split.thread.i.thread.i ], [ %132, %134 ]
   %145 = getelementptr inbounds nuw i8, ptr %.0179.i.i, i64 136
   %146 = load i32, ptr %145, align 8, !tbaa !23
@@ -514,17 +514,17 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
   %.not205.i.i = icmp eq ptr %.pre63.i.i, null
   br i1 %.not205.i.i, label %175, label %171
 
-171:                                              ; preds = %166, %.thread76.i.i
-  %172 = phi ptr [ %.0.i.i, %.thread76.i.i ], [ %167, %166 ]
-  %173 = phi ptr [ %144, %.thread76.i.i ], [ %.pre63.i.i, %166 ]
-  %.11776979.i.i = phi ptr [ %122, %.thread76.i.i ], [ %.117770.i.i, %166 ]
+171:                                              ; preds = %166, %.thread98.i.i
+  %172 = phi ptr [ %.0.i.i, %.thread98.i.i ], [ %167, %166 ]
+  %173 = phi ptr [ %144, %.thread98.i.i ], [ %.pre63.i.i, %166 ]
+  %.117769101.i.i = phi ptr [ %122, %.thread98.i.i ], [ %.117770.i.i, %166 ]
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 136
   store i32 0, ptr %174, align 8, !tbaa !23
   br label %175
 
 175:                                              ; preds = %171, %166
   %176 = phi ptr [ %167, %166 ], [ %172, %171 ]
-  %.11776980.i.i = phi ptr [ %.117770.i.i, %166 ], [ %.11776979.i.i, %171 ]
+  %.117769102.i.i = phi ptr [ %.117770.i.i, %166 ], [ %.117769101.i.i, %171 ]
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 112
   %178 = load ptr, ptr %177, align 8, !tbaa !20
   store ptr %178, ptr %95, align 8, !tbaa !21
@@ -564,7 +564,7 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
   br label %193
 
 193:                                              ; preds = %192, %190, %189
-  %.117765.i.i = phi ptr [ %.11776980.i.i, %189 ], [ %.11776980.i.i, %190 ], [ %176, %192 ]
+  %.117765.i.i = phi ptr [ %.117769102.i.i, %189 ], [ %.117769102.i.i, %190 ], [ %176, %192 ]
   store ptr %.0179.i.i, ptr %177, align 8, !tbaa !20
   store ptr %176, ptr %182, align 8, !tbaa !22
   br label %.critedge.i.i
@@ -637,7 +637,7 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
   %225 = getelementptr inbounds nuw i8, ptr %222, i64 136
   %226 = load i32, ptr %225, align 8, !tbaa !23
   %227 = icmp eq i32 %226, 0
-  br i1 %227, label %228, label %.thread83.i.i
+  br i1 %227, label %228, label %.thread105.i.i
 
 228:                                              ; preds = %224, %219
   %229 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 120
@@ -660,7 +660,7 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %222, i64 136
   %.pre54.i.i = load i32, ptr %.phi.trans.insert.i.i, align 8, !tbaa !23
   %239 = icmp eq i32 %.pre54.i.i, 0
-  br i1 %239, label %240, label %.thread83.i.i
+  br i1 %239, label %240, label %.thread105.i.i
 
 240:                                              ; preds = %.thread.i.i, %236
   store i32 0, ptr %238, align 8, !tbaa !23
@@ -704,7 +704,7 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
   store ptr %230, ptr @uv__signal_tree.0, align 8, !tbaa !25
   br label %261
 
-.thread83.i.i:                                    ; preds = %224, %.thread.i.i
+.thread105.i.i:                                   ; preds = %224, %.thread.i.i
   %258 = getelementptr inbounds nuw i8, ptr %.0179.i.i, i64 136
   %259 = load i32, ptr %258, align 8, !tbaa !23
   %260 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 136
@@ -727,17 +727,17 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
   %.not197.i.i = icmp eq ptr %.pre58.i.i, null
   br i1 %.not197.i.i, label %270, label %266
 
-266:                                              ; preds = %261, %.thread83.i.i
-  %267 = phi ptr [ %.2.i.i, %.thread83.i.i ], [ %262, %261 ]
-  %268 = phi ptr [ %222, %.thread83.i.i ], [ %.pre58.i.i, %261 ]
-  %.11776786.i.i = phi ptr [ %220, %.thread83.i.i ], [ %.117768.i.i, %261 ]
+266:                                              ; preds = %261, %.thread105.i.i
+  %267 = phi ptr [ %.2.i.i, %.thread105.i.i ], [ %262, %261 ]
+  %268 = phi ptr [ %222, %.thread105.i.i ], [ %.pre58.i.i, %261 ]
+  %.117767108.i.i = phi ptr [ %220, %.thread105.i.i ], [ %.117768.i.i, %261 ]
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 136
   store i32 0, ptr %269, align 8, !tbaa !23
   br label %270
 
 270:                                              ; preds = %266, %261
   %271 = phi ptr [ %262, %261 ], [ %267, %266 ]
-  %.11776787.i.i = phi ptr [ %.117768.i.i, %261 ], [ %.11776786.i.i, %266 ]
+  %.117767109.i.i = phi ptr [ %.117768.i.i, %261 ], [ %.117767108.i.i, %266 ]
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 120
   %273 = load ptr, ptr %272, align 8, !tbaa !21
   store ptr %273, ptr %91, align 8, !tbaa !20
@@ -777,7 +777,7 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
   br label %288
 
 288:                                              ; preds = %287, %285, %284
-  %.117766.i.i = phi ptr [ %.11776787.i.i, %284 ], [ %.11776787.i.i, %285 ], [ %271, %287 ]
+  %.117766.i.i = phi ptr [ %.117767109.i.i, %284 ], [ %.117767109.i.i, %285 ], [ %271, %287 ]
   store ptr %.0179.i.i, ptr %272, align 8, !tbaa !21
   store ptr %271, ptr %277, align 8, !tbaa !22
   br label %.critedge.i.i
@@ -1533,9 +1533,9 @@ uv__signal_compare.exit.thread5.i:                ; preds = %uv__signal_compare.
   %195 = load ptr, ptr %194, align 8, !tbaa !21
   store ptr %195, ptr %116, align 8, !tbaa !20
   %.not122.i.i = icmp eq ptr %195, null
-  br i1 %.not122.i.i, label %.thread7.i.i, label %197
+  br i1 %.not122.i.i, label %.thread21.i.i, label %197
 
-.thread7.i.i:                                     ; preds = %193
+.thread21.i.i:                                    ; preds = %193
   %196 = getelementptr inbounds nuw i8, ptr %191, i64 128
   store ptr %122, ptr %196, align 8, !tbaa !22
   %.pre.i45 = load ptr, ptr %121, align 8, !tbaa !22
@@ -1550,8 +1550,8 @@ uv__signal_compare.exit.thread5.i:                ; preds = %uv__signal_compare.
   %.not123.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not123.i.i, label %208, label %200
 
-200:                                              ; preds = %197, %.thread7.i.i
-  %201 = phi ptr [ %.pre.i.i, %197 ], [ %.pre.i45, %.thread7.i.i ]
+200:                                              ; preds = %197, %.thread21.i.i
+  %201 = phi ptr [ %.pre.i.i, %197 ], [ %.pre.i45, %.thread21.i.i ]
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 112
   %203 = load ptr, ptr %202, align 8, !tbaa !20
   %204 = icmp eq ptr %115, %203
@@ -2061,16 +2061,16 @@ uv__signal_first_handle.exit.thread:              ; preds = %16, %uv__signal_tre
   %36 = getelementptr inbounds nuw i8, ptr %.0.i11.i, i64 104
   %37 = load i32, ptr %36, align 8, !tbaa !16
   %38 = icmp eq i32 %37, %0
-  br i1 %38, label %.lr.ph45, label %.critedge
+  br i1 %38, label %.lr.ph50, label %.critedge
 
-.lr.ph45:                                         ; preds = %.lr.ph, %uv__signal_tree_s_RB_NEXT.exit
-  %.02544 = phi ptr [ %.1.i, %uv__signal_tree_s_RB_NEXT.exit ], [ %.0.i11.i, %.lr.ph ]
+.lr.ph50:                                         ; preds = %.lr.ph, %uv__signal_tree_s_RB_NEXT.exit
+  %.02549 = phi ptr [ %.1.i, %uv__signal_tree_s_RB_NEXT.exit ], [ %.0.i11.i, %.lr.ph ]
   store i32 %0, ptr %35, align 8, !tbaa !55
-  store ptr %.02544, ptr %5, align 8, !tbaa !53
-  %39 = getelementptr inbounds nuw i8, ptr %.02544, i64 8
+  store ptr %.02549, ptr %5, align 8, !tbaa !53
+  %39 = getelementptr inbounds nuw i8, ptr %.02549, i64 8
   br label %40
 
-40:                                               ; preds = %46, %.lr.ph45
+40:                                               ; preds = %46, %.lr.ph50
   %41 = load ptr, ptr %39, align 8, !tbaa !31
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 556
   %43 = load i32, ptr %42, align 4, !tbaa !4
@@ -2085,14 +2085,14 @@ uv__signal_first_handle.exit.thread:              ; preds = %16, %uv__signal_tre
   br i1 %48, label %40, label %.critedge2, !llvm.loop !59
 
 49:                                               ; preds = %40
-  %50 = getelementptr inbounds nuw i8, ptr %.02544, i64 144
+  %50 = getelementptr inbounds nuw i8, ptr %.02549, i64 144
   %51 = load i32, ptr %50, align 8, !tbaa !48
   %52 = add i32 %51, 1
   store i32 %52, ptr %50, align 8, !tbaa !48
   br label %.critedge2
 
 .critedge2:                                       ; preds = %46, %49
-  %53 = getelementptr inbounds nuw i8, ptr %.02544, i64 120
+  %53 = getelementptr inbounds nuw i8, ptr %.02549, i64 120
   %54 = load ptr, ptr %53, align 8, !tbaa !21
   %.not.i17 = icmp eq ptr %54, null
   br i1 %.not.i17, label %57, label %.preheader.i
@@ -2105,7 +2105,7 @@ uv__signal_first_handle.exit.thread:              ; preds = %16, %uv__signal_tre
   br i1 %.not20.i, label %uv__signal_tree_s_RB_NEXT.exit, label %.preheader.i, !llvm.loop !60
 
 57:                                               ; preds = %.critedge2
-  %58 = getelementptr inbounds nuw i8, ptr %.02544, i64 128
+  %58 = getelementptr inbounds nuw i8, ptr %.02549, i64 128
   %59 = load ptr, ptr %58, align 8, !tbaa !22
   %.not18.i = icmp eq ptr %59, null
   br i1 %.not18.i, label %.preheader, label %60
@@ -2113,14 +2113,14 @@ uv__signal_first_handle.exit.thread:              ; preds = %16, %uv__signal_tre
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %62 = load ptr, ptr %61, align 8, !tbaa !20
-  %63 = icmp eq ptr %.02544, %62
+  %63 = icmp eq ptr %.02549, %62
   br i1 %63, label %uv__signal_tree_s_RB_NEXT.exit, label %.preheader
 
 .preheader:                                       ; preds = %60, %57
   br label %64
 
 64:                                               ; preds = %.preheader, %67
-  %.2.i = phi ptr [ %66, %67 ], [ %.02544, %.preheader ]
+  %.2.i = phi ptr [ %66, %67 ], [ %.02549, %.preheader ]
   %65 = getelementptr inbounds nuw i8, ptr %.2.i, i64 128
   %66 = load ptr, ptr %65, align 8, !tbaa !22
   %.not19.i = icmp eq ptr %66, null
@@ -2137,7 +2137,7 @@ uv__signal_tree_s_RB_NEXT.exit:                   ; preds = %.preheader.i, %67, 
   %71 = getelementptr inbounds nuw i8, ptr %.1.i, i64 104
   %72 = load i32, ptr %71, align 8, !tbaa !16
   %73 = icmp eq i32 %72, %0
-  br i1 %73, label %.lr.ph45, label %.critedge, !llvm.loop !62
+  br i1 %73, label %.lr.ph50, label %.critedge, !llvm.loop !62
 
 .critedge:                                        ; preds = %uv__signal_tree_s_RB_NEXT.exit, %64, %.lr.ph, %uv__signal_first_handle.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %2)

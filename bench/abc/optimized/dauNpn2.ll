@@ -158,9 +158,9 @@ tailrecurse:                                      ; preds = %34, %2
 
 20:                                               ; preds = %._crit_edge
   %21 = icmp eq i8 %.lcssa65, 40
-  br i1 %21, label %.preheader, label %.preheader103
+  br i1 %21, label %.preheader, label %.preheader105
 
-.preheader103:                                    ; preds = %Dau_ParseFormulaEndToken.exit, %20
+.preheader105:                                    ; preds = %Dau_ParseFormulaEndToken.exit, %20
   br label %37
 
 .preheader:                                       ; preds = %20, %31
@@ -200,17 +200,17 @@ tailrecurse:                                      ; preds = %34, %2
 Dau_ParseFormulaEndToken.exit:                    ; preds = %.preheader, %29
   %.011.i = phi ptr [ %30, %29 ], [ null, %.preheader ]
   %33 = icmp eq ptr %.011.i, %.tr54
-  br i1 %33, label %34, label %.preheader103
+  br i1 %33, label %34, label %.preheader105
 
 34:                                               ; preds = %Dau_ParseFormulaEndToken.exit
   %35 = getelementptr inbounds i8, ptr %.tr54, i64 -1
   %36 = xor i64 %accumulator.tr, %.0.lcssa
   br label %tailrecurse
 
-37:                                               ; preds = %.preheader103, %47
-  %38 = phi i8 [ %.pre81, %47 ], [ %.lcssa65, %.preheader103 ]
-  %.010.i42 = phi i32 [ %.1.i45, %47 ], [ 0, %.preheader103 ]
-  %.0.i43 = phi ptr [ %48, %47 ], [ %.035.lcssa, %.preheader103 ]
+37:                                               ; preds = %.preheader105, %47
+  %38 = phi i8 [ %.pre81, %47 ], [ %.lcssa65, %.preheader105 ]
+  %.010.i42 = phi i32 [ %.1.i45, %47 ], [ 0, %.preheader105 ]
+  %.0.i43 = phi ptr [ %48, %47 ], [ %.035.lcssa, %.preheader105 ]
   switch i8 %38, label %43 [
     i8 0, label %Dau_ParseFormulaEndToken.exit47
     i8 126, label %47
@@ -364,9 +364,9 @@ tailrecurse:                                      ; preds = %32, %3
 
 18:                                               ; preds = %._crit_edge
   %19 = icmp eq i8 %.lcssa, 40
-  br i1 %19, label %.preheader, label %.preheader103
+  br i1 %19, label %.preheader, label %.preheader105
 
-.preheader103:                                    ; preds = %Dau_ParseFormulaEndToken.exit, %18
+.preheader105:                                    ; preds = %Dau_ParseFormulaEndToken.exit, %18
   br label %35
 
 .preheader:                                       ; preds = %18, %29
@@ -406,17 +406,17 @@ tailrecurse:                                      ; preds = %32, %3
 Dau_ParseFormulaEndToken.exit:                    ; preds = %.preheader, %27
   %.011.i = phi ptr [ %28, %27 ], [ null, %.preheader ]
   %31 = icmp eq ptr %.011.i, %.tr55
-  br i1 %31, label %32, label %.preheader103
+  br i1 %31, label %32, label %.preheader105
 
 32:                                               ; preds = %Dau_ParseFormulaEndToken.exit
   %33 = getelementptr inbounds i8, ptr %.tr55, i64 -1
   %34 = xor i32 %.0.lcssa, %accumulator.tr
   br label %tailrecurse
 
-35:                                               ; preds = %.preheader103, %45
-  %36 = phi i8 [ %.pre79, %45 ], [ %.lcssa, %.preheader103 ]
-  %.010.i42 = phi i32 [ %.1.i45, %45 ], [ 0, %.preheader103 ]
-  %.0.i43 = phi ptr [ %46, %45 ], [ %.037.lcssa, %.preheader103 ]
+35:                                               ; preds = %.preheader105, %45
+  %36 = phi i8 [ %.pre79, %45 ], [ %.lcssa, %.preheader105 ]
+  %.010.i42 = phi i32 [ %.1.i45, %45 ], [ 0, %.preheader105 ]
+  %.0.i43 = phi ptr [ %46, %45 ], [ %.037.lcssa, %.preheader105 ]
   switch i8 %36, label %41 [
     i8 0, label %Dau_ParseFormulaEndToken.exit47
     i8 126, label %45
@@ -3085,14 +3085,14 @@ define void @Dtt_PrintMulti1(ptr noundef readonly captures(none) %0) local_unnam
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %40, %42, %32, %34
-  %.sink117 = phi ptr [ %33, %32 ], [ %35, %34 ], [ %41, %40 ], [ %43, %42 ]
+  %.sink130 = phi ptr [ %33, %32 ], [ %35, %34 ], [ %41, %40 ], [ %43, %42 ]
   %.sink = phi i32 [ 16, %32 ], [ 16, %34 ], [ %37, %40 ], [ %37, %42 ]
-  store ptr %.sink117, ptr %9, align 8, !tbaa !39
+  store ptr %.sink130, ptr %9, align 8, !tbaa !39
   store i32 %.sink, ptr %6, align 8, !tbaa !38
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %22
-  %.pre.i101 = phi ptr [ %17, %22 ], [ %.sink117, %Vec_IntPush.exit.sink.split ]
+  %.pre.i101 = phi ptr [ %17, %22 ], [ %.sink130, %Vec_IntPush.exit.sink.split ]
   %44 = add nsw i32 %26, 1
   store i32 %44, ptr %7, align 4, !tbaa !36
   %45 = sext i32 %26 to i64
@@ -3227,9 +3227,9 @@ Vec_IntPush.exit9.sink.split.i:                   ; preds = %Vec_IntPush.exit.i
   %96 = shl nuw nsw i32 %92, 1
   %97 = zext nneg i32 %96 to i64
   %98 = shl nuw nsw i64 %97, 2
-  %.sink118 = select i1 %95, i64 64, i64 %98
+  %.sink131 = select i1 %95, i64 64, i64 %98
   %.sink.i = select i1 %95, i32 16, i32 %96
-  %99 = tail call ptr @realloc(ptr noundef nonnull %88, i64 noundef %.sink118) #32
+  %99 = tail call ptr @realloc(ptr noundef nonnull %88, i64 noundef %.sink131) #32
   store ptr %99, ptr %13, align 8, !tbaa !39
   store i32 %.sink.i, ptr %10, align 8, !tbaa !38
   %.pre104 = load i32, ptr %11, align 4, !tbaa !36
@@ -3260,9 +3260,9 @@ Vec_IntPushTwo.exit:                              ; preds = %Vec_IntPush.exit.i,
   br i1 %108, label %.critedge.thread, label %109
 
 .critedge.thread:                                 ; preds = %55, %.critedge
-  %.048.lcssa111 = phi i32 [ %.149, %.critedge ], [ %57, %55 ]
-  %.050.lcssa110 = phi i32 [ %.151, %.critedge ], [ 1, %55 ]
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %10, i32 noundef %.048.lcssa111, i32 noundef %.050.lcssa110)
+  %.048.lcssa124 = phi i32 [ %.149, %.critedge ], [ %57, %55 ]
+  %.050.lcssa123 = phi i32 [ %.151, %.critedge ], [ 1, %55 ]
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %10, i32 noundef %.048.lcssa124, i32 noundef %.050.lcssa123)
   br label %109
 
 109:                                              ; preds = %.critedge.thread, %.critedge
@@ -3710,16 +3710,16 @@ Dtt_ComposeNP.exit:                               ; preds = %52, %74
 Dtt_MakePI.exit:                                  ; preds = %74, %69, %72
   %77 = load i32, ptr %1, align 4, !tbaa !117
   %78 = icmp ult i32 %77, 10
-  br i1 %78, label %switch.lookup67, label %Dtt_FunImpl2Str.exit
+  br i1 %78, label %switch.lookup68, label %Dtt_FunImpl2Str.exit
 
-switch.lookup67:                                  ; preds = %Dtt_MakePI.exit
+switch.lookup68:                                  ; preds = %Dtt_MakePI.exit
   %79 = zext nneg i32 %77 to i64
-  %switch.gep68 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.Dtt_MakeFormulaFI2.15, i64 0, i64 %79
-  %switch.load69 = load ptr, ptr %switch.gep68, align 8
-  %80 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %switch.load69, ptr noundef %4, ptr noundef nonnull %9) #30
+  %switch.gep69 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.Dtt_MakeFormulaFI2.15, i64 0, i64 %79
+  %switch.load70 = load ptr, ptr %switch.gep69, align 8
+  %80 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %switch.load70, ptr noundef %4, ptr noundef nonnull %9) #30
   br label %Dtt_FunImpl2Str.exit
 
-Dtt_FunImpl2Str.exit:                             ; preds = %Dtt_MakePI.exit, %switch.lookup67
+Dtt_FunImpl2Str.exit:                             ; preds = %Dtt_MakePI.exit, %switch.lookup68
   %.not29 = icmp eq i32 %6, 0
   br i1 %.not29, label %.critedge, label %81
 
@@ -3760,16 +3760,16 @@ Dtt_ComposeNP.exit38:                             ; preds = %88
   call void @Dtt_MakeFormula(i32 noundef %0, ptr noundef %86, ptr noundef nonnull %2, i32 noundef %98, ptr noundef nonnull %9, i32 noundef 0, ptr noundef %7)
   %101 = load i32, ptr %1, align 4, !tbaa !117
   %102 = icmp ult i32 %101, 10
-  br i1 %102, label %switch.lookup70, label %Dtt_FunImpl2Str.exit41
+  br i1 %102, label %switch.lookup71, label %Dtt_FunImpl2Str.exit41
 
-switch.lookup70:                                  ; preds = %Dtt_ComposeNP.exit38
+switch.lookup71:                                  ; preds = %Dtt_ComposeNP.exit38
   %103 = zext nneg i32 %101 to i64
-  %switch.gep71 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.Dtt_MakeFormulaFI2.15, i64 0, i64 %103
-  %switch.load72 = load ptr, ptr %switch.gep71, align 8
-  %104 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %switch.load72, ptr noundef %4, ptr noundef nonnull %9) #30
+  %switch.gep72 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.Dtt_MakeFormulaFI2.15, i64 0, i64 %103
+  %switch.load73 = load ptr, ptr %switch.gep72, align 8
+  %104 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %switch.load73, ptr noundef %4, ptr noundef nonnull %9) #30
   br label %Dtt_FunImpl2Str.exit41
 
-Dtt_FunImpl2Str.exit41:                           ; preds = %Dtt_ComposeNP.exit38, %switch.lookup70
+Dtt_FunImpl2Str.exit41:                           ; preds = %Dtt_ComposeNP.exit38, %switch.lookup71
   %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.43, i32 noundef %0, ptr noundef %5) #30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %106 = load i32, ptr %10, align 4, !tbaa !108
@@ -4044,14 +4044,14 @@ switch.lookup:                                    ; preds = %13
 22:                                               ; preds = %11, %11
   %23 = and i32 %2, %0
   %24 = icmp eq i32 %23, %1
-  br i1 %24, label %switch.lookup71, label %26
+  br i1 %24, label %switch.lookup74, label %26
 
-switch.lookup71:                                  ; preds = %22
+switch.lookup74:                                  ; preds = %22
   %switch.tableidx = add nsw i32 %12, -1
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep72 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.Dtt_Check.16, i64 0, i64 %25
-  %switch.load73 = load i32, ptr %switch.gep72, align 4
-  store i32 %switch.load73, ptr %3, align 4, !tbaa !40
+  %switch.gep75 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.Dtt_Check.16, i64 0, i64 %25
+  %switch.load76 = load i32, ptr %switch.gep75, align 4
+  store i32 %switch.load76, ptr %3, align 4, !tbaa !40
   br label %Dtt_ProcessType.exit
 
 26:                                               ; preds = %22
@@ -4109,14 +4109,14 @@ switch.lookup71:                                  ; preds = %22
   %49 = xor i32 %2, -1
   %50 = or i32 %0, %49
   %51 = icmp eq i32 %50, %1
-  br i1 %51, label %switch.lookup74, label %53
+  br i1 %51, label %switch.lookup77, label %53
 
-switch.lookup74:                                  ; preds = %48
-  %switch.tableidx75 = add nsw i32 %12, -3
-  %52 = zext nneg i32 %switch.tableidx75 to i64
-  %switch.gep76 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.Dtt_Check.17, i64 0, i64 %52
-  %switch.load77 = load i32, ptr %switch.gep76, align 4
-  store i32 %switch.load77, ptr %3, align 4, !tbaa !40
+switch.lookup77:                                  ; preds = %48
+  %switch.tableidx78 = add nsw i32 %12, -3
+  %52 = zext nneg i32 %switch.tableidx78 to i64
+  %switch.gep79 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.Dtt_Check.17, i64 0, i64 %52
+  %switch.load80 = load i32, ptr %switch.gep79, align 4
+  store i32 %switch.load80, ptr %3, align 4, !tbaa !40
   br label %Dtt_ProcessType.exit
 
 53:                                               ; preds = %48
@@ -4129,14 +4129,14 @@ switch.lookup74:                                  ; preds = %48
   %58 = xor i32 %2, %0
   %59 = xor i32 %58, %1
   %60 = icmp eq i32 %59, -1
-  br i1 %60, label %switch.lookup78, label %62
+  br i1 %60, label %switch.lookup81, label %62
 
-switch.lookup78:                                  ; preds = %57
-  %switch.tableidx79 = add nsw i32 %12, -4
-  %61 = zext nneg i32 %switch.tableidx79 to i64
-  %switch.gep80 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.Dtt_Check.18, i64 0, i64 %61
-  %switch.load81 = load i32, ptr %switch.gep80, align 4
-  store i32 %switch.load81, ptr %3, align 4, !tbaa !40
+switch.lookup81:                                  ; preds = %57
+  %switch.tableidx82 = add nsw i32 %12, -4
+  %61 = zext nneg i32 %switch.tableidx82 to i64
+  %switch.gep83 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.Dtt_Check.18, i64 0, i64 %61
+  %switch.load84 = load i32, ptr %switch.gep83, align 4
+  store i32 %switch.load84, ptr %3, align 4, !tbaa !40
   br label %Dtt_ProcessType.exit
 
 62:                                               ; preds = %57
@@ -4144,8 +4144,8 @@ switch.lookup78:                                  ; preds = %57
   %64 = zext i1 %63 to i32
   br label %Dtt_ProcessType.exit
 
-Dtt_ProcessType.exit:                             ; preds = %42, %switch.lookup78, %switch.lookup74, %.sink.split.i45, %switch.lookup71, %switch.lookup, %11, %62, %53, %44, %26, %18, %5
-  %.0 = phi i32 [ %21, %18 ], [ %30, %26 ], [ %47, %44 ], [ %56, %53 ], [ %64, %62 ], [ %10, %5 ], [ -1, %11 ], [ 1, %switch.lookup ], [ 1, %switch.lookup71 ], [ 1, %.sink.split.i45 ], [ 1, %switch.lookup74 ], [ 1, %switch.lookup78 ], [ 1, %42 ]
+Dtt_ProcessType.exit:                             ; preds = %42, %switch.lookup81, %switch.lookup77, %.sink.split.i45, %switch.lookup74, %switch.lookup, %11, %62, %53, %44, %26, %18, %5
+  %.0 = phi i32 [ %21, %18 ], [ %30, %26 ], [ %47, %44 ], [ %56, %53 ], [ %64, %62 ], [ %10, %5 ], [ -1, %11 ], [ 1, %switch.lookup ], [ 1, %switch.lookup74 ], [ 1, %.sink.split.i45 ], [ 1, %switch.lookup77 ], [ 1, %switch.lookup81 ], [ 1, %42 ]
   ret i32 %.0
 }
 
@@ -4223,9 +4223,9 @@ define void @Dtt_FindNP(ptr noundef readonly captures(none) %0, i32 noundef %1, 
 
 38:                                               ; preds = %35
   %39 = load i32, ptr %5, align 4, !tbaa !40
-  br i1 %.not59, label %Dtt_ProcessType.exit.thread96, label %43
+  br i1 %.not59, label %Dtt_ProcessType.exit.thread100, label %43
 
-Dtt_ProcessType.exit.thread96:                    ; preds = %38
+Dtt_ProcessType.exit.thread100:                   ; preds = %38
   %40 = icmp slt i32 %39, 5
   %41 = select i1 %40, i32 5, i32 -5
   %42 = add nsw i32 %41, %39
@@ -4285,7 +4285,7 @@ Dtt_ProcessType.exit:                             ; preds = %35
 .preheader63.preheader:                           ; preds = %53, %.sink.split.i, %Dtt_ProcessType.exit
   br label %.preheader63
 
-.preheader.preheader:                             ; preds = %Dtt_ProcessType.exit.thread96, %Dtt_ProcessType.exit
+.preheader.preheader:                             ; preds = %Dtt_ProcessType.exit.thread100, %Dtt_ProcessType.exit
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -4396,8 +4396,8 @@ Dtt_ProcessType.exit:                             ; preds = %35
   br i1 %133, label %.preheader65, label %.loopexit66, !llvm.loop !126
 
 .loopexit66.sink.split:                           ; preds = %.preheader63, %.preheader
-  %.lcssa99.sink = phi i32 [ %66, %.preheader ], [ %82, %.preheader63 ]
-  store i32 %.lcssa99.sink, ptr %4, align 4, !tbaa !40
+  %.lcssa103.sink = phi i32 [ %66, %.preheader ], [ %82, %.preheader63 ]
+  store i32 %.lcssa103.sink, ptr %4, align 4, !tbaa !40
   br label %.loopexit66
 
 .loopexit66:                                      ; preds = %.preheader65.us, %._crit_edge, %.loopexit66.sink.split, %7
@@ -4703,8 +4703,8 @@ Vec_IntFind.exit159:                              ; preds = %116, %Vec_IntFind.e
   %126 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %127 = load i32, ptr %126, align 4, !tbaa !108
   %128 = icmp eq i32 %127, %.07.i134
-  %or.cond224 = select i1 %125, i1 %128, i1 false
-  br i1 %or.cond224, label %.critedge2, label %Vec_IntFind.exit159._crit_edge
+  %or.cond232 = select i1 %125, i1 %128, i1 false
+  br i1 %or.cond232, label %.critedge2, label %Vec_IntFind.exit159._crit_edge
 
 Vec_IntFind.exit159._crit_edge:                   ; preds = %Vec_IntFind.exit159
   %129 = icmp eq i32 %127, %.07.i179
@@ -5908,9 +5908,9 @@ Dtt_ManGetFun.exit273.thread:                     ; preds = %494, %491, %Dtt_Man
 523:                                              ; preds = %Dtt_ManGetFun.exit273.thread
   %524 = load ptr, ptr %320, align 8, !tbaa !53
   %525 = icmp eq ptr %524, null
-  br i1 %525, label %Dtt_ManGetFun.exit279.thread.thread434, label %527
+  br i1 %525, label %Dtt_ManGetFun.exit279.thread.thread484, label %527
 
-Dtt_ManGetFun.exit279.thread.thread434:           ; preds = %523
+Dtt_ManGetFun.exit279.thread.thread484:           ; preds = %523
   %526 = add i64 %.4363, 5
   br label %Dtt_ManAddVisited.exit320
 
@@ -6046,7 +6046,7 @@ Dtt_ManAddVisited.exit:                           ; preds = %.Vec_IntGrow.exit10
   br i1 %.not189, label %Dtt_ManAddVisited.exit320, label %Dtt_ManAddVisited.exit.thread
 
 Dtt_ManAddVisited.exit.thread:                    ; preds = %542, %560, %Dtt_ManAddVisited.exit
-  %.pr438 = phi ptr [ %.pr.pre, %Dtt_ManAddVisited.exit ], [ %544, %560 ], [ %544, %542 ]
+  %.pr488 = phi ptr [ %.pr.pre, %Dtt_ManAddVisited.exit ], [ %544, %560 ], [ %544, %542 ]
   %597 = load i32, ptr %154, align 4, !tbaa !50
   %598 = and i32 %597, %414
   %.not.i281 = icmp ne i32 %598, 0
@@ -6055,7 +6055,7 @@ Dtt_ManAddVisited.exit.thread:                    ; preds = %542, %560, %Dtt_Man
   %601 = load i32, ptr %157, align 8, !tbaa !54
   %602 = and i32 %600, %601
   %603 = zext i32 %602 to i64
-  %604 = getelementptr inbounds nuw i32, ptr %.pr438, i64 %603
+  %604 = getelementptr inbounds nuw i32, ptr %.pr488, i64 %603
   %605 = load i32, ptr %604, align 4, !tbaa !40
   %606 = load ptr, ptr %321, align 8, !tbaa !55
   %607 = zext i32 %605 to i64
@@ -6146,7 +6146,7 @@ Dtt_ManAddVisited.exit290:                        ; preds = %.Vec_IntGrow.exit10
   br i1 %.not190, label %Dtt_ManAddVisited.exit320, label %Dtt_ManAddVisited.exit290.thread
 
 Dtt_ManAddVisited.exit290.thread:                 ; preds = %Dtt_ManAddVisited.exit.thread, %612, %Dtt_ManAddVisited.exit290
-  %.pr350441 = phi ptr [ %.pr350.pre, %Dtt_ManAddVisited.exit290 ], [ %.pr438, %612 ], [ %.pr438, %Dtt_ManAddVisited.exit.thread ]
+  %.pr350491 = phi ptr [ %.pr350.pre, %Dtt_ManAddVisited.exit290 ], [ %.pr488, %612 ], [ %.pr488, %Dtt_ManAddVisited.exit.thread ]
   %649 = load i32, ptr %154, align 4, !tbaa !50
   %650 = and i32 %649, %446
   %.not.i291 = icmp ne i32 %650, 0
@@ -6155,7 +6155,7 @@ Dtt_ManAddVisited.exit290.thread:                 ; preds = %Dtt_ManAddVisited.e
   %653 = load i32, ptr %157, align 8, !tbaa !54
   %654 = and i32 %652, %653
   %655 = zext i32 %654 to i64
-  %656 = getelementptr inbounds nuw i32, ptr %.pr350441, i64 %655
+  %656 = getelementptr inbounds nuw i32, ptr %.pr350491, i64 %655
   %657 = load i32, ptr %656, align 4, !tbaa !40
   %658 = load ptr, ptr %321, align 8, !tbaa !55
   %659 = zext i32 %657 to i64
@@ -6246,7 +6246,7 @@ Dtt_ManAddVisited.exit300:                        ; preds = %.Vec_IntGrow.exit10
   br i1 %.not191, label %Dtt_ManAddVisited.exit320, label %Dtt_ManAddVisited.exit300.thread
 
 Dtt_ManAddVisited.exit300.thread:                 ; preds = %Dtt_ManAddVisited.exit290.thread, %664, %Dtt_ManAddVisited.exit300
-  %.pr352.pr444 = phi ptr [ %.pr352.pr.pre, %Dtt_ManAddVisited.exit300 ], [ %.pr350441, %664 ], [ %.pr350441, %Dtt_ManAddVisited.exit290.thread ]
+  %.pr352.pr494 = phi ptr [ %.pr352.pr.pre, %Dtt_ManAddVisited.exit300 ], [ %.pr350491, %664 ], [ %.pr350491, %Dtt_ManAddVisited.exit290.thread ]
   %701 = load i32, ptr %154, align 4, !tbaa !50
   %702 = and i32 %701, %478
   %.not.i301 = icmp ne i32 %702, 0
@@ -6255,7 +6255,7 @@ Dtt_ManAddVisited.exit300.thread:                 ; preds = %Dtt_ManAddVisited.e
   %705 = load i32, ptr %157, align 8, !tbaa !54
   %706 = and i32 %704, %705
   %707 = zext i32 %706 to i64
-  %708 = getelementptr inbounds nuw i32, ptr %.pr352.pr444, i64 %707
+  %708 = getelementptr inbounds nuw i32, ptr %.pr352.pr494, i64 %707
   %709 = load i32, ptr %708, align 4, !tbaa !40
   %710 = load ptr, ptr %321, align 8, !tbaa !55
   %711 = zext i32 %709 to i64
@@ -6346,7 +6346,7 @@ Dtt_ManAddVisited.exit310:                        ; preds = %.Vec_IntGrow.exit10
   br i1 %.not192, label %Dtt_ManAddVisited.exit320, label %Dtt_ManAddVisited.exit310.thread
 
 Dtt_ManAddVisited.exit310.thread:                 ; preds = %Dtt_ManAddVisited.exit300.thread, %716, %Dtt_ManAddVisited.exit310
-  %.pr354447 = phi ptr [ %.pr354.pre, %Dtt_ManAddVisited.exit310 ], [ %.pr352.pr444, %716 ], [ %.pr352.pr444, %Dtt_ManAddVisited.exit300.thread ]
+  %.pr354497 = phi ptr [ %.pr354.pre, %Dtt_ManAddVisited.exit310 ], [ %.pr352.pr494, %716 ], [ %.pr352.pr494, %Dtt_ManAddVisited.exit300.thread ]
   %753 = load i32, ptr %154, align 4, !tbaa !50
   %754 = and i32 %753, %510
   %.not.i311 = icmp ne i32 %754, 0
@@ -6355,7 +6355,7 @@ Dtt_ManAddVisited.exit310.thread:                 ; preds = %Dtt_ManAddVisited.e
   %757 = load i32, ptr %157, align 8, !tbaa !54
   %758 = and i32 %756, %757
   %759 = zext i32 %758 to i64
-  %760 = getelementptr inbounds nuw i32, ptr %.pr354447, i64 %759
+  %760 = getelementptr inbounds nuw i32, ptr %.pr354497, i64 %759
   %761 = load i32, ptr %760, align 4, !tbaa !40
   %762 = load ptr, ptr %321, align 8, !tbaa !55
   %763 = zext i32 %761 to i64
@@ -6443,8 +6443,8 @@ Vec_IntPush.exit.i316:                            ; preds = %798, %Vec_IntGrow.e
   store i32 %761, ptr %804, align 4, !tbaa !40
   br label %Dtt_ManAddVisited.exit320
 
-Dtt_ManAddVisited.exit320:                        ; preds = %Dtt_ManGetFun.exit279.thread.thread434, %Dtt_ManAddVisited.exit, %Dtt_ManGetFun.exit279.thread, %Dtt_ManAddVisited.exit290, %Dtt_ManAddVisited.exit300, %Vec_IntPush.exit.i316, %768, %Dtt_ManAddVisited.exit310.thread, %Dtt_ManAddVisited.exit310
-  %805 = phi i64 [ %543, %Dtt_ManAddVisited.exit ], [ %541, %Dtt_ManGetFun.exit279.thread ], [ %543, %Dtt_ManAddVisited.exit290 ], [ %543, %Dtt_ManAddVisited.exit300 ], [ %543, %Vec_IntPush.exit.i316 ], [ %543, %768 ], [ %543, %Dtt_ManAddVisited.exit310.thread ], [ %543, %Dtt_ManAddVisited.exit310 ], [ %526, %Dtt_ManGetFun.exit279.thread.thread434 ]
+Dtt_ManAddVisited.exit320:                        ; preds = %Dtt_ManGetFun.exit279.thread.thread484, %Dtt_ManAddVisited.exit, %Dtt_ManGetFun.exit279.thread, %Dtt_ManAddVisited.exit290, %Dtt_ManAddVisited.exit300, %Vec_IntPush.exit.i316, %768, %Dtt_ManAddVisited.exit310.thread, %Dtt_ManAddVisited.exit310
+  %805 = phi i64 [ %543, %Dtt_ManAddVisited.exit ], [ %541, %Dtt_ManGetFun.exit279.thread ], [ %543, %Dtt_ManAddVisited.exit290 ], [ %543, %Dtt_ManAddVisited.exit300 ], [ %543, %Vec_IntPush.exit.i316 ], [ %543, %768 ], [ %543, %Dtt_ManAddVisited.exit310.thread ], [ %543, %Dtt_ManAddVisited.exit310 ], [ %526, %Dtt_ManGetFun.exit279.thread.thread484 ]
   %indvars.iv.next399 = add nuw nsw i64 %indvars.iv398, 1
   %.val = load i32, ptr %362, align 4, !tbaa !36
   %806 = sext i32 %.val to i64
@@ -6526,8 +6526,8 @@ Dtt_ManProcessVisited.exit:                       ; preds = %.lr.ph.i, %810
   %840 = icmp eq i32 %839, 0
   %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
   %exitcond416.not = icmp eq i64 %indvars.iv.next413, %wide.trip.count415
-  %or.cond450 = select i1 %840, i1 true, i1 %exitcond416.not
-  br i1 %or.cond450, label %._crit_edge393, label %327, !llvm.loop !143
+  %or.cond500 = select i1 %840, i1 true, i1 %exitcond416.not
+  br i1 %or.cond500, label %._crit_edge393, label %327, !llvm.loop !143
 
 ._crit_edge393:                                   ; preds = %836, %._crit_edge
   %.not180 = icmp eq i32 %2, 0

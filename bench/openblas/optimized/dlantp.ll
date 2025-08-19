@@ -130,11 +130,11 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %53 = call i32 @disnan_(ptr noundef nonnull %10) #5
   %.not338 = icmp eq i32 %53, 0
   %.pre677 = load double, ptr %10, align 8
-  %spec.select704 = select i1 %.not338, double %.5379, double %.pre677
+  %spec.select734 = select i1 %.not338, double %.5379, double %.pre677
   br label %._crit_edge676
 
 ._crit_edge676:                                   ; preds = %52, %.lr.ph382
-  %.6 = phi double [ %50, %.lr.ph382 ], [ %spec.select704, %52 ]
+  %.6 = phi double [ %50, %.lr.ph382 ], [ %spec.select734, %52 ]
   %.not337.not = icmp slt i64 %indvars.iv.next573, %45
   br i1 %.not337.not, label %.lr.ph382, label %._crit_edge383.loopexit, !llvm.loop !12
 
@@ -188,11 +188,11 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %72 = call i32 @disnan_(ptr noundef nonnull %10) #5
   %.not333 = icmp eq i32 %72, 0
   %.pre680 = load double, ptr %10, align 8
-  %spec.select705 = select i1 %.not333, double %.8394, double %.pre680
+  %spec.select735 = select i1 %.not333, double %.8394, double %.pre680
   br label %._crit_edge679
 
 ._crit_edge679:                                   ; preds = %71, %.lr.ph396
-  %.9 = phi double [ %69, %.lr.ph396 ], [ %spec.select705, %71 ]
+  %.9 = phi double [ %69, %.lr.ph396 ], [ %spec.select735, %71 ]
   %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, 1
   %.not332.not = icmp slt i64 %indvars.iv575, %64
   br i1 %.not332.not, label %.lr.ph396, label %._crit_edge397, !llvm.loop !14
@@ -238,11 +238,11 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %89 = call i32 @disnan_(ptr noundef nonnull %10) #5
   %.not329 = icmp eq i32 %89, 0
   %.pre682 = load double, ptr %10, align 8
-  %spec.select706 = select i1 %.not329, double %.11408, double %.pre682
+  %spec.select736 = select i1 %.not329, double %.11408, double %.pre682
   br label %._crit_edge681
 
 ._crit_edge681:                                   ; preds = %88, %.lr.ph410
-  %.12 = phi double [ %86, %.lr.ph410 ], [ %spec.select706, %88 ]
+  %.12 = phi double [ %86, %.lr.ph410 ], [ %spec.select736, %88 ]
   %indvars.iv.next579 = add nsw i64 %indvars.iv578, 1
   %.not328.not = icmp slt i64 %indvars.iv578, %81
   br i1 %.not328.not, label %.lr.ph410, label %._crit_edge411.loopexit, !llvm.loop !16
@@ -339,14 +339,14 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br i1 %.not321.not, label %.lr.ph520, label %.loopexit348.sink.split, !llvm.loop !20
 
 .loopexit348.sink.split:                          ; preds = %.lr.ph514, %.lr.ph520
-  %.lcssa702.sink = phi double [ %129, %.lr.ph520 ], [ %119, %.lr.ph514 ]
+  %.lcssa732.sink = phi double [ %129, %.lr.ph520 ], [ %119, %.lr.ph514 ]
   %.pre-phi.ph = phi i32 [ %120, %.lr.ph520 ], [ %108, %.lr.ph514 ]
-  store double %.lcssa702.sink, ptr %10, align 8, !tbaa !7
+  store double %.lcssa732.sink, ptr %10, align 8, !tbaa !7
   br label %.loopexit348
 
 .loopexit348:                                     ; preds = %.loopexit348.sink.split, %107
   %.pre-phi = phi i32 [ %108, %107 ], [ %.pre-phi.ph, %.loopexit348.sink.split ]
-  %130 = phi double [ 1.000000e+00, %107 ], [ %.lcssa702.sink, %.loopexit348.sink.split ]
+  %130 = phi double [ 1.000000e+00, %107 ], [ %.lcssa732.sink, %.loopexit348.sink.split ]
   %131 = fcmp olt double %.13526, %130
   br i1 %131, label %._crit_edge686, label %132
 
@@ -354,11 +354,11 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %133 = call i32 @disnan_(ptr noundef nonnull %10) #5
   %.not323 = icmp eq i32 %133, 0
   %.pre687 = load double, ptr %10, align 8
-  %spec.select707 = select i1 %.not323, double %.13526, double %.pre687
+  %spec.select737 = select i1 %.not323, double %.13526, double %.pre687
   br label %._crit_edge686
 
 ._crit_edge686:                                   ; preds = %132, %.loopexit348
-  %.14 = phi double [ %130, %.loopexit348 ], [ %spec.select707, %132 ]
+  %.14 = phi double [ %130, %.loopexit348 ], [ %spec.select737, %132 ]
   %134 = add nuw nsw i32 %106, 1
   %.not319.not = icmp slt i32 %106, %103
   br i1 %.not319.not, label %105, label %.loopexit347, !llvm.loop !21
@@ -433,13 +433,13 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 
 .loopexit.sink.split:                             ; preds = %.lr.ph534, %.lr.ph540
   %.lcssa.sink = phi double [ %163, %.lr.ph540 ], [ %149, %.lr.ph534 ]
-  %.ph709 = phi i32 [ %151, %.lr.ph540 ], [ %140, %.lr.ph534 ]
+  %.ph739 = phi i32 [ %151, %.lr.ph540 ], [ %140, %.lr.ph534 ]
   store double %.lcssa.sink, ptr %10, align 8, !tbaa !7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %139, %150
   %164 = phi double [ 1.000000e+00, %139 ], [ 0.000000e+00, %150 ], [ %.lcssa.sink, %.loopexit.sink.split ]
-  %165 = phi i32 [ %140, %139 ], [ %151, %150 ], [ %.ph709, %.loopexit.sink.split ]
+  %165 = phi i32 [ %140, %139 ], [ %151, %150 ], [ %.ph739, %.loopexit.sink.split ]
   %166 = add i32 %storemerge312.neg546, 1
   %167 = add i32 %166, %.5240543
   %168 = add i32 %167, %165
@@ -450,11 +450,11 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %171 = call i32 @disnan_(ptr noundef nonnull %10) #5
   %.not317 = icmp eq i32 %171, 0
   %.pre689 = load double, ptr %10, align 8
-  %spec.select710 = select i1 %.not317, double %.15545, double %.pre689
+  %spec.select740 = select i1 %.not317, double %.15545, double %.pre689
   br label %._crit_edge688
 
 ._crit_edge688:                                   ; preds = %170, %.loopexit
-  %.16 = phi double [ %164, %.loopexit ], [ %spec.select710, %170 ]
+  %.16 = phi double [ %164, %.loopexit ], [ %spec.select740, %170 ]
   %172 = add nuw nsw i32 %137, 1
   %storemerge312.neg = xor i32 %137, -1
   %.not313.not = icmp slt i32 %137, %103
@@ -654,8 +654,8 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 .lr.ph482:                                        ; preds = %.lr.ph482.preheader, %239
   %indvars.iv641 = phi i64 [ 1, %.lr.ph482.preheader ], [ %indvars.iv.next642, %239 ]
   %.12247481 = phi i64 [ 1, %.lr.ph482.preheader ], [ %indvars.iv.next640, %239 ]
-  %sext691 = shl i64 %.12247481, 32
-  %229 = ashr exact i64 %sext691, 32
+  %sext721 = shl i64 %.12247481, 32
+  %229 = ashr exact i64 %sext721, 32
   br label %230
 
 230:                                              ; preds = %.lr.ph482, %230
@@ -702,11 +702,11 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %245 = call i32 @disnan_(ptr noundef nonnull %10) #5
   %.not309 = icmp eq i32 %245, 0
   %.pre685 = load double, ptr %10, align 8
-  %spec.select711 = select i1 %.not309, double %.17487, double %.pre685
+  %spec.select741 = select i1 %.not309, double %.17487, double %.pre685
   br label %._crit_edge684
 
 ._crit_edge684:                                   ; preds = %244, %.lr.ph489
-  %.18 = phi double [ %242, %.lr.ph489 ], [ %spec.select711, %244 ]
+  %.18 = phi double [ %242, %.lr.ph489 ], [ %spec.select741, %244 ]
   %indvars.iv.next654 = add nuw nsw i64 %indvars.iv653, 1
   %exitcond657.not = icmp eq i64 %indvars.iv.next654, %wide.trip.count656
   br i1 %exitcond657.not, label %.loopexit347, label %.lr.ph489, !llvm.loop !35

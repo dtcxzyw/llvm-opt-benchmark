@@ -97,9 +97,9 @@ define noundef nonnull ptr @_ZN3zmq31shared_message_memory_allocator8allocateEv(
 3:                                                ; preds = %1
   %4 = atomicrmw sub ptr %2, i32 1 acq_rel, align 4
   %.not7 = icmp eq i32 %4, 1
-  br i1 %.not7, label %7, label %.thread9
+  br i1 %.not7, label %7, label %.thread11
 
-.thread9:                                         ; preds = %3
+.thread11:                                        ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -111,7 +111,7 @@ define noundef nonnull ptr @_ZN3zmq31shared_message_memory_allocator8allocateEv(
   %.not4 = icmp eq ptr %.pr, null
   br i1 %.not4, label %.thread, label %23
 
-.thread:                                          ; preds = %.thread9, %1, %7
+.thread:                                          ; preds = %.thread11, %1, %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = add i64 %9, 8

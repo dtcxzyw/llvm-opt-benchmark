@@ -252,7 +252,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IllEERKT_RKT0_.exit: ; preds = %.si
 63:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IllEERKT_RKT0_.exit
   %64 = sdiv i64 9223372036854775807, %43
   %65 = icmp sgt i64 %41, %64
-  br i1 %65, label %.invoke1072, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i195
+  br i1 %65, label %.invoke1168, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i195
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i195: ; preds = %63, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IllEERKT_RKT0_.exit
   %66 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -267,15 +267,15 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i550: ; preds = %68
   %70 = shl nuw i64 %49, 3
   %71 = tail call noalias ptr @malloc(i64 noundef %70) #23
   %72 = icmp eq ptr %71, null
-  br i1 %72, label %.invoke1072, label %.sink.split.i548
+  br i1 %72, label %.invoke1168, label %.sink.split.i548
 
-.invoke1072:                                      ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i550, %63
+.invoke1168:                                      ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i550, %63
   %73 = tail call ptr @__cxa_allocate_exception(i64 8) #24
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %73, align 8, !tbaa !14
   invoke void @__cxa_throw(ptr nonnull %73, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #25
-          to label %.cont1073 unwind label %74
+          to label %.cont1169 unwind label %74
 
-.cont1073:                                        ; preds = %.invoke1072
+.cont1169:                                        ; preds = %.invoke1168
   unreachable
 
 .sink.split.i548:                                 ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i550, %68
@@ -283,7 +283,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i550: ; preds = %68
   store ptr %.sink.i549, ptr %18, align 8, !tbaa !16
   br label %77
 
-74:                                               ; preds = %.invoke1072
+74:                                               ; preds = %.invoke1168
   %75 = landingpad { ptr, i32 }
           cleanup
   %76 = load ptr, ptr %18, align 8, !tbaa !16
@@ -305,35 +305,35 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 80:                                               ; preds = %77
   %81 = sdiv i64 9223372036854775807, %43
   %82 = icmp sgt i64 %43, %81
-  br i1 %82, label %.invoke1074, label %83
+  br i1 %82, label %.invoke1170, label %83
 
 83:                                               ; preds = %80
   %84 = mul nsw i64 %43, %43
   %85 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %86 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %87 = icmp samesign ugt i64 %84, 2305843009213693951
-  br i1 %87, label %.invoke1074, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i557
+  br i1 %87, label %.invoke1170, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i557
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i557: ; preds = %83
   %88 = shl nuw i64 %84, 3
   %89 = tail call noalias ptr @malloc(i64 noundef %88) #23
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %.invoke1074, label %.sink.split.i555
+  br i1 %90, label %.invoke1170, label %.sink.split.i555
 
-.invoke1074:                                      ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i557, %83, %80
+.invoke1170:                                      ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i557, %83, %80
   %91 = tail call ptr @__cxa_allocate_exception(i64 8) #24
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %91, align 8, !tbaa !14
   invoke void @__cxa_throw(ptr nonnull %91, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #25
-          to label %.cont1075 unwind label %.body.i
+          to label %.cont1171 unwind label %.body.i
 
-.cont1075:                                        ; preds = %.invoke1074
+.cont1171:                                        ; preds = %.invoke1170
   unreachable
 
 .sink.split.i555:                                 ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i557
   store ptr %89, ptr %19, align 8, !tbaa !16
   br label %94
 
-.body.i:                                          ; preds = %.invoke1074
+.body.i:                                          ; preds = %.invoke1170
   %92 = landingpad { ptr, i32 }
           cleanup
   %93 = load ptr, ptr %19, align 8, !tbaa !16
@@ -848,7 +848,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit: ; pr
 261:                                              ; preds = %258
   %262 = sdiv i64 9223372036854775807, %246
   %263 = icmp sgt i64 %257, %262
-  br i1 %263, label %.invoke1076, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i
+  br i1 %263, label %.invoke1172, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i: ; preds = %261, %258
   %264 = mul nsw i64 %257, %246
@@ -863,21 +863,21 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 268:                                              ; preds = %266
   %269 = icmp samesign ugt i64 %264, 2305843009213693951
-  br i1 %269, label %.invoke1076, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i569
+  br i1 %269, label %.invoke1172, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i569
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i569: ; preds = %268
   %270 = shl nuw i64 %264, 3
   %271 = call noalias ptr @malloc(i64 noundef %270) #23
   %272 = icmp eq ptr %271, null
-  br i1 %272, label %.invoke1076, label %.sink.split.i567
+  br i1 %272, label %.invoke1172, label %.sink.split.i567
 
-.invoke1076:                                      ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i569, %268, %261
+.invoke1172:                                      ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i569, %268, %261
   %273 = call ptr @__cxa_allocate_exception(i64 8) #24
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %273, align 8, !tbaa !14
   invoke void @__cxa_throw(ptr nonnull %273, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #25
-          to label %.cont1077 unwind label %550
+          to label %.cont1173 unwind label %550
 
-.cont1077:                                        ; preds = %.invoke1076
+.cont1173:                                        ; preds = %.invoke1172
   unreachable
 
 .sink.split.i567:                                 ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i569, %266
@@ -1326,9 +1326,9 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20Scala
 
 472:                                              ; preds = %465, %._crit_edge.i.i.i.i.i315, %437
   %.072.i.i.i.i.i309 = phi <2 x double> [ %440, %437 ], [ %471, %465 ], [ %449, %._crit_edge.i.i.i.i.i315 ]
-  %shift1112 = shufflevector <2 x double> %.072.i.i.i.i.i309, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1113 = fadd <2 x double> %.072.i.i.i.i.i309, %shift1112
-  %473 = extractelement <2 x double> %foldExtExtBinop1113, i64 0
+  %shift1208 = shufflevector <2 x double> %.072.i.i.i.i.i309, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1209 = fadd <2 x double> %.072.i.i.i.i.i309, %shift1208
+  %473 = extractelement <2 x double> %foldExtExtBinop1209, i64 0
   %474 = icmp slt i64 %436, %.pre1030
   br i1 %474, label %.lr.ph85.i.i.i.i.i311, label %.loopexit887
 
@@ -1427,9 +1427,9 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20Scala
 
 533:                                              ; preds = %526, %._crit_edge.i.i.i.i.i333, %498
   %.072.i.i.i.i.i327 = phi <2 x double> [ %501, %498 ], [ %532, %526 ], [ %510, %._crit_edge.i.i.i.i.i333 ]
-  %shift1115 = shufflevector <2 x double> %.072.i.i.i.i.i327, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1116 = fadd <2 x double> %.072.i.i.i.i.i327, %shift1115
-  %534 = extractelement <2 x double> %foldExtExtBinop1116, i64 0
+  %shift1211 = shufflevector <2 x double> %.072.i.i.i.i.i327, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1212 = fadd <2 x double> %.072.i.i.i.i.i327, %shift1211
+  %534 = extractelement <2 x double> %foldExtExtBinop1212, i64 0
   %535 = icmp slt i64 %497, %489
   br i1 %535, label %.lr.ph85.i.i.i.i.i329, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit342
 
@@ -1484,7 +1484,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20Scala
           cleanup
   br label %.loopexit.split-lp
 
-550:                                              ; preds = %.invoke1076, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE4_setINS_5SolveINS_14TriangularViewIKNS_9TransposeIKS2_EELj2EEES2_EEEERS2_RKNS_9DenseBaseIT_EE.exit.i
+550:                                              ; preds = %.invoke1172, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE4_setINS_5SolveINS_14TriangularViewIKNS_9TransposeIKS2_EELj2EEES2_EEEERS2_RKNS_9DenseBaseIT_EE.exit.i
   %551 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
@@ -1648,8 +1648,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %633 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %634 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %635 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %sext1034 = shl i64 %35, 32
-  %636 = ashr exact i64 %sext1034, 32
+  %sext1130 = shl i64 %35, 32
+  %636 = ashr exact i64 %sext1130, 32
   %wide.trip.count1001 = and i64 %38, 2147483647
   %wide.trip.count1011 = and i64 %38, 2147483647
   %wide.trip.count1024 = and i64 %38, 2147483647
@@ -1780,9 +1780,9 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 707:                                              ; preds = %701, %._crit_edge.i.i.i.i.i358, %677
   %.072.i.i.i.i.i352 = phi <2 x double> [ %680, %677 ], [ %706, %701 ], [ %686, %._crit_edge.i.i.i.i.i358 ]
-  %shift1118 = shufflevector <2 x double> %.072.i.i.i.i.i352, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1119 = fadd <2 x double> %.072.i.i.i.i.i352, %shift1118
-  %708 = extractelement <2 x double> %foldExtExtBinop1119, i64 0
+  %shift1214 = shufflevector <2 x double> %.072.i.i.i.i.i352, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1215 = fadd <2 x double> %.072.i.i.i.i.i352, %shift1214
+  %708 = extractelement <2 x double> %foldExtExtBinop1215, i64 0
   br i1 %657, label %.lr.ph85.i.i.i.i.i354, label %.loopexit873
 
 .lr.ph85.i.i.i.i.i354:                            ; preds = %707, %.lr.ph85.i.i.i.i.i354
@@ -2307,9 +2307,9 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEaSINS0_IKS2_Li
 
 934:                                              ; preds = %929, %._crit_edge.i.i.i.i.i436, %908
   %.072.i.i.i.i.i430 = phi <2 x double> [ %910, %908 ], [ %933, %929 ], [ %917, %._crit_edge.i.i.i.i.i436 ]
-  %shift1121 = shufflevector <2 x double> %.072.i.i.i.i.i430, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1122 = fadd <2 x double> %.072.i.i.i.i.i430, %shift1121
-  %935 = extractelement <2 x double> %foldExtExtBinop1122, i64 0
+  %shift1217 = shufflevector <2 x double> %.072.i.i.i.i.i430, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1218 = fadd <2 x double> %.072.i.i.i.i.i430, %shift1217
+  %935 = extractelement <2 x double> %foldExtExtBinop1218, i64 0
   %936 = icmp slt i64 %907, %900
   br i1 %936, label %.lr.ph85.i.i.i.i.i432, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit445
 
@@ -2408,9 +2408,9 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20Scala
 
 993:                                              ; preds = %986, %._crit_edge.i.i.i.i.i454, %958
   %.072.i.i.i.i.i448 = phi <2 x double> [ %961, %958 ], [ %992, %986 ], [ %970, %._crit_edge.i.i.i.i.i454 ]
-  %shift1124 = shufflevector <2 x double> %.072.i.i.i.i.i448, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1125 = fadd <2 x double> %.072.i.i.i.i.i448, %shift1124
-  %994 = extractelement <2 x double> %foldExtExtBinop1125, i64 0
+  %shift1220 = shufflevector <2 x double> %.072.i.i.i.i.i448, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1221 = fadd <2 x double> %.072.i.i.i.i.i448, %shift1220
+  %994 = extractelement <2 x double> %foldExtExtBinop1221, i64 0
   %995 = icmp slt i64 %957, %949
   br i1 %995, label %.lr.ph85.i.i.i.i.i450, label %.loopexit869
 
@@ -2829,9 +2829,9 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit520.backedge: ; preds = %.
 
 1209:                                             ; preds = %1202, %._crit_edge.i.i.i.i.i530, %1174
   %.072.i.i.i.i.i524 = phi <2 x double> [ %1177, %1174 ], [ %1208, %1202 ], [ %1186, %._crit_edge.i.i.i.i.i530 ]
-  %shift1127 = shufflevector <2 x double> %.072.i.i.i.i.i524, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1128 = fadd <2 x double> %.072.i.i.i.i.i524, %shift1127
-  %1210 = extractelement <2 x double> %foldExtExtBinop1128, i64 0
+  %shift1223 = shufflevector <2 x double> %.072.i.i.i.i.i524, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1224 = fadd <2 x double> %.072.i.i.i.i.i524, %shift1223
+  %1210 = extractelement <2 x double> %foldExtExtBinop1224, i64 0
   %1211 = icmp slt i64 %1173, %1166
   br i1 %1211, label %.lr.ph85.i.i.i.i.i526, label %.loopexit866
 
@@ -2926,7 +2926,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %.loopexit871, %1227
   br i1 %.not.i.i540, label %.body280, label %1244
 
 1244:                                             ; preds = %.loopexit.split-lp.thread, %.loopexit.split-lp
-  %.pn1751038 = phi { ptr, i32 } [ %lpad.loopexit875, %.loopexit.split-lp.thread ], [ %.pn175, %.loopexit.split-lp ]
+  %.pn1751134 = phi { ptr, i32 } [ %lpad.loopexit875, %.loopexit.split-lp.thread ], [ %.pn175, %.loopexit.split-lp ]
   %1245 = ptrtoint ptr %.sroa.29725.0 to i64
   %1246 = ptrtoint ptr %.sroa.0717.0 to i64
   %1247 = sub i64 %1245, %1246
@@ -2940,7 +2940,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %.loopexit871, %1227
   %.sroa.0728.0849 = phi ptr [ %.sroa.0728.0, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit565 ], [ %.sroa.0728.0848, %.loopexit.split-lp ], [ %.sroa.0728.0848, %1244 ]
   %.sroa.0792.0832 = phi ptr [ %.sroa.0792.0829, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit565 ], [ %.sroa.0792.0829846, %.loopexit.split-lp ], [ %.sroa.0792.0829846, %1244 ]
   %.sroa.0787.0809 = phi ptr [ %.sroa.0787.0802818827, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit565 ], [ %.sroa.0787.0802818827847, %.loopexit.split-lp ], [ %.sroa.0787.0802818827847, %1244 ]
-  %.pn175.pn = phi { ptr, i32 } [ %220, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit565 ], [ %.pn175, %.loopexit.split-lp ], [ %.pn1751038, %1244 ]
+  %.pn175.pn = phi { ptr, i32 } [ %220, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit565 ], [ %.pn175, %.loopexit.split-lp ], [ %.pn1751134, %1244 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @free(ptr noundef %.sroa.0728.0849) #24
   br label %.body277
@@ -4528,27 +4528,27 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal29general_matrix_vector_pr
   %shift = shufflevector <2 x double> %.0389.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %foldExtExtBinop = fadd <2 x double> %.0389.lcssa, %shift
   %71 = extractelement <2 x double> %foldExtExtBinop, i64 0
-  %shift646 = shufflevector <2 x double> %.0390.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop647 = fadd <2 x double> %.0390.lcssa, %shift646
-  %72 = extractelement <2 x double> %foldExtExtBinop647, i64 0
-  %shift649 = shufflevector <2 x double> %.0391.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop650 = fadd <2 x double> %.0391.lcssa, %shift649
-  %73 = extractelement <2 x double> %foldExtExtBinop650, i64 0
-  %shift652 = shufflevector <2 x double> %.0392.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop653 = fadd <2 x double> %.0392.lcssa, %shift652
-  %74 = extractelement <2 x double> %foldExtExtBinop653, i64 0
-  %shift655 = shufflevector <2 x double> %.0393.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop656 = fadd <2 x double> %.0393.lcssa, %shift655
-  %75 = extractelement <2 x double> %foldExtExtBinop656, i64 0
-  %shift658 = shufflevector <2 x double> %.0395.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop659 = fadd <2 x double> %.0395.lcssa, %shift658
-  %76 = extractelement <2 x double> %foldExtExtBinop659, i64 0
-  %shift661 = shufflevector <2 x double> %.0396.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop662 = fadd <2 x double> %.0396.lcssa, %shift661
-  %77 = extractelement <2 x double> %foldExtExtBinop662, i64 0
-  %shift664 = shufflevector <2 x double> %.0397.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop665 = fadd <2 x double> %.0397.lcssa, %shift664
-  %78 = extractelement <2 x double> %foldExtExtBinop665, i64 0
+  %shift656 = shufflevector <2 x double> %.0390.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop657 = fadd <2 x double> %.0390.lcssa, %shift656
+  %72 = extractelement <2 x double> %foldExtExtBinop657, i64 0
+  %shift659 = shufflevector <2 x double> %.0391.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop660 = fadd <2 x double> %.0391.lcssa, %shift659
+  %73 = extractelement <2 x double> %foldExtExtBinop660, i64 0
+  %shift662 = shufflevector <2 x double> %.0392.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop663 = fadd <2 x double> %.0392.lcssa, %shift662
+  %74 = extractelement <2 x double> %foldExtExtBinop663, i64 0
+  %shift665 = shufflevector <2 x double> %.0393.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop666 = fadd <2 x double> %.0393.lcssa, %shift665
+  %75 = extractelement <2 x double> %foldExtExtBinop666, i64 0
+  %shift668 = shufflevector <2 x double> %.0395.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop669 = fadd <2 x double> %.0395.lcssa, %shift668
+  %76 = extractelement <2 x double> %foldExtExtBinop669, i64 0
+  %shift671 = shufflevector <2 x double> %.0396.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop672 = fadd <2 x double> %.0396.lcssa, %shift671
+  %77 = extractelement <2 x double> %foldExtExtBinop672, i64 0
+  %shift674 = shufflevector <2 x double> %.0397.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop675 = fadd <2 x double> %.0397.lcssa, %shift674
+  %78 = extractelement <2 x double> %foldExtExtBinop675, i64 0
   %79 = icmp slt i64 %.0208.lcssa, %1
   br i1 %79, label %.lr.ph438, label %._crit_edge.._crit_edge439_crit_edge
 
@@ -4749,18 +4749,18 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal29general_matrix_vector_pr
   %.0399.lcssa = phi <2 x double> [ zeroinitializer, %.preheader407 ], [ %187, %175 ]
   %.0398.lcssa = phi <2 x double> [ zeroinitializer, %.preheader407 ], [ %183, %175 ]
   %.0218.lcssa = phi i64 [ 0, %.preheader407 ], [ %176, %175 ]
-  %shift667 = shufflevector <2 x double> %.0398.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop668 = fadd <2 x double> %.0398.lcssa, %shift667
-  %197 = extractelement <2 x double> %foldExtExtBinop668, i64 0
-  %shift670 = shufflevector <2 x double> %.0399.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop671 = fadd <2 x double> %.0399.lcssa, %shift670
-  %198 = extractelement <2 x double> %foldExtExtBinop671, i64 0
-  %shift673 = shufflevector <2 x double> %.0401.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop674 = fadd <2 x double> %.0401.lcssa, %shift673
-  %199 = extractelement <2 x double> %foldExtExtBinop674, i64 0
-  %shift676 = shufflevector <2 x double> %.0403.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop677 = fadd <2 x double> %.0403.lcssa, %shift676
-  %200 = extractelement <2 x double> %foldExtExtBinop677, i64 0
+  %shift677 = shufflevector <2 x double> %.0398.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop678 = fadd <2 x double> %.0398.lcssa, %shift677
+  %197 = extractelement <2 x double> %foldExtExtBinop678, i64 0
+  %shift680 = shufflevector <2 x double> %.0399.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop681 = fadd <2 x double> %.0399.lcssa, %shift680
+  %198 = extractelement <2 x double> %foldExtExtBinop681, i64 0
+  %shift683 = shufflevector <2 x double> %.0401.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop684 = fadd <2 x double> %.0401.lcssa, %shift683
+  %199 = extractelement <2 x double> %foldExtExtBinop684, i64 0
+  %shift686 = shufflevector <2 x double> %.0403.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop687 = fadd <2 x double> %.0403.lcssa, %shift686
+  %200 = extractelement <2 x double> %foldExtExtBinop687, i64 0
   %201 = icmp slt i64 %.0218.lcssa, %1
   br i1 %201, label %.lr.ph469, label %._crit_edge457.._crit_edge470_crit_edge
 
@@ -4885,12 +4885,12 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal29general_matrix_vector_pr
   %.0402.lcssa = phi <2 x double> [ zeroinitializer, %.preheader405 ], [ %261, %253 ]
   %.0400.lcssa = phi <2 x double> [ zeroinitializer, %.preheader405 ], [ %265, %253 ]
   %.0212.lcssa = phi i64 [ 0, %.preheader405 ], [ %254, %253 ]
-  %shift679 = shufflevector <2 x double> %.0402.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop680 = fadd <2 x double> %.0402.lcssa, %shift679
-  %267 = extractelement <2 x double> %foldExtExtBinop680, i64 0
-  %shift682 = shufflevector <2 x double> %.0400.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop683 = fadd <2 x double> %.0400.lcssa, %shift682
-  %268 = extractelement <2 x double> %foldExtExtBinop683, i64 0
+  %shift689 = shufflevector <2 x double> %.0402.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop690 = fadd <2 x double> %.0402.lcssa, %shift689
+  %267 = extractelement <2 x double> %foldExtExtBinop690, i64 0
+  %shift692 = shufflevector <2 x double> %.0400.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop693 = fadd <2 x double> %.0400.lcssa, %shift692
+  %268 = extractelement <2 x double> %foldExtExtBinop693, i64 0
   %269 = icmp slt i64 %.0212.lcssa, %1
   br i1 %269, label %.lr.ph490, label %._crit_edge482.._crit_edge491_crit_edge
 
@@ -4967,9 +4967,9 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal29general_matrix_vector_pr
 ._crit_edge500:                                   ; preds = %297, %.preheader
   %.0394.lcssa = phi <2 x double> [ zeroinitializer, %.preheader ], [ %303, %297 ]
   %.0205.lcssa = phi i64 [ 0, %.preheader ], [ %298, %297 ]
-  %shift685 = shufflevector <2 x double> %.0394.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop686 = fadd <2 x double> %.0394.lcssa, %shift685
-  %305 = extractelement <2 x double> %foldExtExtBinop686, i64 0
+  %shift695 = shufflevector <2 x double> %.0394.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop696 = fadd <2 x double> %.0394.lcssa, %shift695
+  %305 = extractelement <2 x double> %foldExtExtBinop696, i64 0
   %306 = icmp slt i64 %.0205.lcssa, %1
   br i1 %306, label %.lr.ph506, label %._crit_edge507
 
@@ -8831,8 +8831,8 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16bla
 
 .preheader707:                                    ; preds = %._crit_edge751.us, %126
   %476 = icmp sgt i64 %19, %.0231807
-  %or.cond933 = select i1 %45, i1 %476, i1 false
-  br i1 %or.cond933, label %.preheader705.lr.ph.split.us, label %.loopexit708
+  %or.cond955 = select i1 %45, i1 %476, i1 false
+  br i1 %or.cond955, label %.preheader705.lr.ph.split.us, label %.loopexit708
 
 .preheader705.lr.ph.split.us:                     ; preds = %.preheader707
   br i1 %42, label %.preheader705.us.us, label %.preheader705.lr.ph.split.us.split
@@ -11064,7 +11064,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit: ; preds = %_ZN5Eigen8int
   br i1 %83, label %.lr.ph.lr.ph, label %._crit_edge
 
 .lr.ph.lr.ph:                                     ; preds = %.lr.ph336.split.preheader
-  %.sroa.speculated220364 = tail call i64 @llvm.smin.i64(i64 %18, i64 %0)
+  %.sroa.speculated220382 = tail call i64 @llvm.smin.i64(i64 %18, i64 %0)
   br label %.lr.ph
 
 .lr.ph322.us.preheader:                           ; preds = %71
@@ -11330,7 +11330,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit200: ; preds = %_ZN5
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.loopexit
   %178 = phi i64 [ %82, %.lr.ph.lr.ph ], [ %170, %.loopexit ]
-  %.sroa.speculated220365 = phi i64 [ %.sroa.speculated220364, %.lr.ph.lr.ph ], [ %.sroa.speculated220, %.loopexit ]
+  %.sroa.speculated220383 = phi i64 [ %.sroa.speculated220382, %.lr.ph.lr.ph ], [ %.sroa.speculated220, %.loopexit ]
   %179 = getelementptr double, ptr %2, i64 %178
   br label %180
 
@@ -11347,7 +11347,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit200: ; preds = %_ZN5
   %185 = getelementptr double, ptr %179, i64 %184
   store ptr %185, ptr %15, align 8
   store i64 %3, ptr %80, align 8
-  invoke void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi1EEELi4ELi2EDv2_dLi1ELb0ELb0EEclEPdRKS3_llll(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull %39, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 noundef %.sroa.speculated220365, i64 noundef %.sroa.speculated, i64 noundef 0, i64 noundef 0)
+  invoke void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi1EEELi4ELi2EDv2_dLi1ELb0ELb0EEclEPdRKS3_llll(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull %39, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 noundef %.sroa.speculated220383, i64 noundef %.sroa.speculated, i64 noundef 0, i64 noundef 0)
           to label %186 unwind label %.split
 
 186:                                              ; preds = %183
@@ -11356,7 +11356,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit200: ; preds = %_ZN5
   %187 = getelementptr double, ptr %4, i64 %.0131333
   store ptr %187, ptr %16, align 8
   store i64 %6, ptr %81, align 8
-  invoke void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4ELi4ELb0ELb0EEclERKS3_PKdS8_llldllll(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %39, ptr noundef nonnull %59, i64 noundef %.sroa.speculated, i64 noundef %.sroa.speculated220365, i64 noundef %1, double noundef -1.000000e+00, i64 noundef -1, i64 noundef -1, i64 noundef 0, i64 noundef 0)
+  invoke void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4ELi4ELb0ELb0EEclERKS3_PKdS8_llldllll(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %39, ptr noundef nonnull %59, i64 noundef %.sroa.speculated, i64 noundef %.sroa.speculated220383, i64 noundef %1, double noundef -1.000000e+00, i64 noundef -1, i64 noundef -1, i64 noundef 0, i64 noundef 0)
           to label %188 unwind label %.split343
 
 188:                                              ; preds = %186
@@ -11572,7 +11572,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22co
   br i1 %exitcond205.not, label %._crit_edge179.us, label %17, !llvm.loop !414
 
 ._crit_edge179.us:                                ; preds = %17
-  %22 = add nsw i64 %.2125181.us, 1
+  %22 = add nuw nsw i64 %.2125181.us, 1
   %exitcond206.not = icmp eq i64 %22, %4
   br i1 %exitcond206.not, label %._crit_edge183, label %.preheader.us, !llvm.loop !415
 
@@ -12100,8 +12100,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit: ; preds = %2
 33:                                               ; preds = %42, %.lr.ph.i
   %.0108.i = phi i64 [ %28, %.lr.ph.i ], [ %43, %42 ]
   %umin.i = call i64 @llvm.umin.i64(i64 %.0108.i, i64 8)
-  %.not110.i = icmp eq i64 %28, %.0108.i
-  br i1 %.not110.i, label %.preheader, label %34
+  %.not115.i = icmp eq i64 %28, %.0108.i
+  br i1 %.not115.i, label %.preheader, label %34
 
 .preheader:                                       ; preds = %.noexc, %33
   br label %45

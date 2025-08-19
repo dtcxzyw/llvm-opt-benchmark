@@ -788,11 +788,11 @@ loadBlock.exit.i:                                 ; preds = %161
   br label %loadCode.exit.preheader
 
 loadCode.exit.preheader:                          ; preds = %getaddr_.exit.i, %loadBlock.exit.i
-  %.ph191 = phi i64 [ %171, %loadBlock.exit.i ], [ %156, %getaddr_.exit.i ]
+  %.ph220 = phi i64 [ %171, %loadBlock.exit.i ], [ %156, %getaddr_.exit.i ]
   br label %loadCode.exit
 
 loadCode.exit:                                    ; preds = %loadCode.exit.preheader, %190
-  %172 = phi i64 [ %187, %190 ], [ %.ph191, %loadCode.exit.preheader ]
+  %172 = phi i64 [ %187, %190 ], [ %.ph220, %loadCode.exit.preheader ]
   %.0.i.i.i40 = phi i64 [ %194, %190 ], [ 0, %loadCode.exit.preheader ]
   %173 = load ptr, ptr %7, align 8, !tbaa !17
   %174 = load i64, ptr %173, align 8, !tbaa !20
@@ -1371,7 +1371,7 @@ getaddr_.exit.i70:                                ; preds = %409
   store ptr %411, ptr %416, align 8, !tbaa !67
   %417 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %407, ptr %417, align 4, !tbaa !68
-  br label %.preheader183
+  br label %.preheader212
 
 418:                                              ; preds = %loadUint.exit.i68
   %419 = load ptr, ptr %0, align 8, !tbaa !16
@@ -1393,15 +1393,15 @@ loadBlock.exit.i79:                               ; preds = %418
   %426 = load i64, ptr %8, align 8, !tbaa !19
   %427 = add i64 %426, %406
   store i64 %427, ptr %8, align 8, !tbaa !19
-  br label %.preheader183
+  br label %.preheader212
 
-.preheader183:                                    ; preds = %loadBlock.exit.i79, %getaddr_.exit.i70
-  %.ph184 = phi i64 [ %413, %getaddr_.exit.i70 ], [ %427, %loadBlock.exit.i79 ]
+.preheader212:                                    ; preds = %loadBlock.exit.i79, %getaddr_.exit.i70
+  %.ph213 = phi i64 [ %413, %getaddr_.exit.i70 ], [ %427, %loadBlock.exit.i79 ]
   br label %428
 
-428:                                              ; preds = %.preheader183, %447
-  %429 = phi i64 [ %444, %447 ], [ %.ph184, %.preheader183 ]
-  %.0.i.i72.i = phi i64 [ %451, %447 ], [ 0, %.preheader183 ]
+428:                                              ; preds = %.preheader212, %447
+  %429 = phi i64 [ %444, %447 ], [ %.ph213, %.preheader212 ]
+  %.0.i.i72.i = phi i64 [ %451, %447 ], [ 0, %.preheader212 ]
   %430 = load ptr, ptr %7, align 8, !tbaa !17
   %431 = load i64, ptr %430, align 8, !tbaa !20
   %432 = add i64 %431, -1

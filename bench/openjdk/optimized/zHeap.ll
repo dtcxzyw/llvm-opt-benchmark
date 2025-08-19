@@ -1652,7 +1652,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread32: ; preds = %20
 
 38:                                               ; preds = %36
   %39 = add nsw i64 %.1.i.i.i, -1
-  %40 = getelementptr inbounds i64, ptr %23, i64 %39
+  %40 = getelementptr inbounds nuw i64, ptr %23, i64 %39
   %41 = load i64, ptr %40, align 8
   %.not37.i.i.i = icmp eq i64 %41, 0
   br i1 %.not37.i.i.i, label %36, label %.loopexit45.i.i.i, !llvm.loop !11
@@ -1660,7 +1660,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread32: ; preds = %20
 .loopexit45.i.i.i:                                ; preds = %38, %30
   %.028.ph.i.i.i = phi i64 [ %32, %30 ], [ %41, %38 ]
   %.027.ph.i.i.i = phi i64 [ %22, %30 ], [ %39, %38 ]
-  %42 = shl i64 %.027.ph.i.i.i, 6
+  %42 = shl nuw i64 %.027.ph.i.i.i, 6
   %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.028.ph.i.i.i, i1 true)
   %44 = or disjoint i64 %42, %43
   %45 = xor i64 %44, 63
@@ -1733,7 +1733,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread37: ; preds = %64
 
 82:                                               ; preds = %80
   %83 = add nsw i64 %.1.i.i.i27, -1
-  %84 = getelementptr inbounds i64, ptr %67, i64 %83
+  %84 = getelementptr inbounds nuw i64, ptr %67, i64 %83
   %85 = load i64, ptr %84, align 8
   %.not37.i.i.i28 = icmp eq i64 %85, 0
   br i1 %.not37.i.i.i28, label %80, label %.loopexit45.i.i.i23, !llvm.loop !11
@@ -1741,7 +1741,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread37: ; preds = %64
 .loopexit45.i.i.i23:                              ; preds = %82, %74
   %.028.ph.i.i.i24 = phi i64 [ %76, %74 ], [ %85, %82 ]
   %.027.ph.i.i.i25 = phi i64 [ %66, %74 ], [ %83, %82 ]
-  %86 = shl i64 %.027.ph.i.i.i25, 6
+  %86 = shl nuw i64 %.027.ph.i.i.i25, 6
   %87 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.028.ph.i.i.i24, i1 true)
   %88 = or disjoint i64 %86, %87
   %89 = xor i64 %88, 63

@@ -8508,9 +8508,9 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
 .lr.ph.preheader:                                 ; preds = %4
   %30 = load i32, ptr %2, align 4
   %31 = icmp slt i32 %30, %3
-  br i1 %31, label %.lr.ph81, label %.thread22
+  br i1 %31, label %.lr.ph88, label %.thread22
 
-.lr.ph81:                                         ; preds = %.lr.ph.preheader
+.lr.ph88:                                         ; preds = %.lr.ph.preheader
   %32 = load ptr, ptr %14, align 8
   %33 = getelementptr %struct.e1000_rx_buffer, ptr %32, i64 %12
   br label %36
@@ -8520,15 +8520,15 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %35 = icmp slt i32 %34, %3
   br i1 %35, label %36, label %.thread22
 
-36:                                               ; preds = %.lr.ph81, %.lr.ph
-  %37 = phi i32 [ %30, %.lr.ph81 ], [ %34, %.lr.ph ]
-  %38 = phi i32 [ 0, %.lr.ph81 ], [ %471, %.lr.ph ]
-  %39 = phi i32 [ 0, %.lr.ph81 ], [ %465, %.lr.ph ]
-  %40 = phi i32 [ 0, %.lr.ph81 ], [ %466, %.lr.ph ]
-  %41 = phi i32 [ %10, %.lr.ph81 ], [ %50, %.lr.ph ]
-  %42 = phi ptr [ %33, %.lr.ph81 ], [ %55, %.lr.ph ]
-  %43 = phi ptr [ %13, %.lr.ph81 ], [ %53, %.lr.ph ]
-  %44 = phi ptr [ %26, %.lr.ph81 ], [ %472, %.lr.ph ]
+36:                                               ; preds = %.lr.ph88, %.lr.ph
+  %37 = phi i32 [ %30, %.lr.ph88 ], [ %34, %.lr.ph ]
+  %38 = phi i32 [ 0, %.lr.ph88 ], [ %471, %.lr.ph ]
+  %39 = phi i32 [ 0, %.lr.ph88 ], [ %465, %.lr.ph ]
+  %40 = phi i32 [ 0, %.lr.ph88 ], [ %466, %.lr.ph ]
+  %41 = phi i32 [ %10, %.lr.ph88 ], [ %50, %.lr.ph ]
+  %42 = phi ptr [ %33, %.lr.ph88 ], [ %55, %.lr.ph ]
+  %43 = phi ptr [ %13, %.lr.ph88 ], [ %53, %.lr.ph ]
+  %44 = phi ptr [ %26, %.lr.ph88 ], [ %472, %.lr.ph ]
   %45 = add nsw i32 %37, 1
   store i32 %45, ptr %2, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !101
@@ -9043,18 +9043,18 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   br label %464
 
 393:                                              ; preds = %.thread16, %265
-  %.sink73 = phi ptr [ %339, %.thread16 ], [ %272, %265 ]
+  %.sink80 = phi ptr [ %339, %.thread16 ], [ %272, %265 ]
   store ptr null, ptr %42, align 8
   %394 = and i32 %.ph, 65535
-  %395 = getelementptr inbounds nuw i8, ptr %.sink73, i64 112
+  %395 = getelementptr inbounds nuw i8, ptr %.sink80, i64 112
   %396 = load i32, ptr %395, align 8
   %397 = add i32 %396, %394
   store i32 %397, ptr %395, align 8
-  %398 = getelementptr inbounds nuw i8, ptr %.sink73, i64 116
+  %398 = getelementptr inbounds nuw i8, ptr %.sink80, i64 116
   %399 = load i32, ptr %398, align 4
   %400 = add i32 %399, %394
   store i32 %400, ptr %398, align 4
-  %401 = getelementptr inbounds nuw i8, ptr %.sink73, i64 208
+  %401 = getelementptr inbounds nuw i8, ptr %.sink80, i64 208
   %402 = load i32, ptr %401, align 8
   %403 = add i32 %402, 4096
   store i32 %403, ptr %401, align 8
@@ -9077,7 +9077,7 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   br i1 %415, label %425, label %416
 
 416:                                              ; preds = %413
-  %417 = getelementptr inbounds nuw i8, ptr %.sink73, i64 128
+  %417 = getelementptr inbounds nuw i8, ptr %.sink80, i64 128
   %418 = load i8, ptr %417, align 8
   %419 = and i8 %418, -97
   %420 = or disjoint i8 %419, 32
@@ -9089,13 +9089,13 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %423 = load i64, ptr %422, align 8
   %424 = add i64 %423, 1
   store i64 %424, ptr %422, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sink73, i64 112
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sink80, i64 112
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %425
 
 425:                                              ; preds = %421, %413, %393
   %426 = phi i32 [ %.pre, %421 ], [ %397, %413 ], [ %397, %393 ]
-  %427 = getelementptr inbounds nuw i8, ptr %.sink73, i64 112
+  %427 = getelementptr inbounds nuw i8, ptr %.sink80, i64 112
   %428 = add i32 %426, -4
   %429 = add i32 %428, %39
   %430 = load i64, ptr %18, align 8
@@ -9106,26 +9106,26 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   br i1 %434, label %435, label %452, !prof !104
 
 435:                                              ; preds = %425
-  %436 = getelementptr inbounds nuw i8, ptr %.sink73, i64 116
+  %436 = getelementptr inbounds nuw i8, ptr %.sink80, i64 116
   %437 = load i32, ptr %436, align 4
   %438 = icmp eq i32 %437, 0
   br i1 %438, label %441, label %439
 
 439:                                              ; preds = %435
-  %440 = tail call i32 @___pskb_trim(ptr noundef %.sink73, i32 noundef %428) #16
+  %440 = tail call i32 @___pskb_trim(ptr noundef %.sink80, i32 noundef %428) #16
   br label %452
 
 441:                                              ; preds = %435
   store i32 %428, ptr %427, align 8
-  %442 = getelementptr inbounds nuw i8, ptr %.sink73, i64 200
+  %442 = getelementptr inbounds nuw i8, ptr %.sink80, i64 200
   %443 = load ptr, ptr %442, align 8
-  %444 = getelementptr inbounds nuw i8, ptr %.sink73, i64 192
+  %444 = getelementptr inbounds nuw i8, ptr %.sink80, i64 192
   %445 = load ptr, ptr %444, align 8
   %446 = ptrtoint ptr %443 to i64
   %447 = ptrtoint ptr %445 to i64
   %448 = sub i64 %446, %447
   %449 = trunc i64 %448 to i32
-  %450 = getelementptr inbounds nuw i8, ptr %.sink73, i64 184
+  %450 = getelementptr inbounds nuw i8, ptr %.sink80, i64 184
   %451 = add i32 %428, %449
   store i32 %451, ptr %450, align 8
   br label %452
@@ -9140,9 +9140,9 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %457 = getelementptr inbounds nuw i8, ptr %43, i64 14
   %458 = load i16, ptr %457, align 2
   %459 = and i16 %458, 4095
-  %460 = getelementptr inbounds nuw i8, ptr %.sink73, i64 152
+  %460 = getelementptr inbounds nuw i8, ptr %.sink80, i64 152
   store i16 129, ptr %460, align 8
-  %461 = getelementptr inbounds nuw i8, ptr %.sink73, i64 154
+  %461 = getelementptr inbounds nuw i8, ptr %.sink80, i64 154
   store i16 %459, ptr %461, align 2
   br label %462
 

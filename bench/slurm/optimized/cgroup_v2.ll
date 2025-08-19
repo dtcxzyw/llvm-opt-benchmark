@@ -4068,21 +4068,21 @@ define internal fastcc ptr @_get_root_mount_mountinfo(ptr noundef %0, ptr nounde
 
 .preheader.preheader:                             ; preds = %2
   %10 = call i64 @__getdelim(ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef 10, ptr noundef nonnull %8) #17
-  %.not40 = icmp eq i64 %10, -1
-  br i1 %.not40, label %.critedge, label %.lr.ph42
+  %.not42 = icmp eq i64 %10, -1
+  br i1 %.not42, label %.critedge, label %.lr.ph44
 
 11:                                               ; preds = %2
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.113, ptr noundef %1) #18
   unreachable
 
-.lr.ph42:                                         ; preds = %.preheader.preheader, %.loopexit
-  %.0193141 = phi ptr [ %.120, %.loopexit ], [ null, %.preheader.preheader ]
+.lr.ph44:                                         ; preds = %.preheader.preheader, %.loopexit
+  %.0193143 = phi ptr [ %.120, %.loopexit ], [ null, %.preheader.preheader ]
   %12 = load ptr, ptr %4, align 8
   %13 = call ptr @xstrstr(ptr noundef %12, ptr noundef %0) #17
   %.not21 = icmp eq ptr %13, null
   br i1 %.not21, label %.loopexit, label %14
 
-14:                                               ; preds = %.lr.ph42
+14:                                               ; preds = %.lr.ph44
   %15 = load ptr, ptr %4, align 8
   %16 = call ptr @strtok_r(ptr noundef %15, ptr noundef nonnull @.str.114, ptr noundef nonnull %5) #17
   %.not2227 = icmp eq ptr %16, null
@@ -4091,7 +4091,7 @@ define internal fastcc ptr @_get_root_mount_mountinfo(ptr noundef %0, ptr nounde
 .lr.ph:                                           ; preds = %14, %22
   %.01730 = phi ptr [ %24, %22 ], [ %16, %14 ]
   %.01829 = phi i32 [ %23, %22 ], [ 0, %14 ]
-  %.228 = phi ptr [ %.3, %22 ], [ %.0193141, %14 ]
+  %.228 = phi ptr [ %.3, %22 ], [ %.0193143, %14 ]
   %17 = icmp eq i32 %.01829, 3
   br i1 %17, label %18, label %22
 
@@ -4112,11 +4112,11 @@ define internal fastcc ptr @_get_root_mount_mountinfo(ptr noundef %0, ptr nounde
   %.not22 = icmp eq ptr %24, null
   br i1 %.not22, label %.loopexit, label %.lr.ph, !llvm.loop !28
 
-.loopexit:                                        ; preds = %22, %14, %.lr.ph42
-  %.120 = phi ptr [ %.0193141, %.lr.ph42 ], [ %.0193141, %14 ], [ %.3, %22 ]
+.loopexit:                                        ; preds = %22, %14, %.lr.ph44
+  %.120 = phi ptr [ %.0193143, %.lr.ph44 ], [ %.0193143, %14 ], [ %.3, %22 ]
   %25 = call i64 @__getdelim(ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef 10, ptr noundef nonnull %8) #17
   %.not = icmp eq i64 %25, -1
-  br i1 %.not, label %.critedge, label %.lr.ph42, !llvm.loop !29
+  br i1 %.not, label %.critedge, label %.lr.ph44, !llvm.loop !29
 
 .critedge:                                        ; preds = %.loopexit, %.preheader.preheader, %.loopexit.thread
   %.019.lcssa = phi ptr [ %21, %.loopexit.thread ], [ null, %.preheader.preheader ], [ %.120, %.loopexit ]

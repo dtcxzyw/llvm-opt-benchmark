@@ -27,7 +27,7 @@ define void @_ZN14cranelift_isle3ast7Pattern5terms17h37d5985ce11ca323E(ptr align
 tailrecurse:                                      ; preds = %8, %3
   %.tr = phi ptr [ %0, %3 ], [ %10, %8 ]
   %7 = load i64, ptr %.tr, align 16, !range !3, !noundef !4
-  switch i64 %7, label %default.unreachable17 [
+  switch i64 %7, label %default.unreachable18 [
     i64 0, label %.loopexit
     i64 1, label %8
     i64 2, label %.loopexit
@@ -38,7 +38,7 @@ tailrecurse:                                      ; preds = %8, %3
     i64 7, label %.loopexit
   ]
 
-default.unreachable17:                            ; preds = %tailrecurse
+default.unreachable18:                            ; preds = %tailrecurse
   unreachable
 
 .loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %.lr.ph, %.lr.ph11, %24, %11
@@ -347,7 +347,7 @@ define void @_ZN14cranelift_isle3ast7Pattern16subst_macro_args17h934a5f3af0affd2
   %18 = alloca { { { { i64, ptr, {} }, i64 } }, { i64, i64, i64, i64 } }, align 8
   %19 = alloca { i64, i64, i64, i64 }, align 8
   %20 = load i64, ptr %1, align 16, !range !3, !noundef !4
-  switch i64 %20, label %default.unreachable69 [
+  switch i64 %20, label %default.unreachable72 [
     i64 0, label %21
     i64 1, label %22
     i64 2, label %21
@@ -358,7 +358,7 @@ define void @_ZN14cranelift_isle3ast7Pattern16subst_macro_args17h934a5f3af0affd2
     i64 7, label %55
   ]
 
-default.unreachable69:                            ; preds = %4
+default.unreachable72:                            ; preds = %4
   unreachable
 
 21:                                               ; preds = %4, %4, %4, %4
@@ -573,7 +573,7 @@ define void @_ZN14cranelift_isle3ast4Expr5terms17h91248d50fb7319c4E(ptr align 16
   %5 = alloca { ptr, ptr, {} }, align 8
   %6 = alloca { { i64, i64, i64, i64 }, ptr }, align 8
   %7 = load i64, ptr %0, align 16, !range !8, !noundef !4
-  switch i64 %7, label %default.unreachable6 [
+  switch i64 %7, label %default.unreachable7 [
     i64 0, label %8
     i64 1, label %.loopexit
     i64 2, label %.loopexit
@@ -581,7 +581,7 @@ define void @_ZN14cranelift_isle3ast4Expr5terms17h91248d50fb7319c4E(ptr align 16
     i64 4, label %21
   ]
 
-default.unreachable6:                             ; preds = %3
+default.unreachable7:                             ; preds = %3
   unreachable
 
 8:                                                ; preds = %3

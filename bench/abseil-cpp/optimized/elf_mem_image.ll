@@ -494,27 +494,27 @@ define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVerd
 .lr.ph.preheader:                                 ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load i32, ptr %17, align 4, !tbaa !45
-  %.not18 = icmp eq i32 %18, 0
-  br i1 %.not18, label %.critedge, label %.lr.ph20
+  %.not22 = icmp eq i32 %18, 0
+  br i1 %.not22, label %.critedge, label %.lr.ph24
 
-.lr.ph:                                           ; preds = %.lr.ph20
+.lr.ph:                                           ; preds = %.lr.ph24
   %19 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %20 = load i32, ptr %19, align 4, !tbaa !45
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %.critedge, label %.lr.ph20, !llvm.loop !46
+  br i1 %.not, label %.critedge, label %.lr.ph24, !llvm.loop !46
 
-.lr.ph20:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph24:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %21 = phi i32 [ %20, %.lr.ph ], [ %18, %.lr.ph.preheader ]
-  %.01319 = phi ptr [ %23, %.lr.ph ], [ %12, %.lr.ph.preheader ]
+  %.01323 = phi ptr [ %23, %.lr.ph ], [ %12, %.lr.ph.preheader ]
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw i8, ptr %.01319, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %.01323, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i16, ptr %24, align 4, !tbaa !43
   %26 = zext i16 %25 to i32
   %27 = icmp samesign ugt i32 %1, %26
   br i1 %27, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !46
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph20
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph24
   br label %.critedge, !llvm.loop !46
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %10

@@ -248,19 +248,19 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli29BrotliDecoderAttachDicti
 40:                                               ; preds = %._crit_edge, %.thread.i
   %41 = phi ptr [ %.pre27, %.thread.i ], [ %19, %._crit_edge ]
   %42 = phi i32 [ 0, %.thread.i ], [ %.pre, %._crit_edge ]
-  %.031.i = phi ptr [ %32, %.thread.i ], [ %28, %._crit_edge ]
+  %.034.i = phi ptr [ %32, %.thread.i ], [ %28, %._crit_edge ]
   %43 = phi i32 [ 0, %.thread.i ], [ %.pre.i, %._crit_edge ]
-  %44 = getelementptr inbounds nuw i8, ptr %.031.i, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.034.i, i64 24
   %45 = sext i32 %43 to i64
   %46 = getelementptr inbounds [16 x ptr], ptr %44, i64 0, i64 %45
   store ptr %22, ptr %46, align 8, !tbaa !29
   %47 = add nsw i32 %43, 1
-  store i32 %47, ptr %.031.i, align 8, !tbaa !33
+  store i32 %47, ptr %.034.i, align 8, !tbaa !33
   %48 = trunc i64 %25 to i32
-  %49 = getelementptr inbounds nuw i8, ptr %.031.i, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %.034.i, i64 4
   %50 = add nsw i32 %42, %48
   store i32 %50, ptr %49, align 4, !tbaa !35
-  %51 = getelementptr inbounds nuw i8, ptr %.031.i, i64 152
+  %51 = getelementptr inbounds nuw i8, ptr %.034.i, i64 152
   %52 = sext i32 %47 to i64
   %53 = getelementptr inbounds [16 x i32], ptr %51, i64 0, i64 %52
   store i32 %50, ptr %53, align 4, !tbaa !39
@@ -385,18 +385,18 @@ define noundef range(i32 0, 4) i32 @_ZN13duckdb_brotli29BrotliDecoderDecompressS
   br label %_ZN13duckdb_brotliL23BrotliBitReaderSetInputEPNS_15BrotliBitReaderEPKhm.exit
 
 _ZN13duckdb_brotliL23BrotliBitReaderSetInputEPNS_15BrotliBitReaderEPKhm.exit: ; preds = %36, %31
-  %.sink713 = phi ptr [ %39, %36 ], [ %35, %31 ]
-  %.sink712 = phi i64 [ %29, %36 ], [ %33, %31 ]
-  %.sink710 = phi ptr [ %37, %36 ], [ %32, %31 ]
+  %.sink762 = phi ptr [ %39, %36 ], [ %35, %31 ]
+  %.sink761 = phi i64 [ %29, %36 ], [ %33, %31 ]
+  %.sink759 = phi ptr [ %37, %36 ], [ %32, %31 ]
   %.0310 = phi i32 [ 2, %36 ], [ 1, %31 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.sink713, ptr %40, align 8, !tbaa !46
-  %41 = add i64 %.sink712, -28
+  store ptr %.sink762, ptr %40, align 8, !tbaa !46
+  %41 = add i64 %.sink761, -28
   %42 = icmp ult i64 %41, -29
-  %43 = getelementptr i8, ptr %.sink713, i64 -27
-  %spec.select707 = select i1 %42, ptr %43, ptr %.sink710
+  %43 = getelementptr i8, ptr %.sink762, i64 -27
+  %spec.select756 = select i1 %42, ptr %43, ptr %.sink759
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %spec.select707, ptr %44, align 8, !tbaa !47
+  store ptr %spec.select756, ptr %44, align 8, !tbaa !47
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -520,8 +520,8 @@ _ZN13duckdb_brotliL23BrotliBitReaderSetInputEPNS_15BrotliBitReaderEPKhm.exit415:
   %127 = add i64 %124, -27
   %128 = icmp ult i64 %127, -29
   %129 = getelementptr i8, ptr %126, i64 -27
-  %spec.select705 = select i1 %128, ptr %129, ptr %48
-  store ptr %spec.select705, ptr %49, align 8, !tbaa !47
+  %spec.select754 = select i1 %128, ptr %129, ptr %48
+  store ptr %spec.select754, ptr %49, align 8, !tbaa !47
   %130 = load ptr, ptr %2, align 8, !tbaa !29
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 1
   store ptr %131, ptr %2, align 8, !tbaa !29
@@ -1453,7 +1453,7 @@ _ZN13duckdb_brotliL32BrotliCalculateDistanceCodeLimitEjjj.exit: ; preds = %524, 
   %566 = call noundef i32 @_ZN13duckdb_brotli33BrotliDecoderHuffmanTreeGroupInitEPNS_24BrotliDecoderStateStructEPNS_16HuffmanTreeGroupEmmm(ptr noundef nonnull %0, ptr noundef nonnull %74, i64 noundef %.0319, i64 noundef %.0318, i64 noundef %565)
   %567 = and i32 %564, %566
   %.not376 = icmp eq i32 %567, 0
-  br i1 %.not376, label %.thread566, label %.thread685
+  br i1 %.not376, label %.thread566, label %.thread734
 
 .thread566:                                       ; preds = %558
   %568 = load i64, ptr %1, align 8, !tbaa !30
@@ -1461,7 +1461,7 @@ _ZN13duckdb_brotliL32BrotliCalculateDistanceCodeLimitEjjj.exit: ; preds = %524, 
   %570 = call fastcc noundef i32 @_ZN13duckdb_brotliL13SaveErrorCodeEPNS_24BrotliDecoderStateStructENS_22BrotliDecoderErrorCodeEm(ptr noundef nonnull %0, i32 noundef -22, i64 noundef %569)
   br label %815
 
-.thread685:                                       ; preds = %558
+.thread734:                                       ; preds = %558
   store i32 0, ptr %58, align 4, !tbaa !54
   store i32 24, ptr %0, align 8, !tbaa !3
   br label %577
@@ -1486,9 +1486,9 @@ _ZN13duckdb_brotliL32BrotliCalculateDistanceCodeLimitEjjj.exit: ; preds = %524, 
   %576 = call fastcc noundef i32 @_ZN13duckdb_brotliL13SaveErrorCodeEPNS_24BrotliDecoderStateStructENS_22BrotliDecoderErrorCodeEm(ptr noundef nonnull %0, i32 noundef -31, i64 noundef %575)
   br label %815
 
-577:                                              ; preds = %.thread685, %571, %573, %572
-  %578 = phi i32 [ %.pre670, %572 ], [ %.pre670, %573 ], [ %.pre670, %571 ], [ 0, %.thread685 ]
-  %.0308 = phi ptr [ %72, %572 ], [ %74, %573 ], [ %71, %571 ], [ %71, %.thread685 ]
+577:                                              ; preds = %.thread734, %571, %573, %572
+  %578 = phi i32 [ %.pre670, %572 ], [ %.pre670, %573 ], [ %.pre670, %571 ], [ 0, %.thread734 ]
+  %.0308 = phi ptr [ %72, %572 ], [ %74, %573 ], [ %71, %571 ], [ %71, %.thread734 ]
   %579 = load i32, ptr %75, align 8, !tbaa !68
   %.not.i457 = icmp eq i32 %579, 1
   br i1 %.not.i457, label %._crit_edge26.i, label %580
@@ -3251,7 +3251,7 @@ _ZN13duckdb_brotliL17BrotliSafeGetBitsEPNS_15BrotliBitReaderEmPm.exit.i: ; preds
 167:                                              ; preds = %155, %.critedge.i
   %.244.ph.i = phi i64 [ %160, %155 ], [ %.04273.i, %.critedge.i ]
   %.240.ph.i = phi i64 [ %161, %155 ], [ %.03875.i, %.critedge.i ]
-  %168 = add i64 %.04671.i, 1
+  %168 = add nuw nsw i64 %.04671.i, 1
   %exitcond.not.i103 = icmp eq i64 %168, 18
   br i1 %exitcond.not.i103, label %._crit_edge.i101, label %120, !llvm.loop !136
 
@@ -3932,8 +3932,8 @@ define internal fastcc noundef range(i32 1, 3) i32 @_ZN13duckdb_brotliL17SkipMet
   %13 = ashr i32 %12, 3
   %spec.select = tail call i32 @llvm.smin.i32(i32 %13, i32 %5)
   %14 = sext i32 %spec.select to i64
-  %.not62 = icmp eq i32 %spec.select, 0
-  br i1 %.not62, label %26, label %.lr.ph
+  %.not66 = icmp eq i32 %spec.select, 0
+  br i1 %.not66, label %26, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
   %.promoted = load i64, ptr %3, align 8, !tbaa !52
@@ -4165,11 +4165,11 @@ _ZN13duckdb_brotliL14BrotliPullByteEPNS_15BrotliBitReaderE.exit.i: ; preds = %.l
   %43 = lshr i64 %41, 1
   %44 = and i64 %43, 15
   %45 = add nuw nsw i64 %44, 1
-  %.sink233 = select i1 %.not90, i64 -1, i64 -5
-  %.sink232 = select i1 %.not90, i64 1, i64 5
+  %.sink244 = select i1 %.not90, i64 -1, i64 -5
+  %.sink243 = select i1 %.not90, i64 1, i64 5
   %.sink209 = select i1 %.not90, i64 0, i64 %45
-  %46 = add i64 %40, %.sink233
-  %47 = lshr i64 %41, %.sink232
+  %46 = add i64 %40, %.sink244
+  %47 = lshr i64 %41, %.sink243
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 2688
   store i64 %.sink209, ptr %48, align 8, !tbaa !148
   store i64 %46, ptr %27, align 8, !tbaa !51
@@ -4402,8 +4402,8 @@ _ZN13duckdb_brotliL14BrotliPullByteEPNS_15BrotliBitReaderE.exit: ; preds = %137
   br label %.backedge
 
 .thread146.sink.split:                            ; preds = %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit, %137
-  %.lcssa227.sink = phi i64 [ %134, %137 ], [ 65535, %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit ]
-  store i64 %.lcssa227.sink, ptr %63, align 8, !tbaa !147
+  %.lcssa238.sink = phi i64 [ %134, %137 ], [ 65535, %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit ]
+  store i64 %.lcssa238.sink, ptr %63, align 8, !tbaa !147
   store i64 %.077190, ptr %58, align 8, !tbaa !149
   br label %.thread146
 
@@ -4592,27 +4592,27 @@ _ZN13duckdb_brotliL25GetCompoundDictionarySizeEPNS_24BrotliDecoderStateStructE.e
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %22 = load i64, ptr %21, align 8, !tbaa !30
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %.lr.ph341, label %._crit_edge342, !prof !152
+  br i1 %23, label %.lr.ph415, label %._crit_edge416, !prof !152
 
-._crit_edge:                                      ; preds = %.lr.ph341, %.preheader169
+._crit_edge:                                      ; preds = %.lr.ph415, %.preheader169
   store i32 7, ptr %0, align 8, !tbaa !3
   br label %.thread
 
-24:                                               ; preds = %.lr.ph341
+24:                                               ; preds = %.lr.ph415
   %25 = load i64, ptr %21, align 8, !tbaa !30
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %.lr.ph341, label %._crit_edge342, !prof !153
+  br i1 %26, label %.lr.ph415, label %._crit_edge416, !prof !153
 
-.lr.ph341:                                        ; preds = %.lr.ph, %24
+.lr.ph415:                                        ; preds = %.lr.ph, %24
   tail call fastcc void @_ZN13duckdb_brotliL24DecodeCommandBlockSwitchEPNS_24BrotliDecoderStateStructE(ptr noundef nonnull %0)
   %27 = load ptr, ptr %12, align 8, !tbaa !45
   %28 = load ptr, ptr %14, align 8, !tbaa !47
   %.not160 = icmp ult ptr %27, %28
   br i1 %.not160, label %24, label %._crit_edge
 
-._crit_edge342:                                   ; preds = %24, %.lr.ph
-  %.lcssa339 = phi ptr [ %19, %.lr.ph ], [ %27, %24 ]
-  %.lcssa337 = phi i64 [ %22, %.lr.ph ], [ %25, %24 ]
+._crit_edge416:                                   ; preds = %24, %.lr.ph
+  %.lcssa413 = phi ptr [ %19, %.lr.ph ], [ %27, %24 ]
+  %.lcssa411 = phi i64 [ %22, %.lr.ph ], [ %25, %24 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %30 = load ptr, ptr %29, align 8, !tbaa !107
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4621,19 +4621,19 @@ _ZN13duckdb_brotliL25GetCompoundDictionarySizeEPNS_24BrotliDecoderStateStructE.e
   %.pre = load i64, ptr %6, align 8, !tbaa !52
   br i1 %33, label %34, label %_ZN13duckdb_brotliL23BrotliGet16BitsUnmaskedEPNS_15BrotliBitReaderE.exit
 
-34:                                               ; preds = %._crit_edge342
-  %.0.copyload.i.i12 = load i64, ptr %.lcssa339, align 1
+34:                                               ; preds = %._crit_edge416
+  %.0.copyload.i.i12 = load i64, ptr %.lcssa413, align 1
   %35 = shl i64 %.0.copyload.i.i12, %32
   %36 = or i64 %35, %.pre
   %37 = add nuw nsw i64 %32, 48
-  %38 = getelementptr inbounds nuw i8, ptr %.lcssa339, i64 6
+  %38 = getelementptr inbounds nuw i8, ptr %.lcssa413, i64 6
   store ptr %38, ptr %12, align 8, !tbaa !45
   br label %_ZN13duckdb_brotliL23BrotliGet16BitsUnmaskedEPNS_15BrotliBitReaderE.exit
 
-_ZN13duckdb_brotliL23BrotliGet16BitsUnmaskedEPNS_15BrotliBitReaderE.exit: ; preds = %._crit_edge342, %34
-  %39 = phi ptr [ %.lcssa339, %._crit_edge342 ], [ %38, %34 ]
-  %40 = phi i64 [ %32, %._crit_edge342 ], [ %37, %34 ]
-  %41 = phi i64 [ %.pre, %._crit_edge342 ], [ %36, %34 ]
+_ZN13duckdb_brotliL23BrotliGet16BitsUnmaskedEPNS_15BrotliBitReaderE.exit: ; preds = %._crit_edge416, %34
+  %39 = phi ptr [ %.lcssa413, %._crit_edge416 ], [ %38, %34 ]
+  %40 = phi i64 [ %32, %._crit_edge416 ], [ %37, %34 ]
+  %41 = phi i64 [ %.pre, %._crit_edge416 ], [ %36, %34 ]
   %42 = and i64 %41, 255
   %43 = getelementptr inbounds nuw %"struct.duckdb_brotli::HuffmanCode", ptr %30, i64 %42
   %44 = load i8, ptr %43, align 2, !tbaa !72
@@ -4762,7 +4762,7 @@ _ZN13duckdb_brotliL19ReadCommandInternalEiPNS_24BrotliDecoderStateStructEPNS_15B
   %117 = add nsw i32 %115, %116
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 708
   store i32 %117, ptr %118, align 4, !tbaa !158
-  %119 = add i64 %.lcssa337, -1
+  %119 = add i64 %.lcssa411, -1
   store i64 %119, ptr %21, align 8, !tbaa !30
   %120 = add nsw i32 %.060, %79
   %121 = icmp eq i32 %120, 0
@@ -5255,13 +5255,13 @@ _ZN13duckdb_brotliL19BrotliFillBitWindowEPNS_15BrotliBitReaderEm.exit.i.sink.spl
   %.0.copyload.i4.i = load i32, ptr %419, align 1
   %422 = zext i32 %.0.copyload.i4.i to i64
   %.pn = shl i64 %422, %375
-  %.ph302 = or i64 %.pn, %376
+  %.ph376 = or i64 %.pn, %376
   store ptr %420, ptr %12, align 8, !tbaa !45
   br label %_ZN13duckdb_brotliL16BrotliReadBits32EPNS_15BrotliBitReaderEm.exit
 
 _ZN13duckdb_brotliL16BrotliReadBits32EPNS_15BrotliBitReaderEm.exit: ; preds = %_ZN13duckdb_brotliL19BrotliFillBitWindowEPNS_15BrotliBitReaderEm.exit.i.sink.split, %414
   %423 = phi i64 [ %375, %414 ], [ %421, %_ZN13duckdb_brotliL19BrotliFillBitWindowEPNS_15BrotliBitReaderEm.exit.i.sink.split ]
-  %424 = phi i64 [ %376, %414 ], [ %.ph302, %_ZN13duckdb_brotliL19BrotliFillBitWindowEPNS_15BrotliBitReaderEm.exit.i.sink.split ]
+  %424 = phi i64 [ %376, %414 ], [ %.ph376, %_ZN13duckdb_brotliL19BrotliFillBitWindowEPNS_15BrotliBitReaderEm.exit.i.sink.split ]
   %425 = getelementptr inbounds nuw [33 x i64], ptr @_ZN13duckdb_brotli14kBrotliBitMaskE, i64 0, i64 %417
   %426 = load i64, ptr %425, align 8, !tbaa !30
   %427 = and i64 %426, %424
@@ -5501,7 +5501,7 @@ _ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi
   br i1 %.not419.i, label %.thread98, label %_ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit.thread
 
 _ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit.thread: ; preds = %564, %_ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit
-  %.143.i253 = phi i32 [ %.042.i, %_ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit ], [ %555, %564 ]
+  %.143.i327 = phi i32 [ %.042.i, %_ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit ], [ %555, %564 ]
   store i32 15, ptr %0, align 8, !tbaa !3
   br label %.thread
 
@@ -5852,7 +5852,7 @@ _ZN13duckdb_brotliL7BitMaskEm.exit427.i:          ; preds = %575, %569
 .thread:                                          ; preds = %306, %241, %158, %220, %774, %708, %_ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit.thread, %781, %750, %313, %._crit_edge, %_ZN13duckdb_brotliL25GetCompoundDictionarySizeEPNS_24BrotliDecoderStateStructE.exit
   %.2 = phi i32 [ %5, %_ZN13duckdb_brotliL25GetCompoundDictionarySizeEPNS_24BrotliDecoderStateStructE.exit ], [ %.3.ph, %._crit_edge ], [ %448, %750 ], [ %448, %708 ], [ %448, %_ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit.thread ], [ %759, %781 ], [ %759, %774 ], [ 0, %313 ], [ %221, %220 ], [ %.5, %158 ], [ %.9, %241 ], [ %307, %306 ]
   %.0298.i = phi i32 [ 2, %_ZN13duckdb_brotliL25GetCompoundDictionarySizeEPNS_24BrotliDecoderStateStructE.exit ], [ 2, %._crit_edge ], [ 1, %750 ], [ 1, %708 ], [ 1, %_ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit.thread ], [ 1, %781 ], [ 1, %774 ], [ 1, %313 ], [ 1, %220 ], [ 2, %158 ], [ 2, %241 ], [ 1, %306 ]
-  %.0289.i = phi i32 [ %3, %_ZN13duckdb_brotliL25GetCompoundDictionarySizeEPNS_24BrotliDecoderStateStructE.exit ], [ %.1290.i.ph, %._crit_edge ], [ %.14.i, %750 ], [ %702, %708 ], [ %.143.i253, %_ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit.thread ], [ %777, %781 ], [ %775, %774 ], [ %.8297.i, %313 ], [ %217, %220 ], [ %159, %158 ], [ %242, %241 ], [ %303, %306 ]
+  %.0289.i = phi i32 [ %3, %_ZN13duckdb_brotliL25GetCompoundDictionarySizeEPNS_24BrotliDecoderStateStructE.exit ], [ %.1290.i.ph, %._crit_edge ], [ %.14.i, %750 ], [ %702, %708 ], [ %.143.i327, %_ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit.thread ], [ %777, %781 ], [ %775, %774 ], [ %.8297.i, %313 ], [ %217, %220 ], [ %159, %158 ], [ %242, %241 ], [ %303, %306 ]
   store i32 %.0289.i, ptr %2, align 8, !tbaa !114
   store i32 %.2, ptr %4, align 4, !tbaa !54
   br label %_ZN13duckdb_brotliL23ProcessCommandsInternalEiPNS_24BrotliDecoderStateStructE.exit
@@ -6745,9 +6745,9 @@ _ZN13duckdb_brotliL14SafeReadBits32EPNS_15BrotliBitReaderEmPm.exit: ; preds = %4
   %472 = add i64 %367, -28
   %473 = icmp ult i64 %472, -29
   %474 = getelementptr i8, ptr %471, i64 -27
-  %.sink536 = select i1 %473, ptr %474, ptr %362
+  %.sink598 = select i1 %473, ptr %474, ptr %362
   %475 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sink536, ptr %475, align 8, !tbaa !47
+  store ptr %.sink598, ptr %475, align 8, !tbaa !47
   br label %_ZN13duckdb_brotliL20ReadDistanceInternalEiPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderE.exit.thread
 
 476:                                              ; preds = %_ZN13duckdb_brotliL14BrotliTakeBitsEPNS_15BrotliBitReaderEmPm.exit.i47, %447
@@ -6994,7 +6994,7 @@ _ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi
   br i1 %.not419.i, label %.thread269, label %_ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit.thread
 
 _ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit.thread: ; preds = %614, %_ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit
-  %.143.i484 = phi i32 [ %.042.i, %_ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit ], [ %605, %614 ]
+  %.143.i546 = phi i32 [ %.042.i, %_ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit ], [ %605, %614 ]
   store i32 15, ptr %0, align 8, !tbaa !3
   br label %.thread179
 
@@ -7350,7 +7350,7 @@ _ZN13duckdb_brotliL7BitMaskEm.exit427.i:          ; preds = %625, %619
 .thread179:                                       ; preds = %21, %.thread208.thread, %.thread179.loopexit, %.thread208.thread336, %.thread, %229, %824, %758, %_ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit.thread, %_ZN13duckdb_brotliL20ReadDistanceInternalEiPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderE.exit.thread, %_ZN13duckdb_brotliL19ReadCommandInternalEiPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderEPi.exit.thread, %831, %800, %347, %327
   %.293 = phi i32 [ %498, %800 ], [ %498, %758 ], [ %498, %_ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit.thread ], [ %809, %831 ], [ %809, %824 ], [ %.9, %347 ], [ 0, %327 ], [ %.13.ph, %_ZN13duckdb_brotliL19ReadCommandInternalEiPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderEPi.exit.thread ], [ %.9, %_ZN13duckdb_brotliL20ReadDistanceInternalEiPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderE.exit.thread ], [ %.596, %.thread ], [ %230, %229 ], [ %322, %.thread208.thread336 ], [ %.10, %.thread179.loopexit ], [ %.798, %.thread208.thread ], [ %.394.ph, %21 ]
   %.0298.i = phi i32 [ 1, %800 ], [ 1, %758 ], [ 1, %_ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit.thread ], [ 1, %831 ], [ 1, %824 ], [ 2, %347 ], [ 1, %327 ], [ 2, %_ZN13duckdb_brotliL19ReadCommandInternalEiPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderEPi.exit.thread ], [ 2, %_ZN13duckdb_brotliL20ReadDistanceInternalEiPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderE.exit.thread ], [ 2, %.thread ], [ 1, %229 ], [ 1, %.thread208.thread336 ], [ 2, %.thread179.loopexit ], [ 2, %.thread208.thread ], [ 2, %21 ]
-  %.0289.i = phi i32 [ %.14.i, %800 ], [ %752, %758 ], [ %.143.i484, %_ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit.thread ], [ %827, %831 ], [ %825, %824 ], [ %.3292.i, %347 ], [ %.8297.i, %327 ], [ %.1290.i.ph, %_ZN13duckdb_brotliL19ReadCommandInternalEiPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderEPi.exit.thread ], [ %.3292.i, %_ZN13duckdb_brotliL20ReadDistanceInternalEiPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderE.exit.thread ], [ %218, %.thread ], [ %226, %229 ], [ %319, %.thread208.thread336 ], [ %833, %.thread179.loopexit ], [ %.7296.i, %.thread208.thread ], [ %.1290.i.ph, %21 ]
+  %.0289.i = phi i32 [ %.14.i, %800 ], [ %752, %758 ], [ %.143.i546, %_ZN13duckdb_brotliL26CopyFromCompoundDictionaryEPNS_24BrotliDecoderStateStructEi.exit.thread ], [ %827, %831 ], [ %825, %824 ], [ %.3292.i, %347 ], [ %.8297.i, %327 ], [ %.1290.i.ph, %_ZN13duckdb_brotliL19ReadCommandInternalEiPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderEPi.exit.thread ], [ %.3292.i, %_ZN13duckdb_brotliL20ReadDistanceInternalEiPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderE.exit.thread ], [ %218, %.thread ], [ %226, %229 ], [ %319, %.thread208.thread336 ], [ %833, %.thread179.loopexit ], [ %.7296.i, %.thread208.thread ], [ %.1290.i.ph, %21 ]
   store i32 %.0289.i, ptr %6, align 8, !tbaa !114
   store i32 %.293, ptr %8, align 4, !tbaa !54
   br label %_ZN13duckdb_brotliL23ProcessCommandsInternalEiPNS_24BrotliDecoderStateStructE.exit
@@ -7645,17 +7645,17 @@ _ZN13duckdb_brotliL7BitMaskEm.exit:               ; preds = %18
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %16, %34
-  %.sink33 = phi i64 [ %35, %34 ], [ %17, %16 ]
-  %.sink31.ph = phi ptr [ %30, %34 ], [ %13, %16 ]
-  %36 = sub i64 %5, %.sink33
+  %.sink37 = phi i64 [ %35, %34 ], [ %17, %16 ]
+  %.sink35.ph = phi ptr [ %30, %34 ], [ %13, %16 ]
+  %36 = sub i64 %5, %.sink37
   store i64 %36, ptr %4, align 8, !tbaa !51
-  %37 = lshr i64 %11, %.sink33
+  %37 = lshr i64 %11, %.sink37
   store i64 %37, ptr %1, align 8, !tbaa !52
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %7
-  %.sink31 = phi ptr [ %0, %7 ], [ %.sink31.ph, %.sink.split.sink.split ]
-  %38 = getelementptr inbounds nuw i8, ptr %.sink31, i64 2
+  %.sink35 = phi ptr [ %0, %7 ], [ %.sink35.ph, %.sink.split.sink.split ]
+  %38 = getelementptr inbounds nuw i8, ptr %.sink35, i64 2
   %39 = load i16, ptr %38, align 2, !tbaa !74
   %40 = zext i16 %39 to i64
   store i64 %40, ptr %2, align 8, !tbaa !30

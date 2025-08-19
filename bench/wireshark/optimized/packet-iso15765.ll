@@ -646,16 +646,16 @@ define internal noundef zeroext i1 @update_config_can_addr_mappings(ptr noundef 
   br i1 %9, label %13, label %14
 
 13:                                               ; preds = %6
-  br i1 %12, label %.thread44.sink.split, label %.thread35
+  br i1 %12, label %.thread47.sink.split, label %.thread35
 
 14:                                               ; preds = %6
-  br i1 %12, label %.thread35.thread, label %.thread44.sink.split
+  br i1 %12, label %.thread35.thread, label %.thread47.sink.split
 
 .thread36:                                        ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4
   %.not2837 = icmp eq i32 %16, 0
-  br i1 %.not2837, label %.thread38, label %.thread44.sink.split
+  br i1 %.not2837, label %.thread38, label %.thread47.sink.split
 
 .thread38:                                        ; preds = %.thread36
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -667,53 +667,53 @@ define internal noundef zeroext i1 @update_config_can_addr_mappings(ptr noundef 
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %20 = icmp eq i32 %.pre, 0
-  br i1 %20, label %.thread35.thread, label %.thread39
+  br i1 %20, label %.thread35.thread, label %.thread42
 
 .thread35.thread:                                 ; preds = %.thread38, %14, %.thread35
-  br label %.thread44.sink.split
+  br label %.thread47.sink.split
 
 21:                                               ; preds = %.thread38
   %22 = load i8, ptr %0, align 4, !range !6, !noundef !7
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %26, label %29
 
-.thread39:                                        ; preds = %.thread35
+.thread42:                                        ; preds = %.thread35
   %24 = load i8, ptr %0, align 4, !range !6, !noundef !7
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %28, label %31
 
 26:                                               ; preds = %21
   %.not32 = icmp ult i32 %4, 536870912
-  br i1 %.not32, label %27, label %.thread44.sink.split
+  br i1 %.not32, label %27, label %.thread47.sink.split
 
 27:                                               ; preds = %26
   %.not33 = icmp ult i32 %18, 536870912
-  br i1 %.not33, label %.thread44, label %.thread44.sink.split
+  br i1 %.not33, label %.thread47, label %.thread47.sink.split
 
-28:                                               ; preds = %.thread39
+28:                                               ; preds = %.thread42
   %.not34 = icmp ult i32 %.pre, 536870912
-  br i1 %.not34, label %.thread44, label %.thread44.sink.split
+  br i1 %.not34, label %.thread47, label %.thread47.sink.split
 
 29:                                               ; preds = %21
   %.not29 = icmp ult i32 %4, 2048
-  br i1 %.not29, label %30, label %.thread44.sink.split
+  br i1 %.not29, label %30, label %.thread47.sink.split
 
 30:                                               ; preds = %29
   %.not30 = icmp ult i32 %18, 2048
-  br i1 %.not30, label %.thread44, label %.thread44.sink.split
+  br i1 %.not30, label %.thread47, label %.thread47.sink.split
 
-31:                                               ; preds = %.thread39
+31:                                               ; preds = %.thread42
   %.not31 = icmp ult i32 %.pre, 2048
-  br i1 %.not31, label %.thread44, label %.thread44.sink.split
+  br i1 %.not31, label %.thread47, label %.thread47.sink.split
 
-.thread44.sink.split:                             ; preds = %31, %30, %29, %28, %27, %26, %14, %.thread36, %13, %.thread35.thread
+.thread47.sink.split:                             ; preds = %31, %30, %29, %28, %27, %26, %14, %.thread36, %13, %.thread35.thread
   %.str.193.sink = phi ptr [ @.str.187, %.thread35.thread ], [ @.str.185, %13 ], [ @.str.186, %.thread36 ], [ @.str.186, %14 ], [ @.str.188, %26 ], [ @.str.189, %27 ], [ @.str.190, %28 ], [ @.str.191, %29 ], [ @.str.192, %30 ], [ @.str.193, %31 ]
   %32 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull %.str.193.sink)
   store ptr %32, ptr %1, align 8
-  br label %.thread44
+  br label %.thread47
 
-.thread44:                                        ; preds = %.thread44.sink.split, %30, %27, %28, %31
-  %.0 = phi i1 [ true, %31 ], [ true, %28 ], [ true, %27 ], [ true, %30 ], [ false, %.thread44.sink.split ]
+.thread47:                                        ; preds = %.thread47.sink.split, %30, %27, %28, %31
+  %.0 = phi i1 [ true, %31 ], [ true, %28 ], [ true, %27 ], [ true, %30 ], [ false, %.thread47.sink.split ]
   ret i1 %.0
 }
 
@@ -1918,11 +1918,11 @@ handle_pdu_transport_addresses.exit:              ; preds = %178, %find_pdu_tran
   %or.cond9 = icmp ult i8 %376, 9
   %377 = mul nuw nsw i32 %375, 100
   %378 = add nsw i32 %377, -24000
-  %.sink390 = select i1 %or.cond9, i32 %378, i32 %375
+  %.sink421 = select i1 %or.cond9, i32 %378, i32 %375
   %hf_iso15765_fc_stmin_in_us.val = load i32, ptr @hf_iso15765_fc_stmin_in_us, align 4
   %hf_iso15765_fc_stmin.val = load i32, ptr @hf_iso15765_fc_stmin, align 4
   %379 = select i1 %or.cond9, i32 %hf_iso15765_fc_stmin_in_us.val, i32 %hf_iso15765_fc_stmin.val
-  %380 = call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %379, ptr noundef %0, i32 noundef %373, i32 noundef 1, i32 noundef %.sink390)
+  %380 = call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %379, ptr noundef %0, i32 noundef %373, i32 noundef 1, i32 noundef %.sink421)
   %381 = add i32 %.0329, 3
   %382 = load i32, ptr %8, align 4
   %383 = icmp eq i32 %382, 7
@@ -1944,7 +1944,7 @@ handle_pdu_transport_addresses.exit:              ; preds = %178, %find_pdu_tran
   %393 = select i1 %or.cond9, ptr @.str.162, ptr @.str.163
   %394 = load i32, ptr %21, align 4
   %395 = load i32, ptr %22, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %390, i32 noundef 25, ptr noundef nonnull @.str.161, i32 noundef %391, i32 noundef %392, i32 noundef %.sink390, ptr noundef nonnull %393, i32 noundef %394, i32 noundef %395)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %390, i32 noundef 25, ptr noundef nonnull @.str.161, i32 noundef %391, i32 noundef %392, i32 noundef %.sink421, ptr noundef nonnull %393, i32 noundef %394, i32 noundef %395)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %401
@@ -1954,7 +1954,7 @@ handle_pdu_transport_addresses.exit:              ; preds = %178, %find_pdu_tran
   %398 = load i32, ptr %19, align 4
   %399 = load i32, ptr %20, align 4
   %400 = select i1 %or.cond9, ptr @.str.162, ptr @.str.163
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %397, i32 noundef 25, ptr noundef nonnull @.str.164, i32 noundef %398, i32 noundef %399, i32 noundef %.sink390, ptr noundef nonnull %400)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %397, i32 noundef 25, ptr noundef nonnull @.str.164, i32 noundef %398, i32 noundef %399, i32 noundef %.sink421, ptr noundef nonnull %400)
   br label %401
 
 401:                                              ; preds = %396, %384

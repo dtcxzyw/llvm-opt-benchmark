@@ -613,12 +613,12 @@ split:                                            ; preds = %hwloc_get_numanode_
   br label %split.thread
 
 split.thread:                                     ; preds = %.loopexit, %75, %split
-  %.044.lcssa73 = phi i32 [ %.145, %75 ], [ %.145, %split ], [ %.04457, %.loopexit ]
-  %.not64 = icmp eq i32 %.044.lcssa73, 0
+  %.044.lcssa79 = phi i32 [ %.145, %75 ], [ %.145, %split ], [ %.04457, %.loopexit ]
+  %.not64 = icmp eq i32 %.044.lcssa79, 0
   br i1 %.not64, label %._crit_edge, label %.lr.ph62.preheader
 
 .lr.ph62.preheader:                               ; preds = %split.thread
-  %wide.trip.count69 = zext i32 %.044.lcssa73 to i64
+  %wide.trip.count69 = zext i32 %.044.lcssa79 to i64
   br label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %.lr.ph62.preheader, %.lr.ph62
@@ -722,7 +722,7 @@ define range(i32 -8, 1) i32 @prte_hwloc_base_get_topology() local_unnamed_addr #
 8:                                                ; preds = %7, %2, %0
   %9 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !50
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %67
+  br i1 %.not, label %10, label %64
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr @prte_hwloc_base_topo_file, align 8, !tbaa !20
@@ -771,7 +771,7 @@ prte_hwloc_base_topology_set_flags.exit:          ; preds = %23
 prte_hwloc_base_topology_set_flags.exit.thread:   ; preds = %23, %21, %prte_hwloc_base_topology_set_flags.exit, %28
   %31 = tail call ptr @prte_strerror(i32 noundef -8) #18
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef %31, ptr noundef nonnull @.str.9, i32 noundef 342) #18
-  br label %67
+  br label %64
 
 32:                                               ; preds = %10
   br i1 %or.cond3, label %33, label %39
@@ -792,7 +792,7 @@ prte_hwloc_base_topology_set_flags.exit.thread:   ; preds = %23, %21, %prte_hwlo
   %40 = phi ptr [ %.pre, %38 ], [ %11, %33 ], [ %11, %32 ]
   %41 = tail call i32 @prte_hwloc_base_set_topology(ptr noundef %40)
   %.not12 = icmp eq i32 %41, 0
-  br i1 %.not12, label %42, label %67
+  br i1 %.not12, label %42, label %64
 
 42:                                               ; preds = %39
   store i8 1, ptr @prte_hwloc_synthetic_topo, align 1, !tbaa !49
@@ -803,79 +803,75 @@ prte_hwloc_base_topology_set_flags.exit.thread:   ; preds = %23, %21, %prte_hwlo
 
 .preheader.outer.i:                               ; preds = %.preheader.outer.i.preheader, %hwloc_get_obj_by_type.exit.thread.i
   %.01335.ph.i = phi i32 [ 4, %hwloc_get_obj_by_type.exit.thread.i ], [ 5, %.preheader.outer.i.preheader ]
-  %.01534.ph.i = phi i32 [ %49, %hwloc_get_obj_by_type.exit.thread.i ], [ 2, %.preheader.outer.i.preheader ]
+  %.ph.i = phi i1 [ true, %hwloc_get_obj_by_type.exit.thread.i ], [ false, %.preheader.outer.i.preheader ]
   %.01633.ph.i = phi i32 [ %.117.lcssa.i, %hwloc_get_obj_by_type.exit.thread.i ], [ 4096, %.preheader.outer.i.preheader ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %hwloc_get_obj_by_type.exit.thread.thread.i, %.preheader.outer.i
   %.01335.i = phi i32 [ 4, %hwloc_get_obj_by_type.exit.thread.thread.i ], [ %.01335.ph.i, %.preheader.outer.i ]
-  %.01534.i = phi i32 [ %51, %hwloc_get_obj_by_type.exit.thread.thread.i ], [ %.01534.ph.i, %.preheader.outer.i ]
-  %43 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !50
-  %44 = tail call i32 @hwloc_get_type_depth(ptr noundef %43, i32 noundef range(i32 14, 13) %.01335.i) #18
-  %switch.i26.i = icmp ugt i32 %44, -3
+  %43 = phi i1 [ true, %hwloc_get_obj_by_type.exit.thread.thread.i ], [ %.ph.i, %.preheader.outer.i ]
+  %44 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !50
+  %45 = tail call i32 @hwloc_get_type_depth(ptr noundef %44, i32 noundef range(i32 14, 13) %.01335.i) #18
+  %switch.i26.i = icmp ugt i32 %45, -3
   br i1 %switch.i26.i, label %hwloc_get_obj_by_type.exit.thread.thread.i, label %hwloc_get_obj_by_type.exit.i
 
-hwloc_get_obj_by_type.exit.i:                     ; preds = %.preheader.i, %60
-  %45 = phi i32 [ %63, %60 ], [ %44, %.preheader.i ]
-  %46 = phi ptr [ %62, %60 ], [ %43, %.preheader.i ]
-  %.129.i = phi i1 [ %.2.i, %60 ], [ false, %.preheader.i ]
-  %.01428.i = phi i32 [ %61, %60 ], [ 0, %.preheader.i ]
-  %.11727.i = phi i32 [ %.218.i, %60 ], [ %.01633.ph.i, %.preheader.i ]
-  %47 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %46, i32 noundef %45, i32 noundef %.01428.i) #19
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %hwloc_get_obj_by_type.exit.thread.i, label %53
+hwloc_get_obj_by_type.exit.i:                     ; preds = %.preheader.i, %57
+  %46 = phi i32 [ %60, %57 ], [ %45, %.preheader.i ]
+  %47 = phi ptr [ %59, %57 ], [ %44, %.preheader.i ]
+  %.129.i = phi i1 [ %.2.i, %57 ], [ false, %.preheader.i ]
+  %.01428.i = phi i32 [ %58, %57 ], [ 0, %.preheader.i ]
+  %.11727.i = phi i32 [ %.218.i, %57 ], [ %.01633.ph.i, %.preheader.i ]
+  %48 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %47, i32 noundef %46, i32 noundef %.01428.i) #19
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %hwloc_get_obj_by_type.exit.thread.i, label %50
 
-hwloc_get_obj_by_type.exit.thread.i:              ; preds = %60, %hwloc_get_obj_by_type.exit.i
-  %.117.lcssa.i = phi i32 [ %.11727.i, %hwloc_get_obj_by_type.exit.i ], [ %.218.i, %60 ]
-  %.1.lcssa.i = phi i1 [ %.129.i, %hwloc_get_obj_by_type.exit.i ], [ %.2.i, %60 ]
-  %49 = add nsw i32 %.01534.i, -1
-  %50 = icmp eq i32 %49, 0
-  %.not22.i = select i1 %50, i1 true, i1 %.1.lcssa.i
-  br i1 %.not22.i, label %64, label %.preheader.outer.i, !llvm.loop !52
+hwloc_get_obj_by_type.exit.thread.i:              ; preds = %57, %hwloc_get_obj_by_type.exit.i
+  %.117.lcssa.i = phi i32 [ %.11727.i, %hwloc_get_obj_by_type.exit.i ], [ %.218.i, %57 ]
+  %.1.lcssa.i = phi i1 [ %.129.i, %hwloc_get_obj_by_type.exit.i ], [ %.2.i, %57 ]
+  %.not22.i = select i1 %43, i1 true, i1 %.1.lcssa.i
+  br i1 %.not22.i, label %61, label %.preheader.outer.i, !llvm.loop !52
 
 hwloc_get_obj_by_type.exit.thread.thread.i:       ; preds = %.preheader.i
-  %51 = add nsw i32 %.01534.i, -1
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %fill_cache_line_size.exit, label %.preheader.i, !llvm.loop !52
+  br i1 %43, label %fill_cache_line_size.exit, label %.preheader.i, !llvm.loop !52
 
-53:                                               ; preds = %hwloc_get_obj_by_type.exit.i
-  %54 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %55 = load ptr, ptr %54, align 8, !tbaa !53
-  %.not.i = icmp eq ptr %55, null
-  br i1 %.not.i, label %60, label %56
+50:                                               ; preds = %hwloc_get_obj_by_type.exit.i
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 40
+  %52 = load ptr, ptr %51, align 8, !tbaa !53
+  %.not.i = icmp eq ptr %52, null
+  br i1 %.not.i, label %57, label %53
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 12
-  %58 = load i32, ptr %57, align 4, !tbaa !54
-  %.not23.i = icmp ne i32 %58, 0
-  %59 = icmp ugt i32 %.11727.i, %58
-  %or.cond.i = select i1 %.not23.i, i1 %59, i1 false
-  %spec.select.i = select i1 %or.cond.i, i32 %58, i32 %.11727.i
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 12
+  %55 = load i32, ptr %54, align 4, !tbaa !54
+  %.not23.i = icmp ne i32 %55, 0
+  %56 = icmp ugt i32 %.11727.i, %55
+  %or.cond.i = select i1 %.not23.i, i1 %56, i1 false
+  %spec.select.i = select i1 %or.cond.i, i32 %55, i32 %.11727.i
   %spec.select24.i = select i1 %or.cond.i, i1 true, i1 %.129.i
-  br label %60
+  br label %57
 
-60:                                               ; preds = %56, %53
-  %.218.i = phi i32 [ %.11727.i, %53 ], [ %spec.select.i, %56 ]
-  %.2.i = phi i1 [ %.129.i, %53 ], [ %spec.select24.i, %56 ]
-  %61 = add i32 %.01428.i, 1
-  %62 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !50
-  %63 = tail call i32 @hwloc_get_type_depth(ptr noundef %62, i32 noundef range(i32 14, 13) %.01335.i) #18
-  %switch.i.i = icmp ugt i32 %63, -3
+57:                                               ; preds = %53, %50
+  %.218.i = phi i32 [ %.11727.i, %50 ], [ %spec.select.i, %53 ]
+  %.2.i = phi i1 [ %.129.i, %50 ], [ %spec.select24.i, %53 ]
+  %58 = add i32 %.01428.i, 1
+  %59 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !50
+  %60 = tail call i32 @hwloc_get_type_depth(ptr noundef %59, i32 noundef range(i32 14, 13) %.01335.i) #18
+  %switch.i.i = icmp ugt i32 %60, -3
   br i1 %switch.i.i, label %hwloc_get_obj_by_type.exit.thread.i, label %hwloc_get_obj_by_type.exit.i
 
-64:                                               ; preds = %hwloc_get_obj_by_type.exit.thread.i
-  br i1 %.1.lcssa.i, label %65, label %fill_cache_line_size.exit
+61:                                               ; preds = %hwloc_get_obj_by_type.exit.thread.i
+  br i1 %.1.lcssa.i, label %62, label %fill_cache_line_size.exit
 
-65:                                               ; preds = %64
+62:                                               ; preds = %61
   store i32 %.117.lcssa.i, ptr @prte_cache_line_size, align 4, !tbaa !16
   br label %fill_cache_line_size.exit
 
-fill_cache_line_size.exit:                        ; preds = %hwloc_get_obj_by_type.exit.thread.thread.i, %64, %65
-  %66 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !50
-  tail call void @prte_hwloc_base_setup_summary(ptr noundef %66)
-  br label %67
+fill_cache_line_size.exit:                        ; preds = %hwloc_get_obj_by_type.exit.thread.thread.i, %61, %62
+  %63 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !50
+  tail call void @prte_hwloc_base_setup_summary(ptr noundef %63)
+  br label %64
 
-67:                                               ; preds = %39, %8, %fill_cache_line_size.exit, %prte_hwloc_base_topology_set_flags.exit.thread
+64:                                               ; preds = %39, %8, %fill_cache_line_size.exit, %prte_hwloc_base_topology_set_flags.exit.thread
   %.0 = phi i32 [ -8, %prte_hwloc_base_topology_set_flags.exit.thread ], [ 0, %fill_cache_line_size.exit ], [ 0, %8 ], [ %41, %39 ]
   ret i32 %.0
 }
@@ -1102,74 +1098,70 @@ define internal fastcc void @fill_cache_line_size() unnamed_addr #0 {
 
 .preheader.outer:                                 ; preds = %hwloc_get_obj_by_type.exit.thread, %0
   %.01335.ph = phi i32 [ 4, %hwloc_get_obj_by_type.exit.thread ], [ 5, %0 ]
-  %.01534.ph = phi i32 [ %7, %hwloc_get_obj_by_type.exit.thread ], [ 2, %0 ]
+  %.ph = phi i1 [ true, %hwloc_get_obj_by_type.exit.thread ], [ false, %0 ]
   %.01633.ph = phi i32 [ %.117.lcssa, %hwloc_get_obj_by_type.exit.thread ], [ 4096, %0 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.outer, %hwloc_get_obj_by_type.exit.thread.thread
   %.01335 = phi i32 [ 4, %hwloc_get_obj_by_type.exit.thread.thread ], [ %.01335.ph, %.preheader.outer ]
-  %.01534 = phi i32 [ %9, %hwloc_get_obj_by_type.exit.thread.thread ], [ %.01534.ph, %.preheader.outer ]
-  %1 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !50
-  %2 = tail call i32 @hwloc_get_type_depth(ptr noundef %1, i32 noundef range(i32 14, 13) %.01335) #18
-  %switch.i26 = icmp ugt i32 %2, -3
+  %1 = phi i1 [ true, %hwloc_get_obj_by_type.exit.thread.thread ], [ %.ph, %.preheader.outer ]
+  %2 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !50
+  %3 = tail call i32 @hwloc_get_type_depth(ptr noundef %2, i32 noundef range(i32 14, 13) %.01335) #18
+  %switch.i26 = icmp ugt i32 %3, -3
   br i1 %switch.i26, label %hwloc_get_obj_by_type.exit.thread.thread, label %hwloc_get_obj_by_type.exit
 
-hwloc_get_obj_by_type.exit:                       ; preds = %.preheader, %18
-  %3 = phi i32 [ %21, %18 ], [ %2, %.preheader ]
-  %4 = phi ptr [ %20, %18 ], [ %1, %.preheader ]
-  %.129 = phi i1 [ %.2, %18 ], [ false, %.preheader ]
-  %.01428 = phi i32 [ %19, %18 ], [ 0, %.preheader ]
-  %.11727 = phi i32 [ %.218, %18 ], [ %.01633.ph, %.preheader ]
-  %5 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %4, i32 noundef %3, i32 noundef %.01428) #19
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %hwloc_get_obj_by_type.exit.thread, label %11
+hwloc_get_obj_by_type.exit:                       ; preds = %.preheader, %15
+  %4 = phi i32 [ %18, %15 ], [ %3, %.preheader ]
+  %5 = phi ptr [ %17, %15 ], [ %2, %.preheader ]
+  %.129 = phi i1 [ %.2, %15 ], [ false, %.preheader ]
+  %.01428 = phi i32 [ %16, %15 ], [ 0, %.preheader ]
+  %.11727 = phi i32 [ %.218, %15 ], [ %.01633.ph, %.preheader ]
+  %6 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %5, i32 noundef %4, i32 noundef %.01428) #19
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %hwloc_get_obj_by_type.exit.thread, label %8
 
-hwloc_get_obj_by_type.exit.thread:                ; preds = %hwloc_get_obj_by_type.exit, %18
-  %.117.lcssa = phi i32 [ %.11727, %hwloc_get_obj_by_type.exit ], [ %.218, %18 ]
-  %.1.lcssa = phi i1 [ %.129, %hwloc_get_obj_by_type.exit ], [ %.2, %18 ]
-  %7 = add nsw i32 %.01534, -1
-  %8 = icmp eq i32 %7, 0
-  %.not22 = select i1 %8, i1 true, i1 %.1.lcssa
-  br i1 %.not22, label %22, label %.preheader.outer, !llvm.loop !52
+hwloc_get_obj_by_type.exit.thread:                ; preds = %hwloc_get_obj_by_type.exit, %15
+  %.117.lcssa = phi i32 [ %.11727, %hwloc_get_obj_by_type.exit ], [ %.218, %15 ]
+  %.1.lcssa = phi i1 [ %.129, %hwloc_get_obj_by_type.exit ], [ %.2, %15 ]
+  %.not22 = select i1 %1, i1 true, i1 %.1.lcssa
+  br i1 %.not22, label %19, label %.preheader.outer, !llvm.loop !52
 
 hwloc_get_obj_by_type.exit.thread.thread:         ; preds = %.preheader
-  %9 = add nsw i32 %.01534, -1
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %.thread, label %.preheader, !llvm.loop !52
+  br i1 %1, label %.thread, label %.preheader, !llvm.loop !52
 
-11:                                               ; preds = %hwloc_get_obj_by_type.exit
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !53
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %18, label %14
+8:                                                ; preds = %hwloc_get_obj_by_type.exit
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %10 = load ptr, ptr %9, align 8, !tbaa !53
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %15, label %11
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %16 = load i32, ptr %15, align 4, !tbaa !54
-  %.not23 = icmp ne i32 %16, 0
-  %17 = icmp ugt i32 %.11727, %16
-  %or.cond = select i1 %.not23, i1 %17, i1 false
-  %spec.select = select i1 %or.cond, i32 %16, i32 %.11727
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %13 = load i32, ptr %12, align 4, !tbaa !54
+  %.not23 = icmp ne i32 %13, 0
+  %14 = icmp ugt i32 %.11727, %13
+  %or.cond = select i1 %.not23, i1 %14, i1 false
+  %spec.select = select i1 %or.cond, i32 %13, i32 %.11727
   %spec.select24 = select i1 %or.cond, i1 true, i1 %.129
-  br label %18
+  br label %15
 
-18:                                               ; preds = %14, %11
-  %.218 = phi i32 [ %.11727, %11 ], [ %spec.select, %14 ]
-  %.2 = phi i1 [ %.129, %11 ], [ %spec.select24, %14 ]
-  %19 = add i32 %.01428, 1
-  %20 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !50
-  %21 = tail call i32 @hwloc_get_type_depth(ptr noundef %20, i32 noundef range(i32 14, 13) %.01335) #18
-  %switch.i = icmp ugt i32 %21, -3
+15:                                               ; preds = %11, %8
+  %.218 = phi i32 [ %.11727, %8 ], [ %spec.select, %11 ]
+  %.2 = phi i1 [ %.129, %8 ], [ %spec.select24, %11 ]
+  %16 = add i32 %.01428, 1
+  %17 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !50
+  %18 = tail call i32 @hwloc_get_type_depth(ptr noundef %17, i32 noundef range(i32 14, 13) %.01335) #18
+  %switch.i = icmp ugt i32 %18, -3
   br i1 %switch.i, label %hwloc_get_obj_by_type.exit.thread, label %hwloc_get_obj_by_type.exit
 
-22:                                               ; preds = %hwloc_get_obj_by_type.exit.thread
-  br i1 %.1.lcssa, label %23, label %.thread
+19:                                               ; preds = %hwloc_get_obj_by_type.exit.thread
+  br i1 %.1.lcssa, label %20, label %.thread
 
-23:                                               ; preds = %22
+20:                                               ; preds = %19
   store i32 %.117.lcssa, ptr @prte_cache_line_size, align 4, !tbaa !16
   br label %.thread
 
-.thread:                                          ; preds = %hwloc_get_obj_by_type.exit.thread.thread, %23, %22
+.thread:                                          ; preds = %hwloc_get_obj_by_type.exit.thread.thread, %20, %19
   ret void
 }
 
@@ -1616,7 +1608,7 @@ define range(i32 -13, 1) i32 @prte_hwloc_base_cpu_list_parse(ptr noundef %0, ptr
   tail call void @hwloc_bitmap_zero(ptr noundef %3) #18
   %21 = load ptr, ptr %20, align 8, !tbaa !20
   %.not170 = icmp eq ptr %21, null
-  br i1 %.not170, label %.sink.split213, label %.lr.ph173
+  br i1 %.not170, label %.sink.split243, label %.lr.ph173
 
 .lr.ph173:                                        ; preds = %19, %197
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %197 ], [ 0, %19 ]
@@ -1682,7 +1674,7 @@ define range(i32 -13, 1) i32 @prte_hwloc_base_cpu_list_parse(ptr noundef %0, ptr
 51:                                               ; preds = %.lr.ph
   %52 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %43, i32 noundef 45) #18
   %53 = tail call i32 @PMIx_Argv_count(ptr noundef %52) #18
-  switch i32 %53, label %.sink.split213.sink.split.sink.split [
+  switch i32 %53, label %.sink.split243.sink.split.sink.split [
     i32 1, label %prte_hwloc_base_get_obj_by_type.exit.i
     i32 2, label %62
   ]
@@ -1755,12 +1747,12 @@ prte_hwloc_base_get_obj_by_type.exit30.i:         ; preds = %62, %prte_hwloc_bas
   %86 = trunc i64 %85 to i32
   %87 = tail call i32 @hwloc_get_type_depth(ptr noundef %1, i32 noundef range(i32 14, 13) 1) #18
   %switch.i.i.i127 = icmp ugt i32 %87, -3
-  br i1 %switch.i.i.i127, label %.sink.split213.sink.split, label %prte_hwloc_base_get_obj_by_type.exit.i128
+  br i1 %switch.i.i.i127, label %.sink.split243.sink.split, label %prte_hwloc_base_get_obj_by_type.exit.i128
 
 prte_hwloc_base_get_obj_by_type.exit.i128:        ; preds = %82
   %88 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %1, i32 noundef %87, i32 noundef %86) #19
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %.sink.split213.sink.split, label %90
+  br i1 %89, label %.sink.split243.sink.split, label %90
 
 90:                                               ; preds = %prte_hwloc_base_get_obj_by_type.exit.i128
   %91 = tail call i32 @hwloc_get_type_depth(ptr noundef %1, i32 noundef range(i32 14, 13) 2) #18
@@ -1770,13 +1762,13 @@ prte_hwloc_base_get_obj_by_type.exit.i128:        ; preds = %82
 prte_hwloc_base_get_obj_by_type.exit86.i:         ; preds = %90
   %92 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %1, i32 noundef %91, i32 noundef 0) #19
   %93 = icmp eq ptr %92, null
-  %spec.select114.i = select i1 %93, i32 3, i32 2
+  %spec.select126.i = select i1 %93, i32 3, i32 2
   br label %prte_hwloc_base_get_obj_by_type.exit86.thread.i
 
 prte_hwloc_base_get_obj_by_type.exit86.thread.i:  ; preds = %prte_hwloc_base_get_obj_by_type.exit86.i, %90
-  %.0.i85111.i = phi i1 [ true, %90 ], [ %93, %prte_hwloc_base_get_obj_by_type.exit86.i ]
-  %94 = phi i32 [ 3, %90 ], [ %spec.select114.i, %prte_hwloc_base_get_obj_by_type.exit86.i ]
-  %95 = tail call i32 @prte_hwloc_base_get_npus(ptr noundef %1, i1 noundef zeroext %.0.i85111.i, ptr noundef null, ptr noundef nonnull %88)
+  %.0.i85123.i = phi i1 [ true, %90 ], [ %93, %prte_hwloc_base_get_obj_by_type.exit86.i ]
+  %94 = phi i32 [ 3, %90 ], [ %spec.select126.i, %prte_hwloc_base_get_obj_by_type.exit86.i ]
+  %95 = tail call i32 @prte_hwloc_base_get_npus(ptr noundef %1, i1 noundef zeroext %.0.i85123.i, ptr noundef null, ptr noundef nonnull %88)
   %96 = mul i32 %95, %86
   %97 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !20
@@ -1813,7 +1805,7 @@ prte_hwloc_base_get_obj_by_type.exit86.thread.i:  ; preds = %prte_hwloc_base_get
 110:                                              ; preds = %103
   %111 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %.074.i, i32 noundef 45) #18
   %112 = tail call i32 @PMIx_Argv_count(ptr noundef %111) #18
-  switch i32 %112, label %.sink.split213.sink.split.sink.split [
+  switch i32 %112, label %.sink.split243.sink.split.sink.split [
     i32 1, label %113
     i32 2, label %129
   ]
@@ -1907,7 +1899,7 @@ prte_hwloc_base_get_obj_by_type.exit86.thread.i:  ; preds = %prte_hwloc_base_get
 package_core_to_cpu_set.exit:                     ; preds = %.loopexit.i130
   tail call void @PMIx_Argv_free(ptr noundef nonnull %83) #18
   %.not124 = icmp eq i32 %.3.i, 0
-  br i1 %.not124, label %197, label %.sink.split213
+  br i1 %.not124, label %197, label %.sink.split243
 
 158:                                              ; preds = %34
   %159 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %32, i32 noundef 44) #18
@@ -1920,7 +1912,7 @@ package_core_to_cpu_set.exit:                     ; preds = %.loopexit.i130
   %161 = phi ptr [ %196, %.loopexit ], [ %160, %158 ]
   %162 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %161, i32 noundef 45) #18
   %163 = tail call i32 @PMIx_Argv_count(ptr noundef %162) #18
-  switch i32 %163, label %.sink.split213.sink.split.sink.split [
+  switch i32 %163, label %.sink.split243.sink.split.sink.split [
     i32 1, label %164
     i32 2, label %180
   ]
@@ -1943,7 +1935,7 @@ package_core_to_cpu_set.exit:                     ; preds = %.loopexit.i130
 
 173:                                              ; preds = %.lr.ph163
   tail call void @PMIx_Argv_free(ptr noundef nonnull %162) #18
-  br label %.sink.split213.sink.split.sink.split
+  br label %.sink.split243.sink.split.sink.split
 
 174:                                              ; preds = %.lr.ph163
   %175 = getelementptr inbounds nuw i8, ptr %171, i64 184
@@ -1974,7 +1966,7 @@ package_core_to_cpu_set.exit:                     ; preds = %.loopexit.i130
   %.0102157 = phi i32 [ %194, %190 ], [ %183, %180 ]
   %188 = tail call ptr @prte_hwloc_base_get_pu(ptr noundef %1, i1 noundef zeroext %2, i32 noundef %.0102157)
   %189 = icmp eq ptr %188, null
-  br i1 %189, label %.sink.split213.sink.split.sink.split, label %190
+  br i1 %189, label %.sink.split243.sink.split.sink.split, label %190
 
 190:                                              ; preds = %.lr.ph159
   %191 = getelementptr inbounds nuw i8, ptr %188, i64 184
@@ -2002,31 +1994,31 @@ package_core_to_cpu_set.exit:                     ; preds = %.loopexit.i130
   %198 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.next197
   %199 = load ptr, ptr %198, align 8, !tbaa !20
   %.not = icmp eq ptr %199, null
-  br i1 %.not, label %.sink.split213, label %.lr.ph173, !llvm.loop !93
+  br i1 %.not, label %.sink.split243, label %.lr.ph173, !llvm.loop !93
 
-.sink.split213.sink.split.sink.split:             ; preds = %110, %51, %.lr.ph168, %.lr.ph159, %173
+.sink.split243.sink.split.sink.split:             ; preds = %110, %51, %.lr.ph168, %.lr.ph159, %173
   %.lcssa.sink = phi ptr [ %20, %173 ], [ %162, %.lr.ph159 ], [ %162, %.lr.ph168 ], [ %52, %51 ], [ %111, %110 ]
-  %.sink215.ph = phi ptr [ %159, %173 ], [ %20, %.lr.ph159 ], [ %20, %.lr.ph168 ], [ %41, %51 ], [ %83, %110 ]
-  %.sink214.ph.ph = phi ptr [ %166, %173 ], [ %159, %.lr.ph159 ], [ %159, %.lr.ph168 ], [ %20, %51 ], [ %20, %110 ]
+  %.sink245.ph = phi ptr [ %159, %173 ], [ %20, %.lr.ph159 ], [ %20, %.lr.ph168 ], [ %41, %51 ], [ %83, %110 ]
+  %.sink244.ph.ph = phi ptr [ %166, %173 ], [ %159, %.lr.ph159 ], [ %159, %.lr.ph168 ], [ %20, %51 ], [ %20, %110 ]
   %.0.ph.ph.ph = phi i32 [ -13, %173 ], [ -13, %.lr.ph159 ], [ -1, %.lr.ph168 ], [ -1, %51 ], [ -1, %110 ]
   tail call void @PMIx_Argv_free(ptr noundef %.lcssa.sink) #18
-  br label %.sink.split213.sink.split
+  br label %.sink.split243.sink.split
 
-.sink.split213.sink.split:                        ; preds = %prte_hwloc_base_get_obj_by_type.exit.i128, %82, %.sink.split213.sink.split.sink.split
-  %.sink215 = phi ptr [ %.sink215.ph, %.sink.split213.sink.split.sink.split ], [ %83, %82 ], [ %83, %prte_hwloc_base_get_obj_by_type.exit.i128 ]
-  %.sink214.ph = phi ptr [ %.sink214.ph.ph, %.sink.split213.sink.split.sink.split ], [ %20, %82 ], [ %20, %prte_hwloc_base_get_obj_by_type.exit.i128 ]
-  %.0.ph.ph = phi i32 [ %.0.ph.ph.ph, %.sink.split213.sink.split.sink.split ], [ -13, %82 ], [ -13, %prte_hwloc_base_get_obj_by_type.exit.i128 ]
-  tail call void @PMIx_Argv_free(ptr noundef nonnull %.sink215) #18
-  br label %.sink.split213
+.sink.split243.sink.split:                        ; preds = %prte_hwloc_base_get_obj_by_type.exit.i128, %82, %.sink.split243.sink.split.sink.split
+  %.sink245 = phi ptr [ %.sink245.ph, %.sink.split243.sink.split.sink.split ], [ %83, %82 ], [ %83, %prte_hwloc_base_get_obj_by_type.exit.i128 ]
+  %.sink244.ph = phi ptr [ %.sink244.ph.ph, %.sink.split243.sink.split.sink.split ], [ %20, %82 ], [ %20, %prte_hwloc_base_get_obj_by_type.exit.i128 ]
+  %.0.ph.ph = phi i32 [ %.0.ph.ph.ph, %.sink.split243.sink.split.sink.split ], [ -13, %82 ], [ -13, %prte_hwloc_base_get_obj_by_type.exit.i128 ]
+  tail call void @PMIx_Argv_free(ptr noundef nonnull %.sink245) #18
+  br label %.sink.split243
 
-.sink.split213:                                   ; preds = %197, %package_core_to_cpu_set.exit, %.sink.split213.sink.split, %19
-  %.sink214 = phi ptr [ %20, %19 ], [ %.sink214.ph, %.sink.split213.sink.split ], [ %20, %package_core_to_cpu_set.exit ], [ %20, %197 ]
-  %.0.ph = phi i32 [ 0, %19 ], [ %.0.ph.ph, %.sink.split213.sink.split ], [ 0, %197 ], [ %.3.i, %package_core_to_cpu_set.exit ]
-  tail call void @PMIx_Argv_free(ptr noundef nonnull %.sink214) #18
+.sink.split243:                                   ; preds = %197, %package_core_to_cpu_set.exit, %.sink.split243.sink.split, %19
+  %.sink244 = phi ptr [ %20, %19 ], [ %.sink244.ph, %.sink.split243.sink.split ], [ %20, %package_core_to_cpu_set.exit ], [ %20, %197 ]
+  %.0.ph = phi i32 [ 0, %19 ], [ %.0.ph.ph, %.sink.split243.sink.split ], [ 0, %197 ], [ %.3.i, %package_core_to_cpu_set.exit ]
+  tail call void @PMIx_Argv_free(ptr noundef nonnull %.sink244) #18
   br label %200
 
-200:                                              ; preds = %.sink.split213, %7, %9, %4
-  %.0 = phi i32 [ -8, %4 ], [ -5, %9 ], [ -5, %7 ], [ %.0.ph, %.sink.split213 ]
+200:                                              ; preds = %.sink.split243, %7, %9, %4
+  %.0 = phi i32 [ -8, %4 ], [ -5, %9 ], [ -5, %7 ], [ %.0.ph, %.sink.split243 ]
   ret i32 %.0
 }
 
@@ -2164,8 +2156,8 @@ define internal fastcc void @prte_hwloc_base_get_relative_locality_by_depth(ptr 
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 4159, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond29 = select i1 %19, i1 %switch.lobit, i1 false
-  br i1 %or.cond29, label %switch.lookup, label %.loopexit
+  %or.cond30 = select i1 %19, i1 %switch.lobit, i1 false
+  br i1 %or.cond30, label %switch.lookup, label %.loopexit
 
 switch.lookup:                                    ; preds = %17
   %20 = zext nneg i32 %switch.tableidx to i64

@@ -160,11 +160,11 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %98
 
 98:                                               ; preds = %81, %89
-  %.sink502 = phi i32 [ %97, %89 ], [ %84, %81 ]
+  %.sink509 = phi i32 [ %97, %89 ], [ %84, %81 ]
   %99 = load i32, ptr %4, align 4, !tbaa !3
   %100 = add nsw i32 %99, %88
-  %101 = call i32 @llvm.smax.i32(i32 %.sink502, i32 %100)
-  store i32 %.sink502, ptr %21, align 4, !tbaa !3
+  %101 = call i32 @llvm.smax.i32(i32 %.sink509, i32 %100)
+  store i32 %.sink509, ptr %21, align 4, !tbaa !3
   store i32 %100, ptr %22, align 4, !tbaa !3
   br i1 %62, label %102, label %107
 
@@ -384,8 +384,8 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %.sink.split
 
 .sink.split:                                      ; preds = %188, %190, %193
-  %.sink505 = phi i32 [ %195, %193 ], [ -18, %190 ], [ -16, %188 ]
-  store i32 %.sink505, ptr %19, align 4, !tbaa !3
+  %.sink512 = phi i32 [ %195, %193 ], [ -18, %190 ], [ -16, %188 ]
+  store i32 %.sink512, ptr %19, align 4, !tbaa !3
   br label %196
 
 196:                                              ; preds = %.sink.split, %191, %165, %164

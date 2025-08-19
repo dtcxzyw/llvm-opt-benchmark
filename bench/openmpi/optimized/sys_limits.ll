@@ -242,9 +242,9 @@ sub_0:                                            ; preds = %.lr.ph, %13
   br label %.sink.split
 
 .sink.split:                                      ; preds = %96, %._crit_edge
-  %.sink162 = phi ptr [ %6, %._crit_edge ], [ %10, %96 ]
+  %.sink165 = phi ptr [ %6, %._crit_edge ], [ %10, %96 ]
   %.048.ph = phi i32 [ 0, %._crit_edge ], [ %.066, %96 ]
-  tail call void @PMIx_Argv_free(ptr noundef nonnull %.sink162) #7
+  tail call void @PMIx_Argv_free(ptr noundef nonnull %.sink165) #7
   br label %97
 
 97:                                               ; preds = %.sink.split, %5, %1

@@ -5255,8 +5255,8 @@ define void @prte_odls_base_default_wait_local_proc(i32 %0, i16 signext %1, ptr 
   %or.cond11 = select i1 %114, i1 true, i1 %116
   %.pre126 = load i32, ptr %85, align 8, !tbaa !141
   %.not117 = icmp ne i32 %.pre126, 0
-  %or.cond128.not = select i1 %or.cond11, i1 true, i1 %.not117
-  br i1 %or.cond128.not, label %117, label %129
+  %or.cond144.not = select i1 %or.cond11, i1 true, i1 %.not117
+  br i1 %or.cond144.not, label %117, label %129
 
 117:                                              ; preds = %112
   %118 = icmp ne i32 %.pre126, 0
@@ -5658,14 +5658,14 @@ pmix_pointer_array_get_item.exit45:               ; preds = %.preheader46, %60
   br i1 %65, label %pmix_pointer_array_get_item.exit45, label %.loopexit.sink.split, !llvm.loop !209
 
 .loopexit.sink.split:                             ; preds = %60, %.preheader46, %56
-  %.sink58 = phi i32 [ %59, %56 ], [ -13, %.preheader46 ], [ -13, %60 ]
-  %.sink57 = phi i32 [ 1517, %56 ], [ 1526, %.preheader46 ], [ 1526, %60 ]
-  %66 = tail call ptr @prte_strerror(i32 noundef %.sink58) #16
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %66, ptr noundef nonnull @.str.1, i32 noundef %.sink57) #16
+  %.sink62 = phi i32 [ %59, %56 ], [ -13, %.preheader46 ], [ -13, %60 ]
+  %.sink61 = phi i32 [ 1517, %56 ], [ 1526, %.preheader46 ], [ 1526, %60 ]
+  %66 = tail call ptr @prte_strerror(i32 noundef %.sink62) #16
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %66, ptr noundef nonnull @.str.1, i32 noundef %.sink61) #16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %.loopexit.sink.split, %.preheader, %56, %56
-  %.034 = phi i32 [ %59, %56 ], [ %59, %56 ], [ 0, %.preheader ], [ %.sink58, %.loopexit.sink.split ], [ %.133, %41 ]
+  %.034 = phi i32 [ %59, %56 ], [ %59, %56 ], [ 0, %.preheader ], [ %.sink62, %.loopexit.sink.split ], [ %.133, %41 ]
   ret i32 %.034
 }
 
@@ -7069,11 +7069,11 @@ pmix_obj_run_destructors.exit121:                 ; preds = %.lr.ph.i118, %161
   br i1 %.not112, label %235, label %.sink.split
 
 .sink.split:                                      ; preds = %232, %20
-  %.sink126 = phi i32 [ -13, %20 ], [ -1, %232 ]
-  %.sink125 = phi i32 [ 2001, %20 ], [ 2093, %232 ]
+  %.sink143 = phi i32 [ -13, %20 ], [ -1, %232 ]
+  %.sink142 = phi i32 [ 2001, %20 ], [ 2093, %232 ]
   %.0.ph = phi i32 [ -13, %20 ], [ %.085, %232 ]
-  %234 = call ptr @prte_strerror(i32 noundef %.sink126) #16
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %234, ptr noundef nonnull @.str.1, i32 noundef %.sink125) #16
+  %234 = call ptr @prte_strerror(i32 noundef %.sink143) #16
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %234, ptr noundef nonnull @.str.1, i32 noundef %.sink142) #16
   br label %235
 
 235:                                              ; preds = %.sink.split, %232, %17

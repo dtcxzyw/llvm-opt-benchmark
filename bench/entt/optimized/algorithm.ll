@@ -737,8 +737,8 @@ define hidden void @_ZN30Algorithm_StdSortBoxedInt_Test8TestBodyEv(ptr nonnull r
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZNK4entt8std_sortclIPN4test10boxed_typeIiEEZN30Algorithm_StdSortBoxedInt_Test8TestBodyEvE3$_0JEEEvT_S8_T0_DpOT1_.exit", %19
-  %storemerge6.i.i.i = phi ptr [ %storemerge.i.i.i, %19 ], [ %storemerge2.i.i.i, %"_ZNK4entt8std_sortclIPN4test10boxed_typeIiEEZN30Algorithm_StdSortBoxedInt_Test8TestBodyEvE3$_0JEEEvT_S8_T0_DpOT1_.exit" ]
-  %13 = phi ptr [ %storemerge6.i.i.i, %19 ], [ %12, %"_ZNK4entt8std_sortclIPN4test10boxed_typeIiEEZN30Algorithm_StdSortBoxedInt_Test8TestBodyEvE3$_0JEEEvT_S8_T0_DpOT1_.exit" ]
+  %storemerge7.i.i.i = phi ptr [ %storemerge.i.i.i, %19 ], [ %storemerge2.i.i.i, %"_ZNK4entt8std_sortclIPN4test10boxed_typeIiEEZN30Algorithm_StdSortBoxedInt_Test8TestBodyEvE3$_0JEEEvT_S8_T0_DpOT1_.exit" ]
+  %13 = phi ptr [ %storemerge7.i.i.i, %19 ], [ %12, %"_ZNK4entt8std_sortclIPN4test10boxed_typeIiEEZN30Algorithm_StdSortBoxedInt_Test8TestBodyEvE3$_0JEEEvT_S8_T0_DpOT1_.exit" ]
   %14 = getelementptr inbounds i8, ptr %13, i64 -8
   %15 = load i32, ptr %14, align 4, !tbaa !46, !noalias !50
   %16 = getelementptr inbounds i8, ptr %13, i64 -4
@@ -747,7 +747,7 @@ define hidden void @_ZN30Algorithm_StdSortBoxedInt_Test8TestBodyEv(ptr nonnull r
   br i1 %18, label %_ZSt9is_sortedISt16reverse_iteratorIPN4test10boxed_typeIiEEEEbT_S6_.exit, label %19
 
 19:                                               ; preds = %.lr.ph.i.i.i
-  %storemerge.i.i.i = getelementptr inbounds i8, ptr %storemerge6.i.i.i, i64 -4
+  %storemerge.i.i.i = getelementptr inbounds i8, ptr %storemerge7.i.i.i, i64 -4
   %.not.i.i.i = icmp eq ptr %storemerge.i.i.i, %2
   br i1 %.not.i.i.i, label %_ZSt9is_sortedISt16reverse_iteratorIPN4test10boxed_typeIiEEEEbT_S6_.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !55
 
@@ -756,7 +756,7 @@ _ZSt9is_sortedISt16reverse_iteratorIPN4test10boxed_typeIiEEEEbT_S6_.exit.thread:
   br label %_ZN7testing15AssertionResultD2Ev.exit
 
 _ZSt9is_sortedISt16reverse_iteratorIPN4test10boxed_typeIiEEEEbT_S6_.exit: ; preds = %.lr.ph.i.i.i
-  %21 = icmp eq ptr %storemerge6.i.i.i, %2
+  %21 = icmp eq ptr %storemerge7.i.i.i, %2
   %22 = zext i1 %21 to i8
   store i8 %22, ptr %3, align 8, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1321,8 +1321,8 @@ define hidden void @_ZN36Algorithm_InsertionSortBoxedInt_Test8TestBodyEv(ptr non
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZNK4entt14insertion_sortclIPN4test10boxed_typeIiEEZN36Algorithm_InsertionSortBoxedInt_Test8TestBodyEvE3$_0EEvT_S8_T0_.exit", %20
-  %storemerge6.i.i.i = phi ptr [ %storemerge.i.i.i, %20 ], [ %storemerge2.i.i.i, %"_ZNK4entt14insertion_sortclIPN4test10boxed_typeIiEEZN36Algorithm_InsertionSortBoxedInt_Test8TestBodyEvE3$_0EEvT_S8_T0_.exit" ]
-  %14 = phi ptr [ %storemerge6.i.i.i, %20 ], [ %13, %"_ZNK4entt14insertion_sortclIPN4test10boxed_typeIiEEZN36Algorithm_InsertionSortBoxedInt_Test8TestBodyEvE3$_0EEvT_S8_T0_.exit" ]
+  %storemerge7.i.i.i = phi ptr [ %storemerge.i.i.i, %20 ], [ %storemerge2.i.i.i, %"_ZNK4entt14insertion_sortclIPN4test10boxed_typeIiEEZN36Algorithm_InsertionSortBoxedInt_Test8TestBodyEvE3$_0EEvT_S8_T0_.exit" ]
+  %14 = phi ptr [ %storemerge7.i.i.i, %20 ], [ %13, %"_ZNK4entt14insertion_sortclIPN4test10boxed_typeIiEEZN36Algorithm_InsertionSortBoxedInt_Test8TestBodyEvE3$_0EEvT_S8_T0_.exit" ]
   %15 = getelementptr inbounds i8, ptr %14, i64 -8
   %16 = load i32, ptr %15, align 4, !tbaa !46, !noalias !63
   %17 = getelementptr inbounds i8, ptr %14, i64 -4
@@ -1331,7 +1331,7 @@ define hidden void @_ZN36Algorithm_InsertionSortBoxedInt_Test8TestBodyEv(ptr non
   br i1 %19, label %_ZSt9is_sortedISt16reverse_iteratorIPN4test10boxed_typeIiEEEEbT_S6_.exit, label %20
 
 20:                                               ; preds = %.lr.ph.i.i.i
-  %storemerge.i.i.i = getelementptr inbounds i8, ptr %storemerge6.i.i.i, i64 -4
+  %storemerge.i.i.i = getelementptr inbounds i8, ptr %storemerge7.i.i.i, i64 -4
   %.not.i.i.i = icmp eq ptr %storemerge.i.i.i, %2
   br i1 %.not.i.i.i, label %_ZSt9is_sortedISt16reverse_iteratorIPN4test10boxed_typeIiEEEEbT_S6_.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !55
 
@@ -1340,7 +1340,7 @@ _ZSt9is_sortedISt16reverse_iteratorIPN4test10boxed_typeIiEEEEbT_S6_.exit.thread:
   br label %_ZN7testing15AssertionResultD2Ev.exit
 
 _ZSt9is_sortedISt16reverse_iteratorIPN4test10boxed_typeIiEEEEbT_S6_.exit: ; preds = %.lr.ph.i.i.i
-  %22 = icmp eq ptr %storemerge6.i.i.i, %2
+  %22 = icmp eq ptr %storemerge7.i.i.i, %2
   %23 = zext i1 %22 to i8
   store i8 %23, ptr %3, align 8, !tbaa !25
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2028,8 +2028,8 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZNK4entt10radix_sortILm2ELm6EEclISt16reverse_iteratorIPN4test10boxed_typeIiEEEZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEvE3$_0EEvT_SB_T0_.exit", %90
-  %storemerge6.i.i.i = phi ptr [ %storemerge.i.i.i, %90 ], [ %storemerge2.i.i.i, %"_ZNK4entt10radix_sortILm2ELm6EEclISt16reverse_iteratorIPN4test10boxed_typeIiEEEZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEvE3$_0EEvT_SB_T0_.exit" ]
-  %84 = phi ptr [ %storemerge6.i.i.i, %90 ], [ %12, %"_ZNK4entt10radix_sortILm2ELm6EEclISt16reverse_iteratorIPN4test10boxed_typeIiEEEZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEvE3$_0EEvT_SB_T0_.exit" ]
+  %storemerge7.i.i.i = phi ptr [ %storemerge.i.i.i, %90 ], [ %storemerge2.i.i.i, %"_ZNK4entt10radix_sortILm2ELm6EEclISt16reverse_iteratorIPN4test10boxed_typeIiEEEZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEvE3$_0EEvT_SB_T0_.exit" ]
+  %84 = phi ptr [ %storemerge7.i.i.i, %90 ], [ %12, %"_ZNK4entt10radix_sortILm2ELm6EEclISt16reverse_iteratorIPN4test10boxed_typeIiEEEZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEvE3$_0EEvT_SB_T0_.exit" ]
   %85 = getelementptr inbounds i8, ptr %84, i64 -8
   %86 = load i32, ptr %85, align 4, !tbaa !46, !noalias !95
   %87 = getelementptr inbounds i8, ptr %84, i64 -4
@@ -2038,7 +2038,7 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
   br i1 %89, label %_ZSt9is_sortedISt16reverse_iteratorIPN4test10boxed_typeIiEEEEbT_S6_.exit, label %90
 
 90:                                               ; preds = %.lr.ph.i.i.i
-  %storemerge.i.i.i = getelementptr inbounds i8, ptr %storemerge6.i.i.i, i64 -4
+  %storemerge.i.i.i = getelementptr inbounds i8, ptr %storemerge7.i.i.i, i64 -4
   %.not.i.i.i = icmp eq ptr %storemerge.i.i.i, %7
   br i1 %.not.i.i.i, label %_ZSt9is_sortedISt16reverse_iteratorIPN4test10boxed_typeIiEEEEbT_S6_.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !55
 
@@ -2047,7 +2047,7 @@ _ZSt9is_sortedISt16reverse_iteratorIPN4test10boxed_typeIiEEEEbT_S6_.exit.thread:
   br label %_ZN7testing15AssertionResultD2Ev.exit
 
 _ZSt9is_sortedISt16reverse_iteratorIPN4test10boxed_typeIiEEEEbT_S6_.exit: ; preds = %.lr.ph.i.i.i
-  %92 = icmp eq ptr %storemerge6.i.i.i, %7
+  %92 = icmp eq ptr %storemerge7.i.i.i, %7
   %93 = zext i1 %92 to i8
   store i8 %93, ptr %8, align 8, !tbaa !25
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2944,7 +2944,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw i32, ptr %0, i64 %16
   br label %.split
 
@@ -2981,20 +2981,20 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.019.i.i.us = phi i64 [ %.0920.i.i.us, %39 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.0920.in.i.i.us = add nsw i64 %.019.i.i.us, -1
   %.0920.i.i.us = sdiv i64 %.0920.in.i.i.us, 2
-  %36 = getelementptr inbounds i32, ptr %0, i64 %.0920.i.i.us
+  %36 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i.us
   %37 = load i32, ptr %36, align 4, !tbaa !20
   %38 = icmp slt i32 %37, %21
   br i1 %38, label %39, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SD_T1_T2_.exit.us
 
 39:                                               ; preds = %.lr.ph.i.i.us
-  %40 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i.us
+  %40 = getelementptr inbounds nuw i32, ptr %0, i64 %.019.i.i.us
   store i32 %37, ptr %40, align 4, !tbaa !20
   %41 = icmp sgt i64 %.0920.i.i.us, %.09.us
   br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SD_T1_T2_.exit.us, !llvm.loop !105
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SD_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.09.us, %.split.us ], [ %.0920.i.i.us, %39 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
-  %42 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.us
+  %42 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i.us
   store i32 %21, ptr %42, align 4, !tbaa !20
   %.not.us = icmp eq i64 %.09.us, 0
   %43 = add nsw i64 %.09.us, -1
@@ -3044,20 +3044,20 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   %.019.i.i = phi i64 [ %.0920.i.i, %67 ], [ %.1.i, %62 ]
   %.0920.in.i.i = add nsw i64 %.019.i.i, -1
   %.0920.i.i = sdiv i64 %.0920.in.i.i, 2
-  %64 = getelementptr inbounds i32, ptr %0, i64 %.0920.i.i
+  %64 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i
   %65 = load i32, ptr %64, align 4, !tbaa !20
   %66 = icmp slt i32 %65, %45
   br i1 %66, label %67, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SD_T1_T2_.exit
 
 67:                                               ; preds = %.lr.ph.i.i
-  %68 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i
+  %68 = getelementptr inbounds nuw i32, ptr %0, i64 %.019.i.i
   store i32 %65, ptr %68, align 4, !tbaa !20
   %69 = icmp sgt i64 %.0920.i.i, %.09
   br i1 %69, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SD_T1_T2_.exit, !llvm.loop !105
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SD_T1_T2_.exit: ; preds = %.lr.ph.i.i, %67, %62
   %.0.lcssa.i.i = phi i64 [ %.1.i, %62 ], [ %.0920.i.i, %67 ], [ %.019.i.i, %.lr.ph.i.i ]
-  %70 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i
+  %70 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i
   store i32 %45, ptr %70, align 4, !tbaa !20
   %.not = icmp eq i64 %.09, 0
   %71 = add nsw i64 %.09, -1

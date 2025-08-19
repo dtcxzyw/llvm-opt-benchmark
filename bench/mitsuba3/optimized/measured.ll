@@ -2858,7 +2858,7 @@ _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit188: ; pre
   br i1 %202, label %203, label %_ZN5drjit12DynamicArrayIfED2Ev.exit192
 
 203:                                              ; preds = %.thread, %201
-  %.pn160.pn372 = phi { ptr, i32 } [ %127, %.thread ], [ %.pn160, %201 ]
+  %.pn160.pn391 = phi { ptr, i32 } [ %127, %.thread ], [ %.pn160, %201 ]
   %204 = load ptr, ptr %15, align 8
   %205 = icmp eq ptr %204, null
   br i1 %205, label %_ZN5drjit12DynamicArrayIfED2Ev.exit192, label %206
@@ -2868,7 +2868,7 @@ _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit188: ; pre
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit192
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit192:           ; preds = %201, %203, %206
-  %.pn160.pn371 = phi { ptr, i32 } [ %.pn160, %201 ], [ %.pn160.pn372, %203 ], [ %.pn160.pn372, %206 ]
+  %.pn160.pn390 = phi { ptr, i32 } [ %.pn160, %201 ], [ %.pn160.pn391, %203 ], [ %.pn160.pn391, %206 ]
   %207 = load i8, ptr %14, align 8
   %208 = trunc i8 %207 to i1
   br i1 %208, label %209, label %_ZN5drjit12DynamicArrayIfED2Ev.exit193
@@ -2897,7 +2897,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit193:           ; preds = %_ZN5drjit12DynamicA
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit194
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit194:           ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit193, %215, %218
-  resume { ptr, i32 } %.pn160.pn371
+  resume { ptr, i32 } %.pn160.pn390
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3467,7 +3467,7 @@ _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit188: ; pre
   br i1 %202, label %203, label %_ZN5drjit12DynamicArrayIfED2Ev.exit192
 
 203:                                              ; preds = %.thread, %201
-  %.pn160.pn372 = phi { ptr, i32 } [ %127, %.thread ], [ %.pn160, %201 ]
+  %.pn160.pn392 = phi { ptr, i32 } [ %127, %.thread ], [ %.pn160, %201 ]
   %204 = load ptr, ptr %15, align 8
   %205 = icmp eq ptr %204, null
   br i1 %205, label %_ZN5drjit12DynamicArrayIfED2Ev.exit192, label %206
@@ -3477,7 +3477,7 @@ _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit188: ; pre
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit192
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit192:           ; preds = %201, %203, %206
-  %.pn160.pn371 = phi { ptr, i32 } [ %.pn160, %201 ], [ %.pn160.pn372, %203 ], [ %.pn160.pn372, %206 ]
+  %.pn160.pn391 = phi { ptr, i32 } [ %.pn160, %201 ], [ %.pn160.pn392, %203 ], [ %.pn160.pn392, %206 ]
   %207 = load i8, ptr %14, align 8
   %208 = trunc i8 %207 to i1
   br i1 %208, label %209, label %_ZN5drjit12DynamicArrayIfED2Ev.exit193
@@ -3531,7 +3531,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit.i:            ; preds = %225, %222, %_ZN5drj
   br i1 %226, label %_ZN7mitsuba14Distribution2DIfLm2EED2Ev.exit, label %_ZN5drjit12DynamicArrayIfED2Ev.exit194
 
 _ZN7mitsuba14Distribution2DIfLm2EED2Ev.exit:      ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i
-  resume { ptr, i32 } %.pn160.pn371
+  resume { ptr, i32 } %.pn160.pn391
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4236,7 +4236,7 @@ _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit188: ; pre
   br i1 %202, label %203, label %_ZN5drjit12DynamicArrayIfED2Ev.exit192
 
 203:                                              ; preds = %.thread, %201
-  %.pn160.pn372 = phi { ptr, i32 } [ %127, %.thread ], [ %.pn160, %201 ]
+  %.pn160.pn392 = phi { ptr, i32 } [ %127, %.thread ], [ %.pn160, %201 ]
   %204 = load ptr, ptr %15, align 8
   %205 = icmp eq ptr %204, null
   br i1 %205, label %_ZN5drjit12DynamicArrayIfED2Ev.exit192, label %206
@@ -4246,7 +4246,7 @@ _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit188: ; pre
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit192
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit192:           ; preds = %201, %203, %206
-  %.pn160.pn371 = phi { ptr, i32 } [ %.pn160, %201 ], [ %.pn160.pn372, %203 ], [ %.pn160.pn372, %206 ]
+  %.pn160.pn391 = phi { ptr, i32 } [ %.pn160, %201 ], [ %.pn160.pn392, %203 ], [ %.pn160.pn392, %206 ]
   %207 = load i8, ptr %14, align 8
   %208 = trunc i8 %207 to i1
   br i1 %208, label %209, label %_ZN5drjit12DynamicArrayIfED2Ev.exit193
@@ -4300,7 +4300,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit.i:            ; preds = %225, %222, %_ZN5drj
   br i1 %226, label %_ZN7mitsuba14Distribution2DIfLm3EED2Ev.exit, label %_ZN5drjit12DynamicArrayIfED2Ev.exit194
 
 _ZN7mitsuba14Distribution2DIfLm3EED2Ev.exit:      ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i
-  resume { ptr, i32 } %.pn160.pn371
+  resume { ptr, i32 } %.pn160.pn391
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4767,8 +4767,8 @@ _ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIfNS_6VectorI
   %139 = fadd contract float %138, -1.000000e+00
   %140 = fmul contract float %139, 0x400921FB60000000
   %.sroa.0289.0.vec.extract292 = extractelement <2 x float> %.fca.0.extract, i64 0
-  %foldExtExtBinop379 = fmul contract <2 x float> %.fca.0.extract, %.fca.0.extract
-  %141 = extractelement <2 x float> %foldExtExtBinop379, i64 0
+  %foldExtExtBinop385 = fmul contract <2 x float> %.fca.0.extract, %.fca.0.extract
+  %141 = extractelement <2 x float> %foldExtExtBinop385, i64 0
   %142 = fmul contract float %141, 0x3FF921FB60000000
   %143 = trunc i8 %127 to i1
   %144 = fadd contract float %117, %140
@@ -5939,12 +5939,12 @@ _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit20.i: ; pr
   br i1 %exitcond.not.i, label %_ZNK7mitsuba14Distribution2DIfLm3EE19interpolate_weightsEPKfPfb.exit, label %8, !llvm.loop !113
 
 _ZNK7mitsuba14Distribution2DIfLm3EE19interpolate_weightsEPKfPfb.exit: ; preds = %57
-  %.sroa.0987.sroa.0.0.vec.extract1195 = extractelement <2 x float> %1, i64 0
-  %59 = fcmp contract ogt float %.sroa.0987.sroa.0.0.vec.extract1195, 1.000000e+00
-  %..i.i.i = select contract i1 %59, float 1.000000e+00, float %.sroa.0987.sroa.0.0.vec.extract1195
-  %.sroa.0987.sroa.0.4.vec.extract1204 = extractelement <2 x float> %1, i64 1
-  %60 = fcmp contract ogt float %.sroa.0987.sroa.0.4.vec.extract1204, 1.000000e+00
-  %..i.i.i.c = select contract i1 %60, float 1.000000e+00, float %.sroa.0987.sroa.0.4.vec.extract1204
+  %.sroa.0987.sroa.0.0.vec.extract1196 = extractelement <2 x float> %1, i64 0
+  %59 = fcmp contract ogt float %.sroa.0987.sroa.0.0.vec.extract1196, 1.000000e+00
+  %..i.i.i = select contract i1 %59, float 1.000000e+00, float %.sroa.0987.sroa.0.0.vec.extract1196
+  %.sroa.0987.sroa.0.4.vec.extract1205 = extractelement <2 x float> %1, i64 1
+  %60 = fcmp contract ogt float %.sroa.0987.sroa.0.4.vec.extract1205, 1.000000e+00
+  %..i.i.i.c = select contract i1 %60, float 1.000000e+00, float %.sroa.0987.sroa.0.4.vec.extract1205
   %61 = fcmp contract olt float %..i.i.i, 0.000000e+00
   %..i.i22.i = select contract i1 %61, float 0.000000e+00, float %..i.i.i
   %62 = fcmp contract olt float %..i.i.i.c, 0.000000e+00
@@ -6401,17 +6401,17 @@ _ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIfNS_6VectorI
   %59 = fmul contract <4 x float> %58, %58
   %shift = shufflevector <4 x float> %59, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd contract <4 x float> %59, %shift
-  %shift352 = shufflevector <4 x float> %59, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop353 = fadd contract <4 x float> %shift352, %foldExtExtBinop
-  %60 = extractelement <4 x float> %foldExtExtBinop353, i64 0
+  %shift355 = shufflevector <4 x float> %59, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop356 = fadd contract <4 x float> %shift355, %foldExtExtBinop
+  %60 = extractelement <4 x float> %foldExtExtBinop356, i64 0
   %61 = tail call contract noundef float @llvm.sqrt.f32(float %60)
   %62 = fdiv contract float 1.000000e+00, %61
   %63 = insertelement <4 x float> poison, float %62, i64 0
   %64 = shufflevector <4 x float> %63, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 poison>
   %65 = fmul contract <4 x float> %58, %64
   %.sroa.0312.0.vec.extract318 = extractelement <4 x float> %.sroa.0312.0, i64 0
-  %foldExtExtBinop355 = fmul contract <4 x float> %.sroa.0312.0, %.sroa.0312.0
-  %66 = extractelement <4 x float> %foldExtExtBinop355, i64 0
+  %foldExtExtBinop358 = fmul contract <4 x float> %.sroa.0312.0, %.sroa.0312.0
+  %66 = extractelement <4 x float> %foldExtExtBinop358, i64 0
   %.sroa.0312.4.vec.extract327 = extractelement <4 x float> %.sroa.0312.0, i64 1
   %67 = fmul contract float %.sroa.0312.4.vec.extract327, %.sroa.0312.4.vec.extract327
   %68 = fadd contract float %66, %67
@@ -6472,8 +6472,8 @@ _ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIfNS_6VectorI
   %119 = fcmp contract une float %..i103.i, 0.000000e+00
   %120 = select i1 %119, float %118, float 0.000000e+00
   %.sroa.0303.0.vec.extract = extractelement <4 x float> %65, i64 0
-  %foldExtExtBinop357 = fmul contract <4 x float> %65, %65
-  %121 = extractelement <4 x float> %foldExtExtBinop357, i64 0
+  %foldExtExtBinop360 = fmul contract <4 x float> %65, %65
+  %121 = extractelement <4 x float> %foldExtExtBinop360, i64 0
   %.sroa.0303.4.vec.extract307 = extractelement <4 x float> %65, i64 1
   %122 = fmul contract float %.sroa.0303.4.vec.extract307, %.sroa.0303.4.vec.extract307
   %123 = fadd contract float %121, %122
@@ -7288,17 +7288,17 @@ _ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIfNS_6VectorI
   %35 = fmul contract <4 x float> %34, %34
   %shift = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd contract <4 x float> %35, %shift
-  %shift271 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop272 = fadd contract <4 x float> %shift271, %foldExtExtBinop
-  %36 = extractelement <4 x float> %foldExtExtBinop272, i64 0
+  %shift272 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop273 = fadd contract <4 x float> %shift272, %foldExtExtBinop
+  %36 = extractelement <4 x float> %foldExtExtBinop273, i64 0
   %37 = tail call contract noundef float @llvm.sqrt.f32(float %36)
   %38 = fdiv contract float 1.000000e+00, %37
   %39 = insertelement <4 x float> poison, float %38, i64 0
   %40 = shufflevector <4 x float> %39, <4 x float> poison, <4 x i32> zeroinitializer
   %41 = fmul contract <4 x float> %34, %40
   %.sroa.0240.0.vec.extract247 = extractelement <4 x float> %.sroa.0240.0, i64 0
-  %foldExtExtBinop274 = fmul contract <4 x float> %.sroa.0240.0, %.sroa.0240.0
-  %42 = extractelement <4 x float> %foldExtExtBinop274, i64 0
+  %foldExtExtBinop275 = fmul contract <4 x float> %.sroa.0240.0, %.sroa.0240.0
+  %42 = extractelement <4 x float> %foldExtExtBinop275, i64 0
   %.sroa.0240.4.vec.extract256 = extractelement <4 x float> %.sroa.0240.0, i64 1
   %43 = fmul contract float %.sroa.0240.4.vec.extract256, %.sroa.0240.4.vec.extract256
   %44 = fadd contract float %42, %43
@@ -7359,8 +7359,8 @@ _ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIfNS_6VectorI
   %95 = fcmp contract une float %..i103.i, 0.000000e+00
   %96 = select i1 %95, float %94, float 0.000000e+00
   %.sroa.0226.0.vec.extract = extractelement <4 x float> %41, i64 0
-  %foldExtExtBinop276 = fmul contract <4 x float> %41, %41
-  %97 = extractelement <4 x float> %foldExtExtBinop276, i64 0
+  %foldExtExtBinop277 = fmul contract <4 x float> %41, %41
+  %97 = extractelement <4 x float> %foldExtExtBinop277, i64 0
   %.sroa.0226.4.vec.extract233 = extractelement <4 x float> %41, i64 1
   %98 = fmul contract float %.sroa.0226.4.vec.extract233, %.sroa.0226.4.vec.extract233
   %99 = fadd contract float %97, %98
@@ -9711,7 +9711,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %13, align 16, !alias.scope !133
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.29, i64 noundef 0)
-          to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit14 unwind label %.thread30
+          to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit14 unwind label %.thread33
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit14: ; preds = %11
   invoke void @_ZN7mitsuba5ClassC1ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_S9_NS1_8functionIFPNS_6ObjectERKNS_10PropertiesEEEENSA_IFSC_PNS_6StreamEEEES9_(ptr noundef nonnull align 16 dereferenceable(208) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
@@ -9777,7 +9777,7 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit: ; preds = 
           cleanup
   br label %48
 
-.thread30:                                        ; preds = %11
+.thread33:                                        ; preds = %11
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit21
@@ -9802,8 +9802,8 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit: ; preds = 
   call void %41(ptr noundef nonnull align 8 dereferenceable(8) %.pre) #29
   br label %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit21
 
-_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit21: ; preds = %.thread30, %38, %.sink.split.i.i19
-  %.pn27 = phi { ptr, i32 } [ %36, %38 ], [ %36, %.sink.split.i.i19 ], [ %34, %.thread30 ]
+_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit21: ; preds = %.thread33, %38, %.sink.split.i.i19
+  %.pn30 = phi { ptr, i32 } [ %36, %38 ], [ %36, %.sink.split.i.i19 ], [ %34, %.thread33 ]
   %42 = load ptr, ptr %12, align 16
   %43 = icmp eq ptr %42, %4
   br i1 %43, label %.sink.split.i.i23, label %44
@@ -9825,7 +9825,7 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit25: ; preds 
   br label %48
 
 48:                                               ; preds = %_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit25, %32
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn27, %_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit25 ], [ %33, %32 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn30, %_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit25 ], [ %33, %32 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #29
   br label %49
 
@@ -11579,10 +11579,10 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, 
     i8 106, label %.critedge
     i8 122, label %.critedge
     i8 116, label %.critedge
-    i8 117, label %.loopexit226
-    i8 100, label %.loopexit226
-    i8 105, label %.loopexit226
-    i8 111, label %.loopexit257
+    i8 117, label %.loopexit232
+    i8 100, label %.loopexit232
+    i8 105, label %.loopexit232
+    i8 111, label %.loopexit263
     i8 88, label %242
     i8 120, label %.loopexit
     i8 112, label %.loopexit
@@ -11723,14 +11723,14 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, 
   store i32 %328, ptr %326, align 8
   br label %.thread117
 
-.loopexit226:                                     ; preds = %239, %239, %239
+.loopexit232:                                     ; preds = %239, %239, %239
   br label %.loopexit
 
-.loopexit257:                                     ; preds = %239
+.loopexit263:                                     ; preds = %239
   br label %.loopexit
 
-.loopexit:                                        ; preds = %242, %239, %239, %.loopexit257, %.loopexit226
-  %.sink219 = phi i32 [ 2, %.loopexit226 ], [ 64, %.loopexit257 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+.loopexit:                                        ; preds = %242, %239, %239, %.loopexit263, %.loopexit232
+  %.sink225 = phi i32 [ 2, %.loopexit232 ], [ 64, %.loopexit263 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -11738,7 +11738,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, 
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %334 = load i32, ptr %333, align 8
   %335 = and i32 %334, -75
-  %336 = or disjoint i32 %335, %.sink219
+  %336 = or disjoint i32 %335, %.sink225
   store i32 %336, ptr %333, align 8
   %or.cond3 = or i1 %.167, %196
   br i1 %or.cond3, label %.thread117, label %337

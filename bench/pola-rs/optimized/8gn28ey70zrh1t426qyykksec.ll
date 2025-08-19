@@ -205,8 +205,8 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains2
 
 22:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha13728965eebceaaE.exit.i.us", %.preheader.split.us
   %.sroa.615.0.i.us = phi i64 [ %.sroa.615.0.copyload.i.us, %.preheader.split.us ], [ %25, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha13728965eebceaaE.exit.i.us" ]
-  %.not25.i.us = icmp ult i64 %.sroa.615.0.i.us, %.sroa.8.0.copyload.i.us
-  br i1 %.not25.i.us, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha13728965eebceaaE.exit.i.us", label %_ZN4core3str7pattern14small_slice_eq17h164e2350b3bc132cE.exit.thread9
+  %.not28.i.us = icmp ult i64 %.sroa.615.0.i.us, %.sroa.8.0.copyload.i.us
+  br i1 %.not28.i.us, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha13728965eebceaaE.exit.i.us", label %_ZN4core3str7pattern14small_slice_eq17h164e2350b3bc132cE.exit.thread9
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha13728965eebceaaE.exit.i.us": ; preds = %22
   tail call void @llvm.assume(i1 %20)
@@ -331,7 +331,7 @@ define noundef zeroext i1 @_ZN12polars_error7signals21is_keyboard_interrupt17had
   br i1 %.not.not.not.i.i.i, label %30, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h94b95ee688b59965E.exit"
 
 30:                                               ; preds = %.preheader.i.i
-  %31 = add i64 %29, -1
+  %31 = add nsw i64 %29, -1
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %33 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd5c00ba5ba3a77c3E"(ptr noalias noundef nonnull readonly align 1 %28, i64 noundef 27, ptr noalias noundef nonnull readonly align 1 @anon.232baf278d44c9d5f81ead61b3dd94c4.42, i64 noundef 27), !noalias !38
   br i1 %33, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h94b95ee688b59965E.exit", label %.preheader.i.i
@@ -492,7 +492,7 @@ define noundef zeroext i1 @_ZN12polars_error7signals21is_keyboard_interrupt17had
   br i1 %.not.not.not.i.i.i39, label %107, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h94b95ee688b59965E.exit"
 
 107:                                              ; preds = %.preheader.i.i38
-  %108 = add i64 %106, -1
+  %108 = add nsw i64 %106, -1
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 1
   %110 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd5c00ba5ba3a77c3E"(ptr noalias noundef nonnull readonly align 1 %105, i64 noundef 27, ptr noalias noundef nonnull readonly align 1 @anon.232baf278d44c9d5f81ead61b3dd94c4.42, i64 noundef 27), !noalias !58
   br i1 %110, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h94b95ee688b59965E.exit", label %.preheader.i.i38

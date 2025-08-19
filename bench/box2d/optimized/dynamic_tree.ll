@@ -232,8 +232,8 @@ define internal fastcc void @b2InsertLeaf(ptr noundef captures(none) %0, i32 nou
   %.sroa.3.12.vec.extract.i.i = extractelement <2 x float> %.sroa.5.0.copyload, i64 1
   %17 = fadd float %.sroa.0.4.vec.extract.i.i, %.sroa.3.12.vec.extract.i.i
   %18 = fmul float %17, 5.000000e-01
-  %foldExtExtBinop137 = fsub <2 x float> %.sroa.5.0.copyload, %.sroa.084.0.copyload
-  %19 = extractelement <2 x float> %foldExtExtBinop137, i64 0
+  %foldExtExtBinop141 = fsub <2 x float> %.sroa.5.0.copyload, %.sroa.084.0.copyload
+  %19 = extractelement <2 x float> %foldExtExtBinop141, i64 0
   %20 = fsub float %.sroa.3.12.vec.extract.i.i, %.sroa.0.4.vec.extract.i.i
   %21 = fadd float %19, %20
   %22 = fmul float %21, 2.000000e+00
@@ -264,8 +264,8 @@ define internal fastcc void @b2InsertLeaf(ptr noundef captures(none) %0, i32 nou
   %36 = fsub float %33, %35
   %37 = fadd float %31, %36
   %38 = fmul float %37, 2.000000e+00
-  %foldExtExtBinop139 = fsub <2 x float> %.sroa.5.0.copyload.i, %.sroa.076.0.copyload.i
-  %39 = extractelement <2 x float> %foldExtExtBinop139, i64 0
+  %foldExtExtBinop143 = fsub <2 x float> %.sroa.5.0.copyload.i, %.sroa.076.0.copyload.i
+  %39 = extractelement <2 x float> %foldExtExtBinop143, i64 0
   %40 = fsub float %.sroa.3.12.vec.extract.i142.i, %.sroa.0.4.vec.extract.i143.i
   %41 = fadd float %39, %40
   %42 = fmul float %41, 2.000000e+00
@@ -328,8 +328,8 @@ define internal fastcc void @b2InsertLeaf(ptr noundef captures(none) %0, i32 nou
   br label %87
 
 77:                                               ; preds = %.lr.ph.i
-  %foldExtExtBinop141 = fsub <2 x float> %.sroa.632.0.copyload.i, %.sroa.029.0.copyload.i
-  %78 = extractelement <2 x float> %foldExtExtBinop141, i64 0
+  %foldExtExtBinop145 = fsub <2 x float> %.sroa.632.0.copyload.i, %.sroa.029.0.copyload.i
+  %78 = extractelement <2 x float> %foldExtExtBinop145, i64 0
   %79 = fsub float %.sroa.32.12.vec.extract.i161.i, %.sroa.01.4.vec.extract.i155.i
   %80 = fadd float %78, %79
   %81 = fmul float %80, 2.000000e+00
@@ -367,8 +367,8 @@ define internal fastcc void @b2InsertLeaf(ptr noundef captures(none) %0, i32 nou
   br i1 %61, label %109, label %.thread.i
 
 .thread.i:                                        ; preds = %87
-  %foldExtExtBinop143 = fsub <2 x float> %.sroa.6.0.copyload.i, %.sroa.012.0.copyload.i
-  %100 = extractelement <2 x float> %foldExtExtBinop143, i64 0
+  %foldExtExtBinop147 = fsub <2 x float> %.sroa.6.0.copyload.i, %.sroa.012.0.copyload.i
+  %100 = extractelement <2 x float> %foldExtExtBinop147, i64 0
   %101 = fsub float %.sroa.32.12.vec.extract.i183.i, %.sroa.01.4.vec.extract.i177.i
   %102 = fadd float %100, %101
   %103 = fmul float %102, 2.000000e+00
@@ -402,15 +402,15 @@ define internal fastcc void @b2InsertLeaf(ptr noundef captures(none) %0, i32 nou
   br i1 %brmerge.i, label %136, label %117
 
 117:                                              ; preds = %115
-  %foldExtExtBinop145 = fadd <2 x float> %.sroa.029.0.copyload.i, %.sroa.632.0.copyload.i
-  %118 = extractelement <2 x float> %foldExtExtBinop145, i64 0
+  %foldExtExtBinop149 = fadd <2 x float> %.sroa.029.0.copyload.i, %.sroa.632.0.copyload.i
+  %118 = extractelement <2 x float> %foldExtExtBinop149, i64 0
   %119 = fmul float %118, 5.000000e-01
   %120 = fadd float %.sroa.01.4.vec.extract.i155.i, %.sroa.32.12.vec.extract.i161.i
   %121 = fmul float %120, 5.000000e-01
   %122 = fsub float %119, %16
   %123 = fsub float %121, %18
-  %foldExtExtBinop147 = fadd <2 x float> %.sroa.012.0.copyload.i, %.sroa.6.0.copyload.i
-  %124 = extractelement <2 x float> %foldExtExtBinop147, i64 0
+  %foldExtExtBinop151 = fadd <2 x float> %.sroa.012.0.copyload.i, %.sroa.6.0.copyload.i
+  %124 = extractelement <2 x float> %foldExtExtBinop151, i64 0
   %125 = fmul float %124, 5.000000e-01
   %126 = fadd float %.sroa.01.4.vec.extract.i177.i, %.sroa.32.12.vec.extract.i183.i
   %127 = fmul float %126, 5.000000e-01
@@ -642,11 +642,11 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   %263 = load <2 x float>, ptr %250, align 8
   %264 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %265 = load <2 x float>, ptr %264, align 8
-  %foldExtExtBinop149 = fsub <2 x float> %265, %263
-  %foldExtExtBinop151 = fsub <2 x float> %265, %263
-  %shift = shufflevector <2 x float> %foldExtExtBinop151, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop153 = fadd <2 x float> %foldExtExtBinop149, %shift
-  %266 = extractelement <2 x float> %foldExtExtBinop153, i64 0
+  %foldExtExtBinop153 = fsub <2 x float> %265, %263
+  %foldExtExtBinop155 = fsub <2 x float> %265, %263
+  %shift = shufflevector <2 x float> %foldExtExtBinop155, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop157 = fadd <2 x float> %foldExtExtBinop153, %shift
+  %266 = extractelement <2 x float> %foldExtExtBinop157, i64 0
   %267 = fmul float %266, 2.000000e+00
   %268 = load <2 x float>, ptr %248, align 8
   %269 = getelementptr inbounds nuw i8, ptr %248, i64 8
@@ -780,11 +780,11 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   %348 = load <2 x float>, ptr %248, align 8
   %349 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %350 = load <2 x float>, ptr %349, align 8
-  %foldExtExtBinop155 = fsub <2 x float> %350, %348
-  %foldExtExtBinop157 = fsub <2 x float> %350, %348
-  %shift159 = shufflevector <2 x float> %foldExtExtBinop157, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop160 = fadd <2 x float> %foldExtExtBinop155, %shift159
-  %351 = extractelement <2 x float> %foldExtExtBinop160, i64 0
+  %foldExtExtBinop159 = fsub <2 x float> %350, %348
+  %foldExtExtBinop161 = fsub <2 x float> %350, %348
+  %shift163 = shufflevector <2 x float> %foldExtExtBinop161, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop164 = fadd <2 x float> %foldExtExtBinop159, %shift163
+  %351 = extractelement <2 x float> %foldExtExtBinop164, i64 0
   %352 = fmul float %351, 2.000000e+00
   %353 = load <2 x float>, ptr %250, align 8
   %354 = getelementptr inbounds nuw i8, ptr %250, i64 8
@@ -917,8 +917,8 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   %434 = load <2 x float>, ptr %433, align 8
   %.sroa.3.8.vec.extract.i399.i = extractelement <2 x float> %434, i64 0
   %.sroa.0.0.vec.extract.i400.i = extractelement <2 x float> %432, i64 0
-  %foldExtExtBinop162 = fsub <2 x float> %434, %432
-  %435 = extractelement <2 x float> %foldExtExtBinop162, i64 0
+  %foldExtExtBinop166 = fsub <2 x float> %434, %432
+  %435 = extractelement <2 x float> %foldExtExtBinop166, i64 0
   %.sroa.3.12.vec.extract.i401.i = extractelement <2 x float> %434, i64 1
   %.sroa.0.4.vec.extract.i402.i = extractelement <2 x float> %432, i64 1
   %436 = fsub float %.sroa.3.12.vec.extract.i401.i, %.sroa.0.4.vec.extract.i402.i
@@ -929,8 +929,8 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   %441 = load <2 x float>, ptr %440, align 8
   %.sroa.3.8.vec.extract.i403.i = extractelement <2 x float> %441, i64 0
   %.sroa.0.0.vec.extract.i404.i = extractelement <2 x float> %439, i64 0
-  %foldExtExtBinop164 = fsub <2 x float> %441, %439
-  %442 = extractelement <2 x float> %foldExtExtBinop164, i64 0
+  %foldExtExtBinop168 = fsub <2 x float> %441, %439
+  %442 = extractelement <2 x float> %foldExtExtBinop168, i64 0
   %.sroa.3.12.vec.extract.i405.i = extractelement <2 x float> %441, i64 1
   %.sroa.0.4.vec.extract.i406.i = extractelement <2 x float> %439, i64 1
   %443 = fsub float %.sroa.3.12.vec.extract.i405.i, %.sroa.0.4.vec.extract.i406.i
@@ -1164,27 +1164,27 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   br label %.critedge.sink.split.i
 
 .critedge.sink.split.i:                           ; preds = %566, %549, %532, %515, %406, %393, %322, %309
-  %.sink18.i = phi ptr [ %429, %515 ], [ %431, %532 ], [ %425, %549 ], [ %427, %566 ], [ %347, %406 ], [ %345, %393 ], [ %262, %322 ], [ %260, %309 ]
-  %.sink17.i = phi i64 [ %530, %515 ], [ %547, %532 ], [ %564, %549 ], [ %581, %566 ], [ %418, %406 ], [ %405, %393 ], [ %334, %322 ], [ %321, %309 ]
-  %.sink14.i = phi ptr [ %248, %515 ], [ %248, %532 ], [ %250, %549 ], [ %250, %566 ], [ %250, %406 ], [ %250, %393 ], [ %248, %322 ], [ %248, %309 ]
-  %.sink13.i = phi ptr [ %431, %515 ], [ %429, %532 ], [ %427, %549 ], [ %425, %566 ], [ %345, %406 ], [ %347, %393 ], [ %260, %322 ], [ %262, %309 ]
-  %.sink10.i = phi ptr [ %250, %515 ], [ %250, %532 ], [ %248, %549 ], [ %248, %566 ], [ %248, %406 ], [ %248, %393 ], [ %250, %322 ], [ %250, %309 ]
-  %583 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 16
+  %.sink19.i = phi ptr [ %429, %515 ], [ %431, %532 ], [ %425, %549 ], [ %427, %566 ], [ %347, %406 ], [ %345, %393 ], [ %262, %322 ], [ %260, %309 ]
+  %.sink18.i = phi i64 [ %530, %515 ], [ %547, %532 ], [ %564, %549 ], [ %581, %566 ], [ %418, %406 ], [ %405, %393 ], [ %334, %322 ], [ %321, %309 ]
+  %.sink15.i = phi ptr [ %248, %515 ], [ %248, %532 ], [ %250, %549 ], [ %250, %566 ], [ %250, %406 ], [ %250, %393 ], [ %248, %322 ], [ %248, %309 ]
+  %.sink14.i = phi ptr [ %431, %515 ], [ %429, %532 ], [ %427, %549 ], [ %425, %566 ], [ %345, %406 ], [ %347, %393 ], [ %260, %322 ], [ %262, %309 ]
+  %.sink11.i = phi ptr [ %250, %515 ], [ %250, %532 ], [ %248, %549 ], [ %248, %566 ], [ %248, %406 ], [ %248, %393 ], [ %250, %322 ], [ %250, %309 ]
+  %583 = getelementptr inbounds nuw i8, ptr %.sink19.i, i64 16
   %584 = load i64, ptr %583, align 8, !tbaa !26
-  %585 = or i64 %584, %.sink17.i
+  %585 = or i64 %584, %.sink18.i
   %586 = getelementptr inbounds nuw i8, ptr %238, i64 16
   store i64 %585, ptr %586, align 8, !tbaa !26
-  %587 = getelementptr inbounds nuw i8, ptr %.sink14.i, i64 38
+  %587 = getelementptr inbounds nuw i8, ptr %.sink15.i, i64 38
   %588 = load i16, ptr %587, align 2, !tbaa !34
-  %589 = getelementptr inbounds nuw i8, ptr %.sink13.i, i64 38
+  %589 = getelementptr inbounds nuw i8, ptr %.sink14.i, i64 38
   %590 = load i16, ptr %589, align 2, !tbaa !34
   %591 = or i16 %590, %588
   %592 = and i16 %591, 2
-  %593 = getelementptr inbounds nuw i8, ptr %.sink10.i, i64 38
+  %593 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 38
   %594 = load i16, ptr %593, align 2, !tbaa !34
   %595 = or i16 %592, %594
   store i16 %595, ptr %593, align 2, !tbaa !34
-  %596 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 38
+  %596 = getelementptr inbounds nuw i8, ptr %.sink19.i, i64 38
   %597 = load i16, ptr %596, align 2, !tbaa !34
   %598 = or i16 %595, %597
   %599 = and i16 %598, 2
@@ -1697,10 +1697,10 @@ define float @b2DynamicTree_GetAreaRatio(ptr noundef readonly captures(none) %0)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load <2 x float>, ptr %10, align 8
   %foldExtExtBinop = fsub <2 x float> %11, %9
-  %foldExtExtBinop31 = fsub <2 x float> %11, %9
-  %shift = shufflevector <2 x float> %foldExtExtBinop31, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop33 = fadd <2 x float> %foldExtExtBinop, %shift
-  %12 = extractelement <2 x float> %foldExtExtBinop33, i64 0
+  %foldExtExtBinop33 = fsub <2 x float> %11, %9
+  %shift = shufflevector <2 x float> %foldExtExtBinop33, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop35 = fadd <2 x float> %foldExtExtBinop, %shift
+  %12 = extractelement <2 x float> %foldExtExtBinop35, i64 0
   %13 = fmul float %12, 2.000000e+00
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !13
@@ -1733,11 +1733,11 @@ define float @b2DynamicTree_GetAreaRatio(ptr noundef readonly captures(none) %0)
   %24 = load <2 x float>, ptr %19, align 8
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %26 = load <2 x float>, ptr %25, align 8
-  %foldExtExtBinop35 = fsub <2 x float> %26, %24
   %foldExtExtBinop37 = fsub <2 x float> %26, %24
-  %shift39 = shufflevector <2 x float> %foldExtExtBinop37, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop40 = fadd <2 x float> %foldExtExtBinop35, %shift39
-  %27 = extractelement <2 x float> %foldExtExtBinop40, i64 0
+  %foldExtExtBinop39 = fsub <2 x float> %26, %24
+  %shift41 = shufflevector <2 x float> %foldExtExtBinop39, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop42 = fadd <2 x float> %foldExtExtBinop37, %shift41
+  %27 = extractelement <2 x float> %foldExtExtBinop42, i64 0
   %28 = fmul float %27, 2.000000e+00
   %29 = fadd float %.01827, %28
   br label %30
@@ -2023,13 +2023,13 @@ b2Normalize.exit:                                 ; preds = %11, %17
   br i1 %or.cond186, label %64, label %b2AABB_Overlaps.exit.thread, !llvm.loop !54
 
 64:                                               ; preds = %59
-  %foldExtExtBinop200 = fadd <2 x float> %.sroa.013.0.copyload, %.sroa.6.0.copyload
-  %65 = extractelement <2 x float> %foldExtExtBinop200, i64 0
+  %foldExtExtBinop201 = fadd <2 x float> %.sroa.013.0.copyload, %.sroa.6.0.copyload
+  %65 = extractelement <2 x float> %foldExtExtBinop201, i64 0
   %66 = fmul float %65, 5.000000e-01
   %67 = fadd float %.sroa.01.4.vec.extract.i113, %.sroa.32.12.vec.extract.i
   %68 = fmul float %67, 5.000000e-01
-  %foldExtExtBinop202 = fsub <2 x float> %.sroa.6.0.copyload, %.sroa.013.0.copyload
-  %69 = extractelement <2 x float> %foldExtExtBinop202, i64 0
+  %foldExtExtBinop203 = fsub <2 x float> %.sroa.6.0.copyload, %.sroa.013.0.copyload
+  %69 = extractelement <2 x float> %foldExtExtBinop203, i64 0
   %70 = fmul float %69, 5.000000e-01
   %71 = fsub float %.sroa.32.12.vec.extract.i, %.sroa.01.4.vec.extract.i113
   %72 = fmul float %71, 5.000000e-01
@@ -2098,11 +2098,11 @@ b2Normalize.exit:                                 ; preds = %11, %17
   %115 = load <2 x float>, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %117 = load <2 x float>, ptr %116, align 8
-  %foldExtExtBinop204 = fadd <2 x float> %115, %117
-  %118 = extractelement <2 x float> %foldExtExtBinop204, i64 0
+  %foldExtExtBinop205 = fadd <2 x float> %115, %117
+  %118 = extractelement <2 x float> %foldExtExtBinop205, i64 0
   %119 = fmul float %118, 5.000000e-01
-  %foldExtExtBinop206 = fadd <2 x float> %115, %117
-  %120 = extractelement <2 x float> %foldExtExtBinop206, i64 1
+  %foldExtExtBinop207 = fadd <2 x float> %115, %117
+  %120 = extractelement <2 x float> %foldExtExtBinop207, i64 1
   %121 = fmul float %120, 5.000000e-01
   %122 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %123 = load i32, ptr %122, align 8, !tbaa !16
@@ -2111,11 +2111,11 @@ b2Normalize.exit:                                 ; preds = %11, %17
   %126 = load <2 x float>, ptr %125, align 8
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %128 = load <2 x float>, ptr %127, align 8
-  %foldExtExtBinop208 = fadd <2 x float> %126, %128
-  %129 = extractelement <2 x float> %foldExtExtBinop208, i64 0
+  %foldExtExtBinop209 = fadd <2 x float> %126, %128
+  %129 = extractelement <2 x float> %foldExtExtBinop209, i64 0
   %130 = fmul float %129, 5.000000e-01
-  %foldExtExtBinop210 = fadd <2 x float> %126, %128
-  %131 = extractelement <2 x float> %foldExtExtBinop210, i64 1
+  %foldExtExtBinop211 = fadd <2 x float> %126, %128
+  %131 = extractelement <2 x float> %foldExtExtBinop211, i64 1
   %132 = fmul float %131, 5.000000e-01
   %133 = fsub float %.sroa.02.0.vec.extract.i, %119
   %134 = fsub float %.sroa.02.4.vec.extract.i, %121
@@ -2131,9 +2131,9 @@ b2Normalize.exit:                                 ; preds = %11, %17
   %144 = zext nneg i32 %.082191 to i64
   %145 = getelementptr inbounds nuw [1024 x i32], ptr %6, i64 0, i64 %144
   %. = select i1 %143, i32 %123, i32 %112
-  %.198 = select i1 %143, i32 %112, i32 %123
+  %.199 = select i1 %143, i32 %112, i32 %123
   store i32 %., ptr %48, align 4, !tbaa !39
-  store i32 %.198, ptr %145, align 4, !tbaa !39
+  store i32 %.199, ptr %145, align 4, !tbaa !39
   %.587 = add nuw nsw i32 %.082191, 1
   br label %b2AABB_Overlaps.exit.thread
 
@@ -2327,8 +2327,8 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %92 = fmul float %91, 5.000000e-01
   %93 = fadd float %.sroa.01.4.vec.extract.i178, %.sroa.32.12.vec.extract.i
   %94 = fmul float %93, 5.000000e-01
-  %foldExtExtBinop284 = fsub <2 x float> %85, %83
-  %95 = extractelement <2 x float> %foldExtExtBinop284, i64 0
+  %foldExtExtBinop286 = fsub <2 x float> %85, %83
+  %95 = extractelement <2 x float> %foldExtExtBinop286, i64 0
   %96 = fmul float %95, 5.000000e-01
   %97 = fsub float %.sroa.32.12.vec.extract.i, %.sroa.01.4.vec.extract.i178
   %98 = fmul float %97, 5.000000e-01
@@ -2404,11 +2404,11 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %146 = load <2 x float>, ptr %145, align 8
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %148 = load <2 x float>, ptr %147, align 8
-  %foldExtExtBinop286 = fadd <2 x float> %146, %148
-  %149 = extractelement <2 x float> %foldExtExtBinop286, i64 0
-  %150 = fmul float %149, 5.000000e-01
   %foldExtExtBinop288 = fadd <2 x float> %146, %148
-  %151 = extractelement <2 x float> %foldExtExtBinop288, i64 1
+  %149 = extractelement <2 x float> %foldExtExtBinop288, i64 0
+  %150 = fmul float %149, 5.000000e-01
+  %foldExtExtBinop290 = fadd <2 x float> %146, %148
+  %151 = extractelement <2 x float> %foldExtExtBinop290, i64 1
   %152 = fmul float %151, 5.000000e-01
   %153 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %154 = load i32, ptr %153, align 8, !tbaa !16
@@ -2417,11 +2417,11 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %157 = load <2 x float>, ptr %156, align 8
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %159 = load <2 x float>, ptr %158, align 8
-  %foldExtExtBinop290 = fadd <2 x float> %157, %159
-  %160 = extractelement <2 x float> %foldExtExtBinop290, i64 0
-  %161 = fmul float %160, 5.000000e-01
   %foldExtExtBinop292 = fadd <2 x float> %157, %159
-  %162 = extractelement <2 x float> %foldExtExtBinop292, i64 1
+  %160 = extractelement <2 x float> %foldExtExtBinop292, i64 0
+  %161 = fmul float %160, 5.000000e-01
+  %foldExtExtBinop294 = fadd <2 x float> %157, %159
+  %162 = extractelement <2 x float> %foldExtExtBinop294, i64 1
   %163 = fmul float %162, 5.000000e-01
   %164 = fsub float %24, %150
   %165 = fsub float %26, %152
@@ -2437,9 +2437,9 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %175 = zext nneg i32 %.0112274 to i64
   %176 = getelementptr inbounds nuw [1024 x i32], ptr %7, i64 0, i64 %175
   %. = select i1 %174, i32 %154, i32 %143
-  %.282 = select i1 %174, i32 %143, i32 %154
+  %.284 = select i1 %174, i32 %143, i32 %154
   store i32 %., ptr %71, align 4, !tbaa !39
-  store i32 %.282, ptr %176, align 4, !tbaa !39
+  store i32 %.284, ptr %176, align 4, !tbaa !39
   %.5117 = add nuw nsw i32 %.0112274, 1
   br label %b2AABB_Overlaps.exit.thread
 
@@ -2550,8 +2550,8 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %46 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %47 = fmul float %46, 5.000000e-01
   %.sroa.01.0.vec.insert.i.us = insertelement <2 x float> poison, float %47, i64 0
-  %foldExtExtBinop86 = fadd <2 x float> %43, %45
-  %48 = extractelement <2 x float> %foldExtExtBinop86, i64 1
+  %foldExtExtBinop89 = fadd <2 x float> %43, %45
+  %48 = extractelement <2 x float> %foldExtExtBinop89, i64 1
   %49 = fmul float %48, 5.000000e-01
   %.sroa.01.4.vec.insert.i.us = insertelement <2 x float> %.sroa.01.0.vec.insert.i.us, float %49, i64 1
   store <2 x float> %.sroa.01.4.vec.insert.i.us, ptr %42, align 4
@@ -2639,12 +2639,12 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %90 = load <2 x float>, ptr %.053.lcssa, align 8
   %91 = getelementptr inbounds nuw i8, ptr %.053.lcssa, i64 8
   %92 = load <2 x float>, ptr %91, align 8
-  %foldExtExtBinop88 = fadd <2 x float> %90, %92
-  %93 = extractelement <2 x float> %foldExtExtBinop88, i64 0
+  %foldExtExtBinop91 = fadd <2 x float> %90, %92
+  %93 = extractelement <2 x float> %foldExtExtBinop91, i64 0
   %94 = fmul float %93, 5.000000e-01
   %.sroa.01.0.vec.insert.i = insertelement <2 x float> poison, float %94, i64 0
-  %foldExtExtBinop90 = fadd <2 x float> %90, %92
-  %95 = extractelement <2 x float> %foldExtExtBinop90, i64 1
+  %foldExtExtBinop93 = fadd <2 x float> %90, %92
+  %95 = extractelement <2 x float> %foldExtExtBinop93, i64 1
   %96 = fmul float %95, 5.000000e-01
   %.sroa.01.4.vec.insert.i = insertelement <2 x float> %.sroa.01.0.vec.insert.i, float %96, i64 1
   store <2 x float> %.sroa.01.4.vec.insert.i, ptr %89, align 4
@@ -2731,18 +2731,18 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %145 = tail call fastcc i32 @b2PartitionMid(ptr noundef %131, ptr noundef %140, i32 noundef range(i32 -2147483647, -2147483648) %.us-phi70)
   %146 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %145, ptr %146, align 4, !tbaa !67
-  br label %.outer92
+  br label %.outer95
 
-.outer92:                                         ; preds = %.outer92.backedge, %139
-  %.ph = phi i32 [ -1, %139 ], [ %.ph.be, %.outer92.backedge ]
-  %.098.i.ph = phi i32 [ 0, %139 ], [ %.098.i.ph.be, %.outer92.backedge ]
+.outer95:                                         ; preds = %.outer95.backedge, %139
+  %.ph = phi i32 [ -1, %139 ], [ %.ph.be, %.outer95.backedge ]
+  %.098.i.ph = phi i32 [ 0, %139 ], [ %.098.i.ph.be, %.outer95.backedge ]
   %147 = sext i32 %.098.i.ph to i64
   %148 = getelementptr inbounds %struct.b2RebuildItem, ptr %3, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
   br label %150
 
-150:                                              ; preds = %.outer92, %227
-  %151 = phi i32 [ %152, %227 ], [ %.ph, %.outer92 ]
+150:                                              ; preds = %.outer95, %227
+  %151 = phi i32 [ %152, %227 ], [ %.ph, %.outer95 ]
   %152 = add nsw i32 %151, 1
   store i32 %152, ptr %149, align 4, !tbaa !64
   switch i32 %151, label %209 [
@@ -2834,20 +2834,20 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %207 = or i64 %206, %204
   %208 = getelementptr inbounds nuw i8, ptr %172, i64 16
   store i64 %207, ptr %208, align 8, !tbaa !26
-  br label %.outer92.backedge
+  br label %.outer95.backedge
 
-.outer92.backedge:                                ; preds = %170, %230
+.outer95.backedge:                                ; preds = %170, %230
   %.ph.be = phi i32 [ -1, %230 ], [ %163, %170 ]
   %.098.i.ph.be = phi i32 [ %231, %230 ], [ %156, %170 ]
-  br label %.outer92
+  br label %.outer95
 
 209:                                              ; preds = %150
   br label %210
 
 210:                                              ; preds = %209, %150
-  %.sink124.i = phi i64 [ 12, %209 ], [ 8, %150 ]
+  %.sink126.i = phi i64 [ 12, %209 ], [ 8, %150 ]
   %.sink.i = phi i64 [ 16, %209 ], [ 12, %150 ]
-  %211 = getelementptr inbounds nuw i8, ptr %148, i64 %.sink124.i
+  %211 = getelementptr inbounds nuw i8, ptr %148, i64 %.sink126.i
   %212 = getelementptr inbounds nuw i8, ptr %148, i64 %.sink.i
   %.099.i = load i32, ptr %211, align 4, !tbaa !39
   %.0100.i = load i32, ptr %212, align 4, !tbaa !39
@@ -2900,7 +2900,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %242 = getelementptr inbounds nuw i8, ptr %233, i64 12
   %243 = add nsw i32 %241, %.099.i
   store i32 %243, ptr %242, align 4, !tbaa !67
-  br label %.outer92.backedge
+  br label %.outer95.backedge
 
 244:                                              ; preds = %153
   %245 = load i32, ptr %3, align 16, !tbaa !62
@@ -3038,19 +3038,19 @@ define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(pt
   %31 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %indvars.iv165
   %32 = load float, ptr %31, align 4, !tbaa !69
   %33 = fcmp olt float %32, %12
-  br i1 %33, label %34, label %.critedge.split.loop.exit181
+  br i1 %33, label %34, label %.critedge.split.loop.exit185
 
 34:                                               ; preds = %30
   %indvars.iv.next166 = add nsw i64 %indvars.iv165, 1
   %35 = icmp slt i64 %indvars.iv.next166, %28
   br i1 %35, label %30, label %.critedge, !llvm.loop !70
 
-.critedge.split.loop.exit181:                     ; preds = %30
+.critedge.split.loop.exit185:                     ; preds = %30
   %36 = trunc nsw i64 %indvars.iv165 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %34, %.critedge.split.loop.exit181
-  %.1106.lcssa = phi i32 [ %36, %.critedge.split.loop.exit181 ], [ %smax167, %34 ]
+.critedge:                                        ; preds = %34, %.critedge.split.loop.exit185
+  %.1106.lcssa = phi i32 [ %36, %.critedge.split.loop.exit185 ], [ %smax167, %34 ]
   %37 = sext i32 %.1106.lcssa to i64
   br label %38
 
@@ -3103,19 +3103,19 @@ define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(pt
   %58 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %indvars.iv159, i32 1
   %59 = load float, ptr %58, align 4, !tbaa !73
   %60 = fcmp olt float %59, %14
-  br i1 %60, label %61, label %.critedge4.split.loop.exit179
+  br i1 %60, label %61, label %.critedge4.split.loop.exit183
 
 61:                                               ; preds = %57
   %indvars.iv.next160 = add nsw i64 %indvars.iv159, 1
   %62 = icmp slt i64 %indvars.iv.next160, %55
   br i1 %62, label %57, label %.critedge4, !llvm.loop !74
 
-.critedge4.split.loop.exit179:                    ; preds = %57
+.critedge4.split.loop.exit183:                    ; preds = %57
   %63 = trunc nsw i64 %indvars.iv159 to i32
   br label %.critedge4
 
-.critedge4:                                       ; preds = %61, %.critedge4.split.loop.exit179
-  %.5110.lcssa = phi i32 [ %63, %.critedge4.split.loop.exit179 ], [ %smax, %61 ]
+.critedge4:                                       ; preds = %61, %.critedge4.split.loop.exit183
+  %.5110.lcssa = phi i32 [ %63, %.critedge4.split.loop.exit183 ], [ %smax, %61 ]
   %64 = sext i32 %.5110.lcssa to i64
   br label %65
 

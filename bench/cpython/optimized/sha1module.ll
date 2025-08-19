@@ -169,9 +169,9 @@ define internal ptr @_sha1_sha1(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   %.not38 = icmp ne ptr %18, null
   %19 = icmp eq i64 %16, 1
   %spec.select = and i1 %19, %.not38
-  br i1 %spec.select, label %.thread55, label %20
+  br i1 %spec.select, label %.thread64, label %20
 
-.thread55:                                        ; preds = %17
+.thread64:                                        ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %26
 
@@ -187,7 +187,7 @@ define internal ptr @_sha1_sha1(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %45, label %26
 
-26:                                               ; preds = %.thread55, %25
+26:                                               ; preds = %.thread64, %25
   %27 = getelementptr i8, ptr %18, i64 8
   %.val.i = load ptr, ptr %27, align 8, !tbaa !17
   %28 = getelementptr i8, ptr %.val.i, i64 168

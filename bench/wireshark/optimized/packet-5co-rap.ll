@@ -953,12 +953,12 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   br label %161
 
 .thread.sink.split:                               ; preds = %128, %133
-  %.sink502 = phi ptr [ %76, %133 ], [ %3, %128 ]
+  %.sink519 = phi ptr [ %76, %133 ], [ %3, %128 ]
   %136 = add i32 %.0338432, 2
   %137 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %136, i32 noundef -2147483648)
   %138 = load i32, ptr %6, align 4
   %139 = zext i32 %138 to i64
-  %140 = getelementptr [10 x i32], ptr %.sink502, i64 0, i64 %139
+  %140 = getelementptr [10 x i32], ptr %.sink519, i64 0, i64 %139
   store i32 %137, ptr %140, align 4
   br label %.thread
 

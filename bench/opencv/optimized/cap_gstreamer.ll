@@ -2119,13 +2119,13 @@ define hidden noundef zeroext i1 @_ZN2cv16GStreamerCapture11configureHWERKNS_22V
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 24
   %27 = load i32, ptr %26, align 4, !tbaa !118
   %28 = icmp eq i32 %27, 50
-  br i1 %28, label %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit153, label %29
+  br i1 %28, label %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit171, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 36
   %31 = load i32, ptr %30, align 4, !tbaa !118
   %32 = icmp eq i32 %31, 50
-  br i1 %32, label %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit155, label %33
+  br i1 %32, label %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit173, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 48
@@ -2178,16 +2178,16 @@ _ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit: ; preds = %21
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 12
   br label %_ZNK2cv15VideoParameters3hasEi.exit
 
-_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit153: ; preds = %25
+_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit171: ; preds = %25
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 24
   br label %_ZNK2cv15VideoParameters3hasEi.exit
 
-_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit155: ; preds = %29
+_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit173: ; preds = %29
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 36
   br label %_ZNK2cv15VideoParameters3hasEi.exit
 
-_ZNK2cv15VideoParameters3hasEi.exit:              ; preds = %.lr.ph.i.i.i.i, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit153, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit155, %38, %43, %48
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %38 ], [ %.sroa.032.1.i.i.i.i, %43 ], [ %spec.select.i.i.i.i, %48 ], [ %51, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit ], [ %52, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit153 ], [ %53, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit155 ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
+_ZNK2cv15VideoParameters3hasEi.exit:              ; preds = %.lr.ph.i.i.i.i, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit171, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit173, %38, %43, %48
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %38 ], [ %.sroa.032.1.i.i.i.i, %43 ], [ %spec.select.i.i.i.i, %48 ], [ %51, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit ], [ %52, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit171 ], [ %53, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit173 ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.not117 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %11
   br i1 %.not117, label %_ZNK2cv15VideoParameters3hasEi.exit.thread, label %54
 
@@ -2235,13 +2235,13 @@ _ZNK2cv15VideoParameters3hasEi.exit.thread:       ; preds = %._crit_edge.i.i.i.i
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i64, i64 24
   %69 = load i32, ptr %68, align 4, !tbaa !118
   %70 = icmp eq i32 %69, 51
-  br i1 %70, label %_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit161, label %71
+  br i1 %70, label %_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit179, label %71
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i64, i64 36
   %73 = load i32, ptr %72, align 4, !tbaa !118
   %74 = icmp eq i32 %73, 51
-  br i1 %74, label %_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit163, label %75
+  br i1 %74, label %_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit181, label %75
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i64, i64 48
@@ -2294,16 +2294,16 @@ _ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit: ; preds = %63
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i64, i64 12
   br label %_ZNK2cv15VideoParameters3hasEi.exit71
 
-_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit161: ; preds = %67
+_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit179: ; preds = %67
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i64, i64 24
   br label %_ZNK2cv15VideoParameters3hasEi.exit71
 
-_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit163: ; preds = %71
+_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit181: ; preds = %71
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i64, i64 36
   br label %_ZNK2cv15VideoParameters3hasEi.exit71
 
-_ZNK2cv15VideoParameters3hasEi.exit71:            ; preds = %.lr.ph.i.i.i.i62, %_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit, %_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit161, %_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit163, %80, %85, %90
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i58 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i55, %80 ], [ %.sroa.032.1.i.i.i.i59, %85 ], [ %spec.select.i.i.i.i57, %90 ], [ %93, %_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit ], [ %94, %_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit161 ], [ %95, %_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit163 ], [ %.sroa.032.051.i.i.i.i64, %.lr.ph.i.i.i.i62 ]
+_ZNK2cv15VideoParameters3hasEi.exit71:            ; preds = %.lr.ph.i.i.i.i62, %_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit, %_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit179, %_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit181, %80, %85, %90
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i58 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i55, %80 ], [ %.sroa.032.1.i.i.i.i59, %85 ], [ %spec.select.i.i.i.i57, %90 ], [ %93, %_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit ], [ %94, %_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit179 ], [ %95, %_ZNK2cv15VideoParameters3hasEi.exit71.loopexit.split.loop.exit181 ], [ %.sroa.032.051.i.i.i.i64, %.lr.ph.i.i.i.i62 ]
   %.not118 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i58, %57
   br i1 %.not118, label %_ZNK2cv15VideoParameters3hasEi.exit71.thread, label %96
 
@@ -2905,13 +2905,13 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv15VideoParameters3getINS_21VideoA
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 24
   %22 = load i32, ptr %21, align 4, !tbaa !118
   %23 = icmp eq i32 %22, %1
-  br i1 %23, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit22, label %24
+  br i1 %23, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit24, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 36
   %26 = load i32, ptr %25, align 4, !tbaa !118
   %27 = icmp eq i32 %26, %1
-  br i1 %27, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit24, label %28
+  br i1 %27, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit26, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 48
@@ -2964,16 +2964,16 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParame
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 12
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit22: ; preds = %20
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit24: ; preds = %20
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 24
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit24: ; preds = %24
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit26: ; preds = %24
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 36
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit22, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit24, %33, %38, %43
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %33 ], [ %.sroa.032.1.i.i.i, %38 ], [ %spec.select.i.i.i, %43 ], [ %46, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit ], [ %47, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit22 ], [ %48, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit24 ], [ %.sroa.032.051.i.i.i, %.lr.ph.i.i.i ]
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit24, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit26, %33, %38, %43
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %33 ], [ %.sroa.032.1.i.i.i, %38 ], [ %spec.select.i.i.i, %43 ], [ %46, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit ], [ %47, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit24 ], [ %48, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.loopexit.split.loop.exit26 ], [ %.sroa.032.051.i.i.i, %.lr.ph.i.i.i ]
   %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %6
   br i1 %.not, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit.thread, label %49
 
@@ -3053,13 +3053,13 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv15VideoParameters3getIiEET_i(ptr 
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 24
   %22 = load i32, ptr %21, align 4, !tbaa !118
   %23 = icmp eq i32 %22, %1
-  br i1 %23, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit22, label %24
+  br i1 %23, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit24, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 36
   %26 = load i32, ptr %25, align 4, !tbaa !118
   %27 = icmp eq i32 %26, %1
-  br i1 %27, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit24, label %28
+  br i1 %27, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit26, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 48
@@ -3112,16 +3112,16 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParame
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 12
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit22: ; preds = %20
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit24: ; preds = %20
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 24
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit24: ; preds = %24
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit26: ; preds = %24
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 36
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit22, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit24, %33, %38, %43
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %33 ], [ %.sroa.032.1.i.i.i, %38 ], [ %spec.select.i.i.i, %43 ], [ %46, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit ], [ %47, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit22 ], [ %48, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit24 ], [ %.sroa.032.051.i.i.i, %.lr.ph.i.i.i ]
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit24, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit26, %33, %38, %43
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %33 ], [ %.sroa.032.1.i.i.i, %38 ], [ %spec.select.i.i.i, %43 ], [ %46, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit ], [ %47, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit24 ], [ %48, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit26 ], [ %.sroa.032.051.i.i.i, %.lr.ph.i.i.i ]
   %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %6
   br i1 %.not, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.thread, label %49
 
@@ -3220,13 +3220,13 @@ define hidden noundef zeroext i1 @_ZN2cv16GStreamerCapture24configureStreamsProp
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 24
   %25 = load i32, ptr %24, align 4, !tbaa !118
   %26 = icmp eq i32 %25, 57
-  br i1 %26, label %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit144, label %27
+  br i1 %26, label %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit159, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 36
   %29 = load i32, ptr %28, align 4, !tbaa !118
   %30 = icmp eq i32 %29, 57
-  br i1 %30, label %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit146, label %31
+  br i1 %30, label %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit161, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 48
@@ -3279,16 +3279,16 @@ _ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit: ; preds = %19
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 12
   br label %_ZNK2cv15VideoParameters3hasEi.exit
 
-_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit144: ; preds = %23
+_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit159: ; preds = %23
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 24
   br label %_ZNK2cv15VideoParameters3hasEi.exit
 
-_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit146: ; preds = %27
+_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit161: ; preds = %27
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 36
   br label %_ZNK2cv15VideoParameters3hasEi.exit
 
-_ZNK2cv15VideoParameters3hasEi.exit:              ; preds = %.lr.ph.i.i.i.i, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit144, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit146, %36, %41, %46
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %36 ], [ %.sroa.032.1.i.i.i.i, %41 ], [ %spec.select.i.i.i.i, %46 ], [ %49, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit ], [ %50, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit144 ], [ %51, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit146 ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
+_ZNK2cv15VideoParameters3hasEi.exit:              ; preds = %.lr.ph.i.i.i.i, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit159, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit161, %36, %41, %46
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %36 ], [ %.sroa.032.1.i.i.i.i, %41 ], [ %spec.select.i.i.i.i, %46 ], [ %49, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit ], [ %50, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit159 ], [ %51, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit161 ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.not108 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %9
   br i1 %.not108, label %_ZNK2cv15VideoParameters3hasEi.exit.thread, label %52
 
@@ -3525,13 +3525,13 @@ _ZNK2cv15VideoParameters3hasEi.exit.thread:       ; preds = %._crit_edge.i.i.i.i
   %143 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i73, i64 24
   %144 = load i32, ptr %143, align 4, !tbaa !118
   %145 = icmp eq i32 %144, 58
-  br i1 %145, label %_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit152, label %146
+  br i1 %145, label %_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit167, label %146
 
 146:                                              ; preds = %142
   %147 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i73, i64 36
   %148 = load i32, ptr %147, align 4, !tbaa !118
   %149 = icmp eq i32 %148, 58
-  br i1 %149, label %_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit154, label %150
+  br i1 %149, label %_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit169, label %150
 
 150:                                              ; preds = %146
   %151 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i73, i64 48
@@ -3584,16 +3584,16 @@ _ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit: ; preds = %138
   %168 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i73, i64 12
   br label %_ZNK2cv15VideoParameters3hasEi.exit80
 
-_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit152: ; preds = %142
+_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit167: ; preds = %142
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i73, i64 24
   br label %_ZNK2cv15VideoParameters3hasEi.exit80
 
-_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit154: ; preds = %146
+_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit169: ; preds = %146
   %170 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i73, i64 36
   br label %_ZNK2cv15VideoParameters3hasEi.exit80
 
-_ZNK2cv15VideoParameters3hasEi.exit80:            ; preds = %.lr.ph.i.i.i.i71, %_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit, %_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit152, %_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit154, %155, %160, %165
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i67 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i64, %155 ], [ %.sroa.032.1.i.i.i.i68, %160 ], [ %spec.select.i.i.i.i66, %165 ], [ %168, %_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit ], [ %169, %_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit152 ], [ %170, %_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit154 ], [ %.sroa.032.051.i.i.i.i73, %.lr.ph.i.i.i.i71 ]
+_ZNK2cv15VideoParameters3hasEi.exit80:            ; preds = %.lr.ph.i.i.i.i71, %_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit, %_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit167, %_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit169, %155, %160, %165
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i67 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i64, %155 ], [ %.sroa.032.1.i.i.i.i68, %160 ], [ %spec.select.i.i.i.i66, %165 ], [ %168, %_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit ], [ %169, %_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit167 ], [ %170, %_ZNK2cv15VideoParameters3hasEi.exit80.loopexit.split.loop.exit169 ], [ %.sroa.032.051.i.i.i.i73, %.lr.ph.i.i.i.i71 ]
   %.not109 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i67, %132
   br i1 %.not109, label %.thread, label %171
 
@@ -3835,13 +3835,13 @@ define linkonce_odr hidden noundef double @_ZNK2cv15VideoParameters3getIdEET_i(p
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 24
   %22 = load i32, ptr %21, align 4, !tbaa !118
   %23 = icmp eq i32 %22, %1
-  br i1 %23, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit22, label %24
+  br i1 %23, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit24, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 36
   %26 = load i32, ptr %25, align 4, !tbaa !118
   %27 = icmp eq i32 %26, %1
-  br i1 %27, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit24, label %28
+  br i1 %27, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit26, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 48
@@ -3894,16 +3894,16 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParame
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 12
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit22: ; preds = %20
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit24: ; preds = %20
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 24
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit24: ; preds = %24
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit26: ; preds = %24
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 36
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit22, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit24, %33, %38, %43
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %33 ], [ %.sroa.032.1.i.i.i, %38 ], [ %spec.select.i.i.i, %43 ], [ %46, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit ], [ %47, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit22 ], [ %48, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit24 ], [ %.sroa.032.051.i.i.i, %.lr.ph.i.i.i ]
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit24, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit26, %33, %38, %43
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %33 ], [ %.sroa.032.1.i.i.i, %38 ], [ %spec.select.i.i.i, %43 ], [ %46, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit ], [ %47, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit24 ], [ %48, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.loopexit.split.loop.exit26 ], [ %.sroa.032.051.i.i.i, %.lr.ph.i.i.i ]
   %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %6
   br i1 %.not, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit.thread, label %49
 
@@ -3987,13 +3987,13 @@ define hidden noundef zeroext i1 @_ZN2cv16GStreamerCapture18setAudioPropertiesER
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 24
   %25 = load i32, ptr %24, align 4, !tbaa !118
   %26 = icmp eq i32 %25, 61
-  br i1 %26, label %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit177, label %27
+  br i1 %26, label %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit192, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 36
   %29 = load i32, ptr %28, align 4, !tbaa !118
   %30 = icmp eq i32 %29, 61
-  br i1 %30, label %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit179, label %31
+  br i1 %30, label %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit194, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 48
@@ -4046,16 +4046,16 @@ _ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit: ; preds = %19
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 12
   br label %_ZNK2cv15VideoParameters3hasEi.exit
 
-_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit177: ; preds = %23
+_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit192: ; preds = %23
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 24
   br label %_ZNK2cv15VideoParameters3hasEi.exit
 
-_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit179: ; preds = %27
+_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit194: ; preds = %27
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 36
   br label %_ZNK2cv15VideoParameters3hasEi.exit
 
-_ZNK2cv15VideoParameters3hasEi.exit:              ; preds = %.lr.ph.i.i.i.i, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit177, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit179, %36, %41, %46
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %36 ], [ %.sroa.032.1.i.i.i.i, %41 ], [ %spec.select.i.i.i.i, %46 ], [ %49, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit ], [ %50, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit177 ], [ %51, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit179 ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
+_ZNK2cv15VideoParameters3hasEi.exit:              ; preds = %.lr.ph.i.i.i.i, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit192, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit194, %36, %41, %46
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %36 ], [ %.sroa.032.1.i.i.i.i, %41 ], [ %spec.select.i.i.i.i, %46 ], [ %49, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit ], [ %50, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit192 ], [ %51, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit194 ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.not127 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %9
   br i1 %.not127, label %_ZNK2cv15VideoParameters3hasEi.exit.thread, label %52
 
@@ -4297,13 +4297,13 @@ _ZNK2cv15VideoParameters3hasEi.exit.thread:       ; preds = %131, %131, %131, %1
   %148 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i76, i64 24
   %149 = load i32, ptr %148, align 4, !tbaa !118
   %150 = icmp eq i32 %149, 62
-  br i1 %150, label %_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit185, label %151
+  br i1 %150, label %_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit200, label %151
 
 151:                                              ; preds = %147
   %152 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i76, i64 36
   %153 = load i32, ptr %152, align 4, !tbaa !118
   %154 = icmp eq i32 %153, 62
-  br i1 %154, label %_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit187, label %155
+  br i1 %154, label %_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit202, label %155
 
 155:                                              ; preds = %151
   %156 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i76, i64 48
@@ -4356,16 +4356,16 @@ _ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit: ; preds = %143
   %173 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i76, i64 12
   br label %_ZNK2cv15VideoParameters3hasEi.exit83
 
-_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit185: ; preds = %147
+_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit200: ; preds = %147
   %174 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i76, i64 24
   br label %_ZNK2cv15VideoParameters3hasEi.exit83
 
-_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit187: ; preds = %151
+_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit202: ; preds = %151
   %175 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i76, i64 36
   br label %_ZNK2cv15VideoParameters3hasEi.exit83
 
-_ZNK2cv15VideoParameters3hasEi.exit83:            ; preds = %.lr.ph.i.i.i.i74, %_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit, %_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit185, %_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit187, %160, %165, %170
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i70 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i67, %160 ], [ %.sroa.032.1.i.i.i.i71, %165 ], [ %spec.select.i.i.i.i69, %170 ], [ %173, %_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit ], [ %174, %_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit185 ], [ %175, %_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit187 ], [ %.sroa.032.051.i.i.i.i76, %.lr.ph.i.i.i.i74 ]
+_ZNK2cv15VideoParameters3hasEi.exit83:            ; preds = %.lr.ph.i.i.i.i74, %_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit, %_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit200, %_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit202, %160, %165, %170
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i70 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i67, %160 ], [ %.sroa.032.1.i.i.i.i71, %165 ], [ %spec.select.i.i.i.i69, %170 ], [ %173, %_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit ], [ %174, %_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit200 ], [ %175, %_ZNK2cv15VideoParameters3hasEi.exit83.loopexit.split.loop.exit202 ], [ %.sroa.032.051.i.i.i.i76, %.lr.ph.i.i.i.i74 ]
   %.not129 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i70, %133
   br i1 %.not129, label %_ZNK2cv15VideoParameters3hasEi.exit83.thread, label %176
 
@@ -4600,13 +4600,13 @@ _ZNK2cv15VideoParameters3hasEi.exit83.thread:     ; preds = %._crit_edge.i.i.i.i
   %267 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i115, i64 24
   %268 = load i32, ptr %267, align 4, !tbaa !118
   %269 = icmp eq i32 %268, 66
-  br i1 %269, label %_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit193, label %270
+  br i1 %269, label %_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit208, label %270
 
 270:                                              ; preds = %266
   %271 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i115, i64 36
   %272 = load i32, ptr %271, align 4, !tbaa !118
   %273 = icmp eq i32 %272, 66
-  br i1 %273, label %_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit195, label %274
+  br i1 %273, label %_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit210, label %274
 
 274:                                              ; preds = %270
   %275 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i115, i64 48
@@ -4659,16 +4659,16 @@ _ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit: ; preds = %262
   %292 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i115, i64 12
   br label %_ZNK2cv15VideoParameters3hasEi.exit122
 
-_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit193: ; preds = %266
+_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit208: ; preds = %266
   %293 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i115, i64 24
   br label %_ZNK2cv15VideoParameters3hasEi.exit122
 
-_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit195: ; preds = %270
+_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit210: ; preds = %270
   %294 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i115, i64 36
   br label %_ZNK2cv15VideoParameters3hasEi.exit122
 
-_ZNK2cv15VideoParameters3hasEi.exit122:           ; preds = %.lr.ph.i.i.i.i113, %_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit, %_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit193, %_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit195, %279, %284, %289
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i109 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i106, %279 ], [ %.sroa.032.1.i.i.i.i110, %284 ], [ %spec.select.i.i.i.i108, %289 ], [ %292, %_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit ], [ %293, %_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit193 ], [ %294, %_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit195 ], [ %.sroa.032.051.i.i.i.i115, %.lr.ph.i.i.i.i113 ]
+_ZNK2cv15VideoParameters3hasEi.exit122:           ; preds = %.lr.ph.i.i.i.i113, %_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit, %_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit208, %_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit210, %279, %284, %289
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i109 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i106, %279 ], [ %.sroa.032.1.i.i.i.i110, %284 ], [ %spec.select.i.i.i.i108, %289 ], [ %292, %_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit ], [ %293, %_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit208 ], [ %294, %_ZNK2cv15VideoParameters3hasEi.exit122.loopexit.split.loop.exit210 ], [ %.sroa.032.051.i.i.i.i115, %.lr.ph.i.i.i.i113 ]
   %.not130 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i109, %256
   br i1 %.not130, label %.thread, label %295
 
@@ -5354,9 +5354,9 @@ _ZN2cv12_GLOBAL__N_18GSafePtrI10_GstSampleE7releaseEv.exit: ; preds = %1, %_ZN2c
   %61 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %.val39108 = load ptr, ptr %32, align 8, !tbaa !62
-  %.not.i42109 = icmp eq ptr %.val39108, null
-  br i1 %.not.i42109, label %._crit_edge, label %_ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE3getEv.exit
+  %.val39121 = load ptr, ptr %32, align 8, !tbaa !62
+  %.not.i42122 = icmp eq ptr %.val39121, null
+  br i1 %.not.i42122, label %._crit_edge, label %_ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE3getEv.exit
 
 ._crit_edge:                                      ; preds = %.backedge, %31
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -5397,10 +5397,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br label %common.resume
 
 _ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE3getEv.exit: ; preds = %31, %.backedge
-  %.val39111 = phi ptr [ %.val39, %.backedge ], [ %.val39108, %31 ]
-  %.01675110 = phi i1 [ true, %.backedge ], [ false, %31 ]
+  %.val39124 = phi ptr [ %.val39, %.backedge ], [ %.val39121, %31 ]
+  %.01675123 = phi i1 [ true, %.backedge ], [ false, %31 ]
   %73 = call i64 @gst_app_sink_get_type()
-  %74 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %.val39111, i64 noundef %73)
+  %74 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %.val39124, i64 noundef %73)
   %75 = call i32 @gst_app_sink_is_eos(ptr noundef %74)
   %.not20 = icmp eq i32 %75, 0
   br i1 %.not20, label %97, label %76
@@ -5410,12 +5410,12 @@ _ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE3getEv.exit: ; preds = %31, %.backed
   store i8 1, ptr %34, align 1, !tbaa !42
   %77 = load i32, ptr %22, align 4, !tbaa !161
   %78 = icmp eq i32 %77, -1
-  br i1 %78, label %.thread85, label %79
+  br i1 %78, label %.thread98, label %79
 
 79:                                               ; preds = %76
   %.val = load ptr, ptr %16, align 8, !tbaa !60
   %.not29 = icmp eq ptr %.val, null
-  br i1 %.not29, label %.thread85, label %80
+  br i1 %.not29, label %.thread98, label %80
 
 80:                                               ; preds = %79
   %.val38 = load ptr, ptr %32, align 8, !tbaa !62
@@ -5466,7 +5466,7 @@ _ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE3getEv.exit47: ; preds = %80
   %96 = sub nsw i64 %92, %95
   store i64 %96, ptr %39, align 8, !tbaa !206
   store i64 %92, ptr %38, align 8, !tbaa !205
-  br label %.thread85
+  br label %.thread98
 
 97:                                               ; preds = %_ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE3getEv.exit
   %.val37 = load ptr, ptr %32, align 8, !tbaa !62
@@ -5740,7 +5740,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59
   store i8 1, ptr %34, align 1, !tbaa !42
   %184 = load i32, ptr %22, align 4, !tbaa !161
   %185 = icmp eq i32 %184, -1
-  br i1 %185, label %.thread85, label %186
+  br i1 %185, label %.thread98, label %186
 
 186:                                              ; preds = %183
   %.val30 = load ptr, ptr %16, align 8, !tbaa !60
@@ -5870,8 +5870,8 @@ _ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE3getEv.exit71: ; preds = %204
   br label %226
 
 226:                                              ; preds = %.thread, %223, %222
-  %.384 = phi i1 [ %.2, %.thread ], [ true, %223 ], [ true, %222 ]
-  %.val327883 = phi ptr [ %.val31.pre, %.thread ], [ %217, %223 ], [ %217, %222 ]
+  %.397 = phi i1 [ %.2, %.thread ], [ true, %223 ], [ true, %222 ]
+  %.val327896 = phi ptr [ %.val31.pre, %.thread ], [ %217, %223 ], [ %217, %222 ]
   %227 = load i64, ptr %35, align 8, !tbaa !202
   %228 = load i64, ptr %36, align 8, !tbaa !203
   %229 = sub nsw i64 %227, %228
@@ -5896,8 +5896,8 @@ _ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE3getEv.exit71: ; preds = %204
   br label %238
 
 238:                                              ; preds = %232, %226
-  %.val32 = phi ptr [ %.val327883, %226 ], [ %233, %232 ]
-  %.4 = phi i1 [ %.384, %226 ], [ true, %232 ]
+  %.val32 = phi ptr [ %.val327896, %226 ], [ %233, %232 ]
+  %.4 = phi i1 [ %.397, %226 ], [ true, %232 ]
   %.not28 = icmp eq ptr %.val32, null
   br i1 %.not28, label %243, label %239
 
@@ -5906,18 +5906,18 @@ _ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE3getEv.exit71: ; preds = %204
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 72
   %242 = load i64, ptr %241, align 8, !tbaa !214
   store i64 %242, ptr %63, align 8, !tbaa !54
-  br i1 %.4, label %.thread85, label %.backedge
+  br i1 %.4, label %.thread98, label %.backedge
 
 243:                                              ; preds = %238
-  br i1 %.4, label %.thread85, label %.backedge
+  br i1 %.4, label %.thread98, label %.backedge
 
 .backedge:                                        ; preds = %243, %239
   %.val39 = load ptr, ptr %32, align 8, !tbaa !62
   %.not.i42 = icmp eq ptr %.val39, null
   br i1 %.not.i42, label %._crit_edge, label %_ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE3getEv.exit, !llvm.loop !218
 
-.thread85:                                        ; preds = %239, %243, %183, %76, %79, %_ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE3getEv.exit47
-  %.0 = phi i1 [ false, %76 ], [ %.01675110, %79 ], [ true, %_ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE3getEv.exit47 ], [ true, %239 ], [ true, %243 ], [ false, %183 ]
+.thread98:                                        ; preds = %239, %243, %183, %76, %79, %_ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE3getEv.exit47
+  %.0 = phi i1 [ false, %76 ], [ %.01675123, %79 ], [ true, %_ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE3getEv.exit47 ], [ true, %239 ], [ true, %243 ], [ false, %183 ]
   ret i1 %.0
 }
 
@@ -9807,11 +9807,11 @@ _ZN2cv3Mat2atIsEERT_i.exit.us:                    ; preds = %.lr.ph66.split.us.s
   %125 = trunc nuw nsw i64 %indvars.iv109 to i32
   %126 = sdiv i32 %125, %106
   %127 = mul nsw i32 %126, %106
-  %.recomposed154 = srem i32 %125, %106
+  %.recomposed157 = srem i32 %125, %106
   %128 = sext i32 %126 to i64
   %129 = mul i64 %118, %128
   %130 = getelementptr inbounds nuw i8, ptr %108, i64 %129
-  %131 = sext i32 %.recomposed154 to i64
+  %131 = sext i32 %.recomposed157 to i64
   %132 = getelementptr inbounds i16, ptr %130, i64 %131
   store i16 %124, ptr %132, align 2, !tbaa !351
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
@@ -9877,14 +9877,14 @@ _ZN2cv3Mat2atIsEERT_i.exit.us:                    ; preds = %.lr.ph66.split.us.s
   %171 = trunc nuw nsw i64 %indvars.iv124 to i32
   %172 = sdiv i32 %171, %170
   %173 = mul nsw i32 %172, %170
-  %.recomposed155 = srem i32 %171, %170
+  %.recomposed158 = srem i32 %171, %170
   %174 = load ptr, ptr %140, align 8, !tbaa !344
   %175 = load ptr, ptr %141, align 8, !tbaa !345
   %176 = load i64, ptr %175, align 8, !tbaa !201
   %177 = sext i32 %172 to i64
   %178 = mul i64 %176, %177
   %179 = getelementptr inbounds nuw i8, ptr %174, i64 %178
-  %180 = sext i32 %.recomposed155 to i64
+  %180 = sext i32 %.recomposed158 to i64
   %181 = getelementptr inbounds i8, ptr %179, i64 %180
   br label %_ZN2cv3Mat2atIcEERT_i.exit
 
@@ -9943,12 +9943,12 @@ _ZN2cv3Mat2atIsEERT_i.exit:                       ; preds = %_ZN2cv3Mat2atIsEERT
   %207 = trunc nuw nsw i64 %indvars.iv101 to i32
   %208 = sdiv i32 %207, %206
   %209 = mul nsw i32 %208, %206
-  %.recomposed156 = srem i32 %207, %206
+  %.recomposed159 = srem i32 %207, %206
   %210 = load i64, ptr %91, align 8, !tbaa !201
   %211 = sext i32 %208 to i64
   %212 = mul i64 %210, %211
   %213 = getelementptr inbounds nuw i8, ptr %89, i64 %212
-  %214 = sext i32 %.recomposed156 to i64
+  %214 = sext i32 %.recomposed159 to i64
   %215 = getelementptr inbounds i32, ptr %213, i64 %214
   br label %_ZN2cv3Mat2atIiEERT_i.exit
 
@@ -11508,7 +11508,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit539: ; preds = %_Z
 
 606:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit539
   %607 = icmp eq i32 %536, 1
-  br i1 %607, label %619, label %.invoke647
+  br i1 %607, label %619, label %.invoke725
 
 608:                                              ; preds = %595
   %609 = landingpad { ptr, i32 }
@@ -11539,7 +11539,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit542: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit556
 
-617:                                              ; preds = %.invoke647
+617:                                              ; preds = %.invoke725
   %618 = landingpad { ptr, i32 }
           cleanup
   br label %956
@@ -11607,7 +11607,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit542: ; preds = %_Z
 
 642:                                              ; preds = %639
   %643 = icmp eq i32 %536, 1
-  br i1 %643, label %644, label %.invoke647
+  br i1 %643, label %644, label %.invoke725
 
 644:                                              ; preds = %642
   %645 = getelementptr inbounds nuw i8, ptr %13, i64 104
@@ -11677,7 +11677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit542: ; preds = %_Z
 
 669:                                              ; preds = %663, %666
   %670 = icmp eq i32 %536, 1
-  br i1 %670, label %671, label %.invoke647
+  br i1 %670, label %671, label %.invoke725
 
 671:                                              ; preds = %669
   %672 = getelementptr inbounds nuw i8, ptr %13, i64 104
@@ -11757,7 +11757,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit542: ; preds = %_Z
 
 702:                                              ; preds = %690, %693, %696, %699
   %703 = icmp eq i32 %536, 1
-  br i1 %703, label %704, label %.invoke647
+  br i1 %703, label %704, label %.invoke725
 
 704:                                              ; preds = %702
   %705 = getelementptr inbounds nuw i8, ptr %13, i64 104
@@ -11832,7 +11832,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit542: ; preds = %_Z
 
 732:                                              ; preds = %723, %726, %729
   %733 = icmp eq i32 %536, 1
-  br i1 %733, label %734, label %.invoke647
+  br i1 %733, label %734, label %.invoke725
 
 734:                                              ; preds = %732
   %735 = getelementptr inbounds nuw i8, ptr %13, i64 104
@@ -11903,7 +11903,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit542: ; preds = %_Z
 
 760:                                              ; preds = %754, %757
   %761 = icmp eq i32 %536, 2
-  br i1 %761, label %762, label %.invoke647
+  br i1 %761, label %762, label %.invoke725
 
 762:                                              ; preds = %760
   %763 = getelementptr inbounds nuw i8, ptr %13, i64 104
@@ -12127,15 +12127,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit542: ; preds = %_Z
 
 831:                                              ; preds = %825, %828
   %832 = icmp eq i32 %536, 3
-  br i1 %832, label %835, label %.invoke647
+  br i1 %832, label %835, label %.invoke725
 
-.invoke647:                                       ; preds = %831, %760, %732, %702, %669, %642, %606
+.invoke725:                                       ; preds = %831, %760, %732, %702, %669, %642, %606
   %833 = phi i32 [ 1, %606 ], [ 1, %642 ], [ 1, %669 ], [ 1, %702 ], [ 1, %732 ], [ 2, %760 ], [ 3, %831 ]
   %834 = phi ptr [ @_ZZN2cv16GStreamerCapture18retrieveVideoFrameEiRKNS_12_OutputArrayEE16__cv_check__1030, %606 ], [ @_ZZN2cv16GStreamerCapture18retrieveVideoFrameEiRKNS_12_OutputArrayEE16__cv_check__1039, %642 ], [ @_ZZN2cv16GStreamerCapture18retrieveVideoFrameEiRKNS_12_OutputArrayEE16__cv_check__1048, %669 ], [ @_ZZN2cv16GStreamerCapture18retrieveVideoFrameEiRKNS_12_OutputArrayEE16__cv_check__1057, %702 ], [ @_ZZN2cv16GStreamerCapture18retrieveVideoFrameEiRKNS_12_OutputArrayEE16__cv_check__1066, %732 ], [ @_ZZN2cv16GStreamerCapture18retrieveVideoFrameEiRKNS_12_OutputArrayEE16__cv_check__1075, %760 ], [ @_ZZN2cv16GStreamerCapture18retrieveVideoFrameEiRKNS_12_OutputArrayEE16__cv_check__1091, %831 ]
   invoke void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %536, i32 noundef %833, ptr noundef nonnull align 8 dereferenceable(48) %834) #34
-          to label %.cont648 unwind label %617
+          to label %.cont726 unwind label %617
 
-.cont648:                                         ; preds = %.invoke647
+.cont726:                                         ; preds = %.invoke725
   unreachable
 
 835:                                              ; preds = %831
@@ -16994,7 +16994,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit914: ; preds = %_Z
   %876 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.backedge
 
-.critedge1210:                                    ; preds = %878, %946
+.critedge1360:                                    ; preds = %878, %946
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %.backedge.backedge
 
@@ -17005,7 +17005,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit914: ; preds = %_Z
           to label %878 unwind label %881
 
 878:                                              ; preds = %.backedge
-  switch i32 %877, label %.critedge1210 [
+  switch i32 %877, label %.critedge1360 [
     i32 1, label %883
     i32 2, label %946
     i32 3, label %_ZN2cv12_GLOBAL__N_18GSafePtrIcED2Ev.exit.thread
@@ -17188,17 +17188,17 @@ _ZN2cv12_GLOBAL__N_18GSafePtrIcE7releaseEv.exit:  ; preds = %940
 
 944:                                              ; preds = %_ZN2cv12_GLOBAL__N_18GSafePtrIcE7releaseEv.exit
   %.val709 = load ptr, ptr %876, align 8, !tbaa !62
-  %.not1206 = icmp eq ptr %.val709, null
+  %.not1356 = icmp eq ptr %.val709, null
   br label %945
 
 945:                                              ; preds = %_ZN2cv12_GLOBAL__N_18GSafePtrIcE7releaseEv.exit, %944, %_ZN2cv12_GLOBAL__N_18GSafePtrIcE6attachEPc.exit916
-  %.2409 = phi i1 [ true, %_ZN2cv12_GLOBAL__N_18GSafePtrIcE6attachEPc.exit916 ], [ true, %_ZN2cv12_GLOBAL__N_18GSafePtrIcE7releaseEv.exit ], [ %.not1206, %944 ]
+  %.2409 = phi i1 [ true, %_ZN2cv12_GLOBAL__N_18GSafePtrIcE6attachEPc.exit916 ], [ true, %_ZN2cv12_GLOBAL__N_18GSafePtrIcE7releaseEv.exit ], [ %.not1356, %944 ]
   invoke void @g_value_unset(ptr noundef nonnull %41)
           to label %_ZN2cv12_GLOBAL__N_18GSafePtrIcED2Ev.exit unwind label %881
 
 946:                                              ; preds = %878
   invoke void @gst_iterator_resync(ptr noundef %872)
-          to label %.critedge1210 unwind label %881
+          to label %.critedge1360 unwind label %881
 
 _ZN2cv12_GLOBAL__N_18GSafePtrIcED2Ev.exit.thread: ; preds = %878, %878
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
@@ -17208,7 +17208,7 @@ _ZN2cv12_GLOBAL__N_18GSafePtrIcED2Ev.exit:        ; preds = %945
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br i1 %.2409, label %.backedge.backedge, label %.loopexit
 
-.backedge.backedge:                               ; preds = %_ZN2cv12_GLOBAL__N_18GSafePtrIcED2Ev.exit, %.critedge1210
+.backedge.backedge:                               ; preds = %_ZN2cv12_GLOBAL__N_18GSafePtrIcED2Ev.exit, %.critedge1360
   br label %.backedge, !llvm.loop !541
 
 .loopexit:                                        ; preds = %_ZN2cv12_GLOBAL__N_18GSafePtrIcED2Ev.exit, %_ZN2cv12_GLOBAL__N_18GSafePtrIcED2Ev.exit.thread
@@ -18488,22 +18488,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit986: ; preds = %_Z
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond1216 = select i1 %1423, i1 %switch.lobit, i1 false
-  br i1 %or.cond1216, label %switch.lookup, label %.invoke
+  %or.cond1366 = select i1 %1423, i1 %switch.lobit, i1 false
+  br i1 %or.cond1366, label %switch.lookup, label %.invoke
 
 switch.lookup:                                    ; preds = %1420
   %1424 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN2cv16GStreamerCapture4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_22VideoCaptureParametersE, i64 0, i64 %1424
   %switch.load = load i32, ptr %switch.gep, align 4
   %1425 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1214 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN2cv16GStreamerCapture4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_22VideoCaptureParametersE.37, i64 0, i64 %1425
-  %switch.load1215 = load ptr, ptr %switch.gep1214, align 8
+  %switch.gep1364 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN2cv16GStreamerCapture4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_22VideoCaptureParametersE.37, i64 0, i64 %1425
+  %switch.load1365 = load ptr, ptr %switch.gep1364, align 8
   %1426 = getelementptr inbounds nuw i8, ptr %0, i64 244
   store i32 %switch.load, ptr %1426, align 4, !tbaa !45
   br label %.invoke
 
 .invoke:                                          ; preds = %1420, %switch.lookup
-  %1427 = phi ptr [ @.str, %1420 ], [ %switch.load1215, %switch.lookup ]
+  %1427 = phi ptr [ @.str, %1420 ], [ %switch.load1365, %switch.lookup ]
   %1428 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %1429 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1428, ptr noundef nonnull %1427)
           to label %1430 unwind label %836
@@ -21978,10 +21978,10 @@ define hidden noundef zeroext i1 @_ZN2cv16GStreamerCapture11setPropertyEid(ptr n
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val188 = load ptr, ptr %32, align 8, !tbaa !62
   %33 = icmp eq ptr %.val188, null
-  %.sink304.sroa.gep = getelementptr inbounds nuw i8, ptr %22, i64 19
-  %.sink304.sroa.gep305 = getelementptr inbounds nuw i8, ptr %22, i64 26
-  %.sink304.sroa.gep306 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %.sink304.sroa.gep307 = getelementptr inbounds nuw i8, ptr %22, i64 26
+  %.sink350.sroa.gep = getelementptr inbounds nuw i8, ptr %22, i64 19
+  %.sink350.sroa.gep351 = getelementptr inbounds nuw i8, ptr %22, i64 26
+  %.sink350.sroa.gep352 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %.sink350.sroa.gep353 = getelementptr inbounds nuw i8, ptr %22, i64 26
   br i1 %33, label %34, label %107
 
 34:                                               ; preds = %3
@@ -22989,9 +22989,9 @@ default.unreachable:                              ; preds = %384
 
 387:                                              ; preds = %._crit_edge.i.i12.i, %._crit_edge.i.i8.i, %._crit_edge.i.i4.i, %._crit_edge.i.i.i
   %.sink = phi i64 [ 3, %._crit_edge.i.i12.i ], [ 10, %._crit_edge.i.i8.i ], [ 8, %._crit_edge.i.i4.i ], [ 10, %._crit_edge.i.i.i ]
-  %.sink304.sroa.phi = phi ptr [ %.sink304.sroa.gep, %._crit_edge.i.i12.i ], [ %.sink304.sroa.gep305, %._crit_edge.i.i8.i ], [ %.sink304.sroa.gep306, %._crit_edge.i.i4.i ], [ %.sink304.sroa.gep307, %._crit_edge.i.i.i ]
+  %.sink350.sroa.phi = phi ptr [ %.sink350.sroa.gep, %._crit_edge.i.i12.i ], [ %.sink350.sroa.gep351, %._crit_edge.i.i8.i ], [ %.sink350.sroa.gep352, %._crit_edge.i.i4.i ], [ %.sink350.sroa.gep353, %._crit_edge.i.i.i ]
   store i64 %.sink, ptr %386, align 8, !tbaa !52, !alias.scope !572
-  store i8 0, ptr %.sink304.sroa.phi, align 1, !tbaa !53, !alias.scope !572
+  store i8 0, ptr %.sink350.sroa.phi, align 1, !tbaa !53, !alias.scope !572
   %388 = getelementptr inbounds nuw i8, ptr %22, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %389 = insertelement <2 x double> poison, double %2, i64 0
@@ -23855,10 +23855,10 @@ define hidden noundef double @_ZNK2cv16GStreamerCapture11getPropertyEi(ptr nound
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val117 = load ptr, ptr %22, align 8, !tbaa !62
   %23 = icmp eq ptr %.val117, null
-  %.sink194.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 19
-  %.sink194.sroa.gep195 = getelementptr inbounds nuw i8, ptr %12, i64 26
-  %.sink194.sroa.gep196 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sink194.sroa.gep197 = getelementptr inbounds nuw i8, ptr %12, i64 26
+  %.sink226.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 19
+  %.sink226.sroa.gep227 = getelementptr inbounds nuw i8, ptr %12, i64 26
+  %.sink226.sroa.gep228 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sink226.sroa.gep229 = getelementptr inbounds nuw i8, ptr %12, i64 26
   br i1 %23, label %24, label %97
 
 24:                                               ; preds = %2
@@ -24435,9 +24435,9 @@ default.unreachable:                              ; preds = %228
 
 231:                                              ; preds = %._crit_edge.i.i12.i, %._crit_edge.i.i8.i, %._crit_edge.i.i4.i, %._crit_edge.i.i.i
   %.sink = phi i64 [ 3, %._crit_edge.i.i12.i ], [ 10, %._crit_edge.i.i8.i ], [ 8, %._crit_edge.i.i4.i ], [ 10, %._crit_edge.i.i.i ]
-  %.sink194.sroa.phi = phi ptr [ %.sink194.sroa.gep, %._crit_edge.i.i12.i ], [ %.sink194.sroa.gep195, %._crit_edge.i.i8.i ], [ %.sink194.sroa.gep196, %._crit_edge.i.i4.i ], [ %.sink194.sroa.gep197, %._crit_edge.i.i.i ]
+  %.sink226.sroa.phi = phi ptr [ %.sink226.sroa.gep, %._crit_edge.i.i12.i ], [ %.sink226.sroa.gep227, %._crit_edge.i.i8.i ], [ %.sink226.sroa.gep228, %._crit_edge.i.i4.i ], [ %.sink226.sroa.gep229, %._crit_edge.i.i.i ]
   store i64 %.sink, ptr %230, align 8, !tbaa !52, !alias.scope !588
-  store i8 0, ptr %.sink194.sroa.phi, align 1, !tbaa !53, !alias.scope !588
+  store i8 0, ptr %.sink226.sroa.phi, align 1, !tbaa !53, !alias.scope !588
   %232 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !347
@@ -26599,7 +26599,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
 _ZN2cvL11toLowerCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.lr.ph.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
   %45 = load ptr, ptr %5, align 8, !tbaa !57
   %46 = icmp eq ptr %45, %11
-  br i1 %46, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %46, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZN2cvL11toLowerCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %47 = load i64, ptr %22, align 8, !tbaa !52
@@ -26610,15 +26610,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %.pre20 = load i64, ptr %34, align 8, !tbaa !52
   br i1 %50, label %53, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZN2cvL11toLowerCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZN2cvL11toLowerCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %51 = load ptr, ptr %6, align 8, !tbaa !57
   %52 = icmp eq ptr %51, %25
   %.pre = load i64, ptr %34, align 8, !tbaa !52
   br i1 %52, label %53, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-53:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %54 = phi i64 [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %.pre20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
-  %55 = phi ptr [ %51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+53:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %54 = phi i64 [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %.pre20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+  %55 = phi ptr [ %51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %56 = icmp ult i64 %54, 16
   call void @llvm.assume(i1 %56)
   switch i64 %54, label %59 [
@@ -26651,7 +26651,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %63, ptr %11, align 8, !tbaa !53
   br label %67
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %64 = load i64, ptr %11, align 8, !tbaa !53
   store ptr %51, ptr %5, align 8, !tbaa !57
   store i64 %.pre, ptr %22, align 8, !tbaa !52
@@ -27067,13 +27067,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit396: ; preds = %_Z
   %164 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 24
   %165 = load i32, ptr %164, align 4, !tbaa !118
   %166 = icmp eq i32 %165, 4
-  br i1 %166, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1044, label %167
+  br i1 %166, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1156, label %167
 
 167:                                              ; preds = %163
   %168 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 36
   %169 = load i32, ptr %168, align 4, !tbaa !118
   %170 = icmp eq i32 %169, 4
-  br i1 %170, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1046, label %171
+  br i1 %170, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1158, label %171
 
 171:                                              ; preds = %167
   %172 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 48
@@ -27126,16 +27126,16 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParame
   %189 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 12
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1044: ; preds = %163
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1156: ; preds = %163
   %190 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 24
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1046: ; preds = %167
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1158: ; preds = %167
   %191 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 36
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1044, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1046, %186, %181, %176
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %176 ], [ %.sroa.032.1.i.i.i.i, %181 ], [ %spec.select.i.i.i.i, %186 ], [ %189, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit ], [ %190, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1044 ], [ %191, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1046 ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1156, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1158, %186, %181, %176
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %176 ], [ %.sroa.032.1.i.i.i.i, %181 ], [ %spec.select.i.i.i.i, %186 ], [ %189, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit ], [ %190, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1156 ], [ %191, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1158 ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.not.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %149
   br i1 %.not.i, label %_ZNK2cv15VideoParameters3getIbEET_iS2_.exit, label %192
 
@@ -27173,13 +27173,13 @@ _ZNK2cv15VideoParameters3getIbEET_iS2_.exit:      ; preds = %._crit_edge.i.i.i.i
   %205 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i410, i64 24
   %206 = load i32, ptr %205, align 4, !tbaa !118
   %207 = icmp eq i32 %206, 5
-  br i1 %207, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1052, label %208
+  br i1 %207, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1164, label %208
 
 208:                                              ; preds = %204
   %209 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i410, i64 36
   %210 = load i32, ptr %209, align 4, !tbaa !118
   %211 = icmp eq i32 %210, 5
-  br i1 %211, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1054, label %212
+  br i1 %211, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1166, label %212
 
 212:                                              ; preds = %208
   %213 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i410, i64 48
@@ -27232,16 +27232,16 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParame
   %230 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i410, i64 12
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1052: ; preds = %204
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1164: ; preds = %204
   %231 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i410, i64 24
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1054: ; preds = %208
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1166: ; preds = %208
   %232 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i410, i64 36
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i408, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1052, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1054, %227, %222, %217
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i402 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i399, %217 ], [ %.sroa.032.1.i.i.i.i405, %222 ], [ %spec.select.i.i.i.i401, %227 ], [ %230, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit ], [ %231, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1052 ], [ %232, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1054 ], [ %.sroa.032.051.i.i.i.i410, %.lr.ph.i.i.i.i408 ]
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i408, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1164, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1166, %227, %222, %217
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i402 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i399, %217 ], [ %.sroa.032.1.i.i.i.i405, %222 ], [ %spec.select.i.i.i.i401, %227 ], [ %230, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit ], [ %231, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1164 ], [ %232, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit1166 ], [ %.sroa.032.051.i.i.i.i410, %.lr.ph.i.i.i.i408 ]
   %.not.i403 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i402, %149
   br i1 %.not.i403, label %_ZNK2cv15VideoParameters3getIiEET_iS2_.exit, label %233
 
@@ -27278,13 +27278,13 @@ _ZNK2cv15VideoParameters3getIiEET_iS2_.exit:      ; preds = %._crit_edge.i.i.i.i
   %245 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i425, i64 24
   %246 = load i32, ptr %245, align 4, !tbaa !118
   %247 = icmp eq i32 %246, 6
-  br i1 %247, label %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit1060, label %248
+  br i1 %247, label %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit1172, label %248
 
 248:                                              ; preds = %244
   %249 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i425, i64 36
   %250 = load i32, ptr %249, align 4, !tbaa !118
   %251 = icmp eq i32 %250, 6
-  br i1 %251, label %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit1062, label %252
+  br i1 %251, label %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit1174, label %252
 
 252:                                              ; preds = %248
   %253 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i425, i64 48
@@ -27337,16 +27337,16 @@ _ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit: ; preds = %240
   %270 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i425, i64 12
   br label %_ZNK2cv15VideoParameters3hasEi.exit
 
-_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit1060: ; preds = %244
+_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit1172: ; preds = %244
   %271 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i425, i64 24
   br label %_ZNK2cv15VideoParameters3hasEi.exit
 
-_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit1062: ; preds = %248
+_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit1174: ; preds = %248
   %272 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i425, i64 36
   br label %_ZNK2cv15VideoParameters3hasEi.exit
 
-_ZNK2cv15VideoParameters3hasEi.exit:              ; preds = %.lr.ph.i.i.i.i423, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit1060, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit1062, %257, %262, %267
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i419 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i416, %257 ], [ %.sroa.032.1.i.i.i.i420, %262 ], [ %spec.select.i.i.i.i418, %267 ], [ %270, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit ], [ %271, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit1060 ], [ %272, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit1062 ], [ %.sroa.032.051.i.i.i.i425, %.lr.ph.i.i.i.i423 ]
+_ZNK2cv15VideoParameters3hasEi.exit:              ; preds = %.lr.ph.i.i.i.i423, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit1172, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit1174, %257, %262, %267
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i419 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i416, %257 ], [ %.sroa.032.1.i.i.i.i420, %262 ], [ %spec.select.i.i.i.i418, %267 ], [ %270, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit ], [ %271, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit1172 ], [ %272, %_ZNK2cv15VideoParameters3hasEi.exit.loopexit.split.loop.exit1174 ], [ %.sroa.032.051.i.i.i.i425, %.lr.ph.i.i.i.i423 ]
   %.not965 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i419, %149
   br i1 %.not965, label %_ZNK2cv15VideoParameters3hasEi.exit.thread, label %273
 
@@ -27394,13 +27394,13 @@ _ZNK2cv15VideoParameters3hasEi.exit.thread:       ; preds = %._crit_edge.i.i.i.i
   %287 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i440, i64 24
   %288 = load i32, ptr %287, align 4, !tbaa !118
   %289 = icmp eq i32 %288, 7
-  br i1 %289, label %_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit1068, label %290
+  br i1 %289, label %_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit1180, label %290
 
 290:                                              ; preds = %286
   %291 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i440, i64 36
   %292 = load i32, ptr %291, align 4, !tbaa !118
   %293 = icmp eq i32 %292, 7
-  br i1 %293, label %_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit1070, label %294
+  br i1 %293, label %_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit1182, label %294
 
 294:                                              ; preds = %290
   %295 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i440, i64 48
@@ -27453,16 +27453,16 @@ _ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit: ; preds = %282
   %312 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i440, i64 12
   br label %_ZNK2cv15VideoParameters3hasEi.exit447
 
-_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit1068: ; preds = %286
+_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit1180: ; preds = %286
   %313 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i440, i64 24
   br label %_ZNK2cv15VideoParameters3hasEi.exit447
 
-_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit1070: ; preds = %290
+_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit1182: ; preds = %290
   %314 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i440, i64 36
   br label %_ZNK2cv15VideoParameters3hasEi.exit447
 
-_ZNK2cv15VideoParameters3hasEi.exit447:           ; preds = %.lr.ph.i.i.i.i438, %_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit, %_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit1068, %_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit1070, %299, %304, %309
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i434 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i431, %299 ], [ %.sroa.032.1.i.i.i.i435, %304 ], [ %spec.select.i.i.i.i433, %309 ], [ %312, %_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit ], [ %313, %_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit1068 ], [ %314, %_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit1070 ], [ %.sroa.032.051.i.i.i.i440, %.lr.ph.i.i.i.i438 ]
+_ZNK2cv15VideoParameters3hasEi.exit447:           ; preds = %.lr.ph.i.i.i.i438, %_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit, %_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit1180, %_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit1182, %299, %304, %309
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i434 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i431, %299 ], [ %.sroa.032.1.i.i.i.i435, %304 ], [ %spec.select.i.i.i.i433, %309 ], [ %312, %_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit ], [ %313, %_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit1180 ], [ %314, %_ZNK2cv15VideoParameters3hasEi.exit447.loopexit.split.loop.exit1182 ], [ %.sroa.032.051.i.i.i.i440, %.lr.ph.i.i.i.i438 ]
   %.not966 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i434, %276
   br i1 %.not966, label %_ZNK2cv15VideoParameters3hasEi.exit447.thread, label %315
 
@@ -28225,7 +28225,7 @@ _ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE6attachEPS2_.exit: ; preds = %613
 618:                                              ; preds = %_ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE6attachEPS2_.exit
   br i1 %.not.i602, label %_ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE3getEv.exit, label %621
 
-619:                                              ; preds = %_ZN2cv12_GLOBAL__N_18GSafePtrI7_GErrorE7releaseEv.exit, %.loopexit1041, %734, %732, %_ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE3getEv.exit, %725, %723, %613
+619:                                              ; preds = %_ZN2cv12_GLOBAL__N_18GSafePtrI7_GErrorE7releaseEv.exit, %.loopexit1153, %734, %732, %_ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE3getEv.exit, %725, %723, %613
   %620 = landingpad { ptr, i32 }
           cleanup
   br label %.body514
@@ -28642,7 +28642,7 @@ _ZN2cv12_GLOBAL__N_18GSafePtrI11_GstElementE6attachEPS2_.exit577: ; preds = %757
 _ZN2cv12_GLOBAL__N_18GSafePtrIcED2Ev.exit.thread: ; preds = %739, %739
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
-  br label %.loopexit1041
+  br label %.loopexit1153
 
 766:                                              ; preds = %764
   br i1 %.not311, label %_ZN2cv12_GLOBAL__N_18GSafePtrIcED2Ev.exit, label %767
@@ -28663,13 +28663,13 @@ _ZN2cv12_GLOBAL__N_18GSafePtrIcED2Ev.exit:        ; preds = %767, %739, %765, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   %.not264 = icmp eq i32 %.1232949, 0
-  br i1 %.not264, label %737, label %.loopexit1041, !llvm.loop !699
+  br i1 %.not264, label %737, label %.loopexit1153, !llvm.loop !699
 
-.loopexit1041:                                    ; preds = %_ZN2cv12_GLOBAL__N_18GSafePtrIcED2Ev.exit, %_ZN2cv12_GLOBAL__N_18GSafePtrIcED2Ev.exit.thread
+.loopexit1153:                                    ; preds = %_ZN2cv12_GLOBAL__N_18GSafePtrIcED2Ev.exit, %_ZN2cv12_GLOBAL__N_18GSafePtrIcED2Ev.exit.thread
   invoke void @gst_iterator_free(ptr noundef %735)
           to label %771 unwind label %619
 
-771:                                              ; preds = %.loopexit1041
+771:                                              ; preds = %.loopexit1153
   %.val = load ptr, ptr %736, align 8, !tbaa !62
   %772 = icmp eq ptr %.val, null
   br i1 %772, label %773, label %853
@@ -29428,8 +29428,8 @@ _ZN2cv12_GLOBAL__N_18GSafePtrI24_GstEncodingVideoProfileE5resetEPS2_.exit: ; pre
   br i1 %.not.i669, label %1038, label %_ZN2cv12_GLOBAL__N_18GSafePtrI24_GstEncodingVideoProfileE3getEv.exit
 
 _ZN2cv12_GLOBAL__N_18GSafePtrI24_GstEncodingVideoProfileE5resetEPS2_.exit.thread: ; preds = %_ZN2cv12_GLOBAL__N_18GSafePtrI24_GstEncodingVideoProfileE7releaseEv.exit.i
-  %.not.i6691037 = icmp eq ptr %1030, null
-  br i1 %.not.i6691037, label %1038, label %1048
+  %.not.i6691149 = icmp eq ptr %1030, null
+  br i1 %.not.i6691149, label %1038, label %1048
 
 1038:                                             ; preds = %_ZN2cv12_GLOBAL__N_18GSafePtrI24_GstEncodingVideoProfileE5resetEPS2_.exit.thread, %_ZN2cv12_GLOBAL__N_18GSafePtrI24_GstEncodingVideoProfileE5resetEPS2_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
@@ -34783,11 +34783,11 @@ _ZSt9__fill_a1IhEN9__gnu_cxx11__enable_ifIXsr9__is_byteIT_EE7__valueEvE6__typeEP
 
 _ZSt9__fill_a1IhEN9__gnu_cxx11__enable_ifIXsr9__is_byteIT_EE7__valueEvE6__typeEPS2_S5_RKS2_.exit19.sink.split.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.i.i._ZSt9__fill_a1IhEN9__gnu_cxx11__enable_ifIXsr9__is_byteIT_EE7__valueEvE6__typeEPS2_S5_RKS2_.exit19.sink.split.i.i.i.i_crit_edge.i.i, %52
   %62 = phi i8 [ %.pre.i.i, %._crit_edge.i.i.i.i._ZSt9__fill_a1IhEN9__gnu_cxx11__enable_ifIXsr9__is_byteIT_EE7__valueEvE6__typeEPS2_S5_RKS2_.exit19.sink.split.i.i.i.i_crit_edge.i.i ], [ 0, %52 ]
-  %.sink31.i.i.i.i.i.i = phi ptr [ %.sroa.6.0, %._crit_edge.i.i.i.i._ZSt9__fill_a1IhEN9__gnu_cxx11__enable_ifIXsr9__is_byteIT_EE7__valueEvE6__typeEPS2_S5_RKS2_.exit19.sink.split.i.i.i.i_crit_edge.i.i ], [ %51, %52 ]
-  %63 = ptrtoint ptr %.sink31.i.i.i.i.i.i to i64
+  %.sink39.i.i.i.i.i.i = phi ptr [ %.sroa.6.0, %._crit_edge.i.i.i.i._ZSt9__fill_a1IhEN9__gnu_cxx11__enable_ifIXsr9__is_byteIT_EE7__valueEvE6__typeEPS2_S5_RKS2_.exit19.sink.split.i.i.i.i_crit_edge.i.i ], [ %51, %52 ]
+  %63 = ptrtoint ptr %.sink39.i.i.i.i.i.i to i64
   %64 = ptrtoint ptr %storemerge.i.i.i to i64
   %65 = sub i64 %64, %63
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.sink31.i.i.i.i.i.i, i8 %62, i64 %65, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.sink39.i.i.i.i.i.i, i8 %62, i64 %65, i1 false)
   br label %_ZSt25__uninitialized_default_aISt15_Deque_iteratorIhRhPhEhEvT_S4_RSaIT0_E.exit
 
 _ZSt25__uninitialized_default_aISt15_Deque_iteratorIhRhPhEhEvT_S4_RSaIT0_E.exit: ; preds = %_ZSt9__fill_a1IhEN9__gnu_cxx11__enable_ifIXsr9__is_byteIT_EE7__valueEvE6__typeEPS2_S5_RKS2_.exit19.sink.split.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i, %_ZNSt15_Deque_iteratorIhRhPhEppEv.exit.i.i.i, %_ZNSt5dequeIhSaIhEE27_M_reserve_elements_at_backEm.exit
@@ -35636,16 +35636,16 @@ _ZNSt5dequeIhSaIhEE5clearEv.exit:                 ; preds = %.lr.ph.i.i.i, %40
 
 134:                                              ; preds = %125
   %135 = icmp samesign ult i64 %132, 512
-  br i1 %135, label %_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread, label %_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread115
+  br i1 %135, label %_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread, label %_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread130
 
 _ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread:  ; preds = %134
   %136 = getelementptr inbounds i8, ptr %128, i64 %73
   br label %_ZNSt5dequeIhSaIhEE17_M_erase_at_beginESt15_Deque_iteratorIhRhPhE.exit
 
-_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread115: ; preds = %134
+_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread130: ; preds = %134
   %137 = lshr i64 %132, 6
-  %.idx116 = and i64 %137, 144115188075855864
-  %138 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx116
+  %.idx131 = and i64 %137, 144115188075855864
+  %138 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx131
   %139 = load ptr, ptr %138, align 8, !tbaa !72, !noalias !863
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 512
   %141 = and i64 %132, 511
@@ -35662,8 +35662,8 @@ _ZStplRKSt15_Deque_iteratorIhRhPhEl.exit:         ; preds = %125
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 %147
   br label %_ZNSt5dequeIhSaIhEE17_M_erase_at_beginESt15_Deque_iteratorIhRhPhE.exit
 
-.lr.ph.i.i:                                       ; preds = %_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread115, %.lr.ph.i.i
-  %.06.i.i = phi ptr [ %150, %.lr.ph.i.i ], [ %126, %_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread115 ]
+.lr.ph.i.i:                                       ; preds = %_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread130, %.lr.ph.i.i
+  %.06.i.i = phi ptr [ %150, %.lr.ph.i.i ], [ %126, %_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread130 ]
   %149 = load ptr, ptr %.06.i.i, align 8, !tbaa !72
   call void @_ZdlPv(ptr noundef %149) #31
   %150 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
@@ -35737,7 +35737,7 @@ _ZNSt5dequeIhSaIhEE17_M_erase_at_beginESt15_Deque_iteratorIhRhPhE.exit: ; preds 
   %172 = add i64 %73, %.pre-phi112
   %173 = sub i64 %.pre-phi, %172
   %174 = icmp sgt i64 %173, -1
-  br i1 %174, label %175, label %_ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread117
+  br i1 %174, label %175, label %_ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread132
 
 175:                                              ; preds = %167
   %176 = icmp samesign ult i64 %173, 512
@@ -35747,10 +35747,10 @@ _ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread:  ; preds = %175
   %177 = getelementptr inbounds i8, ptr %170, i64 %74
   br label %_ZNSt5dequeIhSaIhEE15_M_erase_at_endESt15_Deque_iteratorIhRhPhE.exit
 
-_ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread117: ; preds = %167
+_ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread132: ; preds = %167
   %178 = ashr i64 %173, 6
-  %.idx92118 = and i64 %178, -8
-  %179 = getelementptr inbounds i8, ptr %168, i64 %.idx92118
+  %.idx92133 = and i64 %178, -8
+  %179 = getelementptr inbounds i8, ptr %168, i64 %.idx92133
   %180 = load ptr, ptr %179, align 8, !tbaa !72, !noalias !881
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 512
   %182 = and i64 %173, 511
@@ -35767,8 +35767,8 @@ _ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit:         ; preds = %175
   %189 = getelementptr inbounds nuw i8, ptr %186, i64 %188
   br label %_ZNSt5dequeIhSaIhEE15_M_erase_at_endESt15_Deque_iteratorIhRhPhE.exit
 
-.lr.ph.i.i6:                                      ; preds = %_ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread117, %.lr.ph.i.i6
-  %.06.i.pn.i = phi ptr [ %.06.i.i7, %.lr.ph.i.i6 ], [ %179, %_ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread117 ]
+.lr.ph.i.i6:                                      ; preds = %_ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread132, %.lr.ph.i.i6
+  %.06.i.pn.i = phi ptr [ %.06.i.i7, %.lr.ph.i.i6 ], [ %179, %_ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread132 ]
   %.06.i.i7 = getelementptr inbounds nuw i8, ptr %.06.i.pn.i, i64 8
   %190 = load ptr, ptr %.06.i.i7, align 8, !tbaa !72
   call void @_ZdlPv(ptr noundef %190) #31
@@ -36207,11 +36207,11 @@ _ZNSt15_Deque_iteratorIhRhPhEmIEl.exit.i59:       ; preds = %179, %173
   br i1 %188, label %.lr.ph.i46, label %_ZSt23__copy_move_backward_a1ILb1EPhhEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit23, !llvm.loop !893
 
 _ZSt23__copy_move_backward_a1ILb1EPhhEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit23: ; preds = %_ZNSt15_Deque_iteratorIhRhPhEmIEl.exit.i21, %_ZNSt15_Deque_iteratorIhRhPhEmIEl.exit.i59, %143, %._crit_edge
-  %.sink93 = phi ptr [ %63, %._crit_edge ], [ %146, %143 ], [ %storemerge.i.i.i60, %_ZNSt15_Deque_iteratorIhRhPhEmIEl.exit.i59 ], [ %storemerge.i.i.i22, %_ZNSt15_Deque_iteratorIhRhPhEmIEl.exit.i21 ]
+  %.sink107 = phi ptr [ %63, %._crit_edge ], [ %146, %143 ], [ %storemerge.i.i.i60, %_ZNSt15_Deque_iteratorIhRhPhEmIEl.exit.i59 ], [ %storemerge.i.i.i22, %_ZNSt15_Deque_iteratorIhRhPhEmIEl.exit.i21 ]
   %.sink = phi ptr [ %62, %._crit_edge ], [ %148, %143 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIhRhPhEmIEl.exit.i59 ], [ %.sroa.465.1, %_ZNSt15_Deque_iteratorIhRhPhEmIEl.exit.i21 ]
   %.sroa.9.2.sink = phi ptr [ %61, %._crit_edge ], [ %150, %143 ], [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIhRhPhEmIEl.exit.i59 ], [ %.sroa.966.1, %_ZNSt15_Deque_iteratorIhRhPhEmIEl.exit.i21 ]
   %.sroa.12.2.sink = phi ptr [ %60, %._crit_edge ], [ %152, %143 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIhRhPhEmIEl.exit.i59 ], [ %.sroa.1267.1, %_ZNSt15_Deque_iteratorIhRhPhEmIEl.exit.i21 ]
-  store ptr %.sink93, ptr %0, align 8, !tbaa !181
+  store ptr %.sink107, ptr %0, align 8, !tbaa !181
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %189, align 8, !tbaa !182
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -36554,11 +36554,11 @@ _ZNSt15_Deque_iteratorIhRhPhEpLEl.exit.i50:       ; preds = %156, %150
   br i1 %165, label %.lr.ph.i41, label %_ZSt14__copy_move_a1ILb1EPhhEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit20, !llvm.loop !907
 
 _ZSt14__copy_move_a1ILb1EPhhEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit20: ; preds = %_ZNSt15_Deque_iteratorIhRhPhEpLEl.exit.i18, %_ZNSt15_Deque_iteratorIhRhPhEpLEl.exit.i50, %127, %._crit_edge
-  %.sink81 = phi ptr [ %58, %._crit_edge ], [ %129, %127 ], [ %storemerge.i.i51, %_ZNSt15_Deque_iteratorIhRhPhEpLEl.exit.i50 ], [ %storemerge.i.i19, %_ZNSt15_Deque_iteratorIhRhPhEpLEl.exit.i18 ]
+  %.sink95 = phi ptr [ %58, %._crit_edge ], [ %129, %127 ], [ %storemerge.i.i51, %_ZNSt15_Deque_iteratorIhRhPhEpLEl.exit.i50 ], [ %storemerge.i.i19, %_ZNSt15_Deque_iteratorIhRhPhEpLEl.exit.i18 ]
   %.sink = phi ptr [ %57, %._crit_edge ], [ %131, %127 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIhRhPhEpLEl.exit.i50 ], [ %.sroa.456.1, %_ZNSt15_Deque_iteratorIhRhPhEpLEl.exit.i18 ]
   %.sroa.8.2.sink = phi ptr [ %56, %._crit_edge ], [ %133, %127 ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIhRhPhEpLEl.exit.i50 ], [ %.sroa.857.1, %_ZNSt15_Deque_iteratorIhRhPhEpLEl.exit.i18 ]
   %.sroa.12.2.sink = phi ptr [ %55, %._crit_edge ], [ %135, %127 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIhRhPhEpLEl.exit.i50 ], [ %.sroa.1259.1, %_ZNSt15_Deque_iteratorIhRhPhEpLEl.exit.i18 ]
-  store ptr %.sink81, ptr %0, align 8, !tbaa !181
+  store ptr %.sink95, ptr %0, align 8, !tbaa !181
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %166, align 8, !tbaa !182
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 16

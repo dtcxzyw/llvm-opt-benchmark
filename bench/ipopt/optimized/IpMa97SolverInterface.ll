@@ -10485,9 +10485,9 @@ _ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11
   br i1 %621, label %.sink.split, label %623
 
 .sink.split:                                      ; preds = %619, %616, %613, %610, %607, %604, %_ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.sink390 = phi i32 [ 0, %_ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 3, %604 ], [ 4, %607 ], [ 5, %610 ], [ 6, %613 ], [ 7, %616 ], [ 8, %619 ]
+  %.sink493 = phi i32 [ 0, %_ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 3, %604 ], [ 4, %607 ], [ 5, %610 ], [ 6, %613 ], [ 7, %616 ], [ 8, %619 ]
   %622 = getelementptr inbounds nuw [3 x i32], ptr %514, i64 0, i64 %indvars.iv
-  store i32 %.sink390, ptr %622, align 4, !tbaa !63
+  store i32 %.sink493, ptr %622, align 4, !tbaa !63
   br label %623
 
 623:                                              ; preds = %.sink.split, %.invoke, %619
@@ -11495,7 +11495,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit45:                 ; preds = %159, %163
     i32 7, label %.thread53
     i32 5, label %.thread53
     i32 8, label %227
-    i32 2, label %.sink.split73
+    i32 2, label %.sink.split84
     i32 4, label %221
     i32 6, label %227
   ]
@@ -11507,7 +11507,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit45:                 ; preds = %159, %163
   %225 = load i8, ptr %14, align 1, !range !68
   %226 = trunc nuw i8 %225 to i1
   %or.cond = select i1 %224, i1 %226, i1 false
-  br i1 %or.cond, label %.sink.split73, label %255
+  br i1 %or.cond, label %.sink.split84, label %255
 
 227:                                              ; preds = %218, %218
   %228 = load i8, ptr %14, align 1, !tbaa !71, !range !68, !noundef !69
@@ -11561,14 +11561,14 @@ _ZN5Ipopt9TimedTask3EndEv.exit45:                 ; preds = %159, %163
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 16
   %254 = load ptr, ptr %253, align 8
   call void (ptr, i32, i32, ptr, ...) %254(ptr noundef nonnull align 8 dereferenceable(40) %251, i32 noundef 6, i32 noundef 7, ptr noundef nonnull @.str.111, i32 noundef %248)
-  br label %.sink.split73
+  br label %.sink.split84
 
-.sink.split73:                                    ; preds = %221, %218, %247
-  %.sink74 = phi i8 [ 1, %247 ], [ 0, %218 ], [ 0, %221 ]
-  store i8 %.sink74, ptr %14, align 1, !tbaa !71
+.sink.split84:                                    ; preds = %221, %218, %247
+  %.sink85 = phi i8 [ 1, %247 ], [ 0, %218 ], [ 0, %221 ]
+  store i8 %.sink85, ptr %14, align 1, !tbaa !71
   br label %255
 
-255:                                              ; preds = %.sink.split73, %218, %221, %239
+255:                                              ; preds = %.sink.split84, %218, %221, %239
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %256 = and i64 %indvars.iv.next, 4294967295
   %exitcond.not = icmp eq i64 %256, 3

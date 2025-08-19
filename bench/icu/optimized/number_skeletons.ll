@@ -5175,34 +5175,34 @@ switch.lookup:                                    ; preds = %156
   %172 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %173 = load i8, ptr %172, align 1, !tbaa !98, !range !88, !noundef !89
   %174 = trunc nuw i8 %173 to i1
-  br i1 %174, label %175, label %switch.lookup151
+  br i1 %174, label %175, label %switch.lookup155
 
 175:                                              ; preds = %171
   store i32 65811, ptr %4, align 4, !tbaa !13
   br label %_ZN6icu_776number4impl17blueprint_helpers16parseIntegerStemERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit
 
-switch.lookup151:                                 ; preds = %171
+switch.lookup155:                                 ; preds = %171
   store i8 1, ptr %172, align 1, !tbaa !98
-  %switch.tableidx152 = add nsw i32 %100, -31
+  %switch.tableidx156 = add nsw i32 %100, -31
   %176 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  store i32 %switch.tableidx152, ptr %176, align 8, !tbaa !66
+  store i32 %switch.tableidx156, ptr %176, align 8, !tbaa !66
   br label %_ZN6icu_776number4impl17blueprint_helpers16parseIntegerStemERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit
 
 177:                                              ; preds = %_ZNK6icu_7710UCharsTrie8getValueEv.exit, %_ZNK6icu_7710UCharsTrie8getValueEv.exit, %_ZNK6icu_7710UCharsTrie8getValueEv.exit, %_ZNK6icu_7710UCharsTrie8getValueEv.exit, %_ZNK6icu_7710UCharsTrie8getValueEv.exit, %_ZNK6icu_7710UCharsTrie8getValueEv.exit, %_ZNK6icu_7710UCharsTrie8getValueEv.exit, %_ZNK6icu_7710UCharsTrie8getValueEv.exit, %_ZNK6icu_7710UCharsTrie8getValueEv.exit
   %178 = getelementptr inbounds nuw i8, ptr %2, i64 11
   %179 = load i8, ptr %178, align 1, !tbaa !99, !range !88, !noundef !89
   %180 = trunc nuw i8 %179 to i1
-  br i1 %180, label %181, label %switch.lookup153
+  br i1 %180, label %181, label %switch.lookup157
 
 181:                                              ; preds = %177
   store i32 65811, ptr %4, align 4, !tbaa !13
   br label %_ZN6icu_776number4impl17blueprint_helpers16parseIntegerStemERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit
 
-switch.lookup153:                                 ; preds = %177
+switch.lookup157:                                 ; preds = %177
   store i8 1, ptr %178, align 1, !tbaa !99
-  %switch.tableidx154 = add nsw i32 %100, -38
+  %switch.tableidx158 = add nsw i32 %100, -38
   %182 = getelementptr inbounds nuw i8, ptr %3, i64 156
-  store i32 %switch.tableidx154, ptr %182, align 4, !tbaa !67
+  store i32 %switch.tableidx158, ptr %182, align 4, !tbaa !67
   br label %_ZN6icu_776number4impl17blueprint_helpers16parseIntegerStemERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit
 
 183:                                              ; preds = %_ZNK6icu_7710UCharsTrie8getValueEv.exit, %_ZNK6icu_7710UCharsTrie8getValueEv.exit
@@ -5377,8 +5377,8 @@ switch.lookup153:                                 ; preds = %177
   tail call void @abort() #20
   unreachable
 
-_ZN6icu_776number4impl17blueprint_helpers16parseIntegerStemERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit: ; preds = %47, %46, %53, %137, %105, %253, %252, %247, %246, %241, %240, %235, %234, %229, %224, %223, %218, %217, %212, %207, %206, %201, %200, %195, %194, %188, %187, %switch.lookup153, %181, %switch.lookup151, %175, %168, %167, %switch.lookup, %160, %152, %151, %144, %143, %136, %127, %126, %121, %114, %113, %104, %33, %28, %27, %23, %22, %17, %16
-  %.0 = phi i32 [ 0, %16 ], [ 2, %17 ], [ 0, %22 ], [ 3, %23 ], [ 0, %27 ], [ 0, %28 ], [ 0, %33 ], [ 0, %53 ], [ 0, %104 ], [ 0, %113 ], [ 0, %114 ], [ 0, %121 ], [ 0, %126 ], [ 0, %127 ], [ 0, %136 ], [ 0, %143 ], [ 0, %144 ], [ 0, %151 ], [ 0, %152 ], [ 0, %160 ], [ 0, %switch.lookup ], [ 0, %167 ], [ 0, %168 ], [ 0, %175 ], [ 0, %switch.lookup151 ], [ 0, %181 ], [ 0, %switch.lookup153 ], [ 0, %187 ], [ 0, %188 ], [ 0, %194 ], [ 4, %195 ], [ 0, %200 ], [ 5, %201 ], [ 0, %206 ], [ 6, %207 ], [ 0, %212 ], [ 0, %217 ], [ 7, %218 ], [ 0, %223 ], [ 8, %224 ], [ 0, %229 ], [ 0, %234 ], [ 9, %235 ], [ 0, %240 ], [ 10, %241 ], [ 0, %246 ], [ 11, %247 ], [ 0, %252 ], [ 12, %253 ], [ %., %105 ], [ %.141, %137 ], [ 0, %46 ], [ 0, %47 ]
+_ZN6icu_776number4impl17blueprint_helpers16parseIntegerStemERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit: ; preds = %47, %46, %53, %137, %105, %253, %252, %247, %246, %241, %240, %235, %234, %229, %224, %223, %218, %217, %212, %207, %206, %201, %200, %195, %194, %188, %187, %switch.lookup157, %181, %switch.lookup155, %175, %168, %167, %switch.lookup, %160, %152, %151, %144, %143, %136, %127, %126, %121, %114, %113, %104, %33, %28, %27, %23, %22, %17, %16
+  %.0 = phi i32 [ 0, %16 ], [ 2, %17 ], [ 0, %22 ], [ 3, %23 ], [ 0, %27 ], [ 0, %28 ], [ 0, %33 ], [ 0, %53 ], [ 0, %104 ], [ 0, %113 ], [ 0, %114 ], [ 0, %121 ], [ 0, %126 ], [ 0, %127 ], [ 0, %136 ], [ 0, %143 ], [ 0, %144 ], [ 0, %151 ], [ 0, %152 ], [ 0, %160 ], [ 0, %switch.lookup ], [ 0, %167 ], [ 0, %168 ], [ 0, %175 ], [ 0, %switch.lookup155 ], [ 0, %181 ], [ 0, %switch.lookup157 ], [ 0, %187 ], [ 0, %188 ], [ 0, %194 ], [ 4, %195 ], [ 0, %200 ], [ 5, %201 ], [ 0, %206 ], [ 6, %207 ], [ 0, %212 ], [ 0, %217 ], [ 7, %218 ], [ 0, %223 ], [ 8, %224 ], [ 0, %229 ], [ 0, %234 ], [ 9, %235 ], [ 0, %240 ], [ 10, %241 ], [ 0, %246 ], [ 11, %247 ], [ 0, %252 ], [ 12, %253 ], [ %., %105 ], [ %.141, %137 ], [ 0, %46 ], [ 0, %47 ]
   ret i32 %.0
 }
 
@@ -6784,23 +6784,23 @@ define void @_ZN6icu_776number4impl17blueprint_helpers23parseIntegerWidthOptionE
 .lr.ph.preheader:                                 ; preds = %3
   %11 = tail call noundef zeroext i16 @_ZNK6icu_7713StringSegment6charAtEi(ptr noundef nonnull align 8 dereferenceable(17) %0, i32 noundef %.46)
   %12 = icmp eq i16 %11, 35
-  br i1 %12, label %.lr.ph66, label %._crit_edge
+  br i1 %12, label %.lr.ph68, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph66
+.lr.ph:                                           ; preds = %.lr.ph68
   %13 = tail call noundef zeroext i16 @_ZNK6icu_7713StringSegment6charAtEi(ptr noundef nonnull align 8 dereferenceable(17) %0, i32 noundef %16)
   %14 = icmp eq i16 %13, 35
-  br i1 %14, label %.lr.ph66, label %._crit_edge, !llvm.loop !116
+  br i1 %14, label %.lr.ph68, label %._crit_edge, !llvm.loop !116
 
-.lr.ph66:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.1444865 = phi i32 [ %15, %.lr.ph ], [ %., %.lr.ph.preheader ]
-  %.14964 = phi i32 [ %16, %.lr.ph ], [ %.46, %.lr.ph.preheader ]
-  %15 = add nuw nsw i32 %.1444865, 1
-  %16 = add nuw nsw i32 %.14964, 1
+.lr.ph68:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.1444867 = phi i32 [ %15, %.lr.ph ], [ %., %.lr.ph.preheader ]
+  %.14966 = phi i32 [ %16, %.lr.ph ], [ %.46, %.lr.ph.preheader ]
+  %15 = add nuw nsw i32 %.1444867, 1
+  %16 = add nuw nsw i32 %.14966, 1
   %17 = tail call noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %0)
   %18 = icmp slt i32 %16, %17
   br i1 %18, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !116
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph66
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph68
   br label %._crit_edge, !llvm.loop !116
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %3
@@ -8520,8 +8520,8 @@ define noundef zeroext i1 @_ZN6icu_776number4impl16GeneratorHelpers12integerWidt
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = load i16, ptr %6, align 4
   %.not = icmp eq i16 %10, -1
-  %or.cond26 = select i1 %9, i1 true, i1 %.not
-  br i1 %or.cond26, label %.critedge, label %11
+  %or.cond27 = select i1 %9, i1 true, i1 %.not
+  br i1 %or.cond27, label %.critedge, label %11
 
 11:                                               ; preds = %3
   %12 = tail call { i64, i8 } @_ZN6icu_776number12IntegerWidth10zeroFillToEi(i32 noundef 1)

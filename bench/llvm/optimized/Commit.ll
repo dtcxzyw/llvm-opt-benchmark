@@ -539,9 +539,9 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   br label %_ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit
 
 _ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit: ; preds = %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i
-  %.0.i.i.i.i9.i = phi ptr [ %19, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i ], [ %28, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i9.i, ptr align 1 %3, i64 %4, i1 false)
-  store ptr %.0.i.i.i.i9.i, ptr %11, align 8, !tbaa !83
+  %.0.i.i.i.i12.i = phi ptr [ %19, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i ], [ %28, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i12.i, ptr align 1 %3, i64 %4, i1 false)
+  store ptr %.0.i.i.i.i12.i, ptr %11, align 8, !tbaa !83
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %4, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !84
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -1326,8 +1326,8 @@ _ZN5clang4editgtENS0_10FileOffsetES1_.exit:       ; preds = %_ZN5clang4editltENS
   %30 = icmp samesign ugt i64 %.sroa.2.0.extract.shift.i, %.sroa.2.0.insert.ext.i
   %spec.select.i.i = select i1 %29, i1 %30, i1 false
   %31 = icmp ult i32 %21, %23
-  %or.cond65 = select i1 %spec.select.i.i, i1 true, i1 %31
-  br i1 %or.cond65, label %.critedge, label %33
+  %or.cond67 = select i1 %spec.select.i.i, i1 true, i1 %31
+  br i1 %or.cond67, label %.critedge, label %33
 
 .critedge:                                        ; preds = %24, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit, %_ZN5clang4editltENS0_10FileOffsetES1_.exit, %19
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32

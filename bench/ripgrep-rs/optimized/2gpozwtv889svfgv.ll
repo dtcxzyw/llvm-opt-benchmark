@@ -172,12 +172,12 @@ define void @_ZN13grep_searcher5lines8LineStep4next17h5031afe872b723c7E(ptr noal
   unreachable
 
 _ZN13grep_searcher5lines8LineStep9next_impl17hdec730b9548f0256E.exit.sink.split: ; preds = %23, %21
-  %.sink7 = phi i64 [ %6, %21 ], [ %30, %23 ]
-  store i64 %.sink7, ptr %1, align 8, !alias.scope !27, !noalias !29
+  %.sink11 = phi i64 [ %6, %21 ], [ %30, %23 ]
+  store i64 %.sink11, ptr %1, align 8, !alias.scope !27, !noalias !29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %9, ptr %32, align 8, !alias.scope !24, !noalias !38
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink7, ptr %33, align 8, !alias.scope !24, !noalias !38
+  store i64 %.sink11, ptr %33, align 8, !alias.scope !24, !noalias !38
   br label %_ZN13grep_searcher5lines8LineStep9next_impl17hdec730b9548f0256E.exit
 
 _ZN13grep_searcher5lines8LineStep9next_impl17hdec730b9548f0256E.exit: ; preds = %_ZN13grep_searcher5lines8LineStep9next_impl17hdec730b9548f0256E.exit.sink.split, %21

@@ -1326,8 +1326,8 @@ _ZN6icu_7717StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit90: ; preds =
   br label %160
 
 160:                                              ; preds = %_ZN6icu_7717StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit90, %122
-  %storemerge110 = phi i32 [ %159, %_ZN6icu_7717StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit90 ], [ %139, %122 ]
-  store i32 %storemerge110, ptr %42, align 8, !tbaa !14
+  %storemerge123 = phi i32 [ %159, %_ZN6icu_7717StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit90 ], [ %139, %122 ]
+  store i32 %storemerge123, ptr %42, align 8, !tbaa !14
   %161 = load i32, ptr %5, align 4, !tbaa !12
   %162 = icmp slt i32 %161, 1
   br i1 %162, label %167, label %163

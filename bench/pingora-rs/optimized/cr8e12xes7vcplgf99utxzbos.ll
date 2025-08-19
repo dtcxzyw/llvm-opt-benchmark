@@ -914,20 +914,20 @@ define hidden void @"_ZN4core3ptr116drop_in_place$LT$alloc..sync..ArcInner$LT$h2
   %12 = load i8, ptr %11, align 8, !range !244, !alias.scope !245, !noalias !230, !noundef !10
   switch i8 %12, label %"_ZN4core3ptr96drop_in_place$LT$slab..Entry$LT$h2..proto..streams..buffer..Slot$LT$h2..frame..Frame$GT$$GT$$GT$17ha451e86519f1fc09E.exit.i.i.i.i.i.i.i.i" [
     i8 0, label %.invoke.i.i.i.i.i.i.i.i
-    i8 1, label %.invoke13.i.i.i.i.i.i.i.i
-    i8 3, label %.invoke13.i.i.i.i.i.i.i.i
+    i8 1, label %.invoke14.i.i.i.i.i.i.i.i
+    i8 3, label %.invoke14.i.i.i.i.i.i.i.i
     i8 6, label %.invoke.i.i.i.i.i.i.i.i
   ]
 
-.invoke13.i.i.i.i.i.i.i.i:                        ; preds = %10, %10
+.invoke14.i.i.i.i.i.i.i.i:                        ; preds = %10, %10
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$h2..frame..headers..HeaderBlock$GT$17ha6307713c8f1a7a4E"(ptr noalias noundef align 8 dereferenceable(288) %13)
           to label %"_ZN4core3ptr96drop_in_place$LT$slab..Entry$LT$h2..proto..streams..buffer..Slot$LT$h2..frame..Frame$GT$$GT$$GT$17ha451e86519f1fc09E.exit.i.i.i.i.i.i.i.i" unwind label %24, !noalias !230
 
 .invoke.i.i.i.i.i.i.i.i:                          ; preds = %10, %10
-  %.sink14.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink14.i.i.i.i.i.i.i.i = load ptr, ptr %.sink14.in.i.i.i.i.i.i.i.i, align 8, !alias.scope !245, !noalias !230, !nonnull !10, !align !34, !noundef !10
-  %14 = getelementptr inbounds nuw i8, ptr %.sink14.i.i.i.i.i.i.i.i, i64 32
+  %.sink15.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink15.i.i.i.i.i.i.i.i = load ptr, ptr %.sink15.in.i.i.i.i.i.i.i.i, align 8, !alias.scope !245, !noalias !230, !nonnull !10, !align !34, !noundef !10
+  %14 = getelementptr inbounds nuw i8, ptr %.sink15.i.i.i.i.i.i.i.i, i64 32
   %15 = load ptr, ptr %14, align 8, !noalias !246, !nonnull !10, !noundef !10
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -937,7 +937,7 @@ define hidden void @"_ZN4core3ptr116drop_in_place$LT$alloc..sync..ArcInner$LT$h2
   invoke void %15(ptr noalias noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %18, i64 noundef %20)
           to label %"_ZN4core3ptr96drop_in_place$LT$slab..Entry$LT$h2..proto..streams..buffer..Slot$LT$h2..frame..Frame$GT$$GT$$GT$17ha451e86519f1fc09E.exit.i.i.i.i.i.i.i.i" unwind label %24, !noalias !230
 
-"_ZN4core3ptr96drop_in_place$LT$slab..Entry$LT$h2..proto..streams..buffer..Slot$LT$h2..frame..Frame$GT$$GT$$GT$17ha451e86519f1fc09E.exit.i.i.i.i.i.i.i.i": ; preds = %.invoke.i.i.i.i.i.i.i.i, %.invoke13.i.i.i.i.i.i.i.i, %10, %.lr.ph.i.i.i.i.i.i.i.i
+"_ZN4core3ptr96drop_in_place$LT$slab..Entry$LT$h2..proto..streams..buffer..Slot$LT$h2..frame..Frame$GT$$GT$$GT$17ha451e86519f1fc09E.exit.i.i.i.i.i.i.i.i": ; preds = %.invoke.i.i.i.i.i.i.i.i, %.invoke14.i.i.i.i.i.i.i.i, %10, %.lr.ph.i.i.i.i.i.i.i.i
   %21 = icmp eq i64 %7, %.val1.i.i.i.i.i.i
   br i1 %21, label %"_ZN4core3ptr87drop_in_place$LT$h2..proto..streams..streams..SendBuffer$LT$bytes..bytes..Bytes$GT$$GT$17h93040b99bf80db8aE.exit", label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -946,7 +946,7 @@ define hidden void @"_ZN4core3ptr116drop_in_place$LT$alloc..sync..ArcInner$LT$h2
   %23 = icmp eq i64 %.sroa.0.1.i.i.i.i.i.i.i.i, %.val1.i.i.i.i.i.i
   br i1 %23, label %.body.i.i.i.i.i.i, label %26
 
-24:                                               ; preds = %.invoke.i.i.i.i.i.i.i.i, %.invoke13.i.i.i.i.i.i.i.i
+24:                                               ; preds = %.invoke.i.i.i.i.i.i.i.i, %.invoke14.i.i.i.i.i.i.i.i
   %25 = landingpad { ptr, i32 }
           cleanup
   br label %22

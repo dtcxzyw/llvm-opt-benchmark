@@ -6444,7 +6444,7 @@ define internal void @"_ZN133_$LT$actix_web..app_service..AppRoutingFactory$u20$
   %13 = alloca { i64, [2 x i64] }, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %15 = load i8, ptr %14, align 8, !range !261, !noundef !4
-  switch i8 %15, label %default.unreachable77 [
+  switch i8 %15, label %default.unreachable83 [
     i8 0, label %17
     i8 1, label %25
     i8 2, label %26
@@ -6459,7 +6459,7 @@ define internal void @"_ZN133_$LT$actix_web..app_service..AppRoutingFactory$u20$
   %.pre75 = load ptr, ptr %.phi.trans.insert74, align 8, !alias.scope !742, !noalias !747
   br label %27
 
-default.unreachable77:                            ; preds = %3
+default.unreachable83:                            ; preds = %3
   unreachable
 
 16:                                               ; preds = %3

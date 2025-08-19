@@ -147,10 +147,10 @@ initLayout.exit:                                  ; preds = %.loopexit.i, %12
   %.pre31.i = load ptr, ptr %.phi.trans.insert30.i, align 8, !tbaa !28
   %.pre32.i = load i64, ptr %.pre31.i, align 8, !tbaa !38
   %59 = icmp ugt i64 %.pre32.i, %.01725.i
-  %spec.select33.i = tail call i64 @llvm.umax.i64(i64 %.pre32.i, i64 %.01725.i)
+  %spec.select37.i = tail call i64 @llvm.umax.i64(i64 %.pre32.i, i64 %.01725.i)
   %60 = select i1 %58, i1 true, i1 %59
   %.119.i = select i1 %60, ptr %.026.i, ptr %.01824.i
-  %.1.i = select i1 %58, i64 %.pre32.i, i64 %spec.select33.i
+  %.1.i = select i1 %58, i64 %.pre32.i, i64 %spec.select37.i
   %61 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.026.i) #18
   %.not20.i = icmp eq ptr %61, null
   br i1 %.not20.i, label %findCenterNode.exit, label %.lr.ph28.i, !llvm.loop !41

@@ -372,11 +372,11 @@ select.unfold:                                    ; preds = %58
   ret void
 
 96:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3583c65132e8ccceE.exit.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3583c65132e8ccceE.exit", %105
-  %.sink150 = phi i64 [ -9223372036854775808, %105 ], [ -9223372036854775808, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3583c65132e8ccceE.exit.thread" ], [ %.sroa.566.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3583c65132e8ccceE.exit" ]
+  %.sink155 = phi i64 [ -9223372036854775808, %105 ], [ -9223372036854775808, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3583c65132e8ccceE.exit.thread" ], [ %.sroa.566.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3583c65132e8ccceE.exit" ]
   %.sink = phi ptr [ %102, %105 ], [ %74, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3583c65132e8ccceE.exit.thread" ], [ %.sroa.868.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3583c65132e8ccceE.exit" ]
   %.sroa.964.sroa.0.0.sink = phi i64 [ %.sroa.964.sroa.0.0, %105 ], [ undef, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3583c65132e8ccceE.exit.thread" ], [ %.sroa.970.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3583c65132e8ccceE.exit" ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink150, ptr %97, align 8
+  store i64 %.sink155, ptr %97, align 8
   %.sroa.030.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink, ptr %.sroa.030.sroa.2.0..sroa_idx, align 8
   %.sroa.030.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24

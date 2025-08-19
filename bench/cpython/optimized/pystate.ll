@@ -2173,22 +2173,22 @@ PyMutex_LockFlags.exit:                           ; preds = %zapthreads.exit, %3
 
 .lr.ph.preheader:                                 ; preds = %PyMutex_LockFlags.exit
   %42 = icmp eq ptr %40, %0
-  br i1 %42, label %.lr.ph._crit_edge, label %.lr.ph40
+  br i1 %42, label %.lr.ph._crit_edge, label %.lr.ph45
 
-.lr.ph40:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph45:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %43 = phi ptr [ %45, %.lr.ph ], [ %40, %.lr.ph.preheader ]
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 7264
   %45 = load ptr, ptr %44, align 8, !tbaa !196
   %46 = icmp eq ptr %45, null
   br i1 %46, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph40, %PyMutex_LockFlags.exit
+._crit_edge:                                      ; preds = %.lr.ph45, %PyMutex_LockFlags.exit
   tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__.PyInterpreterState_Delete, ptr noundef nonnull @.str.5) #17
   unreachable
 
-.lr.ph:                                           ; preds = %.lr.ph40
+.lr.ph:                                           ; preds = %.lr.ph45
   %47 = icmp eq ptr %45, %0
-  br i1 %47, label %.lr.ph._crit_edge.loopexit, label %.lr.ph40
+  br i1 %47, label %.lr.ph._crit_edge.loopexit, label %.lr.ph45
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 7264
@@ -4582,7 +4582,7 @@ define dso_local ptr @PyThreadState_GetUnchecked() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyThreadState_Get() local_unnamed_addr #1 {
+define dso_local nonnull ptr @PyThreadState_Get() local_unnamed_addr #1 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8, !tbaa !4
   %3 = icmp eq ptr %2, null

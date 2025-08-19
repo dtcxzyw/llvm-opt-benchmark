@@ -292,14 +292,14 @@ cond.false.i.i:                                   ; preds = %call.i.i.noexc.i
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 24, i1 false), !alias.scope !16
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %3, %4
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont2.thread5.i, label %cond.true.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont2.thread7.i, label %cond.true.i.i.i.i.i.i.i.i.i.i.i.i
 
-invoke.cont2.thread5.i:                           ; preds = %cond.false.i.i
-  %_M_finish.i.i.i.i.i.i.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  %add.ptr.i.i.i.i.i.i.i.i.i4.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i5.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i4.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i5.i.i, align 8, !alias.scope !16
-  store ptr null, ptr %_M_finish.i.i.i.i.i.i.i.i.i3.i.i, align 8, !alias.scope !16
+invoke.cont2.thread7.i:                           ; preds = %cond.false.i.i
+  %_M_finish.i.i.i.i.i.i.i.i.i5.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %add.ptr.i.i.i.i.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i7.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i6.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i7.i.i, align 8, !alias.scope !16
+  store ptr null, ptr %_M_finish.i.i.i.i.i.i.i.i.i5.i.i, align 8, !alias.scope !16
   br label %if.then.i.i.sink.split.i
 
 cond.true.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %cond.false.i.i
@@ -372,10 +372,10 @@ invoke.cont2.i.if.then.i.i.i_crit_edge:           ; preds = %invoke.cont2.i
   %.pre = load ptr, ptr %ref.tmp.i, align 8, !noalias !7
   br label %if.then.i.i.i
 
-if.then.i.i.sink.split.i:                         ; preds = %invoke.cont2.thread5.i, %call.i.i.noexc.i
-  %.sink.i = phi i8 [ 1, %invoke.cont2.thread5.i ], [ 0, %call.i.i.noexc.i ]
-  %_M_engaged.i.i.i.i.i2.i9.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
-  store i8 %.sink.i, ptr %_M_engaged.i.i.i.i.i2.i9.i, align 8, !alias.scope !16
+if.then.i.i.sink.split.i:                         ; preds = %invoke.cont2.thread7.i, %call.i.i.noexc.i
+  %.sink.i = phi i8 [ 1, %invoke.cont2.thread7.i ], [ 0, %call.i.i.noexc.i ]
+  %_M_engaged.i.i.i.i.i2.i11.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
+  store i8 %.sink.i, ptr %_M_engaged.i.i.i.i.i2.i11.i, align 8, !alias.scope !16
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont2.i.if.then.i.i.i_crit_edge, %if.then.i.i.sink.split.i
@@ -567,7 +567,7 @@ cleanup16:                                        ; preds = %for.inc, %if.end.i.
   br label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cleanup16, %invoke.cont
-  %switch42 = phi i1 [ %switch, %cleanup16 ], [ true, %invoke.cont ]
+  %switch53 = phi i1 [ %switch, %cleanup16 ], [ true, %invoke.cont ]
   store i8 0, ptr %_M_engaged.i.i, align 8
   %17 = load ptr, ptr %vectorFunctionSignatures, align 8
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vectorFunctionSignatures, i64 8
@@ -666,10 +666,10 @@ invoke.cont.i.i.i.i.i.i:                          ; preds = %invoke.contthread-p
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %30) #22
-  br i1 %switch42, label %cleanup.cont18, label %return
+  br i1 %switch53, label %cleanup.cont18, label %return
 
 _ZNSt8optionalISt6vectorISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS6_EEED2Ev.exit: ; preds = %invoke.cont.i.i.i.i.i.i
-  br i1 %switch42, label %cleanup.cont18, label %return
+  br i1 %switch53, label %cleanup.cont18, label %return
 
 cleanup.cont18:                                   ; preds = %entry, %if.then.i.i.i.i.i.i.i.i, %_ZNSt8optionalISt6vectorISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS6_EEED2Ev.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)

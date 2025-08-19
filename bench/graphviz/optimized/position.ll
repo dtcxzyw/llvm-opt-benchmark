@@ -284,10 +284,10 @@ allocate_aux_edges.exit.i:                        ; preds = %allocate_aux_edges.
   %.not.i5.i = icmp eq i8 %129, 0
   %130 = getelementptr inbounds nuw i8, ptr %120, i64 352
   %131 = load i32, ptr %130, align 8, !tbaa !78
-  %.251.i.i = select i1 %.not.i5.i, i32 %131, i32 5
+  %.271.i.i = select i1 %.not.i5.i, i32 %131, i32 5
   store i32 %131, ptr %2, align 4, !tbaa !79
   %132 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %.251.i.i, ptr %132, align 4, !tbaa !79
+  store i32 %.271.i.i, ptr %132, align 4, !tbaa !79
   %133 = getelementptr inbounds nuw i8, ptr %120, i64 336
   %134 = load i32, ptr %133, align 8, !tbaa !35
   %135 = getelementptr inbounds nuw i8, ptr %120, i64 340
@@ -2109,7 +2109,7 @@ declare i32 @flat_edges(ptr noundef) local_unnamed_addr #1
 declare i32 @rank(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @make_aux_edge(ptr noundef %0, ptr noundef %1, double noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define nonnull ptr @make_aux_edge(ptr noundef %0, ptr noundef %1, double noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 241) 128) #16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %gv_alloc.exit
@@ -3417,10 +3417,10 @@ define internal fastcc void @adjustRanks(ptr noundef %0, i32 noundef %1) unnamed
   br label %143
 
 143:                                              ; preds = %137, %._crit_edge.i
-  %.sink84 = phi i64 [ %142, %137 ], [ %.pre.i, %._crit_edge.i ]
+  %.sink90 = phi i64 [ %142, %137 ], [ %.pre.i, %._crit_edge.i ]
   %.sink = phi double [ %141, %137 ], [ %136, %._crit_edge.i ]
   %144 = phi double [ %139, %137 ], [ %133, %._crit_edge.i ]
-  %145 = getelementptr inbounds %struct.rank_t, ptr %101, i64 %.sink84, i32 5
+  %145 = getelementptr inbounds %struct.rank_t, ptr %101, i64 %.sink90, i32 5
   %146 = load double, ptr %145, align 8, !tbaa !144
   %147 = fsub double %115, %146
   %148 = fadd double %.sink, %147

@@ -123,9 +123,9 @@ Vec_IntPush.exit33.sink.split:                    ; preds = %35
   %41 = shl nuw nsw i32 %37, 1
   %42 = zext nneg i32 %41 to i64
   %43 = shl nuw nsw i64 %42, 2
-  %.sink51 = select i1 %40, i64 64, i64 %43
+  %.sink62 = select i1 %40, i64 64, i64 %43
   %.sink = select i1 %40, i32 16, i32 %41
-  %44 = tail call ptr @realloc(ptr noundef nonnull %28, i64 noundef %.sink51) #9
+  %44 = tail call ptr @realloc(ptr noundef nonnull %28, i64 noundef %.sink62) #9
   store ptr %44, ptr %.phi.trans.insert.i, align 8, !tbaa !11
   store i32 %.sink, ptr %1, align 8, !tbaa !10
   br label %Vec_IntPush.exit33
@@ -233,22 +233,22 @@ Vec_IntPush.exit47.sink.split:                    ; preds = %87
   %98 = shl nuw nsw i32 %90, 1
   %99 = zext nneg i32 %98 to i64
   %100 = shl nuw nsw i64 %99, 2
-  %.sink54 = select i1 %97, i64 64, i64 %100
-  %.sink52 = select i1 %97, i32 16, i32 %98
-  %101 = tail call ptr @realloc(ptr noundef nonnull %88, i64 noundef %.sink54) #9
+  %.sink65 = select i1 %97, i64 64, i64 %100
+  %.sink63 = select i1 %97, i32 16, i32 %98
+  %101 = tail call ptr @realloc(ptr noundef nonnull %88, i64 noundef %.sink65) #9
   store ptr %101, ptr %.phi.trans.insert.i, align 8, !tbaa !11
-  store i32 %.sink52, ptr %1, align 8, !tbaa !10
+  store i32 %.sink63, ptr %1, align 8, !tbaa !10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %87, %Vec_IntPush.exit47.sink.split, %83, %Vec_IntGrow.exit.i39, %.Vec_IntGrow.exit10_crit_edge.i34
-  %.sink57 = phi ptr [ %.pre.i36, %.Vec_IntGrow.exit10_crit_edge.i34 ], [ %84, %83 ], [ %73, %Vec_IntGrow.exit.i39 ], [ %88, %87 ], [ %101, %Vec_IntPush.exit47.sink.split ]
-  %.sink55 = phi i32 [ %61, %.Vec_IntGrow.exit10_crit_edge.i34 ], [ %61, %83 ], [ %61, %Vec_IntGrow.exit.i39 ], [ %94, %87 ], [ %94, %Vec_IntPush.exit47.sink.split ]
+  %.sink68 = phi ptr [ %.pre.i36, %.Vec_IntGrow.exit10_crit_edge.i34 ], [ %84, %83 ], [ %73, %Vec_IntGrow.exit.i39 ], [ %88, %87 ], [ %101, %Vec_IntPush.exit47.sink.split ]
+  %.sink66 = phi i32 [ %61, %.Vec_IntGrow.exit10_crit_edge.i34 ], [ %61, %83 ], [ %61, %Vec_IntGrow.exit.i39 ], [ %94, %87 ], [ %94, %Vec_IntPush.exit47.sink.split ]
   %102 = load i32, ptr %3, align 4, !tbaa !3
   %103 = add nsw i32 %102, 1
   store i32 %103, ptr %3, align 4, !tbaa !3
   %104 = sext i32 %102 to i64
-  %105 = getelementptr inbounds i32, ptr %.sink57, i64 %104
-  store i32 %.sink55, ptr %105, align 4, !tbaa !12
+  %105 = getelementptr inbounds i32, ptr %.sink68, i64 %104
+  store i32 %.sink66, ptr %105, align 4, !tbaa !12
   br label %106
 
 106:                                              ; preds = %.sink.split, %85
@@ -296,8 +296,8 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
   %13 = add nsw i32 %.088189, 1
   %14 = sext i32 %.088189 to i64
   %15 = getelementptr inbounds [5 x i32], ptr %5, i64 0, i64 %14
-  %indvars.iv.tr248 = trunc i64 %indvars.iv to i32
-  %16 = shl i32 %indvars.iv.tr248, 1
+  %indvars.iv.tr263 = trunc i64 %indvars.iv to i32
+  %16 = shl i32 %indvars.iv.tr263, 1
   store i32 %16, ptr %15, align 4, !tbaa !12
   br label %57
 
@@ -312,8 +312,8 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
   %22 = add nsw i32 %.088189, 1
   %23 = sext i32 %.088189 to i64
   %24 = getelementptr inbounds [5 x i32], ptr %5, i64 0, i64 %23
-  %indvars.iv.tr247 = trunc i64 %indvars.iv to i32
-  %25 = shl i32 %indvars.iv.tr247, 1
+  %indvars.iv.tr262 = trunc i64 %indvars.iv to i32
+  %25 = shl i32 %indvars.iv.tr262, 1
   %26 = or disjoint i32 %25, 1
   store i32 %26, ptr %24, align 4, !tbaa !12
   br label %57
@@ -326,8 +326,8 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
   %29 = add nsw i32 %.086190, 1
   %30 = sext i32 %.086190 to i64
   %31 = getelementptr inbounds [5 x i32], ptr %6, i64 0, i64 %30
-  %indvars.iv.tr246 = trunc i64 %indvars.iv to i32
-  %32 = shl i32 %indvars.iv.tr246, 1
+  %indvars.iv.tr261 = trunc i64 %indvars.iv to i32
+  %32 = shl i32 %indvars.iv.tr261, 1
   store i32 %32, ptr %31, align 4, !tbaa !12
   br label %57
 
@@ -339,8 +339,8 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
   %35 = add nsw i32 %.086190, 1
   %36 = sext i32 %.086190 to i64
   %37 = getelementptr inbounds [5 x i32], ptr %6, i64 0, i64 %36
-  %indvars.iv.tr245 = trunc i64 %indvars.iv to i32
-  %38 = shl i32 %indvars.iv.tr245, 1
+  %indvars.iv.tr260 = trunc i64 %indvars.iv to i32
+  %38 = shl i32 %indvars.iv.tr260, 1
   %39 = or disjoint i32 %38, 1
   store i32 %39, ptr %37, align 4, !tbaa !12
   br label %57
@@ -794,8 +794,8 @@ Ivy_TruthRecognizeMuxMaj.exit:                    ; preds = %Vec_IntPush.exit133
   %271 = shl i32 %270, 5
   %272 = and i32 %271, 224
   %273 = or disjoint i32 %272, %.sroa.0.0
-  %.not252 = icmp eq i32 %.083, 0
-  br i1 %.not252, label %._crit_edge, label %.lr.ph.preheader
+  %.not267 = icmp eq i32 %.083, 0
+  br i1 %.not267, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %267
   %wide.trip.count = zext nneg i32 %.083 to i64
@@ -1294,7 +1294,7 @@ define void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %
   %6 = getelementptr inbounds i32, ptr %.val, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !12
   %8 = and i32 %7, 15
-  switch i32 %8, label %common.ret95 [
+  switch i32 %8, label %common.ret98 [
     i32 1, label %9
     i32 0, label %13
     i32 2, label %18
@@ -1309,7 +1309,7 @@ define void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %
   %.not66 = icmp eq i32 %10, 0
   %11 = select i1 %.not66, ptr @.str.3, ptr @.str.2
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %11) #11
-  br label %common.ret95
+  br label %common.ret98
 
 13:                                               ; preds = %3
   %14 = add nsw i32 %1, 97
@@ -1317,9 +1317,9 @@ define void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %
   %.not65 = icmp eq i32 %15, 0
   %16 = select i1 %.not65, ptr @.str.3, ptr @.str.2
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %14, ptr noundef nonnull %16) #11
-  br label %common.ret95
+  br label %common.ret98
 
-common.ret95:                                     ; preds = %3, %13, %._crit_edge91, %._crit_edge, %9, %85, %18
+common.ret98:                                     ; preds = %3, %13, %._crit_edge91, %._crit_edge, %9, %85, %18
   ret void
 
 18:                                               ; preds = %3
@@ -1330,7 +1330,7 @@ common.ret95:                                     ; preds = %3, %13, %._crit_edg
   %.not63 = icmp eq i32 %21, 0
   %22 = select i1 %.not63, ptr @.str.3, ptr @.str.2
   %fputs64 = tail call i32 @fputs(ptr nonnull %22, ptr %0)
-  br label %common.ret95
+  br label %common.ret98
 
 23:                                               ; preds = %3
   %24 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 4, i64 1, ptr %0)
@@ -1408,7 +1408,7 @@ Ivy_DecGetVar.exit:                               ; preds = %39, %40, %41, %42, 
   %.not58 = icmp eq i32 %52, 0
   %53 = select i1 %.not58, ptr @.str.3, ptr @.str.2
   %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %53) #11
-  br label %common.ret95
+  br label %common.ret98
 
 55:                                               ; preds = %3
   %56 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 5, i64 1, ptr %0)
@@ -1482,7 +1482,7 @@ Ivy_DecGetVar.exit73:                             ; preds = %71, %72, %73, %74, 
   %.not55 = icmp eq i32 %82, 0
   %83 = select i1 %.not55, ptr @.str.3, ptr @.str.2
   %84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %83) #11
-  br label %common.ret95
+  br label %common.ret98
 
 85:                                               ; preds = %3, %3
   %86 = icmp eq i32 %8, 5
@@ -1512,7 +1512,7 @@ Ivy_DecGetVar.exit73:                             ; preds = %71, %72, %73, %74, 
   %100 = select i1 %.not52, ptr @.str.3, ptr @.str.2
   %fputs53 = tail call i32 @fputs(ptr nonnull %100, ptr %0)
   %fputc54 = tail call i32 @fputc(i32 41, ptr %0)
-  br label %common.ret95
+  br label %common.ret98
 }
 
 ; Function Attrs: nofree nounwind

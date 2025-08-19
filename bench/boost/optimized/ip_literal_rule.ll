@@ -116,8 +116,8 @@ define hidden void @_ZNK5boost4urls6detail17ip_literal_rule_t5parseERPKcS4_(ptr 
   %18 = alloca %"class.boost::system::error_code", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11)
   %.sroa.11.7..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.11, i64 7
-  %.sroa.11.7..sroa_idx104 = getelementptr inbounds nuw i8, ptr %.sroa.11, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.11.7..sroa_idx104, i8 0, i64 16, i1 false)
+  %.sroa.11.7..sroa_idx106 = getelementptr inbounds nuw i8, ptr %.sroa.11, i64 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.11.7..sroa_idx106, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 91, ptr %12, align 1

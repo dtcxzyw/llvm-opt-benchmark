@@ -1782,7 +1782,7 @@ define noundef zeroext i1 @"_ZN80_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h468ca074e17c60afE.exit": ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %22
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %22
   %40 = xor i64 %.val, -1
   %41 = add nsw i64 %22, %40
   %42 = sub nsw i64 %22, %.val
@@ -1823,7 +1823,7 @@ define noundef zeroext i1 @"_ZN80_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   br i1 %53, label %54, label %70, !prof !256
 
 54:                                               ; preds = %"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17h950101adb719d7c1E.exit"
-  %55 = getelementptr inbounds [0 x i8], ptr %.sroa.0.0, i64 0, i64 %41
+  %55 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.0, i64 0, i64 %41
   store i8 1, ptr %55, align 1
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %57 = load ptr, ptr %8, align 8, !nonnull !4, !align !122, !noundef !4
@@ -1873,7 +1873,7 @@ define noundef zeroext i1 @"_ZN80_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
 
 71:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.6801758991666044160.exit35"
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull readonly align 8 %56, i64 %.val, i1 false), !alias.scope !308, !noalias !309
-  %72 = getelementptr inbounds [0 x i8], ptr %39, i64 0, i64 %.val
+  %72 = getelementptr inbounds nuw [0 x i8], ptr %39, i64 0, i64 %.val
   store i8 -68, ptr %72, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %73
@@ -2068,7 +2068,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   br i1 %89, label %90, label %94, !prof !256
 
 90:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h94713dd42b5a67beE.exit"
-  %91 = getelementptr inbounds [0 x i8], ptr %8, i64 0, i64 %88
+  %91 = getelementptr inbounds nuw [0 x i8], ptr %8, i64 0, i64 %88
   %92 = load i8, ptr %91, align 1, !noundef !4
   %93 = icmp eq i8 %92, 1
   br i1 %93, label %95, label %.sink.split

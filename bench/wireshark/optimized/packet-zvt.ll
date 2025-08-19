@@ -1465,14 +1465,14 @@ define internal fastcc range(i32 -1, 65543) i32 @dissect_zvt_apdu(ptr noundef %0
   br label %.thread.sink.split.i
 
 .thread.sink.split.i:                             ; preds = %.thread21.i, %134, %130
-  %.sink27.i = phi i32 [ 3, %.thread21.i ], [ 4, %130 ], [ 4, %134 ]
+  %.sink29.i = phi i32 [ 3, %.thread21.i ], [ 4, %130 ], [ 4, %134 ]
   %.str.197.sink.i = phi ptr [ @.str.198, %.thread21.i ], [ @.str.197, %130 ], [ @.str.197, %134 ]
   %.sink.i = phi i32 [ 4, %.thread21.i ], [ 3, %130 ], [ 3, %134 ]
   %.str.198.sink.i = phi ptr [ @.str.197, %.thread21.i ], [ @.str.198, %130 ], [ @.str.198, %134 ]
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 208
   store i32 7, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %2, i64 212
-  store i32 %.sink27.i, ptr %138, align 4
+  store i32 %.sink29.i, ptr %138, align 4
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 216
   store ptr %.str.197.sink.i, ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 224

@@ -155,9 +155,9 @@ define dso_local i32 @nghttp2_submit_headers(ptr noundef %0, i8 noundef zeroext 
   br label %detect_self_dependency.exit
 
 detect_self_dependency.exit:                      ; preds = %21, %22
-  %.sink7.i = phi i32 [ %24, %22 ], [ %2, %21 ]
+  %.sink8.i = phi i32 [ %24, %22 ], [ %2, %21 ]
   %25 = load i32, ptr %3, align 4, !tbaa !47
-  %.not29 = icmp eq i32 %.sink7.i, %25
+  %.not29 = icmp eq i32 %.sink8.i, %25
   br i1 %.not29, label %30, label %26
 
 26:                                               ; preds = %detect_self_dependency.exit
@@ -592,13 +592,13 @@ define dso_local i32 @nghttp2_submit_altsvc(ptr noundef %0, i8 noundef zeroext %
 .thread:                                          ; preds = %19
   %23 = tail call ptr @nghttp2_mem_malloc(ptr noundef nonnull %8, i64 noundef %13) #6
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %41, label %.thread58
+  br i1 %24, label %41, label %.thread64
 
 25:                                               ; preds = %20
   %26 = tail call ptr @nghttp2_cpymem(ptr noundef nonnull %21, ptr noundef %3, i64 noundef %4) #6
-  br label %.thread58
+  br label %.thread64
 
-.thread58:                                        ; preds = %.thread, %25
+.thread64:                                        ; preds = %.thread, %25
   %27 = phi ptr [ %21, %25 ], [ %23, %.thread ]
   %.048 = phi ptr [ %26, %25 ], [ %23, %.thread ]
   %28 = getelementptr inbounds nuw i8, ptr %.048, i64 1
@@ -606,12 +606,12 @@ define dso_local i32 @nghttp2_submit_altsvc(ptr noundef %0, i8 noundef zeroext %
   %.not56 = icmp eq i64 %6, 0
   br i1 %.not56, label %31, label %29
 
-29:                                               ; preds = %.thread58
+29:                                               ; preds = %.thread64
   %30 = tail call ptr @nghttp2_cpymem(ptr noundef nonnull %28, ptr noundef %5, i64 noundef %6) #6
   br label %31
 
-31:                                               ; preds = %29, %.thread58
-  %.1 = phi ptr [ %30, %29 ], [ %28, %.thread58 ]
+31:                                               ; preds = %29, %.thread64
+  %.1 = phi ptr [ %30, %29 ], [ %28, %.thread64 ]
   store i8 0, ptr %.1, align 1, !tbaa !9
   %32 = tail call ptr @nghttp2_mem_malloc(ptr noundef nonnull %8, i64 noundef 152) #6
   %33 = icmp eq ptr %32, null

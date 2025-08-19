@@ -854,9 +854,9 @@ dissect_PNIO_IOxS.exit:                           ; preds = %338, %339
   br label %356
 
 356:                                              ; preds = %352, %dissect_PNIO_IOxS.exit
-  %.sink706 = phi i32 [ %355, %352 ], [ %351, %dissect_PNIO_IOxS.exit ]
+  %.sink766 = phi i32 [ %355, %352 ], [ %351, %dissect_PNIO_IOxS.exit ]
   %.5 = phi i32 [ %.4, %352 ], [ %347, %dissect_PNIO_IOxS.exit ]
-  call void @proto_item_set_len(ptr noundef %218, i32 noundef %.sink706)
+  call void @proto_item_set_len(ptr noundef %218, i32 noundef %.sink766)
   %357 = load i16, ptr %212, align 8
   %358 = zext i16 %357 to i32
   %359 = getelementptr inbounds nuw i8, ptr %212, i64 2
@@ -1207,8 +1207,8 @@ proto_item_set_generated.exit570:                 ; preds = %463, %460, %457, %4
   %541 = getelementptr inbounds nuw i8, ptr %489, i64 18
   %542 = load i16, ptr %541, align 2
   %543 = trunc i16 %542 to i8
-  %.710 = select i1 %540, i8 -4, i8 -5
-  %544 = add i8 %.710, %543
+  %.770 = select i1 %540, i8 -4, i8 -5
+  %544 = add i8 %.770, %543
   %.not523 = icmp eq i8 %544, 0
   br i1 %.not523, label %548, label %545
 
@@ -1382,9 +1382,9 @@ dissect_PNIO_IOxS.exit584:                        ; preds = %618, %619
   br label %636
 
 636:                                              ; preds = %632, %dissect_PNIO_IOxS.exit584
-  %.sink708 = phi i32 [ %635, %632 ], [ %631, %dissect_PNIO_IOxS.exit584 ]
+  %.sink768 = phi i32 [ %635, %632 ], [ %631, %dissect_PNIO_IOxS.exit584 ]
   %.14 = phi i32 [ %.13, %632 ], [ %627, %dissect_PNIO_IOxS.exit584 ]
-  call void @proto_item_set_len(ptr noundef %496, i32 noundef %.sink708)
+  call void @proto_item_set_len(ptr noundef %496, i32 noundef %.sink768)
   %637 = load i16, ptr %489, align 8
   %638 = zext i16 %637 to i32
   %639 = getelementptr inbounds nuw i8, ptr %489, i64 2
@@ -1405,17 +1405,17 @@ dissect_PNIO_IOxS.exit584:                        ; preds = %618, %619
   %646 = load i16, ptr %489, align 8
   %647 = icmp eq i16 %646, 0
   %648 = load ptr, ptr %480, align 8
-  %.str.16..str.17711 = select i1 %647, ptr @.str.16, ptr @.str.17
-  %649 = call noalias ptr @wmem_strbuf_new(ptr noundef %648, ptr noundef nonnull %.str.16..str.17711)
+  %.str.16..str.17771 = select i1 %647, ptr @.str.16, ptr @.str.17
+  %649 = call noalias ptr @wmem_strbuf_new(ptr noundef %648, ptr noundef nonnull %.str.16..str.17771)
   %650 = load i8, ptr %523, align 8, !range !8, !noundef !9
   %651 = trunc nuw i8 %650 to i1
   %652 = getelementptr inbounds nuw i8, ptr %489, i64 18
   %653 = load i16, ptr %652, align 2
   %654 = icmp ugt i16 %653, 4
-  %.str.19..str.18712 = select i1 %654, ptr @.str.19, ptr @.str.18
+  %.str.19..str.18772 = select i1 %654, ptr @.str.19, ptr @.str.18
   %.not525 = icmp eq i16 %653, 0
-  %.str.18..str.19713 = select i1 %.not525, ptr @.str.18, ptr @.str.19
-  %.str.19.sink = select i1 %651, ptr %.str.19..str.18712, ptr %.str.18..str.19713
+  %.str.18..str.19773 = select i1 %.not525, ptr @.str.18, ptr @.str.19
+  %.str.19.sink = select i1 %651, ptr %.str.19..str.18772, ptr %.str.18..str.19773
   call void @wmem_strbuf_append(ptr noundef %649, ptr noundef nonnull %.str.19.sink)
   %655 = call ptr @wmem_file_scope()
   %656 = call ptr @wmem_strbuf_get_str(ptr noundef %649)

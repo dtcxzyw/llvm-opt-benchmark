@@ -264,7 +264,7 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
   br label %124
 
 124:                                              ; preds = %123, %97, %95
-  %125 = phi i8 [ %92, %95 ], [ 1, %123 ], [ 0, %97 ]
+  %125 = phi i8 [ 1, %95 ], [ 1, %123 ], [ 0, %97 ]
   %126 = or i8 %91, %89
   %127 = getelementptr inbounds nuw i8, ptr %93, i64 96
   %128 = load i64, ptr %127, align 8

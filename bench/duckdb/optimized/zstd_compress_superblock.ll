@@ -364,8 +364,8 @@ _ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_
   %175 = add i64 %174, %173
   %176 = icmp ule i64 %175, %158
   %177 = icmp ugt i64 %167, 1
-  %or.cond44.i.i = and i1 %177, %176
-  br i1 %or.cond44.i.i, label %.lr.ph.preheader.i.i, label %_ZN11duckdb_zstdL18sizeBlockSequencesEPKNS_8seqDef_sEmmmmi.exit.i
+  %or.cond48.i.i = and i1 %177, %176
+  br i1 %or.cond48.i.i, label %.lr.ph.preheader.i.i, label %_ZN11duckdb_zstdL18sizeBlockSequencesEPKNS_8seqDef_sEmmmmi.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %164
   %178 = add nuw nsw i64 %172, 3
@@ -1058,7 +1058,7 @@ _ZN11duckdb_zstdL29ZSTD_compressSubBlock_literalEPKmPKNS_25ZSTD_hufCTablesMetada
   %.0692.i = phi ptr [ %135, %133 ], [ %132, %128 ], [ %127, %121 ]
   %137 = getelementptr inbounds nuw i8, ptr %.0692.i, i64 1
   %.not.i63 = icmp eq i32 %14, 0
-  br i1 %.not.i63, label %138, label %.thread8.i
+  br i1 %.not.i63, label %138, label %.thread11.i
 
 138:                                              ; preds = %.thread.i
   store i8 -4, ptr %.0692.i, align 1, !tbaa !68
@@ -1070,7 +1070,7 @@ _ZN11duckdb_zstdL29ZSTD_compressSubBlock_literalEPKmPKNS_25ZSTD_hufCTablesMetada
   %144 = icmp ult i64 %143, -119
   br i1 %144, label %167, label %.thread70
 
-.thread8.i:                                       ; preds = %.thread.i
+.thread11.i:                                      ; preds = %.thread.i
   %145 = load i32, ptr %111, align 8, !tbaa !71
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %147 = load i32, ptr %146, align 4, !tbaa !67
@@ -1101,7 +1101,7 @@ _ZN11duckdb_zstdL29ZSTD_compressSubBlock_literalEPKmPKNS_25ZSTD_hufCTablesMetada
   %168 = getelementptr inbounds nuw i8, ptr %137, i64 %143
   br label %175
 
-169:                                              ; preds = %.thread8.i
+169:                                              ; preds = %.thread11.i
   %170 = getelementptr inbounds nuw i8, ptr %160, i64 %165
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %172 = load i64, ptr %171, align 8, !tbaa !90
@@ -1145,8 +1145,8 @@ _ZN11duckdb_zstdL31ZSTD_compressSubBlock_sequencesEPKNS_17ZSTD_fseCTables_tEPKNS
   store i8 %191, ptr %192, align 1, !tbaa !68
   br label %.thread70
 
-.thread70:                                        ; preds = %.thread8.i, %138, %108, %175, %169, %_ZN11duckdb_zstdL31ZSTD_compressSubBlock_sequencesEPKNS_17ZSTD_fseCTables_tEPKNS_25ZSTD_fseCTablesMetadata_tEPKNS_8seqDef_sEmPKhSA_SA_PKNS_18ZSTD_CCtx_params_sEPvmiiPi.exit.thread, %_ZN11duckdb_zstdL31ZSTD_compressSubBlock_sequencesEPKNS_17ZSTD_fseCTables_tEPKNS_25ZSTD_fseCTablesMetadata_tEPKNS_8seqDef_sEmPKhSA_SA_PKNS_18ZSTD_CCtx_params_sEPvmiiPi.exit, %57, %106, %_ZN11duckdb_zstdL29ZSTD_compressSubBlock_literalEPKmPKNS_25ZSTD_hufCTablesMetadata_tEPKhmPvmiiPi.exit, %_ZN11duckdb_zstdL31ZSTD_compressSubBlock_sequencesEPKNS_17ZSTD_fseCTables_tEPKNS_25ZSTD_fseCTablesMetadata_tEPKNS_8seqDef_sEmPKhSA_SA_PKNS_18ZSTD_CCtx_params_sEPvmiiPi.exit.thread.thread92
-  %.2 = phi i64 [ %185, %_ZN11duckdb_zstdL31ZSTD_compressSubBlock_sequencesEPKNS_17ZSTD_fseCTables_tEPKNS_25ZSTD_fseCTablesMetadata_tEPKNS_8seqDef_sEmPKhSA_SA_PKNS_18ZSTD_CCtx_params_sEPvmiiPi.exit.thread.thread92 ], [ 0, %106 ], [ %.0.i, %_ZN11duckdb_zstdL29ZSTD_compressSubBlock_literalEPKmPKNS_25ZSTD_hufCTablesMetadata_tEPKhmPvmiiPi.exit ], [ 0, %57 ], [ 0, %_ZN11duckdb_zstdL31ZSTD_compressSubBlock_sequencesEPKNS_17ZSTD_fseCTables_tEPKNS_25ZSTD_fseCTablesMetadata_tEPKNS_8seqDef_sEmPKhSA_SA_PKNS_18ZSTD_CCtx_params_sEPvmiiPi.exit.thread ], [ %181, %_ZN11duckdb_zstdL31ZSTD_compressSubBlock_sequencesEPKNS_17ZSTD_fseCTables_tEPKNS_25ZSTD_fseCTablesMetadata_tEPKNS_8seqDef_sEmPKhSA_SA_PKNS_18ZSTD_CCtx_params_sEPvmiiPi.exit ], [ 0, %169 ], [ 0, %175 ], [ %165, %.thread8.i ], [ %143, %138 ], [ -70, %108 ]
+.thread70:                                        ; preds = %.thread11.i, %138, %108, %175, %169, %_ZN11duckdb_zstdL31ZSTD_compressSubBlock_sequencesEPKNS_17ZSTD_fseCTables_tEPKNS_25ZSTD_fseCTablesMetadata_tEPKNS_8seqDef_sEmPKhSA_SA_PKNS_18ZSTD_CCtx_params_sEPvmiiPi.exit.thread, %_ZN11duckdb_zstdL31ZSTD_compressSubBlock_sequencesEPKNS_17ZSTD_fseCTables_tEPKNS_25ZSTD_fseCTablesMetadata_tEPKNS_8seqDef_sEmPKhSA_SA_PKNS_18ZSTD_CCtx_params_sEPvmiiPi.exit, %57, %106, %_ZN11duckdb_zstdL29ZSTD_compressSubBlock_literalEPKmPKNS_25ZSTD_hufCTablesMetadata_tEPKhmPvmiiPi.exit, %_ZN11duckdb_zstdL31ZSTD_compressSubBlock_sequencesEPKNS_17ZSTD_fseCTables_tEPKNS_25ZSTD_fseCTablesMetadata_tEPKNS_8seqDef_sEmPKhSA_SA_PKNS_18ZSTD_CCtx_params_sEPvmiiPi.exit.thread.thread92
+  %.2 = phi i64 [ %185, %_ZN11duckdb_zstdL31ZSTD_compressSubBlock_sequencesEPKNS_17ZSTD_fseCTables_tEPKNS_25ZSTD_fseCTablesMetadata_tEPKNS_8seqDef_sEmPKhSA_SA_PKNS_18ZSTD_CCtx_params_sEPvmiiPi.exit.thread.thread92 ], [ 0, %106 ], [ %.0.i, %_ZN11duckdb_zstdL29ZSTD_compressSubBlock_literalEPKmPKNS_25ZSTD_hufCTablesMetadata_tEPKhmPvmiiPi.exit ], [ 0, %57 ], [ 0, %_ZN11duckdb_zstdL31ZSTD_compressSubBlock_sequencesEPKNS_17ZSTD_fseCTables_tEPKNS_25ZSTD_fseCTablesMetadata_tEPKNS_8seqDef_sEmPKhSA_SA_PKNS_18ZSTD_CCtx_params_sEPvmiiPi.exit.thread ], [ %181, %_ZN11duckdb_zstdL31ZSTD_compressSubBlock_sequencesEPKNS_17ZSTD_fseCTables_tEPKNS_25ZSTD_fseCTablesMetadata_tEPKNS_8seqDef_sEmPKhSA_SA_PKNS_18ZSTD_CCtx_params_sEPvmiiPi.exit ], [ 0, %169 ], [ 0, %175 ], [ %165, %.thread11.i ], [ %143, %138 ], [ -70, %108 ]
   ret i64 %.2
 }
 

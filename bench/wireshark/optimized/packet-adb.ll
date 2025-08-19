@@ -245,7 +245,7 @@ define internal i32 @dissect_adb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %42, label %.thread, label %47
 
 .thread:                                          ; preds = %4, %35
-  %.0387571 = phi i32 [ %41, %35 ], [ %33, %4 ]
+  %.0387608 = phi i32 [ %41, %35 ], [ %33, %4 ]
   %.not430 = icmp eq ptr %3, null
   br i1 %.not430, label %43, label %44
 
@@ -271,7 +271,7 @@ define internal i32 @dissect_adb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %54
 
 54:                                               ; preds = %50, %44
-  %.0387570 = phi i32 [ %.0387571, %44 ], [ %41, %50 ]
+  %.0387607 = phi i32 [ %.0387608, %44 ], [ %41, %50 ]
   %55 = phi i1 [ true, %44 ], [ false, %50 ]
   %.0397 = phi ptr [ %3, %44 ], [ null, %50 ]
   %.0386 = phi i32 [ %46, %44 ], [ %., %50 ]
@@ -321,17 +321,17 @@ define internal i32 @dissect_adb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %78 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 1, ptr %78, align 16
   %79 = icmp eq i32 %.0386, 0
-  %.579 = select i1 %79, i64 284, i64 288
-  %.580 = select i1 %79, i64 288, i64 284
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 %.579
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 %.580
+  %.616 = select i1 %79, i64 284, i64 288
+  %.617 = select i1 %79, i64 288, i64 284
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 %.616
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 %.617
   store ptr %80, ptr %65, align 8
   br label %82
 
 82:                                               ; preds = %75, %66
-  %.sink576 = phi ptr [ %81, %75 ], [ %14, %66 ]
+  %.sink613 = phi ptr [ %81, %75 ], [ %14, %66 ]
   %83 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store ptr %.sink576, ptr %83, align 8
+  store ptr %.sink613, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i32 0, ptr %84, align 16
   %85 = getelementptr inbounds nuw i8, ptr %11, i64 56
@@ -371,14 +371,14 @@ define internal i32 @dissect_adb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 102:                                              ; preds = %96
   %103 = load i32, ptr %89, align 8
   %104 = icmp eq i32 %103, 1163086915
-  %.581 = select i1 %104, i64 16, i64 12
+  %.618 = select i1 %104, i64 16, i64 12
   br label %105
 
 105:                                              ; preds = %96, %102
-  %.sink = phi i64 [ %.581, %102 ], [ 16, %96 ]
+  %.sink = phi i64 [ %.618, %102 ], [ 16, %96 ]
   %106 = getelementptr inbounds nuw i8, ptr %89, i64 %.sink
-  %.sink578 = load i32, ptr %106, align 4
-  store i32 %.sink578, ptr %15, align 4
+  %.sink615 = load i32, ptr %106, align 4
+  store i32 %.sink615, ptr %15, align 4
   %107 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i32 1, ptr %107, align 16
   %108 = getelementptr inbounds nuw i8, ptr %11, i64 56
@@ -739,7 +739,7 @@ proto_item_set_generated.exit:                    ; preds = %186, %183, %180, %1
   %storemerge.i = phi i32 [ %291, %289 ], [ 0, %283 ]
   store i32 %storemerge.i, ptr %6, align 4
   %293 = load i32, ptr @proto_usb, align 4
-  %294 = icmp eq i32 %.0387570, %293
+  %294 = icmp eq i32 %.0387607, %293
   br i1 %294, label %295, label %309
 
 295:                                              ; preds = %292
@@ -784,17 +784,17 @@ proto_item_set_generated.exit:                    ; preds = %186, %183, %180, %1
   %315 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 1, ptr %315, align 16
   %316 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  %.126.i = select i1 %312, ptr %310, ptr %316
-  %.127.i = select i1 %312, ptr %316, ptr %310
+  %.133.i = select i1 %312, ptr %310, ptr %316
+  %.134.i = select i1 %312, ptr %316, ptr %310
   %317 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %.126.i, ptr %317, align 8
+  store ptr %.133.i, ptr %317, align 8
   br label %318
 
 318:                                              ; preds = %309, %297
-  %.127.sink.i = phi ptr [ %.127.i, %309 ], [ %8, %297 ]
+  %.134.sink.i = phi ptr [ %.134.i, %309 ], [ %8, %297 ]
   %.0.i = phi i32 [ %..i, %309 ], [ %299, %297 ]
   %319 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %.127.sink.i, ptr %319, align 8
+  store ptr %.134.sink.i, ptr %319, align 8
   %320 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 1, ptr %320, align 16
   %321 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -1022,7 +1022,7 @@ save_command.exit:                                ; preds = %371, %374, %.thread
   %415 = load i32, ptr %414, align 4
   %416 = getelementptr inbounds nuw i8, ptr %.1527, i64 24
   %417 = load i32, ptr %416, align 8
-  br i1 %.not449, label %.thread572, label %418
+  br i1 %.not449, label %.thread609, label %418
 
 418:                                              ; preds = %411
   %419 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1032,15 +1032,15 @@ save_command.exit:                                ; preds = %371, %374, %.thread
 421:                                              ; preds = %418
   %.pre568 = load i32, ptr %412, align 4
   %422 = icmp eq i32 %.pre568, %27
-  br i1 %422, label %.thread572, label %430
+  br i1 %422, label %.thread609, label %430
 
-.thread572:                                       ; preds = %411, %421
+.thread609:                                       ; preds = %411, %421
   %423 = call i32 @tvb_captured_length(ptr noundef %0)
   %424 = add i32 %415, 24
   %425 = icmp eq i32 %423, %424
   br i1 %425, label %426, label %430
 
-426:                                              ; preds = %.thread572, %418
+426:                                              ; preds = %.thread609, %418
   %427 = load i32, ptr %414, align 4
   %428 = getelementptr inbounds nuw i8, ptr %.1527, i64 32
   store i32 %427, ptr %428, align 8
@@ -1048,11 +1048,11 @@ save_command.exit:                                ; preds = %371, %374, %.thread
   store i32 %27, ptr %429, align 4
   br label %430
 
-430:                                              ; preds = %421, %.thread572, %426, %403
-  %.3406 = phi i32 [ %415, %426 ], [ %415, %.thread572 ], [ %415, %421 ], [ %.1404, %403 ]
-  %.4402 = phi i32 [ %417, %426 ], [ %417, %.thread572 ], [ %417, %421 ], [ %.3401, %403 ]
-  %.4 = phi i8 [ %spec.select463, %426 ], [ %spec.select463, %.thread572 ], [ 0, %421 ], [ %.2395, %403 ]
-  %.2392 = phi i8 [ %spec.select464, %426 ], [ %spec.select464, %.thread572 ], [ 1, %421 ], [ %.0390548, %403 ]
+430:                                              ; preds = %421, %.thread609, %426, %403
+  %.3406 = phi i32 [ %415, %426 ], [ %415, %.thread609 ], [ %415, %421 ], [ %.1404, %403 ]
+  %.4402 = phi i32 [ %417, %426 ], [ %417, %.thread609 ], [ %417, %421 ], [ %.3401, %403 ]
+  %.4 = phi i8 [ %spec.select463, %426 ], [ %spec.select463, %.thread609 ], [ 0, %421 ], [ %.2395, %403 ]
+  %.2392 = phi i8 [ %spec.select464, %426 ], [ %spec.select464, %.thread609 ], [ 1, %421 ], [ %.0390548, %403 ]
   %431 = trunc nuw i8 %.2392 to i1
   %or.cond28 = and i1 %410, %431
   br i1 %or.cond28, label %432, label %proto_item_set_generated.exit488
@@ -1313,7 +1313,7 @@ proto_item_set_generated.exit491:                 ; preds = %486, %483, %480, %p
   %574 = load i32, ptr %12, align 4
   store i32 %574, ptr %572, align 4
   %575 = load i32, ptr @proto_usb, align 4
-  %576 = icmp eq i32 %.0387570, %575
+  %576 = icmp eq i32 %.0387607, %575
   br i1 %576, label %577, label %585
 
 577:                                              ; preds = %562
@@ -1455,7 +1455,7 @@ proto_item_set_generated.exit491:                 ; preds = %486, %483, %480, %p
   %652 = load i32, ptr %12, align 4
   store i32 %652, ptr %650, align 4
   %653 = load i32, ptr @proto_usb, align 4
-  %654 = icmp eq i32 %.0387570, %653
+  %654 = icmp eq i32 %.0387607, %653
   br i1 %654, label %655, label %663
 
 655:                                              ; preds = %643

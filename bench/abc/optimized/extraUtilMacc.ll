@@ -596,8 +596,8 @@ Vec_IntPush.exit177.us.us:                        ; preds = %Vec_IntGrow.exit.i1
 
 197:                                              ; preds = %Vec_IntPush.exit177.us.us, %166
   %198 = shl i32 %72, 16
-  %.reass275 = or i32 %198, %invariant.op274
-  store i32 %.reass275, ptr %163, align 4, !tbaa !14
+  %.reass298 = or i32 %198, %invariant.op297
+  store i32 %.reass298, ptr %163, align 4, !tbaa !14
   %199 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %158, i32 noundef %72, i32 noundef %66)
   br label %200
 
@@ -611,7 +611,7 @@ Vec_IntPush.exit177.us.us:                        ; preds = %Vec_IntGrow.exit.i1
 .lr.ph198.us.us:                                  ; preds = %.lr.ph202.split.us215.us
   %203 = shl i32 %66, 16
   %invariant.op = or disjoint i32 %203, 32768
-  %invariant.op274 = or i32 %66, 32768
+  %invariant.op297 = or i32 %66, 32768
   br label %70
 
 .lr.ph202.us.us:                                  ; preds = %46
@@ -747,7 +747,7 @@ Vec_WecPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond230.not, label %.preheader182, label %.lr.ph186, !llvm.loop !29
 
 ._crit_edge217:                                   ; preds = %._crit_edge210.split.us.us, %._crit_edge192.us, %33, %._crit_edge, %.preheader182
-  %.pre.i.i179270 = phi ptr [ %.val.i187, %.preheader182 ], [ %.promoted, %._crit_edge ], [ %.val.i187, %33 ], [ %.val.i187, %._crit_edge192.us ], [ %.val.i187, %._crit_edge210.split.us.us ]
+  %.pre.i.i179293 = phi ptr [ %.val.i187, %.preheader182 ], [ %.promoted, %._crit_edge ], [ %.val.i187, %33 ], [ %.val.i187, %._crit_edge192.us ], [ %.val.i187, %._crit_edge210.split.us.us ]
   %.val1821.i = load i32, ptr %10, align 4, !tbaa !13
   %261 = icmp sgt i32 %.val1821.i, 0
   br i1 %261, label %.lr.ph23.i.preheader, label %Vec_WecPrint.exit
@@ -758,7 +758,7 @@ Vec_WecPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph23.i:                                       ; preds = %.lr.ph23.i.preheader, %.critedge2.i
   %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %.critedge2.i ], [ 0, %.lr.ph23.i.preheader ]
-  %263 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.pre.i.i179270, i64 %indvars.iv25.i
+  %263 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.pre.i.i179293, i64 %indvars.iv25.i
   %264 = trunc nuw nsw i64 %indvars.iv25.i to i32
   %265 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef %264)
   %266 = getelementptr i8, ptr %263, i64 4
@@ -799,7 +799,7 @@ Vec_WecPrint.exit:                                ; preds = %.critedge2.i, %._cr
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %281
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %281 ], [ 0, %.lr.ph.i.i.preheader ]
-  %278 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.pre.i.i179270, i64 %indvars.iv.i.i, i32 2
+  %278 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.pre.i.i179293, i64 %indvars.iv.i.i, i32 2
   %279 = load ptr, ptr %278, align 8, !tbaa !21
   %.not15.i.i = icmp eq ptr %279, null
   br i1 %.not15.i.i, label %281, label %280
@@ -815,11 +815,11 @@ Vec_WecPrint.exit:                                ; preds = %.critedge2.i, %._cr
   br i1 %exitcond261.not, label %._crit_edge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !32
 
 ._crit_edge.i.i:                                  ; preds = %Vec_WecPrint.exit
-  %.not.i.i180 = icmp eq ptr %.pre.i.i179270, null
+  %.not.i.i180 = icmp eq ptr %.pre.i.i179293, null
   br i1 %.not.i.i180, label %Vec_WecFree.exit, label %._crit_edge.thread.i.i
 
 ._crit_edge.thread.i.i:                           ; preds = %281, %._crit_edge.i.i
-  tail call void @free(ptr noundef nonnull %.pre.i.i179270) #12
+  tail call void @free(ptr noundef nonnull %.pre.i.i179293) #12
   br label %Vec_WecFree.exit
 
 Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %._crit_edge.thread.i.i
@@ -906,7 +906,7 @@ define void @Macc_ConstMultGenOne_rec(ptr noundef %0, ptr noundef %1, i32 nounde
 
 31:                                               ; preds = %.thread, %30, %28
   %.not74 = icmp eq i32 %.0.lcssa, 0
-  br i1 %.not74, label %common.ret80, label %32
+  br i1 %.not74, label %common.ret84, label %32
 
 32:                                               ; preds = %31
   %33 = add nsw i32 %9, -1
@@ -914,7 +914,7 @@ define void @Macc_ConstMultGenOne_rec(ptr noundef %0, ptr noundef %1, i32 nounde
   %35 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %2, i1 true)
   %36 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %24, i1 true)
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.27, i32 noundef %33, i32 noundef %34, i32 noundef %35, i32 noundef %34, i32 noundef %36, i32 noundef %.0.lcssa) #12
-  br label %common.ret80
+  br label %common.ret84
 
 38:                                               ; preds = %5
   %39 = icmp ugt i32 %12, 65535
@@ -922,7 +922,7 @@ define void @Macc_ConstMultGenOne_rec(ptr noundef %0, ptr noundef %1, i32 nounde
   %or.cond = and i1 %39, %40
   br i1 %or.cond, label %41, label %47
 
-common.ret80:                                     ; preds = %31, %32, %47, %49, %41
+common.ret84:                                     ; preds = %31, %32, %47, %49, %41
   ret void
 
 41:                                               ; preds = %38
@@ -933,17 +933,17 @@ common.ret80:                                     ; preds = %31, %32, %47, %49, 
   %44 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %2, i1 true)
   %45 = select i1 %.not, i32 43, i32 45
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.28, i32 noundef %42, i32 noundef %43, i32 noundef %44, i32 noundef %13, i32 noundef %45, i32 noundef %14) #12
-  br label %common.ret80
+  br label %common.ret84
 
 47:                                               ; preds = %38
   %48 = icmp eq i32 %14, 0
-  br i1 %48, label %49, label %common.ret80
+  br i1 %48, label %49, label %common.ret84
 
 49:                                               ; preds = %47
   tail call void @Macc_ConstMultGenOne_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %13, i32 noundef %3, i32 noundef %4)
   %50 = add nsw i32 %9, -1
   %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef %50, i32 noundef %13, i32 noundef %13) #12
-  br label %common.ret80
+  br label %common.ret84
 }
 
 ; Function Attrs: nofree nounwind uwtable

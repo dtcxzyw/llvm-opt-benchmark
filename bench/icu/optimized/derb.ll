@@ -546,7 +546,7 @@ define weak_odr dso_local void @_ZN6icu_7715MaybeStackArrayIcLi40EE8copyFromERKS
 declare void @uprv_free_77(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, -2147483648) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca %"class.icu_77::CharString", align 8
   %5 = alloca i32, align 4
@@ -861,14 +861,14 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit186: ; preds = 
   br label %268
 
 .thread199:                                       ; preds = %.tail, %145
-  %.not161256 = phi i1 [ true, %.tail ], [ false, %145 ]
+  %.not161269 = phi i1 [ true, %.tail ], [ false, %145 ]
   %151 = phi ptr [ null, %.tail ], [ %.0126, %145 ]
   %152 = load ptr, ptr %4, align 8, !tbaa !4
   %153 = invoke ptr @ures_open_77(ptr noundef %151, ptr noundef %152, ptr noundef nonnull %5)
           to label %154 unwind label %149
 
 154:                                              ; preds = %.thread199, %.thread209
-  %.not161254 = phi i1 [ false, %.thread209 ], [ %.not161256, %.thread199 ]
+  %.not161267 = phi i1 [ false, %.thread209 ], [ %.not161269, %.thread199 ]
   %.not164207 = phi i1 [ false, %.thread209 ], [ true, %.thread199 ]
   %.0109203 = phi ptr [ %.3112.ph212, %.thread209 ], [ null, %.thread199 ]
   %.0135 = phi ptr [ %148, %.thread209 ], [ %153, %.thread199 ]
@@ -896,7 +896,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit186: ; preds = 
   %strchr = getelementptr inbounds i8, ptr %161, i64 %strlen
   br label %167
 
-165:                                              ; preds = %.invoke264, %233, %231, %262, %260, %254, %251, %247, %238, %235, %229, %226, %224, %221, %218, %214, %212, %.thread214, %160
+165:                                              ; preds = %.invoke277, %233, %231, %262, %260, %254, %251, %247, %238, %235, %229, %226, %224, %221, %218, %214, %212, %.thread214, %160
   %166 = landingpad { ptr, i32 }
           cleanup
   br label %268
@@ -1094,22 +1094,22 @@ _ZL15getEncodingNamePKc.exit:                     ; preds = %233, %.noexc
           to label %240 unwind label %165
 
 240:                                              ; preds = %238
-  br i1 %.not164207, label %241, label %.invoke264
+  br i1 %.not164207, label %241, label %.invoke277
 
 241:                                              ; preds = %240
-  br i1 %.not161254, label %242, label %247
+  br i1 %.not161267, label %242, label %247
 
 242:                                              ; preds = %241
   %243 = load ptr, ptr %4, align 8, !tbaa !4
-  br label %.invoke264
+  br label %.invoke277
 
-.invoke264:                                       ; preds = %240, %242
+.invoke277:                                       ; preds = %240, %242
   %244 = phi ptr [ @.str.18, %242 ], [ @.str.17, %240 ]
   %245 = phi ptr [ %243, %242 ], [ %.0109203, %240 ]
   %246 = invoke i32 (ptr, ptr, ...) @u_fprintf_77(ptr noundef %.0105, ptr noundef nonnull %244, ptr noundef %245)
           to label %247 unwind label %165
 
-247:                                              ; preds = %.invoke264, %241
+247:                                              ; preds = %.invoke277, %241
   %248 = invoke i32 (ptr, ptr, ...) @u_fprintf_77(ptr noundef %.0105, ptr noundef nonnull @.str.19)
           to label %249 unwind label %165
 
@@ -1932,24 +1932,24 @@ _ZL11printIndentP5UFILEi.exit193:                 ; preds = %_ZNK6icu_7713Unicod
 .lr.ph:                                           ; preds = %.preheader
   %316 = add nsw i32 %2, 4
   %317 = call signext i8 @ures_hasNext_77(ptr noundef %1)
-  %.not152231 = icmp eq i8 %317, 0
-  br i1 %.not152231, label %.critedge, label %.lr.ph233
+  %.not152245 = icmp eq i8 %317, 0
+  br i1 %.not152245, label %.critedge, label %.lr.ph247
 
-.lr.ph233:                                        ; preds = %.lr.ph, %.backedge
-  %.0134204232 = phi ptr [ %318, %.backedge ], [ null, %.lr.ph ]
-  %318 = call ptr @ures_getNextResource_77(ptr noundef %1, ptr noundef %.0134204232, ptr noundef nonnull %4)
+.lr.ph247:                                        ; preds = %.lr.ph, %.backedge
+  %.0134204246 = phi ptr [ %318, %.backedge ], [ null, %.lr.ph ]
+  %318 = call ptr @ures_getNextResource_77(ptr noundef %1, ptr noundef %.0134204246, ptr noundef nonnull %4)
   %319 = load i32, ptr %4, align 4, !tbaa !14
   %320 = icmp sgt i32 %319, 0
   br i1 %320, label %321, label %325
 
-321:                                              ; preds = %.lr.ph233
+321:                                              ; preds = %.lr.ph247
   %322 = load ptr, ptr @_ZL7ustderr, align 8, !tbaa !22
   %323 = call ptr @u_errorName_77(i32 noundef %319)
   %324 = call i32 (ptr, ptr, ...) @u_fprintf_77(ptr noundef %322, ptr noundef nonnull @.str.47, ptr noundef %3, i32 noundef %319, ptr noundef nonnull @.str.42, ptr noundef %323)
   store i32 0, ptr %4, align 4, !tbaa !14
   br label %.backedge
 
-325:                                              ; preds = %.lr.ph233
+325:                                              ; preds = %.lr.ph247
   call fastcc void @_ZL14printOutBundleP5UFILEP15UResourceBundleiPKcP10UErrorCode(ptr noundef %0, ptr noundef %318, i32 noundef %316, ptr noundef %3, ptr noundef %4)
   %.pre = load i32, ptr %4, align 4, !tbaa !14
   %326 = icmp sgt i32 %.pre, 0
@@ -1958,7 +1958,7 @@ _ZL11printIndentP5UFILEi.exit193:                 ; preds = %_ZNK6icu_7713Unicod
 .backedge:                                        ; preds = %325, %321
   %327 = call signext i8 @ures_hasNext_77(ptr noundef %1)
   %.not152 = icmp eq i8 %327, 0
-  br i1 %.not152, label %.critedge, label %.lr.ph233, !llvm.loop !35
+  br i1 %.not152, label %.critedge, label %.lr.ph247, !llvm.loop !35
 
 328:                                              ; preds = %312
   %329 = call i32 @ures_getSize_77(ptr noundef %1)

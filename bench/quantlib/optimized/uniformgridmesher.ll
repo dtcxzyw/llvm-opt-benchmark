@@ -232,12 +232,12 @@ invoke.cont19:                                    ; preds = %.noexc63, %invoke.c
   br i1 %cmp, label %invoke.cont54.preheader, label %if.then
 
 invoke.cont54.preheader:                          ; preds = %invoke.cont19
-  %dim_.i93173 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %_M_finish.i94174 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %19 = load ptr, ptr %_M_finish.i94174, align 8, !tbaa !13
-  %20 = load ptr, ptr %dim_.i93173, align 8, !tbaa !15
-  %cmp59179.not = icmp eq ptr %19, %20
-  br i1 %cmp59179.not, label %for.cond.cleanup, label %invoke.cont73
+  %dim_.i93193 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %_M_finish.i94194 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %19 = load ptr, ptr %_M_finish.i94194, align 8, !tbaa !13
+  %20 = load ptr, ptr %dim_.i93193, align 8, !tbaa !15
+  %cmp59199.not = icmp eq ptr %19, %20
+  br i1 %cmp59199.not, label %for.cond.cleanup, label %invoke.cont73
 
 if.then:                                          ; preds = %invoke.cont19
   call void @llvm.lifetime.start.p0(ptr nonnull %_ql_msg_stream)
@@ -432,21 +432,21 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup95,
 
 invoke.cont73:                                    ; preds = %invoke.cont54.preheader, %for.cond.cleanup95
   %47 = phi ptr [ %75, %for.cond.cleanup95 ], [ %20, %invoke.cont54.preheader ]
-  %i.0180 = phi i64 [ %inc108, %for.cond.cleanup95 ], [ 0, %invoke.cont54.preheader ]
+  %i.0200 = phi i64 [ %inc108, %for.cond.cleanup95 ], [ 0, %invoke.cont54.preheader ]
   %48 = phi ptr [ %73, %for.cond.cleanup95 ], [ %16, %invoke.cont54.preheader ]
   %49 = load ptr, ptr %boundaries, align 8, !tbaa !23
-  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair", ptr %49, i64 %i.0180
+  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair", ptr %49, i64 %i.0200
   %second = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %50 = load double, ptr %second, align 8, !tbaa !30
   %51 = load double, ptr %add.ptr.i, align 8, !tbaa !33
   %sub = fsub double %50, %51
-  %add.ptr.i106 = getelementptr inbounds nuw i64, ptr %47, i64 %i.0180
+  %add.ptr.i106 = getelementptr inbounds nuw i64, ptr %47, i64 %i.0200
   %52 = load i64, ptr %add.ptr.i106, align 8, !tbaa !34
   %sub67 = add i64 %52, -1
   %conv = uitofp i64 %sub67 to double
   %div = fdiv double %sub, %conv
   %53 = load ptr, ptr %dx_, align 8, !tbaa !16
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %53, i64 %i.0180
+  %arrayidx.i = getelementptr inbounds nuw double, ptr %53, i64 %i.0200
   store double %div, ptr %arrayidx.i, align 8, !tbaa !35
   %cmp.i.i114 = icmp ugt i64 %52, 1152921504606846975
   br i1 %cmp.i.i114, label %if.then.i.i119, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -487,7 +487,7 @@ invoke.cont80:                                    ; preds = %if.end.i.i.i.i.i.i.
   %ref.tmp71.sroa.11.1 = phi ptr [ %add.ptr.i.i.i117, %call5.i.i.i.i2.i.i.noexc121 ], [ %add.ptr.i.i.i117, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc121 ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %55 = load ptr, ptr %locations_, align 8, !tbaa !17
-  %add.ptr.i123 = getelementptr inbounds nuw %"class.std::vector.16", ptr %55, i64 %i.0180
+  %add.ptr.i123 = getelementptr inbounds nuw %"class.std::vector.16", ptr %55, i64 %i.0200
   %56 = load ptr, ptr %add.ptr.i123, align 8, !tbaa !36
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i123, i64 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i123, i64 16
@@ -511,18 +511,18 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.split.us:           ; preds = %invoke.cont80, %_ZN
   %59 = phi ptr [ %.pre170, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ %48, %invoke.cont80 ]
   %dim_.i131.us = getelementptr inbounds nuw i8, ptr %59, i64 8
   %60 = load ptr, ptr %dim_.i131.us, align 8, !tbaa !15
-  %add.ptr.i132.us = getelementptr inbounds nuw i64, ptr %60, i64 %i.0180
+  %add.ptr.i132.us = getelementptr inbounds nuw i64, ptr %60, i64 %i.0200
   %61 = load i64, ptr %add.ptr.i132.us, align 8, !tbaa !34
   %cmp94.us165.not = icmp eq i64 %61, 0
   br i1 %cmp94.us165.not, label %for.cond.cleanup95, label %for.body96.us.lr.ph
 
 for.body96.us.lr.ph:                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.split.us
   %62 = load ptr, ptr %boundaries, align 8, !tbaa !23
-  %add.ptr.i133.us = getelementptr inbounds nuw %"struct.std::pair", ptr %62, i64 %i.0180
+  %add.ptr.i133.us = getelementptr inbounds nuw %"struct.std::pair", ptr %62, i64 %i.0200
   %63 = load ptr, ptr %dx_, align 8, !tbaa !16
-  %arrayidx.i134.us = getelementptr inbounds nuw double, ptr %63, i64 %i.0180
+  %arrayidx.i134.us = getelementptr inbounds nuw double, ptr %63, i64 %i.0200
   %64 = load ptr, ptr %locations_, align 8, !tbaa !17
-  %add.ptr.i135.us = getelementptr inbounds nuw %"class.std::vector.16", ptr %64, i64 %i.0180
+  %add.ptr.i135.us = getelementptr inbounds nuw %"class.std::vector.16", ptr %64, i64 %i.0200
   %65 = load ptr, ptr %add.ptr.i135.us, align 8, !tbaa !36
   br label %for.body96.us
 
@@ -556,14 +556,14 @@ invoke.cont89:                                    ; preds = %.noexc129, %for.con
   %70 = phi ptr [ %69, %for.cond87 ], [ %.pre.i128, %.noexc129 ]
   %dim_.i131 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %71 = load ptr, ptr %dim_.i131, align 8, !tbaa !15
-  %add.ptr.i132 = getelementptr inbounds nuw i64, ptr %71, i64 %i.0180
+  %add.ptr.i132 = getelementptr inbounds nuw i64, ptr %71, i64 %i.0200
   %72 = load i64, ptr %add.ptr.i132, align 8, !tbaa !34
   %cmp94 = icmp ult i64 %j.0, %72
   br i1 %cmp94, label %for.body96, label %for.cond.cleanup95
 
 for.cond.cleanup95:                               ; preds = %invoke.cont89, %for.body96.us, %_ZNSt6vectorIdSaIdEED2Ev.exit.split.us
   %73 = phi ptr [ %59, %_ZNSt6vectorIdSaIdEED2Ev.exit.split.us ], [ %59, %for.body96.us ], [ %70, %invoke.cont89 ]
-  %inc108 = add i64 %i.0180, 1
+  %inc108 = add nuw i64 %i.0200, 1
   %dim_.i93 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %_M_finish.i94 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %74 = load ptr, ptr %_M_finish.i94, align 8, !tbaa !13
@@ -592,15 +592,15 @@ lpad88:                                           ; preds = %cond.false.i127
 
 for.body96:                                       ; preds = %invoke.cont89
   %77 = load ptr, ptr %boundaries, align 8, !tbaa !23
-  %add.ptr.i133 = getelementptr inbounds nuw %"struct.std::pair", ptr %77, i64 %i.0180
+  %add.ptr.i133 = getelementptr inbounds nuw %"struct.std::pair", ptr %77, i64 %i.0200
   %78 = load double, ptr %add.ptr.i133, align 8, !tbaa !33
   %conv99 = uitofp i64 %j.0 to double
   %79 = load ptr, ptr %dx_, align 8, !tbaa !16
-  %arrayidx.i134 = getelementptr inbounds nuw double, ptr %79, i64 %i.0180
+  %arrayidx.i134 = getelementptr inbounds nuw double, ptr %79, i64 %i.0200
   %80 = load double, ptr %arrayidx.i134, align 8, !tbaa !35
   %81 = tail call double @llvm.fmuladd.f64(double %conv99, double %80, double %78)
   %82 = load ptr, ptr %locations_, align 8, !tbaa !17
-  %add.ptr.i135 = getelementptr inbounds nuw %"class.std::vector.16", ptr %82, i64 %i.0180
+  %add.ptr.i135 = getelementptr inbounds nuw %"class.std::vector.16", ptr %82, i64 %i.0200
   %83 = load ptr, ptr %add.ptr.i135, align 8, !tbaa !36
   %add.ptr.i136 = getelementptr inbounds nuw double, ptr %83, i64 %j.0
   store double %81, ptr %add.ptr.i136, align 8, !tbaa !35

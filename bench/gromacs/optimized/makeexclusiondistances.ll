@@ -40,8 +40,8 @@ define void @_Z22makeExclusionDistancesPK7t_atomsP14AtomPropertiesff(ptr dead_on
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not116 = icmp eq i32 %12, 0
-  br i1 %.not116, label %.loopexit, label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i
+  %.not134 = icmp eq i32 %12, 0
+  br i1 %.not134, label %.loopexit, label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i: ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8

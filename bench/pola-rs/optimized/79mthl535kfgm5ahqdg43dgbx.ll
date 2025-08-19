@@ -1901,9 +1901,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h614089a
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq ptr %.promoted, %9
-  br i1 %16, label %.loopexit, label %.lr.ph15
+  br i1 %16, label %.loopexit, label %.lr.ph13
 
-.lr.ph15:                                         ; preds = %.lr.ph, %39
+.lr.ph13:                                         ; preds = %.lr.ph, %39
   %17 = phi ptr [ %18, %39 ], [ %.promoted, %.lr.ph ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !394)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !395)
@@ -1919,17 +1919,17 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h614089a
   %.not.i.i = icmp eq i8 %23, %24
   br i1 %.not.i.i, label %.split, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bcfc9c53526bcabE.exit.i"
 
-.split:                                           ; preds = %.lr.ph15
+.split:                                           ; preds = %.lr.ph13
   store i8 1, ptr %5, align 8, !alias.scope !386
   br label %.loopexit
 
-"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bcfc9c53526bcabE.exit.i": ; preds = %.lr.ph15
+"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bcfc9c53526bcabE.exit.i": ; preds = %.lr.ph13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !396)
   %25 = icmp ult i64 %21, 2
-  br i1 %25, label %.split14, label %26, !prof !10
+  br i1 %25, label %.split12, label %26, !prof !10
 
-.split14:                                         ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bcfc9c53526bcabE.exit.i"
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef 2, i64 noundef %21, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e3ab2f2c0b17fd8970c13a83490cb65d.43) #19, !noalias !399
+.split12:                                         ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bcfc9c53526bcabE.exit.i"
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef 2, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e3ab2f2c0b17fd8970c13a83490cb65d.43) #19, !noalias !399
   unreachable
 
 26:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bcfc9c53526bcabE.exit.i"
@@ -1964,7 +1964,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h614089a
   %42 = add nuw nsw i64 %35, 1
   store i64 %42, ptr %14, align 8
   %43 = icmp eq ptr %18, %9
-  br i1 %43, label %.loopexit, label %.lr.ph15
+  br i1 %43, label %.loopexit, label %.lr.ph13
 
 .loopexit:                                        ; preds = %39, %3, %.lr.ph, %.split
   ret void
@@ -3077,9 +3077,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hd39b0bc
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq ptr %.promoted, %9
-  br i1 %18, label %.loopexit, label %.lr.ph16
+  br i1 %18, label %.loopexit, label %.lr.ph14
 
-.lr.ph16:                                         ; preds = %.lr.ph, %48
+.lr.ph14:                                         ; preds = %.lr.ph, %48
   %19 = phi ptr [ %20, %48 ], [ %.promoted, %.lr.ph ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !680)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !681)
@@ -3095,17 +3095,17 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hd39b0bc
   %.not.i.i = icmp eq i8 %25, %26
   br i1 %.not.i.i, label %.split, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d5ebb852c0db246E.exit.i"
 
-.split:                                           ; preds = %.lr.ph16
+.split:                                           ; preds = %.lr.ph14
   store i8 1, ptr %5, align 8, !alias.scope !670, !noalias !675
   br label %.loopexit
 
-"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d5ebb852c0db246E.exit.i": ; preds = %.lr.ph16
+"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d5ebb852c0db246E.exit.i": ; preds = %.lr.ph14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !683)
   %27 = icmp ult i64 %23, 2
-  br i1 %27, label %.split15, label %28, !prof !10
+  br i1 %27, label %.split13, label %28, !prof !10
 
-.split15:                                         ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d5ebb852c0db246E.exit.i"
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef 2, i64 noundef %23, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e3ab2f2c0b17fd8970c13a83490cb65d.40) #19, !noalias !686
+.split13:                                         ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d5ebb852c0db246E.exit.i"
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef 2, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e3ab2f2c0b17fd8970c13a83490cb65d.40) #19, !noalias !686
   unreachable
 
 28:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d5ebb852c0db246E.exit.i"
@@ -3145,7 +3145,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hd39b0bc
   %51 = add nuw nsw i64 %44, 1
   store i64 %51, ptr %16, align 8
   %52 = icmp eq ptr %20, %9
-  br i1 %52, label %.loopexit, label %.lr.ph16
+  br i1 %52, label %.loopexit, label %.lr.ph14
 
 .loopexit:                                        ; preds = %48, %3, %.lr.ph, %.split
   ret void
@@ -3815,7 +3815,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !18, !noundef !3
-  switch i8 %23, label %default.unreachable71 [
+  switch i8 %23, label %default.unreachable76 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -3857,7 +3857,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable71:                            ; preds = %2
+default.unreachable76:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2

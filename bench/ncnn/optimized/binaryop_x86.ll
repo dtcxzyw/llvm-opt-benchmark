@@ -2552,8 +2552,8 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %1191
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 2021, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond536 = select i1 %1227, i1 %switch.lobit, i1 false
-  br i1 %or.cond536, label %switch.lookup, label %_ZN4ncnnL19get_reverse_op_typeEi.exit
+  %or.cond683 = select i1 %1227, i1 %switch.lobit, i1 false
+  br i1 %or.cond683, label %switch.lookup, label %_ZN4ncnnL19get_reverse_op_typeEi.exit
 
 switch.lookup:                                    ; preds = %1224
   %1228 = zext nneg i32 %switch.tableidx to i64

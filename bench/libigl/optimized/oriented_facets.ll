@@ -109,8 +109,8 @@ define weak_odr dso_local void @_ZN3igl15oriented_facetsIN5Eigen6MatrixIjLin1ELi
 .preheader.us.i.i.i.i.i.i.i.i.i.i.preheader:      ; preds = %.preheader.lr.ph.i.i.i.i.i.i.i.i.i.i, %.preheader.us.i.i.i.i.i.i.i.i.i.i.preheader
   %.09.us.i.i.i.i.i.i.i.i.i.i = phi i64 [ %20, %.preheader.us.i.i.i.i.i.i.i.i.i.i.preheader ], [ 0, %.preheader.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   %17 = getelementptr i32, ptr %13, i64 %.09.us.i.i.i.i.i.i.i.i.i.i
-  %.idx493 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i, 4
-  %18 = getelementptr i8, ptr %11, i64 %.idx493
+  %.idx494 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i, 4
+  %18 = getelementptr i8, ptr %11, i64 %.idx494
   %19 = load i32, ptr %18, align 4, !tbaa !22
   store i32 %19, ptr %17, align 4, !tbaa !22
   %20 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i, 1
@@ -125,8 +125,8 @@ define weak_odr dso_local void @_ZN3igl15oriented_facetsIN5Eigen6MatrixIjLin1ELi
 23:                                               ; preds = %23, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i
   %.09.us.i.i.i.i.i.i.i.i.i.i80 = phi i64 [ 0, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i ], [ %27, %23 ]
   %24 = getelementptr i32, ptr %22, i64 %.09.us.i.i.i.i.i.i.i.i.i.i80
-  %.idx494 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i80, 4
-  %25 = getelementptr i8, ptr %21, i64 %.idx494
+  %.idx495 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i80, 4
+  %25 = getelementptr i8, ptr %21, i64 %.idx495
   %26 = load i32, ptr %25, align 4, !tbaa !22
   store i32 %26, ptr %24, align 4, !tbaa !22
   %27 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i80, 1
@@ -142,8 +142,8 @@ define weak_odr dso_local void @_ZN3igl15oriented_facetsIN5Eigen6MatrixIjLin1ELi
 31:                                               ; preds = %31, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i82
   %.09.us.i.i.i.i.i.i.i.i.i.i88 = phi i64 [ 0, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i82 ], [ %35, %31 ]
   %32 = getelementptr i32, ptr %30, i64 %.09.us.i.i.i.i.i.i.i.i.i.i88
-  %.idx495 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i88, 4
-  %33 = getelementptr i8, ptr %28, i64 %.idx495
+  %.idx496 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i88, 4
+  %33 = getelementptr i8, ptr %28, i64 %.idx496
   %34 = load i32, ptr %33, align 4, !tbaa !22
   store i32 %34, ptr %32, align 4, !tbaa !22
   %35 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i88, 1
@@ -157,8 +157,8 @@ define weak_odr dso_local void @_ZN3igl15oriented_facetsIN5Eigen6MatrixIjLin1ELi
 37:                                               ; preds = %37, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i90
   %.09.us.i.i.i.i.i.i.i.i.i.i96 = phi i64 [ 0, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i90 ], [ %41, %37 ]
   %38 = getelementptr i32, ptr %36, i64 %.09.us.i.i.i.i.i.i.i.i.i.i96
-  %.idx496 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i96, 4
-  %39 = getelementptr i8, ptr %10, i64 %.idx496
+  %.idx497 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i96, 4
+  %39 = getelementptr i8, ptr %10, i64 %.idx497
   %40 = load i32, ptr %39, align 4, !tbaa !22
   store i32 %40, ptr %38, align 4, !tbaa !22
   %41 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i96, 1
@@ -172,8 +172,8 @@ define weak_odr dso_local void @_ZN3igl15oriented_facetsIN5Eigen6MatrixIjLin1ELi
 43:                                               ; preds = %43, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i98
   %.09.us.i.i.i.i.i.i.i.i.i.i104 = phi i64 [ 0, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i98 ], [ %47, %43 ]
   %44 = getelementptr i32, ptr %42, i64 %.09.us.i.i.i.i.i.i.i.i.i.i104
-  %.idx497 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i104, 4
-  %45 = getelementptr i8, ptr %28, i64 %.idx497
+  %.idx498 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i104, 4
+  %45 = getelementptr i8, ptr %28, i64 %.idx498
   %46 = load i32, ptr %45, align 4, !tbaa !22
   store i32 %46, ptr %44, align 4, !tbaa !22
   %47 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i104, 1
@@ -187,8 +187,8 @@ define weak_odr dso_local void @_ZN3igl15oriented_facetsIN5Eigen6MatrixIjLin1ELi
 49:                                               ; preds = %49, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i106
   %.09.us.i.i.i.i.i.i.i.i.i.i112 = phi i64 [ 0, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i106 ], [ %53, %49 ]
   %50 = getelementptr i32, ptr %48, i64 %.09.us.i.i.i.i.i.i.i.i.i.i112
-  %.idx498 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i112, 4
-  %51 = getelementptr i8, ptr %21, i64 %.idx498
+  %.idx499 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i112, 4
+  %51 = getelementptr i8, ptr %21, i64 %.idx499
   %52 = load i32, ptr %51, align 4, !tbaa !22
   store i32 %52, ptr %50, align 4, !tbaa !22
   %53 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i112, 1
@@ -203,8 +203,8 @@ define weak_odr dso_local void @_ZN3igl15oriented_facetsIN5Eigen6MatrixIjLin1ELi
 55:                                               ; preds = %55, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i114
   %.09.us.i.i.i.i.i.i.i.i.i.i120 = phi i64 [ 0, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i114 ], [ %59, %55 ]
   %56 = getelementptr i32, ptr %54, i64 %.09.us.i.i.i.i.i.i.i.i.i.i120
-  %.idx499 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i120, 4
-  %57 = getelementptr i8, ptr %10, i64 %.idx499
+  %.idx500 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i120, 4
+  %57 = getelementptr i8, ptr %10, i64 %.idx500
   %58 = load i32, ptr %57, align 4, !tbaa !22
   store i32 %58, ptr %56, align 4, !tbaa !22
   %59 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i120, 1
@@ -218,8 +218,8 @@ define weak_odr dso_local void @_ZN3igl15oriented_facetsIN5Eigen6MatrixIjLin1ELi
 61:                                               ; preds = %61, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i122
   %.09.us.i.i.i.i.i.i.i.i.i.i128 = phi i64 [ 0, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i122 ], [ %65, %61 ]
   %62 = getelementptr i32, ptr %60, i64 %.09.us.i.i.i.i.i.i.i.i.i.i128
-  %.idx500 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i128, 4
-  %63 = getelementptr i8, ptr %21, i64 %.idx500
+  %.idx501 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i128, 4
+  %63 = getelementptr i8, ptr %21, i64 %.idx501
   %64 = load i32, ptr %63, align 4, !tbaa !22
   store i32 %64, ptr %62, align 4, !tbaa !22
   %65 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i128, 1
@@ -233,8 +233,8 @@ define weak_odr dso_local void @_ZN3igl15oriented_facetsIN5Eigen6MatrixIjLin1ELi
 67:                                               ; preds = %67, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i130
   %.09.us.i.i.i.i.i.i.i.i.i.i136 = phi i64 [ 0, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i130 ], [ %71, %67 ]
   %68 = getelementptr i32, ptr %66, i64 %.09.us.i.i.i.i.i.i.i.i.i.i136
-  %.idx501 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i136, 4
-  %69 = getelementptr i8, ptr %11, i64 %.idx501
+  %.idx502 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i136, 4
+  %69 = getelementptr i8, ptr %11, i64 %.idx502
   %70 = load i32, ptr %69, align 4, !tbaa !22
   store i32 %70, ptr %68, align 4, !tbaa !22
   %71 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i136, 1
@@ -249,8 +249,8 @@ define weak_odr dso_local void @_ZN3igl15oriented_facetsIN5Eigen6MatrixIjLin1ELi
 73:                                               ; preds = %73, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i138
   %.09.us.i.i.i.i.i.i.i.i.i.i144 = phi i64 [ 0, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i138 ], [ %77, %73 ]
   %74 = getelementptr i32, ptr %72, i64 %.09.us.i.i.i.i.i.i.i.i.i.i144
-  %.idx502 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i144, 4
-  %75 = getelementptr i8, ptr %10, i64 %.idx502
+  %.idx503 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i144, 4
+  %75 = getelementptr i8, ptr %10, i64 %.idx503
   %76 = load i32, ptr %75, align 4, !tbaa !22
   store i32 %76, ptr %74, align 4, !tbaa !22
   %77 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i144, 1
@@ -264,8 +264,8 @@ define weak_odr dso_local void @_ZN3igl15oriented_facetsIN5Eigen6MatrixIjLin1ELi
 79:                                               ; preds = %79, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i146
   %.09.us.i.i.i.i.i.i.i.i.i.i152 = phi i64 [ 0, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i146 ], [ %83, %79 ]
   %80 = getelementptr i32, ptr %78, i64 %.09.us.i.i.i.i.i.i.i.i.i.i152
-  %.idx503 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i152, 4
-  %81 = getelementptr i8, ptr %11, i64 %.idx503
+  %.idx504 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i152, 4
+  %81 = getelementptr i8, ptr %11, i64 %.idx504
   %82 = load i32, ptr %81, align 4, !tbaa !22
   store i32 %82, ptr %80, align 4, !tbaa !22
   %83 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i152, 1
@@ -279,8 +279,8 @@ define weak_odr dso_local void @_ZN3igl15oriented_facetsIN5Eigen6MatrixIjLin1ELi
 85:                                               ; preds = %85, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i154
   %.09.us.i.i.i.i.i.i.i.i.i.i160 = phi i64 [ 0, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i154 ], [ %89, %85 ]
   %86 = getelementptr i32, ptr %84, i64 %.09.us.i.i.i.i.i.i.i.i.i.i160
-  %.idx504 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i160, 4
-  %87 = getelementptr i8, ptr %28, i64 %.idx504
+  %.idx505 = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i160, 4
+  %87 = getelementptr i8, ptr %28, i64 %.idx505
   %88 = load i32, ptr %87, align 4, !tbaa !22
   store i32 %88, ptr %86, align 4, !tbaa !22
   %89 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i160, 1
@@ -300,8 +300,8 @@ define weak_odr dso_local void @_ZN3igl15oriented_facetsIN5Eigen6MatrixIjLin1ELi
 .preheader.us.i.i.i.i.i.i.i.i.i.i166.preheader:   ; preds = %.preheader.lr.ph.i.i.i.i.i.i.i.i.i.i165, %.preheader.us.i.i.i.i.i.i.i.i.i.i166.preheader
   %.09.us.i.i.i.i.i.i.i.i.i.i168 = phi i64 [ %100, %.preheader.us.i.i.i.i.i.i.i.i.i.i166.preheader ], [ 0, %.preheader.lr.ph.i.i.i.i.i.i.i.i.i.i165 ]
   %97 = getelementptr i32, ptr %93, i64 %.09.us.i.i.i.i.i.i.i.i.i.i168
-  %.idx487 = mul i64 %.09.us.i.i.i.i.i.i.i.i.i.i168, 12
-  %98 = getelementptr i8, ptr %91, i64 %.idx487
+  %.idx488 = mul i64 %.09.us.i.i.i.i.i.i.i.i.i.i168, 12
+  %98 = getelementptr i8, ptr %91, i64 %.idx488
   %99 = load i32, ptr %98, align 4, !tbaa !22
   store i32 %99, ptr %97, align 4, !tbaa !22
   %100 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i168, 1
@@ -316,8 +316,8 @@ define weak_odr dso_local void @_ZN3igl15oriented_facetsIN5Eigen6MatrixIjLin1ELi
 103:                                              ; preds = %103, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i170
   %.09.us.i.i.i.i.i.i.i.i.i.i176 = phi i64 [ 0, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i170 ], [ %107, %103 ]
   %104 = getelementptr i32, ptr %102, i64 %.09.us.i.i.i.i.i.i.i.i.i.i176
-  %.idx488 = mul i64 %.09.us.i.i.i.i.i.i.i.i.i.i176, 12
-  %105 = getelementptr i8, ptr %101, i64 %.idx488
+  %.idx489 = mul i64 %.09.us.i.i.i.i.i.i.i.i.i.i176, 12
+  %105 = getelementptr i8, ptr %101, i64 %.idx489
   %106 = load i32, ptr %105, align 4, !tbaa !22
   store i32 %106, ptr %104, align 4, !tbaa !22
   %107 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i176, 1
@@ -331,8 +331,8 @@ define weak_odr dso_local void @_ZN3igl15oriented_facetsIN5Eigen6MatrixIjLin1ELi
 109:                                              ; preds = %109, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i178
   %.09.us.i.i.i.i.i.i.i.i.i.i184 = phi i64 [ 0, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i178 ], [ %113, %109 ]
   %110 = getelementptr i32, ptr %108, i64 %.09.us.i.i.i.i.i.i.i.i.i.i184
-  %.idx489 = mul i64 %.09.us.i.i.i.i.i.i.i.i.i.i184, 12
-  %111 = getelementptr i8, ptr %101, i64 %.idx489
+  %.idx490 = mul i64 %.09.us.i.i.i.i.i.i.i.i.i.i184, 12
+  %111 = getelementptr i8, ptr %101, i64 %.idx490
   %112 = load i32, ptr %111, align 4, !tbaa !22
   store i32 %112, ptr %110, align 4, !tbaa !22
   %113 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i184, 1
@@ -346,8 +346,8 @@ define weak_odr dso_local void @_ZN3igl15oriented_facetsIN5Eigen6MatrixIjLin1ELi
 115:                                              ; preds = %115, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i186
   %.09.us.i.i.i.i.i.i.i.i.i.i192 = phi i64 [ 0, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i186 ], [ %119, %115 ]
   %116 = getelementptr i32, ptr %114, i64 %.09.us.i.i.i.i.i.i.i.i.i.i192
-  %.idx490 = mul i64 %.09.us.i.i.i.i.i.i.i.i.i.i192, 12
-  %117 = getelementptr i8, ptr %90, i64 %.idx490
+  %.idx491 = mul i64 %.09.us.i.i.i.i.i.i.i.i.i.i192, 12
+  %117 = getelementptr i8, ptr %90, i64 %.idx491
   %118 = load i32, ptr %117, align 4, !tbaa !22
   store i32 %118, ptr %116, align 4, !tbaa !22
   %119 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i192, 1
@@ -362,8 +362,8 @@ define weak_odr dso_local void @_ZN3igl15oriented_facetsIN5Eigen6MatrixIjLin1ELi
 121:                                              ; preds = %121, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i194
   %.09.us.i.i.i.i.i.i.i.i.i.i200 = phi i64 [ 0, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i194 ], [ %125, %121 ]
   %122 = getelementptr i32, ptr %120, i64 %.09.us.i.i.i.i.i.i.i.i.i.i200
-  %.idx491 = mul i64 %.09.us.i.i.i.i.i.i.i.i.i.i200, 12
-  %123 = getelementptr i8, ptr %90, i64 %.idx491
+  %.idx492 = mul i64 %.09.us.i.i.i.i.i.i.i.i.i.i200, 12
+  %123 = getelementptr i8, ptr %90, i64 %.idx492
   %124 = load i32, ptr %123, align 4, !tbaa !22
   store i32 %124, ptr %122, align 4, !tbaa !22
   %125 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i200, 1
@@ -377,8 +377,8 @@ define weak_odr dso_local void @_ZN3igl15oriented_facetsIN5Eigen6MatrixIjLin1ELi
 127:                                              ; preds = %127, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i202
   %.09.us.i.i.i.i.i.i.i.i.i.i208 = phi i64 [ 0, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i202 ], [ %131, %127 ]
   %128 = getelementptr i32, ptr %126, i64 %.09.us.i.i.i.i.i.i.i.i.i.i208
-  %.idx492 = mul i64 %.09.us.i.i.i.i.i.i.i.i.i.i208, 12
-  %129 = getelementptr i8, ptr %91, i64 %.idx492
+  %.idx493 = mul i64 %.09.us.i.i.i.i.i.i.i.i.i.i208, 12
+  %129 = getelementptr i8, ptr %91, i64 %.idx493
   %130 = load i32, ptr %129, align 4, !tbaa !22
   store i32 %130, ptr %128, align 4, !tbaa !22
   %131 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i208, 1

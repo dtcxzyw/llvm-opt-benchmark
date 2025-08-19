@@ -188,9 +188,9 @@ define dso_local ptr @v9fs_get_default_trans() #0 align 16 {
   %15 = phi ptr [ %16, %18 ], [ @v9fs_trans_list, %.preheader5.preheader ]
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, @v9fs_trans_list
-  br i1 %17, label %.thread8, label %18
+  br i1 %17, label %.thread12, label %18
 
-.thread8:                                         ; preds = %.preheader5
+.thread12:                                        ; preds = %.preheader5
   tail call void @_raw_spin_unlock(ptr noundef nonnull @v9fs_trans_lock) #5
   br label %.preheader.preheader
 
@@ -205,7 +205,7 @@ define dso_local ptr @v9fs_get_default_trans() #0 align 16 {
   %23 = icmp eq ptr %16, null
   br i1 %23, label %.preheader.preheader, label %.loopexit
 
-.preheader.preheader:                             ; preds = %.thread8, %22
+.preheader.preheader:                             ; preds = %.thread12, %22
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader

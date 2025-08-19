@@ -450,8 +450,8 @@ binary_search.exit.thread.i:                      ; preds = %122, %136, %binary_
   %sext = shl i64 %173, 32
   %176 = ashr exact i64 %sext, 32
   %177 = sext i32 %.058.i to i64
-  %sext200 = shl i64 %175, 32
-  %178 = ashr exact i64 %sext200, 32
+  %sext212 = shl i64 %175, 32
+  %178 = ashr exact i64 %sext212, 32
   %179 = sext i32 %.060.i to i64
   br label %180
 
@@ -545,11 +545,11 @@ binary_search.exit.thread.i:                      ; preds = %122, %136, %binary_
   br label %.critedge2.i.thread
 
 .critedge2.i.thread:                              ; preds = %.critedge2.i.thread.loopexit, %.critedge2.i
-  %.159.i.lcssa207 = phi i32 [ %.159.i.lcssa, %.critedge2.i ], [ %218, %.critedge2.i.thread.loopexit ]
-  %.161.i.lcssa206 = phi i32 [ %.161.i.lcssa, %.critedge2.i ], [ %219, %.critedge2.i.thread.loopexit ]
-  %220 = sub nsw i32 %.154.i, %.159.i.lcssa207
-  %221 = sub nsw i32 %.1.i56, %.161.i.lcssa206
-  %222 = tail call fastcc i32 @patience_diff(ptr noundef %0, ptr noundef %1, i32 noundef %.159.i.lcssa207, i32 noundef %220, i32 noundef %.161.i.lcssa206, i32 noundef %221)
+  %.159.i.lcssa219 = phi i32 [ %.159.i.lcssa, %.critedge2.i ], [ %218, %.critedge2.i.thread.loopexit ]
+  %.161.i.lcssa218 = phi i32 [ %.161.i.lcssa, %.critedge2.i ], [ %219, %.critedge2.i.thread.loopexit ]
+  %220 = sub nsw i32 %.154.i, %.159.i.lcssa219
+  %221 = sub nsw i32 %.1.i56, %.161.i.lcssa218
+  %222 = tail call fastcc i32 @patience_diff(ptr noundef %0, ptr noundef %1, i32 noundef %.159.i.lcssa219, i32 noundef %220, i32 noundef %.161.i.lcssa218, i32 noundef %221)
   %.not65.i = icmp ne i32 %222, 0
   %brmerge.i = or i1 %.not.i55, %.not65.i
   br i1 %brmerge.i, label %walk_common_sequence.exit.loopexit.split.loop.exit, label %.preheader102.preheader

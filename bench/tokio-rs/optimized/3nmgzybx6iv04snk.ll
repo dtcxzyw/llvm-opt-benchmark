@@ -1211,11 +1211,11 @@ _ZN4core3ops8function6FnOnce9call_once17hd6bd536a1d993f8fE.exit: ; preds = %22, 
           to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb6ac45fcf15547c7E.exit.thread" unwind label %134
 
 .thread128:                                       ; preds = %129, %124, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb6ac45fcf15547c7E.exit.thread", %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb6ac45fcf15547c7E.exit"
-  %.pn58120131 = phi { ptr, i32 } [ %.pn58120134, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb6ac45fcf15547c7E.exit.thread" ], [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb6ac45fcf15547c7E.exit" ], [ %125, %124 ], [ %125, %129 ]
+  %.pn58120131 = phi { ptr, i32 } [ %.pn58120141, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb6ac45fcf15547c7E.exit.thread" ], [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb6ac45fcf15547c7E.exit" ], [ %125, %124 ], [ %125, %129 ]
   resume { ptr, i32 } %.pn58120131
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb6ac45fcf15547c7E.exit.thread": ; preds = %157, %.thread89.thread, %160, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb6ac45fcf15547c7E.exit"
-  %.pn58120134 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb6ac45fcf15547c7E.exit" ], [ %.pn58121, %160 ], [ %.pn58121, %.thread89.thread ], [ %.pn58121, %157 ]
+  %.pn58120141 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb6ac45fcf15547c7E.exit" ], [ %.pn58121, %160 ], [ %.pn58121, %.thread89.thread ], [ %.pn58121, %157 ]
   invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$tokio..runtime..blocking..pool..Spawner..spawn_thread..$u7b$$u7b$closure$u7d$$u7d$$GT$17h72382fd4f33d066fE"(ptr noalias noundef align 8 dereferenceable(32) %2) #39
           to label %.thread128 unwind label %134
 }
@@ -3133,13 +3133,13 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
 
 99:                                               ; preds = %89
   %100 = add nuw nsw i64 %.sroa.725.0.i.i, 1
-  %101 = getelementptr inbounds i128, ptr %.sroa.06.0.i.i, i64 %.sroa.725.0.i.i
+  %101 = getelementptr inbounds nuw i128, ptr %.sroa.06.0.i.i, i64 %.sroa.725.0.i.i
   %102 = getelementptr inbounds nuw i128, ptr %.sroa.06.0.i.i, i64 %100
   %103 = sub nuw nsw i64 %98, %.sroa.725.0.i.i
   %104 = shl nuw nsw i64 %103, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %102, ptr nonnull align 8 %101, i64 %104, i1 false), !alias.scope !824, !noalias !819
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 176
-  %106 = getelementptr inbounds { ptr, ptr }, ptr %105, i64 %.sroa.725.0.i.i
+  %106 = getelementptr inbounds nuw { ptr, ptr }, ptr %105, i64 %.sroa.725.0.i.i
   %107 = getelementptr inbounds nuw { ptr, ptr }, ptr %105, i64 %100
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %107, ptr nonnull align 8 %106, i64 %104, i1 false), !alias.scope !827, !noalias !830
   br label %121
@@ -3631,7 +3631,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
   %316 = shl nuw nsw i64 %315, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %314, ptr nonnull align 8 %308, i64 %316, i1 false), !alias.scope !945, !noalias !941
   %317 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 176
-  %318 = getelementptr inbounds { ptr, ptr }, ptr %317, i64 %.sroa.7.0.i.i
+  %318 = getelementptr inbounds nuw { ptr, ptr }, ptr %317, i64 %.sroa.7.0.i.i
   %319 = getelementptr inbounds nuw { ptr, ptr }, ptr %317, i64 %307
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %319, ptr nonnull align 8 %318, i64 %316, i1 false), !alias.scope !948, !noalias !951
   store i128 %.sroa.38.1.i, ptr %308, align 8, !alias.scope !945, !noalias !941

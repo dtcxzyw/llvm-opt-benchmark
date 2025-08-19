@@ -3126,8 +3126,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hbd25c14e49796158E.exit"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hbd25c14e49796158E.exit": ; preds = %12, %25, %19, %11
-  %.sink15.i = phi i64 [ %31, %25 ], [ %24, %19 ], [ 0, %11 ], [ %18, %12 ]
-  %32 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1559ff83830a4c0aE"(i64 noundef %.sink15.i, i1 noundef zeroext false)
+  %.sink17.i = phi i64 [ %31, %25 ], [ %24, %19 ], [ 0, %11 ], [ %18, %12 ]
+  %32 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1559ff83830a4c0aE"(i64 noundef %.sink17.i, i1 noundef zeroext false)
   %33 = extractvalue { i64, ptr } %32, 0
   %34 = extractvalue { i64, ptr } %32, 1
   store i64 %33, ptr %5, align 8
@@ -3177,12 +3177,12 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hbd25c14e49796158E.exit.i.i"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hbd25c14e49796158E.exit.i.i": ; preds = %50, %44, %38
-  %.sink15.i.i.i = phi i64 [ %56, %50 ], [ %49, %44 ], [ %43, %38 ]
-  %57 = icmp ugt i64 %.sink15.i.i.i, %33
+  %.sink17.i.i.i = phi i64 [ %56, %50 ], [ %49, %44 ], [ %43, %38 ]
+  %57 = icmp ugt i64 %.sink17.i.i.i, %33
   br i1 %57, label %58, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h78e0c1aa5c906a00E.exit.i"
 
 58:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hbd25c14e49796158E.exit.i.i"
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h240432056126d1e5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0, i64 noundef %.sink15.i.i.i)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h240432056126d1e5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0, i64 noundef %.sink17.i.i.i)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h78e0c1aa5c906a00E.exit.i_crit_edge" unwind label %61
 
 "._ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h78e0c1aa5c906a00E.exit.i_crit_edge": ; preds = %58
@@ -9369,12 +9369,12 @@ define internal fastcc void @"_ZN115_$LT$itertools..intersperse..IntersperseWith
   store i32 0, ptr %5, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.3, i64 28, i1 false)
-  %.sroa.4.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i32 %.sroa.05.0.i.i.i.i22, ptr %.sroa.4.0..sroa_idx43, align 8
-  %.sroa.5.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.0..sroa_idx46, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5, i64 16, i1 false)
-  %.sroa.651.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store i8 4, ptr %.sroa.651.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  store i32 %.sroa.05.0.i.i.i.i22, ptr %.sroa.4.0..sroa_idx44, align 8
+  %.sroa.5.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.0..sroa_idx47, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5, i64 16, i1 false)
+  %.sroa.652.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store i8 4, ptr %.sroa.652.0..sroa_idx, align 8
   resume { ptr, i32 } %27
 
 28:                                               ; preds = %2
@@ -9393,14 +9393,14 @@ define internal fastcc void @"_ZN115_$LT$itertools..intersperse..IntersperseWith
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8, !alias.scope !2849, !noalias !2850, !nonnull !16, !noundef !16
   %36 = icmp eq ptr %35, %33
-  br i1 %36, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha94ec9c2ebf27b25E.exit30.thread38", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c873328356b21d1E.exit.i.i13"
+  br i1 %36, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha94ec9c2ebf27b25E.exit30.thread39", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c873328356b21d1E.exit.i.i13"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c873328356b21d1E.exit.i.i13": ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %37, ptr %34, align 8, !alias.scope !2849, !noalias !2850
   %.sroa.01.0.copyload2.i.i14 = load i64, ptr %35, align 8, !noalias !2853
   %38 = icmp eq i64 %.sroa.01.0.copyload2.i.i14, -9223372036854775808
-  br i1 %38, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha94ec9c2ebf27b25E.exit30.thread38", label %39
+  br i1 %38, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha94ec9c2ebf27b25E.exit30.thread39", label %39
 
 39:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c873328356b21d1E.exit.i.i13"
   %.sroa.6.0..sroa_idx.i.i15 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -9428,7 +9428,7 @@ define internal fastcc void @"_ZN115_$LT$itertools..intersperse..IntersperseWith
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.i.i.i.i10, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i20, i64 16, i1 false), !noalias !2854
   br label %47
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha94ec9c2ebf27b25E.exit30.thread38": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c873328356b21d1E.exit.i.i13", %31
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha94ec9c2ebf27b25E.exit30.thread39": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c873328356b21d1E.exit.i.i13", %31
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i.i.i.i10)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.sroa.0.i.i.i.i12)
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha94ec9c2ebf27b25E.exit30.thread"
@@ -9459,14 +9459,14 @@ define internal fastcc void @"_ZN115_$LT$itertools..intersperse..IntersperseWith
 
 50:                                               ; preds = %49, %47
   store i32 0, ptr %5, align 8
-  %.sroa.3.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.3.0..sroa_idx42, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.3, i64 28, i1 false)
-  %.sroa.4.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i32 %.sroa.05.0.i.i.i.i22, ptr %.sroa.4.0..sroa_idx44, align 8
-  %.sroa.5.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.0..sroa_idx47, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5, i64 16, i1 false)
-  %.sroa.651.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store i8 4, ptr %.sroa.651.0..sroa_idx52, align 8
+  %.sroa.3.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.3.0..sroa_idx43, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.3, i64 28, i1 false)
+  %.sroa.4.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  store i32 %.sroa.05.0.i.i.i.i22, ptr %.sroa.4.0..sroa_idx45, align 8
+  %.sroa.5.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.0..sroa_idx48, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5, i64 16, i1 false)
+  %.sroa.652.0..sroa_idx53 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store i8 4, ptr %.sroa.652.0..sroa_idx53, align 8
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %52 = load ptr, ptr %51, align 8, !alias.scope !2874, !noalias !2879, !nonnull !16, !align !1181, !noundef !16
   store i32 1, ptr %0, align 8
@@ -9480,7 +9480,7 @@ define internal fastcc void @"_ZN115_$LT$itertools..intersperse..IntersperseWith
   store i8 4, ptr %.sroa.736.0..sroa_idx, align 8
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha94ec9c2ebf27b25E.exit"
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha94ec9c2ebf27b25E.exit30.thread": ; preds = %28, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha94ec9c2ebf27b25E.exit30.thread38"
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha94ec9c2ebf27b25E.exit30.thread": ; preds = %28, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha94ec9c2ebf27b25E.exit30.thread39"
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 5, ptr %53, align 8
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha94ec9c2ebf27b25E.exit"

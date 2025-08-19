@@ -490,19 +490,19 @@ opcua_string_compare.exit:                        ; preds = %32
 39:                                               ; preds = %5
   %bcmp.i51 = call i32 @bcmp(ptr noundef readonly dereferenceable(51) %30, ptr noundef nonnull dereferenceable(51) @.str.40, i64 51)
   %40 = icmp eq i32 %bcmp.i51, 0
-  %spec.select73 = select i1 %40, i64 5124, i64 4
+  %spec.select75 = select i1 %40, i64 5124, i64 4
   br label %opcua_string_compare.exit64
 
 41:                                               ; preds = %5
   %bcmp.i55 = call i32 @bcmp(ptr noundef readonly dereferenceable(57) %30, ptr noundef nonnull dereferenceable(57) @.str.41, i64 57)
   %42 = icmp eq i32 %bcmp.i55, 0
-  %spec.select74 = select i1 %42, i64 8196, i64 4
+  %spec.select76 = select i1 %42, i64 8196, i64 4
   br label %opcua_string_compare.exit64
 
 43:                                               ; preds = %5
   %bcmp.i59 = call i32 @bcmp(ptr noundef readonly dereferenceable(64) %30, ptr noundef nonnull dereferenceable(64) @.str.42, i64 64)
   %44 = icmp eq i32 %bcmp.i59, 0
-  %spec.select75 = select i1 %44, i64 8196, i64 4
+  %spec.select77 = select i1 %44, i64 8196, i64 4
   br label %opcua_string_compare.exit64
 
 45:                                               ; preds = %5
@@ -512,7 +512,7 @@ opcua_string_compare.exit:                        ; preds = %32
   br label %opcua_string_compare.exit64
 
 opcua_string_compare.exit64:                      ; preds = %43, %41, %39, %37, %32, %5, %45
-  %.0 = phi i64 [ %47, %45 ], [ 4, %5 ], [ 4, %32 ], [ %spec.select, %37 ], [ %spec.select73, %39 ], [ %spec.select74, %41 ], [ %spec.select75, %43 ]
+  %.0 = phi i64 [ %47, %45 ], [ 4, %5 ], [ 4, %32 ], [ %spec.select, %37 ], [ %spec.select75, %39 ], [ %spec.select76, %41 ], [ %spec.select77, %43 ]
   %48 = call ptr @find_conversation_pinfo(ptr noundef %2, i32 noundef 0)
   %.not.i65 = icmp eq ptr %48, null
   br i1 %.not.i65, label %store_encryption_info.exit.thread, label %49

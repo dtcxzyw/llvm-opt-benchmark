@@ -302,9 +302,9 @@ sigpipe_apply.exit.i:                             ; preds = %sigpipe_apply.exit.
   store i32 0, ptr %2, align 4, !tbaa !4
   %41 = call i32 @curl_multi_poll(ptr noundef nonnull %.026.i, ptr noundef null, i32 noundef 0, i32 noundef 1000, ptr noundef null) #12
   %.not20.i.i = icmp eq i32 %41, 0
-  br i1 %.not20.i.i, label %44, label %.thread34.i.i
+  br i1 %.not20.i.i, label %44, label %.thread35.i.i
 
-.thread34.i.i:                                    ; preds = %sigpipe_apply.exit.i
+.thread35.i.i:                                    ; preds = %sigpipe_apply.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %42 = icmp eq i32 %41, 3
   %43 = select i1 %42, i32 27, i32 43
@@ -348,8 +348,8 @@ sigpipe_apply.exit.i:                             ; preds = %sigpipe_apply.exit.
   %spec.select.i.i = select i1 %46, i32 %57, i32 %.113.i.i
   br label %easy_transfer.exit.i
 
-easy_transfer.exit.i:                             ; preds = %55, %.thread34.i.i
-  %58 = phi i32 [ %43, %.thread34.i.i ], [ %spec.select.i.i, %55 ]
+easy_transfer.exit.i:                             ; preds = %55, %.thread35.i.i
+  %58 = phi i32 [ %43, %.thread35.i.i ], [ %spec.select.i.i, %55 ]
   %59 = call i32 @curl_multi_remove_handle(ptr noundef nonnull %.026.i, ptr noundef nonnull %0) #12
   %60 = load i8, ptr %34, align 8, !tbaa !84, !range !92, !noundef !93
   %61 = trunc nuw i8 %60 to i1

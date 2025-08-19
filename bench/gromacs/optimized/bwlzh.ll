@@ -286,12 +286,12 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   br label %132
 
 .critedge234:                                     ; preds = %79, %.thread243
-  %.sink310 = phi i8 [ 0, %.thread243 ], [ 1, %79 ]
+  %.sink317 = phi i8 [ 0, %.thread243 ], [ 1, %79 ]
   %128 = phi i1 [ false, %.thread243 ], [ true, %79 ]
   %.1241246 = phi i32 [ 0, %.thread243 ], [ 1, %79 ]
   %129 = sext i32 %.1218273 to i64
   %130 = getelementptr inbounds i8, ptr %2, i64 %129
-  store i8 %.sink310, ptr %130, align 1, !tbaa !12
+  store i8 %.sink317, ptr %130, align 1, !tbaa !12
   store i32 -1, ptr %10, align 4, !tbaa !10
   %131 = load i32, ptr %12, align 4, !tbaa !10
   call void @Ptngc_comp_huff_compress_verbose(ptr noundef nonnull %25, i32 noundef %131, ptr noundef %22, ptr noundef nonnull %15, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 1) #10

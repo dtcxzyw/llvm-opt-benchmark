@@ -1257,13 +1257,13 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   br i1 %.not244.i, label %dissect_pgsql_be_msg.exit, label %.lr.ph239.i
 
 .lr.ph239.i:                                      ; preds = %355, %.lr.ph239.i
-  %.in258.i = phi i32 [ %360, %.lr.ph239.i ], [ %357, %355 ]
+  %.in266.i = phi i32 [ %360, %.lr.ph239.i ], [ %357, %355 ]
   %.1238.i = phi i32 [ %363, %.lr.ph239.i ], [ 7, %355 ]
-  %360 = add nsw i32 %.in258.i, -1
+  %360 = add nsw i32 %.in266.i, -1
   %361 = load i32, ptr @hf_typeoid, align 4
   %362 = tail call ptr @proto_tree_add_item(ptr noundef %359, i32 noundef %361, ptr noundef %0, i32 noundef %.1238.i, i32 noundef 4, i32 noundef 0)
   %363 = add nuw nsw i32 %.1238.i, 4
-  %364 = icmp samesign ugt i32 %.in258.i, 1
+  %364 = icmp samesign ugt i32 %.in266.i, 1
   br i1 %364, label %.lr.ph239.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !15
 
 365:                                              ; preds = %298
@@ -1280,9 +1280,9 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   br label %.lr.ph233.i
 
 .lr.ph233.i:                                      ; preds = %.lr.ph233.i, %.lr.ph233.preheader.i
-  %.in257.i = phi i32 [ %372, %.lr.ph233.i ], [ %371, %.lr.ph233.preheader.i ]
+  %.in265.i = phi i32 [ %372, %.lr.ph233.i ], [ %371, %.lr.ph233.preheader.i ]
   %.2232.i = phi i32 [ %396, %.lr.ph233.i ], [ 7, %.lr.ph233.preheader.i ]
-  %372 = add nsw i32 %.in257.i, -1
+  %372 = add nsw i32 %.in265.i, -1
   %373 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %.2232.i)
   %374 = load i32, ptr @hf_val_name, align 4
   %375 = tail call ptr @proto_tree_add_item(ptr noundef %370, i32 noundef %374, ptr noundef %0, i32 noundef %.2232.i, i32 noundef %373, i32 noundef 0)
@@ -1307,7 +1307,7 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   %394 = load i32, ptr @hf_format, align 4
   %395 = tail call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %394, ptr noundef %0, i32 noundef %393, i32 noundef 2, i32 noundef 0)
   %396 = add i32 %378, 18
-  %397 = icmp samesign ugt i32 %.in257.i, 1
+  %397 = icmp samesign ugt i32 %.in265.i, 1
   br i1 %397, label %.lr.ph233.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !16
 
 398:                                              ; preds = %298
@@ -1324,9 +1324,9 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   br label %.lr.ph225.i
 
 .lr.ph225.i:                                      ; preds = %415, %.lr.ph225.preheader.i
-  %.in256.i = phi i32 [ %405, %415 ], [ %404, %.lr.ph225.preheader.i ]
+  %.in264.i = phi i32 [ %405, %415 ], [ %404, %.lr.ph225.preheader.i ]
   %.3224.i = phi i32 [ %.4.i82, %415 ], [ 7, %.lr.ph225.preheader.i ]
-  %405 = add nsw i32 %.in256.i, -1
+  %405 = add nsw i32 %.in264.i, -1
   %406 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.3224.i)
   %407 = load i32, ptr @hf_val_length, align 4
   %408 = tail call ptr @proto_tree_add_int(ptr noundef %403, i32 noundef %407, ptr noundef %0, i32 noundef %.3224.i, i32 noundef 4, i32 noundef %406)
@@ -1342,7 +1342,7 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
 
 415:                                              ; preds = %411, %.lr.ph225.i
   %.4.i82 = phi i32 [ %414, %411 ], [ %409, %.lr.ph225.i ]
-  %416 = icmp samesign ugt i32 %.in256.i, 1
+  %416 = icmp samesign ugt i32 %.in264.i, 1
   br i1 %416, label %.lr.ph225.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !17
 
 417:                                              ; preds = %298
@@ -1448,8 +1448,8 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   br label %452
 
 452:                                              ; preds = %451, %450, %449, %448, %447, %446, %445, %444, %443, %442, %441, %440, %439, %438, %437, %436, %435, %431
-  %.in255.i = phi ptr [ @hf_routine, %451 ], [ @hf_line, %450 ], [ @hf_file, %449 ], [ @hf_constraint_name, %448 ], [ @hf_type_name, %447 ], [ @hf_column_name, %446 ], [ @hf_table_name, %445 ], [ @hf_schema_name, %444 ], [ @hf_where, %443 ], [ @hf_internal_query, %442 ], [ @hf_internal_position, %441 ], [ @hf_position, %440 ], [ @hf_hint, %439 ], [ @hf_detail, %438 ], [ @hf_message, %437 ], [ @hf_code, %436 ], [ @hf_severity, %435 ], [ @hf_text, %431 ]
-  %453 = load i32, ptr %.in255.i, align 4
+  %.in263.i = phi ptr [ @hf_routine, %451 ], [ @hf_line, %450 ], [ @hf_file, %449 ], [ @hf_constraint_name, %448 ], [ @hf_type_name, %447 ], [ @hf_column_name, %446 ], [ @hf_table_name, %445 ], [ @hf_schema_name, %444 ], [ @hf_where, %443 ], [ @hf_internal_query, %442 ], [ @hf_internal_position, %441 ], [ @hf_position, %440 ], [ @hf_hint, %439 ], [ @hf_detail, %438 ], [ @hf_message, %437 ], [ @hf_code, %436 ], [ @hf_severity, %435 ], [ @hf_text, %431 ]
+  %453 = load i32, ptr %.in263.i, align 4
   %454 = load i32, ptr %6, align 4
   %455 = add i32 %454, 1
   %456 = call ptr @proto_tree_add_string(ptr noundef %72, i32 noundef %453, ptr noundef %0, i32 noundef %.5216.i, i32 noundef %455, ptr noundef %434)

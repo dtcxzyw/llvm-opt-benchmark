@@ -27674,8 +27674,8 @@ _ZN7testing15AssertionResultD2Ev.exit635:         ; preds = %1330, %1374, %_ZNKS
   %1395 = phi i1 [ true, %.preheader732 ], [ false, %1398 ]
   %.029797 = phi i32 [ 2, %.preheader732 ], [ 3, %1398 ]
   %.1796 = phi i64 [ %.030799, %.preheader732 ], [ %indvars.iv.next804, %1398 ]
-  %sext807 = shl i64 %.1796, 32
-  %1396 = ashr exact i64 %sext807, 32
+  %sext1011 = shl i64 %.1796, 32
+  %1396 = ashr exact i64 %sext1011, 32
   br label %1399
 
 1397:                                             ; preds = %1398

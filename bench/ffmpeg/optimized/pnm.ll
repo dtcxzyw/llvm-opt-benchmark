@@ -142,7 +142,7 @@ pnm_space.exit36.i:                               ; preds = %45
   br i1 %or.cond.i, label %50, label %pnm_get.exit
 
 50:                                               ; preds = %pnm_space.exit36.i
-  %51 = trunc i32 %.42849.i to i8
+  %51 = trunc nuw i32 %.42849.i to i8
   %52 = getelementptr inbounds nuw i8, ptr %.051.i, i64 1
   store i8 %51, ptr %.051.i, align 1, !tbaa !14
   %53 = getelementptr inbounds nuw i8, ptr %.450.i, i64 1
@@ -314,7 +314,7 @@ pnm_space.exit36.i217:                            ; preds = %105
   br i1 %or.cond.i218, label %110, label %pnm_get.exit229
 
 110:                                              ; preds = %pnm_space.exit36.i217
-  %111 = trunc i32 %.42849.i216 to i8
+  %111 = trunc nuw i32 %.42849.i216 to i8
   %112 = getelementptr inbounds nuw i8, ptr %.051.i214, i64 1
   store i8 %111, ptr %.051.i214, align 1, !tbaa !14
   %113 = getelementptr inbounds nuw i8, ptr %.450.i215, i64 1
@@ -408,7 +408,7 @@ pnm_space.exit36.i241:                            ; preds = %135
   br i1 %or.cond.i242, label %140, label %pnm_get.exit253
 
 140:                                              ; preds = %pnm_space.exit36.i241
-  %141 = trunc i32 %.42849.i240 to i8
+  %141 = trunc nuw i32 %.42849.i240 to i8
   %142 = getelementptr inbounds nuw i8, ptr %.051.i238, i64 1
   store i8 %141, ptr %.051.i238, align 1, !tbaa !14
   %143 = getelementptr inbounds nuw i8, ptr %.450.i239, i64 1
@@ -507,7 +507,7 @@ pnm_space.exit36.i265:                            ; preds = %168
   br i1 %or.cond.i266, label %173, label %pnm_get.exit277
 
 173:                                              ; preds = %pnm_space.exit36.i265
-  %174 = trunc i32 %.42849.i264 to i8
+  %174 = trunc nuw i32 %.42849.i264 to i8
   %175 = getelementptr inbounds nuw i8, ptr %.051.i262, i64 1
   store i8 %174, ptr %.051.i262, align 1, !tbaa !14
   %176 = getelementptr inbounds nuw i8, ptr %.450.i263, i64 1
@@ -606,7 +606,7 @@ pnm_space.exit36.i289:                            ; preds = %201
   br i1 %or.cond.i290, label %206, label %pnm_get.exit301
 
 206:                                              ; preds = %pnm_space.exit36.i289
-  %207 = trunc i32 %.42849.i288 to i8
+  %207 = trunc nuw i32 %.42849.i288 to i8
   %208 = getelementptr inbounds nuw i8, ptr %.051.i286, i64 1
   store i8 %207, ptr %.051.i286, align 1, !tbaa !14
   %209 = getelementptr inbounds nuw i8, ptr %.450.i287, i64 1
@@ -705,7 +705,7 @@ pnm_space.exit36.i313:                            ; preds = %234
   br i1 %or.cond.i314, label %239, label %pnm_get.exit325
 
 239:                                              ; preds = %pnm_space.exit36.i313
-  %240 = trunc i32 %.42849.i312 to i8
+  %240 = trunc nuw i32 %.42849.i312 to i8
   %241 = getelementptr inbounds nuw i8, ptr %.051.i310, i64 1
   store i8 %240, ptr %.051.i310, align 1, !tbaa !14
   %242 = getelementptr inbounds nuw i8, ptr %.450.i311, i64 1
@@ -809,7 +809,7 @@ pnm_space.exit36.i337:                            ; preds = %268
   br i1 %or.cond.i338, label %273, label %pnm_get.exit349
 
 273:                                              ; preds = %pnm_space.exit36.i337
-  %274 = trunc i32 %.42849.i336 to i8
+  %274 = trunc nuw i32 %.42849.i336 to i8
   %275 = getelementptr inbounds nuw i8, ptr %.051.i334, i64 1
   store i8 %274, ptr %.051.i334, align 1, !tbaa !14
   %276 = getelementptr inbounds nuw i8, ptr %.450.i335, i64 1
@@ -1031,7 +1031,7 @@ pnm_space.exit36.i361:                            ; preds = %346
   br i1 %or.cond.i362, label %351, label %pnm_get.exit373
 
 351:                                              ; preds = %pnm_space.exit36.i361
-  %352 = trunc i32 %.42849.i360 to i8
+  %352 = trunc nuw i32 %.42849.i360 to i8
   %353 = getelementptr inbounds nuw i8, ptr %.051.i358, i64 1
   store i8 %352, ptr %.051.i358, align 1, !tbaa !14
   %354 = getelementptr inbounds nuw i8, ptr %.450.i359, i64 1
@@ -1124,7 +1124,7 @@ pnm_space.exit36.i385:                            ; preds = %379
   br i1 %or.cond.i386, label %384, label %pnm_get.exit397
 
 384:                                              ; preds = %pnm_space.exit36.i385
-  %385 = trunc i32 %.42849.i384 to i8
+  %385 = trunc nuw i32 %.42849.i384 to i8
   %386 = getelementptr inbounds nuw i8, ptr %.051.i382, i64 1
   store i8 %385, ptr %.051.i382, align 1, !tbaa !14
   %387 = getelementptr inbounds nuw i8, ptr %.450.i383, i64 1
@@ -1395,7 +1395,7 @@ pnm_space.exit36:                                 ; preds = %24
   br i1 %or.cond, label %29, label %.critedge
 
 29:                                               ; preds = %pnm_space.exit36
-  %30 = trunc i32 %.42849 to i8
+  %30 = trunc nuw i32 %.42849 to i8
   %31 = getelementptr inbounds nuw i8, ptr %.051, i64 1
   store i8 %30, ptr %.051, align 1, !tbaa !14
   %32 = getelementptr inbounds nuw i8, ptr %.450, i64 1

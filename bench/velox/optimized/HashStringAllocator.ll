@@ -374,7 +374,7 @@ for.body:                                         ; preds = %for.body.backedge, 
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef %3, i64 noundef %4)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.015, i64 -16
-  %mul.neg.i.i.i = mul i64 %__begin2.sroa.6.016, -16
+  %mul.neg.i.i.i = mul nsw i64 %__begin2.sroa.6.016, -16
   %add.ptr1.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %mul.neg.i.i.i
   %cmp.i.not17.i = icmp eq i64 %__begin2.sroa.6.016, 0
   br i1 %cmp.i.not17.i, label %for.cond.i.i.preheader, label %while.body.i.i
@@ -389,9 +389,9 @@ while.cond.i.i:                                   ; preds = %while.body.i.i
 while.body.i.i:                                   ; preds = %for.body, %while.cond.i.i
   %6 = phi i64 [ %dec.i.i, %while.cond.i.i ], [ %__begin2.sroa.6.016, %for.body ]
   %incdec.ptr.i1618.i = phi ptr [ %incdec.ptr.i.i, %while.cond.i.i ], [ %__begin2.sroa.0.015, %for.body ]
-  %dec.i.i = add i64 %6, -1
+  %dec.i.i = add nsw i64 %6, -1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i1618.i, i64 -16
-  %arrayidx.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i, i64 0, i64 %dec.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [14 x i8], ptr %add.ptr1.i.i.i, i64 0, i64 %dec.i.i
   %7 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %cmp.i.not14.i = icmp eq i8 %7, 0
   br i1 %cmp.i.not14.i, label %while.cond.i.i, label %for.body.backedge, !llvm.loop !6
@@ -2234,8 +2234,8 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   store i64 %view.coerce0, ptr %retval, align 8
-  %retval.8.retval.8.retval.sroa_idx34 = getelementptr inbounds nuw i8, ptr %retval, i64 8
-  store ptr %view.coerce1, ptr %retval.8.retval.8.retval.sroa_idx34, align 8
+  %retval.8.retval.8.retval.sroa_idx35 = getelementptr inbounds nuw i8, ptr %retval, i64 8
+  store ptr %view.coerce1, ptr %retval.8.retval.8.retval.sroa_idx35, align 8
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -2266,8 +2266,8 @@ if.end.i.i:                                       ; preds = %invoke.cont15
   br i1 %cmp.i.i.i.i, label %if.then2.i.i, label %if.else.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
-  %retval.4.retval.4.retval.4.prefix_.i.i.sroa_idx33 = getelementptr inbounds nuw i8, ptr %retval, i64 4
-  store i32 0, ptr %retval.4.retval.4.retval.4.prefix_.i.i.sroa_idx33, align 4
+  %retval.4.retval.4.retval.4.prefix_.i.i.sroa_idx34 = getelementptr inbounds nuw i8, ptr %retval, i64 4
+  store i32 0, ptr %retval.4.retval.4.retval.4.prefix_.i.i.sroa_idx34, align 4
   %cmp4.i.i = icmp eq i32 %conv.i10, 0
   br i1 %cmp4.i.i, label %invoke.cont16, label %if.end6.i.i
 
@@ -2281,8 +2281,8 @@ if.end6.i.i:                                      ; preds = %if.then2.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
   %1 = load i32, ptr %call.i, align 1
-  %retval.4.retval.4.retval.4.prefix_.i.i.sroa_idx32 = getelementptr inbounds nuw i8, ptr %retval, i64 4
-  store i32 %1, ptr %retval.4.retval.4.retval.4.prefix_.i.i.sroa_idx32, align 4
+  %retval.4.retval.4.retval.4.prefix_.i.i.sroa_idx33 = getelementptr inbounds nuw i8, ptr %retval, i64 4
+  store i32 %1, ptr %retval.4.retval.4.retval.4.prefix_.i.i.sroa_idx33, align 4
   %retval.8.retval.8.retval.8.value_13.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store ptr %call.i, ptr %retval.8.retval.8.retval.8.value_13.i.i.sroa_idx, align 8
   br label %invoke.cont16
@@ -2579,8 +2579,8 @@ if.end10:                                         ; preds = %for.body.i
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i, %if.end10
-  %available.034 = phi i32 [ %sub.i52.i, %if.end10 ], [ %add.i59.i.i, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread ], [ %sub.i41.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i ]
-  %call16 = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator20allocateFromFreeListEibbi(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %.sroa.speculated, i1 noundef zeroext %mustHaveSize, i1 noundef zeroext %isFinalSize, i32 noundef %available.034)
+  %available.035 = phi i32 [ %sub.i52.i, %if.end10 ], [ %add.i59.i.i, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread ], [ %sub.i41.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i ]
+  %call16 = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator20allocateFromFreeListEibbi(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %.sroa.speculated, i1 noundef zeroext %mustHaveSize, i1 noundef zeroext %isFinalSize, i32 noundef %available.035)
   %cmp17.not = icmp eq ptr %call16, null
   br i1 %cmp17.not, label %if.then18, label %return
 
@@ -4372,13 +4372,13 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN8facebook5velox9ByteRangeEmS2_ET_S4_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %add.ptr.idx.i.i.i.i.i = shl nsw i64 %sub.i.i.i, 4
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 4
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %if.end.i.i.i.i.i
@@ -4444,7 +4444,7 @@ if.then.i38:                                      ; preds = %_ZNSt6vectorIN8face
 
 _ZNSt12_Vector_baseIN8facebook5velox9ByteRangeESaIS2_EE13_M_deallocateEPS2_m.exit39: ; preds = %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i38
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds %"struct.facebook::velox::ByteRange", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw %"struct.facebook::velox::ByteRange", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
   %add.ptr40 = getelementptr inbounds nuw %"struct.facebook::velox::ByteRange", ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8

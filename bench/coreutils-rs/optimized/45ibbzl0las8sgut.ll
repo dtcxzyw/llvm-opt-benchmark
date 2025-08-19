@@ -4471,31 +4471,31 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..comma
 
 .body.i:                                          ; preds = %74, %.body.i.i
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %.val.i134 = load i64, ptr %79, align 8, !alias.scope !1502
-  %80 = icmp eq i64 %.val.i134, 0
-  br i1 %80, label %.body136, label %81
+  %.val.i140 = load i64, ptr %79, align 8, !alias.scope !1502
+  %80 = icmp eq i64 %.val.i140, 0
+  br i1 %80, label %.body142, label %81
 
 81:                                               ; preds = %.body.i
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.val1.i = load ptr, ptr %82, align 8, !alias.scope !1502, !nonnull !4, !noundef !4
-  %83 = shl nuw i64 %.val.i134, 5
+  %83 = shl nuw i64 %.val.i140, 5
   tail call void @__rust_dealloc(ptr noundef nonnull %.val1.i, i64 noundef %83, i64 noundef 8) #18, !noalias !1502
-  br label %.body136
+  br label %.body142
 
 "_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..arg..Arg$GT$$GT$17h2b210bcb3786a85fE.exit.i": ; preds = %77, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h22bd95bcca529363E.exit.i.i"
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %.val2.i135 = load i64, ptr %84, align 8, !alias.scope !1502
-  %85 = icmp eq i64 %.val2.i135, 0
+  %.val2.i141 = load i64, ptr %84, align 8, !alias.scope !1502
+  %85 = icmp eq i64 %.val2.i141, 0
   br i1 %85, label %"_ZN4core3ptr51drop_in_place$LT$clap_builder..mkeymap..MKeyMap$GT$17h9248c5f3abd8fc8bE.exit", label %86
 
 86:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..arg..Arg$GT$$GT$17h2b210bcb3786a85fE.exit.i"
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.val3.i = load ptr, ptr %87, align 8, !alias.scope !1502, !nonnull !4, !noundef !4
-  %88 = shl nuw i64 %.val2.i135, 5
+  %88 = shl nuw i64 %.val2.i141, 5
   tail call void @__rust_dealloc(ptr noundef nonnull %.val3.i, i64 noundef %88, i64 noundef 8) #18, !noalias !1502
   br label %"_ZN4core3ptr51drop_in_place$LT$clap_builder..mkeymap..MKeyMap$GT$17h9248c5f3abd8fc8bE.exit"
 
-.body136:                                         ; preds = %.body.i, %81
+.body142:                                         ; preds = %.body.i, %81
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 176
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..command..Command$GT$$GT$17h011eebdabe8a25daE"(ptr noalias noundef align 8 dereferenceable(24) %89) #19
           to label %.body unwind label %145
@@ -4562,8 +4562,8 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..comma
   tail call void @__rust_dealloc(ptr noundef nonnull %92, i64 noundef %114, i64 noundef 8) #18
   br label %"_ZN4core3ptr90drop_in_place$LT$alloc..raw_vec..RawVec$LT$clap_builder..builder..command..Command$GT$$GT$17h25692e8be72f70bdE.exit"
 
-.body:                                            ; preds = %110, %.body132, %.body136
-  %.pn30 = phi { ptr, i32 } [ %67, %.body136 ], [ %103, %110 ], [ %103, %.body132 ]
+.body:                                            ; preds = %110, %.body132, %.body142
+  %.pn30 = phi { ptr, i32 } [ %67, %.body142 ], [ %103, %110 ], [ %103, %.body132 ]
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call fastcc void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..arg_group..ArgGroup$GT$$GT$17hfd1d94e35d378501E"(ptr noalias noundef align 8 dereferenceable(24) %115) #19
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4636,7 +4636,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..comma
   tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$clap_builder..builder..ext..Extensions$GT$17hd26d50d634987feeE"(ptr noalias noundef align 8 dereferenceable(48) %144)
   ret void
 
-145:                                              ; preds = %.body129, %.body, %.body136
+145:                                              ; preds = %.body129, %.body, %.body142
   %146 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #20

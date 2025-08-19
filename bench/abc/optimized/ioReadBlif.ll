@@ -222,9 +222,9 @@ Io_ReadBlifNetwork.exit.thread:                   ; preds = %5, %42
   %78 = load ptr, ptr %77, align 8, !tbaa !40
   %79 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(6) @.str.11) #16
   %80 = icmp eq i32 %79, 0
-  br i1 %80, label %81, label %.split32.us.thread46.i
+  br i1 %80, label %81, label %.split32.us.thread52.i
 
-.split32.us.thread46.i:                           ; preds = %75
+.split32.us.thread52.i:                           ; preds = %75
   store ptr %71, ptr %70, align 8, !tbaa !53
   br label %.lr.ph.preheader.i
 
@@ -242,7 +242,7 @@ Io_ReadBlifNetwork.exit.thread:                   ; preds = %5, %42
   store ptr %71, ptr %70, align 8, !tbaa !53
   br i1 %85, label %.split.us.i, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %.split32.us.i, %.split32.us.thread46.i
+.lr.ph.preheader.i:                               ; preds = %.split32.us.i, %.split32.us.thread52.i
   %86 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull %calloc.i)
   %87 = icmp eq ptr %86, null
   br i1 %87, label %.split.us.i, label %.lr.ph
@@ -679,9 +679,9 @@ Vec_PtrPush.exit.us.sink.split:                   ; preds = %49
   %54 = shl nuw nsw i32 %50, 1
   %55 = zext nneg i32 %54 to i64
   %56 = shl nuw nsw i64 %55, 3
-  %.sink210 = select i1 %53, i64 128, i64 %56
+  %.sink217 = select i1 %53, i64 128, i64 %56
   %.sink = select i1 %53, i32 16, i32 %54
-  %57 = tail call ptr @realloc(ptr noundef nonnull %.val146.us, i64 noundef %.sink210) #17
+  %57 = tail call ptr @realloc(ptr noundef nonnull %.val146.us, i64 noundef %.sink217) #17
   store ptr %57, ptr %36, align 8, !tbaa !23
   store i32 %.sink, ptr %0, align 8, !tbaa !22
   br label %Vec_PtrPush.exit.us
@@ -751,11 +751,11 @@ Vec_PtrPush.exit160.sink.split:                   ; preds = %80
   %85 = shl nuw nsw i32 %81, 1
   %86 = zext nneg i32 %85 to i64
   %87 = shl nuw nsw i64 %86, 3
-  %.sink213 = select i1 %84, i64 128, i64 %87
-  %.sink211 = select i1 %84, i32 16, i32 %85
-  %88 = tail call ptr @realloc(ptr noundef nonnull %.val147, i64 noundef %.sink213) #17
+  %.sink220 = select i1 %84, i64 128, i64 %87
+  %.sink218 = select i1 %84, i32 16, i32 %85
+  %88 = tail call ptr @realloc(ptr noundef nonnull %.val147, i64 noundef %.sink220) #17
   store ptr %88, ptr %70, align 8, !tbaa !23
-  store i32 %.sink211, ptr %0, align 8, !tbaa !22
+  store i32 %.sink218, ptr %0, align 8, !tbaa !22
   br label %Vec_PtrPush.exit160
 
 Vec_PtrPush.exit160:                              ; preds = %Vec_PtrPush.exit160.sink.split, %80
@@ -1408,8 +1408,8 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   br i1 %182, label %.lr.ph277, label %.critedge4.preheader, !llvm.loop !93
 
 .critedge6.preheader:                             ; preds = %.critedge4, %.critedge2, %.critedge4.preheader
-  %.lcssa272383 = phi ptr [ %178, %.critedge4.preheader ], [ %145, %.critedge2 ], [ %178, %.critedge4 ]
-  %183 = getelementptr i8, ptr %.lcssa272383, i64 48
+  %.lcssa272398 = phi ptr [ %178, %.critedge4.preheader ], [ %145, %.critedge2 ], [ %178, %.critedge4 ]
+  %183 = getelementptr i8, ptr %.lcssa272398, i64 48
   %.val186285 = load ptr, ptr %183, align 8, !tbaa !81
   %184 = getelementptr i8, ptr %.val186285, i64 4
   %.val186.val286 = load i32, ptr %184, align 4, !tbaa !20
@@ -3658,7 +3658,7 @@ Io_ReadBlifCleanName.exit.i:                      ; preds = %643, %647, %.lr.ph.
 
 746:                                              ; preds = %723
   %747 = getelementptr inbounds nuw i8, ptr %718, i64 56
-  switch i32 %730, label %default.unreachable.i [
+  switch i32 %730, label %default.unreachable [
     i32 0, label %748
     i32 1, label %749
     i32 2, label %750
@@ -3676,7 +3676,7 @@ Io_ReadBlifCleanName.exit.i:                      ; preds = %643, %647, %.lr.ph.
   store ptr inttoptr (i64 3 to ptr), ptr %747, align 8, !tbaa !73
   br label %Io_ReadBlifNetworkNames.exit
 
-default.unreachable.i:                            ; preds = %746
+default.unreachable:                              ; preds = %746
   unreachable
 
 751:                                              ; preds = %696

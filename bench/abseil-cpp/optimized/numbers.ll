@@ -77,7 +77,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtofESt17basic_string_viewI
   %23 = load i8, ptr %22, align 1, !tbaa !8, !noalias !9
   %24 = and i8 %23, 8
   %.not9.i.i = icmp eq i8 %24, 0
-  br i1 %.not9.i.i, label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit36, label %25
+  br i1 %.not9.i.i, label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit40, label %25
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
@@ -87,7 +87,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtofESt17basic_string_viewI
   %30 = load i8, ptr %29, align 1, !tbaa !8, !noalias !9
   %31 = and i8 %30, 8
   %.not10.i.i = icmp eq i8 %31, 0
-  br i1 %.not10.i.i, label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit34, label %32
+  br i1 %.not10.i.i, label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38, label %32
 
 32:                                               ; preds = %25
   %33 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -4
@@ -151,16 +151,16 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.l
   %64 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
   br label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit34: ; preds = %25
+_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38: ; preds = %25
   %65 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -2
   br label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit36: ; preds = %18
+_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit40: ; preds = %18
   %66 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -1
   br label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit34, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit36, %._crit_edge.i.i.i.i.i, %43, %50, %57
-  %.sink.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %43 ], [ %.sroa.03.2.i.i.i.i, %50 ], [ %6, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %57 ], [ %64, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit34 ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit36 ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit40, %._crit_edge.i.i.i.i.i, %43, %50, %57
+  %.sink.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %43 ], [ %.sroa.03.2.i.i.i.i, %50 ], [ %6, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %57 ], [ %64, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38 ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit40 ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %67 = ptrtoint ptr %.sink.i.i.i.i.i to i64
   %68 = sub i64 %67, %8
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %5, i64 %68)
@@ -257,7 +257,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewI
   %23 = load i8, ptr %22, align 1, !tbaa !8, !noalias !20
   %24 = and i8 %23, 8
   %.not9.i.i = icmp eq i8 %24, 0
-  br i1 %.not9.i.i, label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit36, label %25
+  br i1 %.not9.i.i, label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit40, label %25
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
@@ -267,7 +267,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewI
   %30 = load i8, ptr %29, align 1, !tbaa !8, !noalias !20
   %31 = and i8 %30, 8
   %.not10.i.i = icmp eq i8 %31, 0
-  br i1 %.not10.i.i, label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit34, label %32
+  br i1 %.not10.i.i, label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38, label %32
 
 32:                                               ; preds = %25
   %33 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -4
@@ -331,16 +331,16 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.l
   %64 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
   br label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit34: ; preds = %25
+_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38: ; preds = %25
   %65 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -2
   br label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit36: ; preds = %18
+_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit40: ; preds = %18
   %66 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -1
   br label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit34, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit36, %._crit_edge.i.i.i.i.i, %43, %50, %57
-  %.sink.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %43 ], [ %.sroa.03.2.i.i.i.i, %50 ], [ %6, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %57 ], [ %64, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit34 ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit36 ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit40, %._crit_edge.i.i.i.i.i, %43, %50, %57
+  %.sink.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %43 ], [ %.sroa.03.2.i.i.i.i, %50 ], [ %6, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %57 ], [ %64, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38 ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit40 ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %67 = ptrtoint ptr %.sink.i.i.i.i.i to i64
   %68 = sub i64 %67, %8
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %5, i64 %68)
@@ -1712,18 +1712,18 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
   store i8 101, ptr %.15, align 1, !tbaa !8
   %243 = icmp sgt i32 %spec.select109.i, 0
   %spec.select = select i1 %243, i8 43, i8 45
-  %spec.select232 = tail call i32 @llvm.abs.i32(i32 %spec.select109.i, i1 true)
+  %spec.select233 = tail call i32 @llvm.abs.i32(i32 %spec.select109.i, i1 true)
   store i8 %spec.select, ptr %242, align 1, !tbaa !8
   %.16 = getelementptr inbounds nuw i8, ptr %.15, i64 2
-  %244 = icmp samesign ugt i32 %spec.select232, 99
+  %244 = icmp samesign ugt i32 %spec.select233, 99
   br i1 %244, label %245, label %251
 
 245:                                              ; preds = %.loopexit
-  %.lhs.trunc = trunc i32 %spec.select232 to i16
+  %.lhs.trunc = trunc i32 %spec.select233 to i16
   %246 = udiv i16 %.lhs.trunc, 100
   %.zext = zext nneg i16 %246 to i32
   %.neg = mul nsw i32 %.zext, -100
-  %247 = add nsw i32 %.neg, %spec.select232
+  %247 = add nsw i32 %.neg, %spec.select233
   %248 = trunc i16 %246 to i8
   %249 = add nuw nsw i8 %248, 48
   %250 = getelementptr inbounds nuw i8, ptr %.15, i64 3
@@ -1732,7 +1732,7 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
 
 251:                                              ; preds = %245, %.loopexit
   %.17 = phi ptr [ %250, %245 ], [ %.16, %.loopexit ]
-  %.1137 = phi i32 [ %247, %245 ], [ %spec.select232, %.loopexit ]
+  %.1137 = phi i32 [ %247, %245 ], [ %spec.select233, %.loopexit ]
   %252 = zext i32 %.1137 to i64
   %253 = mul nuw nsw i64 %252, 103
   %254 = lshr i64 %253, 10
@@ -1856,7 +1856,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
   %46 = icmp eq i8 %.pre.fr.i.i, 48
   %spec.select.idx.i.i = zext i1 %46 to i64
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 %spec.select.idx.i.i
-  %spec.select88.i.i = select i1 %46, i32 8, i32 10
+  %spec.select96.i.i = select i1 %46, i32 8, i32 10
   br label %62
 
 47:                                               ; preds = %30
@@ -1896,7 +1896,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
 62:                                               ; preds = %._crit_edge.i.i, %58, %55, %52, %47, %.thread.i.i, %44, %42, %39, %36
   %.pre-phi.i.i = phi i64 [ %.pre77.i.i, %._crit_edge.i.i ], [ %48, %55 ], [ %32, %44 ], [ %48, %58 ], [ %48, %52 ], [ %48, %47 ], [ %32, %42 ], [ %32, %36 ], [ %32, %.thread.i.i ], [ %32, %39 ]
   %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %.1.i.i, %55 ], [ %.1.i.i, %44 ], [ %59, %58 ], [ %.1.i.i, %52 ], [ %.1.i.i, %47 ], [ %43, %42 ], [ %.1.i.i, %36 ], [ %spec.select.i.i, %.thread.i.i ], [ %40, %39 ]
-  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ 16, %42 ], [ 10, %36 ], [ %spec.select88.i.i, %.thread.i.i ], [ 8, %39 ]
+  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ 16, %42 ], [ 10, %36 ], [ %spec.select96.i.i, %.thread.i.i ], [ 8, %39 ]
   %63 = ptrtoint ptr %.2.i.i to i64
   %64 = sub i64 %.pre-phi.i.i, %63
   %65 = zext nneg i32 %.0.i.i to i64
@@ -2079,7 +2079,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
   %46 = icmp eq i8 %.pre.fr.i.i, 48
   %spec.select.idx.i.i = zext i1 %46 to i64
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 %spec.select.idx.i.i
-  %spec.select88.i.i = select i1 %46, i32 8, i32 10
+  %spec.select96.i.i = select i1 %46, i32 8, i32 10
   br label %62
 
 47:                                               ; preds = %30
@@ -2119,7 +2119,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
 62:                                               ; preds = %._crit_edge.i.i, %58, %55, %52, %47, %.thread.i.i, %44, %42, %39, %36
   %.pre-phi.i.i = phi i64 [ %.pre77.i.i, %._crit_edge.i.i ], [ %48, %55 ], [ %32, %44 ], [ %48, %58 ], [ %48, %52 ], [ %48, %47 ], [ %32, %42 ], [ %32, %36 ], [ %32, %.thread.i.i ], [ %32, %39 ]
   %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %.1.i.i, %55 ], [ %.1.i.i, %44 ], [ %59, %58 ], [ %.1.i.i, %52 ], [ %.1.i.i, %47 ], [ %43, %42 ], [ %.1.i.i, %36 ], [ %spec.select.i.i, %.thread.i.i ], [ %40, %39 ]
-  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ 16, %42 ], [ 10, %36 ], [ %spec.select88.i.i, %.thread.i.i ], [ 8, %39 ]
+  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ 16, %42 ], [ 10, %36 ], [ %spec.select96.i.i, %.thread.i.i ], [ 8, %39 ]
   %63 = ptrtoint ptr %.2.i.i to i64
   %64 = sub i64 %.pre-phi.i.i, %63
   %65 = zext nneg i32 %.0.i.i to i64
@@ -2303,7 +2303,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
   %46 = icmp eq i8 %.pre.fr.i.i, 48
   %spec.select.idx.i.i = zext i1 %46 to i64
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 %spec.select.idx.i.i
-  %spec.select88.i.i = select i1 %46, i32 8, i32 10
+  %spec.select96.i.i = select i1 %46, i32 8, i32 10
   br label %62
 
 47:                                               ; preds = %30
@@ -2343,7 +2343,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
 62:                                               ; preds = %._crit_edge.i.i, %58, %55, %52, %47, %.thread.i.i, %44, %42, %39, %36
   %.pre-phi.i.i = phi i64 [ %.pre77.i.i, %._crit_edge.i.i ], [ %48, %55 ], [ %32, %44 ], [ %48, %58 ], [ %48, %52 ], [ %48, %47 ], [ %32, %42 ], [ %32, %36 ], [ %32, %.thread.i.i ], [ %32, %39 ]
   %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %.1.i.i, %55 ], [ %.1.i.i, %44 ], [ %59, %58 ], [ %.1.i.i, %52 ], [ %.1.i.i, %47 ], [ %43, %42 ], [ %.1.i.i, %36 ], [ %spec.select.i.i, %.thread.i.i ], [ %40, %39 ]
-  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ 16, %42 ], [ 10, %36 ], [ %spec.select88.i.i, %.thread.i.i ], [ 8, %39 ]
+  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ 16, %42 ], [ 10, %36 ], [ %spec.select96.i.i, %.thread.i.i ], [ 8, %39 ]
   %63 = ptrtoint ptr %.2.i.i to i64
   %64 = sub i64 %.pre-phi.i.i, %63
   br i1 %27, label %84, label %65
@@ -2588,7 +2588,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_b
   %46 = icmp eq i8 %.pre.fr.i.i, 48
   %spec.select.idx.i.i = zext i1 %46 to i64
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 %spec.select.idx.i.i
-  %spec.select88.i.i = select i1 %46, i32 8, i32 10
+  %spec.select96.i.i = select i1 %46, i32 8, i32 10
   br label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i
 
 47:                                               ; preds = %30
@@ -2628,7 +2628,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_b
 _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i: ; preds = %._crit_edge.i.i, %58, %55, %52, %47, %.thread.i.i, %44, %42, %39, %36
   %.pre-phi.i.i = phi i64 [ %.pre77.i.i, %._crit_edge.i.i ], [ %48, %55 ], [ %32, %44 ], [ %48, %58 ], [ %48, %52 ], [ %48, %47 ], [ %32, %42 ], [ %32, %36 ], [ %32, %.thread.i.i ], [ %32, %39 ]
   %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %.1.i.i, %55 ], [ %.1.i.i, %44 ], [ %59, %58 ], [ %.1.i.i, %52 ], [ %.1.i.i, %47 ], [ %43, %42 ], [ %.1.i.i, %36 ], [ %spec.select.i.i, %.thread.i.i ], [ %40, %39 ]
-  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ 16, %42 ], [ 10, %36 ], [ %spec.select88.i.i, %.thread.i.i ], [ 8, %39 ]
+  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ 16, %42 ], [ 10, %36 ], [ %spec.select96.i.i, %.thread.i.i ], [ 8, %39 ]
   br i1 %27, label %_ZN4absl12_GLOBAL__N_118safe_uint_internalIjEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit, label %62
 
 62:                                               ; preds = %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i
@@ -2779,7 +2779,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_b
   %46 = icmp eq i8 %.pre.fr.i.i, 48
   %spec.select.idx.i.i = zext i1 %46 to i64
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 %spec.select.idx.i.i
-  %spec.select88.i.i = select i1 %46, i32 8, i32 10
+  %spec.select96.i.i = select i1 %46, i32 8, i32 10
   br label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i
 
 47:                                               ; preds = %30
@@ -2819,7 +2819,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_b
 _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i: ; preds = %._crit_edge.i.i, %58, %55, %52, %47, %.thread.i.i, %44, %42, %39, %36
   %.pre-phi.i.i = phi i64 [ %.pre77.i.i, %._crit_edge.i.i ], [ %48, %55 ], [ %32, %44 ], [ %48, %58 ], [ %48, %52 ], [ %48, %47 ], [ %32, %42 ], [ %32, %36 ], [ %32, %.thread.i.i ], [ %32, %39 ]
   %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %.1.i.i, %55 ], [ %.1.i.i, %44 ], [ %59, %58 ], [ %.1.i.i, %52 ], [ %.1.i.i, %47 ], [ %43, %42 ], [ %.1.i.i, %36 ], [ %spec.select.i.i, %.thread.i.i ], [ %40, %39 ]
-  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ 16, %42 ], [ 10, %36 ], [ %spec.select88.i.i, %.thread.i.i ], [ 8, %39 ]
+  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ 16, %42 ], [ 10, %36 ], [ %spec.select96.i.i, %.thread.i.i ], [ 8, %39 ]
   br i1 %27, label %_ZN4absl12_GLOBAL__N_118safe_uint_internalImEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit, label %62
 
 62:                                               ; preds = %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i
@@ -2971,7 +2971,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_
   %46 = icmp eq i8 %.pre.fr.i.i, 48
   %spec.select.idx.i.i = zext i1 %46 to i64
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 %spec.select.idx.i.i
-  %spec.select88.i.i = select i1 %46, i32 8, i32 10
+  %spec.select96.i.i = select i1 %46, i32 8, i32 10
   br label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i
 
 47:                                               ; preds = %30
@@ -3011,7 +3011,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_
 _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i: ; preds = %._crit_edge.i.i, %58, %55, %52, %47, %.thread.i.i, %44, %42, %39, %36
   %.pre-phi.i.i = phi i64 [ %.pre77.i.i, %._crit_edge.i.i ], [ %48, %55 ], [ %32, %44 ], [ %48, %58 ], [ %48, %52 ], [ %48, %47 ], [ %32, %42 ], [ %32, %36 ], [ %32, %.thread.i.i ], [ %32, %39 ]
   %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %.1.i.i, %55 ], [ %.1.i.i, %44 ], [ %59, %58 ], [ %.1.i.i, %52 ], [ %.1.i.i, %47 ], [ %43, %42 ], [ %.1.i.i, %36 ], [ %spec.select.i.i, %.thread.i.i ], [ %40, %39 ]
-  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ 16, %42 ], [ 10, %36 ], [ %spec.select88.i.i, %.thread.i.i ], [ 8, %39 ]
+  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ 16, %42 ], [ 10, %36 ], [ %spec.select96.i.i, %.thread.i.i ], [ 8, %39 ]
   br i1 %27, label %_ZN4absl12_GLOBAL__N_118safe_uint_internalINS_7uint128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit, label %62
 
 62:                                               ; preds = %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i
@@ -3149,7 +3149,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %26 = load i8, ptr %25, align 1, !tbaa !8
   %27 = and i8 %26, 8
   %.not6 = icmp eq i8 %27, 0
-  br i1 %.not6, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit23, label %28
+  br i1 %.not6, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit26, label %28
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
@@ -3159,7 +3159,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %33 = load i8, ptr %32, align 1, !tbaa !8
   %34 = and i8 %33, 8
   %.not7 = icmp eq i8 %34, 0
-  br i1 %.not7, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit25, label %35
+  br i1 %.not7, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit28, label %35
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 4
@@ -3225,16 +3225,16 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit: ; preds = 
   %63 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit
 
-_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit23: ; preds = %21
+_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit26: ; preds = %21
   %64 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit
 
-_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit25: ; preds = %28
+_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit28: ; preds = %28
   %65 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit
 
-_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit:      ; preds = %.lr.ph.i.i.i, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit23, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit25, %40, %48, %56, %62
-  %.028.i.i.i = phi ptr [ %3, %62 ], [ %.029.lcssa.i.i.i, %40 ], [ %.1.i.i.i, %48 ], [ %.2.i.i.i, %56 ], [ %63, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit ], [ %64, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit23 ], [ %65, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit25 ], [ %.02946.i.i.i, %.lr.ph.i.i.i ]
+_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit:      ; preds = %.lr.ph.i.i.i, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit26, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit28, %40, %48, %56, %62
+  %.028.i.i.i = phi ptr [ %3, %62 ], [ %.029.lcssa.i.i.i, %40 ], [ %.1.i.i.i, %48 ], [ %.2.i.i.i, %56 ], [ %63, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit ], [ %64, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit26 ], [ %65, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit28 ], [ %.02946.i.i.i, %.lr.ph.i.i.i ]
   %66 = ptrtoint ptr %.028.i.i.i to i64
   %67 = sub i64 %66, %5
   %68 = icmp ugt i64 %67, %0

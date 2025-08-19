@@ -1396,8 +1396,8 @@ define void @Mpm_ManStop(ptr noundef %0) local_unnamed_addr #0 {
 
 Vec_MemDumpDigit.exit.i:                          ; preds = %50, %48
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %.not32.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not32.i, label %.loopexit.i, label %41, !llvm.loop !93
+  %.not34.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not34.i, label %.loopexit.i, label %41, !llvm.loop !93
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i, %.preheader20.i
   %fputc.i = tail call i32 @fputc(i32 10, ptr %10)

@@ -823,9 +823,9 @@ _ZN14regex_automata4util4iter8Searcher7advance17hc4bfbfea668ebd42E.exit.i.i: ; p
   br label %197
 
 197:                                              ; preds = %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i.i.i.i.i, %_ZN14regex_automata4util4iter8Searcher7advance17hc4bfbfea668ebd42E.exit.i.i, %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc7b56ccc4acd17f2E.exit.i", %189
-  %.sink41 = phi i64 [ 72, %189 ], [ 8, %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc7b56ccc4acd17f2E.exit.i" ], [ 8, %_ZN14regex_automata4util4iter8Searcher7advance17hc4bfbfea668ebd42E.exit.i.i ], [ 8, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i.i.i.i.i ]
+  %.sink50 = phi i64 [ 72, %189 ], [ 8, %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc7b56ccc4acd17f2E.exit.i" ], [ 8, %_ZN14regex_automata4util4iter8Searcher7advance17hc4bfbfea668ebd42E.exit.i.i ], [ 8, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i.i.i.i.i ]
   %.sink = phi i64 [ %191, %189 ], [ 2, %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc7b56ccc4acd17f2E.exit.i" ], [ 2, %_ZN14regex_automata4util4iter8Searcher7advance17hc4bfbfea668ebd42E.exit.i.i ], [ 2, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i.i.i.i.i ]
-  %.sroa.46.sroa.4.sroa.11.0..sroa.46.sroa.4.0..sroa.46.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink41
+  %.sroa.46.sroa.4.sroa.11.0..sroa.46.sroa.4.0..sroa.46.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink50
   store i64 %.sink, ptr %.sroa.46.sroa.4.sroa.11.0..sroa.46.sroa.4.0..sroa.46.0..sroa_idx.sroa_idx.sroa_idx, align 8
   ret void
 }
@@ -1552,8 +1552,8 @@ common.resume:                                    ; preds = %913, %.thread410
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store i64 -9223372036854775808, ptr %50, align 8
-  %.val2451456 = load ptr, ptr %70, align 8, !nonnull !9, !noundef !9
-  %.val2461457 = load i64, ptr %71, align 8, !noundef !9
+  %.val2451517 = load ptr, ptr %70, align 8, !nonnull !9, !noundef !9
+  %.val2461518 = load i64, ptr %71, align 8, !noundef !9
   br label %279
 
 267:                                              ; preds = %.preheader
@@ -1600,14 +1600,14 @@ common.resume:                                    ; preds = %913, %.thread410
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke1865, %.invoke, %402, %264
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke1926, %.invoke, %402, %264
   %lpad.loopexit.split-lp495 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 279:                                              ; preds = %.thread, %262, %.thread420
-  %.val246426 = phi i64 [ %227, %.thread420 ], [ %.val246, %262 ], [ %.val2461457, %.thread ]
-  %.val245425 = phi ptr [ %.val245422, %.thread420 ], [ %.val245, %262 ], [ %.val2451456, %.thread ]
+  %.val246426 = phi i64 [ %227, %.thread420 ], [ %.val246, %262 ], [ %.val2461518, %.thread ]
+  %.val245425 = phi ptr [ %.val245422, %.thread420 ], [ %.val245, %262 ], [ %.val2451517, %.thread ]
   %.0176424 = phi i64 [ 0, %.thread420 ], [ %.1177, %262 ], [ 0, %.thread ]
   %280 = getelementptr inbounds { { [4 x i32], ptr, ptr }, {} }, ptr %.val245425, i64 %.val246426
   %281 = icmp eq i64 %.0176424, %.val246426
@@ -1682,7 +1682,7 @@ common.resume:                                    ; preds = %913, %.thread410
   %.0168 = phi i64 [ %301, %320 ], [ %301, %309 ], [ %312, %311 ]
   %315 = load ptr, ptr %79, align 8, !nonnull !9, !align !100, !noundef !9
   %316 = icmp ugt i64 %.0168, %.fca.0.extract47
-  br i1 %316, label %.invoke1865, label %317
+  br i1 %316, label %.invoke1926, label %317
 
 317:                                              ; preds = %314
   %318 = load i64, ptr %78, align 8, !noundef !9
@@ -1715,7 +1715,7 @@ common.resume:                                    ; preds = %913, %.thread410
   %328 = add i64 %326, %.0170
   %329 = load ptr, ptr %79, align 8, !nonnull !9, !align !100, !noundef !9
   %330 = icmp ugt i64 %.fca.0.extract47, %.fca.1.extract49
-  br i1 %330, label %.invoke1865, label %331
+  br i1 %330, label %.invoke1926, label %331
 
 331:                                              ; preds = %327
   %332 = load i64, ptr %78, align 8, !noundef !9
@@ -1807,20 +1807,20 @@ common.resume:                                    ; preds = %913, %.thread410
   %358 = extractvalue { i64, i64 } %288, 0
   %359 = extractvalue { i64, i64 } %288, 1
   %360 = icmp ugt i64 %358, %359
-  br i1 %360, label %.invoke1865, label %361
+  br i1 %360, label %.invoke1926, label %361
 
 361:                                              ; preds = %357
   %362 = icmp ugt i64 %359, %287
   br i1 %362, label %.invoke, label %369
 
-.invoke1865:                                      ; preds = %327, %314, %357
+.invoke1926:                                      ; preds = %327, %314, %357
   %363 = phi i64 [ %358, %357 ], [ %.0168, %314 ], [ %.fca.0.extract47, %327 ]
   %364 = phi i64 [ %359, %357 ], [ %.fca.0.extract47, %314 ], [ %.fca.1.extract49, %327 ]
   %365 = phi ptr [ @anon.2708f3209dc9abdfb53689fa666b84a7.66, %357 ], [ @anon.2708f3209dc9abdfb53689fa666b84a7.64, %314 ], [ @anon.2708f3209dc9abdfb53689fa666b84a7.65, %327 ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %363, i64 noundef %364, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %365) #15
-          to label %.cont1866 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.cont1927 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont1866:                                        ; preds = %.invoke1865
+.cont1927:                                        ; preds = %.invoke1926
   unreachable
 
 .invoke:                                          ; preds = %331, %317, %361

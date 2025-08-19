@@ -620,7 +620,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit109.thread:   ; preds = %43
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit111
 
 56:                                               ; preds = %._crit_edge.thread, %152, %148
-  %.sroa.0112.0.lcssa217 = phi ptr [ %.sroa.0112.0.lcssa215, %._crit_edge.thread ], [ %.sroa.0112.2, %152 ], [ %.sroa.0112.2, %148 ]
+  %.sroa.0112.0.lcssa229 = phi ptr [ %.sroa.0112.0.lcssa227, %._crit_edge.thread ], [ %.sroa.0112.2, %152 ], [ %.sroa.0112.2, %148 ]
   %57 = landingpad { ptr, i32 }
           cleanup
   br label %187
@@ -920,8 +920,8 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
 
 ._crit_edge.thread:                               ; preds = %_ZN2cv10AutoBufferIiLm264EEC2Em.exit, %154, %._crit_edge
   %157 = phi i1 [ false, %154 ], [ true, %._crit_edge ], [ true, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit ]
-  %.sroa.0112.0.lcssa215 = phi ptr [ %.sroa.0112.2, %154 ], [ %.sroa.0112.2, %._crit_edge ], [ null, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit ]
-  %.sroa.13.0.lcssa213 = phi ptr [ %.sroa.13.1, %154 ], [ %.sroa.13.1, %._crit_edge ], [ null, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit ]
+  %.sroa.0112.0.lcssa227 = phi ptr [ %.sroa.0112.2, %154 ], [ %.sroa.0112.2, %._crit_edge ], [ null, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit ]
+  %.sroa.13.0.lcssa225 = phi ptr [ %.sroa.13.1, %154 ], [ %.sroa.13.1, %._crit_edge ], [ null, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit ]
   invoke void @_ZNK2cv12_OutputArray7releaseEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %158 unwind label %56
 
@@ -929,15 +929,15 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   br i1 %157, label %182, label %.thread
 
 .thread:                                          ; preds = %150, %154, %158
-  %.sroa.0112.0.lcssa214 = phi ptr [ %.sroa.0112.2, %150 ], [ %.sroa.0112.2, %154 ], [ %.sroa.0112.0.lcssa215, %158 ]
-  %.sroa.13.0.lcssa212 = phi ptr [ %.sroa.13.1, %150 ], [ %.sroa.13.1, %154 ], [ %.sroa.13.0.lcssa213, %158 ]
+  %.sroa.0112.0.lcssa226 = phi ptr [ %.sroa.0112.2, %150 ], [ %.sroa.0112.2, %154 ], [ %.sroa.0112.0.lcssa227, %158 ]
+  %.sroa.13.0.lcssa224 = phi ptr [ %.sroa.13.1, %150 ], [ %.sroa.13.1, %154 ], [ %.sroa.13.0.lcssa225, %158 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 1124024332, ptr %7, align 8, !tbaa !34
   %159 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 2, ptr %159, align 4, !tbaa !79
   %160 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %161 = ptrtoint ptr %.sroa.13.0.lcssa212 to i64
-  %162 = ptrtoint ptr %.sroa.0112.0.lcssa214 to i64
+  %161 = ptrtoint ptr %.sroa.13.0.lcssa224 to i64
+  %162 = ptrtoint ptr %.sroa.0112.0.lcssa226 to i64
   %163 = sub i64 %161, %162
   %164 = lshr exact i64 %163, 3
   %165 = trunc i64 %164 to i32
@@ -958,12 +958,12 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   %175 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i64 8, ptr %175, align 8, !tbaa !65
   store i64 8, ptr %174, align 8, !tbaa !65
-  store ptr %.sroa.0112.0.lcssa214, ptr %167, align 8, !tbaa !63
-  store ptr %.sroa.0112.0.lcssa214, ptr %168, align 8, !tbaa !82
+  store ptr %.sroa.0112.0.lcssa226, ptr %167, align 8, !tbaa !63
+  store ptr %.sroa.0112.0.lcssa226, ptr %168, align 8, !tbaa !82
   %sext.i = shl i64 %163, 29
   %176 = ashr exact i64 %sext.i, 29
   %177 = and i64 %176, -8
-  %178 = getelementptr inbounds nuw i8, ptr %.sroa.0112.0.lcssa214, i64 %177
+  %178 = getelementptr inbounds nuw i8, ptr %.sroa.0112.0.lcssa226, i64 %177
   store ptr %178, ptr %169, align 8, !tbaa !83
   store ptr %178, ptr %170, align 8, !tbaa !84
   invoke void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -982,12 +982,12 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   br label %187
 
 182:                                              ; preds = %179, %158
-  %.sroa.0112.0.lcssa216 = phi ptr [ %.sroa.0112.0.lcssa214, %179 ], [ %.sroa.0112.0.lcssa215, %158 ]
+  %.sroa.0112.0.lcssa228 = phi ptr [ %.sroa.0112.0.lcssa226, %179 ], [ %.sroa.0112.0.lcssa227, %158 ]
   %183 = load ptr, ptr %6, align 8, !tbaa !60
   %.not.i.i107 = icmp eq ptr %183, %41
   %184 = icmp eq ptr %183, null
-  %or.cond225 = or i1 %.not.i.i107, %184
-  br i1 %or.cond225, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit, label %185
+  %or.cond237 = or i1 %.not.i.i107, %184
+  br i1 %or.cond237, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit, label %185
 
 185:                                              ; preds = %182
   call void @_ZdaPv(ptr noundef nonnull %183) #17
@@ -995,11 +995,11 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
 
 _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %185, %182
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not.i.i.i = icmp eq ptr %.sroa.0112.0.lcssa216, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0112.0.lcssa228, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, label %186
 
 186:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0112.0.lcssa216) #17
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0112.0.lcssa228) #17
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit, %186
@@ -1008,13 +1008,13 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZN2cv10AutoBufferI
   ret void
 
 187:                                              ; preds = %.loopexit138, %.loopexit.split-lp, %180, %56
-  %.sroa.0112.0141 = phi ptr [ %.sroa.0112.0.lcssa214, %180 ], [ %.sroa.0112.0.lcssa217, %56 ], [ %.sroa.0112.0167, %.loopexit138 ], [ %.sroa.0112.0167, %.loopexit.split-lp ]
+  %.sroa.0112.0141 = phi ptr [ %.sroa.0112.0.lcssa226, %180 ], [ %.sroa.0112.0.lcssa229, %56 ], [ %.sroa.0112.0167, %.loopexit138 ], [ %.sroa.0112.0167, %.loopexit.split-lp ]
   %.pn100 = phi { ptr, i32 } [ %181, %180 ], [ %57, %56 ], [ %lpad.loopexit, %.loopexit138 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %188 = load ptr, ptr %6, align 8, !tbaa !60
   %.not.i.i108 = icmp eq ptr %188, %41
   %189 = icmp eq ptr %188, null
-  %or.cond226 = or i1 %.not.i.i108, %189
-  br i1 %or.cond226, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit109, label %190
+  %or.cond238 = or i1 %.not.i.i108, %189
+  br i1 %or.cond238, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit109, label %190
 
 190:                                              ; preds = %187
   call void @_ZdaPv(ptr noundef nonnull %188) #17

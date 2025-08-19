@@ -398,25 +398,25 @@ define void @_ZN3vcg9Trackball10ClearModesEv(ptr noundef nonnull align 8 derefer
   br i1 %17, label %._crit_edge.thread.i.i.i, label %22
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %14
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %3, %14 ]
+  %.019.lcssa29.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %3, %14 ]
   %18 = load ptr, ptr %5, align 8
-  %19 = icmp eq ptr %.019.lcssa28.i.i.i, %18
+  %19 = icmp eq ptr %.019.lcssa29.i.i.i, %18
   br i1 %19, label %select.unfold.i.i, label %20
 
 20:                                               ; preds = %._crit_edge.thread.i.i.i
-  %21 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #30
+  %21 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i) #30
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %21, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge.i.i.i
   %23 = phi ptr [ %.pre.i.i, %20 ], [ %16, %._crit_edge.i.i.i ]
-  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %20 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %.019.lcssa28.i.i.i = phi ptr [ %.019.lcssa29.i.i.i, %20 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
   %24 = icmp ult ptr %23, %13
   br i1 %24, label %select.unfold.i.i, label %_ZNSt3setIPN3vcg9TrackModeESt4lessIS2_ESaIS2_EE6insertERKS2_.exit
 
 select.unfold.i.i:                                ; preds = %22, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %22 ]
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa29.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa28.i.i.i, %22 ]
   %25 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %3
   br i1 %25, label %_ZNSt8_Rb_treeIPN3vcg9TrackModeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i, label %26
 
@@ -698,14 +698,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %.019.lcssa28.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #30
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #30
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81 = load i32, ptr %.phi.trans.insert80, align 4
   %.pre82 = load i32, ptr %2, align 4
@@ -714,11 +714,11 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt
 28:                                               ; preds = %26, %._crit_edge.i
   %29 = phi i32 [ %.pre82, %26 ], [ %18, %._crit_edge.i ]
   %30 = phi i32 [ %.pre81, %26 ], [ %21, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %26 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %26 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %27, %26 ], [ %.02024.i, %._crit_edge.i ]
   %31 = icmp slt i32 %30, %29
   %spec.select.i = select i1 %31, ptr null, ptr %.sroa.05.0.i
-  %spec.select21.i = select i1 %31, ptr %.019.lcssa29.i, ptr null
+  %spec.select21.i = select i1 %31, ptr %.019.lcssa28.i, ptr null
   br label %_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE24_M_get_insert_unique_posERS1_.exit
 
 32:                                               ; preds = %3
@@ -770,23 +770,23 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt
   br i1 %54, label %._crit_edge.thread.i27, label %58
 
 ._crit_edge.thread.i27:                           ; preds = %._crit_edge.i18, %50
-  %.019.lcssa28.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
-  %55 = icmp eq ptr %.019.lcssa28.i28, %39
+  %.019.lcssa29.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
+  %55 = icmp eq ptr %.019.lcssa29.i28, %39
   br i1 %55, label %_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE24_M_get_insert_unique_posERS1_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #30
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i28) #30
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre79 = load i32, ptr %.phi.trans.insert78, align 4
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i18
   %59 = phi i32 [ %.pre79, %56 ], [ %53, %._crit_edge.i18 ]
-  %.019.lcssa29.i19 = phi ptr [ %.019.lcssa28.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
+  %.019.lcssa28.i19 = phi ptr [ %.019.lcssa29.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %.sroa.05.0.i20 = phi ptr [ %57, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %60 = icmp slt i32 %59, %34
   %spec.select.i21 = select i1 %60, ptr null, ptr %.sroa.05.0.i20
-  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa29.i19, ptr null
+  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa28.i19, ptr null
   br label %_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE24_M_get_insert_unique_posERS1_.exit
 
 61:                                               ; preds = %32
@@ -835,30 +835,30 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt
   br i1 %80, label %._crit_edge.thread.i47, label %86
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
-  %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
+  %.019.lcssa29.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8
-  %83 = icmp eq ptr %.019.lcssa28.i48, %82
+  %83 = icmp eq ptr %.019.lcssa29.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #30
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i48) #30
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i38
   %87 = phi i32 [ %.pre, %84 ], [ %79, %._crit_edge.i38 ]
-  %.019.lcssa29.i39 = phi ptr [ %.019.lcssa28.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
+  %.019.lcssa28.i39 = phi ptr [ %.019.lcssa29.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %.sroa.05.0.i40 = phi ptr [ %85, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %88 = icmp slt i32 %87, %34
   %spec.select.i41 = select i1 %88, ptr null, ptr %.sroa.05.0.i40
-  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa29.i39, ptr null
+  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa28.i39, ptr null
   br label %_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
   %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -1353,11 +1353,11 @@ define void @_ZN3vcg9Trackball13DrawPostApplyEv(ptr noundef nonnull align 8 dere
   br i1 %.not2, label %10, label %.sink.split
 
 .sink.split:                                      ; preds = %4, %1
-  %.sink6 = phi ptr [ %3, %1 ], [ %6, %4 ]
-  %7 = load ptr, ptr %.sink6, align 8
+  %.sink7 = phi ptr [ %3, %1 ], [ %6, %4 ]
+  %7 = load ptr, ptr %.sink7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %.sink6, ptr noundef nonnull %0)
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %.sink7, ptr noundef nonnull %0)
   br label %10
 
 10:                                               ; preds = %.sink.split, %4
@@ -2831,10 +2831,10 @@ _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit.threa
 _ZN3vcg9Trackball16SetCurrentActionEv.exit.thread: ; preds = %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit.thread.i, %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store float 0.000000e+00, ptr %25, align 8
-  %.sroa.2.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %0, i64 500
-  store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx.i20, align 4
-  %.sroa.3.0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i21, align 8
+  %.sroa.2.0..sroa_idx.i26 = getelementptr inbounds nuw i8, ptr %0, i64 500
+  store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx.i26, align 4
+  %.sroa.3.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i27, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2867,8 +2867,8 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %21
 
 37:                                               ; preds = %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread, %_ZN3vcg9Trackball16SetCurrentActionEv.exit, %33
   %38 = phi ptr [ %26, %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread ], [ %31, %_ZN3vcg9Trackball16SetCurrentActionEv.exit ], [ %31, %33 ]
-  %.sroa.3.0..sroa_idx.i23 = phi ptr [ %.sroa.3.0..sroa_idx.i21, %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread ], [ %.sroa.3.0..sroa_idx.i, %_ZN3vcg9Trackball16SetCurrentActionEv.exit ], [ %.sroa.3.0..sroa_idx.i, %33 ]
-  %.sroa.2.0..sroa_idx.i22 = phi ptr [ %.sroa.2.0..sroa_idx.i20, %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread ], [ %.sroa.2.0..sroa_idx.i, %_ZN3vcg9Trackball16SetCurrentActionEv.exit ], [ %.sroa.2.0..sroa_idx.i, %33 ]
+  %.sroa.3.0..sroa_idx.i29 = phi ptr [ %.sroa.3.0..sroa_idx.i27, %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread ], [ %.sroa.3.0..sroa_idx.i, %_ZN3vcg9Trackball16SetCurrentActionEv.exit ], [ %.sroa.3.0..sroa_idx.i, %33 ]
+  %.sroa.2.0..sroa_idx.i28 = phi ptr [ %.sroa.2.0..sroa_idx.i26, %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread ], [ %.sroa.2.0..sroa_idx.i, %_ZN3vcg9Trackball16SetCurrentActionEv.exit ], [ %.sroa.2.0..sroa_idx.i, %33 ]
   %39 = phi ptr [ %25, %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread ], [ %30, %_ZN3vcg9Trackball16SetCurrentActionEv.exit ], [ %30, %33 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 %7, ptr %6, align 4
@@ -2922,8 +2922,8 @@ _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit.threa
 
 _ZN3vcg9Trackball16SetCurrentActionEv.exit19:     ; preds = %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit.thread.i18, %49, %52
   store float 0.000000e+00, ptr %39, align 8
-  store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx.i22, align 4
-  store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i23, align 8
+  store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx.i28, align 4
+  store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i29, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -2989,10 +2989,10 @@ _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit.threa
 _ZN3vcg9Trackball16SetCurrentActionEv.exit.thread: ; preds = %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit.thread.i, %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store float 0.000000e+00, ptr %27, align 8
-  %.sroa.2.0..sroa_idx.i23 = getelementptr inbounds nuw i8, ptr %0, i64 500
-  store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx.i23, align 4
-  %.sroa.3.0..sroa_idx.i24 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i24, align 8
+  %.sroa.2.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %0, i64 500
+  store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx.i29, align 4
+  %.sroa.3.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i30, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3021,8 +3021,8 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %23
 37:                                               ; preds = %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread, %_ZN3vcg9Trackball16SetCurrentActionEv.exit
   %38 = phi ptr [ %29, %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread ], [ %35, %_ZN3vcg9Trackball16SetCurrentActionEv.exit ]
   %39 = phi ptr [ %28, %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread ], [ %34, %_ZN3vcg9Trackball16SetCurrentActionEv.exit ]
-  %.sroa.3.0..sroa_idx.i28 = phi ptr [ %.sroa.3.0..sroa_idx.i24, %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread ], [ %.sroa.3.0..sroa_idx.i, %_ZN3vcg9Trackball16SetCurrentActionEv.exit ]
-  %.sroa.2.0..sroa_idx.i26 = phi ptr [ %.sroa.2.0..sroa_idx.i23, %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread ], [ %.sroa.2.0..sroa_idx.i, %_ZN3vcg9Trackball16SetCurrentActionEv.exit ]
+  %.sroa.3.0..sroa_idx.i34 = phi ptr [ %.sroa.3.0..sroa_idx.i30, %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread ], [ %.sroa.3.0..sroa_idx.i, %_ZN3vcg9Trackball16SetCurrentActionEv.exit ]
+  %.sroa.2.0..sroa_idx.i32 = phi ptr [ %.sroa.2.0..sroa_idx.i29, %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread ], [ %.sroa.2.0..sroa_idx.i, %_ZN3vcg9Trackball16SetCurrentActionEv.exit ]
   %40 = phi ptr [ %27, %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread ], [ %33, %_ZN3vcg9Trackball16SetCurrentActionEv.exit ]
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3vcg9ScaleModeE, i64 16), ptr %6, align 8
   call void @_ZN3vcg9ScaleMode5ApplyEPNS_9TrackballEf(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %0, float noundef %1)
@@ -3038,8 +3038,8 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %23
 45:                                               ; preds = %37, %41
   %46 = phi ptr [ %38, %37 ], [ %35, %41 ]
   %47 = phi ptr [ %39, %37 ], [ %34, %41 ]
-  %.sroa.3.0..sroa_idx.i27 = phi ptr [ %.sroa.3.0..sroa_idx.i28, %37 ], [ %.sroa.3.0..sroa_idx.i, %41 ]
-  %.sroa.2.0..sroa_idx.i25 = phi ptr [ %.sroa.2.0..sroa_idx.i26, %37 ], [ %.sroa.2.0..sroa_idx.i, %41 ]
+  %.sroa.3.0..sroa_idx.i33 = phi ptr [ %.sroa.3.0..sroa_idx.i34, %37 ], [ %.sroa.3.0..sroa_idx.i, %41 ]
+  %.sroa.2.0..sroa_idx.i31 = phi ptr [ %.sroa.2.0..sroa_idx.i32, %37 ], [ %.sroa.2.0..sroa_idx.i, %41 ]
   %48 = phi ptr [ %40, %37 ], [ %33, %41 ]
   %49 = xor i32 %2, -1
   %50 = load i32, ptr %8, align 4
@@ -3095,8 +3095,8 @@ _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit.threa
 
 _ZN3vcg9Trackball16SetCurrentActionEv.exit22:     ; preds = %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit.thread.i21, %60, %63
   store float 0.000000e+00, ptr %48, align 8
-  store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx.i25, align 4
-  store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i27, align 8
+  store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx.i31, align 4
+  store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i33, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

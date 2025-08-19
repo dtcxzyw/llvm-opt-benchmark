@@ -984,7 +984,7 @@ define internal fastcc void @_ZN15ruff_python_ast7visitor12source_order18SourceO
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_order17h29aa3237816db6dcE(i64 noundef range(i64 0, 92) %0, ptr noundef %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #0 {
-  switch i64 %0, label %default.unreachable119 [
+  switch i64 %0, label %default.unreachable122 [
     i64 0, label %4
     i64 1, label %10
     i64 2, label %13
@@ -1079,7 +1079,7 @@ define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_ord
     i64 91, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h88c11e380bd235baE.exit
   ]
 
-default.unreachable119:                           ; preds = %3
+default.unreachable122:                           ; preds = %3
   unreachable
 
 4:                                                ; preds = %3
@@ -1702,7 +1702,7 @@ _ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h88c11e380bd235b
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_order17hfdcb558b3d8e739bE(i64 noundef range(i64 0, 92) %0, ptr noundef %1, ptr noalias noundef align 8 dereferenceable(40) %2) unnamed_addr #0 {
-  switch i64 %0, label %default.unreachable109 [
+  switch i64 %0, label %default.unreachable112 [
     i64 0, label %4
     i64 1, label %10
     i64 2, label %13
@@ -1797,7 +1797,7 @@ define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_ord
     i64 91, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h61514d78c92028a1E.exit
   ]
 
-default.unreachable109:                           ; preds = %3
+default.unreachable112:                           ; preds = %3
   unreachable
 
 4:                                                ; preds = %3
@@ -9407,14 +9407,14 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %.not, label %.preheader.split.preheader, label %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit.thread
 
 .preheader.split.preheader:                       ; preds = %4
-  %exitcond.not8 = icmp eq i64 %1, 0
-  br i1 %exitcond.not8, label %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit.thread, label %.lr.ph
+  %exitcond.not17 = icmp eq i64 %1, 0
+  br i1 %exitcond.not17, label %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.split.preheader, %.preheader.split.backedge
-  %.sroa.01.09 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
-  %5 = add i64 %.sroa.01.09, 1
-  %6 = getelementptr inbounds nuw { [55 x i8], i8 }, ptr %0, i64 %.sroa.01.09
-  %7 = getelementptr inbounds nuw { [55 x i8], i8 }, ptr %2, i64 %.sroa.01.09
+  %.sroa.01.018 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
+  %5 = add i64 %.sroa.01.018, 1
+  %6 = getelementptr inbounds nuw { [55 x i8], i8 }, ptr %0, i64 %.sroa.01.018
+  %7 = getelementptr inbounds nuw { [55 x i8], i8 }, ptr %2, i64 %.sroa.01.018
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1204)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1207)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1209)
@@ -11450,18 +11450,18 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$ruff_python_ast..generated
   br i1 %.not.i1, label %.preheader18.split.preheader, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E.exit.thread"
 
 .preheader18.split.preheader:                     ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E.exit"
-  %exitcond33.not44 = icmp eq i64 %31, 0
-  br i1 %exitcond33.not44, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6eb1cfb57667d577E.exit", label %.lr.ph
+  %exitcond33.not47 = icmp eq i64 %31, 0
+  br i1 %exitcond33.not47, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6eb1cfb57667d577E.exit", label %.lr.ph
 
 .preheader18.split.loopexit:                      ; preds = %.preheader.split.i
   %exitcond33.not = icmp eq i64 %36, %31
   br i1 %exitcond33.not, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6eb1cfb57667d577E.exit", label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader18.split.preheader, %.preheader18.split.loopexit
-  %.sroa.01.0.i345 = phi i64 [ %36, %.preheader18.split.loopexit ], [ 0, %.preheader18.split.preheader ]
-  %36 = add nuw i64 %.sroa.01.0.i345, 1
-  %37 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %29, i64 %.sroa.01.0.i345
-  %38 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %33, i64 %.sroa.01.0.i345
+  %.sroa.01.0.i348 = phi i64 [ %36, %.preheader18.split.loopexit ], [ 0, %.preheader18.split.preheader ]
+  %36 = add nuw i64 %.sroa.01.0.i348, 1
+  %37 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %29, i64 %.sroa.01.0.i348
+  %38 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %33, i64 %.sroa.01.0.i348
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1345)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1348)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1350), !noalias !1353

@@ -966,7 +966,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i: ; preds = %.lr.ph.spl
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.lr.ph.i.i.i, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i
   %.sroa.4.0.i26.i.i = phi i64 [ %126, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i ], [ %.sroa.01.05.i.i.i, %.lr.ph.i.i.i ]
-  %127 = add i64 %115, 1
+  %127 = add nuw i64 %115, 1
   %128 = add i64 %127, %.sroa.4.0.i26.i.i
   %.not13.i.i = icmp ugt i64 %128, %83
   %129 = add i64 %.sroa.4.0.i26.i.i, %115
@@ -1001,10 +1001,10 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.
   br label %226
 
 136:                                              ; preds = %159, %133
-  %.sink906 = phi i8 [ %155, %159 ], [ %112, %133 ]
+  %.sink931 = phi i8 [ %155, %159 ], [ %112, %133 ]
   %.sink = phi i8 [ %157, %159 ], [ %114, %133 ]
   %.sroa.4128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 %.sink906, ptr %.sroa.4128.0..sroa_idx, align 1
+  store i8 %.sink931, ptr %.sroa.4128.0..sroa_idx, align 1
   %.sroa.5129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %.sink, ptr %.sroa.5129.0..sroa_idx, align 4
   store i64 10, ptr %0, align 8
@@ -1146,7 +1146,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i597: ; preds = %.lr.ph.
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i600: ; preds = %.lr.ph.i.i.i612, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i597
   %.sroa.4.0.i26.i.i601 = phi i64 [ %173, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i597 ], [ %.sroa.01.05.i.i.i613, %.lr.ph.i.i.i612 ]
-  %174 = add i64 %162, 1
+  %174 = add nuw i64 %162, 1
   %175 = add i64 %174, %.sroa.4.0.i26.i.i601
   %.not13.i.i602 = icmp ugt i64 %175, %104
   %176 = add i64 %.sroa.4.0.i26.i.i601, %162
@@ -1173,9 +1173,9 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i600: ; preds =
   br i1 %181, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i623", label %.thread747
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i617.thread": ; preds = %180
-  %bcmp.i.i.i618896 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(6) @anon.bf5f576cdbc7d43d04cdd59c3429ed3f.66, ptr noundef nonnull readonly align 1 dereferenceable(6) %1, i64 6), !alias.scope !164
-  %bcmp.i.i.fr.i619897 = freeze i32 %bcmp.i.i.i618896
-  %182 = icmp eq i32 %bcmp.i.i.fr.i619897, 0
+  %bcmp.i.i.i618921 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(6) @anon.bf5f576cdbc7d43d04cdd59c3429ed3f.66, ptr noundef nonnull readonly align 1 dereferenceable(6) %1, i64 6), !alias.scope !164
+  %bcmp.i.i.fr.i619922 = freeze i32 %bcmp.i.i.i618921
+  %182 = icmp eq i32 %bcmp.i.i.fr.i619922, 0
   br i1 %182, label %.thread, label %.thread747
 
 183:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddd631e46b4ff1f6E.exit.i.i604"

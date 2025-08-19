@@ -7811,15 +7811,15 @@ _ZN3nix9CanonPathD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
   %137 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %138 = load i64, ptr %137, align 8, !noalias !206
   %139 = icmp eq i64 %138, 0
-  br i1 %139, label %.invoke231, label %_ZNK3nix9CanonPath3relEv.exit.i58
+  br i1 %139, label %.invoke272, label %_ZNK3nix9CanonPath3relEv.exit.i58
 
-.invoke231:                                       ; preds = %181, %136
+.invoke272:                                       ; preds = %181, %136
   %140 = phi i64 [ 1, %136 ], [ %182, %181 ]
   %141 = phi i64 [ 0, %136 ], [ %.sroa.0154.0198, %181 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.154, i64 noundef %140, i64 noundef %141) #21
-          to label %.cont232 unwind label %.loopexit.split-lp
+          to label %.cont273 unwind label %.loopexit.split-lp
 
-.cont232:                                         ; preds = %.invoke231
+.cont273:                                         ; preds = %.invoke272
   unreachable
 
 _ZNK3nix9CanonPath3relEv.exit.i58:                ; preds = %136
@@ -7938,7 +7938,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i96: ; preds = %_Z
 181:                                              ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backERKS3_.exit88
   %182 = add nuw i64 %.sroa.13.0200, 1
   %.not.i89 = icmp ult i64 %.sroa.13.0200, %.sroa.0154.0198
-  br i1 %.not.i89, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i90, label %.invoke231
+  br i1 %.not.i89, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i90, label %.invoke272
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i90: ; preds = %181
   %183 = sub nuw i64 %.sroa.0154.0198, %182
@@ -7980,7 +7980,7 @@ _ZN3nix9CanonPath8IteratorppEv.exit98:            ; preds = %_ZNKSt17basic_strin
           cleanup
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit126
 
-.loopexit.split-lp:                               ; preds = %.invoke231, %164
+.loopexit.split-lp:                               ; preds = %.invoke272, %164
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit126
@@ -8170,10 +8170,10 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit126: ; p
   br i1 %.not.i.i.i146, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit101, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit101.sink.split
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit101.sink.split: ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit126, %.body
-  %.sink233 = phi ptr [ %191, %.body ], [ %244, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit126 ]
+  %.sink274 = phi ptr [ %191, %.body ], [ %244, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit126 ]
   %.sink.ph = phi ptr [ %2, %.body ], [ %8, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit126 ]
   %.pn31.pn.ph = phi { ptr, i32 } [ %.pn31, %.body ], [ %.pn29, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit126 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sink233) #23
+  call void @_ZdlPv(ptr noundef nonnull %.sink274) #23
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit101
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit101: ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit101.sink.split, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit126, %.body
@@ -19140,18 +19140,18 @@ _ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.thread36: ; preds = %15, %_ZNKSt4l
   br i1 %.0.lcssa, label %._crit_edge.thread, label %33
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.031.lcssa56 = phi ptr [ %.031.lcssa, %._crit_edge ], [ %4, %2 ]
+  %.031.lcssa59 = phi ptr [ %.031.lcssa, %._crit_edge ], [ %4, %2 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %.031.lcssa56, %29
+  %30 = icmp eq ptr %.031.lcssa59, %29
   br i1 %30, label %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit16.thread40, label %31
 
 31:                                               ; preds = %._crit_edge.thread
-  %32 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.031.lcssa56) #25
+  %32 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.031.lcssa59) #25
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge
-  %.031.lcssa55 = phi ptr [ %.031.lcssa56, %31 ], [ %.031.lcssa, %._crit_edge ]
+  %.031.lcssa58 = phi ptr [ %.031.lcssa59, %31 ], [ %.031.lcssa, %._crit_edge ]
   %.sroa.017.0 = phi ptr [ %32, %31 ], [ %.031.lcssa, %._crit_edge ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.017.0, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -19206,7 +19206,7 @@ _ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit16.thread: ; preds = %42, %50, %_ZN
 
 _ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit16.thread40: ; preds = %44, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit16, %._crit_edge.thread, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit16.thread
   %.sroa.030.0 = phi ptr [ %.sroa.017.0, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit16.thread ], [ null, %._crit_edge.thread ], [ null, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit16 ], [ null, %44 ]
-  %.sroa.4.0 = phi ptr [ null, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit16.thread ], [ %.031.lcssa56, %._crit_edge.thread ], [ %.031.lcssa55, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit16 ], [ %.031.lcssa55, %44 ]
+  %.sroa.4.0 = phi ptr [ null, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit16.thread ], [ %.031.lcssa59, %._crit_edge.thread ], [ %.031.lcssa58, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit16 ], [ %.031.lcssa58, %44 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.030.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -1229,9 +1229,9 @@ _ZN4CReg3getEPKc.exit:                            ; preds = %.loopexit.i
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %85 = load i32, ptr %84, align 8, !tbaa !36
   %.not124 = icmp eq i32 %85, 0
-  br i1 %.not124, label %.thread135, label %88
+  br i1 %.not124, label %.thread144, label %88
 
-.thread135:                                       ; preds = %83
+.thread144:                                       ; preds = %83
   store i32 2, ptr %5, align 4, !tbaa !13
   br label %148
 
@@ -1415,13 +1415,13 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   %147 = icmp slt i32 %.pre132, 1
   br i1 %147, label %162, label %148
 
-148:                                              ; preds = %.thread135, %146
-  %.084137 = phi ptr [ null, %.thread135 ], [ %.185, %146 ]
-  %149 = phi i32 [ 2, %.thread135 ], [ %.pre132, %146 ]
+148:                                              ; preds = %.thread144, %146
+  %.084146 = phi ptr [ null, %.thread144 ], [ %.185, %146 ]
+  %149 = phi i32 [ 2, %.thread144 ], [ %.pre132, %146 ]
   %150 = load ptr, ptr %8, align 8, !tbaa !3
   %151 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %150, i32 noundef 95) #23
   %.not107 = icmp eq ptr %151, null
-  br i1 %.not107, label %.thread139, label %152
+  br i1 %.not107, label %.thread148, label %152
 
 152:                                              ; preds = %148
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -1460,17 +1460,17 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   %164 = icmp eq i32 %163, 0
   %165 = icmp ne i32 %.pre132, 0
   %or.cond9 = or i1 %165, %164
-  br i1 %or.cond9, label %.thread139, label %167
+  br i1 %or.cond9, label %.thread148, label %167
 
-.thread139:                                       ; preds = %148, %162
+.thread148:                                       ; preds = %148, %162
   %166 = phi i32 [ %.pre132, %162 ], [ %149, %148 ]
-  %.084138143 = phi ptr [ %.185, %162 ], [ %.084137, %148 ]
+  %.084147152 = phi ptr [ %.185, %162 ], [ %.084146, %148 ]
   store i32 %166, ptr %3, align 4, !tbaa !13
   br label %167
 
-167:                                              ; preds = %162, %.thread139
-  %.084138142 = phi ptr [ %.185, %162 ], [ %.084138143, %.thread139 ]
-  %168 = phi i32 [ %163, %162 ], [ %166, %.thread139 ]
+167:                                              ; preds = %162, %.thread148
+  %.084147151 = phi ptr [ %.185, %162 ], [ %.084147152, %.thread148 ]
+  %168 = phi i32 [ %163, %162 ], [ %166, %.thread148 ]
   %169 = icmp slt i32 %168, 1
   %170 = load i32, ptr %7, align 4
   %171 = icmp sgt i32 %2, %170
@@ -1478,7 +1478,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br i1 %or.cond119, label %172, label %174
 
 172:                                              ; preds = %167
-  %173 = invoke ptr @u_strcpy_77(ptr noundef %1, ptr noundef %.084138142)
+  %173 = invoke ptr @u_strcpy_77(ptr noundef %1, ptr noundef %.084147151)
           to label %._crit_edge133 unwind label %86
 
 ._crit_edge133:                                   ; preds = %172
@@ -1596,8 +1596,8 @@ define ptr @ucurr_getName_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
   %17 = load i32, ptr %5, align 4, !tbaa !13
   %18 = icmp slt i32 %17, 1
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink.sroa.gep74 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sink.sroa.gep75 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink.sroa.gep79 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink.sroa.gep80 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br i1 %18, label %19, label %106
 
 19:                                               ; preds = %6
@@ -1707,7 +1707,7 @@ define ptr @ucurr_getName_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
           to label %.invoke unwind label %51
 
 .invoke:                                          ; preds = %54, %53, %50
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %50 ], [ %.sink.sroa.gep74, %53 ], [ %.sink.sroa.gep75, %54 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %50 ], [ %.sink.sroa.gep79, %53 ], [ %.sink.sroa.gep80, %54 ]
   %.sink = phi ptr [ %12, %50 ], [ %13, %53 ], [ %14, %54 ]
   %55 = load ptr, ptr %.sink, align 8
   %56 = load i32, ptr %.sink.sroa.phi, align 8
@@ -2143,14 +2143,14 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %21
   br i1 %or.cond3, label %.sink.split, label %59
 
 .sink.split:                                      ; preds = %51, %45
-  %.sink49 = phi i32 [ %49, %45 ], [ %53, %51 ]
+  %.sink52 = phi i32 [ %49, %45 ], [ %53, %51 ]
   %.sink = phi ptr [ %25, %45 ], [ %29, %51 ]
-  %.sink46 = phi i32 [ %47, %45 ], [ %46, %51 ]
-  %55 = sext i32 %.sink49 to i64
+  %.sink49 = phi i32 [ %47, %45 ], [ %46, %51 ]
+  %55 = sext i32 %.sink52 to i64
   %56 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %.sink, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !52
   call void @u_charsToUChars_77(ptr noundef %57, ptr noundef %5, i32 noundef 4)
-  %58 = add nsw i32 %.sink46, %31
+  %58 = add nsw i32 %.sink49, %31
   store i32 %58, ptr %30, align 8, !tbaa !48
   br label %59
 
@@ -3744,9 +3744,9 @@ _ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit: ; 
 507:                                              ; preds = %501, %504
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %exitcond243.not = icmp eq i64 %indvars.iv.next241, 10
-  br i1 %exitcond243.not, label %.thread248, label %501, !llvm.loop !76
+  br i1 %exitcond243.not, label %.thread291, label %501, !llvm.loop !76
 
-.thread248:                                       ; preds = %507
+.thread291:                                       ; preds = %507
   %508 = load i8, ptr @_ZL22currentCacheEntryIndex, align 1, !tbaa !27
   %509 = zext nneg i8 %508 to i64
   %510 = getelementptr inbounds nuw [10 x ptr], ptr @_ZL9currCache, i64 0, i64 %509
@@ -3754,7 +3754,7 @@ _ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit: ; 
   %.not49 = icmp eq ptr %511, null
   br i1 %.not49, label %518, label %512
 
-512:                                              ; preds = %.thread248
+512:                                              ; preds = %.thread291
   %513 = getelementptr inbounds nuw i8, ptr %511, i64 188
   %514 = load i32, ptr %513, align 4, !tbaa !55
   %515 = add nsw i32 %514, -1
@@ -3766,7 +3766,7 @@ _ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit: ; 
   call fastcc void @_ZL16deleteCacheEntryP22CurrencyNameCacheEntry(ptr noundef nonnull %511)
   br label %518
 
-518:                                              ; preds = %512, %517, %.thread248
+518:                                              ; preds = %512, %517, %.thread291
   %519 = call noalias dereferenceable_or_null(192) ptr @uprv_malloc_77(i64 noundef 192) #21
   %520 = icmp eq ptr %519, null
   br i1 %520, label %521, label %522
@@ -4067,7 +4067,7 @@ _ZL12binarySearchPK18CurrencyNameStructiDsPiS2_.exit: ; preds = %72, %._crit_edg
 
 .lr.ph54.preheader.i:                             ; preds = %95
   %97 = sext i32 %96 to i64
-  %98 = add nsw i32 %storemerge.i, 1
+  %98 = add i32 %storemerge.i, 1
   br label %.lr.ph54.i
 
 .lr.ph54.i:                                       ; preds = %.loopexit.i, %.lr.ph54.preheader.i
@@ -4911,13 +4911,13 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   unreachable
 
 _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit75.i.i: ; preds = %123, %63
-  %.35288.i.i = phi i32 [ 0, %123 ], [ 7, %63 ]
+  %.35298.i.i = phi i32 [ 0, %123 ], [ 7, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %127
 
 127:                                              ; preds = %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit75.i.i, %56
-  %.251.i.i = phi i32 [ 1, %56 ], [ %.35288.i.i, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit75.i.i ]
+  %.251.i.i = phi i32 [ 1, %56 ], [ %.35298.i.i, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit75.i.i ]
   %.not.i76.i.i = icmp eq ptr %51, null
   br i1 %.not.i76.i.i, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit77.i.i, label %128
 
@@ -5491,13 +5491,13 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br i1 %or.cond, label %.loopexit.thread, label %126
 
 .loopexit.thread:                                 ; preds = %36, %.loopexit
-  %.038107 = phi i32 [ %.139, %.loopexit ], [ 0, %36 ]
+  %.038115 = phi i32 [ %.139, %.loopexit ], [ 0, %36 ]
   %125 = phi i32 [ %.pre, %.loopexit ], [ %37, %36 ]
   store i32 %125, ptr %2, align 4, !tbaa !13
   br label %126
 
 126:                                              ; preds = %.loopexit, %.loopexit.thread
-  %.038106 = phi i32 [ %.139, %.loopexit ], [ %.038107, %.loopexit.thread ]
+  %.038114 = phi i32 [ %.139, %.loopexit ], [ %.038115, %.loopexit.thread ]
   %127 = phi i32 [ %122, %.loopexit ], [ %125, %.loopexit.thread ]
   %128 = icmp sgt i32 %127, 0
   %.not.i80 = icmp eq ptr %35, null
@@ -5537,7 +5537,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br label %137
 
 137:                                              ; preds = %.thread, %133, %136
-  %.2 = phi i32 [ 0, %136 ], [ %.038106, %133 ], [ 0, %.thread ]
+  %.2 = phi i32 [ 0, %136 ], [ %.038114, %133 ], [ 0, %.thread ]
   ret i32 %.2
 }
 
@@ -5880,15 +5880,15 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br i1 %or.cond5, label %.loopexit.thread, label %147
 
 .loopexit.thread:                                 ; preds = %43, %.loopexit
-  %.064130 = phi ptr [ %.064.ph, %.loopexit ], [ null, %43 ]
-  %.071128 = phi i1 [ %62, %.loopexit ], [ false, %43 ]
+  %.064140 = phi ptr [ %.064.ph, %.loopexit ], [ null, %43 ]
+  %.071138 = phi i1 [ %62, %.loopexit ], [ false, %43 ]
   %146 = phi i32 [ %.pre, %.loopexit ], [ %44, %43 ]
   store i32 %146, ptr %5, align 4, !tbaa !13
   br label %147
 
 147:                                              ; preds = %.loopexit, %.loopexit.thread
-  %.064129 = phi ptr [ %.064.ph, %.loopexit ], [ %.064130, %.loopexit.thread ]
-  %.071127 = phi i1 [ %62, %.loopexit ], [ %.071128, %.loopexit.thread ]
+  %.064139 = phi ptr [ %.064.ph, %.loopexit ], [ %.064140, %.loopexit.thread ]
+  %.071137 = phi i1 [ %62, %.loopexit ], [ %.071138, %.loopexit.thread ]
   %148 = phi i32 [ %143, %.loopexit ], [ %146, %.loopexit.thread ]
   %149 = icmp sgt i32 %148, 0
   br i1 %149, label %155, label %150
@@ -5896,11 +5896,11 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
 150:                                              ; preds = %147
   %151 = load i32, ptr %7, align 4, !tbaa !12
   %152 = icmp sgt i32 %4, %151
-  %or.cond7 = and i1 %.071127, %152
+  %or.cond7 = and i1 %.071137, %152
   br i1 %or.cond7, label %153, label %158
 
 153:                                              ; preds = %150
-  %154 = invoke ptr @u_strcpy_77(ptr noundef %3, ptr noundef %.064129)
+  %154 = invoke ptr @u_strcpy_77(ptr noundef %3, ptr noundef %.064139)
           to label %155 unwind label %58
 
 155:                                              ; preds = %153, %147
@@ -7211,8 +7211,8 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit.i92.i.i.i: ; preds = %152
   br i1 %.not8.i94.i.i.i, label %_ZN6icu_7713EquivIterator4nextEv.exit97.i.i.i, label %._crit_edge.i.i.i
 
 _ZN6icu_7713EquivIterator4nextEv.exit97.i.i.i:    ; preds = %.noexc40.i.i, %152, %149
-  %.not189.i.i.i = icmp eq ptr %.0.i84.i.i.i, null
-  br i1 %.not189.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
+  %.not209.i.i.i = icmp eq ptr %.0.i84.i.i.i, null
+  br i1 %.not209.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN6icu_7713EquivIterator4nextEv.exit97.i.i.i, %.lr.ph.i.i.i.backedge
   %.064175.i.i.i = phi ptr [ %.0.i114.i.i.i, %.lr.ph.i.i.i.backedge ], [ %.0.i84.i.i.i, %_ZN6icu_7713EquivIterator4nextEv.exit97.i.i.i ]
@@ -7383,8 +7383,8 @@ _ZN6icu_7713EquivIterator4nextEv.exit123.i.i.i:   ; preds = %_ZNK6icu_7713Unicod
   %258 = load i16, ptr %33, align 8, !tbaa !27
   %259 = and i16 %258, 1
   %.not.i125.i.i.i = icmp ne i16 %259, 0
-  %.not190.i.old.i.i = icmp eq ptr %.0.i114.i.i.i, null
-  %or.cond51.i.i = or i1 %.not190.i.old.i.i, %.not.i125.i.i.i
+  %.not210.i.old.i.i = icmp eq ptr %.0.i114.i.i.i, null
+  %or.cond51.i.i = or i1 %.not210.i.old.i.i, %.not.i125.i.i.i
   br i1 %or.cond51.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i.backedge
 
 260:                                              ; preds = %253
@@ -7416,20 +7416,20 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit.i130.i.i.i: ; preds = %260
 
 .noexc46.i.i:                                     ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.i130.i.i.i
   %.not8.i132.i.i.i = icmp ne i8 %278, 0
-  %.not190.i.i.i = icmp eq ptr %.0.i114.i.i.i, null
-  %or.cond.i.i = or i1 %.not190.i.i.i, %.not8.i132.i.i.i
+  %.not210.i.i.i = icmp eq ptr %.0.i114.i.i.i, null
+  %or.cond.i.i = or i1 %.not210.i.i.i, %.not8.i132.i.i.i
   br i1 %or.cond.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i.backedge
 
 _ZN6icu_7713EquivIterator4nextEv.exit135.i.i.i:   ; preds = %260
-  %.not190.i.old.old.i.i = icmp eq ptr %.0.i114.i.i.i, null
-  br i1 %.not190.i.old.old.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i.backedge
+  %.not210.i.old.old.i.i = icmp eq ptr %.0.i114.i.i.i, null
+  br i1 %.not210.i.old.old.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i.backedge
 
 .lr.ph.i.i.i.backedge:                            ; preds = %_ZN6icu_7713EquivIterator4nextEv.exit135.i.i.i, %.noexc46.i.i, %257
   br label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN6icu_7713EquivIterator4nextEv.exit135.i.i.i, %.noexc46.i.i, %257, %.noexc45.i.i, %.noexc40.i.i, %149, %.noexc39.i.i
-  %.0.i88178.i.i.i = phi ptr [ null, %.noexc39.i.i ], [ null, %.noexc40.i.i ], [ null, %149 ], [ %143, %.noexc45.i.i ], [ %143, %257 ], [ %143, %.noexc46.i.i ], [ %143, %_ZN6icu_7713EquivIterator4nextEv.exit135.i.i.i ]
-  %279 = icmp eq ptr %.0.i88178.i.i.i, null
+  %.0.i88198.i.i.i = phi ptr [ null, %.noexc39.i.i ], [ null, %.noexc40.i.i ], [ null, %149 ], [ %143, %.noexc45.i.i ], [ %143, %257 ], [ %143, %.noexc46.i.i ], [ %143, %_ZN6icu_7713EquivIterator4nextEv.exit135.i.i.i ]
+  %279 = icmp eq ptr %.0.i88198.i.i.i, null
   %280 = icmp eq ptr %.0.i84.i.i.i, null
   %or.cond.i35.i.i = and i1 %280, %279
   br i1 %or.cond.i35.i.i, label %281, label %293
@@ -7497,13 +7497,13 @@ _ZN6icu_7713EquivIterator4nextEv.exit135.i.i.i:   ; preds = %260
   br i1 %280, label %._crit_edge.thread.i.i.i, label %318
 
 ._crit_edge.thread.i.i.i:                         ; preds = %306, %_ZN6icu_7713EquivIterator4nextEv.exit97.i.i.i
-  %.0.i88178183184185.i.i.i = phi ptr [ %.0.i88178.i.i.i, %306 ], [ %143, %_ZN6icu_7713EquivIterator4nextEv.exit97.i.i.i ]
+  %.0.i88198203204206.i.i.i = phi ptr [ %.0.i88198.i.i.i, %306 ], [ %143, %_ZN6icu_7713EquivIterator4nextEv.exit97.i.i.i ]
   %307 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #20
   %308 = icmp eq ptr %307, null
   br i1 %308, label %310, label %309
 
 309:                                              ; preds = %._crit_edge.thread.i.i.i
-  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %307, ptr noundef nonnull align 8 dereferenceable(64) %.0.i88178183184185.i.i.i)
+  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %307, ptr noundef nonnull align 8 dereferenceable(64) %.0.i88198203204206.i.i.i)
           to label %310 unwind label %314
 
 310:                                              ; preds = %309, %._crit_edge.thread.i.i.i
@@ -7531,7 +7531,7 @@ _ZN6icu_7713EquivIterator4nextEv.exit135.i.i.i:   ; preds = %260
   br i1 %320, label %322, label %321
 
 321:                                              ; preds = %318
-  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %319, ptr noundef nonnull align 8 dereferenceable(64) %.0.i88178.i.i.i)
+  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %319, ptr noundef nonnull align 8 dereferenceable(64) %.0.i88198.i.i.i)
           to label %322 unwind label %326
 
 322:                                              ; preds = %321, %318
@@ -7565,11 +7565,11 @@ _ZN6icu_7713EquivIterator4nextEv.exit135.i.i.i:   ; preds = %260
   br i1 %332, label %.thread161.sink.split.i.i.i, label %336
 
 .thread161.sink.split.i.i.i:                      ; preds = %331, %.thread.i.i.i
-  %.066.ph.sink188.i.i.i = phi ptr [ %.066.ph.i.i.i, %.thread.i.i.i ], [ %.067.i.i.i, %331 ]
-  %333 = load ptr, ptr %.066.ph.sink188.i.i.i, align 8, !tbaa !116
+  %.066.ph.sink208.i.i.i = phi ptr [ %.066.ph.i.i.i, %.thread.i.i.i ], [ %.067.i.i.i, %331 ]
+  %333 = load ptr, ptr %.066.ph.sink208.i.i.i, align 8, !tbaa !116
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 8
   %335 = load ptr, ptr %334, align 8
-  call void %335(ptr noundef nonnull align 8 dereferenceable(64) %.066.ph.sink188.i.i.i) #20
+  call void %335(ptr noundef nonnull align 8 dereferenceable(64) %.066.ph.sink208.i.i.i) #20
   br label %.thread161.i.i.i
 
 .thread161.i.i.i:                                 ; preds = %.thread161.sink.split.i.i.i, %.thread.i.i.i

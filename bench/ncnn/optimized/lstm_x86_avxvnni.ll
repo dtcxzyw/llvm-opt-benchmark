@@ -4574,8 +4574,8 @@ define internal void @_ZN4ncnnL9lstm_int8ERKNS_3MatES2_RS0_iS2_S2_S2_S2_S3_S3_RK
   br label %70
 
 70:                                               ; preds = %40, %68
-  %.sink46 = phi ptr [ %39, %68 ], [ %37, %40 ]
-  %71 = getelementptr inbounds float, ptr %.sink46, i64 %42
+  %.sink50 = phi ptr [ %39, %68 ], [ %37, %40 ]
+  %71 = getelementptr inbounds float, ptr %.sink50, i64 %42
   store float %67, ptr %71, align 4, !tbaa !38
   %72 = add nuw i32 %.045, 1
   %exitcond.not = icmp eq i32 %.045, %23

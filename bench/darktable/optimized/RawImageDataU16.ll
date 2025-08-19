@@ -261,7 +261,7 @@ _ZN8rawspeed10Array2DRefItE6createISaItEEES1_RSt6vectorItT_Eii.exit:
   %gep.us = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %61
   %.pre = load i16, ptr %gep.us, align 2, !tbaa !106
   %64 = zext i16 %.pre to i64
-  %invariant.gep420 = getelementptr inbounds nuw i16, ptr %21, i64 %64
+  %invariant.gep429 = getelementptr inbounds nuw i16, ptr %21, i64 %64
   br label %65
 
 65:                                               ; preds = %.lr.ph.us, %65
@@ -270,7 +270,7 @@ _ZN8rawspeed10Array2DRefItE6createISaItEEES1_RSt6vectorItT_Eii.exit:
   %67 = or disjoint i32 %66, %59
   %68 = shl nuw nsw i32 %67, 16
   %69 = zext nneg i32 %68 to i64
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep420, i64 %69
+  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep429, i64 %69
   %70 = load i16, ptr %gep, align 2, !tbaa !106
   %71 = add i16 %70, 1
   store i16 %71, ptr %gep, align 2, !tbaa !106
@@ -332,7 +332,7 @@ _ZN8rawspeed10Array2DRefItE6createISaItEEES1_RSt6vectorItT_Eii.exit:
   %gep.us370 = getelementptr inbounds nuw i16, ptr %invariant.gep368, i64 %85
   %.pre415 = load i16, ptr %gep.us370, align 2, !tbaa !106
   %88 = zext i16 %.pre415 to i64
-  %invariant.gep421 = getelementptr inbounds nuw i16, ptr %21, i64 %88
+  %invariant.gep430 = getelementptr inbounds nuw i16, ptr %21, i64 %88
   br label %89
 
 89:                                               ; preds = %.preheader355.us, %89
@@ -341,17 +341,17 @@ _ZN8rawspeed10Array2DRefItE6createISaItEEES1_RSt6vectorItT_Eii.exit:
   %91 = or disjoint i32 %90, %83
   %92 = shl nuw nsw i32 %91, 16
   %93 = zext nneg i32 %92 to i64
-  %gep422 = getelementptr inbounds nuw i16, ptr %invariant.gep421, i64 %93
-  %94 = load i16, ptr %gep422, align 2, !tbaa !106
+  %gep431 = getelementptr inbounds nuw i16, ptr %invariant.gep430, i64 %93
+  %94 = load i16, ptr %gep431, align 2, !tbaa !106
   %95 = add i16 %94, 1
-  store i16 %95, ptr %gep422, align 2, !tbaa !106
+  store i16 %95, ptr %gep431, align 2, !tbaa !106
   %96 = add nuw i32 %.0108366.us, 1
   %exitcond404.not = icmp eq i32 %96, %52
   br i1 %exitcond404.not, label %._crit_edge.us371, label %89, !llvm.loop !111
 
 ._crit_edge.us371:                                ; preds = %89
   %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
-  %97 = trunc nuw i64 %indvars.iv.next406 to i32
+  %97 = trunc nuw nsw i64 %indvars.iv.next406 to i32
   %98 = icmp sgt i32 %41, %97
   br i1 %98, label %.preheader355.us, label %._crit_edge365, !llvm.loop !112
 
@@ -365,7 +365,7 @@ _ZN8rawspeed10Array2DRefItE6createISaItEEES1_RSt6vectorItT_Eii.exit:
 
 ._crit_edge:                                      ; preds = %._crit_edge365, %_ZN8rawspeed10Array2DRefItE6createISaItEEES1_RSt6vectorItT_Eii.exit
   %.097.lcssa = phi i32 [ 0, %_ZN8rawspeed10Array2DRefItE6createISaItEEES1_RSt6vectorItT_Eii.exit ], [ %.299, %._crit_edge365 ]
-  %.ptr417.ptr.ptr = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %.ptr426.ptr.ptr = getelementptr inbounds nuw i8, ptr %0, i64 100
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %103 = load i8, ptr %102, align 8, !tbaa !78, !range !113, !noundef !99
@@ -377,7 +377,7 @@ _ZN8rawspeed10Array2DRefItE6createISaItEEES1_RSt6vectorItT_Eii.exit:
   br label %106
 
 106:                                              ; preds = %._crit_edge, %105
-  store ptr %.ptr417.ptr.ptr, ptr %101, align 8, !tbaa !114
+  store ptr %.ptr426.ptr.ptr, ptr %101, align 8, !tbaa !114
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 4, ptr %107, align 8, !tbaa !104
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -440,7 +440,7 @@ _ZN8rawspeed10Array2DRefItE6createISaItEEES1_RSt6vectorItT_Eii.exit:
 
 ._crit_edge378:                                   ; preds = %._crit_edge378.loopexit, %119
   %.0101.lcssa = phi i32 [ 0, %119 ], [ %130, %._crit_edge378.loopexit ]
-  %131 = getelementptr inbounds nuw i32, ptr %.ptr417.ptr.ptr, i64 %indvars.iv411
+  %131 = getelementptr inbounds nuw i32, ptr %.ptr426.ptr.ptr, i64 %indvars.iv411
   store i32 %.0101.lcssa, ptr %131, align 4, !tbaa !104
   %indvars.iv.next412 = add nuw nsw i64 %indvars.iv411, 1
   %exitcond414.not = icmp eq i64 %indvars.iv.next412, 4
@@ -1321,7 +1321,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
 
 ._crit_edge.split.us.us.us:                       ; preds = %118
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %144 = trunc nuw i64 %indvars.iv.next97 to i32
+  %144 = trunc nuw nsw i64 %indvars.iv.next97 to i32
   %145 = icmp sgt i32 %2, %144
   br i1 %145, label %.lr.ph.us.us, label %._crit_edge75, !llvm.loop !157
 
@@ -1369,7 +1369,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
 
 ._crit_edge.split.us79:                           ; preds = %155
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %173 = trunc nuw i64 %indvars.iv.next89 to i32
+  %173 = trunc nuw nsw i64 %indvars.iv.next89 to i32
   %174 = icmp sgt i32 %2, %173
   br i1 %174, label %.lr.ph.us, label %._crit_edge75, !llvm.loop !157
 
@@ -1575,7 +1575,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1611fixBadPixelEjji(ptr noundef n
 
 .critedge:                                        ; preds = %104, %92
   %113 = phi i32 [ %112, %104 ], [ %89, %92 ]
-  %114 = phi i32 [ %111, %104 ], [ %90, %92 ]
+  %114 = phi i32 [ %111, %104 ], [ -1, %92 ]
   %.1100 = add nsw i32 %.1100422, %37
   %115 = icmp slt i32 %.1100, %11
   br i1 %115, label %88, label %.critedge2, !llvm.loop !165
@@ -1642,7 +1642,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1611fixBadPixelEjji(ptr noundef n
 
 149:                                              ; preds = %141, %131
   %150 = phi i32 [ %148, %141 ], [ %128, %131 ]
-  %151 = phi i32 [ %147, %141 ], [ %129, %131 ]
+  %151 = phi i32 [ %147, %141 ], [ -1, %131 ]
   %.0103 = sub nsw i32 %.0103432, %37
   %152 = icmp sgt i32 %.0103, -1
   br i1 %152, label %127, label %.critedge4, !llvm.loop !166
@@ -1716,7 +1716,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1611fixBadPixelEjji(ptr noundef n
 
 193:                                              ; preds = %185, %177
   %194 = phi i32 [ %192, %185 ], [ %174, %177 ]
-  %195 = phi i32 [ %190, %185 ], [ %175, %177 ]
+  %195 = phi i32 [ %190, %185 ], [ -1, %177 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %165
   %196 = icmp samesign ult i64 %indvars.iv.next, %171
   br i1 %196, label %173, label %.critedge6, !llvm.loop !167
@@ -1958,7 +1958,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU168doLookupEii(ptr noundef nonnul
 
 ._crit_edge.us189:                                ; preds = %54
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
-  %79 = trunc nuw i64 %indvars.iv.next204 to i32
+  %79 = trunc nuw nsw i64 %indvars.iv.next204 to i32
   %80 = icmp sgt i32 %2, %79
   br i1 %80, label %.lr.ph.us, label %.loopexit, !llvm.loop !183
 
@@ -2010,7 +2010,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU168doLookupEii(ptr noundef nonnul
 
 ._crit_edge.us:                                   ; preds = %95
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
-  %103 = trunc nuw i64 %indvars.iv.next196 to i32
+  %103 = trunc nuw nsw i64 %indvars.iv.next196 to i32
   %104 = icmp sgt i32 %2, %103
   br i1 %104, label %.preheader.us, label %.loopexit, !llvm.loop !185
 

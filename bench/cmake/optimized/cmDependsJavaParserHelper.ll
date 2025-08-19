@@ -4175,25 +4175,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   %27 = sub i64 %25, %26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %23, %24
-  br i1 %.not.i.i.i.i, label %.noexc37, label %28
+  br i1 %.not.i.i.i.i, label %.noexc41, label %28
 
 28:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
   %29 = sdiv exact i64 %27, 56
   %30 = icmp ugt i64 %29, 164703072086692425
-  br i1 %30, label %.noexc.i.i35, label %_ZNSt16allocator_traitsISaIN25cmDependsJavaParserHelper12CurrentClassEEE8allocateERS2_m.exit.i.i.i.i, !prof !161
+  br i1 %30, label %.noexc.i.i39, label %_ZNSt16allocator_traitsISaIN25cmDependsJavaParserHelper12CurrentClassEEE8allocateERS2_m.exit.i.i.i.i, !prof !161
 
-.noexc.i.i35:                                     ; preds = %28
+.noexc.i.i39:                                     ; preds = %28
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #30
-          to label %.noexc36 unwind label %.loopexit.split-lp
+          to label %.noexc40 unwind label %.loopexit.split-lp
 
-.noexc36:                                         ; preds = %.noexc.i.i35
+.noexc40:                                         ; preds = %.noexc.i.i39
   unreachable
 
 _ZNSt16allocator_traitsISaIN25cmDependsJavaParserHelper12CurrentClassEEE8allocateERS2_m.exit.i.i.i.i: ; preds = %28
   %31 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #32
-          to label %.noexc37 unwind label %.loopexit
+          to label %.noexc41 unwind label %.loopexit
 
-.noexc37:                                         ; preds = %_ZNSt16allocator_traitsISaIN25cmDependsJavaParserHelper12CurrentClassEEE8allocateERS2_m.exit.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
+.noexc41:                                         ; preds = %_ZNSt16allocator_traitsISaIN25cmDependsJavaParserHelper12CurrentClassEEE8allocateERS2_m.exit.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
   %32 = phi ptr [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i ], [ %31, %_ZNSt16allocator_traitsISaIN25cmDependsJavaParserHelper12CurrentClassEEE8allocateERS2_m.exit.i.i.i.i ]
   store ptr %32, ptr %20, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %.019, i64 40
@@ -4206,12 +4206,12 @@ _ZNSt16allocator_traitsISaIN25cmDependsJavaParserHelper12CurrentClassEEE8allocat
   %38 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN25cmDependsJavaParserHelper12CurrentClassESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %36, ptr %37, ptr noundef %32)
           to label %_ZSt10_ConstructIN25cmDependsJavaParserHelper12CurrentClassEJRKS1_EEvPT_DpOT0_.exit unwind label %39
 
-39:                                               ; preds = %.noexc37
+39:                                               ; preds = %.noexc41
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = load ptr, ptr %20, align 8, !tbaa !41
   %.not.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i.i, label %.body38, label %42
+  br i1 %.not.i.i.i, label %.body42, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %.019, i64 48
@@ -4220,38 +4220,38 @@ _ZNSt16allocator_traitsISaIN25cmDependsJavaParserHelper12CurrentClassEEE8allocat
   %46 = ptrtoint ptr %41 to i64
   %47 = sub i64 %45, %46
   call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef %47) #28
-  br label %.body38
+  br label %.body42
 
 .loopexit:                                        ; preds = %_ZNSt16allocator_traitsISaIN25cmDependsJavaParserHelper12CurrentClassEEE8allocateERS2_m.exit.i.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body38
+  br label %.body42
 
-.loopexit.split-lp:                               ; preds = %.noexc.i.i35
+.loopexit.split-lp:                               ; preds = %.noexc.i.i39
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body38
+  br label %.body42
 
-.body38:                                          ; preds = %.loopexit, %.loopexit.split-lp, %39, %42
-  %eh.lpad-body39 = phi { ptr, i32 } [ %40, %42 ], [ %40, %39 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body42:                                          ; preds = %.loopexit, %.loopexit.split-lp, %39, %42
+  %eh.lpad-body43 = phi { ptr, i32 } [ %40, %42 ], [ %40, %39 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %48 = load ptr, ptr %.019, align 8, !tbaa !40
   %49 = icmp eq ptr %48, %5
   br i1 %49, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %.body38
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %.body42
   %50 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !10
   %52 = icmp ult i64 %51, 16
   call void @llvm.assume(i1 %52)
   br label %.body
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %.body38
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %.body42
   %53 = load i64, ptr %5, align 8, !tbaa !13
   %54 = add i64 %53, 1
   call void @_ZdlPvm(ptr noundef %48, i64 noundef %54) #28
   br label %.body
 
-_ZSt10_ConstructIN25cmDependsJavaParserHelper12CurrentClassEJRKS1_EEvPT_DpOT0_.exit: ; preds = %.noexc37
+_ZSt10_ConstructIN25cmDependsJavaParserHelper12CurrentClassEJRKS1_EEvPT_DpOT0_.exit: ; preds = %.noexc41
   store ptr %38, ptr %33, align 8, !tbaa !38
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.08.018, i64 56
   %56 = getelementptr inbounds nuw i8, ptr %.019, i64 56
@@ -4264,7 +4264,7 @@ _ZSt10_ConstructIN25cmDependsJavaParserHelper12CurrentClassEJRKS1_EEvPT_DpOT0_.e
   br label %.body
 
 .body:                                            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %57
-  %eh.lpad-body = phi { ptr, i32 } [ %58, %57 ], [ %eh.lpad-body39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %eh.lpad-body39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %58, %57 ], [ %eh.lpad-body43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %eh.lpad-body43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
   %59 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %60 = call ptr @__cxa_begin_catch(ptr %59) #29
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN25cmDependsJavaParserHelper12CurrentClassEEEvT_S5_(ptr noundef %2, ptr noundef nonnull %.019)

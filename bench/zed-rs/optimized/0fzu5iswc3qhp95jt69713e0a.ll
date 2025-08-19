@@ -15131,9 +15131,9 @@ define internal fastcc void @"_ZN4core3ptr32drop_in_place$LT$proto..View$GT$17h2
   br i1 %62, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$proto..view..Variant$GT$$GT$17hcf31e816aaf0b9bdE.exit", label %"_ZN4core3ptr47drop_in_place$LT$proto..view..ContextEditor$GT$17h78e37aba55507a2dE.exit.sink.split.i.i"
 
 "_ZN4core3ptr47drop_in_place$LT$proto..view..ContextEditor$GT$17h78e37aba55507a2dE.exit.sink.split.i.i": ; preds = %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17hf1f1e9f489cc2745E.exit9.i.i.i5.i.i", %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17hf1f1e9f489cc2745E.exit9.i.i.i", %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17hf1f1e9f489cc2745E.exit9.i.i.i.i.i"
-  %.sink8.i.i = phi i64 [ 192, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17hf1f1e9f489cc2745E.exit9.i.i.i.i.i" ], [ 200, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17hf1f1e9f489cc2745E.exit9.i.i.i" ], [ 200, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17hf1f1e9f489cc2745E.exit9.i.i.i5.i.i" ]
+  %.sink11.i.i = phi i64 [ 192, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17hf1f1e9f489cc2745E.exit9.i.i.i.i.i" ], [ 200, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17hf1f1e9f489cc2745E.exit9.i.i.i" ], [ 200, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17hf1f1e9f489cc2745E.exit9.i.i.i5.i.i" ]
   %.val3.i.i.i6.sink.i.i = phi i64 [ %.val3.i.i.i.i.i, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17hf1f1e9f489cc2745E.exit9.i.i.i.i.i" ], [ %.val3.i.i.i, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17hf1f1e9f489cc2745E.exit9.i.i.i" ], [ %.val3.i.i.i6.i.i, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17hf1f1e9f489cc2745E.exit9.i.i.i5.i.i" ]
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink8.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink11.i.i
   %.val4.i.i.i7.i.i = load ptr, ptr %63, align 8, !alias.scope !3901, !nonnull !4, !noundef !4
   %64 = mul nuw i64 %.val3.i.i.i6.sink.i.i, 112
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4.i.i.i7.i.i, i64 noundef %64, i64 noundef 8) #25, !noalias !3901
@@ -19304,10 +19304,10 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$proto..TemplatePair
 
 "_ZN4core3ptr54drop_in_place$LT$proto..task_source_kind..Language$GT$17hfe327334dfc709f7E.exit.sink.split.i.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17habd540670df2ec62E.exit.i4.i.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17habd540670df2ec62E.exit.i.i.i.i.i", %11
   %.sink.i.i.i.i = phi i64 [ 32, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17habd540670df2ec62E.exit.i.i.i.i.i" ], [ 40, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17habd540670df2ec62E.exit.i4.i.i.i.i" ], [ 16, %11 ]
-  %.sink6.i.i.i.i = phi i64 [ %21, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17habd540670df2ec62E.exit.i.i.i.i.i" ], [ %30, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17habd540670df2ec62E.exit.i4.i.i.i.i" ], [ %.val.i.i.i.i, %11 ]
+  %.sink9.i.i.i.i = phi i64 [ %21, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17habd540670df2ec62E.exit.i.i.i.i.i" ], [ %30, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17habd540670df2ec62E.exit.i4.i.i.i.i" ], [ %.val.i.i.i.i, %11 ]
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink.i.i.i.i
   %15 = load ptr, ptr %14, align 8, !alias.scope !5004, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %.sink6.i.i.i.i, i64 noundef 1) #25, !noalias !5004
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %.sink9.i.i.i.i, i64 noundef 1) #25, !noalias !5004
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$proto..TaskSourceKind$GT$$GT$17h4f009b363a0fe951E.exit"
 
 16:                                               ; preds = %7
@@ -26553,9 +26553,9 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$proto..UpdateLangua
   ]
 
 "_ZN4core3ptr40drop_in_place$LT$proto..LspWorkStart$GT$17h0d896e8db2e7bfc6E.exit.sink.split.i.i": ; preds = %30, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17habd540670df2ec62E.exit.i3.i.i", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h75a7a1ca67b52b77E.llvm.11404279092565438104.exit3.i.i.i"
-  %.sink6.i.i = phi i64 [ 16, %30 ], [ 56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h75a7a1ca67b52b77E.llvm.11404279092565438104.exit3.i.i.i" ], [ 40, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17habd540670df2ec62E.exit.i3.i.i" ]
+  %.sink10.i.i = phi i64 [ 16, %30 ], [ 56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h75a7a1ca67b52b77E.llvm.11404279092565438104.exit3.i.i.i" ], [ 40, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17habd540670df2ec62E.exit.i3.i.i" ]
   %.val.sink.i.i = phi i64 [ %.val.i.i, %30 ], [ %21, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h75a7a1ca67b52b77E.llvm.11404279092565438104.exit3.i.i.i" ], [ %29, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17habd540670df2ec62E.exit.i3.i.i" ]
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink6.i.i
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink10.i.i
   %.val1.i.i = load ptr, ptr %8, align 8, !alias.scope !8349, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %.val1.i.i, i64 noundef %.val.sink.i.i, i64 noundef 1) #25, !noalias !8349
   br label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$proto..update_language_server..Variant$GT$$GT$17he72f9fd0b2ef53e1E.exit"

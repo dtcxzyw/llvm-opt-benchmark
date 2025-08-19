@@ -1187,7 +1187,7 @@ _ZL8TestBadYv.exit.thread:                        ; preds = %thread-pre-split.i2
   br label %425
 
 thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i20, %_ZNSt6vectorIhSaIhEED2Ev.exit17.i, %372
-  %.0637.i = phi i1 [ false, %thread-pre-split.i20 ], [ %.17.i, %_ZNSt6vectorIhSaIhEED2Ev.exit17.i ], [ false, %372 ]
+  %.0640.i = phi i1 [ false, %thread-pre-split.i20 ], [ %.17.i, %_ZNSt6vectorIhSaIhEED2Ev.exit17.i ], [ false, %372 ]
   invoke void @BN_free(ptr noundef nonnull %367)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i unwind label %416
 
@@ -1203,7 +1203,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i: ;
   br i1 %.not33.i, label %_ZL8TestBadYv.exit, label %419
 
 419:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread.i
-  %.062731.i = phi i1 [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread.i ], [ %.0637.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i ]
+  %.062731.i = phi i1 [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread.i ], [ %.0640.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i ]
   invoke void @DH_free(ptr noundef nonnull %366)
           to label %_ZL8TestBadYv.exit unwind label %420
 
@@ -1227,7 +1227,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i: ;
   br label %common.resume
 
 _ZL8TestBadYv.exit:                               ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i, %419
-  %.062732.i = phi i1 [ %.0637.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i ], [ %.062731.i, %419 ]
+  %.062732.i = phi i1 [ %.0640.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i ], [ %.062731.i, %419 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.062732.i, label %427, label %425
 
@@ -1362,7 +1362,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !28
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 

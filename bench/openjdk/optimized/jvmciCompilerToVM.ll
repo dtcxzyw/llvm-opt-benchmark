@@ -8124,9 +8124,9 @@ _ZNK6HandleclEv.exit175:                          ; preds = %_ZNK7oopDesc11is_ob
   br label %256
 
 256:                                              ; preds = %252, %254
-  %.sink236 = phi { ptr, i8 } [ %253, %252 ], [ %255, %254 ]
-  %257 = extractvalue { ptr, i8 } %.sink236, 0
-  %258 = extractvalue { ptr, i8 } %.sink236, 1
+  %.sink246 = phi { ptr, i8 } [ %253, %252 ], [ %255, %254 ]
+  %257 = extractvalue { ptr, i8 } %.sink246, 0
+  %258 = extractvalue { ptr, i8 } %.sink246, 1
   call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr %235, i8 %236, i32 noundef %251, ptr %257, i8 %258) #16
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %exitcond232.not = icmp eq i64 %indvars.iv.next229, %wide.trip.count231
@@ -12675,7 +12675,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 _ZN14JVMCITraceMarkC2EPKc.exit.thread:            ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   %48 = load i8, ptr @_ZN11JvmtiExport31_can_hotswap_or_post_breakpointE, align 1
   %49 = trunc i8 %48 to i1
-  %spec.select25 = select i1 %49, i32 2, i32 0
+  %spec.select28 = select i1 %49, i32 2, i32 0
   br label %_ZN14JVMCITraceMarkD2Ev.exit
 
 _ZN14JVMCITraceMarkC2EPKc.exit:                   ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
@@ -12695,7 +12695,7 @@ _ZN14JVMCITraceMarkC2EPKc.exit:                   ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN14JVMCITraceMarkD2Ev.exit
 
 _ZN14JVMCITraceMarkD2Ev.exit:                     ; preds = %_ZN14JVMCITraceMarkC2EPKc.exit.thread, %_ZN14JVMCITraceMarkC2EPKc.exit, %55
-  %spec.select26 = phi i32 [ %spec.select25, %_ZN14JVMCITraceMarkC2EPKc.exit.thread ], [ %spec.select, %_ZN14JVMCITraceMarkC2EPKc.exit ], [ %spec.select, %55 ]
+  %spec.select29 = phi i32 [ %spec.select28, %_ZN14JVMCITraceMarkC2EPKc.exit.thread ], [ %spec.select, %_ZN14JVMCITraceMarkC2EPKc.exit ], [ %spec.select, %55 ]
   call void @_ZN8JVMCIEnvD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #16
   call void @_ZN25CompilerThreadCanCallJavaD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %4) #16
   %56 = load ptr, ptr %34, align 8
@@ -12755,7 +12755,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
   br label %80
 
 80:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %9
-  %.013 = phi i32 [ 0, %9 ], [ %spec.select26, %_ZN17HandleMarkCleanerD2Ev.exit ]
+  %.013 = phi i32 [ 0, %9 ], [ %spec.select29, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.013
 }
 
@@ -18180,11 +18180,11 @@ _ZNK18vframeStreamCommon8frame_idEv.exit.i:       ; preds = %704
 
 _ZNK18vframeStreamCommon8frame_idEv.exit.thread.i: ; preds = %704
   %715 = load ptr, ptr %113, align 8
-  %.not23.i = icmp eq ptr %715, %703
+  %.not24.i = icmp eq ptr %715, %703
   %716 = load i32, ptr %109, align 8
   %717 = icmp eq i32 %716, 2
-  %or.cond24.i = select i1 %.not23.i, i1 true, i1 %717
-  br i1 %or.cond24.i, label %_ZNK18vframeStreamCommon8frame_idEv.exit18.i, label %718
+  %or.cond25.i = select i1 %.not24.i, i1 true, i1 %717
+  br i1 %or.cond25.i, label %_ZNK18vframeStreamCommon8frame_idEv.exit18.i, label %718
 
 718:                                              ; preds = %_ZNK18vframeStreamCommon8frame_idEv.exit.thread.i, %_ZNK18vframeStreamCommon8frame_idEv.exit.i
   call void @_ZN18vframeStreamCommon4nextEv(ptr noundef nonnull align 8 dereferenceable(5104) %15)
@@ -20576,7 +20576,7 @@ _ZL16requireInHotSpotPKcP8JVMCIEnv.exit:          ; preds = %61, %65
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 5016
   %.old = load i8, ptr %75, align 8
   %.old215 = trunc i8 %.old to i1
-  br i1 %.old215, label %.critedge.thread245, label %.preheader220
+  br i1 %.old215, label %.critedge.thread265, label %.preheader220
 
 .preheader220:                                    ; preds = %.lr.ph, %_ZN16StackFrameStream4nextEv.exit
   %82 = load ptr, ptr %76, align 8
@@ -20586,9 +20586,9 @@ _ZL16requireInHotSpotPKcP8JVMCIEnv.exit:          ; preds = %61, %65
 
 85:                                               ; preds = %.preheader220
   %86 = call noundef zeroext i1 @_ZNK5frame20entry_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(5041) %11) #16
-  br i1 %86, label %.thread241, label %87
+  br i1 %86, label %.thread261, label %87
 
-.thread241:                                       ; preds = %85
+.thread261:                                       ; preds = %85
   store i8 1, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %_ZN16StackFrameStream4nextEv.exit.thread
@@ -20637,7 +20637,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i.i:      ; preds = %_ZNK11RegisterMap7i
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %102, ptr noundef nonnull align 8 dereferenceable(56) %6) #16
   br label %_ZN16StackFrameStream4nextEv.exit
 
-_ZN16StackFrameStream4nextEv.exit.thread:         ; preds = %92, %.thread241
+_ZN16StackFrameStream4nextEv.exit.thread:         ; preds = %92, %.thread261
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %103 = load ptr, ptr %73, align 8
   br label %.critedge
@@ -20655,9 +20655,9 @@ _ZN16StackFrameStream4nextEv.exit:                ; preds = %95, %_ZNK11Register
 .critedge:                                        ; preds = %_ZN16StackFrameStream4nextEv.exit, %_ZN16StackFrameStream4nextEv.exit.thread
   %106 = phi ptr [ %103, %_ZN16StackFrameStream4nextEv.exit.thread ], [ %105, %_ZN16StackFrameStream4nextEv.exit ]
   %107 = icmp eq ptr %106, %72
-  br i1 %107, label %.critedge.thread, label %.critedge.thread245
+  br i1 %107, label %.critedge.thread, label %.critedge.thread265
 
-.critedge.thread245:                              ; preds = %.lr.ph, %.critedge
+.critedge.thread265:                              ; preds = %.lr.ph, %.critedge
   call void @_ZN8JVMCIEnv27throw_IllegalStateExceptionEPKc(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull @.str.114) #16
   br label %363
 
@@ -20715,7 +20715,7 @@ _ZNK5frame17is_compiled_frameEv.exit:             ; preds = %_ZNK7nmethod14is_ja
   %131 = getelementptr inbounds nuw i8, ptr %12, i64 5016
   %.old216 = load i8, ptr %125, align 8
   %.old217 = trunc i8 %.old216 to i1
-  br i1 %.old217, label %.critedge2.thread253, label %.preheader219
+  br i1 %.old217, label %.critedge2.thread273, label %.preheader219
 
 .preheader219:                                    ; preds = %.lr.ph201, %_ZN16StackFrameStream4nextEv.exit166
   %132 = load ptr, ptr %126, align 8
@@ -20725,9 +20725,9 @@ _ZNK5frame17is_compiled_frameEv.exit:             ; preds = %_ZNK7nmethod14is_ja
 
 135:                                              ; preds = %.preheader219
   %136 = call noundef zeroext i1 @_ZNK5frame20entry_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(5041) %12) #16
-  br i1 %136, label %.thread249, label %137
+  br i1 %136, label %.thread269, label %137
 
-.thread249:                                       ; preds = %135
+.thread269:                                       ; preds = %135
   store i8 1, ptr %125, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %_ZN16StackFrameStream4nextEv.exit166.thread
@@ -20735,15 +20735,15 @@ _ZNK5frame17is_compiled_frameEv.exit:             ; preds = %_ZNK7nmethod14is_ja
 137:                                              ; preds = %135, %.preheader219
   %138 = load ptr, ptr %127, align 8
   %.not.i.i.i158 = icmp eq ptr %138, null
-  br i1 %.not.i.i.i158, label %.thread248, label %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i159
+  br i1 %.not.i.i.i158, label %.thread268, label %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i159
 
 _ZNK5frame20is_upcall_stub_frameEv.exit.i.i159:   ; preds = %137
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 52
   %140 = load i8, ptr %139, align 4
   %141 = icmp eq i8 %140, 11
-  br i1 %141, label %142, label %.thread248
+  br i1 %141, label %142, label %.thread268
 
-.thread248:                                       ; preds = %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i159, %137
+.thread268:                                       ; preds = %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i159, %137
   store i8 0, ptr %125, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %145
@@ -20755,7 +20755,7 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i159:   ; preds = %137
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %143, label %_ZN16StackFrameStream4nextEv.exit166.thread, label %145
 
-145:                                              ; preds = %.thread248, %142
+145:                                              ; preds = %.thread268, %142
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %5, ptr noundef nonnull align 8 dereferenceable(5041) %12, ptr noundef nonnull %128)
   %146 = load i8, ptr %129, align 1, !noalias !46
   %147 = trunc i8 %146 to i1
@@ -20776,7 +20776,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i.i165:   ; preds = %_ZNK11RegisterMap7i
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %152, ptr noundef nonnull align 8 dereferenceable(56) %5) #16
   br label %_ZN16StackFrameStream4nextEv.exit166
 
-_ZN16StackFrameStream4nextEv.exit166.thread:      ; preds = %142, %.thread249
+_ZN16StackFrameStream4nextEv.exit166.thread:      ; preds = %142, %.thread269
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %153 = load ptr, ptr %123, align 8
   br label %.critedge2
@@ -20794,9 +20794,9 @@ _ZN16StackFrameStream4nextEv.exit166:             ; preds = %145, %_ZNK11Registe
 .critedge2:                                       ; preds = %_ZN16StackFrameStream4nextEv.exit166, %_ZN16StackFrameStream4nextEv.exit166.thread
   %156 = phi ptr [ %153, %_ZN16StackFrameStream4nextEv.exit166.thread ], [ %155, %_ZN16StackFrameStream4nextEv.exit166 ]
   %157 = icmp eq ptr %156, %72
-  br i1 %157, label %.critedge2.thread, label %.critedge2.thread253
+  br i1 %157, label %.critedge2.thread, label %.critedge2.thread273
 
-.critedge2.thread253:                             ; preds = %.lr.ph201, %.critedge2
+.critedge2.thread273:                             ; preds = %.lr.ph201, %.critedge2
   call void @_ZN8JVMCIEnv27throw_IllegalStateExceptionEPKc(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull @.str.116) #16
   br label %363
 
@@ -21152,7 +21152,7 @@ _ZNK6HandleclEv.exit170:                          ; preds = %347, %350
   call void @_ZN12HotSpotJVMCI26HotSpotStackFrameReference23set_objectsMaterializedEP8JVMCIEnvP7oopDesch(ptr noundef nonnull %10, ptr noundef %362, i8 noundef zeroext 1) #16
   br label %363
 
-363:                                              ; preds = %209, %200, %68, %_ZL16requireInHotSpotPKcP8JVMCIEnv.exit, %._crit_edge214, %199, %164, %.critedge2.thread253, %_ZNK5frame17is_compiled_frameEv.exit, %.critedge.thread245, %60
+363:                                              ; preds = %209, %200, %68, %_ZL16requireInHotSpotPKcP8JVMCIEnv.exit, %._crit_edge214, %199, %164, %.critedge2.thread273, %_ZNK5frame17is_compiled_frameEv.exit, %.critedge.thread265, %60
   %364 = load i64, ptr @JVMCITraceLevel, align 8
   %365 = icmp slt i64 %364, 2
   %366 = load i64, ptr @JVMCIEventLogLevel, align 8
@@ -25582,8 +25582,8 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %.thread36, %143, %_
   br label %.thread35
 
 189:                                              ; preds = %175, %151
-  %.sink46 = phi ptr [ %8, %175 ], [ %7, %151 ]
-  %190 = load ptr, ptr %.sink46, align 8
+  %.sink56 = phi ptr [ %8, %175 ], [ %7, %151 ]
+  %190 = load ptr, ptr %.sink56, align 8
   call void @_ZN8JVMCIEnv30throw_IllegalArgumentExceptionEPKc(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %190) #16
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %148) #16
   br label %340
@@ -29329,8 +29329,8 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   br label %208
 
 .critedge99:                                      ; preds = %175, %165
-  %.sink133 = phi ptr [ %15, %175 ], [ %14, %165 ]
-  %207 = load ptr, ptr %.sink133, align 8
+  %.sink145 = phi ptr [ %15, %175 ], [ %14, %165 ]
+  %207 = load ptr, ptr %.sink145, align 8
   call void @_ZN8JVMCIEnv26throw_UnsatisfiedLinkErrorEPKc(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %207) #16
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %13) #16
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
@@ -32422,8 +32422,8 @@ _ZNK13InstanceKlass18total_fields_countEv.exit:   ; preds = %.lr.ph.i.i.i2.i.i, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %9, %63
-  %.sink15 = phi ptr [ %5, %63 ], [ %4, %9 ]
-  %65 = load ptr, ptr %.sink15, align 8
+  %.sink18 = phi ptr [ %5, %63 ], [ %4, %9 ]
+  %65 = load ptr, ptr %.sink18, align 8
   call void @_ZN8JVMCIEnv30throw_IllegalArgumentExceptionEPKc(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %65) #16
   br label %66
 
@@ -38024,14 +38024,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #16, !srcloc !71
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #16, !srcloc !71
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -38165,14 +38165,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i18.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i19.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i18 = or i64 %.0.i.i18.in, 48
+  %.0.i.i19 = or i64 %.0.i.i19.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i17.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #16, !srcloc !71
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i19, i64 %.0.i17.i, ptr nonnull %0) #16, !srcloc !71
   %71 = icmp eq i64 %70, %.0.i17.i
   br i1 %71, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %72
 
@@ -41894,14 +41894,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_60blocking_keep_alive_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #16, !srcloc !71
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #16, !srcloc !71
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_60blocking_keep_alive_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 

@@ -726,15 +726,15 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
 
 69:                                               ; preds = %63
   switch i32 %65, label %77 [
-    i32 217090, label %.sink.split114
+    i32 217090, label %.sink.split117
     i32 217089, label %70
   ]
 
 70:                                               ; preds = %69
-  br label %.sink.split114
+  br label %.sink.split117
 
-.sink.split114:                                   ; preds = %69, %70
-  %.sink115 = phi i32 [ 8344, %70 ], [ 0, %69 ]
+.sink.split117:                                   ; preds = %69, %70
+  %.sink118 = phi i32 [ 8344, %70 ], [ 0, %69 ]
   %71 = add nuw nsw i32 %.088, 1
   %72 = zext nneg i32 %.088 to i64
   %73 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %72
@@ -742,11 +742,11 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
   %74 = add nuw nsw i32 %.088, 2
   %75 = zext nneg i32 %71 to i64
   %76 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %75
-  store i32 %.sink115, ptr %76, align 4, !tbaa !170
+  store i32 %.sink118, ptr %76, align 4, !tbaa !170
   br label %77
 
-77:                                               ; preds = %.sink.split114, %69, %63
-  %.290 = phi i32 [ %.088, %63 ], [ %.088, %69 ], [ %74, %.sink.split114 ]
+77:                                               ; preds = %.sink.split117, %69, %63
+  %.290 = phi i32 [ %.088, %63 ], [ %.088, %69 ], [ %74, %.sink.split117 ]
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %79 = load i32, ptr %78, align 8, !tbaa !172
   %80 = icmp ne i32 %79, 0
@@ -774,8 +774,8 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %94 = load i32, ptr %93, align 4, !tbaa !174
   %.not104 = icmp eq i32 %94, 0
-  %or.cond121 = select i1 %.not103, i1 %.not104, i1 false
-  br i1 %or.cond121, label %107, label %._crit_edge
+  %or.cond124 = select i1 %.not103, i1 %.not104, i1 false
+  br i1 %or.cond124, label %107, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %90
   %95 = add nuw nsw i32 %.391, 1

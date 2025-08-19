@@ -866,25 +866,25 @@ _ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5clearEv.exit: ; preds =
   br i1 %118, label %._crit_edge.thread.i.i.i, label %123
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %115
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %23, %115 ]
+  %.019.lcssa29.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %23, %115 ]
   %119 = load ptr, ptr %24, align 8, !tbaa !13
-  %120 = icmp eq ptr %.019.lcssa28.i.i.i, %119
+  %120 = icmp eq ptr %.019.lcssa29.i.i.i, %119
   br i1 %120, label %select.unfold.i.i, label %121
 
 121:                                              ; preds = %._crit_edge.thread.i.i.i
-  %122 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #24
+  %122 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i) #24
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %122, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !66
   br label %123
 
 123:                                              ; preds = %121, %._crit_edge.i.i.i
   %124 = phi ptr [ %.pre.i.i, %121 ], [ %117, %._crit_edge.i.i.i ]
-  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %121 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %.019.lcssa28.i.i.i = phi ptr [ %.019.lcssa29.i.i.i, %121 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
   %125 = icmp ult ptr %124, %101
   br i1 %125, label %select.unfold.i.i, label %136
 
 select.unfold.i.i:                                ; preds = %123, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %123 ]
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa29.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa28.i.i.i, %123 ]
   %126 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %23
   br i1 %126, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %127
 
@@ -1046,25 +1046,25 @@ _ZNSt13unordered_mapIPN3g2o16OptimizableGraph6VertexENS0_18EstimatePropagator17A
   br i1 %196, label %._crit_edge.thread.i.i.i99, label %201
 
 ._crit_edge.thread.i.i.i99:                       ; preds = %._crit_edge.i.i.i89, %193
-  %.019.lcssa28.i.i.i100 = phi ptr [ %.02024.i.i.i84, %._crit_edge.i.i.i89 ], [ %26, %193 ]
+  %.019.lcssa29.i.i.i100 = phi ptr [ %.02024.i.i.i84, %._crit_edge.i.i.i89 ], [ %26, %193 ]
   %197 = load ptr, ptr %28, align 8, !tbaa !13
-  %198 = icmp eq ptr %.019.lcssa28.i.i.i100, %197
+  %198 = icmp eq ptr %.019.lcssa29.i.i.i100, %197
   br i1 %198, label %select.unfold.i.i96, label %199
 
 199:                                              ; preds = %._crit_edge.thread.i.i.i99
-  %200 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i100) #24
+  %200 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i100) #24
   %.phi.trans.insert.i.i101 = getelementptr inbounds nuw i8, ptr %200, i64 32
   %.pre.i.i102 = load ptr, ptr %.phi.trans.insert.i.i101, align 8, !tbaa !66
   br label %201
 
 201:                                              ; preds = %199, %._crit_edge.i.i.i89
   %202 = phi ptr [ %.pre.i.i102, %199 ], [ %195, %._crit_edge.i.i.i89 ]
-  %.019.lcssa29.i.i.i90 = phi ptr [ %.019.lcssa28.i.i.i100, %199 ], [ %.02024.i.i.i84, %._crit_edge.i.i.i89 ]
+  %.019.lcssa28.i.i.i90 = phi ptr [ %.019.lcssa29.i.i.i100, %199 ], [ %.02024.i.i.i84, %._crit_edge.i.i.i89 ]
   %203 = icmp ult ptr %202, %154
   br i1 %203, label %select.unfold.i.i96, label %214
 
 select.unfold.i.i96:                              ; preds = %201, %._crit_edge.thread.i.i.i99
-  %.sroa.4.0.i.ph.i.i97 = phi ptr [ %.019.lcssa28.i.i.i100, %._crit_edge.thread.i.i.i99 ], [ %.019.lcssa29.i.i.i90, %201 ]
+  %.sroa.4.0.i.ph.i.i97 = phi ptr [ %.019.lcssa29.i.i.i100, %._crit_edge.thread.i.i.i99 ], [ %.019.lcssa28.i.i.i90, %201 ]
   %204 = icmp eq ptr %.sroa.4.0.i.ph.i.i97, %26
   br i1 %204, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i98, label %205
 
@@ -1537,25 +1537,25 @@ _ZN3g2o18EstimatePropagator13PriorityQueue4pushEPNS0_17AdjacencyMapEntryE.exit: 
   br i1 %381, label %._crit_edge.thread.i.i.i141, label %386
 
 ._crit_edge.thread.i.i.i141:                      ; preds = %._crit_edge.i.i.i131, %378
-  %.019.lcssa28.i.i.i142 = phi ptr [ %.02024.i.i.i126, %._crit_edge.i.i.i131 ], [ %26, %378 ]
+  %.019.lcssa29.i.i.i142 = phi ptr [ %.02024.i.i.i126, %._crit_edge.i.i.i131 ], [ %26, %378 ]
   %382 = load ptr, ptr %28, align 8, !tbaa !13
-  %383 = icmp eq ptr %.019.lcssa28.i.i.i142, %382
+  %383 = icmp eq ptr %.019.lcssa29.i.i.i142, %382
   br i1 %383, label %select.unfold.i.i138, label %384
 
 384:                                              ; preds = %._crit_edge.thread.i.i.i141
-  %385 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i142) #24
+  %385 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i142) #24
   %.phi.trans.insert.i.i143 = getelementptr inbounds nuw i8, ptr %385, i64 32
   %.pre.i.i144 = load ptr, ptr %.phi.trans.insert.i.i143, align 8, !tbaa !66
   br label %386
 
 386:                                              ; preds = %384, %._crit_edge.i.i.i131
   %387 = phi ptr [ %.pre.i.i144, %384 ], [ %380, %._crit_edge.i.i.i131 ]
-  %.019.lcssa29.i.i.i132 = phi ptr [ %.019.lcssa28.i.i.i142, %384 ], [ %.02024.i.i.i126, %._crit_edge.i.i.i131 ]
+  %.019.lcssa28.i.i.i132 = phi ptr [ %.019.lcssa29.i.i.i142, %384 ], [ %.02024.i.i.i126, %._crit_edge.i.i.i131 ]
   %388 = icmp ult ptr %387, %234
   br i1 %388, label %select.unfold.i.i138, label %401
 
 select.unfold.i.i138:                             ; preds = %386, %._crit_edge.thread.i.i.i141
-  %.sroa.4.0.i.ph.i.i139 = phi ptr [ %.019.lcssa28.i.i.i142, %._crit_edge.thread.i.i.i141 ], [ %.019.lcssa29.i.i.i132, %386 ]
+  %.sroa.4.0.i.ph.i.i139 = phi ptr [ %.019.lcssa29.i.i.i142, %._crit_edge.thread.i.i.i141 ], [ %.019.lcssa28.i.i.i132, %386 ]
   %389 = icmp eq ptr %.sroa.4.0.i.ph.i.i139, %26
   br i1 %389, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i140, label %390
 

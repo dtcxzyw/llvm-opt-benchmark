@@ -195,8 +195,8 @@ _ZN4core3str7pattern8Searcher11next_reject17hda43b8b455e3452aE.llvm.682351842548
   br i1 %.not.not.i8, label %54, label %100
 
 _ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5ebe59f8c4d9af6dE.llvm.6823518425481094615.exit.thread: ; preds = %54, %"_ZN96_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h189d834bc25f9481E.exit.i.i"
-  %.sroa.0.021 = select i1 %switch, i64 %.sroa.6.0.lcssa, i64 0
-  %.sroa.01.022 = select i1 %switch, i64 %.sroa.615.0, i64 0
+  %.sroa.0.030 = select i1 %switch, i64 %.sroa.6.0.lcssa, i64 0
+  %.sroa.01.031 = select i1 %switch, i64 %.sroa.615.0, i64 0
   br label %101
 
 100:                                              ; preds = %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h8ec5a5c8b0fd200dE.llvm.6823518425481094615.exit.i"
@@ -204,10 +204,10 @@ _ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5ebe59f8c4d9af6dE.llvm
   br label %101
 
 101:                                              ; preds = %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5ebe59f8c4d9af6dE.llvm.6823518425481094615.exit.thread, %100
-  %.sroa.0.023 = phi i64 [ %.sroa.0.0, %100 ], [ %.sroa.0.021, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5ebe59f8c4d9af6dE.llvm.6823518425481094615.exit.thread ]
-  %102 = phi i64 [ %55, %100 ], [ %.sroa.01.022, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5ebe59f8c4d9af6dE.llvm.6823518425481094615.exit.thread ]
-  %103 = sub nuw i64 %102, %.sroa.0.023
-  %104 = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.023
+  %.sroa.0.032 = phi i64 [ %.sroa.0.0, %100 ], [ %.sroa.0.030, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5ebe59f8c4d9af6dE.llvm.6823518425481094615.exit.thread ]
+  %102 = phi i64 [ %55, %100 ], [ %.sroa.01.031, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5ebe59f8c4d9af6dE.llvm.6823518425481094615.exit.thread ]
+  %103 = sub nuw i64 %102, %.sroa.0.032
+  %104 = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.032
   %105 = insertvalue { ptr, i64 } poison, ptr %104, 0
   %106 = insertvalue { ptr, i64 } %105, i64 %103, 1
   ret { ptr, i64 } %106

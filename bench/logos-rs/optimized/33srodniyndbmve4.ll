@@ -608,9 +608,9 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
 121:                                              ; preds = %119
   %122 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %.invoke218
+  br label %.invoke222
 
-123:                                              ; preds = %.invoke218
+123:                                              ; preds = %.invoke222
   %124 = load ptr, ptr %98, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %124, i64 48, i1 false)
   invoke void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFrom$LT$regex_syntax..hir..Hir$GT$$GT$8try_from17hf8af6c7ad1cad01dE"(ptr nonnull sret([40 x i8]) align 8 %40, ptr nonnull align 8 %39)
@@ -619,9 +619,9 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
 125:                                              ; preds = %120
   %126 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %.invoke218
+  br label %.invoke222
 
-.invoke218:                                       ; preds = %121, %125
+.invoke222:                                       ; preds = %121, %125
   %127 = phi ptr [ %126, %125 ], [ %122, %121 ]
   %128 = invoke zeroext i1 @"_ZN63_$LT$regex_syntax..hir..Hir$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4c08670ff0d4b115E"(ptr nonnull align 8 %99, ptr align 8 %127)
           to label %123 unwind label %358
@@ -1427,7 +1427,7 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c4f21ebe3d9de4dE"(ptr nonnull align 8 %357) #7
           to label %.thread196 unwind label %117
 
-358:                                              ; preds = %.invoke218, %95, %119, %120
+358:                                              ; preds = %.invoke222, %95, %119, %120
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %359 = getelementptr inbounds nuw i8, ptr %42, i64 8

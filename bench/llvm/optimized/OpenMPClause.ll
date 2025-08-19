@@ -2052,9 +2052,9 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %8, %5, %2, %_Z
   br label %19
 
 19:                                               ; preds = %16, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
-  %.sink18 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
+  %.sink20 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
   %.sink = phi ptr [ %17, %16 ], [ %3, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
-  store ptr %.sink18, ptr %0, align 8
+  store ptr %.sink20, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2103,9 +2103,9 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %8, %5, %2, %_Z
   br label %20
 
 20:                                               ; preds = %16, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
-  %.sink30 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
+  %.sink32 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
   %.sink = phi ptr [ %17, %16 ], [ %19, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
-  store ptr %.sink30, ptr %0, align 8
+  store ptr %.sink32, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2154,9 +2154,9 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %8, %5, %2, %_Z
   br label %20
 
 20:                                               ; preds = %16, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
-  %.sink30 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
+  %.sink32 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
   %.sink = phi ptr [ %17, %16 ], [ %19, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
-  store ptr %.sink30, ptr %0, align 8
+  store ptr %.sink32, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2229,7 +2229,7 @@ define dso_local void @_ZN5clang15OMPLinearClause13used_childrenEv(ptr dead_on_u
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %2
   %.pre-phi47.i.i.i.i = phi i32 [ %36, %._crit_edge.loopexit.i.i.i.i ], [ %13, %2 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %12, %2 ]
-  switch i32 %.pre-phi47.i.i.i.i, label %._crit_edge.i.i.i.unreachabledefault.i [
+  switch i32 %.pre-phi47.i.i.i.i, label %default.unreachable [
     i32 3, label %37
     i32 2, label %42
     i32 1, label %47
@@ -2261,7 +2261,7 @@ define dso_local void @_ZN5clang15OMPLinearClause13used_childrenEv(ptr dead_on_u
   %49 = icmp eq ptr %48, null
   br i1 %49, label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit, label %50
 
-._crit_edge.i.i.i.unreachabledefault.i:           ; preds = %._crit_edge.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
   unreachable
 
 50:                                               ; preds = %47, %._crit_edge.i.i.i.i
@@ -2329,9 +2329,9 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %8, %5, %2, %_Z
   br label %19
 
 19:                                               ; preds = %16, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
-  %.sink18 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
+  %.sink20 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
   %.sink = phi ptr [ %17, %16 ], [ %3, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
-  store ptr %.sink18, ptr %0, align 8
+  store ptr %.sink20, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2379,9 +2379,9 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %8, %5, %2, %_Z
   br label %19
 
 19:                                               ; preds = %16, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
-  %.sink18 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
+  %.sink20 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
   %.sink = phi ptr [ %17, %16 ], [ %3, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
-  store ptr %.sink18, ptr %0, align 8
+  store ptr %.sink20, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2430,9 +2430,9 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %8, %5, %2, %_Z
   br label %20
 
 20:                                               ; preds = %16, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
-  %.sink30 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
+  %.sink32 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
   %.sink = phi ptr [ %17, %16 ], [ %19, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
-  store ptr %.sink30, ptr %0, align 8
+  store ptr %.sink32, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2481,9 +2481,9 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %8, %5, %2, %_Z
   br label %20
 
 20:                                               ; preds = %16, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
-  %.sink30 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
+  %.sink32 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
   %.sink = phi ptr [ %17, %16 ], [ %19, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
-  store ptr %.sink30, ptr %0, align 8
+  store ptr %.sink32, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3042,16 +3042,16 @@ define dso_local noundef ptr @_ZN5clang15OMPUpdateClause11CreateEmptyERKNS_10AST
   br label %_ZnwmRKN5clang10ASTContextEm.exit
 
 _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %37, %34, %21, %18
-  %.0.i.i.i.sink11 = phi ptr [ %20, %18 ], [ %22, %21 ], [ %36, %34 ], [ %38, %37 ]
+  %.0.i.i.i.sink13 = phi ptr [ %20, %18 ], [ %22, %21 ], [ %36, %34 ], [ %38, %37 ]
   %.sink = phi i8 [ 0, %18 ], [ 0, %21 ], [ 1, %34 ], [ 1, %37 ]
-  store i32 0, ptr %.0.i.i.i.sink11, align 4, !tbaa !301
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.sink11, i64 4
+  store i32 0, ptr %.0.i.i.i.sink13, align 4, !tbaa !301
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.sink13, i64 4
   store i32 0, ptr %39, align 4, !tbaa !301
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.sink11, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.sink13, i64 8
   store i32 105, ptr %40, align 4, !tbaa !3
-  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.sink11, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.sink13, i64 12
   store i8 %.sink, ptr %41, align 4, !tbaa !308
-  ret ptr %.0.i.i.i.sink11
+  ret ptr %.0.i.i.i.sink13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -7046,10 +7046,10 @@ _ZN4llvm9MapVectorIPN5clang9ValueDeclENS_11SmallVectorINS_8ArrayRefINS1_27OMPCla
 76:                                               ; preds = %.lr.ph85, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit
   %.03283 = phi ptr [ %21, %.lr.ph85 ], [ %94, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %.03382 = phi ptr [ %25, %.lr.ph85 ], [ %93, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03481 = phi ptr [ %35, %.lr.ph85 ], [ %.1.lcssa108, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03481 = phi ptr [ %35, %.lr.ph85 ], [ %.1.lcssa119, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %.03580 = phi ptr [ %.pre, %.lr.ph85 ], [ %95, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03679 = phi ptr [ %34, %.lr.ph85 ], [ %.137.lcssa107, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03878 = phi i32 [ 0, %.lr.ph85 ], [ %.139.lcssa106, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03679 = phi ptr [ %34, %.lr.ph85 ], [ %.137.lcssa118, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03878 = phi i32 [ 0, %.lr.ph85 ], [ %.139.lcssa117, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %77 = load ptr, ptr %.03580, align 8, !tbaa !385
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %78 = getelementptr inbounds nuw i8, ptr %.03580, i64 8
@@ -7112,9 +7112,9 @@ _ZSt4copyIPKN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableCompon
   br label %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit: ; preds = %._crit_edge74.thread, %._crit_edge74, %92
-  %.1.lcssa108 = phi ptr [ %.03481, %._crit_edge74.thread ], [ %98, %._crit_edge74 ], [ %98, %92 ]
-  %.137.lcssa107 = phi ptr [ %.03679, %._crit_edge74.thread ], [ %100, %._crit_edge74 ], [ %100, %92 ]
-  %.139.lcssa106 = phi i32 [ %.03878, %._crit_edge74.thread ], [ %97, %._crit_edge74 ], [ %97, %92 ]
+  %.1.lcssa119 = phi ptr [ %.03481, %._crit_edge74.thread ], [ %98, %._crit_edge74 ], [ %98, %92 ]
+  %.137.lcssa118 = phi ptr [ %.03679, %._crit_edge74.thread ], [ %100, %._crit_edge74 ], [ %100, %92 ]
+  %.139.lcssa117 = phi i32 [ %.03878, %._crit_edge74.thread ], [ %97, %._crit_edge74 ], [ %97, %92 ]
   %93 = getelementptr inbounds nuw i8, ptr %.03382, i64 4
   %94 = getelementptr inbounds nuw i8, ptr %.03283, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -7559,10 +7559,10 @@ _ZN4llvm9MapVectorIPN5clang9ValueDeclENS_11SmallVectorINS_8ArrayRefINS1_27OMPCla
 75:                                               ; preds = %.lr.ph85, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit
   %.03283 = phi ptr [ %20, %.lr.ph85 ], [ %93, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %.03382 = phi ptr [ %24, %.lr.ph85 ], [ %92, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03481 = phi ptr [ %34, %.lr.ph85 ], [ %.1.lcssa108, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03481 = phi ptr [ %34, %.lr.ph85 ], [ %.1.lcssa119, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %.03580 = phi ptr [ %.pre, %.lr.ph85 ], [ %94, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03679 = phi ptr [ %33, %.lr.ph85 ], [ %.137.lcssa107, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03878 = phi i32 [ 0, %.lr.ph85 ], [ %.139.lcssa106, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03679 = phi ptr [ %33, %.lr.ph85 ], [ %.137.lcssa118, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03878 = phi i32 [ 0, %.lr.ph85 ], [ %.139.lcssa117, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %76 = load ptr, ptr %.03580, align 8, !tbaa !385
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %77 = getelementptr inbounds nuw i8, ptr %.03580, i64 8
@@ -7625,9 +7625,9 @@ _ZSt4copyIPKN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableCompon
   br label %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit: ; preds = %._crit_edge74.thread, %._crit_edge74, %91
-  %.1.lcssa108 = phi ptr [ %.03481, %._crit_edge74.thread ], [ %97, %._crit_edge74 ], [ %97, %91 ]
-  %.137.lcssa107 = phi ptr [ %.03679, %._crit_edge74.thread ], [ %99, %._crit_edge74 ], [ %99, %91 ]
-  %.139.lcssa106 = phi i32 [ %.03878, %._crit_edge74.thread ], [ %96, %._crit_edge74 ], [ %96, %91 ]
+  %.1.lcssa119 = phi ptr [ %.03481, %._crit_edge74.thread ], [ %97, %._crit_edge74 ], [ %97, %91 ]
+  %.137.lcssa118 = phi ptr [ %.03679, %._crit_edge74.thread ], [ %99, %._crit_edge74 ], [ %99, %91 ]
+  %.139.lcssa117 = phi i32 [ %.03878, %._crit_edge74.thread ], [ %96, %._crit_edge74 ], [ %96, %91 ]
   %92 = getelementptr inbounds nuw i8, ptr %.03382, i64 4
   %93 = getelementptr inbounds nuw i8, ptr %.03283, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -8065,10 +8065,10 @@ _ZN4llvm9MapVectorIPN5clang9ValueDeclENS_11SmallVectorINS_8ArrayRefINS1_27OMPCla
 75:                                               ; preds = %.lr.ph85, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit
   %.03283 = phi ptr [ %20, %.lr.ph85 ], [ %93, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %.03382 = phi ptr [ %24, %.lr.ph85 ], [ %92, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03481 = phi ptr [ %34, %.lr.ph85 ], [ %.1.lcssa108, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03481 = phi ptr [ %34, %.lr.ph85 ], [ %.1.lcssa119, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %.03580 = phi ptr [ %.pre, %.lr.ph85 ], [ %94, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03679 = phi ptr [ %33, %.lr.ph85 ], [ %.137.lcssa107, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03878 = phi i32 [ 0, %.lr.ph85 ], [ %.139.lcssa106, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03679 = phi ptr [ %33, %.lr.ph85 ], [ %.137.lcssa118, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03878 = phi i32 [ 0, %.lr.ph85 ], [ %.139.lcssa117, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %76 = load ptr, ptr %.03580, align 8, !tbaa !385
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %77 = getelementptr inbounds nuw i8, ptr %.03580, i64 8
@@ -8131,9 +8131,9 @@ _ZSt4copyIPKN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableCompon
   br label %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit: ; preds = %._crit_edge74.thread, %._crit_edge74, %91
-  %.1.lcssa108 = phi ptr [ %.03481, %._crit_edge74.thread ], [ %97, %._crit_edge74 ], [ %97, %91 ]
-  %.137.lcssa107 = phi ptr [ %.03679, %._crit_edge74.thread ], [ %99, %._crit_edge74 ], [ %99, %91 ]
-  %.139.lcssa106 = phi i32 [ %.03878, %._crit_edge74.thread ], [ %96, %._crit_edge74 ], [ %96, %91 ]
+  %.1.lcssa119 = phi ptr [ %.03481, %._crit_edge74.thread ], [ %97, %._crit_edge74 ], [ %97, %91 ]
+  %.137.lcssa118 = phi ptr [ %.03679, %._crit_edge74.thread ], [ %99, %._crit_edge74 ], [ %99, %91 ]
+  %.139.lcssa117 = phi i32 [ %.03878, %._crit_edge74.thread ], [ %96, %._crit_edge74 ], [ %96, %91 ]
   %92 = getelementptr inbounds nuw i8, ptr %.03382, i64 4
   %93 = getelementptr inbounds nuw i8, ptr %.03283, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -8594,10 +8594,10 @@ _ZN4llvm9MapVectorIPN5clang9ValueDeclENS_11SmallVectorINS_8ArrayRefINS1_27OMPCla
 75:                                               ; preds = %.lr.ph85, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit
   %.03283 = phi ptr [ %20, %.lr.ph85 ], [ %93, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %.03382 = phi ptr [ %24, %.lr.ph85 ], [ %92, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03481 = phi ptr [ %34, %.lr.ph85 ], [ %.1.lcssa108, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03481 = phi ptr [ %34, %.lr.ph85 ], [ %.1.lcssa119, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %.03580 = phi ptr [ %.pre, %.lr.ph85 ], [ %94, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03679 = phi ptr [ %33, %.lr.ph85 ], [ %.137.lcssa107, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03878 = phi i32 [ 0, %.lr.ph85 ], [ %.139.lcssa106, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03679 = phi ptr [ %33, %.lr.ph85 ], [ %.137.lcssa118, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03878 = phi i32 [ 0, %.lr.ph85 ], [ %.139.lcssa117, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %76 = load ptr, ptr %.03580, align 8, !tbaa !385
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %77 = getelementptr inbounds nuw i8, ptr %.03580, i64 8
@@ -8660,9 +8660,9 @@ _ZSt4copyIPKN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableCompon
   br label %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit: ; preds = %._crit_edge74.thread, %._crit_edge74, %91
-  %.1.lcssa108 = phi ptr [ %.03481, %._crit_edge74.thread ], [ %97, %._crit_edge74 ], [ %97, %91 ]
-  %.137.lcssa107 = phi ptr [ %.03679, %._crit_edge74.thread ], [ %99, %._crit_edge74 ], [ %99, %91 ]
-  %.139.lcssa106 = phi i32 [ %.03878, %._crit_edge74.thread ], [ %96, %._crit_edge74 ], [ %96, %91 ]
+  %.1.lcssa119 = phi ptr [ %.03481, %._crit_edge74.thread ], [ %97, %._crit_edge74 ], [ %97, %91 ]
+  %.137.lcssa118 = phi ptr [ %.03679, %._crit_edge74.thread ], [ %99, %._crit_edge74 ], [ %99, %91 ]
+  %.139.lcssa117 = phi i32 [ %.03878, %._crit_edge74.thread ], [ %96, %._crit_edge74 ], [ %96, %91 ]
   %92 = getelementptr inbounds nuw i8, ptr %.03382, i64 4
   %93 = getelementptr inbounds nuw i8, ptr %.03283, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -9043,10 +9043,10 @@ _ZN4llvm9MapVectorIPN5clang9ValueDeclENS_11SmallVectorINS_8ArrayRefINS1_27OMPCla
 74:                                               ; preds = %.lr.ph85, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit
   %.03283 = phi ptr [ %19, %.lr.ph85 ], [ %92, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %.03382 = phi ptr [ %23, %.lr.ph85 ], [ %91, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03481 = phi ptr [ %33, %.lr.ph85 ], [ %.1.lcssa108, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03481 = phi ptr [ %33, %.lr.ph85 ], [ %.1.lcssa119, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %.03580 = phi ptr [ %.pre, %.lr.ph85 ], [ %93, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03679 = phi ptr [ %32, %.lr.ph85 ], [ %.137.lcssa107, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03878 = phi i32 [ 0, %.lr.ph85 ], [ %.139.lcssa106, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03679 = phi ptr [ %32, %.lr.ph85 ], [ %.137.lcssa118, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03878 = phi i32 [ 0, %.lr.ph85 ], [ %.139.lcssa117, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %75 = load ptr, ptr %.03580, align 8, !tbaa !385
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %76 = getelementptr inbounds nuw i8, ptr %.03580, i64 8
@@ -9109,9 +9109,9 @@ _ZSt4copyIPKN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableCompon
   br label %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit: ; preds = %._crit_edge74.thread, %._crit_edge74, %90
-  %.1.lcssa108 = phi ptr [ %.03481, %._crit_edge74.thread ], [ %96, %._crit_edge74 ], [ %96, %90 ]
-  %.137.lcssa107 = phi ptr [ %.03679, %._crit_edge74.thread ], [ %98, %._crit_edge74 ], [ %98, %90 ]
-  %.139.lcssa106 = phi i32 [ %.03878, %._crit_edge74.thread ], [ %95, %._crit_edge74 ], [ %95, %90 ]
+  %.1.lcssa119 = phi ptr [ %.03481, %._crit_edge74.thread ], [ %96, %._crit_edge74 ], [ %96, %90 ]
+  %.137.lcssa118 = phi ptr [ %.03679, %._crit_edge74.thread ], [ %98, %._crit_edge74 ], [ %98, %90 ]
+  %.139.lcssa117 = phi i32 [ %.03878, %._crit_edge74.thread ], [ %95, %._crit_edge74 ], [ %95, %90 ]
   %91 = getelementptr inbounds nuw i8, ptr %.03382, i64 4
   %92 = getelementptr inbounds nuw i8, ptr %.03283, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -9491,10 +9491,10 @@ _ZN4llvm9MapVectorIPN5clang9ValueDeclENS_11SmallVectorINS_8ArrayRefINS1_27OMPCla
 74:                                               ; preds = %.lr.ph85, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit
   %.03283 = phi ptr [ %19, %.lr.ph85 ], [ %92, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %.03382 = phi ptr [ %23, %.lr.ph85 ], [ %91, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03481 = phi ptr [ %33, %.lr.ph85 ], [ %.1.lcssa108, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03481 = phi ptr [ %33, %.lr.ph85 ], [ %.1.lcssa119, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %.03580 = phi ptr [ %.pre, %.lr.ph85 ], [ %93, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03679 = phi ptr [ %32, %.lr.ph85 ], [ %.137.lcssa107, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03878 = phi i32 [ 0, %.lr.ph85 ], [ %.139.lcssa106, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03679 = phi ptr [ %32, %.lr.ph85 ], [ %.137.lcssa118, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03878 = phi i32 [ 0, %.lr.ph85 ], [ %.139.lcssa117, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %75 = load ptr, ptr %.03580, align 8, !tbaa !385
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %76 = getelementptr inbounds nuw i8, ptr %.03580, i64 8
@@ -9557,9 +9557,9 @@ _ZSt4copyIPKN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableCompon
   br label %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit: ; preds = %._crit_edge74.thread, %._crit_edge74, %90
-  %.1.lcssa108 = phi ptr [ %.03481, %._crit_edge74.thread ], [ %96, %._crit_edge74 ], [ %96, %90 ]
-  %.137.lcssa107 = phi ptr [ %.03679, %._crit_edge74.thread ], [ %98, %._crit_edge74 ], [ %98, %90 ]
-  %.139.lcssa106 = phi i32 [ %.03878, %._crit_edge74.thread ], [ %95, %._crit_edge74 ], [ %95, %90 ]
+  %.1.lcssa119 = phi ptr [ %.03481, %._crit_edge74.thread ], [ %96, %._crit_edge74 ], [ %96, %90 ]
+  %.137.lcssa118 = phi ptr [ %.03679, %._crit_edge74.thread ], [ %98, %._crit_edge74 ], [ %98, %90 ]
+  %.139.lcssa117 = phi i32 [ %.03878, %._crit_edge74.thread ], [ %95, %._crit_edge74 ], [ %95, %90 ]
   %91 = getelementptr inbounds nuw i8, ptr %.03382, i64 4
   %92 = getelementptr inbounds nuw i8, ptr %.03283, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -9939,10 +9939,10 @@ _ZN4llvm9MapVectorIPN5clang9ValueDeclENS_11SmallVectorINS_8ArrayRefINS1_27OMPCla
 74:                                               ; preds = %.lr.ph85, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit
   %.03283 = phi ptr [ %19, %.lr.ph85 ], [ %92, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %.03382 = phi ptr [ %23, %.lr.ph85 ], [ %91, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03481 = phi ptr [ %33, %.lr.ph85 ], [ %.1.lcssa108, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03481 = phi ptr [ %33, %.lr.ph85 ], [ %.1.lcssa119, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %.03580 = phi ptr [ %.pre, %.lr.ph85 ], [ %93, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03679 = phi ptr [ %32, %.lr.ph85 ], [ %.137.lcssa107, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
-  %.03878 = phi i32 [ 0, %.lr.ph85 ], [ %.139.lcssa106, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03679 = phi ptr [ %32, %.lr.ph85 ], [ %.137.lcssa118, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
+  %.03878 = phi i32 [ 0, %.lr.ph85 ], [ %.139.lcssa117, %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit ]
   %75 = load ptr, ptr %.03580, align 8, !tbaa !385
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %76 = getelementptr inbounds nuw i8, ptr %.03580, i64 8
@@ -10005,9 +10005,9 @@ _ZSt4copyIPKN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableCompon
   br label %_ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEELj8EED2Ev.exit: ; preds = %._crit_edge74.thread, %._crit_edge74, %90
-  %.1.lcssa108 = phi ptr [ %.03481, %._crit_edge74.thread ], [ %96, %._crit_edge74 ], [ %96, %90 ]
-  %.137.lcssa107 = phi ptr [ %.03679, %._crit_edge74.thread ], [ %98, %._crit_edge74 ], [ %98, %90 ]
-  %.139.lcssa106 = phi i32 [ %.03878, %._crit_edge74.thread ], [ %95, %._crit_edge74 ], [ %95, %90 ]
+  %.1.lcssa119 = phi ptr [ %.03481, %._crit_edge74.thread ], [ %96, %._crit_edge74 ], [ %96, %90 ]
+  %.137.lcssa118 = phi ptr [ %.03679, %._crit_edge74.thread ], [ %98, %._crit_edge74 ], [ %98, %90 ]
+  %.139.lcssa117 = phi i32 [ %.03878, %._crit_edge74.thread ], [ %95, %._crit_edge74 ], [ %95, %90 ]
   %91 = getelementptr inbounds nuw i8, ptr %.03382, i64 4
   %92 = getelementptr inbounds nuw i8, ptr %.03283, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -15925,9 +15925,9 @@ define dso_local void @_ZN5clang16OMPClausePrinter22VisitOMPAllocateClauseEPNS_1
   br label %21
 
 21:                                               ; preds = %8, %17, %20
-  %.sink70 = phi i64 [ 32, %20 ], [ 24, %17 ], [ 24, %8 ]
+  %.sink84 = phi i64 [ 32, %20 ], [ 24, %17 ], [ 24, %8 ]
   %.sink = phi i64 [ 24, %20 ], [ 32, %17 ], [ 32, %8 ]
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink70
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink84
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %.0 = load ptr, ptr %22, align 8, !tbaa !15
   %.026 = load ptr, ptr %23, align 8, !tbaa !15
@@ -16205,8 +16205,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit61:               ; preds = %154, %152, %.crited
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit65
 
 _ZN4llvm11raw_ostreamlsEPKc.exit65:               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %167, %165
-  %.sink71 = phi i8 [ 32, %165 ], [ 32, %167 ], [ 40, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
-  tail call void @_ZN5clang16OMPClausePrinter18VisitOMPClauseListINS_17OMPAllocateClauseEEEvPT_c(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1, i8 noundef signext %.sink71)
+  %.sink85 = phi i8 [ 32, %165 ], [ 32, %167 ], [ 40, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
+  tail call void @_ZN5clang16OMPClausePrinter18VisitOMPClauseListINS_17OMPAllocateClauseEEEvPT_c(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1, i8 noundef signext %.sink85)
   %170 = load ptr, ptr %0, align 8, !tbaa !470
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 24
   %172 = load ptr, ptr %171, align 8, !tbaa !474
@@ -22351,19 +22351,19 @@ _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %49, %52
   br i1 %.not.i.i.not.i5.i58, label %_ZN4llvm3omp16VariantMatchInfo8addTraitENS0_8TraitSetENS0_13TraitPropertyENS_9StringRefEPNS_5APIntE.exit56.sink.split, label %_ZN4llvm3omp16VariantMatchInfo8addTraitENS0_8TraitSetENS0_13TraitPropertyENS_9StringRefEPNS_5APIntE.exit56.sink.split.sink.split, !prof !300
 
 _ZN4llvm3omp16VariantMatchInfo8addTraitENS0_8TraitSetENS0_13TraitPropertyENS_9StringRefEPNS_5APIntE.exit56.sink.split.sink.split: ; preds = %72, %63
-  %.sink133 = phi i32 [ %64, %63 ], [ %73, %72 ]
+  %.sink161 = phi i32 [ %64, %63 ], [ %73, %72 ]
   %.sink.ph = phi i32 [ %55, %63 ], [ 47, %72 ]
-  %75 = zext i32 %.sink133 to i64
+  %75 = zext i32 %.sink161 to i64
   %76 = add nuw nsw i64 %75, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %20, i64 noundef %76, i64 noundef 4) #22
   %.pre.i6.i59 = load i32, ptr %18, align 8, !tbaa !348
   br label %_ZN4llvm3omp16VariantMatchInfo8addTraitENS0_8TraitSetENS0_13TraitPropertyENS_9StringRefEPNS_5APIntE.exit56.sink.split
 
 _ZN4llvm3omp16VariantMatchInfo8addTraitENS0_8TraitSetENS0_13TraitPropertyENS_9StringRefEPNS_5APIntE.exit56.sink.split: ; preds = %_ZN4llvm3omp16VariantMatchInfo8addTraitENS0_8TraitSetENS0_13TraitPropertyENS_9StringRefEPNS_5APIntE.exit56.sink.split.sink.split, %72, %63
-  %.sink130 = phi i32 [ %64, %63 ], [ %73, %72 ], [ %.pre.i6.i59, %_ZN4llvm3omp16VariantMatchInfo8addTraitENS0_8TraitSetENS0_13TraitPropertyENS_9StringRefEPNS_5APIntE.exit56.sink.split.sink.split ]
+  %.sink158 = phi i32 [ %64, %63 ], [ %73, %72 ], [ %.pre.i6.i59, %_ZN4llvm3omp16VariantMatchInfo8addTraitENS0_8TraitSetENS0_13TraitPropertyENS_9StringRefEPNS_5APIntE.exit56.sink.split.sink.split ]
   %.sink = phi i32 [ %55, %63 ], [ 47, %72 ], [ %.sink.ph, %_ZN4llvm3omp16VariantMatchInfo8addTraitENS0_8TraitSetENS0_13TraitPropertyENS_9StringRefEPNS_5APIntE.exit56.sink.split.sink.split ]
   %77 = load ptr, ptr %17, align 8, !tbaa !377
-  %78 = zext i32 %.sink130 to i64
+  %78 = zext i32 %.sink158 to i64
   %79 = getelementptr inbounds nuw i32, ptr %77, i64 %78
   store i32 %.sink, ptr %79, align 1
   %80 = load i32, ptr %18, align 8, !tbaa !348
@@ -23667,9 +23667,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i15.lr.ph: ; preds = %_ZN5clang11OMPTr
   %82 = getelementptr inbounds i8, ptr %78, i64 -128
   %83 = getelementptr inbounds i8, ptr %78, i64 -120
   %84 = getelementptr inbounds i8, ptr %78, i64 -116
-  %.pre.i1479 = load ptr, ptr %7, align 8, !tbaa !483
-  %bcmp.i.i1680 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.pre.i1479, ptr noundef nonnull dereferenceable(2) @.str.122, i64 2)
-  %85 = icmp eq i32 %bcmp.i.i1680, 0
+  %.pre.i1497 = load ptr, ptr %7, align 8, !tbaa !483
+  %bcmp.i.i1698 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.pre.i1497, ptr noundef nonnull dereferenceable(2) @.str.122, i64 2)
+  %85 = icmp eq i32 %bcmp.i.i1698, 0
   br i1 %85, label %.lr.ph, label %_ZN4llvm9StringRef13consume_frontES0_.exit18.thread
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i15.loopexit: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i29
@@ -23679,9 +23679,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i15.loopexit: ; preds = %_ZNK4llvm9Str
   br i1 %86, label %.lr.ph, label %_ZN4llvm9StringRef13consume_frontES0_.exit18.thread, !llvm.loop !669
 
 .lr.ph:                                           ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.lr.ph, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.loopexit
-  %.pre.i1481 = phi ptr [ %.pre.i14, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.loopexit ], [ %.pre.i1479, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.lr.ph ]
+  %.pre.i1499 = phi ptr [ %.pre.i14, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.loopexit ], [ %.pre.i1497, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.lr.ph ]
   %87 = phi i64 [ %145, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.loopexit ], [ %81, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.lr.ph ]
-  %88 = getelementptr inbounds nuw i8, ptr %.pre.i1481, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %.pre.i1499, i64 2
   %89 = add i64 %87, -2
   store ptr %88, ptr %7, align 8, !tbaa !647
   store i64 %89, ptr %11, align 8, !tbaa !312
@@ -23782,10 +23782,10 @@ _ZSt4moveIPN5clang16OMPTraitPropertyES2_ET0_T_S4_S3_.exit35.i: ; preds = %125
   br i1 %.not.i.i.i40, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang16OMPTraitPropertyELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i, label %_ZSt4moveIPN5clang16OMPTraitPropertyES2_ET0_T_S4_S3_.exit35.i.thread
 
 _ZSt4moveIPN5clang16OMPTraitPropertyES2_ET0_T_S4_S3_.exit35.i.thread: ; preds = %125, %_ZSt4moveIPN5clang16OMPTraitPropertyES2_ET0_T_S4_S3_.exit35.i
-  %.pre-phi61 = phi i64 [ %.pre58, %_ZSt4moveIPN5clang16OMPTraitPropertyES2_ET0_T_S4_S3_.exit35.i ], [ 1, %125 ]
+  %.pre-phi79 = phi i64 [ %.pre58, %_ZSt4moveIPN5clang16OMPTraitPropertyES2_ET0_T_S4_S3_.exit35.i ], [ 1, %125 ]
   %127 = load ptr, ptr %117, align 8, !tbaa !377
   %128 = load ptr, ptr %110, align 8, !tbaa !377
-  %gepdiff.i = mul nuw nsw i64 %.pre-phi61, 24
+  %gepdiff.i = mul nuw nsw i64 %.pre-phi79, 24
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %128, ptr align 8 %127, i64 %gepdiff.i, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang16OMPTraitPropertyELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i
 
@@ -25839,13 +25839,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang9ValueDeclEjNS_12DenseMapInfoIS4_vEE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %65 = zext i32 %.sink28 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.772", ptr %.sink26, i64 %65
-  store ptr %.sink25, ptr %0, align 8
+  %65 = zext i32 %.sink32 to i64
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.772", ptr %.sink30, i64 %65
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16

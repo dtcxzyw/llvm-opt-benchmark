@@ -2476,8 +2476,8 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %_ZNSt7__cxx1112basi
   %133 = trunc nuw i8 %132 to i1
   %.pre140 = load i32, ptr %115, align 4, !tbaa !83
   %134 = icmp sgt i32 %.pre140, 0
-  %or.cond144 = select i1 %133, i1 %134, i1 false
-  br i1 %or.cond144, label %.lr.ph126, label %.loopexit122
+  %or.cond165 = select i1 %133, i1 %134, i1 false
+  br i1 %or.cond165, label %.lr.ph126, label %.loopexit122
 
 .lr.ph126:                                        ; preds = %_ZN2cv7Scalar_IdEC2ERKS1_.exit
   %135 = sub nsw i32 0, %.pre140
@@ -2559,8 +2559,8 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit90:                 ; preds = %.lr.ph, %_ZN2cv7Sca
   %165 = load i8, ptr %131, align 1, !tbaa !85, !range !92, !noundef !93
   %166 = trunc nuw i8 %165 to i1
   %167 = icmp sgt i32 %157, 0
-  %or.cond145 = select i1 %166, i1 %167, i1 false
-  br i1 %or.cond145, label %.lr.ph131, label %.loopexit119
+  %or.cond166 = select i1 %166, i1 %167, i1 false
+  br i1 %or.cond166, label %.lr.ph131, label %.loopexit119
 
 .lr.ph131:                                        ; preds = %.loopexit122
   %168 = sub nsw i32 0, %157

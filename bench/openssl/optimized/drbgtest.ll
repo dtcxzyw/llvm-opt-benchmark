@@ -534,7 +534,7 @@ test_drbg_reseed_in_child.exit.i:                 ; preds = %.sink.split.i.i, %2
   br i1 %or.cond.i, label %test_rand_reseed_on_fork.exit, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %129, %.thread.i
-  %.286.i = phi i32 [ 0, %.thread.i ], [ %.149.i, %129 ]
+  %.290.i = phi i32 [ 0, %.thread.i ], [ %.149.i, %129 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
@@ -555,7 +555,7 @@ test_drbg_reseed_in_child.exit.i:                 ; preds = %.sink.split.i.i, %2
   br i1 %exitcond83.not.i, label %test_rand_reseed_on_fork.exit, label %.preheader.i, !llvm.loop !29
 
 test_rand_reseed_on_fork.exit:                    ; preds = %test_drbg_reseed_in_child.exit.i, %.preheader.i, %82, %129
-  %.0.i = phi i32 [ 0, %82 ], [ 1, %129 ], [ %.286.i, %.preheader.i ], [ 0, %test_drbg_reseed_in_child.exit.i ]
+  %.0.i = phi i32 [ 0, %82 ], [ 1, %129 ], [ %.290.i, %.preheader.i ], [ 0, %test_drbg_reseed_in_child.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

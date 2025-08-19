@@ -1440,9 +1440,9 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
   br label %.thread5.sink.split
 
 .thread5.sink.split:                              ; preds = %153, %149, %142, %132, %128, %121, %20, %.thread
-  %.sink10 = phi i8 [ 64, %.thread ], [ 64, %20 ], [ 32, %121 ], [ 32, %128 ], [ 32, %132 ], [ 32, %142 ], [ 32, %149 ], [ 32, %153 ]
+  %.sink17 = phi i8 [ 64, %.thread ], [ 64, %20 ], [ 32, %121 ], [ 32, %128 ], [ 32, %132 ], [ 32, %142 ], [ 32, %149 ], [ 32, %153 ]
   %163 = load i8, ptr %5, align 8
-  %164 = or i8 %163, %.sink10
+  %164 = or i8 %163, %.sink17
   store i8 %164, ptr %5, align 8
   br label %.thread5
 

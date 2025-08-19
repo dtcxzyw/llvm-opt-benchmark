@@ -206,8 +206,8 @@ xml_isentity.exit.thread.i:                       ; preds = %xml_isentity.exit.i
 
 76:                                               ; preds = %74
   %.mask91.i = and i32 %70, 248
-  %.not126.i = icmp eq i32 %.mask91.i, 240
-  br i1 %.not126.i, label %.lr.ph.preheader.i, label %._crit_edge.i.thread
+  %.not127.i = icmp eq i32 %.mask91.i, 240
+  br i1 %.not127.i, label %.lr.ph.preheader.i, label %._crit_edge.i.thread
 
 .lr.ph.preheader.i:                               ; preds = %76, %74, %72
   %77 = phi i64 [ 4, %76 ], [ 2, %72 ], [ 3, %74 ]

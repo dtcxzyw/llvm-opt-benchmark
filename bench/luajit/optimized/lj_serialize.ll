@@ -323,7 +323,7 @@ serialize_more.exit217:                           ; preds = %48, %56
   %77 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %78 = load i32, ptr %77, align 8, !tbaa !12
   %.not200 = icmp eq i32 %78, 0
-  br i1 %.not200, label %.loopexit280, label %79
+  br i1 %.not200, label %.loopexit301, label %79
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -335,7 +335,7 @@ serialize_more.exit217:                           ; preds = %48, %56
 84:                                               ; preds = %86, %79
   %.0183.in = phi i64 [ %83, %79 ], [ %.0183, %86 ]
   %85 = icmp sgt i64 %.0183.in, 0
-  br i1 %85, label %86, label %.loopexit280
+  br i1 %85, label %86, label %.loopexit301
 
 86:                                               ; preds = %84
   %.0183 = add nsw i64 %.0183.in, -1
@@ -349,9 +349,9 @@ serialize_more.exit217:                           ; preds = %48, %56
   %91 = load i64, ptr %82, align 8, !tbaa !14
   %92 = icmp eq i64 %91, -1
   %spec.select = select i1 %92, i32 4, i32 2
-  br label %.loopexit280
+  br label %.loopexit301
 
-.loopexit280:                                     ; preds = %84, %.thread, %75
+.loopexit301:                                     ; preds = %84, %.thread, %75
   %.0181 = phi i32 [ 2, %75 ], [ %spec.select, %.thread ], [ 2, %84 ]
   %.0174 = phi i32 [ 0, %75 ], [ %90, %.thread ], [ 0, %84 ]
   %93 = getelementptr inbounds nuw i8, ptr %66, i64 52
@@ -359,7 +359,7 @@ serialize_more.exit217:                           ; preds = %48, %56
   %.not202 = icmp eq i32 %94, 0
   br i1 %.not202, label %.loopexit254, label %95
 
-95:                                               ; preds = %.loopexit280
+95:                                               ; preds = %.loopexit301
   %96 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %97 = load i64, ptr %96, align 8, !tbaa !30
   %98 = inttoptr i64 %97 to ptr
@@ -380,8 +380,8 @@ serialize_more.exit217:                           ; preds = %48, %56
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %.loopexit254, label %100, !llvm.loop !31
 
-.loopexit254:                                     ; preds = %100, %.loopexit280
-  %.0175 = phi i32 [ 0, %.loopexit280 ], [ %105, %100 ]
+.loopexit254:                                     ; preds = %100, %.loopexit301
+  %.0175 = phi i32 [ 0, %.loopexit301 ], [ %105, %100 ]
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %107 = load i64, ptr %106, align 8, !tbaa !32
   %.not204 = icmp eq i64 %107, 0
@@ -1311,7 +1311,7 @@ serialize_ru124.exit186.thread234:                ; preds = %serialize_ru124.exi
   %174 = phi i32 [ %167, %168 ], [ %167, %serialize_ru124.exit186.thread234 ], [ %167, %.fold.split ], [ %155, %serialize_ru124.exit186.thread234.thread ]
   %.in.in = phi i64 [ %166, %168 ], [ %166, %serialize_ru124.exit186.thread234 ], [ %166, %.fold.split ], [ %154, %serialize_ru124.exit186.thread234.thread ]
   %175 = phi ptr [ %165, %168 ], [ %165, %serialize_ru124.exit186.thread234 ], [ %165, %.fold.split ], [ %153, %serialize_ru124.exit186.thread234.thread ]
-  %.6264 = phi ptr [ %.6, %168 ], [ %.6, %serialize_ru124.exit186.thread234 ], [ %.6, %.fold.split ], [ %.5, %serialize_ru124.exit186.thread234.thread ]
+  %.6282 = phi ptr [ %.6, %168 ], [ %.6, %serialize_ru124.exit186.thread234 ], [ %.6, %.fold.split ], [ %.5, %serialize_ru124.exit186.thread234.thread ]
   %.not162 = phi i1 [ %172, %168 ], [ true, %serialize_ru124.exit186.thread234 ], [ false, %.fold.split ], [ true, %serialize_ru124.exit186.thread234.thread ]
   %176 = phi i32 [ %171, %168 ], [ %164, %serialize_ru124.exit186.thread234 ], [ %164, %.fold.split ], [ 0, %serialize_ru124.exit186.thread234.thread ]
   %.in = and i64 %.in.in, -8
@@ -1341,7 +1341,7 @@ serialize_ru124.exit186.thread234:                ; preds = %serialize_ru124.exi
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.8258 = phi ptr [ %193, %.lr.ph ], [ %.6264, %.lr.ph.preheader ]
+  %.8258 = phi ptr [ %193, %.lr.ph ], [ %.6282, %.lr.ph.preheader ]
   %.0137257 = phi ptr [ %192, %.lr.ph ], [ %191, %.lr.ph.preheader ]
   %192 = getelementptr inbounds nuw i8, ptr %.0137257, i64 8
   %193 = tail call fastcc ptr @serialize_get(ptr noundef %.8258, ptr noundef nonnull %1, ptr noundef %.0137257)
@@ -1349,7 +1349,7 @@ serialize_ru124.exit186.thread234:                ; preds = %serialize_ru124.exi
   br i1 %194, label %.lr.ph, label %.loopexit, !llvm.loop !71
 
 .loopexit:                                        ; preds = %.lr.ph, %182, %173
-  %.7 = phi ptr [ %.6264, %173 ], [ %.6264, %182 ], [ %193, %.lr.ph ]
+  %.7 = phi ptr [ %.6282, %173 ], [ %.6282, %182 ], [ %193, %.lr.ph ]
   br i1 %.not162, label %.thread243, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit, %205

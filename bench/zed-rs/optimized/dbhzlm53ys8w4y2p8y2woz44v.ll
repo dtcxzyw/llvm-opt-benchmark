@@ -1477,7 +1477,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN147_$LT$gpui..executor..Task$LT$cor
   %9 = alloca [48 x i8], align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load i8, ptr %10, align 8, !range !274, !noundef !30
-  switch i8 %11, label %default.unreachable80 [
+  switch i8 %11, label %default.unreachable84 [
     i8 0, label %12
     i8 1, label %17
     i8 2, label %18
@@ -1490,7 +1490,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN147_$LT$gpui..executor..Task$LT$cor
   %.pre79 = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !275, !noalias !278
   br label %128
 
-default.unreachable80:                            ; preds = %2
+default.unreachable84:                            ; preds = %2
   unreachable
 
 12:                                               ; preds = %2
@@ -8083,8 +8083,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !1512, !noalias !1509
+  %.sroa.0.i.1.i.1.i.1..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx9, align 1, !alias.scope !1512, !noalias !1509
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 15:                                               ; preds = %6
@@ -8096,13 +8096,13 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !1512, !noalias !1509
+  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !1512, !noalias !1509
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !1512, !noalias !1509
+  %.sroa.0.i.2.i.2.i.2..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx10, align 2, !alias.scope !1512, !noalias !1509
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 26:                                               ; preds = %6
@@ -13689,7 +13689,7 @@ define hidden void @"_ZN9title_bar8TitleBar21render_sign_in_button28_$u7b$$u7b$c
 define hidden noundef zeroext i1 @"_ZN9title_bar8TitleBar21render_sign_in_button28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf156b762434d00f6E.llvm.15098402384545254406"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i8, ptr %3, align 8, !range !463, !noundef !30
-  switch i8 %4, label %default.unreachable19 [
+  switch i8 %4, label %default.unreachable21 [
     i8 0, label %5
     i8 1, label %19
     i8 2, label %20
@@ -13703,7 +13703,7 @@ define hidden noundef zeroext i1 @"_ZN9title_bar8TitleBar21render_sign_in_button
   %.pre18 = load ptr, ptr %.phi.trans.insert17, align 8, !alias.scope !2228, !noalias !2233
   br label %21
 
-default.unreachable19:                            ; preds = %2
+default.unreachable21:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2

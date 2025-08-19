@@ -4421,8 +4421,8 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %.body
 
 .loopexit.split-lp44:                             ; preds = %._crit_edge.thread, %42
-  %.sroa.13.072 = phi ptr [ %.sroa.13.0.lcssa102, %._crit_edge.thread ], [ %.sroa.7.075, %42 ]
-  %.sroa.033.062 = phi ptr [ %.sroa.033.0.lcssa104, %._crit_edge.thread ], [ %.sroa.033.076, %42 ]
+  %.sroa.13.072 = phi ptr [ %.sroa.13.0.lcssa111, %._crit_edge.thread ], [ %.sroa.7.075, %42 ]
+  %.sroa.033.062 = phi ptr [ %.sroa.033.0.lcssa113, %._crit_edge.thread ], [ %.sroa.033.076, %42 ]
   %lpad.loopexit.split-lp46 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4442,8 +4442,8 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   br i1 %60, label %._crit_edge.thread, label %61
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.sroa.033.0.lcssa104 = phi ptr [ %.sroa.033.1, %._crit_edge ], [ null, %.preheader ]
-  %.sroa.13.0.lcssa102 = phi ptr [ %.sroa.13.1, %._crit_edge ], [ null, %.preheader ]
+  %.sroa.033.0.lcssa113 = phi ptr [ %.sroa.033.1, %._crit_edge ], [ null, %.preheader ]
+  %.sroa.13.0.lcssa111 = phi ptr [ %.sroa.13.1, %._crit_edge ], [ null, %.preheader ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase15_SendPrimsAddedERKNS_13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(264) %2)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EED2Ev.exit unwind label %.loopexit.split-lp44
 
@@ -4464,7 +4464,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14
   %67 = load i32, ptr %66, align 4
   %68 = icmp ult i32 %67, 17
   %69 = load ptr, ptr %2, align 8
-  %spec.select.i.i.i13107 = select i1 %68, ptr %2, ptr %69
+  %spec.select.i.i.i13116 = select i1 %68, ptr %2, ptr %69
   br label %.lr.ph.i.i.i.i.preheader
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_InitStorageEm.exit.i: ; preds = %61
@@ -4479,15 +4479,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14
   br i1 %.not9.i.i.i.i, label %.lr.ph84.preheader, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_InitStorageEm.exit.i.thread, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_InitStorageEm.exit.i
-  %spec.select.i.i.i13110 = phi ptr [ %spec.select.i.i.i13107, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_InitStorageEm.exit.i.thread ], [ %spec.select.i.i.i13, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_InitStorageEm.exit.i ]
+  %spec.select.i.i.i13119 = phi ptr [ %spec.select.i.i.i13116, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_InitStorageEm.exit.i.thread ], [ %spec.select.i.i.i13, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_InitStorageEm.exit.i ]
   %75 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_InitStorageEm.exit.i.thread ], [ %70, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_InitStorageEm.exit.i ]
-  %spec.select.i.i5.i109 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_InitStorageEm.exit.i.thread ], [ %4, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_InitStorageEm.exit.i ]
-  %76 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i13110, i64 %.pre
+  %spec.select.i.i5.i118 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_InitStorageEm.exit.i.thread ], [ %4, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_InitStorageEm.exit.i ]
+  %76 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i13119, i64 %.pre
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %107, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %spec.select.i.i5.i109, %.lr.ph.i.i.i.i.preheader ]
-  %.0810.i.i.i.i = phi ptr [ %106, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %spec.select.i.i.i13110, %.lr.ph.i.i.i.i.preheader ]
+  %.011.i.i.i.i = phi ptr [ %107, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %spec.select.i.i5.i118, %.lr.ph.i.i.i.i.preheader ]
+  %.0810.i.i.i.i = phi ptr [ %106, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %spec.select.i.i.i13119, %.lr.ph.i.i.i.i.preheader ]
   %77 = load i32, ptr %.0810.i.i.i.i, align 4
   store i32 %77, ptr %.011.i.i.i.i, align 4
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %77, 0
@@ -4734,16 +4734,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EED2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EED2Ev.exit: ; preds = %188, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.i, %._crit_edge.thread
-  %.sroa.033.0.lcssa103 = phi ptr [ %.sroa.033.1, %188 ], [ %.sroa.033.1, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.i ], [ %.sroa.033.0.lcssa104, %._crit_edge.thread ]
-  %.sroa.13.0.lcssa101 = phi ptr [ %.sroa.13.1, %188 ], [ %.sroa.13.1, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.i ], [ %.sroa.13.0.lcssa102, %._crit_edge.thread ]
-  %.not.i.i.i24 = icmp eq ptr %.sroa.033.0.lcssa103, null
+  %.sroa.033.0.lcssa112 = phi ptr [ %.sroa.033.1, %188 ], [ %.sroa.033.1, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.i ], [ %.sroa.033.0.lcssa113, %._crit_edge.thread ]
+  %.sroa.13.0.lcssa110 = phi ptr [ %.sroa.13.1, %188 ], [ %.sroa.13.1, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.i ], [ %.sroa.13.0.lcssa111, %._crit_edge.thread ]
+  %.not.i.i.i24 = icmp eq ptr %.sroa.033.0.lcssa112, null
   br i1 %.not.i.i.i24, label %_ZNSt6vectorImSaImEED2Ev.exit, label %190
 
 190:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EED2Ev.exit
-  %191 = ptrtoint ptr %.sroa.13.0.lcssa101 to i64
-  %192 = ptrtoint ptr %.sroa.033.0.lcssa103 to i64
+  %191 = ptrtoint ptr %.sroa.13.0.lcssa110 to i64
+  %192 = ptrtoint ptr %.sroa.033.0.lcssa112 to i64
   %193 = sub i64 %191, %192
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.033.0.lcssa103, i64 noundef %193) #20
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.033.0.lcssa112, i64 noundef %193) #20
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %190, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EED2Ev.exit, %3
@@ -4914,8 +4914,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__31HdsiTetMeshConversionSceneIn
   br label %114
 
 .loopexit.split-lp42:                             ; preds = %._crit_edge.thread, %32, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE12_InitStorageEm.exit.i
-  %.sroa.13.064 = phi ptr [ %.sroa.13.0.lcssa89, %._crit_edge.thread ], [ %.sroa.7.066, %32 ], [ %.sroa.13.1, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE12_InitStorageEm.exit.i ]
-  %.sroa.031.056 = phi ptr [ %.sroa.031.0.lcssa92, %._crit_edge.thread ], [ %.sroa.031.067, %32 ], [ %.sroa.031.1, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE12_InitStorageEm.exit.i ]
+  %.sroa.13.064 = phi ptr [ %.sroa.13.0.lcssa92, %._crit_edge.thread ], [ %.sroa.7.066, %32 ], [ %.sroa.13.1, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE12_InitStorageEm.exit.i ]
+  %.sroa.031.056 = phi ptr [ %.sroa.031.0.lcssa95, %._crit_edge.thread ], [ %.sroa.031.067, %32 ], [ %.sroa.031.1, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE12_InitStorageEm.exit.i ]
   %lpad.loopexit.split-lp44 = landingpad { ptr, i32 }
           cleanup
   br label %114
@@ -5005,8 +5005,8 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   br i1 %50, label %._crit_edge.thread, label %51
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.sroa.031.0.lcssa92 = phi ptr [ %.sroa.031.1, %._crit_edge ], [ null, %.preheader ]
-  %.sroa.13.0.lcssa89 = phi ptr [ %.sroa.13.1, %._crit_edge ], [ null, %.preheader ]
+  %.sroa.031.0.lcssa95 = phi ptr [ %.sroa.031.1, %._crit_edge ], [ null, %.preheader ]
+  %.sroa.13.0.lcssa92 = phi ptr [ %.sroa.13.1, %._crit_edge ], [ null, %.preheader ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase17_SendPrimsDirtiedERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(7432) %2)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EED2Ev.exit unwind label %.loopexit.split-lp42
 
@@ -5166,16 +5166,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EED2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EED2Ev.exit: ; preds = %108, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE9_DestructEv.exit.i, %._crit_edge.thread
-  %.sroa.031.0.lcssa91 = phi ptr [ %.sroa.031.1, %108 ], [ %.sroa.031.1, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE9_DestructEv.exit.i ], [ %.sroa.031.0.lcssa92, %._crit_edge.thread ]
-  %.sroa.13.0.lcssa88 = phi ptr [ %.sroa.13.1, %108 ], [ %.sroa.13.1, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE9_DestructEv.exit.i ], [ %.sroa.13.0.lcssa89, %._crit_edge.thread ]
-  %.not.i.i.i22 = icmp eq ptr %.sroa.031.0.lcssa91, null
+  %.sroa.031.0.lcssa94 = phi ptr [ %.sroa.031.1, %108 ], [ %.sroa.031.1, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE9_DestructEv.exit.i ], [ %.sroa.031.0.lcssa95, %._crit_edge.thread ]
+  %.sroa.13.0.lcssa91 = phi ptr [ %.sroa.13.1, %108 ], [ %.sroa.13.1, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE9_DestructEv.exit.i ], [ %.sroa.13.0.lcssa92, %._crit_edge.thread ]
+  %.not.i.i.i22 = icmp eq ptr %.sroa.031.0.lcssa94, null
   br i1 %.not.i.i.i22, label %_ZNSt6vectorImSaImEED2Ev.exit, label %110
 
 110:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EED2Ev.exit
-  %111 = ptrtoint ptr %.sroa.13.0.lcssa88 to i64
-  %112 = ptrtoint ptr %.sroa.031.0.lcssa91 to i64
+  %111 = ptrtoint ptr %.sroa.13.0.lcssa91 to i64
+  %112 = ptrtoint ptr %.sroa.031.0.lcssa94 to i64
   %113 = sub i64 %111, %112
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.031.0.lcssa91, i64 noundef %113) #20
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.031.0.lcssa94, i64 noundef %113) #20
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %110, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EED2Ev.exit, %3

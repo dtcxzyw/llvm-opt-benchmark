@@ -633,7 +633,7 @@ define dso_local void @_ZN4absl14flags_internal8FlagImpl10StoreValueEPKvNS0_11Va
   %7 = load i8, ptr %6, align 8
   %8 = lshr i8 %7, 1
   %9 = and i8 %8, 3
-  switch i8 %9, label %default.unreachable18 [
+  switch i8 %9, label %default.unreachable22 [
     i8 0, label %10
     i8 1, label %10
     i8 2, label %27
@@ -872,8 +872,8 @@ _ZN4absl14flags_internal12_GLOBAL__N_113AddToFreelistEPv.exit: ; preds = %_ZNSt6
 
 _ZN4absl14flags_internal13MaskedPointer3SetEPFPvNS0_6FlagOpEPKvS2_S2_ES5_b.exit: ; preds = %107, %_ZN4absl14flags_internal12_GLOBAL__N_113AddToFreelistEPv.exit
   %.sink = phi i64 [ %52, %107 ], [ %106, %_ZN4absl14flags_internal12_GLOBAL__N_113AddToFreelistEPv.exit ]
-  %.sink22 = icmp eq i32 %2, 0
-  %112 = zext i1 %.sink22 to i64
+  %.sink26 = icmp eq i32 %2, 0
+  %112 = zext i1 %.sink26 to i64
   %spec.select = or i64 %.sink, %112
   %113 = load ptr, ptr %47, align 8, !tbaa !21
   %114 = tail call noundef ptr %113(i32 noundef 9, ptr noundef null, ptr noundef null, ptr noundef null)
@@ -886,7 +886,7 @@ _ZN4absl14flags_internal13MaskedPointer3SetEPFPvNS0_6FlagOpEPKvS2_S2_ES5_b.exit:
   store atomic i64 %119, ptr %117 monotonic, align 8
   br label %120
 
-default.unreachable18:                            ; preds = %3
+default.unreachable22:                            ; preds = %3
   unreachable
 
 120:                                              ; preds = %_ZN4absl14flags_internal13MaskedPointer3SetEPFPvNS0_6FlagOpEPKvS2_S2_ES5_b.exit, %_ZN4absl14flags_internal12SequenceLock5WriteEPSt6atomicImEPKvm.exit, %10
@@ -1491,7 +1491,7 @@ _ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit: ; preds = %2, %9
   %12 = load i8, ptr %11, align 8
   %13 = lshr i8 %12, 1
   %14 = and i8 %13, 3
-  switch i8 %14, label %default.unreachable20 [
+  switch i8 %14, label %default.unreachable27 [
     i8 0, label %15
     i8 1, label %15
     i8 2, label %34
@@ -1685,7 +1685,7 @@ _ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit14: ; 
   call void @__clang_call_terminate(ptr %90) #25
   unreachable
 
-default.unreachable20:                            ; preds = %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit
+default.unreachable27:                            ; preds = %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit14, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit, %_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit
@@ -2375,7 +2375,7 @@ _ZNK4absl14flags_internal8FlagImpl13MakeInitValueEv.exit: ; preds = %16, %21, %2
   %61 = load ptr, ptr %4, align 8, !tbaa !39
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %63 = icmp eq ptr %61, %62
-  br i1 %63, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %63, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2387,14 +2387,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %69 = icmp eq ptr %67, %68
   br i1 %69, label %73, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %60
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %60
   %70 = load ptr, ptr %10, align 8, !tbaa !39
   %71 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %72 = icmp eq ptr %70, %71
   br i1 %72, label %73, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-73:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %74 = phi ptr [ %70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+73:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %74 = phi ptr [ %70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %76 = load i64, ptr %75, align 8, !tbaa !42
   %77 = icmp ult i64 %76, 16
@@ -2436,7 +2436,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %88, ptr %62, align 8, !tbaa !20
   br label %95
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %89 = load i64, ptr %62, align 8, !tbaa !20
   store ptr %70, ptr %4, align 8, !tbaa !39
   %90 = getelementptr inbounds nuw i8, ptr %10, i64 8

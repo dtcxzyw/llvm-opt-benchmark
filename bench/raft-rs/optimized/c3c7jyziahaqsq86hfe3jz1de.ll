@@ -832,8 +832,8 @@ define hidden { i64, i1 } @_ZN4raft6quorum8majority13Configuration15committed_in
   br i1 %or.cond89, label %.sink.split, label %.sink.split.sink.split
 
 .lr.ph99:                                         ; preds = %.thread
-  %.sroa.035.1.idx.sroa.sel108 = getelementptr inbounds nuw i8, ptr %.sroa.035.198128, i64 16
-  %.sroa.035.0.sroa.gep = getelementptr inbounds nuw i8, ptr %.sroa.035.198128, i64 8
+  %.sroa.035.1.idx.sroa.sel114 = getelementptr inbounds nuw i8, ptr %.sroa.035.198134, i64 16
+  %.sroa.035.0.sroa.gep = getelementptr inbounds nuw i8, ptr %.sroa.035.198134, i64 8
   %100 = load i64, ptr %.sroa.035.0.sroa.gep, align 8, !noundef !3
   %101 = icmp eq i64 %100, 0
   br i1 %101, label %.thread, label %.lr.ph99._crit_edge
@@ -862,8 +862,8 @@ define hidden { i64, i1 } @_ZN4raft6quorum8majority13Configuration15committed_in
   br i1 %or.cond, label %.sink.split, label %.sink.split.sink.split
 
 .lr.ph99._crit_edge:                              ; preds = %.lr.ph99, %.lr.ph99.outer
-  %.sroa.035.198.lcssa = phi ptr [ %.sroa.035.198.ph, %.lr.ph99.outer ], [ %.sroa.035.1.idx.sroa.sel108, %.lr.ph99 ]
-  %.sroa.035.097.lcssa = phi ptr [ %.sroa.035.097.ph, %.lr.ph99.outer ], [ %.sroa.035.198128, %.lr.ph99 ]
+  %.sroa.035.198.lcssa = phi ptr [ %.sroa.035.198.ph, %.lr.ph99.outer ], [ %.sroa.035.1.idx.sroa.sel114, %.lr.ph99 ]
+  %.sroa.035.097.lcssa = phi ptr [ %.sroa.035.097.ph, %.lr.ph99.outer ], [ %.sroa.035.198134, %.lr.ph99 ]
   %.sroa.020.095.lcssa = phi i1 [ %.sroa.020.095.ph, %.lr.ph99.outer ], [ false, %.lr.ph99 ]
   %.lcssa = phi i64 [ %111, %.lr.ph99.outer ], [ %100, %.lr.ph99 ]
   %108 = icmp eq i64 %.sroa.033.096.ph, 0
@@ -881,14 +881,14 @@ define hidden { i64, i1 } @_ZN4raft6quorum8majority13Configuration15committed_in
   %.sroa.035.097.ph = phi ptr [ %.sroa.05.0, %.lr.ph99.preheader ], [ %.sroa.035.198.lcssa, %109 ]
   %.sroa.033.096.ph = phi i64 [ %96, %.lr.ph99.preheader ], [ %.sroa.033.1, %109 ]
   %.sroa.020.095.ph = phi i1 [ true, %.lr.ph99.preheader ], [ %.sroa.020.095.lcssa, %109 ]
-  %.sroa.035.0.sroa.gep127 = getelementptr inbounds nuw i8, ptr %.sroa.035.097.ph, i64 8
-  %111 = load i64, ptr %.sroa.035.0.sroa.gep127, align 8, !noundef !3
+  %.sroa.035.0.sroa.gep133 = getelementptr inbounds nuw i8, ptr %.sroa.035.097.ph, i64 8
+  %111 = load i64, ptr %.sroa.035.0.sroa.gep133, align 8, !noundef !3
   %112 = icmp eq i64 %111, 0
   br i1 %112, label %.thread, label %.lr.ph99._crit_edge
 
 .thread:                                          ; preds = %.lr.ph99.outer, %.lr.ph99
-  %.sroa.035.198128 = phi ptr [ %.sroa.035.1.idx.sroa.sel108, %.lr.ph99 ], [ %.sroa.035.198.ph, %.lr.ph99.outer ]
-  %113 = icmp eq ptr %.sroa.035.198128, %94
+  %.sroa.035.198134 = phi ptr [ %.sroa.035.1.idx.sroa.sel114, %.lr.ph99 ], [ %.sroa.035.198.ph, %.lr.ph99.outer ]
+  %113 = icmp eq ptr %.sroa.035.198134, %94
   br i1 %113, label %._crit_edge.thread, label %.lr.ph99
 
 114:                                              ; preds = %.lr.ph99._crit_edge
@@ -1049,9 +1049,9 @@ define hidden noundef range(i8 0, 3) i8 @_ZN4raft6quorum8majority13Configuration
 
 53:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %54 = phi i64 [ %11, %._crit_edge.thread ], [ %52, %._crit_edge ]
-  %.sroa.07.0.lcssa27 = phi i64 [ 0, %._crit_edge.thread ], [ %.sroa.07.1, %._crit_edge ]
-  %.sroa.04.0.lcssa26 = phi i64 [ 0, %._crit_edge.thread ], [ %.sroa.04.1, %._crit_edge ]
-  %55 = add i64 %.sroa.07.0.lcssa27, %.sroa.04.0.lcssa26
+  %.sroa.07.0.lcssa32 = phi i64 [ 0, %._crit_edge.thread ], [ %.sroa.07.1, %._crit_edge ]
+  %.sroa.04.0.lcssa31 = phi i64 [ 0, %._crit_edge.thread ], [ %.sroa.04.1, %._crit_edge ]
+  %55 = add i64 %.sroa.07.0.lcssa32, %.sroa.04.0.lcssa31
   %.not14.not = icmp ule i64 %55, %54
   %. = zext i1 %.not14.not to i8
   br label %15
@@ -1185,9 +1185,9 @@ define hidden noundef range(i8 0, 3) i8 @_ZN4raft6quorum8majority13Configuration
 
 53:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %54 = phi i64 [ %51, %._crit_edge.thread ], [ %52, %._crit_edge ]
-  %.sroa.07.0.lcssa28 = phi i64 [ %.sroa.07.0.lcssa.ph, %._crit_edge.thread ], [ %.sroa.07.1, %._crit_edge ]
-  %.sroa.04.0.lcssa27 = phi i64 [ 0, %._crit_edge.thread ], [ %.sroa.04.1, %._crit_edge ]
-  %55 = add i64 %.sroa.07.0.lcssa28, %.sroa.04.0.lcssa27
+  %.sroa.07.0.lcssa33 = phi i64 [ %.sroa.07.0.lcssa.ph, %._crit_edge.thread ], [ %.sroa.07.1, %._crit_edge ]
+  %.sroa.04.0.lcssa32 = phi i64 [ 0, %._crit_edge.thread ], [ %.sroa.04.1, %._crit_edge ]
+  %55 = add i64 %.sroa.07.0.lcssa33, %.sroa.04.0.lcssa32
   %.not14.not = icmp ule i64 %55, %54
   %. = zext i1 %.not14.not to i8
   br label %20
@@ -1313,9 +1313,9 @@ define hidden noundef range(i8 0, 3) i8 @_ZN4raft6quorum8majority13Configuration
 
 54:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %55 = phi i64 [ %52, %._crit_edge.thread ], [ %53, %._crit_edge ]
-  %.sroa.07.0.lcssa30 = phi i64 [ %.sroa.07.0.lcssa.ph, %._crit_edge.thread ], [ %.sroa.07.1, %._crit_edge ]
-  %.sroa.04.0.lcssa29 = phi i64 [ 0, %._crit_edge.thread ], [ %.sroa.04.1, %._crit_edge ]
-  %56 = add i64 %.sroa.07.0.lcssa30, %.sroa.04.0.lcssa29
+  %.sroa.07.0.lcssa35 = phi i64 [ %.sroa.07.0.lcssa.ph, %._crit_edge.thread ], [ %.sroa.07.1, %._crit_edge ]
+  %.sroa.04.0.lcssa34 = phi i64 [ 0, %._crit_edge.thread ], [ %.sroa.04.1, %._crit_edge ]
+  %56 = add i64 %.sroa.07.0.lcssa35, %.sroa.04.0.lcssa34
   %.not14.not = icmp ule i64 %56, %55
   %. = zext i1 %.not14.not to i8
   br label %21
@@ -1446,9 +1446,9 @@ define hidden noundef range(i8 0, 3) i8 @_ZN4raft6quorum8majority13Configuration
 
 53:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %54 = phi i64 [ %11, %._crit_edge.thread ], [ %52, %._crit_edge ]
-  %.sroa.07.0.lcssa26 = phi i64 [ 0, %._crit_edge.thread ], [ %.sroa.07.1, %._crit_edge ]
-  %.sroa.04.0.lcssa25 = phi i64 [ 0, %._crit_edge.thread ], [ %.sroa.04.1, %._crit_edge ]
-  %55 = add i64 %.sroa.07.0.lcssa26, %.sroa.04.0.lcssa25
+  %.sroa.07.0.lcssa31 = phi i64 [ 0, %._crit_edge.thread ], [ %.sroa.07.1, %._crit_edge ]
+  %.sroa.04.0.lcssa30 = phi i64 [ 0, %._crit_edge.thread ], [ %.sroa.04.1, %._crit_edge ]
+  %55 = add i64 %.sroa.07.0.lcssa31, %.sroa.04.0.lcssa30
   %.not14.not = icmp ule i64 %55, %54
   %. = zext i1 %.not14.not to i8
   br label %15

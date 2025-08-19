@@ -193,10 +193,10 @@ define ptr @CMS_ReceiptRequest_create0_ex(ptr noundef %0, i32 noundef %1, i32 no
   br label %31
 
 .sink.split:                                      ; preds = %13, %6
-  %.sink25 = phi i32 [ 125, %6 ], [ 132, %13 ]
+  %.sink28 = phi i32 [ 125, %6 ], [ 132, %13 ]
   %.sink = phi i32 [ 524334, %6 ], [ 524301, %13 ]
   tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink25, ptr noundef nonnull @__func__.CMS_ReceiptRequest_create0_ex) #5
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink28, ptr noundef nonnull @__func__.CMS_ReceiptRequest_create0_ex) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink, ptr noundef null) #5
   br label %29
 

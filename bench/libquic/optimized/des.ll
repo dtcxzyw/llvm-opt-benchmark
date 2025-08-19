@@ -3833,7 +3833,7 @@ define hidden void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr
 
 27:                                               ; preds = %._crit_edge
   %28 = getelementptr inbounds nuw i8, ptr %.0235.lcssa, i64 %.0252.lcssa
-  switch i64 %.0252.lcssa, label %default.unreachable [
+  switch i64 %.0252.lcssa, label %default.unreachable292 [
     i64 1, label %62
     i64 7, label %29
     i64 6, label %34
@@ -3900,7 +3900,7 @@ define hidden void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr
   %61 = or i32 %60, %.2233
   br label %62
 
-default.unreachable:                              ; preds = %110, %27
+default.unreachable292:                           ; preds = %110, %27
   unreachable
 
 62:                                               ; preds = %56, %27
@@ -4022,7 +4022,7 @@ default.unreachable:                              ; preds = %110, %27
   %139 = load i32, ptr %136, align 4, !tbaa !9
   %140 = xor i32 %139, %.0.lcssa
   %141 = getelementptr inbounds nuw i8, ptr %.1244.lcssa, i64 %.1253.lcssa
-  switch i64 %.1253.lcssa, label %default.unreachable [
+  switch i64 %.1253.lcssa, label %default.unreachable292 [
     i64 1, label %165
     i64 7, label %142
     i64 6, label %146
@@ -4179,7 +4179,7 @@ define hidden void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0,
 
 29:                                               ; preds = %._crit_edge
   %30 = getelementptr inbounds nuw i8, ptr %.0251.lcssa, i64 %.0268.lcssa
-  switch i64 %.0268.lcssa, label %default.unreachable [
+  switch i64 %.0268.lcssa, label %default.unreachable308 [
     i64 1, label %64
     i64 7, label %31
     i64 6, label %36
@@ -4246,7 +4246,7 @@ define hidden void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0,
   %63 = or i32 %62, %.2249
   br label %64
 
-default.unreachable:                              ; preds = %112, %29
+default.unreachable308:                           ; preds = %112, %29
   unreachable
 
 64:                                               ; preds = %58, %29
@@ -4368,7 +4368,7 @@ default.unreachable:                              ; preds = %112, %29
   %141 = xor i32 %139, %.0239.lcssa
   %142 = xor i32 %140, %.0.lcssa
   %143 = getelementptr inbounds nuw i8, ptr %.1260.lcssa, i64 %.1269.lcssa
-  switch i64 %.1269.lcssa, label %default.unreachable [
+  switch i64 %.1269.lcssa, label %default.unreachable308 [
     i64 1, label %167
     i64 7, label %144
     i64 6, label %148

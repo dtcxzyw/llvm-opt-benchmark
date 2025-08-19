@@ -1348,7 +1348,7 @@ v4l2_is_v4l_dev.exit.thread:                      ; preds = %22, %26, %.tail.i, 
   br i1 %.not39, label %.thread, label %.loopexit49.thread
 
 .loopexit49.thread:                               ; preds = %47, %52, %.loopexit49
-  %.370 = phi i32 [ %60, %.loopexit49 ], [ %53, %52 ], [ -12, %47 ]
+  %.379 = phi i32 [ %60, %.loopexit49 ], [ %53, %52 ], [ -12, %47 ]
   %62 = phi ptr [ %.pr.pre, %.loopexit49 ], [ %46, %52 ], [ %46, %47 ]
   call void @av_freep(ptr noundef nonnull %62) #11
   %63 = load ptr, ptr %4, align 8, !tbaa !127
@@ -1358,7 +1358,7 @@ v4l2_is_v4l_dev.exit.thread:                      ; preds = %22, %26, %.tail.i, 
   br label %.thread
 
 .thread:                                          ; preds = %45, %.loopexit49.thread, %.loopexit49
-  %.343 = phi i32 [ %.370, %.loopexit49.thread ], [ %60, %.loopexit49 ], [ -12, %45 ]
+  %.343 = phi i32 [ %.379, %.loopexit49.thread ], [ %60, %.loopexit49 ], [ -12, %45 ]
   %65 = load ptr, ptr %16, align 8, !tbaa !90
   %66 = call i32 %65(i32 noundef %39) #11
   br label %.thread44
@@ -1544,7 +1544,7 @@ define internal fastcc i32 @device_try_init(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %15, label %.preheader, label %44
 
 .preheader:                                       ; preds = %6, %13, %14
-  %.04373 = phi i32 [ %11, %14 ], [ undef, %6 ], [ -22, %13 ]
+  %.04379 = phi i32 [ %11, %14 ], [ undef, %6 ], [ -22, %13 ]
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_fmt_conversion_table, i64 4), align 4, !tbaa !141
   %.not5458 = icmp eq i32 %16, 0
   br i1 %.not5458, label %._crit_edge.thread, label %.lr.ph
@@ -1553,7 +1553,7 @@ define internal fastcc i32 @device_try_init(ptr noundef %0, i32 noundef %1, ptr 
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.preheader ]
   %17 = phi i32 [ %36, %33 ], [ %16, %.preheader ]
   %18 = phi ptr [ %34, %33 ], [ @ff_fmt_conversion_table, %.preheader ]
-  %.259 = phi i32 [ %.4, %33 ], [ %.04373, %.preheader ]
+  %.259 = phi i32 [ %.4, %33 ], [ %.04379, %.preheader ]
   %19 = load i32, ptr %7, align 8, !tbaa !65
   %20 = icmp eq i32 %19, 0
   %21 = icmp eq i32 %17, %19

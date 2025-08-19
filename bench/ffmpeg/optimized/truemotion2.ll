@@ -492,7 +492,7 @@ bytestream2_get_be32.exit130.thread.i:            ; preds = %bytestream2_get_be3
 192:                                              ; preds = %189
   %193 = load i32, ptr %43, align 4, !tbaa !64
   %.not.i.i = icmp eq i32 %190, %193
-  br i1 %.not.i.i, label %194, label %.thread46.i.i
+  br i1 %.not.i.i, label %194, label %.thread55.i.i
 
 194:                                              ; preds = %192
   %195 = load i32, ptr %46, align 8, !tbaa !67
@@ -506,17 +506,17 @@ bytestream2_get_be32.exit130.thread.i:            ; preds = %bytestream2_get_be3
   %.not44.i198.i = icmp eq i32 %197, %198
   br i1 %.not44.i198.i, label %tm2_build_huff_table.exit.i, label %.thread.i.i
 
-.thread46.i.i:                                    ; preds = %192
+.thread55.i.i:                                    ; preds = %192
   %199 = load ptr, ptr %12, align 8, !tbaa !29
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %199, i32 noundef 16, ptr noundef nonnull @.str.17, i32 noundef %190, i32 noundef %193) #8
   %200 = load i32, ptr %46, align 8, !tbaa !67
   %201 = load i32, ptr %47, align 4, !tbaa !68
-  %.not4448.i.i = icmp eq i32 %200, %201
-  br i1 %.not4448.i.i, label %tm2_build_huff_table.exit.i, label %.thread.i.i
+  %.not4457.i.i = icmp eq i32 %200, %201
+  br i1 %.not4457.i.i, label %tm2_build_huff_table.exit.i, label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %.thread46.i.i, %.thread.i, %194
-  %202 = phi i32 [ %201, %.thread46.i.i ], [ %196, %194 ], [ %198, %.thread.i ]
-  %203 = phi i32 [ %200, %.thread46.i.i ], [ %195, %194 ], [ %197, %.thread.i ]
+.thread.i.i:                                      ; preds = %.thread55.i.i, %.thread.i, %194
+  %202 = phi i32 [ %201, %.thread55.i.i ], [ %196, %194 ], [ %198, %.thread.i ]
+  %203 = phi i32 [ %200, %.thread55.i.i ], [ %195, %194 ], [ %197, %.thread.i ]
   %204 = load ptr, ptr %12, align 8, !tbaa !29
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %204, i32 noundef 16, ptr noundef nonnull @.str.18, i32 noundef %203, i32 noundef %202) #8
   br label %tm2_build_huff_table.exit.i
@@ -547,8 +547,8 @@ tm2_build_huff_table.exit.thread.i:               ; preds = %176, %172
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %tm2_read_stream.exit.thread
 
-tm2_build_huff_table.exit.i:                      ; preds = %212, %210, %.thread.i.i, %.thread46.i.i, %.thread.i, %181
-  %.0.i146.i = phi i32 [ %208, %210 ], [ %208, %212 ], [ -12, %181 ], [ -1094995529, %.thread.i.i ], [ -1094995529, %.thread46.i.i ], [ %190, %.thread.i ]
+tm2_build_huff_table.exit.i:                      ; preds = %212, %210, %.thread.i.i, %.thread55.i.i, %.thread.i, %181
+  %.0.i146.i = phi i32 [ %208, %210 ], [ %208, %212 ], [ -12, %181 ], [ -1094995529, %.thread.i.i ], [ -1094995529, %.thread55.i.i ], [ %190, %.thread.i ]
   %216 = load ptr, ptr %48, align 8, !tbaa !69
   call void @av_free(ptr noundef %216) #8
   %217 = load ptr, ptr %49, align 8, !tbaa !70
@@ -2915,7 +2915,7 @@ tm2_update_block.exit.us.i:                       ; preds = %567, %680, %853, %1
   br i1 %1501, label %.preheader.lr.ph.i, label %tm2_decode_blocks.exit
 
 .preheader.lr.ph.i:                               ; preds = %._crit_edge390.i, %._crit_edge390.thread.i
-  %.0216.lcssa424.i = phi i32 [ 1, %._crit_edge390.thread.i ], [ %.0216.lcssa.i, %._crit_edge390.i ]
+  %.0216.lcssa505.i = phi i32 [ 1, %._crit_edge390.thread.i ], [ %.0216.lcssa.i, %._crit_edge390.i ]
   %1502 = load ptr, ptr %19, align 8, !tbaa !103
   %1503 = getelementptr inbounds nuw i8, ptr %12, i64 2112
   %1504 = load i32, ptr %1503, align 8, !tbaa !83
@@ -3151,10 +3151,10 @@ tm2_update_block.exit.us.i:                       ; preds = %567, %680, %853, %1
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %1634, %1614
-  %.sink441.i = phi i64 [ %1648, %1634 ], [ %1632, %1614 ]
-  %.sink440.i = phi i32 [ %1646, %1634 ], [ %1629, %1614 ]
-  %1649 = getelementptr inbounds i32, ptr %1604, i64 %.sink441.i
-  %1650 = sext i32 %.sink440.i to i64
+  %.sink522.i = phi i64 [ %1648, %1634 ], [ %1632, %1614 ]
+  %.sink521.i = phi i32 [ %1646, %1634 ], [ %1629, %1614 ]
+  %1649 = getelementptr inbounds i32, ptr %1604, i64 %.sink522.i
+  %1650 = sext i32 %.sink521.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1649, ptr nonnull align 4 %1604, i64 %1650, i1 false)
   br label %1651
 
@@ -3179,7 +3179,7 @@ tm2_update_block.exit.us.i:                       ; preds = %567, %680, %853, %1
   br i1 %exitcond422.not.i, label %tm2_decode_blocks.exit, label %.preheader.i71, !llvm.loop !105
 
 tm2_decode_blocks.exit:                           ; preds = %1656, %._crit_edge390.i
-  %.0.i69 = phi i32 [ %.0216.lcssa.i, %._crit_edge390.i ], [ %.0216.lcssa424.i, %1656 ]
+  %.0.i69 = phi i32 [ %.0216.lcssa.i, %._crit_edge390.i ], [ %.0216.lcssa505.i, %1656 ]
   %.not63 = icmp eq i32 %.0.i69, 0
   br i1 %.not63, label %1665, label %tm2_decode_blocks.exit.thread
 
@@ -3355,15 +3355,15 @@ get_bits_long.exit.us:                            ; preds = %.lr.ph, %get_bits_l
   br i1 %54, label %.lr.ph38, label %.loopexit
 
 .lr.ph38:                                         ; preds = %.preheader35, %.preheader
-  %.032.lcssa52 = phi i32 [ %16, %.preheader ], [ 0, %.preheader35 ]
+  %.032.lcssa53 = phi i32 [ %16, %.preheader ], [ 0, %.preheader35 ]
   %55 = sext i32 %1 to i64
   %56 = shl nsw i64 %55, 8
-  %57 = shl nuw nsw i32 %.032.lcssa52, 2
+  %57 = shl nuw nsw i32 %.032.lcssa53, 2
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr i8, ptr %0, i64 %56
   %60 = getelementptr i8, ptr %59, i64 %58
   %scevgep = getelementptr i8, ptr %60, i64 200
-  %61 = shl nuw nsw i32 %.032.lcssa52, 2
+  %61 = shl nuw nsw i32 %.032.lcssa53, 2
   %narrow = sub nuw nsw i32 256, %61
   %62 = zext nneg i32 %narrow to i64
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %62, i1 false), !tbaa !56
@@ -3400,9 +3400,9 @@ get_bits_long.exit:                               ; preds = %.lr.ph, %get_bits_l
   %87 = and i32 %75, %36
   %.not = icmp eq i32 %87, 0
   %88 = select i1 %.not, i32 0, i32 %.neg
-  %.sink55 = add nsw i32 %86, %88
+  %.sink56 = add nsw i32 %86, %88
   %89 = getelementptr inbounds nuw [64 x i32], ptr %39, i64 0, i64 %indvars.iv
-  store i32 %.sink55, ptr %89, align 4, !tbaa !56
+  store i32 %.sink56, ptr %89, align 4, !tbaa !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count46
   br i1 %exitcond.not, label %.preheader, label %get_bits_long.exit, !llvm.loop !114

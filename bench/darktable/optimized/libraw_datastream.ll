@@ -310,10 +310,10 @@ define noundef ptr @_ZN24LibRaw_buffer_datastream4getsEPci(ptr noundef nonnull a
   %17 = add i64 %8, %13
   %18 = add i64 %17, %16
   %19 = ptrtoint ptr %1 to i64
-  %.not85 = icmp eq i32 %15, 0
-  br i1 %.not85, label %.critedge, label %.lr.ph71
+  %.not89 = icmp eq i32 %15, 0
+  br i1 %.not89, label %.critedge, label %.lr.ph75
 
-.lr.ph71:                                         ; preds = %.lr.ph
+.lr.ph75:                                         ; preds = %.lr.ph
   %20 = ptrtoint ptr %12 to i64
   br label %24
 
@@ -322,21 +322,21 @@ define noundef ptr @_ZN24LibRaw_buffer_datastream4getsEPci(ptr noundef nonnull a
   %23 = icmp slt i64 %22, %16
   br i1 %23, label %24, label %.critedge, !llvm.loop !62
 
-24:                                               ; preds = %.lr.ph71, %21
-  %25 = phi i64 [ %19, %.lr.ph71 ], [ %36, %21 ]
-  %.0242870 = phi ptr [ %12, %.lr.ph71 ], [ %30, %21 ]
-  %.0232969 = phi ptr [ %1, %.lr.ph71 ], [ %31, %21 ]
-  %26 = phi i64 [ %20, %.lr.ph71 ], [ %32, %21 ]
-  %27 = load i8, ptr %.0242870, align 1, !tbaa !64
-  store i8 %27, ptr %.0232969, align 1, !tbaa !64
+24:                                               ; preds = %.lr.ph75, %21
+  %25 = phi i64 [ %19, %.lr.ph75 ], [ %36, %21 ]
+  %.0242874 = phi ptr [ %12, %.lr.ph75 ], [ %30, %21 ]
+  %.0232973 = phi ptr [ %1, %.lr.ph75 ], [ %31, %21 ]
+  %26 = phi i64 [ %20, %.lr.ph75 ], [ %32, %21 ]
+  %27 = load i8, ptr %.0242874, align 1, !tbaa !64
+  store i8 %27, ptr %.0232973, align 1, !tbaa !64
   %28 = icmp eq i8 %27, 10
   %.pre.pre = load ptr, ptr %6, align 8, !tbaa !57
   %.pre40.pre = load i64, ptr %9, align 8, !tbaa !61
   br i1 %28, label %.critedge, label %29
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds nuw i8, ptr %.0242870, i64 1
-  %31 = getelementptr inbounds nuw i8, ptr %.0232969, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.0242874, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.0232973, i64 1
   %32 = ptrtoint ptr %30 to i64
   %33 = ptrtoint ptr %.pre.pre to i64
   %34 = sub i64 %32, %33
@@ -351,8 +351,8 @@ define noundef ptr @_ZN24LibRaw_buffer_datastream4getsEPci(ptr noundef nonnull a
   %.pre54.pre-phi = phi i64 [ %36, %..critedge.loopexit_crit_edge ], [ %19, %.lr.ph ], [ %36, %21 ], [ %25, %24 ]
   %.pre40 = phi i64 [ %.pre40.pre, %..critedge.loopexit_crit_edge ], [ %10, %.lr.ph ], [ %.pre40.pre, %21 ], [ %.pre40.pre, %24 ]
   %.pre = phi ptr [ %.pre.pre, %..critedge.loopexit_crit_edge ], [ %11, %.lr.ph ], [ %.pre.pre, %21 ], [ %.pre.pre, %24 ]
-  %.024.lcssa.ph = phi ptr [ %30, %..critedge.loopexit_crit_edge ], [ %12, %.lr.ph ], [ %30, %21 ], [ %.0242870, %24 ]
-  %.023.lcssa.ph = phi ptr [ %31, %..critedge.loopexit_crit_edge ], [ %1, %.lr.ph ], [ %31, %21 ], [ %.0232969, %24 ]
+  %.024.lcssa.ph = phi ptr [ %30, %..critedge.loopexit_crit_edge ], [ %12, %.lr.ph ], [ %30, %21 ], [ %.0242874, %24 ]
+  %.023.lcssa.ph = phi ptr [ %31, %..critedge.loopexit_crit_edge ], [ %1, %.lr.ph ], [ %31, %21 ], [ %.0232973, %24 ]
   %.lcssa.ph = phi i64 [ %32, %..critedge.loopexit_crit_edge ], [ %18, %.lr.ph ], [ %18, %21 ], [ %26, %24 ]
   %.pre45 = ptrtoint ptr %.pre to i64
   %.pre46 = sub i64 %.lcssa.ph, %.pre45
@@ -535,7 +535,7 @@ define void @_ZN25LibRaw_bigfile_datastreamC2EPKc(ptr noundef nonnull align 8 de
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %23 = load i64, ptr %20, align 8, !tbaa !71
   %.not = icmp eq i64 %23, 0
-  br i1 %.not, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, label %24
+  br i1 %.not, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, label %24
 
 24:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -558,7 +558,7 @@ define void @_ZN25LibRaw_bigfile_datastreamC2EPKc(ptr noundef nonnull align 8 de
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %45
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %18
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %34, ptr %5, align 8, !tbaa !66
@@ -567,15 +567,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %.not22.i = icmp eq ptr %5, %6
   br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i, !prof !80
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   store i64 0, ptr %20, align 8, !tbaa !71
   %36 = load ptr, ptr %6, align 8, !tbaa !69
   store i8 0, ptr %36, align 1, !tbaa !64
   %.pre.i = load ptr, ptr %5, align 8, !tbaa !69
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i
-  %37 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i ], [ %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i
+  %37 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i ], [ %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ]
   store i64 0, ptr %35, align 8, !tbaa !71
   store i8 0, ptr %37, align 1, !tbaa !64
   %38 = load ptr, ptr %5, align 8, !tbaa !69

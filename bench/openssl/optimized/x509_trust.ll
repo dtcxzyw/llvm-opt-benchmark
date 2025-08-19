@@ -147,8 +147,8 @@ define internal range(i32 1, 4) i32 @obj_trust(i32 noundef %0, ptr noundef %1, i
   %27 = tail call i32 @OBJ_obj2nid(ptr noundef %26) #6
   %28 = icmp eq i32 %27, %0
   %.not59 = icmp eq i32 %27, 910
-  %or.cond71 = or i1 %28, %.not59
-  br i1 %or.cond71, label %trust_compat.exit, label %20
+  %or.cond78 = or i1 %28, %.not59
+  br i1 %or.cond78, label %trust_compat.exit, label %20
 
 .loopexit:                                        ; preds = %20, %.critedge.us, %.preheader49, %6
   %29 = load ptr, ptr %5, align 8, !tbaa !47

@@ -443,11 +443,11 @@ gz_error.exit:                                    ; preds = %45, %52
 
 56:                                               ; preds = %30, %26
   %57 = icmp slt i64 %.057, 0
-  br i1 %57, label %59, label %.thread73
+  br i1 %57, label %59, label %.thread79
 
 .thread:                                          ; preds = %23
   %58 = icmp slt i64 %.057, 0
-  br i1 %58, label %.thread69, label %.thread76
+  br i1 %58, label %.thread69, label %.thread82
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -509,14 +509,14 @@ gz_error.exit:                                    ; preds = %45, %52
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 0, ptr %86, align 8, !tbaa !30
   %87 = icmp eq i32 %.pre, 7247
-  br i1 %87, label %.thread73, label %.thread76
+  br i1 %87, label %.thread79, label %.thread82
 
-.thread73:                                        ; preds = %56, %85
-  %.175 = phi i64 [ %62, %85 ], [ %.057, %56 ]
+.thread79:                                        ; preds = %56, %85
+  %.181 = phi i64 [ %62, %85 ], [ %.057, %56 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %89 = load i32, ptr %88, align 8, !tbaa !23
   %90 = zext i32 %89 to i64
-  %91 = tail call i64 @llvm.umin.i64(i64 %.175, i64 %90)
+  %91 = tail call i64 @llvm.umin.i64(i64 %.181, i64 %90)
   %92 = trunc nuw i64 %91 to i32
   %93 = sub i32 %89, %92
   store i32 %93, ptr %88, align 8, !tbaa !23
@@ -528,21 +528,21 @@ gz_error.exit:                                    ; preds = %45, %52
   %98 = load i64, ptr %97, align 8, !tbaa !29
   %99 = add nsw i64 %98, %91
   store i64 %99, ptr %97, align 8, !tbaa !29
-  %100 = sub nsw i64 %.175, %91
-  br label %.thread76
+  %100 = sub nsw i64 %.181, %91
+  br label %.thread82
 
-.thread76:                                        ; preds = %.thread, %.thread73, %85
-  %.2 = phi i64 [ %100, %.thread73 ], [ %62, %85 ], [ %.057, %.thread ]
+.thread82:                                        ; preds = %.thread, %.thread79, %85
+  %.2 = phi i64 [ %100, %.thread79 ], [ %62, %85 ], [ %.057, %.thread ]
   %.not66 = icmp eq i64 %.2, 0
   br i1 %.not66, label %103, label %101
 
-101:                                              ; preds = %.thread76
+101:                                              ; preds = %.thread82
   store i32 1, ptr %24, align 8, !tbaa !27
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %.2, ptr %102, align 8, !tbaa !32
   br label %103
 
-103:                                              ; preds = %101, %.thread76
+103:                                              ; preds = %101, %.thread82
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %105 = load i64, ptr %104, align 8, !tbaa !29
   %106 = add nsw i64 %105, %.2

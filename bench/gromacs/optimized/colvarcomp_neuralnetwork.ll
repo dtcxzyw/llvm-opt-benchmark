@@ -477,8 +477,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i289: ; p
   %175 = select i1 %171, i64 15, i64 %174
   %176 = icmp ule i64 %169, %175
   %.not.i294 = icmp ugt i64 %169, 15
-  %or.cond2239 = or i1 %176, %.not.i294
-  br i1 %or.cond2239, label %189, label %.critedge.i295
+  %or.cond2639 = or i1 %176, %.not.i294
+  br i1 %or.cond2639, label %189, label %.critedge.i295
 
 .critedge.i295:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i289
   %177 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 0, i64 noundef 0, ptr noundef %170, i64 noundef %168)
@@ -903,8 +903,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i343: ; p
   %319 = select i1 %315, i64 15, i64 %318
   %320 = icmp ule i64 %313, %319
   %.not.i348 = icmp ugt i64 %313, 15
-  %or.cond2240 = or i1 %320, %.not.i348
-  br i1 %or.cond2240, label %333, label %.critedge.i349
+  %or.cond2640 = or i1 %320, %.not.i348
+  br i1 %or.cond2640, label %333, label %.critedge.i349
 
 .critedge.i349:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i343
   %321 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef 0, i64 noundef 0, ptr noundef %314, i64 noundef %312)
@@ -1809,8 +1809,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i456: ; p
   %630 = select i1 %626, i64 15, i64 %629
   %631 = icmp ule i64 %624, %630
   %.not.i461 = icmp ugt i64 %624, 15
-  %or.cond2241 = or i1 %631, %.not.i461
-  br i1 %or.cond2241, label %644, label %.critedge.i462
+  %or.cond2641 = or i1 %631, %.not.i461
+  br i1 %or.cond2641, label %644, label %.critedge.i462
 
 .critedge.i462:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i456
   %632 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %36, i64 noundef 0, i64 noundef 0, ptr noundef %625, i64 noundef %623)
@@ -2235,8 +2235,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i516: ; p
   %774 = select i1 %770, i64 15, i64 %773
   %775 = icmp ule i64 %768, %774
   %.not.i521 = icmp ugt i64 %768, 15
-  %or.cond2242 = or i1 %775, %.not.i521
-  br i1 %or.cond2242, label %788, label %.critedge.i522
+  %or.cond2642 = or i1 %775, %.not.i521
+  br i1 %or.cond2642, label %788, label %.critedge.i522
 
 .critedge.i522:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i516
   %776 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %46, i64 noundef 0, i64 noundef 0, ptr noundef %769, i64 noundef %767)
@@ -3164,8 +3164,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i633: ; p
   %1104 = select i1 %1100, i64 15, i64 %1103
   %1105 = icmp ule i64 %1098, %1104
   %.not.i638 = icmp ugt i64 %1098, 15
-  %or.cond2243 = or i1 %1105, %.not.i638
-  br i1 %or.cond2243, label %1118, label %.critedge.i639
+  %or.cond2643 = or i1 %1105, %.not.i638
+  br i1 %or.cond2643, label %1118, label %.critedge.i639
 
 .critedge.i639:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i633
   %1106 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %53, i64 noundef 0, i64 noundef 0, ptr noundef %1099, i64 noundef %1097)
@@ -4447,8 +4447,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i779: ; p
   %1517 = select i1 %1513, i64 15, i64 %1516
   %1518 = icmp ule i64 %1511, %1517
   %.not.i784 = icmp ugt i64 %1511, 15
-  %or.cond2244 = or i1 %1518, %.not.i784
-  br i1 %or.cond2244, label %1531, label %.critedge.i785
+  %or.cond2644 = or i1 %1518, %.not.i784
+  br i1 %or.cond2644, label %1531, label %.critedge.i785
 
 .critedge.i785:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i779
   %1519 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %72, i64 noundef 0, i64 noundef 0, ptr noundef %1512, i64 noundef %1510)
@@ -6344,7 +6344,7 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %43, %44, %45, %46, 
   br label %.lr.ph
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %.preheader27
-  %71 = add i64 %.025, 1
+  %71 = add nuw i64 %.025, 1
   br label %43, !llvm.loop !229
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -8679,18 +8679,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !297
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #29
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #29
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !12
@@ -8724,7 +8724,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -9350,13 +9350,13 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store double 0.000000e+00, ptr %5, align 8, !tbaa !190
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !190
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

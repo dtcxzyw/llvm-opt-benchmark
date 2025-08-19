@@ -329,8 +329,8 @@ define noalias noundef ptr @fmap_duplicate(ptr noundef readonly captures(address
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !34
   %.not74 = icmp ult i64 %20, %.pre
-  %or.cond84 = select i1 %or.cond, i1 true, i1 %.not74
-  br i1 %or.cond84, label %._crit_edge, label %25
+  %or.cond91 = select i1 %or.cond, i1 true, i1 %.not74
+  br i1 %or.cond91, label %._crit_edge, label %25
 
 25:                                               ; preds = %17
   %26 = add i64 %.pre, %12
@@ -784,12 +784,12 @@ define internal noundef ptr @handle_gets(ptr noundef captures(none) %0, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %20, %51
-  %..sink128 = phi i64 [ %55, %51 ], [ %., %20 ], [ %., %48 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %11, i64 %..sink128, i1 false)
-  %56 = getelementptr inbounds i8, ptr %1, i64 %..sink128
+  %..sink134 = phi i64 [ %55, %51 ], [ %., %20 ], [ %., %48 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %11, i64 %..sink134, i1 false)
+  %56 = getelementptr inbounds i8, ptr %1, i64 %..sink134
   store i8 0, ptr %56, align 1, !tbaa !41
   %57 = load i64, ptr %2, align 8, !tbaa !40
-  %58 = add i64 %57, %..sink128
+  %58 = add i64 %57, %..sink134
   store i64 %58, ptr %2, align 8, !tbaa !40
   br label %.thread
 
@@ -1089,12 +1089,12 @@ define internal noundef ptr @mem_gets(ptr noundef readonly captures(none) %0, pt
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %11 to i64
   %25 = sub i64 %23, %24
-  %..sink52 = select i1 %.not49, i64 %., i64 %25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %11, i64 %..sink52, i1 false)
-  %26 = getelementptr inbounds i8, ptr %1, i64 %..sink52
+  %..sink54 = select i1 %.not49, i64 %., i64 %25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %11, i64 %..sink54, i1 false)
+  %26 = getelementptr inbounds i8, ptr %1, i64 %..sink54
   store i8 0, ptr %26, align 1, !tbaa !41
   %27 = load i64, ptr %2, align 8, !tbaa !40
-  %28 = add i64 %27, %..sink52
+  %28 = add i64 %27, %..sink54
   store i64 %28, ptr %2, align 8, !tbaa !40
   br label %29
 
@@ -1280,8 +1280,8 @@ fmap_need_off_once_len.exit:                      ; preds = %45
   %.not20.i = icmp eq ptr %50, null
   %51 = select i1 %.not20.i, i64 0, i64 %spec.select.i
   %52 = add i64 %51, %.056
-  %.not97 = icmp eq i64 %51, 0
-  br i1 %.not97, label %.thread91, label %53
+  %.not104 = icmp eq i64 %51, 0
+  br i1 %.not104, label %.thread91, label %53
 
 53:                                               ; preds = %fmap_need_off_once_len.exit
   %54 = load i32, ptr %10, align 4, !tbaa !3
@@ -1655,7 +1655,7 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
   %35 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %.07488)
   %36 = and i64 %32, 1073741823
   %.not85 = icmp ule i64 %.07488, %spec.select
-  br i1 %.not85, label %.preheader98, label %37
+  br i1 %.not85, label %.preheader100, label %37
 
 37:                                               ; preds = %34
   %38 = load i64, ptr %21, align 8, !tbaa !40
@@ -1663,13 +1663,13 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
   %40 = load i64, ptr %39, align 8, !tbaa !40
   %41 = and i64 %40, 1073741823
   %42 = icmp samesign ugt i64 %41, %36
-  br i1 %42, label %.preheader98, label %55
+  br i1 %42, label %.preheader100, label %55
 
-.preheader98:                                     ; preds = %37, %34
+.preheader100:                                    ; preds = %37, %34
   br label %43
 
-43:                                               ; preds = %.preheader98, %50
-  %.076.in = phi i64 [ %.076, %50 ], [ %35, %.preheader98 ]
+43:                                               ; preds = %.preheader100, %50
+  %.076.in = phi i64 [ %.076, %50 ], [ %35, %.preheader100 ]
   %.076 = add i64 %.076.in, -1
   %44 = getelementptr inbounds nuw [2048 x i64], ptr %2, i64 0, i64 %.076
   %45 = load i64, ptr %44, align 8, !tbaa !40

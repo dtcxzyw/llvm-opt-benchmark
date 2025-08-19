@@ -3717,8 +3717,8 @@ common.resume:                                    ; preds = %12
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h1faab2848d635f37E.llvm.2634006388847390452.exit": ; preds = %0
   store i64 230, ptr %3, align 8
-  %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 408
-  store ptr null, ptr %.sroa.424.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 408
+  store ptr null, ptr %.sroa.425.0..sroa_idx, align 8
   %5 = ptrtoint ptr %3 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 1, ptr %1, align 8
@@ -7966,10 +7966,10 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %41
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit.sink.split.i.i.i": ; preds = %68, %67
   %.sink.i.i.i = phi i64 [ 16, %68 ], [ 8, %67 ]
-  %.sink1.i.i.i = phi i64 [ %70, %68 ], [ %65, %67 ]
+  %.sink2.i.i.i = phi i64 [ %70, %68 ], [ %65, %67 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i.i.i
   %73 = load ptr, ptr %72, align 8, !alias.scope !1595, !noalias !1576, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %73, i64 noundef %.sink1.i.i.i, i64 noundef 1) #30, !noalias !1596
+  call void @__rust_dealloc(ptr noundef nonnull %73, i64 noundef %.sink2.i.i.i, i64 noundef 1) #30, !noalias !1596
   br label %76
 
 74:                                               ; preds = %_ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit, %_ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit.thread
@@ -8167,10 +8167,10 @@ _ZN5prost8encoding7message5merge17h943b3d5537d226ebE.exit: ; preds = %93
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit.sink.split.i.i.i32": ; preds = %115, %114
   %.sink.i.i.i33 = phi i64 [ 16, %115 ], [ 8, %114 ]
-  %.sink1.i.i.i34 = phi i64 [ %117, %115 ], [ %112, %114 ]
+  %.sink2.i.i.i34 = phi i64 [ %117, %115 ], [ %112, %114 ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i.i.i33
   %120 = load ptr, ptr %119, align 8, !alias.scope !1662, !noalias !1643, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %120, i64 noundef %.sink1.i.i.i34, i64 noundef 1) #30, !noalias !1663
+  call void @__rust_dealloc(ptr noundef nonnull %120, i64 noundef %.sink2.i.i.i34, i64 noundef 1) #30, !noalias !1663
   br label %124
 
 121:                                              ; preds = %_ZN5prost8encoding7message5merge17h943b3d5537d226ebE.exit.thread, %_ZN5prost8encoding7message5merge17h943b3d5537d226ebE.exit
@@ -10459,7 +10459,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN99_$LT$futures_util..stream..stream
 define hidden { i64, ptr } @"_ZN6remote11ssh_session17read_with_timeout28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5bbba9d874d7d5b0E.llvm.2634006388847390452"(ptr noundef nonnull align 8 captures(none) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8, !range !426, !noundef !4
-  switch i8 %4, label %default.unreachable56 [
+  switch i8 %4, label %default.unreachable60 [
     i8 0, label %5
     i8 1, label %12
     i8 2, label %13
@@ -10473,7 +10473,7 @@ define hidden { i64, ptr } @"_ZN6remote11ssh_session17read_with_timeout28_$u7b$$
   %.val.i.pre = load ptr, ptr %.phi.trans.insert54, align 8, !alias.scope !2045, !noalias !2048
   br label %14
 
-default.unreachable56:                            ; preds = %2
+default.unreachable60:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -10639,14 +10639,14 @@ define hidden { i64, ptr } @"_ZN6remote11ssh_session17read_with_timeout28_$u7b$$
   %4 = alloca [56 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i8, ptr %5, align 8, !range !426, !noundef !4
-  switch i8 %6, label %default.unreachable13 [
+  switch i8 %6, label %default.unreachable14 [
     i8 0, label %7
     i8 1, label %17
     i8 2, label %18
     i8 3, label %12
   ]
 
-default.unreachable13:                            ; preds = %2
+default.unreachable14:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2

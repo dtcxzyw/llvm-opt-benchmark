@@ -941,9 +941,9 @@ get_ue_golomb_long.exit.i:                        ; preds = %599, %595, %553
   br label %618
 
 618:                                              ; preds = %get_ue_golomb_long.exit.i, %538
-  %.sink108.i = phi i64 [ 10820, %get_ue_golomb_long.exit.i ], [ 10824, %538 ]
+  %.sink110.i = phi i64 [ 10820, %get_ue_golomb_long.exit.i ], [ 10824, %538 ]
   %.sink.i = phi i32 [ %617, %get_ue_golomb_long.exit.i ], [ %552, %538 ]
-  %619 = getelementptr inbounds nuw i8, ptr %228, i64 %.sink108.i
+  %619 = getelementptr inbounds nuw i8, ptr %228, i64 %.sink110.i
   store i32 %.sink.i, ptr %619, align 4, !tbaa !64
   store i32 1, ptr %228, align 4, !tbaa !52
   br label %decode_registered_user_data.exit
@@ -1618,18 +1618,18 @@ define range(i32 -2147483648, 1) i32 @ff_h2645_sei_to_frame(ptr noundef %0, ptr 
 
 39:                                               ; preds = %37, %34
   %40 = icmp eq i32 %25, 5
-  br i1 %40, label %.sink.split183, label %44
+  br i1 %40, label %.sink.split190, label %44
 
-.sink.split183:                                   ; preds = %39
+.sink.split190:                                   ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %42 = load i32, ptr %41, align 4, !tbaa !77
   %.not160 = icmp eq i32 %42, 0
   %43 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %.188 = select i1 %.not160, i32 2, i32 1
-  store i32 %.188, ptr %43, align 4, !tbaa !105
+  %.195 = select i1 %.not160, i32 2, i32 1
+  store i32 %.195, ptr %43, align 4, !tbaa !105
   br label %44
 
-44:                                               ; preds = %.sink.split183, %39, %18, %11, %8
+44:                                               ; preds = %.sink.split190, %39, %18, %11, %8
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %46 = load i32, ptr %45, align 8, !tbaa !106
   %.not161 = icmp eq i32 %46, 0
@@ -1808,7 +1808,7 @@ define range(i32 -2147483648, 1) i32 @ff_h2645_sei_to_frame(ptr noundef %0, ptr 
   %146 = getelementptr inbounds nuw i8, ptr %113, i64 40
   store i32 %145, ptr %146, align 8, !tbaa !147
   %147 = getelementptr inbounds nuw i8, ptr %109, i64 32
-  br label %.sink.split185
+  br label %.sink.split192
 
 148:                                              ; preds = %114
   %149 = getelementptr inbounds nuw i8, ptr %113, i64 48
@@ -1844,16 +1844,16 @@ define range(i32 -2147483648, 1) i32 @ff_h2645_sei_to_frame(ptr noundef %0, ptr 
   %167 = getelementptr inbounds nuw i8, ptr %113, i64 40
   store i32 %166, ptr %167, align 8, !tbaa !147
   %168 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  br label %.sink.split185
+  br label %.sink.split192
 
-.sink.split185:                                   ; preds = %130, %161
-  %.sink186.in = phi ptr [ %168, %161 ], [ %147, %130 ]
-  %.sink186 = load i32, ptr %.sink186.in, align 4, !tbaa !64
+.sink.split192:                                   ; preds = %130, %161
+  %.sink193.in = phi ptr [ %168, %161 ], [ %147, %130 ]
+  %.sink193 = load i32, ptr %.sink193.in, align 4, !tbaa !64
   %169 = getelementptr inbounds nuw i8, ptr %113, i64 44
-  store i32 %.sink186, ptr %169, align 4, !tbaa !154
+  store i32 %.sink193, ptr %169, align 4, !tbaa !154
   br label %170
 
-170:                                              ; preds = %.sink.split185, %158
+170:                                              ; preds = %.sink.split192, %158
   %171 = getelementptr inbounds nuw i8, ptr %109, i64 36
   %172 = load i32, ptr %171, align 4, !tbaa !62
   %173 = getelementptr inbounds nuw i8, ptr %113, i64 60
@@ -2137,7 +2137,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h2645_sei_to_side_data(ptr
   %.not112 = icmp eq i32 %109, 0
   %.not113 = icmp eq i32 %89, 0
   %or.cond = select i1 %.not112, i1 %.not113, i1 false
-  br i1 %or.cond, label %.thread174, label %110
+  br i1 %or.cond, label %.thread179, label %110
 
 110:                                              ; preds = %108
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.5) #9
@@ -2145,7 +2145,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h2645_sei_to_side_data(ptr
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 80
   %.pre172 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !167
   %111 = icmp eq i32 %.pre172, 0
-  br i1 %111, label %.thread174, label %112
+  br i1 %111, label %.thread179, label %112
 
 112:                                              ; preds = %110
   %113 = load i64, ptr %.pre, align 4
@@ -2213,16 +2213,16 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h2645_sei_to_side_data(ptr
   %151 = fdiv nsz double %149, %150
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.6, double noundef %116, double noundef %121, double noundef %126, double noundef %131, double noundef %136, double noundef %141, double noundef %146, double noundef %151) #9
   %.pre173 = load ptr, ptr %7, align 8, !tbaa !163
-  br label %.thread174
+  br label %.thread179
 
-.thread174:                                       ; preds = %108, %112, %110
+.thread179:                                       ; preds = %108, %112, %110
   %152 = phi ptr [ %.pre173, %112 ], [ %.pre, %110 ], [ %51, %108 ]
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 84
   %154 = load i32, ptr %153, align 4, !tbaa !176
   %.not115 = icmp eq i32 %154, 0
   br i1 %.not115, label %.sink.split, label %155
 
-155:                                              ; preds = %.thread174
+155:                                              ; preds = %.thread179
   %156 = getelementptr inbounds nuw i8, ptr %152, i64 64
   %157 = load i64, ptr %156, align 4
   %.sroa.0.0.extract.trunc.i145 = trunc i64 %157 to i32
@@ -2242,7 +2242,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h2645_sei_to_side_data(ptr
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.7, double noundef %160, double noundef %165) #9
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.thread174, %155, %50
+.sink.split:                                      ; preds = %.thread179, %155, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %166
 

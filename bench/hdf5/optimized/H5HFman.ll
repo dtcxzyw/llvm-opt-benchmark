@@ -315,12 +315,12 @@ define range(i32 -1, 1) i32 @H5HF__man_insert(ptr noundef %0, i64 noundef %1, pt
   br i1 %.not79, label %156, label %.thread.thread
 
 .thread.thread:                                   ; preds = %._crit_edge93, %.thread
-  %.2104 = phi i32 [ -1, %.thread ], [ 0, %._crit_edge93 ]
-  %.07183103 = phi ptr [ %.071, %.thread ], [ %84, %._crit_edge93 ]
+  %.2107 = phi i32 [ -1, %.thread ], [ 0, %._crit_edge93 ]
+  %.07183106 = phi ptr [ %.071, %.thread ], [ %84, %._crit_edge93 ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %148 = load ptr, ptr %147, align 8, !tbaa !54
   %149 = load i64, ptr %6, align 8, !tbaa !8
-  %150 = call i32 @H5AC_unprotect(ptr noundef %148, ptr noundef nonnull @H5AC_FHEAP_DBLOCK, i64 noundef %149, ptr noundef nonnull %.07183103, i32 noundef 2) #5
+  %150 = call i32 @H5AC_unprotect(ptr noundef %148, ptr noundef nonnull @H5AC_FHEAP_DBLOCK, i64 noundef %149, ptr noundef nonnull %.07183106, i32 noundef 2) #5
   %151 = icmp slt i32 %150, 0
   br i1 %151, label %152, label %156
 
@@ -331,7 +331,7 @@ define range(i32 -1, 1) i32 @H5HF__man_insert(ptr noundef %0, i64 noundef %1, pt
   br label %156
 
 156:                                              ; preds = %.thread, %.thread.thread, %152, %4
-  %.072 = phi i32 [ -1, %152 ], [ %.2104, %.thread.thread ], [ -1, %.thread ], [ 0, %4 ]
+  %.072 = phi i32 [ -1, %152 ], [ %.2107, %.thread.thread ], [ -1, %.thread ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

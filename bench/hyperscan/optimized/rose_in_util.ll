@@ -2023,8 +2023,8 @@ define hidden void @_ZN3ue217calcVertexOffsetsERNS_11RoseInGraphE(ptr noundef no
 _ZN3ue25depthpLEi.exit:                           ; preds = %28, %31
   %.sroa.0.0.i.i = phi i32 [ %32, %31 ], [ %22, %28 ]
   %storemerge.off = add i32 %storemerge, -2147483647
-  %switch229 = icmp ult i32 %storemerge.off, 2
-  br i1 %switch229, label %_ZN3ue25depthpLEi.exit124, label %34
+  %switch240 = icmp ult i32 %storemerge.off, 2
+  br i1 %switch240, label %_ZN3ue25depthpLEi.exit124, label %34
 
 34:                                               ; preds = %_ZN3ue25depthpLEi.exit
   %35 = add i32 %30, %storemerge
@@ -7184,8 +7184,8 @@ _ZNSt6vectorItSaItEEC2ERKS1_.exit:                ; preds = %16, %26
   %.not.i.i.i.i13 = icmp eq i64 %63, 0
   %64 = load ptr, ptr %31, align 8
   %65 = icmp eq ptr %33, %64
-  %or.cond16 = select i1 %.not.i.i.i.i13, i1 true, i1 %65
-  br i1 %or.cond16, label %.body, label %.body.sink.split
+  %or.cond21 = select i1 %.not.i.i.i.i13, i1 true, i1 %65
+  br i1 %or.cond21, label %.body, label %.body.sink.split
 
 .body.sink.split:                                 ; preds = %.body10, %40
   %.sink = phi ptr [ %43, %40 ], [ %64, %.body10 ]
@@ -9214,9 +9214,9 @@ _ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE40priv_forwa
   br label %_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6insertENS0_12vec_iteratorIPjLb1EEERKj.exit
 
 _ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6insertENS0_12vec_iteratorIPjLb1EEERKj.exit: ; preds = %25, %_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE40priv_forward_range_insert_expand_forwardINS0_3dtl17insert_copy_proxyIS4_PjEEEEvS9_mT_.exit.i.i.i, %33
-  %.sink16 = phi ptr [ %.pre, %33 ], [ %55, %_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE40priv_forward_range_insert_expand_forwardINS0_3dtl17insert_copy_proxyIS4_PjEEEEvS9_mT_.exit.i.i.i ], [ %23, %25 ]
+  %.sink20 = phi ptr [ %.pre, %33 ], [ %55, %_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE40priv_forward_range_insert_expand_forwardINS0_3dtl17insert_copy_proxyIS4_PjEEEEvS9_mT_.exit.i.i.i ], [ %23, %25 ]
   %.sink = phi i8 [ 1, %33 ], [ 1, %_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE40priv_forward_range_insert_expand_forwardINS0_3dtl17insert_copy_proxyIS4_PjEEEEvS9_mT_.exit.i.i.i ], [ 0, %25 ]
-  store ptr %.sink16, ptr %0, align 8
+  store ptr %.sink20, ptr %0, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sink, ptr %56, align 8
   ret void

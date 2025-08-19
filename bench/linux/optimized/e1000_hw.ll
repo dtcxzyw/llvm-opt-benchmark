@@ -758,13 +758,13 @@ define dso_local range(i32 -3, 7) i32 @e1000_init_hw(ptr noundef %0) local_unnam
   br label %26
 
 26:                                               ; preds = %20, %20, %20, %25
-  %.sink4 = phi i32 [ 15, %25 ], [ 14, %20 ], [ 14, %20 ], [ 14, %20 ]
+  %.sink7 = phi i32 [ 15, %25 ], [ 14, %20 ], [ 14, %20 ], [ 14, %20 ]
   %27 = shl nuw nsw i32 %21, 3
   %28 = shl nuw i32 255, %27
   %29 = xor i32 %28, -1
   %30 = load i32, ptr %11, align 4
   %31 = and i32 %30, %29
-  %32 = shl nuw nsw i32 %.sink4, %27
+  %32 = shl nuw nsw i32 %.sink7, %27
   %33 = or i32 %31, %32
   store i32 %33, ptr %11, align 4
   switch i32 %24, label %43 [
@@ -778,13 +778,13 @@ define dso_local range(i32 -3, 7) i32 @e1000_init_hw(ptr noundef %0) local_unnam
   br label %35
 
 35:                                               ; preds = %20, %26, %26, %34
-  %.sink10 = phi i32 [ 15, %34 ], [ 14, %26 ], [ 14, %26 ], [ 14, %20 ]
+  %.sink13 = phi i32 [ 15, %34 ], [ 14, %26 ], [ 14, %26 ], [ 14, %20 ]
   %36 = shl nuw nsw i32 %21, 3
   %37 = shl nuw i32 255, %36
   %38 = xor i32 %37, -1
   %39 = load i32, ptr %12, align 8
   %40 = and i32 %39, %38
-  %41 = shl nuw nsw i32 %.sink10, %36
+  %41 = shl nuw nsw i32 %.sink13, %36
   %42 = or i32 %40, %41
   store i32 %42, ptr %12, align 8
   br label %43
@@ -865,19 +865,19 @@ thread-pre-split:                                 ; preds = %43
 72:                                               ; preds = %71, %69, %60, %58, %55
   %73 = load i32, ptr %3, align 8
   %74 = icmp ult i32 %73, 7
-  br i1 %74, label %75, label %.preheader15
+  br i1 %74, label %75, label %.preheader18
 
 75:                                               ; preds = %72
   %76 = load ptr, ptr %0, align 8
   %77 = getelementptr i8, ptr %76, i64 56
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %77) #7, !srcloc !6
-  br label %.preheader15
+  br label %.preheader18
 
-.preheader15:                                     ; preds = %75, %72
+.preheader18:                                     ; preds = %75, %72
   br label %78
 
-78:                                               ; preds = %.preheader15, %78
-  %79 = phi i64 [ %90, %78 ], [ 0, %.preheader15 ]
+78:                                               ; preds = %.preheader18, %78
+  %79 = phi i64 [ %90, %78 ], [ 0, %.preheader18 ]
   %80 = load ptr, ptr %0, align 8
   %81 = load i32, ptr %3, align 8
   %82 = icmp ugt i32 %81, 2
@@ -2501,9 +2501,9 @@ thread-pre-split97:                               ; preds = %200
   br i1 %634, label %635, label %.thread129
 
 .thread129.sink.split:                            ; preds = %555, %538
-  %.sink157 = phi i64 [ %535, %538 ], [ %552, %555 ]
+  %.sink237 = phi i64 [ %535, %538 ], [ %552, %555 ]
   %.ph128.ph = phi i32 [ %539, %538 ], [ %556, %555 ]
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @e1000_phy_lock, i64 noundef %.sink157) #7
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @e1000_phy_lock, i64 noundef %.sink237) #7
   br label %.thread129
 
 .thread129:                                       ; preds = %571, %575, %598, %601, %.thread129.sink.split, %485, %529, %541, %546, %558, %561, %588, %606, %609, %614, %617, %632
@@ -2705,9 +2705,9 @@ thread-pre-split97:                               ; preds = %200
   br i1 %727, label %728, label %.thread139
 
 .thread139.sink.split:                            ; preds = %711, %696
-  %.sink158 = phi i64 [ %692, %696 ], [ %708, %711 ]
+  %.sink238 = phi i64 [ %692, %696 ], [ %708, %711 ]
   %.ph138.ph = phi i32 [ %697, %696 ], [ %712, %711 ]
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @e1000_phy_lock, i64 noundef %.sink158) #7
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @e1000_phy_lock, i64 noundef %.sink238) #7
   br label %.thread139
 
 .thread139:                                       ; preds = %.thread139.sink.split, %688, %699, %702, %714, %717, %720, %723
@@ -2772,20 +2772,20 @@ thread-pre-split97:                               ; preds = %200
   call void @msleep(i32 noundef 1) #7
   %758 = load i32, ptr %63, align 4
   %759 = icmp eq i32 %758, 2
-  br i1 %759, label %.preheader168, label %760
+  br i1 %759, label %.preheader248, label %760
 
 760:                                              ; preds = %749
   %761 = load ptr, ptr %0, align 8
   %762 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %761) #7, !srcloc !5
   %763 = and i32 %762, 524288
   %764 = icmp eq i32 %763, %.ph133
-  br i1 %764, label %.preheader168, label %785
+  br i1 %764, label %.preheader248, label %785
 
-.preheader168:                                    ; preds = %760, %749
+.preheader248:                                    ; preds = %760, %749
   br label %765
 
-765:                                              ; preds = %.preheader168, %772
-  %766 = phi i32 [ %773, %772 ], [ 0, %.preheader168 ]
+765:                                              ; preds = %.preheader248, %772
+  %766 = phi i32 [ %773, %772 ], [ 0, %.preheader248 ]
   call void @msleep(i32 noundef 10) #7
   %767 = load ptr, ptr %0, align 8
   %768 = getelementptr i8, ptr %767, i64 8

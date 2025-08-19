@@ -3241,10 +3241,10 @@ _ZN3std4path4Path11starts_with17h69bda1a4b4b525f3E.exit.us.i: ; preds = %298
   %.sroa.0193.1.i = phi ptr [ %.sroa.8195.0.i, %337 ], [ %.sroa.0193.0.i, %335 ]
   %.sroa.5194.1.i = phi ptr [ %.sroa.8195.0.i, %337 ], [ %.sroa.5194.0.i, %335 ]
   %.sroa.8195.1.i = phi ptr [ %.sroa.0193.0.i, %337 ], [ %.sroa.8195.0.i, %335 ]
-  %.sink6.i.i = phi ptr [ %.sroa.5194.0.i, %337 ], [ %.sroa.11.0.i, %335 ]
-  %341 = getelementptr inbounds i8, ptr %.sink6.i.i, i64 -40
+  %.sink9.i.i = phi ptr [ %.sroa.5194.0.i, %337 ], [ %.sroa.11.0.i, %335 ]
+  %341 = getelementptr inbounds i8, ptr %.sink9.i.i, i64 -40
   %342 = load ptr, ptr %341, align 8, !noalias !826, !nonnull !5, !noundef !5
-  %343 = getelementptr inbounds i8, ptr %.sink6.i.i, i64 -32
+  %343 = getelementptr inbounds i8, ptr %.sink9.i.i, i64 -32
   %344 = load i64, ptr %343, align 8, !noalias !826, !noundef !5
   %345 = invoke fastcc noundef zeroext i1 @_ZN5uu_rm10remove_dir17h7f8bb41436b62689E(ptr noalias noundef nonnull readonly align 1 %342, i64 noundef %344, ptr noalias noundef nonnull readonly align 1 dereferenceable(7) %2)
           to label %361 unwind label %.loopexit.i
@@ -3299,7 +3299,7 @@ _ZN3std4path4Path11starts_with17h69bda1a4b4b525f3E.exit.us.i: ; preds = %298
   br label %_ZN5uu_rm10handle_dir17h32ca07958ee19696E.exit
 
 361:                                              ; preds = %340
-  %362 = getelementptr inbounds i8, ptr %.sink6.i.i, i64 -48
+  %362 = getelementptr inbounds i8, ptr %.sink9.i.i, i64 -48
   %363 = trunc nuw i8 %.4.i to i1
   %364 = or i1 %345, %363
   %365 = zext i1 %364 to i8

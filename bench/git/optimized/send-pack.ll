@@ -609,8 +609,8 @@ define dso_local i32 @cmd_send_pack(i32 noundef %0, ptr noundef %1, ptr noundef 
   %270 = shl i16 %269, 11
   %271 = and i16 %270, 2048
   %.masked.masked.masked = or disjoint i16 %251, %255
-  %.masked89.masked = or i16 %.masked.masked.masked, %259
-  %.masked = or i16 %.masked89.masked, %263
+  %.masked102.masked = or i16 %.masked.masked.masked, %259
+  %.masked = or i16 %.masked102.masked, %263
   %272 = or i16 %.masked, %267
   %273 = or disjoint i16 %272, %271
   store i16 %273, ptr getelementptr inbounds nuw (i8, ptr @args, i64 8), align 8
@@ -680,27 +680,27 @@ define dso_local i32 @cmd_send_pack(i32 noundef %0, ptr noundef %1, ptr noundef 
   %294 = load i16, ptr getelementptr inbounds nuw (i8, ptr @args, i64 8), align 8
   %295 = and i16 %294, 16
   %.not49 = icmp eq i16 %295, 0
-  br i1 %.not49, label %.thread86, label %300
+  br i1 %.not49, label %.thread99, label %300
 
 296:                                              ; preds = %.loopexit70
-  br i1 %.not48, label %.thread86, label %297
+  br i1 %.not48, label %.thread99, label %297
 
 297:                                              ; preds = %296
   %298 = load i16, ptr getelementptr inbounds nuw (i8, ptr @args, i64 8), align 8
   %299 = and i16 %298, 16
   %.not51 = icmp eq i16 %299, 0
-  br i1 %.not51, label %.thread86, label %300
+  br i1 %.not51, label %.thread99, label %300
 
 300:                                              ; preds = %297, %293, %292
   call void @usage_with_options(ptr noundef nonnull @send_pack_usage, ptr noundef nonnull %30) #11
   unreachable
 
-.thread86:                                        ; preds = %293, %297, %296
+.thread99:                                        ; preds = %293, %297, %296
   %301 = load ptr, ptr %7, align 8, !tbaa !4
   %.not52 = icmp eq ptr %301, null
   br i1 %.not52, label %307, label %302
 
-302:                                              ; preds = %.thread86
+302:                                              ; preds = %.thread99
   %303 = call ptr @remote_get(ptr noundef nonnull %301) #10
   %304 = call i32 @remote_has_url(ptr noundef %303, ptr noundef nonnull %227) #10
   %.not53 = icmp eq i32 %304, 0
@@ -711,8 +711,8 @@ define dso_local i32 @cmd_send_pack(i32 noundef %0, ptr noundef %1, ptr noundef 
   call void (ptr, ...) @die(ptr noundef nonnull @.str.41, ptr noundef nonnull %227, ptr noundef %306) #11
   unreachable
 
-307:                                              ; preds = %302, %.thread86
-  %.037 = phi ptr [ %303, %302 ], [ null, %.thread86 ]
+307:                                              ; preds = %302, %.thread99
+  %.037 = phi ptr [ %303, %302 ], [ null, %.thread99 ]
   %308 = load i32, ptr %25, align 4, !tbaa !9
   %309 = icmp eq i32 %308, -1
   %.pre83 = load i16, ptr getelementptr inbounds nuw (i8, ptr @args, i64 8), align 8
@@ -862,16 +862,16 @@ define dso_local i32 @cmd_send_pack(i32 noundef %0, ptr noundef %1, ptr noundef 
   %switch.maskindex = trunc i32 %380 to i16
   %switch.shifted = lshr i16 7935, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond94 = select i1 %381, i1 %switch.lobit, i1 false
-  br i1 %or.cond94, label %switch.lookup, label %435
+  %or.cond107 = select i1 %381, i1 %switch.lobit, i1 false
+  br i1 %or.cond107, label %switch.lookup, label %435
 
 switch.lookup:                                    ; preds = %378
   %382 = zext nneg i32 %380 to i64
   %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.cmd_send_pack, i64 0, i64 %382
   %switch.load = load ptr, ptr %switch.gep, align 8
   %383 = zext nneg i32 %380 to i64
-  %switch.gep92 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.cmd_send_pack.4, i64 0, i64 %383
-  %switch.load93 = load ptr, ptr %switch.gep92, align 8
+  %switch.gep105 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.cmd_send_pack.4, i64 0, i64 %383
+  %switch.load106 = load ptr, ptr %switch.gep105, align 8
   store i64 0, ptr %376, align 8, !tbaa !43
   %384 = load ptr, ptr %377, align 8, !tbaa !35
   %.not9.i.i = icmp eq ptr %384, @strbuf_slopbuf
@@ -883,7 +883,7 @@ switch.lookup:                                    ; preds = %378
 
 strbuf_setlen.exit.i:                             ; preds = %385, %switch.lookup
   %386 = getelementptr inbounds nuw i8, ptr %.02452.i, i64 176
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.62, ptr noundef nonnull %switch.load93, ptr noundef nonnull %386) #10
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.62, ptr noundef nonnull %switch.load106, ptr noundef nonnull %386) #10
   %387 = getelementptr inbounds nuw i8, ptr %.02452.i, i64 152
   %388 = load ptr, ptr %387, align 8, !tbaa !4
   %.not29.i = icmp eq ptr %388, null

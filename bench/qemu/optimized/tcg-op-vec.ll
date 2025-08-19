@@ -435,7 +435,7 @@ define dso_local void @tcg_gen_stl_vec(ptr noundef %0, ptr noundef %1, i64 nound
   tail call void @llvm.assume(i1 %18)
   %19 = tail call ptr @tcg_emit_op(i32 noundef 153, i32 noundef 3) #5
   %20 = load i32, ptr %19, align 8
-  %21 = shl i32 %3, 16
+  %21 = shl nuw nsw i32 %3, 16
   %22 = and i32 %20, 65535
   %.masked.i = and i32 %21, 16711680
   %23 = or disjoint i32 %22, %.masked.i

@@ -916,26 +916,26 @@ define internal noundef i32 @preload_image(ptr noundef %0, ptr noundef initializ
   %34 = load i32, ptr %5, align 4, !tbaa !73
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph.split, label %._crit_edge.thread36, !llvm.loop !81
+  br i1 %36, label %.lr.ph.split, label %._crit_edge.thread38, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %2
-  br i1 %.not, label %._crit_edge.thread, label %._crit_edge.thread36
+  br i1 %.not, label %._crit_edge.thread, label %._crit_edge.thread38
 
-._crit_edge.thread36:                             ; preds = %.lr.ph.split, %._crit_edge
-  %.lcssa39 = phi i32 [ 0, %._crit_edge ], [ %34, %.lr.ph.split ]
+._crit_edge.thread38:                             ; preds = %.lr.ph.split, %._crit_edge
+  %.lcssa41 = phi i32 [ 0, %._crit_edge ], [ %34, %.lr.ph.split ]
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %38 = load i32, ptr %37, align 8, !tbaa !85
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %37, align 8, !tbaa !85
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge.thread36, %._crit_edge
-  %.lcssa35 = phi i32 [ %.lcssa39, %._crit_edge.thread36 ], [ 0, %._crit_edge ], [ %21, %.lr.ph.split.us ]
+._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge.thread38, %._crit_edge
+  %.lcssa37 = phi i32 [ %.lcssa41, %._crit_edge.thread38 ], [ 0, %._crit_edge ], [ %21, %.lr.ph.split.us ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @get_memory_row, ptr %40, align 8, !tbaa !63
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i32 0, ptr %41, align 8, !tbaa !86
-  %42 = add i32 %.lcssa35, -1
+  %42 = add i32 %.lcssa37, -1
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !32
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 56

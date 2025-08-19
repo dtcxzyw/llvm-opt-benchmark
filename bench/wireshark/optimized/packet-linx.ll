@@ -411,13 +411,13 @@ define internal i32 @dissect_linx(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %58 = lshr i32 %56, 24
   %59 = and i32 %58, 15
   %cond = icmp eq i32 %.0298310, 0
-  br i1 %cond, label %.thread312, label %60
+  br i1 %cond, label %.thread316, label %60
 
 60:                                               ; preds = %55
   %61 = load ptr, ptr %5, align 8
   %62 = tail call ptr @val_to_str_const(i32 noundef %.0298310, ptr noundef nonnull @linx_short_header_names, ptr noundef nonnull @.str.166)
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.165, ptr noundef %62)
-  switch i32 %.0298310, label %.thread312 [
+  switch i32 %.0298310, label %.thread316 [
     i32 1, label %63
     i32 5, label %99
     i32 2, label %113
@@ -678,7 +678,7 @@ define internal i32 @dissect_linx(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %243 = add i32 %.1297311, 4
   br label %245
 
-.thread312:                                       ; preds = %60, %55
+.thread316:                                       ; preds = %60, %55
   %244 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %11, ptr noundef %1, ptr noundef nonnull @ei_linx_header, ptr noundef %0, i32 noundef %.1297311, i32 noundef 4, ptr noundef nonnull @.str.174, i32 noundef %.0298310)
   br label %._crit_edge
 
@@ -687,7 +687,7 @@ define internal i32 @dissect_linx(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.not = icmp eq i32 %57, 15
   br i1 %.not, label %._crit_edge, label %55, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %245, %.thread312, %51
+._crit_edge:                                      ; preds = %245, %.thread316, %51
   %246 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %246
 }

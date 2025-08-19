@@ -1158,9 +1158,9 @@ define void @_ZN6LibRaw14write_ppm_tiffEv(ptr noundef nonnull align 8 dereferenc
   %wide.trip.count = zext nneg i32 %25 to i64
   br label %.preheader112
 
-.preheader112:                                    ; preds = %.preheader112.lr.ph, %.split.loop.exit192
-  %indvars.iv152 = phi i64 [ 0, %.preheader112.lr.ph ], [ %indvars.iv.next153, %.split.loop.exit192 ]
-  %.141117 = phi i32 [ 0, %.preheader112.lr.ph ], [ %spec.select, %.split.loop.exit192 ]
+.preheader112:                                    ; preds = %.preheader112.lr.ph, %.split.loop.exit199
+  %indvars.iv152 = phi i64 [ 0, %.preheader112.lr.ph ], [ %indvars.iv.next153, %.split.loop.exit199 ]
+  %.141117 = phi i32 [ 0, %.preheader112.lr.ph ], [ %spec.select, %.split.loop.exit199 ]
   %29 = getelementptr inbounds nuw [8192 x i32], ptr %28, i64 %indvars.iv152
   br label %30
 
@@ -1168,7 +1168,7 @@ define void @_ZN6LibRaw14write_ppm_tiffEv(ptr noundef nonnull align 8 dereferenc
   %indvars.iv = phi i64 [ 8192, %.preheader112 ], [ %indvars.iv.next, %32 ]
   %.042 = phi i32 [ 0, %.preheader112 ], [ %35, %32 ]
   %31 = icmp samesign ugt i64 %indvars.iv, 33
-  br i1 %31, label %32, label %.split.loop.exit192
+  br i1 %31, label %32, label %.split.loop.exit199
 
 32:                                               ; preds = %30
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -1180,16 +1180,16 @@ define void @_ZN6LibRaw14write_ppm_tiffEv(ptr noundef nonnull align 8 dereferenc
 
 .split.loop.exit:                                 ; preds = %32
   %37 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.split.loop.exit192
+  br label %.split.loop.exit199
 
-.split.loop.exit192:                              ; preds = %30, %.split.loop.exit
+.split.loop.exit199:                              ; preds = %30, %.split.loop.exit
   %.lcssa150 = phi i32 [ %37, %.split.loop.exit ], [ 32, %30 ]
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.141117, i32 %.lcssa150)
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit114.loopexit, label %.preheader112, !llvm.loop !107
 
-.loopexit114.loopexit:                            ; preds = %.split.loop.exit192
+.loopexit114.loopexit:                            ; preds = %.split.loop.exit199
   %38 = shl i32 %spec.select, 3
   %39 = sitofp i32 %38 to float
   br label %.loopexit114
@@ -1605,7 +1605,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %78, %.noexc74, %_ZN
   br label %245
 
 245:                                              ; preds = %._crit_edge.thread, %._crit_edge183, %._crit_edge
-  %.150.lcssa191 = phi i32 [ %.150.lcssa, %._crit_edge183 ], [ %.150.lcssa, %._crit_edge ], [ %206, %._crit_edge.thread ]
+  %.150.lcssa198 = phi i32 [ %.150.lcssa, %._crit_edge183 ], [ %.150.lcssa, %._crit_edge ], [ %206, %._crit_edge.thread ]
   %246 = phi i16 [ %.pre187, %._crit_edge183 ], [ %198, %._crit_edge ], [ %198, %._crit_edge.thread ]
   %247 = phi i32 [ %.pre186, %._crit_edge183 ], [ %.pre, %._crit_edge ], [ 8, %._crit_edge.thread ]
   %248 = phi i32 [ %.pre184, %._crit_edge183 ], [ %.pre185.pre, %._crit_edge ], [ %.pre185.pre, %._crit_edge.thread ]
@@ -1616,7 +1616,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %78, %.noexc74, %_ZN
   %253 = load ptr, ptr %195, align 8, !tbaa !113
   %254 = call i64 @fwrite(ptr noundef %.sroa.096.0, i64 noundef %251, i64 noundef %252, ptr noundef %253)
   %255 = add nuw nsw i32 %.048140, 1
-  %.reass = add i32 %.150.lcssa191, %invariant.op
+  %.reass = add i32 %.150.lcssa198, %invariant.op
   %256 = load i16, ptr %7, align 4, !tbaa !97
   %257 = zext i16 %256 to i32
   %258 = icmp samesign ult i32 %255, %257

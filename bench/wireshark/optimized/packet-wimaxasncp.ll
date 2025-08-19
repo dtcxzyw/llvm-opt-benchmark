@@ -614,9 +614,9 @@ match_ver_value_string.exit.thread:               ; preds = %._crit_edge.i, %mat
   br label %match_ver_value_string.exit162
 
 .thread:                                          ; preds = %92, %98
-  %.lcssa183 = phi ptr [ %95, %98 ], [ getelementptr inbounds nuw (i8, ptr @wimaxasncp_func_to_msg_vals_map, i64 160), %92 ]
+  %.lcssa192 = phi ptr [ %95, %98 ], [ getelementptr inbounds nuw (i8, ptr @wimaxasncp_func_to_msg_vals_map, i64 160), %92 ]
   %99 = and i32 %88, 31
-  %100 = getelementptr inbounds nuw i8, ptr %.lcssa183, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %.lcssa192, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = load i32, ptr @global_wimaxasncp_nwg_ver, align 4
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 16

@@ -543,8 +543,8 @@ define hidden void @_ZN14PhaseIdealLoop27hoist_invariant_check_castsEPK13IdealLo
 
 31:                                               ; preds = %.lr.ph89, %._crit_edge82
   %.087 = phi ptr [ %23, %.lr.ph89 ], [ %202, %._crit_edge82 ]
-  %.sroa.18.086 = phi ptr [ %21, %.lr.ph89 ], [ %.sroa.18.1.lcssa99, %._crit_edge82 ]
-  %.sroa.11.085 = phi i32 [ 2, %.lr.ph89 ], [ %.sroa.11.1.lcssa98, %._crit_edge82 ]
+  %.sroa.18.086 = phi ptr [ %21, %.lr.ph89 ], [ %.sroa.18.1.lcssa112, %._crit_edge82 ]
+  %.sroa.11.085 = phi i32 [ 2, %.lr.ph89 ], [ %.sroa.11.1.lcssa111, %._crit_edge82 ]
   %.sroa.0.084 = phi i32 [ 0, %.lr.ph89 ], [ %.sroa.0.3.lcssa, %._crit_edge82 ]
   %32 = load ptr, ptr %.087, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -870,8 +870,8 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35: ; preds = %_ZN9VectorSet8
   br i1 %201, label %90, label %._crit_edge82, !llvm.loop !12
 
 ._crit_edge82:                                    ; preds = %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35, %._crit_edge.thread, %._crit_edge
-  %.sroa.18.1.lcssa99 = phi ptr [ %.sroa.18.2, %._crit_edge ], [ %.sroa.18.086, %._crit_edge.thread ], [ %.sroa.18.2, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35 ]
-  %.sroa.11.1.lcssa98 = phi i32 [ %.sroa.11.2, %._crit_edge ], [ %.sroa.11.085, %._crit_edge.thread ], [ %.sroa.11.2, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35 ]
+  %.sroa.18.1.lcssa112 = phi ptr [ %.sroa.18.2, %._crit_edge ], [ %.sroa.18.086, %._crit_edge.thread ], [ %.sroa.18.2, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35 ]
+  %.sroa.11.1.lcssa111 = phi i32 [ %.sroa.11.2, %._crit_edge ], [ %.sroa.11.085, %._crit_edge.thread ], [ %.sroa.11.2, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35 ]
   %.sroa.0.3.lcssa = phi i32 [ %.sroa.0.2, %._crit_edge ], [ %.sroa.0.084, %._crit_edge.thread ], [ 0, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35 ]
   %202 = getelementptr inbounds nuw i8, ptr %.087, i64 8
   %203 = icmp ult ptr %202, %27

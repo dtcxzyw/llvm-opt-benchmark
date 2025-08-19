@@ -1665,29 +1665,29 @@ define void @Gli_ManSimulateSeqPref(ptr noundef captures(none) %0, i32 noundef %
   br i1 %8, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %2
-  %.val107210 = load ptr, ptr %4, align 8, !tbaa !21
-  %.not211 = icmp eq ptr %.val107210, null
-  br i1 %.not211, label %.critedge, label %.lr.ph215
+  %.val107219 = load ptr, ptr %4, align 8, !tbaa !21
+  %.not220 = icmp eq ptr %.val107219, null
+  br i1 %.not220, label %.critedge, label %.lr.ph224
 
-.lr.ph:                                           ; preds = %.lr.ph215
+.lr.ph:                                           ; preds = %.lr.ph224
   %.val107 = load ptr, ptr %4, align 8, !tbaa !21
   %.not = icmp eq ptr %.val107, null
-  br i1 %.not, label %.critedge, label %.lr.ph215, !llvm.loop !51
+  br i1 %.not, label %.critedge, label %.lr.ph224, !llvm.loop !51
 
-.lr.ph215:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.val107214 = phi ptr [ %.val107, %.lr.ph ], [ %.val107210, %.lr.ph.preheader ]
-  %.val98132213 = phi ptr [ %.val98, %.lr.ph ], [ %.val98128, %.lr.ph.preheader ]
-  %indvars.iv212 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %9 = getelementptr i8, ptr %.val98132213, i64 8
+.lr.ph224:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.val107223 = phi ptr [ %.val107, %.lr.ph ], [ %.val107219, %.lr.ph.preheader ]
+  %.val98132222 = phi ptr [ %.val98, %.lr.ph ], [ %.val98128, %.lr.ph.preheader ]
+  %indvars.iv221 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %9 = getelementptr i8, ptr %.val98132222, i64 8
   %.val106.val = load ptr, ptr %9, align 8, !tbaa !14
-  %10 = getelementptr inbounds nuw i32, ptr %.val106.val, i64 %indvars.iv212
+  %10 = getelementptr inbounds nuw i32, ptr %.val106.val, i64 %indvars.iv221
   %11 = load i32, ptr %10, align 4, !tbaa !26
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i32, ptr %.val107214, i64 %12
+  %13 = getelementptr inbounds i32, ptr %.val107223, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = tail call i32 @Gia_ManRandom(i32 noundef 0) #24
   store i32 %15, ptr %14, align 8, !tbaa !39
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv212, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv221, 1
   %.val98 = load ptr, ptr %0, align 8, !tbaa !15
   %.val99 = load i32, ptr %5, align 4, !tbaa !3
   %16 = getelementptr i8, ptr %.val98, i64 4
@@ -1697,7 +1697,7 @@ define void @Gli_ManSimulateSeqPref(ptr noundef captures(none) %0, i32 noundef %
   %19 = icmp slt i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !51
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph215
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph224
   br label %.critedge, !llvm.loop !51
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %2
@@ -1910,29 +1910,29 @@ Gli_ManSimulateSeqNode.exit:                      ; preds = %._crit_edge.us.i, %
   br i1 %98, label %.lr.ph155.preheader, label %.critedge8
 
 .lr.ph155.preheader:                              ; preds = %.critedge6
-  %.val111221 = load ptr, ptr %4, align 8, !tbaa !21
-  %.not89222 = icmp eq ptr %.val111221, null
-  br i1 %.not89222, label %.critedge8, label %.lr.ph226
+  %.val111230 = load ptr, ptr %4, align 8, !tbaa !21
+  %.not89231 = icmp eq ptr %.val111230, null
+  br i1 %.not89231, label %.critedge8, label %.lr.ph235
 
-.lr.ph155:                                        ; preds = %.lr.ph226
+.lr.ph155:                                        ; preds = %.lr.ph235
   %.val111 = load ptr, ptr %4, align 8, !tbaa !21
   %.not89 = icmp eq ptr %.val111, null
-  br i1 %.not89, label %.critedge8, label %.lr.ph226, !llvm.loop !55
+  br i1 %.not89, label %.critedge8, label %.lr.ph235, !llvm.loop !55
 
-.lr.ph226:                                        ; preds = %.lr.ph155.preheader, %.lr.ph155
-  %.val111225 = phi ptr [ %.val111, %.lr.ph155 ], [ %.val111221, %.lr.ph155.preheader ]
-  %indvars.iv183224 = phi i64 [ %indvars.iv.next184, %.lr.ph155 ], [ 0, %.lr.ph155.preheader ]
-  %.val102149199223 = phi ptr [ %.val102, %.lr.ph155 ], [ %.val102149, %.lr.ph155.preheader ]
-  %99 = getelementptr i8, ptr %.val102149199223, i64 8
+.lr.ph235:                                        ; preds = %.lr.ph155.preheader, %.lr.ph155
+  %.val111234 = phi ptr [ %.val111, %.lr.ph155 ], [ %.val111230, %.lr.ph155.preheader ]
+  %indvars.iv183233 = phi i64 [ %indvars.iv.next184, %.lr.ph155 ], [ 0, %.lr.ph155.preheader ]
+  %.val102149199232 = phi ptr [ %.val102, %.lr.ph155 ], [ %.val102149, %.lr.ph155.preheader ]
+  %99 = getelementptr i8, ptr %.val102149199232, i64 8
   %.val110.val = load ptr, ptr %99, align 8, !tbaa !14
-  %100 = getelementptr inbounds nuw i32, ptr %.val110.val, i64 %indvars.iv183224
+  %100 = getelementptr inbounds nuw i32, ptr %.val110.val, i64 %indvars.iv183233
   %101 = load i32, ptr %100, align 4, !tbaa !26
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds i32, ptr %.val111225, i64 %102
+  %103 = getelementptr inbounds i32, ptr %.val111234, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %105 = tail call i32 @Gia_ManRandom(i32 noundef 0) #24
   store i32 %105, ptr %104, align 8, !tbaa !39
-  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183224, 1
+  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183233, 1
   %.val102 = load ptr, ptr %0, align 8, !tbaa !15
   %.val103 = load i32, ptr %5, align 4, !tbaa !3
   %106 = getelementptr i8, ptr %.val102, i64 4
@@ -1942,7 +1942,7 @@ Gli_ManSimulateSeqNode.exit:                      ; preds = %._crit_edge.us.i, %
   %109 = icmp slt i64 %indvars.iv.next184, %108
   br i1 %109, label %.lr.ph155, label %..critedge8.loopexit_crit_edge, !llvm.loop !55
 
-..critedge8.loopexit_crit_edge:                   ; preds = %.lr.ph226
+..critedge8.loopexit_crit_edge:                   ; preds = %.lr.ph235
   br label %.critedge8, !llvm.loop !55
 
 .critedge8:                                       ; preds = %.lr.ph155, %.lr.ph155.preheader, %..critedge8.loopexit_crit_edge, %.critedge6
@@ -1968,7 +1968,7 @@ Gli_ManSimulateSeqNode.exit:                      ; preds = %._crit_edge.us.i, %
   %.val112.val = load ptr, ptr %113, align 8, !tbaa !14
   %114 = sext i32 %.lcssa to i64
   %wide.trip.count189 = zext nneg i32 %.val103.lcssa to i64
-  %invariant.gep208 = getelementptr i32, ptr %.val112.val, i64 %114
+  %invariant.gep217 = getelementptr i32, ptr %.val112.val, i64 %114
   br label %115
 
 115:                                              ; preds = %.lr.ph164.split, %115
@@ -1980,8 +1980,8 @@ Gli_ManSimulateSeqNode.exit:                      ; preds = %._crit_edge.us.i, %
   %119 = load i32, ptr %118, align 4, !tbaa !26
   %120 = sext i32 %119 to i64
   %121 = getelementptr inbounds i32, ptr %.val124, i64 %120
-  %gep209 = getelementptr i32, ptr %invariant.gep208, i64 %indvars.iv186
-  %122 = load i32, ptr %gep209, align 4, !tbaa !26
+  %gep218 = getelementptr i32, ptr %invariant.gep217, i64 %indvars.iv186
+  %122 = load i32, ptr %gep218, align 4, !tbaa !26
   %123 = sext i32 %122 to i64
   %124 = getelementptr inbounds i32, ptr %.val124, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 16
@@ -2246,16 +2246,16 @@ define void @Gli_ManSetPiRandomSeq(ptr noundef readonly captures(none) %0, float
   br i1 %38, label %.lr.ph82.preheader, label %.critedge2
 
 .lr.ph82.preheader:                               ; preds = %.critedge
-  %.val6099 = load ptr, ptr %3, align 8, !tbaa !21
-  %.not47101 = icmp eq ptr %.val6099, null
-  br i1 %.not47101, label %.critedge2, label %.lr.ph103
+  %.val60105 = load ptr, ptr %3, align 8, !tbaa !21
+  %.not47107 = icmp eq ptr %.val60105, null
+  br i1 %.not47107, label %.critedge2, label %.lr.ph109
 
-.lr.ph103:                                        ; preds = %.lr.ph82.preheader
+.lr.ph109:                                        ; preds = %.lr.ph82.preheader
   %39 = getelementptr i8, ptr %.val5577, i64 8
-  %.val59.val100 = load ptr, ptr %39, align 8, !tbaa !14
-  %40 = load i32, ptr %.val59.val100, align 4, !tbaa !26
+  %.val59.val106 = load ptr, ptr %39, align 8, !tbaa !14
+  %40 = load i32, ptr %.val59.val106, align 4, !tbaa !26
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i32, ptr %.val6099, i64 %41
+  %42 = getelementptr inbounds i32, ptr %.val60105, i64 %41
   br label %48
 
 .lr.ph82:                                         ; preds = %98
@@ -2269,9 +2269,9 @@ define void @Gli_ManSetPiRandomSeq(ptr noundef readonly captures(none) %0, float
   %.not47 = icmp eq ptr %.val60, null
   br i1 %.not47, label %.critedge2, label %48, !llvm.loop !62
 
-48:                                               ; preds = %.lr.ph103, %.lr.ph82
-  %49 = phi ptr [ %42, %.lr.ph103 ], [ %47, %.lr.ph82 ]
-  %indvars.iv91102 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next92, %.lr.ph82 ]
+48:                                               ; preds = %.lr.ph109, %.lr.ph82
+  %49 = phi ptr [ %42, %.lr.ph109 ], [ %47, %.lr.ph82 ]
+  %indvars.iv91108 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next92, %.lr.ph82 ]
   %50 = tail call i32 @Gia_ManRandom(i32 noundef 0) #24
   %51 = and i32 %50, 65535
   %52 = uitofp nneg i32 %51 to float
@@ -2363,7 +2363,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %98
 
 98:                                               ; preds = %48, %Vec_IntPush.exit
-  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91102, 1
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91108, 1
   %.val55 = load ptr, ptr %0, align 8, !tbaa !15
   %.val56 = load i32, ptr %36, align 4, !tbaa !3
   %99 = getelementptr i8, ptr %.val55, i64 4

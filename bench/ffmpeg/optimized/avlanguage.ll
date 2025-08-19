@@ -105,10 +105,10 @@ bsearch.exit:                                     ; preds = %20
   %.01720.i.i = phi i64 [ %.118.i.i, %56 ], [ %48, %.preheader29 ]
   %49 = add i64 %.01720.i.i, %.01621.i.i
   %50 = lshr i64 %49, 1
-  %.idx72 = add nuw i64 %50, %45
-  %.add = mul i64 %.idx72, 6
-  %.ptr70 = getelementptr inbounds nuw i8, ptr @lang_table, i64 %.add
-  %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %.ptr70) #2
+  %.idx78 = add nuw i64 %50, %45
+  %.add = mul i64 %.idx78, 6
+  %.ptr76 = getelementptr inbounds nuw i8, ptr @lang_table, i64 %.add
+  %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %.ptr76) #2
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %56, label %53
 
@@ -132,7 +132,7 @@ bsearch.exit.i:                                   ; preds = %56
   br i1 %58, label %.preheader29, label %ff_convert_lang_to.exit, !llvm.loop !10
 
 .preheader:                                       ; preds = %53, %60
-  %.1.i2639.idx = phi i64 [ %.idx69, %60 ], [ %.add, %53 ]
+  %.1.i2639.idx = phi i64 [ %.idx75, %60 ], [ %.add, %53 ]
   %.121.i38 = phi i32 [ %64, %60 ], [ 0, %53 ]
   %.1.i2639.ptr = getelementptr inbounds nuw i8, ptr @lang_table, i64 %.1.i2639.idx
   %59 = icmp slt i64 %.1.i2639.idx, 2904
@@ -142,7 +142,7 @@ bsearch.exit.i:                                   ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %.1.i2639.ptr, i64 4
   %62 = load i16, ptr %61, align 2, !tbaa !11
   %63 = zext i16 %62 to i64
-  %.idx69 = mul nuw nsw i64 %63, 6
+  %.idx75 = mul nuw nsw i64 %63, 6
   %64 = add nuw nsw i32 %.121.i38, 1
   %exitcond46.not = icmp eq i32 %64, 3
   br i1 %exitcond46.not, label %ff_convert_lang_to.exit, label %.preheader, !llvm.loop !13

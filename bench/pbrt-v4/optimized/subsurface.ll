@@ -1761,8 +1761,8 @@ define linkonce_odr dso_local void @_ZNK4pbrt15TabulatedBSSRDF8SampleSpEfNS_6Poi
   %.sroa.012.4.vec.extract.i.i112 = extractelement <2 x float> %.sroa.086.0.copyload, i64 1
   %33 = fmul float %.sroa.012.0.vec.extract.i.i111, %.sroa.012.4.vec.extract.i.i112
   %34 = fmul float %33, %32
-  %foldExtExtBinop237 = fmul <2 x float> %.sroa.086.0.copyload, %.sroa.086.0.copyload
-  %35 = extractelement <2 x float> %foldExtExtBinop237, i64 0
+  %foldExtExtBinop239 = fmul <2 x float> %.sroa.086.0.copyload, %.sroa.086.0.copyload
+  %35 = extractelement <2 x float> %foldExtExtBinop239, i64 0
   %36 = fmul float %30, %35
   %37 = fmul float %36, %32
   %38 = fadd float %37, 1.000000e+00
@@ -1787,8 +1787,8 @@ define linkonce_odr dso_local void @_ZNK4pbrt15TabulatedBSSRDF8SampleSpEfNS_6Poi
   %49 = fdiv float -1.000000e+00, %48
   %50 = fmul float %.sroa.01.0.vec.extract.i.i, %.sroa.01.4.vec.extract.i.i
   %51 = fmul float %50, %49
-  %foldExtExtBinop239 = fmul <2 x float> %.sroa.086.0.copyload, %.sroa.086.0.copyload
-  %52 = extractelement <2 x float> %foldExtExtBinop239, i64 0
+  %foldExtExtBinop241 = fmul <2 x float> %.sroa.086.0.copyload, %.sroa.086.0.copyload
+  %52 = extractelement <2 x float> %foldExtExtBinop241, i64 0
   %53 = fmul float %47, %52
   %54 = fmul float %53, %49
   %55 = fadd float %54, 1.000000e+00
@@ -6379,11 +6379,11 @@ _ZNK4pbrt15SampledSpectrumdvEf.exit213.i.i.i.i:   ; preds = %146
 _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit250.i.i.i.i: ; preds = %194
   %.sroa.05.0.copyload.i.i.i.i.i.i.i = load <2 x float>, ptr %.sroa.10.8..sroa_idx.i.i.i.i.i, align 8
   %.sroa.26.0.copyload.i.i.i.i.i.i.i = load float, ptr %.sroa.11.8..sroa_idx.i.i.i.i.i, align 8
-  %foldExtExtBinop31 = fmul <2 x float> %.sroa.0122.0.copyload.i.i.i.i, %.sroa.05.0.copyload.i.i.i.i.i.i.i
-  %foldExtExtBinop33 = fmul <2 x float> %.sroa.0122.0.copyload.i.i.i.i, %.sroa.05.0.copyload.i.i.i.i.i.i.i
-  %shift = shufflevector <2 x float> %foldExtExtBinop33, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop35 = fadd <2 x float> %foldExtExtBinop31, %shift
-  %199 = extractelement <2 x float> %foldExtExtBinop35, i64 0
+  %foldExtExtBinop32 = fmul <2 x float> %.sroa.0122.0.copyload.i.i.i.i, %.sroa.05.0.copyload.i.i.i.i.i.i.i
+  %foldExtExtBinop34 = fmul <2 x float> %.sroa.0122.0.copyload.i.i.i.i, %.sroa.05.0.copyload.i.i.i.i.i.i.i
+  %shift = shufflevector <2 x float> %foldExtExtBinop34, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop36 = fadd <2 x float> %foldExtExtBinop32, %shift
+  %199 = extractelement <2 x float> %foldExtExtBinop36, i64 0
   %200 = fmul float %.sroa.228.0.copyload.i.i.i.i.i, %.sroa.26.0.copyload.i.i.i.i.i.i.i
   %201 = fadd float %200, %199
   %202 = fcmp oeq float %201, 0.000000e+00
@@ -6391,11 +6391,11 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit250.i.i.i.i: ; preds = %194
 
 203:                                              ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit250.i.i.i.i
   %204 = fmul float %.sroa.6.0.copyload.i.i.i.i, %.sroa.26.0.copyload.i.i.i.i.i.i.i
-  %foldExtExtBinop37 = fmul <2 x float> %.sroa.0104.0.copyload.i.i.i.i, %.sroa.05.0.copyload.i.i.i.i.i.i.i
-  %foldExtExtBinop39 = fmul <2 x float> %.sroa.0104.0.copyload.i.i.i.i, %.sroa.05.0.copyload.i.i.i.i.i.i.i
-  %shift41 = shufflevector <2 x float> %foldExtExtBinop39, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop42 = fadd <2 x float> %foldExtExtBinop37, %shift41
-  %205 = extractelement <2 x float> %foldExtExtBinop42, i64 0
+  %foldExtExtBinop38 = fmul <2 x float> %.sroa.0104.0.copyload.i.i.i.i, %.sroa.05.0.copyload.i.i.i.i.i.i.i
+  %foldExtExtBinop40 = fmul <2 x float> %.sroa.0104.0.copyload.i.i.i.i, %.sroa.05.0.copyload.i.i.i.i.i.i.i
+  %shift42 = shufflevector <2 x float> %foldExtExtBinop40, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop43 = fadd <2 x float> %foldExtExtBinop38, %shift42
+  %205 = extractelement <2 x float> %foldExtExtBinop43, i64 0
   %206 = fadd float %204, %205
   %207 = fmul float %201, %206
   %208 = fcmp ogt float %207, 0.000000e+00
@@ -6593,9 +6593,9 @@ _ZN4pbrt15SampledSpectrumdVEf.exit.i.i.i.i:       ; preds = %_ZN4pbrt15SampledSp
   br i1 %or.cond.i314.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit315.i.i.i.i, label %_ZN4pbrt15SampledSpectrumdVEf.exit.i.i.i.i, !llvm.loop !382
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit315.i.i.i.i:  ; preds = %_ZN4pbrt15SampledSpectrumdVEf.exit.i.i.i.i
-  br i1 %270, label %271, label %.thread491.i.i.i.i
+  br i1 %270, label %271, label %.thread492.i.i.i.i
 
-.thread491.i.i.i.i:                               ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit315.i.i.i.i
+.thread492.i.i.i.i:                               ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit315.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
@@ -6864,7 +6864,7 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit.i.i.i.i: ; preds = %293, %287
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br i1 %413, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i.i319.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit320.i.i.i.i
 
-_ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i.i319.i.i.i.i: ; preds = %295, %.thread491.i.i.i.i
+_ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i.i319.i.i.i.i: ; preds = %295, %.thread492.i.i.i.i
   store i8 0, ptr %164, align 4, !tbaa !392
   br label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit320.i.i.i.i
 
@@ -7099,11 +7099,11 @@ _ZNK4pbrt15SampledSpectrummlEf.exit361.i.i.i.i:   ; preds = %484
 499:                                              ; preds = %492
   %.sroa.05.0.copyload.i.i.i368.i.i.i.i = load <2 x float>, ptr %.sroa.10.8..sroa_idx.i.i.i.i.i, align 8
   %.sroa.26.0.copyload.i.i.i370.i.i.i.i = load float, ptr %.sroa.11.8..sroa_idx.i.i.i.i.i, align 8
-  %foldExtExtBinop44 = fmul <2 x float> %.sroa.0122.0.copyload.i.i.i.i, %.sroa.05.0.copyload.i.i.i368.i.i.i.i
-  %foldExtExtBinop46 = fmul <2 x float> %.sroa.0122.0.copyload.i.i.i.i, %.sroa.05.0.copyload.i.i.i368.i.i.i.i
-  %shift48 = shufflevector <2 x float> %foldExtExtBinop46, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop49 = fadd <2 x float> %foldExtExtBinop44, %shift48
-  %500 = extractelement <2 x float> %foldExtExtBinop49, i64 0
+  %foldExtExtBinop45 = fmul <2 x float> %.sroa.0122.0.copyload.i.i.i.i, %.sroa.05.0.copyload.i.i.i368.i.i.i.i
+  %foldExtExtBinop47 = fmul <2 x float> %.sroa.0122.0.copyload.i.i.i.i, %.sroa.05.0.copyload.i.i.i368.i.i.i.i
+  %shift49 = shufflevector <2 x float> %foldExtExtBinop47, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop50 = fadd <2 x float> %foldExtExtBinop45, %shift49
+  %500 = extractelement <2 x float> %foldExtExtBinop50, i64 0
   %501 = fmul float %.sroa.228.0.copyload.i.i.i.i.i, %.sroa.26.0.copyload.i.i.i370.i.i.i.i
   %502 = fadd float %501, %500
   %503 = fcmp oeq float %502, 0.000000e+00
@@ -7111,11 +7111,11 @@ _ZNK4pbrt15SampledSpectrummlEf.exit361.i.i.i.i:   ; preds = %484
 
 504:                                              ; preds = %499
   %505 = fmul float %.sroa.7.0.copyload.i.i.i.i, %.sroa.26.0.copyload.i.i.i370.i.i.i.i
-  %foldExtExtBinop51 = fmul <2 x float> %.sroa.043.0.copyload.i.i.i.i, %.sroa.05.0.copyload.i.i.i368.i.i.i.i
-  %foldExtExtBinop53 = fmul <2 x float> %.sroa.043.0.copyload.i.i.i.i, %.sroa.05.0.copyload.i.i.i368.i.i.i.i
-  %shift55 = shufflevector <2 x float> %foldExtExtBinop53, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop56 = fadd <2 x float> %foldExtExtBinop51, %shift55
-  %506 = extractelement <2 x float> %foldExtExtBinop56, i64 0
+  %foldExtExtBinop52 = fmul <2 x float> %.sroa.043.0.copyload.i.i.i.i, %.sroa.05.0.copyload.i.i.i368.i.i.i.i
+  %foldExtExtBinop54 = fmul <2 x float> %.sroa.043.0.copyload.i.i.i.i, %.sroa.05.0.copyload.i.i.i368.i.i.i.i
+  %shift56 = shufflevector <2 x float> %foldExtExtBinop54, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop57 = fadd <2 x float> %foldExtExtBinop52, %shift56
+  %506 = extractelement <2 x float> %foldExtExtBinop57, i64 0
   %507 = fadd float %505, %506
   %508 = fmul float %502, %507
   %509 = fcmp ogt float %508, 0.000000e+00
@@ -7977,9 +7977,9 @@ define linkonce_odr dso_local void @_ZN4pbrt8SpawnRayENS_8Point3fiENS_7Normal3If
   store <2 x float> %.sroa.0.4.vec.insert.i86.i, ptr %.sroa.0122.i, align 8
   store float %44, ptr %.sroa.10.i, align 4
   %.sroa.0122.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
-  %.sroa.0122.i.4.i.4.i.4..sroa_idx33 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
-  %.sroa.0122.i.4.i.4.i.4..sroa_idx34 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
   %.sroa.0122.i.4.i.4.i.4..sroa_idx35 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
+  %.sroa.0122.i.4.i.4.i.4..sroa_idx36 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
+  %.sroa.0122.i.4.i.4.i.4..sroa_idx37 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
   br label %45
 
 45:                                               ; preds = %75, %7
@@ -8042,7 +8042,7 @@ _ZN4pbrt11NextFloatUpEf.exit.i:                   ; preds = %53, %_ZN4pbrt6Tuple
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit92.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit92.i:       ; preds = %59, %58, %_ZN4pbrt11NextFloatUpEf.exit.i
-  %.0.i91.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx33, %58 ], [ %.sroa.10.i, %59 ], [ %.sroa.0122.i, %_ZN4pbrt11NextFloatUpEf.exit.i ]
+  %.0.i91.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx35, %58 ], [ %.sroa.10.i, %59 ], [ %.sroa.0122.i, %_ZN4pbrt11NextFloatUpEf.exit.i ]
   store float %.011.i.i, ptr %.0.i91.i, align 4, !tbaa !119
   br label %75
 
@@ -8076,7 +8076,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit94.i:      ; preds = %62, %61, %60
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit96.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit96.i:       ; preds = %66, %65, %64
-  %.0.i95.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx34, %65 ], [ %.sroa.10.i, %66 ], [ %.sroa.0122.i, %64 ]
+  %.0.i95.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx36, %65 ], [ %.sroa.10.i, %66 ], [ %.sroa.0122.i, %64 ]
   %67 = load float, ptr %.0.i95.i, align 4, !tbaa !119
   %or.cond.i97.i = fcmp oeq float %67, 0xFFF0000000000000
   br i1 %or.cond.i97.i, label %_ZN4pbrt13NextFloatDownEf.exit.i, label %68
@@ -8105,7 +8105,7 @@ _ZN4pbrt13NextFloatDownEf.exit.i:                 ; preds = %68, %_ZN4pbrt6Tuple
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit102.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit102.i:      ; preds = %74, %73, %_ZN4pbrt13NextFloatDownEf.exit.i
-  %.0.i101.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx35, %73 ], [ %.sroa.10.i, %74 ], [ %.sroa.0122.i, %_ZN4pbrt13NextFloatDownEf.exit.i ]
+  %.0.i101.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx37, %73 ], [ %.sroa.10.i, %74 ], [ %.sroa.0122.i, %_ZN4pbrt13NextFloatDownEf.exit.i ]
   store float %.010.i100.i, ptr %.0.i101.i, align 4, !tbaa !119
   br label %75
 
@@ -8303,9 +8303,9 @@ define linkonce_odr dso_local void @_ZN4pbrt10SpawnRayToENS_8Point3fiENS_7Normal
   store <2 x float> %.sroa.0.4.vec.insert.i86.i, ptr %.sroa.0122.i, align 8
   store float %54, ptr %.sroa.10.i, align 4
   %.sroa.0122.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
-  %.sroa.0122.i.4.i.4.i.4..sroa_idx177 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
-  %.sroa.0122.i.4.i.4.i.4..sroa_idx178 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
-  %.sroa.0122.i.4.i.4.i.4..sroa_idx179 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
+  %.sroa.0122.i.4.i.4.i.4..sroa_idx182 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
+  %.sroa.0122.i.4.i.4.i.4..sroa_idx183 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
+  %.sroa.0122.i.4.i.4.i.4..sroa_idx184 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
   br label %55
 
 55:                                               ; preds = %85, %8
@@ -8368,7 +8368,7 @@ _ZN4pbrt11NextFloatUpEf.exit.i:                   ; preds = %63, %_ZN4pbrt6Tuple
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit92.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit92.i:       ; preds = %69, %68, %_ZN4pbrt11NextFloatUpEf.exit.i
-  %.0.i91.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx177, %68 ], [ %.sroa.10.i, %69 ], [ %.sroa.0122.i, %_ZN4pbrt11NextFloatUpEf.exit.i ]
+  %.0.i91.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx182, %68 ], [ %.sroa.10.i, %69 ], [ %.sroa.0122.i, %_ZN4pbrt11NextFloatUpEf.exit.i ]
   store float %.011.i.i, ptr %.0.i91.i, align 4, !tbaa !119
   br label %85
 
@@ -8402,7 +8402,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit94.i:      ; preds = %72, %71, %70
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit96.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit96.i:       ; preds = %76, %75, %74
-  %.0.i95.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx178, %75 ], [ %.sroa.10.i, %76 ], [ %.sroa.0122.i, %74 ]
+  %.0.i95.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx183, %75 ], [ %.sroa.10.i, %76 ], [ %.sroa.0122.i, %74 ]
   %77 = load float, ptr %.0.i95.i, align 4, !tbaa !119
   %or.cond.i97.i = fcmp oeq float %77, 0xFFF0000000000000
   br i1 %or.cond.i97.i, label %_ZN4pbrt13NextFloatDownEf.exit.i, label %78
@@ -8431,7 +8431,7 @@ _ZN4pbrt13NextFloatDownEf.exit.i:                 ; preds = %78, %_ZN4pbrt6Tuple
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit102.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit102.i:      ; preds = %84, %83, %_ZN4pbrt13NextFloatDownEf.exit.i
-  %.0.i101.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx179, %83 ], [ %.sroa.10.i, %84 ], [ %.sroa.0122.i, %_ZN4pbrt13NextFloatDownEf.exit.i ]
+  %.0.i101.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx184, %83 ], [ %.sroa.10.i, %84 ], [ %.sroa.0122.i, %_ZN4pbrt13NextFloatDownEf.exit.i ]
   store float %.010.i100.i, ptr %.0.i101.i, align 4, !tbaa !119
   br label %85
 
@@ -8498,9 +8498,9 @@ _ZN4pbrt15OffsetRayOriginENS_8Point3fiENS_7Normal3IfEENS_7Vector3IfEE.exit: ; pr
   store <2 x float> %.sroa.0.4.vec.insert.i86.i80, ptr %.sroa.0122.i65, align 8
   store float %120, ptr %.sroa.10.i66, align 4
   %.sroa.0122.i65.4.i65.4.i65.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0122.i65, i64 4
-  %.sroa.0122.i65.4.i65.4.i65.4..sroa_idx180 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i65, i64 4
-  %.sroa.0122.i65.4.i65.4.i65.4..sroa_idx181 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i65, i64 4
-  %.sroa.0122.i65.4.i65.4.i65.4..sroa_idx182 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i65, i64 4
+  %.sroa.0122.i65.4.i65.4.i65.4..sroa_idx185 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i65, i64 4
+  %.sroa.0122.i65.4.i65.4.i65.4..sroa_idx186 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i65, i64 4
+  %.sroa.0122.i65.4.i65.4.i65.4..sroa_idx187 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i65, i64 4
   br label %121
 
 121:                                              ; preds = %151, %_ZN4pbrt15OffsetRayOriginENS_8Point3fiENS_7Normal3IfEENS_7Vector3IfEE.exit
@@ -8563,7 +8563,7 @@ _ZN4pbrt11NextFloatUpEf.exit.i108:                ; preds = %129, %_ZN4pbrt6Tupl
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit92.i110
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit92.i110:    ; preds = %135, %134, %_ZN4pbrt11NextFloatUpEf.exit.i108
-  %.0.i91.i111 = phi ptr [ %.sroa.0122.i65.4.i65.4.i65.4..sroa_idx180, %134 ], [ %.sroa.10.i66, %135 ], [ %.sroa.0122.i65, %_ZN4pbrt11NextFloatUpEf.exit.i108 ]
+  %.0.i91.i111 = phi ptr [ %.sroa.0122.i65.4.i65.4.i65.4..sroa_idx185, %134 ], [ %.sroa.10.i66, %135 ], [ %.sroa.0122.i65, %_ZN4pbrt11NextFloatUpEf.exit.i108 ]
   store float %.011.i.i109, ptr %.0.i91.i111, align 4, !tbaa !119
   br label %151
 
@@ -8597,7 +8597,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit94.i85:    ; preds = %138, %137, %136
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit96.i92
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit96.i92:     ; preds = %142, %141, %140
-  %.0.i95.i93 = phi ptr [ %.sroa.0122.i65.4.i65.4.i65.4..sroa_idx181, %141 ], [ %.sroa.10.i66, %142 ], [ %.sroa.0122.i65, %140 ]
+  %.0.i95.i93 = phi ptr [ %.sroa.0122.i65.4.i65.4.i65.4..sroa_idx186, %141 ], [ %.sroa.10.i66, %142 ], [ %.sroa.0122.i65, %140 ]
   %143 = load float, ptr %.0.i95.i93, align 4, !tbaa !119
   %or.cond.i97.i94 = fcmp oeq float %143, 0xFFF0000000000000
   br i1 %or.cond.i97.i94, label %_ZN4pbrt13NextFloatDownEf.exit.i98, label %144
@@ -8626,7 +8626,7 @@ _ZN4pbrt13NextFloatDownEf.exit.i98:               ; preds = %144, %_ZN4pbrt6Tupl
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit102.i100
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit102.i100:   ; preds = %150, %149, %_ZN4pbrt13NextFloatDownEf.exit.i98
-  %.0.i101.i101 = phi ptr [ %.sroa.0122.i65.4.i65.4.i65.4..sroa_idx182, %149 ], [ %.sroa.10.i66, %150 ], [ %.sroa.0122.i65, %_ZN4pbrt13NextFloatDownEf.exit.i98 ]
+  %.0.i101.i101 = phi ptr [ %.sroa.0122.i65.4.i65.4.i65.4..sroa_idx187, %149 ], [ %.sroa.10.i66, %150 ], [ %.sroa.0122.i65, %_ZN4pbrt13NextFloatDownEf.exit.i98 ]
   store float %.010.i100.i99, ptr %.0.i101.i101, align 4, !tbaa !119
   br label %151
 
@@ -11127,7 +11127,7 @@ _ZN4pbrt13NextFloatDownEf.exit.i:                 ; preds = %69, %68, %._crit_ed
   br i1 %91, label %95, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %34, %._crit_edge
-  %.057.lcssa101 = phi float [ %84, %._crit_edge ], [ %42, %34 ]
+  %.057.lcssa109 = phi float [ %84, %._crit_edge ], [ %42, %34 ]
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %93 = call noundef float @_ZNK4pbrt18CompactLightBounds10ImportanceENS_6Point3IfEENS_7Normal3IfEERKNS_7Bounds3IfEE(ptr noundef nonnull align 4 dereferenceable(24) %5, <2 x float> %.sroa.01.4.vec.insert.i, float %40, <2 x float> %.sroa.033.0.copyload, float %.sroa.6.0.copyload, ptr noundef nonnull align 4 dereferenceable(24) %92)
   %94 = fcmp ogt float %93, 0.000000e+00
@@ -11138,7 +11138,7 @@ _ZN4pbrt13NextFloatDownEf.exit.i:                 ; preds = %69, %68, %._crit_ed
   br label %95
 
 95:                                               ; preds = %._crit_edge98, %._crit_edge
-  %.057.lcssa102 = phi float [ %.057.lcssa101, %._crit_edge98 ], [ %84, %._crit_edge ]
+  %.057.lcssa110 = phi float [ %.057.lcssa109, %._crit_edge98 ], [ %84, %._crit_edge ]
   %96 = phi i32 [ %.pre, %._crit_edge98 ], [ %90, %._crit_edge ]
   %97 = and i32 %96, 2147483647
   %98 = zext nneg i32 %97 to i64
@@ -11150,7 +11150,7 @@ _ZN4pbrt13NextFloatDownEf.exit.i:                 ; preds = %69, %68, %._crit_ed
   store i8 1, ptr %103, align 8, !tbaa !431
   store i64 %102, ptr %0, align 8, !tbaa !433
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.057.lcssa102, ptr %104, align 8, !tbaa !448
+  store float %.057.lcssa110, ptr %104, align 8, !tbaa !448
   br label %.critedge
 
 105:                                              ; preds = %._crit_edge.thread
@@ -12852,8 +12852,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4pbrt16RemapPixelCoordsEPNS
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.9.0.extract.shift = lshr i64 %1, 32
   %.sroa.9.0.extract.trunc = trunc nuw i64 %.sroa.9.0.extract.shift to i32
-  %.sroa.0.0.extract.trunc92 = trunc i64 %2 to i32
-  store i32 %.sroa.0.0.extract.trunc92, ptr %.sroa.0, align 8
+  %.sroa.0.0.extract.trunc94 = trunc i64 %2 to i32
+  store i32 %.sroa.0.0.extract.trunc94, ptr %.sroa.0, align 8
   %.sroa.2.0.extract.shift = lshr i64 %2, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   store i32 %.sroa.2.0.extract.trunc, ptr %.sroa.2, align 4
@@ -12979,25 +12979,25 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4pbrt16RemapPixelCoordsEPNS
   %58 = icmp slt i32 %57, 0
   %59 = select i1 %58, i32 %.sroa.speculated71, i32 0
   %60 = add nsw i32 %59, %57
-  br label %.sink.split89
+  br label %.sink.split91
 
 61:                                               ; preds = %54
   %62 = add nsw i32 %.sroa.speculated71, -1
   %63 = icmp slt i32 %51, 0
   %..i = tail call i32 @llvm.smin.i32(i32 %51, i32 %62)
   %.0.i = select i1 %63, i32 0, i32 %..i
-  br label %.sink.split89
+  br label %.sink.split91
 
 64:                                               ; preds = %54
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.31, i32 noundef 142, ptr noundef nonnull @.str.34) #24
   unreachable
 
-.sink.split89:                                    ; preds = %61, %56
-  %.sink90 = phi i32 [ %60, %56 ], [ %.0.i, %61 ]
-  store i32 %.sink90, ptr %50, align 4, !tbaa !132
+.sink.split91:                                    ; preds = %61, %56
+  %.sink92 = phi i32 [ %60, %56 ], [ %.0.i, %61 ]
+  store i32 %.sink92, ptr %50, align 4, !tbaa !132
   br label %65
 
-65:                                               ; preds = %.sink.split89, %.preheader
+65:                                               ; preds = %.sink.split91, %.preheader
   br i1 %49, label %.preheader, label %.loopexit, !llvm.loop !675
 
 .loopexit:                                        ; preds = %65, %54, %46, %48

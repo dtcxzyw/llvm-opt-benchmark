@@ -1497,8 +1497,8 @@ select.unfold.i:                                  ; preds = %73
   %80 = load ptr, ptr %79, align 8
   %81 = call noundef ptr %80(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.0.051.i) #9
   %.not.i.i = icmp eq ptr %81, %1
-  %.not4952.i = icmp eq ptr %81, null
-  %.not49.i = or i1 %.not.i.i, %.not4952.i
+  %.not4955.i = icmp eq ptr %81, null
+  %.not49.i = or i1 %.not.i.i, %.not4955.i
   br i1 %.not49.i, label %_ZN5clang15DeclarationName14setFETokenInfoEPv.exit, label %select.unfold.preheader.i
 
 _ZL19compareDeclarationsPN5clang9NamedDeclES1_.exit: ; preds = %select.unfold.preheader.i, %70
@@ -1833,8 +1833,8 @@ select.unfold.i66:                                ; preds = %246
   %253 = load ptr, ptr %252, align 8
   %254 = call noundef ptr %253(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.0.051.i64) #9
   %.not.i.i67 = icmp eq ptr %254, %1
-  %.not4952.i68 = icmp eq ptr %254, null
-  %.not49.i69 = or i1 %.not.i.i67, %.not4952.i68
+  %.not4955.i68 = icmp eq ptr %254, null
+  %.not49.i69 = or i1 %.not.i.i67, %.not4955.i68
   br i1 %.not49.i69, label %_ZN5clang15DeclarationName14setFETokenInfoEPv.exit, label %select.unfold.preheader.i63
 
 _ZL19compareDeclarationsPN5clang9NamedDeclES1_.exit70: ; preds = %select.unfold.preheader.i63, %243

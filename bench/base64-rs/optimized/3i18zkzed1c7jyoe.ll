@@ -207,14 +207,14 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   unreachable
 
 .sink.split:                                      ; preds = %67, %92
-  %.sink208 = phi i8 [ %94, %92 ], [ %69, %67 ]
-  %.sink204 = phi i64 [ %89, %92 ], [ %64, %67 ]
+  %.sink230 = phi i8 [ %94, %92 ], [ %69, %67 ]
+  %.sink226 = phi i64 [ %89, %92 ], [ %64, %67 ]
   %.sink = phi i64 [ 2, %92 ], [ 3, %67 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %72 = zext nneg i8 %.sink208 to i64
+  %72 = zext nneg i8 %.sink230 to i64
   %73 = getelementptr inbounds nuw [64 x i8], ptr %71, i64 0, i64 %72
   %74 = load i8, ptr %73, align 1, !noundef !9
-  %75 = getelementptr inbounds [0 x i8], ptr %3, i64 0, i64 %.sink204
+  %75 = getelementptr inbounds [0 x i8], ptr %3, i64 0, i64 %.sink226
   store i8 %74, ptr %75, align 1
   %76 = add nuw i64 %.1.lcssa, %.sink
   br label %77
@@ -1066,10 +1066,10 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   br i1 %367, label %.loopexit387.i, label %371
 
 .loopexit386.i:                                   ; preds = %277, %270, %263, %256, %249, %242, %235, %203
-  %.sink2492.i = phi i64 [ 15, %277 ], [ 14, %270 ], [ 13, %263 ], [ 12, %256 ], [ 11, %249 ], [ 10, %242 ], [ 9, %235 ], [ 8, %203 ]
+  %.sink2541.i = phi i64 [ 15, %277 ], [ 14, %270 ], [ 13, %263 ], [ 12, %256 ], [ 11, %249 ], [ 10, %242 ], [ 9, %235 ], [ 8, %203 ]
   %.sroa.12202.1.ph.i = phi i8 [ %279, %277 ], [ %272, %270 ], [ %265, %263 ], [ %258, %256 ], [ %251, %249 ], [ %244, %242 ], [ %237, %235 ], [ %230, %203 ]
   %368 = shl i64 %.sroa.13.01126.i, 5
-  %369 = or disjoint i64 %.sink2492.i, %368
+  %369 = or disjoint i64 %.sink2541.i, %368
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %370, align 8, !alias.scope !53, !noalias !77
   %.sroa.4244.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -1181,10 +1181,10 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   br i1 %451, label %.loopexit388.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0f0ffdebb931e974E.exit.i"
 
 .loopexit387.i:                                   ; preds = %361, %354, %347, %340, %333, %326, %319, %287
-  %.sink2493.i = phi i64 [ 23, %361 ], [ 22, %354 ], [ 21, %347 ], [ 20, %340 ], [ 19, %333 ], [ 18, %326 ], [ 17, %319 ], [ 16, %287 ]
+  %.sink2542.i = phi i64 [ 23, %361 ], [ 22, %354 ], [ 21, %347 ], [ 20, %340 ], [ 19, %333 ], [ 18, %326 ], [ 17, %319 ], [ 16, %287 ]
   %.sroa.12206.1.ph.i = phi i8 [ %363, %361 ], [ %356, %354 ], [ %349, %347 ], [ %342, %340 ], [ %335, %333 ], [ %328, %326 ], [ %321, %319 ], [ %314, %287 ]
   %452 = shl i64 %.sroa.13.01126.i, 5
-  %453 = or disjoint i64 %.sink2493.i, %452
+  %453 = or disjoint i64 %.sink2542.i, %452
   %454 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %454, align 8, !alias.scope !53, !noalias !77
   %.sroa.4252.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -1225,10 +1225,10 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   br i1 %479, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0f0ffdebb931e974E.exit._crit_edge.i", label %.lr.ph.preheader.i
 
 .loopexit388.i:                                   ; preds = %445, %438, %431, %424, %417, %410, %403, %371
-  %.sink2494.i = phi i64 [ 31, %445 ], [ 30, %438 ], [ 29, %431 ], [ 28, %424 ], [ 27, %417 ], [ 26, %410 ], [ 25, %403 ], [ 24, %371 ]
+  %.sink2543.i = phi i64 [ 31, %445 ], [ 30, %438 ], [ 29, %431 ], [ 28, %424 ], [ 27, %417 ], [ 26, %410 ], [ 25, %403 ], [ 24, %371 ]
   %.sroa.12210.1.ph.i = phi i8 [ %447, %445 ], [ %440, %438 ], [ %433, %431 ], [ %426, %424 ], [ %419, %417 ], [ %412, %410 ], [ %405, %403 ], [ %398, %371 ]
   %480 = shl i64 %.sroa.13.01126.i, 5
-  %481 = or disjoint i64 %.sink2494.i, %480
+  %481 = or disjoint i64 %.sink2543.i, %480
   %482 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %482, align 8, !alias.scope !53, !noalias !77
   %.sroa.4260.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 9

@@ -1776,12 +1776,12 @@ index_tree_next.exit65:                           ; preds = %.preheader17.i58, %
   br i1 %112, label %.backedge.backedge, label %.loopexit
 
 .loopexit:                                        ; preds = %100, %105, %.critedge56.thread, %37
-  %.2115 = phi ptr [ %40, %37 ], [ %.2, %.critedge56.thread ], [ %.2, %105 ], [ %.2, %100 ]
-  %.348114 = phi ptr [ %38, %37 ], [ %.348, %.critedge56.thread ], [ %.348, %105 ], [ %.348, %100 ]
+  %.2128 = phi ptr [ %40, %37 ], [ %.2, %.critedge56.thread ], [ %.2, %105 ], [ %.2, %100 ]
+  %.348127 = phi ptr [ %38, %37 ], [ %.348, %.critedge56.thread ], [ %.348, %105 ], [ %.348, %100 ]
   %.1.lcssa = phi i64 [ 0, %37 ], [ %.1, %.critedge56.thread ], [ %.1, %105 ], [ 0, %100 ]
-  store ptr %.348114, ptr %7, align 8, !tbaa !45
+  store ptr %.348127, ptr %7, align 8, !tbaa !45
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store ptr %.2115, ptr %113, align 8, !tbaa !45
+  store ptr %.2128, ptr %113, align 8, !tbaa !45
   store i64 %.1.lcssa, ptr %9, align 8, !tbaa !45
   tail call fastcc void @iter_set_info(ptr noundef %0)
   br label %index_tree_next.exit83

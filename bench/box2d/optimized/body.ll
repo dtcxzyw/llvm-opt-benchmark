@@ -1462,8 +1462,8 @@ define hidden void @b2UpdateBodyMassData(ptr noundef readonly captures(none) %0,
 
 81:                                               ; preds = %77
   %.sroa.01.0.vec.extract.i = extractelement <2 x float> %.sroa.021.2, i64 0
-  %foldExtExtBinop141 = fmul <2 x float> %.sroa.021.2, %.sroa.021.2
-  %82 = extractelement <2 x float> %foldExtExtBinop141, i64 0
+  %foldExtExtBinop145 = fmul <2 x float> %.sroa.021.2, %.sroa.021.2
+  %82 = extractelement <2 x float> %foldExtExtBinop145, i64 0
   %.sroa.01.4.vec.extract.i = extractelement <2 x float> %.sroa.021.2, i64 1
   %83 = fmul float %.sroa.01.4.vec.extract.i, %.sroa.01.4.vec.extract.i
   %84 = fadd float %82, %83

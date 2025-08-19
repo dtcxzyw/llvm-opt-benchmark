@@ -28,12 +28,12 @@ define hidden range(i32 -1, 1) i32 @validatePathChars(ptr noundef readonly captu
   br i1 %.not, label %match.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %.b65 = load i1, ptr @H_PATH, align 8
-  %7 = select i1 %.b65, i64 5188146764422578175, i64 0
-  %.b64 = load i1, ptr @L_PATH, align 8
-  %8 = select i1 %.b64, i64 3458764316252045312, i64 0
-  %.b63 = load i1, ptr @H_HEX, align 8
-  %9 = select i1 %.b63, i64 541165879422, i64 0
+  %.b71 = load i1, ptr @H_PATH, align 8
+  %7 = select i1 %.b71, i64 5188146764422578175, i64 0
+  %.b70 = load i1, ptr @L_PATH, align 8
+  %8 = select i1 %.b70, i64 3458764316252045312, i64 0
+  %.b69 = load i1, ptr @H_HEX, align 8
+  %9 = select i1 %.b69, i64 541165879422, i64 0
   br label %10
 
 10:                                               ; preds = %.lr.ph, %match.exit33.thread

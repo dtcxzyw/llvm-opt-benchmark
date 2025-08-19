@@ -113,9 +113,9 @@ define internal i32 @dissect_igrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %9 = load ptr, ptr %5, align 8
   %switch.selectcmp = icmp eq i8 %8, 18
   %switch.select = select i1 %switch.selectcmp, ptr @.str.39, ptr @.str.40
-  %switch.selectcmp97 = icmp eq i8 %8, 17
-  %switch.select98 = select i1 %switch.selectcmp97, ptr @.str.38, ptr %switch.select
-  tail call void @col_set_str(ptr noundef %9, i32 noundef 25, ptr noundef nonnull %switch.select98)
+  %switch.selectcmp101 = icmp eq i8 %8, 17
+  %switch.select102 = select i1 %switch.selectcmp101, ptr @.str.38, ptr %switch.select
+  tail call void @col_set_str(ptr noundef %9, i32 noundef 25, ptr noundef nonnull %switch.select102)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %62, label %10
 

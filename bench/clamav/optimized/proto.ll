@@ -646,19 +646,19 @@ define internal fastcc range(i32 0, 3) i32 @dspresult(ptr noundef captures(addre
 .lr.ph.preheader:                                 ; preds = %19
   %21 = load i32, ptr %20, align 8, !tbaa !33
   %22 = icmp eq i32 %21, %18
-  br i1 %22, label %.thread49, label %.lr.ph70
+  br i1 %22, label %.thread49, label %.lr.ph75
 
-.lr.ph70:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph75:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %23 = phi ptr [ %25, %.lr.ph ], [ %20, %.lr.ph.preheader ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !37
   %.not38 = icmp eq ptr %25, null
   br i1 %.not38, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph70
+.lr.ph:                                           ; preds = %.lr.ph75
   %26 = load i32, ptr %25, align 8, !tbaa !33
   %27 = icmp eq i32 %26, %18
-  br i1 %27, label %.thread49.loopexit, label %.lr.ph70
+  br i1 %27, label %.thread49.loopexit, label %.lr.ph75
 
 28:                                               ; preds = %15
   %.not40 = icmp eq ptr %.029, null
@@ -668,7 +668,7 @@ define internal fastcc range(i32 0, 3) i32 @dspresult(ptr noundef captures(addre
   %.pre = load ptr, ptr %.029, align 8, !tbaa !37
   br label %.thread49
 
-.thread:                                          ; preds = %28, %19, %.lr.ph70
+.thread:                                          ; preds = %28, %19, %.lr.ph75
   %29 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.11) #12
   br label %.loopexit
 

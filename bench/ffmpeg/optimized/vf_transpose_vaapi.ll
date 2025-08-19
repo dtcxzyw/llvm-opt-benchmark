@@ -339,7 +339,7 @@ define internal range(i32 -22, 1) i32 @transpose_vaapi_build_filter_params(ptr n
     i32 2, label %21
     i32 3, label %22
     i32 4, label %23
-    i32 5, label %.thread51.sink.split
+    i32 5, label %.thread55.sink.split
     i32 6, label %24
   ]
 
@@ -356,54 +356,54 @@ define internal range(i32 -22, 1) i32 @transpose_vaapi_build_filter_params(ptr n
   br label %26
 
 24:                                               ; preds = %17
-  br label %.thread51.sink.split
+  br label %.thread55.sink.split
 
 25:                                               ; preds = %17
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.35, i32 noundef %19) #5
   br label %40
 
 26:                                               ; preds = %17, %23, %22, %21, %20
-  %.sink54 = phi i32 [ 2, %23 ], [ 1, %22 ], [ 3, %21 ], [ 1, %20 ], [ 3, %17 ]
+  %.sink58 = phi i32 [ 2, %23 ], [ 1, %22 ], [ 3, %21 ], [ 1, %20 ], [ 3, %17 ]
   %.sink = phi i32 [ 0, %23 ], [ 2, %22 ], [ 0, %21 ], [ 0, %20 ], [ 2, %17 ]
   %.not42.ph = phi i1 [ true, %23 ], [ false, %22 ], [ true, %21 ], [ true, %20 ], [ false, %17 ]
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 152
-  store i32 %.sink54, ptr %27, align 8, !tbaa !56
+  store i32 %.sink58, ptr %27, align 8, !tbaa !56
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 156
   store i32 %.sink, ptr %28, align 4, !tbaa !64
-  %29 = shl nuw nsw i32 1, %.sink54
+  %29 = shl nuw nsw i32 1, %.sink58
   %30 = and i32 %29, %15
   %.not41 = icmp eq i32 %30, 0
   br i1 %.not41, label %31, label %32
 
 31:                                               ; preds = %26
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.36, i32 noundef %.sink54) #5
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.36, i32 noundef %.sink58) #5
   br label %40
 
 32:                                               ; preds = %26
-  br i1 %.not42.ph, label %40, label %.thread51
+  br i1 %.not42.ph, label %40, label %.thread55
 
-.thread51.sink.split:                             ; preds = %17, %24
-  %.sink57 = phi i32 [ 2, %24 ], [ 1, %17 ]
+.thread55.sink.split:                             ; preds = %17, %24
+  %.sink61 = phi i32 [ 2, %24 ], [ 1, %17 ]
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i32 0, ptr %33, align 8, !tbaa !56
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 156
-  store i32 %.sink57, ptr %34, align 4, !tbaa !64
-  br label %.thread51
+  store i32 %.sink61, ptr %34, align 4, !tbaa !64
+  br label %.thread55
 
-.thread51:                                        ; preds = %.thread51.sink.split, %32
-  %35 = phi i32 [ %.sink, %32 ], [ %.sink57, %.thread51.sink.split ]
+.thread55:                                        ; preds = %.thread55.sink.split, %32
+  %35 = phi i32 [ %.sink, %32 ], [ %.sink61, %.thread55.sink.split ]
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %37 = load i32, ptr %36, align 4, !tbaa !78
   %38 = and i32 %37, %35
   %.not43 = icmp eq i32 %38, 0
   br i1 %.not43, label %39, label %40
 
-39:                                               ; preds = %.thread51
+39:                                               ; preds = %.thread55
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.37, i32 noundef %35) #5
   br label %40
 
-40:                                               ; preds = %32, %.thread51, %39, %31, %25, %16, %11
-  %.0 = phi i32 [ -5, %11 ], [ -22, %25 ], [ -22, %39 ], [ -22, %31 ], [ -22, %16 ], [ 0, %.thread51 ], [ 0, %32 ]
+40:                                               ; preds = %32, %.thread55, %39, %31, %25, %16, %11
+  %.0 = phi i32 [ -5, %11 ], [ -22, %25 ], [ -22, %39 ], [ -22, %31 ], [ -22, %16 ], [ 0, %.thread55 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

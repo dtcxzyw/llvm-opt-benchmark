@@ -1011,8 +1011,8 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %4
   %23 = trunc nuw i64 %21 to i8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4, ptr nonnull align 1 %22, i64 %21, i1 false)
   %.sroa.4.0..sroa.4.0..sroa.4.1..0..0..0..sroa.0.0.copyload.i33 = load i56, ptr %.sroa.4, align 8
-  %.sroa.4.7..8..8..8..sroa_idx40 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 7
-  %.sroa.4.7..sroa.4.7..sroa.4.8..8..8..8..sroa.2.0.copyload.i = load i32, ptr %.sroa.4.7..8..8..8..sroa_idx40, align 1
+  %.sroa.4.7..8..8..8..sroa_idx42 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 7
+  %.sroa.4.7..sroa.4.7..sroa.4.8..8..8..8..sroa.2.0.copyload.i = load i32, ptr %.sroa.4.7..8..8..8..sroa_idx42, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   store i8 %23, ptr %19, align 2
   %.sroa_idx34 = getelementptr inbounds nuw i8, ptr %5, i64 5
@@ -1028,8 +1028,8 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %4
   %26 = trunc nuw i64 %.sroa.speculated.i.i to i8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.439, ptr nonnull align 1 %20, i64 %.sroa.speculated.i.i, i1 false)
   %.sroa.439.0..sroa.439.0..sroa.439.1..0..0..0..sroa.0.0.copyload.i2336 = load i56, ptr %.sroa.439, align 8
-  %.sroa.439.7..8..8..8..sroa_idx41 = getelementptr inbounds nuw i8, ptr %.sroa.439, i64 7
-  %.sroa.439.7..sroa.439.7..sroa.439.8..8..8..8..sroa.2.0.copyload.i25 = load i32, ptr %.sroa.439.7..8..8..8..sroa_idx41, align 1
+  %.sroa.439.7..8..8..8..sroa_idx43 = getelementptr inbounds nuw i8, ptr %.sroa.439, i64 7
+  %.sroa.439.7..sroa.439.7..sroa.439.8..8..8..8..sroa.2.0.copyload.i25 = load i32, ptr %.sroa.439.7..8..8..8..sroa_idx43, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.439)
   store i8 %26, ptr %13, align 2
   %.sroa_idx37 = getelementptr inbounds nuw i8, ptr %8, i64 5

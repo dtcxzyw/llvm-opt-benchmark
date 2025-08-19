@@ -1416,8 +1416,8 @@ _ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit: ; preds = %_ZNK
 
 _ZN8QuantLib5ArrayC2Em.exit.thread:               ; preds = %_ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit
   store ptr null, ptr %x, align 8, !tbaa !37
-  %n_.i23 = getelementptr inbounds nuw i8, ptr %x, i64 8
-  store i64 %sub.ptr.div.i, ptr %n_.i23, align 8, !tbaa !80
+  %n_.i28 = getelementptr inbounds nuw i8, ptr %x, i64 8
+  store i64 %sub.ptr.div.i, ptr %n_.i28, align 8, !tbaa !80
   br label %for.cond.cleanup
 
 for.body.preheader:                               ; preds = %_ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit
@@ -1507,15 +1507,15 @@ ehcleanup:                                        ; preds = %invoke.cont16, %con
   br i1 %cmp.not.i.i18, label %_ZN8QuantLib5ArrayD2Ev.exit20, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i19
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i19: ; preds = %ehcleanup.thread, %ehcleanup
-  %.pn26 = phi { ptr, i32 } [ %10, %ehcleanup.thread ], [ %17, %ehcleanup ]
+  %.pn31 = phi { ptr, i32 } [ %10, %ehcleanup.thread ], [ %17, %ehcleanup ]
   %18 = phi ptr [ %call.i, %ehcleanup.thread ], [ %.pre, %ehcleanup ]
   call void @_ZdaPv(ptr noundef nonnull %18) #28
   br label %_ZN8QuantLib5ArrayD2Ev.exit20
 
 _ZN8QuantLib5ArrayD2Ev.exit20:                    ; preds = %ehcleanup, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i19
-  %.pn27 = phi { ptr, i32 } [ %17, %ehcleanup ], [ %.pn26, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i19 ]
+  %.pn32 = phi { ptr, i32 } [ %17, %ehcleanup ], [ %.pn31, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %x)
-  resume { ptr, i32 } %.pn27
+  resume { ptr, i32 } %.pn32
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -2210,13 +2210,13 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store double 0.000000e+00, ptr %0, align 8, !tbaa !35
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 3
-  %4 = add i64 %3, -8
+  %3 = shl nuw nsw i64 %__n, 3
+  %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !35
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i

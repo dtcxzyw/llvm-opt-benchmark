@@ -2212,7 +2212,7 @@ define internal fastcc void @neatoLayout(ptr noundef %0, ptr noundef %1, i32 nou
 29:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %30 = call fastcc ptr @makeGraphData(ptr noundef %1, i32 noundef range(i32 2, -2147483648) %23, ptr noundef %12, i32 noundef 0, i32 noundef 2, ptr noundef null)
-  %31 = tail call ptr @compute_apsp_artificial_weights(ptr noundef %30, i32 noundef range(i32 2, -2147483648) %23) #22
+  %31 = tail call ptr @compute_apsp_artificial_weights(ptr noundef nonnull %30, i32 noundef range(i32 2, -2147483648) %23) #22
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 200
@@ -2248,7 +2248,7 @@ subset_model.exit.i:                              ; preds = %45
   %46 = load ptr, ptr %31, align 8, !tbaa !134
   tail call void @free(ptr noundef %46) #22
   tail call void @free(ptr noundef nonnull %31) #22
-  tail call void @freeGraphData(ptr noundef %30) #22
+  tail call void @freeGraphData(ptr noundef nonnull %30) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %mds_model.exit.i
 
@@ -2490,7 +2490,7 @@ gv_calloc.exit106.i:                              ; preds = %124, %.thread.i105.
   %166 = load i16, ptr @Ndim, align 2, !tbaa !43
   %167 = zext i16 %166 to i32
   %168 = load i32, ptr @MaxIter, align 4, !tbaa !53
-  %169 = call i32 @stress_majorization_with_hierarchy(ptr noundef %154, i32 noundef range(i32 2, -2147483648) %23, ptr noundef nonnull %133, ptr noundef %165, i32 noundef %167, i32 noundef %spec.select.i, i32 noundef range(i32 0, 4) %3, i32 noundef %168, double noundef %163) #22
+  %169 = call i32 @stress_majorization_with_hierarchy(ptr noundef nonnull %154, i32 noundef range(i32 2, -2147483648) %23, ptr noundef nonnull %133, ptr noundef %165, i32 noundef %167, i32 noundef %spec.select.i, i32 noundef range(i32 0, 4) %3, i32 noundef %168, double noundef %163) #22
   br label %382
 
 170:                                              ; preds = %161
@@ -2960,7 +2960,7 @@ gv_calloc.exit112.i:                              ; preds = %cluster_map.exit.i
   %369 = load i16, ptr @Ndim, align 2, !tbaa !43
   %370 = zext i16 %369 to i32
   %371 = load i32, ptr @MaxIter, align 4, !tbaa !53
-  %372 = call i32 @stress_majorization_cola(ptr noundef %154, i32 noundef range(i32 2, -2147483648) %23, ptr noundef nonnull %133, ptr noundef %368, i32 noundef %370, i32 noundef range(i32 0, 4) %3, i32 noundef %371, ptr noundef nonnull %10) #22
+  %372 = call i32 @stress_majorization_cola(ptr noundef nonnull %154, i32 noundef range(i32 2, -2147483648) %23, ptr noundef nonnull %133, ptr noundef %368, i32 noundef %370, i32 noundef range(i32 0, 4) %3, i32 noundef %371, ptr noundef nonnull %10) #22
   %373 = icmp sgt i32 %.sroa.9.0.i, 0
   br i1 %373, label %374, label %freeClusterData.exit.i
 
@@ -2983,7 +2983,7 @@ freeClusterData.exit.i:                           ; preds = %374, %._crit_edge15
   %378 = load i16, ptr @Ndim, align 2, !tbaa !43
   %379 = zext i16 %378 to i32
   %380 = load i32, ptr @MaxIter, align 4, !tbaa !53
-  %381 = call i32 @stress_majorization_kD_mkernel(ptr noundef %154, i32 noundef range(i32 2, -2147483648) %23, ptr noundef nonnull %133, ptr noundef %377, i32 noundef %379, i32 noundef %spec.select.i, i32 noundef range(i32 0, 4) %3, i32 noundef %380) #22
+  %381 = call i32 @stress_majorization_kD_mkernel(ptr noundef nonnull %154, i32 noundef range(i32 2, -2147483648) %23, ptr noundef nonnull %133, ptr noundef %377, i32 noundef %379, i32 noundef %spec.select.i, i32 noundef range(i32 0, 4) %3, i32 noundef %380) #22
   br label %382
 
 382:                                              ; preds = %376, %freeClusterData.exit.i, %164
@@ -3036,7 +3036,7 @@ freeClusterData.exit.i:                           ; preds = %374, %._crit_edge15
   br i1 %exitcond167.not.i, label %._crit_edge154.i, label %398, !llvm.loop !171
 
 majorization.exit:                                ; preds = %._crit_edge154.i, %385, %387
-  call void @freeGraphData(ptr noundef %154) #22
+  call void @freeGraphData(ptr noundef nonnull %154) #22
   %404 = load ptr, ptr %133, align 8, !tbaa !135
   call void @free(ptr noundef %404) #22
   call void @free(ptr noundef %133) #22
@@ -3362,7 +3362,7 @@ declare void @start_timer() local_unnamed_addr #1
 declare void @solve_model(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @makeGraphData(ptr noundef %0, i32 noundef range(i32 2, -2147483648) %1, ptr noundef nonnull writeonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 0, 4) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc noalias nonnull ptr @makeGraphData(ptr noundef %0, i32 noundef range(i32 2, -2147483648) %1, ptr noundef nonnull writeonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 0, 4) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = tail call i32 @agnedges(ptr noundef %0) #22
   %8 = tail call ptr @newPM() #22
   %.not = icmp eq i32 %4, 2
@@ -3436,7 +3436,7 @@ gv_calloc.exit217:                                ; preds = %gv_calloc.exit
 gv_calloc.exit220:                                ; preds = %gv_calloc.exit217
   %44 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 4) #23
   %or.cond = or i1 %16, %.0203
-  br i1 %or.cond, label %gv_calloc.exit225.thread, label %gv_calloc.exit225.thread364
+  br i1 %or.cond, label %gv_calloc.exit225.thread, label %gv_calloc.exit225.thread389
 
 gv_calloc.exit220.thread:                         ; preds = %37
   %or.cond247 = or i1 %16, %.0203
@@ -3458,15 +3458,15 @@ gv_calloc.exit225:                                ; preds = %.thread, %gv_calloc
   %.0171 = phi ptr [ null, %gv_calloc.exit220.thread ], [ %45, %.thread ]
   br i1 %.0202, label %53, label %gv_calloc.exit230
 
-gv_calloc.exit225.thread364:                      ; preds = %gv_calloc.exit220
+gv_calloc.exit225.thread389:                      ; preds = %gv_calloc.exit220
   br i1 %.0202, label %.thread.i229, label %gv_calloc.exit230
 
 gv_calloc.exit225.thread:                         ; preds = %gv_calloc.exit220
   %51 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 4) #23
   br i1 %.0202, label %.thread.i229, label %gv_calloc.exit230
 
-.thread.i229:                                     ; preds = %gv_calloc.exit225.thread364, %gv_calloc.exit225.thread
-  %.0171258263 = phi ptr [ %51, %gv_calloc.exit225.thread ], [ null, %gv_calloc.exit225.thread364 ]
+.thread.i229:                                     ; preds = %gv_calloc.exit225.thread389, %gv_calloc.exit225.thread
+  %.0171258263 = phi ptr [ %51, %gv_calloc.exit225.thread ], [ null, %gv_calloc.exit225.thread389 ]
   %52 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 4) #23
   br label %gv_calloc.exit230
 
@@ -3482,11 +3482,11 @@ gv_calloc.exit225.thread:                         ; preds = %gv_calloc.exit220
   tail call fastcc void @graphviz_exit() #25
   unreachable
 
-gv_calloc.exit230:                                ; preds = %gv_calloc.exit225.thread364, %.thread.i229, %gv_calloc.exit225.thread, %gv_calloc.exit225
-  %.0171257 = phi ptr [ %.0171, %gv_calloc.exit225 ], [ %51, %gv_calloc.exit225.thread ], [ %.0171258263, %.thread.i229 ], [ null, %gv_calloc.exit225.thread364 ]
-  %60 = phi ptr [ %38, %gv_calloc.exit225 ], [ %44, %gv_calloc.exit225.thread ], [ %44, %.thread.i229 ], [ %44, %gv_calloc.exit225.thread364 ]
-  %or.cond248255 = phi i1 [ %or.cond247, %gv_calloc.exit225 ], [ true, %gv_calloc.exit225.thread ], [ %or.cond, %.thread.i229 ], [ false, %gv_calloc.exit225.thread364 ]
-  %.0184 = phi ptr [ null, %gv_calloc.exit225 ], [ null, %gv_calloc.exit225.thread ], [ %52, %.thread.i229 ], [ null, %gv_calloc.exit225.thread364 ]
+gv_calloc.exit230:                                ; preds = %gv_calloc.exit225.thread389, %.thread.i229, %gv_calloc.exit225.thread, %gv_calloc.exit225
+  %.0171257 = phi ptr [ %.0171, %gv_calloc.exit225 ], [ %51, %gv_calloc.exit225.thread ], [ %.0171258263, %.thread.i229 ], [ null, %gv_calloc.exit225.thread389 ]
+  %60 = phi ptr [ %38, %gv_calloc.exit225 ], [ %44, %gv_calloc.exit225.thread ], [ %44, %.thread.i229 ], [ %44, %gv_calloc.exit225.thread389 ]
+  %or.cond248255 = phi i1 [ %or.cond247, %gv_calloc.exit225 ], [ true, %gv_calloc.exit225.thread ], [ %or.cond, %.thread.i229 ], [ false, %gv_calloc.exit225.thread389 ]
+  %.0184 = phi ptr [ null, %gv_calloc.exit225 ], [ null, %gv_calloc.exit225.thread ], [ %52, %.thread.i229 ], [ null, %gv_calloc.exit225.thread389 ]
   br i1 %16, label %61, label %gv_calloc.exit235
 
 gv_calloc.exit230.thread:                         ; preds = %53
@@ -3526,7 +3526,7 @@ gv_calloc.exit235:                                ; preds = %.thread275, %.threa
   br i1 %.not209319, label %._crit_edge328, label %.lr.ph327.preheader
 
 .lr.ph327.preheader:                              ; preds = %gv_calloc.exit235
-  %spec.select380.idx = select i1 %or.cond248255271, i64 4, i64 0
+  %spec.select405.idx = select i1 %or.cond248255271, i64 4, i64 0
   %.2186.idx = select i1 %.0202, i64 4, i64 0
   %.2195.idx = select i1 %16, i64 4, i64 0
   br label %.lr.ph327
@@ -3547,7 +3547,7 @@ gv_calloc.exit235:                                ; preds = %.thread275, %.threa
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %.0179323, ptr %75, align 8, !tbaa !176
   %spec.select = select i1 %or.cond248255271, ptr %.1172325, ptr null
-  %spec.select380 = getelementptr inbounds nuw i8, ptr %.1172325, i64 %spec.select380.idx
+  %spec.select405 = getelementptr inbounds nuw i8, ptr %.1172325, i64 %spec.select405.idx
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 16
   store ptr %spec.select, ptr %76, align 8, !tbaa !179
   %77 = select i1 %.0202, ptr %.1185322, ptr null
@@ -3564,7 +3564,7 @@ gv_calloc.exit235:                                ; preds = %.thread275, %.threa
 
 .lr.ph:                                           ; preds = %.lr.ph327, %189
   %.1313 = phi i32 [ %.2, %189 ], [ %.0326, %.lr.ph327 ]
-  %.3312 = phi ptr [ %.4, %189 ], [ %spec.select380, %.lr.ph327 ]
+  %.3312 = phi ptr [ %.4, %189 ], [ %spec.select405, %.lr.ph327 ]
   %.0175311 = phi i64 [ %.1176, %189 ], [ 1, %.lr.ph327 ]
   %.0177310 = phi i32 [ %.1178, %189 ], [ 1, %.lr.ph327 ]
   %.1180309 = phi ptr [ %.2181, %189 ], [ %73, %.lr.ph327 ]
@@ -3755,7 +3755,7 @@ gv_calloc.exit235:                                ; preds = %.thread275, %.threa
   %.3187.lcssa = phi ptr [ %.2186, %.lr.ph327 ], [ %.4188, %189 ]
   %.1180.lcssa = phi ptr [ %73, %.lr.ph327 ], [ %.2181, %189 ]
   %.0175.lcssa = phi i64 [ 1, %.lr.ph327 ], [ %.1176, %189 ]
-  %.3.lcssa = phi ptr [ %spec.select380, %.lr.ph327 ], [ %.4, %189 ]
+  %.3.lcssa = phi ptr [ %spec.select405, %.lr.ph327 ], [ %.4, %189 ]
   %.1.lcssa = phi i32 [ %.0326, %.lr.ph327 ], [ %.2, %189 ]
   store i64 %.0175.lcssa, ptr %74, align 8, !tbaa !184
   %191 = trunc nuw nsw i64 %indvars.iv to i32

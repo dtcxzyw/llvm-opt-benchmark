@@ -1567,7 +1567,7 @@ get_key_length.exit:                              ; preds = %106, %is_flex_encod
   %.neg80 = add nuw nsw i32 %.088112.i.i, 1
   %174 = add nuw nsw i32 %.080.i.i, %.081.i.i
   %175 = add nuw nsw i32 %174, %.079.i.i
-  %176 = sub i32 %.neg80, %175
+  %176 = sub nsw i32 %.neg80, %175
   %177 = add i32 %.086113.i.i, 1
   %178 = icmp sgt i32 %176, 0
   br i1 %178, label %130, label %dissect_frame_flex_info_section.exit, !llvm.loop !10
@@ -3583,39 +3583,39 @@ has_json_value.exit.thread476:                    ; preds = %has_json_value.exit
   %194 = tail call ptr @proto_item_add_subtree(ptr noundef %192, i32 noundef %193)
   %195 = tail call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %190, i32 noundef %186, i8 noundef zeroext 61)
   %196 = icmp eq i32 %195, -1
-  br i1 %196, label %.lr.ph517._crit_edge, label %.lr.ph554
+  br i1 %196, label %.lr.ph517._crit_edge, label %.lr.ph575
 
 .lr.ph517:                                        ; preds = %217
   %197 = add nuw i32 %213, 1
   %198 = tail call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %197, i32 noundef %221, i8 noundef zeroext 61)
   %199 = icmp eq i32 %198, -1
-  br i1 %199, label %.lr.ph517._crit_edge, label %.lr.ph554, !llvm.loop !17
+  br i1 %199, label %.lr.ph517._crit_edge, label %.lr.ph575, !llvm.loop !17
 
 .lr.ph517._crit_edge:                             ; preds = %.lr.ph517, %.lr.ph517.preheader
   %.3514.lcssa = phi ptr [ %192, %.lr.ph517.preheader ], [ %204, %.lr.ph517 ]
   %200 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.3514.lcssa, ptr noundef nonnull @ei_illegal_value, ptr noundef nonnull @.str.796)
   br label %.loopexit
 
-.lr.ph554:                                        ; preds = %.lr.ph517.preheader, %.lr.ph517
+.lr.ph575:                                        ; preds = %.lr.ph517.preheader, %.lr.ph517
   %201 = phi i32 [ %198, %.lr.ph517 ], [ %195, %.lr.ph517.preheader ]
-  %.0427515553 = phi i32 [ %221, %.lr.ph517 ], [ %186, %.lr.ph517.preheader ]
-  %.1516552 = phi i32 [ %197, %.lr.ph517 ], [ %190, %.lr.ph517.preheader ]
+  %.0427515574 = phi i32 [ %221, %.lr.ph517 ], [ %186, %.lr.ph517.preheader ]
+  %.1516573 = phi i32 [ %197, %.lr.ph517 ], [ %190, %.lr.ph517.preheader ]
   %202 = load i32, ptr @hf_config_key, align 4
-  %203 = sub i32 %201, %.1516552
-  %204 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %202, ptr noundef %0, i32 noundef %.1516552, i32 noundef %203, i32 noundef 0)
+  %203 = sub i32 %201, %.1516573
+  %204 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %202, ptr noundef %0, i32 noundef %.1516573, i32 noundef %203, i32 noundef 0)
   %205 = load i32, ptr @ett_config_key, align 4
   %206 = tail call ptr @proto_item_add_subtree(ptr noundef %204, i32 noundef %205)
   %.neg = xor i32 %203, -1
-  %207 = add i32 %.0427515553, %.neg
+  %207 = add i32 %.0427515574, %.neg
   %208 = add nuw i32 %201, 1
   %209 = icmp slt i32 %207, 1
   br i1 %209, label %210, label %212
 
-210:                                              ; preds = %.lr.ph554
+210:                                              ; preds = %.lr.ph575
   %211 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %204, ptr noundef nonnull @ei_illegal_value, ptr noundef nonnull @.str.797)
   br label %.loopexit
 
-212:                                              ; preds = %.lr.ph554
+212:                                              ; preds = %.lr.ph575
   %213 = tail call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %208, i32 noundef %207, i8 noundef zeroext 59)
   %214 = icmp eq i32 %213, -1
   br i1 %214, label %215, label %217

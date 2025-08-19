@@ -694,7 +694,7 @@ gv_calloc.exit.thread.i.i:                        ; preds = %._crit_edge.i.i
 
 88:                                               ; preds = %._crit_edge.i.i
   %mul.ov.i.i42.i = icmp slt i32 %112, -1
-  br i1 %mul.ov.i.i42.i, label %89, label %.thread56.i.i
+  br i1 %mul.ov.i.i42.i, label %89, label %.thread58.i.i
 
 89:                                               ; preds = %88
   %90 = load ptr, ptr @stderr, align 8, !tbaa !39
@@ -710,13 +710,13 @@ gv_calloc.exit.thread.i.i:                        ; preds = %._crit_edge.i.i
   %96 = icmp eq ptr %95, null
   br i1 %96, label %99, label %gv_calloc.exit.i43.i
 
-.thread56.i.i:                                    ; preds = %88
+.thread58.i.i:                                    ; preds = %88
   %97 = call noalias ptr @calloc(i64 noundef %86, i64 noundef 8) #16
   %98 = icmp eq ptr %97, null
   br i1 %98, label %99, label %.lr.ph40.preheader.i.i
 
-99:                                               ; preds = %.thread56.i.i, %92
-  %100 = phi i64 [ %86, %.thread56.i.i ], [ 1, %92 ]
+99:                                               ; preds = %.thread58.i.i, %92
+  %100 = phi i64 [ %86, %.thread58.i.i ], [ 1, %92 ]
   %101 = load ptr, ptr @stderr, align 8, !tbaa !39
   %102 = shl nuw nsw i64 %100, 3
   %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.2, i64 noundef %102) #17
@@ -728,8 +728,8 @@ gv_calloc.exit.i43.i:                             ; preds = %92
   store ptr %95, ptr %104, align 8, !tbaa !96
   br label %copyClusterInfo.exit.i
 
-.lr.ph40.preheader.i.i:                           ; preds = %.thread56.i.i, %gv_calloc.exit.thread.i.i
-  %.sink.i.i = phi ptr [ %87, %gv_calloc.exit.thread.i.i ], [ %97, %.thread56.i.i ]
+.lr.ph40.preheader.i.i:                           ; preds = %.thread58.i.i, %gv_calloc.exit.thread.i.i
+  %.sink.i.i = phi ptr [ %87, %gv_calloc.exit.thread.i.i ], [ %97, %.thread58.i.i ]
   %105 = getelementptr inbounds nuw i8, ptr %83, i64 240
   store ptr %.sink.i.i, ptr %105, align 8, !tbaa !96
   br label %.lr.ph40.i.i
@@ -1091,7 +1091,7 @@ define internal fastcc void @dotLayout(ptr noundef %0) unnamed_addr #0 {
   br i1 %56, label %.lr.ph32.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph32.preheader.i.i:                           ; preds = %.preheader.i.i
-  %wide.trip.count48.i.i = zext i32 %57 to i64
+  %wide.trip.count48.i.i = zext nneg i32 %57 to i64
   br label %.lr.ph32.i.i
 
 .lr.ph32.i.i:                                     ; preds = %.lr.ph32.i.i, %.lr.ph32.preheader.i.i

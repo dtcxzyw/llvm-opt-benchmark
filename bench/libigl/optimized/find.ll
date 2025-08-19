@@ -518,9 +518,9 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %157 = bitcast <2 x i64> %.sroa.067.0.i.i.i.i24 to <4 x i32>
   %158 = shufflevector <4 x i32> %157, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %159 = add <4 x i32> %158, %156
-  %shift191 = shufflevector <4 x i32> %159, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop192 = add nsw <4 x i32> %159, %shift191
-  %160 = extractelement <4 x i32> %foldExtExtBinop192, i64 0
+  %shift208 = shufflevector <4 x i32> %159, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop209 = add nsw <4 x i32> %159, %shift208
+  %160 = extractelement <4 x i32> %foldExtExtBinop209, i64 0
   %161 = icmp sgt i64 %.0.i.i.i.i.i.i.i.i21, 0
   br i1 %161, label %.lr.ph85.i.i.i.i35, label %.preheader.i.i.i.i27
 
@@ -703,9 +703,9 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %249 = bitcast <2 x i64> %.sroa.067.0.i.i.i.i64 to <4 x i32>
   %250 = shufflevector <4 x i32> %249, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %251 = add <4 x i32> %250, %248
-  %shift194 = shufflevector <4 x i32> %251, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop195 = add nsw <4 x i32> %251, %shift194
-  %252 = extractelement <4 x i32> %foldExtExtBinop195, i64 0
+  %shift211 = shufflevector <4 x i32> %251, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop212 = add nsw <4 x i32> %251, %shift211
+  %252 = extractelement <4 x i32> %foldExtExtBinop212, i64 0
   %253 = icmp sgt i64 %.0.i.i.i.i.i.i.i.i61, 0
   br i1 %253, label %.lr.ph85.i.i.i.i75, label %.preheader.i.i.i.i67
 
@@ -1133,9 +1133,9 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %147 = bitcast <2 x i64> %.sroa.067.0.i.i.i.i24 to <4 x i32>
   %148 = shufflevector <4 x i32> %147, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %149 = add <4 x i32> %148, %146
-  %shift173 = shufflevector <4 x i32> %149, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop174 = add nsw <4 x i32> %149, %shift173
-  %150 = extractelement <4 x i32> %foldExtExtBinop174, i64 0
+  %shift187 = shufflevector <4 x i32> %149, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop188 = add nsw <4 x i32> %149, %shift187
+  %150 = extractelement <4 x i32> %foldExtExtBinop188, i64 0
   %151 = icmp sgt i64 %.0.i.i.i.i.i.i.i.i21, 0
   br i1 %151, label %.lr.ph85.i.i.i.i35, label %.preheader.i.i.i.i27
 
@@ -1289,9 +1289,9 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %229 = bitcast <2 x i64> %.sroa.067.0.i.i.i.i59 to <4 x i32>
   %230 = shufflevector <4 x i32> %229, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %231 = add <4 x i32> %230, %228
-  %shift176 = shufflevector <4 x i32> %231, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop177 = add nsw <4 x i32> %231, %shift176
-  %232 = extractelement <4 x i32> %foldExtExtBinop177, i64 0
+  %shift190 = shufflevector <4 x i32> %231, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop191 = add nsw <4 x i32> %231, %shift190
+  %232 = extractelement <4 x i32> %foldExtExtBinop191, i64 0
   %233 = icmp sgt i64 %.0.i.i.i.i.i.i.i.i56, 0
   br i1 %233, label %.lr.ph85.i.i.i.i70, label %.preheader.i.i.i.i62
 
@@ -1749,9 +1749,9 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %147 = bitcast <2 x i64> %.sroa.067.0.i.i.i.i24 to <4 x i32>
   %148 = shufflevector <4 x i32> %147, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %149 = add <4 x i32> %148, %146
-  %shift175 = shufflevector <4 x i32> %149, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop176 = add nsw <4 x i32> %149, %shift175
-  %150 = extractelement <4 x i32> %foldExtExtBinop176, i64 0
+  %shift190 = shufflevector <4 x i32> %149, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop191 = add nsw <4 x i32> %149, %shift190
+  %150 = extractelement <4 x i32> %foldExtExtBinop191, i64 0
   %151 = icmp sgt i64 %.0.i.i.i.i.i.i.i.i21, 0
   br i1 %151, label %.lr.ph85.i.i.i.i35, label %.preheader.i.i.i.i27
 
@@ -1905,9 +1905,9 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %229 = bitcast <2 x i64> %.sroa.067.0.i.i.i.i59 to <4 x i32>
   %230 = shufflevector <4 x i32> %229, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %231 = add <4 x i32> %230, %228
-  %shift178 = shufflevector <4 x i32> %231, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop179 = add nsw <4 x i32> %231, %shift178
-  %232 = extractelement <4 x i32> %foldExtExtBinop179, i64 0
+  %shift193 = shufflevector <4 x i32> %231, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop194 = add nsw <4 x i32> %231, %shift193
+  %232 = extractelement <4 x i32> %foldExtExtBinop194, i64 0
   %233 = icmp sgt i64 %.0.i.i.i.i.i.i.i.i56, 0
   br i1 %233, label %.lr.ph85.i.i.i.i70, label %.preheader.i.i.i.i62
 
@@ -2397,9 +2397,9 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %147 = bitcast <2 x i64> %.sroa.067.0.i.i.i.i24 to <4 x i32>
   %148 = shufflevector <4 x i32> %147, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %149 = add <4 x i32> %148, %146
-  %shift173 = shufflevector <4 x i32> %149, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop174 = add nsw <4 x i32> %149, %shift173
-  %150 = extractelement <4 x i32> %foldExtExtBinop174, i64 0
+  %shift187 = shufflevector <4 x i32> %149, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop188 = add nsw <4 x i32> %149, %shift187
+  %150 = extractelement <4 x i32> %foldExtExtBinop188, i64 0
   %151 = icmp sgt i64 %.0.i.i.i.i.i.i.i.i21, 0
   br i1 %151, label %.lr.ph85.i.i.i.i35, label %.preheader.i.i.i.i27
 
@@ -2553,9 +2553,9 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %229 = bitcast <2 x i64> %.sroa.067.0.i.i.i.i59 to <4 x i32>
   %230 = shufflevector <4 x i32> %229, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %231 = add <4 x i32> %230, %228
-  %shift176 = shufflevector <4 x i32> %231, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop177 = add nsw <4 x i32> %231, %shift176
-  %232 = extractelement <4 x i32> %foldExtExtBinop177, i64 0
+  %shift190 = shufflevector <4 x i32> %231, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop191 = add nsw <4 x i32> %231, %shift190
+  %232 = extractelement <4 x i32> %foldExtExtBinop191, i64 0
   %233 = icmp sgt i64 %.0.i.i.i.i.i.i.i.i56, 0
   br i1 %233, label %.lr.ph85.i.i.i.i70, label %.preheader.i.i.i.i62
 
@@ -3013,9 +3013,9 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %147 = bitcast <2 x i64> %.sroa.067.0.i.i.i.i24 to <4 x i32>
   %148 = shufflevector <4 x i32> %147, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %149 = add <4 x i32> %148, %146
-  %shift173 = shufflevector <4 x i32> %149, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop174 = add nsw <4 x i32> %149, %shift173
-  %150 = extractelement <4 x i32> %foldExtExtBinop174, i64 0
+  %shift187 = shufflevector <4 x i32> %149, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop188 = add nsw <4 x i32> %149, %shift187
+  %150 = extractelement <4 x i32> %foldExtExtBinop188, i64 0
   %151 = icmp sgt i64 %.0.i.i.i.i.i.i.i.i21, 0
   br i1 %151, label %.lr.ph85.i.i.i.i35, label %.preheader.i.i.i.i27
 
@@ -3169,9 +3169,9 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %229 = bitcast <2 x i64> %.sroa.067.0.i.i.i.i59 to <4 x i32>
   %230 = shufflevector <4 x i32> %229, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %231 = add <4 x i32> %230, %228
-  %shift176 = shufflevector <4 x i32> %231, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop177 = add nsw <4 x i32> %231, %shift176
-  %232 = extractelement <4 x i32> %foldExtExtBinop177, i64 0
+  %shift190 = shufflevector <4 x i32> %231, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop191 = add nsw <4 x i32> %231, %shift190
+  %232 = extractelement <4 x i32> %foldExtExtBinop191, i64 0
   %233 = icmp sgt i64 %.0.i.i.i.i.i.i.i.i56, 0
   br i1 %233, label %.lr.ph85.i.i.i.i70, label %.preheader.i.i.i.i62
 
@@ -3568,9 +3568,9 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %147 = bitcast <2 x i64> %.sroa.067.0.i.i.i.i24 to <4 x i32>
   %148 = shufflevector <4 x i32> %147, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %149 = add <4 x i32> %148, %146
-  %shift175 = shufflevector <4 x i32> %149, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop176 = add nsw <4 x i32> %149, %shift175
-  %150 = extractelement <4 x i32> %foldExtExtBinop176, i64 0
+  %shift189 = shufflevector <4 x i32> %149, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop190 = add nsw <4 x i32> %149, %shift189
+  %150 = extractelement <4 x i32> %foldExtExtBinop190, i64 0
   %151 = icmp sgt i64 %.0.i.i.i.i.i.i.i.i21, 0
   br i1 %151, label %.lr.ph85.i.i.i.i35, label %.preheader.i.i.i.i27
 
@@ -3724,9 +3724,9 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %229 = bitcast <2 x i64> %.sroa.067.0.i.i.i.i59 to <4 x i32>
   %230 = shufflevector <4 x i32> %229, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %231 = add <4 x i32> %230, %228
-  %shift178 = shufflevector <4 x i32> %231, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop179 = add nsw <4 x i32> %231, %shift178
-  %232 = extractelement <4 x i32> %foldExtExtBinop179, i64 0
+  %shift192 = shufflevector <4 x i32> %231, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop193 = add nsw <4 x i32> %231, %shift192
+  %232 = extractelement <4 x i32> %foldExtExtBinop193, i64 0
   %233 = icmp sgt i64 %.0.i.i.i.i.i.i.i.i56, 0
   br i1 %233, label %.lr.ph85.i.i.i.i70, label %.preheader.i.i.i.i62
 
@@ -4188,9 +4188,9 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %147 = bitcast <2 x i64> %.sroa.067.0.i.i.i.i24 to <4 x i32>
   %148 = shufflevector <4 x i32> %147, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %149 = add <4 x i32> %148, %146
-  %shift172 = shufflevector <4 x i32> %149, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop173 = add nsw <4 x i32> %149, %shift172
-  %150 = extractelement <4 x i32> %foldExtExtBinop173, i64 0
+  %shift187 = shufflevector <4 x i32> %149, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop188 = add nsw <4 x i32> %149, %shift187
+  %150 = extractelement <4 x i32> %foldExtExtBinop188, i64 0
   %151 = icmp sgt i64 %.0.i.i.i.i.i.i.i.i21, 0
   br i1 %151, label %.lr.ph85.i.i.i.i35, label %.preheader.i.i.i.i27
 
@@ -4344,9 +4344,9 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %229 = bitcast <2 x i64> %.sroa.067.0.i.i.i.i59 to <4 x i32>
   %230 = shufflevector <4 x i32> %229, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %231 = add <4 x i32> %230, %228
-  %shift175 = shufflevector <4 x i32> %231, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop176 = add nsw <4 x i32> %231, %shift175
-  %232 = extractelement <4 x i32> %foldExtExtBinop176, i64 0
+  %shift190 = shufflevector <4 x i32> %231, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop191 = add nsw <4 x i32> %231, %shift190
+  %232 = extractelement <4 x i32> %foldExtExtBinop191, i64 0
   %233 = icmp sgt i64 %.0.i.i.i.i.i.i.i.i56, 0
   br i1 %233, label %.lr.ph85.i.i.i.i70, label %.preheader.i.i.i.i62
 

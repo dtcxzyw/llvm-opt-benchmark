@@ -1850,14 +1850,14 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionCo
   br label %.thread
 
 .thread:                                          ; preds = %222, %227
-  %.sroa.7191.0214 = phi <2 x float> [ %.sroa.3.12.vec.insert.i153, %227 ], [ zeroinitializer, %222 ]
-  %.sroa.0188.0213 = phi <2 x float> [ %.sroa.0.4.vec.insert.i152, %227 ], [ zeroinitializer, %222 ]
+  %.sroa.7191.0217 = phi <2 x float> [ %.sroa.3.12.vec.insert.i153, %227 ], [ zeroinitializer, %222 ]
+  %.sroa.0188.0216 = phi <2 x float> [ %.sroa.0.4.vec.insert.i152, %227 ], [ zeroinitializer, %222 ]
   %.sroa.0181.0 = phi float [ %.sroa.0181.0.copyload, %227 ], [ 0.000000e+00, %222 ]
   %.sroa.5182.0 = phi float [ %.sroa.5182.0.copyload, %227 ], [ 0.000000e+00, %222 ]
   %.sroa.7183.0 = phi float [ %.sroa.7183.0.copyload, %227 ], [ 0.000000e+00, %222 ]
   %244 = load float, ptr %226, align 8, !tbaa !59
-  %.in220 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %245 = load float, ptr %.in220, align 4, !tbaa !59
+  %.in223 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %245 = load float, ptr %.in223, align 4, !tbaa !59
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %246 = load float, ptr %.in, align 8, !tbaa !59
   %247 = load float, ptr %1, align 8, !tbaa !59
@@ -1865,7 +1865,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionCo
   %249 = load float, ptr %248, align 4, !tbaa !59
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %251 = load float, ptr %250, align 8, !tbaa !59
-  br i1 %.not104, label %.thread215, label %252
+  br i1 %.not104, label %.thread218, label %252
 
 252:                                              ; preds = %.thread
   %253 = getelementptr inbounds nuw i8, ptr %20, i64 176
@@ -1892,11 +1892,11 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionCo
   %.sroa.5169.0.copyload = load float, ptr %.sroa.5169.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 200
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 8
-  br label %.thread215
+  br label %.thread218
 
-.thread215:                                       ; preds = %.thread, %252
-  %.sroa.0173.0219 = phi <2 x float> [ %.sroa.0.4.vec.insert.i157, %252 ], [ zeroinitializer, %.thread ]
-  %.sroa.7176.0218 = phi <2 x float> [ %.sroa.3.12.vec.insert.i158, %252 ], [ zeroinitializer, %.thread ]
+.thread218:                                       ; preds = %.thread, %252
+  %.sroa.0173.0222 = phi <2 x float> [ %.sroa.0.4.vec.insert.i157, %252 ], [ zeroinitializer, %.thread ]
+  %.sroa.7176.0221 = phi <2 x float> [ %.sroa.3.12.vec.insert.i158, %252 ], [ zeroinitializer, %.thread ]
   %.sroa.7.0 = phi float [ %.sroa.7.0.copyload, %252 ], [ 0.000000e+00, %.thread ]
   %.sroa.5169.0 = phi float [ %.sroa.5169.0.copyload, %252 ], [ 0.000000e+00, %.thread ]
   %.sroa.0168.0 = phi float [ %.sroa.0168.0.copyload, %252 ], [ 0.000000e+00, %.thread ]
@@ -1906,7 +1906,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionCo
   %.not105 = icmp eq i32 %271, 0
   br i1 %.not105, label %304, label %272
 
-272:                                              ; preds = %.thread215
+272:                                              ; preds = %.thread218
   %273 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %274 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %275 = load float, ptr %273, align 8, !tbaa !59
@@ -1940,23 +1940,23 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionCo
   %303 = fmul float %224, %302
   br label %304
 
-304:                                              ; preds = %272, %.thread215
-  %.0100 = phi float [ %303, %272 ], [ 0.000000e+00, %.thread215 ]
+304:                                              ; preds = %272, %.thread218
+  %.0100 = phi float [ %303, %272 ], [ 0.000000e+00, %.thread218 ]
   %305 = fmul float %.sroa.5169.0, %161
   %306 = tail call float @llvm.fmuladd.f32(float %162, float %.sroa.0168.0, float %305)
   %307 = tail call noundef float @llvm.fmuladd.f32(float %160, float %.sroa.7.0, float %306)
-  %.sroa.7176.8.vec.extract = extractelement <2 x float> %.sroa.7176.0218, i64 0
-  %.sroa.0173.0.vec.extract = extractelement <2 x float> %.sroa.0173.0219, i64 0
-  %.sroa.0173.4.vec.extract = extractelement <2 x float> %.sroa.0173.0219, i64 1
+  %.sroa.7176.8.vec.extract = extractelement <2 x float> %.sroa.7176.0221, i64 0
+  %.sroa.0173.0.vec.extract = extractelement <2 x float> %.sroa.0173.0222, i64 0
+  %.sroa.0173.4.vec.extract = extractelement <2 x float> %.sroa.0173.0222, i64 1
   %308 = fmul float %.sroa.0173.4.vec.extract, %164
   %309 = tail call float @llvm.fmuladd.f32(float %165, float %.sroa.0173.0.vec.extract, float %308)
   %310 = tail call noundef float @llvm.fmuladd.f32(float %163, float %.sroa.7176.8.vec.extract, float %309)
   %311 = fmul float %.sroa.5182.0, %249
   %312 = tail call float @llvm.fmuladd.f32(float %247, float %.sroa.0181.0, float %311)
   %313 = tail call noundef float @llvm.fmuladd.f32(float %251, float %.sroa.7183.0, float %312)
-  %.sroa.7191.8.vec.extract = extractelement <2 x float> %.sroa.7191.0214, i64 0
-  %.sroa.0188.0.vec.extract = extractelement <2 x float> %.sroa.0188.0213, i64 0
-  %.sroa.0188.4.vec.extract = extractelement <2 x float> %.sroa.0188.0213, i64 1
+  %.sroa.7191.8.vec.extract = extractelement <2 x float> %.sroa.7191.0217, i64 0
+  %.sroa.0188.0.vec.extract = extractelement <2 x float> %.sroa.0188.0216, i64 0
+  %.sroa.0188.4.vec.extract = extractelement <2 x float> %.sroa.0188.0216, i64 1
   %314 = fmul float %.sroa.0188.4.vec.extract, %245
   %315 = tail call float @llvm.fmuladd.f32(float %244, float %.sroa.0188.0.vec.extract, float %314)
   %316 = tail call noundef float @llvm.fmuladd.f32(float %246, float %.sroa.7191.8.vec.extract, float %315)
@@ -2381,14 +2381,14 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver32setupTorsionalF
   br label %.thread
 
 .thread:                                          ; preds = %208, %210
-  %.sroa.0120.0198 = phi <2 x float> [ %.sroa.0.4.vec.insert.i111, %210 ], [ zeroinitializer, %208 ]
-  %.sroa.7123.0197 = phi <2 x float> [ %.sroa.3.12.vec.insert.i112, %210 ], [ zeroinitializer, %208 ]
+  %.sroa.0120.0200 = phi <2 x float> [ %.sroa.0.4.vec.insert.i111, %210 ], [ zeroinitializer, %208 ]
+  %.sroa.7123.0199 = phi <2 x float> [ %.sroa.3.12.vec.insert.i112, %210 ], [ zeroinitializer, %208 ]
   %.sroa.7.0 = phi float [ %.sroa.7.0.copyload, %210 ], [ 0.000000e+00, %208 ]
   %.sroa.5.0 = phi float [ %.sroa.5.0.copyload, %210 ], [ 0.000000e+00, %208 ]
   %.sroa.0.0 = phi float [ %.sroa.0.0.copyload, %210 ], [ 0.000000e+00, %208 ]
-  %.sroa.7123.8.vec.extract = extractelement <2 x float> %.sroa.7123.0197, i64 0
-  %.sroa.0120.0.vec.extract = extractelement <2 x float> %.sroa.0120.0198, i64 0
-  %.sroa.0120.4.vec.extract = extractelement <2 x float> %.sroa.0120.0198, i64 1
+  %.sroa.7123.8.vec.extract = extractelement <2 x float> %.sroa.7123.0199, i64 0
+  %.sroa.0120.0.vec.extract = extractelement <2 x float> %.sroa.0120.0200, i64 0
+  %.sroa.0120.4.vec.extract = extractelement <2 x float> %.sroa.0120.0200, i64 1
   %227 = fmul float %.sroa.0120.4.vec.extract, -0.000000e+00
   %228 = tail call float @llvm.fmuladd.f32(float %.sroa.0120.0.vec.extract, float -0.000000e+00, float %227)
   %229 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.7123.8.vec.extract, float -0.000000e+00, float %228)
@@ -3422,10 +3422,10 @@ _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit269: ; preds = %396
   %.sroa.0298.0 = phi float [ %.sroa.0298.0.copyload, %472 ], [ 0.000000e+00, %470 ]
   %foldExtExtBinop = fsub <2 x float> %.sroa.6339.0, %.sroa.6.0
   %476 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop407 = fsub <2 x float> %.sroa.0338.0, %.sroa.0334.0
-  %477 = extractelement <2 x float> %foldExtExtBinop407, i64 0
-  %foldExtExtBinop409 = fsub <2 x float> %.sroa.0338.0, %.sroa.0334.0
-  %478 = extractelement <2 x float> %foldExtExtBinop409, i64 1
+  %foldExtExtBinop414 = fsub <2 x float> %.sroa.0338.0, %.sroa.0334.0
+  %477 = extractelement <2 x float> %foldExtExtBinop414, i64 0
+  %foldExtExtBinop416 = fsub <2 x float> %.sroa.0338.0, %.sroa.0334.0
+  %478 = extractelement <2 x float> %foldExtExtBinop416, i64 1
   %479 = fmul float %478, %311
   %480 = tail call float @llvm.fmuladd.f32(float %310, float %477, float %479)
   %481 = tail call noundef float @llvm.fmuladd.f32(float %312, float %476, float %480)
@@ -3914,10 +3914,10 @@ _ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit190: ; p
   %.sroa.6.2 = phi <2 x float> [ %.sroa.3.12.vec.insert.i16.i188, %215 ], [ zeroinitializer, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit ]
   %foldExtExtBinop = fsub <2 x float> %.sroa.0298.2, %.sroa.0297.2
   %246 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop317 = fsub <2 x float> %.sroa.0298.2, %.sroa.0297.2
-  %247 = extractelement <2 x float> %foldExtExtBinop317, i64 1
-  %foldExtExtBinop319 = fsub <2 x float> %.sroa.6299.2, %.sroa.6.2
-  %248 = extractelement <2 x float> %foldExtExtBinop319, i64 0
+  %foldExtExtBinop322 = fsub <2 x float> %.sroa.0298.2, %.sroa.0297.2
+  %247 = extractelement <2 x float> %foldExtExtBinop322, i64 1
+  %foldExtExtBinop324 = fsub <2 x float> %.sroa.6299.2, %.sroa.6.2
+  %248 = extractelement <2 x float> %foldExtExtBinop324, i64 0
   %249 = getelementptr inbounds nuw i8, ptr %122, i64 64
   %250 = load float, ptr %249, align 4, !tbaa !59
   %251 = getelementptr inbounds nuw i8, ptr %122, i64 68
@@ -6120,9 +6120,9 @@ _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %_ZN20btAlignedObjec
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i: ; preds = %56
   %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %.old3.i = load i8, ptr %.old.i, align 8, !tbaa !39, !range !71, !noundef !169
-  %.old4.i = trunc nuw i8 %.old3.i to i1
-  br i1 %.old4.i, label %63, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
+  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !39, !range !71, !noundef !169
+  %.old6.i = trunc nuw i8 %.old5.i to i1
+  br i1 %.old6.i, label %63, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
 
 63:                                               ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %55)
@@ -6201,9 +6201,9 @@ _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i45: ; preds = %_ZN20btAlignedObj
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i54: ; preds = %86
   %.old.i55 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %.old3.i56 = load i8, ptr %.old.i55, align 8, !tbaa !39, !range !71, !noundef !169
-  %.old4.i57 = trunc nuw i8 %.old3.i56 to i1
-  br i1 %.old4.i57, label %93, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i48
+  %.old5.i56 = load i8, ptr %.old.i55, align 8, !tbaa !39, !range !71, !noundef !169
+  %.old6.i57 = trunc nuw i8 %.old5.i56 to i1
+  br i1 %.old6.i57, label %93, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i48
 
 93:                                               ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i54, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i45
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %85)
@@ -6288,9 +6288,9 @@ _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i65: ; preds = %_ZN20btAlignedObj
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i74: ; preds = %116
   %.old.i75 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %.old3.i76 = load i8, ptr %.old.i75, align 8, !tbaa !39, !range !71, !noundef !169
-  %.old4.i77 = trunc nuw i8 %.old3.i76 to i1
-  br i1 %.old4.i77, label %123, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i68
+  %.old5.i76 = load i8, ptr %.old.i75, align 8, !tbaa !39, !range !71, !noundef !169
+  %.old6.i77 = trunc nuw i8 %.old5.i76 to i1
+  br i1 %.old6.i77, label %123, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i68
 
 123:                                              ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i74, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i65
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %115)
@@ -6365,9 +6365,9 @@ _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i85: ; preds = %_ZN20btAlignedObj
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i94: ; preds = %142
   %.old.i95 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %.old3.i96 = load i8, ptr %.old.i95, align 8, !tbaa !39, !range !71, !noundef !169
-  %.old4.i97 = trunc nuw i8 %.old3.i96 to i1
-  br i1 %.old4.i97, label %149, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i88
+  %.old5.i96 = load i8, ptr %.old.i95, align 8, !tbaa !39, !range !71, !noundef !169
+  %.old6.i97 = trunc nuw i8 %.old5.i96 to i1
+  br i1 %.old6.i97, label %149, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i88
 
 149:                                              ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i94, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i85
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %141)
@@ -8334,10 +8334,10 @@ define linkonce_odr dso_local void @_ZN15btTransformUtil18integrateTransformERK1
   br label %51
 
 51:                                               ; preds = %46, %38
-  %.sink82 = phi float [ %50, %46 ], [ %45, %38 ]
-  %52 = fmul float %25, %.sink82
-  %53 = fmul float %27, %.sink82
-  %54 = fmul float %31, %.sink82
+  %.sink84 = phi float [ %50, %46 ], [ %45, %38 ]
+  %52 = fmul float %25, %.sink84
+  %53 = fmul float %27, %.sink84
+  %54 = fmul float %31, %.sink84
   %55 = fmul float %3, %.1
   %56 = fmul float %55, 5.000000e-01
   %57 = tail call noundef float @cosf(float noundef %56) #23, !tbaa !69

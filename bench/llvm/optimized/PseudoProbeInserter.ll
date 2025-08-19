@@ -749,7 +749,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEi.exit: ; preds =
   br i1 %.not106, label %.loopexit, label %179
 
 ._crit_edge.thread:                               ; preds = %36, %._crit_edge
-  %.1.lcssa155 = phi i1 [ %.2, %._crit_edge ], [ %.046141, %36 ]
+  %.1.lcssa172 = phi i1 [ %.2, %._crit_edge ], [ %.046141, %36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %33, ptr %9, align 8, !tbaa !184
   store i32 0, ptr %34, align 8, !tbaa !257
@@ -838,7 +838,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit73: ; preds
 ._crit_edge138:                                   ; preds = %._crit_edge138.loopexit, %._crit_edge133
   %248 = phi ptr [ %.pre151, %._crit_edge138.loopexit ], [ %.pre, %._crit_edge133 ]
   %.not.i74 = phi i1 [ %247, %._crit_edge138.loopexit ], [ false, %._crit_edge133 ]
-  %249 = or i1 %.1.lcssa155, %.not.i74
+  %249 = or i1 %.1.lcssa172, %.not.i74
   %250 = icmp eq ptr %248, %33
   br i1 %250, label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit, label %251
 
@@ -847,7 +847,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit73: ; preds
   br label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit: ; preds = %._crit_edge.thread, %._crit_edge138, %251
-  %252 = phi i1 [ %249, %._crit_edge138 ], [ %249, %251 ], [ %.1.lcssa155, %._crit_edge.thread ]
+  %252 = phi i1 [ %249, %._crit_edge138 ], [ %249, %251 ], [ %.1.lcssa172, %._crit_edge.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 

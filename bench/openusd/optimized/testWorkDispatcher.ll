@@ -1580,8 +1580,8 @@ _ZN4Node8AddInputEPKS_.exit:                      ; preds = %_ZNSt6vectorIPK4Nod
   br i1 %190, label %.preheader, label %._crit_edge106, !llvm.loop !19
 
 ._crit_edge106:                                   ; preds = %._crit_edge104, %_ZNSt6vectorIP4NodeSaIS1_EE7reserveEm.exit, %.preheader78
-  %.sroa.10.1.lcssa133 = phi ptr [ %.sroa.10.2, %.preheader78 ], [ null, %_ZNSt6vectorIP4NodeSaIS1_EE7reserveEm.exit ], [ %.sroa.10.2, %._crit_edge104 ]
-  %.sroa.0.1.lcssa132 = phi ptr [ %.sroa.0.2, %.preheader78 ], [ null, %_ZNSt6vectorIP4NodeSaIS1_EE7reserveEm.exit ], [ %.sroa.0.2, %._crit_edge104 ]
+  %.sroa.10.1.lcssa158 = phi ptr [ %.sroa.10.2, %.preheader78 ], [ null, %_ZNSt6vectorIP4NodeSaIS1_EE7reserveEm.exit ], [ %.sroa.10.2, %._crit_edge104 ]
+  %.sroa.0.1.lcssa157 = phi ptr [ %.sroa.0.2, %.preheader78 ], [ null, %_ZNSt6vectorIP4NodeSaIS1_EE7reserveEm.exit ], [ %.sroa.0.2, %._crit_edge104 ]
   %191 = load ptr, ptr %5, align 8
   %192 = load ptr, ptr %32, align 8
   %.not4.i.i.i.i = icmp eq ptr %191, %192
@@ -1626,14 +1626,14 @@ _ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_Dest
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i, %202
-  %.not.i.i.i47 = icmp eq ptr %.sroa.0.1.lcssa132, null
+  %.not.i.i.i47 = icmp eq ptr %.sroa.0.1.lcssa157, null
   br i1 %.not.i.i.i47, label %_ZNSt6vectorIiSaIiEED2Ev.exit48, label %208
 
 208:                                              ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit
-  %209 = ptrtoint ptr %.sroa.10.1.lcssa133 to i64
-  %210 = ptrtoint ptr %.sroa.0.1.lcssa132 to i64
+  %209 = ptrtoint ptr %.sroa.10.1.lcssa158 to i64
+  %210 = ptrtoint ptr %.sroa.0.1.lcssa157 to i64
   %211 = sub i64 %209, %210
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.lcssa132, i64 noundef %211) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.lcssa157, i64 noundef %211) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit48
 
 _ZNSt6vectorIiSaIiEED2Ev.exit48:                  ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit, %208

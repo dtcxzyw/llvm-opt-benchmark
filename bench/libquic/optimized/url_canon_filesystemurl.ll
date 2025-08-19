@@ -186,11 +186,11 @@ _ZN3url12CanonOutputTIcE6AppendEPKci.exit:        ; preds = %select.unfold.i.i, 
 
 select.unfold.i.preheader.i55:                    ; preds = %54
   %59 = icmp eq i32 %57, 0
-  %spec.select71 = select i1 %59, i32 16, i32 %57
+  %spec.select79 = select i1 %59, i32 16, i32 %57
   br label %select.unfold.i.i57
 
 select.unfold.i.i57:                              ; preds = %select.unfold.i.preheader.i55, %61
-  %.0.i.i58 = phi i32 [ %62, %61 ], [ %spec.select71, %select.unfold.i.preheader.i55 ]
+  %.0.i.i58 = phi i32 [ %62, %61 ], [ %spec.select79, %select.unfold.i.preheader.i55 ]
   %60 = icmp slt i32 %.0.i.i58, 1073741824
   br i1 %60, label %61, label %_ZN3url12CanonOutputTIcE6AppendEPKci.exit61
 
@@ -450,11 +450,11 @@ _ZN3url12CanonOutputTIcE6AppendEPKci.exit.i:      ; preds = %select.unfold.i.i.i
 
 select.unfold.i.preheader.i55.i:                  ; preds = %54
   %59 = icmp eq i32 %57, 0
-  %spec.select12 = select i1 %59, i32 16, i32 %57
+  %spec.select20 = select i1 %59, i32 16, i32 %57
   br label %select.unfold.i.i57.i
 
 select.unfold.i.i57.i:                            ; preds = %select.unfold.i.preheader.i55.i, %61
-  %.0.i.i58.i = phi i32 [ %62, %61 ], [ %spec.select12, %select.unfold.i.preheader.i55.i ]
+  %.0.i.i58.i = phi i32 [ %62, %61 ], [ %spec.select20, %select.unfold.i.preheader.i55.i ]
   %60 = icmp slt i32 %.0.i.i58.i, 1073741824
   br i1 %60, label %61, label %_ZN3url12CanonOutputTIcE6AppendEPKci.exit61.i
 

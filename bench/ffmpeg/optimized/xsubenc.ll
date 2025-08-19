@@ -114,18 +114,18 @@ define internal i32 @xsub_encode(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %42 = phi ptr [ %.pre97, %40 ], [ %34, %36 ]
   %43 = load i32, ptr %42, align 4, !tbaa !41
   %.not56 = icmp ult i32 %43, 16777216
-  br i1 %.not56, label %.preheader103, label %44
+  br i1 %.not56, label %.preheader106, label %44
 
 44:                                               ; preds = %41
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.6) #8
-  br label %.preheader103
+  br label %.preheader106
 
-.preheader103:                                    ; preds = %44, %41
+.preheader106:                                    ; preds = %44, %41
   br label %45
 
-45:                                               ; preds = %.preheader103, %45
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %45 ], [ 0, %.preheader103 ]
-  %.01011.i = phi i64 [ %52, %45 ], [ %10, %.preheader103 ]
+45:                                               ; preds = %.preheader106, %45
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %45 ], [ 0, %.preheader106 ]
+  %.01011.i = phi i64 [ %52, %45 ], [ %10, %.preheader106 ]
   %46 = getelementptr inbounds nuw [3 x i32], ptr @make_tc.tc_divs, i64 0, i64 %indvars.iv.i
   %47 = load i32, ptr %46, align 4, !tbaa !41
   %48 = sext i32 %47 to i64
@@ -704,9 +704,9 @@ put_bits.exit9:                                   ; preds = %55, %60, %44
   br label %put_bits.exit13
 
 put_bits.exit13:                                  ; preds = %78, %86, %66
-  %.sink14 = phi i32 [ -2, %66 ], [ 30, %86 ], [ 30, %78 ]
+  %.sink21 = phi i32 [ -2, %66 ], [ 30, %86 ], [ 30, %78 ]
   %.026.i.i11 = phi i32 [ %68, %66 ], [ %2, %86 ], [ %2, %78 ]
-  %87 = add nsw i32 %63, %.sink14
+  %87 = add nsw i32 %63, %.sink21
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.026.i.i11, ptr %0, align 8, !tbaa !55
   store i32 %87, ptr %88, align 4, !tbaa !54

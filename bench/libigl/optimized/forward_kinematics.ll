@@ -332,7 +332,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3
   br i1 %.not28.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = mul i64 %12, 24
+  %22 = mul nuw nsw i64 %12, 24
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !45
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
@@ -499,8 +499,8 @@ define dso_local void @_ZN3igl18forward_kinematicsERKN5Eigen6MatrixIdLin1ELin1EL
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !4
   %17 = shl i64 %14, 32
-  %sext47 = add i64 %17, 4294967296
-  %18 = ashr exact i64 %sext47, 32
+  %sext53 = add i64 %17, 4294967296
+  %18 = ashr exact i64 %sext53, 32
   %19 = mul nsw i64 %16, %18
   %sext = shl i64 %14, 32
   %20 = ashr exact i64 %sext, 32
@@ -929,7 +929,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN5Eigen10QuaternionIdLi0EEENS0_
   br i1 %.not28, label %21, label %19
 
 19:                                               ; preds = %3
-  %20 = shl i64 %1, 5
+  %20 = shl nuw nsw i64 %1, 5
   %scevgep.i = getelementptr i8, ptr %5, i64 %20
   store ptr %scevgep.i, ptr %4, align 8, !tbaa !19
   br label %38

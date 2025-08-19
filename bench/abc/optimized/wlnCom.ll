@@ -485,24 +485,24 @@ define internal range(i32 0, 2) i32 @Abc_CommandCollapse(ptr noundef %0, i32 nou
 
 .outer:                                           ; preds = %10, %3
   %.026.ph = phi ptr [ %13, %10 ], [ null, %3 ]
-  %.023.ph = phi i32 [ %.023.ph81, %10 ], [ 0, %3 ]
-  %.021.ph = phi i32 [ %.021.ph85, %10 ], [ 0, %3 ]
+  %.023.ph = phi i32 [ %.023.ph82, %10 ], [ 0, %3 ]
+  %.021.ph = phi i32 [ %.021.ph86, %10 ], [ 0, %3 ]
   %.0.ph = phi i32 [ %.0, %10 ], [ 0, %3 ]
-  br label %.outer80
+  br label %.outer81
 
-.outer80:                                         ; preds = %.outer, %15
-  %.023.ph81 = phi i32 [ %.023.ph, %.outer ], [ %16, %15 ]
-  %.021.ph82 = phi i32 [ %.021.ph, %.outer ], [ %.021.ph85, %15 ]
-  %.0.ph83 = phi i32 [ %.0.ph, %.outer ], [ %.0, %15 ]
-  br label %.outer84
+.outer81:                                         ; preds = %.outer, %15
+  %.023.ph82 = phi i32 [ %.023.ph, %.outer ], [ %16, %15 ]
+  %.021.ph83 = phi i32 [ %.021.ph, %.outer ], [ %.021.ph86, %15 ]
+  %.0.ph84 = phi i32 [ %.0.ph, %.outer ], [ %.0, %15 ]
+  br label %.outer85
 
-.outer84:                                         ; preds = %.outer80, %17
-  %.021.ph85 = phi i32 [ %.021.ph82, %.outer80 ], [ %18, %17 ]
-  %.0.ph86 = phi i32 [ %.0.ph83, %.outer80 ], [ %.0, %17 ]
+.outer85:                                         ; preds = %.outer81, %17
+  %.021.ph86 = phi i32 [ %.021.ph83, %.outer81 ], [ %18, %17 ]
+  %.0.ph87 = phi i32 [ %.0.ph84, %.outer81 ], [ %.0, %17 ]
   br label %5
 
-5:                                                ; preds = %.outer84, %19
-  %.0 = phi i32 [ %20, %19 ], [ %.0.ph86, %.outer84 ]
+5:                                                ; preds = %.outer85, %19
+  %.0 = phi i32 [ %20, %19 ], [ %.0.ph87, %.outer85 ]
   %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.48) #10
   switch i32 %6, label %.loopexit [
     i32 -1, label %21
@@ -530,12 +530,12 @@ define internal range(i32 0, 2) i32 @Abc_CommandCollapse(ptr noundef %0, i32 nou
   br label %.outer, !llvm.loop !29
 
 15:                                               ; preds = %5
-  %16 = xor i32 %.023.ph81, 1
-  br label %.outer80, !llvm.loop !29
+  %16 = xor i32 %.023.ph82, 1
+  br label %.outer81, !llvm.loop !29
 
 17:                                               ; preds = %5
-  %18 = xor i32 %.021.ph85, 1
-  br label %.outer84, !llvm.loop !29
+  %18 = xor i32 %.021.ph86, 1
+  br label %.outer85, !llvm.loop !29
 
 19:                                               ; preds = %5
   %20 = xor i32 %.0, 1
@@ -550,8 +550,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandCollapse(ptr noundef %0, i32 nou
   br label %31
 
 24:                                               ; preds = %21
-  %25 = tail call ptr @Rtl_LibCollapse(ptr noundef nonnull %.val, ptr noundef %.026.ph, i32 noundef %.021.ph85, i32 noundef %.0) #10
-  %.not31 = icmp eq i32 %.023.ph81, 0
+  %25 = tail call ptr @Rtl_LibCollapse(ptr noundef nonnull %.val, ptr noundef %.026.ph, i32 noundef %.021.ph86, i32 noundef %.0) #10
+  %.not31 = icmp eq i32 %.023.ph82, 0
   br i1 %.not31, label %27, label %26
 
 26:                                               ; preds = %24
@@ -566,10 +566,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandCollapse(ptr noundef %0, i32 nou
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.49)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.50)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.51)
-  %.not33 = icmp eq i32 %.023.ph81, 0
+  %.not33 = icmp eq i32 %.023.ph82, 0
   %28 = select i1 %.not33, ptr @.str.26, ptr @.str.25
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.52, ptr noundef nonnull %28)
-  %.not34 = icmp eq i32 %.021.ph85, 0
+  %.not34 = icmp eq i32 %.021.ph86, 0
   %29 = select i1 %.not34, ptr @.str.26, ptr @.str.25
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.53, ptr noundef nonnull %29)
   %.not35 = icmp eq i32 %.0, 0
@@ -632,9 +632,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrint(ptr noundef readonly captu
 
 ._crit_edge.thread:                               ; preds = %3
   %19 = icmp eq ptr %.val, null
-  br i1 %19, label %20, label %.thread46
+  br i1 %19, label %20, label %.thread47
 
-.thread46:                                        ; preds = %._crit_edge.thread
+.thread47:                                        ; preds = %._crit_edge.thread
   tail call void @Rtl_LibPrintStats(ptr noundef nonnull %.val) #10
   br label %30
 
@@ -674,8 +674,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrint(ptr noundef readonly captu
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.59)
   br label %30
 
-30:                                               ; preds = %23, %.thread46, %24, %25, %26, %20
-  %.020 = phi i32 [ 1, %26 ], [ 1, %20 ], [ 0, %25 ], [ 0, %24 ], [ 0, %.thread46 ], [ 0, %23 ]
+30:                                               ; preds = %23, %.thread47, %24, %25, %26, %20
+  %.020 = phi i32 [ 1, %26 ], [ 1, %20 ], [ 0, %25 ], [ 0, %24 ], [ 0, %.thread47 ], [ 0, %23 ]
   ret i32 %.020
 }
 

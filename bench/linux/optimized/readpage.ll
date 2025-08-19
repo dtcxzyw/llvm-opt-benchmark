@@ -208,7 +208,7 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef c
   %113 = trunc nuw i64 %92 to i32
   %114 = sub i32 %113, %104
   %115 = icmp eq i32 %108, %114
-  br i1 %115, label %.loopexit124, label %116
+  br i1 %115, label %.loopexit149, label %116
 
 116:                                              ; preds = %112
   %117 = sub i32 %108, %114
@@ -218,7 +218,7 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef c
   %121 = add i64 %118, %119
   br label %125
 
-.loopexit124:                                     ; preds = %129, %112
+.loopexit149:                                     ; preds = %129, %112
   %122 = phi i64 [ %92, %112 ], [ %133, %129 ]
   %123 = phi i32 [ 0, %112 ], [ %117, %129 ]
   %124 = and i32 %100, -17
@@ -238,22 +238,22 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef c
   %132 = add nuw nsw i64 %126, 1
   %133 = add i64 %127, 1
   %134 = icmp eq i64 %132, %120
-  br i1 %134, label %.loopexit124, label %125, !llvm.loop !11
+  br i1 %134, label %.loopexit149, label %125, !llvm.loop !11
 
-135:                                              ; preds = %.loopexit124, %107, %103, %89
-  %136 = phi i32 [ %100, %107 ], [ %100, %103 ], [ %100, %89 ], [ %124, %.loopexit124 ]
-  %137 = phi i64 [ %92, %107 ], [ %92, %103 ], [ %92, %89 ], [ %122, %.loopexit124 ]
-  %138 = phi i32 [ 0, %107 ], [ 0, %103 ], [ 0, %89 ], [ %123, %.loopexit124 ]
-  %139 = phi i32 [ %50, %107 ], [ %50, %103 ], [ %50, %89 ], [ %123, %.loopexit124 ]
+135:                                              ; preds = %.loopexit149, %107, %103, %89
+  %136 = phi i32 [ %100, %107 ], [ %100, %103 ], [ %100, %89 ], [ %124, %.loopexit149 ]
+  %137 = phi i64 [ %92, %107 ], [ %92, %103 ], [ %92, %89 ], [ %122, %.loopexit149 ]
+  %138 = phi i32 [ 0, %107 ], [ 0, %103 ], [ 0, %89 ], [ %123, %.loopexit149 ]
+  %139 = phi i32 [ %50, %107 ], [ %50, %103 ], [ %50, %89 ], [ %123, %.loopexit149 ]
   %140 = icmp ult i32 %138, %11
   br i1 %140, label %.preheader, label %.thread35
 
-.preheader:                                       ; preds = %135, %.loopexit122
-  %141 = phi i32 [ %253, %.loopexit122 ], [ %136, %135 ]
-  %142 = phi i32 [ %149, %.loopexit122 ], [ 1, %135 ]
-  %143 = phi i32 [ %232, %.loopexit122 ], [ %139, %135 ]
-  %144 = phi i32 [ %252, %.loopexit122 ], [ %138, %135 ]
-  %145 = phi i64 [ %251, %.loopexit122 ], [ %137, %135 ]
+.preheader:                                       ; preds = %135, %.loopexit147
+  %141 = phi i32 [ %253, %.loopexit147 ], [ %136, %135 ]
+  %142 = phi i32 [ %149, %.loopexit147 ], [ 1, %135 ]
+  %143 = phi i32 [ %232, %.loopexit147 ], [ %139, %135 ]
+  %144 = phi i32 [ %252, %.loopexit147 ], [ %138, %135 ]
+  %145 = phi i64 [ %251, %.loopexit147 ], [ %137, %135 ]
   br label %146
 
 146:                                              ; preds = %215, %.preheader
@@ -395,7 +395,7 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef c
 231:                                              ; preds = %223, %221
   %232 = load i32, ptr %30, align 4
   %233 = icmp eq i32 %232, 0
-  br i1 %233, label %.loopexit122, label %234
+  br i1 %233, label %.loopexit147, label %234
 
 234:                                              ; preds = %231
   %235 = load i64, ptr %5, align 8
@@ -407,7 +407,7 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef c
   %239 = phi i32 [ %150, %234 ], [ %246, %242 ]
   %240 = phi i64 [ %151, %234 ], [ %247, %242 ]
   %241 = icmp eq i32 %239, %11
-  br i1 %241, label %.thread119, label %242
+  br i1 %241, label %.thread144, label %242
 
 242:                                              ; preds = %237
   %243 = add i64 %238, %235
@@ -418,23 +418,23 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef c
   %247 = add i64 %240, 1
   %248 = add nuw nsw i64 %238, 1
   %249 = icmp eq i64 %248, %236
-  br i1 %249, label %.loopexit122, label %237, !llvm.loop !19
+  br i1 %249, label %.loopexit147, label %237, !llvm.loop !19
 
-.thread119:                                       ; preds = %237
+.thread144:                                       ; preds = %237
   %250 = trunc i64 %238 to i32
-  br label %.loopexit123
+  br label %.loopexit148
 
-.loopexit122:                                     ; preds = %242, %231
+.loopexit147:                                     ; preds = %242, %231
   %251 = phi i64 [ %151, %231 ], [ %247, %242 ]
   %252 = phi i32 [ %150, %231 ], [ %246, %242 ]
   %253 = and i32 %211, -17
   store i32 %253, ptr %29, align 8
   %254 = icmp ult i32 %252, %11
-  br i1 %254, label %.preheader, label %.loopexit123, !llvm.loop !18
+  br i1 %254, label %.preheader, label %.loopexit148, !llvm.loop !18
 
 .loopexit:                                        ; preds = %215
   %.not = icmp eq i32 %216, %11
-  br i1 %.not, label %.thread121, label %255
+  br i1 %.not, label %.thread146, label %255
 
 255:                                              ; preds = %.loopexit
   %256 = shl i32 %216, %8
@@ -520,31 +520,31 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef c
 
 310:                                              ; preds = %306
   %311 = icmp eq i32 %216, 0
-  br i1 %311, label %312, label %.thread121
+  br i1 %311, label %312, label %.thread146
 
 312:                                              ; preds = %310
   call void @folio_end_read(ptr noundef %85, i1 noundef zeroext true) #7
   br label %369
 
-.loopexit123:                                     ; preds = %.loopexit122, %.thread119
-  %313 = phi i32 [ %250, %.thread119 ], [ %232, %.loopexit122 ]
+.loopexit148:                                     ; preds = %.loopexit147, %.thread144
+  %313 = phi i32 [ %250, %.thread144 ], [ %232, %.loopexit147 ]
   %314 = icmp eq i32 %149, 0
-  br i1 %314, label %.thread121, label %.thread35
+  br i1 %314, label %.thread146, label %.thread35
 
-.thread35:                                        ; preds = %125, %135, %.loopexit123
-  %315 = phi i32 [ %313, %.loopexit123 ], [ %139, %135 ], [ %11, %125 ]
+.thread35:                                        ; preds = %125, %135, %.loopexit148
+  %315 = phi i32 [ %313, %.loopexit148 ], [ %139, %135 ], [ %11, %125 ]
   %316 = getelementptr i8, ptr %85, i64 2
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %316, i32 2, ptr elementtype(i8) %316) #7, !srcloc !13
-  br label %.thread121
+  br label %.thread146
 
-.thread121:                                       ; preds = %.loopexit, %.thread35, %.loopexit123, %310
-  %317 = phi i1 [ false, %.thread35 ], [ false, %.loopexit123 ], [ true, %310 ], [ false, %.loopexit ]
-  %318 = phi i32 [ %11, %.thread35 ], [ %11, %.loopexit123 ], [ %216, %310 ], [ %11, %.loopexit ]
-  %319 = phi i32 [ %315, %.thread35 ], [ %313, %.loopexit123 ], [ %143, %310 ], [ %143, %.loopexit ]
+.thread146:                                       ; preds = %.loopexit, %.thread35, %.loopexit148, %310
+  %317 = phi i1 [ false, %.thread35 ], [ false, %.loopexit148 ], [ true, %310 ], [ false, %.loopexit ]
+  %318 = phi i32 [ %11, %.thread35 ], [ %11, %.loopexit148 ], [ %216, %310 ], [ %11, %.loopexit ]
+  %319 = phi i32 [ %315, %.thread35 ], [ %313, %.loopexit148 ], [ %143, %310 ], [ %143, %.loopexit ]
   %320 = icmp eq ptr %52, null
   br i1 %320, label %327, label %321
 
-321:                                              ; preds = %.thread121
+321:                                              ; preds = %.thread146
   %322 = load i64, ptr %4, align 16
   %323 = add i64 %322, -1
   %324 = icmp eq i64 %51, %323
@@ -555,8 +555,8 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef c
   call void @submit_bio(ptr noundef %326) #7
   br label %327
 
-327:                                              ; preds = %325, %321, %.thread121
-  %328 = phi ptr [ null, %325 ], [ null, %.thread121 ], [ %52, %321 ]
+327:                                              ; preds = %325, %321, %.thread146
+  %328 = phi ptr [ null, %325 ], [ null, %.thread146 ], [ %52, %321 ]
   %329 = icmp eq ptr %328, null
   br i1 %329, label %330, label %343
 

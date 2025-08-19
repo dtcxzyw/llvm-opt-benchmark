@@ -197,8 +197,8 @@ define hidden i32 @Curl_sendrecv(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %.pre.i.pre = load i32, ptr %.phi.trans.insert.i.phi.trans.insert, align 4, !tbaa !98
   %13 = and i32 %.pre.i.pre, 16
   %.not5.i = icmp eq i32 %13, 0
-  %or.cond119 = select i1 %.not.i, i1 %.not5.i, i1 false
-  br i1 %or.cond119, label %select_bits_paused.exit.thread, label %._crit_edge
+  %or.cond143 = select i1 %.not.i, i1 %.not5.i, i1 false
+  br i1 %or.cond143, label %select_bits_paused.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10
   %14 = and i32 %11, 2
@@ -857,16 +857,16 @@ define hidden i32 @Curl_pretransfer(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %1
-  br i1 %.not121, label %7, label %.thread162
+  br i1 %.not121, label %7, label %.thread171
 
 7:                                                ; preds = %6
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #6
   br label %.thread148
 
 8:                                                ; preds = %1
-  br i1 %.not121, label %.critedge, label %.thread162
+  br i1 %.not121, label %.critedge, label %.thread171
 
-.thread162:                                       ; preds = %6, %8
+.thread171:                                       ; preds = %6, %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2608
   %10 = load ptr, ptr @Curl_cfree, align 8, !tbaa !124
   tail call void %10(ptr noundef %3) #6
@@ -875,11 +875,11 @@ define hidden i32 @Curl_pretransfer(ptr noundef %0) local_unnamed_addr #0 {
   %.not123 = icmp eq i32 %12, 0
   br i1 %.not123, label %.critedge, label %13
 
-13:                                               ; preds = %.thread162
+13:                                               ; preds = %.thread171
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #6
   br label %.thread148
 
-.critedge:                                        ; preds = %.thread162, %8
+.critedge:                                        ; preds = %.thread171, %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 5036
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 65536

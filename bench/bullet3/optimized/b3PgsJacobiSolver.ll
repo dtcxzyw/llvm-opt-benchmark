@@ -3153,15 +3153,15 @@ define dso_local void @_ZN17b3PgsJacobiSolver22setupContactConstraintEP15b3Rigid
   %.sroa.5.0 = extractvalue { <2 x float>, <2 x float> } %.pn175, 1
   %foldExtExtBinop = fsub <2 x float> %.sroa.012.0316, %.sroa.011.0
   %297 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop336 = fsub <2 x float> %.sroa.012.0316, %.sroa.011.0
-  %298 = extractelement <2 x float> %foldExtExtBinop336, i64 1
-  %foldExtExtBinop338 = fsub <2 x float> %.sroa.513.0318, %.sroa.5.0
-  %299 = extractelement <2 x float> %foldExtExtBinop338, i64 0
-  %.sroa.0.4.vec.insert.i.i247 = shufflevector <2 x float> %foldExtExtBinop, <2 x float> %foldExtExtBinop336, <2 x i32> <i32 0, i32 3>
-  %.sroa.3.12.vec.insert.i.i248340 = insertelement <2 x float> %foldExtExtBinop338, float 0.000000e+00, i64 1
+  %foldExtExtBinop337 = fsub <2 x float> %.sroa.012.0316, %.sroa.011.0
+  %298 = extractelement <2 x float> %foldExtExtBinop337, i64 1
+  %foldExtExtBinop339 = fsub <2 x float> %.sroa.513.0318, %.sroa.5.0
+  %299 = extractelement <2 x float> %foldExtExtBinop339, i64 0
+  %.sroa.0.4.vec.insert.i.i247 = shufflevector <2 x float> %foldExtExtBinop, <2 x float> %foldExtExtBinop337, <2 x i32> <i32 0, i32 3>
+  %.sroa.3.12.vec.insert.i.i248341 = insertelement <2 x float> %foldExtExtBinop339, float 0.000000e+00, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i247, ptr %8, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store <2 x float> %.sroa.3.12.vec.insert.i.i248340, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !20
+  store <2 x float> %.sroa.3.12.vec.insert.i.i248341, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !20
   %300 = load float, ptr %47, align 16, !tbaa !20
   %301 = load float, ptr %53, align 4, !tbaa !20
   %302 = fmul float %301, %298
@@ -4107,12 +4107,12 @@ _ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit141: ; preds = %_ZNK12b3S
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %foldExtExtBinop = fsub <2 x float> %.sroa.0168.2, %.sroa.0169.2
   %154 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop178 = fsub <2 x float> %.sroa.0168.2, %.sroa.0169.2
-  %155 = extractelement <2 x float> %foldExtExtBinop178, i64 1
-  %foldExtExtBinop180 = fsub <2 x float> %.sroa.6.2, %.sroa.6170.2
-  %156 = extractelement <2 x float> %foldExtExtBinop180, i64 0
-  %.sroa.3.12.vec.insert.i.i182 = insertelement <2 x float> %foldExtExtBinop180, float 0.000000e+00, i64 1
-  store <2 x float> %.sroa.3.12.vec.insert.i.i182, ptr %72, align 8
+  %foldExtExtBinop186 = fsub <2 x float> %.sroa.0168.2, %.sroa.0169.2
+  %155 = extractelement <2 x float> %foldExtExtBinop186, i64 1
+  %foldExtExtBinop188 = fsub <2 x float> %.sroa.6.2, %.sroa.6170.2
+  %156 = extractelement <2 x float> %foldExtExtBinop188, i64 0
+  %.sroa.3.12.vec.insert.i.i190 = insertelement <2 x float> %foldExtExtBinop188, float 0.000000e+00, i64 1
+  store <2 x float> %.sroa.3.12.vec.insert.i.i190, ptr %72, align 8
   %157 = load float, ptr %73, align 8, !tbaa !116
   %158 = fcmp ogt float %157, 0.000000e+00
   %159 = icmp sgt i32 %.0172, 0
@@ -7683,11 +7683,11 @@ define dso_local void @_ZN17b3PgsJacobiSolver45solveGroupCacheFriendlySplitImpul
   br i1 %46, label %.lr.ph29.splitthread-pre-split, label %.loopexit, !llvm.loop !188
 
 .lr.ph35.splitthread-pre-split:                   ; preds = %._crit_edge33
-  %.pr46 = load i32, ptr %20, align 4, !tbaa !38
+  %.pr53 = load i32, ptr %20, align 4, !tbaa !38
   br label %.lr.ph35.split
 
 .lr.ph35.split:                                   ; preds = %.lr.ph35, %.lr.ph35.splitthread-pre-split
-  %47 = phi i32 [ %.pr46, %.lr.ph35.splitthread-pre-split ], [ %24, %.lr.ph35 ]
+  %47 = phi i32 [ %.pr53, %.lr.ph35.splitthread-pre-split ], [ %24, %.lr.ph35 ]
   %48 = phi i32 [ %65, %.lr.ph35.splitthread-pre-split ], [ %12, %.lr.ph35 ]
   %.134 = phi i32 [ %66, %.lr.ph35.splitthread-pre-split ], [ 0, %.lr.ph35 ]
   %49 = icmp sgt i32 %47, 0

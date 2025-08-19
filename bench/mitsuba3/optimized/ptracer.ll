@@ -294,9 +294,9 @@ define weak_odr void @_ZNK7mitsuba24ParticleTracerIntegratorIfN5drjit6MatrixINS_
   %34 = alloca %"struct.std::__1::pair.95", align 16
   %35 = alloca %"struct.mitsuba::Point.91", align 8
   %36 = alloca %"struct.drjit::detail::MaskedArray", align 8
-  %.sroa.3577 = alloca [24 x i8], align 8
-  %.sroa.11585 = alloca { %"struct.mitsuba::Vector", %"struct.mitsuba::Vector", %"struct.mitsuba::Vector", %"struct.mitsuba::Vector" }, align 16
-  %.sroa.16590 = alloca [20 x i8], align 16
+  %.sroa.3586 = alloca [24 x i8], align 8
+  %.sroa.11594 = alloca { %"struct.mitsuba::Vector", %"struct.mitsuba::Vector", %"struct.mitsuba::Vector", %"struct.mitsuba::Vector" }, align 16
+  %.sroa.16599 = alloca [20 x i8], align 16
   %37 = alloca %"struct.std::__1::pair.112", align 16
   %38 = alloca %"struct.mitsuba::Point.91", align 8
   %39 = alloca %"struct.drjit::detail::MaskedArray", align 8
@@ -484,23 +484,23 @@ _ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIiTnNSt3__19
   %141 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %142 = load float, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %.sroa.3577.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.3577, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3577.16..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %89, i64 16, i1 false)
-  %.sroa.4578.32.copyload = load <4 x float>, ptr %34, align 16
-  %.sroa.5579.48.copyload = load <4 x float>, ptr %143, align 16
+  %.sroa.3586.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.3586, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3586.16..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %89, i64 16, i1 false)
+  %.sroa.4587.32.copyload = load <4 x float>, ptr %34, align 16
+  %.sroa.5588.48.copyload = load <4 x float>, ptr %143, align 16
   %144 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %145 = load i64, ptr %144, align 16
-  %.sroa.0.8.vec.extract.i = extractelement <4 x float> %.sroa.5579.48.copyload, i64 2
+  %.sroa.0.8.vec.extract.i = extractelement <4 x float> %.sroa.5588.48.copyload, i64 2
   %146 = bitcast float %.sroa.0.8.vec.extract.i to i32
   %147 = and i32 %146, -2147483648
   %148 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.0.8.vec.extract.i)
   %149 = fadd contract float %.sroa.0.8.vec.extract.i, %148
   %150 = fdiv contract float -1.000000e+00, %149
-  %.sroa.0.0.vec.extract.i = extractelement <4 x float> %.sroa.5579.48.copyload, i64 0
-  %.sroa.0.4.vec.extract.i = extractelement <4 x float> %.sroa.5579.48.copyload, i64 1
+  %.sroa.0.0.vec.extract.i = extractelement <4 x float> %.sroa.5588.48.copyload, i64 0
+  %.sroa.0.4.vec.extract.i = extractelement <4 x float> %.sroa.5588.48.copyload, i64 1
   %151 = fmul contract float %.sroa.0.0.vec.extract.i, %.sroa.0.4.vec.extract.i
   %152 = fmul contract float %151, %150
-  %foldExtExtBinop = fmul contract <4 x float> %.sroa.5579.48.copyload, %.sroa.5579.48.copyload
+  %foldExtExtBinop = fmul contract <4 x float> %.sroa.5588.48.copyload, %.sroa.5588.48.copyload
   %153 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %154 = fmul contract float %153, %150
   %155 = bitcast float %154 to i32
@@ -522,41 +522,41 @@ _ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIiTnNSt3__19
   %171 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %152, i64 0
   %172 = insertelement <4 x float> %171, float %169, i64 1
   %173 = insertelement <4 x float> %172, float %170, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.11585, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %.sroa.16590, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.11594, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %.sroa.16599, i8 0, i64 20, i1 false)
   store float 0.000000e+00, ptr %31, align 16
-  %.sroa.2576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store float %142, ptr %.sroa.2576.0..sroa_idx, align 4
-  %.sroa.3577.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3577.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3577, i64 24, i1 false)
-  %.sroa.4578.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 32
-  store <4 x float> %.sroa.4578.32.copyload, ptr %.sroa.4578.0..sroa_idx, align 16
-  %.sroa.5579.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 48
-  store <4 x float> %.sroa.5579.48.copyload, ptr %.sroa.5579.0..sroa_idx, align 16
-  %.sroa.6580.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 64
-  store ptr null, ptr %.sroa.6580.0..sroa_idx, align 16
-  %.sroa.7581.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 72
-  store i64 %145, ptr %.sroa.7581.0..sroa_idx, align 8
-  %.sroa.8582.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 80
-  store <4 x float> %167, ptr %.sroa.8582.0..sroa_idx, align 16
-  %.sroa.9583.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 96
-  store <4 x float> %173, ptr %.sroa.9583.0..sroa_idx, align 16
-  %.sroa.10584.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 112
-  store <4 x float> %.sroa.5579.48.copyload, ptr %.sroa.10584.0..sroa_idx, align 16
-  %.sroa.11585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.11585.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(64) %.sroa.11585, i64 64, i1 false)
-  %.sroa.12586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 192
-  store float 0.000000e+00, ptr %.sroa.12586.0..sroa_idx, align 16
-  %.sroa.13587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 196
-  store float 0.000000e+00, ptr %.sroa.13587.0..sroa_idx, align 4
-  %.sroa.14588.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 200
-  store float 0.000000e+00, ptr %.sroa.14588.0..sroa_idx, align 8
-  %.sroa.15589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 204
-  store float 0.000000e+00, ptr %.sroa.15589.0..sroa_idx, align 4
-  %.sroa.16590.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %.sroa.16590.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(20) %.sroa.16590, i64 20, i1 false)
-  %.sroa.17592.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 232
-  store ptr null, ptr %.sroa.17592.0..sroa_idx, align 8
+  %.sroa.2585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 4
+  store float %142, ptr %.sroa.2585.0..sroa_idx, align 4
+  %.sroa.3586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3586.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3586, i64 24, i1 false)
+  %.sroa.4587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 32
+  store <4 x float> %.sroa.4587.32.copyload, ptr %.sroa.4587.0..sroa_idx, align 16
+  %.sroa.5588.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 48
+  store <4 x float> %.sroa.5588.48.copyload, ptr %.sroa.5588.0..sroa_idx, align 16
+  %.sroa.6589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 64
+  store ptr null, ptr %.sroa.6589.0..sroa_idx, align 16
+  %.sroa.7590.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 72
+  store i64 %145, ptr %.sroa.7590.0..sroa_idx, align 8
+  %.sroa.8591.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 80
+  store <4 x float> %167, ptr %.sroa.8591.0..sroa_idx, align 16
+  %.sroa.9592.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 96
+  store <4 x float> %173, ptr %.sroa.9592.0..sroa_idx, align 16
+  %.sroa.10593.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 112
+  store <4 x float> %.sroa.5588.48.copyload, ptr %.sroa.10593.0..sroa_idx, align 16
+  %.sroa.11594.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 128
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.11594.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(64) %.sroa.11594, i64 64, i1 false)
+  %.sroa.12595.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 192
+  store float 0.000000e+00, ptr %.sroa.12595.0..sroa_idx, align 16
+  %.sroa.13596.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 196
+  store float 0.000000e+00, ptr %.sroa.13596.0..sroa_idx, align 4
+  %.sroa.14597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 200
+  store float 0.000000e+00, ptr %.sroa.14597.0..sroa_idx, align 8
+  %.sroa.15598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 204
+  store float 0.000000e+00, ptr %.sroa.15598.0..sroa_idx, align 4
+  %.sroa.16599.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 208
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %.sroa.16599.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(20) %.sroa.16599, i64 20, i1 false)
+  %.sroa.17601.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 232
+  store ptr null, ptr %.sroa.17601.0..sroa_idx, align 8
   br label %174
 
 174:                                              ; preds = %_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.i.critedge, %_ZN5drjit6gatherIPKN7mitsuba7EmitterIfNS_6MatrixINS1_8SpectrumIfLm4EEELm4EEEEELb0ERKNS_12DynamicArrayIS9_EEjbEET_OT1_RKT2_RKT3_.exit
@@ -668,8 +668,8 @@ _ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIiTnNSt3__19
   %.sroa.0.4.vec.extract.i490 = extractelement <4 x float> %.sroa.5.48.copyload, i64 1
   %229 = fmul contract float %.sroa.0.0.vec.extract.i489, %.sroa.0.4.vec.extract.i490
   %230 = fmul contract float %229, %228
-  %foldExtExtBinop571 = fmul contract <4 x float> %.sroa.5.48.copyload, %.sroa.5.48.copyload
-  %231 = extractelement <4 x float> %foldExtExtBinop571, i64 0
+  %foldExtExtBinop580 = fmul contract <4 x float> %.sroa.5.48.copyload, %.sroa.5.48.copyload
+  %231 = extractelement <4 x float> %foldExtExtBinop580, i64 0
   %232 = fmul contract float %231, %228
   %233 = bitcast float %232 to i32
   %234 = xor i32 %225, %233
@@ -695,8 +695,8 @@ _ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIiTnNSt3__19
   store float 0.000000e+00, ptr %31, align 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 4
   store float %220, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3573.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store <4 x float> zeroinitializer, ptr %.sroa.3573.0..sroa_idx, align 16
+  %.sroa.3582.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
+  store <4 x float> zeroinitializer, ptr %.sroa.3582.0..sroa_idx, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 32
   store <4 x float> %.sroa.4.32.copyload, ptr %.sroa.4.0..sroa_idx, align 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 48
@@ -723,8 +723,8 @@ _ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIiTnNSt3__19
   store float 0.000000e+00, ptr %.sroa.15.0..sroa_idx, align 4
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %.sroa.16.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(20) %.sroa.16, i64 20, i1 false)
-  %.sroa.17574.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 232
-  store ptr null, ptr %.sroa.17574.0..sroa_idx, align 8
+  %.sroa.17583.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 232
+  store ptr null, ptr %.sroa.17583.0..sroa_idx, align 8
   br label %252
 
 252:                                              ; preds = %_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.i492.critedge, %174
@@ -1713,7 +1713,7 @@ define weak_odr void @_ZNK7mitsuba24ParticleTracerIntegratorIfN5drjit6MatrixINS_
   %66 = load float, ptr %65, align 4
   %67 = fcmp contract ogt float %66, 0.000000e+00
   %.012.i.i615.sroa.gep616 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  br i1 %67, label %68, label %.thread705
+  br i1 %67, label %68, label %.thread723
 
 68:                                               ; preds = %10
   %.sroa.0.0.copyload.i = load <4 x float>, ptr %6, align 16
@@ -1722,15 +1722,15 @@ define weak_odr void @_ZNK7mitsuba24ParticleTracerIntegratorIfN5drjit6MatrixINS_
   %71 = bitcast <8 x i1> %70 to i8
   %72 = icmp ne i8 %71, 0
   %73 = select i1 %9, i1 %72, i1 false
-  br i1 %73, label %88, label %.thread705
+  br i1 %73, label %88, label %.thread723
 
-.thread705:                                       ; preds = %10, %68
+.thread723:                                       ; preds = %10, %68
   store <4 x float> zeroinitializer, ptr %50, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   br label %74
 
-74:                                               ; preds = %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i, %.thread705
-  %.012.i = phi i64 [ 0, %.thread705 ], [ %83, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i ]
+74:                                               ; preds = %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i, %.thread723
+  %.012.i = phi i64 [ 0, %.thread723 ], [ %83, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i ]
   %75 = getelementptr inbounds nuw float, ptr %50, i64 %.012.i
   %76 = load float, ptr %75, align 4
   %77 = insertelement <4 x float> poison, float %76, i64 0
@@ -1795,9 +1795,9 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %113 = fmul contract <4 x float> %112, %112
   %shift = shufflevector <4 x float> %113, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd contract <4 x float> %113, %shift
-  %shift711 = shufflevector <4 x float> %113, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop712 = fadd contract <4 x float> %shift711, %foldExtExtBinop
-  %114 = extractelement <4 x float> %foldExtExtBinop712, i64 0
+  %shift729 = shufflevector <4 x float> %113, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop730 = fadd contract <4 x float> %shift729, %foldExtExtBinop
+  %114 = extractelement <4 x float> %foldExtExtBinop730, i64 0
   %115 = tail call contract noundef float @llvm.sqrt.f32(float %114)
   %116 = fdiv contract float 1.000000e+00, %115
   %117 = insertelement <4 x float> poison, float %116, i64 0
@@ -2084,7 +2084,7 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
 
 238:                                              ; preds = %235
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %55, ptr noundef nonnull align 16 dereferenceable(256) %43, i64 256, i1 false)
-  br i1 %193, label %.thread706, label %239
+  br i1 %193, label %.thread724, label %239
 
 239:                                              ; preds = %238
   store i32 1, ptr %58, align 4
@@ -2111,13 +2111,13 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
 256:                                              ; preds = %239
   %257 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %250, <4 x float> %176, i8 113)
   %258 = extractelement <4 x float> %257, i64 0
-  %foldExtExtBinop714 = fmul contract <4 x float> %184, %257
-  %foldExtExtBinop714.fr = freeze <4 x float> %foldExtExtBinop714
-  %259 = extractelement <4 x float> %foldExtExtBinop714.fr, i64 0
+  %foldExtExtBinop732 = fmul contract <4 x float> %184, %257
+  %foldExtExtBinop732.fr = freeze <4 x float> %foldExtExtBinop732
+  %259 = extractelement <4 x float> %foldExtExtBinop732.fr, i64 0
   %260 = fcmp contract ogt float %259, 0.000000e+00
   %261 = fmul contract float %253, %258
-  %foldExtExtBinop716 = fmul contract <4 x float> %184, %251
-  %262 = extractelement <4 x float> %foldExtExtBinop716, i64 0
+  %foldExtExtBinop734 = fmul contract <4 x float> %184, %251
+  %262 = extractelement <4 x float> %foldExtExtBinop734, i64 0
   %263 = fdiv contract float %261, %262
   %264 = call contract noundef float @llvm.fabs.f32(float %263)
   %spec.select = select i1 %260, float %264, float 0.000000e+00
@@ -2332,7 +2332,7 @@ _ZN5drjitmlIN7mitsuba8SpectrumIfLm4EEES3_Lm4EEENS_6MatrixINS_6detail14replace_sc
   %345 = phi i1 [ %342, %341 ], [ true, %174 ]
   %346 = icmp eq ptr %344, null
   %narrow673 = select i1 %345, i1 %346, i1 false
-  br i1 %narrow673, label %347, label %.thread706
+  br i1 %narrow673, label %347, label %.thread724
 
 347:                                              ; preds = %343
   %348 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -2424,9 +2424,9 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
 
 386:                                              ; preds = %383
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %55, ptr noundef nonnull align 16 dereferenceable(256) %41, i64 256, i1 false)
-  br label %.thread706
+  br label %.thread724
 
-.thread706:                                       ; preds = %238, %386, %343
+.thread724:                                       ; preds = %238, %386, %343
   %387 = phi i1 [ %346, %386 ], [ %346, %343 ], [ true, %238 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -2434,8 +2434,8 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   br label %388
 
-388:                                              ; preds = %417, %.thread706
-  %.05462.i577 = phi i64 [ 0, %.thread706 ], [ %419, %417 ]
+388:                                              ; preds = %417, %.thread724
+  %.05462.i577 = phi i64 [ 0, %.thread724 ], [ %419, %417 ]
   %389 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %55, i64 0, i64 %.05462.i577
   call void @llvm.experimental.noalias.scope.decl(metadata !244)
   %.sroa.0.0.copyload.i.i.i578 = load <4 x float>, ptr %389, align 16, !noalias !247
@@ -2876,7 +2876,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %13, align 16, !alias.scope !285
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.4, i64 noundef 0)
-          to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit14 unwind label %.thread30
+          to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit14 unwind label %.thread33
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit14: ; preds = %11
   invoke void @_ZN7mitsuba5ClassC1ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_S9_NS1_8functionIFPNS_6ObjectERKNS_10PropertiesEEEENSA_IFSC_PNS_6StreamEEEES9_(ptr noundef nonnull align 16 dereferenceable(208) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
@@ -2942,7 +2942,7 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit: ; preds = 
           cleanup
   br label %48
 
-.thread30:                                        ; preds = %11
+.thread33:                                        ; preds = %11
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit21
@@ -2967,8 +2967,8 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit: ; preds = 
   call void %41(ptr noundef nonnull align 8 dereferenceable(8) %.pre) #19
   br label %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit21
 
-_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit21: ; preds = %.thread30, %38, %.sink.split.i.i19
-  %.pn27 = phi { ptr, i32 } [ %36, %38 ], [ %36, %.sink.split.i.i19 ], [ %34, %.thread30 ]
+_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit21: ; preds = %.thread33, %38, %.sink.split.i.i19
+  %.pn30 = phi { ptr, i32 } [ %36, %38 ], [ %36, %.sink.split.i.i19 ], [ %34, %.thread33 ]
   %42 = load ptr, ptr %12, align 16
   %43 = icmp eq ptr %42, %4
   br i1 %43, label %.sink.split.i.i23, label %44
@@ -2990,7 +2990,7 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit25: ; preds 
   br label %48
 
 48:                                               ; preds = %_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit25, %32
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn27, %_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit25 ], [ %33, %32 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn30, %_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit25 ], [ %33, %32 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #19
   br label %49
 
@@ -3989,10 +3989,10 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, 
     i8 106, label %.critedge
     i8 122, label %.critedge
     i8 116, label %.critedge
-    i8 117, label %.loopexit226
-    i8 100, label %.loopexit226
-    i8 105, label %.loopexit226
-    i8 111, label %.loopexit257
+    i8 117, label %.loopexit232
+    i8 100, label %.loopexit232
+    i8 105, label %.loopexit232
+    i8 111, label %.loopexit263
     i8 88, label %242
     i8 120, label %.loopexit
     i8 112, label %.loopexit
@@ -4133,14 +4133,14 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, 
   store i32 %328, ptr %326, align 8
   br label %.thread117
 
-.loopexit226:                                     ; preds = %239, %239, %239
+.loopexit232:                                     ; preds = %239, %239, %239
   br label %.loopexit
 
-.loopexit257:                                     ; preds = %239
+.loopexit263:                                     ; preds = %239
   br label %.loopexit
 
-.loopexit:                                        ; preds = %242, %239, %239, %.loopexit257, %.loopexit226
-  %.sink219 = phi i32 [ 2, %.loopexit226 ], [ 64, %.loopexit257 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+.loopexit:                                        ; preds = %242, %239, %239, %.loopexit263, %.loopexit232
+  %.sink225 = phi i32 [ 2, %.loopexit232 ], [ 64, %.loopexit263 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -4148,7 +4148,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, 
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %334 = load i32, ptr %333, align 8
   %335 = and i32 %334, -75
-  %336 = or disjoint i32 %335, %.sink219
+  %336 = or disjoint i32 %335, %.sink225
   store i32 %336, ptr %333, align 8
   %or.cond3 = or i1 %.167, %196
   br i1 %or.cond3, label %.thread117, label %337

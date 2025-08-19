@@ -584,8 +584,8 @@ define void @_Z28gatherIntFromMultiSimulationPK14gmx_multisim_ti(ptr dead_on_unw
 
 4:                                                ; preds = %3
   %5 = load i32, ptr %1, align 8, !tbaa !49
-  %.not14 = icmp ne i32 %5, 0
-  tail call void @llvm.assume(i1 %.not14)
+  %.not17 = icmp ne i32 %5, 0
+  tail call void @llvm.assume(i1 %.not17)
   %6 = sext i32 %5 to i64
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %6)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge13 unwind label %16
@@ -670,13 +670,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !11
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !11
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -818,14 +818,14 @@ define void @_Z15check_multi_intP8_IO_FILEPK14gmx_multisim_tiPKcb(ptr noundef ca
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %32, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %32 ], [ %indvars.iv.next53, %.thread ]
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %32 ], [ %indvars.iv.next55, %.thread ]
   %.03546.be = phi i1 [ %37, %32 ], [ false, %.thread ]
   br label %.lr.ph, !llvm.loop !62
 
 .thread:                                          ; preds = %.lr.ph
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not54 = icmp eq i64 %indvars.iv.next53, %wide.trip.count
-  br i1 %exitcond.not54, label %._crit_edge.thread, label %.lr.ph.backedge
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not56 = icmp eq i64 %indvars.iv.next55, %wide.trip.count
+  br i1 %exitcond.not56, label %._crit_edge.thread, label %.lr.ph.backedge
 
 ._crit_edge:                                      ; preds = %32
   br i1 %37, label %.critedge, label %._crit_edge.thread
@@ -1102,14 +1102,14 @@ define void @_Z17check_multi_int64P8_IO_FILEPK14gmx_multisim_tlPKcb(ptr noundef 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %33, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %33 ], [ %indvars.iv.next53, %.thread ]
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %33 ], [ %indvars.iv.next55, %.thread ]
   %.03546.be = phi i1 [ %38, %33 ], [ false, %.thread ]
   br label %.lr.ph, !llvm.loop !66
 
 .thread:                                          ; preds = %.lr.ph
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not54 = icmp eq i64 %indvars.iv.next53, %wide.trip.count
-  br i1 %exitcond.not54, label %._crit_edge.thread, label %.lr.ph.backedge
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not56 = icmp eq i64 %indvars.iv.next55, %wide.trip.count
+  br i1 %exitcond.not56, label %._crit_edge.thread, label %.lr.ph.backedge
 
 ._crit_edge:                                      ; preds = %33
   br i1 %38, label %.critedge, label %._crit_edge.thread

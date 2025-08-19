@@ -542,9 +542,9 @@ _ZN6icu_7714RBBISetBuilder12addValToSetsEPNS_7UVectorEj.exit112: ; preds = %.lr.
 
 ._crit_edge159:                                   ; preds = %._crit_edge152.thread, %._crit_edge159.loopexit, %._crit_edge152
   %206 = phi ptr [ %179, %._crit_edge159.loopexit ], [ %179, %._crit_edge152 ], [ %26, %._crit_edge152.thread ]
-  %.0.lcssa169 = phi i32 [ %.1, %._crit_edge159.loopexit ], [ %.1, %._crit_edge152 ], [ 0, %._crit_edge152.thread ]
+  %.0.lcssa185 = phi i32 [ %.1, %._crit_edge159.loopexit ], [ %.1, %._crit_edge152 ], [ 0, %._crit_edge152.thread ]
   %207 = phi i32 [ %.pre, %._crit_edge159.loopexit ], [ %180, %._crit_edge152 ], [ %27, %._crit_edge152.thread ]
-  %208 = add nsw i32 %207, %.0.lcssa169
+  %208 = add nsw i32 %207, %.0.lcssa185
   store i32 %208, ptr %206, align 4, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %2, align 8, !tbaa !72

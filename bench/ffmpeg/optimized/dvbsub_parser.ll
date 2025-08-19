@@ -138,7 +138,7 @@ define internal noundef i32 @dvbsub_parse(ptr noundef captures(none) initializes
   %69 = add nuw nsw i32 %66, %.0115
   %70 = getelementptr inbounds nuw i8, ptr %.093114, i64 %67
   %71 = icmp ult ptr %70, %52
-  br i1 %71, label %55, label %.loopexit.thread126, !llvm.loop !23
+  br i1 %71, label %55, label %.loopexit.thread130, !llvm.loop !23
 
 72:                                               ; preds = %55
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str) #4
@@ -155,16 +155,16 @@ define internal noundef i32 @dvbsub_parse(ptr noundef captures(none) initializes
 
 .loopexit:                                        ; preds = %61, %57, %.loopexit.sink.split
   %.not108 = icmp eq i32 %.0115, 0
-  br i1 %.not108, label %.loopexit.thread, label %.loopexit.thread126
+  br i1 %.not108, label %.loopexit.thread, label %.loopexit.thread130
 
-.loopexit.thread126:                              ; preds = %68, %.loopexit
-  %.0111129 = phi i32 [ %.0115, %.loopexit ], [ %69, %68 ]
+.loopexit.thread130:                              ; preds = %68, %.loopexit
+  %.0111133 = phi i32 [ %.0115, %.loopexit ], [ %69, %68 ]
   store ptr %43, ptr %2, align 8, !tbaa !12
-  store i32 %.0111129, ptr %3, align 4, !tbaa !14
-  store i32 %.0111129, ptr %7, align 4, !tbaa !18
+  store i32 %.0111133, ptr %3, align 4, !tbaa !14
+  store i32 %.0111133, ptr %7, align 4, !tbaa !18
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %42, %.loopexit.thread126, %.loopexit
+.loopexit.thread:                                 ; preds = %42, %.loopexit.thread130, %.loopexit
   %77 = load i64, ptr %11, align 8, !tbaa !17
   %78 = icmp eq i64 %77, -9223372036854775808
   br i1 %78, label %79, label %81

@@ -128,7 +128,7 @@ gv_strdup.exit.i:                                 ; preds = %14
 
 29:                                               ; preds = %.lr.ph.i.i
   %.not.i.i = icmp eq i32 %27, 0
-  br i1 %.not.i.i, label %bsearch.exit.i.split.loop.exit31, label %30
+  br i1 %.not.i.i, label %bsearch.exit.i.split.loop.exit34, label %30
 
 30:                                               ; preds = %29
   %31 = add nuw i64 %23, 1
@@ -140,12 +140,12 @@ gv_strdup.exit.i:                                 ; preds = %14
   %33 = icmp ult i64 %.1.i.i, %.118.i.i
   br i1 %33, label %.lr.ph.i.i, label %bsearch.exit.i, !llvm.loop !22
 
-bsearch.exit.i.split.loop.exit31:                 ; preds = %29
+bsearch.exit.i.split.loop.exit34:                 ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr @postscript_alias, i64 %24
   br label %bsearch.exit.i
 
-bsearch.exit.i:                                   ; preds = %32, %bsearch.exit.i.split.loop.exit31
-  %.0.i.i = phi ptr [ %34, %bsearch.exit.i.split.loop.exit31 ], [ null, %32 ]
+bsearch.exit.i:                                   ; preds = %32, %bsearch.exit.i.split.loop.exit34
+  %.0.i.i = phi ptr [ %34, %bsearch.exit.i.split.loop.exit34 ], [ null, %32 ]
   store ptr %.0.i.i, ptr @translate_postscript_fontname.result, align 8, !tbaa !17
   br label %translate_postscript_fontname.exit
 
@@ -263,7 +263,7 @@ define void @textfont_dict_open(ptr noundef initializes((216, 228), (232, 256)) 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noalias noundef ptr @textfont_makef(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #3 {
+define internal noalias nonnull ptr @textfont_makef(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #3 {
   %3 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #19
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %gv_alloc.exit

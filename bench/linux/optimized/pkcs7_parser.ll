@@ -185,18 +185,18 @@ define dso_local ptr @pkcs7_parse_message(ptr noundef %0, i64 noundef %1) #0 ali
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %44 = load ptr, ptr %43, align 8
   %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %.preheader6
+  br i1 %45, label %46, label %.preheader11
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 25
   store i8 1, ptr %47, align 1
-  br label %.preheader6
+  br label %.preheader11
 
-.preheader6:                                      ; preds = %46, %42
+.preheader11:                                     ; preds = %46, %42
   br label %48
 
-48:                                               ; preds = %.preheader6, %52
-  %49 = phi ptr [ %50, %52 ], [ %40, %.preheader6 ]
+48:                                               ; preds = %.preheader11, %52
+  %49 = phi ptr [ %50, %52 ], [ %40, %.preheader11 ]
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %58, label %52

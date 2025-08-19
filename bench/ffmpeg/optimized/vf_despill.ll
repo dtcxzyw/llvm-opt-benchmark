@@ -130,9 +130,9 @@ define internal noundef i32 @do_despill_slice(ptr noundef readonly captures(none
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i8, ptr %50, i64 %53
   %invariant.gep = getelementptr i8, ptr %54, i64 %47
-  %invariant.gep130 = getelementptr i8, ptr %54, i64 %46
-  %invariant.gep132 = getelementptr i8, ptr %54, i64 %45
-  %invariant.gep134 = getelementptr i8, ptr %54, i64 %44
+  %invariant.gep135 = getelementptr i8, ptr %54, i64 %46
+  %invariant.gep137 = getelementptr i8, ptr %54, i64 %45
+  %invariant.gep139 = getelementptr i8, ptr %54, i64 %44
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %102
@@ -142,21 +142,21 @@ define internal noundef i32 @do_despill_slice(ptr noundef readonly captures(none
   %56 = load i8, ptr %gep, align 1, !tbaa !49
   %57 = uitofp i8 %56 to float
   %58 = fdiv nsz float %57, 2.550000e+02
-  %gep131 = getelementptr i8, ptr %invariant.gep130, i64 %55
-  %59 = load i8, ptr %gep131, align 1, !tbaa !49
+  %gep136 = getelementptr i8, ptr %invariant.gep135, i64 %55
+  %59 = load i8, ptr %gep136, align 1, !tbaa !49
   %60 = uitofp i8 %59 to float
   %61 = fdiv nsz float %60, 2.550000e+02
-  %gep133 = getelementptr i8, ptr %invariant.gep132, i64 %55
-  %62 = load i8, ptr %gep133, align 1, !tbaa !49
+  %gep138 = getelementptr i8, ptr %invariant.gep137, i64 %55
+  %62 = load i8, ptr %gep138, align 1, !tbaa !49
   %63 = uitofp i8 %62 to float
   %64 = fdiv nsz float %63, 2.550000e+02
   %65 = load i32, ptr %40, align 4, !tbaa !50
   %.not = icmp eq i32 %65, 0
   %. = select i1 %.not, float %64, float %61
-  %.141 = select i1 %.not, float %61, float %64
+  %.146 = select i1 %.not, float %61, float %64
   %66 = fmul nsz float %36, %.
   %67 = tail call nsz float @llvm.fmuladd.f32(float %58, float %31, float %66)
-  %68 = fsub nsz float %.141, %67
+  %68 = fsub nsz float %.146, %67
   %69 = fcmp nsz ogt float %68, 0.000000e+00
   %70 = select nsz i1 %69, float %68, float 0.000000e+00
   %71 = tail call nsz float @llvm.fmuladd.f32(float %70, float %25, float %58)
@@ -188,13 +188,13 @@ define internal noundef i32 @do_despill_slice(ptr noundef readonly captures(none
   %91 = sext i1 %isnotneg.i115 to i8
   %92 = trunc nuw i32 %82 to i8
   %.0.i116 = select i1 %.not.i114, i8 %92, i8 %91
-  store i8 %.0.i116, ptr %gep131, align 1, !tbaa !49
+  store i8 %.0.i116, ptr %gep136, align 1, !tbaa !49
   %.not.i117 = icmp ult i32 %88, 256
   %isnotneg.i118 = icmp sgt i32 %88, -1
   %93 = sext i1 %isnotneg.i118 to i8
   %94 = trunc nuw i32 %88 to i8
   %.0.i119 = select i1 %.not.i117, i8 %94, i8 %93
-  store i8 %.0.i119, ptr %gep133, align 1, !tbaa !49
+  store i8 %.0.i119, ptr %gep138, align 1, !tbaa !49
   %95 = load i32, ptr %41, align 8, !tbaa !51
   %.not113 = icmp eq i32 %95, 0
   br i1 %.not113, label %102, label %96
@@ -208,8 +208,8 @@ define internal noundef i32 @do_despill_slice(ptr noundef readonly captures(none
   %100 = sext i1 %isnotneg.i121 to i8
   %101 = trunc nuw i32 %99 to i8
   %.0.i122 = select i1 %.not.i120, i8 %101, i8 %100
-  %gep135 = getelementptr i8, ptr %invariant.gep134, i64 %55
-  store i8 %.0.i122, ptr %gep135, align 1, !tbaa !49
+  %gep140 = getelementptr i8, ptr %invariant.gep139, i64 %55
+  store i8 %.0.i122, ptr %gep140, align 1, !tbaa !49
   br label %102
 
 102:                                              ; preds = %96, %.lr.ph

@@ -1414,7 +1414,7 @@ define internal void @agnoderenew(ptr noundef readonly captures(none) %0, ptr re
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @node_set_new() local_unnamed_addr #8 {
+define noalias nonnull ptr @node_set_new() local_unnamed_addr #8 {
   %1 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 105) 48) #20
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %gv_alloc.exit
@@ -1434,7 +1434,7 @@ define void @node_set_add(ptr noundef captures(none) %0, ptr noundef %1) local_u
   %3 = alloca %struct.graphviz_node_set, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !28
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %.thread72, label %node_set_get_capacity.exit
+  br i1 %5, label %.thread79, label %node_set_get_capacity.exit
 
 node_set_get_capacity.exit:                       ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1446,7 +1446,7 @@ node_set_get_capacity.exit:                       ; preds = %2
   %.not = icmp ult i64 %10, %11
   br i1 %.not, label %41, label %13
 
-.thread72:                                        ; preds = %2
+.thread79:                                        ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %20
 
@@ -1463,11 +1463,11 @@ node_set_get_capacity.exit:                       ; preds = %2
   tail call fastcc void @graphviz_exit() #22
   unreachable
 
-20:                                               ; preds = %.thread72, %13
-  %21 = phi i64 [ 1024, %.thread72 ], [ %16, %13 ]
-  %22 = phi i64 [ 10, %.thread72 ], [ %15, %13 ]
-  %23 = phi ptr [ %12, %.thread72 ], [ %8, %13 ]
-  %24 = phi i64 [ 0, %.thread72 ], [ %14, %13 ]
+20:                                               ; preds = %.thread79, %13
+  %21 = phi i64 [ 1024, %.thread79 ], [ %16, %13 ]
+  %22 = phi i64 [ 10, %.thread79 ], [ %15, %13 ]
+  %23 = phi ptr [ %12, %.thread79 ], [ %8, %13 ]
+  %24 = phi i64 [ 0, %.thread79 ], [ %14, %13 ]
   %25 = tail call noalias ptr @calloc(i64 noundef %21, i64 noundef 8) #20
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %gv_calloc.exit

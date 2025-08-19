@@ -2645,10 +2645,10 @@ define internal void @display_handle_done(ptr noundef %0, ptr readnone captures(
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 1
   %.not94 = icmp eq i32 %24, 0
-  %.114 = select i1 %.not94, i64 60, i64 64
-  %.115 = select i1 %.not94, i64 64, i64 60
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %.114
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.115
+  %.123 = select i1 %.not94, i64 60, i64 64
+  %.124 = select i1 %.not94, i64 64, i64 60
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %.123
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.124
   %27 = load i32, ptr %26, align 4
   %28 = load i32, ptr %25, align 4
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8

@@ -2412,36 +2412,36 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readnone captures
   store ptr null, ptr %28, align 8
   %120 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %121 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %.sink667.sroa.gep = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %.sink667.sroa.gep684 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %.sink667.sroa.gep686 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %.sink667.sroa.gep687 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %.sink667.sroa.gep689 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %.sink667.sroa.gep690 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %.sink667.sroa.gep692 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %.sink667.sroa.gep693 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %.sink667.sroa.gep695 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %.sink667.sroa.gep696 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %.sink675.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink675.sroa.gep697 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sink675.sroa.gep699 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink675.sroa.gep700 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.sink675.sroa.gep702 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink675.sroa.gep703 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %.sink675.sroa.gep705 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink675.sroa.gep706 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.sink675.sroa.gep708 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %.sink675.sroa.gep709 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %.sink683.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink683.sroa.gep710 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink683.sroa.gep712 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sink683.sroa.gep713 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink683.sroa.gep715 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.sink683.sroa.gep716 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sink683.sroa.gep718 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sink683.sroa.gep719 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sink683.sroa.gep721 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.sink683.sroa.gep722 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %.sink753.sroa.gep = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.sink753.sroa.gep770 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %.sink753.sroa.gep772 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %.sink753.sroa.gep773 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %.sink753.sroa.gep775 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %.sink753.sroa.gep776 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %.sink753.sroa.gep778 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %.sink753.sroa.gep779 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %.sink753.sroa.gep781 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %.sink753.sroa.gep782 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  %.sink761.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink761.sroa.gep783 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink761.sroa.gep785 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink761.sroa.gep786 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sink761.sroa.gep788 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink761.sroa.gep789 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.sink761.sroa.gep791 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink761.sroa.gep792 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sink761.sroa.gep794 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %.sink761.sroa.gep795 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %.sink769.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sink769.sroa.gep796 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink769.sroa.gep798 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sink769.sroa.gep799 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink769.sroa.gep801 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sink769.sroa.gep802 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink769.sroa.gep804 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink769.sroa.gep805 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink769.sroa.gep807 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.sink769.sroa.gep808 = getelementptr inbounds nuw i8, ptr %10, i64 40
   invoke void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %28)
           to label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit unwind label %788
 
@@ -2568,21 +2568,21 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push
   br i1 %151, label %154, label %.invoke
 
 .invoke:                                          ; preds = %152, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit143
-  %.sink667.sroa.phi = phi ptr [ %.sink667.sroa.gep, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit143 ], [ %.sink667.sroa.gep684, %152 ]
-  %.sink667.sroa.phi685 = phi ptr [ %.sink667.sroa.gep686, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit143 ], [ %.sink667.sroa.gep687, %152 ]
-  %.sink667.sroa.phi688 = phi ptr [ %.sink667.sroa.gep689, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit143 ], [ %.sink667.sroa.gep690, %152 ]
-  %.sink667.sroa.phi691 = phi ptr [ %.sink667.sroa.gep692, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit143 ], [ %.sink667.sroa.gep693, %152 ]
-  %.sink667.sroa.phi694 = phi ptr [ %.sink667.sroa.gep695, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit143 ], [ %.sink667.sroa.gep696, %152 ]
-  %.sink667 = phi ptr [ %24, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit143 ], [ %23, %152 ]
-  %.sink664 = phi i64 [ 53, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit143 ], [ 54, %152 ]
+  %.sink753.sroa.phi = phi ptr [ %.sink753.sroa.gep, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit143 ], [ %.sink753.sroa.gep770, %152 ]
+  %.sink753.sroa.phi771 = phi ptr [ %.sink753.sroa.gep772, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit143 ], [ %.sink753.sroa.gep773, %152 ]
+  %.sink753.sroa.phi774 = phi ptr [ %.sink753.sroa.gep775, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit143 ], [ %.sink753.sroa.gep776, %152 ]
+  %.sink753.sroa.phi777 = phi ptr [ %.sink753.sroa.gep778, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit143 ], [ %.sink753.sroa.gep779, %152 ]
+  %.sink753.sroa.phi780 = phi ptr [ %.sink753.sroa.gep781, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit143 ], [ %.sink753.sroa.gep782, %152 ]
+  %.sink753 = phi ptr [ %24, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit143 ], [ %23, %152 ]
+  %.sink750 = phi i64 [ 53, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit143 ], [ 54, %152 ]
   %153 = phi ptr [ @.str.10, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit143 ], [ @.str.11, %152 ]
-  store ptr @.str, ptr %.sink667, align 8
-  store ptr @__func__.main, ptr %.sink667.sroa.phi, align 8
-  store i64 %.sink664, ptr %.sink667.sroa.phi685, align 8
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sink667.sroa.phi688, align 8
-  store i8 0, ptr %.sink667.sroa.phi691, align 8
-  store i32 4, ptr %.sink667.sroa.phi694, align 8
-  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink667, ptr noundef nonnull @.str.47, ptr noundef nonnull %153) #18
+  store ptr @.str, ptr %.sink753, align 8
+  store ptr @__func__.main, ptr %.sink753.sroa.phi, align 8
+  store i64 %.sink750, ptr %.sink753.sroa.phi771, align 8
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sink753.sroa.phi774, align 8
+  store i8 0, ptr %.sink753.sroa.phi777, align 8
+  store i32 4, ptr %.sink753.sroa.phi780, align 8
+  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink753, ptr noundef nonnull @.str.47, ptr noundef nonnull %153) #18
           to label %.cont unwind label %792
 
 .cont:                                            ; preds = %.invoke
@@ -3449,7 +3449,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push
   %388 = load ptr, ptr %73, align 8
   %.not.i283.not = icmp eq ptr %388, null
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  br i1 %.not.i283.not, label %.invoke658, label %389
+  br i1 %.not.i283.not, label %.invoke744, label %389
 
 389:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit282
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -3470,27 +3470,27 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push
 
 399:                                              ; preds = %397
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  br i1 %398, label %401, label %.invoke658
+  br i1 %398, label %401, label %.invoke744
 
-.invoke658:                                       ; preds = %399, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit282
-  %.sink675.sroa.phi = phi ptr [ %.sink675.sroa.gep, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit282 ], [ %.sink675.sroa.gep697, %399 ]
-  %.sink675.sroa.phi698 = phi ptr [ %.sink675.sroa.gep699, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit282 ], [ %.sink675.sroa.gep700, %399 ]
-  %.sink675.sroa.phi701 = phi ptr [ %.sink675.sroa.gep702, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit282 ], [ %.sink675.sroa.gep703, %399 ]
-  %.sink675.sroa.phi704 = phi ptr [ %.sink675.sroa.gep705, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit282 ], [ %.sink675.sroa.gep706, %399 ]
-  %.sink675.sroa.phi707 = phi ptr [ %.sink675.sroa.gep708, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit282 ], [ %.sink675.sroa.gep709, %399 ]
-  %.sink675 = phi ptr [ %14, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit282 ], [ %13, %399 ]
-  %.sink672 = phi i64 [ 106, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit282 ], [ 107, %399 ]
+.invoke744:                                       ; preds = %399, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit282
+  %.sink761.sroa.phi = phi ptr [ %.sink761.sroa.gep, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit282 ], [ %.sink761.sroa.gep783, %399 ]
+  %.sink761.sroa.phi784 = phi ptr [ %.sink761.sroa.gep785, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit282 ], [ %.sink761.sroa.gep786, %399 ]
+  %.sink761.sroa.phi787 = phi ptr [ %.sink761.sroa.gep788, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit282 ], [ %.sink761.sroa.gep789, %399 ]
+  %.sink761.sroa.phi790 = phi ptr [ %.sink761.sroa.gep791, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit282 ], [ %.sink761.sroa.gep792, %399 ]
+  %.sink761.sroa.phi793 = phi ptr [ %.sink761.sroa.gep794, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit282 ], [ %.sink761.sroa.gep795, %399 ]
+  %.sink761 = phi ptr [ %14, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit282 ], [ %13, %399 ]
+  %.sink758 = phi i64 [ 106, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit282 ], [ 107, %399 ]
   %400 = phi ptr [ @.str.29, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE9push_backERKS1_.exit282 ], [ @.str.30, %399 ]
-  store ptr @.str, ptr %.sink675, align 8
-  store ptr @__func__.main, ptr %.sink675.sroa.phi, align 8
-  store i64 %.sink672, ptr %.sink675.sroa.phi698, align 8
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sink675.sroa.phi701, align 8
-  store i8 0, ptr %.sink675.sroa.phi704, align 8
-  store i32 4, ptr %.sink675.sroa.phi707, align 8
-  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink675, ptr noundef nonnull @.str.47, ptr noundef nonnull %400) #18
-          to label %.cont659 unwind label %878
+  store ptr @.str, ptr %.sink761, align 8
+  store ptr @__func__.main, ptr %.sink761.sroa.phi, align 8
+  store i64 %.sink758, ptr %.sink761.sroa.phi784, align 8
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sink761.sroa.phi787, align 8
+  store i8 0, ptr %.sink761.sroa.phi790, align 8
+  store i32 4, ptr %.sink761.sroa.phi793, align 8
+  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink761, ptr noundef nonnull @.str.47, ptr noundef nonnull %400) #18
+          to label %.cont745 unwind label %878
 
-.cont659:                                         ; preds = %.invoke658
+.cont745:                                         ; preds = %.invoke744
   unreachable
 
 401:                                              ; preds = %399
@@ -3716,7 +3716,7 @@ _ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_E
 
 493:                                              ; preds = %491
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  br i1 %492, label %494, label %.invoke660
+  br i1 %492, label %494, label %.invoke746
 
 494:                                              ; preds = %493
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -3729,27 +3729,27 @@ _ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_E
 
 498:                                              ; preds = %496
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  br i1 %497, label %500, label %.invoke660
+  br i1 %497, label %500, label %.invoke746
 
-.invoke660:                                       ; preds = %498, %493
-  %.sink683.sroa.phi = phi ptr [ %.sink683.sroa.gep, %493 ], [ %.sink683.sroa.gep710, %498 ]
-  %.sink683.sroa.phi711 = phi ptr [ %.sink683.sroa.gep712, %493 ], [ %.sink683.sroa.gep713, %498 ]
-  %.sink683.sroa.phi714 = phi ptr [ %.sink683.sroa.gep715, %493 ], [ %.sink683.sroa.gep716, %498 ]
-  %.sink683.sroa.phi717 = phi ptr [ %.sink683.sroa.gep718, %493 ], [ %.sink683.sroa.gep719, %498 ]
-  %.sink683.sroa.phi720 = phi ptr [ %.sink683.sroa.gep721, %493 ], [ %.sink683.sroa.gep722, %498 ]
-  %.sink683 = phi ptr [ %11, %493 ], [ %10, %498 ]
-  %.sink680 = phi i64 [ 114, %493 ], [ 115, %498 ]
+.invoke746:                                       ; preds = %498, %493
+  %.sink769.sroa.phi = phi ptr [ %.sink769.sroa.gep, %493 ], [ %.sink769.sroa.gep796, %498 ]
+  %.sink769.sroa.phi797 = phi ptr [ %.sink769.sroa.gep798, %493 ], [ %.sink769.sroa.gep799, %498 ]
+  %.sink769.sroa.phi800 = phi ptr [ %.sink769.sroa.gep801, %493 ], [ %.sink769.sroa.gep802, %498 ]
+  %.sink769.sroa.phi803 = phi ptr [ %.sink769.sroa.gep804, %493 ], [ %.sink769.sroa.gep805, %498 ]
+  %.sink769.sroa.phi806 = phi ptr [ %.sink769.sroa.gep807, %493 ], [ %.sink769.sroa.gep808, %498 ]
+  %.sink769 = phi ptr [ %11, %493 ], [ %10, %498 ]
+  %.sink766 = phi i64 [ 114, %493 ], [ 115, %498 ]
   %499 = phi ptr [ @.str.30, %493 ], [ @.str.34, %498 ]
-  store ptr @.str, ptr %.sink683, align 8
-  store ptr @__func__.main, ptr %.sink683.sroa.phi, align 8
-  store i64 %.sink680, ptr %.sink683.sroa.phi711, align 8
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sink683.sroa.phi714, align 8
-  store i8 0, ptr %.sink683.sroa.phi717, align 8
-  store i32 4, ptr %.sink683.sroa.phi720, align 8
-  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink683, ptr noundef nonnull @.str.47, ptr noundef nonnull %499) #18
-          to label %.cont661 unwind label %888
+  store ptr @.str, ptr %.sink769, align 8
+  store ptr @__func__.main, ptr %.sink769.sroa.phi, align 8
+  store i64 %.sink766, ptr %.sink769.sroa.phi797, align 8
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sink769.sroa.phi800, align 8
+  store i8 0, ptr %.sink769.sroa.phi803, align 8
+  store i32 4, ptr %.sink769.sroa.phi806, align 8
+  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink769, ptr noundef nonnull @.str.47, ptr noundef nonnull %499) #18
+          to label %.cont747 unwind label %888
 
-.cont661:                                         ; preds = %.invoke660
+.cont747:                                         ; preds = %.invoke746
   unreachable
 
 500:                                              ; preds = %498
@@ -5044,7 +5044,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionD2Ev.exit475.thread: ; pr
           cleanup
   br label %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionD2Ev.exit446
 
-878:                                              ; preds = %.invoke658, %387, %384, %401, %397, %391, %389
+878:                                              ; preds = %.invoke744, %387, %384, %401, %397, %391, %389
   %879 = landingpad { ptr, i32 }
           cleanup
   br label %.body288
@@ -5082,7 +5082,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionD2Ev.exit475.thread: ; pr
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #17
   br label %.body288
 
-888:                                              ; preds = %.invoke660, %500, %496, %494, %491, %485, %483
+888:                                              ; preds = %.invoke746, %500, %496, %494, %491, %485, %483
   %889 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionD2Ev.exit442
@@ -6369,14 +6369,14 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24_
   br i1 %18, label %._crit_edge.thread.i, label %24
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %14
-  %.021.lcssa30.i = phi ptr [ %.02226.i, %._crit_edge.i ], [ %4, %14 ]
+  %.021.lcssa31.i = phi ptr [ %.02226.i, %._crit_edge.i ], [ %4, %14 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %.021.lcssa30.i, %20
+  %21 = icmp eq ptr %.021.lcssa31.i, %20
   br i1 %21, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE24_M_get_insert_unique_posERS3_.exit, label %22
 
 22:                                               ; preds = %._crit_edge.thread.i
-  %23 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa30.i) #22
+  %23 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa31.i) #22
   %.phi.trans.insert97 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %.0.copyload.i.i5.i.pre = load i64, ptr %.phi.trans.insert97, align 4
   %.0.copyload.i2.i6.i.pre = load i64, ptr %2, align 4
@@ -6385,11 +6385,11 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24_
 24:                                               ; preds = %22, %._crit_edge.i
   %.0.copyload.i2.i6.i = phi i64 [ %.0.copyload.i2.i6.i.pre, %22 ], [ %.0.copyload.i.i.i, %._crit_edge.i ]
   %.0.copyload.i.i5.i = phi i64 [ %.0.copyload.i.i5.i.pre, %22 ], [ %.0.copyload.i2.i.i, %._crit_edge.i ]
-  %.021.lcssa31.i = phi ptr [ %.021.lcssa30.i, %22 ], [ %.02226.i, %._crit_edge.i ]
+  %.021.lcssa30.i = phi ptr [ %.021.lcssa31.i, %22 ], [ %.02226.i, %._crit_edge.i ]
   %.sroa.07.0.i = phi ptr [ %23, %22 ], [ %.02226.i, %._crit_edge.i ]
   %25 = icmp ult i64 %.0.copyload.i.i5.i, %.0.copyload.i2.i6.i
   %spec.select.i = select i1 %25, ptr null, ptr %.sroa.07.0.i
-  %spec.select23.i = select i1 %25, ptr %.021.lcssa31.i, ptr null
+  %spec.select23.i = select i1 %25, ptr %.021.lcssa30.i, ptr null
   br label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE24_M_get_insert_unique_posERS3_.exit
 
 26:                                               ; preds = %3
@@ -6441,23 +6441,23 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24_
   br i1 %44, label %._crit_edge.thread.i35, label %48
 
 ._crit_edge.thread.i35:                           ; preds = %._crit_edge.i24, %41
-  %.021.lcssa30.i36 = phi ptr [ %.02226.i18, %._crit_edge.i24 ], [ %4, %41 ]
-  %45 = icmp eq ptr %.021.lcssa30.i36, %31
+  %.021.lcssa31.i36 = phi ptr [ %.02226.i18, %._crit_edge.i24 ], [ %4, %41 ]
+  %45 = icmp eq ptr %.021.lcssa31.i36, %31
   br i1 %45, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE24_M_get_insert_unique_posERS3_.exit, label %46
 
 46:                                               ; preds = %._crit_edge.thread.i35
-  %47 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa30.i36) #22
+  %47 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa31.i36) #22
   %.phi.trans.insert95 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %.0.copyload.i.i5.i27.pre = load i64, ptr %.phi.trans.insert95, align 4
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i24
   %.0.copyload.i.i5.i27 = phi i64 [ %.0.copyload.i.i5.i27.pre, %46 ], [ %.0.copyload.i2.i.i19, %._crit_edge.i24 ]
-  %.021.lcssa31.i25 = phi ptr [ %.021.lcssa30.i36, %46 ], [ %.02226.i18, %._crit_edge.i24 ]
+  %.021.lcssa30.i25 = phi ptr [ %.021.lcssa31.i36, %46 ], [ %.02226.i18, %._crit_edge.i24 ]
   %.sroa.07.0.i26 = phi ptr [ %47, %46 ], [ %.02226.i18, %._crit_edge.i24 ]
   %49 = icmp ult i64 %.0.copyload.i.i5.i27, %.0.copyload.i.i10
   %spec.select.i29 = select i1 %49, ptr null, ptr %.sroa.07.0.i26
-  %spec.select23.i30 = select i1 %49, ptr %.021.lcssa31.i25, ptr null
+  %spec.select23.i30 = select i1 %49, ptr %.021.lcssa30.i25, ptr null
   br label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE24_M_get_insert_unique_posERS3_.exit
 
 50:                                               ; preds = %26
@@ -6506,30 +6506,30 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24_
   br i1 %67, label %._crit_edge.thread.i63, label %73
 
 ._crit_edge.thread.i63:                           ; preds = %._crit_edge.i52, %64
-  %.021.lcssa30.i64 = phi ptr [ %.02226.i46, %._crit_edge.i52 ], [ %4, %64 ]
+  %.021.lcssa31.i64 = phi ptr [ %.02226.i46, %._crit_edge.i52 ], [ %4, %64 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %.021.lcssa30.i64, %69
+  %70 = icmp eq ptr %.021.lcssa31.i64, %69
   br i1 %70, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE24_M_get_insert_unique_posERS3_.exit, label %71
 
 71:                                               ; preds = %._crit_edge.thread.i63
-  %72 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa30.i64) #22
+  %72 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa31.i64) #22
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %72, i64 32
   %.0.copyload.i.i5.i55.pre = load i64, ptr %.phi.trans.insert, align 4
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge.i52
   %.0.copyload.i.i5.i55 = phi i64 [ %.0.copyload.i.i5.i55.pre, %71 ], [ %.0.copyload.i2.i.i47, %._crit_edge.i52 ]
-  %.021.lcssa31.i53 = phi ptr [ %.021.lcssa30.i64, %71 ], [ %.02226.i46, %._crit_edge.i52 ]
+  %.021.lcssa30.i53 = phi ptr [ %.021.lcssa31.i64, %71 ], [ %.02226.i46, %._crit_edge.i52 ]
   %.sroa.07.0.i54 = phi ptr [ %72, %71 ], [ %.02226.i46, %._crit_edge.i52 ]
   %74 = icmp ult i64 %.0.copyload.i.i5.i55, %.0.copyload.i.i10
   %spec.select.i57 = select i1 %74, ptr null, ptr %.sroa.07.0.i54
-  %spec.select23.i58 = select i1 %74, ptr %.021.lcssa31.i53, ptr null
+  %spec.select23.i58 = select i1 %74, ptr %.021.lcssa30.i53, ptr null
   br label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE24_M_get_insert_unique_posERS3_.exit
 
 _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE24_M_get_insert_unique_posERS3_.exit: ; preds = %73, %._crit_edge.thread.i63, %48, %._crit_edge.thread.i35, %24, %._crit_edge.thread.i, %60, %37, %50, %52, %29, %9
   %.sroa.086.0 = phi ptr [ null, %9 ], [ %31, %29 ], [ null, %52 ], [ %1, %50 ], [ %spec.select, %37 ], [ %spec.select88, %60 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %24 ], [ null, %._crit_edge.thread.i35 ], [ %spec.select.i29, %48 ], [ null, %._crit_edge.thread.i63 ], [ %spec.select.i57, %73 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %31, %29 ], [ %54, %52 ], [ null, %50 ], [ %spec.select87, %37 ], [ %spec.select89, %60 ], [ %.021.lcssa30.i, %._crit_edge.thread.i ], [ %spec.select23.i, %24 ], [ %.021.lcssa30.i36, %._crit_edge.thread.i35 ], [ %spec.select23.i30, %48 ], [ %.021.lcssa30.i64, %._crit_edge.thread.i63 ], [ %spec.select23.i58, %73 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %31, %29 ], [ %54, %52 ], [ null, %50 ], [ %spec.select87, %37 ], [ %spec.select89, %60 ], [ %.021.lcssa31.i, %._crit_edge.thread.i ], [ %spec.select23.i, %24 ], [ %.021.lcssa31.i36, %._crit_edge.thread.i35 ], [ %spec.select23.i30, %48 ], [ %.021.lcssa31.i64, %._crit_edge.thread.i63 ], [ %spec.select23.i58, %73 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.086.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -6782,9 +6782,9 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE12_M
           to label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit unwind label %.thread
 
 .thread:                                          ; preds = %23
-  %lpad.thr_comm51 = landingpad { ptr, i32 }
+  %lpad.thr_comm60 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %lpad.thr_comm51, 0
+  %24 = extractvalue { ptr, i32 } %lpad.thr_comm60, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #17
   br label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionESaIS1_EE13_M_deallocateEPS1_m.exit41
 

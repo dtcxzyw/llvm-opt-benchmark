@@ -224,7 +224,7 @@ define hidden void @proto_reg_handoff_busmirroring() local_unnamed_addr #0 {
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
+define internal range(i32 14, 1) i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -576,7 +576,7 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
 switch.early.test:                                ; preds = %203
   %204 = add i32 %.fr, -12
   %205 = call i32 @llvm.fshl.i32(i32 %204, i32 %204, i32 30)
-  switch i32 %205, label %.sink.split356 [
+  switch i32 %205, label %.sink.split365 [
     i32 13, label %211
     i32 9, label %211
     i32 5, label %211
@@ -587,19 +587,19 @@ switch.early.test:                                ; preds = %203
   ]
 
 206:                                              ; preds = %200
-  br i1 %202, label %.sink.split356, label %211
+  br i1 %202, label %.sink.split365, label %211
 
 207:                                              ; preds = %197
   %208 = load i32, ptr %8, align 4
   %209 = icmp ugt i32 %208, 8
-  br i1 %209, label %.sink.split356, label %211
+  br i1 %209, label %.sink.split365, label %211
 
-.sink.split356:                                   ; preds = %207, %206, %switch.early.test
+.sink.split365:                                   ; preds = %207, %206, %switch.early.test
   %ei_lin_length_invalid.sink = phi ptr [ @ei_can_length_invalid, %switch.early.test ], [ @ei_can_length_invalid, %206 ], [ @ei_lin_length_invalid, %207 ]
   %210 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %199, ptr noundef nonnull %ei_lin_length_invalid.sink)
   br label %211
 
-211:                                              ; preds = %.sink.split356, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %203, %197, %207, %206
+211:                                              ; preds = %.sink.split365, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %203, %197, %207, %206
   %212 = sub i32 %193, %.0297335
   call void @proto_item_set_len(ptr noundef %43, i32 noundef %212)
   %213 = load i32, ptr %8, align 4

@@ -522,12 +522,12 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !36
   %18 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(22) @.str.6) #21
-  %.not3963 = icmp eq i32 %18, 0
-  br i1 %.not3963, label %._crit_edge65, label %.lr.ph
+  %.not3964 = icmp eq i32 %18, 0
+  br i1 %.not3964, label %._crit_edge66, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %19
-  %indvars.iv64 = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv64, 1
+  %indvars.iv65 = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv65, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond, label %.loopexit, label %19, !llvm.loop !38
 
@@ -536,9 +536,9 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
   %21 = load ptr, ptr %20, align 8, !tbaa !39
   %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %21) #21
   %.not39 = icmp eq i32 %22, 0
-  br i1 %.not39, label %._crit_edge65, label %.lr.ph, !llvm.loop !38
+  br i1 %.not39, label %._crit_edge66, label %.lr.ph, !llvm.loop !38
 
-._crit_edge65:                                    ; preds = %19, %.preheader
+._crit_edge66:                                    ; preds = %19, %.preheader
   %.lcssa = phi ptr [ @kPNGMetadataMap, %.preheader ], [ %20, %19 ]
   %23 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %24 = load i64, ptr %23, align 8, !tbaa !41
@@ -547,13 +547,13 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
   %.not40 = icmp eq ptr %26, null
   br i1 %.not40, label %30, label %27
 
-27:                                               ; preds = %._crit_edge65
+27:                                               ; preds = %._crit_edge66
   %28 = load ptr, ptr @stderr, align 8, !tbaa !26
   %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.4, ptr noundef nonnull %17) #19
   %.pre59 = load ptr, ptr %5, align 8, !tbaa !34
   br label %.loopexit
 
-30:                                               ; preds = %._crit_edge65
+30:                                               ; preds = %._crit_edge66
   %31 = load i32, ptr %15, align 8, !tbaa !44
   %.off = add i32 %31, -1
   %switch = icmp ult i32 %.off, 2

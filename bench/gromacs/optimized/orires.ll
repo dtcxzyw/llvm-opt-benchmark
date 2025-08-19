@@ -213,13 +213,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !50
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !50
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -677,13 +677,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 .thread292:                                       ; preds = %146
   %152 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split480
+  br label %.sink.split547
 
 .thread296:                                       ; preds = %148
   %153 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #28
-  br label %.sink.split480
+  br label %.sink.split547
 
 154:                                              ; preds = %149, %151
   %.0110 = phi i1 [ false, %151 ], [ true, %149 ]
@@ -696,13 +696,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %.0110, label %156, label %_ZNSt6vectorIiSaIiEED2Ev.exit204
 
-.sink.split480:                                   ; preds = %.thread292, %.thread296
+.sink.split547:                                   ; preds = %.thread292, %.thread296
   %.pn145.pn295.ph = phi { ptr, i32 } [ %153, %.thread296 ], [ %152, %.thread292 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %156
 
-156:                                              ; preds = %.sink.split480, %154
-  %.pn145.pn295 = phi { ptr, i32 } [ %155, %154 ], [ %.pn145.pn295.ph, %.sink.split480 ]
+156:                                              ; preds = %.sink.split547, %154
+  %.pn145.pn295 = phi { ptr, i32 } [ %155, %154 ], [ %.pn145.pn295.ph, %.sink.split547 ]
   call void @__cxa_free_exception(ptr %147) #28
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit204
 
@@ -867,13 +867,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 .thread299:                                       ; preds = %202
   %212 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split481
+  br label %.sink.split548
 
 .thread304:                                       ; preds = %204
   %213 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %24) #28
-  br label %.sink.split481
+  br label %.sink.split548
 
 214:                                              ; preds = %205, %207
   %.0113 = phi i1 [ false, %207 ], [ true, %205 ]
@@ -886,13 +886,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br i1 %.0113, label %216, label %217
 
-.sink.split481:                                   ; preds = %.thread299, %.thread304
+.sink.split548:                                   ; preds = %.thread299, %.thread304
   %.pn136.pn303.ph = phi { ptr, i32 } [ %213, %.thread304 ], [ %212, %.thread299 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %216
 
-216:                                              ; preds = %.sink.split481, %214
-  %.pn136.pn303 = phi { ptr, i32 } [ %215, %214 ], [ %.pn136.pn303.ph, %.sink.split481 ]
+216:                                              ; preds = %.sink.split548, %214
+  %.pn136.pn303 = phi { ptr, i32 } [ %215, %214 ], [ %.pn136.pn303.ph, %.sink.split548 ]
   call void @__cxa_free_exception(ptr %203) #28
   br label %217
 
@@ -1291,9 +1291,9 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit181:            ; preds = %._ZNSt6vectorIfSaIf
   br label %398
 
 398:                                              ; preds = %391, %_ZNSt6vectorIfSaIfEE6resizeEm.exit181
-  %.sink482 = phi ptr [ %392, %391 ], [ %387, %_ZNSt6vectorIfSaIfEE6resizeEm.exit181 ]
+  %.sink549 = phi ptr [ %392, %391 ], [ %387, %_ZNSt6vectorIfSaIfEE6resizeEm.exit181 ]
   %.sink = phi ptr [ %397, %391 ], [ %390, %_ZNSt6vectorIfSaIfEE6resizeEm.exit181 ]
-  store ptr %.sink482, ptr %102, align 8
+  store ptr %.sink549, ptr %102, align 8
   %.sroa.4234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %.sink, ptr %.sroa.4234.0..sroa_idx, align 8
   %399 = load float, ptr %315, align 4, !tbaa !232
@@ -2341,7 +2341,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br i1 %.not28.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = mul i64 %12, 12
+  %22 = mul nuw nsw i64 %12, 12
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !244
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
@@ -2511,7 +2511,7 @@ define linkonce_odr void @_ZNSt6vectorI11OriresMatEqSaIS0_EE17_M_default_appendE
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(120) %5, i8 0, i64 120, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIP11OriresMatEqmS0_ET_S2_T0_RSaIT1_E.exit, label %23
 
@@ -3528,13 +3528,13 @@ define noundef float @_Z15calc_orires_devPK14gmx_multisim_tiPKiPK9t_iparamsN3gmx
   %256 = load ptr, ptr %238, align 8, !tbaa !290
   %257 = getelementptr inbounds [5 x float], ptr %256, i64 %252
   %258 = sext i32 %255 to i64
-  %invariant.gep575 = getelementptr float, ptr %254, i64 %258
+  %invariant.gep588 = getelementptr float, ptr %254, i64 %258
   br label %259
 
 259:                                              ; preds = %.preheader430, %259
   %indvars.iv512 = phi i64 [ 0, %.preheader430 ], [ %indvars.iv.next513, %259 ]
-  %gep576 = getelementptr float, ptr %invariant.gep575, i64 %indvars.iv512
-  %260 = load float, ptr %gep576, align 4, !tbaa !50
+  %gep589 = getelementptr float, ptr %invariant.gep588, i64 %indvars.iv512
+  %260 = load float, ptr %gep589, align 4, !tbaa !50
   %261 = getelementptr inbounds nuw [5 x float], ptr %257, i64 0, i64 %indvars.iv512
   %262 = load float, ptr %261, align 4, !tbaa !50
   %263 = fmul float %16, %262

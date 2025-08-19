@@ -7203,9 +7203,9 @@ unpin_user_page.exit:                             ; preds = %537, %555, %561
 575:                                              ; preds = %574, %.preheader
   %576 = add nuw nsw i64 %570, 1
   %577 = icmp eq i64 %576, %383
-  br i1 %577, label %.thread28.thread282, label %.preheader, !llvm.loop !141
+  br i1 %577, label %.thread28.thread308, label %.preheader, !llvm.loop !141
 
-.thread28.thread282:                              ; preds = %575
+.thread28.thread308:                              ; preds = %575
   call void @putback_movable_pages(ptr noundef nonnull %8) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %578 = load i32, ptr %217, align 4
@@ -7234,8 +7234,8 @@ unpin_user_page.exit:                             ; preds = %537, %555, %561
   store i32 %587, ptr %217, align 4
   br label %588
 
-588:                                              ; preds = %.thread28, %.thread28.thread282, %.thread28.thread35, %.thread28.thread, %.thread31, %213, %207, %23, %11
-  %589 = phi i64 [ 0, %11 ], [ -11, %23 ], [ -14, %213 ], [ %208, %207 ], [ %383, %.thread31 ], [ %.ph33, %.thread28.thread ], [ 0, %.thread28.thread35 ], [ -12, %.thread28.thread282 ], [ %383, %.thread28 ]
+588:                                              ; preds = %.thread28, %.thread28.thread308, %.thread28.thread35, %.thread28.thread, %.thread31, %213, %207, %23, %11
+  %589 = phi i64 [ 0, %11 ], [ -11, %23 ], [ -14, %213 ], [ %208, %207 ], [ %383, %.thread31 ], [ %.ph33, %.thread28.thread ], [ 0, %.thread28.thread35 ], [ -12, %.thread28.thread308 ], [ %383, %.thread28 ]
   ret i64 %589
 }
 

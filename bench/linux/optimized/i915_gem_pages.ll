@@ -554,14 +554,14 @@ define dso_local ptr @__i915_gem_object_unset_pages(ptr noundef %0) local_unname
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   br label %39
 
-.loopexit13:                                      ; preds = %59, %53
-  %.ph14 = phi i64 [ %61, %59 ], [ %54, %53 ]
-  %.ph15 = phi ptr [ %60, %59 ], [ null, %53 ]
+.loopexit21:                                      ; preds = %59, %53
+  %.ph22 = phi i64 [ %61, %59 ], [ %54, %53 ]
+  %.ph23 = phi ptr [ %60, %59 ], [ null, %53 ]
   br label %39
 
-39:                                               ; preds = %.loopexit13, %35
-  %40 = phi i64 [ 0, %35 ], [ %.ph14, %.loopexit13 ]
-  %41 = phi ptr [ null, %35 ], [ %.ph15, %.loopexit13 ]
+39:                                               ; preds = %.loopexit21, %35
+  %40 = phi i64 [ 0, %35 ], [ %.ph22, %.loopexit21 ]
+  %41 = phi ptr [ null, %35 ], [ %.ph23, %.loopexit21 ]
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %46
 
@@ -589,7 +589,7 @@ define dso_local ptr @__i915_gem_object_unset_pages(ptr noundef %0) local_unname
   %56 = phi i64 [ %52, %46 ], [ %57, %59 ]
   %57 = add i64 %56, -1
   %58 = icmp slt i64 %57, 1
-  br i1 %58, label %.loopexit13, label %59, !llvm.loop !26
+  br i1 %58, label %.loopexit21, label %59, !llvm.loop !26
 
 59:                                               ; preds = %53
   %60 = getelementptr i8, ptr %55, i64 8
@@ -597,21 +597,21 @@ define dso_local ptr @__i915_gem_object_unset_pages(ptr noundef %0) local_unname
   store i64 %61, ptr %2, align 8
   %62 = load ptr, ptr %60, align 8
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %53, label %.loopexit13, !prof !21, !llvm.loop !26
+  br i1 %63, label %53, label %.loopexit21, !prof !21, !llvm.loop !26
 
 64:                                               ; preds = %43
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 848
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   br label %66
 
-.loopexit11:                                      ; preds = %86, %80
+.loopexit19:                                      ; preds = %86, %80
   %.ph = phi i64 [ %88, %86 ], [ %81, %80 ]
-  %.ph12 = phi ptr [ %87, %86 ], [ null, %80 ]
+  %.ph20 = phi ptr [ %87, %86 ], [ null, %80 ]
   br label %66
 
-66:                                               ; preds = %.loopexit11, %64
-  %67 = phi i64 [ 0, %64 ], [ %.ph, %.loopexit11 ]
-  %68 = phi ptr [ null, %64 ], [ %.ph12, %.loopexit11 ]
+66:                                               ; preds = %.loopexit19, %64
+  %67 = phi i64 [ 0, %64 ], [ %.ph, %.loopexit19 ]
+  %68 = phi ptr [ null, %64 ], [ %.ph20, %.loopexit19 ]
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %73
 
@@ -639,7 +639,7 @@ define dso_local ptr @__i915_gem_object_unset_pages(ptr noundef %0) local_unname
   %83 = phi i64 [ %79, %73 ], [ %84, %86 ]
   %84 = add i64 %83, -1
   %85 = icmp slt i64 %84, 1
-  br i1 %85, label %.loopexit11, label %86, !llvm.loop !27
+  br i1 %85, label %.loopexit19, label %86, !llvm.loop !27
 
 86:                                               ; preds = %80
   %87 = getelementptr i8, ptr %82, i64 8
@@ -647,7 +647,7 @@ define dso_local ptr @__i915_gem_object_unset_pages(ptr noundef %0) local_unname
   store i64 %88, ptr %2, align 8
   %89 = load ptr, ptr %87, align 8
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %80, label %.loopexit11, !prof !21, !llvm.loop !27
+  br i1 %90, label %80, label %.loopexit19, !prof !21, !llvm.loop !27
 
 91:                                               ; preds = %70
   call void @__rcu_read_unlock() #6
@@ -1091,17 +1091,17 @@ define dso_local ptr @i915_gem_object_pin_map(ptr noundef %0, i32 noundef %1) lo
 
 .outer:                                           ; preds = %261, %226
   %.ph = phi i32 [ %264, %261 ], [ %229, %226 ]
-  %.ph40 = phi i32 [ %263, %261 ], [ %228, %226 ]
-  %.ph42 = phi ptr [ %255, %261 ], [ %220, %226 ]
-  %.ph43 = phi i64 [ %238, %261 ], [ 0, %226 ]
-  %.ph41.in = getelementptr inbounds nuw i8, ptr %.ph42, i64 16
-  %.ph41 = load i64, ptr %.ph41.in, align 8, !noalias !19
-  %231 = add i64 %230, %.ph41
+  %.ph62 = phi i32 [ %263, %261 ], [ %228, %226 ]
+  %.ph64 = phi ptr [ %255, %261 ], [ %220, %226 ]
+  %.ph65 = phi i64 [ %238, %261 ], [ 0, %226 ]
+  %.ph63.in = getelementptr inbounds nuw i8, ptr %.ph64, i64 16
+  %.ph63 = load i64, ptr %.ph63.in, align 8, !noalias !19
+  %231 = add i64 %230, %.ph63
   br label %232
 
 232:                                              ; preds = %.outer, %232
-  %233 = phi i32 [ %240, %232 ], [ %.ph40, %.outer ]
-  %234 = phi i64 [ %238, %232 ], [ %.ph43, %.outer ]
+  %233 = phi i32 [ %240, %232 ], [ %.ph62, %.outer ]
+  %234 = phi i64 [ %238, %232 ], [ %.ph65, %.outer ]
   %235 = zext i32 %233 to i64
   %236 = add i64 %231, %235
   %237 = lshr i64 %236, 12
@@ -1113,13 +1113,13 @@ define dso_local ptr @i915_gem_object_pin_map(ptr noundef %0, i32 noundef %1) lo
   br i1 %241, label %232, label %242, !llvm.loop !47
 
 242:                                              ; preds = %232
-  %243 = load i64, ptr %.ph42, align 8
+  %243 = load i64, ptr %.ph64, align 8
   %244 = and i64 %243, 2
   %245 = icmp eq i64 %244, 0
   br i1 %245, label %246, label %.thread35
 
 246:                                              ; preds = %242
-  %247 = getelementptr i8, ptr %.ph42, i64 32
+  %247 = getelementptr i8, ptr %.ph64, i64 32
   %248 = load i64, ptr %247, align 8
   %249 = and i64 %248, 1
   %250 = icmp eq i64 %249, 0

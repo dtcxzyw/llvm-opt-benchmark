@@ -1559,23 +1559,23 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i171: ; preds = %i
   br i1 %cmp.i.i.i.i.i.i173, label %if.end81.sink.split, label %if.end81
 
 if.end81.sink.split.sink.split:                   ; preds = %if.then.i.i.i.i108, %if.then.i.i.i.i179
-  %.sink209 = phi ptr [ %99, %if.then.i.i.i.i179 ], [ %72, %if.then.i.i.i.i108 ]
+  %.sink227 = phi ptr [ %99, %if.then.i.i.i.i179 ], [ %72, %if.then.i.i.i.i108 ]
   %success.0.ph.ph = phi i1 [ %success.1.lcssa, %if.then.i.i.i.i179 ], [ %call72, %if.then.i.i.i.i108 ]
-  %_M_weak_count.i.i.i.i180 = getelementptr inbounds nuw i8, ptr %.sink209, i64 12
+  %_M_weak_count.i.i.i.i180 = getelementptr inbounds nuw i8, ptr %.sink227, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i180, align 4
-  %vtable.i.i.i.i181 = load ptr, ptr %.sink209, align 8
+  %vtable.i.i.i.i181 = load ptr, ptr %.sink227, align 8
   %vfn.i.i.i.i182 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i181, i64 16
   %108 = load ptr, ptr %vfn.i.i.i.i182, align 8
-  call void %108(ptr noundef nonnull align 8 dereferenceable(16) %.sink209) #18
+  call void %108(ptr noundef nonnull align 8 dereferenceable(16) %.sink227) #18
   br label %if.end81.sink.split
 
 if.end81.sink.split:                              ; preds = %if.end81.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i171, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100
-  %.sink206 = phi ptr [ %72, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100 ], [ %99, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i171 ], [ %.sink209, %if.end81.sink.split.sink.split ]
+  %.sink224 = phi ptr [ %72, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100 ], [ %99, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i171 ], [ %.sink227, %if.end81.sink.split.sink.split ]
   %success.0.ph = phi i1 [ %call72, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100 ], [ %success.1.lcssa, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i171 ], [ %success.0.ph.ph, %if.end81.sink.split.sink.split ]
-  %vtable2.i.i.i.i.i.i175 = load ptr, ptr %.sink206, align 8
+  %vtable2.i.i.i.i.i.i175 = load ptr, ptr %.sink224, align 8
   %vfn3.i.i.i.i.i.i176 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i175, i64 24
   %109 = load ptr, ptr %vfn3.i.i.i.i.i.i176, align 8
-  call void %109(ptr noundef nonnull align 8 dereferenceable(16) %.sink206) #18
+  call void %109(ptr noundef nonnull align 8 dereferenceable(16) %.sink224) #18
   br label %if.end81
 
 if.end81:                                         ; preds = %if.end81.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i171, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i161, %for.end, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i90, %if.then70

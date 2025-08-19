@@ -64,8 +64,8 @@ define dso_local i32 @update_server_info(ptr noundef %0, i32 noundef %1) local_u
   br i1 %19, label %20, label %29
 
 20:                                               ; preds = %15
-  %21 = mul i64 %.039.i.i, 3
-  %22 = add i64 %21, 48
+  %21 = mul nuw nsw i64 %.039.i.i, 3
+  %22 = add nuw nsw i64 %21, 48
   %23 = lshr i64 %22, 1
   %..i.i = tail call i64 @llvm.umax.i64(i64 %23, i64 %18)
   %24 = icmp ugt i64 %..i.i, 2305843009213693951
@@ -376,9 +376,9 @@ define internal fastcc i32 @update_info_file(ptr noundef %0, ptr noundef %1, ptr
   %.not29 = icmp eq i64 %33, %26
   %or.cond = select i1 %.not28, i1 %.not29, i1 false
   %.val36.pre.pre = load ptr, ptr %10, align 8, !tbaa !40
-  br i1 %or.cond, label %36, label %.thread52
+  br i1 %or.cond, label %36, label %.thread55
 
-.thread52:                                        ; preds = %30
+.thread55:                                        ; preds = %30
   %34 = call i32 @fclose(ptr noundef %.val36.pre.pre)
   store ptr null, ptr %10, align 8, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -394,7 +394,7 @@ define internal fastcc i32 @update_info_file(ptr noundef %0, ptr noundef %1, ptr
   store ptr null, ptr %9, align 8, !tbaa !39
   br i1 %37, label %38, label %45
 
-.sink.split:                                      ; preds = %23, %.thread52
+.sink.split:                                      ; preds = %23, %.thread55
   store ptr null, ptr %9, align 8, !tbaa !39
   br label %38
 

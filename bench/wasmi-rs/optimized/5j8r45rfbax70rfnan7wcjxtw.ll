@@ -2644,12 +2644,12 @@ define internal fastcc void @_ZN5alloc7raw_vec11finish_grow17hf47b87df24da61e8E(
   %30 = icmp eq ptr %.sroa.012.0.i.i.pn, null
   %31 = inttoptr i64 %1 to ptr
   %spec.select = select i1 %30, ptr %31, ptr %.sroa.012.0.i.i.pn
-  %spec.select4 = zext i1 %30 to i64
+  %spec.select6 = zext i1 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %33, align 8
-  store i64 %spec.select4, ptr %0, align 8
+  store i64 %spec.select6, ptr %0, align 8
   ret void
 }
 
@@ -6993,8 +6993,8 @@ _ZN5wasmi6engine11EngineInner3new17h86995cdc85809de5E.exit: ; preds = %"_ZN68_$L
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(152) %3, i64 152, i1 false), !noalias !594
   %.sroa.0.152..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.152..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !594
-  %.sroa.0.192..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.192..sroa_idx7, i8 0, i64 16, i1 false), !alias.scope !591, !noalias !594
+  %.sroa.0.192..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 192
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.192..sroa_idx8, i8 0, i64 16, i1 false), !alias.scope !591, !noalias !594
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !596
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !596
   store i64 1, ptr %4, align 8
@@ -7555,7 +7555,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine6Engine14translate_func17hda6
   ]
 
 55:                                               ; preds = %_ZN5wasmi6engine23ReusableAllocationStack22get_translation_allocs17hd0242f84f8d509cdE.exit.i.i
-  %lpad.thr_comm.split-lp262.i = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp273.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread198.thread257.i
 
@@ -8235,7 +8235,7 @@ _ZN5wasmi6engine23ReusableAllocationStack21get_validation_allocs17h570f3408a8fe7
   resume { ptr, i32 } %.pn179.pn.pn254.i
 
 .thread198.thread257.i:                           ; preds = %.thread198.i, %136, %134, %55
-  %.pn179.pn.pn260.i = phi { ptr, i32 } [ %.pn.pn.ph.i, %.thread198.i ], [ %135, %134 ], [ %137, %136 ], [ %lpad.thr_comm.split-lp262.i, %55 ]
+  %.pn179.pn.pn260.i = phi { ptr, i32 } [ %.pn.pn.ph.i, %.thread198.i ], [ %135, %134 ], [ %137, %136 ], [ %lpad.thr_comm.split-lp273.i, %55 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$wasmi..module..ModuleHeader$GT$17h0b6ceb6aed50088dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %48) #34
           to label %.thread198.thread.i unwind label %132, !noalias !678
 

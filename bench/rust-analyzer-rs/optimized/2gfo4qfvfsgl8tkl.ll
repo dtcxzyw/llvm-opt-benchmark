@@ -340,7 +340,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   br i1 %24, label %25, label %62
 
 25:                                               ; preds = %23
-  switch i8 %7, label %default.unreachable25.i.i.i.i.i.i [
+  switch i8 %7, label %default.unreachable [
     i8 0, label %26
     i8 1, label %31
     i8 2, label %35
@@ -349,7 +349,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
     i8 5, label %46
   ]
 
-default.unreachable25.i.i.i.i.i.i:                ; preds = %25
+default.unreachable:                              ; preds = %25
   unreachable
 
 26:                                               ; preds = %25
@@ -383,8 +383,8 @@ default.unreachable25.i.i.i.i.i.i:                ; preds = %25
 
 35:                                               ; preds = %25
   %36 = icmp eq i8 %.sroa.2.0.copyload, %.sroa.2.0.copyload.i.i
-  %cond.fr23.i.i = freeze i1 %36
-  br i1 %cond.fr23.i.i, label %60, label %62
+  %cond.fr25.i.i = freeze i1 %36
+  br i1 %cond.fr25.i.i, label %60, label %62
 
 37:                                               ; preds = %25
   %.not.i7.i.i.i.i.i.i = icmp eq i64 %.sroa.57.0.copyload, %.sroa.56.0.copyload.i.i
@@ -417,8 +417,8 @@ default.unreachable25.i.i.i.i.i.i:                ; preds = %25
 
 46:                                               ; preds = %25
   %47 = icmp eq i8 %.sroa.2.0.copyload, %.sroa.2.0.copyload.i.i
-  %cond.fr24.i.i = freeze i1 %47
-  br i1 %cond.fr24.i.i, label %60, label %62
+  %cond.fr26.i.i = freeze i1 %47
+  br i1 %cond.fr26.i.i, label %60, label %62
 
 48:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit6.i.i.i.i.i.i"
   %49 = icmp ne ptr %.sroa.67.0.copyload.i.i, null
@@ -1819,10 +1819,10 @@ _ZN6object4read3elf4file10FileHeader12is_supported17h424c27a09f174fb0E.llvm.1469
   ret void
 
 100:                                              ; preds = %85, %80, %93, %61
-  %.sink220 = phi ptr [ %82, %80 ], [ %95, %93 ], [ %39, %61 ], [ %90, %85 ]
+  %.sink228 = phi ptr [ %82, %80 ], [ %95, %93 ], [ %39, %61 ], [ %90, %85 ]
   %.sink = phi i64 [ %84, %80 ], [ %97, %93 ], [ %41, %61 ], [ %92, %85 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink220, ptr %101, align 8
+  store ptr %.sink228, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %102, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -2133,10 +2133,10 @@ _ZN6object4read3elf4file10FileHeader12is_supported17h5cf4aedb772b54afE.llvm.1469
   ret void
 
 100:                                              ; preds = %85, %80, %93, %61
-  %.sink220 = phi ptr [ %82, %80 ], [ %95, %93 ], [ %39, %61 ], [ %90, %85 ]
+  %.sink228 = phi ptr [ %82, %80 ], [ %95, %93 ], [ %39, %61 ], [ %90, %85 ]
   %.sink = phi i64 [ %84, %80 ], [ %97, %93 ], [ %41, %61 ], [ %92, %85 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink220, ptr %101, align 8
+  store ptr %.sink228, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %102, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -2602,11 +2602,11 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   br label %46
 
 46:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h43eec17a3372864eE.llvm.1778249362653541369.exit", %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h5ed563034a7fb5a6E.llvm.1778249362653541369.exit"
-  %.sink23 = phi ptr [ %1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h43eec17a3372864eE.llvm.1778249362653541369.exit" ], [ %2, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h5ed563034a7fb5a6E.llvm.1778249362653541369.exit" ]
+  %.sink25 = phi ptr [ %1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h43eec17a3372864eE.llvm.1778249362653541369.exit" ], [ %2, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h5ed563034a7fb5a6E.llvm.1778249362653541369.exit" ]
   %.sink = phi i64 [ %9, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h43eec17a3372864eE.llvm.1778249362653541369.exit" ], [ %3, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h5ed563034a7fb5a6E.llvm.1778249362653541369.exit" ]
   %storemerge = phi i64 [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h43eec17a3372864eE.llvm.1778249362653541369.exit" ], [ 0, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h5ed563034a7fb5a6E.llvm.1778249362653541369.exit" ]
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink23, ptr %.sroa.57.0..sroa_idx, align 8
+  store ptr %.sink25, ptr %.sroa.57.0..sroa_idx, align 8
   %.sroa.68.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sink, ptr %.sroa.68.0..sroa_idx, align 8
   store i64 %storemerge, ptr %0, align 8
@@ -3685,9 +3685,9 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17h782a8b650e027c37E.exit.threa
 
 ._crit_edge.i.i9:                                 ; preds = %164
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %21, i64 16)
-  %spec.select34.i = tail call i64 @llvm.umin.i64(i64 %21, i64 16)
+  %spec.select38.i = tail call i64 @llvm.umin.i64(i64 %21, i64 16)
   %161 = getelementptr inbounds i8, ptr %.val.i, i64 %spec.select.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %161, ptr nonnull align 1 %.val.i, i64 %spec.select34.i, i1 false), !noalias !668
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %161, ptr nonnull align 1 %.val.i, i64 %spec.select38.i, i1 false), !noalias !668
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !668
   %162 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %162, align 8, !noalias !668

@@ -3005,14 +3005,14 @@ common.resume:                                    ; preds = %.body, %.body21, %1
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Paint$GT$17h8ea1d91f069cdf5bE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !12, !noundef !4
-  switch i8 %2, label %default.unreachable8 [
+  switch i8 %2, label %default.unreachable10 [
     i8 0, label %"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8f9b0ba4c2cccebbE.exit"
     i8 1, label %19
     i8 2, label %38
     i8 3, label %3
   ]
 
-default.unreachable8:                             ; preds = %1
+default.unreachable10:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -4899,9 +4899,9 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$tiny_skia..painter..Paint$GT
   ]
 
 "_ZN4core3ptr72drop_in_place$LT$tiny_skia..shaders..linear_gradient..LinearGradient$GT$17h17355e5db1739d6cE.exit.sink.split.i": ; preds = %13, %9
-  %.sink3.i = phi i64 [ %11, %9 ], [ %2, %13 ]
+  %.sink4.i = phi i64 [ %11, %9 ], [ %2, %13 ]
   %.sink.i = phi i64 [ 16, %9 ], [ 8, %13 ]
-  %6 = mul nuw i64 %.sink3.i, 20
+  %6 = mul nuw i64 %.sink4.i, 20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
   %8 = load ptr, ptr %7, align 8, !alias.scope !2123, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %6, i64 noundef 4) #19, !noalias !2123
@@ -5056,14 +5056,14 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$usvg_tree..text..Te
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2214)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2217)
   %7 = load i8, ptr %6, align 8, !range !12, !alias.scope !2220, !noundef !4
-  switch i8 %7, label %default.unreachable75 [
+  switch i8 %7, label %default.unreachable93 [
     i8 0, label %"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$usvg_tree..Fill$GT$$GT$17h4608707346ff59e2E.exit"
     i8 1, label %24
     i8 2, label %43
     i8 3, label %8
   ]
 
-default.unreachable75:                            ; preds = %5
+default.unreachable93:                            ; preds = %5
   unreachable
 
 8:                                                ; preds = %5
@@ -5742,9 +5742,9 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$tiny_skia..shaders..Shader$G
   ]
 
 "_ZN4core3ptr72drop_in_place$LT$tiny_skia..shaders..linear_gradient..LinearGradient$GT$17h17355e5db1739d6cE.exit.sink.split": ; preds = %13, %9
-  %.sink3 = phi i64 [ %11, %9 ], [ %2, %13 ]
+  %.sink4 = phi i64 [ %11, %9 ], [ %2, %13 ]
   %.sink = phi i64 [ 16, %9 ], [ 8, %13 ]
-  %6 = mul nuw i64 %.sink3, 20
+  %6 = mul nuw i64 %.sink4, 20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %6, i64 noundef 4) #19, !noalias !4

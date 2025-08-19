@@ -185,12 +185,12 @@ define dso_local range(i32 0, 2) i32 @cmd_mailsplit(i32 noundef %0, ptr noundef 
   br i1 %.not107, label %.thread112.thread, label %62
 
 .thread112.thread:                                ; preds = %8, %.thread112
-  %.176232 = phi ptr [ %.176, %.thread112 ], [ %.075165, %8 ]
-  %.072151231 = phi i32 [ %.072151, %.thread112 ], [ 0, %8 ]
-  %.085159229 = phi i32 [ %.085159, %.thread112 ], [ 0, %8 ]
-  %.091162227 = phi i32 [ %.091162, %.thread112 ], [ 4, %8 ]
+  %.176243 = phi ptr [ %.176, %.thread112 ], [ %.075165, %8 ]
+  %.072151242 = phi i32 [ %.072151, %.thread112 ], [ 0, %8 ]
+  %.085159240 = phi i32 [ %.085159, %.thread112 ], [ 0, %8 ]
+  %.091162238 = phi i32 [ %.091162, %.thread112 ], [ 4, %8 ]
   %49 = sext i32 %0 to i64
-  %50 = ptrtoint ptr %.176232 to i64
+  %50 = ptrtoint ptr %.176243 to i64
   %51 = ptrtoint ptr %1 to i64
   %52 = sub i64 %50, %51
   %53 = ashr exact i64 %52, 3
@@ -201,13 +201,13 @@ define dso_local range(i32 0, 2) i32 @cmd_mailsplit(i32 noundef %0, ptr noundef 
   ]
 
 55:                                               ; preds = %.thread112.thread
-  %56 = load ptr, ptr %.176232, align 8, !tbaa !4
+  %56 = load ptr, ptr %.176243, align 8, !tbaa !4
   br label %thread-pre-split
 
 57:                                               ; preds = %.thread112.thread
-  %58 = load ptr, ptr %.176232, align 8, !tbaa !4
+  %58 = load ptr, ptr %.176243, align 8, !tbaa !4
   store ptr %58, ptr @cmd_mailsplit.stdin_only, align 16, !tbaa !4
-  %59 = getelementptr inbounds nuw i8, ptr %.176232, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.176243, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !4
   br label %64
 
@@ -222,9 +222,9 @@ define dso_local range(i32 0, 2) i32 @cmd_mailsplit(i32 noundef %0, ptr noundef 
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %62, %55
-  %.072151230.ph = phi i32 [ %.072151231, %55 ], [ %.072151, %62 ]
-  %.085159228.ph = phi i32 [ %.085159229, %55 ], [ %.085159, %62 ]
-  %.091162226.ph = phi i32 [ %.091162227, %55 ], [ %.091162, %62 ]
+  %.072151241.ph = phi i32 [ %.072151242, %55 ], [ %.072151, %62 ]
+  %.085159239.ph = phi i32 [ %.085159240, %55 ], [ %.085159, %62 ]
+  %.091162237.ph = phi i32 [ %.091162238, %55 ], [ %.091162, %62 ]
   %.484.ph = phi ptr [ %56, %55 ], [ %.080156, %62 ]
   %.378.ph = phi ptr [ @cmd_mailsplit.stdin_only, %55 ], [ %spec.store.select, %62 ]
   %.pr = load ptr, ptr %.378.ph, align 8, !tbaa !4
@@ -232,9 +232,9 @@ thread-pre-split:                                 ; preds = %62, %55
 
 64:                                               ; preds = %thread-pre-split, %57
   %65 = phi ptr [ %.pr, %thread-pre-split ], [ %58, %57 ]
-  %.072151230 = phi i32 [ %.072151230.ph, %thread-pre-split ], [ %.072151231, %57 ]
-  %.085159228 = phi i32 [ %.085159228.ph, %thread-pre-split ], [ %.085159229, %57 ]
-  %.091162226 = phi i32 [ %.091162226.ph, %thread-pre-split ], [ %.091162227, %57 ]
+  %.072151241 = phi i32 [ %.072151241.ph, %thread-pre-split ], [ %.072151242, %57 ]
+  %.085159239 = phi i32 [ %.085159239.ph, %thread-pre-split ], [ %.085159240, %57 ]
+  %.091162237 = phi i32 [ %.091162237.ph, %thread-pre-split ], [ %.091162238, %57 ]
   %.484 = phi ptr [ %.484.ph, %thread-pre-split ], [ %60, %57 ]
   %.378 = phi ptr [ %.378.ph, %thread-pre-split ], [ @cmd_mailsplit.stdin_only, %57 ]
   %.not109184 = icmp eq ptr %65, null
@@ -249,7 +249,7 @@ thread-pre-split:                                 ; preds = %62, %55
 
 70:                                               ; preds = %.lr.ph190, %145
   %71 = phi ptr [ %65, %.lr.ph190 ], [ %146, %145 ]
-  %.4187 = phi i32 [ %.072151230, %.lr.ph190 ], [ %.5, %145 ]
+  %.4187 = phi i32 [ %.072151241, %.lr.ph190 ], [ %.5, %145 ]
   %.479186 = phi ptr [ %.378, %.lr.ph190 ], [ %72, %145 ]
   %.089185 = phi i32 [ 0, %.lr.ph190 ], [ %.190, %145 ]
   %72 = getelementptr inbounds nuw i8, ptr %.479186, i64 8
@@ -265,7 +265,7 @@ thread-pre-split:                                 ; preds = %62, %55
   br i1 %78, label %79, label %84
 
 79:                                               ; preds = %75
-  %80 = call fastcc i32 @split_mbox(ptr noundef %71, ptr noundef %.484, i32 noundef %.085159228, i32 noundef %.091162226, i32 noundef %.4187)
+  %80 = call fastcc i32 @split_mbox(ptr noundef %71, ptr noundef %.484, i32 noundef %.085159239, i32 noundef %.091162237, i32 noundef %.4187)
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %82, label %145, !llvm.loop !10
 
@@ -379,7 +379,7 @@ populate_maildir_list.exit.i:                     ; preds = %115
 
 128:                                              ; preds = %126
   %129 = add nsw i32 %.03370.i, 1
-  %130 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.15, ptr noundef %.484, i32 noundef range(i32 3, 10) %.091162226, i32 noundef %129) #16
+  %130 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.15, ptr noundef %.484, i32 noundef range(i32 3, 10) %.091162237, i32 noundef %129) #16
   %131 = call fastcc i32 @split_one(ptr noundef nonnull %123, ptr noundef %130, i32 noundef 1)
   call void @free(ptr noundef %130) #16
   %132 = call i32 @fclose(ptr noundef nonnull %123)
@@ -402,7 +402,7 @@ split_maildir.exit:                               ; preds = %128, %populate_mail
   br label %141
 
 139:                                              ; preds = %89
-  %140 = call fastcc i32 @split_mbox(ptr noundef %71, ptr noundef %.484, i32 noundef %.085159228, i32 noundef %.091162226, i32 noundef %.4187)
+  %140 = call fastcc i32 @split_mbox(ptr noundef %71, ptr noundef %.484, i32 noundef %.085159239, i32 noundef %.091162237, i32 noundef %.4187)
   br label %141
 
 141:                                              ; preds = %139, %split_maildir.exit
@@ -802,13 +802,13 @@ define internal fastcc range(i32 0, 2) i32 @is_from_line(ptr noundef readonly ca
 
 9:                                                ; preds = %7
   %.0.add = add nsw i64 %.0.idx, -1
-  %.ptr = getelementptr inbounds i8, ptr %0, i64 %.0.add
+  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.0.add
   %10 = load i8, ptr %.ptr, align 1, !tbaa !9
   %11 = icmp eq i8 %10, 58
   br i1 %11, label %12, label %7
 
 12:                                               ; preds = %9
-  %.ptr.le = getelementptr inbounds i8, ptr %0, i64 %.0.add
+  %.ptr.le = getelementptr inbounds nuw i8, ptr %0, i64 %.0.add
   %13 = getelementptr inbounds i8, ptr %.ptr.le, i64 -4
   %14 = load i8, ptr %13, align 1, !tbaa !9
   %15 = zext i8 %14 to i64

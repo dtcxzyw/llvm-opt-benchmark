@@ -624,8 +624,8 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %18
   %21 = load ptr, ptr %10, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float 0.000000e+00, ptr %6, align 4, !tbaa !64
-  %.not37 = icmp eq ptr %20, %21
-  br i1 %.not37, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit18, label %22
+  %.not45 = icmp eq ptr %20, %21
+  br i1 %.not45, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit18, label %22
 
 22:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
   %23 = ptrtoint ptr %20 to i64

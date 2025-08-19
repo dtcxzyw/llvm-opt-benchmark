@@ -1194,9 +1194,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   ret void
 
 .body:                                            ; preds = %46, %27, %44, %19, %17, %13, %11
-  %.sink22 = phi ptr [ %3, %11 ], [ %3, %13 ], [ %4, %17 ], [ %4, %19 ], [ %7, %44 ], [ %7, %27 ], [ %7, %46 ]
+  %.sink23 = phi ptr [ %3, %11 ], [ %3, %13 ], [ %4, %17 ], [ %4, %19 ], [ %7, %44 ], [ %7, %27 ], [ %7, %46 ]
   %.pn.pn = phi { ptr, i32 } [ %12, %11 ], [ %14, %13 ], [ %18, %17 ], [ %20, %19 ], [ %45, %44 ], [ %28, %27 ], [ %47, %46 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink22) #27
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink23) #27
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1938,13 +1938,13 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
   %30 = icmp samesign ult i32 %.0, %29
-  %spec.select67 = select i1 %30, i16 %24, i16 %.059
-  %spec.select68 = tail call i32 @llvm.umax.i32(i32 %.0, i32 %29)
+  %spec.select74 = select i1 %30, i16 %24, i16 %.059
+  %spec.select75 = tail call i32 @llvm.umax.i32(i32 %.0, i32 %29)
   br label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i"
 
 "_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i": ; preds = %22, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i"
-  %.160 = phi i16 [ %.059, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i" ], [ %spec.select67, %22 ]
-  %.1 = phi i32 [ %.0, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i" ], [ %spec.select68, %22 ]
+  %.160 = phi i16 [ %.059, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i" ], [ %spec.select74, %22 ]
+  %.1 = phi i32 [ %.0, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i" ], [ %spec.select75, %22 ]
   %31 = add i16 %1, -1
   %32 = zext i16 %31 to i64
   %33 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %32, i32 2
@@ -1962,13 +1962,13 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
   %44 = icmp samesign ult i32 %.1, %43
-  %spec.select69 = select i1 %44, i16 %38, i16 %.160
-  %spec.select70 = tail call i32 @llvm.umax.i32(i32 %.1, i32 %43)
+  %spec.select76 = select i1 %44, i16 %38, i16 %.160
+  %spec.select77 = tail call i32 @llvm.umax.i32(i32 %.1, i32 %43)
   br label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit10.i"
 
 "_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit10.i": ; preds = %36, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i"
-  %.261 = phi i16 [ %.160, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i" ], [ %spec.select69, %36 ]
-  %.2 = phi i32 [ %.1, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i" ], [ %spec.select70, %36 ]
+  %.261 = phi i16 [ %.160, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i" ], [ %spec.select76, %36 ]
+  %.2 = phi i32 [ %.1, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i" ], [ %spec.select77, %36 ]
   %45 = add i16 %1, -21
   %46 = zext i16 %45 to i64
   %47 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %46, i32 2
@@ -2724,7 +2724,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i16 @_ZNK10open_spiel2go7GoBoard13SingleLibertyEt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(7970) %0, i16 noundef zeroext %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i16 21, 0) i16 @_ZNK10open_spiel2go7GoBoard13SingleLibertyEt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(7970) %0, i16 noundef zeroext %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4756,7 +4756,7 @@ _ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112bas
   unreachable
 
 _ZNK4absl7debian211string_view6substrEmm.exit.i.i.i: ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %7, i64 %26
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 %26
   %30 = ptrtoint ptr %20 to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
@@ -4846,10 +4846,10 @@ _ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11
   br label %.sink.split
 
 .sink.split:                                      ; preds = %48, %59
-  %.sink51 = phi i8 [ 1, %59 ], [ 0, %48 ]
+  %.sink56 = phi i8 [ 1, %59 ], [ 0, %48 ]
   %.sroa.2.0.extract.trunc.i26 = trunc i32 %.03840 to i16
   %60 = add i16 %47, %.sroa.2.0.extract.trunc.i26
-  %61 = call noundef zeroext i1 @_ZN10open_spiel2go7GoBoard8PlayMoveEtNS0_7GoColorE(ptr noundef nonnull align 8 dereferenceable(7970) %0, i16 noundef zeroext %60, i8 noundef zeroext %.sink51)
+  %61 = call noundef zeroext i1 @_ZN10open_spiel2go7GoBoard8PlayMoveEtNS0_7GoColorE(ptr noundef nonnull align 8 dereferenceable(7970) %0, i16 noundef zeroext %60, i8 noundef zeroext %.sink56)
   br label %62
 
 62:                                               ; preds = %.sink.split, %48

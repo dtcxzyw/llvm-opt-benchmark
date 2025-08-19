@@ -117,8 +117,8 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
   %24 = trunc i8 %23 to i1
   %25 = or i32 %8, 2
   %spec.select = select i1 %24, i32 %8, i32 %25
-  %.not85 = icmp ugt i32 %18, %1
-  br i1 %.not85, label %26, label %276
+  %.not101 = icmp ugt i32 %18, %1
+  br i1 %.not101, label %26, label %276
 
 26:                                               ; preds = %21
   %.not24 = icmp eq ptr %6, null
@@ -236,8 +236,8 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
   %74 = load i32, ptr %73, align 4
   %75 = sub i32 0, %74
   %.not119.i = icmp eq i32 %.0103179.i, %75
-  %or.cond187.i = select i1 %.not118.i, i1 %.not119.i, i1 false
-  br i1 %or.cond187.i, label %83, label %._crit_edge184.i
+  %or.cond195.i = select i1 %.not118.i, i1 %.not119.i, i1 false
+  br i1 %or.cond195.i, label %83, label %._crit_edge184.i
 
 ._crit_edge184.i:                                 ; preds = %68
   %76 = ptrtoint ptr %.2.i to i64
@@ -333,7 +333,7 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
   %130 = sub i64 %129, %41
   %131 = trunc i64 %130 to i32
   %132 = icmp ugt i32 %.0108176.i, %131
-  br i1 %132, label %133, label %._crit_edge.loopexit.split.loop.exit185.i
+  br i1 %132, label %133, label %._crit_edge.loopexit.split.loop.exit193.i
 
 133:                                              ; preds = %128
   %134 = and i64 %130, 4294967295
@@ -376,12 +376,12 @@ _ZL9hb_memcpyPvPKvm.exit.i.cont:                  ; preds = %_ZL9hb_memcpyPvPKvm
   %exitcond.not.i = icmp eq i32 %18, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %_ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit, label %51, !llvm.loop !10
 
-._crit_edge.loopexit.split.loop.exit185.i:        ; preds = %128
+._crit_edge.loopexit.split.loop.exit193.i:        ; preds = %128
   %147 = trunc nuw i64 %indvars.iv.i to i32
   br label %_ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit
 
-_ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit: ; preds = %146, %.cont55, %._crit_edge.loopexit.split.loop.exit185.i
-  %.0102.pn.i = phi i32 [ %18, %.cont55 ], [ %147, %._crit_edge.loopexit.split.loop.exit185.i ], [ %18, %146 ]
+_ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit: ; preds = %146, %.cont55, %._crit_edge.loopexit.split.loop.exit193.i
+  %.0102.pn.i = phi i32 [ %18, %.cont55 ], [ %147, %._crit_edge.loopexit.split.loop.exit193.i ], [ %18, %146 ]
   %.0.i = sub i32 %.0102.pn.i, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -606,7 +606,7 @@ _ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer
   %258 = sub i64 %257, %162
   %259 = trunc i64 %258 to i32
   %260 = icmp ugt i32 %.0110179.i, %259
-  br i1 %260, label %261, label %._crit_edge.loopexit.split.loop.exit187.i
+  br i1 %260, label %261, label %._crit_edge.loopexit.split.loop.exit194.i
 
 261:                                              ; preds = %256
   %262 = and i64 %258, 4294967295
@@ -648,12 +648,12 @@ _ZL9hb_memcpyPvPKvm.exit.i43.cont:                ; preds = %_ZL9hb_memcpyPvPKvm
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, %wide.trip.count.i
   br i1 %exitcond.not.i46, label %_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit, label %172, !llvm.loop !17
 
-._crit_edge.loopexit.split.loop.exit187.i:        ; preds = %256
+._crit_edge.loopexit.split.loop.exit194.i:        ; preds = %256
   %275 = trunc nuw i64 %indvars.iv.i34 to i32
   br label %_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit
 
-_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit: ; preds = %274, %.cont, %._crit_edge.loopexit.split.loop.exit187.i
-  %.0104.pn.i = phi i32 [ %18, %.cont ], [ %275, %._crit_edge.loopexit.split.loop.exit187.i ], [ %18, %274 ]
+_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit: ; preds = %274, %.cont, %._crit_edge.loopexit.split.loop.exit194.i
+  %.0104.pn.i = phi i32 [ %18, %.cont ], [ %275, %._crit_edge.loopexit.split.loop.exit194.i ], [ %18, %274 ]
   %.0.i27 = sub i32 %.0104.pn.i, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -694,8 +694,8 @@ define hidden i32 @hb_buffer_serialize_unicode(ptr noundef %0, i32 noundef %1, i
   br label %17
 
 17:                                               ; preds = %16, %.cont57
-  %.not86 = icmp ugt i32 %14, %1
-  br i1 %.not86, label %18, label %133
+  %.not102 = icmp ugt i32 %14, %1
+  br i1 %.not102, label %18, label %133
 
 18:                                               ; preds = %17
   switch i32 %6, label %133 [
@@ -760,7 +760,7 @@ define hidden i32 @hb_buffer_serialize_unicode(ptr noundef %0, i32 noundef %1, i
   %44 = sub i64 %43, %23
   %45 = trunc i64 %44 to i32
   %46 = icmp ugt i32 %.04257.us.i, %45
-  br i1 %46, label %47, label %._crit_edge.loopexit.split.loop.exit75.i
+  br i1 %46, label %47, label %._crit_edge.loopexit.split.loop.exit81.i
 
 47:                                               ; preds = %42
   %48 = and i64 %44, 4294967295
@@ -816,7 +816,7 @@ _ZL9hb_memcpyPvPKvm.exit.us.i.cont:               ; preds = %_ZL9hb_memcpyPvPKvm
   %63 = sub i64 %62, %23
   %64 = trunc i64 %63 to i32
   %65 = icmp ugt i32 %.04257.i, %64
-  br i1 %65, label %66, label %._crit_edge.loopexit71.split.loop.exit73.i
+  br i1 %65, label %66, label %._crit_edge.loopexit77.split.loop.exit79.i
 
 66:                                               ; preds = %61
   %67 = and i64 %63, 4294967295
@@ -845,16 +845,16 @@ _ZL9hb_memcpyPvPKvm.exit.i.cont:                  ; preds = %_ZL9hb_memcpyPvPKvm
   %exitcond.not.i = icmp eq i32 %14, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.i, !llvm.loop !22
 
-._crit_edge.loopexit.split.loop.exit75.i:         ; preds = %42
+._crit_edge.loopexit.split.loop.exit81.i:         ; preds = %42
   %72 = trunc nuw i64 %indvars.iv66.i to i32
   br label %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit
 
-._crit_edge.loopexit71.split.loop.exit73.i:       ; preds = %61
+._crit_edge.loopexit77.split.loop.exit79.i:       ; preds = %61
   %73 = trunc nuw i64 %indvars.iv.i to i32
   br label %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit
 
-_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit: ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.cont, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont, %.cont54, %._crit_edge.loopexit.split.loop.exit75.i, %._crit_edge.loopexit71.split.loop.exit73.i
-  %.040.pn.i = phi i32 [ %14, %.cont54 ], [ %72, %._crit_edge.loopexit.split.loop.exit75.i ], [ %73, %._crit_edge.loopexit71.split.loop.exit73.i ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.i.cont ]
+_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit: ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.cont, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont, %.cont54, %._crit_edge.loopexit.split.loop.exit81.i, %._crit_edge.loopexit77.split.loop.exit79.i
+  %.040.pn.i = phi i32 [ %14, %.cont54 ], [ %72, %._crit_edge.loopexit.split.loop.exit81.i ], [ %73, %._crit_edge.loopexit77.split.loop.exit79.i ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.i.cont ]
   %.0.i = sub i32 %.040.pn.i, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %133
@@ -922,7 +922,7 @@ _ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize
   %102 = sub i64 %101, %80
   %103 = trunc i64 %102 to i32
   %104 = icmp ugt i32 %.04661.us.i, %103
-  br i1 %104, label %105, label %._crit_edge.loopexit.split.loop.exit79.i
+  br i1 %104, label %105, label %._crit_edge.loopexit.split.loop.exit85.i
 
 105:                                              ; preds = %100
   %106 = and i64 %102, 4294967295
@@ -982,7 +982,7 @@ _ZL9hb_memcpyPvPKvm.exit.us.i39.cont:             ; preds = %_ZL9hb_memcpyPvPKvm
   %122 = sub i64 %121, %80
   %123 = trunc i64 %122 to i32
   %124 = icmp ugt i32 %.04661.i, %123
-  br i1 %124, label %125, label %._crit_edge.loopexit75.split.loop.exit77.i
+  br i1 %124, label %125, label %._crit_edge.loopexit81.split.loop.exit83.i
 
 125:                                              ; preds = %120
   %126 = and i64 %122, 4294967295
@@ -1011,16 +1011,16 @@ _ZL9hb_memcpyPvPKvm.exit.i30.cont:                ; preds = %_ZL9hb_memcpyPvPKvm
   %exitcond.not.i33 = icmp eq i32 %14, %lftr.wideiv.i32
   br i1 %exitcond.not.i33, label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.i25, !llvm.loop !27
 
-._crit_edge.loopexit.split.loop.exit79.i:         ; preds = %100
+._crit_edge.loopexit.split.loop.exit85.i:         ; preds = %100
   %131 = trunc nuw i64 %indvars.iv70.i to i32
   br label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit
 
-._crit_edge.loopexit75.split.loop.exit77.i:       ; preds = %120
+._crit_edge.loopexit81.split.loop.exit83.i:       ; preds = %120
   %132 = trunc nuw i64 %indvars.iv.i26 to i32
   br label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit
 
-_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit: ; preds = %_ZL9hb_memcpyPvPKvm.exit.i30.cont, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont, %.cont, %._crit_edge.loopexit.split.loop.exit79.i, %._crit_edge.loopexit75.split.loop.exit77.i
-  %.044.pn.i = phi i32 [ %14, %.cont ], [ %131, %._crit_edge.loopexit.split.loop.exit79.i ], [ %132, %._crit_edge.loopexit75.split.loop.exit77.i ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.i30.cont ]
+_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit: ; preds = %_ZL9hb_memcpyPvPKvm.exit.i30.cont, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont, %.cont, %._crit_edge.loopexit.split.loop.exit85.i, %._crit_edge.loopexit81.split.loop.exit83.i
+  %.044.pn.i = phi i32 [ %14, %.cont ], [ %131, %._crit_edge.loopexit.split.loop.exit85.i ], [ %132, %._crit_edge.loopexit81.split.loop.exit83.i ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.i30.cont ]
   %.0.i23 = sub i32 %.044.pn.i, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %133

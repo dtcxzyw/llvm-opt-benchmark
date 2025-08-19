@@ -784,12 +784,12 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %111, %104
   br label %152
 
 152:                                              ; preds = %141, %139, %134
-  %.sink241.i = phi i64 [ 72, %139 ], [ 96, %141 ], [ 72, %134 ]
+  %.sink248.i = phi i64 [ 72, %139 ], [ 96, %141 ], [ 72, %134 ]
   %.sink.i = phi i32 [ 8192, %139 ], [ %151, %141 ], [ %137, %134 ]
   %.sroa.13.5.i = phi i8 [ %.sroa.13.3.i, %139 ], [ %.sroa.13.3.i, %141 ], [ %.sroa.13.4.i, %134 ]
   %.sroa.034.3.i = phi i16 [ 8192, %139 ], [ %142, %141 ], [ %.0.i, %134 ]
   %.3164.i = phi ptr [ %120, %139 ], [ %146, %141 ], [ %120, %134 ]
-  %153 = getelementptr inbounds nuw i8, ptr %44, i64 %.sink241.i
+  %153 = getelementptr inbounds nuw i8, ptr %44, i64 %.sink248.i
   store i32 %.sink.i, ptr %153, align 8
   %154 = zext i16 %.sroa.034.3.i to i64
   %155 = add i64 %.0156223.i, %154

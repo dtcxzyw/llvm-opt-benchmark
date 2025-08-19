@@ -1253,8 +1253,8 @@ define dso_local noundef i64 @pg_stat_get_activity(ptr noundef %0) local_unnamed
   br i1 %.not128, label %173, label %.sink.split
 
 .sink.split:                                      ; preds = %169, %161
-  %.sink172 = phi i32 [ %163, %161 ], [ %171, %169 ]
-  %172 = sext i32 %.sink172 to i64
+  %.sink196 = phi i32 [ %163, %161 ], [ %171, %169 ]
+  %172 = sext i32 %.sink196 to i64
   store i64 %172, ptr %47, align 8
   store i8 0, ptr %44, align 1
   br label %173

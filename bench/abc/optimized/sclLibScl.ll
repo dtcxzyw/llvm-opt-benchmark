@@ -465,14 +465,14 @@ Vec_WrdGrow.exit.i:                               ; preds = %Abc_UtilStrsav.exit
   br i1 %184, label %.lr.ph136.i, label %._crit_edge.i
 
 .lr.ph136.i:                                      ; preds = %Vec_WrdGrow.exit.i, %Vec_WrdGrow.exit.thread.i
-  %.val88133154.i = phi i32 [ %172, %Vec_WrdGrow.exit.thread.i ], [ %173, %Vec_WrdGrow.exit.i ]
+  %.val88133185.i = phi i32 [ %172, %Vec_WrdGrow.exit.thread.i ], [ %173, %Vec_WrdGrow.exit.i ]
   %185 = getelementptr inbounds nuw i8, ptr %120, i64 52
   %.phi.trans.insert.i112.i = getelementptr inbounds nuw i8, ptr %120, i64 56
   %.pre.i = load i32, ptr %185, align 4, !tbaa !43
   br label %186
 
 186:                                              ; preds = %Vec_WrdPush.exit.i, %.lr.ph136.i
-  %.val88151.i = phi i32 [ %.val88133154.i, %.lr.ph136.i ], [ %.val88.i, %Vec_WrdPush.exit.i ]
+  %.val88151.i = phi i32 [ %.val88133185.i, %.lr.ph136.i ], [ %.val88.i, %Vec_WrdPush.exit.i ]
   %187 = phi i32 [ %.pre.i, %.lr.ph136.i ], [ %213, %Vec_WrdPush.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph136.i ], [ %indvars.iv.next.i, %Vec_WrdPush.exit.i ]
   %188 = getelementptr inbounds nuw i64, ptr %119, i64 %indvars.iv.i
@@ -2772,18 +2772,18 @@ Vec_WrdGrow.exit.i:                               ; preds = %916
   br i1 %934, label %.lr.ph802.i, label %.loopexit.i
 
 .lr.ph802.i:                                      ; preds = %Vec_WrdGrow.exit.i, %Vec_WrdGrow.exit.thread.i
-  %.val216799884.i = phi i32 [ %922, %Vec_WrdGrow.exit.thread.i ], [ %923, %Vec_WrdGrow.exit.i ]
+  %.val216799943.i = phi i32 [ %922, %Vec_WrdGrow.exit.thread.i ], [ %923, %Vec_WrdGrow.exit.i ]
   %935 = getelementptr inbounds nuw i8, ptr %819, i64 52
   %.phi.trans.insert.i644.i = getelementptr inbounds nuw i8, ptr %819, i64 56
   br label %936
 
 936:                                              ; preds = %Vec_WrdPush.exit.i, %.lr.ph802.i
   %937 = phi i64 [ %indvars.iv.next.i636.i, %.lr.ph802.i ], [ %indvars.iv.next10.i.i, %Vec_WrdPush.exit.i ]
-  %.val216881.i = phi i32 [ %.val216799884.i, %.lr.ph802.i ], [ %.val216.i, %Vec_WrdPush.exit.i ]
+  %.val216881.i = phi i32 [ %.val216799943.i, %.lr.ph802.i ], [ %.val216.i, %Vec_WrdPush.exit.i ]
   %.0206800.i = phi i32 [ 0, %.lr.ph802.i ], [ %974, %Vec_WrdPush.exit.i ]
   %.val.i640.i = load ptr, ptr %8, align 8, !tbaa !59
-  %sext139 = shl i64 %937, 32
-  %938 = ashr exact i64 %sext139, 32
+  %sext201 = shl i64 %937, 32
+  %938 = ashr exact i64 %sext201, 32
   br label %939
 
 939:                                              ; preds = %939, %936
@@ -7511,8 +7511,8 @@ Vec_IntPush.exit146:                              ; preds = %.Vec_IntGrow.exit10
 
 .preheader:                                       ; preds = %393
   %391 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  %sext233 = shl i64 %indvars.iv.next215, 32
-  %392 = ashr exact i64 %sext233, 32
+  %sext262 = shl i64 %indvars.iv.next215, 32
+  %392 = ashr exact i64 %sext262, 32
   br label %410
 
 393:                                              ; preds = %.preheader177, %393

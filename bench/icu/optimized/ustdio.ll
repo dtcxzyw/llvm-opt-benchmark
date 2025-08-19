@@ -270,11 +270,11 @@ define i32 @u_file_write_flush_77(ptr noundef %0, i32 noundef %1, ptr noundef ca
 
 .sink.split.i:                                    ; preds = %84, %71
   %.3 = phi i32 [ %80, %71 ], [ %90, %84 ]
-  %.sink71.i = phi ptr [ %81, %71 ], [ %91, %84 ]
-  %.sink69.i = phi i32 [ %83, %71 ], [ 0, %84 ]
-  %93 = getelementptr inbounds nuw i8, ptr %.sink71.i, i64 16
-  store i32 %.sink69.i, ptr %93, align 8, !tbaa !23
-  %94 = load ptr, ptr %.sink71.i, align 8, !tbaa !20
+  %.sink79.i = phi ptr [ %81, %71 ], [ %91, %84 ]
+  %.sink77.i = phi i32 [ %83, %71 ], [ 0, %84 ]
+  %93 = getelementptr inbounds nuw i8, ptr %.sink79.i, i64 16
+  store i32 %.sink77.i, ptr %93, align 8, !tbaa !23
+  %94 = load ptr, ptr %.sink79.i, align 8, !tbaa !20
   br label %_ZL15u_file_translitP5UFILEPKDsPia.exit
 
 _ZL15u_file_translitP5UFILEPKDsPia.exit:          ; preds = %56, %.sink.split.i
@@ -720,9 +720,9 @@ define noundef ptr @u_fgets_77(ptr noundef writeonly captures(ret: address, prov
 .lr.ph112:                                        ; preds = %.preheader99, %53
   %24 = phi ptr [ %54, %53 ], [ %13, %.preheader99 ]
   %25 = phi ptr [ %55, %53 ], [ %12, %.preheader99 ]
-  %.066111 = phi i16 [ %.1136146, %53 ], [ 0, %.preheader99 ]
-  %.067110 = phi ptr [ %.269134147, %53 ], [ %0, %.preheader99 ]
-  %.076109 = phi i32 [ %.177131149, %53 ], [ 0, %.preheader99 ]
+  %.066111 = phi i16 [ %.1145155, %53 ], [ 0, %.preheader99 ]
+  %.067110 = phi ptr [ %.269143156, %53 ], [ %0, %.preheader99 ]
+  %.076109 = phi i32 [ %.177140158, %53 ], [ 0, %.preheader99 ]
   %.081108 = phi i32 [ %60, %53 ], [ %19, %.preheader99 ]
   %26 = sub nsw i32 %14, %.076109
   %27 = icmp slt i32 %.081108, %26
@@ -756,7 +756,7 @@ define noundef ptr @u_fgets_77(ptr noundef writeonly captures(ret: address, prov
   %37 = getelementptr inbounds nuw i8, ptr %.370105, i64 2
   store i16 %31, ptr %.370105, align 2, !tbaa !38
   %38 = icmp ult ptr %36, %.071
-  br i1 %38, label %.lr.ph, label %.critedge4.thread141, !llvm.loop !44
+  br i1 %38, label %.lr.ph, label %.critedge4.thread150, !llvm.loop !44
 
 .critedge2:                                       ; preds = %33, %33, %33, %.lr.ph
   %39 = icmp eq i16 %31, 13
@@ -775,7 +775,7 @@ define noundef ptr @u_fgets_77(ptr noundef writeonly captures(ret: address, prov
   %43 = icmp ult ptr %.072, %.071
   br i1 %43, label %44, label %.critedge4
 
-.critedge4.thread141:                             ; preds = %34
+.critedge4.thread150:                             ; preds = %34
   store ptr %36, ptr %6, align 8, !tbaa !41
   br label %53
 
@@ -805,10 +805,10 @@ define noundef ptr @u_fgets_77(ptr noundef writeonly captures(ret: address, prov
   %52 = icmp eq i16 %.1, 1
   br i1 %52, label %.loopexit, label %53
 
-53:                                               ; preds = %.critedge4.thread141, %.critedge4
-  %.177131149 = phi i32 [ %35, %.critedge4.thread141 ], [ %.177, %.critedge4 ]
-  %.269134147 = phi ptr [ %37, %.critedge4.thread141 ], [ %.269, %.critedge4 ]
-  %.1136146 = phi i16 [ 0, %.critedge4.thread141 ], [ %.1, %.critedge4 ]
+53:                                               ; preds = %.critedge4.thread150, %.critedge4
+  %.177140158 = phi i32 [ %35, %.critedge4.thread150 ], [ %.177, %.critedge4 ]
+  %.269143156 = phi ptr [ %37, %.critedge4.thread150 ], [ %.269, %.critedge4 ]
+  %.1145155 = phi i16 [ 0, %.critedge4.thread150 ], [ %.1, %.critedge4 ]
   tail call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef nonnull %2)
   %54 = load ptr, ptr %8, align 8, !tbaa !40
   %55 = load ptr, ptr %6, align 8, !tbaa !41
@@ -818,12 +818,12 @@ define noundef ptr @u_fgets_77(ptr noundef writeonly captures(ret: address, prov
   %59 = lshr exact i64 %58, 1
   %60 = trunc i64 %59 to i32
   %61 = icmp sgt i32 %60, 0
-  %62 = icmp slt i32 %.177131149, %14
+  %62 = icmp slt i32 %.177140158, %14
   %63 = select i1 %61, i1 %62, i1 false
   br i1 %63, label %.lr.ph112, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %53, %.critedge4, %.preheader99, %.critedge4.thread
-  %.168 = phi ptr [ %.4.ph, %.critedge4.thread ], [ %0, %.preheader99 ], [ %.269134147, %53 ], [ %.269, %.critedge4 ]
+  %.168 = phi ptr [ %.4.ph, %.critedge4.thread ], [ %0, %.preheader99 ], [ %.269143156, %53 ], [ %.269, %.critedge4 ]
   store i16 0, ptr %.168, align 2, !tbaa !38
   br label %64
 
@@ -850,10 +850,10 @@ define signext range(i8 0, 2) i8 @ufile_getch_77(ptr noundef %0, ptr noundef wri
   br i1 %11, label %.sink.split, label %14
 
 .sink.split:                                      ; preds = %8, %2
-  %.sink15 = phi ptr [ %4, %2 ], [ %9, %8 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.sink15, i64 2
+  %.sink17 = phi ptr [ %4, %2 ], [ %9, %8 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.sink17, i64 2
   store ptr %12, ptr %3, align 8, !tbaa !34
-  %13 = load i16, ptr %.sink15, align 2, !tbaa !38
+  %13 = load i16, ptr %.sink17, align 2, !tbaa !38
   store i16 %13, ptr %1, align 2, !tbaa !38
   br label %14
 
@@ -879,10 +879,10 @@ define zeroext i16 @u_fgetc_77(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %10, label %.sink.split.i, label %ufile_getch_77.exit
 
 .sink.split.i:                                    ; preds = %7, %1
-  %.sink15.i = phi ptr [ %3, %1 ], [ %8, %7 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.sink15.i, i64 2
+  %.sink17.i = phi ptr [ %3, %1 ], [ %8, %7 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.sink17.i, i64 2
   store ptr %11, ptr %2, align 8, !tbaa !34
-  %12 = load i16, ptr %.sink15.i, align 2, !tbaa !38
+  %12 = load i16, ptr %.sink17.i, align 2, !tbaa !38
   br label %ufile_getch_77.exit
 
 ufile_getch_77.exit:                              ; preds = %7, %.sink.split.i

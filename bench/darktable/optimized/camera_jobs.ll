@@ -186,10 +186,10 @@ define internal range(i32 0, 2) i32 @dt_camera_capture_job_run(ptr noundef %0) #
   %.not105 = icmp ne i32 %50, 0
   %.pre143 = load i32, ptr %4, align 8, !tbaa !16
   %.not106 = icmp eq i32 %.pre143, 0
-  %or.cond147 = select i1 %.not105, i1 %.not106, i1 false
-  br i1 %or.cond147, label %51, label %.preheader152
+  %or.cond162 = select i1 %.not105, i1 %.not106, i1 false
+  br i1 %or.cond162, label %51, label %.preheader167
 
-.preheader152:                                    ; preds = %51, %49
+.preheader167:                                    ; preds = %51, %49
   %.ph = phi i32 [ %.pre143, %49 ], [ %.pre, %51 ]
   br label %55
 
@@ -198,17 +198,17 @@ define internal range(i32 0, 2) i32 @dt_camera_capture_job_run(ptr noundef %0) #
   %53 = zext i32 %52 to i64
   call void @g_usleep(i64 noundef %53) #10
   %.pre = load i32, ptr %4, align 8, !tbaa !16
-  br label %.preheader152
+  br label %.preheader167
 
 54:                                               ; preds = %87
   %.not108 = icmp eq i32 %91, 0
   br i1 %.not108, label %102, label %93
 
-55:                                               ; preds = %.preheader152, %87
-  %56 = phi i32 [ %91, %87 ], [ %.ph, %.preheader152 ]
-  %.079131 = phi i32 [ %90, %87 ], [ 0, %.preheader152 ]
-  %.1130 = phi ptr [ %.2, %87 ], [ %.081133, %.preheader152 ]
-  %.191129 = phi double [ %89, %87 ], [ %.090132, %.preheader152 ]
+55:                                               ; preds = %.preheader167, %87
+  %56 = phi i32 [ %91, %87 ], [ %.ph, %.preheader167 ]
+  %.079131 = phi i32 [ %90, %87 ], [ 0, %.preheader167 ]
+  %.1130 = phi ptr [ %.2, %87 ], [ %.081133, %.preheader167 ]
+  %.191129 = phi double [ %89, %87 ], [ %.090132, %.preheader167 ]
   %.not110 = icmp eq i32 %56, 0
   br i1 %.not110, label %.loopexit, label %57
 

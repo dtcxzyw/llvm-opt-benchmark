@@ -3924,12 +3924,12 @@ define internal fastcc i32 @cmd_sched(ptr noundef %0, ptr noundef %1) unnamed_ad
   %60 = add i32 %.098, 14
   %61 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %60)
   %62 = icmp eq i8 %61, 0
-  %.sink99.v = select i1 %62, i8 %3, i8 %61
-  %.sink99 = zext i8 %.sink99.v to i32
+  %.sink101.v = select i1 %62, i8 %3, i8 %61
+  %.sink101 = zext i8 %.sink101.v to i32
   %hf_gryphon_sched_channel0.val = load i32, ptr @hf_gryphon_sched_channel0, align 4
   %hf_gryphon_sched_channel.val = load i32, ptr @hf_gryphon_sched_channel, align 4
   %63 = select i1 %62, i32 %hf_gryphon_sched_channel0.val, i32 %hf_gryphon_sched_channel.val
-  %64 = tail call ptr @proto_tree_add_uint(ptr noundef %39, i32 noundef %63, ptr noundef %0, i32 noundef %60, i32 noundef 1, i32 noundef %.sink99)
+  %64 = tail call ptr @proto_tree_add_uint(ptr noundef %39, i32 noundef %63, ptr noundef %0, i32 noundef %60, i32 noundef 1, i32 noundef %.sink101)
   %65 = load i32, ptr @hf_gryphon_reserved, align 4
   %66 = add i32 %.098, 15
   %67 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %65, ptr noundef %0, i32 noundef %66, i32 noundef 1, i32 noundef 0)

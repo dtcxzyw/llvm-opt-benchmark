@@ -851,8 +851,8 @@ define internal i32 @activate(ptr noundef %0) #1 {
 
 467:                                              ; preds = %390
   %468 = load ptr, ptr %307, align 8, !tbaa !62
-  %.idx553.i = mul nuw nsw i64 %indvars.iv535.i, 12
-  %469 = getelementptr inbounds nuw i8, ptr %468, i64 %.idx553.i
+  %.idx574.i = mul nuw nsw i64 %indvars.iv535.i, 12
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 %.idx574.i
   %470 = icmp sgt i32 %392, 0
   br i1 %470, label %.lr.ph472.i, label %._crit_edge473.i
 
@@ -978,8 +978,8 @@ define internal i32 @activate(ptr noundef %0) #1 {
 545:                                              ; preds = %545, %.lr.ph492.i
   %indvars.iv543.i = phi i64 [ 0, %.lr.ph492.i ], [ %indvars.iv.next544.i, %545 ]
   %546 = load ptr, ptr %543, align 8, !tbaa !62
-  %.idx554.i = mul nuw nsw i64 %indvars.iv543.i, 12
-  %547 = getelementptr inbounds nuw i8, ptr %546, i64 %.idx554.i
+  %.idx575.i = mul nuw nsw i64 %indvars.iv543.i, 12
+  %547 = getelementptr inbounds nuw i8, ptr %546, i64 %.idx575.i
   %548 = load float, ptr %547, align 4, !tbaa !63
   %549 = fptoui float %548 to i8
   %550 = load ptr, ptr %36, align 8, !tbaa !52

@@ -39465,50 +39465,45 @@ define internal fastcc void @asterix_build_subtree(ptr noundef %0, ptr noundef %
 .preheader:                                       ; preds = %5
   %8 = shl i32 %2, 3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  br label %10
+  %10 = load ptr, ptr %7, align 8
+  %.not104127 = icmp eq ptr %10, null
+  br i1 %.not104127, label %.critedge, label %.lr.ph
 
-10:                                               ; preds = %.preheader, %165
-  %11 = phi ptr [ %7, %.preheader ], [ %166, %165 ]
-  %.093119 = phi i8 [ 1, %.preheader ], [ %.1, %165 ]
-  %.096118 = phi i32 [ 0, %.preheader ], [ %171, %165 ]
-  %.097117 = phi i32 [ 0, %.preheader ], [ %172, %165 ]
-  %12 = sext i32 %.097117 to i64
-  %13 = getelementptr ptr, ptr %11, i64 %12
-  %14 = load ptr, ptr %13, align 8
-  %.not104 = icmp eq ptr %14, null
-  br i1 %.not104, label %.critedge, label %15
+.lr.ph:                                           ; preds = %.preheader, %.backedge
+  %11 = phi ptr [ %63, %.backedge ], [ %10, %.preheader ]
+  %12 = phi i64 [ %61, %.backedge ], [ 0, %.preheader ]
+  %.097117129 = phi i32 [ %.097117.be, %.backedge ], [ 0, %.preheader ]
+  %.096118128 = phi i32 [ %.096118.be, %.backedge ], [ 0, %.preheader ]
+  %13 = add i32 %.096118128, %8
+  %14 = load i16, ptr %11, align 8
+  %15 = zext i16 %14 to i32
+  %16 = tail call i64 @tvb_get_bits64(ptr noundef %0, i32 noundef %13, i32 noundef %15, i32 noundef 0)
+  %17 = load ptr, ptr %6, align 8
+  %18 = getelementptr ptr, ptr %17, i64 %12
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %21 = load ptr, ptr %20, align 8
+  %.not105 = icmp eq ptr %21, null
+  br i1 %.not105, label %.backedge, label %22
 
-15:                                               ; preds = %10
-  %16 = add i32 %.096118, %8
-  %17 = load i16, ptr %14, align 8
-  %18 = zext i16 %17 to i32
-  %19 = tail call i64 @tvb_get_bits64(ptr noundef %0, i32 noundef %16, i32 noundef %18, i32 noundef 0)
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr ptr, ptr %20, i64 %12
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load ptr, ptr %23, align 8
-  %.not105 = icmp eq ptr %24, null
-  br i1 %.not105, label %165, label %25
-
-25:                                               ; preds = %15
-  %26 = sdiv i32 %.096118, 8
-  %27 = add i32 %26, %2
-  %28 = srem i32 %.096118, 8
-  %29 = load i16, ptr %22, align 8
-  %30 = zext i16 %29 to i32
-  %31 = add nsw i32 %28, 7
-  %32 = add nuw nsw i32 %31, %30
-  %33 = lshr i32 %32, 3
-  %34 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %35 = load i8, ptr %34, align 8
-  switch i8 %35, label %165 [
-    i8 7, label %36
-    i8 0, label %37
-    i8 1, label %37
-    i8 8, label %37
-    i8 6, label %37
-    i8 4, label %37
+22:                                               ; preds = %.lr.ph
+  %23 = sdiv i32 %.096118128, 8
+  %24 = add i32 %23, %2
+  %25 = srem i32 %.096118128, 8
+  %26 = load i16, ptr %19, align 8
+  %27 = zext i16 %26 to i32
+  %28 = add nsw i32 %25, 7
+  %29 = add nuw nsw i32 %28, %27
+  %30 = lshr i32 %29, 3
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %32 = load i8, ptr %31, align 8
+  switch i8 %32, label %.backedge [
+    i8 7, label %33
+    i8 0, label %34
+    i8 1, label %34
+    i8 8, label %34
+    i8 6, label %34
+    i8 4, label %34
     i8 2, label %64
     i8 3, label %twos_complement.exit
     i8 5, label %84
@@ -39516,124 +39511,137 @@ define internal fastcc void @asterix_build_subtree(ptr noundef %0, ptr noundef %
     i8 10, label %147
   ]
 
-36:                                               ; preds = %25
-  %.not108 = icmp eq i64 %19, 0
-  %spec.select = select i1 %.not108, i8 0, i8 %.093119
-  br label %37
+33:                                               ; preds = %22
+  %.not108.not = icmp eq i64 %16, 0
+  br label %34
 
-37:                                               ; preds = %36, %25, %25, %25, %25, %25
-  %.2 = phi i8 [ %.093119, %25 ], [ %.093119, %25 ], [ %.093119, %25 ], [ %.093119, %25 ], [ %.093119, %25 ], [ %spec.select, %36 ]
-  %38 = load i32, ptr %24, align 4
-  %39 = tail call ptr @proto_registrar_get_nth(i32 noundef %38)
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %41 = load i64, ptr %40, align 8
-  %.not109 = icmp eq i64 %41, 0
-  br i1 %.not109, label %56, label %42
+34:                                               ; preds = %33, %22, %22, %22, %22, %22
+  %.2 = phi i1 [ false, %22 ], [ false, %22 ], [ false, %22 ], [ false, %22 ], [ false, %22 ], [ %.not108.not, %33 ]
+  %35 = load i32, ptr %21, align 4
+  %36 = tail call ptr @proto_registrar_get_nth(i32 noundef %35)
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %38 = load i64, ptr %37, align 8
+  %.not109 = icmp eq i64 %38, 0
+  br i1 %.not109, label %53, label %39
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %44 = load i32, ptr %43, align 8
-  %45 = tail call i32 @ftype_wire_size(i32 noundef %44)
-  %46 = icmp sgt i32 %45, 1
-  br i1 %46, label %47, label %56
+39:                                               ; preds = %34
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %41 = load i32, ptr %40, align 8
+  %42 = tail call i32 @ftype_wire_size(i32 noundef %41)
+  %43 = icmp sgt i32 %42, 1
+  br i1 %43, label %44, label %53
 
-47:                                               ; preds = %42
-  %48 = load i64, ptr %40, align 8
-  %49 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %48, i1 true)
-  %50 = trunc nuw nsw i64 %49 to i32
-  %51 = sub nuw nsw i32 71, %50
-  %52 = lshr i32 %51, 3
-  %53 = sub nsw i32 %45, %52
-  %54 = icmp sgt i32 %53, -1
-  %55 = select i1 %54, i32 %53, i32 0
-  %spec.select110 = sub i32 %27, %55
-  %spec.select111 = select i1 %54, i32 %45, i32 %33
-  br label %56
+44:                                               ; preds = %39
+  %45 = load i64, ptr %37, align 8
+  %46 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %45, i1 true)
+  %47 = trunc nuw nsw i64 %46 to i32
+  %48 = sub nuw nsw i32 71, %47
+  %49 = lshr i32 %48, 3
+  %50 = sub nsw i32 %42, %49
+  %51 = icmp sgt i32 %50, -1
+  %52 = select i1 %51, i32 %50, i32 0
+  %spec.select110 = sub i32 %24, %52
+  %spec.select111 = select i1 %51, i32 %42, i32 %30
+  br label %53
 
-56:                                               ; preds = %47, %42, %37
-  %.095 = phi i32 [ %27, %42 ], [ %27, %37 ], [ %spec.select110, %47 ]
-  %.094 = phi i32 [ %33, %42 ], [ %33, %37 ], [ %spec.select111, %47 ]
-  %57 = load ptr, ptr %6, align 8
-  %58 = getelementptr ptr, ptr %57, i64 %12
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %61 = load ptr, ptr %60, align 8
-  %62 = load i32, ptr %61, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %62, ptr noundef %0, i32 noundef %.095, i32 noundef %.094, i32 noundef 0)
-  br label %165
+53:                                               ; preds = %44, %39, %34
+  %.095 = phi i32 [ %24, %39 ], [ %24, %34 ], [ %spec.select110, %44 ]
+  %.094 = phi i32 [ %30, %39 ], [ %30, %34 ], [ %spec.select111, %44 ]
+  %54 = load ptr, ptr %6, align 8
+  %55 = getelementptr ptr, ptr %54, i64 %12
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %58 = load ptr, ptr %57, align 8
+  %59 = load i32, ptr %58, align 4
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %59, ptr noundef %0, i32 noundef %.095, i32 noundef %.094, i32 noundef 0)
+  br i1 %.2, label %.critedge, label %.backedge
 
-64:                                               ; preds = %25
-  %65 = add nsw i32 %30, -1
+.backedge:                                        ; preds = %.lr.ph, %80, %82, %155, %133, %84, %22, %53
+  %.097117.be = add i32 %.097117129, 1
+  %.be = load ptr, ptr %6, align 8
+  %.pn.in.in.in = getelementptr ptr, ptr %.be, i64 %12
+  %.pn.in.in = load ptr, ptr %.pn.in.in.in, align 8
+  %.pn.in = load i16, ptr %.pn.in.in, align 8
+  %.pn = zext i16 %.pn.in to i32
+  %.096118.be = add i32 %.096118128, %.pn
+  %61 = sext i32 %.097117.be to i64
+  %62 = getelementptr ptr, ptr %.be, i64 %61
+  %63 = load ptr, ptr %62, align 8
+  %.not104 = icmp eq ptr %63, null
+  br i1 %.not104, label %.critedge, label %.lr.ph, !llvm.loop !22
+
+64:                                               ; preds = %22
+  %65 = add nsw i32 %27, -1
   %66 = zext nneg i32 %65 to i64
   %67 = shl nuw i64 1, %66
-  %68 = and i64 %67, %19
+  %68 = and i64 %67, %16
   %.not.i = icmp eq i64 %68, 0
   br i1 %.not.i, label %twos_complement.exit, label %69
 
 69:                                               ; preds = %64
-  %70 = zext nneg i16 %29 to i64
+  %70 = zext nneg i16 %26 to i64
   %71 = shl nsw i64 -1, %70
-  %72 = or i64 %71, %19
+  %72 = or i64 %71, %16
   br label %twos_complement.exit
 
-twos_complement.exit:                             ; preds = %69, %64, %25
-  %.0115 = phi i64 [ %19, %25 ], [ %19, %64 ], [ %72, %69 ]
-  %73 = getelementptr inbounds nuw i8, ptr %22, i64 8
+twos_complement.exit:                             ; preds = %69, %64, %22
+  %.0115 = phi i64 [ %16, %22 ], [ %16, %64 ], [ %72, %69 ]
+  %73 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %74 = load double, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %76 = load ptr, ptr %75, align 8
   %.not107 = icmp eq ptr %76, null
-  %77 = load i32, ptr %24, align 4
+  %77 = load i32, ptr %21, align 4
   %78 = sitofp i64 %.0115 to double
   %79 = fmul double %74, %78
   br i1 %.not107, label %82, label %80
 
 80:                                               ; preds = %twos_complement.exit
-  %81 = tail call ptr (ptr, i32, ptr, i32, i32, double, ptr, ...) @proto_tree_add_double_format_value(ptr noundef %3, i32 noundef %77, ptr noundef %0, i32 noundef %27, i32 noundef %33, double noundef %79, ptr noundef nonnull %76, double noundef %79)
-  br label %165
+  %81 = tail call ptr (ptr, i32, ptr, i32, i32, double, ptr, ...) @proto_tree_add_double_format_value(ptr noundef %3, i32 noundef %77, ptr noundef %0, i32 noundef %24, i32 noundef %30, double noundef %79, ptr noundef nonnull %76, double noundef %79)
+  br label %.backedge
 
 82:                                               ; preds = %twos_complement.exit
-  %83 = tail call ptr @proto_tree_add_double(ptr noundef %3, i32 noundef %77, ptr noundef %0, i32 noundef %27, i32 noundef %33, double noundef %79)
-  br label %165
+  %83 = tail call ptr @proto_tree_add_double(ptr noundef %3, i32 noundef %77, ptr noundef %0, i32 noundef %24, i32 noundef %30, double noundef %79)
+  br label %.backedge
 
-84:                                               ; preds = %25
+84:                                               ; preds = %22
   %85 = load ptr, ptr %9, align 8
-  %86 = lshr i64 %19, 42
+  %86 = lshr i64 %16, 42
   %87 = and i64 %86, 63
   %88 = getelementptr [64 x i8], ptr @AISCode, i64 0, i64 %87
   %89 = load i8, ptr %88, align 1
   %90 = sext i8 %89 to i32
-  %91 = lshr i64 %19, 36
+  %91 = lshr i64 %16, 36
   %92 = and i64 %91, 63
   %93 = getelementptr [64 x i8], ptr @AISCode, i64 0, i64 %92
   %94 = load i8, ptr %93, align 1
   %95 = sext i8 %94 to i32
-  %96 = lshr i64 %19, 30
+  %96 = lshr i64 %16, 30
   %97 = and i64 %96, 63
   %98 = getelementptr [64 x i8], ptr @AISCode, i64 0, i64 %97
   %99 = load i8, ptr %98, align 1
   %100 = sext i8 %99 to i32
-  %101 = lshr i64 %19, 24
+  %101 = lshr i64 %16, 24
   %102 = and i64 %101, 63
   %103 = getelementptr [64 x i8], ptr @AISCode, i64 0, i64 %102
   %104 = load i8, ptr %103, align 1
   %105 = sext i8 %104 to i32
-  %106 = lshr i64 %19, 18
+  %106 = lshr i64 %16, 18
   %107 = and i64 %106, 63
   %108 = getelementptr [64 x i8], ptr @AISCode, i64 0, i64 %107
   %109 = load i8, ptr %108, align 1
   %110 = sext i8 %109 to i32
-  %111 = lshr i64 %19, 12
+  %111 = lshr i64 %16, 12
   %112 = and i64 %111, 63
   %113 = getelementptr [64 x i8], ptr @AISCode, i64 0, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = sext i8 %114 to i32
-  %116 = lshr i64 %19, 6
+  %116 = lshr i64 %16, 6
   %117 = and i64 %116, 63
   %118 = getelementptr [64 x i8], ptr @AISCode, i64 0, i64 %117
   %119 = load i8, ptr %118, align 1
   %120 = sext i8 %119 to i32
-  %121 = and i64 %19, 63
+  %121 = and i64 %16, 63
   %122 = getelementptr [64 x i8], ptr @AISCode, i64 0, i64 %121
   %123 = load i8, ptr %122, align 1
   %124 = sext i8 %123 to i32
@@ -39644,13 +39652,13 @@ twos_complement.exit:                             ; preds = %69, %64, %25
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %130 = load ptr, ptr %129, align 8
   %131 = load i32, ptr %130, align 4
-  %132 = tail call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %131, ptr noundef %0, i32 noundef %27, i32 noundef %33, ptr noundef %125)
-  br label %165
+  %132 = tail call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %131, ptr noundef %0, i32 noundef %24, i32 noundef %30, ptr noundef %125)
+  br label %.backedge
 
-133:                                              ; preds = %25
+133:                                              ; preds = %22
   %134 = load ptr, ptr %9, align 8
   %135 = tail call noalias dereferenceable_or_null(1) ptr @wmem_alloc(ptr noundef %134, i64 noundef 1) #4
-  %136 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %27)
+  %136 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %24)
   %137 = lshr i8 %136, 7
   store i8 %137, ptr %135, align 1
   %138 = load ptr, ptr %9, align 8
@@ -39662,10 +39670,10 @@ twos_complement.exit:                             ; preds = %69, %64, %25
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = load ptr, ptr %143, align 8
   %145 = load i32, ptr %144, align 4
-  %146 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %145, ptr noundef %0, i32 noundef %27, i32 noundef %33, i32 noundef 0)
-  br label %165
+  %146 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %145, ptr noundef %0, i32 noundef %24, i32 noundef %30, i32 noundef 0)
+  br label %.backedge
 
-147:                                              ; preds = %25
+147:                                              ; preds = %22
   %148 = load ptr, ptr %9, align 8
   %149 = load i32, ptr @proto_asterix, align 4
   %150 = tail call ptr @p_get_proto_data(ptr noundef %148, ptr noundef %1, i32 noundef %149, i32 noundef 21150)
@@ -39688,24 +39696,12 @@ twos_complement.exit:                             ; preds = %69, %64, %25
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
   %160 = load ptr, ptr %159, align 8
   %161 = load i32, ptr %160, align 4
-  %162 = sitofp i64 %19 to double
+  %162 = sitofp i64 %16 to double
   %163 = fmul double %.0, %162
-  %164 = tail call ptr @proto_tree_add_double(ptr noundef %3, i32 noundef %161, ptr noundef %0, i32 noundef %27, i32 noundef %33, double noundef %163)
-  br label %165
+  %164 = tail call ptr @proto_tree_add_double(ptr noundef %3, i32 noundef %161, ptr noundef %0, i32 noundef %24, i32 noundef %30, double noundef %163)
+  br label %.backedge
 
-165:                                              ; preds = %25, %56, %84, %133, %155, %82, %80, %15
-  %.1 = phi i8 [ %.093119, %25 ], [ %.2, %56 ], [ %.093119, %80 ], [ %.093119, %82 ], [ %.093119, %84 ], [ %.093119, %133 ], [ %.093119, %155 ], [ %.093119, %15 ]
-  %166 = load ptr, ptr %6, align 8
-  %167 = getelementptr ptr, ptr %166, i64 %12
-  %168 = load ptr, ptr %167, align 8
-  %169 = load i16, ptr %168, align 8
-  %170 = zext i16 %169 to i32
-  %171 = add i32 %.096118, %170
-  %172 = add i32 %.097117, 1
-  %.not103 = icmp eq i8 %.1, 0
-  br i1 %.not103, label %.critedge, label %10, !llvm.loop !22
-
-.critedge:                                        ; preds = %10, %165, %5
+.critedge:                                        ; preds = %53, %.backedge, %.preheader, %5
   ret void
 }
 

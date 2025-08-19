@@ -161,10 +161,10 @@ tailrecurse._crit_edge.i.i:                       ; preds = %tailrecurse.i.i, %1
   %28 = icmp eq ptr %1, %.tr88.lcssa.i.i
   %29 = load ptr, ptr @uriSafeToPointToA, align 8
   %spec.select.i.i.i.i = select i1 %28, ptr %29, ptr %1
-  %spec.select24.i.i.i.i = select i1 %28, ptr %29, ptr %.tr88.lcssa.i.i
+  %spec.select27.i.i.i.i = select i1 %28, ptr %29, ptr %.tr88.lcssa.i.i
   store ptr %spec.select.i.i.i.i, ptr %25, align 8, !tbaa !21
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %spec.select24.i.i.i.i, ptr %30, align 8, !tbaa !23
+  store ptr %spec.select27.i.i.i.i, ptr %30, align 8, !tbaa !23
   %31 = load ptr, ptr %0, align 8, !tbaa !3
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %33 = load ptr, ptr %32, align 8, !tbaa !24
@@ -388,8 +388,8 @@ uriParseUriReferenceA.exit.thread.sink.split.sink.split: ; preds = %75, %60, %ta
   br label %uriParseUriReferenceA.exit.thread.sink.split
 
 uriParseUriReferenceA.exit.thread.sink.split:     ; preds = %uriParseUriReferenceA.exit.thread.sink.split.sink.split, %55
-  %.sink65 = phi ptr [ %59, %55 ], [ %98, %uriParseUriReferenceA.exit.thread.sink.split.sink.split ]
-  %99 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %.sink65, ptr noundef nonnull %.033)
+  %.sink78 = phi ptr [ %59, %55 ], [ %98, %uriParseUriReferenceA.exit.thread.sink.split.sink.split ]
+  %99 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %.sink78, ptr noundef nonnull %.033)
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %100, align 8, !tbaa !28
   store i32 3, ptr %14, align 8, !tbaa !29
@@ -1606,9 +1606,9 @@ define internal fastcc ptr @uriParseIPv6address2A(ptr noundef nonnull %0, ptr no
   br label %.thread372
 
 .sink.split:                                      ; preds = %207, %200, %193
-  %.sink838 = phi i8 [ -87, %193 ], [ -55, %200 ], [ -48, %207 ]
+  %.sink843 = phi i8 [ -87, %193 ], [ -55, %200 ], [ -48, %207 ]
   %.1260.ph = phi i32 [ 1, %193 ], [ 1, %200 ], [ %.0259, %207 ]
-  %379 = add nsw i8 %192, %.sink838
+  %379 = add nsw i8 %192, %.sink843
   %380 = sext i32 %.3280 to i64
   %381 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %380
   store i8 %379, ptr %381, align 1, !tbaa !11
@@ -2028,8 +2028,8 @@ uriParseUriReferenceW.exit.thread.sink.split.sink.split: ; preds = %70, %55, %ta
   br label %uriParseUriReferenceW.exit.thread.sink.split
 
 uriParseUriReferenceW.exit.thread.sink.split:     ; preds = %uriParseUriReferenceW.exit.thread.sink.split.sink.split, %50
-  %.sink65 = phi ptr [ %54, %50 ], [ %93, %uriParseUriReferenceW.exit.thread.sink.split.sink.split ]
-  %94 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %.sink65, ptr noundef nonnull %.033)
+  %.sink79 = phi ptr [ %54, %50 ], [ %93, %uriParseUriReferenceW.exit.thread.sink.split.sink.split ]
+  %94 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %.sink79, ptr noundef nonnull %.033)
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %95, align 8, !tbaa !68
   store i32 3, ptr %14, align 8, !tbaa !69
@@ -3237,10 +3237,10 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   br label %.thread372
 
 .sink.split:                                      ; preds = %205, %198, %191
-  %.sink820 = phi i8 [ -87, %191 ], [ -55, %198 ], [ -48, %205 ]
+  %.sink825 = phi i8 [ -87, %191 ], [ -55, %198 ], [ -48, %205 ]
   %.1260.ph = phi i32 [ 1, %191 ], [ 1, %198 ], [ %.0259, %205 ]
   %377 = trunc nuw nsw i32 %190 to i8
-  %378 = add nsw i8 %.sink820, %377
+  %378 = add nsw i8 %.sink825, %377
   %379 = sext i32 %.3280 to i64
   %380 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %379
   store i8 %378, ptr %380, align 1, !tbaa !11
@@ -3319,10 +3319,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   %12 = icmp eq ptr %6, %.tr76.lcssa
   %13 = load ptr, ptr @uriSafeToPointToA, align 8
   %spec.select.i = select i1 %12, ptr %13, ptr %6
-  %spec.select24.i = select i1 %12, ptr %13, ptr %.tr76.lcssa
+  %spec.select27.i = select i1 %12, ptr %13, ptr %.tr76.lcssa
   store ptr %spec.select.i, ptr %9, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %spec.select24.i, ptr %14, align 8, !tbaa !23
+  store ptr %spec.select27.i, ptr %14, align 8, !tbaa !23
   %15 = load ptr, ptr %0, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %17 = load ptr, ptr %16, align 8, !tbaa !24
@@ -4134,10 +4134,10 @@ uriParseAuthorityA.exit.thread:                   ; preds = %70, %25, %uriParseP
 112:                                              ; preds = %108
   %113 = icmp eq ptr %105, %106
   %spec.select.i.i = select i1 %113, ptr %101, ptr %105
-  %spec.select24.i.i = select i1 %113, ptr %101, ptr %106
+  %spec.select27.i.i = select i1 %113, ptr %101, ptr %106
   store ptr %spec.select.i.i, ptr %110, align 8, !tbaa !21
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  store ptr %spec.select24.i.i, ptr %114, align 8, !tbaa !23
+  store ptr %spec.select27.i.i, ptr %114, align 8, !tbaa !23
   %115 = load ptr, ptr %0, align 8, !tbaa !3
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 96
   %117 = load ptr, ptr %116, align 8, !tbaa !24
@@ -4286,10 +4286,10 @@ uriParseSegmentNzA.exit.i:                        ; preds = %133
   %144 = icmp eq ptr %1, %136
   %145 = load ptr, ptr @uriSafeToPointToA, align 8
   %spec.select.i.i32 = select i1 %144, ptr %145, ptr %1
-  %spec.select24.i.i33 = select i1 %144, ptr %145, ptr %136
+  %spec.select27.i.i33 = select i1 %144, ptr %145, ptr %136
   store ptr %spec.select.i.i32, ptr %141, align 8, !tbaa !21
   %146 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  store ptr %spec.select24.i.i33, ptr %146, align 8, !tbaa !23
+  store ptr %spec.select27.i.i33, ptr %146, align 8, !tbaa !23
   %147 = load ptr, ptr %0, align 8, !tbaa !3
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 96
   %149 = load ptr, ptr %148, align 8, !tbaa !24
@@ -4335,10 +4335,10 @@ uriParseSegmentNzA.exit.i:                        ; preds = %133
 167:                                              ; preds = %163
   %168 = icmp eq ptr %160, %161
   %spec.select.i.i.i = select i1 %168, ptr %145, ptr %160
-  %spec.select24.i.i.i = select i1 %168, ptr %145, ptr %161
+  %spec.select27.i.i.i = select i1 %168, ptr %145, ptr %161
   store ptr %spec.select.i.i.i, ptr %165, align 8, !tbaa !21
   %169 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  store ptr %spec.select24.i.i.i, ptr %169, align 8, !tbaa !23
+  store ptr %spec.select27.i.i.i, ptr %169, align 8, !tbaa !23
   %170 = load ptr, ptr %0, align 8, !tbaa !3
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 96
   %172 = load ptr, ptr %171, align 8, !tbaa !24
@@ -4422,11 +4422,11 @@ define internal fastcc noundef ptr @uriParseUriTailA(ptr noundef nonnull capture
   br i1 %24, label %uriParseUriTailTwoA.exit, label %uriParseUriTailTwoA.exit.sink.split
 
 uriParseUriTailTwoA.exit.sink.split:              ; preds = %21, %7
-  %.sink36 = phi ptr [ %8, %7 ], [ %22, %21 ]
+  %.sink41 = phi ptr [ %8, %7 ], [ %22, %21 ]
   %.sink = phi ptr [ %9, %7 ], [ %23, %21 ]
   %25 = load ptr, ptr %0, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  store ptr %.sink36, ptr %26, align 8, !tbaa !47
+  store ptr %.sink41, ptr %26, align 8, !tbaa !47
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 136
   store ptr %.sink, ptr %27, align 8, !tbaa !48
   br label %uriParseUriTailTwoA.exit
@@ -4450,10 +4450,10 @@ define internal fastcc range(i32 0, 2) i32 @uriOnExitSegmentNzNcOrScheme2A(ptr n
   %11 = icmp eq ptr %5, %1
   %12 = load ptr, ptr @uriSafeToPointToA, align 8
   %spec.select.i = select i1 %11, ptr %12, ptr %5
-  %spec.select24.i = select i1 %11, ptr %12, ptr %1
+  %spec.select27.i = select i1 %11, ptr %12, ptr %1
   store ptr %spec.select.i, ptr %8, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %spec.select24.i, ptr %13, align 8, !tbaa !23
+  store ptr %spec.select27.i, ptr %13, align 8, !tbaa !23
   %14 = load ptr, ptr %0, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %16 = load ptr, ptr %15, align 8, !tbaa !24
@@ -4599,10 +4599,10 @@ define internal fastcc range(i32 0, 2) i32 @uriPushPathSegmentA(ptr noundef nonn
   %10 = icmp eq ptr %1, %2
   %11 = load ptr, ptr @uriSafeToPointToA, align 8
   %spec.select = select i1 %10, ptr %11, ptr %1
-  %spec.select24 = select i1 %10, ptr %11, ptr %2
+  %spec.select27 = select i1 %10, ptr %11, ptr %2
   store ptr %spec.select, ptr %7, align 8, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %spec.select24, ptr %12, align 8, !tbaa !23
+  store ptr %spec.select27, ptr %12, align 8, !tbaa !23
   %13 = load ptr, ptr %0, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = load ptr, ptr %14, align 8, !tbaa !24
@@ -4659,10 +4659,10 @@ define internal fastcc noundef ptr @uriParseZeroMoreSlashSegsA(ptr noundef nonnu
 17:                                               ; preds = %13
   %18 = icmp eq ptr %10, %11
   %spec.select.i = select i1 %18, ptr %6, ptr %10
-  %spec.select24.i = select i1 %18, ptr %6, ptr %11
+  %spec.select27.i = select i1 %18, ptr %6, ptr %11
   store ptr %spec.select.i, ptr %15, align 8, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %spec.select24.i, ptr %19, align 8, !tbaa !23
+  store ptr %spec.select27.i, ptr %19, align 8, !tbaa !23
   %20 = load ptr, ptr %0, align 8, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %22 = load ptr, ptr %21, align 8, !tbaa !24
@@ -4813,10 +4813,10 @@ uriParseSegmentNzA.exit.i:                        ; preds = %7
   %18 = icmp eq ptr %1, %10
   %19 = load ptr, ptr @uriSafeToPointToA, align 8
   %spec.select.i.i = select i1 %18, ptr %19, ptr %1
-  %spec.select24.i.i = select i1 %18, ptr %19, ptr %10
+  %spec.select27.i.i = select i1 %18, ptr %19, ptr %10
   store ptr %spec.select.i.i, ptr %15, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %spec.select24.i.i, ptr %20, align 8, !tbaa !23
+  store ptr %spec.select27.i.i, ptr %20, align 8, !tbaa !23
   %21 = load ptr, ptr %0, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %23 = load ptr, ptr %22, align 8, !tbaa !24
@@ -4862,10 +4862,10 @@ uriParseSegmentNzA.exit.i:                        ; preds = %7
 41:                                               ; preds = %37
   %42 = icmp eq ptr %34, %35
   %spec.select.i.i.i = select i1 %42, ptr %19, ptr %34
-  %spec.select24.i.i.i = select i1 %42, ptr %19, ptr %35
+  %spec.select27.i.i.i = select i1 %42, ptr %19, ptr %35
   store ptr %spec.select.i.i.i, ptr %39, align 8, !tbaa !21
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %spec.select24.i.i.i, ptr %43, align 8, !tbaa !23
+  store ptr %spec.select27.i.i.i, ptr %43, align 8, !tbaa !23
   %44 = load ptr, ptr %0, align 8, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
   %46 = load ptr, ptr %45, align 8, !tbaa !24
@@ -6460,10 +6460,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   %12 = icmp eq ptr %6, %.tr76.lcssa
   %13 = load ptr, ptr @uriSafeToPointToW, align 8
   %spec.select.i = select i1 %12, ptr %13, ptr %6
-  %spec.select24.i = select i1 %12, ptr %13, ptr %.tr76.lcssa
+  %spec.select27.i = select i1 %12, ptr %13, ptr %.tr76.lcssa
   store ptr %spec.select.i, ptr %9, align 8, !tbaa !61
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %spec.select24.i, ptr %14, align 8, !tbaa !63
+  store ptr %spec.select27.i, ptr %14, align 8, !tbaa !63
   %15 = load ptr, ptr %0, align 8, !tbaa !51
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %17 = load ptr, ptr %16, align 8, !tbaa !64
@@ -7274,10 +7274,10 @@ uriParseAuthorityW.exit.thread:                   ; preds = %70, %25, %uriParseP
 112:                                              ; preds = %108
   %113 = icmp eq ptr %105, %106
   %spec.select.i.i = select i1 %113, ptr %101, ptr %105
-  %spec.select24.i.i = select i1 %113, ptr %101, ptr %106
+  %spec.select27.i.i = select i1 %113, ptr %101, ptr %106
   store ptr %spec.select.i.i, ptr %110, align 8, !tbaa !61
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  store ptr %spec.select24.i.i, ptr %114, align 8, !tbaa !63
+  store ptr %spec.select27.i.i, ptr %114, align 8, !tbaa !63
   %115 = load ptr, ptr %0, align 8, !tbaa !51
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 96
   %117 = load ptr, ptr %116, align 8, !tbaa !64
@@ -7426,10 +7426,10 @@ uriParseSegmentNzW.exit.i:                        ; preds = %133
   %144 = icmp eq ptr %1, %136
   %145 = load ptr, ptr @uriSafeToPointToW, align 8
   %spec.select.i.i32 = select i1 %144, ptr %145, ptr %1
-  %spec.select24.i.i33 = select i1 %144, ptr %145, ptr %136
+  %spec.select27.i.i33 = select i1 %144, ptr %145, ptr %136
   store ptr %spec.select.i.i32, ptr %141, align 8, !tbaa !61
   %146 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  store ptr %spec.select24.i.i33, ptr %146, align 8, !tbaa !63
+  store ptr %spec.select27.i.i33, ptr %146, align 8, !tbaa !63
   %147 = load ptr, ptr %0, align 8, !tbaa !51
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 96
   %149 = load ptr, ptr %148, align 8, !tbaa !64
@@ -7475,10 +7475,10 @@ uriParseSegmentNzW.exit.i:                        ; preds = %133
 167:                                              ; preds = %163
   %168 = icmp eq ptr %160, %161
   %spec.select.i.i.i = select i1 %168, ptr %145, ptr %160
-  %spec.select24.i.i.i = select i1 %168, ptr %145, ptr %161
+  %spec.select27.i.i.i = select i1 %168, ptr %145, ptr %161
   store ptr %spec.select.i.i.i, ptr %165, align 8, !tbaa !61
   %169 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  store ptr %spec.select24.i.i.i, ptr %169, align 8, !tbaa !63
+  store ptr %spec.select27.i.i.i, ptr %169, align 8, !tbaa !63
   %170 = load ptr, ptr %0, align 8, !tbaa !51
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 96
   %172 = load ptr, ptr %171, align 8, !tbaa !64
@@ -7562,11 +7562,11 @@ define internal fastcc noundef ptr @uriParseUriTailW(ptr noundef nonnull capture
   br i1 %24, label %uriParseUriTailTwoW.exit, label %uriParseUriTailTwoW.exit.sink.split
 
 uriParseUriTailTwoW.exit.sink.split:              ; preds = %21, %7
-  %.sink36 = phi ptr [ %8, %7 ], [ %22, %21 ]
+  %.sink41 = phi ptr [ %8, %7 ], [ %22, %21 ]
   %.sink = phi ptr [ %9, %7 ], [ %23, %21 ]
   %25 = load ptr, ptr %0, align 8, !tbaa !51
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  store ptr %.sink36, ptr %26, align 8, !tbaa !85
+  store ptr %.sink41, ptr %26, align 8, !tbaa !85
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 136
   store ptr %.sink, ptr %27, align 8, !tbaa !86
   br label %uriParseUriTailTwoW.exit
@@ -7590,10 +7590,10 @@ define internal fastcc range(i32 0, 2) i32 @uriOnExitSegmentNzNcOrScheme2W(ptr n
   %11 = icmp eq ptr %5, %1
   %12 = load ptr, ptr @uriSafeToPointToW, align 8
   %spec.select.i = select i1 %11, ptr %12, ptr %5
-  %spec.select24.i = select i1 %11, ptr %12, ptr %1
+  %spec.select27.i = select i1 %11, ptr %12, ptr %1
   store ptr %spec.select.i, ptr %8, align 8, !tbaa !61
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %spec.select24.i, ptr %13, align 8, !tbaa !63
+  store ptr %spec.select27.i, ptr %13, align 8, !tbaa !63
   %14 = load ptr, ptr %0, align 8, !tbaa !51
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %16 = load ptr, ptr %15, align 8, !tbaa !64
@@ -7739,10 +7739,10 @@ define internal fastcc range(i32 0, 2) i32 @uriPushPathSegmentW(ptr noundef nonn
   %10 = icmp eq ptr %1, %2
   %11 = load ptr, ptr @uriSafeToPointToW, align 8
   %spec.select = select i1 %10, ptr %11, ptr %1
-  %spec.select24 = select i1 %10, ptr %11, ptr %2
+  %spec.select27 = select i1 %10, ptr %11, ptr %2
   store ptr %spec.select, ptr %7, align 8, !tbaa !61
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %spec.select24, ptr %12, align 8, !tbaa !63
+  store ptr %spec.select27, ptr %12, align 8, !tbaa !63
   %13 = load ptr, ptr %0, align 8, !tbaa !51
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = load ptr, ptr %14, align 8, !tbaa !64
@@ -7799,10 +7799,10 @@ define internal fastcc noundef ptr @uriParseZeroMoreSlashSegsW(ptr noundef nonnu
 17:                                               ; preds = %13
   %18 = icmp eq ptr %10, %11
   %spec.select.i = select i1 %18, ptr %6, ptr %10
-  %spec.select24.i = select i1 %18, ptr %6, ptr %11
+  %spec.select27.i = select i1 %18, ptr %6, ptr %11
   store ptr %spec.select.i, ptr %15, align 8, !tbaa !61
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %spec.select24.i, ptr %19, align 8, !tbaa !63
+  store ptr %spec.select27.i, ptr %19, align 8, !tbaa !63
   %20 = load ptr, ptr %0, align 8, !tbaa !51
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %22 = load ptr, ptr %21, align 8, !tbaa !64
@@ -7953,10 +7953,10 @@ uriParseSegmentNzW.exit.i:                        ; preds = %7
   %18 = icmp eq ptr %1, %10
   %19 = load ptr, ptr @uriSafeToPointToW, align 8
   %spec.select.i.i = select i1 %18, ptr %19, ptr %1
-  %spec.select24.i.i = select i1 %18, ptr %19, ptr %10
+  %spec.select27.i.i = select i1 %18, ptr %19, ptr %10
   store ptr %spec.select.i.i, ptr %15, align 8, !tbaa !61
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %spec.select24.i.i, ptr %20, align 8, !tbaa !63
+  store ptr %spec.select27.i.i, ptr %20, align 8, !tbaa !63
   %21 = load ptr, ptr %0, align 8, !tbaa !51
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %23 = load ptr, ptr %22, align 8, !tbaa !64
@@ -8002,10 +8002,10 @@ uriParseSegmentNzW.exit.i:                        ; preds = %7
 41:                                               ; preds = %37
   %42 = icmp eq ptr %34, %35
   %spec.select.i.i.i = select i1 %42, ptr %19, ptr %34
-  %spec.select24.i.i.i = select i1 %42, ptr %19, ptr %35
+  %spec.select27.i.i.i = select i1 %42, ptr %19, ptr %35
   store ptr %spec.select.i.i.i, ptr %39, align 8, !tbaa !61
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %spec.select24.i.i.i, ptr %43, align 8, !tbaa !63
+  store ptr %spec.select27.i.i.i, ptr %43, align 8, !tbaa !63
   %44 = load ptr, ptr %0, align 8, !tbaa !51
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
   %46 = load ptr, ptr %45, align 8, !tbaa !64

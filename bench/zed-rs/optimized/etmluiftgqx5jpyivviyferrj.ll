@@ -3216,13 +3216,13 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.15942697686886759531.exit
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17he2af97e8571ccd5cE.llvm.15942697686886759531"(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 128 %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = load i64, ptr %1, align 128, !range !326, !noundef !4
-  switch i64 %4, label %default.unreachable1 [
+  switch i64 %4, label %default.unreachable2 [
     i64 0, label %5
     i64 1, label %25
     i64 2, label %27
   ]
 
-default.unreachable1:                             ; preds = %3
+default.unreachable2:                             ; preds = %3
   unreachable
 
 5:                                                ; preds = %3
@@ -8041,8 +8041,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %17 = trunc i32 %16 to i8
   %18 = and i8 %17, 63
   %19 = or disjoint i8 %18, -128
-  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %19, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8, align 1, !alias.scope !1917, !noalias !1914
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %19, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx9, align 1, !alias.scope !1917, !noalias !1914
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 20:                                               ; preds = %6
@@ -8055,14 +8055,14 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %26 = trunc i32 %25 to i8
   %27 = and i8 %26, 63
   %28 = or disjoint i8 %27, -128
-  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %28, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx7, align 1, !alias.scope !1917, !noalias !1914
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %28, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8, align 1, !alias.scope !1917, !noalias !1914
   %29 = lshr i32 %1, 6
   %30 = trunc i32 %29 to i8
   %31 = and i8 %30, 63
   %32 = or disjoint i8 %31, -128
-  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %32, ptr %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx9, align 2, !alias.scope !1917, !noalias !1914
+  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %32, ptr %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx10, align 2, !alias.scope !1917, !noalias !1914
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i: ; preds = %20, %12, %8
@@ -9308,9 +9308,9 @@ define void @_ZN3lsp14LanguageServer3new17h243b01f0a405ca9bE(ptr dead_on_unwind 
   br label %41
 
 41:                                               ; preds = %34, %37
-  %.sink146 = phi ptr [ %.sroa.043.0, %37 ], [ %4, %34 ]
+  %.sink168 = phi ptr [ %.sroa.043.0, %37 ], [ %4, %34 ]
   %.sink = phi i64 [ %.sroa.3.0, %37 ], [ %5, %34 ]
-  store ptr %.sink146, ptr %30, align 8
+  store ptr %.sink168, ptr %30, align 8
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %.sink, ptr %42, align 8
   %43 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
@@ -10004,14 +10004,14 @@ _ZN3std7process7Command6stderr17h399c53eaa376e396E.exit: ; preds = %_ZN3std7proc
   br label %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$std..ffi..os_str..OsString$GT$$GT$17hf3828d89c888e6b2E.exit"
 
 260:                                              ; preds = %.thread, %"_ZN4core3ptr43drop_in_place$LT$async_process..Command$GT$17h32d762052f1dbd8aE.exit"
-  %.pn72141 = phi { ptr, i32 } [ %.pn69.pn, %"_ZN4core3ptr43drop_in_place$LT$async_process..Command$GT$17h32d762052f1dbd8aE.exit" ], [ %lpad.thr_comm, %.thread ]
-  %.sroa.041.1140 = phi i1 [ %.sroa.041.4, %"_ZN4core3ptr43drop_in_place$LT$async_process..Command$GT$17h32d762052f1dbd8aE.exit" ], [ %.sroa.041.0.ph, %.thread ]
+  %.pn72163 = phi { ptr, i32 } [ %.pn69.pn, %"_ZN4core3ptr43drop_in_place$LT$async_process..Command$GT$17h32d762052f1dbd8aE.exit" ], [ %lpad.thr_comm, %.thread ]
+  %.sroa.041.1162 = phi i1 [ %.sroa.041.4, %"_ZN4core3ptr43drop_in_place$LT$async_process..Command$GT$17h32d762052f1dbd8aE.exit" ], [ %.sroa.041.0.ph, %.thread ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$gpui..app..async_context..AsyncAppContext$GT$17hc320eaae66ca6b73E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7) #30
           to label %261 unwind label %205
 
 261:                                              ; preds = %211, %260
-  %.sroa.041.2.ph = phi i1 [ %.sroa.041.1140, %260 ], [ false, %211 ]
-  %.pn74.ph = phi { ptr, i32 } [ %.pn72141, %260 ], [ %212, %211 ]
+  %.sroa.041.2.ph = phi i1 [ %.sroa.041.1162, %260 ], [ false, %211 ]
+  %.pn74.ph = phi { ptr, i32 } [ %.pn72163, %260 ], [ %212, %211 ]
   call fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..code_action..CodeActionKind$GT$$GT$$GT$17h47733eb04c4ab9a2E"(ptr noalias noundef align 8 dereferenceable(24) %6) #30
   br label %234
 
@@ -13574,14 +13574,14 @@ define hidden { i64, ptr } @"_ZN3lsp14LanguageServer10initialize28_$u7b$$u7b$clo
   %10 = alloca [1304 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2920
   %12 = load i8, ptr %11, align 8, !range !15, !noundef !4
-  switch i8 %12, label %default.unreachable77 [
+  switch i8 %12, label %default.unreachable85 [
     i8 0, label %13
     i8 1, label %27
     i8 2, label %28
     i8 3, label %22
   ]
 
-default.unreachable77:                            ; preds = %2
+default.unreachable85:                            ; preds = %2
   unreachable
 
 13:                                               ; preds = %2

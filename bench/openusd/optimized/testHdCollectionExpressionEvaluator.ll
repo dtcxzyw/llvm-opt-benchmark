@@ -3853,9 +3853,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   br label %.body199.i
 
 .body199.i:                                       ; preds = %1106, %1100, %1099, %1093, %1092, %1086, %1085, %1079, %939, %911, %883, %.body72
-  %.sink343.i = phi ptr [ %155, %1079 ], [ %155, %.body72 ], [ %155, %1085 ], [ %158, %1086 ], [ %158, %883 ], [ %158, %1092 ], [ %161, %1093 ], [ %161, %911 ], [ %161, %1099 ], [ %164, %1100 ], [ %164, %939 ], [ %164, %1106 ]
+  %.sink370.i = phi ptr [ %155, %1079 ], [ %155, %.body72 ], [ %155, %1085 ], [ %158, %1086 ], [ %158, %883 ], [ %158, %1092 ], [ %161, %1093 ], [ %161, %911 ], [ %161, %1099 ], [ %164, %1100 ], [ %164, %939 ], [ %164, %1106 ]
   %.pn88.pn.pn.i = phi { ptr, i32 } [ %1080, %1079 ], [ %856, %.body72 ], [ %.pn79.i, %1085 ], [ %1087, %1086 ], [ %884, %883 ], [ %.pn82.i, %1092 ], [ %1094, %1093 ], [ %912, %911 ], [ %.pn85.i, %1099 ], [ %1101, %1100 ], [ %940, %939 ], [ %.pn88.i, %1106 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink343.i) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink370.i) #24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %151) #24
   br label %1107
 
@@ -6215,9 +6215,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   br label %.body155.i
 
 .body155.i:                                       ; preds = %1833, %1827, %1826, %1820, %1819, %1813, %1812, %1806, %1805, %1799, %.body99, %.body102, %.body105, %.body108, %.body111
-  %.sink437.i = phi ptr [ %71, %1799 ], [ %71, %.body111 ], [ %71, %1805 ], [ %74, %1806 ], [ %74, %.body108 ], [ %74, %1812 ], [ %77, %1813 ], [ %77, %.body105 ], [ %77, %1819 ], [ %80, %1820 ], [ %80, %.body102 ], [ %80, %1826 ], [ %83, %1827 ], [ %83, %.body99 ], [ %83, %1833 ]
+  %.sink484.i = phi ptr [ %71, %1799 ], [ %71, %.body111 ], [ %71, %1805 ], [ %74, %1806 ], [ %74, %.body108 ], [ %74, %1812 ], [ %77, %1813 ], [ %77, %.body105 ], [ %77, %1819 ], [ %80, %1820 ], [ %80, %.body102 ], [ %80, %1826 ], [ %83, %1827 ], [ %83, %.body99 ], [ %83, %1833 ]
   %.pn79.pn.pn.i = phi { ptr, i32 } [ %1800, %1799 ], [ %1384, %.body111 ], [ %.pn67.i, %1805 ], [ %1807, %1806 ], [ %1418, %.body108 ], [ %.pn70.i, %1812 ], [ %1814, %1813 ], [ %1452, %.body105 ], [ %.pn73.i, %1819 ], [ %1821, %1820 ], [ %1486, %.body102 ], [ %.pn76.i, %1826 ], [ %1828, %1827 ], [ %1520, %.body99 ], [ %.pn79.i41, %1833 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink437.i) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink484.i) #24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %67) #24
   br label %1834
 
@@ -6340,9 +6340,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   br label %.body213.i
 
 .body213.i:                                       ; preds = %1871, %1865, %1864, %1858, %1857, %1851, %1850, %1844, %.body87, %.body90, %.body93, %.body96
-  %.sink438.i = phi ptr [ %92, %1844 ], [ %92, %.body96 ], [ %92, %1850 ], [ %95, %1851 ], [ %95, %.body93 ], [ %95, %1857 ], [ %98, %1858 ], [ %98, %.body90 ], [ %98, %1864 ], [ %101, %1865 ], [ %101, %.body87 ], [ %101, %1871 ]
+  %.sink485.i = phi ptr [ %92, %1844 ], [ %92, %.body96 ], [ %92, %1850 ], [ %95, %1851 ], [ %95, %.body93 ], [ %95, %1857 ], [ %98, %1858 ], [ %98, %.body90 ], [ %98, %1864 ], [ %101, %1865 ], [ %101, %.body87 ], [ %101, %1871 ]
   %.pn95.pn.pn.i = phi { ptr, i32 } [ %1845, %1844 ], [ %1593, %.body96 ], [ %.pn86.i, %1850 ], [ %1852, %1851 ], [ %1627, %.body93 ], [ %.pn89.i, %1857 ], [ %1859, %1858 ], [ %1661, %.body90 ], [ %.pn92.i, %1864 ], [ %1866, %1865 ], [ %1695, %.body87 ], [ %.pn95.i, %1871 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink438.i) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink485.i) #24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %88) #24
   br label %1872
 
@@ -12326,9 +12326,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit:
   br label %.body471
 
 .body471:                                         ; preds = %2067, %524, %2061, %2060, %496, %2054, %2053, %468, %2047, %2046, %440, %2040
-  %.sink1722 = phi ptr [ %87, %2040 ], [ %87, %440 ], [ %87, %2046 ], [ %90, %2047 ], [ %90, %468 ], [ %90, %2053 ], [ %93, %2054 ], [ %93, %496 ], [ %93, %2060 ], [ %96, %2061 ], [ %96, %524 ], [ %96, %2067 ]
+  %.sink1781 = phi ptr [ %87, %2040 ], [ %87, %440 ], [ %87, %2046 ], [ %90, %2047 ], [ %90, %468 ], [ %90, %2053 ], [ %93, %2054 ], [ %93, %496 ], [ %93, %2060 ], [ %96, %2061 ], [ %96, %524 ], [ %96, %2067 ]
   %.pn228.pn.pn = phi { ptr, i32 } [ %2041, %2040 ], [ %441, %440 ], [ %.pn219, %2046 ], [ %2048, %2047 ], [ %469, %468 ], [ %.pn222, %2053 ], [ %2055, %2054 ], [ %497, %496 ], [ %.pn225, %2060 ], [ %2062, %2061 ], [ %525, %524 ], [ %.pn228, %2067 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1722) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1781) #24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %84) #24
   br label %2068
 
@@ -12465,9 +12465,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit:
   br label %.body520
 
 .body520:                                         ; preds = %2109, %669, %2103, %2102, %641, %2096, %2095, %613, %2089, %2088, %585, %2082, %2081, %557, %2075
-  %.sink1723 = phi ptr [ %104, %2075 ], [ %104, %557 ], [ %104, %2081 ], [ %107, %2082 ], [ %107, %585 ], [ %107, %2088 ], [ %110, %2089 ], [ %110, %613 ], [ %110, %2095 ], [ %113, %2096 ], [ %113, %641 ], [ %113, %2102 ], [ %116, %2103 ], [ %116, %669 ], [ %116, %2109 ]
+  %.sink1782 = phi ptr [ %104, %2075 ], [ %104, %557 ], [ %104, %2081 ], [ %107, %2082 ], [ %107, %585 ], [ %107, %2088 ], [ %110, %2089 ], [ %110, %613 ], [ %110, %2095 ], [ %113, %2096 ], [ %113, %641 ], [ %113, %2102 ], [ %116, %2103 ], [ %116, %669 ], [ %116, %2109 ]
   %.pn247.pn.pn = phi { ptr, i32 } [ %2076, %2075 ], [ %558, %557 ], [ %.pn235, %2081 ], [ %2083, %2082 ], [ %586, %585 ], [ %.pn238, %2088 ], [ %2090, %2089 ], [ %614, %613 ], [ %.pn241, %2095 ], [ %2097, %2096 ], [ %642, %641 ], [ %.pn244, %2102 ], [ %2104, %2103 ], [ %670, %669 ], [ %.pn247, %2109 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1723) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1782) #24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %101) #24
   br label %2110
 
@@ -12646,9 +12646,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit:
   br label %.body582
 
 .body582:                                         ; preds = %2165, %870, %2159, %2158, %842, %2152, %2151, %814, %2145, %2144, %786, %2138, %2137, %758, %2131, %2130, %730, %2124, %2123, %702, %2117
-  %.sink1724 = phi ptr [ %124, %2117 ], [ %124, %702 ], [ %124, %2123 ], [ %127, %2124 ], [ %127, %730 ], [ %127, %2130 ], [ %130, %2131 ], [ %130, %758 ], [ %130, %2137 ], [ %133, %2138 ], [ %133, %786 ], [ %133, %2144 ], [ %136, %2145 ], [ %136, %814 ], [ %136, %2151 ], [ %139, %2152 ], [ %139, %842 ], [ %139, %2158 ], [ %142, %2159 ], [ %142, %870 ], [ %142, %2165 ]
+  %.sink1783 = phi ptr [ %124, %2117 ], [ %124, %702 ], [ %124, %2123 ], [ %127, %2124 ], [ %127, %730 ], [ %127, %2130 ], [ %130, %2131 ], [ %130, %758 ], [ %130, %2137 ], [ %133, %2138 ], [ %133, %786 ], [ %133, %2144 ], [ %136, %2145 ], [ %136, %814 ], [ %136, %2151 ], [ %139, %2152 ], [ %139, %842 ], [ %139, %2158 ], [ %142, %2159 ], [ %142, %870 ], [ %142, %2165 ]
   %.pn272.pn.pn = phi { ptr, i32 } [ %2118, %2117 ], [ %703, %702 ], [ %.pn254, %2123 ], [ %2125, %2124 ], [ %731, %730 ], [ %.pn257, %2130 ], [ %2132, %2131 ], [ %759, %758 ], [ %.pn260, %2137 ], [ %2139, %2138 ], [ %787, %786 ], [ %.pn263, %2144 ], [ %2146, %2145 ], [ %815, %814 ], [ %.pn266, %2151 ], [ %2153, %2152 ], [ %843, %842 ], [ %.pn269, %2158 ], [ %2160, %2159 ], [ %871, %870 ], [ %.pn272, %2165 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1724) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1783) #24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %121) #24
   br label %2166
 
@@ -12785,9 +12785,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit:
   br label %.body666
 
 .body666:                                         ; preds = %2207, %1015, %2201, %2200, %987, %2194, %2193, %959, %2187, %2186, %931, %2180, %2179, %903, %2173
-  %.sink1725 = phi ptr [ %150, %2173 ], [ %150, %903 ], [ %150, %2179 ], [ %153, %2180 ], [ %153, %931 ], [ %153, %2186 ], [ %156, %2187 ], [ %156, %959 ], [ %156, %2193 ], [ %159, %2194 ], [ %159, %987 ], [ %159, %2200 ], [ %162, %2201 ], [ %162, %1015 ], [ %162, %2207 ]
+  %.sink1784 = phi ptr [ %150, %2173 ], [ %150, %903 ], [ %150, %2179 ], [ %153, %2180 ], [ %153, %931 ], [ %153, %2186 ], [ %156, %2187 ], [ %156, %959 ], [ %156, %2193 ], [ %159, %2194 ], [ %159, %987 ], [ %159, %2200 ], [ %162, %2201 ], [ %162, %1015 ], [ %162, %2207 ]
   %.pn291.pn.pn = phi { ptr, i32 } [ %2174, %2173 ], [ %904, %903 ], [ %.pn279, %2179 ], [ %2181, %2180 ], [ %932, %931 ], [ %.pn282, %2186 ], [ %2188, %2187 ], [ %960, %959 ], [ %.pn285, %2193 ], [ %2195, %2194 ], [ %988, %987 ], [ %.pn288, %2200 ], [ %2202, %2201 ], [ %1016, %1015 ], [ %.pn291, %2207 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1725) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1784) #24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %147) #24
   br label %2208
 
@@ -12924,9 +12924,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit:
   br label %.body728
 
 .body728:                                         ; preds = %2249, %1160, %2243, %2242, %1132, %2236, %2235, %1104, %2229, %2228, %1076, %2222, %2221, %1048, %2215
-  %.sink1726 = phi ptr [ %170, %2215 ], [ %170, %1048 ], [ %170, %2221 ], [ %173, %2222 ], [ %173, %1076 ], [ %173, %2228 ], [ %176, %2229 ], [ %176, %1104 ], [ %176, %2235 ], [ %179, %2236 ], [ %179, %1132 ], [ %179, %2242 ], [ %182, %2243 ], [ %182, %1160 ], [ %182, %2249 ]
+  %.sink1785 = phi ptr [ %170, %2215 ], [ %170, %1048 ], [ %170, %2221 ], [ %173, %2222 ], [ %173, %1076 ], [ %173, %2228 ], [ %176, %2229 ], [ %176, %1104 ], [ %176, %2235 ], [ %179, %2236 ], [ %179, %1132 ], [ %179, %2242 ], [ %182, %2243 ], [ %182, %1160 ], [ %182, %2249 ]
   %.pn310.pn.pn = phi { ptr, i32 } [ %2216, %2215 ], [ %1049, %1048 ], [ %.pn298, %2221 ], [ %2223, %2222 ], [ %1077, %1076 ], [ %.pn301, %2228 ], [ %2230, %2229 ], [ %1105, %1104 ], [ %.pn304, %2235 ], [ %2237, %2236 ], [ %1133, %1132 ], [ %.pn307, %2242 ], [ %2244, %2243 ], [ %1161, %1160 ], [ %.pn310, %2249 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1726) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1785) #24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %167) #24
   br label %2250
 
@@ -13063,9 +13063,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit:
   br label %.body790
 
 .body790:                                         ; preds = %2291, %1305, %2285, %2284, %1277, %2278, %2277, %1249, %2271, %2270, %1221, %2264, %2263, %1193, %2257
-  %.sink1727 = phi ptr [ %190, %2257 ], [ %190, %1193 ], [ %190, %2263 ], [ %193, %2264 ], [ %193, %1221 ], [ %193, %2270 ], [ %196, %2271 ], [ %196, %1249 ], [ %196, %2277 ], [ %199, %2278 ], [ %199, %1277 ], [ %199, %2284 ], [ %202, %2285 ], [ %202, %1305 ], [ %202, %2291 ]
+  %.sink1786 = phi ptr [ %190, %2257 ], [ %190, %1193 ], [ %190, %2263 ], [ %193, %2264 ], [ %193, %1221 ], [ %193, %2270 ], [ %196, %2271 ], [ %196, %1249 ], [ %196, %2277 ], [ %199, %2278 ], [ %199, %1277 ], [ %199, %2284 ], [ %202, %2285 ], [ %202, %1305 ], [ %202, %2291 ]
   %.pn329.pn.pn = phi { ptr, i32 } [ %2258, %2257 ], [ %1194, %1193 ], [ %.pn317, %2263 ], [ %2265, %2264 ], [ %1222, %1221 ], [ %.pn320, %2270 ], [ %2272, %2271 ], [ %1250, %1249 ], [ %.pn323, %2277 ], [ %2279, %2278 ], [ %1278, %1277 ], [ %.pn326, %2284 ], [ %2286, %2285 ], [ %1306, %1305 ], [ %.pn329, %2291 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1727) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1786) #24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %187) #24
   br label %2292
 
@@ -13181,9 +13181,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit:
   br label %.body852
 
 .body852:                                         ; preds = %2326, %1422, %2320, %2319, %1394, %2313, %2312, %1366, %2306, %2305, %1338, %2299
-  %.sink1728 = phi ptr [ %210, %2299 ], [ %210, %1338 ], [ %210, %2305 ], [ %213, %2306 ], [ %213, %1366 ], [ %213, %2312 ], [ %216, %2313 ], [ %216, %1394 ], [ %216, %2319 ], [ %219, %2320 ], [ %219, %1422 ], [ %219, %2326 ]
+  %.sink1787 = phi ptr [ %210, %2299 ], [ %210, %1338 ], [ %210, %2305 ], [ %213, %2306 ], [ %213, %1366 ], [ %213, %2312 ], [ %216, %2313 ], [ %216, %1394 ], [ %216, %2319 ], [ %219, %2320 ], [ %219, %1422 ], [ %219, %2326 ]
   %.pn345.pn.pn = phi { ptr, i32 } [ %2300, %2299 ], [ %1339, %1338 ], [ %.pn336, %2305 ], [ %2307, %2306 ], [ %1367, %1366 ], [ %.pn339, %2312 ], [ %2314, %2313 ], [ %1395, %1394 ], [ %.pn342, %2319 ], [ %2321, %2320 ], [ %1423, %1422 ], [ %.pn345, %2326 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1728) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1787) #24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %207) #24
   br label %2327
 
@@ -13341,9 +13341,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit:
   br label %.body901
 
 .body901:                                         ; preds = %2375, %1595, %2369, %2368, %1567, %2362, %2361, %1539, %2355, %2354, %1511, %2348, %2347, %1483, %2341, %2340, %1455, %2334
-  %.sink1729 = phi ptr [ %227, %2334 ], [ %227, %1455 ], [ %227, %2340 ], [ %230, %2341 ], [ %230, %1483 ], [ %230, %2347 ], [ %233, %2348 ], [ %233, %1511 ], [ %233, %2354 ], [ %236, %2355 ], [ %236, %1539 ], [ %236, %2361 ], [ %239, %2362 ], [ %239, %1567 ], [ %239, %2368 ], [ %242, %2369 ], [ %242, %1595 ], [ %242, %2375 ]
+  %.sink1788 = phi ptr [ %227, %2334 ], [ %227, %1455 ], [ %227, %2340 ], [ %230, %2341 ], [ %230, %1483 ], [ %230, %2347 ], [ %233, %2348 ], [ %233, %1511 ], [ %233, %2354 ], [ %236, %2355 ], [ %236, %1539 ], [ %236, %2361 ], [ %239, %2362 ], [ %239, %1567 ], [ %239, %2368 ], [ %242, %2369 ], [ %242, %1595 ], [ %242, %2375 ]
   %.pn367.pn.pn = phi { ptr, i32 } [ %2335, %2334 ], [ %1456, %1455 ], [ %.pn352, %2340 ], [ %2342, %2341 ], [ %1484, %1483 ], [ %.pn355, %2347 ], [ %2349, %2348 ], [ %1512, %1511 ], [ %.pn358, %2354 ], [ %2356, %2355 ], [ %1540, %1539 ], [ %.pn361, %2361 ], [ %2363, %2362 ], [ %1568, %1567 ], [ %.pn364, %2368 ], [ %2370, %2369 ], [ %1596, %1595 ], [ %.pn367, %2375 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1729) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1788) #24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %224) #24
   br label %2376
 
@@ -13501,9 +13501,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit:
   br label %.body972
 
 .body972:                                         ; preds = %2424, %1768, %2418, %2417, %1740, %2411, %2410, %1712, %2404, %2403, %1684, %2397, %2396, %1656, %2390, %2389, %1628, %2383
-  %.sink1730 = phi ptr [ %250, %2383 ], [ %250, %1628 ], [ %250, %2389 ], [ %253, %2390 ], [ %253, %1656 ], [ %253, %2396 ], [ %256, %2397 ], [ %256, %1684 ], [ %256, %2403 ], [ %259, %2404 ], [ %259, %1712 ], [ %259, %2410 ], [ %262, %2411 ], [ %262, %1740 ], [ %262, %2417 ], [ %265, %2418 ], [ %265, %1768 ], [ %265, %2424 ]
+  %.sink1789 = phi ptr [ %250, %2383 ], [ %250, %1628 ], [ %250, %2389 ], [ %253, %2390 ], [ %253, %1656 ], [ %253, %2396 ], [ %256, %2397 ], [ %256, %1684 ], [ %256, %2403 ], [ %259, %2404 ], [ %259, %1712 ], [ %259, %2410 ], [ %262, %2411 ], [ %262, %1740 ], [ %262, %2417 ], [ %265, %2418 ], [ %265, %1768 ], [ %265, %2424 ]
   %.pn389.pn.pn = phi { ptr, i32 } [ %2384, %2383 ], [ %1629, %1628 ], [ %.pn374, %2389 ], [ %2391, %2390 ], [ %1657, %1656 ], [ %.pn377, %2396 ], [ %2398, %2397 ], [ %1685, %1684 ], [ %.pn380, %2403 ], [ %2405, %2404 ], [ %1713, %1712 ], [ %.pn383, %2410 ], [ %2412, %2411 ], [ %1741, %1740 ], [ %.pn386, %2417 ], [ %2419, %2418 ], [ %1769, %1768 ], [ %.pn389, %2424 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1730) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1789) #24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %247) #24
   br label %2425
 
@@ -13661,9 +13661,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit:
   br label %.body1043
 
 .body1043:                                        ; preds = %2473, %1941, %2467, %2466, %1913, %2460, %2459, %1885, %2453, %2452, %1857, %2446, %2445, %1829, %2439, %2438, %1801, %2432
-  %.sink1731 = phi ptr [ %273, %2432 ], [ %273, %1801 ], [ %273, %2438 ], [ %276, %2439 ], [ %276, %1829 ], [ %276, %2445 ], [ %279, %2446 ], [ %279, %1857 ], [ %279, %2452 ], [ %282, %2453 ], [ %282, %1885 ], [ %282, %2459 ], [ %285, %2460 ], [ %285, %1913 ], [ %285, %2466 ], [ %288, %2467 ], [ %288, %1941 ], [ %288, %2473 ]
+  %.sink1790 = phi ptr [ %273, %2432 ], [ %273, %1801 ], [ %273, %2438 ], [ %276, %2439 ], [ %276, %1829 ], [ %276, %2445 ], [ %279, %2446 ], [ %279, %1857 ], [ %279, %2452 ], [ %282, %2453 ], [ %282, %1885 ], [ %282, %2459 ], [ %285, %2460 ], [ %285, %1913 ], [ %285, %2466 ], [ %288, %2467 ], [ %288, %1941 ], [ %288, %2473 ]
   %.pn411.pn.pn = phi { ptr, i32 } [ %2433, %2432 ], [ %1802, %1801 ], [ %.pn396, %2438 ], [ %2440, %2439 ], [ %1830, %1829 ], [ %.pn399, %2445 ], [ %2447, %2446 ], [ %1858, %1857 ], [ %.pn402, %2452 ], [ %2454, %2453 ], [ %1886, %1885 ], [ %.pn405, %2459 ], [ %2461, %2460 ], [ %1914, %1913 ], [ %.pn408, %2466 ], [ %2468, %2467 ], [ %1942, %1941 ], [ %.pn411, %2473 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1731) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1790) #24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %270) #24
   br label %2474
 
@@ -18275,11 +18275,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit662: ;
   %647 = atomicrmw add ptr %646, i32 2 monotonic, align 4
   %648 = and i32 %647, 1
   %.not1.i.i664 = icmp eq i32 %648, 0
-  %spec.select1133 = select i1 %.not1.i.i664, i64 %645, i64 %642
+  %spec.select1239 = select i1 %.not1.i.i664, i64 %645, i64 %642
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit665
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit665: ; preds = %644, %640
-  %.sroa.0.0 = phi i64 [ %642, %640 ], [ %spec.select1133, %644 ]
+  %.sroa.0.0 = phi i64 [ %642, %640 ], [ %spec.select1239, %644 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
   %649 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #27
           to label %.noexc3.i668 unwind label %665
@@ -23273,7 +23273,7 @@ _ZSt10_ConstructISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourc
   br label %_ZSt10_ConstructISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
 
 _ZSt10_ConstructISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i: ; preds = %377, %374, %.lr.ph.i.i.i.i.i.split.i.i
-  %379 = add i64 %.068.i.i.i.i.i.i.i, -1
+  %379 = add nsw i64 %.068.i.i.i.i.i.i.i, -1
   %380 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq i64 %379, 0
   %.pre49.i = load ptr, ptr %353, align 8, !noalias !53
@@ -23798,8 +23798,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_46HdMaterialBindingsSche
 
 606:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_46HdMaterialBindingsSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
   %607 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.not75.i = icmp eq ptr %598, %599
-  br i1 %.not75.i, label %.thread, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_allocateEm.exit.i.i
+  %.not97.i = icmp eq ptr %598, %599
+  br i1 %.not97.i, label %.thread, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_allocateEm.exit.i.i
 
 .thread:                                          ; preds = %606
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !noalias !64
@@ -33195,9 +33195,9 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_ts
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTISt12length_error, ptr nonnull @_ZNSt12length_errorD1Ev) #26
   unreachable
 
-common.resume:                                    ; preds = %33, %12
-  %.sink = phi ptr [ %31, %33 ], [ %10, %12 ]
-  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %13, %12 ]
+common.resume:                                    ; preds = %31, %12
+  %.sink = phi ptr [ %29, %31 ], [ %10, %12 ]
+  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %13, %12 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #24
   resume { ptr, i32 } %common.resume.op
 
@@ -33208,153 +33208,143 @@ common.resume:                                    ; preds = %33, %12
 
 14:                                               ; preds = %7
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_ISt10unique_ptrINS0_19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEELb1EEESaISO_EE17_S_check_init_lenEmRKSP_.exit.i.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i
-
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_ISt10unique_ptrINS0_19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEELb1EEESaISO_EE17_S_check_init_lenEmRKSP_.exit.i.thread: ; preds = %14
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  br label %43
+  br i1 %.not.i, label %42, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; preds = %14
-  %16 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
-  %17 = icmp samesign ult i64 %16, 2
-  br i1 %17, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit, label %18
+  %15 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
+  %16 = icmp samesign ult i64 %15, 2
+  br i1 %16, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit, label %17
 
-18:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i
-  %19 = add i64 %1, -1
-  br label %20
+17:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i
+  %18 = add i64 %1, -1
+  br label %19
 
-20:                                               ; preds = %20, %18
-  %.015.i.i = phi i64 [ 1, %18 ], [ %23, %20 ]
-  %.01114.i.i = phi i64 [ %19, %18 ], [ %22, %20 ]
-  %21 = lshr i64 %.01114.i.i, %.015.i.i
-  %22 = or i64 %21, %.01114.i.i
-  %23 = shl nuw nsw i64 %.015.i.i, 1
-  %24 = icmp samesign ult i64 %.015.i.i, 32
-  br i1 %24, label %20, label %25, !llvm.loop !165
+19:                                               ; preds = %19, %17
+  %.015.i.i = phi i64 [ 1, %17 ], [ %22, %19 ]
+  %.01114.i.i = phi i64 [ %18, %17 ], [ %21, %19 ]
+  %20 = lshr i64 %.01114.i.i, %.015.i.i
+  %21 = or i64 %20, %.01114.i.i
+  %22 = shl nuw nsw i64 %.015.i.i, 1
+  %23 = icmp samesign ult i64 %.015.i.i, 32
+  br i1 %23, label %19, label %24, !llvm.loop !165
 
-25:                                               ; preds = %20
-  %26 = add i64 %22, 1
+24:                                               ; preds = %19
+  %25 = add nuw i64 %21, 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i, %25
-  %.012.i.i = phi i64 [ %26, %25 ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i ]
-  %27 = add i64 %.012.i.i, -1
-  store i64 %27, ptr %0, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = icmp ugt i64 %.012.i.i, 144115188075855871
-  br i1 %29, label %30, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_ISt10unique_ptrINS0_19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEELb1EEESaISO_EE17_S_check_init_lenEmRKSP_.exit.i
+_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i, %24
+  %.012.i.i = phi i64 [ %25, %24 ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i ]
+  %26 = add i64 %.012.i.i, -1
+  store i64 %26, ptr %0, align 8
+  %27 = icmp ugt i64 %.012.i.i, 144115188075855871
+  br i1 %27, label %28, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS0_19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISI_EESaISL_EEELb1EEESaISP_EEC2EmRKSQ_.exit.i
 
-30:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit
-  %31 = tail call ptr @__cxa_allocate_exception(i64 16) #24
-  invoke void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull @.str.122)
-          to label %32 unwind label %33
+28:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit
+  %29 = tail call ptr @__cxa_allocate_exception(i64 16) #24
+  invoke void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull @.str.122)
+          to label %30 unwind label %31
 
-32:                                               ; preds = %30
-  tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTISt12length_error, ptr nonnull @_ZNSt12length_errorD1Ev) #26
+30:                                               ; preds = %28
+  tail call void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTISt12length_error, ptr nonnull @_ZNSt12length_errorD1Ev) #26
   unreachable
 
-33:                                               ; preds = %30
-  %34 = landingpad { ptr, i32 }
+31:                                               ; preds = %28
+  %32 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_ISt10unique_ptrINS0_19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEELb1EEESaISO_EE17_S_check_init_lenEmRKSP_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i = icmp eq i64 %.012.i.i, 0
-  br i1 %.not.i.i.i.i, label %43, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS0_19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISI_EESaISL_EEELb1EEESaISP_EEC2EmRKSQ_.exit.i
-
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS0_19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISI_EESaISL_EEELb1EEESaISP_EEC2EmRKSQ_.exit.i: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_ISt10unique_ptrINS0_19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEELb1EEESaISO_EE17_S_check_init_lenEmRKSP_.exit.i
-  %35 = shl nuw nsw i64 %.012.i.i, 6
-  %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #27
-  store ptr %36, ptr %28, align 8
-  %37 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry", ptr %36, i64 %.012.i.i
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %37, ptr %38, align 8
+_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS0_19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISI_EESaISL_EEELb1EEESaISP_EEC2EmRKSQ_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
+  %34 = shl nuw nsw i64 %.012.i.i, 6
+  %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #27
+  store ptr %35, ptr %33, align 8
+  %36 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry", ptr %35, i64 %.012.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %36, ptr %37, align 8
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS0_19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISI_EESaISL_EEELb1EEESaISP_EEC2EmRKSQ_.exit.i
-  %.08.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i ], [ %36, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS0_19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISI_EESaISL_EEELb1EEESaISP_EEC2EmRKSQ_.exit.i ]
-  %.057.i.i.i.i.i = phi i64 [ %41, %.lr.ph.i.i.i.i.i ], [ %.012.i.i, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS0_19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISI_EESaISL_EEELb1EEESaISP_EEC2EmRKSQ_.exit.i ]
+  %.08.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i ], [ %35, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS0_19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISI_EESaISL_EEELb1EEESaISP_EEC2EmRKSQ_.exit.i ]
+  %.057.i.i.i.i.i = phi i64 [ %40, %.lr.ph.i.i.i.i.i ], [ %.012.i.i, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS0_19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISI_EESaISL_EEELb1EEESaISP_EEC2EmRKSQ_.exit.i ]
   store i32 0, ptr %.08.i.i.i.i.i, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 4
-  store i16 -1, ptr %39, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 6
-  store i8 0, ptr %40, align 2
-  %41 = add i64 %.057.i.i.i.i.i, -1
-  %42 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 64
-  %.not.i.i.i.i.i = icmp eq i64 %41, 0
-  br i1 %.not.i.i.i.i.i, label %55, label %.lr.ph.i.i.i.i.i, !llvm.loop !166
+  %38 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 4
+  store i16 -1, ptr %38, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 6
+  store i8 0, ptr %39, align 2
+  %40 = add i64 %.057.i.i.i.i.i, -1
+  %41 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 64
+  %.not.i.i.i.i.i = icmp eq i64 %40, 0
+  br i1 %.not.i.i.i.i.i, label %53, label %.lr.ph.i.i.i.i.i, !llvm.loop !166
 
-43:                                               ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_ISt10unique_ptrINS0_19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEELb1EEESaISO_EE17_S_check_init_lenEmRKSP_.exit.i, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_ISt10unique_ptrINS0_19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEELb1EEESaISO_EE17_S_check_init_lenEmRKSP_.exit.i.thread
-  %44 = phi ptr [ %15, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_ISt10unique_ptrINS0_19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEELb1EEESaISO_EE17_S_check_init_lenEmRKSP_.exit.i.thread ], [ %28, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_ISt10unique_ptrINS0_19SdfPredicateLibraryIRKNS0_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEELb1EEESaISO_EE17_S_check_init_lenEmRKSP_.exit.i ]
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
-  %46 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEvE12empty_bucketB5cxx11 acquire, align 8
-  %47 = icmp eq i8 %46, 0
-  br i1 %47, label %48, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEv.exit.thread, !prof !98
+42:                                               ; preds = %14
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
+  %44 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEvE12empty_bucketB5cxx11 acquire, align 8
+  %45 = icmp eq i8 %44, 0
+  br i1 %45, label %46, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEv.exit.thread, !prof !98
 
-48:                                               ; preds = %43
-  %49 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEvE12empty_bucketB5cxx11) #24
-  %.not.i8 = icmp eq i32 %49, 0
-  br i1 %.not.i8, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEv.exit.thread, label %50
+46:                                               ; preds = %42
+  %47 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEvE12empty_bucketB5cxx11) #24
+  %.not.i8 = icmp eq i32 %47, 0
+  br i1 %.not.i8, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEv.exit.thread, label %48
 
-50:                                               ; preds = %48
+48:                                               ; preds = %46
   store i32 0, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEvE12empty_bucketB5cxx11, align 8
   store i16 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEvE12empty_bucketB5cxx11, i64 4), align 4
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEvE12empty_bucketB5cxx11, i64 6), align 2
-  %51 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEELb1EED2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEvE12empty_bucketB5cxx11, ptr nonnull @__dso_handle) #24
+  %49 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEELb1EED2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEvE12empty_bucketB5cxx11, ptr nonnull @__dso_handle) #24
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEvE12empty_bucketB5cxx11) #24
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEv.exit.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEv.exit.thread: ; preds = %43, %48, %50
-  store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEvE12empty_bucketB5cxx11, ptr %45, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 0, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  store i8 0, ptr %54, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
-  br label %65
+_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEv.exit.thread: ; preds = %48, %46, %42
+  store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEvE12empty_bucketB5cxx11, ptr %43, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i8 0, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  store i8 0, ptr %52, align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
+  br label %63
 
-55:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %42, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %36, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.012.i.i, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 0, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  store i8 0, ptr %61, align 1
-  %62 = load ptr, ptr %56, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 -58
-  store i8 1, ptr %63, align 2
-  %.pre = load i64, ptr %58, align 8
-  %64 = uitofp i64 %.pre to float
-  br label %65
+53:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %41, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %35, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %.012.i.i, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 0, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i8 0, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  store i8 0, ptr %59, align 1
+  %60 = load ptr, ptr %54, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 -58
+  store i8 1, ptr %61, align 2
+  %.pre = load i64, ptr %56, align 8
+  %62 = uitofp i64 %.pre to float
+  br label %63
 
-65:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEv.exit.thread, %55
-  %66 = phi float [ %64, %55 ], [ 0.000000e+00, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEv.exit.thread ]
-  %67 = fcmp ogt float %5, 0.000000e+00
-  %68 = select i1 %67, float %5, float 0.000000e+00
-  %69 = fcmp olt float %68, 0x3FC3333340000000
-  %.sroa.speculated.i = select i1 %69, float %68, float 0x3FC3333340000000
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store float %.sroa.speculated.i, ptr %70, align 8
-  %71 = fcmp ogt float %6, 0x3FC99999A0000000
-  %72 = select i1 %71, float %6, float 0x3FC99999A0000000
-  %73 = fcmp olt float %72, 0x3FEE666660000000
-  %.sroa.speculated.i9 = select i1 %73, float %72, float 0x3FEE666660000000
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store float %.sroa.speculated.i9, ptr %74, align 4
-  %75 = fmul float %.sroa.speculated.i9, %66
-  %76 = fptoui float %75 to i64
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %76, ptr %77, align 8
+63:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEv.exit.thread, %53
+  %64 = phi float [ %62, %53 ], [ 0.000000e+00, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseESt14default_deleteISH_EESaISK_EEENS0_9robin_mapIS9_SM_St4hashIS9_ESt8equal_toIS9_ESaISN_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSX_11ValueSelectESQ_SS_ST_Lb0ESW_E23static_empty_bucket_ptrEv.exit.thread ]
+  %65 = fcmp ogt float %5, 0.000000e+00
+  %66 = select i1 %65, float %5, float 0.000000e+00
+  %67 = fcmp olt float %66, 0x3FC3333340000000
+  %.sroa.speculated.i = select i1 %67, float %66, float 0x3FC3333340000000
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store float %.sroa.speculated.i, ptr %68, align 8
+  %69 = fcmp ogt float %6, 0x3FC99999A0000000
+  %70 = select i1 %69, float %6, float 0x3FC99999A0000000
+  %71 = fcmp olt float %70, 0x3FEE666660000000
+  %.sroa.speculated.i9 = select i1 %71, float %70, float 0x3FEE666660000000
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store float %.sroa.speculated.i9, ptr %72, align 4
+  %73 = fmul float %.sroa.speculated.i9, %64
+  %74 = fptoui float %73 to i64
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %74, ptr %75, align 8
   ret void
 }
 

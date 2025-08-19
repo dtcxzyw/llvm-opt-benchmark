@@ -2420,15 +2420,15 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit77: ; preds = %113, %.noexc126,
   %150 = icmp eq i32 %149, 1
   %151 = icmp eq i32 %149, %97
   %or.cond = select i1 %150, i1 true, i1 %151
-  br i1 %or.cond, label %.thread186, label %.invoke211
+  br i1 %or.cond, label %.thread186, label %.invoke231
 
-.invoke211:                                       ; preds = %172, %.thread184, %162, %164, %148
+.invoke231:                                       ; preds = %172, %.thread184, %162, %164, %148
   %152 = phi i32 [ %149, %148 ], [ %155, %164 ], [ %155, %162 ], [ %166, %.thread184 ], [ %166, %172 ]
   %153 = phi ptr [ @_ZZNK2cv3dnn13GemmLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__80, %148 ], [ @_ZZNK2cv3dnn13GemmLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__87, %164 ], [ @_ZZNK2cv3dnn13GemmLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__87, %162 ], [ @_ZZNK2cv3dnn13GemmLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__89, %.thread184 ], [ @_ZZNK2cv3dnn13GemmLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__91, %172 ]
   invoke void @_ZN2cv6detail17check_failed_autoEiRKNS0_12CheckContextE(i32 noundef %152, ptr noundef nonnull align 8 dereferenceable(48) %153) #25
-          to label %.cont212 unwind label %.thread194
+          to label %.cont232 unwind label %.thread194
 
-.cont212:                                         ; preds = %.invoke211
+.cont232:                                         ; preds = %.invoke231
   unreachable
 
 154:                                              ; preds = %145
@@ -2441,20 +2441,20 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit77: ; preds = %113, %.noexc126,
   %159 = load i32, ptr %158, align 4, !tbaa !85
   %160 = icmp eq i32 %159, 1
   %161 = icmp eq i32 %159, %97
-  %or.cond209 = select i1 %160, i1 true, i1 %161
-  br i1 %or.cond209, label %.thread186, label %162
+  %or.cond229 = select i1 %160, i1 true, i1 %161
+  br i1 %or.cond229, label %.thread186, label %162
 
 162:                                              ; preds = %157, %154
   %163 = icmp eq i32 %155, %93
-  br i1 %163, label %164, label %.invoke211
+  br i1 %163, label %164, label %.invoke231
 
 164:                                              ; preds = %162
   %165 = getelementptr inbounds nuw i8, ptr %.sroa.0130.0, i64 4
   %166 = load i32, ptr %165, align 4, !tbaa !85
   %167 = icmp eq i32 %166, 1
   %168 = icmp eq i32 %166, %97
-  %or.cond210 = select i1 %167, i1 true, i1 %168
-  br i1 %or.cond210, label %169, label %.invoke211
+  %or.cond230 = select i1 %167, i1 true, i1 %168
+  br i1 %or.cond230, label %169, label %.invoke231
 
 169:                                              ; preds = %164
   br i1 %156, label %.thread184, label %172
@@ -2463,12 +2463,12 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit77: ; preds = %113, %.noexc126,
   %170 = icmp eq i32 %166, 1
   %171 = icmp eq i32 %166, %97
   %or.cond202 = select i1 %170, i1 true, i1 %171
-  br i1 %or.cond202, label %.thread186, label %.invoke211
+  br i1 %or.cond202, label %.thread186, label %.invoke231
 
 172:                                              ; preds = %169
   %173 = icmp eq i32 %166, %97
   %or.cond203 = select i1 %167, i1 true, i1 %173
-  br i1 %or.cond203, label %.thread186, label %.invoke211
+  br i1 %or.cond203, label %.thread186, label %.invoke231
 
 174:                                              ; preds = %145
   %.not.i.i.i = icmp eq ptr %.sroa.0130.0, null
@@ -2478,7 +2478,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit77: ; preds = %113, %.noexc126,
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0130.0) #22
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-.thread194:                                       ; preds = %.invoke211
+.thread194:                                       ; preds = %.invoke231
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %176
@@ -3316,7 +3316,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %_ZNSt6vectorIfSaIf
 .lr.ph.us87:                                      ; preds = %.lr.ph.us87.preheader, %._crit_edge.us88
   %indvars.iv106 = phi i64 [ 0, %.lr.ph.us87.preheader ], [ %indvars.iv.next107, %._crit_edge.us88 ]
   %71 = mul nuw nsw i64 %indvars.iv106, %70
-  %invariant.gep120 = getelementptr inbounds nuw float, ptr %69, i64 %71
+  %invariant.gep131 = getelementptr inbounds nuw float, ptr %69, i64 %71
   br label %72
 
 72:                                               ; preds = %.lr.ph.us87, %72
@@ -3325,8 +3325,8 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %_ZNSt6vectorIfSaIf
   %74 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv101
   %75 = load float, ptr %74, align 4, !tbaa !118
   %76 = fmul float %73, %75
-  %gep121 = getelementptr inbounds nuw float, ptr %invariant.gep120, i64 %indvars.iv101
-  store float %76, ptr %gep121, align 4, !tbaa !118
+  %gep132 = getelementptr inbounds nuw float, ptr %invariant.gep131, i64 %indvars.iv101
+  store float %76, ptr %gep132, align 4, !tbaa !118
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next102, %70
   br i1 %exitcond105.not, label %._crit_edge.us88, label %72, !llvm.loop !120

@@ -156,8 +156,8 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %16
   br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph.split
-  %.not53 = icmp eq i32 %spec.select, 0
-  br i1 %.not53, label %._crit_edge.thread, label %63
+  %.not59 = icmp eq i32 %spec.select, 0
+  br i1 %.not59, label %._crit_edge.thread, label %63
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.03143 = phi i32 [ %spec.select, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -743,9 +743,9 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
   %27 = getelementptr inbounds nuw i8, ptr %.057, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !61
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.thread62, label %31
+  br i1 %29, label %.thread64, label %31
 
-.thread62:                                        ; preds = %26
+.thread64:                                        ; preds = %26
   tail call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.14, ptr noundef nonnull %12) #20
   store i32 18, ptr %2, align 8, !tbaa !56
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -759,9 +759,9 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
   %33 = icmp eq i32 %15, 18
   br i1 %33, label %34, label %.thread
 
-34:                                               ; preds = %.thread62, %31
-  %.264 = phi ptr [ getelementptr inbounds nuw (i8, ptr @adjustMode, i64 24), %.thread62 ], [ %.057, %31 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.264, i64 8
+34:                                               ; preds = %.thread64, %31
+  %.266 = phi ptr [ getelementptr inbounds nuw (i8, ptr @adjustMode, i64 24), %.thread64 ], [ %.057, %31 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.266, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !62
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #24
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 %37
@@ -789,7 +789,7 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not, label %.thread, label %.preheader
 
 .thread:                                          ; preds = %47, %31, %34
-  %.1 = phi ptr [ %.264, %34 ], [ %.057, %31 ], [ getelementptr inbounds nuw (i8, ptr @adjustMode, i64 408), %47 ]
+  %.1 = phi ptr [ %.266, %34 ], [ %.057, %31 ], [ getelementptr inbounds nuw (i8, ptr @adjustMode, i64 408), %47 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !62
   %53 = icmp eq ptr %52, null
@@ -1352,14 +1352,14 @@ geomUpdate.exit.i:                                ; preds = %._crit_edge.loopexi
   br label %236
 
 236:                                              ; preds = %408, %geomUpdate.exit.i
-  %.sink128 = phi ptr [ %413, %408 ], [ %235, %geomUpdate.exit.i ]
+  %.sink151 = phi ptr [ %413, %408 ], [ %235, %geomUpdate.exit.i ]
   %.sink = phi double [ %409, %408 ], [ %231, %geomUpdate.exit.i ]
   %.042.i = phi i1 [ true, %408 ], [ false, %geomUpdate.exit.i ]
   %.040.i = phi i32 [ %379, %408 ], [ %195, %geomUpdate.exit.i ]
   %.037.i = phi i32 [ %.239.i, %408 ], [ 0, %geomUpdate.exit.i ]
   %.036.i = phi i32 [ %.2.i, %408 ], [ 0, %geomUpdate.exit.i ]
   %.035.i = phi i32 [ %378, %408 ], [ 0, %geomUpdate.exit.i ]
-  %237 = getelementptr i8, ptr %.sink128, i64 -8
+  %237 = getelementptr i8, ptr %.sink151, i64 -8
   %238 = load ptr, ptr %237, align 8, !tbaa !106
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %240 = load double, ptr %239, align 8, !tbaa !110
@@ -2300,10 +2300,10 @@ parseFactor.exit:                                 ; preds = %15, %.loopexit21
   %20 = fadd double %18, 1.000000e+00
   %21 = fadd double %19, 1.000000e+00
   %.sink = select i1 %17, double %18, double %20
-  %.sink38.i = select i1 %17, double %19, double %21
+  %.sink40.i = select i1 %17, double %19, double %21
   store double %.sink, ptr %0, align 8, !tbaa !74
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.sink38.i, ptr %22, align 8, !tbaa !75
+  store double %.sink40.i, ptr %22, align 8, !tbaa !75
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %50
@@ -2377,10 +2377,10 @@ parseFactor.exit15.thread:                        ; preds = %.loopexit
 
 parseFactor.exit15:                               ; preds = %40, %43
   %.sink26 = phi double [ %41, %40 ], [ %44, %43 ]
-  %.sink38.i13 = phi double [ %42, %40 ], [ %45, %43 ]
+  %.sink40.i13 = phi double [ %42, %40 ], [ %45, %43 ]
   store double %.sink26, ptr %0, align 8, !tbaa !74
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.sink38.i13, ptr %46, align 8, !tbaa !75
+  store double %.sink40.i13, ptr %46, align 8, !tbaa !75
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %50
@@ -2394,7 +2394,7 @@ parseFactor.exit15:                               ; preds = %40, %43
   br label %50
 
 50:                                               ; preds = %parseFactor.exit15, %parseFactor.exit, %47
-  %51 = phi double [ %.sink38.i13, %parseFactor.exit15 ], [ %.sink38.i, %parseFactor.exit ], [ 4.000000e+00, %47 ]
+  %51 = phi double [ %.sink40.i13, %parseFactor.exit15 ], [ %.sink40.i, %parseFactor.exit ], [ 4.000000e+00, %47 ]
   %52 = phi double [ %.sink26, %parseFactor.exit15 ], [ %.sink, %parseFactor.exit ], [ 4.000000e+00, %47 ]
   %53 = phi i8 [ %.sink.i10, %parseFactor.exit15 ], [ %.sink.i, %parseFactor.exit ], [ 1, %47 ]
   %54 = load i8, ptr @Verbose, align 1, !tbaa !48
@@ -2472,10 +2472,10 @@ parseFactor.exit:                                 ; preds = %15, %.loopexit21
   %20 = fadd double %18, 1.000000e+00
   %21 = fadd double %19, 1.000000e+00
   %.sink = select i1 %17, double %18, double %20
-  %.sink38.i = select i1 %17, double %19, double %21
+  %.sink40.i = select i1 %17, double %19, double %21
   store double %.sink, ptr %0, align 8, !tbaa !74
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.sink38.i, ptr %22, align 8, !tbaa !75
+  store double %.sink40.i, ptr %22, align 8, !tbaa !75
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %50
@@ -2549,10 +2549,10 @@ parseFactor.exit15.thread:                        ; preds = %.loopexit
 
 parseFactor.exit15:                               ; preds = %40, %43
   %.sink26 = phi double [ %41, %40 ], [ %44, %43 ]
-  %.sink38.i13 = phi double [ %42, %40 ], [ %45, %43 ]
+  %.sink40.i13 = phi double [ %42, %40 ], [ %45, %43 ]
   store double %.sink26, ptr %0, align 8, !tbaa !74
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.sink38.i13, ptr %46, align 8, !tbaa !75
+  store double %.sink40.i13, ptr %46, align 8, !tbaa !75
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %50
@@ -2566,7 +2566,7 @@ parseFactor.exit15:                               ; preds = %40, %43
   br label %50
 
 50:                                               ; preds = %parseFactor.exit15, %parseFactor.exit, %47
-  %51 = phi double [ %.sink38.i13, %parseFactor.exit15 ], [ %.sink38.i, %parseFactor.exit ], [ 3.200000e+00, %47 ]
+  %51 = phi double [ %.sink40.i13, %parseFactor.exit15 ], [ %.sink40.i, %parseFactor.exit ], [ 3.200000e+00, %47 ]
   %52 = phi double [ %.sink26, %parseFactor.exit15 ], [ %.sink, %parseFactor.exit ], [ 3.200000e+00, %47 ]
   %53 = phi i8 [ %.sink.i10, %parseFactor.exit15 ], [ %.sink.i, %parseFactor.exit ], [ 1, %47 ]
   %54 = load i8, ptr @Verbose, align 1, !tbaa !48
@@ -2805,7 +2805,7 @@ define internal fastcc void @rmEquality(ptr noundef nonnull captures(none) %0) u
   br i1 %31, label %.lr.ph, label %.lr.ph67.preheader, !llvm.loop !150
 
 split:                                            ; preds = %.lr.ph
-  %.05564.ptr.ptr86 = getelementptr inbounds nuw i8, ptr %.071, i64 %.05564.idx
+  %.05564.ptr.ptr92 = getelementptr inbounds nuw i8, ptr %.071, i64 %.05564.idx
   %32 = fcmp oeq double %27, %19
   br i1 %32, label %.lr.ph70.preheader, label %.lr.ph67.preheader
 
@@ -2825,7 +2825,7 @@ split:                                            ; preds = %.lr.ph
   store double %39, ptr %37, align 8, !tbaa !108
   %40 = add nuw nsw i32 %.05269, 1
   %41 = getelementptr inbounds nuw i8, ptr %.05368, i64 8
-  %42 = icmp ult ptr %41, %.05564.ptr.ptr86
+  %42 = icmp ult ptr %41, %.05564.ptr.ptr92
   br i1 %42, label %.lr.ph70, label %.loopexit, !llvm.loop !151
 
 .lr.ph67.preheader:                               ; preds = %29, %split, %21
@@ -2863,7 +2863,7 @@ split:                                            ; preds = %.lr.ph
   br i1 %65, label %.lr.ph67, label %.loopexit, !llvm.loop !155
 
 .loopexit:                                        ; preds = %.lr.ph70, %.lr.ph67, %7, %9, %15
-  %.1 = phi ptr [ %8, %15 ], [ %8, %9 ], [ %8, %7 ], [ %.05561.ptr, %.lr.ph67 ], [ %.05564.ptr.ptr86, %.lr.ph70 ]
+  %.1 = phi ptr [ %8, %15 ], [ %8, %9 ], [ %8, %7 ], [ %.05561.ptr, %.lr.ph67 ], [ %.05564.ptr.ptr92, %.lr.ph70 ]
   %66 = icmp ult ptr %.1, %4
   br i1 %66, label %7, label %._crit_edge
 }

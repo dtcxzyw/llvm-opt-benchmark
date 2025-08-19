@@ -2993,7 +2993,7 @@ define dso_local void @ata_eh_analyze_ncq_error(ptr noundef %0) #1 align 16 {
   %177 = or i32 %176, 1025
   store i32 %177, ptr %175, align 4
   %178 = icmp eq i32 %.ph, 0
-  br i1 %178, label %.preheader5, label %179
+  br i1 %178, label %.preheader8, label %179
 
 179:                                              ; preds = %156
   %180 = lshr i32 %.ph, 16
@@ -3002,7 +3002,7 @@ define dso_local void @ata_eh_analyze_ncq_error(ptr noundef %0) #1 align 16 {
   %183 = trunc i32 %182 to i8
   %184 = trunc i32 %.ph to i8
   %185 = tail call zeroext i1 @ata_scsi_sense_is_valid(i8 noundef zeroext %181, i8 noundef zeroext %183, i8 noundef zeroext %184) #11
-  br i1 %185, label %186, label %.preheader5
+  br i1 %185, label %186, label %.preheader8
 
 186:                                              ; preds = %179
   %187 = getelementptr inbounds nuw i8, ptr %158, i64 16
@@ -3014,13 +3014,13 @@ define dso_local void @ata_eh_analyze_ncq_error(ptr noundef %0) #1 align 16 {
   %191 = load i64, ptr %190, align 8
   %192 = or i64 %191, 131072
   store i64 %192, ptr %190, align 8
-  br label %.preheader5
+  br label %.preheader8
 
-.preheader5:                                      ; preds = %186, %179, %156
+.preheader8:                                      ; preds = %186, %179, %156
   br label %193
 
-193:                                              ; preds = %.preheader5, %216
-  %194 = phi i64 [ %217, %216 ], [ 0, %.preheader5 ]
+193:                                              ; preds = %.preheader8, %216
+  %194 = phi i64 [ %217, %216 ], [ 0, %.preheader8 ]
   %195 = getelementptr [33 x %struct.ata_queued_cmd], ptr %18, i64 0, i64 %194
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 80
   %197 = load i64, ptr %196, align 8

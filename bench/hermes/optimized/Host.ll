@@ -639,8 +639,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %Implementer.sroa.0.0882 = phi ptr [ null, %for.body.lr.ph ], [ %Implementer.sroa.0.1927, %for.inc ]
-  %Implementer.sroa.7.0881 = phi i64 [ 0, %for.body.lr.ph ], [ %Implementer.sroa.7.1925, %for.inc ]
+  %Implementer.sroa.0.0882 = phi ptr [ null, %for.body.lr.ph ], [ %Implementer.sroa.0.1938, %for.inc ]
+  %Implementer.sroa.7.0881 = phi i64 [ 0, %for.body.lr.ph ], [ %Implementer.sroa.7.1936, %for.inc ]
   %Hardware.sroa.0.0880 = phi ptr [ null, %for.body.lr.ph ], [ %Hardware.sroa.0.1, %for.inc ]
   %Hardware.sroa.4.0879 = phi i64 [ 0, %for.body.lr.ph ], [ %Hardware.sroa.4.1, %for.inc ]
   %5 = load ptr, ptr %Lines, align 8
@@ -681,8 +681,8 @@ if.end:                                           ; preds = %for.body, %if.then
   br i1 %cmp.i1035, label %if.end.i1435, label %for.inc
 
 if.end.i1435:                                     ; preds = %if.end.i1426, %if.end
-  %Implementer.sroa.0.1928 = phi ptr [ %Implementer.sroa.0.1, %if.end ], [ %Implementer.sroa.0.0882, %if.end.i1426 ]
-  %Implementer.sroa.7.1926 = phi i64 [ %Implementer.sroa.7.1, %if.end ], [ %Implementer.sroa.7.0881, %if.end.i1426 ]
+  %Implementer.sroa.0.1939 = phi ptr [ %Implementer.sroa.0.1, %if.end ], [ %Implementer.sroa.0.0882, %if.end.i1426 ]
+  %Implementer.sroa.7.1937 = phi i64 [ %Implementer.sroa.7.1, %if.end ], [ %Implementer.sroa.7.0881, %if.end.i1426 ]
   %13 = phi ptr [ %12, %if.end ], [ %5, %if.end.i1426 ]
   %14 = phi i64 [ %11, %if.end ], [ %6, %if.end.i1426 ]
   %arrayidx.i993 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %13, i64 %indvars.iv
@@ -705,8 +705,8 @@ if.then15:                                        ; preds = %if.end.i1435
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.i1435, %if.then15, %if.end
-  %Implementer.sroa.0.1927 = phi ptr [ %Implementer.sroa.0.1928, %if.then15 ], [ %Implementer.sroa.0.1928, %if.end.i1435 ], [ %Implementer.sroa.0.1, %if.end ]
-  %Implementer.sroa.7.1925 = phi i64 [ %Implementer.sroa.7.1926, %if.then15 ], [ %Implementer.sroa.7.1926, %if.end.i1435 ], [ %Implementer.sroa.7.1, %if.end ]
+  %Implementer.sroa.0.1938 = phi ptr [ %Implementer.sroa.0.1939, %if.then15 ], [ %Implementer.sroa.0.1939, %if.end.i1435 ], [ %Implementer.sroa.0.1, %if.end ]
+  %Implementer.sroa.7.1936 = phi i64 [ %Implementer.sroa.7.1937, %if.then15 ], [ %Implementer.sroa.7.1937, %if.end.i1435 ], [ %Implementer.sroa.7.1, %if.end ]
   %Hardware.sroa.4.1 = phi i64 [ %sub.i.i.i308, %if.then15 ], [ %Hardware.sroa.4.0879, %if.end.i1435 ], [ %Hardware.sroa.4.0879, %if.end ]
   %Hardware.sroa.0.1 = phi ptr [ %add.ptr.i.i.i307, %if.then15 ], [ %Hardware.sroa.0.0880, %if.end.i1435 ], [ %Hardware.sroa.0.0880, %if.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -714,11 +714,11 @@ for.inc:                                          ; preds = %if.end.i1435, %if.t
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc
-  %19 = icmp eq i64 %Implementer.sroa.7.1925, 4
+  %19 = icmp eq i64 %Implementer.sroa.7.1936, 4
   br i1 %19, label %if.end.i.i, label %cleanup
 
 if.end.i.i:                                       ; preds = %for.end
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %Implementer.sroa.0.1927, ptr noundef nonnull dereferenceable(4) @.str.34, i64 4)
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %Implementer.sroa.0.1938, ptr noundef nonnull dereferenceable(4) @.str.34, i64 4)
   %20 = icmp eq i32 %bcmp, 0
   br i1 %20, label %_ZN4llvh9StringRefC2EPKc.exit285, label %if.end.i.i1490
 
@@ -869,12 +869,12 @@ for.inc88:                                        ; preds = %if.end.i1444, %for.
   br i1 %cmp39.not, label %if.end.i.i1490, label %for.body40, !llvm.loop !11
 
 if.end.i.i1490:                                   ; preds = %for.inc88, %if.end33, %if.end.i.i
-  %bcmp256 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %Implementer.sroa.0.1927, ptr noundef nonnull dereferenceable(4) @.str.70, i64 4)
+  %bcmp256 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %Implementer.sroa.0.1938, ptr noundef nonnull dereferenceable(4) @.str.70, i64 4)
   %48 = icmp eq i32 %bcmp256, 0
   br i1 %48, label %if.then99, label %if.end.i.i1509
 
 if.end.i.i1509:                                   ; preds = %if.end.i.i1490
-  %bcmp257 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %Implementer.sroa.0.1927, ptr noundef nonnull dereferenceable(4) @.str.71, i64 4)
+  %bcmp257 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %Implementer.sroa.0.1938, ptr noundef nonnull dereferenceable(4) @.str.71, i64 4)
   %49 = icmp eq i32 %bcmp257, 0
   br i1 %49, label %if.then99, label %if.end.i.i1528
 
@@ -964,7 +964,7 @@ for.inc134:                                       ; preds = %if.end.i1453, %for.
   br i1 %cmp105.not, label %if.end.i.i1528, label %for.body106, !llvm.loop !12
 
 if.end.i.i1528:                                   ; preds = %for.inc134, %if.then99, %if.end.i.i1509
-  %bcmp258 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %Implementer.sroa.0.1927, ptr noundef nonnull dereferenceable(4) @.str.80, i64 4)
+  %bcmp258 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %Implementer.sroa.0.1938, ptr noundef nonnull dereferenceable(4) @.str.80, i64 4)
   %65 = icmp eq i32 %bcmp258, 0
   br i1 %65, label %if.then141, label %if.end.i.i1547
 
@@ -1059,7 +1059,7 @@ for.inc180:                                       ; preds = %if.end.i1462, %for.
   br i1 %cmp147.not, label %if.end.i.i1547, label %for.body148, !llvm.loop !13
 
 if.end.i.i1547:                                   ; preds = %for.inc180, %if.then141, %if.end.i.i1528
-  %bcmp259 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %Implementer.sroa.0.1927, ptr noundef nonnull dereferenceable(4) @.str.93, i64 4)
+  %bcmp259 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %Implementer.sroa.0.1938, ptr noundef nonnull dereferenceable(4) @.str.93, i64 4)
   %83 = icmp eq i32 %bcmp259, 0
   br i1 %83, label %if.then187, label %cleanup
 
@@ -1173,9 +1173,9 @@ for.inc221:                                       ; preds = %for.body211, %if.en
   br i1 %cmp210.not, label %for.end223, label %for.body211
 
 for.end223:                                       ; preds = %for.inc221, %if.then187, %for.end203
-  %Variant.0.lcssa939 = phi i32 [ %92, %for.end203 ], [ 0, %if.then187 ], [ %92, %for.inc221 ]
+  %Variant.0.lcssa950 = phi i32 [ %92, %for.end203 ], [ 0, %if.then187 ], [ %92, %for.inc221 ]
   %Part.0.lcssa = phi i32 [ 0, %for.end203 ], [ 0, %if.then187 ], [ %Part.1, %for.inc221 ]
-  %or = or i32 %Part.0.lcssa, %Variant.0.lcssa939
+  %or = or i32 %Part.0.lcssa, %Variant.0.lcssa950
   %cond = icmp eq i32 %or, 16385
   %spec.select = select i1 %cond, ptr @.str.96, ptr @.str.95
   br label %cleanup
@@ -1309,13 +1309,13 @@ for.inc29:                                        ; preds = %if.end.i.i, %for.bo
 
 for.end31:                                        ; preds = %for.inc29, %for.end
   %HaveVectorSupport.0.lcssa.ph = phi i1 [ false, %for.end ], [ %HaveVectorSupport.1, %for.inc29 ]
-  %.pr120 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %cmp37.not108 = icmp eq i32 %.pr120, 0
+  %.pr125 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %cmp37.not108 = icmp eq i32 %.pr125, 0
   br i1 %cmp37.not108, label %_ZN4llvh9StringRefC2EPKc.exit178, label %for.body38.lr.ph
 
 for.body38.lr.ph:                                 ; preds = %for.end31
   %14 = load ptr, ptr %Lines, align 8
-  %15 = zext i32 %.pr120 to i64
+  %15 = zext i32 %.pr125 to i64
   br label %for.body38
 
 for.body38:                                       ; preds = %for.body38.lr.ph, %for.inc75
@@ -2293,12 +2293,12 @@ for.end:                                          ; preds = %for.inc
   %.pre148 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq i64 %.pre146.fr, 0
   %44 = trunc i64 %.pre146.fr to i32
-  %spec.select151 = select i1 %cmp.i.i.i.i, i32 %.pre147, i32 %44
+  %spec.select154 = select i1 %cmp.i.i.i.i, i32 %.pre147, i32 %44
   br label %for.end.thread
 
 for.end.thread:                                   ; preds = %for.end, %if.end
   %45 = phi ptr [ null, %if.end ], [ %.pre148, %for.end ]
-  %46 = phi i32 [ 0, %if.end ], [ %spec.select151, %for.end ]
+  %46 = phi i32 [ 0, %if.end ], [ %spec.select154, %for.end ]
   %Set.i = getelementptr inbounds nuw i8, ptr %UniqueItems, i64 272
   call void @_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %Set.i, ptr noundef %45)
   %47 = load ptr, ptr %UniqueItems, align 8
@@ -3448,14 +3448,14 @@ cond.end.i.thread:                                ; preds = %lor.rhs.i.i.i, %_ZN
   br i1 %cmp.not.i18, label %if.end12.i, label %while.body.i.backedge
 
 if.then.i:                                        ; preds = %cond.end.i, %entry
-  %__y.0.lcssa33.i = phi ptr [ %add.ptr.i.i, %entry ], [ %__x.028.i, %cond.end.i ]
+  %__y.0.lcssa36.i = phi ptr [ %add.ptr.i.i, %entry ], [ %__x.028.i, %cond.end.i ]
   %_M_left.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_left.i3.i, align 8
-  %cmp.i.i = icmp eq ptr %__y.0.lcssa33.i, %4
+  %cmp.i.i = icmp eq ptr %__y.0.lcssa36.i, %4
   br i1 %cmp.i.i, label %if.then, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa33.i) #20
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa36.i) #20
   %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %.pre = load i32, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 4
   %.pre28 = load i32, ptr %__v, align 4
@@ -3464,7 +3464,7 @@ if.else.i:                                        ; preds = %if.then.i
 if.end12.i:                                       ; preds = %cond.end.i.thread, %if.else.i
   %5 = phi i32 [ %.pre28, %if.else.i ], [ %0, %cond.end.i.thread ]
   %6 = phi i32 [ %.pre, %if.else.i ], [ %2, %cond.end.i.thread ]
-  %__y.0.lcssa32.i = phi ptr [ %__y.0.lcssa33.i, %if.else.i ], [ %__x.028.i, %cond.end.i.thread ]
+  %__y.0.lcssa35.i = phi ptr [ %__y.0.lcssa36.i, %if.else.i ], [ %__x.028.i, %cond.end.i.thread ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.028.i, %cond.end.i.thread ]
   %cmp.i.i4.i = icmp slt i32 %6, %5
   br i1 %cmp.i.i4.i, label %if.then, label %lor.rhs.i.i5.i
@@ -3482,7 +3482,7 @@ _ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit11.i:     ; preds = %lor.rhs.i.i5.i
   br i1 %cmp6.i.i10.i, label %if.then, label %return
 
 if.then:                                          ; preds = %if.then.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit11.i, %if.end12.i
-  %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa32.i, %if.end12.i ], [ %__y.0.lcssa32.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit11.i ], [ %__y.0.lcssa33.i, %if.then.i ]
+  %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa35.i, %if.end12.i ], [ %__y.0.lcssa35.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit11.i ], [ %__y.0.lcssa36.i, %if.then.i ]
   %cmp2.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i, label %_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit, label %lor.rhs.i
 

@@ -232,16 +232,16 @@ define dso_local ptr @__register_sysctl_table(ptr noundef %0, ptr noundef %1, pt
 .preheader45.preheader:                           ; preds = %12
   %29 = load ptr, ptr %2, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.loopexit46, label %.lr.ph105
+  br i1 %30, label %.loopexit46, label %.lr.ph132
 
-.preheader45:                                     ; preds = %.lr.ph105
+.preheader45:                                     ; preds = %.lr.ph132
   %31 = getelementptr i8, ptr %35, i64 32
   %32 = getelementptr i8, ptr %36, i64 64
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.loopexit46, label %.lr.ph105, !llvm.loop !6
+  br i1 %34, label %.loopexit46, label %.lr.ph132, !llvm.loop !6
 
-.lr.ph105:                                        ; preds = %.preheader45.preheader, %.preheader45
+.lr.ph132:                                        ; preds = %.preheader45.preheader, %.preheader45
   %35 = phi ptr [ %31, %.preheader45 ], [ %13, %.preheader45.preheader ]
   %36 = phi ptr [ %32, %.preheader45 ], [ %2, %.preheader45.preheader ]
   %37 = phi i64 [ %39, %.preheader45 ], [ 0, %.preheader45.preheader ]
@@ -253,7 +253,7 @@ define dso_local ptr @__register_sysctl_table(ptr noundef %0, ptr noundef %1, pt
   %42 = icmp ult i64 %39, %41
   br i1 %42, label %.preheader45, label %..loopexit46.loopexit_crit_edge, !llvm.loop !6
 
-..loopexit46.loopexit_crit_edge:                  ; preds = %.lr.ph105
+..loopexit46.loopexit_crit_edge:                  ; preds = %.lr.ph132
   br label %.loopexit46, !llvm.loop !6
 
 .loopexit46:                                      ; preds = %.preheader45, %.preheader45.preheader, %..loopexit46.loopexit_crit_edge, %12
@@ -716,7 +716,7 @@ define dso_local ptr @__register_sysctl_table(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -30, 1) i32 @insert_header(ptr noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @insert_header(ptr noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i32, ptr %4, align 8
@@ -1963,13 +1963,13 @@ define internal fastcc noundef zeroext i1 @get_links(ptr noundef readonly captur
   br label %._crit_edge19.preheader, !llvm.loop !25
 
 ._crit_edge19.preheader:                          ; preds = %19, %._crit_edge, %12
-  %.ph47 = phi ptr [ null, %12 ], [ %31, %._crit_edge ], [ %31, %19 ]
+  %.ph59 = phi ptr [ null, %12 ], [ %31, %._crit_edge ], [ %31, %19 ]
   br label %._crit_edge19
 
 ._crit_edge19:                                    ; preds = %._crit_edge19.preheader, %.thread12
   %75 = phi i64 [ %117, %.thread12 ], [ 0, %._crit_edge19.preheader ]
   %76 = phi ptr [ %118, %.thread12 ], [ %8, %._crit_edge19.preheader ]
-  %77 = phi ptr [ %113, %.thread12 ], [ %.ph47, %._crit_edge19.preheader ]
+  %77 = phi ptr [ %113, %.thread12 ], [ %.ph59, %._crit_edge19.preheader ]
   %78 = load ptr, ptr %76, align 8
   %79 = icmp eq ptr %78, null
   br i1 %79, label %.thread11, label %80

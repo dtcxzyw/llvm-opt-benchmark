@@ -316,9 +316,9 @@ define void @_ZN3net19TcpCubicSenderBytes12OnPacketLostEmmm(ptr noundef nonnull 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %99, %23
-  %.sink8 = phi i64 [ 264, %23 ], [ 232, %99 ]
+  %.sink10 = phi i64 [ 264, %23 ], [ 232, %99 ]
   %.sroa.speculated.sink = phi i64 [ %.sroa.speculated, %23 ], [ 0, %99 ]
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink8
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink10
   store i64 %.sroa.speculated.sink, ptr %104, align 8, !tbaa !35
   br label %105
 

@@ -1512,10 +1512,10 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   br label %60
 
 60:                                               ; preds = %66, %._crit_edge268
-  %.sink299 = phi i64 [ %71, %66 ], [ 1, %._crit_edge268 ]
+  %.sink301 = phi i64 [ %71, %66 ], [ 1, %._crit_edge268 ]
   %.0 = phi ptr [ %72, %66 ], [ %15, %._crit_edge268 ]
   %61 = load ptr, ptr %16, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 %.sink299
+  %62 = getelementptr inbounds i8, ptr %61, i64 %.sink301
   store ptr %62, ptr %16, align 8
   %63 = load i8, ptr %.0, align 1
   switch i8 %63, label %66 [

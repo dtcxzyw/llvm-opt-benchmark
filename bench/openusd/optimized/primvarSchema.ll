@@ -11312,12 +11312,12 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   br i1 %.not.i.i.i.i.i25, label %_ZNSt6vectorIfSaIfEED2Ev.exit28, label %_ZSt9set_unionIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_St20back_insert_iteratorIS5_EET1_T_SA_T0_SB_S9_.exit.sink.split
 
 _ZSt9set_unionIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_St20back_insert_iteratorIS5_EET1_T_SA_T0_SB_S9_.exit.sink.split: ; preds = %53, %42
-  %.sink38 = phi ptr [ %46, %42 ], [ %57, %53 ]
-  %.sink37 = phi ptr [ %43, %42 ], [ %54, %53 ]
-  %63 = ptrtoint ptr %.sink38 to i64
-  %64 = ptrtoint ptr %.sink37 to i64
+  %.sink44 = phi ptr [ %46, %42 ], [ %57, %53 ]
+  %.sink43 = phi ptr [ %43, %42 ], [ %54, %53 ]
+  %63 = ptrtoint ptr %.sink44 to i64
+  %64 = ptrtoint ptr %.sink43 to i64
   %65 = sub i64 %63, %64
-  call void @_ZdlPvm(ptr noundef nonnull %.sink37, i64 noundef %65) #19
+  call void @_ZdlPvm(ptr noundef nonnull %.sink43, i64 noundef %65) #19
   br label %_ZSt9set_unionIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_St20back_insert_iteratorIS5_EET1_T_SA_T0_SB_S9_.exit
 
 _ZSt9set_unionIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_St20back_insert_iteratorIS5_EET1_T_SA_T0_SB_S9_.exit: ; preds = %_ZSt9set_unionIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_St20back_insert_iteratorIS5_EET1_T_SA_T0_SB_S9_.exit.sink.split, %42, %22, %52, %20

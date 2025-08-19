@@ -651,8 +651,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit233: ; preds = %_ZN4cvc58internal1
   %183 = load ptr, ptr %182, align 8, !tbaa !41
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 168
   %185 = load i32, ptr %184, align 8, !tbaa !292
-  %.not727 = icmp eq i32 %185, 2
-  br i1 %.not727, label %._crit_edge722, label %.lr.ph721
+  %.not745 = icmp eq i32 %185, 2
+  br i1 %.not745, label %._crit_edge722, label %.lr.ph721
 
 .lr.ph721:                                        ; preds = %.critedge132
   %186 = icmp eq i32 %185, 1

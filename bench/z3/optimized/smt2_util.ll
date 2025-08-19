@@ -146,8 +146,8 @@ define hidden noundef zeroext i1 @_Z21is_smt2_quoted_symbolPKc(ptr noundef reado
   %35 = tail call noundef zeroext i1 @_Z26is_smt2_simple_symbol_charc(i8 noundef signext %34)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond69.not = select i1 %35, i1 %exitcond.not, i1 false
-  br i1 %or.cond69.not, label %.lr.ph, label %.thread.loopexit64, !llvm.loop !8
+  %or.cond71.not = select i1 %35, i1 %exitcond.not, i1 false
+  br i1 %or.cond71.not, label %.lr.ph, label %.thread.loopexit64, !llvm.loop !8
 
 .thread.loopexit64:                               ; preds = %.lr.ph
   %.035.ph65 = xor i1 %35, true

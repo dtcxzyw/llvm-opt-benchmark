@@ -361,13 +361,13 @@ _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit: ; preds = %_ZNK4llvm
   %148 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 4
   %149 = load i16, ptr %148, align 2, !tbaa !63
   %150 = icmp eq i16 %149, %.0.i
-  br i1 %150, label %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit36, label %151
+  br i1 %150, label %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit45, label %151
 
 151:                                              ; preds = %147
   %152 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 6
   %153 = load i16, ptr %152, align 2, !tbaa !63
   %154 = icmp eq i16 %153, %.0.i
-  br i1 %154, label %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38, label %155
+  br i1 %154, label %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit47, label %155
 
 155:                                              ; preds = %151
   %156 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 8
@@ -420,16 +420,16 @@ _ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0
   %171 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 2
   br label %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit36: ; preds = %147
+_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit45: ; preds = %147
   %172 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 4
   br label %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38: ; preds = %151
+_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit47: ; preds = %151
   %173 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 6
   br label %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit: ; preds = %140, %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit36, %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38, %160, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %160 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %171, %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %172, %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit36 ], [ %173, %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %.sroa.032.051.i.i.i.i, %140 ]
+_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit: ; preds = %140, %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit45, %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit47, %160, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %160 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %171, %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %172, %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit45 ], [ %173, %_ZN4llvm12is_containedIRSt6vectorINS_8codeview10SymbolKindESaIS3_EES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit47 ], [ %.sroa.032.051.i.i.i.i, %140 ]
   %.not23 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %133
   br i1 %.not23, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, label %174
 
@@ -529,7 +529,7 @@ define linkonce_odr hidden void @_ZNK4llvm3pdb12GSIHashTable5beginEv(ptr dead_on
   store i32 %12, ptr %8, align 4, !tbaa !54, !noalias !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
-  br label %.thread7
+  br label %.thread9
 
 13:                                               ; preds = %7
   %14 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4, !noalias !71
@@ -537,9 +537,9 @@ define linkonce_odr hidden void @_ZNK4llvm3pdb12GSIHashTable5beginEv(ptr dead_on
   %15 = icmp eq i8 %.pre, 0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
-  br i1 %15, label %19, label %.thread7
+  br i1 %15, label %19, label %.thread9
 
-.thread7:                                         ; preds = %13, %.thread
+.thread9:                                         ; preds = %13, %.thread
   %16 = load i32, ptr %8, align 4, !tbaa !54
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %8, align 4, !tbaa !54
@@ -559,7 +559,7 @@ define linkonce_odr hidden void @_ZNK4llvm3pdb12GSIHashTable5beginEv(ptr dead_on
   store ptr %6, ptr %22, align 8, !tbaa !49
   br i1 %21, label %26, label %23
 
-23:                                               ; preds = %.thread7, %19
+23:                                               ; preds = %.thread9, %19
   %24 = load i32, ptr %8, align 4, !tbaa !54
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr %8, align 4, !tbaa !54
@@ -733,7 +733,7 @@ _ZNK4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEE4sizeEv.exit.i: ; preds = %13
   store i32 %31, ptr %25, align 4, !tbaa !54, !noalias !74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
-  br label %.thread7
+  br label %.thread10
 
 32:                                               ; preds = %24
   %33 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4, !noalias !74
@@ -741,9 +741,9 @@ _ZNK4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEE4sizeEv.exit.i: ; preds = %13
   %34 = icmp eq i8 %.pre, 0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
-  br i1 %34, label %38, label %.thread7
+  br i1 %34, label %38, label %.thread10
 
-.thread7:                                         ; preds = %32, %.thread
+.thread10:                                        ; preds = %32, %.thread
   %35 = load i32, ptr %25, align 4, !tbaa !54
   %36 = add nsw i32 %35, 1
   store i32 %36, ptr %25, align 4, !tbaa !54
@@ -763,7 +763,7 @@ _ZNK4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEE4sizeEv.exit.i: ; preds = %13
   store ptr %23, ptr %41, align 8, !tbaa !49
   br i1 %40, label %45, label %42
 
-42:                                               ; preds = %.thread7, %38
+42:                                               ; preds = %.thread10, %38
   %43 = load i32, ptr %25, align 4, !tbaa !54
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %25, align 4, !tbaa !54

@@ -680,8 +680,8 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   br i1 %87, label %92, label %.thread183.thread
 
 .thread183.thread:                                ; preds = %71, %.thread206
-  %.0147.lcssa346 = phi ptr [ %83, %.thread206 ], [ %.0149251, %71 ]
-  %88 = ptrtoint ptr %.0147.lcssa346 to i64
+  %.0147.lcssa356 = phi ptr [ %83, %.thread206 ], [ %.0149251, %71 ]
+  %88 = ptrtoint ptr %.0147.lcssa356 to i64
   %89 = sub i64 %88, %.0149251.lcssa339341
   %90 = zext nneg i32 %.0129252 to i64
   %91 = tail call i32 @pg_strncoll(ptr noundef nonnull %.0149251, i64 noundef %89, ptr noundef %.0125254, i64 noundef %90, ptr noundef nonnull %4) #7
@@ -1945,24 +1945,24 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   br i1 %52, label %.split, label %53
 
 53:                                               ; preds = %.lr.ph314
-  br i1 %.not, label %.preheader481, label %54
+  br i1 %.not, label %.preheader515, label %54
 
 54:                                               ; preds = %53
   %55 = load i8, ptr %14, align 1, !range !7, !noundef !8
   %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %.preheader481, label %.split
+  br i1 %56, label %.preheader515, label %.split
 
 .split:                                           ; preds = %54, %.lr.ph314
   %57 = tail call fastcc i32 @UTF8_MatchText(ptr noundef nonnull %.4145311, i32 noundef %.4152310, ptr noundef nonnull %.2175304, i32 noundef %.2184305, ptr noundef %4)
   %.not209 = icmp eq i32 %57, 0
-  br i1 %.not209, label %.preheader481, label %.thread
+  br i1 %.not209, label %.preheader515, label %.thread
 
-.preheader481:                                    ; preds = %.split, %54, %53
+.preheader515:                                    ; preds = %.split, %54, %53
   br label %58
 
-58:                                               ; preds = %.preheader481, %60
-  %.5153 = phi i32 [ %62, %60 ], [ %.4152310, %.preheader481 ]
-  %.5146 = phi ptr [ %61, %60 ], [ %.4145311, %.preheader481 ]
+58:                                               ; preds = %.preheader515, %60
+  %.5153 = phi i32 [ %62, %60 ], [ %.4152310, %.preheader515 ]
+  %.5146 = phi ptr [ %61, %60 ], [ %.4145311, %.preheader515 ]
   %59 = icmp samesign ugt i32 %.5153, 1
   br i1 %59, label %60, label %.thread
 
@@ -1976,27 +1976,32 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
 .critedge4:                                       ; preds = %60
   br label %.lr.ph314, !llvm.loop !24
 
-.preheader239:                                    ; preds = %15, %67
-  %.6154 = phi i32 [ %68, %67 ], [ %.0148288, %15 ]
-  %.6147 = phi ptr [ %65, %67 ], [ %.0141290, %15 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.6147, i64 1
-  %66 = icmp sgt i32 %.6154, 1
-  br i1 %66, label %67, label %.backedge
+.preheader239:                                    ; preds = %15, %66
+  %.6154 = phi i32 [ %68, %66 ], [ %.0148288, %15 ]
+  %.6147 = phi ptr [ %67, %66 ], [ %.0141290, %15 ]
+  %65 = icmp sgt i32 %.6154, 1
+  br i1 %65, label %66, label %._crit_edge.thread
 
-67:                                               ; preds = %.preheader239
+._crit_edge.thread:                               ; preds = %.preheader239
+  %.0173.be400 = getelementptr inbounds nuw i8, ptr %.0173287, i64 1
+  %.0182.be401 = add nsw i32 %.0182286, -1
+  br label %.preheader238
+
+66:                                               ; preds = %.preheader239
+  %67 = getelementptr inbounds nuw i8, ptr %.6147, i64 1
   %68 = add nsw i32 %.6154, -1
-  %69 = load i8, ptr %65, align 1
+  %69 = load i8, ptr %67, align 1
   %70 = icmp slt i8 %69, -64
   br i1 %70, label %.preheader239, label %.backedge, !llvm.loop !25
 
-.backedge:                                        ; preds = %67, %.preheader239, %150
-  %.0182.be.in = phi i32 [ %.1183, %150 ], [ %.0182286, %.preheader239 ], [ %.0182286, %67 ]
-  %.1174.pn = phi ptr [ %.1174, %150 ], [ %.0173287, %.preheader239 ], [ %.0173287, %67 ]
-  %.0148.be = phi i32 [ %152, %150 ], [ %68, %67 ], [ 0, %.preheader239 ]
-  %.0141.be = phi ptr [ %151, %150 ], [ %65, %.preheader239 ], [ %65, %67 ]
+.backedge:                                        ; preds = %66, %150
+  %.0182.be.in = phi i32 [ %.1183, %150 ], [ %.0182286, %66 ]
+  %.1174.pn = phi ptr [ %.1174, %150 ], [ %.0173287, %66 ]
+  %.0148.be = phi i32 [ %152, %150 ], [ %68, %66 ]
+  %.0141.be = phi ptr [ %151, %150 ], [ %67, %66 ]
   %.0173.be = getelementptr inbounds nuw i8, ptr %.1174.pn, i64 1
   %.0182.be = add nsw i32 %.0182.be.in, -1
-  %71 = icmp sgt i32 %.0148.be, 0
+  %71 = icmp ne i32 %.0148.be, 0
   %72 = icmp sgt i32 %.0182.be.in, 1
   %73 = select i1 %71, i1 %72, i1 false
   br i1 %73, label %15, label %._crit_edge, !llvm.loop !26
@@ -2061,8 +2066,8 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   br i1 %94, label %99, label %.thread212.thread
 
 .thread212.thread:                                ; preds = %78, %.thread233
-  %.0171.lcssa389 = phi ptr [ %90, %.thread233 ], [ %.0173287, %78 ]
-  %95 = ptrtoint ptr %.0171.lcssa389 to i64
+  %.0171.lcssa407 = phi ptr [ %90, %.thread233 ], [ %.0173287, %78 ]
+  %95 = ptrtoint ptr %.0171.lcssa407 to i64
   %96 = sub i64 %95, %.0173287.lcssa378381
   %97 = zext nneg i32 %.0148288 to i64
   %98 = tail call i32 @pg_strncoll(ptr noundef nonnull %.0173287, i64 noundef %96, ptr noundef %.0141290, i64 noundef %97, ptr noundef nonnull %4) #7
@@ -2224,13 +2229,15 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   %.lcssa264 = phi i1 [ %11, %10 ], [ %71, %.backedge ]
   br i1 %.lcssa264, label %.thread, label %.preheader238
 
-.preheader238:                                    ; preds = %._crit_edge
-  %153 = icmp sgt i32 %.0182.lcssa, 0
+.preheader238:                                    ; preds = %._crit_edge.thread, %._crit_edge
+  %.0173.lcssa412 = phi ptr [ %.0173.be400, %._crit_edge.thread ], [ %.0173.lcssa, %._crit_edge ]
+  %.0182.lcssa411 = phi i32 [ %.0182.be401, %._crit_edge.thread ], [ %.0182.lcssa, %._crit_edge ]
+  %153 = icmp sgt i32 %.0182.lcssa411, 0
   br i1 %153, label %.lr.ph295, label %.thread
 
 .lr.ph295:                                        ; preds = %.preheader238, %156
-  %.4177294 = phi ptr [ %157, %156 ], [ %.0173.lcssa, %.preheader238 ]
-  %.4186293 = phi i32 [ %158, %156 ], [ %.0182.lcssa, %.preheader238 ]
+  %.4177294 = phi ptr [ %157, %156 ], [ %.0173.lcssa412, %.preheader238 ]
+  %.4186293 = phi i32 [ %158, %156 ], [ %.0182.lcssa411, %.preheader238 ]
   %154 = load i8, ptr %.4177294, align 1
   %155 = icmp eq i8 %154, 37
   br i1 %155, label %156, label %.thread
@@ -2464,8 +2471,8 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   br i1 %90, label %95, label %.thread195.thread
 
 .thread195.thread:                                ; preds = %74, %.thread218
-  %.0164.lcssa356 = phi ptr [ %86, %.thread218 ], [ %.0145263, %74 ]
-  %91 = ptrtoint ptr %.0164.lcssa356 to i64
+  %.0164.lcssa366 = phi ptr [ %86, %.thread218 ], [ %.0145263, %74 ]
+  %91 = ptrtoint ptr %.0164.lcssa366 to i64
   %92 = sub i64 %91, %.0145263.lcssa349351
   %93 = zext nneg i32 %.0141264 to i64
   %94 = tail call i32 @pg_strncoll(ptr noundef nonnull %.0145263, i64 noundef %92, ptr noundef %.0137266, i64 noundef %93, ptr noundef nonnull %4) #7
@@ -3112,8 +3119,8 @@ SB_lower_char.exit207:                            ; preds = %190, %195, %197
   br i1 %239, label %244, label %.thread210.thread
 
 .thread210.thread:                                ; preds = %223, %.thread233
-  %.0154.lcssa370 = phi ptr [ %235, %.thread233 ], [ %.0156278, %223 ]
-  %240 = ptrtoint ptr %.0154.lcssa370 to i64
+  %.0154.lcssa379 = phi ptr [ %235, %.thread233 ], [ %.0156278, %223 ]
+  %240 = ptrtoint ptr %.0154.lcssa379 to i64
   %241 = sub i64 %240, %.0156278.lcssa363365
   %242 = zext nneg i32 %.0136279 to i64
   %243 = tail call i32 @pg_strncoll(ptr noundef nonnull %.0156278, i64 noundef %241, ptr noundef %.0132281, i64 noundef %242, ptr noundef nonnull %4) #7

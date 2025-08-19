@@ -212,12 +212,12 @@ parse_speex_extradata.exit:                       ; preds = %62
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %switch.selectcmp = icmp eq i32 %69, 16000
   %switch.select = select i1 %switch.selectcmp, i32 1, i32 2
-  %switch.selectcmp89 = icmp eq i32 %69, 8000
-  %switch.select90 = select i1 %switch.selectcmp89, i32 0, i32 %switch.select
-  store i32 %switch.select90, ptr %78, align 8, !tbaa !37
+  %switch.selectcmp98 = icmp eq i32 %69, 8000
+  %switch.select99 = select i1 %switch.selectcmp98, i32 0, i32 %switch.select
+  store i32 %switch.select99, ptr %78, align 8, !tbaa !37
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 64, ptr %79, align 8, !tbaa !43
-  %80 = shl nuw nsw i32 160, %switch.select90
+  %80 = shl nuw nsw i32 160, %switch.select99
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 %80, ptr %81, align 8, !tbaa !41
   br label %82
@@ -1531,9 +1531,9 @@ signal_mul.exit:                                  ; preds = %.lr.ph.i430
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 12
   %569 = load i32, ptr %568, align 4, !tbaa !140
   %.not408 = icmp eq i32 %569, 0
-  br i1 %.not408, label %.preheader619, label %570
+  br i1 %.not408, label %.preheader631, label %570
 
-.preheader619:                                    ; preds = %580, %signal_mul.exit
+.preheader631:                                    ; preds = %580, %signal_mul.exit
   br label %587
 
 570:                                              ; preds = %signal_mul.exit
@@ -1560,7 +1560,7 @@ signal_mul.exit:                                  ; preds = %.lr.ph.i430
 
 580:                                              ; preds = %signal_mul.exit438
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %.preheader619
+  br label %.preheader631
 
 signal_mul.exit438:                               ; preds = %.lr.ph.i434, %signal_mul.exit438
   %indvars.iv543 = phi i64 [ %indvars.iv.next544, %signal_mul.exit438 ], [ 0, %.lr.ph.i434 ]
@@ -1578,8 +1578,8 @@ signal_mul.exit438:                               ; preds = %.lr.ph.i434, %signa
   %.not409477 = icmp eq ptr %403, null
   br i1 %.not409477, label %595, label %594
 
-587:                                              ; preds = %.preheader619, %587
-  %indvars.iv547 = phi i64 [ %indvars.iv.next548, %587 ], [ 0, %.preheader619 ]
+587:                                              ; preds = %.preheader631, %587
+  %indvars.iv547 = phi i64 [ %indvars.iv.next548, %587 ], [ 0, %.preheader631 ]
   %588 = getelementptr inbounds nuw [40 x float], ptr %9, i64 0, i64 %indvars.iv547
   %589 = load float, ptr %588, align 4, !tbaa !105
   %590 = getelementptr inbounds nuw [40 x float], ptr %8, i64 0, i64 %indvars.iv547
@@ -2182,7 +2182,7 @@ define internal range(i32 -2147483648, 1) i32 @sb_decode(ptr noundef %0, ptr nou
 
 .lr.ph281.preheader:                              ; preds = %.preheader
   %87 = zext nneg i32 %85 to i64
-  %invariant.gep324 = getelementptr inbounds nuw float, ptr %3, i64 %87
+  %invariant.gep339 = getelementptr inbounds nuw float, ptr %3, i64 %87
   br label %.lr.ph281
 
 ._crit_edge282:                                   ; preds = %.preheader
@@ -2270,8 +2270,8 @@ iir_mem.exit:                                     ; preds = %.lr.ph29.split.i, %
 
 .lr.ph281:                                        ; preds = %.lr.ph281.preheader, %.lr.ph281
   %indvars.iv305 = phi i64 [ 0, %.lr.ph281.preheader ], [ %indvars.iv.next306, %.lr.ph281 ]
-  %gep325 = getelementptr inbounds nuw float, ptr %invariant.gep324, i64 %indvars.iv305
-  store float 0x3CD203AFA0000000, ptr %gep325, align 4, !tbaa !105
+  %gep340 = getelementptr inbounds nuw float, ptr %invariant.gep339, i64 %indvars.iv305
+  store float 0x3CD203AFA0000000, ptr %gep340, align 4, !tbaa !105
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %exitcond309.not = icmp eq i64 %indvars.iv.next306, %87
   br i1 %exitcond309.not, label %.lr.ph29.i, label %.lr.ph281, !llvm.loop !160
@@ -2787,8 +2787,8 @@ signal_mul.exit:                                  ; preds = %.lr.ph.i218, %333
   %indvars.iv297 = phi i64 [ 0, %.lr.ph274.preheader ], [ %indvars.iv.next298, %.lr.ph274 ]
   %394 = getelementptr inbounds nuw [80 x float], ptr %12, i64 0, i64 %indvars.iv297
   %395 = load float, ptr %394, align 4, !tbaa !105
-  %.idx315 = shl nuw nsw i64 %indvars.iv297, 3
-  %396 = getelementptr inbounds nuw i8, ptr %.0186, i64 %.idx315
+  %.idx330 = shl nuw nsw i64 %indvars.iv297, 3
+  %396 = getelementptr inbounds nuw i8, ptr %.0186, i64 %.idx330
   store float %395, ptr %396, align 4, !tbaa !105
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
   %exitcond301.not = icmp eq i64 %indvars.iv.next298, %wide.trip.count300
@@ -4034,7 +4034,7 @@ get_bitsz.exit.us39:                              ; preds = %get_bitsz.exit.us39
   %62 = mul nuw nsw i64 %indvars.iv70, %55
   %63 = sext i32 %61 to i64
   %invariant.gep = getelementptr i8, ptr %12, i64 %63
-  %invariant.gep77 = getelementptr inbounds nuw float, ptr %0, i64 %62
+  %invariant.gep79 = getelementptr inbounds nuw float, ptr %0, i64 %62
   br label %64
 
 64:                                               ; preds = %.lr.ph43.us, %64
@@ -4042,10 +4042,10 @@ get_bitsz.exit.us39:                              ; preds = %get_bitsz.exit.us39
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv65
   %65 = load i8, ptr %gep, align 1, !tbaa !34
   %66 = sitofp i8 %65 to float
-  %gep78 = getelementptr inbounds nuw float, ptr %invariant.gep77, i64 %indvars.iv65
-  %67 = load float, ptr %gep78, align 4, !tbaa !105
+  %gep80 = getelementptr inbounds nuw float, ptr %invariant.gep79, i64 %indvars.iv65
+  %67 = load float, ptr %gep80, align 4, !tbaa !105
   %68 = tail call nsz float @llvm.fmuladd.f32(float %58, float %66, float %67)
-  store float %68, ptr %gep78, align 4, !tbaa !105
+  store float %68, ptr %gep80, align 4, !tbaa !105
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
   br i1 %exitcond69.not, label %._crit_edge.us, label %64, !llvm.loop !199

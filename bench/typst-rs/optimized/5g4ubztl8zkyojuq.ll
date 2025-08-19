@@ -1075,12 +1075,12 @@ define hidden void @"_ZN71_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6332a5b11f30c370E.llvm.16116537380482378334.exit.i.i": ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %19, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !120, !noalias !124
-  br label %.thread7.i
+  br label %.thread12.i
 
 21:                                               ; preds = %16
   %22 = load i8, ptr %19, align 1, !noalias !126, !noundef !7
   store i8 %22, ptr %15, align 1, !alias.scope !115, !noalias !127
-  br label %.thread7.i
+  br label %.thread12.i
 
 23:                                               ; preds = %13
   %24 = icmp ugt i64 %6, %8
@@ -1098,7 +1098,7 @@ define hidden void @"_ZN71_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h332fde1d59776f82E(i64 noundef %8, i64 noundef %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c7c947687868475575cbe3de6ec0da45.45.llvm.16116537380482378334) #24, !noalias !128
   unreachable
 
-.thread7.i:                                       ; preds = %21, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6332a5b11f30c370E.llvm.16116537380482378334.exit.i.i"
+.thread12.i:                                      ; preds = %21, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6332a5b11f30c370E.llvm.16116537380482378334.exit.i.i"
   %29 = sub nuw i64 %18, %.0.sroa.speculated.i.i.i
   %30 = getelementptr inbounds i8, ptr %19, i64 %.0.sroa.speculated.i.i.i
   store ptr %30, ptr %1, align 8, !alias.scope !117, !noalias !118
@@ -1107,9 +1107,9 @@ define hidden void @"_ZN71_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$
   store i64 0, ptr %5, align 8, !alias.scope !107, !noalias !110
   br label %"_ZN74_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h337a972f12c81d1aE.exit"
 
-"_ZN74_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h337a972f12c81d1aE.exit": ; preds = %25, %.thread7.i
-  %31 = phi i64 [ %.0.sroa.speculated.i.i.i, %.thread7.i ], [ %8, %25 ]
-  %32 = phi i64 [ 0, %.thread7.i ], [ %6, %25 ]
+"_ZN74_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h337a972f12c81d1aE.exit": ; preds = %25, %.thread12.i
+  %31 = phi i64 [ %.0.sroa.speculated.i.i.i, %.thread12.i ], [ %8, %25 ]
+  %32 = phi i64 [ 0, %.thread12.i ], [ %6, %25 ]
   %33 = sub nuw i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %15, i64 %32
   %35 = icmp eq ptr %15, null
@@ -1216,12 +1216,12 @@ define hidden void @"_ZN74_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6332a5b11f30c370E.llvm.16116537380482378334.exit.i": ; preds = %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %15, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !168, !noalias !172
-  br label %.thread7
+  br label %.thread12
 
 17:                                               ; preds = %12
   %18 = load i8, ptr %15, align 1, !noalias !174, !noundef !7
   store i8 %18, ptr %9, align 1, !alias.scope !164, !noalias !175
-  br label %.thread7
+  br label %.thread12
 
 19:                                               ; preds = %2
   %20 = icmp ugt i64 %4, %6
@@ -1239,7 +1239,7 @@ define hidden void @"_ZN74_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h332fde1d59776f82E(i64 noundef %6, i64 noundef %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c7c947687868475575cbe3de6ec0da45.45.llvm.16116537380482378334) #24, !noalias !176
   unreachable
 
-.thread7:                                         ; preds = %17, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6332a5b11f30c370E.llvm.16116537380482378334.exit.i"
+.thread12:                                        ; preds = %17, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6332a5b11f30c370E.llvm.16116537380482378334.exit.i"
   %25 = sub nuw i64 %14, %.0.sroa.speculated.i.i
   %26 = getelementptr inbounds i8, ptr %15, i64 %.0.sroa.speculated.i.i
   store ptr %26, ptr %1, align 8, !alias.scope !161, !noalias !166
@@ -1248,9 +1248,9 @@ define hidden void @"_ZN74_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$
   store i64 0, ptr %3, align 8
   br label %27
 
-27:                                               ; preds = %.thread7, %21
-  %28 = phi i64 [ %.0.sroa.speculated.i.i, %.thread7 ], [ %6, %21 ]
-  %29 = phi i64 [ 0, %.thread7 ], [ %4, %21 ]
+27:                                               ; preds = %.thread12, %21
+  %28 = phi i64 [ %.0.sroa.speculated.i.i, %.thread12 ], [ %6, %21 ]
+  %29 = phi i64 [ 0, %.thread12 ], [ %4, %21 ]
   %30 = sub nuw i64 %28, %29
   %31 = getelementptr inbounds i8, ptr %9, i64 %29
   store ptr %31, ptr %0, align 8

@@ -35,25 +35,25 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 openFile.exit.i.sink.split:                       ; preds = %openFile.exit.i, %2
   %.sink = phi i8 [ 0, %2 ], [ 1, %openFile.exit.i ]
-  %.sroa.6.0.ph = phi i32 [ 0, %2 ], [ %.sroa.6.0.ph70, %openFile.exit.i ]
-  %.sroa.9.0.ph = phi i32 [ 0, %2 ], [ %.sroa.9.0.ph74, %openFile.exit.i ]
+  %.sroa.6.0.ph = phi i32 [ 0, %2 ], [ %.sroa.6.0.ph74, %openFile.exit.i ]
+  %.sroa.9.0.ph = phi i32 [ 0, %2 ], [ %.sroa.9.0.ph78, %openFile.exit.i ]
   %.sroa.0.0.ph = phi ptr [ %6, %2 ], [ %.sroa.0.0, %openFile.exit.i ]
   store i8 %.sink, ptr @Verbose, align 1, !tbaa !11
   br label %openFile.exit.i.outer
 
 openFile.exit.i.outer:                            ; preds = %openFile.exit.i.sink.split, %15
-  %.sroa.6.0.ph70 = phi i32 [ %.sroa.6.0.ph, %openFile.exit.i.sink.split ], [ %19, %15 ]
-  %.sroa.9.0.ph71 = phi i32 [ %.sroa.9.0.ph, %openFile.exit.i.sink.split ], [ %.sroa.9.0.ph74, %15 ]
-  %.sroa.0.0.ph72 = phi ptr [ %.sroa.0.0.ph, %openFile.exit.i.sink.split ], [ %.sroa.0.0, %15 ]
-  br label %openFile.exit.i.outer73
+  %.sroa.6.0.ph74 = phi i32 [ %.sroa.6.0.ph, %openFile.exit.i.sink.split ], [ %19, %15 ]
+  %.sroa.9.0.ph75 = phi i32 [ %.sroa.9.0.ph, %openFile.exit.i.sink.split ], [ %.sroa.9.0.ph78, %15 ]
+  %.sroa.0.0.ph76 = phi ptr [ %.sroa.0.0.ph, %openFile.exit.i.sink.split ], [ %.sroa.0.0, %15 ]
+  br label %openFile.exit.i.outer77
 
-openFile.exit.i.outer73:                          ; preds = %openFile.exit.i.outer, %8
-  %.sroa.9.0.ph74 = phi i32 [ %.sroa.9.0.ph71, %openFile.exit.i.outer ], [ %12, %8 ]
-  %.sroa.0.0.ph75 = phi ptr [ %.sroa.0.0.ph72, %openFile.exit.i.outer ], [ %.sroa.0.0, %8 ]
+openFile.exit.i.outer77:                          ; preds = %openFile.exit.i.outer, %8
+  %.sroa.9.0.ph78 = phi i32 [ %.sroa.9.0.ph75, %openFile.exit.i.outer ], [ %12, %8 ]
+  %.sroa.0.0.ph79 = phi ptr [ %.sroa.0.0.ph76, %openFile.exit.i.outer ], [ %.sroa.0.0, %8 ]
   br label %openFile.exit.i
 
-openFile.exit.i:                                  ; preds = %openFile.exit.i.outer73, %22
-  %.sroa.0.0 = phi ptr [ %24, %22 ], [ %.sroa.0.0.ph75, %openFile.exit.i.outer73 ]
+openFile.exit.i:                                  ; preds = %openFile.exit.i.outer77, %22
+  %.sroa.0.0 = phi ptr [ %24, %22 ], [ %.sroa.0.0.ph79, %openFile.exit.i.outer77 ]
   %7 = call i32 @getopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str) #10
   switch i32 %7, label %35 [
     i32 -1, label %init.exit
@@ -71,7 +71,7 @@ openFile.exit.i:                                  ; preds = %openFile.exit.i.out
   %12 = load i32, ptr %3, align 4
   %13 = icmp slt i32 %12, 0
   %or.cond.i = select i1 %11, i1 true, i1 %13
-  br i1 %or.cond.i, label %14, label %openFile.exit.i.outer73, !llvm.loop !12
+  br i1 %or.cond.i, label %14, label %openFile.exit.i.outer77, !llvm.loop !12
 
 14:                                               ; preds = %8
   call fastcc void @usage(ptr noundef %5, i32 noundef 1)
@@ -150,7 +150,7 @@ init.exit:                                        ; preds = %openFile.exit.i
 
 46:                                               ; preds = %44, %.lr.ph
   call void @initDotIO(ptr noundef nonnull %43) #10
-  call void @attached_clustering(ptr noundef nonnull %43, i32 noundef %.sroa.6.0.ph70, i32 noundef %.sroa.9.0.ph74) #10
+  call void @attached_clustering(ptr noundef nonnull %43, i32 noundef %.sroa.6.0.ph74, i32 noundef %.sroa.9.0.ph78) #10
   %47 = call i32 @agwrite(ptr noundef nonnull %43, ptr noundef %.sroa.0.0) #10
   %48 = call ptr @nextGraph(ptr noundef nonnull %4) #10
   %.not = icmp eq ptr %48, null

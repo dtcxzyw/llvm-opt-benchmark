@@ -592,16 +592,16 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i3
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit40thread-pre-split: ; preds = %172, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i38
   %.ph = phi ptr [ %174, %172 ], [ %.pre70, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i38 ]
-  %.ph75 = phi ptr [ %167, %172 ], [ %176, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i38 ]
-  %.pr78 = load i32, ptr %.ph, align 8, !tbaa !43
+  %.ph98 = phi ptr [ %167, %172 ], [ %176, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i38 ]
+  %.pr101 = load i32, ptr %.ph, align 8, !tbaa !43
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit40
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit40: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit40thread-pre-split, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit29, %128
-  %208 = phi i32 [ %.pr78, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit40thread-pre-split ], [ %170, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit29 ], [ %129, %128 ]
+  %208 = phi i32 [ %.pr101, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit40thread-pre-split ], [ %170, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit29 ], [ %129, %128 ]
   %209 = phi ptr [ %.ph, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit40thread-pre-split ], [ %168, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit29 ], [ %.pr59, %128 ]
-  %210 = phi ptr [ %.ph75, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit40thread-pre-split ], [ %167, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit29 ], [ %123, %128 ]
-  %211 = phi ptr [ %.ph75, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit40thread-pre-split ], [ %169, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit29 ], [ %124, %128 ]
-  %212 = phi ptr [ %.ph75, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit40thread-pre-split ], [ %169, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit29 ], [ %125, %128 ]
+  %210 = phi ptr [ %.ph98, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit40thread-pre-split ], [ %167, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit29 ], [ %123, %128 ]
+  %211 = phi ptr [ %.ph98, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit40thread-pre-split ], [ %169, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit29 ], [ %124, %128 ]
+  %212 = phi ptr [ %.ph98, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit40thread-pre-split ], [ %169, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit29 ], [ %125, %128 ]
   %213 = icmp eq i32 %208, 8
   br i1 %213, label %.lr.ph, label %.thread, !llvm.loop !61
 
@@ -1169,9 +1169,9 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i: ; preds = %11
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit.i: ; preds = %27, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i
   %.not.i8.i = icmp eq ptr %14, null
-  br i1 %.not.i8.i, label %_ZNSt6vectorIfSaIfEE7reserveEm.exit.thread19, label %_ZNSt6vectorIfSaIfEE7reserveEm.exit
+  br i1 %.not.i8.i, label %_ZNSt6vectorIfSaIfEE7reserveEm.exit.thread33, label %_ZNSt6vectorIfSaIfEE7reserveEm.exit
 
-_ZNSt6vectorIfSaIfEE7reserveEm.exit.thread19:     ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit.i
+_ZNSt6vectorIfSaIfEE7reserveEm.exit.thread33:     ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit.i
   store ptr %25, ptr %5, align 8, !tbaa !63
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 %23
   store ptr %28, ptr %20, align 8, !tbaa !69
@@ -1195,8 +1195,8 @@ _ZNSt6vectorIfSaIfEE7reserveEm.exit:              ; preds = %_ZNSt6vectorIfSaIfE
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #26
   unreachable
 
-_ZNSt6vectorIfSaIfEE7reserveEm.exit.thread:       ; preds = %11, %_ZNSt6vectorIfSaIfEE7reserveEm.exit.thread19, %_ZNSt6vectorIfSaIfEE7reserveEm.exit
-  %.pre-phi18 = phi i64 [ %.pre16, %_ZNSt6vectorIfSaIfEE7reserveEm.exit ], [ %8, %_ZNSt6vectorIfSaIfEE7reserveEm.exit.thread19 ], [ %8, %11 ]
+_ZNSt6vectorIfSaIfEE7reserveEm.exit.thread:       ; preds = %11, %_ZNSt6vectorIfSaIfEE7reserveEm.exit.thread33, %_ZNSt6vectorIfSaIfEE7reserveEm.exit
+  %.pre-phi32 = phi i64 [ %.pre16, %_ZNSt6vectorIfSaIfEE7reserveEm.exit ], [ %8, %_ZNSt6vectorIfSaIfEE7reserveEm.exit.thread33 ], [ %8, %11 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %36 = load ptr, ptr %35, align 8, !tbaa !64
@@ -1205,7 +1205,7 @@ _ZNSt6vectorIfSaIfEE7reserveEm.exit.thread:       ; preds = %11, %_ZNSt6vectorIf
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %41 = ashr exact i64 %40, 2
-  %42 = icmp ult i64 %41, %.pre-phi18
+  %42 = icmp ult i64 %41, %.pre-phi32
   br i1 %42, label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i3, label %_ZNSt6vectorIfSaIfEE7reserveEm.exit7
 
 _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i3: ; preds = %_ZNSt6vectorIfSaIfEE7reserveEm.exit.thread
@@ -1213,7 +1213,7 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i3: ; preds = %_ZNSt6vectorIfSaI
   %44 = load ptr, ptr %43, align 8, !tbaa !69
   %45 = ptrtoint ptr %44 to i64
   %46 = sub i64 %45, %39
-  %47 = shl nuw nsw i64 %.pre-phi18, 2
+  %47 = shl nuw nsw i64 %.pre-phi32, 2
   %48 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #30
   %49 = icmp sgt i64 %46, 0
   br i1 %49, label %50, label %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit.i4
@@ -1234,7 +1234,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i6: ; preds = %51, %_ZNSt6ve
   store ptr %48, ptr %34, align 8, !tbaa !63
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 %46
   store ptr %52, ptr %43, align 8, !tbaa !69
-  %53 = getelementptr inbounds nuw float, ptr %48, i64 %.pre-phi18
+  %53 = getelementptr inbounds nuw float, ptr %48, i64 %.pre-phi32
   store ptr %53, ptr %35, align 8, !tbaa !64
   br label %_ZNSt6vectorIfSaIfEE7reserveEm.exit7
 

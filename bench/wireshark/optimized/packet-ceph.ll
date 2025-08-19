@@ -3203,9 +3203,9 @@ c_dissect_pdu.exit:                               ; preds = %c_dissect_new.exit.
   unreachable
 
 .loopexit.sink.split:                             ; preds = %125, %130
-  %.sink28 = phi i32 [ %133, %130 ], [ 268435455, %125 ]
+  %.sink42 = phi i32 [ %133, %130 ], [ 268435455, %125 ]
   %340 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  store i32 %.sink28, ptr %340, align 8
+  store i32 %.sink42, ptr %340, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %c_dissect_pdu.exit, %.split, %.loopexit.sink.split

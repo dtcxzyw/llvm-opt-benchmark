@@ -1388,7 +1388,7 @@ _ZNK2cv11_InputArray6getMatEi.exit24:             ; preds = %38, %41
   %106 = sdiv i32 %105, 2
   %107 = add nsw i32 %106, %105
   %108 = icmp slt i32 %107, %.sroa.speculated.i
-  br i1 %108, label %93, label %.critedge.split.loop.exit490.i, !llvm.loop !77
+  br i1 %108, label %93, label %.critedge.split.loop.exit506.i, !llvm.loop !77
 
 109:                                              ; preds = %.noexc334.i, %.noexc333.i, %914, %.noexc288.i, %.noexc287.i, %671, %.noexc242.i, %.noexc241.i, %396, %.noexc196.i, %.noexc.i, %121, %88, %76
   %110 = landingpad { ptr, i32 }
@@ -1399,12 +1399,12 @@ _ZNK2cv11_InputArray6getMatEi.exit24:             ; preds = %38, %41
   %111 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
-.critedge.split.loop.exit490.i:                   ; preds = %100
+.critedge.split.loop.exit506.i:                   ; preds = %100
   %112 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %93, %.critedge.split.loop.exit490.i, %.critedge.split.loop.exit.i
-  %.0169.lcssa.i = phi i32 [ %111, %.critedge.split.loop.exit.i ], [ %112, %.critedge.split.loop.exit490.i ], [ 12, %93 ]
+.critedge.i:                                      ; preds = %93, %.critedge.split.loop.exit506.i, %.critedge.split.loop.exit.i
+  %.0169.lcssa.i = phi i32 [ %111, %.critedge.split.loop.exit.i ], [ %112, %.critedge.split.loop.exit506.i ], [ 12, %93 ]
   %113 = icmp samesign ult i32 %.0169.lcssa.i, 13
   %114 = zext i1 %113 to i32
   %spec.select.i = add nuw nsw i32 %.0169.lcssa.i, %114
@@ -3503,7 +3503,7 @@ _ZN2cv11xfeatures2dL28StarDetectorComputeResponsesIiEEiRKNS_3MatERS2_S5_ii.exit:
   %1461 = sdiv i32 %1460, 2
   %1462 = add nsw i32 %1461, %1460
   %1463 = icmp slt i32 %1462, %.sroa.speculated.i34
-  br i1 %1463, label %1448, label %.critedge.split.loop.exit433.i, !llvm.loop !112
+  br i1 %1463, label %1448, label %.critedge.split.loop.exit447.i, !llvm.loop !112
 
 1464:                                             ; preds = %.noexc306.i, %.noexc305.i, %2151, %.noexc260.i, %.noexc259.i, %1904, %.noexc234.i, %.noexc233.i, %1690, %.noexc196.i69, %.noexc.i68, %1476, %1443, %1431
   %1465 = landingpad { ptr, i32 }
@@ -3514,12 +3514,12 @@ _ZN2cv11xfeatures2dL28StarDetectorComputeResponsesIiEEiRKNS_3MatERS2_S5_ii.exit:
   %1466 = trunc nuw nsw i64 %indvars.iv.i35 to i32
   br label %.critedge.i39
 
-.critedge.split.loop.exit433.i:                   ; preds = %1455
+.critedge.split.loop.exit447.i:                   ; preds = %1455
   %1467 = trunc nuw nsw i64 %indvars.iv.i35 to i32
   br label %.critedge.i39
 
-.critedge.i39:                                    ; preds = %1448, %.critedge.split.loop.exit433.i, %.critedge.split.loop.exit.i38
-  %.0169.lcssa.i40 = phi i32 [ %1466, %.critedge.split.loop.exit.i38 ], [ %1467, %.critedge.split.loop.exit433.i ], [ 12, %1448 ]
+.critedge.i39:                                    ; preds = %1448, %.critedge.split.loop.exit447.i, %.critedge.split.loop.exit.i38
+  %.0169.lcssa.i40 = phi i32 [ %1466, %.critedge.split.loop.exit.i38 ], [ %1467, %.critedge.split.loop.exit447.i ], [ 12, %1448 ]
   %1468 = icmp samesign ult i32 %.0169.lcssa.i40, 13
   %1469 = zext i1 %1468 to i32
   %spec.select.i41 = add nuw nsw i32 %.0169.lcssa.i40, %1469
@@ -5496,13 +5496,13 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit98: ; preds = %2664, %2668
   %2728 = mul nsw i64 %indvars.iv329.i, %2708
   %2729 = icmp eq i64 %indvars.iv329.i, %sext331.i
   %.not136.fr.us.i = freeze i1 %2729
-  %invariant.gep369.i = getelementptr float, ptr %2682, i64 %2728
+  %invariant.gep384.i = getelementptr float, ptr %2682, i64 %2728
   br i1 %.not136.fr.us.i, label %.lr.ph.split.us294.i, label %.lr.ph.split.us.us.i
 
 .lr.ph.split.us294.i:                             ; preds = %.lr.ph.us.i, %2733
   %indvars.iv326.i = phi i64 [ %indvars.iv.next327.i, %2733 ], [ %2823, %.lr.ph.us.i ]
-  %gep370.i = getelementptr float, ptr %invariant.gep369.i, i64 %indvars.iv326.i
-  %2730 = load float, ptr %gep370.i, align 4, !tbaa !104
+  %gep385.i = getelementptr float, ptr %invariant.gep384.i, i64 %indvars.iv326.i
+  %2730 = load float, ptr %gep385.i, align 4, !tbaa !104
   %2731 = fcmp ult float %2730, %.2120.us.i
   %2732 = icmp eq i64 %indvars.iv326.i, %sext.i101
   %or.cond.i = or i1 %2732, %2731
@@ -5531,7 +5531,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit98: ; preds = %2664, %2668
   br i1 %2741, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit.us.i, label %2742
 
 2742:                                             ; preds = %2740
-  %2743 = sitofp i32 %.sroa.0206.2.us.i to float
+  %2743 = uitofp nneg i32 %.sroa.0206.2.us.i to float
   %2744 = sitofp i32 %.sroa.10211.2.us.i to float
   %2745 = uitofp nneg i16 %2738 to float
   %2746 = load ptr, ptr %2704, align 8, !tbaa !144
@@ -5634,13 +5634,13 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit.us.i: ; preds = %.lr.ph
   %2771 = mul nsw i64 %indvars.iv340.i, %2708
   %2772 = icmp eq i64 %indvars.iv340.i, %sext342.i
   %.not140.fr.us.i = freeze i1 %2772
-  %invariant.gep373.i = getelementptr float, ptr %2682, i64 %2771
+  %invariant.gep388.i = getelementptr float, ptr %2682, i64 %2771
   br i1 %.not140.fr.us.i, label %.lr.ph267.split.us299.i, label %.lr.ph267.split.us.us.i
 
 .lr.ph267.split.us299.i:                          ; preds = %.lr.ph267.us.i, %2776
   %indvars.iv336.i = phi i64 [ %indvars.iv.next337.i, %2776 ], [ %2834, %.lr.ph267.us.i ]
-  %gep374.i = getelementptr float, ptr %invariant.gep373.i, i64 %indvars.iv336.i
-  %2773 = load float, ptr %gep374.i, align 4, !tbaa !104
+  %gep389.i = getelementptr float, ptr %invariant.gep388.i, i64 %indvars.iv336.i
+  %2773 = load float, ptr %gep389.i, align 4, !tbaa !104
   %2774 = fcmp ugt float %2773, %.2123.us.i
   %2775 = icmp eq i64 %indvars.iv336.i, %sext338.i
   %or.cond305.i = select i1 %2774, i1 true, i1 %2775
@@ -5669,7 +5669,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit.us.i: ; preds = %.lr.ph
   br i1 %2784, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit159.us.i, label %2785
 
 2785:                                             ; preds = %2783
-  %2786 = sitofp i32 %.sroa.0197.2.us.i to float
+  %2786 = uitofp nneg i32 %.sroa.0197.2.us.i to float
   %2787 = sitofp i32 %.sroa.10202.2.us.i to float
   %2788 = uitofp nneg i16 %2781 to float
   %2789 = load ptr, ptr %2704, align 8, !tbaa !144
@@ -5795,8 +5795,8 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit159.us.i: ; preds = %.lr
 
 .lr.ph.split.us.us.i:                             ; preds = %.lr.ph.us.i, %2818
   %indvars.iv323.i = phi i64 [ %indvars.iv.next324.i, %2818 ], [ %2823, %.lr.ph.us.i ]
-  %gep368.i = getelementptr float, ptr %invariant.gep369.i, i64 %indvars.iv323.i
-  %2816 = load float, ptr %gep368.i, align 4, !tbaa !104
+  %gep383.i = getelementptr float, ptr %invariant.gep384.i, i64 %indvars.iv323.i
+  %2816 = load float, ptr %gep383.i, align 4, !tbaa !104
   %2817 = fcmp ult float %2816, %.2120.us.i
   br i1 %2817, label %2818, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit.us.i
 
@@ -5825,8 +5825,8 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit159.us.i: ; preds = %.lr
 
 .lr.ph267.split.us.us.i:                          ; preds = %.lr.ph267.us.i, %2829
   %indvars.iv333.i = phi i64 [ %indvars.iv.next334.i, %2829 ], [ %2834, %.lr.ph267.us.i ]
-  %gep372.i = getelementptr float, ptr %invariant.gep373.i, i64 %indvars.iv333.i
-  %2827 = load float, ptr %gep372.i, align 4, !tbaa !104
+  %gep387.i = getelementptr float, ptr %invariant.gep388.i, i64 %indvars.iv333.i
+  %2827 = load float, ptr %gep387.i, align 4, !tbaa !104
   %2828 = fcmp ugt float %2827, %.2123.us.i
   br i1 %2828, label %2829, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit159.us.i
 
@@ -6118,8 +6118,8 @@ define internal fastcc noundef zeroext i1 @_ZN2cv11xfeatures2dL25StarDetectorSup
   %37 = add nsw i64 %indvars.iv183, -1
   %38 = mul nsw i64 %37, %32
   %invariant.gep = getelementptr float, ptr %7, i64 %34
-  %invariant.gep199 = getelementptr float, ptr %7, i64 %36
-  %invariant.gep201 = getelementptr float, ptr %7, i64 %38
+  %invariant.gep200 = getelementptr float, ptr %7, i64 %36
+  %invariant.gep202 = getelementptr float, ptr %7, i64 %38
   br label %39
 
 39:                                               ; preds = %.lr.ph, %39
@@ -6133,10 +6133,10 @@ define internal fastcc noundef zeroext i1 @_ZN2cv11xfeatures2dL25StarDetectorSup
   %42 = getelementptr i8, ptr %gep, i64 -4
   %43 = load float, ptr %42, align 4, !tbaa !104
   %44 = fsub float %41, %43
-  %gep200 = getelementptr float, ptr %invariant.gep199, i64 %indvars.iv
-  %45 = load float, ptr %gep200, align 4, !tbaa !104
-  %gep202 = getelementptr float, ptr %invariant.gep201, i64 %indvars.iv
-  %46 = load float, ptr %gep202, align 4, !tbaa !104
+  %gep201 = getelementptr float, ptr %invariant.gep200, i64 %indvars.iv
+  %45 = load float, ptr %gep201, align 4, !tbaa !104
+  %gep203 = getelementptr float, ptr %invariant.gep202, i64 %indvars.iv
+  %46 = load float, ptr %gep203, align 4, !tbaa !104
   %47 = fsub float %45, %46
   %48 = tail call float @llvm.fmuladd.f32(float %44, float %44, float %.1112132)
   %49 = tail call float @llvm.fmuladd.f32(float %47, float %47, float %.1122130)
@@ -6174,8 +6174,8 @@ define internal fastcc noundef zeroext i1 @_ZN2cv11xfeatures2dL25StarDetectorSup
   %62 = sext i16 %18 to i64
   %63 = sext i32 %59 to i64
   %64 = sext i32 %21 to i64
-  %sext193 = shl i64 %12, 32
-  %65 = ashr exact i64 %sext193, 32
+  %sext194 = shl i64 %12, 32
+  %65 = ashr exact i64 %sext194, 32
   %66 = sext i32 %22 to i64
   br label %.lr.ph157
 
@@ -6189,9 +6189,9 @@ define internal fastcc noundef zeroext i1 @_ZN2cv11xfeatures2dL25StarDetectorSup
   %69 = mul nsw i64 %68, %65
   %70 = add nsw i64 %indvars.iv189, -1
   %71 = mul nsw i64 %70, %65
-  %invariant.gep203 = getelementptr i16, ptr %9, i64 %67
-  %invariant.gep205 = getelementptr i16, ptr %9, i64 %69
-  %invariant.gep207 = getelementptr i16, ptr %9, i64 %71
+  %invariant.gep204 = getelementptr i16, ptr %9, i64 %67
+  %invariant.gep206 = getelementptr i16, ptr %9, i64 %69
+  %invariant.gep208 = getelementptr i16, ptr %9, i64 %71
   br label %72
 
 72:                                               ; preds = %.lr.ph157, %72
@@ -6199,22 +6199,22 @@ define internal fastcc noundef zeroext i1 @_ZN2cv11xfeatures2dL25StarDetectorSup
   %.1114154 = phi i32 [ %.0113165, %.lr.ph157 ], [ %92, %72 ]
   %.1116153 = phi i32 [ %.0115164, %.lr.ph157 ], [ %90, %72 ]
   %.1118152 = phi i32 [ %.0117163, %.lr.ph157 ], [ %88, %72 ]
-  %gep204 = getelementptr i16, ptr %invariant.gep203, i64 %indvars.iv186
-  %73 = getelementptr i8, ptr %gep204, i64 2
+  %gep205 = getelementptr i16, ptr %invariant.gep204, i64 %indvars.iv186
+  %73 = getelementptr i8, ptr %gep205, i64 2
   %74 = load i16, ptr %73, align 2, !tbaa !91
   %75 = icmp eq i16 %74, %17
   %76 = zext i1 %75 to i32
-  %77 = getelementptr i8, ptr %gep204, i64 -2
+  %77 = getelementptr i8, ptr %gep205, i64 -2
   %78 = load i16, ptr %77, align 2, !tbaa !91
   %79 = icmp eq i16 %78, %17
   %.neg = sext i1 %79 to i32
   %80 = add nsw i32 %.neg, %76
-  %gep206 = getelementptr i16, ptr %invariant.gep205, i64 %indvars.iv186
-  %81 = load i16, ptr %gep206, align 2, !tbaa !91
+  %gep207 = getelementptr i16, ptr %invariant.gep206, i64 %indvars.iv186
+  %81 = load i16, ptr %gep207, align 2, !tbaa !91
   %82 = icmp eq i16 %81, %17
   %83 = zext i1 %82 to i32
-  %gep208 = getelementptr i16, ptr %invariant.gep207, i64 %indvars.iv186
-  %84 = load i16, ptr %gep208, align 2, !tbaa !91
+  %gep209 = getelementptr i16, ptr %invariant.gep208, i64 %indvars.iv186
+  %84 = load i16, ptr %gep209, align 2, !tbaa !91
   %85 = icmp eq i16 %84, %17
   %.neg127 = sext i1 %85 to i32
   %86 = add nsw i32 %.neg127, %83

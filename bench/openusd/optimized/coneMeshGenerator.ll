@@ -114,14 +114,14 @@ _ZNSt6vectorISt5arrayIfLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds =
 
 45:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i = icmp eq ptr %.sroa.0.088, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0.092, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt5arrayIfLm2EESaIS1_EED2Ev.exit, label %46
 
 46:                                               ; preds = %.thread.split.us, %45
   %47 = phi { ptr, i32 } [ %86, %.thread.split.us ], [ %lpad.phi, %45 ]
-  %48 = ptrtoint ptr %.sroa.0.088 to i64
-  %49 = sub i64 %.sroa.10.090, %48
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.088, i64 noundef %49) #12
+  %48 = ptrtoint ptr %.sroa.0.092 to i64
+  %49 = sub i64 %.sroa.10.094, %48
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.092, i64 noundef %49) #12
   br label %_ZNSt6vectorISt5arrayIfLm2EESaIS1_EED2Ev.exit
 
 ._crit_edge.loopexit:                             ; preds = %34
@@ -129,8 +129,8 @@ _ZNSt6vectorISt5arrayIfLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds =
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorISt5arrayIfLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %.sroa.10.090 = phi i64 [ 0, %_ZNSt6vectorISt5arrayIfLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %50, %._crit_edge.loopexit ]
-  %.sroa.0.088 = phi ptr [ null, %_ZNSt6vectorISt5arrayIfLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %24, %._crit_edge.loopexit ]
+  %.sroa.10.094 = phi i64 [ 0, %_ZNSt6vectorISt5arrayIfLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %50, %._crit_edge.loopexit ]
+  %.sroa.0.092 = phi ptr [ null, %_ZNSt6vectorISt5arrayIfLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %24, %._crit_edge.loopexit ]
   %51 = fmul float %2, 5.000000e-01
   %52 = fneg float %51
   store float 0.000000e+00, ptr %6, align 4
@@ -173,7 +173,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
 
 69:                                               ; preds = %.preheader71.us, %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE5WriteERKS2_.exit52.us
   %.03773.us = phi i64 [ 0, %.preheader71.us ], [ %85, %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE5WriteERKS2_.exit52.us ]
-  %70 = getelementptr inbounds %"struct.std::array", ptr %.sroa.0.088, i64 %.03773.us
+  %70 = getelementptr inbounds %"struct.std::array", ptr %.sroa.0.092, i64 %.03773.us
   %71 = load float, ptr %70, align 4
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %73 = load float, ptr %72, align 4
@@ -255,13 +255,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   br i1 %exitcond84.not, label %._crit_edge79, label %89, !llvm.loop !10
 
 ._crit_edge79:                                    ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE5WriteERKS2_.exit58, %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE5WriteERKS2_.exit.preheader
-  %.not.i.i.i59 = icmp eq ptr %.sroa.0.088, null
+  %.not.i.i.i59 = icmp eq ptr %.sroa.0.092, null
   br i1 %.not.i.i.i59, label %_ZNSt6vectorISt5arrayIfLm2EESaIS1_EED2Ev.exit60, label %102
 
 102:                                              ; preds = %._crit_edge79
-  %103 = ptrtoint ptr %.sroa.0.088 to i64
-  %104 = sub i64 %.sroa.10.090, %103
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.088, i64 noundef %104) #12
+  %103 = ptrtoint ptr %.sroa.0.092 to i64
+  %104 = sub i64 %.sroa.10.094, %103
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.092, i64 noundef %104) #12
   br label %_ZNSt6vectorISt5arrayIfLm2EESaIS1_EED2Ev.exit60
 
 _ZNSt6vectorISt5arrayIfLm2EESaIS1_EED2Ev.exit60:  ; preds = %102, %._crit_edge79, %5
@@ -354,8 +354,8 @@ _ZNSt6vectorISt5arrayIdLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds =
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorISt5arrayIdLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %.sroa.10.090 = phi i64 [ 0, %_ZNSt6vectorISt5arrayIdLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %41, %._crit_edge.loopexit ]
-  %.sroa.0.088 = phi ptr [ null, %_ZNSt6vectorISt5arrayIdLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %21, %._crit_edge.loopexit ]
+  %.sroa.10.094 = phi i64 [ 0, %_ZNSt6vectorISt5arrayIdLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %41, %._crit_edge.loopexit ]
+  %.sroa.0.092 = phi ptr [ null, %_ZNSt6vectorISt5arrayIdLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %21, %._crit_edge.loopexit ]
   %42 = fmul double %2, 5.000000e-01
   %43 = fneg double %42
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -396,7 +396,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
 
 59:                                               ; preds = %.preheader71.us, %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3dEE5WriteERKS2_.exit52.us
   %.03773.us = phi i64 [ 0, %.preheader71.us ], [ %75, %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3dEE5WriteERKS2_.exit52.us ]
-  %60 = getelementptr inbounds %"struct.std::array.5", ptr %.sroa.0.088, i64 %.03773.us
+  %60 = getelementptr inbounds %"struct.std::array.5", ptr %.sroa.0.092, i64 %.03773.us
   %61 = load double, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %63 = load double, ptr %62, align 8
@@ -455,14 +455,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
 
 78:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i = icmp eq ptr %.sroa.0.088, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0.092, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt5arrayIdLm2EESaIS1_EED2Ev.exit, label %79
 
 79:                                               ; preds = %.thread.split.us, %78
   %80 = phi { ptr, i32 } [ %76, %.thread.split.us ], [ %lpad.phi, %78 ]
-  %81 = ptrtoint ptr %.sroa.0.088 to i64
-  %82 = sub i64 %.sroa.10.090, %81
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.088, i64 noundef %82) #12
+  %81 = ptrtoint ptr %.sroa.0.092 to i64
+  %82 = sub i64 %.sroa.10.094, %81
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.092, i64 noundef %82) #12
   br label %_ZNSt6vectorISt5arrayIdLm2EESaIS1_EED2Ev.exit
 
 83:                                               ; preds = %.lr.ph78, %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3dEE5WriteERKS2_.exit58
@@ -498,13 +498,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   br i1 %exitcond84.not, label %._crit_edge79, label %83, !llvm.loop !15
 
 ._crit_edge79:                                    ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3dEE5WriteERKS2_.exit58, %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3dEE5WriteERKS2_.exit.preheader
-  %.not.i.i.i59 = icmp eq ptr %.sroa.0.088, null
+  %.not.i.i.i59 = icmp eq ptr %.sroa.0.092, null
   br i1 %.not.i.i.i59, label %_ZNSt6vectorISt5arrayIdLm2EESaIS1_EED2Ev.exit60, label %96
 
 96:                                               ; preds = %._crit_edge79
-  %97 = ptrtoint ptr %.sroa.0.088 to i64
-  %98 = sub i64 %.sroa.10.090, %97
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.088, i64 noundef %98) #12
+  %97 = ptrtoint ptr %.sroa.0.092 to i64
+  %98 = sub i64 %.sroa.10.094, %97
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.092, i64 noundef %98) #12
   br label %_ZNSt6vectorISt5arrayIdLm2EESaIS1_EED2Ev.exit60
 
 _ZNSt6vectorISt5arrayIdLm2EESaIS1_EED2Ev.exit60:  ; preds = %96, %._crit_edge79, %5

@@ -113,10 +113,10 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   %21 = call fastcc i32 @clean_layout(ptr noundef %14, ptr noundef %1, ptr noundef %10)
   %22 = or i32 %21, %20
   %23 = icmp slt i32 %22, 0
-  %.sink214.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %.sink214.i.sroa.gep61 = getelementptr inbounds nuw i8, ptr %12, i64 336
-  %.sink208.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 200
-  %.sink208.i.sroa.gep62 = getelementptr inbounds nuw i8, ptr %12, i64 344
+  %.sink217.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %.sink217.i.sroa.gep61 = getelementptr inbounds nuw i8, ptr %12, i64 336
+  %.sink211.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 200
+  %.sink211.i.sroa.gep62 = getelementptr inbounds nuw i8, ptr %12, i64 344
   br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %11
@@ -706,31 +706,31 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
 321:                                              ; preds = %319
   %322 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 0) #11
   %323 = icmp sgt i32 %322, -1
-  br i1 %323, label %.sink.split202.i, label %324
+  br i1 %323, label %.sink.split205.i, label %324
 
 324:                                              ; preds = %321
   %325 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 2) #11
   %326 = icmp sgt i32 %325, -1
-  br i1 %326, label %.sink.split202.i, label %327
+  br i1 %326, label %.sink.split205.i, label %327
 
 327:                                              ; preds = %324
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 278) #11
   call void @abort() #12
   unreachable
 
-.sink.split202.i:                                 ; preds = %324, %321
-  %.sink214.i.sroa.phi = phi ptr [ %.sink214.i.sroa.gep, %321 ], [ %.sink214.i.sroa.gep61, %324 ]
-  %.sink212.i = phi double [ 1.000000e+00, %321 ], [ 0x3FE6A09E667F3BCD, %324 ]
-  %.sink208.i.sroa.phi = phi ptr [ %.sink208.i.sroa.gep, %321 ], [ %.sink208.i.sroa.gep62, %324 ]
-  %328 = load double, ptr %.sink214.i.sroa.phi, align 16, !tbaa !24
-  %329 = fadd nsz double %.sink212.i, %328
-  store double %329, ptr %.sink214.i.sroa.phi, align 16, !tbaa !24
-  %330 = load double, ptr %.sink208.i.sroa.phi, align 8, !tbaa !24
-  %331 = fadd nsz double %.sink212.i, %330
-  store double %331, ptr %.sink208.i.sroa.phi, align 8, !tbaa !24
+.sink.split205.i:                                 ; preds = %324, %321
+  %.sink217.i.sroa.phi = phi ptr [ %.sink217.i.sroa.gep, %321 ], [ %.sink217.i.sroa.gep61, %324 ]
+  %.sink215.i = phi double [ 1.000000e+00, %321 ], [ 0x3FE6A09E667F3BCD, %324 ]
+  %.sink211.i.sroa.phi = phi ptr [ %.sink211.i.sroa.gep, %321 ], [ %.sink211.i.sroa.gep62, %324 ]
+  %328 = load double, ptr %.sink217.i.sroa.phi, align 16, !tbaa !24
+  %329 = fadd nsz double %.sink215.i, %328
+  store double %329, ptr %.sink217.i.sroa.phi, align 16, !tbaa !24
+  %330 = load double, ptr %.sink211.i.sroa.phi, align 8, !tbaa !24
+  %331 = fadd nsz double %.sink215.i, %330
+  store double %331, ptr %.sink211.i.sroa.phi, align 8, !tbaa !24
   br label %332
 
-332:                                              ; preds = %.sink.split202.i, %319
+332:                                              ; preds = %.sink.split205.i, %319
   %333 = and i64 %83, 4096
   %.not170.i = icmp eq i64 %333, 0
   br i1 %.not170.i, label %377, label %334
@@ -812,9 +812,9 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
 377:                                              ; preds = %369, %362, %358, %346, %337, %332
   %378 = and i64 %83, 8
   %.not171.i = icmp eq i64 %378, 0
-  br i1 %.not171.i, label %.preheader90, label %379
+  br i1 %.not171.i, label %.preheader94, label %379
 
-.preheader90:                                     ; preds = %389, %382, %377
+.preheader94:                                     ; preds = %389, %382, %377
   br label %397
 
 379:                                              ; preds = %377
@@ -827,7 +827,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   %384 = load double, ptr %383, align 8, !tbaa !24
   %385 = fadd nsz double %4, %384
   store double %385, ptr %383, align 8, !tbaa !24
-  br label %.preheader90
+  br label %.preheader94
 
 386:                                              ; preds = %379
   %387 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 0) #11
@@ -843,16 +843,16 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   %394 = load double, ptr %393, align 8, !tbaa !24
   %395 = call nsz double @llvm.fmuladd.f64(double %4, double 0x3FE6A09E667F3BCD, double %394)
   store double %395, ptr %393, align 8, !tbaa !24
-  br label %.preheader90
+  br label %.preheader94
 
 396:                                              ; preds = %386
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 310) #11
   call void @abort() #12
   unreachable
 
-397:                                              ; preds = %.preheader90, %444
-  %indvars.iv189.i = phi i64 [ %indvars.iv.next190.i, %444 ], [ 0, %.preheader90 ]
-  %.0179.i = phi double [ %.1.i, %444 ], [ 0.000000e+00, %.preheader90 ]
+397:                                              ; preds = %.preheader94, %444
+  %indvars.iv189.i = phi i64 [ %indvars.iv.next190.i, %444 ], [ 0, %.preheader94 ]
+  %.0179.i = phi double [ %.1.i, %444 ], [ 0.000000e+00, %.preheader94 ]
   %398 = trunc nuw nsw i64 %indvars.iv189.i to i32
   %399 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef %398) #11
   %400 = icmp slt i32 %399, 0
@@ -1300,7 +1300,7 @@ define range(i32 -2147483648, 1) i32 @swri_rematrix_init(ptr noundef initializes
 .lr.ph255:                                        ; preds = %.preheader230
   %51 = getelementptr inbounds nuw [64 x [64 x double]], ptr %49, i64 0, i64 %indvars.iv297
   %52 = mul nuw nsw i64 %indvars.iv297, %50
-  %invariant.gep316 = getelementptr inbounds nuw i32, ptr %46, i64 %52
+  %invariant.gep326 = getelementptr inbounds nuw i32, ptr %46, i64 %52
   br label %53
 
 53:                                               ; preds = %.lr.ph255, %53
@@ -1313,8 +1313,8 @@ define range(i32 -2147483648, 1) i32 @swri_rematrix_init(ptr noundef initializes
   %57 = fptrunc nsz double %56 to float
   %58 = tail call i64 @llvm.lrint.i64.f32(float %57)
   %59 = trunc i64 %58 to i32
-  %gep317 = getelementptr inbounds nuw i32, ptr %invariant.gep316, i64 %indvars.iv292
-  store i32 %59, ptr %gep317, align 4, !tbaa !34
+  %gep327 = getelementptr inbounds nuw i32, ptr %invariant.gep326, i64 %indvars.iv292
+  store i32 %59, ptr %gep327, align 4, !tbaa !34
   %60 = sitofp i32 %59 to double
   %61 = fsub nsz double %56, %60
   %62 = fadd nsz double %.0177253, %61
@@ -1721,7 +1721,7 @@ get_mix_any_func_clip_s16.exit:                   ; preds = %205, %252, %256
 .lr.ph248:                                        ; preds = %.preheader232
   %269 = getelementptr inbounds nuw [64 x [64 x double]], ptr %267, i64 0, i64 %indvars.iv287
   %270 = mul nuw nsw i64 %indvars.iv287, %268
-  %invariant.gep314 = getelementptr inbounds nuw float, ptr %264, i64 %270
+  %invariant.gep324 = getelementptr inbounds nuw float, ptr %264, i64 %270
   br label %271
 
 271:                                              ; preds = %.lr.ph248, %271
@@ -1729,8 +1729,8 @@ get_mix_any_func_clip_s16.exit:                   ; preds = %205, %252, %256
   %272 = getelementptr inbounds nuw [64 x double], ptr %269, i64 0, i64 %indvars.iv282
   %273 = load double, ptr %272, align 8, !tbaa !24
   %274 = fptrunc nsz double %273 to float
-  %gep315 = getelementptr inbounds nuw float, ptr %invariant.gep314, i64 %indvars.iv282
-  store float %274, ptr %gep315, align 4, !tbaa !25
+  %gep325 = getelementptr inbounds nuw float, ptr %invariant.gep324, i64 %indvars.iv282
+  store float %274, ptr %gep325, align 4, !tbaa !25
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
   %exitcond286.not = icmp eq i64 %indvars.iv.next283, %268
   br i1 %exitcond286.not, label %._crit_edge249, label %271, !llvm.loop !58
@@ -1950,15 +1950,15 @@ get_mix_any_func_float.exit:                      ; preds = %317, %364, %368
 .lr.ph243:                                        ; preds = %.preheader234
   %381 = getelementptr inbounds nuw [64 x [64 x double]], ptr %379, i64 0, i64 %indvars.iv277
   %382 = mul nuw nsw i64 %indvars.iv277, %380
-  %invariant.gep312 = getelementptr inbounds nuw double, ptr %376, i64 %382
+  %invariant.gep322 = getelementptr inbounds nuw double, ptr %376, i64 %382
   br label %383
 
 383:                                              ; preds = %.lr.ph243, %383
   %indvars.iv272 = phi i64 [ 0, %.lr.ph243 ], [ %indvars.iv.next273, %383 ]
   %384 = getelementptr inbounds nuw [64 x double], ptr %381, i64 0, i64 %indvars.iv272
   %385 = load double, ptr %384, align 8, !tbaa !24
-  %gep313 = getelementptr inbounds nuw double, ptr %invariant.gep312, i64 %indvars.iv272
-  store double %385, ptr %gep313, align 8, !tbaa !24
+  %gep323 = getelementptr inbounds nuw double, ptr %invariant.gep322, i64 %indvars.iv272
+  store double %385, ptr %gep323, align 8, !tbaa !24
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %exitcond276.not = icmp eq i64 %indvars.iv.next273, %380
   br i1 %exitcond276.not, label %._crit_edge244, label %383, !llvm.loop !60

@@ -452,7 +452,7 @@ define dso_local { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local
   %40 = extractvalue { i64, ptr } %38, 1
   %41 = tail call i32 @jv_array_length(i64 %39, ptr %40) #14
   %.not7892 = icmp sgt i32 %41, 0
-  br i1 %.not7892, label %.lr.ph, label %.loopexit113
+  br i1 %.not7892, label %.lr.ph, label %.loopexit116
 
 .lr.ph:                                           ; preds = %.lr.ph104, %52
   %.17193 = phi i32 [ %53, %52 ], [ 0, %.lr.ph104 ]
@@ -472,9 +472,9 @@ define dso_local { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local
 52:                                               ; preds = %.lr.ph
   %53 = add nuw nsw i32 %.17193, 1
   %exitcond.not = icmp eq i32 %53, %41
-  br i1 %exitcond.not, label %.loopexit113, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %.loopexit116, label %.lr.ph, !llvm.loop !4
 
-.loopexit113:                                     ; preds = %52, %.lr.ph104
+.loopexit116:                                     ; preds = %52, %.lr.ph104
   %54 = tail call { i64, ptr } @jv_copy(i64 %36, ptr %37) #14
   %55 = extractvalue { i64, ptr } %54, 0
   %56 = extractvalue { i64, ptr } %54, 1
@@ -483,9 +483,9 @@ define dso_local { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local
   %59 = extractvalue { i64, ptr } %57, 1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %.loopexit113
-  %.sroa.064.3 = phi i64 [ %58, %.loopexit113 ], [ %.sroa.064.2102, %.lr.ph ]
-  %.sroa.666.3 = phi ptr [ %59, %.loopexit113 ], [ %.sroa.666.2103, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %.loopexit116
+  %.sroa.064.3 = phi i64 [ %58, %.loopexit116 ], [ %.sroa.064.2102, %.lr.ph ]
+  %.sroa.666.3 = phi ptr [ %59, %.loopexit116 ], [ %.sroa.666.2103, %.lr.ph ]
   tail call void @jv_free(i64 %36, ptr %37) #14
   %60 = add nuw nsw i32 %.1101, 1
   %exitcond111.not = icmp eq i32 %60, %27
@@ -5102,7 +5102,7 @@ define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, p
   br label %.thread498
 
 .thread498:                                       ; preds = %.thread498.loopexit, %.preheader
-  %.merged705 = phi { i64, ptr } [ %53, %.preheader ], [ %116, %.thread498.loopexit ]
+  %.merged718 = phi { i64, ptr } [ %53, %.preheader ], [ %116, %.thread498.loopexit ]
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %f_tostring.exit
 
@@ -5328,8 +5328,8 @@ f_tostring.exit484:                               ; preds = %122, %125
   br label %220
 
 220:                                              ; preds = %207, %214, %218
-  %.sink738 = phi i8 [ %215, %214 ], [ %219, %218 ], [ %211, %207 ]
-  %221 = or i8 %.sink738, %209
+  %.sink751 = phi i8 [ %215, %214 ], [ %219, %218 ], [ %211, %207 ]
+  %221 = or i8 %.sink751, %209
   store i8 %221, ptr %198, align 1, !tbaa !25
   %.4429 = getelementptr inbounds nuw i8, ptr %.4429630, i64 1
   br i1 %.not658, label %207, label %230, !llvm.loop !28
@@ -5713,11 +5713,11 @@ sub_1:                                            ; preds = %sub_0
 
 ._crit_edge.thread.sink.split:                    ; preds = %._crit_edge, %388
   %.sink = phi i32 [ 2, %388 ], [ 4, %._crit_edge ]
-  %.sink741 = phi i32 [ 2, %388 ], [ 1, %._crit_edge ]
+  %.sink754 = phi i32 [ 2, %388 ], [ 1, %._crit_edge ]
   %.0406.lcssa.sink = phi i32 [ %391, %388 ], [ %.0406.lcssa, %._crit_edge ]
   %396 = lshr i32 %.0403.lcssa, %.sink
   %397 = trunc i32 %396 to i8
-  %398 = add i32 %.0406.lcssa, %.sink741
+  %398 = add i32 %.0406.lcssa, %.sink754
   %399 = zext i32 %.0406.lcssa.sink to i64
   %400 = getelementptr inbounds nuw i8, ptr %356, i64 %399
   store i8 %397, ptr %400, align 1, !tbaa !25
@@ -5742,7 +5742,7 @@ sub_1:                                            ; preds = %sub_0
   br label %f_tostring.exit
 
 f_tostring.exit:                                  ; preds = %394, %._crit_edge.thread, %.critedge19, %.thread540, %296, %245, %.thread519, %.thread498, %107, %37, %34, %27, %f_tostring.exit484, %._crit_edge640, %._crit_edge615, %402, %45, %16
-  %.fca.1.insert.merged = phi { i64, ptr } [ %23, %16 ], [ %409, %402 ], [ %.pn478.lcssa, %._crit_edge615 ], [ %.pn459.lcssa, %._crit_edge640 ], [ %129, %f_tostring.exit484 ], [ %28, %27 ], [ %52, %45 ], [ %36, %34 ], [ %38, %37 ], [ %.merged705, %.thread498 ], [ %114, %107 ], [ %.pn558, %245 ], [ %.pn554, %.thread519 ], [ %.merged, %.thread540 ], [ %297, %296 ], [ %401, %._crit_edge.thread ], [ %395, %394 ], [ %387, %.critedge19 ]
+  %.fca.1.insert.merged = phi { i64, ptr } [ %23, %16 ], [ %409, %402 ], [ %.pn478.lcssa, %._crit_edge615 ], [ %.pn459.lcssa, %._crit_edge640 ], [ %129, %f_tostring.exit484 ], [ %28, %27 ], [ %52, %45 ], [ %36, %34 ], [ %38, %37 ], [ %.merged718, %.thread498 ], [ %114, %107 ], [ %.pn558, %245 ], [ %.pn554, %.thread519 ], [ %.merged, %.thread540 ], [ %297, %296 ], [ %401, %._crit_edge.thread ], [ %395, %394 ], [ %387, %.critedge19 ]
   ret { i64, ptr } %.fca.1.insert.merged
 }
 
@@ -6401,9 +6401,9 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   br label %345
 
 345:                                              ; preds = %337, %._crit_edge511.us
-  %.sink572 = phi { i64, ptr } [ %344, %337 ], [ %265, %._crit_edge511.us ]
-  %346 = extractvalue { i64, ptr } %.sink572, 0
-  %347 = extractvalue { i64, ptr } %.sink572, 1
+  %.sink579 = phi { i64, ptr } [ %344, %337 ], [ %265, %._crit_edge511.us ]
+  %346 = extractvalue { i64, ptr } %.sink579, 0
+  %347 = extractvalue { i64, ptr } %.sink579, 1
   %348 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.214) #14
   %349 = extractvalue { i64, ptr } %348, 0
   %350 = extractvalue { i64, ptr } %348, 1

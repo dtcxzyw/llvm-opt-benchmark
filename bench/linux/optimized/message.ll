@@ -830,7 +830,7 @@ define internal void @sg_complete(ptr noundef readonly captures(address) %0) #0 
   %11 = icmp ne i32 %8, -104
   %12 = icmp ne i32 %5, -104
   %13 = select i1 %11, i1 true, i1 %12
-  br i1 %13, label %14, label %.thread3
+  br i1 %13, label %14, label %.thread5
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -864,12 +864,12 @@ define internal void @sg_complete(ptr noundef readonly captures(address) %0) #0 
   %37 = phi i32 [ %.pre, %18 ], [ %8, %14 ]
   %38 = freeze i32 %37
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.thread, label %.thread3
+  br i1 %39, label %.thread, label %.thread5
 
 .thread:                                          ; preds = %1, %36
   switch i32 %5, label %40 [
-    i32 -104, label %.thread3
-    i32 0, label %.thread3
+    i32 -104, label %.thread5
+    i32 0, label %.thread5
   ]
 
 40:                                               ; preds = %.thread
@@ -932,9 +932,9 @@ define internal void @sg_complete(ptr noundef readonly captures(address) %0) #0 
 
 .loopexit:                                        ; preds = %67, %40
   %73 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %6) #12
-  br label %.thread3
+  br label %.thread5
 
-.thread3:                                         ; preds = %10, %.loopexit, %.thread, %.thread, %36
+.thread5:                                         ; preds = %10, %.loopexit, %.thread, %.thread, %36
   %74 = phi i64 [ %73, %.loopexit ], [ %7, %.thread ], [ %7, %36 ], [ %7, %.thread ], [ %7, %10 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %76 = load i32, ptr %75, align 4
@@ -950,12 +950,12 @@ define internal void @sg_complete(ptr noundef readonly captures(address) %0) #0 
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %85, label %87
 
-85:                                               ; preds = %.thread3
+85:                                               ; preds = %.thread5
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 56
   tail call void @complete(ptr noundef nonnull %86) #12
   br label %87
 
-87:                                               ; preds = %85, %.thread3
+87:                                               ; preds = %85, %.thread5
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %6, i64 noundef %74) #12
   ret void
 }
@@ -1478,8 +1478,8 @@ define internal fastcc range(i32 -2147483648, 255) i32 @usb_string_sub(ptr nound
 .loopexit:                                        ; preds = %23, %60, %45
   %67 = phi i32 [ %35, %45 ], [ %57, %60 ], [ %20, %23 ]
   %68 = load i8, ptr %3, align 1
-  %.fr49 = freeze i8 %68
-  %69 = zext i8 %.fr49 to i32
+  %.fr58 = freeze i8 %68
+  %69 = zext i8 %.fr58 to i32
   %70 = tail call i32 @llvm.umin.i32(i32 %67, i32 %69)
   %71 = and i32 %70, 254
   %72 = icmp eq i32 %71, 0

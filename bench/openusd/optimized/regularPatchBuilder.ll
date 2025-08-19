@@ -131,11 +131,11 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr19RegularPatchBuilderC2ERKNS1_11FaceSurfa
   %11 = or disjoint i8 %10, %8
   store i8 %11, ptr %7, align 8
   %spec.select = select i1 %6, i32 6, i32 5
-  %spec.select24 = select i1 %6, i32 16, i32 12
+  %spec.select25 = select i1 %6, i32 16, i32 12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %spec.select, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %spec.select24, ptr %13, align 8
+  store i32 %spec.select25, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %15 = load i16, ptr %14, align 8, !noalias !5
   %16 = trunc i16 %15 to i8
@@ -1562,7 +1562,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex18GetFaceIndexOffsetEi.exit: ; preds = %1
   %151 = getelementptr inbounds i32, ptr %.0136, i64 %150
   %152 = load i32, ptr %151, align 4
   %153 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %153, label %default.unreachable [
+  switch i32 %153, label %default.unreachable145 [
     i32 0, label %154
     i32 1, label %225
     i32 2, label %296
@@ -1928,7 +1928,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex18GetFaceIndexOffsetEi.exit130: ; preds =
   store i32 %366, ptr %9, align 4
   br label %367
 
-default.unreachable:                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex18GetFaceIndexOffsetEi.exit
+default.unreachable145:                           ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex18GetFaceIndexOffsetEi.exit
   unreachable
 
 367:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex18GetFaceIndexOffsetEi.exit130, %365, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex18GetFaceIndexOffsetEi.exit124, %294, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex18GetFaceIndexOffsetEi.exit118, %223

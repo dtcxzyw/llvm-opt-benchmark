@@ -1373,9 +1373,9 @@ default.unreachable:                              ; preds = %Vec_IntFill.exit
   %.3145 = phi i32 [ %85, %84 ], [ %.2144193, %.preheader ]
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond233.not = icmp eq i64 %indvars.iv.next231, 6
-  br i1 %exitcond233.not, label %.preheader252, label %.preheader, !llvm.loop !57
+  br i1 %exitcond233.not, label %.preheader263, label %.preheader, !llvm.loop !57
 
-.preheader252:                                    ; preds = %89, %102
+.preheader263:                                    ; preds = %89, %102
   %.3141197 = phi i32 [ %103, %102 ], [ 0, %89 ]
   %.4146196 = phi i32 [ %.5, %102 ], [ 0, %89 ]
   %.2149195 = phi i32 [ %.3150, %102 ], [ %66, %89 ]
@@ -1385,7 +1385,7 @@ default.unreachable:                              ; preds = %Vec_IntFill.exit
   %93 = icmp eq i32 %92, 7
   br i1 %93, label %94, label %102
 
-94:                                               ; preds = %.preheader252
+94:                                               ; preds = %.preheader263
   %95 = add nsw i32 %.4146196, 1
   %96 = sext i32 %.4146196 to i64
   %97 = getelementptr inbounds i32, ptr %65, i64 %96
@@ -1395,12 +1395,12 @@ default.unreachable:                              ; preds = %Vec_IntFill.exit
   %101 = xor i32 %100, %.2149195
   br label %102
 
-102:                                              ; preds = %94, %.preheader252
-  %.3150 = phi i32 [ %101, %94 ], [ %.2149195, %.preheader252 ]
-  %.5 = phi i32 [ %95, %94 ], [ %.4146196, %.preheader252 ]
+102:                                              ; preds = %94, %.preheader263
+  %.3150 = phi i32 [ %101, %94 ], [ %.2149195, %.preheader263 ]
+  %.5 = phi i32 [ %95, %94 ], [ %.4146196, %.preheader263 ]
   %103 = add nuw nsw i32 %.3141197, 1
   %exitcond234.not = icmp eq i32 %103, 6
-  br i1 %exitcond234.not, label %104, label %.preheader252, !llvm.loop !58
+  br i1 %exitcond234.not, label %104, label %.preheader263, !llvm.loop !58
 
 104:                                              ; preds = %102
   %105 = load ptr, ptr %18, align 8, !tbaa !52
@@ -2461,14 +2461,14 @@ Vec_WrdUniqify.exit:                              ; preds = %12, %._crit_edge.i
   br label %Vec_WrdPush.exit.sink.split
 
 Vec_WrdPush.exit.sink.split:                      ; preds = %57, %59, %49, %51
-  %.sink77 = phi ptr [ %50, %49 ], [ %52, %51 ], [ %58, %57 ], [ %60, %59 ]
+  %.sink87 = phi ptr [ %50, %49 ], [ %52, %51 ], [ %58, %57 ], [ %60, %59 ]
   %.sink = phi i32 [ 16, %49 ], [ 16, %51 ], [ %54, %57 ], [ %54, %59 ]
-  store ptr %.sink77, ptr %38, align 8, !tbaa !37
+  store ptr %.sink87, ptr %38, align 8, !tbaa !37
   store i32 %.sink, ptr %35, align 8, !tbaa !36
   br label %Vec_WrdPush.exit
 
 Vec_WrdPush.exit:                                 ; preds = %Vec_WrdPush.exit.sink.split, %39
-  %.pre.i63 = phi ptr [ %40, %39 ], [ %.sink77, %Vec_WrdPush.exit.sink.split ]
+  %.pre.i63 = phi ptr [ %40, %39 ], [ %.sink87, %Vec_WrdPush.exit.sink.split ]
   %61 = phi i32 [ %41, %39 ], [ %.sink, %Vec_WrdPush.exit.sink.split ]
   %62 = load i32, ptr %36, align 4, !tbaa !33
   %63 = add nsw i32 %62, 1
@@ -2540,16 +2540,16 @@ Vec_WrdPush.exit:                                 ; preds = %Vec_WrdPush.exit.si
   br label %Vec_WrdPush.exit.i.sink.split
 
 Vec_WrdPush.exit.i.sink.split:                    ; preds = %89, %91, %81, %83
-  %.sink80 = phi ptr [ %82, %81 ], [ %84, %83 ], [ %90, %89 ], [ %92, %91 ]
-  %.sink79 = phi i32 [ 16, %81 ], [ 16, %83 ], [ %86, %89 ], [ %86, %91 ]
-  store ptr %.sink80, ptr %38, align 8, !tbaa !37
-  store i32 %.sink79, ptr %35, align 8, !tbaa !36
+  %.sink90 = phi ptr [ %82, %81 ], [ %84, %83 ], [ %90, %89 ], [ %92, %91 ]
+  %.sink89 = phi i32 [ 16, %81 ], [ 16, %83 ], [ %86, %89 ], [ %86, %91 ]
+  store ptr %.sink90, ptr %38, align 8, !tbaa !37
+  store i32 %.sink89, ptr %35, align 8, !tbaa !36
   br label %Vec_WrdPush.exit.i
 
 Vec_WrdPush.exit.i:                               ; preds = %Vec_WrdPush.exit.i.sink.split, %71
-  %.pre.i.i74 = phi ptr [ %72, %71 ], [ %.sink80, %Vec_WrdPush.exit.i.sink.split ]
-  %.pre10.i70 = phi i32 [ %.pre10.i69, %71 ], [ %.sink79, %Vec_WrdPush.exit.i.sink.split ]
-  %93 = phi i32 [ %73, %71 ], [ %.sink79, %Vec_WrdPush.exit.i.sink.split ]
+  %.pre.i.i74 = phi ptr [ %72, %71 ], [ %.sink90, %Vec_WrdPush.exit.i.sink.split ]
+  %.pre10.i70 = phi i32 [ %.pre10.i69, %71 ], [ %.sink89, %Vec_WrdPush.exit.i.sink.split ]
+  %93 = phi i32 [ %73, %71 ], [ %.sink89, %Vec_WrdPush.exit.i.sink.split ]
   %94 = load i32, ptr %36, align 4, !tbaa !33
   %95 = add nsw i32 %94, 1
   store i32 %95, ptr %36, align 4, !tbaa !33

@@ -838,9 +838,9 @@ _.exit:                                           ; preds = %20, %22
   %62 = load ptr, ptr @extra_http_headers, align 8, !tbaa !56
   %.not7.i = icmp eq ptr %62, null
   %63 = load i64, ptr getelementptr inbounds nuw (i8, ptr @extra_http_headers, i64 8), align 8
-  %.not84 = icmp eq i64 %63, 0
-  %or.cond93 = select i1 %.not7.i, i1 true, i1 %.not84
-  br i1 %or.cond93, label %http_copy_default_headers.exit, label %.lr.ph.i
+  %.not140 = icmp eq i64 %63, 0
+  %or.cond149 = select i1 %.not7.i, i1 true, i1 %.not140
+  br i1 %or.cond149, label %http_copy_default_headers.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge, %.lr.ph.i
   %.068.i72 = phi ptr [ %65, %.lr.ph.i ], [ null, %.critedge ]
@@ -1111,9 +1111,9 @@ set_from_env.exit60:                              ; preds = %set_from_env.exit58
   %156 = load i32, ptr @curl_ssl_verify, align 4, !tbaa !38
   %.not90.i = icmp ne i32 %156, 0
   %..i = zext i1 %.not90.i to i32
-  %.233.i = select i1 %.not90.i, i32 2, i32 0
+  %.269.i = select i1 %.not90.i, i32 2, i32 0
   %157 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %153, i32 noundef 64, i32 noundef %..i) #23
-  %158 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %153, i32 noundef 81, i32 noundef %.233.i) #23
+  %158 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %153, i32 noundef 81, i32 noundef %.269.i) #23
   %159 = load ptr, ptr @curl_http_version, align 8, !tbaa !41
   %.not91.i = icmp eq ptr %159, null
   br i1 %.not91.i, label %169, label %.preheader190.i
@@ -1389,8 +1389,8 @@ has_cert_password.exit.i:                         ; preds = %237, %223
   br i1 %.not112.i, label %275, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %272, %262
-  %.sink230.i = phi ptr [ null, %262 ], [ %273, %272 ]
-  %274 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %153, i32 noundef 10246, ptr noundef %.sink230.i) #23
+  %.sink266.i = phi ptr [ null, %262 ], [ %273, %272 ]
+  %274 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %153, i32 noundef 10246, ptr noundef %.sink266.i) #23
   br label %275
 
 275:                                              ; preds = %.sink.split.i, %272, %264
@@ -1550,8 +1550,8 @@ var_override.exit.i:                              ; preds = %338, %336
   br i1 %.not.i152.i, label %var_override.exit151.thread.i, label %var_override.exit151.sink.split.i
 
 var_override.exit151.sink.split.i:                ; preds = %343, %342
-  %.sink232.i = phi ptr [ %341, %342 ], [ %344, %343 ]
-  %345 = call ptr @xstrdup(ptr noundef nonnull %.sink232.i) #23
+  %.sink268.i = phi ptr [ %341, %342 ], [ %344, %343 ]
+  %345 = call ptr @xstrdup(ptr noundef nonnull %.sink268.i) #23
   store ptr %345, ptr @curl_http_proxy, align 8, !tbaa !41
   br label %var_override.exit151.i
 
@@ -2709,24 +2709,24 @@ define dso_local ptr @get_active_slot() local_unnamed_addr #2 {
   br i1 %.not50, label %.critedge.thread, label %32
 
 .critedge.thread:                                 ; preds = %23, %26, %.critedge
-  %.183 = phi ptr [ %.073, %.critedge ], [ %19, %26 ], [ %19, %23 ]
+  %.191 = phi ptr [ %.073, %.critedge ], [ %19, %26 ], [ %19, %23 ]
   %28 = load ptr, ptr @curl_default, align 8, !tbaa !62
   %29 = call ptr @curl_easy_duphandle(ptr noundef %28) #23
-  store ptr %29, ptr %.183, align 8, !tbaa !87
+  store ptr %29, ptr %.191, align 8, !tbaa !87
   %30 = load i32, ptr @curl_session_count, align 4, !tbaa !38
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr @curl_session_count, align 4, !tbaa !38
   br label %32
 
 32:                                               ; preds = %.critedge.thread, %.critedge
-  %.182 = phi ptr [ %.183, %.critedge.thread ], [ %.073, %.critedge ]
+  %.190 = phi ptr [ %.191, %.critedge.thread ], [ %.073, %.critedge ]
   %33 = phi ptr [ %29, %.critedge.thread ], [ %.pre77, %.critedge ]
   %34 = load i32, ptr @active_requests, align 4, !tbaa !38
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr @active_requests, align 4, !tbaa !38
-  %36 = getelementptr inbounds nuw i8, ptr %.182, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.190, i64 8
   store i32 1, ptr %36, align 8, !tbaa !90
-  %37 = getelementptr inbounds nuw i8, ptr %.182, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.190, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false)
   %38 = load ptr, ptr @curl_cookie_file, align 8, !tbaa !41
   %.not51 = icmp eq ptr %38, null
@@ -2758,7 +2758,7 @@ _.exit:                                           ; preds = %43, %45
   %47 = load ptr, ptr @curl_cookie_file, align 8, !tbaa !41
   call void @free(ptr noundef %47) #23
   store ptr null, ptr @curl_cookie_file, align 8, !tbaa !41
-  %.pre78 = load ptr, ptr %.182, align 8, !tbaa !87
+  %.pre78 = load ptr, ptr %.190, align 8, !tbaa !87
   br label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %_.exit, %.tail, %32
@@ -2777,7 +2777,7 @@ _.exit:                                           ; preds = %43, %45
 54:                                               ; preds = %52
   %55 = load i8, ptr %53, align 1, !tbaa !24
   %.not55 = icmp eq i8 %55, 0
-  br i1 %.not55, label %56, label %.thread85
+  br i1 %.not55, label %56, label %.thread93
 
 56:                                               ; preds = %54, %52
   store i32 0, ptr @curl_save_cookies, align 4, !tbaa !38
@@ -2794,50 +2794,50 @@ _.exit:                                           ; preds = %43, %45
   call void (ptr, ...) @warning(ptr noundef %.0.i60) #23
   %.pr.pre = load i32, ptr @curl_save_cookies, align 4, !tbaa !38
   %61 = icmp eq i32 %.pr.pre, 0
-  br i1 %61, label %.thread, label %.thread85
+  br i1 %61, label %.thread, label %.thread93
 
-.thread85:                                        ; preds = %54, %60
-  %62 = load ptr, ptr %.182, align 8, !tbaa !87
+.thread93:                                        ; preds = %54, %60
+  %62 = load ptr, ptr %.190, align 8, !tbaa !87
   %63 = load ptr, ptr @curl_cookie_file, align 8, !tbaa !41
   %64 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %62, i32 noundef 10082, ptr noundef %63) #23
   br label %.thread
 
-.thread:                                          ; preds = %.tail.thread, %.thread85, %60
-  %65 = load ptr, ptr %.182, align 8, !tbaa !87
+.thread:                                          ; preds = %.tail.thread, %.thread93, %60
+  %65 = load ptr, ptr %.190, align 8, !tbaa !87
   %66 = load ptr, ptr @pragma_header, align 8, !tbaa !60
   %67 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %65, i32 noundef 10023, ptr noundef %66) #23
-  %68 = load ptr, ptr %.182, align 8, !tbaa !87
+  %68 = load ptr, ptr %.190, align 8, !tbaa !87
   %69 = load ptr, ptr @host_resolutions, align 8, !tbaa !60
   %70 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %68, i32 noundef 10203, ptr noundef %69) #23
-  %71 = load ptr, ptr %.182, align 8, !tbaa !87
+  %71 = load ptr, ptr %.190, align 8, !tbaa !87
   %72 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %71, i32 noundef 10010, ptr noundef nonnull @curl_errorstr) #23
-  %73 = load ptr, ptr %.182, align 8, !tbaa !87
+  %73 = load ptr, ptr %.190, align 8, !tbaa !87
   %74 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %73, i32 noundef 10036, ptr noundef null) #23
-  %75 = load ptr, ptr %.182, align 8, !tbaa !87
+  %75 = load ptr, ptr %.190, align 8, !tbaa !87
   %76 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %75, i32 noundef 20012, ptr noundef null) #23
-  %77 = load ptr, ptr %.182, align 8, !tbaa !87
+  %77 = load ptr, ptr %.190, align 8, !tbaa !87
   %78 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %77, i32 noundef 20011, ptr noundef null) #23
-  %79 = load ptr, ptr %.182, align 8, !tbaa !87
+  %79 = load ptr, ptr %.190, align 8, !tbaa !87
   %80 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %79, i32 noundef 10015, ptr noundef null) #23
-  %81 = load ptr, ptr %.182, align 8, !tbaa !87
+  %81 = load ptr, ptr %.190, align 8, !tbaa !87
   %82 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %81, i32 noundef 60, i64 noundef -1) #23
-  %83 = load ptr, ptr %.182, align 8, !tbaa !87
+  %83 = load ptr, ptr %.190, align 8, !tbaa !87
   %84 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %83, i32 noundef 46, i32 noundef 0) #23
-  %85 = load ptr, ptr %.182, align 8, !tbaa !87
+  %85 = load ptr, ptr %.190, align 8, !tbaa !87
   %86 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %85, i32 noundef 80, i32 noundef 1) #23
-  %87 = load ptr, ptr %.182, align 8, !tbaa !87
+  %87 = load ptr, ptr %.190, align 8, !tbaa !87
   %88 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %87, i32 noundef 45, i32 noundef 1) #23
-  %89 = load ptr, ptr %.182, align 8, !tbaa !87
+  %89 = load ptr, ptr %.190, align 8, !tbaa !87
   %90 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %89, i32 noundef 10007, ptr noundef null) #23
   %91 = load i32, ptr @http_follow_config, align 4, !tbaa !38
   %92 = icmp eq i32 %91, 1
-  %93 = load ptr, ptr %.182, align 8, !tbaa !87
+  %93 = load ptr, ptr %.190, align 8, !tbaa !87
   %. = zext i1 %92 to i32
   %94 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %93, i32 noundef 52, i32 noundef %.) #23
-  %95 = load ptr, ptr %.182, align 8, !tbaa !87
+  %95 = load ptr, ptr %.190, align 8, !tbaa !87
   %96 = load i64, ptr @git_curl_ipresolve, align 8, !tbaa !63
   %97 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %95, i32 noundef 113, i64 noundef %96) #23
-  %98 = load ptr, ptr %.182, align 8, !tbaa !87
+  %98 = load ptr, ptr %.190, align 8, !tbaa !87
   %99 = load i64, ptr @http_auth_methods, align 8, !tbaa !63
   %100 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %98, i32 noundef 107, i64 noundef %99) #23
   %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @http_auth, i64 136), align 8, !tbaa !70
@@ -2867,13 +2867,13 @@ curl_empty_auth_enabled.exit:                     ; preds = %105
   br i1 %.not57, label %curl_empty_auth_enabled.exit.thread, label %curl_empty_auth_enabled.exit.thread66
 
 curl_empty_auth_enabled.exit.thread66:            ; preds = %109, %curl_empty_auth_enabled.exit, %.thread
-  %112 = load ptr, ptr %.182, align 8, !tbaa !87
+  %112 = load ptr, ptr %.190, align 8, !tbaa !87
   call fastcc void @init_curl_http_auth(ptr noundef %112)
   br label %curl_empty_auth_enabled.exit.thread
 
 curl_empty_auth_enabled.exit.thread:              ; preds = %109, %108, %curl_empty_auth_enabled.exit.thread66, %curl_empty_auth_enabled.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret ptr %.182
+  ret ptr %.190
 }
 
 declare i32 @curl_multi_perform(ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -3841,14 +3841,14 @@ st_mult.exit87.i:                                 ; preds = %.thread.i.st_mult.e
   %.pre-phi = phi i64 [ %.pre28, %.thread.i.st_mult.exit87.i_crit_edge ], [ %33, %.thread.thread.i ]
   %52 = phi i64 [ %49, %.thread.i.st_mult.exit87.i_crit_edge ], [ %43, %.thread.thread.i ]
   %53 = phi i32 [ %48, %.thread.i.st_mult.exit87.i_crit_edge ], [ %42, %.thread.thread.i ]
-  %.16591136.i = phi ptr [ %.266.i, %.thread.i.st_mult.exit87.i_crit_edge ], [ %37, %.thread.thread.i ]
-  %.16292135.i = phi i32 [ %.263.i, %.thread.i.st_mult.exit87.i_crit_edge ], [ %32, %.thread.thread.i ]
+  %.16591141.i = phi ptr [ %.266.i, %.thread.i.st_mult.exit87.i_crit_edge ], [ %37, %.thread.thread.i ]
+  %.16292140.i = phi i32 [ %.263.i, %.thread.i.st_mult.exit87.i_crit_edge ], [ %32, %.thread.thread.i ]
   %54 = shl nuw nsw i64 %52, 3
-  %55 = call ptr @xrealloc(ptr noundef %.16591136.i, i64 noundef %54) #23
+  %55 = call ptr @xrealloc(ptr noundef %.16591141.i, i64 noundef %54) #23
   %56 = call ptr @xstrdup(ptr noundef nonnull @.str.182) #23
   %57 = getelementptr inbounds ptr, ptr %55, i64 %.pre-phi
   store ptr %56, ptr %57, align 8, !tbaa !41
-  %58 = icmp sgt i32 %.16292135.i, 0
+  %58 = icmp sgt i32 %.16292140.i, 0
   br i1 %58, label %.lr.ph105.i, label %._crit_edge.i
 
 .lr.ph105.i:                                      ; preds = %st_mult.exit87.i, %.lr.ph105.i
@@ -3856,7 +3856,7 @@ st_mult.exit87.i:                                 ; preds = %.thread.i.st_mult.e
   %.056103.i = phi i32 [ %60, %.lr.ph105.i ], [ 1, %st_mult.exit87.i ]
   %59 = add nuw nsw i32 %.0104.i, 1
   %60 = mul nuw nsw i32 %.056103.i, 10
-  %61 = icmp samesign ule i32 %60, %.16292135.i
+  %61 = icmp samesign ule i32 %60, %.16292140.i
   %62 = icmp samesign ult i32 %.0104.i, 3
   %63 = select i1 %61, i1 %62, i1 false
   br i1 %63, label %.lr.ph105.i, label %._crit_edge.loopexit.i, !llvm.loop !129
@@ -3870,7 +3870,7 @@ st_mult.exit87.i:                                 ; preds = %.thread.i.st_mult.e
   %.0.lcssa.i = phi i32 [ 0, %st_mult.exit87.i ], [ %59, %._crit_edge.loopexit.i ]
   %65 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull @.str.183, i32 noundef %.0.lcssa.i) #23
   call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull @.str.184, i64 noundef 17) #23
-  %.not83108.i = icmp slt i32 %.16292135.i, 0
+  %.not83108.i = icmp slt i32 %.16292140.i, 0
   br i1 %.not83108.i, label %.loopexit.i, label %.lr.ph112.i
 
 .lr.ph112.i:                                      ; preds = %._crit_edge.i
@@ -3935,8 +3935,8 @@ st_mult.exit87.i:                                 ; preds = %.thread.i.st_mult.e
   br i1 %exitcond131.not.i, label %write_accept_language.exit, label %.lr.ph115.i, !llvm.loop !131
 
 write_accept_language.exit:                       ; preds = %.lr.ph115.i, %47, %.loopexit.i
-  %.367140.i = phi ptr [ %55, %.loopexit.i ], [ %.266.i, %47 ], [ %55, %.lr.ph115.i ]
-  call void @free(ptr noundef %.367140.i) #23
+  %.367145.i = phi ptr [ %55, %.loopexit.i ], [ %.266.i, %47 ], [ %55, %.lr.ph115.i ]
+  call void @free(ptr noundef %.367145.i) #23
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !30
   %85 = icmp eq i64 %.pre, 0
@@ -6064,9 +6064,9 @@ define internal fastcc range(i32 0, 7) i32 @http_request(ptr noundef %0, ptr nou
   %12 = load ptr, ptr @extra_http_headers, align 8, !tbaa !56
   %.not7.i = icmp eq ptr %12, null
   %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @extra_http_headers, i64 8), align 8
-  %.not108 = icmp eq i64 %13, 0
-  %or.cond116 = select i1 %.not7.i, i1 true, i1 %.not108
-  br i1 %or.cond116, label %http_copy_default_headers.exit, label %.lr.ph.i
+  %.not134 = icmp eq i64 %13, 0
+  %or.cond142 = select i1 %.not7.i, i1 true, i1 %.not134
+  br i1 %or.cond142, label %http_copy_default_headers.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.068.i92 = phi ptr [ %15, %.lr.ph.i ], [ null, %4 ]
@@ -6194,11 +6194,11 @@ http_copy_default_headers.exit:                   ; preds = %.lr.ph.i, %4
   br i1 %79, label %.lr.ph96, label %.critedge
 
 .lr.ph96:                                         ; preds = %.lr.ph96.preheader, %.lr.ph96
-  %.394125 = phi ptr [ %81, %.lr.ph96 ], [ %69, %.lr.ph96.preheader ]
-  %.095124 = phi ptr [ %82, %.lr.ph96 ], [ %73, %.lr.ph96.preheader ]
-  %80 = load ptr, ptr %.095124, align 8, !tbaa !57
-  %81 = call ptr @curl_slist_append(ptr noundef %.394125, ptr noundef %80) #23
-  %82 = getelementptr inbounds nuw i8, ptr %.095124, i64 16
+  %.394151 = phi ptr [ %81, %.lr.ph96 ], [ %69, %.lr.ph96.preheader ]
+  %.095150 = phi ptr [ %82, %.lr.ph96 ], [ %73, %.lr.ph96.preheader ]
+  %80 = load ptr, ptr %.095150, align 8, !tbaa !57
+  %81 = call ptr @curl_slist_append(ptr noundef %.394151, ptr noundef %80) #23
+  %82 = getelementptr inbounds nuw i8, ptr %.095150, i64 16
   %83 = load ptr, ptr %70, align 8, !tbaa !211
   %84 = load ptr, ptr %83, align 8, !tbaa !56
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 8

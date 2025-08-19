@@ -2048,10 +2048,10 @@ _ZN10async_task5utils14abort_on_panic17h4f307db74a78942bE.exit: ; preds = %24
   br label %86
 
 86:                                               ; preds = %84, %80, %76
-  %.sink256 = phi ptr [ null, %84 ], [ %81, %80 ], [ null, %76 ]
+  %.sink265 = phi ptr [ null, %84 ], [ %81, %80 ], [ null, %76 ]
   %.sink = phi ptr [ %85, %84 ], [ %82, %80 ], [ %77, %76 ]
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %.sink256, ptr %87, align 8
+  store ptr %.sink265, ptr %87, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %6, align 8
@@ -2919,10 +2919,10 @@ _ZN10async_task5utils14abort_on_panic17h74e89edfaf475e43E.exit: ; preds = %24
   br label %88
 
 88:                                               ; preds = %86, %82, %78
-  %.sink253 = phi ptr [ null, %86 ], [ %83, %82 ], [ null, %78 ]
+  %.sink262 = phi ptr [ null, %86 ], [ %83, %82 ], [ null, %78 ]
   %.sink = phi ptr [ %87, %86 ], [ %84, %82 ], [ %79, %78 ]
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %.sink253, ptr %89, align 8
+  store ptr %.sink262, ptr %89, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %6, align 8
@@ -7565,13 +7565,13 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot9anchor_at17h7cd5d20d7
   %18 = load ptr, ptr %14, align 8, !noundef !11
   %19 = icmp eq ptr %18, null
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink.sroa.gep47 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink.sroa.gep49 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink.sroa.gep50 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sink.sroa.gep52 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink.sroa.gep53 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sink.sroa.gep55 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sink.sroa.gep56 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink.sroa.gep54 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink.sroa.gep56 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink.sroa.gep57 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink.sroa.gep59 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink.sroa.gep60 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink.sroa.gep62 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink.sroa.gep63 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br i1 %19, label %31, label %20
 
 20:                                               ; preds = %4
@@ -7666,7 +7666,7 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot9anchor_at17h7cd5d20d7
 
 63:                                               ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h1a9155a35cca0527E.llvm.13578501392857559943.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1713
-  br label %.invoke41
+  br label %.invoke48
 
 64:                                               ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h1a9155a35cca0527E.llvm.13578501392857559943.exit.i"
   %65 = load i32, ptr %46, align 8, !alias.scope !1708, !noalias !1711, !noundef !11
@@ -7684,7 +7684,7 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot9anchor_at17h7cd5d20d7
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i8, ptr %74, align 8, !range !203, !noalias !1713, !noundef !11
   %trunc.i17 = trunc nuw i8 %75 to i1
-  br i1 %trunc.i17, label %76, label %.invoke39
+  br i1 %trunc.i17, label %76, label %.invoke46
 
 76:                                               ; preds = %66
   %77 = getelementptr inbounds nuw i8, ptr %70, i64 32
@@ -7708,20 +7708,20 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot9anchor_at17h7cd5d20d7
 
 89:                                               ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h1b24444ed62bcd8eE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1714
-  br label %.invoke41
+  br label %.invoke48
 
-.invoke41:                                        ; preds = %63, %89
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %63 ], [ %.sink.sroa.gep47, %89 ]
-  %.sink.sroa.phi48 = phi ptr [ %.sink.sroa.gep49, %63 ], [ %.sink.sroa.gep50, %89 ]
-  %.sink.sroa.phi51 = phi ptr [ %.sink.sroa.gep52, %63 ], [ %.sink.sroa.gep53, %89 ]
-  %.sink.sroa.phi54 = phi ptr [ %.sink.sroa.gep55, %63 ], [ %.sink.sroa.gep56, %89 ]
+.invoke48:                                        ; preds = %63, %89
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %63 ], [ %.sink.sroa.gep54, %89 ]
+  %.sink.sroa.phi55 = phi ptr [ %.sink.sroa.gep56, %63 ], [ %.sink.sroa.gep57, %89 ]
+  %.sink.sroa.phi58 = phi ptr [ %.sink.sroa.gep59, %63 ], [ %.sink.sroa.gep60, %89 ]
+  %.sink.sroa.phi61 = phi ptr [ %.sink.sroa.gep62, %63 ], [ %.sink.sroa.gep63, %89 ]
   %.sink = phi ptr [ %9, %63 ], [ %8, %89 ]
   %90 = phi ptr [ @anon.4b57686fab12036cd3aaa3de9314d7bc.20, %63 ], [ @anon.4b57686fab12036cd3aaa3de9314d7bc.22, %89 ]
   store ptr @anon.b9dd2477a9535a9e67ec66a4f0f80edb.25.llvm.13578501392857559943, ptr %.sink, align 8, !noalias !11
   store i64 1, ptr %.sink.sroa.phi, align 8, !noalias !11
-  store ptr null, ptr %.sink.sroa.phi48, align 8, !noalias !11
-  store ptr inttoptr (i64 8 to ptr), ptr %.sink.sroa.phi51, align 8, !noalias !11
-  store i64 0, ptr %.sink.sroa.phi54, align 8, !noalias !11
+  store ptr null, ptr %.sink.sroa.phi55, align 8, !noalias !11
+  store ptr inttoptr (i64 8 to ptr), ptr %.sink.sroa.phi58, align 8, !noalias !11
+  store i64 0, ptr %.sink.sroa.phi61, align 8, !noalias !11
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %90) #17
   unreachable
 
@@ -7741,7 +7741,7 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot9anchor_at17h7cd5d20d7
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load i8, ptr %100, align 8, !range !203, !noalias !1714, !noundef !11
   %trunc.i23 = trunc nuw i8 %101 to i1
-  br i1 %trunc.i23, label %102, label %.invoke39
+  br i1 %trunc.i23, label %102, label %.invoke46
 
 102:                                              ; preds = %92
   %103 = getelementptr inbounds nuw i8, ptr %96, i64 32
@@ -7752,7 +7752,7 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot9anchor_at17h7cd5d20d7
   %108 = icmp eq i64 %104, %107
   br i1 %108, label %125, label %110
 
-.invoke39:                                        ; preds = %92, %66
+.invoke46:                                        ; preds = %92, %66
   %109 = phi ptr [ @anon.4b57686fab12036cd3aaa3de9314d7bc.20, %66 ], [ @anon.4b57686fab12036cd3aaa3de9314d7bc.22, %92 ]
   call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.b9dd2477a9535a9e67ec66a4f0f80edb.26.llvm.13578501392857559943, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %109) #17
   unreachable

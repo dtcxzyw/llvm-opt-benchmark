@@ -1256,7 +1256,7 @@ define range(i32 -1, 3) i32 @encoding_normalize_toascii(ptr noundef readonly cap
 14:                                               ; preds = %3
   %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #15
   %16 = icmp ugt i64 %15, 32
-  br i1 %16, label %.loopexit43, label %.preheader27.i
+  br i1 %16, label %.loopexit42, label %.preheader27.i
 
 .preheader27.i:                                   ; preds = %14
   %.not32.i = icmp eq i64 %15, 0
@@ -1275,18 +1275,18 @@ define range(i32 -1, 3) i32 @encoding_normalize_toascii(ptr noundef readonly cap
   %22 = getelementptr inbounds nuw [256 x i8], ptr @encname_chars, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !3
   %.not26.i = icmp eq i8 %23, 0
-  br i1 %.not26.i, label %.loopexit43, label %17
+  br i1 %.not26.i, label %.loopexit42, label %17
 
 ._crit_edge.i:                                    ; preds = %17
   %24 = add nuw nsw i64 %15, 1
   %25 = tail call ptr @cli_max_malloc(i64 noundef %24) #16
   %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %.loopexit43, label %.lr.ph30.i
+  br i1 %.not.i, label %.loopexit42, label %.lr.ph30.i
 
 ._crit_edge.thread.i:                             ; preds = %.preheader27.i
   %26 = tail call ptr @cli_max_malloc(i64 noundef 1) #16
-  %.not35.i = icmp eq ptr %26, null
-  br i1 %.not35.i, label %.loopexit43, label %.loopexit
+  %.not38.i = icmp eq ptr %26, null
+  br i1 %.not38.i, label %.loopexit42, label %.loopexit
 
 .lr.ph30.i:                                       ; preds = %._crit_edge.i
   %27 = tail call ptr @__ctype_toupper_loc() #17
@@ -1307,7 +1307,7 @@ define range(i32 -1, 3) i32 @encoding_normalize_toascii(ptr noundef readonly cap
   %exitcond34.not.i = icmp eq i64 %37, %15
   br i1 %exitcond34.not.i, label %.loopexit, label %28
 
-.loopexit43:                                      ; preds = %.lr.ph.i, %14, %._crit_edge.i, %._crit_edge.thread.i
+.loopexit42:                                      ; preds = %.lr.ph.i, %14, %._crit_edge.i, %._crit_edge.thread.i
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #16
   br label %184
 
@@ -1601,10 +1601,10 @@ in_iconv_u16.exit:                                ; preds = %100, %166
 
 .lr.ph:                                           ; preds = %in_iconv_u16.exit, %180
   %169 = phi i64 [ %181, %180 ], [ %167, %in_iconv_u16.exit ]
-  %.02845 = phi i64 [ %182, %180 ], [ 0, %in_iconv_u16.exit ]
-  %.02944 = phi i64 [ %.1, %180 ], [ 0, %in_iconv_u16.exit ]
+  %.02844 = phi i64 [ %182, %180 ], [ 0, %in_iconv_u16.exit ]
+  %.02943 = phi i64 [ %.1, %180 ], [ 0, %in_iconv_u16.exit ]
   %170 = load ptr, ptr %2, align 8, !tbaa !27
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 %.02845
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 %.02844
   %172 = load i8, ptr %171, align 1, !tbaa !3
   %173 = shl i8 %172, 4
   %174 = getelementptr inbounds nuw i8, ptr %171, i64 1
@@ -1614,16 +1614,16 @@ in_iconv_u16.exit:                                ; preds = %100, %166
   br i1 %.not35, label %180, label %177
 
 177:                                              ; preds = %.lr.ph
-  %178 = add nsw i64 %.02944, 1
-  %179 = getelementptr inbounds i8, ptr %170, i64 %.02944
+  %178 = add nsw i64 %.02943, 1
+  %179 = getelementptr inbounds i8, ptr %170, i64 %.02943
   store i8 %176, ptr %179, align 1, !tbaa !3
   %.pre = load i64, ptr %107, align 8, !tbaa !23
   br label %180
 
 180:                                              ; preds = %177, %.lr.ph
   %181 = phi i64 [ %.pre, %177 ], [ %169, %.lr.ph ]
-  %.1 = phi i64 [ %178, %177 ], [ %.02944, %.lr.ph ]
-  %182 = add nuw nsw i64 %.02845, 2
+  %.1 = phi i64 [ %178, %177 ], [ %.02943, %.lr.ph ]
+  %182 = add nuw nsw i64 %.02844, 2
   %183 = icmp slt i64 %182, %181
   br i1 %183, label %.lr.ph, label %._crit_edge
 
@@ -1632,8 +1632,8 @@ in_iconv_u16.exit:                                ; preds = %100, %166
   store i64 %.029.lcssa, ptr %107, align 8, !tbaa !23
   br label %184
 
-184:                                              ; preds = %3, %._crit_edge, %iconv_open_cached.exit.thread, %.loopexit43
-  %.0 = phi i32 [ -1, %iconv_open_cached.exit.thread ], [ 0, %._crit_edge ], [ -1, %.loopexit43 ], [ 2, %3 ]
+184:                                              ; preds = %3, %._crit_edge, %iconv_open_cached.exit.thread, %.loopexit42
+  %.0 = phi i32 [ -1, %iconv_open_cached.exit.thread ], [ 0, %._crit_edge ], [ -1, %.loopexit42 ], [ 2, %3 ]
   ret i32 %.0
 }
 
@@ -1760,8 +1760,8 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
   %48 = icmp ult i16 %2, %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond223.not = icmp eq i64 %indvars.iv.next, 152
-  %or.cond258 = select i1 %48, i1 true, i1 %exitcond223.not
-  br i1 %or.cond258, label %.thread136, label %.preheader168
+  %or.cond273 = select i1 %48, i1 true, i1 %exitcond223.not
+  br i1 %or.cond273, label %.thread136, label %.preheader168
 
 49:                                               ; preds = %.preheader168
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -2015,14 +2015,14 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
   br label %26
 
 26:                                               ; preds = %18, %22, %.thread
-  %.sink113 = phi i32 [ 6, %.thread ], [ 6, %22 ], [ 7, %18 ]
+  %.sink116 = phi i32 [ 6, %.thread ], [ 6, %22 ], [ 7, %18 ]
   %.091 = phi i64 [ 0, %.thread ], [ 2, %22 ], [ 2, %18 ]
   %27 = icmp ult i64 %.091, %.088
   br i1 %27, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %26
   %28 = icmp eq i32 %2, 1
-  %spec.select104 = select i1 %28, i32 %.sink113, i32 %2
+  %spec.select104 = select i1 %28, i32 %.sink116, i32 %2
   %29 = icmp eq i32 %spec.select104, 6
   br label %30
 
@@ -2148,11 +2148,11 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
 
 ._crit_edge:                                      ; preds = %102
   %107 = add nuw i64 %5, 1
-  %spec.select114 = select i1 %cond.fr, i64 %.1, i64 %107
+  %spec.select117 = select i1 %cond.fr, i64 %.1, i64 %107
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %26
-  %108 = phi i64 [ 0, %26 ], [ %spec.select114, %._crit_edge ]
+  %108 = phi i64 [ 0, %26 ], [ %spec.select117, %._crit_edge ]
   %109 = getelementptr inbounds nuw i8, ptr %15, i64 %108
   store i8 0, ptr %109, align 1, !tbaa !3
   br label %110

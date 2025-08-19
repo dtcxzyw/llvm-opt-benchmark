@@ -2775,30 +2775,30 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit476: ; preds = %_Z
   %1280 = select i1 %1279, ptr %222, ptr %213
   %1281 = select i1 %1279, ptr %225, ptr %216
   %1282 = select i1 %1279, ptr %228, ptr %219
-  %storemerge741.in = getelementptr inbounds nuw [3 x float], ptr %1280, i64 %indvars.iv712
-  %storemerge741 = load float, ptr %storemerge741.in, align 4, !tbaa !31
-  store float %storemerge741, ptr %17, align 16, !tbaa !31
-  %storemerge739.in = getelementptr inbounds nuw [3 x float], ptr %1280, i64 %indvars.iv712, i64 1
-  %storemerge739 = load float, ptr %storemerge739.in, align 4, !tbaa !31
-  store float %storemerge739, ptr %693, align 4, !tbaa !31
-  %storemerge737.in = getelementptr inbounds nuw [3 x float], ptr %1280, i64 %indvars.iv712, i64 2
-  %storemerge737 = load float, ptr %storemerge737.in, align 4, !tbaa !31
-  store float %storemerge737, ptr %694, align 8, !tbaa !31
-  %storemerge735.in = getelementptr inbounds nuw [3 x float], ptr %1281, i64 %indvars.iv712
-  %storemerge735 = load float, ptr %storemerge735.in, align 4, !tbaa !31
-  store float %storemerge735, ptr %695, align 4, !tbaa !31
-  %storemerge733.in = getelementptr inbounds nuw [3 x float], ptr %1281, i64 %indvars.iv712, i64 1
-  %storemerge733 = load float, ptr %storemerge733.in, align 4, !tbaa !31
-  store float %storemerge733, ptr %696, align 16, !tbaa !31
-  %storemerge731.in = getelementptr inbounds nuw [3 x float], ptr %1281, i64 %indvars.iv712, i64 2
-  %storemerge731 = load float, ptr %storemerge731.in, align 4, !tbaa !31
-  store float %storemerge731, ptr %697, align 4, !tbaa !31
-  %storemerge729.in = getelementptr inbounds nuw [3 x float], ptr %1282, i64 %indvars.iv712
-  %storemerge729 = load float, ptr %storemerge729.in, align 4, !tbaa !31
-  store float %storemerge729, ptr %698, align 8, !tbaa !31
-  %storemerge727.in = getelementptr inbounds nuw [3 x float], ptr %1282, i64 %indvars.iv712, i64 1
-  %storemerge727 = load float, ptr %storemerge727.in, align 4, !tbaa !31
-  store float %storemerge727, ptr %699, align 4, !tbaa !31
+  %storemerge843.in = getelementptr inbounds nuw [3 x float], ptr %1280, i64 %indvars.iv712
+  %storemerge843 = load float, ptr %storemerge843.in, align 4, !tbaa !31
+  store float %storemerge843, ptr %17, align 16, !tbaa !31
+  %storemerge841.in = getelementptr inbounds nuw [3 x float], ptr %1280, i64 %indvars.iv712, i64 1
+  %storemerge841 = load float, ptr %storemerge841.in, align 4, !tbaa !31
+  store float %storemerge841, ptr %693, align 4, !tbaa !31
+  %storemerge839.in = getelementptr inbounds nuw [3 x float], ptr %1280, i64 %indvars.iv712, i64 2
+  %storemerge839 = load float, ptr %storemerge839.in, align 4, !tbaa !31
+  store float %storemerge839, ptr %694, align 8, !tbaa !31
+  %storemerge837.in = getelementptr inbounds nuw [3 x float], ptr %1281, i64 %indvars.iv712
+  %storemerge837 = load float, ptr %storemerge837.in, align 4, !tbaa !31
+  store float %storemerge837, ptr %695, align 4, !tbaa !31
+  %storemerge835.in = getelementptr inbounds nuw [3 x float], ptr %1281, i64 %indvars.iv712, i64 1
+  %storemerge835 = load float, ptr %storemerge835.in, align 4, !tbaa !31
+  store float %storemerge835, ptr %696, align 16, !tbaa !31
+  %storemerge833.in = getelementptr inbounds nuw [3 x float], ptr %1281, i64 %indvars.iv712, i64 2
+  %storemerge833 = load float, ptr %storemerge833.in, align 4, !tbaa !31
+  store float %storemerge833, ptr %697, align 4, !tbaa !31
+  %storemerge831.in = getelementptr inbounds nuw [3 x float], ptr %1282, i64 %indvars.iv712
+  %storemerge831 = load float, ptr %storemerge831.in, align 4, !tbaa !31
+  store float %storemerge831, ptr %698, align 8, !tbaa !31
+  %storemerge829.in = getelementptr inbounds nuw [3 x float], ptr %1282, i64 %indvars.iv712, i64 1
+  %storemerge829 = load float, ptr %storemerge829.in, align 4, !tbaa !31
+  store float %storemerge829, ptr %699, align 4, !tbaa !31
   %storemerge.in = getelementptr inbounds nuw [3 x float], ptr %1282, i64 %indvars.iv712, i64 2
   %storemerge = load float, ptr %storemerge.in, align 4, !tbaa !31
   store float %storemerge, ptr %700, align 16, !tbaa !31

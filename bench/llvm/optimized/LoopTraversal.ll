@@ -146,9 +146,9 @@ _ZN4llvm15SmallVectorImplINS_13LoopTraversal7MBBInfoEE6assignEmS2_.exit.loopexit
   br label %_ZN4llvm15SmallVectorImplINS_13LoopTraversal7MBBInfoEE6assignEmS2_.exit.sink.split
 
 _ZN4llvm15SmallVectorImplINS_13LoopTraversal7MBBInfoEE6assignEmS2_.exit.sink.split: ; preds = %.lr.ph.i.i.i.preheader.i.i, %_ZN4llvm15SmallVectorImplINS_13LoopTraversal7MBBInfoEE6assignEmS2_.exit.loopexit88
-  %.sink93 = phi i64 [ %33, %_ZN4llvm15SmallVectorImplINS_13LoopTraversal7MBBInfoEE6assignEmS2_.exit.loopexit88 ], [ %16, %.lr.ph.i.i.i.preheader.i.i ]
+  %.sink105 = phi i64 [ %33, %_ZN4llvm15SmallVectorImplINS_13LoopTraversal7MBBInfoEE6assignEmS2_.exit.loopexit88 ], [ %16, %.lr.ph.i.i.i.preheader.i.i ]
   %.sink = phi ptr [ %32, %_ZN4llvm15SmallVectorImplINS_13LoopTraversal7MBBInfoEE6assignEmS2_.exit.loopexit88 ], [ %23, %.lr.ph.i.i.i.preheader.i.i ]
-  %34 = shl nuw nsw i64 %.sink93, 4
+  %34 = shl nuw nsw i64 %.sink105, 4
   tail call void @llvm.memset.p0.i64(ptr align 4 %.sink, i8 0, i64 %34, i1 false)
   br label %_ZN4llvm15SmallVectorImplINS_13LoopTraversal7MBBInfoEE6assignEmS2_.exit
 

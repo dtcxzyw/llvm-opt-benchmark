@@ -1403,14 +1403,14 @@ define internal fastcc void @"_ZN5sqlez22thread_safe_connection36ThreadSafeConne
   %.sroa.4 = alloca [7 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %5 = load i8, ptr %4, align 8, !range !4, !noundef !5
-  switch i8 %5, label %default.unreachable21 [
+  switch i8 %5, label %default.unreachable22 [
     i8 0, label %6
     i8 1, label %26
     i8 2, label %27
     i8 3, label %28
   ]
 
-default.unreachable21:                            ; preds = %3
+default.unreachable22:                            ; preds = %3
   unreachable
 
 6:                                                ; preds = %3
@@ -1632,14 +1632,14 @@ define internal fastcc void @"_ZN5sqlez22thread_safe_connection36ThreadSafeConne
   %.sroa.4 = alloca [7 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %5 = load i8, ptr %4, align 8, !range !4, !noundef !5
-  switch i8 %5, label %default.unreachable21 [
+  switch i8 %5, label %default.unreachable22 [
     i8 0, label %6
     i8 1, label %26
     i8 2, label %27
     i8 3, label %28
   ]
 
-default.unreachable21:                            ; preds = %3
+default.unreachable22:                            ; preds = %3
   unreachable
 
 6:                                                ; preds = %3
@@ -2135,7 +2135,7 @@ define hidden void @_ZN8async_io6driver8block_on17h2ca629ec6925e64dE(ptr dead_on
 "_ZN4core3ptr286drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..GlobalKeyValueStore$GT$$C$db..open_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h999713b1a34b8f24E.exit": ; preds = %.noexc
   br i1 %.sroa.022.3, label %665, label %664
 
-.thread388:                                       ; preds = %67, %61
+.thread405:                                       ; preds = %67, %61
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %665
@@ -2153,7 +2153,7 @@ define hidden void @_ZN8async_io6driver8block_on17h2ca629ec6925e64dE(ptr dead_on
   store i64 0, ptr %65, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %66 = invoke noundef align 8 dereferenceable(24) ptr @_ZN3log13__private_api3loc17h3fa24c121663d21fE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.28b6abe1c8975fe75e9106fd1def0251.32)
-          to label %67 unwind label %.thread388
+          to label %67 unwind label %.thread405
 
 67:                                               ; preds = %61
   store ptr @anon.28b6abe1c8975fe75e9106fd1def0251.33, ptr %57, align 8
@@ -2166,7 +2166,7 @@ define hidden void @_ZN8async_io6driver8block_on17h2ca629ec6925e64dE(ptr dead_on
   %71 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store ptr %66, ptr %71, align 8
   invoke void @_ZN3log13__private_api8log_impl17hdf09b6c8ef83a2f8E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %58, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, ptr noalias noundef readonly align 16 null, i64 undef)
-          to label %72 unwind label %.thread388
+          to label %72 unwind label %.thread405
 
 72:                                               ; preds = %67
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
@@ -3321,7 +3321,7 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
           to label %"_ZN4core3ptr106drop_in_place$LT$db..open_fallback_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9317a3afb437b5d2E.exit52.i" unwind label %265, !noalias !569
 
 .body94:                                          ; preds = %.loopexit191, %.loopexit.split-lp192, %.loopexit.split-lp, %599, %"_ZN4core3ptr106drop_in_place$LT$db..open_fallback_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9317a3afb437b5d2E.exit33.i", %626, %608, %594, %442
-  %.pn56 = phi { ptr, i32 } [ %.pn54, %626 ], [ %595, %608 ], [ %595, %594 ], [ %443, %442 ], [ %.pn22.pn.i, %"_ZN4core3ptr106drop_in_place$LT$db..open_fallback_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9317a3afb437b5d2E.exit33.i" ], [ %.pn397, %599 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit193, %.loopexit191 ], [ %lpad.loopexit.split-lp194, %.loopexit.split-lp192 ]
+  %.pn56 = phi { ptr, i32 } [ %.pn54, %626 ], [ %595, %608 ], [ %595, %594 ], [ %443, %442 ], [ %.pn22.pn.i, %"_ZN4core3ptr106drop_in_place$LT$db..open_fallback_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9317a3afb437b5d2E.exit33.i" ], [ %.pn414, %599 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit193, %.loopexit191 ], [ %lpad.loopexit.split-lp194, %.loopexit.split-lp192 ]
   invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$db..open_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h73de627504ee122bE"(ptr noundef nonnull align 8 %51) #13
           to label %460 unwind label %479
 
@@ -3900,7 +3900,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.1085812539054361779.exit.
   br label %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17he88907a9932b3a13E.exit137"
 
 599:                                              ; preds = %.loopexit.split-lp.thread, %.loopexit.split-lp
-  %.pn397 = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit.split-lp.thread ], [ %.pn, %.loopexit.split-lp ]
+  %.pn414 = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit.split-lp.thread ], [ %.pn, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17he88907a9932b3a13E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #13
           to label %.body94 unwind label %479
 
@@ -4010,7 +4010,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd079219a94f6765fE.exit.i139: ; preds = 
 
 .noexc142:                                        ; preds = %_ZN4core3ops8function6FnOnce9call_once17hd079219a94f6765fE.exit.i139
   %625 = icmp eq ptr %624, null
-  br i1 %625, label %.invoke411, label %630
+  br i1 %625, label %.invoke428, label %630
 
 626:                                              ; preds = %.loopexit200, %.loopexit.split-lp201, %632
   %.pn54 = phi { ptr, i32 } [ %633, %632 ], [ %lpad.loopexit202, %.loopexit200 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp201 ]
@@ -4022,19 +4022,19 @@ _ZN4core3ops8function6FnOnce9call_once17hd079219a94f6765fE.exit.i139: ; preds = 
           cleanup
   br label %626
 
-.loopexit.split-lp201:                            ; preds = %.invoke411
+.loopexit.split-lp201:                            ; preds = %.invoke428
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %626
 
-.invoke411:                                       ; preds = %.noexc145, %.noexc142
+.invoke428:                                       ; preds = %.noexc145, %.noexc142
   %627 = phi ptr [ @anon.28b6abe1c8975fe75e9106fd1def0251.38, %.noexc142 ], [ @anon.0e9db1d4ba2f5d06e565ab6964f9ee68.32.llvm.1085812539054361779, %.noexc145 ]
   %628 = phi ptr [ @anon.28b6abe1c8975fe75e9106fd1def0251.15, %.noexc142 ], [ @anon.0e9db1d4ba2f5d06e565ab6964f9ee68.26.llvm.1085812539054361779, %.noexc145 ]
   %629 = phi ptr [ @anon.28b6abe1c8975fe75e9106fd1def0251.40, %.noexc142 ], [ @anon.0e9db1d4ba2f5d06e565ab6964f9ee68.34.llvm.1085812539054361779, %.noexc145 ]
   invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 %627, i64 noundef 70, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) %628, ptr noalias noundef readonly align 8 dereferenceable(24) %629) #15
-          to label %.cont412 unwind label %.loopexit.split-lp201
+          to label %.cont429 unwind label %.loopexit.split-lp201
 
-.cont412:                                         ; preds = %.invoke411
+.cont429:                                         ; preds = %.invoke428
   unreachable
 
 630:                                              ; preds = %622, %.noexc142
@@ -4058,7 +4058,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd079219a94f6765fE.exit.i139: ; preds = 
           to label %.noexc145 unwind label %.loopexit200
 
 .noexc145:                                        ; preds = %636
-  br i1 %637, label %.invoke411, label %"_ZN4core3ptr286drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..GlobalKeyValueStore$GT$$C$db..open_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5f676d34e53a3f5bE.exit"
+  br i1 %637, label %.invoke428, label %"_ZN4core3ptr286drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..GlobalKeyValueStore$GT$$C$db..open_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5f676d34e53a3f5bE.exit"
 
 638:                                              ; preds = %634
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !838
@@ -4155,11 +4155,11 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.1085812539054361779.exit.
           to label %.thread unwind label %479
 
 664:                                              ; preds = %665, %"_ZN4core3ptr286drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..GlobalKeyValueStore$GT$$C$db..open_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h999713b1a34b8f24E.exit"
-  %.pn56.pn.pn.pn.pn.pn386 = phi { ptr, i32 } [ %.pn56.pn.pn.pn.pn.pn387, %665 ], [ %.pn56.pn.pn.pn.pn, %"_ZN4core3ptr286drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..GlobalKeyValueStore$GT$$C$db..open_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h999713b1a34b8f24E.exit" ]
-  resume { ptr, i32 } %.pn56.pn.pn.pn.pn.pn386
+  %.pn56.pn.pn.pn.pn.pn403 = phi { ptr, i32 } [ %.pn56.pn.pn.pn.pn.pn404, %665 ], [ %.pn56.pn.pn.pn.pn, %"_ZN4core3ptr286drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..GlobalKeyValueStore$GT$$C$db..open_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h999713b1a34b8f24E.exit" ]
+  resume { ptr, i32 } %.pn56.pn.pn.pn.pn.pn403
 
-665:                                              ; preds = %.thread388, %"_ZN4core3ptr286drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..GlobalKeyValueStore$GT$$C$db..open_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h999713b1a34b8f24E.exit"
-  %.pn56.pn.pn.pn.pn.pn387 = phi { ptr, i32 } [ %.pn56.pn.pn.pn.pn, %"_ZN4core3ptr286drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..GlobalKeyValueStore$GT$$C$db..open_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h999713b1a34b8f24E.exit" ], [ %lpad.thr_comm, %.thread388 ]
+665:                                              ; preds = %.thread405, %"_ZN4core3ptr286drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..GlobalKeyValueStore$GT$$C$db..open_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h999713b1a34b8f24E.exit"
+  %.pn56.pn.pn.pn.pn.pn404 = phi { ptr, i32 } [ %.pn56.pn.pn.pn.pn, %"_ZN4core3ptr286drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..GlobalKeyValueStore$GT$$C$db..open_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h999713b1a34b8f24E.exit" ], [ %lpad.thr_comm, %.thread405 ]
   invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$db..open_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h73de627504ee122bE"(ptr noundef nonnull align 8 %1) #13
           to label %664 unwind label %479
 }
@@ -4240,7 +4240,7 @@ define hidden void @_ZN8async_io6driver8block_on17hf16c9ba6f04d0cd6E(ptr dead_on
 "_ZN4core3ptr274drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..KeyValueStore$GT$$C$db..open_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5e021d19a77efe1cE.exit": ; preds = %.noexc
   br i1 %.sroa.022.3, label %665, label %664
 
-.thread388:                                       ; preds = %67, %61
+.thread405:                                       ; preds = %67, %61
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %665
@@ -4258,7 +4258,7 @@ define hidden void @_ZN8async_io6driver8block_on17hf16c9ba6f04d0cd6E(ptr dead_on
   store i64 0, ptr %65, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %66 = invoke noundef align 8 dereferenceable(24) ptr @_ZN3log13__private_api3loc17h3fa24c121663d21fE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.28b6abe1c8975fe75e9106fd1def0251.32)
-          to label %67 unwind label %.thread388
+          to label %67 unwind label %.thread405
 
 67:                                               ; preds = %61
   store ptr @anon.28b6abe1c8975fe75e9106fd1def0251.33, ptr %57, align 8
@@ -4271,7 +4271,7 @@ define hidden void @_ZN8async_io6driver8block_on17hf16c9ba6f04d0cd6E(ptr dead_on
   %71 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store ptr %66, ptr %71, align 8
   invoke void @_ZN3log13__private_api8log_impl17hdf09b6c8ef83a2f8E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %58, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, ptr noalias noundef readonly align 16 null, i64 undef)
-          to label %72 unwind label %.thread388
+          to label %72 unwind label %.thread405
 
 72:                                               ; preds = %67
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
@@ -5426,7 +5426,7 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
           to label %"_ZN4core3ptr100drop_in_place$LT$db..open_fallback_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hac668d5e76bb7ce7E.exit52.i" unwind label %265, !noalias !895
 
 .body94:                                          ; preds = %.loopexit191, %.loopexit.split-lp192, %.loopexit.split-lp, %599, %"_ZN4core3ptr100drop_in_place$LT$db..open_fallback_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hac668d5e76bb7ce7E.exit33.i", %626, %608, %594, %442
-  %.pn56 = phi { ptr, i32 } [ %.pn54, %626 ], [ %595, %608 ], [ %595, %594 ], [ %443, %442 ], [ %.pn22.pn.i, %"_ZN4core3ptr100drop_in_place$LT$db..open_fallback_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hac668d5e76bb7ce7E.exit33.i" ], [ %.pn397, %599 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit193, %.loopexit191 ], [ %lpad.loopexit.split-lp194, %.loopexit.split-lp192 ]
+  %.pn56 = phi { ptr, i32 } [ %.pn54, %626 ], [ %595, %608 ], [ %595, %594 ], [ %443, %442 ], [ %.pn22.pn.i, %"_ZN4core3ptr100drop_in_place$LT$db..open_fallback_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hac668d5e76bb7ce7E.exit33.i" ], [ %.pn414, %599 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit193, %.loopexit191 ], [ %lpad.loopexit.split-lp194, %.loopexit.split-lp192 ]
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$db..open_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4e29f7345bc91827E"(ptr noundef nonnull align 8 %51) #13
           to label %460 unwind label %479
 
@@ -6005,7 +6005,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.1085812539054361779.exit.
   br label %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17he88907a9932b3a13E.exit137"
 
 599:                                              ; preds = %.loopexit.split-lp.thread, %.loopexit.split-lp
-  %.pn397 = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit.split-lp.thread ], [ %.pn, %.loopexit.split-lp ]
+  %.pn414 = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit.split-lp.thread ], [ %.pn, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17he88907a9932b3a13E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #13
           to label %.body94 unwind label %479
 
@@ -6115,7 +6115,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd079219a94f6765fE.exit.i139: ; preds = 
 
 .noexc142:                                        ; preds = %_ZN4core3ops8function6FnOnce9call_once17hd079219a94f6765fE.exit.i139
   %625 = icmp eq ptr %624, null
-  br i1 %625, label %.invoke411, label %630
+  br i1 %625, label %.invoke428, label %630
 
 626:                                              ; preds = %.loopexit200, %.loopexit.split-lp201, %632
   %.pn54 = phi { ptr, i32 } [ %633, %632 ], [ %lpad.loopexit202, %.loopexit200 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp201 ]
@@ -6127,19 +6127,19 @@ _ZN4core3ops8function6FnOnce9call_once17hd079219a94f6765fE.exit.i139: ; preds = 
           cleanup
   br label %626
 
-.loopexit.split-lp201:                            ; preds = %.invoke411
+.loopexit.split-lp201:                            ; preds = %.invoke428
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %626
 
-.invoke411:                                       ; preds = %.noexc145, %.noexc142
+.invoke428:                                       ; preds = %.noexc145, %.noexc142
   %627 = phi ptr [ @anon.28b6abe1c8975fe75e9106fd1def0251.38, %.noexc142 ], [ @anon.0e9db1d4ba2f5d06e565ab6964f9ee68.32.llvm.1085812539054361779, %.noexc145 ]
   %628 = phi ptr [ @anon.28b6abe1c8975fe75e9106fd1def0251.15, %.noexc142 ], [ @anon.0e9db1d4ba2f5d06e565ab6964f9ee68.26.llvm.1085812539054361779, %.noexc145 ]
   %629 = phi ptr [ @anon.28b6abe1c8975fe75e9106fd1def0251.40, %.noexc142 ], [ @anon.0e9db1d4ba2f5d06e565ab6964f9ee68.34.llvm.1085812539054361779, %.noexc145 ]
   invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 %627, i64 noundef 70, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) %628, ptr noalias noundef readonly align 8 dereferenceable(24) %629) #15
-          to label %.cont412 unwind label %.loopexit.split-lp201
+          to label %.cont429 unwind label %.loopexit.split-lp201
 
-.cont412:                                         ; preds = %.invoke411
+.cont429:                                         ; preds = %.invoke428
   unreachable
 
 630:                                              ; preds = %622, %.noexc142
@@ -6163,7 +6163,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd079219a94f6765fE.exit.i139: ; preds = 
           to label %.noexc145 unwind label %.loopexit200
 
 .noexc145:                                        ; preds = %636
-  br i1 %637, label %.invoke411, label %"_ZN4core3ptr274drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..KeyValueStore$GT$$C$db..open_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9bc36f277e5537eaE.exit"
+  br i1 %637, label %.invoke428, label %"_ZN4core3ptr274drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..KeyValueStore$GT$$C$db..open_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9bc36f277e5537eaE.exit"
 
 638:                                              ; preds = %634
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1163
@@ -6260,11 +6260,11 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.1085812539054361779.exit.
           to label %.thread unwind label %479
 
 664:                                              ; preds = %665, %"_ZN4core3ptr274drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..KeyValueStore$GT$$C$db..open_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5e021d19a77efe1cE.exit"
-  %.pn56.pn.pn.pn.pn.pn386 = phi { ptr, i32 } [ %.pn56.pn.pn.pn.pn.pn387, %665 ], [ %.pn56.pn.pn.pn.pn, %"_ZN4core3ptr274drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..KeyValueStore$GT$$C$db..open_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5e021d19a77efe1cE.exit" ]
-  resume { ptr, i32 } %.pn56.pn.pn.pn.pn.pn386
+  %.pn56.pn.pn.pn.pn.pn403 = phi { ptr, i32 } [ %.pn56.pn.pn.pn.pn.pn404, %665 ], [ %.pn56.pn.pn.pn.pn, %"_ZN4core3ptr274drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..KeyValueStore$GT$$C$db..open_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5e021d19a77efe1cE.exit" ]
+  resume { ptr, i32 } %.pn56.pn.pn.pn.pn.pn403
 
-665:                                              ; preds = %.thread388, %"_ZN4core3ptr274drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..KeyValueStore$GT$$C$db..open_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5e021d19a77efe1cE.exit"
-  %.pn56.pn.pn.pn.pn.pn387 = phi { ptr, i32 } [ %.pn56.pn.pn.pn.pn, %"_ZN4core3ptr274drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..KeyValueStore$GT$$C$db..open_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5e021d19a77efe1cE.exit" ], [ %lpad.thr_comm, %.thread388 ]
+665:                                              ; preds = %.thread405, %"_ZN4core3ptr274drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..KeyValueStore$GT$$C$db..open_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5e021d19a77efe1cE.exit"
+  %.pn56.pn.pn.pn.pn.pn404 = phi { ptr, i32 } [ %.pn56.pn.pn.pn.pn, %"_ZN4core3ptr274drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$db..kvp..KeyValueStore$GT$$C$db..open_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5e021d19a77efe1cE.exit" ], [ %lpad.thr_comm, %.thread405 ]
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$db..open_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4e29f7345bc91827E"(ptr noundef nonnull align 8 %1) #13
           to label %664 unwind label %479
 }

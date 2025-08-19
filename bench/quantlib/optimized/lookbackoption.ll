@@ -3178,13 +3178,13 @@ cond.false.i21:                                   ; preds = %dynamic_cast.end3.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %cond.true.i, %if.then.i.i.i, %cond.false.i21
-  %.pre.i181 = phi ptr [ null, %cond.false.i21 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
-  %call3 = invoke i64 @_ZNK8QuantLib8Exercise8lastDateEv(ptr noundef nonnull align 8 dereferenceable(36) %.pre.i181)
+  %.pre.i212 = phi ptr [ null, %cond.false.i21 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
+  %call3 = invoke i64 @_ZNK8QuantLib8Exercise8lastDateEv(ptr noundef nonnull align 8 dereferenceable(36) %.pre.i212)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %lookbackPeriodEnd182 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %5 = load i64, ptr %lookbackPeriodEnd182, align 8, !tbaa !80
+  %lookbackPeriodEnd213 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %5 = load i64, ptr %lookbackPeriodEnd213, align 8, !tbaa !80
   %cmp.i.not = icmp sgt i64 %5, %call3
   br i1 %cmp.i.not, label %if.then, label %do.end
 
@@ -3405,12 +3405,12 @@ invoke.cont36:                                    ; preds = %cond.true.i39, %if.
 
 invoke.cont36.thread:                             ; preds = %cond.false.i47
   %36 = load i32, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !86
-  %cmp190 = icmp eq i32 %36, 1
-  %lambda191 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %37 = load double, ptr %lambda191, align 8
-  %cmp42192 = fcmp ult double %37, 1.000000e+00
-  %or.cond193 = select i1 %cmp190, i1 %cmp42192, i1 false
-  br i1 %or.cond193, label %if.then43, label %cond.false.i75
+  %cmp221 = icmp eq i32 %36, 1
+  %lambda222 = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %37 = load double, ptr %lambda222, align 8
+  %cmp42223 = fcmp ult double %37, 1.000000e+00
+  %or.cond224 = select i1 %cmp221, i1 %cmp42223, i1 false
+  br i1 %or.cond224, label %if.then43, label %cond.false.i75
 
 if.then43:                                        ; preds = %invoke.cont36.thread, %invoke.cont36
   call void @llvm.lifetime.start.p0(ptr nonnull %_ql_msg_stream44)
@@ -3591,7 +3591,7 @@ cond.false.i75:                                   ; preds = %invoke.cont36.threa
 
 .noexc77:                                         ; preds = %cond.false.i75
   %.pre = load i32, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !86
-  %.pre177 = load double, ptr %lambda191, align 8
+  %.pre177 = load double, ptr %lambda222, align 8
   br label %invoke.cont85
 
 invoke.cont85:                                    ; preds = %invoke.cont36, %.noexc77
@@ -4270,14 +4270,14 @@ cond.false.i7:                                    ; preds = %dynamic_cast.end3.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %cond.true.i, %if.then.i.i.i, %cond.false.i7
-  %.pre.i47 = phi ptr [ null, %cond.false.i7 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
+  %.pre.i58 = phi ptr [ null, %cond.false.i7 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
   %5 = phi ptr [ null, %cond.false.i7 ], [ %3, %if.then.i.i.i ], [ %3, %cond.true.i ]
-  %call3 = invoke i64 @_ZNK8QuantLib8Exercise8lastDateEv(ptr noundef nonnull align 8 dereferenceable(36) %.pre.i47)
+  %call3 = invoke i64 @_ZNK8QuantLib8Exercise8lastDateEv(ptr noundef nonnull align 8 dereferenceable(36) %.pre.i58)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %lookbackPeriodStart48 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %6 = load i64, ptr %lookbackPeriodStart48, align 8, !tbaa !80
+  %lookbackPeriodStart59 = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %6 = load i64, ptr %lookbackPeriodStart59, align 8, !tbaa !80
   %cmp.i.not = icmp sgt i64 %6, %call3
   br i1 %cmp.i.not, label %if.then, label %do.end
 

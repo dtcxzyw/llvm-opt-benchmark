@@ -158,21 +158,21 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.07495
   %8 = load i8, ptr %7, align 1, !tbaa !7
   %9 = icmp eq i8 %8, 32
-  br i1 %9, label %.lr.ph121, label %.critedge
+  br i1 %9, label %.lr.ph131, label %.critedge
 
-10:                                               ; preds = %.lr.ph121
+10:                                               ; preds = %.lr.ph131
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 %14
   %12 = load i8, ptr %11, align 1, !tbaa !7
   %13 = icmp eq i8 %12, 32
-  br i1 %13, label %.lr.ph121, label %.critedge, !llvm.loop !10
+  br i1 %13, label %.lr.ph131, label %.critedge, !llvm.loop !10
 
-.lr.ph121:                                        ; preds = %.preheader90, %10
-  %.27693120 = phi i64 [ %14, %10 ], [ %.07495, %.preheader90 ]
-  %14 = add i64 %.27693120, 1
+.lr.ph131:                                        ; preds = %.preheader90, %10
+  %.27693130 = phi i64 [ %14, %10 ], [ %.07495, %.preheader90 ]
+  %14 = add i64 %.27693130, 1
   %exitcond.not = icmp eq i64 %14, %umax
   br i1 %exitcond.not, label %..critedge_crit_edge, label %10, !llvm.loop !10
 
-..critedge_crit_edge:                             ; preds = %.lr.ph121
+..critedge_crit_edge:                             ; preds = %.lr.ph131
   br label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %10, %..critedge_crit_edge, %.preheader90
@@ -186,14 +186,14 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 %.276.lcssa
   %20 = load i8, ptr %19, align 1, !tbaa !7
   %21 = icmp eq i8 %20, 13
-  %or.cond119 = select i1 %18, i1 %21, i1 false
-  br i1 %or.cond119, label %22, label %._crit_edge
+  %or.cond129 = select i1 %18, i1 %21, i1 false
+  br i1 %or.cond129, label %22, label %._crit_edge
 
 22:                                               ; preds = %16
   %23 = getelementptr i8, ptr %19, i64 1
   %24 = load i8, ptr %23, align 1, !tbaa !7
   %25 = icmp eq i8 %24, 10
-  br i1 %25, label %40, label %.thread113
+  br i1 %25, label %40, label %.thread123
 
 ._crit_edge:                                      ; preds = %16
   %26 = icmp eq i8 %20, 10
@@ -204,24 +204,24 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   %or.cond88 = or i1 %9, %28
   br i1 %or.cond88, label %.loopexit, label %29
 
-.thread113:                                       ; preds = %22
-  br i1 %9, label %.loopexit, label %.thread115
+.thread123:                                       ; preds = %22
+  br i1 %9, label %.loopexit, label %.thread125
 
 29:                                               ; preds = %27
   %30 = icmp eq i8 %20, 61
-  br i1 %30, label %31, label %.thread115
+  br i1 %30, label %31, label %.thread125
 
 31:                                               ; preds = %29
   %32 = add i32 %.06497, 1
   %33 = icmp ugt i32 %32, 2
   br i1 %33, label %.loopexit, label %38
 
-.thread115:                                       ; preds = %.thread113, %29
-  %34 = phi i8 [ %20, %29 ], [ 13, %.thread113 ]
+.thread125:                                       ; preds = %.thread123, %29
+  %34 = phi i8 [ %20, %29 ], [ 13, %.thread123 ]
   %.not86 = icmp eq i32 %.06497, 0
   br i1 %.not86, label %35, label %.loopexit
 
-35:                                               ; preds = %.thread115
+35:                                               ; preds = %.thread125
   %36 = tail call noundef signext i8 @_Z27mbedtls_ct_base64_dec_valueh(i8 noundef zeroext %34)
   %37 = icmp slt i8 %36, 0
   br i1 %37, label %.loopexit, label %38
@@ -345,8 +345,8 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   store i64 %.sink, ptr %2, align 8, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %35, %.thread115, %31, %27, %.thread113, %.loopexit.sink.split
-  %.078 = phi i32 [ %.078.ph, %.loopexit.sink.split ], [ -44, %.thread113 ], [ -44, %27 ], [ -44, %31 ], [ -44, %.thread115 ], [ -44, %35 ]
+.loopexit:                                        ; preds = %35, %.thread125, %31, %27, %.thread123, %.loopexit.sink.split
+  %.078 = phi i32 [ %.078.ph, %.loopexit.sink.split ], [ -44, %.thread123 ], [ -44, %27 ], [ -44, %31 ], [ -44, %.thread125 ], [ -44, %35 ]
   ret i32 %.078
 }
 

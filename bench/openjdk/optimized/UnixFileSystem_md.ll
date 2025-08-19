@@ -641,17 +641,17 @@ sub_185:                                          ; preds = %.tail
   br i1 %71, label %72, label %.thread81
 
 72:                                               ; preds = %.outer._crit_edge.thread, %.outer._crit_edge
-  %.066.ph.lcssa87121 = phi i32 [ 0, %.outer._crit_edge.thread ], [ %.066.ph.lcssa87, %.outer._crit_edge ]
-  %.068.ph.lcssa89120 = phi ptr [ %25, %.outer._crit_edge.thread ], [ %.068.ph.lcssa89, %.outer._crit_edge ]
+  %.066.ph.lcssa87133 = phi i32 [ 0, %.outer._crit_edge.thread ], [ %.066.ph.lcssa87, %.outer._crit_edge ]
+  %.068.ph.lcssa89132 = phi ptr [ %25, %.outer._crit_edge.thread ], [ %.068.ph.lcssa89, %.outer._crit_edge ]
   %73 = load ptr, ptr %0, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 1376
   %75 = load ptr, ptr %74, align 8
-  %76 = tail call ptr %75(ptr noundef nonnull %0, i32 noundef %.066.ph.lcssa87121, ptr noundef nonnull %4, ptr noundef null) #7
+  %76 = tail call ptr %75(ptr noundef nonnull %0, i32 noundef %.066.ph.lcssa87133, ptr noundef nonnull %4, ptr noundef null) #7
   %77 = icmp eq ptr %76, null
   br i1 %77, label %.thread81, label %78
 
 78:                                               ; preds = %72
-  %79 = tail call i32 @JNU_CopyObjectArray(ptr noundef nonnull %0, ptr noundef nonnull %76, ptr noundef %.068.ph.lcssa89120, i32 noundef %.066.ph.lcssa87121) #7
+  %79 = tail call i32 @JNU_CopyObjectArray(ptr noundef nonnull %0, ptr noundef nonnull %76, ptr noundef %.068.ph.lcssa89132, i32 noundef %.066.ph.lcssa87133) #7
   %80 = icmp slt i32 %79, 0
   %spec.select = select i1 %80, ptr null, ptr %76
   br label %.thread81

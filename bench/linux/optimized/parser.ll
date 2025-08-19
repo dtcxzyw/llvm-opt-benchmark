@@ -44,7 +44,7 @@ define dso_local i32 @match_token(ptr noundef %0, ptr noundef readonly captures(
   br i1 %11, label %._crit_edge, label %.lr.ph
 
 .thread5:                                         ; preds = %.backedge, %3
-  %.lcssa24 = phi ptr [ %1, %3 ], [ %.be, %.backedge ]
+  %.lcssa29 = phi ptr [ %1, %3 ], [ %.be, %.backedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -196,7 +196,7 @@ define dso_local i32 @match_token(ptr noundef %0, ptr noundef readonly captures(
   br label %.backedge
 
 .loopexit:                                        ; preds = %._crit_edge, %.thread5
-  %91 = phi ptr [ %.lcssa24, %.thread5 ], [ %9, %._crit_edge ]
+  %91 = phi ptr [ %.lcssa29, %.thread5 ], [ %9, %._crit_edge ]
   %92 = load i32, ptr %91, align 8
   ret i32 %92
 }
@@ -481,7 +481,7 @@ define dso_local zeroext i1 @match_wildcard(ptr noundef readonly captures(none) 
   %30 = phi ptr [ %9, %21 ], [ %27, %26 ], [ %9, %12 ], [ %8, %15 ]
   %31 = phi ptr [ %22, %21 ], [ %27, %26 ], [ %13, %12 ], [ %8, %15 ]
   %32 = phi ptr [ %23, %21 ], [ %10, %26 ], [ %14, %12 ], [ %16, %15 ]
-  %33 = phi i8 [ %6, %21 ], [ %6, %26 ], [ %6, %12 ], [ 1, %15 ]
+  %33 = phi i8 [ %6, %21 ], [ 1, %26 ], [ %6, %12 ], [ 1, %15 ]
   %34 = load i8, ptr %31, align 1
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %.loopexit2, label %.preheader, !llvm.loop !10

@@ -165,8 +165,8 @@ define dso_local ptr @index_form_tuple_context(ptr noundef %0, ptr noundef reado
   %65 = call ptr @MemoryContextAllocZero(ptr noundef %3, i64 noundef %64) #9
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 %phi.call
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %spec.select105 = select i1 %.lcssa, ptr %67, ptr null
-  call void @heap_fill_tuple(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef nonnull %66, i64 noundef %61, ptr noundef nonnull %5, ptr noundef %spec.select105) #9
+  %spec.select107 = select i1 %.lcssa, ptr %67, ptr null
+  call void @heap_fill_tuple(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef nonnull %66, i64 noundef %61, ptr noundef nonnull %5, ptr noundef %spec.select107) #9
   br i1 %10, label %.lr.ph92.preheader, label %._crit_edge
 
 .lr.ph92.preheader:                               ; preds = %.split72
@@ -353,8 +353,8 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   %54 = and i16 %5, 16384
   %.not188 = icmp ne i16 %54, 0
   %.not149193 = icmp sgt i32 %6, -1
-  %or.cond225 = and i1 %.not188, %.not149193
-  br i1 %or.cond225, label %.lr.ph195, label %.thread168
+  %or.cond236 = and i1 %.not188, %.not149193
+  br i1 %or.cond236, label %.lr.ph195, label %.thread168
 
 55:                                               ; preds = %.lr.ph195
   %56 = add i32 %.0127194, 1

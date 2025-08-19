@@ -698,9 +698,9 @@ Vec_IntPush.exit60:                               ; preds = %.Vec_IntGrow.exit10
 
 131:                                              ; preds = %Vec_IntPush.exit53, %Vec_IntPush.exit60
   %.sink = phi i32 [ %99, %Vec_IntPush.exit53 ], [ %129, %Vec_IntPush.exit60 ]
-  %.sink99 = phi ptr [ %98, %Vec_IntPush.exit53 ], [ %128, %Vec_IntPush.exit60 ]
+  %.sink108 = phi ptr [ %98, %Vec_IntPush.exit53 ], [ %128, %Vec_IntPush.exit60 ]
   %132 = sext i32 %.sink to i64
-  %133 = getelementptr inbounds i32, ptr %.sink99, i64 %132
+  %133 = getelementptr inbounds i32, ptr %.sink108, i64 %132
   store i32 %.086, ptr %133, align 4, !tbaa !48
   %134 = load ptr, ptr %0, align 8, !tbaa !16
   %135 = getelementptr i8, ptr %134, i64 200
@@ -1223,14 +1223,14 @@ Gia_Sim2CompareZero.exit:                         ; preds = %.lr.ph.i, %.lr.ph21
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %47, %49, %39, %41
-  %.sink60 = phi ptr [ %40, %39 ], [ %42, %41 ], [ %48, %47 ], [ %50, %49 ]
+  %.sink63 = phi ptr [ %40, %39 ], [ %42, %41 ], [ %48, %47 ], [ %50, %49 ]
   %.sink = phi i32 [ 16, %39 ], [ 16, %41 ], [ %44, %47 ], [ %44, %49 ]
-  store ptr %.sink60, ptr %5, align 8, !tbaa !8
+  store ptr %.sink63, ptr %5, align 8, !tbaa !8
   store i32 %.sink, ptr %2, align 8, !tbaa !39
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %Gia_Sim2CompareZero.exit
-  %.pre.i56 = phi ptr [ %14, %Gia_Sim2CompareZero.exit ], [ %.sink60, %Vec_IntPush.exit.sink.split ]
+  %.pre.i56 = phi ptr [ %14, %Gia_Sim2CompareZero.exit ], [ %.sink63, %Vec_IntPush.exit.sink.split ]
   %51 = add nsw i32 %33, 1
   store i32 %51, ptr %3, align 4, !tbaa !38
   %52 = sext i32 %33 to i64

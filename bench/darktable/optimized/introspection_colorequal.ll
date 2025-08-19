@@ -1696,9 +1696,9 @@ interpolate_bilinear.exit158.i:                   ; preds = %._crit_edge.us.i156
   br i1 %exitcond.not.i162.i, label %_prefilter_chromaticity.exit.sink.split.sink.split, label %.lr.ph.i160.i
 
 _prefilter_chromaticity.exit.sink.split.sink.split: ; preds = %.lr.ph.i160.i, %607, %465, %459
-  %.sink451 = phi ptr [ %398, %459 ], [ %398, %465 ], [ %.0105.i, %607 ], [ %.0105.i, %.lr.ph.i160.i ]
+  %.sink539 = phi ptr [ %398, %459 ], [ %398, %465 ], [ %.0105.i, %607 ], [ %.0105.i, %.lr.ph.i160.i ]
   %.0.i.sink.ph = phi ptr [ %400, %459 ], [ %400, %465 ], [ %.0.i, %607 ], [ %.0.i, %.lr.ph.i160.i ]
-  call void @free(ptr noundef %.sink451) #30, !noalias !99
+  call void @free(ptr noundef %.sink539) #30, !noalias !99
   br label %_prefilter_chromaticity.exit.sink.split
 
 _prefilter_chromaticity.exit.sink.split:          ; preds = %_prefilter_chromaticity.exit.sink.split.sink.split, %373
@@ -7195,18 +7195,18 @@ lookup_gamut.exit193:                             ; preds = %354, %380
   br label %418
 
 418:                                              ; preds = %413, %417
-  %.sink239 = phi i64 [ 592, %417 ], [ 688, %413 ]
-  %.sink236 = phi i64 [ 600, %417 ], [ 696, %413 ]
-  %.sink234 = phi i64 [ 608, %417 ], [ 704, %413 ]
-  %.sink232 = phi i64 [ 616, %417 ], [ 712, %413 ]
+  %.sink248 = phi i64 [ 592, %417 ], [ 688, %413 ]
+  %.sink245 = phi i64 [ 600, %417 ], [ 696, %413 ]
+  %.sink243 = phi i64 [ 608, %417 ], [ 704, %413 ]
+  %.sink241 = phi i64 [ 616, %417 ], [ 712, %413 ]
   %419 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !470
-  %420 = getelementptr inbounds nuw i8, ptr %419, i64 %.sink239
+  %420 = getelementptr inbounds nuw i8, ptr %419, i64 %.sink248
   %.sroa.0218.0.copyload = load double, ptr %420, align 8
-  %.sroa.4219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %419, i64 %.sink236
+  %.sroa.4219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %419, i64 %.sink245
   %.sroa.4219.0.copyload = load double, ptr %.sroa.4219.0..sroa_idx, align 8
-  %.sroa.5220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %419, i64 %.sink234
+  %.sroa.5220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %419, i64 %.sink243
   %.sroa.5220.0.copyload = load double, ptr %.sroa.5220.0..sroa_idx, align 8
-  %.sroa.6221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %419, i64 %.sink232
+  %.sroa.6221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %419, i64 %.sink241
   %.sroa.6221.0.copyload = load double, ptr %.sroa.6221.0..sroa_idx, align 8
   call void @cairo_set_source_rgba(ptr noundef %38, double noundef %.sroa.0218.0.copyload, double noundef %.sroa.4219.0.copyload, double noundef %.sroa.5220.0.copyload, double noundef %.sroa.6221.0.copyload) #30
   call void @cairo_fill(ptr noundef %38) #30

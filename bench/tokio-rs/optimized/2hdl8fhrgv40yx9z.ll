@@ -1617,14 +1617,14 @@ define internal void @"_ZN5tokio4sync9semaphore9Semaphore18acquire_many_owned28_
   %4 = alloca { ptr, { { ptr, ptr }, { ptr, ptr }, { { { i64 } } }, {} }, i64, i8, [7 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %6 = load i8, ptr %5, align 8, !range !25, !noundef !4
-  switch i8 %6, label %default.unreachable31 [
+  switch i8 %6, label %default.unreachable33 [
     i8 0, label %7
     i8 1, label %26
     i8 2, label %27
     i8 3, label %28
   ]
 
-default.unreachable31:                            ; preds = %3
+default.unreachable33:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %3

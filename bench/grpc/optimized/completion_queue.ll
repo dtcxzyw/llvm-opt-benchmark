@@ -4194,8 +4194,8 @@ _ZN12ExecCtxPluckC2EPv.exit:                      ; preds = %_ZN9grpc_core4Fork1
   %96 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %97 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %98 = load ptr, ptr %60, align 8, !tbaa !136
-  %.not212 = icmp eq ptr %98, null
-  br i1 %.not212, label %.preheader, label %._crit_edge
+  %.not224 = icmp eq ptr %98, null
+  br i1 %.not224, label %.preheader, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit, %_ZN12ExecCtxPluckC2EPv.exit
   %99 = load ptr, ptr %14, align 8, !tbaa !3
@@ -4265,20 +4265,20 @@ _ZN12ExecCtxPluckC2EPv.exit:                      ; preds = %_ZN9grpc_core4Fork1
 
 .invoke:                                          ; preds = %102, %130
   %storemerge.in.in.in = phi ptr [ %118, %130 ], [ %104, %102 ]
-  %.sink195 = phi ptr [ %110, %130 ], [ %103, %102 ]
+  %.sink207 = phi ptr [ %110, %130 ], [ %103, %102 ]
   %storemerge.in.in = load i64, ptr %storemerge.in.in.in, align 8, !tbaa !34
   %storemerge.in = trunc i64 %storemerge.in.in to i32
   %storemerge = and i32 %storemerge.in, 1
   store i32 %storemerge, ptr %97, align 4, !tbaa !140
-  %.sink.in = getelementptr inbounds nuw i8, ptr %.sink195, i64 8
+  %.sink.in = getelementptr inbounds nuw i8, ptr %.sink207, i64 8
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !10
   %131 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.sink, ptr %131, align 8, !tbaa !141
-  %132 = getelementptr inbounds nuw i8, ptr %.sink195, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %.sink207, i64 16
   %133 = load ptr, ptr %132, align 8, !tbaa !37
-  %134 = getelementptr inbounds nuw i8, ptr %.sink195, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %.sink207, i64 24
   %135 = load ptr, ptr %134, align 8, !tbaa !38
-  invoke void %133(ptr noundef %135, ptr noundef nonnull %.sink195)
+  invoke void %133(ptr noundef %135, ptr noundef nonnull %.sink207)
           to label %.loopexit166 unwind label %105
 
 136:                                              ; preds = %.preheader
@@ -4633,8 +4633,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.thread:    ; preds = %258, %260
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %254
   %265 = add nsw i32 %247, -1
   store i32 %265, ptr %246, align 4, !tbaa !152
-  %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds [6 x %"struct.(anonymous namespace)::plucker"], ptr %248, i64 0, i64 %266
+  %266 = zext nneg i32 %265 to i64
+  %267 = getelementptr inbounds nuw [6 x %"struct.(anonymous namespace)::plucker"], ptr %248, i64 0, i64 %266
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %250, i64 16, i1 false), !tbaa.struct !167
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %250, ptr noundef nonnull align 8 dereferenceable(16) %267, i64 16, i1 false), !tbaa.struct !167
@@ -5839,8 +5839,8 @@ define internal fastcc void @_ZL11del_pluckerP21grpc_completion_queuePvPP19grpc_
 17:                                               ; preds = %13
   %18 = add nsw i32 %6, -1
   store i32 %18, ptr %5, align 4, !tbaa !152
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [6 x %"struct.(anonymous namespace)::plucker"], ptr %7, i64 0, i64 %19
+  %19 = zext nneg i32 %18 to i64
+  %20 = getelementptr inbounds nuw [6 x %"struct.(anonymous namespace)::plucker"], ptr %7, i64 0, i64 %19
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !167
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !167

@@ -392,8 +392,8 @@ SDL_EVDEV_init_touchscreen.exit.thread56.i:       ; preds = %147
   br label %SDL_EVDEV_init_touchscreen.exit.thread.sink.split.sink.split.i
 
 SDL_EVDEV_init_touchscreen.exit.thread.sink.split.sink.split.i: ; preds = %154, %127
-  %.sink62.i = phi ptr [ %158, %154 ], [ %144, %127 ]
-  %159 = load ptr, ptr %.sink62.i, align 8
+  %.sink64.i = phi ptr [ %158, %154 ], [ %144, %127 ]
+  %159 = load ptr, ptr %.sink64.i, align 8
   call void @SDL_free_REAL(ptr noundef %159) #10
   %160 = load ptr, ptr %58, align 8
   br label %SDL_EVDEV_init_touchscreen.exit.thread.sink.split.i
@@ -1636,7 +1636,7 @@ SDL_EVDEV_GetEventTimestamp.exit258:              ; preds = %473, %485
   %492 = load i32, ptr %491, align 4
   %493 = sext i32 %492 to i64
   tail call void @SDL_SendTouch(i64 noundef %.0.i256, i64 noundef %487, i64 noundef %493, ptr noundef null, i32 noundef 1792, float noundef %448, float noundef %458, float noundef %.0215) #10
-  br label %.sink.split297
+  br label %.sink.split301
 
 494:                                              ; preds = %471
   %495 = tail call i64 @SDL_GetTicksNS_REAL() #10
@@ -1675,7 +1675,7 @@ SDL_EVDEV_GetEventTimestamp.exit263:              ; preds = %494, %506
   %517 = load ptr, ptr %516, align 8
   %518 = getelementptr inbounds nuw %struct.anon.0, ptr %517, i64 %indvars.iv, i32 1
   store i32 0, ptr %518, align 4
-  br label %.sink.split297
+  br label %.sink.split301
 
 519:                                              ; preds = %471
   %520 = tail call i64 @SDL_GetTicksNS_REAL() #10
@@ -1709,9 +1709,9 @@ SDL_EVDEV_GetEventTimestamp.exit268:              ; preds = %519, %531
   %538 = load i32, ptr %537, align 4
   %539 = sext i32 %538 to i64
   tail call void @SDL_SendTouchMotion(i64 noundef %.0.i266, i64 noundef %533, i64 noundef %539, ptr noundef null, float noundef %448, float noundef %458, float noundef %.0215) #10
-  br label %.sink.split297
+  br label %.sink.split301
 
-.sink.split297:                                   ; preds = %SDL_EVDEV_GetEventTimestamp.exit268, %SDL_EVDEV_GetEventTimestamp.exit263, %SDL_EVDEV_GetEventTimestamp.exit258
+.sink.split301:                                   ; preds = %SDL_EVDEV_GetEventTimestamp.exit268, %SDL_EVDEV_GetEventTimestamp.exit263, %SDL_EVDEV_GetEventTimestamp.exit258
   %540 = load ptr, ptr %28, align 8
   %541 = getelementptr inbounds nuw i8, ptr %540, i64 56
   %542 = load ptr, ptr %541, align 8
@@ -1719,7 +1719,7 @@ SDL_EVDEV_GetEventTimestamp.exit268:              ; preds = %519, %531
   store i32 0, ptr %543, align 4
   br label %544
 
-544:                                              ; preds = %.sink.split297, %471
+544:                                              ; preds = %.sink.split301, %471
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %545 = load ptr, ptr %28, align 8
   %546 = getelementptr inbounds nuw i8, ptr %545, i64 44
@@ -1897,9 +1897,9 @@ define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures
   br i1 %41, label %.thread.sink.split, label %.thread
 
 .thread.sink.split:                               ; preds = %40, %38
-  %.sink146 = phi i32 [ %39, %38 ], [ 0, %40 ]
+  %.sink150 = phi i32 [ %39, %38 ], [ 0, %40 ]
   %.sink = phi i32 [ 1, %38 ], [ 2, %40 ]
-  store i32 %.sink146, ptr %31, align 4
+  store i32 %.sink150, ptr %31, align 4
   %42 = load ptr, ptr %7, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 56
   %44 = load ptr, ptr %43, align 8

@@ -444,7 +444,7 @@ define internal fastcc void @raw_heap_insert(ptr noundef captures(none) %0, ptr 
   %84 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %85 = zext i16 %65 to i64
   %86 = add nsw i64 %85, -1
-  %87 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %84, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %84, i64 0, i64 %86
   %.val55 = load i32, ptr %87, align 4
   %88 = and i32 %.val55, 32767
   %89 = zext nneg i32 %88 to i64
@@ -1347,8 +1347,8 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr noundef cap
   %46 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %47 = load ptr, ptr %46, align 8
   %.not48 = icmp eq ptr %47, null
-  %.not495463 = icmp eq ptr %47, %26
-  %.not4954 = select i1 %.not48, i1 true, i1 %.not495463
+  %.not495468 = icmp eq ptr %47, %26
+  %.not4954 = select i1 %.not48, i1 true, i1 %.not495468
   br i1 %.not4954, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29, %.lr.ph

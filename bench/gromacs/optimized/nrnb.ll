@@ -517,13 +517,13 @@ define void @_Z10print_perfP8_IO_FILEddlddd(ptr noundef captures(none) %0, doubl
   %31 = fsub double %26, %30
   %32 = fptosi double %31 to i32
   %33 = icmp sgt i32 %18, 0
-  br i1 %33, label %.thread45.i, label %34
+  br i1 %33, label %.thread46.i, label %34
 
 34:                                               ; preds = %15
   %35 = icmp sgt i32 %23, 0
   br i1 %35, label %.thread44.i, label %40
 
-.thread45.i:                                      ; preds = %15
+.thread46.i:                                      ; preds = %15
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.164, i32 noundef %18) #10
   %37 = icmp slt i32 %23, 10
   %.str.166..str.167.i.i = select i1 %37, ptr @.str.166, ptr @.str.167
@@ -538,7 +538,7 @@ define void @_Z10print_perfP8_IO_FILEddlddd(ptr noundef captures(none) %0, doubl
   %41 = icmp sgt i32 %28, 0
   br i1 %41, label %45, label %49
 
-42:                                               ; preds = %.thread44.i, %.thread45.i
+42:                                               ; preds = %.thread44.i, %.thread46.i
   %43 = icmp slt i32 %28, 10
   %.str.166..str.167.i40.i = select i1 %43, ptr @.str.166, ptr @.str.167
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.166..str.167.i40.i, i32 noundef 104, i32 noundef %28) #10

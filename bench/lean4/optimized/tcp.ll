@@ -226,17 +226,17 @@ _ZN4leanL22lean_uv_tcp_socket_newEPNS_25lean_uv_tcp_socket_objectE.exit: ; preds
   unreachable
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %_ZN4leanL22lean_uv_tcp_socket_newEPNS_25lean_uv_tcp_socket_objectE.exit, %7
-  %.sink24 = phi ptr [ %9, %7 ], [ %21, %_ZN4leanL22lean_uv_tcp_socket_newEPNS_25lean_uv_tcp_socket_objectE.exit ]
-  %.sink21 = phi i32 [ 16908312, %7 ], [ 131096, %_ZN4leanL22lean_uv_tcp_socket_newEPNS_25lean_uv_tcp_socket_objectE.exit ]
+  %.sink28 = phi ptr [ %9, %7 ], [ %21, %_ZN4leanL22lean_uv_tcp_socket_newEPNS_25lean_uv_tcp_socket_objectE.exit ]
+  %.sink25 = phi i32 [ 16908312, %7 ], [ 131096, %_ZN4leanL22lean_uv_tcp_socket_newEPNS_25lean_uv_tcp_socket_objectE.exit ]
   %.sink = phi ptr [ %8, %7 ], [ %14, %_ZN4leanL22lean_uv_tcp_socket_newEPNS_25lean_uv_tcp_socket_objectE.exit ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sink24, i64 4
-  store i32 1, ptr %.sink24, align 4, !tbaa !40
-  store i32 %.sink21, ptr %24, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %.sink24, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.sink28, i64 4
+  store i32 1, ptr %.sink28, align 4, !tbaa !40
+  store i32 %.sink25, ptr %24, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %.sink28, i64 8
   store ptr %.sink, ptr %25, align 8, !tbaa !34
-  %26 = getelementptr inbounds nuw i8, ptr %.sink24, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.sink28, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %26, align 8, !tbaa !34
-  ret ptr %.sink24
+  ret ptr %.sink28
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -407,18 +407,18 @@ _ZL8lean_decP11lean_object.exit24:                ; preds = %50, %49, %47, %_ZL8
   unreachable
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %56, %_ZL8lean_decP11lean_object.exit24
-  %.sink42 = phi ptr [ %53, %_ZL8lean_decP11lean_object.exit24 ], [ %57, %56 ]
-  %.sink39 = phi i32 [ 16908312, %_ZL8lean_decP11lean_object.exit24 ], [ 131096, %56 ]
+  %.sink50 = phi ptr [ %53, %_ZL8lean_decP11lean_object.exit24 ], [ %57, %56 ]
+  %.sink47 = phi i32 [ 16908312, %_ZL8lean_decP11lean_object.exit24 ], [ 131096, %56 ]
   %.sink = phi ptr [ %52, %_ZL8lean_decP11lean_object.exit24 ], [ %6, %56 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.sink42, i64 4
-  store i32 1, ptr %.sink42, align 4, !tbaa !40
-  store i32 %.sink39, ptr %60, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %.sink42, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.sink50, i64 4
+  store i32 1, ptr %.sink50, align 4, !tbaa !40
+  store i32 %.sink47, ptr %60, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %.sink50, i64 8
   store ptr %.sink, ptr %61, align 8, !tbaa !34
-  %62 = getelementptr inbounds nuw i8, ptr %.sink42, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.sink50, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %62, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %.sink42
+  ret ptr %.sink50
 }
 
 declare noundef ptr @_ZN4lean16lean_promise_newEv() local_unnamed_addr #1
@@ -618,18 +618,18 @@ _ZL8lean_decP11lean_object.exit:                  ; preds = %67, %66, %64, %_ZL8
   unreachable
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %73, %_ZL8lean_decP11lean_object.exit
-  %.sink53 = phi ptr [ %70, %_ZL8lean_decP11lean_object.exit ], [ %74, %73 ]
-  %.sink50 = phi i32 [ 16908312, %_ZL8lean_decP11lean_object.exit ], [ 131096, %73 ]
+  %.sink63 = phi ptr [ %70, %_ZL8lean_decP11lean_object.exit ], [ %74, %73 ]
+  %.sink60 = phi i32 [ 16908312, %_ZL8lean_decP11lean_object.exit ], [ 131096, %73 ]
   %.sink = phi ptr [ %69, %_ZL8lean_decP11lean_object.exit ], [ %13, %73 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.sink53, i64 4
-  store i32 1, ptr %.sink53, align 4, !tbaa !40
-  store i32 %.sink50, ptr %77, align 4
-  %78 = getelementptr inbounds nuw i8, ptr %.sink53, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.sink63, i64 4
+  store i32 1, ptr %.sink63, align 4, !tbaa !40
+  store i32 %.sink60, ptr %77, align 4
+  %78 = getelementptr inbounds nuw i8, ptr %.sink63, i64 8
   store ptr %.sink, ptr %78, align 8, !tbaa !34
-  %79 = getelementptr inbounds nuw i8, ptr %.sink53, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.sink63, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %79, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %.sink53
+  ret ptr %.sink63
 }
 
 declare { ptr, i64 } @uv_buf_init(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -840,17 +840,17 @@ _ZL8lean_decP11lean_object.exit:                  ; preds = %72, %71, %69, %_ZL8
   unreachable
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %77, %_ZL8lean_decP11lean_object.exit, %7
-  %.sink48 = phi ptr [ %9, %7 ], [ %74, %_ZL8lean_decP11lean_object.exit ], [ %78, %77 ]
-  %.sink45 = phi i32 [ 16908312, %7 ], [ 16908312, %_ZL8lean_decP11lean_object.exit ], [ 131096, %77 ]
+  %.sink59 = phi ptr [ %9, %7 ], [ %74, %_ZL8lean_decP11lean_object.exit ], [ %78, %77 ]
+  %.sink56 = phi i32 [ 16908312, %7 ], [ 16908312, %_ZL8lean_decP11lean_object.exit ], [ 131096, %77 ]
   %.sink = phi ptr [ %8, %7 ], [ %73, %_ZL8lean_decP11lean_object.exit ], [ %22, %77 ]
-  %81 = getelementptr inbounds nuw i8, ptr %.sink48, i64 4
-  store i32 1, ptr %.sink48, align 4, !tbaa !40
-  store i32 %.sink45, ptr %81, align 4
-  %82 = getelementptr inbounds nuw i8, ptr %.sink48, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.sink59, i64 4
+  store i32 1, ptr %.sink59, align 4, !tbaa !40
+  store i32 %.sink56, ptr %81, align 4
+  %82 = getelementptr inbounds nuw i8, ptr %.sink59, i64 8
   store ptr %.sink, ptr %82, align 8, !tbaa !34
-  %83 = getelementptr inbounds nuw i8, ptr %.sink48, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.sink59, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %83, align 8, !tbaa !34
-  ret ptr %.sink48
+  ret ptr %.sink59
 }
 
 declare i32 @uv_read_start(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1020,17 +1020,17 @@ _ZL8lean_decP11lean_object.exit:                  ; preds = %53, %52, %50, %_ZL8
   unreachable
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %58, %_ZL8lean_decP11lean_object.exit, %6
-  %.sink39 = phi ptr [ %8, %6 ], [ %55, %_ZL8lean_decP11lean_object.exit ], [ %59, %58 ]
-  %.sink36 = phi i32 [ 16908312, %6 ], [ 16908312, %_ZL8lean_decP11lean_object.exit ], [ 131096, %58 ]
+  %.sink48 = phi ptr [ %8, %6 ], [ %55, %_ZL8lean_decP11lean_object.exit ], [ %59, %58 ]
+  %.sink45 = phi i32 [ 16908312, %6 ], [ 16908312, %_ZL8lean_decP11lean_object.exit ], [ 131096, %58 ]
   %.sink = phi ptr [ %7, %6 ], [ %54, %_ZL8lean_decP11lean_object.exit ], [ %12, %58 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sink39, i64 4
-  store i32 1, ptr %.sink39, align 4, !tbaa !40
-  store i32 %.sink36, ptr %62, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %.sink39, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.sink48, i64 4
+  store i32 1, ptr %.sink48, align 4, !tbaa !40
+  store i32 %.sink45, ptr %62, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %.sink48, i64 8
   store ptr %.sink, ptr %63, align 8, !tbaa !34
-  %64 = getelementptr inbounds nuw i8, ptr %.sink39, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.sink48, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %64, align 8, !tbaa !34
-  ret ptr %.sink39
+  ret ptr %.sink48
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1152,15 +1152,15 @@ _ZL8lean_decP11lean_object.exit:                  ; preds = %45, %44, %42, %36
   unreachable
 
 _ZL20lean_io_result_mk_okP11lean_object.exit:     ; preds = %_ZL8lean_decP11lean_object.exit, %7
-  %.sink26 = phi ptr [ %8, %7 ], [ %46, %_ZL8lean_decP11lean_object.exit ]
-  %49 = getelementptr inbounds nuw i8, ptr %.sink26, i64 4
-  store i32 1, ptr %.sink26, align 4, !tbaa !40
+  %.sink34 = phi ptr [ %8, %7 ], [ %46, %_ZL8lean_decP11lean_object.exit ]
+  %49 = getelementptr inbounds nuw i8, ptr %.sink34, i64 4
+  store i32 1, ptr %.sink34, align 4, !tbaa !40
   store i32 131096, ptr %49, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.sink34, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %50, align 8, !tbaa !34
-  %51 = getelementptr inbounds nuw i8, ptr %.sink26, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %51, align 8, !tbaa !34
-  ret ptr %.sink26
+  ret ptr %.sink34
 }
 
 declare i32 @uv_read_stop(ptr noundef) local_unnamed_addr #1
@@ -1201,18 +1201,18 @@ define noalias noundef nonnull ptr @lean_uv_tcp_bind(ptr noundef readonly captur
   unreachable
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %14, %9
-  %.sink12 = phi ptr [ %11, %9 ], [ %15, %14 ]
-  %.sink9 = phi i32 [ 16908312, %9 ], [ 131096, %14 ]
+  %.sink15 = phi ptr [ %11, %9 ], [ %15, %14 ]
+  %.sink12 = phi i32 [ 16908312, %9 ], [ 131096, %14 ]
   %.sink = phi ptr [ %10, %9 ], [ inttoptr (i64 1 to ptr), %14 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.sink12, i64 4
-  store i32 1, ptr %.sink12, align 4, !tbaa !40
-  store i32 %.sink9, ptr %18, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sink15, i64 4
+  store i32 1, ptr %.sink15, align 4, !tbaa !40
+  store i32 %.sink12, ptr %18, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %.sink15, i64 8
   store ptr %.sink, ptr %19, align 8, !tbaa !34
-  %20 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.sink15, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %20, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %.sink12
+  ret ptr %.sink15
 }
 
 declare i32 @uv_tcp_bind(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1250,17 +1250,17 @@ define noalias noundef nonnull ptr @lean_uv_tcp_listen(ptr noundef readonly capt
   unreachable
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %13, %8
-  %.sink12 = phi ptr [ %10, %8 ], [ %14, %13 ]
-  %.sink9 = phi i32 [ 16908312, %8 ], [ 131096, %13 ]
+  %.sink15 = phi ptr [ %10, %8 ], [ %14, %13 ]
+  %.sink12 = phi i32 [ 16908312, %8 ], [ 131096, %13 ]
   %.sink = phi ptr [ %9, %8 ], [ inttoptr (i64 1 to ptr), %13 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.sink12, i64 4
-  store i32 1, ptr %.sink12, align 4, !tbaa !40
-  store i32 %.sink9, ptr %17, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.sink15, i64 4
+  store i32 1, ptr %.sink15, align 4, !tbaa !40
+  store i32 %.sink12, ptr %17, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %.sink15, i64 8
   store ptr %.sink, ptr %18, align 8, !tbaa !34
-  %19 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.sink15, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %19, align 8, !tbaa !34
-  ret ptr %.sink12
+  ret ptr %.sink15
 }
 
 declare i32 @uv_listen(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -1467,17 +1467,17 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %71, %70, %68, %_ZL8
   unreachable
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %73, %6
-  %.sink40 = phi ptr [ %9, %6 ], [ %74, %73 ]
-  %.sink37 = phi i32 [ 16908312, %6 ], [ 131096, %73 ]
+  %.sink47 = phi ptr [ %9, %6 ], [ %74, %73 ]
+  %.sink44 = phi i32 [ 16908312, %6 ], [ 131096, %73 ]
   %.sink = phi ptr [ %8, %6 ], [ %13, %73 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.sink40, i64 4
-  store i32 1, ptr %.sink40, align 4, !tbaa !40
-  store i32 %.sink37, ptr %77, align 4
-  %78 = getelementptr inbounds nuw i8, ptr %.sink40, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.sink47, i64 4
+  store i32 1, ptr %.sink47, align 4, !tbaa !40
+  store i32 %.sink44, ptr %77, align 4
+  %78 = getelementptr inbounds nuw i8, ptr %.sink47, i64 8
   store ptr %.sink, ptr %78, align 8, !tbaa !34
-  %79 = getelementptr inbounds nuw i8, ptr %.sink40, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.sink47, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %79, align 8, !tbaa !34
-  ret ptr %.sink40
+  ret ptr %.sink47
 }
 
 declare i32 @uv_accept(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1619,17 +1619,17 @@ _ZL8lean_decP11lean_object.exit:                  ; preds = %44, %43, %41, %34
   unreachable
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %49, %_ZL8lean_decP11lean_object.exit, %6
-  %.sink33 = phi ptr [ %9, %6 ], [ %46, %_ZL8lean_decP11lean_object.exit ], [ %50, %49 ]
-  %.sink30 = phi i32 [ 16908312, %6 ], [ 16908312, %_ZL8lean_decP11lean_object.exit ], [ 131096, %49 ]
+  %.sink38 = phi ptr [ %9, %6 ], [ %46, %_ZL8lean_decP11lean_object.exit ], [ %50, %49 ]
+  %.sink35 = phi i32 [ 16908312, %6 ], [ 16908312, %_ZL8lean_decP11lean_object.exit ], [ 131096, %49 ]
   %.sink = phi ptr [ %8, %6 ], [ %45, %_ZL8lean_decP11lean_object.exit ], [ %13, %49 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
-  store i32 1, ptr %.sink33, align 4, !tbaa !40
-  store i32 %.sink30, ptr %53, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.sink38, i64 4
+  store i32 1, ptr %.sink38, align 4, !tbaa !40
+  store i32 %.sink35, ptr %53, align 4
+  %54 = getelementptr inbounds nuw i8, ptr %.sink38, i64 8
   store ptr %.sink, ptr %54, align 8, !tbaa !34
-  %55 = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %.sink38, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %55, align 8, !tbaa !34
-  ret ptr %.sink33
+  ret ptr %.sink38
 }
 
 declare i32 @uv_shutdown(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1673,19 +1673,19 @@ define noalias noundef nonnull ptr @lean_uv_tcp_getpeername(ptr noundef readonly
   unreachable
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %14, %9
-  %.sink12 = phi ptr [ %11, %9 ], [ %16, %14 ]
-  %.sink9 = phi i32 [ 16908312, %9 ], [ 131096, %14 ]
+  %.sink15 = phi ptr [ %11, %9 ], [ %16, %14 ]
+  %.sink12 = phi i32 [ 16908312, %9 ], [ 131096, %14 ]
   %.sink = phi ptr [ %10, %9 ], [ %15, %14 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.sink12, i64 4
-  store i32 1, ptr %.sink12, align 4, !tbaa !40
-  store i32 %.sink9, ptr %19, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.sink15, i64 4
+  store i32 1, ptr %.sink15, align 4, !tbaa !40
+  store i32 %.sink12, ptr %19, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %.sink15, i64 8
   store ptr %.sink, ptr %20, align 8, !tbaa !34
-  %21 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.sink15, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %21, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %.sink12
+  ret ptr %.sink15
 }
 
 declare i32 @uv_tcp_getpeername(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1731,19 +1731,19 @@ define noalias noundef nonnull ptr @lean_uv_tcp_getsockname(ptr noundef readonly
   unreachable
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %14, %9
-  %.sink12 = phi ptr [ %11, %9 ], [ %16, %14 ]
-  %.sink9 = phi i32 [ 16908312, %9 ], [ 131096, %14 ]
+  %.sink15 = phi ptr [ %11, %9 ], [ %16, %14 ]
+  %.sink12 = phi i32 [ 16908312, %9 ], [ 131096, %14 ]
   %.sink = phi ptr [ %10, %9 ], [ %15, %14 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.sink12, i64 4
-  store i32 1, ptr %.sink12, align 4, !tbaa !40
-  store i32 %.sink9, ptr %19, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.sink15, i64 4
+  store i32 1, ptr %.sink15, align 4, !tbaa !40
+  store i32 %.sink12, ptr %19, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %.sink15, i64 8
   store ptr %.sink, ptr %20, align 8, !tbaa !34
-  %21 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.sink15, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %21, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %.sink12
+  ret ptr %.sink15
 }
 
 declare i32 @uv_tcp_getsockname(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1781,17 +1781,17 @@ define noalias noundef nonnull ptr @lean_uv_tcp_nodelay(ptr noundef readonly cap
   unreachable
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %12, %7
-  %.sink11 = phi ptr [ %9, %7 ], [ %13, %12 ]
-  %.sink8 = phi i32 [ 16908312, %7 ], [ 131096, %12 ]
+  %.sink14 = phi ptr [ %9, %7 ], [ %13, %12 ]
+  %.sink11 = phi i32 [ 16908312, %7 ], [ 131096, %12 ]
   %.sink = phi ptr [ %8, %7 ], [ inttoptr (i64 1 to ptr), %12 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sink11, i64 4
-  store i32 1, ptr %.sink11, align 4, !tbaa !40
-  store i32 %.sink8, ptr %16, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.sink14, i64 4
+  store i32 1, ptr %.sink14, align 4, !tbaa !40
+  store i32 %.sink11, ptr %16, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %.sink14, i64 8
   store ptr %.sink, ptr %17, align 8, !tbaa !34
-  %18 = getelementptr inbounds nuw i8, ptr %.sink11, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.sink14, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %18, align 8, !tbaa !34
-  ret ptr %.sink11
+  ret ptr %.sink14
 }
 
 declare i32 @uv_tcp_nodelay(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1829,17 +1829,17 @@ define noalias noundef nonnull ptr @lean_uv_tcp_keepalive(ptr noundef readonly c
   unreachable
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %14, %9
-  %.sink13 = phi ptr [ %11, %9 ], [ %15, %14 ]
-  %.sink10 = phi i32 [ 16908312, %9 ], [ 131096, %14 ]
+  %.sink16 = phi ptr [ %11, %9 ], [ %15, %14 ]
+  %.sink13 = phi i32 [ 16908312, %9 ], [ 131096, %14 ]
   %.sink = phi ptr [ %10, %9 ], [ inttoptr (i64 1 to ptr), %14 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.sink13, i64 4
-  store i32 1, ptr %.sink13, align 4, !tbaa !40
-  store i32 %.sink10, ptr %18, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %.sink13, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sink16, i64 4
+  store i32 1, ptr %.sink16, align 4, !tbaa !40
+  store i32 %.sink13, ptr %18, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
   store ptr %.sink, ptr %19, align 8, !tbaa !34
-  %20 = getelementptr inbounds nuw i8, ptr %.sink13, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.sink16, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %20, align 8, !tbaa !34
-  ret ptr %.sink13
+  ret ptr %.sink16
 }
 
 declare i32 @uv_tcp_keepalive(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -2313,15 +2313,15 @@ _ZL8lean_decP11lean_object.exit20.i:              ; preds = %44, %43, %41, %37
   unreachable
 
 _ZN4lean12mk_except_okEP11lean_object.exit.i:     ; preds = %_ZL8lean_decP11lean_object.exit20.i, %_ZL8lean_decP11lean_object.exit21.i, %_ZN4lean14mk_option_someEP11lean_object.exit.i
-  %.sink10.i = phi ptr [ %19, %_ZN4lean14mk_option_someEP11lean_object.exit.i ], [ %34, %_ZL8lean_decP11lean_object.exit21.i ], [ %47, %_ZL8lean_decP11lean_object.exit20.i ]
-  %.sink7.i = phi i32 [ 16842768, %_ZN4lean14mk_option_someEP11lean_object.exit.i ], [ 16842768, %_ZL8lean_decP11lean_object.exit21.i ], [ 65552, %_ZL8lean_decP11lean_object.exit20.i ]
-  %.sink4.i = phi ptr [ %14, %_ZN4lean14mk_option_someEP11lean_object.exit.i ], [ inttoptr (i64 1 to ptr), %_ZL8lean_decP11lean_object.exit21.i ], [ %46, %_ZL8lean_decP11lean_object.exit20.i ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sink10.i, i64 4
-  store i32 1, ptr %.sink10.i, align 4, !tbaa !40
-  store i32 %.sink7.i, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %.sink10.i, i64 8
-  store ptr %.sink4.i, ptr %51, align 8, !tbaa !34
-  tail call void @_ZN4lean20lean_promise_resolveEP11lean_objectS1_(ptr noundef nonnull %.sink10.i, ptr noundef %8)
+  %.sink22.i = phi ptr [ %19, %_ZN4lean14mk_option_someEP11lean_object.exit.i ], [ %34, %_ZL8lean_decP11lean_object.exit21.i ], [ %47, %_ZL8lean_decP11lean_object.exit20.i ]
+  %.sink19.i = phi i32 [ 16842768, %_ZN4lean14mk_option_someEP11lean_object.exit.i ], [ 16842768, %_ZL8lean_decP11lean_object.exit21.i ], [ 65552, %_ZL8lean_decP11lean_object.exit20.i ]
+  %.sink16.i = phi ptr [ %14, %_ZN4lean14mk_option_someEP11lean_object.exit.i ], [ inttoptr (i64 1 to ptr), %_ZL8lean_decP11lean_object.exit21.i ], [ %46, %_ZL8lean_decP11lean_object.exit20.i ]
+  %50 = getelementptr inbounds nuw i8, ptr %.sink22.i, i64 4
+  store i32 1, ptr %.sink22.i, align 4, !tbaa !40
+  store i32 %.sink19.i, ptr %50, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %.sink22.i, i64 8
+  store ptr %.sink16.i, ptr %51, align 8, !tbaa !34
+  tail call void @_ZN4lean20lean_promise_resolveEP11lean_objectS1_(ptr noundef nonnull %.sink22.i, ptr noundef %8)
   %52 = ptrtoint ptr %8 to i64
   %53 = and i64 %52, 1
   %.not2.i = icmp eq i64 %53, 0
@@ -2444,15 +2444,15 @@ define internal void @"_ZZ25lean_uv_tcp_wait_readableEN3$_18__invokeEP11uv_strea
   unreachable
 
 _ZN4lean12mk_except_okEP11lean_object.exit.i:     ; preds = %19, %13, %9
-  %.sink8.i = phi ptr [ %10, %9 ], [ %14, %13 ], [ %22, %19 ]
-  %.sink5.i = phi i32 [ 16842768, %9 ], [ 16842768, %13 ], [ 65552, %19 ]
-  %.sink2.i = phi ptr [ inttoptr (i64 3 to ptr), %9 ], [ inttoptr (i64 1 to ptr), %13 ], [ %21, %19 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.sink8.i, i64 4
-  store i32 1, ptr %.sink8.i, align 4, !tbaa !40
-  store i32 %.sink5.i, ptr %30, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %.sink8.i, i64 8
-  store ptr %.sink2.i, ptr %31, align 8, !tbaa !34
-  tail call void @_ZN4lean20lean_promise_resolveEP11lean_objectS1_(ptr noundef nonnull %.sink8.i, ptr noundef %8)
+  %.sink14.i = phi ptr [ %10, %9 ], [ %14, %13 ], [ %22, %19 ]
+  %.sink11.i = phi i32 [ 16842768, %9 ], [ 16842768, %13 ], [ 65552, %19 ]
+  %.sink8.i = phi ptr [ inttoptr (i64 3 to ptr), %9 ], [ inttoptr (i64 1 to ptr), %13 ], [ %21, %19 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.sink14.i, i64 4
+  store i32 1, ptr %.sink14.i, align 4, !tbaa !40
+  store i32 %.sink11.i, ptr %30, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %.sink14.i, i64 8
+  store ptr %.sink8.i, ptr %31, align 8, !tbaa !34
+  tail call void @_ZN4lean20lean_promise_resolveEP11lean_objectS1_(ptr noundef nonnull %.sink14.i, ptr noundef %8)
   %32 = ptrtoint ptr %8 to i64
   %33 = and i64 %32, 1
   %.not.i = icmp eq i64 %33, 0

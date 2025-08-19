@@ -1286,7 +1286,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_multi_prime_keygen(ptr noundef ca
   br label %.thread336
 
 ._crit_edge:                                      ; preds = %26, %22
-  %.1227454 = phi ptr [ null, %22 ], [ %24, %26 ]
+  %.1227464 = phi ptr [ null, %22 ], [ %24, %26 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !6
   %.not255 = icmp eq ptr %50, null
@@ -1476,7 +1476,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_multi_prime_keygen(ptr noundef ca
 142:                                              ; preds = %139
   %143 = tail call i32 @BN_is_one(ptr noundef %15) #8
   %.not273 = icmp eq i32 %143, 0
-  br i1 %.not273, label %.loopexit, label %.loopexit.thread461
+  br i1 %.not273, label %.loopexit, label %.loopexit.thread471
 
 .loopexit:                                        ; preds = %142
   %144 = add nuw nsw i32 %.1235, 1
@@ -1484,12 +1484,12 @@ define hidden range(i32 0, 2) i32 @rsa_default_multi_prime_keygen(ptr noundef ca
   %.not274 = icmp eq i32 %145, 0
   br i1 %.not274, label %.thread336, label %125
 
-.loopexit.thread461:                              ; preds = %142
+.loopexit.thread471:                              ; preds = %142
   %146 = tail call i32 @BN_GENCB_call(ptr noundef %4, i32 noundef 3, i32 noundef 1) #8
   %.not275 = icmp eq i32 %146, 0
   br i1 %.not275, label %.thread336, label %147
 
-147:                                              ; preds = %.loopexit.thread461
+147:                                              ; preds = %.loopexit.thread471
   %148 = load ptr, ptr %49, align 8, !tbaa !6
   %149 = load ptr, ptr %67, align 8, !tbaa !26
   %150 = load ptr, ptr %73, align 8, !tbaa !27
@@ -1499,7 +1499,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_multi_prime_keygen(ptr noundef ca
 
 .preheader363:                                    ; preds = %147
   %152 = add i32 %2, %1
-  %153 = zext i32 %100 to i64
+  %153 = zext nneg i32 %100 to i64
   %smax439 = tail call i32 @llvm.smax.i32(i32 %2, i32 2)
   %154 = add nsw i32 %smax439, -2
   %wide.trip.count440 = zext nneg i32 %154 to i64
@@ -1514,7 +1514,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_multi_prime_keygen(ptr noundef ca
 
 156:                                              ; preds = %155
   %157 = add nsw i64 %indvars.iv433, -2
-  %158 = tail call ptr @sk_value(ptr noundef %.1227454, i64 noundef %157) #8
+  %158 = tail call ptr @sk_value(ptr noundef %.1227464, i64 noundef %157) #8
   %159 = load ptr, ptr %49, align 8, !tbaa !6
   %160 = tail call i32 @BN_num_bits(ptr noundef %159) #8
   %indvars.iv.next434 = add nuw nsw i64 %indvars.iv433, 1
@@ -1571,7 +1571,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_multi_prime_keygen(ptr noundef ca
 
 .preheader360.us.us:                              ; preds = %185, %195
   %indvars.iv = phi i64 [ %indvars.iv.next, %195 ], [ 0, %185 ]
-  %190 = tail call ptr @sk_value(ptr noundef %.1227454, i64 noundef %indvars.iv) #8
+  %190 = tail call ptr @sk_value(ptr noundef %.1227464, i64 noundef %indvars.iv) #8
   %191 = load ptr, ptr %190, align 8, !tbaa !45
   %192 = load ptr, ptr %158, align 8, !tbaa !45
   %193 = tail call i32 @BN_cmp(ptr noundef %191, ptr noundef %192) #8
@@ -1762,7 +1762,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_multi_prime_keygen(ptr noundef ca
 .lr.ph395:                                        ; preds = %.lr.ph395.preheader, %270
   %indvars.iv442 = phi i64 [ 2, %.lr.ph395.preheader ], [ %indvars.iv.next443, %270 ]
   %271 = add nsw i64 %indvars.iv442, -2
-  %272 = tail call ptr @sk_value(ptr noundef %.1227454, i64 noundef %271) #8
+  %272 = tail call ptr @sk_value(ptr noundef %.1227464, i64 noundef %271) #8
   %273 = load ptr, ptr %272, align 8, !tbaa !45
   %274 = tail call ptr @BN_value_one() #8
   %275 = tail call i32 @BN_sub(ptr noundef %17, ptr noundef %273, ptr noundef %274) #8
@@ -1806,7 +1806,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_multi_prime_keygen(ptr noundef ca
   br i1 %.not283, label %.thread336, label %.preheader
 
 .preheader:                                       ; preds = %288
-  br i1 %.not, label %._crit_edge399, label %.lr.ph398.preheader
+  br i1 %.not, label %.thread346.thread482, label %.lr.ph398.preheader
 
 .lr.ph398.preheader:                              ; preds = %.preheader
   %smax450 = call i32 @llvm.smax.i32(i32 %2, i32 3)
@@ -1816,12 +1816,12 @@ define hidden range(i32 0, 2) i32 @rsa_default_multi_prime_keygen(ptr noundef ca
 293:                                              ; preds = %305
   %indvars.iv.next448 = add nuw nsw i64 %indvars.iv447, 1
   %exitcond452.not = icmp eq i64 %indvars.iv.next448, %wide.trip.count451
-  br i1 %exitcond452.not, label %._crit_edge399, label %.lr.ph398, !llvm.loop !55
+  br i1 %exitcond452.not, label %.thread346.thread482, label %.lr.ph398, !llvm.loop !55
 
 .lr.ph398:                                        ; preds = %.lr.ph398.preheader, %293
   %indvars.iv447 = phi i64 [ 2, %.lr.ph398.preheader ], [ %indvars.iv.next448, %293 ]
   %294 = add nsw i64 %indvars.iv447, -2
-  %295 = call ptr @sk_value(ptr noundef %.1227454, i64 noundef %294) #8
+  %295 = call ptr @sk_value(ptr noundef %.1227464, i64 noundef %294) #8
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
   %297 = load ptr, ptr %296, align 8, !tbaa !43
   %298 = load ptr, ptr %295, align 8, !tbaa !45
@@ -1847,34 +1847,35 @@ define hidden range(i32 0, 2) i32 @rsa_default_multi_prime_keygen(ptr noundef ca
   %.not286 = icmp eq ptr %311, null
   br i1 %.not286, label %.thread336, label %293
 
-._crit_edge399:                                   ; preds = %293, %.preheader
+.thread346.thread482:                             ; preds = %293, %.preheader
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %.1227454, ptr %312, align 8, !tbaa !40
-  br label %.thread346
+  store ptr %.1227464, ptr %312, align 8, !tbaa !40
+  br label %313
 
 .thread321:                                       ; preds = %134
   tail call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 126, ptr noundef nonnull @.str, i32 noundef 937) #8
   br label %.thread346
 
-.thread336:                                       ; preds = %.lr.ph, %103, %106, %110, %115, %139, %.critedge, %.loopexit, %126, %251, %248, %246, %.split392.us, %.outer, %230, %237, %.outer.us, %171, %178, %.backedge, %225, %221, %.backedge.us.us, %201, %197, %276, %.lr.ph395, %305, %.lr.ph398, %301, %147, %.loopexit.thread461, %260, %264, %268, %._crit_edge396, %281, %285, %288, %48, %51, %57, %63, %69, %75, %81, %87, %93, %96, %118, %23, %13, %10
-  %.0226343 = phi ptr [ %.1227454, %51 ], [ %.1227454, %57 ], [ %.1227454, %63 ], [ %.1227454, %69 ], [ %.1227454, %75 ], [ %.1227454, %81 ], [ %.1227454, %87 ], [ %.1227454, %93 ], [ %.1227454, %96 ], [ %.1227454, %118 ], [ null, %23 ], [ null, %13 ], [ null, %10 ], [ %24, %48 ], [ %.1227454, %288 ], [ %.1227454, %285 ], [ %.1227454, %281 ], [ %.1227454, %._crit_edge396 ], [ %.1227454, %268 ], [ %.1227454, %264 ], [ %.1227454, %260 ], [ %.1227454, %.loopexit.thread461 ], [ %.1227454, %147 ], [ %.1227454, %301 ], [ %.1227454, %.lr.ph398 ], [ %.1227454, %305 ], [ %.1227454, %.lr.ph395 ], [ %.1227454, %276 ], [ %.1227454, %197 ], [ %.1227454, %201 ], [ %.1227454, %.backedge.us.us ], [ %.1227454, %221 ], [ %.1227454, %225 ], [ %.1227454, %.backedge ], [ %.1227454, %178 ], [ %.1227454, %171 ], [ %.1227454, %.outer.us ], [ %.1227454, %237 ], [ %.1227454, %230 ], [ %.1227454, %.outer ], [ %.1227454, %.split392.us ], [ %.1227454, %246 ], [ %.1227454, %248 ], [ %.1227454, %251 ], [ %.1227454, %126 ], [ %.1227454, %.loopexit ], [ %.1227454, %.critedge ], [ %.1227454, %139 ], [ %.1227454, %115 ], [ %.1227454, %110 ], [ %.1227454, %106 ], [ %.1227454, %103 ], [ %24, %.lr.ph ]
+.thread336:                                       ; preds = %.lr.ph, %103, %106, %110, %115, %139, %.critedge, %.loopexit, %126, %251, %248, %246, %.split392.us, %.outer, %230, %237, %.outer.us, %171, %178, %.backedge, %225, %221, %.backedge.us.us, %201, %197, %276, %.lr.ph395, %305, %.lr.ph398, %301, %147, %.loopexit.thread471, %260, %264, %268, %._crit_edge396, %281, %285, %288, %48, %51, %57, %63, %69, %75, %81, %87, %93, %96, %118, %23, %13, %10
+  %.0226343 = phi ptr [ %.1227464, %51 ], [ %.1227464, %57 ], [ %.1227464, %63 ], [ %.1227464, %69 ], [ %.1227464, %75 ], [ %.1227464, %81 ], [ %.1227464, %87 ], [ %.1227464, %93 ], [ %.1227464, %96 ], [ %.1227464, %118 ], [ null, %23 ], [ null, %13 ], [ null, %10 ], [ %24, %48 ], [ %.1227464, %288 ], [ %.1227464, %285 ], [ %.1227464, %281 ], [ %.1227464, %._crit_edge396 ], [ %.1227464, %268 ], [ %.1227464, %264 ], [ %.1227464, %260 ], [ %.1227464, %.loopexit.thread471 ], [ %.1227464, %147 ], [ %.1227464, %301 ], [ %.1227464, %.lr.ph398 ], [ %.1227464, %305 ], [ %.1227464, %.lr.ph395 ], [ %.1227464, %276 ], [ %.1227464, %197 ], [ %.1227464, %201 ], [ %.1227464, %.backedge.us.us ], [ %.1227464, %221 ], [ %.1227464, %225 ], [ %.1227464, %.backedge ], [ %.1227464, %178 ], [ %.1227464, %171 ], [ %.1227464, %.outer.us ], [ %.1227464, %237 ], [ %.1227464, %230 ], [ %.1227464, %.outer ], [ %.1227464, %.split392.us ], [ %.1227464, %246 ], [ %.1227464, %248 ], [ %.1227464, %251 ], [ %.1227464, %126 ], [ %.1227464, %.loopexit ], [ %.1227464, %.critedge ], [ %.1227464, %139 ], [ %.1227464, %115 ], [ %.1227464, %110 ], [ %.1227464, %106 ], [ %.1227464, %103 ], [ %24, %.lr.ph ]
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1098) #8
   br label %.thread346
 
-.thread346:                                       ; preds = %.thread321, %._crit_edge399, %.thread336
-  %.0226342 = phi ptr [ %.0226343, %.thread336 ], [ %.1227454, %.thread321 ], [ null, %._crit_edge399 ]
-  %.3242 = phi i32 [ 0, %.thread336 ], [ 0, %.thread321 ], [ 1, %._crit_edge399 ]
+.thread346:                                       ; preds = %.thread321, %.thread336
+  %.0226342 = phi ptr [ %.0226343, %.thread336 ], [ %.1227464, %.thread321 ]
   %.not302 = icmp eq ptr %11, null
   br i1 %.not302, label %.loopexit366, label %313
 
-313:                                              ; preds = %.thread346
+313:                                              ; preds = %.thread346.thread482, %.thread346
+  %.3242489 = phi i32 [ 1, %.thread346.thread482 ], [ 0, %.thread346 ]
+  %.0226342487 = phi ptr [ null, %.thread346.thread482 ], [ %.0226342, %.thread346 ]
   call void @BN_CTX_end(ptr noundef nonnull %11) #8
   call void @BN_CTX_free(ptr noundef nonnull %11) #8
   br label %.loopexit366
 
 .loopexit366:                                     ; preds = %.thread346, %313, %.thread346.thread
-  %.3242355 = phi i32 [ 0, %.thread346.thread ], [ %.3242, %313 ], [ %.3242, %.thread346 ]
-  %.0226342354 = phi ptr [ null, %.thread346.thread ], [ %.0226342, %313 ], [ %.0226342, %.thread346 ]
+  %.3242355 = phi i32 [ 0, %.thread346.thread ], [ %.3242489, %313 ], [ 0, %.thread346 ]
+  %.0226342354 = phi ptr [ null, %.thread346.thread ], [ %.0226342487, %313 ], [ %.0226342, %.thread346 ]
   call void @sk_pop_free(ptr noundef %.0226342354, ptr noundef nonnull @RSA_additional_prime_free) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

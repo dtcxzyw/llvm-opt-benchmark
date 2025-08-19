@@ -1683,17 +1683,17 @@ _ZN4llvm5ErrorD2Ev.exit60:                        ; preds = %88
   br label %.critedge
 
 .critedge48:                                      ; preds = %93, %_ZN4llvm5ErrorD2Ev.exit60.thread, %_ZN4llvm5ErrorD2Ev.exit60
-  %.sroa.071.197 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit60.thread ], [ %91, %_ZN4llvm5ErrorD2Ev.exit60 ], [ %91, %93 ]
-  %.sroa.10.196 = phi i64 [ 0, %_ZN4llvm5ErrorD2Ev.exit60.thread ], [ 0, %_ZN4llvm5ErrorD2Ev.exit60 ], [ %84, %93 ]
+  %.sroa.071.1107 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit60.thread ], [ %91, %_ZN4llvm5ErrorD2Ev.exit60 ], [ %91, %93 ]
+  %.sroa.10.1106 = phi i64 [ 0, %_ZN4llvm5ErrorD2Ev.exit60.thread ], [ 0, %_ZN4llvm5ErrorD2Ev.exit60 ], [ %84, %93 ]
   %111 = load ptr, ptr %63, align 8, !tbaa !243
   %112 = load ptr, ptr %64, align 8, !tbaa !71
   %.not.i63 = icmp eq ptr %111, %112
   br i1 %.not.i63, label %115, label %113
 
 113:                                              ; preds = %.critedge48
-  store ptr %.sroa.071.197, ptr %111, align 8, !tbaa !138
+  store ptr %.sroa.071.1107, ptr %111, align 8, !tbaa !138
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 8
-  store i64 %.sroa.10.196, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !11
+  store i64 %.sroa.10.1106, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !11
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 16
   store ptr %114, ptr %63, align 8, !tbaa !243
   br label %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EE9push_backERKS7_.exit
@@ -1722,9 +1722,9 @@ _ZNKSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integr
   %127 = shl nuw nsw i64 %126, 4
   %128 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %127) #23
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 %119
-  store ptr %.sroa.071.197, ptr %129, align 8, !tbaa !138
+  store ptr %.sroa.071.1107, ptr %129, align 8, !tbaa !138
   %.sroa.10.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  store i64 %.sroa.10.196, ptr %.sroa.10.0..sroa_idx75, align 8, !tbaa !11
+  store i64 %.sroa.10.1106, ptr %.sroa.10.0..sroa_idx75, align 8, !tbaa !11
   %.not10.i.i.i.i.i = icmp eq ptr %116, %111
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -3535,9 +3535,9 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %10
   br label %_ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit
 
 _ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit:  ; preds = %10, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %7
-  %.03 = phi i32 [ %., %7 ], [ 0, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i ], [ 0, %10 ]
+  %.04 = phi i32 [ %., %7 ], [ 0, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.03
+  ret i32 %.04
 }
 
 declare noundef i32 @_ZNK4llvm3pdb9DbiStream14getMachineTypeEv(ptr noundef nonnull align 8 dereferenceable(1224)) local_unnamed_addr #3
@@ -3617,9 +3617,9 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2: ; 
   br label %_ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit
 
 _ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit:  ; preds = %18, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2
-  %.05 = phi i1 [ %26, %18 ], [ false, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2 ]
+  %.07 = phi i1 [ %26, %18 ], [ false, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %.05
+  ret i1 %.07
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3687,9 +3687,9 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2: ; 
   br label %_ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit
 
 _ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit:  ; preds = %18, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2
-  %.05 = phi i1 [ %26, %18 ], [ false, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2 ]
+  %.07 = phi i1 [ %26, %18 ], [ false, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %.05
+  ret i1 %.07
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3724,9 +3724,9 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %14
   br label %_ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit
 
 _ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit:  ; preds = %14, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %7
-  %.03 = phi i1 [ %13, %7 ], [ false, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i ], [ false, %14 ]
+  %.04 = phi i1 [ %13, %7 ], [ false, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i ], [ false, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i1 %.03
+  ret i1 %.04
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3827,9 +3827,9 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i4: ; preds = %33
   br label %_ZN4llvm8ExpectedIRNS_3pdb10InfoStreamEED2Ev.exit
 
 _ZN4llvm8ExpectedIRNS_3pdb10InfoStreamEED2Ev.exit: ; preds = %33, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i4, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2
-  %.09 = phi i1 [ %15, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2 ], [ false, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i4 ], [ false, %33 ]
+  %.012 = phi i1 [ %15, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2 ], [ false, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i4 ], [ false, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %.09
+  ret i1 %.012
 }
 
 declare void @_ZNK4llvm3pdb10InfoStream19getNamedStreamIndexENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.llvm::Expected.184") align 8, ptr noundef nonnull align 8 dereferenceable(224), ptr, i64) local_unnamed_addr #3
@@ -3922,9 +3922,9 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i4: ; preds = %33
   br label %_ZN4llvm8ExpectedIRNS_3pdb10InfoStreamEED2Ev.exit
 
 _ZN4llvm8ExpectedIRNS_3pdb10InfoStreamEED2Ev.exit: ; preds = %33, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i4, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2
-  %.09 = phi i1 [ %15, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2 ], [ false, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i4 ], [ false, %33 ]
+  %.012 = phi i1 [ %15, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2 ], [ false, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i4 ], [ false, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %.09
+  ret i1 %.012
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

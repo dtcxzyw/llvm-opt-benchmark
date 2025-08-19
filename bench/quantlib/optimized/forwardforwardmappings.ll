@@ -1376,8 +1376,8 @@ invoke.cont33:                                    ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body.lr.ph:                                   ; preds = %if.end.i.i.i.i.i.i.i51, %call5.i.i.i.i2.i.i.noexc59
   %__first.addr.0.i.i.i.i.i54.ph = phi ptr [ %add.ptr.i.i.i.i.i.i.i53, %if.end.i.i.i.i.i.i.i51 ], [ %incdec.ptr.i.i.i.i.i49, %call5.i.i.i.i2.i.i.noexc59 ]
-  %_M_finish.i.i7.i55108 = getelementptr inbounds nuw i8, ptr %discRatios, i64 8
-  store ptr %__first.addr.0.i.i.i.i.i54.ph, ptr %_M_finish.i.i7.i55108, align 8, !tbaa !41
+  %_M_finish.i.i7.i55119 = getelementptr inbounds nuw i8, ptr %discRatios, i64 8
+  store ptr %__first.addr.0.i.i.i.i.i54.ph, ptr %_M_finish.i.i7.i55119, align 8, !tbaa !41
   %rateTimes_.i = getelementptr inbounds nuw i8, ptr %cs, i64 16
   br label %for.body
 
@@ -1479,7 +1479,7 @@ ehcleanup55:                                      ; preds = %lpad52, %lpad50
   br i1 %tobool.not.i.i.i71, label %ehcleanup56, label %if.then.i.i.i72
 
 if.then.i.i.i72:                                  ; preds = %ehcleanup55.thread, %ehcleanup55
-  %.pn20111 = phi { ptr, i32 } [ %30, %ehcleanup55.thread ], [ %.pn20, %ehcleanup55 ]
+  %.pn20122 = phi { ptr, i32 } [ %30, %ehcleanup55.thread ], [ %.pn20, %ehcleanup55 ]
   %38 = phi ptr [ %call5.i.i.i.i2.i.i60, %ehcleanup55.thread ], [ %37, %ehcleanup55 ]
   %_M_end_of_storage.i.i73 = getelementptr inbounds nuw i8, ptr %discRatios, i64 16
   %39 = load ptr, ptr %_M_end_of_storage.i.i73, align 8, !tbaa !44
@@ -1490,7 +1490,7 @@ if.then.i.i.i72:                                  ; preds = %ehcleanup55.thread,
   br label %ehcleanup56
 
 ehcleanup56:                                      ; preds = %if.then.i.i.i72, %ehcleanup55, %lpad32
-  %.pn20.pn = phi { ptr, i32 } [ %26, %lpad32 ], [ %.pn20, %ehcleanup55 ], [ %.pn20111, %if.then.i.i.i72 ]
+  %.pn20.pn = phi { ptr, i32 } [ %26, %lpad32 ], [ %.pn20, %ehcleanup55 ], [ %.pn20122, %if.then.i.i.i72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %discRatios)
   %40 = load ptr, ptr %times, align 8, !tbaa !34
   %tobool.not.i.i.i78 = icmp eq ptr %40, null

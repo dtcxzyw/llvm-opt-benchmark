@@ -574,26 +574,26 @@ define internal fastcc void @_ZN3ue2L13reduceRegionsERNS_8NGHolderE(ptr noundef 
   br i1 %117, label %._crit_edge.thread.i.i.i.i, label %121
 
 ._crit_edge.thread.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i, %113
-  %.010.lcssa19.i.i.i.i = phi ptr [ %.01115.i.i.i.i, %._crit_edge.i.i.i.i ], [ %28, %113 ]
+  %.010.lcssa20.i.i.i.i = phi ptr [ %.01115.i.i.i.i, %._crit_edge.i.i.i.i ], [ %28, %113 ]
   %.val.i15.i.i.i = load ptr, ptr %30, align 8, !alias.scope !42
-  %118 = icmp eq ptr %.010.lcssa19.i.i.i.i, %.val.i15.i.i.i
+  %118 = icmp eq ptr %.010.lcssa20.i.i.i.i, %.val.i15.i.i.i
   br i1 %118, label %select.unfold.i.i.i, label %119
 
 119:                                              ; preds = %._crit_edge.thread.i.i.i.i
-  %120 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa19.i.i.i.i) #25
+  %120 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa20.i.i.i.i) #25
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %120, i64 32
   %.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4
   br label %121
 
 121:                                              ; preds = %119, %._crit_edge.i.i.i.i
   %122 = phi i32 [ %.pre.i.i.i, %119 ], [ %116, %._crit_edge.i.i.i.i ]
-  %.010.lcssa20.i.i.i.i = phi ptr [ %.010.lcssa19.i.i.i.i, %119 ], [ %.01115.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.010.lcssa19.i.i.i.i = phi ptr [ %.010.lcssa20.i.i.i.i, %119 ], [ %.01115.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.01.0.i.i.i.i = phi ptr [ %120, %119 ], [ %.01115.i.i.i.i, %._crit_edge.i.i.i.i ]
   %123 = icmp ult i32 %122, %.val8.i.i.i
   br i1 %123, label %select.unfold.i.i.i, label %132
 
 select.unfold.i.i.i:                              ; preds = %121, %._crit_edge.thread.i.i.i.i
-  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.010.lcssa19.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.010.lcssa20.i.i.i.i, %121 ]
+  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.010.lcssa20.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.010.lcssa19.i.i.i.i, %121 ]
   %124 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %28
   br i1 %124, label %.thread12.i.i.i, label %125
 
@@ -4195,8 +4195,8 @@ _ZN5boost9container18copy_n_source_destIPjmS2_EENS0_3dtl37enable_if_memtransfer_
   br label %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKNS3_18edge_property_typeERS3_.exit.i.i97.sink.split.i
 
 _ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKNS3_18edge_property_typeERS3_.exit.i.i97.sink.split.i: ; preds = %1668, %1667, %_ZN5boost9container18copy_n_source_destIPjmS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T1_S5_E4typeES5_T0_RS6_.exit.i.i120.i, %1651
-  %.sink273.i = phi i64 [ %1655, %1651 ], [ %1638, %1668 ], [ 0, %1667 ], [ %1638, %_ZN5boost9container18copy_n_source_destIPjmS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T1_S5_E4typeES5_T0_RS6_.exit.i.i120.i ]
-  store i64 %.sink273.i, ptr %1613, align 8
+  %.sink312.i = phi i64 [ %1655, %1651 ], [ %1638, %1668 ], [ 0, %1667 ], [ %1638, %_ZN5boost9container18copy_n_source_destIPjmS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T1_S5_E4typeES5_T0_RS6_.exit.i.i120.i ]
+  store i64 %.sink312.i, ptr %1613, align 8
   br label %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKNS3_18edge_property_typeERS3_.exit.i.i97.i
 
 _ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKNS3_18edge_property_typeERS3_.exit.i.i97.i: ; preds = %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKNS3_18edge_property_typeERS3_.exit.i.i97.sink.split.i, %.noexc103.i

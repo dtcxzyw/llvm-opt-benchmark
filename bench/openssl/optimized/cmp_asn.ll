@@ -984,46 +984,46 @@ define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get0_rootCaKeyUpdate(ptr noundef reado
 15:                                               ; preds = %12
   store ptr null, ptr %1, align 8, !tbaa !16
   %.not22 = icmp eq ptr %2, null
-  br i1 %.not22, label %.thread29, label %17
+  br i1 %.not22, label %.thread32, label %17
 
 .thread:                                          ; preds = %12
   %16 = load ptr, ptr %14, align 8, !tbaa !18
   store ptr %16, ptr %1, align 8, !tbaa !16
   %.not2224 = icmp eq ptr %2, null
-  br i1 %.not2224, label %.thread26, label %.thread32
+  br i1 %.not2224, label %.thread26, label %.thread35
 
 17:                                               ; preds = %15
   store ptr null, ptr %2, align 8, !tbaa !16
   %.not23 = icmp eq ptr %3, null
-  br i1 %.not23, label %23, label %.thread31
+  br i1 %.not23, label %23, label %.thread34
 
-.thread32:                                        ; preds = %.thread
+.thread35:                                        ; preds = %.thread
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !20
   store ptr %19, ptr %2, align 8, !tbaa !16
-  %.not2333 = icmp eq ptr %3, null
-  br i1 %.not2333, label %23, label %.thread28
+  %.not2336 = icmp eq ptr %3, null
+  br i1 %.not2336, label %23, label %.thread28
 
-.thread29:                                        ; preds = %15
-  %.not2330 = icmp eq ptr %3, null
-  br i1 %.not2330, label %23, label %.thread31
+.thread32:                                        ; preds = %15
+  %.not2333 = icmp eq ptr %3, null
+  br i1 %.not2333, label %23, label %.thread34
 
 .thread26:                                        ; preds = %.thread
   %.not2327 = icmp eq ptr %3, null
   br i1 %.not2327, label %23, label %.thread28
 
-.thread28:                                        ; preds = %.thread32, %.thread26
+.thread28:                                        ; preds = %.thread35, %.thread26
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !21
-  br label %.thread31
+  br label %.thread34
 
-.thread31:                                        ; preds = %17, %.thread29, %.thread28
-  %22 = phi ptr [ %21, %.thread28 ], [ null, %.thread29 ], [ null, %17 ]
+.thread34:                                        ; preds = %17, %.thread32, %.thread28
+  %22 = phi ptr [ %21, %.thread28 ], [ null, %.thread32 ], [ null, %17 ]
   store ptr %22, ptr %3, align 8, !tbaa !16
   br label %23
 
-23:                                               ; preds = %.thread32, %.thread29, %.thread26, %17, %.thread31, %11, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 1, %.thread31 ], [ 1, %17 ], [ 1, %.thread26 ], [ 1, %.thread29 ], [ 1, %.thread32 ]
+23:                                               ; preds = %.thread35, %.thread32, %.thread26, %17, %.thread34, %11, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 1, %.thread34 ], [ 1, %17 ], [ 1, %.thread26 ], [ 1, %.thread32 ], [ 1, %.thread35 ]
   ret i32 %.0
 }
 

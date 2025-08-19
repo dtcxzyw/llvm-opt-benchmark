@@ -36,36 +36,36 @@ define void @If_CutSortInputPins(ptr noundef readonly captures(none) %0, ptr nou
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds ptr, ptr %.val.val, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !27
-  %.not59 = icmp eq ptr %14, null
-  br i1 %.not59, label %.critedge, label %.lr.ph61
+  %.not60 = icmp eq ptr %14, null
+  br i1 %.not60, label %.critedge, label %.lr.ph62
 
-15:                                               ; preds = %.lr.ph61
+15:                                               ; preds = %.lr.ph62
   %16 = getelementptr inbounds nuw [0 x i32], ptr %5, i64 0, i64 %indvars.iv.next
   %17 = load i32, ptr %16, align 4, !tbaa !26
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds ptr, ptr %.val.val, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !27
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %.critedge, label %.lr.ph61, !llvm.loop !28
+  br i1 %.not, label %.critedge, label %.lr.ph62, !llvm.loop !28
 
-.lr.ph61:                                         ; preds = %.lr.ph, %15
+.lr.ph62:                                         ; preds = %.lr.ph, %15
   %21 = phi ptr [ %20, %15 ], [ %14, %.lr.ph ]
-  %indvars.iv60 = phi i64 [ %indvars.iv.next, %15 ], [ 0, %.lr.ph ]
-  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv60
-  %23 = trunc nuw nsw i64 %indvars.iv60 to i32
+  %indvars.iv61 = phi i64 [ %indvars.iv.next, %15 ], [ 0, %.lr.ph ]
+  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv61
+  %23 = trunc nuw nsw i64 %indvars.iv61 to i32
   store i32 %23, ptr %22, align 4, !tbaa !26
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 92
   %25 = load float, ptr %24, align 4, !tbaa !30
-  %26 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv60
+  %26 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv61
   store float %25, ptr %26, align 4, !tbaa !32
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv60, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv61, 1
   %27 = load i64, ptr %6, align 4
   %28 = lshr i64 %27, 24
   %29 = and i64 %28, 255
   %30 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %30, label %15, label %..critedge.loopexit_crit_edge, !llvm.loop !28
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph61
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph62
   br label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %15, %.lr.ph, %..critedge.loopexit_crit_edge, %4
@@ -1018,8 +1018,8 @@ define float @If_ManDelayMax(ptr noundef readonly captures(none) %0, i32 noundef
   br i1 %.not41, label %.preheader, label %20
 
 .thread:                                          ; preds = %11
-  %.not4184 = icmp eq i32 %1, 0
-  br i1 %.not4184, label %46, label %20
+  %.not4187 = icmp eq i32 %1, 0
+  br i1 %.not4187, label %46, label %20
 
 20:                                               ; preds = %.thread, %18
   %21 = phi ptr [ %4, %.thread ], [ %19, %18 ]
@@ -1338,8 +1338,8 @@ If_ManDelayMax.exit:                              ; preds = %36, %42, %21, %.thr
   br i1 %.not250, label %74, label %.critedge2
 
 74:                                               ; preds = %71
-  %.not450 = icmp eq i32 %.1, 1
-  %75 = select i1 %.not450, ptr @.str.3, ptr @.str.2
+  %.not465 = icmp eq i32 %.1, 1
+  %75 = select i1 %.not465, ptr @.str.3, ptr @.str.2
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.1, i32 noundef %.1, ptr noundef nonnull %75)
   store i32 1, ptr %72, align 8, !tbaa !86
   br label %.critedge2

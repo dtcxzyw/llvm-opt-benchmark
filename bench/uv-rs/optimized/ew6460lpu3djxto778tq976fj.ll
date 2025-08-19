@@ -7544,8 +7544,8 @@ _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.17400269976019004357.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.9, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr null, ptr %.sroa.14.0..sroa_idx, align 8
-  %.sroa.1249.176..sroa.14.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i64 0, ptr %.sroa.1249.176..sroa.14.0..sroa_idx.sroa_idx, align 8
+  %.sroa.1252.176..sroa.14.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i64 0, ptr %.sroa.1252.176..sroa.14.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 -9223372036854775808, ptr %0, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -12241,9 +12241,9 @@ _ZN9uv_pep50810parse_name17ha6910494b354ab81E.exit: ; preds = %270, %332, %334
   %.sroa.6.i.sroa.7.0..sroa_idx540 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %.sroa.6.i.sroa.7.sroa.7.0..sroa.6.i.sroa.7.0..sroa_idx539.sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 24
   %.sroa.6.i.sroa.7.sroa.7.0..sroa.6.i.sroa.7.0..sroa_idx540.sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx1123 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
-  %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx1125 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 2
-  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx1124 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
+  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx1172 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
+  %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx1174 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 2
+  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx1173 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
   br label %_ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i.outer
 
 _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i.outer: ; preds = %769, %.noexc227
@@ -12256,17 +12256,17 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i: ; preds = %_ZN5alloc6st
 
 .body63.i:                                        ; preds = %.loopexit.i207.loopexit, %.loopexit.i207.loopexit.split-lp, %790, %787, %784, %765, %761, %758, %.body.i221, %.loopexit.split-lp.i
   %.sroa.029.1.i = phi i1 [ true, %.body.i221 ], [ true, %765 ], [ true, %761 ], [ true, %758 ], [ true, %790 ], [ true, %787 ], [ true, %784 ], [ %.sroa.029.0.ph.i, %.loopexit.split-lp.i ], [ true, %.loopexit.i207.loopexit.split-lp ], [ true, %.loopexit.i207.loopexit ]
-  %.pn.i209 = phi { ptr, i32 } [ %673, %.body.i221 ], [ %759, %765 ], [ %759, %761 ], [ %759, %758 ], [ %785, %790 ], [ %785, %787 ], [ %785, %784 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit1036, %.loopexit.i207.loopexit ], [ %lpad.loopexit.split-lp1037, %.loopexit.i207.loopexit.split-lp ]
+  %.pn.i209 = phi { ptr, i32 } [ %673, %.body.i221 ], [ %759, %765 ], [ %759, %761 ], [ %759, %758 ], [ %785, %790 ], [ %785, %787 ], [ %785, %784 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit1085, %.loopexit.i207.loopexit ], [ %lpad.loopexit.split-lp1086, %.loopexit.i207.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %49) #36
           to label %811 unwind label %687, !noalias !1985
 
 .loopexit.i207.loopexit:                          ; preds = %_ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i, %726, %738
-  %lpad.loopexit1036 = landingpad { ptr, i32 }
+  %lpad.loopexit1085 = landingpad { ptr, i32 }
           cleanup
   br label %.body63.i
 
 .loopexit.i207.loopexit.split-lp:                 ; preds = %742
-  %lpad.loopexit.split-lp1037 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp1086 = landingpad { ptr, i32 }
           cleanup
   br label %.body63.i
 
@@ -12432,12 +12432,12 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i: ; preds = %_ZN5alloc6st
   %700 = trunc i32 %699 to i8
   %701 = and i8 %700, 63
   %702 = or disjoint i8 %701, -128
-  store i8 %702, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx1123, align 1, !alias.scope !2013, !noalias !2012
+  store i8 %702, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx1172, align 1, !alias.scope !2013, !noalias !2012
   %703 = lshr i32 %657, 6
   %704 = trunc i32 %703 to i8
   %705 = and i8 %704, 63
   %706 = or disjoint i8 %705, -128
-  store i8 %706, ptr %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx1125, align 2, !alias.scope !2013, !noalias !2012
+  store i8 %706, ptr %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx1174, align 2, !alias.scope !2013, !noalias !2012
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i.i
 
 707:                                              ; preds = %693
@@ -12449,7 +12449,7 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i: ; preds = %_ZN5alloc6st
   %712 = trunc i32 %711 to i8
   %713 = and i8 %712, 63
   %714 = or disjoint i8 %713, -128
-  store i8 %714, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx1124, align 1, !alias.scope !2013, !noalias !2012
+  store i8 %714, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx1173, align 1, !alias.scope !2013, !noalias !2012
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i.i
 
 715:                                              ; preds = %691
@@ -12756,9 +12756,9 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i.backedge: ; preds = %"_Z
   %.sroa.0.i.i233.3.i.i233.3.i.i233.3.i.3.i.3.gep2.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i233, i64 3
   %.sroa.65.i.sroa.7.0..sroa_idx550 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %.sroa.65.i.sroa.7.0..sroa_idx551 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %.sroa.0.i.i233.1.i.i233.1.i.i233.1.i.1.i.1.gep.sroa_idx1126 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i233, i64 1
-  %.sroa.0.i.i233.2.i.i233.2.i.i233.2.i.2.i.2.gep1.sroa_idx1128 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i233, i64 2
-  %.sroa.0.i.i233.1.i.i233.1.i.i233.1.i.1.i.1.gep.sroa_idx1127 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i233, i64 1
+  %.sroa.0.i.i233.1.i.i233.1.i.i233.1.i.1.i.1.gep.sroa_idx1175 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i233, i64 1
+  %.sroa.0.i.i233.2.i.i233.2.i.i233.2.i.2.i.2.gep1.sroa_idx1177 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i233, i64 2
+  %.sroa.0.i.i233.1.i.i233.1.i.i233.1.i.1.i.1.gep.sroa_idx1176 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i233, i64 1
   br label %.outer
 
 .outer:                                           ; preds = %907, %.noexc261
@@ -12770,12 +12770,12 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i.backedge: ; preds = %"_Z
           to label %821 unwind label %.loopexit.i239.loopexit, !noalias !2089
 
 .loopexit.i239.loopexit:                          ; preds = %819, %862, %874, %_ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i257
-  %lpad.loopexit1050 = landingpad { ptr, i32 }
+  %lpad.loopexit1099 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i241
 
 .loopexit.i239.loopexit.split-lp:                 ; preds = %878, %902
-  %lpad.loopexit.split-lp1051 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp1100 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i241
 
@@ -12787,7 +12787,7 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i.backedge: ; preds = %"_Z
 
 .body.i241:                                       ; preds = %.loopexit.i239.loopexit, %.loopexit.i239.loopexit.split-lp, %937, %934, %930, %898, %894, %890, %.loopexit.split-lp.i242
   %.sroa.026.0.lpad-body.i = phi i1 [ true, %898 ], [ true, %894 ], [ true, %890 ], [ true, %937 ], [ true, %934 ], [ true, %930 ], [ %.sroa.026.0.ph.i, %.loopexit.split-lp.i242 ], [ true, %.loopexit.i239.loopexit.split-lp ], [ true, %.loopexit.i239.loopexit ]
-  %eh.lpad-body.i = phi { ptr, i32 } [ %891, %898 ], [ %891, %894 ], [ %891, %890 ], [ %931, %937 ], [ %931, %934 ], [ %931, %930 ], [ %lpad.loopexit.split-lp.i243, %.loopexit.split-lp.i242 ], [ %lpad.loopexit1050, %.loopexit.i239.loopexit ], [ %lpad.loopexit.split-lp1051, %.loopexit.i239.loopexit.split-lp ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %891, %898 ], [ %891, %894 ], [ %891, %890 ], [ %931, %937 ], [ %931, %934 ], [ %931, %930 ], [ %lpad.loopexit.split-lp.i243, %.loopexit.split-lp.i242 ], [ %lpad.loopexit1099, %.loopexit.i239.loopexit ], [ %lpad.loopexit.split-lp1100, %.loopexit.i239.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #36
           to label %958 unwind label %961, !noalias !2089
 
@@ -12827,12 +12827,12 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i.backedge: ; preds = %"_Z
   %836 = trunc i32 %835 to i8
   %837 = and i8 %836, 63
   %838 = or disjoint i8 %837, -128
-  store i8 %838, ptr %.sroa.0.i.i233.1.i.i233.1.i.i233.1.i.1.i.1.gep.sroa_idx1126, align 1, !alias.scope !2094, !noalias !2093
+  store i8 %838, ptr %.sroa.0.i.i233.1.i.i233.1.i.i233.1.i.1.i.1.gep.sroa_idx1175, align 1, !alias.scope !2094, !noalias !2093
   %839 = lshr i32 %822, 6
   %840 = trunc i32 %839 to i8
   %841 = and i8 %840, 63
   %842 = or disjoint i8 %841, -128
-  store i8 %842, ptr %.sroa.0.i.i233.2.i.i233.2.i.i233.2.i.2.i.2.gep1.sroa_idx1128, align 2, !alias.scope !2094, !noalias !2093
+  store i8 %842, ptr %.sroa.0.i.i233.2.i.i233.2.i.i233.2.i.2.i.2.gep1.sroa_idx1177, align 2, !alias.scope !2094, !noalias !2093
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i.i253
 
 843:                                              ; preds = %829
@@ -12844,7 +12844,7 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i.backedge: ; preds = %"_Z
   %848 = trunc i32 %847 to i8
   %849 = and i8 %848, 63
   %850 = or disjoint i8 %849, -128
-  store i8 %850, ptr %.sroa.0.i.i233.1.i.i233.1.i.i233.1.i.1.i.1.gep.sroa_idx1127, align 1, !alias.scope !2094, !noalias !2093
+  store i8 %850, ptr %.sroa.0.i.i233.1.i.i233.1.i.i233.1.i.1.i.1.gep.sroa_idx1176, align 1, !alias.scope !2094, !noalias !2093
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i.i253
 
 851:                                              ; preds = %827

@@ -46,7 +46,7 @@ define void @"_ZN12uv_git_types86_$LT$impl$u20$core..convert..From$LT$uv_git_typ
   %trunc = trunc nuw i64 %25 to i1
   br i1 %trunc, label %26, label %29
 
-default.unreachable49:                            ; preds = %56, %29
+default.unreachable56:                            ; preds = %56, %29
   unreachable
 
 26:                                               ; preds = %2
@@ -62,7 +62,7 @@ default.unreachable49:                            ; preds = %56, %29
 29:                                               ; preds = %2
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %31 = load i64, ptr %30, align 8, !range !5, !noundef !3
-  switch i64 %31, label %default.unreachable49 [
+  switch i64 %31, label %default.unreachable56 [
     i64 0, label %65
     i64 1, label %61
     i64 2, label %62
@@ -169,7 +169,7 @@ default.unreachable49:                            ; preds = %56, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %58 = load i64, ptr %57, align 8, !range !5, !noundef !3
-  switch i64 %58, label %default.unreachable49 [
+  switch i64 %58, label %default.unreachable56 [
     i64 0, label %121
     i64 1, label %122
     i64 2, label %123

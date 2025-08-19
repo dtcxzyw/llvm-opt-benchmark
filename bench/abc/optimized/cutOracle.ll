@@ -888,8 +888,8 @@ Cut_CutTriv.exit:                                 ; preds = %.lr.ph.i, %111, %14
 
 Cut_CutMerge.exit:                                ; preds = %162, %._crit_edge.loopexit.i, %206
   %.0.lcssa.sink.i = phi i32 [ %208, %206 ], [ 0, %162 ], [ %241, %._crit_edge.loopexit.i ]
-  %.sink65.i = load i32, ptr %181, align 8
-  %242 = and i32 %.sink65.i, 268435455
+  %.sink68.i = load i32, ptr %181, align 8
+  %242 = and i32 %.sink68.i, 268435455
   %243 = or disjoint i32 %242, %.0.lcssa.sink.i
   store i32 %243, ptr %181, align 8
   store ptr %181, ptr %.087, align 8, !tbaa !64

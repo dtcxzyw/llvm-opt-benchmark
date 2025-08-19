@@ -304,21 +304,21 @@ define range(i32 0, 2) i32 @ossl_quic_rxfc_on_rx_stream_frame(ptr noundef captur
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 90
   %12 = load i8, ptr %11, align 2, !tbaa !26
   %.not31 = icmp eq i8 %12, 0
-  %.not40 = icmp eq i32 %2, 0
+  %.not48 = icmp eq i32 %2, 0
   br i1 %.not31, label %19, label %13
 
 13:                                               ; preds = %10
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !28
-  br i1 %.not40, label %15, label %14
+  br i1 %.not48, label %15, label %14
 
 14:                                               ; preds = %13
   %.not33 = icmp eq i64 %.pre, %1
-  br i1 %.not33, label %.thread38, label %17
+  br i1 %.not33, label %.thread46, label %17
 
 15:                                               ; preds = %13
   %16 = icmp ugt i64 %1, %.pre
-  br i1 %16, label %17, label %.thread39
+  br i1 %16, label %17, label %.thread47
 
 17:                                               ; preds = %15, %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -326,20 +326,20 @@ define range(i32 0, 2) i32 @ossl_quic_rxfc_on_rx_stream_frame(ptr noundef captur
   br label %49
 
 19:                                               ; preds = %10
-  br i1 %.not40, label %.thread39, label %.thread38
+  br i1 %.not48, label %.thread47, label %.thread46
 
-.thread38:                                        ; preds = %14, %19
+.thread46:                                        ; preds = %14, %19
   store i8 1, ptr %11, align 2, !tbaa !26
-  br label %.thread39
+  br label %.thread47
 
-.thread39:                                        ; preds = %15, %.thread38, %19
-  %20 = phi i1 [ true, %.thread38 ], [ false, %19 ], [ false, %15 ]
+.thread47:                                        ; preds = %15, %.thread46, %19
+  %20 = phi i1 [ true, %.thread46 ], [ false, %19 ], [ false, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i64, ptr %21, align 8, !tbaa !28
   %23 = icmp ugt i64 %1, %22
   br i1 %23, label %24, label %45
 
-24:                                               ; preds = %.thread39
+24:                                               ; preds = %.thread47
   %25 = sub nuw i64 %1, %22
   store i64 %1, ptr %21, align 8, !tbaa !28
   %26 = load i64, ptr %0, align 8, !tbaa !18
@@ -382,7 +382,7 @@ on_rx_controlled_bytes.exit37:                    ; preds = %36, %42
   store i64 %44, ptr %38, align 8, !tbaa !17
   br label %49
 
-45:                                               ; preds = %.thread39
+45:                                               ; preds = %.thread47
   %46 = icmp ult i64 %1, %22
   %or.cond = and i1 %20, %46
   br i1 %or.cond, label %47, label %49

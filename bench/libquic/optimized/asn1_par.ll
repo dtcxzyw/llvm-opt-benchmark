@@ -154,10 +154,10 @@ define internal fastcc range(i32 0, 3) i32 @asn1_parse2(ptr noundef %0, ptr noun
   br i1 %54, label %.thread260, label %.split
 
 .split:                                           ; preds = %52, %48
-  %.sink465 = phi i32 [ %30, %48 ], [ 33, %52 ]
+  %.sink485 = phi i32 [ %30, %48 ], [ 33, %52 ]
   %55 = load i32, ptr %11, align 4, !tbaa !15
   %56 = load i32, ptr %12, align 4, !tbaa !15
-  %57 = call fastcc i32 @asn1_print_info(ptr noundef %0, i32 noundef %55, i32 noundef %56, i32 noundef %.sink465, i32 noundef %22)
+  %57 = call fastcc i32 @asn1_print_info(ptr noundef %0, i32 noundef %55, i32 noundef %56, i32 noundef %.sink485, i32 noundef %22)
   %.not226 = icmp eq i32 %57, 0
   br i1 %.not226, label %.thread260, label %58
 
@@ -187,13 +187,13 @@ define internal fastcc range(i32 0, 3) i32 @asn1_parse2(ptr noundef %0, ptr noun
   %72 = icmp eq i64 %67, 0
   %or.cond = and i1 %.not223, %72
   %73 = load ptr, ptr %8, align 8, !tbaa !6
-  br i1 %or.cond, label %.preheader469, label %.preheader305
+  br i1 %or.cond, label %.preheader489, label %.preheader305
 
 .preheader305:                                    ; preds = %71
   %.not242318 = icmp ult ptr %73, %63
   br i1 %.not242318, label %.lr.ph, label %.loopexit
 
-.preheader469:                                    ; preds = %71, %83
+.preheader489:                                    ; preds = %71, %83
   %74 = phi ptr [ %84, %83 ], [ %73, %71 ]
   %75 = ptrtoint ptr %74 to i64
   %76 = sub i64 %24, %75
@@ -208,14 +208,14 @@ define internal fastcc range(i32 0, 3) i32 @asn1_parse2(ptr noundef %0, ptr noun
     i32 2, label %._crit_edge443
   ]
 
-._crit_edge443:                                   ; preds = %.preheader469
+._crit_edge443:                                   ; preds = %.preheader489
   %.pre = load ptr, ptr %8, align 8, !tbaa !6
   br label %split
 
-83:                                               ; preds = %.preheader469
+83:                                               ; preds = %.preheader489
   %84 = load ptr, ptr %8, align 8, !tbaa !6
   %.not243 = icmp ult ptr %84, %19
-  br i1 %.not243, label %.preheader469, label %split
+  br i1 %.not243, label %.preheader489, label %split
 
 split:                                            ; preds = %83, %._crit_edge443
   %85 = phi ptr [ %.pre, %._crit_edge443 ], [ %84, %83 ]
@@ -437,9 +437,9 @@ switch.early.test:                                ; preds = %156
   %189 = load ptr, ptr %9, align 8, !tbaa !6
   %.pre444 = load i32, ptr %149, align 8, !tbaa !19
   %190 = icmp sgt i32 %6, %.pre444
-  %or.cond466 = select i1 %25, i1 true, i1 %190
+  %or.cond486 = select i1 %25, i1 true, i1 %190
   %.pre446 = sext i32 %.pre444 to i64
-  %.pre-phi = select i1 %or.cond466, i64 %.pre446, i64 %27
+  %.pre-phi = select i1 %or.cond486, i64 %.pre446, i64 %27
   %191 = call i32 @BIO_hexdump(ptr noundef %0, ptr noundef %189, i64 noundef %.pre-phi, i32 noundef 6) #5
   %.not238 = icmp eq i32 %191, 0
   br i1 %.not238, label %.thread260, label %278
@@ -636,9 +636,9 @@ switch.early.test:                                ; preds = %156
   %293 = and i1 %291, %292
   br i1 %293, label %28, label %.thread260, !llvm.loop !28
 
-.thread260:                                       ; preds = %34, %48, %52, %.split, %104, %112, %118, %128, %134, %269, %272, %.thread286, %.thread292, %.loopexit, %142, %60, %.critedge, %164, %170, %185, %188, %196, %203, %222, %225, %233, %240, %259, %262, %.lr.ph, %.preheader469, %251, %214, %.lr.ph329, %17, %69, %32
-  %.1192 = phi ptr [ null, %32 ], [ null, %69 ], [ null, %17 ], [ %149, %.lr.ph329 ], [ null, %214 ], [ null, %251 ], [ null, %.preheader469 ], [ null, %.lr.ph ], [ null, %34 ], [ null, %48 ], [ null, %52 ], [ null, %.split ], [ null, %104 ], [ null, %112 ], [ null, %118 ], [ null, %128 ], [ null, %134 ], [ null, %269 ], [ null, %272 ], [ null, %.thread286 ], [ null, %.thread292 ], [ null, %.loopexit ], [ null, %142 ], [ null, %60 ], [ %149, %.critedge ], [ %149, %164 ], [ %149, %170 ], [ %149, %185 ], [ %149, %188 ], [ null, %196 ], [ null, %203 ], [ null, %222 ], [ null, %225 ], [ null, %233 ], [ null, %240 ], [ null, %259 ], [ null, %262 ]
-  %.1186 = phi i32 [ 0, %32 ], [ 0, %69 ], [ 1, %17 ], [ 0, %.lr.ph329 ], [ 0, %214 ], [ 0, %251 ], [ %82, %.preheader469 ], [ 0, %.lr.ph ], [ 0, %34 ], [ 0, %48 ], [ 0, %52 ], [ 0, %.split ], [ 0, %104 ], [ 0, %112 ], [ 0, %118 ], [ 0, %128 ], [ 0, %134 ], [ 0, %269 ], [ 0, %272 ], [ 0, %.thread286 ], [ 2, %.thread292 ], [ 1, %.loopexit ], [ 0, %142 ], [ 0, %60 ], [ 0, %.critedge ], [ 0, %164 ], [ 0, %170 ], [ 0, %185 ], [ 0, %188 ], [ 0, %196 ], [ 0, %203 ], [ 0, %222 ], [ 0, %225 ], [ 0, %233 ], [ 0, %240 ], [ 0, %259 ], [ 0, %262 ]
+.thread260:                                       ; preds = %34, %48, %52, %.split, %104, %112, %118, %128, %134, %269, %272, %.thread286, %.thread292, %.loopexit, %142, %60, %.critedge, %164, %170, %185, %188, %196, %203, %222, %225, %233, %240, %259, %262, %.lr.ph, %.preheader489, %251, %214, %.lr.ph329, %17, %69, %32
+  %.1192 = phi ptr [ null, %32 ], [ null, %69 ], [ null, %17 ], [ %149, %.lr.ph329 ], [ null, %214 ], [ null, %251 ], [ null, %.preheader489 ], [ null, %.lr.ph ], [ null, %34 ], [ null, %48 ], [ null, %52 ], [ null, %.split ], [ null, %104 ], [ null, %112 ], [ null, %118 ], [ null, %128 ], [ null, %134 ], [ null, %269 ], [ null, %272 ], [ null, %.thread286 ], [ null, %.thread292 ], [ null, %.loopexit ], [ null, %142 ], [ null, %60 ], [ %149, %.critedge ], [ %149, %164 ], [ %149, %170 ], [ %149, %185 ], [ %149, %188 ], [ null, %196 ], [ null, %203 ], [ null, %222 ], [ null, %225 ], [ null, %233 ], [ null, %240 ], [ null, %259 ], [ null, %262 ]
+  %.1186 = phi i32 [ 0, %32 ], [ 0, %69 ], [ 1, %17 ], [ 0, %.lr.ph329 ], [ 0, %214 ], [ 0, %251 ], [ %82, %.preheader489 ], [ 0, %.lr.ph ], [ 0, %34 ], [ 0, %48 ], [ 0, %52 ], [ 0, %.split ], [ 0, %104 ], [ 0, %112 ], [ 0, %118 ], [ 0, %128 ], [ 0, %134 ], [ 0, %269 ], [ 0, %272 ], [ 0, %.thread286 ], [ 2, %.thread292 ], [ 1, %.loopexit ], [ 0, %142 ], [ 0, %60 ], [ 0, %.critedge ], [ 0, %164 ], [ 0, %170 ], [ 0, %185 ], [ 0, %188 ], [ 0, %196 ], [ 0, %203 ], [ 0, %222 ], [ 0, %225 ], [ 0, %233 ], [ 0, %240 ], [ 0, %259 ], [ 0, %262 ]
   %294 = load ptr, ptr %13, align 8, !tbaa !11
   %.not244 = icmp eq ptr %294, null
   br i1 %.not244, label %296, label %295

@@ -586,10 +586,10 @@ define noundef ptr @Gia_ManTerStateCreate(ptr noundef readonly captures(none) %0
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %41
-  %.sink29.in = phi ptr [ %16, %41 ], [ %17, %19 ]
-  %.sink29 = load ptr, ptr %.sink29.in, align 8, !tbaa !61
+  %.sink32.in = phi ptr [ %16, %41 ], [ %17, %19 ]
+  %.sink32 = load ptr, ptr %.sink32.in, align 8, !tbaa !61
   %42 = sext i32 %29 to i64
-  %43 = getelementptr inbounds i32, ptr %.sink29, i64 %42
+  %43 = getelementptr inbounds i32, ptr %.sink32, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !59
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 4, !tbaa !59
@@ -1699,15 +1699,15 @@ Gia_ManFindEqualFlop.exit:                        ; preds = %62, %52, %.critedge
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %77, %79, %69, %71
-  %.sink73 = phi ptr [ %70, %69 ], [ %72, %71 ], [ %78, %77 ], [ %80, %79 ]
+  %.sink75 = phi ptr [ %70, %69 ], [ %72, %71 ], [ %78, %77 ], [ %80, %79 ]
   %.sink = phi i32 [ 16, %69 ], [ 16, %71 ], [ %74, %77 ], [ %74, %79 ]
-  store ptr %.sink73, ptr %17, align 8, !tbaa !53
+  store ptr %.sink75, ptr %17, align 8, !tbaa !53
   store i32 %.sink, ptr %14, align 8, !tbaa !52
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %Gia_ManFindEqualFlop.exit
-  %.val52 = phi ptr [ %.val5269, %Gia_ManFindEqualFlop.exit ], [ %.sink73, %Vec_IntPush.exit.sink.split ]
-  %.pre.i66 = phi ptr [ %31, %Gia_ManFindEqualFlop.exit ], [ %.sink73, %Vec_IntPush.exit.sink.split ]
+  %.val52 = phi ptr [ %.val5269, %Gia_ManFindEqualFlop.exit ], [ %.sink75, %Vec_IntPush.exit.sink.split ]
+  %.pre.i66 = phi ptr [ %31, %Gia_ManFindEqualFlop.exit ], [ %.sink75, %Vec_IntPush.exit.sink.split ]
   %81 = add nsw i32 %.val, 1
   store i32 %81, ptr %15, align 4, !tbaa !34
   %82 = getelementptr inbounds i32, ptr %.pre.i66, i64 %55

@@ -93,7 +93,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26Rprim
 
 7:                                                ; preds = %5
   %8 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator12EmptyLocatorEv()
-  br label %.sink.split118
+  br label %.sink.split119
 
 9:                                                ; preds = %5
   %10 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
@@ -373,8 +373,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   br label %.sink.split
 
 .sink.split:                                      ; preds = %131, %139
-  %.sink115 = phi ptr [ %140, %139 ], [ %132, %131 ]
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet6appendERKNS_19HdDataSourceLocatorE(ptr noundef nonnull align 8 dereferenceable(456) %2, ptr noundef nonnull align 8 dereferenceable(56) %.sink115)
+  %.sink116 = phi ptr [ %140, %139 ], [ %132, %131 ]
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet6appendERKNS_19HdDataSourceLocatorE(ptr noundef nonnull align 8 dereferenceable(456) %2, ptr noundef nonnull align 8 dereferenceable(56) %.sink116)
   br label %141
 
 141:                                              ; preds = %.sink.split, %137
@@ -506,7 +506,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
 
 196:                                              ; preds = %195
   %197 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimvarsSchema17GetDefaultLocatorEv()
-  br label %.sink.split116
+  br label %.sink.split117
 
 198:                                              ; preds = %195
   %199 = and i32 %1, 2048
@@ -535,14 +535,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
 
 208:                                              ; preds = %206
   %209 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimvarsSchema16GetWidthsLocatorEv()
-  br label %.sink.split116
+  br label %.sink.split117
 
-.sink.split116:                                   ; preds = %196, %208
-  %.sink117 = phi ptr [ %209, %208 ], [ %197, %196 ]
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet6appendERKNS_19HdDataSourceLocatorE(ptr noundef nonnull align 8 dereferenceable(456) %2, ptr noundef nonnull align 8 dereferenceable(56) %.sink117)
+.sink.split117:                                   ; preds = %196, %208
+  %.sink118 = phi ptr [ %209, %208 ], [ %197, %196 ]
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet6appendERKNS_19HdDataSourceLocatorE(ptr noundef nonnull align 8 dereferenceable(456) %2, ptr noundef nonnull align 8 dereferenceable(56) %.sink118)
   br label %210
 
-210:                                              ; preds = %.sink.split116, %206
+210:                                              ; preds = %.sink.split117, %206
   %211 = and i32 %1, 524288
   %.not83 = icmp eq i32 %211, 0
   br i1 %.not83, label %214, label %212
@@ -625,14 +625,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
 
 247:                                              ; preds = %245
   %248 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13HdXformSchema17GetDefaultLocatorEv()
-  br label %.sink.split118
+  br label %.sink.split119
 
-.sink.split118:                                   ; preds = %7, %247
-  %.sink119 = phi ptr [ %248, %247 ], [ %8, %7 ]
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet6appendERKNS_19HdDataSourceLocatorE(ptr noundef nonnull align 8 dereferenceable(456) %2, ptr noundef nonnull align 8 dereferenceable(56) %.sink119)
+.sink.split119:                                   ; preds = %7, %247
+  %.sink120 = phi ptr [ %248, %247 ], [ %8, %7 ]
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet6appendERKNS_19HdDataSourceLocatorE(ptr noundef nonnull align 8 dereferenceable(456) %2, ptr noundef nonnull align 8 dereferenceable(56) %.sink120)
   br label %249
 
-249:                                              ; preds = %.sink.split118, %3, %245
+249:                                              ; preds = %.sink.split119, %3, %245
   ret void
 }
 
@@ -2433,8 +2433,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br label %202
 
 202:                                              ; preds = %199, %.preheader456
-  %.sink471 = phi i32 [ 8192, %.preheader456 ], [ %., %199 ]
-  %203 = or i32 %.7, %.sink471
+  %.sink535 = phi i32 [ 8192, %.preheader456 ], [ %., %199 ]
+  %203 = or i32 %.7, %.sink535
   %204 = getelementptr inbounds nuw i8, ptr %.6319, i64 56
   %.not = icmp eq ptr %204, %33
   br i1 %.not, label %.critedge, label %205
@@ -2808,12 +2808,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
 325:                                              ; preds = %322
   %326 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimvarsSchema16GetWidthsLocatorEv()
   %327 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.9, ptr noundef nonnull align 8 dereferenceable(56) %326)
-  %.473 = select i1 %327, i32 32768, i32 64
+  %.537 = select i1 %327, i32 32768, i32 64
   br label %328
 
 328:                                              ; preds = %325, %322, %.preheader
-  %.sink472 = phi i32 [ 2048, %.preheader ], [ 32, %322 ], [ %.473, %325 ]
-  %329 = or i32 %.19, %.sink472
+  %.sink536 = phi i32 [ 2048, %.preheader ], [ 32, %322 ], [ %.537, %325 ]
+  %329 = or i32 %.19, %.sink536
   %330 = getelementptr inbounds nuw i8, ptr %.9, i64 56
   %.not45 = icmp eq ptr %330, %33
   br i1 %.not45, label %.critedge2, label %331

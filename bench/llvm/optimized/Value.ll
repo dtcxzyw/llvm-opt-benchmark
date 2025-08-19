@@ -274,10 +274,10 @@ _ZN4llvm9sandboxir5Value4usesEv.exit.thread:      ; preds = %12
   %.sroa.8.0.i.i.pre = load ptr, ptr %6, align 8, !tbaa !21, !noalias !69
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %16, ptr %3, align 8, !tbaa !26
-  %.sroa.410.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %19, ptr %.sroa.410.0..sroa_idx16, align 8, !tbaa !27
-  %.sroa.511.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.sroa.8.0.i.i.pre, ptr %.sroa.511.0..sroa_idx17, align 8, !tbaa !14
+  %.sroa.410.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %19, ptr %.sroa.410.0..sroa_idx17, align 8, !tbaa !27
+  %.sroa.511.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %.sroa.8.0.i.i.pre, ptr %.sroa.511.0..sroa_idx18, align 8, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %22 = ptrtoint ptr %5 to i64
@@ -364,7 +364,7 @@ _ZNSt10unique_ptrIN4llvm9sandboxir6UseSetESt14default_deleteIS2_EED2Ev.exit: ; p
   %51 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm9sandboxir15UserUseIteratorppEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
   %52 = load ptr, ptr %3, align 8, !tbaa !91
   %53 = icmp ne ptr %52, null
-  %54 = load ptr, ptr %.sroa.410.0..sroa_idx16, align 8
+  %54 = load ptr, ptr %.sroa.410.0..sroa_idx17, align 8
   %55 = icmp ne ptr %54, null
   %.not3.i = select i1 %53, i1 true, i1 %55
   br i1 %.not3.i, label %23, label %._crit_edge
@@ -514,13 +514,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4TypeESt10unique_ptrINS_9sandboxir4TypeE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %65 = zext i32 %.sink28 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink26, i64 %65
-  store ptr %.sink25, ptr %0, align 8
+  %65 = zext i32 %.sink32 to i64
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %65
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16

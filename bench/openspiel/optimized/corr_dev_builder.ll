@@ -760,9 +760,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc50, %_ZNSt6ve
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   %.sroa.062.083 = load ptr, ptr %29, align 8
   %.not84 = icmp eq ptr %.sroa.062.083, null
-  br i1 %.not84, label %.thread112, label %.lr.ph
+  br i1 %.not84, label %.thread119, label %.lr.ph
 
-.thread112:                                       ; preds = %31
+.thread119:                                       ; preds = %31
   store double 1.000000e+00, ptr %6, align 8
   store i32 0, ptr %7, align 4
   store double 1.000000e+00, ptr %10, align 8
@@ -902,14 +902,14 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %_ZN10open_spiel13Ta
   %76 = fcmp ogt double %42, 0.000000e+00
   br i1 %76, label %77, label %81
 
-77:                                               ; preds = %.thread112, %75
-  %.142109111114 = phi double [ 1.000000e+00, %.thread112 ], [ %42, %75 ]
-  %78 = fmul double %2, %.142109111114
+77:                                               ; preds = %.thread119, %75
+  %.142116118121 = phi double [ 1.000000e+00, %.thread119 ], [ %42, %75 ]
+  %78 = fmul double %2, %.142116118121
   invoke void @_ZN10open_spiel10algorithms14CorrDevBuilder26AddDeterminsticJointPolicyERKNS_13TabularPolicyEd(ptr noundef nonnull align 8 dereferenceable(5088) %0, ptr noundef nonnull align 8 dereferenceable(64) %4, double noundef %78)
           to label %79 unwind label %.loopexit.split-lp.loopexit
 
 79:                                               ; preds = %77
-  %80 = fadd double %.03999, %.142109111114
+  %80 = fadd double %.03999, %.142116118121
   br label %81
 
 81:                                               ; preds = %79, %75
@@ -3770,10 +3770,10 @@ _ZN4absl7debian211string_viewC2EPKc.exit32:       ; preds = %78
   br label %.body29
 
 _ZN4absl7debian27StrJoinISt6vectorISt4pairIldESaIS4_EENS0_16strings_internal17PairFormatterImplINS7_21AlphaNumFormatterImplEN10open_spiel18HexDoubleFormatterEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_NS0_11string_viewEOT0_.exit: ; preds = %91, %81
-  %.sink60 = phi ptr [ %19, %81 ], [ %21, %91 ]
+  %.sink64 = phi ptr [ %19, %81 ], [ %21, %91 ]
   %.sink = phi ptr [ %60, %81 ], [ %58, %91 ]
-  %97 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %.sink60) #23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink60) #23
+  %97 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %.sink64) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink64) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #23
   %98 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #23
   %99 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #23
@@ -5650,7 +5650,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = add nsw i64 %2, -1
-  %43 = getelementptr inbounds i8, ptr %1, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %38 to i32
   %46 = zext i8 %41 to i32
@@ -6865,9 +6865,9 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
           to label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13TabularPolicyEEEvE8transferISaISt4pairIKS9_SB_EEEEvPT_PNS1_13map_slot_typeIS9_SB_EESN_.exit unwind label %107
 
 common.resume:                                    ; preds = %158, %145, %127, %107
-  %.lcssa61.sink = phi ptr [ %148, %158 ], [ %130, %145 ], [ %6, %127 ], [ %92, %107 ]
+  %.lcssa65.sink = phi ptr [ %148, %158 ], [ %130, %145 ], [ %6, %127 ], [ %92, %107 ]
   %common.resume.op = phi { ptr, i32 } [ %159, %158 ], [ %146, %145 ], [ %128, %127 ], [ %108, %107 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.lcssa61.sink) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.lcssa65.sink) #23
   resume { ptr, i32 } %common.resume.op
 
 107:                                              ; preds = %91

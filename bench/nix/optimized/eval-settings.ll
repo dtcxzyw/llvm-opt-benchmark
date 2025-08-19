@@ -3825,9 +3825,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %24
 
 24:                                               ; preds = %.thread12, %22
-  %.sink17 = phi ptr [ %3, %.thread12 ], [ %2, %22 ]
+  %.sink18 = phi ptr [ %3, %.thread12 ], [ %2, %22 ]
   %.pn15 = phi { ptr, i32 } [ %21, %.thread12 ], [ %23, %22 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink17) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink18) #21
   resume { ptr, i32 } %.pn15
 }
 
@@ -3861,7 +3861,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %13, %.lr.ph.i.i
   %.033.i.i = phi i64 [ %0, %.lr.ph.i.i ], [ %16, %13 ]
   %.02132.i.i = phi ptr [ %1, %.lr.ph.i.i ], [ %14, %13 ]
   %10 = add i64 %.033.i.i, -2
-  %11 = tail call ptr @memchr(ptr noundef %.02132.i.i, i32 noundef 58, i64 noundef %10) #21
+  %11 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.02132.i.i, i32 noundef 58, i64 noundef %10) #21
   %.not26.i.i = icmp eq ptr %11, null
   br i1 %.not26.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5
 
@@ -4139,9 +4139,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS
   ret void
 
 50:                                               ; preds = %40, %46, %48
-  %.sink20 = phi ptr [ %7, %48 ], [ %6, %46 ], [ %6, %40 ]
+  %.sink25 = phi ptr [ %7, %48 ], [ %6, %46 ], [ %6, %40 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %.pn, %46 ], [ %41, %40 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink20) #21
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink25) #21
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -4743,8 +4743,8 @@ _ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_tr
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !4
 
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i.i, %4, %24
-  %.sroa.06.012 = phi ptr [ %.sroa.06.0, %24 ], [ %1, %4 ], [ %.sroa.06.0, %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i.i ]
-  ret ptr %.sroa.06.012
+  %.sroa.06.020 = phi ptr [ %.sroa.06.0, %24 ], [ %1, %4 ], [ %.sroa.06.0, %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i.i ]
+  ret ptr %.sroa.06.020
 }
 
 ; Function Attrs: mustprogress uwtable

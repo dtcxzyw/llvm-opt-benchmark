@@ -542,12 +542,12 @@ define internal fastcc void @_ZN5alloc7raw_vec11finish_grow17hf514ac65ea5e7fa4E(
   %30 = icmp eq ptr %.sroa.012.0.i.i.pn, null
   %31 = inttoptr i64 %1 to ptr
   %spec.select = select i1 %30, ptr %31, ptr %.sroa.012.0.i.i.pn
-  %spec.select4 = zext i1 %30 to i64
+  %spec.select6 = zext i1 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %33, align 8
-  store i64 %spec.select4, ptr %0, align 8
+  store i64 %spec.select6, ptr %0, align 8
   ret void
 }
 
@@ -3247,7 +3247,7 @@ thread-pre-split:                                 ; preds = %.invoke
   invoke void @"_ZN4core3ptr37drop_in_place$LT$std..fs..ReadDir$GT$17h31474f16e9035e28E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31) #32
           to label %87 unwind label %184
 
-102:                                              ; preds = %.invoke182, %321, %320, %112, %101
+102:                                              ; preds = %.invoke194, %321, %320, %112, %101
   %103 = landingpad { ptr, i32 }
           cleanup
   br label %.body105
@@ -3525,7 +3525,7 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i: ; preds = %1
 
 191:                                              ; preds = %295, %187
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br label %.invoke182
+  br label %.invoke194
 
 192:                                              ; preds = %131
   %193 = extractvalue { ptr, i64 } %134, 0
@@ -3841,9 +3841,9 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i77: ; preds = 
 
 284:                                              ; preds = %280
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br label %.invoke182
+  br label %.invoke194
 
-.backedge:                                        ; preds = %.invoke182, %"_ZN4jiff2tz2db8zoneinfo5inner4walk28_$u7b$$u7b$closure$u7d$$u7d$17h3700ba92ecb60240E.exit107"
+.backedge:                                        ; preds = %.invoke194, %"_ZN4jiff2tz2db8zoneinfo5inner4walk28_$u7b$$u7b$closure$u7d$$u7d$17h3700ba92ecb60240E.exit107"
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %101
@@ -3892,7 +3892,7 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i77: ; preds = 
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1c5c7afb59749edeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
           to label %191 unwind label %118
 
-.invoke182:                                       ; preds = %191, %315, %284
+.invoke194:                                       ; preds = %191, %315, %284
   invoke void @"_ZN4core3ptr38drop_in_place$LT$std..fs..DirEntry$GT$17hbe6680ee837038bdE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %29)
           to label %.backedge unwind label %102
 
@@ -3967,7 +3967,7 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i77: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br label %.invoke182
+  br label %.invoke194
 
 316:                                              ; preds = %123
   %317 = landingpad { ptr, i32 }

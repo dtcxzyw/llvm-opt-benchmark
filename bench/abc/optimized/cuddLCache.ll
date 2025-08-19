@@ -760,8 +760,8 @@ define range(i32 0, 2) i32 @cuddHashTableInsert(ptr noundef captures(none) %0, p
   %40 = ptrtoint ptr %39 to i64
   %41 = trunc i64 %40 to i32
   %42 = mul i32 %41, 4256249
-  %.not34 = icmp eq i32 %25, 1
-  br i1 %.not34, label %ddLCHash.exit, label %.lr.ph.preheader.i
+  %.not35 = icmp eq i32 %25, 1
+  br i1 %.not35, label %ddLCHash.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
   %wide.trip.count.i = zext i32 %25 to i64

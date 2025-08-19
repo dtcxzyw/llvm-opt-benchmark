@@ -1280,7 +1280,7 @@ define internal fastcc range(i32 0, 2) i32 @cmp_pkt_hdr(ptr noundef %0, ptr noun
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %111 = load i64, ptr %110, align 8, !tbaa !86
   %.not65 = icmp eq i64 %111, 0
-  br i1 %.not65, label %.thread75, label %112
+  br i1 %.not65, label %.thread78, label %112
 
 112:                                              ; preds = %109
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1292,7 +1292,7 @@ define internal fastcc range(i32 0, 2) i32 @cmp_pkt_hdr(ptr noundef %0, ptr noun
   %spec.select = select i1 %.not66, i32 0, i32 %.0
   %.pr.pre = load i64, ptr %107, align 8, !tbaa !86
   %118 = icmp eq i64 %.pr.pre, 0
-  br i1 %118, label %.thread, label %.thread75
+  br i1 %118, label %.thread, label %.thread78
 
 .thread:                                          ; preds = %106, %112
   %.173 = phi i32 [ %spec.select, %112 ], [ %.0, %106 ]
@@ -1300,16 +1300,16 @@ define internal fastcc range(i32 0, 2) i32 @cmp_pkt_hdr(ptr noundef %0, ptr noun
   %120 = load ptr, ptr %119, align 8, !tbaa !87
   %121 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.22, i32 noundef 44, ptr noundef nonnull @.str.49, ptr noundef %120) #10
   %.not67 = icmp eq i32 %121, 0
-  br i1 %.not67, label %129, label %.thread75
+  br i1 %.not67, label %129, label %.thread78
 
-.thread75:                                        ; preds = %109, %.thread, %112
+.thread78:                                        ; preds = %109, %.thread, %112
   %.172 = phi i32 [ %.173, %.thread ], [ %spec.select, %112 ], [ %.0, %109 ]
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %123 = load i64, ptr %122, align 8, !tbaa !86
   %124 = icmp eq i64 %123, 0
   br i1 %124, label %125, label %130
 
-125:                                              ; preds = %.thread75
+125:                                              ; preds = %.thread78
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %127 = load ptr, ptr %126, align 8, !tbaa !87
   %128 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.22, i32 noundef 45, ptr noundef nonnull @.str.50, ptr noundef %127) #10
@@ -1319,8 +1319,8 @@ define internal fastcc range(i32 0, 2) i32 @cmp_pkt_hdr(ptr noundef %0, ptr noun
 129:                                              ; preds = %125, %.thread
   br label %130
 
-130:                                              ; preds = %.thread75, %125, %129
-  %.2 = phi i32 [ %.172, %125 ], [ 0, %129 ], [ %.172, %.thread75 ]
+130:                                              ; preds = %.thread78, %125, %129
+  %.2 = phi i32 [ %.172, %125 ], [ 0, %129 ], [ %.172, %.thread78 ]
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %132 = load ptr, ptr %131, align 8, !tbaa !46
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 72

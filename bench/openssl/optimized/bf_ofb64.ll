@@ -154,8 +154,8 @@ define void @BF_ofb64_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %6, %88, %._crit_edge
-  %.079.lcssa91 = phi i32 [ %86, %88 ], [ %86, %._crit_edge ], [ %9, %6 ]
-  store i32 %.079.lcssa91, ptr %5, align 4, !tbaa !3
+  %.079.lcssa92 = phi i32 [ %86, %88 ], [ %86, %._crit_edge ], [ %9, %6 ]
+  store i32 %.079.lcssa92, ptr %5, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void

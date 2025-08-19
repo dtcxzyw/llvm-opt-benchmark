@@ -52,7 +52,7 @@ define range(i32 -1094995529, 1) i32 @ff_opus_parse_packet(ptr noundef captures(
   br i1 %or.cond, label %.thread, label %21
 
 21:                                               ; preds = %8
-  switch i32 %12, label %default.unreachable432 [
+  switch i32 %12, label %default.unreachable454 [
     i32 0, label %22
     i32 1, label %59
     i32 2, label %103
@@ -557,8 +557,8 @@ xiph_lacing_16bit.exit280:                        ; preds = %260, %254
   %.14 = phi ptr [ %261, %260 ], [ %255, %254 ]
   %.09.i278 = phi i32 [ %265, %260 ], [ %257, %254 ]
   %266 = mul nuw nsw i32 %.09.i278, %162
-  %267 = add nsw i32 %266, %.1213
-  %268 = sext i32 %267 to i64
+  %267 = add nuw nsw i32 %266, %.1213
+  %268 = zext nneg i32 %267 to i64
   %269 = ptrtoint ptr %6 to i64
   %270 = ptrtoint ptr %.14 to i64
   %271 = sub i64 %269, %270
@@ -587,8 +587,8 @@ xiph_lacing_16bit.exit280:                        ; preds = %260, %254
   %290 = sdiv i32 %288, %162
   %.not241 = icmp ne i32 %289, 0
   %291 = icmp sgt i32 %290, 1275
-  %or.cond452 = or i1 %.not241, %291
-  br i1 %or.cond452, label %.thread, label %._crit_edge406
+  %or.cond474 = or i1 %.not241, %291
+  br i1 %or.cond474, label %.thread, label %._crit_edge406
 
 ._crit_edge406:                                   ; preds = %282
   %.pre424 = ptrtoint ptr %1 to i64
@@ -642,7 +642,7 @@ thread-pre-split:                                 ; preds = %.lr.ph389, %292, %5
   %312 = icmp samesign ugt i32 %311, 5760
   br i1 %312, label %.thread, label %313
 
-default.unreachable432:                           ; preds = %21
+default.unreachable454:                           ; preds = %21
   unreachable
 
 313:                                              ; preds = %thread-pre-split
@@ -797,12 +797,12 @@ define range(i32 -2147483648, 1) i32 @ff_opus_parse_extradata(ptr noundef %0, pt
 50:                                               ; preds = %47
   %51 = icmp eq i32 %40, 1
   %spec.select = select i1 %51, i32 1, i32 2
-  %spec.select201 = select i1 %51, i64 4, i64 3
+  %spec.select213 = select i1 %51, i64 4, i64 3
   store i32 1, ptr %3, align 8, !tbaa !14
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %spec.select, ptr %52, align 4, !tbaa !14
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %spec.select201, ptr %53, align 8, !tbaa !4
+  store i64 %spec.select213, ptr %53, align 8, !tbaa !4
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %54, align 8, !tbaa !60
   %55 = add nsw i32 %40, -1
@@ -1013,9 +1013,9 @@ ff_sqrt.exit.thread:                              ; preds = %82
   br label %150
 
 144:                                              ; preds = %114, %141, %138
-  %.sink203 = phi i64 [ 4, %141 ], [ 4, %138 ], [ 16, %114 ]
+  %.sink215 = phi i64 [ 4, %141 ], [ 4, %138 ], [ 16, %114 ]
   %.sink = phi i32 [ 0, %141 ], [ %140, %138 ], [ 1, %114 ]
-  %145 = getelementptr inbounds nuw i8, ptr %116, i64 %.sink203
+  %145 = getelementptr inbounds nuw i8, ptr %116, i64 %.sink215
   store i32 %.sink, ptr %145, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next, %109

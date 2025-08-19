@@ -184,11 +184,11 @@ define dso_local i32 @mic2latin(ptr noundef %0, ptr noundef writeonly captures(n
   unreachable
 
 25:                                               ; preds = %20, %13
-  %.sink85 = phi i8 [ %8, %13 ], [ %22, %20 ]
-  %.sink84 = phi i64 [ 1, %13 ], [ 2, %20 ]
+  %.sink88 = phi i8 [ %8, %13 ], [ %22, %20 ]
+  %.sink87 = phi i64 [ 1, %13 ], [ 2, %20 ]
   %.sink = phi i32 [ -1, %13 ], [ -2, %20 ]
-  store i8 %.sink85, ptr %.03463, align 1
-  %26 = getelementptr inbounds nuw i8, ptr %.03364, i64 %.sink84
+  store i8 %.sink88, ptr %.03463, align 1
+  %26 = getelementptr inbounds nuw i8, ptr %.03364, i64 %.sink87
   %27 = add nsw i32 %.03862, %.sink
   %.236 = getelementptr inbounds nuw i8, ptr %.03463, i64 1
   %28 = icmp sgt i32 %27, 0
@@ -345,11 +345,11 @@ define dso_local i32 @mic2latin_with_table(ptr noundef %0, ptr noundef writeonly
   unreachable
 
 32:                                               ; preds = %24, %14
-  %.sink87 = phi i8 [ %9, %14 ], [ %28, %24 ]
-  %.sink86 = phi i64 [ 1, %14 ], [ 2, %24 ]
+  %.sink91 = phi i8 [ %9, %14 ], [ %28, %24 ]
+  %.sink90 = phi i64 [ 1, %14 ], [ 2, %24 ]
   %.sink = phi i32 [ -1, %14 ], [ -2, %24 ]
-  store i8 %.sink87, ptr %.03665, align 1
-  %33 = getelementptr inbounds nuw i8, ptr %.03566, i64 %.sink86
+  store i8 %.sink91, ptr %.03665, align 1
+  %33 = getelementptr inbounds nuw i8, ptr %.03566, i64 %.sink90
   %34 = add nsw i32 %.04064, %.sink
   %.238 = getelementptr inbounds nuw i8, ptr %.03665, i64 1
   %35 = icmp sgt i32 %34, 0
@@ -443,12 +443,12 @@ define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr noundef wri
   unreachable
 
 40:                                               ; preds = %24, %29, %32
-  %.sink336 = phi i64 [ 2, %29 ], [ 3, %32 ], [ 1, %24 ]
+  %.sink350 = phi i64 [ 2, %29 ], [ 3, %32 ], [ 1, %24 ]
   %.sink = phi i64 [ 3, %29 ], [ 4, %32 ], [ 2, %24 ]
   %.0147 = phi i8 [ %31, %29 ], [ %36, %32 ], [ 0, %24 ]
   %.0146.in = phi ptr [ %30, %29 ], [ %35, %32 ], [ %.0264, %24 ]
   %.0139 = phi i8 [ 0, %29 ], [ %34, %32 ], [ 0, %24 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.0264, i64 %.sink336
+  %41 = getelementptr inbounds nuw i8, ptr %.0264, i64 %.sink350
   %42 = getelementptr inbounds nuw i8, ptr %.0264, i64 %.sink
   %.0145 = load i8, ptr %41, align 1
   %.0146 = load i8, ptr %.0146.in, align 1
@@ -550,13 +550,13 @@ define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr noundef wri
   unreachable
 
 106:                                              ; preds = %78, %88, %73
-  %.sink376 = phi i64 [ 3, %78 ], [ 4, %88 ], [ 2, %73 ]
-  %.sink339.in = phi ptr [ %83, %78 ], [ %98, %88 ], [ %74, %73 ]
-  %.sink337 = phi i32 [ %87, %78 ], [ %102, %88 ], [ %77, %73 ]
-  %107 = getelementptr inbounds nuw i8, ptr %42, i64 %.sink376
-  %.sink339 = load i8, ptr %.sink339.in, align 1
-  %108 = zext i8 %.sink339 to i32
-  %109 = or disjoint i32 %.sink337, %108
+  %.sink390 = phi i64 [ 3, %78 ], [ 4, %88 ], [ 2, %73 ]
+  %.sink353.in = phi ptr [ %83, %78 ], [ %98, %88 ], [ %74, %73 ]
+  %.sink351 = phi i32 [ %87, %78 ], [ %102, %88 ], [ %77, %73 ]
+  %107 = getelementptr inbounds nuw i8, ptr %42, i64 %.sink390
+  %.sink353 = load i8, ptr %.sink353.in, align 1
+  %108 = zext i8 %.sink353 to i32
+  %109 = or disjoint i32 %.sink351, %108
   br i1 %.not24.i, label %store_coded_char.exit.thread195, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %106, %124

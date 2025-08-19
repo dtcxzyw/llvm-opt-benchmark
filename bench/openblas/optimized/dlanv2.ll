@@ -169,7 +169,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %10, %24
 
 .backedge:                                        ; preds = %.backedge.backedge, %105
   %107 = phi double [ %106, %105 ], [ %.be, %.backedge.backedge ]
-  %108 = phi double [ %48, %105 ], [ %.be249, %.backedge.backedge ]
+  %108 = phi double [ %48, %105 ], [ %.be256, %.backedge.backedge ]
   %.0 = phi i32 [ 0, %105 ], [ %109, %.backedge.backedge ]
   %109 = add nuw nsw i32 %.0, 1
   %110 = fcmp oge double %108, 0.000000e+00
@@ -191,7 +191,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %10, %24
 
 .backedge.backedge:                               ; preds = %119, %128
   %.be = phi double [ %120, %119 ], [ %129, %128 ]
-  %.be249 = phi double [ %121, %119 ], [ %130, %128 ]
+  %.be256 = phi double [ %121, %119 ], [ %130, %128 ]
   br label %.backedge
 
 123:                                              ; preds = %.backedge
@@ -200,9 +200,9 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %10, %24
 
 .thread:                                          ; preds = %119
   %125 = fcmp ugt double %117, %.011.i
-  br i1 %125, label %.loopexit, label %.thread239
+  br i1 %125, label %.loopexit, label %.thread246
 
-.thread239:                                       ; preds = %.thread
+.thread246:                                       ; preds = %.thread
   %126 = fmul double %33, %120
   %127 = fmul double %33, %121
   br label %.loopexit
@@ -213,9 +213,9 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %10, %24
   %131 = icmp samesign ult i32 %.0, 20
   br i1 %131, label %.backedge.backedge, label %.loopexit
 
-.loopexit:                                        ; preds = %128, %123, %.thread239, %.thread
-  %132 = phi double [ %120, %.thread ], [ %126, %.thread239 ], [ %107, %123 ], [ %129, %128 ]
-  %133 = phi double [ %121, %.thread ], [ %127, %.thread239 ], [ %108, %123 ], [ %130, %128 ]
+.loopexit:                                        ; preds = %128, %123, %.thread246, %.thread
+  %132 = phi double [ %120, %.thread ], [ %126, %.thread246 ], [ %107, %123 ], [ %129, %128 ]
+  %133 = phi double [ %121, %.thread ], [ %127, %.thread246 ], [ %108, %123 ], [ %130, %128 ]
   store double %133, ptr %11, align 8
   store double %132, ptr %13, align 8
   %134 = call double @dlapy2_(ptr noundef nonnull %13, ptr noundef nonnull %11) #6

@@ -918,10 +918,10 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumula
   br i1 %.not, label %230, label %223
 
 _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEE9transformERKNS_8PositionEPhib.exit.thread.thread: ; preds = %4
-  %.in30 = sub nsw i32 %24, %28
-  %222 = sdiv i32 %.in30, 2
-  %.not31 = icmp eq ptr %2, null
-  br i1 %.not31, label %230, label %.thread
+  %.in31 = sub nsw i32 %24, %28
+  %222 = sdiv i32 %.in31, 2
+  %.not32 = icmp eq ptr %2, null
+  br i1 %.not32, label %230, label %.thread
 
 223:                                              ; preds = %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEE9transformERKNS_8PositionEPhib.exit.thread
   %224 = sub nsw i32 %221, %220
@@ -5485,17 +5485,17 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNK9Stockfish4Eval4NNUE18FeatureTra
   br i1 %14, label %.critedge, label %.critedge2.us, !llvm.loop !73
 
 .critedge2.us:                                    ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %.01214.us53 = phi ptr [ %22, %.lr.ph.split.us ], [ %5, %.lr.ph.split.us.preheader ]
-  %.01115.us52 = phi ptr [ %.01214.us53, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
-  %.016.us51 = phi i32 [ %19, %.lr.ph.split.us ], [ %6, %.lr.ph.split.us.preheader ]
+  %.01214.us54 = phi ptr [ %22, %.lr.ph.split.us ], [ %5, %.lr.ph.split.us.preheader ]
+  %.01115.us53 = phi ptr [ %.01214.us54, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
+  %.016.us52 = phi i32 [ %19, %.lr.ph.split.us ], [ %6, %.lr.ph.split.us.preheader ]
   %15 = phi ptr [ %23, %.lr.ph.split.us ], [ %7, %.lr.ph.split.us.preheader ]
-  %16 = tail call noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm16requires_refreshEPKNS_9StateInfoENS_5ColorE(ptr noundef nonnull %.01214.us53, i32 noundef 0) #15
+  %16 = tail call noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm16requires_refreshEPKNS_9StateInfoENS_5ColorE(ptr noundef nonnull %.01214.us54, i32 noundef 0) #15
   br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %.critedge2.us
-  %18 = tail call noundef i32 @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm11update_costEPKNS_9StateInfoE(ptr noundef nonnull %.01214.us53) #15
+  %18 = tail call noundef i32 @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm11update_costEPKNS_9StateInfoE(ptr noundef nonnull %.01214.us54) #15
   %.neg.us = xor i32 %18, -1
-  %19 = add i32 %.016.us51, %.neg.us
+  %19 = add i32 %.016.us52, %.neg.us
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %.critedge, label %21
 
@@ -5544,8 +5544,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNK9Stockfish4Eval4NNUE18FeatureTra
   br label %.critedge, !llvm.loop !73
 
 .critedge:                                        ; preds = %29, %34, %.critedge2, %38, %.lr.ph.split.us, %.critedge2.us, %17, %.lr.ph.split.us.preheader, %..critedge.loopexit_crit_edge, %3
-  %.012.lcssa = phi ptr [ %5, %3 ], [ %22, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.split.us.preheader ], [ %.01214.us53, %17 ], [ %.01214.us53, %.critedge2.us ], [ %22, %.lr.ph.split.us ], [ %39, %38 ], [ %.01214, %.critedge2 ], [ %.01214, %34 ], [ %.01214, %29 ]
-  %.011.lcssa = phi ptr [ null, %3 ], [ %.01214.us53, %..critedge.loopexit_crit_edge ], [ null, %.lr.ph.split.us.preheader ], [ %.01115.us52, %17 ], [ %.01115.us52, %.critedge2.us ], [ %.01214.us53, %.lr.ph.split.us ], [ %.01214, %38 ], [ %.01115, %.critedge2 ], [ %.01115, %34 ], [ %.01115, %29 ]
+  %.012.lcssa = phi ptr [ %5, %3 ], [ %22, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.split.us.preheader ], [ %.01214.us54, %17 ], [ %.01214.us54, %.critedge2.us ], [ %22, %.lr.ph.split.us ], [ %39, %38 ], [ %.01214, %.critedge2 ], [ %.01214, %34 ], [ %.01214, %29 ]
+  %.011.lcssa = phi ptr [ null, %3 ], [ %.01214.us54, %..critedge.loopexit_crit_edge ], [ null, %.lr.ph.split.us.preheader ], [ %.01115.us53, %17 ], [ %.01115.us53, %.critedge2.us ], [ %.01214.us54, %.lr.ph.split.us ], [ %.01214, %38 ], [ %.01115, %.critedge2 ], [ %.01115, %34 ], [ %.01115, %29 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.012.lcssa, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.011.lcssa, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -5938,8 +5938,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %.sroa.0.4 = phi <4 x i32> [ %.sroa.0.2, %._crit_edge299 ], [ %211, %.lr.ph304 ]
   %216 = getelementptr inbounds nuw i8, ptr %186, i64 11072
   store <4 x i32> %.sroa.0.4, ptr %216, align 16
-  %.sroa.6.0..sroa_idx362 = getelementptr inbounds nuw i8, ptr %186, i64 11088
-  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx362, align 16
+  %.sroa.6.0..sroa_idx370 = getelementptr inbounds nuw i8, ptr %186, i64 11088
+  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx370, align 16
   %217 = add i32 %.0231308, 1
   %218 = zext i32 %217 to i64
   %219 = getelementptr inbounds nuw ptr, ptr %3, i64 %218
@@ -5990,17 +5990,17 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNK9Stockfish4Eval4NNUE18FeatureTra
   br i1 %14, label %.critedge, label %.critedge2.us, !llvm.loop !83
 
 .critedge2.us:                                    ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %.01214.us53 = phi ptr [ %22, %.lr.ph.split.us ], [ %5, %.lr.ph.split.us.preheader ]
-  %.01115.us52 = phi ptr [ %.01214.us53, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
-  %.016.us51 = phi i32 [ %19, %.lr.ph.split.us ], [ %6, %.lr.ph.split.us.preheader ]
+  %.01214.us54 = phi ptr [ %22, %.lr.ph.split.us ], [ %5, %.lr.ph.split.us.preheader ]
+  %.01115.us53 = phi ptr [ %.01214.us54, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
+  %.016.us52 = phi i32 [ %19, %.lr.ph.split.us ], [ %6, %.lr.ph.split.us.preheader ]
   %15 = phi ptr [ %23, %.lr.ph.split.us ], [ %7, %.lr.ph.split.us.preheader ]
-  %16 = tail call noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm16requires_refreshEPKNS_9StateInfoENS_5ColorE(ptr noundef nonnull %.01214.us53, i32 noundef 1) #15
+  %16 = tail call noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm16requires_refreshEPKNS_9StateInfoENS_5ColorE(ptr noundef nonnull %.01214.us54, i32 noundef 1) #15
   br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %.critedge2.us
-  %18 = tail call noundef i32 @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm11update_costEPKNS_9StateInfoE(ptr noundef nonnull %.01214.us53) #15
+  %18 = tail call noundef i32 @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm11update_costEPKNS_9StateInfoE(ptr noundef nonnull %.01214.us54) #15
   %.neg.us = xor i32 %18, -1
-  %19 = add i32 %.016.us51, %.neg.us
+  %19 = add i32 %.016.us52, %.neg.us
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %.critedge, label %21
 
@@ -6049,8 +6049,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNK9Stockfish4Eval4NNUE18FeatureTra
   br label %.critedge, !llvm.loop !83
 
 .critedge:                                        ; preds = %29, %34, %.critedge2, %38, %.lr.ph.split.us, %.critedge2.us, %17, %.lr.ph.split.us.preheader, %..critedge.loopexit_crit_edge, %3
-  %.012.lcssa = phi ptr [ %5, %3 ], [ %22, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.split.us.preheader ], [ %.01214.us53, %17 ], [ %.01214.us53, %.critedge2.us ], [ %22, %.lr.ph.split.us ], [ %39, %38 ], [ %.01214, %.critedge2 ], [ %.01214, %34 ], [ %.01214, %29 ]
-  %.011.lcssa = phi ptr [ null, %3 ], [ %.01214.us53, %..critedge.loopexit_crit_edge ], [ null, %.lr.ph.split.us.preheader ], [ %.01115.us52, %17 ], [ %.01115.us52, %.critedge2.us ], [ %.01214.us53, %.lr.ph.split.us ], [ %.01214, %38 ], [ %.01115, %.critedge2 ], [ %.01115, %34 ], [ %.01115, %29 ]
+  %.012.lcssa = phi ptr [ %5, %3 ], [ %22, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.split.us.preheader ], [ %.01214.us54, %17 ], [ %.01214.us54, %.critedge2.us ], [ %22, %.lr.ph.split.us ], [ %39, %38 ], [ %.01214, %.critedge2 ], [ %.01214, %34 ], [ %.01214, %29 ]
+  %.011.lcssa = phi ptr [ null, %3 ], [ %.01214.us54, %..critedge.loopexit_crit_edge ], [ null, %.lr.ph.split.us.preheader ], [ %.01115.us53, %17 ], [ %.01115.us53, %.critedge2.us ], [ %.01214.us54, %.lr.ph.split.us ], [ %.01214, %38 ], [ %.01115, %.critedge2 ], [ %.01115, %34 ], [ %.01115, %29 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.012.lcssa, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.011.lcssa, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -6443,8 +6443,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %.sroa.0.4 = phi <4 x i32> [ %.sroa.0.2, %._crit_edge299 ], [ %211, %.lr.ph304 ]
   %216 = getelementptr inbounds nuw i8, ptr %186, i64 11104
   store <4 x i32> %.sroa.0.4, ptr %216, align 16
-  %.sroa.6.0..sroa_idx362 = getelementptr inbounds nuw i8, ptr %186, i64 11120
-  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx362, align 16
+  %.sroa.6.0..sroa_idx370 = getelementptr inbounds nuw i8, ptr %186, i64 11120
+  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx370, align 16
   %217 = add i32 %.0231308, 1
   %218 = zext i32 %217 to i64
   %219 = getelementptr inbounds nuw ptr, ptr %3, i64 %218
@@ -6486,17 +6486,17 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNK9Stockfish4Eval4NNUE18FeatureTra
   br i1 %14, label %.critedge, label %.critedge2.us, !llvm.loop !19
 
 .critedge2.us:                                    ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %.01214.us53 = phi ptr [ %22, %.lr.ph.split.us ], [ %5, %.lr.ph.split.us.preheader ]
-  %.01115.us52 = phi ptr [ %.01214.us53, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
-  %.016.us51 = phi i32 [ %19, %.lr.ph.split.us ], [ %6, %.lr.ph.split.us.preheader ]
+  %.01214.us54 = phi ptr [ %22, %.lr.ph.split.us ], [ %5, %.lr.ph.split.us.preheader ]
+  %.01115.us53 = phi ptr [ %.01214.us54, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
+  %.016.us52 = phi i32 [ %19, %.lr.ph.split.us ], [ %6, %.lr.ph.split.us.preheader ]
   %15 = phi ptr [ %23, %.lr.ph.split.us ], [ %7, %.lr.ph.split.us.preheader ]
-  %16 = tail call noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm16requires_refreshEPKNS_9StateInfoENS_5ColorE(ptr noundef nonnull %.01214.us53, i32 noundef 0) #15
+  %16 = tail call noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm16requires_refreshEPKNS_9StateInfoENS_5ColorE(ptr noundef nonnull %.01214.us54, i32 noundef 0) #15
   br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %.critedge2.us
-  %18 = tail call noundef i32 @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm11update_costEPKNS_9StateInfoE(ptr noundef nonnull %.01214.us53) #15
+  %18 = tail call noundef i32 @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm11update_costEPKNS_9StateInfoE(ptr noundef nonnull %.01214.us54) #15
   %.neg.us = xor i32 %18, -1
-  %19 = add i32 %.016.us51, %.neg.us
+  %19 = add i32 %.016.us52, %.neg.us
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %.critedge, label %21
 
@@ -6545,8 +6545,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNK9Stockfish4Eval4NNUE18FeatureTra
   br label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %29, %34, %.critedge2, %38, %.lr.ph.split.us, %.critedge2.us, %17, %.lr.ph.split.us.preheader, %..critedge.loopexit_crit_edge, %3
-  %.012.lcssa = phi ptr [ %5, %3 ], [ %22, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.split.us.preheader ], [ %.01214.us53, %17 ], [ %.01214.us53, %.critedge2.us ], [ %22, %.lr.ph.split.us ], [ %39, %38 ], [ %.01214, %.critedge2 ], [ %.01214, %34 ], [ %.01214, %29 ]
-  %.011.lcssa = phi ptr [ null, %3 ], [ %.01214.us53, %..critedge.loopexit_crit_edge ], [ null, %.lr.ph.split.us.preheader ], [ %.01115.us52, %17 ], [ %.01115.us52, %.critedge2.us ], [ %.01214.us53, %.lr.ph.split.us ], [ %.01214, %38 ], [ %.01115, %.critedge2 ], [ %.01115, %34 ], [ %.01115, %29 ]
+  %.012.lcssa = phi ptr [ %5, %3 ], [ %22, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.split.us.preheader ], [ %.01214.us54, %17 ], [ %.01214.us54, %.critedge2.us ], [ %22, %.lr.ph.split.us ], [ %39, %38 ], [ %.01214, %.critedge2 ], [ %.01214, %34 ], [ %.01214, %29 ]
+  %.011.lcssa = phi ptr [ null, %3 ], [ %.01214.us54, %..critedge.loopexit_crit_edge ], [ null, %.lr.ph.split.us.preheader ], [ %.01115.us53, %17 ], [ %.01115.us53, %.critedge2.us ], [ %.01214.us54, %.lr.ph.split.us ], [ %.01214, %38 ], [ %.01115, %.critedge2 ], [ %.01115, %34 ], [ %.01115, %29 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.012.lcssa, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.011.lcssa, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -6955,8 +6955,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %.sroa.0.4 = phi <4 x i32> [ %.sroa.0.2, %._crit_edge300 ], [ %219, %.lr.ph305 ]
   %224 = getelementptr inbounds nuw i8, ptr %194, i64 10432
   store <4 x i32> %.sroa.0.4, ptr %224, align 16
-  %.sroa.6.0..sroa_idx363 = getelementptr inbounds nuw i8, ptr %194, i64 10448
-  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx363, align 16
+  %.sroa.6.0..sroa_idx372 = getelementptr inbounds nuw i8, ptr %194, i64 10448
+  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx372, align 16
   %225 = add i32 %.0231309, 1
   %226 = zext i32 %225 to i64
   %227 = getelementptr inbounds nuw ptr, ptr %3, i64 %226
@@ -7100,17 +7100,17 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNK9Stockfish4Eval4NNUE18FeatureTra
   br i1 %14, label %.critedge, label %.critedge2.us, !llvm.loop !20
 
 .critedge2.us:                                    ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %.01214.us53 = phi ptr [ %22, %.lr.ph.split.us ], [ %5, %.lr.ph.split.us.preheader ]
-  %.01115.us52 = phi ptr [ %.01214.us53, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
-  %.016.us51 = phi i32 [ %19, %.lr.ph.split.us ], [ %6, %.lr.ph.split.us.preheader ]
+  %.01214.us54 = phi ptr [ %22, %.lr.ph.split.us ], [ %5, %.lr.ph.split.us.preheader ]
+  %.01115.us53 = phi ptr [ %.01214.us54, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
+  %.016.us52 = phi i32 [ %19, %.lr.ph.split.us ], [ %6, %.lr.ph.split.us.preheader ]
   %15 = phi ptr [ %23, %.lr.ph.split.us ], [ %7, %.lr.ph.split.us.preheader ]
-  %16 = tail call noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm16requires_refreshEPKNS_9StateInfoENS_5ColorE(ptr noundef nonnull %.01214.us53, i32 noundef 1) #15
+  %16 = tail call noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm16requires_refreshEPKNS_9StateInfoENS_5ColorE(ptr noundef nonnull %.01214.us54, i32 noundef 1) #15
   br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %.critedge2.us
-  %18 = tail call noundef i32 @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm11update_costEPKNS_9StateInfoE(ptr noundef nonnull %.01214.us53) #15
+  %18 = tail call noundef i32 @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm11update_costEPKNS_9StateInfoE(ptr noundef nonnull %.01214.us54) #15
   %.neg.us = xor i32 %18, -1
-  %19 = add i32 %.016.us51, %.neg.us
+  %19 = add i32 %.016.us52, %.neg.us
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %.critedge, label %21
 
@@ -7159,8 +7159,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNK9Stockfish4Eval4NNUE18FeatureTra
   br label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %29, %34, %.critedge2, %38, %.lr.ph.split.us, %.critedge2.us, %17, %.lr.ph.split.us.preheader, %..critedge.loopexit_crit_edge, %3
-  %.012.lcssa = phi ptr [ %5, %3 ], [ %22, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.split.us.preheader ], [ %.01214.us53, %17 ], [ %.01214.us53, %.critedge2.us ], [ %22, %.lr.ph.split.us ], [ %39, %38 ], [ %.01214, %.critedge2 ], [ %.01214, %34 ], [ %.01214, %29 ]
-  %.011.lcssa = phi ptr [ null, %3 ], [ %.01214.us53, %..critedge.loopexit_crit_edge ], [ null, %.lr.ph.split.us.preheader ], [ %.01115.us52, %17 ], [ %.01115.us52, %.critedge2.us ], [ %.01214.us53, %.lr.ph.split.us ], [ %.01214, %38 ], [ %.01115, %.critedge2 ], [ %.01115, %34 ], [ %.01115, %29 ]
+  %.012.lcssa = phi ptr [ %5, %3 ], [ %22, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.split.us.preheader ], [ %.01214.us54, %17 ], [ %.01214.us54, %.critedge2.us ], [ %22, %.lr.ph.split.us ], [ %39, %38 ], [ %.01214, %.critedge2 ], [ %.01214, %34 ], [ %.01214, %29 ]
+  %.011.lcssa = phi ptr [ null, %3 ], [ %.01214.us54, %..critedge.loopexit_crit_edge ], [ null, %.lr.ph.split.us.preheader ], [ %.01115.us53, %17 ], [ %.01115.us53, %.critedge2.us ], [ %.01214.us54, %.lr.ph.split.us ], [ %.01214, %38 ], [ %.01115, %.critedge2 ], [ %.01115, %34 ], [ %.01115, %29 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.012.lcssa, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.011.lcssa, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -7569,8 +7569,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %.sroa.0.4 = phi <4 x i32> [ %.sroa.0.2, %._crit_edge300 ], [ %219, %.lr.ph305 ]
   %224 = getelementptr inbounds nuw i8, ptr %194, i64 10464
   store <4 x i32> %.sroa.0.4, ptr %224, align 16
-  %.sroa.6.0..sroa_idx363 = getelementptr inbounds nuw i8, ptr %194, i64 10480
-  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx363, align 16
+  %.sroa.6.0..sroa_idx372 = getelementptr inbounds nuw i8, ptr %194, i64 10480
+  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx372, align 16
   %225 = add i32 %.0231309, 1
   %226 = zext i32 %225 to i64
   %227 = getelementptr inbounds nuw ptr, ptr %3, i64 %226
@@ -8386,8 +8386,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %.sroa.0.4 = phi <4 x i32> [ %.sroa.0.2, %._crit_edge304 ], [ %219, %.lr.ph309 ]
   %224 = getelementptr inbounds nuw i8, ptr %194, i64 11072
   store <4 x i32> %.sroa.0.4, ptr %224, align 16
-  %.sroa.6.0..sroa_idx371 = getelementptr inbounds nuw i8, ptr %194, i64 11088
-  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx371, align 16
+  %.sroa.6.0..sroa_idx380 = getelementptr inbounds nuw i8, ptr %194, i64 11088
+  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx380, align 16
   %225 = add i32 %.0231313, 1
   %226 = zext i32 %225 to i64
   %227 = getelementptr inbounds nuw ptr, ptr %3, i64 %226
@@ -8813,8 +8813,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %.sroa.0.4 = phi <4 x i32> [ %.sroa.0.2, %._crit_edge304 ], [ %219, %.lr.ph309 ]
   %224 = getelementptr inbounds nuw i8, ptr %194, i64 11104
   store <4 x i32> %.sroa.0.4, ptr %224, align 16
-  %.sroa.6.0..sroa_idx371 = getelementptr inbounds nuw i8, ptr %194, i64 11120
-  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx371, align 16
+  %.sroa.6.0..sroa_idx380 = getelementptr inbounds nuw i8, ptr %194, i64 11120
+  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx380, align 16
   %225 = add i32 %.0231313, 1
   %226 = zext i32 %225 to i64
   %227 = getelementptr inbounds nuw ptr, ptr %3, i64 %226
@@ -9262,8 +9262,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %.sroa.0.4 = phi <4 x i32> [ %.sroa.0.2, %._crit_edge305 ], [ %227, %.lr.ph310 ]
   %232 = getelementptr inbounds nuw i8, ptr %202, i64 10432
   store <4 x i32> %.sroa.0.4, ptr %232, align 16
-  %.sroa.6.0..sroa_idx372 = getelementptr inbounds nuw i8, ptr %202, i64 10448
-  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx372, align 16
+  %.sroa.6.0..sroa_idx382 = getelementptr inbounds nuw i8, ptr %202, i64 10448
+  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx382, align 16
   %233 = add i32 %.0231314, 1
   %234 = zext i32 %233 to i64
   %235 = getelementptr inbounds nuw ptr, ptr %3, i64 %234
@@ -9705,8 +9705,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %.sroa.0.4 = phi <4 x i32> [ %.sroa.0.2, %._crit_edge305 ], [ %227, %.lr.ph310 ]
   %232 = getelementptr inbounds nuw i8, ptr %202, i64 10464
   store <4 x i32> %.sroa.0.4, ptr %232, align 16
-  %.sroa.6.0..sroa_idx372 = getelementptr inbounds nuw i8, ptr %202, i64 10480
-  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx372, align 16
+  %.sroa.6.0..sroa_idx382 = getelementptr inbounds nuw i8, ptr %202, i64 10480
+  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx382, align 16
   %233 = add i32 %.0231314, 1
   %234 = zext i32 %233 to i64
   %235 = getelementptr inbounds nuw ptr, ptr %3, i64 %234

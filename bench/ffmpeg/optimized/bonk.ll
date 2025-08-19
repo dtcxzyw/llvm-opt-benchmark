@@ -680,15 +680,15 @@ predictor_calc_error.exit221:                     ; preds = %.lr.ph.i212, %.lr.p
 
 .loopexit231.thread:                              ; preds = %.preheader230
   %277 = load i32, ptr %103, align 8, !tbaa !36
-  %.not196314 = icmp eq i32 %277, 0
-  br i1 %.not196314, label %.preheader.thread, label %.loopexit231..loopexit_crit_edge
+  %.not196327 = icmp eq i32 %277, 0
+  br i1 %.not196327, label %.preheader.thread, label %.loopexit231..loopexit_crit_edge
 
 .preheader.thread:                                ; preds = %.loopexit231.thread
-  %.pre308.pre311318 = load i32, ptr %75, align 8, !tbaa !54
+  %.pre308.pre311331 = load i32, ptr %75, align 8, !tbaa !54
   br label %.lr.ph262
 
 .loopexit231..loopexit_crit_edge:                 ; preds = %.loopexit231.thread, %.loopexit231
-  %.pre307315 = phi i32 [ 2, %.loopexit231.thread ], [ %.pre307, %.loopexit231 ]
+  %.pre307328 = phi i32 [ 2, %.loopexit231.thread ], [ %.pre307, %.loopexit231 ]
   %.pre308.pre = load i32, ptr %75, align 8, !tbaa !54
   br label %.loopexit
 
@@ -698,15 +698,15 @@ predictor_calc_error.exit221:                     ; preds = %.lr.ph.i212, %.lr.p
   br i1 %278, label %.lr.ph262, label %._crit_edge270
 
 .lr.ph262:                                        ; preds = %.preheader.thread, %.preheader
-  %.pre308.pre311320 = phi i32 [ %.pre308.pre311318, %.preheader.thread ], [ %.pre308.pre311, %.preheader ]
-  %.pre307316319 = phi i32 [ 2, %.preheader.thread ], [ %.pre307, %.preheader ]
+  %.pre308.pre311333 = phi i32 [ %.pre308.pre311331, %.preheader.thread ], [ %.pre308.pre311, %.preheader ]
+  %.pre307329332 = phi i32 [ 2, %.preheader.thread ], [ %.pre307, %.preheader ]
   %279 = getelementptr inbounds nuw i8, ptr %6, i64 24672
-  %280 = icmp sgt i32 %.pre308.pre311320, 0
+  %280 = icmp sgt i32 %.pre308.pre311333, 0
   br i1 %280, label %.lr.ph262.split, label %._crit_edge270
 
 .lr.ph262.split:                                  ; preds = %.lr.ph262, %._crit_edge260
-  %281 = phi i32 [ %286, %._crit_edge260 ], [ %.pre307316319, %.lr.ph262 ]
-  %282 = phi i32 [ %287, %._crit_edge260 ], [ %.pre308.pre311320, %.lr.ph262 ]
+  %281 = phi i32 [ %286, %._crit_edge260 ], [ %.pre307329332, %.lr.ph262 ]
+  %282 = phi i32 [ %287, %._crit_edge260 ], [ %.pre308.pre311333, %.lr.ph262 ]
   %indvars.iv291 = phi i64 [ %indvars.iv.next292, %._crit_edge260 ], [ 0, %.lr.ph262 ]
   %283 = getelementptr inbounds nuw [2 x ptr], ptr %279, i64 0, i64 %indvars.iv291
   %284 = load ptr, ptr %283, align 8, !tbaa !44
@@ -740,7 +740,7 @@ predictor_calc_error.exit221:                     ; preds = %.lr.ph.i212, %.lr.p
 
 .loopexit:                                        ; preds = %._crit_edge260, %.loopexit231..loopexit_crit_edge
   %.pre308 = phi i32 [ %.pre308.pre, %.loopexit231..loopexit_crit_edge ], [ %287, %._crit_edge260 ]
-  %297 = phi i32 [ %.pre307315, %.loopexit231..loopexit_crit_edge ], [ %286, %._crit_edge260 ]
+  %297 = phi i32 [ %.pre307328, %.loopexit231..loopexit_crit_edge ], [ %286, %._crit_edge260 ]
   %298 = icmp sgt i32 %297, 0
   br i1 %298, label %.lr.ph269, label %._crit_edge270
 
@@ -783,8 +783,8 @@ predictor_calc_error.exit221:                     ; preds = %.lr.ph.i212, %.lr.p
   br i1 %exitcond303.not, label %._crit_edge270, label %.lr.ph265.us, !llvm.loop !82
 
 ._crit_edge270:                                   ; preds = %._crit_edge266.us, %.lr.ph262, %.preheader, %.lr.ph269, %.loopexit
-  %.pre308322 = phi i32 [ %.pre308, %.loopexit ], [ %.pre308, %.lr.ph269 ], [ %.pre308.pre311, %.preheader ], [ %.pre308.pre311320, %.lr.ph262 ], [ %.pre308, %._crit_edge266.us ]
-  %313 = sext i32 %.pre308322 to i64
+  %.pre308335 = phi i32 [ %.pre308, %.loopexit ], [ %.pre308, %.lr.ph269 ], [ %.pre308.pre311, %.preheader ], [ %.pre308.pre311333, %.lr.ph262 ], [ %.pre308, %._crit_edge266.us ]
+  %313 = sext i32 %.pre308335 to i64
   %314 = load i64, ptr %13, align 8, !tbaa !32
   %315 = sub i64 %314, %313
   store i64 %315, ptr %13, align 8, !tbaa !32
@@ -917,7 +917,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @intlist_read(ptr noundef c
   br i1 %40, label %.lr.ph203, label %.critedge
 
 .lr.ph203:                                        ; preds = %27, %.loopexit
-  %.0113228 = phi i32 [ 0, %.loopexit ], [ %21, %27 ]
+  %.0113238 = phi i32 [ 0, %.loopexit ], [ %21, %27 ]
   %41 = getelementptr i8, ptr %0, i64 16
   %42 = getelementptr i8, ptr %0, i64 20
   %.val158 = load i32, ptr %42, align 4, !tbaa !60
@@ -1108,7 +1108,7 @@ read_uint_max.exit:                               ; preds = %.preheader.i
   br i1 %.not148, label %.thread181, label %116
 
 116:                                              ; preds = %115
-  %117 = shl i32 %.0111214, %.0113228
+  %117 = shl i32 %.0111214, %.0113238
   %118 = add nsw i32 %117, %.0114213
   %119 = sext i32 %.5133209 to i64
   %120 = getelementptr inbounds %struct.BitCount, ptr %6, i64 %119
@@ -1150,7 +1150,7 @@ read_uint_max.exit:                               ; preds = %.preheader.i
   br i1 %.not151, label %141, label %138
 
 138:                                              ; preds = %134
-  %139 = shl i32 %.1112187, %.0113228
+  %139 = shl i32 %.1112187, %.0113238
   %140 = add nsw i32 %133, %139
   store i32 %140, ptr %132, align 4, !tbaa !51
   br label %143

@@ -1670,19 +1670,19 @@ _ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit: ; preds = %29, 
   %58 = icmp sgt i32 %56, 300
   %59 = or i1 %57, %58
   %60 = select i1 %59, i64 36525, i64 36524
-  %.not147 = icmp samesign ugt i64 %.072, %60
-  br i1 %.not147, label %.lr.ph, label %.preheader133.preheader
+  %.not151 = icmp samesign ugt i64 %.072, %60
+  br i1 %.not151, label %.lr.ph, label %.preheader133.preheader
 
 .lr.ph:                                           ; preds = %48, %.lr.ph
   %61 = phi i64 [ %68, %.lr.ph ], [ %60, %48 ]
-  %.274150 = phi i64 [ %62, %.lr.ph ], [ %.072, %48 ]
-  %.384149 = phi i64 [ %63, %.lr.ph ], [ %.182, %48 ]
-  %.092148 = phi i32 [ %spec.select, %.lr.ph ], [ %56, %48 ]
-  %62 = sub nuw nsw i64 %.274150, %61
-  %63 = add nsw i64 %.384149, 100
-  %64 = icmp sgt i32 %.092148, 299
+  %.274154 = phi i64 [ %62, %.lr.ph ], [ %.072, %48 ]
+  %.384153 = phi i64 [ %63, %.lr.ph ], [ %.182, %48 ]
+  %.092152 = phi i32 [ %spec.select, %.lr.ph ], [ %56, %48 ]
+  %62 = sub nuw nsw i64 %.274154, %61
+  %63 = add nsw i64 %.384153, 100
+  %64 = icmp sgt i32 %.092152, 299
   %spec.select.v = select i1 %64, i32 -300, i32 100
-  %spec.select = add nsw i32 %spec.select.v, %.092148
+  %spec.select = add nsw i32 %spec.select.v, %.092152
   %65 = icmp eq i32 %spec.select, 0
   %66 = icmp sgt i32 %spec.select, 300
   %67 = or i1 %65, %66

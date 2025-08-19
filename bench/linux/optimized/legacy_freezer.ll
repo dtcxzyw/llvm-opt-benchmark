@@ -290,14 +290,14 @@ define internal noundef i32 @freezer_read(ptr noundef %0, ptr readnone captures(
 21:                                               ; preds = %14
   %22 = and i64 %16, 2
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %24, label %.sink.split13
+  br i1 %23, label %24, label %.sink.split20
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = load volatile i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %.sink.split13, label %.lr.ph, !prof !12
+  br i1 %28, label %.sink.split20, label %.lr.ph, !prof !12
 
 .lr.ph:                                           ; preds = %24, %35
   %29 = phi i64 [ %36, %35 ], [ %27, %24 ]
@@ -312,7 +312,7 @@ define internal noundef i32 @freezer_read(ptr noundef %0, ptr readnone captures(
 35:                                               ; preds = %.lr.ph
   %36 = extractvalue { i8, i64 } %31, 1
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %.sink.split13, label %.lr.ph, !prof !15, !llvm.loop !16
+  br i1 %37, label %.sink.split20, label %.lr.ph, !prof !15, !llvm.loop !16
 
 .sink.split:                                      ; preds = %.lr.ph, %19
   call void @__rcu_read_unlock() #8
@@ -408,7 +408,7 @@ define internal noundef i32 @freezer_read(ptr noundef %0, ptr readnone captures(
 79:                                               ; preds = %74
   %80 = inttoptr i64 %76 to ptr
   call void asm sideeffect "decq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %80, ptr elementtype(i64) %80) #8, !srcloc !20
-  br label %.sink.split13
+  br label %.sink.split20
 
 81:                                               ; preds = %74
   %82 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -417,20 +417,20 @@ define internal noundef i32 @freezer_read(ptr noundef %0, ptr readnone captures(
   %85 = icmp ult i8 %84, 2
   call void @llvm.assume(i1 %85)
   %86 = icmp eq i8 %84, 0
-  br i1 %86, label %.sink.split13, label %87, !prof !10
+  br i1 %86, label %.sink.split20, label %87, !prof !10
 
 87:                                               ; preds = %81
   %88 = load ptr, ptr %82, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
   call void %90(ptr noundef nonnull %75) #8
-  br label %.sink.split13
+  br label %.sink.split20
 
-.sink.split13:                                    ; preds = %35, %21, %79, %81, %87, %24
+.sink.split20:                                    ; preds = %35, %21, %79, %81, %87, %24
   call void @__rcu_read_unlock() #8
   br label %91
 
-91:                                               ; preds = %.sink.split13, %70
+91:                                               ; preds = %.sink.split20, %70
   %92 = call ptr @css_next_descendant_post(ptr noundef nonnull %9, ptr noundef %6) #8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %.loopexit12, label %.preheader11, !llvm.loop !22
@@ -498,14 +498,14 @@ define internal noundef i64 @freezer_write(ptr noundef %0, ptr noundef %1, i64 n
 29:                                               ; preds = %22
   %30 = and i64 %24, 2
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %32, label %.sink.split6
+  br i1 %31, label %32, label %.sink.split10
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = load volatile i64, ptr %34, align 8
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %.sink.split6, label %.lr.ph, !prof !12
+  br i1 %36, label %.sink.split10, label %.lr.ph, !prof !12
 
 .lr.ph:                                           ; preds = %32, %43
   %37 = phi i64 [ %44, %43 ], [ %35, %32 ]
@@ -520,7 +520,7 @@ define internal noundef i64 @freezer_write(ptr noundef %0, ptr noundef %1, i64 n
 43:                                               ; preds = %.lr.ph
   %44 = extractvalue { i8, i64 } %39, 1
   %45 = icmp eq i64 %44, 0
-  br i1 %45, label %.sink.split6, label %.lr.ph, !prof !15, !llvm.loop !16
+  br i1 %45, label %.sink.split10, label %.lr.ph, !prof !15, !llvm.loop !16
 
 .sink.split:                                      ; preds = %.lr.ph, %27
   tail call void @__rcu_read_unlock() #8
@@ -561,7 +561,7 @@ define internal noundef i64 @freezer_write(ptr noundef %0, ptr noundef %1, i64 n
 63:                                               ; preds = %58
   %64 = inttoptr i64 %60 to ptr
   tail call void asm sideeffect "decq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %64, ptr elementtype(i64) %64) #8, !srcloc !20
-  br label %.sink.split6
+  br label %.sink.split10
 
 65:                                               ; preds = %58
   %66 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -570,20 +570,20 @@ define internal noundef i64 @freezer_write(ptr noundef %0, ptr noundef %1, i64 n
   %69 = icmp ult i8 %68, 2
   tail call void @llvm.assume(i1 %69)
   %70 = icmp eq i8 %68, 0
-  br i1 %70, label %.sink.split6, label %71, !prof !10
+  br i1 %70, label %.sink.split10, label %71, !prof !10
 
 71:                                               ; preds = %65
   %72 = load ptr, ptr %66, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
   tail call void %74(ptr noundef nonnull %59) #8
-  br label %.sink.split6
+  br label %.sink.split10
 
-.sink.split6:                                     ; preds = %43, %29, %63, %65, %71, %32
+.sink.split10:                                    ; preds = %43, %29, %63, %65, %71, %32
   tail call void @__rcu_read_unlock() #8
   br label %75
 
-75:                                               ; preds = %.sink.split6, %54
+75:                                               ; preds = %.sink.split10, %54
   %76 = tail call ptr @css_next_descendant_pre(ptr noundef nonnull %15, ptr noundef %12) #8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %.loopexit, label %.preheader, !llvm.loop !23

@@ -91,8 +91,8 @@ define i32 @ff_put_wav_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 156
   %17 = load i32, ptr %16, align 4, !tbaa !16
   %18 = icmp eq i32 %17, 0
-  %or.cond202 = select i1 %15, i1 %18, i1 false
-  br i1 %or.cond202, label %19, label %._crit_edge
+  %or.cond209 = select i1 %15, i1 %18, i1 false
+  br i1 %or.cond209, label %19, label %._crit_edge
 
 19:                                               ; preds = %12
   %20 = tail call ptr @avcodec_get_name(i32 noundef 69645) #8
@@ -149,13 +149,13 @@ define i32 @ff_put_wav_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %44 = icmp sgt i32 %43, 16
   %.pre200 = load i32, ptr %9, align 8, !tbaa !4
   %.not = icmp ne i32 %.pre200, 3
-  %or.cond203.not = select i1 %44, i1 %.not, i1 false
-  %spec.select = select i1 %or.cond203.not, i32 65534, i32 %.pre200
+  %or.cond210.not = select i1 %44, i1 %.not, i1 false
+  %spec.select = select i1 %or.cond210.not, i32 65534, i32 %.pre200
   br label %.thread
 
 .thread:                                          ; preds = %42, %40, %40, %36, %31
   %.pre200.sink = phi i32 [ 65534, %31 ], [ 65534, %36 ], [ 65534, %40 ], [ 65534, %40 ], [ %spec.select, %42 ]
-  %45 = phi i1 [ true, %31 ], [ true, %36 ], [ true, %40 ], [ true, %40 ], [ %or.cond203.not, %42 ]
+  %45 = phi i1 [ true, %31 ], [ true, %36 ], [ true, %40 ], [ true, %40 ], [ %or.cond210.not, %42 ]
   call void @avio_wl16(ptr noundef %1, i32 noundef %.pre200.sink) #8
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 132
   %47 = load i32, ptr %46, align 4, !tbaa !23
@@ -720,8 +720,8 @@ define void @ff_put_bmp_header(ptr noundef %0, ptr noundef readonly captures(non
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %.lr.ph.split.split.us
   %.088.us89 = phi i32 [ %90, %.lr.ph.split.split.us ], [ 0, %.lr.ph ]
   %89 = icmp eq i32 %.088.us89, 0
-  %.100 = select i1 %89, i32 16777215, i32 0
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef %.100) #8
+  %.104 = select i1 %89, i32 16777215, i32 0
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef %.104) #8
   %90 = add nuw nsw i32 %.088.us89, 1
   %91 = load i32, ptr %47, align 8, !tbaa !24
   %92 = shl nuw i32 1, %91

@@ -298,8 +298,8 @@ do.end:                                           ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEC2Emm.exit.thread, label %if.then.i.i64
 
 _ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEC2Emm.exit.thread: ; preds = %do.end
-  %data_4.i.i341 = getelementptr inbounds nuw i8, ptr %a, i64 32
-  store ptr null, ptr %data_4.i.i341, align 8, !tbaa !27
+  %data_4.i.i390 = getelementptr inbounds nuw i8, ptr %a, i64 32
+  store ptr null, ptr %data_4.i.i390, align 8, !tbaa !27
   br label %invoke.cont37
 
 if.then.i.i64:                                    ; preds = %do.end
@@ -329,7 +329,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i64
   br label %invoke.cont37
 
 invoke.cont37:                                    ; preds = %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEC2Emm.exit.thread, %if.then.i.i.i.i.i
-  %data_4.i.i342 = phi ptr [ %data_4.i.i341, %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEC2Emm.exit.thread ], [ %data_4.i.i, %if.then.i.i.i.i.i ]
+  %data_4.i.i391 = phi ptr [ %data_4.i.i390, %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEC2Emm.exit.thread ], [ %data_4.i.i, %if.then.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %pert)
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %pert, i64 8
   store i64 %0, ptr %size_.i.i.i, align 8, !tbaa !30
@@ -1300,7 +1300,7 @@ _ZN5boost7numeric5ublas6vectorImNS1_15unbounded_arrayImSaImEEEED2Ev.exit: ; pred
   br i1 %tobool.not.i.i226, label %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEED2Ev.exit230, label %if.then.i.i227
 
 if.then.i.i227:                                   ; preds = %_ZN5boost7numeric5ublas6vectorImNS1_15unbounded_arrayImSaImEEEED2Ev.exit
-  %150 = load ptr, ptr %data_4.i.i342, align 8, !tbaa !27
+  %150 = load ptr, ptr %data_4.i.i391, align 8, !tbaa !27
   %mul.i.i.i229 = shl i64 %149, 3
   call void @_ZdlPvm(ptr noundef %150, i64 noundef %mul.i.i.i229) #25
   br label %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEED2Ev.exit230
@@ -1348,7 +1348,7 @@ ehcleanup282:                                     ; preds = %if.then.i.i239, %eh
   br i1 %tobool.not.i.i244, label %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEED2Ev.exit248, label %if.then.i.i245
 
 if.then.i.i245:                                   ; preds = %ehcleanup282
-  %156 = load ptr, ptr %data_4.i.i342, align 8, !tbaa !27
+  %156 = load ptr, ptr %data_4.i.i391, align 8, !tbaa !27
   %mul.i.i.i247 = shl i64 %155, 3
   call void @_ZdlPvm(ptr noundef %156, i64 noundef %mul.i.i.i247) #25
   br label %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEED2Ev.exit248
@@ -1873,8 +1873,8 @@ do.end:                                           ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEC2Emm.exit.thread, label %if.then.i.i43
 
 _ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEC2Emm.exit.thread: ; preds = %do.end
-  %data_4.i.i103 = getelementptr inbounds nuw i8, ptr %a, i64 32
-  store ptr null, ptr %data_4.i.i103, align 8, !tbaa !27
+  %data_4.i.i116 = getelementptr inbounds nuw i8, ptr %a, i64 32
+  store ptr null, ptr %data_4.i.i116, align 8, !tbaa !27
   br label %invoke.cont37
 
 if.then.i.i43:                                    ; preds = %do.end
@@ -1904,7 +1904,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i43
   br label %invoke.cont37
 
 invoke.cont37:                                    ; preds = %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEC2Emm.exit.thread, %if.then.i.i.i.i.i
-  %data_4.i.i104 = phi ptr [ %data_4.i.i103, %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEC2Emm.exit.thread ], [ %data_4.i.i, %if.then.i.i.i.i.i ]
+  %data_4.i.i117 = phi ptr [ %data_4.i.i116, %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEC2Emm.exit.thread ], [ %data_4.i.i, %if.then.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %pert)
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %pert, i64 8
   store i64 %0, ptr %size_.i.i.i, align 8, !tbaa !30
@@ -1969,7 +1969,7 @@ invoke.cont50.lr.ph:                              ; preds = %for.cond.preheader
   %data_.i.i.i = getelementptr inbounds nuw i8, ptr %pert, i64 16
   %25 = load ptr, ptr %data_.i.i.i, align 8, !tbaa !33
   %26 = load i64, ptr %size2_.i, align 8
-  %27 = load ptr, ptr %data_4.i.i104, align 8
+  %27 = load ptr, ptr %data_4.i.i117, align 8
   br label %invoke.cont50
 
 for.cond.cleanup:                                 ; preds = %invoke.cont50, %for.cond.preheader
@@ -1992,7 +1992,7 @@ _ZN5boost7numeric5ublas6vectorImNS1_15unbounded_arrayImSaImEEEED2Ev.exit: ; pred
   br i1 %tobool.not.i.i58, label %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEED2Ev.exit, label %if.then.i.i59
 
 if.then.i.i59:                                    ; preds = %_ZN5boost7numeric5ublas6vectorImNS1_15unbounded_arrayImSaImEEEED2Ev.exit
-  %31 = load ptr, ptr %data_4.i.i104, align 8, !tbaa !27
+  %31 = load ptr, ptr %data_4.i.i117, align 8, !tbaa !27
   %mul.i.i.i61 = shl i64 %30, 3
   call void @_ZdlPvm(ptr noundef %31, i64 noundef %mul.i.i.i61) #25
   br label %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEED2Ev.exit
@@ -2045,7 +2045,7 @@ ehcleanup63:                                      ; preds = %if.then.i.i71, %lpa
   br i1 %tobool.not.i.i76, label %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEED2Ev.exit80, label %if.then.i.i77
 
 if.then.i.i77:                                    ; preds = %ehcleanup63
-  %40 = load ptr, ptr %data_4.i.i104, align 8, !tbaa !27
+  %40 = load ptr, ptr %data_4.i.i117, align 8, !tbaa !27
   %mul.i.i.i79 = shl i64 %39, 3
   call void @_ZdlPvm(ptr noundef %40, i64 noundef %mul.i.i.i79) #25
   br label %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEED2Ev.exit80

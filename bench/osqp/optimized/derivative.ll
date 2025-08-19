@@ -614,9 +614,9 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %174, %169
-  %.sink365 = phi double [ %173, %169 ], [ %179, %174 ]
+  %.sink377 = phi double [ %173, %169 ], [ %179, %174 ]
   %180 = getelementptr inbounds nuw double, ptr %165, i64 %.1314334
-  store double %.sink365, ptr %180, align 8, !tbaa !47
+  store double %.sink377, ptr %180, align 8, !tbaa !47
   br label %181
 
 181:                                              ; preds = %.sink.split, %.lr.ph336
@@ -738,10 +738,10 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
   br label %240
 
 240:                                              ; preds = %221, %230
-  %.sink369 = phi i64 [ %223, %221 ], [ %235, %230 ]
-  %.sink367 = phi double [ %229, %221 ], [ 0.000000e+00, %230 ]
-  %241 = getelementptr inbounds double, ptr %189, i64 %.sink369
-  store double %.sink367, ptr %241, align 8, !tbaa !47
+  %.sink381 = phi i64 [ %223, %221 ], [ %235, %230 ]
+  %.sink379 = phi double [ %229, %221 ], [ 0.000000e+00, %230 ]
+  %241 = getelementptr inbounds double, ptr %189, i64 %.sink381
+  store double %.sink379, ptr %241, align 8, !tbaa !47
   %242 = add nuw nsw i64 %.6354, 1
   %exitcond361.not = icmp eq i64 %242, %213
   br i1 %exitcond361.not, label %._crit_edge357, label %217, !llvm.loop !65

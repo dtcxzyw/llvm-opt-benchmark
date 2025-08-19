@@ -1048,7 +1048,7 @@ _ZNSt6vectorIP7x509_stSaIS1_EED2Ev.exit208.i:     ; preds = %323, %302, %281, %2
   br i1 %.not.i.i, label %_ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit.i, label %327
 
 327:                                              ; preds = %324, %.thread.i
-  %.0271.i = phi i1 [ %.1.i, %.thread.i ], [ false, %324 ]
+  %.0294.i = phi i1 [ %.1.i, %.thread.i ], [ false, %324 ]
   invoke void @X509_free(ptr noundef nonnull %115)
           to label %_ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit.i unwind label %328
 
@@ -1060,7 +1060,7 @@ _ZNSt6vectorIP7x509_stSaIS1_EED2Ev.exit208.i:     ; preds = %323, %302, %281, %2
   unreachable
 
 _ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit.i: ; preds = %327, %324
-  %.0272.i = phi i1 [ false, %324 ], [ %.0271.i, %327 ]
+  %.0295.i = phi i1 [ false, %324 ], [ %.0294.i, %327 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %.not.i209.i = icmp eq ptr %105, null
   br i1 %.not.i209.i, label %_ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit210.i, label %331
@@ -1217,7 +1217,7 @@ _ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit220.i
 
 _ZL10TestVerifyv.exit:                            ; preds = %_ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit220.i, %355
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br i1 %.0272.i, label %359, label %489
+  br i1 %.0295.i, label %359, label %489
 
 359:                                              ; preds = %_ZL10TestVerifyv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1787,14 +1787,14 @@ _ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_fr
   br label %57
 
 48:                                               ; preds = %10
-  br i1 %.not.i24, label %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit.thread47, label %49
+  br i1 %.not.i24, label %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit.thread52, label %49
 
-_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit.thread47: ; preds = %48
+_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit.thread52: ; preds = %48
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit26
 
 49:                                               ; preds = %.thread, %48
-  %.045 = phi i1 [ %.129, %.thread ], [ false, %48 ]
+  %.050 = phi i1 [ %.129, %.thread ], [ false, %48 ]
   invoke void @sk_pop_free(ptr noundef nonnull %9, ptr noundef nonnull @X509_free)
           to label %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit unwind label %50
 
@@ -1810,7 +1810,7 @@ _ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_fr
   br i1 %.not40, label %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit26, label %53
 
 53:                                               ; preds = %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit.thread, %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit
-  %.03438 = phi i1 [ false, %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit.thread ], [ %.045, %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit ]
+  %.03438 = phi i1 [ false, %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit.thread ], [ %.050, %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit ]
   invoke void @sk_pop_free(ptr noundef nonnull %8, ptr noundef nonnull @X509_free)
           to label %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit26 unwind label %54
 
@@ -1821,8 +1821,8 @@ _ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_fr
   tail call void @__clang_call_terminate(ptr %56) #11
   unreachable
 
-_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit26: ; preds = %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit.thread47, %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit, %53
-  %.03439 = phi i1 [ %.045, %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit ], [ %.03438, %53 ], [ false, %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit.thread47 ]
+_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit26: ; preds = %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit.thread52, %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit, %53
+  %.03439 = phi i1 [ %.050, %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit ], [ %.03438, %53 ], [ false, %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit.thread52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.03439
 
@@ -2149,9 +2149,9 @@ _ZL11CertFromPEMPKc.exit:                         ; preds = %8, %7
   unreachable
 
 _ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit: ; preds = %_ZL11CertFromPEMPKc.exit, %23
-  %.07 = phi i1 [ %.0.ph, %23 ], [ false, %_ZL11CertFromPEMPKc.exit ]
+  %.09 = phi i1 [ %.0.ph, %23 ], [ false, %_ZL11CertFromPEMPKc.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %.07
+  ret i1 %.09
 }
 
 declare i32 @EVP_PKEY_CTX_set_rsa_padding(ptr noundef, i32 noundef) local_unnamed_addr #1

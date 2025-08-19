@@ -141,8 +141,8 @@ define hidden noundef i32 @_ZN7Imf_3_43Zip8compressEPKciPc(ptr noundef nonnull r
 ._crit_edge:                                      ; preds = %18, %.lr.ph
   %.pre = load ptr, ptr %6, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %.pre, i64 %8
-  %.not42 = icmp eq i32 %2, 1
-  br i1 %.not42, label %._crit_edge40, label %.lr.ph39.preheader
+  %.not44 = icmp eq i32 %2, 1
+  br i1 %.not44, label %._crit_edge40, label %.lr.ph39.preheader
 
 .lr.ph39.preheader:                               ; preds = %._crit_edge
   %.02835 = getelementptr inbounds nuw i8, ptr %.pre, i64 1

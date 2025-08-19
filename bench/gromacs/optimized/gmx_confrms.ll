@@ -756,7 +756,7 @@ _ZL12debug_strcmpPcS_.exit.i:                     ; preds = %292, %280
   %305 = getelementptr inbounds %struct.t_atom, ptr %.val.i, i64 %304, i32 7
   %306 = load i32, ptr %305, align 4, !tbaa !60
   %307 = icmp eq i32 %306, %300
-  br i1 %307, label %308, label %.critedge.loopexit.split.loop.exit5.i.i
+  br i1 %307, label %308, label %.critedge.loopexit.split.loop.exit6.i.i
 
 308:                                              ; preds = %.lr.ph.i177.i
   %indvars.iv.next.i179.i = add nsw i64 %indvars.iv.i178.i, 1
@@ -764,12 +764,12 @@ _ZL12debug_strcmpPcS_.exit.i:                     ; preds = %292, %280
   %exitcond.not.i180.i = icmp eq i32 %296, %lftr.wideiv.i.i
   br i1 %exitcond.not.i180.i, label %_ZL12find_res_endiiPKiPK7t_atoms.exit.i, label %.lr.ph.i177.i, !llvm.loop !69
 
-.critedge.loopexit.split.loop.exit5.i.i:          ; preds = %.lr.ph.i177.i
+.critedge.loopexit.split.loop.exit6.i.i:          ; preds = %.lr.ph.i177.i
   %309 = trunc nsw i64 %indvars.iv.i178.i to i32
   br label %_ZL12find_res_endiiPKiPK7t_atoms.exit.i
 
-_ZL12find_res_endiiPKiPK7t_atoms.exit.i:          ; preds = %308, %.critedge.loopexit.split.loop.exit5.i.i, %295
-  %.0.lcssa.i176.i = phi i32 [ %242, %295 ], [ %309, %.critedge.loopexit.split.loop.exit5.i.i ], [ %296, %308 ]
+_ZL12find_res_endiiPKiPK7t_atoms.exit.i:          ; preds = %308, %.critedge.loopexit.split.loop.exit6.i.i, %295
+  %.0.lcssa.i176.i = phi i32 [ %242, %295 ], [ %309, %.critedge.loopexit.split.loop.exit6.i.i ], [ %296, %308 ]
   %310 = load i32, ptr %27, align 4, !tbaa !4
   %.val161.i = load ptr, ptr %211, align 8, !tbaa !59
   %311 = load i32, ptr %253, align 4, !tbaa !4
@@ -787,7 +787,7 @@ _ZL12find_res_endiiPKiPK7t_atoms.exit.i:          ; preds = %308, %.critedge.loo
   %319 = getelementptr inbounds %struct.t_atom, ptr %.val161.i, i64 %318, i32 7
   %320 = load i32, ptr %319, align 4, !tbaa !60
   %321 = icmp eq i32 %320, %314
-  br i1 %321, label %322, label %.critedge.loopexit.split.loop.exit5.i184.i
+  br i1 %321, label %322, label %.critedge.loopexit.split.loop.exit6.i184.i
 
 322:                                              ; preds = %.lr.ph.i182.i
   %indvars.iv.next.i185.i = add nsw i64 %indvars.iv.i183.i, 1
@@ -795,12 +795,12 @@ _ZL12find_res_endiiPKiPK7t_atoms.exit.i:          ; preds = %308, %.critedge.loo
   %exitcond.not.i187.i = icmp eq i32 %310, %lftr.wideiv.i186.i
   br i1 %exitcond.not.i187.i, label %_ZL12find_res_endiiPKiPK7t_atoms.exit188.i, label %.lr.ph.i182.i, !llvm.loop !69
 
-.critedge.loopexit.split.loop.exit5.i184.i:       ; preds = %.lr.ph.i182.i
+.critedge.loopexit.split.loop.exit6.i184.i:       ; preds = %.lr.ph.i182.i
   %323 = trunc nsw i64 %indvars.iv.i183.i to i32
   br label %_ZL12find_res_endiiPKiPK7t_atoms.exit188.i
 
-_ZL12find_res_endiiPKiPK7t_atoms.exit188.i:       ; preds = %322, %.critedge.loopexit.split.loop.exit5.i184.i, %_ZL12find_res_endiiPKiPK7t_atoms.exit.i
-  %.0.lcssa.i181.i = phi i32 [ %243, %_ZL12find_res_endiiPKiPK7t_atoms.exit.i ], [ %323, %.critedge.loopexit.split.loop.exit5.i184.i ], [ %310, %322 ]
+_ZL12find_res_endiiPKiPK7t_atoms.exit188.i:       ; preds = %322, %.critedge.loopexit.split.loop.exit6.i184.i, %_ZL12find_res_endiiPKiPK7t_atoms.exit.i
+  %.0.lcssa.i181.i = phi i32 [ %243, %_ZL12find_res_endiiPKiPK7t_atoms.exit.i ], [ %323, %.critedge.loopexit.split.loop.exit6.i184.i ], [ %310, %322 ]
   %324 = load ptr, ptr @debug, align 8, !tbaa !22
   %.not149.i = icmp eq ptr %324, null
   br i1 %.not149.i, label %327, label %325
@@ -847,19 +847,19 @@ _ZL12find_res_endiiPKiPK7t_atoms.exit188.i:       ; preds = %322, %.critedge.loo
   %350 = getelementptr inbounds nuw i32, ptr %186, i64 %indvars.iv.i191.i
   %351 = load i32, ptr %350, align 4, !tbaa !4
   %.not.i192.i = icmp eq i32 %250, %351
-  br i1 %.not.i192.i, label %.critedge.loopexit.split.loop.exit274.i.i, label %352
+  br i1 %.not.i192.i, label %.critedge.loopexit.split.loop.exit285.i.i, label %352
 
 352:                                              ; preds = %.lr.ph.i189.i
   %indvars.iv.next.i193.i = add nuw nsw i64 %indvars.iv.i191.i, 1
   %exitcond.not.i194.i = icmp eq i64 %indvars.iv.next.i193.i, %wide.trip.count.i190.i
   br i1 %exitcond.not.i194.i, label %.critedge.i.i, label %.lr.ph.i189.i, !llvm.loop !70
 
-.critedge.loopexit.split.loop.exit274.i.i:        ; preds = %.lr.ph.i189.i
+.critedge.loopexit.split.loop.exit285.i.i:        ; preds = %.lr.ph.i189.i
   %353 = trunc nuw nsw i64 %indvars.iv.i191.i to i32
   br label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %352, %.critedge.loopexit.split.loop.exit274.i.i, %349
-  %.0133.lcssa.i.i = phi i32 [ 0, %349 ], [ %353, %.critedge.loopexit.split.loop.exit274.i.i ], [ %.0.lcssa.i.i, %352 ]
+.critedge.i.i:                                    ; preds = %352, %.critedge.loopexit.split.loop.exit285.i.i, %349
+  %.0133.lcssa.i.i = phi i32 [ 0, %349 ], [ %353, %.critedge.loopexit.split.loop.exit285.i.i ], [ %.0.lcssa.i.i, %352 ]
   br i1 %237, label %.lr.ph194.i.i, label %.critedge2.i.i
 
 .lr.ph194.i.i:                                    ; preds = %.critedge.i.i, %356
@@ -867,19 +867,19 @@ _ZL12find_res_endiiPKiPK7t_atoms.exit188.i:       ; preds = %322, %.critedge.loo
   %354 = getelementptr inbounds nuw i32, ptr %209, i64 %indvars.iv216.i.i
   %355 = load i32, ptr %354, align 4, !tbaa !4
   %.not152.i.i = icmp eq i32 %257, %355
-  br i1 %.not152.i.i, label %.critedge2.loopexit.split.loop.exit276.i.i, label %356
+  br i1 %.not152.i.i, label %.critedge2.loopexit.split.loop.exit287.i.i, label %356
 
 356:                                              ; preds = %.lr.ph194.i.i
   %indvars.iv.next217.i.i = add nuw nsw i64 %indvars.iv216.i.i, 1
   %exitcond220.not.i.i = icmp eq i64 %indvars.iv.next217.i.i, %wide.trip.count219.i.i
   br i1 %exitcond220.not.i.i, label %.critedge2.i.i, label %.lr.ph194.i.i, !llvm.loop !71
 
-.critedge2.loopexit.split.loop.exit276.i.i:       ; preds = %.lr.ph194.i.i
+.critedge2.loopexit.split.loop.exit287.i.i:       ; preds = %.lr.ph194.i.i
   %357 = trunc nuw nsw i64 %indvars.iv216.i.i to i32
   br label %.critedge2.i.i
 
-.critedge2.i.i:                                   ; preds = %356, %.critedge2.loopexit.split.loop.exit276.i.i, %.critedge.i.i
-  %.0131.lcssa.i.i = phi i32 [ 0, %.critedge.i.i ], [ %357, %.critedge2.loopexit.split.loop.exit276.i.i ], [ %.0.lcssa.i164.i, %356 ]
+.critedge2.i.i:                                   ; preds = %356, %.critedge2.loopexit.split.loop.exit287.i.i, %.critedge.i.i
+  %.0131.lcssa.i.i = phi i32 [ 0, %.critedge.i.i ], [ %357, %.critedge2.loopexit.split.loop.exit287.i.i ], [ %.0.lcssa.i164.i, %356 ]
   %358 = sub nsw i32 %.0.lcssa.i.i, %.0133.lcssa.i.i
   %359 = sub nsw i32 %.0.lcssa.i164.i, %.0131.lcssa.i.i
   %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %358, i32 %359)
@@ -971,9 +971,9 @@ _ZL12debug_strcmpPcS_.exit.i.i:                   ; preds = %384
 402:                                              ; preds = %400, %_ZL12debug_strcmpPcS_.exit.i.i, %_ZL12debug_strcmpPcS_.exit.thread.i.i
   %.2137.i.i = phi i32 [ %399, %400 ], [ %399, %_ZL12debug_strcmpPcS_.exit.i.i ], [ %397, %_ZL12debug_strcmpPcS_.exit.thread.i.i ]
   %.not159.i.i = icmp eq i32 %.2137.i.i, 0
-  br i1 %.not159.i.i, label %.thread254.i.i, label %.thread.i.i
+  br i1 %.not159.i.i, label %.thread265.i.i, label %.thread.i.i
 
-.thread254.i.i:                                   ; preds = %402
+.thread265.i.i:                                   ; preds = %402
   %403 = trunc nuw nsw i64 %indvars.iv223.i.i to i32
   br label %473
 
@@ -1104,11 +1104,11 @@ _ZL12debug_strcmpPcS_.exit166.i.i:                ; preds = %427
   %472 = icmp eq i32 %.4139.i.i, 0
   br i1 %472, label %473, label %.thread264.i
 
-473:                                              ; preds = %471, %.thread254.i.i
-  %.1125265.i.i = phi i32 [ %403, %.thread254.i.i ], [ %.1125.i.i, %471 ]
-  %.0128.lcssa247262.i.i = phi i1 [ true, %.thread254.i.i ], [ %.4.i.i, %471 ]
-  %.0126.lcssa248261.i.i = phi i1 [ false, %.thread254.i.i ], [ %.2.i.i, %471 ]
-  %.0.lcssa249260.i.i = trunc i64 %indvars.iv221.i.i to i32
+473:                                              ; preds = %471, %.thread265.i.i
+  %.1125276.i.i = phi i32 [ %403, %.thread265.i.i ], [ %.1125.i.i, %471 ]
+  %.0128.lcssa258273.i.i = phi i1 [ true, %.thread265.i.i ], [ %.4.i.i, %471 ]
+  %.0126.lcssa259272.i.i = phi i1 [ false, %.thread265.i.i ], [ %.2.i.i, %471 ]
+  %.0.lcssa260271.i.i = trunc i64 %indvars.iv221.i.i to i32
   %474 = load ptr, ptr @debug, align 8, !tbaa !22
   %.not155.i.i = icmp eq ptr %474, null
   br i1 %.not155.i.i, label %_ZL19find_next_match_resPiiPKiP9t_resinfoS_iS1_S3_.exit.i, label %475
@@ -1118,10 +1118,10 @@ _ZL12debug_strcmpPcS_.exit166.i.i:                ; preds = %427
   br label %_ZL19find_next_match_resPiiPKiP9t_resinfoS_iS1_S3_.exit.i
 
 _ZL19find_next_match_resPiiPKiP9t_resinfoS_iS1_S3_.exit.i: ; preds = %475, %473
-  %.0..1125.i.i = select i1 %.0128.lcssa247262.i.i, i32 %.0.lcssa249260.i.i, i32 %.1125265.i.i
-  %476 = select i1 %.0126.lcssa248261.i.i, i1 true, i1 %.0128.lcssa247262.i.i
-  %.1125.pn.i.i = select i1 %476, i32 %.1125265.i.i, i32 %.0.lcssa249260.i.i
-  %.1125.pn156.i.i = select i1 %.0126.lcssa248261.i.i, i32 %.1125265.i.i, i32 %.0..1125.i.i
+  %.0..1125.i.i = select i1 %.0128.lcssa258273.i.i, i32 %.0.lcssa260271.i.i, i32 %.1125276.i.i
+  %476 = select i1 %.0126.lcssa259272.i.i, i1 true, i1 %.0128.lcssa258273.i.i
+  %.1125.pn.i.i = select i1 %476, i32 %.1125276.i.i, i32 %.0.lcssa260271.i.i
+  %.1125.pn156.i.i = select i1 %.0126.lcssa259272.i.i, i32 %.1125276.i.i, i32 %.0..1125.i.i
   %.1132.i.i = add nsw i32 %.1125.pn156.i.i, %.0131.lcssa.i.i
   %.1134.i.i = add nsw i32 %.1125.pn.i.i, %.0133.lcssa.i.i
   %477 = sext i32 %.1134.i.i to i64
@@ -1224,7 +1224,7 @@ _ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i: ; preds = %511, %.critedge.l
 .thread264.i:                                     ; preds = %_ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i, %501, %471, %363
   %.1254261271.i = phi i32 [ %482, %_ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i ], [ %257, %501 ], [ %257, %363 ], [ %257, %471 ]
   %.1252262270.i = phi i32 [ %479, %_ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i ], [ %479, %501 ], [ %250, %363 ], [ %250, %471 ]
-  %.0135.lcssa246263.i263269.i = phi i32 [ 0, %_ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i ], [ 0, %501 ], [ -9368163, %363 ], [ %.4139.i.i, %471 ]
+  %.0135.lcssa257274.i263269.i = phi i32 [ 0, %_ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i ], [ 0, %501 ], [ -9368163, %363 ], [ %.4139.i.i, %471 ]
   %520 = load ptr, ptr @debug, align 8, !tbaa !22
   %.not154.i = icmp eq ptr %520, null
   %.pre311.i = load i32, ptr %3, align 4, !tbaa !4
@@ -1281,7 +1281,7 @@ _ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i: ; preds = %511, %.critedge.l
   %557 = getelementptr inbounds %struct.t_atom, ptr %.val162.i, i64 %556, i32 7
   %558 = load i32, ptr %557, align 4, !tbaa !60
   %559 = icmp eq i32 %558, %552
-  br i1 %559, label %560, label %.critedge.loopexit.split.loop.exit5.i220.i
+  br i1 %559, label %560, label %.critedge.loopexit.split.loop.exit6.i220.i
 
 560:                                              ; preds = %.lr.ph.i218.i
   %indvars.iv.next.i221.i = add nsw i64 %indvars.iv.i219.i, 1
@@ -1289,12 +1289,12 @@ _ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i: ; preds = %511, %.critedge.l
   %exitcond.not.i223.i = icmp eq i32 %547, %lftr.wideiv.i222.i
   br i1 %exitcond.not.i223.i, label %_ZL12find_res_endiiPKiPK7t_atoms.exit224.i, label %.lr.ph.i218.i, !llvm.loop !69
 
-.critedge.loopexit.split.loop.exit5.i220.i:       ; preds = %.lr.ph.i218.i
+.critedge.loopexit.split.loop.exit6.i220.i:       ; preds = %.lr.ph.i218.i
   %561 = trunc nsw i64 %indvars.iv.i219.i to i32
   br label %_ZL12find_res_endiiPKiPK7t_atoms.exit224.i
 
-_ZL12find_res_endiiPKiPK7t_atoms.exit224.i:       ; preds = %560, %.critedge.loopexit.split.loop.exit5.i220.i, %546
-  %.0.lcssa.i217.i = phi i32 [ %.pre311.i, %546 ], [ %561, %.critedge.loopexit.split.loop.exit5.i220.i ], [ %547, %560 ]
+_ZL12find_res_endiiPKiPK7t_atoms.exit224.i:       ; preds = %560, %.critedge.loopexit.split.loop.exit6.i220.i, %546
+  %.0.lcssa.i217.i = phi i32 [ %.pre311.i, %546 ], [ %561, %.critedge.loopexit.split.loop.exit6.i220.i ], [ %547, %560 ]
   %562 = load i32, ptr %4, align 4, !tbaa !4
   %563 = load i32, ptr %27, align 4, !tbaa !4
   %.val163.i = load ptr, ptr %211, align 8, !tbaa !59
@@ -1315,7 +1315,7 @@ _ZL12find_res_endiiPKiPK7t_atoms.exit224.i:       ; preds = %560, %.critedge.loo
   %574 = getelementptr inbounds %struct.t_atom, ptr %.val163.i, i64 %573, i32 7
   %575 = load i32, ptr %574, align 4, !tbaa !60
   %576 = icmp eq i32 %575, %569
-  br i1 %576, label %577, label %.critedge.loopexit.split.loop.exit5.i229.i
+  br i1 %576, label %577, label %.critedge.loopexit.split.loop.exit6.i229.i
 
 577:                                              ; preds = %.lr.ph.i227.i
   %indvars.iv.next.i230.i = add nsw i64 %indvars.iv.i228.i, 1
@@ -1323,12 +1323,12 @@ _ZL12find_res_endiiPKiPK7t_atoms.exit224.i:       ; preds = %560, %.critedge.loo
   %exitcond.not.i232.i = icmp eq i32 %563, %lftr.wideiv.i231.i
   br i1 %exitcond.not.i232.i, label %_ZL12find_res_endiiPKiPK7t_atoms.exit233.i, label %.lr.ph.i227.i, !llvm.loop !69
 
-.critedge.loopexit.split.loop.exit5.i229.i:       ; preds = %.lr.ph.i227.i
+.critedge.loopexit.split.loop.exit6.i229.i:       ; preds = %.lr.ph.i227.i
   %578 = trunc nsw i64 %indvars.iv.i228.i to i32
   br label %_ZL12find_res_endiiPKiPK7t_atoms.exit233.i
 
-_ZL12find_res_endiiPKiPK7t_atoms.exit233.i:       ; preds = %577, %.critedge.loopexit.split.loop.exit5.i229.i, %_ZL12find_res_endiiPKiPK7t_atoms.exit224.i
-  %.0.lcssa.i226.i = phi i32 [ %562, %_ZL12find_res_endiiPKiPK7t_atoms.exit224.i ], [ %578, %.critedge.loopexit.split.loop.exit5.i229.i ], [ %563, %577 ]
+_ZL12find_res_endiiPKiPK7t_atoms.exit233.i:       ; preds = %577, %.critedge.loopexit.split.loop.exit6.i229.i, %_ZL12find_res_endiiPKiPK7t_atoms.exit224.i
+  %.0.lcssa.i226.i = phi i32 [ %562, %_ZL12find_res_endiiPKiPK7t_atoms.exit224.i ], [ %578, %.critedge.loopexit.split.loop.exit6.i229.i ], [ %563, %577 ]
   %579 = load ptr, ptr @debug, align 8, !tbaa !22
   %.not155.i = icmp eq ptr %579, null
   br i1 %.not155.i, label %582, label %580
@@ -1366,7 +1366,7 @@ _ZL12find_res_endiiPKiPK7t_atoms.exit233.i:       ; preds = %577, %.critedge.loo
 .thread.i:                                        ; preds = %585, %348, %_ZL12debug_strcmpPcS_.exit.i
   %.0253.ph.i = phi i32 [ %.1254261271.i, %585 ], [ %257, %348 ], [ %257, %_ZL12debug_strcmpPcS_.exit.i ]
   %.0251.ph.i = phi i32 [ %.1252262270.i, %585 ], [ %250, %348 ], [ %250, %_ZL12debug_strcmpPcS_.exit.i ]
-  %.2122.ph.i = phi i32 [ %.0135.lcssa246263.i263269.i, %585 ], [ %.1121.i, %348 ], [ %.1121.i, %_ZL12debug_strcmpPcS_.exit.i ]
+  %.2122.ph.i = phi i32 [ %.0135.lcssa257274.i263269.i, %585 ], [ %.1121.i, %348 ], [ %.1121.i, %_ZL12debug_strcmpPcS_.exit.i ]
   %.2.ph.i = phi i32 [ %583, %585 ], [ 0, %348 ], [ 0, %_ZL12debug_strcmpPcS_.exit.i ]
   %.pr.i = load ptr, ptr @debug, align 8, !tbaa !22
   %.not157.i = icmp eq ptr %.pr.i, null
@@ -1381,15 +1381,15 @@ _ZL12find_res_endiiPKiPK7t_atoms.exit233.i:       ; preds = %577, %.critedge.loo
 .thread272.i:                                     ; preds = %603, %.thread.i, %582
   %.pre309.i459 = phi ptr [ %.pre309.i.pre, %603 ], [ null, %.thread.i ], [ null, %582 ]
   %.2281.i = phi i32 [ %.2.ph.i, %603 ], [ %.2.ph.i, %.thread.i ], [ %583, %582 ]
-  %.2122280.i = phi i32 [ %.2122.ph.i, %603 ], [ %.2122.ph.i, %.thread.i ], [ %.0135.lcssa246263.i263269.i, %582 ]
+  %.2122280.i = phi i32 [ %.2122.ph.i, %603 ], [ %.2122.ph.i, %.thread.i ], [ %.0135.lcssa257274.i263269.i, %582 ]
   %.0251279.i = phi i32 [ %.0251.ph.i, %603 ], [ %.0251.ph.i, %.thread.i ], [ %.1252262270.i, %582 ]
   %.0253278.i = phi i32 [ %.0253.ph.i, %603 ], [ %.0253.ph.i, %.thread.i ], [ %.1254261271.i, %582 ]
   %606 = icmp eq i32 %.2281.i, 0
   %.pre312.i = load i32, ptr %3, align 4, !tbaa !4
   %.pre313.i = load i32, ptr %4, align 4, !tbaa !4
-  br i1 %606, label %609, label %.thread320.i
+  br i1 %606, label %609, label %.thread359.i
 
-.thread320.i:                                     ; preds = %.thread272.i
+.thread359.i:                                     ; preds = %.thread272.i
   %607 = add nsw i32 %.pre312.i, 1
   %608 = add nsw i32 %.pre313.i, 1
   br label %.critedge.i
@@ -1417,10 +1417,10 @@ _ZL12find_res_endiiPKiPK7t_atoms.exit233.i:       ; preds = %577, %.critedge.loo
   %or.cond292 = select i1 %621, i1 %623, i1 false
   br i1 %or.cond292, label %.lr.ph, label %.critedge.i, !llvm.loop !75
 
-.critedge.i:                                      ; preds = %609, %.thread320.i
-  %.0297.i317.in = phi i64 [ %indvars.iv, %.thread320.i ], [ %indvars.iv.next, %609 ]
-  %624 = phi i32 [ %608, %.thread320.i ], [ %619, %609 ]
-  %625 = phi i32 [ %607, %.thread320.i ], [ %618, %609 ]
+.critedge.i:                                      ; preds = %609, %.thread359.i
+  %.0297.i317.in = phi i64 [ %indvars.iv, %.thread359.i ], [ %indvars.iv.next, %609 ]
+  %624 = phi i32 [ %608, %.thread359.i ], [ %619, %609 ]
+  %625 = phi i32 [ %607, %.thread359.i ], [ %618, %609 ]
   %.0297.i317 = trunc i64 %.0297.i317.in to i32
   %626 = icmp eq i32 %625, %.0297.i317
   %627 = icmp eq i32 %624, %.0297.i317
@@ -3122,7 +3122,7 @@ _ZL12debug_strcmpPcS_.exit:                       ; preds = %27
 52:                                               ; preds = %_ZL12debug_strcmpPcS_.exit.thread, %_ZL12debug_strcmpPcS_.exit, %46
   %.275 = phi i32 [ %45, %46 ], [ %45, %_ZL12debug_strcmpPcS_.exit ], [ %43, %_ZL12debug_strcmpPcS_.exit.thread ]
   %.not91 = icmp eq i32 %.275, 0
-  br i1 %.not91, label %._crit_edge.thread134, label %..thread_crit_edge
+  br i1 %.not91, label %._crit_edge.thread143, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %52
   %.pre = load i32, ptr %0, align 4, !tbaa !4
@@ -3198,15 +3198,15 @@ _ZL12debug_strcmpPcS_.exit94:                     ; preds = %60
 ._crit_edge:                                      ; preds = %90
   %94 = trunc nuw i8 %.3 to i1
   %95 = icmp eq i32 %.376, 0
-  br i1 %95, label %._crit_edge.thread134, label %._crit_edge.thread
+  br i1 %95, label %._crit_edge.thread143, label %._crit_edge.thread
 
-._crit_edge.thread134:                            ; preds = %52, %._crit_edge
+._crit_edge.thread143:                            ; preds = %52, %._crit_edge
   %96 = phi i1 [ %94, %._crit_edge ], [ true, %52 ]
   %97 = load ptr, ptr @debug, align 8, !tbaa !22
   %.not = icmp eq ptr %97, null
   br i1 %.not, label %._crit_edge117, label %98
 
-98:                                               ; preds = %._crit_edge.thread134
+98:                                               ; preds = %._crit_edge.thread143
   %99 = load i32, ptr %0, align 4, !tbaa !4
   %100 = select i1 %96, i32 %.077111, i32 %.179106
   %101 = add nsw i32 %99, %100
@@ -3216,20 +3216,20 @@ _ZL12debug_strcmpPcS_.exit94:                     ; preds = %60
   %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %97, ptr noundef nonnull @.str.88, i32 noundef %101, i32 noundef %104) #19
   br label %._crit_edge117
 
-._crit_edge117:                                   ; preds = %._crit_edge.thread134, %98
+._crit_edge117:                                   ; preds = %._crit_edge.thread143, %98
   %106 = load i32, ptr %0, align 4, !tbaa !4
-  %.077111141..179106139 = select i1 %96, i32 %.077111, i32 %.179106
-  %.179106139..077111141 = select i1 %96, i32 %.179106, i32 %.077111
-  %107 = add nsw i32 %106, %.077111141..179106139
+  %.077111150..179106148 = select i1 %96, i32 %.077111, i32 %.179106
+  %.179106148..077111150 = select i1 %96, i32 %.179106, i32 %.077111
+  %107 = add nsw i32 %106, %.077111150..179106148
   store i32 %107, ptr %0, align 4, !tbaa !4
   %108 = load i32, ptr %4, align 4, !tbaa !4
-  %109 = add nsw i32 %108, %.179106139..077111141
+  %109 = add nsw i32 %108, %.179106148..077111150
   store i32 %109, ptr %4, align 4, !tbaa !4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge117, %8, %._crit_edge
-  %.073.lcssa133 = phi i32 [ %.376, %._crit_edge ], [ -9368163, %8 ], [ 0, %._crit_edge117 ]
-  ret i32 %.073.lcssa133
+  %.073.lcssa142 = phi i32 [ %.376, %._crit_edge ], [ -9368163, %8 ], [ 0, %._crit_edge117 ]
+  ret i32 %.073.lcssa142
 }
 
 declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3

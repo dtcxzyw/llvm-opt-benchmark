@@ -37,7 +37,7 @@ define internal range(i32 -2147483648, 1) i32 @ac3_handle_packet(ptr noundef %0,
   %17 = zext i8 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %19 = add nsw i32 %6, -2
-  switch i8 %14, label %default.unreachable66 [
+  switch i8 %14, label %default.unreachable71 [
     i8 0, label %20
     i8 1, label %33
     i8 2, label %33
@@ -127,7 +127,7 @@ define internal range(i32 -2147483648, 1) i32 @ac3_handle_packet(ptr noundef %0,
   %.not63 = icmp eq i32 %57, 0
   br i1 %.not63, label %70, label %58
 
-default.unreachable66:                            ; preds = %12
+default.unreachable71:                            ; preds = %12
   unreachable
 
 58:                                               ; preds = %53

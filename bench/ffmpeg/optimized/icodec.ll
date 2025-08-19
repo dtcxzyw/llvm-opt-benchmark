@@ -105,7 +105,7 @@ define internal range(i32 0, 52) i32 @probe(ptr noundef readonly captures(none) 
   br i1 %52, label %64, label %53
 
 53:                                               ; preds = %51
-  %54 = zext i32 %46 to i64
+  %54 = zext nneg i32 %46 to i64
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !12
   %.not54 = icmp eq i8 %56, 40
@@ -276,9 +276,9 @@ define internal range(i32 -1094995529, 1) i32 @read_header(ptr noundef %0) #1 {
   br label %.thread
 
 .sink.split:                                      ; preds = %49, %67
-  %.sink92 = phi ptr [ %69, %67 ], [ %50, %49 ]
+  %.sink97 = phi ptr [ %69, %67 ], [ %50, %49 ]
   %.sink = phi i32 [ %68, %67 ], [ 0, %49 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.sink92, i64 76
+  %71 = getelementptr inbounds nuw i8, ptr %.sink97, i64 76
   store i32 %.sink, ptr %71, align 4, !tbaa !45
   br label %72
 

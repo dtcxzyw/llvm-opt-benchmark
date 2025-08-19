@@ -413,7 +413,7 @@ check_retval.exit135:                             ; preds = %159
   %166 = load ptr, ptr %5, align 8, !tbaa !17
   switch i32 %.0169, label %171 [
     i32 1, label %.thread
-    i32 2, label %.thread241
+    i32 2, label %.thread264
   ]
 
 .thread:                                          ; preds = %165
@@ -421,7 +421,7 @@ check_retval.exit135:                             ; preds = %159
   %168 = call i32 @CVodeSetNonlinearSolverSensSim(ptr noundef nonnull %80, ptr noundef %167) #13
   br label %174
 
-.thread241:                                       ; preds = %165
+.thread264:                                       ; preds = %165
   %169 = call ptr @SUNNonlinSol_FixedPointSens(i32 noundef 2, ptr noundef nonnull %63, i32 noundef 0, ptr noundef %166) #13
   %170 = call i32 @CVodeSetNonlinearSolverSensStg(ptr noundef nonnull %80, ptr noundef %169) #13
   br label %174
@@ -431,9 +431,9 @@ check_retval.exit135:                             ; preds = %159
   %173 = call i32 @CVodeSetNonlinearSolverSensStg1(ptr noundef nonnull %80, ptr noundef %172) #13
   br label %174
 
-174:                                              ; preds = %.thread241, %171, %.thread
-  %.0240 = phi ptr [ %172, %171 ], [ %167, %.thread ], [ %169, %.thread241 ]
-  %.0172 = phi i32 [ %173, %171 ], [ %168, %.thread ], [ %170, %.thread241 ]
+174:                                              ; preds = %.thread264, %171, %.thread
+  %.0263 = phi ptr [ %172, %171 ], [ %167, %.thread ], [ %169, %.thread264 ]
+  %.0172 = phi i32 [ %173, %171 ], [ %168, %.thread ], [ %170, %.thread264 ]
   %175 = icmp slt i32 %.0172, 0
   br i1 %175, label %check_retval.exit139, label %178
 
@@ -446,9 +446,9 @@ check_retval.exit139:                             ; preds = %174
   %179 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16)
   %switch.selectcmp = icmp eq i32 %.0169, 2
   %switch.select = select i1 %switch.selectcmp, ptr @.str.18, ptr @.str.19
-  %switch.selectcmp252 = icmp eq i32 %.0169, 1
-  %switch.select253 = select i1 %switch.selectcmp252, ptr @.str.17, ptr %switch.select
-  %180 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.select253)
+  %switch.selectcmp275 = icmp eq i32 %.0169, 1
+  %switch.select276 = select i1 %switch.selectcmp275, ptr @.str.17, ptr %switch.select
+  %180 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.select276)
   br label %181
 
 181:                                              ; preds = %178, %110
@@ -456,7 +456,7 @@ check_retval.exit139:                             ; preds = %174
   %.068 = phi ptr [ null, %110 ], [ %118, %178 ]
   %.065 = phi ptr [ null, %110 ], [ %113, %178 ]
   %.064 = phi ptr [ null, %110 ], [ %131, %178 ]
-  %.1 = phi ptr [ null, %110 ], [ %.0240, %178 ]
+  %.1 = phi ptr [ null, %110 ], [ %.0263, %178 ]
   %182 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.20.sink)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %puts95 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)

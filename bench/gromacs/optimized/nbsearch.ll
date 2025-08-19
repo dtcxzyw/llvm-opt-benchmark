@@ -1432,7 +1432,7 @@ define linkonce_odr void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(p
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !59
@@ -1522,16 +1522,16 @@ switch.lookup:                                    ; preds = %12
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 65537, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
-  %switch.cast57 = trunc nuw i32 %13 to i24
-  %switch.shiftamt58 = shl nuw nsw i24 %switch.cast57, 3
-  %switch.downshift59 = lshr i24 1, %switch.shiftamt58
-  %switch.masked60 = trunc nuw nsw i24 %switch.downshift59 to i8
+  %switch.cast59 = trunc nuw i32 %13 to i24
+  %switch.shiftamt60 = shl nuw nsw i24 %switch.cast59, 3
+  %switch.downshift61 = lshr i24 1, %switch.shiftamt60
+  %switch.masked62 = trunc nuw nsw i24 %switch.downshift61 to i8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 442
   store i8 %switch.masked, ptr %15, align 2, !tbaa !38
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 443
   store i8 %switch.masked, ptr %16, align 1, !tbaa !38
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 444
-  store i8 %switch.masked60, ptr %17, align 4, !tbaa !38
+  store i8 %switch.masked62, ptr %17, align 4, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !38
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 1
@@ -2277,8 +2277,8 @@ define void @_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl13initCellRangeEPK
   br label %.preheader.i.thread.sink.split
 
 .preheader.i.thread.sink.split:                   ; preds = %59, %52
-  %.sink47 = phi float [ %55, %52 ], [ %62, %59 ]
-  store float %.sink47, ptr %9, align 4, !tbaa !77
+  %.sink54 = phi float [ %55, %52 ], [ %62, %59 ]
+  store float %.sink54, ptr %9, align 4, !tbaa !77
   br label %.preheader.i.thread
 
 .preheader.i.thread:                              ; preds = %.preheader.i.thread.sink.split, %56
@@ -2642,8 +2642,8 @@ define noundef zeroext i1 @_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nex
   br label %.preheader.i.thread.sink.split.i
 
 .preheader.i.thread.sink.split.i:                 ; preds = %80, %76
-  %.sink47.i = phi float [ %77, %76 ], [ %81, %80 ]
-  store float %.sink47.i, ptr %7, align 4, !tbaa !77
+  %.sink54.i = phi float [ %77, %76 ], [ %81, %80 ]
+  store float %.sink54.i, ptr %7, align 4, !tbaa !77
   br label %.preheader.i.thread.i
 
 .preheader.i.thread.i:                            ; preds = %.preheader.i.thread.sink.split.i, %78
@@ -3058,13 +3058,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 .thread87:                                        ; preds = %63
   %69 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split143
+  br label %.sink.split153
 
 .thread91:                                        ; preds = %65
   %70 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #37
-  br label %.sink.split143
+  br label %.sink.split153
 
 71:                                               ; preds = %66, %68
   %.045 = phi i1 [ false, %68 ], [ true, %66 ]
@@ -3077,13 +3077,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.045, label %73, label %264
 
-.sink.split143:                                   ; preds = %.thread87, %.thread91
+.sink.split153:                                   ; preds = %.thread87, %.thread91
   %.pn.pn90.ph = phi { ptr, i32 } [ %70, %.thread91 ], [ %69, %.thread87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %73
 
-73:                                               ; preds = %.sink.split143, %71
-  %.pn.pn90 = phi { ptr, i32 } [ %72, %71 ], [ %.pn.pn90.ph, %.sink.split143 ]
+73:                                               ; preds = %.sink.split153, %71
+  %.pn.pn90 = phi { ptr, i32 } [ %72, %71 ], [ %.pn.pn90.ph, %.sink.split153 ]
   call void @__cxa_free_exception(ptr %64) #37
   br label %264
 
@@ -3143,9 +3143,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %101, ptr %102, align 8, !tbaa !37
   %103 = icmp eq i32 %1, 1
-  br i1 %103, label %.thread131, label %108
+  br i1 %103, label %.thread141, label %108
 
-.thread131:                                       ; preds = %100
+.thread141:                                       ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i8 0, ptr %104, align 8, !tbaa !87
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -3366,9 +3366,9 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl18mapPointToGridCellEPKfPfS4_.e
   %225 = icmp slt i64 %indvars.iv.next122, %224
   br i1 %225, label %144, label %.loopexit, !llvm.loop !150
 
-226:                                              ; preds = %._crit_edge128, %.thread131, %115
-  %227 = phi ptr [ %107, %.thread131 ], [ %124, %115 ], [ %114, %._crit_edge128 ]
-  %228 = phi ptr [ %106, %.thread131 ], [ %123, %115 ], [ %113, %._crit_edge128 ]
+226:                                              ; preds = %._crit_edge128, %.thread141, %115
+  %227 = phi ptr [ %107, %.thread141 ], [ %124, %115 ], [ %114, %._crit_edge128 ]
+  %228 = phi ptr [ %106, %.thread141 ], [ %123, %115 ], [ %113, %._crit_edge128 ]
   %.not63 = icmp eq ptr %228, null
   br i1 %.not63, label %253, label %229
 
@@ -3781,7 +3781,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br i1 %.not28.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = mul i64 %12, 12
+  %22 = mul nuw nsw i64 %12, 12
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !173
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit

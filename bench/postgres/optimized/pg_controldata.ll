@@ -483,16 +483,16 @@ dbState.exit:                                     ; preds = %121, %switch.lookup
   %228 = getelementptr inbounds nuw i8, ptr %65, i64 172
   %229 = load i32, ptr %228, align 4
   %230 = icmp ult i32 %229, 3
-  br i1 %230, label %switch.lookup129, label %wal_level_str.exit
+  br i1 %230, label %switch.lookup134, label %wal_level_str.exit
 
-switch.lookup129:                                 ; preds = %dbState.exit
+switch.lookup134:                                 ; preds = %dbState.exit
   %231 = zext nneg i32 %229 to i64
-  %switch.gep130 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.main.1, i64 0, i64 %231
-  %switch.load131 = load ptr, ptr %switch.gep130, align 8
+  %switch.gep135 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.main.1, i64 0, i64 %231
+  %switch.load136 = load ptr, ptr %switch.gep135, align 8
   br label %wal_level_str.exit
 
-wal_level_str.exit:                               ; preds = %dbState.exit, %switch.lookup129
-  %.0.i113 = phi ptr [ %switch.load131, %switch.lookup129 ], [ @.str.103, %dbState.exit ]
+wal_level_str.exit:                               ; preds = %dbState.exit, %switch.lookup134
+  %.0.i113 = phi ptr [ %switch.load136, %switch.lookup134 ], [ @.str.103, %dbState.exit ]
   %232 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.54, ptr noundef nonnull %.0.i113) #9
   %233 = getelementptr inbounds nuw i8, ptr %65, i64 176
   %234 = load i8, ptr %233, align 8, !range !6, !noundef !7

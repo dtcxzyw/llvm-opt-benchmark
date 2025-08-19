@@ -119,8 +119,8 @@ define hidden void @_ZN24ObjectDescriptionBuilder9write_intEi(ptr noundef nonnul
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %19, %.critedge.i, %.preheader.i
-  %.pre11.i = phi i64 [ 98, %19 ], [ %.pre.i, %.critedge.i ], [ %6, %.preheader.i ]
-  %23 = getelementptr inbounds [100 x i8], ptr %0, i64 0, i64 %.pre11.i
+  %.pre14.i = phi i64 [ 98, %19 ], [ %.pre.i, %.critedge.i ], [ %6, %.preheader.i ]
+  %23 = getelementptr inbounds [100 x i8], ptr %0, i64 0, i64 %.pre14.i
   store i8 0, ptr %23, align 1
   br label %_ZN24ObjectDescriptionBuilder10write_textEPKc.exit
 
@@ -175,8 +175,8 @@ define hidden void @_ZN24ObjectDescriptionBuilder10write_textEPKc(ptr noundef no
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.preheader, %17, %.critedge
-  %.pre11 = phi i64 [ 98, %17 ], [ %.pre, %.critedge ], [ %4, %.preheader ]
-  %21 = getelementptr inbounds [100 x i8], ptr %0, i64 0, i64 %.pre11
+  %.pre14 = phi i64 [ 98, %17 ], [ %.pre, %.critedge ], [ %4, %.preheader ]
+  %21 = getelementptr inbounds [100 x i8], ptr %0, i64 0, i64 %.pre14
   store i8 0, ptr %21, align 1
   br label %22
 
@@ -366,8 +366,8 @@ define hidden void @_ZN23ObjectSampleDescription10write_textEPKc(ptr noundef non
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %18, %.critedge.i, %.preheader.i
-  %.pre11.i = phi i64 [ 98, %18 ], [ %.pre.i, %.critedge.i ], [ %5, %.preheader.i ]
-  %22 = getelementptr inbounds [100 x i8], ptr %3, i64 0, i64 %.pre11.i
+  %.pre14.i = phi i64 [ 98, %18 ], [ %.pre.i, %.critedge.i ], [ %5, %.preheader.i ]
+  %22 = getelementptr inbounds [100 x i8], ptr %3, i64 0, i64 %.pre14.i
   store i8 0, ptr %22, align 1
   br label %_ZN24ObjectDescriptionBuilder10write_textEPKc.exit
 
@@ -424,8 +424,8 @@ define hidden void @_ZN23ObjectSampleDescription9write_intEi(ptr noundef nonnull
   br label %.critedge.thread.i.i
 
 .critedge.thread.i.i:                             ; preds = %20, %.critedge.i.i, %.preheader.i.i
-  %.pre11.i.i = phi i64 [ 98, %20 ], [ %.pre.i.i, %.critedge.i.i ], [ %7, %.preheader.i.i ]
-  %24 = getelementptr inbounds [100 x i8], ptr %4, i64 0, i64 %.pre11.i.i
+  %.pre14.i.i = phi i64 [ 98, %20 ], [ %.pre.i.i, %.critedge.i.i ], [ %7, %.preheader.i.i ]
+  %24 = getelementptr inbounds [100 x i8], ptr %4, i64 0, i64 %.pre14.i.i
   store i8 0, ptr %24, align 1
   br label %_ZN24ObjectDescriptionBuilder9write_intEi.exit
 
@@ -678,8 +678,8 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit.i: ; preds = %96, %.critedge.i
   br label %.critedge.thread.i.i8.i
 
 .critedge.thread.i.i8.i:                          ; preds = %113, %.critedge.i.i6.i, %.preheader.i.i3.i
-  %.pre11.i.i9.i = phi i64 [ 98, %113 ], [ %.pre.i.i7.i, %.critedge.i.i6.i ], [ %.pr.i, %.preheader.i.i3.i ]
-  %117 = getelementptr inbounds [100 x i8], ptr %83, i64 0, i64 %.pre11.i.i9.i
+  %.pre14.i.i9.i = phi i64 [ 98, %113 ], [ %.pre.i.i7.i, %.critedge.i.i6.i ], [ %.pr.i, %.preheader.i.i3.i ]
+  %117 = getelementptr inbounds [100 x i8], ptr %83, i64 0, i64 %.pre14.i.i9.i
   store i8 0, ptr %117, align 1
   br label %_ZN23ObjectSampleDescription23write_thread_group_nameEv.exit
 
@@ -834,8 +834,8 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit.i20: ; preds = %.critedge.thre
   br label %.critedge.thread.i.i.i.i
 
 .critedge.thread.i.i.i.i:                         ; preds = %184, %.critedge.i.i.i.i, %.preheader.i.i.i.i
-  %.pre11.i.i.i.i = phi i64 [ 98, %184 ], [ %.pre.i.i.i.i, %.critedge.i.i.i.i ], [ %171, %.preheader.i.i.i.i ]
-  %188 = getelementptr inbounds [100 x i8], ptr %152, i64 0, i64 %.pre11.i.i.i.i
+  %.pre14.i.i.i.i = phi i64 [ 98, %184 ], [ %.pre.i.i.i.i, %.critedge.i.i.i.i ], [ %171, %.preheader.i.i.i.i ]
+  %188 = getelementptr inbounds [100 x i8], ptr %152, i64 0, i64 %.pre14.i.i.i.i
   store i8 0, ptr %188, align 1
   br label %_ZN23ObjectSampleDescription9write_intEi.exit.i
 
@@ -910,8 +910,8 @@ define hidden void @_ZN23ObjectSampleDescription16write_class_nameEv(ptr noundef
   br label %.critedge.thread.i.i
 
 .critedge.thread.i.i:                             ; preds = %29, %.critedge.i.i, %.preheader.i.i
-  %.pre11.i.i = phi i64 [ 98, %29 ], [ %.pre.i.i, %.critedge.i.i ], [ %16, %.preheader.i.i ]
-  %33 = getelementptr inbounds [100 x i8], ptr %14, i64 0, i64 %.pre11.i.i
+  %.pre14.i.i = phi i64 [ 98, %29 ], [ %.pre.i.i, %.critedge.i.i ], [ %16, %.preheader.i.i ]
+  %33 = getelementptr inbounds [100 x i8], ptr %14, i64 0, i64 %.pre14.i.i
   store i8 0, ptr %33, align 1
   br label %_ZN23ObjectSampleDescription10write_textEPKc.exit
 
@@ -1023,8 +1023,8 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit19: ; preds = %44, %.critedge.t
   br label %.critedge.thread.i.i26
 
 .critedge.thread.i.i26:                           ; preds = %77, %.critedge.i.i24, %.preheader.i.i20
-  %.pre11.i.i27 = phi i64 [ 98, %77 ], [ %.pre.i.i25, %.critedge.i.i24 ], [ %64, %.preheader.i.i20 ]
-  %81 = getelementptr inbounds [100 x i8], ptr %45, i64 0, i64 %.pre11.i.i27
+  %.pre14.i.i27 = phi i64 [ 98, %77 ], [ %.pre.i.i25, %.critedge.i.i24 ], [ %64, %.preheader.i.i20 ]
+  %81 = getelementptr inbounds [100 x i8], ptr %45, i64 0, i64 %.pre14.i.i27
   store i8 0, ptr %81, align 1
   br label %_ZN23ObjectSampleDescription10write_textEPKc.exit
 
@@ -1130,8 +1130,8 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit: ; preds = %.critedge.i.i, %21
   br label %.critedge.thread.i.i12
 
 .critedge.thread.i.i12:                           ; preds = %38, %.critedge.i.i10, %.preheader.i.i7
-  %.pre11.i.i13 = phi i64 [ 98, %38 ], [ %.pre.i.i11, %.critedge.i.i10 ], [ %.pr, %.preheader.i.i7 ]
-  %42 = getelementptr inbounds [100 x i8], ptr %8, i64 0, i64 %.pre11.i.i13
+  %.pre14.i.i13 = phi i64 [ 98, %38 ], [ %.pre.i.i11, %.critedge.i.i10 ], [ %.pr, %.preheader.i.i7 ]
+  %42 = getelementptr inbounds [100 x i8], ptr %8, i64 0, i64 %.pre14.i.i13
   store i8 0, ptr %42, align 1
   br label %_ZN23ObjectSampleDescription10write_textEPKc.exit15
 
@@ -1232,8 +1232,8 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit: ; preds = %.critedge.i.i, %19
   br label %.critedge.thread.i.i8
 
 .critedge.thread.i.i8:                            ; preds = %36, %.critedge.i.i6, %.preheader.i.i3
-  %.pre11.i.i9 = phi i64 [ 98, %36 ], [ %.pre.i.i7, %.critedge.i.i6 ], [ %.pr, %.preheader.i.i3 ]
-  %40 = getelementptr inbounds [100 x i8], ptr %6, i64 0, i64 %.pre11.i.i9
+  %.pre14.i.i9 = phi i64 [ 98, %36 ], [ %.pre.i.i7, %.critedge.i.i6 ], [ %.pr, %.preheader.i.i3 ]
+  %40 = getelementptr inbounds [100 x i8], ptr %6, i64 0, i64 %.pre14.i.i9
   store i8 0, ptr %40, align 1
   br label %_ZN23ObjectSampleDescription10write_textEPKc.exit11
 
@@ -1399,8 +1399,8 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit: ; preds = %5, %.critedge.thre
   br label %.critedge.thread.i.i.i
 
 .critedge.thread.i.i.i:                           ; preds = %38, %.critedge.i.i.i, %.preheader.i.i.i
-  %.pre11.i.i.i = phi i64 [ 98, %38 ], [ %.pre.i.i.i, %.critedge.i.i.i ], [ %25, %.preheader.i.i.i ]
-  %42 = getelementptr inbounds [100 x i8], ptr %6, i64 0, i64 %.pre11.i.i.i
+  %.pre14.i.i.i = phi i64 [ 98, %38 ], [ %.pre.i.i.i, %.critedge.i.i.i ], [ %25, %.preheader.i.i.i ]
+  %42 = getelementptr inbounds [100 x i8], ptr %6, i64 0, i64 %.pre14.i.i.i
   store i8 0, ptr %42, align 1
   br label %_ZN23ObjectSampleDescription9write_intEi.exit
 

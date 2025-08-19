@@ -135,18 +135,18 @@ ctx_to_m2mctx.exit:                               ; preds = %2, %switch.lookup
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %11, i8 0, i64 36, i1 false)
   store i32 1, ptr %4, align 4
-  %switch.tableidx32 = add i32 %6, -2
-  %12 = icmp ult i32 %switch.tableidx32, 13
-  br i1 %12, label %switch.lookup31, label %ctx_to_m2mctx.exit.i
+  %switch.tableidx36 = add i32 %6, -2
+  %12 = icmp ult i32 %switch.tableidx36, 13
+  br i1 %12, label %switch.lookup35, label %ctx_to_m2mctx.exit.i
 
-switch.lookup31:                                  ; preds = %10
-  %13 = zext nneg i32 %switch.tableidx32 to i64
-  %switch.gep33 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %13
-  %switch.load34 = load i64, ptr %switch.gep33, align 8
+switch.lookup35:                                  ; preds = %10
+  %13 = zext nneg i32 %switch.tableidx36 to i64
+  %switch.gep37 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %13
+  %switch.load38 = load i64, ptr %switch.gep37, align 8
   br label %ctx_to_m2mctx.exit.i
 
-ctx_to_m2mctx.exit.i:                             ; preds = %10, %switch.lookup31
-  %.sink.i.i = phi i64 [ %switch.load34, %switch.lookup31 ], [ -4104, %10 ]
+ctx_to_m2mctx.exit.i:                             ; preds = %10, %switch.lookup35
+  %.sink.i.i = phi i64 [ %switch.load38, %switch.lookup35 ], [ -4104, %10 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4096
   %16 = load i32, ptr %15, align 8, !tbaa !15
@@ -168,18 +168,18 @@ v4l2_stop_encode.exit.thread:                     ; preds = %ctx_to_m2mctx.exit.
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = load i32, ptr %5, align 8, !tbaa !4
   store i32 %23, ptr %3, align 4, !tbaa !14
-  %switch.tableidx36 = add i32 %23, -2
-  %24 = icmp ult i32 %switch.tableidx36, 13
-  br i1 %24, label %switch.lookup35, label %ctx_to_m2mctx.exit.i.i
+  %switch.tableidx40 = add i32 %23, -2
+  %24 = icmp ult i32 %switch.tableidx40, 13
+  br i1 %24, label %switch.lookup39, label %ctx_to_m2mctx.exit.i.i
 
-switch.lookup35:                                  ; preds = %22
-  %25 = zext nneg i32 %switch.tableidx36 to i64
-  %switch.gep37 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %25
-  %switch.load38 = load i64, ptr %switch.gep37, align 8
+switch.lookup39:                                  ; preds = %22
+  %25 = zext nneg i32 %switch.tableidx40 to i64
+  %switch.gep41 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %25
+  %switch.load42 = load i64, ptr %switch.gep41, align 8
   br label %ctx_to_m2mctx.exit.i.i
 
-ctx_to_m2mctx.exit.i.i:                           ; preds = %22, %switch.lookup35
-  %.sink.i.i.i = phi i64 [ %switch.load38, %switch.lookup35 ], [ -4104, %22 ]
+ctx_to_m2mctx.exit.i.i:                           ; preds = %22, %switch.lookup39
+  %.sink.i.i.i = phi i64 [ %switch.load42, %switch.lookup39 ], [ -4104, %22 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4096
   %28 = load i32, ptr %27, align 8, !tbaa !15
@@ -214,18 +214,18 @@ v4l2_stop_encode.exit:                            ; preds = %ff_v4l2_context_set
 
 38:                                               ; preds = %v4l2_stop_encode.exit
   %39 = load i32, ptr %5, align 8, !tbaa !4
-  %switch.tableidx40 = add i32 %39, -2
-  %40 = icmp ult i32 %switch.tableidx40, 13
-  br i1 %40, label %switch.lookup39, label %logger.exit
+  %switch.tableidx44 = add i32 %39, -2
+  %40 = icmp ult i32 %switch.tableidx44, 13
+  br i1 %40, label %switch.lookup43, label %logger.exit
 
-switch.lookup39:                                  ; preds = %38
-  %41 = zext nneg i32 %switch.tableidx40 to i64
-  %switch.gep41 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %41
-  %switch.load42 = load i64, ptr %switch.gep41, align 8
+switch.lookup43:                                  ; preds = %38
+  %41 = zext nneg i32 %switch.tableidx44 to i64
+  %switch.gep45 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %41
+  %switch.load46 = load i64, ptr %switch.gep45, align 8
   br label %logger.exit
 
-logger.exit:                                      ; preds = %38, %switch.lookup39
-  %.sink.i.i21 = phi i64 [ %switch.load42, %switch.lookup39 ], [ -4104, %38 ]
+logger.exit:                                      ; preds = %38, %switch.lookup43
+  %.sink.i.i21 = phi i64 [ %switch.load46, %switch.lookup43 ], [ -4104, %38 ]
   %42 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i21
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4648
   %44 = load ptr, ptr %43, align 8, !tbaa !25
@@ -331,18 +331,18 @@ ctx_to_m2mctx.exit:                               ; preds = %2, %switch.lookup
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   store i32 1, ptr %4, align 8
-  %switch.tableidx31 = add i32 %6, -2
-  %13 = icmp ult i32 %switch.tableidx31, 13
-  br i1 %13, label %switch.lookup30, label %ctx_to_m2mctx.exit.i
+  %switch.tableidx34 = add i32 %6, -2
+  %13 = icmp ult i32 %switch.tableidx34, 13
+  br i1 %13, label %switch.lookup33, label %ctx_to_m2mctx.exit.i
 
-switch.lookup30:                                  ; preds = %12
-  %14 = zext nneg i32 %switch.tableidx31 to i64
-  %switch.gep32 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %14
-  %switch.load33 = load i64, ptr %switch.gep32, align 8
+switch.lookup33:                                  ; preds = %12
+  %14 = zext nneg i32 %switch.tableidx34 to i64
+  %switch.gep35 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %14
+  %switch.load36 = load i64, ptr %switch.gep35, align 8
   br label %ctx_to_m2mctx.exit.i
 
-ctx_to_m2mctx.exit.i:                             ; preds = %12, %switch.lookup30
-  %.sink.i.i = phi i64 [ %switch.load33, %switch.lookup30 ], [ -4104, %12 ]
+ctx_to_m2mctx.exit.i:                             ; preds = %12, %switch.lookup33
+  %.sink.i.i = phi i64 [ %switch.load36, %switch.lookup33 ], [ -4104, %12 ]
   %15 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4096
   %17 = load i32, ptr %16, align 8, !tbaa !15
@@ -364,18 +364,18 @@ v4l2_stop_decode.exit.thread:                     ; preds = %ctx_to_m2mctx.exit.
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = load i32, ptr %5, align 8, !tbaa !4
   store i32 %24, ptr %3, align 4, !tbaa !14
-  %switch.tableidx35 = add i32 %24, -2
-  %25 = icmp ult i32 %switch.tableidx35, 13
-  br i1 %25, label %switch.lookup34, label %ctx_to_m2mctx.exit.i.i
+  %switch.tableidx38 = add i32 %24, -2
+  %25 = icmp ult i32 %switch.tableidx38, 13
+  br i1 %25, label %switch.lookup37, label %ctx_to_m2mctx.exit.i.i
 
-switch.lookup34:                                  ; preds = %23
-  %26 = zext nneg i32 %switch.tableidx35 to i64
-  %switch.gep36 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %26
-  %switch.load37 = load i64, ptr %switch.gep36, align 8
+switch.lookup37:                                  ; preds = %23
+  %26 = zext nneg i32 %switch.tableidx38 to i64
+  %switch.gep39 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %26
+  %switch.load40 = load i64, ptr %switch.gep39, align 8
   br label %ctx_to_m2mctx.exit.i.i
 
-ctx_to_m2mctx.exit.i.i:                           ; preds = %23, %switch.lookup34
-  %.sink.i.i.i = phi i64 [ %switch.load37, %switch.lookup34 ], [ -4104, %23 ]
+ctx_to_m2mctx.exit.i.i:                           ; preds = %23, %switch.lookup37
+  %.sink.i.i.i = phi i64 [ %switch.load40, %switch.lookup37 ], [ -4104, %23 ]
   %27 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4096
   %29 = load i32, ptr %28, align 8, !tbaa !15
@@ -410,18 +410,18 @@ v4l2_stop_decode.exit:                            ; preds = %ff_v4l2_context_set
 
 39:                                               ; preds = %v4l2_stop_decode.exit
   %40 = load i32, ptr %5, align 8, !tbaa !4
-  %switch.tableidx39 = add i32 %40, -2
-  %41 = icmp ult i32 %switch.tableidx39, 13
-  br i1 %41, label %switch.lookup38, label %logger.exit
+  %switch.tableidx42 = add i32 %40, -2
+  %41 = icmp ult i32 %switch.tableidx42, 13
+  br i1 %41, label %switch.lookup41, label %logger.exit
 
-switch.lookup38:                                  ; preds = %39
-  %42 = zext nneg i32 %switch.tableidx39 to i64
-  %switch.gep40 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %42
-  %switch.load41 = load i64, ptr %switch.gep40, align 8
+switch.lookup41:                                  ; preds = %39
+  %42 = zext nneg i32 %switch.tableidx42 to i64
+  %switch.gep43 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %42
+  %switch.load44 = load i64, ptr %switch.gep43, align 8
   br label %logger.exit
 
-logger.exit:                                      ; preds = %39, %switch.lookup38
-  %.sink.i.i20 = phi i64 [ %switch.load41, %switch.lookup38 ], [ -4104, %39 ]
+logger.exit:                                      ; preds = %39, %switch.lookup41
+  %.sink.i.i20 = phi i64 [ %switch.load44, %switch.lookup41 ], [ -4104, %39 ]
   %43 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i20
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4648
   %45 = load ptr, ptr %44, align 8, !tbaa !25
@@ -553,13 +553,13 @@ ctx_to_m2mctx.exit:                               ; preds = %2, %switch.lookup
   store i16 327, ptr %18, align 4, !tbaa !44
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 6
   store i16 0, ptr %19, align 2, !tbaa !45
-  %switch.tableidx187 = add i32 %12, -2
-  %20 = icmp ult i32 %switch.tableidx187, 13
-  %switch.maskindex = trunc i32 %switch.tableidx187 to i16
+  %switch.tableidx197 = add i32 %12, -2
+  %20 = icmp ult i32 %switch.tableidx197, 13
+  %switch.maskindex = trunc i32 %switch.tableidx197 to i16
   %switch.shifted = lshr i16 5483, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond195 = select i1 %20, i1 %switch.lobit, i1 false
-  br i1 %or.cond195, label %switch.lookup188, label %21
+  %or.cond205 = select i1 %20, i1 %switch.lobit, i1 false
+  br i1 %or.cond205, label %switch.lookup198, label %21
 
 21:                                               ; preds = %ctx_to_m2mctx.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -599,18 +599,18 @@ ctx_to_m2mctx.exit:                               ; preds = %2, %switch.lookup
   br i1 %32, label %._crit_edge.thread, label %39
 
 ._crit_edge.thread:                               ; preds = %30, %._crit_edge
-  %switch.tableidx192 = add i32 %12, -2
-  %33 = icmp ult i32 %switch.tableidx192, 13
-  br i1 %33, label %switch.lookup191, label %logger.exit
+  %switch.tableidx202 = add i32 %12, -2
+  %33 = icmp ult i32 %switch.tableidx202, 13
+  br i1 %33, label %switch.lookup201, label %logger.exit
 
-switch.lookup191:                                 ; preds = %._crit_edge.thread
-  %34 = zext nneg i32 %switch.tableidx192 to i64
-  %switch.gep193 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %34
-  %switch.load194 = load i64, ptr %switch.gep193, align 8
+switch.lookup201:                                 ; preds = %._crit_edge.thread
+  %34 = zext nneg i32 %switch.tableidx202 to i64
+  %switch.gep203 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %34
+  %switch.load204 = load i64, ptr %switch.gep203, align 8
   br label %logger.exit
 
-logger.exit:                                      ; preds = %._crit_edge.thread, %switch.lookup191
-  %.sink.i.i = phi i64 [ %switch.load194, %switch.lookup191 ], [ -4104, %._crit_edge.thread ]
+logger.exit:                                      ; preds = %._crit_edge.thread, %switch.lookup201
+  %.sink.i.i = phi i64 [ %switch.load204, %switch.lookup201 ], [ -4104, %._crit_edge.thread ]
   %35 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4648
   %37 = load ptr, ptr %36, align 8, !tbaa !25
@@ -618,21 +618,21 @@ logger.exit:                                      ; preds = %._crit_edge.thread,
   %.pre = load i32, ptr %11, align 8, !tbaa !4
   br label %39
 
-switch.lookup188:                                 ; preds = %ctx_to_m2mctx.exit
-  %38 = zext nneg i32 %switch.tableidx187 to i64
-  %switch.gep189 = getelementptr inbounds nuw [13 x i32], ptr @switch.table.v4l2_dequeue_v4l2buf.10, i64 0, i64 %38
-  %switch.load190 = load i32, ptr %switch.gep189, align 4
+switch.lookup198:                                 ; preds = %ctx_to_m2mctx.exit
+  %38 = zext nneg i32 %switch.tableidx197 to i64
+  %switch.gep199 = getelementptr inbounds nuw [13 x i32], ptr @switch.table.v4l2_dequeue_v4l2buf.10, i64 0, i64 %38
+  %switch.load200 = load i32, ptr %switch.gep199, align 4
   br label %39
 
-39:                                               ; preds = %switch.lookup188, %._crit_edge, %logger.exit, %21
-  %40 = phi i32 [ %12, %._crit_edge ], [ %.pre, %logger.exit ], [ %12, %21 ], [ %switch.load190, %switch.lookup188 ]
-  %switch.tableidx197 = add i32 %40, -2
-  %41 = icmp ult i32 %switch.tableidx197, 13
-  %switch.maskindex199 = trunc i32 %switch.tableidx197 to i16
-  %switch.shifted200 = lshr i16 5483, %switch.maskindex199
-  %switch.lobit201 = trunc i16 %switch.shifted200 to i1
-  %or.cond209 = select i1 %41, i1 %switch.lobit201, i1 false
-  br i1 %or.cond209, label %.sink.split, label %ctx_to_m2mctx.exit133
+39:                                               ; preds = %switch.lookup198, %._crit_edge, %logger.exit, %21
+  %40 = phi i32 [ %12, %._crit_edge ], [ %.pre, %logger.exit ], [ %12, %21 ], [ %switch.load200, %switch.lookup198 ]
+  %switch.tableidx207 = add i32 %40, -2
+  %41 = icmp ult i32 %switch.tableidx207, 13
+  %switch.maskindex209 = trunc i32 %switch.tableidx207 to i16
+  %switch.shifted210 = lshr i16 5483, %switch.maskindex209
+  %switch.lobit211 = trunc i16 %switch.shifted210 to i1
+  %or.cond219 = select i1 %41, i1 %switch.lobit211, i1 false
+  br i1 %or.cond219, label %.sink.split, label %ctx_to_m2mctx.exit133
 
 ctx_to_m2mctx.exit133:                            ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -674,25 +674,25 @@ ctx_to_m2mctx.exit133:                            ; preds = %39
   br label %.loopexit
 
 .loopexit156:                                     ; preds = %.lr.ph164.split, %ctx_to_m2mctx.exit133
-  %switch.tableidx203 = add i32 %40, -2
-  %54 = icmp ult i32 %switch.tableidx203, 13
-  %switch.maskindex206 = trunc i32 %switch.tableidx203 to i16
-  %switch.shifted207 = lshr i16 5483, %switch.maskindex206
-  %switch.lobit208 = trunc i16 %switch.shifted207 to i1
-  %or.cond210 = select i1 %54, i1 %switch.lobit208, i1 false
-  %brmerge = or i1 %or.cond210, %.not112
-  %.mux = select i1 %or.cond210, i16 260, i16 67
-  br i1 %brmerge, label %.sink.split, label %.preheader263
+  %switch.tableidx213 = add i32 %40, -2
+  %54 = icmp ult i32 %switch.tableidx213, 13
+  %switch.maskindex216 = trunc i32 %switch.tableidx213 to i16
+  %switch.shifted217 = lshr i16 5483, %switch.maskindex216
+  %switch.lobit218 = trunc i16 %switch.shifted217 to i1
+  %or.cond220 = select i1 %54, i1 %switch.lobit218, i1 false
+  %brmerge = or i1 %or.cond220, %.not112
+  %.mux = select i1 %or.cond220, i16 260, i16 67
+  br i1 %brmerge, label %.sink.split, label %.preheader273
 
 .sink.split:                                      ; preds = %.loopexit156, %39
   %.sink = phi i16 [ 260, %39 ], [ %.mux, %.loopexit156 ]
   store i16 %.sink, ptr %18, align 4, !tbaa !44
-  br label %.preheader263
+  br label %.preheader273
 
-.preheader263:                                    ; preds = %.sink.split, %.loopexit156
+.preheader273:                                    ; preds = %.sink.split, %.loopexit156
   br label %55
 
-55:                                               ; preds = %.preheader263, %58
+55:                                               ; preds = %.preheader273, %58
   %56 = call i32 @poll(ptr noundef nonnull %9, i64 noundef 1, i32 noundef %1) #8
   %57 = icmp sgt i32 %56, 0
   br i1 %57, label %62, label %58
@@ -736,18 +736,18 @@ ctx_to_m2mctx.exit133:                            ; preds = %39
 
 77:                                               ; preds = %.lr.ph168
   %78 = load i32, ptr %11, align 8, !tbaa !4
-  %switch.tableidx212 = add i32 %78, -2
-  %79 = icmp ult i32 %switch.tableidx212, 13
-  br i1 %79, label %switch.lookup211, label %logger.exit137
+  %switch.tableidx222 = add i32 %78, -2
+  %79 = icmp ult i32 %switch.tableidx222, 13
+  br i1 %79, label %switch.lookup221, label %logger.exit137
 
-switch.lookup211:                                 ; preds = %77
-  %80 = zext nneg i32 %switch.tableidx212 to i64
-  %switch.gep213 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %80
-  %switch.load214 = load i64, ptr %switch.gep213, align 8
+switch.lookup221:                                 ; preds = %77
+  %80 = zext nneg i32 %switch.tableidx222 to i64
+  %switch.gep223 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %80
+  %switch.load224 = load i64, ptr %switch.gep223, align 8
   br label %logger.exit137
 
-logger.exit137:                                   ; preds = %77, %switch.lookup211
-  %.sink.i.i136 = phi i64 [ %switch.load214, %switch.lookup211 ], [ -4104, %77 ]
+logger.exit137:                                   ; preds = %77, %switch.lookup221
+  %.sink.i.i136 = phi i64 [ %switch.load224, %switch.lookup221 ], [ -4104, %77 ]
   %81 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i136
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4648
   %83 = load ptr, ptr %82, align 8, !tbaa !25
@@ -765,18 +765,18 @@ logger.exit137:                                   ; preds = %77, %switch.lookup2
 
 89:                                               ; preds = %65
   %90 = load i32, ptr %11, align 8, !tbaa !4
-  %switch.tableidx216 = add i32 %90, -2
-  %91 = icmp ult i32 %switch.tableidx216, 13
-  br i1 %91, label %switch.lookup215, label %logger.exit139
+  %switch.tableidx226 = add i32 %90, -2
+  %91 = icmp ult i32 %switch.tableidx226, 13
+  br i1 %91, label %switch.lookup225, label %logger.exit139
 
-switch.lookup215:                                 ; preds = %89
-  %92 = zext nneg i32 %switch.tableidx216 to i64
-  %switch.gep217 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %92
-  %switch.load218 = load i64, ptr %switch.gep217, align 8
+switch.lookup225:                                 ; preds = %89
+  %92 = zext nneg i32 %switch.tableidx226 to i64
+  %switch.gep227 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %92
+  %switch.load228 = load i64, ptr %switch.gep227, align 8
   br label %logger.exit139
 
-logger.exit139:                                   ; preds = %89, %switch.lookup215
-  %.sink.i.i138 = phi i64 [ %switch.load218, %switch.lookup215 ], [ -4104, %89 ]
+logger.exit139:                                   ; preds = %89, %switch.lookup225
+  %.sink.i.i138 = phi i64 [ %switch.load228, %switch.lookup225 ], [ -4104, %89 ]
   %93 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i138
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4648
   %95 = load ptr, ptr %94, align 8, !tbaa !25
@@ -791,18 +791,18 @@ logger.exit139:                                   ; preds = %89, %switch.lookup2
 
 99:                                               ; preds = %97
   %100 = load i32, ptr %11, align 8, !tbaa !4
-  %switch.tableidx220 = add i32 %100, -2
-  %101 = icmp ult i32 %switch.tableidx220, 13
-  br i1 %101, label %switch.lookup219, label %ctx_to_m2mctx.exit.i
+  %switch.tableidx230 = add i32 %100, -2
+  %101 = icmp ult i32 %switch.tableidx230, 13
+  br i1 %101, label %switch.lookup229, label %ctx_to_m2mctx.exit.i
 
-switch.lookup219:                                 ; preds = %99
-  %102 = zext nneg i32 %switch.tableidx220 to i64
-  %switch.gep221 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %102
-  %switch.load222 = load i64, ptr %switch.gep221, align 8
+switch.lookup229:                                 ; preds = %99
+  %102 = zext nneg i32 %switch.tableidx230 to i64
+  %switch.gep231 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %102
+  %switch.load232 = load i64, ptr %switch.gep231, align 8
   br label %ctx_to_m2mctx.exit.i
 
-ctx_to_m2mctx.exit.i:                             ; preds = %99, %switch.lookup219
-  %.sink.i.i140 = phi i64 [ %switch.load222, %switch.lookup219 ], [ -4104, %99 ]
+ctx_to_m2mctx.exit.i:                             ; preds = %99, %switch.lookup229
+  %.sink.i.i140 = phi i64 [ %switch.load232, %switch.lookup229 ], [ -4104, %99 ]
   %103 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i140
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 4104
@@ -818,18 +818,18 @@ ctx_to_m2mctx.exit.i:                             ; preds = %99, %switch.lookup2
 
 110:                                              ; preds = %ctx_to_m2mctx.exit.i
   %111 = load i32, ptr %11, align 8, !tbaa !4
-  %switch.tableidx224 = add i32 %111, -2
-  %112 = icmp ult i32 %switch.tableidx224, 13
-  br i1 %112, label %switch.lookup223, label %logger.exit.i
+  %switch.tableidx234 = add i32 %111, -2
+  %112 = icmp ult i32 %switch.tableidx234, 13
+  br i1 %112, label %switch.lookup233, label %logger.exit.i
 
-switch.lookup223:                                 ; preds = %110
-  %113 = zext nneg i32 %switch.tableidx224 to i64
-  %switch.gep225 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %113
-  %switch.load226 = load i64, ptr %switch.gep225, align 8
+switch.lookup233:                                 ; preds = %110
+  %113 = zext nneg i32 %switch.tableidx234 to i64
+  %switch.gep235 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %113
+  %switch.load236 = load i64, ptr %switch.gep235, align 8
   br label %logger.exit.i
 
-logger.exit.i:                                    ; preds = %110, %switch.lookup223
-  %.sink.i.i.i = phi i64 [ %switch.load226, %switch.lookup223 ], [ -4104, %110 ]
+logger.exit.i:                                    ; preds = %110, %switch.lookup233
+  %.sink.i.i.i = phi i64 [ %switch.load236, %switch.lookup233 ], [ -4104, %110 ]
   %114 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i.i
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 4648
   %116 = load ptr, ptr %115, align 8, !tbaa !25
@@ -857,18 +857,18 @@ logger.exit.i:                                    ; preds = %110, %switch.lookup
 
 125:                                              ; preds = %122
   %126 = load i32, ptr %11, align 8, !tbaa !4
-  %switch.tableidx228 = add i32 %126, -2
-  %127 = icmp ult i32 %switch.tableidx228, 13
-  br i1 %127, label %switch.lookup227, label %logger.exit39.i
+  %switch.tableidx238 = add i32 %126, -2
+  %127 = icmp ult i32 %switch.tableidx238, 13
+  br i1 %127, label %switch.lookup237, label %logger.exit39.i
 
-switch.lookup227:                                 ; preds = %125
-  %128 = zext nneg i32 %switch.tableidx228 to i64
-  %switch.gep229 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %128
-  %switch.load230 = load i64, ptr %switch.gep229, align 8
+switch.lookup237:                                 ; preds = %125
+  %128 = zext nneg i32 %switch.tableidx238 to i64
+  %switch.gep239 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %128
+  %switch.load240 = load i64, ptr %switch.gep239, align 8
   br label %logger.exit39.i
 
-logger.exit39.i:                                  ; preds = %125, %switch.lookup227
-  %.sink.i.i38.i = phi i64 [ %switch.load230, %switch.lookup227 ], [ -4104, %125 ]
+logger.exit39.i:                                  ; preds = %125, %switch.lookup237
+  %.sink.i.i38.i = phi i64 [ %switch.load240, %switch.lookup237 ], [ -4104, %125 ]
   %129 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i38.i
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 4648
   %131 = load ptr, ptr %130, align 8, !tbaa !25
@@ -896,8 +896,8 @@ logger.exit39.i:                                  ; preds = %125, %switch.lookup
   %143 = load i32, ptr %142, align 4, !tbaa !50
   %144 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %145 = load i32, ptr %144, align 4, !tbaa !50
-  %.not32.i.i = icmp eq i32 %143, %145
-  br i1 %.not32.i.i, label %177, label %.thread.i.i
+  %.not36.i.i = icmp eq i32 %143, %145
+  br i1 %.not36.i.i, label %177, label %.thread.i.i
 
 146:                                              ; preds = %133
   br i1 %.not18.i.i, label %147, label %.thread.i.i
@@ -912,18 +912,18 @@ logger.exit39.i:                                  ; preds = %125, %switch.lookup
 
 .thread.i.i:                                      ; preds = %147, %146, %141, %140
   %.val20.i.i = phi i32 [ %139, %146 ], [ %139, %140 ], [ %137, %147 ], [ %137, %141 ]
-  %switch.tableidx232 = add i32 %135, -2
-  %152 = icmp ult i32 %switch.tableidx232, 13
-  br i1 %152, label %switch.lookup231, label %154
+  %switch.tableidx242 = add i32 %135, -2
+  %152 = icmp ult i32 %switch.tableidx242, 13
+  br i1 %152, label %switch.lookup241, label %154
 
-switch.lookup231:                                 ; preds = %.thread.i.i
-  %153 = zext nneg i32 %switch.tableidx232 to i64
-  %switch.gep233 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %153
-  %switch.load234 = load i64, ptr %switch.gep233, align 8
+switch.lookup241:                                 ; preds = %.thread.i.i
+  %153 = zext nneg i32 %switch.tableidx242 to i64
+  %switch.gep243 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %153
+  %switch.load244 = load i64, ptr %switch.gep243, align 8
   br label %154
 
-154:                                              ; preds = %.thread.i.i, %switch.lookup231
-  %.sink.i.i.i.i = phi i64 [ %switch.load234, %switch.lookup231 ], [ -4104, %.thread.i.i ]
+154:                                              ; preds = %.thread.i.i, %switch.lookup241
+  %.sink.i.i.i.i = phi i64 [ %switch.load244, %switch.lookup241 ], [ -4104, %.thread.i.i ]
   %155 = getelementptr inbounds i8, ptr %104, i64 %.sink.i.i.i.i
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 4648
   %157 = load ptr, ptr %156, align 8, !tbaa !25
@@ -945,18 +945,18 @@ switch.lookup231:                                 ; preds = %.thread.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %164, i8 0, i64 40, i1 false)
   %165 = load i32, ptr %134, align 8, !tbaa !4
   store i32 %165, ptr %4, align 4, !tbaa !57
-  %switch.tableidx236 = add i32 %165, -2
-  %166 = icmp ult i32 %switch.tableidx236, 13
-  br i1 %166, label %switch.lookup235, label %v4l2_get_sar.exit.i
+  %switch.tableidx246 = add i32 %165, -2
+  %166 = icmp ult i32 %switch.tableidx246, 13
+  br i1 %166, label %switch.lookup245, label %v4l2_get_sar.exit.i
 
-switch.lookup235:                                 ; preds = %154
-  %167 = zext nneg i32 %switch.tableidx236 to i64
-  %switch.gep237 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %167
-  %switch.load238 = load i64, ptr %switch.gep237, align 8
+switch.lookup245:                                 ; preds = %154
+  %167 = zext nneg i32 %switch.tableidx246 to i64
+  %switch.gep247 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %167
+  %switch.load248 = load i64, ptr %switch.gep247, align 8
   br label %v4l2_get_sar.exit.i
 
-v4l2_get_sar.exit.i:                              ; preds = %154, %switch.lookup235
-  %.sink.i.i40.i = phi i64 [ %switch.load238, %switch.lookup235 ], [ -4104, %154 ]
+v4l2_get_sar.exit.i:                              ; preds = %154, %switch.lookup245
+  %.sink.i.i40.i = phi i64 [ %switch.load248, %switch.lookup245 ], [ -4104, %154 ]
   %168 = getelementptr inbounds i8, ptr %104, i64 %.sink.i.i40.i
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 4096
   %170 = load i32, ptr %169, align 8, !tbaa !15
@@ -978,18 +978,18 @@ v4l2_get_sar.exit.i:                              ; preds = %154, %switch.lookup
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   %178 = load i32, ptr %11, align 8, !tbaa !4
-  %switch.tableidx240 = add i32 %178, -2
-  %179 = icmp ult i32 %switch.tableidx240, 13
-  br i1 %179, label %switch.lookup239, label %ctx_to_m2mctx.exit.i.i
+  %switch.tableidx250 = add i32 %178, -2
+  %179 = icmp ult i32 %switch.tableidx250, 13
+  br i1 %179, label %switch.lookup249, label %ctx_to_m2mctx.exit.i.i
 
-switch.lookup239:                                 ; preds = %177
-  %180 = zext nneg i32 %switch.tableidx240 to i64
-  %switch.gep241 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %180
-  %switch.load242 = load i64, ptr %switch.gep241, align 8
+switch.lookup249:                                 ; preds = %177
+  %180 = zext nneg i32 %switch.tableidx250 to i64
+  %switch.gep251 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %180
+  %switch.load252 = load i64, ptr %switch.gep251, align 8
   br label %ctx_to_m2mctx.exit.i.i
 
-ctx_to_m2mctx.exit.i.i:                           ; preds = %177, %switch.lookup239
-  %.sink.i.i42.i = phi i64 [ %switch.load242, %switch.lookup239 ], [ -4104, %177 ]
+ctx_to_m2mctx.exit.i.i:                           ; preds = %177, %switch.lookup249
+  %.sink.i.i42.i = phi i64 [ %switch.load252, %switch.lookup249 ], [ -4104, %177 ]
   %181 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i42.i
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 4096
   %183 = load i32, ptr %182, align 8, !tbaa !15
@@ -1006,18 +1006,18 @@ ctx_to_m2mctx.exit.i.i:                           ; preds = %177, %switch.lookup
 
 190:                                              ; preds = %185
   %191 = load i32, ptr %11, align 8, !tbaa !4
-  %switch.tableidx244 = add i32 %191, -2
-  %192 = icmp ult i32 %switch.tableidx244, 13
-  br i1 %192, label %switch.lookup243, label %logger.exit46.i
+  %switch.tableidx254 = add i32 %191, -2
+  %192 = icmp ult i32 %switch.tableidx254, 13
+  br i1 %192, label %switch.lookup253, label %logger.exit46.i
 
-switch.lookup243:                                 ; preds = %190
-  %193 = zext nneg i32 %switch.tableidx244 to i64
-  %switch.gep245 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %193
-  %switch.load246 = load i64, ptr %switch.gep245, align 8
+switch.lookup253:                                 ; preds = %190
+  %193 = zext nneg i32 %switch.tableidx254 to i64
+  %switch.gep255 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %193
+  %switch.load256 = load i64, ptr %switch.gep255, align 8
   br label %logger.exit46.i
 
-logger.exit46.i:                                  ; preds = %190, %switch.lookup243
-  %.sink.i.i45.i = phi i64 [ %switch.load246, %switch.lookup243 ], [ -4104, %190 ]
+logger.exit46.i:                                  ; preds = %190, %switch.lookup253
+  %.sink.i.i45.i = phi i64 [ %switch.load256, %switch.lookup253 ], [ -4104, %190 ]
   %194 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i45.i
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 4648
   %196 = load ptr, ptr %195, align 8, !tbaa !25
@@ -1031,18 +1031,18 @@ logger.exit46.i:                                  ; preds = %190, %switch.lookup
 
 198:                                              ; preds = %.critedge.i
   %199 = load i32, ptr %11, align 8, !tbaa !4
-  %switch.tableidx248 = add i32 %199, -2
-  %200 = icmp ult i32 %switch.tableidx248, 13
-  br i1 %200, label %switch.lookup247, label %202
+  %switch.tableidx258 = add i32 %199, -2
+  %200 = icmp ult i32 %switch.tableidx258, 13
+  br i1 %200, label %switch.lookup257, label %202
 
-switch.lookup247:                                 ; preds = %198
-  %201 = zext nneg i32 %switch.tableidx248 to i64
-  %switch.gep249 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %201
-  %switch.load250 = load i64, ptr %switch.gep249, align 8
+switch.lookup257:                                 ; preds = %198
+  %201 = zext nneg i32 %switch.tableidx258 to i64
+  %switch.gep259 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %201
+  %switch.load260 = load i64, ptr %switch.gep259, align 8
   br label %202
 
-202:                                              ; preds = %198, %switch.lookup247
-  %.sink.i.i48.i = phi i64 [ %switch.load250, %switch.lookup247 ], [ -4104, %198 ]
+202:                                              ; preds = %198, %switch.lookup257
+  %.sink.i.i48.i = phi i64 [ %switch.load260, %switch.lookup257 ], [ -4104, %198 ]
   %203 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i48.i
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 4648
   %205 = load ptr, ptr %204, align 8, !tbaa !25
@@ -1110,18 +1110,18 @@ switch.lookup247:                                 ; preds = %198
   br label %222
 
 222:                                              ; preds = %216, %219
-  %switch.tableidx252 = add i32 %212, -2
-  %223 = icmp ult i32 %switch.tableidx252, 13
-  br i1 %223, label %switch.lookup251, label %ctx_to_m2mctx.exit142
+  %switch.tableidx262 = add i32 %212, -2
+  %223 = icmp ult i32 %switch.tableidx262, 13
+  br i1 %223, label %switch.lookup261, label %ctx_to_m2mctx.exit142
 
-switch.lookup251:                                 ; preds = %222
-  %224 = zext nneg i32 %switch.tableidx252 to i64
-  %switch.gep253 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %224
-  %switch.load254 = load i64, ptr %switch.gep253, align 8
+switch.lookup261:                                 ; preds = %222
+  %224 = zext nneg i32 %switch.tableidx262 to i64
+  %switch.gep263 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %224
+  %switch.load264 = load i64, ptr %switch.gep263, align 8
   br label %ctx_to_m2mctx.exit142
 
-ctx_to_m2mctx.exit142:                            ; preds = %222, %switch.lookup251
-  %.sink.i141 = phi i64 [ %switch.load254, %switch.lookup251 ], [ -4104, %222 ]
+ctx_to_m2mctx.exit142:                            ; preds = %222, %switch.lookup261
+  %.sink.i141 = phi i64 [ %switch.load264, %switch.lookup261 ], [ -4104, %222 ]
   %225 = getelementptr inbounds i8, ptr %0, i64 %.sink.i141
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 4096
   %227 = load i32, ptr %226, align 8, !tbaa !15
@@ -1144,18 +1144,18 @@ ctx_to_m2mctx.exit142:                            ; preds = %222, %switch.lookup
 
 235:                                              ; preds = %232
   %236 = load i32, ptr %11, align 8, !tbaa !4
-  %switch.tableidx256 = add i32 %236, -2
-  %237 = icmp ult i32 %switch.tableidx256, 13
-  br i1 %237, label %switch.lookup255, label %logger.exit145
+  %switch.tableidx266 = add i32 %236, -2
+  %237 = icmp ult i32 %switch.tableidx266, 13
+  br i1 %237, label %switch.lookup265, label %logger.exit145
 
-switch.lookup255:                                 ; preds = %235
-  %238 = zext nneg i32 %switch.tableidx256 to i64
-  %switch.gep257 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %238
-  %switch.load258 = load i64, ptr %switch.gep257, align 8
+switch.lookup265:                                 ; preds = %235
+  %238 = zext nneg i32 %switch.tableidx266 to i64
+  %switch.gep267 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %238
+  %switch.load268 = load i64, ptr %switch.gep267, align 8
   br label %logger.exit145
 
-logger.exit145:                                   ; preds = %235, %switch.lookup255
-  %.sink.i.i144 = phi i64 [ %switch.load258, %switch.lookup255 ], [ -4104, %235 ]
+logger.exit145:                                   ; preds = %235, %switch.lookup265
+  %.sink.i.i144 = phi i64 [ %switch.load268, %switch.lookup265 ], [ -4104, %235 ]
   %239 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i144
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 4648
   %241 = load ptr, ptr %240, align 8, !tbaa !25
@@ -1168,18 +1168,18 @@ logger.exit145:                                   ; preds = %235, %switch.lookup
 
 245:                                              ; preds = %ctx_to_m2mctx.exit142
   %246 = load i32, ptr %11, align 8, !tbaa !4
-  %switch.tableidx260 = add i32 %246, -2
-  %247 = icmp ult i32 %switch.tableidx260, 13
-  br i1 %247, label %switch.lookup259, label %ctx_to_m2mctx.exit147
+  %switch.tableidx270 = add i32 %246, -2
+  %247 = icmp ult i32 %switch.tableidx270, 13
+  br i1 %247, label %switch.lookup269, label %ctx_to_m2mctx.exit147
 
-switch.lookup259:                                 ; preds = %245
-  %248 = zext nneg i32 %switch.tableidx260 to i64
-  %switch.gep261 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %248
-  %switch.load262 = load i64, ptr %switch.gep261, align 8
+switch.lookup269:                                 ; preds = %245
+  %248 = zext nneg i32 %switch.tableidx270 to i64
+  %switch.gep271 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %248
+  %switch.load272 = load i64, ptr %switch.gep271, align 8
   br label %ctx_to_m2mctx.exit147
 
-ctx_to_m2mctx.exit147:                            ; preds = %245, %switch.lookup259
-  %.sink.i146 = phi i64 [ %switch.load262, %switch.lookup259 ], [ -4104, %245 ]
+ctx_to_m2mctx.exit147:                            ; preds = %245, %switch.lookup269
+  %.sink.i146 = phi i64 [ %switch.load272, %switch.lookup269 ], [ -4104, %245 ]
   %249 = getelementptr inbounds i8, ptr %0, i64 %.sink.i146
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 4696
   %251 = load i32, ptr %250, align 8, !tbaa !27
@@ -1356,18 +1356,18 @@ v4l2_try_raw_format.exit.thread.i:                ; preds = %ctx_to_m2mctx.exit.
 
 31:                                               ; preds = %51, %v4l2_try_raw_format.exit.thread.i
   %32 = load i32, ptr %13, align 8, !tbaa !4
-  %switch.tableidx26 = add i32 %32, -2
-  %33 = icmp ult i32 %switch.tableidx26, 13
-  br i1 %33, label %switch.lookup25, label %ctx_to_m2mctx.exit.i
+  %switch.tableidx31 = add i32 %32, -2
+  %33 = icmp ult i32 %switch.tableidx31, 13
+  br i1 %33, label %switch.lookup30, label %ctx_to_m2mctx.exit.i
 
-switch.lookup25:                                  ; preds = %31
-  %34 = zext nneg i32 %switch.tableidx26 to i64
-  %switch.gep27 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %34
-  %switch.load28 = load i64, ptr %switch.gep27, align 8
+switch.lookup30:                                  ; preds = %31
+  %34 = zext nneg i32 %switch.tableidx31 to i64
+  %switch.gep32 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %34
+  %switch.load33 = load i64, ptr %switch.gep32, align 8
   br label %ctx_to_m2mctx.exit.i
 
-ctx_to_m2mctx.exit.i:                             ; preds = %31, %switch.lookup25
-  %.sink.i.i = phi i64 [ %switch.load28, %switch.lookup25 ], [ -4104, %31 ]
+ctx_to_m2mctx.exit.i:                             ; preds = %31, %switch.lookup30
+  %.sink.i.i = phi i64 [ %switch.load33, %switch.lookup30 ], [ -4104, %31 ]
   %35 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4096
   %37 = load i32, ptr %36, align 8, !tbaa !15
@@ -1386,18 +1386,18 @@ ctx_to_m2mctx.exit.i:                             ; preds = %31, %switch.lookup2
   %44 = load i32, ptr %13, align 8, !tbaa !4
   store i32 %42, ptr %30, align 8, !tbaa !50
   store i32 %44, ptr %29, align 8, !tbaa !76
-  %switch.tableidx30 = add i32 %44, -2
-  %45 = icmp ult i32 %switch.tableidx30, 13
-  br i1 %45, label %switch.lookup29, label %ctx_to_m2mctx.exit.i18.i
+  %switch.tableidx35 = add i32 %44, -2
+  %45 = icmp ult i32 %switch.tableidx35, 13
+  br i1 %45, label %switch.lookup34, label %ctx_to_m2mctx.exit.i18.i
 
-switch.lookup29:                                  ; preds = %43
-  %46 = zext nneg i32 %switch.tableidx30 to i64
-  %switch.gep31 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %46
-  %switch.load32 = load i64, ptr %switch.gep31, align 8
+switch.lookup34:                                  ; preds = %43
+  %46 = zext nneg i32 %switch.tableidx35 to i64
+  %switch.gep36 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %46
+  %switch.load37 = load i64, ptr %switch.gep36, align 8
   br label %ctx_to_m2mctx.exit.i18.i
 
-ctx_to_m2mctx.exit.i18.i:                         ; preds = %43, %switch.lookup29
-  %.sink.i.i19.i = phi i64 [ %switch.load32, %switch.lookup29 ], [ -4104, %43 ]
+ctx_to_m2mctx.exit.i18.i:                         ; preds = %43, %switch.lookup34
+  %.sink.i.i19.i = phi i64 [ %switch.load37, %switch.lookup34 ], [ -4104, %43 ]
   %47 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i19.i
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4096
   %49 = load i32, ptr %48, align 8, !tbaa !15
@@ -1445,18 +1445,18 @@ v4l2_get_raw_format.exit:                         ; preds = %ctx_to_m2mctx.exit.
 
 64:                                               ; preds = %75, %59
   %65 = phi i32 [ %.pr.i, %75 ], [ %61, %59 ]
-  %switch.tableidx34 = add i32 %65, -2
-  %66 = icmp ult i32 %switch.tableidx34, 13
-  br i1 %66, label %switch.lookup33, label %ctx_to_m2mctx.exit.i18
+  %switch.tableidx39 = add i32 %65, -2
+  %66 = icmp ult i32 %switch.tableidx39, 13
+  br i1 %66, label %switch.lookup38, label %ctx_to_m2mctx.exit.i18
 
-switch.lookup33:                                  ; preds = %64
-  %67 = zext nneg i32 %switch.tableidx34 to i64
-  %switch.gep35 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %67
-  %switch.load36 = load i64, ptr %switch.gep35, align 8
+switch.lookup38:                                  ; preds = %64
+  %67 = zext nneg i32 %switch.tableidx39 to i64
+  %switch.gep40 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %67
+  %switch.load41 = load i64, ptr %switch.gep40, align 8
   br label %ctx_to_m2mctx.exit.i18
 
-ctx_to_m2mctx.exit.i18:                           ; preds = %64, %switch.lookup33
-  %.sink.i.i19 = phi i64 [ %switch.load36, %switch.lookup33 ], [ -4104, %64 ]
+ctx_to_m2mctx.exit.i18:                           ; preds = %64, %switch.lookup38
+  %.sink.i.i19 = phi i64 [ %switch.load41, %switch.lookup38 ], [ -4104, %64 ]
   %68 = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i19
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4096
   %70 = load i32, ptr %69, align 8, !tbaa !15
@@ -1487,18 +1487,18 @@ v4l2_get_coded_format.exit.thread:                ; preds = %ctx_to_m2mctx.exit.
   store i32 1, ptr %79, align 4, !tbaa !81
   call fastcc void @v4l2_save_to_context(ptr noundef nonnull %0, ptr noundef %5)
   %80 = load i32, ptr %60, align 8, !tbaa !4
-  %switch.tableidx38 = add i32 %80, -2
-  %81 = icmp ult i32 %switch.tableidx38, 13
-  br i1 %81, label %switch.lookup37, label %ctx_to_m2mctx.exit
+  %switch.tableidx43 = add i32 %80, -2
+  %81 = icmp ult i32 %switch.tableidx43, 13
+  br i1 %81, label %switch.lookup42, label %ctx_to_m2mctx.exit
 
-switch.lookup37:                                  ; preds = %78
-  %82 = zext nneg i32 %switch.tableidx38 to i64
-  %switch.gep39 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %82
-  %switch.load40 = load i64, ptr %switch.gep39, align 8
+switch.lookup42:                                  ; preds = %78
+  %82 = zext nneg i32 %switch.tableidx43 to i64
+  %switch.gep44 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %82
+  %switch.load45 = load i64, ptr %switch.gep44, align 8
   br label %ctx_to_m2mctx.exit
 
-ctx_to_m2mctx.exit:                               ; preds = %78, %switch.lookup37
-  %.sink.i = phi i64 [ %switch.load40, %switch.lookup37 ], [ -4104, %78 ]
+ctx_to_m2mctx.exit:                               ; preds = %78, %switch.lookup42
+  %.sink.i = phi i64 [ %switch.load45, %switch.lookup42 ], [ -4104, %78 ]
   %83 = getelementptr inbounds i8, ptr %0, i64 %.sink.i
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 4096
   %85 = load i32, ptr %84, align 8, !tbaa !15
@@ -1825,18 +1825,18 @@ logger.exit:                                      ; preds = %31, %switch.lookup
 
 ._crit_edge25:                                    ; preds = %._crit_edge25.loopexit, %1
   %50 = phi i32 [ %.pre30, %._crit_edge25.loopexit ], [ %6, %1 ]
-  %switch.tableidx32 = add i32 %50, -2
-  %51 = icmp ult i32 %switch.tableidx32, 13
-  br i1 %51, label %switch.lookup31, label %ctx_to_m2mctx.exit
+  %switch.tableidx34 = add i32 %50, -2
+  %51 = icmp ult i32 %switch.tableidx34, 13
+  br i1 %51, label %switch.lookup33, label %ctx_to_m2mctx.exit
 
-switch.lookup31:                                  ; preds = %._crit_edge25
-  %52 = zext nneg i32 %switch.tableidx32 to i64
-  %switch.gep33 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %52
-  %switch.load34 = load i64, ptr %switch.gep33, align 8
+switch.lookup33:                                  ; preds = %._crit_edge25
+  %52 = zext nneg i32 %switch.tableidx34 to i64
+  %switch.gep35 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.ff_v4l2_context_init.34, i64 0, i64 %52
+  %switch.load36 = load i64, ptr %switch.gep35, align 8
   br label %ctx_to_m2mctx.exit
 
-ctx_to_m2mctx.exit:                               ; preds = %._crit_edge25, %switch.lookup31
-  %.sink.i = phi i64 [ %switch.load34, %switch.lookup31 ], [ -4104, %._crit_edge25 ]
+ctx_to_m2mctx.exit:                               ; preds = %._crit_edge25, %switch.lookup33
+  %.sink.i = phi i64 [ %switch.load36, %switch.lookup33 ], [ -4104, %._crit_edge25 ]
   %53 = getelementptr inbounds i8, ptr %0, i64 %.sink.i
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4096
   %55 = load i32, ptr %54, align 8, !tbaa !15

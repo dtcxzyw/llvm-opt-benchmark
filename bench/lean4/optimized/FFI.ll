@@ -1339,18 +1339,18 @@ _init_l___private_Lean_Compiler_FFI_0__Lean_Compiler_FFI_flagsStringToArray___cl
   unreachable
 
 .sink.split:                                      ; preds = %_init_l___private_Lean_Compiler_FFI_0__Lean_Compiler_FFI_flagsStringToArray___closed__2.exit, %3
-  %.sink18 = phi ptr [ %4, %3 ], [ %62, %_init_l___private_Lean_Compiler_FFI_0__Lean_Compiler_FFI_flagsStringToArray___closed__2.exit ]
-  %65 = getelementptr inbounds nuw i8, ptr %.sink18, i64 4
-  store i32 1, ptr %.sink18, align 4, !tbaa !8
+  %.sink25 = phi ptr [ %4, %3 ], [ %62, %_init_l___private_Lean_Compiler_FFI_0__Lean_Compiler_FFI_flagsStringToArray___closed__2.exit ]
+  %65 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
+  store i32 1, ptr %.sink25, align 4, !tbaa !8
   store i32 131096, ptr %65, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %.sink18, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %66, align 8, !tbaa !4
-  %67 = getelementptr inbounds nuw i8, ptr %.sink18, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %67, align 8, !tbaa !4
   br label %68
 
 68:                                               ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink18, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink25, %.sink.split ]
   ret ptr %.0
 }
 

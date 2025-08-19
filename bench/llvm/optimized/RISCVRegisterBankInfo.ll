@@ -1149,7 +1149,8 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit294: ; preds = %320, %3
   br i1 %357, label %374, label %382
 
 360:                                              ; preds = %348, %371
-  %indvars.iv = phi i64 [ 2, %348 ], [ %indvars.iv.next, %371 ]
+  %exitcond.not = phi i1 [ false, %348 ], [ true, %371 ]
+  %indvars.iv = phi i64 [ 2, %348 ], [ 3, %371 ]
   %.2247361 = phi i32 [ %spec.select, %348 ], [ %.3, %371 ]
   %361 = load ptr, ptr %301, align 8, !tbaa !56
   %362 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %361, i64 %indvars.iv, i32 1
@@ -1169,8 +1170,6 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit294: ; preds = %320, %3
 
 371:                                              ; preds = %369, %367
   %.3 = phi i32 [ %370, %369 ], [ %.2247361, %367 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %356, label %360, !llvm.loop !237
 
 .critedge253:                                     ; preds = %344

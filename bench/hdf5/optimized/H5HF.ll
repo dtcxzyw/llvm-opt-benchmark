@@ -168,7 +168,7 @@ define ptr @H5HF_create(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %29 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !11
   %30 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !11
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF_create, i32 noundef 158, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.3) #5
-  br label %.thread33.thread42
+  br label %.thread33.thread45
 
 32:                                               ; preds = %25
   store ptr %26, ptr %19, align 8, !tbaa !13
@@ -208,25 +208,25 @@ define ptr @H5HF_create(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %52 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !11
   %53 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !11
   %54 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF_create, i32 noundef 178, i64 noundef %52, i64 noundef %53, ptr noundef nonnull @.str.6) #5
-  br label %.thread33.thread42
+  br label %.thread33.thread45
 
 .thread33:                                        ; preds = %48
   %55 = icmp eq ptr %.1, null
-  br i1 %55, label %.thread33.thread42, label %.thread33.thread
+  br i1 %55, label %.thread33.thread45, label %.thread33.thread
 
-.thread33.thread42:                               ; preds = %28, %51, %.thread33
+.thread33.thread45:                               ; preds = %28, %51, %.thread33
   %56 = tail call i32 @H5HF_close(ptr noundef nonnull %19)
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %58, label %.thread33.thread
 
-58:                                               ; preds = %.thread33.thread42
+58:                                               ; preds = %.thread33.thread45
   %59 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !11
   %60 = load i64, ptr @H5E_CANTCLOSEOBJ_g, align 8, !tbaa !11
   %61 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF_create, i32 noundef 181, i64 noundef %59, i64 noundef %60, ptr noundef nonnull @.str.7) #5
   br label %.thread33.thread
 
-.thread33.thread:                                 ; preds = %14, %21, %.thread33, %58, %.thread33.thread42, %8
-  %.0 = phi ptr [ null, %58 ], [ null, %.thread33.thread42 ], [ %.1, %.thread33 ], [ null, %8 ], [ null, %21 ], [ null, %14 ]
+.thread33.thread:                                 ; preds = %14, %21, %.thread33, %58, %.thread33.thread45, %8
+  %.0 = phi ptr [ null, %58 ], [ null, %.thread33.thread45 ], [ %.1, %.thread33 ], [ null, %8 ], [ null, %21 ], [ null, %14 ]
   ret ptr %.0
 }
 
@@ -671,7 +671,7 @@ define range(i32 -1, 1) i32 @H5HF_get_obj_len(ptr noundef readonly captures(none
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 600
   store ptr %20, ptr %22, align 8, !tbaa !19
   %23 = lshr i8 %13, 4
-  switch i8 %23, label %.unreachabledefault [
+  switch i8 %23, label %default.unreachable [
     i8 0, label %24
     i8 1, label %31
     i8 2, label %38
@@ -711,7 +711,7 @@ define range(i32 -1, 1) i32 @H5HF_get_obj_len(ptr noundef readonly captures(none
   %44 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF_get_obj_len, i32 noundef 414, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.17) #5
   br label %51
 
-.unreachabledefault:                              ; preds = %18
+default.unreachable:                              ; preds = %18
   unreachable
 
 45:                                               ; preds = %18
@@ -772,7 +772,7 @@ define range(i32 -1, 1) i32 @H5HF_get_obj_off(ptr noundef readonly captures(none
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 600
   store ptr %20, ptr %22, align 8, !tbaa !19
   %23 = lshr i8 %13, 4
-  switch i8 %23, label %.unreachabledefault [
+  switch i8 %23, label %default.unreachable [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %32
@@ -798,7 +798,7 @@ define range(i32 -1, 1) i32 @H5HF_get_obj_off(ptr noundef readonly captures(none
   store i64 0, ptr %2, align 8, !tbaa !11
   br label %39
 
-.unreachabledefault:                              ; preds = %18
+default.unreachable:                              ; preds = %18
   unreachable
 
 33:                                               ; preds = %18
@@ -854,7 +854,7 @@ define range(i32 -1, 1) i32 @H5HF_read(ptr noundef readonly captures(none) %0, p
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 600
   store ptr %20, ptr %22, align 8, !tbaa !19
   %23 = lshr i8 %13, 4
-  switch i8 %23, label %.unreachabledefault [
+  switch i8 %23, label %default.unreachable [
     i8 0, label %24
     i8 1, label %31
     i8 2, label %38
@@ -894,7 +894,7 @@ define range(i32 -1, 1) i32 @H5HF_read(ptr noundef readonly captures(none) %0, p
   %44 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF_read, i32 noundef 531, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.23) #5
   br label %51
 
-.unreachabledefault:                              ; preds = %18
+default.unreachable:                              ; preds = %18
   unreachable
 
 45:                                               ; preds = %18
@@ -952,7 +952,7 @@ define range(i32 -1, 1) i32 @H5HF_write(ptr noundef readonly captures(none) %0, 
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 600
   store ptr %21, ptr %23, align 8, !tbaa !19
   %24 = lshr i8 %14, 4
-  switch i8 %24, label %.unreachabledefault [
+  switch i8 %24, label %default.unreachable [
     i8 0, label %25
     i8 1, label %32
     i8 2, label %39
@@ -987,7 +987,7 @@ define range(i32 -1, 1) i32 @H5HF_write(ptr noundef readonly captures(none) %0, 
   %42 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF_write, i32 noundef 604, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.26) #5
   br label %49
 
-.unreachabledefault:                              ; preds = %19
+default.unreachable:                              ; preds = %19
   unreachable
 
 43:                                               ; preds = %19
@@ -1043,7 +1043,7 @@ define range(i32 -1, 1) i32 @H5HF_op(ptr noundef readonly captures(none) %0, ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 600
   store ptr %21, ptr %23, align 8, !tbaa !19
   %24 = lshr i8 %14, 4
-  switch i8 %24, label %.unreachabledefault [
+  switch i8 %24, label %default.unreachable [
     i8 0, label %25
     i8 1, label %32
     i8 2, label %39
@@ -1083,7 +1083,7 @@ define range(i32 -1, 1) i32 @H5HF_op(ptr noundef readonly captures(none) %0, ptr
   %45 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF_op, i32 noundef 669, i64 noundef %43, i64 noundef %44, ptr noundef nonnull @.str.29) #5
   br label %52
 
-.unreachabledefault:                              ; preds = %19
+default.unreachable:                              ; preds = %19
   unreachable
 
 46:                                               ; preds = %19
@@ -1141,7 +1141,7 @@ define range(i32 -1, 1) i32 @H5HF_remove(ptr noundef readonly captures(none) %0,
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 600
   store ptr %19, ptr %21, align 8, !tbaa !19
   %22 = lshr i8 %12, 4
-  switch i8 %22, label %.unreachabledefault [
+  switch i8 %22, label %default.unreachable [
     i8 0, label %23
     i8 1, label %30
     i8 2, label %37
@@ -1181,7 +1181,7 @@ define range(i32 -1, 1) i32 @H5HF_remove(ptr noundef readonly captures(none) %0,
   %43 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF_remove, i32 noundef 729, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.32) #5
   br label %50
 
-.unreachabledefault:                              ; preds = %17
+default.unreachable:                              ; preds = %17
   unreachable
 
 44:                                               ; preds = %17

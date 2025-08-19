@@ -3278,9 +3278,9 @@ put_bits.exit.us:                                 ; preds = %1401, %1399
 
 ._crit_edge1001:                                  ; preds = %._crit_edge996.us
   %1409 = icmp sgt i32 %.2.us, 0
-  br i1 %1409, label %.preheader1190, label %put_runcode.exit760
+  br i1 %1409, label %.preheader1229, label %put_runcode.exit760
 
-.preheader1190:                                   ; preds = %._crit_edge1001, %put_bits.exit.i757
+.preheader1229:                                   ; preds = %._crit_edge1001, %put_bits.exit.i757
   %1410 = phi i32 [ %.0.i.i.i759, %put_bits.exit.i757 ], [ %.pre11.i.us1119, %._crit_edge1001 ]
   %1411 = phi i32 [ %.026.i.i.i758, %put_bits.exit.i757 ], [ %.pre.i.us1116, %._crit_edge1001 ]
   %.010.i755 = phi i32 [ %1441, %put_bits.exit.i757 ], [ %.2.us, %._crit_edge1001 ]
@@ -3293,12 +3293,12 @@ put_bits.exit.us:                                 ; preds = %1401, %1399
   %1418 = icmp slt i32 %1415, %1410
   br i1 %1418, label %1419, label %1422
 
-1419:                                             ; preds = %.preheader1190
+1419:                                             ; preds = %.preheader1229
   %1420 = shl i32 %1411, %1415
   %1421 = or i32 %1420, %1417
   br label %put_bits.exit.i757
 
-1422:                                             ; preds = %.preheader1190
+1422:                                             ; preds = %.preheader1229
   %1423 = load ptr, ptr %542, align 8, !tbaa !102
   %1424 = load ptr, ptr %543, align 8, !tbaa !103
   %1425 = ptrtoint ptr %1423 to i64
@@ -3337,7 +3337,7 @@ put_bits.exit.i757:                               ; preds = %1438, %1419
   %1440 = load i32, ptr %1439, align 4, !tbaa !53
   %1441 = sub i32 %.010.i755, %1440
   %1442 = icmp sgt i32 %1441, 0
-  br i1 %1442, label %.preheader1190, label %put_runcode.exit760, !llvm.loop !106
+  br i1 %1442, label %.preheader1229, label %put_runcode.exit760, !llvm.loop !106
 
 put_runcode.exit760:                              ; preds = %put_bits.exit.i757, %quantize_band.exit, %._crit_edge1001
   %1443 = phi i32 [ %.pre11.i.us1119, %._crit_edge1001 ], [ 32, %quantize_band.exit ], [ %.0.i.i.i759, %put_bits.exit.i757 ]

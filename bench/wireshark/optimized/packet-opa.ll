@@ -828,7 +828,7 @@ contains.exit55.i:                                ; preds = %.preheader97.i
   br i1 %or.cond.i59.i, label %contains.exit60.i, label %.preheader96.i, !llvm.loop !6
 
 contains.exit60.i:                                ; preds = %.preheader96.i
-  br i1 %170, label %find_next_header_sequence.exit.thread.thread313, label %.preheader95.i
+  br i1 %170, label %find_next_header_sequence.exit.thread.thread315, label %.preheader95.i
 
 .preheader95.i:                                   ; preds = %contains.exit60.i, %.preheader95.i
   %indvars.iv.i61.i = phi i64 [ %indvars.iv.next.i62.i, %.preheader95.i ], [ 0, %contains.exit60.i ]
@@ -909,7 +909,7 @@ contains.exit90.i:                                ; preds = %.preheader.i
   br i1 %188, label %find_next_header_sequence.exit.thread, label %189
 
 189:                                              ; preds = %contains.exit90.i
-  switch i8 %113, label %find_next_header_sequence.exit.thread.thread313 [
+  switch i8 %113, label %find_next_header_sequence.exit.thread.thread315 [
     i8 17, label %213
     i8 12, label %211
     i8 18, label %214
@@ -974,7 +974,7 @@ contains.exit90.i:                                ; preds = %.preheader.i
   call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef nonnull %5)
   %.val209 = load ptr, ptr %30, align 8
   call fastcc void @parse_RETH(ptr noundef %0, ptr %.val209, ptr noundef %38, ptr noundef nonnull %5)
-  br label %find_next_header_sequence.exit.thread.thread313
+  br label %find_next_header_sequence.exit.thread.thread315
 
 202:                                              ; preds = %contains.exit45.i
   %.val202 = load ptr, ptr %30, align 8
@@ -991,7 +991,7 @@ contains.exit90.i:                                ; preds = %.preheader.i
 204:                                              ; preds = %189
   %.val217 = load ptr, ptr %30, align 8
   call fastcc void @parse_AETH(ptr noundef %0, ptr %.val217, ptr noundef %38, ptr noundef nonnull %5)
-  br label %find_next_header_sequence.exit.thread.thread313
+  br label %find_next_header_sequence.exit.thread.thread315
 
 205:                                              ; preds = %189
   %.val204 = load ptr, ptr %30, align 8
@@ -1000,7 +1000,7 @@ contains.exit90.i:                                ; preds = %.preheader.i
   call fastcc void @parse_AETH(ptr noundef %0, ptr %.val218, ptr noundef %38, ptr noundef nonnull %5)
   %.val222 = load ptr, ptr %30, align 8
   call fastcc void @parse_ATOMICACKETH(ptr noundef %0, ptr %.val222, ptr noundef %38, ptr noundef nonnull %5)
-  br label %find_next_header_sequence.exit.thread.thread313
+  br label %find_next_header_sequence.exit.thread.thread315
 
 206:                                              ; preds = %contains.exit80.i
   %.val205 = load ptr, ptr %30, align 8
@@ -1008,13 +1008,13 @@ contains.exit90.i:                                ; preds = %.preheader.i
   call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef nonnull %5)
   %.val224 = load ptr, ptr %30, align 8
   call fastcc void @parse_ATOMICETH(ptr noundef %0, ptr %.val224, ptr noundef %38, ptr noundef nonnull %5)
-  br label %find_next_header_sequence.exit.thread.thread313
+  br label %find_next_header_sequence.exit.thread.thread315
 
 207:                                              ; preds = %189
   %.val206 = load ptr, ptr %30, align 8
   call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val206, ptr noundef %38, ptr noundef nonnull %5)
   call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef nonnull %5)
-  br label %find_next_header_sequence.exit.thread.thread313
+  br label %find_next_header_sequence.exit.thread.thread315
 
 208:                                              ; preds = %189
   call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef nonnull %5)
@@ -1033,7 +1033,7 @@ contains.exit90.i:                                ; preds = %.preheader.i
 211:                                              ; preds = %189
   %.val211 = load ptr, ptr %30, align 8
   call fastcc void @parse_RETH(ptr noundef %0, ptr %.val211, ptr noundef %38, ptr noundef nonnull %5)
-  br label %find_next_header_sequence.exit.thread.thread313
+  br label %find_next_header_sequence.exit.thread.thread315
 
 212:                                              ; preds = %contains.exit50.i
   %.val219 = load ptr, ptr %30, align 8
@@ -1043,19 +1043,19 @@ contains.exit90.i:                                ; preds = %.preheader.i
 213:                                              ; preds = %189
   %.val220 = load ptr, ptr %30, align 8
   call fastcc void @parse_AETH(ptr noundef %0, ptr %.val220, ptr noundef %38, ptr noundef nonnull %5)
-  br label %find_next_header_sequence.exit.thread.thread313
+  br label %find_next_header_sequence.exit.thread.thread315
 
 214:                                              ; preds = %189
   %.val221 = load ptr, ptr %30, align 8
   call fastcc void @parse_AETH(ptr noundef %0, ptr %.val221, ptr noundef %38, ptr noundef nonnull %5)
   %.val223 = load ptr, ptr %30, align 8
   call fastcc void @parse_ATOMICACKETH(ptr noundef %0, ptr %.val223, ptr noundef %38, ptr noundef nonnull %5)
-  br label %find_next_header_sequence.exit.thread.thread313
+  br label %find_next_header_sequence.exit.thread.thread315
 
 215:                                              ; preds = %contains.exit70.i
   %.val225 = load ptr, ptr %30, align 8
   call fastcc void @parse_ATOMICETH(ptr noundef %0, ptr %.val225, ptr noundef %38, ptr noundef nonnull %5)
-  br label %find_next_header_sequence.exit.thread.thread313
+  br label %find_next_header_sequence.exit.thread.thread315
 
 216:                                              ; preds = %contains.exit75.i
   %.val226 = load ptr, ptr %30, align 8
@@ -1073,14 +1073,14 @@ contains.exit90.i:                                ; preds = %.preheader.i
   call fastcc void @parse_KDETH(ptr noundef %0, ptr %.val227, ptr noundef %38, ptr noundef nonnull %5)
   %.val229 = load ptr, ptr %30, align 8
   call fastcc void @parse_PSM(ptr noundef %0, ptr %.val229, ptr noundef %38, ptr noundef nonnull %5, i32 noundef %115)
-  br label %find_next_header_sequence.exit.thread.thread313
+  br label %find_next_header_sequence.exit.thread.thread315
 
 find_next_header_sequence.exit.thread.thread:     ; preds = %contains.exit.i, %217, %216, %212, %210, %209, %208, %203, %202, %200, %199, %198, %197
-  %.pre309310 = load i32, ptr %5, align 4
+  %.pre309312 = load i32, ptr %5, align 4
   br label %220
 
-find_next_header_sequence.exit.thread.thread313:  ; preds = %189, %contains.exit60.i, %218, %215, %214, %213, %211, %207, %206, %205, %204, %201
-  %.pre309314 = load i32, ptr %5, align 4
+find_next_header_sequence.exit.thread.thread315:  ; preds = %189, %contains.exit60.i, %218, %215, %214, %213, %211, %207, %206, %205, %204, %201
+  %.pre309316 = load i32, ptr %5, align 4
   br label %.critedge
 
 find_next_header_sequence.exit.thread:            ; preds = %contains.exit90.i
@@ -1093,9 +1093,9 @@ find_next_header_sequence.exit.thread:            ; preds = %contains.exit90.i
   br i1 %219, label %220, label %.critedge
 
 220:                                              ; preds = %find_next_header_sequence.exit.thread.thread, %find_next_header_sequence.exit.thread
-  %.pre309311 = phi i32 [ %.pre309310, %find_next_header_sequence.exit.thread.thread ], [ %.pre309, %find_next_header_sequence.exit.thread ]
-  %221 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.pre309311)
-  %222 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.pre309311)
+  %.pre309313 = phi i32 [ %.pre309312, %find_next_header_sequence.exit.thread.thread ], [ %.pre309, %find_next_header_sequence.exit.thread ]
+  %221 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.pre309313)
+  %222 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.pre309313)
   %223 = icmp sgt i32 %222, 3
   %224 = add nsw i32 %222, -4
   %spec.select = select i1 %223, i32 %224, i32 %222
@@ -1104,17 +1104,17 @@ find_next_header_sequence.exit.thread:            ; preds = %contains.exit90.i
   br i1 %225, label %226, label %.critedge
 
 226:                                              ; preds = %220
-  %227 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.pre309311, i32 noundef %.0191, i32 noundef %spec.select)
+  %227 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.pre309313, i32 noundef %.0191, i32 noundef %spec.select)
   %228 = load ptr, ptr @opa_mad_handle, align 8
   %229 = tail call i32 @call_dissector(ptr noundef %228, ptr noundef %227, ptr noundef %1, ptr noundef %38)
-  %230 = add i32 %.0191, %.pre309311
+  %230 = add i32 %.0191, %.pre309313
   br label %.critedge
 
 default.unreachable:                              ; preds = %28
   unreachable
 
-.critedge:                                        ; preds = %find_next_header_sequence.exit.thread.thread313, %28, %79, %190, %find_next_header_sequence.exit.thread, %226, %220
-  %231 = phi i32 [ 8, %28 ], [ 48, %79 ], [ %196, %190 ], [ %.pre309, %find_next_header_sequence.exit.thread ], [ %230, %226 ], [ %.pre309311, %220 ], [ %.pre309314, %find_next_header_sequence.exit.thread.thread313 ]
+.critedge:                                        ; preds = %find_next_header_sequence.exit.thread.thread315, %28, %79, %190, %find_next_header_sequence.exit.thread, %226, %220
+  %231 = phi i32 [ 8, %28 ], [ 48, %79 ], [ %196, %190 ], [ %.pre309, %find_next_header_sequence.exit.thread ], [ %230, %226 ], [ %.pre309313, %220 ], [ %.pre309316, %find_next_header_sequence.exit.thread.thread315 ]
   %232 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %231)
   %.not197 = icmp eq i32 %232, 4
   %233 = add i32 %231, -4

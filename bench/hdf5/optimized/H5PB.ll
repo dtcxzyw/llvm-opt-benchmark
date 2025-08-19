@@ -1079,13 +1079,13 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   store i32 %40, ptr %38, align 8, !tbaa !11
   %41 = load i64, ptr %21, align 8, !tbaa !43
   %.not404 = icmp ult i64 %3, %41
-  br i1 %.not404, label %.thread418, label %.thread398
+  br i1 %.not404, label %.thread453, label %.thread398
 
 42:                                               ; preds = %20
   %43 = icmp eq i32 %1, 3
-  br i1 %43, label %50, label %.thread418
+  br i1 %43, label %50, label %.thread453
 
-.thread418:                                       ; preds = %37, %42
+.thread453:                                       ; preds = %37, %42
   %44 = phi i64 [ %22, %42 ], [ %41, %37 ]
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %46 = load i32, ptr %45, align 8, !tbaa !11
@@ -1356,12 +1356,12 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   %.not416 = icmp eq i64 %63, 0
   br i1 %.not416, label %.thread398, label %.lr.ph414
 
-.lr.ph414:                                        ; preds = %.thread418, %185
-  %186 = phi i1 [ false, %.thread418 ], [ true, %185 ]
-  %.0302367423 = phi i64 [ 1, %.thread418 ], [ %63, %185 ]
-  %.0294368422 = phi i64 [ -1, %.thread418 ], [ %spec.store.select, %185 ]
+.lr.ph414:                                        ; preds = %.thread453, %185
+  %186 = phi i1 [ false, %.thread453 ], [ true, %185 ]
+  %.0302367458 = phi i64 [ 1, %.thread453 ], [ %63, %185 ]
+  %.0294368457 = phi i64 [ -1, %.thread453 ], [ %spec.store.select, %185 ]
   %187 = load ptr, ptr %0, align 8, !tbaa !69
-  %188 = icmp eq i64 %.0302367423, 1
+  %188 = icmp eq i64 %.0302367458, 1
   %189 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %190 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %191 = getelementptr inbounds nuw i8, ptr %18, i64 72
@@ -1380,7 +1380,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   %.0295412 = phi i64 [ 0, %.lr.ph414 ], [ %.6301395, %.thread390 ]
   %201 = icmp eq i64 %.1293413, 0
   %202 = load i64, ptr %6, align 8
-  %203 = select i1 %201, i64 %202, i64 %.0294368422
+  %203 = select i1 %201, i64 %202, i64 %.0294368457
   store i64 %203, ptr %7, align 8, !tbaa !37
   br i1 %188, label %205, label %204
 
@@ -1711,7 +1711,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
 .thread390:                                       ; preds = %381, %384, %264, %261
   %.6301395 = phi i64 [ %spec.select, %261 ], [ %spec.select, %264 ], [ %spec.select353, %384 ], [ %spec.select353, %381 ]
   %387 = add nuw i64 %.1293413, 1
-  %exitcond.not = icmp eq i64 %387, %.0302367423
+  %exitcond.not = icmp eq i64 %387, %.0302367458
   br i1 %exitcond.not, label %.thread398, label %200, !llvm.loop !71
 
 .thread398:                                       ; preds = %182, %86, %.thread390, %65, %185, %283, %286, %277, %373, %336, %318, %308, %301, %294, %23, %13, %28, %37
@@ -2384,10 +2384,10 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
 
 .lr.ph477:                                        ; preds = %47, %54, %.thread422
   %208 = phi i64 [ %52, %.thread422 ], [ %52, %47 ], [ %59, %54 ]
-  %.0353419489 = phi i64 [ %65, %.thread422 ], [ 1, %47 ], [ 1, %54 ]
-  %.0350421488 = phi i64 [ %spec.store.select, %.thread422 ], [ -1, %47 ], [ -1, %54 ]
+  %.0353419525 = phi i64 [ %65, %.thread422 ], [ 1, %47 ], [ 1, %54 ]
+  %.0350421524 = phi i64 [ %spec.store.select, %.thread422 ], [ -1, %47 ], [ -1, %54 ]
   %209 = load ptr, ptr %0, align 8, !tbaa !69
-  %210 = icmp eq i64 %.0353419489, 1
+  %210 = icmp eq i64 %.0353419525, 1
   %211 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %212 = sub i64 %208, %2
   %213 = getelementptr inbounds nuw i8, ptr %17, i64 64
@@ -2407,7 +2407,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   %.1349476 = phi i64 [ 0, %.lr.ph477 ], [ %451, %.thread456 ]
   %.0351475 = phi i64 [ 0, %.lr.ph477 ], [ %.1352429461, %.thread456 ]
   %225 = icmp eq i64 %.1349476, 0
-  %226 = select i1 %225, i64 %208, i64 %.0350421488
+  %226 = select i1 %225, i64 %208, i64 %.0350421524
   store i64 %226, ptr %6, align 8, !tbaa !37
   br i1 %210, label %228, label %227
 
@@ -2813,7 +2813,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
 .thread456:                                       ; preds = %408, %441, %283, %280
   %.1352429461 = phi i64 [ %.1352428433, %280 ], [ %.1352428433, %283 ], [ %.1352430, %441 ], [ %.1352430, %408 ]
   %451 = add nuw i64 %.1349476, 1
-  %exitcond.not = icmp eq i64 %451, %.0353419489
+  %exitcond.not = icmp eq i64 %451, %.0353419525
   br i1 %exitcond.not, label %.thread464, label %224, !llvm.loop !73
 
 .thread464:                                       ; preds = %205, %.thread456, %.preheader, %.thread422, %384, %397, %374, %367, %357, %350, %302, %305, %296, %444, %329, %22, %12, %27, %41

@@ -830,7 +830,7 @@ define hidden void @"_ZN143_$LT$hir_expand..files..InFileWrapper$LT$span..HirFil
 .noexc22:                                         ; preds = %82
   %84 = load i8, ptr %11, align 8, !range !138, !noalias !130, !noundef !4
   %85 = icmp eq i8 %84, 5
-  br i1 %85, label %.thread43, label %86
+  br i1 %85, label %.thread47, label %86
 
 86:                                               ; preds = %.noexc22
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 1
@@ -842,7 +842,7 @@ define hidden void @"_ZN143_$LT$hir_expand..files..InFileWrapper$LT$span..HirFil
   invoke void @_ZN10hir_expand8span_map7SpanMap14span_for_range17he58d975759c16d53E(ptr noalias noundef nonnull sret({ i32, { i32, i32 }, { i32, i32 } }) align 4 captures(none) dereferenceable(20) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17, i32 noundef %.0.i.i.i, i32 noundef %80)
           to label %101 unwind label %89, !noalias !130
 
-.thread43:                                        ; preds = %.noexc22
+.thread47:                                        ; preds = %.noexc22
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !130
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i8 5, ptr %87, align 8, !alias.scope !127, !noalias !139
@@ -914,8 +914,8 @@ define hidden void @"_ZN143_$LT$hir_expand..files..InFileWrapper$LT$span..HirFil
   invoke void @_ZN7hir_def32macro_call_as_call_id_with_eager17ha8e93ecf62ebd617E(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %15, i32 noundef %106, i8 noundef %20, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
           to label %117 unwind label %115
 
-109:                                              ; preds = %.thread43, %.thread, %101
-  %110 = phi ptr [ %57, %.thread ], [ %104, %101 ], [ %88, %.thread43 ]
+109:                                              ; preds = %.thread47, %.thread, %101
+  %110 = phi ptr [ %57, %.thread ], [ %104, %101 ], [ %88, %.thread47 ]
   %111 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %112 = call noundef dereferenceable_or_null(26) ptr @__rust_alloc(i64 noundef 26, i64 noundef range(i64 1, 0) 1) #26
   %113 = icmp eq ptr %112, null

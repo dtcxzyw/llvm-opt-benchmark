@@ -569,11 +569,11 @@ verify_chain.exit.i:                              ; preds = %181, %165, %160, %1
 197:                                              ; preds = %196
   %198 = call ptr @X509_verify_cert_error_string(i64 noundef %191) #9
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 363, ptr noundef nonnull @.str.35, i32 noundef %42, i32 noundef %189, ptr noundef %198) #9
-  br label %.thread80.i, !llvm.loop !10
+  br label %.thread88.i, !llvm.loop !10
 
 199:                                              ; preds = %196
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 365, ptr noundef nonnull @.str.36, i32 noundef %42) #9
-  br label %.thread80.i, !llvm.loop !10
+  br label %.thread88.i, !llvm.loop !10
 
 200:                                              ; preds = %verify_chain.exit.i
   %201 = select i1 %195, i1 %.0.i64.i, i1 false
@@ -584,7 +584,7 @@ verify_chain.exit.i:                              ; preds = %181, %165, %160, %1
 
 204:                                              ; preds = %200
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 370, ptr noundef nonnull @.str.38, i32 noundef %42) #9
-  br label %.thread80.i, !llvm.loop !10
+  br label %.thread88.i, !llvm.loop !10
 
 205:                                              ; preds = %200
   %206 = load i32, ptr %10, align 4, !tbaa !12
@@ -594,7 +594,7 @@ verify_chain.exit.i:                              ; preds = %181, %165, %160, %1
 
 208:                                              ; preds = %205
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 375, ptr noundef nonnull @.str.41, i32 noundef %42) #9
-  br label %.thread80.i
+  br label %.thread88.i
 
 .thread.i:                                        ; preds = %allws.exit.i, %149, %tlsa_import_rr.exit.thread.i, %63, %allws.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -605,7 +605,7 @@ verify_chain.exit.i:                              ; preds = %181, %165, %160, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %test_tlsafile.exit
 
-.thread80.i:                                      ; preds = %208, %204, %199, %197
+.thread88.i:                                      ; preds = %208, %204, %199, %197
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -626,8 +626,8 @@ verify_chain.exit.i:                              ; preds = %181, %165, %160, %1
   %.not.i = icmp eq ptr %210, null
   br i1 %.not.i, label %.critedge.i, label %.lr.ph
 
-.critedge.i:                                      ; preds = %209, %36, %.thread80.i
-  %.046.lcssa.i = phi i32 [ 0, %.thread80.i ], [ 1, %36 ], [ 1, %209 ]
+.critedge.i:                                      ; preds = %209, %36, %.thread88.i
+  %.046.lcssa.i = phi i32 [ 0, %.thread88.i ], [ 1, %36 ], [ 1, %209 ]
   call void @ERR_clear_error() #9
   br label %test_tlsafile.exit
 
@@ -844,7 +844,7 @@ define internal i64 @hexdecode(ptr noundef readonly captures(none) %0, ptr nound
   %5 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %4, ptr noundef nonnull @.str.14, i32 noundef 185) #9
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 185, ptr noundef nonnull @.str.51, ptr noundef %5) #9
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %38, label %.preheader
+  br i1 %.not, label %35, label %.preheader
 
 .preheader:                                       ; preds = %2
   %7 = load i8, ptr %0, align 1, !tbaa !9
@@ -855,24 +855,26 @@ define internal i64 @hexdecode(ptr noundef readonly captures(none) %0, ptr nound
   %8 = tail call ptr @__ctype_b_loc() #10
   br label %.outer
 
-.outer:                                           ; preds = %.thread, %.lr.ph
-  %.ph = phi i8 [ %32, %.thread ], [ %7, %.lr.ph ]
-  %.02747.ph = phi ptr [ %30, %.thread ], [ %5, %.lr.ph ]
-  %.03046.ph = phi ptr [ %31, %.thread ], [ %0, %.lr.ph ]
+.outer:                                           ; preds = %.loopexit, %.lr.ph
+  %.ph = phi i8 [ %27, %.loopexit ], [ %7, %.lr.ph ]
+  %.02249.ph = phi i32 [ %.123.ph, %.loopexit ], [ 0, %.lr.ph ]
+  %.02448.ph = phi i8 [ %.125.ph, %.loopexit ], [ 0, %.lr.ph ]
+  %.02747.ph = phi ptr [ %.128.ph, %.loopexit ], [ %5, %.lr.ph ]
+  %.03046.ph = phi ptr [ %26, %.loopexit ], [ %0, %.lr.ph ]
   br label %9
 
-9:                                                ; preds = %.outer, %26
-  %10 = phi i8 [ %28, %26 ], [ %.ph, %.outer ]
-  %.02249 = phi i32 [ %.123.ph, %26 ], [ 0, %.outer ]
-  %.02448 = phi i8 [ %.125.ph, %26 ], [ 0, %.outer ]
-  %.03046 = phi ptr [ %27, %26 ], [ %.03046.ph, %.outer ]
+9:                                                ; preds = %.outer, %.thread
+  %10 = phi i8 [ %30, %.thread ], [ %.ph, %.outer ]
+  %.02249 = phi i32 [ 1, %.thread ], [ %.02249.ph, %.outer ]
+  %.02448 = phi i8 [ %28, %.thread ], [ %.02448.ph, %.outer ]
+  %.03046 = phi ptr [ %29, %.thread ], [ %.03046.ph, %.outer ]
   %11 = load ptr, ptr %8, align 8, !tbaa !14
   %12 = zext i8 %10 to i64
   %13 = getelementptr inbounds nuw i16, ptr %11, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !16
   %15 = and i16 %14, 8192
   %.not35 = icmp eq i16 %15, 0
-  br i1 %.not35, label %16, label %26
+  br i1 %.not35, label %16, label %.loopexit
 
 16:                                               ; preds = %9
   %17 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %10) #9
@@ -881,53 +883,53 @@ define internal i64 @hexdecode(ptr noundef readonly captures(none) %0, ptr nound
 
 19:                                               ; preds = %16
   %20 = trunc i32 %17 to i8
-  %21 = icmp eq i32 %.02249, 1
-  br i1 %21, label %.thread, label %22
+  %21 = or i8 %.02448, %20
+  %22 = icmp eq i32 %.02249, 1
+  br i1 %22, label %23, label %.thread
 
-22:                                               ; preds = %19
-  %23 = xor i32 %.02249, 1
-  %24 = shl i8 %20, 4
-  br label %26
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %.02747.ph, i64 1
+  store i8 %21, ptr %.02747.ph, align 1, !tbaa !9
+  br label %.loopexit
 
 25:                                               ; preds = %16
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.14, i32 noundef 196) #9
-  br label %38
+  br label %35
 
-26:                                               ; preds = %9, %22
-  %.125.ph = phi i8 [ %24, %22 ], [ %.02448, %9 ]
-  %.123.ph = phi i32 [ %23, %22 ], [ %.02249, %9 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.03046, i64 1
-  %28 = load i8, ptr %27, align 1, !tbaa !9
-  %.not33 = icmp eq i8 %28, 0
-  br i1 %.not33, label %._crit_edge, label %9, !llvm.loop !31
+.loopexit:                                        ; preds = %9, %23
+  %.128.ph = phi ptr [ %24, %23 ], [ %.02747.ph, %9 ]
+  %.125.ph = phi i8 [ 0, %23 ], [ %.02448, %9 ]
+  %.123.ph = phi i32 [ 0, %23 ], [ %.02249, %9 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.03046, i64 1
+  %27 = load i8, ptr %26, align 1, !tbaa !9
+  %.not33 = icmp eq i8 %27, 0
+  br i1 %.not33, label %._crit_edge, label %.outer, !llvm.loop !31
 
 .thread:                                          ; preds = %19
-  %29 = or i8 %.02448, %20
-  %30 = getelementptr inbounds nuw i8, ptr %.02747.ph, i64 1
-  store i8 %29, ptr %.02747.ph, align 1, !tbaa !9
-  %31 = getelementptr inbounds nuw i8, ptr %.03046, i64 1
-  %32 = load i8, ptr %31, align 1, !tbaa !9
-  %.not3357 = icmp eq i8 %32, 0
-  br i1 %.not3357, label %._crit_edge.thread, label %.outer, !llvm.loop !31
+  %28 = shl i8 %21, 4
+  %29 = getelementptr inbounds nuw i8, ptr %.03046, i64 1
+  %30 = load i8, ptr %29, align 1, !tbaa !9
+  %.not3360 = icmp eq i8 %30, 0
+  br i1 %.not3360, label %._crit_edge.thread63, label %9, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %26
-  %33 = icmp eq i32 %.123.ph, 0
-  br i1 %33, label %._crit_edge.thread, label %34
+._crit_edge:                                      ; preds = %.loopexit
+  %31 = icmp eq i32 %.123.ph, 0
+  br i1 %31, label %._crit_edge.thread, label %._crit_edge.thread63
 
-34:                                               ; preds = %._crit_edge
+._crit_edge.thread63:                             ; preds = %.thread, %._crit_edge
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.14, i32 noundef 208) #9
-  br label %38
+  br label %35
 
-._crit_edge.thread:                               ; preds = %.thread, %.preheader, %._crit_edge
-  %.027.lcssa53 = phi ptr [ %.02747.ph, %._crit_edge ], [ %5, %.preheader ], [ %30, %.thread ]
+._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
+  %.027.lcssa56 = phi ptr [ %.128.ph, %._crit_edge ], [ %5, %.preheader ]
   store ptr %5, ptr %1, align 8, !tbaa !4
-  %35 = ptrtoint ptr %.027.lcssa53 to i64
-  %36 = ptrtoint ptr %5 to i64
-  %37 = sub i64 %35, %36
-  br label %38
+  %32 = ptrtoint ptr %.027.lcssa56 to i64
+  %33 = ptrtoint ptr %5 to i64
+  %34 = sub i64 %32, %33
+  br label %35
 
-38:                                               ; preds = %25, %2, %._crit_edge.thread, %34
-  %.0 = phi i64 [ 0, %25 ], [ 0, %34 ], [ %37, %._crit_edge.thread ], [ -1, %2 ]
+35:                                               ; preds = %25, %2, %._crit_edge.thread, %._crit_edge.thread63
+  %.0 = phi i64 [ 0, %25 ], [ 0, %._crit_edge.thread63 ], [ %34, %._crit_edge.thread ], [ -1, %2 ]
   ret i64 %.0
 }
 

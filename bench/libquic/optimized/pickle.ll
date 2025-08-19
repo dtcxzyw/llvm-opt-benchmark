@@ -1044,7 +1044,7 @@ define void @_ZN4base6PickleC2EPKci(ptr noundef nonnull writeonly align 8 captur
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %7, align 8, !tbaa !8
   %8 = icmp sgt i32 %2, 3
-  br i1 %8, label %9, label %.thread9
+  br i1 %8, label %9, label %.thread10
 
 9:                                                ; preds = %3
   %10 = load i32, ptr %1, align 4, !tbaa !15
@@ -1055,21 +1055,21 @@ define void @_ZN4base6PickleC2EPKci(ptr noundef nonnull writeonly align 8 captur
   %14 = and i64 %12, 3
   %.not = icmp eq i64 %14, 0
   %or.cond = and i1 %13, %.not
-  br i1 %or.cond, label %15, label %.thread9.sink.split
+  br i1 %or.cond, label %15, label %.thread10.sink.split
 
 15:                                               ; preds = %9
   %.not4 = icmp eq i32 %2, %10
-  br i1 %.not4, label %.thread9, label %16
+  br i1 %.not4, label %.thread10, label %16
 
-.thread9.sink.split:                              ; preds = %9
+.thread10.sink.split:                             ; preds = %9
   store i64 0, ptr %5, align 8, !tbaa !14
-  br label %.thread9
+  br label %.thread10
 
-.thread9:                                         ; preds = %.thread9.sink.split, %3, %15
+.thread10:                                        ; preds = %.thread10.sink.split, %3, %15
   store ptr null, ptr %4, align 8, !tbaa !13
   br label %16
 
-16:                                               ; preds = %.thread9, %15
+16:                                               ; preds = %.thread10, %15
   ret void
 }
 

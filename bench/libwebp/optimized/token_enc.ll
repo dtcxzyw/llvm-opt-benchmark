@@ -1348,18 +1348,18 @@ AddConstantToken.exit285:                         ; preds = %TBufferNewPage.exit
   br i1 %.not137, label %AddConstantToken.exit, label %623, !llvm.loop !36
 
 AddConstantToken.exit:                            ; preds = %AddConstantToken.exit285, %AddToken.exit178, %AddToken.exit170, %TBufferNewPage.exit.thread.i196, %327, %TBufferNewPage.exit.thread.i209, %369, %AddToken.exit154
-  %.sink318 = phi i32 [ 11, %AddToken.exit154 ], [ 22, %369 ], [ 22, %TBufferNewPage.exit.thread.i209 ], [ 22, %327 ], [ 22, %TBufferNewPage.exit.thread.i196 ], [ 22, %AddToken.exit170 ], [ 22, %AddToken.exit178 ], [ 22, %AddConstantToken.exit285 ]
-  %.sink315 = phi i64 [ 1, %AddToken.exit154 ], [ 2, %369 ], [ 2, %TBufferNewPage.exit.thread.i209 ], [ 2, %327 ], [ 2, %TBufferNewPage.exit.thread.i196 ], [ 2, %AddToken.exit170 ], [ 2, %AddToken.exit178 ], [ 2, %AddConstantToken.exit285 ]
+  %.sink365 = phi i32 [ 11, %AddToken.exit154 ], [ 22, %369 ], [ 22, %TBufferNewPage.exit.thread.i209 ], [ 22, %327 ], [ 22, %TBufferNewPage.exit.thread.i196 ], [ 22, %AddToken.exit170 ], [ 22, %AddToken.exit178 ], [ 22, %AddConstantToken.exit285 ]
+  %.sink362 = phi i64 [ 1, %AddToken.exit154 ], [ 2, %369 ], [ 2, %TBufferNewPage.exit.thread.i209 ], [ 2, %327 ], [ 2, %TBufferNewPage.exit.thread.i196 ], [ 2, %AddToken.exit170 ], [ 2, %AddToken.exit178 ], [ 2, %AddConstantToken.exit285 ]
   %651 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %indvars.iv.next
   %652 = load i8, ptr %651, align 1, !tbaa !34
   %653 = zext i8 %652 to i32
   %654 = add nsw i32 %11, %653
   %655 = mul i32 %654, 33
-  %656 = add i32 %655, %.sink318
+  %656 = add i32 %655, %.sink365
   %657 = load ptr, ptr %16, align 8, !tbaa !29
   %658 = zext i8 %652 to i64
   %.split = getelementptr inbounds nuw [3 x [11 x i32]], ptr %657, i64 %658
-  %659 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %.split, i64 0, i64 %.sink315
+  %659 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %.split, i64 0, i64 %.sink362
   %660 = load i32, ptr %23, align 8, !tbaa !14
   %661 = icmp sgt i32 %660, 0
   br i1 %661, label %._crit_edge.i289, label %662
@@ -1597,8 +1597,8 @@ define hidden noundef i32 @VP8EmitTokens(ptr noundef captures(none) %0, ptr noun
   br label %59
 
 59:                                               ; preds = %53, %51
-  %.sink40 = phi i32 [ %58, %53 ], [ %52, %51 ]
-  %60 = tail call i32 @VP8PutBit(ptr noundef %1, i32 noundef %49, i32 noundef %.sink40) #5
+  %.sink46 = phi i32 [ %58, %53 ], [ %52, %51 ]
+  %60 = tail call i32 @VP8PutBit(ptr noundef %1, i32 noundef %49, i32 noundef %.sink46) #5
   %61 = icmp sgt i64 %indvars.iv.next, %45
   br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 

@@ -474,7 +474,7 @@ _ZNK5clang6interp10Descriptor7isUnionEv.exit.us47: ; preds = %82, %74
   br i1 %2, label %.lr.ph.split.split.split.us.preheader, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split.us.preheader:            ; preds = %.lr.ph.split.split
-  %invariant.op64 = or disjoint i8 %19, 1
+  %invariant.op76 = or disjoint i8 %19, 1
   br label %.lr.ph.split.split.split.us
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split.split.us.preheader, %120
@@ -491,11 +491,11 @@ _ZNK5clang6interp10Descriptor7isUnionEv.exit.us47: ; preds = %82, %74
   %96 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %97 = load i8, ptr %96, align 4
   %98 = and i8 %97, -24
-  %.reass65 = or disjoint i8 %98, %invariant.op64
-  store i8 %.reass65, ptr %96, align 4
+  %.reass77 = or disjoint i8 %98, %invariant.op76
+  store i8 %.reass77, ptr %96, align 4
   %99 = load i8, ptr %21, align 1, !tbaa !28, !range !40, !noundef !41
   %100 = shl nuw nsw i8 %99, 6
-  %101 = and i8 %.reass65, 27
+  %101 = and i8 %.reass77, 27
   %102 = or disjoint i8 %101, %100
   %103 = or disjoint i8 %102, %22
   store i8 %103, ptr %96, align 4

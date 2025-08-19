@@ -895,13 +895,13 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %_ZN5Eigen15PlainObj
   br i1 %exitcond.not.i.i.i.i16, label %.sink.split, label %69, !llvm.loop !66
 
 .sink.split:                                      ; preds = %69, %51
-  %.lcssa29.sink = phi float [ %58, %51 ], [ %76, %69 ]
+  %.lcssa32.sink = phi float [ %58, %51 ], [ %76, %69 ]
   %.sink = phi double [ 0.000000e+00, %51 ], [ 1.000000e+00, %69 ]
   %.ph = phi ptr [ %46, %51 ], [ %.pre, %69 ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %79 = load ptr, ptr %78, align 8, !tbaa !68
   %80 = getelementptr inbounds double, ptr %79, i64 %5
-  %81 = fpext float %.lcssa29.sink to double
+  %81 = fpext float %.lcssa32.sink to double
   store double %81, ptr %80, align 8, !tbaa !63
   store double %.sink, ptr %40, align 8, !tbaa !63
   br label %82
@@ -1837,19 +1837,19 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %_ZN5Eigen15PlainObj
   br i1 %45, label %.sink.split, label %62
 
 .sink.split:                                      ; preds = %44, %.loopexit
-  %.sink46 = phi i64 [ 24, %.loopexit ], [ 32, %44 ]
+  %.sink49 = phi i64 [ 24, %.loopexit ], [ 32, %44 ]
   %.sink = phi double [ 0.000000e+00, %.loopexit ], [ 1.000000e+00, %44 ]
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink46
-  %.sink44 = load ptr, ptr %46, align 8, !tbaa !16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink49
+  %.sink47 = load ptr, ptr %46, align 8, !tbaa !16
   %47 = load <2 x double>, ptr %43, align 1, !tbaa !60
-  %48 = load <2 x double>, ptr %.sink44, align 1, !tbaa !60
+  %48 = load <2 x double>, ptr %.sink47, align 1, !tbaa !60
   %49 = fsub <2 x double> %47, %48
   %50 = fmul <2 x double> %49, %49
   %shift = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %foldExtExtBinop = fadd <2 x double> %50, %shift
   %51 = extractelement <2 x double> %foldExtExtBinop, i64 0
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %53 = getelementptr inbounds nuw i8, ptr %.sink44, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.sink47, i64 16
   %54 = load double, ptr %52, align 8, !tbaa !63
   %55 = load double, ptr %53, align 8, !tbaa !63
   %56 = fsub double %54, %55

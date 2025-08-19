@@ -1394,8 +1394,8 @@ classend.exit:                                    ; preds = %132
   br i1 %.not31.i, label %187, label %matchbracketclass.exit
 
 174:                                              ; preds = %172, %153
-  %.not39.i = icmp eq i32 %141, %154
-  br i1 %.not39.i, label %matchbracketclass.exit, label %187
+  %.not43.i = icmp eq i32 %141, %154
+  br i1 %.not43.i, label %matchbracketclass.exit, label %187
 
 match_class.exit.i:                               ; preds = %172
   br i1 %.not31.i, label %matchbracketclass.exit, label %187
@@ -1488,8 +1488,8 @@ matchbracketclass.exit:                           ; preds = %162, %173, %174, %m
   br i1 %.not31.i111, label %231, label %matchbracketclass.exit122
 
 220:                                              ; preds = %218, %199
-  %.not39.i117 = icmp eq i8 %190, %198
-  br i1 %.not39.i117, label %matchbracketclass.exit122, label %231
+  %.not43.i117 = icmp eq i8 %190, %198
+  br i1 %.not43.i117, label %matchbracketclass.exit122, label %231
 
 match_class.exit.i119:                            ; preds = %218
   br i1 %.not31.i111, label %matchbracketclass.exit122, label %231
@@ -1958,8 +1958,8 @@ define internal fastcc range(i32 0, 256) i32 @singlematch(i32 noundef range(i32 
   ]
 
 72:                                               ; preds = %62
-  %.not39.i.us = icmp eq i8 %51, 0
-  br i1 %.not39.i.us, label %matchbracketclass.exit, label %83
+  %.not43.i.us = icmp eq i8 %51, 0
+  br i1 %.not43.i.us, label %matchbracketclass.exit, label %83
 
 73:                                               ; preds = %66
   %74 = getelementptr inbounds nuw [32 x i8], ptr @match_class_map, i64 0, i64 %68
@@ -2025,8 +2025,8 @@ define internal fastcc range(i32 0, 256) i32 @singlematch(i32 noundef range(i32 
   ]
 
 111:                                              ; preds = %110, %91
-  %.not39.i = icmp eq i32 %0, %92
-  br i1 %.not39.i, label %matchbracketclass.exit, label %match_class.exit.i
+  %.not43.i = icmp eq i32 %0, %92
+  br i1 %.not43.i, label %matchbracketclass.exit, label %match_class.exit.i
 
 112:                                              ; preds = %.lr.ph.i.split
   %113 = icmp eq i8 %90, 45

@@ -434,11 +434,11 @@ define range(i32 -1, 1) i32 @H5T__conv_enum(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %222, label %.thread208, label %226
 
 .thread208:                                       ; preds = %215, %212
-  %H5E_CANTSET_g.sink252 = phi ptr [ @H5E_CANTSET_g, %212 ], [ @H5E_CANTRESTORE_g, %215 ]
-  %.sink249 = phi i32 [ 456, %212 ], [ 463, %215 ]
+  %H5E_CANTSET_g.sink269 = phi ptr [ @H5E_CANTSET_g, %212 ], [ @H5E_CANTRESTORE_g, %215 ]
+  %.sink266 = phi i32 [ 456, %212 ], [ 463, %215 ]
   %223 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !15
-  %224 = load i64, ptr %H5E_CANTSET_g.sink252, align 8, !tbaa !15
-  %225 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_enum, i32 noundef %.sink249, i64 noundef %223, i64 noundef %224, ptr noundef nonnull @.str.6) #11
+  %224 = load i64, ptr %H5E_CANTSET_g.sink269, align 8, !tbaa !15
+  %225 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_enum, i32 noundef %.sink266, i64 noundef %223, i64 noundef %224, ptr noundef nonnull @.str.6) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 

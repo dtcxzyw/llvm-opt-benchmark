@@ -447,7 +447,7 @@ handle_row.exit.i:                                ; preds = %200, %198
 
 .loopexit:                                        ; preds = %219, %217, %178, %216
   %.neg = add nsw i32 %.0124194, -16
-  %220 = sub i32 %.neg, %.0122195
+  %220 = sub nsw i32 %.neg, %.0122195
   %221 = icmp sgt i32 %220, 16
   br i1 %221, label %222, label %decode_idat.exit
 

@@ -1910,7 +1910,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN8QuantLib6MatrixD2Ev.exit399
 
 _ZN8QuantLib6MatrixD2Ev.exit399:                  ; preds = %ehcleanup386.thread, %ehcleanup386, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i398
-  %.pn64.pn.pn.pn.pn.pn.pn553 = phi { ptr, i32 } [ %37, %ehcleanup386.thread ], [ %.pn64.pn.pn.pn.pn.pn, %ehcleanup386 ], [ %.pn64.pn.pn.pn.pn.pn, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i398 ]
+  %.pn64.pn.pn.pn.pn.pn.pn625 = phi { ptr, i32 } [ %37, %ehcleanup386.thread ], [ %.pn64.pn.pn.pn.pn.pn, %ehcleanup386 ], [ %.pn64.pn.pn.pn.pn.pn, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i398 ]
   store ptr null, ptr %C_, align 8, !tbaa !34
   %233 = load ptr, ptr %oneOverTaus_, align 8, !tbaa !8
   %tobool.not.i.i.i401 = icmp eq ptr %233, null
@@ -1926,7 +1926,7 @@ if.then.i.i.i402:                                 ; preds = %_ZN8QuantLib6Matrix
   br label %ehcleanup388
 
 ehcleanup388:                                     ; preds = %if.then.i.i.i402, %_ZN8QuantLib6MatrixD2Ev.exit399, %lpad
-  %.pn64.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %36, %lpad ], [ %.pn64.pn.pn.pn.pn.pn.pn553, %_ZN8QuantLib6MatrixD2Ev.exit399 ], [ %.pn64.pn.pn.pn.pn.pn.pn553, %if.then.i.i.i402 ]
+  %.pn64.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %36, %lpad ], [ %.pn64.pn.pn.pn.pn.pn.pn625, %_ZN8QuantLib6MatrixD2Ev.exit399 ], [ %.pn64.pn.pn.pn.pn.pn.pn625, %if.then.i.i.i402 ]
   %235 = load ptr, ptr %displacements_, align 8, !tbaa !8
   %tobool.not.i.i.i409 = icmp eq ptr %235, null
   br i1 %tobool.not.i.i.i409, label %_ZNSt6vectorIdSaIdEED2Ev.exit415, label %if.then.i.i.i410
@@ -2313,8 +2313,8 @@ _ZN8QuantLib6MatrixC2Emmd.exit:                   ; preds = %for.body.i.i.i.preh
   %cmp5297.not = icmp eq i64 %0, 0
   %or.cond = or i1 %cmp4999.not, %cmp5297.not
   %cmp5795.not = icmp eq i64 %28, 0
-  %or.cond112 = or i1 %or.cond, %cmp5795.not
-  br i1 %or.cond112, label %nrvo.skipdtor, label %for.cond50.preheader.us.us.preheader
+  %or.cond122 = or i1 %or.cond, %cmp5795.not
+  br i1 %or.cond122, label %nrvo.skipdtor, label %for.cond50.preheader.us.us.preheader
 
 for.cond50.preheader.us.us.preheader:             ; preds = %_ZN8QuantLib6MatrixC2Emmd.exit
   %.pre = load ptr, ptr %m1, align 8
@@ -2835,8 +2835,8 @@ for.cond74.preheader.thread:                      ; preds = %for.body31.lr.ph
   %scevgep = getelementptr i8, ptr %18, i64 %38
   %39 = add nuw nsw i64 %36, 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %39, i1 false), !tbaa !35
-  %cmp76136159 = icmp ult i64 %15, %1
-  br i1 %cmp76136159, label %for.body78.lr.ph.thread, label %for.cond.cleanup77
+  %cmp76136164 = icmp ult i64 %15, %1
+  br i1 %cmp76136164, label %for.body78.lr.ph.thread, label %for.cond.cleanup77
 
 for.body78.lr.ph.thread:                          ; preds = %for.cond74.preheader.thread
   %40 = load ptr, ptr %drifts, align 8, !tbaa !8
@@ -2889,15 +2889,15 @@ for.body78.us:                                    ; preds = %for.body78.us.prehe
 
 for.body85.us138.lver.check:                      ; preds = %for.body78.us
   %58 = shl i64 %indvar, 3
-  %scevgep170 = getelementptr i8, ptr %46, i64 %58
-  %scevgep169 = getelementptr i8, ptr %47, i64 %58
+  %scevgep175 = getelementptr i8, ptr %46, i64 %58
+  %scevgep174 = getelementptr i8, ptr %47, i64 %58
   %59 = add i64 %44, %indvar
   %60 = shl i64 %59, 3
   %61 = getelementptr i8, ptr %53, i64 %43
-  %scevgep167 = getelementptr i8, ptr %61, i64 %58
-  %scevgep168 = getelementptr i8, ptr %53, i64 %60
-  %bound0 = icmp ult ptr %scevgep167, %scevgep170
-  %bound1 = icmp ult ptr %scevgep169, %scevgep168
+  %scevgep172 = getelementptr i8, ptr %61, i64 %58
+  %scevgep173 = getelementptr i8, ptr %53, i64 %60
+  %bound0 = icmp ult ptr %scevgep172, %scevgep175
+  %bound1 = icmp ult ptr %scevgep174, %scevgep173
   %found.conflict = and i1 %bound0, %bound1
   %ident.check = icmp ne i64 %54, 1
   %lver.safe = or i1 %found.conflict, %ident.check
@@ -2924,8 +2924,8 @@ for.body85.us138.lver.orig:                       ; preds = %for.body85.us138.lv
 
 for.body85.us138.ph:                              ; preds = %for.body85.us138.lver.check
   %69 = getelementptr i8, ptr %53, i64 %43
-  %scevgep172 = getelementptr i8, ptr %69, i64 %52
-  %load_initial = load double, ptr %scevgep172, align 8
+  %scevgep177 = getelementptr i8, ptr %69, i64 %52
+  %load_initial = load double, ptr %scevgep177, align 8
   br label %for.body85.us138
 
 for.body85.us138:                                 ; preds = %for.body85.us138.ph, %for.body85.us138

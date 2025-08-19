@@ -593,9 +593,9 @@ _ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE5clearEv.exit.thread: ; 
   %25 = sext i32 %storemerge22 to i64
   %26 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKciPiPj(ptr noundef %0, i32 noundef %13, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %27 = load i32, ptr %6, align 4
-  %.sink28 = select i1 %26, i32 %27, i32 65533
+  %.sink38 = select i1 %26, i32 %27, i32 65533
   %.1 = select i1 %26, i1 %.01523, i1 false
-  %28 = call noundef i64 @_ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE(i32 noundef %.sink28, ptr noundef %2)
+  %28 = call noundef i64 @_ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE(i32 noundef %.sink38, ptr noundef %2)
   %29 = load i32, ptr %5, align 4, !tbaa !37
   %30 = sext i32 %29 to i64
   %31 = sub nsw i64 %30, %25
@@ -1114,9 +1114,9 @@ _ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE5clearEv.exit.thread: ; 
   %25 = sext i32 %storemerge22 to i64
   %26 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef %0, i32 noundef %13, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %27 = load i32, ptr %6, align 4
-  %.sink28 = select i1 %26, i32 %27, i32 65533
+  %.sink38 = select i1 %26, i32 %27, i32 65533
   %.1 = select i1 %26, i1 %.01523, i1 false
-  %28 = call noundef i64 @_ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %.sink28, ptr noundef %2)
+  %28 = call noundef i64 @_ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %.sink38, ptr noundef %2)
   %29 = load i32, ptr %5, align 4, !tbaa !37
   %30 = sext i32 %29 to i64
   %31 = sub nsw i64 %30, %25

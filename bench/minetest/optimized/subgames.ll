@@ -13819,8 +13819,8 @@ ehcleanup.i110:                                   ; preds = %if.then.i.i35.i109,
   br i1 %cmp.i.i.i36.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i38.i, label %if.then.i.i37.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i38.i: ; preds = %ehcleanup.i110
-  %_M_string_length.i.i.i.i.i100146 = getelementptr inbounds nuw i8, ptr %208, i64 8
-  %237 = load i64, ptr %_M_string_length.i.i.i.i.i100146, align 8, !tbaa !12
+  %_M_string_length.i.i.i.i.i100228 = getelementptr inbounds nuw i8, ptr %208, i64 8
+  %237 = load i64, ptr %_M_string_length.i.i.i.i.i100228, align 8, !tbaa !12
   %cmp3.i.i.i40.i = icmp ult i64 %237, 16
   call void @llvm.assume(i1 %cmp3.i.i.i40.i)
   br label %lpad78.body

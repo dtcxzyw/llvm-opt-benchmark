@@ -640,12 +640,12 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #1 {
   br i1 %84, label %._crit_edge124.thread, label %.thread.thread
 
 ._crit_edge124.thread:                            ; preds = %1, %.preheader.lr.ph, %.preheader101, %._crit_edge124
-  %.160.lcssa146 = phi i32 [ %.261.lcssa, %._crit_edge124 ], [ %27, %.preheader.lr.ph ], [ %27, %.preheader101 ], [ 0, %1 ]
+  %.160.lcssa151 = phi i32 [ %.261.lcssa, %._crit_edge124 ], [ %27, %.preheader.lr.ph ], [ %27, %.preheader101 ], [ 0, %1 ]
   tail call void @ff_filter_set_ready(ptr noundef nonnull %3, i32 noundef 100) #9
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %24, %59, %57, %._crit_edge124, %._crit_edge124.thread
-  %.0 = phi i32 [ %.160.lcssa146, %._crit_edge124.thread ], [ %.261.lcssa, %._crit_edge124 ], [ %.fr, %59 ], [ -12, %57 ], [ %27, %24 ]
+  %.0 = phi i32 [ %.160.lcssa151, %._crit_edge124.thread ], [ %.261.lcssa, %._crit_edge124 ], [ %.fr, %59 ], [ -12, %57 ], [ %27, %24 ]
   ret i32 %.0
 }
 

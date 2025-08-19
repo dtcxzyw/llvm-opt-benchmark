@@ -385,7 +385,7 @@ checkPixmap.exit:                                 ; preds = %86, %54
   br i1 %.not160.i, label %217, label %208
 
 208:                                              ; preds = %207
-  %209 = trunc i32 %.0116.i to i8
+  %209 = trunc nuw i32 %.0116.i to i8
   %210 = sext i32 %.0118.i to i64
   %211 = getelementptr inbounds i8, ptr %.2135.i, i64 %210
   store i8 %209, ptr %211, align 1
@@ -411,7 +411,7 @@ checkPixmap.exit:                                 ; preds = %86, %54
   br i1 %exitcond172.not.i, label %222, label %207, !llvm.loop !12
 
 222:                                              ; preds = %217
-  %223 = trunc i32 %spec.select163.i to i8
+  %223 = trunc nuw i32 %spec.select163.i to i8
   %224 = sext i32 %.1119.i to i64
   %225 = getelementptr inbounds i8, ptr %.2135.i, i64 %224
   store i8 %223, ptr %225, align 1

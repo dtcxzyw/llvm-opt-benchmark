@@ -325,14 +325,14 @@ define void @dlaed8_(ptr noundef readonly captures(none) %0, ptr noundef capture
   %171 = select i1 %169, double %168, double %170
   %172 = fmul double %127, %171
   %173 = fcmp ugt double %172, %126
-  br i1 %173, label %.preheader, label %.lr.ph544
+  br i1 %173, label %.preheader, label %.lr.ph560
 
-.lr.ph544:                                        ; preds = %.lr.ph434.preheader
+.lr.ph560:                                        ; preds = %.lr.ph434.preheader
   %174 = sext i32 %167 to i64
   br label %187
 
 .lr.ph434:                                        ; preds = %193
-  %175 = getelementptr double, ptr %10, i64 %indvars.iv491542
+  %175 = getelementptr double, ptr %10, i64 %indvars.iv491558
   %176 = load double, ptr %175, align 8, !tbaa !7
   %177 = fcmp oge double %176, 0.000000e+00
   %178 = fneg double %176
@@ -358,20 +358,20 @@ define void @dlaed8_(ptr noundef readonly captures(none) %0, ptr noundef capture
   %186 = sext i32 %.3.lcssa.ph to i64
   br label %.lr.ph450
 
-187:                                              ; preds = %.lr.ph544, %.lr.ph434
-  %188 = phi i32 [ 1, %.lr.ph544 ], [ %182, %.lr.ph434 ]
-  %indvars.iv489543 = phi i64 [ %174, %.lr.ph544 ], [ %indvars.iv.next490, %.lr.ph434 ]
-  %indvars.iv491542 = phi i64 [ 1, %.lr.ph544 ], [ %indvars.iv.next492, %.lr.ph434 ]
-  %indvars.iv.next490 = add nsw i64 %indvars.iv489543, -1
+187:                                              ; preds = %.lr.ph560, %.lr.ph434
+  %188 = phi i32 [ 1, %.lr.ph560 ], [ %182, %.lr.ph434 ]
+  %indvars.iv489559 = phi i64 [ %174, %.lr.ph560 ], [ %indvars.iv.next490, %.lr.ph434 ]
+  %indvars.iv491558 = phi i64 [ 1, %.lr.ph560 ], [ %indvars.iv.next492, %.lr.ph434 ]
+  %indvars.iv.next490 = add nsw i64 %indvars.iv489559, -1
   %189 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv.next490
   store i32 %188, ptr %189, align 4, !tbaa !3
   %190 = load i32, ptr %2, align 4, !tbaa !3
   %191 = zext i32 %190 to i64
-  %192 = icmp eq i64 %indvars.iv491542, %191
+  %192 = icmp eq i64 %indvars.iv491558, %191
   br i1 %192, label %.loopexit398, label %193
 
 193:                                              ; preds = %187
-  %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491542, 1
+  %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491558, 1
   %exitcond497.not = icmp eq i64 %indvars.iv.next492, %wide.trip.count496
   br i1 %exitcond497.not, label %.preheader, label %.lr.ph434, !llvm.loop !16
 

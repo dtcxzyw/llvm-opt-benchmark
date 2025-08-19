@@ -1258,25 +1258,25 @@ define dso_local range(i32 -12, 1) i32 @i915_active_acquire_preallocate_barrier(
 40:                                               ; preds = %.lr.ph52
   %41 = load ptr, ptr %18, align 8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.preheader91, label %43
+  br i1 %42, label %.preheader109, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, %37
-  br i1 %46, label %47, label %.preheader91
+  br i1 %46, label %47, label %.preheader109
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %49 = load volatile ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread19, label %.preheader91
+  br i1 %50, label %.thread19, label %.preheader109
 
-.preheader91:                                     ; preds = %47, %43, %40
+.preheader109:                                    ; preds = %47, %43, %40
   br label %51
 
-51:                                               ; preds = %.preheader91, %60
-  %52 = phi ptr [ %64, %60 ], [ %38, %.preheader91 ]
+51:                                               ; preds = %.preheader109, %60
+  %52 = phi ptr [ %64, %60 ], [ %38, %.preheader109 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 64
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %54, %37

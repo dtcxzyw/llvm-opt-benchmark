@@ -1049,9 +1049,9 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i: ; pred
   br i1 %.not, label %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread43", label %126
 
 80:                                               ; preds = %55, %.thread37
-  %.lcssa68.sink = phi i64 [ 30, %.thread37 ], [ %22, %55 ]
+  %.lcssa79.sink = phi i64 [ 30, %.thread37 ], [ %22, %55 ]
   store ptr %.017.le.i, ptr %14, align 8, !alias.scope !158
-  store i64 %.lcssa68.sink, ptr %15, align 8, !alias.scope !158
+  store i64 %.lcssa79.sink, ptr %15, align 8, !alias.scope !158
   %81 = getelementptr inbounds nuw { { { [7 x i64] } }, { i64 } }, ptr %.017.le.i, i64 %22
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 56
   %83 = load atomic i64, ptr %82 acquire, align 8, !noalias !162

@@ -2836,7 +2836,7 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %.sroa.16.0.scevgep692.sroa_idx = getelementptr inbounds nuw i8, ptr %scevgep692, i64 8
   %.sroa.16.0.vec.extract738 = extractelement <2 x float> %.sroa.16.1, i64 0
   store float %.sroa.16.0.vec.extract738, ptr %.sroa.16.0.scevgep692.sroa_idx, align 4, !tbaa !33
-  %invariant.gep758 = getelementptr float, ptr %274, i64 %336
+  %invariant.gep763 = getelementptr float, ptr %274, i64 %336
   br label %338
 
 338:                                              ; preds = %.preheader668, %338
@@ -2844,8 +2844,8 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %339 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv696
   %340 = load float, ptr %339, align 4, !tbaa !33
   %341 = fneg float %340
-  %gep759 = getelementptr float, ptr %invariant.gep758, i64 %indvars.iv696
-  store float %341, ptr %gep759, align 4, !tbaa !33
+  %gep764 = getelementptr float, ptr %invariant.gep763, i64 %indvars.iv696
+  store float %341, ptr %gep764, align 4, !tbaa !33
   %indvars.iv.next697 = add nuw nsw i64 %indvars.iv696, 1
   %exitcond699.not = icmp eq i64 %indvars.iv.next697, 3
   br i1 %exitcond699.not, label %342, label %338, !llvm.loop !107
@@ -2884,7 +2884,7 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   br label %358
 
 .preheader663:                                    ; preds = %358
-  %invariant.gep760 = getelementptr float, ptr %357, i64 %306
+  %invariant.gep765 = getelementptr float, ptr %357, i64 %306
   br label %363
 
 358:                                              ; preds = %.preheader667, %358
@@ -2899,7 +2899,7 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   br i1 %exitcond714.not, label %.preheader663, label %358, !llvm.loop !113
 
 .preheader:                                       ; preds = %363
-  %invariant.gep762 = getelementptr float, ptr %357, i64 %336
+  %invariant.gep767 = getelementptr float, ptr %357, i64 %336
   br label %367
 
 363:                                              ; preds = %.preheader663, %363
@@ -2907,8 +2907,8 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %364 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv715
   %365 = load float, ptr %364, align 4, !tbaa !33
   %366 = fneg float %365
-  %gep761 = getelementptr float, ptr %invariant.gep760, i64 %indvars.iv715
-  store float %366, ptr %gep761, align 4, !tbaa !33
+  %gep766 = getelementptr float, ptr %invariant.gep765, i64 %indvars.iv715
+  store float %366, ptr %gep766, align 4, !tbaa !33
   %indvars.iv.next716 = add nuw nsw i64 %indvars.iv715, 1
   %exitcond718.not = icmp eq i64 %indvars.iv.next716, 3
   br i1 %exitcond718.not, label %.preheader, label %363, !llvm.loop !114
@@ -2918,8 +2918,8 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %368 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv719
   %369 = load float, ptr %368, align 4, !tbaa !33
   %370 = fneg float %369
-  %gep763 = getelementptr float, ptr %invariant.gep762, i64 %indvars.iv719
-  store float %370, ptr %gep763, align 4, !tbaa !33
+  %gep768 = getelementptr float, ptr %invariant.gep767, i64 %indvars.iv719
+  store float %370, ptr %gep768, align 4, !tbaa !33
   %indvars.iv.next720 = add nuw nsw i64 %indvars.iv719, 1
   %exitcond722.not = icmp eq i64 %indvars.iv.next720, 3
   br i1 %exitcond722.not, label %371, label %367, !llvm.loop !115
@@ -3146,16 +3146,16 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
 
 529:                                              ; preds = %525
   %. = select i1 %.0254653, float 0.000000e+00, float 0xC7EFFFFFE0000000
-  %.767 = select i1 %.0254653, float 0x47EFFFFFE0000000, float 0.000000e+00
+  %.772 = select i1 %.0254653, float 0x47EFFFFFE0000000, float 0.000000e+00
   br label %530
 
 530:                                              ; preds = %529, %525
-  %.sink766 = phi float [ 0xC7EFFFFFE0000000, %525 ], [ %., %529 ]
-  %.sink = phi float [ 0x47EFFFFFE0000000, %525 ], [ %.767, %529 ]
-  store float %.sink766, ptr %528, align 4, !tbaa !33
-  %.sink765.in = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.sink765 = load ptr, ptr %.sink765.in, align 8, !tbaa !122
-  %531 = getelementptr inbounds float, ptr %.sink765, i64 %453
+  %.sink771 = phi float [ 0xC7EFFFFFE0000000, %525 ], [ %., %529 ]
+  %.sink = phi float [ 0x47EFFFFFE0000000, %525 ], [ %.772, %529 ]
+  store float %.sink771, ptr %528, align 4, !tbaa !33
+  %.sink770.in = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %.sink770 = load ptr, ptr %.sink770.in, align 8, !tbaa !122
+  %531 = getelementptr inbounds float, ptr %.sink770, i64 %453
   store float %.sink, ptr %531, align 4, !tbaa !33
   %532 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %533 = load float, ptr %532, align 8, !tbaa !15
@@ -3736,16 +3736,16 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
 
 380:                                              ; preds = %376
   %. = select i1 %.0163314, float 0.000000e+00, float 0xC7EFFFFFE0000000
-  %.332 = select i1 %.0163314, float 0x47EFFFFFE0000000, float 0.000000e+00
+  %.335 = select i1 %.0163314, float 0x47EFFFFFE0000000, float 0.000000e+00
   br label %381
 
 381:                                              ; preds = %380, %376
-  %.sink331 = phi float [ 0xC7EFFFFFE0000000, %376 ], [ %., %380 ]
-  %.sink = phi float [ 0x47EFFFFFE0000000, %376 ], [ %.332, %380 ]
-  store float %.sink331, ptr %379, align 4, !tbaa !33
-  %.sink330.in = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.sink330 = load ptr, ptr %.sink330.in, align 8, !tbaa !122
-  %382 = getelementptr inbounds float, ptr %.sink330, i64 %301
+  %.sink334 = phi float [ 0xC7EFFFFFE0000000, %376 ], [ %., %380 ]
+  %.sink = phi float [ 0x47EFFFFFE0000000, %376 ], [ %.335, %380 ]
+  store float %.sink334, ptr %379, align 4, !tbaa !33
+  %.sink333.in = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %.sink333 = load ptr, ptr %.sink333.in, align 8, !tbaa !122
+  %382 = getelementptr inbounds float, ptr %.sink333, i64 %301
   store float %.sink, ptr %382, align 4, !tbaa !33
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %384 = load float, ptr %383, align 8, !tbaa !15

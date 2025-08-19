@@ -396,11 +396,11 @@ avpriv_mirror.exit82.i.us:                        ; preds = %52
   br i1 %55, label %.lr.ph147.i.us, label %spatial_decompose97i.exit.us
 
 .lr.ph147.i.us:                                   ; preds = %avpriv_mirror.exit82.i.us, %avpriv_mirror.exit76.i.us, %.lr.ph.split.us
-  %.0.i79154.i.us = phi i32 [ %.1.i81.i.us, %avpriv_mirror.exit82.i.us ], [ -2, %avpriv_mirror.exit76.i.us ], [ 0, %.lr.ph.split.us ]
+  %.0.i79159.i.us = phi i32 [ %.1.i81.i.us, %avpriv_mirror.exit82.i.us ], [ -2, %avpriv_mirror.exit76.i.us ], [ 0, %.lr.ph.split.us ]
   %56 = phi ptr [ %51, %avpriv_mirror.exit82.i.us ], [ %21, %avpriv_mirror.exit76.i.us ], [ %0, %.lr.ph.split.us ]
   %57 = phi ptr [ %50, %avpriv_mirror.exit82.i.us ], [ %17, %avpriv_mirror.exit76.i.us ], [ %0, %.lr.ph.split.us ]
   %58 = phi ptr [ %49, %avpriv_mirror.exit82.i.us ], [ %25, %avpriv_mirror.exit76.i.us ], [ %0, %.lr.ph.split.us ]
-  %59 = mul nsw i32 %.0.i79154.i.us, %12
+  %59 = mul nsw i32 %.0.i79159.i.us, %12
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds i32, ptr %0, i64 %60
   %62 = shl nsw i32 %13, 1
@@ -628,9 +628,9 @@ avpriv_mirror.exit48.i.us:                        ; preds = %154
   br i1 %157, label %.lr.ph84.i.us, label %spatial_decompose97i.exit.us69
 
 .lr.ph84.i.us:                                    ; preds = %avpriv_mirror.exit48.i.us, %avpriv_mirror.exit.i20.us, %.lr.ph.split.us67
-  %.0.i4587.i.us = phi i32 [ %.1.i47.i.us, %avpriv_mirror.exit48.i.us ], [ -2, %avpriv_mirror.exit.i20.us ], [ 0, %.lr.ph.split.us67 ]
+  %.0.i4590.i.us = phi i32 [ %.1.i47.i.us, %avpriv_mirror.exit48.i.us ], [ -2, %avpriv_mirror.exit.i20.us ], [ 0, %.lr.ph.split.us67 ]
   %158 = phi ptr [ %153, %avpriv_mirror.exit48.i.us ], [ %144, %avpriv_mirror.exit.i20.us ], [ %0, %.lr.ph.split.us67 ]
-  %159 = mul nsw i32 %.0.i4587.i.us, %139
+  %159 = mul nsw i32 %.0.i4590.i.us, %139
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds i32, ptr %0, i64 %160
   %162 = shl nsw i32 %140, 1

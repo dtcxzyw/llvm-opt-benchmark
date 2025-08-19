@@ -480,9 +480,9 @@ Abc_Clock.exit117:                                ; preds = %265, %268
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Abc_Clock.exit103, %Abc_Clock.exit105, %186, %Abc_Clock.exit115, %Abc_Clock.exit117, %Abc_Clock.exit113
-  %.sink127 = phi i64 [ 220, %Abc_Clock.exit113 ], [ 228, %Abc_Clock.exit117 ], [ 212, %Abc_Clock.exit115 ], [ 228, %186 ], [ 212, %Abc_Clock.exit105 ], [ 220, %Abc_Clock.exit103 ]
+  %.sink128 = phi i64 [ 220, %Abc_Clock.exit113 ], [ 228, %Abc_Clock.exit117 ], [ 212, %Abc_Clock.exit115 ], [ 228, %186 ], [ 212, %Abc_Clock.exit105 ], [ 220, %Abc_Clock.exit103 ]
   %.0.ph = phi i32 [ 1, %Abc_Clock.exit113 ], [ -1, %Abc_Clock.exit117 ], [ 0, %Abc_Clock.exit115 ], [ -1, %186 ], [ 0, %Abc_Clock.exit105 ], [ 1, %Abc_Clock.exit103 ]
-  %283 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink127
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink128
   %284 = load i32, ptr %283, align 4, !tbaa !27
   %285 = add nsw i32 %284, 1
   store i32 %285, ptr %283, align 4, !tbaa !27
@@ -879,9 +879,9 @@ Abc_Clock.exit60:                                 ; preds = %125, %128
   br label %151
 
 151:                                              ; preds = %Abc_Clock.exit56, %147, %Abc_Clock.exit58
-  %.sink66 = phi i64 [ 220, %Abc_Clock.exit56 ], [ 228, %147 ], [ 212, %Abc_Clock.exit58 ]
+  %.sink67 = phi i64 [ 220, %Abc_Clock.exit56 ], [ 228, %147 ], [ 212, %Abc_Clock.exit58 ]
   %.0 = phi i32 [ 1, %Abc_Clock.exit56 ], [ -1, %147 ], [ 0, %Abc_Clock.exit58 ]
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink66
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink67
   %153 = load i32, ptr %152, align 4, !tbaa !27
   %154 = add nsw i32 %153, 1
   store i32 %154, ptr %152, align 4, !tbaa !27
@@ -1137,9 +1137,9 @@ Abc_Clock.exit61:                                 ; preds = %124, %127
   br label %150
 
 150:                                              ; preds = %Abc_Clock.exit57, %146, %Abc_Clock.exit59
-  %.sink67 = phi i64 [ 220, %Abc_Clock.exit57 ], [ 228, %146 ], [ 212, %Abc_Clock.exit59 ]
+  %.sink68 = phi i64 [ 220, %Abc_Clock.exit57 ], [ 228, %146 ], [ 212, %Abc_Clock.exit59 ]
   %.0 = phi i32 [ 1, %Abc_Clock.exit57 ], [ -1, %146 ], [ 0, %Abc_Clock.exit59 ]
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink67
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink68
   %152 = load i32, ptr %151, align 4, !tbaa !27
   %153 = add nsw i32 %152, 1
   store i32 %153, ptr %151, align 4, !tbaa !27

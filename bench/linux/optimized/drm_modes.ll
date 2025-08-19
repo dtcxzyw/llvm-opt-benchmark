@@ -464,8 +464,8 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly captures(a
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 64
   %.pre22 = load i32, ptr %.phi.trans.insert, align 16
   %72 = icmp ugt i32 %67, %.pre22
-  %or.cond32 = select i1 %71, i1 true, i1 %72
-  br i1 %or.cond32, label %._crit_edge, label %73
+  %or.cond47 = select i1 %71, i1 true, i1 %72
+  br i1 %or.cond47, label %._crit_edge, label %73
 
 ._crit_edge:                                      ; preds = %68
   tail call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.14, i32 noundef %67, i32 noundef %70, i32 noundef %.pre22) #14
@@ -500,8 +500,8 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly captures(a
   %.phi.trans.insert24 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %.pre25 = load i32, ptr %.phi.trans.insert24, align 8
   %92 = icmp ult i32 %.pre25, %88
-  %or.cond33 = select i1 %91, i1 true, i1 %92
-  br i1 %or.cond33, label %._crit_edge23, label %93
+  %or.cond48 = select i1 %91, i1 true, i1 %92
+  br i1 %or.cond48, label %._crit_edge23, label %93
 
 ._crit_edge23:                                    ; preds = %89
   tail call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.16, i32 noundef %88, i32 noundef %90, i32 noundef %.pre25) #14
@@ -587,8 +587,8 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly captures(a
   %.phi.trans.insert27 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %.pre28 = load i32, ptr %.phi.trans.insert27, align 4
   %144 = icmp ugt i32 %139, %.pre28
-  %or.cond34 = select i1 %143, i1 true, i1 %144
-  br i1 %or.cond34, label %._crit_edge26, label %145
+  %or.cond49 = select i1 %143, i1 true, i1 %144
+  br i1 %or.cond49, label %._crit_edge26, label %145
 
 ._crit_edge26:                                    ; preds = %140
   tail call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.20, i32 noundef %139, i32 noundef %142, i32 noundef %.pre28) #14
@@ -616,8 +616,8 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly captures(a
   %.phi.trans.insert30 = getelementptr inbounds nuw i8, ptr %14, i64 52
   %.pre31 = load i32, ptr %.phi.trans.insert30, align 4
   %157 = icmp ugt i32 %152, %.pre31
-  %or.cond35 = select i1 %156, i1 true, i1 %157
-  br i1 %or.cond35, label %._crit_edge29, label %158
+  %or.cond50 = select i1 %156, i1 true, i1 %157
+  br i1 %or.cond50, label %._crit_edge29, label %158
 
 ._crit_edge29:                                    ; preds = %153
   tail call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.22, i32 noundef %152, i32 noundef %155, i32 noundef %.pre31) #14
@@ -2592,9 +2592,9 @@ drm_mode_match.exit:                              ; preds = %.lr.ph.split, %39, 
   %122 = load i8, ptr %121, align 2
   %123 = and i8 %122, 8
   %124 = icmp eq i8 %123, 0
-  %or.cond30 = select i1 %120, i1 true, i1 %124
+  %or.cond39 = select i1 %120, i1 true, i1 %124
   %125 = or i8 %122, %118
-  br i1 %or.cond30, label %._crit_edge21, label %126
+  br i1 %or.cond39, label %._crit_edge21, label %126
 
 126:                                              ; preds = %116
   store i8 %125, ptr %121, align 2
@@ -2750,27 +2750,27 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   %68 = zext i8 %67 to i32
   %69 = add nsw i32 %68, -58
   %70 = icmp ult i32 %69, -10
-  br i1 %70, label %71, label %.thread58
+  br i1 %70, label %71, label %.thread79
 
 71:                                               ; preds = %66
   %72 = zext i32 %64 to i64
   %73 = tail call ptr @strnchr(ptr noundef nonnull %0, i64 noundef %72, i32 noundef 61) #14
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %75, label %.thread58
+  br i1 %74, label %75, label %.thread79
 
 75:                                               ; preds = %71
   %76 = icmp eq i32 %64, 1
-  br i1 %76, label %77, label %.preheader96
+  br i1 %76, label %77, label %.preheader117
 
 77:                                               ; preds = %75
   %78 = load i8, ptr %0, align 1
-  switch i8 %78, label %.preheader96 [
-    i8 100, label %.thread58
-    i8 68, label %.thread58
-    i8 101, label %.thread58
+  switch i8 %78, label %.preheader117 [
+    i8 100, label %.thread79
+    i8 68, label %.thread79
+    i8 101, label %.thread79
   ]
 
-.preheader96:                                     ; preds = %77, %75
+.preheader117:                                    ; preds = %77, %75
   br label %82
 
 79:                                               ; preds = %82
@@ -2778,8 +2778,8 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   %81 = icmp eq i64 %80, 4
   br i1 %81, label %.thread, label %82, !llvm.loop !25
 
-82:                                               ; preds = %.preheader96, %79
-  %83 = phi i64 [ %80, %79 ], [ 0, %.preheader96 ]
+82:                                               ; preds = %.preheader117, %79
+  %83 = phi i64 [ %80, %79 ], [ 0, %.preheader117 ]
   %84 = getelementptr [4 x %struct.drm_named_mode], ptr @drm_named_modes, i64 0, i64 %83
   %85 = load ptr, ptr %84, align 16
   %86 = tail call i64 @strlen(ptr noundef %85) #14
@@ -2810,15 +2810,15 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   store i8 1, ptr %103, align 4
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 1, ptr %104, align 4
-  br i1 %50, label %.thread, label %.thread58
+  br i1 %50, label %.thread, label %.thread79
 
-.thread58:                                        ; preds = %77, %77, %77, %71, %66, %92
+.thread79:                                        ; preds = %77, %77, %77, %71, %66, %92
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %106 = load i8, ptr %105, align 4, !range !9, !noundef !10
   %107 = icmp eq i8 %106, 0
   br i1 %107, label %108, label %.thread25
 
-108:                                              ; preds = %.thread58
+108:                                              ; preds = %.thread79
   %109 = load i8, ptr %0, align 1
   %110 = zext i8 %109 to i32
   %111 = add nsw i32 %110, -58
@@ -3003,12 +3003,12 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   %194 = getelementptr i8, ptr %0, i64 -1
   br label %.thread25
 
-.thread25:                                        ; preds = %186, %189, %193, %.thread58, %.loopexit31
-  %195 = phi ptr [ null, %.loopexit31 ], [ null, %.thread58 ], [ %0, %189 ], [ %0, %186 ], [ null, %193 ]
-  %196 = phi ptr [ %15, %.loopexit31 ], [ %15, %.thread58 ], [ %15, %189 ], [ %15, %186 ], [ %194, %193 ]
-  %197 = phi i1 [ true, %.loopexit31 ], [ true, %.thread58 ], [ false, %189 ], [ false, %186 ], [ false, %193 ]
-  %198 = phi i1 [ false, %.loopexit31 ], [ false, %.thread58 ], [ true, %189 ], [ true, %186 ], [ true, %193 ]
-  br i1 %47, label %199, label %.thread59
+.thread25:                                        ; preds = %186, %189, %193, %.thread79, %.loopexit31
+  %195 = phi ptr [ null, %.loopexit31 ], [ null, %.thread79 ], [ %0, %189 ], [ %0, %186 ], [ null, %193 ]
+  %196 = phi ptr [ %15, %.loopexit31 ], [ %15, %.thread79 ], [ %15, %189 ], [ %15, %186 ], [ %194, %193 ]
+  %197 = phi i1 [ true, %.loopexit31 ], [ true, %.thread79 ], [ false, %189 ], [ false, %186 ], [ false, %193 ]
+  %198 = phi i1 [ false, %.loopexit31 ], [ false, %.thread79 ], [ true, %189 ], [ true, %186 ], [ true, %193 ]
+  br i1 %47, label %199, label %.thread80
 
 199:                                              ; preds = %.thread25
   %200 = load i8, ptr %46, align 1
@@ -3030,10 +3030,10 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   store i8 1, ptr %210, align 2
   br i1 %50, label %211, label %.thread29
 
-.thread59:                                        ; preds = %.thread25
+.thread80:                                        ; preds = %.thread25
   br i1 %50, label %211, label %.critedge
 
-211:                                              ; preds = %.thread59, %207
+211:                                              ; preds = %.thread80, %207
   %212 = load i8, ptr %49, align 1
   %213 = icmp eq i8 %212, 64
   br i1 %213, label %214, label %.thread
@@ -3063,8 +3063,8 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   %227 = load ptr, ptr %10, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread29, %.thread59, %219, %223
-  %228 = phi ptr [ %226, %223 ], [ %217, %219 ], [ %195, %.thread59 ], [ %227, %.thread29 ]
+.critedge:                                        ; preds = %.thread29, %.thread80, %219, %223
+  %228 = phi ptr [ %226, %223 ], [ %217, %219 ], [ %195, %.thread80 ], [ %227, %.thread29 ]
   %229 = icmp eq ptr %228, null
   br i1 %229, label %.loopexit, label %230
 

@@ -696,9 +696,9 @@ define internal range(i32 0, -2147483644) i32 @dissect_iso14443(ptr noundef %0, 
   br i1 %.not5.i47.i.i, label %iso14443_get_transaction.exit.thread.i, label %iso14443_get_transaction.exit.thread.sink.split.i
 
 iso14443_get_transaction.exit.thread.sink.split.i: ; preds = %100, %81
-  %.sink50.i = phi ptr [ %83, %81 ], [ %102, %100 ]
+  %.sink60.i = phi ptr [ %83, %81 ], [ %102, %100 ]
   %.0.i.ph.ph.i = phi ptr [ %70, %81 ], [ %89, %100 ]
-  %103 = getelementptr inbounds nuw i8, ptr %.sink50.i, i64 28
+  %103 = getelementptr inbounds nuw i8, ptr %.sink60.i, i64 28
   %104 = load i32, ptr %103, align 4
   %105 = or i32 %104, 2
   store i32 %105, ptr %103, align 4

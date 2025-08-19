@@ -785,9 +785,9 @@ Pla_ManExpendDirNum.exit130:                      ; preds = %160
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %179, %._crit_edge.loopexit.split.loop.exit, %145, %Pla_ManExpendDirNum.exit130
-  %.0.lcssa.i123215 = phi i32 [ %.1.i128, %Pla_ManExpendDirNum.exit130 ], [ 0, %145 ], [ %.1.i128, %._crit_edge.loopexit.split.loop.exit ], [ %.1.i128, %179 ]
+  %.0.lcssa.i123227 = phi i32 [ %.1.i128, %Pla_ManExpendDirNum.exit130 ], [ 0, %145 ], [ %.1.i128, %._crit_edge.loopexit.split.loop.exit ], [ %.1.i128, %179 ]
   %.0100.lcssa = phi i32 [ 0, %Pla_ManExpendDirNum.exit130 ], [ 0, %145 ], [ %180, %._crit_edge.loopexit.split.loop.exit ], [ %.1.i128, %179 ]
-  %181 = icmp eq i32 %.0100.lcssa, %.0.lcssa.i123215
+  %181 = icmp eq i32 %.0100.lcssa, %.0.lcssa.i123227
   %spec.store.select = select i1 %181, i32 0, i32 %.0100.lcssa
   %182 = or i64 %143, %139
   store i64 %182, ptr %142, align 8, !tbaa !32
@@ -1302,14 +1302,14 @@ Pla_ManAlloc.exit:                                ; preds = %Vec_WrdFill.exit.i
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %55 = zext nneg i32 %.val36 to i64
   %56 = shl nuw nsw i64 %55, 4
-  %calloc75 = call ptr @calloc(i64 1, i64 %56)
-  store ptr %calloc75, ptr %54, align 8, !tbaa !17
+  %calloc95 = call ptr @calloc(i64 1, i64 %56)
+  store ptr %calloc95, ptr %54, align 8, !tbaa !17
   store i32 %.val36, ptr %53, align 8, !tbaa !55
   br label %Vec_WecInit.exit
 
 Vec_WecInit.exit:                                 ; preds = %Pla_ManAlloc.exit, %44
   %57 = phi ptr [ %43, %Pla_ManAlloc.exit ], [ %53, %44 ]
-  %58 = phi ptr [ null, %Pla_ManAlloc.exit ], [ %calloc75, %44 ]
+  %58 = phi ptr [ null, %Pla_ManAlloc.exit ], [ %calloc95, %44 ]
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 108
   store i32 %.val36, ptr %59, align 4, !tbaa !16
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 120

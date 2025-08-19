@@ -603,8 +603,8 @@ Abc_Clock.exit174.i:                              ; preds = %271, %Abc_Clock.exi
   br i1 %.not97.i.i.i, label %Ivy_GraphToNetworkCount.exit.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %304
-  %.not117.i.i.i = icmp eq i32 %.val84.i.i.i, 0
-  br i1 %.not117.i.i.i, label %.critedge.preheader.i.i.i, label %.lr.ph.i.i.i
+  %.not125.i.i.i = icmp eq i32 %.val84.i.i.i, 0
+  br i1 %.not125.i.i.i, label %.critedge.preheader.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i
   %309 = getelementptr i8, ptr %295, i64 16
@@ -773,8 +773,8 @@ Ivy_ObjCreateGhost.exit.i.i.i:                    ; preds = %374, %Ivy_ObjFaninI
   %405 = ptrtoint ptr %.06795.i.i.i to i64
   %406 = and i64 %405, -2
   %407 = icmp eq i64 %397, %406
-  %or.cond116.i.i.i = select i1 %404, i1 true, i1 %407
-  br i1 %or.cond116.i.i.i, label %.sink.split.i.i.i, label %411
+  %or.cond124.i.i.i = select i1 %404, i1 true, i1 %407
+  br i1 %or.cond124.i.i.i, label %.sink.split.i.i.i, label %411
 
 .sink.split.i.i.i:                                ; preds = %401
   %408 = getelementptr inbounds nuw i8, ptr %398, i64 8

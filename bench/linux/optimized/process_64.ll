@@ -1100,8 +1100,8 @@ define dso_local noundef ptr @__switch_to(ptr noundef returned %0, ptr noundef %
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 2854
   %117 = load i16, ptr %116, align 2
   %118 = icmp eq i16 %117, 0
-  %or.cond12 = select i1 %115, i1 %118, i1 false
-  br i1 %or.cond12, label %120, label %._crit_edge9, !prof !74
+  %or.cond20 = select i1 %115, i1 %118, i1 false
+  br i1 %or.cond20, label %120, label %._crit_edge9, !prof !74
 
 ._crit_edge9:                                     ; preds = %113
   %119 = zext i16 %117 to i32

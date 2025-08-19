@@ -1894,7 +1894,7 @@ do.body4.i:                                       ; preds = %_ZSt11make_uniqueIN
 
 _ZNSt10unique_ptrIN4node8profiler20V8CoverageConnectionESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZSt11make_uniqueIN4node8profiler20V8CoverageConnectionEJRPNS0_11EnvironmentEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   store ptr %call.i, ptr %coverage_connection_.i, align 8
-  %call.i656 = call noundef i32 @_ZN4node8profiler20V8ProfilerConnection15DispatchMessageEPKcS3_b(ptr noundef nonnull align 8 dereferenceable(97) %call.i, ptr noundef nonnull @.str.18, ptr noundef null, i1 noundef zeroext false)
+  %call.i668 = call noundef i32 @_ZN4node8profiler20V8ProfilerConnection15DispatchMessageEPKcS3_b(ptr noundef nonnull align 8 dereferenceable(97) %call.i, ptr noundef nonnull @.str.18, ptr noundef null, i1 noundef zeroext false)
   %call2.i = call noundef i32 @_ZN4node8profiler20V8ProfilerConnection15DispatchMessageEPKcS3_b(ptr noundef nonnull align 8 dereferenceable(97) %call.i, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i1 noundef zeroext false)
   br label %if.end40
 
@@ -4318,8 +4318,8 @@ if.end.i:                                         ; preds = %if.else
 
 if.end13.thread:                                  ; preds = %if.end.i
   %14 = load ptr, ptr %12, align 8
-  %tobool.not.i1643 = icmp eq ptr %14, null
-  br i1 %tobool.not.i1643, label %if.end.i.i, label %cond.end.i
+  %tobool.not.i1650 = icmp eq ptr %14, null
+  br i1 %tobool.not.i1650, label %if.end.i.i, label %cond.end.i
 
 for.cond.i:                                       ; preds = %lor.lhs.false.i
   %cmp.i.i.i.i = icmp eq i32 %8, %16
@@ -4361,34 +4361,34 @@ cond.end.i:                                       ; preds = %if.end13.thread, %i
   %21 = phi i64 [ %9, %if.end13.thread ], [ %17, %if.then.i ]
   %22 = phi ptr [ %11, %if.end13.thread ], [ %18, %if.then.i ]
   %23 = phi ptr [ %10, %if.end13.thread ], [ %19, %if.then.i ]
-  %__n.04554 = phi ptr [ %12, %if.end13.thread ], [ %__n.0, %if.then.i ]
-  %__bkt.04652 = phi i64 [ %rem.i.i.i11, %if.end13.thread ], [ %__bkt.0, %if.then.i ]
-  %__prev_n.04850 = phi ptr [ %11, %if.end13.thread ], [ %__prev_n.0, %if.then.i ]
+  %__n.05261 = phi ptr [ %12, %if.end13.thread ], [ %__n.0, %if.then.i ]
+  %__bkt.05359 = phi i64 [ %rem.i.i.i11, %if.end13.thread ], [ %__bkt.0, %if.then.i ]
+  %__prev_n.05557 = phi ptr [ %11, %if.end13.thread ], [ %__prev_n.0, %if.then.i ]
   %24 = phi ptr [ %14, %if.end13.thread ], [ %20, %if.then.i ]
   %add.ptr.i19 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %25 = load i32, ptr %add.ptr.i19, align 4
   %conv.i.i.i.i.i21 = zext i32 %25 to i64
   %rem.i.i.i.i22 = urem i64 %conv.i.i.i.i.i21, %21
-  %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i22, %__bkt.04652
+  %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i22, %__bkt.05359
   br i1 %cmp.not.i.i, label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeIjLb0EEE.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %cond.end.i
   %arrayidx5.i.i = getelementptr inbounds nuw ptr, ptr %23, i64 %rem.i.i.i.i22
   store ptr %22, ptr %arrayidx5.i.i, align 8
   %.pre.i = load ptr, ptr %this, align 8
-  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %__bkt.04652
+  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %__bkt.05359
   %.pre24.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end13.thread, %if.then3.i.i, %if.then.i
-  %__n.04555 = phi ptr [ %__n.0, %if.then.i ], [ %__n.04554, %if.then3.i.i ], [ %12, %if.end13.thread ]
-  %__bkt.04653 = phi i64 [ %__bkt.0, %if.then.i ], [ %__bkt.04652, %if.then3.i.i ], [ %rem.i.i.i11, %if.end13.thread ]
-  %__prev_n.04851 = phi ptr [ %__prev_n.0, %if.then.i ], [ %__prev_n.04850, %if.then3.i.i ], [ %11, %if.end13.thread ]
+  %__n.05262 = phi ptr [ %__n.0, %if.then.i ], [ %__n.05261, %if.then3.i.i ], [ %12, %if.end13.thread ]
+  %__bkt.05360 = phi i64 [ %__bkt.0, %if.then.i ], [ %__bkt.05359, %if.then3.i.i ], [ %rem.i.i.i11, %if.end13.thread ]
+  %__prev_n.05558 = phi ptr [ %__prev_n.0, %if.then.i ], [ %__prev_n.05557, %if.then3.i.i ], [ %11, %if.end13.thread ]
   %26 = phi ptr [ null, %if.then.i ], [ %24, %if.then3.i.i ], [ null, %if.end13.thread ]
   %27 = phi ptr [ %18, %if.then.i ], [ %.pre24.i, %if.then3.i.i ], [ %11, %if.end13.thread ]
   %28 = phi ptr [ %19, %if.then.i ], [ %.pre.i, %if.then3.i.i ], [ %10, %if.end13.thread ]
   %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %arrayidx7.i.i = getelementptr inbounds nuw ptr, ptr %28, i64 %__bkt.04653
+  %arrayidx7.i.i = getelementptr inbounds nuw ptr, ptr %28, i64 %__bkt.05360
   %cmp8.i.i = icmp eq ptr %_M_before_begin.i.i, %27
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end11.i.i
 
@@ -4417,11 +4417,11 @@ if.then11.i:                                      ; preds = %if.then6.i
   br label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeIjLb0EEE.exit
 
 _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeIjLb0EEE.exit: ; preds = %cond.end.i, %if.end11.i.i, %if.else.i, %if.then6.i, %if.then11.i
-  %__prev_n.047 = phi ptr [ %__prev_n.04850, %cond.end.i ], [ %__prev_n.04851, %if.end11.i.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.then11.i ]
-  %__n.044 = phi ptr [ %__n.04554, %cond.end.i ], [ %__n.04555, %if.end11.i.i ], [ %__n.0, %if.else.i ], [ %__n.0, %if.then6.i ], [ %__n.0, %if.then11.i ]
-  %30 = load ptr, ptr %__n.044, align 8
-  store ptr %30, ptr %__prev_n.047, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %__n.044) #24
+  %__prev_n.054 = phi ptr [ %__prev_n.05557, %cond.end.i ], [ %__prev_n.05558, %if.end11.i.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.then11.i ]
+  %__n.051 = phi ptr [ %__n.05261, %cond.end.i ], [ %__n.05262, %if.end11.i.i ], [ %__n.0, %if.else.i ], [ %__n.0, %if.then6.i ], [ %__n.0, %if.then11.i ]
+  %30 = load ptr, ptr %__n.051, align 8
+  store ptr %30, ptr %__prev_n.054, align 8
+  tail call void @_ZdlPv(ptr noundef nonnull %__n.051) #24
   %31 = load i64, ptr %_M_element_count.i, align 8
   %dec.i = add i64 %31, -1
   store i64 %dec.i, ptr %_M_element_count.i, align 8

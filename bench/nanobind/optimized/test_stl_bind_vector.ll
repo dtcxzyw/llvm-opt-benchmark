@@ -7814,13 +7814,13 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPK
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.032.051, i64 8
   %20 = load i32, ptr %19, align 4, !tbaa !47
   %21 = icmp eq i32 %20, %9
-  br i1 %21, label %.loopexit.loopexit.split.loop.exit62, label %22
+  br i1 %21, label %.loopexit.loopexit.split.loop.exit65, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.032.051, i64 12
   %24 = load i32, ptr %23, align 4, !tbaa !47
   %25 = icmp eq i32 %24, %9
-  br i1 %25, label %.loopexit.loopexit.split.loop.exit64, label %26
+  br i1 %25, label %.loopexit.loopexit.split.loop.exit67, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.032.051, i64 16
@@ -7884,16 +7884,16 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPK
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.032.051, i64 4
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit62:             ; preds = %18
+.loopexit.loopexit.split.loop.exit65:             ; preds = %18
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.032.051, i64 8
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit64:             ; preds = %22
+.loopexit.loopexit.split.loop.exit67:             ; preds = %22
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.032.051, i64 12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit62, %.loopexit.loopexit.split.loop.exit64, %43, %._crit_edge, %37, %31
-  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.032.0.lcssa, %31 ], [ %.sroa.032.1, %37 ], [ %1, %._crit_edge ], [ %spec.select, %43 ], [ %47, %.loopexit.loopexit.split.loop.exit ], [ %48, %.loopexit.loopexit.split.loop.exit62 ], [ %49, %.loopexit.loopexit.split.loop.exit64 ], [ %.sroa.032.051, %11 ]
+.loopexit:                                        ; preds = %11, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit65, %.loopexit.loopexit.split.loop.exit67, %43, %._crit_edge, %37, %31
+  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.032.0.lcssa, %31 ], [ %.sroa.032.1, %37 ], [ %1, %._crit_edge ], [ %spec.select, %43 ], [ %47, %.loopexit.loopexit.split.loop.exit ], [ %48, %.loopexit.loopexit.split.loop.exit65 ], [ %49, %.loopexit.loopexit.split.loop.exit67 ], [ %.sroa.032.051, %11 ]
   ret ptr %.sroa.08.0.in.sroa.speculated
 }
 
@@ -8102,13 +8102,13 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPj
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.032.051, i64 8
   %20 = load i32, ptr %19, align 4, !tbaa !47
   %21 = icmp eq i32 %20, %9
-  br i1 %21, label %.loopexit.loopexit.split.loop.exit62, label %22
+  br i1 %21, label %.loopexit.loopexit.split.loop.exit65, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.032.051, i64 12
   %24 = load i32, ptr %23, align 4, !tbaa !47
   %25 = icmp eq i32 %24, %9
-  br i1 %25, label %.loopexit.loopexit.split.loop.exit64, label %26
+  br i1 %25, label %.loopexit.loopexit.split.loop.exit67, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.032.051, i64 16
@@ -8172,16 +8172,16 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPj
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.032.051, i64 4
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit62:             ; preds = %18
+.loopexit.loopexit.split.loop.exit65:             ; preds = %18
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.032.051, i64 8
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit64:             ; preds = %22
+.loopexit.loopexit.split.loop.exit67:             ; preds = %22
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.032.051, i64 12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit62, %.loopexit.loopexit.split.loop.exit64, %43, %._crit_edge, %37, %31
-  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.032.0.lcssa, %31 ], [ %.sroa.032.1, %37 ], [ %1, %._crit_edge ], [ %spec.select, %43 ], [ %47, %.loopexit.loopexit.split.loop.exit ], [ %48, %.loopexit.loopexit.split.loop.exit62 ], [ %49, %.loopexit.loopexit.split.loop.exit64 ], [ %.sroa.032.051, %11 ]
+.loopexit:                                        ; preds = %11, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit65, %.loopexit.loopexit.split.loop.exit67, %43, %._crit_edge, %37, %31
+  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.032.0.lcssa, %31 ], [ %.sroa.032.1, %37 ], [ %1, %._crit_edge ], [ %spec.select, %43 ], [ %47, %.loopexit.loopexit.split.loop.exit ], [ %48, %.loopexit.loopexit.split.loop.exit65 ], [ %49, %.loopexit.loopexit.split.loop.exit67 ], [ %.sroa.032.051, %11 ]
   ret ptr %.sroa.08.0.in.sroa.speculated
 }
 
@@ -11090,8 +11090,8 @@ _ZNSt19_Bit_const_iteratorppEv.exit56.thread:     ; preds = %_ZNSt19_Bit_const_i
 _ZNSt19_Bit_const_iteratorppEv.exit57:            ; preds = %_ZNSt19_Bit_const_iteratorppEv.exit56.thread, %48
   %51 = phi i32 [ %49, %48 ], [ 2, %_ZNSt19_Bit_const_iteratorppEv.exit56.thread ]
   %52 = phi i64 [ %.pre, %48 ], [ %33, %_ZNSt19_Bit_const_iteratorppEv.exit56.thread ]
-  %.sroa.079.4162167 = phi ptr [ %spec.select, %48 ], [ %32, %_ZNSt19_Bit_const_iteratorppEv.exit56.thread ]
-  %.sroa.31.4163166 = phi i32 [ %spec.select128, %48 ], [ 1, %_ZNSt19_Bit_const_iteratorppEv.exit56.thread ]
+  %.sroa.079.4165170 = phi ptr [ %spec.select, %48 ], [ %32, %_ZNSt19_Bit_const_iteratorppEv.exit56.thread ]
+  %.sroa.31.4166169 = phi i32 [ %spec.select128, %48 ], [ 1, %_ZNSt19_Bit_const_iteratorppEv.exit56.thread ]
   %53 = zext nneg i32 %51 to i64
   %54 = lshr i64 %52, %53
   %55 = trunc i64 %54 to i8
@@ -11108,10 +11108,10 @@ _ZNSt19_Bit_const_iteratorppEv.exit57.thread:     ; preds = %48
   br i1 %62, label %_ZNSt19_Bit_const_iteratorppEv.exit61, label %_ZNSt19_Bit_const_iteratorppEv.exit58
 
 63:                                               ; preds = %_ZNSt19_Bit_const_iteratorppEv.exit57
-  %64 = add i32 %.sroa.31.4163166, 2
+  %64 = add i32 %.sroa.31.4166169, 2
   %65 = icmp eq i32 %51, 63
   %spec.select129.idx = select i1 %65, i64 8, i64 0
-  %spec.select129 = getelementptr inbounds nuw i8, ptr %.sroa.079.4162167, i64 %spec.select129.idx
+  %spec.select129 = getelementptr inbounds nuw i8, ptr %.sroa.079.4165170, i64 %spec.select129.idx
   %spec.select130 = select i1 %65, i32 0, i32 %64
   br label %_ZNSt19_Bit_const_iteratorppEv.exit58
 
@@ -11216,7 +11216,7 @@ _ZNSt19_Bit_const_iteratorppEv.exit60.thread:     ; preds = %85
   br label %_ZNSt19_Bit_const_iteratorppEv.exit61
 
 _ZNSt19_Bit_const_iteratorppEv.exit61:            ; preds = %_ZNSt19_Bit_const_iteratorppEv.exit57.thread, %_ZNSt19_Bit_const_iteratorppEv.exit57, %_ZNSt19_Bit_const_iteratorppEv.exit56, %_ZNSt19_Bit_const_iteratorppEv.exit.thread, %_ZNSt19_Bit_const_iteratorppEv.exit, %17, %_ZNSt19_Bit_const_iteratorppEv.exit56.thread, %_ZNSt19_Bit_const_iteratorppEv.exit60.thread, %_ZNSt19_Bit_const_iteratorppEv.exit60, %._crit_edge, %_ZNSt19_Bit_const_iteratorppEv.exit59, %69
-  %.sroa.020.0.in.sroa.speculated = phi ptr [ %.sroa.079.0.lcssa, %69 ], [ %.sroa.079.1, %_ZNSt19_Bit_const_iteratorppEv.exit59 ], [ %2, %._crit_edge ], [ %spec.select135, %_ZNSt19_Bit_const_iteratorppEv.exit60.thread ], [ %spec.select133, %_ZNSt19_Bit_const_iteratorppEv.exit60 ], [ %32, %_ZNSt19_Bit_const_iteratorppEv.exit56.thread ], [ %58, %_ZNSt19_Bit_const_iteratorppEv.exit57.thread ], [ %.sroa.079.4162167, %_ZNSt19_Bit_const_iteratorppEv.exit57 ], [ %spec.select, %_ZNSt19_Bit_const_iteratorppEv.exit56 ], [ %32, %_ZNSt19_Bit_const_iteratorppEv.exit.thread ], [ %.sroa.079.0140, %_ZNSt19_Bit_const_iteratorppEv.exit ], [ %.sroa.079.0140, %17 ]
+  %.sroa.020.0.in.sroa.speculated = phi ptr [ %.sroa.079.0.lcssa, %69 ], [ %.sroa.079.1, %_ZNSt19_Bit_const_iteratorppEv.exit59 ], [ %2, %._crit_edge ], [ %spec.select135, %_ZNSt19_Bit_const_iteratorppEv.exit60.thread ], [ %spec.select133, %_ZNSt19_Bit_const_iteratorppEv.exit60 ], [ %32, %_ZNSt19_Bit_const_iteratorppEv.exit56.thread ], [ %58, %_ZNSt19_Bit_const_iteratorppEv.exit57.thread ], [ %.sroa.079.4165170, %_ZNSt19_Bit_const_iteratorppEv.exit57 ], [ %spec.select, %_ZNSt19_Bit_const_iteratorppEv.exit56 ], [ %32, %_ZNSt19_Bit_const_iteratorppEv.exit.thread ], [ %.sroa.079.0140, %_ZNSt19_Bit_const_iteratorppEv.exit ], [ %.sroa.079.0140, %17 ]
   %.sroa.9.0 = phi i32 [ %.sroa.31.0.lcssa, %69 ], [ %.sroa.31.1, %_ZNSt19_Bit_const_iteratorppEv.exit59 ], [ %3, %._crit_edge ], [ %spec.select136, %_ZNSt19_Bit_const_iteratorppEv.exit60.thread ], [ %spec.select134, %_ZNSt19_Bit_const_iteratorppEv.exit60 ], [ 1, %_ZNSt19_Bit_const_iteratorppEv.exit56.thread ], [ 0, %_ZNSt19_Bit_const_iteratorppEv.exit57.thread ], [ %51, %_ZNSt19_Bit_const_iteratorppEv.exit57 ], [ %spec.select128, %_ZNSt19_Bit_const_iteratorppEv.exit56 ], [ 0, %_ZNSt19_Bit_const_iteratorppEv.exit.thread ], [ %25, %_ZNSt19_Bit_const_iteratorppEv.exit ], [ %.sroa.31.0141, %17 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.020.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.9.0, 1
@@ -11480,8 +11480,8 @@ _ZNSt13_Bit_iteratorppEv.exit56.thread:           ; preds = %_ZNSt13_Bit_iterato
 _ZNSt13_Bit_iteratorppEv.exit57:                  ; preds = %_ZNSt13_Bit_iteratorppEv.exit56.thread, %48
   %51 = phi i32 [ %49, %48 ], [ 2, %_ZNSt13_Bit_iteratorppEv.exit56.thread ]
   %52 = phi i64 [ %.pre, %48 ], [ %33, %_ZNSt13_Bit_iteratorppEv.exit56.thread ]
-  %.sroa.079.4162167 = phi ptr [ %spec.select, %48 ], [ %32, %_ZNSt13_Bit_iteratorppEv.exit56.thread ]
-  %.sroa.31.4163166 = phi i32 [ %spec.select128, %48 ], [ 1, %_ZNSt13_Bit_iteratorppEv.exit56.thread ]
+  %.sroa.079.4165170 = phi ptr [ %spec.select, %48 ], [ %32, %_ZNSt13_Bit_iteratorppEv.exit56.thread ]
+  %.sroa.31.4166169 = phi i32 [ %spec.select128, %48 ], [ 1, %_ZNSt13_Bit_iteratorppEv.exit56.thread ]
   %53 = zext nneg i32 %51 to i64
   %54 = lshr i64 %52, %53
   %55 = trunc i64 %54 to i8
@@ -11498,10 +11498,10 @@ _ZNSt13_Bit_iteratorppEv.exit57.thread:           ; preds = %48
   br i1 %62, label %_ZNSt13_Bit_iteratorppEv.exit61, label %_ZNSt13_Bit_iteratorppEv.exit58
 
 63:                                               ; preds = %_ZNSt13_Bit_iteratorppEv.exit57
-  %64 = add i32 %.sroa.31.4163166, 2
+  %64 = add i32 %.sroa.31.4166169, 2
   %65 = icmp eq i32 %51, 63
   %spec.select129.idx = select i1 %65, i64 8, i64 0
-  %spec.select129 = getelementptr inbounds nuw i8, ptr %.sroa.079.4162167, i64 %spec.select129.idx
+  %spec.select129 = getelementptr inbounds nuw i8, ptr %.sroa.079.4165170, i64 %spec.select129.idx
   %spec.select130 = select i1 %65, i32 0, i32 %64
   br label %_ZNSt13_Bit_iteratorppEv.exit58
 
@@ -11606,7 +11606,7 @@ _ZNSt13_Bit_iteratorppEv.exit60.thread:           ; preds = %85
   br label %_ZNSt13_Bit_iteratorppEv.exit61
 
 _ZNSt13_Bit_iteratorppEv.exit61:                  ; preds = %_ZNSt13_Bit_iteratorppEv.exit57.thread, %_ZNSt13_Bit_iteratorppEv.exit57, %_ZNSt13_Bit_iteratorppEv.exit56, %_ZNSt13_Bit_iteratorppEv.exit.thread, %_ZNSt13_Bit_iteratorppEv.exit, %17, %_ZNSt13_Bit_iteratorppEv.exit56.thread, %_ZNSt13_Bit_iteratorppEv.exit60.thread, %_ZNSt13_Bit_iteratorppEv.exit60, %._crit_edge, %_ZNSt13_Bit_iteratorppEv.exit59, %69
-  %.sroa.020.0.in.sroa.speculated = phi ptr [ %.sroa.079.0.lcssa, %69 ], [ %.sroa.079.1, %_ZNSt13_Bit_iteratorppEv.exit59 ], [ %2, %._crit_edge ], [ %spec.select135, %_ZNSt13_Bit_iteratorppEv.exit60.thread ], [ %spec.select133, %_ZNSt13_Bit_iteratorppEv.exit60 ], [ %32, %_ZNSt13_Bit_iteratorppEv.exit56.thread ], [ %58, %_ZNSt13_Bit_iteratorppEv.exit57.thread ], [ %.sroa.079.4162167, %_ZNSt13_Bit_iteratorppEv.exit57 ], [ %spec.select, %_ZNSt13_Bit_iteratorppEv.exit56 ], [ %32, %_ZNSt13_Bit_iteratorppEv.exit.thread ], [ %.sroa.079.0140, %_ZNSt13_Bit_iteratorppEv.exit ], [ %.sroa.079.0140, %17 ]
+  %.sroa.020.0.in.sroa.speculated = phi ptr [ %.sroa.079.0.lcssa, %69 ], [ %.sroa.079.1, %_ZNSt13_Bit_iteratorppEv.exit59 ], [ %2, %._crit_edge ], [ %spec.select135, %_ZNSt13_Bit_iteratorppEv.exit60.thread ], [ %spec.select133, %_ZNSt13_Bit_iteratorppEv.exit60 ], [ %32, %_ZNSt13_Bit_iteratorppEv.exit56.thread ], [ %58, %_ZNSt13_Bit_iteratorppEv.exit57.thread ], [ %.sroa.079.4165170, %_ZNSt13_Bit_iteratorppEv.exit57 ], [ %spec.select, %_ZNSt13_Bit_iteratorppEv.exit56 ], [ %32, %_ZNSt13_Bit_iteratorppEv.exit.thread ], [ %.sroa.079.0140, %_ZNSt13_Bit_iteratorppEv.exit ], [ %.sroa.079.0140, %17 ]
   %.sroa.9.0 = phi i32 [ %.sroa.31.0.lcssa, %69 ], [ %.sroa.31.1, %_ZNSt13_Bit_iteratorppEv.exit59 ], [ %3, %._crit_edge ], [ %spec.select136, %_ZNSt13_Bit_iteratorppEv.exit60.thread ], [ %spec.select134, %_ZNSt13_Bit_iteratorppEv.exit60 ], [ 1, %_ZNSt13_Bit_iteratorppEv.exit56.thread ], [ 0, %_ZNSt13_Bit_iteratorppEv.exit57.thread ], [ %51, %_ZNSt13_Bit_iteratorppEv.exit57 ], [ %spec.select128, %_ZNSt13_Bit_iteratorppEv.exit56 ], [ 0, %_ZNSt13_Bit_iteratorppEv.exit.thread ], [ %25, %_ZNSt13_Bit_iteratorppEv.exit ], [ %.sroa.31.0141, %17 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.020.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.9.0, 1

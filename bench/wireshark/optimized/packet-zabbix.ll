@@ -606,9 +606,9 @@ zabbix_add_expert_info_if_too_large.exit829:      ; preds = %85
   br i1 %.not722, label %zabbix_add_expert_info_if_too_large.exit828, label %94
 
 zabbix_add_expert_info_if_too_large.exit829.thread: ; preds = %85
-  br i1 %.not722, label %zabbix_add_expert_info_if_too_large.exit828.thread899, label %94
+  br i1 %.not722, label %zabbix_add_expert_info_if_too_large.exit828.thread945, label %94
 
-zabbix_add_expert_info_if_too_large.exit828.thread899: ; preds = %zabbix_add_expert_info_if_too_large.exit829.thread
+zabbix_add_expert_info_if_too_large.exit828.thread945: ; preds = %zabbix_add_expert_info_if_too_large.exit829.thread
   %92 = load i32, ptr @hf_zabbix_reserved, align 4
   %93 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %92, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef -2147483648)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -667,8 +667,8 @@ zabbix_add_expert_info_if_too_large.exit828.thread868: ; preds = %79
   %111 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0670871873)
   br label %113
 
-.thread877:                                       ; preds = %zabbix_add_expert_info_if_too_large.exit828.thread874.thread, %zabbix_add_expert_info_if_too_large.exit828.thread899
-  %.0670871879 = phi i32 [ 13, %zabbix_add_expert_info_if_too_large.exit828.thread899 ], [ 21, %zabbix_add_expert_info_if_too_large.exit828.thread874.thread ]
+.thread877:                                       ; preds = %zabbix_add_expert_info_if_too_large.exit828.thread874.thread, %zabbix_add_expert_info_if_too_large.exit828.thread945
+  %.0670871879 = phi i32 [ 13, %zabbix_add_expert_info_if_too_large.exit828.thread945 ], [ 21, %zabbix_add_expert_info_if_too_large.exit828.thread874.thread ]
   %112 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0670871879)
   br label %113
 
@@ -2472,14 +2472,14 @@ proto_item_set_generated.exit861:                 ; preds = %988, %992, %995
   %1002 = load ptr, ptr %12, align 8
   %1003 = call ptr @col_get_text(ptr noundef %1002, i32 noundef 25)
   %.not824 = icmp eq ptr %1003, null
-  br i1 %.not824, label %.sink.split903, label %1004
+  br i1 %.not824, label %.sink.split949, label %1004
 
 1004:                                             ; preds = %999
   %char0 = load i8, ptr %1003, align 1
   %.not825 = icmp eq i8 %char0, 0
-  br i1 %.not825, label %.sink.split903, label %1011
+  br i1 %.not825, label %.sink.split949, label %1011
 
-.sink.split903:                                   ; preds = %1004, %999
+.sink.split949:                                   ; preds = %1004, %999
   %1005 = load i32, ptr %.1.i, align 8
   %1006 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %1007 = load ptr, ptr %1006, align 8
@@ -2490,7 +2490,7 @@ proto_item_set_generated.exit861:                 ; preds = %988, %992, %995
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %1010, i32 noundef 25, ptr noundef nonnull %.str.233..str.234, i32 noundef %22)
   br label %1011
 
-1011:                                             ; preds = %.sink.split903, %1004
+1011:                                             ; preds = %.sink.split949, %1004
   %1012 = load ptr, ptr %12, align 8
   %1013 = load i64, ptr %5, align 8
   %1014 = trunc i64 %1013 to i32

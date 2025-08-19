@@ -1729,10 +1729,10 @@ slot_getsomeattrs.exit924:                        ; preds = %86, %92
   br label %.loopexit
 
 .loopexit:                                        ; preds = %331, %._crit_edge963
-  %.sink982 = phi i8 [ %341, %._crit_edge963 ], [ 1, %331 ]
+  %.sink1010 = phi i8 [ %341, %._crit_edge963 ], [ 1, %331 ]
   %342 = getelementptr inbounds nuw i8, ptr %.0905, i64 16
   %343 = load ptr, ptr %342, align 8
-  store i8 %.sink982, ptr %343, align 1
+  store i8 %.sink1010, ptr %343, align 1
   %344 = getelementptr inbounds nuw i8, ptr %.0905, i64 64
   br label %.backedge.backedge
 
@@ -2607,10 +2607,10 @@ ExecEvalCoerceViaIOSafe.exit:                     ; preds = %799, %806, %822, %8
   br label %857
 
 857:                                              ; preds = %842, %848, %.thread
-  %.sink985 = phi i8 [ 0, %842 ], [ %856, %848 ], [ 0, %.thread ]
+  %.sink1013 = phi i8 [ 0, %842 ], [ %856, %848 ], [ 0, %.thread ]
   %858 = getelementptr inbounds nuw i8, ptr %.0905, i64 16
   %859 = load ptr, ptr %858, align 8
-  store i8 %.sink985, ptr %859, align 1
+  store i8 %.sink1013, ptr %859, align 1
   %860 = getelementptr inbounds nuw i8, ptr %.0905, i64 64
   br label %.backedge.backedge
 
@@ -2656,10 +2656,10 @@ ExecEvalCoerceViaIOSafe.exit:                     ; preds = %799, %806, %822, %8
   br label %885
 
 885:                                              ; preds = %871, %877, %.thread941
-  %.sink988 = phi i8 [ 0, %871 ], [ %884, %877 ], [ 0, %.thread941 ]
+  %.sink1016 = phi i8 [ 0, %871 ], [ %884, %877 ], [ 0, %.thread941 ]
   %886 = getelementptr inbounds nuw i8, ptr %.0905, i64 16
   %887 = load ptr, ptr %886, align 8
-  store i8 %.sink988, ptr %887, align 1
+  store i8 %.sink1016, ptr %887, align 1
   %888 = getelementptr inbounds nuw i8, ptr %.0905, i64 64
   br label %.backedge.backedge
 
@@ -2984,9 +2984,9 @@ ExecEvalArrayCoerce.exit:                         ; preds = %970, %.sink.split.i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1082, %1079, %1076, %1074
-  %.sink991 = phi i64 [ %1075, %1074 ], [ %1078, %1076 ], [ %1081, %1079 ], [ %1084, %1082 ]
+  %.sink1019 = phi i64 [ %1075, %1074 ], [ %1078, %1076 ], [ %1081, %1079 ], [ %1084, %1082 ]
   %1085 = load ptr, ptr %1066, align 8
-  store i64 %.sink991, ptr %1085, align 8
+  store i64 %.sink1019, ptr %1085, align 8
   br label %1086
 
 1086:                                             ; preds = %.sink.split, %1065
@@ -3161,10 +3161,10 @@ ExecEvalConstraintNotNull.exit:                   ; preds = %1156, %1161, %1165
   br label %1194
 
 1194:                                             ; preds = %1184, %1190
-  %.sink993 = phi i64 [ %1193, %1190 ], [ 0, %1184 ]
+  %.sink1021 = phi i64 [ %1193, %1190 ], [ 0, %1184 ]
   %1195 = getelementptr inbounds nuw i8, ptr %.0905, i64 8
   %1196 = load ptr, ptr %1195, align 8
-  store i64 %.sink993, ptr %1196, align 8
+  store i64 %.sink1021, ptr %1196, align 8
   %1197 = getelementptr inbounds nuw i8, ptr %.0905, i64 16
   %1198 = load ptr, ptr %1197, align 8
   store i8 0, ptr %1198, align 1
@@ -3601,7 +3601,7 @@ ExecEvalGroupingFunc.exit:                        ; preds = %1311, %.lr.ph.i937,
   %1484 = getelementptr inbounds nuw i8, ptr %1463, i64 8
   store i8 0, ptr %1484, align 8
   store i8 0, ptr %1464, align 1
-  br label %.sink.split996
+  br label %.sink.split1024
 
 1485:                                             ; preds = %1449
   %1486 = getelementptr inbounds nuw i8, ptr %1463, i64 8
@@ -3642,14 +3642,14 @@ ExecEvalGroupingFunc.exit:                        ; preds = %1311, %.lr.ph.i937,
   store i64 %1511, ptr %1463, align 8
   %1512 = load i8, ptr %1508, align 4, !range !8, !noundef !9
   store i8 %1512, ptr %1486, align 8
-  br label %.sink.split996
+  br label %.sink.split1024
 
-.sink.split996:                                   ; preds = %1489, %1467
-  %.sink997 = phi ptr [ %1474, %1467 ], [ %1503, %1489 ]
-  store ptr %.sink997, ptr @CurrentMemoryContext, align 8
+.sink.split1024:                                  ; preds = %1489, %1467
+  %.sink1025 = phi ptr [ %1474, %1467 ], [ %1503, %1489 ]
+  store ptr %.sink1025, ptr @CurrentMemoryContext, align 8
   br label %1513
 
-1513:                                             ; preds = %.sink.split996, %1485
+1513:                                             ; preds = %.sink.split1024, %1485
   %1514 = getelementptr inbounds nuw i8, ptr %.0905, i64 64
   br label %.backedge.backedge
 
@@ -3807,7 +3807,7 @@ ExecEvalGroupingFunc.exit:                        ; preds = %1311, %.lr.ph.i937,
   %1634 = getelementptr inbounds nuw i8, ptr %1613, i64 8
   store i8 0, ptr %1634, align 8
   store i8 0, ptr %1614, align 1
-  br label %.sink.split998
+  br label %.sink.split1026
 
 1635:                                             ; preds = %1599
   %1636 = getelementptr inbounds nuw i8, ptr %1613, i64 8
@@ -3862,14 +3862,14 @@ ExecAggPlainTransByRef.exit:                      ; preds = %1639, %1663
   store i64 %.0.i, ptr %1613, align 8
   %1669 = load i8, ptr %1658, align 4, !range !8, !noundef !9
   store i8 %1669, ptr %1636, align 8
-  br label %.sink.split998
+  br label %.sink.split1026
 
-.sink.split998:                                   ; preds = %ExecAggPlainTransByRef.exit, %1617
-  %.sink999 = phi ptr [ %1624, %1617 ], [ %1653, %ExecAggPlainTransByRef.exit ]
-  store ptr %.sink999, ptr @CurrentMemoryContext, align 8
+.sink.split1026:                                  ; preds = %ExecAggPlainTransByRef.exit, %1617
+  %.sink1027 = phi ptr [ %1624, %1617 ], [ %1653, %ExecAggPlainTransByRef.exit ]
+  store ptr %.sink1027, ptr @CurrentMemoryContext, align 8
   br label %1670
 
-1670:                                             ; preds = %.sink.split998, %1635
+1670:                                             ; preds = %.sink.split1026, %1635
   %1671 = getelementptr inbounds nuw i8, ptr %.0905, i64 64
   br label %.backedge.backedge
 
@@ -5087,9 +5087,9 @@ define dso_local void @ExecEvalArrayExpr(ptr readnone captures(none) %0, ptr nou
   %34 = tail call ptr @palloc(i64 noundef %33) #18
   %35 = tail call ptr @palloc(i64 noundef %33) #18
   %36 = icmp sgt i32 %9, 0
-  br i1 %36, label %.lr.ph, label %.thread289
+  br i1 %36, label %.lr.ph, label %.thread295
 
-.thread289:                                       ; preds = %28
+.thread295:                                       ; preds = %28
   store i32 0, ptr %3, align 16
   store i32 1, ptr %4, align 16
   br label %._crit_edge250
@@ -5330,15 +5330,15 @@ define dso_local void @ExecEvalArrayExpr(ptr readnone captures(none) %0, ptr nou
   %wide.trip.count264 = zext nneg i32 %.1155 to i64
   br label %.lr.ph249
 
-._crit_edge250:                                   ; preds = %.lr.ph249, %.thread289, %152
-  %.0180.lcssa283299 = phi i1 [ false, %.thread289 ], [ %.1181, %152 ], [ %.1181, %.lr.ph249 ]
-  %.0159.lcssa286298 = phi i32 [ 0, %.thread289 ], [ %.1160, %152 ], [ %.1160, %.lr.ph249 ]
-  %.0156.lcssa287297 = phi i32 [ 0, %.thread289 ], [ %.1157, %152 ], [ %.1157, %.lr.ph249 ]
-  %.0154.lcssa288296 = phi i32 [ 0, %.thread289 ], [ %.1155, %152 ], [ %.1155, %.lr.ph249 ]
-  %154 = call i32 @ArrayGetNItems(i32 noundef %.0154.lcssa288296, ptr noundef nonnull %3) #18
-  call void @ArrayCheckBounds(i32 noundef %.0154.lcssa288296, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
-  %155 = shl i32 %.0154.lcssa288296, 3
-  br i1 %.0180.lcssa283299, label %163, label %169
+._crit_edge250:                                   ; preds = %.lr.ph249, %.thread295, %152
+  %.0180.lcssa289305 = phi i1 [ false, %.thread295 ], [ %.1181, %152 ], [ %.1181, %.lr.ph249 ]
+  %.0159.lcssa292304 = phi i32 [ 0, %.thread295 ], [ %.1160, %152 ], [ %.1160, %.lr.ph249 ]
+  %.0156.lcssa293303 = phi i32 [ 0, %.thread295 ], [ %.1157, %152 ], [ %.1157, %.lr.ph249 ]
+  %.0154.lcssa294302 = phi i32 [ 0, %.thread295 ], [ %.1155, %152 ], [ %.1155, %.lr.ph249 ]
+  %154 = call i32 @ArrayGetNItems(i32 noundef %.0154.lcssa294302, ptr noundef nonnull %3) #18
+  call void @ArrayCheckBounds(i32 noundef %.0154.lcssa294302, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
+  %155 = shl i32 %.0154.lcssa294302, 3
+  br i1 %.0180.lcssa289305, label %163, label %169
 
 .lr.ph249:                                        ; preds = %.lr.ph249.preheader, %.lr.ph249
   %indvars.iv261 = phi i64 [ 1, %.lr.ph249.preheader ], [ %indvars.iv.next262, %.lr.ph249 ]
@@ -5371,22 +5371,22 @@ define dso_local void @ExecEvalArrayExpr(ptr readnone captures(none) %0, ptr nou
 172:                                              ; preds = %169, %163
   %.0165 = phi i32 [ %168, %163 ], [ 0, %169 ]
   %.pn = phi i32 [ %168, %163 ], [ %171, %169 ]
-  %.2158 = add i32 %.pn, %.0156.lcssa287297
+  %.2158 = add i32 %.pn, %.0156.lcssa293303
   %173 = sext i32 %.2158 to i64
   %174 = call ptr @palloc0(i64 noundef %173) #18
   %175 = shl i32 %.2158, 2
   store i32 %175, ptr %174, align 4
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 4
-  store i32 %.0154.lcssa288296, ptr %176, align 4
+  store i32 %.0154.lcssa294302, ptr %176, align 4
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store i32 %.0165, ptr %177, align 4
   %178 = getelementptr inbounds nuw i8, ptr %174, i64 12
   store i32 %7, ptr %178, align 4
   %179 = getelementptr inbounds nuw i8, ptr %174, i64 16
-  %180 = zext nneg i32 %.0154.lcssa288296 to i64
+  %180 = zext nneg i32 %.0154.lcssa294302 to i64
   %181 = shl nuw nsw i64 %180, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %179, ptr nonnull align 16 %3, i64 %181, i1 false)
-  %182 = sext i32 %.0154.lcssa288296 to i64
+  %182 = sext i32 %.0154.lcssa294302 to i64
   %183 = shl nsw i64 %182, 2
   %184 = getelementptr inbounds nuw i8, ptr %179, i64 %183
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %184, ptr nonnull align 16 %4, i64 %181, i1 false)
@@ -5408,13 +5408,13 @@ define dso_local void @ExecEvalArrayExpr(ptr readnone captures(none) %0, ptr nou
 
 194:                                              ; preds = %188, %186
   %195 = phi i64 [ %187, %186 ], [ %193, %188 ]
-  %196 = icmp sgt i32 %.0159.lcssa286298, 0
+  %196 = icmp sgt i32 %.0159.lcssa292304, 0
   br i1 %196, label %.lr.ph255, label %.loopexit
 
 .lr.ph255:                                        ; preds = %194
   %197 = getelementptr inbounds nuw i8, ptr %174, i64 %195
-  %wide.trip.count274 = zext nneg i32 %.0159.lcssa286298 to i64
-  br i1 %.0180.lcssa283299, label %.lr.ph255.split.us, label %.lr.ph255.split
+  %wide.trip.count274 = zext nneg i32 %.0159.lcssa292304 to i64
+  br i1 %.0180.lcssa289305, label %.lr.ph255.split.us, label %.lr.ph255.split
 
 .lr.ph255.split.us:                               ; preds = %.lr.ph255, %212
   %indvars.iv271 = phi i64 [ %indvars.iv.next272, %212 ], [ 0, %.lr.ph255 ]
@@ -5470,8 +5470,8 @@ define dso_local void @ExecEvalArrayExpr(ptr readnone captures(none) %0, ptr nou
   br i1 %exitcond270.not, label %.loopexit, label %.lr.ph255.split, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph255.split, %212, %15, %194, %.thread
-  %.sink308 = phi ptr [ %147, %.thread ], [ %27, %15 ], [ %174, %194 ], [ %174, %212 ], [ %174, %.lr.ph255.split ]
-  %228 = ptrtoint ptr %.sink308 to i64
+  %.sink314 = phi ptr [ %147, %.thread ], [ %27, %15 ], [ %174, %194 ], [ %174, %212 ], [ %174, %.lr.ph255.split ]
+  %228 = ptrtoint ptr %.sink314 to i64
   %229 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %230 = load ptr, ptr %229, align 8
   store i64 %228, ptr %230, align 8
@@ -6556,7 +6556,7 @@ fetch_att.exit:                                   ; preds = %81
   br i1 %70, label %fetch_att.exit.thread, label %99
 
 fetch_att.exit.thread:                            ; preds = %92, %89, %86, %83, %fetch_att.exit
-  %.0.i145 = phi i64 [ %97, %fetch_att.exit ], [ %93, %92 ], [ %91, %89 ], [ %88, %86 ], [ %85, %83 ]
+  %.0.i149 = phi i64 [ %97, %fetch_att.exit ], [ %93, %92 ], [ %91, %89 ], [ %88, %86 ], [ %85, %83 ]
   %98 = getelementptr inbounds nuw i8, ptr %.098131, i64 %72
   br label %130
 
@@ -6612,7 +6612,7 @@ fetch_att.exit.thread:                            ; preds = %92, %89, %86, %83, 
   br label %130
 
 130:                                              ; preds = %123, %126, %fetch_att.exit.thread
-  %.0.i144 = phi i64 [ %.0.i145, %fetch_att.exit.thread ], [ %97, %123 ], [ %97, %126 ]
+  %.0.i148 = phi i64 [ %.0.i149, %fetch_att.exit.thread ], [ %97, %123 ], [ %97, %126 ]
   %131 = phi ptr [ %98, %fetch_att.exit.thread ], [ %125, %123 ], [ %129, %126 ]
   %132 = ptrtoint ptr %131 to i64
   switch i8 %50, label %139 [
@@ -6642,16 +6642,16 @@ fetch_att.exit.thread:                            ; preds = %92, %89, %86, %83, 
   br label %145
 
 145:                                              ; preds = %76, %142
-  %storemerge = phi i64 [ %.0.i144, %142 ], [ 0, %76 ]
+  %storemerge = phi i64 [ %.0.i148, %142 ], [ 0, %76 ]
   %146 = phi i8 [ 0, %142 ], [ 1, %76 ]
   %.199 = phi ptr [ %144, %142 ], [ %.098131, %76 ]
   store i64 %storemerge, ptr %67, align 8
   store i8 %146, ptr %68, align 8
   %147 = and i8 %146, %12
   %or.cond3.not = icmp eq i8 %147, 0
-  br i1 %or.cond3.not, label %148, label %.thread146
+  br i1 %or.cond3.not, label %148, label %.thread150
 
-.thread146:                                       ; preds = %145
+.thread150:                                       ; preds = %145
   store i8 1, ptr %73, align 4
   br label %156
 
@@ -6673,8 +6673,8 @@ fetch_att.exit.thread:                            ; preds = %92, %89, %86, %83, 
 155:                                              ; preds = %153
   br i1 %151, label %.sink.split.sink.split, label %156
 
-156:                                              ; preds = %.thread146, %148, %154, %155
-  %.2102 = phi i8 [ %.0100130, %154 ], [ %.0100130, %155 ], [ 1, %148 ], [ 1, %.thread146 ]
+156:                                              ; preds = %.thread150, %148, %154, %155
+  %.2102 = phi i8 [ %.0100130, %154 ], [ %.0100130, %155 ], [ 1, %148 ], [ 1, %.thread150 ]
   %157 = shl i32 %.092134, 1
   %158 = icmp eq i32 %157, 256
   %spec.select.idx = zext i1 %158 to i64
@@ -6950,7 +6950,7 @@ fetch_att.exit:                                   ; preds = %119
   br i1 %140, label %fetch_att.exit.thread, label %143
 
 fetch_att.exit.thread:                            ; preds = %133, %130, %127, %124, %fetch_att.exit
-  %.0.i213 = phi i64 [ %139, %fetch_att.exit ], [ %134, %133 ], [ %132, %130 ], [ %129, %127 ], [ %126, %124 ]
+  %.0.i222 = phi i64 [ %139, %fetch_att.exit ], [ %134, %133 ], [ %132, %130 ], [ %129, %127 ], [ %126, %124 ]
   %141 = zext nneg i16 %122 to i64
   %142 = getelementptr inbounds nuw i8, ptr %.0100167, i64 %141
   br label %175
@@ -7008,7 +7008,7 @@ fetch_att.exit.thread:                            ; preds = %133, %130, %127, %1
   br label %175
 
 175:                                              ; preds = %168, %171, %fetch_att.exit.thread
-  %.0.i212 = phi i64 [ %.0.i213, %fetch_att.exit.thread ], [ %139, %168 ], [ %139, %171 ]
+  %.0.i221 = phi i64 [ %.0.i222, %fetch_att.exit.thread ], [ %139, %168 ], [ %139, %171 ]
   %176 = phi ptr [ %142, %fetch_att.exit.thread ], [ %170, %168 ], [ %174, %171 ]
   %177 = load i8, ptr %6, align 1
   %178 = ptrtoint ptr %176 to i64
@@ -7041,7 +7041,7 @@ fetch_att.exit.thread:                            ; preds = %133, %130, %127, %1
   %.val.i = load ptr, ptr %191, align 8
   %192 = getelementptr inbounds nuw i8, ptr %.val.i, i64 64
   %193 = getelementptr inbounds nuw i8, ptr %.val.i, i64 96
-  store i64 %.0.i212, ptr %193, align 8
+  store i64 %.0.i221, ptr %193, align 8
   %194 = getelementptr inbounds nuw i8, ptr %.val.i, i64 104
   store i8 0, ptr %194, align 8
   %195 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
@@ -7095,7 +7095,7 @@ fetch_att.exit.thread:                            ; preds = %133, %130, %127, %1
   %221 = load i32, ptr %199, align 8
   %222 = add i32 %221, 1
   store i32 %222, ptr %199, align 8
-  store i64 %.0.i212, ptr %.lcssa28.i, align 8
+  store i64 %.0.i221, ptr %.lcssa28.i, align 8
   %223 = getelementptr inbounds nuw i8, ptr %.lcssa28.i, i64 12
   store i32 %198, ptr %223, align 4
   store i32 1, ptr %220, align 8
@@ -7123,7 +7123,7 @@ fetch_att.exit.thread:                            ; preds = %133, %130, %127, %1
   %235 = getelementptr inbounds nuw i8, ptr %233, i64 40
   store i8 0, ptr %235, align 8
   %236 = getelementptr inbounds nuw i8, ptr %233, i64 48
-  store i64 %.0.i212, ptr %236, align 8
+  store i64 %.0.i221, ptr %236, align 8
   %237 = getelementptr inbounds nuw i8, ptr %233, i64 56
   store i8 0, ptr %237, align 8
   %238 = load ptr, ptr %230, align 8
@@ -7217,7 +7217,7 @@ saophash_distance.exit.i.i:                       ; preds = %245, %243
   %276 = load i32, ptr %199, align 8
   %277 = add i32 %276, 1
   store i32 %277, ptr %199, align 8
-  store i64 %.0.i212, ptr %224, align 8
+  store i64 %.0.i221, ptr %224, align 8
   store i32 %198, ptr %225, align 4
   store i32 1, ptr %.lcssa7.lcssa.i, align 8
   br label %saophash_insert.exit
@@ -8924,8 +8924,8 @@ define dso_local void @ExecEvalWholeRowVar(ptr noundef readonly captures(none) %
   br i1 %.not, label %.sink.split, label %204
 
 .sink.split:                                      ; preds = %16, %12, %9, %3, %8
-  %.sink139 = phi i64 [ 24, %8 ], [ 16, %3 ], [ 8, %9 ], [ 112, %12 ], [ 120, %16 ]
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink139
+  %.sink147 = phi i64 [ 24, %8 ], [ 16, %3 ], [ 8, %9 ], [ 112, %12 ], [ 120, %16 ]
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink147
   %21 = load ptr, ptr %20, align 8
   br label %22
 
@@ -9232,11 +9232,11 @@ slot_getallattrs.exit..loopexit_crit_edge:        ; preds = %slot_getallattrs.ex
   br label %204
 
 204:                                              ; preds = %16, %12, %.loopexit
-  %.sink142 = phi i64 [ %203, %.loopexit ], [ 0, %12 ], [ 0, %16 ]
+  %.sink150 = phi i64 [ %203, %.loopexit ], [ 0, %12 ], [ 0, %16 ]
   %.sink = phi i8 [ 0, %.loopexit ], [ 1, %12 ], [ 1, %16 ]
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %206 = load ptr, ptr %205, align 8
-  store i64 %.sink142, ptr %206, align 8
+  store i64 %.sink150, ptr %206, align 8
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %208 = load ptr, ptr %207, align 8
   store i8 %.sink, ptr %208, align 1

@@ -716,7 +716,7 @@ define internal void @"_ZN4core3ptr68drop_in_place$LT$uv_requirements_txt..requi
   %7 = alloca [24 x i8], align 8
   %8 = load i64, ptr %0, align 8, !range !104, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i64 %8, label %default.unreachable9 [
+  switch i64 %8, label %default.unreachable14 [
     i64 0, label %19
     i64 1, label %20
     i64 2, label %21
@@ -727,7 +727,7 @@ define internal void @"_ZN4core3ptr68drop_in_place$LT$uv_requirements_txt..requi
     i64 7, label %10
   ]
 
-default.unreachable9:                             ; preds = %1
+default.unreachable14:                            ; preds = %1
   unreachable
 
 10:                                               ; preds = %1

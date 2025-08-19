@@ -103,9 +103,9 @@ define range(i32 0, 28) i32 @cli_pcre_addoptions(ptr noundef captures(address_is
   br label %.loopexit
 
 21:                                               ; preds = %9, %17, %16, %15, %14, %13, %12
-  %.sink26 = phi i32 [ 262144, %17 ], [ 16, %16 ], [ -2147483648, %15 ], [ 128, %14 ], [ 1024, %13 ], [ 32, %12 ], [ 8, %9 ]
+  %.sink29 = phi i32 [ 262144, %17 ], [ 16, %16 ], [ -2147483648, %15 ], [ 128, %14 ], [ 1024, %13 ], [ 32, %12 ], [ 8, %9 ]
   %22 = load i32, ptr %8, align 8, !tbaa !9
-  %23 = or i32 %22, %.sink26
+  %23 = or i32 %22, %.sink29
   store i32 %23, ptr %8, align 8, !tbaa !9
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %24, ptr %1, align 8, !tbaa !3

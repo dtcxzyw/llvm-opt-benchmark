@@ -243,7 +243,7 @@ define dso_local range(i32 0, 2) i32 @passwd_main(i32 noundef %0, ptr noundef %1
 
 46:                                               ; preds = %40
   %or.cond4 = or i1 %41, %42
-  br i1 %or.cond4, label %47, label %.thread220
+  br i1 %or.cond4, label %47, label %.thread223
 
 47:                                               ; preds = %46
   %48 = tail call ptr @bio_open_default(ptr noundef %.0107, i8 noundef signext 114, i32 noundef 32769) #7
@@ -254,11 +254,11 @@ define dso_local range(i32 0, 2) i32 @passwd_main(i32 noundef %0, ptr noundef %1
   %51 = icmp eq ptr %.0103, null
   br i1 %51, label %53, label %.preheader151
 
-.thread220:                                       ; preds = %46
+.thread223:                                       ; preds = %46
   %52 = icmp eq ptr %.0103, null
   br i1 %52, label %55, label %.thread..preheader_crit_edge
 
-.thread..preheader_crit_edge:                     ; preds = %.thread220
+.thread..preheader_crit_edge:                     ; preds = %.thread223
   %.pre.pre = load ptr, ptr %.0103, align 8, !tbaa !4
   br label %.preheader
 
@@ -270,7 +270,7 @@ define dso_local range(i32 0, 2) i32 @passwd_main(i32 noundef %0, ptr noundef %1
   %.1102140142.ph = phi ptr [ %54, %53 ], [ null, %50 ]
   br label %68
 
-55:                                               ; preds = %.thread220
+55:                                               ; preds = %.thread223
   %56 = tail call ptr @app_malloc(i64 noundef 258, ptr noundef nonnull @.str.50) #7
   %57 = or i32 %.091, %.093
   %58 = xor i32 %57, 1

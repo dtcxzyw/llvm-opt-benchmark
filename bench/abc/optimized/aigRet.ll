@@ -2585,8 +2585,8 @@ define ptr @Rtm_ManToAig(ptr noundef readonly captures(none) %0) local_unnamed_a
 96:                                               ; preds = %.lr.ph145, %.loopexit
   %97 = phi i32 [ %92, %.lr.ph145 ], [ %150, %.loopexit ]
   %indvars.iv170 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next171, %.loopexit ]
-  %.idx178 = shl nuw nsw i64 %indvars.iv170, 4
-  %98 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx178
+  %.idx182 = shl nuw nsw i64 %indvars.iv170, 4
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx182
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = and i32 %100, 4095
@@ -3386,9 +3386,9 @@ Vec_PtrGrow.exit.i220.us:                         ; preds = %318, %316
 Vec_PtrPush.exit221.us:                           ; preds = %Vec_PtrGrow.exit.i220.us, %312, %.Vec_PtrGrow.exit11_crit_edge.i215.us
   %321 = phi i32 [ %256, %.Vec_PtrGrow.exit11_crit_edge.i215.us ], [ %304, %312 ], [ 16, %Vec_PtrGrow.exit.i220.us ]
   %322 = phi ptr [ %.pre.i217.us, %.Vec_PtrGrow.exit11_crit_edge.i215.us ], [ %313, %312 ], [ %320, %Vec_PtrGrow.exit.i220.us ]
-  %323 = add nsw i32 %257, 1
-  %324 = sext i32 %257 to i64
-  %325 = getelementptr inbounds ptr, ptr %322, i64 %324
+  %323 = add nuw nsw i32 %257, 1
+  %324 = zext nneg i32 %257 to i64
+  %325 = getelementptr inbounds nuw ptr, ptr %322, i64 %324
   store ptr %260, ptr %325, align 8, !tbaa !34
   %.pre328 = load i32, ptr %249, align 8
   br label %Rtm_ObjCheckRetimeBwd.exit.us
@@ -3410,8 +3410,8 @@ Rtm_ObjCheckRetimeBwd.exit.us:                    ; preds = %274, %Vec_PtrPush.e
   %334 = phi i32 [ %246, %.lr.ph286.split.us ], [ %328, %Rtm_ObjCheckRetimeBwd.exit.us ]
   %.3.lcssa.us = phi i32 [ %.0285.us, %.lr.ph286.split.us ], [ %.4.us, %Rtm_ObjCheckRetimeBwd.exit.us ]
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
-  %335 = sext i32 %334 to i64
-  %336 = icmp slt i64 %indvars.iv.next321, %335
+  %335 = zext nneg i32 %334 to i64
+  %336 = icmp samesign ult i64 %indvars.iv.next321, %335
   br i1 %336, label %.lr.ph286.split.us, label %.critedge8, !llvm.loop !96
 
 .lr.ph279.us:                                     ; preds = %.lr.ph286.split.us
@@ -3571,9 +3571,9 @@ Vec_PtrGrow.exit.i197:                            ; preds = %396, %394
 Vec_PtrPush.exit198:                              ; preds = %.Vec_PtrGrow.exit11_crit_edge.i192, %Vec_PtrGrow.exit.i197, %408
   %410 = phi i32 [ %351, %.Vec_PtrGrow.exit11_crit_edge.i192 ], [ %400, %408 ], [ 16, %Vec_PtrGrow.exit.i197 ]
   %411 = phi ptr [ %.pre.i194, %.Vec_PtrGrow.exit11_crit_edge.i192 ], [ %409, %408 ], [ %398, %Vec_PtrGrow.exit.i197 ]
-  %412 = add nsw i32 %352, 1
-  %413 = sext i32 %352 to i64
-  %414 = getelementptr inbounds ptr, ptr %411, i64 %413
+  %412 = add nuw nsw i32 %352, 1
+  %413 = zext nneg i32 %352 to i64
+  %414 = getelementptr inbounds nuw ptr, ptr %411, i64 %413
   store ptr %360, ptr %414, align 8, !tbaa !34
   %.pre327 = load i32, ptr %345, align 4, !tbaa !41
   br label %Rtm_ObjCheckRetimeFwd.exit
@@ -3592,8 +3592,8 @@ Rtm_ObjCheckRetimeFwd.exit:                       ; preds = %.lr.ph.i180, %Rtm_O
   %421 = phi i32 [ %339, %.lr.ph286.split ], [ %417, %Rtm_ObjCheckRetimeFwd.exit ]
   %.1.lcssa = phi i32 [ %.0285, %.lr.ph286.split ], [ %.2, %Rtm_ObjCheckRetimeFwd.exit ]
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
-  %422 = sext i32 %421 to i64
-  %423 = icmp slt i64 %indvars.iv.next315, %422
+  %422 = zext nneg i32 %421 to i64
+  %423 = icmp samesign ult i64 %indvars.iv.next315, %422
   br i1 %423, label %.lr.ph286.split, label %.critedge8, !llvm.loop !96
 
 .critedge8:                                       ; preds = %.critedge10.loopexit255, %.critedge10.loopexit.us, %189, %137, %.critedge4

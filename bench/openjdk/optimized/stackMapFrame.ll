@@ -631,17 +631,17 @@ define hidden noundef i32 @_ZNK13StackMapFrame16is_assignable_toEP16Verification
 17:                                               ; preds = %16
   %18 = and i64 %13, 257
   %.not = icmp eq i64 %18, 1
-  br i1 %.not, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit37, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread
+  br i1 %.not, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit39, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread
 
 19:                                               ; preds = %16
   %20 = and i64 %13, 513
   %21 = icmp eq i64 %20, 513
-  br i1 %21, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit35
+  br i1 %21, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit37
 
 22:                                               ; preds = %16
   %23 = and i64 %13, 1025
   %24 = icmp eq i64 %23, 1025
-  br i1 %24, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit33
+  br i1 %24, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit35
 
 25:                                               ; preds = %16
   %26 = and i64 %13, 3
@@ -653,17 +653,17 @@ define hidden noundef i32 @_ZNK13StackMapFrame16is_assignable_toEP16Verification
 
 30:                                               ; preds = %16, %16, %16, %16
   %31 = icmp eq i64 %13, 65793
-  br i1 %31, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit31
+  br i1 %31, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit33
 
 32:                                               ; preds = %16
   %33 = or i64 %13, %12
   %34 = and i64 %33, 3
   %or.cond14.i = icmp eq i64 %34, 0
-  br i1 %or.cond14.i, label %35, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit29
+  br i1 %or.cond14.i, label %35, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit31
 
 35:                                               ; preds = %32
   %36 = tail call noundef zeroext i1 @_ZNK16VerificationType28is_reference_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11, i1 noundef zeroext false, ptr noundef %4) #12
-  br i1 %36, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit39
+  br i1 %36, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit41
 
 _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread: ; preds = %25, %8, %30, %22, %19, %17, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -674,32 +674,32 @@ _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.ex
   %37 = trunc nuw nsw i64 %indvars.iv to i32
   br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10
 
-_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit29: ; preds = %32
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit31: ; preds = %32
   %38 = trunc nuw nsw i64 %indvars.iv to i32
   br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10
 
-_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit31: ; preds = %30
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit33: ; preds = %30
   %39 = trunc nuw nsw i64 %indvars.iv to i32
   br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10
 
-_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit33: ; preds = %22
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit35: ; preds = %22
   %40 = trunc nuw nsw i64 %indvars.iv to i32
   br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10
 
-_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit35: ; preds = %19
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit37: ; preds = %19
   %41 = trunc nuw nsw i64 %indvars.iv to i32
   br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10
 
-_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit37: ; preds = %17
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit39: ; preds = %17
   %42 = trunc nuw nsw i64 %indvars.iv to i32
   br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10
 
-_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit39: ; preds = %35
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit41: ; preds = %35
   %43 = trunc nuw nsw i64 %indvars.iv to i32
   br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10
 
-_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10: ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit29, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit31, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit33, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit35, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit37, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit39, %5
-  %.0.lcssa = phi i32 [ 0, %5 ], [ %37, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit ], [ %38, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit29 ], [ %39, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit31 ], [ %40, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit33 ], [ %41, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit35 ], [ %42, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit37 ], [ %43, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit39 ], [ %3, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread ]
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10: ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit31, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit33, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit35, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit37, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit39, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit41, %5
+  %.0.lcssa = phi i32 [ 0, %5 ], [ %37, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit ], [ %38, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit31 ], [ %39, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit33 ], [ %40, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit35 ], [ %41, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit37 ], [ %42, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit39 ], [ %43, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit41 ], [ %3, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread ]
   ret i32 %.0.lcssa
 }
 

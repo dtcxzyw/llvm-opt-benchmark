@@ -3685,8 +3685,8 @@ Supp_SetConvert.exit:                             ; preds = %96, %Supp_ArrayWeig
 
 ; Function Attrs: nounwind uwtable
 define i32 @Supp_ManRefine1(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
-  %.sroa.0157 = alloca ptr, align 16
-  %.sroa.5158 = alloca ptr, align 8
+  %.sroa.0174 = alloca ptr, align 16
+  %.sroa.5175 = alloca ptr, align 8
   %.sroa.0 = alloca i32, align 4
   %.sroa.5 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3775,18 +3775,18 @@ Vec_WrdGrow.exit:                                 ; preds = %42, %31, %3
   %55 = phi i32 [ %223, %233 ], [ %.pre120, %Vec_WrdGrow.exit ]
   %.0100 = phi i32 [ %234, %233 ], [ 0, %Vec_WrdGrow.exit ]
   %.06199 = phi i32 [ %.2, %233 ], [ 0, %Vec_WrdGrow.exit ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0157)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5158)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0174)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5175)
   %56 = shl nuw nsw i32 %.0100, 1
   %57 = mul nsw i32 %55, %56
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i64, ptr %52, i64 %58
-  store ptr %59, ptr %.sroa.0157, align 16, !tbaa !116
+  store ptr %59, ptr %.sroa.0174, align 16, !tbaa !116
   %60 = or disjoint i32 %56, 1
   %61 = mul nsw i32 %55, %60
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i64, ptr %52, i64 %62
-  store ptr %63, ptr %.sroa.5158, align 8, !tbaa !116
+  store ptr %63, ptr %.sroa.5175, align 8, !tbaa !116
   br label %64
 
 64:                                               ; preds = %.lr.ph101, %232
@@ -3805,7 +3805,7 @@ Vec_WrdGrow.exit:                                 ; preds = %42, %31, %3
   %69 = phi i32 [ %100, %Abc_TtCountOnesVec.exit.us ], [ %65, %64 ]
   %70 = phi i1 [ false, %Abc_TtCountOnesVec.exit.us ], [ true, %64 ]
   %indvars.iv115.sroa.phi = phi ptr [ %.sroa.5, %Abc_TtCountOnesVec.exit.us ], [ %.sroa.0, %64 ]
-  %indvars.iv115.sroa.phi155 = phi ptr [ %.sroa.5158, %Abc_TtCountOnesVec.exit.us ], [ %.sroa.0157, %64 ]
+  %indvars.iv115.sroa.phi172 = phi ptr [ %.sroa.5175, %Abc_TtCountOnesVec.exit.us ], [ %.sroa.0174, %64 ]
   %71 = load ptr, ptr %24, align 8, !tbaa !29
   %72 = getelementptr i8, ptr %71, i64 4
   %.val77.us = load i32, ptr %72, align 4, !tbaa !3
@@ -3948,7 +3948,7 @@ Vec_WrdPush.exit85.us:                            ; preds = %Vec_WrdGrow.exit.i8
   br i1 %143, label %.lr.ph.preheader.i.us, label %Abc_TtCountOnesVec.exit.us
 
 .lr.ph92.us:                                      ; preds = %.preheader.us
-  %144 = load ptr, ptr %indvars.iv115.sroa.phi155, align 8, !tbaa !116
+  %144 = load ptr, ptr %indvars.iv115.sroa.phi172, align 8, !tbaa !116
   br label %101
 
 .preheader86:                                     ; preds = %64, %Abc_TtCountOnesVec.exit
@@ -3956,7 +3956,7 @@ Vec_WrdPush.exit85.us:                            ; preds = %Vec_WrdGrow.exit.i8
   %146 = phi i32 [ %220, %Abc_TtCountOnesVec.exit ], [ %66, %64 ]
   %147 = phi i1 [ false, %Abc_TtCountOnesVec.exit ], [ true, %64 ]
   %indvars.iv109.sroa.phi = phi ptr [ %.sroa.5, %Abc_TtCountOnesVec.exit ], [ %.sroa.0, %64 ]
-  %indvars.iv109.sroa.phi153 = phi ptr [ %.sroa.5158, %Abc_TtCountOnesVec.exit ], [ %.sroa.0157, %64 ]
+  %indvars.iv109.sroa.phi170 = phi ptr [ %.sroa.5175, %Abc_TtCountOnesVec.exit ], [ %.sroa.0174, %64 ]
   %148 = load ptr, ptr %24, align 8, !tbaa !29
   %149 = getelementptr i8, ptr %148, i64 4
   %.val77 = load i32, ptr %149, align 4, !tbaa !3
@@ -3968,7 +3968,7 @@ Vec_WrdPush.exit85.us:                            ; preds = %Vec_WrdGrow.exit.i8
   br i1 %153, label %.lr.ph, label %Abc_TtCountOnesVec.exit
 
 .lr.ph:                                           ; preds = %.preheader86
-  %154 = load ptr, ptr %indvars.iv109.sroa.phi153, align 8, !tbaa !116
+  %154 = load ptr, ptr %indvars.iv109.sroa.phi170, align 8, !tbaa !116
   br label %155
 
 155:                                              ; preds = %.lr.ph, %Vec_WrdPush.exit
@@ -4130,8 +4130,8 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   br i1 %.not, label %64, label %233, !llvm.loop !120
 
 233:                                              ; preds = %232
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0157)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5158)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0174)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5175)
   %234 = add nuw nsw i32 %.0100, 1
   %exitcond.not = icmp eq i32 %234, %23
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph101, !llvm.loop !121
@@ -6602,14 +6602,14 @@ define noalias noundef ptr @Supp_ManCollectOnes(ptr noundef readonly captures(no
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %33, %35, %25, %27
-  %.sink11 = phi ptr [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %36, %35 ]
+  %.sink13 = phi ptr [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %36, %35 ]
   %.sink = phi i32 [ 16, %25 ], [ 16, %27 ], [ %30, %33 ], [ %30, %35 ]
-  store ptr %.sink11, ptr %6, align 8, !tbaa !34
+  store ptr %.sink13, ptr %6, align 8, !tbaa !34
   store i32 %.sink, ptr %3, align 8, !tbaa !33
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %18
-  %.pre.i8 = phi ptr [ %9, %18 ], [ %.sink11, %Vec_IntPush.exit.sink.split ]
+  %.pre.i8 = phi ptr [ %9, %18 ], [ %.sink13, %Vec_IntPush.exit.sink.split ]
   %37 = add nsw i32 %19, 1
   store i32 %37, ptr %4, align 4, !tbaa !30
   %38 = sext i32 %19 to i64
@@ -7074,7 +7074,7 @@ define range(i32 1000000001, 1000000000) i32 @Supp_FindNextDiv(ptr noundef reado
 
 Abc_TtFindFirstAndBit2.exit51.thread:             ; preds = %60
   %61 = icmp eq i32 %.012.i, -1
-  %spec.select74 = select i1 %61, i32 1000000000, i32 %.012.i
+  %spec.select76 = select i1 %61, i32 1000000000, i32 %.012.i
   br label %.thread
 
 Abc_TtFindFirstAndBit2.exit51:                    ; preds = %.lr.ph.i35
@@ -7118,13 +7118,13 @@ Abc_TtFindFirstAndBit2.exit51:                    ; preds = %.lr.ph.i35
   %88 = icmp eq i32 %.012.i, -1
   %spec.select = select i1 %88, i32 1000000000, i32 %.012.i
   %89 = icmp eq i32 %87, -1
-  %spec.select83 = select i1 %89, i32 1000000000, i32 %87
+  %spec.select85 = select i1 %89, i32 1000000000, i32 %87
   br label %.thread
 
 .thread:                                          ; preds = %Abc_TtFindFirstAndBit2.exit51, %Abc_TtFindFirstAndBit2.exit51.thread
-  %spec.select75 = phi i32 [ %spec.select74, %Abc_TtFindFirstAndBit2.exit51.thread ], [ %spec.select, %Abc_TtFindFirstAndBit2.exit51 ]
-  %90 = phi i32 [ 1000000000, %Abc_TtFindFirstAndBit2.exit51.thread ], [ %spec.select83, %Abc_TtFindFirstAndBit2.exit51 ]
-  %91 = tail call i32 @llvm.smin.i32(i32 %spec.select75, i32 %90)
+  %spec.select77 = phi i32 [ %spec.select76, %Abc_TtFindFirstAndBit2.exit51.thread ], [ %spec.select, %Abc_TtFindFirstAndBit2.exit51 ]
+  %90 = phi i32 [ 1000000000, %Abc_TtFindFirstAndBit2.exit51.thread ], [ %spec.select85, %Abc_TtFindFirstAndBit2.exit51 ]
+  %91 = tail call i32 @llvm.smin.i32(i32 %spec.select77, i32 %90)
   %92 = icmp eq i32 %91, 1000000000
   br i1 %92, label %.thread.thread, label %93
 
@@ -8854,11 +8854,11 @@ define void @Supp_DeriveDumpProb2(ptr noundef readonly captures(none) %0, ptr no
   %60 = load i64, ptr %59, align 8, !tbaa !11
   %61 = and i64 %60, %55
   %.not49 = icmp eq i64 %61, 0
-  %.str.35..str.3477 = select i1 %.not49, ptr @.str.35, ptr @.str.34
+  %.str.35..str.3480 = select i1 %.not49, ptr @.str.35, ptr @.str.34
   br label %62
 
 62:                                               ; preds = %57, %.preheader
-  %.str.33.sink = phi ptr [ @.str.33, %.preheader ], [ %.str.35..str.3477, %57 ]
+  %.str.33.sink = phi ptr [ @.str.33, %.preheader ], [ %.str.35..str.3480, %57 ]
   %63 = tail call i64 @fwrite(ptr nonnull %.str.33.sink, i64 3, i64 1, ptr %11)
   %64 = add nuw nsw i32 %.058, 1
   %exitcond.not = icmp eq i32 %64, %smax68
@@ -8938,8 +8938,8 @@ define ptr @Supp_ManFindBestSolution(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph126.split.us:                               ; preds = %.lr.ph126, %.thread
   %indvars.iv165 = phi i64 [ %indvars.iv.next166, %.thread ], [ 0, %.lr.ph126 ]
-  %.066124.us = phi i32 [ %.3.us180185, %.thread ], [ 1000000000, %.lr.ph126 ]
-  %.071122.us = phi i32 [ %.374.us178186, %.thread ], [ -1, %.lr.ph126 ]
+  %.066124.us = phi i32 [ %.3.us193198, %.thread ], [ 1000000000, %.lr.ph126 ]
+  %.071122.us = phi i32 [ %.374.us191199, %.thread ], [ -1, %.lr.ph126 ]
   %.077121.us = phi i32 [ %18, %.thread ], [ 0, %.lr.ph126 ]
   %.val89.us = load ptr, ptr %7, align 8, !tbaa !83
   %14 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val89.us, i64 %indvars.iv165
@@ -8951,8 +8951,8 @@ define ptr @Supp_ManFindBestSolution(ptr noundef readonly captures(none) %0, ptr
   br i1 %16, label %.lr.ph.us, label %.critedge2.us.thread
 
 .thread:                                          ; preds = %.critedge2.us, %.critedge2.us.thread
-  %.374.us178186 = phi i32 [ %.071122.us, %.critedge2.us.thread ], [ %.475.us.us, %.critedge2.us ]
-  %.3.us180185 = phi i32 [ %.066124.us, %.critedge2.us.thread ], [ %.4.us.us, %.critedge2.us ]
+  %.374.us191199 = phi i32 [ %.071122.us, %.critedge2.us.thread ], [ %.475.us.us, %.critedge2.us ]
+  %.3.us193198 = phi i32 [ %.066124.us, %.critedge2.us.thread ], [ %.4.us.us, %.critedge2.us ]
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %.val90.us = load i32, ptr %5, align 4, !tbaa !84
   %19 = sext i32 %.val90.us to i64
@@ -9135,8 +9135,8 @@ define ptr @Supp_ManFindBestSolution(ptr noundef readonly captures(none) %0, ptr
   br i1 %106, label %.critedge, label %59
 
 .critedge:                                        ; preds = %105, %.critedge2, %59, %.thread, %.critedge2.us.thread, %.critedge2.us
-  %.172 = phi i32 [ %.475.us.us, %.critedge2.us ], [ %.374.us178186, %.thread ], [ %.071122.us, %.critedge2.us.thread ], [ %.374, %59 ], [ %.374, %.critedge2 ], [ %.374, %105 ]
-  %.1 = phi i32 [ %.4.us.us, %.critedge2.us ], [ %.3.us180185, %.thread ], [ %.066124.us, %.critedge2.us.thread ], [ %.3, %59 ], [ %.3, %.critedge2 ], [ %.3, %105 ]
+  %.172 = phi i32 [ %.475.us.us, %.critedge2.us ], [ %.374.us191199, %.thread ], [ %.071122.us, %.critedge2.us.thread ], [ %.374, %59 ], [ %.374, %.critedge2 ], [ %.374, %105 ]
+  %.1 = phi i32 [ %.4.us.us, %.critedge2.us ], [ %.3.us193198, %.thread ], [ %.066124.us, %.critedge2.us.thread ], [ %.3, %59 ], [ %.3, %.critedge2 ], [ %.3, %105 ]
   %107 = icmp sgt i32 %.172, 0
   %108 = icmp slt i32 %.1, 200
   %or.cond82 = select i1 %107, i1 %108, i1 false
@@ -10052,14 +10052,14 @@ Vec_WrdStart.exit:                                ; preds = %Vec_WrdStartTruthTa
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %75, %77, %67, %69
-  %.sink66 = phi ptr [ %68, %67 ], [ %70, %69 ], [ %76, %75 ], [ %78, %77 ]
+  %.sink75 = phi ptr [ %68, %67 ], [ %70, %69 ], [ %76, %75 ], [ %78, %77 ]
   %.sink = phi i32 [ 16, %67 ], [ 16, %69 ], [ %72, %75 ], [ %72, %77 ]
-  store ptr %.sink66, ptr %57, align 8, !tbaa !34
+  store ptr %.sink75, ptr %57, align 8, !tbaa !34
   store i32 %.sink, ptr %54, align 8, !tbaa !33
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %.lr.ph
-  %.pre.i62 = phi ptr [ %59, %.lr.ph ], [ %.sink66, %Vec_IntPush.exit.sink.split ]
+  %.pre.i62 = phi ptr [ %59, %.lr.ph ], [ %.sink75, %Vec_IntPush.exit.sink.split ]
   %79 = load i32, ptr %55, align 4, !tbaa !30
   %80 = add nsw i32 %79, 1
   store i32 %80, ptr %55, align 4, !tbaa !30
@@ -10813,10 +10813,10 @@ Abc_ReadPla.exit.thread:                          ; preds = %5
   br label %.backedge.sink.split.i.i
 
 .backedge.sink.split.i.i:                         ; preds = %27, %26, %24
-  %.sink45.i.i = phi ptr [ %8, %27 ], [ %7, %26 ], [ %6, %24 ]
+  %.sink47.i.i = phi ptr [ %8, %27 ], [ %7, %26 ], [ %6, %24 ]
   %28 = tail call i64 @strtol(ptr noundef nonnull captures(none) %17, ptr noundef null, i32 noundef 10) #32
   %29 = trunc i64 %28 to i32
-  store i32 %29, ptr %.sink45.i.i, align 4, !tbaa !35
+  store i32 %29, ptr %.sink47.i.i, align 4, !tbaa !35
   br label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %.backedge.sink.split.i.i, %24, %18
@@ -11010,13 +11010,13 @@ Abc_ReadPla.exit.thread44:                        ; preds = %Abc_RDataStart.exit
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %116, %111, %107
-  %.sink102.in.i.i = phi ptr [ %70, %111 ], [ %70, %116 ], [ %56, %107 ]
-  %.sink101.i.i = phi i32 [ %115, %111 ], [ %121, %116 ], [ %109, %107 ]
+  %.sink111.in.i.i = phi ptr [ %70, %111 ], [ %70, %116 ], [ %56, %107 ]
+  %.sink110.i.i = phi i32 [ %115, %111 ], [ %121, %116 ], [ %109, %107 ]
   %.3.ph.i.i = phi i32 [ %.285.i.i, %111 ], [ %.285.i.i, %116 ], [ %105, %107 ]
-  %.sink102.i.i = load ptr, ptr %.sink102.in.i.i, align 8, !tbaa !59
-  %122 = getelementptr i8, ptr %.sink102.i.i, i64 8
+  %.sink111.i.i = load ptr, ptr %.sink111.in.i.i, align 8, !tbaa !59
+  %122 = getelementptr i8, ptr %.sink111.i.i, i64 8
   %.val78.i.i = load ptr, ptr %122, align 8, !tbaa !10
-  %123 = sext i32 %.sink101.i.i to i64
+  %123 = sext i32 %.sink110.i.i to i64
   %124 = getelementptr inbounds i64, ptr %.val78.i.i, i64 %123
   %125 = getelementptr inbounds i32, ptr %124, i64 %97
   %126 = load i32, ptr %125, align 4, !tbaa !35
@@ -11243,25 +11243,25 @@ Abc_ReadPla.exit:                                 ; preds = %._crit_edge92.i.i, 
 
 .thread49:                                        ; preds = %209, %203
   %puts.i27 = call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
-  br label %.thread63
+  br label %.thread80
 
 215:                                              ; preds = %187
   %216 = icmp ne ptr %193, null
   %.not = icmp eq ptr %193, null
-  br i1 %.not, label %Vec_IntFreeP.exit, label %.thread63
+  br i1 %.not, label %Vec_IntFreeP.exit, label %.thread80
 
-.thread63:                                        ; preds = %215, %.thread49
+.thread80:                                        ; preds = %215, %.thread49
   %217 = phi i1 [ true, %.thread49 ], [ %216, %215 ]
   %218 = call ptr @Supp_GenerateGia(ptr noundef nonnull %193, ptr noundef nonnull %189)
   %219 = icmp ne i32 %3, 0
-  %or.cond765 = select i1 %219, i1 %217, i1 false
-  br i1 %or.cond765, label %.thread67, label %220
+  %or.cond782 = select i1 %219, i1 %217, i1 false
+  br i1 %or.cond782, label %.thread84, label %220
 
-.thread67:                                        ; preds = %.thread63
+.thread84:                                        ; preds = %.thread80
   call void @Supp_RecordSolution(ptr noundef %0, ptr noundef nonnull %189, ptr noundef nonnull %193)
   br label %220
 
-220:                                              ; preds = %.thread63, %.thread67
+220:                                              ; preds = %.thread80, %.thread84
   %221 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %222 = load ptr, ptr %221, align 8, !tbaa !34
   %.not.i = icmp eq ptr %222, null

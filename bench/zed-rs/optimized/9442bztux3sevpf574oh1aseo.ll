@@ -19508,7 +19508,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
 
 .thread.i:                                        ; preds = %.noexc2.i
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i)
-  br label %.thread24
+  br label %.thread28
 
 97:                                               ; preds = %.noexc2.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5139
@@ -19524,13 +19524,13 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   store i64 1, ptr %5, align 8, !alias.scope !5118, !noalias !5145
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i)
   invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$channel..channel_store..OpenedModelHandle$LT$channel..channel_buffer..ChannelBuffer$GT$$GT$17h389fc8b134934d71E"(ptr noalias noundef align 8 dereferenceable(32) %99)
-          to label %.thread24 unwind label %84, !noalias !5089
+          to label %.thread28 unwind label %84, !noalias !5089
 
-.thread24:                                        ; preds = %.thread.i, %98
+.thread28:                                        ; preds = %.thread.i, %98
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !5094
   br label %100
 
-100:                                              ; preds = %.thread24, %86
+100:                                              ; preds = %.thread28, %86
   call void @llvm.experimental.noalias.scope.decl(metadata !5146)
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !5149)
@@ -24033,13 +24033,13 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   store i64 %storemerge.i.i, ptr %5, align 8, !alias.scope !6335, !noalias !6362
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i)
   invoke fastcc void @"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$channel..channel_store..OpenedModelHandle$LT$channel..channel_chat..ChannelChat$GT$$GT$$GT$17h47459a70a798b1b7E"(ptr noalias noundef align 8 dereferenceable(40) %5)
-          to label %.thread24 unwind label %81, !noalias !6309
+          to label %.thread28 unwind label %81, !noalias !6309
 
-.thread24:                                        ; preds = %96
+.thread28:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !6314
   br label %97
 
-97:                                               ; preds = %.thread24, %83
+97:                                               ; preds = %.thread28, %83
   call void @llvm.experimental.noalias.scope.decl(metadata !6363)
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !6366)
@@ -24557,7 +24557,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17haffc5d81c88909ccE(ptr noalias noundef nonnull align 8 dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 1 %43, i64 noundef 8, i64 noundef 16)
           to label %.body unwind label %102, !noalias !6505
 
-47:                                               ; preds = %.backedge20, %41
+47:                                               ; preds = %.backedge23, %41
   %48 = invoke noundef align 16 dereferenceable_or_null(144) ptr @"_ZN90_$LT$sum_tree..cursor..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7f8bed8536b52ff4E"(ptr noalias noundef nonnull align 8 dereferenceable(272) %12)
           to label %53 unwind label %49, !noalias !6506
 
@@ -24694,7 +24694,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
 104:                                              ; preds = %53
   %105 = load i64, ptr %48, align 16, !range !399, !noalias !6506, !noundef !4
   %switch15.i = icmp eq i64 %105, 0
-  br i1 %switch15.i, label %106, label %.backedge20
+  br i1 %switch15.i, label %106, label %.backedge23
 
 106:                                              ; preds = %104
   %107 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -24766,9 +24766,9 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd553ef5de885a5f5E.exit31.i": ; preds = %119, %.noexc30.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !6500
-  br label %.backedge20
+  br label %.backedge23
 
-.backedge20:                                      ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd553ef5de885a5f5E.exit31.i", %104
+.backedge23:                                      ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd553ef5de885a5f5E.exit31.i", %104
   br label %47
 
 .body:                                            ; preds = %"_ZN4core3ptr88drop_in_place$LT$sum_tree..cursor..Iter$LT$channel..channel_chat..ChannelMessage$GT$$GT$17h0abe0cef7bd18a1dE.exit.i"

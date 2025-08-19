@@ -222,14 +222,14 @@ define hidden range(i32 -2147483648, 2) i32 @french_UTF_8_stem(ptr noundef %0) l
 13:                                               ; preds = %.outer, %select.unfold181.i
   %14 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 251, i32 noundef 0) #3
   %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %15, label %.thread257.i
+  br i1 %.not.i, label %15, label %.thread273.i
 
 15:                                               ; preds = %13
   %16 = load i32, ptr %2, align 8
   store i32 %16, ptr %4, align 4
   %17 = load i32, ptr %5, align 4
   %18 = icmp eq i32 %16, %17
-  br i1 %18, label %.thread257.i, label %19
+  br i1 %18, label %.thread273.i, label %19
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %0, align 8
@@ -237,7 +237,7 @@ define hidden range(i32 -2147483648, 2) i32 @french_UTF_8_stem(ptr noundef %0) l
   %22 = getelementptr inbounds i8, ptr %20, i64 %21
   %23 = load i8, ptr %22, align 1
   %.not161.i = icmp eq i8 %23, 117
-  br i1 %.not161.i, label %24, label %.thread256.i
+  br i1 %.not161.i, label %24, label %.thread272.i
 
 24:                                               ; preds = %19
   %25 = add i32 %16, 1
@@ -256,25 +256,25 @@ define hidden range(i32 -2147483648, 2) i32 @french_UTF_8_stem(ptr noundef %0) l
   %.pre248.i = load i32, ptr %5, align 4
   %31 = icmp eq i32 %16, %.pre248.i
   store i32 %16, ptr %2, align 8
-  br i1 %31, label %.thread257.i, label %..thread256.i_crit_edge
+  br i1 %31, label %.thread273.i, label %..thread272.i_crit_edge
 
-..thread256.i_crit_edge:                          ; preds = %30
+..thread272.i_crit_edge:                          ; preds = %30
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 %21
   %.pre374 = load i8, ptr %.phi.trans.insert, align 1
-  br label %.thread256.i
+  br label %.thread272.i
 
-.thread256.i:                                     ; preds = %..thread256.i_crit_edge, %19
-  %32 = phi i8 [ %.pre374, %..thread256.i_crit_edge ], [ %23, %19 ]
-  %33 = phi ptr [ %.pre, %..thread256.i_crit_edge ], [ %20, %19 ]
+.thread272.i:                                     ; preds = %..thread272.i_crit_edge, %19
+  %32 = phi i8 [ %.pre374, %..thread272.i_crit_edge ], [ %23, %19 ]
+  %33 = phi ptr [ %.pre, %..thread272.i_crit_edge ], [ %20, %19 ]
   %.not163.i = icmp eq i8 %32, 105
-  br i1 %.not163.i, label %34, label %.thread258.i
+  br i1 %.not163.i, label %34, label %.thread274.i
 
-.thread258.i:                                     ; preds = %.thread256.i
+.thread274.i:                                     ; preds = %.thread272.i
   store i32 %16, ptr %2, align 8
   br label %42
 
-34:                                               ; preds = %.thread256.i
+34:                                               ; preds = %.thread272.i
   %35 = add i32 %16, 1
   store i32 %35, ptr %2, align 8
   store i32 %35, ptr %6, align 8
@@ -291,18 +291,18 @@ define hidden range(i32 -2147483648, 2) i32 @french_UTF_8_stem(ptr noundef %0) l
   %.pre250.i = load i32, ptr %5, align 4
   %41 = icmp eq i32 %16, %.pre250.i
   store i32 %16, ptr %2, align 8
-  br i1 %41, label %.thread257.i, label %._crit_edge
+  br i1 %41, label %.thread273.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %40
   %.pre375 = load ptr, ptr %0, align 8
   br label %42
 
-42:                                               ; preds = %._crit_edge, %.thread258.i
-  %43 = phi ptr [ %.pre375, %._crit_edge ], [ %33, %.thread258.i ]
+42:                                               ; preds = %._crit_edge, %.thread274.i
+  %43 = phi ptr [ %.pre375, %._crit_edge ], [ %33, %.thread274.i ]
   %44 = getelementptr inbounds i8, ptr %43, i64 %21
   %45 = load i8, ptr %44, align 1
   %.not165.i = icmp eq i8 %45, 121
-  br i1 %.not165.i, label %46, label %.thread257.i
+  br i1 %.not165.i, label %46, label %.thread273.i
 
 46:                                               ; preds = %42
   %47 = add i32 %16, 1
@@ -312,21 +312,21 @@ define hidden range(i32 -2147483648, 2) i32 @french_UTF_8_stem(ptr noundef %0) l
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %.thread269, label %select.unfold181.i
 
-.thread257.i:                                     ; preds = %42, %40, %30, %15, %13
+.thread273.i:                                     ; preds = %42, %40, %30, %15, %13
   store i32 %.ph, ptr %2, align 8
   store i32 %.ph, ptr %4, align 4
   %50 = tail call i32 @eq_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_3) #3
   %.not166.i = icmp eq i32 %50, 0
   br i1 %.not166.i, label %55, label %51
 
-51:                                               ; preds = %.thread257.i
+51:                                               ; preds = %.thread273.i
   %52 = load i32, ptr %2, align 8
   store i32 %52, ptr %6, align 8
   %53 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_4) #3
   %54 = icmp sgt i32 %53, -1
   br i1 %54, label %select.unfold181.i, label %.thread269
 
-55:                                               ; preds = %.thread257.i
+55:                                               ; preds = %.thread273.i
   store i32 %.ph, ptr %2, align 8
   store i32 %.ph, ptr %4, align 4
   %56 = tail call i32 @eq_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_5) #3

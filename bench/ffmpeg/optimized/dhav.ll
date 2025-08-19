@@ -978,8 +978,8 @@ define internal fastcc i32 @parse_ext(ptr noundef %0, i32 noundef %1) unnamed_ad
   br label %56
 
 56:                                               ; preds = %44, %52
-  %storemerge66 = phi i32 [ %55, %52 ], [ 8000, %44 ]
-  store i32 %storemerge66, ptr %8, align 4, !tbaa !75
+  %storemerge67 = phi i32 [ %55, %52 ], [ 8000, %44 ]
+  store i32 %storemerge67, ptr %8, align 4, !tbaa !75
   %57 = add nsw i32 %.060, -4
   br label %93
 

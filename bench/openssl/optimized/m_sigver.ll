@@ -126,8 +126,8 @@ define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %0, ptr n
   %61 = icmp eq ptr %60, null
   %.pre = load ptr, ptr %29, align 8, !tbaa !14
   %62 = icmp eq ptr %60, %.pre
-  %or.cond271 = select i1 %61, i1 true, i1 %62
-  br i1 %or.cond271, label %.critedge, label %73, !prof !37
+  %or.cond289 = select i1 %61, i1 true, i1 %62
+  br i1 %or.cond289, label %.critedge, label %73, !prof !37
 
 63:                                               ; preds = %56
   %64 = icmp eq ptr %3, null
@@ -386,10 +386,10 @@ canon_mdname.exit230:                             ; preds = %141, %137, %134, %1
   br label %175
 
 167:                                              ; preds = %162, %157
-  %.sink272 = phi ptr [ %159, %157 ], [ %164, %162 ]
+  %.sink290 = phi ptr [ %159, %157 ], [ %164, %162 ]
   %168 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %169 = load ptr, ptr %168, align 8, !tbaa !25
-  %170 = call i32 %.sink272(ptr noundef %169, ptr noundef %.1181, ptr noundef %.0165, ptr noundef %9) #6
+  %170 = call i32 %.sink290(ptr noundef %169, ptr noundef %.1181, ptr noundef %.0165, ptr noundef %9) #6
   %171 = icmp sgt i32 %170, 0
   %172 = icmp ne ptr %.1181, null
   %or.cond5 = or i1 %172, %171
@@ -1275,9 +1275,9 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
 24:                                               ; preds = %20
   %25 = and i64 %9, 512
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %30, label %.thread83
+  br i1 %26, label %30, label %.thread89
 
-.thread83:                                        ; preds = %24
+.thread89:                                        ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 192
   %28 = load ptr, ptr %27, align 8, !tbaa !68
   %29 = tail call i32 %28(ptr noundef nonnull %18, ptr noundef %1, i64 noundef %2) #6
@@ -1297,8 +1297,8 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %35 = icmp eq ptr %31, null
   br i1 %35, label %36, label %40
 
-36:                                               ; preds = %.thread83, %30
-  %37 = phi i32 [ %29, %.thread83 ], [ %34, %30 ]
+36:                                               ; preds = %.thread89, %30
+  %37 = phi i32 [ %29, %.thread89 ], [ %34, %30 ]
   %38 = load i64, ptr %8, align 8, !tbaa !61
   %39 = or i64 %38, 2048
   store i64 %39, ptr %8, align 8, !tbaa !61

@@ -6119,7 +6119,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
   %17 = alloca [2 x i8], align 2
   store i16 %2, ptr %17, align 2
   %18 = load i8, ptr %1, align 16, !range !1134, !noundef !12
-  switch i8 %18, label %default.unreachable126 [
+  switch i8 %18, label %default.unreachable128 [
     i8 0, label %19
     i8 1, label %21
     i8 2, label %23
@@ -6150,7 +6150,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
     i8 27, label %111
   ], !prof !1135
 
-default.unreachable126:                           ; preds = %111, %3
+default.unreachable128:                           ; preds = %111, %3
   unreachable
 
 19:                                               ; preds = %3
@@ -6442,7 +6442,7 @@ common.resume:                                    ; preds = %144, %97, %83
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %113 = load i128, ptr %112, align 16, !range !1145, !noundef !12
   %114 = trunc nuw nsw i128 %113 to i64
-  switch i64 %114, label %default.unreachable126 [
+  switch i64 %114, label %default.unreachable128 [
     i64 0, label %139
     i64 1, label %154
     i64 2, label %142
@@ -9069,10 +9069,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hf27ae0a7f42c
   ret void
 
 ._crit_edge.thread:                               ; preds = %27, %._crit_edge
-  %.sroa.0.0.lcssa31 = phi ptr [ %18, %._crit_edge ], [ %29, %27 ]
-  %storemerge.lcssa30 = phi i64 [ %14, %._crit_edge ], [ %21, %27 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %.sroa.0.0.lcssa31, ptr noundef nonnull align 16 dereferenceable(48) %2, i64 48, i1 false)
-  %24 = add i64 %storemerge.lcssa30, 1
+  %.sroa.0.0.lcssa32 = phi ptr [ %18, %._crit_edge ], [ %29, %27 ]
+  %storemerge.lcssa31 = phi i64 [ %14, %._crit_edge ], [ %21, %27 ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %.sroa.0.0.lcssa32, ptr noundef nonnull align 16 dereferenceable(48) %2, i64 48, i1 false)
+  %24 = add i64 %storemerge.lcssa31, 1
   store i64 %24, ptr %6, align 8
   br label %23
 
@@ -20387,7 +20387,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !1279, !noundef !12
-  switch i8 %23, label %default.unreachable72 [
+  switch i8 %23, label %default.unreachable77 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -20429,7 +20429,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %231
   ]
 
-default.unreachable72:                            ; preds = %2
+default.unreachable77:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2
@@ -21211,7 +21211,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %5 = alloca [24 x i8], align 8
   %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !1134, !noundef !12
-  switch i8 %6, label %default.unreachable23 [
+  switch i8 %6, label %default.unreachable25 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -21242,7 +21242,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
     i8 27, label %77
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable25:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2

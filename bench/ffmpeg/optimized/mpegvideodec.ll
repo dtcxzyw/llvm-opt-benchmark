@@ -202,12 +202,12 @@ define internal range(i32 0, 52) i32 @mpegvideo_probe(ptr noundef readonly captu
 87:                                               ; preds = %84
   %88 = mul nsw i32 %.185, 9
   %89 = icmp sgt i32 %88, %82
-  %or.cond5.not144.not180 = select i1 %89, i1 true, i1 %78
-  %or.cond7.not141.not177 = select i1 %or.cond5.not144.not180, i1 true, i1 %79
-  %or.cond9.not139.not175 = select i1 %or.cond7.not141.not177, i1 true, i1 %80
-  %or.cond103.not173 = select i1 %or.cond9.not139.not175, i1 true, i1 %81
-  %brmerge = select i1 %or.cond103.not173, i1 true, i1 %83
-  %.mux = select i1 %or.cond103.not173, i32 0, i32 12
+  %or.cond5.not144.not183 = select i1 %89, i1 true, i1 %78
+  %or.cond7.not141.not180 = select i1 %or.cond5.not144.not183, i1 true, i1 %79
+  %or.cond9.not139.not178 = select i1 %or.cond7.not141.not180, i1 true, i1 %80
+  %or.cond103.not176 = select i1 %or.cond9.not139.not178, i1 true, i1 %81
+  %brmerge = select i1 %or.cond103.not176, i1 true, i1 %83
+  %.mux = select i1 %or.cond103.not176, i32 0, i32 12
   br i1 %brmerge, label %._crit_edge.thread, label %90
 
 90:                                               ; preds = %87

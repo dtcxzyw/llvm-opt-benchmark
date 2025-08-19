@@ -170,8 +170,8 @@ define void @dlatm7_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 60:                                               ; preds = %32
   store double 1.000000e+00, ptr %5, align 8, !tbaa !7
-  %.not254 = icmp eq i32 %12, 1
-  br i1 %.not254, label %.loopexit167, label %61
+  %.not266 = icmp eq i32 %12, 1
+  br i1 %.not266, label %.loopexit167, label %61
 
 61:                                               ; preds = %60
   %62 = load i32, ptr %7, align 4, !tbaa !3

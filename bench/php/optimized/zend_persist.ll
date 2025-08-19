@@ -1744,19 +1744,19 @@ zend_string_release_ex.exit.i988:                 ; preds = %757, %752, %747
 zend_persist_property_info.exit:                  ; preds = %809, %769
   %811 = getelementptr inbounds nuw i8, ptr %612, i64 40
   tail call fastcc void @zend_persist_type(ptr noundef nonnull %811)
-  br label %.sink.split1243
+  br label %.sink.split1339
 
 812:                                              ; preds = %607
   %813 = tail call ptr @zend_shared_alloc_get_xlat_entry(ptr noundef nonnull %546) #7
   %.not871 = icmp eq ptr %813, null
-  br i1 %.not871, label %814, label %.sink.split1243
+  br i1 %.not871, label %814, label %.sink.split1339
 
-.sink.split1243:                                  ; preds = %812, %zend_persist_property_info.exit
-  %.sink1244 = phi ptr [ %612, %zend_persist_property_info.exit ], [ %813, %812 ]
-  store ptr %.sink1244, ptr %.07001020, align 8, !tbaa !16
+.sink.split1339:                                  ; preds = %812, %zend_persist_property_info.exit
+  %.sink1340 = phi ptr [ %612, %zend_persist_property_info.exit ], [ %813, %812 ]
+  store ptr %.sink1340, ptr %.07001020, align 8, !tbaa !16
   br label %814
 
-814:                                              ; preds = %.sink.split1243, %812, %.lr.ph1022
+814:                                              ; preds = %.sink.split1339, %812, %.lr.ph1022
   %815 = getelementptr inbounds nuw i8, ptr %.07001020, i64 32
   %.not799 = icmp eq ptr %815, %538
   br i1 %.not799, label %._crit_edge1023.loopexit, label %.lr.ph1022

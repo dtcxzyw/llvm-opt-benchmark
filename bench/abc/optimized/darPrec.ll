@@ -347,8 +347,8 @@ Dar_TruthPermute_int.exit:                        ; preds = %._crit_edge.us.i
   br i1 %.not, label %.lr.ph53.preheader, label %.lr.ph50.preheader
 
 Dar_TruthPermute_int.exit.thread:                 ; preds = %._crit_edge
-  %.not73 = icmp eq i32 %3, 0
-  br i1 %.not73, label %.lr.ph53.preheader, label %.lr.ph50.preheader
+  %.not74 = icmp eq i32 %3, 0
+  br i1 %.not74, label %.lr.ph53.preheader, label %.lr.ph50.preheader
 
 .lr.ph50.preheader:                               ; preds = %Dar_TruthPermute_int.exit, %Dar_TruthPermute_int.exit.thread
   %smax63 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)

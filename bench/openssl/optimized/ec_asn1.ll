@@ -542,13 +542,13 @@ ec_asn1_group2curve.exit:                         ; preds = %132, %140
   br i1 %142, label %ec_asn1_group2fieldid.exit.thread, label %143
 
 ec_asn1_group2curve.exit.thread.critedge.sink.split: ; preds = %132, %129, %117, %120, %110, %114, %98, %92, %95
-  %.sink59 = phi i32 [ 321, %95 ], [ 321, %92 ], [ 327, %98 ], [ 342, %114 ], [ 342, %110 ], [ 349, %120 ], [ 349, %117 ], [ 357, %129 ], [ 363, %132 ]
+  %.sink81 = phi i32 [ 321, %95 ], [ 321, %92 ], [ 327, %98 ], [ 342, %114 ], [ 342, %110 ], [ 349, %120 ], [ 349, %117 ], [ 357, %129 ], [ 363, %132 ]
   %.sink = phi i32 [ 524291, %95 ], [ 524291, %92 ], [ 524304, %98 ], [ 524291, %114 ], [ 524291, %110 ], [ 524301, %120 ], [ 524301, %117 ], [ 524301, %129 ], [ 524301, %132 ]
   %.1.i.ph.ph = phi ptr [ null, %95 ], [ null, %92 ], [ %96, %98 ], [ %96, %114 ], [ %96, %110 ], [ %96, %120 ], [ %96, %117 ], [ %96, %129 ], [ %96, %132 ]
   %.038.i.ph.ph = phi ptr [ null, %95 ], [ null, %92 ], [ null, %98 ], [ %105, %114 ], [ %105, %110 ], [ %105, %120 ], [ %105, %117 ], [ %105, %129 ], [ %105, %132 ]
   %.037.i.ph.ph = phi ptr [ null, %95 ], [ null, %92 ], [ null, %98 ], [ %108, %114 ], [ %108, %110 ], [ %108, %120 ], [ %108, %117 ], [ %108, %129 ], [ %108, %132 ]
   call void @ERR_new() #8
-  call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink59, ptr noundef nonnull @__func__.ec_asn1_group2curve) #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink81, ptr noundef nonnull @__func__.ec_asn1_group2curve) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #8
   br label %ec_asn1_group2curve.exit.thread.critedge
 
@@ -624,11 +624,11 @@ ec_asn1_group2curve.exit.thread.critedge:         ; preds = %ec_asn1_group2curve
   br label %ec_asn1_group2fieldid.exit.thread
 
 ec_asn1_group2fieldid.exit.thread:                ; preds = %156, %143, %ec_asn1_group2curve.exit, %89, %87, %84, %ec_asn1_group2curve.exit.thread.critedge, %ec_asn1_group2fieldid.exit.thread51, %12, %175, %167, %154
-  %.sink61 = phi i32 [ 454, %175 ], [ 444, %167 ], [ 430, %154 ], [ 405, %12 ], [ 405, %ec_asn1_group2fieldid.exit.thread51 ], [ 411, %ec_asn1_group2curve.exit.thread.critedge ], [ 411, %84 ], [ 411, %87 ], [ 411, %89 ], [ 417, %ec_asn1_group2curve.exit ], [ 425, %143 ], [ 438, %156 ]
-  %.sink60 = phi i32 [ 524301, %175 ], [ 524301, %167 ], [ 524301, %154 ], [ 524304, %12 ], [ 524304, %ec_asn1_group2fieldid.exit.thread51 ], [ 524304, %ec_asn1_group2curve.exit.thread.critedge ], [ 524304, %84 ], [ 524304, %87 ], [ 524304, %89 ], [ 113, %ec_asn1_group2curve.exit ], [ 524304, %143 ], [ 524304, %156 ]
+  %.sink83 = phi i32 [ 454, %175 ], [ 444, %167 ], [ 430, %154 ], [ 405, %12 ], [ 405, %ec_asn1_group2fieldid.exit.thread51 ], [ 411, %ec_asn1_group2curve.exit.thread.critedge ], [ 411, %84 ], [ 411, %87 ], [ 411, %89 ], [ 417, %ec_asn1_group2curve.exit ], [ 425, %143 ], [ 438, %156 ]
+  %.sink82 = phi i32 [ 524301, %175 ], [ 524301, %167 ], [ 524301, %154 ], [ 524304, %12 ], [ 524304, %ec_asn1_group2fieldid.exit.thread51 ], [ 524304, %ec_asn1_group2curve.exit.thread.critedge ], [ 524304, %84 ], [ 524304, %87 ], [ 524304, %89 ], [ 113, %ec_asn1_group2curve.exit ], [ 524304, %143 ], [ 524304, %156 ]
   call void @ERR_new() #8
-  call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink61, ptr noundef nonnull @__func__.EC_GROUP_get_ecparameters) #8
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink60, ptr noundef null) #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink83, ptr noundef nonnull @__func__.EC_GROUP_get_ecparameters) #8
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink82, ptr noundef null) #8
   br i1 %8, label %176, label %177
 
 176:                                              ; preds = %.thread, %ec_asn1_group2fieldid.exit.thread
@@ -1167,7 +1167,7 @@ define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %
   br i1 %.not198, label %232, label %.thread212
 
 .thread212.sink.split:                            ; preds = %222, %213, %216, %218, %210, %208, %205, %196, %192, %194, %188, %175, %157, %161, %165, %169, %132, %126, %44, %121, %117, %119, %114, %109, %57, %81, %86, %90, %77, %64, %61, %54, %48, %35, %31, %12, %16, %19, %23, %27, %1, %5, %8, %107
-  %.sink255 = phi i32 [ 642, %107 ], [ 533, %8 ], [ 533, %5 ], [ 533, %1 ], [ 546, %27 ], [ 546, %23 ], [ 546, %19 ], [ 546, %16 ], [ 546, %12 ], [ 551, %31 ], [ 556, %35 ], [ 576, %48 ], [ 581, %54 ], [ 592, %61 ], [ 599, %64 ], [ 615, %77 ], [ 622, %90 ], [ 622, %86 ], [ 622, %81 ], [ 638, %57 ], [ 654, %109 ], [ 659, %114 ], [ 664, %119 ], [ 664, %117 ], [ 670, %121 ], [ 677, %44 ], [ 682, %126 ], [ 695, %132 ], [ 710, %169 ], [ 710, %165 ], [ 710, %161 ], [ 710, %157 ], [ 724, %175 ], [ 730, %188 ], [ 734, %194 ], [ 734, %192 ], [ 738, %196 ], [ 747, %205 ], [ 752, %208 ], [ 769, %210 ], [ 775, %218 ], [ 775, %216 ], [ 775, %213 ], [ 800, %222 ]
+  %.sink281 = phi i32 [ 642, %107 ], [ 533, %8 ], [ 533, %5 ], [ 533, %1 ], [ 546, %27 ], [ 546, %23 ], [ 546, %19 ], [ 546, %16 ], [ 546, %12 ], [ 551, %31 ], [ 556, %35 ], [ 576, %48 ], [ 581, %54 ], [ 592, %61 ], [ 599, %64 ], [ 615, %77 ], [ 622, %90 ], [ 622, %86 ], [ 622, %81 ], [ 638, %57 ], [ 654, %109 ], [ 659, %114 ], [ 664, %119 ], [ 664, %117 ], [ 670, %121 ], [ 677, %44 ], [ 682, %126 ], [ 695, %132 ], [ 710, %169 ], [ 710, %165 ], [ 710, %161 ], [ 710, %157 ], [ 724, %175 ], [ 730, %188 ], [ 734, %194 ], [ 734, %192 ], [ 738, %196 ], [ 747, %205 ], [ 752, %208 ], [ 769, %210 ], [ 775, %218 ], [ 775, %216 ], [ 775, %213 ], [ 800, %222 ]
   %.sink = phi i32 [ 115, %107 ], [ 115, %8 ], [ 115, %5 ], [ 115, %1 ], [ 115, %27 ], [ 115, %23 ], [ 115, %19 ], [ 115, %16 ], [ 115, %12 ], [ 524291, %31 ], [ 524291, %35 ], [ 143, %48 ], [ 524291, %54 ], [ 115, %61 ], [ 137, %64 ], [ 115, %77 ], [ 132, %90 ], [ 132, %86 ], [ 132, %81 ], [ 126, %57 ], [ 115, %109 ], [ 524301, %114 ], [ 103, %119 ], [ 103, %117 ], [ 143, %121 ], [ 103, %44 ], [ 524304, %126 ], [ 115, %132 ], [ 115, %169 ], [ 115, %165 ], [ 115, %161 ], [ 115, %157 ], [ 524304, %175 ], [ 524301, %188 ], [ 122, %194 ], [ 122, %192 ], [ 122, %196 ], [ 524301, %205 ], [ 524304, %208 ], [ 524291, %210 ], [ 524304, %218 ], [ 524304, %216 ], [ 524304, %213 ], [ 524304, %222 ]
   %.0141.ph.ph = phi ptr [ null, %107 ], [ null, %8 ], [ null, %5 ], [ null, %1 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %12 ], [ null, %31 ], [ null, %35 ], [ null, %48 ], [ null, %54 ], [ null, %61 ], [ null, %64 ], [ null, %77 ], [ null, %90 ], [ null, %86 ], [ null, %81 ], [ null, %57 ], [ null, %109 ], [ null, %114 ], [ null, %119 ], [ null, %117 ], [ null, %121 ], [ null, %44 ], [ null, %126 ], [ %.2143, %132 ], [ %.2143, %169 ], [ %.2143, %165 ], [ %.2143, %161 ], [ %.2143, %157 ], [ %.2143, %175 ], [ %.2143, %188 ], [ %.2143, %194 ], [ %.2143, %192 ], [ %.2143, %196 ], [ %.2143, %205 ], [ %.2143, %208 ], [ %.2143, %210 ], [ %.2143, %218 ], [ %.2143, %216 ], [ %.2143, %213 ], [ %.2143, %222 ]
   %.0140.ph.ph = phi ptr [ null, %107 ], [ null, %8 ], [ null, %5 ], [ null, %1 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %12 ], [ null, %31 ], [ null, %35 ], [ null, %48 ], [ null, %54 ], [ null, %61 ], [ null, %64 ], [ null, %77 ], [ null, %90 ], [ null, %86 ], [ null, %81 ], [ null, %57 ], [ null, %109 ], [ null, %114 ], [ null, %119 ], [ null, %117 ], [ null, %121 ], [ null, %44 ], [ null, %126 ], [ null, %132 ], [ null, %169 ], [ null, %165 ], [ null, %161 ], [ null, %157 ], [ null, %175 ], [ null, %188 ], [ null, %194 ], [ null, %192 ], [ null, %196 ], [ null, %205 ], [ null, %208 ], [ null, %210 ], [ %214, %218 ], [ %214, %216 ], [ %214, %213 ], [ %214, %222 ]
@@ -1177,7 +1177,7 @@ define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %
   %.0133.ph.ph = phi ptr [ null, %107 ], [ null, %8 ], [ null, %5 ], [ null, %1 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %12 ], [ null, %31 ], [ null, %35 ], [ null, %48 ], [ null, %54 ], [ null, %61 ], [ null, %64 ], [ null, %77 ], [ null, %90 ], [ null, %86 ], [ null, %81 ], [ null, %57 ], [ null, %109 ], [ null, %114 ], [ null, %119 ], [ null, %117 ], [ null, %121 ], [ null, %44 ], [ null, %126 ], [ null, %132 ], [ null, %169 ], [ null, %165 ], [ null, %161 ], [ null, %157 ], [ %173, %175 ], [ %173, %188 ], [ %173, %194 ], [ %173, %192 ], [ %173, %196 ], [ %173, %205 ], [ %173, %208 ], [ %173, %210 ], [ %173, %218 ], [ %173, %216 ], [ %173, %213 ], [ %173, %222 ]
   %.0131.ph.ph = phi ptr [ null, %107 ], [ null, %8 ], [ null, %5 ], [ null, %1 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %12 ], [ null, %31 ], [ null, %35 ], [ null, %48 ], [ null, %54 ], [ null, %61 ], [ null, %64 ], [ null, %77 ], [ null, %90 ], [ null, %86 ], [ null, %81 ], [ null, %57 ], [ null, %109 ], [ null, %114 ], [ null, %119 ], [ null, %117 ], [ null, %121 ], [ null, %44 ], [ null, %126 ], [ null, %132 ], [ null, %169 ], [ null, %165 ], [ null, %161 ], [ null, %157 ], [ null, %175 ], [ null, %188 ], [ null, %194 ], [ null, %192 ], [ null, %196 ], [ null, %205 ], [ null, %208 ], [ null, %210 ], [ %211, %218 ], [ %211, %216 ], [ %211, %213 ], [ %211, %222 ]
   tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink255, ptr noundef nonnull @__func__.EC_GROUP_new_from_ecparameters) #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink281, ptr noundef nonnull @__func__.EC_GROUP_new_from_ecparameters) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #8
   br label %.thread212
 
@@ -1462,18 +1462,18 @@ define ptr @d2i_ECPrivateKey(ptr noundef captures(address_is_null) %0, ptr nound
   %23 = load ptr, ptr %17, align 8, !tbaa !54
   %24 = load i32, ptr %23, align 8, !tbaa !44
   %25 = icmp eq i32 %24, 1
-  br i1 %25, label %26, label %.thread72
+  br i1 %25, label %26, label %.thread81
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 1, ptr %27, align 8, !tbaa !49
-  br label %.thread72
+  br label %.thread81
 
 28:                                               ; preds = %16
   %29 = icmp eq ptr %.pre, null
-  br i1 %29, label %.sink.split, label %.thread72
+  br i1 %29, label %.sink.split, label %.thread81
 
-.thread72:                                        ; preds = %26, %22, %28
+.thread81:                                        ; preds = %26, %22, %28
   %30 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %31 = load i32, ptr %6, align 8, !tbaa !64
   %32 = getelementptr inbounds nuw i8, ptr %.1, i64 16
@@ -1483,7 +1483,7 @@ define ptr @d2i_ECPrivateKey(ptr noundef captures(address_is_null) %0, ptr nound
   %.not64 = icmp eq ptr %34, null
   br i1 %.not64, label %.sink.split, label %35
 
-35:                                               ; preds = %.thread72
+35:                                               ; preds = %.thread81
   %36 = call ptr @ASN1_STRING_get0_data(ptr noundef nonnull %34) #8
   %37 = call i32 @ASN1_STRING_length(ptr noundef nonnull %34) #8
   %38 = sext i32 %37 to i64
@@ -1563,12 +1563,12 @@ define ptr @d2i_ECPrivateKey(ptr noundef captures(address_is_null) %0, ptr nound
   store i64 %79, ptr %77, align 8, !tbaa !73
   br label %85
 
-.sink.split:                                      ; preds = %55, %46, %.thread72, %28, %19, %13
-  %.sink74 = phi i32 [ 944, %13 ], [ 959, %19 ], [ 959, %28 ], [ 971, %.thread72 ], [ 981, %46 ], [ 992, %55 ]
-  %.sink = phi i32 [ 524304, %13 ], [ 524304, %19 ], [ 524304, %28 ], [ 125, %.thread72 ], [ 524304, %46 ], [ 524304, %55 ]
-  %.050.ph = phi ptr [ null, %13 ], [ %.1, %19 ], [ %.1, %28 ], [ %.1, %.thread72 ], [ %.1, %46 ], [ %.1, %55 ]
+.sink.split:                                      ; preds = %55, %46, %.thread81, %28, %19, %13
+  %.sink83 = phi i32 [ 944, %13 ], [ 959, %19 ], [ 959, %28 ], [ 971, %.thread81 ], [ 981, %46 ], [ 992, %55 ]
+  %.sink = phi i32 [ 524304, %13 ], [ 524304, %19 ], [ 524304, %28 ], [ 125, %.thread81 ], [ 524304, %46 ], [ 524304, %55 ]
+  %.050.ph = phi ptr [ null, %13 ], [ %.1, %19 ], [ %.1, %28 ], [ %.1, %.thread81 ], [ %.1, %46 ], [ %.1, %55 ]
   call void @ERR_new() #8
-  call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink74, ptr noundef nonnull @__func__.d2i_ECPrivateKey) #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink83, ptr noundef nonnull @__func__.d2i_ECPrivateKey) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #8
   br label %80
 

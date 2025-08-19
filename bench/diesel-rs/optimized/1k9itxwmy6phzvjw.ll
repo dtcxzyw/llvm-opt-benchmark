@@ -1535,9 +1535,9 @@ default.unreachable:                              ; preds = %3
   store ptr %24, ptr %25, align 8, !noalias !373
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf769183f4042c41eE.llvm.10605591904518195923"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.6.0.i, ptr noundef nonnull align 1 %25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.75b27b741ac207235c05a9d10485a03d.9.llvm.10605591904518195923), !noalias !343
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val160 = load ptr, ptr %26, align 8, !alias.scope !351, !noalias !354, !nonnull !11, !align !20, !noundef !11
+  %.val161 = load ptr, ptr %26, align 8, !alias.scope !351, !noalias !354, !nonnull !11, !align !20, !noundef !11
   %27 = tail call noundef nonnull align 8 ptr @_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.10605591904518195923(i64 noundef 8, i64 noundef 8), !noalias !376
-  store ptr %.val160, ptr %27, align 8, !noalias !376
+  store ptr %.val161, ptr %27, align 8, !noalias !376
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf769183f4042c41eE.llvm.10605591904518195923"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.6.0.i, ptr noundef nonnull align 1 %27, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.75b27b741ac207235c05a9d10485a03d.9.llvm.10605591904518195923), !noalias !369
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h0d6bdecd69c95ae9E.exit68"
 
@@ -1776,7 +1776,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples96_$LT$impl$u20$diesel..insert
   switch i64 %6, label %default.unreachable [
     i64 0, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h0d6bdecd69c95ae9E.exit.thread93"
     i64 1, label %.thread
-    i64 4, label %.thread115
+    i64 4, label %.thread116
     i64 2, label %16
     i64 3, label %16
   ]
@@ -1791,15 +1791,15 @@ default.unreachable:                              ; preds = %3
   call void @"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..pg..backend..Pg$GT$$GT$15push_identifier17h062a40d8773162ebE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.6.0.i95, ptr noalias noundef nonnull readonly align 1 @anon.beb3fa82abf0cf4c019c37c910e6b147.4.llvm.851902657794911491, i64 noundef 4), !noalias !445
   %7 = load i64, ptr %5, align 8, !range !10, !noalias !437, !noundef !11
   %8 = icmp eq i64 %7, -9223372036854775798
-  br i1 %8, label %.thread114, label %13
+  br i1 %8, label %.thread115, label %13
 
-.thread115:                                       ; preds = %3
+.thread116:                                       ; preds = %3
   %.sroa.6.0.in.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.6.0.i = load ptr, ptr %.sroa.6.0.in.i, align 8, !alias.scope !432, !noalias !435, !nonnull !11, !align !36, !noundef !11
   store i8 0, ptr %.sroa.6.0.i, align 1, !noalias !446
   br label %.thread
 
-.thread114:                                       ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h0d6bdecd69c95ae9E.exit.thread93"
+.thread115:                                       ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h0d6bdecd69c95ae9E.exit.thread93"
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !437
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !453, !noalias !456, !nonnull !11, !align !20, !noundef !11
@@ -1822,11 +1822,11 @@ default.unreachable:                              ; preds = %3
 14:                                               ; preds = %17, %.thread, %13
   ret void
 
-.thread:                                          ; preds = %16, %3, %15, %.thread115
+.thread:                                          ; preds = %16, %3, %15, %.thread116
   store i64 -9223372036854775798, ptr %0, align 8
   br label %14
 
-15:                                               ; preds = %.thread114
+15:                                               ; preds = %.thread115
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !446
   br label %.thread
 
@@ -1834,7 +1834,7 @@ default.unreachable:                              ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !453)
   br label %.thread
 
-17:                                               ; preds = %.thread114
+17:                                               ; preds = %.thread115
   %.sroa.46.0..sroa_idx.i.i71 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.255, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.46.0..sroa_idx.i.i71, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !446
@@ -2205,7 +2205,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples96_$LT$impl$u20$diesel..insert
   switch i64 %6, label %default.unreachable [
     i64 0, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h0d6bdecd69c95ae9E.exit.thread94"
     i64 1, label %.thread
-    i64 4, label %.thread116
+    i64 4, label %.thread117
     i64 2, label %16
     i64 3, label %16
   ]
@@ -2220,15 +2220,15 @@ default.unreachable:                              ; preds = %3
   call void @"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..pg..backend..Pg$GT$$GT$15push_identifier17h062a40d8773162ebE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.6.0.i96, ptr noalias noundef nonnull readonly align 1 @anon.beb3fa82abf0cf4c019c37c910e6b147.4.llvm.851902657794911491, i64 noundef 4), !noalias !548
   %7 = load i64, ptr %5, align 8, !range !10, !noalias !540, !noundef !11
   %8 = icmp eq i64 %7, -9223372036854775798
-  br i1 %8, label %.thread115, label %13
+  br i1 %8, label %.thread116, label %13
 
-.thread116:                                       ; preds = %3
+.thread117:                                       ; preds = %3
   %.sroa.6.0.in.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.6.0.i = load ptr, ptr %.sroa.6.0.in.i, align 8, !alias.scope !535, !noalias !538, !nonnull !11, !align !36, !noundef !11
   store i8 0, ptr %.sroa.6.0.i, align 1, !noalias !549
   br label %.thread
 
-.thread115:                                       ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h0d6bdecd69c95ae9E.exit.thread94"
+.thread116:                                       ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h0d6bdecd69c95ae9E.exit.thread94"
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !540
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !556, !noalias !559, !nonnull !11, !align !20, !noundef !11
@@ -2251,11 +2251,11 @@ default.unreachable:                              ; preds = %3
 14:                                               ; preds = %17, %.thread, %13
   ret void
 
-.thread:                                          ; preds = %16, %3, %15, %.thread116
+.thread:                                          ; preds = %16, %3, %15, %.thread117
   store i64 -9223372036854775798, ptr %0, align 8
   br label %14
 
-15:                                               ; preds = %.thread115
+15:                                               ; preds = %.thread116
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !549
   br label %.thread
 
@@ -2263,7 +2263,7 @@ default.unreachable:                              ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !556)
   br label %.thread
 
-17:                                               ; preds = %.thread115
+17:                                               ; preds = %.thread116
   %.sroa.46.0..sroa_idx.i.i72 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.255, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.46.0..sroa_idx.i.i72, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !549

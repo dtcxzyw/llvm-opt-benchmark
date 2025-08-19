@@ -3251,8 +3251,8 @@ unreachable:                                      ; preds = %92
   unreachable
 
 sub_function_fast.exit.sink.split.sink.split:     ; preds = %115, %110, %106, %100
-  %.sink50 = phi double [ %105, %100 ], [ %109, %106 ], [ %114, %110 ], [ %119, %115 ]
-  store double %.sink50, ptr %0, align 8, !tbaa !4
+  %.sink55 = phi double [ %105, %100 ], [ %109, %106 ], [ %114, %110 ], [ %119, %115 ]
+  store double %.sink55, ptr %0, align 8, !tbaa !4
   br label %sub_function_fast.exit.sink.split
 
 sub_function_fast.exit.sink.split:                ; preds = %sub_function_fast.exit.sink.split.sink.split, %88
@@ -7413,26 +7413,26 @@ zval_get_tmp_string.exit18:                       ; preds = %2
   br label %zval_get_tmp_string.exit
 
 zval_get_tmp_string.exit18.thread:                ; preds = %6, %zval_get_tmp_string.exit18
-  %.0.i1736 = phi ptr [ %25, %zval_get_tmp_string.exit18 ], [ %10, %6 ]
-  %.03034 = phi ptr [ %25, %zval_get_tmp_string.exit18 ], [ null, %6 ]
+  %.0.i1741 = phi ptr [ %25, %zval_get_tmp_string.exit18 ], [ %10, %6 ]
+  %.03039 = phi ptr [ %25, %zval_get_tmp_string.exit18 ], [ null, %6 ]
   %29 = tail call ptr @zval_get_string_func(ptr noundef nonnull %1)
   br label %zval_get_tmp_string.exit
 
 zval_get_tmp_string.exit:                         ; preds = %27, %zval_get_tmp_string.exit18.thread
-  %.0.i1735 = phi ptr [ %25, %27 ], [ %.0.i1736, %zval_get_tmp_string.exit18.thread ]
-  %.03033 = phi ptr [ %25, %27 ], [ %.03034, %zval_get_tmp_string.exit18.thread ]
+  %.0.i1740 = phi ptr [ %25, %27 ], [ %.0.i1741, %zval_get_tmp_string.exit18.thread ]
+  %.03038 = phi ptr [ %25, %27 ], [ %.03039, %zval_get_tmp_string.exit18.thread ]
   %.029 = phi ptr [ null, %27 ], [ %29, %zval_get_tmp_string.exit18.thread ]
   %.0.i = phi ptr [ %28, %27 ], [ %29, %zval_get_tmp_string.exit18.thread ]
-  %30 = getelementptr inbounds nuw i8, ptr %.0.i1735, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i1740, i64 16
   %31 = load i64, ptr %30, align 8, !tbaa !10
   %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %33 = load i64, ptr %32, align 8, !tbaa !10
-  %34 = icmp eq ptr %.0.i1735, %.0.i
+  %34 = icmp eq ptr %.0.i1740, %.0.i
   br i1 %34, label %zend_binary_strcmp.exit27, label %35
 
 35:                                               ; preds = %zval_get_tmp_string.exit
   %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i1735, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i1740, i64 24
   %38 = tail call i64 @llvm.umin.i64(i64 %31, i64 %33)
   %39 = tail call i32 @memcmp(ptr noundef nonnull readonly %37, ptr noundef nonnull readonly %36, i64 noundef %38) #29
   %.not.i25 = icmp eq i32 %39, 0
@@ -7444,27 +7444,27 @@ zval_get_tmp_string.exit:                         ; preds = %27, %zval_get_tmp_s
 
 zend_binary_strcmp.exit27:                        ; preds = %zval_get_tmp_string.exit, %35, %40
   %.0.i26 = phi i32 [ %41, %40 ], [ 0, %zval_get_tmp_string.exit ], [ %39, %35 ]
-  %.not.i19 = icmp eq ptr %.03033, null
+  %.not.i19 = icmp eq ptr %.03038, null
   br i1 %.not.i19, label %zend_tmp_string_release.exit22, label %42, !prof !38
 
 42:                                               ; preds = %zend_binary_strcmp.exit27
-  %43 = getelementptr inbounds nuw i8, ptr %.03033, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.03038, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !4
   %45 = and i32 %44, 64
   %.not.i.i20 = icmp eq i32 %45, 0
   br i1 %.not.i.i20, label %46, label %zend_tmp_string_release.exit22
 
 46:                                               ; preds = %42
-  %47 = load i32, ptr %.03033, align 4, !tbaa !7
+  %47 = load i32, ptr %.03038, align 4, !tbaa !7
   %48 = icmp ne i32 %47, 0
   tail call void @llvm.assume(i1 %48)
   %49 = add i32 %47, -1
-  store i32 %49, ptr %.03033, align 4, !tbaa !7
+  store i32 %49, ptr %.03038, align 4, !tbaa !7
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %zend_tmp_string_release.exit22
 
 51:                                               ; preds = %46
-  tail call void @_efree(ptr noundef nonnull %.03033) #28
+  tail call void @_efree(ptr noundef nonnull %.03038) #28
   br label %zend_tmp_string_release.exit22
 
 zend_tmp_string_release.exit22:                   ; preds = %42, %46, %51, %zend_binary_strcmp.exit27
@@ -7569,26 +7569,26 @@ zval_get_tmp_string.exit18:                       ; preds = %2
   br label %zval_get_tmp_string.exit
 
 zval_get_tmp_string.exit18.thread:                ; preds = %6, %zval_get_tmp_string.exit18
-  %.0.i1746 = phi ptr [ %41, %zval_get_tmp_string.exit18 ], [ %10, %6 ]
-  %.03444 = phi ptr [ %41, %zval_get_tmp_string.exit18 ], [ null, %6 ]
+  %.0.i1753 = phi ptr [ %41, %zval_get_tmp_string.exit18 ], [ %10, %6 ]
+  %.03451 = phi ptr [ %41, %zval_get_tmp_string.exit18 ], [ null, %6 ]
   %45 = tail call ptr @zval_get_string_func(ptr noundef nonnull %1)
   br label %zval_get_tmp_string.exit
 
 zval_get_tmp_string.exit:                         ; preds = %43, %zval_get_tmp_string.exit18.thread
-  %.0.i1745 = phi ptr [ %41, %43 ], [ %.0.i1746, %zval_get_tmp_string.exit18.thread ]
-  %.03443 = phi ptr [ %41, %43 ], [ %.03444, %zval_get_tmp_string.exit18.thread ]
+  %.0.i1752 = phi ptr [ %41, %43 ], [ %.0.i1753, %zval_get_tmp_string.exit18.thread ]
+  %.03450 = phi ptr [ %41, %43 ], [ %.03451, %zval_get_tmp_string.exit18.thread ]
   %.033 = phi ptr [ null, %43 ], [ %45, %zval_get_tmp_string.exit18.thread ]
   %.0.i = phi ptr [ %44, %43 ], [ %45, %zval_get_tmp_string.exit18.thread ]
-  %46 = getelementptr inbounds nuw i8, ptr %.0.i1745, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i1752, i64 16
   %47 = load i64, ptr %46, align 8, !tbaa !10
   %48 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %49 = load i64, ptr %48, align 8, !tbaa !10
-  %50 = icmp eq ptr %.0.i1745, %.0.i
+  %50 = icmp eq ptr %.0.i1752, %.0.i
   br i1 %50, label %zend_binary_strcasecmp.exit31, label %51
 
 51:                                               ; preds = %zval_get_tmp_string.exit
   %52 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i1745, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i1752, i64 24
   %54 = tail call i64 @llvm.umin.i64(i64 %47, i64 %49)
   br label %55
 
@@ -7626,27 +7626,27 @@ zval_get_tmp_string.exit:                         ; preds = %43, %zval_get_tmp_s
 
 zend_binary_strcasecmp.exit31:                    ; preds = %zval_get_tmp_string.exit, %68, %72
   %.0.i30 = phi i32 [ %71, %68 ], [ %73, %72 ], [ 0, %zval_get_tmp_string.exit ]
-  %.not.i19 = icmp eq ptr %.03443, null
+  %.not.i19 = icmp eq ptr %.03450, null
   br i1 %.not.i19, label %zend_tmp_string_release.exit22, label %74, !prof !38
 
 74:                                               ; preds = %zend_binary_strcasecmp.exit31
-  %75 = getelementptr inbounds nuw i8, ptr %.03443, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.03450, i64 4
   %76 = load i32, ptr %75, align 4, !tbaa !4
   %77 = and i32 %76, 64
   %.not.i.i20 = icmp eq i32 %77, 0
   br i1 %.not.i.i20, label %78, label %zend_tmp_string_release.exit22
 
 78:                                               ; preds = %74
-  %79 = load i32, ptr %.03443, align 4, !tbaa !7
+  %79 = load i32, ptr %.03450, align 4, !tbaa !7
   %80 = icmp ne i32 %79, 0
   tail call void @llvm.assume(i1 %80)
   %81 = add i32 %79, -1
-  store i32 %81, ptr %.03443, align 4, !tbaa !7
+  store i32 %81, ptr %.03450, align 4, !tbaa !7
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %zend_tmp_string_release.exit22
 
 83:                                               ; preds = %78
-  tail call void @_efree(ptr noundef nonnull %.03443) #28
+  tail call void @_efree(ptr noundef nonnull %.03450) #28
   br label %zend_tmp_string_release.exit22
 
 zend_tmp_string_release.exit22:                   ; preds = %74, %78, %83, %zend_binary_strcasecmp.exit31
@@ -7855,12 +7855,12 @@ define dso_local i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed
     i32 69, label %.split190.us
     i32 85, label %.split194.us
     i32 119, label %.split198.us
-    i32 17, label %zend_compare_arrays.exit.loopexit618
-    i32 18, label %zend_compare_arrays.exit.loopexit618
-    i32 33, label %zend_compare_arrays.exit.loopexit618
-    i32 34, label %zend_compare_arrays.exit.loopexit618
-    i32 51, label %zend_compare_arrays.exit.loopexit618
-    i32 19, label %zend_compare_arrays.exit.loopexit771
+    i32 17, label %zend_compare_arrays.exit.loopexit626
+    i32 18, label %zend_compare_arrays.exit.loopexit626
+    i32 33, label %zend_compare_arrays.exit.loopexit626
+    i32 34, label %zend_compare_arrays.exit.loopexit626
+    i32 51, label %zend_compare_arrays.exit.loopexit626
+    i32 19, label %zend_compare_arrays.exit.loopexit779
     i32 49, label %zend_compare_arrays.exit
     i32 102, label %.split206.us
     i32 22, label %.split210.us
@@ -7870,7 +7870,7 @@ define dso_local i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed
     i32 86, label %.split224.us
     i32 101, label %.split228.us
     i32 129, label %zend_compare_arrays.exit
-    i32 24, label %zend_compare_arrays.exit.loopexit771
+    i32 24, label %zend_compare_arrays.exit.loopexit779
   ]
 
 .split232.us:                                     ; preds = %.outer.split.us
@@ -7907,7 +7907,7 @@ define dso_local i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed
     i32 33, label %zend_compare_arrays.exit.loopexit
     i32 34, label %zend_compare_arrays.exit.loopexit
     i32 51, label %zend_compare_arrays.exit.loopexit
-    i32 19, label %zend_compare_arrays.exit.loopexit765
+    i32 19, label %zend_compare_arrays.exit.loopexit773
     i32 49, label %zend_compare_arrays.exit
     i32 102, label %.split206.us
     i32 22, label %.split210.us
@@ -7917,7 +7917,7 @@ define dso_local i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed
     i32 86, label %.split224.us
     i32 101, label %.split228.us
     i32 129, label %zend_compare_arrays.exit
-    i32 24, label %zend_compare_arrays.exit.loopexit765
+    i32 24, label %zend_compare_arrays.exit.loopexit773
   ]
 
 .split.us:                                        ; preds = %.outer.split.us, %23
@@ -8188,17 +8188,17 @@ define dso_local i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed
 zend_compare_arrays.exit.loopexit:                ; preds = %23, %23, %23, %23, %23
   br label %zend_compare_arrays.exit
 
-zend_compare_arrays.exit.loopexit618:             ; preds = %.outer.split.us, %.outer.split.us, %.outer.split.us, %.outer.split.us, %.outer.split.us
+zend_compare_arrays.exit.loopexit626:             ; preds = %.outer.split.us, %.outer.split.us, %.outer.split.us, %.outer.split.us, %.outer.split.us
   br label %zend_compare_arrays.exit
 
-zend_compare_arrays.exit.loopexit765:             ; preds = %23, %23
+zend_compare_arrays.exit.loopexit773:             ; preds = %23, %23
   br label %zend_compare_arrays.exit
 
-zend_compare_arrays.exit.loopexit771:             ; preds = %.outer.split.us, %.outer.split.us
+zend_compare_arrays.exit.loopexit779:             ; preds = %.outer.split.us, %.outer.split.us
   br label %zend_compare_arrays.exit
 
-zend_compare_arrays.exit:                         ; preds = %153, %.outer.split.us, %.outer.split.us, %23, %23, %zend_compare_arrays.exit.loopexit771, %zend_compare_arrays.exit.loopexit765, %zend_compare_arrays.exit.loopexit618, %zend_compare_arrays.exit.loopexit, %157, %54, %.split198.us, %124, %125, %100, %.split228.us, %.split224.us, %.split206.us, %150, %145, %140, %135, %85, %80, %.split220.us, %.split216.us, %.split213.us, %.split210.us, %59, %.split194.us, %.split190.us, %.split186.us, %.split.us
-  %.0 = phi i32 [ %137, %135 ], [ %142, %140 ], [ %147, %145 ], [ %152, %150 ], [ %30, %.split.us ], [ %37, %.split186.us ], [ %44, %.split190.us ], [ %50, %.split194.us ], [ %60, %59 ], [ %65, %.split210.us ], [ %70, %.split213.us ], [ %73, %.split216.us ], [ %77, %.split220.us ], [ %82, %80 ], [ %88, %85 ], [ 0, %.split206.us ], [ 1, %.split224.us ], [ 1, %.split228.us ], [ %131, %125 ], [ %.2, %124 ], [ 0, %100 ], [ %55, %54 ], [ 0, %.split198.us ], [ %spec.select, %157 ], [ 0, %zend_compare_arrays.exit.loopexit ], [ 0, %zend_compare_arrays.exit.loopexit618 ], [ -1, %zend_compare_arrays.exit.loopexit765 ], [ -1, %zend_compare_arrays.exit.loopexit771 ], [ 1, %23 ], [ 1, %23 ], [ 1, %.outer.split.us ], [ 1, %.outer.split.us ], [ 1, %153 ]
+zend_compare_arrays.exit:                         ; preds = %153, %.outer.split.us, %.outer.split.us, %23, %23, %zend_compare_arrays.exit.loopexit779, %zend_compare_arrays.exit.loopexit773, %zend_compare_arrays.exit.loopexit626, %zend_compare_arrays.exit.loopexit, %157, %54, %.split198.us, %124, %125, %100, %.split228.us, %.split224.us, %.split206.us, %150, %145, %140, %135, %85, %80, %.split220.us, %.split216.us, %.split213.us, %.split210.us, %59, %.split194.us, %.split190.us, %.split186.us, %.split.us
+  %.0 = phi i32 [ %137, %135 ], [ %142, %140 ], [ %147, %145 ], [ %152, %150 ], [ %30, %.split.us ], [ %37, %.split186.us ], [ %44, %.split190.us ], [ %50, %.split194.us ], [ %60, %59 ], [ %65, %.split210.us ], [ %70, %.split213.us ], [ %73, %.split216.us ], [ %77, %.split220.us ], [ %82, %80 ], [ %88, %85 ], [ 0, %.split206.us ], [ 1, %.split224.us ], [ 1, %.split228.us ], [ %131, %125 ], [ %.2, %124 ], [ 0, %100 ], [ %55, %54 ], [ 0, %.split198.us ], [ %spec.select, %157 ], [ 0, %zend_compare_arrays.exit.loopexit ], [ 0, %zend_compare_arrays.exit.loopexit626 ], [ -1, %zend_compare_arrays.exit.loopexit773 ], [ -1, %zend_compare_arrays.exit.loopexit779 ], [ 1, %23 ], [ 1, %23 ], [ 1, %.outer.split.us ], [ 1, %.outer.split.us ], [ 1, %153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -9017,8 +9017,8 @@ define dso_local noundef zeroext i1 @instanceof_function_slow(ptr noundef readon
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = icmp eq ptr %22, %1
   %24 = icmp eq ptr %22, null
-  %or.cond29 = or i1 %23, %24
-  br i1 %or.cond29, label %.loopexit, label %.preheader
+  %or.cond30 = or i1 %23, %24
+  br i1 %or.cond30, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %17, %.preheader, %7
   %.1 = phi i1 [ false, %7 ], [ %23, %.preheader ], [ %20, %17 ]
@@ -11508,18 +11508,18 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
 
 11:                                               ; preds = %10, %9
   %.not128 = icmp eq ptr %6, null
-  br i1 %.not128, label %.preheader151, label %12
+  br i1 %.not128, label %.preheader162, label %12
 
 12:                                               ; preds = %11
   store i8 0, ptr %6, align 1, !tbaa !39
-  br label %.preheader151
+  br label %.preheader162
 
-.preheader151:                                    ; preds = %12, %11
+.preheader162:                                    ; preds = %12, %11
   br label %13
 
-13:                                               ; preds = %.preheader151, %.critedge
-  %.0106 = phi i64 [ %16, %.critedge ], [ %1, %.preheader151 ]
-  %.0105 = phi ptr [ %15, %.critedge ], [ %0, %.preheader151 ]
+13:                                               ; preds = %.preheader162, %.critedge
+  %.0106 = phi i64 [ %16, %.critedge ], [ %1, %.preheader162 ]
+  %.0105 = phi ptr [ %15, %.critedge ], [ %0, %.preheader162 ]
   %14 = load i8, ptr %.0105, align 1, !tbaa !4
   switch i8 %14, label %17 [
     i8 32, label %.critedge

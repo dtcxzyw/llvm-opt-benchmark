@@ -1847,7 +1847,7 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %218, %_ZN16Mutabl
   br i1 %234, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit, %233
-  %.not204 = phi i1 [ %.not, %233 ], [ true, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit ]
+  %.not233 = phi i1 [ %.not, %233 ], [ true, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit ]
   %.sroa.2124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1901,7 +1901,7 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %218, %_ZN16Mutabl
 270:                                              ; preds = %257
   %271 = load i64, ptr @NUMASpaceResizeRate, align 8
   %272 = icmp eq i64 %271, 0
-  %or.cond3 = select i1 %.not204, i1 true, i1 %272
+  %or.cond3 = select i1 %.not233, i1 true, i1 %272
   br i1 %or.cond3, label %273, label %276
 
 273:                                              ; preds = %270
@@ -1980,10 +1980,10 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %218, %_ZN16Mutabl
   br label %325
 
 325:                                              ; preds = %299, %293, %.thread163, %304
-  %.sink206 = phi i64 [ %303, %299 ], [ %298, %293 ], [ %324, %.thread163 ], [ %.067, %304 ]
-  %.sink205 = phi ptr [ %292, %299 ], [ %292, %293 ], [ %320, %.thread163 ], [ %312, %304 ]
-  %326 = lshr i64 %.sink206, 3
-  store ptr %.sink205, ptr %9, align 8
+  %.sink235 = phi i64 [ %303, %299 ], [ %298, %293 ], [ %324, %.thread163 ], [ %.067, %304 ]
+  %.sink234 = phi ptr [ %292, %299 ], [ %292, %293 ], [ %320, %.thread163 ], [ %312, %304 ]
+  %326 = lshr i64 %.sink235, 3
+  store ptr %.sink234, ptr %9, align 8
   store i64 %326, ptr %.sroa.2124.0..sroa_idx, align 8
   %327 = load ptr, ptr %10, align 8
   %328 = load ptr, ptr %12, align 8
@@ -1991,9 +1991,9 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %218, %_ZN16Mutabl
   %330 = ptrtoint ptr %327 to i64
   %331 = sub i64 %329, %330
   %332 = lshr i64 %331, 3
-  %.not.i90 = icmp ule ptr %327, %.sink205
+  %.not.i90 = icmp ule ptr %327, %.sink234
   %333 = getelementptr inbounds nuw ptr, ptr %327, i64 %332
-  %334 = getelementptr inbounds nuw ptr, ptr %.sink205, i64 %326
+  %334 = getelementptr inbounds nuw ptr, ptr %.sink234, i64 %326
   %335 = icmp uge ptr %333, %334
   %336 = select i1 %.not.i90, i1 %335, i1 false
   br i1 %336, label %339, label %337
@@ -2005,7 +2005,7 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %218, %_ZN16Mutabl
   unreachable
 
 339:                                              ; preds = %325
-  %340 = call { ptr, i64 } @_ZNK9MemRegion12intersectionES_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr %.sink205, i64 %326) #11
+  %340 = call { ptr, i64 } @_ZNK9MemRegion12intersectionES_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr %.sink234, i64 %326) #11
   %341 = extractvalue { ptr, i64 } %340, 0
   %342 = icmp eq ptr %341, null
   %343 = load ptr, ptr %9, align 8
@@ -2454,8 +2454,8 @@ _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread: ; preds = %15, %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %54, %60
-  %.03143 = phi ptr [ null, %60 ], [ %31, %54 ], [ %31, %57 ]
-  ret ptr %.03143
+  %.03145 = phi ptr [ null, %60 ], [ %31, %54 ], [ %31, %57 ]
+  ret ptr %.03145
 }
 
 declare noundef i32 @_ZN2os17numa_get_group_idEv() local_unnamed_addr #1
@@ -3140,7 +3140,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPN16MutableNUMA
   br i1 %.not, label %_ZN13GrowableArrayIPN16MutableNUMASpace9LGRPSpaceEE10deallocateEPS2_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -3152,8 +3152,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPN16MutableNUMA
   br label %_ZN13GrowableArrayIPN16MutableNUMASpace9LGRPSpaceEE10deallocateEPS2_.exit
 
 _ZN13GrowableArrayIPN16MutableNUMASpace9LGRPSpaceEE10deallocateEPS2_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIPN16MutableNUMASpace9LGRPSpaceEE10deallocateEPS2_.exit

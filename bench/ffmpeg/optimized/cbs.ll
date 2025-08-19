@@ -1085,7 +1085,7 @@ define void @ff_cbs_trace_read_log(ptr noundef readonly captures(none) %0, ptr n
   %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #12
   %88 = add i64 %87, %33
   %89 = icmp ugt i64 %88, 60
-  %90 = add i32 %2, 2
+  %90 = add nsw i32 %2, 2
   %91 = trunc i64 %87 to i32
   %92 = sub i32 61, %91
   %.0 = select i1 %89, i32 %90, i32 %92

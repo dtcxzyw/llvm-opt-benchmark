@@ -1697,8 +1697,8 @@ draw_digit.exit:                                  ; preds = %draw_rectangle.exit
   %207 = icmp ult i32 %.0149.off, 19
   %208 = add nuw nsw i32 %.0148208, 1
   %exitcond214.not = icmp eq i32 %208, 8
-  %or.cond215 = select i1 %207, i1 true, i1 %exitcond214.not
-  br i1 %or.cond215, label %.critedge, label %167, !llvm.loop !98
+  %or.cond224 = select i1 %207, i1 true, i1 %exitcond214.not
+  br i1 %or.cond224, label %.critedge, label %167, !llvm.loop !98
 
 .critedge:                                        ; preds = %draw_digit.exit, %128, %._crit_edge202, %126
   ret void

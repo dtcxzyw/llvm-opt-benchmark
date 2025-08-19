@@ -55,23 +55,23 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .outer:                                           ; preds = %addattr.exit, %2
   %.ph = phi i64 [ %.pre.i.i.i183, %addattr.exit ], [ 0, %2 ]
-  %.ph485 = phi i64 [ %spec.select.i.i.i171, %addattr.exit ], [ 0, %2 ]
+  %.ph505 = phi i64 [ %spec.select.i.i.i171, %addattr.exit ], [ 0, %2 ]
   %.val73.ph = phi i64 [ %67, %addattr.exit ], [ 0, %2 ]
-  %.ph486 = phi i64 [ %.ph491, %addattr.exit ], [ 0, %2 ]
-  %.ph487 = phi i64 [ %.ph492, %addattr.exit ], [ 0, %2 ]
-  %.val.ph = phi i64 [ %.val.ph493, %addattr.exit ], [ 0, %2 ]
-  %.ph488 = phi ptr [ %63, %addattr.exit ], [ null, %2 ]
-  %.ph489 = phi ptr [ %.ph495, %addattr.exit ], [ null, %2 ]
-  br label %.outer490
+  %.ph506 = phi i64 [ %.ph511, %addattr.exit ], [ 0, %2 ]
+  %.ph507 = phi i64 [ %.ph512, %addattr.exit ], [ 0, %2 ]
+  %.val.ph = phi i64 [ %.val.ph513, %addattr.exit ], [ 0, %2 ]
+  %.ph508 = phi ptr [ %63, %addattr.exit ], [ null, %2 ]
+  %.ph509 = phi ptr [ %.ph515, %addattr.exit ], [ null, %2 ]
+  br label %.outer510
 
-.outer490:                                        ; preds = %.outer, %addnode.exit
-  %.ph491 = phi i64 [ %.ph486, %.outer ], [ %.pre.i.i.i77146, %addnode.exit ]
-  %.ph492 = phi i64 [ %.ph487, %.outer ], [ %spec.select.i.i.i78134, %addnode.exit ]
-  %.val.ph493 = phi i64 [ %.val.ph, %.outer ], [ %105, %addnode.exit ]
-  %.ph495 = phi ptr [ %.ph489, %.outer ], [ %101, %addnode.exit ]
+.outer510:                                        ; preds = %.outer, %addnode.exit
+  %.ph511 = phi i64 [ %.ph506, %.outer ], [ %.pre.i.i.i77146, %addnode.exit ]
+  %.ph512 = phi i64 [ %.ph507, %.outer ], [ %spec.select.i.i.i78134, %addnode.exit ]
+  %.val.ph513 = phi i64 [ %.val.ph, %.outer ], [ %105, %addnode.exit ]
+  %.ph515 = phi ptr [ %.ph509, %.outer ], [ %101, %addnode.exit ]
   br label %14
 
-14:                                               ; preds = %.outer490, %107
+14:                                               ; preds = %.outer510, %107
   %15 = tail call i32 @getopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str) #19
   switch i32 %15, label %121 [
     i32 -1, label %122
@@ -123,33 +123,33 @@ gv_strdup.exit.i:                                 ; preds = %23
   unreachable
 
 gv_strdup.exit7.i:                                ; preds = %gv_strdup.exit.i
-  %39 = icmp eq i64 %.val73.ph, %.ph485
+  %39 = icmp eq i64 %.val73.ph, %.ph505
   br i1 %39, label %40, label %addattr.exit
 
 40:                                               ; preds = %gv_strdup.exit7.i
-  %41 = icmp eq i64 %.ph485, 0
-  %42 = shl i64 %.ph485, 1
+  %41 = icmp eq i64 %.ph505, 0
+  %42 = shl i64 %.ph505, 1
   %spec.select.i.i.i = select i1 %41, i64 1, i64 %42
   %mul.ov.i.i.i = icmp ugt i64 %spec.select.i.i.i, 1152921504606846975
   br i1 %mul.ov.i.i.i, label %59, label %43
 
 43:                                               ; preds = %40
   %44 = shl nuw i64 %spec.select.i.i.i, 4
-  %45 = tail call ptr @realloc(ptr noundef %.ph488, i64 noundef %44) #22
+  %45 = tail call ptr @realloc(ptr noundef %.ph508, i64 noundef %44) #22
   %46 = icmp eq ptr %45, null
   br i1 %46, label %59, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw %struct.strattr_t, ptr %45, i64 %.ph485
-  %49 = sub i64 %spec.select.i.i.i, %.ph485
+  %48 = getelementptr inbounds nuw %struct.strattr_t, ptr %45, i64 %.ph505
+  %49 = sub i64 %spec.select.i.i.i, %.ph505
   %50 = shl i64 %49, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %48, i8 0, i64 %50, i1 false)
-  %51 = add i64 %.ph, %.ph485
-  %52 = icmp ugt i64 %51, %.ph485
+  %51 = add i64 %.ph, %.ph505
+  %52 = icmp ugt i64 %51, %.ph505
   br i1 %52, label %53, label %addattr.exit
 
 53:                                               ; preds = %47
-  %54 = sub i64 %.ph485, %.ph
+  %54 = sub i64 %.ph505, %.ph
   %55 = sub i64 %spec.select.i.i.i, %54
   %56 = getelementptr inbounds nuw %struct.strattr_t, ptr %45, i64 %55
   %57 = getelementptr inbounds nuw %struct.strattr_t, ptr %45, i64 %.ph
@@ -167,8 +167,8 @@ gv_strdup.exit7.i:                                ; preds = %gv_strdup.exit.i
 
 addattr.exit:                                     ; preds = %47, %53, %gv_strdup.exit7.i
   %.pre.i.i.i183 = phi i64 [ %.ph, %gv_strdup.exit7.i ], [ %.ph, %47 ], [ %55, %53 ]
-  %spec.select.i.i.i171 = phi i64 [ %.ph485, %gv_strdup.exit7.i ], [ %spec.select.i.i.i, %47 ], [ %spec.select.i.i.i, %53 ]
-  %63 = phi ptr [ %.ph488, %gv_strdup.exit7.i ], [ %45, %47 ], [ %45, %53 ]
+  %spec.select.i.i.i171 = phi i64 [ %.ph505, %gv_strdup.exit7.i ], [ %spec.select.i.i.i, %47 ], [ %spec.select.i.i.i, %53 ]
+  %63 = phi ptr [ %.ph508, %gv_strdup.exit7.i ], [ %45, %47 ], [ %45, %53 ]
   %64 = add i64 %.pre.i.i.i183, %.val73.ph
   %65 = urem i64 %64, %spec.select.i.i.i171
   %66 = getelementptr inbounds nuw %struct.strattr_t, ptr %63, i64 %65
@@ -193,36 +193,36 @@ addattr.exit:                                     ; preds = %47, %53, %gv_strdup
   unreachable
 
 gv_strdup.exit.i74:                               ; preds = %68
-  %77 = icmp eq i64 %.val.ph493, %.ph492
+  %77 = icmp eq i64 %.val.ph513, %.ph512
   br i1 %77, label %78, label %addnode.exit
 
 78:                                               ; preds = %gv_strdup.exit.i74
-  %79 = icmp eq i64 %.ph492, 0
-  %80 = shl i64 %.ph492, 1
+  %79 = icmp eq i64 %.ph512, 0
+  %80 = shl i64 %.ph512, 1
   %spec.select.i.i.i78 = select i1 %79, i64 1, i64 %80
   %mul.ov.i.i.i79 = icmp ugt i64 %spec.select.i.i.i78, 2305843009213693951
   br i1 %mul.ov.i.i.i79, label %97, label %81
 
 81:                                               ; preds = %78
   %82 = shl nuw i64 %spec.select.i.i.i78, 3
-  %83 = tail call ptr @realloc(ptr noundef %.ph495, i64 noundef %82) #22
+  %83 = tail call ptr @realloc(ptr noundef %.ph515, i64 noundef %82) #22
   %84 = icmp eq ptr %83, null
   br i1 %84, label %97, label %85
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw ptr, ptr %83, i64 %.ph492
-  %87 = sub i64 %spec.select.i.i.i78, %.ph492
+  %86 = getelementptr inbounds nuw ptr, ptr %83, i64 %.ph512
+  %87 = sub i64 %spec.select.i.i.i78, %.ph512
   %88 = shl i64 %87, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %86, i8 0, i64 %88, i1 false)
-  %89 = add i64 %.ph491, %.ph492
-  %90 = icmp ugt i64 %89, %.ph492
+  %89 = add i64 %.ph511, %.ph512
+  %90 = icmp ugt i64 %89, %.ph512
   br i1 %90, label %91, label %addnode.exit
 
 91:                                               ; preds = %85
-  %92 = sub i64 %.ph492, %.ph491
+  %92 = sub i64 %.ph512, %.ph511
   %93 = sub i64 %spec.select.i.i.i78, %92
   %94 = getelementptr inbounds nuw ptr, ptr %83, i64 %93
-  %95 = getelementptr inbounds nuw ptr, ptr %83, i64 %.ph491
+  %95 = getelementptr inbounds nuw ptr, ptr %83, i64 %.ph511
   %96 = shl i64 %92, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %94, ptr nonnull align 8 %95, i64 %96, i1 false)
   br label %addnode.exit
@@ -236,15 +236,15 @@ gv_strdup.exit.i74:                               ; preds = %68
   unreachable
 
 addnode.exit:                                     ; preds = %85, %91, %gv_strdup.exit.i74
-  %.pre.i.i.i77146 = phi i64 [ %.ph491, %gv_strdup.exit.i74 ], [ %.ph491, %85 ], [ %93, %91 ]
-  %spec.select.i.i.i78134 = phi i64 [ %.ph492, %gv_strdup.exit.i74 ], [ %spec.select.i.i.i78, %85 ], [ %spec.select.i.i.i78, %91 ]
-  %101 = phi ptr [ %.ph495, %gv_strdup.exit.i74 ], [ %83, %85 ], [ %83, %91 ]
-  %102 = add i64 %.pre.i.i.i77146, %.val.ph493
+  %.pre.i.i.i77146 = phi i64 [ %.ph511, %gv_strdup.exit.i74 ], [ %.ph511, %85 ], [ %93, %91 ]
+  %spec.select.i.i.i78134 = phi i64 [ %.ph512, %gv_strdup.exit.i74 ], [ %spec.select.i.i.i78, %85 ], [ %spec.select.i.i.i78, %91 ]
+  %101 = phi ptr [ %.ph515, %gv_strdup.exit.i74 ], [ %83, %85 ], [ %83, %91 ]
+  %102 = add i64 %.pre.i.i.i77146, %.val.ph513
   %103 = urem i64 %102, %spec.select.i.i.i78134
   %104 = getelementptr inbounds nuw ptr, ptr %101, i64 %103
   store ptr %70, ptr %104, align 8, !tbaa !8
-  %105 = add i64 %.val.ph493, 1
-  br label %.outer490, !llvm.loop !14
+  %105 = add i64 %.val.ph513, 1
+  br label %.outer510, !llvm.loop !14
 
 106:                                              ; preds = %14
   tail call fastcc void @help_message(ptr noundef nonnull %.0)
@@ -285,14 +285,14 @@ addnode.exit:                                     ; preds = %85, %91, %gv_strdup
   unreachable
 
 122:                                              ; preds = %14
-  store i64 %.val.ph493, ptr %10, align 8
-  store i64 %.ph492, ptr %11, align 8
-  store i64 %.ph491, ptr %.phi.trans.insert.i.i.i76, align 8
+  store i64 %.val.ph513, ptr %10, align 8
+  store i64 %.ph512, ptr %11, align 8
+  store i64 %.ph511, ptr %.phi.trans.insert.i.i.i76, align 8
   store i64 %.val73.ph, ptr %12, align 8
-  store i64 %.ph485, ptr %13, align 8
+  store i64 %.ph505, ptr %13, align 8
   store i64 %.ph, ptr %.phi.trans.insert.i.i.i, align 8
-  store ptr %.ph495, ptr %5, align 8
-  store ptr %.ph488, ptr %4, align 8
+  store ptr %.ph515, ptr %5, align 8
+  store ptr %.ph508, ptr %4, align 8
   %123 = load i32, ptr @optind, align 4, !tbaa !4
   %124 = icmp slt i32 %123, %0
   %125 = sext i32 %123 to i64
@@ -304,7 +304,7 @@ addnode.exit:                                     ; preds = %85, %91, %gv_strdup
   br i1 %.not68204, label %._crit_edge207, label %.lr.ph206
 
 .lr.ph206:                                        ; preds = %122
-  %.not210 = icmp eq i64 %.val.ph493, 0
+  %.not210 = icmp eq i64 %.val.ph513, 0
   %.not = icmp eq i64 %.val73.ph, 0
   br i1 %.not210, label %.lr.ph206.split, label %.lr.ph206.split.us
 
@@ -325,22 +325,22 @@ addnode.exit:                                     ; preds = %85, %91, %gv_strdup
   br i1 %134, label %135, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %132
-  %.pre300 = add i64 %.ph491, %.058200.us
-  %.pre302 = urem i64 %.pre300, %.ph492
+  %.pre300 = add i64 %.ph511, %.058200.us
+  %.pre302 = urem i64 %.pre300, %.ph512
   br label %142
 
 135:                                              ; preds = %132
   %136 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %137 = add i64 %.ph491, %.058200.us
-  %138 = urem i64 %137, %.ph492
-  %139 = getelementptr inbounds nuw ptr, ptr %.ph495, i64 %138
+  %137 = add i64 %.ph511, %.058200.us
+  %138 = urem i64 %137, %.ph512
+  %139 = getelementptr inbounds nuw ptr, ptr %.ph515, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !8
   %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.5, ptr noundef %140) #20
   br label %142
 
 142:                                              ; preds = %._crit_edge, %135
   %.pre-phi303 = phi i64 [ %.pre302, %._crit_edge ], [ %138, %135 ]
-  %143 = getelementptr inbounds nuw ptr, ptr %.ph495, i64 %.pre-phi303
+  %143 = getelementptr inbounds nuw ptr, ptr %.ph515, i64 %.pre-phi303
   %144 = load ptr, ptr %143, align 8, !tbaa !8
   %145 = call ptr @agnode(ptr noundef nonnull %129, ptr noundef %144, i32 noundef 0) #19
   %146 = icmp eq ptr %145, null
@@ -408,8 +408,8 @@ addnode.exit:                                     ; preds = %85, %91, %gv_strdup
 .lr.ph199.us:                                     ; preds = %._crit_edge.us, %183
   %.059197.us = phi i64 [ %185, %183 ], [ 0, %._crit_edge.us ]
   %178 = add i64 %.ph, %.059197.us
-  %179 = urem i64 %178, %.ph485
-  %180 = getelementptr inbounds nuw %struct.strattr_t, ptr %.ph488, i64 %179
+  %179 = urem i64 %178, %.ph505
+  %180 = getelementptr inbounds nuw %struct.strattr_t, ptr %.ph508, i64 %179
   %.sroa.0.0.copyload.i.us = load ptr, ptr %180, align 8, !tbaa !8
   %181 = call ptr @agattr(ptr noundef nonnull %129, i32 noundef 1, ptr noundef %.sroa.0.0.copyload.i.us, ptr noundef nonnull @.str.8) #19
   %182 = icmp eq ptr %181, null
@@ -431,7 +431,7 @@ addnode.exit:                                     ; preds = %85, %91, %gv_strdup
 
 .loopexit.us:                                     ; preds = %183, %._crit_edge.us, %186
   %190 = add nuw i64 %.058200.us, 1
-  %exitcond298.not = icmp eq i64 %190, %.val.ph493
+  %exitcond298.not = icmp eq i64 %190, %.val.ph513
   br i1 %exitcond298.not, label %._crit_edge203.us, label %132, !llvm.loop !35
 
 ._crit_edge203.us:                                ; preds = %.loopexit.us

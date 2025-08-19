@@ -229,7 +229,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
   %72 = add nuw nsw i64 %71, 1
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.6.0..sroa_idx, i64 %71
   %74 = load i8, ptr %73, align 1, !range !5, !alias.scope !6, !noundef !3
-  switch i8 %74, label %default.unreachable703 [
+  switch i8 %74, label %default.unreachable835 [
     i8 9, label %430
     i8 0, label %107
     i8 1, label %143
@@ -242,7 +242,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
     i8 8, label %394
   ]
 
-default.unreachable703:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
+default.unreachable835:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
   unreachable
 
 .body319:                                         ; preds = %460, %437, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i565", %424, %401, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i536", %388, %365, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i507", %352, %329, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i478", %316, %293, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i449", %281, %258, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i420", %245, %222, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i391", %209, %186, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i362", %173, %150, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i333", %136, %113, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i", %69, %76
@@ -2936,7 +2936,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
   %73 = add nuw nsw i64 %72, 1
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.6.0..sroa_idx, i64 %72
   %75 = load i8, ptr %74, align 1, !range !5, !alias.scope !239, !noundef !3
-  switch i8 %75, label %default.unreachable708 [
+  switch i8 %75, label %default.unreachable840 [
     i8 9, label %431
     i8 0, label %108
     i8 1, label %145
@@ -2949,7 +2949,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
     i8 8, label %395
   ]
 
-default.unreachable708:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
+default.unreachable840:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
   unreachable
 
 .body321:                                         ; preds = %461, %438, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i567", %425, %402, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i538", %389, %366, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i509", %353, %330, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i480", %318, %295, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i451", %282, %259, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i422", %246, %223, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i393", %210, %187, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i364", %174, %151, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i335", %138, %115, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i", %70, %77
@@ -5658,7 +5658,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
   %77 = add nuw nsw i64 %76, 1
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.6.0..sroa_idx, i64 %76
   %79 = load i8, ptr %78, align 1, !range !5, !alias.scope !468, !noundef !3
-  switch i8 %79, label %default.unreachable730 [
+  switch i8 %79, label %default.unreachable862 [
     i8 9, label %"_ZN59_$LT$T$u20$as$u20$serde_untagged..int..IntFrom$LT$I$GT$$GT$8int_from17he05d68d1a82d49c7E.exit337"
     i8 0, label %115
     i8 1, label %152
@@ -5671,7 +5671,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
     i8 8, label %403
   ]
 
-default.unreachable730:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
+default.unreachable862:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
   unreachable
 
 .body338:                                         ; preds = %466, %443, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i584", %432, %409, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i555", %397, %374, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i526", %361, %338, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i497", %325, %302, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i468", %289, %266, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i439", %253, %230, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i410", %218, %195, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i381", %182, %159, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i352", %145, %122, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i", %74, %81
@@ -8385,7 +8385,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
   %74 = add nuw nsw i64 %73, 1
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.6.0..sroa_idx, i64 %73
   %76 = load i8, ptr %75, align 1, !range !5, !alias.scope !697, !noundef !3
-  switch i8 %76, label %default.unreachable721 [
+  switch i8 %76, label %default.unreachable853 [
     i8 9, label %"_ZN59_$LT$T$u20$as$u20$serde_untagged..int..IntFrom$LT$I$GT$$GT$8int_from17h98a6da49a89e08a2E.exit330"
     i8 0, label %114
     i8 1, label %150
@@ -8398,7 +8398,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
     i8 8, label %401
   ]
 
-default.unreachable721:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
+default.unreachable853:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
   unreachable
 
 .body331:                                         ; preds = %465, %442, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i577", %431, %408, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i548", %395, %372, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i519", %359, %336, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i490", %323, %300, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i461", %288, %265, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i432", %252, %229, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i403", %216, %193, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i374", %180, %157, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i345", %143, %120, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i", %71, %78
@@ -11122,7 +11122,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
   %76 = add nuw nsw i64 %75, 1
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.6.0..sroa_idx, i64 %75
   %78 = load i8, ptr %77, align 1, !range !5, !alias.scope !926, !noundef !3
-  switch i8 %78, label %default.unreachable727 [
+  switch i8 %78, label %default.unreachable859 [
     i8 9, label %"_ZN59_$LT$T$u20$as$u20$serde_untagged..int..IntFrom$LT$I$GT$$GT$8int_from17hd897f2a2dfe27526E.exit335"
     i8 0, label %116
     i8 1, label %153
@@ -11135,7 +11135,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
     i8 8, label %403
   ]
 
-default.unreachable727:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
+default.unreachable859:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
   unreachable
 
 .body336:                                         ; preds = %467, %444, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i582", %433, %410, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i553", %397, %374, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i524", %362, %339, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i495", %326, %303, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i466", %290, %267, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i437", %254, %231, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i408", %218, %195, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i379", %183, %160, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i350", %146, %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i", %73, %80
@@ -13855,7 +13855,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
   %75 = add nuw nsw i64 %74, 1
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.6.0..sroa_idx, i64 %74
   %77 = load i8, ptr %76, align 1, !range !5, !alias.scope !1155, !noundef !3
-  switch i8 %77, label %default.unreachable723 [
+  switch i8 %77, label %default.unreachable855 [
     i8 9, label %"_ZN59_$LT$T$u20$as$u20$serde_untagged..int..IntFrom$LT$I$GT$$GT$8int_from17h2eea5c4f9ff12c3dE.exit332"
     i8 0, label %115
     i8 1, label %152
@@ -13868,7 +13868,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
     i8 8, label %402
   ]
 
-default.unreachable723:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
+default.unreachable855:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
   unreachable
 
 .body333:                                         ; preds = %466, %443, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i579", %432, %409, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i550", %396, %373, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i521", %360, %337, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i492", %325, %302, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i463", %289, %266, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i434", %253, %230, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i405", %217, %194, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i376", %181, %158, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i347", %145, %122, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i", %72, %79
@@ -16585,7 +16585,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
   %75 = add nuw nsw i64 %74, 1
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.6.0..sroa_idx, i64 %74
   %77 = load i8, ptr %76, align 1, !range !5, !alias.scope !1384, !noundef !3
-  switch i8 %77, label %default.unreachable718 [
+  switch i8 %77, label %default.unreachable850 [
     i8 9, label %433
     i8 0, label %110
     i8 1, label %147
@@ -16598,7 +16598,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
     i8 8, label %397
   ]
 
-default.unreachable718:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
+default.unreachable850:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
   unreachable
 
 .body325:                                         ; preds = %463, %440, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i571", %427, %404, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i542", %391, %368, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i513", %356, %333, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i484", %320, %297, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i455", %284, %261, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i426", %248, %225, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i397", %212, %189, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i368", %177, %154, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i339", %140, %117, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i", %72, %79
@@ -19300,7 +19300,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
   %77 = add nuw nsw i64 %76, 1
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.6.0..sroa_idx, i64 %76
   %79 = load i8, ptr %78, align 1, !range !5, !alias.scope !1613, !noundef !3
-  switch i8 %79, label %default.unreachable730 [
+  switch i8 %79, label %default.unreachable862 [
     i8 9, label %434
     i8 0, label %111
     i8 1, label %148
@@ -19313,7 +19313,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
     i8 8, label %399
   ]
 
-default.unreachable730:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
+default.unreachable862:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
   unreachable
 
 .body331:                                         ; preds = %464, %441, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i577", %428, %405, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i548", %393, %370, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i519", %357, %334, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i490", %321, %298, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i461", %285, %262, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i432", %249, %226, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i403", %214, %191, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i374", %178, %155, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i345", %141, %118, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i", %74, %81

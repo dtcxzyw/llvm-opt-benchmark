@@ -389,14 +389,14 @@ st_mult.exit.i:                                   ; preds = %46
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %56, i64 %49)
   %57 = tail call ptr @reftable_realloc(ptr noundef %54, i64 noundef %spec.select.i) #11
   %.not.i = icmp eq ptr %57, null
-  br i1 %.not.i, label %.thread81, label %.thread84
+  br i1 %.not.i, label %.thread85, label %.thread88
 
-.thread84:                                        ; preds = %st_mult.exit.i
+.thread88:                                        ; preds = %st_mult.exit.i
   store ptr %57, ptr %53, align 8, !tbaa !38
   store i64 %spec.select.i, ptr %50, align 8, !tbaa !37
   br label %59
 
-.thread81:                                        ; preds = %st_mult.exit.i
+.thread85:                                        ; preds = %st_mult.exit.i
   store ptr %54, ptr %53, align 8, !tbaa !38
   tail call void @reftable_free(ptr noundef %54) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
@@ -406,8 +406,8 @@ st_mult.exit.i:                                   ; preds = %46
   %.not60 = icmp eq ptr %54, null
   br i1 %.not60, label %.thread, label %59
 
-59:                                               ; preds = %.thread84, %58
-  %60 = phi ptr [ %57, %.thread84 ], [ %54, %58 ]
+59:                                               ; preds = %.thread88, %58
+  %60 = phi ptr [ %57, %.thread88 ], [ %54, %58 ]
   %61 = load ptr, ptr %0, align 8, !tbaa !25
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   store ptr %60, ptr %62, align 8, !tbaa !39
@@ -441,8 +441,8 @@ st_mult.exit.i:                                   ; preds = %46
   store i32 %82, ptr %11, align 8, !tbaa !20
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %70, %.thread81, %59, %58, %41
-  %.1 = phi i32 [ -7, %59 ], [ -13, %58 ], [ -7, %41 ], [ -13, %.thread81 ], [ %82, %70 ], [ %.pre80, %._crit_edge ]
+.thread:                                          ; preds = %._crit_edge, %70, %.thread85, %59, %58, %41
+  %.1 = phi i32 [ -7, %59 ], [ -13, %58 ], [ -7, %41 ], [ -13, %.thread85 ], [ %82, %70 ], [ %.pre80, %._crit_edge ]
   ret i32 %.1
 }
 
@@ -510,14 +510,14 @@ st_mult.exit.i:                                   ; preds = %20
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %33, i64 %28)
   %34 = tail call ptr @reftable_realloc(ptr noundef %31, i64 noundef %spec.select.i) #11
   %.not.i110 = icmp eq ptr %34, null
-  br i1 %.not.i110, label %.thread127, label %.thread130
+  br i1 %.not.i110, label %.thread137, label %.thread140
 
-.thread130:                                       ; preds = %st_mult.exit.i
+.thread140:                                       ; preds = %st_mult.exit.i
   store ptr %34, ptr %30, align 8, !tbaa !57
   store i64 %spec.select.i, ptr %26, align 8, !tbaa !55
   br label %36
 
-.thread127:                                       ; preds = %st_mult.exit.i
+.thread137:                                       ; preds = %st_mult.exit.i
   store ptr %31, ptr %30, align 8, !tbaa !57
   tail call void @reftable_free(ptr noundef %31) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
@@ -527,8 +527,8 @@ st_mult.exit.i:                                   ; preds = %20
   %.not102 = icmp eq ptr %31, null
   br i1 %.not102, label %.thread, label %36
 
-36:                                               ; preds = %.thread130, %35
-  %37 = phi ptr [ %34, %.thread130 ], [ %31, %35 ]
+36:                                               ; preds = %.thread140, %35
+  %37 = phi ptr [ %34, %.thread140 ], [ %31, %35 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load ptr, ptr %1, align 8, !tbaa !46
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr align 1 %39, i64 %25, i1 false)
@@ -665,8 +665,8 @@ st_mult.exit.i:                                   ; preds = %20
   store ptr %104, ptr %109, align 8, !tbaa !65
   br label %.thread
 
-.thread:                                          ; preds = %.thread127, %61, %49, %48, %42, %35, %90, %reftable_block_done.exit
-  %.091 = phi i32 [ 0, %90 ], [ -3, %reftable_block_done.exit ], [ -3, %61 ], [ -7, %49 ], [ -7, %48 ], [ -13, %42 ], [ -13, %35 ], [ -13, %.thread127 ]
+.thread:                                          ; preds = %.thread137, %61, %49, %48, %42, %35, %90, %reftable_block_done.exit
+  %.091 = phi i32 [ 0, %90 ], [ -3, %reftable_block_done.exit ], [ -3, %61 ], [ -7, %49 ], [ -7, %48 ], [ -13, %42 ], [ -13, %35 ], [ -13, %.thread137 ]
   ret i32 %.091
 }
 

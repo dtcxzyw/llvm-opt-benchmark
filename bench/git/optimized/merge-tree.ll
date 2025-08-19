@@ -554,8 +554,8 @@ sub_1:                                            ; preds = %sub_0
   unreachable
 
 .thread:                                          ; preds = %211, %221
-  %.05490 = phi i32 [ %.054, %221 ], [ %212, %211 ]
-  %.not57 = icmp eq i32 %121, %.05490
+  %.054100 = phi i32 [ %.054, %221 ], [ %212, %211 ]
+  %.not57 = icmp eq i32 %121, %.054100
   br i1 %.not57, label %227, label %226
 
 226:                                              ; preds = %.thread
@@ -1636,11 +1636,11 @@ link_entry.exit:                                  ; preds = %59
 link_entry.exit.thread:                           ; preds = %59
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %84 = load i32, ptr %83, align 4, !tbaa !109
-  %.not3768 = icmp eq i32 %84, 0
+  %.not3769 = icmp eq i32 %84, 0
   %85 = and i32 %84, 61440
   %86 = icmp eq i32 %85, 16384
-  %or.cond4469 = or i1 %.not3768, %86
-  br i1 %or.cond4469, label %link_entry.exit52.thread, label %90
+  %or.cond4470 = or i1 %.not3769, %86
+  br i1 %or.cond4470, label %link_entry.exit52.thread, label %90
 
 87:                                               ; preds = %link_entry.exit
   %88 = getelementptr inbounds nuw i8, ptr %69, i64 24
@@ -1662,7 +1662,7 @@ link_entry.exit.thread:                           ; preds = %59
   br label %95
 
 95:                                               ; preds = %90, %87
-  %.0317073 = phi ptr [ %69, %87 ], [ null, %90 ]
+  %.0317174 = phi ptr [ %69, %87 ], [ null, %90 ]
   %96 = phi i32 [ %80, %87 ], [ %.pre.i51, %90 ]
   %.013.i = phi ptr [ %89, %87 ], [ %94, %90 ]
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -1681,7 +1681,7 @@ link_entry.exit.thread:                           ; preds = %59
   %107 = getelementptr inbounds nuw i8, ptr %98, i64 32
   store ptr %106, ptr %107, align 8, !tbaa !71
   %108 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  store ptr %.0317073, ptr %108, align 8, !tbaa !67
+  store ptr %.0317174, ptr %108, align 8, !tbaa !67
   br label %link_entry.exit52
 
 link_entry.exit52:                                ; preds = %95, %link_entry.exit
@@ -1697,22 +1697,22 @@ link_entry.exit52:                                ; preds = %95, %link_entry.exi
 link_entry.exit52.thread:                         ; preds = %link_entry.exit.thread
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %114 = load i32, ptr %113, align 4, !tbaa !109
-  %.not3876 = icmp eq i32 %114, 0
+  %.not3877 = icmp eq i32 %114, 0
   %115 = and i32 %114, 61440
   %116 = icmp eq i32 %115, 16384
-  %or.cond4677 = or i1 %.not3876, %116
-  br i1 %or.cond4677, label %138, label %.thread79
+  %or.cond4678 = or i1 %.not3877, %116
+  br i1 %or.cond4678, label %138, label %.thread80
 
 117:                                              ; preds = %link_entry.exit52
   %.not15.i54 = icmp eq ptr %.132, null
-  br i1 %.not15.i54, label %.thread79, label %118
+  br i1 %.not15.i54, label %.thread80, label %118
 
 118:                                              ; preds = %117
   %119 = getelementptr inbounds nuw i8, ptr %.132, i64 24
   %120 = load ptr, ptr %119, align 8, !tbaa !72
   br label %link_entry.exit60
 
-.thread79:                                        ; preds = %link_entry.exit52.thread, %117
+.thread80:                                        ; preds = %link_entry.exit52.thread, %117
   %121 = phi ptr [ %109, %117 ], [ %113, %link_entry.exit52.thread ]
   %122 = getelementptr i8, ptr %1, i64 40
   %.val.i57 = load ptr, ptr %122, align 8, !tbaa !111
@@ -1727,10 +1727,10 @@ link_entry.exit52.thread:                         ; preds = %link_entry.exit.thr
   %.pre.i59 = load i32, ptr %121, align 4, !tbaa !109
   br label %link_entry.exit60
 
-link_entry.exit60:                                ; preds = %118, %.thread79
-  %.1327882 = phi ptr [ %.132, %118 ], [ null, %.thread79 ]
-  %126 = phi i32 [ %110, %118 ], [ %.pre.i59, %.thread79 ]
-  %.013.i55 = phi ptr [ %120, %118 ], [ %125, %.thread79 ]
+link_entry.exit60:                                ; preds = %118, %.thread80
+  %.1327983 = phi ptr [ %.132, %118 ], [ null, %.thread80 ]
+  %126 = phi i32 [ %110, %118 ], [ %.pre.i59, %.thread80 ]
+  %.013.i55 = phi ptr [ %120, %118 ], [ %125, %.thread80 ]
   %127 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #15
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %129 = load i8, ptr %128, align 8
@@ -1746,7 +1746,7 @@ link_entry.exit60:                                ; preds = %118, %.thread79
   %136 = getelementptr inbounds nuw i8, ptr %127, i64 32
   store ptr %135, ptr %136, align 8, !tbaa !71
   %137 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  store ptr %.1327882, ptr %137, align 8, !tbaa !67
+  store ptr %.1327983, ptr %137, align 8, !tbaa !67
   br label %138
 
 138:                                              ; preds = %link_entry.exit52.thread, %link_entry.exit60, %link_entry.exit52

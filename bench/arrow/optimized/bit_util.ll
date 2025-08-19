@@ -55,11 +55,11 @@ define void @_ZN5arrow8bit_util9SetBitsToEPhllb(ptr noundef captures(none) %0, i
 
 .sink.split:                                      ; preds = %33, %18
   %.sink = phi i64 [ %9, %18 ], [ %10, %33 ]
-  %.sink49 = phi i8 [ %21, %18 ], [ %16, %33 ]
+  %.sink51 = phi i8 [ %21, %18 ], [ %16, %33 ]
   %35 = getelementptr inbounds i8, ptr %0, i64 %.sink
   %36 = load i8, ptr %35, align 1, !tbaa !3
-  %37 = and i8 %36, %.sink49
-  %38 = xor i8 %.sink49, -1
+  %37 = and i8 %36, %.sink51
+  %38 = xor i8 %.sink51, -1
   %39 = select i1 %3, i8 %38, i8 0
   %40 = or i8 %37, %39
   store i8 %40, ptr %35, align 1, !tbaa !3

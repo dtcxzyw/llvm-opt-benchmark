@@ -636,11 +636,11 @@ define internal fastcc ptr @crypto_larval_wait(ptr noundef %0) unnamed_addr #0 a
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %17 = and i32 %.pre, 1024
   %18 = icmp ne i32 %17, 0
-  %or.cond.not9 = select i1 %16, i1 true, i1 %18
+  %or.cond.not13 = select i1 %16, i1 true, i1 %18
   %19 = and i32 %.pre, 131072
   %20 = icmp eq i32 %19, 0
-  %or.cond7 = select i1 %or.cond.not9, i1 %20, i1 false
-  br i1 %or.cond7, label %21, label %35
+  %or.cond11 = select i1 %or.cond.not13, i1 %20, i1 false
+  br i1 %or.cond11, label %21, label %35
 
 21:                                               ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 376

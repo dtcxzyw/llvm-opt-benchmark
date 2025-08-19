@@ -240,7 +240,7 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
   %61 = call ptr @slurm_xcalloc(i64 noundef %60, i64 noundef 232, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 139, ptr noundef nonnull @__func__.scontrol_print_part) #7
   store ptr %61, ptr %55, align 8
   %62 = icmp sgt i32 %.041, 0
-  br i1 %62, label %.lr.ph71, label %.loopexit93
+  br i1 %62, label %.lr.ph71, label %.loopexit96
 
 .lr.ph71:                                         ; preds = %51
   %wide.trip.count = zext nneg i32 %.041 to i64
@@ -254,9 +254,9 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %64, ptr noundef nonnull align 8 dereferenceable(232) %66, i64 232, i1 false)
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit93, label %63, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit96, label %63, !llvm.loop !11
 
-.loopexit93:                                      ; preds = %63, %51
+.loopexit96:                                      ; preds = %63, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 463606195, ptr %9, align 8
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -282,11 +282,11 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
   %.not58 = icmp eq ptr %79, null
   br i1 %.not58, label %81, label %80
 
-80:                                               ; preds = %.loopexit93
+80:                                               ; preds = %.loopexit96
   call void @list_destroy(ptr noundef nonnull %79) #7
   br label %81
 
-81:                                               ; preds = %80, %.loopexit93
+81:                                               ; preds = %80, %.loopexit96
   store ptr null, ptr %57, align 8
   %82 = load ptr, ptr %56, align 8
   %.not59 = icmp eq ptr %82, null

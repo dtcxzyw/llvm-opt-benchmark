@@ -474,11 +474,11 @@ is_top_left.exit801:                              ; preds = %216, %218, %221, %2
   %.0.i898946 = phi i1 [ %.0.i898945, %224 ], [ %.0.i8989921036, %216 ], [ %.0.i8989921037, %218 ], [ %.0.i910, %221 ], [ %.0.i910, %223 ]
   %.0.i799 = phi i64 [ 0, %224 ], [ -1, %216 ], [ -1, %218 ], [ -1, %221 ], [ -1, %223 ]
   %.not761 = icmp eq ptr %.0618, null
-  %..06181279 = select i1 %.not761, ptr %0, ptr %.0618
+  %..06181321 = select i1 %.not761, ptr %0, ptr %.0618
   br i1 %50, label %225, label %397
 
 225:                                              ; preds = %is_top_left.exit801
-  %226 = call i32 @SDL_MapSurfaceRGBA_REAL(ptr noundef nonnull %..06181279, i8 noundef zeroext %.sroa.0532.0.extract.trunc, i8 noundef zeroext %.sroa.8.0.extract.trunc, i8 noundef zeroext %.sroa.15.0.extract.trunc, i8 noundef zeroext %.sroa.22.0.extract.trunc) #7
+  %226 = call i32 @SDL_MapSurfaceRGBA_REAL(ptr noundef nonnull %..06181321, i8 noundef zeroext %.sroa.0532.0.extract.trunc, i8 noundef zeroext %.sroa.8.0.extract.trunc, i8 noundef zeroext %.sroa.15.0.extract.trunc, i8 noundef zeroext %.sroa.22.0.extract.trunc) #7
   %.sroa.0.0 = trunc i32 %226 to i8
   %.sroa.8.0.in = lshr i32 %226, 8
   %.sroa.8.0 = trunc i32 %.sroa.8.0.in to i8
@@ -820,9 +820,9 @@ is_top_left.exit801:                              ; preds = %216, %218, %221, %2
   br i1 %396, label %.preheader1101, label %.loopexit, !llvm.loop !11
 
 397:                                              ; preds = %is_top_left.exit801
-  %.0635.in = getelementptr inbounds nuw i8, ptr %..06181279, i64 72
+  %.0635.in = getelementptr inbounds nuw i8, ptr %..06181321, i64 72
   %.0635 = load ptr, ptr %.0635.in, align 8
-  %.0636.in = getelementptr inbounds nuw i8, ptr %..06181279, i64 56
+  %.0636.in = getelementptr inbounds nuw i8, ptr %..06181321, i64 56
   %.0636 = load ptr, ptr %.0636.in, align 8
   switch i8 %.1562, label %.loopexit [
     i8 4, label %.preheader1105
@@ -3712,31 +3712,31 @@ detect_format.exit606:                            ; preds = %detect_format.exit,
 867:                                              ; preds = %866
   %868 = mul nsw i64 %.0576646.us, %115
   %869 = mul nsw i64 %.0574648.us, %117
-  %870 = add nsw i64 %869, %868
+  %870 = add nuw nsw i64 %869, %868
   %871 = mul nsw i64 %.0572650.us, %119
-  %872 = add nsw i64 %870, %871
-  %873 = sdiv i64 %872, %74
+  %872 = add nuw nsw i64 %870, %871
+  %873 = udiv i64 %872, %74
   %874 = trunc i64 %873 to i32
   %875 = mul nsw i64 %.0576646.us, %121
   %876 = mul nsw i64 %.0574648.us, %123
-  %877 = add nsw i64 %876, %875
+  %877 = add nuw nsw i64 %876, %875
   %878 = mul nsw i64 %.0572650.us, %125
-  %879 = add nsw i64 %877, %878
-  %880 = sdiv i64 %879, %74
+  %879 = add nuw nsw i64 %877, %878
+  %880 = udiv i64 %879, %74
   %881 = trunc i64 %880 to i32
   %882 = mul nsw i64 %.0576646.us, %127
   %883 = mul nsw i64 %.0574648.us, %129
-  %884 = add nsw i64 %883, %882
+  %884 = add nuw nsw i64 %883, %882
   %885 = mul nsw i64 %.0572650.us, %131
-  %886 = add nsw i64 %884, %885
-  %887 = sdiv i64 %886, %74
+  %886 = add nuw nsw i64 %884, %885
+  %887 = udiv i64 %886, %74
   %888 = trunc i64 %887 to i32
   %889 = mul nsw i64 %.0576646.us, %.sroa.4523.0.extract.trunc
   %890 = mul nsw i64 %.0574648.us, %.sroa.4519.0.extract.trunc
-  %891 = add nsw i64 %890, %889
+  %891 = add nuw nsw i64 %890, %889
   %892 = mul nsw i64 %.0572650.us, %.sroa.4.0.extract.trunc
-  %893 = add nsw i64 %891, %892
-  %894 = sdiv i64 %893, %74
+  %893 = add nuw nsw i64 %891, %892
+  %894 = udiv i64 %893, %74
   %895 = trunc i64 %894 to i32
   br label %896
 

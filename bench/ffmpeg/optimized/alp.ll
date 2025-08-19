@@ -298,27 +298,27 @@ define internal range(i32 -22, 1) i32 @alp_write_init(ptr noundef %0) #1 {
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 132
   %18 = load i32, ptr %17, align 4, !tbaa !49
   %19 = icmp sgt i32 %18, 2
-  br i1 %19, label %.sink.split15, label %20
+  br i1 %19, label %.sink.split17, label %20
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 152
   %22 = load i32, ptr %21, align 8, !tbaa !46
   %23 = icmp sgt i32 %22, 44100
-  br i1 %23, label %.sink.split15, label %24
+  br i1 %23, label %.sink.split17, label %24
 
 24:                                               ; preds = %20
   %25 = icmp ne i32 %11, 1
   %.not14 = icmp eq i32 %22, 22050
   %or.cond = or i1 %.not14, %25
-  br i1 %or.cond, label %26, label %.sink.split15
+  br i1 %or.cond, label %26, label %.sink.split17
 
-.sink.split15:                                    ; preds = %24, %20, %10
+.sink.split17:                                    ; preds = %24, %20, %10
   %.str.17.sink = phi ptr [ @.str.15, %10 ], [ @.str.16, %20 ], [ @.str.17, %24 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.17.sink) #5
   br label %26
 
-26:                                               ; preds = %.sink.split15, %24
-  %.0 = phi i32 [ 0, %24 ], [ -22, %.sink.split15 ]
+26:                                               ; preds = %.sink.split17, %24
+  %.0 = phi i32 [ 0, %24 ], [ -22, %.sink.split17 ]
   ret i32 %.0
 }
 

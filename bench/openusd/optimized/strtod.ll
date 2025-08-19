@@ -372,12 +372,12 @@ switch.lookup:                                    ; preds = %119
   %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd, i64 0, i64 %123
   %switch.load = load i32, ptr %switch.gep, align 4
   %124 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep86 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1, i64 0, i64 %124
-  %switch.load87 = load i64, ptr %switch.gep86, align 8
+  %switch.gep96 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1, i64 0, i64 %124
+  %switch.load97 = load i64, ptr %switch.gep96, align 8
   %125 = lshr i64 %.1.lcssa.i.i, 32
   %126 = and i64 %.1.lcssa.i.i, 4294967295
-  %127 = mul nuw i64 %switch.load87, %125
-  %128 = mul nuw i64 %switch.load87, %126
+  %127 = mul nuw i64 %switch.load97, %125
+  %128 = mul nuw i64 %switch.load97, %126
   %129 = and i64 %128, 2147483648
   %130 = add nuw nsw i64 %129, 2147483648
   %131 = add nsw i32 %switch.load, %.19.lcssa.i.i
@@ -932,8 +932,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18SanitizedDoubleto
   br i1 %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double10NextDoubleEv.exit57.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double10NextDoubleEv.exit57
 
 _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double10NextDoubleEv.exit57: ; preds = %44, %46
-  %.sink92 = phi i64 [ -1, %46 ], [ 1, %44 ]
-  %48 = add i64 %.sink92, %42
+  %.sink96 = phi i64 [ -1, %46 ], [ 1, %44 ]
+  %48 = add i64 %.sink96, %42
   %.0.i56 = bitcast i64 %48 to double
   %49 = fcmp ult double %.0.i56, 0x47EFFFFFE0000000
   br i1 %49, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double10NextDoubleEv.exit57.thread, label %50

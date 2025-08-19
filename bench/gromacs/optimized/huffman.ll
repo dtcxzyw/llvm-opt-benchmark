@@ -33,7 +33,7 @@ define void @Ptngc_comp_conv_to_huffman(ptr noundef readonly captures(none) %0, 
 21:                                               ; preds = %._crit_edge406, %11
   %22 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef %13, ptr noundef nonnull @.str, i32 noundef 285) #8
   %23 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef %14, ptr noundef nonnull @.str, i32 noundef 286) #8
-  br i1 %15, label %.lr.ph, label %.loopexit.thread502
+  br i1 %15, label %.lr.ph, label %.loopexit.thread510
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %21 ]
@@ -54,7 +54,7 @@ define void @Ptngc_comp_conv_to_huffman(ptr noundef readonly captures(none) %0, 
   tail call void @Ptngc_merge_sort(ptr noundef nonnull %22, i64 noundef %12, i64 noundef 32, ptr noundef nonnull @comp_htree, ptr noundef null) #8
   br i1 %16, label %.loopexit.thread, label %.lr.ph389
 
-.loopexit.thread502:                              ; preds = %21
+.loopexit.thread510:                              ; preds = %21
   tail call void @Ptngc_merge_sort(ptr noundef %22, i64 noundef %12, i64 noundef 32, ptr noundef nonnull @comp_htree, ptr noundef null) #8
   tail call fastcc void @assign_codes(ptr noundef %22, ptr noundef %23, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   tail call void @Ptngc_merge_sort(ptr noundef %23, i64 noundef %12, i64 noundef 16, ptr noundef nonnull @comp_codes, ptr noundef null) #8
@@ -153,7 +153,7 @@ split:                                            ; preds = %67
 
 ._crit_edge501:                                   ; preds = %65, %split
   %.1189 = phi i64 [ %75, %split ], [ 0, %65 ]
-  %.not206 = icmp eq i64 %indvars.iv.next461, %.1189
+  %.not206 = icmp eq i64 %.1189, %indvars.iv.next461
   br i1 %.not206, label %81, label %76
 
 76:                                               ; preds = %._crit_edge501
@@ -219,7 +219,7 @@ split:                                            ; preds = %67
   %exitcond472.not = icmp eq i64 %indvars.iv.next469, %18
   br i1 %exitcond472.not, label %._crit_edge398, label %.lr.ph397, !llvm.loop !18
 
-._crit_edge398:                                   ; preds = %100, %.loopexit.thread502
+._crit_edge398:                                   ; preds = %100, %.loopexit.thread510
   tail call fastcc void @free_nodes(ptr noundef %22, i32 noundef 1)
   tail call void @free(ptr noundef %22) #8
   br i1 %15, label %.lr.ph402, label %.preheader356
@@ -959,23 +959,23 @@ readbits.exit:                                    ; preds = %34, %73
   %44 = lshr i32 128, %.0125150
   %45 = zext i8 %43 to i32
   %46 = and i32 %44, %45
-  %.not190 = icmp eq i32 %46, 0
+  %.not200 = icmp eq i32 %46, 0
   %47 = add nuw nsw i32 %.0125150, 1
   %.not20.i = icmp ugt i32 %.0125150, 6
   %spec.select.idx = zext i1 %.not20.i to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %.0130149, i64 %spec.select.idx
-  %spec.select195 = select i1 %.not20.i, i32 0, i32 %47
-  br i1 %.not190, label %73, label %48
+  %spec.select205 = select i1 %.not20.i, i32 0, i32 %47
+  br i1 %.not200, label %73, label %48
 
 48:                                               ; preds = %readbits.exit
   %49 = load i8, ptr %spec.select, align 1, !tbaa !3
-  %50 = lshr i32 128, %spec.select195
+  %50 = lshr i32 128, %spec.select205
   br label %51
 
 51:                                               ; preds = %66, %48
   %.7137 = phi ptr [ %spec.select, %48 ], [ %.8138, %66 ]
   %52 = phi ptr [ %spec.select, %48 ], [ %67, %66 ]
-  %53 = phi i32 [ %spec.select195, %48 ], [ %.6, %66 ]
+  %53 = phi i32 [ %spec.select205, %48 ], [ %.6, %66 ]
   %.in.i89 = phi i32 [ 5, %48 ], [ %54, %66 ]
   %.024.i90 = phi i8 [ %49, %48 ], [ %.1.i95, %66 ]
   %.01523.i91 = phi i32 [ %50, %48 ], [ %.116.i94, %66 ]
@@ -1018,7 +1018,7 @@ readbits.exit97:                                  ; preds = %66
 
 73:                                               ; preds = %readbits.exit97, %readbits.exit
   %.1131 = phi ptr [ %spec.select, %readbits.exit ], [ %.8138, %readbits.exit97 ]
-  %.1126 = phi i32 [ %spec.select195, %readbits.exit ], [ %.6, %readbits.exit97 ]
+  %.1126 = phi i32 [ %spec.select205, %readbits.exit ], [ %.6, %readbits.exit97 ]
   %.376 = phi i32 [ %.275151, %readbits.exit ], [ %72, %readbits.exit97 ]
   %74 = add nuw nsw i32 %.1152, 1
   %exitcond176.not = icmp eq i32 %.1152, %42

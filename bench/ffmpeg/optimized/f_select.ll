@@ -443,9 +443,9 @@ get_scene_score.exit.i:                           ; preds = %._crit_edge.i.i, %1
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %179, %173, %76
-  %.sink121.i = phi i64 [ 256, %76 ], [ 336, %173 ], [ 336, %179 ]
+  %.sink127.i = phi i64 [ 256, %76 ], [ 336, %173 ], [ 336, %179 ]
   %.sink.i = phi double [ %79, %76 ], [ 0x7FF8000000000000, %173 ], [ %184, %179 ]
-  %185 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink121.i
+  %185 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink127.i
   store double %.sink.i, ptr %185, align 8, !tbaa !39
   br label %186
 
@@ -519,11 +519,11 @@ get_scene_score.exit.i:                           ; preds = %._crit_edge.i.i, %1
   br label %231
 
 231:                                              ; preds = %221, %220, %218
-  %.sink122.i = phi i32 [ %230, %221 ], [ -1, %218 ], [ 0, %220 ]
+  %.sink128.i = phi i32 [ %230, %221 ], [ -1, %218 ], [ 0, %220 ]
   %232 = getelementptr inbounds nuw i8, ptr %10, i64 456
-  store i32 %.sink122.i, ptr %232, align 8, !tbaa !73
+  store i32 %.sink128.i, ptr %232, align 8, !tbaa !73
   %233 = load ptr, ptr %191, align 8, !tbaa !27
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %233, i32 noundef 48, ptr noundef nonnull @.str.10, double noundef %189, i32 noundef %.sink122.i) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %233, i32 noundef 48, ptr noundef nonnull @.str.10, double noundef %189, i32 noundef %.sink128.i) #11
   %234 = fcmp nsz une double %189, 0.000000e+00
   %.pre116.i = load double, ptr %44, align 8, !tbaa !39
   %.pre117.i = load double, ptr %51, align 8, !tbaa !39

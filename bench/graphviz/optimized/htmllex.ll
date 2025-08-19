@@ -104,7 +104,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.92 = private unnamed_addr constant [5 x i8] c"face\00", align 1
 @.str.93 = private unnamed_addr constant [11 x i8] c"point-size\00", align 1
 @.str.94 = private unnamed_addr constant [11 x i8] c"POINT-SIZE\00", align 1
-@br_items = internal unnamed_addr constant [1 x %struct.attr_item] [%struct.attr_item { ptr @.str.25, ptr @alignfn }], align 16
 @.str.95 = private unnamed_addr constant [5 x i8] c"<BR>\00", align 1
 @img_items = internal unnamed_addr constant [2 x %struct.attr_item] [%struct.attr_item { ptr @.str.97, ptr @scalefn }, %struct.attr_item { ptr @.str.98, ptr @srcfn }], align 16
 @.str.96 = private unnamed_addr constant [6 x i8] c"<IMG>\00", align 1
@@ -455,9 +454,9 @@ mkCell.exit:                                      ; preds = %101, %gv_alloc.exit
 .lr.ph.i.i.i83:                                   ; preds = %129, %114
   %.01621.i.i.i84 = phi i64 [ %.1.i.i.i88, %129 ], [ 0, %114 ]
   %.01720.i.i.i85 = phi i64 [ %.118.i.i.i87, %129 ], [ 3, %114 ]
-  %119 = add i64 %.01720.i.i.i85, %.01621.i.i.i84
+  %119 = add nuw nsw i64 %.01720.i.i.i85, %.01621.i.i.i84
   %120 = lshr i64 %119, 1
-  %121 = shl i64 %120, 4
+  %121 = shl nuw nsw i64 %120, 4
   %122 = getelementptr inbounds nuw i8, ptr @font_items, i64 %121
   %123 = load ptr, ptr %122, align 16, !tbaa !63
   %124 = call i32 @strcasecmp(ptr noundef nonnull readonly %115, ptr noundef %123) #20
@@ -469,7 +468,7 @@ mkCell.exit:                                      ; preds = %101, %gv_alloc.exit
   br i1 %.not.i.i.i86, label %bsearch.exit.i.i91, label %127
 
 127:                                              ; preds = %126
-  %128 = add nuw i64 %120, 1
+  %128 = add nuw nsw i64 %120, 1
   br label %129
 
 129:                                              ; preds = %127, %.lr.ph.i.i.i83
@@ -1240,11 +1239,11 @@ sub_0.i.i:                                        ; preds = %36
   br i1 %.not25.i, label %46, label %.critedge.thread.i
 
 .critedge.thread.i.loopexit:                      ; preds = %.preheader.i
-  %.01420.i.ptr.i.le80 = getelementptr i8, ptr %20, i64 %.01420.i.idx.i
+  %.01420.i.ptr.i.le82 = getelementptr i8, ptr %20, i64 %.01420.i.idx.i
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %.critedge.thread.i.loopexit, %.critedge.i, %.critedge.i.i
-  %.029.i = phi ptr [ %.0.i, %.critedge.i ], [ %.01420.i.ptr.i.le, %.critedge.i.i ], [ %.01420.i.ptr.i.le80, %.critedge.thread.i.loopexit ]
+  %.029.i = phi ptr [ %.0.i, %.critedge.i ], [ %.01420.i.ptr.i.le, %.critedge.i.i ], [ %.01420.i.ptr.i.le82, %.critedge.thread.i.loopexit ]
   tail call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.101) #19
   store i32 1, ptr %11, align 8, !tbaa !24
   br label %findNext.exit
@@ -1664,68 +1663,41 @@ define internal fastcc void @mkBR(ptr noundef captures(none) %0, ptr noundef rea
 
 .lr.ph.i:                                         ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br label %8
-
-8:                                                ; preds = %32, %.lr.ph.i
-  %9 = phi ptr [ %6, %.lr.ph.i ], [ %33, %32 ]
-  %.020.i = phi ptr [ %1, %.lr.ph.i ], [ %11, %32 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
-  %11 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
-  %12 = load ptr, ptr %10, align 8, !tbaa !62
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %23, %8
-  %.01621.i.i = phi i64 [ %.1.i.i, %23 ], [ 0, %8 ]
-  %.01720.i.i = phi i64 [ %.118.i.i, %23 ], [ 1, %8 ]
-  %13 = add nuw nsw i64 %.01720.i.i, %.01621.i.i
-  %14 = lshr i64 %13, 1
-  %15 = shl nuw nsw i64 %14, 4
-  %16 = getelementptr inbounds nuw i8, ptr @br_items, i64 %15
-  %17 = load ptr, ptr %16, align 16, !tbaa !63
-  %18 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %9, ptr noundef %17) #20
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %23, label %20
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i, %17
+  %8 = phi ptr [ %6, %.lr.ph.i ], [ %18, %17 ]
+  %.020.i = phi ptr [ %1, %.lr.ph.i ], [ %9, %17 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
+  %10 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %8, ptr noundef nonnull @.str.25) #20
+  %.not.i.i = icmp eq i32 %10, 0
+  br i1 %.not.i.i, label %bsearch.exit.i, label %16
 
-20:                                               ; preds = %.lr.ph.i.i
-  %.not.i.i = icmp eq i32 %18, 0
-  br i1 %.not.i.i, label %bsearch.exit.i, label %21
+bsearch.exit.i:                                   ; preds = %.lr.ph.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !62
+  %13 = tail call fastcc i32 @alignfn(ptr noundef %5, ptr noundef %12) #19
+  %14 = load i32, ptr %7, align 8, !tbaa !24
+  %15 = or i32 %14, %13
+  br label %17
 
-21:                                               ; preds = %20
-  %22 = add nuw nsw i64 %14, 1
-  br label %23
+16:                                               ; preds = %.lr.ph.i.i
+  tail call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.24, ptr noundef nonnull %8, ptr noundef nonnull @.str.95) #19
+  br label %17
 
-23:                                               ; preds = %21, %.lr.ph.i.i
-  %.118.i.i = phi i64 [ %.01720.i.i, %21 ], [ %14, %.lr.ph.i.i ]
-  %.1.i.i = phi i64 [ %22, %21 ], [ %.01621.i.i, %.lr.ph.i.i ]
-  %24 = icmp ult i64 %.1.i.i, %.118.i.i
-  br i1 %24, label %.lr.ph.i.i, label %31, !llvm.loop !65
-
-bsearch.exit.i:                                   ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr @br_items, i64 %15
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !67
-  %28 = tail call i32 %27(ptr noundef %5, ptr noundef %12) #19
-  %29 = load i32, ptr %7, align 8, !tbaa !24
-  %30 = or i32 %29, %28
-  br label %32
-
-31:                                               ; preds = %23
-  tail call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.24, ptr noundef nonnull %9, ptr noundef nonnull @.str.95) #19
-  br label %32
-
-32:                                               ; preds = %31, %bsearch.exit.i
-  %storemerge.i = phi i32 [ %30, %bsearch.exit.i ], [ 1, %31 ]
+17:                                               ; preds = %16, %bsearch.exit.i
+  %storemerge.i = phi i32 [ %15, %bsearch.exit.i ], [ 1, %16 ]
   store i32 %storemerge.i, ptr %7, align 8, !tbaa !24
-  %33 = load ptr, ptr %11, align 8, !tbaa !62
-  %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %doAttrs.exit, label %8, !llvm.loop !68
+  %18 = load ptr, ptr %9, align 8, !tbaa !62
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %doAttrs.exit, label %.lr.ph.i.i, !llvm.loop !68
 
-doAttrs.exit:                                     ; preds = %32, %2
+doAttrs.exit:                                     ; preds = %17, %2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @mkImg(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @mkImg(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 201) 48) #21
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %gv_alloc.exit
@@ -2320,10 +2292,10 @@ define internal noundef i32 @sidesfn(ptr noundef captures(none) %0, ptr noundef 
   br i1 %.not13, label %27, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.010.lcssa18 = phi i16 [ %.1, %._crit_edge ], [ 0, %2 ]
+  %.010.lcssa19 = phi i16 [ %.1, %._crit_edge ], [ 0, %2 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load i16, ptr %24, align 8, !tbaa !106
-  %26 = or i16 %25, %.010.lcssa18
+  %26 = or i16 %25, %.010.lcssa19
   store i16 %26, ptr %24, align 8, !tbaa !106
   br label %27
 
@@ -2817,7 +2789,7 @@ doInt.exit.thread:                                ; preds = %7, %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @alignfn(ptr noundef writeonly captures(none) %0, ptr noundef %1) #0 {
+define internal fastcc range(i32 0, 2) i32 @alignfn(ptr noundef writeonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.48) #20
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5

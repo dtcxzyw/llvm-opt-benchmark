@@ -398,8 +398,8 @@ define void @pmix_server_register_params() local_unnamed_addr #0 {
   br i1 %25, label %.sink.split, label %27
 
 .sink.split:                                      ; preds = %23, %20, %.lr.ph
-  %.sink15 = phi i64 [ 8, %.lr.ph ], [ 2, %20 ], [ 4, %23 ]
-  %26 = or i64 %17, %.sink15
+  %.sink17 = phi i64 [ 8, %.lr.ph ], [ 2, %20 ], [ 4, %23 ]
+  %26 = or i64 %17, %.sink17
   store i64 %26, ptr getelementptr inbounds nuw (i8, ptr @prte_pmix_server_globals, i64 1168), align 8, !tbaa !25
   br label %27
 

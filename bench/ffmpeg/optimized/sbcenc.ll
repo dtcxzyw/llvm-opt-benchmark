@@ -41,9 +41,9 @@ define internal range(i32 -22, 1) i32 @sbc_encode_init(ptr noundef %0) #0 {
   %6 = load i32, ptr %5, align 8, !tbaa !27
   %7 = icmp eq i32 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br i1 %7, label %.thread93, label %10
+  br i1 %7, label %.thread97, label %10
 
-.thread93:                                        ; preds = %1
+.thread97:                                        ; preds = %1
   store i32 1, ptr %8, align 16, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %13
@@ -54,8 +54,8 @@ define internal range(i32 -22, 1) i32 @sbc_encode_init(ptr noundef %0) #0 {
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %11, label %29, label %13
 
-13:                                               ; preds = %.thread93, %10
-  %14 = phi ptr [ %9, %.thread93 ], [ %12, %10 ]
+13:                                               ; preds = %.thread97, %10
+  %14 = phi ptr [ %9, %.thread97 ], [ %12, %10 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 356
   %16 = load i32, ptr %15, align 4, !tbaa !33
   %.not80 = icmp eq i32 %16, 1
@@ -111,7 +111,7 @@ define internal range(i32 -22, 1) i32 @sbc_encode_init(ptr noundef %0) #0 {
   %.phi.trans.insert89.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre90.pre = load i64, ptr %.phi.trans.insert89.phi.trans.insert, align 8, !tbaa !43
   %42 = icmp sgt i64 %.pre90.pre, 270000
-  %or.cond95 = select i1 %41, i1 true, i1 %42
+  %or.cond99 = select i1 %41, i1 true, i1 %42
   br label %.thread
 
 43:                                               ; preds = %33
@@ -130,13 +130,13 @@ define internal range(i32 -22, 1) i32 @sbc_encode_init(ptr noundef %0) #0 {
   br label %.thread
 
 .thread:                                          ; preds = %43, %37
-  %brmerge.sink = phi i1 [ %brmerge, %43 ], [ %or.cond95, %37 ]
+  %brmerge.sink = phi i1 [ %brmerge, %43 ], [ %or.cond99, %37 ]
   %52 = phi i64 [ %45, %43 ], [ %.pre90.pre, %37 ]
   %53 = phi i1 [ %or.cond, %43 ], [ false, %37 ]
   %54 = phi i64 [ %50, %43 ], [ %40, %37 ]
-  %.97 = select i1 %brmerge.sink, i8 4, i8 8
+  %.101 = select i1 %brmerge.sink, i8 4, i8 8
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i8 %.97, ptr %55, align 16, !tbaa !36
+  store i8 %.101, ptr %55, align 16, !tbaa !36
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %57 = load i32, ptr %56, align 8, !tbaa !34
   %58 = sext i32 %57 to i64
@@ -164,7 +164,7 @@ define internal range(i32 -22, 1) i32 @sbc_encode_init(ptr noundef %0) #0 {
   %78 = select i1 %brmerge.sink, i32 2, i32 3
   %79 = shl i32 %77, %78
   %80 = sext i32 %79 to i64
-  %81 = zext nneg i8 %.97 to i64
+  %81 = zext nneg i8 %.101 to i64
   %82 = select i1 %53, i64 %81, i64 0
   %83 = lshr exact i32 %71, 1
   %84 = zext nneg i32 %83 to i64
@@ -182,7 +182,7 @@ define internal range(i32 -22, 1) i32 @sbc_encode_init(ptr noundef %0) #0 {
   %95 = trunc i16 %94 to i8
   %storemerge = select i1 %93, i8 %95, i8 %91
   store i8 %storemerge, ptr %92, align 1, !tbaa !39
-  %narrow = shl nuw nsw i8 %.97, 1
+  %narrow = shl nuw nsw i8 %.101, 1
   %96 = and i8 %narrow, 16
   %97 = add nuw nsw i8 %96, 16
   %98 = zext nneg i8 %97 to i32
@@ -190,7 +190,7 @@ define internal range(i32 -22, 1) i32 @sbc_encode_init(ptr noundef %0) #0 {
   %100 = mul nuw nsw i32 %99, %98
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i32 %100, ptr %101, align 8, !tbaa !40
-  %102 = zext nneg i8 %.97 to i32
+  %102 = zext nneg i8 %.101 to i32
   %103 = and i32 %66, 28
   br label %105
 

@@ -277,8 +277,8 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h37f1de00cb04788
   %26 = extractvalue { i64, i64 } %23, 1
   %27 = load i64, ptr %5, align 8, !alias.scope !23
   %28 = icmp ule i64 %26, %27
-  %or.cond.not.i6 = select i1 %25, i1 %28, i1 false
-  br i1 %or.cond.not.i6, label %.lr.ph, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h1ce7cc3d226e52e0E.exit"
+  %or.cond.not.i15 = select i1 %25, i1 %28, i1 false
+  br i1 %or.cond.not.i15, label %.lr.ph, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h1ce7cc3d226e52e0E.exit"
 
 .lr.ph.i1:                                        ; preds = %"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$13reclaim_block17hfb8870300204a399E.exit.i"
   %29 = call { i64, i64 } @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$22observed_tail_position17hc43f824675eba198E"(ptr noundef nonnull align 8 %50), !noalias !23
@@ -404,8 +404,8 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hc0100fa091b56f9
   %26 = extractvalue { i64, i64 } %23, 1
   %27 = load i64, ptr %5, align 8, !alias.scope !31
   %28 = icmp ule i64 %26, %27
-  %or.cond.not.i6 = select i1 %25, i1 %28, i1 false
-  br i1 %or.cond.not.i6, label %.lr.ph, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17hb3cc255586039c88E.exit"
+  %or.cond.not.i15 = select i1 %25, i1 %28, i1 false
+  br i1 %or.cond.not.i15, label %.lr.ph, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17hb3cc255586039c88E.exit"
 
 .lr.ph.i1:                                        ; preds = %"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$13reclaim_block17h18a249ebb0a933d2E.exit.i"
   %29 = call { i64, i64 } @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$22observed_tail_position17h1d898c81b7c178cdE"(ptr noundef nonnull align 8 %50), !noalias !31

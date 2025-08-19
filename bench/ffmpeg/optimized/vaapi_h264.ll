@@ -248,9 +248,9 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_h264_start_frame(ptr nounde
   %.not29.i = icmp eq i32 %165, 0
   %177 = select i1 %.not.i, i32 8, i32 16
   %178 = select i1 %.not29.i, i32 0, i32 %177
-  %storemerge34.i = or disjoint i32 %178, %storemerge.i
+  %storemerge35.i = or disjoint i32 %178, %storemerge.i
   %179 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %storemerge34.i, ptr %179, align 8, !tbaa !123
+  store i32 %storemerge35.i, ptr %179, align 8, !tbaa !123
   %180 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %181 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %182 = load i32, ptr %181, align 8, !tbaa !104
@@ -549,8 +549,8 @@ define internal i32 @vaapi_h264_decode_slice(ptr noundef %0, ptr noundef %1, i32
   br i1 %95, label %.lr.ph19.preheader.i, label %fill_vaapi_RefPicList.exit
 
 .lr.ph19.preheader.i:                             ; preds = %.thread, %.preheader.i, %92
-  %.0.lcssa27.i = phi i32 [ %.1.i, %.preheader.i ], [ 0, %92 ], [ 0, %.thread ]
-  %96 = zext nneg i32 %.0.lcssa27.i to i64
+  %.0.lcssa28.i = phi i32 [ %.1.i, %.preheader.i ], [ 0, %92 ], [ 0, %.thread ]
+  %96 = zext nneg i32 %.0.lcssa28.i to i64
   br label %.lr.ph19.i
 
 .lr.ph.i:                                         ; preds = %128, %.lr.ph.preheader.i
@@ -593,9 +593,9 @@ define internal i32 @vaapi_h264_decode_slice(ptr noundef %0, ptr noundef %1, i32
   %.not29.i.i = icmp eq i32 %107, 0
   %119 = select i1 %.not.i.i, i32 8, i32 16
   %120 = select i1 %.not29.i.i, i32 0, i32 %119
-  %storemerge34.i.i = or disjoint i32 %120, %storemerge.i.i
+  %storemerge35.i.i = or disjoint i32 %120, %storemerge.i.i
   %121 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  store i32 %storemerge34.i.i, ptr %121, align 4, !tbaa !123
+  store i32 %storemerge35.i.i, ptr %121, align 4, !tbaa !123
   %122 = getelementptr inbounds nuw i8, ptr %103, i64 12
   store i32 0, ptr %122, align 4, !tbaa !130
   %123 = getelementptr inbounds nuw i8, ptr %105, i64 136
@@ -655,8 +655,8 @@ fill_vaapi_RefPicList.exit:                       ; preds = %.lr.ph19.i, %.prehe
   br i1 %141, label %.lr.ph19.preheader.i77, label %fill_vaapi_RefPicList.exit83
 
 .lr.ph19.preheader.i77:                           ; preds = %fill_vaapi_RefPicList.exit, %.preheader.i76, %138
-  %.0.lcssa27.i78 = phi i32 [ %.1.i73, %.preheader.i76 ], [ 0, %138 ], [ 0, %fill_vaapi_RefPicList.exit ]
-  %142 = zext nneg i32 %.0.lcssa27.i78 to i64
+  %.0.lcssa28.i78 = phi i32 [ %.1.i73, %.preheader.i76 ], [ 0, %138 ], [ 0, %fill_vaapi_RefPicList.exit ]
+  %142 = zext nneg i32 %.0.lcssa28.i78 to i64
   br label %.lr.ph19.i79
 
 .lr.ph.i56:                                       ; preds = %174, %.lr.ph.preheader.i54
@@ -699,9 +699,9 @@ fill_vaapi_RefPicList.exit:                       ; preds = %.lr.ph19.i, %.prehe
   %.not29.i.i67 = icmp eq i32 %153, 0
   %165 = select i1 %.not.i.i61, i32 8, i32 16
   %166 = select i1 %.not29.i.i67, i32 0, i32 %165
-  %storemerge34.i.i68 = or disjoint i32 %166, %storemerge.i.i66
+  %storemerge35.i.i68 = or disjoint i32 %166, %storemerge.i.i66
   %167 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  store i32 %storemerge34.i.i68, ptr %167, align 4, !tbaa !123
+  store i32 %storemerge35.i.i68, ptr %167, align 4, !tbaa !123
   %168 = getelementptr inbounds nuw i8, ptr %149, i64 12
   store i32 0, ptr %168, align 4, !tbaa !130
   %169 = getelementptr inbounds nuw i8, ptr %151, i64 136
@@ -931,9 +931,9 @@ define internal fastcc range(i32 -1, 1) i32 @dpb_add(ptr noundef nonnull capture
   %.not29.i40 = icmp eq i32 %51, 0
   %61 = select i1 %.not29, i32 8, i32 16
   %62 = select i1 %.not29.i40, i32 0, i32 %61
-  %storemerge34.i41 = or disjoint i32 %storemerge.i39, %62
+  %storemerge35.i41 = or disjoint i32 %storemerge.i39, %62
   %63 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i32 %storemerge34.i41, ptr %63, align 4, !tbaa !123
+  store i32 %storemerge35.i41, ptr %63, align 4, !tbaa !123
   %64 = getelementptr inbounds nuw i8, ptr %49, i64 12
   store i32 0, ptr %64, align 4, !tbaa !130
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 136

@@ -647,10 +647,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h37c2426eef0c
           to label %40 unwind label %23
 
 ._crit_edge.thread:                               ; preds = %40, %._crit_edge
-  %.0.lcssa38 = phi ptr [ %16, %._crit_edge ], [ %46, %40 ]
-  %storemerge.lcssa37 = phi i64 [ %13, %._crit_edge ], [ %22, %40 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0.lcssa38, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  %29 = add i64 %storemerge.lcssa37, 1
+  %.0.lcssa41 = phi ptr [ %16, %._crit_edge ], [ %46, %40 ]
+  %storemerge.lcssa40 = phi i64 [ %13, %._crit_edge ], [ %22, %40 ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0.lcssa41, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  %29 = add i64 %storemerge.lcssa40, 1
   store i64 %29, ptr %5, align 8
   br label %30
 

@@ -1388,27 +1388,27 @@ define internal i32 @dissect_dcerpc_guid(ptr noundef %0, ptr noundef %1, ptr nou
   %28 = load i16, ptr %27, align 4
   %29 = load i16, ptr %20, align 8
   %30 = icmp eq i16 %29, %28
-  br i1 %30, label %._crit_edge, label %.lr.ph212
+  br i1 %30, label %._crit_edge, label %.lr.ph229
 
-31:                                               ; preds = %.lr.ph212
+31:                                               ; preds = %.lr.ph229
   %32 = load i16, ptr %34, align 8
   %33 = icmp eq i16 %32, %28
-  br i1 %33, label %._crit_edge, label %.lr.ph212, !llvm.loop !10
+  br i1 %33, label %._crit_edge, label %.lr.ph229, !llvm.loop !10
 
-.lr.ph212:                                        ; preds = %.lr.ph, %31
-  %.0172206211 = phi ptr [ %34, %31 ], [ %20, %.lr.ph ]
-  %34 = getelementptr i8, ptr %.0172206211, i64 32
-  %35 = getelementptr i8, ptr %.0172206211, i64 40
+.lr.ph229:                                        ; preds = %.lr.ph, %31
+  %.0172206228 = phi ptr [ %34, %31 ], [ %20, %.lr.ph ]
+  %34 = getelementptr i8, ptr %.0172206228, i64 32
+  %35 = getelementptr i8, ptr %.0172206228, i64 40
   %36 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %36, null
-  br i1 %.not, label %.._crit_edge.loopexit_crit_edge214, label %31, !llvm.loop !10
+  br i1 %.not, label %.._crit_edge.loopexit_crit_edge231, label %31, !llvm.loop !10
 
-.._crit_edge.loopexit_crit_edge214:               ; preds = %.lr.ph212
+.._crit_edge.loopexit_crit_edge231:               ; preds = %.lr.ph229
   br label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %31, %.lr.ph, %.._crit_edge.loopexit_crit_edge214, %4
-  %.0172.lcssa = phi ptr [ %20, %4 ], [ %34, %.._crit_edge.loopexit_crit_edge214 ], [ %20, %.lr.ph ], [ %34, %31 ]
-  %.lcssa = phi ptr [ null, %4 ], [ null, %.._crit_edge.loopexit_crit_edge214 ], [ %22, %.lr.ph ], [ %36, %31 ]
+._crit_edge:                                      ; preds = %31, %.lr.ph, %.._crit_edge.loopexit_crit_edge231, %4
+  %.0172.lcssa = phi ptr [ %20, %4 ], [ %34, %.._crit_edge.loopexit_crit_edge231 ], [ %20, %.lr.ph ], [ %34, %31 ]
+  %.lcssa = phi ptr [ null, %4 ], [ null, %.._crit_edge.loopexit_crit_edge231 ], [ %22, %.lr.ph ], [ %36, %31 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -4422,9 +4422,9 @@ dcerpc_get_decode_data.exit:                      ; preds = %2, %10
   %17 = load i32, ptr %16, align 8
   %switch.selectcmp = icmp eq i32 %17, 3
   %switch.select = select i1 %switch.selectcmp, ptr @.str.621, ptr @.str.622
-  %switch.selectcmp22 = icmp eq i32 %17, 2
-  %switch.select23 = select i1 %switch.selectcmp22, ptr @.str.620, ptr %switch.select
-  %18 = tail call ptr @g_string_append(ptr noundef %4, ptr noundef nonnull %switch.select23)
+  %switch.selectcmp23 = icmp eq i32 %17, 2
+  %switch.select24 = select i1 %switch.selectcmp23, ptr @.str.620, ptr %switch.select
+  %18 = tail call ptr @g_string_append(ptr noundef %4, ptr noundef nonnull %switch.select24)
   %19 = load ptr, ptr %4, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %21 = load i32, ptr %20, align 4
@@ -7999,9 +7999,9 @@ dcerpc_tvb_get_uuid.exit.i:                       ; preds = %319, %318
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %332, %330
-  %.sink268.i = phi ptr [ %328, %330 ], [ %326, %332 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %322, ptr noundef nonnull @.str.9, ptr noundef %.sink268.i)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0192.i, ptr noundef nonnull @.str.10, ptr noundef %.sink268.i)
+  %.sink286.i = phi ptr [ %328, %330 ], [ %326, %332 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %322, ptr noundef nonnull @.str.9, ptr noundef %.sink286.i)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0192.i, ptr noundef nonnull @.str.10, ptr noundef %.sink286.i)
   br label %334
 
 334:                                              ; preds = %.sink.split.i, %dcerpc_tvb_get_uuid.exit.i
@@ -8102,10 +8102,10 @@ dissect_dcerpc_uint16.exit233.i:                  ; preds = %365, %362
   br label %dissect_dcerpc_uint16.exit229.i
 
 dissect_dcerpc_uint16.exit229.i:                  ; preds = %380, %379, %356, %355
-  %.sink269.i = phi i32 [ %347, %355 ], [ %347, %356 ], [ %371, %379 ], [ %371, %380 ]
+  %.sink287.i = phi i32 [ %347, %355 ], [ %347, %356 ], [ %371, %379 ], [ %371, %380 ]
   %.0256.i = phi i16 [ %340, %355 ], [ %340, %356 ], [ %.in.i235.i, %379 ], [ %.in.i235.i, %380 ]
   %.0255.i = phi i16 [ %.in.i227.i, %355 ], [ %.in.i227.i, %356 ], [ %364, %379 ], [ %364, %380 ]
-  call void @tvb_ensure_bytes_exist(ptr noundef %193, i32 noundef %.sink269.i, i32 noundef 2)
+  call void @tvb_ensure_bytes_exist(ptr noundef %193, i32 noundef %.sink287.i, i32 noundef 2)
   %.1.i = add i32 %.0261.i, 24
   br i1 %.not198.i, label %389, label %386
 
@@ -11306,7 +11306,7 @@ dissect_dcerpc_uint32.exit296.i:                  ; preds = %1715, %1714
   %1950 = getelementptr i8, ptr %1488, i64 8
   %1951 = load i32, ptr %1950, align 4
   %1952 = icmp eq i32 %1951, 2
-  %spec.select318.i = select i1 %1952, ptr @.str.712, ptr @.str.689
+  %spec.select334.i = select i1 %1952, ptr @.str.712, ptr @.str.689
   br label %.thread.i306
 
 1953:                                             ; preds = %1946
@@ -11370,7 +11370,7 @@ switch.lookup:                                    ; preds = %1728
   br label %.thread.i306
 
 .thread.i306:                                     ; preds = %1728, %switch.lookup, %.fold.split241.i, %1980, %1977, %1976, %1972, %1968, %1964, %1960, %1957, %1953, %1949, %1946, %1943, %1939, %1936, %1935, %1931, %1927, %1923, %1919, %1915, %1911, %1908, %1907, %1903, %1899, %1895, %1891, %1887, %1883, %1880, %1879, %1875, %1871, %1867, %1863, %1859, %1856, %1855, %1851, %1847, %1843, %1839, %1836, %1832, %1828, %1824, %1821, %1818, %1817, %1813, %1810, %1809, %1808, %1806, %1805, %1803, %1802, %1801, %1797, %1793, %1789, %1785, %1781, %1778, %1774, %1770, %1766, %.thread309.i, %1762, %1752, %1748, %1744, %1741, %1737, %1733, %1731, %1727, %._crit_edge.i305
-  %.0233.i = phi ptr [ @.str.689, %._crit_edge.i305 ], [ @.str.689, %1727 ], [ @.str.689, %1744 ], [ @.str.689, %1741 ], [ @.str.689, %1770 ], [ @.str.689, %1766 ], [ @.str.689, %1793 ], [ @.str.689, %1789 ], [ @.str.689, %1785 ], [ @.str.689, %1781 ], [ @.str.689, %1778 ], [ @.str.689, %1801 ], [ @.str.269, %1802 ], [ @.str.689, %1805 ], [ @.str.605, %1808 ], [ @.str.595, %1809 ], [ @.str.689, %1810 ], [ @.str.689, %1817 ], [ @.str.689, %1828 ], [ @.str.689, %1824 ], [ @.str.689, %1821 ], [ @.str.689, %1847 ], [ @.str.689, %1843 ], [ @.str.689, %1839 ], [ @.str.689, %1836 ], [ @.str.689, %1871 ], [ @.str.689, %1867 ], [ @.str.689, %1863 ], [ @.str.689, %1859 ], [ @.str.689, %1856 ], [ @.str.689, %1855 ], [ @.str.689, %1899 ], [ @.str.689, %1895 ], [ @.str.689, %1891 ], [ @.str.689, %1887 ], [ @.str.689, %1883 ], [ @.str.689, %1880 ], [ @.str.689, %1879 ], [ @.str.689, %1927 ], [ @.str.689, %1923 ], [ @.str.689, %1919 ], [ @.str.689, %1915 ], [ @.str.689, %1911 ], [ @.str.689, %1908 ], [ @.str.689, %1907 ], [ @.str.689, %1935 ], [ @.str.689, %1936 ], [ @.str.689, %1968 ], [ @.str.689, %1964 ], [ @.str.689, %1960 ], [ @.str.689, %1957 ], [ @.str.689, %1976 ], [ %spec.select.i308, %1737 ], [ %spec.select238.i, %1748 ], [ @.str.699, %1762 ], [ %spec.select239.i, %1774 ], [ %spec.select240.i, %1797 ], [ @.str.703, %1806 ], [ @.str.689, %.fold.split241.i ], [ %spec.select242.i, %1813 ], [ %spec.select243.i, %1818 ], [ %spec.select244.i, %1832 ], [ %spec.select245.i, %1851 ], [ %spec.select246.i, %1875 ], [ %spec.select247.i, %1903 ], [ %spec.select248.i, %1931 ], [ %spec.select249.i, %1939 ], [ %spec.select250.i, %1953 ], [ %spec.select251.i, %1972 ], [ %spec.select252.i, %1977 ], [ %spec.select253.i, %1980 ], [ %spec.select254.i, %1803 ], [ @.str.689, %.thread309.i ], [ @.str.689, %1943 ], [ %spec.select312.i, %1733 ], [ @.str.689, %1731 ], [ @.str.689, %1752 ], [ %spec.select318.i, %1949 ], [ @.str.689, %1946 ], [ %switch.load, %switch.lookup ], [ @.str.689, %1728 ]
+  %.0233.i = phi ptr [ @.str.689, %._crit_edge.i305 ], [ @.str.689, %1727 ], [ @.str.689, %1744 ], [ @.str.689, %1741 ], [ @.str.689, %1770 ], [ @.str.689, %1766 ], [ @.str.689, %1793 ], [ @.str.689, %1789 ], [ @.str.689, %1785 ], [ @.str.689, %1781 ], [ @.str.689, %1778 ], [ @.str.689, %1801 ], [ @.str.269, %1802 ], [ @.str.689, %1805 ], [ @.str.605, %1808 ], [ @.str.595, %1809 ], [ @.str.689, %1810 ], [ @.str.689, %1817 ], [ @.str.689, %1828 ], [ @.str.689, %1824 ], [ @.str.689, %1821 ], [ @.str.689, %1847 ], [ @.str.689, %1843 ], [ @.str.689, %1839 ], [ @.str.689, %1836 ], [ @.str.689, %1871 ], [ @.str.689, %1867 ], [ @.str.689, %1863 ], [ @.str.689, %1859 ], [ @.str.689, %1856 ], [ @.str.689, %1855 ], [ @.str.689, %1899 ], [ @.str.689, %1895 ], [ @.str.689, %1891 ], [ @.str.689, %1887 ], [ @.str.689, %1883 ], [ @.str.689, %1880 ], [ @.str.689, %1879 ], [ @.str.689, %1927 ], [ @.str.689, %1923 ], [ @.str.689, %1919 ], [ @.str.689, %1915 ], [ @.str.689, %1911 ], [ @.str.689, %1908 ], [ @.str.689, %1907 ], [ @.str.689, %1935 ], [ @.str.689, %1936 ], [ @.str.689, %1968 ], [ @.str.689, %1964 ], [ @.str.689, %1960 ], [ @.str.689, %1957 ], [ @.str.689, %1976 ], [ %spec.select.i308, %1737 ], [ %spec.select238.i, %1748 ], [ @.str.699, %1762 ], [ %spec.select239.i, %1774 ], [ %spec.select240.i, %1797 ], [ @.str.703, %1806 ], [ @.str.689, %.fold.split241.i ], [ %spec.select242.i, %1813 ], [ %spec.select243.i, %1818 ], [ %spec.select244.i, %1832 ], [ %spec.select245.i, %1851 ], [ %spec.select246.i, %1875 ], [ %spec.select247.i, %1903 ], [ %spec.select248.i, %1931 ], [ %spec.select249.i, %1939 ], [ %spec.select250.i, %1953 ], [ %spec.select251.i, %1972 ], [ %spec.select252.i, %1977 ], [ %spec.select253.i, %1980 ], [ %spec.select254.i, %1803 ], [ @.str.689, %.thread309.i ], [ @.str.689, %1943 ], [ %spec.select312.i, %1733 ], [ @.str.689, %1731 ], [ @.str.689, %1752 ], [ %spec.select334.i, %1949 ], [ @.str.689, %1946 ], [ %switch.load, %switch.lookup ], [ @.str.689, %1728 ]
   %1982 = load ptr, ptr %103, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %1982, i32 noundef 25, ptr noundef nonnull @.str.717, ptr noundef nonnull %.0233.i)
   %1983 = load ptr, ptr %103, align 8
@@ -11919,9 +11919,9 @@ find_or_create_dcerpc_auth_context.exit:          ; preds = %200
   store i8 %.lobit, ptr %228, align 4
   %229 = icmp ne ptr %.013.i, null
   %or.cond = and i1 %229, %227
-  br i1 %or.cond, label %.thread171, label %231
+  br i1 %or.cond, label %.thread187, label %231
 
-.thread171:                                       ; preds = %223
+.thread187:                                       ; preds = %223
   %230 = getelementptr inbounds nuw i8, ptr %.013.i, i64 20
   store i8 1, ptr %230, align 4
   br label %234
@@ -11936,7 +11936,7 @@ find_or_create_dcerpc_auth_context.exit:          ; preds = %200
   %233 = trunc nuw i8 %.pre165 to i1
   br i1 %233, label %234, label %236
 
-234:                                              ; preds = %.thread171, %232
+234:                                              ; preds = %.thread187, %232
   %235 = getelementptr inbounds nuw i8, ptr %.0.i152, i64 28
   store i8 1, ptr %235, align 4
   br label %236

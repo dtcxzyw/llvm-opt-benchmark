@@ -1406,8 +1406,8 @@ ec_gen_assign_group.exit.thread:                  ; preds = %29
 
 38:                                               ; preds = %37
   %39 = tail call i32 @EC_KEY_generate_key(ptr noundef nonnull %7) #5
-  %.not56 = icmp eq i32 %39, 0
-  br i1 %.not56, label %.thread53, label %41
+  %.not63 = icmp eq i32 %39, 0
+  br i1 %.not63, label %.thread53, label %41
 
 40:                                               ; preds = %ec_gen_assign_group.exit
   br i1 %33, label %41, label %.thread53

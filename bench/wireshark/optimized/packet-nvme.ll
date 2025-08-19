@@ -4389,9 +4389,9 @@ add_group_mask_entry.exit.thread.i.i:             ; preds = %163, %add_group_mas
 489:                                              ; preds = %487, %.thread538.i.i
   %490 = sub nuw nsw i32 344, %30
   %491 = icmp ugt i32 %490, %5
-  br i1 %491, label %dissect_nvme_identify_resp.exit, label %.thread565.i.i
+  br i1 %491, label %dissect_nvme_identify_resp.exit, label %.thread568.i.i
 
-.thread565.i.i:                                   ; preds = %489
+.thread568.i.i:                                   ; preds = %489
   %492 = sub nuw nsw i32 342, %30
   %493 = load i32, ptr @hf_nvme_identify_ctrl_anatt, align 4
   %494 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %493, ptr noundef %0, i32 noundef %492, i32 noundef 1, i32 noundef -2147483648)
@@ -4405,7 +4405,7 @@ add_group_mask_entry.exit.thread.i.i:             ; preds = %163, %add_group_mas
   %498 = icmp eq i32 %5, 0
   br i1 %498, label %dissect_nvme_identify_resp.exit, label %.thread540.i.i
 
-.thread540.i.i:                                   ; preds = %497, %.thread565.i.i
+.thread540.i.i:                                   ; preds = %497, %.thread568.i.i
   %499 = sub nuw nsw i32 343, %30
   call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %499, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_anacap, i32 noundef 9)
   br label %502

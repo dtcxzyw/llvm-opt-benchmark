@@ -951,24 +951,24 @@ define internal noalias noundef ptr @_handle_accept(ptr noundef %0) #0 {
 
 .lr.ph144.preheader:                              ; preds = %.lr.ph.split.us.split
   %19 = icmp slt i32 %17, 0
-  br i1 %19, label %.lr.ph272.preheader, label %.split107.us
+  br i1 %19, label %.lr.ph282.preheader, label %.split107.us
 
-.lr.ph272.preheader:                              ; preds = %.lr.ph144.preheader
+.lr.ph282.preheader:                              ; preds = %.lr.ph144.preheader
   %20 = tail call ptr @__errno_location() #14
-  br label %.lr.ph272
+  br label %.lr.ph282
 
 .lr.ph144:                                        ; preds = %23
   %21 = icmp slt i32 %25, 0
-  br i1 %21, label %.lr.ph272, label %.split107.us
+  br i1 %21, label %.lr.ph282, label %.split107.us
 
-.lr.ph272:                                        ; preds = %.lr.ph272.preheader, %.lr.ph144
+.lr.ph282:                                        ; preds = %.lr.ph282.preheader, %.lr.ph144
   %22 = load i32, ptr %20, align 4
   switch i32 %22, label %.split110.us [
     i32 11, label %23
     i32 4, label %23
   ]
 
-23:                                               ; preds = %.lr.ph272, %.lr.ph272
+23:                                               ; preds = %.lr.ph282, %.lr.ph282
   %24 = call i64 @read(i32 noundef %8, ptr noundef %.064.ph148, i64 noundef %.065.ph146) #13
   %25 = trunc i64 %24 to i32
   %26 = icmp eq i32 %25, 0
@@ -982,11 +982,11 @@ define internal noalias noundef ptr @_handle_accept(ptr noundef %0) #0 {
 
 .lr.ph129.preheader.preheader:                    ; preds = %.lr.ph.split.split
   %30 = icmp slt i32 %28, 0
-  br i1 %30, label %.lr.ph273.preheader, label %.split107.us
+  br i1 %30, label %.lr.ph283.preheader, label %.split107.us
 
-.lr.ph273.preheader:                              ; preds = %.lr.ph129.preheader.preheader
+.lr.ph283.preheader:                              ; preds = %.lr.ph129.preheader.preheader
   %31 = tail call ptr @__errno_location() #14
-  br label %.lr.ph273
+  br label %.lr.ph283
 
 .split113.us:                                     ; preds = %.lr.ph.split.split, %44
   %32 = call i32 @get_log_level() #13
@@ -1018,23 +1018,23 @@ define internal noalias noundef ptr @_handle_accept(ptr noundef %0) #0 {
 
 .lr.ph129.preheader:                              ; preds = %44
   %42 = icmp slt i32 %46, 0
-  br i1 %42, label %.lr.ph273, label %.split107.us
+  br i1 %42, label %.lr.ph283, label %.split107.us
 
-.lr.ph273:                                        ; preds = %.lr.ph273.preheader, %.lr.ph129.preheader
+.lr.ph283:                                        ; preds = %.lr.ph283.preheader, %.lr.ph129.preheader
   %43 = load i32, ptr %31, align 4
   switch i32 %43, label %.split110.us [
     i32 11, label %44
     i32 4, label %44
   ]
 
-44:                                               ; preds = %.lr.ph273, %.lr.ph273
+44:                                               ; preds = %.lr.ph283, %.lr.ph283
   %45 = call i64 @read(i32 noundef %8, ptr noundef %.064.ph148, i64 noundef 4) #13
   %46 = trunc i64 %45 to i32
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %.split113.us, label %.lr.ph129.preheader
 
-.split110.us:                                     ; preds = %.lr.ph272, %.lr.ph273
-  %.065.ph146219 = phi i64 [ 4, %.lr.ph273 ], [ %.065.ph146, %.lr.ph272 ]
+.split110.us:                                     ; preds = %.lr.ph282, %.lr.ph283
+  %.065.ph146219 = phi i64 [ 4, %.lr.ph283 ], [ %.065.ph146, %.lr.ph282 ]
   %48 = call i32 @get_log_level() #13
   %49 = icmp sgt i32 %48, 4
   br i1 %49, label %50, label %.thread
@@ -1801,24 +1801,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
 
 .lr.ph399.preheader:                              ; preds = %.lr.ph.split.us.split
   %19 = icmp slt i32 %17, 0
-  br i1 %19, label %.lr.ph991.preheader, label %.split362.us
+  br i1 %19, label %.lr.ph1037.preheader, label %.split362.us
 
-.lr.ph991.preheader:                              ; preds = %.lr.ph399.preheader
+.lr.ph1037.preheader:                             ; preds = %.lr.ph399.preheader
   %20 = tail call ptr @__errno_location() #14
-  br label %.lr.ph991
+  br label %.lr.ph1037
 
 .lr.ph399:                                        ; preds = %23
   %21 = icmp slt i32 %25, 0
-  br i1 %21, label %.lr.ph991, label %.split362.us
+  br i1 %21, label %.lr.ph1037, label %.split362.us
 
-.lr.ph991:                                        ; preds = %.lr.ph991.preheader, %.lr.ph399
+.lr.ph1037:                                       ; preds = %.lr.ph1037.preheader, %.lr.ph399
   %22 = load i32, ptr %20, align 4
   switch i32 %22, label %.split365.us [
     i32 11, label %23
     i32 4, label %23
   ]
 
-23:                                               ; preds = %.lr.ph991, %.lr.ph991
+23:                                               ; preds = %.lr.ph1037, %.lr.ph1037
   %24 = call i64 @read(i32 noundef %0, ptr noundef %.0207.ph401, i64 noundef %.0206.ph403) #13
   %25 = trunc i64 %24 to i32
   %26 = icmp eq i32 %25, 0
@@ -1832,11 +1832,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
 
 .lr.ph384.preheader.preheader:                    ; preds = %.lr.ph.split.split
   %30 = icmp slt i32 %28, 0
-  br i1 %30, label %.lr.ph992.preheader, label %.split362.us
+  br i1 %30, label %.lr.ph1038.preheader, label %.split362.us
 
-.lr.ph992.preheader:                              ; preds = %.lr.ph384.preheader.preheader
+.lr.ph1038.preheader:                             ; preds = %.lr.ph384.preheader.preheader
   %31 = tail call ptr @__errno_location() #14
-  br label %.lr.ph992
+  br label %.lr.ph1038
 
 .split368.us:                                     ; preds = %.lr.ph.split.split, %44
   %32 = tail call i32 @get_log_level() #13
@@ -1868,23 +1868,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
 
 .lr.ph384.preheader:                              ; preds = %44
   %42 = icmp slt i32 %46, 0
-  br i1 %42, label %.lr.ph992, label %.split362.us
+  br i1 %42, label %.lr.ph1038, label %.split362.us
 
-.lr.ph992:                                        ; preds = %.lr.ph992.preheader, %.lr.ph384.preheader
+.lr.ph1038:                                       ; preds = %.lr.ph1038.preheader, %.lr.ph384.preheader
   %43 = load i32, ptr %31, align 4
   switch i32 %43, label %.split365.us [
     i32 11, label %44
     i32 4, label %44
   ]
 
-44:                                               ; preds = %.lr.ph992, %.lr.ph992
+44:                                               ; preds = %.lr.ph1038, %.lr.ph1038
   %45 = call i64 @read(i32 noundef %0, ptr noundef %.0207.ph401, i64 noundef 4) #13
   %46 = trunc i64 %45 to i32
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %.split368.us, label %.lr.ph384.preheader
 
-.split365.us:                                     ; preds = %.lr.ph991, %.lr.ph992
-  %.0206.ph403776 = phi i64 [ 4, %.lr.ph992 ], [ %.0206.ph403, %.lr.ph991 ]
+.split365.us:                                     ; preds = %.lr.ph1037, %.lr.ph1038
+  %.0206.ph403776 = phi i64 [ 4, %.lr.ph1038 ], [ %.0206.ph403, %.lr.ph1037 ]
   %48 = tail call i32 @get_log_level() #13
   %49 = icmp sgt i32 %48, 4
   br i1 %49, label %50, label %.thread
@@ -1943,23 +1943,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
 
 .lr.ph434.preheader:                              ; preds = %70
   %68 = icmp slt i32 %72, 0
-  br i1 %68, label %.lr.ph996, label %.split411
+  br i1 %68, label %.lr.ph1042, label %.split411
 
-.lr.ph996:                                        ; preds = %.lr.ph996.preheader, %.lr.ph434.preheader
+.lr.ph1042:                                       ; preds = %.lr.ph1042.preheader, %.lr.ph434.preheader
   %69 = load i32, ptr %100, align 4
   switch i32 %69, label %.split414 [
     i32 11, label %70
     i32 4, label %70
   ]
 
-70:                                               ; preds = %.lr.ph996, %.lr.ph996
+70:                                               ; preds = %.lr.ph1042, %.lr.ph1042
   %71 = call i64 @read(i32 noundef %0, ptr noundef %.0211.ph452, i64 noundef 4) #13
   %72 = trunc i64 %71 to i32
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %.split418, label %.lr.ph434.preheader
 
-.split414:                                        ; preds = %.lr.ph994, %.lr.ph996
-  %.0209.ph454758 = phi i64 [ 4, %.lr.ph996 ], [ %.0209.ph454, %.lr.ph994 ]
+.split414:                                        ; preds = %.lr.ph1040, %.lr.ph1042
+  %.0209.ph454758 = phi i64 [ 4, %.lr.ph1042 ], [ %.0209.ph454, %.lr.ph1040 ]
   %74 = tail call i32 @get_log_level() #13
   %75 = icmp sgt i32 %74, 4
   br i1 %75, label %76, label %.thread
@@ -2002,24 +2002,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
 
 .lr.ph449.preheader:                              ; preds = %.lr.ph406.split.us.split
   %88 = icmp slt i32 %86, 0
-  br i1 %88, label %.lr.ph994.preheader, label %.split411
+  br i1 %88, label %.lr.ph1040.preheader, label %.split411
 
-.lr.ph994.preheader:                              ; preds = %.lr.ph449.preheader
+.lr.ph1040.preheader:                             ; preds = %.lr.ph449.preheader
   %89 = tail call ptr @__errno_location() #14
-  br label %.lr.ph994
+  br label %.lr.ph1040
 
 .lr.ph449:                                        ; preds = %92
   %90 = icmp slt i32 %94, 0
-  br i1 %90, label %.lr.ph994, label %.split411
+  br i1 %90, label %.lr.ph1040, label %.split411
 
-.lr.ph994:                                        ; preds = %.lr.ph994.preheader, %.lr.ph449
+.lr.ph1040:                                       ; preds = %.lr.ph1040.preheader, %.lr.ph449
   %91 = load i32, ptr %89, align 4
   switch i32 %91, label %.split414 [
     i32 11, label %92
     i32 4, label %92
   ]
 
-92:                                               ; preds = %.lr.ph994, %.lr.ph994
+92:                                               ; preds = %.lr.ph1040, %.lr.ph1040
   %93 = call i64 @read(i32 noundef %0, ptr noundef %.0211.ph452, i64 noundef %.0209.ph454) #13
   %94 = trunc i64 %93 to i32
   %95 = icmp eq i32 %94, 0
@@ -2033,11 +2033,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
 
 .lr.ph434.preheader.preheader:                    ; preds = %.lr.ph406.split.split
   %99 = icmp slt i32 %97, 0
-  br i1 %99, label %.lr.ph996.preheader, label %.split411
+  br i1 %99, label %.lr.ph1042.preheader, label %.split411
 
-.lr.ph996.preheader:                              ; preds = %.lr.ph434.preheader.preheader
+.lr.ph1042.preheader:                             ; preds = %.lr.ph434.preheader.preheader
   %100 = tail call ptr @__errno_location() #14
-  br label %.lr.ph996
+  br label %.lr.ph1042
 
 .split469:                                        ; preds = %.lr.ph457.split.split, %113
   %101 = tail call i32 @get_log_level() #13
@@ -2069,23 +2069,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
 
 .lr.ph485.preheader:                              ; preds = %113
   %111 = icmp slt i32 %115, 0
-  br i1 %111, label %.lr.ph1000, label %.split462
+  br i1 %111, label %.lr.ph1046, label %.split462
 
-.lr.ph1000:                                       ; preds = %.lr.ph1000.preheader, %.lr.ph485.preheader
+.lr.ph1046:                                       ; preds = %.lr.ph1046.preheader, %.lr.ph485.preheader
   %112 = load i32, ptr %143, align 4
   switch i32 %112, label %.split465 [
     i32 11, label %113
     i32 4, label %113
   ]
 
-113:                                              ; preds = %.lr.ph1000, %.lr.ph1000
+113:                                              ; preds = %.lr.ph1046, %.lr.ph1046
   %114 = call i64 @read(i32 noundef %0, ptr noundef %.0213.ph503, i64 noundef 4) #13
   %115 = trunc i64 %114 to i32
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %.split469, label %.lr.ph485.preheader
 
-.split465:                                        ; preds = %.lr.ph998, %.lr.ph1000
-  %.0212.ph505740 = phi i64 [ 4, %.lr.ph1000 ], [ %.0212.ph505, %.lr.ph998 ]
+.split465:                                        ; preds = %.lr.ph1044, %.lr.ph1046
+  %.0212.ph505740 = phi i64 [ 4, %.lr.ph1046 ], [ %.0212.ph505, %.lr.ph1044 ]
   %117 = tail call i32 @get_log_level() #13
   %118 = icmp sgt i32 %117, 4
   br i1 %118, label %119, label %.thread
@@ -2128,24 +2128,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
 
 .lr.ph500.preheader:                              ; preds = %.lr.ph457.split.us.split
   %131 = icmp slt i32 %129, 0
-  br i1 %131, label %.lr.ph998.preheader, label %.split462
+  br i1 %131, label %.lr.ph1044.preheader, label %.split462
 
-.lr.ph998.preheader:                              ; preds = %.lr.ph500.preheader
+.lr.ph1044.preheader:                             ; preds = %.lr.ph500.preheader
   %132 = tail call ptr @__errno_location() #14
-  br label %.lr.ph998
+  br label %.lr.ph1044
 
 .lr.ph500:                                        ; preds = %135
   %133 = icmp slt i32 %137, 0
-  br i1 %133, label %.lr.ph998, label %.split462
+  br i1 %133, label %.lr.ph1044, label %.split462
 
-.lr.ph998:                                        ; preds = %.lr.ph998.preheader, %.lr.ph500
+.lr.ph1044:                                       ; preds = %.lr.ph1044.preheader, %.lr.ph500
   %134 = load i32, ptr %132, align 4
   switch i32 %134, label %.split465 [
     i32 11, label %135
     i32 4, label %135
   ]
 
-135:                                              ; preds = %.lr.ph998, %.lr.ph998
+135:                                              ; preds = %.lr.ph1044, %.lr.ph1044
   %136 = call i64 @read(i32 noundef %0, ptr noundef %.0213.ph503, i64 noundef %.0212.ph505) #13
   %137 = trunc i64 %136 to i32
   %138 = icmp eq i32 %137, 0
@@ -2159,27 +2159,27 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
 
 .lr.ph485.preheader.preheader:                    ; preds = %.lr.ph457.split.split
   %142 = icmp slt i32 %140, 0
-  br i1 %142, label %.lr.ph1000.preheader, label %.split462
+  br i1 %142, label %.lr.ph1046.preheader, label %.split462
 
-.lr.ph1000.preheader:                             ; preds = %.lr.ph485.preheader.preheader
+.lr.ph1046.preheader:                             ; preds = %.lr.ph485.preheader.preheader
   %143 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1000
+  br label %.lr.ph1046
 
 .outer317._crit_edge:                             ; preds = %.split462
   %144 = load i32, ptr %8, align 4
-  %.fr900 = freeze i32 %144
-  %.not258 = icmp eq i32 %.fr900, 0
+  %.fr946 = freeze i32 %144
+  %.not258 = icmp eq i32 %.fr946, 0
   br i1 %.not258, label %.lr.ph560.preheader, label %.lr.ph508.preheader
 
 .lr.ph560.preheader:                              ; preds = %.split513.us, %.outer317._crit_edge
   br label %.lr.ph560
 
 .lr.ph508.preheader:                              ; preds = %.outer317._crit_edge
-  %145 = add nsw i32 %.fr900, 1
+  %145 = add nsw i32 %.fr946, 1
   %146 = sext i32 %145 to i64
   %147 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %146, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.26, i32 noundef 1051, ptr noundef nonnull @__func__._handle_signal_container) #13
   store ptr %147, ptr %9, align 8
-  %148 = sext i32 %.fr900 to i64
+  %148 = sext i32 %.fr946 to i64
   br label %.lr.ph508
 
 .lr.ph508:                                        ; preds = %.lr.ph508.backedge, %.lr.ph508.preheader
@@ -2196,24 +2196,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
 
 .lr.ph551.preheader:                              ; preds = %.lr.ph508.split.us.split
   %153 = icmp slt i32 %151, 0
-  br i1 %153, label %.lr.ph1002.preheader, label %.split513.us
+  br i1 %153, label %.lr.ph1048.preheader, label %.split513.us
 
-.lr.ph1002.preheader:                             ; preds = %.lr.ph551.preheader
+.lr.ph1048.preheader:                             ; preds = %.lr.ph551.preheader
   %154 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1002
+  br label %.lr.ph1048
 
 .lr.ph551:                                        ; preds = %157
   %155 = icmp slt i32 %159, 0
-  br i1 %155, label %.lr.ph1002, label %.split513.us
+  br i1 %155, label %.lr.ph1048, label %.split513.us
 
-.lr.ph1002:                                       ; preds = %.lr.ph1002.preheader, %.lr.ph551
+.lr.ph1048:                                       ; preds = %.lr.ph1048.preheader, %.lr.ph551
   %156 = load i32, ptr %154, align 4
   switch i32 %156, label %.split516.us [
     i32 11, label %157
     i32 4, label %157
   ]
 
-157:                                              ; preds = %.lr.ph1002, %.lr.ph1002
+157:                                              ; preds = %.lr.ph1048, %.lr.ph1048
   %158 = tail call i64 @read(i32 noundef %0, ptr noundef %.0217.ph555, i64 noundef %.0216.ph557) #13
   %159 = trunc i64 %158 to i32
   %160 = icmp eq i32 %159, 0
@@ -2224,11 +2224,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
 
 .lr.ph536.preheader.preheader:                    ; preds = %.lr.ph508.split.split
   %161 = icmp slt i32 %151, 0
-  br i1 %161, label %.lr.ph1004.preheader, label %.split513.us
+  br i1 %161, label %.lr.ph1050.preheader, label %.split513.us
 
-.lr.ph1004.preheader:                             ; preds = %.lr.ph536.preheader.preheader
+.lr.ph1050.preheader:                             ; preds = %.lr.ph536.preheader.preheader
   %162 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1004
+  br label %.lr.ph1050
 
 .split520.us:                                     ; preds = %.lr.ph508.split.split, %175
   %163 = tail call i32 @get_log_level() #13
@@ -2250,7 +2250,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
   br i1 %169, label %170, label %171
 
 170:                                              ; preds = %.split510.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.26, i32 noundef 1052, ptr noundef nonnull @__func__._handle_signal_container, i64 noundef %.0216.ph557, i32 noundef %.fr900) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.26, i32 noundef 1052, ptr noundef nonnull @__func__._handle_signal_container, i64 noundef %.0216.ph557, i32 noundef %.fr946) #13
   br label %171
 
 171:                                              ; preds = %170, %.split510.us
@@ -2260,28 +2260,28 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
 
 .lr.ph536.preheader:                              ; preds = %175
   %173 = icmp slt i32 %177, 0
-  br i1 %173, label %.lr.ph1004, label %.split513.us
+  br i1 %173, label %.lr.ph1050, label %.split513.us
 
-.lr.ph1004:                                       ; preds = %.lr.ph1004.preheader, %.lr.ph536.preheader
+.lr.ph1050:                                       ; preds = %.lr.ph1050.preheader, %.lr.ph536.preheader
   %174 = load i32, ptr %162, align 4
   switch i32 %174, label %.split516.us [
     i32 11, label %175
     i32 4, label %175
   ]
 
-175:                                              ; preds = %.lr.ph1004, %.lr.ph1004
+175:                                              ; preds = %.lr.ph1050, %.lr.ph1050
   %176 = tail call i64 @read(i32 noundef %0, ptr noundef %.0217.ph555, i64 noundef %.0216.ph557) #13
   %177 = trunc i64 %176 to i32
   %178 = icmp eq i32 %177, 0
   br i1 %178, label %.split520.us, label %.lr.ph536.preheader
 
-.split516.us:                                     ; preds = %.lr.ph1002, %.lr.ph1004
+.split516.us:                                     ; preds = %.lr.ph1048, %.lr.ph1050
   %179 = tail call i32 @get_log_level() #13
   %180 = icmp sgt i32 %179, 4
   br i1 %180, label %181, label %.thread
 
 181:                                              ; preds = %.split516.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.26, i32 noundef 1052, ptr noundef nonnull @__func__._handle_signal_container, i64 noundef %.0216.ph557, i32 noundef %.fr900) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.26, i32 noundef 1052, ptr noundef nonnull @__func__._handle_signal_container, i64 noundef %.0216.ph557, i32 noundef %.fr946) #13
   br label %.thread
 
 .split513.us:                                     ; preds = %.lr.ph551, %.lr.ph536.preheader, %.lr.ph551.preheader, %.lr.ph536.preheader.preheader
@@ -2298,7 +2298,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
   br i1 %187, label %188, label %.lr.ph508.backedge
 
 188:                                              ; preds = %185
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.26, i32 noundef 1052, ptr noundef nonnull @__func__._handle_signal_container, i64 noundef %184, i32 noundef %.fr900) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.26, i32 noundef 1052, ptr noundef nonnull @__func__._handle_signal_container, i64 noundef %184, i32 noundef %.fr946) #13
   br label %.lr.ph508.backedge
 
 .lr.ph508.backedge:                               ; preds = %188, %185
@@ -2334,23 +2334,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
 
 .lr.ph589.preheader:                              ; preds = %201
   %199 = icmp slt i32 %203, 0
-  br i1 %199, label %.lr.ph1008, label %.split566
+  br i1 %199, label %.lr.ph1054, label %.split566
 
-.lr.ph1008:                                       ; preds = %.lr.ph1008.preheader, %.lr.ph589.preheader
+.lr.ph1054:                                       ; preds = %.lr.ph1054.preheader, %.lr.ph589.preheader
   %200 = load i32, ptr %231, align 4
   switch i32 %200, label %.split569 [
     i32 11, label %201
     i32 4, label %201
   ]
 
-201:                                              ; preds = %.lr.ph1008, %.lr.ph1008
+201:                                              ; preds = %.lr.ph1054, %.lr.ph1054
   %202 = call i64 @read(i32 noundef %0, ptr noundef %.0214.ph609, i64 noundef 4) #13
   %203 = trunc i64 %202 to i32
   %204 = icmp eq i32 %203, 0
   br i1 %204, label %.split573, label %.lr.ph589.preheader
 
-.split569:                                        ; preds = %.lr.ph1006, %.lr.ph1008
-  %.0215.ph607704 = phi i64 [ 4, %.lr.ph1008 ], [ %.0215.ph607, %.lr.ph1006 ]
+.split569:                                        ; preds = %.lr.ph1052, %.lr.ph1054
+  %.0215.ph607704 = phi i64 [ 4, %.lr.ph1054 ], [ %.0215.ph607, %.lr.ph1052 ]
   %205 = tail call i32 @get_log_level() #13
   %206 = icmp sgt i32 %205, 4
   br i1 %206, label %207, label %.thread
@@ -2393,24 +2393,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
 
 .lr.ph604.preheader:                              ; preds = %.lr.ph560.split.us.split
   %219 = icmp slt i32 %217, 0
-  br i1 %219, label %.lr.ph1006.preheader, label %.split566
+  br i1 %219, label %.lr.ph1052.preheader, label %.split566
 
-.lr.ph1006.preheader:                             ; preds = %.lr.ph604.preheader
+.lr.ph1052.preheader:                             ; preds = %.lr.ph604.preheader
   %220 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1006
+  br label %.lr.ph1052
 
 .lr.ph604:                                        ; preds = %223
   %221 = icmp slt i32 %225, 0
-  br i1 %221, label %.lr.ph1006, label %.split566
+  br i1 %221, label %.lr.ph1052, label %.split566
 
-.lr.ph1006:                                       ; preds = %.lr.ph1006.preheader, %.lr.ph604
+.lr.ph1052:                                       ; preds = %.lr.ph1052.preheader, %.lr.ph604
   %222 = load i32, ptr %220, align 4
   switch i32 %222, label %.split569 [
     i32 11, label %223
     i32 4, label %223
   ]
 
-223:                                              ; preds = %.lr.ph1006, %.lr.ph1006
+223:                                              ; preds = %.lr.ph1052, %.lr.ph1052
   %224 = call i64 @read(i32 noundef %0, ptr noundef %.0214.ph609, i64 noundef %.0215.ph607) #13
   %225 = trunc i64 %224 to i32
   %226 = icmp eq i32 %225, 0
@@ -2424,11 +2424,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
 
 .lr.ph589.preheader.preheader:                    ; preds = %.lr.ph560.split.split
   %230 = icmp slt i32 %228, 0
-  br i1 %230, label %.lr.ph1008.preheader, label %.split566
+  br i1 %230, label %.lr.ph1054.preheader, label %.split566
 
-.lr.ph1008.preheader:                             ; preds = %.lr.ph589.preheader.preheader
+.lr.ph1054.preheader:                             ; preds = %.lr.ph589.preheader.preheader
   %231 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1008
+  br label %.lr.ph1054
 
 .outer314._crit_edge:                             ; preds = %.split566
   %232 = icmp sgt i32 %211, 4
@@ -3372,24 +3372,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
 
 .lr.ph508.preheader:                              ; preds = %.lr.ph.split.us.split
   %25 = icmp slt i32 %23, 0
-  br i1 %25, label %.lr.ph1372.preheader, label %.split471.us
+  br i1 %25, label %.lr.ph1434.preheader, label %.split471.us
 
-.lr.ph1372.preheader:                             ; preds = %.lr.ph508.preheader
+.lr.ph1434.preheader:                             ; preds = %.lr.ph508.preheader
   %26 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1372
+  br label %.lr.ph1434
 
 .lr.ph508:                                        ; preds = %29
   %27 = icmp slt i32 %31, 0
-  br i1 %27, label %.lr.ph1372, label %.split471.us
+  br i1 %27, label %.lr.ph1434, label %.split471.us
 
-.lr.ph1372:                                       ; preds = %.lr.ph1372.preheader, %.lr.ph508
+.lr.ph1434:                                       ; preds = %.lr.ph1434.preheader, %.lr.ph508
   %28 = load i32, ptr %26, align 4
   switch i32 %28, label %.split474.us [
     i32 11, label %29
     i32 4, label %29
   ]
 
-29:                                               ; preds = %.lr.ph1372, %.lr.ph1372
+29:                                               ; preds = %.lr.ph1434, %.lr.ph1434
   %30 = tail call i64 @read(i32 noundef %0, ptr noundef %.0244.ph510, i64 noundef %.0241.ph512) #13
   %31 = trunc i64 %30 to i32
   %32 = icmp eq i32 %31, 0
@@ -3403,11 +3403,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
 
 .lr.ph493.preheader.preheader:                    ; preds = %.lr.ph.split.split
   %36 = icmp slt i32 %34, 0
-  br i1 %36, label %.lr.ph1373.preheader, label %.split471.us
+  br i1 %36, label %.lr.ph1435.preheader, label %.split471.us
 
-.lr.ph1373.preheader:                             ; preds = %.lr.ph493.preheader.preheader
+.lr.ph1435.preheader:                             ; preds = %.lr.ph493.preheader.preheader
   %37 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1373
+  br label %.lr.ph1435
 
 .split477.us:                                     ; preds = %.lr.ph.split.split, %50
   %38 = tail call i32 @get_log_level() #13
@@ -3439,23 +3439,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
 
 .lr.ph493.preheader:                              ; preds = %50
   %48 = icmp slt i32 %52, 0
-  br i1 %48, label %.lr.ph1373, label %.split471.us
+  br i1 %48, label %.lr.ph1435, label %.split471.us
 
-.lr.ph1373:                                       ; preds = %.lr.ph1373.preheader, %.lr.ph493.preheader
+.lr.ph1435:                                       ; preds = %.lr.ph1435.preheader, %.lr.ph493.preheader
   %49 = load i32, ptr %37, align 4
   switch i32 %49, label %.split474.us [
     i32 11, label %50
     i32 4, label %50
   ]
 
-50:                                               ; preds = %.lr.ph1373, %.lr.ph1373
+50:                                               ; preds = %.lr.ph1435, %.lr.ph1435
   %51 = tail call i64 @read(i32 noundef %0, ptr noundef %.0244.ph510, i64 noundef 128) #13
   %52 = trunc i64 %51 to i32
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %.split477.us, label %.lr.ph493.preheader
 
-.split474.us:                                     ; preds = %.lr.ph1372, %.lr.ph1373
-  %.0241.ph5121089 = phi i64 [ 128, %.lr.ph1373 ], [ %.0241.ph512, %.lr.ph1372 ]
+.split474.us:                                     ; preds = %.lr.ph1434, %.lr.ph1435
+  %.0241.ph5121089 = phi i64 [ 128, %.lr.ph1435 ], [ %.0241.ph512, %.lr.ph1434 ]
   %54 = tail call i32 @get_log_level() #13
   %55 = icmp sgt i32 %54, 4
   br i1 %55, label %56, label %.thread
@@ -3502,24 +3502,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
 
 .lr.ph558.preheader:                              ; preds = %.lr.ph515.split.us.split
   %69 = icmp slt i32 %67, 0
-  br i1 %69, label %.lr.ph1375.preheader, label %.split520.us
+  br i1 %69, label %.lr.ph1437.preheader, label %.split520.us
 
-.lr.ph1375.preheader:                             ; preds = %.lr.ph558.preheader
+.lr.ph1437.preheader:                             ; preds = %.lr.ph558.preheader
   %70 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1375
+  br label %.lr.ph1437
 
 .lr.ph558:                                        ; preds = %73
   %71 = icmp slt i32 %75, 0
-  br i1 %71, label %.lr.ph1375, label %.split520.us
+  br i1 %71, label %.lr.ph1437, label %.split520.us
 
-.lr.ph1375:                                       ; preds = %.lr.ph1375.preheader, %.lr.ph558
+.lr.ph1437:                                       ; preds = %.lr.ph1437.preheader, %.lr.ph558
   %72 = load i32, ptr %70, align 4
   switch i32 %72, label %.split523.us [
     i32 11, label %73
     i32 4, label %73
   ]
 
-73:                                               ; preds = %.lr.ph1375, %.lr.ph1375
+73:                                               ; preds = %.lr.ph1437, %.lr.ph1437
   %74 = tail call i64 @read(i32 noundef %0, ptr noundef %.0254.ph561, i64 noundef %.0251.ph563) #13
   %75 = trunc i64 %74 to i32
   %76 = icmp eq i32 %75, 0
@@ -3533,11 +3533,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
 
 .lr.ph543.preheader.preheader:                    ; preds = %.lr.ph515.split.split
   %80 = icmp slt i32 %78, 0
-  br i1 %80, label %.lr.ph1377.preheader, label %.split520.us
+  br i1 %80, label %.lr.ph1439.preheader, label %.split520.us
 
-.lr.ph1377.preheader:                             ; preds = %.lr.ph543.preheader.preheader
+.lr.ph1439.preheader:                             ; preds = %.lr.ph543.preheader.preheader
   %81 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1377
+  br label %.lr.ph1439
 
 .split527.us:                                     ; preds = %.lr.ph515.split.split, %94
   %82 = tail call i32 @get_log_level() #13
@@ -3569,23 +3569,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
 
 .lr.ph543.preheader:                              ; preds = %94
   %92 = icmp slt i32 %96, 0
-  br i1 %92, label %.lr.ph1377, label %.split520.us
+  br i1 %92, label %.lr.ph1439, label %.split520.us
 
-.lr.ph1377:                                       ; preds = %.lr.ph1377.preheader, %.lr.ph543.preheader
+.lr.ph1439:                                       ; preds = %.lr.ph1439.preheader, %.lr.ph543.preheader
   %93 = load i32, ptr %81, align 4
   switch i32 %93, label %.split523.us [
     i32 11, label %94
     i32 4, label %94
   ]
 
-94:                                               ; preds = %.lr.ph1377, %.lr.ph1377
+94:                                               ; preds = %.lr.ph1439, %.lr.ph1439
   %95 = tail call i64 @read(i32 noundef %0, ptr noundef %.0254.ph561, i64 noundef 128) #13
   %96 = trunc i64 %95 to i32
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %.split527.us, label %.lr.ph543.preheader
 
-.split523.us:                                     ; preds = %.lr.ph1375, %.lr.ph1377
-  %.0251.ph5631071 = phi i64 [ 128, %.lr.ph1377 ], [ %.0251.ph563, %.lr.ph1375 ]
+.split523.us:                                     ; preds = %.lr.ph1437, %.lr.ph1439
+  %.0251.ph5631071 = phi i64 [ 128, %.lr.ph1439 ], [ %.0251.ph563, %.lr.ph1437 ]
   %98 = tail call i32 @get_log_level() #13
   %99 = icmp sgt i32 %98, 4
   br i1 %99, label %100, label %.thread
@@ -3644,23 +3644,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
 
 .lr.ph595.preheader:                              ; preds = %120
   %118 = icmp slt i32 %122, 0
-  br i1 %118, label %.lr.ph1381, label %.split572
+  br i1 %118, label %.lr.ph1443, label %.split572
 
-.lr.ph1381:                                       ; preds = %.lr.ph1381.preheader, %.lr.ph595.preheader
+.lr.ph1443:                                       ; preds = %.lr.ph1443.preheader, %.lr.ph595.preheader
   %119 = load i32, ptr %150, align 4
   switch i32 %119, label %.split575 [
     i32 11, label %120
     i32 4, label %120
   ]
 
-120:                                              ; preds = %.lr.ph1381, %.lr.ph1381
+120:                                              ; preds = %.lr.ph1443, %.lr.ph1443
   %121 = call i64 @read(i32 noundef %0, ptr noundef %.0260.ph613, i64 noundef 4) #13
   %122 = trunc i64 %121 to i32
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %.split579, label %.lr.ph595.preheader
 
-.split575:                                        ; preds = %.lr.ph1379, %.lr.ph1381
-  %.0257.ph6151053 = phi i64 [ 4, %.lr.ph1381 ], [ %.0257.ph615, %.lr.ph1379 ]
+.split575:                                        ; preds = %.lr.ph1441, %.lr.ph1443
+  %.0257.ph6151053 = phi i64 [ 4, %.lr.ph1443 ], [ %.0257.ph615, %.lr.ph1441 ]
   %124 = tail call i32 @get_log_level() #13
   %125 = icmp sgt i32 %124, 4
   br i1 %125, label %126, label %.thread
@@ -3703,24 +3703,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
 
 .lr.ph610.preheader:                              ; preds = %.lr.ph566.split.us.split
   %138 = icmp slt i32 %136, 0
-  br i1 %138, label %.lr.ph1379.preheader, label %.split572
+  br i1 %138, label %.lr.ph1441.preheader, label %.split572
 
-.lr.ph1379.preheader:                             ; preds = %.lr.ph610.preheader
+.lr.ph1441.preheader:                             ; preds = %.lr.ph610.preheader
   %139 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1379
+  br label %.lr.ph1441
 
 .lr.ph610:                                        ; preds = %142
   %140 = icmp slt i32 %144, 0
-  br i1 %140, label %.lr.ph1379, label %.split572
+  br i1 %140, label %.lr.ph1441, label %.split572
 
-.lr.ph1379:                                       ; preds = %.lr.ph1379.preheader, %.lr.ph610
+.lr.ph1441:                                       ; preds = %.lr.ph1441.preheader, %.lr.ph610
   %141 = load i32, ptr %139, align 4
   switch i32 %141, label %.split575 [
     i32 11, label %142
     i32 4, label %142
   ]
 
-142:                                              ; preds = %.lr.ph1379, %.lr.ph1379
+142:                                              ; preds = %.lr.ph1441, %.lr.ph1441
   %143 = call i64 @read(i32 noundef %0, ptr noundef %.0260.ph613, i64 noundef %.0257.ph615) #13
   %144 = trunc i64 %143 to i32
   %145 = icmp eq i32 %144, 0
@@ -3734,11 +3734,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
 
 .lr.ph595.preheader.preheader:                    ; preds = %.lr.ph566.split.split
   %149 = icmp slt i32 %147, 0
-  br i1 %149, label %.lr.ph1381.preheader, label %.split572
+  br i1 %149, label %.lr.ph1443.preheader, label %.split572
 
-.lr.ph1381.preheader:                             ; preds = %.lr.ph595.preheader.preheader
+.lr.ph1443.preheader:                             ; preds = %.lr.ph595.preheader.preheader
   %150 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1381
+  br label %.lr.ph1443
 
 .outer403._crit_edge:                             ; preds = %.split572
   %151 = load i32, ptr %8, align 4
@@ -3768,24 +3768,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
 
 .lr.ph662.preheader:                              ; preds = %.lr.ph618.split.us.split
   %161 = icmp slt i32 %159, 0
-  br i1 %161, label %.lr.ph1383.preheader, label %.split624.us
+  br i1 %161, label %.lr.ph1445.preheader, label %.split624.us
 
-.lr.ph1383.preheader:                             ; preds = %.lr.ph662.preheader
+.lr.ph1445.preheader:                             ; preds = %.lr.ph662.preheader
   %162 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1383
+  br label %.lr.ph1445
 
 .lr.ph662:                                        ; preds = %165
   %163 = icmp slt i32 %167, 0
-  br i1 %163, label %.lr.ph1383, label %.split624.us
+  br i1 %163, label %.lr.ph1445, label %.split624.us
 
-.lr.ph1383:                                       ; preds = %.lr.ph1383.preheader, %.lr.ph662
+.lr.ph1445:                                       ; preds = %.lr.ph1445.preheader, %.lr.ph662
   %164 = load i32, ptr %162, align 4
   switch i32 %164, label %.split627.us [
     i32 11, label %165
     i32 4, label %165
   ]
 
-165:                                              ; preds = %.lr.ph1383, %.lr.ph1383
+165:                                              ; preds = %.lr.ph1445, %.lr.ph1445
   %166 = tail call i64 @read(i32 noundef %0, ptr noundef %.0264.ph666, i64 noundef %.0263.ph668) #13
   %167 = trunc i64 %166 to i32
   %168 = icmp eq i32 %167, 0
@@ -3799,11 +3799,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
 
 .lr.ph647.preheader.preheader:                    ; preds = %.lr.ph618.split.split
   %172 = icmp slt i32 %170, 0
-  br i1 %172, label %.lr.ph1385.preheader, label %.split624.us
+  br i1 %172, label %.lr.ph1447.preheader, label %.split624.us
 
-.lr.ph1385.preheader:                             ; preds = %.lr.ph647.preheader.preheader
+.lr.ph1447.preheader:                             ; preds = %.lr.ph647.preheader.preheader
   %173 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1385
+  br label %.lr.ph1447
 
 .split631.us:                                     ; preds = %.lr.ph618.split.split, %186
   %174 = tail call i32 @get_log_level() #13
@@ -3835,23 +3835,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
 
 .lr.ph647.preheader:                              ; preds = %186
   %184 = icmp slt i32 %188, 0
-  br i1 %184, label %.lr.ph1385, label %.split624.us
+  br i1 %184, label %.lr.ph1447, label %.split624.us
 
-.lr.ph1385:                                       ; preds = %.lr.ph1385.preheader, %.lr.ph647.preheader
+.lr.ph1447:                                       ; preds = %.lr.ph1447.preheader, %.lr.ph647.preheader
   %185 = load i32, ptr %173, align 4
   switch i32 %185, label %.split627.us [
     i32 11, label %186
     i32 4, label %186
   ]
 
-186:                                              ; preds = %.lr.ph1385, %.lr.ph1385
+186:                                              ; preds = %.lr.ph1447, %.lr.ph1447
   %187 = tail call i64 @read(i32 noundef %0, ptr noundef %.0264.ph666, i64 noundef %152) #13
   %188 = trunc i64 %187 to i32
   %189 = icmp eq i32 %188, 0
   br i1 %189, label %.split631.us, label %.lr.ph647.preheader
 
-.split627.us:                                     ; preds = %.lr.ph1383, %.lr.ph1385
-  %.0263.ph6681035 = phi i64 [ %152, %.lr.ph1385 ], [ %.0263.ph668, %.lr.ph1383 ]
+.split627.us:                                     ; preds = %.lr.ph1445, %.lr.ph1447
+  %.0263.ph6681035 = phi i64 [ %152, %.lr.ph1447 ], [ %.0263.ph668, %.lr.ph1445 ]
   %190 = tail call i32 @get_log_level() #13
   %191 = icmp sgt i32 %190, 4
   br i1 %191, label %192, label %.thread
@@ -3898,24 +3898,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
 
 .lr.ph715.preheader:                              ; preds = %.lr.ph671.split.us.split
   %205 = icmp slt i32 %203, 0
-  br i1 %205, label %.lr.ph1387.preheader, label %.split677.us
+  br i1 %205, label %.lr.ph1449.preheader, label %.split677.us
 
-.lr.ph1387.preheader:                             ; preds = %.lr.ph715.preheader
+.lr.ph1449.preheader:                             ; preds = %.lr.ph715.preheader
   %206 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1387
+  br label %.lr.ph1449
 
 .lr.ph715:                                        ; preds = %209
   %207 = icmp slt i32 %211, 0
-  br i1 %207, label %.lr.ph1387, label %.split677.us
+  br i1 %207, label %.lr.ph1449, label %.split677.us
 
-.lr.ph1387:                                       ; preds = %.lr.ph1387.preheader, %.lr.ph715
+.lr.ph1449:                                       ; preds = %.lr.ph1449.preheader, %.lr.ph715
   %208 = load i32, ptr %206, align 4
   switch i32 %208, label %.split680.us [
     i32 11, label %209
     i32 4, label %209
   ]
 
-209:                                              ; preds = %.lr.ph1387, %.lr.ph1387
+209:                                              ; preds = %.lr.ph1449, %.lr.ph1449
   %210 = tail call i64 @read(i32 noundef %0, ptr noundef %.0261.ph720, i64 noundef %.0262.ph718) #13
   %211 = trunc i64 %210 to i32
   %212 = icmp eq i32 %211, 0
@@ -3929,11 +3929,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
 
 .lr.ph700.preheader.preheader:                    ; preds = %.lr.ph671.split.split
   %216 = icmp slt i32 %214, 0
-  br i1 %216, label %.lr.ph1389.preheader, label %.split677.us
+  br i1 %216, label %.lr.ph1451.preheader, label %.split677.us
 
-.lr.ph1389.preheader:                             ; preds = %.lr.ph700.preheader.preheader
+.lr.ph1451.preheader:                             ; preds = %.lr.ph700.preheader.preheader
   %217 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1389
+  br label %.lr.ph1451
 
 .split684.us:                                     ; preds = %.lr.ph671.split.split, %230
   %218 = tail call i32 @get_log_level() #13
@@ -3965,23 +3965,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
 
 .lr.ph700.preheader:                              ; preds = %230
   %228 = icmp slt i32 %232, 0
-  br i1 %228, label %.lr.ph1389, label %.split677.us
+  br i1 %228, label %.lr.ph1451, label %.split677.us
 
-.lr.ph1389:                                       ; preds = %.lr.ph1389.preheader, %.lr.ph700.preheader
+.lr.ph1451:                                       ; preds = %.lr.ph1451.preheader, %.lr.ph700.preheader
   %229 = load i32, ptr %217, align 4
   switch i32 %229, label %.split680.us [
     i32 11, label %230
     i32 4, label %230
   ]
 
-230:                                              ; preds = %.lr.ph1389, %.lr.ph1389
+230:                                              ; preds = %.lr.ph1451, %.lr.ph1451
   %231 = tail call i64 @read(i32 noundef %0, ptr noundef %.0261.ph720, i64 noundef 4) #13
   %232 = trunc i64 %231 to i32
   %233 = icmp eq i32 %232, 0
   br i1 %233, label %.split684.us, label %.lr.ph700.preheader
 
-.split680.us:                                     ; preds = %.lr.ph1387, %.lr.ph1389
-  %.0262.ph7181017 = phi i64 [ 4, %.lr.ph1389 ], [ %.0262.ph718, %.lr.ph1387 ]
+.split680.us:                                     ; preds = %.lr.ph1449, %.lr.ph1451
+  %.0262.ph7181017 = phi i64 [ 4, %.lr.ph1451 ], [ %.0262.ph718, %.lr.ph1449 ]
   %234 = tail call i32 @get_log_level() #13
   %235 = icmp sgt i32 %234, 4
   br i1 %235, label %236, label %.thread
@@ -4028,24 +4028,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
 
 .lr.ph767.preheader:                              ; preds = %.lr.ph723.split.us.split
   %249 = icmp slt i32 %247, 0
-  br i1 %249, label %.lr.ph1391.preheader, label %.split729.us
+  br i1 %249, label %.lr.ph1453.preheader, label %.split729.us
 
-.lr.ph1391.preheader:                             ; preds = %.lr.ph767.preheader
+.lr.ph1453.preheader:                             ; preds = %.lr.ph767.preheader
   %250 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1391
+  br label %.lr.ph1453
 
 .lr.ph767:                                        ; preds = %253
   %251 = icmp slt i32 %255, 0
-  br i1 %251, label %.lr.ph1391, label %.split729.us
+  br i1 %251, label %.lr.ph1453, label %.split729.us
 
-.lr.ph1391:                                       ; preds = %.lr.ph1391.preheader, %.lr.ph767
+.lr.ph1453:                                       ; preds = %.lr.ph1453.preheader, %.lr.ph767
   %252 = load i32, ptr %250, align 4
   switch i32 %252, label %.split732.us [
     i32 11, label %253
     i32 4, label %253
   ]
 
-253:                                              ; preds = %.lr.ph1391, %.lr.ph1391
+253:                                              ; preds = %.lr.ph1453, %.lr.ph1453
   %254 = tail call i64 @read(i32 noundef %0, ptr noundef %.0258.ph772, i64 noundef %.0259.ph770) #13
   %255 = trunc i64 %254 to i32
   %256 = icmp eq i32 %255, 0
@@ -4059,11 +4059,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
 
 .lr.ph752.preheader.preheader:                    ; preds = %.lr.ph723.split.split
   %260 = icmp slt i32 %258, 0
-  br i1 %260, label %.lr.ph1393.preheader, label %.split729.us
+  br i1 %260, label %.lr.ph1455.preheader, label %.split729.us
 
-.lr.ph1393.preheader:                             ; preds = %.lr.ph752.preheader.preheader
+.lr.ph1455.preheader:                             ; preds = %.lr.ph752.preheader.preheader
   %261 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1393
+  br label %.lr.ph1455
 
 .split736.us:                                     ; preds = %.lr.ph723.split.split, %274
   %262 = tail call i32 @get_log_level() #13
@@ -4095,23 +4095,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
 
 .lr.ph752.preheader:                              ; preds = %274
   %272 = icmp slt i32 %276, 0
-  br i1 %272, label %.lr.ph1393, label %.split729.us
+  br i1 %272, label %.lr.ph1455, label %.split729.us
 
-.lr.ph1393:                                       ; preds = %.lr.ph1393.preheader, %.lr.ph752.preheader
+.lr.ph1455:                                       ; preds = %.lr.ph1455.preheader, %.lr.ph752.preheader
   %273 = load i32, ptr %261, align 4
   switch i32 %273, label %.split732.us [
     i32 11, label %274
     i32 4, label %274
   ]
 
-274:                                              ; preds = %.lr.ph1393, %.lr.ph1393
+274:                                              ; preds = %.lr.ph1455, %.lr.ph1455
   %275 = tail call i64 @read(i32 noundef %0, ptr noundef %.0258.ph772, i64 noundef 2) #13
   %276 = trunc i64 %275 to i32
   %277 = icmp eq i32 %276, 0
   br i1 %277, label %.split736.us, label %.lr.ph752.preheader
 
-.split732.us:                                     ; preds = %.lr.ph1391, %.lr.ph1393
-  %.0259.ph770999 = phi i64 [ 2, %.lr.ph1393 ], [ %.0259.ph770, %.lr.ph1391 ]
+.split732.us:                                     ; preds = %.lr.ph1453, %.lr.ph1455
+  %.0259.ph770999 = phi i64 [ 2, %.lr.ph1455 ], [ %.0259.ph770, %.lr.ph1453 ]
   %278 = tail call i32 @get_log_level() #13
   %279 = icmp sgt i32 %278, 4
   br i1 %279, label %280, label %.thread
@@ -4734,10 +4734,10 @@ thread-pre-split:                                 ; preds = %.outer398._crit_edg
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.thread, %505, %.loopexit393
-  %.sink1252 = phi ptr [ %503, %.loopexit393 ], [ %7, %505 ], [ %7, %.thread ]
+  %.sink1314 = phi ptr [ %503, %.loopexit393 ], [ %7, %505 ], [ %7, %.thread ]
   %.sink = phi ptr [ %4, %.loopexit393 ], [ %6, %505 ], [ %6, %.thread ]
   %.0.ph = phi i32 [ 0, %.loopexit393 ], [ -1, %505 ], [ -1, %.thread ]
-  call void @slurm_xfree(ptr noundef nonnull %.sink1252) #13
+  call void @slurm_xfree(ptr noundef nonnull %.sink1314) #13
   call void @slurm_xfree(ptr noundef nonnull %.sink) #13
   br label %506
 
@@ -4784,24 +4784,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_pid_in_container(i32 nounde
 
 .lr.ph103.preheader:                              ; preds = %.lr.ph.split.us.split
   %13 = icmp slt i32 %11, 0
-  br i1 %13, label %.lr.ph198.preheader, label %.split66.us
+  br i1 %13, label %.lr.ph205.preheader, label %.split66.us
 
-.lr.ph198.preheader:                              ; preds = %.lr.ph103.preheader
+.lr.ph205.preheader:                              ; preds = %.lr.ph103.preheader
   %14 = tail call ptr @__errno_location() #14
-  br label %.lr.ph198
+  br label %.lr.ph205
 
 .lr.ph103:                                        ; preds = %17
   %15 = icmp slt i32 %19, 0
-  br i1 %15, label %.lr.ph198, label %.split66.us
+  br i1 %15, label %.lr.ph205, label %.split66.us
 
-.lr.ph198:                                        ; preds = %.lr.ph198.preheader, %.lr.ph103
+.lr.ph205:                                        ; preds = %.lr.ph205.preheader, %.lr.ph103
   %16 = load i32, ptr %14, align 4
   switch i32 %16, label %.split69.us [
     i32 11, label %17
     i32 4, label %17
   ]
 
-17:                                               ; preds = %.lr.ph198, %.lr.ph198
+17:                                               ; preds = %.lr.ph205, %.lr.ph205
   %18 = call i64 @read(i32 noundef %0, ptr noundef %.037.ph105, i64 noundef %.036.ph107) #13
   %19 = trunc i64 %18 to i32
   %20 = icmp eq i32 %19, 0
@@ -4815,11 +4815,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_pid_in_container(i32 nounde
 
 .lr.ph88.preheader.preheader:                     ; preds = %.lr.ph.split.split
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.lr.ph199.preheader, label %.split66.us
+  br i1 %24, label %.lr.ph206.preheader, label %.split66.us
 
-.lr.ph199.preheader:                              ; preds = %.lr.ph88.preheader.preheader
+.lr.ph206.preheader:                              ; preds = %.lr.ph88.preheader.preheader
   %25 = tail call ptr @__errno_location() #14
-  br label %.lr.ph199
+  br label %.lr.ph206
 
 .split72.us:                                      ; preds = %.lr.ph.split.split, %38
   %26 = tail call i32 @get_log_level() #13
@@ -4851,23 +4851,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_pid_in_container(i32 nounde
 
 .lr.ph88.preheader:                               ; preds = %38
   %36 = icmp slt i32 %40, 0
-  br i1 %36, label %.lr.ph199, label %.split66.us
+  br i1 %36, label %.lr.ph206, label %.split66.us
 
-.lr.ph199:                                        ; preds = %.lr.ph199.preheader, %.lr.ph88.preheader
+.lr.ph206:                                        ; preds = %.lr.ph206.preheader, %.lr.ph88.preheader
   %37 = load i32, ptr %25, align 4
   switch i32 %37, label %.split69.us [
     i32 11, label %38
     i32 4, label %38
   ]
 
-38:                                               ; preds = %.lr.ph199, %.lr.ph199
+38:                                               ; preds = %.lr.ph206, %.lr.ph206
   %39 = call i64 @read(i32 noundef %0, ptr noundef %.037.ph105, i64 noundef 4) #13
   %40 = trunc i64 %39 to i32
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.split72.us, label %.lr.ph88.preheader
 
-.split69.us:                                      ; preds = %.lr.ph198, %.lr.ph199
-  %.036.ph107153 = phi i64 [ 4, %.lr.ph199 ], [ %.036.ph107, %.lr.ph198 ]
+.split69.us:                                      ; preds = %.lr.ph205, %.lr.ph206
+  %.036.ph107153 = phi i64 [ 4, %.lr.ph206 ], [ %.036.ph107, %.lr.ph205 ]
   %42 = tail call i32 @get_log_level() #13
   %43 = icmp sgt i32 %42, 4
   br i1 %43, label %44, label %.thread
@@ -6051,23 +6051,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph572.preheader:                              ; preds = %84
   %82 = icmp slt i32 %86, 0
-  br i1 %82, label %.lr.ph1462, label %.split550
+  br i1 %82, label %.lr.ph1531, label %.split550
 
-.lr.ph1462:                                       ; preds = %.lr.ph1462.preheader, %.lr.ph572.preheader
+.lr.ph1531:                                       ; preds = %.lr.ph1531.preheader, %.lr.ph572.preheader
   %83 = load i32, ptr %114, align 4
   switch i32 %83, label %.split553 [
     i32 11, label %84
     i32 4, label %84
   ]
 
-84:                                               ; preds = %.lr.ph1462, %.lr.ph1462
+84:                                               ; preds = %.lr.ph1531, %.lr.ph1531
   %85 = call i64 @read(i32 noundef %0, ptr noundef %.0259.ph590, i64 noundef 4) #13
   %86 = trunc i64 %85 to i32
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %.split556, label %.lr.ph572.preheader
 
-.split553:                                        ; preds = %.lr.ph, %.lr.ph1462
-  %.0258.ph5921151 = phi i64 [ 4, %.lr.ph1462 ], [ %.0258.ph592, %.lr.ph ]
+.split553:                                        ; preds = %.lr.ph, %.lr.ph1531
+  %.0258.ph5921151 = phi i64 [ 4, %.lr.ph1531 ], [ %.0258.ph592, %.lr.ph ]
   %88 = tail call i32 @get_log_level() #13
   %89 = icmp sgt i32 %88, 4
   br i1 %89, label %90, label %.thread425
@@ -6141,11 +6141,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph572.preheader.preheader:                    ; preds = %.lr.ph545.split.split
   %113 = icmp slt i32 %111, 0
-  br i1 %113, label %.lr.ph1462.preheader, label %.split550
+  br i1 %113, label %.lr.ph1531.preheader, label %.split550
 
-.lr.ph1462.preheader:                             ; preds = %.lr.ph572.preheader.preheader
+.lr.ph1531.preheader:                             ; preds = %.lr.ph572.preheader.preheader
   %114 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1462
+  br label %.lr.ph1531
 
 .split607:                                        ; preds = %.lr.ph595.split.split, %127
   %115 = tail call i32 @get_log_level() #13
@@ -6177,23 +6177,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph623.preheader:                              ; preds = %127
   %125 = icmp slt i32 %129, 0
-  br i1 %125, label %.lr.ph1466, label %.split600
+  br i1 %125, label %.lr.ph1535, label %.split600
 
-.lr.ph1466:                                       ; preds = %.lr.ph1466.preheader, %.lr.ph623.preheader
+.lr.ph1535:                                       ; preds = %.lr.ph1535.preheader, %.lr.ph623.preheader
   %126 = load i32, ptr %157, align 4
   switch i32 %126, label %.split603 [
     i32 11, label %127
     i32 4, label %127
   ]
 
-127:                                              ; preds = %.lr.ph1466, %.lr.ph1466
+127:                                              ; preds = %.lr.ph1535, %.lr.ph1535
   %128 = call i64 @read(i32 noundef %0, ptr noundef %.0261.ph641, i64 noundef 4) #13
   %129 = trunc i64 %128 to i32
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %.split607, label %.lr.ph623.preheader
 
-.split603:                                        ; preds = %.lr.ph1464, %.lr.ph1466
-  %.0260.ph6431133 = phi i64 [ 4, %.lr.ph1466 ], [ %.0260.ph643, %.lr.ph1464 ]
+.split603:                                        ; preds = %.lr.ph1533, %.lr.ph1535
+  %.0260.ph6431133 = phi i64 [ 4, %.lr.ph1535 ], [ %.0260.ph643, %.lr.ph1533 ]
   %131 = tail call i32 @get_log_level() #13
   %132 = icmp sgt i32 %131, 4
   br i1 %132, label %133, label %.thread425
@@ -6236,24 +6236,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph638.preheader:                              ; preds = %.lr.ph595.split.us.split
   %145 = icmp slt i32 %143, 0
-  br i1 %145, label %.lr.ph1464.preheader, label %.split600
+  br i1 %145, label %.lr.ph1533.preheader, label %.split600
 
-.lr.ph1464.preheader:                             ; preds = %.lr.ph638.preheader
+.lr.ph1533.preheader:                             ; preds = %.lr.ph638.preheader
   %146 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1464
+  br label %.lr.ph1533
 
 .lr.ph638:                                        ; preds = %149
   %147 = icmp slt i32 %151, 0
-  br i1 %147, label %.lr.ph1464, label %.split600
+  br i1 %147, label %.lr.ph1533, label %.split600
 
-.lr.ph1464:                                       ; preds = %.lr.ph1464.preheader, %.lr.ph638
+.lr.ph1533:                                       ; preds = %.lr.ph1533.preheader, %.lr.ph638
   %148 = load i32, ptr %146, align 4
   switch i32 %148, label %.split603 [
     i32 11, label %149
     i32 4, label %149
   ]
 
-149:                                              ; preds = %.lr.ph1464, %.lr.ph1464
+149:                                              ; preds = %.lr.ph1533, %.lr.ph1533
   %150 = call i64 @read(i32 noundef %0, ptr noundef %.0261.ph641, i64 noundef %.0260.ph643) #13
   %151 = trunc i64 %150 to i32
   %152 = icmp eq i32 %151, 0
@@ -6267,11 +6267,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph623.preheader.preheader:                    ; preds = %.lr.ph595.split.split
   %156 = icmp slt i32 %154, 0
-  br i1 %156, label %.lr.ph1466.preheader, label %.split600
+  br i1 %156, label %.lr.ph1535.preheader, label %.split600
 
-.lr.ph1466.preheader:                             ; preds = %.lr.ph623.preheader.preheader
+.lr.ph1535.preheader:                             ; preds = %.lr.ph623.preheader.preheader
   %157 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1466
+  br label %.lr.ph1535
 
 .split658:                                        ; preds = %.lr.ph646.split.split, %170
   %158 = tail call i32 @get_log_level() #13
@@ -6303,23 +6303,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph674.preheader:                              ; preds = %170
   %168 = icmp slt i32 %172, 0
-  br i1 %168, label %.lr.ph1470, label %.split651
+  br i1 %168, label %.lr.ph1539, label %.split651
 
-.lr.ph1470:                                       ; preds = %.lr.ph1470.preheader, %.lr.ph674.preheader
+.lr.ph1539:                                       ; preds = %.lr.ph1539.preheader, %.lr.ph674.preheader
   %169 = load i32, ptr %200, align 4
   switch i32 %169, label %.split654 [
     i32 11, label %170
     i32 4, label %170
   ]
 
-170:                                              ; preds = %.lr.ph1470, %.lr.ph1470
+170:                                              ; preds = %.lr.ph1539, %.lr.ph1539
   %171 = call i64 @read(i32 noundef %0, ptr noundef %.0265.ph692, i64 noundef 4) #13
   %172 = trunc i64 %171 to i32
   %173 = icmp eq i32 %172, 0
   br i1 %173, label %.split658, label %.lr.ph674.preheader
 
-.split654:                                        ; preds = %.lr.ph1468, %.lr.ph1470
-  %.0262.ph6941115 = phi i64 [ 4, %.lr.ph1470 ], [ %.0262.ph694, %.lr.ph1468 ]
+.split654:                                        ; preds = %.lr.ph1537, %.lr.ph1539
+  %.0262.ph6941115 = phi i64 [ 4, %.lr.ph1539 ], [ %.0262.ph694, %.lr.ph1537 ]
   %174 = tail call i32 @get_log_level() #13
   %175 = icmp sgt i32 %174, 4
   br i1 %175, label %176, label %.thread425
@@ -6362,24 +6362,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph689.preheader:                              ; preds = %.lr.ph646.split.us.split
   %188 = icmp slt i32 %186, 0
-  br i1 %188, label %.lr.ph1468.preheader, label %.split651
+  br i1 %188, label %.lr.ph1537.preheader, label %.split651
 
-.lr.ph1468.preheader:                             ; preds = %.lr.ph689.preheader
+.lr.ph1537.preheader:                             ; preds = %.lr.ph689.preheader
   %189 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1468
+  br label %.lr.ph1537
 
 .lr.ph689:                                        ; preds = %192
   %190 = icmp slt i32 %194, 0
-  br i1 %190, label %.lr.ph1468, label %.split651
+  br i1 %190, label %.lr.ph1537, label %.split651
 
-.lr.ph1468:                                       ; preds = %.lr.ph1468.preheader, %.lr.ph689
+.lr.ph1537:                                       ; preds = %.lr.ph1537.preheader, %.lr.ph689
   %191 = load i32, ptr %189, align 4
   switch i32 %191, label %.split654 [
     i32 11, label %192
     i32 4, label %192
   ]
 
-192:                                              ; preds = %.lr.ph1468, %.lr.ph1468
+192:                                              ; preds = %.lr.ph1537, %.lr.ph1537
   %193 = call i64 @read(i32 noundef %0, ptr noundef %.0265.ph692, i64 noundef %.0262.ph694) #13
   %194 = trunc i64 %193 to i32
   %195 = icmp eq i32 %194, 0
@@ -6393,11 +6393,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph674.preheader.preheader:                    ; preds = %.lr.ph646.split.split
   %199 = icmp slt i32 %197, 0
-  br i1 %199, label %.lr.ph1470.preheader, label %.split651
+  br i1 %199, label %.lr.ph1539.preheader, label %.split651
 
-.lr.ph1470.preheader:                             ; preds = %.lr.ph674.preheader.preheader
+.lr.ph1539.preheader:                             ; preds = %.lr.ph674.preheader.preheader
   %200 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1470
+  br label %.lr.ph1539
 
 .split709:                                        ; preds = %.lr.ph697.split.split, %213
   %201 = tail call i32 @get_log_level() #13
@@ -6429,23 +6429,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph725.preheader:                              ; preds = %213
   %211 = icmp slt i32 %215, 0
-  br i1 %211, label %.lr.ph1474, label %.split702
+  br i1 %211, label %.lr.ph1543, label %.split702
 
-.lr.ph1474:                                       ; preds = %.lr.ph1474.preheader, %.lr.ph725.preheader
+.lr.ph1543:                                       ; preds = %.lr.ph1543.preheader, %.lr.ph725.preheader
   %212 = load i32, ptr %243, align 4
   switch i32 %212, label %.split705 [
     i32 11, label %213
     i32 4, label %213
   ]
 
-213:                                              ; preds = %.lr.ph1474, %.lr.ph1474
+213:                                              ; preds = %.lr.ph1543, %.lr.ph1543
   %214 = call i64 @read(i32 noundef %0, ptr noundef %.0269.ph743, i64 noundef 4) #13
   %215 = trunc i64 %214 to i32
   %216 = icmp eq i32 %215, 0
   br i1 %216, label %.split709, label %.lr.ph725.preheader
 
-.split705:                                        ; preds = %.lr.ph1472, %.lr.ph1474
-  %.0268.ph7451097 = phi i64 [ 4, %.lr.ph1474 ], [ %.0268.ph745, %.lr.ph1472 ]
+.split705:                                        ; preds = %.lr.ph1541, %.lr.ph1543
+  %.0268.ph7451097 = phi i64 [ 4, %.lr.ph1543 ], [ %.0268.ph745, %.lr.ph1541 ]
   %217 = tail call i32 @get_log_level() #13
   %218 = icmp sgt i32 %217, 4
   br i1 %218, label %219, label %.thread425
@@ -6488,24 +6488,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph740.preheader:                              ; preds = %.lr.ph697.split.us.split
   %231 = icmp slt i32 %229, 0
-  br i1 %231, label %.lr.ph1472.preheader, label %.split702
+  br i1 %231, label %.lr.ph1541.preheader, label %.split702
 
-.lr.ph1472.preheader:                             ; preds = %.lr.ph740.preheader
+.lr.ph1541.preheader:                             ; preds = %.lr.ph740.preheader
   %232 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1472
+  br label %.lr.ph1541
 
 .lr.ph740:                                        ; preds = %235
   %233 = icmp slt i32 %237, 0
-  br i1 %233, label %.lr.ph1472, label %.split702
+  br i1 %233, label %.lr.ph1541, label %.split702
 
-.lr.ph1472:                                       ; preds = %.lr.ph1472.preheader, %.lr.ph740
+.lr.ph1541:                                       ; preds = %.lr.ph1541.preheader, %.lr.ph740
   %234 = load i32, ptr %232, align 4
   switch i32 %234, label %.split705 [
     i32 11, label %235
     i32 4, label %235
   ]
 
-235:                                              ; preds = %.lr.ph1472, %.lr.ph1472
+235:                                              ; preds = %.lr.ph1541, %.lr.ph1541
   %236 = call i64 @read(i32 noundef %0, ptr noundef %.0269.ph743, i64 noundef %.0268.ph745) #13
   %237 = trunc i64 %236 to i32
   %238 = icmp eq i32 %237, 0
@@ -6519,11 +6519,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph725.preheader.preheader:                    ; preds = %.lr.ph697.split.split
   %242 = icmp slt i32 %240, 0
-  br i1 %242, label %.lr.ph1474.preheader, label %.split702
+  br i1 %242, label %.lr.ph1543.preheader, label %.split702
 
-.lr.ph1474.preheader:                             ; preds = %.lr.ph725.preheader.preheader
+.lr.ph1543.preheader:                             ; preds = %.lr.ph725.preheader.preheader
   %243 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1474
+  br label %.lr.ph1543
 
 .split760:                                        ; preds = %.lr.ph748.split.split, %256
   %244 = tail call i32 @get_log_level() #13
@@ -6555,23 +6555,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph776.preheader:                              ; preds = %256
   %254 = icmp slt i32 %258, 0
-  br i1 %254, label %.lr.ph1478, label %.split753
+  br i1 %254, label %.lr.ph1547, label %.split753
 
-.lr.ph1478:                                       ; preds = %.lr.ph1478.preheader, %.lr.ph776.preheader
+.lr.ph1547:                                       ; preds = %.lr.ph1547.preheader, %.lr.ph776.preheader
   %255 = load i32, ptr %286, align 4
   switch i32 %255, label %.split756 [
     i32 11, label %256
     i32 4, label %256
   ]
 
-256:                                              ; preds = %.lr.ph1478, %.lr.ph1478
+256:                                              ; preds = %.lr.ph1547, %.lr.ph1547
   %257 = call i64 @read(i32 noundef %0, ptr noundef %.0271.ph794, i64 noundef 1) #13
   %258 = trunc i64 %257 to i32
   %259 = icmp eq i32 %258, 0
   br i1 %259, label %.split760, label %.lr.ph776.preheader
 
-.split756:                                        ; preds = %.lr.ph1476, %.lr.ph1478
-  %.0270.ph7961079 = phi i64 [ 1, %.lr.ph1478 ], [ %.0270.ph796, %.lr.ph1476 ]
+.split756:                                        ; preds = %.lr.ph1545, %.lr.ph1547
+  %.0270.ph7961079 = phi i64 [ 1, %.lr.ph1547 ], [ %.0270.ph796, %.lr.ph1545 ]
   %260 = tail call i32 @get_log_level() #13
   %261 = icmp sgt i32 %260, 4
   br i1 %261, label %262, label %.thread425
@@ -6614,24 +6614,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph791.preheader:                              ; preds = %.lr.ph748.split.us.split
   %274 = icmp slt i32 %272, 0
-  br i1 %274, label %.lr.ph1476.preheader, label %.split753
+  br i1 %274, label %.lr.ph1545.preheader, label %.split753
 
-.lr.ph1476.preheader:                             ; preds = %.lr.ph791.preheader
+.lr.ph1545.preheader:                             ; preds = %.lr.ph791.preheader
   %275 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1476
+  br label %.lr.ph1545
 
 .lr.ph791:                                        ; preds = %278
   %276 = icmp slt i32 %280, 0
-  br i1 %276, label %.lr.ph1476, label %.split753
+  br i1 %276, label %.lr.ph1545, label %.split753
 
-.lr.ph1476:                                       ; preds = %.lr.ph1476.preheader, %.lr.ph791
+.lr.ph1545:                                       ; preds = %.lr.ph1545.preheader, %.lr.ph791
   %277 = load i32, ptr %275, align 4
   switch i32 %277, label %.split756 [
     i32 11, label %278
     i32 4, label %278
   ]
 
-278:                                              ; preds = %.lr.ph1476, %.lr.ph1476
+278:                                              ; preds = %.lr.ph1545, %.lr.ph1545
   %279 = call i64 @read(i32 noundef %0, ptr noundef %.0271.ph794, i64 noundef %.0270.ph796) #13
   %280 = trunc i64 %279 to i32
   %281 = icmp eq i32 %280, 0
@@ -6645,11 +6645,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph776.preheader.preheader:                    ; preds = %.lr.ph748.split.split
   %285 = icmp slt i32 %283, 0
-  br i1 %285, label %.lr.ph1478.preheader, label %.split753
+  br i1 %285, label %.lr.ph1547.preheader, label %.split753
 
-.lr.ph1478.preheader:                             ; preds = %.lr.ph776.preheader.preheader
+.lr.ph1547.preheader:                             ; preds = %.lr.ph776.preheader.preheader
   %286 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1478
+  br label %.lr.ph1547
 
 .split811:                                        ; preds = %.lr.ph799.split.split, %299
   %287 = tail call i32 @get_log_level() #13
@@ -6681,23 +6681,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph827.preheader:                              ; preds = %299
   %297 = icmp slt i32 %301, 0
-  br i1 %297, label %.lr.ph1482, label %.split804
+  br i1 %297, label %.lr.ph1551, label %.split804
 
-.lr.ph1482:                                       ; preds = %.lr.ph1482.preheader, %.lr.ph827.preheader
+.lr.ph1551:                                       ; preds = %.lr.ph1551.preheader, %.lr.ph827.preheader
   %298 = load i32, ptr %329, align 4
   switch i32 %298, label %.split807 [
     i32 11, label %299
     i32 4, label %299
   ]
 
-299:                                              ; preds = %.lr.ph1482, %.lr.ph1482
+299:                                              ; preds = %.lr.ph1551, %.lr.ph1551
   %300 = call i64 @read(i32 noundef %0, ptr noundef %.0273.ph845, i64 noundef 4) #13
   %301 = trunc i64 %300 to i32
   %302 = icmp eq i32 %301, 0
   br i1 %302, label %.split811, label %.lr.ph827.preheader
 
-.split807:                                        ; preds = %.lr.ph1480, %.lr.ph1482
-  %.0272.ph8471061 = phi i64 [ 4, %.lr.ph1482 ], [ %.0272.ph847, %.lr.ph1480 ]
+.split807:                                        ; preds = %.lr.ph1549, %.lr.ph1551
+  %.0272.ph8471061 = phi i64 [ 4, %.lr.ph1551 ], [ %.0272.ph847, %.lr.ph1549 ]
   %303 = tail call i32 @get_log_level() #13
   %304 = icmp sgt i32 %303, 4
   br i1 %304, label %305, label %.thread425
@@ -6740,24 +6740,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph842.preheader:                              ; preds = %.lr.ph799.split.us.split
   %317 = icmp slt i32 %315, 0
-  br i1 %317, label %.lr.ph1480.preheader, label %.split804
+  br i1 %317, label %.lr.ph1549.preheader, label %.split804
 
-.lr.ph1480.preheader:                             ; preds = %.lr.ph842.preheader
+.lr.ph1549.preheader:                             ; preds = %.lr.ph842.preheader
   %318 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1480
+  br label %.lr.ph1549
 
 .lr.ph842:                                        ; preds = %321
   %319 = icmp slt i32 %323, 0
-  br i1 %319, label %.lr.ph1480, label %.split804
+  br i1 %319, label %.lr.ph1549, label %.split804
 
-.lr.ph1480:                                       ; preds = %.lr.ph1480.preheader, %.lr.ph842
+.lr.ph1549:                                       ; preds = %.lr.ph1549.preheader, %.lr.ph842
   %320 = load i32, ptr %318, align 4
   switch i32 %320, label %.split807 [
     i32 11, label %321
     i32 4, label %321
   ]
 
-321:                                              ; preds = %.lr.ph1480, %.lr.ph1480
+321:                                              ; preds = %.lr.ph1549, %.lr.ph1549
   %322 = call i64 @read(i32 noundef %0, ptr noundef %.0273.ph845, i64 noundef %.0272.ph847) #13
   %323 = trunc i64 %322 to i32
   %324 = icmp eq i32 %323, 0
@@ -6771,11 +6771,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph827.preheader.preheader:                    ; preds = %.lr.ph799.split.split
   %328 = icmp slt i32 %326, 0
-  br i1 %328, label %.lr.ph1482.preheader, label %.split804
+  br i1 %328, label %.lr.ph1551.preheader, label %.split804
 
-.lr.ph1482.preheader:                             ; preds = %.lr.ph827.preheader.preheader
+.lr.ph1551.preheader:                             ; preds = %.lr.ph827.preheader.preheader
   %329 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1482
+  br label %.lr.ph1551
 
 .outer434._crit_edge:                             ; preds = %.split804
   %.pre = load i32, ptr %11, align 4
@@ -6799,24 +6799,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph894.preheader:                              ; preds = %.lr.ph850.split.us.split
   %336 = icmp slt i32 %334, 0
-  br i1 %336, label %.lr.ph1484.preheader, label %.split856.us
+  br i1 %336, label %.lr.ph1553.preheader, label %.split856.us
 
-.lr.ph1484.preheader:                             ; preds = %.lr.ph894.preheader
+.lr.ph1553.preheader:                             ; preds = %.lr.ph894.preheader
   %337 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1484
+  br label %.lr.ph1553
 
 .lr.ph894:                                        ; preds = %340
   %338 = icmp slt i32 %342, 0
-  br i1 %338, label %.lr.ph1484, label %.split856.us
+  br i1 %338, label %.lr.ph1553, label %.split856.us
 
-.lr.ph1484:                                       ; preds = %.lr.ph1484.preheader, %.lr.ph894
+.lr.ph1553:                                       ; preds = %.lr.ph1553.preheader, %.lr.ph894
   %339 = load i32, ptr %337, align 4
   switch i32 %339, label %.split859.us [
     i32 11, label %340
     i32 4, label %340
   ]
 
-340:                                              ; preds = %.lr.ph1484, %.lr.ph1484
+340:                                              ; preds = %.lr.ph1553, %.lr.ph1553
   %341 = tail call i64 @read(i32 noundef %0, ptr noundef %.0275.ph898, i64 noundef %.0274.ph900) #13
   %342 = trunc i64 %341 to i32
   %343 = icmp eq i32 %342, 0
@@ -6830,11 +6830,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph879.preheader.preheader:                    ; preds = %.lr.ph850.split.split
   %347 = icmp slt i32 %345, 0
-  br i1 %347, label %.lr.ph1486.preheader, label %.split856.us
+  br i1 %347, label %.lr.ph1555.preheader, label %.split856.us
 
-.lr.ph1486.preheader:                             ; preds = %.lr.ph879.preheader.preheader
+.lr.ph1555.preheader:                             ; preds = %.lr.ph879.preheader.preheader
   %348 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1486
+  br label %.lr.ph1555
 
 .split863.us:                                     ; preds = %.lr.ph850.split.split, %361
   %349 = tail call i32 @get_log_level() #13
@@ -6866,23 +6866,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
 
 .lr.ph879.preheader:                              ; preds = %361
   %359 = icmp slt i32 %363, 0
-  br i1 %359, label %.lr.ph1486, label %.split856.us
+  br i1 %359, label %.lr.ph1555, label %.split856.us
 
-.lr.ph1486:                                       ; preds = %.lr.ph1486.preheader, %.lr.ph879.preheader
+.lr.ph1555:                                       ; preds = %.lr.ph1555.preheader, %.lr.ph879.preheader
   %360 = load i32, ptr %348, align 4
   switch i32 %360, label %.split859.us [
     i32 11, label %361
     i32 4, label %361
   ]
 
-361:                                              ; preds = %.lr.ph1486, %.lr.ph1486
+361:                                              ; preds = %.lr.ph1555, %.lr.ph1555
   %362 = tail call i64 @read(i32 noundef %0, ptr noundef %.0275.ph898, i64 noundef %330) #13
   %363 = trunc i64 %362 to i32
   %364 = icmp eq i32 %363, 0
   br i1 %364, label %.split863.us, label %.lr.ph879.preheader
 
-.split859.us:                                     ; preds = %.lr.ph1484, %.lr.ph1486
-  %.0274.ph9001043 = phi i64 [ %330, %.lr.ph1486 ], [ %.0274.ph900, %.lr.ph1484 ]
+.split859.us:                                     ; preds = %.lr.ph1553, %.lr.ph1555
+  %.0274.ph9001043 = phi i64 [ %330, %.lr.ph1555 ], [ %.0274.ph900, %.lr.ph1553 ]
   %365 = tail call i32 @get_log_level() #13
   %366 = icmp sgt i32 %365, 4
   br i1 %366, label %367, label %.thread425
@@ -8304,23 +8304,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_reconfig(i32 noundef %0, pt
 
 .lr.ph173.preheader:                              ; preds = %30
   %28 = icmp slt i32 %32, 0
-  br i1 %28, label %.lr.ph426, label %.split151
+  br i1 %28, label %.lr.ph445, label %.split151
 
-.lr.ph426:                                        ; preds = %.lr.ph426.preheader, %.lr.ph173.preheader
+.lr.ph445:                                        ; preds = %.lr.ph445.preheader, %.lr.ph173.preheader
   %29 = load i32, ptr %60, align 4
   switch i32 %29, label %.split154 [
     i32 11, label %30
     i32 4, label %30
   ]
 
-30:                                               ; preds = %.lr.ph426, %.lr.ph426
+30:                                               ; preds = %.lr.ph445, %.lr.ph445
   %31 = call i64 @read(i32 noundef %0, ptr noundef %.082.ph190, i64 noundef 4) #13
   %32 = trunc i64 %31 to i32
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %.split157, label %.lr.ph173.preheader
 
-.split154:                                        ; preds = %.lr.ph425, %.lr.ph426
-  %.076.ph192334 = phi i64 [ 4, %.lr.ph426 ], [ %.076.ph192, %.lr.ph425 ]
+.split154:                                        ; preds = %.lr.ph444, %.lr.ph445
+  %.076.ph192334 = phi i64 [ 4, %.lr.ph445 ], [ %.076.ph192, %.lr.ph444 ]
   %34 = tail call i32 @get_log_level() #13
   %35 = icmp sgt i32 %34, 4
   br i1 %35, label %36, label %.thread124
@@ -8363,24 +8363,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_reconfig(i32 noundef %0, pt
 
 .lr.ph188.preheader:                              ; preds = %.lr.ph.split.us.split
   %48 = icmp slt i32 %46, 0
-  br i1 %48, label %.lr.ph425.preheader, label %.split151
+  br i1 %48, label %.lr.ph444.preheader, label %.split151
 
-.lr.ph425.preheader:                              ; preds = %.lr.ph188.preheader
+.lr.ph444.preheader:                              ; preds = %.lr.ph188.preheader
   %49 = tail call ptr @__errno_location() #14
-  br label %.lr.ph425
+  br label %.lr.ph444
 
 .lr.ph188:                                        ; preds = %52
   %50 = icmp slt i32 %54, 0
-  br i1 %50, label %.lr.ph425, label %.split151
+  br i1 %50, label %.lr.ph444, label %.split151
 
-.lr.ph425:                                        ; preds = %.lr.ph425.preheader, %.lr.ph188
+.lr.ph444:                                        ; preds = %.lr.ph444.preheader, %.lr.ph188
   %51 = load i32, ptr %49, align 4
   switch i32 %51, label %.split154 [
     i32 11, label %52
     i32 4, label %52
   ]
 
-52:                                               ; preds = %.lr.ph425, %.lr.ph425
+52:                                               ; preds = %.lr.ph444, %.lr.ph444
   %53 = call i64 @read(i32 noundef %0, ptr noundef %.082.ph190, i64 noundef %.076.ph192) #13
   %54 = trunc i64 %53 to i32
   %55 = icmp eq i32 %54, 0
@@ -8394,21 +8394,21 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_reconfig(i32 noundef %0, pt
 
 .lr.ph173.preheader.preheader:                    ; preds = %.lr.ph.split.split
   %59 = icmp slt i32 %57, 0
-  br i1 %59, label %.lr.ph426.preheader, label %.split151
+  br i1 %59, label %.lr.ph445.preheader, label %.split151
 
-.lr.ph426.preheader:                              ; preds = %.lr.ph173.preheader.preheader
+.lr.ph445.preheader:                              ; preds = %.lr.ph173.preheader.preheader
   %60 = tail call ptr @__errno_location() #14
-  br label %.lr.ph426
+  br label %.lr.ph445
 
 .outer130._crit_edge:                             ; preds = %.split151
   %61 = load i32, ptr %5, align 4
-  %.fr386 = freeze i32 %61
-  %.not98 = icmp eq i32 %.fr386, 0
+  %.fr405 = freeze i32 %61
+  %.not98 = icmp eq i32 %.fr405, 0
   br i1 %.not98, label %108, label %62
 
 62:                                               ; preds = %.outer130._crit_edge
-  %63 = tail call ptr @init_buf(i32 noundef %.fr386) #13
-  %64 = sext i32 %.fr386 to i64
+  %63 = tail call ptr @init_buf(i32 noundef %.fr405) #13
+  %64 = sext i32 %.fr405 to i64
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load ptr, ptr %65, align 8
   br label %.lr.ph195
@@ -8427,24 +8427,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_reconfig(i32 noundef %0, pt
 
 .lr.ph239.preheader:                              ; preds = %.lr.ph195.split.us.split
   %71 = icmp slt i32 %69, 0
-  br i1 %71, label %.lr.ph428.preheader, label %.split201.us
+  br i1 %71, label %.lr.ph447.preheader, label %.split201.us
 
-.lr.ph428.preheader:                              ; preds = %.lr.ph239.preheader
+.lr.ph447.preheader:                              ; preds = %.lr.ph239.preheader
   %72 = tail call ptr @__errno_location() #14
-  br label %.lr.ph428
+  br label %.lr.ph447
 
 .lr.ph239:                                        ; preds = %75
   %73 = icmp slt i32 %77, 0
-  br i1 %73, label %.lr.ph428, label %.split201.us
+  br i1 %73, label %.lr.ph447, label %.split201.us
 
-.lr.ph428:                                        ; preds = %.lr.ph428.preheader, %.lr.ph239
+.lr.ph447:                                        ; preds = %.lr.ph447.preheader, %.lr.ph239
   %74 = load i32, ptr %72, align 4
   switch i32 %74, label %.split204.us [
     i32 11, label %75
     i32 4, label %75
   ]
 
-75:                                               ; preds = %.lr.ph428, %.lr.ph428
+75:                                               ; preds = %.lr.ph447, %.lr.ph447
   %76 = tail call i64 @read(i32 noundef %0, ptr noundef %.077.ph244, i64 noundef %.078.ph242) #13
   %77 = trunc i64 %76 to i32
   %78 = icmp eq i32 %77, 0
@@ -8455,11 +8455,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_reconfig(i32 noundef %0, pt
 
 .lr.ph224.preheader.preheader:                    ; preds = %.lr.ph195.split.split
   %79 = icmp slt i32 %69, 0
-  br i1 %79, label %.lr.ph430.preheader, label %.split201.us
+  br i1 %79, label %.lr.ph449.preheader, label %.split201.us
 
-.lr.ph430.preheader:                              ; preds = %.lr.ph224.preheader.preheader
+.lr.ph449.preheader:                              ; preds = %.lr.ph224.preheader.preheader
   %80 = tail call ptr @__errno_location() #14
-  br label %.lr.ph430
+  br label %.lr.ph449
 
 .split208.us:                                     ; preds = %.lr.ph195.split.split, %93
   %81 = tail call i32 @get_log_level() #13
@@ -8481,7 +8481,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_reconfig(i32 noundef %0, pt
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %.split198.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.26, i32 noundef 2438, ptr noundef nonnull @__func__._handle_reconfig, i64 noundef %.078.ph242, i32 noundef %.fr386) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.26, i32 noundef 2438, ptr noundef nonnull @__func__._handle_reconfig, i64 noundef %.078.ph242, i32 noundef %.fr405) #13
   br label %89
 
 89:                                               ; preds = %88, %.split198.us
@@ -8491,28 +8491,28 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_reconfig(i32 noundef %0, pt
 
 .lr.ph224.preheader:                              ; preds = %93
   %91 = icmp slt i32 %95, 0
-  br i1 %91, label %.lr.ph430, label %.split201.us
+  br i1 %91, label %.lr.ph449, label %.split201.us
 
-.lr.ph430:                                        ; preds = %.lr.ph430.preheader, %.lr.ph224.preheader
+.lr.ph449:                                        ; preds = %.lr.ph449.preheader, %.lr.ph224.preheader
   %92 = load i32, ptr %80, align 4
   switch i32 %92, label %.split204.us [
     i32 11, label %93
     i32 4, label %93
   ]
 
-93:                                               ; preds = %.lr.ph430, %.lr.ph430
+93:                                               ; preds = %.lr.ph449, %.lr.ph449
   %94 = tail call i64 @read(i32 noundef %0, ptr noundef %.077.ph244, i64 noundef %.078.ph242) #13
   %95 = trunc i64 %94 to i32
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %.split208.us, label %.lr.ph224.preheader
 
-.split204.us:                                     ; preds = %.lr.ph428, %.lr.ph430
+.split204.us:                                     ; preds = %.lr.ph447, %.lr.ph449
   %97 = tail call i32 @get_log_level() #13
   %98 = icmp sgt i32 %97, 4
   br i1 %98, label %99, label %154
 
 99:                                               ; preds = %.split204.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.26, i32 noundef 2438, ptr noundef nonnull @__func__._handle_reconfig, i64 noundef %.078.ph242, i32 noundef %.fr386) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.26, i32 noundef 2438, ptr noundef nonnull @__func__._handle_reconfig, i64 noundef %.078.ph242, i32 noundef %.fr405) #13
   br label %154
 
 .split201.us:                                     ; preds = %.lr.ph239, %.lr.ph224.preheader, %.lr.ph239.preheader, %.lr.ph224.preheader.preheader
@@ -8529,7 +8529,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_reconfig(i32 noundef %0, pt
   br i1 %105, label %106, label %.lr.ph195.backedge
 
 106:                                              ; preds = %103
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.26, i32 noundef 2438, ptr noundef nonnull @__func__._handle_reconfig, i64 noundef %102, i32 noundef %.fr386) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.26, i32 noundef 2438, ptr noundef nonnull @__func__._handle_reconfig, i64 noundef %102, i32 noundef %.fr405) #13
   br label %.lr.ph195.backedge
 
 .lr.ph195.backedge:                               ; preds = %106, %103
@@ -8851,24 +8851,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_notify_job(i32 noundef %0, 
 
 .lr.ph148.preheader:                              ; preds = %.lr.ph.split.us.split
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.lr.ph358.preheader, label %.split111.us
+  br i1 %15, label %.lr.ph373.preheader, label %.split111.us
 
-.lr.ph358.preheader:                              ; preds = %.lr.ph148.preheader
+.lr.ph373.preheader:                              ; preds = %.lr.ph148.preheader
   %16 = tail call ptr @__errno_location() #14
-  br label %.lr.ph358
+  br label %.lr.ph373
 
 .lr.ph148:                                        ; preds = %19
   %17 = icmp slt i32 %21, 0
-  br i1 %17, label %.lr.ph358, label %.split111.us
+  br i1 %17, label %.lr.ph373, label %.split111.us
 
-.lr.ph358:                                        ; preds = %.lr.ph358.preheader, %.lr.ph148
+.lr.ph373:                                        ; preds = %.lr.ph373.preheader, %.lr.ph148
   %18 = load i32, ptr %16, align 4
   switch i32 %18, label %.split114.us [
     i32 11, label %19
     i32 4, label %19
   ]
 
-19:                                               ; preds = %.lr.ph358, %.lr.ph358
+19:                                               ; preds = %.lr.ph373, %.lr.ph373
   %20 = call i64 @read(i32 noundef %0, ptr noundef %.062.ph150, i64 noundef %.058.ph152) #13
   %21 = trunc i64 %20 to i32
   %22 = icmp eq i32 %21, 0
@@ -8882,11 +8882,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_notify_job(i32 noundef %0, 
 
 .lr.ph133.preheader.preheader:                    ; preds = %.lr.ph.split.split
   %26 = icmp slt i32 %24, 0
-  br i1 %26, label %.lr.ph359.preheader, label %.split111.us
+  br i1 %26, label %.lr.ph374.preheader, label %.split111.us
 
-.lr.ph359.preheader:                              ; preds = %.lr.ph133.preheader.preheader
+.lr.ph374.preheader:                              ; preds = %.lr.ph133.preheader.preheader
   %27 = tail call ptr @__errno_location() #14
-  br label %.lr.ph359
+  br label %.lr.ph374
 
 .split117.us:                                     ; preds = %.lr.ph.split.split, %40
   %28 = tail call i32 @get_log_level() #13
@@ -8918,23 +8918,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_notify_job(i32 noundef %0, 
 
 .lr.ph133.preheader:                              ; preds = %40
   %38 = icmp slt i32 %42, 0
-  br i1 %38, label %.lr.ph359, label %.split111.us
+  br i1 %38, label %.lr.ph374, label %.split111.us
 
-.lr.ph359:                                        ; preds = %.lr.ph359.preheader, %.lr.ph133.preheader
+.lr.ph374:                                        ; preds = %.lr.ph374.preheader, %.lr.ph133.preheader
   %39 = load i32, ptr %27, align 4
   switch i32 %39, label %.split114.us [
     i32 11, label %40
     i32 4, label %40
   ]
 
-40:                                               ; preds = %.lr.ph359, %.lr.ph359
+40:                                               ; preds = %.lr.ph374, %.lr.ph374
   %41 = call i64 @read(i32 noundef %0, ptr noundef %.062.ph150, i64 noundef 4) #13
   %42 = trunc i64 %41 to i32
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %.split117.us, label %.lr.ph133.preheader
 
-.split114.us:                                     ; preds = %.lr.ph358, %.lr.ph359
-  %.058.ph152272 = phi i64 [ 4, %.lr.ph359 ], [ %.058.ph152, %.lr.ph358 ]
+.split114.us:                                     ; preds = %.lr.ph373, %.lr.ph374
+  %.058.ph152272 = phi i64 [ 4, %.lr.ph374 ], [ %.058.ph152, %.lr.ph373 ]
   %44 = tail call i32 @get_log_level() #13
   %45 = icmp sgt i32 %44, 4
   br i1 %45, label %46, label %.outer._crit_edge
@@ -8965,16 +8965,16 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_notify_job(i32 noundef %0, 
 
 .outer93._crit_edge:                              ; preds = %.split111.us
   %54 = load i32, ptr %5, align 4
-  %.fr321 = freeze i32 %54
-  %.not75 = icmp eq i32 %.fr321, 0
+  %.fr336 = freeze i32 %54
+  %.not75 = icmp eq i32 %.fr336, 0
   br i1 %.not75, label %.loopexit, label %55
 
 55:                                               ; preds = %.outer93._crit_edge
-  %56 = add nsw i32 %.fr321, 1
+  %56 = add nsw i32 %.fr336, 1
   %57 = sext i32 %56 to i64
   %58 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %57, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.26, i32 noundef 1252, ptr noundef nonnull @__func__._handle_notify_job) #13
   store ptr %58, ptr %6, align 8
-  %59 = sext i32 %.fr321 to i64
+  %59 = sext i32 %.fr336 to i64
   br label %.lr.ph155
 
 .lr.ph155:                                        ; preds = %.lr.ph155.backedge, %55
@@ -8991,24 +8991,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_notify_job(i32 noundef %0, 
 
 .lr.ph198.preheader:                              ; preds = %.lr.ph155.split.us.split
   %64 = icmp slt i32 %62, 0
-  br i1 %64, label %.lr.ph361.preheader, label %.split160.us
+  br i1 %64, label %.lr.ph376.preheader, label %.split160.us
 
-.lr.ph361.preheader:                              ; preds = %.lr.ph198.preheader
+.lr.ph376.preheader:                              ; preds = %.lr.ph198.preheader
   %65 = tail call ptr @__errno_location() #14
-  br label %.lr.ph361
+  br label %.lr.ph376
 
 .lr.ph198:                                        ; preds = %68
   %66 = icmp slt i32 %70, 0
-  br i1 %66, label %.lr.ph361, label %.split160.us
+  br i1 %66, label %.lr.ph376, label %.split160.us
 
-.lr.ph361:                                        ; preds = %.lr.ph361.preheader, %.lr.ph198
+.lr.ph376:                                        ; preds = %.lr.ph376.preheader, %.lr.ph198
   %67 = load i32, ptr %65, align 4
   switch i32 %67, label %.split163.us [
     i32 11, label %68
     i32 4, label %68
   ]
 
-68:                                               ; preds = %.lr.ph361, %.lr.ph361
+68:                                               ; preds = %.lr.ph376, %.lr.ph376
   %69 = tail call i64 @read(i32 noundef %0, ptr noundef %.059.ph203, i64 noundef %.060.ph201) #13
   %70 = trunc i64 %69 to i32
   %71 = icmp eq i32 %70, 0
@@ -9019,11 +9019,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_notify_job(i32 noundef %0, 
 
 .lr.ph183.preheader.preheader:                    ; preds = %.lr.ph155.split.split
   %72 = icmp slt i32 %62, 0
-  br i1 %72, label %.lr.ph363.preheader, label %.split160.us
+  br i1 %72, label %.lr.ph378.preheader, label %.split160.us
 
-.lr.ph363.preheader:                              ; preds = %.lr.ph183.preheader.preheader
+.lr.ph378.preheader:                              ; preds = %.lr.ph183.preheader.preheader
   %73 = tail call ptr @__errno_location() #14
-  br label %.lr.ph363
+  br label %.lr.ph378
 
 .split167.us:                                     ; preds = %.lr.ph155.split.split, %86
   %74 = tail call i32 @get_log_level() #13
@@ -9045,7 +9045,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_notify_job(i32 noundef %0, 
   br i1 %80, label %81, label %82
 
 81:                                               ; preds = %.split157.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.26, i32 noundef 1253, ptr noundef nonnull @__func__._handle_notify_job, i64 noundef %.060.ph201, i32 noundef %.fr321) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.26, i32 noundef 1253, ptr noundef nonnull @__func__._handle_notify_job, i64 noundef %.060.ph201, i32 noundef %.fr336) #13
   br label %82
 
 82:                                               ; preds = %81, %.split157.us
@@ -9055,28 +9055,28 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_notify_job(i32 noundef %0, 
 
 .lr.ph183.preheader:                              ; preds = %86
   %84 = icmp slt i32 %88, 0
-  br i1 %84, label %.lr.ph363, label %.split160.us
+  br i1 %84, label %.lr.ph378, label %.split160.us
 
-.lr.ph363:                                        ; preds = %.lr.ph363.preheader, %.lr.ph183.preheader
+.lr.ph378:                                        ; preds = %.lr.ph378.preheader, %.lr.ph183.preheader
   %85 = load i32, ptr %73, align 4
   switch i32 %85, label %.split163.us [
     i32 11, label %86
     i32 4, label %86
   ]
 
-86:                                               ; preds = %.lr.ph363, %.lr.ph363
+86:                                               ; preds = %.lr.ph378, %.lr.ph378
   %87 = tail call i64 @read(i32 noundef %0, ptr noundef %.059.ph203, i64 noundef %.060.ph201) #13
   %88 = trunc i64 %87 to i32
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %.split167.us, label %.lr.ph183.preheader
 
-.split163.us:                                     ; preds = %.lr.ph361, %.lr.ph363
+.split163.us:                                     ; preds = %.lr.ph376, %.lr.ph378
   %90 = tail call i32 @get_log_level() #13
   %91 = icmp sgt i32 %90, 4
   br i1 %91, label %92, label %.outer._crit_edge
 
 92:                                               ; preds = %.split163.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.26, i32 noundef 1253, ptr noundef nonnull @__func__._handle_notify_job, i64 noundef %.060.ph201, i32 noundef %.fr321) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.26, i32 noundef 1253, ptr noundef nonnull @__func__._handle_notify_job, i64 noundef %.060.ph201, i32 noundef %.fr336) #13
   br label %.outer._crit_edge
 
 .split160.us:                                     ; preds = %.lr.ph198, %.lr.ph183.preheader, %.lr.ph198.preheader, %.lr.ph183.preheader.preheader
@@ -9093,7 +9093,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_notify_job(i32 noundef %0, 
   br i1 %98, label %99, label %.lr.ph155.backedge
 
 99:                                               ; preds = %96
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.26, i32 noundef 1253, ptr noundef nonnull @__func__._handle_notify_job, i64 noundef %95, i32 noundef %.fr321) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.26, i32 noundef 1253, ptr noundef nonnull @__func__._handle_notify_job, i64 noundef %95, i32 noundef %.fr336) #13
   br label %.lr.ph155.backedge
 
 .lr.ph155.backedge:                               ; preds = %99, %96
@@ -9230,24 +9230,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_add_extern_pid(i32 noundef 
 
 .lr.ph105.preheader:                              ; preds = %.lr.ph.split.us.split
   %10 = icmp slt i32 %8, 0
-  br i1 %10, label %.lr.ph200.preheader, label %.split68.us
+  br i1 %10, label %.lr.ph208.preheader, label %.split68.us
 
-.lr.ph200.preheader:                              ; preds = %.lr.ph105.preheader
+.lr.ph208.preheader:                              ; preds = %.lr.ph105.preheader
   %11 = tail call ptr @__errno_location() #14
-  br label %.lr.ph200
+  br label %.lr.ph208
 
 .lr.ph105:                                        ; preds = %14
   %12 = icmp slt i32 %16, 0
-  br i1 %12, label %.lr.ph200, label %.split68.us
+  br i1 %12, label %.lr.ph208, label %.split68.us
 
-.lr.ph200:                                        ; preds = %.lr.ph200.preheader, %.lr.ph105
+.lr.ph208:                                        ; preds = %.lr.ph208.preheader, %.lr.ph105
   %13 = load i32, ptr %11, align 4
   switch i32 %13, label %.split71.us [
     i32 11, label %14
     i32 4, label %14
   ]
 
-14:                                               ; preds = %.lr.ph200, %.lr.ph200
+14:                                               ; preds = %.lr.ph208, %.lr.ph208
   %15 = call i64 @read(i32 noundef %0, ptr noundef %.039.ph107, i64 noundef %.038.ph109) #13
   %16 = trunc i64 %15 to i32
   %17 = icmp eq i32 %16, 0
@@ -9261,11 +9261,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_add_extern_pid(i32 noundef 
 
 .lr.ph90.preheader.preheader:                     ; preds = %.lr.ph.split.split
   %21 = icmp slt i32 %19, 0
-  br i1 %21, label %.lr.ph201.preheader, label %.split68.us
+  br i1 %21, label %.lr.ph209.preheader, label %.split68.us
 
-.lr.ph201.preheader:                              ; preds = %.lr.ph90.preheader.preheader
+.lr.ph209.preheader:                              ; preds = %.lr.ph90.preheader.preheader
   %22 = tail call ptr @__errno_location() #14
-  br label %.lr.ph201
+  br label %.lr.ph209
 
 .split74.us:                                      ; preds = %.lr.ph.split.split, %35
   %23 = tail call i32 @get_log_level() #13
@@ -9297,23 +9297,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_add_extern_pid(i32 noundef 
 
 .lr.ph90.preheader:                               ; preds = %35
   %33 = icmp slt i32 %37, 0
-  br i1 %33, label %.lr.ph201, label %.split68.us
+  br i1 %33, label %.lr.ph209, label %.split68.us
 
-.lr.ph201:                                        ; preds = %.lr.ph201.preheader, %.lr.ph90.preheader
+.lr.ph209:                                        ; preds = %.lr.ph209.preheader, %.lr.ph90.preheader
   %34 = load i32, ptr %22, align 4
   switch i32 %34, label %.split71.us [
     i32 11, label %35
     i32 4, label %35
   ]
 
-35:                                               ; preds = %.lr.ph201, %.lr.ph201
+35:                                               ; preds = %.lr.ph209, %.lr.ph209
   %36 = call i64 @read(i32 noundef %0, ptr noundef %.039.ph107, i64 noundef 4) #13
   %37 = trunc i64 %36 to i32
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %.split74.us, label %.lr.ph90.preheader
 
-.split71.us:                                      ; preds = %.lr.ph200, %.lr.ph201
-  %.038.ph109155 = phi i64 [ 4, %.lr.ph201 ], [ %.038.ph109, %.lr.ph200 ]
+.split71.us:                                      ; preds = %.lr.ph208, %.lr.ph209
+  %.038.ph109155 = phi i64 [ 4, %.lr.ph209 ], [ %.038.ph109, %.lr.ph208 ]
   %39 = tail call i32 @get_log_level() #13
   %40 = icmp sgt i32 %39, 4
   br i1 %40, label %41, label %.thread
@@ -9726,24 +9726,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
 
 .lr.ph583.preheader:                              ; preds = %.lr.ph.split.us.split
   %13 = icmp slt i32 %11, 0
-  br i1 %13, label %.lr.ph1357.preheader, label %.split546.us
+  br i1 %13, label %.lr.ph1407.preheader, label %.split546.us
 
-.lr.ph1357.preheader:                             ; preds = %.lr.ph583.preheader
+.lr.ph1407.preheader:                             ; preds = %.lr.ph583.preheader
   %14 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1357
+  br label %.lr.ph1407
 
 .lr.ph583:                                        ; preds = %17
   %15 = icmp slt i32 %19, 0
-  br i1 %15, label %.lr.ph1357, label %.split546.us
+  br i1 %15, label %.lr.ph1407, label %.split546.us
 
-.lr.ph1357:                                       ; preds = %.lr.ph1357.preheader, %.lr.ph583
+.lr.ph1407:                                       ; preds = %.lr.ph1407.preheader, %.lr.ph583
   %16 = load i32, ptr %14, align 4
   switch i32 %16, label %.split549.us [
     i32 11, label %17
     i32 4, label %17
   ]
 
-17:                                               ; preds = %.lr.ph1357, %.lr.ph1357
+17:                                               ; preds = %.lr.ph1407, %.lr.ph1407
   %18 = call i64 @read(i32 noundef %0, ptr noundef %.0271.ph585, i64 noundef %.0268.ph587) #13
   %19 = trunc i64 %18 to i32
   %20 = icmp eq i32 %19, 0
@@ -9757,11 +9757,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
 
 .lr.ph568.preheader.preheader:                    ; preds = %.lr.ph.split.split
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.lr.ph1358.preheader, label %.split546.us
+  br i1 %24, label %.lr.ph1408.preheader, label %.split546.us
 
-.lr.ph1358.preheader:                             ; preds = %.lr.ph568.preheader.preheader
+.lr.ph1408.preheader:                             ; preds = %.lr.ph568.preheader.preheader
   %25 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1358
+  br label %.lr.ph1408
 
 .split552.us:                                     ; preds = %.lr.ph.split.split, %38
   %26 = tail call i32 @get_log_level() #13
@@ -9793,23 +9793,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
 
 .lr.ph568.preheader:                              ; preds = %38
   %36 = icmp slt i32 %40, 0
-  br i1 %36, label %.lr.ph1358, label %.split546.us
+  br i1 %36, label %.lr.ph1408, label %.split546.us
 
-.lr.ph1358:                                       ; preds = %.lr.ph1358.preheader, %.lr.ph568.preheader
+.lr.ph1408:                                       ; preds = %.lr.ph1408.preheader, %.lr.ph568.preheader
   %37 = load i32, ptr %25, align 4
   switch i32 %37, label %.split549.us [
     i32 11, label %38
     i32 4, label %38
   ]
 
-38:                                               ; preds = %.lr.ph1358, %.lr.ph1358
+38:                                               ; preds = %.lr.ph1408, %.lr.ph1408
   %39 = call i64 @read(i32 noundef %0, ptr noundef %.0271.ph585, i64 noundef 4) #13
   %40 = trunc i64 %39 to i32
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.split552.us, label %.lr.ph568.preheader
 
-.split549.us:                                     ; preds = %.lr.ph1357, %.lr.ph1358
-  %.0268.ph5871133 = phi i64 [ 4, %.lr.ph1358 ], [ %.0268.ph587, %.lr.ph1357 ]
+.split549.us:                                     ; preds = %.lr.ph1407, %.lr.ph1408
+  %.0268.ph5871133 = phi i64 [ 4, %.lr.ph1408 ], [ %.0268.ph587, %.lr.ph1407 ]
   %42 = tail call i32 @get_log_level() #13
   %43 = icmp sgt i32 %42, 4
   br i1 %43, label %44, label %.thread
@@ -9868,23 +9868,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
 
 .lr.ph618.preheader:                              ; preds = %64
   %62 = icmp slt i32 %66, 0
-  br i1 %62, label %.lr.ph1362, label %.split595
+  br i1 %62, label %.lr.ph1412, label %.split595
 
-.lr.ph1362:                                       ; preds = %.lr.ph1362.preheader, %.lr.ph618.preheader
+.lr.ph1412:                                       ; preds = %.lr.ph1412.preheader, %.lr.ph618.preheader
   %63 = load i32, ptr %94, align 4
   switch i32 %63, label %.split598 [
     i32 11, label %64
     i32 4, label %64
   ]
 
-64:                                               ; preds = %.lr.ph1362, %.lr.ph1362
+64:                                               ; preds = %.lr.ph1412, %.lr.ph1412
   %65 = call i64 @read(i32 noundef %0, ptr noundef %.0280.ph636, i64 noundef 4) #13
   %66 = trunc i64 %65 to i32
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %.split602, label %.lr.ph618.preheader
 
-.split598:                                        ; preds = %.lr.ph1360, %.lr.ph1362
-  %.0277.ph6381115 = phi i64 [ 4, %.lr.ph1362 ], [ %.0277.ph638, %.lr.ph1360 ]
+.split598:                                        ; preds = %.lr.ph1410, %.lr.ph1412
+  %.0277.ph6381115 = phi i64 [ 4, %.lr.ph1412 ], [ %.0277.ph638, %.lr.ph1410 ]
   %68 = tail call i32 @get_log_level() #13
   %69 = icmp sgt i32 %68, 4
   br i1 %69, label %70, label %.thread
@@ -9927,24 +9927,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
 
 .lr.ph633.preheader:                              ; preds = %.lr.ph590.split.us.split
   %82 = icmp slt i32 %80, 0
-  br i1 %82, label %.lr.ph1360.preheader, label %.split595
+  br i1 %82, label %.lr.ph1410.preheader, label %.split595
 
-.lr.ph1360.preheader:                             ; preds = %.lr.ph633.preheader
+.lr.ph1410.preheader:                             ; preds = %.lr.ph633.preheader
   %83 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1360
+  br label %.lr.ph1410
 
 .lr.ph633:                                        ; preds = %86
   %84 = icmp slt i32 %88, 0
-  br i1 %84, label %.lr.ph1360, label %.split595
+  br i1 %84, label %.lr.ph1410, label %.split595
 
-.lr.ph1360:                                       ; preds = %.lr.ph1360.preheader, %.lr.ph633
+.lr.ph1410:                                       ; preds = %.lr.ph1410.preheader, %.lr.ph633
   %85 = load i32, ptr %83, align 4
   switch i32 %85, label %.split598 [
     i32 11, label %86
     i32 4, label %86
   ]
 
-86:                                               ; preds = %.lr.ph1360, %.lr.ph1360
+86:                                               ; preds = %.lr.ph1410, %.lr.ph1410
   %87 = call i64 @read(i32 noundef %0, ptr noundef %.0280.ph636, i64 noundef %.0277.ph638) #13
   %88 = trunc i64 %87 to i32
   %89 = icmp eq i32 %88, 0
@@ -9958,11 +9958,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
 
 .lr.ph618.preheader.preheader:                    ; preds = %.lr.ph590.split.split
   %93 = icmp slt i32 %91, 0
-  br i1 %93, label %.lr.ph1362.preheader, label %.split595
+  br i1 %93, label %.lr.ph1412.preheader, label %.split595
 
-.lr.ph1362.preheader:                             ; preds = %.lr.ph618.preheader.preheader
+.lr.ph1412.preheader:                             ; preds = %.lr.ph618.preheader.preheader
   %94 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1362
+  br label %.lr.ph1412
 
 .split653:                                        ; preds = %.lr.ph641.split.split, %107
   %95 = tail call i32 @get_log_level() #13
@@ -9994,23 +9994,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
 
 .lr.ph669.preheader:                              ; preds = %107
   %105 = icmp slt i32 %109, 0
-  br i1 %105, label %.lr.ph1366, label %.split646
+  br i1 %105, label %.lr.ph1416, label %.split646
 
-.lr.ph1366:                                       ; preds = %.lr.ph1366.preheader, %.lr.ph669.preheader
+.lr.ph1416:                                       ; preds = %.lr.ph1416.preheader, %.lr.ph669.preheader
   %106 = load i32, ptr %137, align 4
   switch i32 %106, label %.split649 [
     i32 11, label %107
     i32 4, label %107
   ]
 
-107:                                              ; preds = %.lr.ph1366, %.lr.ph1366
+107:                                              ; preds = %.lr.ph1416, %.lr.ph1416
   %108 = call i64 @read(i32 noundef %0, ptr noundef %.0286.ph687, i64 noundef 4) #13
   %109 = trunc i64 %108 to i32
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %.split653, label %.lr.ph669.preheader
 
-.split649:                                        ; preds = %.lr.ph1364, %.lr.ph1366
-  %.0283.ph6891097 = phi i64 [ 4, %.lr.ph1366 ], [ %.0283.ph689, %.lr.ph1364 ]
+.split649:                                        ; preds = %.lr.ph1414, %.lr.ph1416
+  %.0283.ph6891097 = phi i64 [ 4, %.lr.ph1416 ], [ %.0283.ph689, %.lr.ph1414 ]
   %111 = tail call i32 @get_log_level() #13
   %112 = icmp sgt i32 %111, 4
   br i1 %112, label %113, label %.thread
@@ -10053,24 +10053,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
 
 .lr.ph684.preheader:                              ; preds = %.lr.ph641.split.us.split
   %125 = icmp slt i32 %123, 0
-  br i1 %125, label %.lr.ph1364.preheader, label %.split646
+  br i1 %125, label %.lr.ph1414.preheader, label %.split646
 
-.lr.ph1364.preheader:                             ; preds = %.lr.ph684.preheader
+.lr.ph1414.preheader:                             ; preds = %.lr.ph684.preheader
   %126 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1364
+  br label %.lr.ph1414
 
 .lr.ph684:                                        ; preds = %129
   %127 = icmp slt i32 %131, 0
-  br i1 %127, label %.lr.ph1364, label %.split646
+  br i1 %127, label %.lr.ph1414, label %.split646
 
-.lr.ph1364:                                       ; preds = %.lr.ph1364.preheader, %.lr.ph684
+.lr.ph1414:                                       ; preds = %.lr.ph1414.preheader, %.lr.ph684
   %128 = load i32, ptr %126, align 4
   switch i32 %128, label %.split649 [
     i32 11, label %129
     i32 4, label %129
   ]
 
-129:                                              ; preds = %.lr.ph1364, %.lr.ph1364
+129:                                              ; preds = %.lr.ph1414, %.lr.ph1414
   %130 = call i64 @read(i32 noundef %0, ptr noundef %.0286.ph687, i64 noundef %.0283.ph689) #13
   %131 = trunc i64 %130 to i32
   %132 = icmp eq i32 %131, 0
@@ -10084,24 +10084,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
 
 .lr.ph669.preheader.preheader:                    ; preds = %.lr.ph641.split.split
   %136 = icmp slt i32 %134, 0
-  br i1 %136, label %.lr.ph1366.preheader, label %.split646
+  br i1 %136, label %.lr.ph1416.preheader, label %.split646
 
-.lr.ph1366.preheader:                             ; preds = %.lr.ph669.preheader.preheader
+.lr.ph1416.preheader:                             ; preds = %.lr.ph669.preheader.preheader
   %137 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1366
+  br label %.lr.ph1416
 
 .outer475._crit_edge:                             ; preds = %.split646
   %138 = load i32, ptr %6, align 4
-  %.fr1262 = freeze i32 %138
-  %.not357 = icmp eq i32 %.fr1262, 0
+  %.fr1312 = freeze i32 %138
+  %.not357 = icmp eq i32 %.fr1312, 0
   br i1 %.not357, label %.loopexit, label %139
 
 139:                                              ; preds = %.outer475._crit_edge
-  %140 = add nsw i32 %.fr1262, 1
+  %140 = add nsw i32 %.fr1312, 1
   %141 = sext i32 %140 to i64
   %142 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %141, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.26, i32 noundef 1692, ptr noundef nonnull @__func__._handle_getpw) #13
   store ptr %142, ptr %7, align 8
-  %143 = sext i32 %.fr1262 to i64
+  %143 = sext i32 %.fr1312 to i64
   br label %.lr.ph692
 
 .lr.ph692:                                        ; preds = %.lr.ph692.backedge, %139
@@ -10118,24 +10118,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
 
 .lr.ph735.preheader:                              ; preds = %.lr.ph692.split.us.split
   %148 = icmp slt i32 %146, 0
-  br i1 %148, label %.lr.ph1368.preheader, label %.split697.us
+  br i1 %148, label %.lr.ph1418.preheader, label %.split697.us
 
-.lr.ph1368.preheader:                             ; preds = %.lr.ph735.preheader
+.lr.ph1418.preheader:                             ; preds = %.lr.ph735.preheader
   %149 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1368
+  br label %.lr.ph1418
 
 .lr.ph735:                                        ; preds = %152
   %150 = icmp slt i32 %154, 0
-  br i1 %150, label %.lr.ph1368, label %.split697.us
+  br i1 %150, label %.lr.ph1418, label %.split697.us
 
-.lr.ph1368:                                       ; preds = %.lr.ph1368.preheader, %.lr.ph735
+.lr.ph1418:                                       ; preds = %.lr.ph1418.preheader, %.lr.ph735
   %151 = load i32, ptr %149, align 4
   switch i32 %151, label %.split700.us [
     i32 11, label %152
     i32 4, label %152
   ]
 
-152:                                              ; preds = %.lr.ph1368, %.lr.ph1368
+152:                                              ; preds = %.lr.ph1418, %.lr.ph1418
   %153 = tail call i64 @read(i32 noundef %0, ptr noundef %.0292.ph738, i64 noundef %.0289.ph740) #13
   %154 = trunc i64 %153 to i32
   %155 = icmp eq i32 %154, 0
@@ -10146,11 +10146,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
 
 .lr.ph720.preheader.preheader:                    ; preds = %.lr.ph692.split.split
   %156 = icmp slt i32 %146, 0
-  br i1 %156, label %.lr.ph1370.preheader, label %.split697.us
+  br i1 %156, label %.lr.ph1420.preheader, label %.split697.us
 
-.lr.ph1370.preheader:                             ; preds = %.lr.ph720.preheader.preheader
+.lr.ph1420.preheader:                             ; preds = %.lr.ph720.preheader.preheader
   %157 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1370
+  br label %.lr.ph1420
 
 .split704.us:                                     ; preds = %.lr.ph692.split.split, %170
   %158 = tail call i32 @get_log_level() #13
@@ -10172,7 +10172,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br i1 %164, label %165, label %166
 
 165:                                              ; preds = %.split694.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.26, i32 noundef 1693, ptr noundef nonnull @__func__._handle_getpw, i64 noundef %.0289.ph740, i32 noundef %.fr1262) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.26, i32 noundef 1693, ptr noundef nonnull @__func__._handle_getpw, i64 noundef %.0289.ph740, i32 noundef %.fr1312) #13
   br label %166
 
 166:                                              ; preds = %165, %.split694.us
@@ -10182,28 +10182,28 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
 
 .lr.ph720.preheader:                              ; preds = %170
   %168 = icmp slt i32 %172, 0
-  br i1 %168, label %.lr.ph1370, label %.split697.us
+  br i1 %168, label %.lr.ph1420, label %.split697.us
 
-.lr.ph1370:                                       ; preds = %.lr.ph1370.preheader, %.lr.ph720.preheader
+.lr.ph1420:                                       ; preds = %.lr.ph1420.preheader, %.lr.ph720.preheader
   %169 = load i32, ptr %157, align 4
   switch i32 %169, label %.split700.us [
     i32 11, label %170
     i32 4, label %170
   ]
 
-170:                                              ; preds = %.lr.ph1370, %.lr.ph1370
+170:                                              ; preds = %.lr.ph1420, %.lr.ph1420
   %171 = tail call i64 @read(i32 noundef %0, ptr noundef %.0292.ph738, i64 noundef %.0289.ph740) #13
   %172 = trunc i64 %171 to i32
   %173 = icmp eq i32 %172, 0
   br i1 %173, label %.split704.us, label %.lr.ph720.preheader
 
-.split700.us:                                     ; preds = %.lr.ph1368, %.lr.ph1370
+.split700.us:                                     ; preds = %.lr.ph1418, %.lr.ph1420
   %174 = tail call i32 @get_log_level() #13
   %175 = icmp sgt i32 %174, 4
   br i1 %175, label %176, label %.thread
 
 176:                                              ; preds = %.split700.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.26, i32 noundef 1693, ptr noundef nonnull @__func__._handle_getpw, i64 noundef %.0289.ph740, i32 noundef %.fr1262) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.26, i32 noundef 1693, ptr noundef nonnull @__func__._handle_getpw, i64 noundef %.0289.ph740, i32 noundef %.fr1312) #13
   br label %.thread
 
 .split697.us:                                     ; preds = %.lr.ph735, %.lr.ph720.preheader, %.lr.ph735.preheader, %.lr.ph720.preheader.preheader
@@ -10220,7 +10220,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br i1 %182, label %183, label %.lr.ph692.backedge
 
 183:                                              ; preds = %180
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.26, i32 noundef 1693, ptr noundef nonnull @__func__._handle_getpw, i64 noundef %179, i32 noundef %.fr1262) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.26, i32 noundef 1693, ptr noundef nonnull @__func__._handle_getpw, i64 noundef %179, i32 noundef %.fr1312) #13
   br label %.lr.ph692.backedge
 
 .lr.ph692.backedge:                               ; preds = %183, %180
@@ -11140,24 +11140,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
 
 .lr.ph256.preheader:                              ; preds = %.lr.ph.split.us.split
   %13 = icmp slt i32 %11, 0
-  br i1 %13, label %.lr.ph706.preheader, label %.split219.us
+  br i1 %13, label %.lr.ph734.preheader, label %.split219.us
 
-.lr.ph706.preheader:                              ; preds = %.lr.ph256.preheader
+.lr.ph734.preheader:                              ; preds = %.lr.ph256.preheader
   %14 = tail call ptr @__errno_location() #14
-  br label %.lr.ph706
+  br label %.lr.ph734
 
 .lr.ph256:                                        ; preds = %17
   %15 = icmp slt i32 %19, 0
-  br i1 %15, label %.lr.ph706, label %.split219.us
+  br i1 %15, label %.lr.ph734, label %.split219.us
 
-.lr.ph706:                                        ; preds = %.lr.ph706.preheader, %.lr.ph256
+.lr.ph734:                                        ; preds = %.lr.ph734.preheader, %.lr.ph256
   %16 = load i32, ptr %14, align 4
   switch i32 %16, label %.split222.us [
     i32 11, label %17
     i32 4, label %17
   ]
 
-17:                                               ; preds = %.lr.ph706, %.lr.ph706
+17:                                               ; preds = %.lr.ph734, %.lr.ph734
   %18 = call i64 @read(i32 noundef %0, ptr noundef %.0122.ph258, i64 noundef %.0119.ph260) #13
   %19 = trunc i64 %18 to i32
   %20 = icmp eq i32 %19, 0
@@ -11171,11 +11171,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
 
 .lr.ph241.preheader.preheader:                    ; preds = %.lr.ph.split.split
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.lr.ph707.preheader, label %.split219.us
+  br i1 %24, label %.lr.ph735.preheader, label %.split219.us
 
-.lr.ph707.preheader:                              ; preds = %.lr.ph241.preheader.preheader
+.lr.ph735.preheader:                              ; preds = %.lr.ph241.preheader.preheader
   %25 = tail call ptr @__errno_location() #14
-  br label %.lr.ph707
+  br label %.lr.ph735
 
 .split225.us:                                     ; preds = %.lr.ph.split.split, %38
   %26 = tail call i32 @get_log_level() #13
@@ -11207,23 +11207,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
 
 .lr.ph241.preheader:                              ; preds = %38
   %36 = icmp slt i32 %40, 0
-  br i1 %36, label %.lr.ph707, label %.split219.us
+  br i1 %36, label %.lr.ph735, label %.split219.us
 
-.lr.ph707:                                        ; preds = %.lr.ph707.preheader, %.lr.ph241.preheader
+.lr.ph735:                                        ; preds = %.lr.ph735.preheader, %.lr.ph241.preheader
   %37 = load i32, ptr %25, align 4
   switch i32 %37, label %.split222.us [
     i32 11, label %38
     i32 4, label %38
   ]
 
-38:                                               ; preds = %.lr.ph707, %.lr.ph707
+38:                                               ; preds = %.lr.ph735, %.lr.ph735
   %39 = call i64 @read(i32 noundef %0, ptr noundef %.0122.ph258, i64 noundef 4) #13
   %40 = trunc i64 %39 to i32
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.split225.us, label %.lr.ph241.preheader
 
-.split222.us:                                     ; preds = %.lr.ph706, %.lr.ph707
-  %.0119.ph260538 = phi i64 [ 4, %.lr.ph707 ], [ %.0119.ph260, %.lr.ph706 ]
+.split222.us:                                     ; preds = %.lr.ph734, %.lr.ph735
+  %.0119.ph260538 = phi i64 [ 4, %.lr.ph735 ], [ %.0119.ph260, %.lr.ph734 ]
   %42 = tail call i32 @get_log_level() #13
   %43 = icmp sgt i32 %42, 4
   br i1 %43, label %44, label %.thread
@@ -11282,23 +11282,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
 
 .lr.ph291.preheader:                              ; preds = %64
   %62 = icmp slt i32 %66, 0
-  br i1 %62, label %.lr.ph711, label %.split268
+  br i1 %62, label %.lr.ph739, label %.split268
 
-.lr.ph711:                                        ; preds = %.lr.ph711.preheader, %.lr.ph291.preheader
+.lr.ph739:                                        ; preds = %.lr.ph739.preheader, %.lr.ph291.preheader
   %63 = load i32, ptr %94, align 4
   switch i32 %63, label %.split271 [
     i32 11, label %64
     i32 4, label %64
   ]
 
-64:                                               ; preds = %.lr.ph711, %.lr.ph711
+64:                                               ; preds = %.lr.ph739, %.lr.ph739
   %65 = call i64 @read(i32 noundef %0, ptr noundef %.0123.ph311, i64 noundef 4) #13
   %66 = trunc i64 %65 to i32
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %.split275, label %.lr.ph291.preheader
 
-.split271:                                        ; preds = %.lr.ph709, %.lr.ph711
-  %.0124.ph309520 = phi i64 [ 4, %.lr.ph711 ], [ %.0124.ph309, %.lr.ph709 ]
+.split271:                                        ; preds = %.lr.ph737, %.lr.ph739
+  %.0124.ph309520 = phi i64 [ 4, %.lr.ph739 ], [ %.0124.ph309, %.lr.ph737 ]
   %68 = tail call i32 @get_log_level() #13
   %69 = icmp sgt i32 %68, 4
   br i1 %69, label %70, label %.thread
@@ -11341,24 +11341,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
 
 .lr.ph306.preheader:                              ; preds = %.lr.ph263.split.us.split
   %82 = icmp slt i32 %80, 0
-  br i1 %82, label %.lr.ph709.preheader, label %.split268
+  br i1 %82, label %.lr.ph737.preheader, label %.split268
 
-.lr.ph709.preheader:                              ; preds = %.lr.ph306.preheader
+.lr.ph737.preheader:                              ; preds = %.lr.ph306.preheader
   %83 = tail call ptr @__errno_location() #14
-  br label %.lr.ph709
+  br label %.lr.ph737
 
 .lr.ph306:                                        ; preds = %86
   %84 = icmp slt i32 %88, 0
-  br i1 %84, label %.lr.ph709, label %.split268
+  br i1 %84, label %.lr.ph737, label %.split268
 
-.lr.ph709:                                        ; preds = %.lr.ph709.preheader, %.lr.ph306
+.lr.ph737:                                        ; preds = %.lr.ph737.preheader, %.lr.ph306
   %85 = load i32, ptr %83, align 4
   switch i32 %85, label %.split271 [
     i32 11, label %86
     i32 4, label %86
   ]
 
-86:                                               ; preds = %.lr.ph709, %.lr.ph709
+86:                                               ; preds = %.lr.ph737, %.lr.ph737
   %87 = call i64 @read(i32 noundef %0, ptr noundef %.0123.ph311, i64 noundef %.0124.ph309) #13
   %88 = trunc i64 %87 to i32
   %89 = icmp eq i32 %88, 0
@@ -11372,11 +11372,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
 
 .lr.ph291.preheader.preheader:                    ; preds = %.lr.ph263.split.split
   %93 = icmp slt i32 %91, 0
-  br i1 %93, label %.lr.ph711.preheader, label %.split268
+  br i1 %93, label %.lr.ph739.preheader, label %.split268
 
-.lr.ph711.preheader:                              ; preds = %.lr.ph291.preheader.preheader
+.lr.ph739.preheader:                              ; preds = %.lr.ph291.preheader.preheader
   %94 = tail call ptr @__errno_location() #14
-  br label %.lr.ph711
+  br label %.lr.ph739
 
 .split326:                                        ; preds = %.lr.ph314.split.split, %107
   %95 = tail call i32 @get_log_level() #13
@@ -11408,23 +11408,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
 
 .lr.ph342.preheader:                              ; preds = %107
   %105 = icmp slt i32 %109, 0
-  br i1 %105, label %.lr.ph715, label %.split319
+  br i1 %105, label %.lr.ph743, label %.split319
 
-.lr.ph715:                                        ; preds = %.lr.ph715.preheader, %.lr.ph342.preheader
+.lr.ph743:                                        ; preds = %.lr.ph743.preheader, %.lr.ph342.preheader
   %106 = load i32, ptr %137, align 4
   switch i32 %106, label %.split322 [
     i32 11, label %107
     i32 4, label %107
   ]
 
-107:                                              ; preds = %.lr.ph715, %.lr.ph715
+107:                                              ; preds = %.lr.ph743, %.lr.ph743
   %108 = call i64 @read(i32 noundef %0, ptr noundef %.0120.ph362, i64 noundef 4) #13
   %109 = trunc i64 %108 to i32
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %.split326, label %.lr.ph342.preheader
 
-.split322:                                        ; preds = %.lr.ph713, %.lr.ph715
-  %.0121.ph360502 = phi i64 [ 4, %.lr.ph715 ], [ %.0121.ph360, %.lr.ph713 ]
+.split322:                                        ; preds = %.lr.ph741, %.lr.ph743
+  %.0121.ph360502 = phi i64 [ 4, %.lr.ph743 ], [ %.0121.ph360, %.lr.ph741 ]
   %111 = tail call i32 @get_log_level() #13
   %112 = icmp sgt i32 %111, 4
   br i1 %112, label %113, label %.thread
@@ -11467,24 +11467,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
 
 .lr.ph357.preheader:                              ; preds = %.lr.ph314.split.us.split
   %125 = icmp slt i32 %123, 0
-  br i1 %125, label %.lr.ph713.preheader, label %.split319
+  br i1 %125, label %.lr.ph741.preheader, label %.split319
 
-.lr.ph713.preheader:                              ; preds = %.lr.ph357.preheader
+.lr.ph741.preheader:                              ; preds = %.lr.ph357.preheader
   %126 = tail call ptr @__errno_location() #14
-  br label %.lr.ph713
+  br label %.lr.ph741
 
 .lr.ph357:                                        ; preds = %129
   %127 = icmp slt i32 %131, 0
-  br i1 %127, label %.lr.ph713, label %.split319
+  br i1 %127, label %.lr.ph741, label %.split319
 
-.lr.ph713:                                        ; preds = %.lr.ph713.preheader, %.lr.ph357
+.lr.ph741:                                        ; preds = %.lr.ph741.preheader, %.lr.ph357
   %128 = load i32, ptr %126, align 4
   switch i32 %128, label %.split322 [
     i32 11, label %129
     i32 4, label %129
   ]
 
-129:                                              ; preds = %.lr.ph713, %.lr.ph713
+129:                                              ; preds = %.lr.ph741, %.lr.ph741
   %130 = call i64 @read(i32 noundef %0, ptr noundef %.0120.ph362, i64 noundef %.0121.ph360) #13
   %131 = trunc i64 %130 to i32
   %132 = icmp eq i32 %131, 0
@@ -11498,24 +11498,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
 
 .lr.ph342.preheader.preheader:                    ; preds = %.lr.ph314.split.split
   %136 = icmp slt i32 %134, 0
-  br i1 %136, label %.lr.ph715.preheader, label %.split319
+  br i1 %136, label %.lr.ph743.preheader, label %.split319
 
-.lr.ph715.preheader:                              ; preds = %.lr.ph342.preheader.preheader
+.lr.ph743.preheader:                              ; preds = %.lr.ph342.preheader.preheader
   %137 = tail call ptr @__errno_location() #14
-  br label %.lr.ph715
+  br label %.lr.ph743
 
 .outer184._crit_edge:                             ; preds = %.split319
   %138 = load i32, ptr %6, align 4
-  %.fr635 = freeze i32 %138
-  %.not150 = icmp eq i32 %.fr635, 0
+  %.fr663 = freeze i32 %138
+  %.not150 = icmp eq i32 %.fr663, 0
   br i1 %.not150, label %.loopexit, label %139
 
 139:                                              ; preds = %.outer184._crit_edge
-  %140 = add nsw i32 %.fr635, 1
+  %140 = add nsw i32 %.fr663, 1
   %141 = sext i32 %140 to i64
   %142 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %141, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.26, i32 noundef 1791, ptr noundef nonnull @__func__._handle_getgr) #13
   store ptr %142, ptr %7, align 8
-  %143 = sext i32 %.fr635 to i64
+  %143 = sext i32 %.fr663 to i64
   br label %.lr.ph365
 
 .lr.ph365:                                        ; preds = %.lr.ph365.backedge, %139
@@ -11532,24 +11532,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
 
 .lr.ph408.preheader:                              ; preds = %.lr.ph365.split.us.split
   %148 = icmp slt i32 %146, 0
-  br i1 %148, label %.lr.ph717.preheader, label %.split370.us
+  br i1 %148, label %.lr.ph745.preheader, label %.split370.us
 
-.lr.ph717.preheader:                              ; preds = %.lr.ph408.preheader
+.lr.ph745.preheader:                              ; preds = %.lr.ph408.preheader
   %149 = tail call ptr @__errno_location() #14
-  br label %.lr.ph717
+  br label %.lr.ph745
 
 .lr.ph408:                                        ; preds = %152
   %150 = icmp slt i32 %154, 0
-  br i1 %150, label %.lr.ph717, label %.split370.us
+  br i1 %150, label %.lr.ph745, label %.split370.us
 
-.lr.ph717:                                        ; preds = %.lr.ph717.preheader, %.lr.ph408
+.lr.ph745:                                        ; preds = %.lr.ph745.preheader, %.lr.ph408
   %151 = load i32, ptr %149, align 4
   switch i32 %151, label %.split373.us [
     i32 11, label %152
     i32 4, label %152
   ]
 
-152:                                              ; preds = %.lr.ph717, %.lr.ph717
+152:                                              ; preds = %.lr.ph745, %.lr.ph745
   %153 = tail call i64 @read(i32 noundef %0, ptr noundef %.0117.ph413, i64 noundef %.0118.ph411) #13
   %154 = trunc i64 %153 to i32
   %155 = icmp eq i32 %154, 0
@@ -11560,11 +11560,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
 
 .lr.ph393.preheader.preheader:                    ; preds = %.lr.ph365.split.split
   %156 = icmp slt i32 %146, 0
-  br i1 %156, label %.lr.ph719.preheader, label %.split370.us
+  br i1 %156, label %.lr.ph747.preheader, label %.split370.us
 
-.lr.ph719.preheader:                              ; preds = %.lr.ph393.preheader.preheader
+.lr.ph747.preheader:                              ; preds = %.lr.ph393.preheader.preheader
   %157 = tail call ptr @__errno_location() #14
-  br label %.lr.ph719
+  br label %.lr.ph747
 
 .split377.us:                                     ; preds = %.lr.ph365.split.split, %170
   %158 = tail call i32 @get_log_level() #13
@@ -11586,7 +11586,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
   br i1 %164, label %165, label %166
 
 165:                                              ; preds = %.split367.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.26, i32 noundef 1792, ptr noundef nonnull @__func__._handle_getgr, i64 noundef %.0118.ph411, i32 noundef %.fr635) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.26, i32 noundef 1792, ptr noundef nonnull @__func__._handle_getgr, i64 noundef %.0118.ph411, i32 noundef %.fr663) #13
   br label %166
 
 166:                                              ; preds = %165, %.split367.us
@@ -11596,28 +11596,28 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
 
 .lr.ph393.preheader:                              ; preds = %170
   %168 = icmp slt i32 %172, 0
-  br i1 %168, label %.lr.ph719, label %.split370.us
+  br i1 %168, label %.lr.ph747, label %.split370.us
 
-.lr.ph719:                                        ; preds = %.lr.ph719.preheader, %.lr.ph393.preheader
+.lr.ph747:                                        ; preds = %.lr.ph747.preheader, %.lr.ph393.preheader
   %169 = load i32, ptr %157, align 4
   switch i32 %169, label %.split373.us [
     i32 11, label %170
     i32 4, label %170
   ]
 
-170:                                              ; preds = %.lr.ph719, %.lr.ph719
+170:                                              ; preds = %.lr.ph747, %.lr.ph747
   %171 = tail call i64 @read(i32 noundef %0, ptr noundef %.0117.ph413, i64 noundef %.0118.ph411) #13
   %172 = trunc i64 %171 to i32
   %173 = icmp eq i32 %172, 0
   br i1 %173, label %.split377.us, label %.lr.ph393.preheader
 
-.split373.us:                                     ; preds = %.lr.ph717, %.lr.ph719
+.split373.us:                                     ; preds = %.lr.ph745, %.lr.ph747
   %174 = tail call i32 @get_log_level() #13
   %175 = icmp sgt i32 %174, 4
   br i1 %175, label %176, label %.thread
 
 176:                                              ; preds = %.split373.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.26, i32 noundef 1792, ptr noundef nonnull @__func__._handle_getgr, i64 noundef %.0118.ph411, i32 noundef %.fr635) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.26, i32 noundef 1792, ptr noundef nonnull @__func__._handle_getgr, i64 noundef %.0118.ph411, i32 noundef %.fr663) #13
   br label %.thread
 
 .split370.us:                                     ; preds = %.lr.ph408, %.lr.ph393.preheader, %.lr.ph408.preheader, %.lr.ph393.preheader.preheader
@@ -11634,7 +11634,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
   br i1 %182, label %183, label %.lr.ph365.backedge
 
 183:                                              ; preds = %180
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.26, i32 noundef 1792, ptr noundef nonnull @__func__._handle_getgr, i64 noundef %179, i32 noundef %.fr635) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.26, i32 noundef 1792, ptr noundef nonnull @__func__._handle_getgr, i64 noundef %179, i32 noundef %.fr663) #13
   br label %.lr.ph365.backedge
 
 .lr.ph365.backedge:                               ; preds = %183, %180
@@ -11683,27 +11683,27 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
   %202 = load ptr, ptr %191, align 8
   %203 = load i32, ptr %202, align 4
   %204 = icmp eq i32 %201, %203
-  br i1 %204, label %._crit_edge418, label %.lr.ph722
+  br i1 %204, label %._crit_edge418, label %.lr.ph750
 
 205:                                              ; preds = %214
   %206 = load ptr, ptr %191, align 8
   %207 = getelementptr inbounds nuw i32, ptr %206, i64 %indvars.iv.next
   %208 = load i32, ptr %207, align 4
   %209 = icmp eq i32 %201, %208
-  br i1 %209, label %._crit_edge418, label %.lr.ph722, !llvm.loop !117
+  br i1 %209, label %._crit_edge418, label %.lr.ph750, !llvm.loop !117
 
-.lr.ph722:                                        ; preds = %.lr.ph417, %205
-  %indvars.iv721 = phi i64 [ %indvars.iv.next, %205 ], [ 0, %.lr.ph417 ]
+.lr.ph750:                                        ; preds = %.lr.ph417, %205
+  %indvars.iv749 = phi i64 [ %indvars.iv.next, %205 ], [ 0, %.lr.ph417 ]
   %210 = load ptr, ptr %194, align 8
-  %211 = getelementptr inbounds nuw ptr, ptr %210, i64 %indvars.iv721
+  %211 = getelementptr inbounds nuw ptr, ptr %210, i64 %indvars.iv749
   %212 = load ptr, ptr %211, align 8
   %213 = tail call i32 @xstrcmp(ptr noundef %184, ptr noundef %212) #13
   %.not156 = icmp eq i32 %213, 0
   %.pre.pre = load i32, ptr %188, align 4
   br i1 %.not156, label %._crit_edge418, label %214
 
-214:                                              ; preds = %.lr.ph722
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv721, 1
+214:                                              ; preds = %.lr.ph750
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv749, 1
   %215 = sext i32 %.pre.pre to i64
   %216 = icmp slt i64 %indvars.iv.next, %215
   br i1 %216, label %205, label %.._crit_edge418_crit_edge, !llvm.loop !117
@@ -11711,9 +11711,9 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
 .._crit_edge418_crit_edge:                        ; preds = %214
   br label %._crit_edge418, !llvm.loop !117
 
-._crit_edge418:                                   ; preds = %.lr.ph722, %205, %.._crit_edge418_crit_edge, %.lr.ph417
-  %.pre = phi i32 [ %.pre.pre, %.._crit_edge418_crit_edge ], [ %189, %.lr.ph417 ], [ %.pre.pre, %205 ], [ %.pre.pre, %.lr.ph722 ]
-  %.0116.lcssa.ph.in = phi i64 [ %indvars.iv.next, %.._crit_edge418_crit_edge ], [ 0, %.lr.ph417 ], [ %indvars.iv721, %.lr.ph722 ], [ %indvars.iv.next, %205 ]
+._crit_edge418:                                   ; preds = %.lr.ph750, %205, %.._crit_edge418_crit_edge, %.lr.ph417
+  %.pre = phi i32 [ %.pre.pre, %.._crit_edge418_crit_edge ], [ %189, %.lr.ph417 ], [ %.pre.pre, %205 ], [ %.pre.pre, %.lr.ph750 ]
+  %.0116.lcssa.ph.in = phi i64 [ %indvars.iv.next, %.._crit_edge418_crit_edge ], [ 0, %.lr.ph417 ], [ %indvars.iv749, %.lr.ph750 ], [ %indvars.iv.next, %205 ]
   %.0116.lcssa.ph = trunc i64 %.0116.lcssa.ph.in to i32
   %217 = icmp sgt i32 %.pre, %.0116.lcssa.ph
   br i1 %217, label %218, label %._crit_edge418.thread
@@ -11997,24 +11997,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
 
 .lr.ph491.preheader:                              ; preds = %.lr.ph.split.us.split
   %18 = icmp slt i32 %16, 0
-  br i1 %18, label %.lr.ph1095.preheader, label %.split454.us
+  br i1 %18, label %.lr.ph1138.preheader, label %.split454.us
 
-.lr.ph1095.preheader:                             ; preds = %.lr.ph491.preheader
+.lr.ph1138.preheader:                             ; preds = %.lr.ph491.preheader
   %19 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1095
+  br label %.lr.ph1138
 
 .lr.ph491:                                        ; preds = %22
   %20 = icmp slt i32 %24, 0
-  br i1 %20, label %.lr.ph1095, label %.split454.us
+  br i1 %20, label %.lr.ph1138, label %.split454.us
 
-.lr.ph1095:                                       ; preds = %.lr.ph1095.preheader, %.lr.ph491
+.lr.ph1138:                                       ; preds = %.lr.ph1138.preheader, %.lr.ph491
   %21 = load i32, ptr %19, align 4
   switch i32 %21, label %.split457.us [
     i32 11, label %22
     i32 4, label %22
   ]
 
-22:                                               ; preds = %.lr.ph1095, %.lr.ph1095
+22:                                               ; preds = %.lr.ph1138, %.lr.ph1138
   %23 = call i64 @read(i32 noundef %0, ptr noundef %.0211.ph493, i64 noundef %.0208.ph495) #13
   %24 = trunc i64 %23 to i32
   %25 = icmp eq i32 %24, 0
@@ -12028,11 +12028,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
 
 .lr.ph476.preheader.preheader:                    ; preds = %.lr.ph.split.split
   %29 = icmp slt i32 %27, 0
-  br i1 %29, label %.lr.ph1096.preheader, label %.split454.us
+  br i1 %29, label %.lr.ph1139.preheader, label %.split454.us
 
-.lr.ph1096.preheader:                             ; preds = %.lr.ph476.preheader.preheader
+.lr.ph1139.preheader:                             ; preds = %.lr.ph476.preheader.preheader
   %30 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1096
+  br label %.lr.ph1139
 
 .split460.us:                                     ; preds = %.lr.ph.split.split, %43
   %31 = tail call i32 @get_log_level() #13
@@ -12064,23 +12064,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
 
 .lr.ph476.preheader:                              ; preds = %43
   %41 = icmp slt i32 %45, 0
-  br i1 %41, label %.lr.ph1096, label %.split454.us
+  br i1 %41, label %.lr.ph1139, label %.split454.us
 
-.lr.ph1096:                                       ; preds = %.lr.ph1096.preheader, %.lr.ph476.preheader
+.lr.ph1139:                                       ; preds = %.lr.ph1139.preheader, %.lr.ph476.preheader
   %42 = load i32, ptr %30, align 4
   switch i32 %42, label %.split457.us [
     i32 11, label %43
     i32 4, label %43
   ]
 
-43:                                               ; preds = %.lr.ph1096, %.lr.ph1096
+43:                                               ; preds = %.lr.ph1139, %.lr.ph1139
   %44 = call i64 @read(i32 noundef %0, ptr noundef %.0211.ph493, i64 noundef 4) #13
   %45 = trunc i64 %44 to i32
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %.split460.us, label %.lr.ph476.preheader
 
-.split457.us:                                     ; preds = %.lr.ph1095, %.lr.ph1096
-  %.0208.ph495917 = phi i64 [ 4, %.lr.ph1096 ], [ %.0208.ph495, %.lr.ph1095 ]
+.split457.us:                                     ; preds = %.lr.ph1138, %.lr.ph1139
+  %.0208.ph495917 = phi i64 [ 4, %.lr.ph1139 ], [ %.0208.ph495, %.lr.ph1138 ]
   %47 = tail call i32 @get_log_level() #13
   %48 = icmp sgt i32 %47, 4
   br i1 %48, label %49, label %.thread
@@ -12139,23 +12139,23 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
 
 .lr.ph526.preheader:                              ; preds = %69
   %67 = icmp slt i32 %71, 0
-  br i1 %67, label %.lr.ph1100, label %.split503
+  br i1 %67, label %.lr.ph1143, label %.split503
 
-.lr.ph1100:                                       ; preds = %.lr.ph1100.preheader, %.lr.ph526.preheader
+.lr.ph1143:                                       ; preds = %.lr.ph1143.preheader, %.lr.ph526.preheader
   %68 = load i32, ptr %99, align 4
   switch i32 %68, label %.split506 [
     i32 11, label %69
     i32 4, label %69
   ]
 
-69:                                               ; preds = %.lr.ph1100, %.lr.ph1100
+69:                                               ; preds = %.lr.ph1143, %.lr.ph1143
   %70 = call i64 @read(i32 noundef %0, ptr noundef %.0220.ph544, i64 noundef 4) #13
   %71 = trunc i64 %70 to i32
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %.split510, label %.lr.ph526.preheader
 
-.split506:                                        ; preds = %.lr.ph1098, %.lr.ph1100
-  %.0217.ph546899 = phi i64 [ 4, %.lr.ph1100 ], [ %.0217.ph546, %.lr.ph1098 ]
+.split506:                                        ; preds = %.lr.ph1141, %.lr.ph1143
+  %.0217.ph546899 = phi i64 [ 4, %.lr.ph1143 ], [ %.0217.ph546, %.lr.ph1141 ]
   %73 = tail call i32 @get_log_level() #13
   %74 = icmp sgt i32 %73, 4
   br i1 %74, label %75, label %.thread
@@ -12198,24 +12198,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
 
 .lr.ph541.preheader:                              ; preds = %.lr.ph498.split.us.split
   %87 = icmp slt i32 %85, 0
-  br i1 %87, label %.lr.ph1098.preheader, label %.split503
+  br i1 %87, label %.lr.ph1141.preheader, label %.split503
 
-.lr.ph1098.preheader:                             ; preds = %.lr.ph541.preheader
+.lr.ph1141.preheader:                             ; preds = %.lr.ph541.preheader
   %88 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1098
+  br label %.lr.ph1141
 
 .lr.ph541:                                        ; preds = %91
   %89 = icmp slt i32 %93, 0
-  br i1 %89, label %.lr.ph1098, label %.split503
+  br i1 %89, label %.lr.ph1141, label %.split503
 
-.lr.ph1098:                                       ; preds = %.lr.ph1098.preheader, %.lr.ph541
+.lr.ph1141:                                       ; preds = %.lr.ph1141.preheader, %.lr.ph541
   %90 = load i32, ptr %88, align 4
   switch i32 %90, label %.split506 [
     i32 11, label %91
     i32 4, label %91
   ]
 
-91:                                               ; preds = %.lr.ph1098, %.lr.ph1098
+91:                                               ; preds = %.lr.ph1141, %.lr.ph1141
   %92 = call i64 @read(i32 noundef %0, ptr noundef %.0220.ph544, i64 noundef %.0217.ph546) #13
   %93 = trunc i64 %92 to i32
   %94 = icmp eq i32 %93, 0
@@ -12229,24 +12229,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
 
 .lr.ph526.preheader.preheader:                    ; preds = %.lr.ph498.split.split
   %98 = icmp slt i32 %96, 0
-  br i1 %98, label %.lr.ph1100.preheader, label %.split503
+  br i1 %98, label %.lr.ph1143.preheader, label %.split503
 
-.lr.ph1100.preheader:                             ; preds = %.lr.ph526.preheader.preheader
+.lr.ph1143.preheader:                             ; preds = %.lr.ph526.preheader.preheader
   %99 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1100
+  br label %.lr.ph1143
 
 .outer398._crit_edge:                             ; preds = %.split503
   %100 = load i32, ptr %5, align 4
-  %.fr1020 = freeze i32 %100
-  %.not285 = icmp eq i32 %.fr1020, 0
+  %.fr1063 = freeze i32 %100
+  %.not285 = icmp eq i32 %.fr1063, 0
   br i1 %.not285, label %.loopexit395, label %101
 
 101:                                              ; preds = %.outer398._crit_edge
-  %102 = add nsw i32 %.fr1020, 1
+  %102 = add nsw i32 %.fr1063, 1
   %103 = sext i32 %102 to i64
   %104 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %103, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.26, i32 noundef 1855, ptr noundef nonnull @__func__._handle_gethost) #13
   store ptr %104, ptr %6, align 8
-  %105 = sext i32 %.fr1020 to i64
+  %105 = sext i32 %.fr1063 to i64
   br label %.lr.ph549
 
 .lr.ph549:                                        ; preds = %.lr.ph549.backedge, %101
@@ -12263,24 +12263,24 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
 
 .lr.ph592.preheader:                              ; preds = %.lr.ph549.split.us.split
   %110 = icmp slt i32 %108, 0
-  br i1 %110, label %.lr.ph1102.preheader, label %.split554.us
+  br i1 %110, label %.lr.ph1145.preheader, label %.split554.us
 
-.lr.ph1102.preheader:                             ; preds = %.lr.ph592.preheader
+.lr.ph1145.preheader:                             ; preds = %.lr.ph592.preheader
   %111 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1102
+  br label %.lr.ph1145
 
 .lr.ph592:                                        ; preds = %114
   %112 = icmp slt i32 %116, 0
-  br i1 %112, label %.lr.ph1102, label %.split554.us
+  br i1 %112, label %.lr.ph1145, label %.split554.us
 
-.lr.ph1102:                                       ; preds = %.lr.ph1102.preheader, %.lr.ph592
+.lr.ph1145:                                       ; preds = %.lr.ph1145.preheader, %.lr.ph592
   %113 = load i32, ptr %111, align 4
   switch i32 %113, label %.split557.us [
     i32 11, label %114
     i32 4, label %114
   ]
 
-114:                                              ; preds = %.lr.ph1102, %.lr.ph1102
+114:                                              ; preds = %.lr.ph1145, %.lr.ph1145
   %115 = tail call i64 @read(i32 noundef %0, ptr noundef %.0226.ph595, i64 noundef %.0223.ph597) #13
   %116 = trunc i64 %115 to i32
   %117 = icmp eq i32 %116, 0
@@ -12291,11 +12291,11 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
 
 .lr.ph577.preheader.preheader:                    ; preds = %.lr.ph549.split.split
   %118 = icmp slt i32 %108, 0
-  br i1 %118, label %.lr.ph1104.preheader, label %.split554.us
+  br i1 %118, label %.lr.ph1147.preheader, label %.split554.us
 
-.lr.ph1104.preheader:                             ; preds = %.lr.ph577.preheader.preheader
+.lr.ph1147.preheader:                             ; preds = %.lr.ph577.preheader.preheader
   %119 = tail call ptr @__errno_location() #14
-  br label %.lr.ph1104
+  br label %.lr.ph1147
 
 .split561.us:                                     ; preds = %.lr.ph549.split.split, %132
   %120 = tail call i32 @get_log_level() #13
@@ -12317,7 +12317,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br i1 %126, label %127, label %128
 
 127:                                              ; preds = %.split551.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.26, i32 noundef 1856, ptr noundef nonnull @__func__._handle_gethost, i64 noundef %.0223.ph597, i32 noundef %.fr1020) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.26, i32 noundef 1856, ptr noundef nonnull @__func__._handle_gethost, i64 noundef %.0223.ph597, i32 noundef %.fr1063) #13
   br label %128
 
 128:                                              ; preds = %127, %.split551.us
@@ -12327,28 +12327,28 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
 
 .lr.ph577.preheader:                              ; preds = %132
   %130 = icmp slt i32 %134, 0
-  br i1 %130, label %.lr.ph1104, label %.split554.us
+  br i1 %130, label %.lr.ph1147, label %.split554.us
 
-.lr.ph1104:                                       ; preds = %.lr.ph1104.preheader, %.lr.ph577.preheader
+.lr.ph1147:                                       ; preds = %.lr.ph1147.preheader, %.lr.ph577.preheader
   %131 = load i32, ptr %119, align 4
   switch i32 %131, label %.split557.us [
     i32 11, label %132
     i32 4, label %132
   ]
 
-132:                                              ; preds = %.lr.ph1104, %.lr.ph1104
+132:                                              ; preds = %.lr.ph1147, %.lr.ph1147
   %133 = tail call i64 @read(i32 noundef %0, ptr noundef %.0226.ph595, i64 noundef %.0223.ph597) #13
   %134 = trunc i64 %133 to i32
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %.split561.us, label %.lr.ph577.preheader
 
-.split557.us:                                     ; preds = %.lr.ph1102, %.lr.ph1104
+.split557.us:                                     ; preds = %.lr.ph1145, %.lr.ph1147
   %136 = tail call i32 @get_log_level() #13
   %137 = icmp sgt i32 %136, 4
   br i1 %137, label %138, label %.thread
 
 138:                                              ; preds = %.split557.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.26, i32 noundef 1856, ptr noundef nonnull @__func__._handle_gethost, i64 noundef %.0223.ph597, i32 noundef %.fr1020) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.26, i32 noundef 1856, ptr noundef nonnull @__func__._handle_gethost, i64 noundef %.0223.ph597, i32 noundef %.fr1063) #13
   br label %.thread
 
 .split554.us:                                     ; preds = %.lr.ph592, %.lr.ph577.preheader, %.lr.ph592.preheader, %.lr.ph577.preheader.preheader
@@ -12365,7 +12365,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br i1 %144, label %145, label %.lr.ph549.backedge
 
 145:                                              ; preds = %142
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.26, i32 noundef 1856, ptr noundef nonnull @__func__._handle_gethost, i64 noundef %141, i32 noundef %.fr1020) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.26, i32 noundef 1856, ptr noundef nonnull @__func__._handle_gethost, i64 noundef %141, i32 noundef %.fr1063) #13
   br label %.lr.ph549.backedge
 
 .lr.ph549.backedge:                               ; preds = %145, %142
@@ -13776,24 +13776,24 @@ define internal fastcc i32 @_handle_stepmgr_relay_msg(i32 noundef %0, i32 nounde
 
 .lr.ph178.preheader:                              ; preds = %.lr.ph.split.us.split
   %13 = icmp slt i32 %11, 0
-  br i1 %13, label %.lr.ph473.preheader, label %.split141.us
+  br i1 %13, label %.lr.ph495.preheader, label %.split141.us
 
-.lr.ph473.preheader:                              ; preds = %.lr.ph178.preheader
+.lr.ph495.preheader:                              ; preds = %.lr.ph178.preheader
   %14 = tail call ptr @__errno_location() #14
-  br label %.lr.ph473
+  br label %.lr.ph495
 
 .lr.ph178:                                        ; preds = %17
   %15 = icmp slt i32 %19, 0
-  br i1 %15, label %.lr.ph473, label %.split141.us
+  br i1 %15, label %.lr.ph495, label %.split141.us
 
-.lr.ph473:                                        ; preds = %.lr.ph473.preheader, %.lr.ph178
+.lr.ph495:                                        ; preds = %.lr.ph495.preheader, %.lr.ph178
   %16 = load i32, ptr %14, align 4
   switch i32 %16, label %.split144.us [
     i32 11, label %17
     i32 4, label %17
   ]
 
-17:                                               ; preds = %.lr.ph473, %.lr.ph473
+17:                                               ; preds = %.lr.ph495, %.lr.ph495
   %18 = call i64 @read(i32 noundef %0, ptr noundef %.082.ph182, i64 noundef %.083.ph180) #13
   %19 = trunc i64 %18 to i32
   %20 = icmp eq i32 %19, 0
@@ -13807,11 +13807,11 @@ define internal fastcc i32 @_handle_stepmgr_relay_msg(i32 noundef %0, i32 nounde
 
 .lr.ph163.preheader.preheader:                    ; preds = %.lr.ph.split.split
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.lr.ph474.preheader, label %.split141.us
+  br i1 %24, label %.lr.ph496.preheader, label %.split141.us
 
-.lr.ph474.preheader:                              ; preds = %.lr.ph163.preheader.preheader
+.lr.ph496.preheader:                              ; preds = %.lr.ph163.preheader.preheader
   %25 = tail call ptr @__errno_location() #14
-  br label %.lr.ph474
+  br label %.lr.ph496
 
 .split147.us:                                     ; preds = %.lr.ph.split.split, %38
   %26 = tail call i32 @get_log_level() #13
@@ -13843,23 +13843,23 @@ define internal fastcc i32 @_handle_stepmgr_relay_msg(i32 noundef %0, i32 nounde
 
 .lr.ph163.preheader:                              ; preds = %38
   %36 = icmp slt i32 %40, 0
-  br i1 %36, label %.lr.ph474, label %.split141.us
+  br i1 %36, label %.lr.ph496, label %.split141.us
 
-.lr.ph474:                                        ; preds = %.lr.ph474.preheader, %.lr.ph163.preheader
+.lr.ph496:                                        ; preds = %.lr.ph496.preheader, %.lr.ph163.preheader
   %37 = load i32, ptr %25, align 4
   switch i32 %37, label %.split144.us [
     i32 11, label %38
     i32 4, label %38
   ]
 
-38:                                               ; preds = %.lr.ph474, %.lr.ph474
+38:                                               ; preds = %.lr.ph496, %.lr.ph496
   %39 = call i64 @read(i32 noundef %0, ptr noundef %.082.ph182, i64 noundef 2) #13
   %40 = trunc i64 %39 to i32
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.split147.us, label %.lr.ph163.preheader
 
-.split144.us:                                     ; preds = %.lr.ph473, %.lr.ph474
-  %.083.ph180356 = phi i64 [ 2, %.lr.ph474 ], [ %.083.ph180, %.lr.ph473 ]
+.split144.us:                                     ; preds = %.lr.ph495, %.lr.ph496
+  %.083.ph180356 = phi i64 [ 2, %.lr.ph496 ], [ %.083.ph180, %.lr.ph495 ]
   %42 = tail call i32 @get_log_level() #13
   %43 = icmp sgt i32 %42, 4
   br i1 %43, label %44, label %.thread
@@ -13906,24 +13906,24 @@ define internal fastcc i32 @_handle_stepmgr_relay_msg(i32 noundef %0, i32 nounde
 
 .lr.ph229.preheader:                              ; preds = %.lr.ph185.split.us.split
   %57 = icmp slt i32 %55, 0
-  br i1 %57, label %.lr.ph476.preheader, label %.split191.us
+  br i1 %57, label %.lr.ph498.preheader, label %.split191.us
 
-.lr.ph476.preheader:                              ; preds = %.lr.ph229.preheader
+.lr.ph498.preheader:                              ; preds = %.lr.ph229.preheader
   %58 = tail call ptr @__errno_location() #14
-  br label %.lr.ph476
+  br label %.lr.ph498
 
 .lr.ph229:                                        ; preds = %61
   %59 = icmp slt i32 %63, 0
-  br i1 %59, label %.lr.ph476, label %.split191.us
+  br i1 %59, label %.lr.ph498, label %.split191.us
 
-.lr.ph476:                                        ; preds = %.lr.ph476.preheader, %.lr.ph229
+.lr.ph498:                                        ; preds = %.lr.ph498.preheader, %.lr.ph229
   %60 = load i32, ptr %58, align 4
   switch i32 %60, label %.split194.us [
     i32 11, label %61
     i32 4, label %61
   ]
 
-61:                                               ; preds = %.lr.ph476, %.lr.ph476
+61:                                               ; preds = %.lr.ph498, %.lr.ph498
   %62 = call i64 @read(i32 noundef %0, ptr noundef %.079.ph234, i64 noundef %.080.ph232) #13
   %63 = trunc i64 %62 to i32
   %64 = icmp eq i32 %63, 0
@@ -13937,11 +13937,11 @@ define internal fastcc i32 @_handle_stepmgr_relay_msg(i32 noundef %0, i32 nounde
 
 .lr.ph214.preheader.preheader:                    ; preds = %.lr.ph185.split.split
   %68 = icmp slt i32 %66, 0
-  br i1 %68, label %.lr.ph478.preheader, label %.split191.us
+  br i1 %68, label %.lr.ph500.preheader, label %.split191.us
 
-.lr.ph478.preheader:                              ; preds = %.lr.ph214.preheader.preheader
+.lr.ph500.preheader:                              ; preds = %.lr.ph214.preheader.preheader
   %69 = tail call ptr @__errno_location() #14
-  br label %.lr.ph478
+  br label %.lr.ph500
 
 .split198.us:                                     ; preds = %.lr.ph185.split.split, %82
   %70 = tail call i32 @get_log_level() #13
@@ -13973,23 +13973,23 @@ define internal fastcc i32 @_handle_stepmgr_relay_msg(i32 noundef %0, i32 nounde
 
 .lr.ph214.preheader:                              ; preds = %82
   %80 = icmp slt i32 %84, 0
-  br i1 %80, label %.lr.ph478, label %.split191.us
+  br i1 %80, label %.lr.ph500, label %.split191.us
 
-.lr.ph478:                                        ; preds = %.lr.ph478.preheader, %.lr.ph214.preheader
+.lr.ph500:                                        ; preds = %.lr.ph500.preheader, %.lr.ph214.preheader
   %81 = load i32, ptr %69, align 4
   switch i32 %81, label %.split194.us [
     i32 11, label %82
     i32 4, label %82
   ]
 
-82:                                               ; preds = %.lr.ph478, %.lr.ph478
+82:                                               ; preds = %.lr.ph500, %.lr.ph500
   %83 = call i64 @read(i32 noundef %0, ptr noundef %.079.ph234, i64 noundef 4) #13
   %84 = trunc i64 %83 to i32
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %.split198.us, label %.lr.ph214.preheader
 
-.split194.us:                                     ; preds = %.lr.ph476, %.lr.ph478
-  %.080.ph232338 = phi i64 [ 4, %.lr.ph478 ], [ %.080.ph232, %.lr.ph476 ]
+.split194.us:                                     ; preds = %.lr.ph498, %.lr.ph500
+  %.080.ph232338 = phi i64 [ 4, %.lr.ph500 ], [ %.080.ph232, %.lr.ph498 ]
   %86 = tail call i32 @get_log_level() #13
   %87 = icmp sgt i32 %86, 4
   br i1 %87, label %88, label %.thread
@@ -14040,24 +14040,24 @@ define internal fastcc i32 @_handle_stepmgr_relay_msg(i32 noundef %0, i32 nounde
 
 .lr.ph281.preheader:                              ; preds = %.lr.ph237.split.us.split
   %103 = icmp slt i32 %101, 0
-  br i1 %103, label %.lr.ph480.preheader, label %.split243.us
+  br i1 %103, label %.lr.ph502.preheader, label %.split243.us
 
-.lr.ph480.preheader:                              ; preds = %.lr.ph281.preheader
+.lr.ph502.preheader:                              ; preds = %.lr.ph281.preheader
   %104 = tail call ptr @__errno_location() #14
-  br label %.lr.ph480
+  br label %.lr.ph502
 
 .lr.ph281:                                        ; preds = %107
   %105 = icmp slt i32 %109, 0
-  br i1 %105, label %.lr.ph480, label %.split243.us
+  br i1 %105, label %.lr.ph502, label %.split243.us
 
-.lr.ph480:                                        ; preds = %.lr.ph480.preheader, %.lr.ph281
+.lr.ph502:                                        ; preds = %.lr.ph502.preheader, %.lr.ph281
   %106 = load i32, ptr %104, align 4
   switch i32 %106, label %.split246.us [
     i32 11, label %107
     i32 4, label %107
   ]
 
-107:                                              ; preds = %.lr.ph480, %.lr.ph480
+107:                                              ; preds = %.lr.ph502, %.lr.ph502
   %108 = tail call i64 @read(i32 noundef %0, ptr noundef %.076.ph287, i64 noundef %.077.ph285) #13
   %109 = trunc i64 %108 to i32
   %110 = icmp eq i32 %109, 0
@@ -14071,11 +14071,11 @@ define internal fastcc i32 @_handle_stepmgr_relay_msg(i32 noundef %0, i32 nounde
 
 .lr.ph266.preheader.preheader:                    ; preds = %.lr.ph237.split.split
   %114 = icmp slt i32 %112, 0
-  br i1 %114, label %.lr.ph482.preheader, label %.split243.us
+  br i1 %114, label %.lr.ph504.preheader, label %.split243.us
 
-.lr.ph482.preheader:                              ; preds = %.lr.ph266.preheader.preheader
+.lr.ph504.preheader:                              ; preds = %.lr.ph266.preheader.preheader
   %115 = tail call ptr @__errno_location() #14
-  br label %.lr.ph482
+  br label %.lr.ph504
 
 .split250.us:                                     ; preds = %.lr.ph237.split.split, %128
   %116 = tail call i32 @get_log_level() #13
@@ -14107,23 +14107,23 @@ define internal fastcc i32 @_handle_stepmgr_relay_msg(i32 noundef %0, i32 nounde
 
 .lr.ph266.preheader:                              ; preds = %128
   %126 = icmp slt i32 %130, 0
-  br i1 %126, label %.lr.ph482, label %.split243.us
+  br i1 %126, label %.lr.ph504, label %.split243.us
 
-.lr.ph482:                                        ; preds = %.lr.ph482.preheader, %.lr.ph266.preheader
+.lr.ph504:                                        ; preds = %.lr.ph504.preheader, %.lr.ph266.preheader
   %127 = load i32, ptr %115, align 4
   switch i32 %127, label %.split246.us [
     i32 11, label %128
     i32 4, label %128
   ]
 
-128:                                              ; preds = %.lr.ph482, %.lr.ph482
+128:                                              ; preds = %.lr.ph504, %.lr.ph504
   %129 = tail call i64 @read(i32 noundef %0, ptr noundef %.076.ph287, i64 noundef %97) #13
   %130 = trunc i64 %129 to i32
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %.split250.us, label %.lr.ph266.preheader
 
-.split246.us:                                     ; preds = %.lr.ph480, %.lr.ph482
-  %.077.ph285320 = phi i64 [ %97, %.lr.ph482 ], [ %.077.ph285, %.lr.ph480 ]
+.split246.us:                                     ; preds = %.lr.ph502, %.lr.ph504
+  %.077.ph285320 = phi i64 [ %97, %.lr.ph504 ], [ %.077.ph285, %.lr.ph502 ]
   %132 = tail call i32 @get_log_level() #13
   %133 = icmp sgt i32 %132, 4
   br i1 %133, label %134, label %.thread

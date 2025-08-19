@@ -602,8 +602,8 @@ lex.exit454:                                      ; preds = %175, %177
   %181 = load i32, ptr getelementptr inbounds nuw (i8, ptr @error_info, i64 8), align 8, !tbaa !32
   %.not351 = icmp eq i32 %181, 0
   %182 = add nsw i32 %181, 1
-  %.sink1461 = select i1 %.not351, i32 2, i32 %182
-  store i32 %.sink1461, ptr getelementptr inbounds nuw (i8, ptr @error_info, i64 8), align 8, !tbaa !32
+  %.sink1605 = select i1 %.not351, i32 2, i32 %182
+  store i32 %.sink1605, ptr getelementptr inbounds nuw (i8, ptr @error_info, i64 8), align 8, !tbaa !32
   br label %.backedge917.backedge
 
 183:                                              ; preds = %lex.exit, %lex.exit, %lex.exit
@@ -2561,9 +2561,9 @@ agxbputc.exit727.backedge:                        ; preds = %830, %835
   br label %lex.exit.thread
 
 .thread871.sink.split:                            ; preds = %865, %868
-  %.sink1456 = phi ptr [ %869, %868 ], [ %867, %865 ]
-  %872 = load ptr, ptr %.sink1456, align 8, !tbaa !54
-  %873 = tail call ptr %872(ptr noundef nonnull %.sink1456, ptr noundef nonnull %856, i32 noundef 1) #17
+  %.sink1600 = phi ptr [ %869, %868 ], [ %867, %865 ]
+  %872 = load ptr, ptr %.sink1600, align 8, !tbaa !54
+  %873 = tail call ptr %872(ptr noundef nonnull %.sink1600, ptr noundef nonnull %856, i32 noundef 1) #17
   br label %.thread871
 
 .thread871:                                       ; preds = %.thread871.sink.split, %841
@@ -2854,10 +2854,10 @@ lex.exit749.thread:                               ; preds = %.loopexit.i735, %le
   br label %960
 
 960:                                              ; preds = %952, %953, %951, %957
-  %.sink1457 = phi i32 [ %959, %957 ], [ 1, %951 ], [ 1, %953 ], [ 1, %952 ]
+  %.sink1601 = phi i32 [ %959, %957 ], [ 1, %951 ], [ 1, %953 ], [ 1, %952 ]
   %.3287 = phi i32 [ %.0284, %957 ], [ 41, %951 ], [ 93, %953 ], [ 125, %952 ]
   %.2283 = phi i32 [ %.0281, %957 ], [ %.14, %951 ], [ %.14, %953 ], [ %.14, %952 ]
-  %spec.select = add nsw i32 %.0288, %.sink1457
+  %spec.select = add nsw i32 %.0288, %.sink1601
   %961 = trunc nuw nsw i32 %.14 to i8
   tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %961)
   br label %1094
@@ -3131,7 +3131,7 @@ agxbputc.exit779:                                 ; preds = %1025, %1030
 lex.exit798.thread877:                            ; preds = %.loopexit.i784
   store ptr %9, ptr %10, align 8, !tbaa !30
   store i32 0, ptr %11, align 8, !tbaa !31
-  br label %.sink.split1458
+  br label %.sink.split1602
 
 1059:                                             ; preds = %.loopexit.i784
   %1060 = load ptr, ptr %10, align 8, !tbaa !30
@@ -3154,23 +3154,23 @@ lex.exit798:                                      ; preds = %1062, %1016
   %.15 = phi i32 [ %.032.i756, %1016 ], [ %.0.i785, %1062 ]
   switch i32 %.15, label %1068 [
     i32 0, label %lex.exit798.thread
-    i32 10, label %.sink.split1458
+    i32 10, label %.sink.split1602
   ]
 
 lex.exit798.thread:                               ; preds = %.loopexit.i784, %lex.exit798, %1050, %1056
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.6, i32 noundef %.14) #17
   br label %lex.exit.thread
 
-.sink.split1458:                                  ; preds = %lex.exit798.thread877, %lex.exit798
+.sink.split1602:                                  ; preds = %lex.exit798.thread877, %lex.exit798
   %1066 = load i32, ptr getelementptr inbounds nuw (i8, ptr @error_info, i64 8), align 8, !tbaa !32
   %.not361 = icmp eq i32 %1066, 0
   %1067 = add nsw i32 %1066, 1
-  %.sink1459 = select i1 %.not361, i32 2, i32 %1067
-  store i32 %.sink1459, ptr getelementptr inbounds nuw (i8, ptr @error_info, i64 8), align 8, !tbaa !32
+  %.sink1603 = select i1 %.not361, i32 2, i32 %1067
+  store i32 %.sink1603, ptr getelementptr inbounds nuw (i8, ptr @error_info, i64 8), align 8, !tbaa !32
   br label %1068
 
-1068:                                             ; preds = %.sink.split1458, %lex.exit798
-  %.15880 = phi i32 [ %.15, %lex.exit798 ], [ 10, %.sink.split1458 ]
+1068:                                             ; preds = %.sink.split1602, %lex.exit798
+  %.15880 = phi i32 [ %.15, %lex.exit798 ], [ 10, %.sink.split1602 ]
   %1069 = trunc i32 %.15880 to i8
   %.val.i.i799 = load i8, ptr %13, align 1, !tbaa !28
   %.not.i.i800 = icmp eq i8 %.val.i.i799, -1

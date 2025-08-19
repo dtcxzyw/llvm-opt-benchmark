@@ -229,8 +229,8 @@ _ZN6vectorI15expr_delta_pairLb0EjE5resetEv.exit:  ; preds = %4, %11
   %34 = icmp ugt i32 %22, 16
   %35 = mul i32 %22, 3
   %36 = icmp ugt i32 %33, %35
-  %or.cond16.i = select i1 %34, i1 %36, i1 false
-  br i1 %or.cond16.i, label %37, label %._crit_edge.thread.i
+  %or.cond18.i = select i1 %34, i1 %36, i1 false
+  br i1 %or.cond18.i, label %37, label %._crit_edge.thread.i
 
 37:                                               ; preds = %._crit_edge.i
   %38 = icmp eq ptr %20, null

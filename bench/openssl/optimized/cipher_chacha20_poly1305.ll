@@ -494,10 +494,10 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %71, label %ossl_param_is_empty.exit.thread.sink.split, label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread.sink.split:       ; preds = %63, %60, %46, %43, %32, %25, %22, %18, %16, %12, %10
-  %.sink59 = phi i32 [ 176, %10 ], [ 180, %12 ], [ 187, %16 ], [ 191, %18 ], [ 199, %22 ], [ 203, %25 ], [ 208, %32 ], [ 219, %43 ], [ 224, %46 ], [ 233, %60 ], [ 237, %63 ]
+  %.sink66 = phi i32 [ 176, %10 ], [ 180, %12 ], [ 187, %16 ], [ 191, %18 ], [ 199, %22 ], [ 203, %25 ], [ 208, %32 ], [ 219, %43 ], [ 224, %46 ], [ 233, %60 ], [ 237, %63 ]
   %.sink = phi i32 [ 103, %10 ], [ 105, %12 ], [ 103, %16 ], [ 109, %18 ], [ 103, %22 ], [ 118, %25 ], [ 120, %32 ], [ 103, %43 ], [ 115, %46 ], [ 103, %60 ], [ 109, %63 ]
   call void @ERR_new() #5
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink59, ptr noundef nonnull @__func__.chacha20_poly1305_set_ctx_params) #5
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink66, ptr noundef nonnull @__func__.chacha20_poly1305_set_ctx_params) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #5
   br label %ossl_param_is_empty.exit.thread
 

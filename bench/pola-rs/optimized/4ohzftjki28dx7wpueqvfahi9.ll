@@ -19544,9 +19544,9 @@ common.resume.i.i:                                ; preds = %64, %.thread.i.i.i
   br i1 %67, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2900b953e939362aE.exit, label %17
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h2900b953e939362aE.exit: ; preds = %66, %4, %.loopexit14.i
-  %.sroa.6.0.copyload.i.i9.sink = phi i8 [ %.sroa.6.0.copyload.i.i, %.loopexit14.i ], [ 3, %4 ], [ 3, %66 ]
+  %.sroa.6.0.copyload.i.i11.sink = phi i8 [ %.sroa.6.0.copyload.i.i, %.loopexit14.i ], [ 3, %4 ], [ 3, %66 ]
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 %.sroa.6.0.copyload.i.i9.sink, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !2872, !noalias !2875
+  store i8 %.sroa.6.0.copyload.i.i11.sink, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !2872, !noalias !2875
   ret void
 }
 
@@ -21116,9 +21116,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hbc1e129028b3eef0E.exit, label %10
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hbc1e129028b3eef0E.exit: ; preds = %21, %4, %.loopexit.i
-  %.sroa.6.0.copyload.i.i10.sink = phi i8 [ %.sroa.6.0.copyload.i.i, %.loopexit.i ], [ 3, %4 ], [ 3, %21 ]
+  %.sroa.6.0.copyload.i.i11.sink = phi i8 [ %.sroa.6.0.copyload.i.i, %.loopexit.i ], [ 3, %4 ], [ 3, %21 ]
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 %.sroa.6.0.copyload.i.i10.sink, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !3356, !noalias !3359
+  store i8 %.sroa.6.0.copyload.i.i11.sink, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !3356, !noalias !3359
   ret void
 }
 
@@ -21738,9 +21738,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hb9f2aa8012adb500E.exit, label %10
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hb9f2aa8012adb500E.exit: ; preds = %21, %4, %.loopexit.i
-  %.sroa.6.0.copyload.i.i10.sink = phi i8 [ %.sroa.6.0.copyload.i.i, %.loopexit.i ], [ 3, %4 ], [ 3, %21 ]
+  %.sroa.6.0.copyload.i.i11.sink = phi i8 [ %.sroa.6.0.copyload.i.i, %.loopexit.i ], [ 3, %4 ], [ 3, %21 ]
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 %.sroa.6.0.copyload.i.i10.sink, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !3548, !noalias !3551
+  store i8 %.sroa.6.0.copyload.i.i11.sink, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !3548, !noalias !3551
   ret void
 }
 
@@ -22163,9 +22163,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %22, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h4d36ef037e7c0556E.exit, label %11
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h4d36ef037e7c0556E.exit: ; preds = %21, %4, %.loopexit.i
-  %.sroa.6.0.copyload.i.i9.sink = phi i8 [ %.sroa.6.0.copyload.i.i, %.loopexit.i ], [ 3, %4 ], [ 3, %21 ]
+  %.sroa.6.0.copyload.i.i10.sink = phi i8 [ %.sroa.6.0.copyload.i.i, %.loopexit.i ], [ 3, %4 ], [ 3, %21 ]
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 %.sroa.6.0.copyload.i.i9.sink, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !3697, !noalias !3700
+  store i8 %.sroa.6.0.copyload.i.i10.sink, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !3697, !noalias !3700
   ret void
 }
 
@@ -22799,7 +22799,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !2160, !noundef !7
-  switch i8 %23, label %default.unreachable61 [
+  switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -22841,7 +22841,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable61:                            ; preds = %2
+default.unreachable66:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2

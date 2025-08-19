@@ -75,7 +75,7 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %55 = sub nuw nsw i32 8, %13
   %56 = zext nneg i32 %10 to i64
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 %56
-  %invariant.gep286 = getelementptr inbounds nuw i8, ptr %9, i64 %56
+  %invariant.gep293 = getelementptr inbounds nuw i8, ptr %9, i64 %56
   br label %161
 
 58:                                               ; preds = %.lr.ph, %.loopexit255
@@ -443,11 +443,11 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
 
 .preheader:                                       ; preds = %211, %.preheader
   %indvars.iv278 = phi i64 [ %indvars.iv.next279, %.preheader ], [ 0, %211 ]
-  %gep287 = getelementptr inbounds nuw i8, ptr %invariant.gep286, i64 %indvars.iv278
-  %217 = load i8, ptr %gep287, align 1, !tbaa !3
+  %gep294 = getelementptr inbounds nuw i8, ptr %invariant.gep293, i64 %indvars.iv278
+  %217 = load i8, ptr %gep294, align 1, !tbaa !3
   %218 = zext i8 %217 to i32
   %219 = shl nuw nsw i32 %218, %13
-  %220 = getelementptr inbounds nuw i8, ptr %gep287, i64 1
+  %220 = getelementptr inbounds nuw i8, ptr %gep294, i64 1
   %221 = load i8, ptr %220, align 1, !tbaa !3
   %222 = zext i8 %221 to i32
   %223 = lshr i32 %222, %55

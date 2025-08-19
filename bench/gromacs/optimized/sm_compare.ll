@@ -1077,12 +1077,12 @@ _ZL23reverse_comparison_type14e_comparison_t.exit: ; preds = %11, %switch.lookup
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.020, label %.sink.split74, label %58
+  br i1 %.020, label %.sink.split75, label %58
 
 .sink.split:                                      ; preds = %.thread, %.thread50
   %.pn35.pn49.ph = phi { ptr, i32 } [ %40, %.thread50 ], [ %39, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.sink.split74
+  br label %.sink.split75
 
 43:                                               ; preds = %.lr.ph
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.7, i32 noundef 401, ptr noundef %15)
@@ -1115,13 +1115,13 @@ _ZL23reverse_comparison_type14e_comparison_t.exit: ; preds = %11, %switch.lookup
 .thread53:                                        ; preds = %43
   %49 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split73
+  br label %.sink.split74
 
 .thread57:                                        ; preds = %45
   %50 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #20
-  br label %.sink.split73
+  br label %.sink.split74
 
 51:                                               ; preds = %46, %48
   %.0 = phi i1 [ false, %48 ], [ true, %46 ]
@@ -1132,12 +1132,12 @@ _ZL23reverse_comparison_type14e_comparison_t.exit: ; preds = %11, %switch.lookup
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #20
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.0, label %.sink.split74, label %58
+  br i1 %.0, label %.sink.split75, label %58
 
-.sink.split73:                                    ; preds = %.thread53, %.thread57
+.sink.split74:                                    ; preds = %.thread53, %.thread57
   %.pn.pn56.ph = phi { ptr, i32 } [ %50, %.thread57 ], [ %49, %.thread53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.sink.split74
+  br label %.sink.split75
 
 ._crit_edge:                                      ; preds = %27, %19, %.lr.ph, %_ZL23reverse_comparison_type14e_comparison_t.exit
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1150,14 +1150,14 @@ _ZL23reverse_comparison_type14e_comparison_t.exit: ; preds = %11, %switch.lookup
   store i32 %57, ptr %1, align 8, !tbaa !7
   ret void
 
-.sink.split74:                                    ; preds = %51, %.sink.split73, %41, %.sink.split
-  %.sink = phi ptr [ %34, %.sink.split ], [ %34, %41 ], [ %44, %.sink.split73 ], [ %44, %51 ]
-  %.pn35.pn.pn.ph = phi { ptr, i32 } [ %.pn35.pn49.ph, %.sink.split ], [ %42, %41 ], [ %.pn.pn56.ph, %.sink.split73 ], [ %52, %51 ]
+.sink.split75:                                    ; preds = %51, %.sink.split74, %41, %.sink.split
+  %.sink = phi ptr [ %34, %.sink.split ], [ %34, %41 ], [ %44, %.sink.split74 ], [ %44, %51 ]
+  %.pn35.pn.pn.ph = phi { ptr, i32 } [ %.pn35.pn49.ph, %.sink.split ], [ %42, %41 ], [ %.pn.pn56.ph, %.sink.split74 ], [ %52, %51 ]
   call void @__cxa_free_exception(ptr %.sink) #20
   br label %58
 
-58:                                               ; preds = %.sink.split74, %51, %41
-  %.pn35.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %52, %51 ], [ %.pn35.pn.pn.ph, %.sink.split74 ]
+58:                                               ; preds = %.sink.split75, %51, %41
+  %.pn35.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %52, %51 ], [ %.pn35.pn.pn.ph, %.sink.split75 ]
   resume { ptr, i32 } %.pn35.pn.pn
 
 59:                                               ; preds = %48, %38

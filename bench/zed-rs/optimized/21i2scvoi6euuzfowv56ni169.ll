@@ -7789,8 +7789,8 @@ define hidden void @_ZN4gpui8elements3div18InteractiveElement11group_hover17h406
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(568) %28, ptr noundef nonnull align 8 dereferenceable(568) %9, i64 568, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store i64 0, ptr %10, align 8
-  %.sroa.4.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %2, ptr %.sroa.4.0..sroa_idx20, align 8
+  %.sroa.4.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %2, ptr %.sroa.4.0..sroa_idx21, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24

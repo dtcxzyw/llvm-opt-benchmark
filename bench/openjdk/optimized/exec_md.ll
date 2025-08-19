@@ -275,30 +275,30 @@ closeDescriptors.exit.i:                          ; preds = %.backedge.i.i, %.pr
   %119 = icmp eq i8 %118, 0
   %120 = icmp ne i64 %115, -1
   %or.cond.i = select i1 %119, i1 true, i1 %120
-  br i1 %or.cond.i, label %.thread23.i, label %121
+  br i1 %or.cond.i, label %.thread27.i, label %121
 
 121:                                              ; preds = %113
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str, i32 noundef 128, ptr noundef nonnull @.str.2) #11
   %.pr.pre.i = load ptr, ptr @gdata, align 8, !nonnull !12, !noundef !12
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pr.pre.i, i64 17
   %.pre = load i8, ptr %.phi.trans.insert, align 1
-  br label %.thread23.i
+  br label %.thread27.i
 
-.thread23.i:                                      ; preds = %121, %113
+.thread27.i:                                      ; preds = %121, %113
   %122 = phi i8 [ %.pre, %121 ], [ %118, %113 ]
-  %.pr26.i = phi ptr [ %.pr.pre.i, %121 ], [ %116, %113 ]
+  %.pr30.i = phi ptr [ %.pr.pre.i, %121 ], [ %116, %113 ]
   %123 = icmp eq i8 %122, 0
   %124 = icmp ult i64 %115, 2147483648
   %or.cond3.i = select i1 %123, i1 true, i1 %124
   br i1 %or.cond3.i, label %.thread.i, label %125
 
-125:                                              ; preds = %.thread23.i
+125:                                              ; preds = %.thread27.i
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str, i32 noundef 130, ptr noundef nonnull @.str.3) #11
   %.pre.i = load ptr, ptr @gdata, align 8
   br label %.thread.i
 
-.thread.i:                                        ; preds = %125, %.thread23.i
-  %126 = phi ptr [ %.pr26.i, %.thread23.i ], [ %.pre.i, %125 ]
+.thread.i:                                        ; preds = %125, %.thread27.i
+  %126 = phi ptr [ %.pr30.i, %.thread27.i ], [ %.pre.i, %125 ]
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 528
   %128 = load i32, ptr %127, align 8
   %129 = and i32 %128, 128

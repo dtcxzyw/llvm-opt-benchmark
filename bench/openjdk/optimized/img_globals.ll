@@ -88,7 +88,7 @@ define hidden void @make_sgn_ordered_dither_array(ptr noundef captures(none) ini
   %4 = zext nneg i32 %.057 to i64
   %wide.trip.count66 = zext nneg i32 %.057 to i64
   %invariant.gep = getelementptr i8, ptr %0, i64 %4
-  %invariant.gep73 = getelementptr i8, ptr %0, i64 %4
+  %invariant.gep74 = getelementptr i8, ptr %0, i64 %4
   br label %.preheader53
 
 .preheader52:                                     ; preds = %21
@@ -115,8 +115,8 @@ define hidden void @make_sgn_ordered_dither_array(ptr noundef captures(none) ini
   store i8 %14, ptr %gep, align 1
   %16 = load i8, ptr %11, align 1
   %17 = add i8 %16, 2
-  %gep74 = getelementptr i8, ptr %invariant.gep73, i64 %10
-  store i8 %17, ptr %gep74, align 1
+  %gep75 = getelementptr i8, ptr %invariant.gep74, i64 %10
+  store i8 %17, ptr %gep75, align 1
   %18 = add i8 %16, 3
   %19 = getelementptr inbounds i8, ptr %0, i64 %15
   store i8 %18, ptr %19, align 1

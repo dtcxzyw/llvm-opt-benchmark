@@ -254,17 +254,17 @@ mi_bitmap_mask_.exit.i.us55:                      ; preds = %.lr.ph.split.split.
   %57 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select.us54
   %58 = cmpxchg ptr %57, i64 %53, i64 %53 acq_rel acquire, align 8
   %59 = extractvalue { i64, i1 } %58, 1
-  br i1 %59, label %_mi_bitmap_try_find_claim_field.exit, label %.lr.ph127, !llvm.loop !3
+  br i1 %59, label %_mi_bitmap_try_find_claim_field.exit, label %.lr.ph143, !llvm.loop !3
 
-.lr.ph127:                                        ; preds = %.lr.ph.split.i.us59.preheader
+.lr.ph143:                                        ; preds = %.lr.ph.split.i.us59.preheader
   br label %60, !llvm.loop !3
 
-60:                                               ; preds = %.lr.ph127, %60
-  %61 = phi { i64, i1 } [ %58, %.lr.ph127 ], [ %63, %60 ]
+60:                                               ; preds = %.lr.ph143, %60
+  %61 = phi { i64, i1 } [ %58, %.lr.ph143 ], [ %63, %60 ]
   %62 = extractvalue { i64, i1 } %61, 0
   %63 = cmpxchg ptr %57, i64 %62, i64 %62 acq_rel acquire, align 8
   %64 = extractvalue { i64, i1 } %63, 1
-  br i1 %64, label %._mi_bitmap_try_find_claim_field.exit.loopexit112_crit_edge, label %60, !llvm.loop !3
+  br i1 %64, label %._mi_bitmap_try_find_claim_field.exit.loopexit128_crit_edge, label %60, !llvm.loop !3
 
 .loopexit20.us71:                                 ; preds = %mi_bitmap_mask_.exit.i.us55, %.lr.ph.split.split.split.us
   %65 = add nuw i64 %.01231.us51, 1
@@ -322,12 +322,12 @@ mi_bitmap_mask_.exit.i:                           ; preds = %.lr.ph.split.split.
   %.not.not.i = icmp ugt i64 %.139.i, %8
   br i1 %.not.not.i, label %.loopexit20, label %.lr.ph.split.i
 
-._mi_bitmap_try_find_claim_field.exit.loopexit112_crit_edge: ; preds = %60
+._mi_bitmap_try_find_claim_field.exit.loopexit128_crit_edge: ; preds = %60
   br label %_mi_bitmap_try_find_claim_field.exit, !llvm.loop !3
 
-_mi_bitmap_try_find_claim_field.exit:             ; preds = %75, %44, %21, %.lr.ph.split.i.us59.preheader, %._mi_bitmap_try_find_claim_field.exit.loopexit112_crit_edge
-  %spec.store.select28 = phi i64 [ %spec.store.select.us54, %._mi_bitmap_try_find_claim_field.exit.loopexit112_crit_edge ], [ %spec.store.select.us54, %.lr.ph.split.i.us59.preheader ], [ %spec.store.select.us, %21 ], [ %spec.store.select.us40, %44 ], [ %spec.store.select, %75 ]
-  %.us-phi.i = phi i64 [ %56, %._mi_bitmap_try_find_claim_field.exit.loopexit112_crit_edge ], [ %56, %.lr.ph.split.i.us59.preheader ], [ %.03852.us.i.us, %21 ], [ %.03852.i.us, %44 ], [ %.03852.i, %75 ]
+_mi_bitmap_try_find_claim_field.exit:             ; preds = %75, %44, %21, %.lr.ph.split.i.us59.preheader, %._mi_bitmap_try_find_claim_field.exit.loopexit128_crit_edge
+  %spec.store.select28 = phi i64 [ %spec.store.select.us54, %._mi_bitmap_try_find_claim_field.exit.loopexit128_crit_edge ], [ %spec.store.select.us54, %.lr.ph.split.i.us59.preheader ], [ %spec.store.select.us, %21 ], [ %spec.store.select.us40, %44 ], [ %spec.store.select, %75 ]
+  %.us-phi.i = phi i64 [ %56, %._mi_bitmap_try_find_claim_field.exit.loopexit128_crit_edge ], [ %56, %.lr.ph.split.i.us59.preheader ], [ %.03852.us.i.us, %21 ], [ %.03852.i.us, %44 ], [ %.03852.i, %75 ]
   %87 = shl i64 %spec.store.select28, 6
   %88 = add i64 %.us-phi.i, %87
   store i64 %88, ptr %4, align 8, !tbaa !5
@@ -882,9 +882,9 @@ mi_bitmap_mask_.exit.i.i:                         ; preds = %26
 
 39:                                               ; preds = %.lr.ph.split.i.i
   %40 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %32, i1 true)
-  %41 = add i64 %.03852.i.i, %40
-  %42 = sub i64 64, %41
-  %43 = add i64 %42, %.03852.i.i
+  %41 = add nuw nsw i64 %.03852.i.i, %40
+  %42 = sub nsw i64 64, %41
+  %43 = add nsw i64 %42, %.03852.i.i
   %44 = shl i64 %.04051.i.i, %42
   br label %45
 
@@ -1022,7 +1022,7 @@ mi_bitmap_mask_.exit128.i:                        ; preds = %49
 mi_bitmap_try_find_claim_field_across.exit:       ; preds = %34, %84
   %.03852.i.lcssa.sink.i = phi i64 [ %63, %84 ], [ %.03852.i.i, %34 ]
   %103 = shl i64 %spec.store.select, 6
-  %104 = add i64 %.03852.i.lcssa.sink.i, %103
+  %104 = add nuw i64 %.03852.i.lcssa.sink.i, %103
   store i64 %104, ptr %4, align 8, !tbaa !5
   br label %.critedge
 
@@ -1084,7 +1084,7 @@ mi_bitmap_mask_.exit24.i:                         ; preds = %4
   %27 = xor i64 %.033.ph, -1
   %28 = atomicrmw and ptr %26, i64 %27 acq_rel, align 8
   %29 = and i64 %28, %.033.ph
-  %.not46 = icmp eq i64 %29, %.033.ph
+  %.not47 = icmp eq i64 %29, %.033.ph
   br label %37
 
 .lr.ph:                                           ; preds = %mi_bitmap_mask_.exit24.i
@@ -1117,7 +1117,7 @@ mi_bitmap_mask_.exit24.i:                         ; preds = %4
   br label %37
 
 37:                                               ; preds = %._crit_edge.thread, %34, %._crit_edge
-  %.3 = phi i1 [ %.1.lcssa, %._crit_edge ], [ %spec.select27, %34 ], [ %.not46, %._crit_edge.thread ]
+  %.3 = phi i1 [ %.1.lcssa, %._crit_edge ], [ %spec.select27, %34 ], [ %.not47, %._crit_edge.thread ]
   ret i1 %.3
 }
 
@@ -1173,9 +1173,9 @@ mi_bitmap_mask_.exit24.i:                         ; preds = %5
   %28 = getelementptr inbounds nuw i64, ptr %0, i64 %6
   %29 = atomicrmw or ptr %28, i64 %.052.ph acq_rel, align 8
   %30 = and i64 %29, %.052.ph
-  %.not67 = icmp eq i64 %30, 0
-  %.not3368 = icmp ne i64 %30, %.052.ph
-  %.02669 = zext i1 %.not3368 to i8
+  %.not69 = icmp eq i64 %30, 0
+  %.not3370 = icmp ne i64 %30, %.052.ph
+  %.02671 = zext i1 %.not3370 to i8
   br label %36
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1210,8 +1210,8 @@ mi_bitmap_mask_.exit24.i:                         ; preds = %5
   br label %36
 
 36:                                               ; preds = %._crit_edge.thread, %33, %._crit_edge
-  %.329 = phi i8 [ %.127.lcssa, %._crit_edge ], [ %spec.select43, %33 ], [ %.02669, %._crit_edge.thread ]
-  %.3 = phi i1 [ %.1.lcssa, %._crit_edge ], [ %spec.select42, %33 ], [ %.not67, %._crit_edge.thread ]
+  %.329 = phi i8 [ %.127.lcssa, %._crit_edge ], [ %spec.select43, %33 ], [ %.02671, %._crit_edge.thread ]
+  %.3 = phi i1 [ %.1.lcssa, %._crit_edge ], [ %spec.select42, %33 ], [ %.not69, %._crit_edge.thread ]
   %.not38 = icmp eq ptr %4, null
   br i1 %.not38, label %38, label %37
 
@@ -1272,7 +1272,7 @@ mi_bitmap_mask_.exit24.i.i:                       ; preds = %4
   %26 = getelementptr inbounds nuw i64, ptr %0, i64 %5
   %27 = load atomic i64, ptr %26 monotonic, align 8
   %28 = and i64 %27, %.046.ph.i
-  %.not61.i = icmp eq i64 %28, %.046.ph.i
+  %.not63.i = icmp eq i64 %28, %.046.ph.i
   br label %mi_bitmap_is_claimedx_across.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -1301,7 +1301,7 @@ mi_bitmap_mask_.exit24.i.i:                       ; preds = %4
   br label %mi_bitmap_is_claimedx_across.exit
 
 mi_bitmap_is_claimedx_across.exit:                ; preds = %._crit_edge.thread.i, %._crit_edge.i, %31
-  %.3.i = phi i1 [ %.1.lcssa.i, %._crit_edge.i ], [ %spec.select38.i, %31 ], [ %.not61.i, %._crit_edge.thread.i ]
+  %.3.i = phi i1 [ %.1.lcssa.i, %._crit_edge.i ], [ %spec.select38.i, %31 ], [ %.not63.i, %._crit_edge.thread.i ]
   ret i1 %.3.i
 }
 
@@ -1355,7 +1355,7 @@ mi_bitmap_mask_.exit24.i.i:                       ; preds = %4
   %27 = getelementptr inbounds nuw i64, ptr %0, i64 %5
   %28 = load atomic i64, ptr %27 monotonic, align 8
   %29 = and i64 %28, %.046.ph.i
-  %.not2962.i = icmp ne i64 %29, 0
+  %.not2964.i = icmp ne i64 %29, 0
   br label %mi_bitmap_is_claimedx_across.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -1384,7 +1384,7 @@ mi_bitmap_mask_.exit24.i.i:                       ; preds = %4
   br label %mi_bitmap_is_claimedx_across.exit
 
 mi_bitmap_is_claimedx_across.exit:                ; preds = %._crit_edge.thread.i, %._crit_edge.i, %32
-  %.326.i = phi i1 [ %.124.lcssa.i, %._crit_edge.i ], [ %spec.select39.i, %32 ], [ %.not2962.i, %._crit_edge.thread.i ]
+  %.326.i = phi i1 [ %.124.lcssa.i, %._crit_edge.i ], [ %spec.select39.i, %32 ], [ %.not2964.i, %._crit_edge.thread.i ]
   ret i1 %.326.i
 }
 

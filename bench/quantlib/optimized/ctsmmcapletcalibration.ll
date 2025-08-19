@@ -2220,7 +2220,7 @@ cond.false.i:                                     ; preds = %do.end359
 
 invoke.cont362:                                   ; preds = %.noexc, %do.end359
   %190 = phi ptr [ %189, %do.end359 ], [ %.pre.i, %.noexc ]
-  %sub = add i64 %call90, -1
+  %sub = add nsw i64 %call90, -1
   %call365 = invoke noundef double @_ZNK8QuantLib25PiecewiseConstantVariance15totalVolatilityEm(ptr noundef nonnull align 8 dereferenceable(8) %190, i64 noundef %sub)
           to label %invoke.cont364 unwind label %lpad361
 
@@ -3686,17 +3686,17 @@ lpad25.body:                                      ; preds = %invoke.cont24
 
 if.then.i.i.i70.thread:                           ; preds = %lpad25.body
   %53 = load ptr, ptr %_M_end_of_storage.i.i.i51, align 8, !tbaa !34
-  %sub.ptr.lhs.cast.i.i72313 = ptrtoint ptr %53 to i64
-  %sub.ptr.rhs.cast.i.i73314 = ptrtoint ptr %52 to i64
-  %sub.ptr.sub.i.i74315 = sub i64 %sub.ptr.lhs.cast.i.i72313, %sub.ptr.rhs.cast.i.i73314
-  call void @_ZdlPvm(ptr noundef nonnull %52, i64 noundef %sub.ptr.sub.i.i74315) #26
+  %sub.ptr.lhs.cast.i.i72335 = ptrtoint ptr %53 to i64
+  %sub.ptr.rhs.cast.i.i73336 = ptrtoint ptr %52 to i64
+  %sub.ptr.sub.i.i74337 = sub i64 %sub.ptr.lhs.cast.i.i72335, %sub.ptr.rhs.cast.i.i73336
+  call void @_ZdlPvm(ptr noundef nonnull %52, i64 noundef %sub.ptr.sub.i.i74337) #26
   br label %cleanup.action
 
 lpad25.body.thread:                               ; preds = %lpad5.i.i.i
   call void @_ZN5boost6detail12shared_countD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %pn.i) #22
   %54 = load ptr, ptr %agg.tmp, align 8, !tbaa !32
-  %tobool.not.i.i.i69293 = icmp eq ptr %54, null
-  br i1 %tobool.not.i.i.i69293, label %ehcleanup121, label %if.then.i.i.i70
+  %tobool.not.i.i.i69315 = icmp eq ptr %54, null
+  br i1 %tobool.not.i.i.i69315, label %ehcleanup121, label %if.then.i.i.i70
 
 if.then.i.i.i70:                                  ; preds = %lpad25.body.thread
   %55 = load ptr, ptr %_M_end_of_storage.i.i.i51, align 8, !tbaa !34
@@ -4059,17 +4059,17 @@ lpad140.body:                                     ; preds = %invoke.cont139
 
 if.then.i.i.i174.thread:                          ; preds = %lpad140.body
   %110 = load ptr, ptr %_M_end_of_storage.i.i.i109, align 8, !tbaa !34
-  %sub.ptr.lhs.cast.i.i176318 = ptrtoint ptr %110 to i64
-  %sub.ptr.rhs.cast.i.i177319 = ptrtoint ptr %109 to i64
-  %sub.ptr.sub.i.i178320 = sub i64 %sub.ptr.lhs.cast.i.i176318, %sub.ptr.rhs.cast.i.i177319
-  call void @_ZdlPvm(ptr noundef nonnull %109, i64 noundef %sub.ptr.sub.i.i178320) #26
+  %sub.ptr.lhs.cast.i.i176340 = ptrtoint ptr %110 to i64
+  %sub.ptr.rhs.cast.i.i177341 = ptrtoint ptr %109 to i64
+  %sub.ptr.sub.i.i178342 = sub i64 %sub.ptr.lhs.cast.i.i176340, %sub.ptr.rhs.cast.i.i177341
+  call void @_ZdlPvm(ptr noundef nonnull %109, i64 noundef %sub.ptr.sub.i.i178342) #26
   br label %cleanup.action147
 
 lpad140.body.thread:                              ; preds = %lpad5.i.i.i127
   call void @_ZN5boost6detail12shared_countD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %pn.i121) #22
   %111 = load ptr, ptr %agg.tmp130, align 8, !tbaa !32
-  %tobool.not.i.i.i173302 = icmp eq ptr %111, null
-  br i1 %tobool.not.i.i.i173302, label %ehcleanup173, label %if.then.i.i.i174
+  %tobool.not.i.i.i173324 = icmp eq ptr %111, null
+  br i1 %tobool.not.i.i.i173324, label %ehcleanup173, label %if.then.i.i.i174
 
 if.then.i.i.i174:                                 ; preds = %lpad140.body.thread
   %112 = load ptr, ptr %_M_end_of_storage.i.i.i109, align 8, !tbaa !34

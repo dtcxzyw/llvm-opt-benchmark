@@ -1565,14 +1565,14 @@ _ZN2cv3Mat2atINS_3VecIhLi3EEEEERT_i.exit:         ; preds = %523, %517, %510
   %564 = trunc nuw nsw i64 %indvars.iv507 to i32
   %565 = sdiv i32 %564, %563
   %566 = mul nsw i32 %565, %563
-  %.recomposed512 = srem i32 %564, %563
+  %.recomposed572 = srem i32 %564, %563
   %567 = load ptr, ptr %261, align 8, !tbaa !61
   %568 = load ptr, ptr %262, align 8, !tbaa !62
   %569 = load i64, ptr %568, align 8, !tbaa !10
   %570 = sext i32 %565 to i64
   %571 = mul i64 %569, %570
   %572 = getelementptr inbounds nuw i8, ptr %567, i64 %571
-  %573 = sext i32 %.recomposed512 to i64
+  %573 = sext i32 %.recomposed572 to i64
   %574 = getelementptr inbounds float, ptr %572, i64 %573
   br label %575
 
@@ -1627,14 +1627,14 @@ _ZN2cv3Mat2atINS_3VecIhLi3EEEEERT_i.exit:         ; preds = %523, %517, %510
   %605 = trunc nuw nsw i64 %indvars.iv507 to i32
   %606 = sdiv i32 %605, %604
   %607 = mul nsw i32 %606, %604
-  %.recomposed513 = srem i32 %605, %604
+  %.recomposed573 = srem i32 %605, %604
   %608 = load ptr, ptr %248, align 8, !tbaa !61
   %609 = load ptr, ptr %249, align 8, !tbaa !62
   %610 = load i64, ptr %609, align 8, !tbaa !10
   %611 = sext i32 %606 to i64
   %612 = mul i64 %610, %611
   %613 = getelementptr inbounds nuw i8, ptr %608, i64 %612
-  %614 = sext i32 %.recomposed513 to i64
+  %614 = sext i32 %.recomposed573 to i64
   %615 = getelementptr inbounds %"class.cv::Vec.22", ptr %613, i64 %614
   br label %_ZN2cv3Mat2atINS_3VecIhLi3EEEEERT_i.exit351
 
@@ -2690,7 +2690,7 @@ _ZNSt12_Vector_baseIN2cv4UMatESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt6vectorIN2
           to label %_ZSt10_ConstructIN2cv4UMatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i unwind label %15
 
 _ZSt10_ConstructIN2cv4UMatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %13 = add i64 %.01114.i.i.i.i.i, -1
+  %13 = add nsw i64 %.01114.i.i.i.i.i, -1
   %14 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 80
   %.not.i.i.i.i.i = icmp eq i64 %13, 0
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !85
@@ -2824,7 +2824,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt6vectorIN2c
           to label %_ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i unwind label %15
 
 _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %13 = add i64 %.01114.i.i.i.i.i, -1
+  %13 = add nsw i64 %.01114.i.i.i.i.i, -1
   %14 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 96
   %.not.i.i.i.i.i = icmp eq i64 %13, 0
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !87

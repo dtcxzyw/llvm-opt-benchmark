@@ -114,8 +114,8 @@ define i32 @Int_ManGlobalVars(ptr noundef readonly captures(none) %0) local_unna
 .critedge.thread:                                 ; preds = %1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load i32, ptr %25, align 8, !tbaa !17
-  %.not57103 = icmp eq i32 %26, 0
-  br i1 %.not57103, label %.critedge2, label %.preheader63
+  %.not57104 = icmp eq i32 %26, 0
+  br i1 %.not57104, label %.critedge2, label %.preheader63
 
 .preheader63:                                     ; preds = %.critedge.thread, %.critedge
   %27 = phi i32 [ %26, %.critedge.thread ], [ %24, %.critedge ]
@@ -1482,15 +1482,15 @@ Int_ManTruthOr.exit:                              ; preds = %.lr.ph.i215, %.lr.p
   br i1 %172, label %._crit_edge260.thread, label %175
 
 ._crit_edge260.thread:                            ; preds = %170, %._crit_edge260
-  %.0169.lcssa345 = phi i32 [ %.0169.lcssa, %._crit_edge260 ], [ %162, %170 ]
+  %.0169.lcssa353 = phi i32 [ %.0169.lcssa, %._crit_edge260 ], [ %162, %170 ]
   %173 = load i32, ptr %82, align 8, !tbaa !47
   %174 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %173, i32 noundef %91)
   br label %175
 
 175:                                              ; preds = %._crit_edge260.thread, %._crit_edge260
-  %.0169.lcssa344 = phi i32 [ %.0169.lcssa345, %._crit_edge260.thread ], [ %.0169.lcssa, %._crit_edge260 ]
+  %.0169.lcssa352 = phi i32 [ %.0169.lcssa353, %._crit_edge260.thread ], [ %.0169.lcssa, %._crit_edge260 ]
   %176 = load ptr, ptr %83, align 8, !tbaa !15
-  %177 = zext i32 %.0169.lcssa344 to i64
+  %177 = zext i32 %.0169.lcssa352 to i64
   %178 = getelementptr inbounds nuw i32, ptr %176, i64 %177
   %179 = load i32, ptr %178, align 4, !tbaa !24
   %180 = getelementptr inbounds nuw i8, ptr %99, i64 32
@@ -1508,7 +1508,7 @@ Int_ManTruthOr.exit:                              ; preds = %.lr.ph.i215, %.lr.p
   %187 = load i32, ptr %84, align 8, !tbaa !68
   %188 = add nsw i32 %187, -1
   store i32 %188, ptr %84, align 8, !tbaa !68
-  %189 = icmp slt i32 %.0169.lcssa344, %188
+  %189 = icmp slt i32 %.0169.lcssa352, %188
   br i1 %189, label %.lr.ph267, label %.preheader243
 
 .lr.ph267:                                        ; preds = %186

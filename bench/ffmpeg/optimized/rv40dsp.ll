@@ -2257,8 +2257,8 @@ define internal void @avg_rv40_chroma_mc8_c(ptr noundef captures(none) %0, ptr n
   br i1 %20, label %.lr.ph.lver.check, label %.loopexit
 
 .lr.ph.lver.check:                                ; preds = %.preheader
-  %ident.check215.not = icmp eq i64 %2, 1
-  br i1 %ident.check215.not, label %.lr.ph.ph, label %.lr.ph.lver.orig
+  %ident.check216.not = icmp eq i64 %2, 1
+  br i1 %ident.check216.not, label %.lr.ph.ph, label %.lr.ph.lver.orig
 
 .lr.ph.lver.orig:                                 ; preds = %.lr.ph.lver.check, %.lr.ph.lver.orig
   %.0205.lver.orig = phi ptr [ %229, %.lr.ph.lver.orig ], [ %0, %.lr.ph.lver.check ]
@@ -2486,12 +2486,12 @@ define internal void @avg_rv40_chroma_mc8_c(ptr noundef captures(none) %0, ptr n
   br i1 %exitcond.not.lver.orig, label %.loopexit, label %.lr.ph.lver.orig, !llvm.loop !20
 
 .lr.ph.ph:                                        ; preds = %.lr.ph.lver.check
-  %scevgep217 = getelementptr i8, ptr %0, i64 6
-  %load_initial218 = load i8, ptr %scevgep217, align 1
+  %scevgep218 = getelementptr i8, ptr %0, i64 6
+  %load_initial219 = load i8, ptr %scevgep218, align 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.ph, %.lr.ph
-  %store_forwarded219 = phi i8 [ %load_initial218, %.lr.ph.ph ], [ %437, %.lr.ph ]
+  %store_forwarded220 = phi i8 [ %load_initial219, %.lr.ph.ph ], [ %437, %.lr.ph ]
   %.0205 = phi ptr [ %0, %.lr.ph.ph ], [ %438, %.lr.ph ]
   %.0196204 = phi ptr [ %1, %.lr.ph.ph ], [ %240, %.lr.ph ]
   %.0198203 = phi i32 [ 0, %.lr.ph.ph ], [ %439, %.lr.ph ]
@@ -2658,7 +2658,7 @@ define internal void @avg_rv40_chroma_mc8_c(ptr noundef captures(none) %0, ptr n
   %386 = trunc i32 %385 to i8
   store i8 %386, ptr %361, align 1, !tbaa !8
   %387 = getelementptr inbounds nuw i8, ptr %.0205, i64 6
-  %388 = zext i8 %store_forwarded219 to i32
+  %388 = zext i8 %store_forwarded220 to i32
   %389 = load i8, ptr %367, align 1, !tbaa !8
   %390 = zext i8 %389 to i32
   %391 = mul nsw i32 %9, %390
@@ -3078,8 +3078,8 @@ define internal void @avg_rv40_chroma_mc4_c(ptr noundef captures(none) %0, ptr n
   br i1 %20, label %.lr.ph.lver.check, label %.loopexit
 
 .lr.ph.lver.check:                                ; preds = %.preheader
-  %ident.check131.not = icmp eq i64 %2, 1
-  br i1 %ident.check131.not, label %.lr.ph.ph, label %.lr.ph.lver.orig
+  %ident.check132.not = icmp eq i64 %2, 1
+  br i1 %ident.check132.not, label %.lr.ph.ph, label %.lr.ph.lver.orig
 
 .lr.ph.lver.orig:                                 ; preds = %.lr.ph.lver.check, %.lr.ph.lver.orig
   %.0121.lver.orig = phi ptr [ %125, %.lr.ph.lver.orig ], [ %0, %.lr.ph.lver.check ]
@@ -3199,12 +3199,12 @@ define internal void @avg_rv40_chroma_mc4_c(ptr noundef captures(none) %0, ptr n
   br i1 %exitcond.not.lver.orig, label %.loopexit, label %.lr.ph.lver.orig, !llvm.loop !22
 
 .lr.ph.ph:                                        ; preds = %.lr.ph.lver.check
-  %scevgep133 = getelementptr i8, ptr %0, i64 2
-  %load_initial134 = load i8, ptr %scevgep133, align 1
+  %scevgep134 = getelementptr i8, ptr %0, i64 2
+  %load_initial135 = load i8, ptr %scevgep134, align 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.ph, %.lr.ph
-  %store_forwarded135 = phi i8 [ %load_initial134, %.lr.ph.ph ], [ %229, %.lr.ph ]
+  %store_forwarded136 = phi i8 [ %load_initial135, %.lr.ph.ph ], [ %229, %.lr.ph ]
   %.0121 = phi ptr [ %0, %.lr.ph.ph ], [ %230, %.lr.ph ]
   %.0112120 = phi ptr [ %1, %.lr.ph.ph ], [ %136, %.lr.ph ]
   %.0114119 = phi i32 [ 0, %.lr.ph.ph ], [ %231, %.lr.ph ]
@@ -3263,7 +3263,7 @@ define internal void @avg_rv40_chroma_mc4_c(ptr noundef captures(none) %0, ptr n
   %178 = trunc i32 %177 to i8
   store i8 %178, ptr %153, align 1, !tbaa !8
   %179 = getelementptr inbounds nuw i8, ptr %.0121, i64 2
-  %180 = zext i8 %store_forwarded135 to i32
+  %180 = zext i8 %store_forwarded136 to i32
   %181 = load i8, ptr %159, align 1, !tbaa !8
   %182 = zext i8 %181 to i32
   %183 = mul nsw i32 %9, %182

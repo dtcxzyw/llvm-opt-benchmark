@@ -1637,8 +1637,8 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i8:  ; preds = %if.then.i.i6
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit9
 
 _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit9: ; preds = %entry, %cleanup, %if.then.i.i6, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i8
-  %retval.020 = phi i1 [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i6 ], [ %retval.0, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i8 ], [ false, %entry ]
-  ret i1 %retval.020
+  %retval.022 = phi i1 [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i6 ], [ %retval.0, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i8 ], [ false, %entry ]
+  ret i1 %retval.022
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2381,7 +2381,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body.outer
 
 for.body.outer:                                   ; preds = %for.inc.thread, %for.body.lr.ph
-  %it.08.ph = phi ptr [ %incdec.ptr10, %for.inc.thread ], [ %0, %for.body.lr.ph ]
+  %it.08.ph = phi ptr [ %incdec.ptr11, %for.inc.thread ], [ %0, %for.body.lr.ph ]
   %bContinueRequested.07.ph = phi i1 [ true, %for.inc.thread ], [ false, %for.body.lr.ph ]
   br label %for.body
 
@@ -2418,10 +2418,10 @@ for.inc.thread:                                   ; preds = %if.end
   store i64 100000000, ptr %tv_nsec.i.i, align 8
   call void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
-  %incdec.ptr10 = getelementptr inbounds nuw i8, ptr %it.08, i64 16
+  %incdec.ptr11 = getelementptr inbounds nuw i8, ptr %it.08, i64 16
   %5 = load ptr, ptr %mpEnd.i, align 8
-  %cmp.not11 = icmp eq ptr %incdec.ptr10, %5
-  br i1 %cmp.not11, label %return, label %for.body.outer, !llvm.loop !16
+  %cmp.not12 = icmp eq ptr %incdec.ptr11, %5
+  br i1 %cmp.not12, label %return, label %for.body.outer, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc
   br i1 %bContinueRequested.07.ph, label %return, label %if.end15
@@ -3778,7 +3778,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then128
   br label %for.body.outer.i
 
 for.body.outer.i:                                 ; preds = %.noexc35, %for.body.lr.ph.i
-  %it.08.ph.i = phi ptr [ %incdec.ptr10.i, %.noexc35 ], [ %15, %for.body.lr.ph.i ]
+  %it.08.ph.i = phi ptr [ %incdec.ptr11.i, %.noexc35 ], [ %15, %for.body.lr.ph.i ]
   %bContinueRequested.07.ph.i = phi i1 [ true, %.noexc35 ], [ false, %for.body.lr.ph.i ]
   br label %for.body.i
 
@@ -3821,10 +3821,10 @@ for.inc.thread.i:                                 ; preds = %.noexc
 
 .noexc35:                                         ; preds = %for.inc.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
-  %incdec.ptr10.i = getelementptr inbounds nuw i8, ptr %it.08.i, i64 16
+  %incdec.ptr11.i = getelementptr inbounds nuw i8, ptr %it.08.i, i64 16
   %20 = load ptr, ptr %mpEnd.i.i, align 8
-  %cmp.not11.i = icmp eq ptr %incdec.ptr10.i, %20
-  br i1 %cmp.not11.i, label %invoke.cont175, label %for.body.outer.i, !llvm.loop !16
+  %cmp.not12.i = icmp eq ptr %incdec.ptr11.i, %20
+  br i1 %cmp.not12.i, label %invoke.cont175, label %for.body.outer.i, !llvm.loop !16
 
 for.end.i:                                        ; preds = %for.inc.i
   br i1 %bContinueRequested.07.ph.i, label %invoke.cont175, label %if.end15.i
@@ -3897,7 +3897,7 @@ for.body.lr.ph.i47:                               ; preds = %if.then147
   br label %for.body.outer.i49
 
 for.body.outer.i49:                               ; preds = %.noexc73, %for.body.lr.ph.i47
-  %it.08.ph.i50 = phi ptr [ %incdec.ptr10.i70, %.noexc73 ], [ %26, %for.body.lr.ph.i47 ]
+  %it.08.ph.i50 = phi ptr [ %incdec.ptr11.i70, %.noexc73 ], [ %26, %for.body.lr.ph.i47 ]
   %bContinueRequested.07.ph.i51 = phi i1 [ true, %.noexc73 ], [ false, %for.body.lr.ph.i47 ]
   br label %for.body.i52
 
@@ -3940,10 +3940,10 @@ for.inc.thread.i69:                               ; preds = %.noexc72
 
 .noexc73:                                         ; preds = %for.inc.thread.i69
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i42)
-  %incdec.ptr10.i70 = getelementptr inbounds nuw i8, ptr %it.08.i53, i64 16
+  %incdec.ptr11.i70 = getelementptr inbounds nuw i8, ptr %it.08.i53, i64 16
   %31 = load ptr, ptr %mpEnd.i.i45, align 8
-  %cmp.not11.i71 = icmp eq ptr %incdec.ptr10.i70, %31
-  br i1 %cmp.not11.i71, label %invoke.cont152, label %for.body.outer.i49, !llvm.loop !16
+  %cmp.not12.i71 = icmp eq ptr %incdec.ptr11.i70, %31
+  br i1 %cmp.not12.i71, label %invoke.cont152, label %for.body.outer.i49, !llvm.loop !16
 
 for.end.i59:                                      ; preds = %for.inc.i56
   br i1 %bContinueRequested.07.ph.i51, label %invoke.cont152, label %if.end15.i60

@@ -458,7 +458,7 @@ define hidden void @_ZN12pingora_core10connectors4http2v29Connector20release_htt
   br label %.thread64
 
 57:                                               ; preds = %65
-  %lpad.thr_comm.split-lp121 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp122 = landingpad { ptr, i32 }
           cleanup
   br label %195
 
@@ -840,7 +840,7 @@ define hidden void @_ZN12pingora_core10connectors4http2v29Connector20release_htt
           to label %.thread70 unwind label %154
 
 195:                                              ; preds = %57, %.thread54, %.thread70
-  %.pn2559 = phi { ptr, i32 } [ %47, %.thread54 ], [ %eh.lpad-body69, %.thread70 ], [ %lpad.thr_comm.split-lp121, %57 ]
+  %.pn2559 = phi { ptr, i32 } [ %47, %.thread54 ], [ %eh.lpad-body69, %.thread70 ], [ %lpad.thr_comm.split-lp122, %57 ]
   %.sroa.013.358 = phi i8 [ %.sroa.013.2, %.thread54 ], [ 0, %.thread70 ], [ 0, %57 ]
   invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$lock_api..mutex..ArcMutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$17hcbb5d409e0200e92E"(ptr noalias noundef align 8 dereferenceable(8) %19) #23
           to label %.body47 unwind label %154
@@ -2187,9 +2187,9 @@ define hidden void @"_ZN2h25proto10connection27Connection$LT$T$C$P$C$B$GT$4poll1
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 896
   %157 = load i64, ptr %156, align 8, !range !136, !noundef !8
   %.not102 = icmp eq i64 %157, 2
-  br i1 %.not102, label %.thread548, label %161
+  br i1 %.not102, label %.thread609, label %161
 
-.thread548:                                       ; preds = %3
+.thread609:                                       ; preds = %3
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 928
   %159 = load ptr, ptr %158, align 8, !align !115, !noundef !8
   store i64 2, ptr %155, align 8
@@ -2244,10 +2244,10 @@ define hidden void @"_ZN2h25proto10connection27Connection$LT$T$C$P$C$B$GT$4poll1
           cleanup
   br label %.body230
 
-default.unreachable547:                           ; preds = %.critedge130, %.noexc145
+default.unreachable608:                           ; preds = %.critedge130, %.noexc145
   unreachable
 
-174:                                              ; preds = %.thread548, %161, %165
+174:                                              ; preds = %.thread609, %161, %165
   call void @llvm.lifetime.start.p0(ptr nonnull %154)
   %175 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h9e420ea5df983dc6E monotonic, align 8
   %.not105 = icmp eq i64 %175, 5
@@ -2734,7 +2734,7 @@ default.unreachable547:                           ; preds = %.critedge130, %.noe
 
 .critedge130:                                     ; preds = %338, %.backedge, %342, %334, %354, %346
   %337 = load i8, ptr %196, align 8, !range !7, !noundef !8
-  switch i8 %337, label %default.unreachable547 [
+  switch i8 %337, label %default.unreachable608 [
     i8 0, label %355
     i8 1, label %1065
     i8 2, label %790
@@ -2825,14 +2825,14 @@ default.unreachable547:                           ; preds = %.critedge130, %.noe
 
 .noexc145:                                        ; preds = %.noexc144
   %356 = load i32, ptr %138, align 8, !range !151, !noalias !149, !noundef !8
-  switch i32 %356, label %default.unreachable547 [
-    i32 3, label %.thread555
+  switch i32 %356, label %default.unreachable608 [
+    i32 3, label %.thread616
     i32 2, label %.thread.i
     i32 0, label %359
     i32 1, label %357
   ]
 
-.thread555:                                       ; preds = %.noexc145
+.thread616:                                       ; preds = %.noexc145
   call void @llvm.lifetime.end.p0(ptr nonnull %138), !noalias !149
   store i8 4, ptr %149, align 8, !alias.scope !144, !noalias !152
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
@@ -3186,11 +3186,11 @@ default.unreachable547:                           ; preds = %.critedge130, %.noe
   store ptr @anon.ec1d83f20d0a3dc7d51952568fac7708.70, ptr %.sroa.732.0..sroa_idx.i, align 8, !alias.scope !144, !noalias !152
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.732.sroa.4.0..sroa.732.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !144, !noalias !152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.732.sroa.5.0..sroa.732.0..sroa_idx.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !144, !noalias !152
-  br label %.thread552
+  br label %.thread613
 
 454:                                              ; preds = %450
   store i8 3, ptr %149, align 8, !alias.scope !144, !noalias !152
-  br label %.thread552
+  br label %.thread613
 
 455:                                              ; preds = %"_ZN2h25proto10connection27Connection$LT$T$C$P$C$B$GT$10poll_ready17h2e59626302ee4209E.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.429.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.12.i, i64 39, i1 false), !noalias !152
@@ -3659,7 +3659,7 @@ default.unreachable.i.i:                          ; preds = %469
   call void @llvm.lifetime.start.p0(ptr nonnull %125), !noalias !203
   call void @llvm.lifetime.start.p0(ptr nonnull %124), !noalias !203
   %.not538.i.i = icmp eq i64 %554, 0
-  br i1 %.not538.i.i, label %.invoke741.i.i, label %559
+  br i1 %.not538.i.i, label %.invoke775.i.i, label %559
 
 559:                                              ; preds = %549
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx9.i.i, ptr noundef nonnull align 8 dereferenceable(24) %553, i64 24, i1 false), !noalias !206
@@ -3673,7 +3673,7 @@ default.unreachable.i.i:                          ; preds = %469
   store i64 0, ptr %262, align 8, !noalias !203
   call void @llvm.lifetime.start.p0(ptr nonnull %122), !noalias !203
   %.not735.i.i = icmp eq i64 %554, 1
-  br i1 %.not735.i.i, label %.invoke741.i.i, label %560, !prof !6
+  br i1 %.not735.i.i, label %.invoke775.i.i, label %560, !prof !6
 
 560:                                              ; preds = %559
   store ptr %552, ptr %122, align 8, !noalias !203
@@ -3696,11 +3696,11 @@ default.unreachable.i.i:                          ; preds = %469
   invoke void @_ZN12tracing_core5event5Event8dispatch17ha4ef22fc47242eeeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %550, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %58)
           to label %561 unwind label %.loopexit205.i, !noalias !206
 
-.invoke741.i.i:                                   ; preds = %559, %549
+.invoke775.i.i:                                   ; preds = %559, %549
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.ec1d83f20d0a3dc7d51952568fac7708.13, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ec1d83f20d0a3dc7d51952568fac7708.35) #21
-          to label %.cont742.i.i unwind label %.loopexit.split-lp206.i, !noalias !206
+          to label %.cont776.i.i unwind label %.loopexit.split-lp206.i, !noalias !206
 
-.cont742.i.i:                                     ; preds = %.invoke741.i.i
+.cont776.i.i:                                     ; preds = %.invoke775.i.i
   unreachable
 
 561:                                              ; preds = %560
@@ -3728,7 +3728,7 @@ default.unreachable.i.i:                          ; preds = %469
           cleanup
   br label %564
 
-.loopexit.split-lp206.i:                          ; preds = %.invoke741.i.i
+.loopexit.split-lp206.i:                          ; preds = %.invoke775.i.i
   %lpad.loopexit.split-lp208.i = landingpad { ptr, i32 }
           cleanup
   br label %564
@@ -3898,7 +3898,7 @@ default.unreachable.i.i:                          ; preds = %469
   call void @llvm.lifetime.start.p0(ptr nonnull %102), !noalias !203
   call void @llvm.lifetime.start.p0(ptr nonnull %101), !noalias !203
   %.not528.i.i = icmp eq i64 %607, 0
-  br i1 %.not528.i.i, label %.invoke743.i.i, label %612
+  br i1 %.not528.i.i, label %.invoke777.i.i, label %612
 
 612:                                              ; preds = %602
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6103.0..sroa_idx104.i.i, ptr noundef nonnull align 8 dereferenceable(24) %606, i64 24, i1 false), !noalias !206
@@ -3912,7 +3912,7 @@ default.unreachable.i.i:                          ; preds = %469
   store i64 0, ptr %252, align 8, !noalias !203
   call void @llvm.lifetime.start.p0(ptr nonnull %99), !noalias !203
   %.not733.i.i = icmp eq i64 %607, 1
-  br i1 %.not733.i.i, label %.invoke743.i.i, label %613, !prof !6
+  br i1 %.not733.i.i, label %.invoke777.i.i, label %613, !prof !6
 
 613:                                              ; preds = %612
   store ptr %605, ptr %99, align 8, !noalias !203
@@ -3935,11 +3935,11 @@ default.unreachable.i.i:                          ; preds = %469
   invoke void @_ZN12tracing_core5event5Event8dispatch17ha4ef22fc47242eeeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %603, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %55)
           to label %614 unwind label %.loopexit200.i, !noalias !206
 
-.invoke743.i.i:                                   ; preds = %612, %602
+.invoke777.i.i:                                   ; preds = %612, %602
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.ec1d83f20d0a3dc7d51952568fac7708.13, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ec1d83f20d0a3dc7d51952568fac7708.43) #21
-          to label %.cont744.i.i unwind label %.loopexit.split-lp201.i, !noalias !206
+          to label %.cont778.i.i unwind label %.loopexit.split-lp201.i, !noalias !206
 
-.cont744.i.i:                                     ; preds = %.invoke743.i.i
+.cont778.i.i:                                     ; preds = %.invoke777.i.i
   unreachable
 
 614:                                              ; preds = %613
@@ -3967,7 +3967,7 @@ default.unreachable.i.i:                          ; preds = %469
           cleanup
   br label %617
 
-.loopexit.split-lp201.i:                          ; preds = %.invoke743.i.i
+.loopexit.split-lp201.i:                          ; preds = %.invoke777.i.i
   %lpad.loopexit.split-lp203.i = landingpad { ptr, i32 }
           cleanup
   br label %617
@@ -4304,7 +4304,7 @@ default.unreachable.i.i:                          ; preds = %469
   call void @llvm.lifetime.start.p0(ptr nonnull %88), !noalias !203
   call void @llvm.lifetime.start.p0(ptr nonnull %87), !noalias !203
   %.not512.i.i = icmp eq i64 %703, 0
-  br i1 %.not512.i.i, label %.invoke745.i.i, label %708
+  br i1 %.not512.i.i, label %.invoke779.i.i, label %708
 
 708:                                              ; preds = %698
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6161.0..sroa_idx162.i.i, ptr noundef nonnull align 8 dereferenceable(24) %702, i64 24, i1 false), !noalias !206
@@ -4318,7 +4318,7 @@ default.unreachable.i.i:                          ; preds = %469
   store i64 0, ptr %235, align 8, !noalias !203
   call void @llvm.lifetime.start.p0(ptr nonnull %85), !noalias !203
   %.not730.i.i = icmp eq i64 %703, 1
-  br i1 %.not730.i.i, label %.invoke745.i.i, label %709, !prof !6
+  br i1 %.not730.i.i, label %.invoke779.i.i, label %709, !prof !6
 
 709:                                              ; preds = %708
   store ptr %701, ptr %85, align 8, !noalias !203
@@ -4341,11 +4341,11 @@ default.unreachable.i.i:                          ; preds = %469
   invoke void @_ZN12tracing_core5event5Event8dispatch17ha4ef22fc47242eeeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %699, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %53)
           to label %710 unwind label %.loopexit.i, !noalias !206
 
-.invoke745.i.i:                                   ; preds = %708, %698
+.invoke779.i.i:                                   ; preds = %708, %698
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.ec1d83f20d0a3dc7d51952568fac7708.13, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ec1d83f20d0a3dc7d51952568fac7708.58) #21
-          to label %.cont746.i.i unwind label %.loopexit.split-lp.i, !noalias !206
+          to label %.cont780.i.i unwind label %.loopexit.split-lp.i, !noalias !206
 
-.cont746.i.i:                                     ; preds = %.invoke745.i.i
+.cont780.i.i:                                     ; preds = %.invoke779.i.i
   unreachable
 
 710:                                              ; preds = %709
@@ -4401,7 +4401,7 @@ default.unreachable.i.i:                          ; preds = %469
           cleanup
   br label %720
 
-.loopexit.split-lp.i:                             ; preds = %.invoke745.i.i
+.loopexit.split-lp.i:                             ; preds = %.invoke779.i.i
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %720
@@ -4803,8 +4803,8 @@ default.unreachable.i.i:                          ; preds = %469
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 32, i1 false), !noalias !226
   call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !226
   call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !226
-  %or.cond36.i = icmp eq i32 %791, 0
-  br i1 %or.cond36.i, label %818, label %.thread.i194
+  %or.cond37.i = icmp eq i32 %791, 0
+  br i1 %or.cond37.i, label %818, label %.thread.i194
 
 816:                                              ; preds = %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$h2..frame..go_away..GoAway$GT$$GT$17ha0c56a2c924c6098E.exit25.i"
   %817 = icmp eq i32 %802, 0
@@ -4843,7 +4843,7 @@ default.unreachable.i.i:                          ; preds = %469
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #22, !noalias !226
   unreachable
 
-.thread552:                                       ; preds = %454, %453
+.thread613:                                       ; preds = %454, %453
   %.sroa.0540.0.copyload.ph = phi i8 [ 1, %453 ], [ 3, %454 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.355.sroa.3.i)
@@ -4866,7 +4866,7 @@ default.unreachable.i.i:                          ; preds = %469
   %831 = icmp eq i8 %.sroa.0540.0.copyload, 4
   br i1 %831, label %832, label %834
 
-832:                                              ; preds = %.thread555, %830
+832:                                              ; preds = %.thread616, %830
   %833 = invoke { i64, ptr } @"_ZN2h25proto7streams7streams20Streams$LT$B$C$P$GT$13poll_complete17he10eafc76295fe38E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %204, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull align 8 dereferenceable(896) %1)
           to label %1036 unwind label %.loopexit.split-lp.loopexit
 
@@ -4880,8 +4880,8 @@ default.unreachable.i.i:                          ; preds = %469
           cleanup
   br label %.body
 
-834:                                              ; preds = %.thread552, %830
-  %.sroa.0540.0.copyload554 = phi i8 [ %.sroa.0540.0.copyload.ph, %.thread552 ], [ %.sroa.0540.0.copyload, %830 ]
+834:                                              ; preds = %.thread613, %830
+  %.sroa.0540.0.copyload615 = phi i8 [ %.sroa.0540.0.copyload.ph, %.thread613 ], [ %.sroa.0540.0.copyload, %830 ]
   %.sroa.4.0.copyload = load i8, ptr %.sroa.429.0..sroa_idx.i, align 1
   %.sroa.6.0.copyload = load i32, ptr %.sroa.631.0..sroa_idx.i, align 4
   %.sroa.7543.0.copyload = load i32, ptr %.sroa.732.0..sroa_idx.i, align 8
@@ -4907,7 +4907,7 @@ default.unreachable.i.i:                          ; preds = %469
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  switch i8 %.sroa.0540.0.copyload554, label %default.unreachable.i205 [
+  switch i8 %.sroa.0540.0.copyload615, label %default.unreachable.i205 [
     i8 3, label %839
     i8 0, label %840
     i8 1, label %842

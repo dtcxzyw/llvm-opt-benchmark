@@ -278,7 +278,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noalias noundef ptr @mkMPair(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #9 {
+define internal noalias nonnull ptr @mkMPair(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #9 {
   %3 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %gv_alloc.exit

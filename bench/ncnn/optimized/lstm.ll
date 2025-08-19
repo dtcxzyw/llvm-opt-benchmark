@@ -12303,8 +12303,8 @@ define internal void @_ZN4ncnnL9lstm_int8ERKNS_3MatERS0_iS2_PKfS2_S2_S5_S2_S3_S3
   br label %65
 
 65:                                               ; preds = %37, %63
-  %.sink45 = phi ptr [ %34, %63 ], [ %32, %37 ]
-  %66 = getelementptr inbounds float, ptr %.sink45, i64 %indvars.iv
+  %.sink47 = phi ptr [ %34, %63 ], [ %32, %37 ]
+  %66 = getelementptr inbounds float, ptr %.sink47, i64 %indvars.iv
   store float %62, ptr %66, align 4, !tbaa !47
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -12729,8 +12729,8 @@ define internal void @_ZN4ncnnL4lstmERKNS_3MatERS0_iS2_S2_S2_S2_S3_S3_RKNS_6Opti
   br label %65
 
 65:                                               ; preds = %37, %63
-  %.sink45 = phi ptr [ %34, %63 ], [ %32, %37 ]
-  %66 = getelementptr inbounds float, ptr %.sink45, i64 %indvars.iv
+  %.sink47 = phi ptr [ %34, %63 ], [ %32, %37 ]
+  %66 = getelementptr inbounds float, ptr %.sink47, i64 %indvars.iv
   store float %62, ptr %66, align 4, !tbaa !47
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32

@@ -2499,10 +2499,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit: ; preds
   %23 = tail call i64 @llvm.usub.sat.i64(i64 %.0.sroa.speculated.i.i, i64 8)
   %24 = and i64 %23, 4294967288
   %.not = icmp ugt i64 %3, %24
-  br i1 %.not, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit31, label %"_ZN4core3num21_$LT$impl$u20$u32$GT$24checked_next_multiple_of17h4c8d55592f422462E.exit.thread"
+  br i1 %.not, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit31, label %31
 
-25:                                               ; preds = %"_ZN4core3num21_$LT$impl$u20$u32$GT$24checked_next_multiple_of17h4c8d55592f422462E.exit.thread", %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit31, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit
-  %.sink = phi i32 [ 0, %"_ZN4core3num21_$LT$impl$u20$u32$GT$24checked_next_multiple_of17h4c8d55592f422462E.exit.thread" ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit31 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit ]
+25:                                               ; preds = %31, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit31, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit
+  %.sink = phi i32 [ 0, %31 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit31 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit ]
   store i32 %.sink, ptr %0, align 8
   ret void
 
@@ -2539,12 +2539,12 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit31: ; pre
   store ptr %29, ptr %30, align 8
   br label %25
 
-"_ZN4core3num21_$LT$impl$u20$u32$GT$24checked_next_multiple_of17h4c8d55592f422462E.exit.thread": ; preds = %22
-  %31 = trunc nuw i64 %3 to i32
-  %.biased = add i32 %31, 7
+31:                                               ; preds = %22
+  %32 = trunc nuw i64 %3 to i32
+  %.biased = add i32 %32, 7
   %.sroa.5.1.i44 = and i32 %.biased, -8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.5.1.i44, ptr %32, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sroa.5.1.i44, ptr %33, align 4
   br label %25
 }
 
@@ -3055,13 +3055,13 @@ common.resume:                                    ; preds = %72, %51, %33
   call void @llvm.assume(i1 %81)
   %82 = load i32, ptr %77, align 4, !noundef !4
   %83 = load i32, ptr %79, align 4, !noundef !4
-  br i1 %.not123.ph, label %.thread202, label %85
+  br i1 %.not123.ph, label %.thread207, label %85
 
 .thread151:                                       ; preds = %"_ZN5alloc11collections5btree8navigate35LeafRange$LT$BorrowType$C$K$C$V$GT$25perform_next_back_checked17h486a3b36198bb46bE.exit.thread", %67, %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17heb86a48917ba8130E.llvm.2708031191408783576.exit.i41"
   br i1 %.not123.ph, label %.thread168, label %.thread161
 
 84:                                               ; preds = %.thread161
-  br i1 %.not31.not150155167, label %.thread168, label %.thread202
+  br i1 %.not31.not150155167, label %.thread168, label %.thread207
 
 85:                                               ; preds = %.thread
   %86 = add i32 %.sroa.319.0.ph, %.sroa.520.0.ph
@@ -3162,15 +3162,15 @@ select.unfold173:                                 ; preds = %111, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %107
 
-.thread202:                                       ; preds = %.thread, %84
-  %.sroa.322.0158207 = phi i32 [ %.sroa.322.0157166, %84 ], [ %82, %.thread ]
-  %.sroa.523.0160206 = phi i32 [ %.sroa.523.0159165, %84 ], [ %83, %.thread ]
+.thread207:                                       ; preds = %.thread, %84
+  %.sroa.322.0158212 = phi i32 [ %.sroa.322.0157166, %84 ], [ %82, %.thread ]
+  %.sroa.523.0160211 = phi i32 [ %.sroa.523.0159165, %84 ], [ %83, %.thread ]
   %120 = add i32 %39, %1
-  %121 = sub i32 %.sroa.322.0158207, %120
+  %121 = sub i32 %.sroa.322.0158212, %120
   %122 = icmp ult i32 %121, 24
   br i1 %122, label %131, label %.thread168
 
-.thread168:                                       ; preds = %80, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6e0f1569bf72fd54E.exit", %.thread151, %.thread202, %84
+.thread168:                                       ; preds = %80, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6e0f1569bf72fd54E.exit", %.thread151, %.thread207, %84
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !469
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h075052a5add71d7fE.llvm.9369894712845813854"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %40, i32 noundef %1)
@@ -3198,14 +3198,14 @@ select.unfold173:                                 ; preds = %111, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %107
 
-131:                                              ; preds = %.thread202
+131:                                              ; preds = %.thread207
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  store i32 %.sroa.322.0158207, ptr %23, align 4
+  store i32 %.sroa.322.0158212, ptr %23, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !475
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17hada49b171dc26f28E.llvm.9369894712845813854"(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !475
-  %132 = sub i32 %.sroa.523.0160206, %1
-  %133 = add i32 %132, %.sroa.322.0158207
+  %132 = sub i32 %.sroa.523.0160211, %1
+  %133 = add i32 %132, %.sroa.322.0158212
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !479
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h075052a5add71d7fE.llvm.9369894712845813854"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %40, i32 noundef %1)
@@ -5076,9 +5076,9 @@ define hidden void @_ZN16wasmtime_runtime6memory6Memory9limit_new17hc4986e435f6c
   br label %51
 
 51:                                               ; preds = %49, %41, %40, %48
-  %.sink67 = phi i64 [ 8, %49 ], [ 8, %41 ], [ 8, %40 ], [ 16, %48 ]
+  %.sink68 = phi i64 [ 8, %49 ], [ 8, %41 ], [ 8, %40 ], [ 16, %48 ]
   %.sink = phi i64 [ 2, %49 ], [ 2, %41 ], [ 2, %40 ], [ %.sroa.9.1, %48 ]
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink67
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink68
   store i64 %.sink, ptr %52, align 8
   ret void
 }

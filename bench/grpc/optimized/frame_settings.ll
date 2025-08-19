@@ -503,10 +503,10 @@ define void @_Z33grpc_chttp2_settings_parser_parsePvP21grpc_chttp2_transportP18g
   switch i32 %270, label %.critedge116.thread [
     i32 0, label %41
     i32 1, label %.loopexit
-    i32 2, label %.loopexit163
-    i32 3, label %.loopexit164
-    i32 4, label %.loopexit165
-    i32 5, label %.loopexit166
+    i32 2, label %.loopexit183
+    i32 3, label %.loopexit184
+    i32 4, label %.loopexit185
+    i32 5, label %.loopexit186
   ], !llvm.loop !44
 
 41:                                               ; preds = %.critedge116.thread
@@ -652,37 +652,37 @@ define void @_Z33grpc_chttp2_settings_parser_parsePvP21grpc_chttp2_transportP18g
   %129 = or i16 %126, %128
   store i16 %129, ptr %34, align 2, !tbaa !267
   %130 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  br label %.loopexit163
+  br label %.loopexit183
 
-.loopexit163:                                     ; preds = %.critedge116.thread, %125
+.loopexit183:                                     ; preds = %.critedge116.thread, %125
   %.3 = phi ptr [ %130, %125 ], [ %.085.ph, %.critedge116.thread ]
   %131 = icmp eq ptr %.3, %31
   br i1 %131, label %132, label %133
 
-132:                                              ; preds = %.loopexit163
+132:                                              ; preds = %.loopexit183
   store i32 2, ptr %1, align 8, !tbaa !22
   store i64 1, ptr %0, align 8, !tbaa !27, !alias.scope !271
   br label %315
 
-133:                                              ; preds = %.loopexit163
+133:                                              ; preds = %.loopexit183
   %134 = load i8, ptr %.3, align 1, !tbaa !9
   %135 = zext i8 %134 to i32
   %136 = shl nuw i32 %135, 24
   store i32 %136, ptr %35, align 8, !tbaa !274
   %137 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  br label %.loopexit164
+  br label %.loopexit184
 
-.loopexit164:                                     ; preds = %.critedge116.thread, %133
+.loopexit184:                                     ; preds = %.critedge116.thread, %133
   %.4 = phi ptr [ %137, %133 ], [ %.085.ph, %.critedge116.thread ]
   %138 = icmp eq ptr %.4, %31
   br i1 %138, label %139, label %140
 
-139:                                              ; preds = %.loopexit164
+139:                                              ; preds = %.loopexit184
   store i32 3, ptr %1, align 8, !tbaa !22
   store i64 1, ptr %0, align 8, !tbaa !27, !alias.scope !275
   br label %315
 
-140:                                              ; preds = %.loopexit164
+140:                                              ; preds = %.loopexit184
   %141 = load i8, ptr %.4, align 1, !tbaa !9
   %142 = zext i8 %141 to i32
   %143 = shl nuw nsw i32 %142, 16
@@ -690,19 +690,19 @@ define void @_Z33grpc_chttp2_settings_parser_parsePvP21grpc_chttp2_transportP18g
   %145 = or i32 %143, %144
   store i32 %145, ptr %35, align 8, !tbaa !274
   %146 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  br label %.loopexit165
+  br label %.loopexit185
 
-.loopexit165:                                     ; preds = %.critedge116.thread, %140
+.loopexit185:                                     ; preds = %.critedge116.thread, %140
   %.5 = phi ptr [ %146, %140 ], [ %.085.ph, %.critedge116.thread ]
   %147 = icmp eq ptr %.5, %31
   br i1 %147, label %148, label %149
 
-148:                                              ; preds = %.loopexit165
+148:                                              ; preds = %.loopexit185
   store i32 4, ptr %1, align 8, !tbaa !22
   store i64 1, ptr %0, align 8, !tbaa !27, !alias.scope !278
   br label %315
 
-149:                                              ; preds = %.loopexit165
+149:                                              ; preds = %.loopexit185
   %150 = load i8, ptr %.5, align 1, !tbaa !9
   %151 = zext i8 %150 to i32
   %152 = shl nuw nsw i32 %151, 8
@@ -710,19 +710,19 @@ define void @_Z33grpc_chttp2_settings_parser_parsePvP21grpc_chttp2_transportP18g
   %154 = or i32 %152, %153
   store i32 %154, ptr %35, align 8, !tbaa !274
   %155 = getelementptr inbounds nuw i8, ptr %.5, i64 1
-  br label %.loopexit166
+  br label %.loopexit186
 
-.loopexit166:                                     ; preds = %.critedge116.thread, %149
+.loopexit186:                                     ; preds = %.critedge116.thread, %149
   %.6 = phi ptr [ %155, %149 ], [ %.085.ph, %.critedge116.thread ]
   %156 = icmp eq ptr %.6, %31
   br i1 %156, label %157, label %158
 
-157:                                              ; preds = %.loopexit166
+157:                                              ; preds = %.loopexit186
   store i32 5, ptr %1, align 8, !tbaa !22
   store i64 1, ptr %0, align 8, !tbaa !27, !alias.scope !281
   br label %315
 
-158:                                              ; preds = %.loopexit166
+158:                                              ; preds = %.loopexit186
   store i32 0, ptr %1, align 8, !tbaa !22
   %159 = load i8, ptr %.6, align 1, !tbaa !9
   %160 = zext i8 %159 to i32

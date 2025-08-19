@@ -793,7 +793,7 @@ define dso_local noundef range(i32 -117, 1) i32 @ext4_check_blockref(ptr noundef
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %72 = load i32, ptr %71, align 8
   %73 = zext i32 %72 to i64
-  %74 = add i64 %68, %73
+  %74 = add nuw nsw i64 %68, %73
   %75 = icmp ugt i64 %74, %34
   br i1 %75, label %ext4_inode_block_valid.exit.thread5, label %76
 
@@ -877,7 +877,7 @@ ext4_inode_block_valid.exit.thread4.us:           ; preds = %76, %63, %59
   %125 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %126 = load i32, ptr %125, align 8
   %127 = zext i32 %126 to i64
-  %128 = add i64 %122, %127
+  %128 = add nuw nsw i64 %122, %127
   %129 = icmp ugt i64 %128, %88
   br i1 %129, label %ext4_inode_block_valid.exit, label %134
 

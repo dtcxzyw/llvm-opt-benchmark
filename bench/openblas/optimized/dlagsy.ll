@@ -49,9 +49,9 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .thread:                                          ; preds = %24, %22, %8
   %.sink = phi i32 [ -1, %8 ], [ -2, %22 ], [ -5, %24 ]
-  %.neg355 = phi i32 [ 1, %8 ], [ 2, %22 ], [ 5, %24 ]
+  %.neg358 = phi i32 [ 1, %8 ], [ 2, %22 ], [ 5, %24 ]
   store i32 %.sink, ptr %7, align 4, !tbaa !3
-  store i32 %.neg355, ptr %9, align 4, !tbaa !3
+  store i32 %.neg358, ptr %9, align 4, !tbaa !3
   %27 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %9, i32 noundef 6) #4
   br label %.loopexit276
 
@@ -427,7 +427,7 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %240 = sext i32 %indvars.iv333 to i64
   %241 = mul nsw i64 %indvars.iv340, %237
   %invariant.gep = getelementptr double, ptr %18, i64 %241
-  %invariant.gep356 = getelementptr double, ptr %18, i64 %indvars.iv340
+  %invariant.gep359 = getelementptr double, ptr %18, i64 %indvars.iv340
   br label %242
 
 242:                                              ; preds = %.lr.ph306, %242
@@ -435,8 +435,8 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv335
   %243 = load double, ptr %gep, align 8, !tbaa !9
   %244 = mul nsw i64 %indvars.iv335, %237
-  %gep357 = getelementptr double, ptr %invariant.gep356, i64 %244
-  store double %243, ptr %gep357, align 8, !tbaa !9
+  %gep360 = getelementptr double, ptr %invariant.gep359, i64 %244
+  store double %243, ptr %gep360, align 8, !tbaa !9
   %indvars.iv.next336 = add nsw i64 %indvars.iv335, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next336 to i32
   %exitcond339.not = icmp eq i32 %238, %lftr.wideiv

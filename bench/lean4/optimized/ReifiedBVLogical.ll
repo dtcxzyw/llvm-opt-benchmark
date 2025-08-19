@@ -779,16 +779,16 @@ lean_alloc_ctor.exit75:                           ; preds = %lean_dec.exit
   unreachable
 
 lean_alloc_ctor.exit74:                           ; preds = %lean_alloc_ctor.exit75, %lean_dec.exit52
-  %.sink89 = phi ptr [ %105, %lean_dec.exit52 ], [ %123, %lean_alloc_ctor.exit75 ]
+  %.sink101 = phi ptr [ %105, %lean_dec.exit52 ], [ %123, %lean_alloc_ctor.exit75 ]
   %.sink = phi ptr [ %0, %lean_dec.exit52 ], [ %115, %lean_alloc_ctor.exit75 ]
-  %126 = getelementptr inbounds nuw i8, ptr %.sink89, i64 4
-  store i32 1, ptr %.sink89, align 4, !tbaa !8
+  %126 = getelementptr inbounds nuw i8, ptr %.sink101, i64 4
+  store i32 1, ptr %.sink101, align 4, !tbaa !8
   store i32 131096, ptr %126, align 4
-  %127 = getelementptr inbounds nuw i8, ptr %.sink89, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %.sink101, i64 8
   store ptr %.sink, ptr %127, align 8, !tbaa !4
-  %128 = getelementptr inbounds nuw i8, ptr %.sink89, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %.sink101, i64 16
   store ptr %6, ptr %128, align 8, !tbaa !4
-  ret ptr %.sink89
+  ret ptr %.sink101
 }
 
 declare ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVPred_evalsAtAtoms(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
@@ -2234,16 +2234,16 @@ lean_alloc_ctor.exit31:                           ; preds = %29
   unreachable
 
 lean_alloc_ctor.exit30:                           ; preds = %lean_alloc_ctor.exit31, %lean_alloc_ctor.exit29
-  %.sink38 = phi ptr [ %26, %lean_alloc_ctor.exit29 ], [ %40, %lean_alloc_ctor.exit31 ]
+  %.sink43 = phi ptr [ %26, %lean_alloc_ctor.exit29 ], [ %40, %lean_alloc_ctor.exit31 ]
   %.sink = phi ptr [ %18, %lean_alloc_ctor.exit29 ], [ %32, %lean_alloc_ctor.exit31 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.sink38, i64 4
-  store i32 1, ptr %.sink38, align 4, !tbaa !8
+  %43 = getelementptr inbounds nuw i8, ptr %.sink43, i64 4
+  store i32 1, ptr %.sink43, align 4, !tbaa !8
   store i32 131096, ptr %43, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %.sink38, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.sink43, i64 8
   store ptr %.sink, ptr %44, align 8, !tbaa !4
-  %45 = getelementptr inbounds nuw i8, ptr %.sink38, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.sink43, i64 16
   store ptr %6, ptr %45, align 8, !tbaa !4
-  ret ptr %.sink38
+  ret ptr %.sink43
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5706,16 +5706,16 @@ lean_alloc_ctor.exit138:                          ; preds = %149
   unreachable
 
 lean_alloc_ctor.exit133:                          ; preds = %lean_alloc_ctor.exit138, %lean_alloc_ctor.exit136, %lean_alloc_ctor.exit134, %lean_alloc_ctor.exit132
-  %.sink148 = phi ptr [ %118, %lean_alloc_ctor.exit132 ], [ %132, %lean_alloc_ctor.exit134 ], [ %146, %lean_alloc_ctor.exit136 ], [ %160, %lean_alloc_ctor.exit138 ]
+  %.sink160 = phi ptr [ %118, %lean_alloc_ctor.exit132 ], [ %132, %lean_alloc_ctor.exit134 ], [ %146, %lean_alloc_ctor.exit136 ], [ %160, %lean_alloc_ctor.exit138 ]
   %.sink = phi ptr [ %110, %lean_alloc_ctor.exit132 ], [ %124, %lean_alloc_ctor.exit134 ], [ %138, %lean_alloc_ctor.exit136 ], [ %152, %lean_alloc_ctor.exit138 ]
-  %163 = getelementptr inbounds nuw i8, ptr %.sink148, i64 4
-  store i32 1, ptr %.sink148, align 4, !tbaa !8
+  %163 = getelementptr inbounds nuw i8, ptr %.sink160, i64 4
+  store i32 1, ptr %.sink160, align 4, !tbaa !8
   store i32 131096, ptr %163, align 4
-  %164 = getelementptr inbounds nuw i8, ptr %.sink148, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %.sink160, i64 8
   store ptr %.sink, ptr %164, align 8, !tbaa !4
-  %165 = getelementptr inbounds nuw i8, ptr %.sink148, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %.sink160, i64 16
   store ptr %11, ptr %165, align 8, !tbaa !4
-  ret ptr %.sink148
+  ret ptr %.sink160
 }
 
 declare ptr @l_ReaderT_bind___at_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVPred_boolAtom___spec__1___rarg(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
@@ -7286,16 +7286,16 @@ lean_alloc_ctor.exit100:                          ; preds = %lean_alloc_closure.
   unreachable
 
 lean_alloc_ctor.exit97:                           ; preds = %lean_alloc_ctor.exit100, %lean_alloc_closure.exit96
-  %.sink113 = phi ptr [ %123, %lean_alloc_closure.exit96 ], [ %160, %lean_alloc_ctor.exit100 ]
+  %.sink129 = phi ptr [ %123, %lean_alloc_closure.exit96 ], [ %160, %lean_alloc_ctor.exit100 ]
   %.sink = phi ptr [ %0, %lean_alloc_closure.exit96 ], [ %152, %lean_alloc_ctor.exit100 ]
-  %163 = getelementptr inbounds nuw i8, ptr %.sink113, i64 4
-  store i32 1, ptr %.sink113, align 4, !tbaa !8
+  %163 = getelementptr inbounds nuw i8, ptr %.sink129, i64 4
+  store i32 1, ptr %.sink129, align 4, !tbaa !8
   store i32 131096, ptr %163, align 4
-  %164 = getelementptr inbounds nuw i8, ptr %.sink113, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %.sink129, i64 8
   store ptr %.sink, ptr %164, align 8, !tbaa !4
-  %165 = getelementptr inbounds nuw i8, ptr %.sink113, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %.sink129, i64 16
   store ptr %8, ptr %165, align 8, !tbaa !4
-  ret ptr %.sink113
+  ret ptr %.sink129
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12607,16 +12607,16 @@ lean_alloc_ctor.exit145:                          ; preds = %lean_alloc_closure.
   unreachable
 
 lean_alloc_ctor.exit143:                          ; preds = %lean_alloc_ctor.exit145, %lean_alloc_closure.exit142
-  %.sink167 = phi ptr [ %193, %lean_alloc_closure.exit142 ], [ %220, %lean_alloc_ctor.exit145 ]
+  %.sink182 = phi ptr [ %193, %lean_alloc_closure.exit142 ], [ %220, %lean_alloc_ctor.exit145 ]
   %.sink = phi ptr [ %0, %lean_alloc_closure.exit142 ], [ %212, %lean_alloc_ctor.exit145 ]
-  %223 = getelementptr inbounds nuw i8, ptr %.sink167, i64 4
-  store i32 1, ptr %.sink167, align 4, !tbaa !8
+  %223 = getelementptr inbounds nuw i8, ptr %.sink182, i64 4
+  store i32 1, ptr %.sink182, align 4, !tbaa !8
   store i32 131096, ptr %223, align 4
-  %224 = getelementptr inbounds nuw i8, ptr %.sink167, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %.sink182, i64 8
   store ptr %.sink, ptr %224, align 8, !tbaa !4
-  %225 = getelementptr inbounds nuw i8, ptr %.sink167, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %.sink182, i64 16
   store ptr %12, ptr %225, align 8, !tbaa !4
-  ret ptr %.sink167
+  ret ptr %.sink182
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13177,18 +13177,18 @@ _init_l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVLogical_mkBoolConst___closed
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVLogical_mkBoolConst___closed__4.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %227, %_init_l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVLogical_mkBoolConst___closed__4.exit ]
-  %230 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !8
+  %.sink14 = phi ptr [ %4, %3 ], [ %227, %_init_l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVLogical_mkBoolConst___closed__4.exit ]
+  %230 = getelementptr inbounds nuw i8, ptr %.sink14, i64 4
+  store i32 1, ptr %.sink14, align 4, !tbaa !8
   store i32 131096, ptr %230, align 4
-  %231 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %.sink14, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %231, align 8, !tbaa !4
-  %232 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %.sink14, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %232, align 8, !tbaa !4
   br label %233
 
 233:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink14, %.sink.split ]
   ret ptr %.0
 }
 

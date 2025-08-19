@@ -5,30 +5,30 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
 define hidden noalias noundef ptr @sk_new(ptr noundef %0) local_unnamed_addr #0 {
-  %calloc13 = tail call dereferenceable_or_null(40) ptr @calloc(i64 1, i64 40)
-  %2 = icmp eq ptr %calloc13, null
+  %calloc15 = tail call dereferenceable_or_null(40) ptr @calloc(i64 1, i64 40)
+  %2 = icmp eq ptr %calloc15, null
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
   %calloc = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
-  %4 = getelementptr inbounds nuw i8, ptr %calloc13, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %calloc15, i64 8
   store ptr %calloc, ptr %4, align 8, !tbaa !6
   %5 = icmp eq ptr %calloc, null
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %calloc13, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %calloc15, i64 32
   store ptr %0, ptr %7, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw i8, ptr %calloc13, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %calloc15, i64 24
   store i64 4, ptr %8, align 8, !tbaa !13
   br label %10
 
 9:                                                ; preds = %3, %1
-  tail call void @free(ptr noundef %calloc13) #17
+  tail call void @free(ptr noundef %calloc15) #17
   br label %10
 
 10:                                               ; preds = %9, %6
-  %.0 = phi ptr [ null, %9 ], [ %calloc13, %6 ]
+  %.0 = phi ptr [ null, %9 ], [ %calloc15, %6 ]
   ret ptr %.0
 }
 
@@ -40,28 +40,28 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
 define hidden noalias noundef ptr @sk_new_null() local_unnamed_addr #0 {
-  %calloc13.i = tail call dereferenceable_or_null(40) ptr @calloc(i64 1, i64 40)
-  %1 = icmp eq ptr %calloc13.i, null
+  %calloc15.i = tail call dereferenceable_or_null(40) ptr @calloc(i64 1, i64 40)
+  %1 = icmp eq ptr %calloc15.i, null
   br i1 %1, label %7, label %2
 
 2:                                                ; preds = %0
   %calloc.i = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
-  %3 = getelementptr inbounds nuw i8, ptr %calloc13.i, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %calloc15.i, i64 8
   store ptr %calloc.i, ptr %3, align 8, !tbaa !6
   %4 = icmp eq ptr %calloc.i, null
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %calloc13.i, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %calloc15.i, i64 24
   store i64 4, ptr %6, align 8, !tbaa !13
   br label %sk_new.exit
 
 7:                                                ; preds = %2, %0
-  tail call void @free(ptr noundef %calloc13.i) #17
+  tail call void @free(ptr noundef %calloc15.i) #17
   br label %sk_new.exit
 
 sk_new.exit:                                      ; preds = %5, %7
-  %.0.i = phi ptr [ null, %7 ], [ %calloc13.i, %5 ]
+  %.0.i = phi ptr [ null, %7 ], [ %calloc15.i, %5 ]
   ret ptr %.0.i
 }
 
@@ -706,19 +706,19 @@ define hidden noalias noundef ptr @sk_dup(ptr noundef readonly captures(address_
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !12
-  %calloc13.i = tail call dereferenceable_or_null(40) ptr @calloc(i64 1, i64 40)
-  %6 = icmp eq ptr %calloc13.i, null
+  %calloc15.i = tail call dereferenceable_or_null(40) ptr @calloc(i64 1, i64 40)
+  %6 = icmp eq ptr %calloc15.i, null
   br i1 %6, label %.split, label %7
 
 7:                                                ; preds = %3
   %calloc.i = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
-  %8 = getelementptr inbounds nuw i8, ptr %calloc13.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %calloc15.i, i64 8
   store ptr %calloc.i, ptr %8, align 8, !tbaa !6
   %9 = icmp eq ptr %calloc.i, null
   br i1 %9, label %.split, label %10
 
 .split:                                           ; preds = %3, %7
-  tail call void @free(ptr noundef %calloc13.i) #17
+  tail call void @free(ptr noundef %calloc15.i) #17
   br label %26
 
 10:                                               ; preds = %7
@@ -731,29 +731,29 @@ define hidden noalias noundef ptr @sk_dup(ptr noundef readonly captures(address_
 
 sk_free.exit:                                     ; preds = %10
   tail call void @free(ptr noundef nonnull %calloc.i) #17
-  tail call void @free(ptr noundef nonnull %calloc13.i) #17
+  tail call void @free(ptr noundef nonnull %calloc15.i) #17
   br label %26
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds nuw i8, ptr %calloc13.i, i64 24
-  %18 = getelementptr inbounds nuw i8, ptr %calloc13.i, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %calloc15.i, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %calloc15.i, i64 32
   store ptr %14, ptr %8, align 8, !tbaa !6
   %19 = load i64, ptr %0, align 8, !tbaa !14
-  store i64 %19, ptr %calloc13.i, align 8, !tbaa !14
+  store i64 %19, ptr %calloc15.i, align 8, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !6
   %22 = shl i64 %19, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr align 8 %21, i64 %22, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8, !tbaa !15
-  %25 = getelementptr inbounds nuw i8, ptr %calloc13.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %calloc15.i, i64 16
   store i64 %24, ptr %25, align 8, !tbaa !15
   store i64 %12, ptr %17, align 8, !tbaa !13
   store ptr %5, ptr %18, align 8, !tbaa !12
   br label %26
 
 26:                                               ; preds = %.split, %sk_free.exit, %1, %16
-  %.0 = phi ptr [ %calloc13.i, %16 ], [ null, %1 ], [ null, %sk_free.exit ], [ null, %.split ]
+  %.0 = phi ptr [ %calloc15.i, %16 ], [ null, %1 ], [ null, %sk_free.exit ], [ null, %.split ]
   ret ptr %.0
 }
 

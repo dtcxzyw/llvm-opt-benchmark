@@ -2335,14 +2335,14 @@ cleanup_subxact_info.exit.i.i:                    ; preds = %763, %.critedge.i.i
   %771 = load ptr, ptr %770, align 8
   %772 = call ptr @BufFileOpenFileSet(ptr noundef %771, ptr noundef nonnull %14, i32 noundef 2, i1 noundef zeroext false) #17
   %773 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @subxact_data, i64 16), align 8
-  %774 = getelementptr inbounds %struct.SubXactInfo, ptr %773, i64 %759
+  %774 = getelementptr inbounds nuw %struct.SubXactInfo, ptr %773, i64 %759
   %775 = getelementptr inbounds nuw i8, ptr %774, i64 4
   %776 = load i32, ptr %775, align 4
   %777 = getelementptr inbounds nuw i8, ptr %774, i64 8
   %778 = load i64, ptr %777, align 8
   call void @BufFileTruncateFileSet(ptr noundef %772, i32 noundef %776, i64 noundef %778) #17
   call void @BufFileClose(ptr noundef %772) #17
-  %779 = trunc i64 %759 to i32
+  %779 = trunc nuw i64 %759 to i32
   store i32 %779, ptr @subxact_data, align 8
   %780 = load ptr, ptr @MyLogicalRepWorker, align 8
   %781 = getelementptr inbounds nuw i8, ptr %780, i64 40
@@ -4981,7 +4981,7 @@ get_transaction_apply_action.exit.thread:         ; preds = %15, %am_parallel_ap
   unreachable
 
 24:                                               ; preds = %get_transaction_apply_action.exit.thread
-  switch i32 %.0.i29, label %default.unreachable30 [
+  switch i32 %.0.i29, label %default.unreachable33 [
     i32 1, label %25
     i32 2, label %78
     i32 3, label %88
@@ -5140,7 +5140,7 @@ subxact_info_add.exit:                            ; preds = %.lr.ph.i, %25, %51
   tail call void @pa_start_subtrans(i32 noundef %19, i32 noundef %105) #17
   br label %106
 
-default.unreachable30:                            ; preds = %24
+default.unreachable33:                            ; preds = %24
   unreachable
 
 106:                                              ; preds = %get_transaction_apply_action.exit, %102, %88, %83, %subxact_info_add.exit
@@ -5550,7 +5550,7 @@ slot_getallattrs.exit:                            ; preds = %69, %57, %53
 
 72:                                               ; preds = %slot_getallattrs.exit, %70
   %.0148 = phi ptr [ %71, %70 ], [ null, %slot_getallattrs.exit ]
-  switch i32 %3, label %default.unreachable174 [
+  switch i32 %3, label %default.unreachable186 [
     i32 3, label %73
     i32 4, label %75
     i32 2, label %78
@@ -5805,7 +5805,7 @@ slot_getallattrs.exit167:                         ; preds = %193, %181, %177
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %197
 
-default.unreachable174:                           ; preds = %72
+default.unreachable186:                           ; preds = %72
   unreachable
 
 197:                                              ; preds = %196, %73, %75

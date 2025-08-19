@@ -3500,8 +3500,8 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
 311:                                              ; preds = %._crit_edge.i22
   %312 = icmp eq i32 %310, 0
   %313 = icmp eq i32 %309, 0
-  %or.cond241.i = select i1 %312, i1 true, i1 %313
-  br i1 %or.cond241.i, label %opj_pi_next_lrcp.exit, label %.critedge.i
+  %or.cond259.i = select i1 %312, i1 true, i1 %313
+  br i1 %or.cond259.i, label %opj_pi_next_lrcp.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %311
   %314 = load i8, ptr %0, align 8, !tbaa !105
@@ -3930,14 +3930,14 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
 602:                                              ; preds = %592
   %603 = load i32, ptr %586, align 8, !tbaa !54
   %604 = lshr i32 -1, %600
-  %.not218.i58 = icmp ugt i32 %603, %604
-  br i1 %.not218.i58, label %609, label %605
+  %.not218.i59 = icmp ugt i32 %603, %604
+  br i1 %.not218.i59, label %609, label %605
 
 605:                                              ; preds = %602
   %606 = shl i32 %603, %600
-  %.not219.i59 = icmp eq i32 %594, 0
+  %.not219.i60 = icmp eq i32 %594, 0
   %607 = tail call i32 @llvm.umin.i32(i32 %594, i32 %606)
-  %608 = select i1 %.not219.i59, i32 %606, i32 %607
+  %608 = select i1 %.not219.i60, i32 %606, i32 %607
   store i32 %608, ptr %579, align 8, !tbaa !106
   br label %609
 
@@ -3952,14 +3952,14 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
 615:                                              ; preds = %609
   %616 = load i32, ptr %591, align 4, !tbaa !56
   %617 = lshr i32 -1, %613
-  %.not220.i56 = icmp ugt i32 %616, %617
-  br i1 %.not220.i56, label %622, label %618
+  %.not220.i57 = icmp ugt i32 %616, %617
+  br i1 %.not220.i57, label %622, label %618
 
 618:                                              ; preds = %615
   %619 = shl i32 %616, %613
-  %.not221.i57 = icmp eq i32 %593, 0
+  %.not221.i58 = icmp eq i32 %593, 0
   %620 = tail call i32 @llvm.umin.i32(i32 %593, i32 %619)
-  %621 = select i1 %.not221.i57, i32 %619, i32 %620
+  %621 = select i1 %.not221.i58, i32 %619, i32 %620
   store i32 %621, ptr %580, align 4, !tbaa !107
   br label %622
 
@@ -3979,20 +3979,20 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
 626:                                              ; preds = %._crit_edge.i37
   %627 = icmp eq i32 %625, 0
   %628 = icmp eq i32 %624, 0
-  %or.cond242.i = select i1 %627, i1 true, i1 %628
-  br i1 %or.cond242.i, label %opj_pi_next_lrcp.exit, label %.critedge.i40
+  %or.cond259.i40 = select i1 %627, i1 true, i1 %628
+  br i1 %or.cond259.i40, label %opj_pi_next_lrcp.exit, label %.critedge.i41
 
-.critedge.i40:                                    ; preds = %626
+.critedge.i41:                                    ; preds = %626
   %629 = load i8, ptr %0, align 8, !tbaa !105
-  %.not208.i41 = icmp eq i8 %629, 0
-  br i1 %.not208.i41, label %630, label %.critedge._crit_edge.i
+  %.not208.i42 = icmp eq i8 %629, 0
+  br i1 %.not208.i42, label %630, label %.critedge._crit_edge.i
 
-.critedge._crit_edge.i:                           ; preds = %.critedge.i40
-  %.phi.trans.insert.i42 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %.pre.i43 = load i32, ptr %.phi.trans.insert.i42, align 4, !tbaa !132
+.critedge._crit_edge.i:                           ; preds = %.critedge.i41
+  %.phi.trans.insert.i43 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %.pre.i44 = load i32, ptr %.phi.trans.insert.i43, align 4, !tbaa !132
   br label %643
 
-630:                                              ; preds = %.critedge.i40
+630:                                              ; preds = %.critedge.i41
   %631 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %632 = load i32, ptr %631, align 4, !tbaa !45
   %633 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -4012,7 +4012,7 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   br label %643
 
 643:                                              ; preds = %630, %.critedge._crit_edge.i
-  %644 = phi i32 [ %.pre.i43, %.critedge._crit_edge.i ], [ %632, %630 ]
+  %644 = phi i32 [ %.pre.i44, %.critedge._crit_edge.i ], [ %632, %630 ]
   %645 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i32 %644, ptr %645, align 4, !tbaa !163
   br label %646
@@ -4086,8 +4086,8 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   %694 = shl i64 %692, %693
   %695 = lshr exact i64 %694, %693
   %696 = trunc i64 %695 to i32
-  %.not209.i44 = icmp eq i32 %691, %696
-  br i1 %.not209.i44, label %697, label %849
+  %.not209.i45 = icmp eq i32 %691, %696
+  br i1 %.not209.i45, label %697, label %849
 
 697:                                              ; preds = %684
   %698 = getelementptr inbounds nuw i8, ptr %.0188.i, i64 4
@@ -4095,8 +4095,8 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   %700 = lshr i64 -1, %693
   %701 = trunc i64 %700 to i32
   %702 = and i32 %699, %701
-  %.not210.i45 = icmp eq i32 %702, %699
-  br i1 %.not210.i45, label %703, label %849
+  %.not210.i46 = icmp eq i32 %702, %699
+  br i1 %.not210.i46, label %703, label %849
 
 703:                                              ; preds = %697
   %704 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -4133,8 +4133,8 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   %735 = lshr i64 -1, %734
   %736 = trunc i64 %735 to i32
   %737 = and i32 %691, %736
-  %.not211.i46 = icmp eq i32 %737, %691
-  br i1 %.not211.i46, label %738, label %849
+  %.not211.i47 = icmp eq i32 %737, %691
+  br i1 %.not211.i47, label %738, label %849
 
 738:                                              ; preds = %703
   %739 = getelementptr inbounds nuw i8, ptr %688, i64 4
@@ -4144,8 +4144,8 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   %743 = shl i64 %714, %742
   %744 = lshr exact i64 %743, %742
   %745 = trunc i64 %744 to i32
-  %.not212.i47 = icmp eq i32 %699, %745
-  br i1 %.not212.i47, label %746, label %849
+  %.not212.i48 = icmp eq i32 %699, %745
+  br i1 %.not212.i48, label %746, label %849
 
 746:                                              ; preds = %738
   %747 = getelementptr inbounds nuw i8, ptr %0, i64 236
@@ -4162,11 +4162,11 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
 754:                                              ; preds = %752
   %755 = and i64 %718, 4294967295
   %756 = shl i64 %755, %693
-  %notmask.i48 = shl nsw i64 -1, %742
-  %757 = xor i64 %notmask.i48, -1
+  %notmask.i49 = shl nsw i64 -1, %742
+  %757 = xor i64 %notmask.i49, -1
   %758 = and i64 %756, %757
-  %.not213.i49 = icmp eq i64 %758, 0
-  br i1 %.not213.i49, label %849, label %759
+  %.not213.i50 = icmp eq i64 %758, 0
+  br i1 %.not213.i50, label %849, label %759
 
 759:                                              ; preds = %754, %746
   %760 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -4184,11 +4184,11 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
 768:                                              ; preds = %766
   %769 = and i64 %709, 4294967295
   %770 = shl i64 %769, %693
-  %notmask214.i50 = shl nsw i64 -1, %734
-  %771 = xor i64 %notmask214.i50, -1
+  %notmask214.i51 = shl nsw i64 -1, %734
+  %771 = xor i64 %notmask214.i51, -1
   %772 = and i64 %770, %771
-  %.not215.i51 = icmp eq i64 %772, 0
-  br i1 %.not215.i51, label %849, label %773
+  %.not215.i52 = icmp eq i64 %772, 0
+  br i1 %.not215.i52, label %849, label %773
 
 773:                                              ; preds = %768, %759
   %774 = getelementptr inbounds nuw i8, ptr %688, i64 8
@@ -4201,10 +4201,10 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   %779 = load i32, ptr %778, align 4, !tbaa !62
   %780 = icmp eq i32 %779, 0
   %781 = icmp eq i32 %710, %725
-  %or.cond.i52 = select i1 %780, i1 true, i1 %781
+  %or.cond.i53 = select i1 %780, i1 true, i1 %781
   %782 = icmp eq i32 %719, %731
-  %or.cond222.i53 = select i1 %or.cond.i52, i1 true, i1 %782
-  br i1 %or.cond222.i53, label %849, label %783
+  %or.cond222.i54 = select i1 %or.cond.i53, i1 true, i1 %782
+  br i1 %or.cond222.i54, label %849, label %783
 
 783:                                              ; preds = %777
   %784 = add i64 %707, %762
@@ -4267,8 +4267,8 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   %829 = add i32 %823, %828
   %830 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %831 = load i32, ptr %830, align 8, !tbaa !35
-  %.not216.i54 = icmp ult i32 %829, %831
-  br i1 %.not216.i54, label %836, label %832
+  %.not216.i55 = icmp ult i32 %829, %831
+  br i1 %.not216.i55, label %836, label %832
 
 832:                                              ; preds = %810
   %833 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -4282,8 +4282,8 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   %839 = zext i32 %829 to i64
   %840 = getelementptr inbounds nuw i16, ptr %838, i64 %839
   %841 = load i16, ptr %840, align 2, !tbaa !152
-  %.not217.i55 = icmp eq i16 %841, 0
-  br i1 %.not217.i55, label %842, label %843
+  %.not217.i56 = icmp eq i16 %841, 0
+  br i1 %.not217.i56, label %842, label %843
 
 842:                                              ; preds = %836
   store i16 1, ptr %840, align 2, !tbaa !152
@@ -4344,8 +4344,8 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   %878 = load i32, ptr %877, align 4, !tbaa !74
   %879 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %880 = load i32, ptr %879, align 4, !tbaa !37
-  %.not.i60 = icmp ult i32 %878, %880
-  br i1 %.not.i60, label %881, label %885
+  %.not.i61 = icmp ult i32 %878, %880
+  br i1 %.not.i61, label %881, label %885
 
 881:                                              ; preds = %875
   %882 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -4373,8 +4373,8 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   %896 = load i32, ptr %895, align 4, !tbaa !151
   %897 = zext i32 %896 to i64
   %898 = getelementptr inbounds nuw %struct.opj_pi_comp, ptr %894, i64 %897
-  %.phi.trans.insert.i80 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.pre.i81 = load i32, ptr %.phi.trans.insert.i80, align 8, !tbaa !149
+  %.phi.trans.insert.i81 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.pre.i82 = load i32, ptr %.phi.trans.insert.i81, align 8, !tbaa !149
   br label %1157
 
 899:                                              ; preds = %889
@@ -4399,23 +4399,23 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   store i32 0, ptr %910, align 4, !tbaa !107
   %911 = getelementptr inbounds nuw i8, ptr %908, i64 8
   %912 = load i32, ptr %911, align 8, !tbaa !57
-  %.not217.i62 = icmp eq i32 %912, 0
-  br i1 %.not217.i62, label %opj_pi_next_lrcp.exit, label %.lr.ph.i63
+  %.not217.i63 = icmp eq i32 %912, 0
+  br i1 %.not217.i63, label %opj_pi_next_lrcp.exit, label %.lr.ph.i64
 
-.lr.ph.i63:                                       ; preds = %904
+.lr.ph.i64:                                       ; preds = %904
   %913 = getelementptr inbounds nuw i8, ptr %908, i64 16
   %914 = load ptr, ptr %913, align 8, !tbaa !38
   %915 = getelementptr inbounds nuw i8, ptr %908, i64 4
-  %wide.trip.count.i64 = zext i32 %912 to i64
+  %wide.trip.count.i65 = zext i32 %912 to i64
   br label %916
 
-916:                                              ; preds = %946, %.lr.ph.i63
-  %917 = phi i32 [ 0, %.lr.ph.i63 ], [ %947, %946 ]
-  %918 = phi i32 [ 0, %.lr.ph.i63 ], [ %934, %946 ]
-  %indvars.iv.i65 = phi i64 [ 0, %.lr.ph.i63 ], [ %indvars.iv.next.i66, %946 ]
-  %919 = getelementptr inbounds nuw %struct.opj_pi_resolution, ptr %914, i64 %indvars.iv.i65
+916:                                              ; preds = %946, %.lr.ph.i64
+  %917 = phi i32 [ 0, %.lr.ph.i64 ], [ %947, %946 ]
+  %918 = phi i32 [ 0, %.lr.ph.i64 ], [ %934, %946 ]
+  %indvars.iv.i66 = phi i64 [ 0, %.lr.ph.i64 ], [ %indvars.iv.next.i67, %946 ]
+  %919 = getelementptr inbounds nuw %struct.opj_pi_resolution, ptr %914, i64 %indvars.iv.i66
   %920 = load i32, ptr %919, align 4, !tbaa !58
-  %921 = trunc nuw i64 %indvars.iv.i65 to i32
+  %921 = trunc nuw i64 %indvars.iv.i66 to i32
   %922 = xor i32 %921, -1
   %923 = add i32 %912, %922
   %924 = add i32 %923, %920
@@ -4425,14 +4425,14 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
 926:                                              ; preds = %916
   %927 = load i32, ptr %908, align 8, !tbaa !54
   %928 = lshr i32 -1, %924
-  %.not209.i78 = icmp ugt i32 %927, %928
-  br i1 %.not209.i78, label %933, label %929
+  %.not209.i79 = icmp ugt i32 %927, %928
+  br i1 %.not209.i79, label %933, label %929
 
 929:                                              ; preds = %926
   %930 = shl i32 %927, %924
-  %.not210.i79 = icmp eq i32 %918, 0
+  %.not210.i80 = icmp eq i32 %918, 0
   %931 = tail call i32 @llvm.umin.i32(i32 %918, i32 %930)
-  %932 = select i1 %.not210.i79, i32 %930, i32 %931
+  %932 = select i1 %.not210.i80, i32 %930, i32 %931
   store i32 %932, ptr %909, align 8, !tbaa !106
   br label %933
 
@@ -4447,30 +4447,30 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
 939:                                              ; preds = %933
   %940 = load i32, ptr %915, align 4, !tbaa !56
   %941 = lshr i32 -1, %937
-  %.not211.i76 = icmp ugt i32 %940, %941
-  br i1 %.not211.i76, label %946, label %942
+  %.not211.i77 = icmp ugt i32 %940, %941
+  br i1 %.not211.i77, label %946, label %942
 
 942:                                              ; preds = %939
   %943 = shl i32 %940, %937
-  %.not212.i77 = icmp eq i32 %917, 0
+  %.not212.i78 = icmp eq i32 %917, 0
   %944 = tail call i32 @llvm.umin.i32(i32 %917, i32 %943)
-  %945 = select i1 %.not212.i77, i32 %943, i32 %944
+  %945 = select i1 %.not212.i78, i32 %943, i32 %944
   store i32 %945, ptr %910, align 4, !tbaa !107
   br label %946
 
 946:                                              ; preds = %942, %939, %933
   %947 = phi i32 [ %945, %942 ], [ %917, %939 ], [ %917, %933 ]
-  %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
-  %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, %wide.trip.count.i64
-  br i1 %exitcond.not.i67, label %._crit_edge.i68, label %916, !llvm.loop !177
+  %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i66, 1
+  %exitcond.not.i68 = icmp eq i64 %indvars.iv.next.i67, %wide.trip.count.i65
+  br i1 %exitcond.not.i68, label %._crit_edge.i69, label %916, !llvm.loop !177
 
-._crit_edge.i68:                                  ; preds = %946
+._crit_edge.i69:                                  ; preds = %946
   %948 = icmp eq i32 %934, 0
   %949 = icmp eq i32 %947, 0
   %brmerge.i = select i1 %948, i1 true, i1 %949
   br i1 %brmerge.i, label %opj_pi_next_lrcp.exit, label %950
 
-950:                                              ; preds = %._crit_edge.i68
+950:                                              ; preds = %._crit_edge.i69
   %951 = load i8, ptr %0, align 8, !tbaa !105
   %.not199.i = icmp eq i8 %951, 0
   br i1 %.not199.i, label %952, label %._crit_edge222.i
@@ -4526,7 +4526,7 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   %980 = phi i32 [ %969, %975 ], [ %990, %1168 ]
   %981 = phi i32 [ %970, %975 ], [ %991, %1168 ]
   %982 = phi i32 [ %977, %975 ], [ %1175, %1168 ]
-  %.1.i = phi ptr [ %.0182.i, %975 ], [ %.2.i69, %1168 ]
+  %.1.i = phi ptr [ %.0182.i, %975 ], [ %.2.i70, %1168 ]
   %983 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %984 = load i32, ptr %983, align 8, !tbaa !133
   %985 = icmp ult i32 %982, %984
@@ -4542,23 +4542,23 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   %990 = phi i32 [ %980, %986 ], [ %1163, %1162 ]
   %991 = phi i32 [ %981, %986 ], [ %1164, %1162 ]
   %992 = phi i32 [ %987, %986 ], [ %1167, %1162 ]
-  %.2.i69 = phi ptr [ %.1.i, %986 ], [ %.3.i70, %1162 ]
+  %.2.i70 = phi ptr [ %.1.i, %986 ], [ %.3.i71, %1162 ]
   %993 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %994 = load i32, ptr %993, align 4, !tbaa !78
-  %995 = getelementptr inbounds nuw i8, ptr %.2.i69, i64 8
+  %995 = getelementptr inbounds nuw i8, ptr %.2.i70, i64 8
   %996 = load i32, ptr %995, align 8, !tbaa !57
   %997 = tail call noundef i32 @llvm.umin.i32(i32 %994, i32 %996)
   %998 = icmp ult i32 %992, %997
   br i1 %998, label %999, label %1168
 
 999:                                              ; preds = %989
-  %1000 = getelementptr inbounds nuw i8, ptr %.2.i69, i64 16
+  %1000 = getelementptr inbounds nuw i8, ptr %.2.i70, i64 16
   %1001 = load ptr, ptr %1000, align 8, !tbaa !38
   %1002 = zext i32 %992 to i64
   %1003 = getelementptr inbounds nuw %struct.opj_pi_resolution, ptr %1001, i64 %1002
   %1004 = xor i32 %992, -1
   %1005 = add i32 %996, %1004
-  %1006 = load i32, ptr %.2.i69, align 8, !tbaa !54
+  %1006 = load i32, ptr %.2.i70, align 8, !tbaa !54
   %1007 = zext i32 %1006 to i64
   %1008 = zext i32 %1005 to i64
   %1009 = shl i64 %1007, %1008
@@ -4568,7 +4568,7 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   br i1 %.not200.i, label %1012, label %1162
 
 1012:                                             ; preds = %999
-  %1013 = getelementptr inbounds nuw i8, ptr %.2.i69, i64 4
+  %1013 = getelementptr inbounds nuw i8, ptr %.2.i70, i64 4
   %1014 = load i32, ptr %1013, align 4, !tbaa !56
   %1015 = lshr i64 -1, %1008
   %1016 = trunc i64 %1015 to i32
@@ -4640,8 +4640,8 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
 1069:                                             ; preds = %1067
   %1070 = and i64 %1033, 4294967295
   %1071 = shl i64 %1070, %1008
-  %notmask.i71 = shl nsw i64 -1, %1057
-  %1072 = xor i64 %notmask.i71, -1
+  %notmask.i72 = shl nsw i64 -1, %1057
+  %1072 = xor i64 %notmask.i72, -1
   %1073 = and i64 %1071, %1072
   %.not204.i = icmp eq i64 %1073, 0
   br i1 %.not204.i, label %1162, label %1074
@@ -4665,8 +4665,8 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   %notmask205.i = shl nsw i64 -1, %1049
   %1086 = xor i64 %notmask205.i, -1
   %1087 = and i64 %1085, %1086
-  %.not206.i72 = icmp eq i64 %1087, 0
-  br i1 %.not206.i72, label %1162, label %1088
+  %.not206.i73 = icmp eq i64 %1087, 0
+  br i1 %.not206.i73, label %1162, label %1088
 
 1088:                                             ; preds = %1083, %1074
   %1089 = getelementptr inbounds nuw i8, ptr %1003, i64 8
@@ -4679,9 +4679,9 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   %1094 = load i32, ptr %1093, align 4, !tbaa !62
   %1095 = icmp eq i32 %1094, 0
   %1096 = icmp eq i32 %1025, %1040
-  %or.cond.i73 = select i1 %1095, i1 true, i1 %1096
+  %or.cond.i74 = select i1 %1095, i1 true, i1 %1096
   %1097 = icmp eq i32 %1034, %1046
-  %or.cond213.i = select i1 %or.cond.i73, i1 true, i1 %1097
+  %or.cond213.i = select i1 %or.cond.i74, i1 true, i1 %1097
   br i1 %or.cond213.i, label %1162, label %1098
 
 1098:                                             ; preds = %1092
@@ -4711,7 +4711,7 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   %1118 = phi i32 [ %990, %1098 ], [ %1158, %1157 ]
   %1119 = phi i32 [ %991, %1098 ], [ %1158, %1157 ]
   %1120 = phi i32 [ %1115, %1098 ], [ %1161, %1157 ]
-  %.4.i = phi ptr [ %.2.i69, %1098 ], [ %.5.i, %1157 ]
+  %.4.i = phi ptr [ %.2.i70, %1098 ], [ %.5.i, %1157 ]
   %1121 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1122 = load i32, ptr %1121, align 8, !tbaa !82
   %1123 = icmp ult i32 %1120, %1122
@@ -4744,8 +4744,8 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   %1143 = add i32 %1137, %1142
   %1144 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1145 = load i32, ptr %1144, align 8, !tbaa !35
-  %.not207.i74 = icmp ult i32 %1143, %1145
-  br i1 %.not207.i74, label %1150, label %1146
+  %.not207.i75 = icmp ult i32 %1143, %1145
+  br i1 %.not207.i75, label %1150, label %1146
 
 1146:                                             ; preds = %1124
   %1147 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -4759,8 +4759,8 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   %1153 = zext i32 %1143 to i64
   %1154 = getelementptr inbounds nuw i16, ptr %1152, i64 %1153
   %1155 = load i16, ptr %1154, align 2, !tbaa !152
-  %.not208.i75 = icmp eq i16 %1155, 0
-  br i1 %.not208.i75, label %1156, label %1157
+  %.not208.i76 = icmp eq i16 %1155, 0
+  br i1 %.not208.i76, label %1156, label %1157
 
 1156:                                             ; preds = %1150
   store i16 1, ptr %1154, align 2, !tbaa !152
@@ -4768,7 +4768,7 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
 
 1157:                                             ; preds = %1150, %892
   %1158 = phi i32 [ %1118, %1150 ], [ %896, %892 ]
-  %1159 = phi i32 [ %1120, %1150 ], [ %.pre.i81, %892 ]
+  %1159 = phi i32 [ %1120, %1150 ], [ %.pre.i82, %892 ]
   %.5.i = phi ptr [ %.4.i, %1150 ], [ %898, %892 ]
   %1160 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1161 = add i32 %1159, 1
@@ -4779,7 +4779,7 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   %1163 = phi i32 [ %990, %999 ], [ %990, %1012 ], [ %990, %1018 ], [ %990, %1053 ], [ %990, %1088 ], [ %990, %1092 ], [ %1118, %._crit_edge219.i ], [ %990, %1083 ], [ %990, %1081 ], [ %990, %1069 ], [ %990, %1067 ]
   %1164 = phi i32 [ %991, %999 ], [ %991, %1012 ], [ %991, %1018 ], [ %991, %1053 ], [ %991, %1088 ], [ %991, %1092 ], [ %1119, %._crit_edge219.i ], [ %991, %1083 ], [ %991, %1081 ], [ %991, %1069 ], [ %991, %1067 ]
   %1165 = phi i32 [ %992, %999 ], [ %992, %1012 ], [ %992, %1018 ], [ %992, %1053 ], [ %992, %1088 ], [ %992, %1092 ], [ %.pre221.i, %._crit_edge219.i ], [ %992, %1083 ], [ %992, %1081 ], [ %992, %1069 ], [ %992, %1067 ]
-  %.3.i70 = phi ptr [ %.2.i69, %999 ], [ %.2.i69, %1012 ], [ %.2.i69, %1018 ], [ %.2.i69, %1053 ], [ %.2.i69, %1088 ], [ %.2.i69, %1092 ], [ %.4.i, %._crit_edge219.i ], [ %.2.i69, %1083 ], [ %.2.i69, %1081 ], [ %.2.i69, %1069 ], [ %.2.i69, %1067 ]
+  %.3.i71 = phi ptr [ %.2.i70, %999 ], [ %.2.i70, %1012 ], [ %.2.i70, %1018 ], [ %.2.i70, %1053 ], [ %.2.i70, %1088 ], [ %.2.i70, %1092 ], [ %.4.i, %._crit_edge219.i ], [ %.2.i70, %1083 ], [ %.2.i70, %1081 ], [ %.2.i70, %1069 ], [ %.2.i70, %1067 ]
   %1166 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1167 = add i32 %1165, 1
   store i32 %1167, ptr %1166, align 8, !tbaa !150
@@ -4813,8 +4813,8 @@ define hidden range(i32 0, 2) i32 @opj_pi_next(ptr noundef %0) local_unnamed_add
   store i32 %1186, ptr %1185, align 4, !tbaa !151
   br label %901, !llvm.loop !182
 
-opj_pi_next_lrcp.exit:                            ; preds = %1156, %1146, %._crit_edge.i68, %904, %901, %885, %842, %832, %646, %626, %564, %525, %515, %331, %311, %256, %229, %219, %145, %135, %108, %98, %25, %14, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %14 ], [ 0, %98 ], [ 1, %108 ], [ 0, %25 ], [ 0, %135 ], [ 0, %219 ], [ 1, %229 ], [ 0, %145 ], [ 0, %256 ], [ 0, %515 ], [ 1, %525 ], [ 0, %311 ], [ 0, %331 ], [ 0, %564 ], [ 0, %832 ], [ 1, %842 ], [ 0, %626 ], [ 0, %646 ], [ 0, %885 ], [ 0, %1146 ], [ 1, %1156 ], [ 0, %._crit_edge.i68 ], [ 0, %901 ], [ 0, %904 ]
+opj_pi_next_lrcp.exit:                            ; preds = %1156, %1146, %._crit_edge.i69, %904, %901, %885, %842, %832, %646, %626, %564, %525, %515, %331, %311, %256, %229, %219, %145, %135, %108, %98, %25, %14, %1
+  %.0 = phi i32 [ 0, %1 ], [ 0, %14 ], [ 0, %98 ], [ 1, %108 ], [ 0, %25 ], [ 0, %135 ], [ 0, %219 ], [ 1, %229 ], [ 0, %145 ], [ 0, %256 ], [ 0, %515 ], [ 1, %525 ], [ 0, %311 ], [ 0, %331 ], [ 0, %564 ], [ 0, %832 ], [ 1, %842 ], [ 0, %626 ], [ 0, %646 ], [ 0, %885 ], [ 0, %1146 ], [ 1, %1156 ], [ 0, %._crit_edge.i69 ], [ 0, %901 ], [ 0, %904 ]
   ret i32 %.0
 }
 

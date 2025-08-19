@@ -674,7 +674,7 @@ Region_EndIteration.exit:                         ; preds = %106, %107
   br i1 %51, label %.split.us, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %69, %111
-  %.035.i118124 = phi i32 [ %.035.i, %111 ], [ 0, %69 ]
+  %.035.i137143 = phi i32 [ %.035.i, %111 ], [ 0, %69 ]
   br label %.preheader
 
 .split.us:                                        ; preds = %111
@@ -809,7 +809,7 @@ Region_NextIteration.exit.loopexit:               ; preds = %149
   br label %Region_EndIteration.exit63
 
 Region_EndIteration.exit63:                       ; preds = %Region_NextIteration.exit.us.us, %.split.us, %167, %11, %10, %Region_StartIteration.exit, %Region_EndIteration.exit
-  %.045 = phi i32 [ 0, %Region_EndIteration.exit ], [ 0, %Region_StartIteration.exit ], [ 1, %11 ], [ 0, %10 ], [ %.035.i118124, %167 ], [ %.035.i, %.split.us ], [ %.035.i, %Region_NextIteration.exit.us.us ]
+  %.045 = phi i32 [ 0, %Region_EndIteration.exit ], [ 0, %Region_StartIteration.exit ], [ 1, %11 ], [ 0, %10 ], [ %.035.i137143, %167 ], [ %.035.i, %.split.us ], [ %.035.i, %Region_NextIteration.exit.us.us ]
   ret i32 %.045
 }
 

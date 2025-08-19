@@ -60,14 +60,14 @@ define dso_local void @transform_MERGE_to_join(ptr noundef captures(none) %0) lo
   %9 = load ptr, ptr %8, align 8
   %.not122 = icmp eq ptr %9, null
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  br i1 %.not122, label %.thread169, label %.split
+  br i1 %.not122, label %.thread173, label %.split
 
 .split:                                           ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4
   %.fr157 = freeze i32 %12
   %13 = icmp sgt i32 %.fr157, 0
-  br i1 %13, label %.lr.ph.split.us139.us, label %.thread169
+  br i1 %13, label %.lr.ph.split.us139.us, label %.thread173
 
 14:                                               ; preds = %.lr.ph.split.us139.us, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.us139.us ], [ %indvars.iv.next, %24 ]
@@ -103,16 +103,16 @@ define dso_local void @transform_MERGE_to_join(ptr noundef captures(none) %0) lo
   %26 = trunc i8 %.pre.fr to i1
   %.pre163.fr = freeze i8 %.pre163
   %27 = trunc i8 %.pre163.fr to i1
-  %.173 = select i1 %27, i32 3, i32 0
+  %.177 = select i1 %27, i32 3, i32 0
   %. = select i1 %27, i32 2, i32 1
   %spec.select = select i1 %26, i1 true, i1 false
-  %spec.select174 = select i1 %26, i32 %., i32 %.173
-  br label %.thread169
+  %spec.select178 = select i1 %26, i32 %., i32 %.177
+  br label %.thread173
 
-.thread169:                                       ; preds = %.split135.us, %5, %.split
+.thread173:                                       ; preds = %.split135.us, %5, %.split
   %28 = phi i1 [ false, %.split ], [ false, %5 ], [ %spec.select, %.split135.us ]
   %29 = phi i1 [ false, %.split ], [ false, %5 ], [ %27, %.split135.us ]
-  %30 = phi i32 [ 0, %.split ], [ 0, %5 ], [ %spec.select174, %.split135.us ]
+  %30 = phi i32 [ 0, %.split ], [ 0, %5 ], [ %spec.select178, %.split135.us ]
   %31 = tail call noundef ptr @palloc0(i64 noundef 224) #7
   store i32 101, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -141,13 +141,13 @@ define dso_local void @transform_MERGE_to_join(ptr noundef captures(none) %0) lo
   %.not.i = icmp eq ptr %44, null
   br i1 %.not.i, label %list_length.exit, label %45
 
-45:                                               ; preds = %.thread169
+45:                                               ; preds = %.thread173
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %47 = load i32, ptr %46, align 4
   br label %list_length.exit
 
-list_length.exit:                                 ; preds = %.thread169, %45
-  %48 = phi i32 [ %47, %45 ], [ 0, %.thread169 ]
+list_length.exit:                                 ; preds = %.thread173, %45
+  %48 = phi i32 [ %47, %45 ], [ 0, %.thread173 ]
   %49 = tail call noundef ptr @palloc0(i64 noundef 8) #7
   store i32 63, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -715,7 +715,7 @@ define internal fastcc ptr @pull_up_subqueries_recurse(ptr noundef %0, ptr nound
 
 .split:                                           ; preds = %32
   %34 = tail call fastcc ptr @pull_up_simple_subquery(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %24, ptr noundef %2, ptr noundef null)
-  br label %common.ret136
+  br label %common.ret148
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %29, align 8
@@ -724,19 +724,19 @@ define internal fastcc ptr @pull_up_subqueries_recurse(ptr noundef %0, ptr nound
   %38 = getelementptr inbounds nuw i8, ptr %.val95, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %.preheader135
+  br i1 %40, label %41, label %.preheader147
 
 41:                                               ; preds = %35
   %42 = getelementptr inbounds nuw i8, ptr %.val95, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.split89, label %.preheader135
+  br i1 %44, label %.split89, label %.preheader147
 
-.preheader135:                                    ; preds = %41, %35
+.preheader147:                                    ; preds = %41, %35
   br label %45
 
-45:                                               ; preds = %.preheader135, %55
-  %.0.i = phi ptr [ %57, %55 ], [ %.val95, %.preheader135 ]
+45:                                               ; preds = %.preheader147, %55
+  %.0.i = phi ptr [ %57, %55 ], [ %.val95, %.preheader147 ]
   %46 = load i32, ptr %.0.i, align 4
   switch i32 %46, label %is_safe_append_member.exit [
     i32 65, label %47
@@ -769,7 +769,7 @@ list_length.exit.i:                               ; preds = %50
 
 .split89:                                         ; preds = %45, %41
   %58 = tail call fastcc ptr @pull_up_simple_subquery(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %24, ptr noundef %2, ptr noundef nonnull %3)
-  br label %common.ret136
+  br label %common.ret148
 
 is_safe_append_member.exit:                       ; preds = %list_length.exit.i, %50, %47, %45, %28
   %.pr = load i32, ptr %25, align 8
@@ -902,7 +902,7 @@ pull_up_simple_union_all.exit:                    ; preds = %.lr.ph128, %.prehea
   tail call fastcc void @pull_up_union_leaf_queries(ptr noundef %124, ptr noundef nonnull %0, i32 noundef %92, ptr noundef nonnull %93, i32 noundef %100)
   %125 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i8 1, ptr %125, align 8
-  br label %common.ret136
+  br label %common.ret148
 
 is_safe_append_member.exit.thread114.thread:      ; preds = %73, %76, %79, %82, %85, %70
   %126 = icmp eq ptr %3, null
@@ -1035,13 +1035,13 @@ pull_up_simple_values.exit:                       ; preds = %.critedge.i, %175
   %188 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %184) #7
   store ptr %188, ptr %143, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %common.ret136
+  br label %common.ret148
 
 is_simple_values.exit.thread:                     ; preds = %is_safe_append_member.exit.thread114.thread, %141, %131, %list_length.exit10.i, %136, %138, %list_length.exit.i100, %is_simple_values.exit, %is_safe_append_member.exit.thread114
   %189 = phi i1 [ %126, %is_safe_append_member.exit.thread114.thread ], [ %130, %141 ], [ %130, %131 ], [ %130, %list_length.exit10.i ], [ %130, %136 ], [ %130, %138 ], [ %130, %list_length.exit.i100 ], [ %130, %is_simple_values.exit ], [ %130, %is_safe_append_member.exit.thread114 ]
   %190 = load i32, ptr %25, align 8
   %191 = icmp eq i32 %190, 3
-  br i1 %191, label %192, label %common.ret136
+  br i1 %191, label %192, label %common.ret148
 
 192:                                              ; preds = %is_simple_values.exit.thread
   %193 = load ptr, ptr %16, align 8
@@ -1155,20 +1155,20 @@ pull_up_constant_function.exit:                   ; preds = %192, %197, %list_le
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %common.ret136
+  br label %common.ret148
 
 245:                                              ; preds = %11
   %246 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %247 = load ptr, ptr %246, align 8
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 4
   %.not93 = icmp eq ptr %247, null
-  br i1 %.not93, label %common.ret136, label %.lr.ph
+  br i1 %.not93, label %common.ret148, label %.lr.ph
 
 .lr.ph:                                           ; preds = %245
   %249 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %250 = load i32, ptr %248, align 4
   %251 = icmp sgt i32 %250, 0
-  br i1 %251, label %.lr.ph123, label %common.ret136
+  br i1 %251, label %.lr.ph123, label %common.ret148
 
 .lr.ph123:                                        ; preds = %.lr.ph, %.lr.ph123
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph123 ], [ 0, %.lr.ph ]
@@ -1181,7 +1181,7 @@ pull_up_constant_function.exit:                   ; preds = %192, %197, %list_le
   %256 = load i32, ptr %248, align 4
   %257 = sext i32 %256 to i64
   %258 = icmp slt i64 %indvars.iv.next, %257
-  br i1 %258, label %.lr.ph123, label %common.ret136
+  br i1 %258, label %.lr.ph123, label %common.ret148
 
 259:                                              ; preds = %11
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1195,9 +1195,9 @@ pull_up_constant_function.exit:                   ; preds = %192, %197, %list_le
     i32 3, label %283
   ]
 
-common.ret136:                                    ; preds = %.split, %.split89, %pull_up_constant_function.exit, %pull_up_simple_values.exit, %pull_up_simple_union_all.exit, %is_simple_values.exit.thread, %.lr.ph, %245, %.lr.ph123, %283, %276, %269, %262
-  %common.ret136.op = phi ptr [ %1, %262 ], [ %1, %269 ], [ %1, %276 ], [ %1, %283 ], [ %1, %is_simple_values.exit.thread ], [ %58, %.split89 ], [ %34, %.split ], [ %1, %pull_up_constant_function.exit ], [ %1, %pull_up_simple_values.exit ], [ %1, %pull_up_simple_union_all.exit ], [ %1, %.lr.ph ], [ %1, %245 ], [ %1, %.lr.ph123 ]
-  ret ptr %common.ret136.op
+common.ret148:                                    ; preds = %.split, %.split89, %pull_up_constant_function.exit, %pull_up_simple_values.exit, %pull_up_simple_union_all.exit, %is_simple_values.exit.thread, %.lr.ph, %245, %.lr.ph123, %283, %276, %269, %262
+  %common.ret148.op = phi ptr [ %1, %262 ], [ %1, %269 ], [ %1, %276 ], [ %1, %283 ], [ %1, %is_simple_values.exit.thread ], [ %58, %.split89 ], [ %34, %.split ], [ %1, %pull_up_constant_function.exit ], [ %1, %pull_up_simple_values.exit ], [ %1, %pull_up_simple_union_all.exit ], [ %1, %.lr.ph ], [ %1, %245 ], [ %1, %.lr.ph123 ]
+  ret ptr %common.ret148.op
 
 262:                                              ; preds = %259
   %263 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1208,7 +1208,7 @@ common.ret136:                                    ; preds = %.split, %.split89, 
   %267 = load ptr, ptr %266, align 8
   %268 = tail call fastcc ptr @pull_up_subqueries_recurse(ptr noundef %0, ptr noundef %267, ptr noundef %2, ptr noundef null)
   store ptr %268, ptr %266, align 8
-  br label %common.ret136
+  br label %common.ret148
 
 269:                                              ; preds = %259, %259, %259
   %270 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1219,7 +1219,7 @@ common.ret136:                                    ; preds = %.split, %.split89, 
   %274 = load ptr, ptr %273, align 8
   %275 = tail call fastcc ptr @pull_up_subqueries_recurse(ptr noundef %0, ptr noundef %274, ptr noundef nonnull %1, ptr noundef null)
   store ptr %275, ptr %273, align 8
-  br label %common.ret136
+  br label %common.ret148
 
 276:                                              ; preds = %259
   %277 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1230,7 +1230,7 @@ common.ret136:                                    ; preds = %.split, %.split89, 
   %281 = load ptr, ptr %280, align 8
   %282 = tail call fastcc ptr @pull_up_subqueries_recurse(ptr noundef %0, ptr noundef %281, ptr noundef nonnull %1, ptr noundef null)
   store ptr %282, ptr %280, align 8
-  br label %common.ret136
+  br label %common.ret148
 
 283:                                              ; preds = %259
   %284 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1241,7 +1241,7 @@ common.ret136:                                    ; preds = %.split, %.split89, 
   %288 = load ptr, ptr %287, align 8
   %289 = tail call fastcc ptr @pull_up_subqueries_recurse(ptr noundef %0, ptr noundef %288, ptr noundef nonnull %1, ptr noundef null)
   store ptr %289, ptr %287, align 8
-  br label %common.ret136
+  br label %common.ret148
 
 290:                                              ; preds = %259
   %291 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -1621,7 +1621,7 @@ define internal fastcc noundef ptr @reduce_outer_joins_pass1(ptr noundef readonl
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %4, align 8
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %common.ret59, label %6
+  br i1 %5, label %common.ret60, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %0, align 4
@@ -1636,20 +1636,20 @@ define internal fastcc noundef ptr @reduce_outer_joins_pass1(ptr noundef readonl
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @bms_make_singleton(i32 noundef %10) #7
   store ptr %11, ptr %2, align 8
-  br label %common.ret59
+  br label %common.ret60
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %.not52 = icmp eq ptr %14, null
-  br i1 %.not52, label %common.ret59, label %.lr.ph
+  br i1 %.not52, label %common.ret60, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load i32, ptr %15, align 4
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph57, label %common.ret59
+  br i1 %18, label %.lr.ph57, label %common.ret60
 
 .lr.ph57:                                         ; preds = %.lr.ph, %.lr.ph57
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph57 ], [ 0, %.lr.ph ]
@@ -1673,7 +1673,7 @@ define internal fastcc noundef ptr @reduce_outer_joins_pass1(ptr noundef readonl
   %32 = load i32, ptr %15, align 4
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph57, label %common.ret59
+  br i1 %34, label %.lr.ph57, label %common.ret60
 
 35:                                               ; preds = %6
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1687,9 +1687,9 @@ define internal fastcc noundef ptr @reduce_outer_joins_pass1(ptr noundef readonl
   store i8 1, ptr %3, align 8
   br label %41
 
-common.ret59:                                     ; preds = %8, %1, %.lr.ph, %12, %.lr.ph57, %41
-  %common.ret59.op = phi ptr [ %2, %41 ], [ %2, %.lr.ph57 ], [ %2, %12 ], [ %2, %.lr.ph ], [ %2, %1 ], [ %2, %8 ]
-  ret ptr %common.ret59.op
+common.ret60:                                     ; preds = %8, %1, %.lr.ph, %12, %.lr.ph57, %41
+  %common.ret60.op = phi ptr [ %2, %41 ], [ %2, %.lr.ph57 ], [ %2, %12 ], [ %2, %.lr.ph ], [ %2, %1 ], [ %2, %8 ]
+  ret ptr %common.ret60.op
 
 41:                                               ; preds = %40, %35
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1722,7 +1722,7 @@ common.ret59:                                     ; preds = %8, %1, %.lr.ph, %12
   %64 = load ptr, ptr %4, align 8
   %65 = tail call ptr @lappend(ptr noundef %64, ptr noundef nonnull %56) #7
   store ptr %65, ptr %4, align 8
-  br label %common.ret59
+  br label %common.ret60
 
 66:                                               ; preds = %6
   %67 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -2952,12 +2952,12 @@ is_notclause.exit:                                ; preds = %10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %80, %86
-  %.sink175 = phi ptr [ %85, %86 ], [ %79, %80 ]
-  %89 = getelementptr inbounds nuw i8, ptr %.sink175, i64 24
+  %.sink188 = phi ptr [ %85, %86 ], [ %79, %80 ]
+  %89 = getelementptr inbounds nuw i8, ptr %.sink188, i64 24
   %90 = load ptr, ptr %89, align 8
   %91 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %90, ptr noundef %8)
   store ptr %91, ptr %89, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %.sink175, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %.sink188, i64 48
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %8, align 8
   %95 = tail call fastcc ptr @pull_up_sublinks_qual_recurse(ptr noundef %0, ptr noundef %93, ptr noundef nonnull %89, ptr noundef %94, ptr noundef null, ptr noundef null)
@@ -4004,8 +4004,8 @@ define internal fastcc void @perform_pullup_replace_vars(ptr noundef readonly ca
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph100, %109
-  %.sink112 = phi i64 [ 200, %109 ], [ 80, %.lr.ph100 ]
-  %110 = getelementptr inbounds nuw i8, ptr %106, i64 %.sink112
+  %.sink116 = phi i64 [ 200, %109 ], [ 80, %.lr.ph100 ]
+  %110 = getelementptr inbounds nuw i8, ptr %106, i64 %.sink116
   %111 = load ptr, ptr %110, align 8
   %112 = load i32, ptr %19, align 8
   %113 = load ptr, ptr %21, align 8
@@ -4111,11 +4111,11 @@ tailrecurse.backedge:                             ; preds = %26, %45
   br label %tailrecurse.outer.backedge
 
 tailrecurse.outer.backedge:                       ; preds = %32, %40
-  %.tr54.ph71.sink111 = phi ptr [ %.tr54.ph71, %32 ], [ %44, %40 ]
+  %.tr54.ph71.sink112 = phi ptr [ %.tr54.ph71, %32 ], [ %44, %40 ]
   %.tr54.ph.be = phi ptr [ %36, %32 ], [ %44, %40 ]
   %37 = getelementptr inbounds nuw i8, ptr %.tr69, i64 16
   %38 = load ptr, ptr %37, align 8
-  tail call fastcc void @get_nullingrels_recurse(ptr noundef %38, ptr noundef %.tr54.ph71.sink111, ptr noundef %2)
+  tail call fastcc void @get_nullingrels_recurse(ptr noundef %38, ptr noundef %.tr54.ph71.sink112, ptr noundef %2)
   %.tr.ph.be.in = getelementptr inbounds nuw i8, ptr %.tr69, i64 24
   %.tr.ph.be = load ptr, ptr %.tr.ph.be.in, align 8
   %39 = icmp eq ptr %.tr.ph.be, null

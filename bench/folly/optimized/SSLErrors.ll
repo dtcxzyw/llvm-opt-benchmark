@@ -53,7 +53,7 @@ define void @_ZN5folly12SSLExceptionC2Eimii(ptr noundef nonnull align 8 derefere
   %9 = alloca %"struct.std::array", align 1
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   switch i32 %1, label %18 [
-    i32 6, label %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread28
+    i32 6, label %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread35
     i32 5, label %_ZN12_GLOBAL__N_120exTypefromSSLErrInfoEimi.exit
   ]
 
@@ -90,7 +90,7 @@ _ZN12_GLOBAL__N_120exTypefromSSLErrInfoEimi.exit: ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %.thread
 
-_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread28: ; preds = %5
+_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread35: ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %19, ptr %10, align 8, !tbaa !10, !alias.scope !7
@@ -154,16 +154,16 @@ _ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit: ; preds = %._crit_edge.i.
   store i8 0, ptr %38, align 1, !tbaa !19
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !7
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !7
-  %spec.select30 = select i1 %25, i32 %4, i32 0
+  %spec.select37 = select i1 %25, i32 %4, i32 0
   %39 = select i1 %25, i32 4, i32 3
   br label %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread
 
-_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread: ; preds = %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit, %._crit_edge.i.i9.i, %._crit_edge.i.i.i, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread28
-  %.0.i1826 = phi i32 [ 4, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread28 ], [ %..i, %._crit_edge.i.i.i ], [ 15, %._crit_edge.i.i9.i ], [ %.0.i1921, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit ]
-  %. = phi i32 [ 3, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread28 ], [ 4, %._crit_edge.i.i.i ], [ 4, %._crit_edge.i.i9.i ], [ %39, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit ]
-  %40 = phi i32 [ 0, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread28 ], [ %4, %._crit_edge.i.i.i ], [ %4, %._crit_edge.i.i9.i ], [ %spec.select30, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit ]
+_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread: ; preds = %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit, %._crit_edge.i.i9.i, %._crit_edge.i.i.i, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread35
+  %.0.i1833 = phi i32 [ 4, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread35 ], [ %..i, %._crit_edge.i.i.i ], [ 15, %._crit_edge.i.i9.i ], [ %.0.i1921, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit ]
+  %. = phi i32 [ 3, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread35 ], [ 4, %._crit_edge.i.i.i ], [ 4, %._crit_edge.i.i9.i ], [ %39, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit ]
+  %40 = phi i32 [ 0, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread35 ], [ %4, %._crit_edge.i.i.i ], [ %4, %._crit_edge.i.i9.i ], [ %spec.select37, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  invoke void @_ZN5folly20AsyncSocketException10getMessageENS0_24AsyncSocketExceptionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %.0.i1826, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %40)
+  invoke void @_ZN5folly20AsyncSocketException10getMessageENS0_24AsyncSocketExceptionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %.0.i1833, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %40)
           to label %.noexc unwind label %73
 
 .noexc:                                           ; preds = %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread
@@ -218,7 +218,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %0, align 8, !tbaa !22
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.0.i1826, ptr %61, align 8, !tbaa !24
+  store i32 %.0.i1833, ptr %61, align 8, !tbaa !24
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %40, ptr %62, align 4, !tbaa !31
   %63 = load ptr, ptr %10, align 8, !tbaa !21
@@ -335,14 +335,14 @@ switch.lookup:                                    ; preds = %2
   %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN5folly12SSLExceptionC2ENS_8SSLErrorE, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = zext nneg i32 %1 to i64
-  %switch.gep8 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN5folly12SSLExceptionC2ENS_8SSLErrorE.1, i64 0, i64 %8
-  %switch.load9 = load ptr, ptr %switch.gep8, align 8
+  %switch.gep14 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN5folly12SSLExceptionC2ENS_8SSLErrorE.1, i64 0, i64 %8
+  %switch.load15 = load ptr, ptr %switch.gep14, align 8
   %9 = ptrtoint ptr %switch.load to i64
   br label %10
 
 10:                                               ; preds = %switch.lookup, %2
   %.sroa.8.0.i = phi i64 [ 0, %2 ], [ %9, %switch.lookup ]
-  %.sroa.011.0.i = phi ptr [ null, %2 ], [ %switch.load9, %switch.lookup ]
+  %.sroa.011.0.i = phi ptr [ null, %2 ], [ %switch.load15, %switch.lookup ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %11 = ptrtoint ptr %.sroa.011.0.i to i64

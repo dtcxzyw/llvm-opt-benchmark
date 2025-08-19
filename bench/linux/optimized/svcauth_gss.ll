@@ -210,7 +210,7 @@ define dso_local i32 @gss_svc_init_net(ptr noundef %0) local_unnamed_addr #1 ali
 10:                                               ; preds = %1
   %11 = tail call i32 @cache_register_net(ptr noundef %8, ptr noundef %0) #24
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.thread, label %.sink.split11
+  br i1 %12, label %.thread, label %.sink.split17
 
 .thread:                                          ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -338,16 +338,16 @@ define dso_local i32 @gss_svc_init_net(ptr noundef %0) local_unnamed_addr #1 ali
   store ptr null, ptr %80, align 8
   tail call void @cache_purge(ptr noundef %81) #24
   tail call void @cache_unregister_net(ptr noundef %81, ptr noundef %0) #24
-  br label %.sink.split11
+  br label %.sink.split17
 
-.sink.split11:                                    ; preds = %10, %73
-  %.sink13 = phi ptr [ %81, %73 ], [ %8, %10 ]
-  %.ph12 = phi i32 [ %74, %73 ], [ %11, %10 ]
-  tail call void @cache_destroy_net(ptr noundef %.sink13, ptr noundef %0) #24
+.sink.split17:                                    ; preds = %10, %73
+  %.sink19 = phi ptr [ %81, %73 ], [ %8, %10 ]
+  %.ph18 = phi i32 [ %74, %73 ], [ %11, %10 ]
+  tail call void @cache_destroy_net(ptr noundef %.sink19, ptr noundef %0) #24
   br label %82
 
-82:                                               ; preds = %.sink.split11, %45, %14
-  %83 = phi i32 [ %16, %14 ], [ 0, %45 ], [ %.ph12, %.sink.split11 ]
+82:                                               ; preds = %.sink.split17, %45, %14
+  %83 = phi i32 [ %16, %14 ], [ 0, %45 ], [ %.ph18, %.sink.split17 ]
   ret i32 %83
 }
 
@@ -630,8 +630,8 @@ define internal noundef range(i32 1, 11) i32 @svcauth_gss_accept(ptr noundef %0)
   %110 = icmp sgt i64 %109, -1
   %111 = load i32, ptr %2, align 4
   %112 = icmp eq i32 %111, 6
-  %or.cond44 = select i1 %110, i1 %112, i1 false
-  br i1 %or.cond44, label %113, label %.thread30
+  %or.cond66 = select i1 %110, i1 %112, i1 false
+  br i1 %or.cond66, label %113, label %.thread30
 
 113:                                              ; preds = %100
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 416
@@ -858,9 +858,9 @@ define internal noundef range(i32 1, 11) i32 @svcauth_gss_accept(ptr noundef %0)
   br label %.thread33.sink.split
 
 .thread30.sink.split:                             ; preds = %138, %162
-  %.sink42 = phi i64 [ %164, %162 ], [ %140, %138 ]
+  %.sink64 = phi i64 [ %164, %162 ], [ %140, %138 ]
   %.sink.ph = phi i32 [ 234881024, %162 ], [ 218103808, %138 ]
-  call void @llvm.write_register.i64(metadata !0, i64 %.sink42)
+  call void @llvm.write_register.i64(metadata !0, i64 %.sink64)
   br label %.thread30
 
 .thread30:                                        ; preds = %.thread30.sink.split, %144, %145, %158, %120, %121, %134, %100
@@ -873,8 +873,8 @@ define internal noundef range(i32 1, 11) i32 @svcauth_gss_accept(ptr noundef %0)
   br label %291
 
 .thread33.sink.split:                             ; preds = %233, %212
-  %.sink40 = phi i64 [ %214, %212 ], [ %235, %233 ]
-  call void @llvm.write_register.i64(metadata !0, i64 %.sink40)
+  %.sink62 = phi i64 [ %214, %212 ], [ %235, %233 ]
+  call void @llvm.write_register.i64(metadata !0, i64 %.sink62)
   br label %.thread33
 
 .thread33:                                        ; preds = %.thread33.sink.split, %193, %195, %208, %215, %216, %229
@@ -980,8 +980,8 @@ define internal noundef range(i32 1, 11) i32 @svcauth_gss_accept(ptr noundef %0)
   br i1 %282, label %.sink.split, label %.thread35
 
 .sink.split:                                      ; preds = %277, %271
-  %.sink41 = phi i32 [ 400, %271 ], [ 800, %277 ]
-  call fastcc void @svcxdr_set_auth_slack(ptr noundef %0, i32 noundef %.sink41)
+  %.sink63 = phi i32 [ 400, %271 ], [ 800, %277 ]
+  call fastcc void @svcxdr_set_auth_slack(ptr noundef %0, i32 noundef %.sink63)
   br label %283
 
 283:                                              ; preds = %.sink.split, %263

@@ -266,8 +266,8 @@ uv__stream_connect.exit:                          ; preds = %23, %42, %uv__strea
 
 94:                                               ; preds = %91
   %95 = add nsw i32 %.055.i, -1
-  %.not97.i = icmp eq i32 %.055.i, 0
-  br i1 %.not97.i, label %uv__read.exit, label %96
+  %.not108.i = icmp eq i32 %.055.i, 0
+  br i1 %.not108.i, label %uv__read.exit, label %96
 
 96:                                               ; preds = %94
   %97 = call { ptr, i64 } @uv_buf_init(ptr noundef null, i32 noundef 0) #12

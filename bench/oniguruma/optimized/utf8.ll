@@ -35,11 +35,11 @@ define internal i32 @mbc_to_code(ptr noundef %0, ptr noundef %1) #2 {
   br i1 %12, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %2
+  %.122 = add nsw i32 %spec.select, -1
   %13 = sub nsw i32 7, %spec.select
   %notmask = shl nsw i32 -1, %13
   %14 = xor i32 %notmask, -1
   %15 = and i32 %14, %11
-  %.122 = add nsw i32 %spec.select, -1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

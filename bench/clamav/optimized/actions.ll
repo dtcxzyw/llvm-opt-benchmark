@@ -194,7 +194,7 @@ define internal void @action_move(ptr noundef %0) #0 {
   br label %32
 
 32:                                               ; preds = %31, %30, %.thread.i
-  %.023.i = phi i32 [ -1, %.thread.i ], [ %.0.ph.i, %31 ], [ %.0.ph.i, %30 ]
+  %.027.i = phi i32 [ -1, %.thread.i ], [ %.0.ph.i, %31 ], [ %.0.ph.i, %30 ]
   %33 = load i32, ptr %2, align 4, !tbaa !20
   %.not20.i = icmp eq i32 %33, -1
   br i1 %.not20.i, label %traverse_rename.exit, label %34
@@ -206,7 +206,7 @@ define internal void @action_move(ptr noundef %0) #0 {
 traverse_rename.exit:                             ; preds = %32, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.not = icmp eq i32 %.023.i, 0
+  %.not = icmp eq i32 %.027.i, 0
   br i1 %.not, label %.critedge, label %36
 
 36:                                               ; preds = %traverse_rename.exit
@@ -516,7 +516,7 @@ define internal fastcc range(i32 -1, 1) i32 @traverse_to(ptr noundef nonnull rea
 
 .thread.thread55:                                 ; preds = %2
   %6 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.15) #11
-  br label %39
+  br label %40
 
 7:                                                ; preds = %2
   %8 = call i64 @cli_strtokenize(ptr noundef nonnull %4, i8 noundef signext 47, i64 noundef 2048, ptr noundef nonnull %3) #11
@@ -539,59 +539,58 @@ define internal fastcc range(i32 -1, 1) i32 @traverse_to(ptr noundef nonnull rea
 17:                                               ; preds = %12
   %18 = add i64 %8, -1
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %.thread, label %.preheader
+  br i1 %19, label %20, label %.preheader
 
-.thread:                                          ; preds = %17
-  %20 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.15) #11
-  br label %37
+20:                                               ; preds = %17
+  %21 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.15) #11
+  br label %38
 
-.preheader:                                       ; preds = %17, %31
-  %.162 = phi i32 [ %.2, %31 ], [ %13, %17 ]
-  %.03261 = phi i64 [ %32, %31 ], [ 0, %17 ]
-  %21 = getelementptr inbounds nuw [2048 x ptr], ptr %3, i64 0, i64 %.03261
-  %22 = load ptr, ptr %21, align 8, !tbaa !14
-  %char0 = load i8, ptr %22, align 1
-  %23 = icmp eq i8 %char0, 0
-  br i1 %23, label %31, label %24
+.preheader:                                       ; preds = %17, %35
+  %.162 = phi i32 [ %.2, %35 ], [ %13, %17 ]
+  %.03261 = phi i64 [ %36, %35 ], [ 0, %17 ]
+  %22 = getelementptr inbounds nuw [2048 x ptr], ptr %3, i64 0, i64 %.03261
+  %23 = load ptr, ptr %22, align 8, !tbaa !14
+  %char0 = load i8, ptr %23, align 1
+  %24 = icmp eq i8 %char0, 0
+  br i1 %24, label %35, label %25
 
-24:                                               ; preds = %.preheader
-  %25 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %.162, ptr noundef nonnull %22, i32 noundef 131072) #11
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %34, label %27
+25:                                               ; preds = %.preheader
+  %26 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %.162, ptr noundef nonnull %23, i32 noundef 131072) #11
+  %27 = icmp eq i32 %26, -1
+  br i1 %27, label %28, label %31
 
-27:                                               ; preds = %24
-  %28 = call i32 @close(i32 noundef %.162) #11
-  %29 = load ptr, ptr %21, align 8, !tbaa !14
-  %30 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.20, ptr noundef %29) #11
-  br label %31
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %22, align 8, !tbaa !14
+  %30 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef %29) #11
+  br label %38
 
-31:                                               ; preds = %.preheader, %27
-  %.2 = phi i32 [ %.162, %.preheader ], [ %25, %27 ]
-  %32 = add nuw i64 %.03261, 1
-  %exitcond.not = icmp eq i64 %32, %18
-  br i1 %exitcond.not, label %33, label %.preheader
+31:                                               ; preds = %25
+  %32 = call i32 @close(i32 noundef %.162) #11
+  %33 = load ptr, ptr %22, align 8, !tbaa !14
+  %34 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.20, ptr noundef %33) #11
+  br label %35
 
-33:                                               ; preds = %31
+35:                                               ; preds = %.preheader, %31
+  %.2 = phi i32 [ %.162, %.preheader ], [ %26, %31 ]
+  %36 = add nuw i64 %.03261, 1
+  %exitcond.not = icmp eq i64 %36, %18
+  br i1 %exitcond.not, label %37, label %.preheader
+
+37:                                               ; preds = %35
   store i32 %.2, ptr %1, align 4, !tbaa !20
   br label %.thread.thread
 
-34:                                               ; preds = %24
-  %35 = load ptr, ptr %21, align 8, !tbaa !14
-  %36 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef %35) #11
-  %.not59 = icmp eq i32 %.162, -1
-  br i1 %.not59, label %.thread.thread, label %37
-
-37:                                               ; preds = %.thread, %34
-  %.067 = phi i32 [ %13, %.thread ], [ %.162, %34 ]
-  %38 = call i32 @close(i32 noundef %.067) #11
+38:                                               ; preds = %20, %28
+  %.0 = phi i32 [ %13, %20 ], [ %.162, %28 ]
+  %39 = call i32 @close(i32 noundef %.0) #11
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %34, %37, %33, %10, %15
-  %.0344753 = phi i32 [ -1, %15 ], [ -1, %10 ], [ -1, %37 ], [ -1, %34 ], [ 0, %33 ]
+.thread.thread:                                   ; preds = %38, %37, %10, %15
+  %.0344753 = phi i32 [ -1, %15 ], [ -1, %10 ], [ -1, %38 ], [ 0, %37 ]
   call void @free(ptr noundef nonnull %4) #11
-  br label %39
+  br label %40
 
-39:                                               ; preds = %.thread.thread55, %.thread.thread
+40:                                               ; preds = %.thread.thread55, %.thread.thread
   %.0344754 = phi i32 [ %.0344753, %.thread.thread ], [ -1, %.thread.thread55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0344754

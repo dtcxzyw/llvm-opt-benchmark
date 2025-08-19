@@ -1489,14 +1489,14 @@ pmix_pointer_array_get_item.exit52:               ; preds = %21
   br i1 %exitcond.not, label %.thread, label %10, !llvm.loop !76
 
 .thread.sink.split:                               ; preds = %36, %32, %28, %pmix_pointer_array_get_item.exit52, %21
-  %.lcssa79.sink = phi i32 [ %31, %28 ], [ -16, %pmix_pointer_array_get_item.exit52 ], [ -16, %21 ], [ %35, %32 ], [ %37, %36 ]
-  %.sink80 = phi i32 [ 629, %28 ], [ 629, %pmix_pointer_array_get_item.exit52 ], [ 629, %21 ], [ 635, %32 ], [ 640, %36 ]
-  %39 = call ptr @PMIx_Error_string(i32 noundef %.lcssa79.sink) #8
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %39, ptr noundef nonnull @.str.1, i32 noundef %.sink80) #8
+  %.lcssa83.sink = phi i32 [ %31, %28 ], [ -16, %pmix_pointer_array_get_item.exit52 ], [ -16, %21 ], [ %35, %32 ], [ %37, %36 ]
+  %.sink84 = phi i32 [ 629, %28 ], [ 629, %pmix_pointer_array_get_item.exit52 ], [ 629, %21 ], [ 635, %32 ], [ 640, %36 ]
+  %39 = call ptr @PMIx_Error_string(i32 noundef %.lcssa83.sink) #8
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %39, ptr noundef nonnull @.str.1, i32 noundef %.sink84) #8
   br label %.thread
 
 .thread:                                          ; preds = %16, %28, %32, %36, %38, %pmix_pointer_array_get_item.exit, %10, %.thread.sink.split, %5
-  %.0 = phi i32 [ 0, %5 ], [ %.lcssa79.sink, %.thread.sink.split ], [ %20, %16 ], [ %31, %28 ], [ %35, %32 ], [ %37, %36 ], [ 0, %38 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %10 ]
+  %.0 = phi i32 [ 0, %5 ], [ %.lcssa83.sink, %.thread.sink.split ], [ %20, %16 ], [ %31, %28 ], [ %35, %32 ], [ %37, %36 ], [ 0, %38 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -2767,9 +2767,9 @@ pmix_pointer_array_get_item.exit80:               ; preds = %57
 
 .thread.sink.split:                               ; preds = %63, %pmix_pointer_array_get_item.exit80, %57, %53, %pmix_pointer_array_get_item.exit77, %44, %39, %pmix_pointer_array_get_item.exit74, %33
   %.4103.sink = phi i32 [ %43, %39 ], [ -16, %pmix_pointer_array_get_item.exit74 ], [ -16, %33 ], [ %56, %53 ], [ -16, %pmix_pointer_array_get_item.exit77 ], [ -16, %44 ], [ %68, %63 ], [ -16, %pmix_pointer_array_get_item.exit80 ], [ -16, %57 ]
-  %.sink122 = phi i32 [ 1129, %39 ], [ 1129, %pmix_pointer_array_get_item.exit74 ], [ 1129, %33 ], [ 1136, %53 ], [ 1136, %pmix_pointer_array_get_item.exit77 ], [ 1136, %44 ], [ 1141, %63 ], [ 1141, %pmix_pointer_array_get_item.exit80 ], [ 1141, %57 ]
+  %.sink130 = phi i32 [ 1129, %39 ], [ 1129, %pmix_pointer_array_get_item.exit74 ], [ 1129, %33 ], [ 1136, %53 ], [ 1136, %pmix_pointer_array_get_item.exit77 ], [ 1136, %44 ], [ 1141, %63 ], [ 1141, %pmix_pointer_array_get_item.exit80 ], [ 1141, %57 ]
   %70 = call ptr @PMIx_Error_string(i32 noundef %.4103.sink) #8
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %70, ptr noundef nonnull @.str.1, i32 noundef %.sink122) #8
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %70, ptr noundef nonnull @.str.1, i32 noundef %.sink130) #8
   br label %.thread
 
 .thread:                                          ; preds = %17, %29, %39, %53, %63, %69, %pmix_pointer_array_get_item.exit, %11, %pmix_pointer_array_get_item.exit71, %22, %.thread.sink.split, %5

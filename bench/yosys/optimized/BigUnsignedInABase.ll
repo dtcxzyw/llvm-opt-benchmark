@@ -567,8 +567,8 @@ define void @_ZN18BigUnsignedInABaseC2ERKNSt7__cxx1112basic_stringIcSt11char_tra
   %13 = trunc i64 %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %13, ptr %14, align 4, !tbaa !13
-  %.not43 = icmp eq i32 %13, 0
-  br i1 %.not43, label %_ZN18BigUnsignedInABase15zapLeadingZerosEv.exit, label %15
+  %.not45 = icmp eq i32 %13, 0
+  br i1 %.not45, label %_ZN18BigUnsignedInABase15zapLeadingZerosEv.exit, label %15
 
 15:                                               ; preds = %9
   store i32 %13, ptr %0, align 8, !tbaa !6
@@ -616,9 +616,9 @@ define void @_ZN18BigUnsignedInABaseC2ERKNSt7__cxx1112basic_stringIcSt11char_tra
   br label %47
 
 35:                                               ; preds = %31, %29, %22
-  %.sink49 = phi i16 [ -48, %22 ], [ -55, %29 ], [ -87, %31 ]
+  %.sink51 = phi i16 [ -48, %22 ], [ -55, %29 ], [ -87, %31 ]
   %36 = zext nneg i8 %27 to i16
-  %37 = add nsw i16 %.sink49, %36
+  %37 = add nsw i16 %.sink51, %36
   %38 = getelementptr inbounds nuw i16, ptr %18, i64 %indvars.iv
   store i16 %37, ptr %38, align 2, !tbaa !18
   %.not = icmp ult i16 %37, %2

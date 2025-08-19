@@ -941,34 +941,34 @@ put_bits.exit:                                    ; preds = %47, %69
   br i1 %.not72, label %76, label %78
 
 76:                                               ; preds = %72
-  br i1 %.not73, label %.thread126, label %.thread128
+  br i1 %.not73, label %.thread158, label %.thread160
 
-.thread128:                                       ; preds = %76
+.thread160:                                       ; preds = %76
   %77 = add nsw i32 %.pre117.pre.pre, 4
   br label %80
 
 78:                                               ; preds = %72
   %79 = add nsw i32 %.pre117.pre.pre, 4
   store i32 %79, ptr %5, align 4, !tbaa !97
-  br i1 %.not73, label %.thread126, label %80
+  br i1 %.not73, label %.thread158, label %80
 
-80:                                               ; preds = %.thread128, %78
-  %81 = phi i32 [ %77, %.thread128 ], [ %79, %78 ]
+80:                                               ; preds = %.thread160, %78
+  %81 = phi i32 [ %77, %.thread160 ], [ %79, %78 ]
   %82 = add nsw i32 %81, 3
   store i32 %82, ptr %5, align 4, !tbaa !97
-  br label %.thread126
+  br label %.thread158
 
-.thread126:                                       ; preds = %76, %80, %78
+.thread158:                                       ; preds = %76, %80, %78
   %83 = phi i32 [ %82, %80 ], [ %79, %78 ], [ %73, %76 ]
   %.not75 = icmp eq i32 %.0, 0
   br i1 %.not75, label %.thread, label %86
 
-.thread:                                          ; preds = %.thread126
+.thread:                                          ; preds = %.thread158
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 4860
   %85 = load i32, ptr %84, align 4, !tbaa !101
   br label %95
 
-86:                                               ; preds = %.thread126
+86:                                               ; preds = %.thread158
   %87 = add nsw i32 %83, 1
   store i32 %87, ptr %5, align 4, !tbaa !97
   br label %88
@@ -1377,9 +1377,9 @@ put_bits.exit96:                                  ; preds = %262, %284
   br label %.sink.split
 
 .thread.sink.split.i:                             ; preds = %301, %299
-  %.sink85.i = phi i16 [ 254, %299 ], [ 1, %301 ]
+  %.sink103.i = phi i16 [ 254, %299 ], [ 1, %301 ]
   %.04580.ph.i = phi i32 [ 254, %299 ], [ 1, %301 ]
-  store i16 %.sink85.i, ptr %296, align 2, !tbaa !103
+  store i16 %.sink103.i, ptr %296, align 2, !tbaa !103
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.sink.split.i, %303
@@ -1466,9 +1466,9 @@ put_bits.exit96:                                  ; preds = %262, %284
   br label %.sink.split
 
 .sink.split:                                      ; preds = %356, %366, %374, %328, %338, %346, %308, %318, %326
-  %.sink87.i.sink = phi i32 [ -8, %308 ], [ 24, %326 ], [ 24, %318 ], [ -8, %328 ], [ 24, %346 ], [ 24, %338 ], [ -2, %356 ], [ 30, %374 ], [ 30, %366 ]
+  %.sink105.i.sink = phi i32 [ -8, %308 ], [ 24, %326 ], [ 24, %318 ], [ -8, %328 ], [ 24, %346 ], [ 24, %338 ], [ -2, %356 ], [ 30, %374 ], [ 30, %366 ]
   %.026.i.i63.i.sink = phi i32 [ %310, %308 ], [ 255, %326 ], [ 255, %318 ], [ %330, %328 ], [ %.04580.i, %346 ], [ %.04580.i, %338 ], [ %358, %356 ], [ %354, %374 ], [ %354, %366 ]
-  %375 = add nsw i32 %.sink87.i.sink, %294
+  %375 = add nsw i32 %.sink105.i.sink, %294
   store i32 %.026.i.i63.i.sink, ptr %33, align 8, !tbaa !58
   store i32 %375, ptr %44, align 4, !tbaa !59
   br label %376
@@ -1604,9 +1604,9 @@ put_bits.exit96:                                  ; preds = %262, %284
   br label %put_bits.exit73.i
 
 put_bits.exit73.i:                                ; preds = %456, %448, %438
-  %.sink88.i = phi i32 [ -12, %438 ], [ 20, %456 ], [ 20, %448 ]
+  %.sink106.i = phi i32 [ -12, %438 ], [ 20, %456 ], [ 20, %448 ]
   %.026.i.i71.i = phi i32 [ %440, %438 ], [ %436, %456 ], [ %436, %448 ]
-  %457 = add nsw i32 %.sink88.i, %385
+  %457 = add nsw i32 %.sink106.i, %385
   store i32 %.026.i.i71.i, ptr %33, align 8, !tbaa !58
   store i32 %457, ptr %44, align 4, !tbaa !59
   %458 = and i32 %392, 255
@@ -1644,9 +1644,9 @@ put_bits.exit73.i:                                ; preds = %456, %448, %438
   br label %put_sbits.exit.i
 
 put_sbits.exit.i:                                 ; preds = %478, %470, %460
-  %.sink89.i = phi i32 [ -8, %460 ], [ 24, %478 ], [ 24, %470 ]
+  %.sink107.i = phi i32 [ -8, %460 ], [ 24, %478 ], [ 24, %470 ]
   %.026.i.i.i.i = phi i32 [ %462, %460 ], [ %458, %478 ], [ %458, %470 ]
-  %479 = add nsw i32 %.sink89.i, %457
+  %479 = add nsw i32 %.sink107.i, %457
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %put_sbits.exit.i, %433, %413
@@ -1705,9 +1705,9 @@ put_sbits.exit.i:                                 ; preds = %478, %470, %460
   br label %put_bits.exit78.i
 
 put_bits.exit78.i:                                ; preds = %506, %498, %488
-  %.sink90.i = phi i32 [ -2, %488 ], [ 30, %506 ], [ 30, %498 ]
+  %.sink108.i = phi i32 [ -2, %488 ], [ 30, %506 ], [ 30, %498 ]
   %.026.i.i76.i = phi i32 [ %490, %488 ], [ 2, %506 ], [ 2, %498 ]
-  %507 = add nsw i32 %.sink90.i, %483
+  %507 = add nsw i32 %.sink108.i, %483
   store i32 %.026.i.i76.i, ptr %33, align 8, !tbaa !58
   store i32 %507, ptr %44, align 4, !tbaa !59
   br label %h261_encode_block.exit

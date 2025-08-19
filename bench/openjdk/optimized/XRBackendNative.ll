@@ -1493,8 +1493,8 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
   br i1 %51, label %52, label %.preheader102
 
 .preheader102:                                    ; preds = %46
-  %.not113 = icmp eq i32 %11, 0
-  br i1 %.not113, label %.preheader, label %.lr.ph
+  %.not119 = icmp eq i32 %11, 0
+  br i1 %.not119, label %.preheader, label %.lr.ph
 
 52:                                               ; preds = %46
   %53 = load ptr, ptr %0, align 8
@@ -1513,8 +1513,8 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
   br i1 %.not99, label %90, label %.sink.split
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader102
-  %.not114 = icmp eq i32 %10, 0
-  br i1 %.not114, label %._crit_edge, label %.lr.ph106.preheader
+  %.not120 = icmp eq i32 %10, 0
+  br i1 %.not120, label %._crit_edge, label %.lr.ph106.preheader
 
 .lr.ph106.preheader:                              ; preds = %.preheader
   %wide.trip.count111 = zext nneg i32 %10 to i64

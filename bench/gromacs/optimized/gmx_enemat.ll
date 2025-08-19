@@ -512,7 +512,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader: ; preds = %138
 
 _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread: ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader
   %147 = load ptr, ptr @stderr, align 8, !tbaa !37
-  %fputc975 = call i32 @fputc(i32 10, ptr %147)
+  %fputc1066 = call i32 @fputc(i32 10, ptr %147)
   br label %186
 
 .preheader712.preheader:                          ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader
@@ -638,7 +638,7 @@ _ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit.preheader: ; preds = %_ZL13gm
   br label %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit
 
 _ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit: ; preds = %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit.preheader, %250
-  %.0 = phi ptr [ %.2977, %250 ], [ null, %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit.preheader ]
+  %.0 = phi ptr [ %.21068, %250 ], [ null, %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit.preheader ]
   %.0353 = phi i32 [ %251, %250 ], [ 0, %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit.preheader ]
   br label %200
 
@@ -735,7 +735,7 @@ _ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit:        ; preds = %.lr.ph737
 
 ._crit_edge742:                                   ; preds = %234, %.loopexit701.thread, %.loopexit701
   %244 = phi i64 [ %231, %.loopexit701 ], [ %224, %.loopexit701.thread ], [ %231, %234 ]
-  %.2977 = phi ptr [ %.2, %.loopexit701 ], [ %221, %.loopexit701.thread ], [ %.2, %234 ]
+  %.21068 = phi ptr [ %.2, %.loopexit701 ], [ %221, %.loopexit701.thread ], [ %.2, %234 ]
   %.0403.lcssa = phi float [ 0.000000e+00, %.loopexit701 ], [ 0.000000e+00, %.loopexit701.thread ], [ %243, %234 ]
   %245 = load i8, ptr @_ZZ10gmx_enematiPPcE4bSum, align 1, !tbaa !25, !range !27, !noundef !28
   %246 = trunc nuw i8 %245 to i1

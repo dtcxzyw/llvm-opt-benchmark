@@ -847,8 +847,8 @@ Abc_InfoIsOrOne.exit.thread:                      ; preds = %227, %.critedge6.Ab
   %.val294549 = phi i32 [ %.val287, %.critedge.preheader ], [ %.val287513, %Vec_VecClear.exit366 ], [ %.val289, %.critedge ]
   %383 = icmp slt i32 %.val294549, %5
   %384 = icmp sgt i32 %.val294549, 0
-  %or.cond695 = and i1 %383, %384
-  br i1 %or.cond695, label %.lr.ph552, label %.critedge8
+  %or.cond718 = and i1 %383, %384
+  br i1 %or.cond718, label %.lr.ph552, label %.critedge8
 
 .lr.ph552:                                        ; preds = %.critedge4
   %385 = getelementptr i8, ptr %1, i64 48
@@ -1132,13 +1132,13 @@ Abc_InfoIsOrOne3.exit.thread:                     ; preds = %465, %.critedge10.A
   br i1 %521, label %451, label %.loopexit489, !llvm.loop !65
 
 .loopexit491.loopexit:                            ; preds = %.lr.ph547, %.loopexit489
-  %.10.lcssa677 = phi i32 [ %.11, %.loopexit489 ], [ %.9545, %.lr.ph547 ]
+  %.10.lcssa700 = phi i32 [ %.11, %.loopexit489 ], [ %.9545, %.lr.ph547 ]
   %.pre650 = load ptr, ptr %0, align 8, !tbaa !20
   br label %.loopexit491
 
 .loopexit491:                                     ; preds = %.loopexit491.loopexit, %Res_FilterCollectFaninInfo.exit451, %387
   %522 = phi ptr [ %388, %387 ], [ %408, %Res_FilterCollectFaninInfo.exit451 ], [ %.pre650, %.loopexit491.loopexit ]
-  %.8 = phi i32 [ %.7550, %387 ], [ %.7550, %Res_FilterCollectFaninInfo.exit451 ], [ %.10.lcssa677, %.loopexit491.loopexit ]
+  %.8 = phi i32 [ %.7550, %387 ], [ %.7550, %Res_FilterCollectFaninInfo.exit451 ], [ %.10.lcssa700, %.loopexit491.loopexit ]
   %indvars.iv.next614 = add nuw nsw i64 %indvars.iv613, 1
   %523 = getelementptr i8, ptr %522, i64 28
   %.val294 = load i32, ptr %523, align 4, !tbaa !23
@@ -2044,7 +2044,7 @@ Abc_InfoIsOrOne.exit.thread:                      ; preds = %184, %.critedge2.Ab
   br i1 %231, label %.critedge, label %.critedge2._crit_edge.thread
 
 .critedge2._crit_edge.thread:                     ; preds = %160, %.critedge2._crit_edge
-  %.1158334 = phi i32 [ %.1158, %.critedge2._crit_edge ], [ 0, %160 ]
+  %.1158340 = phi i32 [ %.1158, %.critedge2._crit_edge ], [ 0, %160 ]
   %232 = load ptr, ptr %0, align 8, !tbaa !20
   %233 = getelementptr i8, ptr %232, i64 28
   %.val181 = load i32, ptr %233, align 4, !tbaa !23
@@ -2062,7 +2062,7 @@ Abc_InfoIsOrOne.exit.thread:                      ; preds = %184, %.critedge2.Ab
 240:                                              ; preds = %.critedge4._crit_edge, %234
   %indvars.iv320 = phi i64 [ %indvars.iv.next321, %.critedge4._crit_edge ], [ %239, %234 ]
   %indvars.iv315 = phi i32 [ %indvars.iv.next316, %.critedge4._crit_edge ], [ %238, %234 ]
-  %.3 = phi i32 [ %.6, %.critedge4._crit_edge ], [ %.1158334, %234 ]
+  %.3 = phi i32 [ %.6, %.critedge4._crit_edge ], [ %.1158340, %234 ]
   %241 = sext i32 %indvars.iv315 to i64
   %.val208 = load ptr, ptr %162, align 8, !tbaa !52
   %242 = getelementptr i8, ptr %.val208, i64 4
@@ -2238,7 +2238,7 @@ Abc_InfoIsOrOne3.exit.thread:                     ; preds = %270, %.critedge4.Ab
   br i1 %327, label %.critedge, label %240, !llvm.loop !78
 
 .critedge:                                        ; preds = %18, %50, %155, %240, %.critedge4._crit_edge, %Abc_InfoIsOne.exit253, %Vec_VecClear.exit227, %.critedge2._crit_edge, %.critedge2._crit_edge.thread, %Res_FilterCriticalFanin.exit
-  %.0 = phi i32 [ 0, %Res_FilterCriticalFanin.exit ], [ %.1158334, %.critedge2._crit_edge.thread ], [ %.1158, %.critedge2._crit_edge ], [ 0, %Vec_VecClear.exit227 ], [ 1, %Abc_InfoIsOne.exit253 ], [ %.3, %240 ], [ %.6, %.critedge4._crit_edge ], [ 1, %155 ], [ 0, %50 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %Res_FilterCriticalFanin.exit ], [ %.1158340, %.critedge2._crit_edge.thread ], [ %.1158, %.critedge2._crit_edge ], [ 0, %Vec_VecClear.exit227 ], [ 1, %Abc_InfoIsOne.exit253 ], [ %.3, %240 ], [ %.6, %.critedge4._crit_edge ], [ 1, %155 ], [ 0, %50 ], [ 0, %18 ]
   ret i32 %.0
 }
 

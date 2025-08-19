@@ -62,10 +62,10 @@ Wayland_CancelColorInfoRequest.exit:              ; preds = %7, %9
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Wayland_CancelColorInfoRequest.exit, %16
-  %.sink7 = phi i64 [ 256, %16 ], [ 208, %Wayland_CancelColorInfoRequest.exit ]
+  %.sink9 = phi i64 [ 256, %16 ], [ 208, %Wayland_CancelColorInfoRequest.exit ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.sink7
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.sink9
   store ptr null, ptr %19, align 8
   br label %20
 
@@ -123,10 +123,10 @@ Wayland_CancelColorInfoRequest.exit.i:            ; preds = %12, %10
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %19, %Wayland_CancelColorInfoRequest.exit.i
-  %.sink7.i = phi i64 [ 256, %19 ], [ 208, %Wayland_CancelColorInfoRequest.exit.i ]
+  %.sink9.i = phi i64 [ 256, %19 ], [ 208, %Wayland_CancelColorInfoRequest.exit.i ]
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink7.i
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink9.i
   store ptr null, ptr %22, align 8
   br label %23
 
@@ -238,10 +238,10 @@ Wayland_CancelColorInfoRequest.exit.i:            ; preds = %25, %23
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %32, %Wayland_CancelColorInfoRequest.exit.i
-  %.sink7.i = phi i64 [ 256, %32 ], [ 208, %Wayland_CancelColorInfoRequest.exit.i ]
+  %.sink9.i = phi i64 [ 256, %32 ], [ 208, %Wayland_CancelColorInfoRequest.exit.i ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.sink7.i
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.sink9.i
   store ptr null, ptr %35, align 8
   br label %Wayland_FreeColorInfoState.exit
 
@@ -294,10 +294,10 @@ Wayland_CancelColorInfoRequest.exit.i:            ; preds = %12, %10
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %19, %Wayland_CancelColorInfoRequest.exit.i
-  %.sink7.i = phi i64 [ 256, %19 ], [ 208, %Wayland_CancelColorInfoRequest.exit.i ]
+  %.sink9.i = phi i64 [ 256, %19 ], [ 208, %Wayland_CancelColorInfoRequest.exit.i ]
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink7.i
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink9.i
   store ptr null, ptr %22, align 8
   br label %23
 
@@ -411,10 +411,10 @@ Wayland_CancelColorInfoRequest.exit.i:            ; preds = %27, %25
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %34, %Wayland_CancelColorInfoRequest.exit.i
-  %.sink7.i = phi i64 [ 256, %34 ], [ 208, %Wayland_CancelColorInfoRequest.exit.i ]
+  %.sink9.i = phi i64 [ 256, %34 ], [ 208, %Wayland_CancelColorInfoRequest.exit.i ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %.sink7.i
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %.sink9.i
   store ptr null, ptr %37, align 8
   br label %Wayland_FreeColorInfoState.exit
 

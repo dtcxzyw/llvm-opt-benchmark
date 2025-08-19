@@ -736,7 +736,7 @@ define internal fastcc range(i32 0, 2) i32 @compareLUTs(ptr noundef nonnull capt
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !11
 
 .lr.ph83:                                         ; preds = %.lr.ph83.outer, %.thread
-  %indvars.iv90 = phi i64 [ %indvars.iv.next91103, %.thread ], [ %indvars.iv90.ph, %.lr.ph83.outer ]
+  %indvars.iv90 = phi i64 [ %indvars.iv.next91107, %.thread ], [ %indvars.iv90.ph, %.lr.ph83.outer ]
   %.05582 = phi i32 [ 1, %.thread ], [ %.05582.ph, %.lr.ph83.outer ]
   %.05681 = phi i32 [ %41, %.thread ], [ %.05681.ph, %.lr.ph83.outer ]
   %13 = sext i32 %.05681 to i64
@@ -754,7 +754,7 @@ define internal fastcc range(i32 0, 2) i32 @compareLUTs(ptr noundef nonnull capt
   %17 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv90
   %18 = load i32, ptr %17, align 4
   %.not70 = icmp eq i32 %16, %18
-  br i1 %.not70, label %.loopexit114, label %19
+  br i1 %.not70, label %.loopexit118, label %19
 
 19:                                               ; preds = %.lr.ph83._crit_edge, %14
   %20 = phi i32 [ %.pre, %.lr.ph83._crit_edge ], [ %18, %14 ]
@@ -780,7 +780,7 @@ define internal fastcc range(i32 0, 2) i32 @compareLUTs(ptr noundef nonnull capt
   %.157 = phi i32 [ %27, %26 ], [ %.05681, %22 ]
   %.1 = phi i32 [ 1, %26 ], [ %.05582, %22 ]
   %30 = trunc i32 %.163 to i8
-  br label %.loopexit114.sink.split
+  br label %.loopexit118.sink.split
 
 .preheader15.i:                                   ; preds = %19
   %.not26.i = icmp eq i32 %.05681, 0
@@ -808,9 +808,9 @@ findIdx.exit.thread:                              ; preds = %34
 
 findIdx.exit:                                     ; preds = %.lr.ph.i
   %36 = trunc i64 %indvars.iv.i to i8
-  br label %.loopexit114.sink.split
+  br label %.loopexit118.sink.split
 
-.loopexit114.sink.split:                          ; preds = %29, %findIdx.exit
+.loopexit118.sink.split:                          ; preds = %29, %findIdx.exit
   %.sink = phi i8 [ %36, %findIdx.exit ], [ %30, %29 ]
   %.264.ph = phi i32 [ %.06279.ph, %findIdx.exit ], [ %.163, %29 ]
   %.261.ph = phi i32 [ %.05980.ph, %findIdx.exit ], [ %.160, %29 ]
@@ -818,26 +818,26 @@ findIdx.exit:                                     ; preds = %.lr.ph.i
   %.2.ph = phi i32 [ %.05582, %findIdx.exit ], [ %.1, %29 ]
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv90
   store i8 %.sink, ptr %37, align 1
-  br label %.loopexit114
+  br label %.loopexit118
 
-.loopexit114:                                     ; preds = %14, %.loopexit114.sink.split
-  %.264 = phi i32 [ %.264.ph, %.loopexit114.sink.split ], [ %.06279.ph, %14 ]
-  %.261 = phi i32 [ %.261.ph, %.loopexit114.sink.split ], [ %.05980.ph, %14 ]
-  %.258 = phi i32 [ %.258.ph, %.loopexit114.sink.split ], [ %.05681, %14 ]
-  %.2 = phi i32 [ %.2.ph, %.loopexit114.sink.split ], [ %.05582, %14 ]
+.loopexit118:                                     ; preds = %14, %.loopexit118.sink.split
+  %.264 = phi i32 [ %.264.ph, %.loopexit118.sink.split ], [ %.06279.ph, %14 ]
+  %.261 = phi i32 [ %.261.ph, %.loopexit118.sink.split ], [ %.05980.ph, %14 ]
+  %.258 = phi i32 [ %.258.ph, %.loopexit118.sink.split ], [ %.05681, %14 ]
+  %.2 = phi i32 [ %.2.ph, %.loopexit118.sink.split ], [ %.05582, %14 ]
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
   br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph83.outer, !llvm.loop !13
 
-.lr.ph83.outer:                                   ; preds = %.loopexit114, %.lr.ph83.preheader
-  %indvars.iv90.ph = phi i64 [ %indvars.iv.next91, %.loopexit114 ], [ 0, %.lr.ph83.preheader ]
-  %.05582.ph = phi i32 [ %.2, %.loopexit114 ], [ 0, %.lr.ph83.preheader ]
-  %.05681.ph = phi i32 [ %.258, %.loopexit114 ], [ %1, %.lr.ph83.preheader ]
-  %.05980.ph = phi i32 [ %.261, %.loopexit114 ], [ -1, %.lr.ph83.preheader ]
-  %.06279.ph = phi i32 [ %.264, %.loopexit114 ], [ %2, %.lr.ph83.preheader ]
+.lr.ph83.outer:                                   ; preds = %.loopexit118, %.lr.ph83.preheader
+  %indvars.iv90.ph = phi i64 [ %indvars.iv.next91, %.loopexit118 ], [ 0, %.lr.ph83.preheader ]
+  %.05582.ph = phi i32 [ %.2, %.loopexit118 ], [ 0, %.lr.ph83.preheader ]
+  %.05681.ph = phi i32 [ %.258, %.loopexit118 ], [ %1, %.lr.ph83.preheader ]
+  %.05980.ph = phi i32 [ %.261, %.loopexit118 ], [ -1, %.lr.ph83.preheader ]
+  %.06279.ph = phi i32 [ %.264, %.loopexit118 ], [ %2, %.lr.ph83.preheader ]
   br label %.lr.ph83
 
-.thread:                                          ; preds = %.preheader15.i, %findIdx.exit.thread
+.thread:                                          ; preds = %findIdx.exit.thread, %.preheader15.i
   %.pre-phi = phi i64 [ %wide.trip.count.i, %findIdx.exit.thread ], [ 0, %.preheader15.i ]
   %38 = getelementptr inbounds nuw i32, ptr %0, i64 %.pre-phi
   store i32 %20, ptr %38, align 4
@@ -845,28 +845,28 @@ findIdx.exit:                                     ; preds = %.lr.ph.i
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv90
   store i8 %39, ptr %40, align 1
   %41 = add nuw nsw i32 %.05681, 1
-  %indvars.iv.next91103 = add nuw nsw i64 %indvars.iv90, 1
-  %exitcond94.not104 = icmp eq i64 %indvars.iv.next91103, %wide.trip.count93
-  br i1 %exitcond94.not104, label %._crit_edge.thread108, label %.lr.ph83, !llvm.loop !13
+  %indvars.iv.next91107 = add nuw nsw i64 %indvars.iv90, 1
+  %exitcond94.not108 = icmp eq i64 %indvars.iv.next91107, %wide.trip.count93
+  br i1 %exitcond94.not108, label %._crit_edge.thread112, label %.lr.ph83, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.loopexit114
+._crit_edge:                                      ; preds = %.loopexit118
   %42 = icmp eq i32 %.2, 0
-  br i1 %42, label %.loopexit, label %._crit_edge.thread108
+  br i1 %42, label %.loopexit, label %._crit_edge.thread112
 
-._crit_edge.thread108:                            ; preds = %.thread, %._crit_edge
-  %.261105113 = phi i32 [ %.261, %._crit_edge ], [ %.05980.ph, %.thread ]
-  %.258106112 = phi i32 [ %.258, %._crit_edge ], [ %41, %.thread ]
+._crit_edge.thread112:                            ; preds = %.thread, %._crit_edge
+  %.261109117 = phi i32 [ %.261, %._crit_edge ], [ %.05980.ph, %.thread ]
+  %.258110116 = phi i32 [ %.258, %._crit_edge ], [ %41, %.thread ]
   store i32 0, ptr %8, align 4
-  store i32 %.258106112, ptr %6, align 4
-  %.not68 = icmp eq i32 %.261105113, -1
+  store i32 %.258110116, ptr %6, align 4
+  %.not68 = icmp eq i32 %.261109117, -1
   br i1 %.not68, label %.loopexit, label %43
 
-43:                                               ; preds = %._crit_edge.thread108
-  store i32 %.261105113, ptr %7, align 4
+43:                                               ; preds = %._crit_edge.thread112
+  store i32 %.261109117, ptr %7, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %24, %findIdx.exit.thread, %.preheader, %._crit_edge, %43, %._crit_edge.thread108
-  %.0 = phi i32 [ 1, %._crit_edge.thread108 ], [ 1, %43 ], [ 1, %._crit_edge ], [ 1, %.preheader ], [ 0, %findIdx.exit.thread ], [ 0, %24 ]
+.loopexit:                                        ; preds = %24, %findIdx.exit.thread, %.preheader, %._crit_edge, %43, %._crit_edge.thread112
+  %.0 = phi i32 [ 1, %._crit_edge.thread112 ], [ 1, %43 ], [ 1, %._crit_edge ], [ 1, %.preheader ], [ 0, %findIdx.exit.thread ], [ 0, %24 ]
   ret i32 %.0
 }
 

@@ -3949,12 +3949,12 @@ for.body29:                                       ; preds = %_ZNK3irr4core10quat
   %.pre5.i = load float, ptr %arrayidx51.i.phi.trans.insert.i, align 4, !tbaa !10
   %45 = call float @llvm.fabs.f32(float %.pre5.i)
   %cmp.i71.i.i = fcmp ugt float %45, 0x3EB0C6F7A0000000
-  %or.cond6.i = select i1 %or.cond67.i, i1 true, i1 %cmp.i71.i.i
+  %or.cond10.i = select i1 %or.cond67.i, i1 true, i1 %cmp.i71.i.i
   %arrayidx56.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %add.ptr.i.i141, i64 32
   %.pre21 = load float, ptr %arrayidx56.i.i.phi.trans.insert, align 4, !tbaa !10
   %46 = call float @llvm.fabs.f32(float %.pre21)
   %cmp.i72.i.i = fcmp ugt float %46, 0x3EB0C6F7A0000000
-  %or.cond = select i1 %or.cond6.i, i1 true, i1 %cmp.i72.i.i
+  %or.cond = select i1 %or.cond10.i, i1 true, i1 %cmp.i72.i.i
   br i1 %or.cond, label %if.else19.thread.i, label %land.lhs.true17.i.i
 
 land.lhs.true17.i.i:                              ; preds = %for.body29
@@ -4259,8 +4259,8 @@ _ZN3irr4core10quaternion5slerpES1_S1_ff.exit:     ; preds = %if.else.i, %if.then
   %mul7.i = fmul float %QRotation.sroa.0.4.vec.extract, %QRotation.sroa.0.4.vec.extract
   %conv8.i = fpext float %mul7.i to double
   %QRotation.sroa.7.8.vec.extract = extractelement <2 x float> %retval.sroa.3.12.vec.insert.i62.sink.i, i64 0
-  %foldExtExtBinop24 = fmul <2 x float> %retval.sroa.3.12.vec.insert.i62.sink.i, %retval.sroa.3.12.vec.insert.i62.sink.i
-  %mul10.i = extractelement <2 x float> %foldExtExtBinop24, i64 0
+  %foldExtExtBinop32 = fmul <2 x float> %retval.sroa.3.12.vec.insert.i62.sink.i, %retval.sroa.3.12.vec.insert.i62.sink.i
+  %mul10.i = extractelement <2 x float> %foldExtExtBinop32, i64 0
   %conv11.i = fpext float %mul10.i to double
   %195 = fneg float %QRotation.sroa.0.0.vec.extract
   %neg.i = fmul float %QRotation.sroa.7.8.vec.extract, %195

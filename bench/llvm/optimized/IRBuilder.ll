@@ -4238,9 +4238,9 @@ _ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit: ; preds = %7
   br i1 %.not23, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.thread, %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit
-  %.pre2530 = phi i32 [ %.pre25.pre, %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit ]
-  %.idx28.pn = shl nuw nsw i64 %4, 3
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx28.pn
+  %.pre2536 = phi i32 [ %.pre25.pre, %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit ]
+  %.idx34.pn = shl nuw nsw i64 %4, 3
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx34.pn
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit
@@ -4325,7 +4325,7 @@ _ZN4llvm11SmallVectorINS_9Intrinsic13IITDescriptorELj4EED2Ev.exit: ; preds = %_Z
   ret ptr %44
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit
-  %58 = phi i32 [ %72, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit ], [ %.pre2530, %.lr.ph.preheader ]
+  %58 = phi i32 [ %72, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit ], [ %.pre2536, %.lr.ph.preheader ]
   %.024 = phi ptr [ %73, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit ], [ %3, %.lr.ph.preheader ]
   %59 = load ptr, ptr %.024, align 8, !tbaa !90
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -7087,14 +7087,14 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm14ConstantFolder7FoldGEPEPNS_4T
   %26 = load ptr, ptr %25, align 8, !tbaa !90
   %27 = load i8, ptr %26, align 8, !tbaa !94
   %28 = icmp ugt i8 %27, 21
-  br i1 %28, label %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit24, label %29
+  br i1 %28, label %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit27, label %29
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i.i, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !90
   %32 = load i8, ptr %31, align 8, !tbaa !94
   %33 = icmp ugt i8 %32, 21
-  br i1 %33, label %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit26, label %34
+  br i1 %33, label %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit29, label %34
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i.i, i64 32
@@ -7109,7 +7109,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm14ConstantFolder7FoldGEPEPNS_4T
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %12
   %.pre-phi47.i.i.i.i.i.i = phi i64 [ %38, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %4, %12 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %3, %12 ]
-  switch i64 %.pre-phi47.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.unreachabledefault.i [
+  switch i64 %.pre-phi47.i.i.i.i.i.i, label %default.unreachable [
     i64 3, label %39
     i64 2, label %45
     i64 1, label %51
@@ -7144,23 +7144,23 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm14ConstantFolder7FoldGEPEPNS_4T
   %54 = icmp ugt i8 %53, 21
   br i1 %54, label %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit, label %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.thread
 
-._crit_edge.i.i.i.i.i.unreachabledefault.i:       ; preds = %._crit_edge.i.i.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i
   unreachable
 
 _ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit: ; preds = %19
   %55 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i.i, i64 8
   br label %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit
 
-_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit24: ; preds = %24
+_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit27: ; preds = %24
   %56 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i.i, i64 16
   br label %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit
 
-_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit26: ; preds = %29
+_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit29: ; preds = %29
   %57 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i.i, i64 24
   br label %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit
 
-_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit24, %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit26, %39, %45, %51
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %39 ], [ %.1.i.i.i.i.i.i, %45 ], [ %.2.i.i.i.i.i.i, %51 ], [ %55, %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit ], [ %56, %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit24 ], [ %57, %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit26 ], [ %.02940.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit27, %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit29, %39, %45, %51
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %39 ], [ %.1.i.i.i.i.i.i, %45 ], [ %.2.i.i.i.i.i.i, %51 ], [ %55, %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit ], [ %56, %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit27 ], [ %57, %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit29 ], [ %.02940.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not = icmp eq ptr %13, %.028.i.i.i.i.i.i
   br i1 %.not, label %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.thread, label %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit
 

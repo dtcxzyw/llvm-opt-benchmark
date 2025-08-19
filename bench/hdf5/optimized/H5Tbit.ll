@@ -902,8 +902,8 @@ define i64 @H5T__bit_find(ptr noundef readonly captures(none) %0, i64 noundef %1
 
 111:                                              ; preds = %.preheader115
   %112 = add nsw i64 %.294131, -1
-  %.not167 = icmp eq i64 %.294131, 0
-  br i1 %.not167, label %.loopexit116, label %.preheader115, !llvm.loop !28
+  %.not180 = icmp eq i64 %.294131, 0
+  br i1 %.not180, label %.loopexit116, label %.preheader115, !llvm.loop !28
 
 .loopexit116:                                     ; preds = %111, %99
   %113 = add i64 %.5132, -8

@@ -10061,8 +10061,8 @@ define internal fastcc void @"_ZN4core3ptr39drop_in_place$LT$syn..data..Variant$
           to label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$$LP$syn..token..Eq$C$syn..expr..Expr$RP$$GT$$GT$17h2ea9ee9ab0d97739E.exit" unwind label %78
 
 "_ZN4core3ptr38drop_in_place$LT$syn..data..Fields$GT$17h6757ab127ed65903E.exit.sink.split": ; preds = %67, %54
-  %.sink27 = phi ptr [ %52, %54 ], [ %65, %67 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sink27, i64 noundef 328, i64 noundef 8) #18, !noalias !4
+  %.sink33 = phi ptr [ %52, %54 ], [ %65, %67 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sink33, i64 noundef 328, i64 noundef 8) #18, !noalias !4
   br label %"_ZN4core3ptr38drop_in_place$LT$syn..data..Fields$GT$17h6757ab127ed65903E.exit"
 
 "_ZN4core3ptr38drop_in_place$LT$syn..data..Fields$GT$17h6757ab127ed65903E.exit": ; preds = %"_ZN4core3ptr38drop_in_place$LT$syn..data..Fields$GT$17h6757ab127ed65903E.exit.sink.split", %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h1d4e16b596f502a1E.exit5", %"_ZN4core3ptr92drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..data..Field$C$syn..token..Comma$GT$$GT$17h07e713be9363a91cE.exit.i14", %"_ZN4core3ptr92drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..data..Field$C$syn..token..Comma$GT$$GT$17h07e713be9363a91cE.exit.i"
@@ -20293,10 +20293,10 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$$u5b$proc_macro2..TokenTree$
 
 "_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit.sink.split": ; preds = %15, %10
   %.sink = phi i64 [ 16, %10 ], [ 8, %15 ]
-  %.sink14 = phi i64 [ %12, %10 ], [ %6, %15 ]
+  %.sink17 = phi i64 [ %12, %10 ], [ %6, %15 ]
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink
   %17 = load ptr, ptr %16, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %.sink14, i64 noundef 1) #18, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %.sink17, i64 noundef 1) #18, !noalias !4
   br label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit"
 
 "_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit": ; preds = %15, %15, %10, %10, %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit.sink.split", %13, %.lr.ph
@@ -21204,15 +21204,15 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$darling_core..error..kind..E
   br i1 %65, label %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$darling_core..error..Error$GT$$GT$17hc8348801bddcc1c7E.llvm.566609780180471337.exit", label %.lr.ph
 
 .lr.ph:                                           ; preds = %59, %"_ZN4core3ptr47drop_in_place$LT$darling_core..error..Error$GT$17h310906b68f3bea88E.exit"
-  %.0.i.i21 = phi i64 [ %67, %"_ZN4core3ptr47drop_in_place$LT$darling_core..error..Error$GT$17h310906b68f3bea88E.exit" ], [ 0, %59 ]
-  %66 = getelementptr inbounds [0 x { { { i64, ptr }, i64 }, { i64, [6 x i64] }, { i32, i32 } }], ptr %62, i64 0, i64 %.0.i.i21
-  %67 = add nuw i64 %.0.i.i21, 1
+  %.0.i.i33 = phi i64 [ %67, %"_ZN4core3ptr47drop_in_place$LT$darling_core..error..Error$GT$17h310906b68f3bea88E.exit" ], [ 0, %59 ]
+  %66 = getelementptr inbounds [0 x { { { i64, ptr }, i64 }, { i64, [6 x i64] }, { i32, i32 } }], ptr %62, i64 0, i64 %.0.i.i33
+  %67 = add nuw i64 %.0.i.i33, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8617)
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 24
   invoke void @"_ZN4core3ptr57drop_in_place$LT$darling_core..error..kind..ErrorKind$GT$17hd953ef7ea96f001cE.llvm.566609780180471337"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %68)
-          to label %70 unwind label %.body19, !noalias !8614
+          to label %70 unwind label %.body31, !noalias !8614
 
-.body19:                                          ; preds = %.lr.ph
+.body31:                                          ; preds = %.lr.ph
   %69 = landingpad { ptr, i32 }
           cleanup
   tail call void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h4943a4f3811ddc8eE.llvm.566609780180471337"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %66) #19, !noalias !8614
@@ -21267,8 +21267,8 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$darling_core..error..kind..E
   %87 = icmp eq i64 %67, %64
   br i1 %87, label %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$darling_core..error..Error$GT$$GT$17hc8348801bddcc1c7E.llvm.566609780180471337.exit", label %.lr.ph
 
-88:                                               ; preds = %90, %.body19
-  %.1.i.i = phi i64 [ %67, %.body19 ], [ %92, %90 ]
+88:                                               ; preds = %90, %.body31
+  %.1.i.i = phi i64 [ %67, %.body31 ], [ %92, %90 ]
   %89 = icmp eq i64 %.1.i.i, %64
   br i1 %89, label %.body, label %90
 
@@ -23454,10 +23454,10 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$proc_macr
 
 "_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit.i.sink.split": ; preds = %18, %13
   %.sink = phi i64 [ 16, %13 ], [ 8, %18 ]
-  %.sink9 = phi i64 [ %15, %13 ], [ %9, %18 ]
+  %.sink14 = phi i64 [ %15, %13 ], [ %9, %18 ]
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink
   %20 = load ptr, ptr %19, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %.sink9, i64 noundef 1) #18, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %.sink14, i64 noundef 1) #18, !noalias !4
   br label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit.i"
 
 "_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit.i": ; preds = %18, %18, %13, %13, %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit.i.sink.split", %16, %.lr.ph

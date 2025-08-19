@@ -458,15 +458,15 @@ pmix_argv_append.exit:                            ; preds = %.lr.ph55, %19
   %34 = zext nneg i32 %1 to i64
   %35 = sext i32 %32 to i64
   %invariant.gep = getelementptr ptr, ptr %28, i64 %34
-  %invariant.gep65 = getelementptr ptr, ptr %28, i64 %35
+  %invariant.gep72 = getelementptr ptr, ptr %28, i64 %35
   br label %36
 
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ %33, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
   %37 = load ptr, ptr %gep, align 8, !tbaa !10
-  %gep66 = getelementptr ptr, ptr %invariant.gep65, i64 %indvars.iv
-  store ptr %37, ptr %gep66, align 8, !tbaa !10
+  %gep73 = getelementptr ptr, ptr %invariant.gep72, i64 %indvars.iv
+  store ptr %37, ptr %gep73, align 8, !tbaa !10
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %._crit_edge, label %36, !llvm.loop !22
@@ -552,15 +552,15 @@ define range(i32 -27, 1) i32 @pmix_argv_insert_element(ptr noundef %0, i32 nound
   %29 = zext nneg i32 %1 to i64
   %invariant.gep = getelementptr ptr, ptr %24, i64 %29
   %30 = zext nneg i32 %1 to i64
-  %invariant.gep35 = getelementptr ptr, ptr %24, i64 %30
+  %invariant.gep41 = getelementptr ptr, ptr %24, i64 %30
   br label %31
 
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ %28, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
   %32 = load ptr, ptr %gep, align 8, !tbaa !10
-  %gep36 = getelementptr ptr, ptr %invariant.gep35, i64 %indvars.iv
-  %33 = getelementptr inbounds nuw i8, ptr %gep36, i64 8
+  %gep42 = getelementptr ptr, ptr %invariant.gep41, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i8, ptr %gep42, i64 8
   store ptr %32, ptr %33, align 8, !tbaa !10
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0

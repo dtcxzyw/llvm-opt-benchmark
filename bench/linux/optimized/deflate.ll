@@ -3053,7 +3053,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %77 = getelementptr i8, ptr %74, i64 1
   %78 = load i8, ptr %77, align 1
   %79 = icmp eq i8 %76, %78
-  br i1 %79, label %80, label %.split.loop.exit20.split.loop.exit48
+  br i1 %79, label %80, label %.split.loop.exit20.split.loop.exit55
 
 80:                                               ; preds = %72
   %81 = getelementptr i8, ptr %73, i64 2
@@ -3061,7 +3061,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %83 = getelementptr i8, ptr %74, i64 2
   %84 = load i8, ptr %83, align 1
   %85 = icmp eq i8 %82, %84
-  br i1 %85, label %86, label %.split.loop.exit20.split.loop.exit46
+  br i1 %85, label %86, label %.split.loop.exit20.split.loop.exit53
 
 86:                                               ; preds = %80
   %87 = getelementptr i8, ptr %73, i64 3
@@ -3069,7 +3069,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %89 = getelementptr i8, ptr %74, i64 3
   %90 = load i8, ptr %89, align 1
   %91 = icmp eq i8 %88, %90
-  br i1 %91, label %92, label %.split.loop.exit20.split.loop.exit44
+  br i1 %91, label %92, label %.split.loop.exit20.split.loop.exit51
 
 92:                                               ; preds = %86
   %93 = getelementptr i8, ptr %73, i64 4
@@ -3077,7 +3077,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %95 = getelementptr i8, ptr %74, i64 4
   %96 = load i8, ptr %95, align 1
   %97 = icmp eq i8 %94, %96
-  br i1 %97, label %98, label %.split.loop.exit20.split.loop.exit42
+  br i1 %97, label %98, label %.split.loop.exit20.split.loop.exit49
 
 98:                                               ; preds = %92
   %99 = getelementptr i8, ptr %73, i64 5
@@ -3085,7 +3085,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %101 = getelementptr i8, ptr %74, i64 5
   %102 = load i8, ptr %101, align 1
   %103 = icmp eq i8 %100, %102
-  br i1 %103, label %104, label %.split.loop.exit20.split.loop.exit40
+  br i1 %103, label %104, label %.split.loop.exit20.split.loop.exit47
 
 104:                                              ; preds = %98
   %105 = getelementptr i8, ptr %73, i64 6
@@ -3093,7 +3093,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %107 = getelementptr i8, ptr %74, i64 6
   %108 = load i8, ptr %107, align 1
   %109 = icmp eq i8 %106, %108
-  br i1 %109, label %110, label %.split.loop.exit20.split.loop.exit38
+  br i1 %109, label %110, label %.split.loop.exit20.split.loop.exit45
 
 110:                                              ; preds = %104
   %111 = getelementptr i8, ptr %73, i64 7
@@ -3101,7 +3101,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %113 = getelementptr i8, ptr %74, i64 7
   %114 = load i8, ptr %113, align 1
   %115 = icmp eq i8 %112, %114
-  br i1 %115, label %116, label %.split.loop.exit20.split.loop.exit36
+  br i1 %115, label %116, label %.split.loop.exit20.split.loop.exit43
 
 116:                                              ; preds = %110
   %117 = getelementptr i8, ptr %73, i64 8
@@ -3113,36 +3113,36 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %123 = and i1 %122, %121
   br i1 %123, label %72, label %.split.loop.exit20, !llvm.loop !22
 
-.split.loop.exit20.split.loop.exit36:             ; preds = %110
+.split.loop.exit20.split.loop.exit43:             ; preds = %110
   %124 = getelementptr i8, ptr %73, i64 7
   br label %.split.loop.exit20
 
-.split.loop.exit20.split.loop.exit38:             ; preds = %104
+.split.loop.exit20.split.loop.exit45:             ; preds = %104
   %125 = getelementptr i8, ptr %73, i64 6
   br label %.split.loop.exit20
 
-.split.loop.exit20.split.loop.exit40:             ; preds = %98
+.split.loop.exit20.split.loop.exit47:             ; preds = %98
   %126 = getelementptr i8, ptr %73, i64 5
   br label %.split.loop.exit20
 
-.split.loop.exit20.split.loop.exit42:             ; preds = %92
+.split.loop.exit20.split.loop.exit49:             ; preds = %92
   %127 = getelementptr i8, ptr %73, i64 4
   br label %.split.loop.exit20
 
-.split.loop.exit20.split.loop.exit44:             ; preds = %86
+.split.loop.exit20.split.loop.exit51:             ; preds = %86
   %128 = getelementptr i8, ptr %73, i64 3
   br label %.split.loop.exit20
 
-.split.loop.exit20.split.loop.exit46:             ; preds = %80
+.split.loop.exit20.split.loop.exit53:             ; preds = %80
   %129 = getelementptr i8, ptr %73, i64 2
   br label %.split.loop.exit20
 
-.split.loop.exit20.split.loop.exit48:             ; preds = %72
+.split.loop.exit20.split.loop.exit55:             ; preds = %72
   %130 = getelementptr i8, ptr %73, i64 1
   br label %.split.loop.exit20
 
-.split.loop.exit20:                               ; preds = %116, %.split.loop.exit20.split.loop.exit48, %.split.loop.exit20.split.loop.exit46, %.split.loop.exit20.split.loop.exit44, %.split.loop.exit20.split.loop.exit42, %.split.loop.exit20.split.loop.exit40, %.split.loop.exit20.split.loop.exit38, %.split.loop.exit20.split.loop.exit36
-  %131 = phi ptr [ %124, %.split.loop.exit20.split.loop.exit36 ], [ %125, %.split.loop.exit20.split.loop.exit38 ], [ %126, %.split.loop.exit20.split.loop.exit40 ], [ %127, %.split.loop.exit20.split.loop.exit42 ], [ %128, %.split.loop.exit20.split.loop.exit44 ], [ %129, %.split.loop.exit20.split.loop.exit46 ], [ %130, %.split.loop.exit20.split.loop.exit48 ], [ %117, %116 ]
+.split.loop.exit20:                               ; preds = %116, %.split.loop.exit20.split.loop.exit55, %.split.loop.exit20.split.loop.exit53, %.split.loop.exit20.split.loop.exit51, %.split.loop.exit20.split.loop.exit49, %.split.loop.exit20.split.loop.exit47, %.split.loop.exit20.split.loop.exit45, %.split.loop.exit20.split.loop.exit43
+  %131 = phi ptr [ %124, %.split.loop.exit20.split.loop.exit43 ], [ %125, %.split.loop.exit20.split.loop.exit45 ], [ %126, %.split.loop.exit20.split.loop.exit47 ], [ %127, %.split.loop.exit20.split.loop.exit49 ], [ %128, %.split.loop.exit20.split.loop.exit51 ], [ %129, %.split.loop.exit20.split.loop.exit53 ], [ %130, %.split.loop.exit20.split.loop.exit55 ], [ %117, %116 ]
   %132 = ptrtoint ptr %131 to i64
   %133 = sub i64 %132, %42
   %134 = trunc i64 %133 to i32

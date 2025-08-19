@@ -861,14 +861,14 @@ define internal i32 @dissect_usb_vid_control(ptr noundef %0, ptr noundef %1, ptr
   br i1 %19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %22
-  %.04044 = phi ptr [ %23, %22 ], [ @setup_dissectors, %.preheader ]
-  %20 = getelementptr i8, ptr %.04044, i64 24
+  %.04046 = phi ptr [ %23, %22 ], [ @setup_dissectors, %.preheader ]
+  %20 = getelementptr i8, ptr %.04046, i64 24
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %.thread, label %22, !llvm.loop !6
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr i8, ptr %.04044, i64 16
+  %23 = getelementptr i8, ptr %.04046, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, %18
   br i1 %25, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -1740,7 +1740,7 @@ define internal i32 @dissect_usb_vid_get_set(ptr noundef readonly captures(none)
 32:                                               ; preds = %.thread.i.i, %26
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 6
   %34 = load i16, ptr %33, align 2
-  switch i16 %34, label %get_control_selector_name.exit.thread.thread130 [
+  switch i16 %34, label %get_control_selector_name.exit.thread.thread140 [
     i16 1, label %get_control_selector_name.exit
     i16 2, label %get_control_selector_values.exit.thread10.fold.split.i
   ]
@@ -1783,9 +1783,9 @@ get_control_selector_name.exit:                   ; preds = %32, %36, %39, %43, 
 
 get_control_selector_name.exit.thread:            ; preds = %7, %20, %get_control_selector_name.exit
   %47 = icmp ult i16 %9, 256
-  br i1 %47, label %get_control_selector_name.exit.thread.thread130, label %get_control_selector_name.exit.thread.thread
+  br i1 %47, label %get_control_selector_name.exit.thread.thread140, label %get_control_selector_name.exit.thread.thread
 
-get_control_selector_name.exit.thread.thread130:  ; preds = %32, %get_control_selector_name.exit.thread
+get_control_selector_name.exit.thread.thread140:  ; preds = %32, %get_control_selector_name.exit.thread
   %48 = load ptr, ptr %15, align 8
   %49 = load ptr, ptr %17, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 10
@@ -1800,8 +1800,8 @@ get_control_selector_name.exit.thread.thread:     ; preds = %36, %35, %39, %.thr
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.555, i32 noundef %53, i32 noundef %14)
   br label %55
 
-55:                                               ; preds = %get_control_selector_name.exit.thread.thread130, %get_control_selector_name.exit.thread.thread, %45
-  %.0111 = phi ptr [ %44, %45 ], [ @.str.442, %get_control_selector_name.exit.thread.thread130 ], [ @.str.442, %get_control_selector_name.exit.thread.thread ]
+55:                                               ; preds = %get_control_selector_name.exit.thread.thread140, %get_control_selector_name.exit.thread.thread, %45
+  %.0111 = phi ptr [ %44, %45 ], [ @.str.442, %get_control_selector_name.exit.thread.thread140 ], [ @.str.442, %get_control_selector_name.exit.thread.thread ]
   %56 = load ptr, ptr %15, align 8
   tail call void @col_append_str(ptr noundef %56, i32 noundef 25, ptr noundef nonnull @.str.556)
   %57 = load ptr, ptr %15, align 8

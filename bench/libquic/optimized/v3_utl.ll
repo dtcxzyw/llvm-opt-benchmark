@@ -2127,14 +2127,14 @@ skip_prefix.exit:                                 ; preds = %.critedge.i, %5
   br i1 %.not, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %17, %12, %skip_prefix.exit
-  %.24172 = phi ptr [ %.241, %skip_prefix.exit ], [ %scevgep16.i, %12 ], [ %scevgep16.i, %17 ]
+  %.24179 = phi ptr [ %.241, %skip_prefix.exit ], [ %scevgep16.i, %12 ], [ %scevgep16.i, %17 ]
   %.not3055 = icmp eq i64 %3, 0
   br i1 %.not3055, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %31
   %.02658 = phi ptr [ %33, %31 ], [ %2, %.preheader ]
   %.03857 = phi i64 [ %34, %31 ], [ %3, %.preheader ]
-  %.03956 = phi ptr [ %32, %31 ], [ %.24172, %.preheader ]
+  %.03956 = phi ptr [ %32, %31 ], [ %.24179, %.preheader ]
   %22 = load i8, ptr %.03956, align 1, !tbaa !18
   %23 = load i8, ptr %.02658, align 1, !tbaa !18
   %24 = icmp eq i8 %22, 0
@@ -2381,14 +2381,14 @@ skip_prefix.exit.i:                               ; preds = %.critedge.i.i, %val
   br i1 %.not.i23, label %.preheader.i, label %equal_nocase.exit
 
 .preheader.i:                                     ; preds = %84, %79, %skip_prefix.exit.i
-  %.24172.i = phi ptr [ %.241.i, %skip_prefix.exit.i ], [ %scevgep16.i.i, %79 ], [ %scevgep16.i.i, %84 ]
+  %.24179.i = phi ptr [ %.241.i, %skip_prefix.exit.i ], [ %scevgep16.i.i, %79 ], [ %scevgep16.i.i, %84 ]
   %.not3055.i = icmp eq i64 %3, 0
   br i1 %.not3055.i, label %equal_nocase.exit, label %.lr.ph.i24
 
 .lr.ph.i24:                                       ; preds = %.preheader.i, %98
   %.02658.i = phi ptr [ %100, %98 ], [ %2, %.preheader.i ]
   %.03857.i = phi i64 [ %101, %98 ], [ %3, %.preheader.i ]
-  %.03956.i = phi ptr [ %99, %98 ], [ %.24172.i, %.preheader.i ]
+  %.03956.i = phi ptr [ %99, %98 ], [ %.24179.i, %.preheader.i ]
   %89 = load i8, ptr %.03956.i, align 1, !tbaa !18
   %90 = load i8, ptr %.02658.i, align 1, !tbaa !18
   %91 = icmp eq i8 %89, 0

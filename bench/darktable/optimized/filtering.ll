@@ -1981,8 +1981,8 @@ define internal fastcc void @_history_save(i32 noundef range(i32 0, 2) %0) unnam
   call void @dt_conf_set_string(ptr noundef nonnull %3, ptr noundef %31) #20
   call void @g_free(ptr noundef %31) #20
   %34 = add nsw i32 %.03, -1
-  %.not7 = icmp eq i32 %.03, 0
-  br i1 %.not7, label %._crit_edge6, label %.lr.ph5
+  %.not8 = icmp eq i32 %.03, 0
+  br i1 %.not8, label %._crit_edge6, label %.lr.ph5
 
 35:                                               ; preds = %7, %._crit_edge6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2014,9 +2014,9 @@ define internal fastcc void @_filters_gui_update(ptr noundef %0) unnamed_addr #1
 12:                                               ; preds = %1
   %13 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.71) #20
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %.thread78, label %16
+  br i1 %14, label %.thread86, label %16
 
-.thread78:                                        ; preds = %12
+.thread86:                                        ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 3840
   store i32 0, ptr %15, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -2041,9 +2041,9 @@ define internal fastcc void @_filters_gui_update(ptr noundef %0) unnamed_addr #1
   %22 = icmp slt i32 %100, 10
   br i1 %22, label %.lr.ph69.preheader, label %._crit_edge
 
-.lr.ph69.preheader:                               ; preds = %.thread78, %16, %.preheader
-  %.lcssa6680 = phi i32 [ %100, %.preheader ], [ 0, %.thread78 ], [ %17, %16 ]
-  %23 = sext i32 %.lcssa6680 to i64
+.lr.ph69.preheader:                               ; preds = %.thread86, %16, %.preheader
+  %.lcssa6688 = phi i32 [ %100, %.preheader ], [ 0, %.thread86 ], [ %17, %16 ]
+  %23 = sext i32 %.lcssa6688 to i64
   br label %.lr.ph69
 
 24:                                               ; preds = %.lr.ph, %_widget_update.exit
@@ -2324,9 +2324,9 @@ define internal fastcc void @_sort_gui_update(ptr noundef %0) unnamed_addr #1 {
   br i1 %30, label %.lr.ph49, label %._crit_edge
 
 .lr.ph49:                                         ; preds = %22, %.preheader
-  %.lcssa58 = phi i32 [ %59, %.preheader ], [ %17, %22 ]
+  %.lcssa61 = phi i32 [ %59, %.preheader ], [ %17, %22 ]
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 3872
-  %32 = sext i32 %.lcssa58 to i64
+  %32 = sext i32 %.lcssa61 to i64
   br label %66
 
 33:                                               ; preds = %.lr.ph, %58
@@ -2940,9 +2940,9 @@ define internal void @_event_history_show(ptr noundef %0, ptr noundef %1) #1 {
   %46 = load i32, ptr %6, align 4, !tbaa !114
   %switch.selectcmp.i = icmp eq i32 %46, 1
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.327, ptr @.str.328
-  %switch.selectcmp116.i = icmp eq i32 %46, 0
-  %switch.select117.i = select i1 %switch.selectcmp116.i, ptr @.str.326, ptr %switch.select.i
-  %47 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %switch.select117.i, i32 noundef 5) #20
+  %switch.selectcmp120.i = icmp eq i32 %46, 0
+  %switch.select121.i = select i1 %switch.selectcmp120.i, ptr @.str.326, ptr %switch.select.i
+  %47 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %switch.select121.i, i32 noundef 5) #20
   %48 = call i64 @g_strlcpy(ptr noundef %44, ptr noundef %47, i64 noundef %45) #20
   %sext91.i = shl i64 %48, 32
   %49 = ashr exact i64 %sext91.i, 32
@@ -8976,7 +8976,7 @@ define internal range(i32 0, 2) i32 @_local_copy_update(ptr noundef %0) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %6 = load ptr, ptr %5, align 8, !tbaa !124
   %.not = icmp eq ptr %6, null
-  %indvars.iv.sroa.gep25 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %indvars.iv.sroa.gep26 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br i1 %.not, label %86, label %7
 
 7:                                                ; preds = %1
@@ -9109,7 +9109,7 @@ _local_copy_synchronise.exit:                     ; preds = %61, %62
 
 76:                                               ; preds = %._crit_edge, %76
   %77 = phi i1 [ true, %._crit_edge ], [ false, %76 ]
-  %indvars.iv.sroa.phi = phi ptr [ %3, %._crit_edge ], [ %indvars.iv.sroa.gep25, %76 ]
+  %indvars.iv.sroa.phi = phi ptr [ %3, %._crit_edge ], [ %indvars.iv.sroa.gep26, %76 ]
   %indvars.iv = phi i64 [ 1, %._crit_edge ], [ 2, %76 ]
   %78 = getelementptr inbounds nuw [4 x ptr], ptr @_local_copy_names, i64 0, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8, !tbaa !77
@@ -11027,10 +11027,10 @@ define internal ptr @_iso_print_func(double noundef %0, i32 noundef %1) #1 {
 3:                                                ; preds = %2
   %4 = fcmp reassoc nsz arcp contract afn olt double %0, 2.000000e+02
   %. = select i1 %4, double 4.000000e-02, double 2.000000e-02
-  %.11 = select i1 %4, double 2.500000e+01, double 5.000000e+01
+  %.12 = select i1 %4, double 2.500000e+01, double 5.000000e+01
   %5 = fmul reassoc nsz arcp contract afn double %0, %.
   %6 = tail call reassoc nsz arcp contract afn double @llvm.round.f64(double %5)
-  %7 = fmul reassoc nsz arcp contract afn double %6, %.11
+  %7 = fmul reassoc nsz arcp contract afn double %6, %.12
   %8 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.240, double noundef %7) #20
   br label %11
 

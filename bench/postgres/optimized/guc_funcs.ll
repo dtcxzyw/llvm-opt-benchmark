@@ -157,12 +157,12 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %41 = load i32, ptr %39, align 4
   %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.lr.ph107, label %.critedge
+  br i1 %42, label %.lr.ph108, label %.critedge
 
-.lr.ph107:                                        ; preds = %.lr.ph78, %61
-  %indvars.iv83106 = phi i64 [ %indvars.iv.next84, %61 ], [ 0, %.lr.ph78 ]
+.lr.ph108:                                        ; preds = %.lr.ph78, %61
+  %indvars.iv83107 = phi i64 [ %indvars.iv.next84, %61 ], [ 0, %.lr.ph78 ]
   %43 = load ptr, ptr %40, align 8
-  %44 = getelementptr inbounds nuw %union.ListCell, ptr %43, i64 %indvars.iv83106
+  %44 = getelementptr inbounds nuw %union.ListCell, ptr %43, i64 %indvars.iv83107
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
@@ -170,7 +170,7 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %61, label %50
 
-50:                                               ; preds = %.lr.ph107
+50:                                               ; preds = %.lr.ph108
   %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(22) @.str.6) #9
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %61, label %53
@@ -189,22 +189,22 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 98, ptr noundef nonnull @__func__.ExecSetVariableStmt) #7
   unreachable
 
-61:                                               ; preds = %53, %50, %.lr.ph107
-  %.str.6.sink93 = phi ptr [ @.str.5, %.lr.ph107 ], [ @.str.6, %50 ], [ @.str.7, %53 ]
+61:                                               ; preds = %53, %50, %.lr.ph108
+  %.str.6.sink94 = phi ptr [ @.str.5, %.lr.ph108 ], [ @.str.6, %50 ], [ @.str.7, %53 ]
   %62 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %63 = load ptr, ptr %62, align 8
   %64 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %63) #7
   %65 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %66 = zext nneg i8 %65 to i32
-  %67 = tail call fastcc ptr @flatten_set_variable_args(ptr noundef nonnull %.str.6.sink93, ptr noundef readonly %64)
+  %67 = tail call fastcc ptr @flatten_set_variable_args(ptr noundef nonnull %.str.6.sink94, ptr noundef readonly %64)
   %68 = tail call zeroext i1 @superuser() #7
   %69 = select i1 %68, i32 5, i32 6
-  %70 = tail call i32 @set_config_option(ptr noundef nonnull %.str.6.sink93, ptr noundef %67, i32 noundef %69, i32 noundef 13, i32 noundef %66, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #7
-  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83106, 1
+  %70 = tail call i32 @set_config_option(ptr noundef nonnull %.str.6.sink94, ptr noundef %67, i32 noundef %69, i32 noundef 13, i32 noundef %66, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #7
+  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83107, 1
   %71 = load i32, ptr %39, align 4
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next84, %72
-  br i1 %73, label %.lr.ph107, label %.critedge
+  br i1 %73, label %.lr.ph108, label %.critedge
 
 74:                                               ; preds = %31
   %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(24) @.str.9) #9
@@ -222,12 +222,12 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %82 = load i32, ptr %80, align 4
   %83 = icmp sgt i32 %82, 0
-  br i1 %83, label %.lr.ph105, label %.critedge
+  br i1 %83, label %.lr.ph106, label %.critedge
 
-.lr.ph105:                                        ; preds = %.lr.ph, %102
-  %indvars.iv104 = phi i64 [ %indvars.iv.next, %102 ], [ 0, %.lr.ph ]
+.lr.ph106:                                        ; preds = %.lr.ph, %102
+  %indvars.iv105 = phi i64 [ %indvars.iv.next, %102 ], [ 0, %.lr.ph ]
   %84 = load ptr, ptr %81, align 8
-  %85 = getelementptr inbounds nuw %union.ListCell, ptr %84, i64 %indvars.iv104
+  %85 = getelementptr inbounds nuw %union.ListCell, ptr %84, i64 %indvars.iv105
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8
@@ -235,7 +235,7 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %102, label %91
 
-91:                                               ; preds = %.lr.ph105
+91:                                               ; preds = %.lr.ph106
   %92 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull dereferenceable(22) @.str.6) #9
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %102, label %94
@@ -254,22 +254,22 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 120, ptr noundef nonnull @__func__.ExecSetVariableStmt) #7
   unreachable
 
-102:                                              ; preds = %94, %91, %.lr.ph105
-  %.str.11.sink99 = phi ptr [ @.str.10, %.lr.ph105 ], [ @.str.11, %91 ], [ @.str.12, %94 ]
+102:                                              ; preds = %94, %91, %.lr.ph106
+  %.str.11.sink100 = phi ptr [ @.str.10, %.lr.ph106 ], [ @.str.11, %91 ], [ @.str.12, %94 ]
   %103 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %104 = load ptr, ptr %103, align 8
   %105 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %104) #7
   %106 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %107 = zext nneg i8 %106 to i32
-  %108 = tail call fastcc ptr @flatten_set_variable_args(ptr noundef nonnull %.str.11.sink99, ptr noundef readonly %105)
+  %108 = tail call fastcc ptr @flatten_set_variable_args(ptr noundef nonnull %.str.11.sink100, ptr noundef readonly %105)
   %109 = tail call zeroext i1 @superuser() #7
   %110 = select i1 %109, i32 5, i32 6
-  %111 = tail call i32 @set_config_option(ptr noundef nonnull %.str.11.sink99, ptr noundef %108, i32 noundef %110, i32 noundef 13, i32 noundef %107, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #7
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv104, 1
+  %111 = tail call i32 @set_config_option(ptr noundef nonnull %.str.11.sink100, ptr noundef %108, i32 noundef %110, i32 noundef 13, i32 noundef %107, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #7
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv105, 1
   %112 = load i32, ptr %80, align 4
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next, %113
-  br i1 %114, label %.lr.ph105, label %.critedge
+  br i1 %114, label %.lr.ph106, label %.critedge
 
 115:                                              ; preds = %74
   %116 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(21) @.str.14) #9
@@ -720,9 +720,9 @@ define dso_local void @GetPGVariable(ptr noundef %0, ptr noundef %1) local_unnam
   br label %40
 
 40:                                               ; preds = %37, %32
-  %storemerge29.i = phi i64 [ %39, %37 ], [ 0, %32 ]
+  %storemerge30.i = phi i64 [ %39, %37 ], [ 0, %32 ]
   %storemerge.i = phi i8 [ 0, %37 ], [ 1, %32 ]
-  store i64 %storemerge29.i, ptr %17, align 8
+  store i64 %storemerge30.i, ptr %17, align 8
   store i8 %storemerge.i, ptr %18, align 1
   %41 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %42 = load ptr, ptr %41, align 8
@@ -735,10 +735,10 @@ define dso_local void @GetPGVariable(ptr noundef %0, ptr noundef %1) local_unnam
   br label %46
 
 46:                                               ; preds = %43, %40
-  %storemerge31.i = phi i64 [ %45, %43 ], [ 0, %40 ]
-  %storemerge30.i = phi i8 [ 0, %43 ], [ 1, %40 ]
-  store i64 %storemerge31.i, ptr %19, align 16
-  store i8 %storemerge30.i, ptr %20, align 1
+  %storemerge32.i = phi i64 [ %45, %43 ], [ 0, %40 ]
+  %storemerge31.i = phi i8 [ 0, %43 ], [ 1, %40 ]
+  store i64 %storemerge32.i, ptr %19, align 16
+  store i8 %storemerge31.i, ptr %20, align 1
   call void @do_tup_output(ptr noundef %14, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %47 = load i64, ptr %7, align 16
   %48 = inttoptr i64 %47 to ptr

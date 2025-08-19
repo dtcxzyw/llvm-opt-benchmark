@@ -408,7 +408,7 @@ define void @_ZN8nanobind12python_error7restoreEv(ptr noundef nonnull align 8 ca
 declare void @PyErr_Restore(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK8nanobind12python_error4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK8nanobind12python_error4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [10 x i8], align 1
   %3 = alloca ptr, align 8
   %4 = alloca %"class.std::vector", align 8
@@ -1278,7 +1278,7 @@ define void @_ZN8nanobind6detail29register_exception_translatorEPFvRKNSt15__exce
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail13exception_newEP7_objectPKcS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8nanobind6detail13exception_newEP7_objectPKcS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.nanobind::object", align 8
   %5 = alloca %"class.nanobind::str", align 8
   %6 = alloca %"class.nanobind::object", align 8

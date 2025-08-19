@@ -535,7 +535,7 @@ lookup_cert_match.exit.i:                         ; preds = %._crit_edge.i.i
   br i1 %.not223, label %check_trust.exit, label %.thread255
 
 .thread255:                                       ; preds = %180, %.lr.ph.i239, %203, %243, %.loopexit
-  %.2179 = phi i32 [ %.1178, %.loopexit ], [ 1, %243 ], [ %.1178, %203 ], [ %.1178, %.lr.ph.i239 ], [ %.1178, %180 ]
+  %.2179 = phi i32 [ 1, %.loopexit ], [ 1, %243 ], [ %.1178, %203 ], [ %.1178, %.lr.ph.i239 ], [ %.1178, %180 ]
   %.3 = phi ptr [ %.2164, %.loopexit ], [ %.4, %243 ], [ %.2164, %203 ], [ %.2164, %.lr.ph.i239 ], [ %.2164, %180 ]
   %245 = call fastcc i32 @check_chain_extensions(ptr noundef nonnull %0)
   %.not224 = icmp eq i32 %245, 0
@@ -1164,15 +1164,15 @@ define internal i32 @internal_verify(ptr noundef initializes((180, 184)) %0) #0 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %28, %110
-  %.sink92 = phi i32 [ %108, %110 ], [ %29, %28 ]
+  %.sink96 = phi i32 [ %108, %110 ], [ %29, %28 ]
   %.1.ph = phi ptr [ %.167, %110 ], [ %12, %28 ]
   %30 = load ptr, ptr %4, align 8, !tbaa !23
-  %31 = zext nneg i32 %.sink92 to i64
+  %31 = zext nneg i32 %.sink96 to i64
   %32 = tail call ptr @sk_value(ptr noundef %30, i64 noundef %31) #14
   br label %33
 
 33:                                               ; preds = %.sink.split, %107, %1
-  %.271 = phi i32 [ %8, %1 ], [ %108, %107 ], [ %.sink92, %.sink.split ]
+  %.271 = phi i32 [ %8, %1 ], [ %108, %107 ], [ %.sink96, %.sink.split ]
   %.268 = phi ptr [ %12, %1 ], [ %.167, %107 ], [ %32, %.sink.split ]
   %.1 = phi ptr [ %12, %1 ], [ %.065, %107 ], [ %.1.ph, %.sink.split ]
   %34 = icmp sgt i32 %.271, -1
@@ -1363,8 +1363,8 @@ define hidden i32 @X509_cmp_time(ptr noundef readonly captures(none) %0, ptr nou
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !99
   %12 = icmp eq i32 %11, 23
-  %.sink158.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %.sink158.sroa.gep159 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %.sink161.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %.sink161.sroa.gep162 = getelementptr inbounds nuw i8, ptr %5, i64 10
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %2
@@ -1386,10 +1386,10 @@ define hidden i32 @X509_cmp_time(ptr noundef readonly captures(none) %0, ptr nou
   br label %19
 
 19:                                               ; preds = %18, %15
-  %.sink158.sroa.phi = phi ptr [ %.sink158.sroa.gep, %18 ], [ %.sink158.sroa.gep159, %15 ]
-  %.sink158 = phi i64 [ 12, %18 ], [ 10, %15 ]
+  %.sink161.sroa.phi = phi ptr [ %.sink161.sroa.gep, %18 ], [ %.sink161.sroa.gep162, %15 ]
+  %.sink161 = phi i64 [ 12, %18 ], [ 10, %15 ]
   %.sink = phi i32 [ -12, %18 ], [ -10, %15 ]
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink158
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink161
   %21 = add nsw i32 %7, %.sink
   %22 = load i8, ptr %20, align 1, !tbaa !100
   switch i8 %22, label %25 [
@@ -1399,8 +1399,8 @@ define hidden i32 @X509_cmp_time(ptr noundef readonly captures(none) %0, ptr nou
   ]
 
 23:                                               ; preds = %19, %19, %19
-  %24 = getelementptr inbounds nuw i8, ptr %.sink158.sroa.phi, i64 1
-  store i8 48, ptr %.sink158.sroa.phi, align 2, !tbaa !100
+  %24 = getelementptr inbounds nuw i8, ptr %.sink161.sroa.phi, i64 1
+  store i8 48, ptr %.sink161.sroa.phi, align 2, !tbaa !100
   store i8 48, ptr %24, align 1, !tbaa !100
   br label %.thread
 
@@ -1410,8 +1410,8 @@ define hidden i32 @X509_cmp_time(ptr noundef readonly captures(none) %0, ptr nou
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  %29 = getelementptr inbounds nuw i8, ptr %.sink158.sroa.phi, i64 1
-  store i8 %22, ptr %.sink158.sroa.phi, align 2, !tbaa !100
+  %29 = getelementptr inbounds nuw i8, ptr %.sink161.sroa.phi, i64 1
+  store i8 %22, ptr %.sink161.sroa.phi, align 2, !tbaa !100
   %30 = load i8, ptr %28, align 1, !tbaa !100
   store i8 %30, ptr %29, align 1, !tbaa !100
   %31 = add nsw i32 %21, -2
@@ -1419,8 +1419,8 @@ define hidden i32 @X509_cmp_time(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %.not, label %.thread138, label %33
 
 .thread138:                                       ; preds = %27
-  %.392141 = getelementptr inbounds nuw i8, ptr %.sink158.sroa.phi, i64 2
-  %32 = getelementptr inbounds nuw i8, ptr %.sink158.sroa.phi, i64 3
+  %.392141 = getelementptr inbounds nuw i8, ptr %.sink161.sroa.phi, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.sink161.sroa.phi, i64 3
   store i8 90, ptr %.392141, align 2, !tbaa !100
   store i8 0, ptr %32, align 1, !tbaa !100
   br label %.critedge
@@ -1437,9 +1437,9 @@ define hidden i32 @X509_cmp_time(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %.not151, label %._crit_edge.thread, label %.lr.ph.preheader
 
 ._crit_edge.thread:                               ; preds = %37
-  %.392155 = getelementptr inbounds nuw i8, ptr %.sink158.sroa.phi, i64 2
-  %39 = getelementptr inbounds nuw i8, ptr %.sink158.sroa.phi, i64 3
-  store i8 90, ptr %.392155, align 2, !tbaa !100
+  %.392158 = getelementptr inbounds nuw i8, ptr %.sink161.sroa.phi, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %.sink161.sroa.phi, i64 3
+  store i8 90, ptr %.392158, align 2, !tbaa !100
   store i8 0, ptr %39, align 1, !tbaa !100
   br label %.critedge
 
@@ -1468,8 +1468,8 @@ define hidden i32 @X509_cmp_time(ptr noundef readonly captures(none) %0, ptr nou
 .thread:                                          ; preds = %23, %33
   %.396.ph = phi i32 [ %31, %33 ], [ %21, %23 ]
   %.3.ph = phi ptr [ %34, %33 ], [ %20, %23 ]
-  %.392134 = getelementptr inbounds nuw i8, ptr %.sink158.sroa.phi, i64 2
-  %48 = getelementptr inbounds nuw i8, ptr %.sink158.sroa.phi, i64 3
+  %.392134 = getelementptr inbounds nuw i8, ptr %.sink161.sroa.phi, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %.sink161.sroa.phi, i64 3
   store i8 90, ptr %.392134, align 2, !tbaa !100
   store i8 0, ptr %48, align 1, !tbaa !100
   br label %50
@@ -1477,8 +1477,8 @@ define hidden i32 @X509_cmp_time(ptr noundef readonly captures(none) %0, ptr nou
 ._crit_edge:                                      ; preds = %44, %.lr.ph
   %.497.lcssa = phi i32 [ %47, %44 ], [ %.497145, %.lr.ph ]
   %.4.lcssa = phi ptr [ %46, %44 ], [ %.4146, %.lr.ph ]
-  %.392 = getelementptr inbounds nuw i8, ptr %.sink158.sroa.phi, i64 2
-  %49 = getelementptr inbounds nuw i8, ptr %.sink158.sroa.phi, i64 3
+  %.392 = getelementptr inbounds nuw i8, ptr %.sink161.sroa.phi, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %.sink161.sroa.phi, i64 3
   store i8 90, ptr %.392, align 2, !tbaa !100
   store i8 0, ptr %49, align 1, !tbaa !100
   %.not115 = icmp eq i32 %.497.lcssa, 0
@@ -2777,7 +2777,7 @@ define internal range(i32 0, 2) i32 @check_revocation(ptr noundef %0) #0 {
   br i1 %.not1722, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %18
-  %.01230 = phi i64 [ %21, %18 ], [ 1, %15 ]
+  %.01233 = phi i64 [ %21, %18 ], [ 1, %15 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -2792,7 +2792,7 @@ define internal range(i32 0, 2) i32 @check_revocation(ptr noundef %0) #0 {
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %wide.trip.count = and i64 %.01230, 4294967295
+  %wide.trip.count = and i64 %.01233, 4294967295
   br label %38
 
 38:                                               ; preds = %.lr.ph, %90
@@ -4092,9 +4092,9 @@ crldp_check_crlissuer.exit.thread41.i.i:          ; preds = %167, %crldp_check_c
   br i1 %.not.i37.i.i, label %crldp_check_crlissuer.exit.thread.i.i, label %.preheader53.i.i.i
 
 .preheader53.i.i.i:                               ; preds = %197, %188
-  %.sink74.i.i.i = phi ptr [ %179, %188 ], [ %178, %197 ]
+  %.sink81.i.i.i = phi ptr [ %179, %188 ], [ %178, %197 ]
   %.039.ph.i.i.i = phi ptr [ %187, %188 ], [ %199, %197 ]
-  %200 = getelementptr inbounds nuw i8, ptr %.sink74.i.i.i, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %.sink81.i.i.i, i64 8
   %201 = load ptr, ptr %200, align 8, !tbaa !100
   %202 = tail call i64 @sk_num(ptr noundef %201) #14
   %.not62.i.i.i = icmp eq i64 %202, 0
@@ -4398,8 +4398,8 @@ check_delta_base.exit.thread.i:                   ; preds = %check_delta_base.ex
   br label %get_delta_sk.exit
 
 get_delta_sk.exit:                                ; preds = %7, %.sink.split.i, %271, %265, %._crit_edge
-  %.039.lcssa104 = phi i32 [ %.140, %.sink.split.i ], [ %.140, %271 ], [ %.140, %265 ], [ %.140, %._crit_edge ], [ %8, %7 ]
-  %337 = icmp sgt i32 %.039.lcssa104, 447
+  %.039.lcssa125 = phi i32 [ %.140, %.sink.split.i ], [ %.140, %271 ], [ %.140, %265 ], [ %.140, %._crit_edge ], [ %8, %7 ]
+  %337 = icmp sgt i32 %.039.lcssa125, 447
   %. = zext i1 %337 to i32
   ret i32 %.
 }

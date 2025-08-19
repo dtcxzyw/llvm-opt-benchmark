@@ -1650,127 +1650,132 @@ define noundef ptr @ggml_backend_sched_new(ptr noundef readonly captures(none) %
   %67 = getelementptr inbounds nuw i8, ptr %25, i64 448
   %wide.trip.count = zext nneg i32 %2 to i64
   %68 = zext nneg i32 %33 to i64
-  br label %88
+  %69 = shl nuw nsw i32 %33, 3
+  %70 = zext nneg i32 %69 to i64
+  br label %90
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %69 = getelementptr inbounds nuw i8, ptr %25, i64 136
-  %70 = call ptr @ggml_gallocr_new_n(ptr noundef nonnull %69, i32 noundef %2)
-  %71 = getelementptr inbounds nuw i8, ptr %25, i64 264
-  store ptr %70, ptr %71, align 8, !tbaa !131
-  %72 = load i8, ptr %25, align 8, !tbaa !132, !range !133, !noundef !134
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %ggml_backend_sched_reset.exit, label %74
+  %71 = getelementptr inbounds nuw i8, ptr %25, i64 136
+  %72 = call ptr @ggml_gallocr_new_n(ptr noundef nonnull %71, i32 noundef %2)
+  %73 = getelementptr inbounds nuw i8, ptr %25, i64 264
+  store ptr %72, ptr %73, align 8, !tbaa !131
+  %74 = load i8, ptr %25, align 8, !tbaa !132, !range !133, !noundef !134
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %ggml_backend_sched_reset.exit, label %76
 
-74:                                               ; preds = %._crit_edge
+76:                                               ; preds = %._crit_edge
   call void @ggml_hash_set_reset(ptr noundef nonnull %35)
-  %75 = load ptr, ptr %39, align 8, !tbaa !121
-  %76 = load i64, ptr %35, align 8, !tbaa !120
-  %77 = shl i64 %76, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %75, i8 -1, i64 %77, i1 false)
-  %78 = load ptr, ptr %46, align 8, !tbaa !122
-  %79 = load i64, ptr %35, align 8, !tbaa !120
-  %80 = load i32, ptr %32, align 4, !tbaa !115
-  %81 = sext i32 %80 to i64
-  %82 = load i32, ptr %34, align 8, !tbaa !116
+  %77 = load ptr, ptr %39, align 8, !tbaa !121
+  %78 = load i64, ptr %35, align 8, !tbaa !120
+  %79 = shl i64 %78, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %77, i8 -1, i64 %79, i1 false)
+  %80 = load ptr, ptr %46, align 8, !tbaa !122
+  %81 = load i64, ptr %35, align 8, !tbaa !120
+  %82 = load i32, ptr %32, align 4, !tbaa !115
   %83 = sext i32 %82 to i64
-  %84 = shl i64 %79, 3
-  %85 = mul i64 %84, %81
-  %86 = mul i64 %85, %83
-  call void @llvm.memset.p0.i64(ptr align 8 %78, i8 0, i64 %86, i1 false)
+  %84 = load i32, ptr %34, align 8, !tbaa !116
+  %85 = sext i32 %84 to i64
+  %86 = shl i64 %81, 3
+  %87 = mul i64 %86, %83
+  %88 = mul i64 %87, %85
+  call void @llvm.memset.p0.i64(ptr align 8 %80, i8 0, i64 %88, i1 false)
   store i8 1, ptr %25, align 8, !tbaa !132
   br label %ggml_backend_sched_reset.exit
 
-ggml_backend_sched_reset.exit:                    ; preds = %._crit_edge, %74
-  %87 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  store i8 0, ptr %87, align 1, !tbaa !135
+ggml_backend_sched_reset.exit:                    ; preds = %._crit_edge, %76
+  %89 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  store i8 0, ptr %89, align 1, !tbaa !135
   ret ptr %25
 
-88:                                               ; preds = %.lr.ph75, %.loopexit
+90:                                               ; preds = %.lr.ph75, %.loopexit
+  %91 = phi i32 [ %33, %.lr.ph75 ], [ %135, %.loopexit ]
   %indvar = phi i64 [ 0, %.lr.ph75 ], [ %indvar.next, %.loopexit ]
-  %89 = shl nuw nsw i64 %indvar, 5
-  %90 = getelementptr i8, ptr %25, i64 %89
-  %scevgep = getelementptr i8, ptr %90, i64 448
-  %91 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvar
-  %92 = load ptr, ptr %91, align 8, !tbaa !102
-  %93 = getelementptr inbounds nuw [16 x ptr], ptr %65, i64 0, i64 %indvar
-  store ptr %92, ptr %93, align 8, !tbaa !102
-  br i1 %.not72, label %97, label %94
+  %92 = shl nuw nsw i64 %indvar, 5
+  %93 = getelementptr i8, ptr %25, i64 %92
+  %scevgep = getelementptr i8, ptr %93, i64 448
+  %94 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvar
+  %95 = load ptr, ptr %94, align 8, !tbaa !102
+  %96 = getelementptr inbounds nuw [16 x ptr], ptr %65, i64 0, i64 %indvar
+  store ptr %95, ptr %96, align 8, !tbaa !102
+  br i1 %.not72, label %100, label %97
 
-94:                                               ; preds = %88
-  %95 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvar
-  %96 = load ptr, ptr %95, align 8, !tbaa !136
-  br label %103
+97:                                               ; preds = %90
+  %98 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvar
+  %99 = load ptr, ptr %98, align 8, !tbaa !136
+  br label %106
 
-97:                                               ; preds = %88
-  %98 = getelementptr inbounds nuw i8, ptr %92, i64 112
-  %99 = load ptr, ptr %98, align 8, !tbaa !55
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 48
-  %101 = load ptr, ptr %100, align 8, !tbaa !56
-  %102 = call noundef ptr %101(ptr noundef %99)
-  %.pre = load ptr, ptr %91, align 8, !tbaa !102
-  br label %103
+100:                                              ; preds = %90
+  %101 = getelementptr inbounds nuw i8, ptr %95, i64 112
+  %102 = load ptr, ptr %101, align 8, !tbaa !55
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 48
+  %104 = load ptr, ptr %103, align 8, !tbaa !56
+  %105 = call noundef ptr %104(ptr noundef %102)
+  %.pre = load ptr, ptr %94, align 8, !tbaa !102
+  br label %106
 
-103:                                              ; preds = %97, %94
-  %104 = phi ptr [ %92, %94 ], [ %.pre, %97 ]
-  %105 = phi ptr [ %96, %94 ], [ %102, %97 ]
-  %106 = getelementptr inbounds nuw [16 x ptr], ptr %66, i64 0, i64 %indvar
-  store ptr %105, ptr %106, align 8, !tbaa !136
-  %107 = getelementptr inbounds nuw i8, ptr %104, i64 112
-  %108 = load ptr, ptr %107, align 8, !tbaa !55
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 80
-  %110 = load ptr, ptr %109, align 8, !tbaa !72
-  %111 = call noundef zeroext i1 %110(ptr noundef %108, ptr noundef %105)
-  br i1 %111, label %113, label %112
+106:                                              ; preds = %100, %97
+  %107 = phi ptr [ %95, %97 ], [ %.pre, %100 ]
+  %108 = phi ptr [ %99, %97 ], [ %105, %100 ]
+  %109 = getelementptr inbounds nuw [16 x ptr], ptr %66, i64 0, i64 %indvar
+  store ptr %108, ptr %109, align 8, !tbaa !136
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 112
+  %111 = load ptr, ptr %110, align 8, !tbaa !55
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 80
+  %113 = load ptr, ptr %112, align 8, !tbaa !72
+  %114 = call noundef zeroext i1 %113(ptr noundef %111, ptr noundef %108)
+  br i1 %114, label %116, label %115
 
-112:                                              ; preds = %103
+115:                                              ; preds = %106
   call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 1488, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.23) #24
   unreachable
 
-113:                                              ; preds = %103
-  br i1 %4, label %.lr.ph, label %.loopexit
+116:                                              ; preds = %106
+  %117 = icmp sgt i32 %91, 1
+  br i1 %117, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %113
-  %114 = getelementptr inbounds nuw [16 x [4 x ptr]], ptr %67, i64 0, i64 %indvar
-  %115 = load ptr, ptr %91, align 8, !tbaa !102
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 112
-  %117 = load ptr, ptr %116, align 8, !tbaa !55
-  %118 = icmp eq ptr %117, null
-  br i1 %118, label %.lr.ph.split.us, label %.lr.ph.split
+.lr.ph:                                           ; preds = %116
+  %118 = getelementptr inbounds nuw [16 x [4 x ptr]], ptr %67, i64 0, i64 %indvar
+  %119 = load ptr, ptr %94, align 8, !tbaa !102
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 112
+  %121 = load ptr, ptr %120, align 8, !tbaa !55
+  %122 = icmp eq ptr %121, null
+  br i1 %122, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep, i8 0, i64 32, i1 false), !tbaa !137
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %70, i1 false), !tbaa !137
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %ggml_backend_event_new.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %ggml_backend_event_new.exit ], [ 0, %.lr.ph ]
-  %119 = load ptr, ptr %91, align 8, !tbaa !102
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 112
-  %121 = load ptr, ptr %120, align 8, !tbaa !55
-  %122 = icmp eq ptr %121, null
-  br i1 %122, label %ggml_backend_event_new.exit, label %123
-
-123:                                              ; preds = %.lr.ph.split
-  %124 = getelementptr inbounds nuw i8, ptr %121, i64 96
-  %125 = load ptr, ptr %124, align 8, !tbaa !78
+  %123 = load ptr, ptr %94, align 8, !tbaa !102
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 112
+  %125 = load ptr, ptr %124, align 8, !tbaa !55
   %126 = icmp eq ptr %125, null
   br i1 %126, label %ggml_backend_event_new.exit, label %127
 
-127:                                              ; preds = %123
-  %128 = call noundef ptr %125(ptr noundef nonnull %121)
+127:                                              ; preds = %.lr.ph.split
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 96
+  %129 = load ptr, ptr %128, align 8, !tbaa !78
+  %130 = icmp eq ptr %129, null
+  br i1 %130, label %ggml_backend_event_new.exit, label %131
+
+131:                                              ; preds = %127
+  %132 = call noundef ptr %129(ptr noundef nonnull %125)
   br label %ggml_backend_event_new.exit
 
-ggml_backend_event_new.exit:                      ; preds = %.lr.ph.split, %123, %127
-  %.0.i = phi ptr [ %128, %127 ], [ null, %123 ], [ null, %.lr.ph.split ]
-  %129 = getelementptr inbounds nuw [4 x ptr], ptr %114, i64 0, i64 %indvars.iv
-  store ptr %.0.i, ptr %129, align 8, !tbaa !137
+ggml_backend_event_new.exit:                      ; preds = %.lr.ph.split, %127, %131
+  %.0.i = phi ptr [ %132, %131 ], [ null, %127 ], [ null, %.lr.ph.split ]
+  %133 = getelementptr inbounds nuw [4 x ptr], ptr %118, i64 0, i64 %indvars.iv
+  store ptr %.0.i, ptr %133, align 8, !tbaa !137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %130 = icmp samesign ult i64 %indvars.iv.next, %68
-  br i1 %130, label %.lr.ph.split, label %.loopexit, !llvm.loop !139
+  %134 = icmp samesign ult i64 %indvars.iv.next, %68
+  br i1 %134, label %.lr.ph.split, label %.loopexit, !llvm.loop !139
 
-.loopexit:                                        ; preds = %ggml_backend_event_new.exit, %.lr.ph.split.us, %113
+.loopexit:                                        ; preds = %ggml_backend_event_new.exit, %.lr.ph.split.us, %116
+  %135 = phi i32 [ %33, %.lr.ph.split.us ], [ 1, %116 ], [ %33, %ggml_backend_event_new.exit ]
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %88, !llvm.loop !141
+  br i1 %exitcond.not, label %._crit_edge, label %90, !llvm.loop !141
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
@@ -2936,13 +2941,13 @@ _ZL24ggml_hash_find_or_insertP13ggml_hash_setP11ggml_tensor.exit687: ; preds = %
   %.in.i = getelementptr inbounds nuw i8, ptr %..i, i64 8
   %506 = load ptr, ptr %.in.i, align 8, !tbaa !47
   %.not25.i = icmp eq ptr %506, null
-  br i1 %.not25.i, label %.preheader2411, label %507
+  br i1 %.not25.i, label %.preheader2502, label %507
 
 507:                                              ; preds = %503
   %508 = getelementptr inbounds nuw i8, ptr %506, i64 72
   br label %563
 
-.preheader2411:                                   ; preds = %503, %524
+.preheader2502:                                   ; preds = %503, %524
   %.0.i.i = phi i64 [ %527, %524 ], [ %446, %503 ]
   %.0.fr.i.i = freeze i64 %.0.i.i
   %509 = lshr i64 %.0.fr.i.i, 5
@@ -2955,7 +2960,7 @@ _ZL24ggml_hash_find_or_insertP13ggml_hash_setP11ggml_tensor.exit687: ; preds = %
   %.not21.i.i = icmp eq i32 %515, 0
   br i1 %.not21.i.i, label %516, label %520
 
-516:                                              ; preds = %.preheader2411
+516:                                              ; preds = %.preheader2502
   %517 = getelementptr inbounds nuw i32, ptr %447, i64 %509
   %518 = or i32 %514, %511
   store i32 %518, ptr %517, align 4, !tbaa !157
@@ -2963,7 +2968,7 @@ _ZL24ggml_hash_find_or_insertP13ggml_hash_setP11ggml_tensor.exit687: ; preds = %
   store ptr %439, ptr %519, align 8, !tbaa !154
   br label %_ZL24ggml_hash_find_or_insertP13ggml_hash_setP11ggml_tensor.exit.i
 
-520:                                              ; preds = %.preheader2411
+520:                                              ; preds = %.preheader2502
   %521 = getelementptr inbounds nuw ptr, ptr %471, i64 %.0.fr.i.i
   %522 = load ptr, ptr %521, align 8, !tbaa !154
   %523 = icmp eq ptr %522, %439
@@ -2974,7 +2979,7 @@ _ZL24ggml_hash_find_or_insertP13ggml_hash_setP11ggml_tensor.exit687: ; preds = %
   %526 = icmp eq i64 %525, %445
   %527 = select i1 %526, i64 0, i64 %525
   %.not.i.i = icmp eq i64 %527, %446
-  br i1 %.not.i.i, label %528, label %.preheader2411, !llvm.loop !159
+  br i1 %.not.i.i, label %528, label %.preheader2502, !llvm.loop !159
 
 528:                                              ; preds = %524
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.57, i32 noundef 276, ptr noundef nonnull @.str.58) #24
@@ -3282,7 +3287,7 @@ _ZL35ggml_backend_sched_buffer_supportedP18ggml_backend_schedP11ggml_tensori.exi
   br i1 %682, label %383, label %.preheader872, !llvm.loop !172
 
 ._crit_edge.thread:                               ; preds = %.preheader872, %.preheader879, %.preheader880, %.preheader881, %.preheader882, %.preheader883, %.preheader884
-  %.ph1959 = phi i32 [ %680, %.preheader872 ], [ %.pre1926, %.preheader879 ], [ %310, %.preheader880 ], [ %.pre, %.preheader881 ], [ %187, %.preheader882 ], [ %121, %.preheader883 ], [ %25, %.preheader884 ]
+  %.ph2050 = phi i32 [ %680, %.preheader872 ], [ %.pre1926, %.preheader879 ], [ %310, %.preheader880 ], [ %.pre, %.preheader881 ], [ %187, %.preheader882 ], [ %121, %.preheader883 ], [ %25, %.preheader884 ]
   %683 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %684 = load ptr, ptr %683, align 8, !tbaa !129
   br label %.loopexit871
@@ -3631,7 +3636,7 @@ _ZL24ggml_hash_find_or_insertP13ggml_hash_setP11ggml_tensor.exit734: ; preds = %
 .loopexit871:                                     ; preds = %._crit_edge.thread, %._crit_edge, %.loopexit870
   %867 = phi ptr [ %686, %.loopexit870 ], [ %686, %._crit_edge ], [ %684, %._crit_edge.thread ]
   %868 = phi ptr [ %685, %.loopexit870 ], [ %685, %._crit_edge ], [ %683, %._crit_edge.thread ]
-  %869 = phi i32 [ %.pre1927, %.loopexit870 ], [ %756, %._crit_edge ], [ %.ph1959, %._crit_edge.thread ]
+  %869 = phi i32 [ %.pre1927, %.loopexit870 ], [ %756, %._crit_edge ], [ %.ph2050, %._crit_edge.thread ]
   %.05811096 = phi i32 [ %828, %.loopexit870 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ]
   %870 = getelementptr inbounds nuw i8, ptr %867, i64 4
   store i32 0, ptr %870, align 4, !tbaa !178
@@ -3900,8 +3905,8 @@ _ZL24ggml_hash_find_or_insertP13ggml_hash_setP11ggml_tensor.exit760: ; preds = %
   br i1 %exitcond1885.not, label %.loopexit869, label %934, !llvm.loop !180
 
 .loopexit869:                                     ; preds = %1028, %929, %_ZL24ggml_hash_find_or_insertP13ggml_hash_setP11ggml_tensor.exit748
-  %.not2410 = icmp eq i32 %927, %.05831391
-  br i1 %.not2410, label %1045, label %.loopexit869.thread
+  %.not2501 = icmp eq i32 %927, %.05831391
+  br i1 %.not2501, label %1045, label %.loopexit869.thread
 
 .loopexit869.thread:                              ; preds = %1014, %977, %.loopexit869
   %1029 = getelementptr inbounds nuw i8, ptr %.05781393, i64 8
@@ -5710,9 +5715,9 @@ define noundef i32 @ggml_backend_sched_graph_compute_async(ptr noundef %0, ptr n
   br i1 %5, label %25, label %7
 
 7:                                                ; preds = %2
-  br i1 %6, label %.thread, label %.thread77
+  br i1 %6, label %.thread, label %.thread96
 
-.thread77:                                        ; preds = %7
+.thread96:                                        ; preds = %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @ggml_hash_set_reset(ptr noundef nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -5740,7 +5745,7 @@ define noundef i32 @ggml_backend_sched_graph_compute_async(ptr noundef %0, ptr n
 25:                                               ; preds = %2
   br i1 %6, label %.thread, label %26
 
-26:                                               ; preds = %.thread77, %25
+26:                                               ; preds = %.thread96, %25
   %27 = tail call zeroext i1 @ggml_backend_sched_alloc_graph(ptr noundef nonnull %0, ptr noundef %1)
   br i1 %27, label %.thread, label %_ZL33ggml_backend_sched_compute_splitsP18ggml_backend_sched.exit
 
@@ -7499,8 +7504,8 @@ _ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS
 _ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit87.thread.thread: ; preds = %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit.thread
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !47
-  %.not68137 = icmp eq ptr %64, null
-  br i1 %.not68137, label %.thread, label %69
+  %.not68144 = icmp eq ptr %64, null
+  br i1 %.not68144, label %.thread, label %69
 
 65:                                               ; preds = %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit87.thread
   %.not69 = icmp eq ptr %.pre134, null
@@ -7514,9 +7519,9 @@ _ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS
 
 69:                                               ; preds = %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit87.thread.thread, %66, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit87.thread
   %70 = phi ptr [ %63, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit87.thread.thread ], [ %61, %66 ], [ %61, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit87.thread ]
-  %.pre134138 = phi ptr [ null, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit87.thread.thread ], [ %.pre134, %66 ], [ %.pre134, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit87.thread ]
-  %.not75 = icmp eq ptr %.pre134138, null
-  %71 = getelementptr inbounds nuw i8, ptr %.pre134138, i64 8
+  %.pre134145 = phi ptr [ null, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit87.thread.thread ], [ %.pre134, %66 ], [ %.pre134, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit87.thread ]
+  %.not75 = icmp eq ptr %.pre134145, null
+  %71 = getelementptr inbounds nuw i8, ptr %.pre134145, i64 8
   %.in = select i1 %.not75, ptr %70, ptr %71
   %72 = load ptr, ptr %.in, align 8, !tbaa !47
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 256
@@ -7676,7 +7681,7 @@ ggml_backend_buffer_is_host.exit:                 ; preds = %137
 
 ggml_backend_offload_op.exit:                     ; preds = %153
   %159 = tail call noundef zeroext i1 %158(ptr noundef nonnull %156, ptr noundef %1)
-  br i1 %159, label %.thread110.loopexit.split.loop.exit149, label %ggml_backend_offload_op.exit.thread
+  br i1 %159, label %.thread110.loopexit.split.loop.exit156, label %ggml_backend_offload_op.exit.thread
 
 ggml_backend_offload_op.exit.thread:              ; preds = %153, %145, %ggml_backend_offload_op.exit
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
@@ -7688,12 +7693,12 @@ ggml_backend_offload_op.exit.thread:              ; preds = %153, %145, %ggml_ba
   %exitcond = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond, label %.thread110, label %90, !llvm.loop !238
 
-.thread110.loopexit.split.loop.exit149:           ; preds = %ggml_backend_offload_op.exit
+.thread110.loopexit.split.loop.exit156:           ; preds = %ggml_backend_offload_op.exit
   %161 = trunc nuw nsw i64 %indvars.iv130 to i32
   br label %.thread110
 
-.thread110:                                       ; preds = %160, %ggml_backend_offload_op.exit.thread, %.thread110.loopexit.split.loop.exit149, %ggml_backend_buffer_is_host.exit, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit99, %137, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit87, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit, %86
-  %.052 = phi i32 [ %89, %86 ], [ %30, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit ], [ %60, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit87 ], [ %.016.i93, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit99 ], [ %.016.i93, %ggml_backend_buffer_is_host.exit ], [ %.016.i93, %137 ], [ %161, %.thread110.loopexit.split.loop.exit149 ], [ %.016.i93, %ggml_backend_offload_op.exit.thread ], [ -1, %160 ]
+.thread110:                                       ; preds = %160, %ggml_backend_offload_op.exit.thread, %.thread110.loopexit.split.loop.exit156, %ggml_backend_buffer_is_host.exit, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit99, %137, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit87, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit, %86
+  %.052 = phi i32 [ %89, %86 ], [ %30, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit ], [ %60, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit87 ], [ %.016.i93, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit99 ], [ %.016.i93, %ggml_backend_buffer_is_host.exit ], [ %.016.i93, %137 ], [ %161, %.thread110.loopexit.split.loop.exit156 ], [ %.016.i93, %ggml_backend_offload_op.exit.thread ], [ -1, %160 ]
   ret i32 %.052
 }
 

@@ -254,10 +254,10 @@ _ZNSt6vectorIN5Ipopt21TripletToCSRConverter12TripletEntryESaIS2_EE17_S_check_ini
   %53 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !28
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %52, i32 %54)
-  %spec.select10.i = tail call i32 @llvm.smax.i32(i32 %52, i32 %54)
+  %spec.select12.i = tail call i32 @llvm.smax.i32(i32 %52, i32 %54)
   store i32 %spec.select.i, ptr %.sroa.0252.0286, align 4, !tbaa !31
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.0252.0286, i64 4
-  store i32 %spec.select10.i, ptr %55, align 4, !tbaa !33
+  store i32 %spec.select12.i, ptr %55, align 4, !tbaa !33
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.0252.0286, i64 8
   %57 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %57, ptr %56, align 4, !tbaa !34
@@ -481,10 +481,10 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   br i1 %124, label %163, label %159
 
 159:                                              ; preds = %152
-  %160 = sext i32 %.1214299 to i64
-  %161 = getelementptr inbounds i32, ptr %79, i64 %160
+  %160 = zext nneg i32 %.1214299 to i64
+  %161 = getelementptr inbounds nuw i32, ptr %79, i64 %160
   store i32 %153, ptr %161, align 4, !tbaa !28
-  %162 = add nsw i32 %.1214299, 1
+  %162 = add nuw nsw i32 %.1214299, 1
   br label %163
 
 163:                                              ; preds = %130, %152, %159
@@ -512,7 +512,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   br i1 %.not231310, label %._crit_edge314, label %.lr.ph313
 
 .lr.ph313:                                        ; preds = %._crit_edge305
-  %167 = sext i32 %.1214.lcssa to i64
+  %167 = zext nneg i32 %.1214.lcssa to i64
   br label %169
 
 ._crit_edge314:                                   ; preds = %169, %._crit_edge305
@@ -521,9 +521,9 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
 
 169:                                              ; preds = %.lr.ph313, %169
   %indvars.iv383 = phi i64 [ %167, %.lr.ph313 ], [ %indvars.iv.next384, %169 ]
-  %170 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv383
+  %170 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv383
   store i32 %166, ptr %170, align 4, !tbaa !28
-  %indvars.iv.next384 = add nsw i64 %indvars.iv383, 1
+  %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next384 to i32
   %exitcond386.not = icmp eq i32 %.pre441, %lftr.wideiv
   br i1 %exitcond386.not, label %._crit_edge314, label %169, !llvm.loop !37
@@ -805,7 +805,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   %289 = getelementptr inbounds i32, ptr %85, i64 %indvars.iv402
   %290 = load i32, ptr %289, align 4, !tbaa !28
   %291 = icmp eq i32 %290, %288
-  br i1 %291, label %292, label %.critedge.loopexit.split.loop.exit456
+  br i1 %291, label %292, label %.critedge.loopexit.split.loop.exit471
 
 292:                                              ; preds = %.lr.ph323.split.us
   %293 = getelementptr inbounds i32, ptr %83, i64 %indvars.iv402
@@ -825,7 +825,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   %297 = getelementptr inbounds i32, ptr %85, i64 %indvars.iv394
   %298 = load i32, ptr %297, align 4, !tbaa !28
   %299 = icmp eq i32 %298, %285
-  br i1 %299, label %300, label %.critedge.loopexit449.split.loop.exit453
+  br i1 %299, label %300, label %.critedge.loopexit464.split.loop.exit468
 
 300:                                              ; preds = %.lr.ph323.split
   %301 = getelementptr inbounds i32, ptr %83, i64 %indvars.iv394
@@ -845,19 +845,19 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   %exitcond399.not = icmp eq i64 %indvars.iv.next395, %253
   br i1 %exitcond399.not, label %.critedge, label %.lr.ph323.split, !llvm.loop !42
 
-.critedge.loopexit.split.loop.exit456:            ; preds = %.lr.ph323.split.us
+.critedge.loopexit.split.loop.exit471:            ; preds = %.lr.ph323.split.us
   %309 = trunc nsw i64 %indvars.iv400 to i32
   %310 = trunc nsw i64 %indvars.iv402 to i32
   br label %.critedge
 
-.critedge.loopexit449.split.loop.exit453:         ; preds = %.lr.ph323.split
+.critedge.loopexit464.split.loop.exit468:         ; preds = %.lr.ph323.split
   %311 = trunc nsw i64 %indvars.iv392 to i32
   %312 = trunc nsw i64 %indvars.iv394 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %300, %292, %.critedge.loopexit449.split.loop.exit453, %.critedge.loopexit.split.loop.exit456, %265
-  %.2186.lcssa = phi i32 [ %.1185332, %265 ], [ %310, %.critedge.loopexit.split.loop.exit456 ], [ %312, %.critedge.loopexit449.split.loop.exit453 ], [ %.0209.lcssa, %292 ], [ %.0209.lcssa, %300 ]
-  %.2.lcssa = phi i32 [ %.1333, %265 ], [ %309, %.critedge.loopexit.split.loop.exit456 ], [ %311, %.critedge.loopexit449.split.loop.exit453 ], [ %287, %292 ], [ %284, %300 ]
+.critedge:                                        ; preds = %300, %292, %.critedge.loopexit464.split.loop.exit468, %.critedge.loopexit.split.loop.exit471, %265
+  %.2186.lcssa = phi i32 [ %.1185332, %265 ], [ %310, %.critedge.loopexit.split.loop.exit471 ], [ %312, %.critedge.loopexit464.split.loop.exit468 ], [ %.0209.lcssa, %292 ], [ %.0209.lcssa, %300 ]
+  %.2.lcssa = phi i32 [ %.1333, %265 ], [ %309, %.critedge.loopexit.split.loop.exit471 ], [ %311, %.critedge.loopexit464.split.loop.exit468 ], [ %287, %292 ], [ %284, %300 ]
   %313 = add nsw i32 %270, 1
   store i32 %313, ptr %261, align 4, !tbaa !28
   %.not233 = icmp eq i64 %indvars.iv411, %277
@@ -1502,7 +1502,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5Ip
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %17
   %19 = getelementptr inbounds nuw %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %16
   br label %20
 

@@ -2085,8 +2085,8 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %907 = icmp ult i32 %867, %866
   %908 = getelementptr inbounds nuw i8, ptr %865, i64 4
   %909 = load i32, ptr %908, align 4, !tbaa !123
-  %.sink564.i.i.i = select i1 %907, i64 16, i64 8
-  %910 = getelementptr inbounds nuw i8, ptr %865, i64 %.sink564.i.i.i
+  %.sink588.i.i.i = select i1 %907, i64 16, i64 8
+  %910 = getelementptr inbounds nuw i8, ptr %865, i64 %.sink588.i.i.i
   %storemerge.i.i.i = load ptr, ptr %910, align 8, !tbaa !119
   store ptr %storemerge.i.i.i, ptr %864, align 8, !tbaa !119
   br label %911
@@ -2199,8 +2199,8 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %961 = icmp ult i32 %957, %956
   %962 = getelementptr inbounds nuw i8, ptr %955, i64 4
   %963 = load i32, ptr %962, align 4, !tbaa !123
-  %.sink565.i.i.i = select i1 %961, i64 8, i64 16
-  %964 = getelementptr inbounds nuw i8, ptr %955, i64 %.sink565.i.i.i
+  %.sink589.i.i.i = select i1 %961, i64 8, i64 16
+  %964 = getelementptr inbounds nuw i8, ptr %955, i64 %.sink589.i.i.i
   %storemerge445.i.i.i = load ptr, ptr %964, align 8, !tbaa !119
   store ptr %storemerge445.i.i.i, ptr %954, align 8, !tbaa !119
   br label %965
@@ -2264,8 +2264,8 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %997 = icmp ult i32 %957, %956
   %998 = getelementptr inbounds nuw i8, ptr %955, i64 4
   %999 = load i32, ptr %998, align 4, !tbaa !123
-  %.sink566.i.i.i = select i1 %997, i64 16, i64 8
-  %1000 = getelementptr inbounds nuw i8, ptr %955, i64 %.sink566.i.i.i
+  %.sink590.i.i.i = select i1 %997, i64 16, i64 8
+  %1000 = getelementptr inbounds nuw i8, ptr %955, i64 %.sink590.i.i.i
   %storemerge442.i.i.i = load ptr, ptr %1000, align 8, !tbaa !119
   store ptr %storemerge442.i.i.i, ptr %954, align 8, !tbaa !119
   br label %1001
@@ -2379,8 +2379,8 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %1052 = icmp ult i32 %1048, %1047
   %1053 = getelementptr inbounds nuw i8, ptr %1046, i64 4
   %1054 = load i32, ptr %1053, align 4, !tbaa !123
-  %.sink567.i.i.i = select i1 %1052, i64 8, i64 16
-  %1055 = getelementptr inbounds nuw i8, ptr %1046, i64 %.sink567.i.i.i
+  %.sink591.i.i.i = select i1 %1052, i64 8, i64 16
+  %1055 = getelementptr inbounds nuw i8, ptr %1046, i64 %.sink591.i.i.i
   %storemerge451.i.i.i = load ptr, ptr %1055, align 8, !tbaa !119
   store ptr %storemerge451.i.i.i, ptr %1045, align 8, !tbaa !119
   br label %1056
@@ -2444,8 +2444,8 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %1088 = icmp ult i32 %1048, %1047
   %1089 = getelementptr inbounds nuw i8, ptr %1046, i64 4
   %1090 = load i32, ptr %1089, align 4, !tbaa !123
-  %.sink568.i.i.i = select i1 %1088, i64 16, i64 8
-  %1091 = getelementptr inbounds nuw i8, ptr %1046, i64 %.sink568.i.i.i
+  %.sink592.i.i.i = select i1 %1088, i64 16, i64 8
+  %1091 = getelementptr inbounds nuw i8, ptr %1046, i64 %.sink592.i.i.i
   %storemerge448.i.i.i = load ptr, ptr %1091, align 8, !tbaa !119
   store ptr %storemerge448.i.i.i, ptr %1045, align 8, !tbaa !119
   br label %1092
@@ -2559,8 +2559,8 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %1143 = icmp ult i32 %1139, %1138
   %1144 = getelementptr inbounds nuw i8, ptr %1137, i64 4
   %1145 = load i32, ptr %1144, align 4, !tbaa !123
-  %.sink569.i.i.i = select i1 %1143, i64 8, i64 16
-  %1146 = getelementptr inbounds nuw i8, ptr %1137, i64 %.sink569.i.i.i
+  %.sink593.i.i.i = select i1 %1143, i64 8, i64 16
+  %1146 = getelementptr inbounds nuw i8, ptr %1137, i64 %.sink593.i.i.i
   %storemerge457.i.i.i = load ptr, ptr %1146, align 8, !tbaa !119
   store ptr %storemerge457.i.i.i, ptr %1136, align 8, !tbaa !119
   br label %1147
@@ -2624,8 +2624,8 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %1179 = icmp ult i32 %1139, %1138
   %1180 = getelementptr inbounds nuw i8, ptr %1137, i64 4
   %1181 = load i32, ptr %1180, align 4, !tbaa !123
-  %.sink570.i.i.i = select i1 %1179, i64 16, i64 8
-  %1182 = getelementptr inbounds nuw i8, ptr %1137, i64 %.sink570.i.i.i
+  %.sink594.i.i.i = select i1 %1179, i64 16, i64 8
+  %1182 = getelementptr inbounds nuw i8, ptr %1137, i64 %.sink594.i.i.i
   %storemerge454.i.i.i = load ptr, ptr %1182, align 8, !tbaa !119
   store ptr %storemerge454.i.i.i, ptr %1136, align 8, !tbaa !119
   br label %1183
@@ -2883,8 +2883,8 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1224
   %1300 = icmp ult i32 %1257, %1256
   %1301 = getelementptr inbounds nuw i8, ptr %1255, i64 4
   %1302 = load i32, ptr %1301, align 4, !tbaa !123
-  %.sink638.i.i.i = select i1 %1300, i64 8, i64 16
-  %1303 = getelementptr inbounds nuw i8, ptr %1255, i64 %.sink638.i.i.i
+  %.sink675.i.i.i = select i1 %1300, i64 8, i64 16
+  %1303 = getelementptr inbounds nuw i8, ptr %1255, i64 %.sink675.i.i.i
   %storemerge460.us.i.i.i = load ptr, ptr %1303, align 8, !tbaa !119
   store ptr %storemerge460.us.i.i.i, ptr %1254, align 8, !tbaa !119
   br label %1304
@@ -3004,8 +3004,8 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1224
   %1359 = icmp ult i32 %1347, %1346
   %1360 = getelementptr inbounds nuw i8, ptr %1345, i64 4
   %1361 = load i32, ptr %1360, align 4, !tbaa !123
-  %.sink639.i.i.i = select i1 %1359, i64 16, i64 8
-  %1362 = getelementptr inbounds nuw i8, ptr %1345, i64 %.sink639.i.i.i
+  %.sink676.i.i.i = select i1 %1359, i64 16, i64 8
+  %1362 = getelementptr inbounds nuw i8, ptr %1345, i64 %.sink676.i.i.i
   %storemerge462.us.i.i.i = load ptr, ptr %1362, align 8, !tbaa !119
   store ptr %storemerge462.us.i.i.i, ptr %1344, align 8, !tbaa !119
   br label %1363
@@ -3062,8 +3062,8 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1224
   %1390 = icmp ult i32 %1347, %1346
   %1391 = getelementptr inbounds nuw i8, ptr %1345, i64 4
   %1392 = load i32, ptr %1391, align 4, !tbaa !123
-  %.sink640.i.i.i = select i1 %1390, i64 8, i64 16
-  %1393 = getelementptr inbounds nuw i8, ptr %1345, i64 %.sink640.i.i.i
+  %.sink677.i.i.i = select i1 %1390, i64 8, i64 16
+  %1393 = getelementptr inbounds nuw i8, ptr %1345, i64 %.sink677.i.i.i
   %storemerge465.us.i.i.i = load ptr, ptr %1393, align 8, !tbaa !119
   store ptr %storemerge465.us.i.i.i, ptr %1344, align 8, !tbaa !119
   br label %1394
@@ -3184,8 +3184,8 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1224
   %1450 = icmp ult i32 %1438, %1437
   %1451 = getelementptr inbounds nuw i8, ptr %1436, i64 4
   %1452 = load i32, ptr %1451, align 4, !tbaa !123
-  %.sink641.i.i.i = select i1 %1450, i64 16, i64 8
-  %1453 = getelementptr inbounds nuw i8, ptr %1436, i64 %.sink641.i.i.i
+  %.sink678.i.i.i = select i1 %1450, i64 16, i64 8
+  %1453 = getelementptr inbounds nuw i8, ptr %1436, i64 %.sink678.i.i.i
   %storemerge468.us.i.i.i = load ptr, ptr %1453, align 8, !tbaa !119
   store ptr %storemerge468.us.i.i.i, ptr %1435, align 8, !tbaa !119
   br label %1454
@@ -3242,8 +3242,8 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1224
   %1481 = icmp ult i32 %1438, %1437
   %1482 = getelementptr inbounds nuw i8, ptr %1436, i64 4
   %1483 = load i32, ptr %1482, align 4, !tbaa !123
-  %.sink642.i.i.i = select i1 %1481, i64 8, i64 16
-  %1484 = getelementptr inbounds nuw i8, ptr %1436, i64 %.sink642.i.i.i
+  %.sink679.i.i.i = select i1 %1481, i64 8, i64 16
+  %1484 = getelementptr inbounds nuw i8, ptr %1436, i64 %.sink679.i.i.i
   %storemerge471.us.i.i.i = load ptr, ptr %1484, align 8, !tbaa !119
   store ptr %storemerge471.us.i.i.i, ptr %1435, align 8, !tbaa !119
   br label %1485
@@ -3364,8 +3364,8 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1224
   %1541 = icmp ult i32 %1529, %1528
   %1542 = getelementptr inbounds nuw i8, ptr %1527, i64 4
   %1543 = load i32, ptr %1542, align 4, !tbaa !123
-  %.sink643.i.i.i = select i1 %1541, i64 16, i64 8
-  %1544 = getelementptr inbounds nuw i8, ptr %1527, i64 %.sink643.i.i.i
+  %.sink680.i.i.i = select i1 %1541, i64 16, i64 8
+  %1544 = getelementptr inbounds nuw i8, ptr %1527, i64 %.sink680.i.i.i
   %storemerge474.us.i.i.i = load ptr, ptr %1544, align 8, !tbaa !119
   store ptr %storemerge474.us.i.i.i, ptr %1526, align 8, !tbaa !119
   br label %1545
@@ -3422,8 +3422,8 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1224
   %1572 = icmp ult i32 %1529, %1528
   %1573 = getelementptr inbounds nuw i8, ptr %1527, i64 4
   %1574 = load i32, ptr %1573, align 4, !tbaa !123
-  %.sink644.i.i.i = select i1 %1572, i64 8, i64 16
-  %1575 = getelementptr inbounds nuw i8, ptr %1527, i64 %.sink644.i.i.i
+  %.sink681.i.i.i = select i1 %1572, i64 8, i64 16
+  %1575 = getelementptr inbounds nuw i8, ptr %1527, i64 %.sink681.i.i.i
   %storemerge477.us.i.i.i = load ptr, ptr %1575, align 8, !tbaa !119
   store ptr %storemerge477.us.i.i.i, ptr %1526, align 8, !tbaa !119
   br label %1576
@@ -3693,8 +3693,8 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1224
   %1703 = icmp ult i32 %1657, %1655
   %1704 = getelementptr inbounds nuw i8, ptr %1654, i64 4
   %1705 = load i32, ptr %1704, align 4, !tbaa !123
-  %.sink97.i.i.i.i = select i1 %1703, i64 16, i64 8
-  %1706 = getelementptr inbounds nuw i8, ptr %1654, i64 %.sink97.i.i.i.i
+  %.sink103.i.i.i.i = select i1 %1703, i64 16, i64 8
+  %1706 = getelementptr inbounds nuw i8, ptr %1654, i64 %.sink103.i.i.i.i
   %storemerge.i.i.i.i = load ptr, ptr %1706, align 8, !tbaa !119
   store ptr %storemerge.i.i.i.i, ptr %1653, align 8, !tbaa !119
   %.promoted.i.i.i.i = load i32, ptr %200, align 8, !tbaa !106
@@ -3991,11 +3991,11 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %181, 
   %1861 = icmp sgt i32 %1859, 30
   %.not394 = icmp eq i32 %1857, 0
   %.not395 = icmp eq i32 %1855, 0
-  %or.cond585 = select i1 %.not394, i1 true, i1 %.not395
+  %or.cond729 = select i1 %.not394, i1 true, i1 %.not395
   br i1 %1861, label %.preheader291, label %.preheader294
 
 .preheader294:                                    ; preds = %1860
-  br i1 %or.cond585, label %.loopexit292, label %.preheader293.us.preheader
+  br i1 %or.cond729, label %.loopexit292, label %.preheader293.us.preheader
 
 .preheader293.us.preheader:                       ; preds = %.preheader294
   %wide.trip.count = zext i32 %1855 to i64
@@ -4038,7 +4038,7 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %181, 
   br i1 %exitcond482.not, label %.loopexit292, label %.preheader293.us, !llvm.loop !158
 
 .preheader291:                                    ; preds = %1860
-  br i1 %or.cond585, label %.loopexit292, label %.preheader290.us.preheader
+  br i1 %or.cond729, label %.loopexit292, label %.preheader290.us.preheader
 
 .preheader290.us.preheader:                       ; preds = %.preheader291
   %wide.trip.count486 = zext i32 %1855 to i64
@@ -4268,8 +4268,8 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %181, 
   %1991 = fmul float %1990, 5.000000e-01
   %.not398 = icmp eq i32 %1857, 0
   %.not399 = icmp eq i32 %1855, 0
-  %or.cond586 = select i1 %.not398, i1 true, i1 %.not399
-  br i1 %or.cond586, label %.loopexit, label %.preheader284.us.preheader
+  %or.cond730 = select i1 %.not398, i1 true, i1 %.not399
+  br i1 %or.cond730, label %.loopexit, label %.preheader284.us.preheader
 
 .preheader284.us.preheader:                       ; preds = %1988
   %1992 = getelementptr inbounds nuw i8, ptr %47, i64 48
@@ -8458,12 +8458,12 @@ opj_t1_enc_refpass.exit.i:                        ; preds = %..loopexit570_crit_
   br i1 %2067, label %.lr.ph.i204.i, label %.loopexit677.i.i
 
 .lr.ph.i204.i:                                    ; preds = %.preheader676.i.i, %.loopexit678.thread.i.i
-  %.1567821845.i.i = phi i32 [ %.0566.lcssa.i.i, %.preheader676.i.i ], [ 0, %.loopexit678.thread.i.i ]
-  %.4560824844.i.i = phi ptr [ %.2558.lcssa.i.i, %.preheader676.i.i ], [ %.1557715.i.i, %.loopexit678.thread.i.i ]
-  %.17524827843.i.i = phi i32 [ %.17524.i.i, %.preheader676.i.i ], [ %.1508716.i.i, %.loopexit678.thread.i.i ]
-  %.17474829842.i.i = phi i32 [ %.17474.i.i, %.preheader676.i.i ], [ %.1458717.i.i, %.loopexit678.thread.i.i ]
-  %.23831841.i.i = phi i32 [ %.23.i263.i, %.preheader676.i.i ], [ %.1444718.i.i, %.loopexit678.thread.i.i ]
-  %.3833840.i.i = phi ptr [ %278, %.preheader676.i.i ], [ %.1442719.i.i, %.loopexit678.thread.i.i ]
+  %.1567844868.i.i = phi i32 [ %.0566.lcssa.i.i, %.preheader676.i.i ], [ 0, %.loopexit678.thread.i.i ]
+  %.4560847867.i.i = phi ptr [ %.2558.lcssa.i.i, %.preheader676.i.i ], [ %.1557715.i.i, %.loopexit678.thread.i.i ]
+  %.17524850866.i.i = phi i32 [ %.17524.i.i, %.preheader676.i.i ], [ %.1508716.i.i, %.loopexit678.thread.i.i ]
+  %.17474852865.i.i = phi i32 [ %.17474.i.i, %.preheader676.i.i ], [ %.1458717.i.i, %.loopexit678.thread.i.i ]
+  %.23854864.i.i = phi i32 [ %.23.i263.i, %.preheader676.i.i ], [ %.1444718.i.i, %.loopexit678.thread.i.i ]
+  %.3856863.i.i = phi ptr [ %278, %.preheader676.i.i ], [ %.1442719.i.i, %.loopexit678.thread.i.i ]
   %2068 = phi i32 [ %2062, %.preheader676.i.i ], [ %1920, %.loopexit678.thread.i.i ]
   %2069 = getelementptr inbounds i8, ptr %.1564712.i.i, i64 -4
   %2070 = getelementptr inbounds nuw i8, ptr %.1564712.i.i, i64 4
@@ -8478,11 +8478,11 @@ opj_t1_enc_refpass.exit.i:                        ; preds = %..loopexit570_crit_
   ]
 
 .thread.i.i:                                      ; preds = %2071, %.loopexit678.thread.i.i
-  %.4560825856.i.i = phi ptr [ %.2558.lcssa.i.i, %2071 ], [ %.1557715.i.i, %.loopexit678.thread.i.i ]
-  %.17524826855.i.i = phi i32 [ %.17524.i.i, %2071 ], [ %.1508716.i.i, %.loopexit678.thread.i.i ]
-  %.17474828854.i.i = phi i32 [ %.17474.i.i, %2071 ], [ %.1458717.i.i, %.loopexit678.thread.i.i ]
-  %.23830853.i.i = phi i32 [ %.23.i263.i, %2071 ], [ %.1444718.i.i, %.loopexit678.thread.i.i ]
-  %.3832852.i.i = phi ptr [ %278, %2071 ], [ %.1442719.i.i, %.loopexit678.thread.i.i ]
+  %.4560848879.i.i = phi ptr [ %.2558.lcssa.i.i, %2071 ], [ %.1557715.i.i, %.loopexit678.thread.i.i ]
+  %.17524849878.i.i = phi i32 [ %.17524.i.i, %2071 ], [ %.1508716.i.i, %.loopexit678.thread.i.i ]
+  %.17474851877.i.i = phi i32 [ %.17474.i.i, %2071 ], [ %.1458717.i.i, %.loopexit678.thread.i.i ]
+  %.23853876.i.i = phi i32 [ %.23.i263.i, %2071 ], [ %.1444718.i.i, %.loopexit678.thread.i.i ]
+  %.3855875.i.i = phi ptr [ %278, %2071 ], [ %.1442719.i.i, %.loopexit678.thread.i.i ]
   %2072 = phi i32 [ %2062, %2071 ], [ %1920, %.loopexit678.thread.i.i ]
   %2073 = and i32 %2072, -1226833921
   br label %.loopexit677.sink.split.i.i
@@ -8502,13 +8502,13 @@ opj_t1_enc_refpass.exit.i:                        ; preds = %..loopexit570_crit_
 2080:                                             ; preds = %opj_t1_update_flags.exit.i206.i, %.lr.ph.i204.i
   %.39.i = phi i32 [ %.38.i, %.lr.ph.i204.i ], [ %.40.i, %opj_t1_update_flags.exit.i206.i ]
   %2081 = phi i32 [ %2068, %.lr.ph.i204.i ], [ %2271, %opj_t1_update_flags.exit.i206.i ]
-  %.5708.i.i = phi ptr [ %.3833840.i.i, %.lr.ph.i204.i ], [ %.7.i208.i, %opj_t1_update_flags.exit.i206.i ]
-  %.25707.i.i = phi i32 [ %.23831841.i.i, %.lr.ph.i204.i ], [ %.34.i207.i, %opj_t1_update_flags.exit.i206.i ]
-  %.19476706.i.i = phi i32 [ %.17474829842.i.i, %.lr.ph.i204.i ], [ %.26483.i.i, %opj_t1_update_flags.exit.i206.i ]
-  %.19526705.i.i = phi i32 [ %.17524827843.i.i, %.lr.ph.i204.i ], [ %.26533.i.i, %opj_t1_update_flags.exit.i206.i ]
-  %.0568704.i.i = phi i32 [ %.1567821845.i.i, %.lr.ph.i204.i ], [ %2273, %opj_t1_update_flags.exit.i206.i ]
-  %.0569703.i.i = phi ptr [ %.4560824844.i.i, %.lr.ph.i204.i ], [ %2272, %opj_t1_update_flags.exit.i206.i ]
-  %2082 = icmp eq i32 %.0568704.i.i, %.1567821845.i.i
+  %.5708.i.i = phi ptr [ %.3856863.i.i, %.lr.ph.i204.i ], [ %.7.i208.i, %opj_t1_update_flags.exit.i206.i ]
+  %.25707.i.i = phi i32 [ %.23854864.i.i, %.lr.ph.i204.i ], [ %.34.i207.i, %opj_t1_update_flags.exit.i206.i ]
+  %.19476706.i.i = phi i32 [ %.17474852865.i.i, %.lr.ph.i204.i ], [ %.26483.i.i, %opj_t1_update_flags.exit.i206.i ]
+  %.19526705.i.i = phi i32 [ %.17524850866.i.i, %.lr.ph.i204.i ], [ %.26533.i.i, %opj_t1_update_flags.exit.i206.i ]
+  %.0568704.i.i = phi i32 [ %.1567844868.i.i, %.lr.ph.i204.i ], [ %2273, %opj_t1_update_flags.exit.i206.i ]
+  %.0569703.i.i = phi ptr [ %.4560847867.i.i, %.lr.ph.i204.i ], [ %2272, %opj_t1_update_flags.exit.i206.i ]
+  %2082 = icmp eq i32 %.0568704.i.i, %.1567844868.i.i
   %or.cond.i205.i = and i1 %.not630.i.i, %2082
   %.pre812.i.i = mul nuw nsw i32 %.0568704.i.i, 3
   br i1 %or.cond.i205.i, label %.thread651.i.i, label %2083
@@ -8776,7 +8776,7 @@ opj_t1_enc_refpass.exit.i:                        ; preds = %..loopexit570_crit_
   store i32 %2229, ptr %2069, align 4, !tbaa !59
   %2230 = shl nuw nsw i32 %2175, 19
   %2231 = or disjoint i32 %2230, 16
-  %2232 = shl i32 %2231, %.pre812.i.i
+  %2232 = shl nuw nsw i32 %2231, %.pre812.i.i
   %2233 = load i32, ptr %.1564712.i.i, align 4, !tbaa !59
   %2234 = or i32 %2233, %2232
   store i32 %2234, ptr %.1564712.i.i, align 4, !tbaa !59
@@ -8847,26 +8847,26 @@ opj_t1_update_flags.exit.i206.i:                  ; preds = %2255, %2253, %.loop
 
 .loopexit677.sink.split.i.i:                      ; preds = %2078, %2076, %2074, %.thread.i.i
   %.sink.i.i = phi i32 [ %2073, %.thread.i.i ], [ %2077, %2076 ], [ %2079, %2078 ], [ %2075, %2074 ]
-  %.4560823.ph.i.i = phi ptr [ %.4560825856.i.i, %.thread.i.i ], [ %.2558.lcssa.i.i, %2076 ], [ %.2558.lcssa.i.i, %2078 ], [ %.2558.lcssa.i.i, %2074 ]
-  %.1567820.ph.i.i = phi i32 [ 0, %.thread.i.i ], [ 2, %2076 ], [ 3, %2078 ], [ 1, %2074 ]
-  %.18525.ph.i.i = phi i32 [ %.17524826855.i.i, %.thread.i.i ], [ %.17524.i.i, %2076 ], [ %.17524.i.i, %2078 ], [ %.17524.i.i, %2074 ]
-  %.18475.ph.i.i = phi i32 [ %.17474828854.i.i, %.thread.i.i ], [ %.17474.i.i, %2076 ], [ %.17474.i.i, %2078 ], [ %.17474.i.i, %2074 ]
-  %.24.ph.i.i = phi i32 [ %.23830853.i.i, %.thread.i.i ], [ %.23.i263.i, %2076 ], [ %.23.i263.i, %2078 ], [ %.23.i263.i, %2074 ]
-  %.4.ph.i.i = phi ptr [ %.3832852.i.i, %.thread.i.i ], [ %278, %2076 ], [ %278, %2078 ], [ %278, %2074 ]
+  %.4560846.ph.i.i = phi ptr [ %.4560848879.i.i, %.thread.i.i ], [ %.2558.lcssa.i.i, %2076 ], [ %.2558.lcssa.i.i, %2078 ], [ %.2558.lcssa.i.i, %2074 ]
+  %.1567843.ph.i.i = phi i32 [ 0, %.thread.i.i ], [ 2, %2076 ], [ 3, %2078 ], [ 1, %2074 ]
+  %.18525.ph.i.i = phi i32 [ %.17524849878.i.i, %.thread.i.i ], [ %.17524.i.i, %2076 ], [ %.17524.i.i, %2078 ], [ %.17524.i.i, %2074 ]
+  %.18475.ph.i.i = phi i32 [ %.17474851877.i.i, %.thread.i.i ], [ %.17474.i.i, %2076 ], [ %.17474.i.i, %2078 ], [ %.17474.i.i, %2074 ]
+  %.24.ph.i.i = phi i32 [ %.23853876.i.i, %.thread.i.i ], [ %.23.i263.i, %2076 ], [ %.23.i263.i, %2078 ], [ %.23.i263.i, %2074 ]
+  %.4.ph.i.i = phi ptr [ %.3855875.i.i, %.thread.i.i ], [ %278, %2076 ], [ %278, %2078 ], [ %278, %2074 ]
   store i32 %.sink.i.i, ptr %.1564712.i.i, align 4, !tbaa !59
   br label %.loopexit677.i.i
 
 .loopexit677.i.i:                                 ; preds = %opj_t1_update_flags.exit.i206.i, %.loopexit677.sink.split.i.i, %2071, %.preheader676.i.i
   %.41.i = phi i32 [ %.38.i, %2071 ], [ %.38.i, %.loopexit677.sink.split.i.i ], [ %.38.i, %.preheader676.i.i ], [ %.40.i, %opj_t1_update_flags.exit.i206.i ]
-  %.4560823.i.i = phi ptr [ %.2558.lcssa.i.i, %2071 ], [ %.4560823.ph.i.i, %.loopexit677.sink.split.i.i ], [ %.2558.lcssa.i.i, %.preheader676.i.i ], [ %.4560824844.i.i, %opj_t1_update_flags.exit.i206.i ]
-  %.1567820.i.i = phi i32 [ %.0566.lcssa.i.i, %2071 ], [ %.1567820.ph.i.i, %.loopexit677.sink.split.i.i ], [ %.0566.lcssa.i.i, %.preheader676.i.i ], [ %.1567821845.i.i, %opj_t1_update_flags.exit.i206.i ]
+  %.4560846.i.i = phi ptr [ %.2558.lcssa.i.i, %2071 ], [ %.4560846.ph.i.i, %.loopexit677.sink.split.i.i ], [ %.2558.lcssa.i.i, %.preheader676.i.i ], [ %.4560847867.i.i, %opj_t1_update_flags.exit.i206.i ]
+  %.1567843.i.i = phi i32 [ %.0566.lcssa.i.i, %2071 ], [ %.1567843.ph.i.i, %.loopexit677.sink.split.i.i ], [ %.0566.lcssa.i.i, %.preheader676.i.i ], [ %.1567844868.i.i, %opj_t1_update_flags.exit.i206.i ]
   %.18525.i.i = phi i32 [ %.17524.i.i, %2071 ], [ %.18525.ph.i.i, %.loopexit677.sink.split.i.i ], [ %.17524.i.i, %.preheader676.i.i ], [ %.26533.i.i, %opj_t1_update_flags.exit.i206.i ]
   %.18475.i.i = phi i32 [ %.17474.i.i, %2071 ], [ %.18475.ph.i.i, %.loopexit677.sink.split.i.i ], [ %.17474.i.i, %.preheader676.i.i ], [ %.26483.i.i, %opj_t1_update_flags.exit.i206.i ]
   %.24.i209.i = phi i32 [ %.23.i263.i, %2071 ], [ %.24.ph.i.i, %.loopexit677.sink.split.i.i ], [ %.23.i263.i, %.preheader676.i.i ], [ %.34.i207.i, %opj_t1_update_flags.exit.i206.i ]
   %.4.i210.i = phi ptr [ %278, %2071 ], [ %.4.ph.i.i, %.loopexit677.sink.split.i.i ], [ %278, %.preheader676.i.i ], [ %.7.i208.i, %opj_t1_update_flags.exit.i206.i ]
-  %2274 = sub nsw i32 4, %.1567820.i.i
+  %2274 = sub nsw i32 4, %.1567843.i.i
   %2275 = zext i32 %2274 to i64
-  %2276 = getelementptr inbounds nuw i32, ptr %.4560823.i.i, i64 %2275
+  %2276 = getelementptr inbounds nuw i32, ptr %.4560846.i.i, i64 %2275
   br label %2277
 
 2277:                                             ; preds = %.loopexit677.i.i, %.loopexit682.i.i
@@ -8916,8 +8916,8 @@ opj_t1_update_flags.exit.i206.i:                  ; preds = %2255, %2253, %.loop
   %.lcssa699.i.i = phi i32 [ %318, %1905 ], [ %2283, %._crit_edge.i212.i ]
   %2290 = icmp uge i32 %.0440.lcssa.i.i, %.lcssa699.i.i
   %.not779.i.i = icmp eq i32 %2289, 0
-  %or.cond685.i = select i1 %2290, i1 true, i1 %.not779.i.i
-  br i1 %or.cond685.i, label %opj_t1_enc_clnpass.exit.i, label %.lr.ph771.i.i
+  %or.cond802.i = select i1 %2290, i1 true, i1 %.not779.i.i
+  br i1 %or.cond802.i, label %opj_t1_enc_clnpass.exit.i, label %.lr.ph771.i.i
 
 .lr.ph771.i.i:                                    ; preds = %._crit_edge735.i.i
   %2291 = and i32 %317, 2147483584
@@ -9434,7 +9434,7 @@ opj_t1_enc_is_term_pass.exit.i:                   ; preds = %2533, %2528
   %2556 = icmp eq i32 %2555, 3
   %spec.select.i = select i1 %2556, i32 0, i32 %2555
   %2557 = sext i1 %2556 to i32
-  %spec.select160.i = add i32 %.0133404.i, %2557
+  %spec.select160.i = add nsw i32 %.0133404.i, %2557
   br i1 %.not159.i, label %2559, label %2558
 
 2558:                                             ; preds = %2554
@@ -9722,14 +9722,14 @@ define internal fastcc range(i32 0, 2) i32 @opj_t1_allocate_buffers(ptr noundef 
 
 ._crit_edge89.thread:                             ; preds = %.lr.ph88
   %46 = and i32 %2, 3
-  %.not78107 = icmp eq i32 %46, 0
-  br i1 %.not78107, label %.loopexit, label %.lr.ph93.preheader
+  %.not78115 = icmp eq i32 %46, 0
+  br i1 %.not78115, label %.loopexit, label %.lr.ph93.preheader
 
 .lr.ph93.preheader:                               ; preds = %._crit_edge89.thread
-  %switch.selectcmp109 = icmp eq i32 %46, 2
-  %switch.select110 = select i1 %switch.selectcmp109, i32 1207959552, i32 1073741824
-  %switch.selectcmp81111 = icmp eq i32 %46, 1
-  %switch.select82112 = select i1 %switch.selectcmp81111, i32 1224736768, i32 %switch.select110
+  %switch.selectcmp117 = icmp eq i32 %46, 2
+  %switch.select118 = select i1 %switch.selectcmp117, i32 1207959552, i32 1073741824
+  %switch.selectcmp81119 = icmp eq i32 %46, 1
+  %switch.select82120 = select i1 %switch.selectcmp81119, i32 1224736768, i32 %switch.select118
   %47 = mul i32 %22, %20
   %48 = zext i32 %47 to i64
   %49 = getelementptr inbounds nuw i32, ptr %37, i64 %48
@@ -9739,7 +9739,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_t1_allocate_buffers(ptr noundef 
   %.26591 = phi i32 [ %51, %.lr.ph93 ], [ 0, %.lr.ph93.preheader ]
   %.26890 = phi ptr [ %50, %.lr.ph93 ], [ %49, %.lr.ph93.preheader ]
   %50 = getelementptr inbounds nuw i8, ptr %.26890, i64 4
-  store i32 %switch.select82112, ptr %.26890, align 4, !tbaa !59
+  store i32 %switch.select82120, ptr %.26890, align 4, !tbaa !59
   %51 = add nuw i32 %.26591, 1
   %exitcond98.not = icmp eq i32 %51, %20
   br i1 %exitcond98.not, label %.loopexit, label %.lr.ph93, !llvm.loop !304
@@ -9917,8 +9917,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %87 = icmp ult i32 %47, %46
   %88 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %89 = load i32, ptr %88, align 4, !tbaa !123
-  %.sink1085.i = select i1 %87, i64 16, i64 8
-  %90 = getelementptr inbounds nuw i8, ptr %45, i64 %.sink1085.i
+  %.sink1134.i = select i1 %87, i64 16, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %45, i64 %.sink1134.i
   %storemerge.i = load ptr, ptr %90, align 8, !tbaa !119
   store ptr %storemerge.i, ptr %44, align 8, !tbaa !119
   br label %91
@@ -10033,8 +10033,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %151 = icmp ult i32 %147, %146
   %152 = getelementptr inbounds nuw i8, ptr %145, i64 4
   %153 = load i32, ptr %152, align 4, !tbaa !123
-  %.sink1086.i = select i1 %151, i64 8, i64 16
-  %154 = getelementptr inbounds nuw i8, ptr %145, i64 %.sink1086.i
+  %.sink1135.i = select i1 %151, i64 8, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %145, i64 %.sink1135.i
   %storemerge849.i = load ptr, ptr %154, align 8, !tbaa !119
   store ptr %storemerge849.i, ptr %144, align 8, !tbaa !119
   br label %155
@@ -10098,8 +10098,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %187 = icmp ult i32 %147, %146
   %188 = getelementptr inbounds nuw i8, ptr %145, i64 4
   %189 = load i32, ptr %188, align 4, !tbaa !123
-  %.sink1087.i = select i1 %187, i64 16, i64 8
-  %190 = getelementptr inbounds nuw i8, ptr %145, i64 %.sink1087.i
+  %.sink1136.i = select i1 %187, i64 16, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %145, i64 %.sink1136.i
   %storemerge846.i = load ptr, ptr %190, align 8, !tbaa !119
   store ptr %storemerge846.i, ptr %144, align 8, !tbaa !119
   br label %191
@@ -10231,8 +10231,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %251 = icmp ult i32 %247, %246
   %252 = getelementptr inbounds nuw i8, ptr %245, i64 4
   %253 = load i32, ptr %252, align 4, !tbaa !123
-  %.sink1088.i = select i1 %251, i64 8, i64 16
-  %254 = getelementptr inbounds nuw i8, ptr %245, i64 %.sink1088.i
+  %.sink1137.i = select i1 %251, i64 8, i64 16
+  %254 = getelementptr inbounds nuw i8, ptr %245, i64 %.sink1137.i
   %storemerge855.i = load ptr, ptr %254, align 8, !tbaa !119
   store ptr %storemerge855.i, ptr %244, align 8, !tbaa !119
   br label %255
@@ -10296,8 +10296,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %287 = icmp ult i32 %247, %246
   %288 = getelementptr inbounds nuw i8, ptr %245, i64 4
   %289 = load i32, ptr %288, align 4, !tbaa !123
-  %.sink1089.i = select i1 %287, i64 16, i64 8
-  %290 = getelementptr inbounds nuw i8, ptr %245, i64 %.sink1089.i
+  %.sink1138.i = select i1 %287, i64 16, i64 8
+  %290 = getelementptr inbounds nuw i8, ptr %245, i64 %.sink1138.i
   %storemerge852.i = load ptr, ptr %290, align 8, !tbaa !119
   store ptr %storemerge852.i, ptr %244, align 8, !tbaa !119
   br label %291
@@ -10412,8 +10412,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %351 = icmp ult i32 %347, %346
   %352 = getelementptr inbounds nuw i8, ptr %345, i64 4
   %353 = load i32, ptr %352, align 4, !tbaa !123
-  %.sink1090.i = select i1 %351, i64 8, i64 16
-  %354 = getelementptr inbounds nuw i8, ptr %345, i64 %.sink1090.i
+  %.sink1139.i = select i1 %351, i64 8, i64 16
+  %354 = getelementptr inbounds nuw i8, ptr %345, i64 %.sink1139.i
   %storemerge860.i = load ptr, ptr %354, align 8, !tbaa !119
   store ptr %storemerge860.i, ptr %344, align 8, !tbaa !119
   br label %355
@@ -10477,8 +10477,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %387 = icmp ult i32 %347, %346
   %388 = getelementptr inbounds nuw i8, ptr %345, i64 4
   %389 = load i32, ptr %388, align 4, !tbaa !123
-  %.sink1091.i = select i1 %387, i64 16, i64 8
-  %390 = getelementptr inbounds nuw i8, ptr %345, i64 %.sink1091.i
+  %.sink1140.i = select i1 %387, i64 16, i64 8
+  %390 = getelementptr inbounds nuw i8, ptr %345, i64 %.sink1140.i
   %storemerge857.i = load ptr, ptr %390, align 8, !tbaa !119
   store ptr %storemerge857.i, ptr %344, align 8, !tbaa !119
   br label %391
@@ -10611,8 +10611,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %452 = icmp ult i32 %448, %447
   %453 = getelementptr inbounds nuw i8, ptr %446, i64 4
   %454 = load i32, ptr %453, align 4, !tbaa !123
-  %.sink1092.i = select i1 %452, i64 8, i64 16
-  %455 = getelementptr inbounds nuw i8, ptr %446, i64 %.sink1092.i
+  %.sink1141.i = select i1 %452, i64 8, i64 16
+  %455 = getelementptr inbounds nuw i8, ptr %446, i64 %.sink1141.i
   %storemerge866.i = load ptr, ptr %455, align 8, !tbaa !119
   store ptr %storemerge866.i, ptr %445, align 8, !tbaa !119
   br label %456
@@ -10676,8 +10676,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %488 = icmp ult i32 %448, %447
   %489 = getelementptr inbounds nuw i8, ptr %446, i64 4
   %490 = load i32, ptr %489, align 4, !tbaa !123
-  %.sink1093.i = select i1 %488, i64 16, i64 8
-  %491 = getelementptr inbounds nuw i8, ptr %446, i64 %.sink1093.i
+  %.sink1142.i = select i1 %488, i64 16, i64 8
+  %491 = getelementptr inbounds nuw i8, ptr %446, i64 %.sink1142.i
   %storemerge863.i = load ptr, ptr %491, align 8, !tbaa !119
   store ptr %storemerge863.i, ptr %445, align 8, !tbaa !119
   br label %492
@@ -10792,8 +10792,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %552 = icmp ult i32 %548, %547
   %553 = getelementptr inbounds nuw i8, ptr %546, i64 4
   %554 = load i32, ptr %553, align 4, !tbaa !123
-  %.sink1094.i = select i1 %552, i64 8, i64 16
-  %555 = getelementptr inbounds nuw i8, ptr %546, i64 %.sink1094.i
+  %.sink1143.i = select i1 %552, i64 8, i64 16
+  %555 = getelementptr inbounds nuw i8, ptr %546, i64 %.sink1143.i
   %storemerge871.i = load ptr, ptr %555, align 8, !tbaa !119
   store ptr %storemerge871.i, ptr %545, align 8, !tbaa !119
   br label %556
@@ -10857,8 +10857,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %588 = icmp ult i32 %548, %547
   %589 = getelementptr inbounds nuw i8, ptr %546, i64 4
   %590 = load i32, ptr %589, align 4, !tbaa !123
-  %.sink1095.i = select i1 %588, i64 16, i64 8
-  %591 = getelementptr inbounds nuw i8, ptr %546, i64 %.sink1095.i
+  %.sink1144.i = select i1 %588, i64 16, i64 8
+  %591 = getelementptr inbounds nuw i8, ptr %546, i64 %.sink1144.i
   %storemerge868.i = load ptr, ptr %591, align 8, !tbaa !119
   store ptr %storemerge868.i, ptr %545, align 8, !tbaa !119
   br label %592
@@ -10991,8 +10991,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %653 = icmp ult i32 %649, %648
   %654 = getelementptr inbounds nuw i8, ptr %647, i64 4
   %655 = load i32, ptr %654, align 4, !tbaa !123
-  %.sink1096.i = select i1 %653, i64 8, i64 16
-  %656 = getelementptr inbounds nuw i8, ptr %647, i64 %.sink1096.i
+  %.sink1145.i = select i1 %653, i64 8, i64 16
+  %656 = getelementptr inbounds nuw i8, ptr %647, i64 %.sink1145.i
   %storemerge877.i = load ptr, ptr %656, align 8, !tbaa !119
   store ptr %storemerge877.i, ptr %646, align 8, !tbaa !119
   br label %657
@@ -11056,8 +11056,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %689 = icmp ult i32 %649, %648
   %690 = getelementptr inbounds nuw i8, ptr %647, i64 4
   %691 = load i32, ptr %690, align 4, !tbaa !123
-  %.sink1097.i = select i1 %689, i64 16, i64 8
-  %692 = getelementptr inbounds nuw i8, ptr %647, i64 %.sink1097.i
+  %.sink1146.i = select i1 %689, i64 16, i64 8
+  %692 = getelementptr inbounds nuw i8, ptr %647, i64 %.sink1146.i
   %storemerge874.i = load ptr, ptr %692, align 8, !tbaa !119
   store ptr %storemerge874.i, ptr %646, align 8, !tbaa !119
   br label %693
@@ -11172,8 +11172,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %753 = icmp ult i32 %749, %748
   %754 = getelementptr inbounds nuw i8, ptr %747, i64 4
   %755 = load i32, ptr %754, align 4, !tbaa !123
-  %.sink1098.i = select i1 %753, i64 8, i64 16
-  %756 = getelementptr inbounds nuw i8, ptr %747, i64 %.sink1098.i
+  %.sink1147.i = select i1 %753, i64 8, i64 16
+  %756 = getelementptr inbounds nuw i8, ptr %747, i64 %.sink1147.i
   %storemerge882.i = load ptr, ptr %756, align 8, !tbaa !119
   store ptr %storemerge882.i, ptr %746, align 8, !tbaa !119
   br label %757
@@ -11237,8 +11237,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %789 = icmp ult i32 %749, %748
   %790 = getelementptr inbounds nuw i8, ptr %747, i64 4
   %791 = load i32, ptr %790, align 4, !tbaa !123
-  %.sink1099.i = select i1 %789, i64 16, i64 8
-  %792 = getelementptr inbounds nuw i8, ptr %747, i64 %.sink1099.i
+  %.sink1148.i = select i1 %789, i64 16, i64 8
+  %792 = getelementptr inbounds nuw i8, ptr %747, i64 %.sink1148.i
   %storemerge879.i = load ptr, ptr %792, align 8, !tbaa !119
   store ptr %storemerge879.i, ptr %746, align 8, !tbaa !119
   br label %793
@@ -11492,8 +11492,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %911 = icmp ult i32 %871, %870
   %912 = getelementptr inbounds nuw i8, ptr %869, i64 4
   %913 = load i32, ptr %912, align 4, !tbaa !123
-  %.sink1090.i103 = select i1 %911, i64 16, i64 8
-  %914 = getelementptr inbounds nuw i8, ptr %869, i64 %.sink1090.i103
+  %.sink1139.i103 = select i1 %911, i64 16, i64 8
+  %914 = getelementptr inbounds nuw i8, ptr %869, i64 %.sink1139.i103
   %storemerge.i104 = load ptr, ptr %914, align 8, !tbaa !119
   store ptr %storemerge.i104, ptr %868, align 8, !tbaa !119
   br label %915
@@ -11608,8 +11608,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %975 = icmp ult i32 %971, %970
   %976 = getelementptr inbounds nuw i8, ptr %969, i64 4
   %977 = load i32, ptr %976, align 4, !tbaa !123
-  %.sink1091.i99 = select i1 %975, i64 8, i64 16
-  %978 = getelementptr inbounds nuw i8, ptr %969, i64 %.sink1091.i99
+  %.sink1140.i99 = select i1 %975, i64 8, i64 16
+  %978 = getelementptr inbounds nuw i8, ptr %969, i64 %.sink1140.i99
   %storemerge854.i = load ptr, ptr %978, align 8, !tbaa !119
   store ptr %storemerge854.i, ptr %968, align 8, !tbaa !119
   br label %979
@@ -11673,8 +11673,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1011 = icmp ult i32 %971, %970
   %1012 = getelementptr inbounds nuw i8, ptr %969, i64 4
   %1013 = load i32, ptr %1012, align 4, !tbaa !123
-  %.sink1092.i95 = select i1 %1011, i64 16, i64 8
-  %1014 = getelementptr inbounds nuw i8, ptr %969, i64 %.sink1092.i95
+  %.sink1141.i95 = select i1 %1011, i64 16, i64 8
+  %1014 = getelementptr inbounds nuw i8, ptr %969, i64 %.sink1141.i95
   %storemerge851.i = load ptr, ptr %1014, align 8, !tbaa !119
   store ptr %storemerge851.i, ptr %968, align 8, !tbaa !119
   br label %1015
@@ -11820,8 +11820,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1086 = icmp ult i32 %1082, %1081
   %1087 = getelementptr inbounds nuw i8, ptr %1080, i64 4
   %1088 = load i32, ptr %1087, align 4, !tbaa !123
-  %.sink1093.i91 = select i1 %1086, i64 8, i64 16
-  %1089 = getelementptr inbounds nuw i8, ptr %1080, i64 %.sink1093.i91
+  %.sink1142.i91 = select i1 %1086, i64 8, i64 16
+  %1089 = getelementptr inbounds nuw i8, ptr %1080, i64 %.sink1142.i91
   %storemerge860.i92 = load ptr, ptr %1089, align 8, !tbaa !119
   store ptr %storemerge860.i92, ptr %1079, align 8, !tbaa !119
   br label %1090
@@ -11885,8 +11885,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1122 = icmp ult i32 %1082, %1081
   %1123 = getelementptr inbounds nuw i8, ptr %1080, i64 4
   %1124 = load i32, ptr %1123, align 4, !tbaa !123
-  %.sink1094.i86 = select i1 %1122, i64 16, i64 8
-  %1125 = getelementptr inbounds nuw i8, ptr %1080, i64 %.sink1094.i86
+  %.sink1143.i86 = select i1 %1122, i64 16, i64 8
+  %1125 = getelementptr inbounds nuw i8, ptr %1080, i64 %.sink1143.i86
   %storemerge857.i87 = load ptr, ptr %1125, align 8, !tbaa !119
   store ptr %storemerge857.i87, ptr %1079, align 8, !tbaa !119
   br label %1126
@@ -12001,8 +12001,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1186 = icmp ult i32 %1182, %1181
   %1187 = getelementptr inbounds nuw i8, ptr %1180, i64 4
   %1188 = load i32, ptr %1187, align 4, !tbaa !123
-  %.sink1095.i82 = select i1 %1186, i64 8, i64 16
-  %1189 = getelementptr inbounds nuw i8, ptr %1180, i64 %.sink1095.i82
+  %.sink1144.i82 = select i1 %1186, i64 8, i64 16
+  %1189 = getelementptr inbounds nuw i8, ptr %1180, i64 %.sink1144.i82
   %storemerge865.i = load ptr, ptr %1189, align 8, !tbaa !119
   store ptr %storemerge865.i, ptr %1179, align 8, !tbaa !119
   br label %1190
@@ -12066,8 +12066,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1222 = icmp ult i32 %1182, %1181
   %1223 = getelementptr inbounds nuw i8, ptr %1180, i64 4
   %1224 = load i32, ptr %1223, align 4, !tbaa !123
-  %.sink1096.i78 = select i1 %1222, i64 16, i64 8
-  %1225 = getelementptr inbounds nuw i8, ptr %1180, i64 %.sink1096.i78
+  %.sink1145.i78 = select i1 %1222, i64 16, i64 8
+  %1225 = getelementptr inbounds nuw i8, ptr %1180, i64 %.sink1145.i78
   %storemerge862.i = load ptr, ptr %1225, align 8, !tbaa !119
   store ptr %storemerge862.i, ptr %1179, align 8, !tbaa !119
   br label %1226
@@ -12200,8 +12200,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1287 = icmp ult i32 %1283, %1282
   %1288 = getelementptr inbounds nuw i8, ptr %1281, i64 4
   %1289 = load i32, ptr %1288, align 4, !tbaa !123
-  %.sink1097.i74 = select i1 %1287, i64 8, i64 16
-  %1290 = getelementptr inbounds nuw i8, ptr %1281, i64 %.sink1097.i74
+  %.sink1146.i74 = select i1 %1287, i64 8, i64 16
+  %1290 = getelementptr inbounds nuw i8, ptr %1281, i64 %.sink1146.i74
   %storemerge871.i75 = load ptr, ptr %1290, align 8, !tbaa !119
   store ptr %storemerge871.i75, ptr %1280, align 8, !tbaa !119
   br label %1291
@@ -12265,8 +12265,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1323 = icmp ult i32 %1283, %1282
   %1324 = getelementptr inbounds nuw i8, ptr %1281, i64 4
   %1325 = load i32, ptr %1324, align 4, !tbaa !123
-  %.sink1098.i69 = select i1 %1323, i64 16, i64 8
-  %1326 = getelementptr inbounds nuw i8, ptr %1281, i64 %.sink1098.i69
+  %.sink1147.i69 = select i1 %1323, i64 16, i64 8
+  %1326 = getelementptr inbounds nuw i8, ptr %1281, i64 %.sink1147.i69
   %storemerge868.i70 = load ptr, ptr %1326, align 8, !tbaa !119
   store ptr %storemerge868.i70, ptr %1280, align 8, !tbaa !119
   br label %1327
@@ -12381,8 +12381,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1387 = icmp ult i32 %1383, %1382
   %1388 = getelementptr inbounds nuw i8, ptr %1381, i64 4
   %1389 = load i32, ptr %1388, align 4, !tbaa !123
-  %.sink1099.i65 = select i1 %1387, i64 8, i64 16
-  %1390 = getelementptr inbounds nuw i8, ptr %1381, i64 %.sink1099.i65
+  %.sink1148.i65 = select i1 %1387, i64 8, i64 16
+  %1390 = getelementptr inbounds nuw i8, ptr %1381, i64 %.sink1148.i65
   %storemerge876.i = load ptr, ptr %1390, align 8, !tbaa !119
   store ptr %storemerge876.i, ptr %1380, align 8, !tbaa !119
   br label %1391
@@ -12446,8 +12446,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1423 = icmp ult i32 %1383, %1382
   %1424 = getelementptr inbounds nuw i8, ptr %1381, i64 4
   %1425 = load i32, ptr %1424, align 4, !tbaa !123
-  %.sink1100.i = select i1 %1423, i64 16, i64 8
-  %1426 = getelementptr inbounds nuw i8, ptr %1381, i64 %.sink1100.i
+  %.sink1149.i = select i1 %1423, i64 16, i64 8
+  %1426 = getelementptr inbounds nuw i8, ptr %1381, i64 %.sink1149.i
   %storemerge873.i = load ptr, ptr %1426, align 8, !tbaa !119
   store ptr %storemerge873.i, ptr %1380, align 8, !tbaa !119
   br label %1427
@@ -12580,8 +12580,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1488 = icmp ult i32 %1484, %1483
   %1489 = getelementptr inbounds nuw i8, ptr %1482, i64 4
   %1490 = load i32, ptr %1489, align 4, !tbaa !123
-  %.sink1101.i = select i1 %1488, i64 8, i64 16
-  %1491 = getelementptr inbounds nuw i8, ptr %1482, i64 %.sink1101.i
+  %.sink1150.i = select i1 %1488, i64 8, i64 16
+  %1491 = getelementptr inbounds nuw i8, ptr %1482, i64 %.sink1150.i
   %storemerge882.i59 = load ptr, ptr %1491, align 8, !tbaa !119
   store ptr %storemerge882.i59, ptr %1481, align 8, !tbaa !119
   br label %1492
@@ -12645,8 +12645,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1524 = icmp ult i32 %1484, %1483
   %1525 = getelementptr inbounds nuw i8, ptr %1482, i64 4
   %1526 = load i32, ptr %1525, align 4, !tbaa !123
-  %.sink1102.i = select i1 %1524, i64 16, i64 8
-  %1527 = getelementptr inbounds nuw i8, ptr %1482, i64 %.sink1102.i
+  %.sink1151.i = select i1 %1524, i64 16, i64 8
+  %1527 = getelementptr inbounds nuw i8, ptr %1482, i64 %.sink1151.i
   %storemerge879.i55 = load ptr, ptr %1527, align 8, !tbaa !119
   store ptr %storemerge879.i55, ptr %1481, align 8, !tbaa !119
   br label %1528
@@ -12761,8 +12761,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1588 = icmp ult i32 %1584, %1583
   %1589 = getelementptr inbounds nuw i8, ptr %1582, i64 4
   %1590 = load i32, ptr %1589, align 4, !tbaa !123
-  %.sink1103.i = select i1 %1588, i64 8, i64 16
-  %1591 = getelementptr inbounds nuw i8, ptr %1582, i64 %.sink1103.i
+  %.sink1152.i = select i1 %1588, i64 8, i64 16
+  %1591 = getelementptr inbounds nuw i8, ptr %1582, i64 %.sink1152.i
   %storemerge887.i = load ptr, ptr %1591, align 8, !tbaa !119
   store ptr %storemerge887.i, ptr %1581, align 8, !tbaa !119
   br label %1592
@@ -12826,8 +12826,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1624 = icmp ult i32 %1584, %1583
   %1625 = getelementptr inbounds nuw i8, ptr %1582, i64 4
   %1626 = load i32, ptr %1625, align 4, !tbaa !123
-  %.sink1104.i = select i1 %1624, i64 16, i64 8
-  %1627 = getelementptr inbounds nuw i8, ptr %1582, i64 %.sink1104.i
+  %.sink1153.i = select i1 %1624, i64 16, i64 8
+  %1627 = getelementptr inbounds nuw i8, ptr %1582, i64 %.sink1153.i
   %storemerge884.i = load ptr, ptr %1627, align 8, !tbaa !119
   store ptr %storemerge884.i, ptr %1581, align 8, !tbaa !119
   br label %1628
@@ -13128,8 +13128,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1781 = icmp ult i32 %1738, %1737
   %1782 = getelementptr inbounds nuw i8, ptr %1736, i64 4
   %1783 = load i32, ptr %1782, align 4, !tbaa !123
-  %.sink1153.i = select i1 %1781, i64 8, i64 16
-  %1784 = getelementptr inbounds nuw i8, ptr %1736, i64 %.sink1153.i
+  %.sink1209.i = select i1 %1781, i64 8, i64 16
+  %1784 = getelementptr inbounds nuw i8, ptr %1736, i64 %.sink1209.i
   %storemerge862.us.i = load ptr, ptr %1784, align 8, !tbaa !119
   store ptr %storemerge862.us.i, ptr %1735, align 8, !tbaa !119
   br label %1785
@@ -13251,8 +13251,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1850 = icmp ult i32 %1838, %1837
   %1851 = getelementptr inbounds nuw i8, ptr %1836, i64 4
   %1852 = load i32, ptr %1851, align 4, !tbaa !123
-  %.sink1154.i = select i1 %1850, i64 16, i64 8
-  %1853 = getelementptr inbounds nuw i8, ptr %1836, i64 %.sink1154.i
+  %.sink1210.i = select i1 %1850, i64 16, i64 8
+  %1853 = getelementptr inbounds nuw i8, ptr %1836, i64 %.sink1210.i
   %storemerge864.us.i = load ptr, ptr %1853, align 8, !tbaa !119
   store ptr %storemerge864.us.i, ptr %1835, align 8, !tbaa !119
   br label %1854
@@ -13309,8 +13309,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1881 = icmp ult i32 %1838, %1837
   %1882 = getelementptr inbounds nuw i8, ptr %1836, i64 4
   %1883 = load i32, ptr %1882, align 4, !tbaa !123
-  %.sink1155.i = select i1 %1881, i64 8, i64 16
-  %1884 = getelementptr inbounds nuw i8, ptr %1836, i64 %.sink1155.i
+  %.sink1211.i = select i1 %1881, i64 8, i64 16
+  %1884 = getelementptr inbounds nuw i8, ptr %1836, i64 %.sink1211.i
   %storemerge867.us.i = load ptr, ptr %1884, align 8, !tbaa !119
   store ptr %storemerge867.us.i, ptr %1835, align 8, !tbaa !119
   br label %1885
@@ -13449,8 +13449,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1950 = icmp ult i32 %1938, %1937
   %1951 = getelementptr inbounds nuw i8, ptr %1936, i64 4
   %1952 = load i32, ptr %1951, align 4, !tbaa !123
-  %.sink1156.i = select i1 %1950, i64 16, i64 8
-  %1953 = getelementptr inbounds nuw i8, ptr %1936, i64 %.sink1156.i
+  %.sink1212.i = select i1 %1950, i64 16, i64 8
+  %1953 = getelementptr inbounds nuw i8, ptr %1936, i64 %.sink1212.i
   %storemerge870.us.i = load ptr, ptr %1953, align 8, !tbaa !119
   store ptr %storemerge870.us.i, ptr %1935, align 8, !tbaa !119
   br label %1954
@@ -13507,8 +13507,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1981 = icmp ult i32 %1938, %1937
   %1982 = getelementptr inbounds nuw i8, ptr %1936, i64 4
   %1983 = load i32, ptr %1982, align 4, !tbaa !123
-  %.sink1157.i = select i1 %1981, i64 8, i64 16
-  %1984 = getelementptr inbounds nuw i8, ptr %1936, i64 %.sink1157.i
+  %.sink1213.i = select i1 %1981, i64 8, i64 16
+  %1984 = getelementptr inbounds nuw i8, ptr %1936, i64 %.sink1213.i
   %storemerge873.us.i = load ptr, ptr %1984, align 8, !tbaa !119
   store ptr %storemerge873.us.i, ptr %1935, align 8, !tbaa !119
   br label %1985
@@ -13630,8 +13630,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2050 = icmp ult i32 %2038, %2037
   %2051 = getelementptr inbounds nuw i8, ptr %2036, i64 4
   %2052 = load i32, ptr %2051, align 4, !tbaa !123
-  %.sink1158.i = select i1 %2050, i64 16, i64 8
-  %2053 = getelementptr inbounds nuw i8, ptr %2036, i64 %.sink1158.i
+  %.sink1214.i = select i1 %2050, i64 16, i64 8
+  %2053 = getelementptr inbounds nuw i8, ptr %2036, i64 %.sink1214.i
   %storemerge875.us.i = load ptr, ptr %2053, align 8, !tbaa !119
   store ptr %storemerge875.us.i, ptr %2035, align 8, !tbaa !119
   br label %2054
@@ -13688,8 +13688,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2081 = icmp ult i32 %2038, %2037
   %2082 = getelementptr inbounds nuw i8, ptr %2036, i64 4
   %2083 = load i32, ptr %2082, align 4, !tbaa !123
-  %.sink1159.i = select i1 %2081, i64 8, i64 16
-  %2084 = getelementptr inbounds nuw i8, ptr %2036, i64 %.sink1159.i
+  %.sink1215.i = select i1 %2081, i64 8, i64 16
+  %2084 = getelementptr inbounds nuw i8, ptr %2036, i64 %.sink1215.i
   %storemerge878.us.i = load ptr, ptr %2084, align 8, !tbaa !119
   store ptr %storemerge878.us.i, ptr %2035, align 8, !tbaa !119
   br label %2085
@@ -13829,8 +13829,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2151 = icmp ult i32 %2139, %2138
   %2152 = getelementptr inbounds nuw i8, ptr %2137, i64 4
   %2153 = load i32, ptr %2152, align 4, !tbaa !123
-  %.sink1160.i = select i1 %2151, i64 16, i64 8
-  %2154 = getelementptr inbounds nuw i8, ptr %2137, i64 %.sink1160.i
+  %.sink1216.i = select i1 %2151, i64 16, i64 8
+  %2154 = getelementptr inbounds nuw i8, ptr %2137, i64 %.sink1216.i
   %storemerge881.us.i = load ptr, ptr %2154, align 8, !tbaa !119
   store ptr %storemerge881.us.i, ptr %2136, align 8, !tbaa !119
   br label %2155
@@ -13887,8 +13887,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2182 = icmp ult i32 %2139, %2138
   %2183 = getelementptr inbounds nuw i8, ptr %2137, i64 4
   %2184 = load i32, ptr %2183, align 4, !tbaa !123
-  %.sink1161.i = select i1 %2182, i64 8, i64 16
-  %2185 = getelementptr inbounds nuw i8, ptr %2137, i64 %.sink1161.i
+  %.sink1217.i = select i1 %2182, i64 8, i64 16
+  %2185 = getelementptr inbounds nuw i8, ptr %2137, i64 %.sink1217.i
   %storemerge884.us.i = load ptr, ptr %2185, align 8, !tbaa !119
   store ptr %storemerge884.us.i, ptr %2136, align 8, !tbaa !119
   br label %2186
@@ -14010,8 +14010,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2251 = icmp ult i32 %2239, %2238
   %2252 = getelementptr inbounds nuw i8, ptr %2237, i64 4
   %2253 = load i32, ptr %2252, align 4, !tbaa !123
-  %.sink1162.i = select i1 %2251, i64 16, i64 8
-  %2254 = getelementptr inbounds nuw i8, ptr %2237, i64 %.sink1162.i
+  %.sink1218.i = select i1 %2251, i64 16, i64 8
+  %2254 = getelementptr inbounds nuw i8, ptr %2237, i64 %.sink1218.i
   %storemerge886.us.i = load ptr, ptr %2254, align 8, !tbaa !119
   store ptr %storemerge886.us.i, ptr %2236, align 8, !tbaa !119
   br label %2255
@@ -14068,8 +14068,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2282 = icmp ult i32 %2239, %2238
   %2283 = getelementptr inbounds nuw i8, ptr %2237, i64 4
   %2284 = load i32, ptr %2283, align 4, !tbaa !123
-  %.sink1163.i = select i1 %2282, i64 8, i64 16
-  %2285 = getelementptr inbounds nuw i8, ptr %2237, i64 %.sink1163.i
+  %.sink1219.i = select i1 %2282, i64 8, i64 16
+  %2285 = getelementptr inbounds nuw i8, ptr %2237, i64 %.sink1219.i
   %storemerge889.us.i = load ptr, ptr %2285, align 8, !tbaa !119
   store ptr %storemerge889.us.i, ptr %2236, align 8, !tbaa !119
   br label %2286
@@ -14209,8 +14209,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2352 = icmp ult i32 %2340, %2339
   %2353 = getelementptr inbounds nuw i8, ptr %2338, i64 4
   %2354 = load i32, ptr %2353, align 4, !tbaa !123
-  %.sink1164.i = select i1 %2352, i64 16, i64 8
-  %2355 = getelementptr inbounds nuw i8, ptr %2338, i64 %.sink1164.i
+  %.sink1220.i = select i1 %2352, i64 16, i64 8
+  %2355 = getelementptr inbounds nuw i8, ptr %2338, i64 %.sink1220.i
   %storemerge892.us.i = load ptr, ptr %2355, align 8, !tbaa !119
   store ptr %storemerge892.us.i, ptr %2337, align 8, !tbaa !119
   br label %2356
@@ -14267,8 +14267,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2383 = icmp ult i32 %2340, %2339
   %2384 = getelementptr inbounds nuw i8, ptr %2338, i64 4
   %2385 = load i32, ptr %2384, align 4, !tbaa !123
-  %.sink1165.i = select i1 %2383, i64 8, i64 16
-  %2386 = getelementptr inbounds nuw i8, ptr %2338, i64 %.sink1165.i
+  %.sink1221.i = select i1 %2383, i64 8, i64 16
+  %2386 = getelementptr inbounds nuw i8, ptr %2338, i64 %.sink1221.i
   %storemerge895.us.i = load ptr, ptr %2386, align 8, !tbaa !119
   store ptr %storemerge895.us.i, ptr %2337, align 8, !tbaa !119
   br label %2387
@@ -14390,8 +14390,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2452 = icmp ult i32 %2440, %2439
   %2453 = getelementptr inbounds nuw i8, ptr %2438, i64 4
   %2454 = load i32, ptr %2453, align 4, !tbaa !123
-  %.sink1166.i = select i1 %2452, i64 16, i64 8
-  %2455 = getelementptr inbounds nuw i8, ptr %2438, i64 %.sink1166.i
+  %.sink1222.i = select i1 %2452, i64 16, i64 8
+  %2455 = getelementptr inbounds nuw i8, ptr %2438, i64 %.sink1222.i
   %storemerge897.us.i = load ptr, ptr %2455, align 8, !tbaa !119
   store ptr %storemerge897.us.i, ptr %2437, align 8, !tbaa !119
   br label %2456
@@ -14448,8 +14448,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2483 = icmp ult i32 %2440, %2439
   %2484 = getelementptr inbounds nuw i8, ptr %2438, i64 4
   %2485 = load i32, ptr %2484, align 4, !tbaa !123
-  %.sink1167.i = select i1 %2483, i64 8, i64 16
-  %2486 = getelementptr inbounds nuw i8, ptr %2438, i64 %.sink1167.i
+  %.sink1223.i = select i1 %2483, i64 8, i64 16
+  %2486 = getelementptr inbounds nuw i8, ptr %2438, i64 %.sink1223.i
   %storemerge900.us.i = load ptr, ptr %2486, align 8, !tbaa !119
   store ptr %storemerge900.us.i, ptr %2437, align 8, !tbaa !119
   br label %2487
@@ -14791,8 +14791,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2648 = icmp ult i32 %2605, %2604
   %2649 = getelementptr inbounds nuw i8, ptr %2603, i64 4
   %2650 = load i32, ptr %2649, align 4, !tbaa !123
-  %.sink1159.i223 = select i1 %2648, i64 8, i64 16
-  %2651 = getelementptr inbounds nuw i8, ptr %2603, i64 %.sink1159.i223
+  %.sink1215.i223 = select i1 %2648, i64 8, i64 16
+  %2651 = getelementptr inbounds nuw i8, ptr %2603, i64 %.sink1215.i223
   %storemerge868.us.i = load ptr, ptr %2651, align 8, !tbaa !119
   store ptr %storemerge868.us.i, ptr %2602, align 8, !tbaa !119
   br label %2652
@@ -14914,8 +14914,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2717 = icmp ult i32 %2705, %2704
   %2718 = getelementptr inbounds nuw i8, ptr %2703, i64 4
   %2719 = load i32, ptr %2718, align 4, !tbaa !123
-  %.sink1160.i211 = select i1 %2717, i64 16, i64 8
-  %2720 = getelementptr inbounds nuw i8, ptr %2703, i64 %.sink1160.i211
+  %.sink1216.i211 = select i1 %2717, i64 16, i64 8
+  %2720 = getelementptr inbounds nuw i8, ptr %2703, i64 %.sink1216.i211
   %storemerge870.us.i212 = load ptr, ptr %2720, align 8, !tbaa !119
   store ptr %storemerge870.us.i212, ptr %2702, align 8, !tbaa !119
   br label %2721
@@ -14972,8 +14972,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2748 = icmp ult i32 %2705, %2704
   %2749 = getelementptr inbounds nuw i8, ptr %2703, i64 4
   %2750 = load i32, ptr %2749, align 4, !tbaa !123
-  %.sink1161.i216 = select i1 %2748, i64 8, i64 16
-  %2751 = getelementptr inbounds nuw i8, ptr %2703, i64 %.sink1161.i216
+  %.sink1217.i216 = select i1 %2748, i64 8, i64 16
+  %2751 = getelementptr inbounds nuw i8, ptr %2703, i64 %.sink1217.i216
   %storemerge873.us.i217 = load ptr, ptr %2751, align 8, !tbaa !119
   store ptr %storemerge873.us.i217, ptr %2702, align 8, !tbaa !119
   br label %2752
@@ -15130,8 +15130,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2832 = icmp ult i32 %2820, %2819
   %2833 = getelementptr inbounds nuw i8, ptr %2818, i64 4
   %2834 = load i32, ptr %2833, align 4, !tbaa !123
-  %.sink1162.i204 = select i1 %2832, i64 16, i64 8
-  %2835 = getelementptr inbounds nuw i8, ptr %2818, i64 %.sink1162.i204
+  %.sink1218.i204 = select i1 %2832, i64 16, i64 8
+  %2835 = getelementptr inbounds nuw i8, ptr %2818, i64 %.sink1218.i204
   %storemerge876.us.i = load ptr, ptr %2835, align 8, !tbaa !119
   store ptr %storemerge876.us.i, ptr %2817, align 8, !tbaa !119
   br label %2836
@@ -15188,8 +15188,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2863 = icmp ult i32 %2820, %2819
   %2864 = getelementptr inbounds nuw i8, ptr %2818, i64 4
   %2865 = load i32, ptr %2864, align 4, !tbaa !123
-  %.sink1163.i207 = select i1 %2863, i64 8, i64 16
-  %2866 = getelementptr inbounds nuw i8, ptr %2818, i64 %.sink1163.i207
+  %.sink1219.i207 = select i1 %2863, i64 8, i64 16
+  %2866 = getelementptr inbounds nuw i8, ptr %2818, i64 %.sink1219.i207
   %storemerge879.us.i = load ptr, ptr %2866, align 8, !tbaa !119
   store ptr %storemerge879.us.i, ptr %2817, align 8, !tbaa !119
   br label %2867
@@ -15311,8 +15311,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2932 = icmp ult i32 %2920, %2919
   %2933 = getelementptr inbounds nuw i8, ptr %2918, i64 4
   %2934 = load i32, ptr %2933, align 4, !tbaa !123
-  %.sink1164.i194 = select i1 %2932, i64 16, i64 8
-  %2935 = getelementptr inbounds nuw i8, ptr %2918, i64 %.sink1164.i194
+  %.sink1220.i194 = select i1 %2932, i64 16, i64 8
+  %2935 = getelementptr inbounds nuw i8, ptr %2918, i64 %.sink1220.i194
   %storemerge881.us.i195 = load ptr, ptr %2935, align 8, !tbaa !119
   store ptr %storemerge881.us.i195, ptr %2917, align 8, !tbaa !119
   br label %2936
@@ -15369,8 +15369,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2963 = icmp ult i32 %2920, %2919
   %2964 = getelementptr inbounds nuw i8, ptr %2918, i64 4
   %2965 = load i32, ptr %2964, align 4, !tbaa !123
-  %.sink1165.i199 = select i1 %2963, i64 8, i64 16
-  %2966 = getelementptr inbounds nuw i8, ptr %2918, i64 %.sink1165.i199
+  %.sink1221.i199 = select i1 %2963, i64 8, i64 16
+  %2966 = getelementptr inbounds nuw i8, ptr %2918, i64 %.sink1221.i199
   %storemerge884.us.i200 = load ptr, ptr %2966, align 8, !tbaa !119
   store ptr %storemerge884.us.i200, ptr %2917, align 8, !tbaa !119
   br label %2967
@@ -15510,8 +15510,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3033 = icmp ult i32 %3021, %3020
   %3034 = getelementptr inbounds nuw i8, ptr %3019, i64 4
   %3035 = load i32, ptr %3034, align 4, !tbaa !123
-  %.sink1166.i187 = select i1 %3033, i64 16, i64 8
-  %3036 = getelementptr inbounds nuw i8, ptr %3019, i64 %.sink1166.i187
+  %.sink1222.i187 = select i1 %3033, i64 16, i64 8
+  %3036 = getelementptr inbounds nuw i8, ptr %3019, i64 %.sink1222.i187
   %storemerge887.us.i = load ptr, ptr %3036, align 8, !tbaa !119
   store ptr %storemerge887.us.i, ptr %3018, align 8, !tbaa !119
   br label %3037
@@ -15568,8 +15568,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3064 = icmp ult i32 %3021, %3020
   %3065 = getelementptr inbounds nuw i8, ptr %3019, i64 4
   %3066 = load i32, ptr %3065, align 4, !tbaa !123
-  %.sink1167.i190 = select i1 %3064, i64 8, i64 16
-  %3067 = getelementptr inbounds nuw i8, ptr %3019, i64 %.sink1167.i190
+  %.sink1223.i190 = select i1 %3064, i64 8, i64 16
+  %3067 = getelementptr inbounds nuw i8, ptr %3019, i64 %.sink1223.i190
   %storemerge890.us.i = load ptr, ptr %3067, align 8, !tbaa !119
   store ptr %storemerge890.us.i, ptr %3018, align 8, !tbaa !119
   br label %3068
@@ -15691,8 +15691,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3133 = icmp ult i32 %3121, %3120
   %3134 = getelementptr inbounds nuw i8, ptr %3119, i64 4
   %3135 = load i32, ptr %3134, align 4, !tbaa !123
-  %.sink1168.i = select i1 %3133, i64 16, i64 8
-  %3136 = getelementptr inbounds nuw i8, ptr %3119, i64 %.sink1168.i
+  %.sink1224.i = select i1 %3133, i64 16, i64 8
+  %3136 = getelementptr inbounds nuw i8, ptr %3119, i64 %.sink1224.i
   %storemerge892.us.i179 = load ptr, ptr %3136, align 8, !tbaa !119
   store ptr %storemerge892.us.i179, ptr %3118, align 8, !tbaa !119
   br label %3137
@@ -15749,8 +15749,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3164 = icmp ult i32 %3121, %3120
   %3165 = getelementptr inbounds nuw i8, ptr %3119, i64 4
   %3166 = load i32, ptr %3165, align 4, !tbaa !123
-  %.sink1169.i = select i1 %3164, i64 8, i64 16
-  %3167 = getelementptr inbounds nuw i8, ptr %3119, i64 %.sink1169.i
+  %.sink1225.i = select i1 %3164, i64 8, i64 16
+  %3167 = getelementptr inbounds nuw i8, ptr %3119, i64 %.sink1225.i
   %storemerge895.us.i183 = load ptr, ptr %3167, align 8, !tbaa !119
   store ptr %storemerge895.us.i183, ptr %3118, align 8, !tbaa !119
   br label %3168
@@ -15890,8 +15890,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3234 = icmp ult i32 %3222, %3221
   %3235 = getelementptr inbounds nuw i8, ptr %3220, i64 4
   %3236 = load i32, ptr %3235, align 4, !tbaa !123
-  %.sink1170.i = select i1 %3234, i64 16, i64 8
-  %3237 = getelementptr inbounds nuw i8, ptr %3220, i64 %.sink1170.i
+  %.sink1226.i = select i1 %3234, i64 16, i64 8
+  %3237 = getelementptr inbounds nuw i8, ptr %3220, i64 %.sink1226.i
   %storemerge898.us.i = load ptr, ptr %3237, align 8, !tbaa !119
   store ptr %storemerge898.us.i, ptr %3219, align 8, !tbaa !119
   br label %3238
@@ -15948,8 +15948,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3265 = icmp ult i32 %3222, %3221
   %3266 = getelementptr inbounds nuw i8, ptr %3220, i64 4
   %3267 = load i32, ptr %3266, align 4, !tbaa !123
-  %.sink1171.i = select i1 %3265, i64 8, i64 16
-  %3268 = getelementptr inbounds nuw i8, ptr %3220, i64 %.sink1171.i
+  %.sink1227.i = select i1 %3265, i64 8, i64 16
+  %3268 = getelementptr inbounds nuw i8, ptr %3220, i64 %.sink1227.i
   %storemerge901.us.i = load ptr, ptr %3268, align 8, !tbaa !119
   store ptr %storemerge901.us.i, ptr %3219, align 8, !tbaa !119
   br label %3269
@@ -16071,8 +16071,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3334 = icmp ult i32 %3322, %3321
   %3335 = getelementptr inbounds nuw i8, ptr %3320, i64 4
   %3336 = load i32, ptr %3335, align 4, !tbaa !123
-  %.sink1172.i = select i1 %3334, i64 16, i64 8
-  %3337 = getelementptr inbounds nuw i8, ptr %3320, i64 %.sink1172.i
+  %.sink1228.i = select i1 %3334, i64 16, i64 8
+  %3337 = getelementptr inbounds nuw i8, ptr %3320, i64 %.sink1228.i
   %storemerge903.us.i = load ptr, ptr %3337, align 8, !tbaa !119
   store ptr %storemerge903.us.i, ptr %3319, align 8, !tbaa !119
   br label %3338
@@ -16129,8 +16129,8 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3365 = icmp ult i32 %3322, %3321
   %3366 = getelementptr inbounds nuw i8, ptr %3320, i64 4
   %3367 = load i32, ptr %3366, align 4, !tbaa !123
-  %.sink1173.i = select i1 %3365, i64 8, i64 16
-  %3368 = getelementptr inbounds nuw i8, ptr %3320, i64 %.sink1173.i
+  %.sink1229.i = select i1 %3365, i64 8, i64 16
+  %3368 = getelementptr inbounds nuw i8, ptr %3320, i64 %.sink1229.i
   %storemerge906.us.i = load ptr, ptr %3368, align 8, !tbaa !119
   store ptr %storemerge906.us.i, ptr %3319, align 8, !tbaa !119
   br label %3369
@@ -16491,8 +16491,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %81 = icmp ult i32 %41, %40
   %82 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %83 = load i32, ptr %82, align 4, !tbaa !123
-  %.sink2315.i = select i1 %81, i64 16, i64 8
-  %84 = getelementptr inbounds nuw i8, ptr %39, i64 %.sink2315.i
+  %.sink2425.i = select i1 %81, i64 16, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %39, i64 %.sink2425.i
   %storemerge1790.i = load ptr, ptr %84, align 8, !tbaa !119
   store ptr %storemerge1790.i, ptr %33, align 8, !tbaa !119
   br label %85
@@ -16582,8 +16582,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %123 = icmp ult i32 %119, %118
   %124 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %125 = load i32, ptr %124, align 4, !tbaa !123
-  %.sink2316.i = select i1 %123, i64 8, i64 16
-  %126 = getelementptr inbounds nuw i8, ptr %117, i64 %.sink2316.i
+  %.sink2426.i = select i1 %123, i64 8, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %117, i64 %.sink2426.i
   %storemerge1798.i = load ptr, ptr %126, align 8, !tbaa !119
   store ptr %storemerge1798.i, ptr %34, align 8, !tbaa !119
   br label %127
@@ -16647,8 +16647,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %159 = icmp ult i32 %119, %118
   %160 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %161 = load i32, ptr %160, align 4, !tbaa !123
-  %.sink2317.i = select i1 %159, i64 16, i64 8
-  %162 = getelementptr inbounds nuw i8, ptr %117, i64 %.sink2317.i
+  %.sink2427.i = select i1 %159, i64 16, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %117, i64 %.sink2427.i
   %storemerge1795.i = load ptr, ptr %162, align 8, !tbaa !119
   store ptr %storemerge1795.i, ptr %34, align 8, !tbaa !119
   br label %163
@@ -16734,8 +16734,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %200 = icmp ult i32 %196, %195
   %201 = getelementptr inbounds nuw i8, ptr %194, i64 4
   %202 = load i32, ptr %201, align 4, !tbaa !123
-  %.sink2318.i = select i1 %200, i64 8, i64 16
-  %203 = getelementptr inbounds nuw i8, ptr %194, i64 %.sink2318.i
+  %.sink2428.i = select i1 %200, i64 8, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %194, i64 %.sink2428.i
   %storemerge1802.i = load ptr, ptr %203, align 8, !tbaa !119
   store ptr %storemerge1802.i, ptr %34, align 8, !tbaa !119
   br label %204
@@ -16799,8 +16799,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %236 = icmp ult i32 %196, %195
   %237 = getelementptr inbounds nuw i8, ptr %194, i64 4
   %238 = load i32, ptr %237, align 4, !tbaa !123
-  %.sink2319.i = select i1 %236, i64 16, i64 8
-  %239 = getelementptr inbounds nuw i8, ptr %194, i64 %.sink2319.i
+  %.sink2429.i = select i1 %236, i64 16, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %194, i64 %.sink2429.i
   %storemerge1799.i = load ptr, ptr %239, align 8, !tbaa !119
   store ptr %storemerge1799.i, ptr %34, align 8, !tbaa !119
   br label %240
@@ -16910,8 +16910,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %294 = icmp ult i32 %290, %289
   %295 = getelementptr inbounds nuw i8, ptr %288, i64 4
   %296 = load i32, ptr %295, align 4, !tbaa !123
-  %.sink2320.i = select i1 %294, i64 8, i64 16
-  %297 = getelementptr inbounds nuw i8, ptr %288, i64 %.sink2320.i
+  %.sink2430.i = select i1 %294, i64 8, i64 16
+  %297 = getelementptr inbounds nuw i8, ptr %288, i64 %.sink2430.i
   %storemerge1806.i = load ptr, ptr %297, align 8, !tbaa !119
   store ptr %storemerge1806.i, ptr %287, align 8, !tbaa !119
   br label %298
@@ -16975,8 +16975,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %330 = icmp ult i32 %290, %289
   %331 = getelementptr inbounds nuw i8, ptr %288, i64 4
   %332 = load i32, ptr %331, align 4, !tbaa !123
-  %.sink2321.i = select i1 %330, i64 16, i64 8
-  %333 = getelementptr inbounds nuw i8, ptr %288, i64 %.sink2321.i
+  %.sink2431.i = select i1 %330, i64 16, i64 8
+  %333 = getelementptr inbounds nuw i8, ptr %288, i64 %.sink2431.i
   %storemerge1803.i = load ptr, ptr %333, align 8, !tbaa !119
   store ptr %storemerge1803.i, ptr %287, align 8, !tbaa !119
   br label %334
@@ -17082,8 +17082,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %386 = icmp ult i32 %382, %381
   %387 = getelementptr inbounds nuw i8, ptr %380, i64 4
   %388 = load i32, ptr %387, align 4, !tbaa !123
-  %.sink2322.i = select i1 %386, i64 8, i64 16
-  %389 = getelementptr inbounds nuw i8, ptr %380, i64 %.sink2322.i
+  %.sink2432.i = select i1 %386, i64 8, i64 16
+  %389 = getelementptr inbounds nuw i8, ptr %380, i64 %.sink2432.i
   %storemerge1812.i = load ptr, ptr %389, align 8, !tbaa !119
   store ptr %storemerge1812.i, ptr %379, align 8, !tbaa !119
   br label %390
@@ -17147,8 +17147,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %422 = icmp ult i32 %382, %381
   %423 = getelementptr inbounds nuw i8, ptr %380, i64 4
   %424 = load i32, ptr %423, align 4, !tbaa !123
-  %.sink2323.i = select i1 %422, i64 16, i64 8
-  %425 = getelementptr inbounds nuw i8, ptr %380, i64 %.sink2323.i
+  %.sink2433.i = select i1 %422, i64 16, i64 8
+  %425 = getelementptr inbounds nuw i8, ptr %380, i64 %.sink2433.i
   %storemerge1809.i = load ptr, ptr %425, align 8, !tbaa !119
   store ptr %storemerge1809.i, ptr %379, align 8, !tbaa !119
   br label %426
@@ -17265,8 +17265,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %483 = icmp ult i32 %479, %478
   %484 = getelementptr inbounds nuw i8, ptr %477, i64 4
   %485 = load i32, ptr %484, align 4, !tbaa !123
-  %.sink2324.i = select i1 %483, i64 8, i64 16
-  %486 = getelementptr inbounds nuw i8, ptr %477, i64 %.sink2324.i
+  %.sink2434.i = select i1 %483, i64 8, i64 16
+  %486 = getelementptr inbounds nuw i8, ptr %477, i64 %.sink2434.i
   %storemerge1817.i = load ptr, ptr %486, align 8, !tbaa !119
   store ptr %storemerge1817.i, ptr %476, align 8, !tbaa !119
   br label %487
@@ -17330,8 +17330,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %519 = icmp ult i32 %479, %478
   %520 = getelementptr inbounds nuw i8, ptr %477, i64 4
   %521 = load i32, ptr %520, align 4, !tbaa !123
-  %.sink2325.i = select i1 %519, i64 16, i64 8
-  %522 = getelementptr inbounds nuw i8, ptr %477, i64 %.sink2325.i
+  %.sink2435.i = select i1 %519, i64 16, i64 8
+  %522 = getelementptr inbounds nuw i8, ptr %477, i64 %.sink2435.i
   %storemerge1814.i = load ptr, ptr %522, align 8, !tbaa !119
   store ptr %storemerge1814.i, ptr %476, align 8, !tbaa !119
   br label %523
@@ -17450,8 +17450,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %581 = icmp ult i32 %577, %576
   %582 = getelementptr inbounds nuw i8, ptr %575, i64 4
   %583 = load i32, ptr %582, align 4, !tbaa !123
-  %.sink2326.i = select i1 %581, i64 8, i64 16
-  %584 = getelementptr inbounds nuw i8, ptr %575, i64 %.sink2326.i
+  %.sink2436.i = select i1 %581, i64 8, i64 16
+  %584 = getelementptr inbounds nuw i8, ptr %575, i64 %.sink2436.i
   %storemerge1823.i = load ptr, ptr %584, align 8, !tbaa !119
   store ptr %storemerge1823.i, ptr %574, align 8, !tbaa !119
   br label %585
@@ -17515,8 +17515,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %617 = icmp ult i32 %577, %576
   %618 = getelementptr inbounds nuw i8, ptr %575, i64 4
   %619 = load i32, ptr %618, align 4, !tbaa !123
-  %.sink2327.i = select i1 %617, i64 16, i64 8
-  %620 = getelementptr inbounds nuw i8, ptr %575, i64 %.sink2327.i
+  %.sink2437.i = select i1 %617, i64 16, i64 8
+  %620 = getelementptr inbounds nuw i8, ptr %575, i64 %.sink2437.i
   %storemerge1820.i = load ptr, ptr %620, align 8, !tbaa !119
   store ptr %storemerge1820.i, ptr %574, align 8, !tbaa !119
   br label %621
@@ -17633,8 +17633,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %678 = icmp ult i32 %674, %673
   %679 = getelementptr inbounds nuw i8, ptr %672, i64 4
   %680 = load i32, ptr %679, align 4, !tbaa !123
-  %.sink2328.i = select i1 %678, i64 8, i64 16
-  %681 = getelementptr inbounds nuw i8, ptr %672, i64 %.sink2328.i
+  %.sink2438.i = select i1 %678, i64 8, i64 16
+  %681 = getelementptr inbounds nuw i8, ptr %672, i64 %.sink2438.i
   %storemerge1828.i = load ptr, ptr %681, align 8, !tbaa !119
   store ptr %storemerge1828.i, ptr %671, align 8, !tbaa !119
   br label %682
@@ -17698,8 +17698,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %714 = icmp ult i32 %674, %673
   %715 = getelementptr inbounds nuw i8, ptr %672, i64 4
   %716 = load i32, ptr %715, align 4, !tbaa !123
-  %.sink2329.i = select i1 %714, i64 16, i64 8
-  %717 = getelementptr inbounds nuw i8, ptr %672, i64 %.sink2329.i
+  %.sink2439.i = select i1 %714, i64 16, i64 8
+  %717 = getelementptr inbounds nuw i8, ptr %672, i64 %.sink2439.i
   %storemerge1825.i = load ptr, ptr %717, align 8, !tbaa !119
   store ptr %storemerge1825.i, ptr %671, align 8, !tbaa !119
   br label %718
@@ -17818,8 +17818,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %776 = icmp ult i32 %772, %771
   %777 = getelementptr inbounds nuw i8, ptr %770, i64 4
   %778 = load i32, ptr %777, align 4, !tbaa !123
-  %.sink2330.i = select i1 %776, i64 8, i64 16
-  %779 = getelementptr inbounds nuw i8, ptr %770, i64 %.sink2330.i
+  %.sink2440.i = select i1 %776, i64 8, i64 16
+  %779 = getelementptr inbounds nuw i8, ptr %770, i64 %.sink2440.i
   %storemerge1834.i = load ptr, ptr %779, align 8, !tbaa !119
   store ptr %storemerge1834.i, ptr %769, align 8, !tbaa !119
   br label %780
@@ -17883,8 +17883,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %812 = icmp ult i32 %772, %771
   %813 = getelementptr inbounds nuw i8, ptr %770, i64 4
   %814 = load i32, ptr %813, align 4, !tbaa !123
-  %.sink2331.i = select i1 %812, i64 16, i64 8
-  %815 = getelementptr inbounds nuw i8, ptr %770, i64 %.sink2331.i
+  %.sink2441.i = select i1 %812, i64 16, i64 8
+  %815 = getelementptr inbounds nuw i8, ptr %770, i64 %.sink2441.i
   %storemerge1831.i = load ptr, ptr %815, align 8, !tbaa !119
   store ptr %storemerge1831.i, ptr %769, align 8, !tbaa !119
   br label %816
@@ -18001,8 +18001,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %873 = icmp ult i32 %869, %868
   %874 = getelementptr inbounds nuw i8, ptr %867, i64 4
   %875 = load i32, ptr %874, align 4, !tbaa !123
-  %.sink2332.i = select i1 %873, i64 8, i64 16
-  %876 = getelementptr inbounds nuw i8, ptr %867, i64 %.sink2332.i
+  %.sink2442.i = select i1 %873, i64 8, i64 16
+  %876 = getelementptr inbounds nuw i8, ptr %867, i64 %.sink2442.i
   %storemerge1839.i = load ptr, ptr %876, align 8, !tbaa !119
   store ptr %storemerge1839.i, ptr %866, align 8, !tbaa !119
   br label %877
@@ -18066,8 +18066,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %909 = icmp ult i32 %869, %868
   %910 = getelementptr inbounds nuw i8, ptr %867, i64 4
   %911 = load i32, ptr %910, align 4, !tbaa !123
-  %.sink2333.i = select i1 %909, i64 16, i64 8
-  %912 = getelementptr inbounds nuw i8, ptr %867, i64 %.sink2333.i
+  %.sink2443.i = select i1 %909, i64 16, i64 8
+  %912 = getelementptr inbounds nuw i8, ptr %867, i64 %.sink2443.i
   %storemerge1836.i = load ptr, ptr %912, align 8, !tbaa !119
   store ptr %storemerge1836.i, ptr %866, align 8, !tbaa !119
   br label %913
@@ -18184,8 +18184,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %971 = icmp ult i32 %967, %966
   %972 = getelementptr inbounds nuw i8, ptr %965, i64 4
   %973 = load i32, ptr %972, align 4, !tbaa !123
-  %.sink2334.i = select i1 %971, i64 8, i64 16
-  %974 = getelementptr inbounds nuw i8, ptr %965, i64 %.sink2334.i
+  %.sink2444.i = select i1 %971, i64 8, i64 16
+  %974 = getelementptr inbounds nuw i8, ptr %965, i64 %.sink2444.i
   %storemerge1750.i = load ptr, ptr %974, align 8, !tbaa !119
   store ptr %storemerge1750.i, ptr %964, align 8, !tbaa !119
   br label %975
@@ -18249,8 +18249,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1007 = icmp ult i32 %967, %966
   %1008 = getelementptr inbounds nuw i8, ptr %965, i64 4
   %1009 = load i32, ptr %1008, align 4, !tbaa !123
-  %.sink2335.i = select i1 %1007, i64 16, i64 8
-  %1010 = getelementptr inbounds nuw i8, ptr %965, i64 %.sink2335.i
+  %.sink2445.i = select i1 %1007, i64 16, i64 8
+  %1010 = getelementptr inbounds nuw i8, ptr %965, i64 %.sink2445.i
   %storemerge.i = load ptr, ptr %1010, align 8, !tbaa !119
   store ptr %storemerge.i, ptr %964, align 8, !tbaa !119
   br label %1011
@@ -18362,8 +18362,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1068 = icmp ult i32 %1064, %1063
   %1069 = getelementptr inbounds nuw i8, ptr %1062, i64 4
   %1070 = load i32, ptr %1069, align 4, !tbaa !123
-  %.sink2336.i = select i1 %1068, i64 8, i64 16
-  %1071 = getelementptr inbounds nuw i8, ptr %1062, i64 %.sink2336.i
+  %.sink2446.i = select i1 %1068, i64 8, i64 16
+  %1071 = getelementptr inbounds nuw i8, ptr %1062, i64 %.sink2446.i
   %storemerge1755.i = load ptr, ptr %1071, align 8, !tbaa !119
   store ptr %storemerge1755.i, ptr %1061, align 8, !tbaa !119
   br label %1072
@@ -18427,8 +18427,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1104 = icmp ult i32 %1064, %1063
   %1105 = getelementptr inbounds nuw i8, ptr %1062, i64 4
   %1106 = load i32, ptr %1105, align 4, !tbaa !123
-  %.sink2337.i = select i1 %1104, i64 16, i64 8
-  %1107 = getelementptr inbounds nuw i8, ptr %1062, i64 %.sink2337.i
+  %.sink2447.i = select i1 %1104, i64 16, i64 8
+  %1107 = getelementptr inbounds nuw i8, ptr %1062, i64 %.sink2447.i
   %storemerge1752.i = load ptr, ptr %1107, align 8, !tbaa !119
   store ptr %storemerge1752.i, ptr %1061, align 8, !tbaa !119
   br label %1108
@@ -18551,8 +18551,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1167 = icmp ult i32 %1163, %1162
   %1168 = getelementptr inbounds nuw i8, ptr %1161, i64 4
   %1169 = load i32, ptr %1168, align 4, !tbaa !123
-  %.sink2338.i = select i1 %1167, i64 8, i64 16
-  %1170 = getelementptr inbounds nuw i8, ptr %1161, i64 %.sink2338.i
+  %.sink2448.i = select i1 %1167, i64 8, i64 16
+  %1170 = getelementptr inbounds nuw i8, ptr %1161, i64 %.sink2448.i
   %storemerge1761.i = load ptr, ptr %1170, align 8, !tbaa !119
   store ptr %storemerge1761.i, ptr %1160, align 8, !tbaa !119
   br label %1171
@@ -18616,8 +18616,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1203 = icmp ult i32 %1163, %1162
   %1204 = getelementptr inbounds nuw i8, ptr %1161, i64 4
   %1205 = load i32, ptr %1204, align 4, !tbaa !123
-  %.sink2339.i = select i1 %1203, i64 16, i64 8
-  %1206 = getelementptr inbounds nuw i8, ptr %1161, i64 %.sink2339.i
+  %.sink2449.i = select i1 %1203, i64 16, i64 8
+  %1206 = getelementptr inbounds nuw i8, ptr %1161, i64 %.sink2449.i
   %storemerge1758.i = load ptr, ptr %1206, align 8, !tbaa !119
   store ptr %storemerge1758.i, ptr %1160, align 8, !tbaa !119
   br label %1207
@@ -18729,8 +18729,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1264 = icmp ult i32 %1260, %1259
   %1265 = getelementptr inbounds nuw i8, ptr %1258, i64 4
   %1266 = load i32, ptr %1265, align 4, !tbaa !123
-  %.sink2340.i = select i1 %1264, i64 8, i64 16
-  %1267 = getelementptr inbounds nuw i8, ptr %1258, i64 %.sink2340.i
+  %.sink2450.i = select i1 %1264, i64 8, i64 16
+  %1267 = getelementptr inbounds nuw i8, ptr %1258, i64 %.sink2450.i
   %storemerge1766.i = load ptr, ptr %1267, align 8, !tbaa !119
   store ptr %storemerge1766.i, ptr %1257, align 8, !tbaa !119
   br label %1268
@@ -18794,8 +18794,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1300 = icmp ult i32 %1260, %1259
   %1301 = getelementptr inbounds nuw i8, ptr %1258, i64 4
   %1302 = load i32, ptr %1301, align 4, !tbaa !123
-  %.sink2341.i = select i1 %1300, i64 16, i64 8
-  %1303 = getelementptr inbounds nuw i8, ptr %1258, i64 %.sink2341.i
+  %.sink2451.i = select i1 %1300, i64 16, i64 8
+  %1303 = getelementptr inbounds nuw i8, ptr %1258, i64 %.sink2451.i
   %storemerge1763.i = load ptr, ptr %1303, align 8, !tbaa !119
   store ptr %storemerge1763.i, ptr %1257, align 8, !tbaa !119
   br label %1304
@@ -18919,8 +18919,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1364 = icmp ult i32 %1360, %1359
   %1365 = getelementptr inbounds nuw i8, ptr %1358, i64 4
   %1366 = load i32, ptr %1365, align 4, !tbaa !123
-  %.sink2342.i = select i1 %1364, i64 8, i64 16
-  %1367 = getelementptr inbounds nuw i8, ptr %1358, i64 %.sink2342.i
+  %.sink2452.i = select i1 %1364, i64 8, i64 16
+  %1367 = getelementptr inbounds nuw i8, ptr %1358, i64 %.sink2452.i
   %storemerge1772.i = load ptr, ptr %1367, align 8, !tbaa !119
   store ptr %storemerge1772.i, ptr %1357, align 8, !tbaa !119
   br label %1368
@@ -18984,8 +18984,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1400 = icmp ult i32 %1360, %1359
   %1401 = getelementptr inbounds nuw i8, ptr %1358, i64 4
   %1402 = load i32, ptr %1401, align 4, !tbaa !123
-  %.sink2343.i = select i1 %1400, i64 16, i64 8
-  %1403 = getelementptr inbounds nuw i8, ptr %1358, i64 %.sink2343.i
+  %.sink2453.i = select i1 %1400, i64 16, i64 8
+  %1403 = getelementptr inbounds nuw i8, ptr %1358, i64 %.sink2453.i
   %storemerge1769.i = load ptr, ptr %1403, align 8, !tbaa !119
   store ptr %storemerge1769.i, ptr %1357, align 8, !tbaa !119
   br label %1404
@@ -19097,8 +19097,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1461 = icmp ult i32 %1457, %1456
   %1462 = getelementptr inbounds nuw i8, ptr %1455, i64 4
   %1463 = load i32, ptr %1462, align 4, !tbaa !123
-  %.sink2344.i = select i1 %1461, i64 8, i64 16
-  %1464 = getelementptr inbounds nuw i8, ptr %1455, i64 %.sink2344.i
+  %.sink2454.i = select i1 %1461, i64 8, i64 16
+  %1464 = getelementptr inbounds nuw i8, ptr %1455, i64 %.sink2454.i
   %storemerge1777.i = load ptr, ptr %1464, align 8, !tbaa !119
   store ptr %storemerge1777.i, ptr %1454, align 8, !tbaa !119
   br label %1465
@@ -19162,8 +19162,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1497 = icmp ult i32 %1457, %1456
   %1498 = getelementptr inbounds nuw i8, ptr %1455, i64 4
   %1499 = load i32, ptr %1498, align 4, !tbaa !123
-  %.sink2345.i = select i1 %1497, i64 16, i64 8
-  %1500 = getelementptr inbounds nuw i8, ptr %1455, i64 %.sink2345.i
+  %.sink2455.i = select i1 %1497, i64 16, i64 8
+  %1500 = getelementptr inbounds nuw i8, ptr %1455, i64 %.sink2455.i
   %storemerge1774.i = load ptr, ptr %1500, align 8, !tbaa !119
   store ptr %storemerge1774.i, ptr %1454, align 8, !tbaa !119
   br label %1501
@@ -19287,8 +19287,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1561 = icmp ult i32 %1557, %1556
   %1562 = getelementptr inbounds nuw i8, ptr %1555, i64 4
   %1563 = load i32, ptr %1562, align 4, !tbaa !123
-  %.sink2346.i = select i1 %1561, i64 8, i64 16
-  %1564 = getelementptr inbounds nuw i8, ptr %1555, i64 %.sink2346.i
+  %.sink2456.i = select i1 %1561, i64 8, i64 16
+  %1564 = getelementptr inbounds nuw i8, ptr %1555, i64 %.sink2456.i
   %storemerge1783.i = load ptr, ptr %1564, align 8, !tbaa !119
   store ptr %storemerge1783.i, ptr %1554, align 8, !tbaa !119
   br label %1565
@@ -19352,8 +19352,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1597 = icmp ult i32 %1557, %1556
   %1598 = getelementptr inbounds nuw i8, ptr %1555, i64 4
   %1599 = load i32, ptr %1598, align 4, !tbaa !123
-  %.sink2347.i = select i1 %1597, i64 16, i64 8
-  %1600 = getelementptr inbounds nuw i8, ptr %1555, i64 %.sink2347.i
+  %.sink2457.i = select i1 %1597, i64 16, i64 8
+  %1600 = getelementptr inbounds nuw i8, ptr %1555, i64 %.sink2457.i
   %storemerge1780.i = load ptr, ptr %1600, align 8, !tbaa !119
   store ptr %storemerge1780.i, ptr %1554, align 8, !tbaa !119
   br label %1601
@@ -19465,8 +19465,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1658 = icmp ult i32 %1654, %1653
   %1659 = getelementptr inbounds nuw i8, ptr %1652, i64 4
   %1660 = load i32, ptr %1659, align 4, !tbaa !123
-  %.sink2348.i = select i1 %1658, i64 8, i64 16
-  %1661 = getelementptr inbounds nuw i8, ptr %1652, i64 %.sink2348.i
+  %.sink2458.i = select i1 %1658, i64 8, i64 16
+  %1661 = getelementptr inbounds nuw i8, ptr %1652, i64 %.sink2458.i
   %storemerge1788.i = load ptr, ptr %1661, align 8, !tbaa !119
   store ptr %storemerge1788.i, ptr %1651, align 8, !tbaa !119
   br label %1662
@@ -19530,8 +19530,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1694 = icmp ult i32 %1654, %1653
   %1695 = getelementptr inbounds nuw i8, ptr %1652, i64 4
   %1696 = load i32, ptr %1695, align 4, !tbaa !123
-  %.sink2349.i = select i1 %1694, i64 16, i64 8
-  %1697 = getelementptr inbounds nuw i8, ptr %1652, i64 %.sink2349.i
+  %.sink2459.i = select i1 %1694, i64 16, i64 8
+  %1697 = getelementptr inbounds nuw i8, ptr %1652, i64 %.sink2459.i
   %storemerge1785.i = load ptr, ptr %1697, align 8, !tbaa !119
   store ptr %storemerge1785.i, ptr %1651, align 8, !tbaa !119
   br label %1698
@@ -19625,7 +19625,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.loopexit1925.i, %.loopexit.i
-  %.sink2364.i = phi i32 [ %947, %.loopexit.i ], [ %1732, %.loopexit1925.i ]
+  %.sink2474.i = phi i32 [ %947, %.loopexit.i ], [ %1732, %.loopexit1925.i ]
   %.71587.ph.in.i = phi i32 [ %953, %.loopexit.i ], [ %1738, %.loopexit1925.i ]
   %.831469.ph.i = phi i32 [ %.781464.i, %.loopexit.i ], [ %.1391525.i, %.loopexit1925.i ]
   %.531350.ph.i = phi i32 [ %.501347.i, %.loopexit.i ], [ %.871384.i, %.loopexit1925.i ]
@@ -19633,7 +19633,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.5.ph.i = phi ptr [ %866, %.loopexit.i ], [ %1651, %.loopexit1925.i ]
   %.71587.ph.i = or i32 %.71587.ph.in.i, 8192
   %1741 = getelementptr inbounds nuw i8, ptr %.112832052.i, i64 264
-  %1742 = shl i32 %.sink2364.i, 18
+  %1742 = shl i32 %.sink2474.i, 18
   %1743 = or disjoint i32 %1742, 2
   %1744 = load i32, ptr %1741, align 4, !tbaa !59
   %1745 = or i32 %1744, %1743
@@ -19775,8 +19775,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1808 = icmp ult i32 %1768, %1767
   %1809 = getelementptr inbounds nuw i8, ptr %1766, i64 4
   %1810 = load i32, ptr %1809, align 4, !tbaa !123
-  %.sink2325.i194 = select i1 %1808, i64 16, i64 8
-  %1811 = getelementptr inbounds nuw i8, ptr %1766, i64 %.sink2325.i194
+  %.sink2435.i194 = select i1 %1808, i64 16, i64 8
+  %1811 = getelementptr inbounds nuw i8, ptr %1766, i64 %.sink2435.i194
   %storemerge1800.i = load ptr, ptr %1811, align 8, !tbaa !119
   store ptr %storemerge1800.i, ptr %33, align 8, !tbaa !119
   br label %1812
@@ -19866,8 +19866,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1850 = icmp ult i32 %1846, %1845
   %1851 = getelementptr inbounds nuw i8, ptr %1844, i64 4
   %1852 = load i32, ptr %1851, align 4, !tbaa !123
-  %.sink2326.i189 = select i1 %1850, i64 8, i64 16
-  %1853 = getelementptr inbounds nuw i8, ptr %1844, i64 %.sink2326.i189
+  %.sink2436.i189 = select i1 %1850, i64 8, i64 16
+  %1853 = getelementptr inbounds nuw i8, ptr %1844, i64 %.sink2436.i189
   %storemerge1808.i = load ptr, ptr %1853, align 8, !tbaa !119
   store ptr %storemerge1808.i, ptr %34, align 8, !tbaa !119
   br label %1854
@@ -19931,8 +19931,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1886 = icmp ult i32 %1846, %1845
   %1887 = getelementptr inbounds nuw i8, ptr %1844, i64 4
   %1888 = load i32, ptr %1887, align 4, !tbaa !123
-  %.sink2327.i184 = select i1 %1886, i64 16, i64 8
-  %1889 = getelementptr inbounds nuw i8, ptr %1844, i64 %.sink2327.i184
+  %.sink2437.i184 = select i1 %1886, i64 16, i64 8
+  %1889 = getelementptr inbounds nuw i8, ptr %1844, i64 %.sink2437.i184
   %storemerge1805.i = load ptr, ptr %1889, align 8, !tbaa !119
   store ptr %storemerge1805.i, ptr %34, align 8, !tbaa !119
   br label %1890
@@ -20018,8 +20018,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1927 = icmp ult i32 %1923, %1922
   %1928 = getelementptr inbounds nuw i8, ptr %1921, i64 4
   %1929 = load i32, ptr %1928, align 4, !tbaa !123
-  %.sink2328.i180 = select i1 %1927, i64 8, i64 16
-  %1930 = getelementptr inbounds nuw i8, ptr %1921, i64 %.sink2328.i180
+  %.sink2438.i180 = select i1 %1927, i64 8, i64 16
+  %1930 = getelementptr inbounds nuw i8, ptr %1921, i64 %.sink2438.i180
   %storemerge1812.i181 = load ptr, ptr %1930, align 8, !tbaa !119
   store ptr %storemerge1812.i181, ptr %34, align 8, !tbaa !119
   br label %1931
@@ -20083,8 +20083,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1963 = icmp ult i32 %1923, %1922
   %1964 = getelementptr inbounds nuw i8, ptr %1921, i64 4
   %1965 = load i32, ptr %1964, align 4, !tbaa !123
-  %.sink2329.i175 = select i1 %1963, i64 16, i64 8
-  %1966 = getelementptr inbounds nuw i8, ptr %1921, i64 %.sink2329.i175
+  %.sink2439.i175 = select i1 %1963, i64 16, i64 8
+  %1966 = getelementptr inbounds nuw i8, ptr %1921, i64 %.sink2439.i175
   %storemerge1809.i176 = load ptr, ptr %1966, align 8, !tbaa !119
   store ptr %storemerge1809.i176, ptr %34, align 8, !tbaa !119
   br label %1967
@@ -20194,8 +20194,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2021 = icmp ult i32 %2017, %2016
   %2022 = getelementptr inbounds nuw i8, ptr %2015, i64 4
   %2023 = load i32, ptr %2022, align 4, !tbaa !123
-  %.sink2330.i171 = select i1 %2021, i64 8, i64 16
-  %2024 = getelementptr inbounds nuw i8, ptr %2015, i64 %.sink2330.i171
+  %.sink2440.i171 = select i1 %2021, i64 8, i64 16
+  %2024 = getelementptr inbounds nuw i8, ptr %2015, i64 %.sink2440.i171
   %storemerge1816.i = load ptr, ptr %2024, align 8, !tbaa !119
   store ptr %storemerge1816.i, ptr %2014, align 8, !tbaa !119
   br label %2025
@@ -20259,8 +20259,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2057 = icmp ult i32 %2017, %2016
   %2058 = getelementptr inbounds nuw i8, ptr %2015, i64 4
   %2059 = load i32, ptr %2058, align 4, !tbaa !123
-  %.sink2331.i167 = select i1 %2057, i64 16, i64 8
-  %2060 = getelementptr inbounds nuw i8, ptr %2015, i64 %.sink2331.i167
+  %.sink2441.i167 = select i1 %2057, i64 16, i64 8
+  %2060 = getelementptr inbounds nuw i8, ptr %2015, i64 %.sink2441.i167
   %storemerge1813.i = load ptr, ptr %2060, align 8, !tbaa !119
   store ptr %storemerge1813.i, ptr %2014, align 8, !tbaa !119
   br label %2061
@@ -20380,8 +20380,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2124 = icmp ult i32 %2120, %2119
   %2125 = getelementptr inbounds nuw i8, ptr %2118, i64 4
   %2126 = load i32, ptr %2125, align 4, !tbaa !123
-  %.sink2332.i164 = select i1 %2124, i64 8, i64 16
-  %2127 = getelementptr inbounds nuw i8, ptr %2118, i64 %.sink2332.i164
+  %.sink2442.i164 = select i1 %2124, i64 8, i64 16
+  %2127 = getelementptr inbounds nuw i8, ptr %2118, i64 %.sink2442.i164
   %storemerge1822.i = load ptr, ptr %2127, align 8, !tbaa !119
   store ptr %storemerge1822.i, ptr %2117, align 8, !tbaa !119
   br label %2128
@@ -20445,8 +20445,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2160 = icmp ult i32 %2120, %2119
   %2161 = getelementptr inbounds nuw i8, ptr %2118, i64 4
   %2162 = load i32, ptr %2161, align 4, !tbaa !123
-  %.sink2333.i160 = select i1 %2160, i64 16, i64 8
-  %2163 = getelementptr inbounds nuw i8, ptr %2118, i64 %.sink2333.i160
+  %.sink2443.i160 = select i1 %2160, i64 16, i64 8
+  %2163 = getelementptr inbounds nuw i8, ptr %2118, i64 %.sink2443.i160
   %storemerge1819.i = load ptr, ptr %2163, align 8, !tbaa !119
   store ptr %storemerge1819.i, ptr %2117, align 8, !tbaa !119
   br label %2164
@@ -20563,8 +20563,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2221 = icmp ult i32 %2217, %2216
   %2222 = getelementptr inbounds nuw i8, ptr %2215, i64 4
   %2223 = load i32, ptr %2222, align 4, !tbaa !123
-  %.sink2334.i153 = select i1 %2221, i64 8, i64 16
-  %2224 = getelementptr inbounds nuw i8, ptr %2215, i64 %.sink2334.i153
+  %.sink2444.i153 = select i1 %2221, i64 8, i64 16
+  %2224 = getelementptr inbounds nuw i8, ptr %2215, i64 %.sink2444.i153
   %storemerge1827.i = load ptr, ptr %2224, align 8, !tbaa !119
   store ptr %storemerge1827.i, ptr %2214, align 8, !tbaa !119
   br label %2225
@@ -20628,8 +20628,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2257 = icmp ult i32 %2217, %2216
   %2258 = getelementptr inbounds nuw i8, ptr %2215, i64 4
   %2259 = load i32, ptr %2258, align 4, !tbaa !123
-  %.sink2335.i149 = select i1 %2257, i64 16, i64 8
-  %2260 = getelementptr inbounds nuw i8, ptr %2215, i64 %.sink2335.i149
+  %.sink2445.i149 = select i1 %2257, i64 16, i64 8
+  %2260 = getelementptr inbounds nuw i8, ptr %2215, i64 %.sink2445.i149
   %storemerge1824.i = load ptr, ptr %2260, align 8, !tbaa !119
   store ptr %storemerge1824.i, ptr %2214, align 8, !tbaa !119
   br label %2261
@@ -20748,8 +20748,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2319 = icmp ult i32 %2315, %2314
   %2320 = getelementptr inbounds nuw i8, ptr %2313, i64 4
   %2321 = load i32, ptr %2320, align 4, !tbaa !123
-  %.sink2336.i146 = select i1 %2319, i64 8, i64 16
-  %2322 = getelementptr inbounds nuw i8, ptr %2313, i64 %.sink2336.i146
+  %.sink2446.i146 = select i1 %2319, i64 8, i64 16
+  %2322 = getelementptr inbounds nuw i8, ptr %2313, i64 %.sink2446.i146
   %storemerge1833.i = load ptr, ptr %2322, align 8, !tbaa !119
   store ptr %storemerge1833.i, ptr %2312, align 8, !tbaa !119
   br label %2323
@@ -20813,8 +20813,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2355 = icmp ult i32 %2315, %2314
   %2356 = getelementptr inbounds nuw i8, ptr %2313, i64 4
   %2357 = load i32, ptr %2356, align 4, !tbaa !123
-  %.sink2337.i142 = select i1 %2355, i64 16, i64 8
-  %2358 = getelementptr inbounds nuw i8, ptr %2313, i64 %.sink2337.i142
+  %.sink2447.i142 = select i1 %2355, i64 16, i64 8
+  %2358 = getelementptr inbounds nuw i8, ptr %2313, i64 %.sink2447.i142
   %storemerge1830.i = load ptr, ptr %2358, align 8, !tbaa !119
   store ptr %storemerge1830.i, ptr %2312, align 8, !tbaa !119
   br label %2359
@@ -20931,8 +20931,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2416 = icmp ult i32 %2412, %2411
   %2417 = getelementptr inbounds nuw i8, ptr %2410, i64 4
   %2418 = load i32, ptr %2417, align 4, !tbaa !123
-  %.sink2338.i129 = select i1 %2416, i64 8, i64 16
-  %2419 = getelementptr inbounds nuw i8, ptr %2410, i64 %.sink2338.i129
+  %.sink2448.i129 = select i1 %2416, i64 8, i64 16
+  %2419 = getelementptr inbounds nuw i8, ptr %2410, i64 %.sink2448.i129
   %storemerge1838.i = load ptr, ptr %2419, align 8, !tbaa !119
   store ptr %storemerge1838.i, ptr %2409, align 8, !tbaa !119
   br label %2420
@@ -20996,8 +20996,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2452 = icmp ult i32 %2412, %2411
   %2453 = getelementptr inbounds nuw i8, ptr %2410, i64 4
   %2454 = load i32, ptr %2453, align 4, !tbaa !123
-  %.sink2339.i125 = select i1 %2452, i64 16, i64 8
-  %2455 = getelementptr inbounds nuw i8, ptr %2410, i64 %.sink2339.i125
+  %.sink2449.i125 = select i1 %2452, i64 16, i64 8
+  %2455 = getelementptr inbounds nuw i8, ptr %2410, i64 %.sink2449.i125
   %storemerge1835.i = load ptr, ptr %2455, align 8, !tbaa !119
   store ptr %storemerge1835.i, ptr %2409, align 8, !tbaa !119
   br label %2456
@@ -21116,8 +21116,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2514 = icmp ult i32 %2510, %2509
   %2515 = getelementptr inbounds nuw i8, ptr %2508, i64 4
   %2516 = load i32, ptr %2515, align 4, !tbaa !123
-  %.sink2340.i122 = select i1 %2514, i64 8, i64 16
-  %2517 = getelementptr inbounds nuw i8, ptr %2508, i64 %.sink2340.i122
+  %.sink2450.i122 = select i1 %2514, i64 8, i64 16
+  %2517 = getelementptr inbounds nuw i8, ptr %2508, i64 %.sink2450.i122
   %storemerge1844.i = load ptr, ptr %2517, align 8, !tbaa !119
   store ptr %storemerge1844.i, ptr %2507, align 8, !tbaa !119
   br label %2518
@@ -21181,8 +21181,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2550 = icmp ult i32 %2510, %2509
   %2551 = getelementptr inbounds nuw i8, ptr %2508, i64 4
   %2552 = load i32, ptr %2551, align 4, !tbaa !123
-  %.sink2341.i119 = select i1 %2550, i64 16, i64 8
-  %2553 = getelementptr inbounds nuw i8, ptr %2508, i64 %.sink2341.i119
+  %.sink2451.i119 = select i1 %2550, i64 16, i64 8
+  %2553 = getelementptr inbounds nuw i8, ptr %2508, i64 %.sink2451.i119
   %storemerge1841.i = load ptr, ptr %2553, align 8, !tbaa !119
   store ptr %storemerge1841.i, ptr %2507, align 8, !tbaa !119
   br label %2554
@@ -21299,8 +21299,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2611 = icmp ult i32 %2607, %2606
   %2612 = getelementptr inbounds nuw i8, ptr %2605, i64 4
   %2613 = load i32, ptr %2612, align 4, !tbaa !123
-  %.sink2342.i110 = select i1 %2611, i64 8, i64 16
-  %2614 = getelementptr inbounds nuw i8, ptr %2605, i64 %.sink2342.i110
+  %.sink2452.i110 = select i1 %2611, i64 8, i64 16
+  %2614 = getelementptr inbounds nuw i8, ptr %2605, i64 %.sink2452.i110
   %storemerge1849.i = load ptr, ptr %2614, align 8, !tbaa !119
   store ptr %storemerge1849.i, ptr %2604, align 8, !tbaa !119
   br label %2615
@@ -21364,8 +21364,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2647 = icmp ult i32 %2607, %2606
   %2648 = getelementptr inbounds nuw i8, ptr %2605, i64 4
   %2649 = load i32, ptr %2648, align 4, !tbaa !123
-  %.sink2343.i107 = select i1 %2647, i64 16, i64 8
-  %2650 = getelementptr inbounds nuw i8, ptr %2605, i64 %.sink2343.i107
+  %.sink2453.i107 = select i1 %2647, i64 16, i64 8
+  %2650 = getelementptr inbounds nuw i8, ptr %2605, i64 %.sink2453.i107
   %storemerge1846.i = load ptr, ptr %2650, align 8, !tbaa !119
   store ptr %storemerge1846.i, ptr %2604, align 8, !tbaa !119
   br label %2651
@@ -21482,8 +21482,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2709 = icmp ult i32 %2705, %2704
   %2710 = getelementptr inbounds nuw i8, ptr %2703, i64 4
   %2711 = load i32, ptr %2710, align 4, !tbaa !123
-  %.sink2344.i95 = select i1 %2709, i64 8, i64 16
-  %2712 = getelementptr inbounds nuw i8, ptr %2703, i64 %.sink2344.i95
+  %.sink2454.i95 = select i1 %2709, i64 8, i64 16
+  %2712 = getelementptr inbounds nuw i8, ptr %2703, i64 %.sink2454.i95
   %storemerge1760.i = load ptr, ptr %2712, align 8, !tbaa !119
   store ptr %storemerge1760.i, ptr %2702, align 8, !tbaa !119
   br label %2713
@@ -21547,8 +21547,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2745 = icmp ult i32 %2705, %2704
   %2746 = getelementptr inbounds nuw i8, ptr %2703, i64 4
   %2747 = load i32, ptr %2746, align 4, !tbaa !123
-  %.sink2345.i90 = select i1 %2745, i64 16, i64 8
-  %2748 = getelementptr inbounds nuw i8, ptr %2703, i64 %.sink2345.i90
+  %.sink2455.i90 = select i1 %2745, i64 16, i64 8
+  %2748 = getelementptr inbounds nuw i8, ptr %2703, i64 %.sink2455.i90
   %storemerge.i91 = load ptr, ptr %2748, align 8, !tbaa !119
   store ptr %storemerge.i91, ptr %2702, align 8, !tbaa !119
   br label %2749
@@ -21660,8 +21660,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2806 = icmp ult i32 %2802, %2801
   %2807 = getelementptr inbounds nuw i8, ptr %2800, i64 4
   %2808 = load i32, ptr %2807, align 4, !tbaa !123
-  %.sink2346.i87 = select i1 %2806, i64 8, i64 16
-  %2809 = getelementptr inbounds nuw i8, ptr %2800, i64 %.sink2346.i87
+  %.sink2456.i87 = select i1 %2806, i64 8, i64 16
+  %2809 = getelementptr inbounds nuw i8, ptr %2800, i64 %.sink2456.i87
   %storemerge1765.i = load ptr, ptr %2809, align 8, !tbaa !119
   store ptr %storemerge1765.i, ptr %2799, align 8, !tbaa !119
   br label %2810
@@ -21725,8 +21725,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2842 = icmp ult i32 %2802, %2801
   %2843 = getelementptr inbounds nuw i8, ptr %2800, i64 4
   %2844 = load i32, ptr %2843, align 4, !tbaa !123
-  %.sink2347.i83 = select i1 %2842, i64 16, i64 8
-  %2845 = getelementptr inbounds nuw i8, ptr %2800, i64 %.sink2347.i83
+  %.sink2457.i83 = select i1 %2842, i64 16, i64 8
+  %2845 = getelementptr inbounds nuw i8, ptr %2800, i64 %.sink2457.i83
   %storemerge1762.i = load ptr, ptr %2845, align 8, !tbaa !119
   store ptr %storemerge1762.i, ptr %2799, align 8, !tbaa !119
   br label %2846
@@ -21863,8 +21863,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2916 = icmp ult i32 %2912, %2911
   %2917 = getelementptr inbounds nuw i8, ptr %2910, i64 4
   %2918 = load i32, ptr %2917, align 4, !tbaa !123
-  %.sink2348.i78 = select i1 %2916, i64 8, i64 16
-  %2919 = getelementptr inbounds nuw i8, ptr %2910, i64 %.sink2348.i78
+  %.sink2458.i78 = select i1 %2916, i64 8, i64 16
+  %2919 = getelementptr inbounds nuw i8, ptr %2910, i64 %.sink2458.i78
   %storemerge1771.i = load ptr, ptr %2919, align 8, !tbaa !119
   store ptr %storemerge1771.i, ptr %2909, align 8, !tbaa !119
   br label %2920
@@ -21928,8 +21928,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2952 = icmp ult i32 %2912, %2911
   %2953 = getelementptr inbounds nuw i8, ptr %2910, i64 4
   %2954 = load i32, ptr %2953, align 4, !tbaa !123
-  %.sink2349.i74 = select i1 %2952, i64 16, i64 8
-  %2955 = getelementptr inbounds nuw i8, ptr %2910, i64 %.sink2349.i74
+  %.sink2459.i74 = select i1 %2952, i64 16, i64 8
+  %2955 = getelementptr inbounds nuw i8, ptr %2910, i64 %.sink2459.i74
   %storemerge1768.i = load ptr, ptr %2955, align 8, !tbaa !119
   store ptr %storemerge1768.i, ptr %2909, align 8, !tbaa !119
   br label %2956
@@ -22041,8 +22041,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3013 = icmp ult i32 %3009, %3008
   %3014 = getelementptr inbounds nuw i8, ptr %3007, i64 4
   %3015 = load i32, ptr %3014, align 4, !tbaa !123
-  %.sink2350.i = select i1 %3013, i64 8, i64 16
-  %3016 = getelementptr inbounds nuw i8, ptr %3007, i64 %.sink2350.i
+  %.sink2460.i = select i1 %3013, i64 8, i64 16
+  %3016 = getelementptr inbounds nuw i8, ptr %3007, i64 %.sink2460.i
   %storemerge1776.i = load ptr, ptr %3016, align 8, !tbaa !119
   store ptr %storemerge1776.i, ptr %3006, align 8, !tbaa !119
   br label %3017
@@ -22106,8 +22106,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3049 = icmp ult i32 %3009, %3008
   %3050 = getelementptr inbounds nuw i8, ptr %3007, i64 4
   %3051 = load i32, ptr %3050, align 4, !tbaa !123
-  %.sink2351.i = select i1 %3049, i64 16, i64 8
-  %3052 = getelementptr inbounds nuw i8, ptr %3007, i64 %.sink2351.i
+  %.sink2461.i = select i1 %3049, i64 16, i64 8
+  %3052 = getelementptr inbounds nuw i8, ptr %3007, i64 %.sink2461.i
   %storemerge1773.i = load ptr, ptr %3052, align 8, !tbaa !119
   store ptr %storemerge1773.i, ptr %3006, align 8, !tbaa !119
   br label %3053
@@ -22231,8 +22231,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3113 = icmp ult i32 %3109, %3108
   %3114 = getelementptr inbounds nuw i8, ptr %3107, i64 4
   %3115 = load i32, ptr %3114, align 4, !tbaa !123
-  %.sink2352.i = select i1 %3113, i64 8, i64 16
-  %3116 = getelementptr inbounds nuw i8, ptr %3107, i64 %.sink2352.i
+  %.sink2462.i = select i1 %3113, i64 8, i64 16
+  %3116 = getelementptr inbounds nuw i8, ptr %3107, i64 %.sink2462.i
   %storemerge1782.i = load ptr, ptr %3116, align 8, !tbaa !119
   store ptr %storemerge1782.i, ptr %3106, align 8, !tbaa !119
   br label %3117
@@ -22296,8 +22296,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3149 = icmp ult i32 %3109, %3108
   %3150 = getelementptr inbounds nuw i8, ptr %3107, i64 4
   %3151 = load i32, ptr %3150, align 4, !tbaa !123
-  %.sink2353.i = select i1 %3149, i64 16, i64 8
-  %3152 = getelementptr inbounds nuw i8, ptr %3107, i64 %.sink2353.i
+  %.sink2463.i = select i1 %3149, i64 16, i64 8
+  %3152 = getelementptr inbounds nuw i8, ptr %3107, i64 %.sink2463.i
   %storemerge1779.i = load ptr, ptr %3152, align 8, !tbaa !119
   store ptr %storemerge1779.i, ptr %3106, align 8, !tbaa !119
   br label %3153
@@ -22409,8 +22409,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3210 = icmp ult i32 %3206, %3205
   %3211 = getelementptr inbounds nuw i8, ptr %3204, i64 4
   %3212 = load i32, ptr %3211, align 4, !tbaa !123
-  %.sink2354.i = select i1 %3210, i64 8, i64 16
-  %3213 = getelementptr inbounds nuw i8, ptr %3204, i64 %.sink2354.i
+  %.sink2464.i = select i1 %3210, i64 8, i64 16
+  %3213 = getelementptr inbounds nuw i8, ptr %3204, i64 %.sink2464.i
   %storemerge1787.i = load ptr, ptr %3213, align 8, !tbaa !119
   store ptr %storemerge1787.i, ptr %3203, align 8, !tbaa !119
   br label %3214
@@ -22474,8 +22474,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3246 = icmp ult i32 %3206, %3205
   %3247 = getelementptr inbounds nuw i8, ptr %3204, i64 4
   %3248 = load i32, ptr %3247, align 4, !tbaa !123
-  %.sink2355.i = select i1 %3246, i64 16, i64 8
-  %3249 = getelementptr inbounds nuw i8, ptr %3204, i64 %.sink2355.i
+  %.sink2465.i = select i1 %3246, i64 16, i64 8
+  %3249 = getelementptr inbounds nuw i8, ptr %3204, i64 %.sink2465.i
   %storemerge1784.i = load ptr, ptr %3249, align 8, !tbaa !119
   store ptr %storemerge1784.i, ptr %3203, align 8, !tbaa !119
   br label %3250
@@ -22599,8 +22599,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3310 = icmp ult i32 %3306, %3305
   %3311 = getelementptr inbounds nuw i8, ptr %3304, i64 4
   %3312 = load i32, ptr %3311, align 4, !tbaa !123
-  %.sink2356.i = select i1 %3310, i64 8, i64 16
-  %3313 = getelementptr inbounds nuw i8, ptr %3304, i64 %.sink2356.i
+  %.sink2466.i = select i1 %3310, i64 8, i64 16
+  %3313 = getelementptr inbounds nuw i8, ptr %3304, i64 %.sink2466.i
   %storemerge1793.i51 = load ptr, ptr %3313, align 8, !tbaa !119
   store ptr %storemerge1793.i51, ptr %3303, align 8, !tbaa !119
   br label %3314
@@ -22664,8 +22664,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3346 = icmp ult i32 %3306, %3305
   %3347 = getelementptr inbounds nuw i8, ptr %3304, i64 4
   %3348 = load i32, ptr %3347, align 4, !tbaa !123
-  %.sink2357.i = select i1 %3346, i64 16, i64 8
-  %3349 = getelementptr inbounds nuw i8, ptr %3304, i64 %.sink2357.i
+  %.sink2467.i = select i1 %3346, i64 16, i64 8
+  %3349 = getelementptr inbounds nuw i8, ptr %3304, i64 %.sink2467.i
   %storemerge1790.i47 = load ptr, ptr %3349, align 8, !tbaa !119
   store ptr %storemerge1790.i47, ptr %3303, align 8, !tbaa !119
   br label %3350
@@ -22777,8 +22777,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3407 = icmp ult i32 %3403, %3402
   %3408 = getelementptr inbounds nuw i8, ptr %3401, i64 4
   %3409 = load i32, ptr %3408, align 4, !tbaa !123
-  %.sink2358.i = select i1 %3407, i64 8, i64 16
-  %3410 = getelementptr inbounds nuw i8, ptr %3401, i64 %.sink2358.i
+  %.sink2468.i = select i1 %3407, i64 8, i64 16
+  %3410 = getelementptr inbounds nuw i8, ptr %3401, i64 %.sink2468.i
   %storemerge1798.i43 = load ptr, ptr %3410, align 8, !tbaa !119
   store ptr %storemerge1798.i43, ptr %3400, align 8, !tbaa !119
   br label %3411
@@ -22842,8 +22842,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3443 = icmp ult i32 %3403, %3402
   %3444 = getelementptr inbounds nuw i8, ptr %3401, i64 4
   %3445 = load i32, ptr %3444, align 4, !tbaa !123
-  %.sink2359.i = select i1 %3443, i64 16, i64 8
-  %3446 = getelementptr inbounds nuw i8, ptr %3401, i64 %.sink2359.i
+  %.sink2469.i = select i1 %3443, i64 16, i64 8
+  %3446 = getelementptr inbounds nuw i8, ptr %3401, i64 %.sink2469.i
   %storemerge1795.i39 = load ptr, ptr %3446, align 8, !tbaa !119
   store ptr %storemerge1795.i39, ptr %3400, align 8, !tbaa !119
   br label %3447
@@ -22937,7 +22937,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.sink.split.i35
 
 .sink.split.i35:                                  ; preds = %.loopexit1935.i33, %.loopexit.i105
-  %.sink2374.i = phi i32 [ %2685, %.loopexit.i105 ], [ %3481, %.loopexit1935.i33 ]
+  %.sink2484.i = phi i32 [ %2685, %.loopexit.i105 ], [ %3481, %.loopexit1935.i33 ]
   %.71597.ph.in.i = phi i32 [ %2691, %.loopexit.i105 ], [ %3487, %.loopexit1935.i33 ]
   %.831479.ph.i = phi i32 [ %.781474.i, %.loopexit.i105 ], [ %.1391535.i, %.loopexit1935.i33 ]
   %.531360.ph.i = phi i32 [ %.501357.i, %.loopexit.i105 ], [ %.871394.i, %.loopexit1935.i33 ]
@@ -22945,7 +22945,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.5.ph.i37 = phi ptr [ %2604, %.loopexit.i105 ], [ %3400, %.loopexit1935.i33 ]
   %.71597.ph.i = or i32 %.71597.ph.in.i, 8192
   %3490 = getelementptr inbounds nuw i8, ptr %.112932062.i, i64 264
-  %3491 = shl i32 %.sink2374.i, 18
+  %3491 = shl i32 %.sink2484.i, 18
   %3492 = or disjoint i32 %3491, 2
   %3493 = load i32, ptr %3490, align 4, !tbaa !59
   %3494 = or i32 %3493, %3492
@@ -23148,8 +23148,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3602 = icmp ult i32 %3559, %3558
   %3603 = getelementptr inbounds nuw i8, ptr %3557, i64 4
   %3604 = load i32, ptr %3603, align 4, !tbaa !123
-  %.sink2386.i = select i1 %3602, i64 8, i64 16
-  %3605 = getelementptr inbounds nuw i8, ptr %3557, i64 %.sink2386.i
+  %.sink2501.i = select i1 %3602, i64 8, i64 16
+  %3605 = getelementptr inbounds nuw i8, ptr %3557, i64 %.sink2501.i
   %storemerge1772.us.i = load ptr, ptr %3605, align 8, !tbaa !119
   store ptr %storemerge1772.us.i, ptr %3556, align 8, !tbaa !119
   br label %3606
@@ -23268,8 +23268,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3668 = icmp ult i32 %3656, %3655
   %3669 = getelementptr inbounds nuw i8, ptr %3654, i64 4
   %3670 = load i32, ptr %3669, align 4, !tbaa !123
-  %.sink2387.i = select i1 %3668, i64 16, i64 8
-  %3671 = getelementptr inbounds nuw i8, ptr %3654, i64 %.sink2387.i
+  %.sink2502.i = select i1 %3668, i64 16, i64 8
+  %3671 = getelementptr inbounds nuw i8, ptr %3654, i64 %.sink2502.i
   %storemerge1774.us.i = load ptr, ptr %3671, align 8, !tbaa !119
   store ptr %storemerge1774.us.i, ptr %3653, align 8, !tbaa !119
   br label %3672
@@ -23326,8 +23326,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3699 = icmp ult i32 %3656, %3655
   %3700 = getelementptr inbounds nuw i8, ptr %3654, i64 4
   %3701 = load i32, ptr %3700, align 4, !tbaa !123
-  %.sink2388.i = select i1 %3699, i64 8, i64 16
-  %3702 = getelementptr inbounds nuw i8, ptr %3654, i64 %.sink2388.i
+  %.sink2503.i = select i1 %3699, i64 8, i64 16
+  %3702 = getelementptr inbounds nuw i8, ptr %3654, i64 %.sink2503.i
   %storemerge1777.us.i = load ptr, ptr %3702, align 8, !tbaa !119
   store ptr %storemerge1777.us.i, ptr %3653, align 8, !tbaa !119
   br label %3703
@@ -23457,8 +23457,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3767 = icmp ult i32 %3755, %3754
   %3768 = getelementptr inbounds nuw i8, ptr %3753, i64 4
   %3769 = load i32, ptr %3768, align 4, !tbaa !123
-  %.sink2389.i = select i1 %3767, i64 16, i64 8
-  %3770 = getelementptr inbounds nuw i8, ptr %3753, i64 %.sink2389.i
+  %.sink2504.i = select i1 %3767, i64 16, i64 8
+  %3770 = getelementptr inbounds nuw i8, ptr %3753, i64 %.sink2504.i
   %storemerge1780.us.i = load ptr, ptr %3770, align 8, !tbaa !119
   store ptr %storemerge1780.us.i, ptr %3752, align 8, !tbaa !119
   br label %3771
@@ -23515,8 +23515,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3798 = icmp ult i32 %3755, %3754
   %3799 = getelementptr inbounds nuw i8, ptr %3753, i64 4
   %3800 = load i32, ptr %3799, align 4, !tbaa !123
-  %.sink2390.i = select i1 %3798, i64 8, i64 16
-  %3801 = getelementptr inbounds nuw i8, ptr %3753, i64 %.sink2390.i
+  %.sink2505.i = select i1 %3798, i64 8, i64 16
+  %3801 = getelementptr inbounds nuw i8, ptr %3753, i64 %.sink2505.i
   %storemerge1783.us.i = load ptr, ptr %3801, align 8, !tbaa !119
   store ptr %storemerge1783.us.i, ptr %3752, align 8, !tbaa !119
   br label %3802
@@ -23635,8 +23635,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3864 = icmp ult i32 %3852, %3851
   %3865 = getelementptr inbounds nuw i8, ptr %3850, i64 4
   %3866 = load i32, ptr %3865, align 4, !tbaa !123
-  %.sink2391.i = select i1 %3864, i64 16, i64 8
-  %3867 = getelementptr inbounds nuw i8, ptr %3850, i64 %.sink2391.i
+  %.sink2506.i = select i1 %3864, i64 16, i64 8
+  %3867 = getelementptr inbounds nuw i8, ptr %3850, i64 %.sink2506.i
   %storemerge1785.us.i = load ptr, ptr %3867, align 8, !tbaa !119
   store ptr %storemerge1785.us.i, ptr %3849, align 8, !tbaa !119
   br label %3868
@@ -23693,8 +23693,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3895 = icmp ult i32 %3852, %3851
   %3896 = getelementptr inbounds nuw i8, ptr %3850, i64 4
   %3897 = load i32, ptr %3896, align 4, !tbaa !123
-  %.sink2392.i = select i1 %3895, i64 8, i64 16
-  %3898 = getelementptr inbounds nuw i8, ptr %3850, i64 %.sink2392.i
+  %.sink2507.i = select i1 %3895, i64 8, i64 16
+  %3898 = getelementptr inbounds nuw i8, ptr %3850, i64 %.sink2507.i
   %storemerge1788.us.i = load ptr, ptr %3898, align 8, !tbaa !119
   store ptr %storemerge1788.us.i, ptr %3849, align 8, !tbaa !119
   br label %3899
@@ -23825,8 +23825,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3964 = icmp ult i32 %3952, %3951
   %3965 = getelementptr inbounds nuw i8, ptr %3950, i64 4
   %3966 = load i32, ptr %3965, align 4, !tbaa !123
-  %.sink2393.i = select i1 %3964, i64 16, i64 8
-  %3967 = getelementptr inbounds nuw i8, ptr %3950, i64 %.sink2393.i
+  %.sink2508.i = select i1 %3964, i64 16, i64 8
+  %3967 = getelementptr inbounds nuw i8, ptr %3950, i64 %.sink2508.i
   %storemerge1791.us.i = load ptr, ptr %3967, align 8, !tbaa !119
   store ptr %storemerge1791.us.i, ptr %3949, align 8, !tbaa !119
   br label %3968
@@ -23883,8 +23883,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3995 = icmp ult i32 %3952, %3951
   %3996 = getelementptr inbounds nuw i8, ptr %3950, i64 4
   %3997 = load i32, ptr %3996, align 4, !tbaa !123
-  %.sink2394.i = select i1 %3995, i64 8, i64 16
-  %3998 = getelementptr inbounds nuw i8, ptr %3950, i64 %.sink2394.i
+  %.sink2509.i = select i1 %3995, i64 8, i64 16
+  %3998 = getelementptr inbounds nuw i8, ptr %3950, i64 %.sink2509.i
   %storemerge1794.us.i = load ptr, ptr %3998, align 8, !tbaa !119
   store ptr %storemerge1794.us.i, ptr %3949, align 8, !tbaa !119
   br label %3999
@@ -24003,8 +24003,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4061 = icmp ult i32 %4049, %4048
   %4062 = getelementptr inbounds nuw i8, ptr %4047, i64 4
   %4063 = load i32, ptr %4062, align 4, !tbaa !123
-  %.sink2395.i = select i1 %4061, i64 16, i64 8
-  %4064 = getelementptr inbounds nuw i8, ptr %4047, i64 %.sink2395.i
+  %.sink2510.i = select i1 %4061, i64 16, i64 8
+  %4064 = getelementptr inbounds nuw i8, ptr %4047, i64 %.sink2510.i
   %storemerge1796.us.i = load ptr, ptr %4064, align 8, !tbaa !119
   store ptr %storemerge1796.us.i, ptr %4046, align 8, !tbaa !119
   br label %4065
@@ -24061,8 +24061,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4092 = icmp ult i32 %4049, %4048
   %4093 = getelementptr inbounds nuw i8, ptr %4047, i64 4
   %4094 = load i32, ptr %4093, align 4, !tbaa !123
-  %.sink2396.i = select i1 %4092, i64 8, i64 16
-  %4095 = getelementptr inbounds nuw i8, ptr %4047, i64 %.sink2396.i
+  %.sink2511.i = select i1 %4092, i64 8, i64 16
+  %4095 = getelementptr inbounds nuw i8, ptr %4047, i64 %.sink2511.i
   %storemerge1799.us.i = load ptr, ptr %4095, align 8, !tbaa !119
   store ptr %storemerge1799.us.i, ptr %4046, align 8, !tbaa !119
   br label %4096
@@ -24193,8 +24193,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4161 = icmp ult i32 %4149, %4148
   %4162 = getelementptr inbounds nuw i8, ptr %4147, i64 4
   %4163 = load i32, ptr %4162, align 4, !tbaa !123
-  %.sink2397.i = select i1 %4161, i64 16, i64 8
-  %4164 = getelementptr inbounds nuw i8, ptr %4147, i64 %.sink2397.i
+  %.sink2512.i = select i1 %4161, i64 16, i64 8
+  %4164 = getelementptr inbounds nuw i8, ptr %4147, i64 %.sink2512.i
   %storemerge1802.us.i = load ptr, ptr %4164, align 8, !tbaa !119
   store ptr %storemerge1802.us.i, ptr %4146, align 8, !tbaa !119
   br label %4165
@@ -24251,8 +24251,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4192 = icmp ult i32 %4149, %4148
   %4193 = getelementptr inbounds nuw i8, ptr %4147, i64 4
   %4194 = load i32, ptr %4193, align 4, !tbaa !123
-  %.sink2398.i = select i1 %4192, i64 8, i64 16
-  %4195 = getelementptr inbounds nuw i8, ptr %4147, i64 %.sink2398.i
+  %.sink2513.i = select i1 %4192, i64 8, i64 16
+  %4195 = getelementptr inbounds nuw i8, ptr %4147, i64 %.sink2513.i
   %storemerge1805.us.i = load ptr, ptr %4195, align 8, !tbaa !119
   store ptr %storemerge1805.us.i, ptr %4146, align 8, !tbaa !119
   br label %4196
@@ -24371,8 +24371,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4258 = icmp ult i32 %4246, %4245
   %4259 = getelementptr inbounds nuw i8, ptr %4244, i64 4
   %4260 = load i32, ptr %4259, align 4, !tbaa !123
-  %.sink2399.i = select i1 %4258, i64 16, i64 8
-  %4261 = getelementptr inbounds nuw i8, ptr %4244, i64 %.sink2399.i
+  %.sink2514.i = select i1 %4258, i64 16, i64 8
+  %4261 = getelementptr inbounds nuw i8, ptr %4244, i64 %.sink2514.i
   %storemerge1807.us.i = load ptr, ptr %4261, align 8, !tbaa !119
   store ptr %storemerge1807.us.i, ptr %4243, align 8, !tbaa !119
   br label %4262
@@ -24429,8 +24429,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4289 = icmp ult i32 %4246, %4245
   %4290 = getelementptr inbounds nuw i8, ptr %4244, i64 4
   %4291 = load i32, ptr %4290, align 4, !tbaa !123
-  %.sink2400.i = select i1 %4289, i64 8, i64 16
-  %4292 = getelementptr inbounds nuw i8, ptr %4244, i64 %.sink2400.i
+  %.sink2515.i = select i1 %4289, i64 8, i64 16
+  %4292 = getelementptr inbounds nuw i8, ptr %4244, i64 %.sink2515.i
   %storemerge1810.us.i = load ptr, ptr %4292, align 8, !tbaa !119
   store ptr %storemerge1810.us.i, ptr %4243, align 8, !tbaa !119
   br label %4293
@@ -24542,8 +24542,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4348 = icmp ult i32 %4336, %4335
   %4349 = getelementptr inbounds nuw i8, ptr %4334, i64 4
   %4350 = load i32, ptr %4349, align 4, !tbaa !123
-  %.sink2401.i = select i1 %4348, i64 16, i64 8
-  %4351 = getelementptr inbounds nuw i8, ptr %4334, i64 %.sink2401.i
+  %.sink2516.i = select i1 %4348, i64 16, i64 8
+  %4351 = getelementptr inbounds nuw i8, ptr %4334, i64 %.sink2516.i
   %storemerge1812.us.i = load ptr, ptr %4351, align 8, !tbaa !119
   store ptr %storemerge1812.us.i, ptr %3543, align 8, !tbaa !119
   br label %4352
@@ -24600,8 +24600,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4379 = icmp ult i32 %4336, %4335
   %4380 = getelementptr inbounds nuw i8, ptr %4334, i64 4
   %4381 = load i32, ptr %4380, align 4, !tbaa !123
-  %.sink2402.i = select i1 %4379, i64 8, i64 16
-  %4382 = getelementptr inbounds nuw i8, ptr %4334, i64 %.sink2402.i
+  %.sink2517.i = select i1 %4379, i64 8, i64 16
+  %4382 = getelementptr inbounds nuw i8, ptr %4334, i64 %.sink2517.i
   %storemerge1815.us.i = load ptr, ptr %4382, align 8, !tbaa !119
   store ptr %storemerge1815.us.i, ptr %3543, align 8, !tbaa !119
   br label %4383
@@ -24698,8 +24698,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4426 = icmp ult i32 %4414, %4413
   %4427 = getelementptr inbounds nuw i8, ptr %4412, i64 4
   %4428 = load i32, ptr %4427, align 4, !tbaa !123
-  %.sink2403.i = select i1 %4426, i64 16, i64 8
-  %4429 = getelementptr inbounds nuw i8, ptr %4412, i64 %.sink2403.i
+  %.sink2518.i = select i1 %4426, i64 16, i64 8
+  %4429 = getelementptr inbounds nuw i8, ptr %4412, i64 %.sink2518.i
   %storemerge1817.us.i = load ptr, ptr %4429, align 8, !tbaa !119
   store ptr %storemerge1817.us.i, ptr %3544, align 8, !tbaa !119
   br label %4430
@@ -24756,8 +24756,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4457 = icmp ult i32 %4414, %4413
   %4458 = getelementptr inbounds nuw i8, ptr %4412, i64 4
   %4459 = load i32, ptr %4458, align 4, !tbaa !123
-  %.sink2404.i = select i1 %4457, i64 8, i64 16
-  %4460 = getelementptr inbounds nuw i8, ptr %4412, i64 %.sink2404.i
+  %.sink2519.i = select i1 %4457, i64 8, i64 16
+  %4460 = getelementptr inbounds nuw i8, ptr %4412, i64 %.sink2519.i
   %storemerge1820.us.i = load ptr, ptr %4460, align 8, !tbaa !119
   store ptr %storemerge1820.us.i, ptr %3544, align 8, !tbaa !119
   br label %4461
@@ -24850,8 +24850,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4503 = icmp ult i32 %4491, %4490
   %4504 = getelementptr inbounds nuw i8, ptr %4489, i64 4
   %4505 = load i32, ptr %4504, align 4, !tbaa !123
-  %.sink2405.i = select i1 %4503, i64 16, i64 8
-  %4506 = getelementptr inbounds nuw i8, ptr %4489, i64 %.sink2405.i
+  %.sink2520.i = select i1 %4503, i64 16, i64 8
+  %4506 = getelementptr inbounds nuw i8, ptr %4489, i64 %.sink2520.i
   %storemerge1821.us.i = load ptr, ptr %4506, align 8, !tbaa !119
   store ptr %storemerge1821.us.i, ptr %3544, align 8, !tbaa !119
   br label %4507
@@ -24908,8 +24908,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4534 = icmp ult i32 %4491, %4490
   %4535 = getelementptr inbounds nuw i8, ptr %4489, i64 4
   %4536 = load i32, ptr %4535, align 4, !tbaa !123
-  %.sink2406.i = select i1 %4534, i64 8, i64 16
-  %4537 = getelementptr inbounds nuw i8, ptr %4489, i64 %.sink2406.i
+  %.sink2521.i = select i1 %4534, i64 8, i64 16
+  %4537 = getelementptr inbounds nuw i8, ptr %4489, i64 %.sink2521.i
   %storemerge1824.us.i = load ptr, ptr %4537, align 8, !tbaa !119
   store ptr %storemerge1824.us.i, ptr %3544, align 8, !tbaa !119
   br label %4538
@@ -25026,8 +25026,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4597 = icmp ult i32 %4585, %4584
   %4598 = getelementptr inbounds nuw i8, ptr %4583, i64 4
   %4599 = load i32, ptr %4598, align 4, !tbaa !123
-  %.sink2407.i = select i1 %4597, i64 16, i64 8
-  %4600 = getelementptr inbounds nuw i8, ptr %4583, i64 %.sink2407.i
+  %.sink2522.i = select i1 %4597, i64 16, i64 8
+  %4600 = getelementptr inbounds nuw i8, ptr %4583, i64 %.sink2522.i
   %storemerge1825.us.i = load ptr, ptr %4600, align 8, !tbaa !119
   store ptr %storemerge1825.us.i, ptr %4582, align 8, !tbaa !119
   br label %4601
@@ -25084,8 +25084,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4628 = icmp ult i32 %4585, %4584
   %4629 = getelementptr inbounds nuw i8, ptr %4583, i64 4
   %4630 = load i32, ptr %4629, align 4, !tbaa !123
-  %.sink2408.i = select i1 %4628, i64 8, i64 16
-  %4631 = getelementptr inbounds nuw i8, ptr %4583, i64 %.sink2408.i
+  %.sink2523.i = select i1 %4628, i64 8, i64 16
+  %4631 = getelementptr inbounds nuw i8, ptr %4583, i64 %.sink2523.i
   %storemerge1828.us.i = load ptr, ptr %4631, align 8, !tbaa !119
   store ptr %storemerge1828.us.i, ptr %4582, align 8, !tbaa !119
   br label %4632
@@ -25198,8 +25198,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4689 = icmp ult i32 %4677, %4676
   %4690 = getelementptr inbounds nuw i8, ptr %4675, i64 4
   %4691 = load i32, ptr %4690, align 4, !tbaa !123
-  %.sink2409.i = select i1 %4689, i64 16, i64 8
-  %4692 = getelementptr inbounds nuw i8, ptr %4675, i64 %.sink2409.i
+  %.sink2524.i = select i1 %4689, i64 16, i64 8
+  %4692 = getelementptr inbounds nuw i8, ptr %4675, i64 %.sink2524.i
   %storemerge1831.us.i = load ptr, ptr %4692, align 8, !tbaa !119
   store ptr %storemerge1831.us.i, ptr %4674, align 8, !tbaa !119
   br label %4693
@@ -25256,8 +25256,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4720 = icmp ult i32 %4677, %4676
   %4721 = getelementptr inbounds nuw i8, ptr %4675, i64 4
   %4722 = load i32, ptr %4721, align 4, !tbaa !123
-  %.sink2410.i = select i1 %4720, i64 8, i64 16
-  %4723 = getelementptr inbounds nuw i8, ptr %4675, i64 %.sink2410.i
+  %.sink2525.i = select i1 %4720, i64 8, i64 16
+  %4723 = getelementptr inbounds nuw i8, ptr %4675, i64 %.sink2525.i
   %storemerge1834.us.i = load ptr, ptr %4723, align 8, !tbaa !119
   store ptr %storemerge1834.us.i, ptr %4674, align 8, !tbaa !119
   br label %4724
@@ -25381,8 +25381,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4786 = icmp ult i32 %4774, %4773
   %4787 = getelementptr inbounds nuw i8, ptr %4772, i64 4
   %4788 = load i32, ptr %4787, align 4, !tbaa !123
-  %.sink2411.i = select i1 %4786, i64 16, i64 8
-  %4789 = getelementptr inbounds nuw i8, ptr %4772, i64 %.sink2411.i
+  %.sink2526.i = select i1 %4786, i64 16, i64 8
+  %4789 = getelementptr inbounds nuw i8, ptr %4772, i64 %.sink2526.i
   %storemerge1836.us.i = load ptr, ptr %4789, align 8, !tbaa !119
   store ptr %storemerge1836.us.i, ptr %4771, align 8, !tbaa !119
   br label %4790
@@ -25439,8 +25439,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4817 = icmp ult i32 %4774, %4773
   %4818 = getelementptr inbounds nuw i8, ptr %4772, i64 4
   %4819 = load i32, ptr %4818, align 4, !tbaa !123
-  %.sink2412.i = select i1 %4817, i64 8, i64 16
-  %4820 = getelementptr inbounds nuw i8, ptr %4772, i64 %.sink2412.i
+  %.sink2527.i = select i1 %4817, i64 8, i64 16
+  %4820 = getelementptr inbounds nuw i8, ptr %4772, i64 %.sink2527.i
   %storemerge1839.us.i = load ptr, ptr %4820, align 8, !tbaa !119
   store ptr %storemerge1839.us.i, ptr %4771, align 8, !tbaa !119
   br label %4821
@@ -25566,8 +25566,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4884 = icmp ult i32 %4872, %4871
   %4885 = getelementptr inbounds nuw i8, ptr %4870, i64 4
   %4886 = load i32, ptr %4885, align 4, !tbaa !123
-  %.sink2413.i = select i1 %4884, i64 16, i64 8
-  %4887 = getelementptr inbounds nuw i8, ptr %4870, i64 %.sink2413.i
+  %.sink2528.i = select i1 %4884, i64 16, i64 8
+  %4887 = getelementptr inbounds nuw i8, ptr %4870, i64 %.sink2528.i
   %storemerge1842.us.i = load ptr, ptr %4887, align 8, !tbaa !119
   store ptr %storemerge1842.us.i, ptr %4869, align 8, !tbaa !119
   br label %4888
@@ -25624,8 +25624,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4915 = icmp ult i32 %4872, %4871
   %4916 = getelementptr inbounds nuw i8, ptr %4870, i64 4
   %4917 = load i32, ptr %4916, align 4, !tbaa !123
-  %.sink2414.i = select i1 %4915, i64 8, i64 16
-  %4918 = getelementptr inbounds nuw i8, ptr %4870, i64 %.sink2414.i
+  %.sink2529.i = select i1 %4915, i64 8, i64 16
+  %4918 = getelementptr inbounds nuw i8, ptr %4870, i64 %.sink2529.i
   %storemerge1845.us.i = load ptr, ptr %4918, align 8, !tbaa !119
   store ptr %storemerge1845.us.i, ptr %4869, align 8, !tbaa !119
   br label %4919
@@ -25749,8 +25749,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4981 = icmp ult i32 %4969, %4968
   %4982 = getelementptr inbounds nuw i8, ptr %4967, i64 4
   %4983 = load i32, ptr %4982, align 4, !tbaa !123
-  %.sink2415.i = select i1 %4981, i64 16, i64 8
-  %4984 = getelementptr inbounds nuw i8, ptr %4967, i64 %.sink2415.i
+  %.sink2530.i = select i1 %4981, i64 16, i64 8
+  %4984 = getelementptr inbounds nuw i8, ptr %4967, i64 %.sink2530.i
   %storemerge1847.us.i = load ptr, ptr %4984, align 8, !tbaa !119
   store ptr %storemerge1847.us.i, ptr %4966, align 8, !tbaa !119
   br label %4985
@@ -25807,8 +25807,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5012 = icmp ult i32 %4969, %4968
   %5013 = getelementptr inbounds nuw i8, ptr %4967, i64 4
   %5014 = load i32, ptr %5013, align 4, !tbaa !123
-  %.sink2416.i = select i1 %5012, i64 8, i64 16
-  %5015 = getelementptr inbounds nuw i8, ptr %4967, i64 %.sink2416.i
+  %.sink2531.i = select i1 %5012, i64 8, i64 16
+  %5015 = getelementptr inbounds nuw i8, ptr %4967, i64 %.sink2531.i
   %storemerge1850.us.i = load ptr, ptr %5015, align 8, !tbaa !119
   store ptr %storemerge1850.us.i, ptr %4966, align 8, !tbaa !119
   br label %5016
@@ -25934,8 +25934,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5079 = icmp ult i32 %5067, %5066
   %5080 = getelementptr inbounds nuw i8, ptr %5065, i64 4
   %5081 = load i32, ptr %5080, align 4, !tbaa !123
-  %.sink2417.i = select i1 %5079, i64 16, i64 8
-  %5082 = getelementptr inbounds nuw i8, ptr %5065, i64 %.sink2417.i
+  %.sink2532.i = select i1 %5079, i64 16, i64 8
+  %5082 = getelementptr inbounds nuw i8, ptr %5065, i64 %.sink2532.i
   %storemerge1853.us.i = load ptr, ptr %5082, align 8, !tbaa !119
   store ptr %storemerge1853.us.i, ptr %5064, align 8, !tbaa !119
   br label %5083
@@ -25992,8 +25992,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5110 = icmp ult i32 %5067, %5066
   %5111 = getelementptr inbounds nuw i8, ptr %5065, i64 4
   %5112 = load i32, ptr %5111, align 4, !tbaa !123
-  %.sink2418.i = select i1 %5110, i64 8, i64 16
-  %5113 = getelementptr inbounds nuw i8, ptr %5065, i64 %.sink2418.i
+  %.sink2533.i = select i1 %5110, i64 8, i64 16
+  %5113 = getelementptr inbounds nuw i8, ptr %5065, i64 %.sink2533.i
   %storemerge1856.us.i = load ptr, ptr %5113, align 8, !tbaa !119
   store ptr %storemerge1856.us.i, ptr %5064, align 8, !tbaa !119
   br label %5114
@@ -26117,8 +26117,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5176 = icmp ult i32 %5164, %5163
   %5177 = getelementptr inbounds nuw i8, ptr %5162, i64 4
   %5178 = load i32, ptr %5177, align 4, !tbaa !123
-  %.sink2419.i = select i1 %5176, i64 16, i64 8
-  %5179 = getelementptr inbounds nuw i8, ptr %5162, i64 %.sink2419.i
+  %.sink2534.i = select i1 %5176, i64 16, i64 8
+  %5179 = getelementptr inbounds nuw i8, ptr %5162, i64 %.sink2534.i
   %storemerge1858.us.i = load ptr, ptr %5179, align 8, !tbaa !119
   store ptr %storemerge1858.us.i, ptr %5161, align 8, !tbaa !119
   br label %5180
@@ -26175,8 +26175,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5207 = icmp ult i32 %5164, %5163
   %5208 = getelementptr inbounds nuw i8, ptr %5162, i64 4
   %5209 = load i32, ptr %5208, align 4, !tbaa !123
-  %.sink2420.i = select i1 %5207, i64 8, i64 16
-  %5210 = getelementptr inbounds nuw i8, ptr %5162, i64 %.sink2420.i
+  %.sink2535.i = select i1 %5207, i64 8, i64 16
+  %5210 = getelementptr inbounds nuw i8, ptr %5162, i64 %.sink2535.i
   %storemerge1861.us.i = load ptr, ptr %5210, align 8, !tbaa !119
   store ptr %storemerge1861.us.i, ptr %5161, align 8, !tbaa !119
   br label %5211
@@ -26265,7 +26265,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.sink.split.i201
 
 .sink.split.i201:                                 ; preds = %.loopexit1929.us.i, %.loopexit1949.us.i
-  %.sink2437.i = phi i32 [ %5242, %.loopexit1929.us.i ], [ %4324, %.loopexit1949.us.i ]
+  %.sink2552.i = phi i32 [ %5242, %.loopexit1929.us.i ], [ %4324, %.loopexit1949.us.i ]
   %.71606.us.ph.in.i = phi i32 [ %5248, %.loopexit1929.us.i ], [ %4330, %.loopexit1949.us.i ]
   %.831488.us.ph.i = phi i32 [ %.781483.us.i, %.loopexit1929.us.i ], [ %.1391544.us.i, %.loopexit1949.us.i ]
   %.531369.us.ph.i = phi i32 [ %.501366.us.i, %.loopexit1929.us.i ], [ %.871403.us.i, %.loopexit1949.us.i ]
@@ -26276,7 +26276,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5252 = add i32 %5251, 2
   %5253 = zext i32 %5252 to i64
   %5254 = getelementptr inbounds nuw i32, ptr %.113022079.us.i, i64 %5253
-  %5255 = shl i32 %.sink2437.i, 18
+  %5255 = shl i32 %.sink2552.i, 18
   %5256 = or disjoint i32 %5255, 2
   %5257 = load i32, ptr %5254, align 4, !tbaa !59
   %5258 = or i32 %5257, %5256
@@ -26522,8 +26522,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5373 = icmp ult i32 %5330, %5329
   %5374 = getelementptr inbounds nuw i8, ptr %5328, i64 4
   %5375 = load i32, ptr %5374, align 4, !tbaa !123
-  %.sink2398.i297 = select i1 %5373, i64 8, i64 16
-  %5376 = getelementptr inbounds nuw i8, ptr %5328, i64 %.sink2398.i297
+  %.sink2513.i297 = select i1 %5373, i64 8, i64 16
+  %5376 = getelementptr inbounds nuw i8, ptr %5328, i64 %.sink2513.i297
   %storemerge1784.us.i = load ptr, ptr %5376, align 8, !tbaa !119
   store ptr %storemerge1784.us.i, ptr %5327, align 8, !tbaa !119
   br label %5377
@@ -26642,8 +26642,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5439 = icmp ult i32 %5427, %5426
   %5440 = getelementptr inbounds nuw i8, ptr %5425, i64 4
   %5441 = load i32, ptr %5440, align 4, !tbaa !123
-  %.sink2399.i286 = select i1 %5439, i64 16, i64 8
-  %5442 = getelementptr inbounds nuw i8, ptr %5425, i64 %.sink2399.i286
+  %.sink2514.i286 = select i1 %5439, i64 16, i64 8
+  %5442 = getelementptr inbounds nuw i8, ptr %5425, i64 %.sink2514.i286
   %storemerge1786.us.i = load ptr, ptr %5442, align 8, !tbaa !119
   store ptr %storemerge1786.us.i, ptr %5424, align 8, !tbaa !119
   br label %5443
@@ -26700,8 +26700,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5470 = icmp ult i32 %5427, %5426
   %5471 = getelementptr inbounds nuw i8, ptr %5425, i64 4
   %5472 = load i32, ptr %5471, align 4, !tbaa !123
-  %.sink2400.i289 = select i1 %5470, i64 8, i64 16
-  %5473 = getelementptr inbounds nuw i8, ptr %5425, i64 %.sink2400.i289
+  %.sink2515.i289 = select i1 %5470, i64 8, i64 16
+  %5473 = getelementptr inbounds nuw i8, ptr %5425, i64 %.sink2515.i289
   %storemerge1789.us.i = load ptr, ptr %5473, align 8, !tbaa !119
   store ptr %storemerge1789.us.i, ptr %5424, align 8, !tbaa !119
   br label %5474
@@ -26849,8 +26849,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5553 = icmp ult i32 %5541, %5540
   %5554 = getelementptr inbounds nuw i8, ptr %5539, i64 4
   %5555 = load i32, ptr %5554, align 4, !tbaa !123
-  %.sink2401.i276 = select i1 %5553, i64 16, i64 8
-  %5556 = getelementptr inbounds nuw i8, ptr %5539, i64 %.sink2401.i276
+  %.sink2516.i276 = select i1 %5553, i64 16, i64 8
+  %5556 = getelementptr inbounds nuw i8, ptr %5539, i64 %.sink2516.i276
   %storemerge1792.us.i = load ptr, ptr %5556, align 8, !tbaa !119
   store ptr %storemerge1792.us.i, ptr %5538, align 8, !tbaa !119
   br label %5557
@@ -26907,8 +26907,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5584 = icmp ult i32 %5541, %5540
   %5585 = getelementptr inbounds nuw i8, ptr %5539, i64 4
   %5586 = load i32, ptr %5585, align 4, !tbaa !123
-  %.sink2402.i279 = select i1 %5584, i64 8, i64 16
-  %5587 = getelementptr inbounds nuw i8, ptr %5539, i64 %.sink2402.i279
+  %.sink2517.i279 = select i1 %5584, i64 8, i64 16
+  %5587 = getelementptr inbounds nuw i8, ptr %5539, i64 %.sink2517.i279
   %storemerge1795.us.i = load ptr, ptr %5587, align 8, !tbaa !119
   store ptr %storemerge1795.us.i, ptr %5538, align 8, !tbaa !119
   br label %5588
@@ -27027,8 +27027,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5650 = icmp ult i32 %5638, %5637
   %5651 = getelementptr inbounds nuw i8, ptr %5636, i64 4
   %5652 = load i32, ptr %5651, align 4, !tbaa !123
-  %.sink2403.i269 = select i1 %5650, i64 16, i64 8
-  %5653 = getelementptr inbounds nuw i8, ptr %5636, i64 %.sink2403.i269
+  %.sink2518.i269 = select i1 %5650, i64 16, i64 8
+  %5653 = getelementptr inbounds nuw i8, ptr %5636, i64 %.sink2518.i269
   %storemerge1797.us.i = load ptr, ptr %5653, align 8, !tbaa !119
   store ptr %storemerge1797.us.i, ptr %5635, align 8, !tbaa !119
   br label %5654
@@ -27085,8 +27085,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5681 = icmp ult i32 %5638, %5637
   %5682 = getelementptr inbounds nuw i8, ptr %5636, i64 4
   %5683 = load i32, ptr %5682, align 4, !tbaa !123
-  %.sink2404.i272 = select i1 %5681, i64 8, i64 16
-  %5684 = getelementptr inbounds nuw i8, ptr %5636, i64 %.sink2404.i272
+  %.sink2519.i272 = select i1 %5681, i64 8, i64 16
+  %5684 = getelementptr inbounds nuw i8, ptr %5636, i64 %.sink2519.i272
   %storemerge1800.us.i = load ptr, ptr %5684, align 8, !tbaa !119
   store ptr %storemerge1800.us.i, ptr %5635, align 8, !tbaa !119
   br label %5685
@@ -27217,8 +27217,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5750 = icmp ult i32 %5738, %5737
   %5751 = getelementptr inbounds nuw i8, ptr %5736, i64 4
   %5752 = load i32, ptr %5751, align 4, !tbaa !123
-  %.sink2405.i259 = select i1 %5750, i64 16, i64 8
-  %5753 = getelementptr inbounds nuw i8, ptr %5736, i64 %.sink2405.i259
+  %.sink2520.i259 = select i1 %5750, i64 16, i64 8
+  %5753 = getelementptr inbounds nuw i8, ptr %5736, i64 %.sink2520.i259
   %storemerge1803.us.i = load ptr, ptr %5753, align 8, !tbaa !119
   store ptr %storemerge1803.us.i, ptr %5735, align 8, !tbaa !119
   br label %5754
@@ -27275,8 +27275,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5781 = icmp ult i32 %5738, %5737
   %5782 = getelementptr inbounds nuw i8, ptr %5736, i64 4
   %5783 = load i32, ptr %5782, align 4, !tbaa !123
-  %.sink2406.i262 = select i1 %5781, i64 8, i64 16
-  %5784 = getelementptr inbounds nuw i8, ptr %5736, i64 %.sink2406.i262
+  %.sink2521.i262 = select i1 %5781, i64 8, i64 16
+  %5784 = getelementptr inbounds nuw i8, ptr %5736, i64 %.sink2521.i262
   %storemerge1806.us.i = load ptr, ptr %5784, align 8, !tbaa !119
   store ptr %storemerge1806.us.i, ptr %5735, align 8, !tbaa !119
   br label %5785
@@ -27395,8 +27395,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5847 = icmp ult i32 %5835, %5834
   %5848 = getelementptr inbounds nuw i8, ptr %5833, i64 4
   %5849 = load i32, ptr %5848, align 4, !tbaa !123
-  %.sink2407.i252 = select i1 %5847, i64 16, i64 8
-  %5850 = getelementptr inbounds nuw i8, ptr %5833, i64 %.sink2407.i252
+  %.sink2522.i252 = select i1 %5847, i64 16, i64 8
+  %5850 = getelementptr inbounds nuw i8, ptr %5833, i64 %.sink2522.i252
   %storemerge1808.us.i = load ptr, ptr %5850, align 8, !tbaa !119
   store ptr %storemerge1808.us.i, ptr %5832, align 8, !tbaa !119
   br label %5851
@@ -27453,8 +27453,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5878 = icmp ult i32 %5835, %5834
   %5879 = getelementptr inbounds nuw i8, ptr %5833, i64 4
   %5880 = load i32, ptr %5879, align 4, !tbaa !123
-  %.sink2408.i255 = select i1 %5878, i64 8, i64 16
-  %5881 = getelementptr inbounds nuw i8, ptr %5833, i64 %.sink2408.i255
+  %.sink2523.i255 = select i1 %5878, i64 8, i64 16
+  %5881 = getelementptr inbounds nuw i8, ptr %5833, i64 %.sink2523.i255
   %storemerge1811.us.i = load ptr, ptr %5881, align 8, !tbaa !119
   store ptr %storemerge1811.us.i, ptr %5832, align 8, !tbaa !119
   br label %5882
@@ -27585,8 +27585,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5947 = icmp ult i32 %5935, %5934
   %5948 = getelementptr inbounds nuw i8, ptr %5933, i64 4
   %5949 = load i32, ptr %5948, align 4, !tbaa !123
-  %.sink2409.i242 = select i1 %5947, i64 16, i64 8
-  %5950 = getelementptr inbounds nuw i8, ptr %5933, i64 %.sink2409.i242
+  %.sink2524.i242 = select i1 %5947, i64 16, i64 8
+  %5950 = getelementptr inbounds nuw i8, ptr %5933, i64 %.sink2524.i242
   %storemerge1814.us.i = load ptr, ptr %5950, align 8, !tbaa !119
   store ptr %storemerge1814.us.i, ptr %5932, align 8, !tbaa !119
   br label %5951
@@ -27643,8 +27643,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5978 = icmp ult i32 %5935, %5934
   %5979 = getelementptr inbounds nuw i8, ptr %5933, i64 4
   %5980 = load i32, ptr %5979, align 4, !tbaa !123
-  %.sink2410.i245 = select i1 %5978, i64 8, i64 16
-  %5981 = getelementptr inbounds nuw i8, ptr %5933, i64 %.sink2410.i245
+  %.sink2525.i245 = select i1 %5978, i64 8, i64 16
+  %5981 = getelementptr inbounds nuw i8, ptr %5933, i64 %.sink2525.i245
   %storemerge1817.us.i246 = load ptr, ptr %5981, align 8, !tbaa !119
   store ptr %storemerge1817.us.i246, ptr %5932, align 8, !tbaa !119
   br label %5982
@@ -27763,8 +27763,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6044 = icmp ult i32 %6032, %6031
   %6045 = getelementptr inbounds nuw i8, ptr %6030, i64 4
   %6046 = load i32, ptr %6045, align 4, !tbaa !123
-  %.sink2411.i236 = select i1 %6044, i64 16, i64 8
-  %6047 = getelementptr inbounds nuw i8, ptr %6030, i64 %.sink2411.i236
+  %.sink2526.i236 = select i1 %6044, i64 16, i64 8
+  %6047 = getelementptr inbounds nuw i8, ptr %6030, i64 %.sink2526.i236
   %storemerge1819.us.i = load ptr, ptr %6047, align 8, !tbaa !119
   store ptr %storemerge1819.us.i, ptr %6029, align 8, !tbaa !119
   br label %6048
@@ -27821,8 +27821,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6075 = icmp ult i32 %6032, %6031
   %6076 = getelementptr inbounds nuw i8, ptr %6030, i64 4
   %6077 = load i32, ptr %6076, align 4, !tbaa !123
-  %.sink2412.i239 = select i1 %6075, i64 8, i64 16
-  %6078 = getelementptr inbounds nuw i8, ptr %6030, i64 %.sink2412.i239
+  %.sink2527.i239 = select i1 %6075, i64 8, i64 16
+  %6078 = getelementptr inbounds nuw i8, ptr %6030, i64 %.sink2527.i239
   %storemerge1822.us.i = load ptr, ptr %6078, align 8, !tbaa !119
   store ptr %storemerge1822.us.i, ptr %6029, align 8, !tbaa !119
   br label %6079
@@ -27934,8 +27934,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6134 = icmp ult i32 %6122, %6121
   %6135 = getelementptr inbounds nuw i8, ptr %6120, i64 4
   %6136 = load i32, ptr %6135, align 4, !tbaa !123
-  %.sink2413.i386 = select i1 %6134, i64 16, i64 8
-  %6137 = getelementptr inbounds nuw i8, ptr %6120, i64 %.sink2413.i386
+  %.sink2528.i386 = select i1 %6134, i64 16, i64 8
+  %6137 = getelementptr inbounds nuw i8, ptr %6120, i64 %.sink2528.i386
   %storemerge1824.us.i387 = load ptr, ptr %6137, align 8, !tbaa !119
   store ptr %storemerge1824.us.i387, ptr %5314, align 8, !tbaa !119
   br label %6138
@@ -27992,8 +27992,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6165 = icmp ult i32 %6122, %6121
   %6166 = getelementptr inbounds nuw i8, ptr %6120, i64 4
   %6167 = load i32, ptr %6166, align 4, !tbaa !123
-  %.sink2414.i389 = select i1 %6165, i64 8, i64 16
-  %6168 = getelementptr inbounds nuw i8, ptr %6120, i64 %.sink2414.i389
+  %.sink2529.i389 = select i1 %6165, i64 8, i64 16
+  %6168 = getelementptr inbounds nuw i8, ptr %6120, i64 %.sink2529.i389
   %storemerge1827.us.i = load ptr, ptr %6168, align 8, !tbaa !119
   store ptr %storemerge1827.us.i, ptr %5314, align 8, !tbaa !119
   br label %6169
@@ -28090,8 +28090,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6212 = icmp ult i32 %6200, %6199
   %6213 = getelementptr inbounds nuw i8, ptr %6198, i64 4
   %6214 = load i32, ptr %6213, align 4, !tbaa !123
-  %.sink2415.i378 = select i1 %6212, i64 16, i64 8
-  %6215 = getelementptr inbounds nuw i8, ptr %6198, i64 %.sink2415.i378
+  %.sink2530.i378 = select i1 %6212, i64 16, i64 8
+  %6215 = getelementptr inbounds nuw i8, ptr %6198, i64 %.sink2530.i378
   %storemerge1829.us.i = load ptr, ptr %6215, align 8, !tbaa !119
   store ptr %storemerge1829.us.i, ptr %5315, align 8, !tbaa !119
   br label %6216
@@ -28148,8 +28148,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6243 = icmp ult i32 %6200, %6199
   %6244 = getelementptr inbounds nuw i8, ptr %6198, i64 4
   %6245 = load i32, ptr %6244, align 4, !tbaa !123
-  %.sink2416.i382 = select i1 %6243, i64 8, i64 16
-  %6246 = getelementptr inbounds nuw i8, ptr %6198, i64 %.sink2416.i382
+  %.sink2531.i382 = select i1 %6243, i64 8, i64 16
+  %6246 = getelementptr inbounds nuw i8, ptr %6198, i64 %.sink2531.i382
   %storemerge1832.us.i = load ptr, ptr %6246, align 8, !tbaa !119
   store ptr %storemerge1832.us.i, ptr %5315, align 8, !tbaa !119
   br label %6247
@@ -28242,8 +28242,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6289 = icmp ult i32 %6277, %6276
   %6290 = getelementptr inbounds nuw i8, ptr %6275, i64 4
   %6291 = load i32, ptr %6290, align 4, !tbaa !123
-  %.sink2417.i370 = select i1 %6289, i64 16, i64 8
-  %6292 = getelementptr inbounds nuw i8, ptr %6275, i64 %.sink2417.i370
+  %.sink2532.i370 = select i1 %6289, i64 16, i64 8
+  %6292 = getelementptr inbounds nuw i8, ptr %6275, i64 %.sink2532.i370
   %storemerge1833.us.i = load ptr, ptr %6292, align 8, !tbaa !119
   store ptr %storemerge1833.us.i, ptr %5315, align 8, !tbaa !119
   br label %6293
@@ -28300,8 +28300,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6320 = icmp ult i32 %6277, %6276
   %6321 = getelementptr inbounds nuw i8, ptr %6275, i64 4
   %6322 = load i32, ptr %6321, align 4, !tbaa !123
-  %.sink2418.i374 = select i1 %6320, i64 8, i64 16
-  %6323 = getelementptr inbounds nuw i8, ptr %6275, i64 %.sink2418.i374
+  %.sink2533.i374 = select i1 %6320, i64 8, i64 16
+  %6323 = getelementptr inbounds nuw i8, ptr %6275, i64 %.sink2533.i374
   %storemerge1836.us.i375 = load ptr, ptr %6323, align 8, !tbaa !119
   store ptr %storemerge1836.us.i375, ptr %5315, align 8, !tbaa !119
   br label %6324
@@ -28418,8 +28418,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6383 = icmp ult i32 %6371, %6370
   %6384 = getelementptr inbounds nuw i8, ptr %6369, i64 4
   %6385 = load i32, ptr %6384, align 4, !tbaa !123
-  %.sink2419.i364 = select i1 %6383, i64 16, i64 8
-  %6386 = getelementptr inbounds nuw i8, ptr %6369, i64 %.sink2419.i364
+  %.sink2534.i364 = select i1 %6383, i64 16, i64 8
+  %6386 = getelementptr inbounds nuw i8, ptr %6369, i64 %.sink2534.i364
   %storemerge1837.us.i = load ptr, ptr %6386, align 8, !tbaa !119
   store ptr %storemerge1837.us.i, ptr %6368, align 8, !tbaa !119
   br label %6387
@@ -28476,8 +28476,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6414 = icmp ult i32 %6371, %6370
   %6415 = getelementptr inbounds nuw i8, ptr %6369, i64 4
   %6416 = load i32, ptr %6415, align 4, !tbaa !123
-  %.sink2420.i367 = select i1 %6414, i64 8, i64 16
-  %6417 = getelementptr inbounds nuw i8, ptr %6369, i64 %.sink2420.i367
+  %.sink2535.i367 = select i1 %6414, i64 8, i64 16
+  %6417 = getelementptr inbounds nuw i8, ptr %6369, i64 %.sink2535.i367
   %storemerge1840.us.i = load ptr, ptr %6417, align 8, !tbaa !119
   store ptr %storemerge1840.us.i, ptr %6368, align 8, !tbaa !119
   br label %6418
@@ -28608,8 +28608,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6490 = icmp ult i32 %6478, %6477
   %6491 = getelementptr inbounds nuw i8, ptr %6476, i64 4
   %6492 = load i32, ptr %6491, align 4, !tbaa !123
-  %.sink2421.i = select i1 %6490, i64 16, i64 8
-  %6493 = getelementptr inbounds nuw i8, ptr %6476, i64 %.sink2421.i
+  %.sink2536.i = select i1 %6490, i64 16, i64 8
+  %6493 = getelementptr inbounds nuw i8, ptr %6476, i64 %.sink2536.i
   %storemerge1843.us.i = load ptr, ptr %6493, align 8, !tbaa !119
   store ptr %storemerge1843.us.i, ptr %6475, align 8, !tbaa !119
   br label %6494
@@ -28666,8 +28666,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6521 = icmp ult i32 %6478, %6477
   %6522 = getelementptr inbounds nuw i8, ptr %6476, i64 4
   %6523 = load i32, ptr %6522, align 4, !tbaa !123
-  %.sink2422.i = select i1 %6521, i64 8, i64 16
-  %6524 = getelementptr inbounds nuw i8, ptr %6476, i64 %.sink2422.i
+  %.sink2537.i = select i1 %6521, i64 8, i64 16
+  %6524 = getelementptr inbounds nuw i8, ptr %6476, i64 %.sink2537.i
   %storemerge1846.us.i = load ptr, ptr %6524, align 8, !tbaa !119
   store ptr %storemerge1846.us.i, ptr %6475, align 8, !tbaa !119
   br label %6525
@@ -28791,8 +28791,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6587 = icmp ult i32 %6575, %6574
   %6588 = getelementptr inbounds nuw i8, ptr %6573, i64 4
   %6589 = load i32, ptr %6588, align 4, !tbaa !123
-  %.sink2423.i = select i1 %6587, i64 16, i64 8
-  %6590 = getelementptr inbounds nuw i8, ptr %6573, i64 %.sink2423.i
+  %.sink2538.i = select i1 %6587, i64 16, i64 8
+  %6590 = getelementptr inbounds nuw i8, ptr %6573, i64 %.sink2538.i
   %storemerge1848.us.i = load ptr, ptr %6590, align 8, !tbaa !119
   store ptr %storemerge1848.us.i, ptr %6572, align 8, !tbaa !119
   br label %6591
@@ -28849,8 +28849,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6618 = icmp ult i32 %6575, %6574
   %6619 = getelementptr inbounds nuw i8, ptr %6573, i64 4
   %6620 = load i32, ptr %6619, align 4, !tbaa !123
-  %.sink2424.i = select i1 %6618, i64 8, i64 16
-  %6621 = getelementptr inbounds nuw i8, ptr %6573, i64 %.sink2424.i
+  %.sink2539.i = select i1 %6618, i64 8, i64 16
+  %6621 = getelementptr inbounds nuw i8, ptr %6573, i64 %.sink2539.i
   %storemerge1851.us.i = load ptr, ptr %6621, align 8, !tbaa !119
   store ptr %storemerge1851.us.i, ptr %6572, align 8, !tbaa !119
   br label %6622
@@ -28976,8 +28976,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6685 = icmp ult i32 %6673, %6672
   %6686 = getelementptr inbounds nuw i8, ptr %6671, i64 4
   %6687 = load i32, ptr %6686, align 4, !tbaa !123
-  %.sink2425.i = select i1 %6685, i64 16, i64 8
-  %6688 = getelementptr inbounds nuw i8, ptr %6671, i64 %.sink2425.i
+  %.sink2540.i = select i1 %6685, i64 16, i64 8
+  %6688 = getelementptr inbounds nuw i8, ptr %6671, i64 %.sink2540.i
   %storemerge1854.us.i = load ptr, ptr %6688, align 8, !tbaa !119
   store ptr %storemerge1854.us.i, ptr %6670, align 8, !tbaa !119
   br label %6689
@@ -29034,8 +29034,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6716 = icmp ult i32 %6673, %6672
   %6717 = getelementptr inbounds nuw i8, ptr %6671, i64 4
   %6718 = load i32, ptr %6717, align 4, !tbaa !123
-  %.sink2426.i = select i1 %6716, i64 8, i64 16
-  %6719 = getelementptr inbounds nuw i8, ptr %6671, i64 %.sink2426.i
+  %.sink2541.i = select i1 %6716, i64 8, i64 16
+  %6719 = getelementptr inbounds nuw i8, ptr %6671, i64 %.sink2541.i
   %storemerge1857.us.i = load ptr, ptr %6719, align 8, !tbaa !119
   store ptr %storemerge1857.us.i, ptr %6670, align 8, !tbaa !119
   br label %6720
@@ -29159,8 +29159,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6782 = icmp ult i32 %6770, %6769
   %6783 = getelementptr inbounds nuw i8, ptr %6768, i64 4
   %6784 = load i32, ptr %6783, align 4, !tbaa !123
-  %.sink2427.i = select i1 %6782, i64 16, i64 8
-  %6785 = getelementptr inbounds nuw i8, ptr %6768, i64 %.sink2427.i
+  %.sink2542.i = select i1 %6782, i64 16, i64 8
+  %6785 = getelementptr inbounds nuw i8, ptr %6768, i64 %.sink2542.i
   %storemerge1859.us.i = load ptr, ptr %6785, align 8, !tbaa !119
   store ptr %storemerge1859.us.i, ptr %6767, align 8, !tbaa !119
   br label %6786
@@ -29217,8 +29217,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6813 = icmp ult i32 %6770, %6769
   %6814 = getelementptr inbounds nuw i8, ptr %6768, i64 4
   %6815 = load i32, ptr %6814, align 4, !tbaa !123
-  %.sink2428.i = select i1 %6813, i64 8, i64 16
-  %6816 = getelementptr inbounds nuw i8, ptr %6768, i64 %.sink2428.i
+  %.sink2543.i = select i1 %6813, i64 8, i64 16
+  %6816 = getelementptr inbounds nuw i8, ptr %6768, i64 %.sink2543.i
   %storemerge1862.us.i = load ptr, ptr %6816, align 8, !tbaa !119
   store ptr %storemerge1862.us.i, ptr %6767, align 8, !tbaa !119
   br label %6817
@@ -29344,8 +29344,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6880 = icmp ult i32 %6868, %6867
   %6881 = getelementptr inbounds nuw i8, ptr %6866, i64 4
   %6882 = load i32, ptr %6881, align 4, !tbaa !123
-  %.sink2429.i = select i1 %6880, i64 16, i64 8
-  %6883 = getelementptr inbounds nuw i8, ptr %6866, i64 %.sink2429.i
+  %.sink2544.i = select i1 %6880, i64 16, i64 8
+  %6883 = getelementptr inbounds nuw i8, ptr %6866, i64 %.sink2544.i
   %storemerge1865.us.i = load ptr, ptr %6883, align 8, !tbaa !119
   store ptr %storemerge1865.us.i, ptr %6865, align 8, !tbaa !119
   br label %6884
@@ -29402,8 +29402,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6911 = icmp ult i32 %6868, %6867
   %6912 = getelementptr inbounds nuw i8, ptr %6866, i64 4
   %6913 = load i32, ptr %6912, align 4, !tbaa !123
-  %.sink2430.i = select i1 %6911, i64 8, i64 16
-  %6914 = getelementptr inbounds nuw i8, ptr %6866, i64 %.sink2430.i
+  %.sink2545.i = select i1 %6911, i64 8, i64 16
+  %6914 = getelementptr inbounds nuw i8, ptr %6866, i64 %.sink2545.i
   %storemerge1868.us.i = load ptr, ptr %6914, align 8, !tbaa !119
   store ptr %storemerge1868.us.i, ptr %6865, align 8, !tbaa !119
   br label %6915
@@ -29527,8 +29527,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6977 = icmp ult i32 %6965, %6964
   %6978 = getelementptr inbounds nuw i8, ptr %6963, i64 4
   %6979 = load i32, ptr %6978, align 4, !tbaa !123
-  %.sink2431.i = select i1 %6977, i64 16, i64 8
-  %6980 = getelementptr inbounds nuw i8, ptr %6963, i64 %.sink2431.i
+  %.sink2546.i = select i1 %6977, i64 16, i64 8
+  %6980 = getelementptr inbounds nuw i8, ptr %6963, i64 %.sink2546.i
   %storemerge1870.us.i = load ptr, ptr %6980, align 8, !tbaa !119
   store ptr %storemerge1870.us.i, ptr %6962, align 8, !tbaa !119
   br label %6981
@@ -29585,8 +29585,8 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %7008 = icmp ult i32 %6965, %6964
   %7009 = getelementptr inbounds nuw i8, ptr %6963, i64 4
   %7010 = load i32, ptr %7009, align 4, !tbaa !123
-  %.sink2432.i = select i1 %7008, i64 8, i64 16
-  %7011 = getelementptr inbounds nuw i8, ptr %6963, i64 %.sink2432.i
+  %.sink2547.i = select i1 %7008, i64 8, i64 16
+  %7011 = getelementptr inbounds nuw i8, ptr %6963, i64 %.sink2547.i
   %storemerge1873.us.i = load ptr, ptr %7011, align 8, !tbaa !119
   store ptr %storemerge1873.us.i, ptr %6962, align 8, !tbaa !119
   br label %7012
@@ -29675,7 +29675,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.sink.split.i233
 
 .sink.split.i233:                                 ; preds = %.loopexit1941.us.i310, %.loopexit1961.us.i230
-  %.sink2449.i = phi i32 [ %7043, %.loopexit1941.us.i310 ], [ %6110, %.loopexit1961.us.i230 ]
+  %.sink2564.i = phi i32 [ %7043, %.loopexit1941.us.i310 ], [ %6110, %.loopexit1961.us.i230 ]
   %.71618.us.ph.in.i = phi i32 [ %7049, %.loopexit1941.us.i310 ], [ %6116, %.loopexit1961.us.i230 ]
   %.831500.us.ph.i = phi i32 [ %.781495.us.i, %.loopexit1941.us.i310 ], [ %.1391556.us.i, %.loopexit1961.us.i230 ]
   %.531381.us.ph.i = phi i32 [ %.501378.us.i, %.loopexit1941.us.i310 ], [ %.871415.us.i, %.loopexit1961.us.i230 ]
@@ -29686,7 +29686,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %7053 = add i32 %7052, 2
   %7054 = zext i32 %7053 to i64
   %7055 = getelementptr inbounds nuw i32, ptr %.113142091.us.i, i64 %7054
-  %7056 = shl i32 %.sink2449.i, 18
+  %7056 = shl i32 %.sink2564.i, 18
   %7057 = or disjoint i32 %7056, 2
   %7058 = load i32, ptr %7055, align 4, !tbaa !59
   %7059 = or i32 %7058, %7057
@@ -29976,8 +29976,8 @@ opj_t1_dec_clnpass_generic_vsc.exit:              ; preds = %._crit_edge.i, %._c
 
 7200:                                             ; preds = %.loopexit304.i
   %7201 = icmp ult i32 %7197, %7196
-  %.351.i = select i1 %7201, i64 8, i64 16
-  %7202 = getelementptr inbounds nuw i8, ptr %7195, i64 %.351.i
+  %.379.i = select i1 %7201, i64 8, i64 16
+  %7202 = getelementptr inbounds nuw i8, ptr %7195, i64 %.379.i
   store i32 %7196, ptr %7110, align 4, !tbaa !118
   %storemerge296.i = load ptr, ptr %7202, align 8, !tbaa !119
   store ptr %storemerge296.i, ptr %7106, align 8, !tbaa !119
@@ -30122,8 +30122,8 @@ opj_t1_dec_clnpass_generic_vsc.exit:              ; preds = %._crit_edge.i, %._c
 
 7284:                                             ; preds = %.loopexit302.i
   %7285 = icmp ult i32 %7281, %7280
-  %.352.i = select i1 %7285, i64 8, i64 16
-  %7286 = getelementptr inbounds nuw i8, ptr %7279, i64 %.352.i
+  %.380.i = select i1 %7285, i64 8, i64 16
+  %7286 = getelementptr inbounds nuw i8, ptr %7279, i64 %.380.i
   store i32 %7280, ptr %7110, align 4, !tbaa !118
   %storemerge297.i = load ptr, ptr %7286, align 8, !tbaa !119
   store ptr %storemerge297.i, ptr %7106, align 8, !tbaa !119
@@ -30268,8 +30268,8 @@ opj_t1_dec_clnpass_generic_vsc.exit:              ; preds = %._crit_edge.i, %._c
 
 7368:                                             ; preds = %.loopexit300.i
   %7369 = icmp ult i32 %7365, %7364
-  %.353.i = select i1 %7369, i64 8, i64 16
-  %7370 = getelementptr inbounds nuw i8, ptr %7363, i64 %.353.i
+  %.381.i = select i1 %7369, i64 8, i64 16
+  %7370 = getelementptr inbounds nuw i8, ptr %7363, i64 %.381.i
   store i32 %7364, ptr %7110, align 4, !tbaa !118
   %storemerge298.i = load ptr, ptr %7370, align 8, !tbaa !119
   store ptr %storemerge298.i, ptr %7106, align 8, !tbaa !119
@@ -30529,9 +30529,9 @@ define internal fastcc void @opj_t1_dec_sigpass_step_mqc(ptr noundef nonnull %0,
   %83 = load i32, ptr %82, align 4, !tbaa !123
   %.not192 = icmp eq i32 %83, 0
   %84 = zext i1 %.not192 to i32
-  %.sink222 = select i1 %81, i64 16, i64 8
+  %.sink236 = select i1 %81, i64 16, i64 8
   %.2 = select i1 %81, i32 %84, i32 %83
-  %85 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink222
+  %85 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink236
   %storemerge = load ptr, ptr %85, align 8, !tbaa !119
   store ptr %storemerge, ptr %25, align 8, !tbaa !119
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -30652,9 +30652,9 @@ define internal fastcc void @opj_t1_dec_sigpass_step_mqc(ptr noundef nonnull %0,
   %162 = load i32, ptr %161, align 4, !tbaa !123
   %.not197 = icmp eq i32 %162, 0
   %163 = zext i1 %.not197 to i32
-  %.sink223 = select i1 %160, i64 8, i64 16
+  %.sink237 = select i1 %160, i64 8, i64 16
   %.3 = select i1 %160, i32 %162, i32 %163
-  %164 = getelementptr inbounds nuw i8, ptr %154, i64 %.sink223
+  %164 = getelementptr inbounds nuw i8, ptr %154, i64 %.sink237
   store i32 %155, ptr %29, align 4, !tbaa !118
   %storemerge200 = load ptr, ptr %164, align 8, !tbaa !119
   store ptr %storemerge200, ptr %153, align 8, !tbaa !119
@@ -30729,9 +30729,9 @@ define internal fastcc void @opj_t1_dec_sigpass_step_mqc(ptr noundef nonnull %0,
   %207 = load i32, ptr %206, align 4, !tbaa !123
   %.not196 = icmp eq i32 %207, 0
   %208 = zext i1 %.not196 to i32
-  %.sink224 = select i1 %205, i64 16, i64 8
+  %.sink238 = select i1 %205, i64 16, i64 8
   %.5 = select i1 %205, i32 %208, i32 %207
-  %209 = getelementptr inbounds nuw i8, ptr %154, i64 %.sink224
+  %209 = getelementptr inbounds nuw i8, ptr %154, i64 %.sink238
   %storemerge195 = load ptr, ptr %209, align 8, !tbaa !119
   store ptr %storemerge195, ptr %153, align 8, !tbaa !119
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -30989,9 +30989,9 @@ define internal fastcc void @opj_t1_dec_clnpass_step(ptr noundef nonnull %0, ptr
   %78 = load i32, ptr %77, align 4, !tbaa !123
   %.not188 = icmp eq i32 %78, 0
   %79 = zext i1 %.not188 to i32
-  %.sink218 = select i1 %76, i64 16, i64 8
+  %.sink232 = select i1 %76, i64 16, i64 8
   %.2 = select i1 %76, i32 %79, i32 %78
-  %80 = getelementptr inbounds nuw i8, ptr %22, i64 %.sink218
+  %80 = getelementptr inbounds nuw i8, ptr %22, i64 %.sink232
   %storemerge = load ptr, ptr %80, align 8, !tbaa !119
   store ptr %storemerge, ptr %20, align 8, !tbaa !119
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -31109,9 +31109,9 @@ define internal fastcc void @opj_t1_dec_clnpass_step(ptr noundef nonnull %0, ptr
   %154 = load i32, ptr %153, align 4, !tbaa !123
   %.not193 = icmp eq i32 %154, 0
   %155 = zext i1 %.not193 to i32
-  %.sink219 = select i1 %152, i64 8, i64 16
+  %.sink233 = select i1 %152, i64 8, i64 16
   %.3 = select i1 %152, i32 %154, i32 %155
-  %156 = getelementptr inbounds nuw i8, ptr %146, i64 %.sink219
+  %156 = getelementptr inbounds nuw i8, ptr %146, i64 %.sink233
   store i32 %147, ptr %24, align 4, !tbaa !118
   %storemerge196 = load ptr, ptr %156, align 8, !tbaa !119
   store ptr %storemerge196, ptr %145, align 8, !tbaa !119
@@ -31186,9 +31186,9 @@ define internal fastcc void @opj_t1_dec_clnpass_step(ptr noundef nonnull %0, ptr
   %199 = load i32, ptr %198, align 4, !tbaa !123
   %.not192 = icmp eq i32 %199, 0
   %200 = zext i1 %.not192 to i32
-  %.sink220 = select i1 %197, i64 16, i64 8
+  %.sink234 = select i1 %197, i64 16, i64 8
   %.5 = select i1 %197, i32 %200, i32 %199
-  %201 = getelementptr inbounds nuw i8, ptr %146, i64 %.sink220
+  %201 = getelementptr inbounds nuw i8, ptr %146, i64 %.sink234
   %storemerge191 = load ptr, ptr %201, align 8, !tbaa !119
   store ptr %storemerge191, ptr %145, align 8, !tbaa !119
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 8

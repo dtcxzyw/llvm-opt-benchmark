@@ -442,9 +442,9 @@ IsKeyFrame.exit.thread128:                        ; preds = %45, %IsKeyFrame.exi
   %.not.i115 = icmp slt i32 %138, %148
   %or.cond.i = select i1 %147, i1 %.not.i115, i1 false
   %.not39.i = icmp slt i32 %139, %144
-  %or.cond41.i = select i1 %or.cond.i, i1 %.not39.i, i1 false
+  %or.cond43.i = select i1 %or.cond.i, i1 %.not39.i, i1 false
   %.not40.i = icmp sgt i32 %141, %142
-  %or.cond135 = select i1 %or.cond41.i, i1 %.not40.i, i1 false
+  %or.cond135 = select i1 %or.cond43.i, i1 %.not40.i, i1 false
   br i1 %or.cond135, label %149, label %FindBlendRangeAtRow.exit
 
 149:                                              ; preds = %136
@@ -475,20 +475,20 @@ FindBlendRangeAtRow.exit:                         ; preds = %149, %136
   br label %FindBlendRangeAtRow.exit.thread
 
 FindBlendRangeAtRow.exit.thread:                  ; preds = %149, %155, %FindBlendRangeAtRow.exit
-  %.0119151 = phi i32 [ %.0119, %155 ], [ %.0119, %FindBlendRangeAtRow.exit ], [ %spec.select138, %149 ]
-  %.0120150 = phi i32 [ %.0120, %155 ], [ %.0120, %FindBlendRangeAtRow.exit ], [ %spec.select137, %149 ]
-  %163 = icmp sgt i32 %.0119151, 0
+  %.0119161 = phi i32 [ %.0119, %155 ], [ %.0119, %FindBlendRangeAtRow.exit ], [ %spec.select138, %149 ]
+  %.0120160 = phi i32 [ %.0120, %155 ], [ %.0120, %FindBlendRangeAtRow.exit ], [ %spec.select137, %149 ]
+  %163 = icmp sgt i32 %.0119161, 0
   br i1 %163, label %164, label %172
 
 164:                                              ; preds = %FindBlendRangeAtRow.exit.thread
   %165 = mul i32 %138, %14
-  %166 = add i32 %.0120150, %165
+  %166 = add i32 %.0120160, %165
   %167 = zext i32 %166 to i64
   %168 = load ptr, ptr %95, align 8, !tbaa !34
   %169 = getelementptr inbounds nuw i32, ptr %168, i64 %167
   %170 = load ptr, ptr %118, align 8, !tbaa !35
   %171 = getelementptr inbounds nuw i32, ptr %170, i64 %167
-  call void %18(ptr noundef %169, ptr noundef %171, i32 noundef %.0119151) #9
+  call void %18(ptr noundef %169, ptr noundef %171, i32 noundef %.0119161) #9
   br label %172
 
 172:                                              ; preds = %164, %FindBlendRangeAtRow.exit.thread

@@ -5289,17 +5289,17 @@ _ZNK4entt9meta_type4dataEv.exit:                  ; preds = %_ZN4entt7resolveIiE
           to label %_ZN7testing8internal11CmpHelperNEIN4entt8internal19meta_range_iteratorINS2_9meta_dataEN9__gnu_cxx17__normal_iteratorIPKNS3_14meta_data_nodeESt6vectorIS8_SaIS8_EEEEEESF_EENS_15AssertionResultEPKcSI_RKT_RKT0_.exit unwind label %55
 
 52:                                               ; preds = %_ZNK4entt9meta_type4dataEv.exit.thread, %_ZNK4entt9meta_type4dataEv.exit
-  %.sroa.0142.0161 = phi ptr [ null, %_ZNK4entt9meta_type4dataEv.exit.thread ], [ %46, %_ZNK4entt9meta_type4dataEv.exit ]
-  %.sroa.10.0159 = phi ptr [ null, %_ZNK4entt9meta_type4dataEv.exit.thread ], [ %48, %_ZNK4entt9meta_type4dataEv.exit ]
-  %.sroa.13.0157 = phi ptr [ null, %_ZNK4entt9meta_type4dataEv.exit.thread ], [ %28, %_ZNK4entt9meta_type4dataEv.exit ]
+  %.sroa.0142.0198 = phi ptr [ null, %_ZNK4entt9meta_type4dataEv.exit.thread ], [ %46, %_ZNK4entt9meta_type4dataEv.exit ]
+  %.sroa.10.0196 = phi ptr [ null, %_ZNK4entt9meta_type4dataEv.exit.thread ], [ %48, %_ZNK4entt9meta_type4dataEv.exit ]
+  %.sroa.13.0194 = phi ptr [ null, %_ZNK4entt9meta_type4dataEv.exit.thread ], [ %28, %_ZNK4entt9meta_type4dataEv.exit ]
   invoke void @_ZN7testing8internal18CmpHelperOpFailureIN4entt8internal19meta_range_iteratorINS2_9meta_dataEN9__gnu_cxx17__normal_iteratorIPKNS3_14meta_data_nodeESt6vectorIS8_SaIS8_EEEEEESF_EENS_15AssertionResultEPKcSI_RKT_RKT0_SI_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %5, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.54)
           to label %_ZN7testing8internal11CmpHelperNEIN4entt8internal19meta_range_iteratorINS2_9meta_dataEN9__gnu_cxx17__normal_iteratorIPKNS3_14meta_data_nodeESt6vectorIS8_SaIS8_EEEEEESF_EENS_15AssertionResultEPKcSI_RKT_RKT0_.exit unwind label %55
 
 _ZN7testing8internal11CmpHelperNEIN4entt8internal19meta_range_iteratorINS2_9meta_dataEN9__gnu_cxx17__normal_iteratorIPKNS3_14meta_data_nodeESt6vectorIS8_SaIS8_EEEEEESF_EENS_15AssertionResultEPKcSI_RKT_RKT0_.exit: ; preds = %51, %52
-  %.not.i65162 = phi i1 [ false, %51 ], [ true, %52 ]
-  %.sroa.0142.0160 = phi ptr [ %46, %51 ], [ %.sroa.0142.0161, %52 ]
-  %.sroa.10.0158 = phi ptr [ %48, %51 ], [ %.sroa.10.0159, %52 ]
-  %.sroa.13.0156 = phi ptr [ %28, %51 ], [ %.sroa.13.0157, %52 ]
+  %.not.i65199 = phi i1 [ false, %51 ], [ true, %52 ]
+  %.sroa.0142.0197 = phi ptr [ %46, %51 ], [ %.sroa.0142.0198, %52 ]
+  %.sroa.10.0195 = phi ptr [ %48, %51 ], [ %.sroa.10.0196, %52 ]
+  %.sroa.13.0193 = phi ptr [ %28, %51 ], [ %.sroa.13.0194, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %53 = load i8, ptr %5, align 8, !tbaa !40, !range !50, !noundef !51
@@ -5452,7 +5452,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 102:                                              ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i75, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not.i65162, label %.loopexit, label %.lr.ph
+  br i1 %.not.i65199, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %102
   %103 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -5482,7 +5482,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %388
 
 121:                                              ; preds = %.lr.ph, %318
-  %.sroa.0139.0151 = phi ptr [ %.sroa.0142.0160, %.lr.ph ], [ %319, %318 ]
+  %.sroa.0139.0151 = phi ptr [ %.sroa.0142.0197, %.lr.ph ], [ %319, %318 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !157)
   call void @llvm.experimental.noalias.scope.decl(metadata !160)
@@ -5520,7 +5520,7 @@ _ZNK4entt8internal19meta_range_iteratorINS_9meta_dataEN9__gnu_cxx17__normal_iter
   store i32 %123, ptr %104, align 8, !tbaa !100, !alias.scope !163
   store ptr %125, ptr %105, align 8, !tbaa !104, !alias.scope !163
   store ptr %127, ptr %106, align 8, !tbaa !105, !alias.scope !163
-  store ptr %.sroa.13.0156, ptr %107, align 8, !tbaa !168, !alias.scope !163
+  store ptr %.sroa.13.0193, ptr %107, align 8, !tbaa !168, !alias.scope !163
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -6064,7 +6064,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i129: ; preds = 
 318:                                              ; preds = %317, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i129, %302, %_ZN7testing15AssertionResultD2Ev.exit126
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %319 = getelementptr inbounds nuw i8, ptr %.sroa.0139.0151, i64 72
-  %.not = icmp eq ptr %319, %.sroa.10.0158
+  %.not = icmp eq ptr %319, %.sroa.10.0195
   br i1 %.not, label %.loopexit, label %121
 
 320:                                              ; preds = %_ZN7testing7MessageD2Ev.exit121, %.body
@@ -7105,13 +7105,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorImSaImEE17_M_default_appendEm(pt
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 8, !tbaa !173
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !173
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

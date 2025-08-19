@@ -455,8 +455,8 @@ define dso_local i64 @seq_read_iter(ptr noundef captures(none) %0, ptr noundef %
   br label %.loopexit17
 
 .preheader:                                       ; preds = %.preheader.outer, %154
-  %116 = phi ptr [ %122, %154 ], [ %.ph89, %.preheader.outer ]
-  %117 = phi i32 [ %148, %154 ], [ %.ph90, %.preheader.outer ]
+  %116 = phi ptr [ %122, %154 ], [ %.ph103, %.preheader.outer ]
+  %117 = phi i32 [ %148, %154 ], [ %.ph104, %.preheader.outer ]
   %118 = load i64, ptr %62, align 8
   %119 = load ptr, ptr %59, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
@@ -511,18 +511,18 @@ define dso_local i64 @seq_read_iter(ptr noundef captures(none) %0, ptr noundef %
   br i1 %153, label %.thread16, label %.preheader.outer
 
 .preheader.outer:                                 ; preds = %90, %150
-  %.ph88 = phi i64 [ %151, %150 ], [ %.pr, %90 ]
-  %.ph89 = phi ptr [ %122, %150 ], [ %70, %90 ]
-  %.ph90 = phi i32 [ %148, %150 ], [ 0, %90 ]
+  %.ph102 = phi i64 [ %151, %150 ], [ %.pr, %90 ]
+  %.ph103 = phi ptr [ %122, %150 ], [ %70, %90 ]
+  %.ph104 = phi i32 [ %148, %150 ], [ 0, %90 ]
   br label %.preheader
 
 .thread16:                                        ; preds = %150
-  store i64 %.ph88, ptr %38, align 8
+  store i64 %.ph102, ptr %38, align 8
   br label %.thread13
 
 154:                                              ; preds = %144
   %155 = icmp sgt i32 %148, 0
-  store i64 %.ph88, ptr %38, align 8
+  store i64 %.ph102, ptr %38, align 8
   br i1 %155, label %.preheader, label %.thread13
 
 .thread13:                                        ; preds = %140, %136, %154, %.thread16

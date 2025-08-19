@@ -317,13 +317,13 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i.i: ; pr
   %.not.i5.i.i.i = icmp ne ptr %42, null
   %47 = load i8, ptr %32, align 8, !range !25
   %48 = trunc nuw i8 %47 to i1
-  %or.cond27.i.i = select i1 %.not.i5.i.i.i, i1 %48, i1 false
-  br i1 %or.cond27.i.i, label %49, label %.lr.ph.i.i
+  %or.cond29.i.i = select i1 %.not.i5.i.i.i, i1 %48, i1 false
+  br i1 %or.cond29.i.i, label %49, label %.lr.ph.i.i
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i.i: ; preds = %43
-  %.old25.i.i = load i8, ptr %32, align 8, !tbaa !18, !range !25, !noundef !38
-  %.old26.i.i = trunc nuw i8 %.old25.i.i to i1
-  br i1 %.old26.i.i, label %49, label %.lr.ph.i.i
+  %.old27.i.i = load i8, ptr %32, align 8, !tbaa !18, !range !25, !noundef !38
+  %.old28.i.i = trunc nuw i8 %.old27.i.i to i1
+  br i1 %.old28.i.i, label %49, label %.lr.ph.i.i
 
 49:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %42)
@@ -642,9 +642,9 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; pred
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %82
   %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !18, !range !25, !noundef !38
-  %.old6.i = trunc nuw i8 %.old5.i to i1
-  br i1 %.old6.i, label %89, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+  %.old8.i = load i8, ptr %.old.i, align 8, !tbaa !18, !range !25, !noundef !38
+  %.old9.i = trunc nuw i8 %.old8.i to i1
+  br i1 %.old9.i, label %89, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
 89:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %81)
@@ -733,9 +733,9 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i20: ; pr
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i31: ; preds = %121
   %.old.i32 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  %.old5.i33 = load i8, ptr %.old.i32, align 8, !tbaa !18, !range !25, !noundef !38
-  %.old6.i34 = trunc nuw i8 %.old5.i33 to i1
-  br i1 %.old6.i34, label %128, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i23
+  %.old8.i33 = load i8, ptr %.old.i32, align 8, !tbaa !18, !range !25, !noundef !38
+  %.old9.i34 = trunc nuw i8 %.old8.i33 to i1
+  br i1 %.old9.i34, label %128, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i23
 
 128:                                              ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i31, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i20
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %120)
@@ -881,9 +881,9 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; pred
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %61
   %.old.i = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !18, !range !25, !noundef !38
-  %.old6.i = trunc nuw i8 %.old5.i to i1
-  br i1 %.old6.i, label %68, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+  %.old8.i = load i8, ptr %.old.i, align 8, !tbaa !18, !range !25, !noundef !38
+  %.old9.i = trunc nuw i8 %.old8.i to i1
+  br i1 %.old9.i, label %68, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
 68:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %60)
@@ -1088,9 +1088,9 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i42: ; pr
   br i1 %or.cond.i44, label %.noexc54, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i45
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i51: ; preds = %72
-  %.old5.i = load i8, ptr %32, align 8, !tbaa !18, !range !25, !noundef !38
-  %.old6.i = trunc nuw i8 %.old5.i to i1
-  br i1 %.old6.i, label %.noexc54, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i45
+  %.old8.i = load i8, ptr %32, align 8, !tbaa !18, !range !25, !noundef !38
+  %.old9.i = trunc nuw i8 %.old8.i to i1
+  br i1 %.old9.i, label %.noexc54, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i45
 
 .noexc54:                                         ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i51, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i42
   call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %71)
@@ -1570,13 +1570,13 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i.i.i: ; 
   %.not.i5.i.i.i.i = icmp ne ptr %30, null
   %35 = load i8, ptr %19, align 8, !range !25
   %36 = trunc nuw i8 %35 to i1
-  %or.cond27.i.i.i = select i1 %.not.i5.i.i.i.i, i1 %36, i1 false
-  br i1 %or.cond27.i.i.i, label %37, label %.lr.ph.i.i.i
+  %or.cond29.i.i.i = select i1 %.not.i5.i.i.i.i, i1 %36, i1 false
+  br i1 %or.cond29.i.i.i, label %37, label %.lr.ph.i.i.i
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i.i.i: ; preds = %31
-  %.old25.i.i.i = load i8, ptr %19, align 8, !tbaa !18, !range !25, !noundef !38
-  %.old26.i.i.i = trunc nuw i8 %.old25.i.i.i to i1
-  br i1 %.old26.i.i.i, label %37, label %.lr.ph.i.i.i
+  %.old27.i.i.i = load i8, ptr %19, align 8, !tbaa !18, !range !25, !noundef !38
+  %.old28.i.i.i = trunc nuw i8 %.old27.i.i.i to i1
+  br i1 %.old28.i.i.i, label %37, label %.lr.ph.i.i.i
 
 37:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %30)

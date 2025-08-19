@@ -166,8 +166,8 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1
   br i1 %exitcond118.not, label %.loopexit.us.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i26.preheader.us.us, !llvm.loop !24
 
 .preheader42.lr.ph.split:                         ; preds = %.preheader42.lr.ph
-  %brmerge124 = or i1 %27, %28
-  br i1 %brmerge124, label %._crit_edge52, label %.preheader42.us63.us
+  %brmerge131 = or i1 %27, %28
+  br i1 %brmerge131, label %._crit_edge52, label %.preheader42.us63.us
 
 .preheader42.us63.us:                             ; preds = %.preheader42.lr.ph.split, %..loopexit_crit_edge.split.us.us88.us
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %..loopexit_crit_edge.split.us.us88.us ], [ 0, %.preheader42.lr.ph.split ]

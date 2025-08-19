@@ -916,10 +916,10 @@ define range(i32 0, 2) i32 @ossl_ec_key_public_check_quick(ptr noundef readonly 
   br i1 %55, label %.sink.split, label %56
 
 .sink.split:                                      ; preds = %51, %12, %2, %4, %8, %50
-  %.sink16 = phi i32 [ 545, %50 ], [ 533, %8 ], [ 533, %4 ], [ 533, %2 ], [ 539, %12 ], [ 551, %51 ]
+  %.sink21 = phi i32 [ 545, %50 ], [ 533, %8 ], [ 533, %4 ], [ 533, %2 ], [ 539, %12 ], [ 551, %51 ]
   %.sink = phi i32 [ 146, %50 ], [ 786690, %8 ], [ 786690, %4 ], [ 786690, %2 ], [ 106, %12 ], [ 107, %51 ]
   tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink16, ptr noundef nonnull @__func__.ossl_ec_key_public_check_quick) #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink21, ptr noundef nonnull @__func__.ossl_ec_key_public_check_quick) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #7
   br label %56
 
@@ -979,10 +979,10 @@ define range(i32 0, 2) i32 @ossl_ec_key_public_check(ptr noundef readonly captur
   br i1 %.not25, label %.sink.split, label %27
 
 .sink.split:                                      ; preds = %24, %19, %14
-  %.sink26 = phi i32 [ 582, %14 ], [ 587, %19 ], [ 591, %24 ]
+  %.sink28 = phi i32 [ 582, %14 ], [ 587, %19 ], [ 591, %24 ]
   %.sink = phi i32 [ 122, %14 ], [ 524304, %19 ], [ 130, %24 ]
   tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink26, ptr noundef nonnull @__func__.ossl_ec_key_public_check) #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink28, ptr noundef nonnull @__func__.ossl_ec_key_public_check) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #7
   br label %27
 
@@ -1035,10 +1035,10 @@ define range(i32 0, 2) i32 @ossl_ec_key_private_check(ptr noundef readonly captu
   br i1 %21, label %.sink.split, label %22
 
 .sink.split:                                      ; preds = %11, %15, %1, %3, %7
-  %.sink8 = phi i32 [ 608, %7 ], [ 608, %3 ], [ 608, %1 ], [ 613, %15 ], [ 613, %11 ]
+  %.sink10 = phi i32 [ 608, %7 ], [ 608, %3 ], [ 608, %1 ], [ 613, %15 ], [ 613, %11 ]
   %.sink = phi i32 [ 786690, %7 ], [ 786690, %3 ], [ 786690, %1 ], [ 123, %15 ], [ 123, %11 ]
   tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink8, ptr noundef nonnull @__func__.ossl_ec_key_private_check) #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink10, ptr noundef nonnull @__func__.ossl_ec_key_private_check) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #7
   br label %22
 
@@ -1100,10 +1100,10 @@ define range(i32 0, 2) i32 @ossl_ec_key_pairwise_check(ptr noundef readonly capt
   br i1 %.not20, label %28, label %.sink.split
 
 .sink.split:                                      ; preds = %24, %20
-  %.sink21 = phi i32 [ 643, %20 ], [ 647, %24 ]
+  %.sink24 = phi i32 [ 643, %20 ], [ 647, %24 ]
   %.sink = phi i32 [ 524304, %20 ], [ 123, %24 ]
   tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink21, ptr noundef nonnull @__func__.ossl_ec_key_pairwise_check) #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink24, ptr noundef nonnull @__func__.ossl_ec_key_pairwise_check) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #7
   br label %28
 

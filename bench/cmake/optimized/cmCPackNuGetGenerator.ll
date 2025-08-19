@@ -2592,8 +2592,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 642:                                              ; preds = %637
   %643 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %.not410 = icmp eq i64 %639, 0
-  br i1 %.not410, label %648, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i
+  %.not558 = icmp eq i64 %639, 0
+  br i1 %.not558, label %648, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i: ; preds = %642
   %644 = shl nuw nsw i64 %639, 5
@@ -3535,8 +3535,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   call void @llvm.experimental.noalias.scope.decl(metadata !190)
   %177 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %178 = load i64, ptr %177, align 8, !tbaa !15, !noalias !190
-  %.not98 = icmp ult i64 %.082, %178
-  br i1 %.not98, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i51, label %179
+  %.not132 = icmp ult i64 %.082, %178
+  br i1 %.not132, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i51, label %179
 
 179:                                              ; preds = %._crit_edge
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.25, i64 noundef %165, i64 noundef %178) #22, !noalias !190
@@ -3545,13 +3545,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i51: ; preds = %._crit_edge.thread, %._crit_edge
   %180 = phi i64 [ %120, %._crit_edge.thread ], [ %178, %._crit_edge ]
   %181 = phi ptr [ %118, %._crit_edge.thread ], [ %176, %._crit_edge ]
-  %.016.lcssa92 = phi i64 [ 0, %._crit_edge.thread ], [ %165, %._crit_edge ]
-  %182 = xor i64 %.016.lcssa92, -1
+  %.016.lcssa126 = phi i64 [ 0, %._crit_edge.thread ], [ %165, %._crit_edge ]
+  %182 = xor i64 %.016.lcssa126, -1
   %183 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %183, ptr %8, align 8, !tbaa !4, !alias.scope !190
   %184 = load ptr, ptr %15, align 8, !tbaa !12, !noalias !190
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 %.016.lcssa92
-  %186 = sub nuw i64 %180, %.016.lcssa92
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 %.016.lcssa126
+  %186 = sub nuw i64 %180, %.016.lcssa126
   %spec.select.i.i.i52 = call noundef i64 @llvm.umin.i64(i64 %182, i64 %186)
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !190
   store i64 %spec.select.i.i.i52, ptr %1, align 8, !tbaa !10, !noalias !190

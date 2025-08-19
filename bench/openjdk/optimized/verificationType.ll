@@ -469,8 +469,8 @@ define hidden noundef zeroext i1 @_ZNK16VerificationType28is_reference_assignabl
 
 19:                                               ; preds = %17
   %20 = and i64 %14, 3
-  %.not41 = icmp eq i64 %20, 0
-  br i1 %.not41, label %21, label %_ZNK16VerificationType8is_arrayEv.exit32.thread
+  %.not46 = icmp eq i64 %20, 0
+  br i1 %.not46, label %21, label %_ZNK16VerificationType8is_arrayEv.exit32.thread
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -499,16 +499,16 @@ _ZNK16VerificationType9is_objectEv.exit:          ; preds = %21
 
 35:                                               ; preds = %29
   %36 = and i64 %10, 3
-  %.not42 = icmp eq i64 %36, 0
-  br i1 %.not42, label %37, label %_ZNK16VerificationType9is_objectEv.exit25
+  %.not47 = icmp eq i64 %36, 0
+  br i1 %.not47, label %37, label %_ZNK16VerificationType9is_objectEv.exit25
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %39 = load i16, ptr %38, align 4
   %40 = icmp ugt i16 %39, 1
-  br i1 %40, label %.thread44, label %44
+  br i1 %40, label %.thread49, label %44
 
-.thread44:                                        ; preds = %37
+.thread49:                                        ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 6
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 91
@@ -518,15 +518,15 @@ _ZNK16VerificationType9is_objectEv.exit:          ; preds = %21
   %.not.i24 = icmp eq i16 %39, 0
   br i1 %.not.i24, label %_ZNK16VerificationType9is_objectEv.exit25, label %45
 
-45:                                               ; preds = %.thread44, %44
-  %.ph47 = phi i1 [ %43, %.thread44 ], [ false, %44 ]
+45:                                               ; preds = %.thread49, %44
+  %.ph52 = phi i1 [ %43, %.thread49 ], [ false, %44 ]
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 6
   %47 = load i8, ptr %46, align 1
   %48 = icmp ne i8 %47, 91
   br label %_ZNK16VerificationType9is_objectEv.exit25
 
 _ZNK16VerificationType9is_objectEv.exit25:        ; preds = %35, %44, %45
-  %49 = phi i1 [ false, %44 ], [ %.ph47, %45 ], [ false, %35 ]
+  %49 = phi i1 [ false, %44 ], [ %.ph52, %45 ], [ false, %35 ]
   %50 = phi i1 [ false, %44 ], [ %48, %45 ], [ false, %35 ]
   %51 = tail call noundef zeroext i1 @_ZN22SystemDictionaryShared27add_verification_constraintEP13InstanceKlassP6SymbolS3_bbb(ptr noundef %9, ptr noundef nonnull %16, ptr noundef nonnull %12, i1 noundef zeroext %3, i1 noundef zeroext %49, i1 noundef zeroext %50) #9
   br i1 %51, label %_ZNK16VerificationType8is_arrayEv.exit32.thread, label %_ZNK16VerificationType9is_objectEv.exit25._crit_edge
@@ -550,9 +550,9 @@ _ZNK16VerificationType9is_objectEv.exit25._crit_edge: ; preds = %_ZNK16Verificat
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %60 = load i16, ptr %59, align 4
   %61 = icmp ugt i16 %60, 1
-  br i1 %61, label %.thread48, label %65
+  br i1 %61, label %.thread53, label %65
 
-.thread48:                                        ; preds = %58
+.thread53:                                        ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %53, i64 6
   %63 = load i8, ptr %62, align 1
   %64 = icmp eq i8 %63, 91
@@ -562,31 +562,31 @@ _ZNK16VerificationType9is_objectEv.exit25._crit_edge: ; preds = %_ZNK16Verificat
   %.not.i29 = icmp eq i16 %60, 0
   br i1 %.not.i29, label %_ZNK16VerificationType9is_objectEv.exit30, label %66
 
-66:                                               ; preds = %.thread48, %65
-  %.ph3551 = phi i1 [ %64, %.thread48 ], [ false, %65 ]
+66:                                               ; preds = %.thread53, %65
+  %.ph3556 = phi i1 [ %64, %.thread53 ], [ false, %65 ]
   %67 = getelementptr inbounds nuw i8, ptr %53, i64 6
   %68 = load i8, ptr %67, align 1
   %69 = icmp ne i8 %68, 91
   br label %_ZNK16VerificationType9is_objectEv.exit30
 
 _ZNK16VerificationType9is_objectEv.exit30:        ; preds = %52, %65, %66
-  %70 = phi i1 [ false, %65 ], [ %.ph3551, %66 ], [ false, %52 ]
+  %70 = phi i1 [ false, %65 ], [ %.ph3556, %66 ], [ false, %52 ]
   %71 = phi i1 [ false, %65 ], [ %69, %66 ], [ false, %52 ]
   %72 = tail call noundef zeroext i1 @_ZN16VerificationType31resolve_and_check_assignabilityEP13InstanceKlassP6SymbolS3_bbbP10JavaThread(ptr noundef %9, ptr noundef %54, ptr noundef %53, i1 noundef zeroext %3, i1 noundef zeroext %70, i1 noundef zeroext %71, ptr noundef %4)
   br label %_ZNK16VerificationType8is_arrayEv.exit32.thread
 
 .thread:                                          ; preds = %_ZNK16VerificationType9is_objectEv.exit
-  %.not53 = icmp eq i16 %23, 1
-  br i1 %.not53, label %_ZNK16VerificationType8is_arrayEv.exit32.thread, label %_ZNK16VerificationType8is_arrayEv.exit32
+  %.not58 = icmp eq i16 %23, 1
+  br i1 %.not58, label %_ZNK16VerificationType8is_arrayEv.exit32.thread, label %_ZNK16VerificationType8is_arrayEv.exit32
 
 _ZNK16VerificationType8is_arrayEv.exit32:         ; preds = %.thread
   %73 = getelementptr inbounds nuw i8, ptr %16, i64 6
   %74 = load i8, ptr %73, align 1
   %75 = icmp eq i8 %74, 91
   %76 = and i64 %10, 3
-  %.not43 = icmp eq i64 %76, 0
-  %or.cond52 = and i1 %75, %.not43
-  br i1 %or.cond52, label %77, label %_ZNK16VerificationType8is_arrayEv.exit32.thread
+  %.not48 = icmp eq i64 %76, 0
+  %or.cond57 = and i1 %75, %.not48
+  br i1 %or.cond57, label %77, label %_ZNK16VerificationType8is_arrayEv.exit32.thread
 
 77:                                               ; preds = %_ZNK16VerificationType8is_arrayEv.exit32
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 4

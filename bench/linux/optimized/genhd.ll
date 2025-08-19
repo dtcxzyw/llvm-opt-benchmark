@@ -1579,13 +1579,13 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @part_stat_show(
   %113 = add nuw nsw i64 %70, 1
   %114 = and i64 %113, 127
   %115 = icmp samesign ugt i64 %114, 63
-  br i1 %115, label %..thread5_crit_edge6, label %64, !prof !34, !llvm.loop !44
+  br i1 %115, label %..thread5_crit_edge9, label %64, !prof !34, !llvm.loop !44
 
-..thread5_crit_edge6:                             ; preds = %108
+..thread5_crit_edge9:                             ; preds = %108
   br label %.thread5, !llvm.loop !44
 
-.thread5:                                         ; preds = %.lr.ph, %64, %..thread5_crit_edge6, %56
-  %116 = phi i64 [ %112, %..thread5_crit_edge6 ], [ 0, %56 ], [ %69, %.lr.ph ], [ %112, %64 ]
+.thread5:                                         ; preds = %.lr.ph, %64, %..thread5_crit_edge9, %56
+  %116 = phi i64 [ %112, %..thread5_crit_edge9 ], [ 0, %56 ], [ %69, %.lr.ph ], [ %112, %64 ]
   %117 = load i64, ptr %59, align 8
   %118 = load i64, ptr %60, align 8
   %119 = load i64, ptr %58, align 8
@@ -2678,13 +2678,13 @@ define internal noundef i32 @diskstats_show(ptr noundef %0, ptr noundef %1) #0 a
   %136 = add nuw nsw i64 %93, 1
   %137 = and i64 %136, 127
   %138 = icmp samesign ugt i64 %137, 63
-  br i1 %138, label %..thread7_crit_edge8, label %87, !prof !34, !llvm.loop !44
+  br i1 %138, label %..thread7_crit_edge13, label %87, !prof !34, !llvm.loop !44
 
-..thread7_crit_edge8:                             ; preds = %131
+..thread7_crit_edge13:                            ; preds = %131
   br label %.thread7, !llvm.loop !44
 
-.thread7:                                         ; preds = %.lr.ph, %87, %..thread7_crit_edge8, %83
-  %139 = phi i64 [ %135, %..thread7_crit_edge8 ], [ 0, %83 ], [ %92, %.lr.ph ], [ %135, %87 ]
+.thread7:                                         ; preds = %.lr.ph, %87, %..thread7_crit_edge13, %83
+  %139 = phi i64 [ %135, %..thread7_crit_edge13 ], [ 0, %83 ], [ %92, %.lr.ph ], [ %135, %87 ]
   %140 = getelementptr inbounds nuw i8, ptr %25, i64 52
   %141 = load i32, ptr %140, align 4
   %142 = lshr i32 %141, 20

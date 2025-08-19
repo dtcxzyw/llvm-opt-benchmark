@@ -412,15 +412,15 @@ _ZN10serde_json3ser9Formatter17begin_array_value17he74119b18cf8e7a2E.exit.i.i.i.
   br i1 %91, label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hdccc1f57b530701cE.exit.thread.sink.split", label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hdccc1f57b530701cE.exit.thread"
 
 "_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hdccc1f57b530701cE.exit.thread.sink.split": ; preds = %.thread, %20
-  %.lcssa41.sink = phi i64 [ %19, %20 ], [ %88, %.thread ]
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17he6f0eec2fe76e980E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val.i, i64 noundef %.lcssa41.sink, i64 noundef 1), !noalias !7
+  %.lcssa49.sink = phi i64 [ %19, %20 ], [ %88, %.thread ]
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17he6f0eec2fe76e980E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val.i, i64 noundef %.lcssa49.sink, i64 noundef 1), !noalias !7
   %.pre.i.i.i.i.i.i.i14 = load i64, ptr %9, align 8, !noalias !7
   br label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hdccc1f57b530701cE.exit.thread"
 
 "_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hdccc1f57b530701cE.exit.thread": ; preds = %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hdccc1f57b530701cE.exit.thread.sink.split", %.thread, %20
-  %.sink44 = phi i64 [ %19, %20 ], [ %88, %.thread ], [ %.pre.i.i.i.i.i.i.i14, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hdccc1f57b530701cE.exit.thread.sink.split" ]
+  %.sink52 = phi i64 [ %19, %20 ], [ %88, %.thread ], [ %.pre.i.i.i.i.i.i.i14, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hdccc1f57b530701cE.exit.thread.sink.split" ]
   %92 = load ptr, ptr %15, align 8, !noalias !7, !nonnull !7, !noundef !7
-  %93 = getelementptr inbounds i8, ptr %92, i64 %.sink44
+  %93 = getelementptr inbounds i8, ptr %92, i64 %.sink52
   store i8 93, ptr %93, align 1, !noalias !7
   %94 = load i64, ptr %9, align 8, !noalias !7, !noundef !7
   %95 = add i64 %94, 1

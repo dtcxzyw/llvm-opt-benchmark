@@ -29,12 +29,12 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
   br i1 %.not.i46, label %15, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split": ; preds = %9, %28
-  %.sink72 = phi i64 [ 3, %28 ], [ 2, %9 ]
+  %.sink75 = phi i64 [ 3, %28 ], [ 2, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val41 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val43 = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
-  %13 = shl nsw i64 %.val44, %.sink72
+  %13 = shl nsw i64 %.val44, %.sink75
   %bcmp.i48 = tail call i32 @bcmp(ptr nonnull readonly align 4 %.val43, ptr nonnull readonly align 4 %.val41, i64 %13)
   %14 = icmp eq i32 %bcmp.i48, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"

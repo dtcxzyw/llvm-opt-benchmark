@@ -1380,55 +1380,55 @@ define internal void @_get_offspring_data(ptr noundef %0, ptr noundef captures(n
   %45 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %44, i64 %indvars.iv.i, i32 2
   %46 = load i64, ptr %45, align 8
   %.not63.i = icmp eq i64 %46, -1
-  br i1 %.not63.i, label %52, label %.sink.split68.i
+  br i1 %.not63.i, label %52, label %.sink.split75.i
 
-.sink.split68.i:                                  ; preds = %43
+.sink.split75.i:                                  ; preds = %43
   %47 = load ptr, ptr %13, align 8
   %48 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %47, i64 %indvars.iv.i, i32 2
   %49 = load i64, ptr %48, align 8
   %50 = icmp eq i64 %49, -1
   %51 = select i1 %50, i64 0, i64 %49
-  %.sink69.i = add i64 %51, %46
-  store i64 %.sink69.i, ptr %48, align 8
+  %.sink76.i = add i64 %51, %46
+  store i64 %.sink76.i, ptr %48, align 8
   %.pre44 = load ptr, ptr %33, align 8
   br label %52
 
-52:                                               ; preds = %.sink.split68.i, %43
-  %53 = phi ptr [ %.pre44, %.sink.split68.i ], [ %44, %43 ]
+52:                                               ; preds = %.sink.split75.i, %43
+  %53 = phi ptr [ %.pre44, %.sink.split75.i ], [ %44, %43 ]
   %54 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %53, i64 %indvars.iv.i, i32 3
   %55 = load i64, ptr %54, align 8
   %.not64.i = icmp eq i64 %55, -1
-  br i1 %.not64.i, label %61, label %.sink.split70.i
+  br i1 %.not64.i, label %61, label %.sink.split77.i
 
-.sink.split70.i:                                  ; preds = %52
+.sink.split77.i:                                  ; preds = %52
   %56 = load ptr, ptr %13, align 8
   %57 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %56, i64 %indvars.iv.i, i32 3
   %58 = load i64, ptr %57, align 8
   %59 = icmp eq i64 %58, -1
   %60 = select i1 %59, i64 0, i64 %58
-  %.sink71.i = add i64 %60, %55
-  store i64 %.sink71.i, ptr %57, align 8
+  %.sink78.i = add i64 %60, %55
+  store i64 %.sink78.i, ptr %57, align 8
   %.pre45 = load ptr, ptr %33, align 8
   br label %61
 
-61:                                               ; preds = %.sink.split70.i, %52
-  %62 = phi ptr [ %.pre45, %.sink.split70.i ], [ %53, %52 ]
+61:                                               ; preds = %.sink.split77.i, %52
+  %62 = phi ptr [ %.pre45, %.sink.split77.i ], [ %53, %52 ]
   %63 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %62, i64 %indvars.iv.i, i32 4
   %64 = load i64, ptr %63, align 8
   %.not65.i = icmp eq i64 %64, -1
-  br i1 %.not65.i, label %70, label %.sink.split72.i
+  br i1 %.not65.i, label %70, label %.sink.split79.i
 
-.sink.split72.i:                                  ; preds = %61
+.sink.split79.i:                                  ; preds = %61
   %65 = load ptr, ptr %13, align 8
   %66 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %65, i64 %indvars.iv.i, i32 4
   %67 = load i64, ptr %66, align 8
   %68 = icmp eq i64 %67, -1
   %69 = select i1 %68, i64 0, i64 %67
-  %.sink73.i = add i64 %69, %64
-  store i64 %.sink73.i, ptr %66, align 8
+  %.sink80.i = add i64 %69, %64
+  store i64 %.sink80.i, ptr %66, align 8
   br label %70
 
-70:                                               ; preds = %.sink.split72.i, %61
+70:                                               ; preds = %.sink.split79.i, %61
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %71 = load i32, ptr %30, align 8
   %72 = sext i32 %71 to i64
@@ -1483,55 +1483,55 @@ _aggregate_prec.exit:                             ; preds = %70, %.lr.ph
   %98 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %97, i64 %indvars.iv.i27, i32 2
   %99 = load i64, ptr %98, align 8
   %.not63.i31 = icmp eq i64 %99, -1
-  br i1 %.not63.i31, label %105, label %.sink.split68.i32
+  br i1 %.not63.i31, label %105, label %.sink.split75.i32
 
-.sink.split68.i32:                                ; preds = %96
+.sink.split75.i32:                                ; preds = %96
   %100 = load ptr, ptr %16, align 8
   %101 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %100, i64 %indvars.iv.i27, i32 2
   %102 = load i64, ptr %101, align 8
   %103 = icmp eq i64 %102, -1
   %104 = select i1 %103, i64 0, i64 %102
-  %.sink69.i33 = add i64 %104, %99
-  store i64 %.sink69.i33, ptr %101, align 8
+  %.sink76.i33 = add i64 %104, %99
+  store i64 %.sink76.i33, ptr %101, align 8
   %.pre47 = load ptr, ptr %86, align 8
   br label %105
 
-105:                                              ; preds = %.sink.split68.i32, %96
-  %106 = phi ptr [ %.pre47, %.sink.split68.i32 ], [ %97, %96 ]
+105:                                              ; preds = %.sink.split75.i32, %96
+  %106 = phi ptr [ %.pre47, %.sink.split75.i32 ], [ %97, %96 ]
   %107 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %106, i64 %indvars.iv.i27, i32 3
   %108 = load i64, ptr %107, align 8
   %.not64.i34 = icmp eq i64 %108, -1
-  br i1 %.not64.i34, label %114, label %.sink.split70.i35
+  br i1 %.not64.i34, label %114, label %.sink.split77.i35
 
-.sink.split70.i35:                                ; preds = %105
+.sink.split77.i35:                                ; preds = %105
   %109 = load ptr, ptr %16, align 8
   %110 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %109, i64 %indvars.iv.i27, i32 3
   %111 = load i64, ptr %110, align 8
   %112 = icmp eq i64 %111, -1
   %113 = select i1 %112, i64 0, i64 %111
-  %.sink71.i36 = add i64 %113, %108
-  store i64 %.sink71.i36, ptr %110, align 8
+  %.sink78.i36 = add i64 %113, %108
+  store i64 %.sink78.i36, ptr %110, align 8
   %.pre48 = load ptr, ptr %86, align 8
   br label %114
 
-114:                                              ; preds = %.sink.split70.i35, %105
-  %115 = phi ptr [ %.pre48, %.sink.split70.i35 ], [ %106, %105 ]
+114:                                              ; preds = %.sink.split77.i35, %105
+  %115 = phi ptr [ %.pre48, %.sink.split77.i35 ], [ %106, %105 ]
   %116 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %115, i64 %indvars.iv.i27, i32 4
   %117 = load i64, ptr %116, align 8
   %.not65.i37 = icmp eq i64 %117, -1
-  br i1 %.not65.i37, label %123, label %.sink.split72.i38
+  br i1 %.not65.i37, label %123, label %.sink.split79.i38
 
-.sink.split72.i38:                                ; preds = %114
+.sink.split79.i38:                                ; preds = %114
   %118 = load ptr, ptr %16, align 8
   %119 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %118, i64 %indvars.iv.i27, i32 4
   %120 = load i64, ptr %119, align 8
   %121 = icmp eq i64 %120, -1
   %122 = select i1 %121, i64 0, i64 %120
-  %.sink73.i39 = add i64 %122, %117
-  store i64 %.sink73.i39, ptr %119, align 8
+  %.sink80.i39 = add i64 %122, %117
+  store i64 %.sink80.i39, ptr %119, align 8
   br label %123
 
-123:                                              ; preds = %.sink.split72.i38, %114
+123:                                              ; preds = %.sink.split79.i38, %114
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i27, 1
   %124 = load i32, ptr %30, align 8
   %125 = sext i32 %124 to i64

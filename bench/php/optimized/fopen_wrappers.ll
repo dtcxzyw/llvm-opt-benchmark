@@ -619,13 +619,13 @@ sub_0:
 .sink.split:                                      ; preds = %48, %55
   %59 = getelementptr inbounds nuw [4097 x i8], ptr %3, i64 0, i64 %50
   store i8 47, ptr %59, align 1, !tbaa !23
-  %.sink54 = add i64 %50, 1
-  %60 = getelementptr inbounds nuw [4097 x i8], ptr %3, i64 0, i64 %.sink54
+  %.sink56 = add i64 %50, 1
+  %60 = getelementptr inbounds nuw [4097 x i8], ptr %3, i64 0, i64 %.sink56
   store i8 0, ptr %60, align 1, !tbaa !23
   br label %61
 
 61:                                               ; preds = %.sink.split, %55
-  %.034 = phi i64 [ %50, %55 ], [ %.sink54, %.sink.split ]
+  %.034 = phi i64 [ %50, %55 ], [ %.sink56, %.sink.split ]
   %62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
   %63 = add i64 %.137, -1
   %64 = getelementptr inbounds nuw [4097 x i8], ptr %5, i64 0, i64 %63
@@ -1391,8 +1391,8 @@ select.unfold:                                    ; preds = %146, %144, %128, %1
   %or.cond12 = and i1 %171, %169
   %172 = add i64 %57, %.0
   %173 = icmp ult i64 %172, 4096
-  %or.cond284 = select i1 %or.cond12, i1 %173, i1 false
-  br i1 %or.cond284, label %174, label %tsrm_realpath_str.exit
+  %or.cond305 = select i1 %or.cond12, i1 %173, i1 false
+  br i1 %or.cond305, label %174, label %tsrm_realpath_str.exit
 
 174:                                              ; preds = %170
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %162, i64 %.0, i1 false)

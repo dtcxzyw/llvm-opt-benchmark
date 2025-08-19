@@ -233,7 +233,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6414emitInstReturnERNS1_18AssemblyBuild
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644xor_ENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 269189120, i64 269189120)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jmpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %14)
-  br label %39
+  br label %41
 
 15:                                               ; preds = %11
   %16 = icmp ne i32 %3, 1
@@ -251,85 +251,85 @@ define dso_local void @_ZN4Luau7CodeGen3X6414emitInstReturnERNS1_18AssemblyBuild
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 269189120, i64 4571824130)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jmpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %18)
-  br label %39
+  br label %41
 
 19:                                               ; preds = %15
   %or.cond3 = icmp ult i32 %3, 4
-  br i1 %or.cond3, label %.lr.ph.preheader, label %26
+  br i1 %or.cond3, label %.lr.ph.preheader, label %28
 
 .lr.ph.preheader:                                 ; preds = %19
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %20 = shl nuw nsw i32 %3, 4
-  %.sroa.5248.0.insert.ext = zext nneg i32 %20 to i64
+  %20 = shl nuw nsw i64 %wide.trip.count, 32
+  %21 = or disjoint i64 %20, 276856834
+  %22 = shl nuw nsw i32 %3, 4
+  %.sroa.5248.0.insert.ext = zext nneg i32 %22 to i64
   %.sroa.5248.0.insert.shift = shl nuw nsw i64 %.sroa.5248.0.insert.ext, 32
   %.sroa.0244.0.insert.insert = or disjoint i64 %.sroa.5248.0.insert.shift, 276856834
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643addENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 272400384, i64 %.sroa.0244.0.insert.insert)
-  %.sroa.5238.0.insert.shift = shl nuw nsw i64 %wide.trip.count, 32
-  %.sroa.0234.0.insert.insert = or disjoint i64 %.sroa.5238.0.insert.shift, 276856834
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 269189120, i64 %.sroa.0234.0.insert.insert)
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jmpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %21)
-  br label %39
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 269189120, i64 %21)
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jmpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %23)
+  br label %41
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %22 = trunc i64 %indvars.iv to i32
-  %23 = add i32 %2, %22
-  %24 = shl i32 %23, 4
-  %.sroa.7.0.insert.ext.i134 = zext i32 %24 to i64
+  %24 = trunc i64 %indvars.iv to i32
+  %25 = add i32 %2, %24
+  %26 = shl i32 %25, 4
+  %.sroa.7.0.insert.ext.i134 = zext i32 %26 to i64
   %.sroa.7.0.insert.shift.i135 = shl nuw i64 %.sroa.7.0.insert.ext.i134, 32
   %.sroa.0.0.insert.insert.i136 = or disjoint i64 %.sroa.7.0.insert.shift.i135, 359956481
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX647vmovupsENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 268795904, i64 %.sroa.0.0.insert.insert.i136)
-  %25 = shl i64 %indvars.iv, 36
-  %.sroa.0259.0.insert.insert = or disjoint i64 %25, 356286465
+  %27 = shl i64 %indvars.iv, 36
+  %.sroa.0259.0.insert.insert = or disjoint i64 %27, 356286465
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX647vmovupsENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 %.sroa.0259.0.insert.insert, i64 268795904)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
-26:                                               ; preds = %19
-  %27 = shl i32 %2, 4
-  %.sroa.7.0.insert.ext.i139 = zext i32 %27 to i64
+28:                                               ; preds = %19
+  %29 = shl i32 %2, 4
+  %.sroa.7.0.insert.ext.i139 = zext i32 %29 to i64
   %.sroa.7.0.insert.shift.i140 = shl nuw i64 %.sroa.7.0.insert.ext.i139, 32
   %.sroa.0.0.insert.insert.i141 = or disjoint i64 %.sroa.7.0.insert.shift.i140, 276070401
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643leaENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 268730368, i64 %.sroa.0.0.insert.insert.i141)
-  %28 = icmp eq i32 %3, -1
-  br i1 %28, label %29, label %30
+  %30 = icmp eq i32 %3, -1
+  br i1 %30, label %31, label %32
 
-29:                                               ; preds = %26
+31:                                               ; preds = %28
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 269778944, i64 34703441921)
-  br label %33
+  br label %35
 
-30:                                               ; preds = %26
-  %31 = add nsw i32 %3, %2
-  %32 = shl i32 %31, 4
-  %.sroa.7.0.insert.ext.i143 = zext i32 %32 to i64
+32:                                               ; preds = %28
+  %33 = add nsw i32 %3, %2
+  %34 = shl i32 %33, 4
+  %.sroa.7.0.insert.ext.i143 = zext i32 %34 to i64
   %.sroa.7.0.insert.shift.i144 = shl nuw i64 %.sroa.7.0.insert.ext.i143, 32
   %.sroa.0.0.insert.insert.i145 = or disjoint i64 %.sroa.7.0.insert.shift.i144, 276070401
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643leaENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 269778944, i64 %.sroa.0.0.insert.insert.i145)
-  br label %33
+  br label %35
 
-33:                                               ; preds = %30, %29
+35:                                               ; preds = %32, %31
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644xor_ENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 269189120, i64 269189120)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !40
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 -1, ptr %34, align 4, !tbaa !42
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 -1, ptr %36, align 4, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !40
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 -1, ptr %35, align 4, !tbaa !42
-  br i1 %28, label %36, label %37
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 -1, ptr %37, align 4, !tbaa !42
+  br i1 %30, label %38, label %39
 
-36:                                               ; preds = %33
+38:                                               ; preds = %35
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643cmpENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 268730368, i64 269778944)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jccENS0_12ConditionX64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, i8 noundef zeroext 13, ptr noundef nonnull align 4 dereferenceable(8) %7)
-  br label %37
+  br label %39
 
-37:                                               ; preds = %36, %33
+39:                                               ; preds = %38, %35
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %6)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX647vmovupsENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 268795904, i64 352616449)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX647vmovupsENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 356286465, i64 268795904)
@@ -339,13 +339,13 @@ define dso_local void @_ZN4Luau7CodeGen3X6414emitInstReturnERNS1_18AssemblyBuild
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643cmpENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 268730368, i64 269778944)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jccENS0_12ConditionX64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, i8 noundef zeroext 4, ptr noundef nonnull align 4 dereferenceable(8) %6)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %7)
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jmpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %38)
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jmpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %39
+  br label %41
 
-39:                                               ; preds = %.thread, %37, %._crit_edge, %13
+41:                                               ; preds = %.thread, %39, %._crit_edge, %13
   ret void
 }
 

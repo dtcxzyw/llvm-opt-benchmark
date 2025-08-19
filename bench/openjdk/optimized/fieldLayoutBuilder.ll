@@ -1067,8 +1067,8 @@ define hidden void @_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_(
   %24 = load i32, ptr %23, align 8
   %25 = icmp ne i32 %24, %.03350
   %26 = select i1 %22, i1 true, i1 %25
-  %or.cond55 = select i1 %26, i1 true, i1 %.03748
-  br i1 %or.cond55, label %._crit_edge54, label %47
+  %or.cond58 = select i1 %26, i1 true, i1 %.03748
+  br i1 %or.cond58, label %._crit_edge54, label %47
 
 ._crit_edge54:                                    ; preds = %19
   %.030.in43 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -1258,9 +1258,9 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16.thread: ; preds = %47
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.thread, %57
-  %.sink11.i = phi ptr [ %60, %.thread ], [ %58, %57 ]
+  %.sink12.i = phi ptr [ %60, %.thread ], [ %58, %57 ]
   %.sink.i = phi ptr [ %61, %.thread ], [ null, %57 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 8
   store ptr %.sink.i, ptr %62, align 8
   br label %63
 
@@ -1437,9 +1437,9 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit31.thread: ; preds = %61
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.thread, %71
-  %.sink11.i = phi ptr [ %74, %.thread ], [ %72, %71 ]
+  %.sink12.i = phi ptr [ %74, %.thread ], [ %72, %71 ]
   %.sink.i = phi ptr [ %75, %.thread ], [ null, %71 ]
-  %76 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 8
   store ptr %.sink.i, ptr %76, align 8
   br label %77
 
@@ -1499,9 +1499,9 @@ define hidden void @_ZN11FieldLayout6removeEP14LayoutRawBlock(ptr noundef nonnul
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %8
-  %.sink11 = phi ptr [ %11, %8 ], [ %7, %6 ]
+  %.sink12 = phi ptr [ %11, %8 ], [ %7, %6 ]
   %.sink = phi ptr [ %12, %8 ], [ null, %6 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
   store ptr %.sink, ptr %13, align 8
   br label %14
 
@@ -2557,8 +2557,8 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit: ; pred
   %68 = load i32, ptr %67, align 8
   %69 = icmp ne i32 %68, %.03350.i
   %70 = select i1 %66, i1 true, i1 %69
-  %or.cond55.i = select i1 %70, i1 true, i1 %.03748.i
-  br i1 %or.cond55.i, label %._crit_edge54.i, label %91
+  %or.cond58.i = select i1 %70, i1 true, i1 %.03748.i
+  br i1 %or.cond58.i, label %._crit_edge54.i, label %91
 
 ._crit_edge54.i:                                  ; preds = %63
   %.030.in43.i = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -2670,8 +2670,8 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit: ; preds = %_ZN
   %119 = load i32, ptr %118, align 8
   %120 = icmp ne i32 %119, %.03350.i13
   %121 = select i1 %117, i1 true, i1 %120
-  %or.cond55.i16 = select i1 %121, i1 true, i1 %.03748.i15
-  br i1 %or.cond55.i16, label %._crit_edge54.i22, label %142
+  %or.cond58.i16 = select i1 %121, i1 true, i1 %.03748.i15
+  br i1 %or.cond58.i16, label %._crit_edge54.i22, label %142
 
 ._crit_edge54.i22:                                ; preds = %114
   %.030.in43.i23 = getelementptr inbounds nuw i8, ptr %112, i64 8
@@ -2858,8 +2858,8 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; pr
   %211 = load i32, ptr %210, align 8
   %212 = icmp ne i32 %211, %.03350.i44
   %213 = select i1 %209, i1 true, i1 %212
-  %or.cond55.i47 = select i1 %213, i1 true, i1 %.03748.i46
-  br i1 %or.cond55.i47, label %._crit_edge54.i53, label %234
+  %or.cond58.i47 = select i1 %213, i1 true, i1 %.03748.i46
+  br i1 %or.cond58.i47, label %._crit_edge54.i53, label %234
 
 ._crit_edge54.i53:                                ; preds = %206
   %.030.in43.i54 = getelementptr inbounds nuw i8, ptr %204, i64 8
@@ -3033,9 +3033,9 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16.thread.i: ; preds = %276
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %.thread.i, %285
-  %.sink11.i.i = phi ptr [ %288, %.thread.i ], [ %286, %285 ]
+  %.sink12.i.i = phi ptr [ %288, %.thread.i ], [ %286, %285 ]
   %.sink.i.i = phi ptr [ %289, %.thread.i ], [ null, %285 ]
-  %290 = getelementptr inbounds nuw i8, ptr %.sink11.i.i, i64 8
+  %290 = getelementptr inbounds nuw i8, ptr %.sink12.i.i, i64 8
   store ptr %.sink.i.i, ptr %290, align 8
   br label %291
 
@@ -3116,8 +3116,8 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_
   %331 = load i32, ptr %330, align 8
   %332 = icmp ne i32 %331, %.03350.i74
   %333 = select i1 %329, i1 true, i1 %332
-  %or.cond55.i77 = select i1 %333, i1 true, i1 %.03748.i76
-  br i1 %or.cond55.i77, label %._crit_edge54.i83, label %354
+  %or.cond58.i77 = select i1 %333, i1 true, i1 %.03748.i76
+  br i1 %or.cond58.i77, label %._crit_edge54.i83, label %354
 
 ._crit_edge54.i83:                                ; preds = %326
   %.030.in43.i84 = getelementptr inbounds nuw i8, ptr %324, i64 8
@@ -3291,9 +3291,9 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16.thread.i147: ; preds = %396
   br label %.sink.split.i.i149
 
 .sink.split.i.i149:                               ; preds = %.thread.i148, %405
-  %.sink11.i.i150 = phi ptr [ %408, %.thread.i148 ], [ %406, %405 ]
+  %.sink12.i.i150 = phi ptr [ %408, %.thread.i148 ], [ %406, %405 ]
   %.sink.i.i151 = phi ptr [ %409, %.thread.i148 ], [ null, %405 ]
-  %410 = getelementptr inbounds nuw i8, ptr %.sink11.i.i150, i64 8
+  %410 = getelementptr inbounds nuw i8, ptr %.sink12.i.i150, i64 8
   store ptr %.sink.i.i151, ptr %410, align 8
   br label %411
 
@@ -3533,8 +3533,8 @@ _ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit: 
   %535 = load i32, ptr %534, align 8
   %536 = icmp ne i32 %535, %.03350.i114
   %537 = select i1 %533, i1 true, i1 %536
-  %or.cond55.i117 = select i1 %537, i1 true, i1 %.03748.i116
-  br i1 %or.cond55.i117, label %._crit_edge54.i123, label %558
+  %or.cond58.i117 = select i1 %537, i1 true, i1 %.03748.i116
+  br i1 %or.cond58.i117, label %._crit_edge54.i123, label %558
 
 ._crit_edge54.i123:                               ; preds = %530
   %.030.in43.i124 = getelementptr inbounds nuw i8, ptr %528, i64 8

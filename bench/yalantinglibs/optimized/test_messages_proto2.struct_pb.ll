@@ -5074,7 +5074,7 @@ while.body.i7164:                                 ; preds = %if.end125
   br i1 %tobool.i.i.i3003, label %_ZNKRSt8optionalIiE5valueEv.exit.i3006, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit3019.thread
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit3019.thread: ; preds = %while.body.i7164
-  %pos.2853216720 = add i64 %pos.23, 2
+  %pos.2853216916 = add i64 %pos.23, 2
   br label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7154
 
 _ZNKRSt8optionalIiE5valueEv.exit.i3006:           ; preds = %while.body.i7164
@@ -5109,10 +5109,10 @@ while.body.i7148:                                 ; preds = %_ZN9struct_pb13Unkn
   br i1 %cmp.i7144, label %while.body.i7148, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7154, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7154: ; preds = %while.body.i7148, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3019.thread, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3019
-  %total.0.i30056722 = phi i64 [ %add5.i3016, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3019 ], [ 0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3019.thread ], [ %add5.i3016, %while.body.i7148 ]
+  %total.0.i30056918 = phi i64 [ %add5.i3016, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3019 ], [ 0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3019.thread ], [ %add5.i3016, %while.body.i7148 ]
   %pos.28.in.lcssa = phi i64 [ %inc.i7167, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3019 ], [ %inc.i7167, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3019.thread ], [ %pos.285324, %while.body.i7148 ]
   %v.addr.i7142.0.lcssa = phi i64 [ %add5.i3016, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3019 ], [ 0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3019.thread ], [ %shr.i7153, %while.body.i7148 ]
-  %pos.28.lcssa = phi i64 [ %pos.285321, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3019 ], [ %pos.2853216720, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3019.thread ], [ %pos.28, %while.body.i7148 ]
+  %pos.28.lcssa = phi i64 [ %pos.285321, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3019 ], [ %pos.2853216916, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3019.thread ], [ %pos.28, %while.body.i7148 ]
   %conv1.i7145 = trunc nuw nsw i64 %v.addr.i7142.0.lcssa to i8
   %inc2.i7146 = add i64 %pos.28.in.lcssa, 2
   %arrayidx3.i7147 = getelementptr inbounds i8, ptr %data, i64 %pos.28.lcssa
@@ -5161,7 +5161,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i: ; preds = %while.body.i.
   br label %_ZN9struct_pb13UnknownFieldsD2Ev.exit3035
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit3035:        ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7154, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i
-  %add143 = add i64 %inc2.i7146, %total.0.i30056722
+  %add143 = add i64 %inc2.i7146, %total.0.i30056918
   br label %if.end144
 
 if.end144:                                        ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit3035, %if.end125
@@ -6168,7 +6168,7 @@ while.cond.i6551.preheader:                       ; preds = %if.end504, %_ZN9str
   br i1 %tobool.i.i.i3244, label %_ZNKRSt8optionalIiE5valueEv.exit.i3247, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit3261.thread
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit3261.thread: ; preds = %while.cond.i6551.preheader
-  %pos.9155306724 = add i64 %pos.895538, 2
+  %pos.9155306920 = add i64 %pos.895538, 2
   br label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6546
 
 _ZNKRSt8optionalIiE5valueEv.exit.i3247:           ; preds = %while.cond.i6551.preheader
@@ -6203,10 +6203,10 @@ while.body.i6540:                                 ; preds = %_ZN9struct_pb13Unkn
   br i1 %cmp.i6536, label %while.body.i6540, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6546, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6546: ; preds = %while.body.i6540, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3261.thread, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3261
-  %total.0.i32466726 = phi i64 [ %add5.i3257, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3261 ], [ 0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3261.thread ], [ %add5.i3257, %while.body.i6540 ]
+  %total.0.i32466922 = phi i64 [ %add5.i3257, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3261 ], [ 0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3261.thread ], [ %add5.i3257, %while.body.i6540 ]
   %pos.91.in.lcssa = phi i64 [ %190, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3261 ], [ %190, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3261.thread ], [ %pos.915533, %while.body.i6540 ]
   %v.addr.i6534.0.lcssa = phi i64 [ %add5.i3257, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3261 ], [ 0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3261.thread ], [ %shr.i6545, %while.body.i6540 ]
-  %pos.91.lcssa = phi i64 [ %pos.915530, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3261 ], [ %pos.9155306724, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3261.thread ], [ %pos.91, %while.body.i6540 ]
+  %pos.91.lcssa = phi i64 [ %pos.915530, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3261 ], [ %pos.9155306920, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3261.thread ], [ %pos.91, %while.body.i6540 ]
   %conv1.i6537 = trunc nuw nsw i64 %v.addr.i6534.0.lcssa to i8
   %inc2.i6538 = add i64 %pos.91.in.lcssa, 2
   %arrayidx3.i6539 = getelementptr inbounds i8, ptr %data, i64 %pos.91.lcssa
@@ -6253,7 +6253,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i3282: ; preds = %while.bod
   br label %_ZN9struct_pb13UnknownFieldsD2Ev.exit3300
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit3300:        ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6546, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i3282
-  %add532 = add i64 %inc2.i6538, %total.0.i32466726
+  %add532 = add i64 %inc2.i6538, %total.0.i32466922
   %incdec.ptr.i3301 = getelementptr inbounds nuw i8, ptr %__begin3509.sroa.0.05537, i64 8
   %cmp.i3231 = icmp eq ptr %incdec.ptr.i3301, %189
   br i1 %cmp.i3231, label %if.end536, label %while.cond.i6551.preheader
@@ -8246,7 +8246,7 @@ _ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i3594: ; preds = %while.body.i4
   br i1 %tobool.i.i.i3597, label %_ZNKRSt8optionalIiE5valueEv.exit.i3600, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit3614.thread
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit3614.thread: ; preds = %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i3594
-  %pos.17558766728 = add i64 %add1209, 1
+  %pos.17558766924 = add i64 %add1209, 1
   br label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4946
 
 _ZNKRSt8optionalIiE5valueEv.exit.i3600:           ; preds = %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i3594
@@ -8281,10 +8281,10 @@ while.body.i4940:                                 ; preds = %_ZN9struct_pb13Unkn
   br i1 %cmp.i4936, label %while.body.i4940, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4946, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4946: ; preds = %while.body.i4940, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3614.thread, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3614
-  %total.0.i35996730 = phi i64 [ %add5.i3610, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3614 ], [ 0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3614.thread ], [ %add5.i3610, %while.body.i4940 ]
+  %total.0.i35996926 = phi i64 [ %add5.i3610, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3614 ], [ 0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3614.thread ], [ %add5.i3610, %while.body.i4940 ]
   %pos.175.in.lcssa = phi i64 [ %add1209, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3614 ], [ %add1209, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3614.thread ], [ %pos.1755879, %while.body.i4940 ]
   %v.addr.i4934.0.lcssa = phi i64 [ %add5.i3610, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3614 ], [ 0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3614.thread ], [ %shr.i4945, %while.body.i4940 ]
-  %pos.175.lcssa = phi i64 [ %pos.1755876, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3614 ], [ %pos.17558766728, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3614.thread ], [ %pos.175, %while.body.i4940 ]
+  %pos.175.lcssa = phi i64 [ %pos.1755876, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3614 ], [ %pos.17558766924, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3614.thread ], [ %pos.175, %while.body.i4940 ]
   %conv1.i4937 = trunc nuw nsw i64 %v.addr.i4934.0.lcssa to i8
   %inc2.i4938 = add i64 %pos.175.in.lcssa, 2
   %arrayidx3.i4939 = getelementptr inbounds i8, ptr %data, i64 %pos.175.lcssa
@@ -8331,7 +8331,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i3635: ; preds = %while.bod
   br label %_ZN9struct_pb13UnknownFieldsD2Ev.exit3653
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit3653:        ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4946, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i3635
-  %add1223 = add i64 %inc2.i4938, %total.0.i35996730
+  %add1223 = add i64 %inc2.i4938, %total.0.i35996926
   %call.i3654 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21168.sroa.0.05884) #21
   %cmp.i3548 = icmp eq ptr %call.i3654, %add.ptr.i.i3547
   br i1 %cmp.i3548, label %for.end1226, label %for.body1177
@@ -8627,7 +8627,7 @@ while.body.i4732.preheader:                       ; preds = %for.end1310
   br i1 %cmp.i36875939, label %while.cond.i4711.preheader.thread, label %for.body1324
 
 while.cond.i4711.preheader.thread:                ; preds = %while.body.i4732.preheader
-  %pos.18859436732 = add i64 %pos.181.lcssa, 2
+  %pos.18859436928 = add i64 %pos.181.lcssa, 2
   br label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4722
 
 while.cond.i4711.preheader:                       ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2362
@@ -8671,7 +8671,7 @@ while.body.i4716:                                 ; preds = %while.cond.i4711.pr
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4722: ; preds = %while.body.i4716, %while.cond.i4711.preheader.thread, %while.cond.i4711.preheader
   %pos.188.in.lcssa = phi i64 [ %412, %while.cond.i4711.preheader ], [ %412, %while.cond.i4711.preheader.thread ], [ %pos.1885946, %while.body.i4716 ]
   %v.addr.i4710.0.lcssa = phi i64 [ %add1329, %while.cond.i4711.preheader ], [ 0, %while.cond.i4711.preheader.thread ], [ %shr.i4721, %while.body.i4716 ]
-  %pos.188.lcssa = phi i64 [ %pos.1885943, %while.cond.i4711.preheader ], [ %pos.18859436732, %while.cond.i4711.preheader.thread ], [ %pos.188, %while.body.i4716 ]
+  %pos.188.lcssa = phi i64 [ %pos.1885943, %while.cond.i4711.preheader ], [ %pos.18859436928, %while.cond.i4711.preheader.thread ], [ %pos.188, %while.body.i4716 ]
   %conv1.i4713 = trunc nuw nsw i64 %v.addr.i4710.0.lcssa to i8
   %inc2.i4714 = add i64 %pos.188.in.lcssa, 2
   %arrayidx3.i4715 = getelementptr inbounds i8, ptr %data, i64 %pos.188.lcssa
@@ -8733,7 +8733,7 @@ while.body.i4684.preheader:                       ; preds = %if.end1351
   br i1 %cmp.i36955961, label %while.cond.i4663.preheader.thread, label %for.body1366
 
 while.cond.i4663.preheader.thread:                ; preds = %while.body.i4684.preheader
-  %pos.19359656735 = add i64 %pos.186, 2
+  %pos.19359656931 = add i64 %pos.186, 2
   br label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4674
 
 while.cond.i4663.preheader:                       ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2355
@@ -8776,7 +8776,7 @@ while.body.i4668:                                 ; preds = %while.cond.i4663.pr
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4674: ; preds = %while.body.i4668, %while.cond.i4663.preheader.thread, %while.cond.i4663.preheader
   %pos.193.in.lcssa = phi i64 [ %423, %while.cond.i4663.preheader ], [ %423, %while.cond.i4663.preheader.thread ], [ %pos.1935968, %while.body.i4668 ]
   %v.addr.i4662.0.lcssa = phi i64 [ %add1370, %while.cond.i4663.preheader ], [ 0, %while.cond.i4663.preheader.thread ], [ %shr.i4673, %while.body.i4668 ]
-  %pos.193.lcssa = phi i64 [ %pos.1935965, %while.cond.i4663.preheader ], [ %pos.19359656735, %while.cond.i4663.preheader.thread ], [ %pos.193, %while.body.i4668 ]
+  %pos.193.lcssa = phi i64 [ %pos.1935965, %while.cond.i4663.preheader ], [ %pos.19359656931, %while.cond.i4663.preheader.thread ], [ %pos.193, %while.body.i4668 ]
   %conv1.i4665 = trunc nuw nsw i64 %v.addr.i4662.0.lcssa to i8
   %inc2.i4666 = add i64 %pos.193.in.lcssa, 2
   %arrayidx3.i4667 = getelementptr inbounds i8, ptr %data, i64 %pos.193.lcssa
@@ -8837,7 +8837,7 @@ while.body.i4636.preheader:                       ; preds = %if.end1391
   br i1 %cmp.i37035983, label %while.cond.i4615.preheader.thread, label %for.body1406
 
 while.cond.i4615.preheader.thread:                ; preds = %while.body.i4636.preheader
-  %pos.19859876738 = add i64 %pos.191, 2
+  %pos.19859876934 = add i64 %pos.191, 2
   br label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4626
 
 while.cond.i4615.preheader:                       ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2348
@@ -8881,7 +8881,7 @@ while.body.i4620:                                 ; preds = %while.cond.i4615.pr
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4626: ; preds = %while.body.i4620, %while.cond.i4615.preheader.thread, %while.cond.i4615.preheader
   %pos.198.in.lcssa = phi i64 [ %434, %while.cond.i4615.preheader ], [ %434, %while.cond.i4615.preheader.thread ], [ %pos.1985990, %while.body.i4620 ]
   %v.addr.i4614.0.lcssa = phi i64 [ %add1411, %while.cond.i4615.preheader ], [ 0, %while.cond.i4615.preheader.thread ], [ %shr.i4625, %while.body.i4620 ]
-  %pos.198.lcssa = phi i64 [ %pos.1985987, %while.cond.i4615.preheader ], [ %pos.19859876738, %while.cond.i4615.preheader.thread ], [ %pos.198, %while.body.i4620 ]
+  %pos.198.lcssa = phi i64 [ %pos.1985987, %while.cond.i4615.preheader ], [ %pos.19859876934, %while.cond.i4615.preheader.thread ], [ %pos.198, %while.body.i4620 ]
   %conv1.i4617 = trunc nuw nsw i64 %v.addr.i4614.0.lcssa to i8
   %inc2.i4618 = add i64 %pos.198.in.lcssa, 2
   %arrayidx3.i4619 = getelementptr inbounds i8, ptr %data, i64 %pos.198.lcssa
@@ -8943,7 +8943,7 @@ while.body.i4588.preheader:                       ; preds = %if.end1433
   br i1 %cmp.i37116005, label %while.cond.i4567.preheader.thread, label %for.body1448
 
 while.cond.i4567.preheader.thread:                ; preds = %while.body.i4588.preheader
-  %pos.20360096741 = add i64 %pos.196, 2
+  %pos.20360096937 = add i64 %pos.196, 2
   br label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4578
 
 while.cond.i4567.preheader:                       ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2341
@@ -8986,7 +8986,7 @@ while.body.i4572:                                 ; preds = %while.cond.i4567.pr
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4578: ; preds = %while.body.i4572, %while.cond.i4567.preheader.thread, %while.cond.i4567.preheader
   %pos.203.in.lcssa = phi i64 [ %445, %while.cond.i4567.preheader ], [ %445, %while.cond.i4567.preheader.thread ], [ %pos.2036012, %while.body.i4572 ]
   %v.addr.i4566.0.lcssa = phi i64 [ %add1452, %while.cond.i4567.preheader ], [ 0, %while.cond.i4567.preheader.thread ], [ %shr.i4577, %while.body.i4572 ]
-  %pos.203.lcssa = phi i64 [ %pos.2036009, %while.cond.i4567.preheader ], [ %pos.20360096741, %while.cond.i4567.preheader.thread ], [ %pos.203, %while.body.i4572 ]
+  %pos.203.lcssa = phi i64 [ %pos.2036009, %while.cond.i4567.preheader ], [ %pos.20360096937, %while.cond.i4567.preheader.thread ], [ %pos.203, %while.body.i4572 ]
   %conv1.i4569 = trunc nuw nsw i64 %v.addr.i4566.0.lcssa to i8
   %inc2.i4570 = add i64 %pos.203.in.lcssa, 2
   %arrayidx3.i4571 = getelementptr inbounds i8, ptr %data, i64 %pos.203.lcssa
@@ -9047,7 +9047,7 @@ while.body.i4540.preheader:                       ; preds = %if.end1473
   br i1 %cmp.i37196027, label %while.cond.i4519.preheader.thread, label %for.body1488
 
 while.cond.i4519.preheader.thread:                ; preds = %while.body.i4540.preheader
-  %pos.20860316744 = add i64 %pos.201, 2
+  %pos.20860316940 = add i64 %pos.201, 2
   br label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4530
 
 while.cond.i4519.preheader:                       ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2334
@@ -9094,7 +9094,7 @@ while.body.i4524:                                 ; preds = %while.cond.i4519.pr
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4530: ; preds = %while.body.i4524, %while.cond.i4519.preheader.thread, %while.cond.i4519.preheader
   %pos.208.in.lcssa = phi i64 [ %456, %while.cond.i4519.preheader ], [ %456, %while.cond.i4519.preheader.thread ], [ %pos.2086034, %while.body.i4524 ]
   %v.addr.i4518.0.lcssa = phi i64 [ %add1494, %while.cond.i4519.preheader ], [ 0, %while.cond.i4519.preheader.thread ], [ %shr.i4529, %while.body.i4524 ]
-  %pos.208.lcssa = phi i64 [ %pos.2086031, %while.cond.i4519.preheader ], [ %pos.20860316744, %while.cond.i4519.preheader.thread ], [ %pos.208, %while.body.i4524 ]
+  %pos.208.lcssa = phi i64 [ %pos.2086031, %while.cond.i4519.preheader ], [ %pos.20860316940, %while.cond.i4519.preheader.thread ], [ %pos.208, %while.body.i4524 ]
   %conv1.i4521 = trunc nuw nsw i64 %v.addr.i4518.0.lcssa to i8
   %inc2.i4522 = add i64 %pos.208.in.lcssa, 2
   %arrayidx3.i4523 = getelementptr inbounds i8, ptr %data, i64 %pos.208.lcssa
@@ -9159,7 +9159,7 @@ while.body.i4492.preheader:                       ; preds = %if.end1517
   br i1 %cmp.i37276049, label %while.cond.i4471.preheader.thread, label %for.body1532
 
 while.cond.i4471.preheader.thread:                ; preds = %while.body.i4492.preheader
-  %pos.21360536747 = add i64 %pos.206, 2
+  %pos.21360536943 = add i64 %pos.206, 2
   br label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4482
 
 while.cond.i4471.preheader:                       ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2327
@@ -9205,7 +9205,7 @@ while.body.i4476:                                 ; preds = %while.cond.i4471.pr
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4482: ; preds = %while.body.i4476, %while.cond.i4471.preheader.thread, %while.cond.i4471.preheader
   %pos.213.in.lcssa = phi i64 [ %467, %while.cond.i4471.preheader ], [ %467, %while.cond.i4471.preheader.thread ], [ %pos.2136056, %while.body.i4476 ]
   %v.addr.i4470.0.lcssa = phi i64 [ %add1537, %while.cond.i4471.preheader ], [ 0, %while.cond.i4471.preheader.thread ], [ %shr.i4481, %while.body.i4476 ]
-  %pos.213.lcssa = phi i64 [ %pos.2136053, %while.cond.i4471.preheader ], [ %pos.21360536747, %while.cond.i4471.preheader.thread ], [ %pos.213, %while.body.i4476 ]
+  %pos.213.lcssa = phi i64 [ %pos.2136053, %while.cond.i4471.preheader ], [ %pos.21360536943, %while.cond.i4471.preheader.thread ], [ %pos.213, %while.body.i4476 ]
   %conv1.i4473 = trunc nuw nsw i64 %v.addr.i4470.0.lcssa to i8
   %inc2.i4474 = add i64 %pos.213.in.lcssa, 2
   %arrayidx3.i4475 = getelementptr inbounds i8, ptr %data, i64 %pos.213.lcssa
@@ -9570,7 +9570,7 @@ while.body.i4252.preheader:                       ; preds = %if.end1618
   br i1 %520, label %while.cond.i4231.preheader.thread, label %for.body1631
 
 while.cond.i4231.preheader.thread:                ; preds = %while.body.i4252.preheader
-  %pos.23661316750 = add i64 %pos.231, 2
+  %pos.23661316946 = add i64 %pos.231, 2
   br label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4242
 
 while.cond.i4231.preheader:                       ; preds = %for.body1631
@@ -9608,7 +9608,7 @@ while.body.i4236:                                 ; preds = %while.cond.i4231.pr
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4242: ; preds = %while.body.i4236, %while.cond.i4231.preheader.thread, %while.cond.i4231.preheader
   %pos.236.in.lcssa = phi i64 [ %516, %while.cond.i4231.preheader ], [ %516, %while.cond.i4231.preheader.thread ], [ %pos.2366134, %while.body.i4236 ]
   %v.addr.i4230.0.lcssa = phi i64 [ %add1639, %while.cond.i4231.preheader ], [ 0, %while.cond.i4231.preheader.thread ], [ %shr.i4241, %while.body.i4236 ]
-  %pos.236.lcssa = phi i64 [ %pos.2366131, %while.cond.i4231.preheader ], [ %pos.23661316750, %while.cond.i4231.preheader.thread ], [ %pos.236, %while.body.i4236 ]
+  %pos.236.lcssa = phi i64 [ %pos.2366131, %while.cond.i4231.preheader ], [ %pos.23661316946, %while.cond.i4231.preheader.thread ], [ %pos.236, %while.body.i4236 ]
   %conv1.i4233 = trunc nuw nsw i64 %v.addr.i4230.0.lcssa to i8
   %inc2.i4234 = add i64 %pos.236.in.lcssa, 2
   %arrayidx3.i4235 = getelementptr inbounds i8, ptr %data, i64 %pos.236.lcssa
@@ -9664,7 +9664,7 @@ while.body.i4204.preheader:                       ; preds = %if.end1662
   br i1 %cmp.i38176146, label %while.cond.i4183.preheader.thread, label %for.body1677
 
 while.cond.i4183.preheader.thread:                ; preds = %while.body.i4204.preheader
-  %pos.24061506753 = add i64 %pos.234, 2
+  %pos.24061506949 = add i64 %pos.234, 2
   br label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4194
 
 while.cond.i4183.preheader:                       ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit
@@ -9708,7 +9708,7 @@ while.body.i4188:                                 ; preds = %while.cond.i4183.pr
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4194: ; preds = %while.body.i4188, %while.cond.i4183.preheader.thread, %while.cond.i4183.preheader
   %pos.240.in.lcssa = phi i64 [ %533, %while.cond.i4183.preheader ], [ %533, %while.cond.i4183.preheader.thread ], [ %pos.2406153, %while.body.i4188 ]
   %v.addr.i4182.0.lcssa = phi i64 [ %add1682, %while.cond.i4183.preheader ], [ 0, %while.cond.i4183.preheader.thread ], [ %shr.i4193, %while.body.i4188 ]
-  %pos.240.lcssa = phi i64 [ %pos.2406150, %while.cond.i4183.preheader ], [ %pos.24061506753, %while.cond.i4183.preheader.thread ], [ %pos.240, %while.body.i4188 ]
+  %pos.240.lcssa = phi i64 [ %pos.2406150, %while.cond.i4183.preheader ], [ %pos.24061506949, %while.cond.i4183.preheader.thread ], [ %pos.240, %while.body.i4188 ]
   %conv1.i4185 = trunc nuw nsw i64 %v.addr.i4182.0.lcssa to i8
   %inc2.i4186 = add i64 %pos.240.in.lcssa, 2
   %arrayidx3.i4187 = getelementptr inbounds i8, ptr %data, i64 %pos.240.lcssa
@@ -15565,8 +15565,8 @@ if.end.i:                                         ; preds = %if.then
 if.end.thread.i:                                  ; preds = %if.then
   %6 = load ptr, ptr %__u, align 8
   %7 = getelementptr inbounds nuw i8, ptr %__u, i64 16
-  %cmp.i1739.i = icmp eq ptr %6, %7
-  br i1 %cmp.i1739.i, label %if.then15.i, label %if.end30.i
+  %cmp.i1744.i = icmp eq ptr %6, %7
+  br i1 %cmp.i1744.i, label %if.then15.i, label %if.end30.i
 
 if.then15.i:                                      ; preds = %if.end.thread.i, %if.end.i
   %8 = phi ptr [ %6, %if.end.thread.i ], [ %4, %if.end.i ]
@@ -16874,7 +16874,7 @@ while.body.i35084:                                ; preds = %land.rhs.i35093
   %or101.i35091 = or i64 %shl100.i35090, %val.i35062.122380
   %add.i35092 = add i32 %shift.i35064.022379, 7
   %cmp92.i35071.not = icmp eq i64 %inc96.i35085, %size
-  br i1 %cmp92.i35071.not, label %return.loopexit29245, label %land.rhs.i35093, !llvm.loop !8
+  br i1 %cmp92.i35071.not, label %return.loopexit30295, label %land.rhs.i35093, !llvm.loop !8
 
 if.end104.i35075:                                 ; preds = %land.rhs.i35093
   store i64 %inc96.i35085, ptr %pos, align 8
@@ -17207,7 +17207,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %or101.i = or i64 %shl100.i, %val.i.123876
   %add.i = add i32 %shift.i.023875, 7
   %cmp92.i.not = icmp eq i64 %inc96.i, %size
-  br i1 %cmp92.i.not, label %return.loopexit29037, label %land.rhs.i, !llvm.loop !8
+  br i1 %cmp92.i.not, label %return.loopexit30087, label %land.rhs.i, !llvm.loop !8
 
 if.end104.i:                                      ; preds = %land.rhs.i
   store i64 %inc96.i, ptr %pos, align 8
@@ -17392,7 +17392,7 @@ while.body.i4554:                                 ; preds = %land.rhs.i4563
   %or101.i4561 = or i64 %shl100.i4560, %val.i4532.123870
   %add.i4562 = add i32 %shift.i4534.023869, 7
   %cmp92.i4541.not = icmp eq i64 %inc96.i4555, %size
-  br i1 %cmp92.i4541.not, label %return.loopexit29038, label %land.rhs.i4563, !llvm.loop !8
+  br i1 %cmp92.i4541.not, label %return.loopexit30088, label %land.rhs.i4563, !llvm.loop !8
 
 if.end104.i4545:                                  ; preds = %land.rhs.i4563
   store i64 %inc96.i4555, ptr %pos, align 8
@@ -17557,7 +17557,7 @@ while.body.i4696:                                 ; preds = %land.rhs.i4705
   %or101.i4703 = or i64 %shl100.i4702, %val.i4674.123864
   %add.i4704 = add i32 %shift.i4676.023863, 7
   %cmp92.i4683.not = icmp eq i64 %inc96.i4697, %size
-  br i1 %cmp92.i4683.not, label %return.loopexit29039, label %land.rhs.i4705, !llvm.loop !8
+  br i1 %cmp92.i4683.not, label %return.loopexit30089, label %land.rhs.i4705, !llvm.loop !8
 
 if.end104.i4687:                                  ; preds = %land.rhs.i4705
   store i64 %inc96.i4697, ptr %pos, align 8
@@ -17742,7 +17742,7 @@ while.body.i4838:                                 ; preds = %land.rhs.i4847
   %or101.i4845 = or i64 %shl100.i4844, %val.i4816.123858
   %add.i4846 = add i32 %shift.i4818.023857, 7
   %cmp92.i4825.not = icmp eq i64 %inc96.i4839, %size
-  br i1 %cmp92.i4825.not, label %return.loopexit29040, label %land.rhs.i4847, !llvm.loop !8
+  br i1 %cmp92.i4825.not, label %return.loopexit30090, label %land.rhs.i4847, !llvm.loop !8
 
 if.end104.i4829:                                  ; preds = %land.rhs.i4847
   store i64 %inc96.i4839, ptr %pos, align 8
@@ -17899,7 +17899,7 @@ while.body.i4980:                                 ; preds = %land.rhs.i4989
   %or101.i4987 = or i64 %shl100.i4986, %val.i4958.123852
   %add.i4988 = add i32 %shift.i4960.023851, 7
   %cmp92.i4967.not = icmp eq i64 %inc96.i4981, %size
-  br i1 %cmp92.i4967.not, label %return.loopexit29041, label %land.rhs.i4989, !llvm.loop !8
+  br i1 %cmp92.i4967.not, label %return.loopexit30091, label %land.rhs.i4989, !llvm.loop !8
 
 if.end104.i4971:                                  ; preds = %land.rhs.i4989
   store i64 %inc96.i4981, ptr %pos, align 8
@@ -18081,7 +18081,7 @@ while.body.i5122:                                 ; preds = %land.rhs.i5131
   %or101.i5129 = or i64 %shl100.i5128, %val.i5100.123846
   %add.i5130 = add i32 %shift.i5102.023845, 7
   %cmp92.i5109.not = icmp eq i64 %inc96.i5123, %size
-  br i1 %cmp92.i5109.not, label %return.loopexit29042, label %land.rhs.i5131, !llvm.loop !8
+  br i1 %cmp92.i5109.not, label %return.loopexit30092, label %land.rhs.i5131, !llvm.loop !8
 
 if.end104.i5113:                                  ; preds = %land.rhs.i5131
   store i64 %inc96.i5123, ptr %pos, align 8
@@ -18341,7 +18341,7 @@ while.body.i5264:                                 ; preds = %land.rhs.i5273
   %or101.i5271 = or i64 %shl100.i5270, %val.i5242.123840
   %add.i5272 = add i32 %shift.i5244.023839, 7
   %cmp92.i5251.not = icmp eq i64 %inc96.i5265, %size
-  br i1 %cmp92.i5251.not, label %return.loopexit29043, label %land.rhs.i5273, !llvm.loop !8
+  br i1 %cmp92.i5251.not, label %return.loopexit30093, label %land.rhs.i5273, !llvm.loop !8
 
 if.end104.i5255:                                  ; preds = %land.rhs.i5273
   store i64 %inc96.i5265, ptr %pos, align 8
@@ -18532,7 +18532,7 @@ while.body.i5406:                                 ; preds = %land.rhs.i5415
   %or101.i5413 = or i64 %shl100.i5412, %val.i5384.123834
   %add.i5414 = add i32 %shift.i5386.023833, 7
   %cmp92.i5393.not = icmp eq i64 %inc96.i5407, %size
-  br i1 %cmp92.i5393.not, label %return.loopexit29044, label %land.rhs.i5415, !llvm.loop !8
+  br i1 %cmp92.i5393.not, label %return.loopexit30094, label %land.rhs.i5415, !llvm.loop !8
 
 if.end104.i5397:                                  ; preds = %land.rhs.i5415
   store i64 %inc96.i5407, ptr %pos, align 8
@@ -18812,7 +18812,7 @@ while.body.i5548:                                 ; preds = %land.rhs.i5557
   %or101.i5555 = or i64 %shl100.i5554, %val.i5526.123828
   %add.i5556 = add i32 %shift.i5528.023827, 7
   %cmp92.i5535.not = icmp eq i64 %inc96.i5549, %size
-  br i1 %cmp92.i5535.not, label %return.loopexit29045, label %land.rhs.i5557, !llvm.loop !8
+  br i1 %cmp92.i5535.not, label %return.loopexit30095, label %land.rhs.i5557, !llvm.loop !8
 
 if.end104.i5539:                                  ; preds = %land.rhs.i5557
   store i64 %inc96.i5549, ptr %pos, align 8
@@ -19095,7 +19095,7 @@ while.body.i5690:                                 ; preds = %land.rhs.i5699
   %or101.i5697 = or i64 %shl100.i5696, %val.i5668.123822
   %add.i5698 = add i32 %shift.i5670.023821, 7
   %cmp92.i5677.not = icmp eq i64 %inc96.i5691, %size
-  br i1 %cmp92.i5677.not, label %return.loopexit29046, label %land.rhs.i5699, !llvm.loop !8
+  br i1 %cmp92.i5677.not, label %return.loopexit30096, label %land.rhs.i5699, !llvm.loop !8
 
 if.end104.i5681:                                  ; preds = %land.rhs.i5699
   store i64 %inc96.i5691, ptr %pos, align 8
@@ -19321,7 +19321,7 @@ while.body.i5832:                                 ; preds = %land.rhs.i5841
   %or101.i5839 = or i64 %shl100.i5838, %val.i5810.123816
   %add.i5840 = add i32 %shift.i5812.023815, 7
   %cmp92.i5819.not = icmp eq i64 %inc96.i5833, %size
-  br i1 %cmp92.i5819.not, label %return.loopexit29047, label %land.rhs.i5841, !llvm.loop !8
+  br i1 %cmp92.i5819.not, label %return.loopexit30097, label %land.rhs.i5841, !llvm.loop !8
 
 if.end104.i5823:                                  ; preds = %land.rhs.i5841
   store i64 %inc96.i5833, ptr %pos, align 8
@@ -19511,7 +19511,7 @@ while.body.i5974:                                 ; preds = %land.rhs.i5983
   %or101.i5981 = or i64 %shl100.i5980, %val.i5952.123810
   %add.i5982 = add i32 %shift.i5954.023809, 7
   %cmp92.i5961.not = icmp eq i64 %inc96.i5975, %size
-  br i1 %cmp92.i5961.not, label %return.loopexit29048, label %land.rhs.i5983, !llvm.loop !8
+  br i1 %cmp92.i5961.not, label %return.loopexit30098, label %land.rhs.i5983, !llvm.loop !8
 
 if.end104.i5965:                                  ; preds = %land.rhs.i5983
   store i64 %inc96.i5975, ptr %pos, align 8
@@ -19669,7 +19669,7 @@ while.body.i6116:                                 ; preds = %land.rhs.i6125
   %or101.i6123 = or i64 %shl100.i6122, %val.i6094.123804
   %add.i6124 = add i32 %shift.i6096.023803, 7
   %cmp92.i6103.not = icmp eq i64 %inc96.i6117, %size
-  br i1 %cmp92.i6103.not, label %return.loopexit29049, label %land.rhs.i6125, !llvm.loop !8
+  br i1 %cmp92.i6103.not, label %return.loopexit30099, label %land.rhs.i6125, !llvm.loop !8
 
 if.end104.i6107:                                  ; preds = %land.rhs.i6125
   store i64 %inc96.i6117, ptr %pos, align 8
@@ -19859,7 +19859,7 @@ while.body.i6258:                                 ; preds = %land.rhs.i6267
   %or101.i6265 = or i64 %shl100.i6264, %val.i6236.123798
   %add.i6266 = add i32 %shift.i6238.023797, 7
   %cmp92.i6245.not = icmp eq i64 %inc96.i6259, %size
-  br i1 %cmp92.i6245.not, label %return.loopexit29050, label %land.rhs.i6267, !llvm.loop !8
+  br i1 %cmp92.i6245.not, label %return.loopexit30100, label %land.rhs.i6267, !llvm.loop !8
 
 if.end104.i6249:                                  ; preds = %land.rhs.i6267
   store i64 %inc96.i6259, ptr %pos, align 8
@@ -20139,7 +20139,7 @@ while.body.i6400:                                 ; preds = %land.rhs.i6409
   %or101.i6407 = or i64 %shl100.i6406, %val.i6378.123792
   %add.i6408 = add i32 %shift.i6380.023791, 7
   %cmp92.i6387.not = icmp eq i64 %inc96.i6401, %size
-  br i1 %cmp92.i6387.not, label %return.loopexit29051, label %land.rhs.i6409, !llvm.loop !8
+  br i1 %cmp92.i6387.not, label %return.loopexit30101, label %land.rhs.i6409, !llvm.loop !8
 
 if.end104.i6391:                                  ; preds = %land.rhs.i6409
   store i64 %inc96.i6401, ptr %pos, align 8
@@ -20423,7 +20423,7 @@ while.body.i6542:                                 ; preds = %land.rhs.i6551
   %or101.i6549 = or i64 %shl100.i6548, %val.i6520.123786
   %add.i6550 = add i32 %shift.i6522.023785, 7
   %cmp92.i6529.not = icmp eq i64 %inc96.i6543, %size
-  br i1 %cmp92.i6529.not, label %return.loopexit29052, label %land.rhs.i6551, !llvm.loop !8
+  br i1 %cmp92.i6529.not, label %return.loopexit30102, label %land.rhs.i6551, !llvm.loop !8
 
 if.end104.i6533:                                  ; preds = %land.rhs.i6551
   store i64 %inc96.i6543, ptr %pos, align 8
@@ -20614,7 +20614,7 @@ while.body.i6684:                                 ; preds = %land.rhs.i6693
   %or101.i6691 = or i64 %shl100.i6690, %val.i6662.123780
   %add.i6692 = add i32 %shift.i6664.023779, 7
   %cmp92.i6671.not = icmp eq i64 %inc96.i6685, %size
-  br i1 %cmp92.i6671.not, label %return.loopexit29053, label %land.rhs.i6693, !llvm.loop !8
+  br i1 %cmp92.i6671.not, label %return.loopexit30103, label %land.rhs.i6693, !llvm.loop !8
 
 if.end104.i6675:                                  ; preds = %land.rhs.i6693
   store i64 %inc96.i6685, ptr %pos, align 8
@@ -20847,7 +20847,7 @@ while.body.i6826:                                 ; preds = %land.rhs.i6835
   %or101.i6833 = or i64 %shl100.i6832, %val.i6804.123767
   %add.i6834 = add i32 %shift.i6806.023766, 7
   %cmp92.i6813.not = icmp eq i64 %inc96.i6827, %size
-  br i1 %cmp92.i6813.not, label %return.loopexit29055, label %land.rhs.i6835, !llvm.loop !8
+  br i1 %cmp92.i6813.not, label %return.loopexit30105, label %land.rhs.i6835, !llvm.loop !8
 
 if.end104.i6817:                                  ; preds = %land.rhs.i6835
   store i64 %inc96.i6827, ptr %pos, align 8
@@ -21244,7 +21244,7 @@ while.body.i7110:                                 ; preds = %land.rhs.i7119
   %or101.i7117 = or i64 %shl100.i7116, %val.i7088.123761
   %add.i7118 = add i32 %shift.i7090.023760, 7
   %cmp92.i7097.not = icmp eq i64 %inc96.i7111, %size
-  br i1 %cmp92.i7097.not, label %return.loopexit29056, label %land.rhs.i7119, !llvm.loop !8
+  br i1 %cmp92.i7097.not, label %return.loopexit30106, label %land.rhs.i7119, !llvm.loop !8
 
 if.end104.i7101:                                  ; preds = %land.rhs.i7119
   store i64 %inc96.i7111, ptr %pos, align 8
@@ -21476,7 +21476,7 @@ while.body.i7252:                                 ; preds = %land.rhs.i7261
   %or101.i7259 = or i64 %shl100.i7258, %val.i7230.123748
   %add.i7260 = add i32 %shift.i7232.023747, 7
   %cmp92.i7239.not = icmp eq i64 %inc96.i7253, %size
-  br i1 %cmp92.i7239.not, label %return.loopexit29059, label %land.rhs.i7261, !llvm.loop !8
+  br i1 %cmp92.i7239.not, label %return.loopexit30109, label %land.rhs.i7261, !llvm.loop !8
 
 if.end104.i7243:                                  ; preds = %land.rhs.i7261
   store i64 %inc96.i7253, ptr %pos, align 8
@@ -21654,7 +21654,7 @@ while.body.i7394:                                 ; preds = %land.rhs.i7403
   %or101.i7401 = or i64 %shl100.i7400, %val.i7372.123754
   %add.i7402 = add i32 %shift.i7374.023753, 7
   %cmp92.i7381.not = icmp eq i64 %inc96.i7395, %size
-  br i1 %cmp92.i7381.not, label %return.loopexit28972, label %land.rhs.i7403, !llvm.loop !8
+  br i1 %cmp92.i7381.not, label %return.loopexit30022, label %land.rhs.i7403, !llvm.loop !8
 
 if.end104.i7385:                                  ; preds = %land.rhs.i7403
   store i64 %inc96.i7395, ptr %pos, align 8
@@ -21872,7 +21872,7 @@ while.body.i7536:                                 ; preds = %land.rhs.i7545
   %or101.i7543 = or i64 %shl100.i7542, %val.i7514.123742
   %add.i7544 = add i32 %shift.i7516.023741, 7
   %cmp92.i7523.not = icmp eq i64 %inc96.i7537, %size
-  br i1 %cmp92.i7523.not, label %return.loopexit29060, label %land.rhs.i7545, !llvm.loop !8
+  br i1 %cmp92.i7523.not, label %return.loopexit30110, label %land.rhs.i7545, !llvm.loop !8
 
 if.end104.i7527:                                  ; preds = %land.rhs.i7545
   store i64 %inc96.i7537, ptr %pos, align 8
@@ -22105,7 +22105,7 @@ while.body.i7678:                                 ; preds = %land.rhs.i7687
   %or101.i7685 = or i64 %shl100.i7684, %val.i7656.123729
   %add.i7686 = add i32 %shift.i7658.023728, 7
   %cmp92.i7665.not = icmp eq i64 %inc96.i7679, %size
-  br i1 %cmp92.i7665.not, label %return.loopexit29063, label %land.rhs.i7687, !llvm.loop !8
+  br i1 %cmp92.i7665.not, label %return.loopexit30113, label %land.rhs.i7687, !llvm.loop !8
 
 if.end104.i7669:                                  ; preds = %land.rhs.i7687
   store i64 %inc96.i7679, ptr %pos, align 8
@@ -22264,7 +22264,7 @@ while.body.i7820:                                 ; preds = %land.rhs.i7829
   %or101.i7827 = or i64 %shl100.i7826, %val.i7798.123735
   %add.i7828 = add i32 %shift.i7800.023734, 7
   %cmp92.i7807.not = icmp eq i64 %inc96.i7821, %size
-  br i1 %cmp92.i7807.not, label %return.loopexit28973, label %land.rhs.i7829, !llvm.loop !8
+  br i1 %cmp92.i7807.not, label %return.loopexit30023, label %land.rhs.i7829, !llvm.loop !8
 
 if.end104.i7811:                                  ; preds = %land.rhs.i7829
   store i64 %inc96.i7821, ptr %pos, align 8
@@ -22502,7 +22502,7 @@ while.body.i7962:                                 ; preds = %land.rhs.i7971
   %or101.i7969 = or i64 %shl100.i7968, %val.i7940.123723
   %add.i7970 = add i32 %shift.i7942.023722, 7
   %cmp92.i7949.not = icmp eq i64 %inc96.i7963, %size
-  br i1 %cmp92.i7949.not, label %return.loopexit29064, label %land.rhs.i7971, !llvm.loop !8
+  br i1 %cmp92.i7949.not, label %return.loopexit30114, label %land.rhs.i7971, !llvm.loop !8
 
 if.end104.i7953:                                  ; preds = %land.rhs.i7971
   store i64 %inc96.i7963, ptr %pos, align 8
@@ -22734,7 +22734,7 @@ while.body.i8104:                                 ; preds = %land.rhs.i8113
   %or101.i8111 = or i64 %shl100.i8110, %val.i8082.123710
   %add.i8112 = add i32 %shift.i8084.023709, 7
   %cmp92.i8091.not = icmp eq i64 %inc96.i8105, %size
-  br i1 %cmp92.i8091.not, label %return.loopexit29067, label %land.rhs.i8113, !llvm.loop !8
+  br i1 %cmp92.i8091.not, label %return.loopexit30117, label %land.rhs.i8113, !llvm.loop !8
 
 if.end104.i8095:                                  ; preds = %land.rhs.i8113
   store i64 %inc96.i8105, ptr %pos, align 8
@@ -22912,7 +22912,7 @@ while.body.i8246:                                 ; preds = %land.rhs.i8255
   %or101.i8253 = or i64 %shl100.i8252, %val.i8224.123716
   %add.i8254 = add i32 %shift.i8226.023715, 7
   %cmp92.i8233.not = icmp eq i64 %inc96.i8247, %size
-  br i1 %cmp92.i8233.not, label %return.loopexit28974, label %land.rhs.i8255, !llvm.loop !8
+  br i1 %cmp92.i8233.not, label %return.loopexit30024, label %land.rhs.i8255, !llvm.loop !8
 
 if.end104.i8237:                                  ; preds = %land.rhs.i8255
   store i64 %inc96.i8247, ptr %pos, align 8
@@ -23130,7 +23130,7 @@ while.body.i8388:                                 ; preds = %land.rhs.i8397
   %or101.i8395 = or i64 %shl100.i8394, %val.i8366.123704
   %add.i8396 = add i32 %shift.i8368.023703, 7
   %cmp92.i8375.not = icmp eq i64 %inc96.i8389, %size
-  br i1 %cmp92.i8375.not, label %return.loopexit29068, label %land.rhs.i8397, !llvm.loop !8
+  br i1 %cmp92.i8375.not, label %return.loopexit30118, label %land.rhs.i8397, !llvm.loop !8
 
 if.end104.i8379:                                  ; preds = %land.rhs.i8397
   store i64 %inc96.i8389, ptr %pos, align 8
@@ -23368,7 +23368,7 @@ while.body.i8530:                                 ; preds = %land.rhs.i8539
   %or101.i8537 = or i64 %shl100.i8536, %val.i8508.123691
   %add.i8538 = add i32 %shift.i8510.023690, 7
   %cmp92.i8517.not = icmp eq i64 %inc96.i8531, %size
-  br i1 %cmp92.i8517.not, label %return.loopexit29071, label %land.rhs.i8539, !llvm.loop !8
+  br i1 %cmp92.i8517.not, label %return.loopexit30121, label %land.rhs.i8539, !llvm.loop !8
 
 if.end104.i8521:                                  ; preds = %land.rhs.i8539
   store i64 %inc96.i8531, ptr %pos, align 8
@@ -23527,7 +23527,7 @@ while.body.i8672:                                 ; preds = %land.rhs.i8681
   %or101.i8679 = or i64 %shl100.i8678, %val.i8650.123697
   %add.i8680 = add i32 %shift.i8652.023696, 7
   %cmp92.i8659.not = icmp eq i64 %inc96.i8673, %size
-  br i1 %cmp92.i8659.not, label %return.loopexit28975, label %land.rhs.i8681, !llvm.loop !8
+  br i1 %cmp92.i8659.not, label %return.loopexit30025, label %land.rhs.i8681, !llvm.loop !8
 
 if.end104.i8663:                                  ; preds = %land.rhs.i8681
   store i64 %inc96.i8673, ptr %pos, align 8
@@ -23770,7 +23770,7 @@ while.body.i8814:                                 ; preds = %land.rhs.i8823
   %or101.i8821 = or i64 %shl100.i8820, %val.i8792.123685
   %add.i8822 = add i32 %shift.i8794.023684, 7
   %cmp92.i8801.not = icmp eq i64 %inc96.i8815, %size
-  br i1 %cmp92.i8801.not, label %return.loopexit29072, label %land.rhs.i8823, !llvm.loop !8
+  br i1 %cmp92.i8801.not, label %return.loopexit30122, label %land.rhs.i8823, !llvm.loop !8
 
 if.end104.i8805:                                  ; preds = %land.rhs.i8823
   store i64 %inc96.i8815, ptr %pos, align 8
@@ -24006,7 +24006,7 @@ while.body.i8956:                                 ; preds = %land.rhs.i8965
   %or101.i8963 = or i64 %shl100.i8962, %val.i8934.123672
   %add.i8964 = add i32 %shift.i8936.023671, 7
   %cmp92.i8943.not = icmp eq i64 %inc96.i8957, %size
-  br i1 %cmp92.i8943.not, label %return.loopexit29075, label %land.rhs.i8965, !llvm.loop !8
+  br i1 %cmp92.i8943.not, label %return.loopexit30125, label %land.rhs.i8965, !llvm.loop !8
 
 if.end104.i8947:                                  ; preds = %land.rhs.i8965
   store i64 %inc96.i8957, ptr %pos, align 8
@@ -24184,7 +24184,7 @@ while.body.i9098:                                 ; preds = %land.rhs.i9107
   %or101.i9105 = or i64 %shl100.i9104, %val.i9076.123678
   %add.i9106 = add i32 %shift.i9078.023677, 7
   %cmp92.i9085.not = icmp eq i64 %inc96.i9099, %size
-  br i1 %cmp92.i9085.not, label %return.loopexit28976, label %land.rhs.i9107, !llvm.loop !8
+  br i1 %cmp92.i9085.not, label %return.loopexit30026, label %land.rhs.i9107, !llvm.loop !8
 
 if.end104.i9089:                                  ; preds = %land.rhs.i9107
   store i64 %inc96.i9099, ptr %pos, align 8
@@ -24494,7 +24494,7 @@ while.body.i9240:                                 ; preds = %land.rhs.i9249
   %or101.i9247 = or i64 %shl100.i9246, %val.i9218.123666
   %add.i9248 = add i32 %shift.i9220.023665, 7
   %cmp92.i9227.not = icmp eq i64 %inc96.i9241, %size
-  br i1 %cmp92.i9227.not, label %return.loopexit29076, label %land.rhs.i9249, !llvm.loop !8
+  br i1 %cmp92.i9227.not, label %return.loopexit30126, label %land.rhs.i9249, !llvm.loop !8
 
 if.end104.i9231:                                  ; preds = %land.rhs.i9249
   store i64 %inc96.i9241, ptr %pos, align 8
@@ -24788,7 +24788,7 @@ while.body.i9382:                                 ; preds = %land.rhs.i9391
   %or101.i9389 = or i64 %shl100.i9388, %val.i9360.123660
   %add.i9390 = add i32 %shift.i9362.023659, 7
   %cmp92.i9369.not = icmp eq i64 %inc96.i9383, %size
-  br i1 %cmp92.i9369.not, label %return.loopexit29077, label %land.rhs.i9391, !llvm.loop !8
+  br i1 %cmp92.i9369.not, label %return.loopexit30127, label %land.rhs.i9391, !llvm.loop !8
 
 if.end104.i9373:                                  ; preds = %land.rhs.i9391
   store i64 %inc96.i9383, ptr %pos, align 8
@@ -24808,8 +24808,8 @@ if.end524:                                        ; preds = %if.end82.i9465, %if
   %cmp532.not = icmp ne i64 %sz519.0, %conv531
   %add535 = add i64 %705, %sz519.0
   %cmp536 = icmp ugt i64 %add535, %size
-  %or.cond27230 = select i1 %cmp532.not, i1 true, i1 %cmp536
-  br i1 %or.cond27230, label %return, label %if.end538
+  %or.cond28280 = select i1 %cmp532.not, i1 true, i1 %cmp536
+  br i1 %or.cond28280, label %return, label %if.end538
 
 if.end538:                                        ; preds = %if.end524
   %sext16967 = shl i64 %div52816966, 32
@@ -25082,7 +25082,7 @@ while.body.i9524:                                 ; preds = %land.rhs.i9533
   %or101.i9531 = or i64 %shl100.i9530, %val.i9502.123654
   %add.i9532 = add i32 %shift.i9504.023653, 7
   %cmp92.i9511.not = icmp eq i64 %inc96.i9525, %size
-  br i1 %cmp92.i9511.not, label %return.loopexit29078, label %land.rhs.i9533, !llvm.loop !8
+  br i1 %cmp92.i9511.not, label %return.loopexit30128, label %land.rhs.i9533, !llvm.loop !8
 
 if.end104.i9515:                                  ; preds = %land.rhs.i9533
   store i64 %inc96.i9525, ptr %pos, align 8
@@ -25102,8 +25102,8 @@ if.end560:                                        ; preds = %if.end82.i9607, %if
   %cmp568.not = icmp ne i64 %sz555.0, %conv567
   %add571 = add i64 %730, %sz555.0
   %cmp572 = icmp ugt i64 %add571, %size
-  %or.cond27231 = select i1 %cmp568.not, i1 true, i1 %cmp572
-  br i1 %or.cond27231, label %return, label %if.end574
+  %or.cond28281 = select i1 %cmp568.not, i1 true, i1 %cmp572
+  br i1 %or.cond28281, label %return, label %if.end574
 
 if.end574:                                        ; preds = %if.end560
   %sext16965 = shl i64 %div56416964, 32
@@ -25376,7 +25376,7 @@ while.body.i9666:                                 ; preds = %land.rhs.i9675
   %or101.i9673 = or i64 %shl100.i9672, %val.i9644.123648
   %add.i9674 = add i32 %shift.i9646.023647, 7
   %cmp92.i9653.not = icmp eq i64 %inc96.i9667, %size
-  br i1 %cmp92.i9653.not, label %return.loopexit29079, label %land.rhs.i9675, !llvm.loop !8
+  br i1 %cmp92.i9653.not, label %return.loopexit30129, label %land.rhs.i9675, !llvm.loop !8
 
 if.end104.i9657:                                  ; preds = %land.rhs.i9675
   store i64 %inc96.i9667, ptr %pos, align 8
@@ -25396,8 +25396,8 @@ if.end596:                                        ; preds = %if.end82.i9749, %if
   %cmp604.not = icmp ne i64 %sz591.0, %conv603
   %add607 = add i64 %755, %sz591.0
   %cmp608 = icmp ugt i64 %add607, %size
-  %or.cond27232 = select i1 %cmp604.not, i1 true, i1 %cmp608
-  br i1 %or.cond27232, label %return, label %if.end610
+  %or.cond28282 = select i1 %cmp604.not, i1 true, i1 %cmp608
+  br i1 %or.cond28282, label %return, label %if.end610
 
 if.end610:                                        ; preds = %if.end596
   %sext16963 = shl i64 %div60016962, 32
@@ -25670,7 +25670,7 @@ while.body.i9808:                                 ; preds = %land.rhs.i9817
   %or101.i9815 = or i64 %shl100.i9814, %val.i9786.123642
   %add.i9816 = add i32 %shift.i9788.023641, 7
   %cmp92.i9795.not = icmp eq i64 %inc96.i9809, %size
-  br i1 %cmp92.i9795.not, label %return.loopexit29080, label %land.rhs.i9817, !llvm.loop !8
+  br i1 %cmp92.i9795.not, label %return.loopexit30130, label %land.rhs.i9817, !llvm.loop !8
 
 if.end104.i9799:                                  ; preds = %land.rhs.i9817
   store i64 %inc96.i9809, ptr %pos, align 8
@@ -25690,8 +25690,8 @@ if.end632:                                        ; preds = %if.end82.i9891, %if
   %cmp640.not = icmp ne i64 %sz627.0, %conv639
   %add643 = add i64 %780, %sz627.0
   %cmp644 = icmp ugt i64 %add643, %size
-  %or.cond27233 = select i1 %cmp640.not, i1 true, i1 %cmp644
-  br i1 %or.cond27233, label %return, label %if.end646
+  %or.cond28283 = select i1 %cmp640.not, i1 true, i1 %cmp644
+  br i1 %or.cond28283, label %return, label %if.end646
 
 if.end646:                                        ; preds = %if.end632
   %sext16961 = shl i64 %div63616960, 32
@@ -25964,7 +25964,7 @@ while.body.i9950:                                 ; preds = %land.rhs.i9959
   %or101.i9957 = or i64 %shl100.i9956, %val.i9928.123636
   %add.i9958 = add i32 %shift.i9930.023635, 7
   %cmp92.i9937.not = icmp eq i64 %inc96.i9951, %size
-  br i1 %cmp92.i9937.not, label %return.loopexit29081, label %land.rhs.i9959, !llvm.loop !8
+  br i1 %cmp92.i9937.not, label %return.loopexit30131, label %land.rhs.i9959, !llvm.loop !8
 
 if.end104.i9941:                                  ; preds = %land.rhs.i9959
   store i64 %inc96.i9951, ptr %pos, align 8
@@ -25984,8 +25984,8 @@ if.end668:                                        ; preds = %if.end82.i10033, %i
   %cmp676.not = icmp ne i64 %sz663.0, %conv675
   %add679 = add i64 %805, %sz663.0
   %cmp680 = icmp ugt i64 %add679, %size
-  %or.cond27234 = select i1 %cmp676.not, i1 true, i1 %cmp680
-  br i1 %or.cond27234, label %return, label %if.end682
+  %or.cond28284 = select i1 %cmp676.not, i1 true, i1 %cmp680
+  br i1 %or.cond28284, label %return, label %if.end682
 
 if.end682:                                        ; preds = %if.end668
   %sext16959 = shl i64 %div67216958, 32
@@ -26189,7 +26189,7 @@ while.body.i10092:                                ; preds = %land.rhs.i10101
   %or101.i10099 = or i64 %shl100.i10098, %val.i10070.123630
   %add.i10100 = add i32 %shift.i10072.023629, 7
   %cmp92.i10079.not = icmp eq i64 %inc96.i10093, %size
-  br i1 %cmp92.i10079.not, label %return.loopexit29082, label %land.rhs.i10101, !llvm.loop !8
+  br i1 %cmp92.i10079.not, label %return.loopexit30132, label %land.rhs.i10101, !llvm.loop !8
 
 if.end104.i10083:                                 ; preds = %land.rhs.i10101
   store i64 %inc96.i10093, ptr %pos, align 8
@@ -26402,7 +26402,7 @@ while.body.i10234:                                ; preds = %land.rhs.i10243
   %or101.i10241 = or i64 %shl100.i10240, %val.i10212.123617
   %add.i10242 = add i32 %shift.i10214.023616, 7
   %cmp92.i10221.not = icmp eq i64 %inc96.i10235, %size
-  br i1 %cmp92.i10221.not, label %return.loopexit29085, label %land.rhs.i10243, !llvm.loop !8
+  br i1 %cmp92.i10221.not, label %return.loopexit30135, label %land.rhs.i10243, !llvm.loop !8
 
 if.end104.i10225:                                 ; preds = %land.rhs.i10243
   store i64 %inc96.i10235, ptr %pos, align 8
@@ -26580,7 +26580,7 @@ while.body.i10376:                                ; preds = %land.rhs.i10385
   %or101.i10383 = or i64 %shl100.i10382, %val.i10354.123623
   %add.i10384 = add i32 %shift.i10356.023622, 7
   %cmp92.i10363.not = icmp eq i64 %inc96.i10377, %size
-  br i1 %cmp92.i10363.not, label %return.loopexit28977, label %land.rhs.i10385, !llvm.loop !8
+  br i1 %cmp92.i10363.not, label %return.loopexit30027, label %land.rhs.i10385, !llvm.loop !8
 
 if.end104.i10367:                                 ; preds = %land.rhs.i10385
   store i64 %inc96.i10377, ptr %pos, align 8
@@ -27410,7 +27410,7 @@ while.body.i10802:                                ; preds = %land.rhs.i10811
   %or101.i10809 = or i64 %shl100.i10808, %val.i10780.123599
   %add.i10810 = add i32 %shift.i10782.023598, 7
   %cmp92.i10789.not = icmp eq i64 %inc96.i10803, %size
-  br i1 %cmp92.i10789.not, label %return.loopexit29086, label %land.rhs.i10811, !llvm.loop !8
+  br i1 %cmp92.i10789.not, label %return.loopexit30136, label %land.rhs.i10811, !llvm.loop !8
 
 if.end104.i10793:                                 ; preds = %land.rhs.i10811
   store i64 %inc96.i10803, ptr %pos, align 8
@@ -27645,7 +27645,7 @@ while.body.i10944:                                ; preds = %land.rhs.i10953
   %or101.i10951 = or i64 %shl100.i10950, %val.i10922.123593
   %add.i10952 = add i32 %shift.i10924.023592, 7
   %cmp92.i10931.not = icmp eq i64 %inc96.i10945, %size
-  br i1 %cmp92.i10931.not, label %return.loopexit29087, label %land.rhs.i10953, !llvm.loop !8
+  br i1 %cmp92.i10931.not, label %return.loopexit30137, label %land.rhs.i10953, !llvm.loop !8
 
 if.end104.i10935:                                 ; preds = %land.rhs.i10953
   store i64 %inc96.i10945, ptr %pos, align 8
@@ -27931,7 +27931,7 @@ while.body.i11086:                                ; preds = %land.rhs.i11095
   %or101.i11093 = or i64 %shl100.i11092, %val.i11064.123580
   %add.i11094 = add i32 %shift.i11066.023579, 7
   %cmp92.i11073.not = icmp eq i64 %inc96.i11087, %size
-  br i1 %cmp92.i11073.not, label %return.loopexit29090, label %land.rhs.i11095, !llvm.loop !8
+  br i1 %cmp92.i11073.not, label %return.loopexit30140, label %land.rhs.i11095, !llvm.loop !8
 
 if.end104.i11077:                                 ; preds = %land.rhs.i11095
   store i64 %inc96.i11087, ptr %pos, align 8
@@ -28082,7 +28082,7 @@ while.body.i11228:                                ; preds = %land.rhs.i11237
   %or101.i11235 = or i64 %shl100.i11234, %val.i11206.123586
   %add.i11236 = add i32 %shift.i11208.023585, 7
   %cmp92.i11215.not = icmp eq i64 %inc96.i11229, %add804
-  br i1 %cmp92.i11215.not, label %return.loopexit28978, label %land.rhs.i11237, !llvm.loop !8
+  br i1 %cmp92.i11215.not, label %return.loopexit30028, label %land.rhs.i11237, !llvm.loop !8
 
 if.end104.i11219:                                 ; preds = %land.rhs.i11237
   store i64 %inc96.i11229, ptr %pos, align 8
@@ -28301,7 +28301,7 @@ while.body.i11370:                                ; preds = %land.rhs.i11379
   %or101.i11377 = or i64 %shl100.i11376, %val.i11348.123574
   %add.i11378 = add i32 %shift.i11350.023573, 7
   %cmp92.i11357.not = icmp eq i64 %inc96.i11371, %size
-  br i1 %cmp92.i11357.not, label %return.loopexit29091, label %land.rhs.i11379, !llvm.loop !8
+  br i1 %cmp92.i11357.not, label %return.loopexit30141, label %land.rhs.i11379, !llvm.loop !8
 
 if.end104.i11361:                                 ; preds = %land.rhs.i11379
   store i64 %inc96.i11371, ptr %pos, align 8
@@ -28534,7 +28534,7 @@ while.body.i11512:                                ; preds = %land.rhs.i11521
   %or101.i11519 = or i64 %shl100.i11518, %val.i11490.123561
   %add.i11520 = add i32 %shift.i11492.023560, 7
   %cmp92.i11499.not = icmp eq i64 %inc96.i11513, %size
-  br i1 %cmp92.i11499.not, label %return.loopexit29094, label %land.rhs.i11521, !llvm.loop !8
+  br i1 %cmp92.i11499.not, label %return.loopexit30144, label %land.rhs.i11521, !llvm.loop !8
 
 if.end104.i11503:                                 ; preds = %land.rhs.i11521
   store i64 %inc96.i11513, ptr %pos, align 8
@@ -28685,7 +28685,7 @@ while.body.i11654:                                ; preds = %land.rhs.i11663
   %or101.i11661 = or i64 %shl100.i11660, %val.i11632.123567
   %add.i11662 = add i32 %shift.i11634.023566, 7
   %cmp92.i11641.not = icmp eq i64 %inc96.i11655, %add838
-  br i1 %cmp92.i11641.not, label %return.loopexit28979, label %land.rhs.i11663, !llvm.loop !8
+  br i1 %cmp92.i11641.not, label %return.loopexit30029, label %land.rhs.i11663, !llvm.loop !8
 
 if.end104.i11645:                                 ; preds = %land.rhs.i11663
   store i64 %inc96.i11655, ptr %pos, align 8
@@ -28904,7 +28904,7 @@ while.body.i11796:                                ; preds = %land.rhs.i11805
   %or101.i11803 = or i64 %shl100.i11802, %val.i11774.123555
   %add.i11804 = add i32 %shift.i11776.023554, 7
   %cmp92.i11783.not = icmp eq i64 %inc96.i11797, %size
-  br i1 %cmp92.i11783.not, label %return.loopexit29095, label %land.rhs.i11805, !llvm.loop !8
+  br i1 %cmp92.i11783.not, label %return.loopexit30145, label %land.rhs.i11805, !llvm.loop !8
 
 if.end104.i11787:                                 ; preds = %land.rhs.i11805
   store i64 %inc96.i11797, ptr %pos, align 8
@@ -29730,7 +29730,7 @@ while.body.i12222:                                ; preds = %land.rhs.i12231
   %or101.i12229 = or i64 %shl100.i12228, %val.i12200.123537
   %add.i12230 = add i32 %shift.i12202.023536, 7
   %cmp92.i12209.not = icmp eq i64 %inc96.i12223, %size
-  br i1 %cmp92.i12209.not, label %return.loopexit29096, label %land.rhs.i12231, !llvm.loop !8
+  br i1 %cmp92.i12209.not, label %return.loopexit30146, label %land.rhs.i12231, !llvm.loop !8
 
 if.end104.i12213:                                 ; preds = %land.rhs.i12231
   store i64 %inc96.i12223, ptr %pos, align 8
@@ -29963,7 +29963,7 @@ while.body.i12364:                                ; preds = %land.rhs.i12373
   %or101.i12371 = or i64 %shl100.i12370, %val.i12342.123524
   %add.i12372 = add i32 %shift.i12344.023523, 7
   %cmp92.i12351.not = icmp eq i64 %inc96.i12365, %size
-  br i1 %cmp92.i12351.not, label %return.loopexit29099, label %land.rhs.i12373, !llvm.loop !8
+  br i1 %cmp92.i12351.not, label %return.loopexit30149, label %land.rhs.i12373, !llvm.loop !8
 
 if.end104.i12355:                                 ; preds = %land.rhs.i12373
   store i64 %inc96.i12365, ptr %pos, align 8
@@ -30122,7 +30122,7 @@ while.body.i12506:                                ; preds = %land.rhs.i12515
   %or101.i12513 = or i64 %shl100.i12512, %val.i12484.123530
   %add.i12514 = add i32 %shift.i12486.023529, 7
   %cmp92.i12493.not = icmp eq i64 %inc96.i12507, %size
-  br i1 %cmp92.i12493.not, label %return.loopexit28980, label %land.rhs.i12515, !llvm.loop !8
+  br i1 %cmp92.i12493.not, label %return.loopexit30030, label %land.rhs.i12515, !llvm.loop !8
 
 if.end104.i12497:                                 ; preds = %land.rhs.i12515
   store i64 %inc96.i12507, ptr %pos, align 8
@@ -30360,7 +30360,7 @@ while.body.i12648:                                ; preds = %land.rhs.i12657
   %or101.i12655 = or i64 %shl100.i12654, %val.i12626.123518
   %add.i12656 = add i32 %shift.i12628.023517, 7
   %cmp92.i12635.not = icmp eq i64 %inc96.i12649, %size
-  br i1 %cmp92.i12635.not, label %return.loopexit29100, label %land.rhs.i12657, !llvm.loop !8
+  br i1 %cmp92.i12635.not, label %return.loopexit30150, label %land.rhs.i12657, !llvm.loop !8
 
 if.end104.i12639:                                 ; preds = %land.rhs.i12657
   store i64 %inc96.i12649, ptr %pos, align 8
@@ -30592,7 +30592,7 @@ while.body.i12790:                                ; preds = %land.rhs.i12799
   %or101.i12797 = or i64 %shl100.i12796, %val.i12768.123505
   %add.i12798 = add i32 %shift.i12770.023504, 7
   %cmp92.i12777.not = icmp eq i64 %inc96.i12791, %size
-  br i1 %cmp92.i12777.not, label %return.loopexit29103, label %land.rhs.i12799, !llvm.loop !8
+  br i1 %cmp92.i12777.not, label %return.loopexit30153, label %land.rhs.i12799, !llvm.loop !8
 
 if.end104.i12781:                                 ; preds = %land.rhs.i12799
   store i64 %inc96.i12791, ptr %pos, align 8
@@ -30770,7 +30770,7 @@ while.body.i12932:                                ; preds = %land.rhs.i12941
   %or101.i12939 = or i64 %shl100.i12938, %val.i12910.123511
   %add.i12940 = add i32 %shift.i12912.023510, 7
   %cmp92.i12919.not = icmp eq i64 %inc96.i12933, %size
-  br i1 %cmp92.i12919.not, label %return.loopexit28981, label %land.rhs.i12941, !llvm.loop !8
+  br i1 %cmp92.i12919.not, label %return.loopexit30031, label %land.rhs.i12941, !llvm.loop !8
 
 if.end104.i12923:                                 ; preds = %land.rhs.i12941
   store i64 %inc96.i12933, ptr %pos, align 8
@@ -30988,7 +30988,7 @@ while.body.i13074:                                ; preds = %land.rhs.i13083
   %or101.i13081 = or i64 %shl100.i13080, %val.i13052.123499
   %add.i13082 = add i32 %shift.i13054.023498, 7
   %cmp92.i13061.not = icmp eq i64 %inc96.i13075, %size
-  br i1 %cmp92.i13061.not, label %return.loopexit29104, label %land.rhs.i13083, !llvm.loop !8
+  br i1 %cmp92.i13061.not, label %return.loopexit30154, label %land.rhs.i13083, !llvm.loop !8
 
 if.end104.i13065:                                 ; preds = %land.rhs.i13083
   store i64 %inc96.i13075, ptr %pos, align 8
@@ -31221,7 +31221,7 @@ while.body.i13216:                                ; preds = %land.rhs.i13225
   %or101.i13223 = or i64 %shl100.i13222, %val.i13194.123486
   %add.i13224 = add i32 %shift.i13196.023485, 7
   %cmp92.i13203.not = icmp eq i64 %inc96.i13217, %size
-  br i1 %cmp92.i13203.not, label %return.loopexit29107, label %land.rhs.i13225, !llvm.loop !8
+  br i1 %cmp92.i13203.not, label %return.loopexit30157, label %land.rhs.i13225, !llvm.loop !8
 
 if.end104.i13207:                                 ; preds = %land.rhs.i13225
   store i64 %inc96.i13217, ptr %pos, align 8
@@ -31380,7 +31380,7 @@ while.body.i13358:                                ; preds = %land.rhs.i13367
   %or101.i13365 = or i64 %shl100.i13364, %val.i13336.123492
   %add.i13366 = add i32 %shift.i13338.023491, 7
   %cmp92.i13345.not = icmp eq i64 %inc96.i13359, %size
-  br i1 %cmp92.i13345.not, label %return.loopexit28982, label %land.rhs.i13367, !llvm.loop !8
+  br i1 %cmp92.i13345.not, label %return.loopexit30032, label %land.rhs.i13367, !llvm.loop !8
 
 if.end104.i13349:                                 ; preds = %land.rhs.i13367
   store i64 %inc96.i13359, ptr %pos, align 8
@@ -31618,7 +31618,7 @@ while.body.i13500:                                ; preds = %land.rhs.i13509
   %or101.i13507 = or i64 %shl100.i13506, %val.i13478.123480
   %add.i13508 = add i32 %shift.i13480.023479, 7
   %cmp92.i13487.not = icmp eq i64 %inc96.i13501, %size
-  br i1 %cmp92.i13487.not, label %return.loopexit29108, label %land.rhs.i13509, !llvm.loop !8
+  br i1 %cmp92.i13487.not, label %return.loopexit30158, label %land.rhs.i13509, !llvm.loop !8
 
 if.end104.i13491:                                 ; preds = %land.rhs.i13509
   store i64 %inc96.i13501, ptr %pos, align 8
@@ -31850,7 +31850,7 @@ while.body.i13642:                                ; preds = %land.rhs.i13651
   %or101.i13649 = or i64 %shl100.i13648, %val.i13620.123467
   %add.i13650 = add i32 %shift.i13622.023466, 7
   %cmp92.i13629.not = icmp eq i64 %inc96.i13643, %size
-  br i1 %cmp92.i13629.not, label %return.loopexit29111, label %land.rhs.i13651, !llvm.loop !8
+  br i1 %cmp92.i13629.not, label %return.loopexit30161, label %land.rhs.i13651, !llvm.loop !8
 
 if.end104.i13633:                                 ; preds = %land.rhs.i13651
   store i64 %inc96.i13643, ptr %pos, align 8
@@ -32028,7 +32028,7 @@ while.body.i13784:                                ; preds = %land.rhs.i13793
   %or101.i13791 = or i64 %shl100.i13790, %val.i13762.123473
   %add.i13792 = add i32 %shift.i13764.023472, 7
   %cmp92.i13771.not = icmp eq i64 %inc96.i13785, %size
-  br i1 %cmp92.i13771.not, label %return.loopexit28983, label %land.rhs.i13793, !llvm.loop !8
+  br i1 %cmp92.i13771.not, label %return.loopexit30033, label %land.rhs.i13793, !llvm.loop !8
 
 if.end104.i13775:                                 ; preds = %land.rhs.i13793
   store i64 %inc96.i13785, ptr %pos, align 8
@@ -32246,7 +32246,7 @@ while.body.i13926:                                ; preds = %land.rhs.i13935
   %or101.i13933 = or i64 %shl100.i13932, %val.i13904.123461
   %add.i13934 = add i32 %shift.i13906.023460, 7
   %cmp92.i13913.not = icmp eq i64 %inc96.i13927, %size
-  br i1 %cmp92.i13913.not, label %return.loopexit29112, label %land.rhs.i13935, !llvm.loop !8
+  br i1 %cmp92.i13913.not, label %return.loopexit30162, label %land.rhs.i13935, !llvm.loop !8
 
 if.end104.i13917:                                 ; preds = %land.rhs.i13935
   store i64 %inc96.i13927, ptr %pos, align 8
@@ -32484,7 +32484,7 @@ while.body.i14068:                                ; preds = %land.rhs.i14077
   %or101.i14075 = or i64 %shl100.i14074, %val.i14046.123448
   %add.i14076 = add i32 %shift.i14048.023447, 7
   %cmp92.i14055.not = icmp eq i64 %inc96.i14069, %size
-  br i1 %cmp92.i14055.not, label %return.loopexit29115, label %land.rhs.i14077, !llvm.loop !8
+  br i1 %cmp92.i14055.not, label %return.loopexit30165, label %land.rhs.i14077, !llvm.loop !8
 
 if.end104.i14059:                                 ; preds = %land.rhs.i14077
   store i64 %inc96.i14069, ptr %pos, align 8
@@ -32643,7 +32643,7 @@ while.body.i14210:                                ; preds = %land.rhs.i14219
   %or101.i14217 = or i64 %shl100.i14216, %val.i14188.123454
   %add.i14218 = add i32 %shift.i14190.023453, 7
   %cmp92.i14197.not = icmp eq i64 %inc96.i14211, %size
-  br i1 %cmp92.i14197.not, label %return.loopexit28984, label %land.rhs.i14219, !llvm.loop !8
+  br i1 %cmp92.i14197.not, label %return.loopexit30034, label %land.rhs.i14219, !llvm.loop !8
 
 if.end104.i14201:                                 ; preds = %land.rhs.i14219
   store i64 %inc96.i14211, ptr %pos, align 8
@@ -32886,7 +32886,7 @@ while.body.i14352:                                ; preds = %land.rhs.i14361
   %or101.i14359 = or i64 %shl100.i14358, %val.i14330.123442
   %add.i14360 = add i32 %shift.i14332.023441, 7
   %cmp92.i14339.not = icmp eq i64 %inc96.i14353, %size
-  br i1 %cmp92.i14339.not, label %return.loopexit29116, label %land.rhs.i14361, !llvm.loop !8
+  br i1 %cmp92.i14339.not, label %return.loopexit30166, label %land.rhs.i14361, !llvm.loop !8
 
 if.end104.i14343:                                 ; preds = %land.rhs.i14361
   store i64 %inc96.i14353, ptr %pos, align 8
@@ -33122,7 +33122,7 @@ while.body.i14494:                                ; preds = %land.rhs.i14503
   %or101.i14501 = or i64 %shl100.i14500, %val.i14472.123429
   %add.i14502 = add i32 %shift.i14474.023428, 7
   %cmp92.i14481.not = icmp eq i64 %inc96.i14495, %size
-  br i1 %cmp92.i14481.not, label %return.loopexit29119, label %land.rhs.i14503, !llvm.loop !8
+  br i1 %cmp92.i14481.not, label %return.loopexit30169, label %land.rhs.i14503, !llvm.loop !8
 
 if.end104.i14485:                                 ; preds = %land.rhs.i14503
   store i64 %inc96.i14495, ptr %pos, align 8
@@ -33300,7 +33300,7 @@ while.body.i14636:                                ; preds = %land.rhs.i14645
   %or101.i14643 = or i64 %shl100.i14642, %val.i14614.123435
   %add.i14644 = add i32 %shift.i14616.023434, 7
   %cmp92.i14623.not = icmp eq i64 %inc96.i14637, %size
-  br i1 %cmp92.i14623.not, label %return.loopexit28985, label %land.rhs.i14645, !llvm.loop !8
+  br i1 %cmp92.i14623.not, label %return.loopexit30035, label %land.rhs.i14645, !llvm.loop !8
 
 if.end104.i14627:                                 ; preds = %land.rhs.i14645
   store i64 %inc96.i14637, ptr %pos, align 8
@@ -33610,7 +33610,7 @@ while.body.i14778:                                ; preds = %land.rhs.i14787
   %or101.i14785 = or i64 %shl100.i14784, %val.i14756.123423
   %add.i14786 = add i32 %shift.i14758.023422, 7
   %cmp92.i14765.not = icmp eq i64 %inc96.i14779, %size
-  br i1 %cmp92.i14765.not, label %return.loopexit29120, label %land.rhs.i14787, !llvm.loop !8
+  br i1 %cmp92.i14765.not, label %return.loopexit30170, label %land.rhs.i14787, !llvm.loop !8
 
 if.end104.i14769:                                 ; preds = %land.rhs.i14787
   store i64 %inc96.i14779, ptr %pos, align 8
@@ -33630,8 +33630,8 @@ if.end1107:                                       ; preds = %if.end82.i14861, %i
   %cmp1115.not = icmp ne i64 %sz1102.0, %conv1114
   %add1118 = add i64 %1471, %sz1102.0
   %cmp1119 = icmp ugt i64 %add1118, %size
-  %or.cond27235 = select i1 %cmp1115.not, i1 true, i1 %cmp1119
-  br i1 %or.cond27235, label %return, label %if.end1121
+  %or.cond28285 = select i1 %cmp1115.not, i1 true, i1 %cmp1119
+  br i1 %or.cond28285, label %return, label %if.end1121
 
 if.end1121:                                       ; preds = %if.end1107
   %sext16956 = shl i64 %div111116955, 32
@@ -33904,7 +33904,7 @@ while.body.i14920:                                ; preds = %land.rhs.i14929
   %or101.i14927 = or i64 %shl100.i14926, %val.i14898.123417
   %add.i14928 = add i32 %shift.i14900.023416, 7
   %cmp92.i14907.not = icmp eq i64 %inc96.i14921, %size
-  br i1 %cmp92.i14907.not, label %return.loopexit29121, label %land.rhs.i14929, !llvm.loop !8
+  br i1 %cmp92.i14907.not, label %return.loopexit30171, label %land.rhs.i14929, !llvm.loop !8
 
 if.end104.i14911:                                 ; preds = %land.rhs.i14929
   store i64 %inc96.i14921, ptr %pos, align 8
@@ -33924,8 +33924,8 @@ if.end1143:                                       ; preds = %if.end82.i15003, %i
   %cmp1151.not = icmp ne i64 %sz1138.0, %conv1150
   %add1154 = add i64 %1496, %sz1138.0
   %cmp1155 = icmp ugt i64 %add1154, %size
-  %or.cond27236 = select i1 %cmp1151.not, i1 true, i1 %cmp1155
-  br i1 %or.cond27236, label %return, label %if.end1157
+  %or.cond28286 = select i1 %cmp1151.not, i1 true, i1 %cmp1155
+  br i1 %or.cond28286, label %return, label %if.end1157
 
 if.end1157:                                       ; preds = %if.end1143
   %sext16954 = shl i64 %div114716953, 32
@@ -34198,7 +34198,7 @@ while.body.i15062:                                ; preds = %land.rhs.i15071
   %or101.i15069 = or i64 %shl100.i15068, %val.i15040.123411
   %add.i15070 = add i32 %shift.i15042.023410, 7
   %cmp92.i15049.not = icmp eq i64 %inc96.i15063, %size
-  br i1 %cmp92.i15049.not, label %return.loopexit29122, label %land.rhs.i15071, !llvm.loop !8
+  br i1 %cmp92.i15049.not, label %return.loopexit30172, label %land.rhs.i15071, !llvm.loop !8
 
 if.end104.i15053:                                 ; preds = %land.rhs.i15071
   store i64 %inc96.i15063, ptr %pos, align 8
@@ -34218,8 +34218,8 @@ if.end1179:                                       ; preds = %if.end82.i15145, %i
   %cmp1187.not = icmp ne i64 %sz1174.0, %conv1186
   %add1190 = add i64 %1521, %sz1174.0
   %cmp1191 = icmp ugt i64 %add1190, %size
-  %or.cond27237 = select i1 %cmp1187.not, i1 true, i1 %cmp1191
-  br i1 %or.cond27237, label %return, label %if.end1193
+  %or.cond28287 = select i1 %cmp1187.not, i1 true, i1 %cmp1191
+  br i1 %or.cond28287, label %return, label %if.end1193
 
 if.end1193:                                       ; preds = %if.end1179
   %sext16952 = shl i64 %div118316951, 32
@@ -34492,7 +34492,7 @@ while.body.i15204:                                ; preds = %land.rhs.i15213
   %or101.i15211 = or i64 %shl100.i15210, %val.i15182.123405
   %add.i15212 = add i32 %shift.i15184.023404, 7
   %cmp92.i15191.not = icmp eq i64 %inc96.i15205, %size
-  br i1 %cmp92.i15191.not, label %return.loopexit29123, label %land.rhs.i15213, !llvm.loop !8
+  br i1 %cmp92.i15191.not, label %return.loopexit30173, label %land.rhs.i15213, !llvm.loop !8
 
 if.end104.i15195:                                 ; preds = %land.rhs.i15213
   store i64 %inc96.i15205, ptr %pos, align 8
@@ -34512,8 +34512,8 @@ if.end1215:                                       ; preds = %if.end82.i15287, %i
   %cmp1223.not = icmp ne i64 %sz1210.0, %conv1222
   %add1226 = add i64 %1546, %sz1210.0
   %cmp1227 = icmp ugt i64 %add1226, %size
-  %or.cond27238 = select i1 %cmp1223.not, i1 true, i1 %cmp1227
-  br i1 %or.cond27238, label %return, label %if.end1229
+  %or.cond28288 = select i1 %cmp1223.not, i1 true, i1 %cmp1227
+  br i1 %or.cond28288, label %return, label %if.end1229
 
 if.end1229:                                       ; preds = %if.end1215
   %sext16950 = shl i64 %div121916949, 32
@@ -34786,7 +34786,7 @@ while.body.i15346:                                ; preds = %land.rhs.i15355
   %or101.i15353 = or i64 %shl100.i15352, %val.i15324.123399
   %add.i15354 = add i32 %shift.i15326.023398, 7
   %cmp92.i15333.not = icmp eq i64 %inc96.i15347, %size
-  br i1 %cmp92.i15333.not, label %return.loopexit29124, label %land.rhs.i15355, !llvm.loop !8
+  br i1 %cmp92.i15333.not, label %return.loopexit30174, label %land.rhs.i15355, !llvm.loop !8
 
 if.end104.i15337:                                 ; preds = %land.rhs.i15355
   store i64 %inc96.i15347, ptr %pos, align 8
@@ -34806,8 +34806,8 @@ if.end1251:                                       ; preds = %if.end82.i15429, %i
   %cmp1259.not = icmp ne i64 %sz1246.0, %conv1258
   %add1262 = add i64 %1571, %sz1246.0
   %cmp1263 = icmp ugt i64 %add1262, %size
-  %or.cond27239 = select i1 %cmp1259.not, i1 true, i1 %cmp1263
-  br i1 %or.cond27239, label %return, label %if.end1265
+  %or.cond28289 = select i1 %cmp1259.not, i1 true, i1 %cmp1263
+  br i1 %or.cond28289, label %return, label %if.end1265
 
 if.end1265:                                       ; preds = %if.end1251
   %sext16948 = shl i64 %div125516947, 32
@@ -35080,7 +35080,7 @@ while.body.i15488:                                ; preds = %land.rhs.i15497
   %or101.i15495 = or i64 %shl100.i15494, %val.i15466.123393
   %add.i15496 = add i32 %shift.i15468.023392, 7
   %cmp92.i15475.not = icmp eq i64 %inc96.i15489, %size
-  br i1 %cmp92.i15475.not, label %return.loopexit29125, label %land.rhs.i15497, !llvm.loop !8
+  br i1 %cmp92.i15475.not, label %return.loopexit30175, label %land.rhs.i15497, !llvm.loop !8
 
 if.end104.i15479:                                 ; preds = %land.rhs.i15497
   store i64 %inc96.i15489, ptr %pos, align 8
@@ -35100,8 +35100,8 @@ if.end1287:                                       ; preds = %if.end82.i15571, %i
   %cmp1295.not = icmp ne i64 %sz1282.0, %conv1294
   %add1298 = add i64 %1596, %sz1282.0
   %cmp1299 = icmp ugt i64 %add1298, %size
-  %or.cond27240 = select i1 %cmp1295.not, i1 true, i1 %cmp1299
-  br i1 %or.cond27240, label %return, label %if.end1301
+  %or.cond28290 = select i1 %cmp1295.not, i1 true, i1 %cmp1299
+  br i1 %or.cond28290, label %return, label %if.end1301
 
 if.end1301:                                       ; preds = %if.end1287
   %sext16946 = shl i64 %div129116945, 32
@@ -35305,7 +35305,7 @@ while.body.i15630:                                ; preds = %land.rhs.i15639
   %or101.i15637 = or i64 %shl100.i15636, %val.i15608.123387
   %add.i15638 = add i32 %shift.i15610.023386, 7
   %cmp92.i15617.not = icmp eq i64 %inc96.i15631, %size
-  br i1 %cmp92.i15617.not, label %return.loopexit29126, label %land.rhs.i15639, !llvm.loop !8
+  br i1 %cmp92.i15617.not, label %return.loopexit30176, label %land.rhs.i15639, !llvm.loop !8
 
 if.end104.i15621:                                 ; preds = %land.rhs.i15639
   store i64 %inc96.i15631, ptr %pos, align 8
@@ -35518,7 +35518,7 @@ while.body.i15772:                                ; preds = %land.rhs.i15781
   %or101.i15779 = or i64 %shl100.i15778, %val.i15750.123374
   %add.i15780 = add i32 %shift.i15752.023373, 7
   %cmp92.i15759.not = icmp eq i64 %inc96.i15773, %size
-  br i1 %cmp92.i15759.not, label %return.loopexit29129, label %land.rhs.i15781, !llvm.loop !8
+  br i1 %cmp92.i15759.not, label %return.loopexit30179, label %land.rhs.i15781, !llvm.loop !8
 
 if.end104.i15763:                                 ; preds = %land.rhs.i15781
   store i64 %inc96.i15773, ptr %pos, align 8
@@ -35696,7 +35696,7 @@ while.body.i15914:                                ; preds = %land.rhs.i15923
   %or101.i15921 = or i64 %shl100.i15920, %val.i15892.123380
   %add.i15922 = add i32 %shift.i15894.023379, 7
   %cmp92.i15901.not = icmp eq i64 %inc96.i15915, %size
-  br i1 %cmp92.i15901.not, label %return.loopexit28986, label %land.rhs.i15923, !llvm.loop !8
+  br i1 %cmp92.i15901.not, label %return.loopexit30036, label %land.rhs.i15923, !llvm.loop !8
 
 if.end104.i15905:                                 ; preds = %land.rhs.i15923
   store i64 %inc96.i15915, ptr %pos, align 8
@@ -35914,7 +35914,7 @@ while.body.i16056:                                ; preds = %land.rhs.i16065
   %or101.i16063 = or i64 %shl100.i16062, %val.i16034.123361
   %add.i16064 = add i32 %shift.i16036.023360, 7
   %cmp92.i16043.not = icmp eq i64 %inc96.i16057, %size
-  br i1 %cmp92.i16043.not, label %return.loopexit29132, label %land.rhs.i16065, !llvm.loop !8
+  br i1 %cmp92.i16043.not, label %return.loopexit30182, label %land.rhs.i16065, !llvm.loop !8
 
 if.end104.i16047:                                 ; preds = %land.rhs.i16065
   store i64 %inc96.i16057, ptr %pos, align 8
@@ -36066,7 +36066,7 @@ while.body.i16198:                                ; preds = %land.rhs.i16207
   %or101.i16205 = or i64 %shl100.i16204, %val.i16176.123367
   %add.i16206 = add i32 %shift.i16178.023366, 7
   %cmp92.i16185.not = icmp eq i64 %inc96.i16199, %add1351
-  br i1 %cmp92.i16185.not, label %return.loopexit28987, label %land.rhs.i16207, !llvm.loop !8
+  br i1 %cmp92.i16185.not, label %return.loopexit30037, label %land.rhs.i16207, !llvm.loop !8
 
 if.end104.i16189:                                 ; preds = %land.rhs.i16207
   store i64 %inc96.i16199, ptr %pos, align 8
@@ -36285,7 +36285,7 @@ while.body.i16340:                                ; preds = %land.rhs.i16349
   %or101.i16347 = or i64 %shl100.i16346, %val.i16318.123355
   %add.i16348 = add i32 %shift.i16320.023354, 7
   %cmp92.i16327.not = icmp eq i64 %inc96.i16341, %size
-  br i1 %cmp92.i16327.not, label %return.loopexit29133, label %land.rhs.i16349, !llvm.loop !8
+  br i1 %cmp92.i16327.not, label %return.loopexit30183, label %land.rhs.i16349, !llvm.loop !8
 
 if.end104.i16331:                                 ; preds = %land.rhs.i16349
   store i64 %inc96.i16341, ptr %pos, align 8
@@ -36499,7 +36499,7 @@ while.body.i16482:                                ; preds = %land.rhs.i16491
   %or101.i16489 = or i64 %shl100.i16488, %val.i16460.123349
   %add.i16490 = add i32 %shift.i16462.023348, 7
   %cmp92.i16469.not = icmp eq i64 %inc96.i16483, %size
-  br i1 %cmp92.i16469.not, label %return.loopexit29134, label %land.rhs.i16491, !llvm.loop !8
+  br i1 %cmp92.i16469.not, label %return.loopexit30184, label %land.rhs.i16491, !llvm.loop !8
 
 if.end104.i16473:                                 ; preds = %land.rhs.i16491
   store i64 %inc96.i16483, ptr %pos, align 8
@@ -36732,7 +36732,7 @@ while.body.i16624:                                ; preds = %land.rhs.i16633
   %or101.i16631 = or i64 %shl100.i16630, %val.i16602.123336
   %add.i16632 = add i32 %shift.i16604.023335, 7
   %cmp92.i16611.not = icmp eq i64 %inc96.i16625, %size
-  br i1 %cmp92.i16611.not, label %return.loopexit29137, label %land.rhs.i16633, !llvm.loop !8
+  br i1 %cmp92.i16611.not, label %return.loopexit30187, label %land.rhs.i16633, !llvm.loop !8
 
 if.end104.i16615:                                 ; preds = %land.rhs.i16633
   store i64 %inc96.i16625, ptr %pos, align 8
@@ -36891,7 +36891,7 @@ while.body.i16766:                                ; preds = %land.rhs.i16775
   %or101.i16773 = or i64 %shl100.i16772, %val.i16744.123342
   %add.i16774 = add i32 %shift.i16746.023341, 7
   %cmp92.i16753.not = icmp eq i64 %inc96.i16767, %size
-  br i1 %cmp92.i16753.not, label %return.loopexit28988, label %land.rhs.i16775, !llvm.loop !8
+  br i1 %cmp92.i16753.not, label %return.loopexit30038, label %land.rhs.i16775, !llvm.loop !8
 
 if.end104.i16757:                                 ; preds = %land.rhs.i16775
   store i64 %inc96.i16767, ptr %pos, align 8
@@ -37129,7 +37129,7 @@ while.body.i16908:                                ; preds = %land.rhs.i16917
   %or101.i16915 = or i64 %shl100.i16914, %val.i16886.123330
   %add.i16916 = add i32 %shift.i16888.023329, 7
   %cmp92.i16895.not = icmp eq i64 %inc96.i16909, %size
-  br i1 %cmp92.i16895.not, label %return.loopexit29138, label %land.rhs.i16917, !llvm.loop !8
+  br i1 %cmp92.i16895.not, label %return.loopexit30188, label %land.rhs.i16917, !llvm.loop !8
 
 if.end104.i16899:                                 ; preds = %land.rhs.i16917
   store i64 %inc96.i16909, ptr %pos, align 8
@@ -37361,7 +37361,7 @@ while.body.i17050:                                ; preds = %land.rhs.i17059
   %or101.i17057 = or i64 %shl100.i17056, %val.i17028.123317
   %add.i17058 = add i32 %shift.i17030.023316, 7
   %cmp92.i17037.not = icmp eq i64 %inc96.i17051, %size
-  br i1 %cmp92.i17037.not, label %return.loopexit29141, label %land.rhs.i17059, !llvm.loop !8
+  br i1 %cmp92.i17037.not, label %return.loopexit30191, label %land.rhs.i17059, !llvm.loop !8
 
 if.end104.i17041:                                 ; preds = %land.rhs.i17059
   store i64 %inc96.i17051, ptr %pos, align 8
@@ -37539,7 +37539,7 @@ while.body.i17192:                                ; preds = %land.rhs.i17201
   %or101.i17199 = or i64 %shl100.i17198, %val.i17170.123323
   %add.i17200 = add i32 %shift.i17172.023322, 7
   %cmp92.i17179.not = icmp eq i64 %inc96.i17193, %size
-  br i1 %cmp92.i17179.not, label %return.loopexit28989, label %land.rhs.i17201, !llvm.loop !8
+  br i1 %cmp92.i17179.not, label %return.loopexit30039, label %land.rhs.i17201, !llvm.loop !8
 
 if.end104.i17183:                                 ; preds = %land.rhs.i17201
   store i64 %inc96.i17193, ptr %pos, align 8
@@ -37757,7 +37757,7 @@ while.body.i17334:                                ; preds = %land.rhs.i17343
   %or101.i17341 = or i64 %shl100.i17340, %val.i17312.123311
   %add.i17342 = add i32 %shift.i17314.023310, 7
   %cmp92.i17321.not = icmp eq i64 %inc96.i17335, %size
-  br i1 %cmp92.i17321.not, label %return.loopexit29142, label %land.rhs.i17343, !llvm.loop !8
+  br i1 %cmp92.i17321.not, label %return.loopexit30192, label %land.rhs.i17343, !llvm.loop !8
 
 if.end104.i17325:                                 ; preds = %land.rhs.i17343
   store i64 %inc96.i17335, ptr %pos, align 8
@@ -37990,7 +37990,7 @@ while.body.i17476:                                ; preds = %land.rhs.i17485
   %or101.i17483 = or i64 %shl100.i17482, %val.i17454.123298
   %add.i17484 = add i32 %shift.i17456.023297, 7
   %cmp92.i17463.not = icmp eq i64 %inc96.i17477, %size
-  br i1 %cmp92.i17463.not, label %return.loopexit29145, label %land.rhs.i17485, !llvm.loop !8
+  br i1 %cmp92.i17463.not, label %return.loopexit30195, label %land.rhs.i17485, !llvm.loop !8
 
 if.end104.i17467:                                 ; preds = %land.rhs.i17485
   store i64 %inc96.i17477, ptr %pos, align 8
@@ -38149,7 +38149,7 @@ while.body.i17618:                                ; preds = %land.rhs.i17627
   %or101.i17625 = or i64 %shl100.i17624, %val.i17596.123304
   %add.i17626 = add i32 %shift.i17598.023303, 7
   %cmp92.i17605.not = icmp eq i64 %inc96.i17619, %size
-  br i1 %cmp92.i17605.not, label %return.loopexit28990, label %land.rhs.i17627, !llvm.loop !8
+  br i1 %cmp92.i17605.not, label %return.loopexit30040, label %land.rhs.i17627, !llvm.loop !8
 
 if.end104.i17609:                                 ; preds = %land.rhs.i17627
   store i64 %inc96.i17619, ptr %pos, align 8
@@ -38387,7 +38387,7 @@ while.body.i17760:                                ; preds = %land.rhs.i17769
   %or101.i17767 = or i64 %shl100.i17766, %val.i17738.123292
   %add.i17768 = add i32 %shift.i17740.023291, 7
   %cmp92.i17747.not = icmp eq i64 %inc96.i17761, %size
-  br i1 %cmp92.i17747.not, label %return.loopexit29146, label %land.rhs.i17769, !llvm.loop !8
+  br i1 %cmp92.i17747.not, label %return.loopexit30196, label %land.rhs.i17769, !llvm.loop !8
 
 if.end104.i17751:                                 ; preds = %land.rhs.i17769
   store i64 %inc96.i17761, ptr %pos, align 8
@@ -38619,7 +38619,7 @@ while.body.i17902:                                ; preds = %land.rhs.i17911
   %or101.i17909 = or i64 %shl100.i17908, %val.i17880.123279
   %add.i17910 = add i32 %shift.i17882.023278, 7
   %cmp92.i17889.not = icmp eq i64 %inc96.i17903, %size
-  br i1 %cmp92.i17889.not, label %return.loopexit29149, label %land.rhs.i17911, !llvm.loop !8
+  br i1 %cmp92.i17889.not, label %return.loopexit30199, label %land.rhs.i17911, !llvm.loop !8
 
 if.end104.i17893:                                 ; preds = %land.rhs.i17911
   store i64 %inc96.i17903, ptr %pos, align 8
@@ -38797,7 +38797,7 @@ while.body.i18044:                                ; preds = %land.rhs.i18053
   %or101.i18051 = or i64 %shl100.i18050, %val.i18022.123285
   %add.i18052 = add i32 %shift.i18024.023284, 7
   %cmp92.i18031.not = icmp eq i64 %inc96.i18045, %size
-  br i1 %cmp92.i18031.not, label %return.loopexit28991, label %land.rhs.i18053, !llvm.loop !8
+  br i1 %cmp92.i18031.not, label %return.loopexit30041, label %land.rhs.i18053, !llvm.loop !8
 
 if.end104.i18035:                                 ; preds = %land.rhs.i18053
   store i64 %inc96.i18045, ptr %pos, align 8
@@ -39015,7 +39015,7 @@ while.body.i18186:                                ; preds = %land.rhs.i18195
   %or101.i18193 = or i64 %shl100.i18192, %val.i18164.123273
   %add.i18194 = add i32 %shift.i18166.023272, 7
   %cmp92.i18173.not = icmp eq i64 %inc96.i18187, %size
-  br i1 %cmp92.i18173.not, label %return.loopexit29150, label %land.rhs.i18195, !llvm.loop !8
+  br i1 %cmp92.i18173.not, label %return.loopexit30200, label %land.rhs.i18195, !llvm.loop !8
 
 if.end104.i18177:                                 ; preds = %land.rhs.i18195
   store i64 %inc96.i18187, ptr %pos, align 8
@@ -39253,7 +39253,7 @@ while.body.i18328:                                ; preds = %land.rhs.i18337
   %or101.i18335 = or i64 %shl100.i18334, %val.i18306.123260
   %add.i18336 = add i32 %shift.i18308.023259, 7
   %cmp92.i18315.not = icmp eq i64 %inc96.i18329, %size
-  br i1 %cmp92.i18315.not, label %return.loopexit29153, label %land.rhs.i18337, !llvm.loop !8
+  br i1 %cmp92.i18315.not, label %return.loopexit30203, label %land.rhs.i18337, !llvm.loop !8
 
 if.end104.i18319:                                 ; preds = %land.rhs.i18337
   store i64 %inc96.i18329, ptr %pos, align 8
@@ -39412,7 +39412,7 @@ while.body.i18470:                                ; preds = %land.rhs.i18479
   %or101.i18477 = or i64 %shl100.i18476, %val.i18448.123266
   %add.i18478 = add i32 %shift.i18450.023265, 7
   %cmp92.i18457.not = icmp eq i64 %inc96.i18471, %size
-  br i1 %cmp92.i18457.not, label %return.loopexit28992, label %land.rhs.i18479, !llvm.loop !8
+  br i1 %cmp92.i18457.not, label %return.loopexit30042, label %land.rhs.i18479, !llvm.loop !8
 
 if.end104.i18461:                                 ; preds = %land.rhs.i18479
   store i64 %inc96.i18471, ptr %pos, align 8
@@ -39655,7 +39655,7 @@ while.body.i18612:                                ; preds = %land.rhs.i18621
   %or101.i18619 = or i64 %shl100.i18618, %val.i18590.123254
   %add.i18620 = add i32 %shift.i18592.023253, 7
   %cmp92.i18599.not = icmp eq i64 %inc96.i18613, %size
-  br i1 %cmp92.i18599.not, label %return.loopexit29154, label %land.rhs.i18621, !llvm.loop !8
+  br i1 %cmp92.i18599.not, label %return.loopexit30204, label %land.rhs.i18621, !llvm.loop !8
 
 if.end104.i18603:                                 ; preds = %land.rhs.i18621
   store i64 %inc96.i18613, ptr %pos, align 8
@@ -39891,7 +39891,7 @@ while.body.i18754:                                ; preds = %land.rhs.i18763
   %or101.i18761 = or i64 %shl100.i18760, %val.i18732.123241
   %add.i18762 = add i32 %shift.i18734.023240, 7
   %cmp92.i18741.not = icmp eq i64 %inc96.i18755, %size
-  br i1 %cmp92.i18741.not, label %return.loopexit29157, label %land.rhs.i18763, !llvm.loop !8
+  br i1 %cmp92.i18741.not, label %return.loopexit30207, label %land.rhs.i18763, !llvm.loop !8
 
 if.end104.i18745:                                 ; preds = %land.rhs.i18763
   store i64 %inc96.i18755, ptr %pos, align 8
@@ -40069,7 +40069,7 @@ while.body.i18896:                                ; preds = %land.rhs.i18905
   %or101.i18903 = or i64 %shl100.i18902, %val.i18874.123247
   %add.i18904 = add i32 %shift.i18876.023246, 7
   %cmp92.i18883.not = icmp eq i64 %inc96.i18897, %size
-  br i1 %cmp92.i18883.not, label %return.loopexit28993, label %land.rhs.i18905, !llvm.loop !8
+  br i1 %cmp92.i18883.not, label %return.loopexit30043, label %land.rhs.i18905, !llvm.loop !8
 
 if.end104.i18887:                                 ; preds = %land.rhs.i18905
   store i64 %inc96.i18897, ptr %pos, align 8
@@ -40379,7 +40379,7 @@ while.body.i19038:                                ; preds = %land.rhs.i19047
   %or101.i19045 = or i64 %shl100.i19044, %val.i19016.123235
   %add.i19046 = add i32 %shift.i19018.023234, 7
   %cmp92.i19025.not = icmp eq i64 %inc96.i19039, %size
-  br i1 %cmp92.i19025.not, label %return.loopexit29158, label %land.rhs.i19047, !llvm.loop !8
+  br i1 %cmp92.i19025.not, label %return.loopexit30208, label %land.rhs.i19047, !llvm.loop !8
 
 if.end104.i19029:                                 ; preds = %land.rhs.i19047
   store i64 %inc96.i19039, ptr %pos, align 8
@@ -40399,8 +40399,8 @@ if.end1578:                                       ; preds = %if.end82.i19121, %i
   %cmp1586.not = icmp ne i64 %sz1573.0, %conv1585
   %add1589 = add i64 %2051, %sz1573.0
   %cmp1590 = icmp ugt i64 %add1589, %size
-  %or.cond27241 = select i1 %cmp1586.not, i1 true, i1 %cmp1590
-  br i1 %or.cond27241, label %return, label %if.end1592
+  %or.cond28291 = select i1 %cmp1586.not, i1 true, i1 %cmp1590
+  br i1 %or.cond28291, label %return, label %if.end1592
 
 if.end1592:                                       ; preds = %if.end1578
   %sext16944 = shl i64 %div158216943, 32
@@ -40673,7 +40673,7 @@ while.body.i19180:                                ; preds = %land.rhs.i19189
   %or101.i19187 = or i64 %shl100.i19186, %val.i19158.123229
   %add.i19188 = add i32 %shift.i19160.023228, 7
   %cmp92.i19167.not = icmp eq i64 %inc96.i19181, %size
-  br i1 %cmp92.i19167.not, label %return.loopexit29159, label %land.rhs.i19189, !llvm.loop !8
+  br i1 %cmp92.i19167.not, label %return.loopexit30209, label %land.rhs.i19189, !llvm.loop !8
 
 if.end104.i19171:                                 ; preds = %land.rhs.i19189
   store i64 %inc96.i19181, ptr %pos, align 8
@@ -40693,8 +40693,8 @@ if.end1614:                                       ; preds = %if.end82.i19263, %i
   %cmp1622.not = icmp ne i64 %sz1609.0, %conv1621
   %add1625 = add i64 %2076, %sz1609.0
   %cmp1626 = icmp ugt i64 %add1625, %size
-  %or.cond27242 = select i1 %cmp1622.not, i1 true, i1 %cmp1626
-  br i1 %or.cond27242, label %return, label %if.end1628
+  %or.cond28292 = select i1 %cmp1622.not, i1 true, i1 %cmp1626
+  br i1 %or.cond28292, label %return, label %if.end1628
 
 if.end1628:                                       ; preds = %if.end1614
   %sext16942 = shl i64 %div161816941, 32
@@ -40967,7 +40967,7 @@ while.body.i19322:                                ; preds = %land.rhs.i19331
   %or101.i19329 = or i64 %shl100.i19328, %val.i19300.123223
   %add.i19330 = add i32 %shift.i19302.023222, 7
   %cmp92.i19309.not = icmp eq i64 %inc96.i19323, %size
-  br i1 %cmp92.i19309.not, label %return.loopexit29160, label %land.rhs.i19331, !llvm.loop !8
+  br i1 %cmp92.i19309.not, label %return.loopexit30210, label %land.rhs.i19331, !llvm.loop !8
 
 if.end104.i19313:                                 ; preds = %land.rhs.i19331
   store i64 %inc96.i19323, ptr %pos, align 8
@@ -40987,8 +40987,8 @@ if.end1650:                                       ; preds = %if.end82.i19405, %i
   %cmp1658.not = icmp ne i64 %sz1645.0, %conv1657
   %add1661 = add i64 %2101, %sz1645.0
   %cmp1662 = icmp ugt i64 %add1661, %size
-  %or.cond27243 = select i1 %cmp1658.not, i1 true, i1 %cmp1662
-  br i1 %or.cond27243, label %return, label %if.end1664
+  %or.cond28293 = select i1 %cmp1658.not, i1 true, i1 %cmp1662
+  br i1 %or.cond28293, label %return, label %if.end1664
 
 if.end1664:                                       ; preds = %if.end1650
   %sext16940 = shl i64 %div165416939, 32
@@ -41261,7 +41261,7 @@ while.body.i19464:                                ; preds = %land.rhs.i19473
   %or101.i19471 = or i64 %shl100.i19470, %val.i19442.123217
   %add.i19472 = add i32 %shift.i19444.023216, 7
   %cmp92.i19451.not = icmp eq i64 %inc96.i19465, %size
-  br i1 %cmp92.i19451.not, label %return.loopexit29161, label %land.rhs.i19473, !llvm.loop !8
+  br i1 %cmp92.i19451.not, label %return.loopexit30211, label %land.rhs.i19473, !llvm.loop !8
 
 if.end104.i19455:                                 ; preds = %land.rhs.i19473
   store i64 %inc96.i19465, ptr %pos, align 8
@@ -41281,8 +41281,8 @@ if.end1686:                                       ; preds = %if.end82.i19547, %i
   %cmp1694.not = icmp ne i64 %sz1681.0, %conv1693
   %add1697 = add i64 %2126, %sz1681.0
   %cmp1698 = icmp ugt i64 %add1697, %size
-  %or.cond27244 = select i1 %cmp1694.not, i1 true, i1 %cmp1698
-  br i1 %or.cond27244, label %return, label %if.end1700
+  %or.cond28294 = select i1 %cmp1694.not, i1 true, i1 %cmp1698
+  br i1 %or.cond28294, label %return, label %if.end1700
 
 if.end1700:                                       ; preds = %if.end1686
   %sext16938 = shl i64 %div169016937, 32
@@ -41555,7 +41555,7 @@ while.body.i19606:                                ; preds = %land.rhs.i19615
   %or101.i19613 = or i64 %shl100.i19612, %val.i19584.123211
   %add.i19614 = add i32 %shift.i19586.023210, 7
   %cmp92.i19593.not = icmp eq i64 %inc96.i19607, %size
-  br i1 %cmp92.i19593.not, label %return.loopexit29162, label %land.rhs.i19615, !llvm.loop !8
+  br i1 %cmp92.i19593.not, label %return.loopexit30212, label %land.rhs.i19615, !llvm.loop !8
 
 if.end104.i19597:                                 ; preds = %land.rhs.i19615
   store i64 %inc96.i19607, ptr %pos, align 8
@@ -41575,8 +41575,8 @@ if.end1722:                                       ; preds = %if.end82.i19689, %i
   %cmp1730.not = icmp ne i64 %sz1717.0, %conv1729
   %add1733 = add i64 %2151, %sz1717.0
   %cmp1734 = icmp ugt i64 %add1733, %size
-  %or.cond27245 = select i1 %cmp1730.not, i1 true, i1 %cmp1734
-  br i1 %or.cond27245, label %return, label %if.end1736
+  %or.cond28295 = select i1 %cmp1730.not, i1 true, i1 %cmp1734
+  br i1 %or.cond28295, label %return, label %if.end1736
 
 if.end1736:                                       ; preds = %if.end1722
   %sext16936 = shl i64 %div172616935, 32
@@ -41849,7 +41849,7 @@ while.body.i19748:                                ; preds = %land.rhs.i19757
   %or101.i19755 = or i64 %shl100.i19754, %val.i19726.123205
   %add.i19756 = add i32 %shift.i19728.023204, 7
   %cmp92.i19735.not = icmp eq i64 %inc96.i19749, %size
-  br i1 %cmp92.i19735.not, label %return.loopexit29163, label %land.rhs.i19757, !llvm.loop !8
+  br i1 %cmp92.i19735.not, label %return.loopexit30213, label %land.rhs.i19757, !llvm.loop !8
 
 if.end104.i19739:                                 ; preds = %land.rhs.i19757
   store i64 %inc96.i19749, ptr %pos, align 8
@@ -41869,8 +41869,8 @@ if.end1758:                                       ; preds = %if.end82.i19831, %i
   %cmp1766.not = icmp ne i64 %sz1753.0, %conv1765
   %add1769 = add i64 %2176, %sz1753.0
   %cmp1770 = icmp ugt i64 %add1769, %size
-  %or.cond27246 = select i1 %cmp1766.not, i1 true, i1 %cmp1770
-  br i1 %or.cond27246, label %return, label %if.end1772
+  %or.cond28296 = select i1 %cmp1766.not, i1 true, i1 %cmp1770
+  br i1 %or.cond28296, label %return, label %if.end1772
 
 if.end1772:                                       ; preds = %if.end1758
   %sext = shl i64 %div176216934, 32
@@ -42074,7 +42074,7 @@ while.body.i19890:                                ; preds = %land.rhs.i19899
   %or101.i19897 = or i64 %shl100.i19896, %val.i19868.123199
   %add.i19898 = add i32 %shift.i19870.023198, 7
   %cmp92.i19877.not = icmp eq i64 %inc96.i19891, %size
-  br i1 %cmp92.i19877.not, label %return.loopexit29164, label %land.rhs.i19899, !llvm.loop !8
+  br i1 %cmp92.i19877.not, label %return.loopexit30214, label %land.rhs.i19899, !llvm.loop !8
 
 if.end104.i19881:                                 ; preds = %land.rhs.i19899
   store i64 %inc96.i19891, ptr %pos, align 8
@@ -42287,7 +42287,7 @@ while.body.i20032:                                ; preds = %land.rhs.i20041
   %or101.i20039 = or i64 %shl100.i20038, %val.i20010.123186
   %add.i20040 = add i32 %shift.i20012.023185, 7
   %cmp92.i20019.not = icmp eq i64 %inc96.i20033, %size
-  br i1 %cmp92.i20019.not, label %return.loopexit29167, label %land.rhs.i20041, !llvm.loop !8
+  br i1 %cmp92.i20019.not, label %return.loopexit30217, label %land.rhs.i20041, !llvm.loop !8
 
 if.end104.i20023:                                 ; preds = %land.rhs.i20041
   store i64 %inc96.i20033, ptr %pos, align 8
@@ -42465,7 +42465,7 @@ while.body.i20174:                                ; preds = %land.rhs.i20183
   %or101.i20181 = or i64 %shl100.i20180, %val.i20152.123192
   %add.i20182 = add i32 %shift.i20154.023191, 7
   %cmp92.i20161.not = icmp eq i64 %inc96.i20175, %size
-  br i1 %cmp92.i20161.not, label %return.loopexit28994, label %land.rhs.i20183, !llvm.loop !8
+  br i1 %cmp92.i20161.not, label %return.loopexit30044, label %land.rhs.i20183, !llvm.loop !8
 
 if.end104.i20165:                                 ; preds = %land.rhs.i20183
   store i64 %inc96.i20175, ptr %pos, align 8
@@ -42683,7 +42683,7 @@ while.body.i20316:                                ; preds = %land.rhs.i20325
   %or101.i20323 = or i64 %shl100.i20322, %val.i20294.123173
   %add.i20324 = add i32 %shift.i20296.023172, 7
   %cmp92.i20303.not = icmp eq i64 %inc96.i20317, %size
-  br i1 %cmp92.i20303.not, label %return.loopexit29170, label %land.rhs.i20325, !llvm.loop !8
+  br i1 %cmp92.i20303.not, label %return.loopexit30220, label %land.rhs.i20325, !llvm.loop !8
 
 if.end104.i20307:                                 ; preds = %land.rhs.i20325
   store i64 %inc96.i20317, ptr %pos, align 8
@@ -42835,7 +42835,7 @@ while.body.i20458:                                ; preds = %land.rhs.i20467
   %or101.i20465 = or i64 %shl100.i20464, %val.i20436.123179
   %add.i20466 = add i32 %shift.i20438.023178, 7
   %cmp92.i20445.not = icmp eq i64 %inc96.i20459, %add1822
-  br i1 %cmp92.i20445.not, label %return.loopexit28995, label %land.rhs.i20467, !llvm.loop !8
+  br i1 %cmp92.i20445.not, label %return.loopexit30045, label %land.rhs.i20467, !llvm.loop !8
 
 if.end104.i20449:                                 ; preds = %land.rhs.i20467
   store i64 %inc96.i20459, ptr %pos, align 8
@@ -43054,7 +43054,7 @@ while.body.i20600:                                ; preds = %land.rhs.i20609
   %or101.i20607 = or i64 %shl100.i20606, %val.i20578.123167
   %add.i20608 = add i32 %shift.i20580.023166, 7
   %cmp92.i20587.not = icmp eq i64 %inc96.i20601, %size
-  br i1 %cmp92.i20587.not, label %return.loopexit29171, label %land.rhs.i20609, !llvm.loop !8
+  br i1 %cmp92.i20587.not, label %return.loopexit30221, label %land.rhs.i20609, !llvm.loop !8
 
 if.end104.i20591:                                 ; preds = %land.rhs.i20609
   store i64 %inc96.i20601, ptr %pos, align 8
@@ -43287,7 +43287,7 @@ while.body.i20742:                                ; preds = %land.rhs.i20751
   %or101.i20749 = or i64 %shl100.i20748, %val.i20720.123133
   %add.i20750 = add i32 %shift.i20722.023132, 7
   %cmp92.i20729.not = icmp eq i64 %inc96.i20743, %size
-  br i1 %cmp92.i20729.not, label %return.loopexit29173, label %land.rhs.i20751, !llvm.loop !8
+  br i1 %cmp92.i20729.not, label %return.loopexit30223, label %land.rhs.i20751, !llvm.loop !8
 
 if.end104.i20733:                                 ; preds = %land.rhs.i20751
   store i64 %inc96.i20743, ptr %pos, align 8
@@ -43615,7 +43615,7 @@ while.body.i20884:                                ; preds = %land.rhs.i20893
   %or101.i20891 = or i64 %shl100.i20890, %val.i20862.123151
   %add.i20892 = add i32 %shift.i20864.023150, 7
   %cmp92.i20871.not = icmp eq i64 %inc96.i20885, %size
-  br i1 %cmp92.i20871.not, label %return.loopexit28996, label %land.rhs.i20893, !llvm.loop !8
+  br i1 %cmp92.i20871.not, label %return.loopexit30046, label %land.rhs.i20893, !llvm.loop !8
 
 if.end104.i20875:                                 ; preds = %land.rhs.i20893
   store i64 %inc96.i20885, ptr %pos, align 8
@@ -43773,7 +43773,7 @@ while.body.i21026:                                ; preds = %land.rhs.i21035
   %or101.i21033 = or i64 %shl100.i21032, %val.i21004.123145
   %add.i21034 = add i32 %shift.i21006.023144, 7
   %cmp92.i21013.not = icmp eq i64 %inc96.i21027, %size
-  br i1 %cmp92.i21013.not, label %return.loopexit28997, label %land.rhs.i21035, !llvm.loop !8
+  br i1 %cmp92.i21013.not, label %return.loopexit30047, label %land.rhs.i21035, !llvm.loop !8
 
 if.end104.i21017:                                 ; preds = %land.rhs.i21035
   store i64 %inc96.i21027, ptr %pos, align 8
@@ -43961,7 +43961,7 @@ while.body.i21168:                                ; preds = %land.rhs.i21177
   %or101.i21175 = or i64 %shl100.i21174, %val.i21146.123100
   %add.i21176 = add i32 %shift.i21148.023099, 7
   %cmp92.i21155.not = icmp eq i64 %inc96.i21169, %size
-  br i1 %cmp92.i21155.not, label %return.loopexit29175, label %land.rhs.i21177, !llvm.loop !8
+  br i1 %cmp92.i21155.not, label %return.loopexit30225, label %land.rhs.i21177, !llvm.loop !8
 
 if.end104.i21159:                                 ; preds = %land.rhs.i21177
   store i64 %inc96.i21169, ptr %pos, align 8
@@ -44308,7 +44308,7 @@ while.body.i21310:                                ; preds = %land.rhs.i21319
   %or101.i21317 = or i64 %shl100.i21316, %val.i21288.123118
   %add.i21318 = add i32 %shift.i21290.023117, 7
   %cmp92.i21297.not = icmp eq i64 %inc96.i21311, %size
-  br i1 %cmp92.i21297.not, label %return.loopexit28999, label %land.rhs.i21319, !llvm.loop !8
+  br i1 %cmp92.i21297.not, label %return.loopexit30049, label %land.rhs.i21319, !llvm.loop !8
 
 if.end104.i21301:                                 ; preds = %land.rhs.i21319
   store i64 %inc96.i21311, ptr %pos, align 8
@@ -44473,7 +44473,7 @@ while.body.i21452:                                ; preds = %land.rhs.i21461
   %or101.i21459 = or i64 %shl100.i21458, %val.i21430.123112
   %add.i21460 = add i32 %shift.i21432.023111, 7
   %cmp92.i21439.not = icmp eq i64 %inc96.i21453, %size
-  br i1 %cmp92.i21439.not, label %return.loopexit29000, label %land.rhs.i21461, !llvm.loop !8
+  br i1 %cmp92.i21439.not, label %return.loopexit30050, label %land.rhs.i21461, !llvm.loop !8
 
 if.end104.i21443:                                 ; preds = %land.rhs.i21461
   store i64 %inc96.i21453, ptr %pos, align 8
@@ -44666,7 +44666,7 @@ while.body.i21594:                                ; preds = %land.rhs.i21603
   %or101.i21601 = or i64 %shl100.i21600, %val.i21572.123066
   %add.i21602 = add i32 %shift.i21574.023065, 7
   %cmp92.i21581.not = icmp eq i64 %inc96.i21595, %size
-  br i1 %cmp92.i21581.not, label %return.loopexit29177, label %land.rhs.i21603, !llvm.loop !8
+  br i1 %cmp92.i21581.not, label %return.loopexit30227, label %land.rhs.i21603, !llvm.loop !8
 
 if.end104.i21585:                                 ; preds = %land.rhs.i21603
   store i64 %inc96.i21595, ptr %pos, align 8
@@ -44994,7 +44994,7 @@ while.body.i21736:                                ; preds = %land.rhs.i21745
   %or101.i21743 = or i64 %shl100.i21742, %val.i21714.123084
   %add.i21744 = add i32 %shift.i21716.023083, 7
   %cmp92.i21723.not = icmp eq i64 %inc96.i21737, %size
-  br i1 %cmp92.i21723.not, label %return.loopexit29002, label %land.rhs.i21745, !llvm.loop !8
+  br i1 %cmp92.i21723.not, label %return.loopexit30052, label %land.rhs.i21745, !llvm.loop !8
 
 if.end104.i21727:                                 ; preds = %land.rhs.i21745
   store i64 %inc96.i21737, ptr %pos, align 8
@@ -45152,7 +45152,7 @@ while.body.i21878:                                ; preds = %land.rhs.i21887
   %or101.i21885 = or i64 %shl100.i21884, %val.i21856.123078
   %add.i21886 = add i32 %shift.i21858.023077, 7
   %cmp92.i21865.not = icmp eq i64 %inc96.i21879, %size
-  br i1 %cmp92.i21865.not, label %return.loopexit29003, label %land.rhs.i21887, !llvm.loop !8
+  br i1 %cmp92.i21865.not, label %return.loopexit30053, label %land.rhs.i21887, !llvm.loop !8
 
 if.end104.i21869:                                 ; preds = %land.rhs.i21887
   store i64 %inc96.i21879, ptr %pos, align 8
@@ -45340,7 +45340,7 @@ while.body.i22020:                                ; preds = %land.rhs.i22029
   %or101.i22027 = or i64 %shl100.i22026, %val.i21998.123033
   %add.i22028 = add i32 %shift.i22000.023032, 7
   %cmp92.i22007.not = icmp eq i64 %inc96.i22021, %size
-  br i1 %cmp92.i22007.not, label %return.loopexit29179, label %land.rhs.i22029, !llvm.loop !8
+  br i1 %cmp92.i22007.not, label %return.loopexit30229, label %land.rhs.i22029, !llvm.loop !8
 
 if.end104.i22011:                                 ; preds = %land.rhs.i22029
   store i64 %inc96.i22021, ptr %pos, align 8
@@ -45687,7 +45687,7 @@ while.body.i22162:                                ; preds = %land.rhs.i22171
   %or101.i22169 = or i64 %shl100.i22168, %val.i22140.123051
   %add.i22170 = add i32 %shift.i22142.023050, 7
   %cmp92.i22149.not = icmp eq i64 %inc96.i22163, %size
-  br i1 %cmp92.i22149.not, label %return.loopexit29005, label %land.rhs.i22171, !llvm.loop !8
+  br i1 %cmp92.i22149.not, label %return.loopexit30055, label %land.rhs.i22171, !llvm.loop !8
 
 if.end104.i22153:                                 ; preds = %land.rhs.i22171
   store i64 %inc96.i22163, ptr %pos, align 8
@@ -45852,7 +45852,7 @@ while.body.i22304:                                ; preds = %land.rhs.i22313
   %or101.i22311 = or i64 %shl100.i22310, %val.i22282.123045
   %add.i22312 = add i32 %shift.i22284.023044, 7
   %cmp92.i22291.not = icmp eq i64 %inc96.i22305, %size
-  br i1 %cmp92.i22291.not, label %return.loopexit29006, label %land.rhs.i22313, !llvm.loop !8
+  br i1 %cmp92.i22291.not, label %return.loopexit30056, label %land.rhs.i22313, !llvm.loop !8
 
 if.end104.i22295:                                 ; preds = %land.rhs.i22313
   store i64 %inc96.i22305, ptr %pos, align 8
@@ -46045,7 +46045,7 @@ while.body.i22446:                                ; preds = %land.rhs.i22455
   %or101.i22453 = or i64 %shl100.i22452, %val.i22424.122999
   %add.i22454 = add i32 %shift.i22426.022998, 7
   %cmp92.i22433.not = icmp eq i64 %inc96.i22447, %size
-  br i1 %cmp92.i22433.not, label %return.loopexit29181, label %land.rhs.i22455, !llvm.loop !8
+  br i1 %cmp92.i22433.not, label %return.loopexit30231, label %land.rhs.i22455, !llvm.loop !8
 
 if.end104.i22437:                                 ; preds = %land.rhs.i22455
   store i64 %inc96.i22447, ptr %pos, align 8
@@ -46373,7 +46373,7 @@ while.body.i22588:                                ; preds = %land.rhs.i22597
   %or101.i22595 = or i64 %shl100.i22594, %val.i22566.123017
   %add.i22596 = add i32 %shift.i22568.023016, 7
   %cmp92.i22575.not = icmp eq i64 %inc96.i22589, %size
-  br i1 %cmp92.i22575.not, label %return.loopexit29008, label %land.rhs.i22597, !llvm.loop !8
+  br i1 %cmp92.i22575.not, label %return.loopexit30058, label %land.rhs.i22597, !llvm.loop !8
 
 if.end104.i22579:                                 ; preds = %land.rhs.i22597
   store i64 %inc96.i22589, ptr %pos, align 8
@@ -46536,7 +46536,7 @@ while.body.i22730:                                ; preds = %land.rhs.i22739
   %or101.i22737 = or i64 %shl100.i22736, %val.i22708.123011
   %add.i22738 = add i32 %shift.i22710.023010, 7
   %cmp92.i22717.not = icmp eq i64 %inc96.i22731, %size
-  br i1 %cmp92.i22717.not, label %return.loopexit29009, label %land.rhs.i22739, !llvm.loop !8
+  br i1 %cmp92.i22717.not, label %return.loopexit30059, label %land.rhs.i22739, !llvm.loop !8
 
 if.end104.i22721:                                 ; preds = %land.rhs.i22739
   store i64 %inc96.i22731, ptr %pos, align 8
@@ -46729,7 +46729,7 @@ while.body.i22872:                                ; preds = %land.rhs.i22881
   %or101.i22879 = or i64 %shl100.i22878, %val.i22850.122965
   %add.i22880 = add i32 %shift.i22852.022964, 7
   %cmp92.i22859.not = icmp eq i64 %inc96.i22873, %size
-  br i1 %cmp92.i22859.not, label %return.loopexit29183, label %land.rhs.i22881, !llvm.loop !8
+  br i1 %cmp92.i22859.not, label %return.loopexit30233, label %land.rhs.i22881, !llvm.loop !8
 
 if.end104.i22863:                                 ; preds = %land.rhs.i22881
   store i64 %inc96.i22873, ptr %pos, align 8
@@ -47076,7 +47076,7 @@ while.body.i23014:                                ; preds = %land.rhs.i23023
   %or101.i23021 = or i64 %shl100.i23020, %val.i22992.122983
   %add.i23022 = add i32 %shift.i22994.022982, 7
   %cmp92.i23001.not = icmp eq i64 %inc96.i23015, %size
-  br i1 %cmp92.i23001.not, label %return.loopexit29011, label %land.rhs.i23023, !llvm.loop !8
+  br i1 %cmp92.i23001.not, label %return.loopexit30061, label %land.rhs.i23023, !llvm.loop !8
 
 if.end104.i23005:                                 ; preds = %land.rhs.i23023
   store i64 %inc96.i23015, ptr %pos, align 8
@@ -47256,7 +47256,7 @@ while.body.i23156:                                ; preds = %land.rhs.i23165
   %or101.i23163 = or i64 %shl100.i23162, %val.i23134.122977
   %add.i23164 = add i32 %shift.i23136.022976, 7
   %cmp92.i23143.not = icmp eq i64 %inc96.i23157, %size
-  br i1 %cmp92.i23143.not, label %return.loopexit29012, label %land.rhs.i23165, !llvm.loop !8
+  br i1 %cmp92.i23143.not, label %return.loopexit30062, label %land.rhs.i23165, !llvm.loop !8
 
 if.end104.i23147:                                 ; preds = %land.rhs.i23165
   store i64 %inc96.i23157, ptr %pos, align 8
@@ -47447,7 +47447,7 @@ while.body.i23298:                                ; preds = %land.rhs.i23307
   %or101.i23305 = or i64 %shl100.i23304, %val.i23276.122945
   %add.i23306 = add i32 %shift.i23278.022944, 7
   %cmp92.i23285.not = icmp eq i64 %inc96.i23299, %size
-  br i1 %cmp92.i23285.not, label %return.loopexit29185, label %land.rhs.i23307, !llvm.loop !8
+  br i1 %cmp92.i23285.not, label %return.loopexit30235, label %land.rhs.i23307, !llvm.loop !8
 
 if.end104.i23289:                                 ; preds = %land.rhs.i23307
   store i64 %inc96.i23299, ptr %pos, align 8
@@ -47829,7 +47829,7 @@ while.body.i23440:                                ; preds = %land.rhs.i23449
   %or101.i23447 = or i64 %shl100.i23446, %val.i23418.122925
   %add.i23448 = add i32 %shift.i23420.022924, 7
   %cmp92.i23427.not = icmp eq i64 %inc96.i23441, %size
-  br i1 %cmp92.i23427.not, label %return.loopexit29187, label %land.rhs.i23449, !llvm.loop !8
+  br i1 %cmp92.i23427.not, label %return.loopexit30237, label %land.rhs.i23449, !llvm.loop !8
 
 if.end104.i23431:                                 ; preds = %land.rhs.i23449
   store i64 %inc96.i23441, ptr %pos, align 8
@@ -48211,7 +48211,7 @@ while.body.i23582:                                ; preds = %land.rhs.i23591
   %or101.i23589 = or i64 %shl100.i23588, %val.i23560.122905
   %add.i23590 = add i32 %shift.i23562.022904, 7
   %cmp92.i23569.not = icmp eq i64 %inc96.i23583, %size
-  br i1 %cmp92.i23569.not, label %return.loopexit29189, label %land.rhs.i23591, !llvm.loop !8
+  br i1 %cmp92.i23569.not, label %return.loopexit30239, label %land.rhs.i23591, !llvm.loop !8
 
 if.end104.i23573:                                 ; preds = %land.rhs.i23591
   store i64 %inc96.i23583, ptr %pos, align 8
@@ -48593,7 +48593,7 @@ while.body.i23724:                                ; preds = %land.rhs.i23733
   %or101.i23731 = or i64 %shl100.i23730, %val.i23702.122885
   %add.i23732 = add i32 %shift.i23704.022884, 7
   %cmp92.i23711.not = icmp eq i64 %inc96.i23725, %size
-  br i1 %cmp92.i23711.not, label %return.loopexit29191, label %land.rhs.i23733, !llvm.loop !8
+  br i1 %cmp92.i23711.not, label %return.loopexit30241, label %land.rhs.i23733, !llvm.loop !8
 
 if.end104.i23715:                                 ; preds = %land.rhs.i23733
   store i64 %inc96.i23725, ptr %pos, align 8
@@ -48975,7 +48975,7 @@ while.body.i23866:                                ; preds = %land.rhs.i23875
   %or101.i23873 = or i64 %shl100.i23872, %val.i23844.122858
   %add.i23874 = add i32 %shift.i23846.022857, 7
   %cmp92.i23853.not = icmp eq i64 %inc96.i23867, %size
-  br i1 %cmp92.i23853.not, label %return.loopexit29193, label %land.rhs.i23875, !llvm.loop !8
+  br i1 %cmp92.i23853.not, label %return.loopexit30243, label %land.rhs.i23875, !llvm.loop !8
 
 if.end104.i23857:                                 ; preds = %land.rhs.i23875
   store i64 %inc96.i23867, ptr %pos, align 8
@@ -49303,7 +49303,7 @@ while.body.i24008:                                ; preds = %land.rhs.i24017
   %or101.i24015 = or i64 %shl100.i24014, %val.i23986.122870
   %add.i24016 = add i32 %shift.i23988.022869, 7
   %cmp92.i23995.not = icmp eq i64 %inc96.i24009, %size
-  br i1 %cmp92.i23995.not, label %return.loopexit29018, label %land.rhs.i24017, !llvm.loop !8
+  br i1 %cmp92.i23995.not, label %return.loopexit30068, label %land.rhs.i24017, !llvm.loop !8
 
 if.end104.i23999:                                 ; preds = %land.rhs.i24017
   store i64 %inc96.i24009, ptr %pos, align 8
@@ -49503,7 +49503,7 @@ while.body.i24150:                                ; preds = %land.rhs.i24159
   %or101.i24157 = or i64 %shl100.i24156, %val.i24128.122831
   %add.i24158 = add i32 %shift.i24130.022830, 7
   %cmp92.i24137.not = icmp eq i64 %inc96.i24151, %size
-  br i1 %cmp92.i24137.not, label %return.loopexit29195, label %land.rhs.i24159, !llvm.loop !8
+  br i1 %cmp92.i24137.not, label %return.loopexit30245, label %land.rhs.i24159, !llvm.loop !8
 
 if.end104.i24141:                                 ; preds = %land.rhs.i24159
   store i64 %inc96.i24151, ptr %pos, align 8
@@ -49831,7 +49831,7 @@ while.body.i24292:                                ; preds = %land.rhs.i24301
   %or101.i24299 = or i64 %shl100.i24298, %val.i24270.122843
   %add.i24300 = add i32 %shift.i24272.022842, 7
   %cmp92.i24279.not = icmp eq i64 %inc96.i24293, %size
-  br i1 %cmp92.i24279.not, label %return.loopexit29020, label %land.rhs.i24301, !llvm.loop !8
+  br i1 %cmp92.i24279.not, label %return.loopexit30070, label %land.rhs.i24301, !llvm.loop !8
 
 if.end104.i24283:                                 ; preds = %land.rhs.i24301
   store i64 %inc96.i24293, ptr %pos, align 8
@@ -50031,7 +50031,7 @@ while.body.i24434:                                ; preds = %land.rhs.i24443
   %or101.i24441 = or i64 %shl100.i24440, %val.i24412.122797
   %add.i24442 = add i32 %shift.i24414.022796, 7
   %cmp92.i24421.not = icmp eq i64 %inc96.i24435, %size
-  br i1 %cmp92.i24421.not, label %return.loopexit29197, label %land.rhs.i24443, !llvm.loop !8
+  br i1 %cmp92.i24421.not, label %return.loopexit30247, label %land.rhs.i24443, !llvm.loop !8
 
 if.end104.i24425:                                 ; preds = %land.rhs.i24443
   store i64 %inc96.i24435, ptr %pos, align 8
@@ -50378,7 +50378,7 @@ while.body.i24576:                                ; preds = %land.rhs.i24585
   %or101.i24583 = or i64 %shl100.i24582, %val.i24554.122815
   %add.i24584 = add i32 %shift.i24556.022814, 7
   %cmp92.i24563.not = icmp eq i64 %inc96.i24577, %size
-  br i1 %cmp92.i24563.not, label %return.loopexit29022, label %land.rhs.i24585, !llvm.loop !8
+  br i1 %cmp92.i24563.not, label %return.loopexit30072, label %land.rhs.i24585, !llvm.loop !8
 
 if.end104.i24567:                                 ; preds = %land.rhs.i24585
   store i64 %inc96.i24577, ptr %pos, align 8
@@ -50556,7 +50556,7 @@ while.body.i24718:                                ; preds = %land.rhs.i24727
   %or101.i24725 = or i64 %shl100.i24724, %val.i24696.122809
   %add.i24726 = add i32 %shift.i24698.022808, 7
   %cmp92.i24705.not = icmp eq i64 %inc96.i24719, %size
-  br i1 %cmp92.i24705.not, label %return.loopexit29023, label %land.rhs.i24727, !llvm.loop !8
+  br i1 %cmp92.i24705.not, label %return.loopexit30073, label %land.rhs.i24727, !llvm.loop !8
 
 if.end104.i24709:                                 ; preds = %land.rhs.i24727
   store i64 %inc96.i24719, ptr %pos, align 8
@@ -50745,7 +50745,7 @@ while.body.i24860:                                ; preds = %land.rhs.i24869
   %or101.i24867 = or i64 %shl100.i24866, %val.i24838.122764
   %add.i24868 = add i32 %shift.i24840.022763, 7
   %cmp92.i24847.not = icmp eq i64 %inc96.i24861, %size
-  br i1 %cmp92.i24847.not, label %return.loopexit29199, label %land.rhs.i24869, !llvm.loop !8
+  br i1 %cmp92.i24847.not, label %return.loopexit30249, label %land.rhs.i24869, !llvm.loop !8
 
 if.end104.i24851:                                 ; preds = %land.rhs.i24869
   store i64 %inc96.i24861, ptr %pos, align 8
@@ -50931,7 +50931,7 @@ while.body.i33096:                                ; preds = %land.rhs.i33105
   %or101.i33103 = or i64 %shl100.i33102, %val.i33074.122770
   %add.i33104 = add i32 %shift.i33076.022769, 7
   %cmp92.i33083.not = icmp eq i64 %inc96.i33097, %size
-  br i1 %cmp92.i33083.not, label %cleanup2413.loopexit29026, label %land.rhs.i33105, !llvm.loop !8
+  br i1 %cmp92.i33083.not, label %cleanup2413.loopexit30076, label %land.rhs.i33105, !llvm.loop !8
 
 if.end104.i33087:                                 ; preds = %land.rhs.i33105
   store i64 %inc96.i33097, ptr %pos, align 8
@@ -51420,7 +51420,7 @@ while.body.i25144:                                ; preds = %land.rhs.i25153
   %or101.i25151 = or i64 %shl100.i25150, %val.i25122.122778
   %add.i25152 = add i32 %shift.i25124.022777, 7
   %cmp92.i25131.not = icmp eq i64 %inc96.i25145, %add2363
-  br i1 %cmp92.i25131.not, label %cleanup2413.loopexit29025, label %land.rhs.i25153, !llvm.loop !8
+  br i1 %cmp92.i25131.not, label %cleanup2413.loopexit30075, label %land.rhs.i25153, !llvm.loop !8
 
 if.end104.i25135:                                 ; preds = %land.rhs.i25153
   store i64 %inc96.i25145, ptr %pos, align 8
@@ -51556,13 +51556,13 @@ invoke.cont2399:                                  ; preds = %if.end5.sink.split.
 
 sw.epilog2408:                                    ; preds = %invoke.cont2399, %invoke.cont2383
   %value_tmp_val2365.sink = phi ptr [ %key_tmp_val2364, %invoke.cont2383 ], [ %value_tmp_val2365, %invoke.cont2399 ]
-  %.sink27248 = phi i64 [ %2942, %invoke.cont2383 ], [ %2965, %invoke.cont2399 ]
-  %str_sz2392.0.sink27247 = phi i64 [ %str_sz.0, %invoke.cont2383 ], [ %str_sz2392.0, %invoke.cont2399 ]
+  %.sink28298 = phi i64 [ %2942, %invoke.cont2383 ], [ %2965, %invoke.cont2399 ]
+  %str_sz2392.0.sink28297 = phi i64 [ %str_sz.0, %invoke.cont2383 ], [ %str_sz2392.0, %invoke.cont2399 ]
   %2966 = load ptr, ptr %value_tmp_val2365.sink, align 8
-  %add.ptr2405 = getelementptr inbounds i8, ptr %data, i64 %.sink27248
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2966, ptr align 1 %add.ptr2405, i64 %str_sz2392.0.sink27247, i1 false)
+  %add.ptr2405 = getelementptr inbounds i8, ptr %data, i64 %.sink28298
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2966, ptr align 1 %add.ptr2405, i64 %str_sz2392.0.sink28297, i1 false)
   %2967 = load i64, ptr %pos, align 8
-  %add2406 = add i64 %2967, %str_sz2392.0.sink27247
+  %add2406 = add i64 %2967, %str_sz2392.0.sink28297
   store i64 %add2406, ptr %pos, align 8
   %cmp2367 = icmp ult i64 %add2406, %add2363
   br i1 %cmp2367, label %while.body2368, label %while.end2409, !llvm.loop !69
@@ -51579,17 +51579,17 @@ cleanup2413.loopexit:                             ; preds = %while.body.i25002
   store i64 %inc96.i25003, ptr %pos, align 8
   br label %cleanup2413
 
-cleanup2413.loopexit29025:                        ; preds = %while.body.i25144
+cleanup2413.loopexit30075:                        ; preds = %while.body.i25144
   store i64 %inc96.i25145, ptr %pos, align 8
   br label %cleanup2413
 
-cleanup2413.loopexit29026:                        ; preds = %while.body.i33096
+cleanup2413.loopexit30076:                        ; preds = %while.body.i33096
   store i64 %inc96.i33097, ptr %pos, align 8
   br label %cleanup2413
 
-cleanup2413:                                      ; preds = %if.end82.i25227, %if.end82.i25085, %if.end2375, %invoke.cont2399, %invoke.cont2383, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33208, %while.cond.i33082.preheader, %while.cond.i25130.preheader, %while.cond.i24988.preheader, %cleanup2413.loopexit29026, %cleanup2413.loopexit29025, %cleanup2413.loopexit, %invoke.cont2410
-  %cmp236721478 = phi i1 [ false, %invoke.cont2410 ], [ true, %cleanup2413.loopexit ], [ true, %cleanup2413.loopexit29025 ], [ true, %cleanup2413.loopexit29026 ], [ true, %while.cond.i24988.preheader ], [ true, %while.cond.i25130.preheader ], [ true, %while.cond.i33082.preheader ], [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33208 ], [ true, %invoke.cont2383 ], [ true, %invoke.cont2399 ], [ true, %if.end2375 ], [ true, %if.end82.i25085 ], [ true, %if.end82.i25227 ]
-  %retval.7 = phi i1 [ %retval.023878, %invoke.cont2410 ], [ false, %cleanup2413.loopexit ], [ false, %cleanup2413.loopexit29025 ], [ false, %cleanup2413.loopexit29026 ], [ false, %while.cond.i24988.preheader ], [ false, %while.cond.i25130.preheader ], [ false, %while.cond.i33082.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33208 ], [ false, %invoke.cont2383 ], [ false, %invoke.cont2399 ], [ false, %if.end2375 ], [ false, %if.end82.i25085 ], [ false, %if.end82.i25227 ]
+cleanup2413:                                      ; preds = %if.end82.i25227, %if.end82.i25085, %if.end2375, %invoke.cont2399, %invoke.cont2383, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33208, %while.cond.i33082.preheader, %while.cond.i25130.preheader, %while.cond.i24988.preheader, %cleanup2413.loopexit30076, %cleanup2413.loopexit30075, %cleanup2413.loopexit, %invoke.cont2410
+  %cmp236721478 = phi i1 [ false, %invoke.cont2410 ], [ true, %cleanup2413.loopexit ], [ true, %cleanup2413.loopexit30075 ], [ true, %cleanup2413.loopexit30076 ], [ true, %while.cond.i24988.preheader ], [ true, %while.cond.i25130.preheader ], [ true, %while.cond.i33082.preheader ], [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33208 ], [ true, %invoke.cont2383 ], [ true, %invoke.cont2399 ], [ true, %if.end2375 ], [ true, %if.end82.i25085 ], [ true, %if.end82.i25227 ]
+  %retval.7 = phi i1 [ %retval.023878, %invoke.cont2410 ], [ false, %cleanup2413.loopexit ], [ false, %cleanup2413.loopexit30075 ], [ false, %cleanup2413.loopexit30076 ], [ false, %while.cond.i24988.preheader ], [ false, %while.cond.i25130.preheader ], [ false, %while.cond.i33082.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33208 ], [ false, %invoke.cont2383 ], [ false, %invoke.cont2399 ], [ false, %if.end2375 ], [ false, %if.end82.i25085 ], [ false, %if.end82.i25227 ]
   %2968 = load ptr, ptr %value_tmp_val2365, align 8
   %cmp.i.i.i19665 = icmp eq ptr %2968, %10
   br i1 %cmp.i.i.i19665, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19668, label %if.then.i.i19666
@@ -51784,7 +51784,7 @@ while.body.i25286:                                ; preds = %land.rhs.i25295
   %or101.i25293 = or i64 %shl100.i25292, %val.i25264.122731
   %add.i25294 = add i32 %shift.i25266.022730, 7
   %cmp92.i25273.not = icmp eq i64 %inc96.i25287, %size
-  br i1 %cmp92.i25273.not, label %return.loopexit29201, label %land.rhs.i25295, !llvm.loop !8
+  br i1 %cmp92.i25273.not, label %return.loopexit30251, label %land.rhs.i25295, !llvm.loop !8
 
 if.end104.i25277:                                 ; preds = %land.rhs.i25295
   store i64 %inc96.i25287, ptr %pos, align 8
@@ -51970,7 +51970,7 @@ while.body.i32954:                                ; preds = %land.rhs.i32963
   %or101.i32961 = or i64 %shl100.i32960, %val.i32932.122737
   %add.i32962 = add i32 %shift.i32934.022736, 7
   %cmp92.i32941.not = icmp eq i64 %inc96.i32955, %size
-  br i1 %cmp92.i32941.not, label %cleanup2475.loopexit29028, label %land.rhs.i32963, !llvm.loop !8
+  br i1 %cmp92.i32941.not, label %cleanup2475.loopexit30078, label %land.rhs.i32963, !llvm.loop !8
 
 if.end104.i32945:                                 ; preds = %land.rhs.i32963
   store i64 %inc96.i32955, ptr %pos, align 8
@@ -52459,7 +52459,7 @@ while.body.i25570:                                ; preds = %land.rhs.i25579
   %or101.i25577 = or i64 %shl100.i25576, %val.i25548.122745
   %add.i25578 = add i32 %shift.i25550.022744, 7
   %cmp92.i25557.not = icmp eq i64 %inc96.i25571, %add2424
-  br i1 %cmp92.i25557.not, label %cleanup2475.loopexit29027, label %land.rhs.i25579, !llvm.loop !8
+  br i1 %cmp92.i25557.not, label %cleanup2475.loopexit30077, label %land.rhs.i25579, !llvm.loop !8
 
 if.end104.i25561:                                 ; preds = %land.rhs.i25579
   store i64 %inc96.i25571, ptr %pos, align 8
@@ -52595,13 +52595,13 @@ invoke.cont2461:                                  ; preds = %if.end5.sink.split.
 
 sw.epilog2470:                                    ; preds = %invoke.cont2461, %invoke.cont2445
   %value_tmp_val2426.sink = phi ptr [ %key_tmp_val2425, %invoke.cont2445 ], [ %value_tmp_val2426, %invoke.cont2461 ]
-  %.sink27250 = phi i64 [ %3025, %invoke.cont2445 ], [ %3048, %invoke.cont2461 ]
-  %str_sz2454.0.sink27249 = phi i64 [ %str_sz2438.0, %invoke.cont2445 ], [ %str_sz2454.0, %invoke.cont2461 ]
+  %.sink28300 = phi i64 [ %3025, %invoke.cont2445 ], [ %3048, %invoke.cont2461 ]
+  %str_sz2454.0.sink28299 = phi i64 [ %str_sz2438.0, %invoke.cont2445 ], [ %str_sz2454.0, %invoke.cont2461 ]
   %3049 = load ptr, ptr %value_tmp_val2426.sink, align 8
-  %add.ptr2467 = getelementptr inbounds i8, ptr %data, i64 %.sink27250
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3049, ptr align 1 %add.ptr2467, i64 %str_sz2454.0.sink27249, i1 false)
+  %add.ptr2467 = getelementptr inbounds i8, ptr %data, i64 %.sink28300
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3049, ptr align 1 %add.ptr2467, i64 %str_sz2454.0.sink28299, i1 false)
   %3050 = load i64, ptr %pos, align 8
-  %add2468 = add i64 %3050, %str_sz2454.0.sink27249
+  %add2468 = add i64 %3050, %str_sz2454.0.sink28299
   store i64 %add2468, ptr %pos, align 8
   %cmp2428 = icmp ult i64 %add2468, %add2424
   br i1 %cmp2428, label %while.body2429, label %while.end2471, !llvm.loop !70
@@ -52618,17 +52618,17 @@ cleanup2475.loopexit:                             ; preds = %while.body.i25428
   store i64 %inc96.i25429, ptr %pos, align 8
   br label %cleanup2475
 
-cleanup2475.loopexit29027:                        ; preds = %while.body.i25570
+cleanup2475.loopexit30077:                        ; preds = %while.body.i25570
   store i64 %inc96.i25571, ptr %pos, align 8
   br label %cleanup2475
 
-cleanup2475.loopexit29028:                        ; preds = %while.body.i32954
+cleanup2475.loopexit30078:                        ; preds = %while.body.i32954
   store i64 %inc96.i32955, ptr %pos, align 8
   br label %cleanup2475
 
-cleanup2475:                                      ; preds = %if.end82.i25653, %if.end82.i25511, %if.end2436, %invoke.cont2461, %invoke.cont2445, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33066, %while.cond.i32940.preheader, %while.cond.i25556.preheader, %while.cond.i25414.preheader, %cleanup2475.loopexit29028, %cleanup2475.loopexit29027, %cleanup2475.loopexit, %invoke.cont2472
-  %cmp242821454 = phi i1 [ false, %invoke.cont2472 ], [ true, %cleanup2475.loopexit ], [ true, %cleanup2475.loopexit29027 ], [ true, %cleanup2475.loopexit29028 ], [ true, %while.cond.i25414.preheader ], [ true, %while.cond.i25556.preheader ], [ true, %while.cond.i32940.preheader ], [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33066 ], [ true, %invoke.cont2445 ], [ true, %invoke.cont2461 ], [ true, %if.end2436 ], [ true, %if.end82.i25511 ], [ true, %if.end82.i25653 ]
-  %retval.8 = phi i1 [ %retval.023878, %invoke.cont2472 ], [ false, %cleanup2475.loopexit ], [ false, %cleanup2475.loopexit29027 ], [ false, %cleanup2475.loopexit29028 ], [ false, %while.cond.i25414.preheader ], [ false, %while.cond.i25556.preheader ], [ false, %while.cond.i32940.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33066 ], [ false, %invoke.cont2445 ], [ false, %invoke.cont2461 ], [ false, %if.end2436 ], [ false, %if.end82.i25511 ], [ false, %if.end82.i25653 ]
+cleanup2475:                                      ; preds = %if.end82.i25653, %if.end82.i25511, %if.end2436, %invoke.cont2461, %invoke.cont2445, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33066, %while.cond.i32940.preheader, %while.cond.i25556.preheader, %while.cond.i25414.preheader, %cleanup2475.loopexit30078, %cleanup2475.loopexit30077, %cleanup2475.loopexit, %invoke.cont2472
+  %cmp242821454 = phi i1 [ false, %invoke.cont2472 ], [ true, %cleanup2475.loopexit ], [ true, %cleanup2475.loopexit30077 ], [ true, %cleanup2475.loopexit30078 ], [ true, %while.cond.i25414.preheader ], [ true, %while.cond.i25556.preheader ], [ true, %while.cond.i32940.preheader ], [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33066 ], [ true, %invoke.cont2445 ], [ true, %invoke.cont2461 ], [ true, %if.end2436 ], [ true, %if.end82.i25511 ], [ true, %if.end82.i25653 ]
+  %retval.8 = phi i1 [ %retval.023878, %invoke.cont2472 ], [ false, %cleanup2475.loopexit ], [ false, %cleanup2475.loopexit30077 ], [ false, %cleanup2475.loopexit30078 ], [ false, %while.cond.i25414.preheader ], [ false, %while.cond.i25556.preheader ], [ false, %while.cond.i32940.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33066 ], [ false, %invoke.cont2445 ], [ false, %invoke.cont2461 ], [ false, %if.end2436 ], [ false, %if.end82.i25511 ], [ false, %if.end82.i25653 ]
   %3051 = load ptr, ptr %value_tmp_val2426, align 8
   %cmp.i.i.i19739 = icmp eq ptr %3051, %8
   br i1 %cmp.i.i.i19739, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19742, label %if.then.i.i19740
@@ -52823,7 +52823,7 @@ while.body.i25712:                                ; preds = %land.rhs.i25721
   %or101.i25719 = or i64 %shl100.i25718, %val.i25690.122698
   %add.i25720 = add i32 %shift.i25692.022697, 7
   %cmp92.i25699.not = icmp eq i64 %inc96.i25713, %size
-  br i1 %cmp92.i25699.not, label %return.loopexit29203, label %land.rhs.i25721, !llvm.loop !8
+  br i1 %cmp92.i25699.not, label %return.loopexit30253, label %land.rhs.i25721, !llvm.loop !8
 
 if.end104.i25703:                                 ; preds = %land.rhs.i25721
   store i64 %inc96.i25713, ptr %pos, align 8
@@ -53002,7 +53002,7 @@ while.body.i32812:                                ; preds = %land.rhs.i32821
   %or101.i32819 = or i64 %shl100.i32818, %val.i32790.122704
   %add.i32820 = add i32 %shift.i32792.022703, 7
   %cmp92.i32799.not = icmp eq i64 %inc96.i32813, %size
-  br i1 %cmp92.i32799.not, label %cleanup2536.loopexit29030, label %land.rhs.i32821, !llvm.loop !8
+  br i1 %cmp92.i32799.not, label %cleanup2536.loopexit30080, label %land.rhs.i32821, !llvm.loop !8
 
 if.end104.i32803:                                 ; preds = %land.rhs.i32821
   store i64 %inc96.i32813, ptr %pos, align 8
@@ -53512,7 +53512,7 @@ while.body.i25996:                                ; preds = %land.rhs.i26005
   %or101.i26003 = or i64 %shl100.i26002, %val.i25974.122712
   %add.i26004 = add i32 %shift.i25976.022711, 7
   %cmp92.i25983.not = icmp eq i64 %inc96.i25997, %add2486
-  br i1 %cmp92.i25983.not, label %cleanup2536.loopexit29029, label %land.rhs.i26005, !llvm.loop !8
+  br i1 %cmp92.i25983.not, label %cleanup2536.loopexit30079, label %land.rhs.i26005, !llvm.loop !8
 
 if.end104.i25987:                                 ; preds = %land.rhs.i26005
   store i64 %inc96.i25997, ptr %pos, align 8
@@ -53575,17 +53575,17 @@ cleanup2536.loopexit:                             ; preds = %while.body.i25854
   store i64 %inc96.i25855, ptr %pos, align 8
   br label %cleanup2536
 
-cleanup2536.loopexit29029:                        ; preds = %while.body.i25996
+cleanup2536.loopexit30079:                        ; preds = %while.body.i25996
   store i64 %inc96.i25997, ptr %pos, align 8
   br label %cleanup2536
 
-cleanup2536.loopexit29030:                        ; preds = %while.body.i32812
+cleanup2536.loopexit30080:                        ; preds = %while.body.i32812
   store i64 %inc96.i32813, ptr %pos, align 8
   br label %cleanup2536
 
-cleanup2536:                                      ; preds = %if.end82.i26079, %if.end82.i25937, %if.end2498, %invoke.cont2523, %invoke.cont2507, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32924, %while.cond.i32798.preheader, %while.cond.i25982.preheader, %while.cond.i25840.preheader, %cleanup2536.loopexit29030, %cleanup2536.loopexit29029, %cleanup2536.loopexit, %invoke.cont2533
-  %cmp249021430 = phi i1 [ false, %invoke.cont2533 ], [ true, %cleanup2536.loopexit ], [ true, %cleanup2536.loopexit29029 ], [ true, %cleanup2536.loopexit29030 ], [ true, %while.cond.i25840.preheader ], [ true, %while.cond.i25982.preheader ], [ true, %while.cond.i32798.preheader ], [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32924 ], [ true, %invoke.cont2507 ], [ true, %invoke.cont2523 ], [ true, %if.end2498 ], [ true, %if.end82.i25937 ], [ true, %if.end82.i26079 ]
-  %retval.9 = phi i1 [ %retval.023878, %invoke.cont2533 ], [ false, %cleanup2536.loopexit ], [ false, %cleanup2536.loopexit29029 ], [ false, %cleanup2536.loopexit29030 ], [ false, %while.cond.i25840.preheader ], [ false, %while.cond.i25982.preheader ], [ false, %while.cond.i32798.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32924 ], [ false, %invoke.cont2507 ], [ false, %invoke.cont2523 ], [ false, %if.end2498 ], [ false, %if.end82.i25937 ], [ false, %if.end82.i26079 ]
+cleanup2536:                                      ; preds = %if.end82.i26079, %if.end82.i25937, %if.end2498, %invoke.cont2523, %invoke.cont2507, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32924, %while.cond.i32798.preheader, %while.cond.i25982.preheader, %while.cond.i25840.preheader, %cleanup2536.loopexit30080, %cleanup2536.loopexit30079, %cleanup2536.loopexit, %invoke.cont2533
+  %cmp249021430 = phi i1 [ false, %invoke.cont2533 ], [ true, %cleanup2536.loopexit ], [ true, %cleanup2536.loopexit30079 ], [ true, %cleanup2536.loopexit30080 ], [ true, %while.cond.i25840.preheader ], [ true, %while.cond.i25982.preheader ], [ true, %while.cond.i32798.preheader ], [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32924 ], [ true, %invoke.cont2507 ], [ true, %invoke.cont2523 ], [ true, %if.end2498 ], [ true, %if.end82.i25937 ], [ true, %if.end82.i26079 ]
+  %retval.9 = phi i1 [ %retval.023878, %invoke.cont2533 ], [ false, %cleanup2536.loopexit ], [ false, %cleanup2536.loopexit30079 ], [ false, %cleanup2536.loopexit30080 ], [ false, %while.cond.i25840.preheader ], [ false, %while.cond.i25982.preheader ], [ false, %while.cond.i32798.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32924 ], [ false, %invoke.cont2507 ], [ false, %invoke.cont2523 ], [ false, %if.end2498 ], [ false, %if.end82.i25937 ], [ false, %if.end82.i26079 ]
   %3129 = load ptr, ptr %corecursive, align 8
   %cmp.not.i.i19789 = icmp eq ptr %3129, null
   br i1 %cmp.not.i.i19789, label %_ZN22protobuf_test_messages6proto218TestAllTypesProto213NestedMessageD2Ev.exit, label %_ZNKSt14default_deleteIN22protobuf_test_messages6proto218TestAllTypesProto2EEclEPS2_.exit.i
@@ -53775,7 +53775,7 @@ while.body.i26138:                                ; preds = %land.rhs.i26147
   %or101.i26145 = or i64 %shl100.i26144, %val.i26116.122665
   %add.i26146 = add i32 %shift.i26118.022664, 7
   %cmp92.i26125.not = icmp eq i64 %inc96.i26139, %size
-  br i1 %cmp92.i26125.not, label %return.loopexit29205, label %land.rhs.i26147, !llvm.loop !8
+  br i1 %cmp92.i26125.not, label %return.loopexit30255, label %land.rhs.i26147, !llvm.loop !8
 
 if.end104.i26129:                                 ; preds = %land.rhs.i26147
   store i64 %inc96.i26139, ptr %pos, align 8
@@ -53953,7 +53953,7 @@ while.body.i32670:                                ; preds = %land.rhs.i32679
   %or101.i32677 = or i64 %shl100.i32676, %val.i32648.122671
   %add.i32678 = add i32 %shift.i32650.022670, 7
   %cmp92.i32657.not = icmp eq i64 %inc96.i32671, %size
-  br i1 %cmp92.i32657.not, label %cleanup2597.loopexit29032, label %land.rhs.i32679, !llvm.loop !8
+  br i1 %cmp92.i32657.not, label %cleanup2597.loopexit30082, label %land.rhs.i32679, !llvm.loop !8
 
 if.end104.i32661:                                 ; preds = %land.rhs.i32679
   store i64 %inc96.i32671, ptr %pos, align 8
@@ -54462,7 +54462,7 @@ while.body.i26422:                                ; preds = %land.rhs.i26431
   %or101.i26429 = or i64 %shl100.i26428, %val.i26400.122679
   %add.i26430 = add i32 %shift.i26402.022678, 7
   %cmp92.i26409.not = icmp eq i64 %inc96.i26423, %add2547
-  br i1 %cmp92.i26409.not, label %cleanup2597.loopexit29031, label %land.rhs.i26431, !llvm.loop !8
+  br i1 %cmp92.i26409.not, label %cleanup2597.loopexit30081, label %land.rhs.i26431, !llvm.loop !8
 
 if.end104.i26413:                                 ; preds = %land.rhs.i26431
   store i64 %inc96.i26423, ptr %pos, align 8
@@ -54526,17 +54526,17 @@ cleanup2597.loopexit:                             ; preds = %while.body.i26280
   store i64 %inc96.i26281, ptr %pos, align 8
   br label %cleanup2597
 
-cleanup2597.loopexit29031:                        ; preds = %while.body.i26422
+cleanup2597.loopexit30081:                        ; preds = %while.body.i26422
   store i64 %inc96.i26423, ptr %pos, align 8
   br label %cleanup2597
 
-cleanup2597.loopexit29032:                        ; preds = %while.body.i32670
+cleanup2597.loopexit30082:                        ; preds = %while.body.i32670
   store i64 %inc96.i32671, ptr %pos, align 8
   br label %cleanup2597
 
-cleanup2597:                                      ; preds = %if.end82.i26505, %if.end82.i26363, %if.end2559, %invoke.cont2585, %invoke.cont2568, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32782, %while.cond.i32656.preheader, %while.cond.i26408.preheader, %while.cond.i26266.preheader, %cleanup2597.loopexit29032, %cleanup2597.loopexit29031, %cleanup2597.loopexit, %invoke.cont2595
-  %cmp255121408 = phi i1 [ false, %invoke.cont2595 ], [ true, %cleanup2597.loopexit ], [ true, %cleanup2597.loopexit29031 ], [ true, %cleanup2597.loopexit29032 ], [ true, %while.cond.i26266.preheader ], [ true, %while.cond.i26408.preheader ], [ true, %while.cond.i32656.preheader ], [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32782 ], [ true, %invoke.cont2568 ], [ true, %invoke.cont2585 ], [ true, %if.end2559 ], [ true, %if.end82.i26363 ], [ true, %if.end82.i26505 ]
-  %retval.10 = phi i1 [ %retval.023878, %invoke.cont2595 ], [ false, %cleanup2597.loopexit ], [ false, %cleanup2597.loopexit29031 ], [ false, %cleanup2597.loopexit29032 ], [ false, %while.cond.i26266.preheader ], [ false, %while.cond.i26408.preheader ], [ false, %while.cond.i32656.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32782 ], [ false, %invoke.cont2568 ], [ false, %invoke.cont2585 ], [ false, %if.end2559 ], [ false, %if.end82.i26363 ], [ false, %if.end82.i26505 ]
+cleanup2597:                                      ; preds = %if.end82.i26505, %if.end82.i26363, %if.end2559, %invoke.cont2585, %invoke.cont2568, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32782, %while.cond.i32656.preheader, %while.cond.i26408.preheader, %while.cond.i26266.preheader, %cleanup2597.loopexit30082, %cleanup2597.loopexit30081, %cleanup2597.loopexit, %invoke.cont2595
+  %cmp255121408 = phi i1 [ false, %invoke.cont2595 ], [ true, %cleanup2597.loopexit ], [ true, %cleanup2597.loopexit30081 ], [ true, %cleanup2597.loopexit30082 ], [ true, %while.cond.i26266.preheader ], [ true, %while.cond.i26408.preheader ], [ true, %while.cond.i32656.preheader ], [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32782 ], [ true, %invoke.cont2568 ], [ true, %invoke.cont2585 ], [ true, %if.end2559 ], [ true, %if.end82.i26363 ], [ true, %if.end82.i26505 ]
+  %retval.10 = phi i1 [ %retval.023878, %invoke.cont2595 ], [ false, %cleanup2597.loopexit ], [ false, %cleanup2597.loopexit30081 ], [ false, %cleanup2597.loopexit30082 ], [ false, %while.cond.i26266.preheader ], [ false, %while.cond.i26408.preheader ], [ false, %while.cond.i32656.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32782 ], [ false, %invoke.cont2568 ], [ false, %invoke.cont2585 ], [ false, %if.end2559 ], [ false, %if.end82.i26363 ], [ false, %if.end82.i26505 ]
   %3207 = load ptr, ptr %key_tmp_val2548, align 8
   %cmp.i.i.i19839 = icmp eq ptr %3207, %5
   br i1 %cmp.i.i.i19839, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19842, label %if.then.i.i19840
@@ -54715,7 +54715,7 @@ while.body.i26564:                                ; preds = %land.rhs.i26573
   %or101.i26571 = or i64 %shl100.i26570, %val.i26542.122630
   %add.i26572 = add i32 %shift.i26544.022629, 7
   %cmp92.i26551.not = icmp eq i64 %inc96.i26565, %size
-  br i1 %cmp92.i26551.not, label %return.loopexit29207, label %land.rhs.i26573, !llvm.loop !8
+  br i1 %cmp92.i26551.not, label %return.loopexit30257, label %land.rhs.i26573, !llvm.loop !8
 
 if.end104.i26555:                                 ; preds = %land.rhs.i26573
   store i64 %inc96.i26565, ptr %pos, align 8
@@ -54893,7 +54893,7 @@ while.body.i32528:                                ; preds = %land.rhs.i32537
   %or101.i32535 = or i64 %shl100.i32534, %val.i32506.122636
   %add.i32536 = add i32 %shift.i32508.022635, 7
   %cmp92.i32515.not = icmp eq i64 %inc96.i32529, %size
-  br i1 %cmp92.i32515.not, label %cleanup2650.loopexit29034, label %land.rhs.i32537, !llvm.loop !8
+  br i1 %cmp92.i32515.not, label %cleanup2650.loopexit30084, label %land.rhs.i32537, !llvm.loop !8
 
 if.end104.i32519:                                 ; preds = %land.rhs.i32537
   store i64 %inc96.i32529, ptr %pos, align 8
@@ -55386,7 +55386,7 @@ while.body.i26848:                                ; preds = %land.rhs.i26857
   %or101.i26855 = or i64 %shl100.i26854, %val.i26826.122644
   %add.i26856 = add i32 %shift.i26828.022643, 7
   %cmp92.i26835.not = icmp eq i64 %inc96.i26849, %add2607
-  br i1 %cmp92.i26835.not, label %cleanup2650.loopexit29033, label %land.rhs.i26857, !llvm.loop !8
+  br i1 %cmp92.i26835.not, label %cleanup2650.loopexit30083, label %land.rhs.i26857, !llvm.loop !8
 
 if.end104.i26839:                                 ; preds = %land.rhs.i26857
   store i64 %inc96.i26849, ptr %pos, align 8
@@ -55421,17 +55421,17 @@ cleanup2650.loopexit:                             ; preds = %while.body.i26706
   store i64 %inc96.i26707, ptr %pos, align 8
   br label %cleanup2650
 
-cleanup2650.loopexit29033:                        ; preds = %while.body.i26848
+cleanup2650.loopexit30083:                        ; preds = %while.body.i26848
   store i64 %inc96.i26849, ptr %pos, align 8
   br label %cleanup2650
 
-cleanup2650.loopexit29034:                        ; preds = %while.body.i32528
+cleanup2650.loopexit30084:                        ; preds = %while.body.i32528
   store i64 %inc96.i32529, ptr %pos, align 8
   br label %cleanup2650
 
-cleanup2650:                                      ; preds = %if.end82.i26931, %if.end82.i26789, %if.end2619, %invoke.cont2628, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32640, %while.cond.i32514.preheader, %while.cond.i26834.preheader, %while.cond.i26692.preheader, %cleanup2650.loopexit29034, %cleanup2650.loopexit29033, %cleanup2650.loopexit, %invoke.cont2648
-  %cmp261121378 = phi i1 [ false, %invoke.cont2648 ], [ true, %cleanup2650.loopexit ], [ true, %cleanup2650.loopexit29033 ], [ true, %cleanup2650.loopexit29034 ], [ true, %while.cond.i26692.preheader ], [ true, %while.cond.i26834.preheader ], [ true, %while.cond.i32514.preheader ], [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32640 ], [ true, %invoke.cont2628 ], [ true, %if.end2619 ], [ true, %if.end82.i26789 ], [ true, %if.end82.i26931 ]
-  %retval.11 = phi i1 [ %retval.023878, %invoke.cont2648 ], [ false, %cleanup2650.loopexit ], [ false, %cleanup2650.loopexit29033 ], [ false, %cleanup2650.loopexit29034 ], [ false, %while.cond.i26692.preheader ], [ false, %while.cond.i26834.preheader ], [ false, %while.cond.i32514.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32640 ], [ false, %invoke.cont2628 ], [ false, %if.end2619 ], [ false, %if.end82.i26789 ], [ false, %if.end82.i26931 ]
+cleanup2650:                                      ; preds = %if.end82.i26931, %if.end82.i26789, %if.end2619, %invoke.cont2628, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32640, %while.cond.i32514.preheader, %while.cond.i26834.preheader, %while.cond.i26692.preheader, %cleanup2650.loopexit30084, %cleanup2650.loopexit30083, %cleanup2650.loopexit, %invoke.cont2648
+  %cmp261121378 = phi i1 [ false, %invoke.cont2648 ], [ true, %cleanup2650.loopexit ], [ true, %cleanup2650.loopexit30083 ], [ true, %cleanup2650.loopexit30084 ], [ true, %while.cond.i26692.preheader ], [ true, %while.cond.i26834.preheader ], [ true, %while.cond.i32514.preheader ], [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32640 ], [ true, %invoke.cont2628 ], [ true, %if.end2619 ], [ true, %if.end82.i26789 ], [ true, %if.end82.i26931 ]
+  %retval.11 = phi i1 [ %retval.023878, %invoke.cont2648 ], [ false, %cleanup2650.loopexit ], [ false, %cleanup2650.loopexit30083 ], [ false, %cleanup2650.loopexit30084 ], [ false, %while.cond.i26692.preheader ], [ false, %while.cond.i26834.preheader ], [ false, %while.cond.i32514.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32640 ], [ false, %invoke.cont2628 ], [ false, %if.end2619 ], [ false, %if.end82.i26789 ], [ false, %if.end82.i26931 ]
   %3281 = load ptr, ptr %key_tmp_val2608, align 8
   %cmp.i.i.i19876 = icmp eq ptr %3281, %4
   br i1 %cmp.i.i.i19876, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19879, label %if.then.i.i19877
@@ -55610,7 +55610,7 @@ while.body.i26990:                                ; preds = %land.rhs.i26999
   %or101.i26997 = or i64 %shl100.i26996, %val.i26968.122596
   %add.i26998 = add i32 %shift.i26970.022595, 7
   %cmp92.i26977.not = icmp eq i64 %inc96.i26991, %size
-  br i1 %cmp92.i26977.not, label %return.loopexit29209, label %land.rhs.i26999, !llvm.loop !8
+  br i1 %cmp92.i26977.not, label %return.loopexit30259, label %land.rhs.i26999, !llvm.loop !8
 
 if.end104.i26981:                                 ; preds = %land.rhs.i26999
   store i64 %inc96.i26991, ptr %pos, align 8
@@ -55788,7 +55788,7 @@ while.body.i32386:                                ; preds = %land.rhs.i32395
   %or101.i32393 = or i64 %shl100.i32392, %val.i32364.122602
   %add.i32394 = add i32 %shift.i32366.022601, 7
   %cmp92.i32373.not = icmp eq i64 %inc96.i32387, %size
-  br i1 %cmp92.i32373.not, label %cleanup2703.loopexit29036, label %land.rhs.i32395, !llvm.loop !8
+  br i1 %cmp92.i32373.not, label %cleanup2703.loopexit30086, label %land.rhs.i32395, !llvm.loop !8
 
 if.end104.i32377:                                 ; preds = %land.rhs.i32395
   store i64 %inc96.i32387, ptr %pos, align 8
@@ -56281,7 +56281,7 @@ while.body.i27274:                                ; preds = %land.rhs.i27283
   %or101.i27281 = or i64 %shl100.i27280, %val.i27252.122609
   %add.i27282 = add i32 %shift.i27254.022608, 7
   %cmp92.i27261.not = icmp eq i64 %inc96.i27275, %add2660
-  br i1 %cmp92.i27261.not, label %cleanup2703.loopexit29035, label %land.rhs.i27283, !llvm.loop !8
+  br i1 %cmp92.i27261.not, label %cleanup2703.loopexit30085, label %land.rhs.i27283, !llvm.loop !8
 
 if.end104.i27265:                                 ; preds = %land.rhs.i27283
   store i64 %inc96.i27275, ptr %pos, align 8
@@ -56316,17 +56316,17 @@ cleanup2703.loopexit:                             ; preds = %while.body.i27132
   store i64 %inc96.i27133, ptr %pos, align 8
   br label %cleanup2703
 
-cleanup2703.loopexit29035:                        ; preds = %while.body.i27274
+cleanup2703.loopexit30085:                        ; preds = %while.body.i27274
   store i64 %inc96.i27275, ptr %pos, align 8
   br label %cleanup2703
 
-cleanup2703.loopexit29036:                        ; preds = %while.body.i32386
+cleanup2703.loopexit30086:                        ; preds = %while.body.i32386
   store i64 %inc96.i32387, ptr %pos, align 8
   br label %cleanup2703
 
-cleanup2703:                                      ; preds = %if.end82.i27357, %if.end82.i27215, %if.end2672, %invoke.cont2681, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32498, %while.cond.i32372.preheader, %while.cond.i27260.preheader, %while.cond.i27118.preheader, %cleanup2703.loopexit29036, %cleanup2703.loopexit29035, %cleanup2703.loopexit, %invoke.cont2701
-  %cmp266421349 = phi i1 [ false, %invoke.cont2701 ], [ true, %cleanup2703.loopexit ], [ true, %cleanup2703.loopexit29035 ], [ true, %cleanup2703.loopexit29036 ], [ true, %while.cond.i27118.preheader ], [ true, %while.cond.i27260.preheader ], [ true, %while.cond.i32372.preheader ], [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32498 ], [ true, %invoke.cont2681 ], [ true, %if.end2672 ], [ true, %if.end82.i27215 ], [ true, %if.end82.i27357 ]
-  %retval.12 = phi i1 [ %retval.023878, %invoke.cont2701 ], [ false, %cleanup2703.loopexit ], [ false, %cleanup2703.loopexit29035 ], [ false, %cleanup2703.loopexit29036 ], [ false, %while.cond.i27118.preheader ], [ false, %while.cond.i27260.preheader ], [ false, %while.cond.i32372.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32498 ], [ false, %invoke.cont2681 ], [ false, %if.end2672 ], [ false, %if.end82.i27215 ], [ false, %if.end82.i27357 ]
+cleanup2703:                                      ; preds = %if.end82.i27357, %if.end82.i27215, %if.end2672, %invoke.cont2681, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32498, %while.cond.i32372.preheader, %while.cond.i27260.preheader, %while.cond.i27118.preheader, %cleanup2703.loopexit30086, %cleanup2703.loopexit30085, %cleanup2703.loopexit, %invoke.cont2701
+  %cmp266421349 = phi i1 [ false, %invoke.cont2701 ], [ true, %cleanup2703.loopexit ], [ true, %cleanup2703.loopexit30085 ], [ true, %cleanup2703.loopexit30086 ], [ true, %while.cond.i27118.preheader ], [ true, %while.cond.i27260.preheader ], [ true, %while.cond.i32372.preheader ], [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32498 ], [ true, %invoke.cont2681 ], [ true, %if.end2672 ], [ true, %if.end82.i27215 ], [ true, %if.end82.i27357 ]
+  %retval.12 = phi i1 [ %retval.023878, %invoke.cont2701 ], [ false, %cleanup2703.loopexit ], [ false, %cleanup2703.loopexit30085 ], [ false, %cleanup2703.loopexit30086 ], [ false, %while.cond.i27118.preheader ], [ false, %while.cond.i27260.preheader ], [ false, %while.cond.i32372.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit32498 ], [ false, %invoke.cont2681 ], [ false, %if.end2672 ], [ false, %if.end82.i27215 ], [ false, %if.end82.i27357 ]
   %3355 = load ptr, ptr %key_tmp_val2661, align 8
   %cmp.i.i.i19913 = icmp eq ptr %3355, %3
   br i1 %cmp.i.i.i19913, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19916, label %if.then.i.i19914
@@ -56501,7 +56501,7 @@ while.body.i27416:                                ; preds = %land.rhs.i27425
   %or101.i27423 = or i64 %shl100.i27422, %val.i27394.122590
   %add.i27424 = add i32 %shift.i27396.022589, 7
   %cmp92.i27403.not = icmp eq i64 %inc96.i27417, %size
-  br i1 %cmp92.i27403.not, label %return.loopexit29210, label %land.rhs.i27425, !llvm.loop !8
+  br i1 %cmp92.i27403.not, label %return.loopexit30260, label %land.rhs.i27425, !llvm.loop !8
 
 if.end104.i27407:                                 ; preds = %land.rhs.i27425
   store i64 %inc96.i27417, ptr %pos, align 8
@@ -56694,7 +56694,7 @@ while.body.i27558:                                ; preds = %land.rhs.i27567
   %or101.i27565 = or i64 %shl100.i27564, %val.i27536.122584
   %add.i27566 = add i32 %shift.i27538.022583, 7
   %cmp92.i27545.not = icmp eq i64 %inc96.i27559, %size
-  br i1 %cmp92.i27545.not, label %return.loopexit29211, label %land.rhs.i27567, !llvm.loop !8
+  br i1 %cmp92.i27545.not, label %return.loopexit30261, label %land.rhs.i27567, !llvm.loop !8
 
 if.end104.i27549:                                 ; preds = %land.rhs.i27567
   store i64 %inc96.i27559, ptr %pos, align 8
@@ -56915,7 +56915,7 @@ while.body.i27700:                                ; preds = %land.rhs.i27709
   %or101.i27707 = or i64 %shl100.i27706, %val.i27678.122578
   %add.i27708 = add i32 %shift.i27680.022577, 7
   %cmp92.i27687.not = icmp eq i64 %inc96.i27701, %size
-  br i1 %cmp92.i27687.not, label %return.loopexit29212, label %land.rhs.i27709, !llvm.loop !8
+  br i1 %cmp92.i27687.not, label %return.loopexit30262, label %land.rhs.i27709, !llvm.loop !8
 
 if.end104.i27691:                                 ; preds = %land.rhs.i27709
   store i64 %inc96.i27701, ptr %pos, align 8
@@ -57201,7 +57201,7 @@ while.body.i27842:                                ; preds = %land.rhs.i27851
   %or101.i27849 = or i64 %shl100.i27848, %val.i27820.122572
   %add.i27850 = add i32 %shift.i27822.022571, 7
   %cmp92.i27829.not = icmp eq i64 %inc96.i27843, %size
-  br i1 %cmp92.i27829.not, label %return.loopexit29213, label %land.rhs.i27851, !llvm.loop !8
+  br i1 %cmp92.i27829.not, label %return.loopexit30263, label %land.rhs.i27851, !llvm.loop !8
 
 if.end104.i27833:                                 ; preds = %land.rhs.i27851
   store i64 %inc96.i27843, ptr %pos, align 8
@@ -57491,7 +57491,7 @@ while.body.i27984:                                ; preds = %land.rhs.i27993
   %or101.i27991 = or i64 %shl100.i27990, %val.i27962.122566
   %add.i27992 = add i32 %shift.i27964.022565, 7
   %cmp92.i27971.not = icmp eq i64 %inc96.i27985, %size
-  br i1 %cmp92.i27971.not, label %return.loopexit29214, label %land.rhs.i27993, !llvm.loop !8
+  br i1 %cmp92.i27971.not, label %return.loopexit30264, label %land.rhs.i27993, !llvm.loop !8
 
 if.end104.i27975:                                 ; preds = %land.rhs.i27993
   store i64 %inc96.i27985, ptr %pos, align 8
@@ -57683,7 +57683,7 @@ while.body.i28126:                                ; preds = %land.rhs.i28135
   %or101.i28133 = or i64 %shl100.i28132, %val.i28104.122560
   %add.i28134 = add i32 %shift.i28106.022559, 7
   %cmp92.i28113.not = icmp eq i64 %inc96.i28127, %size
-  br i1 %cmp92.i28113.not, label %return.loopexit29215, label %land.rhs.i28135, !llvm.loop !8
+  br i1 %cmp92.i28113.not, label %return.loopexit30265, label %land.rhs.i28135, !llvm.loop !8
 
 if.end104.i28117:                                 ; preds = %land.rhs.i28135
   store i64 %inc96.i28127, ptr %pos, align 8
@@ -57908,7 +57908,7 @@ while.body.i28268:                                ; preds = %land.rhs.i28277
   %or101.i28275 = or i64 %shl100.i28274, %val.i28246.122554
   %add.i28276 = add i32 %shift.i28248.022553, 7
   %cmp92.i28255.not = icmp eq i64 %inc96.i28269, %size
-  br i1 %cmp92.i28255.not, label %return.loopexit29216, label %land.rhs.i28277, !llvm.loop !8
+  br i1 %cmp92.i28255.not, label %return.loopexit30266, label %land.rhs.i28277, !llvm.loop !8
 
 if.end104.i28259:                                 ; preds = %land.rhs.i28277
   store i64 %inc96.i28269, ptr %pos, align 8
@@ -58096,7 +58096,7 @@ while.body.i28410:                                ; preds = %land.rhs.i28419
   %or101.i28417 = or i64 %shl100.i28416, %val.i28388.122548
   %add.i28418 = add i32 %shift.i28390.022547, 7
   %cmp92.i28397.not = icmp eq i64 %inc96.i28411, %size
-  br i1 %cmp92.i28397.not, label %return.loopexit29217, label %land.rhs.i28419, !llvm.loop !8
+  br i1 %cmp92.i28397.not, label %return.loopexit30267, label %land.rhs.i28419, !llvm.loop !8
 
 if.end104.i28401:                                 ; preds = %land.rhs.i28419
   store i64 %inc96.i28411, ptr %pos, align 8
@@ -58286,7 +58286,7 @@ while.body.i28552:                                ; preds = %land.rhs.i28561
   %or101.i28559 = or i64 %shl100.i28558, %val.i28530.122542
   %add.i28560 = add i32 %shift.i28532.022541, 7
   %cmp92.i28539.not = icmp eq i64 %inc96.i28553, %size
-  br i1 %cmp92.i28539.not, label %return.loopexit29218, label %land.rhs.i28561, !llvm.loop !8
+  br i1 %cmp92.i28539.not, label %return.loopexit30268, label %land.rhs.i28561, !llvm.loop !8
 
 if.end104.i28543:                                 ; preds = %land.rhs.i28561
   store i64 %inc96.i28553, ptr %pos, align 8
@@ -58471,7 +58471,7 @@ while.body.i28694:                                ; preds = %land.rhs.i28703
   %or101.i28701 = or i64 %shl100.i28700, %val.i28672.122536
   %add.i28702 = add i32 %shift.i28674.022535, 7
   %cmp92.i28681.not = icmp eq i64 %inc96.i28695, %size
-  br i1 %cmp92.i28681.not, label %return.loopexit29219, label %land.rhs.i28703, !llvm.loop !8
+  br i1 %cmp92.i28681.not, label %return.loopexit30269, label %land.rhs.i28703, !llvm.loop !8
 
 if.end104.i28685:                                 ; preds = %land.rhs.i28703
   store i64 %inc96.i28695, ptr %pos, align 8
@@ -58636,7 +58636,7 @@ while.body.i28836:                                ; preds = %land.rhs.i28845
   %or101.i28843 = or i64 %shl100.i28842, %val.i28814.122530
   %add.i28844 = add i32 %shift.i28816.022529, 7
   %cmp92.i28823.not = icmp eq i64 %inc96.i28837, %size
-  br i1 %cmp92.i28823.not, label %return.loopexit29220, label %land.rhs.i28845, !llvm.loop !8
+  br i1 %cmp92.i28823.not, label %return.loopexit30270, label %land.rhs.i28845, !llvm.loop !8
 
 if.end104.i28827:                                 ; preds = %land.rhs.i28845
   store i64 %inc96.i28837, ptr %pos, align 8
@@ -58821,7 +58821,7 @@ while.body.i28978:                                ; preds = %land.rhs.i28987
   %or101.i28985 = or i64 %shl100.i28984, %val.i28956.122524
   %add.i28986 = add i32 %shift.i28958.022523, 7
   %cmp92.i28965.not = icmp eq i64 %inc96.i28979, %size
-  br i1 %cmp92.i28965.not, label %return.loopexit29221, label %land.rhs.i28987, !llvm.loop !8
+  br i1 %cmp92.i28965.not, label %return.loopexit30271, label %land.rhs.i28987, !llvm.loop !8
 
 if.end104.i28969:                                 ; preds = %land.rhs.i28987
   store i64 %inc96.i28979, ptr %pos, align 8
@@ -58978,7 +58978,7 @@ while.body.i29120:                                ; preds = %land.rhs.i29129
   %or101.i29127 = or i64 %shl100.i29126, %val.i29098.122518
   %add.i29128 = add i32 %shift.i29100.022517, 7
   %cmp92.i29107.not = icmp eq i64 %inc96.i29121, %size
-  br i1 %cmp92.i29107.not, label %return.loopexit29222, label %land.rhs.i29129, !llvm.loop !8
+  br i1 %cmp92.i29107.not, label %return.loopexit30272, label %land.rhs.i29129, !llvm.loop !8
 
 if.end104.i29111:                                 ; preds = %land.rhs.i29129
   store i64 %inc96.i29121, ptr %pos, align 8
@@ -59160,7 +59160,7 @@ while.body.i29262:                                ; preds = %land.rhs.i29271
   %or101.i29269 = or i64 %shl100.i29268, %val.i29240.122512
   %add.i29270 = add i32 %shift.i29242.022511, 7
   %cmp92.i29249.not = icmp eq i64 %inc96.i29263, %size
-  br i1 %cmp92.i29249.not, label %return.loopexit29223, label %land.rhs.i29271, !llvm.loop !8
+  br i1 %cmp92.i29249.not, label %return.loopexit30273, label %land.rhs.i29271, !llvm.loop !8
 
 if.end104.i29253:                                 ; preds = %land.rhs.i29271
   store i64 %inc96.i29263, ptr %pos, align 8
@@ -59420,7 +59420,7 @@ while.body.i29404:                                ; preds = %land.rhs.i29413
   %or101.i29411 = or i64 %shl100.i29410, %val.i29382.122506
   %add.i29412 = add i32 %shift.i29384.022505, 7
   %cmp92.i29391.not = icmp eq i64 %inc96.i29405, %size
-  br i1 %cmp92.i29391.not, label %return.loopexit29224, label %land.rhs.i29413, !llvm.loop !8
+  br i1 %cmp92.i29391.not, label %return.loopexit30274, label %land.rhs.i29413, !llvm.loop !8
 
 if.end104.i29395:                                 ; preds = %land.rhs.i29413
   store i64 %inc96.i29405, ptr %pos, align 8
@@ -59611,7 +59611,7 @@ while.body.i29546:                                ; preds = %land.rhs.i29555
   %or101.i29553 = or i64 %shl100.i29552, %val.i29524.122500
   %add.i29554 = add i32 %shift.i29526.022499, 7
   %cmp92.i29533.not = icmp eq i64 %inc96.i29547, %size
-  br i1 %cmp92.i29533.not, label %return.loopexit29225, label %land.rhs.i29555, !llvm.loop !8
+  br i1 %cmp92.i29533.not, label %return.loopexit30275, label %land.rhs.i29555, !llvm.loop !8
 
 if.end104.i29537:                                 ; preds = %land.rhs.i29555
   store i64 %inc96.i29547, ptr %pos, align 8
@@ -59891,7 +59891,7 @@ while.body.i29688:                                ; preds = %land.rhs.i29697
   %or101.i29695 = or i64 %shl100.i29694, %val.i29666.122494
   %add.i29696 = add i32 %shift.i29668.022493, 7
   %cmp92.i29675.not = icmp eq i64 %inc96.i29689, %size
-  br i1 %cmp92.i29675.not, label %return.loopexit29226, label %land.rhs.i29697, !llvm.loop !8
+  br i1 %cmp92.i29675.not, label %return.loopexit30276, label %land.rhs.i29697, !llvm.loop !8
 
 if.end104.i29679:                                 ; preds = %land.rhs.i29697
   store i64 %inc96.i29689, ptr %pos, align 8
@@ -60139,7 +60139,7 @@ while.body.i29830:                                ; preds = %land.rhs.i29839
   %or101.i29837 = or i64 %shl100.i29836, %val.i29808.122488
   %add.i29838 = add i32 %shift.i29810.022487, 7
   %cmp92.i29817.not = icmp eq i64 %inc96.i29831, %size
-  br i1 %cmp92.i29817.not, label %return.loopexit29227, label %land.rhs.i29839, !llvm.loop !8
+  br i1 %cmp92.i29817.not, label %return.loopexit30277, label %land.rhs.i29839, !llvm.loop !8
 
 if.end104.i29821:                                 ; preds = %land.rhs.i29839
   store i64 %inc96.i29831, ptr %pos, align 8
@@ -60305,7 +60305,7 @@ while.body.i29972:                                ; preds = %land.rhs.i29981
   %or101.i29979 = or i64 %shl100.i29978, %val.i29950.122482
   %add.i29980 = add i32 %shift.i29952.022481, 7
   %cmp92.i29959.not = icmp eq i64 %inc96.i29973, %size
-  br i1 %cmp92.i29959.not, label %return.loopexit29228, label %land.rhs.i29981, !llvm.loop !8
+  br i1 %cmp92.i29959.not, label %return.loopexit30278, label %land.rhs.i29981, !llvm.loop !8
 
 if.end104.i29963:                                 ; preds = %land.rhs.i29981
   store i64 %inc96.i29973, ptr %pos, align 8
@@ -60471,7 +60471,7 @@ while.body.i30114:                                ; preds = %land.rhs.i30123
   %or101.i30121 = or i64 %shl100.i30120, %val.i30092.122476
   %add.i30122 = add i32 %shift.i30094.022475, 7
   %cmp92.i30101.not = icmp eq i64 %inc96.i30115, %size
-  br i1 %cmp92.i30101.not, label %return.loopexit29229, label %land.rhs.i30123, !llvm.loop !8
+  br i1 %cmp92.i30101.not, label %return.loopexit30279, label %land.rhs.i30123, !llvm.loop !8
 
 if.end104.i30105:                                 ; preds = %land.rhs.i30123
   store i64 %inc96.i30115, ptr %pos, align 8
@@ -60637,7 +60637,7 @@ while.body.i30256:                                ; preds = %land.rhs.i30265
   %or101.i30263 = or i64 %shl100.i30262, %val.i30234.122470
   %add.i30264 = add i32 %shift.i30236.022469, 7
   %cmp92.i30243.not = icmp eq i64 %inc96.i30257, %size
-  br i1 %cmp92.i30243.not, label %return.loopexit29230, label %land.rhs.i30265, !llvm.loop !8
+  br i1 %cmp92.i30243.not, label %return.loopexit30280, label %land.rhs.i30265, !llvm.loop !8
 
 if.end104.i30247:                                 ; preds = %land.rhs.i30265
   store i64 %inc96.i30257, ptr %pos, align 8
@@ -60803,7 +60803,7 @@ while.body.i30398:                                ; preds = %land.rhs.i30407
   %or101.i30405 = or i64 %shl100.i30404, %val.i30376.122464
   %add.i30406 = add i32 %shift.i30378.022463, 7
   %cmp92.i30385.not = icmp eq i64 %inc96.i30399, %size
-  br i1 %cmp92.i30385.not, label %return.loopexit29231, label %land.rhs.i30407, !llvm.loop !8
+  br i1 %cmp92.i30385.not, label %return.loopexit30281, label %land.rhs.i30407, !llvm.loop !8
 
 if.end104.i30389:                                 ; preds = %land.rhs.i30407
   store i64 %inc96.i30399, ptr %pos, align 8
@@ -60969,7 +60969,7 @@ while.body.i30540:                                ; preds = %land.rhs.i30549
   %or101.i30547 = or i64 %shl100.i30546, %val.i30518.122458
   %add.i30548 = add i32 %shift.i30520.022457, 7
   %cmp92.i30527.not = icmp eq i64 %inc96.i30541, %size
-  br i1 %cmp92.i30527.not, label %return.loopexit29232, label %land.rhs.i30549, !llvm.loop !8
+  br i1 %cmp92.i30527.not, label %return.loopexit30282, label %land.rhs.i30549, !llvm.loop !8
 
 if.end104.i30531:                                 ; preds = %land.rhs.i30549
   store i64 %inc96.i30541, ptr %pos, align 8
@@ -61135,7 +61135,7 @@ while.body.i30682:                                ; preds = %land.rhs.i30691
   %or101.i30689 = or i64 %shl100.i30688, %val.i30660.122452
   %add.i30690 = add i32 %shift.i30662.022451, 7
   %cmp92.i30669.not = icmp eq i64 %inc96.i30683, %size
-  br i1 %cmp92.i30669.not, label %return.loopexit29233, label %land.rhs.i30691, !llvm.loop !8
+  br i1 %cmp92.i30669.not, label %return.loopexit30283, label %land.rhs.i30691, !llvm.loop !8
 
 if.end104.i30673:                                 ; preds = %land.rhs.i30691
   store i64 %inc96.i30683, ptr %pos, align 8
@@ -61301,7 +61301,7 @@ while.body.i30824:                                ; preds = %land.rhs.i30833
   %or101.i30831 = or i64 %shl100.i30830, %val.i30802.122446
   %add.i30832 = add i32 %shift.i30804.022445, 7
   %cmp92.i30811.not = icmp eq i64 %inc96.i30825, %size
-  br i1 %cmp92.i30811.not, label %return.loopexit29234, label %land.rhs.i30833, !llvm.loop !8
+  br i1 %cmp92.i30811.not, label %return.loopexit30284, label %land.rhs.i30833, !llvm.loop !8
 
 if.end104.i30815:                                 ; preds = %land.rhs.i30833
   store i64 %inc96.i30825, ptr %pos, align 8
@@ -61467,7 +61467,7 @@ while.body.i30966:                                ; preds = %land.rhs.i30975
   %or101.i30973 = or i64 %shl100.i30972, %val.i30944.122440
   %add.i30974 = add i32 %shift.i30946.022439, 7
   %cmp92.i30953.not = icmp eq i64 %inc96.i30967, %size
-  br i1 %cmp92.i30953.not, label %return.loopexit29235, label %land.rhs.i30975, !llvm.loop !8
+  br i1 %cmp92.i30953.not, label %return.loopexit30285, label %land.rhs.i30975, !llvm.loop !8
 
 if.end104.i30957:                                 ; preds = %land.rhs.i30975
   store i64 %inc96.i30967, ptr %pos, align 8
@@ -61633,7 +61633,7 @@ while.body.i31108:                                ; preds = %land.rhs.i31117
   %or101.i31115 = or i64 %shl100.i31114, %val.i31086.122434
   %add.i31116 = add i32 %shift.i31088.022433, 7
   %cmp92.i31095.not = icmp eq i64 %inc96.i31109, %size
-  br i1 %cmp92.i31095.not, label %return.loopexit29236, label %land.rhs.i31117, !llvm.loop !8
+  br i1 %cmp92.i31095.not, label %return.loopexit30286, label %land.rhs.i31117, !llvm.loop !8
 
 if.end104.i31099:                                 ; preds = %land.rhs.i31117
   store i64 %inc96.i31109, ptr %pos, align 8
@@ -61799,7 +61799,7 @@ while.body.i31250:                                ; preds = %land.rhs.i31259
   %or101.i31257 = or i64 %shl100.i31256, %val.i31228.122428
   %add.i31258 = add i32 %shift.i31230.022427, 7
   %cmp92.i31237.not = icmp eq i64 %inc96.i31251, %size
-  br i1 %cmp92.i31237.not, label %return.loopexit29237, label %land.rhs.i31259, !llvm.loop !8
+  br i1 %cmp92.i31237.not, label %return.loopexit30287, label %land.rhs.i31259, !llvm.loop !8
 
 if.end104.i31241:                                 ; preds = %land.rhs.i31259
   store i64 %inc96.i31251, ptr %pos, align 8
@@ -61965,7 +61965,7 @@ while.body.i31392:                                ; preds = %land.rhs.i31401
   %or101.i31399 = or i64 %shl100.i31398, %val.i31370.122422
   %add.i31400 = add i32 %shift.i31372.022421, 7
   %cmp92.i31379.not = icmp eq i64 %inc96.i31393, %size
-  br i1 %cmp92.i31379.not, label %return.loopexit29238, label %land.rhs.i31401, !llvm.loop !8
+  br i1 %cmp92.i31379.not, label %return.loopexit30288, label %land.rhs.i31401, !llvm.loop !8
 
 if.end104.i31383:                                 ; preds = %land.rhs.i31401
   store i64 %inc96.i31393, ptr %pos, align 8
@@ -62131,7 +62131,7 @@ while.body.i31534:                                ; preds = %land.rhs.i31543
   %or101.i31541 = or i64 %shl100.i31540, %val.i31512.122416
   %add.i31542 = add i32 %shift.i31514.022415, 7
   %cmp92.i31521.not = icmp eq i64 %inc96.i31535, %size
-  br i1 %cmp92.i31521.not, label %return.loopexit29239, label %land.rhs.i31543, !llvm.loop !8
+  br i1 %cmp92.i31521.not, label %return.loopexit30289, label %land.rhs.i31543, !llvm.loop !8
 
 if.end104.i31525:                                 ; preds = %land.rhs.i31543
   store i64 %inc96.i31535, ptr %pos, align 8
@@ -62297,7 +62297,7 @@ while.body.i31676:                                ; preds = %land.rhs.i31685
   %or101.i31683 = or i64 %shl100.i31682, %val.i31654.122410
   %add.i31684 = add i32 %shift.i31656.022409, 7
   %cmp92.i31663.not = icmp eq i64 %inc96.i31677, %size
-  br i1 %cmp92.i31663.not, label %return.loopexit29240, label %land.rhs.i31685, !llvm.loop !8
+  br i1 %cmp92.i31663.not, label %return.loopexit30290, label %land.rhs.i31685, !llvm.loop !8
 
 if.end104.i31667:                                 ; preds = %land.rhs.i31685
   store i64 %inc96.i31677, ptr %pos, align 8
@@ -62463,7 +62463,7 @@ while.body.i31818:                                ; preds = %land.rhs.i31827
   %or101.i31825 = or i64 %shl100.i31824, %val.i31796.122404
   %add.i31826 = add i32 %shift.i31798.022403, 7
   %cmp92.i31805.not = icmp eq i64 %inc96.i31819, %size
-  br i1 %cmp92.i31805.not, label %return.loopexit29241, label %land.rhs.i31827, !llvm.loop !8
+  br i1 %cmp92.i31805.not, label %return.loopexit30291, label %land.rhs.i31827, !llvm.loop !8
 
 if.end104.i31809:                                 ; preds = %land.rhs.i31827
   store i64 %inc96.i31819, ptr %pos, align 8
@@ -62629,7 +62629,7 @@ while.body.i31960:                                ; preds = %land.rhs.i31969
   %or101.i31967 = or i64 %shl100.i31966, %val.i31938.122398
   %add.i31968 = add i32 %shift.i31940.022397, 7
   %cmp92.i31947.not = icmp eq i64 %inc96.i31961, %size
-  br i1 %cmp92.i31947.not, label %return.loopexit29242, label %land.rhs.i31969, !llvm.loop !8
+  br i1 %cmp92.i31947.not, label %return.loopexit30292, label %land.rhs.i31969, !llvm.loop !8
 
 if.end104.i31951:                                 ; preds = %land.rhs.i31969
   store i64 %inc96.i31961, ptr %pos, align 8
@@ -62795,7 +62795,7 @@ while.body.i32102:                                ; preds = %land.rhs.i32111
   %or101.i32109 = or i64 %shl100.i32108, %val.i32080.122392
   %add.i32110 = add i32 %shift.i32082.022391, 7
   %cmp92.i32089.not = icmp eq i64 %inc96.i32103, %size
-  br i1 %cmp92.i32089.not, label %return.loopexit29243, label %land.rhs.i32111, !llvm.loop !8
+  br i1 %cmp92.i32089.not, label %return.loopexit30293, label %land.rhs.i32111, !llvm.loop !8
 
 if.end104.i32093:                                 ; preds = %land.rhs.i32111
   store i64 %inc96.i32103, ptr %pos, align 8
@@ -62961,7 +62961,7 @@ while.body.i32244:                                ; preds = %land.rhs.i32253
   %or101.i32251 = or i64 %shl100.i32250, %val.i32222.122386
   %add.i32252 = add i32 %shift.i32224.022385, 7
   %cmp92.i32231.not = icmp eq i64 %inc96.i32245, %size
-  br i1 %cmp92.i32231.not, label %return.loopexit29244, label %land.rhs.i32253, !llvm.loop !8
+  br i1 %cmp92.i32231.not, label %return.loopexit30294, label %land.rhs.i32253, !llvm.loop !8
 
 if.end104.i32235:                                 ; preds = %land.rhs.i32253
   store i64 %inc96.i32245, ptr %pos, align 8
@@ -63001,732 +63001,732 @@ return.loopexit:                                  ; preds = %while.body.i6968
   store i64 %inc96.i6969, ptr %pos, align 8
   br label %return
 
-return.loopexit28972:                             ; preds = %while.body.i7394
+return.loopexit30022:                             ; preds = %while.body.i7394
   store i64 %inc96.i7395, ptr %pos, align 8
   br label %return
 
-return.loopexit28973:                             ; preds = %while.body.i7820
+return.loopexit30023:                             ; preds = %while.body.i7820
   store i64 %inc96.i7821, ptr %pos, align 8
   br label %return
 
-return.loopexit28974:                             ; preds = %while.body.i8246
+return.loopexit30024:                             ; preds = %while.body.i8246
   store i64 %inc96.i8247, ptr %pos, align 8
   br label %return
 
-return.loopexit28975:                             ; preds = %while.body.i8672
+return.loopexit30025:                             ; preds = %while.body.i8672
   store i64 %inc96.i8673, ptr %pos, align 8
   br label %return
 
-return.loopexit28976:                             ; preds = %while.body.i9098
+return.loopexit30026:                             ; preds = %while.body.i9098
   store i64 %inc96.i9099, ptr %pos, align 8
   br label %return
 
-return.loopexit28977:                             ; preds = %while.body.i10376
+return.loopexit30027:                             ; preds = %while.body.i10376
   store i64 %inc96.i10377, ptr %pos, align 8
   br label %return
 
-return.loopexit28978:                             ; preds = %while.body.i11228
+return.loopexit30028:                             ; preds = %while.body.i11228
   store i64 %inc96.i11229, ptr %pos, align 8
   br label %return
 
-return.loopexit28979:                             ; preds = %while.body.i11654
+return.loopexit30029:                             ; preds = %while.body.i11654
   store i64 %inc96.i11655, ptr %pos, align 8
   br label %return
 
-return.loopexit28980:                             ; preds = %while.body.i12506
+return.loopexit30030:                             ; preds = %while.body.i12506
   store i64 %inc96.i12507, ptr %pos, align 8
   br label %return
 
-return.loopexit28981:                             ; preds = %while.body.i12932
+return.loopexit30031:                             ; preds = %while.body.i12932
   store i64 %inc96.i12933, ptr %pos, align 8
   br label %return
 
-return.loopexit28982:                             ; preds = %while.body.i13358
+return.loopexit30032:                             ; preds = %while.body.i13358
   store i64 %inc96.i13359, ptr %pos, align 8
   br label %return
 
-return.loopexit28983:                             ; preds = %while.body.i13784
+return.loopexit30033:                             ; preds = %while.body.i13784
   store i64 %inc96.i13785, ptr %pos, align 8
   br label %return
 
-return.loopexit28984:                             ; preds = %while.body.i14210
+return.loopexit30034:                             ; preds = %while.body.i14210
   store i64 %inc96.i14211, ptr %pos, align 8
   br label %return
 
-return.loopexit28985:                             ; preds = %while.body.i14636
+return.loopexit30035:                             ; preds = %while.body.i14636
   store i64 %inc96.i14637, ptr %pos, align 8
   br label %return
 
-return.loopexit28986:                             ; preds = %while.body.i15914
+return.loopexit30036:                             ; preds = %while.body.i15914
   store i64 %inc96.i15915, ptr %pos, align 8
   br label %return
 
-return.loopexit28987:                             ; preds = %while.body.i16198
+return.loopexit30037:                             ; preds = %while.body.i16198
   store i64 %inc96.i16199, ptr %pos, align 8
   br label %return
 
-return.loopexit28988:                             ; preds = %while.body.i16766
+return.loopexit30038:                             ; preds = %while.body.i16766
   store i64 %inc96.i16767, ptr %pos, align 8
   br label %return
 
-return.loopexit28989:                             ; preds = %while.body.i17192
+return.loopexit30039:                             ; preds = %while.body.i17192
   store i64 %inc96.i17193, ptr %pos, align 8
   br label %return
 
-return.loopexit28990:                             ; preds = %while.body.i17618
+return.loopexit30040:                             ; preds = %while.body.i17618
   store i64 %inc96.i17619, ptr %pos, align 8
   br label %return
 
-return.loopexit28991:                             ; preds = %while.body.i18044
+return.loopexit30041:                             ; preds = %while.body.i18044
   store i64 %inc96.i18045, ptr %pos, align 8
   br label %return
 
-return.loopexit28992:                             ; preds = %while.body.i18470
+return.loopexit30042:                             ; preds = %while.body.i18470
   store i64 %inc96.i18471, ptr %pos, align 8
   br label %return
 
-return.loopexit28993:                             ; preds = %while.body.i18896
+return.loopexit30043:                             ; preds = %while.body.i18896
   store i64 %inc96.i18897, ptr %pos, align 8
   br label %return
 
-return.loopexit28994:                             ; preds = %while.body.i20174
+return.loopexit30044:                             ; preds = %while.body.i20174
   store i64 %inc96.i20175, ptr %pos, align 8
   br label %return
 
-return.loopexit28995:                             ; preds = %while.body.i20458
+return.loopexit30045:                             ; preds = %while.body.i20458
   store i64 %inc96.i20459, ptr %pos, align 8
   br label %return
 
-return.loopexit28996:                             ; preds = %while.body.i20884
+return.loopexit30046:                             ; preds = %while.body.i20884
   store i64 %inc96.i20885, ptr %pos, align 8
   br label %return
 
-return.loopexit28997:                             ; preds = %while.body.i21026
+return.loopexit30047:                             ; preds = %while.body.i21026
   store i64 %inc96.i21027, ptr %pos, align 8
   br label %return
 
-return.loopexit28999:                             ; preds = %while.body.i21310
+return.loopexit30049:                             ; preds = %while.body.i21310
   store i64 %inc96.i21311, ptr %pos, align 8
   br label %return
 
-return.loopexit29000:                             ; preds = %while.body.i21452
+return.loopexit30050:                             ; preds = %while.body.i21452
   store i64 %inc96.i21453, ptr %pos, align 8
   br label %return
 
-return.loopexit29002:                             ; preds = %while.body.i21736
+return.loopexit30052:                             ; preds = %while.body.i21736
   store i64 %inc96.i21737, ptr %pos, align 8
   br label %return
 
-return.loopexit29003:                             ; preds = %while.body.i21878
+return.loopexit30053:                             ; preds = %while.body.i21878
   store i64 %inc96.i21879, ptr %pos, align 8
   br label %return
 
-return.loopexit29005:                             ; preds = %while.body.i22162
+return.loopexit30055:                             ; preds = %while.body.i22162
   store i64 %inc96.i22163, ptr %pos, align 8
   br label %return
 
-return.loopexit29006:                             ; preds = %while.body.i22304
+return.loopexit30056:                             ; preds = %while.body.i22304
   store i64 %inc96.i22305, ptr %pos, align 8
   br label %return
 
-return.loopexit29008:                             ; preds = %while.body.i22588
+return.loopexit30058:                             ; preds = %while.body.i22588
   store i64 %inc96.i22589, ptr %pos, align 8
   br label %return
 
-return.loopexit29009:                             ; preds = %while.body.i22730
+return.loopexit30059:                             ; preds = %while.body.i22730
   store i64 %inc96.i22731, ptr %pos, align 8
   br label %return
 
-return.loopexit29011:                             ; preds = %while.body.i23014
+return.loopexit30061:                             ; preds = %while.body.i23014
   store i64 %inc96.i23015, ptr %pos, align 8
   br label %return
 
-return.loopexit29012:                             ; preds = %while.body.i23156
+return.loopexit30062:                             ; preds = %while.body.i23156
   store i64 %inc96.i23157, ptr %pos, align 8
   br label %return
 
-return.loopexit29018:                             ; preds = %while.body.i24008
+return.loopexit30068:                             ; preds = %while.body.i24008
   store i64 %inc96.i24009, ptr %pos, align 8
   br label %return
 
-return.loopexit29020:                             ; preds = %while.body.i24292
+return.loopexit30070:                             ; preds = %while.body.i24292
   store i64 %inc96.i24293, ptr %pos, align 8
   br label %return
 
-return.loopexit29022:                             ; preds = %while.body.i24576
+return.loopexit30072:                             ; preds = %while.body.i24576
   store i64 %inc96.i24577, ptr %pos, align 8
   br label %return
 
-return.loopexit29023:                             ; preds = %while.body.i24718
+return.loopexit30073:                             ; preds = %while.body.i24718
   store i64 %inc96.i24719, ptr %pos, align 8
   br label %return
 
-return.loopexit29037:                             ; preds = %while.body.i
+return.loopexit30087:                             ; preds = %while.body.i
   store i64 %inc96.i, ptr %pos, align 8
   br label %return
 
-return.loopexit29038:                             ; preds = %while.body.i4554
+return.loopexit30088:                             ; preds = %while.body.i4554
   store i64 %inc96.i4555, ptr %pos, align 8
   br label %return
 
-return.loopexit29039:                             ; preds = %while.body.i4696
+return.loopexit30089:                             ; preds = %while.body.i4696
   store i64 %inc96.i4697, ptr %pos, align 8
   br label %return
 
-return.loopexit29040:                             ; preds = %while.body.i4838
+return.loopexit30090:                             ; preds = %while.body.i4838
   store i64 %inc96.i4839, ptr %pos, align 8
   br label %return
 
-return.loopexit29041:                             ; preds = %while.body.i4980
+return.loopexit30091:                             ; preds = %while.body.i4980
   store i64 %inc96.i4981, ptr %pos, align 8
   br label %return
 
-return.loopexit29042:                             ; preds = %while.body.i5122
+return.loopexit30092:                             ; preds = %while.body.i5122
   store i64 %inc96.i5123, ptr %pos, align 8
   br label %return
 
-return.loopexit29043:                             ; preds = %while.body.i5264
+return.loopexit30093:                             ; preds = %while.body.i5264
   store i64 %inc96.i5265, ptr %pos, align 8
   br label %return
 
-return.loopexit29044:                             ; preds = %while.body.i5406
+return.loopexit30094:                             ; preds = %while.body.i5406
   store i64 %inc96.i5407, ptr %pos, align 8
   br label %return
 
-return.loopexit29045:                             ; preds = %while.body.i5548
+return.loopexit30095:                             ; preds = %while.body.i5548
   store i64 %inc96.i5549, ptr %pos, align 8
   br label %return
 
-return.loopexit29046:                             ; preds = %while.body.i5690
+return.loopexit30096:                             ; preds = %while.body.i5690
   store i64 %inc96.i5691, ptr %pos, align 8
   br label %return
 
-return.loopexit29047:                             ; preds = %while.body.i5832
+return.loopexit30097:                             ; preds = %while.body.i5832
   store i64 %inc96.i5833, ptr %pos, align 8
   br label %return
 
-return.loopexit29048:                             ; preds = %while.body.i5974
+return.loopexit30098:                             ; preds = %while.body.i5974
   store i64 %inc96.i5975, ptr %pos, align 8
   br label %return
 
-return.loopexit29049:                             ; preds = %while.body.i6116
+return.loopexit30099:                             ; preds = %while.body.i6116
   store i64 %inc96.i6117, ptr %pos, align 8
   br label %return
 
-return.loopexit29050:                             ; preds = %while.body.i6258
+return.loopexit30100:                             ; preds = %while.body.i6258
   store i64 %inc96.i6259, ptr %pos, align 8
   br label %return
 
-return.loopexit29051:                             ; preds = %while.body.i6400
+return.loopexit30101:                             ; preds = %while.body.i6400
   store i64 %inc96.i6401, ptr %pos, align 8
   br label %return
 
-return.loopexit29052:                             ; preds = %while.body.i6542
+return.loopexit30102:                             ; preds = %while.body.i6542
   store i64 %inc96.i6543, ptr %pos, align 8
   br label %return
 
-return.loopexit29053:                             ; preds = %while.body.i6684
+return.loopexit30103:                             ; preds = %while.body.i6684
   store i64 %inc96.i6685, ptr %pos, align 8
   br label %return
 
-return.loopexit29055:                             ; preds = %while.body.i6826
+return.loopexit30105:                             ; preds = %while.body.i6826
   store i64 %inc96.i6827, ptr %pos, align 8
   br label %return
 
-return.loopexit29056:                             ; preds = %while.body.i7110
+return.loopexit30106:                             ; preds = %while.body.i7110
   store i64 %inc96.i7111, ptr %pos, align 8
   br label %return
 
-return.loopexit29059:                             ; preds = %while.body.i7252
+return.loopexit30109:                             ; preds = %while.body.i7252
   store i64 %inc96.i7253, ptr %pos, align 8
   br label %return
 
-return.loopexit29060:                             ; preds = %while.body.i7536
+return.loopexit30110:                             ; preds = %while.body.i7536
   store i64 %inc96.i7537, ptr %pos, align 8
   br label %return
 
-return.loopexit29063:                             ; preds = %while.body.i7678
+return.loopexit30113:                             ; preds = %while.body.i7678
   store i64 %inc96.i7679, ptr %pos, align 8
   br label %return
 
-return.loopexit29064:                             ; preds = %while.body.i7962
+return.loopexit30114:                             ; preds = %while.body.i7962
   store i64 %inc96.i7963, ptr %pos, align 8
   br label %return
 
-return.loopexit29067:                             ; preds = %while.body.i8104
+return.loopexit30117:                             ; preds = %while.body.i8104
   store i64 %inc96.i8105, ptr %pos, align 8
   br label %return
 
-return.loopexit29068:                             ; preds = %while.body.i8388
+return.loopexit30118:                             ; preds = %while.body.i8388
   store i64 %inc96.i8389, ptr %pos, align 8
   br label %return
 
-return.loopexit29071:                             ; preds = %while.body.i8530
+return.loopexit30121:                             ; preds = %while.body.i8530
   store i64 %inc96.i8531, ptr %pos, align 8
   br label %return
 
-return.loopexit29072:                             ; preds = %while.body.i8814
+return.loopexit30122:                             ; preds = %while.body.i8814
   store i64 %inc96.i8815, ptr %pos, align 8
   br label %return
 
-return.loopexit29075:                             ; preds = %while.body.i8956
+return.loopexit30125:                             ; preds = %while.body.i8956
   store i64 %inc96.i8957, ptr %pos, align 8
   br label %return
 
-return.loopexit29076:                             ; preds = %while.body.i9240
+return.loopexit30126:                             ; preds = %while.body.i9240
   store i64 %inc96.i9241, ptr %pos, align 8
   br label %return
 
-return.loopexit29077:                             ; preds = %while.body.i9382
+return.loopexit30127:                             ; preds = %while.body.i9382
   store i64 %inc96.i9383, ptr %pos, align 8
   br label %return
 
-return.loopexit29078:                             ; preds = %while.body.i9524
+return.loopexit30128:                             ; preds = %while.body.i9524
   store i64 %inc96.i9525, ptr %pos, align 8
   br label %return
 
-return.loopexit29079:                             ; preds = %while.body.i9666
+return.loopexit30129:                             ; preds = %while.body.i9666
   store i64 %inc96.i9667, ptr %pos, align 8
   br label %return
 
-return.loopexit29080:                             ; preds = %while.body.i9808
+return.loopexit30130:                             ; preds = %while.body.i9808
   store i64 %inc96.i9809, ptr %pos, align 8
   br label %return
 
-return.loopexit29081:                             ; preds = %while.body.i9950
+return.loopexit30131:                             ; preds = %while.body.i9950
   store i64 %inc96.i9951, ptr %pos, align 8
   br label %return
 
-return.loopexit29082:                             ; preds = %while.body.i10092
+return.loopexit30132:                             ; preds = %while.body.i10092
   store i64 %inc96.i10093, ptr %pos, align 8
   br label %return
 
-return.loopexit29085:                             ; preds = %while.body.i10234
+return.loopexit30135:                             ; preds = %while.body.i10234
   store i64 %inc96.i10235, ptr %pos, align 8
   br label %return
 
-return.loopexit29086:                             ; preds = %while.body.i10802
+return.loopexit30136:                             ; preds = %while.body.i10802
   store i64 %inc96.i10803, ptr %pos, align 8
   br label %return
 
-return.loopexit29087:                             ; preds = %while.body.i10944
+return.loopexit30137:                             ; preds = %while.body.i10944
   store i64 %inc96.i10945, ptr %pos, align 8
   br label %return
 
-return.loopexit29090:                             ; preds = %while.body.i11086
+return.loopexit30140:                             ; preds = %while.body.i11086
   store i64 %inc96.i11087, ptr %pos, align 8
   br label %return
 
-return.loopexit29091:                             ; preds = %while.body.i11370
+return.loopexit30141:                             ; preds = %while.body.i11370
   store i64 %inc96.i11371, ptr %pos, align 8
   br label %return
 
-return.loopexit29094:                             ; preds = %while.body.i11512
+return.loopexit30144:                             ; preds = %while.body.i11512
   store i64 %inc96.i11513, ptr %pos, align 8
   br label %return
 
-return.loopexit29095:                             ; preds = %while.body.i11796
+return.loopexit30145:                             ; preds = %while.body.i11796
   store i64 %inc96.i11797, ptr %pos, align 8
   br label %return
 
-return.loopexit29096:                             ; preds = %while.body.i12222
+return.loopexit30146:                             ; preds = %while.body.i12222
   store i64 %inc96.i12223, ptr %pos, align 8
   br label %return
 
-return.loopexit29099:                             ; preds = %while.body.i12364
+return.loopexit30149:                             ; preds = %while.body.i12364
   store i64 %inc96.i12365, ptr %pos, align 8
   br label %return
 
-return.loopexit29100:                             ; preds = %while.body.i12648
+return.loopexit30150:                             ; preds = %while.body.i12648
   store i64 %inc96.i12649, ptr %pos, align 8
   br label %return
 
-return.loopexit29103:                             ; preds = %while.body.i12790
+return.loopexit30153:                             ; preds = %while.body.i12790
   store i64 %inc96.i12791, ptr %pos, align 8
   br label %return
 
-return.loopexit29104:                             ; preds = %while.body.i13074
+return.loopexit30154:                             ; preds = %while.body.i13074
   store i64 %inc96.i13075, ptr %pos, align 8
   br label %return
 
-return.loopexit29107:                             ; preds = %while.body.i13216
+return.loopexit30157:                             ; preds = %while.body.i13216
   store i64 %inc96.i13217, ptr %pos, align 8
   br label %return
 
-return.loopexit29108:                             ; preds = %while.body.i13500
+return.loopexit30158:                             ; preds = %while.body.i13500
   store i64 %inc96.i13501, ptr %pos, align 8
   br label %return
 
-return.loopexit29111:                             ; preds = %while.body.i13642
+return.loopexit30161:                             ; preds = %while.body.i13642
   store i64 %inc96.i13643, ptr %pos, align 8
   br label %return
 
-return.loopexit29112:                             ; preds = %while.body.i13926
+return.loopexit30162:                             ; preds = %while.body.i13926
   store i64 %inc96.i13927, ptr %pos, align 8
   br label %return
 
-return.loopexit29115:                             ; preds = %while.body.i14068
+return.loopexit30165:                             ; preds = %while.body.i14068
   store i64 %inc96.i14069, ptr %pos, align 8
   br label %return
 
-return.loopexit29116:                             ; preds = %while.body.i14352
+return.loopexit30166:                             ; preds = %while.body.i14352
   store i64 %inc96.i14353, ptr %pos, align 8
   br label %return
 
-return.loopexit29119:                             ; preds = %while.body.i14494
+return.loopexit30169:                             ; preds = %while.body.i14494
   store i64 %inc96.i14495, ptr %pos, align 8
   br label %return
 
-return.loopexit29120:                             ; preds = %while.body.i14778
+return.loopexit30170:                             ; preds = %while.body.i14778
   store i64 %inc96.i14779, ptr %pos, align 8
   br label %return
 
-return.loopexit29121:                             ; preds = %while.body.i14920
+return.loopexit30171:                             ; preds = %while.body.i14920
   store i64 %inc96.i14921, ptr %pos, align 8
   br label %return
 
-return.loopexit29122:                             ; preds = %while.body.i15062
+return.loopexit30172:                             ; preds = %while.body.i15062
   store i64 %inc96.i15063, ptr %pos, align 8
   br label %return
 
-return.loopexit29123:                             ; preds = %while.body.i15204
+return.loopexit30173:                             ; preds = %while.body.i15204
   store i64 %inc96.i15205, ptr %pos, align 8
   br label %return
 
-return.loopexit29124:                             ; preds = %while.body.i15346
+return.loopexit30174:                             ; preds = %while.body.i15346
   store i64 %inc96.i15347, ptr %pos, align 8
   br label %return
 
-return.loopexit29125:                             ; preds = %while.body.i15488
+return.loopexit30175:                             ; preds = %while.body.i15488
   store i64 %inc96.i15489, ptr %pos, align 8
   br label %return
 
-return.loopexit29126:                             ; preds = %while.body.i15630
+return.loopexit30176:                             ; preds = %while.body.i15630
   store i64 %inc96.i15631, ptr %pos, align 8
   br label %return
 
-return.loopexit29129:                             ; preds = %while.body.i15772
+return.loopexit30179:                             ; preds = %while.body.i15772
   store i64 %inc96.i15773, ptr %pos, align 8
   br label %return
 
-return.loopexit29132:                             ; preds = %while.body.i16056
+return.loopexit30182:                             ; preds = %while.body.i16056
   store i64 %inc96.i16057, ptr %pos, align 8
   br label %return
 
-return.loopexit29133:                             ; preds = %while.body.i16340
+return.loopexit30183:                             ; preds = %while.body.i16340
   store i64 %inc96.i16341, ptr %pos, align 8
   br label %return
 
-return.loopexit29134:                             ; preds = %while.body.i16482
+return.loopexit30184:                             ; preds = %while.body.i16482
   store i64 %inc96.i16483, ptr %pos, align 8
   br label %return
 
-return.loopexit29137:                             ; preds = %while.body.i16624
+return.loopexit30187:                             ; preds = %while.body.i16624
   store i64 %inc96.i16625, ptr %pos, align 8
   br label %return
 
-return.loopexit29138:                             ; preds = %while.body.i16908
+return.loopexit30188:                             ; preds = %while.body.i16908
   store i64 %inc96.i16909, ptr %pos, align 8
   br label %return
 
-return.loopexit29141:                             ; preds = %while.body.i17050
+return.loopexit30191:                             ; preds = %while.body.i17050
   store i64 %inc96.i17051, ptr %pos, align 8
   br label %return
 
-return.loopexit29142:                             ; preds = %while.body.i17334
+return.loopexit30192:                             ; preds = %while.body.i17334
   store i64 %inc96.i17335, ptr %pos, align 8
   br label %return
 
-return.loopexit29145:                             ; preds = %while.body.i17476
+return.loopexit30195:                             ; preds = %while.body.i17476
   store i64 %inc96.i17477, ptr %pos, align 8
   br label %return
 
-return.loopexit29146:                             ; preds = %while.body.i17760
+return.loopexit30196:                             ; preds = %while.body.i17760
   store i64 %inc96.i17761, ptr %pos, align 8
   br label %return
 
-return.loopexit29149:                             ; preds = %while.body.i17902
+return.loopexit30199:                             ; preds = %while.body.i17902
   store i64 %inc96.i17903, ptr %pos, align 8
   br label %return
 
-return.loopexit29150:                             ; preds = %while.body.i18186
+return.loopexit30200:                             ; preds = %while.body.i18186
   store i64 %inc96.i18187, ptr %pos, align 8
   br label %return
 
-return.loopexit29153:                             ; preds = %while.body.i18328
+return.loopexit30203:                             ; preds = %while.body.i18328
   store i64 %inc96.i18329, ptr %pos, align 8
   br label %return
 
-return.loopexit29154:                             ; preds = %while.body.i18612
+return.loopexit30204:                             ; preds = %while.body.i18612
   store i64 %inc96.i18613, ptr %pos, align 8
   br label %return
 
-return.loopexit29157:                             ; preds = %while.body.i18754
+return.loopexit30207:                             ; preds = %while.body.i18754
   store i64 %inc96.i18755, ptr %pos, align 8
   br label %return
 
-return.loopexit29158:                             ; preds = %while.body.i19038
+return.loopexit30208:                             ; preds = %while.body.i19038
   store i64 %inc96.i19039, ptr %pos, align 8
   br label %return
 
-return.loopexit29159:                             ; preds = %while.body.i19180
+return.loopexit30209:                             ; preds = %while.body.i19180
   store i64 %inc96.i19181, ptr %pos, align 8
   br label %return
 
-return.loopexit29160:                             ; preds = %while.body.i19322
+return.loopexit30210:                             ; preds = %while.body.i19322
   store i64 %inc96.i19323, ptr %pos, align 8
   br label %return
 
-return.loopexit29161:                             ; preds = %while.body.i19464
+return.loopexit30211:                             ; preds = %while.body.i19464
   store i64 %inc96.i19465, ptr %pos, align 8
   br label %return
 
-return.loopexit29162:                             ; preds = %while.body.i19606
+return.loopexit30212:                             ; preds = %while.body.i19606
   store i64 %inc96.i19607, ptr %pos, align 8
   br label %return
 
-return.loopexit29163:                             ; preds = %while.body.i19748
+return.loopexit30213:                             ; preds = %while.body.i19748
   store i64 %inc96.i19749, ptr %pos, align 8
   br label %return
 
-return.loopexit29164:                             ; preds = %while.body.i19890
+return.loopexit30214:                             ; preds = %while.body.i19890
   store i64 %inc96.i19891, ptr %pos, align 8
   br label %return
 
-return.loopexit29167:                             ; preds = %while.body.i20032
+return.loopexit30217:                             ; preds = %while.body.i20032
   store i64 %inc96.i20033, ptr %pos, align 8
   br label %return
 
-return.loopexit29170:                             ; preds = %while.body.i20316
+return.loopexit30220:                             ; preds = %while.body.i20316
   store i64 %inc96.i20317, ptr %pos, align 8
   br label %return
 
-return.loopexit29171:                             ; preds = %while.body.i20600
+return.loopexit30221:                             ; preds = %while.body.i20600
   store i64 %inc96.i20601, ptr %pos, align 8
   br label %return
 
-return.loopexit29173:                             ; preds = %while.body.i20742
+return.loopexit30223:                             ; preds = %while.body.i20742
   store i64 %inc96.i20743, ptr %pos, align 8
   br label %return
 
-return.loopexit29175:                             ; preds = %while.body.i21168
+return.loopexit30225:                             ; preds = %while.body.i21168
   store i64 %inc96.i21169, ptr %pos, align 8
   br label %return
 
-return.loopexit29177:                             ; preds = %while.body.i21594
+return.loopexit30227:                             ; preds = %while.body.i21594
   store i64 %inc96.i21595, ptr %pos, align 8
   br label %return
 
-return.loopexit29179:                             ; preds = %while.body.i22020
+return.loopexit30229:                             ; preds = %while.body.i22020
   store i64 %inc96.i22021, ptr %pos, align 8
   br label %return
 
-return.loopexit29181:                             ; preds = %while.body.i22446
+return.loopexit30231:                             ; preds = %while.body.i22446
   store i64 %inc96.i22447, ptr %pos, align 8
   br label %return
 
-return.loopexit29183:                             ; preds = %while.body.i22872
+return.loopexit30233:                             ; preds = %while.body.i22872
   store i64 %inc96.i22873, ptr %pos, align 8
   br label %return
 
-return.loopexit29185:                             ; preds = %while.body.i23298
+return.loopexit30235:                             ; preds = %while.body.i23298
   store i64 %inc96.i23299, ptr %pos, align 8
   br label %return
 
-return.loopexit29187:                             ; preds = %while.body.i23440
+return.loopexit30237:                             ; preds = %while.body.i23440
   store i64 %inc96.i23441, ptr %pos, align 8
   br label %return
 
-return.loopexit29189:                             ; preds = %while.body.i23582
+return.loopexit30239:                             ; preds = %while.body.i23582
   store i64 %inc96.i23583, ptr %pos, align 8
   br label %return
 
-return.loopexit29191:                             ; preds = %while.body.i23724
+return.loopexit30241:                             ; preds = %while.body.i23724
   store i64 %inc96.i23725, ptr %pos, align 8
   br label %return
 
-return.loopexit29193:                             ; preds = %while.body.i23866
+return.loopexit30243:                             ; preds = %while.body.i23866
   store i64 %inc96.i23867, ptr %pos, align 8
   br label %return
 
-return.loopexit29195:                             ; preds = %while.body.i24150
+return.loopexit30245:                             ; preds = %while.body.i24150
   store i64 %inc96.i24151, ptr %pos, align 8
   br label %return
 
-return.loopexit29197:                             ; preds = %while.body.i24434
+return.loopexit30247:                             ; preds = %while.body.i24434
   store i64 %inc96.i24435, ptr %pos, align 8
   br label %return
 
-return.loopexit29199:                             ; preds = %while.body.i24860
+return.loopexit30249:                             ; preds = %while.body.i24860
   store i64 %inc96.i24861, ptr %pos, align 8
   br label %return
 
-return.loopexit29201:                             ; preds = %while.body.i25286
+return.loopexit30251:                             ; preds = %while.body.i25286
   store i64 %inc96.i25287, ptr %pos, align 8
   br label %return
 
-return.loopexit29203:                             ; preds = %while.body.i25712
+return.loopexit30253:                             ; preds = %while.body.i25712
   store i64 %inc96.i25713, ptr %pos, align 8
   br label %return
 
-return.loopexit29205:                             ; preds = %while.body.i26138
+return.loopexit30255:                             ; preds = %while.body.i26138
   store i64 %inc96.i26139, ptr %pos, align 8
   br label %return
 
-return.loopexit29207:                             ; preds = %while.body.i26564
+return.loopexit30257:                             ; preds = %while.body.i26564
   store i64 %inc96.i26565, ptr %pos, align 8
   br label %return
 
-return.loopexit29209:                             ; preds = %while.body.i26990
+return.loopexit30259:                             ; preds = %while.body.i26990
   store i64 %inc96.i26991, ptr %pos, align 8
   br label %return
 
-return.loopexit29210:                             ; preds = %while.body.i27416
+return.loopexit30260:                             ; preds = %while.body.i27416
   store i64 %inc96.i27417, ptr %pos, align 8
   br label %return
 
-return.loopexit29211:                             ; preds = %while.body.i27558
+return.loopexit30261:                             ; preds = %while.body.i27558
   store i64 %inc96.i27559, ptr %pos, align 8
   br label %return
 
-return.loopexit29212:                             ; preds = %while.body.i27700
+return.loopexit30262:                             ; preds = %while.body.i27700
   store i64 %inc96.i27701, ptr %pos, align 8
   br label %return
 
-return.loopexit29213:                             ; preds = %while.body.i27842
+return.loopexit30263:                             ; preds = %while.body.i27842
   store i64 %inc96.i27843, ptr %pos, align 8
   br label %return
 
-return.loopexit29214:                             ; preds = %while.body.i27984
+return.loopexit30264:                             ; preds = %while.body.i27984
   store i64 %inc96.i27985, ptr %pos, align 8
   br label %return
 
-return.loopexit29215:                             ; preds = %while.body.i28126
+return.loopexit30265:                             ; preds = %while.body.i28126
   store i64 %inc96.i28127, ptr %pos, align 8
   br label %return
 
-return.loopexit29216:                             ; preds = %while.body.i28268
+return.loopexit30266:                             ; preds = %while.body.i28268
   store i64 %inc96.i28269, ptr %pos, align 8
   br label %return
 
-return.loopexit29217:                             ; preds = %while.body.i28410
+return.loopexit30267:                             ; preds = %while.body.i28410
   store i64 %inc96.i28411, ptr %pos, align 8
   br label %return
 
-return.loopexit29218:                             ; preds = %while.body.i28552
+return.loopexit30268:                             ; preds = %while.body.i28552
   store i64 %inc96.i28553, ptr %pos, align 8
   br label %return
 
-return.loopexit29219:                             ; preds = %while.body.i28694
+return.loopexit30269:                             ; preds = %while.body.i28694
   store i64 %inc96.i28695, ptr %pos, align 8
   br label %return
 
-return.loopexit29220:                             ; preds = %while.body.i28836
+return.loopexit30270:                             ; preds = %while.body.i28836
   store i64 %inc96.i28837, ptr %pos, align 8
   br label %return
 
-return.loopexit29221:                             ; preds = %while.body.i28978
+return.loopexit30271:                             ; preds = %while.body.i28978
   store i64 %inc96.i28979, ptr %pos, align 8
   br label %return
 
-return.loopexit29222:                             ; preds = %while.body.i29120
+return.loopexit30272:                             ; preds = %while.body.i29120
   store i64 %inc96.i29121, ptr %pos, align 8
   br label %return
 
-return.loopexit29223:                             ; preds = %while.body.i29262
+return.loopexit30273:                             ; preds = %while.body.i29262
   store i64 %inc96.i29263, ptr %pos, align 8
   br label %return
 
-return.loopexit29224:                             ; preds = %while.body.i29404
+return.loopexit30274:                             ; preds = %while.body.i29404
   store i64 %inc96.i29405, ptr %pos, align 8
   br label %return
 
-return.loopexit29225:                             ; preds = %while.body.i29546
+return.loopexit30275:                             ; preds = %while.body.i29546
   store i64 %inc96.i29547, ptr %pos, align 8
   br label %return
 
-return.loopexit29226:                             ; preds = %while.body.i29688
+return.loopexit30276:                             ; preds = %while.body.i29688
   store i64 %inc96.i29689, ptr %pos, align 8
   br label %return
 
-return.loopexit29227:                             ; preds = %while.body.i29830
+return.loopexit30277:                             ; preds = %while.body.i29830
   store i64 %inc96.i29831, ptr %pos, align 8
   br label %return
 
-return.loopexit29228:                             ; preds = %while.body.i29972
+return.loopexit30278:                             ; preds = %while.body.i29972
   store i64 %inc96.i29973, ptr %pos, align 8
   br label %return
 
-return.loopexit29229:                             ; preds = %while.body.i30114
+return.loopexit30279:                             ; preds = %while.body.i30114
   store i64 %inc96.i30115, ptr %pos, align 8
   br label %return
 
-return.loopexit29230:                             ; preds = %while.body.i30256
+return.loopexit30280:                             ; preds = %while.body.i30256
   store i64 %inc96.i30257, ptr %pos, align 8
   br label %return
 
-return.loopexit29231:                             ; preds = %while.body.i30398
+return.loopexit30281:                             ; preds = %while.body.i30398
   store i64 %inc96.i30399, ptr %pos, align 8
   br label %return
 
-return.loopexit29232:                             ; preds = %while.body.i30540
+return.loopexit30282:                             ; preds = %while.body.i30540
   store i64 %inc96.i30541, ptr %pos, align 8
   br label %return
 
-return.loopexit29233:                             ; preds = %while.body.i30682
+return.loopexit30283:                             ; preds = %while.body.i30682
   store i64 %inc96.i30683, ptr %pos, align 8
   br label %return
 
-return.loopexit29234:                             ; preds = %while.body.i30824
+return.loopexit30284:                             ; preds = %while.body.i30824
   store i64 %inc96.i30825, ptr %pos, align 8
   br label %return
 
-return.loopexit29235:                             ; preds = %while.body.i30966
+return.loopexit30285:                             ; preds = %while.body.i30966
   store i64 %inc96.i30967, ptr %pos, align 8
   br label %return
 
-return.loopexit29236:                             ; preds = %while.body.i31108
+return.loopexit30286:                             ; preds = %while.body.i31108
   store i64 %inc96.i31109, ptr %pos, align 8
   br label %return
 
-return.loopexit29237:                             ; preds = %while.body.i31250
+return.loopexit30287:                             ; preds = %while.body.i31250
   store i64 %inc96.i31251, ptr %pos, align 8
   br label %return
 
-return.loopexit29238:                             ; preds = %while.body.i31392
+return.loopexit30288:                             ; preds = %while.body.i31392
   store i64 %inc96.i31393, ptr %pos, align 8
   br label %return
 
-return.loopexit29239:                             ; preds = %while.body.i31534
+return.loopexit30289:                             ; preds = %while.body.i31534
   store i64 %inc96.i31535, ptr %pos, align 8
   br label %return
 
-return.loopexit29240:                             ; preds = %while.body.i31676
+return.loopexit30290:                             ; preds = %while.body.i31676
   store i64 %inc96.i31677, ptr %pos, align 8
   br label %return
 
-return.loopexit29241:                             ; preds = %while.body.i31818
+return.loopexit30291:                             ; preds = %while.body.i31818
   store i64 %inc96.i31819, ptr %pos, align 8
   br label %return
 
-return.loopexit29242:                             ; preds = %while.body.i31960
+return.loopexit30292:                             ; preds = %while.body.i31960
   store i64 %inc96.i31961, ptr %pos, align 8
   br label %return
 
-return.loopexit29243:                             ; preds = %while.body.i32102
+return.loopexit30293:                             ; preds = %while.body.i32102
   store i64 %inc96.i32103, ptr %pos, align 8
   br label %return
 
-return.loopexit29244:                             ; preds = %while.body.i32244
+return.loopexit30294:                             ; preds = %while.body.i32244
   store i64 %inc96.i32245, ptr %pos, align 8
   br label %return
 
-return.loopexit29245:                             ; preds = %while.body.i35084
+return.loopexit30295:                             ; preds = %while.body.i35084
   store i64 %inc96.i35085, ptr %pos, align 8
   br label %return
 
-return:                                           ; preds = %if.end82.i, %if.end82.i4637, %if.end82.i4779, %if.end82.i4921, %sw.bb51, %sw.bb57, %sw.bb66, %sw.bb75, %sw.bb84, %sw.bb93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit17082, %_ZN9struct_pb13UnknownFieldsD2Ev.exit20312, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto220ForeignMessageProto2EEEbRT_PKcm.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit17133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit17171, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto2EEEbRT_PKcm.exit, %sw.bb476, %if.end491, %sw.bb509, %if.end524, %sw.bb545, %if.end560, %sw.bb581, %if.end596, %sw.bb617, %if.end632, %sw.bb653, %if.end668, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17878, %if.end803, %if.end836, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18066, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18103, %sw.bb1092, %if.end1107, %sw.bb1128, %if.end1143, %sw.bb1164, %if.end1179, %sw.bb1200, %if.end1215, %sw.bb1236, %if.end1251, %sw.bb1272, %if.end1287, %if.end1349, %sw.bb1563, %if.end1578, %sw.bb1599, %if.end1614, %sw.bb1635, %if.end1650, %sw.bb1671, %if.end1686, %sw.bb1707, %if.end1722, %sw.bb1743, %if.end1758, %if.end1820, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19678, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19752, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19796, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19845, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19882, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19919, %_ZN9struct_pb13UnknownFieldsD2Ev.exit20667, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit19973, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit20014, %if.end2838, %if.end2855, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto24DataEEEbRT_PKcm.exit, %if.end82.i28635, %if.end82.i28777, %if.end82.i28919, %if.end82.i29061, %sw.bb2959, %sw.bb2968, %sw.bb2977, %sw.bb2986, %sw.bb2995, %sw.bb3004, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit20156, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit20194, %if.end82.i29913, %if.end82.i30055, %if.end82.i30197, %if.end82.i30339, %if.end82.i30481, %if.end82.i30623, %if.end82.i30765, %if.end82.i30907, %if.end82.i31049, %if.end82.i31191, %if.end82.i31333, %if.end82.i31475, %if.end82.i31617, %if.end82.i31759, %if.end82.i31901, %if.end82.i32043, %if.end82.i32185, %if.end82.i32327, %sw.epilog3221, %if.end82.i35167, %if.end82.i5063, %if.end82.i5205, %if.end82.i5347, %if.end82.i5489, %if.end82.i5631, %if.end82.i5773, %if.end82.i5915, %if.end82.i6057, %if.end82.i6199, %if.end82.i6341, %if.end82.i6483, %if.end82.i6625, %if.end82.i6767, %if.end82.i6909, %if.end82.i7193, %if.end82.i7335, %if.end82.i7619, %if.end82.i7761, %if.end82.i8045, %if.end82.i8187, %if.end82.i8471, %if.end82.i8613, %if.end82.i8897, %if.end82.i9039, %if.end82.i9323, %if.end82.i9465, %if.end82.i9607, %if.end82.i9749, %if.end82.i9891, %if.end82.i10033, %if.end82.i10175, %if.end82.i10317, %if.end82.i10885, %if.end82.i11027, %if.end82.i11169, %if.end82.i11453, %if.end82.i11595, %if.end82.i11879, %if.end82.i12305, %if.end82.i12447, %if.end82.i12731, %if.end82.i12873, %if.end82.i13157, %if.end82.i13299, %if.end82.i13583, %if.end82.i13725, %if.end82.i14009, %if.end82.i14151, %if.end82.i14435, %if.end82.i14577, %if.end82.i14861, %if.end82.i15003, %if.end82.i15145, %if.end82.i15287, %if.end82.i15429, %if.end82.i15571, %if.end82.i15713, %if.end82.i15855, %if.end82.i16139, %if.end82.i16423, %if.end82.i16565, %if.end82.i16707, %if.end82.i16991, %if.end82.i17133, %if.end82.i17417, %if.end82.i17559, %if.end82.i17843, %if.end82.i17985, %if.end82.i18269, %if.end82.i18411, %if.end82.i18695, %if.end82.i18837, %if.end82.i19121, %if.end82.i19263, %if.end82.i19405, %if.end82.i19547, %if.end82.i19689, %if.end82.i19831, %if.end82.i19973, %if.end82.i20115, %if.end82.i20399, %if.end82.i20683, %if.end82.i20825, %if.end82.i21251, %if.end82.i21677, %if.end82.i22103, %if.end82.i22529, %if.end82.i22955, %if.end82.i23381, %if.end82.i23523, %if.end82.i23665, %if.end82.i23807, %if.end82.i23949, %if.end82.i24233, %if.end82.i24517, %if.end82.i24943, %if.end82.i25369, %if.end82.i25795, %if.end82.i26221, %if.end82.i26647, %if.end82.i27073, %if.end82.i27499, %if.end82.i27641, %if.end82.i27783, %if.end82.i27925, %if.end82.i28067, %if.end82.i28209, %if.end82.i28351, %if.end82.i28493, %if.end82.i29203, %if.end82.i29345, %if.end82.i29487, %if.end82.i29629, %if.end82.i29771, %while.cond.i35070.preheader, %while.cond.i32230.preheader, %while.cond.i32088.preheader, %while.cond.i31946.preheader, %while.cond.i31804.preheader, %while.cond.i31662.preheader, %while.cond.i31520.preheader, %while.cond.i31378.preheader, %while.cond.i31236.preheader, %while.cond.i31094.preheader, %while.cond.i30952.preheader, %while.cond.i30810.preheader, %while.cond.i30668.preheader, %while.cond.i30526.preheader, %while.cond.i30384.preheader, %while.cond.i30242.preheader, %while.cond.i30100.preheader, %while.cond.i29958.preheader, %while.cond.i29816.preheader, %while.cond.i29674.preheader, %while.cond.i29532.preheader, %while.cond.i29390.preheader, %while.cond.i29248.preheader, %while.cond.i29106.preheader, %while.cond.i28964.preheader, %while.cond.i28822.preheader, %while.cond.i28680.preheader, %while.cond.i28538.preheader, %while.cond.i28396.preheader, %while.cond.i28254.preheader, %while.cond.i28112.preheader, %while.cond.i27970.preheader, %while.cond.i27828.preheader, %while.cond.i27686.preheader, %while.cond.i27544.preheader, %while.cond.i27402.preheader, %while.cond.i26976.preheader, %while.cond.i26550.preheader, %while.cond.i26124.preheader, %while.cond.i25698.preheader, %while.cond.i25272.preheader, %while.cond.i24846.preheader, %while.cond.i24420.preheader, %while.cond.i24136.preheader, %while.cond.i23852.preheader, %while.cond.i23710.preheader, %while.cond.i23568.preheader, %while.cond.i23426.preheader, %while.cond.i23284.preheader, %while.cond.i22858.preheader, %while.cond.i22432.preheader, %while.cond.i22006.preheader, %while.cond.i21580.preheader, %while.cond.i21154.preheader, %while.cond.i20728.preheader, %while.cond.i20586.preheader, %while.cond.i20302.preheader, %while.cond.i20018.preheader, %while.cond.i19876.preheader, %while.cond.i19734.preheader, %while.cond.i19592.preheader, %while.cond.i19450.preheader, %while.cond.i19308.preheader, %while.cond.i19166.preheader, %while.cond.i19024.preheader, %while.cond.i18740.preheader, %while.cond.i18598.preheader, %while.cond.i18314.preheader, %while.cond.i18172.preheader, %while.cond.i17888.preheader, %while.cond.i17746.preheader, %while.cond.i17462.preheader, %while.cond.i17320.preheader, %while.cond.i17036.preheader, %while.cond.i16894.preheader, %while.cond.i16610.preheader, %while.cond.i16468.preheader, %while.cond.i16326.preheader, %while.cond.i16042.preheader, %while.cond.i15758.preheader, %while.cond.i15616.preheader, %while.cond.i15474.preheader, %while.cond.i15332.preheader, %while.cond.i15190.preheader, %while.cond.i15048.preheader, %while.cond.i14906.preheader, %while.cond.i14764.preheader, %while.cond.i14480.preheader, %while.cond.i14338.preheader, %while.cond.i14054.preheader, %while.cond.i13912.preheader, %while.cond.i13628.preheader, %while.cond.i13486.preheader, %while.cond.i13202.preheader, %while.cond.i13060.preheader, %while.cond.i12776.preheader, %while.cond.i12634.preheader, %while.cond.i12350.preheader, %while.cond.i12208.preheader, %while.cond.i11782.preheader, %while.cond.i11498.preheader, %while.cond.i11356.preheader, %while.cond.i11072.preheader, %while.cond.i10930.preheader, %while.cond.i10788.preheader, %while.cond.i10220.preheader, %while.cond.i10078.preheader, %while.cond.i9936.preheader, %while.cond.i9794.preheader, %while.cond.i9652.preheader, %while.cond.i9510.preheader, %while.cond.i9368.preheader, %while.cond.i9226.preheader, %while.cond.i8942.preheader, %while.cond.i8800.preheader, %while.cond.i8516.preheader, %while.cond.i8374.preheader, %while.cond.i8090.preheader, %while.cond.i7948.preheader, %while.cond.i7664.preheader, %while.cond.i7522.preheader, %while.cond.i7238.preheader, %while.cond.i7096.preheader, %while.cond.i6812.preheader, %while.cond.i6670.preheader, %while.cond.i6528.preheader, %while.cond.i6386.preheader, %while.cond.i6244.preheader, %while.cond.i6102.preheader, %while.cond.i5960.preheader, %while.cond.i5818.preheader, %while.cond.i5676.preheader, %while.cond.i5534.preheader, %while.cond.i5392.preheader, %while.cond.i5250.preheader, %while.cond.i5108.preheader, %while.cond.i4966.preheader, %while.cond.i4824.preheader, %while.cond.i4682.preheader, %while.cond.i4540.preheader, %while.cond.i.preheader, %if.end82.i24801, %if.end82.i24659, %if.end2330, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33350, %while.cond.i33224.preheader, %while.cond.i24704.preheader, %while.cond.i24562.preheader, %if.end82.i24375, %if.end2291, %sw.bb2300, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33492, %while.cond.i33366.preheader, %while.cond.i24278.preheader, %if.end82.i24091, %if.end2252, %sw.bb2261, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33634, %while.cond.i33508.preheader, %while.cond.i23994.preheader, %if.end2213, %sw.bb2222, %sw.bb2214, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33776, %while.cond.i33650.preheader, %if.end2174, %sw.bb2183, %sw.bb2175, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33918, %while.cond.i33792.preheader, %if.end2135, %sw.bb2144, %sw.bb2136, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34060, %while.cond.i33934.preheader, %if.end2096, %sw.bb2105, %sw.bb2097, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34202, %while.cond.i34076.preheader, %if.end82.i23239, %if.end82.i23097, %if.end2057, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34344, %while.cond.i34218.preheader, %while.cond.i23142.preheader, %while.cond.i23000.preheader, %if.end82.i22813, %if.end82.i22671, %if.end2014, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34486, %while.cond.i34360.preheader, %while.cond.i22716.preheader, %while.cond.i22574.preheader, %if.end82.i22245, %if.end1977, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit22416, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34628, %while.cond.i34502.preheader, %while.cond.i22290.preheader, %while.cond.i22148.preheader, %if.end82.i21961, %if.end82.i21819, %if.end1938, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34770, %while.cond.i34644.preheader, %while.cond.i21864.preheader, %while.cond.i21722.preheader, %if.end82.i21393, %if.end1901, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit21564, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34912, %while.cond.i34786.preheader, %while.cond.i21438.preheader, %while.cond.i21296.preheader, %if.end82.i21109, %if.end82.i20967, %if.end1864, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit35054, %while.cond.i34928.preheader, %while.cond.i21012.preheader, %while.cond.i20870.preheader, %if.end82.i20541, %while.cond.i20444.preheader, %if.end82.i20257, %while.cond.i20160.preheader, %if.end82.i18979, %while.cond.i18882.preheader, %if.end82.i18553, %while.cond.i18456.preheader, %if.end82.i18127, %while.cond.i18030.preheader, %if.end82.i17701, %while.cond.i17604.preheader, %if.end82.i17275, %while.cond.i17178.preheader, %if.end82.i16849, %while.cond.i16752.preheader, %if.end82.i16281, %while.cond.i16184.preheader, %if.end82.i15997, %while.cond.i15900.preheader, %if.end82.i14719, %while.cond.i14622.preheader, %if.end82.i14293, %while.cond.i14196.preheader, %if.end82.i13867, %while.cond.i13770.preheader, %if.end82.i13441, %while.cond.i13344.preheader, %if.end82.i13015, %while.cond.i12918.preheader, %if.end82.i12589, %while.cond.i12492.preheader, %if.end82.i11737, %while.cond.i11640.preheader, %if.end82.i11311, %while.cond.i11214.preheader, %if.end82.i10459, %while.cond.i10362.preheader, %if.end82.i9181, %while.cond.i9084.preheader, %if.end82.i8755, %while.cond.i8658.preheader, %if.end82.i8329, %while.cond.i8232.preheader, %if.end82.i7903, %while.cond.i7806.preheader, %if.end82.i7477, %while.cond.i7380.preheader, %if.end82.i7051, %while.cond.i6954.preheader, %while.body.i33238, %while.body.i33380, %while.body.i33522, %while.body.i33664, %while.body.i33806, %while.body.i33948, %while.body.i34090, %while.body.i34232, %while.body.i34374, %while.body.i34516, %while.body.i34658, %while.body.i34800, %while.body.i34942, %return.loopexit29245, %return.loopexit29244, %return.loopexit29243, %return.loopexit29242, %return.loopexit29241, %return.loopexit29240, %return.loopexit29239, %return.loopexit29238, %return.loopexit29237, %return.loopexit29236, %return.loopexit29235, %return.loopexit29234, %return.loopexit29233, %return.loopexit29232, %return.loopexit29231, %return.loopexit29230, %return.loopexit29229, %return.loopexit29228, %return.loopexit29227, %return.loopexit29226, %return.loopexit29225, %return.loopexit29224, %return.loopexit29223, %return.loopexit29222, %return.loopexit29221, %return.loopexit29220, %return.loopexit29219, %return.loopexit29218, %return.loopexit29217, %return.loopexit29216, %return.loopexit29215, %return.loopexit29214, %return.loopexit29213, %return.loopexit29212, %return.loopexit29211, %return.loopexit29210, %return.loopexit29209, %return.loopexit29207, %return.loopexit29205, %return.loopexit29203, %return.loopexit29201, %return.loopexit29199, %return.loopexit29197, %return.loopexit29195, %return.loopexit29193, %return.loopexit29191, %return.loopexit29189, %return.loopexit29187, %return.loopexit29185, %return.loopexit29183, %return.loopexit29181, %return.loopexit29179, %return.loopexit29177, %return.loopexit29175, %return.loopexit29173, %return.loopexit29171, %return.loopexit29170, %return.loopexit29167, %return.loopexit29164, %return.loopexit29163, %return.loopexit29162, %return.loopexit29161, %return.loopexit29160, %return.loopexit29159, %return.loopexit29158, %return.loopexit29157, %return.loopexit29154, %return.loopexit29153, %return.loopexit29150, %return.loopexit29149, %return.loopexit29146, %return.loopexit29145, %return.loopexit29142, %return.loopexit29141, %return.loopexit29138, %return.loopexit29137, %return.loopexit29134, %return.loopexit29133, %return.loopexit29132, %return.loopexit29129, %return.loopexit29126, %return.loopexit29125, %return.loopexit29124, %return.loopexit29123, %return.loopexit29122, %return.loopexit29121, %return.loopexit29120, %return.loopexit29119, %return.loopexit29116, %return.loopexit29115, %return.loopexit29112, %return.loopexit29111, %return.loopexit29108, %return.loopexit29107, %return.loopexit29104, %return.loopexit29103, %return.loopexit29100, %return.loopexit29099, %return.loopexit29096, %return.loopexit29095, %return.loopexit29094, %return.loopexit29091, %return.loopexit29090, %return.loopexit29087, %return.loopexit29086, %return.loopexit29085, %return.loopexit29082, %return.loopexit29081, %return.loopexit29080, %return.loopexit29079, %return.loopexit29078, %return.loopexit29077, %return.loopexit29076, %return.loopexit29075, %return.loopexit29072, %return.loopexit29071, %return.loopexit29068, %return.loopexit29067, %return.loopexit29064, %return.loopexit29063, %return.loopexit29060, %return.loopexit29059, %return.loopexit29056, %return.loopexit29055, %return.loopexit29053, %return.loopexit29052, %return.loopexit29051, %return.loopexit29050, %return.loopexit29049, %return.loopexit29048, %return.loopexit29047, %return.loopexit29046, %return.loopexit29045, %return.loopexit29044, %return.loopexit29043, %return.loopexit29042, %return.loopexit29041, %return.loopexit29040, %return.loopexit29039, %return.loopexit29038, %return.loopexit29037, %return.loopexit29023, %return.loopexit29022, %return.loopexit29020, %return.loopexit29018, %return.loopexit29012, %return.loopexit29011, %return.loopexit29009, %return.loopexit29008, %return.loopexit29006, %return.loopexit29005, %return.loopexit29003, %return.loopexit29002, %return.loopexit29000, %return.loopexit28999, %return.loopexit28997, %return.loopexit28996, %return.loopexit28995, %return.loopexit28994, %return.loopexit28993, %return.loopexit28992, %return.loopexit28991, %return.loopexit28990, %return.loopexit28989, %return.loopexit28988, %return.loopexit28987, %return.loopexit28986, %return.loopexit28985, %return.loopexit28984, %return.loopexit28983, %return.loopexit28982, %return.loopexit28981, %return.loopexit28980, %return.loopexit28979, %return.loopexit28978, %return.loopexit28977, %return.loopexit28976, %return.loopexit28975, %return.loopexit28974, %return.loopexit28973, %return.loopexit28972, %return.loopexit, %entry, %sw.default3216, %if.then793, %if.then775
-  %retval.1 = phi i1 [ %call3218, %sw.default3216 ], [ false, %if.then775 ], [ false, %if.then793 ], [ true, %entry ], [ false, %return.loopexit ], [ false, %return.loopexit28972 ], [ false, %return.loopexit28973 ], [ false, %return.loopexit28974 ], [ false, %return.loopexit28975 ], [ false, %return.loopexit28976 ], [ false, %return.loopexit28977 ], [ false, %return.loopexit28978 ], [ false, %return.loopexit28979 ], [ false, %return.loopexit28980 ], [ false, %return.loopexit28981 ], [ false, %return.loopexit28982 ], [ false, %return.loopexit28983 ], [ false, %return.loopexit28984 ], [ false, %return.loopexit28985 ], [ false, %return.loopexit28986 ], [ false, %return.loopexit28987 ], [ false, %return.loopexit28988 ], [ false, %return.loopexit28989 ], [ false, %return.loopexit28990 ], [ false, %return.loopexit28991 ], [ false, %return.loopexit28992 ], [ false, %return.loopexit28993 ], [ false, %return.loopexit28994 ], [ false, %return.loopexit28995 ], [ false, %return.loopexit28996 ], [ false, %return.loopexit28997 ], [ false, %return.loopexit28999 ], [ false, %return.loopexit29000 ], [ false, %return.loopexit29002 ], [ false, %return.loopexit29003 ], [ false, %return.loopexit29005 ], [ false, %return.loopexit29006 ], [ false, %return.loopexit29008 ], [ false, %return.loopexit29009 ], [ false, %return.loopexit29011 ], [ false, %return.loopexit29012 ], [ false, %return.loopexit29018 ], [ false, %return.loopexit29020 ], [ false, %return.loopexit29022 ], [ false, %return.loopexit29023 ], [ false, %return.loopexit29037 ], [ false, %return.loopexit29038 ], [ false, %return.loopexit29039 ], [ false, %return.loopexit29040 ], [ false, %return.loopexit29041 ], [ false, %return.loopexit29042 ], [ false, %return.loopexit29043 ], [ false, %return.loopexit29044 ], [ false, %return.loopexit29045 ], [ false, %return.loopexit29046 ], [ false, %return.loopexit29047 ], [ false, %return.loopexit29048 ], [ false, %return.loopexit29049 ], [ false, %return.loopexit29050 ], [ false, %return.loopexit29051 ], [ false, %return.loopexit29052 ], [ false, %return.loopexit29053 ], [ false, %return.loopexit29055 ], [ false, %return.loopexit29056 ], [ false, %return.loopexit29059 ], [ false, %return.loopexit29060 ], [ false, %return.loopexit29063 ], [ false, %return.loopexit29064 ], [ false, %return.loopexit29067 ], [ false, %return.loopexit29068 ], [ false, %return.loopexit29071 ], [ false, %return.loopexit29072 ], [ false, %return.loopexit29075 ], [ false, %return.loopexit29076 ], [ false, %return.loopexit29077 ], [ false, %return.loopexit29078 ], [ false, %return.loopexit29079 ], [ false, %return.loopexit29080 ], [ false, %return.loopexit29081 ], [ false, %return.loopexit29082 ], [ false, %return.loopexit29085 ], [ false, %return.loopexit29086 ], [ false, %return.loopexit29087 ], [ false, %return.loopexit29090 ], [ false, %return.loopexit29091 ], [ false, %return.loopexit29094 ], [ false, %return.loopexit29095 ], [ false, %return.loopexit29096 ], [ false, %return.loopexit29099 ], [ false, %return.loopexit29100 ], [ false, %return.loopexit29103 ], [ false, %return.loopexit29104 ], [ false, %return.loopexit29107 ], [ false, %return.loopexit29108 ], [ false, %return.loopexit29111 ], [ false, %return.loopexit29112 ], [ false, %return.loopexit29115 ], [ false, %return.loopexit29116 ], [ false, %return.loopexit29119 ], [ false, %return.loopexit29120 ], [ false, %return.loopexit29121 ], [ false, %return.loopexit29122 ], [ false, %return.loopexit29123 ], [ false, %return.loopexit29124 ], [ false, %return.loopexit29125 ], [ false, %return.loopexit29126 ], [ false, %return.loopexit29129 ], [ false, %return.loopexit29132 ], [ false, %return.loopexit29133 ], [ false, %return.loopexit29134 ], [ false, %return.loopexit29137 ], [ false, %return.loopexit29138 ], [ false, %return.loopexit29141 ], [ false, %return.loopexit29142 ], [ false, %return.loopexit29145 ], [ false, %return.loopexit29146 ], [ false, %return.loopexit29149 ], [ false, %return.loopexit29150 ], [ false, %return.loopexit29153 ], [ false, %return.loopexit29154 ], [ false, %return.loopexit29157 ], [ false, %return.loopexit29158 ], [ false, %return.loopexit29159 ], [ false, %return.loopexit29160 ], [ false, %return.loopexit29161 ], [ false, %return.loopexit29162 ], [ false, %return.loopexit29163 ], [ false, %return.loopexit29164 ], [ false, %return.loopexit29167 ], [ false, %return.loopexit29170 ], [ false, %return.loopexit29171 ], [ false, %return.loopexit29173 ], [ false, %return.loopexit29175 ], [ false, %return.loopexit29177 ], [ false, %return.loopexit29179 ], [ false, %return.loopexit29181 ], [ false, %return.loopexit29183 ], [ false, %return.loopexit29185 ], [ false, %return.loopexit29187 ], [ false, %return.loopexit29189 ], [ false, %return.loopexit29191 ], [ false, %return.loopexit29193 ], [ false, %return.loopexit29195 ], [ false, %return.loopexit29197 ], [ false, %return.loopexit29199 ], [ false, %return.loopexit29201 ], [ false, %return.loopexit29203 ], [ false, %return.loopexit29205 ], [ false, %return.loopexit29207 ], [ false, %return.loopexit29209 ], [ false, %return.loopexit29210 ], [ false, %return.loopexit29211 ], [ false, %return.loopexit29212 ], [ false, %return.loopexit29213 ], [ false, %return.loopexit29214 ], [ false, %return.loopexit29215 ], [ false, %return.loopexit29216 ], [ false, %return.loopexit29217 ], [ false, %return.loopexit29218 ], [ false, %return.loopexit29219 ], [ false, %return.loopexit29220 ], [ false, %return.loopexit29221 ], [ false, %return.loopexit29222 ], [ false, %return.loopexit29223 ], [ false, %return.loopexit29224 ], [ false, %return.loopexit29225 ], [ false, %return.loopexit29226 ], [ false, %return.loopexit29227 ], [ false, %return.loopexit29228 ], [ false, %return.loopexit29229 ], [ false, %return.loopexit29230 ], [ false, %return.loopexit29231 ], [ false, %return.loopexit29232 ], [ false, %return.loopexit29233 ], [ false, %return.loopexit29234 ], [ false, %return.loopexit29235 ], [ false, %return.loopexit29236 ], [ false, %return.loopexit29237 ], [ false, %return.loopexit29238 ], [ false, %return.loopexit29239 ], [ false, %return.loopexit29240 ], [ false, %return.loopexit29241 ], [ false, %return.loopexit29242 ], [ false, %return.loopexit29243 ], [ false, %return.loopexit29244 ], [ false, %return.loopexit29245 ], [ false, %while.body.i34942 ], [ false, %while.body.i34800 ], [ false, %while.body.i34658 ], [ false, %while.body.i34516 ], [ false, %while.body.i34374 ], [ false, %while.body.i34232 ], [ false, %while.body.i34090 ], [ false, %while.body.i33948 ], [ false, %while.body.i33806 ], [ false, %while.body.i33664 ], [ false, %while.body.i33522 ], [ false, %while.body.i33380 ], [ false, %while.body.i33238 ], [ false, %while.cond.i6954.preheader ], [ false, %if.end82.i7051 ], [ false, %while.cond.i7380.preheader ], [ false, %if.end82.i7477 ], [ false, %while.cond.i7806.preheader ], [ false, %if.end82.i7903 ], [ false, %while.cond.i8232.preheader ], [ false, %if.end82.i8329 ], [ false, %while.cond.i8658.preheader ], [ false, %if.end82.i8755 ], [ false, %while.cond.i9084.preheader ], [ false, %if.end82.i9181 ], [ false, %while.cond.i10362.preheader ], [ false, %if.end82.i10459 ], [ false, %while.cond.i11214.preheader ], [ false, %if.end82.i11311 ], [ false, %while.cond.i11640.preheader ], [ false, %if.end82.i11737 ], [ false, %while.cond.i12492.preheader ], [ false, %if.end82.i12589 ], [ false, %while.cond.i12918.preheader ], [ false, %if.end82.i13015 ], [ false, %while.cond.i13344.preheader ], [ false, %if.end82.i13441 ], [ false, %while.cond.i13770.preheader ], [ false, %if.end82.i13867 ], [ false, %while.cond.i14196.preheader ], [ false, %if.end82.i14293 ], [ false, %while.cond.i14622.preheader ], [ false, %if.end82.i14719 ], [ false, %while.cond.i15900.preheader ], [ false, %if.end82.i15997 ], [ false, %while.cond.i16184.preheader ], [ false, %if.end82.i16281 ], [ false, %while.cond.i16752.preheader ], [ false, %if.end82.i16849 ], [ false, %while.cond.i17178.preheader ], [ false, %if.end82.i17275 ], [ false, %while.cond.i17604.preheader ], [ false, %if.end82.i17701 ], [ false, %while.cond.i18030.preheader ], [ false, %if.end82.i18127 ], [ false, %while.cond.i18456.preheader ], [ false, %if.end82.i18553 ], [ false, %while.cond.i18882.preheader ], [ false, %if.end82.i18979 ], [ false, %while.cond.i20160.preheader ], [ false, %if.end82.i20257 ], [ false, %while.cond.i20444.preheader ], [ false, %if.end82.i20541 ], [ false, %while.cond.i20870.preheader ], [ false, %while.cond.i21012.preheader ], [ false, %while.cond.i34928.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit35054 ], [ false, %if.end1864 ], [ false, %if.end82.i20967 ], [ false, %if.end82.i21109 ], [ false, %while.cond.i21296.preheader ], [ false, %while.cond.i21438.preheader ], [ false, %while.cond.i34786.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34912 ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit21564 ], [ false, %if.end1901 ], [ false, %if.end82.i21393 ], [ false, %while.cond.i21722.preheader ], [ false, %while.cond.i21864.preheader ], [ false, %while.cond.i34644.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34770 ], [ false, %if.end1938 ], [ false, %if.end82.i21819 ], [ false, %if.end82.i21961 ], [ false, %while.cond.i22148.preheader ], [ false, %while.cond.i22290.preheader ], [ false, %while.cond.i34502.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34628 ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit22416 ], [ false, %if.end1977 ], [ false, %if.end82.i22245 ], [ false, %while.cond.i22574.preheader ], [ false, %while.cond.i22716.preheader ], [ false, %while.cond.i34360.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34486 ], [ false, %if.end2014 ], [ false, %if.end82.i22671 ], [ false, %if.end82.i22813 ], [ false, %while.cond.i23000.preheader ], [ false, %while.cond.i23142.preheader ], [ false, %while.cond.i34218.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34344 ], [ false, %if.end2057 ], [ false, %if.end82.i23097 ], [ false, %if.end82.i23239 ], [ false, %while.cond.i34076.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34202 ], [ false, %sw.bb2097 ], [ false, %sw.bb2105 ], [ false, %if.end2096 ], [ false, %while.cond.i33934.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34060 ], [ false, %sw.bb2136 ], [ false, %sw.bb2144 ], [ false, %if.end2135 ], [ false, %while.cond.i33792.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33918 ], [ false, %sw.bb2175 ], [ false, %sw.bb2183 ], [ false, %if.end2174 ], [ false, %while.cond.i33650.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33776 ], [ false, %sw.bb2214 ], [ false, %sw.bb2222 ], [ false, %if.end2213 ], [ false, %while.cond.i23994.preheader ], [ false, %while.cond.i33508.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33634 ], [ false, %sw.bb2261 ], [ false, %if.end2252 ], [ false, %if.end82.i24091 ], [ false, %while.cond.i24278.preheader ], [ false, %while.cond.i33366.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33492 ], [ false, %sw.bb2300 ], [ false, %if.end2291 ], [ false, %if.end82.i24375 ], [ false, %while.cond.i24562.preheader ], [ false, %while.cond.i24704.preheader ], [ false, %while.cond.i33224.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33350 ], [ false, %if.end2330 ], [ false, %if.end82.i24659 ], [ false, %if.end82.i24801 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i4540.preheader ], [ false, %while.cond.i4682.preheader ], [ false, %while.cond.i4824.preheader ], [ false, %while.cond.i4966.preheader ], [ false, %while.cond.i5108.preheader ], [ false, %while.cond.i5250.preheader ], [ false, %while.cond.i5392.preheader ], [ false, %while.cond.i5534.preheader ], [ false, %while.cond.i5676.preheader ], [ false, %while.cond.i5818.preheader ], [ false, %while.cond.i5960.preheader ], [ false, %while.cond.i6102.preheader ], [ false, %while.cond.i6244.preheader ], [ false, %while.cond.i6386.preheader ], [ false, %while.cond.i6528.preheader ], [ false, %while.cond.i6670.preheader ], [ false, %while.cond.i6812.preheader ], [ false, %while.cond.i7096.preheader ], [ false, %while.cond.i7238.preheader ], [ false, %while.cond.i7522.preheader ], [ false, %while.cond.i7664.preheader ], [ false, %while.cond.i7948.preheader ], [ false, %while.cond.i8090.preheader ], [ false, %while.cond.i8374.preheader ], [ false, %while.cond.i8516.preheader ], [ false, %while.cond.i8800.preheader ], [ false, %while.cond.i8942.preheader ], [ false, %while.cond.i9226.preheader ], [ false, %while.cond.i9368.preheader ], [ false, %while.cond.i9510.preheader ], [ false, %while.cond.i9652.preheader ], [ false, %while.cond.i9794.preheader ], [ false, %while.cond.i9936.preheader ], [ false, %while.cond.i10078.preheader ], [ false, %while.cond.i10220.preheader ], [ false, %while.cond.i10788.preheader ], [ false, %while.cond.i10930.preheader ], [ false, %while.cond.i11072.preheader ], [ false, %while.cond.i11356.preheader ], [ false, %while.cond.i11498.preheader ], [ false, %while.cond.i11782.preheader ], [ false, %while.cond.i12208.preheader ], [ false, %while.cond.i12350.preheader ], [ false, %while.cond.i12634.preheader ], [ false, %while.cond.i12776.preheader ], [ false, %while.cond.i13060.preheader ], [ false, %while.cond.i13202.preheader ], [ false, %while.cond.i13486.preheader ], [ false, %while.cond.i13628.preheader ], [ false, %while.cond.i13912.preheader ], [ false, %while.cond.i14054.preheader ], [ false, %while.cond.i14338.preheader ], [ false, %while.cond.i14480.preheader ], [ false, %while.cond.i14764.preheader ], [ false, %while.cond.i14906.preheader ], [ false, %while.cond.i15048.preheader ], [ false, %while.cond.i15190.preheader ], [ false, %while.cond.i15332.preheader ], [ false, %while.cond.i15474.preheader ], [ false, %while.cond.i15616.preheader ], [ false, %while.cond.i15758.preheader ], [ false, %while.cond.i16042.preheader ], [ false, %while.cond.i16326.preheader ], [ false, %while.cond.i16468.preheader ], [ false, %while.cond.i16610.preheader ], [ false, %while.cond.i16894.preheader ], [ false, %while.cond.i17036.preheader ], [ false, %while.cond.i17320.preheader ], [ false, %while.cond.i17462.preheader ], [ false, %while.cond.i17746.preheader ], [ false, %while.cond.i17888.preheader ], [ false, %while.cond.i18172.preheader ], [ false, %while.cond.i18314.preheader ], [ false, %while.cond.i18598.preheader ], [ false, %while.cond.i18740.preheader ], [ false, %while.cond.i19024.preheader ], [ false, %while.cond.i19166.preheader ], [ false, %while.cond.i19308.preheader ], [ false, %while.cond.i19450.preheader ], [ false, %while.cond.i19592.preheader ], [ false, %while.cond.i19734.preheader ], [ false, %while.cond.i19876.preheader ], [ false, %while.cond.i20018.preheader ], [ false, %while.cond.i20302.preheader ], [ false, %while.cond.i20586.preheader ], [ false, %while.cond.i20728.preheader ], [ false, %while.cond.i21154.preheader ], [ false, %while.cond.i21580.preheader ], [ false, %while.cond.i22006.preheader ], [ false, %while.cond.i22432.preheader ], [ false, %while.cond.i22858.preheader ], [ false, %while.cond.i23284.preheader ], [ false, %while.cond.i23426.preheader ], [ false, %while.cond.i23568.preheader ], [ false, %while.cond.i23710.preheader ], [ false, %while.cond.i23852.preheader ], [ false, %while.cond.i24136.preheader ], [ false, %while.cond.i24420.preheader ], [ false, %while.cond.i24846.preheader ], [ false, %while.cond.i25272.preheader ], [ false, %while.cond.i25698.preheader ], [ false, %while.cond.i26124.preheader ], [ false, %while.cond.i26550.preheader ], [ false, %while.cond.i26976.preheader ], [ false, %while.cond.i27402.preheader ], [ false, %while.cond.i27544.preheader ], [ false, %while.cond.i27686.preheader ], [ false, %while.cond.i27828.preheader ], [ false, %while.cond.i27970.preheader ], [ false, %while.cond.i28112.preheader ], [ false, %while.cond.i28254.preheader ], [ false, %while.cond.i28396.preheader ], [ false, %while.cond.i28538.preheader ], [ false, %while.cond.i28680.preheader ], [ false, %while.cond.i28822.preheader ], [ false, %while.cond.i28964.preheader ], [ false, %while.cond.i29106.preheader ], [ false, %while.cond.i29248.preheader ], [ false, %while.cond.i29390.preheader ], [ false, %while.cond.i29532.preheader ], [ false, %while.cond.i29674.preheader ], [ false, %while.cond.i29816.preheader ], [ false, %while.cond.i29958.preheader ], [ false, %while.cond.i30100.preheader ], [ false, %while.cond.i30242.preheader ], [ false, %while.cond.i30384.preheader ], [ false, %while.cond.i30526.preheader ], [ false, %while.cond.i30668.preheader ], [ false, %while.cond.i30810.preheader ], [ false, %while.cond.i30952.preheader ], [ false, %while.cond.i31094.preheader ], [ false, %while.cond.i31236.preheader ], [ false, %while.cond.i31378.preheader ], [ false, %while.cond.i31520.preheader ], [ false, %while.cond.i31662.preheader ], [ false, %while.cond.i31804.preheader ], [ false, %while.cond.i31946.preheader ], [ false, %while.cond.i32088.preheader ], [ false, %while.cond.i32230.preheader ], [ false, %while.cond.i35070.preheader ], [ false, %if.end82.i ], [ false, %if.end82.i4637 ], [ false, %if.end82.i4779 ], [ false, %if.end82.i4921 ], [ false, %sw.bb51 ], [ false, %sw.bb57 ], [ false, %sw.bb66 ], [ false, %sw.bb75 ], [ false, %sw.bb84 ], [ false, %sw.bb93 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit17082 ], [ false, %_ZN9struct_pb13UnknownFieldsD2Ev.exit20312 ], [ false, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto220ForeignMessageProto2EEEbRT_PKcm.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit17133 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit17171 ], [ false, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto2EEEbRT_PKcm.exit ], [ false, %sw.bb476 ], [ false, %if.end491 ], [ false, %sw.bb509 ], [ false, %if.end524 ], [ false, %sw.bb545 ], [ false, %if.end560 ], [ false, %sw.bb581 ], [ false, %if.end596 ], [ false, %sw.bb617 ], [ false, %if.end632 ], [ false, %sw.bb653 ], [ false, %if.end668 ], [ %retval.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %retval.4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17878 ], [ false, %if.end803 ], [ false, %if.end836 ], [ %retval.5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18066 ], [ %retval.6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18103 ], [ false, %sw.bb1092 ], [ false, %if.end1107 ], [ false, %sw.bb1128 ], [ false, %if.end1143 ], [ false, %sw.bb1164 ], [ false, %if.end1179 ], [ false, %sw.bb1200 ], [ false, %if.end1215 ], [ false, %sw.bb1236 ], [ false, %if.end1251 ], [ false, %sw.bb1272 ], [ false, %if.end1287 ], [ false, %if.end1349 ], [ false, %sw.bb1563 ], [ false, %if.end1578 ], [ false, %sw.bb1599 ], [ false, %if.end1614 ], [ false, %sw.bb1635 ], [ false, %if.end1650 ], [ false, %sw.bb1671 ], [ false, %if.end1686 ], [ false, %sw.bb1707 ], [ false, %if.end1722 ], [ false, %sw.bb1743 ], [ false, %if.end1758 ], [ false, %if.end1820 ], [ %retval.7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19678 ], [ %retval.8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19752 ], [ %retval.9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19796 ], [ %retval.10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19845 ], [ %retval.11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19882 ], [ %retval.12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19919 ], [ false, %_ZN9struct_pb13UnknownFieldsD2Ev.exit20667 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit19973 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit20014 ], [ false, %if.end2838 ], [ false, %if.end2855 ], [ false, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto24DataEEEbRT_PKcm.exit ], [ false, %if.end82.i28635 ], [ false, %if.end82.i28777 ], [ false, %if.end82.i28919 ], [ false, %if.end82.i29061 ], [ false, %sw.bb2959 ], [ false, %sw.bb2968 ], [ false, %sw.bb2977 ], [ false, %sw.bb2986 ], [ false, %sw.bb2995 ], [ false, %sw.bb3004 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit20156 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit20194 ], [ false, %if.end82.i29913 ], [ false, %if.end82.i30055 ], [ false, %if.end82.i30197 ], [ false, %if.end82.i30339 ], [ false, %if.end82.i30481 ], [ false, %if.end82.i30623 ], [ false, %if.end82.i30765 ], [ false, %if.end82.i30907 ], [ false, %if.end82.i31049 ], [ false, %if.end82.i31191 ], [ false, %if.end82.i31333 ], [ false, %if.end82.i31475 ], [ false, %if.end82.i31617 ], [ false, %if.end82.i31759 ], [ false, %if.end82.i31901 ], [ false, %if.end82.i32043 ], [ false, %if.end82.i32185 ], [ false, %if.end82.i32327 ], [ true, %sw.epilog3221 ], [ false, %if.end82.i35167 ], [ false, %if.end82.i5063 ], [ false, %if.end82.i5205 ], [ false, %if.end82.i5347 ], [ false, %if.end82.i5489 ], [ false, %if.end82.i5631 ], [ false, %if.end82.i5773 ], [ false, %if.end82.i5915 ], [ false, %if.end82.i6057 ], [ false, %if.end82.i6199 ], [ false, %if.end82.i6341 ], [ false, %if.end82.i6483 ], [ false, %if.end82.i6625 ], [ false, %if.end82.i6767 ], [ false, %if.end82.i6909 ], [ false, %if.end82.i7193 ], [ false, %if.end82.i7335 ], [ false, %if.end82.i7619 ], [ false, %if.end82.i7761 ], [ false, %if.end82.i8045 ], [ false, %if.end82.i8187 ], [ false, %if.end82.i8471 ], [ false, %if.end82.i8613 ], [ false, %if.end82.i8897 ], [ false, %if.end82.i9039 ], [ false, %if.end82.i9323 ], [ false, %if.end82.i9465 ], [ false, %if.end82.i9607 ], [ false, %if.end82.i9749 ], [ false, %if.end82.i9891 ], [ false, %if.end82.i10033 ], [ false, %if.end82.i10175 ], [ false, %if.end82.i10317 ], [ false, %if.end82.i10885 ], [ false, %if.end82.i11027 ], [ false, %if.end82.i11169 ], [ false, %if.end82.i11453 ], [ false, %if.end82.i11595 ], [ false, %if.end82.i11879 ], [ false, %if.end82.i12305 ], [ false, %if.end82.i12447 ], [ false, %if.end82.i12731 ], [ false, %if.end82.i12873 ], [ false, %if.end82.i13157 ], [ false, %if.end82.i13299 ], [ false, %if.end82.i13583 ], [ false, %if.end82.i13725 ], [ false, %if.end82.i14009 ], [ false, %if.end82.i14151 ], [ false, %if.end82.i14435 ], [ false, %if.end82.i14577 ], [ false, %if.end82.i14861 ], [ false, %if.end82.i15003 ], [ false, %if.end82.i15145 ], [ false, %if.end82.i15287 ], [ false, %if.end82.i15429 ], [ false, %if.end82.i15571 ], [ false, %if.end82.i15713 ], [ false, %if.end82.i15855 ], [ false, %if.end82.i16139 ], [ false, %if.end82.i16423 ], [ false, %if.end82.i16565 ], [ false, %if.end82.i16707 ], [ false, %if.end82.i16991 ], [ false, %if.end82.i17133 ], [ false, %if.end82.i17417 ], [ false, %if.end82.i17559 ], [ false, %if.end82.i17843 ], [ false, %if.end82.i17985 ], [ false, %if.end82.i18269 ], [ false, %if.end82.i18411 ], [ false, %if.end82.i18695 ], [ false, %if.end82.i18837 ], [ false, %if.end82.i19121 ], [ false, %if.end82.i19263 ], [ false, %if.end82.i19405 ], [ false, %if.end82.i19547 ], [ false, %if.end82.i19689 ], [ false, %if.end82.i19831 ], [ false, %if.end82.i19973 ], [ false, %if.end82.i20115 ], [ false, %if.end82.i20399 ], [ false, %if.end82.i20683 ], [ false, %if.end82.i20825 ], [ false, %if.end82.i21251 ], [ false, %if.end82.i21677 ], [ false, %if.end82.i22103 ], [ false, %if.end82.i22529 ], [ false, %if.end82.i22955 ], [ false, %if.end82.i23381 ], [ false, %if.end82.i23523 ], [ false, %if.end82.i23665 ], [ false, %if.end82.i23807 ], [ false, %if.end82.i23949 ], [ false, %if.end82.i24233 ], [ false, %if.end82.i24517 ], [ false, %if.end82.i24943 ], [ false, %if.end82.i25369 ], [ false, %if.end82.i25795 ], [ false, %if.end82.i26221 ], [ false, %if.end82.i26647 ], [ false, %if.end82.i27073 ], [ false, %if.end82.i27499 ], [ false, %if.end82.i27641 ], [ false, %if.end82.i27783 ], [ false, %if.end82.i27925 ], [ false, %if.end82.i28067 ], [ false, %if.end82.i28209 ], [ false, %if.end82.i28351 ], [ false, %if.end82.i28493 ], [ false, %if.end82.i29203 ], [ false, %if.end82.i29345 ], [ false, %if.end82.i29487 ], [ false, %if.end82.i29629 ], [ false, %if.end82.i29771 ]
+return:                                           ; preds = %if.end82.i, %if.end82.i4637, %if.end82.i4779, %if.end82.i4921, %sw.bb51, %sw.bb57, %sw.bb66, %sw.bb75, %sw.bb84, %sw.bb93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit17082, %_ZN9struct_pb13UnknownFieldsD2Ev.exit20312, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto220ForeignMessageProto2EEEbRT_PKcm.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit17133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit17171, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto2EEEbRT_PKcm.exit, %sw.bb476, %if.end491, %sw.bb509, %if.end524, %sw.bb545, %if.end560, %sw.bb581, %if.end596, %sw.bb617, %if.end632, %sw.bb653, %if.end668, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17878, %if.end803, %if.end836, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18066, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18103, %sw.bb1092, %if.end1107, %sw.bb1128, %if.end1143, %sw.bb1164, %if.end1179, %sw.bb1200, %if.end1215, %sw.bb1236, %if.end1251, %sw.bb1272, %if.end1287, %if.end1349, %sw.bb1563, %if.end1578, %sw.bb1599, %if.end1614, %sw.bb1635, %if.end1650, %sw.bb1671, %if.end1686, %sw.bb1707, %if.end1722, %sw.bb1743, %if.end1758, %if.end1820, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19678, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19752, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19796, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19845, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19882, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19919, %_ZN9struct_pb13UnknownFieldsD2Ev.exit20667, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit19973, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit20014, %if.end2838, %if.end2855, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto24DataEEEbRT_PKcm.exit, %if.end82.i28635, %if.end82.i28777, %if.end82.i28919, %if.end82.i29061, %sw.bb2959, %sw.bb2968, %sw.bb2977, %sw.bb2986, %sw.bb2995, %sw.bb3004, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit20156, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit20194, %if.end82.i29913, %if.end82.i30055, %if.end82.i30197, %if.end82.i30339, %if.end82.i30481, %if.end82.i30623, %if.end82.i30765, %if.end82.i30907, %if.end82.i31049, %if.end82.i31191, %if.end82.i31333, %if.end82.i31475, %if.end82.i31617, %if.end82.i31759, %if.end82.i31901, %if.end82.i32043, %if.end82.i32185, %if.end82.i32327, %sw.epilog3221, %if.end82.i35167, %if.end82.i5063, %if.end82.i5205, %if.end82.i5347, %if.end82.i5489, %if.end82.i5631, %if.end82.i5773, %if.end82.i5915, %if.end82.i6057, %if.end82.i6199, %if.end82.i6341, %if.end82.i6483, %if.end82.i6625, %if.end82.i6767, %if.end82.i6909, %if.end82.i7193, %if.end82.i7335, %if.end82.i7619, %if.end82.i7761, %if.end82.i8045, %if.end82.i8187, %if.end82.i8471, %if.end82.i8613, %if.end82.i8897, %if.end82.i9039, %if.end82.i9323, %if.end82.i9465, %if.end82.i9607, %if.end82.i9749, %if.end82.i9891, %if.end82.i10033, %if.end82.i10175, %if.end82.i10317, %if.end82.i10885, %if.end82.i11027, %if.end82.i11169, %if.end82.i11453, %if.end82.i11595, %if.end82.i11879, %if.end82.i12305, %if.end82.i12447, %if.end82.i12731, %if.end82.i12873, %if.end82.i13157, %if.end82.i13299, %if.end82.i13583, %if.end82.i13725, %if.end82.i14009, %if.end82.i14151, %if.end82.i14435, %if.end82.i14577, %if.end82.i14861, %if.end82.i15003, %if.end82.i15145, %if.end82.i15287, %if.end82.i15429, %if.end82.i15571, %if.end82.i15713, %if.end82.i15855, %if.end82.i16139, %if.end82.i16423, %if.end82.i16565, %if.end82.i16707, %if.end82.i16991, %if.end82.i17133, %if.end82.i17417, %if.end82.i17559, %if.end82.i17843, %if.end82.i17985, %if.end82.i18269, %if.end82.i18411, %if.end82.i18695, %if.end82.i18837, %if.end82.i19121, %if.end82.i19263, %if.end82.i19405, %if.end82.i19547, %if.end82.i19689, %if.end82.i19831, %if.end82.i19973, %if.end82.i20115, %if.end82.i20399, %if.end82.i20683, %if.end82.i20825, %if.end82.i21251, %if.end82.i21677, %if.end82.i22103, %if.end82.i22529, %if.end82.i22955, %if.end82.i23381, %if.end82.i23523, %if.end82.i23665, %if.end82.i23807, %if.end82.i23949, %if.end82.i24233, %if.end82.i24517, %if.end82.i24943, %if.end82.i25369, %if.end82.i25795, %if.end82.i26221, %if.end82.i26647, %if.end82.i27073, %if.end82.i27499, %if.end82.i27641, %if.end82.i27783, %if.end82.i27925, %if.end82.i28067, %if.end82.i28209, %if.end82.i28351, %if.end82.i28493, %if.end82.i29203, %if.end82.i29345, %if.end82.i29487, %if.end82.i29629, %if.end82.i29771, %while.cond.i35070.preheader, %while.cond.i32230.preheader, %while.cond.i32088.preheader, %while.cond.i31946.preheader, %while.cond.i31804.preheader, %while.cond.i31662.preheader, %while.cond.i31520.preheader, %while.cond.i31378.preheader, %while.cond.i31236.preheader, %while.cond.i31094.preheader, %while.cond.i30952.preheader, %while.cond.i30810.preheader, %while.cond.i30668.preheader, %while.cond.i30526.preheader, %while.cond.i30384.preheader, %while.cond.i30242.preheader, %while.cond.i30100.preheader, %while.cond.i29958.preheader, %while.cond.i29816.preheader, %while.cond.i29674.preheader, %while.cond.i29532.preheader, %while.cond.i29390.preheader, %while.cond.i29248.preheader, %while.cond.i29106.preheader, %while.cond.i28964.preheader, %while.cond.i28822.preheader, %while.cond.i28680.preheader, %while.cond.i28538.preheader, %while.cond.i28396.preheader, %while.cond.i28254.preheader, %while.cond.i28112.preheader, %while.cond.i27970.preheader, %while.cond.i27828.preheader, %while.cond.i27686.preheader, %while.cond.i27544.preheader, %while.cond.i27402.preheader, %while.cond.i26976.preheader, %while.cond.i26550.preheader, %while.cond.i26124.preheader, %while.cond.i25698.preheader, %while.cond.i25272.preheader, %while.cond.i24846.preheader, %while.cond.i24420.preheader, %while.cond.i24136.preheader, %while.cond.i23852.preheader, %while.cond.i23710.preheader, %while.cond.i23568.preheader, %while.cond.i23426.preheader, %while.cond.i23284.preheader, %while.cond.i22858.preheader, %while.cond.i22432.preheader, %while.cond.i22006.preheader, %while.cond.i21580.preheader, %while.cond.i21154.preheader, %while.cond.i20728.preheader, %while.cond.i20586.preheader, %while.cond.i20302.preheader, %while.cond.i20018.preheader, %while.cond.i19876.preheader, %while.cond.i19734.preheader, %while.cond.i19592.preheader, %while.cond.i19450.preheader, %while.cond.i19308.preheader, %while.cond.i19166.preheader, %while.cond.i19024.preheader, %while.cond.i18740.preheader, %while.cond.i18598.preheader, %while.cond.i18314.preheader, %while.cond.i18172.preheader, %while.cond.i17888.preheader, %while.cond.i17746.preheader, %while.cond.i17462.preheader, %while.cond.i17320.preheader, %while.cond.i17036.preheader, %while.cond.i16894.preheader, %while.cond.i16610.preheader, %while.cond.i16468.preheader, %while.cond.i16326.preheader, %while.cond.i16042.preheader, %while.cond.i15758.preheader, %while.cond.i15616.preheader, %while.cond.i15474.preheader, %while.cond.i15332.preheader, %while.cond.i15190.preheader, %while.cond.i15048.preheader, %while.cond.i14906.preheader, %while.cond.i14764.preheader, %while.cond.i14480.preheader, %while.cond.i14338.preheader, %while.cond.i14054.preheader, %while.cond.i13912.preheader, %while.cond.i13628.preheader, %while.cond.i13486.preheader, %while.cond.i13202.preheader, %while.cond.i13060.preheader, %while.cond.i12776.preheader, %while.cond.i12634.preheader, %while.cond.i12350.preheader, %while.cond.i12208.preheader, %while.cond.i11782.preheader, %while.cond.i11498.preheader, %while.cond.i11356.preheader, %while.cond.i11072.preheader, %while.cond.i10930.preheader, %while.cond.i10788.preheader, %while.cond.i10220.preheader, %while.cond.i10078.preheader, %while.cond.i9936.preheader, %while.cond.i9794.preheader, %while.cond.i9652.preheader, %while.cond.i9510.preheader, %while.cond.i9368.preheader, %while.cond.i9226.preheader, %while.cond.i8942.preheader, %while.cond.i8800.preheader, %while.cond.i8516.preheader, %while.cond.i8374.preheader, %while.cond.i8090.preheader, %while.cond.i7948.preheader, %while.cond.i7664.preheader, %while.cond.i7522.preheader, %while.cond.i7238.preheader, %while.cond.i7096.preheader, %while.cond.i6812.preheader, %while.cond.i6670.preheader, %while.cond.i6528.preheader, %while.cond.i6386.preheader, %while.cond.i6244.preheader, %while.cond.i6102.preheader, %while.cond.i5960.preheader, %while.cond.i5818.preheader, %while.cond.i5676.preheader, %while.cond.i5534.preheader, %while.cond.i5392.preheader, %while.cond.i5250.preheader, %while.cond.i5108.preheader, %while.cond.i4966.preheader, %while.cond.i4824.preheader, %while.cond.i4682.preheader, %while.cond.i4540.preheader, %while.cond.i.preheader, %if.end82.i24801, %if.end82.i24659, %if.end2330, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33350, %while.cond.i33224.preheader, %while.cond.i24704.preheader, %while.cond.i24562.preheader, %if.end82.i24375, %if.end2291, %sw.bb2300, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33492, %while.cond.i33366.preheader, %while.cond.i24278.preheader, %if.end82.i24091, %if.end2252, %sw.bb2261, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33634, %while.cond.i33508.preheader, %while.cond.i23994.preheader, %if.end2213, %sw.bb2222, %sw.bb2214, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33776, %while.cond.i33650.preheader, %if.end2174, %sw.bb2183, %sw.bb2175, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33918, %while.cond.i33792.preheader, %if.end2135, %sw.bb2144, %sw.bb2136, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34060, %while.cond.i33934.preheader, %if.end2096, %sw.bb2105, %sw.bb2097, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34202, %while.cond.i34076.preheader, %if.end82.i23239, %if.end82.i23097, %if.end2057, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34344, %while.cond.i34218.preheader, %while.cond.i23142.preheader, %while.cond.i23000.preheader, %if.end82.i22813, %if.end82.i22671, %if.end2014, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34486, %while.cond.i34360.preheader, %while.cond.i22716.preheader, %while.cond.i22574.preheader, %if.end82.i22245, %if.end1977, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit22416, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34628, %while.cond.i34502.preheader, %while.cond.i22290.preheader, %while.cond.i22148.preheader, %if.end82.i21961, %if.end82.i21819, %if.end1938, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34770, %while.cond.i34644.preheader, %while.cond.i21864.preheader, %while.cond.i21722.preheader, %if.end82.i21393, %if.end1901, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit21564, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34912, %while.cond.i34786.preheader, %while.cond.i21438.preheader, %while.cond.i21296.preheader, %if.end82.i21109, %if.end82.i20967, %if.end1864, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit35054, %while.cond.i34928.preheader, %while.cond.i21012.preheader, %while.cond.i20870.preheader, %if.end82.i20541, %while.cond.i20444.preheader, %if.end82.i20257, %while.cond.i20160.preheader, %if.end82.i18979, %while.cond.i18882.preheader, %if.end82.i18553, %while.cond.i18456.preheader, %if.end82.i18127, %while.cond.i18030.preheader, %if.end82.i17701, %while.cond.i17604.preheader, %if.end82.i17275, %while.cond.i17178.preheader, %if.end82.i16849, %while.cond.i16752.preheader, %if.end82.i16281, %while.cond.i16184.preheader, %if.end82.i15997, %while.cond.i15900.preheader, %if.end82.i14719, %while.cond.i14622.preheader, %if.end82.i14293, %while.cond.i14196.preheader, %if.end82.i13867, %while.cond.i13770.preheader, %if.end82.i13441, %while.cond.i13344.preheader, %if.end82.i13015, %while.cond.i12918.preheader, %if.end82.i12589, %while.cond.i12492.preheader, %if.end82.i11737, %while.cond.i11640.preheader, %if.end82.i11311, %while.cond.i11214.preheader, %if.end82.i10459, %while.cond.i10362.preheader, %if.end82.i9181, %while.cond.i9084.preheader, %if.end82.i8755, %while.cond.i8658.preheader, %if.end82.i8329, %while.cond.i8232.preheader, %if.end82.i7903, %while.cond.i7806.preheader, %if.end82.i7477, %while.cond.i7380.preheader, %if.end82.i7051, %while.cond.i6954.preheader, %while.body.i33238, %while.body.i33380, %while.body.i33522, %while.body.i33664, %while.body.i33806, %while.body.i33948, %while.body.i34090, %while.body.i34232, %while.body.i34374, %while.body.i34516, %while.body.i34658, %while.body.i34800, %while.body.i34942, %return.loopexit30295, %return.loopexit30294, %return.loopexit30293, %return.loopexit30292, %return.loopexit30291, %return.loopexit30290, %return.loopexit30289, %return.loopexit30288, %return.loopexit30287, %return.loopexit30286, %return.loopexit30285, %return.loopexit30284, %return.loopexit30283, %return.loopexit30282, %return.loopexit30281, %return.loopexit30280, %return.loopexit30279, %return.loopexit30278, %return.loopexit30277, %return.loopexit30276, %return.loopexit30275, %return.loopexit30274, %return.loopexit30273, %return.loopexit30272, %return.loopexit30271, %return.loopexit30270, %return.loopexit30269, %return.loopexit30268, %return.loopexit30267, %return.loopexit30266, %return.loopexit30265, %return.loopexit30264, %return.loopexit30263, %return.loopexit30262, %return.loopexit30261, %return.loopexit30260, %return.loopexit30259, %return.loopexit30257, %return.loopexit30255, %return.loopexit30253, %return.loopexit30251, %return.loopexit30249, %return.loopexit30247, %return.loopexit30245, %return.loopexit30243, %return.loopexit30241, %return.loopexit30239, %return.loopexit30237, %return.loopexit30235, %return.loopexit30233, %return.loopexit30231, %return.loopexit30229, %return.loopexit30227, %return.loopexit30225, %return.loopexit30223, %return.loopexit30221, %return.loopexit30220, %return.loopexit30217, %return.loopexit30214, %return.loopexit30213, %return.loopexit30212, %return.loopexit30211, %return.loopexit30210, %return.loopexit30209, %return.loopexit30208, %return.loopexit30207, %return.loopexit30204, %return.loopexit30203, %return.loopexit30200, %return.loopexit30199, %return.loopexit30196, %return.loopexit30195, %return.loopexit30192, %return.loopexit30191, %return.loopexit30188, %return.loopexit30187, %return.loopexit30184, %return.loopexit30183, %return.loopexit30182, %return.loopexit30179, %return.loopexit30176, %return.loopexit30175, %return.loopexit30174, %return.loopexit30173, %return.loopexit30172, %return.loopexit30171, %return.loopexit30170, %return.loopexit30169, %return.loopexit30166, %return.loopexit30165, %return.loopexit30162, %return.loopexit30161, %return.loopexit30158, %return.loopexit30157, %return.loopexit30154, %return.loopexit30153, %return.loopexit30150, %return.loopexit30149, %return.loopexit30146, %return.loopexit30145, %return.loopexit30144, %return.loopexit30141, %return.loopexit30140, %return.loopexit30137, %return.loopexit30136, %return.loopexit30135, %return.loopexit30132, %return.loopexit30131, %return.loopexit30130, %return.loopexit30129, %return.loopexit30128, %return.loopexit30127, %return.loopexit30126, %return.loopexit30125, %return.loopexit30122, %return.loopexit30121, %return.loopexit30118, %return.loopexit30117, %return.loopexit30114, %return.loopexit30113, %return.loopexit30110, %return.loopexit30109, %return.loopexit30106, %return.loopexit30105, %return.loopexit30103, %return.loopexit30102, %return.loopexit30101, %return.loopexit30100, %return.loopexit30099, %return.loopexit30098, %return.loopexit30097, %return.loopexit30096, %return.loopexit30095, %return.loopexit30094, %return.loopexit30093, %return.loopexit30092, %return.loopexit30091, %return.loopexit30090, %return.loopexit30089, %return.loopexit30088, %return.loopexit30087, %return.loopexit30073, %return.loopexit30072, %return.loopexit30070, %return.loopexit30068, %return.loopexit30062, %return.loopexit30061, %return.loopexit30059, %return.loopexit30058, %return.loopexit30056, %return.loopexit30055, %return.loopexit30053, %return.loopexit30052, %return.loopexit30050, %return.loopexit30049, %return.loopexit30047, %return.loopexit30046, %return.loopexit30045, %return.loopexit30044, %return.loopexit30043, %return.loopexit30042, %return.loopexit30041, %return.loopexit30040, %return.loopexit30039, %return.loopexit30038, %return.loopexit30037, %return.loopexit30036, %return.loopexit30035, %return.loopexit30034, %return.loopexit30033, %return.loopexit30032, %return.loopexit30031, %return.loopexit30030, %return.loopexit30029, %return.loopexit30028, %return.loopexit30027, %return.loopexit30026, %return.loopexit30025, %return.loopexit30024, %return.loopexit30023, %return.loopexit30022, %return.loopexit, %entry, %sw.default3216, %if.then793, %if.then775
+  %retval.1 = phi i1 [ %call3218, %sw.default3216 ], [ false, %if.then775 ], [ false, %if.then793 ], [ true, %entry ], [ false, %return.loopexit ], [ false, %return.loopexit30022 ], [ false, %return.loopexit30023 ], [ false, %return.loopexit30024 ], [ false, %return.loopexit30025 ], [ false, %return.loopexit30026 ], [ false, %return.loopexit30027 ], [ false, %return.loopexit30028 ], [ false, %return.loopexit30029 ], [ false, %return.loopexit30030 ], [ false, %return.loopexit30031 ], [ false, %return.loopexit30032 ], [ false, %return.loopexit30033 ], [ false, %return.loopexit30034 ], [ false, %return.loopexit30035 ], [ false, %return.loopexit30036 ], [ false, %return.loopexit30037 ], [ false, %return.loopexit30038 ], [ false, %return.loopexit30039 ], [ false, %return.loopexit30040 ], [ false, %return.loopexit30041 ], [ false, %return.loopexit30042 ], [ false, %return.loopexit30043 ], [ false, %return.loopexit30044 ], [ false, %return.loopexit30045 ], [ false, %return.loopexit30046 ], [ false, %return.loopexit30047 ], [ false, %return.loopexit30049 ], [ false, %return.loopexit30050 ], [ false, %return.loopexit30052 ], [ false, %return.loopexit30053 ], [ false, %return.loopexit30055 ], [ false, %return.loopexit30056 ], [ false, %return.loopexit30058 ], [ false, %return.loopexit30059 ], [ false, %return.loopexit30061 ], [ false, %return.loopexit30062 ], [ false, %return.loopexit30068 ], [ false, %return.loopexit30070 ], [ false, %return.loopexit30072 ], [ false, %return.loopexit30073 ], [ false, %return.loopexit30087 ], [ false, %return.loopexit30088 ], [ false, %return.loopexit30089 ], [ false, %return.loopexit30090 ], [ false, %return.loopexit30091 ], [ false, %return.loopexit30092 ], [ false, %return.loopexit30093 ], [ false, %return.loopexit30094 ], [ false, %return.loopexit30095 ], [ false, %return.loopexit30096 ], [ false, %return.loopexit30097 ], [ false, %return.loopexit30098 ], [ false, %return.loopexit30099 ], [ false, %return.loopexit30100 ], [ false, %return.loopexit30101 ], [ false, %return.loopexit30102 ], [ false, %return.loopexit30103 ], [ false, %return.loopexit30105 ], [ false, %return.loopexit30106 ], [ false, %return.loopexit30109 ], [ false, %return.loopexit30110 ], [ false, %return.loopexit30113 ], [ false, %return.loopexit30114 ], [ false, %return.loopexit30117 ], [ false, %return.loopexit30118 ], [ false, %return.loopexit30121 ], [ false, %return.loopexit30122 ], [ false, %return.loopexit30125 ], [ false, %return.loopexit30126 ], [ false, %return.loopexit30127 ], [ false, %return.loopexit30128 ], [ false, %return.loopexit30129 ], [ false, %return.loopexit30130 ], [ false, %return.loopexit30131 ], [ false, %return.loopexit30132 ], [ false, %return.loopexit30135 ], [ false, %return.loopexit30136 ], [ false, %return.loopexit30137 ], [ false, %return.loopexit30140 ], [ false, %return.loopexit30141 ], [ false, %return.loopexit30144 ], [ false, %return.loopexit30145 ], [ false, %return.loopexit30146 ], [ false, %return.loopexit30149 ], [ false, %return.loopexit30150 ], [ false, %return.loopexit30153 ], [ false, %return.loopexit30154 ], [ false, %return.loopexit30157 ], [ false, %return.loopexit30158 ], [ false, %return.loopexit30161 ], [ false, %return.loopexit30162 ], [ false, %return.loopexit30165 ], [ false, %return.loopexit30166 ], [ false, %return.loopexit30169 ], [ false, %return.loopexit30170 ], [ false, %return.loopexit30171 ], [ false, %return.loopexit30172 ], [ false, %return.loopexit30173 ], [ false, %return.loopexit30174 ], [ false, %return.loopexit30175 ], [ false, %return.loopexit30176 ], [ false, %return.loopexit30179 ], [ false, %return.loopexit30182 ], [ false, %return.loopexit30183 ], [ false, %return.loopexit30184 ], [ false, %return.loopexit30187 ], [ false, %return.loopexit30188 ], [ false, %return.loopexit30191 ], [ false, %return.loopexit30192 ], [ false, %return.loopexit30195 ], [ false, %return.loopexit30196 ], [ false, %return.loopexit30199 ], [ false, %return.loopexit30200 ], [ false, %return.loopexit30203 ], [ false, %return.loopexit30204 ], [ false, %return.loopexit30207 ], [ false, %return.loopexit30208 ], [ false, %return.loopexit30209 ], [ false, %return.loopexit30210 ], [ false, %return.loopexit30211 ], [ false, %return.loopexit30212 ], [ false, %return.loopexit30213 ], [ false, %return.loopexit30214 ], [ false, %return.loopexit30217 ], [ false, %return.loopexit30220 ], [ false, %return.loopexit30221 ], [ false, %return.loopexit30223 ], [ false, %return.loopexit30225 ], [ false, %return.loopexit30227 ], [ false, %return.loopexit30229 ], [ false, %return.loopexit30231 ], [ false, %return.loopexit30233 ], [ false, %return.loopexit30235 ], [ false, %return.loopexit30237 ], [ false, %return.loopexit30239 ], [ false, %return.loopexit30241 ], [ false, %return.loopexit30243 ], [ false, %return.loopexit30245 ], [ false, %return.loopexit30247 ], [ false, %return.loopexit30249 ], [ false, %return.loopexit30251 ], [ false, %return.loopexit30253 ], [ false, %return.loopexit30255 ], [ false, %return.loopexit30257 ], [ false, %return.loopexit30259 ], [ false, %return.loopexit30260 ], [ false, %return.loopexit30261 ], [ false, %return.loopexit30262 ], [ false, %return.loopexit30263 ], [ false, %return.loopexit30264 ], [ false, %return.loopexit30265 ], [ false, %return.loopexit30266 ], [ false, %return.loopexit30267 ], [ false, %return.loopexit30268 ], [ false, %return.loopexit30269 ], [ false, %return.loopexit30270 ], [ false, %return.loopexit30271 ], [ false, %return.loopexit30272 ], [ false, %return.loopexit30273 ], [ false, %return.loopexit30274 ], [ false, %return.loopexit30275 ], [ false, %return.loopexit30276 ], [ false, %return.loopexit30277 ], [ false, %return.loopexit30278 ], [ false, %return.loopexit30279 ], [ false, %return.loopexit30280 ], [ false, %return.loopexit30281 ], [ false, %return.loopexit30282 ], [ false, %return.loopexit30283 ], [ false, %return.loopexit30284 ], [ false, %return.loopexit30285 ], [ false, %return.loopexit30286 ], [ false, %return.loopexit30287 ], [ false, %return.loopexit30288 ], [ false, %return.loopexit30289 ], [ false, %return.loopexit30290 ], [ false, %return.loopexit30291 ], [ false, %return.loopexit30292 ], [ false, %return.loopexit30293 ], [ false, %return.loopexit30294 ], [ false, %return.loopexit30295 ], [ false, %while.body.i34942 ], [ false, %while.body.i34800 ], [ false, %while.body.i34658 ], [ false, %while.body.i34516 ], [ false, %while.body.i34374 ], [ false, %while.body.i34232 ], [ false, %while.body.i34090 ], [ false, %while.body.i33948 ], [ false, %while.body.i33806 ], [ false, %while.body.i33664 ], [ false, %while.body.i33522 ], [ false, %while.body.i33380 ], [ false, %while.body.i33238 ], [ false, %while.cond.i6954.preheader ], [ false, %if.end82.i7051 ], [ false, %while.cond.i7380.preheader ], [ false, %if.end82.i7477 ], [ false, %while.cond.i7806.preheader ], [ false, %if.end82.i7903 ], [ false, %while.cond.i8232.preheader ], [ false, %if.end82.i8329 ], [ false, %while.cond.i8658.preheader ], [ false, %if.end82.i8755 ], [ false, %while.cond.i9084.preheader ], [ false, %if.end82.i9181 ], [ false, %while.cond.i10362.preheader ], [ false, %if.end82.i10459 ], [ false, %while.cond.i11214.preheader ], [ false, %if.end82.i11311 ], [ false, %while.cond.i11640.preheader ], [ false, %if.end82.i11737 ], [ false, %while.cond.i12492.preheader ], [ false, %if.end82.i12589 ], [ false, %while.cond.i12918.preheader ], [ false, %if.end82.i13015 ], [ false, %while.cond.i13344.preheader ], [ false, %if.end82.i13441 ], [ false, %while.cond.i13770.preheader ], [ false, %if.end82.i13867 ], [ false, %while.cond.i14196.preheader ], [ false, %if.end82.i14293 ], [ false, %while.cond.i14622.preheader ], [ false, %if.end82.i14719 ], [ false, %while.cond.i15900.preheader ], [ false, %if.end82.i15997 ], [ false, %while.cond.i16184.preheader ], [ false, %if.end82.i16281 ], [ false, %while.cond.i16752.preheader ], [ false, %if.end82.i16849 ], [ false, %while.cond.i17178.preheader ], [ false, %if.end82.i17275 ], [ false, %while.cond.i17604.preheader ], [ false, %if.end82.i17701 ], [ false, %while.cond.i18030.preheader ], [ false, %if.end82.i18127 ], [ false, %while.cond.i18456.preheader ], [ false, %if.end82.i18553 ], [ false, %while.cond.i18882.preheader ], [ false, %if.end82.i18979 ], [ false, %while.cond.i20160.preheader ], [ false, %if.end82.i20257 ], [ false, %while.cond.i20444.preheader ], [ false, %if.end82.i20541 ], [ false, %while.cond.i20870.preheader ], [ false, %while.cond.i21012.preheader ], [ false, %while.cond.i34928.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit35054 ], [ false, %if.end1864 ], [ false, %if.end82.i20967 ], [ false, %if.end82.i21109 ], [ false, %while.cond.i21296.preheader ], [ false, %while.cond.i21438.preheader ], [ false, %while.cond.i34786.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34912 ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit21564 ], [ false, %if.end1901 ], [ false, %if.end82.i21393 ], [ false, %while.cond.i21722.preheader ], [ false, %while.cond.i21864.preheader ], [ false, %while.cond.i34644.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34770 ], [ false, %if.end1938 ], [ false, %if.end82.i21819 ], [ false, %if.end82.i21961 ], [ false, %while.cond.i22148.preheader ], [ false, %while.cond.i22290.preheader ], [ false, %while.cond.i34502.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34628 ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit22416 ], [ false, %if.end1977 ], [ false, %if.end82.i22245 ], [ false, %while.cond.i22574.preheader ], [ false, %while.cond.i22716.preheader ], [ false, %while.cond.i34360.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34486 ], [ false, %if.end2014 ], [ false, %if.end82.i22671 ], [ false, %if.end82.i22813 ], [ false, %while.cond.i23000.preheader ], [ false, %while.cond.i23142.preheader ], [ false, %while.cond.i34218.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34344 ], [ false, %if.end2057 ], [ false, %if.end82.i23097 ], [ false, %if.end82.i23239 ], [ false, %while.cond.i34076.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34202 ], [ false, %sw.bb2097 ], [ false, %sw.bb2105 ], [ false, %if.end2096 ], [ false, %while.cond.i33934.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit34060 ], [ false, %sw.bb2136 ], [ false, %sw.bb2144 ], [ false, %if.end2135 ], [ false, %while.cond.i33792.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33918 ], [ false, %sw.bb2175 ], [ false, %sw.bb2183 ], [ false, %if.end2174 ], [ false, %while.cond.i33650.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33776 ], [ false, %sw.bb2214 ], [ false, %sw.bb2222 ], [ false, %if.end2213 ], [ false, %while.cond.i23994.preheader ], [ false, %while.cond.i33508.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33634 ], [ false, %sw.bb2261 ], [ false, %if.end2252 ], [ false, %if.end82.i24091 ], [ false, %while.cond.i24278.preheader ], [ false, %while.cond.i33366.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33492 ], [ false, %sw.bb2300 ], [ false, %if.end2291 ], [ false, %if.end82.i24375 ], [ false, %while.cond.i24562.preheader ], [ false, %while.cond.i24704.preheader ], [ false, %while.cond.i33224.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit33350 ], [ false, %if.end2330 ], [ false, %if.end82.i24659 ], [ false, %if.end82.i24801 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i4540.preheader ], [ false, %while.cond.i4682.preheader ], [ false, %while.cond.i4824.preheader ], [ false, %while.cond.i4966.preheader ], [ false, %while.cond.i5108.preheader ], [ false, %while.cond.i5250.preheader ], [ false, %while.cond.i5392.preheader ], [ false, %while.cond.i5534.preheader ], [ false, %while.cond.i5676.preheader ], [ false, %while.cond.i5818.preheader ], [ false, %while.cond.i5960.preheader ], [ false, %while.cond.i6102.preheader ], [ false, %while.cond.i6244.preheader ], [ false, %while.cond.i6386.preheader ], [ false, %while.cond.i6528.preheader ], [ false, %while.cond.i6670.preheader ], [ false, %while.cond.i6812.preheader ], [ false, %while.cond.i7096.preheader ], [ false, %while.cond.i7238.preheader ], [ false, %while.cond.i7522.preheader ], [ false, %while.cond.i7664.preheader ], [ false, %while.cond.i7948.preheader ], [ false, %while.cond.i8090.preheader ], [ false, %while.cond.i8374.preheader ], [ false, %while.cond.i8516.preheader ], [ false, %while.cond.i8800.preheader ], [ false, %while.cond.i8942.preheader ], [ false, %while.cond.i9226.preheader ], [ false, %while.cond.i9368.preheader ], [ false, %while.cond.i9510.preheader ], [ false, %while.cond.i9652.preheader ], [ false, %while.cond.i9794.preheader ], [ false, %while.cond.i9936.preheader ], [ false, %while.cond.i10078.preheader ], [ false, %while.cond.i10220.preheader ], [ false, %while.cond.i10788.preheader ], [ false, %while.cond.i10930.preheader ], [ false, %while.cond.i11072.preheader ], [ false, %while.cond.i11356.preheader ], [ false, %while.cond.i11498.preheader ], [ false, %while.cond.i11782.preheader ], [ false, %while.cond.i12208.preheader ], [ false, %while.cond.i12350.preheader ], [ false, %while.cond.i12634.preheader ], [ false, %while.cond.i12776.preheader ], [ false, %while.cond.i13060.preheader ], [ false, %while.cond.i13202.preheader ], [ false, %while.cond.i13486.preheader ], [ false, %while.cond.i13628.preheader ], [ false, %while.cond.i13912.preheader ], [ false, %while.cond.i14054.preheader ], [ false, %while.cond.i14338.preheader ], [ false, %while.cond.i14480.preheader ], [ false, %while.cond.i14764.preheader ], [ false, %while.cond.i14906.preheader ], [ false, %while.cond.i15048.preheader ], [ false, %while.cond.i15190.preheader ], [ false, %while.cond.i15332.preheader ], [ false, %while.cond.i15474.preheader ], [ false, %while.cond.i15616.preheader ], [ false, %while.cond.i15758.preheader ], [ false, %while.cond.i16042.preheader ], [ false, %while.cond.i16326.preheader ], [ false, %while.cond.i16468.preheader ], [ false, %while.cond.i16610.preheader ], [ false, %while.cond.i16894.preheader ], [ false, %while.cond.i17036.preheader ], [ false, %while.cond.i17320.preheader ], [ false, %while.cond.i17462.preheader ], [ false, %while.cond.i17746.preheader ], [ false, %while.cond.i17888.preheader ], [ false, %while.cond.i18172.preheader ], [ false, %while.cond.i18314.preheader ], [ false, %while.cond.i18598.preheader ], [ false, %while.cond.i18740.preheader ], [ false, %while.cond.i19024.preheader ], [ false, %while.cond.i19166.preheader ], [ false, %while.cond.i19308.preheader ], [ false, %while.cond.i19450.preheader ], [ false, %while.cond.i19592.preheader ], [ false, %while.cond.i19734.preheader ], [ false, %while.cond.i19876.preheader ], [ false, %while.cond.i20018.preheader ], [ false, %while.cond.i20302.preheader ], [ false, %while.cond.i20586.preheader ], [ false, %while.cond.i20728.preheader ], [ false, %while.cond.i21154.preheader ], [ false, %while.cond.i21580.preheader ], [ false, %while.cond.i22006.preheader ], [ false, %while.cond.i22432.preheader ], [ false, %while.cond.i22858.preheader ], [ false, %while.cond.i23284.preheader ], [ false, %while.cond.i23426.preheader ], [ false, %while.cond.i23568.preheader ], [ false, %while.cond.i23710.preheader ], [ false, %while.cond.i23852.preheader ], [ false, %while.cond.i24136.preheader ], [ false, %while.cond.i24420.preheader ], [ false, %while.cond.i24846.preheader ], [ false, %while.cond.i25272.preheader ], [ false, %while.cond.i25698.preheader ], [ false, %while.cond.i26124.preheader ], [ false, %while.cond.i26550.preheader ], [ false, %while.cond.i26976.preheader ], [ false, %while.cond.i27402.preheader ], [ false, %while.cond.i27544.preheader ], [ false, %while.cond.i27686.preheader ], [ false, %while.cond.i27828.preheader ], [ false, %while.cond.i27970.preheader ], [ false, %while.cond.i28112.preheader ], [ false, %while.cond.i28254.preheader ], [ false, %while.cond.i28396.preheader ], [ false, %while.cond.i28538.preheader ], [ false, %while.cond.i28680.preheader ], [ false, %while.cond.i28822.preheader ], [ false, %while.cond.i28964.preheader ], [ false, %while.cond.i29106.preheader ], [ false, %while.cond.i29248.preheader ], [ false, %while.cond.i29390.preheader ], [ false, %while.cond.i29532.preheader ], [ false, %while.cond.i29674.preheader ], [ false, %while.cond.i29816.preheader ], [ false, %while.cond.i29958.preheader ], [ false, %while.cond.i30100.preheader ], [ false, %while.cond.i30242.preheader ], [ false, %while.cond.i30384.preheader ], [ false, %while.cond.i30526.preheader ], [ false, %while.cond.i30668.preheader ], [ false, %while.cond.i30810.preheader ], [ false, %while.cond.i30952.preheader ], [ false, %while.cond.i31094.preheader ], [ false, %while.cond.i31236.preheader ], [ false, %while.cond.i31378.preheader ], [ false, %while.cond.i31520.preheader ], [ false, %while.cond.i31662.preheader ], [ false, %while.cond.i31804.preheader ], [ false, %while.cond.i31946.preheader ], [ false, %while.cond.i32088.preheader ], [ false, %while.cond.i32230.preheader ], [ false, %while.cond.i35070.preheader ], [ false, %if.end82.i ], [ false, %if.end82.i4637 ], [ false, %if.end82.i4779 ], [ false, %if.end82.i4921 ], [ false, %sw.bb51 ], [ false, %sw.bb57 ], [ false, %sw.bb66 ], [ false, %sw.bb75 ], [ false, %sw.bb84 ], [ false, %sw.bb93 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit17082 ], [ false, %_ZN9struct_pb13UnknownFieldsD2Ev.exit20312 ], [ false, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto220ForeignMessageProto2EEEbRT_PKcm.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit17133 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit17171 ], [ false, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto2EEEbRT_PKcm.exit ], [ false, %sw.bb476 ], [ false, %if.end491 ], [ false, %sw.bb509 ], [ false, %if.end524 ], [ false, %sw.bb545 ], [ false, %if.end560 ], [ false, %sw.bb581 ], [ false, %if.end596 ], [ false, %sw.bb617 ], [ false, %if.end632 ], [ false, %sw.bb653 ], [ false, %if.end668 ], [ %retval.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %retval.4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17878 ], [ false, %if.end803 ], [ false, %if.end836 ], [ %retval.5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18066 ], [ %retval.6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18103 ], [ false, %sw.bb1092 ], [ false, %if.end1107 ], [ false, %sw.bb1128 ], [ false, %if.end1143 ], [ false, %sw.bb1164 ], [ false, %if.end1179 ], [ false, %sw.bb1200 ], [ false, %if.end1215 ], [ false, %sw.bb1236 ], [ false, %if.end1251 ], [ false, %sw.bb1272 ], [ false, %if.end1287 ], [ false, %if.end1349 ], [ false, %sw.bb1563 ], [ false, %if.end1578 ], [ false, %sw.bb1599 ], [ false, %if.end1614 ], [ false, %sw.bb1635 ], [ false, %if.end1650 ], [ false, %sw.bb1671 ], [ false, %if.end1686 ], [ false, %sw.bb1707 ], [ false, %if.end1722 ], [ false, %sw.bb1743 ], [ false, %if.end1758 ], [ false, %if.end1820 ], [ %retval.7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19678 ], [ %retval.8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19752 ], [ %retval.9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19796 ], [ %retval.10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19845 ], [ %retval.11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19882 ], [ %retval.12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19919 ], [ false, %_ZN9struct_pb13UnknownFieldsD2Ev.exit20667 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit19973 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit20014 ], [ false, %if.end2838 ], [ false, %if.end2855 ], [ false, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto24DataEEEbRT_PKcm.exit ], [ false, %if.end82.i28635 ], [ false, %if.end82.i28777 ], [ false, %if.end82.i28919 ], [ false, %if.end82.i29061 ], [ false, %sw.bb2959 ], [ false, %sw.bb2968 ], [ false, %sw.bb2977 ], [ false, %sw.bb2986 ], [ false, %sw.bb2995 ], [ false, %sw.bb3004 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit20156 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit20194 ], [ false, %if.end82.i29913 ], [ false, %if.end82.i30055 ], [ false, %if.end82.i30197 ], [ false, %if.end82.i30339 ], [ false, %if.end82.i30481 ], [ false, %if.end82.i30623 ], [ false, %if.end82.i30765 ], [ false, %if.end82.i30907 ], [ false, %if.end82.i31049 ], [ false, %if.end82.i31191 ], [ false, %if.end82.i31333 ], [ false, %if.end82.i31475 ], [ false, %if.end82.i31617 ], [ false, %if.end82.i31759 ], [ false, %if.end82.i31901 ], [ false, %if.end82.i32043 ], [ false, %if.end82.i32185 ], [ false, %if.end82.i32327 ], [ true, %sw.epilog3221 ], [ false, %if.end82.i35167 ], [ false, %if.end82.i5063 ], [ false, %if.end82.i5205 ], [ false, %if.end82.i5347 ], [ false, %if.end82.i5489 ], [ false, %if.end82.i5631 ], [ false, %if.end82.i5773 ], [ false, %if.end82.i5915 ], [ false, %if.end82.i6057 ], [ false, %if.end82.i6199 ], [ false, %if.end82.i6341 ], [ false, %if.end82.i6483 ], [ false, %if.end82.i6625 ], [ false, %if.end82.i6767 ], [ false, %if.end82.i6909 ], [ false, %if.end82.i7193 ], [ false, %if.end82.i7335 ], [ false, %if.end82.i7619 ], [ false, %if.end82.i7761 ], [ false, %if.end82.i8045 ], [ false, %if.end82.i8187 ], [ false, %if.end82.i8471 ], [ false, %if.end82.i8613 ], [ false, %if.end82.i8897 ], [ false, %if.end82.i9039 ], [ false, %if.end82.i9323 ], [ false, %if.end82.i9465 ], [ false, %if.end82.i9607 ], [ false, %if.end82.i9749 ], [ false, %if.end82.i9891 ], [ false, %if.end82.i10033 ], [ false, %if.end82.i10175 ], [ false, %if.end82.i10317 ], [ false, %if.end82.i10885 ], [ false, %if.end82.i11027 ], [ false, %if.end82.i11169 ], [ false, %if.end82.i11453 ], [ false, %if.end82.i11595 ], [ false, %if.end82.i11879 ], [ false, %if.end82.i12305 ], [ false, %if.end82.i12447 ], [ false, %if.end82.i12731 ], [ false, %if.end82.i12873 ], [ false, %if.end82.i13157 ], [ false, %if.end82.i13299 ], [ false, %if.end82.i13583 ], [ false, %if.end82.i13725 ], [ false, %if.end82.i14009 ], [ false, %if.end82.i14151 ], [ false, %if.end82.i14435 ], [ false, %if.end82.i14577 ], [ false, %if.end82.i14861 ], [ false, %if.end82.i15003 ], [ false, %if.end82.i15145 ], [ false, %if.end82.i15287 ], [ false, %if.end82.i15429 ], [ false, %if.end82.i15571 ], [ false, %if.end82.i15713 ], [ false, %if.end82.i15855 ], [ false, %if.end82.i16139 ], [ false, %if.end82.i16423 ], [ false, %if.end82.i16565 ], [ false, %if.end82.i16707 ], [ false, %if.end82.i16991 ], [ false, %if.end82.i17133 ], [ false, %if.end82.i17417 ], [ false, %if.end82.i17559 ], [ false, %if.end82.i17843 ], [ false, %if.end82.i17985 ], [ false, %if.end82.i18269 ], [ false, %if.end82.i18411 ], [ false, %if.end82.i18695 ], [ false, %if.end82.i18837 ], [ false, %if.end82.i19121 ], [ false, %if.end82.i19263 ], [ false, %if.end82.i19405 ], [ false, %if.end82.i19547 ], [ false, %if.end82.i19689 ], [ false, %if.end82.i19831 ], [ false, %if.end82.i19973 ], [ false, %if.end82.i20115 ], [ false, %if.end82.i20399 ], [ false, %if.end82.i20683 ], [ false, %if.end82.i20825 ], [ false, %if.end82.i21251 ], [ false, %if.end82.i21677 ], [ false, %if.end82.i22103 ], [ false, %if.end82.i22529 ], [ false, %if.end82.i22955 ], [ false, %if.end82.i23381 ], [ false, %if.end82.i23523 ], [ false, %if.end82.i23665 ], [ false, %if.end82.i23807 ], [ false, %if.end82.i23949 ], [ false, %if.end82.i24233 ], [ false, %if.end82.i24517 ], [ false, %if.end82.i24943 ], [ false, %if.end82.i25369 ], [ false, %if.end82.i25795 ], [ false, %if.end82.i26221 ], [ false, %if.end82.i26647 ], [ false, %if.end82.i27073 ], [ false, %if.end82.i27499 ], [ false, %if.end82.i27641 ], [ false, %if.end82.i27783 ], [ false, %if.end82.i27925 ], [ false, %if.end82.i28067 ], [ false, %if.end82.i28209 ], [ false, %if.end82.i28351 ], [ false, %if.end82.i28493 ], [ false, %if.end82.i29203 ], [ false, %if.end82.i29345 ], [ false, %if.end82.i29487 ], [ false, %if.end82.i29629 ], [ false, %if.end82.i29771 ]
   ret i1 %retval.1
 }
 
@@ -64626,8 +64626,8 @@ if.end:                                           ; preds = %entry
 if.end.thread:                                    ; preds = %entry
   %5 = load ptr, ptr %__str, align 8
   %6 = getelementptr inbounds nuw i8, ptr %__str, i64 16
-  %cmp.i1739 = icmp eq ptr %5, %6
-  br i1 %cmp.i1739, label %if.then15, label %if.end30
+  %cmp.i1744 = icmp eq ptr %5, %6
+  br i1 %cmp.i1744, label %if.then15, label %if.end30
 
 if.then15:                                        ; preds = %if.end.thread, %if.end
   %7 = phi ptr [ %5, %if.end.thread ], [ %3, %if.end ]
@@ -66348,7 +66348,7 @@ while.body.i170.preheader:                        ; preds = %if.end17
   br i1 %tobool.i.i.i, label %_ZNKRSt8optionalIiE5valueEv.exit.i, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit.thread
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit.thread:     ; preds = %while.body.i170.preheader
-  %pos.8307344 = add i64 %pos.3, 2
+  %pos.8307348 = add i64 %pos.3, 2
   br label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit160
 
 _ZNKRSt8optionalIiE5valueEv.exit.i:               ; preds = %while.body.i170.preheader
@@ -66383,10 +66383,10 @@ while.body.i154:                                  ; preds = %_ZN9struct_pb13Unkn
   br i1 %cmp.i150, label %while.body.i154, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit160, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit160: ; preds = %while.body.i154, %_ZN9struct_pb13UnknownFieldsD2Ev.exit.thread, %_ZN9struct_pb13UnknownFieldsD2Ev.exit
-  %total.0.i346 = phi i64 [ %add5.i, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ 0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit.thread ], [ %add5.i, %while.body.i154 ]
+  %total.0.i350 = phi i64 [ %add5.i, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ 0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit.thread ], [ %add5.i, %while.body.i154 ]
   %pos.8.in.lcssa = phi i64 [ %16, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %16, %_ZN9struct_pb13UnknownFieldsD2Ev.exit.thread ], [ %pos.8310, %while.body.i154 ]
   %v.addr.i148.0.lcssa = phi i64 [ %add5.i, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ 0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit.thread ], [ %shr.i159, %while.body.i154 ]
-  %pos.8.lcssa = phi i64 [ %pos.8307, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %pos.8307344, %_ZN9struct_pb13UnknownFieldsD2Ev.exit.thread ], [ %pos.8, %while.body.i154 ]
+  %pos.8.lcssa = phi i64 [ %pos.8307, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %pos.8307348, %_ZN9struct_pb13UnknownFieldsD2Ev.exit.thread ], [ %pos.8, %while.body.i154 ]
   %conv1.i151 = trunc nuw nsw i64 %v.addr.i148.0.lcssa to i8
   %inc2.i152 = add i64 %pos.8.in.lcssa, 2
   %arrayidx3.i153 = getelementptr inbounds i8, ptr %data, i64 %pos.8.lcssa
@@ -66435,7 +66435,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i: ; preds = %while.body.i.
   br label %_ZN9struct_pb13UnknownFieldsD2Ev.exit148
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit148:         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit160, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i
-  %add30 = add i64 %inc2.i152, %total.0.i346
+  %add30 = add i64 %inc2.i152, %total.0.i350
   br label %if.end31
 
 if.end31:                                         ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit148, %if.end17
@@ -66458,7 +66458,7 @@ while.body.i138.preheader:                        ; preds = %if.end31
   br i1 %tobool.i.i.i168, label %_ZNKRSt8optionalIiE5valueEv.exit.i171, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit185.thread
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit185.thread:  ; preds = %while.body.i138.preheader
-  %pos.11316348 = add i64 %pos.6, 2
+  %pos.11316352 = add i64 %pos.6, 2
   br label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit128
 
 _ZNKRSt8optionalIiE5valueEv.exit.i171:            ; preds = %while.body.i138.preheader
@@ -66493,10 +66493,10 @@ while.body.i122:                                  ; preds = %_ZN9struct_pb13Unkn
   br i1 %cmp.i118, label %while.body.i122, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit128, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit128: ; preds = %while.body.i122, %_ZN9struct_pb13UnknownFieldsD2Ev.exit185.thread, %_ZN9struct_pb13UnknownFieldsD2Ev.exit185
-  %total.0.i170350 = phi i64 [ %add5.i182, %_ZN9struct_pb13UnknownFieldsD2Ev.exit185 ], [ 0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit185.thread ], [ %add5.i182, %while.body.i122 ]
+  %total.0.i170354 = phi i64 [ %add5.i182, %_ZN9struct_pb13UnknownFieldsD2Ev.exit185 ], [ 0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit185.thread ], [ %add5.i182, %while.body.i122 ]
   %pos.11.in.lcssa = phi i64 [ %27, %_ZN9struct_pb13UnknownFieldsD2Ev.exit185 ], [ %27, %_ZN9struct_pb13UnknownFieldsD2Ev.exit185.thread ], [ %pos.11319, %while.body.i122 ]
   %v.addr.i116.0.lcssa = phi i64 [ %add5.i182, %_ZN9struct_pb13UnknownFieldsD2Ev.exit185 ], [ 0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit185.thread ], [ %shr.i127, %while.body.i122 ]
-  %pos.11.lcssa = phi i64 [ %pos.11316, %_ZN9struct_pb13UnknownFieldsD2Ev.exit185 ], [ %pos.11316348, %_ZN9struct_pb13UnknownFieldsD2Ev.exit185.thread ], [ %pos.11, %while.body.i122 ]
+  %pos.11.lcssa = phi i64 [ %pos.11316, %_ZN9struct_pb13UnknownFieldsD2Ev.exit185 ], [ %pos.11316352, %_ZN9struct_pb13UnknownFieldsD2Ev.exit185.thread ], [ %pos.11, %while.body.i122 ]
   %conv1.i119 = trunc nuw nsw i64 %v.addr.i116.0.lcssa to i8
   %inc2.i120 = add i64 %pos.11.in.lcssa, 2
   %arrayidx3.i121 = getelementptr inbounds i8, ptr %data, i64 %pos.11.lcssa
@@ -66545,7 +66545,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i207: ; preds = %while.body
   br label %_ZN9struct_pb13UnknownFieldsD2Ev.exit224
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit224:         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit128, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i207
-  %add49 = add i64 %inc2.i120, %total.0.i170350
+  %add49 = add i64 %inc2.i120, %total.0.i170354
   br label %if.end50
 
 if.end50:                                         ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit224, %if.end31
@@ -66827,7 +66827,7 @@ while.body.i1182:                                 ; preds = %land.rhs.i1191
   %or101.i1189 = or i64 %shl100.i1188, %val.i1160.1834
   %add.i1190 = add i32 %shift.i1162.0833, 7
   %cmp92.i1169.not = icmp eq i64 %inc96.i1183, %size
-  br i1 %cmp92.i1169.not, label %return.loopexit1098, label %land.rhs.i1191, !llvm.loop !8
+  br i1 %cmp92.i1169.not, label %return.loopexit1142, label %land.rhs.i1191, !llvm.loop !8
 
 if.end104.i1173:                                  ; preds = %land.rhs.i1191
   store i64 %inc96.i1183, ptr %pos, align 8
@@ -66991,7 +66991,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %or101.i = or i64 %shl100.i, %val.i.1883
   %add.i = add i32 %shift.i.0882, 7
   %cmp92.i.not = icmp eq i64 %inc96.i, %size
-  br i1 %cmp92.i.not, label %return.loopexit1090, label %land.rhs.i, !llvm.loop !8
+  br i1 %cmp92.i.not, label %return.loopexit1134, label %land.rhs.i, !llvm.loop !8
 
 if.end104.i:                                      ; preds = %land.rhs.i
   store i64 %inc96.i, ptr %pos, align 8
@@ -67212,7 +67212,7 @@ while.body.i188:                                  ; preds = %land.rhs.i197
   %or101.i195 = or i64 %shl100.i194, %val.i166.1877
   %add.i196 = add i32 %shift.i168.0876, 7
   %cmp92.i175.not = icmp eq i64 %inc96.i189, %size
-  br i1 %cmp92.i175.not, label %return.loopexit1091, label %land.rhs.i197, !llvm.loop !8
+  br i1 %cmp92.i175.not, label %return.loopexit1135, label %land.rhs.i197, !llvm.loop !8
 
 if.end104.i179:                                   ; preds = %land.rhs.i197
   store i64 %inc96.i189, ptr %pos, align 8
@@ -67491,7 +67491,7 @@ while.body.i330:                                  ; preds = %land.rhs.i339
   %or101.i337 = or i64 %shl100.i336, %val.i308.1871
   %add.i338 = add i32 %shift.i310.0870, 7
   %cmp92.i317.not = icmp eq i64 %inc96.i331, %size
-  br i1 %cmp92.i317.not, label %return.loopexit1092, label %land.rhs.i339, !llvm.loop !8
+  br i1 %cmp92.i317.not, label %return.loopexit1136, label %land.rhs.i339, !llvm.loop !8
 
 if.end104.i321:                                   ; preds = %land.rhs.i339
   store i64 %inc96.i331, ptr %pos, align 8
@@ -67718,7 +67718,7 @@ while.body.i472:                                  ; preds = %land.rhs.i481
   %or101.i479 = or i64 %shl100.i478, %val.i450.1865
   %add.i480 = add i32 %shift.i452.0864, 7
   %cmp92.i459.not = icmp eq i64 %inc96.i473, %size
-  br i1 %cmp92.i459.not, label %return.loopexit1093, label %land.rhs.i481, !llvm.loop !8
+  br i1 %cmp92.i459.not, label %return.loopexit1137, label %land.rhs.i481, !llvm.loop !8
 
 if.end104.i463:                                   ; preds = %land.rhs.i481
   store i64 %inc96.i473, ptr %pos, align 8
@@ -67923,7 +67923,7 @@ while.body.i614:                                  ; preds = %land.rhs.i623
   %or101.i621 = or i64 %shl100.i620, %val.i592.1859
   %add.i622 = add i32 %shift.i594.0858, 7
   %cmp92.i601.not = icmp eq i64 %inc96.i615, %size
-  br i1 %cmp92.i601.not, label %return.loopexit1094, label %land.rhs.i623, !llvm.loop !8
+  br i1 %cmp92.i601.not, label %return.loopexit1138, label %land.rhs.i623, !llvm.loop !8
 
 if.end104.i605:                                   ; preds = %land.rhs.i623
   store i64 %inc96.i615, ptr %pos, align 8
@@ -68082,7 +68082,7 @@ while.body.i756:                                  ; preds = %land.rhs.i765
   %or101.i763 = or i64 %shl100.i762, %val.i734.1853
   %add.i764 = add i32 %shift.i736.0852, 7
   %cmp92.i743.not = icmp eq i64 %inc96.i757, %size
-  br i1 %cmp92.i743.not, label %return.loopexit1095, label %land.rhs.i765, !llvm.loop !8
+  br i1 %cmp92.i743.not, label %return.loopexit1139, label %land.rhs.i765, !llvm.loop !8
 
 if.end104.i747:                                   ; preds = %land.rhs.i765
   store i64 %inc96.i757, ptr %pos, align 8
@@ -68315,7 +68315,7 @@ while.body.i898:                                  ; preds = %land.rhs.i907
   %or101.i905 = or i64 %shl100.i904, %val.i876.1840
   %add.i906 = add i32 %shift.i878.0839, 7
   %cmp92.i885.not = icmp eq i64 %inc96.i899, %size
-  br i1 %cmp92.i885.not, label %return.loopexit1097, label %land.rhs.i907, !llvm.loop !8
+  br i1 %cmp92.i885.not, label %return.loopexit1141, label %land.rhs.i907, !llvm.loop !8
 
 if.end104.i889:                                   ; preds = %land.rhs.i907
   store i64 %inc96.i899, ptr %pos, align 8
@@ -68566,40 +68566,40 @@ return.loopexit:                                  ; preds = %while.body.i1040
   store i64 %inc96.i1041, ptr %pos, align 8
   br label %return
 
-return.loopexit1090:                              ; preds = %while.body.i
+return.loopexit1134:                              ; preds = %while.body.i
   store i64 %inc96.i, ptr %pos, align 8
   br label %return
 
-return.loopexit1091:                              ; preds = %while.body.i188
+return.loopexit1135:                              ; preds = %while.body.i188
   store i64 %inc96.i189, ptr %pos, align 8
   br label %return
 
-return.loopexit1092:                              ; preds = %while.body.i330
+return.loopexit1136:                              ; preds = %while.body.i330
   store i64 %inc96.i331, ptr %pos, align 8
   br label %return
 
-return.loopexit1093:                              ; preds = %while.body.i472
+return.loopexit1137:                              ; preds = %while.body.i472
   store i64 %inc96.i473, ptr %pos, align 8
   br label %return
 
-return.loopexit1094:                              ; preds = %while.body.i614
+return.loopexit1138:                              ; preds = %while.body.i614
   store i64 %inc96.i615, ptr %pos, align 8
   br label %return
 
-return.loopexit1095:                              ; preds = %while.body.i756
+return.loopexit1139:                              ; preds = %while.body.i756
   store i64 %inc96.i757, ptr %pos, align 8
   br label %return
 
-return.loopexit1097:                              ; preds = %while.body.i898
+return.loopexit1141:                              ; preds = %while.body.i898
   store i64 %inc96.i899, ptr %pos, align 8
   br label %return
 
-return.loopexit1098:                              ; preds = %while.body.i1182
+return.loopexit1142:                              ; preds = %while.body.i1182
   store i64 %inc96.i1183, ptr %pos, align 8
   br label %return
 
-return:                                           ; preds = %if.end82.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto220ForeignMessageProto2EEEbRT_PKcm.exit, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto221UnknownToTestAllTypes13OptionalGroupEEEbRT_PKcm.exit, %sw.epilog, %if.end82.i1265, %if.end82.i271, %if.end82.i413, %if.end82.i555, %if.end82.i697, %if.end82.i839, %if.end82.i981, %while.cond.i1168.preheader, %while.cond.i884.preheader, %while.cond.i742.preheader, %while.cond.i600.preheader, %while.cond.i458.preheader, %while.cond.i316.preheader, %while.cond.i174.preheader, %while.cond.i.preheader, %if.end82.i1123, %while.cond.i1026.preheader, %return.loopexit1098, %return.loopexit1097, %return.loopexit1095, %return.loopexit1094, %return.loopexit1093, %return.loopexit1092, %return.loopexit1091, %return.loopexit1090, %return.loopexit, %entry, %sw.default
-  %retval.0 = phi i1 [ %call110, %sw.default ], [ true, %entry ], [ false, %return.loopexit ], [ false, %return.loopexit1090 ], [ false, %return.loopexit1091 ], [ false, %return.loopexit1092 ], [ false, %return.loopexit1093 ], [ false, %return.loopexit1094 ], [ false, %return.loopexit1095 ], [ false, %return.loopexit1097 ], [ false, %return.loopexit1098 ], [ false, %while.cond.i1026.preheader ], [ false, %if.end82.i1123 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i174.preheader ], [ false, %while.cond.i316.preheader ], [ false, %while.cond.i458.preheader ], [ false, %while.cond.i600.preheader ], [ false, %while.cond.i742.preheader ], [ false, %while.cond.i884.preheader ], [ false, %while.cond.i1168.preheader ], [ false, %if.end82.i ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto220ForeignMessageProto2EEEbRT_PKcm.exit ], [ false, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto221UnknownToTestAllTypes13OptionalGroupEEEbRT_PKcm.exit ], [ true, %sw.epilog ], [ false, %if.end82.i1265 ], [ false, %if.end82.i271 ], [ false, %if.end82.i413 ], [ false, %if.end82.i555 ], [ false, %if.end82.i697 ], [ false, %if.end82.i839 ], [ false, %if.end82.i981 ]
+return:                                           ; preds = %if.end82.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto220ForeignMessageProto2EEEbRT_PKcm.exit, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto221UnknownToTestAllTypes13OptionalGroupEEEbRT_PKcm.exit, %sw.epilog, %if.end82.i1265, %if.end82.i271, %if.end82.i413, %if.end82.i555, %if.end82.i697, %if.end82.i839, %if.end82.i981, %while.cond.i1168.preheader, %while.cond.i884.preheader, %while.cond.i742.preheader, %while.cond.i600.preheader, %while.cond.i458.preheader, %while.cond.i316.preheader, %while.cond.i174.preheader, %while.cond.i.preheader, %if.end82.i1123, %while.cond.i1026.preheader, %return.loopexit1142, %return.loopexit1141, %return.loopexit1139, %return.loopexit1138, %return.loopexit1137, %return.loopexit1136, %return.loopexit1135, %return.loopexit1134, %return.loopexit, %entry, %sw.default
+  %retval.0 = phi i1 [ %call110, %sw.default ], [ true, %entry ], [ false, %return.loopexit ], [ false, %return.loopexit1134 ], [ false, %return.loopexit1135 ], [ false, %return.loopexit1136 ], [ false, %return.loopexit1137 ], [ false, %return.loopexit1138 ], [ false, %return.loopexit1139 ], [ false, %return.loopexit1141 ], [ false, %return.loopexit1142 ], [ false, %while.cond.i1026.preheader ], [ false, %if.end82.i1123 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i174.preheader ], [ false, %while.cond.i316.preheader ], [ false, %while.cond.i458.preheader ], [ false, %while.cond.i600.preheader ], [ false, %while.cond.i742.preheader ], [ false, %while.cond.i884.preheader ], [ false, %while.cond.i1168.preheader ], [ false, %if.end82.i ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto220ForeignMessageProto2EEEbRT_PKcm.exit ], [ false, %_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto221UnknownToTestAllTypes13OptionalGroupEEEbRT_PKcm.exit ], [ true, %sw.epilog ], [ false, %if.end82.i1265 ], [ false, %if.end82.i271 ], [ false, %if.end82.i413 ], [ false, %if.end82.i555 ], [ false, %if.end82.i697 ], [ false, %if.end82.i839 ], [ false, %if.end82.i981 ]
   ret i1 %retval.0
 }
 
@@ -72186,16 +72186,16 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store i32 0, ptr %0, align 4
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 4
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 2
-  %4 = add i64 %3, -4
+  %3 = shl nuw nsw i64 %__n, 2
+  %4 = add nsw i64 %3, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false)
-  %add.ptr.idx.i.i.i.i.i = shl nsw i64 %sub.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 2
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -72247,7 +72247,7 @@ if.then.i34:                                      ; preds = %_ZNSt6vectorIjSaIjE
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %if.then.i34
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds i32, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
   %add.ptr40 = getelementptr inbounds nuw i32, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
@@ -72291,16 +72291,16 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store i64 0, ptr %0, align 8
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 3
-  %4 = add i64 %3, -8
+  %3 = shl nuw nsw i64 %__n, 3
+  %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false)
-  %add.ptr.idx.i.i.i.i.i = shl nsw i64 %sub.i.i.i, 3
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -72352,7 +72352,7 @@ if.then.i34:                                      ; preds = %_ZNSt6vectorImSaImE
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit35: ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit, %if.then.i34
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds i64, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw i64, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
   %add.ptr40 = getelementptr inbounds nuw i64, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
@@ -72392,16 +72392,16 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store i32 0, ptr %0, align 4
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 4
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 2
-  %4 = add i64 %3, -4
+  %3 = shl nuw nsw i64 %__n, 2
+  %4 = add nsw i64 %3, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false)
-  %add.ptr.idx.i.i.i.i.i = shl nsw i64 %sub.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 2
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -72453,7 +72453,7 @@ if.then.i34:                                      ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %if.then.i34
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds i32, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
   %add.ptr40 = getelementptr inbounds nuw i32, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
@@ -72493,16 +72493,16 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store i64 0, ptr %0, align 8
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 3
-  %4 = add i64 %3, -8
+  %3 = shl nuw nsw i64 %__n, 3
+  %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false)
-  %add.ptr.idx.i.i.i.i.i = shl nsw i64 %sub.i.i.i, 3
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -72554,7 +72554,7 @@ if.then.i34:                                      ; preds = %_ZNSt6vectorIlSaIlE
 
 _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35: ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit, %if.then.i34
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds i64, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw i64, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
   %add.ptr40 = getelementptr inbounds nuw i64, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
@@ -72594,16 +72594,16 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store float 0.000000e+00, ptr %0, align 4
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 4
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 2
-  %4 = add i64 %3, -4
+  %3 = shl nuw nsw i64 %__n, 2
+  %4 = add nsw i64 %3, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false)
-  %add.ptr.idx.i.i.i.i.i = shl nsw i64 %sub.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 2
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -72655,7 +72655,7 @@ if.then.i34:                                      ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %if.then.i34
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds float, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw float, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
   %add.ptr40 = getelementptr inbounds nuw float, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
@@ -72695,16 +72695,16 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store double 0.000000e+00, ptr %0, align 8
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 3
-  %4 = add i64 %3, -8
+  %3 = shl nuw nsw i64 %__n, 3
+  %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false)
-  %add.ptr.idx.i.i.i.i.i = shl nsw i64 %sub.i.i.i, 3
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -72756,7 +72756,7 @@ if.then.i34:                                      ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit35: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %if.then.i34
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds double, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw double, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
   %add.ptr40 = getelementptr inbounds nuw double, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
@@ -73727,14 +73727,14 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %while.end.i, %if.else
-  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
+  %__y.0.lcssa26.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
   %_M_left.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %6 = load ptr, ptr %_M_left.i3.i, align 8
-  %cmp.i4.i = icmp eq ptr %__y.0.lcssa25.i, %6
+  %cmp.i4.i = icmp eq ptr %__y.0.lcssa26.i, %6
   br i1 %cmp.i4.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #21
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i) #21
   %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %.pre114 = load i32, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 4
   %.pre115 = load i32, ptr %__k, align 4
@@ -73743,11 +73743,11 @@ if.else.i:                                        ; preds = %if.then.i
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
   %7 = phi i32 [ %.pre115, %if.else.i ], [ %4, %while.end.i ]
   %8 = phi i32 [ %.pre114, %if.else.i ], [ %5, %while.end.i ]
-  %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
+  %__y.0.lcssa25.i = phi ptr [ %__y.0.lcssa26.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %cmp.i5.i = icmp slt i32 %8, %7
   %spec.select.i = select i1 %cmp.i5.i, ptr null, ptr %__j.sroa.0.0.i
-  %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa26.i, ptr null
+  %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa25.i, ptr null
   br label %return
 
 if.else12:                                        ; preds = %entry
@@ -73799,23 +73799,23 @@ while.end.i34:                                    ; preds = %while.body.i26
   br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
 
 if.then.i46:                                      ; preds = %while.end.i34, %if.else42
-  %__y.0.lcssa25.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
-  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa25.i47, %11
+  %__y.0.lcssa26.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
+  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa26.i47, %11
   br i1 %cmp.i4.i49, label %return, label %if.else.i50
 
 if.else.i50:                                      ; preds = %if.then.i46
-  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #21
+  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i47) #21
   %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i51, i64 32
   %.pre113 = load i32, ptr %_M_storage.i.i.i.i38.phi.trans.insert, align 4
   br label %if.end12.i35
 
 if.end12.i35:                                     ; preds = %if.else.i50, %while.end.i34
   %15 = phi i32 [ %.pre113, %if.else.i50 ], [ %14, %while.end.i34 ]
-  %__y.0.lcssa26.i36 = phi ptr [ %__y.0.lcssa25.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %__y.0.lcssa25.i36 = phi ptr [ %__y.0.lcssa26.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
   %__j.sroa.0.0.i37 = phi ptr [ %call.i.i51, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
   %cmp.i5.i39 = icmp slt i32 %15, %9
   %spec.select.i40 = select i1 %cmp.i5.i39, ptr null, ptr %__j.sroa.0.0.i37
-  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa26.i36, ptr null
+  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa25.i36, ptr null
   br label %return
 
 if.else44:                                        ; preds = %if.else12
@@ -73864,30 +73864,30 @@ while.end.i77:                                    ; preds = %while.body.i69
   br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
 
 if.then.i89:                                      ; preds = %while.end.i77, %if.else74
-  %__y.0.lcssa25.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
+  %__y.0.lcssa26.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
   %_M_left.i3.i91 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %20 = load ptr, ptr %_M_left.i3.i91, align 8
-  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa25.i90, %20
+  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa26.i90, %20
   br i1 %cmp.i4.i92, label %return, label %if.else.i93
 
 if.else.i93:                                      ; preds = %if.then.i89
-  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #21
+  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i90) #21
   %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i94, i64 32
   %.pre = load i32, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 4
   br label %if.end12.i78
 
 if.end12.i78:                                     ; preds = %if.else.i93, %while.end.i77
   %21 = phi i32 [ %.pre, %if.else.i93 ], [ %19, %while.end.i77 ]
-  %__y.0.lcssa26.i79 = phi ptr [ %__y.0.lcssa25.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %__y.0.lcssa25.i79 = phi ptr [ %__y.0.lcssa26.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
   %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
   %cmp.i5.i82 = icmp slt i32 %21, %9
   %spec.select.i83 = select i1 %cmp.i5.i82, ptr null, ptr %__j.sroa.0.0.i80
-  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa26.i79, ptr null
+  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa25.i79, ptr null
   br label %return
 
 return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
   %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %11, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa25.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa26.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa26.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa26.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -73949,14 +73949,14 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %while.end.i, %if.else
-  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
+  %__y.0.lcssa26.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
   %_M_left.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %6 = load ptr, ptr %_M_left.i3.i, align 8
-  %cmp.i4.i = icmp eq ptr %__y.0.lcssa25.i, %6
+  %cmp.i4.i = icmp eq ptr %__y.0.lcssa26.i, %6
   br i1 %cmp.i4.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #21
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i) #21
   %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %.pre114 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
   %.pre115 = load i64, ptr %__k, align 8
@@ -73965,11 +73965,11 @@ if.else.i:                                        ; preds = %if.then.i
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
   %7 = phi i64 [ %.pre115, %if.else.i ], [ %4, %while.end.i ]
   %8 = phi i64 [ %.pre114, %if.else.i ], [ %5, %while.end.i ]
-  %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
+  %__y.0.lcssa25.i = phi ptr [ %__y.0.lcssa26.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %cmp.i5.i = icmp slt i64 %8, %7
   %spec.select.i = select i1 %cmp.i5.i, ptr null, ptr %__j.sroa.0.0.i
-  %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa26.i, ptr null
+  %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa25.i, ptr null
   br label %return
 
 if.else12:                                        ; preds = %entry
@@ -74021,23 +74021,23 @@ while.end.i34:                                    ; preds = %while.body.i26
   br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
 
 if.then.i46:                                      ; preds = %while.end.i34, %if.else42
-  %__y.0.lcssa25.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
-  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa25.i47, %11
+  %__y.0.lcssa26.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
+  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa26.i47, %11
   br i1 %cmp.i4.i49, label %return, label %if.else.i50
 
 if.else.i50:                                      ; preds = %if.then.i46
-  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #21
+  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i47) #21
   %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i51, i64 32
   %.pre113 = load i64, ptr %_M_storage.i.i.i.i38.phi.trans.insert, align 8
   br label %if.end12.i35
 
 if.end12.i35:                                     ; preds = %if.else.i50, %while.end.i34
   %15 = phi i64 [ %.pre113, %if.else.i50 ], [ %14, %while.end.i34 ]
-  %__y.0.lcssa26.i36 = phi ptr [ %__y.0.lcssa25.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %__y.0.lcssa25.i36 = phi ptr [ %__y.0.lcssa26.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
   %__j.sroa.0.0.i37 = phi ptr [ %call.i.i51, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
   %cmp.i5.i39 = icmp slt i64 %15, %9
   %spec.select.i40 = select i1 %cmp.i5.i39, ptr null, ptr %__j.sroa.0.0.i37
-  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa26.i36, ptr null
+  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa25.i36, ptr null
   br label %return
 
 if.else44:                                        ; preds = %if.else12
@@ -74086,30 +74086,30 @@ while.end.i77:                                    ; preds = %while.body.i69
   br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
 
 if.then.i89:                                      ; preds = %while.end.i77, %if.else74
-  %__y.0.lcssa25.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
+  %__y.0.lcssa26.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
   %_M_left.i3.i91 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %20 = load ptr, ptr %_M_left.i3.i91, align 8
-  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa25.i90, %20
+  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa26.i90, %20
   br i1 %cmp.i4.i92, label %return, label %if.else.i93
 
 if.else.i93:                                      ; preds = %if.then.i89
-  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #21
+  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i90) #21
   %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i94, i64 32
   %.pre = load i64, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 8
   br label %if.end12.i78
 
 if.end12.i78:                                     ; preds = %if.else.i93, %while.end.i77
   %21 = phi i64 [ %.pre, %if.else.i93 ], [ %19, %while.end.i77 ]
-  %__y.0.lcssa26.i79 = phi ptr [ %__y.0.lcssa25.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %__y.0.lcssa25.i79 = phi ptr [ %__y.0.lcssa26.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
   %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
   %cmp.i5.i82 = icmp slt i64 %21, %9
   %spec.select.i83 = select i1 %cmp.i5.i82, ptr null, ptr %__j.sroa.0.0.i80
-  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa26.i79, ptr null
+  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa25.i79, ptr null
   br label %return
 
 return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
   %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %11, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa25.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa26.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa26.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa26.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -74162,14 +74162,14 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %while.end.i, %if.else
-  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
+  %__y.0.lcssa26.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
   %_M_left.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %6 = load ptr, ptr %_M_left.i3.i, align 8
-  %cmp.i4.i = icmp eq ptr %__y.0.lcssa25.i, %6
+  %cmp.i4.i = icmp eq ptr %__y.0.lcssa26.i, %6
   br i1 %cmp.i4.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #21
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i) #21
   %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %.pre114 = load i32, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 4
   %.pre115 = load i32, ptr %__k, align 4
@@ -74178,11 +74178,11 @@ if.else.i:                                        ; preds = %if.then.i
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
   %7 = phi i32 [ %.pre115, %if.else.i ], [ %4, %while.end.i ]
   %8 = phi i32 [ %.pre114, %if.else.i ], [ %5, %while.end.i ]
-  %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
+  %__y.0.lcssa25.i = phi ptr [ %__y.0.lcssa26.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %cmp.i5.i = icmp ult i32 %8, %7
   %spec.select.i = select i1 %cmp.i5.i, ptr null, ptr %__j.sroa.0.0.i
-  %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa26.i, ptr null
+  %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa25.i, ptr null
   br label %return
 
 if.else12:                                        ; preds = %entry
@@ -74234,23 +74234,23 @@ while.end.i34:                                    ; preds = %while.body.i26
   br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
 
 if.then.i46:                                      ; preds = %while.end.i34, %if.else42
-  %__y.0.lcssa25.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
-  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa25.i47, %11
+  %__y.0.lcssa26.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
+  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa26.i47, %11
   br i1 %cmp.i4.i49, label %return, label %if.else.i50
 
 if.else.i50:                                      ; preds = %if.then.i46
-  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #21
+  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i47) #21
   %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i51, i64 32
   %.pre113 = load i32, ptr %_M_storage.i.i.i.i38.phi.trans.insert, align 4
   br label %if.end12.i35
 
 if.end12.i35:                                     ; preds = %if.else.i50, %while.end.i34
   %15 = phi i32 [ %.pre113, %if.else.i50 ], [ %14, %while.end.i34 ]
-  %__y.0.lcssa26.i36 = phi ptr [ %__y.0.lcssa25.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %__y.0.lcssa25.i36 = phi ptr [ %__y.0.lcssa26.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
   %__j.sroa.0.0.i37 = phi ptr [ %call.i.i51, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
   %cmp.i5.i39 = icmp ult i32 %15, %9
   %spec.select.i40 = select i1 %cmp.i5.i39, ptr null, ptr %__j.sroa.0.0.i37
-  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa26.i36, ptr null
+  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa25.i36, ptr null
   br label %return
 
 if.else44:                                        ; preds = %if.else12
@@ -74299,30 +74299,30 @@ while.end.i77:                                    ; preds = %while.body.i69
   br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
 
 if.then.i89:                                      ; preds = %while.end.i77, %if.else74
-  %__y.0.lcssa25.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
+  %__y.0.lcssa26.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
   %_M_left.i3.i91 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %20 = load ptr, ptr %_M_left.i3.i91, align 8
-  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa25.i90, %20
+  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa26.i90, %20
   br i1 %cmp.i4.i92, label %return, label %if.else.i93
 
 if.else.i93:                                      ; preds = %if.then.i89
-  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #21
+  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i90) #21
   %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i94, i64 32
   %.pre = load i32, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 4
   br label %if.end12.i78
 
 if.end12.i78:                                     ; preds = %if.else.i93, %while.end.i77
   %21 = phi i32 [ %.pre, %if.else.i93 ], [ %19, %while.end.i77 ]
-  %__y.0.lcssa26.i79 = phi ptr [ %__y.0.lcssa25.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %__y.0.lcssa25.i79 = phi ptr [ %__y.0.lcssa26.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
   %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
   %cmp.i5.i82 = icmp ult i32 %21, %9
   %spec.select.i83 = select i1 %cmp.i5.i82, ptr null, ptr %__j.sroa.0.0.i80
-  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa26.i79, ptr null
+  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa25.i79, ptr null
   br label %return
 
 return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
   %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %11, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa25.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa26.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa26.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa26.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -74375,14 +74375,14 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %while.end.i, %if.else
-  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
+  %__y.0.lcssa26.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
   %_M_left.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %6 = load ptr, ptr %_M_left.i3.i, align 8
-  %cmp.i4.i = icmp eq ptr %__y.0.lcssa25.i, %6
+  %cmp.i4.i = icmp eq ptr %__y.0.lcssa26.i, %6
   br i1 %cmp.i4.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #21
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i) #21
   %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %.pre114 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
   %.pre115 = load i64, ptr %__k, align 8
@@ -74391,11 +74391,11 @@ if.else.i:                                        ; preds = %if.then.i
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
   %7 = phi i64 [ %.pre115, %if.else.i ], [ %4, %while.end.i ]
   %8 = phi i64 [ %.pre114, %if.else.i ], [ %5, %while.end.i ]
-  %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
+  %__y.0.lcssa25.i = phi ptr [ %__y.0.lcssa26.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %cmp.i5.i = icmp ult i64 %8, %7
   %spec.select.i = select i1 %cmp.i5.i, ptr null, ptr %__j.sroa.0.0.i
-  %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa26.i, ptr null
+  %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa25.i, ptr null
   br label %return
 
 if.else12:                                        ; preds = %entry
@@ -74447,23 +74447,23 @@ while.end.i34:                                    ; preds = %while.body.i26
   br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
 
 if.then.i46:                                      ; preds = %while.end.i34, %if.else42
-  %__y.0.lcssa25.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
-  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa25.i47, %11
+  %__y.0.lcssa26.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
+  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa26.i47, %11
   br i1 %cmp.i4.i49, label %return, label %if.else.i50
 
 if.else.i50:                                      ; preds = %if.then.i46
-  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #21
+  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i47) #21
   %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i51, i64 32
   %.pre113 = load i64, ptr %_M_storage.i.i.i.i38.phi.trans.insert, align 8
   br label %if.end12.i35
 
 if.end12.i35:                                     ; preds = %if.else.i50, %while.end.i34
   %15 = phi i64 [ %.pre113, %if.else.i50 ], [ %14, %while.end.i34 ]
-  %__y.0.lcssa26.i36 = phi ptr [ %__y.0.lcssa25.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %__y.0.lcssa25.i36 = phi ptr [ %__y.0.lcssa26.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
   %__j.sroa.0.0.i37 = phi ptr [ %call.i.i51, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
   %cmp.i5.i39 = icmp ult i64 %15, %9
   %spec.select.i40 = select i1 %cmp.i5.i39, ptr null, ptr %__j.sroa.0.0.i37
-  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa26.i36, ptr null
+  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa25.i36, ptr null
   br label %return
 
 if.else44:                                        ; preds = %if.else12
@@ -74512,30 +74512,30 @@ while.end.i77:                                    ; preds = %while.body.i69
   br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
 
 if.then.i89:                                      ; preds = %while.end.i77, %if.else74
-  %__y.0.lcssa25.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
+  %__y.0.lcssa26.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
   %_M_left.i3.i91 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %20 = load ptr, ptr %_M_left.i3.i91, align 8
-  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa25.i90, %20
+  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa26.i90, %20
   br i1 %cmp.i4.i92, label %return, label %if.else.i93
 
 if.else.i93:                                      ; preds = %if.then.i89
-  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #21
+  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i90) #21
   %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i94, i64 32
   %.pre = load i64, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 8
   br label %if.end12.i78
 
 if.end12.i78:                                     ; preds = %if.else.i93, %while.end.i77
   %21 = phi i64 [ %.pre, %if.else.i93 ], [ %19, %while.end.i77 ]
-  %__y.0.lcssa26.i79 = phi ptr [ %__y.0.lcssa25.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %__y.0.lcssa25.i79 = phi ptr [ %__y.0.lcssa26.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
   %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
   %cmp.i5.i82 = icmp ult i64 %21, %9
   %spec.select.i83 = select i1 %cmp.i5.i82, ptr null, ptr %__j.sroa.0.0.i80
-  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa26.i79, ptr null
+  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa25.i79, ptr null
   br label %return
 
 return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
   %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %11, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa25.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa26.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa26.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa26.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -74588,14 +74588,14 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %while.end.i, %if.else
-  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
+  %__y.0.lcssa26.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
   %_M_left.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %6 = load ptr, ptr %_M_left.i3.i, align 8
-  %cmp.i4.i = icmp eq ptr %__y.0.lcssa25.i, %6
+  %cmp.i4.i = icmp eq ptr %__y.0.lcssa26.i, %6
   br i1 %cmp.i4.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #21
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i) #21
   %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %.pre114 = load i32, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 4
   %.pre115 = load i32, ptr %__k, align 4
@@ -74604,11 +74604,11 @@ if.else.i:                                        ; preds = %if.then.i
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
   %7 = phi i32 [ %.pre115, %if.else.i ], [ %4, %while.end.i ]
   %8 = phi i32 [ %.pre114, %if.else.i ], [ %5, %while.end.i ]
-  %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
+  %__y.0.lcssa25.i = phi ptr [ %__y.0.lcssa26.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %cmp.i5.i = icmp slt i32 %8, %7
   %spec.select.i = select i1 %cmp.i5.i, ptr null, ptr %__j.sroa.0.0.i
-  %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa26.i, ptr null
+  %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa25.i, ptr null
   br label %return
 
 if.else12:                                        ; preds = %entry
@@ -74660,23 +74660,23 @@ while.end.i34:                                    ; preds = %while.body.i26
   br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
 
 if.then.i46:                                      ; preds = %while.end.i34, %if.else42
-  %__y.0.lcssa25.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
-  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa25.i47, %11
+  %__y.0.lcssa26.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
+  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa26.i47, %11
   br i1 %cmp.i4.i49, label %return, label %if.else.i50
 
 if.else.i50:                                      ; preds = %if.then.i46
-  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #21
+  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i47) #21
   %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i51, i64 32
   %.pre113 = load i32, ptr %_M_storage.i.i.i.i38.phi.trans.insert, align 4
   br label %if.end12.i35
 
 if.end12.i35:                                     ; preds = %if.else.i50, %while.end.i34
   %15 = phi i32 [ %.pre113, %if.else.i50 ], [ %14, %while.end.i34 ]
-  %__y.0.lcssa26.i36 = phi ptr [ %__y.0.lcssa25.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %__y.0.lcssa25.i36 = phi ptr [ %__y.0.lcssa26.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
   %__j.sroa.0.0.i37 = phi ptr [ %call.i.i51, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
   %cmp.i5.i39 = icmp slt i32 %15, %9
   %spec.select.i40 = select i1 %cmp.i5.i39, ptr null, ptr %__j.sroa.0.0.i37
-  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa26.i36, ptr null
+  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa25.i36, ptr null
   br label %return
 
 if.else44:                                        ; preds = %if.else12
@@ -74725,30 +74725,30 @@ while.end.i77:                                    ; preds = %while.body.i69
   br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
 
 if.then.i89:                                      ; preds = %while.end.i77, %if.else74
-  %__y.0.lcssa25.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
+  %__y.0.lcssa26.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
   %_M_left.i3.i91 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %20 = load ptr, ptr %_M_left.i3.i91, align 8
-  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa25.i90, %20
+  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa26.i90, %20
   br i1 %cmp.i4.i92, label %return, label %if.else.i93
 
 if.else.i93:                                      ; preds = %if.then.i89
-  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #21
+  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i90) #21
   %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i94, i64 32
   %.pre = load i32, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 4
   br label %if.end12.i78
 
 if.end12.i78:                                     ; preds = %if.else.i93, %while.end.i77
   %21 = phi i32 [ %.pre, %if.else.i93 ], [ %19, %while.end.i77 ]
-  %__y.0.lcssa26.i79 = phi ptr [ %__y.0.lcssa25.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %__y.0.lcssa25.i79 = phi ptr [ %__y.0.lcssa26.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
   %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
   %cmp.i5.i82 = icmp slt i32 %21, %9
   %spec.select.i83 = select i1 %cmp.i5.i82, ptr null, ptr %__j.sroa.0.0.i80
-  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa26.i79, ptr null
+  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa25.i79, ptr null
   br label %return
 
 return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
   %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %11, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa25.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa26.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa26.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa26.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -74801,14 +74801,14 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %while.end.i, %if.else
-  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
+  %__y.0.lcssa26.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
   %_M_left.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %6 = load ptr, ptr %_M_left.i3.i, align 8
-  %cmp.i4.i = icmp eq ptr %__y.0.lcssa25.i, %6
+  %cmp.i4.i = icmp eq ptr %__y.0.lcssa26.i, %6
   br i1 %cmp.i4.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #21
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i) #21
   %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %.pre114 = load i32, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 4
   %.pre115 = load i32, ptr %__k, align 4
@@ -74817,11 +74817,11 @@ if.else.i:                                        ; preds = %if.then.i
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
   %7 = phi i32 [ %.pre115, %if.else.i ], [ %4, %while.end.i ]
   %8 = phi i32 [ %.pre114, %if.else.i ], [ %5, %while.end.i ]
-  %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
+  %__y.0.lcssa25.i = phi ptr [ %__y.0.lcssa26.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %cmp.i5.i = icmp slt i32 %8, %7
   %spec.select.i = select i1 %cmp.i5.i, ptr null, ptr %__j.sroa.0.0.i
-  %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa26.i, ptr null
+  %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa25.i, ptr null
   br label %return
 
 if.else12:                                        ; preds = %entry
@@ -74873,23 +74873,23 @@ while.end.i34:                                    ; preds = %while.body.i26
   br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
 
 if.then.i46:                                      ; preds = %while.end.i34, %if.else42
-  %__y.0.lcssa25.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
-  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa25.i47, %11
+  %__y.0.lcssa26.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
+  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa26.i47, %11
   br i1 %cmp.i4.i49, label %return, label %if.else.i50
 
 if.else.i50:                                      ; preds = %if.then.i46
-  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #21
+  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i47) #21
   %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i51, i64 32
   %.pre113 = load i32, ptr %_M_storage.i.i.i.i38.phi.trans.insert, align 4
   br label %if.end12.i35
 
 if.end12.i35:                                     ; preds = %if.else.i50, %while.end.i34
   %15 = phi i32 [ %.pre113, %if.else.i50 ], [ %14, %while.end.i34 ]
-  %__y.0.lcssa26.i36 = phi ptr [ %__y.0.lcssa25.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %__y.0.lcssa25.i36 = phi ptr [ %__y.0.lcssa26.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
   %__j.sroa.0.0.i37 = phi ptr [ %call.i.i51, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
   %cmp.i5.i39 = icmp slt i32 %15, %9
   %spec.select.i40 = select i1 %cmp.i5.i39, ptr null, ptr %__j.sroa.0.0.i37
-  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa26.i36, ptr null
+  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa25.i36, ptr null
   br label %return
 
 if.else44:                                        ; preds = %if.else12
@@ -74938,30 +74938,30 @@ while.end.i77:                                    ; preds = %while.body.i69
   br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
 
 if.then.i89:                                      ; preds = %while.end.i77, %if.else74
-  %__y.0.lcssa25.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
+  %__y.0.lcssa26.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
   %_M_left.i3.i91 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %20 = load ptr, ptr %_M_left.i3.i91, align 8
-  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa25.i90, %20
+  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa26.i90, %20
   br i1 %cmp.i4.i92, label %return, label %if.else.i93
 
 if.else.i93:                                      ; preds = %if.then.i89
-  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #21
+  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i90) #21
   %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i94, i64 32
   %.pre = load i32, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 4
   br label %if.end12.i78
 
 if.end12.i78:                                     ; preds = %if.else.i93, %while.end.i77
   %21 = phi i32 [ %.pre, %if.else.i93 ], [ %19, %while.end.i77 ]
-  %__y.0.lcssa26.i79 = phi ptr [ %__y.0.lcssa25.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %__y.0.lcssa25.i79 = phi ptr [ %__y.0.lcssa26.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
   %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
   %cmp.i5.i82 = icmp slt i32 %21, %9
   %spec.select.i83 = select i1 %cmp.i5.i82, ptr null, ptr %__j.sroa.0.0.i80
-  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa26.i79, ptr null
+  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa25.i79, ptr null
   br label %return
 
 return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
   %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %11, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa25.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa26.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa26.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa26.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -75018,14 +75018,14 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %while.end.i, %if.else
-  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
+  %__y.0.lcssa26.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
   %_M_left.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %10 = load ptr, ptr %_M_left.i3.i, align 8
-  %cmp.i4.i = icmp eq ptr %__y.0.lcssa25.i, %10
+  %cmp.i4.i = icmp eq ptr %__y.0.lcssa26.i, %10
   br i1 %cmp.i4.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #21
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i) #21
   %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %.pre = load i8, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 1
   %.pre110 = load i8, ptr %__k, align 1
@@ -75036,11 +75036,11 @@ if.else.i:                                        ; preds = %if.then.i
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
   %.pre-phi113 = phi i8 [ %.pre112, %if.else.i ], [ %7, %while.end.i ]
   %.pre-phi = phi i8 [ %.pre111, %if.else.i ], [ %9, %while.end.i ]
-  %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
+  %__y.0.lcssa25.i = phi ptr [ %__y.0.lcssa26.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %cmp.i5.i = icmp samesign ult i8 %.pre-phi, %.pre-phi113
   %spec.select.i = select i1 %cmp.i5.i, ptr null, ptr %__j.sroa.0.0.i
-  %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa26.i, ptr null
+  %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa25.i, ptr null
   br label %return
 
 if.else12:                                        ; preds = %entry
@@ -75069,23 +75069,23 @@ while.body.i26:                                   ; preds = %if.else25, %while.b
   %_M_storage.i.i.i28 = getelementptr inbounds nuw i8, ptr %__x.021.i27, i64 32
   %16 = load i8, ptr %_M_storage.i.i.i28, align 1
   %17 = and i8 %16, 1
-  %cmp.i.i29 = icmp samesign ult i8 %12, %17
-  %cond.in.v.i30 = select i1 %cmp.i.i29, i64 16, i64 24
+  %cmp.i.i29.not = icmp eq i8 %17, 0
+  %cond.in.v.i30 = select i1 %cmp.i.i29.not, i64 24, i64 16
   %cond.in.i31 = getelementptr inbounds nuw i8, ptr %__x.021.i27, i64 %cond.in.v.i30
   %__x.0.i32 = load ptr, ptr %cond.in.i31, align 8
   %cmp.not.i33 = icmp eq ptr %__x.0.i32, null
   br i1 %cmp.not.i33, label %while.end.i34, label %while.body.i26, !llvm.loop !150
 
 while.end.i34:                                    ; preds = %while.body.i26
-  br i1 %cmp.i.i29, label %if.then.i46, label %return
+  br i1 %cmp.i.i29.not, label %return, label %if.then.i46
 
 if.then.i46:                                      ; preds = %while.end.i34, %if.else25
-  %__y.0.lcssa25.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else25 ]
-  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa25.i47, %15
+  %__y.0.lcssa26.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else25 ]
+  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa26.i47, %15
   br i1 %cmp.i4.i49, label %return, label %if.else.i50
 
 if.else.i50:                                      ; preds = %if.then.i46
-  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #21
+  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i47) #21
   br label %return
 
 if.else44:                                        ; preds = %if.else12
@@ -75122,19 +75122,19 @@ if.else.i93:                                      ; preds = %if.then.i89
   br label %if.end12.i78
 
 if.end12.i78:                                     ; preds = %while.body.i69, %if.else.i93
-  %__y.0.lcssa26.i79 = phi ptr [ %add.ptr.i, %if.else.i93 ], [ %__x.021.i70, %while.body.i69 ]
+  %__y.0.lcssa25.i79 = phi ptr [ %add.ptr.i, %if.else.i93 ], [ %__x.021.i70, %while.body.i69 ]
   %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.body.i69 ]
   %_M_storage.i.i.i.i81 = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0.i80, i64 32
   %20 = load i8, ptr %_M_storage.i.i.i.i81, align 1
   %21 = and i8 %20, 1
-  %cmp.i5.i82 = icmp samesign ult i8 %21, %12
-  %spec.select.i83 = select i1 %cmp.i5.i82, ptr null, ptr %__j.sroa.0.0.i80
-  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa26.i79, ptr null
+  %cmp.i5.i82.not.not = icmp eq i8 %21, 0
+  %spec.select.i83 = select i1 %cmp.i5.i82.not.not, ptr null, ptr %__j.sroa.0.0.i80
+  %spec.select18.i84 = select i1 %cmp.i5.i82.not.not, ptr %__y.0.lcssa25.i79, ptr null
   br label %return
 
 return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.then.i46, %if.else.i50, %while.end.i34, %if.end12.i, %if.then.i, %if.else44, %if.then50, %if.then18, %land.lhs.true
   %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %15, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %call.i.i51, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %15, %if.then18 ], [ %18, %if.then50 ], [ null, %if.else44 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa25.i47, %if.then.i46 ], [ null, %if.else.i50 ], [ null, %while.end.i34 ], [ %add.ptr.i, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %15, %if.then18 ], [ %18, %if.then50 ], [ null, %if.else44 ], [ %__y.0.lcssa26.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa26.i47, %if.then.i46 ], [ null, %if.else.i50 ], [ null, %while.end.i34 ], [ %add.ptr.i, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -75704,18 +75704,18 @@ while.end:                                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp.i.i, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %entry, %while.end
-  %__y.0.lcssa38 = phi ptr [ %__x.034, %while.end ], [ %add.ptr.i, %entry ]
+  %__y.0.lcssa39 = phi ptr [ %__x.034, %while.end ], [ %add.ptr.i, %entry ]
   %_M_left.i3 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_left.i3, align 8
-  %cmp.i = icmp eq ptr %__y.0.lcssa38, %4
+  %cmp.i = icmp eq ptr %__y.0.lcssa39, %4
   br i1 %cmp.i, label %return, label %if.else
 
 if.else:                                          ; preds = %if.then
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa38) #21
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa39) #21
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else, %while.end
-  %__y.0.lcssa39 = phi ptr [ %__y.0.lcssa38, %if.else ], [ %__x.034, %while.end ]
+  %__y.0.lcssa38 = phi ptr [ %__y.0.lcssa39, %if.else ], [ %__x.034, %while.end ]
   %__j.sroa.0.0 = phi ptr [ %call.i, %if.else ], [ %__x.034, %while.end ]
   %_M_string_length.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0, i64 40
   %5 = load i64, ptr %_M_string_length.i.i.i.i4, align 8
@@ -75744,12 +75744,12 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %__r.0.i.i.i11 = phi i32 [ %call.i.i.i.i9, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i8 ], [ %retval.0.i5.i.i.i17, %if.then.i.i.i13 ]
   %cmp.i.i12 = icmp slt i32 %__r.0.i.i.i11, 0
   %spec.select = select i1 %cmp.i.i12, ptr null, ptr %__j.sroa.0.0
-  %spec.select31 = select i1 %cmp.i.i12, ptr %__y.0.lcssa39, ptr null
+  %spec.select31 = select i1 %cmp.i.i12, ptr %__y.0.lcssa38, ptr null
   br label %return
 
 return:                                           ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18, %if.then
   %retval.sroa.0.0 = phi ptr [ null, %if.then ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
-  %retval.sroa.4.0 = phi ptr [ %__y.0.lcssa38, %if.then ], [ %spec.select31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
+  %retval.sroa.4.0 = phi ptr [ %__y.0.lcssa39, %if.then ], [ %spec.select31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -76199,18 +76199,18 @@ while.end:                                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp.i.i, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %entry, %while.end
-  %__y.0.lcssa38 = phi ptr [ %__x.034, %while.end ], [ %add.ptr.i, %entry ]
+  %__y.0.lcssa39 = phi ptr [ %__x.034, %while.end ], [ %add.ptr.i, %entry ]
   %_M_left.i3 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_left.i3, align 8
-  %cmp.i = icmp eq ptr %__y.0.lcssa38, %4
+  %cmp.i = icmp eq ptr %__y.0.lcssa39, %4
   br i1 %cmp.i, label %return, label %if.else
 
 if.else:                                          ; preds = %if.then
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa38) #21
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa39) #21
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else, %while.end
-  %__y.0.lcssa39 = phi ptr [ %__y.0.lcssa38, %if.else ], [ %__x.034, %while.end ]
+  %__y.0.lcssa38 = phi ptr [ %__y.0.lcssa39, %if.else ], [ %__x.034, %while.end ]
   %__j.sroa.0.0 = phi ptr [ %call.i, %if.else ], [ %__x.034, %while.end ]
   %_M_string_length.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0, i64 40
   %5 = load i64, ptr %_M_string_length.i.i.i.i4, align 8
@@ -76239,12 +76239,12 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %__r.0.i.i.i11 = phi i32 [ %call.i.i.i.i9, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i8 ], [ %retval.0.i5.i.i.i17, %if.then.i.i.i13 ]
   %cmp.i.i12 = icmp slt i32 %__r.0.i.i.i11, 0
   %spec.select = select i1 %cmp.i.i12, ptr null, ptr %__j.sroa.0.0
-  %spec.select31 = select i1 %cmp.i.i12, ptr %__y.0.lcssa39, ptr null
+  %spec.select31 = select i1 %cmp.i.i12, ptr %__y.0.lcssa38, ptr null
   br label %return
 
 return:                                           ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18, %if.then
   %retval.sroa.0.0 = phi ptr [ null, %if.then ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
-  %retval.sroa.4.0 = phi ptr [ %__y.0.lcssa38, %if.then ], [ %spec.select31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
+  %retval.sroa.4.0 = phi ptr [ %__y.0.lcssa39, %if.then ], [ %spec.select31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -76670,18 +76670,18 @@ while.end:                                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp.i.i, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %entry, %while.end
-  %__y.0.lcssa38 = phi ptr [ %__x.034, %while.end ], [ %add.ptr.i, %entry ]
+  %__y.0.lcssa39 = phi ptr [ %__x.034, %while.end ], [ %add.ptr.i, %entry ]
   %_M_left.i3 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_left.i3, align 8
-  %cmp.i = icmp eq ptr %__y.0.lcssa38, %4
+  %cmp.i = icmp eq ptr %__y.0.lcssa39, %4
   br i1 %cmp.i, label %return, label %if.else
 
 if.else:                                          ; preds = %if.then
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa38) #21
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa39) #21
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else, %while.end
-  %__y.0.lcssa39 = phi ptr [ %__y.0.lcssa38, %if.else ], [ %__x.034, %while.end ]
+  %__y.0.lcssa38 = phi ptr [ %__y.0.lcssa39, %if.else ], [ %__x.034, %while.end ]
   %__j.sroa.0.0 = phi ptr [ %call.i, %if.else ], [ %__x.034, %while.end ]
   %_M_string_length.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0, i64 40
   %5 = load i64, ptr %_M_string_length.i.i.i.i4, align 8
@@ -76710,12 +76710,12 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %__r.0.i.i.i11 = phi i32 [ %call.i.i.i.i9, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i8 ], [ %retval.0.i5.i.i.i17, %if.then.i.i.i13 ]
   %cmp.i.i12 = icmp slt i32 %__r.0.i.i.i11, 0
   %spec.select = select i1 %cmp.i.i12, ptr null, ptr %__j.sroa.0.0
-  %spec.select31 = select i1 %cmp.i.i12, ptr %__y.0.lcssa39, ptr null
+  %spec.select31 = select i1 %cmp.i.i12, ptr %__y.0.lcssa38, ptr null
   br label %return
 
 return:                                           ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18, %if.then
   %retval.sroa.0.0 = phi ptr [ null, %if.then ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
-  %retval.sroa.4.0 = phi ptr [ %__y.0.lcssa38, %if.then ], [ %spec.select31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
+  %retval.sroa.4.0 = phi ptr [ %__y.0.lcssa39, %if.then ], [ %spec.select31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -77141,18 +77141,18 @@ while.end:                                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp.i.i, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %entry, %while.end
-  %__y.0.lcssa38 = phi ptr [ %__x.034, %while.end ], [ %add.ptr.i, %entry ]
+  %__y.0.lcssa39 = phi ptr [ %__x.034, %while.end ], [ %add.ptr.i, %entry ]
   %_M_left.i3 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_left.i3, align 8
-  %cmp.i = icmp eq ptr %__y.0.lcssa38, %4
+  %cmp.i = icmp eq ptr %__y.0.lcssa39, %4
   br i1 %cmp.i, label %return, label %if.else
 
 if.else:                                          ; preds = %if.then
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa38) #21
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa39) #21
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else, %while.end
-  %__y.0.lcssa39 = phi ptr [ %__y.0.lcssa38, %if.else ], [ %__x.034, %while.end ]
+  %__y.0.lcssa38 = phi ptr [ %__y.0.lcssa39, %if.else ], [ %__x.034, %while.end ]
   %__j.sroa.0.0 = phi ptr [ %call.i, %if.else ], [ %__x.034, %while.end ]
   %_M_string_length.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0, i64 40
   %5 = load i64, ptr %_M_string_length.i.i.i.i4, align 8
@@ -77181,12 +77181,12 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %__r.0.i.i.i11 = phi i32 [ %call.i.i.i.i9, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i8 ], [ %retval.0.i5.i.i.i17, %if.then.i.i.i13 ]
   %cmp.i.i12 = icmp slt i32 %__r.0.i.i.i11, 0
   %spec.select = select i1 %cmp.i.i12, ptr null, ptr %__j.sroa.0.0
-  %spec.select31 = select i1 %cmp.i.i12, ptr %__y.0.lcssa39, ptr null
+  %spec.select31 = select i1 %cmp.i.i12, ptr %__y.0.lcssa38, ptr null
   br label %return
 
 return:                                           ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18, %if.then
   %retval.sroa.0.0 = phi ptr [ null, %if.then ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
-  %retval.sroa.4.0 = phi ptr [ %__y.0.lcssa38, %if.then ], [ %spec.select31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
+  %retval.sroa.4.0 = phi ptr [ %__y.0.lcssa39, %if.then ], [ %spec.select31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -77612,18 +77612,18 @@ while.end:                                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp.i.i, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %entry, %while.end
-  %__y.0.lcssa38 = phi ptr [ %__x.034, %while.end ], [ %add.ptr.i, %entry ]
+  %__y.0.lcssa39 = phi ptr [ %__x.034, %while.end ], [ %add.ptr.i, %entry ]
   %_M_left.i3 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_left.i3, align 8
-  %cmp.i = icmp eq ptr %__y.0.lcssa38, %4
+  %cmp.i = icmp eq ptr %__y.0.lcssa39, %4
   br i1 %cmp.i, label %return, label %if.else
 
 if.else:                                          ; preds = %if.then
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa38) #21
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa39) #21
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else, %while.end
-  %__y.0.lcssa39 = phi ptr [ %__y.0.lcssa38, %if.else ], [ %__x.034, %while.end ]
+  %__y.0.lcssa38 = phi ptr [ %__y.0.lcssa39, %if.else ], [ %__x.034, %while.end ]
   %__j.sroa.0.0 = phi ptr [ %call.i, %if.else ], [ %__x.034, %while.end ]
   %_M_string_length.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0, i64 40
   %5 = load i64, ptr %_M_string_length.i.i.i.i4, align 8
@@ -77652,12 +77652,12 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %__r.0.i.i.i11 = phi i32 [ %call.i.i.i.i9, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i8 ], [ %retval.0.i5.i.i.i17, %if.then.i.i.i13 ]
   %cmp.i.i12 = icmp slt i32 %__r.0.i.i.i11, 0
   %spec.select = select i1 %cmp.i.i12, ptr null, ptr %__j.sroa.0.0
-  %spec.select31 = select i1 %cmp.i.i12, ptr %__y.0.lcssa39, ptr null
+  %spec.select31 = select i1 %cmp.i.i12, ptr %__y.0.lcssa38, ptr null
   br label %return
 
 return:                                           ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18, %if.then
   %retval.sroa.0.0 = phi ptr [ null, %if.then ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
-  %retval.sroa.4.0 = phi ptr [ %__y.0.lcssa38, %if.then ], [ %spec.select31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
+  %retval.sroa.4.0 = phi ptr [ %__y.0.lcssa39, %if.then ], [ %spec.select31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

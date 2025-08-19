@@ -544,14 +544,14 @@ dynamic_cast.end3.i:                              ; preds = %invoke.cont39
 cond.true.i:                                      ; preds = %dynamic_cast.end3.i
   %39 = load ptr, ptr %pn.i, align 8, !tbaa !16, !noalias !45
   %cmp.not.i.i.i35 = icmp eq ptr %39, null
-  br i1 %cmp.not.i.i.i35, label %if.end51.thread67, label %if.then.i.i41
+  br i1 %cmp.not.i.i.i35, label %if.end51.thread81, label %if.then.i.i41
 
-if.end51.thread67:                                ; preds = %cond.true.i
-  %strike_.i69 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %40 = load double, ptr %strike_.i69, align 8, !tbaa !48
+if.end51.thread81:                                ; preds = %cond.true.i
+  %strike_.i83 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %40 = load double, ptr %strike_.i83, align 8, !tbaa !48
   %41 = load double, ptr %scalingValue_, align 8, !tbaa !18
-  %div70 = fdiv double %41, %40
-  store double %div70, ptr %scalingValue_, align 8, !tbaa !18
+  %div84 = fdiv double %41, %40
+  store double %div84, ptr %scalingValue_, align 8, !tbaa !18
   br label %_ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEED2Ev.exit
 
 lpad38:                                           ; preds = %_ZNKSt6vectorISt8functionIFddEESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %if.then.i.i.i
@@ -599,7 +599,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
   tail call void @__clang_call_terminate(ptr %51) #23
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEED2Ev.exit: ; preds = %dynamic_cast.end3.i, %invoke.cont39, %if.end51.thread67, %if.then.i.i41, %.noexc.i.i, %if.then.i.i.i.i
+_ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEED2Ev.exit: ; preds = %dynamic_cast.end3.i, %invoke.cont39, %if.end51.thread81, %if.then.i.i41, %.noexc.i.i, %if.then.i.i.i.i
   ret void
 
 ehcleanup54:                                      ; preds = %lpad38, %ehcleanup35

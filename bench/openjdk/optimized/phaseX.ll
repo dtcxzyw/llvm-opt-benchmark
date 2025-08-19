@@ -785,11 +785,11 @@ define hidden noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef 
 
 .lr.ph.preheader:                                 ; preds = %8
   %19 = icmp eq ptr %1, %18
-  br i1 %19, label %.lr.ph._crit_edge, label %.lr.ph23
+  br i1 %19, label %.lr.ph._crit_edge, label %.lr.ph26
 
-.lr.ph:                                           ; preds = %.lr.ph23
+.lr.ph:                                           ; preds = %.lr.ph26
   %20 = icmp eq ptr %1, %28
-  br i1 %20, label %.lr.ph._crit_edge, label %.lr.ph23, !llvm.loop !13
+  br i1 %20, label %.lr.ph._crit_edge, label %.lr.ph26, !llvm.loop !13
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi i64 [ %16, %.lr.ph.preheader ], [ %26, %.lr.ph ]
@@ -799,9 +799,9 @@ define hidden noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef 
   store ptr %23, ptr %21, align 8
   br label %.loopexit
 
-.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0121822 = phi i32 [ %25, %.lr.ph ], [ %12, %.lr.ph.preheader ]
-  %24 = add i32 %.0121822, %13
+.lr.ph26:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0121825 = phi i32 [ %25, %.lr.ph ], [ %12, %.lr.ph.preheader ]
+  %24 = add i32 %.0121825, %13
   %25 = and i32 %24, %11
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw ptr, ptr %15, i64 %26
@@ -809,8 +809,8 @@ define hidden noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef 
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
-.loopexit:                                        ; preds = %.lr.ph23, %8, %2, %.lr.ph._crit_edge
-  %.0 = phi i1 [ true, %.lr.ph._crit_edge ], [ false, %2 ], [ false, %8 ], [ false, %.lr.ph23 ]
+.loopexit:                                        ; preds = %.lr.ph26, %8, %2, %.lr.ph._crit_edge
+  %.0 = phi i1 [ true, %.lr.ph._crit_edge ], [ false, %2 ], [ false, %8 ], [ false, %.lr.ph26 ]
   ret i1 %.0
 }
 

@@ -1504,8 +1504,8 @@ define hidden zeroext i1 @dfvm_apply_full(ptr noundef captures(none) %0, ptr nou
 33:                                               ; preds = %25
   %34 = getelementptr i8, ptr %30, i64 8
   %.val = load ptr, ptr %34, align 8
-  %.not125.not16.i = icmp eq ptr %.val, null
-  br i1 %.not125.not16.i, label %stack_pop.exit, label %.lr.ph.split.us.i
+  %.not125.not21.i = icmp eq ptr %.val, null
+  br i1 %.not125.not21.i, label %stack_pop.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %33, %check_exists_finfos.exit.thread.us.i
   %.096.us.i = phi ptr [ %43, %check_exists_finfos.exit.thread.us.i ], [ %.val, %33 ]
@@ -1543,8 +1543,8 @@ check_exists_finfos.exit.thread.us.i:             ; preds = %38, %.lr.ph.split.u
   br i1 %.not125.not.i, label %stack_pop.exit, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %44
-  %.not125.not16.i206 = icmp eq ptr %.val164, null
-  br i1 %.not125.not16.i206, label %stack_pop.exit, label %.lr.ph.split.us.i201.preheader
+  %.not125.not21.i206 = icmp eq ptr %.val164, null
+  br i1 %.not125.not21.i206, label %stack_pop.exit, label %.lr.ph.split.us.i201.preheader
 
 .lr.ph.i:                                         ; preds = %48
   %52 = icmp eq ptr %51, null

@@ -574,11 +574,11 @@ define internal fastcc i32 @__nfs3_proc_setacls(ptr noundef %0, ptr noundef %1, 
   br label %.thread12
 
 70:                                               ; preds = %.thread14, %.thread9, %63
-  %.sink20 = phi i32 [ %55, %.thread14 ], [ %69, %.thread9 ], [ %65, %63 ]
-  %.sink19 = phi i32 [ 16, %.thread14 ], [ 16, %.thread9 ], [ %64, %63 ]
+  %.sink24 = phi i32 [ %55, %.thread14 ], [ %69, %.thread9 ], [ %65, %63 ]
+  %.sink23 = phi i32 [ 16, %.thread14 ], [ 16, %.thread9 ], [ %64, %63 ]
   %71 = phi ptr [ %34, %.thread14 ], [ %68, %.thread9 ], [ %44, %63 ]
-  %72 = mul i32 %.sink20, 12
-  %73 = add i32 %72, %.sink19
+  %72 = mul i32 %.sink24, 12
+  %73 = add i32 %72, %.sink23
   %74 = zext i32 %73 to i64
   store i64 %74, ptr %16, align 8
   %75 = icmp ugt i32 %73, 136

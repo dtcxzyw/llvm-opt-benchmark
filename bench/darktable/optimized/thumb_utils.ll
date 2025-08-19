@@ -546,9 +546,9 @@ define void @_ZN6LibRaw18kodak_thumb_loaderEv(ptr noundef nonnull align 8 derefe
   %wide.trip.count = zext nneg i32 %265 to i64
   br label %.preheader174
 
-.preheader174:                                    ; preds = %.preheader174.lr.ph, %.split.loop.exit309
-  %indvars.iv276 = phi i64 [ 0, %.preheader174.lr.ph ], [ %indvars.iv.next277, %.split.loop.exit309 ]
-  %.1126217 = phi i32 [ 0, %.preheader174.lr.ph ], [ %spec.select171, %.split.loop.exit309 ]
+.preheader174:                                    ; preds = %.preheader174.lr.ph, %.split.loop.exit329
+  %indvars.iv276 = phi i64 [ 0, %.preheader174.lr.ph ], [ %indvars.iv.next277, %.split.loop.exit329 ]
+  %.1126217 = phi i32 [ 0, %.preheader174.lr.ph ], [ %spec.select171, %.split.loop.exit329 ]
   %268 = getelementptr inbounds nuw [8192 x i32], ptr %267, i64 %indvars.iv276
   br label %269
 
@@ -556,7 +556,7 @@ define void @_ZN6LibRaw18kodak_thumb_loaderEv(ptr noundef nonnull align 8 derefe
   %indvars.iv273 = phi i64 [ 8192, %.preheader174 ], [ %indvars.iv.next274, %271 ]
   %.0127 = phi i32 [ 0, %.preheader174 ], [ %274, %271 ]
   %270 = icmp samesign ugt i64 %indvars.iv273, 33
-  br i1 %270, label %271, label %.split.loop.exit309
+  br i1 %270, label %271, label %.split.loop.exit329
 
 271:                                              ; preds = %269
   %indvars.iv.next274 = add nsw i64 %indvars.iv273, -1
@@ -568,16 +568,16 @@ define void @_ZN6LibRaw18kodak_thumb_loaderEv(ptr noundef nonnull align 8 derefe
 
 .split.loop.exit:                                 ; preds = %271
   %276 = trunc nuw nsw i64 %indvars.iv.next274 to i32
-  br label %.split.loop.exit309
+  br label %.split.loop.exit329
 
-.split.loop.exit309:                              ; preds = %269, %.split.loop.exit
+.split.loop.exit329:                              ; preds = %269, %.split.loop.exit
   %.lcssa244 = phi i32 [ %276, %.split.loop.exit ], [ 32, %269 ]
   %spec.select171 = tail call i32 @llvm.smax.i32(i32 %.1126217, i32 %.lcssa244)
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
   %exitcond279.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count
   br i1 %exitcond279.not, label %.loopexit.loopexit, label %.preheader174, !llvm.loop !111
 
-.loopexit.loopexit:                               ; preds = %.split.loop.exit309
+.loopexit.loopexit:                               ; preds = %.split.loop.exit329
   %277 = shl i32 %spec.select171, 3
   %278 = sitofp i32 %277 to float
   br label %.loopexit

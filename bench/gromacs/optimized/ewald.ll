@@ -500,23 +500,23 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   %wide.trip.count372 = zext nneg i32 %12 to i64
   %wide.trip.count377 = zext nneg i32 %12 to i64
   %wide.trip.count382 = zext nneg i32 %12 to i64
-  %.val412 = load i64, ptr %8, align 8
-  %.val413 = load i64, ptr %9, align 8
+  %.val428 = load i64, ptr %8, align 8
+  %.val429 = load i64, ptr %9, align 8
   br label %211
 
 211:                                              ; preds = %_ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI9t_complexLm3EEPKf.exit, %._crit_edge342
   %212 = phi i1 [ true, %_ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI9t_complexLm3EEPKf.exit ], [ false, %._crit_edge342 ]
   %indvars.iv387.sroa.phi = phi ptr [ %.sroa.0, %_ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI9t_complexLm3EEPKf.exit ], [ %.sroa.6, %._crit_edge342 ]
-  %.mux411 = select i1 %212, float %202, float %15
-  %.0234 = select i1 %.not238, float %.mux411, float 1.000000e+00
+  %.mux427 = select i1 %212, float %202, float %15
+  %.0234 = select i1 %.not238, float %.mux427, float 1.000000e+00
   store float 0.000000e+00, ptr %indvars.iv387.sroa.phi, align 4, !tbaa !134
   %213 = load i32, ptr %17, align 8, !tbaa !102
   %214 = icmp sgt i32 %213, 0
   br i1 %214, label %.lr.ph341, label %._crit_edge342
 
 .lr.ph341:                                        ; preds = %211
-  %.mux.val = select i1 %212, i64 %.val412, i64 %.val413
-  %.sroa.0.0 = select i1 %.not238, i64 %.mux.val, i64 %.val412
+  %.mux.val = select i1 %212, i64 %.val428, i64 %.val429
+  %.sroa.0.0 = select i1 %.not238, i64 %.mux.val, i64 %.val428
   %215 = inttoptr i64 %.sroa.0.0 to ptr
   %.pre = load i32, ptr %203, align 4, !tbaa !110
   br label %216
@@ -854,7 +854,7 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   br i1 %.not238, label %388, label %387
 
 387:                                              ; preds = %386
-  %.sroa.0.0..sroa.0.0.422 = load float, ptr %.sroa.0, align 4, !tbaa !134
+  %.sroa.0.0..sroa.0.0.438 = load float, ptr %.sroa.0, align 4, !tbaa !134
   br label %399
 
 388:                                              ; preds = %386
@@ -874,7 +874,7 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   br label %399
 
 399:                                              ; preds = %388, %387
-  %.0 = phi float [ %395, %388 ], [ %.sroa.0.0..sroa.0.0.422, %387 ]
+  %.0 = phi float [ %395, %388 ], [ %.sroa.0.0..sroa.0.0.438, %387 ]
   %400 = fpext float %77 to double
   %401 = fmul double %400, -5.000000e-01
   %402 = load float, ptr %13, align 4, !tbaa !134
@@ -1110,7 +1110,7 @@ define linkonce_odr void @_ZNSt6vectorI9t_complexSaIS0_EE17_M_default_appendEm(p
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIP9t_complexmS0_ET_S2_T0_RSaIT1_E.exit, label %23
 

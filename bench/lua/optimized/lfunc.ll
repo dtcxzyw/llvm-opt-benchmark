@@ -116,22 +116,22 @@ define hidden ptr @luaF_findupval(ptr noundef %0, ptr noundef %1) local_unnamed_
 .lr.ph.preheader:                                 ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !16
-  %.not1626 = icmp ult ptr %6, %1
-  br i1 %.not1626, label %.critedge, label %.lr.ph27
+  %.not1632 = icmp ult ptr %6, %1
+  br i1 %.not1632, label %.critedge, label %.lr.ph33
 
 .lr.ph:                                           ; preds = %12
   %7 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %.not16 = icmp ult ptr %8, %1
-  br i1 %.not16, label %.critedge.loopexit, label %.lr.ph27
+  br i1 %.not16, label %.critedge.loopexit, label %.lr.ph33
 
-.lr.ph27:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph33:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %9 = phi ptr [ %8, %.lr.ph ], [ %6, %.lr.ph.preheader ]
   %10 = phi ptr [ %14, %.lr.ph ], [ %4, %.lr.ph.preheader ]
   %11 = icmp eq ptr %9, %1
   br i1 %11, label %newupval.exit, label %12
 
-12:                                               ; preds = %.lr.ph27
+12:                                               ; preds = %.lr.ph33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !14
   %.not = icmp eq ptr %14, null
@@ -175,8 +175,8 @@ define hidden ptr @luaF_findupval(ptr noundef %0, ptr noundef %1) local_unnamed_
   store ptr %0, ptr %29, align 8, !tbaa !34
   br label %newupval.exit
 
-newupval.exit:                                    ; preds = %.lr.ph27, %26, %23
-  %.0 = phi ptr [ %16, %23 ], [ %16, %26 ], [ %10, %.lr.ph27 ]
+newupval.exit:                                    ; preds = %.lr.ph33, %26, %23
+  %.0 = phi ptr [ %16, %23 ], [ %16, %26 ], [ %10, %.lr.ph33 ]
   ret ptr %.0
 }
 

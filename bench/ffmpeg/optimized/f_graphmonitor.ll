@@ -154,12 +154,12 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %18 = load i32, ptr %17, align 4, !tbaa !35
   %.not48 = icmp eq i32 %18, 0
-  br i1 %.not48, label %19, label %.thread120
+  br i1 %.not48, label %19, label %.thread140
 
 19:                                               ; preds = %.critedge
   %20 = tail call i64 @ff_inlink_queued_frames(ptr noundef %11) #11
   %.not49 = icmp eq i64 %20, 0
-  br i1 %.not49, label %.thread116, label %21
+  br i1 %.not49, label %.thread136, label %21
 
 21:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -170,11 +170,11 @@ define internal i32 @activate(ptr noundef %0) #1 {
 
 24:                                               ; preds = %21
   %.not50 = icmp eq i32 %22, 0
-  br i1 %.not50, label %.thread118, label %26
+  br i1 %.not50, label %.thread138, label %26
 
-.thread118:                                       ; preds = %24
+.thread138:                                       ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread116
+  br label %.thread136
 
 25:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -188,7 +188,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   call void @av_frame_free(ptr noundef nonnull %6) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not51 = icmp eq i64 %29, -9223372036854775808
-  br i1 %.not51, label %.thread116, label %30
+  br i1 %.not51, label %.thread136, label %30
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 96
@@ -206,19 +206,19 @@ define internal i32 @activate(ptr noundef %0) #1 {
   store i64 %35, ptr %36, align 8, !tbaa !45
   br label %44
 
-.thread116:                                       ; preds = %19, %.thread118, %26
+.thread136:                                       ; preds = %19, %.thread138, %26
   %.pr = load i32, ptr %17, align 4, !tbaa !35
   %.not52 = icmp eq i32 %.pr, 0
-  br i1 %.not52, label %..thread61_crit_edge, label %.thread120
+  br i1 %.not52, label %..thread61_crit_edge, label %.thread140
 
-..thread61_crit_edge:                             ; preds = %.thread116
+..thread61_crit_edge:                             ; preds = %.thread136
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 48
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !45
   %.phi.trans.insert106 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %.pre107 = load i64, ptr %.phi.trans.insert106, align 8, !tbaa !46
   br label %.thread61
 
-.thread120:                                       ; preds = %.critedge, %.thread116
+.thread140:                                       ; preds = %.critedge, %.thread136
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %41 = load i64, ptr %40, align 8, !tbaa !45
   %42 = add nsw i64 %41, 1
@@ -234,9 +234,9 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %47 = icmp eq i32 %.pr.pre, 0
   br i1 %47, label %.thread61, label %48
 
-48:                                               ; preds = %.thread120, %44
-  %49 = phi i64 [ %42, %.thread120 ], [ %35, %44 ]
-  %50 = phi i64 [ %41, %.thread120 ], [ %45, %44 ]
+48:                                               ; preds = %.thread140, %44
+  %49 = phi i64 [ %42, %.thread140 ], [ %35, %44 ]
+  %50 = phi i64 [ %41, %.thread140 ], [ %45, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %52 = load i32, ptr %51, align 8, !tbaa !47
   %53 = icmp eq i32 %52, 0
@@ -251,7 +251,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %56 = phi i64 [ %.pre, %..thread61_crit_edge ], [ %45, %44 ]
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %58 = icmp slt i64 %56, %55
-  br i1 %58, label %59, label %.thread122
+  br i1 %58, label %59, label %.thread142
 
 59:                                               ; preds = %.thread61
   %60 = call i32 @ff_outlink_frame_wanted(ptr noundef %14) #11
@@ -723,9 +723,9 @@ drawtext.exit191.i:                               ; preds = %276, %.preheader39.
   %301 = getelementptr inbounds nuw i8, ptr %299, i64 108
   %302 = load i32, ptr %301, align 4, !tbaa !57
   %.not.i192.i = icmp slt i32 %300, %302
-  br i1 %.not.i192.i, label %308, label %drawtext.exit209.thread384.i
+  br i1 %.not.i192.i, label %308, label %drawtext.exit209.thread400.i
 
-drawtext.exit209.thread384.i:                     ; preds = %296
+drawtext.exit209.thread400.i:                     ; preds = %296
   %303 = load ptr, ptr %286, align 8, !tbaa !85
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 16
   %305 = load ptr, ptr %304, align 8, !tbaa !78
@@ -842,9 +842,9 @@ drawtext.exit209.i._crit_edge:                    ; preds = %drawtext.exit209.i
   %.pre111 = load i32, ptr %.phi.trans.insert110, align 8, !tbaa !58
   br label %368
 
-drawtext.exit209.drawtext.exit227_crit_edge.i:    ; preds = %drawtext.exit209.i, %drawtext.exit209.thread384.i
-  %366 = phi i32 [ %307, %drawtext.exit209.thread384.i ], [ %365, %drawtext.exit209.i ]
-  %367 = phi ptr [ %299, %drawtext.exit209.thread384.i ], [ %.pre367.i, %drawtext.exit209.i ]
+drawtext.exit209.drawtext.exit227_crit_edge.i:    ; preds = %drawtext.exit209.i, %drawtext.exit209.thread400.i
+  %366 = phi i32 [ %307, %drawtext.exit209.thread400.i ], [ %365, %drawtext.exit209.i ]
+  %367 = phi ptr [ %299, %drawtext.exit209.thread400.i ], [ %.pre367.i, %drawtext.exit209.i ]
   %.pre379.i = add i32 %366, %298
   %.pre381.i = shl i32 %.pre379.i, 3
   br label %drawtext.exit227.i
@@ -1008,9 +1008,9 @@ drawtext.exit227.i:                               ; preds = %drawtext.exit227.lo
   %451 = getelementptr inbounds nuw i8, ptr %449, i64 108
   %452 = load i32, ptr %451, align 4, !tbaa !57
   %.not.i228.i = icmp slt i32 %450, %452
-  br i1 %.not.i228.i, label %459, label %drawtext.exit245.thread387.i
+  br i1 %.not.i228.i, label %459, label %drawtext.exit245.thread403.i
 
-drawtext.exit245.thread387.i:                     ; preds = %446
+drawtext.exit245.thread403.i:                     ; preds = %446
   %453 = getelementptr inbounds nuw i8, ptr %436, i64 16
   %454 = load ptr, ptr %453, align 8, !tbaa !87
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 16
@@ -1130,9 +1130,9 @@ drawtext.exit245.i._crit_edge:                    ; preds = %drawtext.exit245.i
   %.pre113 = load i32, ptr %.phi.trans.insert112, align 8, !tbaa !58
   br label %521
 
-drawtext.exit245.drawtext.exit263_crit_edge.i:    ; preds = %drawtext.exit245.i, %drawtext.exit245.thread387.i
-  %519 = phi i32 [ %458, %drawtext.exit245.thread387.i ], [ %518, %drawtext.exit245.i ]
-  %520 = phi ptr [ %449, %drawtext.exit245.thread387.i ], [ %.pre371.i, %drawtext.exit245.i ]
+drawtext.exit245.drawtext.exit263_crit_edge.i:    ; preds = %drawtext.exit245.i, %drawtext.exit245.thread403.i
+  %519 = phi i32 [ %458, %drawtext.exit245.thread403.i ], [ %518, %drawtext.exit245.i ]
+  %520 = phi ptr [ %449, %drawtext.exit245.thread403.i ], [ %.pre371.i, %drawtext.exit245.i ]
   %.pre376.i = add i32 %519, %448
   %.pre377.i = shl i32 %.pre376.i, 3
   br label %drawtext.exit263.i
@@ -1304,21 +1304,21 @@ create_frame.exit:                                ; preds = %61, %595, %.loopexi
 597:                                              ; preds = %59
   %.pre115 = load i32, ptr %17, align 4, !tbaa !35
   %598 = icmp eq i32 %.pre115, 0
-  br i1 %598, label %.thread122, label %.thread69
+  br i1 %598, label %.thread142, label %.thread69
 
-.thread122:                                       ; preds = %.thread61, %597
+.thread142:                                       ; preds = %.thread61, %597
   %599 = call i32 @ff_inlink_acknowledge_status(ptr noundef %11, ptr noundef nonnull %5, ptr noundef nonnull %4) #11
   %.not57 = icmp eq i32 %599, 0
   br i1 %.not57, label %602, label %600
 
-600:                                              ; preds = %.thread122
+600:                                              ; preds = %.thread142
   store i32 1, ptr %17, align 4, !tbaa !35
   %601 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 1, ptr %601, align 8, !tbaa !47
   call void @ff_filter_set_ready(ptr noundef nonnull %0, i32 noundef 100) #11
   br label %606
 
-602:                                              ; preds = %.thread122
+602:                                              ; preds = %.thread142
   %.pr68 = load i32, ptr %17, align 4, !tbaa !35
   %.not58 = icmp eq i32 %.pr68, 0
   br i1 %.not58, label %603, label %.thread69
@@ -2173,8 +2173,8 @@ drawtext.exit375:                                 ; preds = %408, %358, %363, %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 232
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !106
   %.not253 = icmp eq i64 %.pre, 0
-  %or.cond213 = select i1 %.not252, i1 %.not253, i1 false
-  br i1 %or.cond213, label %drawtext.exit393, label %._crit_edge
+  %or.cond262 = select i1 %.not252, i1 %.not253, i1 false
+  br i1 %or.cond262, label %drawtext.exit393, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %412
   %414 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 1023, ptr noundef nonnull @.str.56, i64 noundef %.pre) #11
@@ -2284,8 +2284,8 @@ drawtext.exit393:                                 ; preds = %466, %._crit_edge, 
   %.phi.trans.insert94 = getelementptr inbounds nuw i8, ptr %4, i64 240
   %.pre95 = load i64, ptr %.phi.trans.insert94, align 8, !tbaa !107
   %.not256 = icmp eq i64 %.pre95, 0
-  %or.cond214 = select i1 %.not255, i1 %.not256, i1 false
-  br i1 %or.cond214, label %drawtext.exit411, label %._crit_edge93
+  %or.cond263 = select i1 %.not255, i1 %.not256, i1 false
+  br i1 %or.cond263, label %drawtext.exit411, label %._crit_edge93
 
 ._crit_edge93:                                    ; preds = %470
   %472 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 1023, ptr noundef nonnull @.str.57, i64 noundef %.pre95) #11
@@ -2397,8 +2397,8 @@ drawtext.exit411:                                 ; preds = %524, %._crit_edge93
   %.phi.trans.insert99 = getelementptr inbounds nuw i8, ptr %4, i64 240
   %.pre100 = load i64, ptr %.phi.trans.insert99, align 8, !tbaa !107
   %.not259 = icmp eq i64 %.pre98, %.pre100
-  %or.cond215 = select i1 %.not258, i1 %.not259, i1 false
-  br i1 %or.cond215, label %drawtext.exit429, label %._crit_edge96
+  %or.cond264 = select i1 %.not258, i1 %.not259, i1 false
+  br i1 %or.cond264, label %drawtext.exit429, label %._crit_edge96
 
 ._crit_edge96:                                    ; preds = %528
   %530 = sub nsw i64 %.pre98, %.pre100
@@ -2509,8 +2509,8 @@ drawtext.exit429:                                 ; preds = %583, %._crit_edge96
   %.phi.trans.insert102 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %.pre103 = load i64, ptr %.phi.trans.insert102, align 8, !tbaa !108
   %.not262 = icmp eq i64 %.pre103, 0
-  %or.cond216 = select i1 %.not261, i1 %.not262, i1 false
-  br i1 %or.cond216, label %drawtext.exit447, label %._crit_edge101
+  %or.cond265 = select i1 %.not261, i1 %.not262, i1 false
+  br i1 %or.cond265, label %drawtext.exit447, label %._crit_edge101
 
 ._crit_edge101:                                   ; preds = %587
   %589 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 1023, ptr noundef nonnull @.str.59, i64 noundef %.pre103) #11
@@ -2620,8 +2620,8 @@ drawtext.exit447:                                 ; preds = %641, %._crit_edge10
   %.phi.trans.insert105 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %.pre106 = load i64, ptr %.phi.trans.insert105, align 8, !tbaa !109
   %.not265 = icmp eq i64 %.pre106, 0
-  %or.cond217 = select i1 %.not264, i1 %.not265, i1 false
-  br i1 %or.cond217, label %drawtext.exit465, label %._crit_edge104
+  %or.cond266 = select i1 %.not264, i1 %.not265, i1 false
+  br i1 %or.cond266, label %drawtext.exit465, label %._crit_edge104
 
 ._crit_edge104:                                   ; preds = %645
   %647 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 1023, ptr noundef nonnull @.str.60, i64 noundef %.pre106) #11
@@ -2733,8 +2733,8 @@ drawtext.exit465:                                 ; preds = %699, %._crit_edge10
   %.phi.trans.insert110 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %.pre111 = load i64, ptr %.phi.trans.insert110, align 8, !tbaa !109
   %.not268 = icmp eq i64 %.pre109, %.pre111
-  %or.cond218 = select i1 %.not267, i1 %.not268, i1 false
-  br i1 %or.cond218, label %drawtext.exit483, label %._crit_edge107
+  %or.cond267 = select i1 %.not267, i1 %.not268, i1 false
+  br i1 %or.cond267, label %drawtext.exit483, label %._crit_edge107
 
 ._crit_edge107:                                   ; preds = %703
   %705 = sub nsw i64 %.pre109, %.pre111

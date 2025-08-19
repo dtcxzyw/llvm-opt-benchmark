@@ -554,10 +554,10 @@ define range(i32 0, 2) i32 @ossl_rand_pool_adin_mix_in(ptr noundef readonly capt
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit.sink.split:                             ; preds = %9, %6
-  %.sink21 = phi i32 [ 429, %6 ], [ 434, %9 ]
+  %.sink22 = phi i32 [ 429, %6 ], [ 434, %9 ]
   %.sink = phi i32 [ 786691, %6 ], [ 142, %9 ]
   tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink21, ptr noundef nonnull @__func__.ossl_rand_pool_adin_mix_in) #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink22, ptr noundef nonnull @__func__.ossl_rand_pool_adin_mix_in) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef %.sink, ptr noundef null) #6
   br label %.loopexit
 

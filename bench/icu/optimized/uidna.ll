@@ -86,11 +86,11 @@ define internal fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPr
   br i1 %24, label %.lr.ph.preheader, label %thread-pre-split
 
 .lr.ph.preheader:                                 ; preds = %18, %23
-  %.0132202 = phi ptr [ %9, %23 ], [ %21, %18 ]
-  %.0142200 = phi i32 [ 100, %23 ], [ %.0125, %18 ]
+  %.0132209 = phi ptr [ %9, %23 ], [ %21, %18 ]
+  %.0142207 = phi i32 [ 100, %23 ], [ %.0125, %18 ]
   %25 = zext nneg i32 %.0125 to i64
   %26 = shl nuw nsw i64 %25, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.0132202, ptr align 2 %0, i64 %26, i1 false), !tbaa !7
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.0132209, ptr align 2 %0, i64 %26, i1 false), !tbaa !7
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -109,17 +109,17 @@ define internal fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPr
   br i1 %30, label %31, label %thread-pre-split
 
 31:                                               ; preds = %._crit_edge
-  %32 = call i32 @usprep_prepare_77(ptr noundef %5, ptr noundef nonnull %0, i32 noundef %.0125, ptr noundef nonnull %.0132202, i32 noundef %.0142200, i32 noundef %11, ptr noundef %6, ptr noundef nonnull %7)
+  %32 = call i32 @usprep_prepare_77(ptr noundef %5, ptr noundef nonnull %0, i32 noundef %.0125, ptr noundef nonnull %.0132209, i32 noundef %.0142207, i32 noundef %11, ptr noundef %6, ptr noundef nonnull %7)
   %33 = load i32, ptr %7, align 4, !tbaa !3
   %34 = icmp eq i32 %33, 15
   br i1 %34, label %35, label %44
 
 35:                                               ; preds = %31
-  %.not153 = icmp eq ptr %.0132202, %9
+  %.not153 = icmp eq ptr %.0132209, %9
   br i1 %.not153, label %37, label %36
 
 36:                                               ; preds = %35
-  call void @uprv_free_77(ptr noundef nonnull %.0132202)
+  call void @uprv_free_77(ptr noundef nonnull %.0132209)
   br label %37
 
 37:                                               ; preds = %36, %35
@@ -136,14 +136,14 @@ define internal fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPr
 
 thread-pre-split:                                 ; preds = %23, %._crit_edge, %42
   %.1141.ph = phi i32 [ %.0125, %._crit_edge ], [ %43, %42 ], [ 0, %23 ]
-  %.2134.ph = phi ptr [ %.0132202, %._crit_edge ], [ %40, %42 ], [ %9, %23 ]
+  %.2134.ph = phi ptr [ %.0132209, %._crit_edge ], [ %40, %42 ], [ %9, %23 ]
   %.pr = load i32, ptr %7, align 4, !tbaa !3
   br label %44
 
 44:                                               ; preds = %thread-pre-split, %31
   %45 = phi i32 [ %.pr, %thread-pre-split ], [ %33, %31 ]
   %.1141 = phi i32 [ %.1141.ph, %thread-pre-split ], [ %32, %31 ]
-  %.2134 = phi ptr [ %.2134.ph, %thread-pre-split ], [ %.0132202, %31 ]
+  %.2134 = phi ptr [ %.2134.ph, %thread-pre-split ], [ %.0132209, %31 ]
   %46 = icmp slt i32 %45, 1
   br i1 %46, label %47, label %116
 
@@ -175,9 +175,9 @@ thread-pre-split:                                 ; preds = %23, %._crit_edge, %
 
 54:                                               ; preds = %.lr.ph188
   %55 = icmp samesign ugt i16 %52, 122
-  br i1 %55, label %.thread212, label %_ZL9isLDHCharDs.exit
+  br i1 %55, label %.thread219, label %_ZL9isLDHCharDs.exit
 
-.thread212:                                       ; preds = %54
+.thread219:                                       ; preds = %54
   %56 = trunc nuw nsw i64 %indvars.iv193 to i32
   br label %62
 
@@ -193,14 +193,14 @@ _ZL9isLDHCharDs.exit:                             ; preds = %54
   %or.cond20.i.not = and i1 %60, %or.cond19.i.not177
   %cond.fr = freeze i1 %or.cond20.i.not
   %61 = trunc nuw nsw i64 %indvars.iv193 to i32
-  %spec.select231 = select i1 %cond.fr, i8 0, i8 %.0128185
-  %spec.select232 = select i1 %cond.fr, i32 %61, i32 %.0187
+  %spec.select238 = select i1 %cond.fr, i8 0, i8 %.0128185
+  %spec.select239 = select i1 %cond.fr, i32 %61, i32 %.0187
   br label %62
 
-62:                                               ; preds = %_ZL9isLDHCharDs.exit, %.thread212, %.lr.ph188
-  %.3 = phi i8 [ 0, %.lr.ph188 ], [ %.2184, %.thread212 ], [ %.2184, %_ZL9isLDHCharDs.exit ]
-  %.1129 = phi i8 [ %.0128185, %.lr.ph188 ], [ 0, %.thread212 ], [ %spec.select231, %_ZL9isLDHCharDs.exit ]
-  %.1 = phi i32 [ %.0187, %.lr.ph188 ], [ %56, %.thread212 ], [ %spec.select232, %_ZL9isLDHCharDs.exit ]
+62:                                               ; preds = %_ZL9isLDHCharDs.exit, %.thread219, %.lr.ph188
+  %.3 = phi i8 [ 0, %.lr.ph188 ], [ %.2184, %.thread219 ], [ %.2184, %_ZL9isLDHCharDs.exit ]
+  %.1129 = phi i8 [ %.0128185, %.lr.ph188 ], [ 0, %.thread219 ], [ %spec.select238, %_ZL9isLDHCharDs.exit ]
+  %.1 = phi i32 [ %.0187, %.lr.ph188 ], [ %56, %.thread219 ], [ %spec.select239, %_ZL9isLDHCharDs.exit ]
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count195
   br i1 %exitcond196.not, label %._crit_edge189, label %.lr.ph188, !llvm.loop !11
@@ -210,19 +210,19 @@ _ZL9isLDHCharDs.exit:                             ; preds = %54
   br i1 %.not, label %79, label %64
 
 ._crit_edge189.thread:                            ; preds = %.preheader
-  br i1 %.not, label %.thread228, label %.thread223
+  br i1 %.not, label %.thread235, label %.thread230
 
 64:                                               ; preds = %._crit_edge189
   %65 = icmp eq i8 %.1129, 0
-  br i1 %65, label %74, label %.thread223
+  br i1 %65, label %74, label %.thread230
 
-.thread223:                                       ; preds = %._crit_edge189.thread, %64
-  %.2.lcssa219227 = phi i1 [ %63, %64 ], [ false, %._crit_edge189.thread ]
+.thread230:                                       ; preds = %._crit_edge189.thread, %64
+  %.2.lcssa226234 = phi i1 [ %63, %64 ], [ false, %._crit_edge189.thread ]
   %66 = load i16, ptr %.2134, align 2, !tbaa !7
   %67 = icmp eq i16 %66, 45
   br i1 %67, label %75, label %68
 
-68:                                               ; preds = %.thread223
+68:                                               ; preds = %.thread230
   %69 = sext i32 %.1141 to i64
   %70 = getelementptr i16, ptr %.2134, i64 %69
   %71 = getelementptr i8, ptr %70, i64 -2
@@ -235,7 +235,7 @@ _ZL9isLDHCharDs.exit:                             ; preds = %54
   call void @uprv_syntaxError_77(ptr noundef nonnull %.2134, i32 noundef %.1, i32 noundef %.1141, ptr noundef %6)
   br label %116
 
-75:                                               ; preds = %.thread223
+75:                                               ; preds = %.thread230
   store i32 66563, ptr %7, align 4, !tbaa !3
   call void @uprv_syntaxError_77(ptr noundef nonnull %.2134, i32 noundef 0, i32 noundef %.1141, ptr noundef %6)
   br label %116
@@ -248,14 +248,14 @@ _ZL9isLDHCharDs.exit:                             ; preds = %54
   br label %116
 
 79:                                               ; preds = %68, %._crit_edge189
-  %.2.lcssa220 = phi i1 [ %.2.lcssa219227, %68 ], [ %63, %._crit_edge189 ]
-  br i1 %.2.lcssa220, label %82, label %.thread228
+  %.2.lcssa227 = phi i1 [ %.2.lcssa226234, %68 ], [ %63, %._crit_edge189 ]
+  br i1 %.2.lcssa227, label %82, label %.thread235
 
-.thread228:                                       ; preds = %._crit_edge189.thread, %79
+.thread235:                                       ; preds = %._crit_edge189.thread, %79
   %.not158 = icmp sgt i32 %.1141, %3
   br i1 %.not158, label %116, label %80
 
-80:                                               ; preds = %.thread228
+80:                                               ; preds = %.thread235
   %81 = call ptr @u_memmove_77(ptr noundef %2, ptr noundef nonnull %.2134, i32 noundef %.1141)
   br label %113
 
@@ -342,9 +342,9 @@ _ZL16startsWithPrefixPKDsi.exit.thread:           ; preds = %82, %_ZL16startsWit
   store i32 66566, ptr %7, align 4, !tbaa !3
   br label %116
 
-116:                                              ; preds = %.thread228, %113, %115, %101, %74, %76, %75, %44, %112, %107, %98, %50
-  %.0138 = phi i32 [ 0, %44 ], [ 0, %50 ], [ 0, %74 ], [ 0, %75 ], [ 0, %76 ], [ %.1139, %115 ], [ %.1139, %113 ], [ 0, %112 ], [ 0, %98 ], [ 0, %101 ], [ %105, %107 ], [ %.1141, %.thread228 ]
-  %.0135 = phi ptr [ %10, %44 ], [ %10, %50 ], [ %10, %74 ], [ %10, %75 ], [ %10, %76 ], [ %.1136, %115 ], [ %.1136, %113 ], [ %10, %112 ], [ null, %98 ], [ %.2137, %101 ], [ %.2137, %107 ], [ %10, %.thread228 ]
+116:                                              ; preds = %.thread235, %113, %115, %101, %74, %76, %75, %44, %112, %107, %98, %50
+  %.0138 = phi i32 [ 0, %44 ], [ 0, %50 ], [ 0, %74 ], [ 0, %75 ], [ 0, %76 ], [ %.1139, %115 ], [ %.1139, %113 ], [ 0, %112 ], [ 0, %98 ], [ 0, %101 ], [ %105, %107 ], [ %.1141, %.thread235 ]
+  %.0135 = phi ptr [ %10, %44 ], [ %10, %50 ], [ %10, %74 ], [ %10, %75 ], [ %10, %76 ], [ %.1136, %115 ], [ %.1136, %113 ], [ %10, %112 ], [ null, %98 ], [ %.2137, %101 ], [ %.2137, %107 ], [ %10, %.thread235 ]
   %.not159 = icmp eq ptr %.2134, %9
   br i1 %.not159, label %117, label %.thread166
 
@@ -685,21 +685,21 @@ _ZL27compareCaseInsensitiveASCIIPKDsiS0_i.exit:   ; preds = %104, %93
   br label %uidna_toASCII_77.exit159.thread
 
 _ZL16startsWithPrefixPKDsi.exit.thread:           ; preds = %.preheader, %.thread170, %_ZL16startsWithPrefixPKDsi.exit
-  %.2126194 = phi ptr [ %.2126, %.thread170 ], [ %.2126, %_ZL16startsWithPrefixPKDsi.exit ], [ %0, %.preheader ]
-  %.1123169193 = phi i32 [ %.1123169, %.thread170 ], [ %.1123169, %_ZL16startsWithPrefixPKDsi.exit ], [ 0, %.preheader ]
-  %.not146 = icmp sgt i32 %.1123169193, %3
+  %.2126207 = phi ptr [ %.2126, %.thread170 ], [ %.2126, %_ZL16startsWithPrefixPKDsi.exit ], [ %0, %.preheader ]
+  %.1123169206 = phi i32 [ %.1123169, %.thread170 ], [ %.1123169, %_ZL16startsWithPrefixPKDsi.exit ], [ 0, %.preheader ]
+  %.not146 = icmp sgt i32 %.1123169206, %3
   br i1 %.not146, label %uidna_toASCII_77.exit159.thread, label %108
 
 108:                                              ; preds = %_ZL16startsWithPrefixPKDsi.exit.thread
-  %109 = call ptr @u_memmove_77(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.1123169193)
+  %109 = call ptr @u_memmove_77(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.1123169206)
   br label %uidna_toASCII_77.exit159.thread
 
 uidna_toASCII_77.exit159.thread:                  ; preds = %85, %84, %uidna_toASCII_77.exit.thread, %_ZL16startsWithPrefixPKDsi.exit.thread, %108, %106, %105, %uidna_toASCII_77.exit159, %38, %.critedge, %80, %59, %35
-  %.1123168 = phi i32 [ %.1123167, %35 ], [ %.1123167, %38 ], [ %.1123169, %59 ], [ %.1123169, %80 ], [ %.1123169, %uidna_toASCII_77.exit159 ], [ %.1123169, %.critedge ], [ %.1123169, %106 ], [ %.1123169, %105 ], [ %.1123169193, %108 ], [ %.1123169193, %_ZL16startsWithPrefixPKDsi.exit.thread ], [ %.1123169, %uidna_toASCII_77.exit.thread ], [ %.1123169, %84 ], [ %.1123169, %85 ]
+  %.1123168 = phi i32 [ %.1123167, %35 ], [ %.1123167, %38 ], [ %.1123169, %59 ], [ %.1123169, %80 ], [ %.1123169, %uidna_toASCII_77.exit159 ], [ %.1123169, %.critedge ], [ %.1123169, %106 ], [ %.1123169, %105 ], [ %.1123169206, %108 ], [ %.1123169206, %_ZL16startsWithPrefixPKDsi.exit.thread ], [ %.1123169, %uidna_toASCII_77.exit.thread ], [ %.1123169, %84 ], [ %.1123169, %85 ]
   %.0133 = phi ptr [ %11, %35 ], [ %11, %38 ], [ %11, %59 ], [ null, %80 ], [ %.1134, %uidna_toASCII_77.exit159 ], [ %.1134, %.critedge ], [ %.1134, %106 ], [ %.1134, %105 ], [ %11, %108 ], [ %11, %_ZL16startsWithPrefixPKDsi.exit.thread ], [ %11, %uidna_toASCII_77.exit.thread ], [ %78, %84 ], [ %78, %85 ]
   %.0127 = phi ptr [ %10, %35 ], [ %10, %38 ], [ null, %59 ], [ %.1128, %80 ], [ %.1128, %uidna_toASCII_77.exit159 ], [ %.1128, %.critedge ], [ %.1128, %106 ], [ %.1128, %105 ], [ %10, %108 ], [ %10, %_ZL16startsWithPrefixPKDsi.exit.thread ], [ %.1128, %uidna_toASCII_77.exit.thread ], [ %.1128, %84 ], [ %.1128, %85 ]
-  %.1125 = phi ptr [ null, %35 ], [ %.0124, %38 ], [ %.2126, %59 ], [ %.2126, %80 ], [ %.2126, %uidna_toASCII_77.exit159 ], [ %.2126, %.critedge ], [ %.2126, %106 ], [ %.2126, %105 ], [ %.2126194, %108 ], [ %.2126194, %_ZL16startsWithPrefixPKDsi.exit.thread ], [ %.2126, %uidna_toASCII_77.exit.thread ], [ %.2126, %84 ], [ %.2126, %85 ]
-  %.0120 = phi i32 [ 0, %35 ], [ 0, %38 ], [ 0, %59 ], [ 0, %80 ], [ 0, %uidna_toASCII_77.exit159 ], [ 0, %.critedge ], [ %.0130, %106 ], [ %.0130, %105 ], [ %.1123169193, %108 ], [ %.1123169193, %_ZL16startsWithPrefixPKDsi.exit.thread ], [ 0, %uidna_toASCII_77.exit.thread ], [ 0, %84 ], [ 0, %85 ]
+  %.1125 = phi ptr [ null, %35 ], [ %.0124, %38 ], [ %.2126, %59 ], [ %.2126, %80 ], [ %.2126, %uidna_toASCII_77.exit159 ], [ %.2126, %.critedge ], [ %.2126, %106 ], [ %.2126, %105 ], [ %.2126207, %108 ], [ %.2126207, %_ZL16startsWithPrefixPKDsi.exit.thread ], [ %.2126, %uidna_toASCII_77.exit.thread ], [ %.2126, %84 ], [ %.2126, %85 ]
+  %.0120 = phi i32 [ 0, %35 ], [ 0, %38 ], [ 0, %59 ], [ 0, %80 ], [ 0, %uidna_toASCII_77.exit159 ], [ 0, %.critedge ], [ %.0130, %106 ], [ %.0130, %105 ], [ %.1123169206, %108 ], [ %.1123169206, %_ZL16startsWithPrefixPKDsi.exit.thread ], [ 0, %uidna_toASCII_77.exit.thread ], [ 0, %84 ], [ 0, %85 ]
   %.not150 = icmp eq ptr %.1125, %9
   %.not151 = icmp eq ptr %.1125, %0
   %or.cond = or i1 %.not150, %.not151
@@ -799,7 +799,7 @@ define i32 @uidna_IDNToASCII_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 25:                                               ; preds = %.preheader, %64
   %26 = phi i32 [ %60, %64 ], [ %22, %.preheader ]
   %.067 = phi i32 [ %65, %64 ], [ 0, %.preheader ]
-  %.064 = phi ptr [ %.08096105112, %64 ], [ %0, %.preheader ]
+  %.064 = phi ptr [ %.080103112119, %64 ], [ %0, %.preheader ]
   %.061 = phi ptr [ %.263, %64 ], [ %2, %.preheader ]
   %.059 = phi i32 [ %.160, %64 ], [ %1, %.preheader ]
   %.058 = phi i32 [ %.3, %64 ], [ %3, %.preheader ]
@@ -875,10 +875,10 @@ _ZL16getNextSeparatorPDsiPS_Pa.exit:              ; preds = %31, %._crit_edge.i
   br i1 %44, label %51, label %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread
 
 _ZL16getNextSeparatorPDsiPS_Pa.exit.thread:       ; preds = %_ZL16isLabelSeparatorDs.exit34.i, %_ZL16isLabelSeparatorDs.exit.i, %_ZL16getNextSeparatorPDsiPS_Pa.exit
-  %.1.i99 = phi i32 [ %.1.i, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %40, %_ZL16isLabelSeparatorDs.exit34.i ], [ %34, %_ZL16isLabelSeparatorDs.exit.i ]
-  %.not7597 = phi i1 [ false, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ true, %_ZL16isLabelSeparatorDs.exit34.i ], [ true, %_ZL16isLabelSeparatorDs.exit.i ]
-  %.08095 = phi ptr [ %.080, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %41, %_ZL16isLabelSeparatorDs.exit34.i ], [ %35, %_ZL16isLabelSeparatorDs.exit.i ]
-  %45 = tail call fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPrepProfileP11UParseErrorP10UErrorCode(ptr noundef %.064, i32 noundef %.1.i99, ptr noundef %.061, i32 noundef %.058, i32 noundef %4, ptr noundef %21, ptr noundef %5, ptr noundef %6)
+  %.1.i106 = phi i32 [ %.1.i, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %40, %_ZL16isLabelSeparatorDs.exit34.i ], [ %34, %_ZL16isLabelSeparatorDs.exit.i ]
+  %.not75104 = phi i1 [ false, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ true, %_ZL16isLabelSeparatorDs.exit34.i ], [ true, %_ZL16isLabelSeparatorDs.exit.i ]
+  %.080102 = phi ptr [ %.080, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %41, %_ZL16isLabelSeparatorDs.exit34.i ], [ %35, %_ZL16isLabelSeparatorDs.exit.i ]
+  %45 = tail call fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPrepProfileP11UParseErrorP10UErrorCode(ptr noundef %.064, i32 noundef %.1.i106, ptr noundef %.061, i32 noundef %.058, i32 noundef %4, ptr noundef %21, ptr noundef %5, ptr noundef %6)
   %46 = load i32, ptr %6, align 4, !tbaa !3
   %47 = icmp eq i32 %46, 15
   br i1 %47, label %.thread, label %51
@@ -888,13 +888,13 @@ _ZL16getNextSeparatorPDsiPS_Pa.exit.thread:       ; preds = %_ZL16isLabelSeparat
   %48 = add nsw i32 %45, %.067
   %49 = icmp slt i32 %45, 0
   %50 = sub nsw i32 0, %45
-  %narrow108 = tail call i32 @llvm.smin.i32(i32 %45, i32 0)
-  %.2111 = select i1 %49, i32 %50, i32 0
-  br i1 %.not7597, label %58, label %72
+  %narrow115 = tail call i32 @llvm.smin.i32(i32 %45, i32 0)
+  %.2118 = select i1 %49, i32 %50, i32 0
+  br i1 %.not75104, label %58, label %72
 
 51:                                               ; preds = %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread, %_ZL16getNextSeparatorPDsiPS_Pa.exit
-  %.not7598 = phi i1 [ false, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %.not7597, %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread ]
-  %.08096 = phi ptr [ %.080, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %.08095, %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread ]
+  %.not75105 = phi i1 [ false, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %.not75104, %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread ]
+  %.080103 = phi ptr [ %.080, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %.080102, %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread ]
   %52 = phi i32 [ %26, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %46, %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread ]
   %.0 = phi i32 [ 0, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %45, %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread ]
   %53 = icmp slt i32 %52, 1
@@ -906,31 +906,31 @@ _ZL16getNextSeparatorPDsiPS_Pa.exit.thread:       ; preds = %_ZL16isLabelSeparat
   %57 = sub nsw i32 %.058, %.0
   %narrow = select i1 %56, i32 %.0, i32 0
   %.2 = select i1 %56, i32 %57, i32 0
-  br i1 %.not7598, label %58, label %72
+  br i1 %.not75105, label %58, label %72
 
 58:                                               ; preds = %.thread, %54
-  %.2114 = phi i32 [ %.2111, %.thread ], [ %.2, %54 ]
-  %.162.idx109.pn.in = phi i32 [ %narrow108, %.thread ], [ %narrow, %54 ]
+  %.2121 = phi i32 [ %.2118, %.thread ], [ %.2, %54 ]
+  %.162.idx116.pn.in = phi i32 [ %narrow115, %.thread ], [ %narrow, %54 ]
   %59 = phi i32 [ %48, %.thread ], [ %55, %54 ]
-  %.08096105112 = phi ptr [ %.08095, %.thread ], [ %.08096, %54 ]
+  %.080103112119 = phi ptr [ %.080102, %.thread ], [ %.080103, %54 ]
   %60 = phi i32 [ 0, %.thread ], [ %52, %54 ]
-  %.162.idx109.pn = sext i32 %.162.idx109.pn.in to i64
-  %.162113 = getelementptr inbounds i16, ptr %.061, i64 %.162.idx109.pn
-  %.not76 = icmp eq i32 %.2114, 0
+  %.162.idx116.pn = sext i32 %.162.idx116.pn.in to i64
+  %.162120 = getelementptr inbounds i16, ptr %.061, i64 %.162.idx116.pn
+  %.not76 = icmp eq i32 %.2121, 0
   br i1 %.not76, label %64, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds nuw i8, ptr %.162113, i64 2
-  store i16 46, ptr %.162113, align 2, !tbaa !7
-  %63 = add nsw i32 %.2114, -1
+  %62 = getelementptr inbounds nuw i8, ptr %.162120, i64 2
+  store i16 46, ptr %.162120, align 2, !tbaa !7
+  %63 = add nsw i32 %.2121, -1
   br label %64
 
 64:                                               ; preds = %61, %58
-  %.263 = phi ptr [ %62, %61 ], [ %.162113, %58 ]
+  %.263 = phi ptr [ %62, %61 ], [ %.162120, %58 ]
   %.3 = phi i32 [ %63, %61 ], [ 0, %58 ]
   %65 = add nsw i32 %59, 1
   %66 = icmp sgt i32 %.059, 0
-  %67 = ptrtoint ptr %.08096105112 to i64
+  %67 = ptrtoint ptr %.080103112119 to i64
   %68 = sub i64 %67, %24
   %69 = lshr exact i64 %68, 1
   %70 = trunc i64 %69 to i32
@@ -1087,10 +1087,10 @@ _ZL16getNextSeparatorPDsiPS_Pa.exit:              ; preds = %30, %_ZL16isLabelSe
   br i1 %49, label %50, label %69
 
 50:                                               ; preds = %.thread, %48
-  %.190 = phi i32 [ 0, %.thread ], [ %.0, %48 ]
+  %.195 = phi i32 [ 0, %.thread ], [ %.0, %48 ]
   %51 = add nsw i32 %45, %.065
-  %52 = icmp slt i32 %45, %.190
-  %53 = sub nsw i32 %.190, %45
+  %52 = icmp slt i32 %45, %.195
+  %53 = sub nsw i32 %.195, %45
   %narrow = select i1 %52, i32 %45, i32 0
   %.160.idx = sext i32 %narrow to i64
   %.160 = getelementptr inbounds i16, ptr %.059, i64 %.160.idx

@@ -963,8 +963,8 @@ RHASH_AR_TABLE_SIZE_DEC.exit.us.i.i:              ; preds = %40, %35
   %46 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %18, i64 0, i64 %indvars.iv.i.i
   %47 = load i64, ptr %46, align 8, !tbaa !45
   %.not35.i.i = icmp eq i64 %47, 36
-  %or.cond54.i.i = select i1 %45, i1 %.not35.i.i, i1 false
-  br i1 %or.cond54.i.i, label %71, label %ar_cleared_entry.exit.thread.i.i
+  %or.cond59.i.i = select i1 %45, i1 %.not35.i.i, i1 false
+  br i1 %or.cond59.i.i, label %71, label %ar_cleared_entry.exit.thread.i.i
 
 ar_cleared_entry.exit.thread.i.i:                 ; preds = %.lr.ph.split.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1966,8 +1966,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i
   %15 = icmp ne i64 %12, 5
   %16 = and i64 %3, 49152
   %.not.i.i = icmp eq i64 %16, 0
-  %or.cond8.i.i = or i1 %15, %.not.i.i
-  br i1 %or.cond8.i.i, label %rb_hash_modify_check.exit, label %17, !prof !64
+  %or.cond9.i.i = or i1 %15, %.not.i.i
+  br i1 %or.cond9.i.i, label %rb_hash_modify_check.exit, label %17, !prof !64
 
 17:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   tail call void @rb_str_modify(i64 noundef %0) #28
@@ -2633,8 +2633,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i
   %12 = icmp ne i64 %9, 5
   %13 = and i64 %8, 49152
   %.not.i.i = icmp eq i64 %13, 0
-  %or.cond8.i.i = or i1 %12, %.not.i.i
-  br i1 %or.cond8.i.i, label %rb_hash_modify_check.exit, label %14, !prof !64
+  %or.cond9.i.i = or i1 %12, %.not.i.i
+  br i1 %or.cond9.i.i, label %rb_hash_modify_check.exit, label %14, !prof !64
 
 14:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   tail call void @rb_str_modify(i64 noundef %0) #28
@@ -2910,8 +2910,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i
   %17 = icmp ne i64 %14, 5
   %18 = and i64 %13, 49152
   %.not.i.i = icmp eq i64 %18, 0
-  %or.cond8.i.i = or i1 %17, %.not.i.i
-  br i1 %or.cond8.i.i, label %rb_hash_modify_check.exit, label %19, !prof !64
+  %or.cond9.i.i = or i1 %17, %.not.i.i
+  br i1 %or.cond9.i.i, label %rb_hash_modify_check.exit, label %19, !prof !64
 
 19:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   tail call void @rb_str_modify(i64 noundef %0) #28
@@ -3026,8 +3026,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i.i:             ; preds = %RB_FL_ABLE.exit.i.i
   %16 = icmp ne i64 %13, 5
   %17 = and i64 %12, 49152
   %.not.i.i.i = icmp eq i64 %17, 0
-  %or.cond8.i.i.i = or i1 %16, %.not.i.i.i
-  br i1 %or.cond8.i.i.i, label %rb_hash_modify.exit, label %18, !prof !64
+  %or.cond9.i.i.i = or i1 %16, %.not.i.i.i
+  br i1 %or.cond9.i.i.i, label %rb_hash_modify.exit, label %18, !prof !64
 
 18:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i
   tail call void @rb_str_modify(i64 noundef %2) #28
@@ -3064,8 +3064,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i
   %11 = icmp ne i64 %8, 5
   %12 = and i64 %7, 49152
   %.not.i.i = icmp eq i64 %12, 0
-  %or.cond8.i.i = or i1 %11, %.not.i.i
-  br i1 %or.cond8.i.i, label %rb_hash_modify_check.exit, label %13, !prof !64
+  %or.cond9.i.i = or i1 %11, %.not.i.i
+  br i1 %or.cond9.i.i, label %rb_hash_modify_check.exit, label %13, !prof !64
 
 13:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   tail call void @rb_str_modify(i64 noundef %0) #28
@@ -3176,8 +3176,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i.i:             ; preds = %RB_FL_ABLE.exit.i.i
   %14 = icmp ne i64 %11, 5
   %15 = and i64 %5, 49152
   %.not.i.i.i = icmp eq i64 %15, 0
-  %or.cond8.i.i.i = or i1 %14, %.not.i.i.i
-  br i1 %or.cond8.i.i.i, label %rb_hash_modify.exit, label %16, !prof !64
+  %or.cond9.i.i.i = or i1 %14, %.not.i.i.i
+  br i1 %or.cond9.i.i.i, label %rb_hash_modify.exit, label %16, !prof !64
 
 16:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i
   tail call void @rb_str_modify(i64 noundef %0) #28
@@ -3575,8 +3575,8 @@ RHASH_SIZE.exit:                                  ; preds = %5, %8
   %34 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %28, i64 0, i64 %indvars.iv.i
   %35 = load i64, ptr %34, align 8, !tbaa !45
   %.not.i20 = icmp eq i64 %35, 36
-  %or.cond22.i = select i1 %33, i1 %.not.i20, i1 false
-  br i1 %or.cond22.i, label %37, label %ar_cleared_entry.exit.thread.i
+  %or.cond23.i = select i1 %33, i1 %.not.i20, i1 false
+  br i1 %or.cond23.i, label %37, label %ar_cleared_entry.exit.thread.i
 
 ar_cleared_entry.exit.thread.i:                   ; preds = %30
   %36 = getelementptr i8, ptr %.020.i, i64 8
@@ -3841,8 +3841,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i.i:             ; preds = %RB_FL_ABLE.exit.i.i
   %14 = icmp ne i64 %11, 5
   %15 = and i64 %10, 49152
   %.not.i.i.i = icmp eq i64 %15, 0
-  %or.cond8.i.i.i = or i1 %14, %.not.i.i.i
-  br i1 %or.cond8.i.i.i, label %rb_hash_modify.exit, label %16, !prof !64
+  %or.cond9.i.i.i = or i1 %14, %.not.i.i.i
+  br i1 %or.cond9.i.i.i, label %rb_hash_modify.exit, label %16, !prof !64
 
 16:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i
   tail call void @rb_str_modify(i64 noundef %0) #28
@@ -3931,8 +3931,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i
   %19 = icmp ne i64 %16, 5
   %20 = and i64 %3, 49152
   %.not.i.i18 = icmp eq i64 %20, 0
-  %or.cond8.i.i = or i1 %19, %.not.i.i18
-  br i1 %or.cond8.i.i, label %rb_hash_modify_check.exit, label %21, !prof !64
+  %or.cond9.i.i = or i1 %19, %.not.i.i18
+  br i1 %or.cond9.i.i, label %rb_hash_modify_check.exit, label %21, !prof !64
 
 21:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   tail call void @rb_str_modify(i64 noundef %0) #28
@@ -5281,8 +5281,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i
   %12 = icmp ne i64 %9, 5
   %13 = and i64 %8, 49152
   %.not.i.i = icmp eq i64 %13, 0
-  %or.cond8.i.i = or i1 %12, %.not.i.i
-  br i1 %or.cond8.i.i, label %rb_hash_modify_check.exit, label %14, !prof !64
+  %or.cond9.i.i = or i1 %12, %.not.i.i
+  br i1 %or.cond9.i.i, label %rb_hash_modify_check.exit, label %14, !prof !64
 
 14:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   tail call void @rb_str_modify(i64 noundef %0) #28
@@ -5686,8 +5686,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i
   %12 = icmp ne i64 %9, 5
   %13 = and i64 %8, 49152
   %.not.i.i = icmp eq i64 %13, 0
-  %or.cond8.i.i = or i1 %12, %.not.i.i
-  br i1 %or.cond8.i.i, label %rb_hash_modify_check.exit, label %14, !prof !64
+  %or.cond9.i.i = or i1 %12, %.not.i.i
+  br i1 %or.cond9.i.i, label %rb_hash_modify_check.exit, label %14, !prof !64
 
 14:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   tail call void @rb_str_modify(i64 noundef %0) #28
@@ -5976,8 +5976,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i
   %27 = icmp ne i64 %24, 5
   %28 = and i64 %23, 49152
   %.not.i.i = icmp eq i64 %28, 0
-  %or.cond8.i.i = or i1 %27, %.not.i.i
-  br i1 %or.cond8.i.i, label %rb_hash_modify_check.exit, label %29, !prof !64
+  %or.cond9.i.i = or i1 %27, %.not.i.i
+  br i1 %or.cond9.i.i, label %rb_hash_modify_check.exit, label %29, !prof !64
 
 29:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   tail call void @rb_str_modify(i64 noundef %2) #28
@@ -6295,8 +6295,8 @@ RHASH_EMPTY_P.exit:                               ; preds = %27, %30
   %54 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %46, i64 0, i64 %indvars.iv.i.i.i.us
   %55 = load i64, ptr %54, align 8, !tbaa !45
   %.not35.i.i.i.us = icmp eq i64 %55, 36
-  %or.cond54.i.i.i.us = select i1 %53, i1 %.not35.i.i.i.us, i1 false
-  br i1 %or.cond54.i.i.i.us, label %59, label %ensure_ar_table.exit.i.i.i.us
+  %or.cond59.i.i.i.us = select i1 %53, i1 %.not35.i.i.i.us, i1 false
+  br i1 %or.cond59.i.i.i.us, label %59, label %ensure_ar_table.exit.i.i.i.us
 
 ensure_ar_table.exit.i.i.i.us:                    ; preds = %.lr.ph.split.i.i.i.us
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -6317,8 +6317,8 @@ ensure_ar_table.exit.i.i.i.us:                    ; preds = %.lr.ph.split.i.i.i.
   %63 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %46, i64 0, i64 %indvars.iv.i.i.i
   %64 = load i64, ptr %63, align 8, !tbaa !45
   %.not35.i.i.i = icmp eq i64 %64, 36
-  %or.cond54.i.i.i = select i1 %62, i1 %.not35.i.i.i, i1 false
-  br i1 %or.cond54.i.i.i, label %83, label %ar_cleared_entry.exit.thread.i.i.i
+  %or.cond59.i.i.i = select i1 %62, i1 %.not35.i.i.i, i1 false
+  br i1 %or.cond59.i.i.i, label %83, label %ar_cleared_entry.exit.thread.i.i.i
 
 ar_cleared_entry.exit.thread.i.i.i:               ; preds = %.lr.ph.split.i.i.i
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -6351,8 +6351,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i.i.i:           ; preds = %ensure_ar_table.exi
   %75 = icmp ne i64 %72, 5
   %76 = and i64 %71, 49152
   %.not.i.i.i.i13 = icmp eq i64 %76, 0
-  %or.cond8.i.i.i.i = or i1 %75, %.not.i.i.i.i13
-  br i1 %or.cond8.i.i.i.i, label %rb_hash_modify.exit.i, label %77, !prof !64
+  %or.cond9.i.i.i.i = or i1 %75, %.not.i.i.i.i13
+  br i1 %or.cond9.i.i.i.i, label %rb_hash_modify.exit.i, label %77, !prof !64
 
 77:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i.i
   tail call void @rb_str_modify(i64 noundef %15) #28
@@ -6439,8 +6439,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i
   %17 = icmp ne i64 %14, 5
   %18 = and i64 %13, 49152
   %.not.i.i = icmp eq i64 %18, 0
-  %or.cond8.i.i = or i1 %17, %.not.i.i
-  br i1 %or.cond8.i.i, label %rb_hash_modify_check.exit, label %19, !prof !64
+  %or.cond9.i.i = or i1 %17, %.not.i.i
+  br i1 %or.cond9.i.i, label %rb_hash_modify_check.exit, label %19, !prof !64
 
 19:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   tail call void @rb_str_modify(i64 noundef %0) #28
@@ -6493,8 +6493,8 @@ RHASH_TABLE_EMPTY_P.exit.thread:                  ; preds = %rb_hash_modify_chec
   %39 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %35, i64 0, i64 %indvars.iv.i.i.i
   %40 = load i64, ptr %39, align 8, !tbaa !45
   %.not35.i.i.i = icmp eq i64 %40, 36
-  %or.cond54.i.i.i = select i1 %38, i1 %.not35.i.i.i, i1 false
-  br i1 %or.cond54.i.i.i, label %59, label %ar_cleared_entry.exit.thread.i.i.i
+  %or.cond59.i.i.i = select i1 %38, i1 %.not35.i.i.i, i1 false
+  br i1 %or.cond59.i.i.i, label %59, label %ar_cleared_entry.exit.thread.i.i.i
 
 ar_cleared_entry.exit.thread.i.i.i:               ; preds = %.lr.ph.split.i.i.i
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -6527,8 +6527,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i.i.i:           ; preds = %RB_FL_ABLE.exit.i.i
   %51 = icmp ne i64 %48, 5
   %52 = and i64 %47, 49152
   %.not.i.i.i.i13 = icmp eq i64 %52, 0
-  %or.cond8.i.i.i.i = or i1 %51, %.not.i.i.i.i13
-  br i1 %or.cond8.i.i.i.i, label %rb_hash_modify.exit.i, label %53, !prof !64
+  %or.cond9.i.i.i.i = or i1 %51, %.not.i.i.i.i13
+  br i1 %or.cond9.i.i.i.i, label %rb_hash_modify.exit.i, label %53, !prof !64
 
 53:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i.i
   tail call void @rb_str_modify(i64 noundef %0) #28
@@ -6642,8 +6642,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i
   %16 = icmp ne i64 %13, 5
   %17 = and i64 %12, 49152
   %.not.i.i = icmp eq i64 %17, 0
-  %or.cond8.i.i = or i1 %16, %.not.i.i
-  br i1 %or.cond8.i.i, label %rb_hash_modify_check.exit, label %18, !prof !64
+  %or.cond9.i.i = or i1 %16, %.not.i.i
+  br i1 %or.cond9.i.i, label %rb_hash_modify_check.exit, label %18, !prof !64
 
 18:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   tail call void @rb_str_modify(i64 noundef %0) #28
@@ -6654,7 +6654,7 @@ rb_hash_modify_check.exit:                        ; preds = %rbimpl_RB_TYPE_P_fa
   %19 = phi i64 [ %12, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ], [ %.pre, %18 ]
   %20 = and i64 %19, 32768
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %21, label %.thread29
+  br i1 %.not.i, label %21, label %.thread36
 
 21:                                               ; preds = %rb_hash_modify_check.exit
   store i64 36, ptr %6, align 8, !tbaa !107
@@ -6761,16 +6761,16 @@ ar_cleared_entry.exit.thread.i:                   ; preds = %ar_cleared_entry.ex
   %.pre26 = load i64, ptr %11, align 8, !tbaa !11
   %.pre27 = and i64 %.pre26, 32768
   %72 = icmp eq i64 %.pre27, 0
-  br i1 %72, label %.thread, label %.thread29
+  br i1 %72, label %.thread, label %.thread36
 
-.thread29:                                        ; preds = %rb_hash_modify_check.exit, %71
+.thread36:                                        ; preds = %rb_hash_modify_check.exit, %71
   %73 = phi i64 [ %.pre26, %71 ], [ %19, %rb_hash_modify_check.exit ]
   store i64 36, ptr %6, align 8, !tbaa !107
   %74 = and i64 %73, 4261412864
   %.not21 = icmp eq i64 %74, 0
   br i1 %.not21, label %75, label %84
 
-75:                                               ; preds = %.thread29
+75:                                               ; preds = %.thread36
   %76 = add i64 %0, 24
   %77 = inttoptr i64 %76 to ptr
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6784,7 +6784,7 @@ ar_cleared_entry.exit.thread.i:                   ; preds = %ar_cleared_entry.ex
   %83 = call i64 @rb_assoc_new(i64 noundef %81, i64 noundef %82) #28
   br label %.thread
 
-84:                                               ; preds = %.thread29
+84:                                               ; preds = %.thread36
   %85 = ptrtoint ptr %6 to i64
   call void @rb_hash_foreach(i64 noundef %0, ptr noundef @shift_i_safe, i64 noundef %85)
   %86 = load i64, ptr %6, align 8, !tbaa !107
@@ -6838,8 +6838,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i
   %14 = icmp ne i64 %11, 5
   %15 = and i64 %10, 49152
   %.not.i.i = icmp eq i64 %15, 0
-  %or.cond8.i.i = or i1 %14, %.not.i.i
-  br i1 %or.cond8.i.i, label %rb_hash_modify_check.exit, label %16, !prof !64
+  %or.cond9.i.i = or i1 %14, %.not.i.i
+  br i1 %or.cond9.i.i, label %rb_hash_modify_check.exit, label %16, !prof !64
 
 16:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   tail call void @rb_str_modify(i64 noundef %0) #28
@@ -6921,8 +6921,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i
   %17 = icmp ne i64 %14, 5
   %18 = and i64 %13, 49152
   %.not.i.i = icmp eq i64 %18, 0
-  %or.cond8.i.i = or i1 %17, %.not.i.i
-  br i1 %or.cond8.i.i, label %rb_hash_modify_check.exit, label %19, !prof !64
+  %or.cond9.i.i = or i1 %17, %.not.i.i
+  br i1 %or.cond9.i.i, label %rb_hash_modify_check.exit, label %19, !prof !64
 
 19:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   tail call void @rb_str_modify(i64 noundef %0) #28
@@ -7070,8 +7070,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i
   %17 = icmp ne i64 %14, 5
   %18 = and i64 %13, 49152
   %.not.i.i = icmp eq i64 %18, 0
-  %or.cond8.i.i = or i1 %17, %.not.i.i
-  br i1 %or.cond8.i.i, label %rb_hash_modify_check.exit, label %19, !prof !64
+  %or.cond9.i.i = or i1 %17, %.not.i.i
+  br i1 %or.cond9.i.i, label %rb_hash_modify_check.exit, label %19, !prof !64
 
 19:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   tail call void @rb_str_modify(i64 noundef %0) #28
@@ -7240,8 +7240,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i.i:             ; preds = %RB_FL_ABLE.exit.i.i
   %17 = icmp ne i64 %14, 5
   %18 = and i64 %13, 49152
   %.not.i.i.i = icmp eq i64 %18, 0
-  %or.cond8.i.i.i = or i1 %17, %.not.i.i.i
-  br i1 %or.cond8.i.i.i, label %rb_hash_modify.exit, label %19, !prof !64
+  %or.cond9.i.i.i = or i1 %17, %.not.i.i.i
+  br i1 %or.cond9.i.i.i, label %rb_hash_modify.exit, label %19, !prof !64
 
 19:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i
   tail call void @rb_str_modify(i64 noundef %0) #28
@@ -7561,8 +7561,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i.i:             ; preds = %RB_FL_ABLE.exit.i.i
   %14 = icmp ne i64 %11, 5
   %15 = and i64 %10, 49152
   %.not.i.i.i = icmp eq i64 %15, 0
-  %or.cond8.i.i.i = or i1 %14, %.not.i.i.i
-  br i1 %or.cond8.i.i.i, label %rb_hash_modify.exit, label %16, !prof !64
+  %or.cond9.i.i.i = or i1 %14, %.not.i.i.i
+  br i1 %or.cond9.i.i.i, label %rb_hash_modify.exit, label %16, !prof !64
 
 16:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i
   tail call void @rb_str_modify(i64 noundef %2) #28
@@ -7989,8 +7989,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i
   %11 = icmp ne i64 %8, 5
   %12 = and i64 %7, 49152
   %.not.i.i = icmp eq i64 %12, 0
-  %or.cond8.i.i = or i1 %11, %.not.i.i
-  br i1 %or.cond8.i.i, label %rb_hash_modify_check.exit, label %13, !prof !64
+  %or.cond9.i.i = or i1 %11, %.not.i.i
+  br i1 %or.cond9.i.i, label %rb_hash_modify_check.exit, label %13, !prof !64
 
 13:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   tail call void @rb_str_modify(i64 noundef %0) #28
@@ -10376,8 +10376,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i.i:             ; preds = %RB_FL_ABLE.exit.i.i
   %16 = icmp ne i64 %13, 5
   %17 = and i64 %12, 49152
   %.not.i.i.i = icmp eq i64 %17, 0
-  %or.cond8.i.i.i = or i1 %16, %.not.i.i.i
-  br i1 %or.cond8.i.i.i, label %rb_hash_modify.exit, label %18, !prof !64
+  %or.cond9.i.i.i = or i1 %16, %.not.i.i.i
+  br i1 %or.cond9.i.i.i, label %rb_hash_modify.exit, label %18, !prof !64
 
 18:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i
   tail call void @rb_str_modify(i64 noundef %1) #28
@@ -11090,8 +11090,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i.i:             ; preds = %RB_FL_ABLE.exit.i.i
   %28 = icmp ne i64 %25, 5
   %29 = and i64 %24, 49152
   %.not.i.i.i = icmp eq i64 %29, 0
-  %or.cond8.i.i.i = or i1 %28, %.not.i.i.i
-  br i1 %or.cond8.i.i.i, label %rb_hash_modify.exit, label %30, !prof !64
+  %or.cond9.i.i.i = or i1 %28, %.not.i.i.i
+  br i1 %or.cond9.i.i.i, label %rb_hash_modify.exit, label %30, !prof !64
 
 30:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i
   tail call void @rb_str_modify(i64 noundef %9) #28
@@ -11135,8 +11135,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i.i28:           ; preds = %RB_FL_ABLE.exit.i.i
   %46 = icmp ne i64 %43, 5
   %47 = and i64 %42, 49152
   %.not.i.i.i29 = icmp eq i64 %47, 0
-  %or.cond8.i.i.i30 = or i1 %46, %.not.i.i.i29
-  br i1 %or.cond8.i.i.i30, label %rb_hash_modify.exit32, label %48, !prof !64
+  %or.cond9.i.i.i30 = or i1 %46, %.not.i.i.i29
+  br i1 %or.cond9.i.i.i30, label %rb_hash_modify.exit32, label %48, !prof !64
 
 48:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i28
   tail call void @rb_str_modify(i64 noundef %9) #28
@@ -11901,8 +11901,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i.i:             ; preds = %RB_FL_ABLE.exit.i.i
   %16 = icmp ne i64 %13, 5
   %17 = and i64 %12, 49152
   %.not.i.i.i = icmp eq i64 %17, 0
-  %or.cond8.i.i.i = or i1 %16, %.not.i.i.i
-  br i1 %or.cond8.i.i.i, label %rb_hash_modify.exit, label %18, !prof !64
+  %or.cond9.i.i.i = or i1 %16, %.not.i.i.i
+  br i1 %or.cond9.i.i.i, label %rb_hash_modify.exit, label %18, !prof !64
 
 18:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i
   tail call void @rb_str_modify(i64 noundef %2) #28
@@ -11967,8 +11967,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i.i:             ; preds = %RB_FL_ABLE.exit.i.i
   %16 = icmp ne i64 %13, 5
   %17 = and i64 %12, 49152
   %.not.i.i.i = icmp eq i64 %17, 0
-  %or.cond8.i.i.i = or i1 %16, %.not.i.i.i
-  br i1 %or.cond8.i.i.i, label %rb_hash_modify.exit, label %18, !prof !64
+  %or.cond9.i.i.i = or i1 %16, %.not.i.i.i
+  br i1 %or.cond9.i.i.i, label %rb_hash_modify.exit, label %18, !prof !64
 
 18:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i
   tail call void @rb_str_modify(i64 noundef %2) #28

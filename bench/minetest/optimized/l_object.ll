@@ -6562,7 +6562,7 @@ for.body.i.i.i.i.i.preheader:                     ; preds = %invoke.cont.i54
   %16 = sub i64 %cond.i.i.i.i55155, %11
   %diff.check = icmp ult i64 %16, 32
   %or.cond = or i1 %diff.check, %min.iters.check
-  br i1 %or.cond, label %for.body.i.i.i.i.i.preheader9, label %vector.ph
+  br i1 %or.cond, label %for.body.i.i.i.i.i.preheader17, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.preheader
   %n.vec = and i64 %15, 9223372036854775800
@@ -6588,16 +6588,16 @@ middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %cond.i.i.i.i55, i64 %20
   %ind.end156 = getelementptr i8, ptr %9, i64 %20
   %cmp.n = icmp eq i64 %15, %n.vec
-  br i1 %cmp.n, label %invoke.cont, label %for.body.i.i.i.i.i.preheader9
+  br i1 %cmp.n, label %invoke.cont, label %for.body.i.i.i.i.i.preheader17
 
-for.body.i.i.i.i.i.preheader9:                    ; preds = %middle.block, %for.body.i.i.i.i.i.preheader
+for.body.i.i.i.i.i.preheader17:                   ; preds = %middle.block, %for.body.i.i.i.i.i.preheader
   %__cur.015.i.i.i.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %cond.i.i.i.i55, %for.body.i.i.i.i.i.preheader ]
   %__first.sroa.0.014.i.i.i.i.i.ph = phi ptr [ %ind.end156, %middle.block ], [ %9, %for.body.i.i.i.i.i.preheader ]
   br label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader9, %for.body.i.i.i.i.i
-  %__cur.015.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__cur.015.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader9 ]
-  %__first.sroa.0.014.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__first.sroa.0.014.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader9 ]
+for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader17, %for.body.i.i.i.i.i
+  %__cur.015.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__cur.015.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader17 ]
+  %__first.sroa.0.014.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__first.sroa.0.014.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader17 ]
   %21 = load i32, ptr %__first.sroa.0.014.i.i.i.i.i, align 4, !tbaa !138
   store i32 %21, ptr %__cur.015.i.i.i.i.i, align 4, !tbaa !138
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.014.i.i.i.i.i, i64 4

@@ -423,9 +423,9 @@ define internal fastcc range(i32 -1, 1) i32 @strfilter_convert_append_bucket(ptr
   %28 = load ptr, ptr %27, align 8, !tbaa !38
   %29 = call i32 %28(ptr noundef nonnull %27, ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %9, ptr noundef nonnull %11) #18
   switch i32 %29, label %.threadthread-pre-split [
-    i32 3, label %.loopexit.sink.split.loopexit89
+    i32 3, label %.loopexit.sink.split.loopexit99
     i32 6, label %30
-    i32 4, label %.loopexit.sink.split.loopexit126
+    i32 4, label %.loopexit.sink.split.loopexit136
     i32 2, label %44
     i32 1, label %.loopexit.sink.split
   ]
@@ -462,7 +462,7 @@ define internal fastcc range(i32 -1, 1) i32 @strfilter_convert_append_bucket(ptr
 
 .thread.thread:                                   ; preds = %32
   store i64 0, ptr %13, align 8, !tbaa !24
-  br label %.loopexit65
+  br label %.loopexit75
 
 44:                                               ; preds = %26
   %45 = shl i64 %.120935, 1
@@ -529,19 +529,19 @@ define internal fastcc range(i32 -1, 1) i32 @strfilter_convert_append_bucket(ptr
   %.2210 = phi i64 [ %.2210.ph, %.threadthread-pre-split ], [ %.120935, %37 ]
   %.3 = phi ptr [ %.3.ph, %.threadthread-pre-split ], [ %.120636, %37 ]
   %.not227 = icmp eq i64 %.pr, 0
-  br i1 %.not227, label %.loopexit65, label %26
+  br i1 %.not227, label %.loopexit75, label %26
 
-.loopexit65:                                      ; preds = %.thread, %.thread.thread
-  %.357 = phi ptr [ %.120636, %.thread.thread ], [ %.3, %.thread ]
-  %.221056 = phi i64 [ %.120935, %.thread.thread ], [ %.2210, %.thread ]
+.loopexit75:                                      ; preds = %.thread, %.thread.thread
+  %.367 = phi ptr [ %.120636, %.thread.thread ], [ %.3, %.thread ]
+  %.221066 = phi i64 [ %.120935, %.thread.thread ], [ %.2210, %.thread ]
   store i64 0, ptr %22, align 8, !tbaa !37
   %.pre = load i64, ptr %12, align 8, !tbaa !24
   br label %73
 
-73:                                               ; preds = %.loopexit65, %20
-  %74 = phi i64 [ %.pre, %.loopexit65 ], [ %., %20 ]
-  %.0208 = phi i64 [ %.221056, %.loopexit65 ], [ %.232, %20 ]
-  %.0205 = phi ptr [ %.357, %.loopexit65 ], [ %21, %20 ]
+73:                                               ; preds = %.loopexit75, %20
+  %74 = phi i64 [ %.pre, %.loopexit75 ], [ %., %20 ]
+  %.0208 = phi i64 [ %.221066, %.loopexit75 ], [ %.232, %20 ]
+  %.0205 = phi ptr [ %.367, %.loopexit75 ], [ %21, %20 ]
   %.not22837 = icmp eq i64 %74, 0
   br i1 %.not22837, label %._crit_edge, label %.lr.ph
 
@@ -572,7 +572,7 @@ define internal fastcc range(i32 -1, 1) i32 @strfilter_convert_append_bucket(ptr
     i32 3, label %.loopexit.sink.split
     i32 6, label %87
     i32 2, label %94
-    i32 1, label %.loopexit.sink.split.loopexit113
+    i32 1, label %.loopexit.sink.split.loopexit123
   ]
 
 87:                                               ; preds = %85
@@ -654,8 +654,8 @@ define internal fastcc range(i32 -1, 1) i32 @strfilter_convert_append_bucket(ptr
 .thread5:                                         ; preds = %107, %114, %123
   %.6214.ph = phi i64 [ %.232, %107 ], [ %95, %114 ], [ %.521338, %123 ]
   %.7.ph = phi ptr [ %108, %107 ], [ %115, %114 ], [ %.639, %123 ]
-  %.pr58 = load i64, ptr %12, align 8, !tbaa !24
-  %.not228 = icmp eq i64 %.pr58, 0
+  %.pr68 = load i64, ptr %12, align 8, !tbaa !24
+  %.not228 = icmp eq i64 %.pr68, 0
   br i1 %.not228, label %._crit_edge, label %76
 
 ._crit_edge.sink.split:                           ; preds = %123, %92
@@ -698,18 +698,18 @@ define internal fastcc range(i32 -1, 1) i32 @strfilter_convert_append_bucket(ptr
   store i64 %140, ptr %5, align 8, !tbaa !24
   br label %145
 
-.loopexit.sink.split.loopexit89:                  ; preds = %26
+.loopexit.sink.split.loopexit99:                  ; preds = %26
   br label %.loopexit.sink.split
 
-.loopexit.sink.split.loopexit113:                 ; preds = %85
+.loopexit.sink.split.loopexit123:                 ; preds = %85
   br label %.loopexit.sink.split
 
-.loopexit.sink.split.loopexit126:                 ; preds = %26
+.loopexit.sink.split.loopexit136:                 ; preds = %26
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %34, %85, %26, %.loopexit.sink.split.loopexit126, %.loopexit.sink.split.loopexit113, %.loopexit.sink.split.loopexit89, %87, %89
-  %.str.7.sink = phi ptr [ @.str.5, %89 ], [ @.str.8, %87 ], [ @.str.4, %.loopexit.sink.split.loopexit89 ], [ @.str.7, %.loopexit.sink.split.loopexit113 ], [ @.str.7, %26 ], [ @.str.4, %85 ], [ @.str.5, %34 ], [ @.str.6, %.loopexit.sink.split.loopexit126 ]
-  %.2.ph = phi ptr [ %.639, %89 ], [ %.639, %87 ], [ %.120636, %.loopexit.sink.split.loopexit89 ], [ %.639, %.loopexit.sink.split.loopexit113 ], [ %.120636, %26 ], [ %.639, %85 ], [ %.120636, %34 ], [ %.120636, %.loopexit.sink.split.loopexit126 ]
+.loopexit.sink.split:                             ; preds = %34, %85, %26, %.loopexit.sink.split.loopexit136, %.loopexit.sink.split.loopexit123, %.loopexit.sink.split.loopexit99, %87, %89
+  %.str.7.sink = phi ptr [ @.str.5, %89 ], [ @.str.8, %87 ], [ @.str.4, %.loopexit.sink.split.loopexit99 ], [ @.str.7, %.loopexit.sink.split.loopexit123 ], [ @.str.7, %26 ], [ @.str.4, %85 ], [ @.str.5, %34 ], [ @.str.6, %.loopexit.sink.split.loopexit136 ]
+  %.2.ph = phi ptr [ %.639, %89 ], [ %.639, %87 ], [ %.120636, %.loopexit.sink.split.loopexit99 ], [ %.639, %.loopexit.sink.split.loopexit123 ], [ %.120636, %26 ], [ %.639, %85 ], [ %.120636, %34 ], [ %.120636, %.loopexit.sink.split.loopexit136 ]
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %142 = load ptr, ptr %141, align 8, !tbaa !35
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull %.str.7.sink, ptr noundef %142) #18
@@ -1797,13 +1797,13 @@ php_conv_base64_encode_flush.exit:                ; preds = %22, %58, %97
 
 .sink.split:                                      ; preds = %124, %169
   %.3127.sink = phi i64 [ %.3127, %169 ], [ %.1125, %124 ]
-  %.sink224 = phi i64 [ 1, %169 ], [ 2, %124 ]
+  %.sink253 = phi i64 [ 1, %169 ], [ 2, %124 ]
   %.sink = phi i64 [ -1, %169 ], [ -2, %124 ]
   %.3.sink = phi i32 [ %.3, %169 ], [ %.1, %124 ]
   %.3113.pn = phi ptr [ %.3113, %169 ], [ %.1111, %124 ]
   %.0110.ph = getelementptr inbounds nuw i8, ptr %.3113.pn, i64 4
   %196 = add i64 %.3127.sink, -4
-  %197 = getelementptr inbounds nuw i8, ptr %101, i64 %.sink224
+  %197 = getelementptr inbounds nuw i8, ptr %101, i64 %.sink253
   %198 = add i64 %102, %.sink
   store i64 0, ptr %11, align 8, !tbaa !47
   %199 = add i32 %.3.sink, -4
@@ -2050,7 +2050,7 @@ define internal range(i32 0, 5) i32 @php_conv_base64_decode_convert(ptr noundef 
   br label %.thread148
 
 33:                                               ; preds = %27
-  %34 = sub nuw i32 %.0101, %.0112
+  %34 = sub nuw nsw i32 %.0101, %.0112
   %35 = shl i32 %.0119, %34
   %.1106 = or i32 %35, %.0105
   %.not134 = icmp eq i32 %34, 0
@@ -2082,7 +2082,7 @@ define internal range(i32 0, 5) i32 @php_conv_base64_decode_convert(ptr noundef 
   br i1 %50, label %51, label %55
 
 51:                                               ; preds = %49
-  %52 = add i32 %34, -6
+  %52 = add nsw i32 %34, -6
   %53 = shl i32 %43, %52
   %54 = or i32 %53, %.1106
   br label %.thread148
@@ -3315,17 +3315,17 @@ thread-pre-split139.i:                            ; preds = %68, %21
   br i1 %78, label %.backedge.sink.split.i, label %82
 
 .backedge.sink.split.i:                           ; preds = %111, %75, %72, %52
-  %.sink261.i = phi i32 [ 9, %72 ], [ 9, %52 ], [ 8, %75 ], [ %spec.select.i, %111 ]
-  %.0115.be.ph.i = phi ptr [ %.3.i, %72 ], [ %.7174.i, %52 ], [ %76, %75 ], [ %spec.select262.i, %111 ]
+  %.sink277.i = phi i32 [ 9, %72 ], [ 9, %52 ], [ 8, %75 ], [ %spec.select.i, %111 ]
+  %.0115.be.ph.i = phi ptr [ %.3.i, %72 ], [ %.7174.i, %52 ], [ %76, %75 ], [ %spec.select278.i, %111 ]
   %.0111.be.ph.i = phi ptr [ %.0111183.i, %72 ], [ %.0111183.i, %52 ], [ %.0111183.i, %75 ], [ %.2113.i, %111 ]
   %.0.be.ph.i = phi i64 [ %.0184.i, %72 ], [ %.0184.i, %52 ], [ %.0184.i, %75 ], [ %.2.i, %111 ]
-  store i32 %.sink261.i, ptr %10, align 8, !tbaa !93
+  store i32 %.sink277.i, ptr %10, align 8, !tbaa !93
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.sink.split.i, %thread-pre-split.i, %21
-  %.pr218.i = phi i32 [ %.pr217.i, %21 ], [ 9, %thread-pre-split.i ], [ %.sink261.i, %.backedge.sink.split.i ]
-  %79 = phi i32 [ %22, %21 ], [ 9, %thread-pre-split.i ], [ %.sink261.i, %.backedge.sink.split.i ]
-  %80 = phi i32 [ %23, %21 ], [ 9, %thread-pre-split.i ], [ %.sink261.i, %.backedge.sink.split.i ]
+  %.pr218.i = phi i32 [ %.pr217.i, %21 ], [ 9, %thread-pre-split.i ], [ %.sink277.i, %.backedge.sink.split.i ]
+  %79 = phi i32 [ %22, %21 ], [ 9, %thread-pre-split.i ], [ %.sink277.i, %.backedge.sink.split.i ]
+  %80 = phi i32 [ %23, %21 ], [ 9, %thread-pre-split.i ], [ %.sink277.i, %.backedge.sink.split.i ]
   %.0115.be.i = phi ptr [ %.0115182.i, %21 ], [ %.0115182.i, %thread-pre-split.i ], [ %.0115.be.ph.i, %.backedge.sink.split.i ]
   %.0111.be.i = phi ptr [ %.0111183.i, %21 ], [ %.0111183.i, %thread-pre-split.i ], [ %.0111.be.ph.i, %.backedge.sink.split.i ]
   %.0.be.i = phi i64 [ %.0184.i, %21 ], [ %.0184.i, %thread-pre-split.i ], [ %.0.be.ph.i, %.backedge.sink.split.i ]
@@ -3416,8 +3416,8 @@ thread-pre-split141.i:                            ; preds = %107, %21
   %.2.i = phi i64 [ %.2.ph.i, %thread-pre-split141.i ], [ %.1.i, %104 ]
   %113 = icmp eq i8 %112, 10
   %spec.select.i = select i1 %113, i32 0, i32 9
-  %spec.select262.idx.i = zext i1 %113 to i64
-  %spec.select262.i = getelementptr inbounds nuw i8, ptr %.6.i, i64 %spec.select262.idx.i
+  %spec.select278.idx.i = zext i1 %113 to i64
+  %spec.select278.i = getelementptr inbounds nuw i8, ptr %.6.i, i64 %spec.select278.idx.i
   br label %.backedge.sink.split.i
 
 114:                                              ; preds = %21

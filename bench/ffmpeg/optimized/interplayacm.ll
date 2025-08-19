@@ -925,12 +925,12 @@ define internal noundef i32 @k13(ptr noundef captures(none) %0, i32 %1, i32 noun
 
 80:                                               ; preds = %59, %53, %38
   %.pn = phi i32 [ %71, %59 ], [ %55, %53 ], [ %40, %38 ]
-  %.sink42 = phi ptr [ %79, %59 ], [ %58, %53 ], [ %34, %38 ]
+  %.sink43 = phi ptr [ %79, %59 ], [ %58, %53 ], [ %34, %38 ]
   %.sink = phi i32 [ %78, %59 ], [ %57, %53 ], [ %33, %38 ]
   %.1 = phi i32 [ %.038, %59 ], [ %.038, %53 ], [ %28, %38 ]
-  %.sink44 = add i32 %.pn, %2
-  %81 = zext i32 %.sink44 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %.sink42, i64 %81
+  %.sink45 = add i32 %.pn, %2
+  %81 = zext i32 %.sink45 to i64
+  %82 = getelementptr inbounds nuw i32, ptr %.sink43, i64 %81
   store i32 %.sink, ptr %82, align 4, !tbaa !51
   %83 = add nuw i32 %.1, 1
   %84 = load i32, ptr %4, align 4, !tbaa !37
@@ -1228,12 +1228,12 @@ define internal noundef i32 @k24(ptr noundef captures(none) %0, i32 %1, i32 noun
 
 79:                                               ; preds = %59, %53, %38
   %.pn = phi i32 [ %70, %59 ], [ %55, %53 ], [ %40, %38 ]
-  %.sink41 = phi ptr [ %78, %59 ], [ %58, %53 ], [ %34, %38 ]
+  %.sink42 = phi ptr [ %78, %59 ], [ %58, %53 ], [ %34, %38 ]
   %.sink = phi i32 [ %77, %59 ], [ %57, %53 ], [ %33, %38 ]
   %.1 = phi i32 [ %.037, %59 ], [ %.037, %53 ], [ %28, %38 ]
-  %.sink43 = add i32 %.pn, %2
-  %80 = zext i32 %.sink43 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %.sink41, i64 %80
+  %.sink44 = add i32 %.pn, %2
+  %80 = zext i32 %.sink44 to i64
+  %81 = getelementptr inbounds nuw i32, ptr %.sink42, i64 %80
   store i32 %.sink, ptr %81, align 4, !tbaa !51
   %82 = add nuw i32 %.1, 1
   %83 = load i32, ptr %4, align 4, !tbaa !37
@@ -1567,12 +1567,12 @@ define internal noundef i32 @k35(ptr noundef captures(none) %0, i32 %1, i32 noun
 
 109:                                              ; preds = %92, %74, %53, %38
   %.pn = phi i32 [ %100, %92 ], [ %83, %74 ], [ %55, %53 ], [ %40, %38 ]
-  %.sink53 = phi ptr [ %108, %92 ], [ %91, %74 ], [ %58, %53 ], [ %34, %38 ]
+  %.sink54 = phi ptr [ %108, %92 ], [ %91, %74 ], [ %58, %53 ], [ %34, %38 ]
   %.sink = phi i32 [ %107, %92 ], [ %90, %74 ], [ %57, %53 ], [ %33, %38 ]
   %.1 = phi i32 [ %.049, %92 ], [ %.049, %74 ], [ %.049, %53 ], [ %28, %38 ]
-  %.sink55 = add i32 %.pn, %2
-  %110 = zext i32 %.sink55 to i64
-  %111 = getelementptr inbounds nuw i32, ptr %.sink53, i64 %110
+  %.sink56 = add i32 %.pn, %2
+  %110 = zext i32 %.sink56 to i64
+  %111 = getelementptr inbounds nuw i32, ptr %.sink54, i64 %110
   store i32 %.sink, ptr %111, align 4, !tbaa !51
   %112 = add nuw i32 %.1, 1
   %113 = load i32, ptr %4, align 4, !tbaa !37
@@ -1800,12 +1800,12 @@ define internal noundef i32 @k45(ptr noundef captures(none) %0, i32 %1, i32 noun
 
 79:                                               ; preds = %59, %53, %38
   %.pn = phi i32 [ %70, %59 ], [ %55, %53 ], [ %40, %38 ]
-  %.sink42 = phi ptr [ %78, %59 ], [ %58, %53 ], [ %33, %38 ]
+  %.sink43 = phi ptr [ %78, %59 ], [ %58, %53 ], [ %33, %38 ]
   %.sink = phi i32 [ %77, %59 ], [ %57, %53 ], [ %32, %38 ]
   %.1 = phi i32 [ %.038, %59 ], [ %.038, %53 ], [ %36, %38 ]
-  %.sink44 = add i32 %.pn, %2
-  %80 = zext i32 %.sink44 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %.sink42, i64 %80
+  %.sink45 = add i32 %.pn, %2
+  %80 = zext i32 %.sink45 to i64
+  %81 = getelementptr inbounds nuw i32, ptr %.sink43, i64 %80
   store i32 %.sink, ptr %81, align 4, !tbaa !51
   %82 = add nuw i32 %.1, 1
   %83 = load i32, ptr %5, align 4, !tbaa !37

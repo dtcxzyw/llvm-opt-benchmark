@@ -1460,8 +1460,8 @@ define internal fastcc range(i64 -120259084216, 120259084417) i64 @propagatemark
   br i1 %19, label %.thread78.i, label %.thread.i
 
 .thread.i:                                        ; preds = %18, %14
-  %.pr108.i = phi ptr [ %.pr.pre.i, %18 ], [ %13, %14 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.pr108.i, i64 10
+  %.pr113.i = phi ptr [ %.pr.pre.i, %18 ], [ %13, %14 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.pr113.i, i64 10
   %21 = load i8, ptr %20, align 2, !tbaa !29
   %22 = and i8 %21, 8
   %.not62.i = icmp eq i8 %22, 0
@@ -1470,7 +1470,7 @@ define internal fastcc range(i64 -120259084216, 120259084417) i64 @propagatemark
 23:                                               ; preds = %.thread.i
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %25 = load ptr, ptr %24, align 8, !tbaa !33
-  %26 = tail call ptr @luaT_gettm(ptr noundef nonnull %.pr108.i, i32 noundef 3, ptr noundef %25) #6
+  %26 = tail call ptr @luaT_gettm(ptr noundef nonnull %.pr113.i, i32 noundef 3, ptr noundef %25) #6
   %.not63.i = icmp eq ptr %26, null
   br i1 %.not63.i, label %.thread78.i, label %27
 
@@ -1562,8 +1562,8 @@ define internal fastcc range(i64 -120259084216, 120259084417) i64 @propagatemark
   %72 = load i8, ptr %71, align 8, !tbaa !71
   %73 = zext nneg i8 %72 to i32
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %notmask115.i = shl nsw i32 -1, %73
-  %75 = xor i32 %notmask115.i, -1
+  %notmask120.i = shl nsw i32 -1, %73
+  %75 = xor i32 %notmask120.i, -1
   %76 = zext nneg i32 %75 to i64
   br i1 %35, label %.split.us.split.us.i, label %.split.split.us.i
 
@@ -1730,9 +1730,9 @@ removeentry.exit.i:                               ; preds = %152, %147, %144, %1
   br i1 %153, label %traversetable.exit, label %.split.split.i, !llvm.loop !88
 
 traversetable.exit:                               ; preds = %removeentry.exit.us88.i, %removeentry.exit.us.us.i, %removeentry.exit.i, %removeentry.exit.us.i
-  %.057.shrunk7684.fr119.i = phi i32 [ 1, %removeentry.exit.us.i ], [ 0, %removeentry.exit.i ], [ 1, %removeentry.exit.us.us.i ], [ 0, %removeentry.exit.us88.i ]
-  %.056.shrunk7782116.i = phi i32 [ 0, %removeentry.exit.us.i ], [ 0, %removeentry.exit.i ], [ 1, %removeentry.exit.us.us.i ], [ 1, %removeentry.exit.us88.i ]
-  %154 = or i32 %.056.shrunk7782116.i, %.057.shrunk7684.fr119.i
+  %.057.shrunk7684.fr124.i = phi i32 [ 1, %removeentry.exit.us.i ], [ 0, %removeentry.exit.i ], [ 1, %removeentry.exit.us.us.i ], [ 0, %removeentry.exit.us88.i ]
+  %.056.shrunk7782121.i = phi i32 [ 0, %removeentry.exit.us.i ], [ 0, %removeentry.exit.i ], [ 1, %removeentry.exit.us.us.i ], [ 1, %removeentry.exit.us88.i ]
+  %154 = or i32 %.056.shrunk7782121.i, %.057.shrunk7684.fr124.i
   %.not42 = icmp eq i32 %154, 0
   br i1 %.not42, label %157, label %traversetable.exit.thread
 

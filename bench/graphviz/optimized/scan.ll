@@ -2223,7 +2223,7 @@ yy_get_next_buffer.exit:                          ; preds = %._crit_edge70.i, %1
   %1194 = getelementptr inbounds nuw i8, ptr %1193, i64 8
   %1195 = load ptr, ptr %1194, align 8, !tbaa !33
   store ptr %1195, ptr @aagtext, align 8, !tbaa !20
-  switch i32 %.036.i, label %default.unreachable482 [
+  switch i32 %.036.i, label %default.unreachable556 [
     i32 1, label %yy_get_previous_state.exit206
     i32 0, label %1196
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread225_crit_edge
@@ -2246,8 +2246,8 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread225_crit_edge: ; preds = %
   %1199 = sub i64 %1197, %1198
   %1200 = trunc i64 %1199 to i32
   %1201 = shl i64 %1199, 32
-  %sext680 = add i64 %1201, -4294967296
-  %1202 = ashr exact i64 %sext680, 32
+  %sext754 = add i64 %1201, -4294967296
+  %1202 = ashr exact i64 %sext754, 32
   %1203 = getelementptr inbounds i8, ptr %1195, i64 %1202
   store ptr %1203, ptr @yy_c_buf_p, align 8, !tbaa !20
   %1204 = load i32, ptr @yy_start, align 4, !tbaa !3
@@ -2429,7 +2429,7 @@ yy_get_next_buffer.exit.thread225:                ; preds = %1089, %yy_get_next_
   %exitcond.not.i220 = icmp eq ptr %1303, %1257
   br i1 %exitcond.not.i220, label %.preheader.outer.backedge, label %.lr.ph26.i208, !llvm.loop !35
 
-default.unreachable482:                           ; preds = %yy_get_next_buffer.exit
+default.unreachable556:                           ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit206:                    ; preds = %yy_get_next_buffer.exit, %1089
@@ -2736,9 +2736,9 @@ aag_flush_buffer.exit.thread.i:                   ; preds = %26
 43:                                               ; preds = %26
   %44 = load ptr, ptr %30, align 8, !tbaa !14
   %45 = icmp eq ptr %27, %44
-  br i1 %45, label %aag_flush_buffer.exit.thread13.i.thread, label %aag_flush_buffer.exit.thread13.i
+  br i1 %45, label %aag_flush_buffer.exit.thread14.i.thread, label %aag_flush_buffer.exit.thread14.i
 
-aag_flush_buffer.exit.thread13.i.thread:          ; preds = %43
+aag_flush_buffer.exit.thread14.i.thread:          ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %47 = load i32, ptr %46, align 4, !tbaa !16
   store i32 %47, ptr @yy_n_chars, align 4, !tbaa !3
@@ -2755,22 +2755,22 @@ aag_flush_buffer.exit.thread13.i.thread:          ; preds = %43
   store i32 1, ptr %52, align 4, !tbaa !37
   br label %aag_init_buffer.exit
 
-aag_flush_buffer.exit.thread13.i:                 ; preds = %43
+aag_flush_buffer.exit.thread14.i:                 ; preds = %43
   store ptr %0, ptr %27, align 8, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %27, i64 52
   store i32 1, ptr %53, align 4, !tbaa !37
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %aag_flush_buffer.exit.thread13.i, %aag_flush_buffer.exit.thread.i
-  %.pre = phi ptr [ %44, %aag_flush_buffer.exit.thread13.i ], [ %.pre.pre, %aag_flush_buffer.exit.thread.i ]
+.critedge.i:                                      ; preds = %aag_flush_buffer.exit.thread14.i, %aag_flush_buffer.exit.thread.i
+  %.pre = phi ptr [ %44, %aag_flush_buffer.exit.thread14.i ], [ %.pre.pre, %aag_flush_buffer.exit.thread.i ]
   %54 = getelementptr inbounds nuw i8, ptr %27, i64 44
   store i32 1, ptr %54, align 4, !tbaa !51
   %55 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store i32 0, ptr %55, align 8, !tbaa !52
   br label %aag_init_buffer.exit
 
-aag_init_buffer.exit:                             ; preds = %aag_flush_buffer.exit.thread13.i.thread, %.critedge.i
-  %56 = phi ptr [ %.pre, %.critedge.i ], [ %44, %aag_flush_buffer.exit.thread13.i.thread ]
+aag_init_buffer.exit:                             ; preds = %aag_flush_buffer.exit.thread14.i.thread, %.critedge.i
+  %56 = phi ptr [ %.pre, %.critedge.i ], [ %44, %aag_flush_buffer.exit.thread14.i.thread ]
   %.not11.i4 = icmp ne ptr %0, null
   %57 = load i32, ptr @gv_isatty_suppression, align 4
   %58 = icmp sgt i32 %57, 0

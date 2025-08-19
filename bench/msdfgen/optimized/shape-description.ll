@@ -850,14 +850,14 @@ do.body.i25.backedge:                             ; preds = %do.body.i25, %do.bo
 _ZN7msdfgen9readCharSEPPKc.exit32:                ; preds = %do.body.i25
   store ptr %incdec.ptr.i27, ptr %input.addr, align 8
   %cmp19 = icmp eq i8 %13, 123
-  br i1 %cmp19, label %for.body20, label %for.end27.loopexit82, !llvm.loop !11
+  br i1 %cmp19, label %for.body20, label %for.end27.loopexit88, !llvm.loop !11
 
-for.end27.loopexit82:                             ; preds = %_ZN7msdfgen9readCharSEPPKc.exit32
+for.end27.loopexit88:                             ; preds = %_ZN7msdfgen9readCharSEPPKc.exit32
   %conv.i31 = sext i8 %13 to i32
   br label %for.end27
 
-for.end27:                                        ; preds = %do.body.i, %do.body.i16, %do.body.i25, %for.end27.loopexit82, %if.end17
-  %c.1.lcssa = phi i32 [ %c.0, %if.end17 ], [ %conv.i31, %for.end27.loopexit82 ], [ -1, %do.body.i25 ], [ -1, %do.body.i16 ], [ -1, %do.body.i ]
+for.end27:                                        ; preds = %do.body.i, %do.body.i16, %do.body.i25, %for.end27.loopexit88, %if.end17
+  %c.1.lcssa = phi i32 [ %c.0, %if.end17 ], [ %conv.i31, %for.end27.loopexit88 ], [ -1, %do.body.i25 ], [ -1, %do.body.i16 ], [ -1, %do.body.i ]
   %tobool.not = icmp eq ptr %colorsSpecified, null
   br i1 %tobool.not, label %if.end30, label %if.then28
 

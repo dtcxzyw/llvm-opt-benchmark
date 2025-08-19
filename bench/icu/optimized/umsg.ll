@@ -1481,7 +1481,7 @@ define i32 @umsg_autoQuoteApostrophe_77(ptr noundef %0, i32 noundef %1, ptr noun
   %.05365 = phi i32 [ 0, %.lr.ph.preheader ], [ %.154, %51 ]
   %25 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %26 = load i16, ptr %25, align 2, !tbaa !55
-  switch i32 %.05365, label %default.unreachable71 [
+  switch i32 %.05365, label %default.unreachable74 [
     i32 0, label %27
     i32 1, label %31
     i32 2, label %39
@@ -1546,7 +1546,7 @@ define i32 @umsg_autoQuoteApostrophe_77(ptr noundef %0, i32 noundef %1, ptr noun
   %spec.select61 = select i1 %45, i32 0, i32 3
   br label %46
 
-default.unreachable71:                            ; preds = %.lr.ph
+default.unreachable74:                            ; preds = %.lr.ph
   unreachable
 
 46:                                               ; preds = %43, %39, %31, %40, %41, %32, %38, %27, %28, %29

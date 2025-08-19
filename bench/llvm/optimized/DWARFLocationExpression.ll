@@ -232,7 +232,7 @@ define linkonce_odr hidden void @_ZN4llvm15format_providerINS_14iterator_rangeIP
 5:                                                ; preds = %3
   %6 = load i8, ptr %1, align 1, !tbaa !36
   %.not.i = icmp eq i8 %6, 36
-  br i1 %.not.i, label %7, label %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39
+  br i1 %.not.i, label %7, label %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread43
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -292,20 +292,20 @@ _ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9Str
 
 thread-pre-split:                                 ; preds = %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit
   %.pr = load i8, ptr %.sroa.024.0, align 1, !tbaa !36
-  br label %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39
+  br label %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread43
 
-_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39: ; preds = %5, %thread-pre-split
+_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread43: ; preds = %5, %thread-pre-split
   %32 = phi i8 [ %.pr, %thread-pre-split ], [ %6, %5 ]
-  %.sroa.7.0.i47 = phi i64 [ %.sroa.7.0.i, %thread-pre-split ], [ 2, %5 ]
-  %.sroa.038.0.i46 = phi ptr [ %.sroa.038.0.i, %thread-pre-split ], [ @.str.2, %5 ]
-  %.sroa.7.045 = phi i64 [ %.sroa.7.0, %thread-pre-split ], [ %2, %5 ]
-  %.sroa.024.044 = phi ptr [ %.sroa.024.0, %thread-pre-split ], [ %1, %5 ]
+  %.sroa.7.0.i51 = phi i64 [ %.sroa.7.0.i, %thread-pre-split ], [ 2, %5 ]
+  %.sroa.038.0.i50 = phi ptr [ %.sroa.038.0.i, %thread-pre-split ], [ @.str.2, %5 ]
+  %.sroa.7.049 = phi i64 [ %.sroa.7.0, %thread-pre-split ], [ %2, %5 ]
+  %.sroa.024.048 = phi ptr [ %.sroa.024.0, %thread-pre-split ], [ %1, %5 ]
   %.not.i1 = icmp eq i8 %32, 64
   br i1 %.not.i1, label %33, label %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit18
 
-33:                                               ; preds = %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.024.044, i64 1
-  %35 = add i64 %.sroa.7.045, -1
+33:                                               ; preds = %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread43
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.024.048, i64 1
+  %35 = add i64 %.sroa.7.049, -1
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit18, label %.preheader.i6
 
@@ -343,18 +343,18 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12: ; preds = %39
   %51 = icmp ugt i64 %48, %35
   %.sroa.speculate.load.false.sroa.speculated.i.i15 = tail call i64 @llvm.umax.i64(i64 %48, i64 1)
   %.sroa.speculated.i.i16 = select i1 %51, i64 %35, i64 %.sroa.speculate.load.false.sroa.speculated.i.i15
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.024.044, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.024.048, i64 2
   %53 = add i64 %.sroa.speculated.i.i16, -1
   br label %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit18
 
-_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit18: ; preds = %38, %7, %3, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39, %33, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12, %50
-  %.sroa.7.0.i38 = phi i64 [ %.sroa.7.0.i, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit ], [ %.sroa.7.0.i47, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39 ], [ %.sroa.7.0.i47, %33 ], [ %.sroa.7.0.i47, %50 ], [ %.sroa.7.0.i47, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12 ], [ 2, %3 ], [ 2, %7 ], [ %.sroa.7.0.i47, %38 ]
-  %.sroa.038.0.i37 = phi ptr [ %.sroa.038.0.i, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit ], [ %.sroa.038.0.i46, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39 ], [ %.sroa.038.0.i46, %33 ], [ %.sroa.038.0.i46, %50 ], [ %.sroa.038.0.i46, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12 ], [ @.str.2, %3 ], [ @.str.2, %7 ], [ %.sroa.038.0.i46, %38 ]
-  %.sroa.038.0.i2 = phi ptr [ @.str.3, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit ], [ @.str.3, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39 ], [ @.str.3, %33 ], [ %52, %50 ], [ @.str.3, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12 ], [ @.str.3, %3 ], [ @.str.3, %7 ], [ @.str.3, %38 ]
-  %.sroa.7.0.i3 = phi i64 [ 0, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit ], [ 0, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39 ], [ 0, %33 ], [ %53, %50 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12 ], [ 0, %3 ], [ 0, %7 ], [ 0, %38 ]
-  store ptr %.sroa.038.0.i37, ptr %0, align 8, !tbaa !21
+_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit18: ; preds = %38, %7, %3, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread43, %33, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12, %50
+  %.sroa.7.0.i42 = phi i64 [ %.sroa.7.0.i, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit ], [ %.sroa.7.0.i51, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread43 ], [ %.sroa.7.0.i51, %33 ], [ %.sroa.7.0.i51, %50 ], [ %.sroa.7.0.i51, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12 ], [ 2, %3 ], [ 2, %7 ], [ %.sroa.7.0.i51, %38 ]
+  %.sroa.038.0.i41 = phi ptr [ %.sroa.038.0.i, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit ], [ %.sroa.038.0.i50, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread43 ], [ %.sroa.038.0.i50, %33 ], [ %.sroa.038.0.i50, %50 ], [ %.sroa.038.0.i50, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12 ], [ @.str.2, %3 ], [ @.str.2, %7 ], [ %.sroa.038.0.i50, %38 ]
+  %.sroa.038.0.i2 = phi ptr [ @.str.3, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit ], [ @.str.3, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread43 ], [ @.str.3, %33 ], [ %52, %50 ], [ @.str.3, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12 ], [ @.str.3, %3 ], [ @.str.3, %7 ], [ @.str.3, %38 ]
+  %.sroa.7.0.i3 = phi i64 [ 0, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit ], [ 0, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread43 ], [ 0, %33 ], [ %53, %50 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12 ], [ 0, %3 ], [ 0, %7 ], [ 0, %38 ]
+  store ptr %.sroa.038.0.i41, ptr %0, align 8, !tbaa !21
   %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.7.0.i38, ptr %.sroa.423.0..sroa_idx, align 8, !tbaa !27
+  store i64 %.sroa.7.0.i42, ptr %.sroa.423.0..sroa_idx, align 8, !tbaa !27
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.038.0.i2, ptr %54, align 8, !tbaa !21
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24

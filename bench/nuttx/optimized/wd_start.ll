@@ -51,10 +51,10 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %24 = load ptr, ptr %19, align 8
-  %.not83146 = icmp eq ptr %24, null
-  br i1 %.not83146, label %..critedge_crit_edge97, label %.lr.ph148, !llvm.loop !8
+  %.not83159 = icmp eq ptr %24, null
+  br i1 %.not83159, label %..critedge_crit_edge97, label %.lr.ph161, !llvm.loop !8
 
-.lr.ph148:                                        ; preds = %.lr.ph.preheader
+.lr.ph161:                                        ; preds = %.lr.ph.preheader
   br label %31, !llvm.loop !8
 
 25:                                               ; preds = %15
@@ -76,10 +76,10 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @g_wdactivelist, i64 8), align 8
   br label %60
 
-31:                                               ; preds = %.lr.ph148, %.lr.ph
-  %32 = phi ptr [ %24, %.lr.ph148 ], [ %38, %.lr.ph ]
-  %.06794147 = phi ptr [ %19, %.lr.ph148 ], [ %32, %.lr.ph ]
-  %33 = phi i64 [ %22, %.lr.ph148 ], [ %36, %.lr.ph ]
+31:                                               ; preds = %.lr.ph161, %.lr.ph
+  %32 = phi ptr [ %24, %.lr.ph161 ], [ %38, %.lr.ph ]
+  %.06794160 = phi ptr [ %19, %.lr.ph161 ], [ %32, %.lr.ph ]
+  %33 = phi i64 [ %22, %.lr.ph161 ], [ %36, %.lr.ph ]
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %35 = load i64, ptr %34, align 8
   %36 = add nsw i64 %35, %33
@@ -95,15 +95,15 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
   br label %..critedge_crit_edge97, !llvm.loop !8
 
 ..critedge_crit_edge97:                           ; preds = %.lr.ph...critedge_crit_edge97_crit_edge, %.lr.ph.preheader
-  %.lcssa143 = phi i64 [ %36, %.lr.ph...critedge_crit_edge97_crit_edge ], [ %22, %.lr.ph.preheader ]
+  %.lcssa156 = phi i64 [ %36, %.lr.ph...critedge_crit_edge97_crit_edge ], [ %22, %.lr.ph.preheader ]
   %.06794.lcssa = phi ptr [ %32, %.lr.ph...critedge_crit_edge97_crit_edge ], [ %19, %.lr.ph.preheader ]
-  %.06993.lcssa = phi ptr [ %.06794147, %.lr.ph...critedge_crit_edge97_crit_edge ], [ %19, %.lr.ph.preheader ]
+  %.06993.lcssa = phi ptr [ %.06794160, %.lr.ph...critedge_crit_edge97_crit_edge ], [ %19, %.lr.ph.preheader ]
   br label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %31, %..critedge_crit_edge97, %.preheader
-  %.069.lcssa = phi ptr [ %.06993.lcssa, %..critedge_crit_edge97 ], [ %19, %.preheader ], [ %.06794147, %31 ]
+  %.069.lcssa = phi ptr [ %.06993.lcssa, %..critedge_crit_edge97 ], [ %19, %.preheader ], [ %.06794160, %31 ]
   %.067.lcssa = phi ptr [ %.06794.lcssa, %..critedge_crit_edge97 ], [ %19, %.preheader ], [ %32, %31 ]
-  %.lcssa = phi i64 [ %.lcssa143, %..critedge_crit_edge97 ], [ %22, %.preheader ], [ %36, %31 ]
+  %.lcssa = phi i64 [ %.lcssa156, %..critedge_crit_edge97 ], [ %22, %.preheader ], [ %36, %31 ]
   %.not84101 = icmp sgt i64 %.lcssa, %17
   br i1 %.not84101, label %.critedge.._crit_edge_crit_edge, label %.lr.ph104
 
@@ -246,7 +246,7 @@ define i32 @wd_timer(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i64, ptr %22, align 8
   %24 = icmp slt i64 %23, 1
-  br i1 %24, label %25, label %wd_expiration.exit.thread24
+  br i1 %24, label %25, label %wd_expiration.exit.thread26
 
 25:                                               ; preds = %.lr.ph.i
   %26 = tail call ptr @sq_remfirst(ptr noundef nonnull @g_wdactivelist) #4
@@ -275,18 +275,18 @@ define i32 @wd_timer(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #
   br i1 %.not.i, label %wd_expiration.exit.thread, label %.lr.ph.i, !llvm.loop !13
 
 wd_expiration.exit:                               ; preds = %._crit_edge
-  br i1 %.not, label %wd_expiration.exit.thread, label %wd_expiration.exit.thread24
+  br i1 %.not, label %wd_expiration.exit.thread, label %wd_expiration.exit.thread26
 
-wd_expiration.exit.thread24:                      ; preds = %.lr.ph.i, %wd_expiration.exit
-  %.pr27 = phi ptr [ %.01320, %wd_expiration.exit ], [ %21, %.lr.ph.i ]
-  %40 = getelementptr inbounds nuw i8, ptr %.pr27, i64 24
+wd_expiration.exit.thread26:                      ; preds = %.lr.ph.i, %wd_expiration.exit
+  %.pr29 = phi ptr [ %.01320, %wd_expiration.exit ], [ %21, %.lr.ph.i ]
+  %40 = getelementptr inbounds nuw i8, ptr %.pr29, i64 24
   %41 = load i64, ptr %40, align 8
   %spec.select19 = tail call i64 @llvm.smax.i64(i64 %41, i64 1)
   %spec.select = trunc i64 %spec.select19 to i32
   br label %wd_expiration.exit.thread
 
-wd_expiration.exit.thread:                        ; preds = %34, %20, %wd_expiration.exit.thread24, %wd_expiration.exit
-  %42 = phi i32 [ 0, %wd_expiration.exit ], [ %spec.select, %wd_expiration.exit.thread24 ], [ 0, %20 ], [ 0, %34 ]
+wd_expiration.exit.thread:                        ; preds = %34, %20, %wd_expiration.exit.thread26, %wd_expiration.exit
+  %42 = phi i32 [ 0, %wd_expiration.exit ], [ %spec.select, %wd_expiration.exit.thread26 ], [ 0, %20 ], [ 0, %34 ]
   ret i32 %42
 }
 

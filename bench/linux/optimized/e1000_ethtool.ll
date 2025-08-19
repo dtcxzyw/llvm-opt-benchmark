@@ -1915,7 +1915,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %356 = phi i16 [ 0, %352 ], [ %361, %359 ]
   %357 = call i32 @e1000_read_eeprom(ptr noundef %31, i16 noundef zeroext %355, i16 noundef zeroext 1, ptr noundef nonnull %5) #18
   %358 = icmp slt i32 %357, 0
-  br i1 %358, label %.thread149, label %359
+  br i1 %358, label %.thread194, label %359
 
 359:                                              ; preds = %354
   %360 = load i16, ptr %5, align 2
@@ -1929,9 +1929,9 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %364 = icmp ne i16 %361, -17734
   %365 = icmp eq i64 %.pre.pre, 0
   %or.cond = select i1 %364, i1 %365, i1 false
-  br i1 %or.cond, label %.thread149, label %366
+  br i1 %or.cond, label %.thread194, label %366
 
-.thread149:                                       ; preds = %354, %.loopexit55
+.thread194:                                       ; preds = %354, %.loopexit55
   %.sink = phi i64 [ 2, %.loopexit55 ], [ 1, %354 ]
   store i64 %.sink, ptr %353, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1943,7 +1943,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %368 = icmp eq i64 %367, 0
   br i1 %368, label %372, label %369
 
-369:                                              ; preds = %.thread149, %366
+369:                                              ; preds = %.thread194, %366
   %370 = load i32, ptr %12, align 4
   %371 = or i32 %370, 2
   store i32 %371, ptr %12, align 4

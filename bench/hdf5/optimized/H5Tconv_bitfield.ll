@@ -361,10 +361,10 @@ define range(i32 -1, 1) i32 @H5T__conv_b_b(ptr noundef %0, ptr noundef readonly 
   br label %.loopexit225
 
 192:                                              ; preds = %183, %187
-  %.sink244 = phi i1 [ true, %187 ], [ false, %183 ]
+  %.sink256 = phi i1 [ true, %187 ], [ false, %183 ]
   %193 = getelementptr inbounds nuw i8, ptr %184, i64 64
   %194 = load i64, ptr %193, align 8, !tbaa !25
-  call void @H5T__bit_set(ptr noundef %.0183, i64 noundef 0, i64 noundef %194, i1 noundef zeroext %.sink244) #8
+  call void @H5T__bit_set(ptr noundef %.0183, i64 noundef 0, i64 noundef %194, i1 noundef zeroext %.sink256) #8
   %195 = load ptr, ptr %65, align 8, !tbaa !16
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 64
   %197 = load i64, ptr %196, align 8, !tbaa !25
@@ -388,12 +388,12 @@ define range(i32 -1, 1) i32 @H5T__conv_b_b(ptr noundef %0, ptr noundef readonly 
   br label %.loopexit225
 
 208:                                              ; preds = %192, %203
-  %.sink247 = phi i1 [ true, %203 ], [ false, %192 ]
+  %.sink259 = phi i1 [ true, %203 ], [ false, %192 ]
   %209 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %210 = load i64, ptr %209, align 8, !tbaa !27
   %211 = shl i64 %210, 3
   %212 = sub i64 %211, %200
-  call void @H5T__bit_set(ptr noundef %.0183, i64 noundef %200, i64 noundef %212, i1 noundef zeroext %.sink247) #8
+  call void @H5T__bit_set(ptr noundef %.0183, i64 noundef %200, i64 noundef %212, i1 noundef zeroext %.sink259) #8
   %213 = load ptr, ptr %65, align 8, !tbaa !16
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 48
   %215 = load i32, ptr %214, align 8, !tbaa !25

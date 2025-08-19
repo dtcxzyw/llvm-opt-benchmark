@@ -1479,10 +1479,10 @@ define internal zeroext i1 @kyber_has_work(ptr noundef readonly captures(none) %
 .lr.ph.preheader:                                 ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load volatile ptr, ptr %8, align 8
-  %.not9 = icmp eq ptr %4, %9
-  br i1 %.not9, label %.lr.ph10, label %.critedge
+  %.not11 = icmp eq ptr %4, %9
+  br i1 %.not11, label %.lr.ph12, label %.critedge
 
-10:                                               ; preds = %.lr.ph10
+10:                                               ; preds = %.lr.ph12
   %11 = add nuw nsw i64 %20, 1
   %12 = icmp samesign ult i64 %20, 3
   %13 = icmp eq i64 %11, 4
@@ -1499,9 +1499,9 @@ define internal zeroext i1 @kyber_has_work(ptr noundef readonly captures(none) %
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load volatile ptr, ptr %18, align 8
   %.not = icmp eq ptr %15, %19
-  br i1 %.not, label %.lr.ph10, label %.critedge, !llvm.loop !39
+  br i1 %.not, label %.lr.ph12, label %.critedge, !llvm.loop !39
 
-.lr.ph10:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph12:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %20 = phi i64 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %21 = phi i1 [ %12, %.lr.ph ], [ true, %.lr.ph.preheader ]
   %22 = getelementptr [4 x %struct.sbitmap], ptr %5, i64 0, i64 %20
@@ -1514,8 +1514,8 @@ define internal zeroext i1 @kyber_has_work(ptr noundef readonly captures(none) %
 ..critedge.loopexit_crit_edge:                    ; preds = %14
   br label %.critedge, !llvm.loop !39
 
-.critedge:                                        ; preds = %.lr.ph10, %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %..critedge_crit_edge7, %1
-  %24 = phi i1 [ %12, %..critedge_crit_edge7 ], [ true, %1 ], [ %12, %..critedge.loopexit_crit_edge ], [ true, %.lr.ph.preheader ], [ %12, %.lr.ph ], [ %21, %.lr.ph10 ]
+.critedge:                                        ; preds = %.lr.ph12, %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %..critedge_crit_edge7, %1
+  %24 = phi i1 [ %12, %..critedge_crit_edge7 ], [ true, %1 ], [ %12, %..critedge.loopexit_crit_edge ], [ true, %.lr.ph.preheader ], [ %12, %.lr.ph ], [ %21, %.lr.ph12 ]
   ret i1 %24
 }
 
@@ -1689,7 +1689,7 @@ define internal void @kyber_timer_fn(ptr noundef %0) #1 align 16 {
   br i1 %35, label %36, label %27, !llvm.loop !47
 
 36:                                               ; preds = %27
-  %.idx = shl i64 %24, 6
+  %.idx = shl nuw nsw i64 %24, 6
   %37 = getelementptr i8, ptr %3, i64 %.idx
   %38 = getelementptr i8, ptr %37, i64 32
   %39 = getelementptr [3 x [2 x [8 x %struct.atomic_t]]], ptr %22, i64 0, i64 %24, i64 1
@@ -1911,7 +1911,7 @@ define internal fastcc i32 @calculate_percentile(ptr noundef captures(none) %0, 
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %39
-  %46 = sub nuw i32 %41, %43
+  %46 = sub nuw nsw i32 %41, %43
   %47 = add nuw nsw i64 %40, 1
   %48 = icmp eq i64 %47, 7
   br i1 %48, label %.loopexit, label %39, !llvm.loop !58

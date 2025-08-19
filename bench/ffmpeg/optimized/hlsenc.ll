@@ -636,7 +636,7 @@ define internal i32 @hls_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %77 = load i64, ptr %76, align 8, !tbaa !78
   store i64 %77, ptr %72, align 8, !tbaa !77
   %78 = icmp eq i32 %39, 1
-  br i1 %78, label %.thread431, label %79
+  br i1 %78, label %.thread459, label %79
 
 79:                                               ; preds = %75, %71
   %80 = phi i64 [ %77, %75 ], [ %73, %71 ]
@@ -644,32 +644,32 @@ define internal i32 @hls_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %82 = load i32, ptr %81, align 4, !tbaa !79
   %.not325 = icmp ne i32 %82, 0
   %83 = icmp eq i32 %39, 0
-  %or.cond447 = and i1 %.not325, %83
-  br i1 %or.cond447, label %85, label %.thread433
+  %or.cond475 = and i1 %.not325, %83
+  br i1 %or.cond475, label %85, label %.thread461
 
-.thread431:                                       ; preds = %75
+.thread459:                                       ; preds = %75
   %84 = getelementptr inbounds nuw i8, ptr %23, i64 100
   store i32 1, ptr %84, align 4, !tbaa !79
-  br label %.thread433
+  br label %.thread461
 
 85:                                               ; preds = %79
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %87 = load i64, ptr %86, align 8, !tbaa !78
   %88 = icmp sgt i64 %80, %87
-  br i1 %88, label %89, label %.thread433
+  br i1 %88, label %89, label %.thread461
 
 89:                                               ; preds = %85
   store i64 %87, ptr %72, align 8, !tbaa !77
   store i32 0, ptr %81, align 4, !tbaa !79
-  br label %.thread433
+  br label %.thread461
 
-.thread433:                                       ; preds = %.thread431, %89, %85, %79
+.thread461:                                       ; preds = %.thread459, %89, %85, %79
   %90 = getelementptr inbounds nuw i8, ptr %23, i64 88
   %91 = load i32, ptr %90, align 8, !tbaa !59
   %.not326 = icmp eq i32 %91, 0
   br i1 %.not326, label %107, label %92
 
-92:                                               ; preds = %.thread433
+92:                                               ; preds = %.thread461
   %93 = icmp eq i32 %39, 0
   br i1 %93, label %94, label %.thread387
 
@@ -694,9 +694,9 @@ define internal i32 @hls_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %106 = icmp ne i32 %13, %105
   br label %107
 
-107:                                              ; preds = %103, %.thread433
-  %.0285 = phi i1 [ false, %.thread433 ], [ %.ph, %103 ]
-  %.0278 = phi i1 [ false, %.thread433 ], [ %106, %103 ]
+107:                                              ; preds = %103, %.thread461
+  %.0285 = phi i1 [ false, %.thread461 ], [ %.ph, %103 ]
+  %.0278 = phi i1 [ false, %.thread461 ], [ %106, %103 ]
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %109 = load i64, ptr %108, align 8, !tbaa !78
   %110 = icmp eq i64 %109, -9223372036854775808
@@ -2677,11 +2677,11 @@ sub_0.i:                                          ; preds = %382, %377
   %395 = getelementptr inbounds nuw i8, ptr %.val296, i64 8520
   store ptr %.sink.i, ptr %395, align 8, !tbaa !150
   %.not24.i = icmp eq ptr %.sink.i, null
-  %spec.select534 = select i1 %.not24.i, i32 -12, i32 0
+  %spec.select597 = select i1 %.not24.i, i32 -12, i32 0
   br label %update_master_pl_info.exit
 
 update_master_pl_info.exit:                       ; preds = %394, %380
-  %.0.i302 = phi i32 [ -12, %380 ], [ %spec.select534, %394 ]
+  %.0.i302 = phi i32 [ -12, %380 ], [ %spec.select597, %394 ]
   call void @av_freep(ptr noundef nonnull %17) #17
   call void @av_freep(ptr noundef nonnull %18) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -2958,8 +2958,8 @@ update_master_pl_info.exit:                       ; preds = %394, %380
   %525 = call ptr (ptr, ...) @av_asprintf(ptr noundef nonnull @.str.139, ptr noundef %.pre484, ptr noundef %.0230) #17
   %526 = getelementptr inbounds nuw i8, ptr %462, i64 256
   store ptr %525, ptr %526, align 8, !tbaa !113
-  %.not278488 = icmp eq ptr %525, null
-  br i1 %.not278488, label %sls_flag_check_duration_size.exit.thread, label %527
+  %.not278551 = icmp eq ptr %525, null
+  br i1 %.not278551, label %sls_flag_check_duration_size.exit.thread, label %527
 
 527:                                              ; preds = %.thread
   store i8 46, ptr %521, align 1, !tbaa !102
@@ -3469,15 +3469,15 @@ sls_flag_check_duration_size.exit:                ; preds = %615, %602
   %795 = getelementptr inbounds nuw i8, ptr %649, i64 8564
   %796 = load i32, ptr %795, align 4, !tbaa !174
   %797 = icmp sgt i32 %796, 0
-  br i1 %797, label %798, label %.thread135.i
+  br i1 %797, label %798, label %.thread143.i
 
 798:                                              ; preds = %794
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.267) #17
   %.pre134.i = load i64, ptr %791, align 8, !tbaa !38
   %799 = icmp sgt i64 %.pre134.i, 0
-  br i1 %799, label %.thread135.i, label %800
+  br i1 %799, label %.thread143.i, label %800
 
-.thread135.i:                                     ; preds = %798, %794
+.thread143.i:                                     ; preds = %798, %794
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.268) #17
   br label %hls_mux_init.exit.thread
 
@@ -3546,8 +3546,8 @@ sls_flag_check_duration_size.exit:                ; preds = %615, %602
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.277) #17
   br label %hls_mux_init.exit.thread
 
-hls_mux_init.exit.thread:                         ; preds = %658, %663, %684, %800, %828, %697, %706, %.thread135.i, %813, %834
-  %.0102.i.ph = phi i32 [ -22, %834 ], [ %811, %813 ], [ -1163346256, %.thread135.i ], [ -12, %697 ], [ %714, %706 ], [ %661, %658 ], [ -12, %663 ], [ %686, %684 ], [ %802, %800 ], [ %829, %828 ]
+hls_mux_init.exit.thread:                         ; preds = %658, %663, %684, %800, %828, %697, %706, %.thread143.i, %813, %834
+  %.0102.i.ph = phi i32 [ -22, %834 ], [ %811, %813 ], [ -1163346256, %.thread143.i ], [ -12, %697 ], [ %714, %706 ], [ %661, %658 ], [ -12, %663 ], [ %686, %684 ], [ %802, %800 ], [ %829, %828 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %sls_flag_check_duration_size.exit.thread
 
@@ -4061,8 +4061,8 @@ define internal fastcc void @write_codec_attr(ptr noundef readonly captures(none
   %42 = icmp eq i32 %41, 1
   %43 = and i32 %25, 520093696
   %44 = icmp eq i32 %43, 117440512
-  %or.cond144 = and i1 %42, %44
-  br i1 %or.cond144, label %45, label %47
+  %or.cond147 = and i1 %42, %44
+  br i1 %or.cond147, label %45, label %47
 
 45:                                               ; preds = %35
   %46 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -4105,28 +4105,28 @@ define internal fastcc void @write_codec_attr(ptr noundef readonly captures(none
   %70 = load i32, ptr %69, align 8, !tbaa !204
   %71 = sext i32 %70 to i64
   %72 = icmp sgt i32 %70, 19
-  br i1 %72, label %.lr.ph147, label %.critedge
+  br i1 %72, label %.lr.ph150, label %.critedge
 
-.lr.ph147:                                        ; preds = %.lr.ph, %124
-  %.0103138146 = phi ptr [ %74, %124 ], [ %63, %.lr.ph ]
-  %73 = load i8, ptr %.0103138146, align 1, !tbaa !102
-  %74 = getelementptr inbounds nuw i8, ptr %.0103138146, i64 1
+.lr.ph150:                                        ; preds = %.lr.ph, %124
+  %.0103138149 = phi ptr [ %74, %124 ], [ %63, %.lr.ph ]
+  %73 = load i8, ptr %.0103138149, align 1, !tbaa !102
+  %74 = getelementptr inbounds nuw i8, ptr %.0103138149, i64 1
   %75 = load i8, ptr %74, align 1, !tbaa !102
   %76 = or i8 %75, %73
-  %77 = getelementptr inbounds nuw i8, ptr %.0103138146, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %.0103138149, i64 2
   %78 = load i8, ptr %77, align 1, !tbaa !102
   %79 = or i8 %76, %78
   %.not114 = icmp eq i8 %79, 0
   br i1 %.not114, label %80, label %124
 
-80:                                               ; preds = %.lr.ph147
-  %81 = getelementptr inbounds nuw i8, ptr %.0103138146, i64 3
+80:                                               ; preds = %.lr.ph150
+  %81 = getelementptr inbounds nuw i8, ptr %.0103138149, i64 3
   %82 = load i8, ptr %81, align 1, !tbaa !102
   %83 = icmp eq i8 %82, 1
   br i1 %83, label %84, label %124
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %.0103138146, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %.0103138149, i64 4
   %86 = load i8, ptr %85, align 1, !tbaa !102
   %87 = and i8 %86, 126
   %88 = icmp eq i8 %87, 66
@@ -4136,7 +4136,7 @@ define internal fastcc void @write_codec_attr(ptr noundef readonly captures(none
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !65
-  %90 = getelementptr inbounds nuw i8, ptr %.0103138146, i64 6
+  %90 = getelementptr inbounds nuw i8, ptr %.0103138149, i64 6
   %91 = ptrtoint ptr %90 to i64
   %.neg = sub i64 %68, %91
   %92 = trunc i64 %.neg to i32
@@ -4198,12 +4198,12 @@ define internal fastcc void @write_codec_attr(ptr noundef readonly captures(none
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %160
 
-124:                                              ; preds = %84, %80, %.lr.ph147
+124:                                              ; preds = %84, %80, %.lr.ph150
   %125 = ptrtoint ptr %74 to i64
   %reass.sub = sub i64 %125, %68
   %126 = add i64 %reass.sub, 19
   %127 = icmp slt i64 %126, %71
-  br i1 %127, label %.lr.ph147, label %.critedge
+  br i1 %127, label %.lr.ph150, label %.critedge
 
 .critedge:                                        ; preds = %124, %.lr.ph, %61, %.thread124
   %128 = phi i1 [ %123, %.thread124 ], [ false, %61 ], [ false, %.lr.ph ], [ false, %124 ]
@@ -5910,13 +5910,13 @@ define internal fastcc i32 @hls_window(ptr noundef %0, i32 noundef range(i32 0, 
   %354 = sub i64 %352, %353
   %355 = call i32 @av_strncasecmp(ptr noundef nonnull %346, ptr noundef %348, i64 noundef %354) #17
   %.not15.i.i = icmp eq i32 %355, 0
-  br i1 %.not15.i.i, label %get_relative_url.exit.thread376.i, label %get_relative_url.exit.thread.i
+  br i1 %.not15.i.i, label %get_relative_url.exit.thread396.i, label %get_relative_url.exit.thread.i
 
 get_relative_url.exit.thread.i:                   ; preds = %.thread.i.i
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.193) #17
   br label %.loopexit300.i
 
-get_relative_url.exit.thread376.i:                ; preds = %.thread.i.i
+get_relative_url.exit.thread396.i:                ; preds = %.thread.i.i
   %356 = getelementptr inbounds nuw i8, ptr %348, i64 %354
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 1
   br label %.preheader298.i
@@ -5925,8 +5925,8 @@ get_relative_url.exit.i:                          ; preds = %350
   %.not252.i = icmp eq ptr %348, null
   br i1 %.not252.i, label %.loopexit300.i, label %.preheader298.i
 
-.preheader298.i:                                  ; preds = %get_relative_url.exit.i, %get_relative_url.exit.thread376.i
-  %.012.i379.i = phi ptr [ %357, %get_relative_url.exit.thread376.i ], [ %348, %get_relative_url.exit.i ]
+.preheader298.i:                                  ; preds = %get_relative_url.exit.i, %get_relative_url.exit.thread396.i
+  %.012.i399.i = phi ptr [ %357, %get_relative_url.exit.thread396.i ], [ %348, %get_relative_url.exit.i ]
   %358 = getelementptr inbounds nuw i8, ptr %336, i64 12812
   %359 = load i32, ptr %358, align 4, !tbaa !34
   %.not339.i = icmp eq i32 %359, 0
@@ -5983,7 +5983,7 @@ get_relative_url.exit.i:                          ; preds = %350
 381:                                              ; preds = %378, %._crit_edge.i
   %382 = phi i32 [ %380, %378 ], [ 1, %._crit_edge.i ]
   %383 = trunc nuw i64 %indvars.iv354.i to i32
-  call void @ff_hls_write_audio_rendition(ptr noundef %373, ptr noundef %374, ptr noundef nonnull %.012.i379.i, ptr noundef %376, i32 noundef %383, i32 noundef %382, i32 noundef %.0.lcssa.i) #17
+  call void @ff_hls_write_audio_rendition(ptr noundef %373, ptr noundef %374, ptr noundef nonnull %.012.i399.i, ptr noundef %376, i32 noundef %383, i32 noundef %382, i32 noundef %.0.lcssa.i) #17
   %.pre.i = load i32, ptr %302, align 8, !tbaa !24
   br label %384
 
@@ -6019,13 +6019,13 @@ get_relative_url.exit.i:                          ; preds = %350
   %399 = sub i64 %397, %398
   %400 = call i32 @av_strncasecmp(ptr noundef nonnull %391, ptr noundef %393, i64 noundef %399) #17
   %.not15.i259.i = icmp eq i32 %400, 0
-  br i1 %.not15.i259.i, label %get_relative_url.exit262.thread380.i, label %get_relative_url.exit262.thread.i
+  br i1 %.not15.i259.i, label %get_relative_url.exit262.thread400.i, label %get_relative_url.exit262.thread.i
 
 get_relative_url.exit262.thread.i:                ; preds = %.thread.i257.i
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.193) #17
   br label %.loopexit296.i
 
-get_relative_url.exit262.thread380.i:             ; preds = %.thread.i257.i
+get_relative_url.exit262.thread400.i:             ; preds = %.thread.i257.i
   %401 = getelementptr inbounds nuw i8, ptr %393, i64 %399
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 1
   br label %.preheader293.i
@@ -6034,8 +6034,8 @@ get_relative_url.exit262.i:                       ; preds = %395
   %.not231.i = icmp eq ptr %393, null
   br i1 %.not231.i, label %.loopexit296.i, label %.preheader293.i
 
-.preheader293.i:                                  ; preds = %get_relative_url.exit262.i, %get_relative_url.exit262.thread380.i
-  %.012.i260383.i = phi ptr [ %402, %get_relative_url.exit262.thread380.i ], [ %393, %get_relative_url.exit262.i ]
+.preheader293.i:                                  ; preds = %get_relative_url.exit262.i, %get_relative_url.exit262.thread400.i
+  %.012.i260403.i = phi ptr [ %402, %get_relative_url.exit262.thread400.i ], [ %393, %get_relative_url.exit262.i ]
   %403 = getelementptr inbounds nuw i8, ptr %390, i64 12812
   %404 = load i32, ptr %403, align 4, !tbaa !34
   %.not341.i = icmp eq i32 %404, 0
@@ -6289,12 +6289,12 @@ get_stream_bit_rate.exit267.i:                    ; preds = %489, %488, %477
 
 .loopexit.thread.i:                               ; preds = %.loopexit.i..loopexit.thread.i_crit_edge, %.preheader.i
   %513 = phi ptr [ %.pre, %.loopexit.i..loopexit.thread.i_crit_edge ], [ %500, %.preheader.i ]
-  %.1196386.i = phi ptr [ %.1196.i, %.loopexit.i..loopexit.thread.i_crit_edge ], [ null, %.preheader.i ]
+  %.1196406.i = phi ptr [ %.1196.i, %.loopexit.i..loopexit.thread.i_crit_edge ], [ null, %.preheader.i ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.191, ptr noundef %513) #17
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.loopexit.thread.i, %.loopexit.i, %498
-  %.0195281.i = phi ptr [ null, %498 ], [ %.1196.i, %.loopexit.i ], [ %.1196386.i, %.loopexit.thread.i ]
+  %.0195281.i = phi ptr [ null, %498 ], [ %.1196.i, %.loopexit.i ], [ %.1196406.i, %.loopexit.thread.i ]
   %514 = getelementptr inbounds nuw i8, ptr %390, i64 12840
   %515 = load ptr, ptr %514, align 8, !tbaa !139
   %.not237.i = icmp eq ptr %515, null
@@ -6385,7 +6385,7 @@ get_relative_url.exit274.i:                       ; preds = %521
 549:                                              ; preds = %547, %545
   %550 = phi ptr [ %548, %547 ], [ null, %545 ]
   %551 = getelementptr inbounds nuw i8, ptr %390, i64 12680
-  call void @ff_hls_write_stream_info(ptr noundef %.0191.lcssa.i, ptr noundef %546, i32 noundef %.0200.i, i32 noundef %.2199.i, ptr noundef nonnull %.012.i260383.i, ptr noundef %550, ptr noundef nonnull %551, ptr noundef %.0195280.i, ptr noundef %.2.i) #17
+  call void @ff_hls_write_stream_info(ptr noundef %.0191.lcssa.i, ptr noundef %546, i32 noundef %.0200.i, i32 noundef %.2199.i, ptr noundef nonnull %.012.i260403.i, ptr noundef %550, ptr noundef nonnull %551, ptr noundef %.0195280.i, ptr noundef %.2.i) #17
   br label %560
 
 552:                                              ; preds = %543
@@ -6403,7 +6403,7 @@ get_relative_url.exit274.i:                       ; preds = %521
 557:                                              ; preds = %555, %553
   %558 = phi ptr [ %556, %555 ], [ null, %553 ]
   %559 = getelementptr inbounds nuw i8, ptr %390, i64 12680
-  call void @ff_hls_write_stream_info(ptr noundef nonnull %.0191.lcssa.i, ptr noundef %554, i32 noundef %.0200.i, i32 noundef %.2199.i, ptr noundef nonnull %.012.i260383.i, ptr noundef %558, ptr noundef nonnull %559, ptr noundef %.0195280.i, ptr noundef %.2.i) #17
+  call void @ff_hls_write_stream_info(ptr noundef nonnull %.0191.lcssa.i, ptr noundef %554, i32 noundef %.0200.i, i32 noundef %.2199.i, ptr noundef nonnull %.012.i260403.i, ptr noundef %558, ptr noundef nonnull %559, ptr noundef %.0195280.i, ptr noundef %.2.i) #17
   br label %560
 
 560:                                              ; preds = %557, %552, %549, %417
@@ -7954,7 +7954,7 @@ define internal fastcc i32 @get_nth_codec_stream_index(ptr noundef readonly capt
 20:                                               ; preds = %14
   %21 = zext i32 %.017 to i64
   %22 = icmp eq i64 %2, %21
-  br i1 %22, label %.loopexit.loopexit.split.loop.exit21, label %23
+  br i1 %22, label %.loopexit.loopexit.split.loop.exit22, label %23
 
 23:                                               ; preds = %20
   %24 = add i32 %.017, 1
@@ -7966,12 +7966,12 @@ define internal fastcc i32 @get_nth_codec_stream_index(ptr noundef readonly capt
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !266
 
-.loopexit.loopexit.split.loop.exit21:             ; preds = %20
+.loopexit.loopexit.split.loop.exit22:             ; preds = %20
   %26 = trunc nuw i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %25, %.loopexit.loopexit.split.loop.exit21, %3, %5
-  %.014 = phi i32 [ -1, %5 ], [ -1, %3 ], [ %26, %.loopexit.loopexit.split.loop.exit21 ], [ -1, %25 ]
+.loopexit:                                        ; preds = %25, %.loopexit.loopexit.split.loop.exit22, %3, %5
+  %.014 = phi i32 [ -1, %5 ], [ -1, %3 ], [ %26, %.loopexit.loopexit.split.loop.exit22 ], [ -1, %25 ]
   ret i32 %.014
 }
 

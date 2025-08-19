@@ -409,7 +409,7 @@ define internal fastcc range(i32 0, 35) i32 @Abc_TtReadHex(ptr noundef nonnull c
   %13 = add i8 %12, -71
   %14 = icmp ult i8 %13, -6
   %narrow.i.not51 = and i1 %or.cond.i50, %14
-  br i1 %narrow.i.not51, label %.thread81, label %.lr.ph
+  br i1 %narrow.i.not51, label %.thread83, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %9 ]
@@ -428,7 +428,7 @@ define internal fastcc range(i32 0, 35) i32 @Abc_TtReadHex(ptr noundef nonnull c
   %indvars = trunc i64 %indvars.iv.next to i32
   switch i32 %indvars, label %.lr.ph.preheader.i [
     i32 1, label %21
-    i32 0, label %.thread81
+    i32 0, label %.thread83
   ]
 
 21:                                               ; preds = %._crit_edge
@@ -462,17 +462,17 @@ define internal fastcc range(i32 0, 35) i32 @Abc_TtReadHex(ptr noundef nonnull c
   %36 = shl nuw nsw i64 %35, 3
   br label %.lr.ph57.preheader
 
-.thread81:                                        ; preds = %._crit_edge, %9
+.thread83:                                        ; preds = %._crit_edge, %9
   store i64 0, ptr %0, align 8
   br label %.sink.split
 
 .lr.ph57.preheader:                               ; preds = %21, %.lr.ph.preheader.i
-  %.0.lcssa72 = phi i32 [ 1, %21 ], [ %indvars, %.lr.ph.preheader.i ]
+  %.0.lcssa74 = phi i32 [ 1, %21 ], [ %indvars, %.lr.ph.preheader.i ]
   %.fr = phi i32 [ 2, %21 ], [ %31, %.lr.ph.preheader.i ]
   %37 = phi i64 [ 8, %21 ], [ %36, %.lr.ph.preheader.i ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %0, i8 0, i64 %37, i1 false), !tbaa !7
-  %38 = sext i32 %.0.lcssa72 to i64
-  %wide.trip.count = zext i32 %.0.lcssa72 to i64
+  %38 = sext i32 %.0.lcssa74 to i64
+  %wide.trip.count = zext i32 %.0.lcssa74 to i64
   %39 = getelementptr i8, ptr %.038, i64 %38
   br label %.lr.ph57
 
@@ -531,22 +531,22 @@ Abc_TtReadHexDigit.exit:                          ; preds = %45, %49, %51
   %66 = icmp samesign ult i32 %.fr, 3
   %67 = and i64 %65, 15
   %68 = mul nuw nsw i64 %67, 17
-  %spec.select84 = select i1 %66, i64 %68, i64 %65
+  %spec.select86 = select i1 %66, i64 %68, i64 %65
   %69 = icmp samesign ult i32 %.fr, 4
-  %70 = and i64 %spec.select84, 255
+  %70 = and i64 %spec.select86, 255
   %71 = mul nuw nsw i64 %70, 257
   %72 = select i1 %69, i64 %71, i64 %65
-  %.not70 = icmp eq i32 %.fr, 5
+  %.not72 = icmp eq i32 %.fr, 5
   %73 = and i64 %72, 65535
   %74 = mul nuw nsw i64 %73, 65537
-  %spec.select85 = select i1 %.not70, i64 %65, i64 %74
-  %75 = and i64 %spec.select85, 4294967295
+  %spec.select87 = select i1 %.not72, i64 %65, i64 %74
+  %75 = and i64 %spec.select87, 4294967295
   %76 = mul nuw i64 %75, 4294967297
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.thread81, %64, %22, %25
-  %.sink = phi i64 [ %27, %25 ], [ %24, %22 ], [ 0, %.thread81 ], [ %76, %64 ]
-  %.037.ph = phi i32 [ 1, %25 ], [ 0, %22 ], [ 2, %.thread81 ], [ %.fr, %64 ]
+.sink.split:                                      ; preds = %.thread83, %64, %22, %25
+  %.sink = phi i64 [ %27, %25 ], [ %24, %22 ], [ 0, %.thread83 ], [ %76, %64 ]
+  %.037.ph = phi i32 [ 1, %25 ], [ 0, %22 ], [ 2, %.thread83 ], [ %.fr, %64 ]
   store i64 %.sink, ptr %0, align 8, !tbaa !7
   br label %77
 
@@ -2453,7 +2453,7 @@ Gia_ManAppendAnd2.exit:                           ; preds = %4, %18
   br i1 %21, label %Gia_ManAppendAnd2.exit.thread, label %Gia_ManAppendAnd2.exit12
 
 Gia_ManAppendAnd2.exit.thread:                    ; preds = %16, %14, %10, %Gia_ManAppendAnd2.exit
-  %.0.i23 = phi i32 [ %20, %Gia_ManAppendAnd2.exit ], [ %3, %16 ], [ %15, %14 ], [ %11, %10 ]
+  %.0.i29 = phi i32 [ %20, %Gia_ManAppendAnd2.exit ], [ %3, %16 ], [ %15, %14 ], [ %11, %10 ]
   %22 = icmp slt i32 %1, 2
   br i1 %22, label %23, label %Gia_ManAppendAnd2.exit.thread.thread
 
@@ -2463,7 +2463,7 @@ Gia_ManAppendAnd2.exit.thread:                    ; preds = %16, %14, %10, %Gia_
   br label %Gia_ManAppendAnd2.exit12.thread
 
 Gia_ManAppendAnd2.exit.thread.thread:             ; preds = %18, %Gia_ManAppendAnd2.exit.thread
-  %.0.i2330 = phi i32 [ %.0.i23, %Gia_ManAppendAnd2.exit.thread ], [ 0, %18 ]
+  %.0.i2936 = phi i32 [ %.0.i29, %Gia_ManAppendAnd2.exit.thread ], [ 0, %18 ]
   %25 = icmp slt i32 %2, 2
   br i1 %25, label %26, label %28
 
@@ -2482,31 +2482,31 @@ Gia_ManAppendAnd2.exit.thread.thread:             ; preds = %18, %Gia_ManAppendA
   br i1 %32, label %Gia_ManAppendAnd2.exit12.thread, label %Gia_ManAppendAnd2.exit12
 
 Gia_ManAppendAnd2.exit12.thread:                  ; preds = %23, %26, %28, %30
-  %.0.i2331 = phi i32 [ %.0.i2330, %30 ], [ %.0.i2330, %28 ], [ %.0.i2330, %26 ], [ %.0.i23, %23 ]
+  %.0.i2937 = phi i32 [ %.0.i2936, %30 ], [ %.0.i2936, %28 ], [ %.0.i2936, %26 ], [ %.0.i29, %23 ]
   %.0.i9.ph = phi i32 [ 0, %30 ], [ %1, %28 ], [ %27, %26 ], [ %24, %23 ]
-  %33 = xor i32 %.0.i2331, 1
+  %33 = xor i32 %.0.i2937, 1
   %34 = xor i32 %.0.i9.ph, 1
   br label %39
 
 Gia_ManAppendAnd2.exit12:                         ; preds = %Gia_ManAppendAnd2.exit, %30
-  %.0.i21 = phi i32 [ %.0.i2330, %30 ], [ %20, %Gia_ManAppendAnd2.exit ]
+  %.0.i27 = phi i32 [ %.0.i2936, %30 ], [ %20, %Gia_ManAppendAnd2.exit ]
   %35 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2)
   %.pre18 = load i32, ptr %6, align 8, !tbaa !45
   %36 = icmp eq i32 %.pre18, 0
-  %37 = xor i32 %.0.i21, 1
+  %37 = xor i32 %.0.i27, 1
   %38 = xor i32 %35, 1
   br i1 %36, label %39, label %54
 
 39:                                               ; preds = %Gia_ManAppendAnd2.exit12.thread, %Gia_ManAppendAnd2.exit12
   %40 = phi i32 [ %34, %Gia_ManAppendAnd2.exit12.thread ], [ %38, %Gia_ManAppendAnd2.exit12 ]
   %41 = phi i32 [ %33, %Gia_ManAppendAnd2.exit12.thread ], [ %37, %Gia_ManAppendAnd2.exit12 ]
-  %.0.i928 = phi i32 [ %.0.i9.ph, %Gia_ManAppendAnd2.exit12.thread ], [ %35, %Gia_ManAppendAnd2.exit12 ]
-  %.0.i2227 = phi i32 [ %.0.i2331, %Gia_ManAppendAnd2.exit12.thread ], [ %.0.i21, %Gia_ManAppendAnd2.exit12 ]
+  %.0.i934 = phi i32 [ %.0.i9.ph, %Gia_ManAppendAnd2.exit12.thread ], [ %35, %Gia_ManAppendAnd2.exit12 ]
+  %.0.i2833 = phi i32 [ %.0.i2937, %Gia_ManAppendAnd2.exit12.thread ], [ %.0.i27, %Gia_ManAppendAnd2.exit12 ]
   %42 = icmp slt i32 %41, 2
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %39
-  %.not19.i16 = icmp eq i32 %.0.i2227, 1
+  %.not19.i16 = icmp eq i32 %.0.i2833, 1
   %44 = select i1 %.not19.i16, i32 0, i32 %40
   br label %Gia_ManAppendAnd2.exit17
 
@@ -2515,16 +2515,16 @@ Gia_ManAppendAnd2.exit12:                         ; preds = %Gia_ManAppendAnd2.e
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %45
-  %.not18.i15 = icmp eq i32 %.0.i928, 1
+  %.not18.i15 = icmp eq i32 %.0.i934, 1
   %48 = select i1 %.not18.i15, i32 0, i32 %41
   br label %Gia_ManAppendAnd2.exit17
 
 49:                                               ; preds = %45
-  %50 = icmp eq i32 %.0.i2227, %.0.i928
+  %50 = icmp eq i32 %.0.i2833, %.0.i934
   br i1 %50, label %Gia_ManAppendAnd2.exit17, label %51
 
 51:                                               ; preds = %49
-  %52 = xor i32 %.0.i928, %.0.i2227
+  %52 = xor i32 %.0.i934, %.0.i2833
   %53 = icmp eq i32 %52, 1
   br i1 %53, label %Gia_ManAppendAnd2.exit17, label %54
 

@@ -1564,7 +1564,7 @@ _ZN7rocksdb6StatusD2Ev.exit109:                   ; preds = %_ZN7rocksdb6Statusa
 271:                                              ; preds = %266
   %272 = load ptr, ptr %256, align 8, !tbaa !186
   %.not122 = icmp eq ptr %272, null
-  br i1 %.not122, label %273, label %.thread129
+  br i1 %.not122, label %273, label %.thread153
 
 273:                                              ; preds = %271
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 73
@@ -1665,7 +1665,7 @@ _ZN7rocksdb6StatusD2Ev.exit112:                   ; preds = %291, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %313
 
-.thread129:                                       ; preds = %271
+.thread153:                                       ; preds = %271
   %310 = getelementptr inbounds nuw i8, ptr %270, i64 584
   store ptr %272, ptr %310, align 8, !tbaa !293
   %311 = icmp eq ptr %270, null
@@ -1683,9 +1683,9 @@ _ZN7rocksdb6StatusD2Ev.exit112:                   ; preds = %291, %_ZNKSt14defau
   %.not5.i = icmp eq ptr %.pre127, null
   br i1 %.not5.i, label %321, label %317
 
-317:                                              ; preds = %.thread129, %315
-  %spec.select119132 = phi ptr [ %spec.select118, %.thread129 ], [ %316, %315 ]
-  %318 = phi ptr [ %272, %.thread129 ], [ %.pre127, %315 ]
+317:                                              ; preds = %.thread153, %315
+  %spec.select119156 = phi ptr [ %spec.select118, %.thread153 ], [ %316, %315 ]
+  %318 = phi ptr [ %272, %.thread153 ], [ %.pre127, %315 ]
   %319 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %320 = load ptr, ptr %319, align 8, !tbaa !294
   br label %.invoke
@@ -1701,7 +1701,7 @@ _ZN7rocksdb6StatusD2Ev.exit112:                   ; preds = %291, %_ZNKSt14defau
   br label %.invoke
 
 .invoke:                                          ; preds = %317, %325
-  %327 = phi ptr [ %316, %325 ], [ %spec.select119132, %317 ]
+  %327 = phi ptr [ %316, %325 ], [ %spec.select119156, %317 ]
   %328 = phi ptr [ @_ZN7rocksdb13CachableEntryINS_5BlockEE11DeleteValueEPvS3_, %325 ], [ @_ZN7rocksdb13CachableEntryINS_5BlockEE18ReleaseCacheHandleEPvS3_, %317 ]
   %329 = phi ptr [ %326, %325 ], [ %320, %317 ]
   %330 = phi ptr [ null, %325 ], [ %318, %317 ]

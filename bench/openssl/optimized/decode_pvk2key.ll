@@ -77,7 +77,7 @@ define internal i32 @pvk2key_decode(ptr noundef %0, ptr noundef %1, i32 noundef 
   %21 = and i32 %2, 1
   %.not = icmp eq i32 %21, 0
   %or.cond47 = and i1 %20, %.not
-  br i1 %or.cond47, label %.thread54, label %22
+  br i1 %or.cond47, label %.thread57, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -85,7 +85,7 @@ define internal i32 @pvk2key_decode(ptr noundef %0, ptr noundef %1, i32 noundef 
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !14
   %.not42 = icmp eq ptr %26, null
-  br i1 %.not42, label %.thread54, label %27
+  br i1 %.not42, label %.thread57, label %27
 
 27:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -126,7 +126,7 @@ define internal i32 @pvk2key_decode(ptr noundef %0, ptr noundef %1, i32 noundef 
 45:                                               ; preds = %42, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not44 = icmp eq ptr %36, null
-  br i1 %.not44, label %.thread54, label %46
+  br i1 %.not44, label %.thread57, label %46
 
 .thread:                                          ; preds = %43, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -144,7 +144,7 @@ define internal i32 @pvk2key_decode(ptr noundef %0, ptr noundef %1, i32 noundef 
   call void %50(ptr noundef nonnull %36, ptr noundef nonnull %0) #6
   br label %53
 
-.thread54:                                        ; preds = %45, %22, %18
+.thread57:                                        ; preds = %45, %22, %18
   %52 = call i32 @BIO_free(ptr noundef nonnull %16) #6
   br label %63
 
@@ -178,9 +178,9 @@ define internal i32 @pvk2key_decode(ptr noundef %0, ptr noundef %1, i32 noundef 
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %63
 
-63:                                               ; preds = %.thread54, %.thread, %53
-  %.036 = phi i32 [ %62, %53 ], [ 0, %.thread ], [ 1, %.thread54 ]
-  %.035 = phi ptr [ null, %53 ], [ %16, %.thread ], [ null, %.thread54 ]
+63:                                               ; preds = %.thread57, %.thread, %53
+  %.036 = phi i32 [ %62, %53 ], [ 0, %.thread ], [ 1, %.thread57 ]
+  %.035 = phi ptr [ null, %53 ], [ %16, %.thread ], [ null, %.thread57 ]
   %64 = call i32 @BIO_free(ptr noundef %.035) #6
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %66 = load ptr, ptr %65, align 8, !tbaa !11

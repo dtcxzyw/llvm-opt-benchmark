@@ -338,9 +338,9 @@ _ZN6icu_7714SimpleTimeZone15decodeStartRuleER10UErrorCode.exit.thread: ; preds =
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %29 = load i8, ptr %28, align 2, !tbaa !22
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %.thread21.i, label %32
+  br i1 %30, label %.thread24.i, label %32
 
-.thread21.i:                                      ; preds = %27
+.thread24.i:                                      ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 1, ptr %31, align 4, !tbaa !27
   br label %45
@@ -377,8 +377,8 @@ thread-pre-split.i.thread:                        ; preds = %32
   %or.cond = or i1 %or.cond17.i, %43
   br i1 %or.cond, label %_ZN6icu_7714SimpleTimeZone13decodeEndRuleER10UErrorCode.exit.sink.split, label %_ZN6icu_7714SimpleTimeZone15decodeStartRuleER10UErrorCode.exit
 
-45:                                               ; preds = %thread-pre-split.i, %.thread21.i
-  %46 = phi i8 [ %7, %.thread21.i ], [ %39, %thread-pre-split.i ]
+45:                                               ; preds = %thread-pre-split.i, %.thread24.i
+  %46 = phi i8 [ %7, %.thread24.i ], [ %39, %thread-pre-split.i ]
   %47 = icmp slt i8 %46, 1
   br i1 %47, label %_ZN6icu_7714SimpleTimeZone13decodeEndRuleER10UErrorCode.exit.sink.split, label %48
 
@@ -431,9 +431,9 @@ _ZN6icu_7714SimpleTimeZone15decodeStartRuleER10UErrorCode.exit: ; preds = %48, %
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 90
   %71 = load i8, ptr %70, align 2, !tbaa !35
   %72 = icmp eq i8 %71, 0
-  br i1 %72, label %.thread22.i, label %74
+  br i1 %72, label %.thread25.i, label %74
 
-.thread22.i:                                      ; preds = %69
+.thread25.i:                                      ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 1, ptr %73, align 8, !tbaa !28
   br label %87
@@ -470,8 +470,8 @@ thread-pre-split.i9.thread:                       ; preds = %74
   %or.cond16 = select i1 %85, i1 true, i1 %or.cond17.i12
   br i1 %or.cond16, label %_ZN6icu_7714SimpleTimeZone13decodeEndRuleER10UErrorCode.exit.sink.split, label %_ZN6icu_7714SimpleTimeZone13decodeEndRuleER10UErrorCode.exit
 
-87:                                               ; preds = %thread-pre-split.i9, %.thread22.i
-  %88 = phi i8 [ %9, %.thread22.i ], [ %81, %thread-pre-split.i9 ]
+87:                                               ; preds = %thread-pre-split.i9, %.thread25.i
+  %88 = phi i8 [ %9, %.thread25.i ], [ %81, %thread-pre-split.i9 ]
   %89 = icmp slt i8 %88, 1
   br i1 %89, label %_ZN6icu_7714SimpleTimeZone13decodeEndRuleER10UErrorCode.exit.sink.split, label %90
 
@@ -938,9 +938,9 @@ define void @_ZN6icu_7714SimpleTimeZone12setStartRuleEiiiiNS0_8TimeModeER10UErro
 
 32:                                               ; preds = %31
   %33 = icmp eq i8 %12, 0
-  br i1 %33, label %.thread21.i, label %35
+  br i1 %33, label %.thread24.i, label %35
 
-.thread21.i:                                      ; preds = %32
+.thread24.i:                                      ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 1, ptr %34, align 4, !tbaa !27
   br label %48
@@ -977,8 +977,8 @@ thread-pre-split.i.thread:                        ; preds = %35
   %or.cond = or i1 %46, %or.cond17.i
   br i1 %or.cond, label %.sink.split.i, label %_ZN6icu_7714SimpleTimeZone15decodeStartRuleER10UErrorCode.exit
 
-48:                                               ; preds = %thread-pre-split.i, %.thread21.i
-  %49 = phi i8 [ %10, %.thread21.i ], [ %42, %thread-pre-split.i ]
+48:                                               ; preds = %thread-pre-split.i, %.thread24.i
+  %49 = phi i8 [ %10, %.thread24.i ], [ %42, %thread-pre-split.i ]
   %50 = icmp slt i8 %49, 1
   br i1 %50, label %.sink.split.i, label %51
 
@@ -1052,9 +1052,9 @@ define void @_ZN6icu_7714SimpleTimeZone15decodeStartRuleER10UErrorCode(ptr nound
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %29 = load i8, ptr %28, align 2, !tbaa !22
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %.thread21, label %32
+  br i1 %30, label %.thread24, label %32
 
-.thread21:                                        ; preds = %27
+.thread24:                                        ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 1, ptr %31, align 4, !tbaa !27
   br label %46
@@ -1091,8 +1091,8 @@ thread-pre-split:                                 ; preds = %34, %32, %37
   %or.cond17 = icmp ult i8 %45, -11
   br i1 %or.cond17, label %.sink.split, label %54
 
-46:                                               ; preds = %.thread21, %43
-  %47 = phi i8 [ %7, %.thread21 ], [ %39, %43 ]
+46:                                               ; preds = %.thread24, %43
+  %47 = phi i8 [ %7, %.thread24 ], [ %39, %43 ]
   %48 = icmp slt i8 %47, 1
   br i1 %48, label %.sink.split, label %49
 
@@ -1246,9 +1246,9 @@ define void @_ZN6icu_7714SimpleTimeZone12setStartRuleEiiiiNS0_8TimeModeEaR10UErr
 
 36:                                               ; preds = %35
   %37 = icmp eq i8 %15, 0
-  br i1 %37, label %.thread21.i.i, label %39
+  br i1 %37, label %.thread24.i.i, label %39
 
-.thread21.i.i:                                    ; preds = %36
+.thread24.i.i:                                    ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 1, ptr %38, align 4, !tbaa !27
   br label %51
@@ -1284,8 +1284,8 @@ thread-pre-split.i.thread.i:                      ; preds = %39
   %or.cond.i = or i1 %49, %or.cond17.i.i
   br i1 %or.cond.i, label %.sink.split.i.i, label %_ZN6icu_7714SimpleTimeZone12setStartRuleEiiiiNS0_8TimeModeER10UErrorCode.exit
 
-51:                                               ; preds = %thread-pre-split.i.i, %.thread21.i.i
-  %52 = phi i8 [ %13, %.thread21.i.i ], [ %45, %thread-pre-split.i.i ]
+51:                                               ; preds = %thread-pre-split.i.i, %.thread24.i.i
+  %52 = phi i8 [ %13, %.thread24.i.i ], [ %45, %thread-pre-split.i.i ]
   %53 = icmp slt i8 %52, 1
   br i1 %53, label %.sink.split.i.i, label %54
 
@@ -1363,9 +1363,9 @@ define void @_ZN6icu_7714SimpleTimeZone10setEndRuleEiiiiNS0_8TimeModeER10UErrorC
 
 32:                                               ; preds = %31
   %33 = icmp eq i8 %12, 0
-  br i1 %33, label %.thread22.i, label %35
+  br i1 %33, label %.thread25.i, label %35
 
-.thread22.i:                                      ; preds = %32
+.thread25.i:                                      ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 1, ptr %34, align 8, !tbaa !28
   br label %48
@@ -1402,8 +1402,8 @@ thread-pre-split.i.thread:                        ; preds = %35
   %or.cond = or i1 %46, %or.cond17.i
   br i1 %or.cond, label %.sink.split.i, label %_ZN6icu_7714SimpleTimeZone13decodeEndRuleER10UErrorCode.exit
 
-48:                                               ; preds = %thread-pre-split.i, %.thread22.i
-  %49 = phi i8 [ %10, %.thread22.i ], [ %42, %thread-pre-split.i ]
+48:                                               ; preds = %thread-pre-split.i, %.thread25.i
+  %49 = phi i8 [ %10, %.thread25.i ], [ %42, %thread-pre-split.i ]
   %50 = icmp slt i8 %49, 1
   br i1 %50, label %.sink.split.i, label %51
 
@@ -1478,9 +1478,9 @@ define void @_ZN6icu_7714SimpleTimeZone13decodeEndRuleER10UErrorCode(ptr noundef
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 90
   %29 = load i8, ptr %28, align 2, !tbaa !35
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %.thread22, label %32
+  br i1 %30, label %.thread25, label %32
 
-.thread22:                                        ; preds = %27
+.thread25:                                        ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 1, ptr %31, align 8, !tbaa !28
   br label %46
@@ -1517,8 +1517,8 @@ thread-pre-split:                                 ; preds = %34, %32, %37
   %or.cond17 = icmp ult i8 %45, -11
   br i1 %or.cond17, label %.sink.split, label %54
 
-46:                                               ; preds = %.thread22, %43
-  %47 = phi i8 [ %9, %.thread22 ], [ %39, %43 ]
+46:                                               ; preds = %.thread25, %43
+  %47 = phi i8 [ %9, %.thread25 ], [ %39, %43 ]
   %48 = icmp slt i8 %47, 1
   br i1 %48, label %.sink.split, label %49
 
@@ -1674,9 +1674,9 @@ define void @_ZN6icu_7714SimpleTimeZone10setEndRuleEiiiiNS0_8TimeModeEaR10UError
 
 36:                                               ; preds = %35
   %37 = icmp eq i8 %15, 0
-  br i1 %37, label %.thread22.i.i, label %39
+  br i1 %37, label %.thread25.i.i, label %39
 
-.thread22.i.i:                                    ; preds = %36
+.thread25.i.i:                                    ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 1, ptr %38, align 8, !tbaa !28
   br label %51
@@ -1712,8 +1712,8 @@ thread-pre-split.i.thread.i:                      ; preds = %39
   %or.cond.i = or i1 %49, %or.cond17.i.i
   br i1 %or.cond.i, label %.sink.split.i.i, label %_ZN6icu_7714SimpleTimeZone10setEndRuleEiiiiNS0_8TimeModeER10UErrorCode.exit
 
-51:                                               ; preds = %thread-pre-split.i.i, %.thread22.i.i
-  %52 = phi i8 [ %13, %.thread22.i.i ], [ %45, %thread-pre-split.i.i ]
+51:                                               ; preds = %thread-pre-split.i.i, %.thread25.i.i
+  %52 = phi i8 [ %13, %.thread25.i.i ], [ %45, %thread-pre-split.i.i ]
   %53 = icmp slt i8 %52, 1
   br i1 %53, label %.sink.split.i.i, label %54
 
@@ -2669,10 +2669,10 @@ _ZNK6icu_7714SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %49, %.thread29
-  %.sink32.in = phi ptr [ %27, %49 ], [ %25, %.thread29 ]
+  %.sink35.in = phi ptr [ %27, %49 ], [ %25, %.thread29 ]
   %.sink.in = phi ptr [ %25, %49 ], [ %27, %.thread29 ]
-  %.sink32 = load ptr, ptr %.sink32.in, align 8, !tbaa !53
-  call void @_ZN6icu_7718TimeZoneTransition7setFromERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(80) %.sink32)
+  %.sink35 = load ptr, ptr %.sink35.in, align 8, !tbaa !53
+  call void @_ZN6icu_7718TimeZoneTransition7setFromERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(80) %.sink35)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !53
   call void @_ZN6icu_7718TimeZoneTransition5setToERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(80) %.sink)
   br label %54
@@ -2832,10 +2832,10 @@ _ZNK6icu_7714SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %46, %.thread28
-  %.sink31.in = phi ptr [ %24, %46 ], [ %22, %.thread28 ]
+  %.sink34.in = phi ptr [ %24, %46 ], [ %22, %.thread28 ]
   %.sink.in = phi ptr [ %22, %46 ], [ %24, %.thread28 ]
-  %.sink31 = load ptr, ptr %.sink31.in, align 8, !tbaa !53
-  call void @_ZN6icu_7718TimeZoneTransition7setFromERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(80) %.sink31)
+  %.sink34 = load ptr, ptr %.sink34.in, align 8, !tbaa !53
+  call void @_ZN6icu_7718TimeZoneTransition7setFromERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(80) %.sink34)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !53
   call void @_ZN6icu_7718TimeZoneTransition5setToERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(80) %.sink)
   br label %51

@@ -10668,13 +10668,13 @@ define hidden void @"_ZN73_$LT$typst..visualize..gradient..Gradient$u20$as$u20$c
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  switch i64 %29, label %default.unreachable4 [
+  switch i64 %29, label %default.unreachable6 [
     i64 0, label %35
     i64 1, label %50
     i64 2, label %73
   ]
 
-default.unreachable4:                             ; preds = %2
+default.unreachable6:                             ; preds = %2
   unreachable
 
 35:                                               ; preds = %2
@@ -11132,8 +11132,8 @@ _ZN4core4hash6Hasher19write_length_prefix17hc5b18672053ed42eE.llvm.1183841621626
   store i64 %.sroa.0.sroa.5.sroa.6.0, ptr %.sroa.0.sroa.7.sroa.6.0..sroa.0.sroa.7.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 64
   %50 = icmp ne i64 %6, 0
-  %.not40 = and i1 %50, %.not
-  br i1 %.not40, label %.lr.ph, label %"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90eefaf8d8a56c05E.exit.thread"
+  %.not43 = and i1 %50, %.not
+  br i1 %.not43, label %.lr.ph, label %"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90eefaf8d8a56c05E.exit.thread"
 
 .lr.ph:                                           ; preds = %_ZN4core4hash6Hasher19write_length_prefix17hc5b18672053ed42eE.llvm.11838416216260248463.exit
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -11602,7 +11602,7 @@ define hidden { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @_ZN9typst_pdf7outline13write_outline17h8dd65572b6dd7689E(ptr noalias noundef align 8 dereferenceable(856) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2147483647) i32 @_ZN9typst_pdf7outline13write_outline17h8dd65572b6dd7689E(ptr noalias noundef align 8 dereferenceable(856) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, i64 }, ptr }, align 8
   %3 = alloca { { ptr, i64 }, ptr }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -11923,12 +11923,12 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit75: ; preds = %79
   %126 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %127 = add i64 %124, -1
   %128 = getelementptr [0 x { { { i64, ptr, {} }, i64 }, ptr, i64, i8, [7 x i8] }], ptr %126, i64 0, i64 %127, i32 2
-  %.059.val120 = load i64, ptr %128, align 8
-  %129 = freeze i64 %.059.val120
-  %spec.select.i83121 = icmp uge i64 %125, %129
+  %.059.val129 = load i64, ptr %128, align 8
+  %129 = freeze i64 %.059.val129
+  %spec.select.i83130 = icmp uge i64 %125, %129
   %130 = icmp ult i64 %129, %114
-  %or.cond122 = and i1 %spec.select.i83121, %130
-  br i1 %or.cond122, label %.lr.ph123, label %.critedge
+  %or.cond131 = and i1 %spec.select.i83130, %130
+  br i1 %or.cond131, label %.lr.ph132, label %.critedge
 
 .thread98:                                        ; preds = %122
   %131 = add i64 %.054118, -1
@@ -11948,7 +11948,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit75: ; preds = %79
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZN4core3ptr52drop_in_place$LT$typst_pdf..outline..HeadingNode$GT$17h00d44134bc57a7a6E.exit"
 
-138:                                              ; preds = %.lr.ph123
+138:                                              ; preds = %.lr.ph132
   %139 = load ptr, ptr %157, align 8, !nonnull !4, !noundef !4
   %140 = add i64 %159, -1
   %141 = getelementptr [0 x { { { i64, ptr, {} }, i64 }, ptr, i64, i8, [7 x i8] }], ptr %139, i64 0, i64 %140, i32 2
@@ -11957,11 +11957,11 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit75: ; preds = %79
   %spec.select.i83 = icmp uge i64 %125, %142
   %143 = icmp ult i64 %142, %114
   %or.cond = and i1 %spec.select.i83, %143
-  br i1 %or.cond, label %.lr.ph123, label %.critedge
+  br i1 %or.cond, label %.lr.ph132, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph123, %138, %.lr.ph, %.preheader
-  %.061.lcssa108 = phi ptr [ %11, %.preheader ], [ %11, %.lr.ph ], [ %156, %138 ], [ %156, %.lr.ph123 ]
-  %.lcssa107 = phi ptr [ %12, %.preheader ], [ %12, %.lr.ph ], [ %157, %138 ], [ %157, %.lr.ph123 ]
+.critedge:                                        ; preds = %.lr.ph132, %138, %.lr.ph, %.preheader
+  %.061.lcssa108 = phi ptr [ %11, %.preheader ], [ %11, %.lr.ph ], [ %156, %138 ], [ %156, %.lr.ph132 ]
+  %.lcssa107 = phi ptr [ %12, %.preheader ], [ %12, %.lr.ph ], [ %157, %138 ], [ %157, %.lr.ph132 ]
   %144 = getelementptr inbounds nuw i8, ptr %.061.lcssa108, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
@@ -11996,7 +11996,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit75: ; preds = %79
   %153 = icmp eq ptr %43, %34
   br i1 %153, label %._crit_edge, label %42
 
-.lr.ph123:                                        ; preds = %.lr.ph, %138
+.lr.ph132:                                        ; preds = %.lr.ph, %138
   %154 = phi i64 [ %140, %138 ], [ %127, %.lr.ph ]
   %155 = phi ptr [ %139, %138 ], [ %126, %.lr.ph ]
   %156 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, ptr, i64, i8, [7 x i8] }], ptr %155, i64 0, i64 %154

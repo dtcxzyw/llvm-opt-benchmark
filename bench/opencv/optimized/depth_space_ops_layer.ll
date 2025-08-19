@@ -773,10 +773,10 @@ _ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i:             ; preds = %_ZSt7advanceIPKimEv
   br label %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i.thread
 
 _ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i.thread:      ; preds = %_ZSt7advanceIPKimEvRT_T0_.exit.i, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i
-  %.sink.i.i25.i.idx111 = phi i64 [ %101, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i ], [ 0, %_ZSt7advanceIPKimEvRT_T0_.exit.i ]
+  %.sink.i.i25.i.idx131 = phi i64 [ %101, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i ], [ 0, %_ZSt7advanceIPKimEvRT_T0_.exit.i ]
   %105 = phi ptr [ %.pre26.i, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i ], [ %99, %_ZSt7advanceIPKimEvRT_T0_.exit.i ]
   %106 = sub nsw i64 24, %101
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.sink.i.i25.i.idx111
+  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.sink.i.i25.i.idx131
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %105, ptr nonnull align 4 %.sink.i.i25.i.ptr, i64 %106, i1 false)
   %107 = getelementptr inbounds i8, ptr %105, i64 %106
   store ptr %107, ptr %98, align 8, !tbaa !69
@@ -913,10 +913,10 @@ _ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i93:           ; preds = %_ZSt7advanceIPKimEv
   br label %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i93.thread
 
 _ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i93.thread:    ; preds = %_ZSt7advanceIPKimEvRT_T0_.exit.i89, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i93
-  %.sink.i.i25.i94.idx118 = phi i64 [ %148, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i93 ], [ 0, %_ZSt7advanceIPKimEvRT_T0_.exit.i89 ]
+  %.sink.i.i25.i94.idx138 = phi i64 [ %148, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i93 ], [ 0, %_ZSt7advanceIPKimEvRT_T0_.exit.i89 ]
   %152 = phi ptr [ %.pre26.i92, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i93 ], [ %146, %_ZSt7advanceIPKimEvRT_T0_.exit.i89 ]
   %153 = sub nsw i64 24, %148
-  %.sink.i.i25.i94.ptr = getelementptr inbounds nuw i8, ptr @constinit.9, i64 %.sink.i.i25.i94.idx118
+  %.sink.i.i25.i94.ptr = getelementptr inbounds nuw i8, ptr @constinit.9, i64 %.sink.i.i25.i94.idx138
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %152, ptr nonnull align 4 %.sink.i.i25.i94.ptr, i64 %153, i1 false)
   %154 = getelementptr inbounds i8, ptr %152, i64 %153
   store ptr %154, ptr %145, align 8, !tbaa !69
@@ -3705,10 +3705,10 @@ _ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i:             ; preds = %_ZSt7advanceIPKimEv
   br label %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i.thread
 
 _ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i.thread:      ; preds = %_ZSt7advanceIPKimEvRT_T0_.exit.i, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i
-  %.sink.i.i25.i.idx43 = phi i64 [ %78, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i ], [ 0, %_ZSt7advanceIPKimEvRT_T0_.exit.i ]
+  %.sink.i.i25.i.idx52 = phi i64 [ %78, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i ], [ 0, %_ZSt7advanceIPKimEvRT_T0_.exit.i ]
   %82 = phi ptr [ %.pre26.i, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i ], [ %76, %_ZSt7advanceIPKimEvRT_T0_.exit.i ]
   %83 = sub nsw i64 24, %78
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr @constinit.37, i64 %.sink.i.i25.i.idx43
+  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr @constinit.37, i64 %.sink.i.i25.i.idx52
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %82, ptr nonnull align 4 %.sink.i.i25.i.ptr, i64 %83, i1 false)
   %84 = getelementptr inbounds i8, ptr %82, i64 %83
   store ptr %84, ptr %75, align 8, !tbaa !69

@@ -244,13 +244,13 @@ define void @_ZN5ZXing13GenericGFPoly9normalizeEv(ptr noundef nonnull align 8 de
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 8
   %17 = load i32, ptr %16, align 4, !tbaa !8
   %.not38.i.i.i.i = icmp eq i32 %17, 0
-  br i1 %.not38.i.i.i.i, label %18, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit24"
+  br i1 %.not38.i.i.i.i, label %18, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit26"
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 12
   %20 = load i32, ptr %19, align 4, !tbaa !8
   %.not39.i.i.i.i = icmp eq i32 %20, 0
-  br i1 %.not39.i.i.i.i, label %21, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit26"
+  br i1 %.not39.i.i.i.i, label %21, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit28"
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 16
@@ -303,16 +303,16 @@ define void @_ZN5ZXing13GenericGFPoly9normalizeEv(ptr noundef nonnull align 8 de
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 4
   br label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
 
-"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit24": ; preds = %15
+"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit26": ; preds = %15
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 8
   br label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
 
-"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit26": ; preds = %18
+"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit28": ; preds = %18
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 12
   br label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
 
-"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit", %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit24", %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit26", %._crit_edge.i.i.i.i, %26, %30, %34
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %26 ], [ %.sroa.025.1.i.i.i.i, %30 ], [ %.val4, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %34 ], [ %36, %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit" ], [ %37, %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit24" ], [ %38, %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit26" ], [ %.sroa.025.050.i.i.i.i, %.lr.ph.i.i.i.i ]
+"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit", %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit26", %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit28", %._crit_edge.i.i.i.i, %26, %30, %34
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %26 ], [ %.sroa.025.1.i.i.i.i, %30 ], [ %.val4, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %34 ], [ %36, %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit" ], [ %37, %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit26" ], [ %38, %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit28" ], [ %.sroa.025.050.i.i.i.i, %.lr.ph.i.i.i.i ]
   %39 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %.val
   br i1 %39, label %72, label %40
 
@@ -1345,13 +1345,13 @@ _ZNK5ZXing9GenericGF8multiplyEii.exit.us88:       ; preds = %.lr.ph82.split.spli
   %188 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i, i64 8
   %189 = load i32, ptr %188, align 4, !tbaa !8
   %.not38.i.i.i = icmp eq i32 %189, 0
-  br i1 %.not38.i.i.i, label %190, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit136"
+  br i1 %.not38.i.i.i, label %190, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit160"
 
 190:                                              ; preds = %187
   %191 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i, i64 12
   %192 = load i32, ptr %191, align 4, !tbaa !8
   %.not39.i.i.i = icmp eq i32 %192, 0
-  br i1 %.not39.i.i.i, label %193, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit138"
+  br i1 %.not39.i.i.i, label %193, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit162"
 
 193:                                              ; preds = %190
   %194 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i, i64 16
@@ -1402,16 +1402,16 @@ _ZNK5ZXing9GenericGF8multiplyEii.exit.us88:       ; preds = %.lr.ph82.split.spli
   %208 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i, i64 4
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit136": ; preds = %187
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit160": ; preds = %187
   %209 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i, i64 8
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit138": ; preds = %190
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit162": ; preds = %190
   %210 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i, i64 12
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit136", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit138", %198, %202, %206
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %198 ], [ %.sroa.025.1.i.i.i, %202 ], [ %spec.select.i.i.i, %206 ], [ %208, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit" ], [ %209, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit136" ], [ %210, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit138" ], [ %.sroa.025.050.i.i.i, %.lr.ph.i.i.i ]
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit160", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit162", %198, %202, %206
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %198 ], [ %.sroa.025.1.i.i.i, %202 ], [ %spec.select.i.i.i, %206 ], [ %208, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit" ], [ %209, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit160" ], [ %210, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit162" ], [ %.sroa.025.050.i.i.i, %.lr.ph.i.i.i ]
   %211 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %109
   br i1 %211, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit.thread", label %265
 
@@ -1680,13 +1680,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !8
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !8
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

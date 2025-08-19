@@ -862,21 +862,21 @@ write_syslogger_file.exit.i:                      ; preds = %347, %343
   %369 = getelementptr inbounds nuw i8, ptr %.0192.i, i64 %indvars.iv.i
   %370 = load i8, ptr %369, align 1
   %371 = icmp eq i8 %370, 0
-  br i1 %371, label %._crit_edge.split.loop.exit211.i, label %372
+  br i1 %371, label %._crit_edge.split.loop.exit218.i, label %372
 
 372:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %368
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
-._crit_edge.split.loop.exit211.i:                 ; preds = %.lr.ph.i
+._crit_edge.split.loop.exit218.i:                 ; preds = %.lr.ph.i
   %373 = trunc nuw nsw i64 %indvars.iv.i to i32
   %.pre = and i64 %indvars.iv.i, 4294967295
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %372, %._crit_edge.split.loop.exit211.i
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge.split.loop.exit211.i ], [ %368, %372 ]
-  %.0122.lcssa.ph.i = phi i32 [ %373, %._crit_edge.split.loop.exit211.i ], [ %.0100191.i, %372 ]
+._crit_edge.i:                                    ; preds = %372, %._crit_edge.split.loop.exit218.i
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge.split.loop.exit218.i ], [ %368, %372 ]
+  %.0122.lcssa.ph.i = phi i32 [ %373, %._crit_edge.split.loop.exit218.i ], [ %.0100191.i, %372 ]
   %374 = load ptr, ptr @syslogFile, align 8
   %375 = call i64 @fwrite(ptr noundef nonnull readonly %.0192.i, i64 noundef 1, i64 noundef %.pre-phi, ptr noundef %374)
   %376 = trunc i64 %375 to i32

@@ -133,7 +133,7 @@ define internal noundef i32 @write_header(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @write_packet(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca [4 x ptr], align 16
   %4 = alloca [1024 x i8], align 16
   %5 = alloca ptr, align 8
@@ -311,7 +311,7 @@ define internal i32 @write_packet(ptr noundef %0, ptr noundef %1) #0 {
 103:                                              ; preds = %94, %97
   %.0123.lcssa.ph = phi i64 [ 4, %97 ], [ %indvars.iv, %94 ]
   %104 = load i32, ptr %70, align 8, !tbaa !56
-  %.not139.not173 = icmp eq i32 %104, 0
+  %.not139.not177 = icmp eq i32 %104, 0
   %105 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %106 = load i32, ptr %105, align 8, !tbaa !60
   %107 = getelementptr inbounds nuw i8, ptr %18, i64 76
@@ -374,10 +374,10 @@ define internal i32 @write_packet(ptr noundef %0, ptr noundef %1) #0 {
 150:                                              ; preds = %140
   %151 = load i8, ptr %72, align 8, !tbaa !44
   %152 = icmp ugt i8 %151, 3
-  br i1 %152, label %153, label %.thread178
+  br i1 %152, label %153, label %.thread182
 
-.thread178:                                       ; preds = %150
-  br i1 %.not139.not173, label %._crit_edge, label %.lr.ph
+.thread182:                                       ; preds = %150
+  br i1 %.not139.not177, label %._crit_edge, label %.lr.ph
 
 153:                                              ; preds = %150
   %154 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -416,31 +416,31 @@ define internal i32 @write_packet(ptr noundef %0, ptr noundef %1) #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %170, %153
-  %.sink194 = phi ptr [ %161, %153 ], [ %176, %170 ]
+  %.sink198 = phi ptr [ %161, %153 ], [ %176, %170 ]
   %.sink.ph = phi ptr [ %154, %153 ], [ %3, %170 ]
-  %.not139.not176.ph = phi i1 [ %.not139.not173, %153 ], [ %.not139.not, %170 ]
-  %.0123.lcssa174.ph = phi i64 [ %.0123.lcssa.ph, %153 ], [ %indvars.iv, %170 ]
-  call void @avio_flush(ptr noundef %.sink194) #8
+  %.not139.not180.ph = phi i1 [ %.not139.not177, %153 ], [ %.not139.not, %170 ]
+  %.0123.lcssa178.ph = phi i64 [ %.0123.lcssa.ph, %153 ], [ %indvars.iv, %170 ]
+  call void @avio_flush(ptr noundef %.sink198) #8
   br label %177
 
 177:                                              ; preds = %.sink.split, %166
   %.sink = phi ptr [ %3, %166 ], [ %.sink.ph, %.sink.split ]
-  %.not139.not176 = phi i1 [ %.not139.not, %166 ], [ %.not139.not176.ph, %.sink.split ]
-  %.0123.lcssa174 = phi i64 [ %indvars.iv, %166 ], [ %.0123.lcssa174.ph, %.sink.split ]
+  %.not139.not180 = phi i1 [ %.not139.not, %166 ], [ %.not139.not180.ph, %.sink.split ]
+  %.0123.lcssa178 = phi i64 [ %indvars.iv, %166 ], [ %.0123.lcssa178.ph, %.sink.split ]
   %178 = call i32 @ff_format_io_close(ptr noundef nonnull %0, ptr noundef nonnull %.sink) #8
   %179 = icmp slt i32 %178, 0
   br i1 %179, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %177
-  br i1 %.not139.not176, label %._crit_edge, label %.lr.ph
+  br i1 %.not139.not180, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread178, %.preheader
-  %.0123.lcssa174183184 = phi i64 [ %.0123.lcssa.ph, %.thread178 ], [ %.0123.lcssa174, %.preheader ]
+.lr.ph:                                           ; preds = %.thread182, %.preheader
+  %.0123.lcssa178187188 = phi i64 [ %.0123.lcssa.ph, %.thread182 ], [ %.0123.lcssa178, %.preheader ]
   br label %181
 
 180:                                              ; preds = %181
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
-  %exitcond166.not = icmp eq i64 %indvars.iv163, %.0123.lcssa174183184
+  %exitcond166.not = icmp eq i64 %indvars.iv163, %.0123.lcssa178187188
   br i1 %exitcond166.not, label %._crit_edge, label %181, !llvm.loop !69
 
 181:                                              ; preds = %.lr.ph, %180
@@ -451,7 +451,7 @@ define internal i32 @write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %185 = icmp sgt i32 %184, -1
   br i1 %185, label %180, label %.loopexit
 
-._crit_edge:                                      ; preds = %180, %.thread178, %.preheader
+._crit_edge:                                      ; preds = %180, %.thread182, %.preheader
   %186 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %187 = load i32, ptr %186, align 4, !tbaa !47
   %188 = add nsw i32 %187, 1

@@ -3210,9 +3210,9 @@ Py_XDECREF.exit70.i:                              ; preds = %115, %112, %110, %_
   br label %_elementtree_TreeBuilder___init___impl.exit
 
 _elementtree_TreeBuilder___init___impl.exit:      ; preds = %Py_XDECREF.exit70.i, %117, %118, %120, %123
-  %.sink72.i = phi i8 [ %116, %Py_XDECREF.exit70.i ], [ 0, %123 ], [ 0, %120 ], [ 0, %118 ], [ 0, %117 ]
+  %.sink90.i = phi i8 [ %116, %Py_XDECREF.exit70.i ], [ 0, %123 ], [ 0, %120 ], [ 0, %118 ], [ 0, %117 ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 153
-  store i8 %.sink72.i, ptr %124, align 1, !tbaa !104
+  store i8 %.sink90.i, ptr %124, align 1, !tbaa !104
   br label %125
 
 125:                                              ; preds = %40, %36, %12, %_elementtree_TreeBuilder___init___impl.exit
@@ -3472,19 +3472,19 @@ _Py_NewRef.exit:                                  ; preds = %9, %12
 16:                                               ; preds = %14
   %.val41 = load i32, ptr %4, align 8, !tbaa !21
   %17 = icmp eq i32 %.val41, 1
-  br i1 %17, label %18, label %.thread54
+  br i1 %17, label %18, label %.thread60
 
 18:                                               ; preds = %16
   %19 = getelementptr i8, ptr %1, i64 8
   %.val39 = load ptr, ptr %19, align 8, !tbaa !25
   %.not51 = icmp eq ptr %.val39, @PyBytes_Type
-  br i1 %.not51, label %20, label %.thread54
+  br i1 %.not51, label %20, label %.thread60
 
 20:                                               ; preds = %18
   %21 = getelementptr i8, ptr %1, i64 16
   %.val42 = load i64, ptr %21, align 8, !tbaa !101
   %22 = icmp eq i64 %.val42, 1
-  br i1 %22, label %23, label %.thread54
+  br i1 %22, label %23, label %.thread60
 
 23:                                               ; preds = %20
   %24 = getelementptr i8, ptr %4, i64 16
@@ -3505,19 +3505,19 @@ _Py_NewRef.exit:                                  ; preds = %9, %12
 
 33:                                               ; preds = %14
   %.not52 = icmp eq ptr %.val40, @PyList_Type
-  br i1 %.not52, label %34, label %.thread54
+  br i1 %.not52, label %34, label %.thread60
 
 34:                                               ; preds = %33
   %35 = tail call i32 @PyList_Append(ptr noundef nonnull %4, ptr noundef %1) #12
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %Py_DECREF.exit, label %Py_DECREF.exit.thread
 
-.thread54:                                        ; preds = %16, %18, %20, %33
+.thread60:                                        ; preds = %16, %18, %20, %33
   %37 = tail call ptr @PyList_New(i64 noundef 2) #12
   %.not36 = icmp eq ptr %37, null
   br i1 %.not36, label %Py_DECREF.exit, label %38
 
-38:                                               ; preds = %.thread54
+38:                                               ; preds = %.thread60
   %39 = load ptr, ptr %3, align 8, !tbaa !96
   %40 = load i32, ptr %39, align 8, !tbaa !21
   %41 = icmp slt i32 %40, 0
@@ -3565,8 +3565,8 @@ _Py_NewRef.exit47:                                ; preds = %_Py_NewRef.exit46, 
 Py_DECREF.exit.thread:                            ; preds = %_Py_NewRef.exit47, %52, %55, %.thread, %34, %_Py_NewRef.exit
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %.thread54, %23, %34, %5, %Py_DECREF.exit.thread
-  %.0 = phi ptr [ @_Py_NoneStruct, %Py_DECREF.exit.thread ], [ @_Py_NoneStruct, %5 ], [ null, %34 ], [ null, %23 ], [ null, %.thread54 ]
+Py_DECREF.exit:                                   ; preds = %.thread60, %23, %34, %5, %Py_DECREF.exit.thread
+  %.0 = phi ptr [ @_Py_NoneStruct, %Py_DECREF.exit.thread ], [ @_Py_NoneStruct, %5 ], [ null, %34 ], [ null, %23 ], [ null, %.thread60 ]
   ret ptr %.0
 }
 
@@ -5146,7 +5146,7 @@ is_empty_dict.exit:                               ; preds = %.thread
   %27 = getelementptr i8, ptr %25, i64 16
   %.val2.i = load i64, ptr %27, align 8, !tbaa !48
   %.not49 = icmp eq i64 %.val2.i, 0
-  br i1 %.not49, label %.thread51, label %is_empty_dict.exit.thread
+  br i1 %.not49, label %.thread67, label %is_empty_dict.exit.thread
 
 is_empty_dict.exit.thread:                        ; preds = %.thread, %is_empty_dict.exit
   %28 = call ptr @PyMem_Malloc(i64 noundef 64) #12
@@ -5191,25 +5191,25 @@ is_empty_dict.exit.thread:                        ; preds = %.thread, %is_empty_
   store ptr %46, ptr %47, align 8, !tbaa !39
   %.pr44.pre = load ptr, ptr %5, align 8, !tbaa !20
   %.not.i29 = icmp eq ptr %.pr44.pre, null
-  br i1 %.not.i29, label %Py_XDECREF.exit, label %.thread51
+  br i1 %.not.i29, label %Py_XDECREF.exit, label %.thread67
 
-.thread51:                                        ; preds = %is_empty_dict.exit, %42
-  %.pr4454 = phi ptr [ %.pr44.pre, %42 ], [ %25, %is_empty_dict.exit ]
-  %48 = load i32, ptr %.pr4454, align 8, !tbaa !21
+.thread67:                                        ; preds = %is_empty_dict.exit, %42
+  %.pr4470 = phi ptr [ %.pr44.pre, %42 ], [ %25, %is_empty_dict.exit ]
+  %48 = load i32, ptr %.pr4470, align 8, !tbaa !21
   %.not.i.i = icmp sgt i32 %48, -1
   br i1 %.not.i.i, label %49, label %Py_XDECREF.exit
 
-49:                                               ; preds = %.thread51
+49:                                               ; preds = %.thread67
   %50 = add nsw i32 %48, -1
-  store i32 %50, ptr %.pr4454, align 8, !tbaa !21
+  store i32 %50, ptr %.pr4470, align 8, !tbaa !21
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %Py_XDECREF.exit
 
 52:                                               ; preds = %49
-  call void @_Py_Dealloc(ptr noundef nonnull %.pr4454) #12
+  call void @_Py_Dealloc(ptr noundef nonnull %.pr4470) #12
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %21, %24, %42, %.thread51, %49, %52
+Py_XDECREF.exit:                                  ; preds = %21, %24, %42, %.thread67, %49, %52
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !20
   %55 = load ptr, ptr %4, align 8, !tbaa !20

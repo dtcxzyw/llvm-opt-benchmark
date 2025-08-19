@@ -1173,23 +1173,23 @@ define hidden void @ir_dump_live_ranges(ptr noundef readonly captures(none) %0, 
 
 66:                                               ; preds = %63
   %67 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 2, i64 1, ptr %1)
-  br label %.preheader236
+  br label %.preheader252
 
 68:                                               ; preds = %63
   %69 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %70 = load i8, ptr %69, align 1, !tbaa !71
   %.not161 = icmp eq i8 %70, -1
-  br i1 %.not161, label %.preheader236, label %71
+  br i1 %.not161, label %.preheader252, label %71
 
 71:                                               ; preds = %68
   %fputc162 = tail call i32 @fputc(i32 32, ptr %1)
-  br label %.preheader236
+  br label %.preheader252
 
-.preheader236:                                    ; preds = %68, %71, %66
+.preheader252:                                    ; preds = %68, %71, %66
   br label %72
 
-72:                                               ; preds = %.preheader236, %188
-  %.0141 = phi ptr [ %.pr, %188 ], [ %17, %.preheader236 ]
+72:                                               ; preds = %.preheader252, %188
+  %.0141 = phi ptr [ %.pr, %188 ], [ %17, %.preheader252 ]
   %73 = getelementptr inbounds nuw i8, ptr %.0141, i64 1
   %74 = load i8, ptr %73, align 1, !tbaa !71
   %.not163 = icmp eq i8 %74, -1
@@ -2151,9 +2151,9 @@ ir_operands_count.exit:                           ; preds = %217, %229
   %361 = getelementptr inbounds nuw [0 x ptr], ptr @ir_rule_name, i64 0, i64 %360
   %362 = zext nneg i32 %357 to i64
   %363 = getelementptr inbounds nuw [108 x ptr], ptr @ir_op_name, i64 0, i64 %362
-  %.sink447.in = select i1 %358, ptr %363, ptr %361
-  %.sink447 = load ptr, ptr %.sink447.in, align 8, !tbaa !28
-  %364 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.98, ptr noundef %.sink447) #7
+  %.sink480.in = select i1 %358, ptr %363, ptr %361
+  %.sink480 = load ptr, ptr %.sink480.in, align 8, !tbaa !28
+  %364 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.98, ptr noundef %.sink480) #7
   %.not397 = icmp sgt i32 %356, -1
   br i1 %.not397, label %367, label %365
 

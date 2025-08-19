@@ -1276,7 +1276,7 @@ define void @_ZN6assets6Assets3get17hd575262a9aea793bE(ptr dead_on_unwind noalia
 .lr.ph.i27.us.i:                                  ; preds = %22, %.sink.split.i.us.i
   %23 = phi i64 [ %.sink.i.us.i, %.sink.split.i.us.i ], [ %.sroa.307.0.us.i, %22 ]
   %24 = phi i64 [ %64, %.sink.split.i.us.i ], [ %20, %22 ]
-  %25 = phi i64 [ %.ph69.i.us.i, %.sink.split.i.us.i ], [ %.sroa.18.0.us.i, %22 ]
+  %25 = phi i64 [ %.ph76.i.us.i, %.sink.split.i.us.i ], [ %.sroa.18.0.us.i, %22 ]
   %26 = getelementptr inbounds i8, ptr %.sroa.1240.0.copyload.i, i64 %24
   %27 = load i8, ptr %26, align 1, !alias.scope !170, !noalias !175, !noundef !5
   %28 = and i8 %27, 63
@@ -1348,8 +1348,8 @@ define void @_ZN6assets6Assets3get17hd575262a9aea793bE(ptr dead_on_unwind noalia
 
 .sink.split.i.us.i:                               ; preds = %62, %59, %48
   %.sink.i.us.i = phi i64 [ %15, %48 ], [ 0, %59 ], [ 0, %62 ]
-  %.ph69.i.us.i = phi i64 [ %49, %48 ], [ %61, %59 ], [ %63, %62 ]
-  %64 = add i64 %.ph69.i.us.i, %14
+  %.ph76.i.us.i = phi i64 [ %49, %48 ], [ %61, %59 ], [ %63, %62 ]
+  %64 = add i64 %.ph76.i.us.i, %14
   %65 = icmp ult i64 %64, %.sroa.1341.0.copyload.i
   br i1 %65, label %.lr.ph.i27.us.i, label %.loopexit.i
 

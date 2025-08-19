@@ -1173,7 +1173,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %105 = load i64, ptr %104, align 8, !tbaa !146
   %106 = icmp eq i64 %105, %101
-  br i1 %106, label %107, label %.thread329
+  br i1 %106, label %107, label %.thread346
 
 107:                                              ; preds = %103
   %108 = and i32 %.0239, 2
@@ -1184,14 +1184,14 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.116) #9
   %.pr.pre = load i64, ptr %81, align 8, !tbaa !144
   %110 = icmp sgt i64 %.pr.pre, 0
-  br i1 %110, label %.thread329, label %.thread
+  br i1 %110, label %.thread346, label %.thread
 
-.thread329:                                       ; preds = %103, %109
+.thread346:                                       ; preds = %103, %109
   %111 = and i32 %.0239, 2048
   %.not290 = icmp eq i32 %111, 0
   br i1 %.not290, label %112, label %120
 
-112:                                              ; preds = %.thread329
+112:                                              ; preds = %.thread346
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.120) #9
   %113 = and i32 %.0239, 4
   %.not291 = icmp eq i32 %113, 0
@@ -1220,8 +1220,8 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.98, ptr noundef nonnull %5) #9
   br label %312
 
-120:                                              ; preds = %117, %.thread, %114, %112, %.thread329, %107, %97, %95, %88, %77, %70, %61, %49
-  %.0240 = phi ptr [ %51, %49 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 40), %61 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 40), %70 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 40), %77 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 200), %88 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 160), %95 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 40), %97 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 80), %107 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 240), %.thread329 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 120), %112 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 80), %114 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 160), %.thread ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 40), %117 ]
+120:                                              ; preds = %117, %.thread, %114, %112, %.thread346, %107, %97, %95, %88, %77, %70, %61, %49
+  %.0240 = phi ptr [ %51, %49 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 40), %61 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 40), %70 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 40), %77 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 200), %88 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 160), %95 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 40), %97 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 80), %107 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 240), %.thread346 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 120), %112 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 80), %114 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 160), %.thread ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 40), %117 ]
   %121 = getelementptr inbounds nuw i8, ptr %.0240, i64 24
   %122 = load i32, ptr %121, align 8, !tbaa !147
   %.not297 = icmp eq i32 %122, 0

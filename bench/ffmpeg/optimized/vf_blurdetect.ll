@@ -303,13 +303,13 @@ switch.lookup:                                    ; preds = %128
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.blurdetect_filter_frame, i64 0, i64 %132
   %switch.load = load i32, ptr %switch.gep, align 4
   %133 = zext nneg i8 %130 to i64
-  %switch.gep157 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.blurdetect_filter_frame.4, i64 0, i64 %133
-  %switch.load158 = load i32, ptr %switch.gep157, align 4
+  %switch.gep179 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.blurdetect_filter_frame.4, i64 0, i64 %133
+  %switch.load180 = load i32, ptr %switch.gep179, align 4
   br label %134
 
 134:                                              ; preds = %128, %switch.lookup
   %.091.i.us.us.us.us.us.us.i = phi i32 [ %switch.load, %switch.lookup ], [ 1, %128 ]
-  %.090.i.us.us.us.us.us.us.i = phi i32 [ %switch.load158, %switch.lookup ], [ 1, %128 ]
+  %.090.i.us.us.us.us.us.us.i = phi i32 [ %switch.load180, %switch.lookup ], [ 1, %128 ]
   %135 = getelementptr inbounds i8, ptr %15, i64 %125
   %136 = load i8, ptr %135, align 1, !tbaa !65
   %.neg = sub i32 %.090.i.us.us.us.us.us.us.i, %120

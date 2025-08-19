@@ -994,17 +994,17 @@ switch.early.test:                                ; preds = %134
   br i1 %or.cond, label %is_numeric_string_ex.exit.thread, label %.split358.us.thread
 
 .split358.us.thread:                              ; preds = %.critedge6.us, %116, %switch.early.test.us, %switch.early.test.us, %.split358.us
-  %.us-phi361399 = phi ptr [ %.us-phi361, %.split358.us ], [ %20, %.critedge6.us ], [ %.3.lcssa.us, %116 ], [ %.3.lcssa.us, %switch.early.test.us ], [ %.3.lcssa.us, %switch.early.test.us ]
-  %.us-phi359398 = phi ptr [ %.2215.lcssa, %.split358.us ], [ %.2215.lcssa.us, %.critedge6.us ], [ %.2215.lcssa.us, %116 ], [ %.2215.lcssa.us, %switch.early.test.us ], [ %.2215.lcssa.us, %switch.early.test.us ]
-  %140 = load i8, ptr %.us-phi361399, align 1, !tbaa !4
+  %.us-phi361420 = phi ptr [ %.us-phi361, %.split358.us ], [ %20, %.critedge6.us ], [ %.3.lcssa.us, %116 ], [ %.3.lcssa.us, %switch.early.test.us ], [ %.3.lcssa.us, %switch.early.test.us ]
+  %.us-phi359419 = phi ptr [ %.2215.lcssa, %.split358.us ], [ %.2215.lcssa.us, %.critedge6.us ], [ %.2215.lcssa.us, %116 ], [ %.2215.lcssa.us, %switch.early.test.us ], [ %.2215.lcssa.us, %switch.early.test.us ]
+  %140 = load i8, ptr %.us-phi361420, align 1, !tbaa !4
   %141 = sext i8 %140 to i32
   %142 = icmp eq i32 %.0209289301307311319, %141
   br i1 %142, label %143, label %.critedge9
 
 143:                                              ; preds = %.split358.us.thread
-  store i8 46, ptr %.us-phi359398, align 1, !tbaa !4
-  %.4217362 = getelementptr inbounds nuw i8, ptr %.us-phi359398, i64 1
-  %.5363 = getelementptr inbounds nuw i8, ptr %.us-phi361399, i64 1
+  store i8 46, ptr %.us-phi359419, align 1, !tbaa !4
+  %.4217362 = getelementptr inbounds nuw i8, ptr %.us-phi359419, i64 1
+  %.5363 = getelementptr inbounds nuw i8, ptr %.us-phi361420, i64 1
   %144 = icmp ult ptr %.5363, %20
   br i1 %144, label %.lr.ph367, label %.critedge9thread-pre-split
 
@@ -1031,8 +1031,8 @@ switch.early.test:                                ; preds = %134
 
 .critedge9:                                       ; preds = %.lr.ph367, %.critedge9thread-pre-split, %.split358.us.thread
   %149 = phi i8 [ %.pr, %.critedge9thread-pre-split ], [ %140, %.split358.us.thread ], [ %145, %.lr.ph367 ]
-  %.3216 = phi ptr [ %.4217.lcssa, %.critedge9thread-pre-split ], [ %.us-phi359398, %.split358.us.thread ], [ %.4217364, %.lr.ph367 ]
-  %.4 = phi ptr [ %.5.lcssa, %.critedge9thread-pre-split ], [ %.us-phi361399, %.split358.us.thread ], [ %.5365, %.lr.ph367 ]
+  %.3216 = phi ptr [ %.4217.lcssa, %.critedge9thread-pre-split ], [ %.us-phi359419, %.split358.us.thread ], [ %.4217364, %.lr.ph367 ]
+  %.4 = phi ptr [ %.5.lcssa, %.critedge9thread-pre-split ], [ %.us-phi361420, %.split358.us.thread ], [ %.5365, %.lr.ph367 ]
   switch i8 %149, label %.critedge11 [
     i8 101, label %150
     i8 69, label %150
@@ -1437,13 +1437,13 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_domain(ptr noun
   %20 = load i16, ptr %19, align 2, !tbaa !53
   %21 = and i16 %20, 8
   %.not36 = icmp eq i16 %21, 0
-  br i1 %.not36, label %.loopexit, label %.thread66
+  br i1 %.not36, label %.loopexit, label %.thread72
 
 22:                                               ; preds = %13
   %23 = icmp ult ptr %0, %.03044
   br i1 %23, label %.lr.ph.split.us.split, label %.loopexit
 
-.thread66:                                        ; preds = %15
+.thread72:                                        ; preds = %15
   %24 = icmp ult ptr %0, %.03044
   br i1 %24, label %.lr.ph.split, label %.loopexit
 
@@ -1474,9 +1474,9 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_domain(ptr noun
   %exitcond65.not = icmp eq ptr %36, %.03044
   br i1 %exitcond65.not, label %.loopexit, label %.lr.ph.split.us.split
 
-.lr.ph.split:                                     ; preds = %.thread66, %73
-  %.046 = phi i8 [ %.1, %73 ], [ 1, %.thread66 ]
-  %.03145 = phi ptr [ %74, %73 ], [ %0, %.thread66 ]
+.lr.ph.split:                                     ; preds = %.thread72, %73
+  %.046 = phi i8 [ %.1, %73 ], [ 1, %.thread72 ]
+  %.03145 = phi ptr [ %74, %73 ], [ %0, %.thread72 ]
   %37 = load i8, ptr %.03145, align 1, !tbaa !4
   %38 = icmp eq i8 %37, 46
   br i1 %38, label %39, label %57
@@ -1541,8 +1541,8 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_domain(ptr noun
   %exitcond.not = icmp eq ptr %74, %.03044
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split
 
-.loopexit:                                        ; preds = %52, %43, %39, %64, %57, %73, %31, %27, %35, %.thread66, %22, %.thread, %15, %5
-  %.028 = phi i32 [ 0, %5 ], [ 0, %15 ], [ 0, %.thread ], [ 1, %22 ], [ 1, %.thread66 ], [ 0, %31 ], [ 0, %27 ], [ 1, %35 ], [ 0, %52 ], [ 0, %43 ], [ 0, %39 ], [ 0, %64 ], [ 0, %57 ], [ 1, %73 ]
+.loopexit:                                        ; preds = %52, %43, %39, %64, %57, %73, %31, %27, %35, %.thread72, %22, %.thread, %15, %5
+  %.028 = phi i32 [ 0, %5 ], [ 0, %15 ], [ 0, %.thread ], [ 1, %22 ], [ 1, %.thread72 ], [ 0, %31 ], [ 0, %27 ], [ 1, %35 ], [ 0, %52 ], [ 0, %43 ], [ 0, %39 ], [ 0, %64 ], [ 0, %57 ], [ 1, %73 ]
   ret i32 %.028
 }
 
@@ -2456,11 +2456,11 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, 
   %152 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %153 = load i32, ptr %152, align 4
   %154 = icmp ult i32 %153, 2
-  %or.cond210 = select i1 %or.cond162, i1 %154, i1 false
+  %or.cond213 = select i1 %or.cond162, i1 %154, i1 false
   %155 = icmp eq i32 %147, 65535
   %or.cond183 = select i1 %or.cond156, i1 %155, i1 false
-  %or.cond211 = select i1 %or.cond210, i1 true, i1 %or.cond183
-  br i1 %or.cond211, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
+  %or.cond214 = select i1 %or.cond213, i1 true, i1 %or.cond183
+  br i1 %or.cond214, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
 
 156:                                              ; preds = %130
   %157 = getelementptr inbounds nuw i8, ptr %5, i64 4

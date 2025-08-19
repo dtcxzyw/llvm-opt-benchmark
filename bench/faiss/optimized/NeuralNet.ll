@@ -1710,13 +1710,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !41
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !41
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -3442,8 +3442,8 @@ _ZN5faiss2nn16Tensor2DTemplateIfED2Ev.exit:       ; preds = %113, %116
   %135 = load ptr, ptr %134, align 8, !tbaa !35
   %.not201 = icmp eq i32 %130, 0
   %.not202 = icmp eq i32 %132, 0
-  %or.cond214 = select i1 %.not201, i1 true, i1 %.not202
-  br i1 %or.cond214, label %._crit_edge176, label %.preheader.lr.ph.us.us
+  %or.cond235 = select i1 %.not201, i1 true, i1 %.not202
+  br i1 %or.cond235, label %._crit_edge176, label %.preheader.lr.ph.us.us
 
 .preheader.lr.ph.us.us:                           ; preds = %.lr.ph175, %._crit_edge173.split.us.us.us
   %.0108174.us.us = phi i64 [ %148, %._crit_edge173.split.us.us.us ], [ 0, %.lr.ph175 ]

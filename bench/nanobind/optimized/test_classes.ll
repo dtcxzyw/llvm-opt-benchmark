@@ -16348,30 +16348,30 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiSt8weak_ptrI9
   br i1 %9, label %._crit_edge.thread, label %15
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.019.lcssa28 = phi ptr [ %.02024, %._crit_edge ], [ %4, %2 ]
+  %.019.lcssa29 = phi ptr [ %.02024, %._crit_edge ], [ %4, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !628
-  %12 = icmp eq ptr %.019.lcssa28, %11
+  %12 = icmp eq ptr %.019.lcssa29, %11
   br i1 %12, label %20, label %13
 
 13:                                               ; preds = %._crit_edge.thread
-  %14 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28) #44
+  %14 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29) #44
   br label %15
 
 15:                                               ; preds = %13, %._crit_edge
-  %.019.lcssa29 = phi ptr [ %.019.lcssa28, %13 ], [ %.02024, %._crit_edge ]
+  %.019.lcssa28 = phi ptr [ %.019.lcssa29, %13 ], [ %.02024, %._crit_edge ]
   %.sroa.05.0 = phi ptr [ %14, %13 ], [ %.02024, %._crit_edge ]
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 32
   %17 = load i32, ptr %16, align 4, !tbaa !32
   %18 = load i32, ptr %1, align 4, !tbaa !32
   %19 = icmp slt i32 %17, %18
   %spec.select = select i1 %19, ptr null, ptr %.sroa.05.0
-  %spec.select21 = select i1 %19, ptr %.019.lcssa29, ptr null
+  %spec.select21 = select i1 %19, ptr %.019.lcssa28, ptr null
   br label %20
 
 20:                                               ; preds = %15, %._crit_edge.thread
   %.sroa.018.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %15 ]
-  %.sroa.4.0 = phi ptr [ %.019.lcssa28, %._crit_edge.thread ], [ %spec.select21, %15 ]
+  %.sroa.4.0 = phi ptr [ %.019.lcssa29, %._crit_edge.thread ], [ %spec.select21, %15 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.018.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

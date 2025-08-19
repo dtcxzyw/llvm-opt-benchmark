@@ -576,7 +576,7 @@ unpack.exit:                                      ; preds = %289, %._crit_edge.i
 .preheader187:                                    ; preds = %.preheader188, %._crit_edge
   %305 = phi i32 [ %113, %.preheader188 ], [ %466, %._crit_edge ]
   %indvars.iv242 = phi i64 [ 0, %.preheader188 ], [ %indvars.iv.next243, %._crit_edge ]
-  %.sroa.14.1211 = phi i32 [ %.sroa.14.0.lcssa, %.preheader188 ], [ %.sroa.14.2.lcssa252255257, %._crit_edge ]
+  %.sroa.14.1211 = phi i32 [ %.sroa.14.0.lcssa, %.preheader188 ], [ %.sroa.14.2.lcssa272275277, %._crit_edge ]
   %306 = icmp sgt i32 %305, 0
   br i1 %306, label %.lr.ph202, label %._crit_edge
 
@@ -725,8 +725,8 @@ dequantize_coefficients.exit:                     ; preds = %374, %.lr.ph202
   br i1 %384, label %.lr.ph202, label %.preheader186, !llvm.loop !74
 
 .preheader185:                                    ; preds = %reconstruct_hfr.exit, %.lr.ph206
-  %.not267 = icmp eq i32 %382, 1
-  br i1 %.not267, label %.lr.ph210, label %.lr.ph208
+  %.not287 = icmp eq i32 %382, 1
+  br i1 %.not287, label %.lr.ph210, label %.lr.ph208
 
 .lr.ph208:                                        ; preds = %.preheader185
   %385 = add nsw i32 %382, -1
@@ -764,7 +764,7 @@ dequantize_coefficients.exit:                     ; preds = %374, %.lr.ph202
   %indvars.iv8.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next9.i, %.critedge.i ]
   %.0266.i = phi i32 [ %319, %.preheader.lr.ph.i ], [ %.1.lcssa.i, %.critedge.i ]
   %.0275.i = phi i32 [ %317, %.preheader.lr.ph.i ], [ %.128.lcssa.i, %.critedge.i ]
-  %401 = zext i32 %.0275.i to i64
+  %401 = zext nneg i32 %.0275.i to i64
   br label %403
 
 ._crit_edge.i140:                                 ; preds = %.critedge.i, %397
@@ -784,7 +784,7 @@ dequantize_coefficients.exit:                     ; preds = %374, %.lr.ph202
 .critedge.i:                                      ; preds = %406, %403
   %.128.lcssa.in.i = phi i64 [ %indvars.iv.i139, %403 ], [ %indvars.iv.next.i142, %406 ]
   %.1.lcssa.i = phi i32 [ %.12.i, %403 ], [ %426, %406 ]
-  %.128.lcssa.i = trunc i64 %.128.lcssa.in.i to i32
+  %.128.lcssa.i = trunc nuw nsw i64 %.128.lcssa.in.i to i32
   %indvars.iv.next9.i = add nuw nsw i64 %indvars.iv8.i, 1
   %exitcond12.not.i = icmp eq i64 %indvars.iv.next9.i, %wide.trip.count.i137
   br i1 %exitcond12.not.i, label %._crit_edge.i140, label %.preheader.i138, !llvm.loop !75
@@ -889,7 +889,7 @@ apply_intensity_stereo.exit:                      ; preds = %.lr.ph.i147, %427
   br i1 %465, label %449, label %._crit_edge, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %449, %.preheader186, %.preheader187
-  %.sroa.14.2.lcssa252255257 = phi i32 [ %.sroa.14.14, %.preheader186 ], [ %.sroa.14.1211, %.preheader187 ], [ %.sroa.14.14, %449 ]
+  %.sroa.14.2.lcssa272275277 = phi i32 [ %.sroa.14.14, %.preheader186 ], [ %.sroa.14.1211, %.preheader187 ], [ %.sroa.14.14, %449 ]
   %466 = phi i32 [ %382, %.preheader186 ], [ %305, %.preheader187 ], [ %463, %449 ]
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next243, 8
@@ -1540,8 +1540,8 @@ ath_init.exit:                                    ; preds = %250, %245, %cipher_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %283, %277, %288, %285, %272
-  %.sink286 = phi i64 [ 1, %272 ], [ 5, %285 ], [ 7, %288 ], [ 3, %277 ], [ 4, %283 ]
-  %293 = getelementptr inbounds nuw i8, ptr %.0153256, i64 %.sink286
+  %.sink299 = phi i64 [ 1, %272 ], [ 5, %285 ], [ 7, %288 ], [ 3, %277 ], [ 4, %283 ]
+  %293 = getelementptr inbounds nuw i8, ptr %.0153256, i64 %.sink299
   store i8 2, ptr %293, align 1, !tbaa !41
   br label %294
 

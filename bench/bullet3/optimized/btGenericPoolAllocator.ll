@@ -692,10 +692,10 @@ _ZN19btGenericMemoryPool18allocate_from_poolEm.exit.i: ; preds = %_ZN19btGeneric
   br i1 %58, label %_ZN19btGenericMemoryPool8allocateEm.exit, label %_ZN19btGenericMemoryPool8allocateEm.exit.sink.split
 
 _ZN19btGenericMemoryPool8allocateEm.exit.sink.split: ; preds = %_ZN19btGenericMemoryPool18allocate_from_poolEm.exit.i, %_ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit.i
-  %.sink20 = phi i64 [ %33, %_ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit.i ], [ %48, %_ZN19btGenericMemoryPool18allocate_from_poolEm.exit.i ]
+  %.sink24 = phi i64 [ %33, %_ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit.i ], [ %48, %_ZN19btGenericMemoryPool18allocate_from_poolEm.exit.i ]
   %59 = load ptr, ptr %8, align 8, !tbaa !20
   %60 = load i64, ptr %9, align 8, !tbaa !19
-  %61 = mul i64 %60, %.sink20
+  %61 = mul i64 %60, %.sink24
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 %61
   br label %_ZN19btGenericMemoryPool8allocateEm.exit
 

@@ -162,8 +162,8 @@ define void @_ZN7rocksdb15RemapFileSystem15RegisterDbPathsERKSt6vectorINSt7__cxx
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.not128 = icmp eq ptr %9, %10
-  br i1 %.not128, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i
+  %.not148 = icmp eq ptr %9, %10
+  br i1 %.not148, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i: ; preds = %16
   %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #20
@@ -600,8 +600,8 @@ define void @_ZN7rocksdb15RemapFileSystem17UnregisterDbPathsERKSt6vectorINSt7__c
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.not128 = icmp eq ptr %9, %10
-  br i1 %.not128, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i
+  %.not148 = icmp eq ptr %9, %10
+  br i1 %.not148, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i: ; preds = %16
   %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #20
@@ -1506,8 +1506,8 @@ _ZN7rocksdb6StatusD2Ev.exit.i14:                  ; preds = %61
   br label %.body23
 
 _ZN7rocksdb8IOStatusC2ERKS0_.exit25:              ; preds = %44, %62
-  %storemerge36 = phi ptr [ %.pre.i15, %62 ], [ null, %44 ]
-  store ptr %storemerge36, ptr %49, align 8, !tbaa !34
+  %storemerge45 = phi ptr [ %.pre.i15, %62 ], [ null, %44 ]
+  store ptr %storemerge45, ptr %49, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN7rocksdb17FileSystemWrapper17ReuseWritableFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKNS_11FileOptionsEPSt10unique_ptrINS_14FSWritableFileESt14default_deleteISD_EEPNS_14IODebugContextE.exit
 
@@ -3208,8 +3208,8 @@ _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %64
   br label %.body21
 
 _ZN7rocksdb8IOStatusC2ERKS0_.exit:                ; preds = %46, %65
-  %storemerge54 = phi ptr [ %.pre.i, %65 ], [ null, %46 ]
-  store ptr %storemerge54, ptr %52, align 8, !tbaa !34
+  %storemerge67 = phi ptr [ %.pre.i, %65 ], [ null, %46 ]
+  store ptr %storemerge67, ptr %52, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %118
 
@@ -3501,8 +3501,8 @@ _ZN7rocksdb6StatusD2Ev.exit.i13:                  ; preds = %60
   br label %.body22
 
 _ZN7rocksdb8IOStatusC2ERKS0_.exit24:              ; preds = %43, %61
-  %storemerge35 = phi ptr [ %.pre.i14, %61 ], [ null, %43 ]
-  store ptr %storemerge35, ptr %48, align 8, !tbaa !34
+  %storemerge44 = phi ptr [ %.pre.i14, %61 ], [ null, %43 ]
+  store ptr %storemerge44, ptr %48, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN7rocksdb17FileSystemWrapper8LinkFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKNS_9IOOptionsEPNS_14IODebugContextE.exit
 

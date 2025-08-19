@@ -581,7 +581,7 @@ define internal void @_GLOBAL__sub_I_datamask.cpp() #12 section ".text.startup" 
   store ptr %2, ptr %1, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-          to label %6 unwind label %.thread17.i
+          to label %6 unwind label %.thread24.i
 
 6:                                                ; preds = %0
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -591,7 +591,7 @@ define internal void @_GLOBAL__sub_I_datamask.cpp() #12 section ".text.startup" 
   store ptr %5, ptr %4, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-          to label %10 unwind label %.thread17.i
+          to label %10 unwind label %.thread24.i
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -601,7 +601,7 @@ define internal void @_GLOBAL__sub_I_datamask.cpp() #12 section ".text.startup" 
   store ptr %9, ptr %8, align 8, !tbaa !22
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-          to label %14 unwind label %.thread17.i
+          to label %14 unwind label %.thread24.i
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -611,7 +611,7 @@ define internal void @_GLOBAL__sub_I_datamask.cpp() #12 section ".text.startup" 
   store ptr %13, ptr %12, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-          to label %18 unwind label %.thread17.i
+          to label %18 unwind label %.thread24.i
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -621,7 +621,7 @@ define internal void @_GLOBAL__sub_I_datamask.cpp() #12 section ".text.startup" 
   store ptr %17, ptr %16, align 8, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-          to label %22 unwind label %.thread17.i
+          to label %22 unwind label %.thread24.i
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -631,7 +631,7 @@ define internal void @_GLOBAL__sub_I_datamask.cpp() #12 section ".text.startup" 
   store ptr %21, ptr %20, align 8, !tbaa !22
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %25 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-          to label %26 unwind label %.thread17.i
+          to label %26 unwind label %.thread24.i
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -641,7 +641,7 @@ define internal void @_GLOBAL__sub_I_datamask.cpp() #12 section ".text.startup" 
   store ptr %25, ptr %24, align 8, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %29 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-          to label %30 unwind label %.thread17.i
+          to label %30 unwind label %.thread24.i
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -713,14 +713,14 @@ _ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit.i:   ; preds = %52, %47, %43
   %56 = icmp eq ptr %45, %1
   br i1 %56, label %__cxx_global_var_init.exit, label %43
 
-.thread17.i:                                      ; preds = %26, %22, %18, %14, %10, %6, %0
+.thread24.i:                                      ; preds = %26, %22, %18, %14, %10, %6, %0
   %.04.ph.i = phi ptr [ %4, %0 ], [ %8, %6 ], [ %12, %10 ], [ %16, %14 ], [ %20, %18 ], [ %24, %22 ], [ %28, %26 ]
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit10.i, %.thread17.i
-  %57 = phi ptr [ %58, %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit10.i ], [ %.04.ph.i, %.thread17.i ]
+.preheader.i:                                     ; preds = %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit10.i, %.thread24.i
+  %57 = phi ptr [ %58, %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit10.i ], [ %.04.ph.i, %.thread24.i ]
   %58 = getelementptr inbounds i8, ptr %57, i64 -8
   %59 = load ptr, ptr %58, align 8, !tbaa !22
   %.not.i9.i = icmp eq ptr %59, null

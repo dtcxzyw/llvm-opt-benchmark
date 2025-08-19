@@ -1758,18 +1758,18 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
   br label %222
 
 222:                                              ; preds = %219, %215
-  %.sink540 = phi ptr [ %221, %219 ], [ %218, %215 ]
-  %.sink539 = phi i32 [ -7, %219 ], [ -3, %215 ]
+  %.sink555 = phi ptr [ %221, %219 ], [ %218, %215 ]
+  %.sink554 = phi i32 [ -7, %219 ], [ -3, %215 ]
   %.str.58.sink = phi ptr [ @.str.58, %219 ], [ @.str.57, %215 ]
   %223 = tail call i64 @gtk_dialog_get_type() #22
-  %224 = call ptr @g_type_check_instance_cast(ptr noundef %.sink540, i64 noundef %223) #18
-  call void @gtk_dialog_set_default_response(ptr noundef %224, i32 noundef %.sink539) #18
+  %224 = call ptr @g_type_check_instance_cast(ptr noundef %.sink555, i64 noundef %223) #18
+  call void @gtk_dialog_set_default_response(ptr noundef %224, i32 noundef %.sink554) #18
   %225 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.58.sink, i32 noundef 5) #18
   %226 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #18
   %227 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %226, ptr noundef nonnull %11, ptr noundef %.0218, ptr noundef %225) #18
   call void @g_free(ptr noundef %.0218) #18
   call void @g_free(ptr noundef %177) #18
-  %228 = call ptr @g_type_check_instance_cast(ptr noundef %.sink540, i64 noundef %223) #18
+  %228 = call ptr @g_type_check_instance_cast(ptr noundef %.sink555, i64 noundef %223) #18
   %229 = call ptr @gtk_dialog_get_content_area(ptr noundef %228) #18
   %230 = call ptr @gtk_label_new(ptr noundef null) #18
   %231 = tail call i64 @gtk_label_get_type() #22
@@ -1780,9 +1780,9 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
   %234 = call ptr @g_type_check_instance_cast(ptr noundef %229, i64 noundef %233) #18
   call void @gtk_container_add(ptr noundef %234, ptr noundef %230) #18
   call void @gtk_widget_show_all(ptr noundef %229) #18
-  %235 = call ptr @g_type_check_instance_cast(ptr noundef %.sink540, i64 noundef %223) #18
+  %235 = call ptr @g_type_check_instance_cast(ptr noundef %.sink555, i64 noundef %223) #18
   %236 = call i32 @gtk_dialog_run(ptr noundef %235) #18
-  call void @gtk_widget_destroy(ptr noundef %.sink540) #18
+  call void @gtk_widget_destroy(ptr noundef %.sink555) #18
   call void @dt_database_destroy(ptr noundef nonnull %73)
   %237 = add i32 %236, 1
   %or.cond3 = icmp ult i32 %237, -2
@@ -1964,18 +1964,18 @@ switch.early.test:                                ; preds = %290
   br label %311
 
 311:                                              ; preds = %308, %304
-  %.sink545 = phi ptr [ %310, %308 ], [ %307, %304 ]
-  %.sink544 = phi i32 [ -7, %308 ], [ -3, %304 ]
-  %.str.58.sink542 = phi ptr [ @.str.58, %308 ], [ @.str.57, %304 ]
+  %.sink560 = phi ptr [ %310, %308 ], [ %307, %304 ]
+  %.sink559 = phi i32 [ -7, %308 ], [ -3, %304 ]
+  %.str.58.sink557 = phi ptr [ @.str.58, %308 ], [ @.str.57, %304 ]
   %312 = tail call i64 @gtk_dialog_get_type() #22
-  %313 = call ptr @g_type_check_instance_cast(ptr noundef %.sink545, i64 noundef %312) #18
-  call void @gtk_dialog_set_default_response(ptr noundef %313, i32 noundef %.sink544) #18
-  %314 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.58.sink542, i32 noundef 5) #18
+  %313 = call ptr @g_type_check_instance_cast(ptr noundef %.sink560, i64 noundef %312) #18
+  call void @gtk_dialog_set_default_response(ptr noundef %313, i32 noundef %.sink559) #18
+  %314 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.58.sink557, i32 noundef 5) #18
   %315 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #18
   %316 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %315, ptr noundef nonnull %11, ptr noundef %.0224, ptr noundef %314) #18
   call void @g_free(ptr noundef %.0224) #18
   call void @g_free(ptr noundef %262) #18
-  %317 = call ptr @g_type_check_instance_cast(ptr noundef %.sink545, i64 noundef %312) #18
+  %317 = call ptr @g_type_check_instance_cast(ptr noundef %.sink560, i64 noundef %312) #18
   %318 = call ptr @gtk_dialog_get_content_area(ptr noundef %317) #18
   %319 = call ptr @gtk_label_new(ptr noundef null) #18
   %320 = tail call i64 @gtk_label_get_type() #22
@@ -1986,9 +1986,9 @@ switch.early.test:                                ; preds = %290
   %323 = call ptr @g_type_check_instance_cast(ptr noundef %318, i64 noundef %322) #18
   call void @gtk_container_add(ptr noundef %323, ptr noundef %319) #18
   call void @gtk_widget_show_all(ptr noundef %318) #18
-  %324 = call ptr @g_type_check_instance_cast(ptr noundef %.sink545, i64 noundef %312) #18
+  %324 = call ptr @g_type_check_instance_cast(ptr noundef %.sink560, i64 noundef %312) #18
   %325 = call i32 @gtk_dialog_run(ptr noundef %324) #18
-  call void @gtk_widget_destroy(ptr noundef %.sink545) #18
+  call void @gtk_widget_destroy(ptr noundef %.sink560) #18
   call void @dt_database_destroy(ptr noundef nonnull %73)
   %326 = add i32 %325, 1
   %or.cond13 = icmp ult i32 %326, -2
@@ -2336,9 +2336,9 @@ _sanitize_db.exit:                                ; preds = %545, %_upgrade_libr
   br label %.thread291
 
 .thread291:                                       ; preds = %131, %559, %562, %_sanitize_db.exit, %289, %283, %.thread310, %195, %202, %238, %370, %366, %106, %.loopexit
-  %.0208476.sink = phi ptr [ %73, %106 ], [ %.0208, %.loopexit ], [ %.0208, %131 ], [ %.0208, %562 ], [ %.0208, %559 ], [ %.0208, %_sanitize_db.exit ], [ %.0208, %283 ], [ %.0208, %289 ], [ %.0208, %.thread310 ], [ %.0208, %195 ], [ %.0208, %202 ], [ %.0208, %238 ], [ %.0208, %370 ], [ %.0208, %366 ]
+  %.0208491.sink = phi ptr [ %73, %106 ], [ %.0208, %.loopexit ], [ %.0208, %131 ], [ %.0208, %562 ], [ %.0208, %559 ], [ %.0208, %_sanitize_db.exit ], [ %.0208, %283 ], [ %.0208, %289 ], [ %.0208, %.thread310 ], [ %.0208, %195 ], [ %.0208, %202 ], [ %.0208, %238 ], [ %.0208, %370 ], [ %.0208, %366 ]
   %.0 = phi ptr [ null, %106 ], [ %73, %.loopexit ], [ null, %131 ], [ %73, %562 ], [ %73, %559 ], [ %73, %_sanitize_db.exit ], [ null, %283 ], [ null, %289 ], [ null, %.thread310 ], [ null, %195 ], [ null, %202 ], [ null, %238 ], [ null, %370 ], [ null, %366 ]
-  call void @g_free(ptr noundef %.0208476.sink) #18
+  call void @g_free(ptr noundef %.0208491.sink) #18
   ret ptr %.0
 }
 
@@ -6075,7 +6075,8 @@ _get_iso8601_int.exit:                            ; preds = %15
 
 22:                                               ; preds = %26, %_get_iso8601_int.exit
   %.01926.i40 = phi i32 [ 0, %_get_iso8601_int.exit ], [ %30, %26 ]
-  %.02125.i41 = phi i64 [ 0, %_get_iso8601_int.exit ], [ %31, %26 ]
+  %exitcond.not.i44 = phi i1 [ false, %_get_iso8601_int.exit ], [ true, %26 ]
+  %.02125.i41 = phi i64 [ 0, %_get_iso8601_int.exit ], [ 1, %26 ]
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.02125.i41
   %24 = load i8, ptr %23, align 1, !tbaa !16
   %25 = add i8 %24, -48
@@ -6087,246 +6088,235 @@ _get_iso8601_int.exit:                            ; preds = %15
   %28 = zext nneg i8 %24 to i32
   %29 = add i32 %27, -48
   %30 = add i32 %29, %28
-  %31 = add nuw nsw i64 %.02125.i41, 1
-  %exitcond.not.i44 = icmp eq i64 %31, 2
   br i1 %exitcond.not.i44, label %_get_iso8601_int.exit45, label %22
 
 _get_iso8601_int.exit45:                          ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 11
-  br label %33
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 11
+  br label %32
 
-33:                                               ; preds = %37, %_get_iso8601_int.exit45
-  %.01926.i46 = phi i32 [ 0, %_get_iso8601_int.exit45 ], [ %41, %37 ]
-  %.02125.i47 = phi i64 [ 0, %_get_iso8601_int.exit45 ], [ %42, %37 ]
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.02125.i47
-  %35 = load i8, ptr %34, align 1, !tbaa !16
-  %36 = add i8 %35, -48
-  %or.cond4.i48 = icmp ult i8 %36, 10
-  br i1 %or.cond4.i48, label %37, label %_get_iso8601_int.exit.thread
+32:                                               ; preds = %36, %_get_iso8601_int.exit45
+  %.01926.i46 = phi i32 [ 0, %_get_iso8601_int.exit45 ], [ %40, %36 ]
+  %exitcond.not.i50 = phi i1 [ false, %_get_iso8601_int.exit45 ], [ true, %36 ]
+  %.02125.i47 = phi i64 [ 0, %_get_iso8601_int.exit45 ], [ 1, %36 ]
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 %.02125.i47
+  %34 = load i8, ptr %33, align 1, !tbaa !16
+  %35 = add i8 %34, -48
+  %or.cond4.i48 = icmp ult i8 %35, 10
+  br i1 %or.cond4.i48, label %36, label %_get_iso8601_int.exit.thread
 
-37:                                               ; preds = %33
-  %38 = mul i32 %.01926.i46, 10
-  %39 = zext nneg i8 %35 to i32
-  %40 = add i32 %38, -48
-  %41 = add i32 %40, %39
-  %42 = add nuw nsw i64 %.02125.i47, 1
-  %exitcond.not.i50 = icmp eq i64 %42, 2
-  br i1 %exitcond.not.i50, label %_get_iso8601_int.exit51, label %33
+36:                                               ; preds = %32
+  %37 = mul i32 %.01926.i46, 10
+  %38 = zext nneg i8 %34 to i32
+  %39 = add i32 %37, -48
+  %40 = add i32 %39, %38
+  br i1 %exitcond.not.i50, label %_get_iso8601_int.exit51, label %32
 
-_get_iso8601_int.exit51:                          ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 13
-  br label %44
+_get_iso8601_int.exit51:                          ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 13
+  br label %42
 
-44:                                               ; preds = %48, %_get_iso8601_int.exit51
-  %.01926.i52 = phi i32 [ 0, %_get_iso8601_int.exit51 ], [ %52, %48 ]
-  %.02125.i53 = phi i64 [ 0, %_get_iso8601_int.exit51 ], [ %53, %48 ]
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 %.02125.i53
-  %46 = load i8, ptr %45, align 1, !tbaa !16
-  %47 = add i8 %46, -48
-  %or.cond4.i54 = icmp ult i8 %47, 10
-  br i1 %or.cond4.i54, label %48, label %_get_iso8601_int.exit.thread
+42:                                               ; preds = %46, %_get_iso8601_int.exit51
+  %.01926.i52 = phi i32 [ 0, %_get_iso8601_int.exit51 ], [ %50, %46 ]
+  %exitcond.not.i56 = phi i1 [ false, %_get_iso8601_int.exit51 ], [ true, %46 ]
+  %.02125.i53 = phi i64 [ 0, %_get_iso8601_int.exit51 ], [ 1, %46 ]
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %.02125.i53
+  %44 = load i8, ptr %43, align 1, !tbaa !16
+  %45 = add i8 %44, -48
+  %or.cond4.i54 = icmp ult i8 %45, 10
+  br i1 %or.cond4.i54, label %46, label %_get_iso8601_int.exit.thread
 
-48:                                               ; preds = %44
-  %49 = mul i32 %.01926.i52, 10
-  %50 = zext nneg i8 %46 to i32
-  %51 = add i32 %49, -48
-  %52 = add i32 %51, %50
-  %53 = add nuw nsw i64 %.02125.i53, 1
-  %exitcond.not.i56 = icmp eq i64 %53, 2
-  br i1 %exitcond.not.i56, label %_get_iso8601_int.exit57, label %44
+46:                                               ; preds = %42
+  %47 = mul i32 %.01926.i52, 10
+  %48 = zext nneg i8 %44 to i32
+  %49 = add i32 %47, -48
+  %50 = add i32 %49, %48
+  br i1 %exitcond.not.i56, label %_get_iso8601_int.exit57, label %42
 
-_get_iso8601_int.exit57:                          ; preds = %48
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 15
-  br label %55
+_get_iso8601_int.exit57:                          ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 15
+  br label %52
 
-55:                                               ; preds = %59, %_get_iso8601_int.exit57
-  %.01926.i58 = phi i32 [ 0, %_get_iso8601_int.exit57 ], [ %63, %59 ]
-  %.02125.i59 = phi i64 [ 0, %_get_iso8601_int.exit57 ], [ %64, %59 ]
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %.02125.i59
-  %57 = load i8, ptr %56, align 1, !tbaa !16
-  %58 = add i8 %57, -48
-  %or.cond4.i60 = icmp ult i8 %58, 10
-  br i1 %or.cond4.i60, label %59, label %_get_iso8601_int.exit.thread
+52:                                               ; preds = %56, %_get_iso8601_int.exit57
+  %.01926.i58 = phi i32 [ 0, %_get_iso8601_int.exit57 ], [ %60, %56 ]
+  %exitcond.not.i62 = phi i1 [ false, %_get_iso8601_int.exit57 ], [ true, %56 ]
+  %.02125.i59 = phi i64 [ 0, %_get_iso8601_int.exit57 ], [ 1, %56 ]
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 %.02125.i59
+  %54 = load i8, ptr %53, align 1, !tbaa !16
+  %55 = add i8 %54, -48
+  %or.cond4.i60 = icmp ult i8 %55, 10
+  br i1 %or.cond4.i60, label %56, label %_get_iso8601_int.exit.thread
 
-59:                                               ; preds = %55
-  %60 = mul i32 %.01926.i58, 10
-  %61 = zext nneg i8 %57 to i32
-  %62 = add i32 %60, -48
-  %63 = add i32 %62, %61
-  %64 = add nuw nsw i64 %.02125.i59, 1
-  %exitcond.not.i62 = icmp eq i64 %64, 2
-  br i1 %exitcond.not.i62, label %_get_iso8601_int.exit63, label %55
+56:                                               ; preds = %52
+  %57 = mul i32 %.01926.i58, 10
+  %58 = zext nneg i8 %54 to i32
+  %59 = add i32 %57, -48
+  %60 = add i32 %59, %58
+  br i1 %exitcond.not.i62, label %_get_iso8601_int.exit63, label %52
 
-_get_iso8601_int.exit63:                          ; preds = %59
-  %65 = getelementptr inbounds nuw i8, ptr %4, i64 17
-  br label %66
+_get_iso8601_int.exit63:                          ; preds = %56
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 17
+  br label %62
 
-66:                                               ; preds = %70, %_get_iso8601_int.exit63
-  %.01926.i64 = phi i32 [ 0, %_get_iso8601_int.exit63 ], [ %74, %70 ]
-  %.02125.i65 = phi i64 [ 0, %_get_iso8601_int.exit63 ], [ %75, %70 ]
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %.02125.i65
-  %68 = load i8, ptr %67, align 1, !tbaa !16
-  %69 = add i8 %68, -48
-  %or.cond4.i66 = icmp ult i8 %69, 10
-  br i1 %or.cond4.i66, label %70, label %_get_iso8601_int.exit.thread
+62:                                               ; preds = %66, %_get_iso8601_int.exit63
+  %.01926.i64 = phi i32 [ 0, %_get_iso8601_int.exit63 ], [ %70, %66 ]
+  %exitcond.not.i68 = phi i1 [ false, %_get_iso8601_int.exit63 ], [ true, %66 ]
+  %.02125.i65 = phi i64 [ 0, %_get_iso8601_int.exit63 ], [ 1, %66 ]
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 %.02125.i65
+  %64 = load i8, ptr %63, align 1, !tbaa !16
+  %65 = add i8 %64, -48
+  %or.cond4.i66 = icmp ult i8 %65, 10
+  br i1 %or.cond4.i66, label %66, label %_get_iso8601_int.exit.thread
 
-70:                                               ; preds = %66
-  %71 = mul i32 %.01926.i64, 10
-  %72 = zext nneg i8 %68 to i32
-  %73 = add i32 %71, -48
-  %74 = add i32 %73, %72
-  %75 = add nuw nsw i64 %.02125.i65, 1
-  %exitcond.not.i68 = icmp eq i64 %75, 2
-  br i1 %exitcond.not.i68, label %_get_iso8601_int.exit69, label %66
+66:                                               ; preds = %62
+  %67 = mul i32 %.01926.i64, 10
+  %68 = zext nneg i8 %64 to i32
+  %69 = add i32 %67, -48
+  %70 = add i32 %69, %68
+  br i1 %exitcond.not.i68, label %_get_iso8601_int.exit69, label %62
 
-_get_iso8601_int.exit69:                          ; preds = %70
-  %76 = sitofp i32 %74 to double
-  %77 = tail call ptr @g_date_time_new_local(i32 noundef %19, i32 noundef %30, i32 noundef %41, i32 noundef %52, i32 noundef %63, double noundef %76) #18
-  br label %78
+_get_iso8601_int.exit69:                          ; preds = %66
+  %71 = sitofp i32 %70 to double
+  %72 = tail call ptr @g_date_time_new_local(i32 noundef %19, i32 noundef %30, i32 noundef %40, i32 noundef %50, i32 noundef %60, double noundef %71) #18
+  br label %73
 
-78:                                               ; preds = %82, %_get_iso8601_int.exit69
-  %.01926.i70 = phi i32 [ 0, %_get_iso8601_int.exit69 ], [ %86, %82 ]
-  %.02125.i71 = phi i64 [ 0, %_get_iso8601_int.exit69 ], [ %87, %82 ]
-  %79 = getelementptr inbounds nuw i8, ptr %10, i64 %.02125.i71
-  %80 = load i8, ptr %79, align 1, !tbaa !16
-  %81 = add i8 %80, -48
-  %or.cond4.i72 = icmp ult i8 %81, 10
-  br i1 %or.cond4.i72, label %82, label %_get_iso8601_int.exit.thread.sink.split
+73:                                               ; preds = %77, %_get_iso8601_int.exit69
+  %.01926.i70 = phi i32 [ 0, %_get_iso8601_int.exit69 ], [ %81, %77 ]
+  %.02125.i71 = phi i64 [ 0, %_get_iso8601_int.exit69 ], [ %82, %77 ]
+  %74 = getelementptr inbounds nuw i8, ptr %10, i64 %.02125.i71
+  %75 = load i8, ptr %74, align 1, !tbaa !16
+  %76 = add i8 %75, -48
+  %or.cond4.i72 = icmp ult i8 %76, 10
+  br i1 %or.cond4.i72, label %77, label %_get_iso8601_int.exit.thread.sink.split
 
-82:                                               ; preds = %78
-  %83 = mul i32 %.01926.i70, 10
-  %84 = zext nneg i8 %80 to i32
-  %85 = add i32 %83, -48
-  %86 = add i32 %85, %84
-  %87 = add nuw nsw i64 %.02125.i71, 1
-  %exitcond.not.i74 = icmp eq i64 %87, 4
-  br i1 %exitcond.not.i74, label %_get_iso8601_int.exit75, label %78
+77:                                               ; preds = %73
+  %78 = mul i32 %.01926.i70, 10
+  %79 = zext nneg i8 %75 to i32
+  %80 = add i32 %78, -48
+  %81 = add i32 %80, %79
+  %82 = add nuw nsw i64 %.02125.i71, 1
+  %exitcond.not.i74 = icmp eq i64 %82, 4
+  br i1 %exitcond.not.i74, label %_get_iso8601_int.exit75, label %73
 
-_get_iso8601_int.exit75:                          ; preds = %82
-  %88 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  br label %89
+_get_iso8601_int.exit75:                          ; preds = %77
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  br label %84
 
-89:                                               ; preds = %93, %_get_iso8601_int.exit75
-  %.01926.i76 = phi i32 [ 0, %_get_iso8601_int.exit75 ], [ %97, %93 ]
-  %.02125.i77 = phi i64 [ 0, %_get_iso8601_int.exit75 ], [ %98, %93 ]
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 %.02125.i77
-  %91 = load i8, ptr %90, align 1, !tbaa !16
-  %92 = add i8 %91, -48
-  %or.cond4.i78 = icmp ult i8 %92, 10
-  br i1 %or.cond4.i78, label %93, label %_get_iso8601_int.exit.thread.sink.split
+84:                                               ; preds = %88, %_get_iso8601_int.exit75
+  %.01926.i76 = phi i32 [ 0, %_get_iso8601_int.exit75 ], [ %92, %88 ]
+  %exitcond.not.i80 = phi i1 [ false, %_get_iso8601_int.exit75 ], [ true, %88 ]
+  %.02125.i77 = phi i64 [ 0, %_get_iso8601_int.exit75 ], [ 1, %88 ]
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 %.02125.i77
+  %86 = load i8, ptr %85, align 1, !tbaa !16
+  %87 = add i8 %86, -48
+  %or.cond4.i78 = icmp ult i8 %87, 10
+  br i1 %or.cond4.i78, label %88, label %_get_iso8601_int.exit.thread.sink.split
 
-93:                                               ; preds = %89
-  %94 = mul i32 %.01926.i76, 10
-  %95 = zext nneg i8 %91 to i32
-  %96 = add i32 %94, -48
-  %97 = add i32 %96, %95
-  %98 = add nuw nsw i64 %.02125.i77, 1
-  %exitcond.not.i80 = icmp eq i64 %98, 2
-  br i1 %exitcond.not.i80, label %_get_iso8601_int.exit81, label %89
+88:                                               ; preds = %84
+  %89 = mul i32 %.01926.i76, 10
+  %90 = zext nneg i8 %86 to i32
+  %91 = add i32 %89, -48
+  %92 = add i32 %91, %90
+  br i1 %exitcond.not.i80, label %_get_iso8601_int.exit81, label %84
 
-_get_iso8601_int.exit81:                          ; preds = %93
-  %99 = getelementptr inbounds nuw i8, ptr %5, i64 11
-  br label %100
+_get_iso8601_int.exit81:                          ; preds = %88
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 11
+  br label %94
 
-100:                                              ; preds = %104, %_get_iso8601_int.exit81
-  %.01926.i82 = phi i32 [ 0, %_get_iso8601_int.exit81 ], [ %108, %104 ]
-  %.02125.i83 = phi i64 [ 0, %_get_iso8601_int.exit81 ], [ %109, %104 ]
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 %.02125.i83
-  %102 = load i8, ptr %101, align 1, !tbaa !16
-  %103 = add i8 %102, -48
-  %or.cond4.i84 = icmp ult i8 %103, 10
-  br i1 %or.cond4.i84, label %104, label %_get_iso8601_int.exit.thread.sink.split
+94:                                               ; preds = %98, %_get_iso8601_int.exit81
+  %.01926.i82 = phi i32 [ 0, %_get_iso8601_int.exit81 ], [ %102, %98 ]
+  %exitcond.not.i86 = phi i1 [ false, %_get_iso8601_int.exit81 ], [ true, %98 ]
+  %.02125.i83 = phi i64 [ 0, %_get_iso8601_int.exit81 ], [ 1, %98 ]
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 %.02125.i83
+  %96 = load i8, ptr %95, align 1, !tbaa !16
+  %97 = add i8 %96, -48
+  %or.cond4.i84 = icmp ult i8 %97, 10
+  br i1 %or.cond4.i84, label %98, label %_get_iso8601_int.exit.thread.sink.split
 
-104:                                              ; preds = %100
-  %105 = mul i32 %.01926.i82, 10
-  %106 = zext nneg i8 %102 to i32
-  %107 = add i32 %105, -48
-  %108 = add i32 %107, %106
-  %109 = add nuw nsw i64 %.02125.i83, 1
-  %exitcond.not.i86 = icmp eq i64 %109, 2
-  br i1 %exitcond.not.i86, label %_get_iso8601_int.exit87, label %100
+98:                                               ; preds = %94
+  %99 = mul i32 %.01926.i82, 10
+  %100 = zext nneg i8 %96 to i32
+  %101 = add i32 %99, -48
+  %102 = add i32 %101, %100
+  br i1 %exitcond.not.i86, label %_get_iso8601_int.exit87, label %94
 
-_get_iso8601_int.exit87:                          ; preds = %104
-  %110 = getelementptr inbounds nuw i8, ptr %5, i64 13
-  br label %111
+_get_iso8601_int.exit87:                          ; preds = %98
+  %103 = getelementptr inbounds nuw i8, ptr %5, i64 13
+  br label %104
 
-111:                                              ; preds = %115, %_get_iso8601_int.exit87
-  %.01926.i88 = phi i32 [ 0, %_get_iso8601_int.exit87 ], [ %119, %115 ]
-  %.02125.i89 = phi i64 [ 0, %_get_iso8601_int.exit87 ], [ %120, %115 ]
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 %.02125.i89
-  %113 = load i8, ptr %112, align 1, !tbaa !16
-  %114 = add i8 %113, -48
-  %or.cond4.i90 = icmp ult i8 %114, 10
-  br i1 %or.cond4.i90, label %115, label %_get_iso8601_int.exit.thread.sink.split
+104:                                              ; preds = %108, %_get_iso8601_int.exit87
+  %.01926.i88 = phi i32 [ 0, %_get_iso8601_int.exit87 ], [ %112, %108 ]
+  %exitcond.not.i92 = phi i1 [ false, %_get_iso8601_int.exit87 ], [ true, %108 ]
+  %.02125.i89 = phi i64 [ 0, %_get_iso8601_int.exit87 ], [ 1, %108 ]
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 %.02125.i89
+  %106 = load i8, ptr %105, align 1, !tbaa !16
+  %107 = add i8 %106, -48
+  %or.cond4.i90 = icmp ult i8 %107, 10
+  br i1 %or.cond4.i90, label %108, label %_get_iso8601_int.exit.thread.sink.split
 
-115:                                              ; preds = %111
-  %116 = mul i32 %.01926.i88, 10
-  %117 = zext nneg i8 %113 to i32
-  %118 = add i32 %116, -48
-  %119 = add i32 %118, %117
-  %120 = add nuw nsw i64 %.02125.i89, 1
-  %exitcond.not.i92 = icmp eq i64 %120, 2
-  br i1 %exitcond.not.i92, label %_get_iso8601_int.exit93, label %111
+108:                                              ; preds = %104
+  %109 = mul i32 %.01926.i88, 10
+  %110 = zext nneg i8 %106 to i32
+  %111 = add i32 %109, -48
+  %112 = add i32 %111, %110
+  br i1 %exitcond.not.i92, label %_get_iso8601_int.exit93, label %104
 
-_get_iso8601_int.exit93:                          ; preds = %115
-  %121 = getelementptr inbounds nuw i8, ptr %5, i64 15
-  br label %122
+_get_iso8601_int.exit93:                          ; preds = %108
+  %113 = getelementptr inbounds nuw i8, ptr %5, i64 15
+  br label %114
 
-122:                                              ; preds = %126, %_get_iso8601_int.exit93
-  %.01926.i94 = phi i32 [ 0, %_get_iso8601_int.exit93 ], [ %130, %126 ]
-  %.02125.i95 = phi i64 [ 0, %_get_iso8601_int.exit93 ], [ %131, %126 ]
-  %123 = getelementptr inbounds nuw i8, ptr %121, i64 %.02125.i95
-  %124 = load i8, ptr %123, align 1, !tbaa !16
-  %125 = add i8 %124, -48
-  %or.cond4.i96 = icmp ult i8 %125, 10
-  br i1 %or.cond4.i96, label %126, label %_get_iso8601_int.exit.thread.sink.split
+114:                                              ; preds = %118, %_get_iso8601_int.exit93
+  %.01926.i94 = phi i32 [ 0, %_get_iso8601_int.exit93 ], [ %122, %118 ]
+  %exitcond.not.i98 = phi i1 [ false, %_get_iso8601_int.exit93 ], [ true, %118 ]
+  %.02125.i95 = phi i64 [ 0, %_get_iso8601_int.exit93 ], [ 1, %118 ]
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 %.02125.i95
+  %116 = load i8, ptr %115, align 1, !tbaa !16
+  %117 = add i8 %116, -48
+  %or.cond4.i96 = icmp ult i8 %117, 10
+  br i1 %or.cond4.i96, label %118, label %_get_iso8601_int.exit.thread.sink.split
 
-126:                                              ; preds = %122
-  %127 = mul i32 %.01926.i94, 10
-  %128 = zext nneg i8 %124 to i32
-  %129 = add i32 %127, -48
-  %130 = add i32 %129, %128
-  %131 = add nuw nsw i64 %.02125.i95, 1
-  %exitcond.not.i98 = icmp eq i64 %131, 2
-  br i1 %exitcond.not.i98, label %_get_iso8601_int.exit99, label %122
+118:                                              ; preds = %114
+  %119 = mul i32 %.01926.i94, 10
+  %120 = zext nneg i8 %116 to i32
+  %121 = add i32 %119, -48
+  %122 = add i32 %121, %120
+  br i1 %exitcond.not.i98, label %_get_iso8601_int.exit99, label %114
 
-_get_iso8601_int.exit99:                          ; preds = %126
-  %132 = getelementptr inbounds nuw i8, ptr %5, i64 17
-  br label %133
+_get_iso8601_int.exit99:                          ; preds = %118
+  %123 = getelementptr inbounds nuw i8, ptr %5, i64 17
+  br label %124
 
-133:                                              ; preds = %137, %_get_iso8601_int.exit99
-  %.01926.i100 = phi i32 [ 0, %_get_iso8601_int.exit99 ], [ %141, %137 ]
-  %.02125.i101 = phi i64 [ 0, %_get_iso8601_int.exit99 ], [ %142, %137 ]
-  %134 = getelementptr inbounds nuw i8, ptr %132, i64 %.02125.i101
-  %135 = load i8, ptr %134, align 1, !tbaa !16
-  %136 = add i8 %135, -48
-  %or.cond4.i102 = icmp ult i8 %136, 10
-  br i1 %or.cond4.i102, label %137, label %_get_iso8601_int.exit.thread.sink.split
+124:                                              ; preds = %128, %_get_iso8601_int.exit99
+  %.01926.i100 = phi i32 [ 0, %_get_iso8601_int.exit99 ], [ %132, %128 ]
+  %exitcond.not.i104 = phi i1 [ false, %_get_iso8601_int.exit99 ], [ true, %128 ]
+  %.02125.i101 = phi i64 [ 0, %_get_iso8601_int.exit99 ], [ 1, %128 ]
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 %.02125.i101
+  %126 = load i8, ptr %125, align 1, !tbaa !16
+  %127 = add i8 %126, -48
+  %or.cond4.i102 = icmp ult i8 %127, 10
+  br i1 %or.cond4.i102, label %128, label %_get_iso8601_int.exit.thread.sink.split
 
-137:                                              ; preds = %133
-  %138 = mul i32 %.01926.i100, 10
-  %139 = zext nneg i8 %135 to i32
-  %140 = add i32 %138, -48
-  %141 = add i32 %140, %139
-  %142 = add nuw nsw i64 %.02125.i101, 1
-  %exitcond.not.i104 = icmp eq i64 %142, 2
-  br i1 %exitcond.not.i104, label %_get_iso8601_int.exit105, label %133
+128:                                              ; preds = %124
+  %129 = mul i32 %.01926.i100, 10
+  %130 = zext nneg i8 %126 to i32
+  %131 = add i32 %129, -48
+  %132 = add i32 %131, %130
+  br i1 %exitcond.not.i104, label %_get_iso8601_int.exit105, label %124
 
-_get_iso8601_int.exit105:                         ; preds = %137
-  %143 = sitofp i32 %141 to double
-  %144 = tail call ptr @g_date_time_new_local(i32 noundef %86, i32 noundef %97, i32 noundef %108, i32 noundef %119, i32 noundef %130, double noundef %143) #18
-  %145 = tail call i32 @g_date_time_compare(ptr noundef %77, ptr noundef %144) #18
-  tail call void @g_date_time_unref(ptr noundef %77) #18
+_get_iso8601_int.exit105:                         ; preds = %128
+  %133 = sitofp i32 %132 to double
+  %134 = tail call ptr @g_date_time_new_local(i32 noundef %81, i32 noundef %92, i32 noundef %102, i32 noundef %112, i32 noundef %122, double noundef %133) #18
+  %135 = tail call i32 @g_date_time_compare(ptr noundef %72, ptr noundef %134) #18
+  tail call void @g_date_time_unref(ptr noundef %72) #18
   br label %_get_iso8601_int.exit.thread.sink.split
 
-_get_iso8601_int.exit.thread.sink.split:          ; preds = %78, %89, %100, %111, %122, %133, %_get_iso8601_int.exit105
-  %.sink = phi ptr [ %144, %_get_iso8601_int.exit105 ], [ %77, %133 ], [ %77, %122 ], [ %77, %111 ], [ %77, %100 ], [ %77, %89 ], [ %77, %78 ]
-  %.0.ph = phi i32 [ %145, %_get_iso8601_int.exit105 ], [ 0, %133 ], [ 0, %122 ], [ 0, %111 ], [ 0, %100 ], [ 0, %89 ], [ 0, %78 ]
+_get_iso8601_int.exit.thread.sink.split:          ; preds = %73, %84, %94, %104, %114, %124, %_get_iso8601_int.exit105
+  %.sink = phi ptr [ %134, %_get_iso8601_int.exit105 ], [ %72, %124 ], [ %72, %114 ], [ %72, %104 ], [ %72, %94 ], [ %72, %84 ], [ %72, %73 ]
+  %.0.ph = phi i32 [ %135, %_get_iso8601_int.exit105 ], [ 0, %124 ], [ 0, %114 ], [ 0, %104 ], [ 0, %94 ], [ 0, %84 ], [ 0, %73 ]
   tail call void @g_date_time_unref(ptr noundef %.sink) #18
   br label %_get_iso8601_int.exit.thread
 
-_get_iso8601_int.exit.thread:                     ; preds = %11, %22, %33, %44, %55, %66, %_get_iso8601_int.exit.thread.sink.split, %3
-  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %_get_iso8601_int.exit.thread.sink.split ], [ 0, %66 ], [ 0, %55 ], [ 0, %44 ], [ 0, %33 ], [ 0, %22 ], [ 0, %11 ]
+_get_iso8601_int.exit.thread:                     ; preds = %11, %22, %32, %42, %52, %62, %_get_iso8601_int.exit.thread.sink.split, %3
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %_get_iso8601_int.exit.thread.sink.split ], [ 0, %62 ], [ 0, %52 ], [ 0, %42 ], [ 0, %32 ], [ 0, %22 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -11415,9 +11405,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %2628 = load ptr, ptr %3, align 8, !tbaa !21
   %2629 = call i32 @sqlite3_column_type(ptr noundef %2628, i32 noundef 1) #18
   %.not2070 = icmp eq i32 %2629, 5
-  br i1 %.not2070, label %.preheader2466, label %2630
+  br i1 %.not2070, label %.preheader2480, label %2630
 
-.preheader2466:                                   ; preds = %2630, %2635, %.lr.ph2397
+.preheader2480:                                   ; preds = %2630, %2635, %.lr.ph2397
   br label %2642
 
 2630:                                             ; preds = %.lr.ph2397
@@ -11426,14 +11416,14 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %2633 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3328), align 8, !tbaa !78
   %2634 = call ptr @dt_datetime_exif_to_gdatetime(ptr noundef %2632, ptr noundef %2633) #18
   %.not2071 = icmp eq ptr %2634, null
-  br i1 %.not2071, label %.preheader2466, label %2635
+  br i1 %.not2071, label %.preheader2480, label %2635
 
 2635:                                             ; preds = %2630
   %2636 = load ptr, ptr %20, align 8, !tbaa !21
   %2637 = call i64 @dt_datetime_gdatetime_to_gtimespan(ptr noundef nonnull %2634) #18
   %2638 = call i32 @sqlite3_bind_int64(ptr noundef %2636, i32 noundef 2, i64 noundef %2637) #18
   call void @g_date_time_unref(ptr noundef nonnull %2634) #18
-  br label %.preheader2466
+  br label %.preheader2480
 
 2639:                                             ; preds = %2656
   %2640 = load ptr, ptr %20, align 8, !tbaa !21
@@ -11441,8 +11431,8 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %.not2072 = icmp eq i32 %2641, 101
   br i1 %.not2072, label %2662, label %.thread2379
 
-2642:                                             ; preds = %.preheader2466, %2656
-  %.018962396 = phi i32 [ %2657, %2656 ], [ 0, %.preheader2466 ]
+2642:                                             ; preds = %.preheader2480, %2656
+  %.018962396 = phi i32 [ %2657, %2656 ], [ 0, %.preheader2480 ]
   %2643 = load ptr, ptr %3, align 8, !tbaa !21
   %2644 = add nuw nsw i32 %.018962396, 2
   %2645 = call i32 @sqlite3_column_type(ptr noundef %2643, i32 noundef %2644) #18

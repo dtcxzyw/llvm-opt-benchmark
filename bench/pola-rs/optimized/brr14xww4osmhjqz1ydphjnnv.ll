@@ -1518,9 +1518,9 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 64
   %81 = load ptr, ptr %80, align 8, !noalias !117, !noundef !3
   %.not1.i.i.i = icmp eq ptr %81, null
-  br i1 %.not1.i.i.i, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17had5718cfd63e8d35E.exit.thread", label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17had5718cfd63e8d35E.exit.thread3"
+  br i1 %.not1.i.i.i, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17had5718cfd63e8d35E.exit.thread", label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17had5718cfd63e8d35E.exit.thread13"
 
-"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17had5718cfd63e8d35E.exit.thread3": ; preds = %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3199456a53f3eafaE.exit.i.i.i"
+"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17had5718cfd63e8d35E.exit.thread13": ; preds = %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3199456a53f3eafaE.exit.i.i.i"
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 %.val.i.i.i.i.i.i
   %83 = getelementptr inbounds nuw i64, ptr %75, i64 %72
   %.val1.i.i.i.i.i.i = load i64, ptr %83, align 8, !noalias !117, !noundef !3
@@ -1542,7 +1542,7 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   %89 = trunc nuw i64 %88 to i1
   br i1 %89, label %90, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17had5718cfd63e8d35E.exit.thread"
 
-90:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17had5718cfd63e8d35E.exit.thread3", %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17had5718cfd63e8d35E.exit"
+90:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17had5718cfd63e8d35E.exit.thread13", %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17had5718cfd63e8d35E.exit"
   %91 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %92 = load ptr, ptr %91, align 8, !align !35, !noundef !3
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3426,9 +3426,9 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   %55 = load i64, ptr %54, align 8, !range !417, !alias.scope !429, !noalias !411, !noundef !3
   %56 = load i64, ptr %14, align 8, !alias.scope !429, !noalias !411, !noundef !3
   %57 = icmp ugt i64 %55, %56
-  br i1 %57, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddb021a062204020E.exit.thread", label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddb021a062204020E.exit.thread2"
+  br i1 %57, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddb021a062204020E.exit.thread", label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddb021a062204020E.exit.thread10"
 
-"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddb021a062204020E.exit.thread2": ; preds = %53
+"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddb021a062204020E.exit.thread10": ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %59 = load ptr, ptr %58, align 8, !alias.scope !429, !noalias !411, !nonnull !3, !align !116, !noundef !3
   %60 = add i64 %56, -1
@@ -3452,7 +3452,7 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   %66 = trunc nuw i64 %65 to i1
   br i1 %66, label %67, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddb021a062204020E.exit.thread"
 
-67:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddb021a062204020E.exit.thread2", %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddb021a062204020E.exit"
+67:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddb021a062204020E.exit.thread10", %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddb021a062204020E.exit"
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %69 = load ptr, ptr %68, align 8, !align !116, !noundef !3
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4648,8 +4648,8 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   br i1 %.not.i.not.i.i.i, label %24, label %20
 
 20:                                               ; preds = %18, %10
-  %.sink1.i.i = phi i64 [ %11, %10 ], [ %19, %18 ]
-  %21 = add i64 %.sink1.i.i, -1
+  %.sink3.i.i = phi i64 [ %11, %10 ], [ %19, %18 ]
+  %21 = add i64 %.sink3.i.i, -1
   store i64 %21, ptr %2, align 8, !alias.scope !602
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 1, ptr %22, align 8
@@ -5349,7 +5349,7 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8, !alias.scope !736, !noalias !737, !noundef !3
   %12 = icmp eq i64 %9, %11
-  br i1 %12, label %.critedge3, label %13
+  br i1 %12, label %.critedge7, label %13
 
 13:                                               ; preds = %7
   %14 = add i64 %9, 1
@@ -5411,7 +5411,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h8401299fd7ffc17dE.exit.thread
   call fastcc void @_ZN4core4iter6traits8iterator8Iterator3nth17h50e814979f74a6afE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(40) %4, i64 noundef %6)
   %.pre = load i64, ptr %3, align 8, !range !5
   %51 = trunc nuw i64 %.pre to i1
-  br i1 %51, label %.critedge, label %.critedge3
+  br i1 %51, label %.critedge, label %.critedge7
 
 .critedge:                                        ; preds = %49, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8401299fd7ffc17dE.exit.thread.i.i, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40f57598c6b8d7a2E.exit"
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5458,12 +5458,12 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h8401299fd7ffc17dE.exit.thread
   tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h882da03ce7dd375aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @anon.ed06e595e37926ce62257f82b3d740a0.110, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.110, i64 4), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed06e595e37926ce62257f82b3d740a0.124), !noalias !745
   br label %"_ZN11polars_json4json5write9serialize30dictionary_utf8view_serializer28_$u7b$$u7b$closure$u7d$$u7d$17hcfaf37ac3cfe64a7E.exit"
 
-.critedge3:                                       ; preds = %7, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40f57598c6b8d7a2E.exit"
+.critedge7:                                       ; preds = %7, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40f57598c6b8d7a2E.exit"
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 0, ptr %68, align 8
   br label %"_ZN11polars_json4json5write9serialize30dictionary_utf8view_serializer28_$u7b$$u7b$closure$u7d$$u7d$17hcfaf37ac3cfe64a7E.exit"
 
-"_ZN11polars_json4json5write9serialize30dictionary_utf8view_serializer28_$u7b$$u7b$closure$u7d$$u7d$17hcfaf37ac3cfe64a7E.exit": ; preds = %67, %58, %.critedge3
+"_ZN11polars_json4json5write9serialize30dictionary_utf8view_serializer28_$u7b$$u7b$closure$u7d$$u7d$17hcfaf37ac3cfe64a7E.exit": ; preds = %67, %58, %.critedge7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -10057,14 +10057,14 @@ define internal fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_
   %7 = alloca [12 x i8], align 4
   %8 = alloca [12 x i8], align 4
   %9 = alloca [12 x i8], align 4
-  switch i8 %2, label %default.unreachable17 [
+  switch i8 %2, label %default.unreachable18 [
     i8 0, label %10
     i8 1, label %20
     i8 2, label %28
     i8 3, label %37
   ]
 
-default.unreachable17:                            ; preds = %3
+default.unreachable18:                            ; preds = %3
   unreachable
 
 10:                                               ; preds = %3
@@ -14448,8 +14448,8 @@ define internal { ptr, i64 } @_ZN18streaming_iterator17StreamingIterator3nth17h6
   br label %_ZN18streaming_iterator17StreamingIterator4next17h44ba784448a17abcE.exit
 
 "_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h75d1e6fe3e374da2E.exit.i": ; preds = %23, %15
-  %.sink1.i.i.i.i = phi i64 [ %16, %15 ], [ %24, %23 ]
-  %25 = add i64 %.sink1.i.i.i.i, -1
+  %.sink3.i.i.i.i = phi i64 [ %16, %15 ], [ %24, %23 ]
+  %25 = add i64 %.sink3.i.i.i.i, -1
   store i64 %25, ptr %3, align 8, !alias.scope !2414
   store i8 1, ptr %6, align 8, !alias.scope !2425
   store i64 0, ptr %7, align 8, !alias.scope !2425
@@ -14503,8 +14503,8 @@ define internal { ptr, i64 } @_ZN18streaming_iterator17StreamingIterator3nth17h6
   br i1 %.not.i.not.i.i.i.i3, label %49, label %47
 
 47:                                               ; preds = %45, %37
-  %.sink1.i.i.i = phi i64 [ %38, %37 ], [ %46, %45 ]
-  %48 = add i64 %.sink1.i.i.i, -1
+  %.sink3.i.i.i = phi i64 [ %38, %37 ], [ %46, %45 ]
+  %48 = add i64 %.sink3.i.i.i, -1
   store i64 %48, ptr %3, align 8, !alias.scope !2434
   store i8 1, ptr %6, align 8, !alias.scope !2445
   store i64 0, ptr %7, align 8, !alias.scope !2445
@@ -16632,8 +16632,8 @@ define internal { ptr, i64 } @_ZN18streaming_iterator17StreamingIterator4next17h
   br label %29
 
 "_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h75d1e6fe3e374da2E.exit": ; preds = %10, %18
-  %.sink1.i.i.i = phi i64 [ %11, %10 ], [ %19, %18 ]
-  %21 = add i64 %.sink1.i.i.i, -1
+  %.sink3.i.i.i = phi i64 [ %11, %10 ], [ %19, %18 ]
+  %21 = add i64 %.sink3.i.i.i, -1
   store i64 %21, ptr %2, align 8, !alias.scope !2799
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 1, ptr %22, align 8, !alias.scope !2810

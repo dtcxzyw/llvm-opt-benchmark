@@ -397,10 +397,10 @@ switch.lookup:                                    ; preds = %43
 
 .sink.split.i616:                                 ; preds = %switch.lookup, %38, %.split
   %hf_rcid_ie_normal_cid.sink.i617 = phi ptr [ @hf_rcid_ie_normal_cid_1, %.split ], [ @hf_rcid_ie_cid11_3, %38 ], [ %switch.load, %switch.lookup ]
-  %.sink1.i = phi i32 [ 3, %.split ], [ 2, %38 ], [ 2, %switch.lookup ]
+  %.sink2.i = phi i32 [ 3, %.split ], [ 2, %38 ], [ 2, %switch.lookup ]
   %.0.ph.i618 = phi i32 [ 4, %.split ], [ 3, %38 ], [ %switch.offset, %switch.lookup ]
   %47 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i617, align 4
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %47, ptr noundef %2, i32 noundef %3, i32 noundef %.sink1.i, i32 noundef 0)
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %47, ptr noundef %2, i32 noundef %3, i32 noundef %.sink2.i, i32 noundef 0)
   br label %wimax_compact_ulmap_rcid_ie_decoder.exit
 
 wimax_compact_ulmap_rcid_ie_decoder.exit:         ; preds = %43, %.sink.split.i616, %.sink.split.i, %28
@@ -446,13 +446,13 @@ wimax_compact_ulmap_rcid_ie_decoder.exit:         ; preds = %43, %.sink.split.i6
 71:                                               ; preds = %68
   %.not613 = icmp eq i32 %51, 0
   %. = add nuw nsw i32 %51, 1
-  %hf_culmap_shortened_uiuc.val728 = load i32, ptr @hf_culmap_shortened_uiuc, align 4
-  %hf_culmap_shortened_uiuc_1.val729 = load i32, ptr @hf_culmap_shortened_uiuc_1, align 4
-  %72 = select i1 %.not613, i32 %hf_culmap_shortened_uiuc.val728, i32 %hf_culmap_shortened_uiuc_1.val729
+  %hf_culmap_shortened_uiuc.val735 = load i32, ptr @hf_culmap_shortened_uiuc, align 4
+  %hf_culmap_shortened_uiuc_1.val736 = load i32, ptr @hf_culmap_shortened_uiuc_1, align 4
+  %72 = select i1 %.not613, i32 %hf_culmap_shortened_uiuc.val735, i32 %hf_culmap_shortened_uiuc_1.val736
   %73 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %72, ptr noundef %2, i32 noundef %50, i32 noundef %., i32 noundef 0)
-  %hf_culmap_companded_sc.val730 = load i32, ptr @hf_culmap_companded_sc, align 4
-  %hf_culmap_companded_sc_1.val731 = load i32, ptr @hf_culmap_companded_sc_1, align 4
-  %74 = select i1 %.not613, i32 %hf_culmap_companded_sc.val730, i32 %hf_culmap_companded_sc_1.val731
+  %hf_culmap_companded_sc.val737 = load i32, ptr @hf_culmap_companded_sc, align 4
+  %hf_culmap_companded_sc_1.val738 = load i32, ptr @hf_culmap_companded_sc_1, align 4
+  %74 = select i1 %.not613, i32 %hf_culmap_companded_sc.val737, i32 %hf_culmap_companded_sc_1.val738
   %75 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %74, ptr noundef %2, i32 noundef %50, i32 noundef %., i32 noundef 0)
   %76 = add i32 %50, 1
   %77 = add nuw nsw i32 %phi.call, 3
@@ -524,23 +524,23 @@ wimax_compact_ulmap_rcid_ie_decoder.exit:         ; preds = %43, %.sink.split.i6
 
 112:                                              ; preds = %107
   %113 = load i32, ptr @cid_type, align 4
-  %switch.tableidx735 = add i32 %113, -1
-  %114 = icmp ult i32 %switch.tableidx735, 3
-  br i1 %114, label %switch.lookup734, label %wimax_compact_ulmap_rcid_ie_decoder.exit627
+  %switch.tableidx742 = add i32 %113, -1
+  %114 = icmp ult i32 %switch.tableidx742, 3
+  br i1 %114, label %switch.lookup741, label %wimax_compact_ulmap_rcid_ie_decoder.exit627
 
-switch.lookup734:                                 ; preds = %112
-  %115 = zext nneg i32 %switch.tableidx735 to i64
-  %switch.gep736 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.wimax_compact_ulmap_ie_decoder.5, i64 0, i64 %115
-  %switch.load737 = load ptr, ptr %switch.gep736, align 8
-  %switch.offset739 = sub nuw nsw i32 4, %113
+switch.lookup741:                                 ; preds = %112
+  %115 = zext nneg i32 %switch.tableidx742 to i64
+  %switch.gep743 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.wimax_compact_ulmap_ie_decoder.5, i64 0, i64 %115
+  %switch.load744 = load ptr, ptr %switch.gep743, align 8
+  %switch.offset746 = sub nuw nsw i32 4, %113
   br label %.sink.split.i629
 
-.sink.split.i629:                                 ; preds = %switch.lookup734, %107, %.split576
-  %hf_rcid_ie_normal_cid.sink.i630 = phi ptr [ @hf_rcid_ie_normal_cid_1, %.split576 ], [ @hf_rcid_ie_cid11_3, %107 ], [ %switch.load737, %switch.lookup734 ]
-  %.sink1.i631 = phi i32 [ 3, %.split576 ], [ 2, %107 ], [ 2, %switch.lookup734 ]
-  %.0.ph.i632 = phi i32 [ 4, %.split576 ], [ 3, %107 ], [ %switch.offset739, %switch.lookup734 ]
+.sink.split.i629:                                 ; preds = %switch.lookup741, %107, %.split576
+  %hf_rcid_ie_normal_cid.sink.i630 = phi ptr [ @hf_rcid_ie_normal_cid_1, %.split576 ], [ @hf_rcid_ie_cid11_3, %107 ], [ %switch.load744, %switch.lookup741 ]
+  %.sink2.i631 = phi i32 [ 3, %.split576 ], [ 2, %107 ], [ 2, %switch.lookup741 ]
+  %.0.ph.i632 = phi i32 [ 4, %.split576 ], [ 3, %107 ], [ %switch.offset746, %switch.lookup741 ]
   %116 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i630, align 4
-  %117 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %116, ptr noundef %2, i32 noundef %3, i32 noundef %.sink1.i631, i32 noundef 0)
+  %117 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %116, ptr noundef %2, i32 noundef %3, i32 noundef %.sink2.i631, i32 noundef 0)
   br label %wimax_compact_ulmap_rcid_ie_decoder.exit627
 
 wimax_compact_ulmap_rcid_ie_decoder.exit627:      ; preds = %112, %.sink.split.i629, %.sink.split.i622, %97
@@ -585,15 +585,15 @@ wimax_compact_ulmap_rcid_ie_decoder.exit627:      ; preds = %112, %.sink.split.i
 
 140:                                              ; preds = %137
   %.not602 = icmp eq i32 %120, 0
-  %.709 = add nuw nsw i32 %120, 1
-  %hf_culmap_shortened_uiuc.val724 = load i32, ptr @hf_culmap_shortened_uiuc, align 4
-  %hf_culmap_shortened_uiuc_1.val725 = load i32, ptr @hf_culmap_shortened_uiuc_1, align 4
-  %141 = select i1 %.not602, i32 %hf_culmap_shortened_uiuc.val724, i32 %hf_culmap_shortened_uiuc_1.val725
-  %142 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %141, ptr noundef %2, i32 noundef %119, i32 noundef %.709, i32 noundef 0)
-  %hf_culmap_companded_sc.val726 = load i32, ptr @hf_culmap_companded_sc, align 4
-  %hf_culmap_companded_sc_1.val727 = load i32, ptr @hf_culmap_companded_sc_1, align 4
-  %143 = select i1 %.not602, i32 %hf_culmap_companded_sc.val726, i32 %hf_culmap_companded_sc_1.val727
-  %144 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %143, ptr noundef %2, i32 noundef %119, i32 noundef %.709, i32 noundef 0)
+  %.716 = add nuw nsw i32 %120, 1
+  %hf_culmap_shortened_uiuc.val731 = load i32, ptr @hf_culmap_shortened_uiuc, align 4
+  %hf_culmap_shortened_uiuc_1.val732 = load i32, ptr @hf_culmap_shortened_uiuc_1, align 4
+  %141 = select i1 %.not602, i32 %hf_culmap_shortened_uiuc.val731, i32 %hf_culmap_shortened_uiuc_1.val732
+  %142 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %141, ptr noundef %2, i32 noundef %119, i32 noundef %.716, i32 noundef 0)
+  %hf_culmap_companded_sc.val733 = load i32, ptr @hf_culmap_companded_sc, align 4
+  %hf_culmap_companded_sc_1.val734 = load i32, ptr @hf_culmap_companded_sc_1, align 4
+  %143 = select i1 %.not602, i32 %hf_culmap_companded_sc.val733, i32 %hf_culmap_companded_sc_1.val734
+  %144 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %143, ptr noundef %2, i32 noundef %119, i32 noundef %.716, i32 noundef 0)
   %145 = add i32 %119, 1
   %146 = add nuw nsw i32 %phi.call579, 3
   br label %147
@@ -749,11 +749,11 @@ wimax_compact_ulmap_rcid_ie_decoder.exit627:      ; preds = %112, %.sink.split.i
   br i1 %exitcond675.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !6
 
 225:                                              ; preds = %219
-  %.711 = select i1 %.not607.not.not, i32 2, i32 1
+  %.718 = select i1 %.not607.not.not, i32 2, i32 1
   %hf_culmap_num_subchannels_1.val = load i32, ptr @hf_culmap_num_subchannels_1, align 4
   %hf_culmap_num_subchannels.val = load i32, ptr @hf_culmap_num_subchannels, align 4
   %226 = select i1 %.not607.not.not, i32 %hf_culmap_num_subchannels_1.val, i32 %hf_culmap_num_subchannels.val
-  %227 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %226, ptr noundef %2, i32 noundef %.9, i32 noundef %.711, i32 noundef 0)
+  %227 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %226, ptr noundef %2, i32 noundef %.9, i32 noundef %.718, i32 noundef 0)
   %228 = add i32 %.9, 1
   %229 = add nuw nsw i32 %.4557, 3
   br label %236
@@ -840,23 +840,23 @@ wimax_compact_ulmap_rcid_ie_decoder.exit627:      ; preds = %112, %.sink.split.i
 
 270:                                              ; preds = %265
   %271 = load i32, ptr @cid_type, align 4
-  %switch.tableidx741 = add i32 %271, -1
-  %272 = icmp ult i32 %switch.tableidx741, 3
-  br i1 %272, label %switch.lookup740, label %wimax_compact_ulmap_rcid_ie_decoder.exit641
+  %switch.tableidx748 = add i32 %271, -1
+  %272 = icmp ult i32 %switch.tableidx748, 3
+  br i1 %272, label %switch.lookup747, label %wimax_compact_ulmap_rcid_ie_decoder.exit641
 
-switch.lookup740:                                 ; preds = %270
-  %273 = zext nneg i32 %switch.tableidx741 to i64
-  %switch.gep742 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.wimax_compact_ulmap_ie_decoder.5, i64 0, i64 %273
-  %switch.load743 = load ptr, ptr %switch.gep742, align 8
-  %switch.offset745 = sub nuw nsw i32 4, %271
+switch.lookup747:                                 ; preds = %270
+  %273 = zext nneg i32 %switch.tableidx748 to i64
+  %switch.gep749 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.wimax_compact_ulmap_ie_decoder.5, i64 0, i64 %273
+  %switch.load750 = load ptr, ptr %switch.gep749, align 8
+  %switch.offset752 = sub nuw nsw i32 4, %271
   br label %.sink.split.i643
 
-.sink.split.i643:                                 ; preds = %switch.lookup740, %265, %.split581
-  %hf_rcid_ie_normal_cid.sink.i644 = phi ptr [ @hf_rcid_ie_normal_cid_1, %.split581 ], [ @hf_rcid_ie_cid11_3, %265 ], [ %switch.load743, %switch.lookup740 ]
-  %.sink1.i645 = phi i32 [ 3, %.split581 ], [ 2, %265 ], [ 2, %switch.lookup740 ]
-  %.0.ph.i646 = phi i32 [ 4, %.split581 ], [ 3, %265 ], [ %switch.offset745, %switch.lookup740 ]
+.sink.split.i643:                                 ; preds = %switch.lookup747, %265, %.split581
+  %hf_rcid_ie_normal_cid.sink.i644 = phi ptr [ @hf_rcid_ie_normal_cid_1, %.split581 ], [ @hf_rcid_ie_cid11_3, %265 ], [ %switch.load750, %switch.lookup747 ]
+  %.sink2.i645 = phi i32 [ 3, %.split581 ], [ 2, %265 ], [ 2, %switch.lookup747 ]
+  %.0.ph.i646 = phi i32 [ 4, %.split581 ], [ 3, %265 ], [ %switch.offset752, %switch.lookup747 ]
   %274 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i644, align 4
-  %275 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %274, ptr noundef %2, i32 noundef %3, i32 noundef %.sink1.i645, i32 noundef 0)
+  %275 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %274, ptr noundef %2, i32 noundef %3, i32 noundef %.sink2.i645, i32 noundef 0)
   br label %wimax_compact_ulmap_rcid_ie_decoder.exit641
 
 wimax_compact_ulmap_rcid_ie_decoder.exit641:      ; preds = %270, %.sink.split.i643, %.sink.split.i636, %255
@@ -901,15 +901,15 @@ wimax_compact_ulmap_rcid_ie_decoder.exit641:      ; preds = %270, %.sink.split.i
 
 298:                                              ; preds = %295
   %.not598 = icmp eq i32 %278, 0
-  %.713 = add nuw nsw i32 %278, 1
+  %.720 = add nuw nsw i32 %278, 1
   %hf_culmap_shortened_uiuc.val = load i32, ptr @hf_culmap_shortened_uiuc, align 4
   %hf_culmap_shortened_uiuc_1.val = load i32, ptr @hf_culmap_shortened_uiuc_1, align 4
   %299 = select i1 %.not598, i32 %hf_culmap_shortened_uiuc.val, i32 %hf_culmap_shortened_uiuc_1.val
-  %300 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %299, ptr noundef %2, i32 noundef %277, i32 noundef %.713, i32 noundef 0)
+  %300 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %299, ptr noundef %2, i32 noundef %277, i32 noundef %.720, i32 noundef 0)
   %hf_culmap_companded_sc.val = load i32, ptr @hf_culmap_companded_sc, align 4
   %hf_culmap_companded_sc_1.val = load i32, ptr @hf_culmap_companded_sc_1, align 4
   %301 = select i1 %.not598, i32 %hf_culmap_companded_sc.val, i32 %hf_culmap_companded_sc_1.val
-  %302 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %301, ptr noundef %2, i32 noundef %277, i32 noundef %.713, i32 noundef 0)
+  %302 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %301, ptr noundef %2, i32 noundef %277, i32 noundef %.720, i32 noundef 0)
   %303 = add i32 %277, 1
   %304 = add nuw nsw i32 %phi.call584, 3
   br label %305
@@ -919,11 +919,11 @@ wimax_compact_ulmap_rcid_ie_decoder.exit641:      ; preds = %270, %.sink.split.i
   %.14 = phi i32 [ %303, %298 ], [ %277, %295 ], [ %.13, %293 ]
   %.not599.not = icmp eq i32 %278, 0
   %306 = add i32 %.14, 1
-  %.715 = add nuw nsw i32 %278, 1
+  %.722 = add nuw nsw i32 %278, 1
   %hf_culmap_bin_offset.val = load i32, ptr @hf_culmap_bin_offset, align 4
   %hf_culmap_bin_offset_1.val = load i32, ptr @hf_culmap_bin_offset_1, align 4
   %307 = select i1 %.not599.not, i32 %hf_culmap_bin_offset.val, i32 %hf_culmap_bin_offset_1.val
-  %308 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %307, ptr noundef %2, i32 noundef %.14, i32 noundef %.715, i32 noundef 0)
+  %308 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %307, ptr noundef %2, i32 noundef %.14, i32 noundef %.722, i32 noundef 0)
   %309 = tail call fastcc i32 @wimax_compact_ulmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %2, i32 noundef %306, i32 noundef %278)
   %310 = add nuw nsw i32 %.6559, 2
   %311 = add nuw nsw i32 %310, %309
@@ -1005,10 +1005,10 @@ wimax_compact_ulmap_rcid_ie_decoder.exit641:      ; preds = %270, %.sink.split.i
   %.16665 = phi i32 [ %3, %354 ], [ %318, %334 ], [ %318, %333 ], [ %318, %313 ], [ %318, %326 ], [ %318, %331 ], [ %3, %335 ], [ %3, %345 ], [ %3, %353 ]
   %.0561662 = phi i32 [ %340, %354 ], [ %321, %334 ], [ %321, %333 ], [ %321, %313 ], [ %321, %326 ], [ %321, %331 ], [ %340, %335 ], [ %340, %345 ], [ %340, %353 ]
   %hf_rcid_ie_normal_cid.sink.i651 = phi ptr [ @hf_rcid_ie_cid3, %354 ], [ @hf_rcid_ie_cid3_1, %334 ], [ @hf_rcid_ie_cid7_1, %333 ], [ @hf_rcid_ie_normal_cid_1, %313 ], [ @hf_rcid_ie_cid11_3, %326 ], [ @hf_rcid_ie_cid11_1, %331 ], [ @hf_rcid_ie_normal_cid, %335 ], [ @hf_rcid_ie_cid11_2, %345 ], [ @hf_rcid_ie_cid7, %353 ]
-  %.sink1.i652 = phi i32 [ 2, %354 ], [ 2, %334 ], [ 2, %333 ], [ 3, %313 ], [ 2, %326 ], [ 2, %331 ], [ 2, %335 ], [ 2, %345 ], [ %351, %353 ]
+  %.sink2.i652 = phi i32 [ 2, %354 ], [ 2, %334 ], [ 2, %333 ], [ 3, %313 ], [ 2, %326 ], [ 2, %331 ], [ 2, %335 ], [ 2, %345 ], [ %351, %353 ]
   %.0.ph.i653 = phi i32 [ 1, %354 ], [ 1, %334 ], [ 2, %333 ], [ 4, %313 ], [ 3, %326 ], [ 3, %331 ], [ 4, %335 ], [ 3, %345 ], [ %351, %353 ]
   %355 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i651, align 4
-  %356 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %355, ptr noundef %2, i32 noundef %.16665, i32 noundef %.sink1.i652, i32 noundef 0)
+  %356 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %355, ptr noundef %2, i32 noundef %.16665, i32 noundef %.sink2.i652, i32 noundef 0)
   br label %wimax_compact_ulmap_rcid_ie_decoder.exit656
 
 wimax_compact_ulmap_rcid_ie_decoder.exit656:      ; preds = %331, %353, %.sink.split.i650
@@ -1042,57 +1042,57 @@ wimax_compact_ulmap_rcid_ie_decoder.exit656:      ; preds = %331, %353, %.sink.s
 371:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.exit656
   %.not595 = icmp eq i32 %359, 0
   %372 = add i32 %358, 1
-  %.717 = add nuw nsw i32 %359, 1
-  %.718 = add nuw nsw i32 %359, 3
+  %.724 = add nuw nsw i32 %359, 1
+  %.725 = add nuw nsw i32 %359, 3
   %hf_culmap_uiuc_ofdma_symbol_offset.val = load i32, ptr @hf_culmap_uiuc_ofdma_symbol_offset, align 4
   %hf_culmap_uiuc_ofdma_symbol_offset_1.val = load i32, ptr @hf_culmap_uiuc_ofdma_symbol_offset_1, align 4
   %373 = select i1 %.not595, i32 %hf_culmap_uiuc_ofdma_symbol_offset.val, i32 %hf_culmap_uiuc_ofdma_symbol_offset_1.val
-  %374 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %373, ptr noundef %2, i32 noundef %358, i32 noundef %.717, i32 noundef 0)
+  %374 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %373, ptr noundef %2, i32 noundef %358, i32 noundef %.724, i32 noundef 0)
   %hf_culmap_uiuc_subchannel_offset_7.val = load i32, ptr @hf_culmap_uiuc_subchannel_offset_7, align 4
   %hf_culmap_uiuc_subchannel_offset_7_1.val = load i32, ptr @hf_culmap_uiuc_subchannel_offset_7_1, align 4
   %375 = select i1 %.not595, i32 %hf_culmap_uiuc_subchannel_offset_7.val, i32 %hf_culmap_uiuc_subchannel_offset_7_1.val
-  %376 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %375, ptr noundef %2, i32 noundef %372, i32 noundef %.718, i32 noundef 0)
+  %376 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %375, ptr noundef %2, i32 noundef %372, i32 noundef %.725, i32 noundef 0)
   %hf_culmap_uiuc_num_of_ofdma_symbols_7.val = load i32, ptr @hf_culmap_uiuc_num_of_ofdma_symbols_7, align 4
   %hf_culmap_uiuc_num_of_ofdma_symbols_7_1.val = load i32, ptr @hf_culmap_uiuc_num_of_ofdma_symbols_7_1, align 4
   %377 = select i1 %.not595, i32 %hf_culmap_uiuc_num_of_ofdma_symbols_7.val, i32 %hf_culmap_uiuc_num_of_ofdma_symbols_7_1.val
-  %378 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %377, ptr noundef %2, i32 noundef %372, i32 noundef %.718, i32 noundef 0)
+  %378 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %377, ptr noundef %2, i32 noundef %372, i32 noundef %.725, i32 noundef 0)
   %hf_culmap_uiuc_num_of_subchannels_7.val = load i32, ptr @hf_culmap_uiuc_num_of_subchannels_7, align 4
   %hf_culmap_uiuc_num_of_subchannels_7_1.val = load i32, ptr @hf_culmap_uiuc_num_of_subchannels_7_1, align 4
   %379 = select i1 %.not595, i32 %hf_culmap_uiuc_num_of_subchannels_7.val, i32 %hf_culmap_uiuc_num_of_subchannels_7_1.val
-  %380 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %379, ptr noundef %2, i32 noundef %372, i32 noundef %.718, i32 noundef 0)
+  %380 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %379, ptr noundef %2, i32 noundef %372, i32 noundef %.725, i32 noundef 0)
   %hf_culmap_uiuc_ranging_method.val = load i32, ptr @hf_culmap_uiuc_ranging_method, align 4
   %hf_culmap_uiuc_ranging_method_1.val = load i32, ptr @hf_culmap_uiuc_ranging_method_1, align 4
   %381 = select i1 %.not595, i32 %hf_culmap_uiuc_ranging_method.val, i32 %hf_culmap_uiuc_ranging_method_1.val
-  %382 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %381, ptr noundef %2, i32 noundef %372, i32 noundef %.718, i32 noundef 0)
+  %382 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %381, ptr noundef %2, i32 noundef %372, i32 noundef %.725, i32 noundef 0)
   %hf_culmap_uiuc_reserved.val = load i32, ptr @hf_culmap_uiuc_reserved, align 4
   %hf_culmap_uiuc_reserved_1.val = load i32, ptr @hf_culmap_uiuc_reserved_1, align 4
   %383 = select i1 %.not595, i32 %hf_culmap_uiuc_reserved.val, i32 %hf_culmap_uiuc_reserved_1.val
-  %384 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %383, ptr noundef %2, i32 noundef %372, i32 noundef %.718, i32 noundef 0)
+  %384 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %383, ptr noundef %2, i32 noundef %372, i32 noundef %.725, i32 noundef 0)
   %.18 = add i32 %358, 4
   %385 = add nuw nsw i32 %.0.i654, 10
   br label %394
 
 386:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.exit656
   %.not = icmp eq i32 %359, 0
-  %.719 = add nuw nsw i32 %359, 1
-  %.721 = xor i32 %359, 1
+  %.726 = add nuw nsw i32 %359, 1
+  %.728 = xor i32 %359, 1
   %hf_culmap_uiuc_num_of_subchannels.val = load i32, ptr @hf_culmap_uiuc_num_of_subchannels, align 4
   %hf_culmap_uiuc_num_of_subchannels_1.val = load i32, ptr @hf_culmap_uiuc_num_of_subchannels_1, align 4
   %387 = select i1 %.not, i32 %hf_culmap_uiuc_num_of_subchannels.val, i32 %hf_culmap_uiuc_num_of_subchannels_1.val
-  %388 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %387, ptr noundef %2, i32 noundef %358, i32 noundef %.719, i32 noundef 0)
+  %388 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %387, ptr noundef %2, i32 noundef %358, i32 noundef %.726, i32 noundef 0)
   %hf_culmap_uiuc_repetition_coding_indication.val = load i32, ptr @hf_culmap_uiuc_repetition_coding_indication, align 4
   %hf_culmap_uiuc_repetition_coding_indication_1.val = load i32, ptr @hf_culmap_uiuc_repetition_coding_indication_1, align 4
   %389 = select i1 %.not, i32 %hf_culmap_uiuc_repetition_coding_indication.val, i32 %hf_culmap_uiuc_repetition_coding_indication_1.val
   %390 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %389, ptr noundef %2, i32 noundef %358, i32 noundef 1, i32 noundef 0)
-  %hf_culmap_uiuc_reserved.val722 = load i32, ptr @hf_culmap_uiuc_reserved, align 4
-  %hf_culmap_uiuc_reserved_1.val723 = load i32, ptr @hf_culmap_uiuc_reserved_1, align 4
-  %391 = select i1 %.not, i32 %hf_culmap_uiuc_reserved.val722, i32 %hf_culmap_uiuc_reserved_1.val723
+  %hf_culmap_uiuc_reserved.val729 = load i32, ptr @hf_culmap_uiuc_reserved, align 4
+  %hf_culmap_uiuc_reserved_1.val730 = load i32, ptr @hf_culmap_uiuc_reserved_1, align 4
+  %391 = select i1 %.not, i32 %hf_culmap_uiuc_reserved.val729, i32 %hf_culmap_uiuc_reserved_1.val730
   %392 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %391, ptr noundef %2, i32 noundef %358, i32 noundef 1, i32 noundef 0)
   %393 = add nuw nsw i32 %.0.i654, 5
   br label %394
 
 394:                                              ; preds = %367, %386, %371, %360
-  %.7569 = phi i32 [ %366, %360 ], [ 0, %367 ], [ %359, %371 ], [ %.721, %386 ]
+  %.7569 = phi i32 [ %366, %360 ], [ 0, %367 ], [ %359, %371 ], [ %.728, %386 ]
   %.7560 = phi i32 [ %363, %360 ], [ %369, %367 ], [ %385, %371 ], [ %393, %386 ]
   %.17 = phi i32 [ %365, %360 ], [ %370, %367 ], [ %.18, %371 ], [ %358, %386 ]
   %395 = tail call fastcc i32 @wimax_compact_ulmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %2, i32 noundef %.17, i32 noundef %.7569)

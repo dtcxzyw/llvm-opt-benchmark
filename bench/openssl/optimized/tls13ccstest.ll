@@ -197,8 +197,8 @@ define internal range(i32 0, 2) i32 @test_tls13ccs(i32 noundef %0) #1 {
   br label %270
 
 .sink.split:                                      ; preds = %24, %24, %24, %24, %25
-  %.sink121 = phi ptr [ %2, %25 ], [ %3, %24 ], [ %3, %24 ], [ %3, %24 ], [ %3, %24 ]
-  %27 = load ptr, ptr %.sink121, align 8, !tbaa !9
+  %.sink122 = phi ptr [ %2, %25 ], [ %3, %24 ], [ %3, %24 ], [ %3, %24 ], [ %3, %24 ]
+  %27 = load ptr, ptr %.sink122, align 8, !tbaa !9
   %28 = call i64 @SSL_CTX_clear_options(ptr noundef %27, i64 noundef 1048576) #7
   br label %29
 

@@ -336,9 +336,9 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; pred
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %24
   %.old.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !47, !range !46, !noundef !48
-  %.old6.i = trunc nuw i8 %.old5.i to i1
-  br i1 %.old6.i, label %31, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+  %.old8.i = load i8, ptr %.old.i, align 8, !tbaa !47, !range !46, !noundef !48
+  %.old9.i = trunc nuw i8 %.old8.i to i1
+  br i1 %.old9.i, label %31, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
 31:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %23)
@@ -1177,7 +1177,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i: ; preds = %_ZNK20b
 
 .thread:                                          ; preds = %33
   %80 = icmp eq i32 %30, 8
-  br i1 %80, label %.thread164, label %_ZN16btManifoldResult20refreshContactPointsEv.exit
+  br i1 %80, label %.thread178, label %_ZN16btManifoldResult20refreshContactPointsEv.exit
 
 81:                                               ; preds = %78
   %82 = icmp eq i32 %.pre2.i, %40
@@ -1192,9 +1192,9 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i: ; preds = %_ZNK20b
 
 86:                                               ; preds = %83
   %.not.i.i.i87 = icmp eq i32 %spec.select, 0
-  br i1 %.not.i.i.i87, label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i89, label %.thread164
+  br i1 %.not.i.i.i87, label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i89, label %.thread178
 
-.thread164:                                       ; preds = %.thread, %86
+.thread178:                                       ; preds = %.thread, %86
   %87 = phi i32 [ %40, %86 ], [ 0, %.thread ]
   %88 = phi ptr [ %39, %86 ], [ null, %.thread ]
   %89 = phi i32 [ %spec.select, %86 ], [ 1, %.thread ]
@@ -1203,11 +1203,11 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i: ; preds = %_ZNK20b
   %92 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %91, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i89 unwind label %113
 
-_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i89: ; preds = %.thread164, %86
-  %93 = phi i32 [ %40, %86 ], [ %87, %.thread164 ]
-  %94 = phi ptr [ %39, %86 ], [ %88, %.thread164 ]
-  %95 = phi i32 [ 0, %86 ], [ %89, %.thread164 ]
-  %.0.i.i.i90 = phi ptr [ null, %86 ], [ %92, %.thread164 ]
+_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i89: ; preds = %.thread178, %86
+  %93 = phi i32 [ %40, %86 ], [ %87, %.thread178 ]
+  %94 = phi ptr [ %39, %86 ], [ %88, %.thread178 ]
+  %95 = phi i32 [ 0, %86 ], [ %89, %.thread178 ]
+  %.0.i.i.i90 = phi ptr [ null, %86 ], [ %92, %.thread178 ]
   %96 = icmp sgt i32 %93, 0
   br i1 %96, label %.lr.ph.i.i.i96, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i91
 
@@ -1260,7 +1260,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i94: ; preds = %._ZN2
   %112 = fadd float %111, 0x3E80000000000000
   br label %115
 
-113:                                              ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i91.thread, %.thread164
+113:                                              ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i91.thread, %.thread178
   %114 = landingpad { ptr, i32 }
           cleanup
   br label %313
@@ -1318,8 +1318,8 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i94: ; preds = %._ZN2
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %145 = load ptr, ptr %144, align 8, !tbaa !25
   %. = select i1 %.not1.i, ptr %145, ptr %141
-  %.177 = select i1 %.not1.i, ptr %141, ptr %145
-  %.sink.i = getelementptr inbounds nuw i8, ptr %.177, i64 8
+  %.191 = select i1 %.not1.i, ptr %141, ptr %145
+  %.sink.i = getelementptr inbounds nuw i8, ptr %.191, i64 8
   %146 = getelementptr inbounds nuw i8, ptr %., i64 8
   invoke void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %133, ptr noundef nonnull align 4 dereferenceable(64) %.sink.i, ptr noundef nonnull align 4 dereferenceable(64) %146)
           to label %_ZN16btManifoldResult20refreshContactPointsEv.exit unwind label %304
@@ -1654,10 +1654,10 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN16btManifoldResu
   %349 = load ptr, ptr %348, align 8, !tbaa !70
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 16
   %351 = load ptr, ptr %350, align 8, !tbaa !25
-  %.178 = select i1 %.not1.i119, ptr %351, ptr %347
-  %.179 = select i1 %.not1.i119, ptr %347, ptr %351
-  %.sink.i123 = getelementptr inbounds nuw i8, ptr %.179, i64 8
-  %352 = getelementptr inbounds nuw i8, ptr %.178, i64 8
+  %.192 = select i1 %.not1.i119, ptr %351, ptr %347
+  %.193 = select i1 %.not1.i119, ptr %347, ptr %351
+  %.sink.i123 = getelementptr inbounds nuw i8, ptr %.193, i64 8
+  %352 = getelementptr inbounds nuw i8, ptr %.192, i64 8
   invoke void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %339, ptr noundef nonnull align 4 dereferenceable(64) %.sink.i123, ptr noundef nonnull align 4 dereferenceable(64) %352)
           to label %_ZN16btManifoldResult20refreshContactPointsEv.exit125 unwind label %354
 
@@ -2548,8 +2548,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK15btTriangleShape8isInside
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %105 = add nuw nsw i32 %.01852, 1
   %exitcond = icmp ne i32 %105, 3
-  %or.cond53.not = select i1 %104, i1 %exitcond, i1 false
-  br i1 %or.cond53.not, label %68, label %.loopexit, !llvm.loop !141
+  %or.cond54.not = select i1 %104, i1 %exitcond, i1 false
+  br i1 %or.cond54.not, label %68, label %.loopexit, !llvm.loop !141
 
 .loopexit:                                        ; preds = %68, %3
   %.3 = phi i1 [ false, %3 ], [ %104, %68 ]

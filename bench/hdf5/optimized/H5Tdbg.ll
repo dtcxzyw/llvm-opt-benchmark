@@ -173,16 +173,16 @@ switch.lookup:                                    ; preds = %24
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !27
   %40 = icmp ult i32 %39, 5
-  br i1 %40, label %switch.lookup166, label %42
+  br i1 %40, label %switch.lookup169, label %42
 
-switch.lookup166:                                 ; preds = %37
+switch.lookup169:                                 ; preds = %37
   %41 = zext nneg i32 %39 to i64
-  %switch.gep167 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.H5T_debug.1, i64 0, i64 %41
-  %switch.load168 = load ptr, ptr %switch.gep167, align 8
+  %switch.gep170 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.H5T_debug.1, i64 0, i64 %41
+  %switch.load171 = load ptr, ptr %switch.gep170, align 8
   br label %42
 
-42:                                               ; preds = %switch.lookup166, %37
-  %.0121 = phi ptr [ @.str, %37 ], [ %switch.load168, %switch.lookup166 ]
+42:                                               ; preds = %switch.lookup169, %37
+  %.0121 = phi ptr [ @.str, %37 ], [ %switch.load171, %switch.lookup169 ]
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %44 = load i64, ptr %43, align 8, !tbaa !28
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0120, ptr noundef nonnull %.0121, i64 noundef %44) #5

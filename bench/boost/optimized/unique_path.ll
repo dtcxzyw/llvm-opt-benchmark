@@ -148,7 +148,7 @@ select.unfold:                                    ; preds = %26, %32
   br i1 %36, label %.thread35.thread, label %_ZN5boost5scope15unique_resourceIiNS0_10fd_deleterENS0_18fd_resource_traitsEED2Ev.exit, !prof !12
 
 .thread35.thread:                                 ; preds = %.thread, %.thread35
-  %.350 = phi i32 [ %.3.ph, %.thread35 ], [ 0, %.thread ]
+  %.358 = phi i32 [ %.3.ph, %.thread35 ], [ 0, %.thread ]
   %37 = phi i32 [ %.pre, %.thread35 ], [ %20, %.thread ]
   %38 = invoke i32 @close(i32 noundef %37)
           to label %_ZN5boost5scope15unique_resourceIiNS0_10fd_deleterENS0_18fd_resource_traitsEED2Ev.exit unwind label %39
@@ -161,9 +161,9 @@ select.unfold:                                    ; preds = %26, %32
   unreachable
 
 _ZN5boost5scope15unique_resourceIiNS0_10fd_deleterENS0_18fd_resource_traitsEED2Ev.exit: ; preds = %15, %.thread35, %.thread35.thread
-  %.349 = phi i32 [ %.3.ph, %.thread35 ], [ %.350, %.thread35.thread ], [ %16, %15 ]
+  %.357 = phi i32 [ %.3.ph, %.thread35 ], [ %.358, %.thread35.thread ], [ %16, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.349
+  ret i32 %.357
 
 42:                                               ; preds = %30, %18, %11
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %19, %18 ], [ %12, %11 ]
@@ -311,7 +311,7 @@ _ZNK5boost6system10error_codecvbEv.exit.thread30.us: ; preds = %.noexc.us, %34, 
   %38 = load i8, ptr %37, align 1, !tbaa !22
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %.1.us, 1
-  %41 = shl i32 %.1.us, 2
+  %41 = shl nuw nsw i32 %.1.us, 2
   %42 = and i32 %41, 4
   %43 = lshr i32 %39, %42
   %44 = and i32 %43, 15
@@ -412,7 +412,7 @@ _ZNK5boost6system10error_codecvbEv.exit.thread30: ; preds = %_ZN5boost10filesyst
   %80 = load i8, ptr %79, align 1, !tbaa !22
   %81 = zext i8 %80 to i32
   %82 = add nuw nsw i32 %.1, 1
-  %83 = shl i32 %.1, 2
+  %83 = shl nuw nsw i32 %.1, 2
   %84 = and i32 %83, 4
   %85 = lshr i32 %81, %84
   %86 = and i32 %85, 15

@@ -1102,7 +1102,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %120, %48
   %137 = load ptr, ptr %133, align 8
   %138 = load i8, ptr %137, align 1
   %.not20.i73.i = icmp eq i8 %138, 0
-  br i1 %.not20.i73.i, label %.sink.split152.i, label %.lr.ph.i74.i
+  br i1 %.not20.i73.i, label %.sink.split179.i, label %.lr.ph.i74.i
 
 .lr.ph.i74.i:                                     ; preds = %135
   %139 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1169,7 +1169,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %120, %48
 173:                                              ; preds = %164, %163, %157
   %174 = load i8, ptr %143, align 1
   %.not.i77.i = icmp eq i8 %174, 0
-  br i1 %.not.i77.i, label %.sink.split152.i, label %141, !llvm.loop !13
+  br i1 %.not.i77.i, label %.sink.split179.i, label %141, !llvm.loop !13
 
 175:                                              ; preds = %132
   %176 = getelementptr inbounds nuw i8, ptr %9, i64 64
@@ -1184,7 +1184,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %120, %48
   %180 = load ptr, ptr %176, align 8
   %181 = load i8, ptr %180, align 1
   %.not20.i80.i = icmp eq i8 %181, 0
-  br i1 %.not20.i80.i, label %.sink.split152.i, label %.lr.ph.i81.i
+  br i1 %.not20.i80.i, label %.sink.split179.i, label %.lr.ph.i81.i
 
 .lr.ph.i81.i:                                     ; preds = %178
   %182 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1251,13 +1251,13 @@ append_with_tabs.exit.i:                          ; preds = %84, %120, %48
 216:                                              ; preds = %207, %206, %200
   %217 = load i8, ptr %186, align 1
   %.not.i84.i = icmp eq i8 %217, 0
-  br i1 %.not.i84.i, label %.sink.split152.i, label %184, !llvm.loop !13
+  br i1 %.not.i84.i, label %.sink.split179.i, label %184, !llvm.loop !13
 
-.sink.split152.i:                                 ; preds = %173, %216, %178, %135
+.sink.split179.i:                                 ; preds = %173, %216, %178, %135
   call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #32
   br label %218
 
-218:                                              ; preds = %.sink.split152.i, %175
+218:                                              ; preds = %.sink.split179.i, %175
   %219 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %220 = load ptr, ptr %219, align 8
   %.not57.i = icmp eq ptr %220, null
@@ -1770,18 +1770,18 @@ check_log_of_query.exit.thread.i:                 ; preds = %append_with_tabs.ex
 
 474:                                              ; preds = %check_log_of_query.exit.thread.i
   %475 = load i32, ptr %9, align 8
-  %switch.tableidx39 = add i32 %475, -10
-  %476 = icmp ult i32 %switch.tableidx39, 13
-  br i1 %476, label %switch.lookup38, label %478
+  %switch.tableidx69 = add i32 %475, -10
+  %476 = icmp ult i32 %switch.tableidx69, 13
+  br i1 %476, label %switch.lookup68, label %478
 
-switch.lookup38:                                  ; preds = %474
-  %477 = zext nneg i32 %switch.tableidx39 to i64
-  %switch.gep40 = getelementptr inbounds nuw [13 x i32], ptr @switch.table.EmitErrorReport.1, i64 0, i64 %477
-  %switch.load41 = load i32, ptr %switch.gep40, align 4
+switch.lookup68:                                  ; preds = %474
+  %477 = zext nneg i32 %switch.tableidx69 to i64
+  %switch.gep70 = getelementptr inbounds nuw [13 x i32], ptr @switch.table.EmitErrorReport.1, i64 0, i64 %477
+  %switch.load71 = load i32, ptr %switch.gep70, align 4
   br label %478
 
-478:                                              ; preds = %474, %switch.lookup38
-  %.0.i = phi i32 [ %switch.load41, %switch.lookup38 ], [ 2, %474 ]
+478:                                              ; preds = %474, %switch.lookup68
+  %.0.i = phi i32 [ %switch.load71, %switch.lookup68 ], [ 2, %474 ]
   %479 = load ptr, ptr %6, align 8
   %.b60.i.i = load i1, ptr @openlog_done, align 1
   br i1 %.b60.i.i, label %484, label %480
@@ -1969,9 +1969,9 @@ write_syslog.exit.i:                              ; preds = %544, %550, %549, %.
   %565 = load i32, ptr @MyBackendType, align 4
   %566 = icmp eq i32 %565, 16
   %or.cond3.i = select i1 %564, i1 true, i1 %566
-  br i1 %or.cond3.i, label %570, label %.thread144.i.thread
+  br i1 %or.cond3.i, label %570, label %.thread171.i.thread
 
-.thread144.i.thread:                              ; preds = %562
+.thread171.i.thread:                              ; preds = %562
   %567 = load ptr, ptr %6, align 8
   %568 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %569 = load i32, ptr %568, align 8
@@ -1990,9 +1990,9 @@ write_syslog.exit.i:                              ; preds = %544, %550, %549, %.
   %576 = icmp eq i32 %575, 1
   %or.cond5.i = select i1 %574, i1 true, i1 %576
   %or.cond7.i = or i1 %.053.i, %or.cond5.i
-  br i1 %or.cond7.i, label %.thread144.i, label %611
+  br i1 %or.cond7.i, label %.thread171.i, label %611
 
-.thread144.i:                                     ; preds = %571
+.thread171.i:                                     ; preds = %571
   %.pre27 = load i8, ptr @redirection_done, align 1, !range !4
   %.pre28 = load i32, ptr @MyBackendType, align 4
   %577 = trunc nuw i8 %.pre27 to i1
@@ -2003,7 +2003,7 @@ write_syslog.exit.i:                              ; preds = %544, %550, %549, %.
   %582 = load i32, ptr %581, align 8
   br i1 %579, label %583, label %604
 
-583:                                              ; preds = %.thread144.i
+583:                                              ; preds = %.thread171.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %584 = load ptr, ptr @stderr, align 8
   %585 = call i32 @fileno(ptr noundef %584) #32
@@ -2049,9 +2049,9 @@ write_pipe_chunks.exit.i:                         ; preds = %593, %583
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %611
 
-604:                                              ; preds = %.thread144.i.thread, %.thread144.i
-  %605 = phi i32 [ %569, %.thread144.i.thread ], [ %582, %.thread144.i ]
-  %606 = phi ptr [ %567, %.thread144.i.thread ], [ %580, %.thread144.i ]
+604:                                              ; preds = %.thread171.i.thread, %.thread171.i
+  %605 = phi i32 [ %569, %.thread171.i.thread ], [ %582, %.thread171.i ]
+  %606 = phi ptr [ %567, %.thread171.i.thread ], [ %580, %.thread171.i ]
   %607 = load ptr, ptr @stderr, align 8
   %608 = call i32 @fileno(ptr noundef %607) #32
   %609 = sext i32 %605 to i64
@@ -2097,18 +2097,18 @@ send_message_to_server_log.exit:                  ; preds = %611, %614
   %..i = select i1 %627, i8 78, i8 69
   call void @pq_beginmessage(ptr noundef nonnull %1, i8 noundef signext %..i) #32
   %628 = load i32, ptr %9, align 8
-  %switch.tableidx43 = add i32 %628, -10
-  %629 = icmp ult i32 %switch.tableidx43, 14
-  br i1 %629, label %switch.lookup42, label %error_severity.exit.i11
+  %switch.tableidx73 = add i32 %628, -10
+  %629 = icmp ult i32 %switch.tableidx73, 14
+  br i1 %629, label %switch.lookup72, label %error_severity.exit.i11
 
-switch.lookup42:                                  ; preds = %625
-  %630 = zext nneg i32 %switch.tableidx43 to i64
-  %switch.gep44 = getelementptr inbounds nuw [14 x ptr], ptr @switch.table.error_severity, i64 0, i64 %630
-  %switch.load45 = load ptr, ptr %switch.gep44, align 8
+switch.lookup72:                                  ; preds = %625
+  %630 = zext nneg i32 %switch.tableidx73 to i64
+  %switch.gep74 = getelementptr inbounds nuw [14 x ptr], ptr @switch.table.error_severity, i64 0, i64 %630
+  %switch.load75 = load ptr, ptr %switch.gep74, align 8
   br label %error_severity.exit.i11
 
-error_severity.exit.i11:                          ; preds = %625, %switch.lookup42
-  %.0.i.i12 = phi ptr [ %switch.load45, %switch.lookup42 ], [ @.str.45, %625 ]
+error_severity.exit.i11:                          ; preds = %625, %switch.lookup72
+  %.0.i.i12 = phi ptr [ %switch.load75, %switch.lookup72 ], [ @.str.45, %625 ]
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %631 = load ptr, ptr %1, align 8, !alias.scope !17
@@ -2657,18 +2657,18 @@ err_sendstring.exit73.i:                          ; preds = %866, %865, %err_sen
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @initStringInfo(ptr noundef nonnull %3) #32
   %873 = load i32, ptr %9, align 8
-  %switch.tableidx47 = add i32 %873, -10
-  %874 = icmp ult i32 %switch.tableidx47, 14
-  br i1 %874, label %switch.lookup46, label %error_severity.exit75.i
+  %switch.tableidx77 = add i32 %873, -10
+  %874 = icmp ult i32 %switch.tableidx77, 14
+  br i1 %874, label %switch.lookup76, label %error_severity.exit75.i
 
-switch.lookup46:                                  ; preds = %872
-  %875 = zext nneg i32 %switch.tableidx47 to i64
-  %switch.gep48 = getelementptr inbounds nuw [14 x ptr], ptr @switch.table.error_severity, i64 0, i64 %875
-  %switch.load49 = load ptr, ptr %switch.gep48, align 8
+switch.lookup76:                                  ; preds = %872
+  %875 = zext nneg i32 %switch.tableidx77 to i64
+  %switch.gep78 = getelementptr inbounds nuw [14 x ptr], ptr @switch.table.error_severity, i64 0, i64 %875
+  %switch.load79 = load ptr, ptr %switch.gep78, align 8
   br label %error_severity.exit75.i
 
-error_severity.exit75.i:                          ; preds = %872, %switch.lookup46
-  %.0.i74.i = phi ptr [ %switch.load49, %switch.lookup46 ], [ @.str.45, %872 ]
+error_severity.exit75.i:                          ; preds = %872, %switch.lookup76
+  %.0.i74.i = phi ptr [ %switch.load79, %switch.lookup76 ], [ @.str.45, %872 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.48, ptr noundef nonnull %.0.i74.i) #32
   %876 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %877 = load ptr, ptr %876, align 8
@@ -6141,11 +6141,11 @@ get_formatted_start_time.exit:                    ; preds = %180, %183
 258:                                              ; preds = %48
   %.not139 = icmp eq i32 %.2220, 0
   %259 = load i32, ptr %20, align 8
-  br i1 %.not139, label %.preheader229, label %.preheader230
+  br i1 %.not139, label %.preheader251, label %.preheader252
 
-.preheader230:                                    ; preds = %258, %.preheader230
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader230 ], [ 0, %258 ]
-  %.067.i = phi i32 [ %264, %.preheader230 ], [ %259, %258 ]
+.preheader252:                                    ; preds = %258, %.preheader252
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader252 ], [ 0, %258 ]
+  %.067.i = phi i32 [ %264, %.preheader252 ], [ %259, %258 ]
   %260 = trunc i32 %.067.i to i8
   %261 = and i8 %260, 63
   %262 = add nuw nsw i8 %261, 48
@@ -6154,16 +6154,16 @@ get_formatted_start_time.exit:                    ; preds = %180, %183
   %264 = ashr i32 %.067.i, 6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %unpack_sql_state.exit, label %.preheader230, !llvm.loop !12
+  br i1 %exitcond.not.i, label %unpack_sql_state.exit, label %.preheader252, !llvm.loop !12
 
-unpack_sql_state.exit:                            ; preds = %.preheader230
+unpack_sql_state.exit:                            ; preds = %.preheader252
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @unpack_sql_state.buf, i64 5), align 1
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull @unpack_sql_state.buf) #32
   br label %274
 
-.preheader229:                                    ; preds = %258, %.preheader229
-  %indvars.iv.i182 = phi i64 [ %indvars.iv.next.i184, %.preheader229 ], [ 0, %258 ]
-  %.067.i183 = phi i32 [ %269, %.preheader229 ], [ %259, %258 ]
+.preheader251:                                    ; preds = %258, %.preheader251
+  %indvars.iv.i182 = phi i64 [ %indvars.iv.next.i184, %.preheader251 ], [ 0, %258 ]
+  %.067.i183 = phi i32 [ %269, %.preheader251 ], [ %259, %258 ]
   %265 = trunc i32 %.067.i183 to i8
   %266 = and i8 %265, 63
   %267 = add nuw nsw i8 %266, 48
@@ -6172,9 +6172,9 @@ unpack_sql_state.exit:                            ; preds = %.preheader230
   %269 = ashr i32 %.067.i183, 6
   %indvars.iv.next.i184 = add nuw nsw i64 %indvars.iv.i182, 1
   %exitcond.not.i185 = icmp eq i64 %indvars.iv.next.i184, 5
-  br i1 %exitcond.not.i185, label %unpack_sql_state.exit186, label %.preheader229, !llvm.loop !12
+  br i1 %exitcond.not.i185, label %unpack_sql_state.exit186, label %.preheader251, !llvm.loop !12
 
-unpack_sql_state.exit186:                         ; preds = %.preheader229
+unpack_sql_state.exit186:                         ; preds = %.preheader251
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @unpack_sql_state.buf, i64 5), align 1
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @unpack_sql_state.buf) #32
   br label %274

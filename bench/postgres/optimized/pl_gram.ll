@@ -1797,19 +1797,19 @@ mark_expr_as_assignment_source.exit1289:          ; preds = %list_length.exit128
 752:                                              ; preds = %748
   %753 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr, ptr noundef nonnull dereferenceable(20) @.str.21) #13
   %754 = icmp eq i32 %753, 0
-  br i1 %754, label %755, label %.thread1979
+  br i1 %754, label %755, label %.thread2035
 
 755:                                              ; preds = %732, %752
   store i32 4, ptr %8, align 8
   br label %1842
 
-.thread1979:                                      ; preds = %752
-  %.pr2040 = load ptr, ptr %19, align 8
-  %.not.i1301 = icmp eq ptr %.pr2040, null
+.thread2035:                                      ; preds = %752
+  %.pr2096 = load ptr, ptr %19, align 8
+  %.not.i1301 = icmp eq ptr %.pr2096, null
   br i1 %.not.i1301, label %tok_is_keyword.exit1326, label %756
 
-756:                                              ; preds = %.thread1979
-  %757 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2040, ptr noundef nonnull dereferenceable(18) @.str.22) #13
+756:                                              ; preds = %.thread2035
+  %757 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2096, ptr noundef nonnull dereferenceable(18) @.str.22) #13
   %758 = icmp eq i32 %757, 0
   br i1 %758, label %759, label %760
 
@@ -1818,7 +1818,7 @@ mark_expr_as_assignment_source.exit1289:          ; preds = %list_length.exit128
   br label %1842
 
 760:                                              ; preds = %756
-  %761 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2040, ptr noundef nonnull dereferenceable(21) @.str.23) #13
+  %761 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2096, ptr noundef nonnull dereferenceable(21) @.str.23) #13
   %762 = icmp eq i32 %761, 0
   br i1 %762, label %763, label %764
 
@@ -1827,12 +1827,12 @@ mark_expr_as_assignment_source.exit1289:          ; preds = %list_length.exit128
   br label %1842
 
 764:                                              ; preds = %760
-  %.pr1988 = load ptr, ptr %19, align 8
-  %.not.i1307 = icmp eq ptr %.pr1988, null
+  %.pr2044 = load ptr, ptr %19, align 8
+  %.not.i1307 = icmp eq ptr %.pr2044, null
   br i1 %.not.i1307, label %tok_is_keyword.exit1326, label %765
 
 765:                                              ; preds = %764
-  %766 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr1988, ptr noundef nonnull dereferenceable(12) @.str.24) #13
+  %766 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2044, ptr noundef nonnull dereferenceable(12) @.str.24) #13
   %767 = icmp eq i32 %766, 0
   br i1 %767, label %768, label %769
 
@@ -1841,21 +1841,21 @@ mark_expr_as_assignment_source.exit1289:          ; preds = %list_length.exit128
   br label %1842
 
 769:                                              ; preds = %765
-  %770 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr1988, ptr noundef nonnull dereferenceable(16) @.str.25) #13
+  %770 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2044, ptr noundef nonnull dereferenceable(16) @.str.25) #13
   %771 = icmp eq i32 %770, 0
-  br i1 %771, label %772, label %.thread1994
+  br i1 %771, label %772, label %.thread2050
 
 772:                                              ; preds = %732, %769
   store i32 8, ptr %8, align 8
   br label %1842
 
-.thread1994:                                      ; preds = %769
-  %.pr2042.pr = load ptr, ptr %19, align 8
-  %.not.i1313 = icmp eq ptr %.pr2042.pr, null
+.thread2050:                                      ; preds = %769
+  %.pr2098.pr = load ptr, ptr %19, align 8
+  %.not.i1313 = icmp eq ptr %.pr2098.pr, null
   br i1 %.not.i1313, label %tok_is_keyword.exit1326, label %773
 
-773:                                              ; preds = %.thread1994
-  %774 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2042.pr, ptr noundef nonnull dereferenceable(17) @.str.26) #13
+773:                                              ; preds = %.thread2050
+  %774 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2098.pr, ptr noundef nonnull dereferenceable(17) @.str.26) #13
   %775 = icmp eq i32 %774, 0
   br i1 %775, label %776, label %777
 
@@ -1864,7 +1864,7 @@ mark_expr_as_assignment_source.exit1289:          ; preds = %list_length.exit128
   br label %1842
 
 777:                                              ; preds = %773
-  %778 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2042.pr, ptr noundef nonnull dereferenceable(13) @.str.27) #13
+  %778 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2098.pr, ptr noundef nonnull dereferenceable(13) @.str.27) #13
   %779 = icmp eq i32 %778, 0
   br i1 %779, label %780, label %781
 
@@ -1873,12 +1873,12 @@ mark_expr_as_assignment_source.exit1289:          ; preds = %list_length.exit128
   br label %1842
 
 781:                                              ; preds = %777
-  %.pr2003 = load ptr, ptr %19, align 8
-  %.not.i1319 = icmp eq ptr %.pr2003, null
+  %.pr2059 = load ptr, ptr %19, align 8
+  %.not.i1319 = icmp eq ptr %.pr2059, null
   br i1 %.not.i1319, label %tok_is_keyword.exit1326, label %782
 
 782:                                              ; preds = %781
-  %783 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2003, ptr noundef nonnull dereferenceable(11) @.str.28) #13
+  %783 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2059, ptr noundef nonnull dereferenceable(11) @.str.28) #13
   %784 = icmp eq i32 %783, 0
   br i1 %784, label %785, label %786
 
@@ -1887,21 +1887,21 @@ mark_expr_as_assignment_source.exit1289:          ; preds = %list_length.exit128
   br label %1842
 
 786:                                              ; preds = %782
-  %787 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2003, ptr noundef nonnull dereferenceable(12) @.str.29) #13
+  %787 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2059, ptr noundef nonnull dereferenceable(12) @.str.29) #13
   %788 = icmp eq i32 %787, 0
-  br i1 %788, label %789, label %.thread2009
+  br i1 %788, label %789, label %.thread2065
 
 789:                                              ; preds = %732, %786
   store i32 12, ptr %8, align 8
   br label %1842
 
-.thread2009:                                      ; preds = %786
-  %.pr2044.pr = load ptr, ptr %19, align 8
-  %.not.i1325 = icmp eq ptr %.pr2044.pr, null
+.thread2065:                                      ; preds = %786
+  %.pr2100.pr = load ptr, ptr %19, align 8
+  %.not.i1325 = icmp eq ptr %.pr2100.pr, null
   br i1 %.not.i1325, label %tok_is_keyword.exit1326, label %790
 
-790:                                              ; preds = %.thread2009
-  %791 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2044.pr, ptr noundef nonnull dereferenceable(18) @.str.30) #13
+790:                                              ; preds = %.thread2065
+  %791 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2100.pr, ptr noundef nonnull dereferenceable(18) @.str.30) #13
   %792 = icmp eq i32 %791, 0
   br i1 %792, label %793, label %tok_is_keyword.exit1326
 
@@ -1909,7 +1909,7 @@ mark_expr_as_assignment_source.exit1289:          ; preds = %list_length.exit128
   store i32 6, ptr %8, align 8
   br label %1842
 
-tok_is_keyword.exit1326:                          ; preds = %.thread1979, %764, %737, %747, %781, %.thread1994, %734, %732, %790, %.thread2009
+tok_is_keyword.exit1326:                          ; preds = %.thread2035, %764, %737, %747, %781, %.thread2050, %734, %732, %790, %.thread2065
   call void @plpgsql_yyerror(ptr noundef nonnull %4, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.31) #15
   unreachable
 
@@ -2669,16 +2669,16 @@ NameOfDatum.exit:                                 ; preds = %1160, %1163
   unreachable
 
 1225:                                             ; preds = %1215, %1191
-  %.sink2459 = phi ptr [ %1214, %1191 ], [ %1217, %1215 ]
-  %.sink2262.in = phi ptr [ %1213, %1191 ], [ %1216, %1215 ]
-  %1226 = getelementptr inbounds nuw i8, ptr %.sink2459, i64 4
+  %.sink2515 = phi ptr [ %1214, %1191 ], [ %1217, %1215 ]
+  %.sink2318.in = phi ptr [ %1213, %1191 ], [ %1216, %1215 ]
+  %1226 = getelementptr inbounds nuw i8, ptr %.sink2515, i64 4
   %1227 = load i32, ptr %1226, align 4
   %1228 = getelementptr inbounds nuw i8, ptr %1192, i64 24
   store i32 %1227, ptr %1228, align 8
-  %.sink2262 = load ptr, ptr %.sink2262.in, align 8
+  %.sink2318 = load ptr, ptr %.sink2318.in, align 8
   %1229 = getelementptr inbounds i8, ptr %.21141, i64 -20
   %1230 = load i32, ptr %1229, align 4
-  call fastcc void @check_assignable(ptr noundef %.sink2262, i32 noundef %1230, ptr noundef %1)
+  call fastcc void @check_assignable(ptr noundef %.sink2318, i32 noundef %1230, ptr noundef %1)
   %1231 = load ptr, ptr %1202, align 8
   %1232 = getelementptr inbounds nuw i8, ptr %.21129, i64 8
   %1233 = load ptr, ptr %1232, align 8
@@ -2923,12 +2923,12 @@ tok_is_keyword.exit1337:                          ; preds = %1307, %1304, %1301,
   br label %tok_is_keyword.exit1355
 
 1355:                                             ; preds = %1350
-  %.pr2022 = load ptr, ptr %19, align 8
-  %.not.i1345 = icmp eq ptr %.pr2022, null
+  %.pr2078 = load ptr, ptr %19, align 8
+  %.not.i1345 = icmp eq ptr %.pr2078, null
   br i1 %.not.i1345, label %tok_is_keyword.exit1355.thread, label %1356
 
 1356:                                             ; preds = %1355
-  %1357 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2022, ptr noundef nonnull dereferenceable(7) @.str.53) #13
+  %1357 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2078, ptr noundef nonnull dereferenceable(7) @.str.53) #13
   %1358 = icmp eq i32 %1357, 0
   br i1 %1358, label %1359, label %1361
 
@@ -2938,9 +2938,9 @@ tok_is_keyword.exit1337:                          ; preds = %1307, %1304, %1301,
   br label %tok_is_keyword.exit1355
 
 1361:                                             ; preds = %1356
-  %1362 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2022, ptr noundef nonnull dereferenceable(5) @.str.54) #13
+  %1362 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2078, ptr noundef nonnull dereferenceable(5) @.str.54) #13
   %1363 = icmp eq i32 %1362, 0
-  br i1 %1363, label %1364, label %.thread2026
+  br i1 %1363, label %1364, label %.thread2082
 
 1364:                                             ; preds = %1323, %1361
   store i32 17, ptr %1333, align 4
@@ -2948,13 +2948,13 @@ tok_is_keyword.exit1337:                          ; preds = %1307, %1304, %1301,
   store i32 %1365, ptr %13, align 4
   br label %tok_is_keyword.exit1355
 
-.thread2026:                                      ; preds = %1361
-  %.pr2046 = load ptr, ptr %19, align 8
-  %.not.i1351 = icmp eq ptr %.pr2046, null
+.thread2082:                                      ; preds = %1361
+  %.pr2102 = load ptr, ptr %19, align 8
+  %.not.i1351 = icmp eq ptr %.pr2102, null
   br i1 %.not.i1351, label %tok_is_keyword.exit1355.thread, label %1366
 
-1366:                                             ; preds = %.thread2026
-  %1367 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2046, ptr noundef nonnull dereferenceable(4) @.str.55) #13
+1366:                                             ; preds = %.thread2082
+  %1367 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2102, ptr noundef nonnull dereferenceable(4) @.str.55) #13
   %1368 = icmp eq i32 %1367, 0
   br i1 %1368, label %1369, label %1371
 
@@ -2965,7 +2965,7 @@ tok_is_keyword.exit1337:                          ; preds = %1307, %1304, %1301,
   br label %tok_is_keyword.exit1355
 
 1371:                                             ; preds = %1366
-  %1372 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2046, ptr noundef nonnull dereferenceable(6) @.str.56) #13
+  %1372 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2102, ptr noundef nonnull dereferenceable(6) @.str.56) #13
   %1373 = icmp eq i32 %1372, 0
   br i1 %1373, label %1374, label %tok_is_keyword.exit1355.thread
 
@@ -3014,7 +3014,7 @@ tok_is_keyword.exit1355:                          ; preds = %1323, %1353, %1364,
   %1385 = icmp eq i32 %.pr1485, 44
   br i1 %1385, label %.lr.ph, label %thread-pre-split, !llvm.loop !7
 
-tok_is_keyword.exit1355.thread:                   ; preds = %1355, %1343, %.thread2026, %1371, %1340, %tok_is_keyword.exit1355
+tok_is_keyword.exit1355.thread:                   ; preds = %1355, %1343, %.thread2082, %1371, %1340, %tok_is_keyword.exit1355
   %1386 = load i8, ptr %18, align 8, !range !3, !noundef !4
   %1387 = trunc nuw i8 %1386 to i1
   br i1 %1387, label %tok_is_keyword.exit1358.thread1488, label %1388
@@ -3388,20 +3388,20 @@ sub_11542:                                        ; preds = %sub_01541
   br i1 %1544, label %tok_is_keyword.exit1364.sink.split, label %tok_is_keyword.exit1364.thread1497
 
 .tail1540.thread:                                 ; preds = %sub_11542, %.tail1540
-  %.pr2037.pr = load ptr, ptr %19, align 8
-  %.not.i1366 = icmp eq ptr %.pr2037.pr, null
+  %.pr2093.pr = load ptr, ptr %19, align 8
+  %.not.i1366 = icmp eq ptr %.pr2093.pr, null
   br i1 %.not.i1366, label %tok_is_keyword.exit1364.thread1497, label %.tail1540.thread.thread
 
 .tail1540.thread.thread:                          ; preds = %sub_01541, %.tail1540.thread
-  %.pr20372050 = phi ptr [ %.pr2037.pr, %.tail1540.thread ], [ %1528, %sub_01541 ]
-  %1545 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr20372050, ptr noundef nonnull dereferenceable(7) @.str.66) #13
+  %.pr20932106 = phi ptr [ %.pr2093.pr, %.tail1540.thread ], [ %1528, %sub_01541 ]
+  %1545 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr20932106, ptr noundef nonnull dereferenceable(7) @.str.66) #13
   %1546 = icmp eq i32 %1545, 0
   br i1 %1546, label %tok_is_keyword.exit1364.sink.split, label %tok_is_keyword.exit1364.thread1497
 
 tok_is_keyword.exit1364.sink.split:               ; preds = %.tail1540.thread.thread, %1522, %1542, %1535
-  %.sink2267 = phi i32 [ 4, %1535 ], [ 4, %1542 ], [ 2, %1522 ], [ 2, %.tail1540.thread.thread ]
+  %.sink2323 = phi i32 [ 4, %1535 ], [ 4, %1542 ], [ 2, %1522 ], [ 2, %.tail1540.thread.thread ]
   %1547 = load i32, ptr %1517, align 8
-  %1548 = or i32 %1547, %.sink2267
+  %1548 = or i32 %1547, %.sink2323
   store i32 %1548, ptr %1517, align 8
   %1549 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
   br label %tok_is_keyword.exit1364
@@ -5934,18 +5934,18 @@ define internal fastcc ptr @read_raise_options(ptr noundef nonnull %0, ptr nound
 30:                                               ; preds = %26
   %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr, ptr noundef nonnull dereferenceable(5) @.str.134) #13
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %.thread102
+  br i1 %32, label %33, label %.thread111
 
 33:                                               ; preds = %11, %30
   br label %55
 
-.thread102:                                       ; preds = %30
-  %.pr121 = load ptr, ptr %6, align 8
-  %.not.i49 = icmp eq ptr %.pr121, null
+.thread111:                                       ; preds = %30
+  %.pr130 = load ptr, ptr %6, align 8
+  %.not.i49 = icmp eq ptr %.pr130, null
   br i1 %.not.i49, label %tok_is_keyword.exit62, label %34
 
-34:                                               ; preds = %.thread102
-  %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr121, ptr noundef nonnull dereferenceable(7) @.str.135) #13
+34:                                               ; preds = %.thread111
+  %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr130, ptr noundef nonnull dereferenceable(7) @.str.135) #13
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %38
 
@@ -5953,7 +5953,7 @@ define internal fastcc ptr @read_raise_options(ptr noundef nonnull %0, ptr nound
   br label %55
 
 38:                                               ; preds = %34
-  %39 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr121, ptr noundef nonnull dereferenceable(11) @.str.136) #13
+  %39 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr130, ptr noundef nonnull dereferenceable(11) @.str.136) #13
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %42
 
@@ -5961,12 +5961,12 @@ define internal fastcc ptr @read_raise_options(ptr noundef nonnull %0, ptr nound
   br label %55
 
 42:                                               ; preds = %38
-  %.pr111 = load ptr, ptr %6, align 8
-  %.not.i55 = icmp eq ptr %.pr111, null
+  %.pr120 = load ptr, ptr %6, align 8
+  %.not.i55 = icmp eq ptr %.pr120, null
   br i1 %.not.i55, label %tok_is_keyword.exit62, label %43
 
 43:                                               ; preds = %42
-  %44 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr111, ptr noundef nonnull dereferenceable(9) @.str.137) #13
+  %44 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr120, ptr noundef nonnull dereferenceable(9) @.str.137) #13
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %47
 
@@ -5974,27 +5974,27 @@ define internal fastcc ptr @read_raise_options(ptr noundef nonnull %0, ptr nound
   br label %55
 
 47:                                               ; preds = %43
-  %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr111, ptr noundef nonnull dereferenceable(6) @.str.138) #13
+  %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr120, ptr noundef nonnull dereferenceable(6) @.str.138) #13
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %.thread117
+  br i1 %49, label %50, label %.thread126
 
 50:                                               ; preds = %11, %47
   br label %55
 
-.thread117:                                       ; preds = %47
-  %.pr123.pr = load ptr, ptr %6, align 8
-  %.not.i61 = icmp eq ptr %.pr123.pr, null
+.thread126:                                       ; preds = %47
+  %.pr132.pr = load ptr, ptr %6, align 8
+  %.not.i61 = icmp eq ptr %.pr132.pr, null
   br i1 %.not.i61, label %tok_is_keyword.exit62, label %51
 
-51:                                               ; preds = %.thread117
-  %52 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr123.pr, ptr noundef nonnull dereferenceable(7) @.str.139) #13
+51:                                               ; preds = %.thread126
+  %52 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr132.pr, ptr noundef nonnull dereferenceable(7) @.str.139) #13
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %tok_is_keyword.exit62
 
 54:                                               ; preds = %11, %51
   br label %55
 
-tok_is_keyword.exit62:                            ; preds = %16, %25, %42, %.thread102, %13, %11, %51, %.thread117
+tok_is_keyword.exit62:                            ; preds = %16, %25, %42, %.thread111, %13, %11, %51, %.thread126
   call void @plpgsql_yyerror(ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef nonnull @.str.140) #15
   unreachable
 
@@ -6241,8 +6241,8 @@ define internal fastcc noundef ptr @make_execsql_stmt(i32 noundef range(i32 275,
   %60 = icmp sgt i32 %.0115, 0
   %or.cond14 = select i1 %59, i1 %60, i1 false
   %61 = sext i1 %or.cond14 to i32
-  %.sink225 = select i1 %58, i32 1, i32 %61
-  %spec.select = add i32 %.0115, %.sink225
+  %.sink229 = select i1 %58, i32 1, i32 %61
+  %spec.select = add i32 %.0115, %.sink229
   %62 = icmp eq i32 %spec.select, 0
   %or.cond16 = select i1 %.1112, i1 %62, i1 false
   br i1 %or.cond16, label %63, label %69
@@ -6321,9 +6321,9 @@ switch.early.test:                                ; preds = %74
   br label %82
 
 82:                                               ; preds = %79, %80
-  %.sink226 = phi i32 [ %.1118, %80 ], [ %1, %79 ]
+  %.sink230 = phi i32 [ %.1118, %80 ], [ %1, %79 ]
   %83 = load i32, ptr %4, align 4
-  call void @plpgsql_append_source_text(ptr noundef nonnull %9, i32 noundef %.sink226, i32 noundef %83, ptr noundef %5) #12
+  call void @plpgsql_append_source_text(ptr noundef nonnull %9, i32 noundef %.sink230, i32 noundef %83, ptr noundef %5) #12
   %84 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %85 = load i32, ptr %84, align 8
   %86 = icmp sgt i32 %85, 0

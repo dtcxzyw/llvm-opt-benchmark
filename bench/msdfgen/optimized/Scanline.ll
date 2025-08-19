@@ -677,19 +677,19 @@ land.rhs:                                         ; preds = %while.cond
   %add.ptr.i12 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next
   %6 = load double, ptr %add.ptr.i12, align 8
   %cmp23 = fcmp ult double %x, %6
-  br i1 %cmp23, label %if.end24.loopexit19.split.loop.exit20, label %while.cond, !llvm.loop !10
+  br i1 %cmp23, label %if.end24.loopexit20.split.loop.exit21, label %while.cond, !llvm.loop !10
 
 if.end24.loopexit:                                ; preds = %if.end9
   %7 = trunc nsw i64 %indvars.iv.next17 to i32
   br label %return.sink.split
 
-if.end24.loopexit19.split.loop.exit20:            ; preds = %land.rhs
+if.end24.loopexit20.split.loop.exit21:            ; preds = %land.rhs
   %8 = trunc nsw i64 %indvars.iv to i32
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %while.cond, %do.body, %if.end24.loopexit, %if.end24.loopexit19.split.loop.exit20
-  %index.1.sink = phi i32 [ %7, %if.end24.loopexit ], [ %8, %if.end24.loopexit19.split.loop.exit20 ], [ 0, %do.body ], [ %smax, %while.cond ]
-  %retval.0.ph = phi i32 [ %7, %if.end24.loopexit ], [ %8, %if.end24.loopexit19.split.loop.exit20 ], [ -1, %do.body ], [ %smax, %while.cond ]
+return.sink.split:                                ; preds = %while.cond, %do.body, %if.end24.loopexit, %if.end24.loopexit20.split.loop.exit21
+  %index.1.sink = phi i32 [ %7, %if.end24.loopexit ], [ %8, %if.end24.loopexit20.split.loop.exit21 ], [ 0, %do.body ], [ %smax, %while.cond ]
+  %retval.0.ph = phi i32 [ %7, %if.end24.loopexit ], [ %8, %if.end24.loopexit20.split.loop.exit21 ], [ -1, %do.body ], [ %smax, %while.cond ]
   store i32 %index.1.sink, ptr %lastIndex, align 8
   br label %return
 
@@ -749,19 +749,19 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %add.ptr.i12.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next.i
   %6 = load double, ptr %add.ptr.i12.i, align 8
   %cmp23.i = fcmp ult double %x, %6
-  br i1 %cmp23.i, label %if.end24.loopexit19.split.loop.exit20.i, label %while.cond.i, !llvm.loop !10
+  br i1 %cmp23.i, label %if.end24.loopexit20.split.loop.exit21.i, label %while.cond.i, !llvm.loop !10
 
 if.end24.loopexit.i:                              ; preds = %if.end9.i
   %7 = trunc nsw i64 %indvars.iv.next17.i to i32
   br label %return.sink.split.i
 
-if.end24.loopexit19.split.loop.exit20.i:          ; preds = %land.rhs.i
+if.end24.loopexit20.split.loop.exit21.i:          ; preds = %land.rhs.i
   %8 = trunc nsw i64 %indvars.iv.i to i32
   br label %return.sink.split.i
 
-return.sink.split.i:                              ; preds = %while.cond.i, %do.body.i, %if.end24.loopexit19.split.loop.exit20.i, %if.end24.loopexit.i
-  %index.1.sink.i = phi i32 [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit19.split.loop.exit20.i ], [ 0, %do.body.i ], [ %smax.i, %while.cond.i ]
-  %retval.0.ph.i = phi i32 [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit19.split.loop.exit20.i ], [ -1, %do.body.i ], [ %smax.i, %while.cond.i ]
+return.sink.split.i:                              ; preds = %while.cond.i, %do.body.i, %if.end24.loopexit20.split.loop.exit21.i, %if.end24.loopexit.i
+  %index.1.sink.i = phi i32 [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit20.split.loop.exit21.i ], [ 0, %do.body.i ], [ %smax.i, %while.cond.i ]
+  %retval.0.ph.i = phi i32 [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit20.split.loop.exit21.i ], [ -1, %do.body.i ], [ %smax.i, %while.cond.i ]
   store i32 %index.1.sink.i, ptr %lastIndex.i, align 8
   %9 = add nsw i32 %retval.0.ph.i, 1
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit
@@ -826,18 +826,18 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %add.ptr.i12.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next.i
   %6 = load double, ptr %add.ptr.i12.i, align 8
   %cmp23.i = fcmp ult double %x, %6
-  br i1 %cmp23.i, label %if.end24.loopexit19.split.loop.exit20.i, label %while.cond.i, !llvm.loop !10
+  br i1 %cmp23.i, label %if.end24.loopexit20.split.loop.exit21.i, label %while.cond.i, !llvm.loop !10
 
 if.end24.loopexit.i:                              ; preds = %if.end9.i
   %7 = trunc nsw i64 %indvars.iv.next17.i to i32
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit
 
-if.end24.loopexit19.split.loop.exit20.i:          ; preds = %land.rhs.i
+if.end24.loopexit20.split.loop.exit21.i:          ; preds = %land.rhs.i
   %8 = trunc nsw i64 %indvars.iv.i to i32
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit
 
-_ZNK7msdfgen8Scanline6moveToEd.exit:              ; preds = %while.cond.i, %if.end24.loopexit.i, %if.end24.loopexit19.split.loop.exit20.i
-  %index.1.sink.i = phi i32 [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit19.split.loop.exit20.i ], [ %smax.i, %while.cond.i ]
+_ZNK7msdfgen8Scanline6moveToEd.exit:              ; preds = %while.cond.i, %if.end24.loopexit.i, %if.end24.loopexit20.split.loop.exit21.i
+  %index.1.sink.i = phi i32 [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit20.split.loop.exit21.i ], [ %smax.i, %while.cond.i ]
   store i32 %index.1.sink.i, ptr %lastIndex.i, align 8
   %cmp = icmp sgt i32 %index.1.sink.i, -1
   br i1 %cmp, label %if.then, label %return
@@ -908,18 +908,18 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
   %add.ptr.i12.i.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next.i.i
   %6 = load double, ptr %add.ptr.i12.i.i, align 8
   %cmp23.i.i = fcmp ult double %x, %6
-  br i1 %cmp23.i.i, label %if.end24.loopexit19.split.loop.exit20.i.i, label %while.cond.i.i, !llvm.loop !10
+  br i1 %cmp23.i.i, label %if.end24.loopexit20.split.loop.exit21.i.i, label %while.cond.i.i, !llvm.loop !10
 
 if.end24.loopexit.i.i:                            ; preds = %if.end9.i.i
   %7 = trunc nsw i64 %indvars.iv.next17.i.i to i32
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit.i
 
-if.end24.loopexit19.split.loop.exit20.i.i:        ; preds = %land.rhs.i.i
+if.end24.loopexit20.split.loop.exit21.i.i:        ; preds = %land.rhs.i.i
   %8 = trunc nsw i64 %indvars.iv.i.i to i32
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit.i
 
-_ZNK7msdfgen8Scanline6moveToEd.exit.i:            ; preds = %while.cond.i.i, %if.end24.loopexit19.split.loop.exit20.i.i, %if.end24.loopexit.i.i
-  %index.1.sink.i.i = phi i32 [ %7, %if.end24.loopexit.i.i ], [ %8, %if.end24.loopexit19.split.loop.exit20.i.i ], [ %smax.i.i, %while.cond.i.i ]
+_ZNK7msdfgen8Scanline6moveToEd.exit.i:            ; preds = %while.cond.i.i, %if.end24.loopexit20.split.loop.exit21.i.i, %if.end24.loopexit.i.i
+  %index.1.sink.i.i = phi i32 [ %7, %if.end24.loopexit.i.i ], [ %8, %if.end24.loopexit20.split.loop.exit21.i.i ], [ %smax.i.i, %while.cond.i.i ]
   store i32 %index.1.sink.i.i, ptr %lastIndex.i.i, align 8
   %cmp.i = icmp sgt i32 %index.1.sink.i.i, -1
   br i1 %cmp.i, label %if.then.i, label %_ZNK7msdfgen8Scanline16sumIntersectionsEd.exit

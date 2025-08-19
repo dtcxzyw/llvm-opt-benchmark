@@ -1104,16 +1104,16 @@ EmitPQRStage.exit.i.i:                            ; preds = %435, %433, %420
 ._crit_edge.i21.i:                                ; preds = %.lr.ph.i24.i, %456
   %461 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.16) #9
   %462 = icmp ult i32 %3, 4
-  br i1 %462, label %switch.lookup25, label %EmitIntent.exit.i.i
+  br i1 %462, label %switch.lookup51, label %EmitIntent.exit.i.i
 
-switch.lookup25:                                  ; preds = %._crit_edge.i21.i
+switch.lookup51:                                  ; preds = %._crit_edge.i21.i
   %463 = zext nneg i32 %3 to i64
-  %switch.gep26 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.cmsGetPostScriptColorResource.6, i64 0, i64 %463
-  %switch.load27 = load ptr, ptr %switch.gep26, align 8
+  %switch.gep52 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.cmsGetPostScriptColorResource.6, i64 0, i64 %463
+  %switch.load53 = load ptr, ptr %switch.gep52, align 8
   br label %EmitIntent.exit.i.i
 
-EmitIntent.exit.i.i:                              ; preds = %._crit_edge.i21.i, %switch.lookup25
-  %.0.i.i22.i = phi ptr [ %switch.load27, %switch.lookup25 ], [ @.str.47, %._crit_edge.i21.i ]
+EmitIntent.exit.i.i:                              ; preds = %._crit_edge.i21.i, %switch.lookup51
+  %.0.i.i22.i = phi ptr [ %switch.load53, %switch.lookup51 ], [ @.str.47, %._crit_edge.i21.i ]
   %464 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.48, ptr noundef nonnull %.0.i.i22.i) #9
   %465 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.8) #9
   %466 = load i32, ptr %8, align 4

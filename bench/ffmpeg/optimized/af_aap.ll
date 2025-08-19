@@ -902,8 +902,8 @@ define internal noundef i32 @filter_channels_double(ptr noundef readonly capture
   %indvars222.i = trunc i64 %indvars.iv215.i to i32
   %164 = mul nuw nsw i64 %indvars.iv215.i, %163
   %invariant.op.us.us.i = add i32 %162, %indvars222.i
-  %invariant.gep260.i = getelementptr inbounds nuw double, ptr %88, i64 %164
-  %invariant.gep262.i = getelementptr inbounds nuw double, ptr %88, i64 %indvars.iv215.i
+  %invariant.gep266.i = getelementptr inbounds nuw double, ptr %88, i64 %164
+  %invariant.gep268.i = getelementptr inbounds nuw double, ptr %88, i64 %indvars.iv215.i
   br label %.preheader176.us.us.i
 
 .preheader176.us.us.i:                            ; preds = %168, %.split.us.us.i
@@ -914,8 +914,8 @@ define internal noundef i32 @filter_channels_double(ptr noundef readonly capture
 
 166:                                              ; preds = %._crit_edge.us.us.i
   %167 = mul nuw nsw i64 %indvars.iv217.i, %163
-  %gep263.i = getelementptr inbounds nuw double, ptr %invariant.gep262.i, i64 %167
-  store double %177, ptr %gep263.i, align 8, !tbaa !87
+  %gep269.i = getelementptr inbounds nuw double, ptr %invariant.gep268.i, i64 %167
+  store double %177, ptr %gep269.i, align 8, !tbaa !87
   br label %168
 
 168:                                              ; preds = %._crit_edge.us.us.i, %166
@@ -941,15 +941,15 @@ define internal noundef i32 @filter_channels_double(ptr noundef readonly capture
   br i1 %exitcond214.not.i, label %._crit_edge.us.us.i, label %169, !llvm.loop !94
 
 ._crit_edge.us.us.i:                              ; preds = %169
-  %gep261.i = getelementptr inbounds nuw double, ptr %invariant.gep260.i, i64 %indvars.iv217.i
-  store double %177, ptr %gep261.i, align 8, !tbaa !87
+  %gep267.i = getelementptr inbounds nuw double, ptr %invariant.gep266.i, i64 %indvars.iv217.i
+  store double %177, ptr %gep267.i, align 8, !tbaa !87
   %.not.us.us.i = icmp eq i64 %indvars.iv215.i, %indvars.iv217.i
   br i1 %.not.us.us.i, label %168, label %166
 
 .split183.us.us.i:                                ; preds = %168
   %178 = mul nuw nsw i32 %78, %indvars222.i
   %179 = zext i32 %178 to i64
-  %180 = getelementptr inbounds nuw double, ptr %invariant.gep262.i, i64 %179
+  %180 = getelementptr inbounds nuw double, ptr %invariant.gep268.i, i64 %179
   %181 = load double, ptr %180, align 8, !tbaa !87
   %182 = fadd nsz double %181, %120
   store double %182, ptr %180, align 8, !tbaa !87
@@ -1177,7 +1177,7 @@ lup_invert_double.exit.i:                         ; preds = %._crit_edge62.us.us
 .preheader175.lr.ph.split.us.i:                   ; preds = %lup_invert_double.exit.i
   %275 = load i32, ptr %152, align 4, !tbaa !54
   %276 = sext i32 %275 to i64
-  %invariant.gep264.i = getelementptr double, ptr %98, i64 %276
+  %invariant.gep270.i = getelementptr double, ptr %98, i64 %276
   br label %.preheader175.us.i
 
 .preheader175.us.i:                               ; preds = %._crit_edge188.us.i, %.preheader175.lr.ph.split.us.i
@@ -1191,8 +1191,8 @@ lup_invert_double.exit.i:                         ; preds = %._crit_edge62.us.us
   %.0160185.us.i = phi double [ 0.000000e+00, %.preheader175.us.i ], [ %283, %279 ]
   %280 = getelementptr inbounds nuw double, ptr %278, i64 %indvars.iv225.i
   %281 = load double, ptr %280, align 8, !tbaa !87
-  %gep265.i = getelementptr double, ptr %invariant.gep264.i, i64 %indvars.iv225.i
-  %282 = load double, ptr %gep265.i, align 8, !tbaa !87
+  %gep271.i = getelementptr double, ptr %invariant.gep270.i, i64 %indvars.iv225.i
+  %282 = load double, ptr %gep271.i, align 8, !tbaa !87
   %283 = tail call nsz double @llvm.fmuladd.f64(double %281, double %282, double %.0160185.us.i)
   %indvars.iv.next226.i = add nuw nsw i64 %indvars.iv225.i, 1
   %exitcond229.not.i = icmp eq i64 %indvars.iv.next226.i, %184
@@ -1209,7 +1209,7 @@ lup_invert_double.exit.i:                         ; preds = %._crit_edge62.us.us
   %indvars.iv.i = phi i64 [ 0, %.split.preheader.i ], [ %indvars.iv.next.i, %.split183.i ]
   %285 = mul nuw nsw i64 %indvars.iv.i, %161
   %invariant.gep.i = getelementptr inbounds nuw double, ptr %88, i64 %285
-  %invariant.gep258.i = getelementptr inbounds nuw double, ptr %88, i64 %indvars.iv.i
+  %invariant.gep264.i = getelementptr inbounds nuw double, ptr %88, i64 %indvars.iv.i
   br label %.preheader176.i
 
 .preheader176.i:                                  ; preds = %293, %.split.i
@@ -1223,7 +1223,7 @@ lup_invert_double.exit.i:                         ; preds = %._crit_edge62.us.us
   %indvars207.i = trunc i64 %indvars.iv.i to i32
   %286 = mul nuw nsw i32 %78, %indvars207.i
   %287 = zext i32 %286 to i64
-  %288 = getelementptr inbounds nuw double, ptr %invariant.gep258.i, i64 %287
+  %288 = getelementptr inbounds nuw double, ptr %invariant.gep264.i, i64 %287
   %289 = load double, ptr %288, align 8, !tbaa !87
   %290 = fadd nsz double %289, %120
   store double %290, ptr %288, align 8, !tbaa !87
@@ -1233,8 +1233,8 @@ lup_invert_double.exit.i:                         ; preds = %._crit_edge62.us.us
 
 291:                                              ; preds = %.preheader176.i
   %292 = mul nuw nsw i64 %indvars.iv204.i, %161
-  %gep259.i = getelementptr inbounds nuw double, ptr %invariant.gep258.i, i64 %292
-  store double 0.000000e+00, ptr %gep259.i, align 8, !tbaa !87
+  %gep265.i = getelementptr inbounds nuw double, ptr %invariant.gep264.i, i64 %292
+  store double 0.000000e+00, ptr %gep265.i, align 8, !tbaa !87
   br label %293
 
 293:                                              ; preds = %291, %.preheader176.i
@@ -1248,12 +1248,12 @@ lup_invert_double.exit.i:                         ; preds = %._crit_edge62.us.us
 
 .preheader174.thread.i:                           ; preds = %lup_invert_double.exit.i
   %295 = icmp sgt i32 %121, 0
-  br i1 %295, label %.preheader.thread253.i, label %._crit_edge198.i
+  br i1 %295, label %.preheader.thread259.i, label %._crit_edge198.i
 
 .preheader173.lr.ph.i:                            ; preds = %.preheader174.i
-  br i1 %159, label %.preheader173.lr.ph.split.us.i, label %.preheader.thread253.i
+  br i1 %159, label %.preheader173.lr.ph.split.us.i, label %.preheader.thread259.i
 
-.preheader.thread253.i:                           ; preds = %.preheader173.lr.ph.i, %.preheader174.thread.i
+.preheader.thread259.i:                           ; preds = %.preheader173.lr.ph.i, %.preheader174.thread.i
   %296 = zext nneg i32 %121 to i64
   %297 = shl nuw nsw i64 %296, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %66, i8 0, i64 %297, i1 false), !tbaa !87
@@ -1293,9 +1293,9 @@ lup_invert_double.exit.i:                         ; preds = %._crit_edge62.us.us
   %exitcond247.not.i = icmp eq i64 %indvars.iv.next244.i, %wide.trip.count246.i
   br i1 %exitcond247.not.i, label %.lr.ph197.preheader.i, label %.preheader173.us.i, !llvm.loop !109
 
-.lr.ph197.preheader.i:                            ; preds = %._crit_edge193.us.i, %.preheader.thread253.i
-  %.pre-phi = phi i64 [ %296, %.preheader.thread253.i ], [ %wide.trip.count246.i, %._crit_edge193.us.i ]
-  %invariant.gep266.i = getelementptr inbounds nuw double, ptr %71, i64 %.pre-phi
+.lr.ph197.preheader.i:                            ; preds = %._crit_edge193.us.i, %.preheader.thread259.i
+  %.pre-phi = phi i64 [ %296, %.preheader.thread259.i ], [ %wide.trip.count246.i, %._crit_edge193.us.i ]
+  %invariant.gep272.i = getelementptr inbounds nuw double, ptr %71, i64 %.pre-phi
   br label %.lr.ph197.i
 
 ._crit_edge198.i:                                 ; preds = %.lr.ph197.i, %.preheader174.thread.i, %.preheader174.i
@@ -1324,8 +1324,8 @@ lup_invert_double.exit.i:                         ; preds = %._crit_edge62.us.us
   %316 = getelementptr inbounds nuw double, ptr %66, i64 %indvars.iv248.i
   %317 = load double, ptr %316, align 8, !tbaa !87
   %318 = tail call nsz double @llvm.fmuladd.f64(double %124, double %317, double %315)
-  %gep267.i = getelementptr inbounds nuw double, ptr %invariant.gep266.i, i64 %indvars.iv248.i
-  store double %318, ptr %gep267.i, align 8, !tbaa !87
+  %gep273.i = getelementptr inbounds nuw double, ptr %invariant.gep272.i, i64 %indvars.iv248.i
+  store double %318, ptr %gep273.i, align 8, !tbaa !87
   store double %318, ptr %314, align 8, !tbaa !87
   %indvars.iv.next249.i = add nuw nsw i64 %indvars.iv248.i, 1
   %exitcond252.not.i = icmp eq i64 %indvars.iv.next249.i, %.pre-phi
@@ -1573,8 +1573,8 @@ define internal noundef i32 @filter_channels_float(ptr noundef readonly captures
   %indvars222.i = trunc i64 %indvars.iv215.i to i32
   %161 = mul nuw nsw i64 %indvars.iv215.i, %160
   %invariant.op.us.us.i = add i32 %159, %indvars222.i
-  %invariant.gep260.i = getelementptr inbounds nuw float, ptr %88, i64 %161
-  %invariant.gep262.i = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv215.i
+  %invariant.gep266.i = getelementptr inbounds nuw float, ptr %88, i64 %161
+  %invariant.gep268.i = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv215.i
   br label %.preheader176.us.us.i
 
 .preheader176.us.us.i:                            ; preds = %165, %.split.us.us.i
@@ -1585,8 +1585,8 @@ define internal noundef i32 @filter_channels_float(ptr noundef readonly captures
 
 163:                                              ; preds = %._crit_edge.us.us.i
   %164 = mul nuw nsw i64 %indvars.iv217.i, %160
-  %gep263.i = getelementptr inbounds nuw float, ptr %invariant.gep262.i, i64 %164
-  store float %174, ptr %gep263.i, align 4, !tbaa !115
+  %gep269.i = getelementptr inbounds nuw float, ptr %invariant.gep268.i, i64 %164
+  store float %174, ptr %gep269.i, align 4, !tbaa !115
   br label %165
 
 165:                                              ; preds = %._crit_edge.us.us.i, %163
@@ -1612,15 +1612,15 @@ define internal noundef i32 @filter_channels_float(ptr noundef readonly captures
   br i1 %exitcond214.not.i, label %._crit_edge.us.us.i, label %166, !llvm.loop !118
 
 ._crit_edge.us.us.i:                              ; preds = %166
-  %gep261.i = getelementptr inbounds nuw float, ptr %invariant.gep260.i, i64 %indvars.iv217.i
-  store float %174, ptr %gep261.i, align 4, !tbaa !115
+  %gep267.i = getelementptr inbounds nuw float, ptr %invariant.gep266.i, i64 %indvars.iv217.i
+  store float %174, ptr %gep267.i, align 4, !tbaa !115
   %.not.us.us.i = icmp eq i64 %indvars.iv215.i, %indvars.iv217.i
   br i1 %.not.us.us.i, label %165, label %163
 
 .split183.us.us.i:                                ; preds = %165
   %175 = mul nuw nsw i32 %78, %indvars222.i
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds nuw float, ptr %invariant.gep262.i, i64 %176
+  %177 = getelementptr inbounds nuw float, ptr %invariant.gep268.i, i64 %176
   %178 = load float, ptr %177, align 4, !tbaa !115
   %179 = fadd nsz float %119, %178
   store float %179, ptr %177, align 4, !tbaa !115
@@ -1848,7 +1848,7 @@ lup_invert_float.exit.i:                          ; preds = %._crit_edge62.us.us
 .preheader175.lr.ph.split.us.i:                   ; preds = %lup_invert_float.exit.i
   %272 = load i32, ptr %149, align 4, !tbaa !54
   %273 = sext i32 %272 to i64
-  %invariant.gep264.i = getelementptr float, ptr %98, i64 %273
+  %invariant.gep270.i = getelementptr float, ptr %98, i64 %273
   br label %.preheader175.us.i
 
 .preheader175.us.i:                               ; preds = %._crit_edge188.us.i, %.preheader175.lr.ph.split.us.i
@@ -1862,8 +1862,8 @@ lup_invert_float.exit.i:                          ; preds = %._crit_edge62.us.us
   %.0160185.us.i = phi float [ 0.000000e+00, %.preheader175.us.i ], [ %280, %276 ]
   %277 = getelementptr inbounds nuw float, ptr %275, i64 %indvars.iv225.i
   %278 = load float, ptr %277, align 4, !tbaa !115
-  %gep265.i = getelementptr float, ptr %invariant.gep264.i, i64 %indvars.iv225.i
-  %279 = load float, ptr %gep265.i, align 4, !tbaa !115
+  %gep271.i = getelementptr float, ptr %invariant.gep270.i, i64 %indvars.iv225.i
+  %279 = load float, ptr %gep271.i, align 4, !tbaa !115
   %280 = tail call nsz float @llvm.fmuladd.f32(float %278, float %279, float %.0160185.us.i)
   %indvars.iv.next226.i = add nuw nsw i64 %indvars.iv225.i, 1
   %exitcond229.not.i = icmp eq i64 %indvars.iv.next226.i, %181
@@ -1880,7 +1880,7 @@ lup_invert_float.exit.i:                          ; preds = %._crit_edge62.us.us
   %indvars.iv.i = phi i64 [ 0, %.split.preheader.i ], [ %indvars.iv.next.i, %.split183.i ]
   %282 = mul nuw nsw i64 %indvars.iv.i, %158
   %invariant.gep.i = getelementptr inbounds nuw float, ptr %88, i64 %282
-  %invariant.gep258.i = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv.i
+  %invariant.gep264.i = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv.i
   br label %.preheader176.i
 
 .preheader176.i:                                  ; preds = %290, %.split.i
@@ -1894,7 +1894,7 @@ lup_invert_float.exit.i:                          ; preds = %._crit_edge62.us.us
   %indvars207.i = trunc i64 %indvars.iv.i to i32
   %283 = mul nuw nsw i32 %78, %indvars207.i
   %284 = zext i32 %283 to i64
-  %285 = getelementptr inbounds nuw float, ptr %invariant.gep258.i, i64 %284
+  %285 = getelementptr inbounds nuw float, ptr %invariant.gep264.i, i64 %284
   %286 = load float, ptr %285, align 4, !tbaa !115
   %287 = fadd nsz float %119, %286
   store float %287, ptr %285, align 4, !tbaa !115
@@ -1904,8 +1904,8 @@ lup_invert_float.exit.i:                          ; preds = %._crit_edge62.us.us
 
 288:                                              ; preds = %.preheader176.i
   %289 = mul nuw nsw i64 %indvars.iv204.i, %158
-  %gep259.i = getelementptr inbounds nuw float, ptr %invariant.gep258.i, i64 %289
-  store float 0.000000e+00, ptr %gep259.i, align 4, !tbaa !115
+  %gep265.i = getelementptr inbounds nuw float, ptr %invariant.gep264.i, i64 %289
+  store float 0.000000e+00, ptr %gep265.i, align 4, !tbaa !115
   br label %290
 
 290:                                              ; preds = %288, %.preheader176.i
@@ -1919,12 +1919,12 @@ lup_invert_float.exit.i:                          ; preds = %._crit_edge62.us.us
 
 .preheader174.thread.i:                           ; preds = %lup_invert_float.exit.i
   %292 = icmp sgt i32 %120, 0
-  br i1 %292, label %.preheader.thread253.i, label %._crit_edge198.i
+  br i1 %292, label %.preheader.thread259.i, label %._crit_edge198.i
 
 .preheader173.lr.ph.i:                            ; preds = %.preheader174.i
-  br i1 %156, label %.preheader173.lr.ph.split.us.i, label %.preheader.thread253.i
+  br i1 %156, label %.preheader173.lr.ph.split.us.i, label %.preheader.thread259.i
 
-.preheader.thread253.i:                           ; preds = %.preheader173.lr.ph.i, %.preheader174.thread.i
+.preheader.thread259.i:                           ; preds = %.preheader173.lr.ph.i, %.preheader174.thread.i
   %293 = zext nneg i32 %120 to i64
   %294 = shl nuw nsw i64 %293, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %66, i8 0, i64 %294, i1 false), !tbaa !115
@@ -1964,9 +1964,9 @@ lup_invert_float.exit.i:                          ; preds = %._crit_edge62.us.us
   %exitcond247.not.i = icmp eq i64 %indvars.iv.next244.i, %wide.trip.count246.i
   br i1 %exitcond247.not.i, label %.lr.ph197.preheader.i, label %.preheader173.us.i, !llvm.loop !133
 
-.lr.ph197.preheader.i:                            ; preds = %._crit_edge193.us.i, %.preheader.thread253.i
-  %.pre-phi = phi i64 [ %293, %.preheader.thread253.i ], [ %wide.trip.count246.i, %._crit_edge193.us.i ]
-  %invariant.gep266.i = getelementptr inbounds nuw float, ptr %71, i64 %.pre-phi
+.lr.ph197.preheader.i:                            ; preds = %._crit_edge193.us.i, %.preheader.thread259.i
+  %.pre-phi = phi i64 [ %293, %.preheader.thread259.i ], [ %wide.trip.count246.i, %._crit_edge193.us.i ]
+  %invariant.gep272.i = getelementptr inbounds nuw float, ptr %71, i64 %.pre-phi
   br label %.lr.ph197.i
 
 ._crit_edge198.i:                                 ; preds = %.lr.ph197.i, %.preheader174.thread.i, %.preheader174.i
@@ -1995,8 +1995,8 @@ lup_invert_float.exit.i:                          ; preds = %._crit_edge62.us.us
   %313 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv248.i
   %314 = load float, ptr %313, align 4, !tbaa !115
   %315 = tail call nsz float @llvm.fmuladd.f32(float %122, float %314, float %312)
-  %gep267.i = getelementptr inbounds nuw float, ptr %invariant.gep266.i, i64 %indvars.iv248.i
-  store float %315, ptr %gep267.i, align 4, !tbaa !115
+  %gep273.i = getelementptr inbounds nuw float, ptr %invariant.gep272.i, i64 %indvars.iv248.i
+  store float %315, ptr %gep273.i, align 4, !tbaa !115
   store float %315, ptr %311, align 4, !tbaa !115
   %indvars.iv.next249.i = add nuw nsw i64 %indvars.iv248.i, 1
   %exitcond252.not.i = icmp eq i64 %indvars.iv.next249.i, %.pre-phi

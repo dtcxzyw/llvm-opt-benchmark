@@ -117,9 +117,9 @@ define dso_local i32 @cmd_diff_tree(i32 noundef %0, ptr noundef %1, ptr noundef 
 
 39:                                               ; preds = %38, %37
   %40 = icmp sgt i32 %31, 1
-  br i1 %40, label %.lr.ph, label %.thread79
+  br i1 %40, label %.lr.ph, label %.thread83
 
-.thread79:                                        ; preds = %39
+.thread83:                                        ; preds = %39
   %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 8), align 8
   br label %59
 
@@ -172,10 +172,10 @@ define dso_local i32 @cmd_diff_tree(i32 noundef %0, ptr noundef %1, ptr noundef 
   call void (ptr, ...) @die(ptr noundef %58) #12
   unreachable
 
-59:                                               ; preds = %.thread79, %55
-  %60 = phi i32 [ %41, %.thread79 ], [ %56, %55 ]
-  %.032.lcssa7785 = phi i1 [ false, %.thread79 ], [ %52, %55 ]
-  %.030.lcssa7884 = phi i1 [ false, %.thread79 ], [ %51, %55 ]
+59:                                               ; preds = %.thread83, %55
+  %60 = phi i32 [ %41, %.thread83 ], [ %56, %55 ]
+  %.032.lcssa8189 = phi i1 [ false, %.thread83 ], [ %52, %55 ]
+  %.030.lcssa8288 = phi i1 [ false, %.thread83 ], [ %51, %55 ]
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1492), align 4, !tbaa !83
   switch i32 %60, label %diff_tree_commit_oid.exit [
     i32 0, label %61
@@ -184,7 +184,7 @@ define dso_local i32 @cmd_diff_tree(i32 noundef %0, ptr noundef %1, ptr noundef 
   ]
 
 61:                                               ; preds = %59
-  br i1 %.030.lcssa7884, label %.critedge, label %62
+  br i1 %.030.lcssa8288, label %.critedge, label %62
 
 62:                                               ; preds = %61
   call void @usage(ptr noundef nonnull @diff_tree_usage) #12
@@ -207,7 +207,7 @@ define dso_local i32 @cmd_diff_tree(i32 noundef %0, ptr noundef %1, ptr noundef 
   %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 16), align 8, !tbaa !84
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load ptr, ptr %73, align 8, !tbaa !85
-  br i1 %.032.lcssa7785, label %75, label %78
+  br i1 %.032.lcssa8189, label %75, label %78
 
 75:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -236,7 +236,7 @@ define dso_local i32 @cmd_diff_tree(i32 noundef %0, ptr noundef %1, ptr noundef 
   br label %diff_tree_commit_oid.exit
 
 diff_tree_commit_oid.exit:                        ; preds = %69, %63, %82, %59
-  br i1 %.030.lcssa7884, label %.critedge, label %192
+  br i1 %.030.lcssa8288, label %.critedge, label %192
 
 .critedge:                                        ; preds = %61, %diff_tree_commit_oid.exit
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1492), align 4, !tbaa !83

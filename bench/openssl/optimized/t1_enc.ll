@@ -155,8 +155,8 @@ tls_iv_length_within_key_block.exit.thread:       ; preds = %20, %2, %tls_iv_len
 
 76:                                               ; preds = %54
   %77 = and i64 %58, -1025
-  %masksel109 = select i1 %.not96, i64 0, i64 1024
-  %storemerge = or disjoint i64 %77, %masksel109
+  %masksel110 = select i1 %.not96, i64 0, i64 1024
+  %storemerge = or disjoint i64 %77, %masksel110
   store i64 %storemerge, ptr %3, align 8, !tbaa !79
   %78 = load ptr, ptr %59, align 8, !tbaa !75
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 64
@@ -164,8 +164,8 @@ tls_iv_length_within_key_block.exit.thread:       ; preds = %20, %2, %tls_iv_len
   %81 = load i32, ptr %60, align 8, !tbaa !81
   %82 = and i32 %81, -3
   %83 = lshr i32 %80, 15
-  %masksel110 = and i32 %83, 2
-  %84 = or disjoint i32 %82, %masksel110
+  %masksel111 = and i32 %83, 2
+  %84 = or disjoint i32 %82, %masksel111
   %85 = and i32 %80, 131072
   %.not98 = icmp eq i32 %85, 0
   br i1 %.not98, label %88, label %86
@@ -179,9 +179,9 @@ tls_iv_length_within_key_block.exit.thread:       ; preds = %20, %2, %tls_iv_len
   br label %90
 
 90:                                               ; preds = %86, %88, %72, %74
-  %.sink107 = phi i32 [ %87, %86 ], [ %89, %88 ], [ %73, %72 ], [ %75, %74 ]
+  %.sink108 = phi i32 [ %87, %86 ], [ %89, %88 ], [ %73, %72 ], [ %75, %74 ]
   %.086 = phi i32 [ 1, %86 ], [ 1, %88 ], [ 0, %72 ], [ 0, %74 ]
-  store i32 %.sink107, ptr %61, align 8, !tbaa !81
+  store i32 %.sink108, ptr %61, align 8, !tbaa !81
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %92 = load ptr, ptr %91, align 8, !tbaa !82
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 216

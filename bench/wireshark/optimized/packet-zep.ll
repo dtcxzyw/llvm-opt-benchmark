@@ -155,10 +155,10 @@ sub_1:                                            ; preds = %sub_0
   br i1 %31, label %.tail.thread, label %.sink.split
 
 .sink.split:                                      ; preds = %29, %23
-  %.sink102 = phi i32 [ 15, %23 ], [ 31, %29 ]
+  %.sink105 = phi i32 [ 15, %23 ], [ 31, %29 ]
   %.088.ph = phi i32 [ 16, %23 ], [ 32, %29 ]
   %.086.ph = phi i8 [ 0, %23 ], [ %27, %29 ]
-  %32 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.sink102)
+  %32 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.sink105)
   %33 = and i8 %32, 127
   %34 = zext nneg i8 %33 to i32
   br label %35
@@ -251,9 +251,9 @@ sub_1:                                            ; preds = %sub_0
   br label %.thread
 
 .thread:                                          ; preds = %63, %68, %91
-  %.sink103 = phi i32 [ 31, %91 ], [ 15, %68 ], [ 15, %63 ]
+  %.sink106 = phi i32 [ 31, %91 ], [ 15, %68 ], [ 15, %63 ]
   %96 = load i32, ptr @hf_zep_ieee_length, align 4
-  %97 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %96, ptr noundef %0, i32 noundef %.sink103, i32 noundef 1, i32 noundef 0)
+  %97 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %96, ptr noundef %0, i32 noundef %.sink106, i32 noundef 1, i32 noundef 0)
   %98 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %99 = trunc nuw i8 %98 to i1
   %ieee802154_handle.val97 = load ptr, ptr @ieee802154_handle, align 8

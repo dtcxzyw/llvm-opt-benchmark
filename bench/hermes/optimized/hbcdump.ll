@@ -4736,7 +4736,7 @@ if.end.i843:                                      ; preds = %if.end.i996
   br i1 %45, label %if.then241, label %lor.lhs.false237
 
 lor.lhs.false237:                                 ; preds = %if.end, %if.end.i843
-  %cmp.i612384388422429439445457460475481 = phi i1 [ true, %if.end.i843 ], [ false, %if.end ]
+  %cmp.i612384388437444454460472475490496 = phi i1 [ true, %if.end.i843 ], [ false, %if.end ]
   %cmp.i810 = icmp eq i64 %command.sroa.33.0.copyload, 1
   br i1 %cmp.i810, label %if.end.i834, label %if.else250
 
@@ -4764,7 +4764,7 @@ if.else247:                                       ; preds = %if.then241
   br label %cleanup270
 
 if.else250:                                       ; preds = %lor.lhs.false237, %if.end.i834
-  br i1 %cmp.i612384388422429439445457460475481, label %if.end.i, label %if.else255
+  br i1 %cmp.i612384388437444454460472475490496, label %if.end.i, label %if.else255
 
 if.end.i:                                         ; preds = %if.else250
   %bcmp155 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %command.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(4) @.str.78, i64 4)

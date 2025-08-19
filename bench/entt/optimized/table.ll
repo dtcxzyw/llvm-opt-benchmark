@@ -35295,7 +35295,7 @@ _ZNSt6vectorIiN4test18throwing_allocatorIiEEEC2ERKS2_.exit: ; preds = %17, %20
   br label %_ZNSt6vectorIcN4test18throwing_allocatorIcEEED2Ev.exit
 
 _ZNSt6vectorIcN4test18throwing_allocatorIcEEED2Ev.exit: ; preds = %_ZNSt6vectorIiN4test18throwing_allocatorIiEEEC2ERKS2_.exit.thread, %_ZNSt6vectorIiN4test18throwing_allocatorIiEEEC2ERKS2_.exit, %31, %34
-  %.not.i.i.i.i.i440 = phi i1 [ true, %_ZNSt6vectorIiN4test18throwing_allocatorIiEEEC2ERKS2_.exit.thread ], [ true, %_ZNSt6vectorIiN4test18throwing_allocatorIiEEEC2ERKS2_.exit ], [ false, %31 ], [ false, %34 ]
+  %.not.i.i.i.i.i443 = phi i1 [ true, %_ZNSt6vectorIiN4test18throwing_allocatorIiEEEC2ERKS2_.exit.thread ], [ true, %_ZNSt6vectorIiN4test18throwing_allocatorIiEEEC2ERKS2_.exit ], [ false, %31 ], [ false, %34 ]
   %36 = phi ptr [ %7, %_ZNSt6vectorIiN4test18throwing_allocatorIiEEEC2ERKS2_.exit.thread ], [ %22, %_ZNSt6vectorIiN4test18throwing_allocatorIiEEEC2ERKS2_.exit ], [ %22, %31 ], [ %22, %34 ]
   %37 = phi ptr [ null, %_ZNSt6vectorIiN4test18throwing_allocatorIiEEEC2ERKS2_.exit.thread ], [ null, %_ZNSt6vectorIiN4test18throwing_allocatorIiEEEC2ERKS2_.exit ], [ %.pr, %31 ], [ %.pr, %34 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -35310,7 +35310,7 @@ _ZNSt6vectorIcN4test18throwing_allocatorIcEEED2Ev.exit: ; preds = %_ZNSt6vectorI
   store ptr %6, ptr %42, align 8, !tbaa !72
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i440, label %_ZNSt6vectorIiN4test18throwing_allocatorIiEEED2Ev.exit, label %44
+  br i1 %.not.i.i.i.i.i443, label %_ZNSt6vectorIiN4test18throwing_allocatorIiEEED2Ev.exit, label %44
 
 44:                                               ; preds = %_ZNSt6vectorIcN4test18throwing_allocatorIcEEED2Ev.exit
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -46849,13 +46849,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorImSaImEE17_M_default_appendEm(pt
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 8, !tbaa !30
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !30
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

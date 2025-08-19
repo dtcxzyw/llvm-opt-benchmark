@@ -340,13 +340,13 @@ define range(i32 0, 2) i32 @Ifn_ManStrCheck(ptr noundef %0, ptr noundef writeonl
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false)
   br label %5
 
-5:                                                ; preds = %24, %3
-  %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %3 ]
-  %.051 = phi i32 [ %10, %24 ], [ 0, %3 ]
-  %.0 = phi i32 [ %.1, %24 ], [ -1, %3 ]
+5:                                                ; preds = %25, %3
+  %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %3 ]
+  %.051 = phi i32 [ %11, %25 ], [ 0, %3 ]
+  %.0 = phi i32 [ %.1, %25 ], [ -1, %3 ]
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1, !tbaa !21
-  switch i8 %7, label %9 [
+  switch i8 %7, label %10 [
     i8 0, label %.preheader
     i8 40, label %Inf_ManOpenSymb.exit.thread
     i8 91, label %Inf_ManOpenSymb.exit.thread
@@ -356,86 +356,87 @@ define range(i32 0, 2) i32 @Ifn_ManStrCheck(ptr noundef %0, ptr noundef writeonl
 
 .preheader:                                       ; preds = %5
   %.not5867 = icmp slt i32 %.0, 0
-  %.pre = add nsw i32 %.0, 1
   br i1 %.not5867, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %.pre to i64
+  %8 = add nuw nsw i32 %.0, 1
+  %wide.trip.count = zext nneg i32 %8 to i64
   br label %.lr.ph
 
 Inf_ManOpenSymb.exit.thread:                      ; preds = %5, %5, %5, %5
-  %8 = add nsw i32 %.051, 1
-  br label %9
+  %9 = add nsw i32 %.051, 1
+  br label %10
 
-9:                                                ; preds = %5, %Inf_ManOpenSymb.exit.thread
-  %10 = phi i32 [ %8, %Inf_ManOpenSymb.exit.thread ], [ %.051, %5 ]
-  switch i8 %7, label %11 [
-    i8 59, label %24
-    i8 40, label %24
-    i8 41, label %24
-    i8 91, label %24
-    i8 93, label %24
-    i8 60, label %24
-    i8 62, label %24
-    i8 123, label %24
-    i8 125, label %24
+10:                                               ; preds = %5, %Inf_ManOpenSymb.exit.thread
+  %11 = phi i32 [ %9, %Inf_ManOpenSymb.exit.thread ], [ %.051, %5 ]
+  switch i8 %7, label %12 [
+    i8 59, label %25
+    i8 40, label %25
+    i8 41, label %25
+    i8 91, label %25
+    i8 93, label %25
+    i8 60, label %25
+    i8 62, label %25
+    i8 123, label %25
+    i8 125, label %25
   ]
 
-11:                                               ; preds = %9
-  %12 = add i8 %7, -65
-  %or.cond = icmp ult i8 %12, 26
-  br i1 %or.cond, label %24, label %13
+12:                                               ; preds = %10
+  %13 = add i8 %7, -65
+  %or.cond = icmp ult i8 %13, 26
+  br i1 %or.cond, label %25, label %14
 
-13:                                               ; preds = %11
-  %14 = add i8 %7, -97
-  %or.cond60 = icmp ult i8 %14, 26
-  br i1 %or.cond60, label %15, label %21
+14:                                               ; preds = %12
+  %15 = add i8 %7, -97
+  %or.cond60 = icmp ult i8 %15, 26
+  br i1 %or.cond60, label %16, label %22
 
-15:                                               ; preds = %13
-  %16 = zext nneg i8 %14 to i32
-  %17 = tail call range(i32 -225, 32) i32 @llvm.smax.i32(i32 range(i32 -225, 32) %.0, i32 range(i32 -225, 32) %16)
-  %18 = zext nneg i8 %7 to i64
-  %19 = add nsw i64 %18, -97
-  %20 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %19
-  store i32 1, ptr %20, align 4, !tbaa !22
-  br label %24
+16:                                               ; preds = %14
+  %17 = zext nneg i8 %15 to i32
+  %18 = tail call range(i32 -225, 32) i32 @llvm.smax.i32(i32 range(i32 -225, 32) %.0, i32 range(i32 -225, 32) %17)
+  %19 = zext nneg i8 %7 to i64
+  %20 = add nsw i64 %19, -97
+  %21 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %20
+  store i32 1, ptr %21, align 4, !tbaa !22
+  br label %25
 
-21:                                               ; preds = %13
-  %22 = sext i8 %7 to i32
-  %23 = tail call i32 (ptr, ...) @Ifn_ErrorMessage(ptr noundef nonnull @.str.8, ptr noundef nonnull %0, i32 noundef %22)
-  br label %34
+22:                                               ; preds = %14
+  %23 = sext i8 %7 to i32
+  %24 = tail call i32 (ptr, ...) @Ifn_ErrorMessage(ptr noundef nonnull @.str.8, ptr noundef nonnull %0, i32 noundef %23)
+  br label %35
 
-24:                                               ; preds = %11, %9, %9, %9, %9, %9, %9, %9, %9, %9, %15
-  %.1 = phi i32 [ %.0, %9 ], [ %17, %15 ], [ %.0, %9 ], [ %.0, %9 ], [ %.0, %9 ], [ %.0, %9 ], [ %.0, %9 ], [ %.0, %9 ], [ %.0, %9 ], [ %.0, %9 ], [ %.0, %11 ]
+25:                                               ; preds = %12, %10, %10, %10, %10, %10, %10, %10, %10, %10, %16
+  %.1 = phi i32 [ %.0, %10 ], [ %18, %16 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %5, !llvm.loop !26
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %32
-  %indvars.iv74 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next75, %32 ]
-  %25 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv74
-  %26 = load i32, ptr %25, align 4, !tbaa !22
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %32
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %33
+  %indvars.iv74 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next75, %33 ]
+  %26 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv74
+  %27 = load i32, ptr %26, align 4, !tbaa !22
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %33
 
-28:                                               ; preds = %.lr.ph
-  %29 = trunc nuw nsw i64 %indvars.iv74 to i32
-  %30 = add nuw nsw i32 %29, 97
-  %31 = tail call i32 (ptr, ...) @Ifn_ErrorMessage(ptr noundef nonnull @.str.9, ptr noundef %0, i32 noundef %30)
-  br label %34
+29:                                               ; preds = %.lr.ph
+  %30 = trunc nuw nsw i64 %indvars.iv74 to i32
+  %31 = add nuw nsw i32 %30, 97
+  %32 = tail call i32 (ptr, ...) @Ifn_ErrorMessage(ptr noundef nonnull @.str.9, ptr noundef %0, i32 noundef %31)
+  br label %35
 
-32:                                               ; preds = %.lr.ph
+33:                                               ; preds = %.lr.ph
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %32, %.preheader
-  store i32 %.pre, ptr %1, align 4, !tbaa !22
-  %33 = add nsw i32 %.pre, %.051
-  store i32 %33, ptr %2, align 4, !tbaa !22
-  br label %34
+._crit_edge:                                      ; preds = %33, %.preheader
+  %.pre-phi = phi i32 [ 0, %.preheader ], [ %8, %33 ]
+  store i32 %.pre-phi, ptr %1, align 4, !tbaa !22
+  %34 = add nsw i32 %.pre-phi, %.051
+  store i32 %34, ptr %2, align 4, !tbaa !22
+  br label %35
 
-34:                                               ; preds = %._crit_edge, %28, %21
-  %.055 = phi i32 [ 0, %21 ], [ 0, %28 ], [ 1, %._crit_edge ]
+35:                                               ; preds = %._crit_edge, %29, %22
+  %.055 = phi i32 [ 0, %22 ], [ 0, %29 ], [ 1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.055
 }
@@ -995,12 +996,12 @@ define range(i32 0, 2) i32 @Ifn_NtkParseInt2(ptr noundef %0, ptr noundef capture
   br label %.critedge
 
 43:                                               ; preds = %32, %36, %38, %37
-  %.sink145 = phi i32 [ 4, %36 ], [ 6, %38 ], [ 5, %37 ], [ 3, %32 ]
+  %.sink150 = phi i32 [ 4, %36 ], [ 6, %38 ], [ 5, %37 ], [ 3, %32 ]
   %.0 = phi i32 [ 93, %36 ], [ 125, %38 ], [ 62, %37 ], [ 41, %32 ]
   %44 = getelementptr inbounds [22 x %struct.Ifn_Obj_t_], ptr %10, i64 0, i64 %indvars.iv127
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, -8
-  %47 = or disjoint i32 %46, %.sink145
+  %47 = or disjoint i32 %46, %.sink150
   store i32 %47, ptr %44, align 8
   br label %48
 
@@ -1229,7 +1230,7 @@ Ifn_NtkParseConstraints.exit.thread:              ; preds = %.preheader.lr.ph.i
   %20 = icmp samesign ult i32 %14, 7
   %21 = add nsw i32 %14, -6
   %22 = shl nuw i32 1, %21
-  %.fr.i30 = freeze i32 %22
+  %.fr.i36 = freeze i32 %22
   br i1 %20, label %.lr.ph28.split.us.split.us.preheader.i, label %.lr.ph28.i
 
 .preheader.i:                                     ; preds = %.preheader.lr.ph.i, %._crit_edge.loopexit.i
@@ -1291,21 +1292,21 @@ Ifn_NtkParseConstraints.exit:                     ; preds = %._crit_edge.loopexi
   br i1 %55, label %.lr.ph28.i, label %Abc_TtElemInit2.exit
 
 .lr.ph28.i:                                       ; preds = %Ifn_NtkParseConstraints.exit.thread, %Ifn_NtkParseConstraints.exit
-  %56 = phi i32 [ %.fr.i30, %Ifn_NtkParseConstraints.exit.thread ], [ %54, %Ifn_NtkParseConstraints.exit ]
+  %56 = phi i32 [ %.fr.i36, %Ifn_NtkParseConstraints.exit.thread ], [ %54, %Ifn_NtkParseConstraints.exit ]
   %57 = phi i32 [ %21, %Ifn_NtkParseConstraints.exit.thread ], [ %52, %Ifn_NtkParseConstraints.exit ]
   %58 = phi i1 [ false, %Ifn_NtkParseConstraints.exit.thread ], [ %51, %Ifn_NtkParseConstraints.exit ]
   %59 = phi ptr [ %19, %Ifn_NtkParseConstraints.exit.thread ], [ %50, %Ifn_NtkParseConstraints.exit ]
-  %.pr31 = phi i32 [ %14, %Ifn_NtkParseConstraints.exit.thread ], [ %.pre.i, %Ifn_NtkParseConstraints.exit ]
+  %.pr37 = phi i32 [ %14, %Ifn_NtkParseConstraints.exit.thread ], [ %.pre.i, %Ifn_NtkParseConstraints.exit ]
   %60 = select i1 %58, i32 0, i32 %57
   %61 = icmp sgt i32 %56, 0
   br i1 %61, label %.lr.ph28.split.us.split.us.preheader.i, label %Abc_TtElemInit2.exit
 
 .lr.ph28.split.us.split.us.preheader.i:           ; preds = %Ifn_NtkParseConstraints.exit.thread, %.lr.ph28.i
   %62 = phi i32 [ %60, %.lr.ph28.i ], [ 0, %Ifn_NtkParseConstraints.exit.thread ]
-  %.pr3133 = phi i32 [ %.pr31, %.lr.ph28.i ], [ %14, %Ifn_NtkParseConstraints.exit.thread ]
+  %.pr3739 = phi i32 [ %.pr37, %.lr.ph28.i ], [ %14, %Ifn_NtkParseConstraints.exit.thread ]
   %63 = phi ptr [ %59, %.lr.ph28.i ], [ %19, %Ifn_NtkParseConstraints.exit.thread ]
   %64 = phi i32 [ %56, %.lr.ph28.i ], [ 1, %Ifn_NtkParseConstraints.exit.thread ]
-  %wide.trip.count68.i = zext nneg i32 %.pr3133 to i64
+  %wide.trip.count68.i = zext nneg i32 %.pr3739 to i64
   %wide.trip.count58.i = zext nneg i32 %64 to i64
   br label %.lr.ph28.split.us.split.us.i
 
@@ -3804,14 +3805,14 @@ Abc_UtilStrsav.exit108:                           ; preds = %Abc_UtilStrsav.exit
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %184, %186, %176, %178
-  %.sink146 = phi ptr [ %177, %176 ], [ %179, %178 ], [ %185, %184 ], [ %187, %186 ]
+  %.sink157 = phi ptr [ %177, %176 ], [ %179, %178 ], [ %185, %184 ], [ %187, %186 ]
   %.sink = phi i32 [ 16, %176 ], [ 16, %178 ], [ %181, %184 ], [ %181, %186 ]
-  store ptr %.sink146, ptr %94, align 8, !tbaa !80
+  store ptr %.sink157, ptr %94, align 8, !tbaa !80
   store i32 %.sink, ptr %91, align 8, !tbaa !79
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %.lr.ph122
-  %.pre.i145 = phi ptr [ %162, %.lr.ph122 ], [ %.sink146, %Vec_IntPush.exit.sink.split ]
+  %.pre.i145 = phi ptr [ %162, %.lr.ph122 ], [ %.sink157, %Vec_IntPush.exit.sink.split ]
   %188 = add nsw i32 %170, 1
   store i32 %188, ptr %92, align 4, !tbaa !77
   %189 = sext i32 %170 to i64
@@ -4702,8 +4703,8 @@ define void @Ifn_NtkAddConstraints(ptr noundef readonly captures(none) %0, ptr n
 
 ._crit_edge.thread:                               ; preds = %.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.val26.i108 = load i32, ptr %9, align 4, !tbaa !77
-  %49 = icmp sgt i32 %.val26.i108, 0
+  %.val26.i111 = load i32, ptr %9, align 4, !tbaa !77
+  %49 = icmp sgt i32 %.val26.i111, 0
   br i1 %49, label %.lr.ph29.split.i, label %Ifn_NtkAddConstrOne.exit
 
 .lr.ph.us.preheader.i:                            ; preds = %._crit_edge
@@ -4853,8 +4854,8 @@ Ifn_NtkAddConstrOne.exit:                         ; preds = %.lr.ph29.split.i, %
 
 ._crit_edge88.thread:                             ; preds = %95
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.val26.i57109 = load i32, ptr %9, align 4, !tbaa !77
-  %112 = icmp sgt i32 %.val26.i57109, 0
+  %.val26.i57112 = load i32, ptr %9, align 4, !tbaa !77
+  %112 = icmp sgt i32 %.val26.i57112, 0
   br i1 %112, label %.lr.ph29.split.i59, label %Ifn_NtkAddConstrOne.exit78
 
 .lr.ph.us.preheader.i62:                          ; preds = %._crit_edge88

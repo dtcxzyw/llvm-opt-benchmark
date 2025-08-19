@@ -2632,8 +2632,8 @@ if.then40:                                        ; preds = %if.end34
   call void @llvm.lifetime.start.p0(ptr nonnull %d)
   store float %3, ptr %d, align 8, !tbaa !107
   %167 = extractelement <2 x float> %4, i64 0
-  %d.4.d.4.d.4.Y.i138.sroa_idx379 = getelementptr inbounds nuw i8, ptr %d, i64 4
-  store float %167, ptr %d.4.d.4.d.4.Y.i138.sroa_idx379, align 4, !tbaa !104
+  %d.4.d.4.d.4.Y.i138.sroa_idx381 = getelementptr inbounds nuw i8, ptr %d, i64 4
+  store float %167, ptr %d.4.d.4.d.4.Y.i138.sroa_idx381, align 4, !tbaa !104
   %div14.i30 = fdiv nsz float %6, 1.000000e+01
   %conv15.i31 = fpext float %div14.i30 to double
   %add16.i32 = fadd nsz double %conv15.i31, 5.000000e-01
@@ -2709,8 +2709,8 @@ if.then40:                                        ; preds = %if.end34
   call void @llvm.lifetime.start.p0(ptr nonnull %d)
   store float %3, ptr %d, align 8, !tbaa !107
   %215 = extractelement <2 x float> %5, i64 1
-  %d.4.d.4.d.4.Y.i138.sroa_idx380 = getelementptr inbounds nuw i8, ptr %d, i64 4
-  store float %215, ptr %d.4.d.4.d.4.Y.i138.sroa_idx380, align 4, !tbaa !104
+  %d.4.d.4.d.4.Y.i138.sroa_idx382 = getelementptr inbounds nuw i8, ptr %d, i64 4
+  store float %215, ptr %d.4.d.4.d.4.Y.i138.sroa_idx382, align 4, !tbaa !104
   %216 = extractelement <2 x float> %4, i64 1
   %div14.i78 = fdiv nsz float %216, 1.000000e+01
   %conv15.i79 = fpext float %div14.i78 to double
@@ -2786,8 +2786,8 @@ if.then40:                                        ; preds = %if.end34
   call void @llvm.lifetime.end.p0(ptr nonnull %d)
   call void @llvm.lifetime.start.p0(ptr nonnull %d)
   store float %3, ptr %d, align 8, !tbaa !107
-  %d.4.d.4.d.4.Y.i138.sroa_idx381 = getelementptr inbounds nuw i8, ptr %d, i64 4
-  store float %215, ptr %d.4.d.4.d.4.Y.i138.sroa_idx381, align 4, !tbaa !104
+  %d.4.d.4.d.4.Y.i138.sroa_idx383 = getelementptr inbounds nuw i8, ptr %d, i64 4
+  store float %215, ptr %d.4.d.4.d.4.Y.i138.sroa_idx383, align 4, !tbaa !104
   %d.8.d.8.d.8.Z.i.sroa_idx = getelementptr inbounds nuw i8, ptr %d, i64 8
   store float %6, ptr %d.8.d.8.d.8.Z.i.sroa_idx, align 8, !tbaa !50
   %d.0.d.0.d.0.342 = load <2 x float>, ptr %d, align 8, !tbaa !49
@@ -2856,8 +2856,8 @@ if.then40:                                        ; preds = %if.end34
   call void @llvm.lifetime.start.p0(ptr nonnull %d)
   %309 = extractelement <2 x float> %5, i64 0
   store float %309, ptr %d, align 8, !tbaa !107
-  %d.4.d.4.d.4.Y.i138.sroa_idx378 = getelementptr inbounds nuw i8, ptr %d, i64 4
-  store <2 x float> %4, ptr %d.4.d.4.d.4.Y.i138.sroa_idx378, align 4, !tbaa !49
+  %d.4.d.4.d.4.Y.i138.sroa_idx380 = getelementptr inbounds nuw i8, ptr %d, i64 4
+  store <2 x float> %4, ptr %d.4.d.4.d.4.Y.i138.sroa_idx380, align 4, !tbaa !49
   %d.0.d.0.d.0.343 = load <2 x float>, ptr %d, align 8, !tbaa !49
   %310 = fdiv nsz <2 x float> %d.0.d.0.d.0.343, splat (float 1.000000e+01)
   %311 = fpext <2 x float> %310 to <2 x double>
@@ -2923,8 +2923,8 @@ if.then40:                                        ; preds = %if.end34
   call void @llvm.lifetime.end.p0(ptr nonnull %d)
   call void @llvm.lifetime.start.p0(ptr nonnull %d)
   store float %309, ptr %d, align 8, !tbaa !107
-  %d.4.d.4.d.4.Y.i138.sroa_idx382 = getelementptr inbounds nuw i8, ptr %d, i64 4
-  store float %167, ptr %d.4.d.4.d.4.Y.i138.sroa_idx382, align 4, !tbaa !104
+  %d.4.d.4.d.4.Y.i138.sroa_idx384 = getelementptr inbounds nuw i8, ptr %d, i64 4
+  store float %167, ptr %d.4.d.4.d.4.Y.i138.sroa_idx384, align 4, !tbaa !104
   %d.0.d.0.d.0.344 = load <2 x float>, ptr %d, align 8, !tbaa !49
   %355 = fdiv nsz <2 x float> %d.0.d.0.d.0.344, splat (float 1.000000e+01)
   %356 = fpext <2 x float> %355 to <2 x double>

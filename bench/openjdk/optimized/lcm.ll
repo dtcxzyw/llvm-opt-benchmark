@@ -2356,7 +2356,7 @@ define hidden void @_ZN8PhaseCFG24adjust_register_pressureEP4NodeP5BlockPlb(ptr 
   %19 = getelementptr inbounds nuw %class.IndexSet, ptr %17, i64 %13, i32 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %. = select i1 %4, i64 284, i64 324
-  %.92 = select i1 %4, i64 304, i64 344
+  %.103 = select i1 %4, i64 304, i64 344
   br label %21
 
 21:                                               ; preds = %.lr.ph73, %.thread
@@ -2603,8 +2603,8 @@ _ZN12LiveRangeMap4findEPK4Node.exit:              ; preds = %31, %46
   %152 = getelementptr inbounds nuw i8, ptr %121, i64 48
   %153 = load i32, ptr %152, align 8
   %154 = and i32 %153, 4096
-  %.not93 = icmp eq i32 %154, 0
-  br i1 %.not93, label %155, label %.critedge
+  %.not104 = icmp eq i32 %154, 0
+  br i1 %.not104, label %155, label %.critedge
 
 155:                                              ; preds = %151
   %156 = load i32, ptr %124, align 4
@@ -2630,7 +2630,7 @@ _ZN12LiveRangeMap4findEPK4Node.exit:              ; preds = %31, %46
 .critedge75:                                      ; preds = %77, %._crit_edge
   %163 = load ptr, ptr %6, align 8
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 %.
-  %165 = getelementptr inbounds nuw i8, ptr %163, i64 %.92
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 %.103
   tail call void @_ZN12PhaseChaitin14lower_pressureEP5BlockjR3LRGP8IndexSetRNS_8PressureES7_(ptr noundef nonnull align 8 dereferenceable(364) %163, ptr noundef %2, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(168) %62, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(20) %164, ptr noundef nonnull align 4 dereferenceable(20) %165) #8
   br label %.thread
 
@@ -3294,7 +3294,7 @@ _ZN7RegMask2ORERKS_.exit63:                       ; preds = %.thread, %206
 .split.us.i.preheader:                            ; preds = %_ZN7RegMask2ORERKS_.exit63.thread, %_ZN7RegMask2ORERKS_.exit63
   %246 = phi ptr [ %241, %_ZN7RegMask2ORERKS_.exit63.thread ], [ %245, %_ZN7RegMask2ORERKS_.exit63 ]
   %247 = phi ptr [ %240, %_ZN7RegMask2ORERKS_.exit63.thread ], [ %244, %_ZN7RegMask2ORERKS_.exit63 ]
-  %.0517089 = phi ptr [ %.051, %_ZN7RegMask2ORERKS_.exit63.thread ], [ %.05170, %_ZN7RegMask2ORERKS_.exit63 ]
+  %.05170104 = phi ptr [ %.051, %_ZN7RegMask2ORERKS_.exit63.thread ], [ %.05170, %_ZN7RegMask2ORERKS_.exit63 ]
   %248 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   br label %.split.us.i
 
@@ -3312,7 +3312,7 @@ _ZN7RegMask2ORERKS_.exit63:                       ; preds = %.thread, %206
   br i1 %.not.us.i, label %257, label %271
 
 257:                                              ; preds = %.split.us.i
-  %258 = getelementptr inbounds nuw i8, ptr %.0517089, i64 %indvars.iv.i
+  %258 = getelementptr inbounds nuw i8, ptr %.05170104, i64 %indvars.iv.i
   %259 = load i8, ptr %258, align 1
   switch i8 %259, label %271 [
     i8 67, label %260
@@ -5737,8 +5737,8 @@ _ZNK5Block8get_nodeEj.exit14.i:                   ; preds = %_ZNK5Block8get_node
 _ZNK5Block8get_nodeEj.exit14.i.thread:            ; preds = %_ZNK5Block8get_nodeEj.exit.i
   %305 = getelementptr inbounds nuw i8, ptr %297, i64 28
   %306 = load i32, ptr %305, align 4
-  %.not.i169247 = icmp eq i32 %306, 0
-  br i1 %.not.i169247, label %_ZL28catch_cleanup_fix_all_inputsP4NodeS0_S0_.exit, label %.lr.ph.i170.thread
+  %.not.i169283 = icmp eq i32 %306, 0
+  br i1 %.not.i169283, label %_ZL28catch_cleanup_fix_all_inputsP4NodeS0_S0_.exit, label %.lr.ph.i170.thread
 
 .lr.ph.i170.thread:                               ; preds = %_ZNK5Block8get_nodeEj.exit14.i.thread
   %307 = getelementptr inbounds nuw i8, ptr %297, i64 8

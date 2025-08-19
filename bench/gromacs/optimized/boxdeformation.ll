@@ -758,7 +758,8 @@ define void @_ZN3gmx14BoxDeformation5applyEPNS_13MultiDimArrayISt5arrayIfLm9EENS
   br i1 %exitcond.not, label %23, label %24, !llvm.loop !168
 
 .preheader73:                                     ; preds = %.preheader74, %54
-  %indvars.iv104 = phi i64 [ 1, %.preheader74 ], [ %indvars.iv.next105, %54 ]
+  %exitcond111.not = phi i1 [ false, %.preheader74 ], [ true, %54 ]
+  %indvars.iv104 = phi i64 [ 1, %.preheader74 ], [ 2, %54 ]
   %34 = mul nuw nsw i64 %indvars.iv104, 12
   %35 = getelementptr i8, ptr %4, i64 %34
   %36 = getelementptr i8, ptr %22, i64 %34
@@ -802,8 +803,6 @@ define void @_ZN3gmx14BoxDeformation5applyEPNS_13MultiDimArrayISt5arrayIfLm9EENS
   br label %61
 
 54:                                               ; preds = %.loopexit
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %exitcond111.not = icmp eq i64 %indvars.iv.next105, 3
   br i1 %exitcond111.not, label %39, label %.preheader73, !llvm.loop !170
 
 .preheader:                                       ; preds = %61, %.preheader72

@@ -280,9 +280,9 @@ define range(i32 0, 2) i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %233, %477, %97
-  %.sink528 = phi i32 [ %99, %97 ], [ 3, %477 ], [ 3, %233 ]
+  %.sink561 = phi i32 [ %99, %97 ], [ 3, %477 ], [ 3, %233 ]
   %.4.ph = phi i32 [ -1, %97 ], [ %.14, %477 ], [ %.1, %233 ]
-  store i32 %.sink528, ptr %2, align 8, !tbaa !14
+  store i32 %.sink561, ptr %2, align 8, !tbaa !14
   br label %100
 
 100:                                              ; preds = %.sink.split, %1
@@ -325,12 +325,12 @@ define range(i32 0, 2) i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
   br label %118
 
 118:                                              ; preds = %115, %113
-  %.sink508 = phi i64 [ 1, %115 ], [ 4, %113 ]
-  %.sink507 = phi i32 [ -1, %115 ], [ -4, %113 ]
+  %.sink541 = phi i64 [ 1, %115 ], [ 4, %113 ]
+  %.sink540 = phi i32 [ -1, %115 ], [ -4, %113 ]
   %.sink477 = phi i32 [ %117, %115 ], [ %114, %113 ]
   %.sink476 = phi i8 [ 7, %115 ], [ 31, %113 ]
-  %119 = getelementptr inbounds nuw i8, ptr %112, i64 %.sink508
-  %120 = add i32 %102, %.sink507
+  %119 = getelementptr inbounds nuw i8, ptr %112, i64 %.sink541
+  %120 = add i32 %102, %.sink540
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 1568
   store i8 %.sink476, ptr %103, align 4, !tbaa !11
   store ptr %119, ptr %0, align 8, !tbaa !19
@@ -403,11 +403,11 @@ define range(i32 0, 2) i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
   br label %154
 
 154:                                              ; preds = %151, %149
-  %.sink509 = phi i64 [ 1, %151 ], [ 4, %149 ]
+  %.sink542 = phi i64 [ 1, %151 ], [ 4, %149 ]
   %.sink = phi i32 [ -1, %151 ], [ -4, %149 ]
   %.sink480 = phi i32 [ %153, %151 ], [ %150, %149 ]
   %.sink479 = phi i8 [ 7, %151 ], [ 31, %149 ]
-  %155 = getelementptr inbounds nuw i8, ptr %148, i64 %.sink509
+  %155 = getelementptr inbounds nuw i8, ptr %148, i64 %.sink542
   %156 = add i32 %145, %.sink
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 1568
   store i8 %.sink479, ptr %137, align 4, !tbaa !11
@@ -651,9 +651,9 @@ lookup_tree.exit.thread:                          ; preds = %179
   br label %300
 
 300:                                              ; preds = %279, %289, %261
-  %.sink512 = phi i8 [ 26, %279 ], [ 2, %289 ], [ -6, %261 ]
+  %.sink545 = phi i8 [ 26, %279 ], [ 2, %289 ], [ -6, %261 ]
   %.3365 = phi i32 [ %287, %279 ], [ %298, %289 ], [ %266, %261 ]
-  %.neg416 = add i8 %254, %.sink512
+  %.neg416 = add i8 %254, %.sink545
   %301 = sub i8 %.neg416, %258
   store i8 %301, ptr %255, align 4, !tbaa !11
   %302 = trunc i32 %.3365 to i16
@@ -709,12 +709,12 @@ lookup_tree.exit.thread:                          ; preds = %179
   br label %329
 
 329:                                              ; preds = %326, %324
-  %.sink514 = phi i64 [ 1, %326 ], [ 4, %324 ]
-  %.sink513 = phi i32 [ -1, %326 ], [ -4, %324 ]
+  %.sink547 = phi i64 [ 1, %326 ], [ 4, %324 ]
+  %.sink546 = phi i32 [ -1, %326 ], [ -4, %324 ]
   %.sink483 = phi i32 [ %328, %326 ], [ %325, %324 ]
   %.sink482 = phi i8 [ 7, %326 ], [ 31, %324 ]
-  %330 = getelementptr inbounds nuw i8, ptr %323, i64 %.sink514
-  %331 = add i32 %320, %.sink513
+  %330 = getelementptr inbounds nuw i8, ptr %323, i64 %.sink547
+  %331 = add i32 %320, %.sink546
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 1568
   store i8 %.sink482, ptr %312, align 4, !tbaa !11
   store ptr %330, ptr %0, align 8, !tbaa !19
@@ -833,12 +833,12 @@ lookup_tree.exit445.thread:                       ; preds = %354
   br label %395
 
 395:                                              ; preds = %392, %390
-  %.sink516 = phi i64 [ 1, %392 ], [ 4, %390 ]
-  %.sink515 = phi i32 [ -1, %392 ], [ -4, %390 ]
+  %.sink549 = phi i64 [ 1, %392 ], [ 4, %390 ]
+  %.sink548 = phi i32 [ -1, %392 ], [ -4, %390 ]
   %.sink486 = phi i32 [ %394, %392 ], [ %391, %390 ]
   %.sink485 = phi i8 [ 7, %392 ], [ 31, %390 ]
-  %396 = getelementptr inbounds nuw i8, ptr %389, i64 %.sink516
-  %397 = add i32 %386, %.sink515
+  %396 = getelementptr inbounds nuw i8, ptr %389, i64 %.sink549
+  %397 = add i32 %386, %.sink548
   %398 = getelementptr inbounds nuw i8, ptr %0, i64 1568
   store i8 %.sink485, ptr %378, align 4, !tbaa !11
   store ptr %396, ptr %0, align 8, !tbaa !19
@@ -1026,15 +1026,15 @@ lookup_tree.exit451.thread:                       ; preds = %420
   br label %503
 
 503:                                              ; preds = %500, %492
-  %.sink524 = phi i32 [ %502, %500 ], [ %495, %492 ]
-  %.sink520 = phi i8 [ 0, %500 ], [ %499, %492 ]
-  %504 = and i32 %.sink524, %487
+  %.sink557 = phi i32 [ %502, %500 ], [ %495, %492 ]
+  %.sink553 = phi i8 [ 0, %500 ], [ %499, %492 ]
+  %504 = and i32 %.sink557, %487
   %505 = zext i32 %504 to i64
   %506 = getelementptr inbounds nuw [8192 x i8], ptr %491, i64 0, i64 %505
-  store i8 %.sink520, ptr %506, align 1, !tbaa !20
+  store i8 %.sink553, ptr %506, align 1, !tbaa !20
   %507 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %508 = load ptr, ptr %507, align 8, !tbaa !25
-  store i8 %.sink520, ptr %508, align 1, !tbaa !20
+  store i8 %.sink553, ptr %508, align 1, !tbaa !20
   %509 = load i32, ptr %486, align 4, !tbaa !3
   %510 = add i32 %509, 1
   store i32 %510, ptr %486, align 4, !tbaa !3
@@ -1163,8 +1163,8 @@ define internal fastcc range(i32 0, 2) i32 @unpack_tree(ptr noundef readonly cap
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.outer.i
 
 .lr.ph.i._crit_edge.thread:                       ; preds = %.lr.ph.i
-  %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i87, label %._crit_edge.thread66.i, label %.lr.ph.outer.i.outer
+  %exitcond.not.i90 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i90, label %._crit_edge.thread66.i, label %.lr.ph.outer.i.outer
 
 .thread.i:                                        ; preds = %.thread.i.preheader, %.lr.ph.i
   %44 = phi i8 [ %39, %.lr.ph.i ], [ %32, %.thread.i.preheader ]

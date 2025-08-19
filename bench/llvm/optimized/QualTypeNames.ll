@@ -104,10 +104,10 @@ _ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i: ; preds = %31, %25
   br label %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit
 
 .lr.ph244._crit_edge:                             ; preds = %tailrecurse, %3
-  %.lcssa318 = phi ptr [ %7, %3 ], [ %183, %tailrecurse ]
-  %.lcssa314 = phi ptr [ %6, %3 ], [ %182, %tailrecurse ]
+  %.lcssa324 = phi ptr [ %7, %3 ], [ %183, %tailrecurse ]
+  %.lcssa320 = phi ptr [ %6, %3 ], [ %182, %tailrecurse ]
   %.tr242.lcssa = phi i64 [ %0, %3 ], [ %.sroa.04.0.i150, %tailrecurse ]
-  %36 = getelementptr inbounds nuw i8, ptr %.lcssa314, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.lcssa320, i64 8
   %.0.copyload.i.i.i.i.i.i97 = load i64, ptr %36, align 8
   %37 = and i64 %.0.copyload.i.i.i.i.i.i97, 8
   %.not.i.i98 = icmp eq i64 %37, 0
@@ -125,9 +125,9 @@ _ZNK5clang8QualType13getQualifiersEv.exit101:     ; preds = %.lr.ph244._crit_edg
   %42 = or i64 %.0.copyload.i.i.i.i.i.i97, %.tr242.lcssa
   %43 = and i64 %42, 7
   %44 = or i64 %.sroa.0.0.i.i100, %43
-  %45 = tail call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %.lcssa318) #8
+  %45 = tail call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %.lcssa324) #8
   %46 = tail call i64 @_ZN5clang8TypeName21getFullyQualifiedTypeENS_8QualTypeERKNS_10ASTContextEb(i64 %45, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
-  %47 = getelementptr inbounds nuw i8, ptr %.lcssa318, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %.lcssa324, i64 40
   %48 = load ptr, ptr %47, align 8, !tbaa !14
   %49 = ptrtoint ptr %48 to i64
   %50 = and i64 %49, -16
@@ -166,8 +166,8 @@ _ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i107: ; preds = %65, %59
   br label %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit
 
 _ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit110: ; preds = %3, %tailrecurse
-  %.tr242341 = phi i64 [ %.sroa.04.0.i150, %tailrecurse ], [ %0, %3 ]
-  %70 = and i64 %.tr242341, -16
+  %.tr242347 = phi i64 [ %.sroa.04.0.i150, %tailrecurse ], [ %0, %3 ]
+  %70 = and i64 %.tr242347, -16
   %71 = inttoptr i64 %70 to ptr
   %72 = load ptr, ptr %71, align 16, !tbaa !3
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
@@ -197,7 +197,7 @@ _ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit110: 
 
 _ZNK5clang8QualType13getQualifiersEv.exit118:     ; preds = %77, %81
   %.sroa.0.0.i.i117 = phi i64 [ %.sroa.0.0.copyload.i.i.i116, %81 ], [ 0, %77 ]
-  %85 = or i64 %.0.copyload.i.i.i.i.i.i114, %.tr242341
+  %85 = or i64 %.0.copyload.i.i.i.i.i.i114, %.tr242347
   %86 = and i64 %85, 7
   %87 = or i64 %.sroa.0.0.i.i117, %86
   %88 = tail call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %72) #8
@@ -247,7 +247,7 @@ _ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i123: ; preds = %104, %98
   %109 = phi ptr [ %140, %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit143 ], [ %73, %.preheader ]
   %110 = phi ptr [ %139, %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit143 ], [ %72, %.preheader ]
   %111 = phi ptr [ %138, %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit143 ], [ %71, %.preheader ]
-  %.sroa.0182.1239 = phi i64 [ %.sroa.04.0.i137, %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit143 ], [ %.tr242341, %.preheader ]
+  %.sroa.0182.1239 = phi i64 [ %.sroa.04.0.i137, %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit143 ], [ %.tr242347, %.preheader ]
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %.0.copyload.i.i.i.i.i.i129 = load i64, ptr %112, align 8
   %113 = and i64 %.0.copyload.i.i.i.i.i.i129, 8
@@ -312,7 +312,7 @@ _ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit143: 
   br i1 %142, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit143, %.preheader
-  %.sroa.0182.1.lcssa = phi i64 [ %.tr242341, %.preheader ], [ %.sroa.04.0.i137, %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit143 ]
+  %.sroa.0182.1.lcssa = phi i64 [ %.tr242347, %.preheader ], [ %.sroa.04.0.i137, %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit143 ]
   %.lcssa220 = phi ptr [ %71, %.preheader ], [ %138, %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit143 ]
   %.lcssa = phi ptr [ %72, %.preheader ], [ %139, %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit143 ]
   %143 = and i64 %.sroa.0182.1.lcssa, 8
@@ -760,7 +760,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2
   br label %._crit_edge101.thread
 
 ._crit_edge101.thread:                            ; preds = %65, %._crit_edge101, %98
-  %.049.lcssa117 = phi i1 [ true, %98 ], [ false, %._crit_edge101 ], [ false, %65 ]
+  %.049.lcssa123 = phi i1 [ true, %98 ], [ false, %._crit_edge101 ], [ false, %65 ]
   %.5 = phi ptr [ %107, %98 ], [ undef, %._crit_edge101 ], [ undef, %65 ]
   %108 = load ptr, ptr %6, align 8, !tbaa !24
   %109 = icmp eq ptr %108, %68
@@ -772,7 +772,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2
 
 111:                                              ; preds = %110, %._crit_edge101.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.049.lcssa117, label %.thread86, label %.thread
+  br i1 %.049.lcssa123, label %.thread86, label %.thread
 
 .thread86:                                        ; preds = %56, %_ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit, %111
   %.1.ph = phi ptr [ %.5, %111 ], [ %.0, %_ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit ], [ %.0, %56 ]
@@ -1571,8 +1571,8 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i38.i:     ; preds = %63, %58
 
 _ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.i: ; preds = %83
   %91 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %79) #8
-  %.not.i37 = icmp eq ptr %91, null
-  br i1 %.not.i37, label %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread.i, label %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread57.i
+  %.not.i42 = icmp eq ptr %91, null
+  br i1 %.not.i42, label %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread.i, label %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread57.i
 
 _ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread57.i: ; preds = %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.i, %75
   %.1.i60.i = phi ptr [ %91, %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.i ], [ %79, %75 ]
@@ -1585,8 +1585,8 @@ _ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread.i: ; preds = %_ZNK5clang4T
 
 94:                                               ; preds = %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread.i, %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread57.i
   %.028.i = phi ptr [ %92, %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread57.i ], [ %93, %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread.i ]
-  %.not31.i36 = icmp eq ptr %.028.i, null
-  br i1 %.not31.i36, label %105, label %95
+  %.not31.i41 = icmp eq ptr %.028.i, null
+  br i1 %.not31.i41, label %105, label %95
 
 95:                                               ; preds = %94
   %96 = getelementptr inbounds nuw i8, ptr %.028.i, i64 48
@@ -1611,8 +1611,8 @@ _ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclE
 
 105:                                              ; preds = %94
   %106 = load i8, ptr %80, align 16
-  %.not101.i = icmp eq i8 %106, 52
-  br i1 %.not101.i, label %107, label %_ZN5clang8TypeNameL36getFullyQualifiedNestedNameSpecifierERKNS_10ASTContextEPNS_19NestedNameSpecifierEb.exit
+  %.not104.i = icmp eq i8 %106, 52
+  br i1 %.not104.i, label %107, label %_ZN5clang8TypeNameL36getFullyQualifiedNestedNameSpecifierERKNS_10ASTContextEPNS_19NestedNameSpecifierEb.exit
 
 107:                                              ; preds = %105
   %108 = getelementptr inbounds nuw i8, ptr %79, i64 32
@@ -1653,11 +1653,11 @@ select.unfold.thread:                             ; preds = %10, %15, %18
   %120 = getelementptr i8, ptr %13, i64 16
   %.val = load i64, ptr %120, align 8
   %121 = call fastcc noundef ptr @_ZN5clang8TypeNameL35createNestedNameSpecifierForScopeOfERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23216) %0, i64 %.val, i1 noundef zeroext %2)
-  %.not31.i31 = icmp eq ptr %121, null
-  br i1 %.not31.i31, label %_ZN5clang8TypeNameL29getFullyQualifiedTemplateNameERKNS_10ASTContextERNS_12TemplateNameEb.exit.thread24, label %122
+  %.not31.i36 = icmp eq ptr %121, null
+  br i1 %.not31.i36, label %_ZN5clang8TypeNameL29getFullyQualifiedTemplateNameERKNS_10ASTContextERNS_12TemplateNameEb.exit.thread24, label %122
 
 122:                                              ; preds = %select.unfold.thread, %select.unfold
-  %.124.i32 = phi ptr [ %121, %select.unfold.thread ], [ %.0.i, %select.unfold ]
+  %.124.i37 = phi ptr [ %121, %select.unfold.thread ], [ %.0.i, %select.unfold ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5clang12TemplateNameC1EPNS_12TemplateDeclE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %13) #8
   %123 = call noundef ptr @_ZNK5clang12TemplateName20getAsUsingShadowDeclEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
@@ -1678,7 +1678,7 @@ select.unfold.thread:                             ; preds = %10, %15, %18
 
 _ZN5clang8TypeNameL29getFullyQualifiedTemplateNameERKNS_10ASTContextERNS_12TemplateNameEb.exit.thread: ; preds = %._ZN5clang8TypeNameL29getFullyQualifiedTemplateNameERKNS_10ASTContextERNS_12TemplateNameEb.exit.thread_crit_edge, %124
   %.sroa.0.0.copyload.i = phi i64 [ %.sroa.0.0.copyload.i.pre, %._ZN5clang8TypeNameL29getFullyQualifiedTemplateNameERKNS_10ASTContextERNS_12TemplateNameEb.exit.thread_crit_edge ], [ %125, %124 ]
-  %126 = call i64 @_ZNK5clang10ASTContext24getQualifiedTemplateNameEPNS_19NestedNameSpecifierEbNS_12TemplateNameE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull %.124.i32, i1 noundef zeroext false, i64 %.sroa.0.0.copyload.i) #8
+  %126 = call i64 @_ZNK5clang10ASTContext24getQualifiedTemplateNameEPNS_19NestedNameSpecifierEbNS_12TemplateNameE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull %.124.i37, i1 noundef zeroext false, i64 %.sroa.0.0.copyload.i) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %127
 

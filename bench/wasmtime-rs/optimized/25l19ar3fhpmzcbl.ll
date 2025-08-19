@@ -1701,9 +1701,9 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_
           to label %108 unwind label %.loopexit.split-lp55.loopexit.split-lp
 
 108:                                              ; preds = %107, %119
-  %.sink80 = phi ptr [ %16, %119 ], [ %12, %107 ]
+  %.sink86 = phi ptr [ %16, %119 ], [ %12, %107 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %.sink80, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %.sink86, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   invoke void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$17hb0b69769f2015152E"(ptr nonnull align 8 %17)
           to label %66 unwind label %.loopexit.split-lp.loopexit.split-lp

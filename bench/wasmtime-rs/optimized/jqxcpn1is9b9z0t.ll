@@ -3943,13 +3943,13 @@ define internal void @"_ZN73_$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_com
   %4 = alloca { i32, [3 x i32] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i8, ptr %5, align 8, !range !443, !noundef !4
-  switch i8 %6, label %default.unreachable59 [
+  switch i8 %6, label %default.unreachable60 [
     i8 0, label %8
     i8 1, label %58
     i8 2, label %59
   ]
 
-default.unreachable59:                            ; preds = %3
+default.unreachable60:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %53, %54, %55
@@ -4111,13 +4111,13 @@ define internal { i64, ptr } @"_ZN73_$LT$wasi_common..sync..dir..Dir$u20$as$u20$
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8, !range !443, !noundef !4
-  switch i8 %5, label %default.unreachable8 [
+  switch i8 %5, label %default.unreachable9 [
     i8 0, label %9
     i8 1, label %23
     i8 2, label %24
   ]
 
-default.unreachable8:                             ; preds = %2
+default.unreachable9:                             ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit": ; preds = %18, %16
@@ -4202,13 +4202,13 @@ define internal void @"_ZN73_$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_com
   %9 = alloca { [2 x i32], i32, [45 x i32] }, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i8, ptr %10, align 8, !range !443, !noundef !4
-  switch i8 %11, label %default.unreachable102 [
+  switch i8 %11, label %default.unreachable104 [
     i8 0, label %13
     i8 1, label %91
     i8 2, label %92
   ]
 
-default.unreachable102:                           ; preds = %3
+default.unreachable104:                           ; preds = %3
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h5d775dff146a7d14E.exit": ; preds = %27, %85, %73
@@ -4519,13 +4519,13 @@ define internal { i64, ptr } @"_ZN73_$LT$wasi_common..sync..dir..Dir$u20$as$u20$
   %3 = alloca { { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i8, ptr %4, align 8, !range !443, !noundef !4
-  switch i8 %5, label %default.unreachable12 [
+  switch i8 %5, label %default.unreachable13 [
     i8 0, label %7
     i8 1, label %33
     i8 2, label %34
   ]
 
-default.unreachable12:                            ; preds = %2
+default.unreachable13:                            ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit": ; preds = %_ZN7cap_std2fs3dir3Dir7symlink17h559483f6456f80fdE.exit.thread, %_ZN7cap_std2fs3dir3Dir7symlink17h559483f6456f80fdE.exit
@@ -4628,13 +4628,13 @@ define { ptr, ptr } @"_ZN73_$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_comm
 define internal { i64, ptr } @"_ZN73_$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_common..dir..WasiDir$GT$10remove_dir28_$u7b$$u7b$closure$u7d$$u7d$17h644395da75f79426E"(ptr noundef nonnull align 8 captures(none) %0, ptr noalias readnone align 8 captures(none) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8, !range !443, !noundef !4
-  switch i8 %4, label %default.unreachable8 [
+  switch i8 %4, label %default.unreachable9 [
     i8 0, label %8
     i8 1, label %21
     i8 2, label %22
   ]
 
-default.unreachable8:                             ; preds = %2
+default.unreachable9:                             ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit": ; preds = %16, %_ZN7cap_std2fs3dir3Dir10remove_dir17h186011117729d82cE.exit
@@ -4712,13 +4712,13 @@ define { ptr, ptr } @"_ZN73_$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_comm
 define internal { i64, ptr } @"_ZN73_$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_common..dir..WasiDir$GT$11unlink_file28_$u7b$$u7b$closure$u7d$$u7d$17h0a8d5dd554c54714E"(ptr noundef nonnull align 8 captures(none) %0, ptr noalias readnone align 8 captures(none) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8, !range !443, !noundef !4
-  switch i8 %4, label %default.unreachable8 [
+  switch i8 %4, label %default.unreachable9 [
     i8 0, label %8
     i8 1, label %21
     i8 2, label %22
   ]
 
-default.unreachable8:                             ; preds = %2
+default.unreachable9:                             ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit": ; preds = %16, %"_ZN69_$LT$cap_std..fs..dir..Dir$u20$as$u20$cap_fs_ext..dir_ext..DirExt$GT$22remove_file_or_symlink17h174af9e0d4343e56E.exit"
@@ -4800,13 +4800,13 @@ define internal void @"_ZN73_$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_com
   %7 = alloca { i64, [2 x i64] }, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i8, ptr %8, align 8, !range !443, !noundef !4
-  switch i8 %9, label %default.unreachable35 [
+  switch i8 %9, label %default.unreachable36 [
     i8 0, label %12
     i8 1, label %53
     i8 2, label %54
   ]
 
-default.unreachable35:                            ; preds = %3
+default.unreachable36:                            ; preds = %3
   unreachable
 
 "_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hfd14edc3bbf9c0e8E.exit": ; preds = %48, %.thread25
@@ -4987,13 +4987,13 @@ define internal void @"_ZN73_$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_com
   %7 = alloca { [2 x i32], i32, [45 x i32] }, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i8, ptr %8, align 8, !range !443, !noundef !4
-  switch i8 %9, label %default.unreachable139 [
+  switch i8 %9, label %default.unreachable140 [
     i8 0, label %11
     i8 1, label %75
     i8 2, label %76
   ]
 
-default.unreachable139:                           ; preds = %3
+default.unreachable140:                           ; preds = %3
   unreachable
 
 10:                                               ; preds = %61, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i56", %72
@@ -5286,13 +5286,13 @@ define internal void @"_ZN73_$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_com
   %8 = alloca { [2 x i32], i32, [45 x i32] }, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i8, ptr %9, align 8, !range !443, !noundef !4
-  switch i8 %10, label %default.unreachable211 [
+  switch i8 %10, label %default.unreachable213 [
     i8 0, label %12
     i8 1, label %98
     i8 2, label %99
   ]
 
-default.unreachable211:                           ; preds = %3
+default.unreachable213:                           ; preds = %3
   unreachable
 
 11:                                               ; preds = %86, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i64", %33
@@ -5668,13 +5668,13 @@ define internal { i64, ptr } @"_ZN73_$LT$wasi_common..sync..dir..Dir$u20$as$u20$
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i8, ptr %7, align 8, !range !443, !noundef !4
-  switch i8 %8, label %default.unreachable19 [
+  switch i8 %8, label %default.unreachable20 [
     i8 0, label %10
     i8 1, label %61
     i8 2, label %62
   ]
 
-default.unreachable19:                            ; preds = %2
+default.unreachable20:                            ; preds = %2
   unreachable
 
 _ZN11wasi_common4sync3dir3Dir7rename_17ha0860defb65fe498E.exit: ; preds = %.noexc12, %56, %58
@@ -5855,13 +5855,13 @@ define internal { i64, ptr } @"_ZN73_$LT$wasi_common..sync..dir..Dir$u20$as$u20$
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i8, ptr %7, align 8, !range !443, !noundef !4
-  switch i8 %8, label %default.unreachable19 [
+  switch i8 %8, label %default.unreachable20 [
     i8 0, label %10
     i8 1, label %61
     i8 2, label %62
   ]
 
-default.unreachable19:                            ; preds = %2
+default.unreachable20:                            ; preds = %2
   unreachable
 
 _ZN11wasi_common4sync3dir3Dir10hard_link_17h988e6eb1d47944cbE.exit: ; preds = %.noexc12, %56, %58
@@ -6046,13 +6046,13 @@ define internal { i64, ptr } @"_ZN73_$LT$wasi_common..sync..dir..Dir$u20$as$u20$
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %9 = load i8, ptr %8, align 1, !range !443, !noundef !4
-  switch i8 %9, label %default.unreachable20 [
+  switch i8 %9, label %default.unreachable23 [
     i8 0, label %11
     i8 1, label %64
     i8 2, label %65
   ]
 
-default.unreachable20:                            ; preds = %2
+default.unreachable23:                            ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit": ; preds = %60, %49, %58, %47
@@ -6712,13 +6712,13 @@ define internal { i64, ptr } @"_ZN79_$LT$wasi_common..sync..stdio..Stdin$u20$as$
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i8, ptr %4, align 8, !range !443, !noundef !4
-  switch i8 %5, label %default.unreachable8 [
+  switch i8 %5, label %default.unreachable9 [
     i8 0, label %9
     i8 1, label %25
     i8 2, label %26
   ]
 
-default.unreachable8:                             ; preds = %2
+default.unreachable9:                             ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit": ; preds = %20, %18
@@ -7301,13 +7301,13 @@ define internal { i64, ptr } @"_ZN80_$LT$wasi_common..sync..stdio..Stdout$u20$as
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i8, ptr %4, align 8, !range !443, !noundef !4
-  switch i8 %5, label %default.unreachable8 [
+  switch i8 %5, label %default.unreachable9 [
     i8 0, label %9
     i8 1, label %25
     i8 2, label %26
   ]
 
-default.unreachable8:                             ; preds = %2
+default.unreachable9:                             ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit": ; preds = %20, %18
@@ -7856,13 +7856,13 @@ define internal { i64, ptr } @"_ZN80_$LT$wasi_common..sync..stdio..Stderr$u20$as
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i8, ptr %4, align 8, !range !443, !noundef !4
-  switch i8 %5, label %default.unreachable8 [
+  switch i8 %5, label %default.unreachable9 [
     i8 0, label %9
     i8 1, label %25
     i8 2, label %26
   ]
 
-default.unreachable8:                             ; preds = %2
+default.unreachable9:                             ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit": ; preds = %20, %18

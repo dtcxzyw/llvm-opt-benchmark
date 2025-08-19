@@ -2034,12 +2034,12 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   br i1 %23, label %.sink.split, label %24
 
 .sink.split:                                      ; preds = %22, %19
-  %.sink309 = phi i32 [ 6, %19 ], [ 3, %22 ]
-  store i32 %.sink309, ptr %20, align 4, !tbaa !56
+  %.sink320 = phi i32 [ 6, %19 ], [ 3, %22 ]
+  store i32 %.sink320, ptr %20, align 4, !tbaa !56
   br label %24
 
 24:                                               ; preds = %.sink.split, %22
-  %25 = phi i32 [ %.sink, %22 ], [ %.sink309, %.sink.split ]
+  %25 = phi i32 [ %.sink, %22 ], [ %.sink320, %.sink.split ]
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !151
   %28 = add nsw i32 %25, -2

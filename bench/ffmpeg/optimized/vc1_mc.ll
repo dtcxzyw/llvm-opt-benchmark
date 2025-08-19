@@ -319,14 +319,14 @@ define void @ff_vc1_mc_1mv(ptr noundef readonly %0, i32 noundef %1) local_unname
   br label %202
 
 202:                                              ; preds = %185, %196, %162
-  %.sink560 = phi i32 [ %193, %185 ], [ -8, %196 ], [ -8, %162 ]
-  %.sink559 = phi i32 [ %195, %185 ], [ %201, %196 ], [ %173, %162 ]
+  %.sink567 = phi i32 [ %193, %185 ], [ -8, %196 ], [ -8, %162 ]
+  %.sink566 = phi i32 [ %195, %185 ], [ %201, %196 ], [ %173, %162 ]
   %.0413 = phi i32 [ %.0.i460, %185 ], [ %.0.i460, %196 ], [ %.0.i, %162 ]
   %.0412 = phi i32 [ %.0.i464, %185 ], [ %.0.i468, %196 ], [ %.0.i454, %162 ]
   %.0411 = phi i32 [ %.0.i462, %185 ], [ %.0.i462, %196 ], [ %.0.i456, %162 ]
-  %203 = icmp slt i32 %159, %.sink560
-  %..i465 = tail call i32 @llvm.smin.i32(i32 %159, i32 %.sink559)
-  %.0.i466 = select i1 %203, i32 %.sink560, i32 %..i465
+  %203 = icmp slt i32 %159, %.sink567
+  %..i465 = tail call i32 @llvm.smin.i32(i32 %159, i32 %.sink566)
+  %.0.i466 = select i1 %203, i32 %.sink567, i32 %..i465
   %204 = sext i32 %.0412 to i64
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %206 = load i64, ptr %205, align 8, !tbaa !88
@@ -476,13 +476,13 @@ define void @ff_vc1_mc_1mv(ptr noundef readonly %0, i32 noundef %1) local_unname
   br label %.thread
 
 .thread:                                          ; preds = %267, %294
-  %.not441557 = phi i32 [ %310, %294 ], [ 0, %267 ]
+  %.not441564 = phi i32 [ %310, %294 ], [ 0, %267 ]
   %311 = phi i32 [ %spec.select, %294 ], [ 9, %267 ]
   %312 = load ptr, ptr %253, align 8, !tbaa !93
   %313 = load ptr, ptr %265, align 8, !tbaa !94
   %.in = shl i32 %30, 1
   %314 = sext i32 %.in to i64
-  %315 = ashr i32 %.0.i466, %.not441557
+  %315 = ashr i32 %.0.i466, %.not441564
   %316 = load i32, ptr %277, align 4, !tbaa !91
   %317 = ashr i32 %316, 1
   %318 = load i32, ptr %4, align 8, !tbaa !4
@@ -899,17 +899,17 @@ vc1_lut_scale_chroma.exit:                        ; preds = %486, %vc1_scale_chr
   %549 = load i32, ptr %548, align 8, !tbaa !106
   %.not451 = icmp eq i32 %549, 0
   %550 = getelementptr inbounds nuw i8, ptr %0, i64 6280
-  %.sink562.in = select i1 %.not451, ptr %3, ptr %550
-  %.sink565 = load ptr, ptr %.sink562.in, align 8, !tbaa !105
+  %.sink569.in = select i1 %.not451, ptr %3, ptr %550
+  %.sink572 = load ptr, ptr %.sink569.in, align 8, !tbaa !105
   %551 = getelementptr inbounds nuw i8, ptr %0, i64 3424
   %552 = load ptr, ptr %551, align 8, !tbaa !46
   %553 = load i64, ptr %212, align 8, !tbaa !89
-  tail call void %.sink565(ptr noundef %552, ptr noundef %.2399, i64 noundef %553, i32 noundef 8, i32 noundef %545, i32 noundef %547) #4
-  %.sink562 = load ptr, ptr %.sink562.in, align 8, !tbaa !105
+  tail call void %.sink572(ptr noundef %552, ptr noundef %.2399, i64 noundef %553, i32 noundef 8, i32 noundef %545, i32 noundef %547) #4
+  %.sink569 = load ptr, ptr %.sink569.in, align 8, !tbaa !105
   %554 = getelementptr inbounds nuw i8, ptr %0, i64 3432
   %555 = load ptr, ptr %554, align 8, !tbaa !46
   %556 = load i64, ptr %212, align 8, !tbaa !89
-  tail call void %.sink562(ptr noundef %555, ptr noundef %.2402, i64 noundef %556, i32 noundef 8, i32 noundef %545, i32 noundef %547) #4
+  tail call void %.sink569(ptr noundef %555, ptr noundef %.2402, i64 noundef %556, i32 noundef 8, i32 noundef %545, i32 noundef %547) #4
   %557 = load i32, ptr %6, align 8, !tbaa !36
   %.not452 = icmp eq i32 %557, 0
   br i1 %.not452, label %587, label %558
@@ -1044,13 +1044,13 @@ define void @ff_vc1_mc_4mv_luma(ptr noundef readonly %0, i32 noundef %1, i32 nou
   br i1 %.not315, label %63, label %.thread
 
 63:                                               ; preds = %39, %53, %54, %60
-  %.sink520 = phi i64 [ 920, %60 ], [ 920, %54 ], [ 920, %53 ], [ 1040, %39 ]
-  %.sink519 = phi i64 [ 7008, %60 ], [ 7008, %54 ], [ 7008, %53 ], [ 9056, %39 ]
-  %.sink518 = phi i64 [ 10096, %60 ], [ 10096, %54 ], [ 10096, %53 ], [ 10112, %39 ]
+  %.sink578 = phi i64 [ 920, %60 ], [ 920, %54 ], [ 920, %53 ], [ 1040, %39 ]
+  %.sink577 = phi i64 [ 7008, %60 ], [ 7008, %54 ], [ 7008, %53 ], [ 9056, %39 ]
+  %.sink576 = phi i64 [ 10096, %60 ], [ 10096, %54 ], [ 10096, %53 ], [ 10112, %39 ]
   %.sink = phi i64 [ 10120, %60 ], [ 10120, %54 ], [ 10120, %53 ], [ 10124, %39 ]
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink520
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink519
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink518
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink578
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink577
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink576
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.0301 = load i32, ptr %67, align 4, !tbaa !44
   %.0 = load ptr, ptr %64, align 8, !tbaa !46
@@ -1098,10 +1098,10 @@ define void @ff_vc1_mc_4mv_luma(ptr noundef readonly %0, i32 noundef %1, i32 nou
   br label %83
 
 83:                                               ; preds = %.thread376, %.thread376.thread
-  %.0302375381505 = phi i32 [ %.0302370, %.thread376.thread ], [ %.0302, %.thread376 ]
-  %.0374383504 = phi ptr [ %.0369, %.thread376.thread ], [ %.0, %.thread376 ]
-  %.0300373385503 = phi ptr [ %71, %.thread376.thread ], [ %65, %.thread376 ]
-  %.0301372387502 = phi i32 [ 1, %.thread376.thread ], [ %.0301, %.thread376 ]
+  %.0302375381563 = phi i32 [ %.0302370, %.thread376.thread ], [ %.0302, %.thread376 ]
+  %.0374383562 = phi ptr [ %.0369, %.thread376.thread ], [ %.0, %.thread376 ]
+  %.0300373385561 = phi ptr [ %71, %.thread376.thread ], [ %65, %.thread376 ]
+  %.0301372387560 = phi i32 [ 1, %.thread376.thread ], [ %.0301, %.thread376 ]
   %84 = phi i32 [ %74, %.thread376.thread ], [ %spec.select, %.thread376 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %86 = load i32, ptr %85, align 8, !tbaa !51
@@ -1447,10 +1447,10 @@ get_luma_mv.exit:                                 ; preds = %get_luma_mv.exit.si
   %297 = phi i32 [ %6, %83 ], [ %6, %.thread389 ], [ %.pre484, %.thread406.loopexit ]
   %298 = phi ptr [ %85, %83 ], [ %89, %.thread389 ], [ %85, %.thread406.loopexit ]
   %.0292404 = phi i32 [ %84, %83 ], [ %52, %.thread389 ], [ %84, %.thread406.loopexit ]
-  %.0302375382402 = phi i32 [ %.0302375381505, %83 ], [ %.0302, %.thread389 ], [ %.0302375381505, %.thread406.loopexit ]
-  %.0374384400 = phi ptr [ %.0374383504, %83 ], [ %.0, %.thread389 ], [ %.0374383504, %.thread406.loopexit ]
-  %.0300373386398 = phi ptr [ %.0300373385503, %83 ], [ %65, %.thread389 ], [ %.0300373385503, %.thread406.loopexit ]
-  %.0301372388396 = phi i32 [ %.0301372387502, %83 ], [ %.0301, %.thread389 ], [ %.0301372387502, %.thread406.loopexit ]
+  %.0302375382402 = phi i32 [ %.0302375381563, %83 ], [ %.0302, %.thread389 ], [ %.0302375381563, %.thread406.loopexit ]
+  %.0374384400 = phi ptr [ %.0374383562, %83 ], [ %.0, %.thread389 ], [ %.0374383562, %.thread406.loopexit ]
+  %.0300373386398 = phi ptr [ %.0300373385561, %83 ], [ %65, %.thread389 ], [ %.0300373385561, %.thread406.loopexit ]
+  %.0301372388396 = phi i32 [ %.0301372387560, %83 ], [ %.0301, %.thread389 ], [ %.0301372387560, %.thread406.loopexit ]
   %299 = icmp eq i32 %297, 1
   br i1 %299, label %301, label %.thread412
 
@@ -1551,15 +1551,15 @@ get_luma_mv.exit:                                 ; preds = %get_luma_mv.exit.si
 
 358:                                              ; preds = %357
   %359 = icmp sgt i32 %1, 1
-  br i1 %359, label %360, label %.thread506
+  br i1 %359, label %360, label %.thread564
 
 360:                                              ; preds = %358
   %361 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %362 = load i64, ptr %361, align 8, !tbaa !88
   %363 = trunc i64 %362 to i32
-  br label %.thread506
+  br label %.thread564
 
-.thread506:                                       ; preds = %360, %358
+.thread564:                                       ; preds = %360, %358
   %364 = phi i32 [ %363, %360 ], [ 0, %358 ]
   %365 = shl i32 %1, 3
   %366 = and i32 %365, 8
@@ -1593,28 +1593,28 @@ get_luma_mv.exit:                                 ; preds = %get_luma_mv.exit.si
   %386 = and i32 %385, 8
   br label %391
 
-387:                                              ; preds = %.thread506, %371
-  %388 = phi i32 [ %370, %.thread506 ], [ %383, %371 ]
-  %.0299517 = phi i32 [ %367, %.thread506 ], [ %380, %371 ]
-  %.1293416514 = phi i32 [ %.1293, %.thread506 ], [ %.1293417, %371 ]
-  %.0290418513 = phi i32 [ %.1291, %.thread506 ], [ %.0290419, %371 ]
+387:                                              ; preds = %.thread564, %371
+  %388 = phi i32 [ %370, %.thread564 ], [ %383, %371 ]
+  %.0299575 = phi i32 [ %367, %.thread564 ], [ %380, %371 ]
+  %.1293416572 = phi i32 [ %.1293, %.thread564 ], [ %.1293417, %371 ]
+  %.0290418571 = phi i32 [ %.1291, %.thread564 ], [ %.0290419, %371 ]
   %389 = icmp sgt i32 %1, 1
   %390 = zext i1 %389 to i32
   br label %391
 
 391:                                              ; preds = %387, %384
-  %.1293416514.sink = phi i32 [ %.1293416514, %387 ], [ %.1293417, %384 ]
-  %.sink525 = phi i32 [ %390, %387 ], [ %386, %384 ]
+  %.1293416572.sink = phi i32 [ %.1293416572, %387 ], [ %.1293417, %384 ]
+  %.sink583 = phi i32 [ %390, %387 ], [ %386, %384 ]
   %392 = phi i32 [ %388, %387 ], [ %383, %384 ]
-  %.0299516 = phi i32 [ %.0299517, %387 ], [ %380, %384 ]
-  %.0290418512 = phi i32 [ %.0290418513, %387 ], [ %.0290419, %384 ]
+  %.0299574 = phi i32 [ %.0299575, %387 ], [ %380, %384 ]
+  %.0290418570 = phi i32 [ %.0290418571, %387 ], [ %.0290419, %384 ]
   %393 = phi i1 [ true, %387 ], [ false, %384 ]
-  %.sink523.in.in = getelementptr inbounds nuw i8, ptr %0, i64 3352
-  %.sink523.in = load i32, ptr %.sink523.in.in, align 8, !tbaa !68
-  %.sink523 = shl nsw i32 %.sink523.in, 4
-  %394 = ashr i32 %.1293416514.sink, 2
-  %395 = add nsw i32 %394, %.sink525
-  %396 = add i32 %395, %.sink523
+  %.sink581.in.in = getelementptr inbounds nuw i8, ptr %0, i64 3352
+  %.sink581.in = load i32, ptr %.sink581.in.in, align 8, !tbaa !68
+  %.sink581 = shl nsw i32 %.sink581.in, 4
+  %394 = ashr i32 %.1293416572.sink, 2
+  %395 = add nsw i32 %394, %.sink583
+  %396 = add i32 %395, %.sink581
   %397 = getelementptr inbounds nuw i8, ptr %0, i64 6476
   %398 = load i32, ptr %397, align 4, !tbaa !69
   %.not321 = icmp eq i32 %398, 3
@@ -1657,12 +1657,12 @@ get_luma_mv.exit:                                 ; preds = %get_luma_mv.exit.si
   br label %423
 
 423:                                              ; preds = %413, %419, %399
-  %.sink529 = phi i32 [ %415, %413 ], [ -18, %419 ], [ -16, %399 ]
-  %.sink528 = phi i32 [ %418, %413 ], [ %422, %419 ], [ %406, %399 ]
+  %.sink587 = phi i32 [ %415, %413 ], [ -18, %419 ], [ -16, %399 ]
+  %.sink586 = phi i32 [ %418, %413 ], [ %422, %419 ], [ %406, %399 ]
   %.0295 = phi i32 [ %.0.i340, %413 ], [ %.0.i340, %419 ], [ %.0.i344, %399 ]
-  %424 = icmp slt i32 %396, %.sink529
-  %..i337 = tail call i32 @llvm.smin.i32(i32 %396, i32 %.sink528)
-  %.0.i338 = select i1 %424, i32 %.sink529, i32 %..i337
+  %424 = icmp slt i32 %396, %.sink587
+  %..i337 = tail call i32 @llvm.smin.i32(i32 %396, i32 %.sink586)
+  %.0.i338 = select i1 %424, i32 %.sink587, i32 %..i337
   %425 = sext i32 %.0.i338 to i64
   %426 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %427 = load i64, ptr %426, align 8, !tbaa !88
@@ -1707,7 +1707,7 @@ get_luma_mv.exit:                                 ; preds = %get_luma_mv.exit.si
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 4156
   %452 = load i32, ptr %451, align 4, !tbaa !92
   %453 = sub nsw i32 %.0295, %452
-  %454 = and i32 %.0290418512, 3
+  %454 = and i32 %.0290418570, 3
   %455 = shl nsw i32 %452, 1
   %456 = add nsw i32 %447, -8
   %457 = add i32 %454, %455
@@ -1718,7 +1718,7 @@ get_luma_mv.exit:                                 ; preds = %get_luma_mv.exit.si
 460:                                              ; preds = %450
   %461 = shl i32 %452, %20
   %462 = sub nsw i32 %.0.i338, %461
-  %463 = and i32 %.1293416514.sink, 3
+  %463 = and i32 %.1293416572.sink, 3
   %.neg461 = sub i32 -8, %455
   %.neg462 = shl i32 %.neg461, %20
   %.neg433 = sub nuw nsw i32 %25, %463
@@ -1821,8 +1821,8 @@ get_luma_mv.exit:                                 ; preds = %get_luma_mv.exit.si
   %537 = load i8, ptr %441, align 8, !tbaa !90
   %.not331 = icmp ne i8 %537, 0
   %538 = icmp sgt i32 %468, -5
-  %or.cond530 = select i1 %.not331, i1 %538, i1 false
-  br i1 %or.cond530, label %.preheader437.lr.ph, label %vc1_scale_luma.exit
+  %or.cond588 = select i1 %.not331, i1 %538, i1 false
+  br i1 %or.cond588, label %.preheader437.lr.ph, label %vc1_scale_luma.exit
 
 .preheader437.lr.ph:                              ; preds = %534
   %539 = load i64, ptr %426, align 8, !tbaa !88
@@ -1962,15 +1962,15 @@ vc1_lut_scale_luma.exit:                          ; preds = %._crit_edge445.us.u
   br i1 %.not334, label %625, label %603
 
 603:                                              ; preds = %600
-  %604 = shl i32 %.1293416514.sink, 2
+  %604 = shl i32 %.1293416572.sink, 2
   %605 = and i32 %604, 12
-  %606 = and i32 %.0290418512, 3
+  %606 = and i32 %.0290418570, 3
   %607 = or disjoint i32 %605, %606
   %.not336 = icmp eq i32 %3, 0
   %608 = zext nneg i32 %607 to i64
   %609 = getelementptr inbounds nuw i8, ptr %0, i64 3416
   %610 = load ptr, ptr %609, align 8, !tbaa !46
-  %611 = sext i32 %.0299516 to i64
+  %611 = sext i32 %.0299574 to i64
   %612 = getelementptr inbounds i8, ptr %610, i64 %611
   %613 = zext nneg i32 %20 to i64
   %614 = shl i64 %601, %613
@@ -1993,8 +1993,8 @@ vc1_lut_scale_luma.exit:                          ; preds = %._crit_edge445.us.u
   br label %645
 
 625:                                              ; preds = %600
-  %626 = and i32 %.1293416514.sink, 2
-  %627 = lshr i32 %.0290418512, 1
+  %626 = and i32 %.1293416572.sink, 2
+  %627 = lshr i32 %.0290418570, 1
   %628 = and i32 %627, 1
   %629 = or disjoint i32 %626, %628
   %630 = getelementptr inbounds nuw i8, ptr %0, i64 10128
@@ -2003,7 +2003,7 @@ vc1_lut_scale_luma.exit:                          ; preds = %._crit_edge445.us.u
   %632 = zext nneg i32 %629 to i64
   %633 = getelementptr inbounds nuw i8, ptr %0, i64 3416
   %634 = load ptr, ptr %633, align 8, !tbaa !46
-  %635 = sext i32 %.0299516 to i64
+  %635 = sext i32 %.0299574 to i64
   %636 = getelementptr inbounds i8, ptr %634, i64 %635
   br i1 %.not335, label %637, label %641
 
@@ -2753,10 +2753,10 @@ get_luma_mv.exit:                                 ; preds = %182, %median4.exit3
   br label %481
 
 481:                                              ; preds = %471, %463
-  %.sink381 = phi i32 [ %480, %471 ], [ %470, %463 ]
+  %.sink467 = phi i32 [ %480, %471 ], [ %470, %463 ]
   %.0263 = phi i32 [ %.0.i294, %471 ], [ %.0.i298, %463 ]
   %482 = icmp slt i32 %460, -8
-  %..i = tail call i32 @llvm.smin.i32(i32 %460, i32 %.sink381)
+  %..i = tail call i32 @llvm.smin.i32(i32 %460, i32 %.sink467)
   %.0.i = select i1 %482, i32 -8, i32 %..i
   %.not278 = icmp eq i32 %1, 0
   br i1 %.not278, label %483, label %501
@@ -3075,17 +3075,17 @@ vc1_lut_scale_chroma.exit:                        ; preds = %656, %vc1_scale_chr
   %679 = load i32, ptr %678, align 8, !tbaa !106
   %.not291 = icmp eq i32 %679, 0
   %680 = getelementptr inbounds nuw i8, ptr %0, i64 6280
-  %.sink383.in = select i1 %.not291, ptr %3, ptr %680
-  %.sink386 = load ptr, ptr %.sink383.in, align 8, !tbaa !105
+  %.sink469.in = select i1 %.not291, ptr %3, ptr %680
+  %.sink472 = load ptr, ptr %.sink469.in, align 8, !tbaa !105
   %681 = getelementptr inbounds nuw i8, ptr %0, i64 3424
   %682 = load ptr, ptr %681, align 8, !tbaa !46
   %683 = load i64, ptr %514, align 8, !tbaa !89
-  tail call void %.sink386(ptr noundef %682, ptr noundef %.2, i64 noundef %683, i32 noundef 8, i32 noundef %675, i32 noundef %677) #4
-  %.sink383 = load ptr, ptr %.sink383.in, align 8, !tbaa !105
+  tail call void %.sink472(ptr noundef %682, ptr noundef %.2, i64 noundef %683, i32 noundef 8, i32 noundef %675, i32 noundef %677) #4
+  %.sink469 = load ptr, ptr %.sink469.in, align 8, !tbaa !105
   %684 = getelementptr inbounds nuw i8, ptr %0, i64 3432
   %685 = load ptr, ptr %684, align 8, !tbaa !46
   %686 = load i64, ptr %514, align 8, !tbaa !89
-  tail call void %.sink383(ptr noundef %685, ptr noundef %.2252, i64 noundef %686, i32 noundef 8, i32 noundef %675, i32 noundef %677) #4
+  tail call void %.sink469(ptr noundef %685, ptr noundef %.2252, i64 noundef %686, i32 noundef 8, i32 noundef %675, i32 noundef %677) #4
   %687 = load i32, ptr %6, align 8, !tbaa !36
   %.not292 = icmp eq i32 %687, 0
   br i1 %.not292, label %713, label %688
@@ -3310,11 +3310,11 @@ define void @ff_vc1_mc_4mv_chroma4(ptr noundef readonly %0, i32 noundef %1, i32 
   br label %147
 
 147:                                              ; preds = %143, %136
-  %.sink284 = phi i32 [ -8, %143 ], [ %138, %136 ]
-  %.sink283 = phi i32 [ %146, %143 ], [ %142, %136 ]
-  %148 = icmp slt i32 %128, %.sink284
-  %..i = tail call i32 @llvm.smin.i32(i32 %128, i32 %.sink283)
-  %.0.i = select i1 %148, i32 %.sink284, i32 %..i
+  %.sink285 = phi i32 [ -8, %143 ], [ %138, %136 ]
+  %.sink284 = phi i32 [ %146, %143 ], [ %142, %136 ]
+  %148 = icmp slt i32 %128, %.sink285
+  %..i = tail call i32 @llvm.smin.i32(i32 %128, i32 %.sink284)
+  %.0.i = select i1 %148, i32 %.sink285, i32 %..i
   br i1 %.not239, label %149, label %150
 
 149:                                              ; preds = %147
@@ -3517,16 +3517,16 @@ vc1_lut_scale_chroma.exit:                        ; preds = %246, %168, %221
   %268 = load i64, ptr %46, align 8, !tbaa !89
   %269 = shl i64 %268, %73
   %. = select i1 %.not246, ptr %78, ptr %75
-  %.292 = select i1 %.not246, ptr %80, ptr %79
-  %.sink286.in = select i1 %.not245, ptr %.292, ptr %.
-  %.sink = load ptr, ptr %.sink286.in, align 8, !tbaa !105
+  %.293 = select i1 %.not246, ptr %80, ptr %79
+  %.sink287.in = select i1 %.not245, ptr %.293, ptr %.
+  %.sink = load ptr, ptr %.sink287.in, align 8, !tbaa !105
   tail call void %.sink(ptr noundef %267, ptr noundef %.1, i64 noundef %269, i32 noundef 4, i32 noundef %162, i32 noundef %164) #4
-  %.sink286 = load ptr, ptr %.sink286.in, align 8, !tbaa !105
+  %.sink287 = load ptr, ptr %.sink287.in, align 8, !tbaa !105
   %270 = load ptr, ptr %77, align 8, !tbaa !46
   %271 = getelementptr inbounds i8, ptr %270, i64 %266
   %272 = load i64, ptr %46, align 8, !tbaa !89
   %273 = shl i64 %272, %73
-  tail call void %.sink286(ptr noundef %271, ptr noundef %.1230, i64 noundef %273, i32 noundef 4, i32 noundef %162, i32 noundef %164) #4
+  tail call void %.sink287(ptr noundef %271, ptr noundef %.1230, i64 noundef %273, i32 noundef 4, i32 noundef %162, i32 noundef %164) #4
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %exitcond280.not = icmp eq i64 %indvars.iv.next278, 4
   br i1 %exitcond280.not, label %274, label %104, !llvm.loop !112
@@ -3711,14 +3711,14 @@ define void @ff_vc1_interp_mc(ptr noundef readonly %0) local_unnamed_addr #0 {
   br label %126
 
 126:                                              ; preds = %109, %120, %86
-  %.sink471 = phi i32 [ %117, %109 ], [ -8, %120 ], [ -8, %86 ]
-  %.sink470 = phi i32 [ %119, %109 ], [ %125, %120 ], [ %97, %86 ]
+  %.sink478 = phi i32 [ %117, %109 ], [ -8, %120 ], [ -8, %86 ]
+  %.sink477 = phi i32 [ %119, %109 ], [ %125, %120 ], [ %97, %86 ]
   %.0332 = phi i32 [ %.0.i373, %109 ], [ %.0.i373, %120 ], [ %.0.i379, %86 ]
   %.0331 = phi i32 [ %.0.i371, %109 ], [ %.0.i367, %120 ], [ %.0.i381, %86 ]
   %.0330 = phi i32 [ %.0.i375, %109 ], [ %.0.i375, %120 ], [ %.0.i383, %86 ]
-  %127 = icmp slt i32 %83, %.sink471
-  %..i368 = tail call i32 @llvm.smin.i32(i32 %83, i32 %.sink470)
-  %.0.i369 = select i1 %127, i32 %.sink471, i32 %..i368
+  %127 = icmp slt i32 %83, %.sink478
+  %..i368 = tail call i32 @llvm.smin.i32(i32 %83, i32 %.sink477)
+  %.0.i369 = select i1 %127, i32 %.sink478, i32 %..i368
   %128 = sext i32 %.0331 to i64
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %130 = load i64, ptr %129, align 8, !tbaa !88
@@ -3867,13 +3867,13 @@ define void @ff_vc1_interp_mc(ptr noundef readonly %0) local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %186, %212
-  %.not354468 = phi i32 [ %228, %212 ], [ 0, %186 ]
+  %.not354475 = phi i32 [ %228, %212 ], [ 0, %186 ]
   %229 = phi i32 [ %spec.select, %212 ], [ 9, %186 ]
   %230 = load ptr, ptr %172, align 8, !tbaa !93
   %231 = load ptr, ptr %184, align 8, !tbaa !94
   %.in = shl i32 %21, 1
   %232 = sext i32 %.in to i64
-  %233 = ashr i32 %.0.i369, %.not354468
+  %233 = ashr i32 %.0.i369, %.not354475
   %234 = load i32, ptr %196, align 4, !tbaa !91
   %235 = ashr i32 %234, 1
   %236 = load i32, ptr %2, align 8, !tbaa !4

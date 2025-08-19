@@ -2973,8 +2973,8 @@ define internal fastcc noundef i32 @_ZNK12_GLOBAL__N_113JliLaunchData20initJvmlL
   %54 = getelementptr i8, ptr %34, i64 %53
   %55 = getelementptr i8, ptr %54, i64 8
   %56 = load ptr, ptr %35, align 8
-  %.not212228.i = icmp eq ptr %48, %49
-  br i1 %.not212228.i, label %.thread.i67, label %.lr.ph.split.i
+  %.not212229.i = icmp eq ptr %48, %49
+  br i1 %.not212229.i, label %.thread.i67, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.thread.i, %.lr.ph.split.i
   %57 = phi ptr [ %68, %.lr.ph.split.i ], [ %49, %.thread.i ]
@@ -3054,8 +3054,8 @@ define internal fastcc noundef i32 @_ZNK12_GLOBAL__N_113JliLaunchData20initJvmlL
   %109 = sub i64 %107, %108
   %110 = ashr exact i64 %109, 2
   %111 = getelementptr inbounds i8, ptr %phi.call, i64 %110
-  %.not212228.i68 = icmp eq ptr %105, %106
-  br i1 %.not212228.i68, label %.thread.i88, label %.lr.ph.split.i69
+  %.not212229.i68 = icmp eq ptr %105, %106
+  br i1 %.not212229.i68, label %.thread.i88, label %.lr.ph.split.i69
 
 .lr.ph.split.i69:                                 ; preds = %.thread.i67, %.lr.ph.split.i69
   %112 = phi ptr [ %123, %.lr.ph.split.i69 ], [ %106, %.thread.i67 ]
@@ -3126,8 +3126,8 @@ define internal fastcc noundef i32 @_ZNK12_GLOBAL__N_113JliLaunchData20initJvmlL
   %156 = sub i64 %154, %155
   %157 = ashr exact i64 %156, 2
   %158 = getelementptr inbounds i8, ptr %phi.call45, i64 %157
-  %.not212228.i89 = icmp eq ptr %152, %153
-  br i1 %.not212228.i89, label %.loopexit118, label %.lr.ph.split.i90
+  %.not212229.i89 = icmp eq ptr %152, %153
+  br i1 %.not212229.i89, label %.loopexit118, label %.lr.ph.split.i90
 
 .lr.ph.split.i90:                                 ; preds = %.thread.i88, %.lr.ph.split.i90
   %159 = phi ptr [ %170, %.lr.ph.split.i90 ], [ %153, %.thread.i88 ]
@@ -3267,9 +3267,9 @@ _ZN8tstrings3anylsIPKcEERS0_T_.exit108:           ; preds = %_ZN8tstrings3anylsI
   ret i32 %207
 
 .body:                                            ; preds = %203, %200, %190, %187
-  %.sink134 = phi ptr [ %5, %187 ], [ %5, %190 ], [ %6, %200 ], [ %6, %203 ]
+  %.sink140 = phi ptr [ %5, %187 ], [ %5, %190 ], [ %6, %200 ], [ %6, %203 ]
   %.pn = phi { ptr, i32 } [ %188, %187 ], [ %191, %190 ], [ %201, %200 ], [ %204, %203 ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %.sink134) #22
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %.sink140) #22
   resume { ptr, i32 } %.pn
 }
 

@@ -49,10 +49,10 @@ define void @Dch_ManCollectTfoCands_rec(ptr noundef readonly captures(none) %0, 
   br label %23
 
 23:                                               ; preds = %20, %14
-  %.sink48 = phi i32 [ %22, %20 ], [ %19, %14 ]
+  %.sink55 = phi i32 [ %22, %20 ], [ %19, %14 ]
   %.val33.sink.in = getelementptr i8, ptr %13, i64 176
   %.val33.sink = load ptr, ptr %.val33.sink.in, align 8, !tbaa !28
-  %24 = sext i32 %.sink48 to i64
+  %24 = sext i32 %.sink55 to i64
   %25 = getelementptr inbounds i32, ptr %.val33.sink, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !29
   %27 = getelementptr i8, ptr %13, i64 32
@@ -251,11 +251,11 @@ Vec_PtrPush.exit44:                               ; preds = %.Vec_PtrGrow.exit11
   br label %Aig_ObjRepr.exit.thread.sink.split
 
 Aig_ObjRepr.exit.thread.sink.split:               ; preds = %Vec_PtrPush.exit, %Vec_PtrPush.exit44
-  %.sink52 = phi i32 [ %118, %Vec_PtrPush.exit44 ], [ %81, %Vec_PtrPush.exit ]
-  %.sink50 = phi ptr [ %117, %Vec_PtrPush.exit44 ], [ %80, %Vec_PtrPush.exit ]
+  %.sink59 = phi i32 [ %118, %Vec_PtrPush.exit44 ], [ %81, %Vec_PtrPush.exit ]
+  %.sink57 = phi ptr [ %117, %Vec_PtrPush.exit44 ], [ %80, %Vec_PtrPush.exit ]
   %.sink = phi ptr [ %46, %Vec_PtrPush.exit44 ], [ %1, %Vec_PtrPush.exit ]
-  %120 = sext i32 %.sink52 to i64
-  %121 = getelementptr inbounds ptr, ptr %.sink50, i64 %120
+  %120 = sext i32 %.sink59 to i64
+  %121 = getelementptr inbounds ptr, ptr %.sink57, i64 %120
   store ptr %.sink, ptr %121, align 8, !tbaa !33
   br label %Aig_ObjRepr.exit.thread
 

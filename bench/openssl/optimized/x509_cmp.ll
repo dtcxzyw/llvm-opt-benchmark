@@ -1297,23 +1297,23 @@ check_suite_b.exit71.thread:                      ; preds = %65, %X509_get0_pubk
   %96 = icmp eq i32 %.039137, 60
   %.not54 = icmp eq i64 %3, %.086136
   %spec.select56 = select i1 %.not54, i32 60, i32 61
-  %spec.select201 = select i1 %96, i32 %spec.select56, i32 %.039137
+  %spec.select209 = select i1 %96, i32 %spec.select56, i32 %.039137
   %97 = add nsw i32 %.039137, -59
   %98 = icmp ult i32 %97, 2
   br label %.thread131.thread
 
 .thread131.thread:                                ; preds = %.lr.ph, %.thread131, %37, %.thread104
-  %.039137185 = phi i1 [ false, %.thread104 ], [ false, %37 ], [ %98, %.thread131 ], [ false, %.lr.ph ]
-  %.1138184 = phi i32 [ 0, %.thread104 ], [ 0, %37 ], [ %.1138, %.thread131 ], [ %.2161, %.lr.ph ]
-  %99 = phi i32 [ 56, %.thread104 ], [ 56, %37 ], [ %spec.select201, %.thread131 ], [ 56, %.lr.ph ]
+  %.039137193 = phi i1 [ false, %.thread104 ], [ false, %37 ], [ %98, %.thread131 ], [ false, %.lr.ph ]
+  %.1138192 = phi i32 [ 0, %.thread104 ], [ 0, %37 ], [ %.1138, %.thread131 ], [ %.2161, %.lr.ph ]
+  %99 = phi i32 [ 56, %.thread104 ], [ 56, %37 ], [ %spec.select209, %.thread131 ], [ 56, %.lr.ph ]
   %.not55 = icmp eq ptr %0, null
   br i1 %.not55, label %103, label %100
 
 100:                                              ; preds = %.thread131.thread
-  %101 = icmp ne i32 %.1138184, 0
-  %or.cond3 = select i1 %.039137185, i1 %101, i1 false
+  %101 = icmp ne i32 %.1138192, 0
+  %or.cond3 = select i1 %.039137193, i1 %101, i1 false
   %102 = sext i1 %or.cond3 to i32
-  %spec.select = add nsw i32 %.1138184, %102
+  %spec.select = add nsw i32 %.1138192, %102
   store i32 %spec.select, ptr %0, align 4, !tbaa !55
   br label %103
 

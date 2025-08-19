@@ -567,9 +567,9 @@ define internal void @intra_pred_2_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %291, label %.lr.ph72, label %.loopexit38
 
 .lr.ph72:                                         ; preds = %.preheader39, %._crit_edge69
-  %.pn253 = sext i32 %284 to i64
-  %.pn252 = mul nsw i64 %57, %.pn253
-  %.pn = getelementptr i16, ptr %64, i64 %.pn252
+  %.pn261 = sext i32 %284 to i64
+  %.pn260 = mul nsw i64 %57, %.pn261
+  %.pn = getelementptr i16, ptr %64, i64 %.pn260
   %.in.in.in = getelementptr i8, ptr %.pn, i64 -2
   %.in.in = load i16, ptr %.in.in.in, align 2, !tbaa !124
   %.in = zext i16 %.in.in to i64
@@ -720,11 +720,11 @@ define internal void @intra_pred_2_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %362, label %.lr.ph87, label %._crit_edge88
 
 .lr.ph87:                                         ; preds = %.preheader34, %.critedge25.i
-  %.1799.i.lcssa232 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader34 ]
+  %.1799.i.lcssa240 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader34 ]
   %363 = sub nsw i32 %3, %344
   %364 = ashr i32 %363, %329
   %365 = mul nsw i32 %364, %66
-  %366 = zext nneg i32 %.1799.i.lcssa232 to i64
+  %366 = zext nneg i32 %.1799.i.lcssa240 to i64
   br label %367
 
 367:                                              ; preds = %.lr.ph87, %381
@@ -782,7 +782,7 @@ define internal void @intra_pred_2_9(ptr noundef readonly captures(none) %0, ptr
   br label %418
 
 .lr.ph79:                                         ; preds = %391, %.critedge27.i
-  %.2800.i.lcssa238 = phi i32 [ %.2800.i73, %.critedge27.i ], [ %.0796.i, %391 ]
+  %.2800.i.lcssa246 = phi i32 [ %.2800.i73, %.critedge27.i ], [ %.0796.i, %391 ]
   %393 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %394 = load ptr, ptr %393, align 8, !tbaa !110
   %395 = getelementptr inbounds nuw i8, ptr %9, i64 18616
@@ -791,7 +791,7 @@ define internal void @intra_pred_2_9(ptr noundef readonly captures(none) %0, ptr
   %397 = add nsw i32 %.neg848.i, %3
   %398 = ashr i32 %397, %396
   %399 = mul nsw i32 %398, %66
-  %400 = zext nneg i32 %.2800.i.lcssa238 to i64
+  %400 = zext nneg i32 %.2800.i.lcssa246 to i64
   br label %401
 
 401:                                              ; preds = %.lr.ph79, %415
@@ -1115,7 +1115,7 @@ define internal void @intra_pred_2_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %.0778.i, label %591, label %568
 
 .loopexit28.thread:                               ; preds = %301
-  br i1 %.0778.i, label %.thread12.split, label %.thread243
+  br i1 %.0778.i, label %.thread12.split, label %.thread251
 
 568:                                              ; preds = %.loopexit28
   br i1 %277, label %.split119, label %574
@@ -1142,7 +1142,7 @@ define internal void @intra_pred_2_9(ptr noundef readonly captures(none) %0, ptr
   br label %.thread5.thread
 
 579:                                              ; preds = %574
-  br i1 %250, label %.thread5.thread.thread.loopexit.critedge, label %.thread243
+  br i1 %250, label %.thread5.thread.thread.loopexit.critedge, label %.thread251
 
 .thread5.thread.thread.loopexit.critedge:         ; preds = %579
   %580 = load i16, ptr %69, align 2, !tbaa !124
@@ -1154,10 +1154,10 @@ define internal void @intra_pred_2_9(ptr noundef readonly captures(none) %0, ptr
   store i64 %582, ptr %583, align 2, !tbaa !97
   br label %.thread5.thread.thread
 
-.thread243:                                       ; preds = %.loopexit28.thread, %579
+.thread251:                                       ; preds = %.loopexit28.thread, %579
   br i1 %.0792.i, label %.split114, label %.preheader.preheader.critedge
 
-.split114:                                        ; preds = %.thread243
+.split114:                                        ; preds = %.thread251
   %584 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %585 = load i16, ptr %584, align 2, !tbaa !124
   %586 = zext i16 %585 to i64
@@ -1169,7 +1169,7 @@ define internal void @intra_pred_2_9(ptr noundef readonly captures(none) %0, ptr
   store i64 %587, ptr %588, align 2, !tbaa !97
   br label %.thread5.thread.thread.thread
 
-.preheader.preheader.critedge:                    ; preds = %.thread243
+.preheader.preheader.critedge:                    ; preds = %.thread251
   store i16 256, ptr %6, align 16, !tbaa !124
   store i64 72058693566333184, ptr %69, align 2, !tbaa !97
   %589 = getelementptr inbounds nuw i8, ptr %7, i64 10
@@ -1719,9 +1719,9 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %293, label %.lr.ph78, label %.loopexit44
 
 .lr.ph78:                                         ; preds = %.preheader45, %._crit_edge75
-  %.pn291 = sext i32 %286 to i64
-  %.pn290 = mul nsw i64 %59, %.pn291
-  %.pn = getelementptr i16, ptr %66, i64 %.pn290
+  %.pn300 = sext i32 %286 to i64
+  %.pn299 = mul nsw i64 %59, %.pn300
+  %.pn = getelementptr i16, ptr %66, i64 %.pn299
   %.in.in.in = getelementptr i8, ptr %.pn, i64 -2
   %.in.in = load i16, ptr %.in.in.in, align 2, !tbaa !124
   %.in = zext i16 %.in.in to i64
@@ -1872,11 +1872,11 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %364, label %.lr.ph93, label %._crit_edge94
 
 .lr.ph93:                                         ; preds = %.preheader40, %.critedge25.i
-  %.1799.i.lcssa267 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader40 ]
+  %.1799.i.lcssa276 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader40 ]
   %365 = sub nsw i32 %3, %346
   %366 = ashr i32 %365, %331
   %367 = mul nsw i32 %366, %68
-  %368 = zext nneg i32 %.1799.i.lcssa267 to i64
+  %368 = zext nneg i32 %.1799.i.lcssa276 to i64
   br label %369
 
 369:                                              ; preds = %.lr.ph93, %383
@@ -1901,8 +1901,8 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   br label %383
 
 383:                                              ; preds = %379, %369
-  %.not292 = icmp eq i64 %indvars.iv164, 0
-  br i1 %.not292, label %._crit_edge94, label %369, !llvm.loop !131
+  %.not301 = icmp eq i64 %indvars.iv164, 0
+  br i1 %.not301, label %._crit_edge94, label %369, !llvm.loop !131
 
 ._crit_edge94:                                    ; preds = %383, %.critedge25.i
   %384 = load i16, ptr %8, align 16, !tbaa !124
@@ -1934,7 +1934,7 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   br label %420
 
 .lr.ph85:                                         ; preds = %393, %.critedge27.i
-  %.2800.i.lcssa273 = phi i32 [ %.2800.i79, %.critedge27.i ], [ %.0796.i, %393 ]
+  %.2800.i.lcssa282 = phi i32 [ %.2800.i79, %.critedge27.i ], [ %.0796.i, %393 ]
   %395 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %396 = load ptr, ptr %395, align 8, !tbaa !110
   %397 = getelementptr inbounds nuw i8, ptr %11, i64 18616
@@ -1943,7 +1943,7 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   %399 = add nsw i32 %.neg848.i, %3
   %400 = ashr i32 %399, %398
   %401 = mul nsw i32 %400, %68
-  %402 = zext nneg i32 %.2800.i.lcssa273 to i64
+  %402 = zext nneg i32 %.2800.i.lcssa282 to i64
   br label %403
 
 403:                                              ; preds = %.lr.ph85, %417
@@ -2271,12 +2271,12 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %.0778.i, label %606, label %570
 
 .loopexit34.thread:                               ; preds = %303
-  br i1 %.0778.i, label %.thread12, label %.thread278
+  br i1 %.0778.i, label %.thread12, label %.thread287
 
 570:                                              ; preds = %.loopexit34
-  br i1 %279, label %.thread5.loopexit293.critedge, label %574
+  br i1 %279, label %.thread5.loopexit302.critedge, label %574
 
-.thread5.loopexit293.critedge:                    ; preds = %570
+.thread5.loopexit302.critedge:                    ; preds = %570
   %571 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %572 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %573 = load i16, ptr %572, align 16, !tbaa !124
@@ -2300,7 +2300,7 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %581, label %579, label %.thread5.thread, !llvm.loop !139
 
 582:                                              ; preds = %574
-  br i1 %254, label %583, label %.thread278
+  br i1 %254, label %583, label %.thread287
 
 583:                                              ; preds = %582
   %584 = load i16, ptr %71, align 2, !tbaa !124
@@ -2317,10 +2317,10 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   %589 = icmp samesign ult i64 %indvars.iv200, 12
   br i1 %589, label %587, label %.thread5.thread.thread, !llvm.loop !140
 
-.thread278:                                       ; preds = %.loopexit34.thread, %582
+.thread287:                                       ; preds = %.loopexit34.thread, %582
   br i1 %.0792.i, label %.critedge, label %600
 
-.critedge:                                        ; preds = %.thread278
+.critedge:                                        ; preds = %.thread287
   %590 = getelementptr inbounds nuw i8, ptr %8, i64 18
   %591 = load i16, ptr %590, align 2, !tbaa !124
   %592 = zext i16 %591 to i64
@@ -2341,7 +2341,7 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   %599 = icmp samesign ult i64 %indvars.iv197, 12
   br i1 %599, label %597, label %.loopexit30, !llvm.loop !141
 
-600:                                              ; preds = %.thread278
+600:                                              ; preds = %.thread287
   store i16 256, ptr %6, align 16, !tbaa !124
   br label %601
 
@@ -2372,15 +2372,15 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   %608 = load i16, ptr %607, align 2, !tbaa !124
   br label %.thread5.sink.split
 
-.thread5.sink.split:                              ; preds = %.thread12, %.thread5.loopexit293.critedge
-  %.sink = phi i16 [ %608, %.thread12 ], [ %573, %.thread5.loopexit293.critedge ]
-  %.sink313 = phi ptr [ %70, %.thread12 ], [ %571, %.thread5.loopexit293.critedge ]
-  %.2787.i11.ph = phi i32 [ %.2787.i18, %.thread12 ], [ %.0785.i, %.thread5.loopexit293.critedge ]
-  %.3791.i10.ph = phi i32 [ %.3791.i17, %.thread12 ], [ %.0788.i, %.thread5.loopexit293.critedge ]
+.thread5.sink.split:                              ; preds = %.thread12, %.thread5.loopexit302.critedge
+  %.sink = phi i16 [ %608, %.thread12 ], [ %573, %.thread5.loopexit302.critedge ]
+  %.sink322 = phi ptr [ %70, %.thread12 ], [ %571, %.thread5.loopexit302.critedge ]
+  %.2787.i11.ph = phi i32 [ %.2787.i18, %.thread12 ], [ %.0785.i, %.thread5.loopexit302.critedge ]
+  %.3791.i10.ph = phi i32 [ %.3791.i17, %.thread12 ], [ %.0788.i, %.thread5.loopexit302.critedge ]
   %609 = zext i16 %.sink to i64
   %610 = mul nuw i64 %609, 281479271743489
-  store i64 %610, ptr %.sink313, align 2, !tbaa !97
-  %611 = getelementptr inbounds nuw i8, ptr %.sink313, i64 8
+  store i64 %610, ptr %.sink322, align 2, !tbaa !97
+  %611 = getelementptr inbounds nuw i8, ptr %.sink322, i64 8
   store i64 %610, ptr %611, align 2, !tbaa !97
   br label %.thread5
 
@@ -2488,8 +2488,8 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   %667 = getelementptr inbounds nuw i16, ptr %72, i64 %indvars.iv218
   store i16 %666, ptr %667, align 2, !tbaa !124
   %indvars.iv.next219 = add nsw i64 %indvars.iv218, -1
-  %.not263 = icmp eq i64 %indvars.iv218, 0
-  br i1 %.not263, label %668, label %651, !llvm.loop !146
+  %.not272 = icmp eq i64 %indvars.iv218, 0
+  br i1 %.not272, label %668, label %651, !llvm.loop !146
 
 668:                                              ; preds = %651
   %669 = load i16, ptr %70, align 2, !tbaa !124
@@ -2527,8 +2527,8 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   %696 = getelementptr inbounds nuw i16, ptr %73, i64 %indvars.iv221
   store i16 %695, ptr %696, align 2, !tbaa !124
   %indvars.iv.next222 = add nsw i64 %indvars.iv221, -1
-  %.not264 = icmp eq i64 %indvars.iv221, 0
-  br i1 %.not264, label %.loopexit, label %680, !llvm.loop !147
+  %.not273 = icmp eq i64 %indvars.iv221, 0
+  br i1 %.not273, label %.loopexit, label %680, !llvm.loop !147
 
 .loopexit:                                        ; preds = %680, %633, %628, %.loopexit30
   %.0775.i = phi ptr [ %71, %.loopexit30 ], [ %71, %628 ], [ %71, %633 ], [ %73, %680 ]
@@ -3025,9 +3025,9 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %293, label %.lr.ph78, label %.loopexit44
 
 .lr.ph78:                                         ; preds = %.preheader45, %._crit_edge75
-  %.pn291 = sext i32 %286 to i64
-  %.pn290 = mul nsw i64 %59, %.pn291
-  %.pn = getelementptr i16, ptr %66, i64 %.pn290
+  %.pn300 = sext i32 %286 to i64
+  %.pn299 = mul nsw i64 %59, %.pn300
+  %.pn = getelementptr i16, ptr %66, i64 %.pn299
   %.in.in.in = getelementptr i8, ptr %.pn, i64 -2
   %.in.in = load i16, ptr %.in.in.in, align 2, !tbaa !124
   %.in = zext i16 %.in.in to i64
@@ -3178,11 +3178,11 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %364, label %.lr.ph93, label %._crit_edge94
 
 .lr.ph93:                                         ; preds = %.preheader40, %.critedge25.i
-  %.1799.i.lcssa267 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader40 ]
+  %.1799.i.lcssa276 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader40 ]
   %365 = sub nsw i32 %3, %346
   %366 = ashr i32 %365, %331
   %367 = mul nsw i32 %366, %68
-  %368 = zext nneg i32 %.1799.i.lcssa267 to i64
+  %368 = zext nneg i32 %.1799.i.lcssa276 to i64
   br label %369
 
 369:                                              ; preds = %.lr.ph93, %383
@@ -3207,8 +3207,8 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
   br label %383
 
 383:                                              ; preds = %379, %369
-  %.not292 = icmp eq i64 %indvars.iv164, 0
-  br i1 %.not292, label %._crit_edge94, label %369, !llvm.loop !131
+  %.not301 = icmp eq i64 %indvars.iv164, 0
+  br i1 %.not301, label %._crit_edge94, label %369, !llvm.loop !131
 
 ._crit_edge94:                                    ; preds = %383, %.critedge25.i
   %384 = load i16, ptr %8, align 16, !tbaa !124
@@ -3240,7 +3240,7 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
   br label %420
 
 .lr.ph85:                                         ; preds = %393, %.critedge27.i
-  %.2800.i.lcssa273 = phi i32 [ %.2800.i79, %.critedge27.i ], [ %.0796.i, %393 ]
+  %.2800.i.lcssa282 = phi i32 [ %.2800.i79, %.critedge27.i ], [ %.0796.i, %393 ]
   %395 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %396 = load ptr, ptr %395, align 8, !tbaa !110
   %397 = getelementptr inbounds nuw i8, ptr %11, i64 18616
@@ -3249,7 +3249,7 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
   %399 = add nsw i32 %.neg848.i, %3
   %400 = ashr i32 %399, %398
   %401 = mul nsw i32 %400, %68
-  %402 = zext nneg i32 %.2800.i.lcssa273 to i64
+  %402 = zext nneg i32 %.2800.i.lcssa282 to i64
   br label %403
 
 403:                                              ; preds = %.lr.ph85, %417
@@ -3587,7 +3587,7 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %.0778.i, label %622, label %575
 
 .loopexit34.thread:                               ; preds = %303
-  br i1 %.0778.i, label %.thread12, label %.thread278
+  br i1 %.0778.i, label %.thread12, label %.thread287
 
 575:                                              ; preds = %.loopexit34
   br i1 %279, label %576, label %585
@@ -3626,7 +3626,7 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %592, label %590, label %.thread5.thread, !llvm.loop !139
 
 593:                                              ; preds = %585
-  br i1 %254, label %594, label %.thread278
+  br i1 %254, label %594, label %.thread287
 
 594:                                              ; preds = %593
   %595 = load i16, ptr %71, align 2, !tbaa !124
@@ -3643,10 +3643,10 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
   %600 = icmp samesign ult i64 %indvars.iv200, 28
   br i1 %600, label %598, label %.thread5.thread.thread, !llvm.loop !140
 
-.thread278:                                       ; preds = %.loopexit34.thread, %593
+.thread287:                                       ; preds = %.loopexit34.thread, %593
   br i1 %.0792.i, label %601, label %616
 
-601:                                              ; preds = %.thread278
+601:                                              ; preds = %.thread287
   %602 = getelementptr inbounds nuw i8, ptr %8, i64 34
   %603 = load i16, ptr %602, align 2, !tbaa !124
   %604 = zext i16 %603 to i64
@@ -3676,7 +3676,7 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
   %615 = icmp samesign ult i64 %indvars.iv197, 28
   br i1 %615, label %613, label %.loopexit30, !llvm.loop !141
 
-616:                                              ; preds = %.thread278
+616:                                              ; preds = %.thread287
   store i16 256, ptr %6, align 16, !tbaa !124
   br label %617
 
@@ -3831,8 +3831,8 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
   %691 = getelementptr inbounds nuw i16, ptr %72, i64 %indvars.iv218
   store i16 %690, ptr %691, align 2, !tbaa !124
   %indvars.iv.next219 = add nsw i64 %indvars.iv218, -1
-  %.not263 = icmp eq i64 %indvars.iv218, 0
-  br i1 %.not263, label %692, label %675, !llvm.loop !146
+  %.not272 = icmp eq i64 %indvars.iv218, 0
+  br i1 %.not272, label %692, label %675, !llvm.loop !146
 
 692:                                              ; preds = %675
   %693 = load i16, ptr %70, align 2, !tbaa !124
@@ -3870,8 +3870,8 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
   %720 = getelementptr inbounds nuw i16, ptr %73, i64 %indvars.iv221
   store i16 %719, ptr %720, align 2, !tbaa !124
   %indvars.iv.next222 = add nsw i64 %indvars.iv221, -1
-  %.not264 = icmp eq i64 %indvars.iv221, 0
-  br i1 %.not264, label %.loopexit, label %704, !llvm.loop !147
+  %.not273 = icmp eq i64 %indvars.iv221, 0
+  br i1 %.not273, label %.loopexit, label %704, !llvm.loop !147
 
 .loopexit:                                        ; preds = %704, %657, %652, %.loopexit30
   %.0775.i = phi ptr [ %71, %.loopexit30 ], [ %71, %652 ], [ %71, %657 ], [ %73, %704 ]
@@ -4368,9 +4368,9 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %293, label %.lr.ph81, label %.loopexit47
 
 .lr.ph81:                                         ; preds = %.preheader48, %._crit_edge78
-  %.pn310 = sext i32 %286 to i64
-  %.pn309 = mul nsw i64 %59, %.pn310
-  %.pn = getelementptr i16, ptr %66, i64 %.pn309
+  %.pn319 = sext i32 %286 to i64
+  %.pn318 = mul nsw i64 %59, %.pn319
+  %.pn = getelementptr i16, ptr %66, i64 %.pn318
   %.in.in.in = getelementptr i8, ptr %.pn, i64 -2
   %.in.in = load i16, ptr %.in.in.in, align 2, !tbaa !124
   %.in = zext i16 %.in.in to i64
@@ -4521,11 +4521,11 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %364, label %.lr.ph96, label %._crit_edge97
 
 .lr.ph96:                                         ; preds = %.preheader43, %.critedge25.i
-  %.1799.i.lcssa285 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader43 ]
+  %.1799.i.lcssa294 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader43 ]
   %365 = sub nsw i32 %3, %346
   %366 = ashr i32 %365, %331
   %367 = mul nsw i32 %366, %68
-  %368 = zext nneg i32 %.1799.i.lcssa285 to i64
+  %368 = zext nneg i32 %.1799.i.lcssa294 to i64
   br label %369
 
 369:                                              ; preds = %.lr.ph96, %383
@@ -4550,8 +4550,8 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   br label %383
 
 383:                                              ; preds = %379, %369
-  %.not311 = icmp eq i64 %indvars.iv171, 0
-  br i1 %.not311, label %._crit_edge97, label %369, !llvm.loop !131
+  %.not320 = icmp eq i64 %indvars.iv171, 0
+  br i1 %.not320, label %._crit_edge97, label %369, !llvm.loop !131
 
 ._crit_edge97:                                    ; preds = %383, %.critedge25.i
   %384 = load i16, ptr %8, align 16, !tbaa !124
@@ -4583,7 +4583,7 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   br label %420
 
 .lr.ph88:                                         ; preds = %393, %.critedge27.i
-  %.2800.i.lcssa291 = phi i32 [ %.2800.i82, %.critedge27.i ], [ %.0796.i, %393 ]
+  %.2800.i.lcssa300 = phi i32 [ %.2800.i82, %.critedge27.i ], [ %.0796.i, %393 ]
   %395 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %396 = load ptr, ptr %395, align 8, !tbaa !110
   %397 = getelementptr inbounds nuw i8, ptr %11, i64 18616
@@ -4592,7 +4592,7 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   %399 = add nsw i32 %.neg848.i, %3
   %400 = ashr i32 %399, %398
   %401 = mul nsw i32 %400, %68
-  %402 = zext nneg i32 %.2800.i.lcssa291 to i64
+  %402 = zext nneg i32 %.2800.i.lcssa300 to i64
   br label %403
 
 403:                                              ; preds = %.lr.ph88, %417
@@ -4930,7 +4930,7 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %.0778.i, label %622, label %575
 
 .loopexit37.thread:                               ; preds = %303
-  br i1 %.0778.i, label %.thread12, label %.thread296
+  br i1 %.0778.i, label %.thread12, label %.thread305
 
 575:                                              ; preds = %.loopexit37
   br i1 %279, label %576, label %585
@@ -4969,7 +4969,7 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %592, label %590, label %.thread5.thread, !llvm.loop !139
 
 593:                                              ; preds = %585
-  br i1 %254, label %594, label %.thread296
+  br i1 %254, label %594, label %.thread305
 
 594:                                              ; preds = %593
   %595 = load i16, ptr %71, align 2, !tbaa !124
@@ -4986,10 +4986,10 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   %600 = icmp samesign ult i64 %indvars.iv207, 60
   br i1 %600, label %598, label %.thread5.thread.thread, !llvm.loop !140
 
-.thread296:                                       ; preds = %.loopexit37.thread, %593
+.thread305:                                       ; preds = %.loopexit37.thread, %593
   br i1 %.0792.i, label %601, label %616
 
-601:                                              ; preds = %.thread296
+601:                                              ; preds = %.thread305
   %602 = getelementptr inbounds nuw i8, ptr %8, i64 66
   %603 = load i16, ptr %602, align 2, !tbaa !124
   %604 = zext i16 %603 to i64
@@ -5019,7 +5019,7 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   %615 = icmp samesign ult i64 %indvars.iv204, 60
   br i1 %615, label %613, label %.loopexit32, !llvm.loop !141
 
-616:                                              ; preds = %.thread296
+616:                                              ; preds = %.thread305
   store i16 256, ptr %6, align 16, !tbaa !124
   br label %617
 
@@ -5256,8 +5256,8 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   %744 = getelementptr inbounds nuw i16, ptr %72, i64 %indvars.iv225
   store i16 %743, ptr %744, align 2, !tbaa !124
   %indvars.iv.next226 = add nsw i64 %indvars.iv225, -1
-  %.not281 = icmp eq i64 %indvars.iv225, 0
-  br i1 %.not281, label %745, label %728, !llvm.loop !146
+  %.not290 = icmp eq i64 %indvars.iv225, 0
+  br i1 %.not290, label %745, label %728, !llvm.loop !146
 
 745:                                              ; preds = %728
   %746 = load i16, ptr %70, align 2, !tbaa !124
@@ -5295,8 +5295,8 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   %773 = getelementptr inbounds nuw i16, ptr %73, i64 %indvars.iv228
   store i16 %772, ptr %773, align 2, !tbaa !124
   %indvars.iv.next229 = add nsw i64 %indvars.iv228, -1
-  %.not282 = icmp eq i64 %indvars.iv228, 0
-  br i1 %.not282, label %.loopexit, label %757, !llvm.loop !147
+  %.not291 = icmp eq i64 %indvars.iv228, 0
+  br i1 %.not291, label %.loopexit, label %757, !llvm.loop !147
 
 .loopexit:                                        ; preds = %757, %.preheader, %657, %652, %.loopexit32
   %.0775.i = phi ptr [ %71, %.loopexit32 ], [ %71, %652 ], [ %71, %657 ], [ %73, %.preheader ], [ %73, %757 ]
@@ -5889,23 +5889,23 @@ define internal void @pred_angular_0_9(ptr noundef writeonly captures(none) %0, 
   %142 = sub nuw nsw i32 32, %141
   %invariant.gep = getelementptr i16, ptr %0, i64 %indvars.iv76
   %143 = sext i32 %140 to i64
-  %invariant.gep97 = getelementptr i16, ptr %.1210.i, i64 %143
+  %invariant.gep101 = getelementptr i16, ptr %.1210.i, i64 %143
   br label %145
 
 .preheader27:                                     ; preds = %137
   %invariant.gep37 = getelementptr i16, ptr %0, i64 %indvars.iv76
   %144 = sext i32 %140 to i64
-  %invariant.gep99 = getelementptr i16, ptr %.1210.i, i64 %144
+  %invariant.gep103 = getelementptr i16, ptr %.1210.i, i64 %144
   br label %159
 
 145:                                              ; preds = %.preheader29, %145
   %indvars.iv68 = phi i64 [ 0, %.preheader29 ], [ %indvars.iv.next69, %145 ]
-  %gep98 = getelementptr i16, ptr %invariant.gep97, i64 %indvars.iv68
-  %146 = getelementptr i8, ptr %gep98, i64 2
+  %gep102 = getelementptr i16, ptr %invariant.gep101, i64 %indvars.iv68
+  %146 = getelementptr i8, ptr %gep102, i64 2
   %147 = load i16, ptr %146, align 2, !tbaa !124
   %148 = zext i16 %147 to i32
   %149 = mul nuw nsw i32 %142, %148
-  %150 = getelementptr i8, ptr %gep98, i64 4
+  %150 = getelementptr i8, ptr %gep102, i64 4
   %151 = load i16, ptr %150, align 2, !tbaa !124
   %152 = zext i16 %151 to i32
   %153 = mul nuw nsw i32 %141, %152
@@ -5922,8 +5922,8 @@ define internal void @pred_angular_0_9(ptr noundef writeonly captures(none) %0, 
 
 159:                                              ; preds = %.preheader27, %159
   %indvars.iv72 = phi i64 [ 0, %.preheader27 ], [ %indvars.iv.next73, %159 ]
-  %gep100 = getelementptr i16, ptr %invariant.gep99, i64 %indvars.iv72
-  %160 = getelementptr i8, ptr %gep100, i64 2
+  %gep104 = getelementptr i16, ptr %invariant.gep103, i64 %indvars.iv72
+  %160 = getelementptr i8, ptr %gep104, i64 2
   %161 = load i16, ptr %160, align 2, !tbaa !124
   %162 = mul nsw i64 %3, %indvars.iv72
   %gep38 = getelementptr i16, ptr %invariant.gep37, i64 %162
@@ -6074,21 +6074,21 @@ define internal void @pred_angular_1_9(ptr noundef writeonly captures(none) %0, 
   %41 = mul nsw i64 %3, %indvars.iv86
   %42 = getelementptr i16, ptr %0, i64 %41
   %43 = sext i32 %38 to i64
-  %invariant.gep101 = getelementptr i16, ptr %.0209.i, i64 %43
-  %invariant.gep103 = getelementptr i16, ptr %.0209.i, i64 %43
   %invariant.gep105 = getelementptr i16, ptr %.0209.i, i64 %43
   %invariant.gep107 = getelementptr i16, ptr %.0209.i, i64 %43
+  %invariant.gep109 = getelementptr i16, ptr %.0209.i, i64 %43
+  %invariant.gep111 = getelementptr i16, ptr %.0209.i, i64 %43
   br label %52
 
 .preheader19:                                     ; preds = %35
   %44 = mul nsw i64 %3, %indvars.iv86
   %45 = getelementptr i16, ptr %0, i64 %44
   %46 = sext i32 %38 to i64
-  %invariant.gep109 = getelementptr i16, ptr %.0209.i, i64 %46
-  %47 = getelementptr i8, ptr %invariant.gep109, i64 2
+  %invariant.gep113 = getelementptr i16, ptr %.0209.i, i64 %46
+  %47 = getelementptr i8, ptr %invariant.gep113, i64 2
   %48 = load i64, ptr %47, align 1, !tbaa !97
   store i64 %48, ptr %45, align 1, !tbaa !97
-  %49 = getelementptr i8, ptr %invariant.gep109, i64 10
+  %49 = getelementptr i8, ptr %invariant.gep113, i64 10
   %50 = load i64, ptr %49, align 1, !tbaa !97
   %51 = getelementptr i8, ptr %45, i64 8
   store i64 %50, ptr %51, align 1, !tbaa !97
@@ -6097,12 +6097,12 @@ define internal void @pred_angular_1_9(ptr noundef writeonly captures(none) %0, 
 52:                                               ; preds = %.preheader20, %52
   %53 = phi i1 [ true, %.preheader20 ], [ false, %52 ]
   %indvars.iv77 = phi i64 [ 0, %.preheader20 ], [ 4, %52 ]
-  %gep102 = getelementptr i16, ptr %invariant.gep101, i64 %indvars.iv77
-  %54 = getelementptr i8, ptr %gep102, i64 2
+  %gep106 = getelementptr i16, ptr %invariant.gep105, i64 %indvars.iv77
+  %54 = getelementptr i8, ptr %gep106, i64 2
   %55 = load i16, ptr %54, align 2, !tbaa !124
   %56 = zext i16 %55 to i32
   %57 = mul nuw nsw i32 %40, %56
-  %58 = getelementptr i8, ptr %gep102, i64 4
+  %58 = getelementptr i8, ptr %gep106, i64 4
   %59 = load i16, ptr %58, align 2, !tbaa !124
   %60 = zext i16 %59 to i32
   %61 = mul nuw nsw i32 %39, %60
@@ -6113,12 +6113,12 @@ define internal void @pred_angular_1_9(ptr noundef writeonly captures(none) %0, 
   %66 = getelementptr i16, ptr %42, i64 %indvars.iv77
   store i16 %65, ptr %66, align 2, !tbaa !124
   %67 = or disjoint i64 %indvars.iv77, 1
-  %gep104 = getelementptr i16, ptr %invariant.gep103, i64 %67
-  %68 = getelementptr i8, ptr %gep104, i64 2
+  %gep108 = getelementptr i16, ptr %invariant.gep107, i64 %67
+  %68 = getelementptr i8, ptr %gep108, i64 2
   %69 = load i16, ptr %68, align 2, !tbaa !124
   %70 = zext i16 %69 to i32
   %71 = mul nuw nsw i32 %40, %70
-  %72 = getelementptr i8, ptr %gep104, i64 4
+  %72 = getelementptr i8, ptr %gep108, i64 4
   %73 = load i16, ptr %72, align 2, !tbaa !124
   %74 = zext i16 %73 to i32
   %75 = mul nuw nsw i32 %39, %74
@@ -6129,12 +6129,12 @@ define internal void @pred_angular_1_9(ptr noundef writeonly captures(none) %0, 
   %80 = getelementptr i16, ptr %42, i64 %67
   store i16 %79, ptr %80, align 2, !tbaa !124
   %81 = or disjoint i64 %indvars.iv77, 2
-  %gep106 = getelementptr i16, ptr %invariant.gep105, i64 %81
-  %82 = getelementptr i8, ptr %gep106, i64 2
+  %gep110 = getelementptr i16, ptr %invariant.gep109, i64 %81
+  %82 = getelementptr i8, ptr %gep110, i64 2
   %83 = load i16, ptr %82, align 2, !tbaa !124
   %84 = zext i16 %83 to i32
   %85 = mul nuw nsw i32 %40, %84
-  %86 = getelementptr i8, ptr %gep106, i64 4
+  %86 = getelementptr i8, ptr %gep110, i64 4
   %87 = load i16, ptr %86, align 2, !tbaa !124
   %88 = zext i16 %87 to i32
   %89 = mul nuw nsw i32 %39, %88
@@ -6145,12 +6145,12 @@ define internal void @pred_angular_1_9(ptr noundef writeonly captures(none) %0, 
   %94 = getelementptr i16, ptr %42, i64 %81
   store i16 %93, ptr %94, align 2, !tbaa !124
   %95 = or disjoint i64 %indvars.iv77, 3
-  %gep108 = getelementptr i16, ptr %invariant.gep107, i64 %95
-  %96 = getelementptr i8, ptr %gep108, i64 2
+  %gep112 = getelementptr i16, ptr %invariant.gep111, i64 %95
+  %96 = getelementptr i8, ptr %gep112, i64 2
   %97 = load i16, ptr %96, align 2, !tbaa !124
   %98 = zext i16 %97 to i32
   %99 = mul nuw nsw i32 %40, %98
-  %100 = getelementptr i8, ptr %gep108, i64 4
+  %100 = getelementptr i8, ptr %gep112, i64 4
   %101 = load i16, ptr %100, align 2, !tbaa !124
   %102 = zext i16 %101 to i32
   %103 = mul nuw nsw i32 %39, %102
@@ -6245,23 +6245,23 @@ define internal void @pred_angular_1_9(ptr noundef writeonly captures(none) %0, 
   %151 = sub nuw nsw i32 32, %150
   %invariant.gep = getelementptr i16, ptr %0, i64 %indvars.iv62
   %152 = sext i32 %149 to i64
-  %invariant.gep97 = getelementptr i16, ptr %.1210.i, i64 %152
+  %invariant.gep101 = getelementptr i16, ptr %.1210.i, i64 %152
   br label %154
 
 .preheader27:                                     ; preds = %146
   %invariant.gep37 = getelementptr i16, ptr %0, i64 %indvars.iv62
   %153 = sext i32 %149 to i64
-  %invariant.gep99 = getelementptr i16, ptr %.1210.i, i64 %153
+  %invariant.gep103 = getelementptr i16, ptr %.1210.i, i64 %153
   br label %168
 
 154:                                              ; preds = %.preheader29, %154
   %indvars.iv54 = phi i64 [ 0, %.preheader29 ], [ %indvars.iv.next55, %154 ]
-  %gep98 = getelementptr i16, ptr %invariant.gep97, i64 %indvars.iv54
-  %155 = getelementptr i8, ptr %gep98, i64 2
+  %gep102 = getelementptr i16, ptr %invariant.gep101, i64 %indvars.iv54
+  %155 = getelementptr i8, ptr %gep102, i64 2
   %156 = load i16, ptr %155, align 2, !tbaa !124
   %157 = zext i16 %156 to i32
   %158 = mul nuw nsw i32 %151, %157
-  %159 = getelementptr i8, ptr %gep98, i64 4
+  %159 = getelementptr i8, ptr %gep102, i64 4
   %160 = load i16, ptr %159, align 2, !tbaa !124
   %161 = zext i16 %160 to i32
   %162 = mul nuw nsw i32 %150, %161
@@ -6278,8 +6278,8 @@ define internal void @pred_angular_1_9(ptr noundef writeonly captures(none) %0, 
 
 168:                                              ; preds = %.preheader27, %168
   %indvars.iv58 = phi i64 [ 0, %.preheader27 ], [ %indvars.iv.next59, %168 ]
-  %gep100 = getelementptr i16, ptr %invariant.gep99, i64 %indvars.iv58
-  %169 = getelementptr i8, ptr %gep100, i64 2
+  %gep104 = getelementptr i16, ptr %invariant.gep103, i64 %indvars.iv58
+  %169 = getelementptr i8, ptr %gep104, i64 2
   %170 = load i16, ptr %169, align 2, !tbaa !124
   %171 = mul nsw i64 %3, %indvars.iv58
   %gep38 = getelementptr i16, ptr %invariant.gep37, i64 %171
@@ -6440,27 +6440,27 @@ define internal void @pred_angular_2_9(ptr noundef writeonly captures(none) %0, 
   %41 = mul nsw i64 %3, %indvars.iv86
   %42 = getelementptr i16, ptr %0, i64 %41
   %43 = sext i32 %38 to i64
-  %invariant.gep101 = getelementptr i16, ptr %.0209.i, i64 %43
-  %invariant.gep103 = getelementptr i16, ptr %.0209.i, i64 %43
   %invariant.gep105 = getelementptr i16, ptr %.0209.i, i64 %43
   %invariant.gep107 = getelementptr i16, ptr %.0209.i, i64 %43
+  %invariant.gep109 = getelementptr i16, ptr %.0209.i, i64 %43
+  %invariant.gep111 = getelementptr i16, ptr %.0209.i, i64 %43
   br label %47
 
 .preheader19:                                     ; preds = %35
   %44 = mul nsw i64 %3, %indvars.iv86
   %45 = getelementptr i16, ptr %0, i64 %44
   %46 = sext i32 %38 to i64
-  %invariant.gep109 = getelementptr i16, ptr %.0209.i, i64 %46
+  %invariant.gep113 = getelementptr i16, ptr %.0209.i, i64 %46
   br label %104
 
 47:                                               ; preds = %.preheader20, %47
   %indvars.iv77 = phi i64 [ 0, %.preheader20 ], [ %indvars.iv.next78, %47 ]
-  %gep102 = getelementptr i16, ptr %invariant.gep101, i64 %indvars.iv77
-  %48 = getelementptr i8, ptr %gep102, i64 2
+  %gep106 = getelementptr i16, ptr %invariant.gep105, i64 %indvars.iv77
+  %48 = getelementptr i8, ptr %gep106, i64 2
   %49 = load i16, ptr %48, align 2, !tbaa !124
   %50 = zext i16 %49 to i32
   %51 = mul nuw nsw i32 %40, %50
-  %52 = getelementptr i8, ptr %gep102, i64 4
+  %52 = getelementptr i8, ptr %gep106, i64 4
   %53 = load i16, ptr %52, align 2, !tbaa !124
   %54 = zext i16 %53 to i32
   %55 = mul nuw nsw i32 %39, %54
@@ -6471,12 +6471,12 @@ define internal void @pred_angular_2_9(ptr noundef writeonly captures(none) %0, 
   %60 = getelementptr i16, ptr %42, i64 %indvars.iv77
   store i16 %59, ptr %60, align 2, !tbaa !124
   %61 = or disjoint i64 %indvars.iv77, 1
-  %gep104 = getelementptr i16, ptr %invariant.gep103, i64 %61
-  %62 = getelementptr i8, ptr %gep104, i64 2
+  %gep108 = getelementptr i16, ptr %invariant.gep107, i64 %61
+  %62 = getelementptr i8, ptr %gep108, i64 2
   %63 = load i16, ptr %62, align 2, !tbaa !124
   %64 = zext i16 %63 to i32
   %65 = mul nuw nsw i32 %40, %64
-  %66 = getelementptr i8, ptr %gep104, i64 4
+  %66 = getelementptr i8, ptr %gep108, i64 4
   %67 = load i16, ptr %66, align 2, !tbaa !124
   %68 = zext i16 %67 to i32
   %69 = mul nuw nsw i32 %39, %68
@@ -6487,12 +6487,12 @@ define internal void @pred_angular_2_9(ptr noundef writeonly captures(none) %0, 
   %74 = getelementptr i16, ptr %42, i64 %61
   store i16 %73, ptr %74, align 2, !tbaa !124
   %75 = or disjoint i64 %indvars.iv77, 2
-  %gep106 = getelementptr i16, ptr %invariant.gep105, i64 %75
-  %76 = getelementptr i8, ptr %gep106, i64 2
+  %gep110 = getelementptr i16, ptr %invariant.gep109, i64 %75
+  %76 = getelementptr i8, ptr %gep110, i64 2
   %77 = load i16, ptr %76, align 2, !tbaa !124
   %78 = zext i16 %77 to i32
   %79 = mul nuw nsw i32 %40, %78
-  %80 = getelementptr i8, ptr %gep106, i64 4
+  %80 = getelementptr i8, ptr %gep110, i64 4
   %81 = load i16, ptr %80, align 2, !tbaa !124
   %82 = zext i16 %81 to i32
   %83 = mul nuw nsw i32 %39, %82
@@ -6503,12 +6503,12 @@ define internal void @pred_angular_2_9(ptr noundef writeonly captures(none) %0, 
   %88 = getelementptr i16, ptr %42, i64 %75
   store i16 %87, ptr %88, align 2, !tbaa !124
   %89 = or disjoint i64 %indvars.iv77, 3
-  %gep108 = getelementptr i16, ptr %invariant.gep107, i64 %89
-  %90 = getelementptr i8, ptr %gep108, i64 2
+  %gep112 = getelementptr i16, ptr %invariant.gep111, i64 %89
+  %90 = getelementptr i8, ptr %gep112, i64 2
   %91 = load i16, ptr %90, align 2, !tbaa !124
   %92 = zext i16 %91 to i32
   %93 = mul nuw nsw i32 %40, %92
-  %94 = getelementptr i8, ptr %gep108, i64 4
+  %94 = getelementptr i8, ptr %gep112, i64 4
   %95 = load i16, ptr %94, align 2, !tbaa !124
   %96 = zext i16 %95 to i32
   %97 = mul nuw nsw i32 %39, %96
@@ -6524,8 +6524,8 @@ define internal void @pred_angular_2_9(ptr noundef writeonly captures(none) %0, 
 
 104:                                              ; preds = %.preheader19, %104
   %indvars.iv83 = phi i64 [ 0, %.preheader19 ], [ %indvars.iv.next84, %104 ]
-  %gep110 = getelementptr i16, ptr %invariant.gep109, i64 %indvars.iv83
-  %105 = getelementptr i8, ptr %gep110, i64 2
+  %gep114 = getelementptr i16, ptr %invariant.gep113, i64 %indvars.iv83
+  %105 = getelementptr i8, ptr %gep114, i64 2
   %106 = load i64, ptr %105, align 1, !tbaa !97
   %107 = getelementptr i16, ptr %45, i64 %indvars.iv83
   store i64 %106, ptr %107, align 1, !tbaa !97
@@ -6616,23 +6616,23 @@ define internal void @pred_angular_2_9(ptr noundef writeonly captures(none) %0, 
   %151 = sub nuw nsw i32 32, %150
   %invariant.gep = getelementptr i16, ptr %0, i64 %indvars.iv62
   %152 = sext i32 %149 to i64
-  %invariant.gep97 = getelementptr i16, ptr %.1210.i, i64 %152
+  %invariant.gep101 = getelementptr i16, ptr %.1210.i, i64 %152
   br label %154
 
 .preheader27:                                     ; preds = %146
   %invariant.gep37 = getelementptr i16, ptr %0, i64 %indvars.iv62
   %153 = sext i32 %149 to i64
-  %invariant.gep99 = getelementptr i16, ptr %.1210.i, i64 %153
+  %invariant.gep103 = getelementptr i16, ptr %.1210.i, i64 %153
   br label %168
 
 154:                                              ; preds = %.preheader29, %154
   %indvars.iv54 = phi i64 [ 0, %.preheader29 ], [ %indvars.iv.next55, %154 ]
-  %gep98 = getelementptr i16, ptr %invariant.gep97, i64 %indvars.iv54
-  %155 = getelementptr i8, ptr %gep98, i64 2
+  %gep102 = getelementptr i16, ptr %invariant.gep101, i64 %indvars.iv54
+  %155 = getelementptr i8, ptr %gep102, i64 2
   %156 = load i16, ptr %155, align 2, !tbaa !124
   %157 = zext i16 %156 to i32
   %158 = mul nuw nsw i32 %151, %157
-  %159 = getelementptr i8, ptr %gep98, i64 4
+  %159 = getelementptr i8, ptr %gep102, i64 4
   %160 = load i16, ptr %159, align 2, !tbaa !124
   %161 = zext i16 %160 to i32
   %162 = mul nuw nsw i32 %150, %161
@@ -6649,8 +6649,8 @@ define internal void @pred_angular_2_9(ptr noundef writeonly captures(none) %0, 
 
 168:                                              ; preds = %.preheader27, %168
   %indvars.iv58 = phi i64 [ 0, %.preheader27 ], [ %indvars.iv.next59, %168 ]
-  %gep100 = getelementptr i16, ptr %invariant.gep99, i64 %indvars.iv58
-  %169 = getelementptr i8, ptr %gep100, i64 2
+  %gep104 = getelementptr i16, ptr %invariant.gep103, i64 %indvars.iv58
+  %169 = getelementptr i8, ptr %gep104, i64 2
   %170 = load i16, ptr %169, align 2, !tbaa !124
   %171 = mul nsw i64 %3, %indvars.iv58
   %gep38 = getelementptr i16, ptr %invariant.gep37, i64 %171
@@ -6812,27 +6812,27 @@ define internal void @pred_angular_3_9(ptr noundef writeonly captures(none) %0, 
   %39 = mul nsw i64 %3, %indvars.iv67
   %40 = getelementptr i16, ptr %0, i64 %39
   %41 = sext i32 %36 to i64
-  %invariant.gep78 = getelementptr i16, ptr %.0209.i, i64 %41
   %invariant.gep80 = getelementptr i16, ptr %.0209.i, i64 %41
   %invariant.gep82 = getelementptr i16, ptr %.0209.i, i64 %41
   %invariant.gep84 = getelementptr i16, ptr %.0209.i, i64 %41
+  %invariant.gep86 = getelementptr i16, ptr %.0209.i, i64 %41
   br label %45
 
 .preheader:                                       ; preds = %33
   %42 = mul nsw i64 %3, %indvars.iv67
   %43 = getelementptr i16, ptr %0, i64 %42
   %44 = sext i32 %36 to i64
-  %invariant.gep86 = getelementptr i16, ptr %.0209.i, i64 %44
+  %invariant.gep88 = getelementptr i16, ptr %.0209.i, i64 %44
   br label %102
 
 45:                                               ; preds = %.preheader5, %45
   %indvars.iv58 = phi i64 [ 0, %.preheader5 ], [ %indvars.iv.next59, %45 ]
-  %gep79 = getelementptr i16, ptr %invariant.gep78, i64 %indvars.iv58
-  %46 = getelementptr i8, ptr %gep79, i64 2
+  %gep81 = getelementptr i16, ptr %invariant.gep80, i64 %indvars.iv58
+  %46 = getelementptr i8, ptr %gep81, i64 2
   %47 = load i16, ptr %46, align 2, !tbaa !124
   %48 = zext i16 %47 to i32
   %49 = mul nuw nsw i32 %38, %48
-  %50 = getelementptr i8, ptr %gep79, i64 4
+  %50 = getelementptr i8, ptr %gep81, i64 4
   %51 = load i16, ptr %50, align 2, !tbaa !124
   %52 = zext i16 %51 to i32
   %53 = mul nuw nsw i32 %37, %52
@@ -6843,12 +6843,12 @@ define internal void @pred_angular_3_9(ptr noundef writeonly captures(none) %0, 
   %58 = getelementptr i16, ptr %40, i64 %indvars.iv58
   store i16 %57, ptr %58, align 2, !tbaa !124
   %59 = or disjoint i64 %indvars.iv58, 1
-  %gep81 = getelementptr i16, ptr %invariant.gep80, i64 %59
-  %60 = getelementptr i8, ptr %gep81, i64 2
+  %gep83 = getelementptr i16, ptr %invariant.gep82, i64 %59
+  %60 = getelementptr i8, ptr %gep83, i64 2
   %61 = load i16, ptr %60, align 2, !tbaa !124
   %62 = zext i16 %61 to i32
   %63 = mul nuw nsw i32 %38, %62
-  %64 = getelementptr i8, ptr %gep81, i64 4
+  %64 = getelementptr i8, ptr %gep83, i64 4
   %65 = load i16, ptr %64, align 2, !tbaa !124
   %66 = zext i16 %65 to i32
   %67 = mul nuw nsw i32 %37, %66
@@ -6859,12 +6859,12 @@ define internal void @pred_angular_3_9(ptr noundef writeonly captures(none) %0, 
   %72 = getelementptr i16, ptr %40, i64 %59
   store i16 %71, ptr %72, align 2, !tbaa !124
   %73 = or disjoint i64 %indvars.iv58, 2
-  %gep83 = getelementptr i16, ptr %invariant.gep82, i64 %73
-  %74 = getelementptr i8, ptr %gep83, i64 2
+  %gep85 = getelementptr i16, ptr %invariant.gep84, i64 %73
+  %74 = getelementptr i8, ptr %gep85, i64 2
   %75 = load i16, ptr %74, align 2, !tbaa !124
   %76 = zext i16 %75 to i32
   %77 = mul nuw nsw i32 %38, %76
-  %78 = getelementptr i8, ptr %gep83, i64 4
+  %78 = getelementptr i8, ptr %gep85, i64 4
   %79 = load i16, ptr %78, align 2, !tbaa !124
   %80 = zext i16 %79 to i32
   %81 = mul nuw nsw i32 %37, %80
@@ -6875,12 +6875,12 @@ define internal void @pred_angular_3_9(ptr noundef writeonly captures(none) %0, 
   %86 = getelementptr i16, ptr %40, i64 %73
   store i16 %85, ptr %86, align 2, !tbaa !124
   %87 = or disjoint i64 %indvars.iv58, 3
-  %gep85 = getelementptr i16, ptr %invariant.gep84, i64 %87
-  %88 = getelementptr i8, ptr %gep85, i64 2
+  %gep87 = getelementptr i16, ptr %invariant.gep86, i64 %87
+  %88 = getelementptr i8, ptr %gep87, i64 2
   %89 = load i16, ptr %88, align 2, !tbaa !124
   %90 = zext i16 %89 to i32
   %91 = mul nuw nsw i32 %38, %90
-  %92 = getelementptr i8, ptr %gep85, i64 4
+  %92 = getelementptr i8, ptr %gep87, i64 4
   %93 = load i16, ptr %92, align 2, !tbaa !124
   %94 = zext i16 %93 to i32
   %95 = mul nuw nsw i32 %37, %94
@@ -6896,8 +6896,8 @@ define internal void @pred_angular_3_9(ptr noundef writeonly captures(none) %0, 
 
 102:                                              ; preds = %.preheader, %102
   %indvars.iv64 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next65, %102 ]
-  %gep87 = getelementptr i16, ptr %invariant.gep86, i64 %indvars.iv64
-  %103 = getelementptr i8, ptr %gep87, i64 2
+  %gep89 = getelementptr i16, ptr %invariant.gep88, i64 %indvars.iv64
+  %103 = getelementptr i8, ptr %gep89, i64 2
   %104 = load i64, ptr %103, align 1, !tbaa !97
   %105 = getelementptr i16, ptr %43, i64 %indvars.iv64
   store i64 %104, ptr %105, align 1, !tbaa !97
@@ -6959,23 +6959,23 @@ define internal void @pred_angular_3_9(ptr noundef writeonly captures(none) %0, 
   %130 = sub nuw nsw i32 32, %129
   %invariant.gep = getelementptr i16, ptr %0, i64 %indvars.iv44
   %131 = sext i32 %128 to i64
-  %invariant.gep74 = getelementptr i16, ptr %.1210.i, i64 %131
+  %invariant.gep76 = getelementptr i16, ptr %.1210.i, i64 %131
   br label %133
 
 .preheader10:                                     ; preds = %125
   %invariant.gep21 = getelementptr i16, ptr %0, i64 %indvars.iv44
   %132 = sext i32 %128 to i64
-  %invariant.gep76 = getelementptr i16, ptr %.1210.i, i64 %132
+  %invariant.gep78 = getelementptr i16, ptr %.1210.i, i64 %132
   br label %147
 
 133:                                              ; preds = %.preheader12, %133
   %indvars.iv36 = phi i64 [ 0, %.preheader12 ], [ %indvars.iv.next37, %133 ]
-  %gep75 = getelementptr i16, ptr %invariant.gep74, i64 %indvars.iv36
-  %134 = getelementptr i8, ptr %gep75, i64 2
+  %gep77 = getelementptr i16, ptr %invariant.gep76, i64 %indvars.iv36
+  %134 = getelementptr i8, ptr %gep77, i64 2
   %135 = load i16, ptr %134, align 2, !tbaa !124
   %136 = zext i16 %135 to i32
   %137 = mul nuw nsw i32 %130, %136
-  %138 = getelementptr i8, ptr %gep75, i64 4
+  %138 = getelementptr i8, ptr %gep77, i64 4
   %139 = load i16, ptr %138, align 2, !tbaa !124
   %140 = zext i16 %139 to i32
   %141 = mul nuw nsw i32 %129, %140
@@ -6992,8 +6992,8 @@ define internal void @pred_angular_3_9(ptr noundef writeonly captures(none) %0, 
 
 147:                                              ; preds = %.preheader10, %147
   %indvars.iv40 = phi i64 [ 0, %.preheader10 ], [ %indvars.iv.next41, %147 ]
-  %gep77 = getelementptr i16, ptr %invariant.gep76, i64 %indvars.iv40
-  %148 = getelementptr i8, ptr %gep77, i64 2
+  %gep79 = getelementptr i16, ptr %invariant.gep78, i64 %indvars.iv40
+  %148 = getelementptr i8, ptr %gep79, i64 2
   %149 = load i16, ptr %148, align 2, !tbaa !124
   %150 = mul nsw i64 %3, %indvars.iv40
   %gep22 = getelementptr i16, ptr %invariant.gep21, i64 %150
@@ -7466,9 +7466,9 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   br i1 %291, label %.lr.ph71, label %.loopexit37
 
 .lr.ph71:                                         ; preds = %.preheader38, %._crit_edge68
-  %.pn252 = sext i32 %284 to i64
-  %.pn251 = mul nsw i64 %57, %.pn252
-  %.pn = getelementptr i16, ptr %64, i64 %.pn251
+  %.pn260 = sext i32 %284 to i64
+  %.pn259 = mul nsw i64 %57, %.pn260
+  %.pn = getelementptr i16, ptr %64, i64 %.pn259
   %.in.in.in = getelementptr i8, ptr %.pn, i64 -2
   %.in.in = load i16, ptr %.in.in.in, align 2, !tbaa !124
   %.in = zext i16 %.in.in to i64
@@ -7619,11 +7619,11 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   br i1 %362, label %.lr.ph86, label %._crit_edge87
 
 .lr.ph86:                                         ; preds = %.preheader33, %.critedge25.i
-  %.1799.i.lcssa231 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader33 ]
+  %.1799.i.lcssa239 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader33 ]
   %363 = sub nsw i32 %3, %344
   %364 = ashr i32 %363, %329
   %365 = mul nsw i32 %364, %66
-  %366 = zext nneg i32 %.1799.i.lcssa231 to i64
+  %366 = zext nneg i32 %.1799.i.lcssa239 to i64
   br label %367
 
 367:                                              ; preds = %.lr.ph86, %381
@@ -7681,7 +7681,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   br label %418
 
 .lr.ph78:                                         ; preds = %391, %.critedge27.i
-  %.2800.i.lcssa237 = phi i32 [ %.2800.i72, %.critedge27.i ], [ %.0796.i, %391 ]
+  %.2800.i.lcssa245 = phi i32 [ %.2800.i72, %.critedge27.i ], [ %.0796.i, %391 ]
   %393 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %394 = load ptr, ptr %393, align 8, !tbaa !110
   %395 = getelementptr inbounds nuw i8, ptr %9, i64 18616
@@ -7690,7 +7690,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   %397 = add nsw i32 %.neg848.i, %3
   %398 = ashr i32 %397, %396
   %399 = mul nsw i32 %398, %66
-  %400 = zext nneg i32 %.2800.i.lcssa237 to i64
+  %400 = zext nneg i32 %.2800.i.lcssa245 to i64
   br label %401
 
 401:                                              ; preds = %.lr.ph78, %415
@@ -8014,7 +8014,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   br i1 %.0778.i, label %591, label %568
 
 .loopexit27.thread:                               ; preds = %301
-  br i1 %.0778.i, label %.thread11.split, label %.thread242
+  br i1 %.0778.i, label %.thread11.split, label %.thread250
 
 568:                                              ; preds = %.loopexit27
   br i1 %277, label %.split118, label %574
@@ -8041,7 +8041,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   br label %.thread4.thread
 
 579:                                              ; preds = %574
-  br i1 %250, label %.thread4.thread.thread.loopexit.critedge, label %.thread242
+  br i1 %250, label %.thread4.thread.thread.loopexit.critedge, label %.thread250
 
 .thread4.thread.thread.loopexit.critedge:         ; preds = %579
   %580 = load i16, ptr %69, align 2, !tbaa !124
@@ -8053,10 +8053,10 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   store i64 %582, ptr %583, align 2, !tbaa !97
   br label %.thread4.thread.thread
 
-.thread242:                                       ; preds = %.loopexit27.thread, %579
+.thread250:                                       ; preds = %.loopexit27.thread, %579
   br i1 %.0792.i, label %.split113, label %.preheader.preheader.critedge
 
-.split113:                                        ; preds = %.thread242
+.split113:                                        ; preds = %.thread250
   %584 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %585 = load i16, ptr %584, align 2, !tbaa !124
   %586 = zext i16 %585 to i64
@@ -8068,7 +8068,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   store i64 %587, ptr %588, align 2, !tbaa !97
   br label %.thread4.thread.thread.thread
 
-.preheader.preheader.critedge:                    ; preds = %.thread242
+.preheader.preheader.critedge:                    ; preds = %.thread250
   store i16 512, ptr %6, align 16, !tbaa !124
   store i64 144117387132666368, ptr %69, align 2, !tbaa !97
   %589 = getelementptr inbounds nuw i8, ptr %7, i64 10
@@ -8618,9 +8618,9 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   br i1 %293, label %.lr.ph77, label %.loopexit43
 
 .lr.ph77:                                         ; preds = %.preheader44, %._crit_edge74
-  %.pn290 = sext i32 %286 to i64
-  %.pn289 = mul nsw i64 %59, %.pn290
-  %.pn = getelementptr i16, ptr %66, i64 %.pn289
+  %.pn299 = sext i32 %286 to i64
+  %.pn298 = mul nsw i64 %59, %.pn299
+  %.pn = getelementptr i16, ptr %66, i64 %.pn298
   %.in.in.in = getelementptr i8, ptr %.pn, i64 -2
   %.in.in = load i16, ptr %.in.in.in, align 2, !tbaa !124
   %.in = zext i16 %.in.in to i64
@@ -8771,11 +8771,11 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   br i1 %364, label %.lr.ph92, label %._crit_edge93
 
 .lr.ph92:                                         ; preds = %.preheader39, %.critedge25.i
-  %.1799.i.lcssa266 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader39 ]
+  %.1799.i.lcssa275 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader39 ]
   %365 = sub nsw i32 %3, %346
   %366 = ashr i32 %365, %331
   %367 = mul nsw i32 %366, %68
-  %368 = zext nneg i32 %.1799.i.lcssa266 to i64
+  %368 = zext nneg i32 %.1799.i.lcssa275 to i64
   br label %369
 
 369:                                              ; preds = %.lr.ph92, %383
@@ -8800,8 +8800,8 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   br label %383
 
 383:                                              ; preds = %379, %369
-  %.not291 = icmp eq i64 %indvars.iv163, 0
-  br i1 %.not291, label %._crit_edge93, label %369, !llvm.loop !185
+  %.not300 = icmp eq i64 %indvars.iv163, 0
+  br i1 %.not300, label %._crit_edge93, label %369, !llvm.loop !185
 
 ._crit_edge93:                                    ; preds = %383, %.critedge25.i
   %384 = load i16, ptr %8, align 16, !tbaa !124
@@ -8833,7 +8833,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   br label %420
 
 .lr.ph84:                                         ; preds = %393, %.critedge27.i
-  %.2800.i.lcssa272 = phi i32 [ %.2800.i78, %.critedge27.i ], [ %.0796.i, %393 ]
+  %.2800.i.lcssa281 = phi i32 [ %.2800.i78, %.critedge27.i ], [ %.0796.i, %393 ]
   %395 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %396 = load ptr, ptr %395, align 8, !tbaa !110
   %397 = getelementptr inbounds nuw i8, ptr %11, i64 18616
@@ -8842,7 +8842,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   %399 = add nsw i32 %.neg848.i, %3
   %400 = ashr i32 %399, %398
   %401 = mul nsw i32 %400, %68
-  %402 = zext nneg i32 %.2800.i.lcssa272 to i64
+  %402 = zext nneg i32 %.2800.i.lcssa281 to i64
   br label %403
 
 403:                                              ; preds = %.lr.ph84, %417
@@ -9170,12 +9170,12 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   br i1 %.0778.i, label %606, label %570
 
 .loopexit33.thread:                               ; preds = %303
-  br i1 %.0778.i, label %.thread11, label %.thread277
+  br i1 %.0778.i, label %.thread11, label %.thread286
 
 570:                                              ; preds = %.loopexit33
-  br i1 %279, label %.thread4.loopexit292.critedge, label %574
+  br i1 %279, label %.thread4.loopexit301.critedge, label %574
 
-.thread4.loopexit292.critedge:                    ; preds = %570
+.thread4.loopexit301.critedge:                    ; preds = %570
   %571 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %572 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %573 = load i16, ptr %572, align 16, !tbaa !124
@@ -9199,7 +9199,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   br i1 %581, label %579, label %.thread4.thread, !llvm.loop !192
 
 582:                                              ; preds = %574
-  br i1 %254, label %583, label %.thread277
+  br i1 %254, label %583, label %.thread286
 
 583:                                              ; preds = %582
   %584 = load i16, ptr %71, align 2, !tbaa !124
@@ -9216,10 +9216,10 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   %589 = icmp samesign ult i64 %indvars.iv199, 12
   br i1 %589, label %587, label %.thread4.thread.thread, !llvm.loop !193
 
-.thread277:                                       ; preds = %.loopexit33.thread, %582
+.thread286:                                       ; preds = %.loopexit33.thread, %582
   br i1 %.0792.i, label %.critedge, label %600
 
-.critedge:                                        ; preds = %.thread277
+.critedge:                                        ; preds = %.thread286
   %590 = getelementptr inbounds nuw i8, ptr %8, i64 18
   %591 = load i16, ptr %590, align 2, !tbaa !124
   %592 = zext i16 %591 to i64
@@ -9240,7 +9240,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   %599 = icmp samesign ult i64 %indvars.iv196, 12
   br i1 %599, label %597, label %.loopexit29, !llvm.loop !194
 
-600:                                              ; preds = %.thread277
+600:                                              ; preds = %.thread286
   store i16 512, ptr %6, align 16, !tbaa !124
   br label %601
 
@@ -9271,15 +9271,15 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   %608 = load i16, ptr %607, align 2, !tbaa !124
   br label %.thread4.sink.split
 
-.thread4.sink.split:                              ; preds = %.thread11, %.thread4.loopexit292.critedge
-  %.sink = phi i16 [ %608, %.thread11 ], [ %573, %.thread4.loopexit292.critedge ]
-  %.sink312 = phi ptr [ %70, %.thread11 ], [ %571, %.thread4.loopexit292.critedge ]
-  %.2787.i10.ph = phi i32 [ %.2787.i17, %.thread11 ], [ %.0785.i, %.thread4.loopexit292.critedge ]
-  %.3791.i9.ph = phi i32 [ %.3791.i16, %.thread11 ], [ %.0788.i, %.thread4.loopexit292.critedge ]
+.thread4.sink.split:                              ; preds = %.thread11, %.thread4.loopexit301.critedge
+  %.sink = phi i16 [ %608, %.thread11 ], [ %573, %.thread4.loopexit301.critedge ]
+  %.sink321 = phi ptr [ %70, %.thread11 ], [ %571, %.thread4.loopexit301.critedge ]
+  %.2787.i10.ph = phi i32 [ %.2787.i17, %.thread11 ], [ %.0785.i, %.thread4.loopexit301.critedge ]
+  %.3791.i9.ph = phi i32 [ %.3791.i16, %.thread11 ], [ %.0788.i, %.thread4.loopexit301.critedge ]
   %609 = zext i16 %.sink to i64
   %610 = mul nuw i64 %609, 281479271743489
-  store i64 %610, ptr %.sink312, align 2, !tbaa !97
-  %611 = getelementptr inbounds nuw i8, ptr %.sink312, i64 8
+  store i64 %610, ptr %.sink321, align 2, !tbaa !97
+  %611 = getelementptr inbounds nuw i8, ptr %.sink321, i64 8
   store i64 %610, ptr %611, align 2, !tbaa !97
   br label %.thread4
 
@@ -9387,8 +9387,8 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   %667 = getelementptr inbounds nuw i16, ptr %72, i64 %indvars.iv217
   store i16 %666, ptr %667, align 2, !tbaa !124
   %indvars.iv.next218 = add nsw i64 %indvars.iv217, -1
-  %.not262 = icmp eq i64 %indvars.iv217, 0
-  br i1 %.not262, label %668, label %651, !llvm.loop !197
+  %.not271 = icmp eq i64 %indvars.iv217, 0
+  br i1 %.not271, label %668, label %651, !llvm.loop !197
 
 668:                                              ; preds = %651
   %669 = load i16, ptr %70, align 2, !tbaa !124
@@ -9426,8 +9426,8 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   %696 = getelementptr inbounds nuw i16, ptr %73, i64 %indvars.iv220
   store i16 %695, ptr %696, align 2, !tbaa !124
   %indvars.iv.next221 = add nsw i64 %indvars.iv220, -1
-  %.not263 = icmp eq i64 %indvars.iv220, 0
-  br i1 %.not263, label %.loopexit, label %680, !llvm.loop !198
+  %.not272 = icmp eq i64 %indvars.iv220, 0
+  br i1 %.not272, label %.loopexit, label %680, !llvm.loop !198
 
 .loopexit:                                        ; preds = %680, %633, %628, %.loopexit29
   %.0775.i = phi ptr [ %71, %.loopexit29 ], [ %71, %628 ], [ %71, %633 ], [ %73, %680 ]
@@ -9924,9 +9924,9 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   br i1 %293, label %.lr.ph77, label %.loopexit43
 
 .lr.ph77:                                         ; preds = %.preheader44, %._crit_edge74
-  %.pn290 = sext i32 %286 to i64
-  %.pn289 = mul nsw i64 %59, %.pn290
-  %.pn = getelementptr i16, ptr %66, i64 %.pn289
+  %.pn299 = sext i32 %286 to i64
+  %.pn298 = mul nsw i64 %59, %.pn299
+  %.pn = getelementptr i16, ptr %66, i64 %.pn298
   %.in.in.in = getelementptr i8, ptr %.pn, i64 -2
   %.in.in = load i16, ptr %.in.in.in, align 2, !tbaa !124
   %.in = zext i16 %.in.in to i64
@@ -10077,11 +10077,11 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   br i1 %364, label %.lr.ph92, label %._crit_edge93
 
 .lr.ph92:                                         ; preds = %.preheader39, %.critedge25.i
-  %.1799.i.lcssa266 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader39 ]
+  %.1799.i.lcssa275 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader39 ]
   %365 = sub nsw i32 %3, %346
   %366 = ashr i32 %365, %331
   %367 = mul nsw i32 %366, %68
-  %368 = zext nneg i32 %.1799.i.lcssa266 to i64
+  %368 = zext nneg i32 %.1799.i.lcssa275 to i64
   br label %369
 
 369:                                              ; preds = %.lr.ph92, %383
@@ -10106,8 +10106,8 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   br label %383
 
 383:                                              ; preds = %379, %369
-  %.not291 = icmp eq i64 %indvars.iv163, 0
-  br i1 %.not291, label %._crit_edge93, label %369, !llvm.loop !185
+  %.not300 = icmp eq i64 %indvars.iv163, 0
+  br i1 %.not300, label %._crit_edge93, label %369, !llvm.loop !185
 
 ._crit_edge93:                                    ; preds = %383, %.critedge25.i
   %384 = load i16, ptr %8, align 16, !tbaa !124
@@ -10139,7 +10139,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   br label %420
 
 .lr.ph84:                                         ; preds = %393, %.critedge27.i
-  %.2800.i.lcssa272 = phi i32 [ %.2800.i78, %.critedge27.i ], [ %.0796.i, %393 ]
+  %.2800.i.lcssa281 = phi i32 [ %.2800.i78, %.critedge27.i ], [ %.0796.i, %393 ]
   %395 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %396 = load ptr, ptr %395, align 8, !tbaa !110
   %397 = getelementptr inbounds nuw i8, ptr %11, i64 18616
@@ -10148,7 +10148,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   %399 = add nsw i32 %.neg848.i, %3
   %400 = ashr i32 %399, %398
   %401 = mul nsw i32 %400, %68
-  %402 = zext nneg i32 %.2800.i.lcssa272 to i64
+  %402 = zext nneg i32 %.2800.i.lcssa281 to i64
   br label %403
 
 403:                                              ; preds = %.lr.ph84, %417
@@ -10486,7 +10486,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   br i1 %.0778.i, label %622, label %575
 
 .loopexit33.thread:                               ; preds = %303
-  br i1 %.0778.i, label %.thread11, label %.thread277
+  br i1 %.0778.i, label %.thread11, label %.thread286
 
 575:                                              ; preds = %.loopexit33
   br i1 %279, label %576, label %585
@@ -10525,7 +10525,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   br i1 %592, label %590, label %.thread4.thread, !llvm.loop !192
 
 593:                                              ; preds = %585
-  br i1 %254, label %594, label %.thread277
+  br i1 %254, label %594, label %.thread286
 
 594:                                              ; preds = %593
   %595 = load i16, ptr %71, align 2, !tbaa !124
@@ -10542,10 +10542,10 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   %600 = icmp samesign ult i64 %indvars.iv199, 28
   br i1 %600, label %598, label %.thread4.thread.thread, !llvm.loop !193
 
-.thread277:                                       ; preds = %.loopexit33.thread, %593
+.thread286:                                       ; preds = %.loopexit33.thread, %593
   br i1 %.0792.i, label %601, label %616
 
-601:                                              ; preds = %.thread277
+601:                                              ; preds = %.thread286
   %602 = getelementptr inbounds nuw i8, ptr %8, i64 34
   %603 = load i16, ptr %602, align 2, !tbaa !124
   %604 = zext i16 %603 to i64
@@ -10575,7 +10575,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   %615 = icmp samesign ult i64 %indvars.iv196, 28
   br i1 %615, label %613, label %.loopexit29, !llvm.loop !194
 
-616:                                              ; preds = %.thread277
+616:                                              ; preds = %.thread286
   store i16 512, ptr %6, align 16, !tbaa !124
   br label %617
 
@@ -10730,8 +10730,8 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   %691 = getelementptr inbounds nuw i16, ptr %72, i64 %indvars.iv217
   store i16 %690, ptr %691, align 2, !tbaa !124
   %indvars.iv.next218 = add nsw i64 %indvars.iv217, -1
-  %.not262 = icmp eq i64 %indvars.iv217, 0
-  br i1 %.not262, label %692, label %675, !llvm.loop !197
+  %.not271 = icmp eq i64 %indvars.iv217, 0
+  br i1 %.not271, label %692, label %675, !llvm.loop !197
 
 692:                                              ; preds = %675
   %693 = load i16, ptr %70, align 2, !tbaa !124
@@ -10769,8 +10769,8 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   %720 = getelementptr inbounds nuw i16, ptr %73, i64 %indvars.iv220
   store i16 %719, ptr %720, align 2, !tbaa !124
   %indvars.iv.next221 = add nsw i64 %indvars.iv220, -1
-  %.not263 = icmp eq i64 %indvars.iv220, 0
-  br i1 %.not263, label %.loopexit, label %704, !llvm.loop !198
+  %.not272 = icmp eq i64 %indvars.iv220, 0
+  br i1 %.not272, label %.loopexit, label %704, !llvm.loop !198
 
 .loopexit:                                        ; preds = %704, %657, %652, %.loopexit29
   %.0775.i = phi ptr [ %71, %.loopexit29 ], [ %71, %652 ], [ %71, %657 ], [ %73, %704 ]
@@ -11267,9 +11267,9 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   br i1 %293, label %.lr.ph80, label %.loopexit46
 
 .lr.ph80:                                         ; preds = %.preheader47, %._crit_edge77
-  %.pn309 = sext i32 %286 to i64
-  %.pn308 = mul nsw i64 %59, %.pn309
-  %.pn = getelementptr i16, ptr %66, i64 %.pn308
+  %.pn318 = sext i32 %286 to i64
+  %.pn317 = mul nsw i64 %59, %.pn318
+  %.pn = getelementptr i16, ptr %66, i64 %.pn317
   %.in.in.in = getelementptr i8, ptr %.pn, i64 -2
   %.in.in = load i16, ptr %.in.in.in, align 2, !tbaa !124
   %.in = zext i16 %.in.in to i64
@@ -11420,11 +11420,11 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   br i1 %364, label %.lr.ph95, label %._crit_edge96
 
 .lr.ph95:                                         ; preds = %.preheader42, %.critedge25.i
-  %.1799.i.lcssa284 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader42 ]
+  %.1799.i.lcssa293 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader42 ]
   %365 = sub nsw i32 %3, %346
   %366 = ashr i32 %365, %331
   %367 = mul nsw i32 %366, %68
-  %368 = zext nneg i32 %.1799.i.lcssa284 to i64
+  %368 = zext nneg i32 %.1799.i.lcssa293 to i64
   br label %369
 
 369:                                              ; preds = %.lr.ph95, %383
@@ -11449,8 +11449,8 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   br label %383
 
 383:                                              ; preds = %379, %369
-  %.not310 = icmp eq i64 %indvars.iv170, 0
-  br i1 %.not310, label %._crit_edge96, label %369, !llvm.loop !185
+  %.not319 = icmp eq i64 %indvars.iv170, 0
+  br i1 %.not319, label %._crit_edge96, label %369, !llvm.loop !185
 
 ._crit_edge96:                                    ; preds = %383, %.critedge25.i
   %384 = load i16, ptr %8, align 16, !tbaa !124
@@ -11482,7 +11482,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   br label %420
 
 .lr.ph87:                                         ; preds = %393, %.critedge27.i
-  %.2800.i.lcssa290 = phi i32 [ %.2800.i81, %.critedge27.i ], [ %.0796.i, %393 ]
+  %.2800.i.lcssa299 = phi i32 [ %.2800.i81, %.critedge27.i ], [ %.0796.i, %393 ]
   %395 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %396 = load ptr, ptr %395, align 8, !tbaa !110
   %397 = getelementptr inbounds nuw i8, ptr %11, i64 18616
@@ -11491,7 +11491,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   %399 = add nsw i32 %.neg848.i, %3
   %400 = ashr i32 %399, %398
   %401 = mul nsw i32 %400, %68
-  %402 = zext nneg i32 %.2800.i.lcssa290 to i64
+  %402 = zext nneg i32 %.2800.i.lcssa299 to i64
   br label %403
 
 403:                                              ; preds = %.lr.ph87, %417
@@ -11829,7 +11829,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   br i1 %.0778.i, label %622, label %575
 
 .loopexit36.thread:                               ; preds = %303
-  br i1 %.0778.i, label %.thread11, label %.thread295
+  br i1 %.0778.i, label %.thread11, label %.thread304
 
 575:                                              ; preds = %.loopexit36
   br i1 %279, label %576, label %585
@@ -11868,7 +11868,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   br i1 %592, label %590, label %.thread4.thread, !llvm.loop !192
 
 593:                                              ; preds = %585
-  br i1 %254, label %594, label %.thread295
+  br i1 %254, label %594, label %.thread304
 
 594:                                              ; preds = %593
   %595 = load i16, ptr %71, align 2, !tbaa !124
@@ -11885,10 +11885,10 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   %600 = icmp samesign ult i64 %indvars.iv206, 60
   br i1 %600, label %598, label %.thread4.thread.thread, !llvm.loop !193
 
-.thread295:                                       ; preds = %.loopexit36.thread, %593
+.thread304:                                       ; preds = %.loopexit36.thread, %593
   br i1 %.0792.i, label %601, label %616
 
-601:                                              ; preds = %.thread295
+601:                                              ; preds = %.thread304
   %602 = getelementptr inbounds nuw i8, ptr %8, i64 66
   %603 = load i16, ptr %602, align 2, !tbaa !124
   %604 = zext i16 %603 to i64
@@ -11918,7 +11918,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   %615 = icmp samesign ult i64 %indvars.iv203, 60
   br i1 %615, label %613, label %.loopexit31, !llvm.loop !194
 
-616:                                              ; preds = %.thread295
+616:                                              ; preds = %.thread304
   store i16 512, ptr %6, align 16, !tbaa !124
   br label %617
 
@@ -12155,8 +12155,8 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   %744 = getelementptr inbounds nuw i16, ptr %72, i64 %indvars.iv224
   store i16 %743, ptr %744, align 2, !tbaa !124
   %indvars.iv.next225 = add nsw i64 %indvars.iv224, -1
-  %.not280 = icmp eq i64 %indvars.iv224, 0
-  br i1 %.not280, label %745, label %728, !llvm.loop !197
+  %.not289 = icmp eq i64 %indvars.iv224, 0
+  br i1 %.not289, label %745, label %728, !llvm.loop !197
 
 745:                                              ; preds = %728
   %746 = load i16, ptr %70, align 2, !tbaa !124
@@ -12194,8 +12194,8 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   %773 = getelementptr inbounds nuw i16, ptr %73, i64 %indvars.iv227
   store i16 %772, ptr %773, align 2, !tbaa !124
   %indvars.iv.next228 = add nsw i64 %indvars.iv227, -1
-  %.not281 = icmp eq i64 %indvars.iv227, 0
-  br i1 %.not281, label %.loopexit, label %757, !llvm.loop !198
+  %.not290 = icmp eq i64 %indvars.iv227, 0
+  br i1 %.not290, label %.loopexit, label %757, !llvm.loop !198
 
 .loopexit:                                        ; preds = %757, %.preheader, %657, %652, %.loopexit31
   %.0775.i = phi ptr [ %71, %.loopexit31 ], [ %71, %652 ], [ %71, %657 ], [ %73, %.preheader ], [ %73, %757 ]
@@ -12788,23 +12788,23 @@ define internal void @pred_angular_0_10(ptr noundef writeonly captures(none) %0,
   %142 = sub nuw nsw i32 32, %141
   %invariant.gep = getelementptr i16, ptr %0, i64 %indvars.iv62
   %143 = sext i32 %140 to i64
-  %invariant.gep83 = getelementptr i16, ptr %.1210.i, i64 %143
+  %invariant.gep87 = getelementptr i16, ptr %.1210.i, i64 %143
   br label %145
 
 .preheader13:                                     ; preds = %137
   %invariant.gep23 = getelementptr i16, ptr %0, i64 %indvars.iv62
   %144 = sext i32 %140 to i64
-  %invariant.gep85 = getelementptr i16, ptr %.1210.i, i64 %144
+  %invariant.gep89 = getelementptr i16, ptr %.1210.i, i64 %144
   br label %159
 
 145:                                              ; preds = %.preheader15, %145
   %indvars.iv54 = phi i64 [ 0, %.preheader15 ], [ %indvars.iv.next55, %145 ]
-  %gep84 = getelementptr i16, ptr %invariant.gep83, i64 %indvars.iv54
-  %146 = getelementptr i8, ptr %gep84, i64 2
+  %gep88 = getelementptr i16, ptr %invariant.gep87, i64 %indvars.iv54
+  %146 = getelementptr i8, ptr %gep88, i64 2
   %147 = load i16, ptr %146, align 2, !tbaa !124
   %148 = zext i16 %147 to i32
   %149 = mul nuw nsw i32 %142, %148
-  %150 = getelementptr i8, ptr %gep84, i64 4
+  %150 = getelementptr i8, ptr %gep88, i64 4
   %151 = load i16, ptr %150, align 2, !tbaa !124
   %152 = zext i16 %151 to i32
   %153 = mul nuw nsw i32 %141, %152
@@ -12821,8 +12821,8 @@ define internal void @pred_angular_0_10(ptr noundef writeonly captures(none) %0,
 
 159:                                              ; preds = %.preheader13, %159
   %indvars.iv58 = phi i64 [ 0, %.preheader13 ], [ %indvars.iv.next59, %159 ]
-  %gep86 = getelementptr i16, ptr %invariant.gep85, i64 %indvars.iv58
-  %160 = getelementptr i8, ptr %gep86, i64 2
+  %gep90 = getelementptr i16, ptr %invariant.gep89, i64 %indvars.iv58
+  %160 = getelementptr i8, ptr %gep90, i64 2
   %161 = load i16, ptr %160, align 2, !tbaa !124
   %162 = mul nsw i64 %3, %indvars.iv58
   %gep24 = getelementptr i16, ptr %invariant.gep23, i64 %162
@@ -12973,21 +12973,21 @@ define internal void @pred_angular_1_10(ptr noundef writeonly captures(none) %0,
   %41 = mul nsw i64 %3, %indvars.iv72
   %42 = getelementptr i16, ptr %0, i64 %41
   %43 = sext i32 %38 to i64
-  %invariant.gep87 = getelementptr i16, ptr %.0209.i, i64 %43
-  %invariant.gep89 = getelementptr i16, ptr %.0209.i, i64 %43
   %invariant.gep91 = getelementptr i16, ptr %.0209.i, i64 %43
   %invariant.gep93 = getelementptr i16, ptr %.0209.i, i64 %43
+  %invariant.gep95 = getelementptr i16, ptr %.0209.i, i64 %43
+  %invariant.gep97 = getelementptr i16, ptr %.0209.i, i64 %43
   br label %52
 
 .preheader5:                                      ; preds = %35
   %44 = mul nsw i64 %3, %indvars.iv72
   %45 = getelementptr i16, ptr %0, i64 %44
   %46 = sext i32 %38 to i64
-  %invariant.gep95 = getelementptr i16, ptr %.0209.i, i64 %46
-  %47 = getelementptr i8, ptr %invariant.gep95, i64 2
+  %invariant.gep99 = getelementptr i16, ptr %.0209.i, i64 %46
+  %47 = getelementptr i8, ptr %invariant.gep99, i64 2
   %48 = load i64, ptr %47, align 1, !tbaa !97
   store i64 %48, ptr %45, align 1, !tbaa !97
-  %49 = getelementptr i8, ptr %invariant.gep95, i64 10
+  %49 = getelementptr i8, ptr %invariant.gep99, i64 10
   %50 = load i64, ptr %49, align 1, !tbaa !97
   %51 = getelementptr i8, ptr %45, i64 8
   store i64 %50, ptr %51, align 1, !tbaa !97
@@ -12996,12 +12996,12 @@ define internal void @pred_angular_1_10(ptr noundef writeonly captures(none) %0,
 52:                                               ; preds = %.preheader6, %52
   %53 = phi i1 [ true, %.preheader6 ], [ false, %52 ]
   %indvars.iv63 = phi i64 [ 0, %.preheader6 ], [ 4, %52 ]
-  %gep88 = getelementptr i16, ptr %invariant.gep87, i64 %indvars.iv63
-  %54 = getelementptr i8, ptr %gep88, i64 2
+  %gep92 = getelementptr i16, ptr %invariant.gep91, i64 %indvars.iv63
+  %54 = getelementptr i8, ptr %gep92, i64 2
   %55 = load i16, ptr %54, align 2, !tbaa !124
   %56 = zext i16 %55 to i32
   %57 = mul nuw nsw i32 %40, %56
-  %58 = getelementptr i8, ptr %gep88, i64 4
+  %58 = getelementptr i8, ptr %gep92, i64 4
   %59 = load i16, ptr %58, align 2, !tbaa !124
   %60 = zext i16 %59 to i32
   %61 = mul nuw nsw i32 %39, %60
@@ -13012,12 +13012,12 @@ define internal void @pred_angular_1_10(ptr noundef writeonly captures(none) %0,
   %66 = getelementptr i16, ptr %42, i64 %indvars.iv63
   store i16 %65, ptr %66, align 2, !tbaa !124
   %67 = or disjoint i64 %indvars.iv63, 1
-  %gep90 = getelementptr i16, ptr %invariant.gep89, i64 %67
-  %68 = getelementptr i8, ptr %gep90, i64 2
+  %gep94 = getelementptr i16, ptr %invariant.gep93, i64 %67
+  %68 = getelementptr i8, ptr %gep94, i64 2
   %69 = load i16, ptr %68, align 2, !tbaa !124
   %70 = zext i16 %69 to i32
   %71 = mul nuw nsw i32 %40, %70
-  %72 = getelementptr i8, ptr %gep90, i64 4
+  %72 = getelementptr i8, ptr %gep94, i64 4
   %73 = load i16, ptr %72, align 2, !tbaa !124
   %74 = zext i16 %73 to i32
   %75 = mul nuw nsw i32 %39, %74
@@ -13028,12 +13028,12 @@ define internal void @pred_angular_1_10(ptr noundef writeonly captures(none) %0,
   %80 = getelementptr i16, ptr %42, i64 %67
   store i16 %79, ptr %80, align 2, !tbaa !124
   %81 = or disjoint i64 %indvars.iv63, 2
-  %gep92 = getelementptr i16, ptr %invariant.gep91, i64 %81
-  %82 = getelementptr i8, ptr %gep92, i64 2
+  %gep96 = getelementptr i16, ptr %invariant.gep95, i64 %81
+  %82 = getelementptr i8, ptr %gep96, i64 2
   %83 = load i16, ptr %82, align 2, !tbaa !124
   %84 = zext i16 %83 to i32
   %85 = mul nuw nsw i32 %40, %84
-  %86 = getelementptr i8, ptr %gep92, i64 4
+  %86 = getelementptr i8, ptr %gep96, i64 4
   %87 = load i16, ptr %86, align 2, !tbaa !124
   %88 = zext i16 %87 to i32
   %89 = mul nuw nsw i32 %39, %88
@@ -13044,12 +13044,12 @@ define internal void @pred_angular_1_10(ptr noundef writeonly captures(none) %0,
   %94 = getelementptr i16, ptr %42, i64 %81
   store i16 %93, ptr %94, align 2, !tbaa !124
   %95 = or disjoint i64 %indvars.iv63, 3
-  %gep94 = getelementptr i16, ptr %invariant.gep93, i64 %95
-  %96 = getelementptr i8, ptr %gep94, i64 2
+  %gep98 = getelementptr i16, ptr %invariant.gep97, i64 %95
+  %96 = getelementptr i8, ptr %gep98, i64 2
   %97 = load i16, ptr %96, align 2, !tbaa !124
   %98 = zext i16 %97 to i32
   %99 = mul nuw nsw i32 %40, %98
-  %100 = getelementptr i8, ptr %gep94, i64 4
+  %100 = getelementptr i8, ptr %gep98, i64 4
   %101 = load i16, ptr %100, align 2, !tbaa !124
   %102 = zext i16 %101 to i32
   %103 = mul nuw nsw i32 %39, %102
@@ -13144,23 +13144,23 @@ define internal void @pred_angular_1_10(ptr noundef writeonly captures(none) %0,
   %151 = sub nuw nsw i32 32, %150
   %invariant.gep = getelementptr i16, ptr %0, i64 %indvars.iv48
   %152 = sext i32 %149 to i64
-  %invariant.gep83 = getelementptr i16, ptr %.1210.i, i64 %152
+  %invariant.gep87 = getelementptr i16, ptr %.1210.i, i64 %152
   br label %154
 
 .preheader13:                                     ; preds = %146
   %invariant.gep23 = getelementptr i16, ptr %0, i64 %indvars.iv48
   %153 = sext i32 %149 to i64
-  %invariant.gep85 = getelementptr i16, ptr %.1210.i, i64 %153
+  %invariant.gep89 = getelementptr i16, ptr %.1210.i, i64 %153
   br label %168
 
 154:                                              ; preds = %.preheader15, %154
   %indvars.iv40 = phi i64 [ 0, %.preheader15 ], [ %indvars.iv.next41, %154 ]
-  %gep84 = getelementptr i16, ptr %invariant.gep83, i64 %indvars.iv40
-  %155 = getelementptr i8, ptr %gep84, i64 2
+  %gep88 = getelementptr i16, ptr %invariant.gep87, i64 %indvars.iv40
+  %155 = getelementptr i8, ptr %gep88, i64 2
   %156 = load i16, ptr %155, align 2, !tbaa !124
   %157 = zext i16 %156 to i32
   %158 = mul nuw nsw i32 %151, %157
-  %159 = getelementptr i8, ptr %gep84, i64 4
+  %159 = getelementptr i8, ptr %gep88, i64 4
   %160 = load i16, ptr %159, align 2, !tbaa !124
   %161 = zext i16 %160 to i32
   %162 = mul nuw nsw i32 %150, %161
@@ -13177,8 +13177,8 @@ define internal void @pred_angular_1_10(ptr noundef writeonly captures(none) %0,
 
 168:                                              ; preds = %.preheader13, %168
   %indvars.iv44 = phi i64 [ 0, %.preheader13 ], [ %indvars.iv.next45, %168 ]
-  %gep86 = getelementptr i16, ptr %invariant.gep85, i64 %indvars.iv44
-  %169 = getelementptr i8, ptr %gep86, i64 2
+  %gep90 = getelementptr i16, ptr %invariant.gep89, i64 %indvars.iv44
+  %169 = getelementptr i8, ptr %gep90, i64 2
   %170 = load i16, ptr %169, align 2, !tbaa !124
   %171 = mul nsw i64 %3, %indvars.iv44
   %gep24 = getelementptr i16, ptr %invariant.gep23, i64 %171
@@ -13339,27 +13339,27 @@ define internal void @pred_angular_2_10(ptr noundef writeonly captures(none) %0,
   %41 = mul nsw i64 %3, %indvars.iv72
   %42 = getelementptr i16, ptr %0, i64 %41
   %43 = sext i32 %38 to i64
-  %invariant.gep87 = getelementptr i16, ptr %.0209.i, i64 %43
-  %invariant.gep89 = getelementptr i16, ptr %.0209.i, i64 %43
   %invariant.gep91 = getelementptr i16, ptr %.0209.i, i64 %43
   %invariant.gep93 = getelementptr i16, ptr %.0209.i, i64 %43
+  %invariant.gep95 = getelementptr i16, ptr %.0209.i, i64 %43
+  %invariant.gep97 = getelementptr i16, ptr %.0209.i, i64 %43
   br label %47
 
 .preheader5:                                      ; preds = %35
   %44 = mul nsw i64 %3, %indvars.iv72
   %45 = getelementptr i16, ptr %0, i64 %44
   %46 = sext i32 %38 to i64
-  %invariant.gep95 = getelementptr i16, ptr %.0209.i, i64 %46
+  %invariant.gep99 = getelementptr i16, ptr %.0209.i, i64 %46
   br label %104
 
 47:                                               ; preds = %.preheader6, %47
   %indvars.iv63 = phi i64 [ 0, %.preheader6 ], [ %indvars.iv.next64, %47 ]
-  %gep88 = getelementptr i16, ptr %invariant.gep87, i64 %indvars.iv63
-  %48 = getelementptr i8, ptr %gep88, i64 2
+  %gep92 = getelementptr i16, ptr %invariant.gep91, i64 %indvars.iv63
+  %48 = getelementptr i8, ptr %gep92, i64 2
   %49 = load i16, ptr %48, align 2, !tbaa !124
   %50 = zext i16 %49 to i32
   %51 = mul nuw nsw i32 %40, %50
-  %52 = getelementptr i8, ptr %gep88, i64 4
+  %52 = getelementptr i8, ptr %gep92, i64 4
   %53 = load i16, ptr %52, align 2, !tbaa !124
   %54 = zext i16 %53 to i32
   %55 = mul nuw nsw i32 %39, %54
@@ -13370,12 +13370,12 @@ define internal void @pred_angular_2_10(ptr noundef writeonly captures(none) %0,
   %60 = getelementptr i16, ptr %42, i64 %indvars.iv63
   store i16 %59, ptr %60, align 2, !tbaa !124
   %61 = or disjoint i64 %indvars.iv63, 1
-  %gep90 = getelementptr i16, ptr %invariant.gep89, i64 %61
-  %62 = getelementptr i8, ptr %gep90, i64 2
+  %gep94 = getelementptr i16, ptr %invariant.gep93, i64 %61
+  %62 = getelementptr i8, ptr %gep94, i64 2
   %63 = load i16, ptr %62, align 2, !tbaa !124
   %64 = zext i16 %63 to i32
   %65 = mul nuw nsw i32 %40, %64
-  %66 = getelementptr i8, ptr %gep90, i64 4
+  %66 = getelementptr i8, ptr %gep94, i64 4
   %67 = load i16, ptr %66, align 2, !tbaa !124
   %68 = zext i16 %67 to i32
   %69 = mul nuw nsw i32 %39, %68
@@ -13386,12 +13386,12 @@ define internal void @pred_angular_2_10(ptr noundef writeonly captures(none) %0,
   %74 = getelementptr i16, ptr %42, i64 %61
   store i16 %73, ptr %74, align 2, !tbaa !124
   %75 = or disjoint i64 %indvars.iv63, 2
-  %gep92 = getelementptr i16, ptr %invariant.gep91, i64 %75
-  %76 = getelementptr i8, ptr %gep92, i64 2
+  %gep96 = getelementptr i16, ptr %invariant.gep95, i64 %75
+  %76 = getelementptr i8, ptr %gep96, i64 2
   %77 = load i16, ptr %76, align 2, !tbaa !124
   %78 = zext i16 %77 to i32
   %79 = mul nuw nsw i32 %40, %78
-  %80 = getelementptr i8, ptr %gep92, i64 4
+  %80 = getelementptr i8, ptr %gep96, i64 4
   %81 = load i16, ptr %80, align 2, !tbaa !124
   %82 = zext i16 %81 to i32
   %83 = mul nuw nsw i32 %39, %82
@@ -13402,12 +13402,12 @@ define internal void @pred_angular_2_10(ptr noundef writeonly captures(none) %0,
   %88 = getelementptr i16, ptr %42, i64 %75
   store i16 %87, ptr %88, align 2, !tbaa !124
   %89 = or disjoint i64 %indvars.iv63, 3
-  %gep94 = getelementptr i16, ptr %invariant.gep93, i64 %89
-  %90 = getelementptr i8, ptr %gep94, i64 2
+  %gep98 = getelementptr i16, ptr %invariant.gep97, i64 %89
+  %90 = getelementptr i8, ptr %gep98, i64 2
   %91 = load i16, ptr %90, align 2, !tbaa !124
   %92 = zext i16 %91 to i32
   %93 = mul nuw nsw i32 %40, %92
-  %94 = getelementptr i8, ptr %gep94, i64 4
+  %94 = getelementptr i8, ptr %gep98, i64 4
   %95 = load i16, ptr %94, align 2, !tbaa !124
   %96 = zext i16 %95 to i32
   %97 = mul nuw nsw i32 %39, %96
@@ -13423,8 +13423,8 @@ define internal void @pred_angular_2_10(ptr noundef writeonly captures(none) %0,
 
 104:                                              ; preds = %.preheader5, %104
   %indvars.iv69 = phi i64 [ 0, %.preheader5 ], [ %indvars.iv.next70, %104 ]
-  %gep96 = getelementptr i16, ptr %invariant.gep95, i64 %indvars.iv69
-  %105 = getelementptr i8, ptr %gep96, i64 2
+  %gep100 = getelementptr i16, ptr %invariant.gep99, i64 %indvars.iv69
+  %105 = getelementptr i8, ptr %gep100, i64 2
   %106 = load i64, ptr %105, align 1, !tbaa !97
   %107 = getelementptr i16, ptr %45, i64 %indvars.iv69
   store i64 %106, ptr %107, align 1, !tbaa !97
@@ -13515,23 +13515,23 @@ define internal void @pred_angular_2_10(ptr noundef writeonly captures(none) %0,
   %151 = sub nuw nsw i32 32, %150
   %invariant.gep = getelementptr i16, ptr %0, i64 %indvars.iv48
   %152 = sext i32 %149 to i64
-  %invariant.gep83 = getelementptr i16, ptr %.1210.i, i64 %152
+  %invariant.gep87 = getelementptr i16, ptr %.1210.i, i64 %152
   br label %154
 
 .preheader13:                                     ; preds = %146
   %invariant.gep23 = getelementptr i16, ptr %0, i64 %indvars.iv48
   %153 = sext i32 %149 to i64
-  %invariant.gep85 = getelementptr i16, ptr %.1210.i, i64 %153
+  %invariant.gep89 = getelementptr i16, ptr %.1210.i, i64 %153
   br label %168
 
 154:                                              ; preds = %.preheader15, %154
   %indvars.iv40 = phi i64 [ 0, %.preheader15 ], [ %indvars.iv.next41, %154 ]
-  %gep84 = getelementptr i16, ptr %invariant.gep83, i64 %indvars.iv40
-  %155 = getelementptr i8, ptr %gep84, i64 2
+  %gep88 = getelementptr i16, ptr %invariant.gep87, i64 %indvars.iv40
+  %155 = getelementptr i8, ptr %gep88, i64 2
   %156 = load i16, ptr %155, align 2, !tbaa !124
   %157 = zext i16 %156 to i32
   %158 = mul nuw nsw i32 %151, %157
-  %159 = getelementptr i8, ptr %gep84, i64 4
+  %159 = getelementptr i8, ptr %gep88, i64 4
   %160 = load i16, ptr %159, align 2, !tbaa !124
   %161 = zext i16 %160 to i32
   %162 = mul nuw nsw i32 %150, %161
@@ -13548,8 +13548,8 @@ define internal void @pred_angular_2_10(ptr noundef writeonly captures(none) %0,
 
 168:                                              ; preds = %.preheader13, %168
   %indvars.iv44 = phi i64 [ 0, %.preheader13 ], [ %indvars.iv.next45, %168 ]
-  %gep86 = getelementptr i16, ptr %invariant.gep85, i64 %indvars.iv44
-  %169 = getelementptr i8, ptr %gep86, i64 2
+  %gep90 = getelementptr i16, ptr %invariant.gep89, i64 %indvars.iv44
+  %169 = getelementptr i8, ptr %gep90, i64 2
   %170 = load i16, ptr %169, align 2, !tbaa !124
   %171 = mul nsw i64 %3, %indvars.iv44
   %gep24 = getelementptr i16, ptr %invariant.gep23, i64 %171
@@ -13711,27 +13711,27 @@ define internal void @pred_angular_3_10(ptr noundef writeonly captures(none) %0,
   %39 = mul nsw i64 %3, %indvars.iv67
   %40 = getelementptr i16, ptr %0, i64 %39
   %41 = sext i32 %36 to i64
-  %invariant.gep78 = getelementptr i16, ptr %.0209.i, i64 %41
   %invariant.gep80 = getelementptr i16, ptr %.0209.i, i64 %41
   %invariant.gep82 = getelementptr i16, ptr %.0209.i, i64 %41
   %invariant.gep84 = getelementptr i16, ptr %.0209.i, i64 %41
+  %invariant.gep86 = getelementptr i16, ptr %.0209.i, i64 %41
   br label %45
 
 .preheader:                                       ; preds = %33
   %42 = mul nsw i64 %3, %indvars.iv67
   %43 = getelementptr i16, ptr %0, i64 %42
   %44 = sext i32 %36 to i64
-  %invariant.gep86 = getelementptr i16, ptr %.0209.i, i64 %44
+  %invariant.gep88 = getelementptr i16, ptr %.0209.i, i64 %44
   br label %102
 
 45:                                               ; preds = %.preheader5, %45
   %indvars.iv58 = phi i64 [ 0, %.preheader5 ], [ %indvars.iv.next59, %45 ]
-  %gep79 = getelementptr i16, ptr %invariant.gep78, i64 %indvars.iv58
-  %46 = getelementptr i8, ptr %gep79, i64 2
+  %gep81 = getelementptr i16, ptr %invariant.gep80, i64 %indvars.iv58
+  %46 = getelementptr i8, ptr %gep81, i64 2
   %47 = load i16, ptr %46, align 2, !tbaa !124
   %48 = zext i16 %47 to i32
   %49 = mul nuw nsw i32 %38, %48
-  %50 = getelementptr i8, ptr %gep79, i64 4
+  %50 = getelementptr i8, ptr %gep81, i64 4
   %51 = load i16, ptr %50, align 2, !tbaa !124
   %52 = zext i16 %51 to i32
   %53 = mul nuw nsw i32 %37, %52
@@ -13742,12 +13742,12 @@ define internal void @pred_angular_3_10(ptr noundef writeonly captures(none) %0,
   %58 = getelementptr i16, ptr %40, i64 %indvars.iv58
   store i16 %57, ptr %58, align 2, !tbaa !124
   %59 = or disjoint i64 %indvars.iv58, 1
-  %gep81 = getelementptr i16, ptr %invariant.gep80, i64 %59
-  %60 = getelementptr i8, ptr %gep81, i64 2
+  %gep83 = getelementptr i16, ptr %invariant.gep82, i64 %59
+  %60 = getelementptr i8, ptr %gep83, i64 2
   %61 = load i16, ptr %60, align 2, !tbaa !124
   %62 = zext i16 %61 to i32
   %63 = mul nuw nsw i32 %38, %62
-  %64 = getelementptr i8, ptr %gep81, i64 4
+  %64 = getelementptr i8, ptr %gep83, i64 4
   %65 = load i16, ptr %64, align 2, !tbaa !124
   %66 = zext i16 %65 to i32
   %67 = mul nuw nsw i32 %37, %66
@@ -13758,12 +13758,12 @@ define internal void @pred_angular_3_10(ptr noundef writeonly captures(none) %0,
   %72 = getelementptr i16, ptr %40, i64 %59
   store i16 %71, ptr %72, align 2, !tbaa !124
   %73 = or disjoint i64 %indvars.iv58, 2
-  %gep83 = getelementptr i16, ptr %invariant.gep82, i64 %73
-  %74 = getelementptr i8, ptr %gep83, i64 2
+  %gep85 = getelementptr i16, ptr %invariant.gep84, i64 %73
+  %74 = getelementptr i8, ptr %gep85, i64 2
   %75 = load i16, ptr %74, align 2, !tbaa !124
   %76 = zext i16 %75 to i32
   %77 = mul nuw nsw i32 %38, %76
-  %78 = getelementptr i8, ptr %gep83, i64 4
+  %78 = getelementptr i8, ptr %gep85, i64 4
   %79 = load i16, ptr %78, align 2, !tbaa !124
   %80 = zext i16 %79 to i32
   %81 = mul nuw nsw i32 %37, %80
@@ -13774,12 +13774,12 @@ define internal void @pred_angular_3_10(ptr noundef writeonly captures(none) %0,
   %86 = getelementptr i16, ptr %40, i64 %73
   store i16 %85, ptr %86, align 2, !tbaa !124
   %87 = or disjoint i64 %indvars.iv58, 3
-  %gep85 = getelementptr i16, ptr %invariant.gep84, i64 %87
-  %88 = getelementptr i8, ptr %gep85, i64 2
+  %gep87 = getelementptr i16, ptr %invariant.gep86, i64 %87
+  %88 = getelementptr i8, ptr %gep87, i64 2
   %89 = load i16, ptr %88, align 2, !tbaa !124
   %90 = zext i16 %89 to i32
   %91 = mul nuw nsw i32 %38, %90
-  %92 = getelementptr i8, ptr %gep85, i64 4
+  %92 = getelementptr i8, ptr %gep87, i64 4
   %93 = load i16, ptr %92, align 2, !tbaa !124
   %94 = zext i16 %93 to i32
   %95 = mul nuw nsw i32 %37, %94
@@ -13795,8 +13795,8 @@ define internal void @pred_angular_3_10(ptr noundef writeonly captures(none) %0,
 
 102:                                              ; preds = %.preheader, %102
   %indvars.iv64 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next65, %102 ]
-  %gep87 = getelementptr i16, ptr %invariant.gep86, i64 %indvars.iv64
-  %103 = getelementptr i8, ptr %gep87, i64 2
+  %gep89 = getelementptr i16, ptr %invariant.gep88, i64 %indvars.iv64
+  %103 = getelementptr i8, ptr %gep89, i64 2
   %104 = load i64, ptr %103, align 1, !tbaa !97
   %105 = getelementptr i16, ptr %43, i64 %indvars.iv64
   store i64 %104, ptr %105, align 1, !tbaa !97
@@ -13858,23 +13858,23 @@ define internal void @pred_angular_3_10(ptr noundef writeonly captures(none) %0,
   %130 = sub nuw nsw i32 32, %129
   %invariant.gep = getelementptr i16, ptr %0, i64 %indvars.iv44
   %131 = sext i32 %128 to i64
-  %invariant.gep74 = getelementptr i16, ptr %.1210.i, i64 %131
+  %invariant.gep76 = getelementptr i16, ptr %.1210.i, i64 %131
   br label %133
 
 .preheader10:                                     ; preds = %125
   %invariant.gep21 = getelementptr i16, ptr %0, i64 %indvars.iv44
   %132 = sext i32 %128 to i64
-  %invariant.gep76 = getelementptr i16, ptr %.1210.i, i64 %132
+  %invariant.gep78 = getelementptr i16, ptr %.1210.i, i64 %132
   br label %147
 
 133:                                              ; preds = %.preheader12, %133
   %indvars.iv36 = phi i64 [ 0, %.preheader12 ], [ %indvars.iv.next37, %133 ]
-  %gep75 = getelementptr i16, ptr %invariant.gep74, i64 %indvars.iv36
-  %134 = getelementptr i8, ptr %gep75, i64 2
+  %gep77 = getelementptr i16, ptr %invariant.gep76, i64 %indvars.iv36
+  %134 = getelementptr i8, ptr %gep77, i64 2
   %135 = load i16, ptr %134, align 2, !tbaa !124
   %136 = zext i16 %135 to i32
   %137 = mul nuw nsw i32 %130, %136
-  %138 = getelementptr i8, ptr %gep75, i64 4
+  %138 = getelementptr i8, ptr %gep77, i64 4
   %139 = load i16, ptr %138, align 2, !tbaa !124
   %140 = zext i16 %139 to i32
   %141 = mul nuw nsw i32 %129, %140
@@ -13891,8 +13891,8 @@ define internal void @pred_angular_3_10(ptr noundef writeonly captures(none) %0,
 
 147:                                              ; preds = %.preheader10, %147
   %indvars.iv40 = phi i64 [ 0, %.preheader10 ], [ %indvars.iv.next41, %147 ]
-  %gep77 = getelementptr i16, ptr %invariant.gep76, i64 %indvars.iv40
-  %148 = getelementptr i8, ptr %gep77, i64 2
+  %gep79 = getelementptr i16, ptr %invariant.gep78, i64 %indvars.iv40
+  %148 = getelementptr i8, ptr %gep79, i64 2
   %149 = load i16, ptr %148, align 2, !tbaa !124
   %150 = mul nsw i64 %3, %indvars.iv40
   %gep22 = getelementptr i16, ptr %invariant.gep21, i64 %150
@@ -14365,9 +14365,9 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   br i1 %291, label %.lr.ph71, label %.loopexit37
 
 .lr.ph71:                                         ; preds = %.preheader38, %._crit_edge68
-  %.pn252 = sext i32 %284 to i64
-  %.pn251 = mul nsw i64 %57, %.pn252
-  %.pn = getelementptr i16, ptr %64, i64 %.pn251
+  %.pn260 = sext i32 %284 to i64
+  %.pn259 = mul nsw i64 %57, %.pn260
+  %.pn = getelementptr i16, ptr %64, i64 %.pn259
   %.in.in.in = getelementptr i8, ptr %.pn, i64 -2
   %.in.in = load i16, ptr %.in.in.in, align 2, !tbaa !124
   %.in = zext i16 %.in.in to i64
@@ -14518,11 +14518,11 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   br i1 %362, label %.lr.ph86, label %._crit_edge87
 
 .lr.ph86:                                         ; preds = %.preheader33, %.critedge25.i
-  %.1799.i.lcssa231 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader33 ]
+  %.1799.i.lcssa239 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader33 ]
   %363 = sub nsw i32 %3, %344
   %364 = ashr i32 %363, %329
   %365 = mul nsw i32 %364, %66
-  %366 = zext nneg i32 %.1799.i.lcssa231 to i64
+  %366 = zext nneg i32 %.1799.i.lcssa239 to i64
   br label %367
 
 367:                                              ; preds = %.lr.ph86, %381
@@ -14580,7 +14580,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   br label %418
 
 .lr.ph78:                                         ; preds = %391, %.critedge27.i
-  %.2800.i.lcssa237 = phi i32 [ %.2800.i72, %.critedge27.i ], [ %.0796.i, %391 ]
+  %.2800.i.lcssa245 = phi i32 [ %.2800.i72, %.critedge27.i ], [ %.0796.i, %391 ]
   %393 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %394 = load ptr, ptr %393, align 8, !tbaa !110
   %395 = getelementptr inbounds nuw i8, ptr %9, i64 18616
@@ -14589,7 +14589,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   %397 = add nsw i32 %.neg848.i, %3
   %398 = ashr i32 %397, %396
   %399 = mul nsw i32 %398, %66
-  %400 = zext nneg i32 %.2800.i.lcssa237 to i64
+  %400 = zext nneg i32 %.2800.i.lcssa245 to i64
   br label %401
 
 401:                                              ; preds = %.lr.ph78, %415
@@ -14913,7 +14913,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   br i1 %.0778.i, label %591, label %568
 
 .loopexit27.thread:                               ; preds = %301
-  br i1 %.0778.i, label %.thread11.split, label %.thread242
+  br i1 %.0778.i, label %.thread11.split, label %.thread250
 
 568:                                              ; preds = %.loopexit27
   br i1 %277, label %.split118, label %574
@@ -14940,7 +14940,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   br label %.thread4.thread
 
 579:                                              ; preds = %574
-  br i1 %250, label %.thread4.thread.thread.loopexit.critedge, label %.thread242
+  br i1 %250, label %.thread4.thread.thread.loopexit.critedge, label %.thread250
 
 .thread4.thread.thread.loopexit.critedge:         ; preds = %579
   %580 = load i16, ptr %69, align 2, !tbaa !124
@@ -14952,10 +14952,10 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   store i64 %582, ptr %583, align 2, !tbaa !97
   br label %.thread4.thread.thread
 
-.thread242:                                       ; preds = %.loopexit27.thread, %579
+.thread250:                                       ; preds = %.loopexit27.thread, %579
   br i1 %.0792.i, label %.split113, label %.preheader.preheader.critedge
 
-.split113:                                        ; preds = %.thread242
+.split113:                                        ; preds = %.thread250
   %584 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %585 = load i16, ptr %584, align 2, !tbaa !124
   %586 = zext i16 %585 to i64
@@ -14967,7 +14967,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   store i64 %587, ptr %588, align 2, !tbaa !97
   br label %.thread4.thread.thread.thread
 
-.preheader.preheader.critedge:                    ; preds = %.thread242
+.preheader.preheader.critedge:                    ; preds = %.thread250
   store i16 2048, ptr %6, align 16, !tbaa !124
   store i64 576469548530665472, ptr %69, align 2, !tbaa !97
   %589 = getelementptr inbounds nuw i8, ptr %7, i64 10
@@ -15517,9 +15517,9 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   br i1 %293, label %.lr.ph77, label %.loopexit43
 
 .lr.ph77:                                         ; preds = %.preheader44, %._crit_edge74
-  %.pn290 = sext i32 %286 to i64
-  %.pn289 = mul nsw i64 %59, %.pn290
-  %.pn = getelementptr i16, ptr %66, i64 %.pn289
+  %.pn299 = sext i32 %286 to i64
+  %.pn298 = mul nsw i64 %59, %.pn299
+  %.pn = getelementptr i16, ptr %66, i64 %.pn298
   %.in.in.in = getelementptr i8, ptr %.pn, i64 -2
   %.in.in = load i16, ptr %.in.in.in, align 2, !tbaa !124
   %.in = zext i16 %.in.in to i64
@@ -15670,11 +15670,11 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   br i1 %364, label %.lr.ph92, label %._crit_edge93
 
 .lr.ph92:                                         ; preds = %.preheader39, %.critedge25.i
-  %.1799.i.lcssa266 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader39 ]
+  %.1799.i.lcssa275 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader39 ]
   %365 = sub nsw i32 %3, %346
   %366 = ashr i32 %365, %331
   %367 = mul nsw i32 %366, %68
-  %368 = zext nneg i32 %.1799.i.lcssa266 to i64
+  %368 = zext nneg i32 %.1799.i.lcssa275 to i64
   br label %369
 
 369:                                              ; preds = %.lr.ph92, %383
@@ -15699,8 +15699,8 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   br label %383
 
 383:                                              ; preds = %379, %369
-  %.not291 = icmp eq i64 %indvars.iv163, 0
-  br i1 %.not291, label %._crit_edge93, label %369, !llvm.loop !235
+  %.not300 = icmp eq i64 %indvars.iv163, 0
+  br i1 %.not300, label %._crit_edge93, label %369, !llvm.loop !235
 
 ._crit_edge93:                                    ; preds = %383, %.critedge25.i
   %384 = load i16, ptr %8, align 16, !tbaa !124
@@ -15732,7 +15732,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   br label %420
 
 .lr.ph84:                                         ; preds = %393, %.critedge27.i
-  %.2800.i.lcssa272 = phi i32 [ %.2800.i78, %.critedge27.i ], [ %.0796.i, %393 ]
+  %.2800.i.lcssa281 = phi i32 [ %.2800.i78, %.critedge27.i ], [ %.0796.i, %393 ]
   %395 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %396 = load ptr, ptr %395, align 8, !tbaa !110
   %397 = getelementptr inbounds nuw i8, ptr %11, i64 18616
@@ -15741,7 +15741,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   %399 = add nsw i32 %.neg848.i, %3
   %400 = ashr i32 %399, %398
   %401 = mul nsw i32 %400, %68
-  %402 = zext nneg i32 %.2800.i.lcssa272 to i64
+  %402 = zext nneg i32 %.2800.i.lcssa281 to i64
   br label %403
 
 403:                                              ; preds = %.lr.ph84, %417
@@ -16069,12 +16069,12 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   br i1 %.0778.i, label %606, label %570
 
 .loopexit33.thread:                               ; preds = %303
-  br i1 %.0778.i, label %.thread11, label %.thread277
+  br i1 %.0778.i, label %.thread11, label %.thread286
 
 570:                                              ; preds = %.loopexit33
-  br i1 %279, label %.thread4.loopexit292.critedge, label %574
+  br i1 %279, label %.thread4.loopexit301.critedge, label %574
 
-.thread4.loopexit292.critedge:                    ; preds = %570
+.thread4.loopexit301.critedge:                    ; preds = %570
   %571 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %572 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %573 = load i16, ptr %572, align 16, !tbaa !124
@@ -16098,7 +16098,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   br i1 %581, label %579, label %.thread4.thread, !llvm.loop !242
 
 582:                                              ; preds = %574
-  br i1 %254, label %583, label %.thread277
+  br i1 %254, label %583, label %.thread286
 
 583:                                              ; preds = %582
   %584 = load i16, ptr %71, align 2, !tbaa !124
@@ -16115,10 +16115,10 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   %589 = icmp samesign ult i64 %indvars.iv199, 12
   br i1 %589, label %587, label %.thread4.thread.thread, !llvm.loop !243
 
-.thread277:                                       ; preds = %.loopexit33.thread, %582
+.thread286:                                       ; preds = %.loopexit33.thread, %582
   br i1 %.0792.i, label %.critedge, label %600
 
-.critedge:                                        ; preds = %.thread277
+.critedge:                                        ; preds = %.thread286
   %590 = getelementptr inbounds nuw i8, ptr %8, i64 18
   %591 = load i16, ptr %590, align 2, !tbaa !124
   %592 = zext i16 %591 to i64
@@ -16139,7 +16139,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   %599 = icmp samesign ult i64 %indvars.iv196, 12
   br i1 %599, label %597, label %.loopexit29, !llvm.loop !244
 
-600:                                              ; preds = %.thread277
+600:                                              ; preds = %.thread286
   store i16 2048, ptr %6, align 16, !tbaa !124
   br label %601
 
@@ -16170,15 +16170,15 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   %608 = load i16, ptr %607, align 2, !tbaa !124
   br label %.thread4.sink.split
 
-.thread4.sink.split:                              ; preds = %.thread11, %.thread4.loopexit292.critedge
-  %.sink = phi i16 [ %608, %.thread11 ], [ %573, %.thread4.loopexit292.critedge ]
-  %.sink312 = phi ptr [ %70, %.thread11 ], [ %571, %.thread4.loopexit292.critedge ]
-  %.2787.i10.ph = phi i32 [ %.2787.i17, %.thread11 ], [ %.0785.i, %.thread4.loopexit292.critedge ]
-  %.3791.i9.ph = phi i32 [ %.3791.i16, %.thread11 ], [ %.0788.i, %.thread4.loopexit292.critedge ]
+.thread4.sink.split:                              ; preds = %.thread11, %.thread4.loopexit301.critedge
+  %.sink = phi i16 [ %608, %.thread11 ], [ %573, %.thread4.loopexit301.critedge ]
+  %.sink321 = phi ptr [ %70, %.thread11 ], [ %571, %.thread4.loopexit301.critedge ]
+  %.2787.i10.ph = phi i32 [ %.2787.i17, %.thread11 ], [ %.0785.i, %.thread4.loopexit301.critedge ]
+  %.3791.i9.ph = phi i32 [ %.3791.i16, %.thread11 ], [ %.0788.i, %.thread4.loopexit301.critedge ]
   %609 = zext i16 %.sink to i64
   %610 = mul nuw i64 %609, 281479271743489
-  store i64 %610, ptr %.sink312, align 2, !tbaa !97
-  %611 = getelementptr inbounds nuw i8, ptr %.sink312, i64 8
+  store i64 %610, ptr %.sink321, align 2, !tbaa !97
+  %611 = getelementptr inbounds nuw i8, ptr %.sink321, i64 8
   store i64 %610, ptr %611, align 2, !tbaa !97
   br label %.thread4
 
@@ -16286,8 +16286,8 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   %667 = getelementptr inbounds nuw i16, ptr %72, i64 %indvars.iv217
   store i16 %666, ptr %667, align 2, !tbaa !124
   %indvars.iv.next218 = add nsw i64 %indvars.iv217, -1
-  %.not262 = icmp eq i64 %indvars.iv217, 0
-  br i1 %.not262, label %668, label %651, !llvm.loop !247
+  %.not271 = icmp eq i64 %indvars.iv217, 0
+  br i1 %.not271, label %668, label %651, !llvm.loop !247
 
 668:                                              ; preds = %651
   %669 = load i16, ptr %70, align 2, !tbaa !124
@@ -16325,8 +16325,8 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   %696 = getelementptr inbounds nuw i16, ptr %73, i64 %indvars.iv220
   store i16 %695, ptr %696, align 2, !tbaa !124
   %indvars.iv.next221 = add nsw i64 %indvars.iv220, -1
-  %.not263 = icmp eq i64 %indvars.iv220, 0
-  br i1 %.not263, label %.loopexit, label %680, !llvm.loop !248
+  %.not272 = icmp eq i64 %indvars.iv220, 0
+  br i1 %.not272, label %.loopexit, label %680, !llvm.loop !248
 
 .loopexit:                                        ; preds = %680, %633, %628, %.loopexit29
   %.0775.i = phi ptr [ %71, %.loopexit29 ], [ %71, %628 ], [ %71, %633 ], [ %73, %680 ]
@@ -16823,9 +16823,9 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   br i1 %293, label %.lr.ph77, label %.loopexit43
 
 .lr.ph77:                                         ; preds = %.preheader44, %._crit_edge74
-  %.pn290 = sext i32 %286 to i64
-  %.pn289 = mul nsw i64 %59, %.pn290
-  %.pn = getelementptr i16, ptr %66, i64 %.pn289
+  %.pn299 = sext i32 %286 to i64
+  %.pn298 = mul nsw i64 %59, %.pn299
+  %.pn = getelementptr i16, ptr %66, i64 %.pn298
   %.in.in.in = getelementptr i8, ptr %.pn, i64 -2
   %.in.in = load i16, ptr %.in.in.in, align 2, !tbaa !124
   %.in = zext i16 %.in.in to i64
@@ -16976,11 +16976,11 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   br i1 %364, label %.lr.ph92, label %._crit_edge93
 
 .lr.ph92:                                         ; preds = %.preheader39, %.critedge25.i
-  %.1799.i.lcssa266 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader39 ]
+  %.1799.i.lcssa275 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader39 ]
   %365 = sub nsw i32 %3, %346
   %366 = ashr i32 %365, %331
   %367 = mul nsw i32 %366, %68
-  %368 = zext nneg i32 %.1799.i.lcssa266 to i64
+  %368 = zext nneg i32 %.1799.i.lcssa275 to i64
   br label %369
 
 369:                                              ; preds = %.lr.ph92, %383
@@ -17005,8 +17005,8 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   br label %383
 
 383:                                              ; preds = %379, %369
-  %.not291 = icmp eq i64 %indvars.iv163, 0
-  br i1 %.not291, label %._crit_edge93, label %369, !llvm.loop !235
+  %.not300 = icmp eq i64 %indvars.iv163, 0
+  br i1 %.not300, label %._crit_edge93, label %369, !llvm.loop !235
 
 ._crit_edge93:                                    ; preds = %383, %.critedge25.i
   %384 = load i16, ptr %8, align 16, !tbaa !124
@@ -17038,7 +17038,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   br label %420
 
 .lr.ph84:                                         ; preds = %393, %.critedge27.i
-  %.2800.i.lcssa272 = phi i32 [ %.2800.i78, %.critedge27.i ], [ %.0796.i, %393 ]
+  %.2800.i.lcssa281 = phi i32 [ %.2800.i78, %.critedge27.i ], [ %.0796.i, %393 ]
   %395 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %396 = load ptr, ptr %395, align 8, !tbaa !110
   %397 = getelementptr inbounds nuw i8, ptr %11, i64 18616
@@ -17047,7 +17047,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   %399 = add nsw i32 %.neg848.i, %3
   %400 = ashr i32 %399, %398
   %401 = mul nsw i32 %400, %68
-  %402 = zext nneg i32 %.2800.i.lcssa272 to i64
+  %402 = zext nneg i32 %.2800.i.lcssa281 to i64
   br label %403
 
 403:                                              ; preds = %.lr.ph84, %417
@@ -17385,7 +17385,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   br i1 %.0778.i, label %622, label %575
 
 .loopexit33.thread:                               ; preds = %303
-  br i1 %.0778.i, label %.thread11, label %.thread277
+  br i1 %.0778.i, label %.thread11, label %.thread286
 
 575:                                              ; preds = %.loopexit33
   br i1 %279, label %576, label %585
@@ -17424,7 +17424,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   br i1 %592, label %590, label %.thread4.thread, !llvm.loop !242
 
 593:                                              ; preds = %585
-  br i1 %254, label %594, label %.thread277
+  br i1 %254, label %594, label %.thread286
 
 594:                                              ; preds = %593
   %595 = load i16, ptr %71, align 2, !tbaa !124
@@ -17441,10 +17441,10 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   %600 = icmp samesign ult i64 %indvars.iv199, 28
   br i1 %600, label %598, label %.thread4.thread.thread, !llvm.loop !243
 
-.thread277:                                       ; preds = %.loopexit33.thread, %593
+.thread286:                                       ; preds = %.loopexit33.thread, %593
   br i1 %.0792.i, label %601, label %616
 
-601:                                              ; preds = %.thread277
+601:                                              ; preds = %.thread286
   %602 = getelementptr inbounds nuw i8, ptr %8, i64 34
   %603 = load i16, ptr %602, align 2, !tbaa !124
   %604 = zext i16 %603 to i64
@@ -17474,7 +17474,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   %615 = icmp samesign ult i64 %indvars.iv196, 28
   br i1 %615, label %613, label %.loopexit29, !llvm.loop !244
 
-616:                                              ; preds = %.thread277
+616:                                              ; preds = %.thread286
   store i16 2048, ptr %6, align 16, !tbaa !124
   br label %617
 
@@ -17629,8 +17629,8 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   %691 = getelementptr inbounds nuw i16, ptr %72, i64 %indvars.iv217
   store i16 %690, ptr %691, align 2, !tbaa !124
   %indvars.iv.next218 = add nsw i64 %indvars.iv217, -1
-  %.not262 = icmp eq i64 %indvars.iv217, 0
-  br i1 %.not262, label %692, label %675, !llvm.loop !247
+  %.not271 = icmp eq i64 %indvars.iv217, 0
+  br i1 %.not271, label %692, label %675, !llvm.loop !247
 
 692:                                              ; preds = %675
   %693 = load i16, ptr %70, align 2, !tbaa !124
@@ -17668,8 +17668,8 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   %720 = getelementptr inbounds nuw i16, ptr %73, i64 %indvars.iv220
   store i16 %719, ptr %720, align 2, !tbaa !124
   %indvars.iv.next221 = add nsw i64 %indvars.iv220, -1
-  %.not263 = icmp eq i64 %indvars.iv220, 0
-  br i1 %.not263, label %.loopexit, label %704, !llvm.loop !248
+  %.not272 = icmp eq i64 %indvars.iv220, 0
+  br i1 %.not272, label %.loopexit, label %704, !llvm.loop !248
 
 .loopexit:                                        ; preds = %704, %657, %652, %.loopexit29
   %.0775.i = phi ptr [ %71, %.loopexit29 ], [ %71, %652 ], [ %71, %657 ], [ %73, %704 ]
@@ -18166,9 +18166,9 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   br i1 %293, label %.lr.ph80, label %.loopexit46
 
 .lr.ph80:                                         ; preds = %.preheader47, %._crit_edge77
-  %.pn309 = sext i32 %286 to i64
-  %.pn308 = mul nsw i64 %59, %.pn309
-  %.pn = getelementptr i16, ptr %66, i64 %.pn308
+  %.pn318 = sext i32 %286 to i64
+  %.pn317 = mul nsw i64 %59, %.pn318
+  %.pn = getelementptr i16, ptr %66, i64 %.pn317
   %.in.in.in = getelementptr i8, ptr %.pn, i64 -2
   %.in.in = load i16, ptr %.in.in.in, align 2, !tbaa !124
   %.in = zext i16 %.in.in to i64
@@ -18319,11 +18319,11 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   br i1 %364, label %.lr.ph95, label %._crit_edge96
 
 .lr.ph95:                                         ; preds = %.preheader42, %.critedge25.i
-  %.1799.i.lcssa284 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader42 ]
+  %.1799.i.lcssa293 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader42 ]
   %365 = sub nsw i32 %3, %346
   %366 = ashr i32 %365, %331
   %367 = mul nsw i32 %366, %68
-  %368 = zext nneg i32 %.1799.i.lcssa284 to i64
+  %368 = zext nneg i32 %.1799.i.lcssa293 to i64
   br label %369
 
 369:                                              ; preds = %.lr.ph95, %383
@@ -18348,8 +18348,8 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   br label %383
 
 383:                                              ; preds = %379, %369
-  %.not310 = icmp eq i64 %indvars.iv170, 0
-  br i1 %.not310, label %._crit_edge96, label %369, !llvm.loop !235
+  %.not319 = icmp eq i64 %indvars.iv170, 0
+  br i1 %.not319, label %._crit_edge96, label %369, !llvm.loop !235
 
 ._crit_edge96:                                    ; preds = %383, %.critedge25.i
   %384 = load i16, ptr %8, align 16, !tbaa !124
@@ -18381,7 +18381,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   br label %420
 
 .lr.ph87:                                         ; preds = %393, %.critedge27.i
-  %.2800.i.lcssa290 = phi i32 [ %.2800.i81, %.critedge27.i ], [ %.0796.i, %393 ]
+  %.2800.i.lcssa299 = phi i32 [ %.2800.i81, %.critedge27.i ], [ %.0796.i, %393 ]
   %395 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %396 = load ptr, ptr %395, align 8, !tbaa !110
   %397 = getelementptr inbounds nuw i8, ptr %11, i64 18616
@@ -18390,7 +18390,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   %399 = add nsw i32 %.neg848.i, %3
   %400 = ashr i32 %399, %398
   %401 = mul nsw i32 %400, %68
-  %402 = zext nneg i32 %.2800.i.lcssa290 to i64
+  %402 = zext nneg i32 %.2800.i.lcssa299 to i64
   br label %403
 
 403:                                              ; preds = %.lr.ph87, %417
@@ -18728,7 +18728,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   br i1 %.0778.i, label %622, label %575
 
 .loopexit36.thread:                               ; preds = %303
-  br i1 %.0778.i, label %.thread11, label %.thread295
+  br i1 %.0778.i, label %.thread11, label %.thread304
 
 575:                                              ; preds = %.loopexit36
   br i1 %279, label %576, label %585
@@ -18767,7 +18767,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   br i1 %592, label %590, label %.thread4.thread, !llvm.loop !242
 
 593:                                              ; preds = %585
-  br i1 %254, label %594, label %.thread295
+  br i1 %254, label %594, label %.thread304
 
 594:                                              ; preds = %593
   %595 = load i16, ptr %71, align 2, !tbaa !124
@@ -18784,10 +18784,10 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   %600 = icmp samesign ult i64 %indvars.iv206, 60
   br i1 %600, label %598, label %.thread4.thread.thread, !llvm.loop !243
 
-.thread295:                                       ; preds = %.loopexit36.thread, %593
+.thread304:                                       ; preds = %.loopexit36.thread, %593
   br i1 %.0792.i, label %601, label %616
 
-601:                                              ; preds = %.thread295
+601:                                              ; preds = %.thread304
   %602 = getelementptr inbounds nuw i8, ptr %8, i64 66
   %603 = load i16, ptr %602, align 2, !tbaa !124
   %604 = zext i16 %603 to i64
@@ -18817,7 +18817,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   %615 = icmp samesign ult i64 %indvars.iv203, 60
   br i1 %615, label %613, label %.loopexit31, !llvm.loop !244
 
-616:                                              ; preds = %.thread295
+616:                                              ; preds = %.thread304
   store i16 2048, ptr %6, align 16, !tbaa !124
   br label %617
 
@@ -19054,8 +19054,8 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   %744 = getelementptr inbounds nuw i16, ptr %72, i64 %indvars.iv224
   store i16 %743, ptr %744, align 2, !tbaa !124
   %indvars.iv.next225 = add nsw i64 %indvars.iv224, -1
-  %.not280 = icmp eq i64 %indvars.iv224, 0
-  br i1 %.not280, label %745, label %728, !llvm.loop !247
+  %.not289 = icmp eq i64 %indvars.iv224, 0
+  br i1 %.not289, label %745, label %728, !llvm.loop !247
 
 745:                                              ; preds = %728
   %746 = load i16, ptr %70, align 2, !tbaa !124
@@ -19093,8 +19093,8 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   %773 = getelementptr inbounds nuw i16, ptr %73, i64 %indvars.iv227
   store i16 %772, ptr %773, align 2, !tbaa !124
   %indvars.iv.next228 = add nsw i64 %indvars.iv227, -1
-  %.not281 = icmp eq i64 %indvars.iv227, 0
-  br i1 %.not281, label %.loopexit, label %757, !llvm.loop !248
+  %.not290 = icmp eq i64 %indvars.iv227, 0
+  br i1 %.not290, label %.loopexit, label %757, !llvm.loop !248
 
 .loopexit:                                        ; preds = %757, %.preheader, %657, %652, %.loopexit31
   %.0775.i = phi ptr [ %71, %.loopexit31 ], [ %71, %652 ], [ %71, %657 ], [ %73, %.preheader ], [ %73, %757 ]
@@ -19687,23 +19687,23 @@ define internal void @pred_angular_0_12(ptr noundef writeonly captures(none) %0,
   %142 = sub nuw nsw i32 32, %141
   %invariant.gep = getelementptr i16, ptr %0, i64 %indvars.iv62
   %143 = sext i32 %140 to i64
-  %invariant.gep83 = getelementptr i16, ptr %.1210.i, i64 %143
+  %invariant.gep87 = getelementptr i16, ptr %.1210.i, i64 %143
   br label %145
 
 .preheader13:                                     ; preds = %137
   %invariant.gep23 = getelementptr i16, ptr %0, i64 %indvars.iv62
   %144 = sext i32 %140 to i64
-  %invariant.gep85 = getelementptr i16, ptr %.1210.i, i64 %144
+  %invariant.gep89 = getelementptr i16, ptr %.1210.i, i64 %144
   br label %159
 
 145:                                              ; preds = %.preheader15, %145
   %indvars.iv54 = phi i64 [ 0, %.preheader15 ], [ %indvars.iv.next55, %145 ]
-  %gep84 = getelementptr i16, ptr %invariant.gep83, i64 %indvars.iv54
-  %146 = getelementptr i8, ptr %gep84, i64 2
+  %gep88 = getelementptr i16, ptr %invariant.gep87, i64 %indvars.iv54
+  %146 = getelementptr i8, ptr %gep88, i64 2
   %147 = load i16, ptr %146, align 2, !tbaa !124
   %148 = zext i16 %147 to i32
   %149 = mul nuw nsw i32 %142, %148
-  %150 = getelementptr i8, ptr %gep84, i64 4
+  %150 = getelementptr i8, ptr %gep88, i64 4
   %151 = load i16, ptr %150, align 2, !tbaa !124
   %152 = zext i16 %151 to i32
   %153 = mul nuw nsw i32 %141, %152
@@ -19720,8 +19720,8 @@ define internal void @pred_angular_0_12(ptr noundef writeonly captures(none) %0,
 
 159:                                              ; preds = %.preheader13, %159
   %indvars.iv58 = phi i64 [ 0, %.preheader13 ], [ %indvars.iv.next59, %159 ]
-  %gep86 = getelementptr i16, ptr %invariant.gep85, i64 %indvars.iv58
-  %160 = getelementptr i8, ptr %gep86, i64 2
+  %gep90 = getelementptr i16, ptr %invariant.gep89, i64 %indvars.iv58
+  %160 = getelementptr i8, ptr %gep90, i64 2
   %161 = load i16, ptr %160, align 2, !tbaa !124
   %162 = mul nsw i64 %3, %indvars.iv58
   %gep24 = getelementptr i16, ptr %invariant.gep23, i64 %162
@@ -19872,21 +19872,21 @@ define internal void @pred_angular_1_12(ptr noundef writeonly captures(none) %0,
   %41 = mul nsw i64 %3, %indvars.iv72
   %42 = getelementptr i16, ptr %0, i64 %41
   %43 = sext i32 %38 to i64
-  %invariant.gep87 = getelementptr i16, ptr %.0209.i, i64 %43
-  %invariant.gep89 = getelementptr i16, ptr %.0209.i, i64 %43
   %invariant.gep91 = getelementptr i16, ptr %.0209.i, i64 %43
   %invariant.gep93 = getelementptr i16, ptr %.0209.i, i64 %43
+  %invariant.gep95 = getelementptr i16, ptr %.0209.i, i64 %43
+  %invariant.gep97 = getelementptr i16, ptr %.0209.i, i64 %43
   br label %52
 
 .preheader5:                                      ; preds = %35
   %44 = mul nsw i64 %3, %indvars.iv72
   %45 = getelementptr i16, ptr %0, i64 %44
   %46 = sext i32 %38 to i64
-  %invariant.gep95 = getelementptr i16, ptr %.0209.i, i64 %46
-  %47 = getelementptr i8, ptr %invariant.gep95, i64 2
+  %invariant.gep99 = getelementptr i16, ptr %.0209.i, i64 %46
+  %47 = getelementptr i8, ptr %invariant.gep99, i64 2
   %48 = load i64, ptr %47, align 1, !tbaa !97
   store i64 %48, ptr %45, align 1, !tbaa !97
-  %49 = getelementptr i8, ptr %invariant.gep95, i64 10
+  %49 = getelementptr i8, ptr %invariant.gep99, i64 10
   %50 = load i64, ptr %49, align 1, !tbaa !97
   %51 = getelementptr i8, ptr %45, i64 8
   store i64 %50, ptr %51, align 1, !tbaa !97
@@ -19895,12 +19895,12 @@ define internal void @pred_angular_1_12(ptr noundef writeonly captures(none) %0,
 52:                                               ; preds = %.preheader6, %52
   %53 = phi i1 [ true, %.preheader6 ], [ false, %52 ]
   %indvars.iv63 = phi i64 [ 0, %.preheader6 ], [ 4, %52 ]
-  %gep88 = getelementptr i16, ptr %invariant.gep87, i64 %indvars.iv63
-  %54 = getelementptr i8, ptr %gep88, i64 2
+  %gep92 = getelementptr i16, ptr %invariant.gep91, i64 %indvars.iv63
+  %54 = getelementptr i8, ptr %gep92, i64 2
   %55 = load i16, ptr %54, align 2, !tbaa !124
   %56 = zext i16 %55 to i32
   %57 = mul nuw nsw i32 %40, %56
-  %58 = getelementptr i8, ptr %gep88, i64 4
+  %58 = getelementptr i8, ptr %gep92, i64 4
   %59 = load i16, ptr %58, align 2, !tbaa !124
   %60 = zext i16 %59 to i32
   %61 = mul nuw nsw i32 %39, %60
@@ -19911,12 +19911,12 @@ define internal void @pred_angular_1_12(ptr noundef writeonly captures(none) %0,
   %66 = getelementptr i16, ptr %42, i64 %indvars.iv63
   store i16 %65, ptr %66, align 2, !tbaa !124
   %67 = or disjoint i64 %indvars.iv63, 1
-  %gep90 = getelementptr i16, ptr %invariant.gep89, i64 %67
-  %68 = getelementptr i8, ptr %gep90, i64 2
+  %gep94 = getelementptr i16, ptr %invariant.gep93, i64 %67
+  %68 = getelementptr i8, ptr %gep94, i64 2
   %69 = load i16, ptr %68, align 2, !tbaa !124
   %70 = zext i16 %69 to i32
   %71 = mul nuw nsw i32 %40, %70
-  %72 = getelementptr i8, ptr %gep90, i64 4
+  %72 = getelementptr i8, ptr %gep94, i64 4
   %73 = load i16, ptr %72, align 2, !tbaa !124
   %74 = zext i16 %73 to i32
   %75 = mul nuw nsw i32 %39, %74
@@ -19927,12 +19927,12 @@ define internal void @pred_angular_1_12(ptr noundef writeonly captures(none) %0,
   %80 = getelementptr i16, ptr %42, i64 %67
   store i16 %79, ptr %80, align 2, !tbaa !124
   %81 = or disjoint i64 %indvars.iv63, 2
-  %gep92 = getelementptr i16, ptr %invariant.gep91, i64 %81
-  %82 = getelementptr i8, ptr %gep92, i64 2
+  %gep96 = getelementptr i16, ptr %invariant.gep95, i64 %81
+  %82 = getelementptr i8, ptr %gep96, i64 2
   %83 = load i16, ptr %82, align 2, !tbaa !124
   %84 = zext i16 %83 to i32
   %85 = mul nuw nsw i32 %40, %84
-  %86 = getelementptr i8, ptr %gep92, i64 4
+  %86 = getelementptr i8, ptr %gep96, i64 4
   %87 = load i16, ptr %86, align 2, !tbaa !124
   %88 = zext i16 %87 to i32
   %89 = mul nuw nsw i32 %39, %88
@@ -19943,12 +19943,12 @@ define internal void @pred_angular_1_12(ptr noundef writeonly captures(none) %0,
   %94 = getelementptr i16, ptr %42, i64 %81
   store i16 %93, ptr %94, align 2, !tbaa !124
   %95 = or disjoint i64 %indvars.iv63, 3
-  %gep94 = getelementptr i16, ptr %invariant.gep93, i64 %95
-  %96 = getelementptr i8, ptr %gep94, i64 2
+  %gep98 = getelementptr i16, ptr %invariant.gep97, i64 %95
+  %96 = getelementptr i8, ptr %gep98, i64 2
   %97 = load i16, ptr %96, align 2, !tbaa !124
   %98 = zext i16 %97 to i32
   %99 = mul nuw nsw i32 %40, %98
-  %100 = getelementptr i8, ptr %gep94, i64 4
+  %100 = getelementptr i8, ptr %gep98, i64 4
   %101 = load i16, ptr %100, align 2, !tbaa !124
   %102 = zext i16 %101 to i32
   %103 = mul nuw nsw i32 %39, %102
@@ -20043,23 +20043,23 @@ define internal void @pred_angular_1_12(ptr noundef writeonly captures(none) %0,
   %151 = sub nuw nsw i32 32, %150
   %invariant.gep = getelementptr i16, ptr %0, i64 %indvars.iv48
   %152 = sext i32 %149 to i64
-  %invariant.gep83 = getelementptr i16, ptr %.1210.i, i64 %152
+  %invariant.gep87 = getelementptr i16, ptr %.1210.i, i64 %152
   br label %154
 
 .preheader13:                                     ; preds = %146
   %invariant.gep23 = getelementptr i16, ptr %0, i64 %indvars.iv48
   %153 = sext i32 %149 to i64
-  %invariant.gep85 = getelementptr i16, ptr %.1210.i, i64 %153
+  %invariant.gep89 = getelementptr i16, ptr %.1210.i, i64 %153
   br label %168
 
 154:                                              ; preds = %.preheader15, %154
   %indvars.iv40 = phi i64 [ 0, %.preheader15 ], [ %indvars.iv.next41, %154 ]
-  %gep84 = getelementptr i16, ptr %invariant.gep83, i64 %indvars.iv40
-  %155 = getelementptr i8, ptr %gep84, i64 2
+  %gep88 = getelementptr i16, ptr %invariant.gep87, i64 %indvars.iv40
+  %155 = getelementptr i8, ptr %gep88, i64 2
   %156 = load i16, ptr %155, align 2, !tbaa !124
   %157 = zext i16 %156 to i32
   %158 = mul nuw nsw i32 %151, %157
-  %159 = getelementptr i8, ptr %gep84, i64 4
+  %159 = getelementptr i8, ptr %gep88, i64 4
   %160 = load i16, ptr %159, align 2, !tbaa !124
   %161 = zext i16 %160 to i32
   %162 = mul nuw nsw i32 %150, %161
@@ -20076,8 +20076,8 @@ define internal void @pred_angular_1_12(ptr noundef writeonly captures(none) %0,
 
 168:                                              ; preds = %.preheader13, %168
   %indvars.iv44 = phi i64 [ 0, %.preheader13 ], [ %indvars.iv.next45, %168 ]
-  %gep86 = getelementptr i16, ptr %invariant.gep85, i64 %indvars.iv44
-  %169 = getelementptr i8, ptr %gep86, i64 2
+  %gep90 = getelementptr i16, ptr %invariant.gep89, i64 %indvars.iv44
+  %169 = getelementptr i8, ptr %gep90, i64 2
   %170 = load i16, ptr %169, align 2, !tbaa !124
   %171 = mul nsw i64 %3, %indvars.iv44
   %gep24 = getelementptr i16, ptr %invariant.gep23, i64 %171
@@ -20238,27 +20238,27 @@ define internal void @pred_angular_2_12(ptr noundef writeonly captures(none) %0,
   %41 = mul nsw i64 %3, %indvars.iv72
   %42 = getelementptr i16, ptr %0, i64 %41
   %43 = sext i32 %38 to i64
-  %invariant.gep87 = getelementptr i16, ptr %.0209.i, i64 %43
-  %invariant.gep89 = getelementptr i16, ptr %.0209.i, i64 %43
   %invariant.gep91 = getelementptr i16, ptr %.0209.i, i64 %43
   %invariant.gep93 = getelementptr i16, ptr %.0209.i, i64 %43
+  %invariant.gep95 = getelementptr i16, ptr %.0209.i, i64 %43
+  %invariant.gep97 = getelementptr i16, ptr %.0209.i, i64 %43
   br label %47
 
 .preheader5:                                      ; preds = %35
   %44 = mul nsw i64 %3, %indvars.iv72
   %45 = getelementptr i16, ptr %0, i64 %44
   %46 = sext i32 %38 to i64
-  %invariant.gep95 = getelementptr i16, ptr %.0209.i, i64 %46
+  %invariant.gep99 = getelementptr i16, ptr %.0209.i, i64 %46
   br label %104
 
 47:                                               ; preds = %.preheader6, %47
   %indvars.iv63 = phi i64 [ 0, %.preheader6 ], [ %indvars.iv.next64, %47 ]
-  %gep88 = getelementptr i16, ptr %invariant.gep87, i64 %indvars.iv63
-  %48 = getelementptr i8, ptr %gep88, i64 2
+  %gep92 = getelementptr i16, ptr %invariant.gep91, i64 %indvars.iv63
+  %48 = getelementptr i8, ptr %gep92, i64 2
   %49 = load i16, ptr %48, align 2, !tbaa !124
   %50 = zext i16 %49 to i32
   %51 = mul nuw nsw i32 %40, %50
-  %52 = getelementptr i8, ptr %gep88, i64 4
+  %52 = getelementptr i8, ptr %gep92, i64 4
   %53 = load i16, ptr %52, align 2, !tbaa !124
   %54 = zext i16 %53 to i32
   %55 = mul nuw nsw i32 %39, %54
@@ -20269,12 +20269,12 @@ define internal void @pred_angular_2_12(ptr noundef writeonly captures(none) %0,
   %60 = getelementptr i16, ptr %42, i64 %indvars.iv63
   store i16 %59, ptr %60, align 2, !tbaa !124
   %61 = or disjoint i64 %indvars.iv63, 1
-  %gep90 = getelementptr i16, ptr %invariant.gep89, i64 %61
-  %62 = getelementptr i8, ptr %gep90, i64 2
+  %gep94 = getelementptr i16, ptr %invariant.gep93, i64 %61
+  %62 = getelementptr i8, ptr %gep94, i64 2
   %63 = load i16, ptr %62, align 2, !tbaa !124
   %64 = zext i16 %63 to i32
   %65 = mul nuw nsw i32 %40, %64
-  %66 = getelementptr i8, ptr %gep90, i64 4
+  %66 = getelementptr i8, ptr %gep94, i64 4
   %67 = load i16, ptr %66, align 2, !tbaa !124
   %68 = zext i16 %67 to i32
   %69 = mul nuw nsw i32 %39, %68
@@ -20285,12 +20285,12 @@ define internal void @pred_angular_2_12(ptr noundef writeonly captures(none) %0,
   %74 = getelementptr i16, ptr %42, i64 %61
   store i16 %73, ptr %74, align 2, !tbaa !124
   %75 = or disjoint i64 %indvars.iv63, 2
-  %gep92 = getelementptr i16, ptr %invariant.gep91, i64 %75
-  %76 = getelementptr i8, ptr %gep92, i64 2
+  %gep96 = getelementptr i16, ptr %invariant.gep95, i64 %75
+  %76 = getelementptr i8, ptr %gep96, i64 2
   %77 = load i16, ptr %76, align 2, !tbaa !124
   %78 = zext i16 %77 to i32
   %79 = mul nuw nsw i32 %40, %78
-  %80 = getelementptr i8, ptr %gep92, i64 4
+  %80 = getelementptr i8, ptr %gep96, i64 4
   %81 = load i16, ptr %80, align 2, !tbaa !124
   %82 = zext i16 %81 to i32
   %83 = mul nuw nsw i32 %39, %82
@@ -20301,12 +20301,12 @@ define internal void @pred_angular_2_12(ptr noundef writeonly captures(none) %0,
   %88 = getelementptr i16, ptr %42, i64 %75
   store i16 %87, ptr %88, align 2, !tbaa !124
   %89 = or disjoint i64 %indvars.iv63, 3
-  %gep94 = getelementptr i16, ptr %invariant.gep93, i64 %89
-  %90 = getelementptr i8, ptr %gep94, i64 2
+  %gep98 = getelementptr i16, ptr %invariant.gep97, i64 %89
+  %90 = getelementptr i8, ptr %gep98, i64 2
   %91 = load i16, ptr %90, align 2, !tbaa !124
   %92 = zext i16 %91 to i32
   %93 = mul nuw nsw i32 %40, %92
-  %94 = getelementptr i8, ptr %gep94, i64 4
+  %94 = getelementptr i8, ptr %gep98, i64 4
   %95 = load i16, ptr %94, align 2, !tbaa !124
   %96 = zext i16 %95 to i32
   %97 = mul nuw nsw i32 %39, %96
@@ -20322,8 +20322,8 @@ define internal void @pred_angular_2_12(ptr noundef writeonly captures(none) %0,
 
 104:                                              ; preds = %.preheader5, %104
   %indvars.iv69 = phi i64 [ 0, %.preheader5 ], [ %indvars.iv.next70, %104 ]
-  %gep96 = getelementptr i16, ptr %invariant.gep95, i64 %indvars.iv69
-  %105 = getelementptr i8, ptr %gep96, i64 2
+  %gep100 = getelementptr i16, ptr %invariant.gep99, i64 %indvars.iv69
+  %105 = getelementptr i8, ptr %gep100, i64 2
   %106 = load i64, ptr %105, align 1, !tbaa !97
   %107 = getelementptr i16, ptr %45, i64 %indvars.iv69
   store i64 %106, ptr %107, align 1, !tbaa !97
@@ -20414,23 +20414,23 @@ define internal void @pred_angular_2_12(ptr noundef writeonly captures(none) %0,
   %151 = sub nuw nsw i32 32, %150
   %invariant.gep = getelementptr i16, ptr %0, i64 %indvars.iv48
   %152 = sext i32 %149 to i64
-  %invariant.gep83 = getelementptr i16, ptr %.1210.i, i64 %152
+  %invariant.gep87 = getelementptr i16, ptr %.1210.i, i64 %152
   br label %154
 
 .preheader13:                                     ; preds = %146
   %invariant.gep23 = getelementptr i16, ptr %0, i64 %indvars.iv48
   %153 = sext i32 %149 to i64
-  %invariant.gep85 = getelementptr i16, ptr %.1210.i, i64 %153
+  %invariant.gep89 = getelementptr i16, ptr %.1210.i, i64 %153
   br label %168
 
 154:                                              ; preds = %.preheader15, %154
   %indvars.iv40 = phi i64 [ 0, %.preheader15 ], [ %indvars.iv.next41, %154 ]
-  %gep84 = getelementptr i16, ptr %invariant.gep83, i64 %indvars.iv40
-  %155 = getelementptr i8, ptr %gep84, i64 2
+  %gep88 = getelementptr i16, ptr %invariant.gep87, i64 %indvars.iv40
+  %155 = getelementptr i8, ptr %gep88, i64 2
   %156 = load i16, ptr %155, align 2, !tbaa !124
   %157 = zext i16 %156 to i32
   %158 = mul nuw nsw i32 %151, %157
-  %159 = getelementptr i8, ptr %gep84, i64 4
+  %159 = getelementptr i8, ptr %gep88, i64 4
   %160 = load i16, ptr %159, align 2, !tbaa !124
   %161 = zext i16 %160 to i32
   %162 = mul nuw nsw i32 %150, %161
@@ -20447,8 +20447,8 @@ define internal void @pred_angular_2_12(ptr noundef writeonly captures(none) %0,
 
 168:                                              ; preds = %.preheader13, %168
   %indvars.iv44 = phi i64 [ 0, %.preheader13 ], [ %indvars.iv.next45, %168 ]
-  %gep86 = getelementptr i16, ptr %invariant.gep85, i64 %indvars.iv44
-  %169 = getelementptr i8, ptr %gep86, i64 2
+  %gep90 = getelementptr i16, ptr %invariant.gep89, i64 %indvars.iv44
+  %169 = getelementptr i8, ptr %gep90, i64 2
   %170 = load i16, ptr %169, align 2, !tbaa !124
   %171 = mul nsw i64 %3, %indvars.iv44
   %gep24 = getelementptr i16, ptr %invariant.gep23, i64 %171
@@ -20610,27 +20610,27 @@ define internal void @pred_angular_3_12(ptr noundef writeonly captures(none) %0,
   %39 = mul nsw i64 %3, %indvars.iv67
   %40 = getelementptr i16, ptr %0, i64 %39
   %41 = sext i32 %36 to i64
-  %invariant.gep78 = getelementptr i16, ptr %.0209.i, i64 %41
   %invariant.gep80 = getelementptr i16, ptr %.0209.i, i64 %41
   %invariant.gep82 = getelementptr i16, ptr %.0209.i, i64 %41
   %invariant.gep84 = getelementptr i16, ptr %.0209.i, i64 %41
+  %invariant.gep86 = getelementptr i16, ptr %.0209.i, i64 %41
   br label %45
 
 .preheader:                                       ; preds = %33
   %42 = mul nsw i64 %3, %indvars.iv67
   %43 = getelementptr i16, ptr %0, i64 %42
   %44 = sext i32 %36 to i64
-  %invariant.gep86 = getelementptr i16, ptr %.0209.i, i64 %44
+  %invariant.gep88 = getelementptr i16, ptr %.0209.i, i64 %44
   br label %102
 
 45:                                               ; preds = %.preheader5, %45
   %indvars.iv58 = phi i64 [ 0, %.preheader5 ], [ %indvars.iv.next59, %45 ]
-  %gep79 = getelementptr i16, ptr %invariant.gep78, i64 %indvars.iv58
-  %46 = getelementptr i8, ptr %gep79, i64 2
+  %gep81 = getelementptr i16, ptr %invariant.gep80, i64 %indvars.iv58
+  %46 = getelementptr i8, ptr %gep81, i64 2
   %47 = load i16, ptr %46, align 2, !tbaa !124
   %48 = zext i16 %47 to i32
   %49 = mul nuw nsw i32 %38, %48
-  %50 = getelementptr i8, ptr %gep79, i64 4
+  %50 = getelementptr i8, ptr %gep81, i64 4
   %51 = load i16, ptr %50, align 2, !tbaa !124
   %52 = zext i16 %51 to i32
   %53 = mul nuw nsw i32 %37, %52
@@ -20641,12 +20641,12 @@ define internal void @pred_angular_3_12(ptr noundef writeonly captures(none) %0,
   %58 = getelementptr i16, ptr %40, i64 %indvars.iv58
   store i16 %57, ptr %58, align 2, !tbaa !124
   %59 = or disjoint i64 %indvars.iv58, 1
-  %gep81 = getelementptr i16, ptr %invariant.gep80, i64 %59
-  %60 = getelementptr i8, ptr %gep81, i64 2
+  %gep83 = getelementptr i16, ptr %invariant.gep82, i64 %59
+  %60 = getelementptr i8, ptr %gep83, i64 2
   %61 = load i16, ptr %60, align 2, !tbaa !124
   %62 = zext i16 %61 to i32
   %63 = mul nuw nsw i32 %38, %62
-  %64 = getelementptr i8, ptr %gep81, i64 4
+  %64 = getelementptr i8, ptr %gep83, i64 4
   %65 = load i16, ptr %64, align 2, !tbaa !124
   %66 = zext i16 %65 to i32
   %67 = mul nuw nsw i32 %37, %66
@@ -20657,12 +20657,12 @@ define internal void @pred_angular_3_12(ptr noundef writeonly captures(none) %0,
   %72 = getelementptr i16, ptr %40, i64 %59
   store i16 %71, ptr %72, align 2, !tbaa !124
   %73 = or disjoint i64 %indvars.iv58, 2
-  %gep83 = getelementptr i16, ptr %invariant.gep82, i64 %73
-  %74 = getelementptr i8, ptr %gep83, i64 2
+  %gep85 = getelementptr i16, ptr %invariant.gep84, i64 %73
+  %74 = getelementptr i8, ptr %gep85, i64 2
   %75 = load i16, ptr %74, align 2, !tbaa !124
   %76 = zext i16 %75 to i32
   %77 = mul nuw nsw i32 %38, %76
-  %78 = getelementptr i8, ptr %gep83, i64 4
+  %78 = getelementptr i8, ptr %gep85, i64 4
   %79 = load i16, ptr %78, align 2, !tbaa !124
   %80 = zext i16 %79 to i32
   %81 = mul nuw nsw i32 %37, %80
@@ -20673,12 +20673,12 @@ define internal void @pred_angular_3_12(ptr noundef writeonly captures(none) %0,
   %86 = getelementptr i16, ptr %40, i64 %73
   store i16 %85, ptr %86, align 2, !tbaa !124
   %87 = or disjoint i64 %indvars.iv58, 3
-  %gep85 = getelementptr i16, ptr %invariant.gep84, i64 %87
-  %88 = getelementptr i8, ptr %gep85, i64 2
+  %gep87 = getelementptr i16, ptr %invariant.gep86, i64 %87
+  %88 = getelementptr i8, ptr %gep87, i64 2
   %89 = load i16, ptr %88, align 2, !tbaa !124
   %90 = zext i16 %89 to i32
   %91 = mul nuw nsw i32 %38, %90
-  %92 = getelementptr i8, ptr %gep85, i64 4
+  %92 = getelementptr i8, ptr %gep87, i64 4
   %93 = load i16, ptr %92, align 2, !tbaa !124
   %94 = zext i16 %93 to i32
   %95 = mul nuw nsw i32 %37, %94
@@ -20694,8 +20694,8 @@ define internal void @pred_angular_3_12(ptr noundef writeonly captures(none) %0,
 
 102:                                              ; preds = %.preheader, %102
   %indvars.iv64 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next65, %102 ]
-  %gep87 = getelementptr i16, ptr %invariant.gep86, i64 %indvars.iv64
-  %103 = getelementptr i8, ptr %gep87, i64 2
+  %gep89 = getelementptr i16, ptr %invariant.gep88, i64 %indvars.iv64
+  %103 = getelementptr i8, ptr %gep89, i64 2
   %104 = load i64, ptr %103, align 1, !tbaa !97
   %105 = getelementptr i16, ptr %43, i64 %indvars.iv64
   store i64 %104, ptr %105, align 1, !tbaa !97
@@ -20757,23 +20757,23 @@ define internal void @pred_angular_3_12(ptr noundef writeonly captures(none) %0,
   %130 = sub nuw nsw i32 32, %129
   %invariant.gep = getelementptr i16, ptr %0, i64 %indvars.iv44
   %131 = sext i32 %128 to i64
-  %invariant.gep74 = getelementptr i16, ptr %.1210.i, i64 %131
+  %invariant.gep76 = getelementptr i16, ptr %.1210.i, i64 %131
   br label %133
 
 .preheader10:                                     ; preds = %125
   %invariant.gep21 = getelementptr i16, ptr %0, i64 %indvars.iv44
   %132 = sext i32 %128 to i64
-  %invariant.gep76 = getelementptr i16, ptr %.1210.i, i64 %132
+  %invariant.gep78 = getelementptr i16, ptr %.1210.i, i64 %132
   br label %147
 
 133:                                              ; preds = %.preheader12, %133
   %indvars.iv36 = phi i64 [ 0, %.preheader12 ], [ %indvars.iv.next37, %133 ]
-  %gep75 = getelementptr i16, ptr %invariant.gep74, i64 %indvars.iv36
-  %134 = getelementptr i8, ptr %gep75, i64 2
+  %gep77 = getelementptr i16, ptr %invariant.gep76, i64 %indvars.iv36
+  %134 = getelementptr i8, ptr %gep77, i64 2
   %135 = load i16, ptr %134, align 2, !tbaa !124
   %136 = zext i16 %135 to i32
   %137 = mul nuw nsw i32 %130, %136
-  %138 = getelementptr i8, ptr %gep75, i64 4
+  %138 = getelementptr i8, ptr %gep77, i64 4
   %139 = load i16, ptr %138, align 2, !tbaa !124
   %140 = zext i16 %139 to i32
   %141 = mul nuw nsw i32 %129, %140
@@ -20790,8 +20790,8 @@ define internal void @pred_angular_3_12(ptr noundef writeonly captures(none) %0,
 
 147:                                              ; preds = %.preheader10, %147
   %indvars.iv40 = phi i64 [ 0, %.preheader10 ], [ %indvars.iv.next41, %147 ]
-  %gep77 = getelementptr i16, ptr %invariant.gep76, i64 %indvars.iv40
-  %148 = getelementptr i8, ptr %gep77, i64 2
+  %gep79 = getelementptr i16, ptr %invariant.gep78, i64 %indvars.iv40
+  %148 = getelementptr i8, ptr %gep79, i64 2
   %149 = load i16, ptr %148, align 2, !tbaa !124
   %150 = mul nsw i64 %3, %indvars.iv40
   %gep22 = getelementptr i16, ptr %invariant.gep21, i64 %150
@@ -21262,9 +21262,9 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %290, label %.lr.ph71, label %.loopexit37
 
 .lr.ph71:                                         ; preds = %.preheader38, %._crit_edge68
-  %.pn255 = sext i32 %283 to i64
-  %.pn254 = mul nsw i64 %.pn255, %56
-  %.pn = getelementptr i8, ptr %63, i64 %.pn254
+  %.pn263 = sext i32 %283 to i64
+  %.pn262 = mul nsw i64 %.pn263, %56
+  %.pn = getelementptr i8, ptr %63, i64 %.pn262
   %.in.in.in = getelementptr i8, ptr %.pn, i64 -1
   %.in.in = load i8, ptr %.in.in.in, align 1, !tbaa !97
   %.in = zext i8 %.in.in to i32
@@ -21415,9 +21415,9 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %361, label %.lr.ph86, label %._crit_edge87
 
 .lr.ph86:                                         ; preds = %.preheader33, %.critedge25.i
-  %.1799.i.lcssa234 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader33 ]
+  %.1799.i.lcssa242 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader33 ]
   %362 = sub nsw i32 %3, %343
-  %363 = zext nneg i32 %.1799.i.lcssa234 to i64
+  %363 = zext nneg i32 %.1799.i.lcssa242 to i64
   %364 = ashr i32 %362, %328
   %365 = mul nsw i32 %364, %65
   br label %366
@@ -21477,11 +21477,11 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   br label %414
 
 .lr.ph78:                                         ; preds = %390, %.critedge27.i
-  %.2800.i.lcssa240 = phi i32 [ %.2800.i72, %.critedge27.i ], [ %.0796.i, %390 ]
+  %.2800.i.lcssa248 = phi i32 [ %.2800.i72, %.critedge27.i ], [ %.0796.i, %390 ]
   %392 = getelementptr inbounds nuw i8, ptr %9, i64 18616
   %.neg848.i = shl nsw i32 -1, %18
   %393 = add nsw i32 %.neg848.i, %3
-  %394 = zext nneg i32 %.2800.i.lcssa240 to i64
+  %394 = zext nneg i32 %.2800.i.lcssa248 to i64
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %51, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !110
   %.pre190 = load i32, ptr %392, align 8, !tbaa !108
@@ -21809,7 +21809,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %.0778.i, label %584, label %563
 
 .loopexit27.thread:                               ; preds = %300
-  br i1 %.0778.i, label %.thread11.split, label %.thread245
+  br i1 %.0778.i, label %.thread11.split, label %.thread253
 
 563:                                              ; preds = %.loopexit27
   br i1 %276, label %.split118, label %569
@@ -21836,7 +21836,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   br label %.thread4.thread
 
 574:                                              ; preds = %569
-  br i1 %249, label %.thread4.thread.thread.loopexit.critedge, label %.thread245
+  br i1 %249, label %.thread4.thread.thread.loopexit.critedge, label %.thread253
 
 .thread4.thread.thread.loopexit.critedge:         ; preds = %574
   %575 = load i8, ptr %68, align 1, !tbaa !97
@@ -21848,10 +21848,10 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %577, ptr %578, align 1, !tbaa !97
   br label %.thread4.thread.thread
 
-.thread245:                                       ; preds = %.loopexit27.thread, %574
+.thread253:                                       ; preds = %.loopexit27.thread, %574
   br i1 %.0792.i, label %.split113, label %.preheader.preheader
 
-.split113:                                        ; preds = %.thread245
+.split113:                                        ; preds = %.thread253
   %579 = getelementptr inbounds nuw i8, ptr %7, i64 5
   %580 = load i8, ptr %579, align 1, !tbaa !97
   %581 = zext i8 %580 to i32
@@ -21863,7 +21863,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %582, ptr %583, align 1, !tbaa !97
   br label %.thread4.thread.thread.thread
 
-.preheader.preheader:                             ; preds = %.thread245
+.preheader.preheader:                             ; preds = %.thread253
   store i8 -128, ptr %6, align 16, !tbaa !97
   store i64 -9187201950435737472, ptr %68, align 1
   store i64 -9187201950435737472, ptr %67, align 1
@@ -22409,9 +22409,9 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %294, label %.lr.ph77, label %.loopexit43
 
 .lr.ph77:                                         ; preds = %.preheader44, %._crit_edge74
-  %.pn295 = sext i32 %287 to i64
-  %.pn294 = mul nsw i64 %.pn295, %58
-  %.pn = getelementptr i8, ptr %65, i64 %.pn294
+  %.pn304 = sext i32 %287 to i64
+  %.pn303 = mul nsw i64 %.pn304, %58
+  %.pn = getelementptr i8, ptr %65, i64 %.pn303
   %.in.in.in = getelementptr i8, ptr %.pn, i64 -1
   %.in.in = load i8, ptr %.in.in.in, align 1, !tbaa !97
   %.in = zext i8 %.in.in to i32
@@ -22562,9 +22562,9 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %365, label %.lr.ph92, label %._crit_edge93
 
 .lr.ph92:                                         ; preds = %.preheader39, %.critedge25.i
-  %.1799.i.lcssa271 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader39 ]
+  %.1799.i.lcssa280 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader39 ]
   %366 = sub nsw i32 %3, %347
-  %367 = zext nneg i32 %.1799.i.lcssa271 to i64
+  %367 = zext nneg i32 %.1799.i.lcssa280 to i64
   %368 = ashr i32 %366, %332
   %369 = mul nsw i32 %368, %67
   br label %370
@@ -22591,8 +22591,8 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   br label %384
 
 384:                                              ; preds = %380, %370
-  %.not296 = icmp eq i64 %indvars.iv163, 0
-  br i1 %.not296, label %._crit_edge93, label %370, !llvm.loop !285
+  %.not305 = icmp eq i64 %indvars.iv163, 0
+  br i1 %.not305, label %._crit_edge93, label %370, !llvm.loop !285
 
 ._crit_edge93:                                    ; preds = %384, %.critedge25.i
   %385 = load i8, ptr %8, align 16, !tbaa !97
@@ -22624,11 +22624,11 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   br label %418
 
 .lr.ph84:                                         ; preds = %394, %.critedge27.i
-  %.2800.i.lcssa277 = phi i32 [ %.2800.i78, %.critedge27.i ], [ %.0796.i, %394 ]
+  %.2800.i.lcssa286 = phi i32 [ %.2800.i78, %.critedge27.i ], [ %.0796.i, %394 ]
   %396 = getelementptr inbounds nuw i8, ptr %11, i64 18616
   %.neg848.i = shl nsw i32 -1, %20
   %397 = add nsw i32 %.neg848.i, %3
-  %398 = zext nneg i32 %.2800.i.lcssa277 to i64
+  %398 = zext nneg i32 %.2800.i.lcssa286 to i64
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %53, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !110
   %.pre223 = load i32, ptr %396, align 8, !tbaa !108
@@ -22960,12 +22960,12 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %.0778.i, label %599, label %567
 
 .loopexit33.thread:                               ; preds = %304
-  br i1 %.0778.i, label %..thread11_crit_edge, label %.thread282
+  br i1 %.0778.i, label %..thread11_crit_edge, label %.thread291
 
 567:                                              ; preds = %.loopexit33
-  br i1 %280, label %.thread4.loopexit297.critedge, label %573
+  br i1 %280, label %.thread4.loopexit306.critedge, label %573
 
-.thread4.loopexit297.critedge:                    ; preds = %567
+.thread4.loopexit306.critedge:                    ; preds = %567
   %568 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %569 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %570 = load i8, ptr %569, align 8, !tbaa !97
@@ -22991,7 +22991,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %580, label %578, label %.thread4.thread, !llvm.loop !292
 
 581:                                              ; preds = %573
-  br i1 %253, label %582, label %.thread282
+  br i1 %253, label %582, label %.thread291
 
 582:                                              ; preds = %581
   %583 = load i8, ptr %70, align 1, !tbaa !97
@@ -23008,10 +23008,10 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   %588 = icmp samesign ult i64 %indvars.iv199, 12
   br i1 %588, label %586, label %.thread4.thread.thread, !llvm.loop !293
 
-.thread282:                                       ; preds = %.loopexit33.thread, %581
+.thread291:                                       ; preds = %.loopexit33.thread, %581
   br i1 %.0792.i, label %.critedge, label %.preheader.preheader
 
-.critedge:                                        ; preds = %.thread282
+.critedge:                                        ; preds = %.thread291
   %589 = getelementptr inbounds nuw i8, ptr %8, i64 9
   %590 = load i8, ptr %589, align 1, !tbaa !97
   %591 = zext i8 %590 to i32
@@ -23032,7 +23032,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   %598 = icmp samesign ult i64 %indvars.iv196, 12
   br i1 %598, label %596, label %.loopexit29, !llvm.loop !294
 
-.preheader.preheader:                             ; preds = %.thread282
+.preheader.preheader:                             ; preds = %.thread291
   store i8 -128, ptr %6, align 16, !tbaa !97
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %70, i8 -128, i64 16, i1 false), !tbaa !97
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %69, i8 -128, i64 16, i1 false), !tbaa !97
@@ -23049,12 +23049,12 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   %601 = mul nuw i32 %600, 16843009
   br label %.thread4.sink.split
 
-.thread4.sink.split:                              ; preds = %.preheader.preheader, %..thread11_crit_edge, %.thread4.loopexit297.critedge
-  %.sink317 = phi ptr [ %568, %.thread4.loopexit297.critedge ], [ %69, %..thread11_crit_edge ], [ %69, %.preheader.preheader ]
-  %.sink315 = phi i32 [ %572, %.thread4.loopexit297.critedge ], [ %601, %..thread11_crit_edge ], [ -2139062144, %.preheader.preheader ]
-  store i32 %.sink315, ptr %.sink317, align 1, !tbaa !97
-  %602 = getelementptr inbounds nuw i8, ptr %.sink317, i64 4
-  store i32 %.sink315, ptr %602, align 1, !tbaa !97
+.thread4.sink.split:                              ; preds = %.preheader.preheader, %..thread11_crit_edge, %.thread4.loopexit306.critedge
+  %.sink326 = phi ptr [ %568, %.thread4.loopexit306.critedge ], [ %69, %..thread11_crit_edge ], [ %69, %.preheader.preheader ]
+  %.sink324 = phi i32 [ %572, %.thread4.loopexit306.critedge ], [ %601, %..thread11_crit_edge ], [ -2139062144, %.preheader.preheader ]
+  store i32 %.sink324, ptr %.sink326, align 1, !tbaa !97
+  %602 = getelementptr inbounds nuw i8, ptr %.sink326, i64 4
+  store i32 %.sink324, ptr %602, align 1, !tbaa !97
   br label %.thread4
 
 .thread4:                                         ; preds = %.thread4.sink.split, %599
@@ -23158,8 +23158,8 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   %658 = getelementptr inbounds nuw i8, ptr %71, i64 %indvars.iv217
   store i8 %657, ptr %658, align 1, !tbaa !97
   %indvars.iv.next218 = add nsw i64 %indvars.iv217, -1
-  %.not267 = icmp eq i64 %indvars.iv217, 0
-  br i1 %.not267, label %659, label %642, !llvm.loop !295
+  %.not276 = icmp eq i64 %indvars.iv217, 0
+  br i1 %.not276, label %659, label %642, !llvm.loop !295
 
 659:                                              ; preds = %642
   %660 = load i8, ptr %69, align 1, !tbaa !97
@@ -23197,8 +23197,8 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   %687 = getelementptr inbounds nuw i8, ptr %72, i64 %indvars.iv220
   store i8 %686, ptr %687, align 1, !tbaa !97
   %indvars.iv.next221 = add nsw i64 %indvars.iv220, -1
-  %.not268 = icmp eq i64 %indvars.iv220, 0
-  br i1 %.not268, label %.loopexit, label %671, !llvm.loop !296
+  %.not277 = icmp eq i64 %indvars.iv220, 0
+  br i1 %.not277, label %.loopexit, label %671, !llvm.loop !296
 
 .loopexit:                                        ; preds = %671, %624, %619, %.loopexit29
   %.0775.i = phi ptr [ %70, %.loopexit29 ], [ %70, %619 ], [ %70, %624 ], [ %72, %671 ]
@@ -23693,9 +23693,9 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %292, label %.lr.ph77, label %.loopexit43
 
 .lr.ph77:                                         ; preds = %.preheader44, %._crit_edge74
-  %.pn295 = sext i32 %285 to i64
-  %.pn294 = mul nsw i64 %.pn295, %58
-  %.pn = getelementptr i8, ptr %65, i64 %.pn294
+  %.pn304 = sext i32 %285 to i64
+  %.pn303 = mul nsw i64 %.pn304, %58
+  %.pn = getelementptr i8, ptr %65, i64 %.pn303
   %.in.in.in = getelementptr i8, ptr %.pn, i64 -1
   %.in.in = load i8, ptr %.in.in.in, align 1, !tbaa !97
   %.in = zext i8 %.in.in to i32
@@ -23846,9 +23846,9 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %363, label %.lr.ph92, label %._crit_edge93
 
 .lr.ph92:                                         ; preds = %.preheader39, %.critedge25.i
-  %.1799.i.lcssa271 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader39 ]
+  %.1799.i.lcssa280 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader39 ]
   %364 = sub nsw i32 %3, %345
-  %365 = zext nneg i32 %.1799.i.lcssa271 to i64
+  %365 = zext nneg i32 %.1799.i.lcssa280 to i64
   %366 = ashr i32 %364, %330
   %367 = mul nsw i32 %366, %67
   br label %368
@@ -23875,8 +23875,8 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   br label %382
 
 382:                                              ; preds = %378, %368
-  %.not296 = icmp eq i64 %indvars.iv163, 0
-  br i1 %.not296, label %._crit_edge93, label %368, !llvm.loop !285
+  %.not305 = icmp eq i64 %indvars.iv163, 0
+  br i1 %.not305, label %._crit_edge93, label %368, !llvm.loop !285
 
 ._crit_edge93:                                    ; preds = %382, %.critedge25.i
   %383 = load i8, ptr %8, align 16, !tbaa !97
@@ -23908,11 +23908,11 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   br label %416
 
 .lr.ph84:                                         ; preds = %392, %.critedge27.i
-  %.2800.i.lcssa277 = phi i32 [ %.2800.i78, %.critedge27.i ], [ %.0796.i, %392 ]
+  %.2800.i.lcssa286 = phi i32 [ %.2800.i78, %.critedge27.i ], [ %.0796.i, %392 ]
   %394 = getelementptr inbounds nuw i8, ptr %11, i64 18616
   %.neg848.i = shl nsw i32 -1, %20
   %395 = add nsw i32 %.neg848.i, %3
-  %396 = zext nneg i32 %.2800.i.lcssa277 to i64
+  %396 = zext nneg i32 %.2800.i.lcssa286 to i64
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %53, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !110
   %.pre223 = load i32, ptr %394, align 8, !tbaa !108
@@ -24254,7 +24254,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %.0778.i, label %611, label %570
 
 .loopexit33.thread:                               ; preds = %302
-  br i1 %.0778.i, label %..thread11_crit_edge, label %.thread282
+  br i1 %.0778.i, label %..thread11_crit_edge, label %.thread291
 
 570:                                              ; preds = %.loopexit33
   br i1 %278, label %571, label %580
@@ -24293,7 +24293,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %587, label %585, label %.thread4.thread, !llvm.loop !292
 
 588:                                              ; preds = %580
-  br i1 %253, label %589, label %.thread282
+  br i1 %253, label %589, label %.thread291
 
 589:                                              ; preds = %588
   %590 = load i8, ptr %70, align 1, !tbaa !97
@@ -24310,10 +24310,10 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   %595 = icmp samesign ult i64 %indvars.iv199, 28
   br i1 %595, label %593, label %.thread4.thread.thread, !llvm.loop !293
 
-.thread282:                                       ; preds = %.loopexit33.thread, %588
+.thread291:                                       ; preds = %.loopexit33.thread, %588
   br i1 %.0792.i, label %596, label %.preheader.preheader
 
-596:                                              ; preds = %.thread282
+596:                                              ; preds = %.thread291
   %597 = getelementptr inbounds nuw i8, ptr %8, i64 17
   %598 = load i8, ptr %597, align 1, !tbaa !97
   %599 = zext i8 %598 to i32
@@ -24343,7 +24343,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   %610 = icmp samesign ult i64 %indvars.iv196, 28
   br i1 %610, label %608, label %.loopexit29, !llvm.loop !294
 
-.preheader.preheader:                             ; preds = %.thread282
+.preheader.preheader:                             ; preds = %.thread291
   store i8 -128, ptr %6, align 16, !tbaa !97
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %70, i8 -128, i64 32, i1 false), !tbaa !97
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %69, i8 -128, i64 32, i1 false), !tbaa !97
@@ -24483,8 +24483,8 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   %679 = getelementptr inbounds nuw i8, ptr %71, i64 %indvars.iv217
   store i8 %678, ptr %679, align 1, !tbaa !97
   %indvars.iv.next218 = add nsw i64 %indvars.iv217, -1
-  %.not267 = icmp eq i64 %indvars.iv217, 0
-  br i1 %.not267, label %680, label %663, !llvm.loop !295
+  %.not276 = icmp eq i64 %indvars.iv217, 0
+  br i1 %.not276, label %680, label %663, !llvm.loop !295
 
 680:                                              ; preds = %663
   %681 = load i8, ptr %69, align 1, !tbaa !97
@@ -24522,8 +24522,8 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   %708 = getelementptr inbounds nuw i8, ptr %72, i64 %indvars.iv220
   store i8 %707, ptr %708, align 1, !tbaa !97
   %indvars.iv.next221 = add nsw i64 %indvars.iv220, -1
-  %.not268 = icmp eq i64 %indvars.iv220, 0
-  br i1 %.not268, label %.loopexit, label %692, !llvm.loop !296
+  %.not277 = icmp eq i64 %indvars.iv220, 0
+  br i1 %.not277, label %.loopexit, label %692, !llvm.loop !296
 
 .loopexit:                                        ; preds = %692, %645, %640, %.loopexit29
   %.0775.i = phi ptr [ %70, %.loopexit29 ], [ %70, %640 ], [ %70, %645 ], [ %72, %692 ]
@@ -25018,9 +25018,9 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %292, label %.lr.ph80, label %.loopexit46
 
 .lr.ph80:                                         ; preds = %.preheader47, %._crit_edge77
-  %.pn314 = sext i32 %285 to i64
-  %.pn313 = mul nsw i64 %.pn314, %58
-  %.pn = getelementptr i8, ptr %65, i64 %.pn313
+  %.pn323 = sext i32 %285 to i64
+  %.pn322 = mul nsw i64 %.pn323, %58
+  %.pn = getelementptr i8, ptr %65, i64 %.pn322
   %.in.in.in = getelementptr i8, ptr %.pn, i64 -1
   %.in.in = load i8, ptr %.in.in.in, align 1, !tbaa !97
   %.in = zext i8 %.in.in to i32
@@ -25171,9 +25171,9 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %363, label %.lr.ph95, label %._crit_edge96
 
 .lr.ph95:                                         ; preds = %.preheader42, %.critedge25.i
-  %.1799.i.lcssa289 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader42 ]
+  %.1799.i.lcssa298 = phi i32 [ %.1799.i.lcssa, %.critedge25.i ], [ 0, %.preheader42 ]
   %364 = sub nsw i32 %3, %345
-  %365 = zext nneg i32 %.1799.i.lcssa289 to i64
+  %365 = zext nneg i32 %.1799.i.lcssa298 to i64
   %366 = ashr i32 %364, %330
   %367 = mul nsw i32 %366, %67
   br label %368
@@ -25200,8 +25200,8 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   br label %382
 
 382:                                              ; preds = %378, %368
-  %.not315 = icmp eq i64 %indvars.iv170, 0
-  br i1 %.not315, label %._crit_edge96, label %368, !llvm.loop !285
+  %.not324 = icmp eq i64 %indvars.iv170, 0
+  br i1 %.not324, label %._crit_edge96, label %368, !llvm.loop !285
 
 ._crit_edge96:                                    ; preds = %382, %.critedge25.i
   %383 = load i8, ptr %8, align 16, !tbaa !97
@@ -25233,11 +25233,11 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   br label %416
 
 .lr.ph87:                                         ; preds = %392, %.critedge27.i
-  %.2800.i.lcssa295 = phi i32 [ %.2800.i81, %.critedge27.i ], [ %.0796.i, %392 ]
+  %.2800.i.lcssa304 = phi i32 [ %.2800.i81, %.critedge27.i ], [ %.0796.i, %392 ]
   %394 = getelementptr inbounds nuw i8, ptr %11, i64 18616
   %.neg848.i = shl nsw i32 -1, %20
   %395 = add nsw i32 %.neg848.i, %3
-  %396 = zext nneg i32 %.2800.i.lcssa295 to i64
+  %396 = zext nneg i32 %.2800.i.lcssa304 to i64
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %53, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !110
   %.pre238 = load i32, ptr %394, align 8, !tbaa !108
@@ -25579,7 +25579,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %.0778.i, label %611, label %570
 
 .loopexit36.thread:                               ; preds = %302
-  br i1 %.0778.i, label %..thread11_crit_edge, label %.thread300
+  br i1 %.0778.i, label %..thread11_crit_edge, label %.thread309
 
 570:                                              ; preds = %.loopexit36
   br i1 %278, label %571, label %580
@@ -25618,7 +25618,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %587, label %585, label %.thread4.thread, !llvm.loop !292
 
 588:                                              ; preds = %580
-  br i1 %253, label %589, label %.thread300
+  br i1 %253, label %589, label %.thread309
 
 589:                                              ; preds = %588
   %590 = load i8, ptr %70, align 1, !tbaa !97
@@ -25635,10 +25635,10 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   %595 = icmp samesign ult i64 %indvars.iv206, 60
   br i1 %595, label %593, label %.thread4.thread.thread, !llvm.loop !293
 
-.thread300:                                       ; preds = %.loopexit36.thread, %588
+.thread309:                                       ; preds = %.loopexit36.thread, %588
   br i1 %.0792.i, label %596, label %.preheader35.preheader
 
-596:                                              ; preds = %.thread300
+596:                                              ; preds = %.thread309
   %597 = getelementptr inbounds nuw i8, ptr %8, i64 33
   %598 = load i8, ptr %597, align 1, !tbaa !97
   %599 = zext i8 %598 to i32
@@ -25668,7 +25668,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   %610 = icmp samesign ult i64 %indvars.iv203, 60
   br i1 %610, label %608, label %.loopexit31, !llvm.loop !294
 
-.preheader35.preheader:                           ; preds = %.thread300
+.preheader35.preheader:                           ; preds = %.thread309
   store i8 -128, ptr %6, align 16, !tbaa !97
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %70, i8 -128, i64 64, i1 false), !tbaa !97
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %69, i8 -128, i64 64, i1 false), !tbaa !97
@@ -25890,8 +25890,8 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   %732 = getelementptr inbounds nuw i8, ptr %71, i64 %indvars.iv224
   store i8 %731, ptr %732, align 1, !tbaa !97
   %indvars.iv.next225 = add nsw i64 %indvars.iv224, -1
-  %.not285 = icmp eq i64 %indvars.iv224, 0
-  br i1 %.not285, label %733, label %716, !llvm.loop !295
+  %.not294 = icmp eq i64 %indvars.iv224, 0
+  br i1 %.not294, label %733, label %716, !llvm.loop !295
 
 733:                                              ; preds = %716
   %734 = load i8, ptr %69, align 1, !tbaa !97
@@ -25929,8 +25929,8 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   %761 = getelementptr inbounds nuw i8, ptr %72, i64 %indvars.iv227
   store i8 %760, ptr %761, align 1, !tbaa !97
   %indvars.iv.next228 = add nsw i64 %indvars.iv227, -1
-  %.not286 = icmp eq i64 %indvars.iv227, 0
-  br i1 %.not286, label %.loopexit, label %745, !llvm.loop !296
+  %.not295 = icmp eq i64 %indvars.iv227, 0
+  br i1 %.not295, label %.loopexit, label %745, !llvm.loop !296
 
 .loopexit:                                        ; preds = %745, %.preheader, %645, %640, %.loopexit31
   %.0775.i = phi ptr [ %70, %.loopexit31 ], [ %70, %640 ], [ %70, %645 ], [ %72, %.preheader ], [ %72, %745 ]
@@ -26526,23 +26526,23 @@ define internal void @pred_angular_0_8(ptr noundef writeonly captures(none) %0, 
   %143 = sub nuw nsw i32 32, %142
   %invariant.gep = getelementptr i8, ptr %0, i64 %indvars.iv75
   %144 = sext i32 %141 to i64
-  %invariant.gep96 = getelementptr i8, ptr %.1210.i, i64 %144
+  %invariant.gep100 = getelementptr i8, ptr %.1210.i, i64 %144
   br label %146
 
 .preheader27:                                     ; preds = %138
   %invariant.gep37 = getelementptr i8, ptr %0, i64 %indvars.iv75
   %145 = sext i32 %141 to i64
-  %invariant.gep98 = getelementptr i8, ptr %.1210.i, i64 %145
+  %invariant.gep102 = getelementptr i8, ptr %.1210.i, i64 %145
   br label %160
 
 146:                                              ; preds = %.preheader29, %146
   %indvars.iv67 = phi i64 [ 0, %.preheader29 ], [ %indvars.iv.next68, %146 ]
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %indvars.iv67
-  %147 = getelementptr i8, ptr %gep97, i64 1
+  %gep101 = getelementptr i8, ptr %invariant.gep100, i64 %indvars.iv67
+  %147 = getelementptr i8, ptr %gep101, i64 1
   %148 = load i8, ptr %147, align 1, !tbaa !97
   %149 = zext i8 %148 to i32
   %150 = mul nuw nsw i32 %143, %149
-  %151 = getelementptr i8, ptr %gep97, i64 2
+  %151 = getelementptr i8, ptr %gep101, i64 2
   %152 = load i8, ptr %151, align 1, !tbaa !97
   %153 = zext i8 %152 to i32
   %154 = mul nuw nsw i32 %142, %153
@@ -26559,8 +26559,8 @@ define internal void @pred_angular_0_8(ptr noundef writeonly captures(none) %0, 
 
 160:                                              ; preds = %.preheader27, %160
   %indvars.iv71 = phi i64 [ 0, %.preheader27 ], [ %indvars.iv.next72, %160 ]
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %indvars.iv71
-  %161 = getelementptr i8, ptr %gep99, i64 1
+  %gep103 = getelementptr i8, ptr %invariant.gep102, i64 %indvars.iv71
+  %161 = getelementptr i8, ptr %gep103, i64 1
   %162 = load i8, ptr %161, align 1, !tbaa !97
   %163 = mul nsw i64 %3, %indvars.iv71
   %gep38 = getelementptr i8, ptr %invariant.gep37, i64 %163
@@ -26719,21 +26719,21 @@ define internal void @pred_angular_1_8(ptr noundef writeonly captures(none) %0, 
   %41 = mul nsw i64 %3, %indvars.iv86
   %42 = getelementptr i8, ptr %0, i64 %41
   %43 = sext i32 %38 to i64
-  %invariant.gep101 = getelementptr i8, ptr %.0209.i, i64 %43
-  %invariant.gep103 = getelementptr i8, ptr %.0209.i, i64 %43
   %invariant.gep105 = getelementptr i8, ptr %.0209.i, i64 %43
   %invariant.gep107 = getelementptr i8, ptr %.0209.i, i64 %43
+  %invariant.gep109 = getelementptr i8, ptr %.0209.i, i64 %43
+  %invariant.gep111 = getelementptr i8, ptr %.0209.i, i64 %43
   br label %52
 
 .preheader19:                                     ; preds = %35
   %44 = mul nsw i64 %3, %indvars.iv86
   %45 = getelementptr i8, ptr %0, i64 %44
   %46 = sext i32 %38 to i64
-  %invariant.gep109 = getelementptr i8, ptr %.0209.i, i64 %46
-  %47 = getelementptr i8, ptr %invariant.gep109, i64 1
+  %invariant.gep113 = getelementptr i8, ptr %.0209.i, i64 %46
+  %47 = getelementptr i8, ptr %invariant.gep113, i64 1
   %48 = load i32, ptr %47, align 1, !tbaa !97
   store i32 %48, ptr %45, align 1, !tbaa !97
-  %49 = getelementptr i8, ptr %invariant.gep109, i64 5
+  %49 = getelementptr i8, ptr %invariant.gep113, i64 5
   %50 = load i32, ptr %49, align 1, !tbaa !97
   %51 = getelementptr i8, ptr %45, i64 4
   store i32 %50, ptr %51, align 1, !tbaa !97
@@ -26742,12 +26742,12 @@ define internal void @pred_angular_1_8(ptr noundef writeonly captures(none) %0, 
 52:                                               ; preds = %.preheader20, %52
   %53 = phi i1 [ true, %.preheader20 ], [ false, %52 ]
   %indvars.iv77 = phi i64 [ 0, %.preheader20 ], [ 4, %52 ]
-  %gep102 = getelementptr i8, ptr %invariant.gep101, i64 %indvars.iv77
-  %54 = getelementptr i8, ptr %gep102, i64 1
+  %gep106 = getelementptr i8, ptr %invariant.gep105, i64 %indvars.iv77
+  %54 = getelementptr i8, ptr %gep106, i64 1
   %55 = load i8, ptr %54, align 1, !tbaa !97
   %56 = zext i8 %55 to i32
   %57 = mul nuw nsw i32 %40, %56
-  %58 = getelementptr i8, ptr %gep102, i64 2
+  %58 = getelementptr i8, ptr %gep106, i64 2
   %59 = load i8, ptr %58, align 1, !tbaa !97
   %60 = zext i8 %59 to i32
   %61 = mul nuw nsw i32 %39, %60
@@ -26758,12 +26758,12 @@ define internal void @pred_angular_1_8(ptr noundef writeonly captures(none) %0, 
   %66 = getelementptr i8, ptr %42, i64 %indvars.iv77
   store i8 %65, ptr %66, align 1, !tbaa !97
   %67 = or disjoint i64 %indvars.iv77, 1
-  %gep104 = getelementptr i8, ptr %invariant.gep103, i64 %67
-  %68 = getelementptr i8, ptr %gep104, i64 1
+  %gep108 = getelementptr i8, ptr %invariant.gep107, i64 %67
+  %68 = getelementptr i8, ptr %gep108, i64 1
   %69 = load i8, ptr %68, align 1, !tbaa !97
   %70 = zext i8 %69 to i32
   %71 = mul nuw nsw i32 %40, %70
-  %72 = getelementptr i8, ptr %gep104, i64 2
+  %72 = getelementptr i8, ptr %gep108, i64 2
   %73 = load i8, ptr %72, align 1, !tbaa !97
   %74 = zext i8 %73 to i32
   %75 = mul nuw nsw i32 %39, %74
@@ -26774,12 +26774,12 @@ define internal void @pred_angular_1_8(ptr noundef writeonly captures(none) %0, 
   %80 = getelementptr i8, ptr %42, i64 %67
   store i8 %79, ptr %80, align 1, !tbaa !97
   %81 = or disjoint i64 %indvars.iv77, 2
-  %gep106 = getelementptr i8, ptr %invariant.gep105, i64 %81
-  %82 = getelementptr i8, ptr %gep106, i64 1
+  %gep110 = getelementptr i8, ptr %invariant.gep109, i64 %81
+  %82 = getelementptr i8, ptr %gep110, i64 1
   %83 = load i8, ptr %82, align 1, !tbaa !97
   %84 = zext i8 %83 to i32
   %85 = mul nuw nsw i32 %40, %84
-  %86 = getelementptr i8, ptr %gep106, i64 2
+  %86 = getelementptr i8, ptr %gep110, i64 2
   %87 = load i8, ptr %86, align 1, !tbaa !97
   %88 = zext i8 %87 to i32
   %89 = mul nuw nsw i32 %39, %88
@@ -26790,12 +26790,12 @@ define internal void @pred_angular_1_8(ptr noundef writeonly captures(none) %0, 
   %94 = getelementptr i8, ptr %42, i64 %81
   store i8 %93, ptr %94, align 1, !tbaa !97
   %95 = or disjoint i64 %indvars.iv77, 3
-  %gep108 = getelementptr i8, ptr %invariant.gep107, i64 %95
-  %96 = getelementptr i8, ptr %gep108, i64 1
+  %gep112 = getelementptr i8, ptr %invariant.gep111, i64 %95
+  %96 = getelementptr i8, ptr %gep112, i64 1
   %97 = load i8, ptr %96, align 1, !tbaa !97
   %98 = zext i8 %97 to i32
   %99 = mul nuw nsw i32 %40, %98
-  %100 = getelementptr i8, ptr %gep108, i64 2
+  %100 = getelementptr i8, ptr %gep112, i64 2
   %101 = load i8, ptr %100, align 1, !tbaa !97
   %102 = zext i8 %101 to i32
   %103 = mul nuw nsw i32 %39, %102
@@ -26892,23 +26892,23 @@ define internal void @pred_angular_1_8(ptr noundef writeonly captures(none) %0, 
   %150 = sub nuw nsw i32 32, %149
   %invariant.gep = getelementptr i8, ptr %0, i64 %indvars.iv62
   %151 = sext i32 %148 to i64
-  %invariant.gep97 = getelementptr i8, ptr %.1210.i, i64 %151
+  %invariant.gep101 = getelementptr i8, ptr %.1210.i, i64 %151
   br label %153
 
 .preheader27:                                     ; preds = %145
   %invariant.gep37 = getelementptr i8, ptr %0, i64 %indvars.iv62
   %152 = sext i32 %148 to i64
-  %invariant.gep99 = getelementptr i8, ptr %.1210.i, i64 %152
+  %invariant.gep103 = getelementptr i8, ptr %.1210.i, i64 %152
   br label %167
 
 153:                                              ; preds = %.preheader29, %153
   %indvars.iv54 = phi i64 [ 0, %.preheader29 ], [ %indvars.iv.next55, %153 ]
-  %gep98 = getelementptr i8, ptr %invariant.gep97, i64 %indvars.iv54
-  %154 = getelementptr i8, ptr %gep98, i64 1
+  %gep102 = getelementptr i8, ptr %invariant.gep101, i64 %indvars.iv54
+  %154 = getelementptr i8, ptr %gep102, i64 1
   %155 = load i8, ptr %154, align 1, !tbaa !97
   %156 = zext i8 %155 to i32
   %157 = mul nuw nsw i32 %150, %156
-  %158 = getelementptr i8, ptr %gep98, i64 2
+  %158 = getelementptr i8, ptr %gep102, i64 2
   %159 = load i8, ptr %158, align 1, !tbaa !97
   %160 = zext i8 %159 to i32
   %161 = mul nuw nsw i32 %149, %160
@@ -26925,8 +26925,8 @@ define internal void @pred_angular_1_8(ptr noundef writeonly captures(none) %0, 
 
 167:                                              ; preds = %.preheader27, %167
   %indvars.iv58 = phi i64 [ 0, %.preheader27 ], [ %indvars.iv.next59, %167 ]
-  %gep100 = getelementptr i8, ptr %invariant.gep99, i64 %indvars.iv58
-  %168 = getelementptr i8, ptr %gep100, i64 1
+  %gep104 = getelementptr i8, ptr %invariant.gep103, i64 %indvars.iv58
+  %168 = getelementptr i8, ptr %gep104, i64 1
   %169 = load i8, ptr %168, align 1, !tbaa !97
   %170 = mul nsw i64 %3, %indvars.iv58
   %gep38 = getelementptr i8, ptr %invariant.gep37, i64 %170
@@ -27095,27 +27095,27 @@ define internal void @pred_angular_2_8(ptr noundef writeonly captures(none) %0, 
   %41 = mul nsw i64 %3, %indvars.iv86
   %42 = getelementptr i8, ptr %0, i64 %41
   %43 = sext i32 %38 to i64
-  %invariant.gep101 = getelementptr i8, ptr %.0209.i, i64 %43
-  %invariant.gep103 = getelementptr i8, ptr %.0209.i, i64 %43
   %invariant.gep105 = getelementptr i8, ptr %.0209.i, i64 %43
   %invariant.gep107 = getelementptr i8, ptr %.0209.i, i64 %43
+  %invariant.gep109 = getelementptr i8, ptr %.0209.i, i64 %43
+  %invariant.gep111 = getelementptr i8, ptr %.0209.i, i64 %43
   br label %47
 
 .preheader19:                                     ; preds = %35
   %44 = mul nsw i64 %3, %indvars.iv86
   %45 = getelementptr i8, ptr %0, i64 %44
   %46 = sext i32 %38 to i64
-  %invariant.gep109 = getelementptr i8, ptr %.0209.i, i64 %46
+  %invariant.gep113 = getelementptr i8, ptr %.0209.i, i64 %46
   br label %104
 
 47:                                               ; preds = %.preheader20, %47
   %indvars.iv77 = phi i64 [ 0, %.preheader20 ], [ %indvars.iv.next78, %47 ]
-  %gep102 = getelementptr i8, ptr %invariant.gep101, i64 %indvars.iv77
-  %48 = getelementptr i8, ptr %gep102, i64 1
+  %gep106 = getelementptr i8, ptr %invariant.gep105, i64 %indvars.iv77
+  %48 = getelementptr i8, ptr %gep106, i64 1
   %49 = load i8, ptr %48, align 1, !tbaa !97
   %50 = zext i8 %49 to i32
   %51 = mul nuw nsw i32 %40, %50
-  %52 = getelementptr i8, ptr %gep102, i64 2
+  %52 = getelementptr i8, ptr %gep106, i64 2
   %53 = load i8, ptr %52, align 1, !tbaa !97
   %54 = zext i8 %53 to i32
   %55 = mul nuw nsw i32 %39, %54
@@ -27126,12 +27126,12 @@ define internal void @pred_angular_2_8(ptr noundef writeonly captures(none) %0, 
   %60 = getelementptr i8, ptr %42, i64 %indvars.iv77
   store i8 %59, ptr %60, align 1, !tbaa !97
   %61 = or disjoint i64 %indvars.iv77, 1
-  %gep104 = getelementptr i8, ptr %invariant.gep103, i64 %61
-  %62 = getelementptr i8, ptr %gep104, i64 1
+  %gep108 = getelementptr i8, ptr %invariant.gep107, i64 %61
+  %62 = getelementptr i8, ptr %gep108, i64 1
   %63 = load i8, ptr %62, align 1, !tbaa !97
   %64 = zext i8 %63 to i32
   %65 = mul nuw nsw i32 %40, %64
-  %66 = getelementptr i8, ptr %gep104, i64 2
+  %66 = getelementptr i8, ptr %gep108, i64 2
   %67 = load i8, ptr %66, align 1, !tbaa !97
   %68 = zext i8 %67 to i32
   %69 = mul nuw nsw i32 %39, %68
@@ -27142,12 +27142,12 @@ define internal void @pred_angular_2_8(ptr noundef writeonly captures(none) %0, 
   %74 = getelementptr i8, ptr %42, i64 %61
   store i8 %73, ptr %74, align 1, !tbaa !97
   %75 = or disjoint i64 %indvars.iv77, 2
-  %gep106 = getelementptr i8, ptr %invariant.gep105, i64 %75
-  %76 = getelementptr i8, ptr %gep106, i64 1
+  %gep110 = getelementptr i8, ptr %invariant.gep109, i64 %75
+  %76 = getelementptr i8, ptr %gep110, i64 1
   %77 = load i8, ptr %76, align 1, !tbaa !97
   %78 = zext i8 %77 to i32
   %79 = mul nuw nsw i32 %40, %78
-  %80 = getelementptr i8, ptr %gep106, i64 2
+  %80 = getelementptr i8, ptr %gep110, i64 2
   %81 = load i8, ptr %80, align 1, !tbaa !97
   %82 = zext i8 %81 to i32
   %83 = mul nuw nsw i32 %39, %82
@@ -27158,12 +27158,12 @@ define internal void @pred_angular_2_8(ptr noundef writeonly captures(none) %0, 
   %88 = getelementptr i8, ptr %42, i64 %75
   store i8 %87, ptr %88, align 1, !tbaa !97
   %89 = or disjoint i64 %indvars.iv77, 3
-  %gep108 = getelementptr i8, ptr %invariant.gep107, i64 %89
-  %90 = getelementptr i8, ptr %gep108, i64 1
+  %gep112 = getelementptr i8, ptr %invariant.gep111, i64 %89
+  %90 = getelementptr i8, ptr %gep112, i64 1
   %91 = load i8, ptr %90, align 1, !tbaa !97
   %92 = zext i8 %91 to i32
   %93 = mul nuw nsw i32 %40, %92
-  %94 = getelementptr i8, ptr %gep108, i64 2
+  %94 = getelementptr i8, ptr %gep112, i64 2
   %95 = load i8, ptr %94, align 1, !tbaa !97
   %96 = zext i8 %95 to i32
   %97 = mul nuw nsw i32 %39, %96
@@ -27179,8 +27179,8 @@ define internal void @pred_angular_2_8(ptr noundef writeonly captures(none) %0, 
 
 104:                                              ; preds = %.preheader19, %104
   %indvars.iv83 = phi i64 [ 0, %.preheader19 ], [ %indvars.iv.next84, %104 ]
-  %gep110 = getelementptr i8, ptr %invariant.gep109, i64 %indvars.iv83
-  %105 = getelementptr i8, ptr %gep110, i64 1
+  %gep114 = getelementptr i8, ptr %invariant.gep113, i64 %indvars.iv83
+  %105 = getelementptr i8, ptr %gep114, i64 1
   %106 = load i32, ptr %105, align 1, !tbaa !97
   %107 = getelementptr i8, ptr %45, i64 %indvars.iv83
   store i32 %106, ptr %107, align 1, !tbaa !97
@@ -27273,23 +27273,23 @@ define internal void @pred_angular_2_8(ptr noundef writeonly captures(none) %0, 
   %150 = sub nuw nsw i32 32, %149
   %invariant.gep = getelementptr i8, ptr %0, i64 %indvars.iv62
   %151 = sext i32 %148 to i64
-  %invariant.gep97 = getelementptr i8, ptr %.1210.i, i64 %151
+  %invariant.gep101 = getelementptr i8, ptr %.1210.i, i64 %151
   br label %153
 
 .preheader27:                                     ; preds = %145
   %invariant.gep37 = getelementptr i8, ptr %0, i64 %indvars.iv62
   %152 = sext i32 %148 to i64
-  %invariant.gep99 = getelementptr i8, ptr %.1210.i, i64 %152
+  %invariant.gep103 = getelementptr i8, ptr %.1210.i, i64 %152
   br label %167
 
 153:                                              ; preds = %.preheader29, %153
   %indvars.iv54 = phi i64 [ 0, %.preheader29 ], [ %indvars.iv.next55, %153 ]
-  %gep98 = getelementptr i8, ptr %invariant.gep97, i64 %indvars.iv54
-  %154 = getelementptr i8, ptr %gep98, i64 1
+  %gep102 = getelementptr i8, ptr %invariant.gep101, i64 %indvars.iv54
+  %154 = getelementptr i8, ptr %gep102, i64 1
   %155 = load i8, ptr %154, align 1, !tbaa !97
   %156 = zext i8 %155 to i32
   %157 = mul nuw nsw i32 %150, %156
-  %158 = getelementptr i8, ptr %gep98, i64 2
+  %158 = getelementptr i8, ptr %gep102, i64 2
   %159 = load i8, ptr %158, align 1, !tbaa !97
   %160 = zext i8 %159 to i32
   %161 = mul nuw nsw i32 %149, %160
@@ -27306,8 +27306,8 @@ define internal void @pred_angular_2_8(ptr noundef writeonly captures(none) %0, 
 
 167:                                              ; preds = %.preheader27, %167
   %indvars.iv58 = phi i64 [ 0, %.preheader27 ], [ %indvars.iv.next59, %167 ]
-  %gep100 = getelementptr i8, ptr %invariant.gep99, i64 %indvars.iv58
-  %168 = getelementptr i8, ptr %gep100, i64 1
+  %gep104 = getelementptr i8, ptr %invariant.gep103, i64 %indvars.iv58
+  %168 = getelementptr i8, ptr %gep104, i64 1
   %169 = load i8, ptr %168, align 1, !tbaa !97
   %170 = mul nsw i64 %3, %indvars.iv58
   %gep38 = getelementptr i8, ptr %invariant.gep37, i64 %170
@@ -27477,27 +27477,27 @@ define internal void @pred_angular_3_8(ptr noundef writeonly captures(none) %0, 
   %39 = mul nsw i64 %3, %indvars.iv67
   %40 = getelementptr i8, ptr %0, i64 %39
   %41 = sext i32 %36 to i64
-  %invariant.gep78 = getelementptr i8, ptr %.0209.i, i64 %41
   %invariant.gep80 = getelementptr i8, ptr %.0209.i, i64 %41
   %invariant.gep82 = getelementptr i8, ptr %.0209.i, i64 %41
   %invariant.gep84 = getelementptr i8, ptr %.0209.i, i64 %41
+  %invariant.gep86 = getelementptr i8, ptr %.0209.i, i64 %41
   br label %45
 
 .preheader:                                       ; preds = %33
   %42 = mul nsw i64 %3, %indvars.iv67
   %43 = getelementptr i8, ptr %0, i64 %42
   %44 = sext i32 %36 to i64
-  %invariant.gep86 = getelementptr i8, ptr %.0209.i, i64 %44
+  %invariant.gep88 = getelementptr i8, ptr %.0209.i, i64 %44
   br label %102
 
 45:                                               ; preds = %.preheader5, %45
   %indvars.iv58 = phi i64 [ 0, %.preheader5 ], [ %indvars.iv.next59, %45 ]
-  %gep79 = getelementptr i8, ptr %invariant.gep78, i64 %indvars.iv58
-  %46 = getelementptr i8, ptr %gep79, i64 1
+  %gep81 = getelementptr i8, ptr %invariant.gep80, i64 %indvars.iv58
+  %46 = getelementptr i8, ptr %gep81, i64 1
   %47 = load i8, ptr %46, align 1, !tbaa !97
   %48 = zext i8 %47 to i32
   %49 = mul nuw nsw i32 %38, %48
-  %50 = getelementptr i8, ptr %gep79, i64 2
+  %50 = getelementptr i8, ptr %gep81, i64 2
   %51 = load i8, ptr %50, align 1, !tbaa !97
   %52 = zext i8 %51 to i32
   %53 = mul nuw nsw i32 %37, %52
@@ -27508,12 +27508,12 @@ define internal void @pred_angular_3_8(ptr noundef writeonly captures(none) %0, 
   %58 = getelementptr i8, ptr %40, i64 %indvars.iv58
   store i8 %57, ptr %58, align 1, !tbaa !97
   %59 = or disjoint i64 %indvars.iv58, 1
-  %gep81 = getelementptr i8, ptr %invariant.gep80, i64 %59
-  %60 = getelementptr i8, ptr %gep81, i64 1
+  %gep83 = getelementptr i8, ptr %invariant.gep82, i64 %59
+  %60 = getelementptr i8, ptr %gep83, i64 1
   %61 = load i8, ptr %60, align 1, !tbaa !97
   %62 = zext i8 %61 to i32
   %63 = mul nuw nsw i32 %38, %62
-  %64 = getelementptr i8, ptr %gep81, i64 2
+  %64 = getelementptr i8, ptr %gep83, i64 2
   %65 = load i8, ptr %64, align 1, !tbaa !97
   %66 = zext i8 %65 to i32
   %67 = mul nuw nsw i32 %37, %66
@@ -27524,12 +27524,12 @@ define internal void @pred_angular_3_8(ptr noundef writeonly captures(none) %0, 
   %72 = getelementptr i8, ptr %40, i64 %59
   store i8 %71, ptr %72, align 1, !tbaa !97
   %73 = or disjoint i64 %indvars.iv58, 2
-  %gep83 = getelementptr i8, ptr %invariant.gep82, i64 %73
-  %74 = getelementptr i8, ptr %gep83, i64 1
+  %gep85 = getelementptr i8, ptr %invariant.gep84, i64 %73
+  %74 = getelementptr i8, ptr %gep85, i64 1
   %75 = load i8, ptr %74, align 1, !tbaa !97
   %76 = zext i8 %75 to i32
   %77 = mul nuw nsw i32 %38, %76
-  %78 = getelementptr i8, ptr %gep83, i64 2
+  %78 = getelementptr i8, ptr %gep85, i64 2
   %79 = load i8, ptr %78, align 1, !tbaa !97
   %80 = zext i8 %79 to i32
   %81 = mul nuw nsw i32 %37, %80
@@ -27540,12 +27540,12 @@ define internal void @pred_angular_3_8(ptr noundef writeonly captures(none) %0, 
   %86 = getelementptr i8, ptr %40, i64 %73
   store i8 %85, ptr %86, align 1, !tbaa !97
   %87 = or disjoint i64 %indvars.iv58, 3
-  %gep85 = getelementptr i8, ptr %invariant.gep84, i64 %87
-  %88 = getelementptr i8, ptr %gep85, i64 1
+  %gep87 = getelementptr i8, ptr %invariant.gep86, i64 %87
+  %88 = getelementptr i8, ptr %gep87, i64 1
   %89 = load i8, ptr %88, align 1, !tbaa !97
   %90 = zext i8 %89 to i32
   %91 = mul nuw nsw i32 %38, %90
-  %92 = getelementptr i8, ptr %gep85, i64 2
+  %92 = getelementptr i8, ptr %gep87, i64 2
   %93 = load i8, ptr %92, align 1, !tbaa !97
   %94 = zext i8 %93 to i32
   %95 = mul nuw nsw i32 %37, %94
@@ -27561,8 +27561,8 @@ define internal void @pred_angular_3_8(ptr noundef writeonly captures(none) %0, 
 
 102:                                              ; preds = %.preheader, %102
   %indvars.iv64 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next65, %102 ]
-  %gep87 = getelementptr i8, ptr %invariant.gep86, i64 %indvars.iv64
-  %103 = getelementptr i8, ptr %gep87, i64 1
+  %gep89 = getelementptr i8, ptr %invariant.gep88, i64 %indvars.iv64
+  %103 = getelementptr i8, ptr %gep89, i64 1
   %104 = load i32, ptr %103, align 1, !tbaa !97
   %105 = getelementptr i8, ptr %43, i64 %indvars.iv64
   store i32 %104, ptr %105, align 1, !tbaa !97
@@ -27624,23 +27624,23 @@ define internal void @pred_angular_3_8(ptr noundef writeonly captures(none) %0, 
   %130 = sub nuw nsw i32 32, %129
   %invariant.gep = getelementptr i8, ptr %0, i64 %indvars.iv44
   %131 = sext i32 %128 to i64
-  %invariant.gep74 = getelementptr i8, ptr %.1210.i, i64 %131
+  %invariant.gep76 = getelementptr i8, ptr %.1210.i, i64 %131
   br label %133
 
 .preheader10:                                     ; preds = %125
   %invariant.gep21 = getelementptr i8, ptr %0, i64 %indvars.iv44
   %132 = sext i32 %128 to i64
-  %invariant.gep76 = getelementptr i8, ptr %.1210.i, i64 %132
+  %invariant.gep78 = getelementptr i8, ptr %.1210.i, i64 %132
   br label %147
 
 133:                                              ; preds = %.preheader12, %133
   %indvars.iv36 = phi i64 [ 0, %.preheader12 ], [ %indvars.iv.next37, %133 ]
-  %gep75 = getelementptr i8, ptr %invariant.gep74, i64 %indvars.iv36
-  %134 = getelementptr i8, ptr %gep75, i64 1
+  %gep77 = getelementptr i8, ptr %invariant.gep76, i64 %indvars.iv36
+  %134 = getelementptr i8, ptr %gep77, i64 1
   %135 = load i8, ptr %134, align 1, !tbaa !97
   %136 = zext i8 %135 to i32
   %137 = mul nuw nsw i32 %130, %136
-  %138 = getelementptr i8, ptr %gep75, i64 2
+  %138 = getelementptr i8, ptr %gep77, i64 2
   %139 = load i8, ptr %138, align 1, !tbaa !97
   %140 = zext i8 %139 to i32
   %141 = mul nuw nsw i32 %129, %140
@@ -27657,8 +27657,8 @@ define internal void @pred_angular_3_8(ptr noundef writeonly captures(none) %0, 
 
 147:                                              ; preds = %.preheader10, %147
   %indvars.iv40 = phi i64 [ 0, %.preheader10 ], [ %indvars.iv.next41, %147 ]
-  %gep77 = getelementptr i8, ptr %invariant.gep76, i64 %indvars.iv40
-  %148 = getelementptr i8, ptr %gep77, i64 1
+  %gep79 = getelementptr i8, ptr %invariant.gep78, i64 %indvars.iv40
+  %148 = getelementptr i8, ptr %gep79, i64 1
   %149 = load i8, ptr %148, align 1, !tbaa !97
   %150 = mul nsw i64 %3, %indvars.iv40
   %gep22 = getelementptr i8, ptr %invariant.gep21, i64 %150

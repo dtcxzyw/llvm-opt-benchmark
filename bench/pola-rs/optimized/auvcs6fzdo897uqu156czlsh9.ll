@@ -196,7 +196,7 @@ define internal void @"_ZN11polars_core6series15implementations6floats216_$LT$im
 
 63:                                               ; preds = %.lr.ph.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %65 = sub nuw i64 %.sroa.0.020.i.i.i, %61
+  %65 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %61
   %66 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %67 = icmp eq ptr %64, %41
   br i1 %67, label %_ZN11polars_core5utils22index_to_chunked_index17hc8eca7129576b57fE.exit.i.i, label %.lr.ph.i.i.i

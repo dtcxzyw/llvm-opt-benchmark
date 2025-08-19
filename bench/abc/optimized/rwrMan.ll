@@ -309,8 +309,8 @@ Vec_PtrFree.exit.i:                               ; preds = %41, %38
   br i1 %44, label %35, label %.critedge.i, !llvm.loop !67
 
 .critedge.i:                                      ; preds = %42, %.preheader60, %._crit_edge
-  %.lcssa74 = phi ptr [ %28, %._crit_edge ], [ %3, %.preheader60 ], [ %28, %42 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.lcssa74, i64 8
+  %.lcssa87 = phi ptr [ %28, %._crit_edge ], [ %3, %.preheader60 ], [ %28, %42 ]
+  %45 = getelementptr inbounds nuw i8, ptr %.lcssa87, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !36
   %.not.i9.i = icmp eq ptr %46, null
   br i1 %.not.i9.i, label %Vec_VecFree.exit, label %47
@@ -320,7 +320,7 @@ Vec_PtrFree.exit.i:                               ; preds = %41, %38
   br label %Vec_VecFree.exit
 
 Vec_VecFree.exit:                                 ; preds = %.critedge.i, %47
-  tail call void @free(ptr noundef nonnull %.lcssa74) #15
+  tail call void @free(ptr noundef nonnull %.lcssa87) #15
   br label %.thread
 
 .thread:                                          ; preds = %1, %Vec_VecFree.exit

@@ -384,9 +384,9 @@ define internal fastcc i32 @filter_frame(ptr %.16.val, ptr noundef %0, i32 nound
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !28
   %28 = icmp eq i32 %.pre, 0
   %or.cond = select i1 %.not, i1 %28, i1 false
-  br i1 %or.cond, label %.thread62, label %._crit_edge58
+  br i1 %or.cond, label %.thread72, label %._crit_edge58
 
-.thread62:                                        ; preds = %2
+.thread72:                                        ; preds = %2
   store ptr %0, ptr %4, align 8, !tbaa !26
   %29 = load ptr, ptr %0, align 8, !tbaa !57
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -431,10 +431,10 @@ define internal fastcc i32 @filter_frame(ptr %.16.val, ptr noundef %0, i32 nound
   %49 = icmp eq i32 %.pre60, 0
   br i1 %49, label %50, label %90
 
-50:                                               ; preds = %.thread62, %48
-  %51 = phi ptr [ %0, %.thread62 ], [ %38, %48 ]
-  %52 = phi ptr [ %29, %.thread62 ], [ %42, %48 ]
-  %53 = phi ptr [ %30, %.thread62 ], [ %43, %48 ]
+50:                                               ; preds = %.thread72, %48
+  %51 = phi ptr [ %0, %.thread72 ], [ %38, %48 ]
+  %52 = phi ptr [ %29, %.thread72 ], [ %42, %48 ]
+  %53 = phi ptr [ %30, %.thread72 ], [ %43, %48 ]
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %55 = load double, ptr %54, align 8, !tbaa !66
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 112

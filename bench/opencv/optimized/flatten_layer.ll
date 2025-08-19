@@ -834,8 +834,8 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit.thread: ; preds = %42
   %60 = load ptr, ptr %59, align 8, !tbaa !64
   %61 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.053, i32 4
   %62 = load ptr, ptr %61, align 8, !tbaa !64
-  %.not62 = icmp eq ptr %60, %62
-  call void @llvm.assume(i1 %.not62)
+  %.not71 = icmp eq ptr %60, %62
+  call void @llvm.assume(i1 %.not71)
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit34
 
 63:                                               ; preds = %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit
@@ -1281,7 +1281,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %.lr.ph.
   br label %130
 
 .lr.ph102:                                        ; preds = %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.thread, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
-  %.024.i160 = phi i32 [ 1, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.thread ], [ %.024.i, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
+  %.024.i204 = phi i32 [ 1, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.thread ], [ %.024.i, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %123 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %wide.trip.count = zext nneg i32 %51 to i64
@@ -1296,7 +1296,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %.lr.ph.
   br i1 %.not.i.i, label %130, label %128
 
 128:                                              ; preds = %125
-  store i32 %.024.i160, ptr %183, align 4, !tbaa !78
+  store i32 %.024.i204, ptr %183, align 4, !tbaa !78
   %129 = getelementptr inbounds nuw i8, ptr %.pn126, i64 8
   store ptr %129, ptr %126, align 8, !tbaa !74
   %.promoted116.pre = load ptr, ptr %127, align 8
@@ -1308,7 +1308,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %.lr.ph.
   %132 = phi ptr [ %121, %.thread ], [ %126, %125 ]
   %133 = phi ptr [ null, %.thread ], [ %181, %125 ]
   %134 = phi ptr [ null, %.thread ], [ %182, %125 ]
-  %.024.i161164 = phi i32 [ %.024.i, %.thread ], [ %.024.i160, %125 ]
+  %.024.i205208 = phi i32 [ %.024.i, %.thread ], [ %.024.i204, %125 ]
   %135 = ptrtoint ptr %133 to i64
   %136 = ptrtoint ptr %134 to i64
   %137 = sub i64 %135, %136
@@ -1337,7 +1337,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %130
 
 .noexc73:                                         ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %147 = getelementptr inbounds i8, ptr %146, i64 %137
-  store i32 %.024.i161164, ptr %147, align 4, !tbaa !78
+  store i32 %.024.i205208, ptr %147, align 4, !tbaa !78
   %148 = icmp sgt i64 %137, 0
   br i1 %148, label %149, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
 

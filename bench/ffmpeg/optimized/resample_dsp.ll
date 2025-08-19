@@ -369,7 +369,7 @@ define internal i32 @resample_linear_int16(ptr noundef captures(none) %0, ptr no
   %32 = getelementptr inbounds i16, ptr %14, i64 %31
   %33 = sext i32 %.196.us to i64
   %invariant.gep = getelementptr i16, ptr %2, i64 %33
-  %invariant.gep132 = getelementptr i16, ptr %32, i64 %29
+  %invariant.gep139 = getelementptr i16, ptr %32, i64 %29
   br label %36
 
 .lr.ph90.us:                                      ; preds = %._crit_edge.us, %.lr.ph90.us
@@ -399,8 +399,8 @@ define internal i32 @resample_linear_int16(ptr noundef captures(none) %0, ptr no
   %41 = sext i16 %40 to i32
   %42 = mul nsw i32 %41, %38
   %43 = add nsw i32 %42, %.05980.us
-  %gep133 = getelementptr i16, ptr %invariant.gep132, i64 %indvars.iv114
-  %44 = load i16, ptr %gep133, align 2, !tbaa !17
+  %gep140 = getelementptr i16, ptr %invariant.gep139, i64 %indvars.iv114
+  %44 = load i16, ptr %gep140, align 2, !tbaa !17
   %45 = sext i16 %44 to i32
   %46 = mul nsw i32 %45, %38
   %47 = add nsw i32 %46, %.05881.us
@@ -725,7 +725,7 @@ define internal i32 @resample_linear_int32(ptr noundef captures(none) %0, ptr no
   %30 = sext i32 %23 to i64
   %wide.trip.count = zext nneg i32 %27 to i64
   %invariant.gep = getelementptr i32, ptr %2, i64 %29
-  %invariant.gep118 = getelementptr i32, ptr %26, i64 %30
+  %invariant.gep124 = getelementptr i32, ptr %26, i64 %30
   br label %.lr.ph82
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
@@ -740,8 +740,8 @@ define internal i32 @resample_linear_int32(ptr noundef captures(none) %0, ptr no
   %35 = sext i32 %34 to i64
   %36 = mul nsw i64 %35, %32
   %37 = add nsw i64 %36, %.05979
-  %gep119 = getelementptr i32, ptr %invariant.gep118, i64 %indvars.iv
-  %38 = load i32, ptr %gep119, align 4, !tbaa !38
+  %gep125 = getelementptr i32, ptr %invariant.gep124, i64 %indvars.iv
+  %38 = load i32, ptr %gep125, align 4, !tbaa !38
   %39 = sext i32 %38 to i64
   %40 = mul nsw i64 %39, %32
   %41 = add nsw i64 %40, %.05880
@@ -1105,7 +1105,7 @@ define internal i32 @resample_linear_float(ptr noundef captures(none) %0, ptr no
   %31 = getelementptr inbounds float, ptr %18, i64 %30
   %32 = sext i32 %.16496.us to i64
   %invariant.gep = getelementptr float, ptr %2, i64 %32
-  %invariant.gep133 = getelementptr float, ptr %31, i64 %28
+  %invariant.gep141 = getelementptr float, ptr %31, i64 %28
   br label %35
 
 .lr.ph91.us:                                      ; preds = %._crit_edge.us, %.lr.ph91.us
@@ -1132,8 +1132,8 @@ define internal i32 @resample_linear_float(ptr noundef captures(none) %0, ptr no
   %37 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv115
   %38 = load float, ptr %37, align 4, !tbaa !48
   %39 = tail call nsz float @llvm.fmuladd.f32(float %36, float %38, float %.06081.us)
-  %gep134 = getelementptr float, ptr %invariant.gep133, i64 %indvars.iv115
-  %40 = load float, ptr %gep134, align 4, !tbaa !48
+  %gep142 = getelementptr float, ptr %invariant.gep141, i64 %indvars.iv115
+  %40 = load float, ptr %gep142, align 4, !tbaa !48
   %41 = tail call nsz float @llvm.fmuladd.f32(float %36, float %40, float %.05982.us)
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
@@ -1517,7 +1517,7 @@ define internal i32 @resample_linear_double(ptr noundef captures(none) %0, ptr n
   %31 = getelementptr inbounds double, ptr %18, i64 %30
   %32 = sext i32 %.16496.us to i64
   %invariant.gep = getelementptr double, ptr %2, i64 %32
-  %invariant.gep133 = getelementptr double, ptr %31, i64 %28
+  %invariant.gep141 = getelementptr double, ptr %31, i64 %28
   br label %35
 
 .lr.ph91.us:                                      ; preds = %._crit_edge.us, %.lr.ph91.us
@@ -1544,8 +1544,8 @@ define internal i32 @resample_linear_double(ptr noundef captures(none) %0, ptr n
   %37 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv115
   %38 = load double, ptr %37, align 8, !tbaa !59
   %39 = tail call nsz double @llvm.fmuladd.f64(double %36, double %38, double %.06081.us)
-  %gep134 = getelementptr double, ptr %invariant.gep133, i64 %indvars.iv115
-  %40 = load double, ptr %gep134, align 8, !tbaa !59
+  %gep142 = getelementptr double, ptr %invariant.gep141, i64 %indvars.iv115
+  %40 = load double, ptr %gep142, align 8, !tbaa !59
   %41 = tail call nsz double @llvm.fmuladd.f64(double %36, double %40, double %.05982.us)
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118

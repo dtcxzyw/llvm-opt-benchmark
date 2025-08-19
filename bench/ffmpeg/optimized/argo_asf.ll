@@ -146,13 +146,13 @@ define range(i32 -1163346256, 1) i32 @ff_argo_asf_fill_stream(ptr noundef %0, pt
   %18 = and i32 %10, 2
   %.not45 = icmp eq i32 %18, 0
   %spec.select = select i1 %.not45, i32 1, i32 2
-  %spec.select48 = select i1 %.not45, i64 4, i64 3
+  %spec.select49 = select i1 %.not45, i64 4, i64 3
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 128
   store i32 1, ptr %19, align 8, !tbaa !39
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 132
   store i32 %spec.select, ptr %20, align 4, !tbaa !39
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 136
-  store i64 %spec.select48, ptr %21, align 8, !tbaa !4
+  store i64 %spec.select49, ptr %21, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store ptr null, ptr %22, align 8, !tbaa !40
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 4

@@ -72,7 +72,7 @@ createPackageDesc.exit.thread.i:                  ; preds = %11
 
 .critedge.thread.i:                               ; preds = %19
   store i32 0, ptr %17, align 8
-  %.pre27.i = load ptr, ptr %12, align 8
+  %.pre28.i = load ptr, ptr %12, align 8
   br label %.thread.i
 
 .critedge.i:                                      ; preds = %19, %16
@@ -86,8 +86,8 @@ createPackageDesc.exit.thread.i:                  ; preds = %11
   br i1 %.not22.i, label %.thread.i, label %36
 
 .thread.i:                                        ; preds = %23, %.critedge.i, %.critedge.thread.i
-  %.pre28.i = phi ptr [ %.pre27.i, %.critedge.thread.i ], [ %.pre.i, %.critedge.i ], [ null, %23 ]
-  tail call void @free(ptr noundef %.pre28.i) #14
+  %.pre29.i = phi ptr [ %.pre28.i, %.critedge.thread.i ], [ %.pre.i, %.critedge.i ], [ null, %23 ]
+  tail call void @free(ptr noundef %.pre29.i) #14
   tail call void @free(ptr noundef nonnull %12) #14
   br label %24
 

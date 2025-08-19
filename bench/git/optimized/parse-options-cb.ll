@@ -241,11 +241,11 @@ define dso_local noundef i32 @parse_opt_verbosity_cb(ptr noundef readonly captur
 
 15:                                               ; preds = %8
   %16 = tail call i32 @llvm.smin.i32(i32 %12, i32 0)
-  %spec.select12 = add nsw i32 %16, -1
+  %spec.select13 = add nsw i32 %16, -1
   br label %17
 
 17:                                               ; preds = %15, %13, %7
-  %.sink = phi i32 [ 0, %7 ], [ %spec.select, %13 ], [ %spec.select12, %15 ]
+  %.sink = phi i32 [ 0, %7 ], [ %spec.select, %13 ], [ %spec.select13, %15 ]
   store i32 %.sink, ptr %5, align 4, !tbaa !10
   ret i32 0
 }

@@ -1081,7 +1081,7 @@ define internal noundef i32 @median_8(ptr noundef readonly captures(none) %0, pt
   %61 = load i32, ptr %60, align 4, !tbaa !35
   %62 = add i32 %61, %.06881
   %.not = icmp ult i32 %62, %28
-  br i1 %.not, label %63, label %._crit_edge.split.loop.exit106
+  br i1 %.not, label %63, label %._crit_edge.split.loop.exit111
 
 63:                                               ; preds = %.lr.ph
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
@@ -1090,12 +1090,12 @@ define internal noundef i32 @median_8(ptr noundef readonly captures(none) %0, pt
   %66 = fcmp nsz ogt float %58, %65
   br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !83
 
-._crit_edge.split.loop.exit106:                   ; preds = %.lr.ph
+._crit_edge.split.loop.exit111:                   ; preds = %.lr.ph
   %67 = trunc nuw nsw i64 %indvars.iv98 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %63, %._crit_edge.split.loop.exit106
-  %.070 = phi i32 [ %67, %._crit_edge.split.loop.exit106 ], [ %31, %63 ]
+._crit_edge:                                      ; preds = %63, %._crit_edge.split.loop.exit111
+  %.070 = phi i32 [ %67, %._crit_edge.split.loop.exit111 ], [ %31, %63 ]
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %._crit_edge, %71
@@ -1119,9 +1119,9 @@ define internal noundef i32 @median_8(ptr noundef readonly captures(none) %0, pt
   br label %._crit_edge91
 
 ._crit_edge91:                                    ; preds = %71, %._crit_edge91.loopexit.split.loop.exit, %.preheader
-  %.070105 = phi i32 [ %31, %.preheader ], [ %.070, %._crit_edge91.loopexit.split.loop.exit ], [ %.070, %71 ]
+  %.070110 = phi i32 [ %31, %.preheader ], [ %.070, %._crit_edge91.loopexit.split.loop.exit ], [ %.070, %71 ]
   %.069 = phi i32 [ %31, %.preheader ], [ %75, %._crit_edge91.loopexit.split.loop.exit ], [ %31, %71 ]
-  %76 = sitofp i32 %.070105 to float
+  %76 = sitofp i32 %.070110 to float
   %77 = tail call nsz float @llvm.fmuladd.f32(float %8, float %76, float -5.000000e-01)
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %79 = load ptr, ptr %78, align 8, !tbaa !36
@@ -1232,7 +1232,7 @@ define internal noundef i32 @median_16(ptr noundef readonly captures(none) %0, p
   %63 = load i32, ptr %62, align 4, !tbaa !35
   %64 = add i32 %63, %.06881
   %.not = icmp ult i32 %64, %30
-  br i1 %.not, label %65, label %._crit_edge.split.loop.exit106
+  br i1 %.not, label %65, label %._crit_edge.split.loop.exit111
 
 65:                                               ; preds = %.lr.ph
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
@@ -1241,12 +1241,12 @@ define internal noundef i32 @median_16(ptr noundef readonly captures(none) %0, p
   %68 = fcmp nsz ogt float %60, %67
   br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !87
 
-._crit_edge.split.loop.exit106:                   ; preds = %.lr.ph
+._crit_edge.split.loop.exit111:                   ; preds = %.lr.ph
   %69 = trunc nuw nsw i64 %indvars.iv98 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %65, %._crit_edge.split.loop.exit106
-  %.070 = phi i32 [ %69, %._crit_edge.split.loop.exit106 ], [ %33, %65 ]
+._crit_edge:                                      ; preds = %65, %._crit_edge.split.loop.exit111
+  %.070 = phi i32 [ %69, %._crit_edge.split.loop.exit111 ], [ %33, %65 ]
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %._crit_edge, %73
@@ -1270,9 +1270,9 @@ define internal noundef i32 @median_16(ptr noundef readonly captures(none) %0, p
   br label %._crit_edge91
 
 ._crit_edge91:                                    ; preds = %73, %._crit_edge91.loopexit.split.loop.exit, %.preheader
-  %.070105 = phi i32 [ %33, %.preheader ], [ %.070, %._crit_edge91.loopexit.split.loop.exit ], [ %.070, %73 ]
+  %.070110 = phi i32 [ %33, %.preheader ], [ %.070, %._crit_edge91.loopexit.split.loop.exit ], [ %.070, %73 ]
   %.069 = phi i32 [ %33, %.preheader ], [ %77, %._crit_edge91.loopexit.split.loop.exit ], [ %33, %73 ]
-  %78 = sitofp i32 %.070105 to float
+  %78 = sitofp i32 %.070110 to float
   %79 = tail call nsz float @llvm.fmuladd.f32(float %8, float %78, float -5.000000e-01)
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %81 = load ptr, ptr %80, align 8, !tbaa !36

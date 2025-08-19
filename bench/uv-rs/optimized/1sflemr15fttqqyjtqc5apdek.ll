@@ -93,7 +93,7 @@ define hidden i24 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6d9cd811a59
   br i1 %41, label %38, label %62
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %14, i64 %32
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 %32
   %44 = load i8, ptr %43, align 1, !alias.scope !17, !noundef !10
   %45 = icmp sgt i8 %44, -65
   br i1 %45, label %38, label %62
@@ -243,7 +243,7 @@ define hidden i40 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hcc8c2daa33c
   br i1 %41, label %38, label %62
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %14, i64 %32
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 %32
   %44 = load i8, ptr %43, align 1, !alias.scope !50, !noundef !10
   %45 = icmp sgt i8 %44, -65
   br i1 %45, label %38, label %62
@@ -396,7 +396,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17he5f4ed15cc
   br i1 %42, label %39, label %63
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %16, i64 %33
+  %44 = getelementptr inbounds nuw i8, ptr %16, i64 %33
   %45 = load i8, ptr %44, align 1, !alias.scope !83, !noundef !10
   %46 = icmp sgt i8 %45, -65
   br i1 %46, label %39, label %63

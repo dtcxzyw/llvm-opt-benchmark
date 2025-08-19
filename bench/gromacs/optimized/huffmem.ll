@@ -177,15 +177,15 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
 .lr.ph212:                                        ; preds = %75
   %wide.trip.count228 = zext nneg i32 %83 to i64
   %104 = sext i32 %62 to i64
-  %invariant.gep244 = getelementptr i8, ptr %2, i64 %104
+  %invariant.gep248 = getelementptr i8, ptr %2, i64 %104
   br label %105
 
 105:                                              ; preds = %.lr.ph212, %105
   %indvars.iv225 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next226, %105 ]
   %106 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv225
   %107 = load i8, ptr %106, align 1, !tbaa !7
-  %gep245 = getelementptr i8, ptr %invariant.gep244, i64 %indvars.iv225
-  %108 = getelementptr i8, ptr %gep245, i64 20
+  %gep249 = getelementptr i8, ptr %invariant.gep248, i64 %indvars.iv225
+  %108 = getelementptr i8, ptr %gep249, i64 20
   store i8 %107, ptr %108, align 1, !tbaa !7
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
@@ -290,7 +290,7 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
   %169 = add nsw i32 %168, %138
   %170 = sext i32 %169 to i64
   %wide.trip.count223 = zext nneg i32 %147 to i64
-  %invariant.gep242 = getelementptr i8, ptr %2, i64 %170
+  %invariant.gep246 = getelementptr i8, ptr %2, i64 %170
   br label %175
 
 171:                                              ; preds = %.lr.ph, %171
@@ -308,8 +308,8 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
   %indvars.iv220 = phi i64 [ 0, %.lr.ph210 ], [ %indvars.iv.next221, %175 ]
   %176 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv220
   %177 = load i8, ptr %176, align 1, !tbaa !7
-  %gep243 = getelementptr i8, ptr %invariant.gep242, i64 %indvars.iv220
-  store i8 %177, ptr %gep243, align 1, !tbaa !7
+  %gep247 = getelementptr i8, ptr %invariant.gep246, i64 %indvars.iv220
+  store i8 %177, ptr %gep247, align 1, !tbaa !7
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count223
   br i1 %exitcond224.not, label %.loopexit, label %175, !llvm.loop !11
@@ -407,7 +407,7 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
 .lr.ph214:                                        ; preds = %178
   %241 = sext i32 %65 to i64
   %wide.trip.count233 = zext nneg i32 %63 to i64
-  %invariant.gep246 = getelementptr i8, ptr %2, i64 %241
+  %invariant.gep250 = getelementptr i8, ptr %2, i64 %241
   br label %244
 
 .preheader:                                       ; preds = %244, %178
@@ -417,15 +417,15 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
 .lr.ph216:                                        ; preds = %.preheader
   %243 = sext i32 %66 to i64
   %wide.trip.count238 = zext nneg i32 %64 to i64
-  %invariant.gep248 = getelementptr i8, ptr %2, i64 %243
+  %invariant.gep252 = getelementptr i8, ptr %2, i64 %243
   br label %247
 
 244:                                              ; preds = %.lr.ph214, %244
   %indvars.iv230 = phi i64 [ 0, %.lr.ph214 ], [ %indvars.iv.next231, %244 ]
   %245 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv230
   %246 = load i8, ptr %245, align 1, !tbaa !7
-  %gep247 = getelementptr i8, ptr %invariant.gep246, i64 %indvars.iv230
-  store i8 %246, ptr %gep247, align 1, !tbaa !7
+  %gep251 = getelementptr i8, ptr %invariant.gep250, i64 %indvars.iv230
+  store i8 %246, ptr %gep251, align 1, !tbaa !7
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count233
   br i1 %exitcond234.not, label %.preheader, label %244, !llvm.loop !12
@@ -434,8 +434,8 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
   %indvars.iv235 = phi i64 [ 0, %.lr.ph216 ], [ %indvars.iv.next236, %247 ]
   %248 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv235
   %249 = load i8, ptr %248, align 1, !tbaa !7
-  %gep249 = getelementptr i8, ptr %invariant.gep248, i64 %indvars.iv235
-  store i8 %249, ptr %gep249, align 1, !tbaa !7
+  %gep253 = getelementptr i8, ptr %invariant.gep252, i64 %indvars.iv235
+  store i8 %249, ptr %gep253, align 1, !tbaa !7
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count238
   br i1 %exitcond239.not, label %.loopexit, label %247, !llvm.loop !13

@@ -710,12 +710,12 @@ define dso_local i32 @acct_gather_profile_p_create_dataset(ptr noundef %0, i64 n
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load i32, ptr %26, align 8
-  %.not2432 = icmp eq i32 %27, 0
-  br i1 %.not2432, label %.critedge, label %.lr.ph34
+  %.not2433 = icmp eq i32 %27, 0
+  br i1 %.not2433, label %.critedge, label %.lr.ph35
 
-.lr.ph34:                                         ; preds = %.lr.ph, %46
+.lr.ph35:                                         ; preds = %.lr.ph, %46
   %28 = phi ptr [ %50, %46 ], [ %26, %.lr.ph ]
-  %.02633 = phi ptr [ %49, %46 ], [ %2, %.lr.ph ]
+  %.02634 = phi ptr [ %49, %46 ], [ %2, %.lr.ph ]
   %29 = phi i64 [ %48, %46 ], [ 0, %.lr.ph ]
   %30 = shl i64 %29, 3
   %31 = add i64 %30, 8
@@ -726,7 +726,7 @@ define dso_local i32 @acct_gather_profile_p_create_dataset(ptr noundef %0, i64 n
   %35 = add i64 %34, 8
   %36 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %25, i64 noundef 1, i64 noundef %35, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 464, ptr noundef nonnull @__func__.acct_gather_profile_p_create_dataset) #7
   store ptr %36, ptr %25, align 8
-  %37 = load ptr, ptr %.02633, align 8
+  %37 = load ptr, ptr %.02634, align 8
   %38 = tail call ptr @slurm_xstrdup(ptr noundef %37) #7
   %39 = load ptr, ptr %21, align 8
   %40 = load i64, ptr %24, align 8
@@ -737,22 +737,22 @@ define dso_local i32 @acct_gather_profile_p_create_dataset(ptr noundef %0, i64 n
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %.sink.split, label %46
 
-.sink.split:                                      ; preds = %.lr.ph34
+.sink.split:                                      ; preds = %.lr.ph35
   %43 = load ptr, ptr %25, align 8
   %44 = load i64, ptr %24, align 8
   %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
   store i32 %42, ptr %45, align 4
   br label %46
 
-46:                                               ; preds = %.lr.ph34, %.sink.split
+46:                                               ; preds = %.lr.ph35, %.sink.split
   %47 = load i64, ptr %24, align 8
   %48 = add i64 %47, 1
   store i64 %48, ptr %24, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %.02633, i64 16
-  %50 = getelementptr inbounds nuw i8, ptr %.02633, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.02634, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %.02634, i64 24
   %51 = load i32, ptr %50, align 8
   %.not24 = icmp eq i32 %51, 0
-  br i1 %.not24, label %.critedge, label %.lr.ph34
+  br i1 %.not24, label %.critedge, label %.lr.ph35
 
 .critedge:                                        ; preds = %46, %.lr.ph, %18
   %52 = load i64, ptr @tables_cur_len, align 8

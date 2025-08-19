@@ -3706,14 +3706,14 @@ define void @"_ZN95_$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribut
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.246.sroa.2.0..sroa.246.0..sroa_idx.sroa_idx, align 8
   %.sroa.246.sroa.3.0..sroa.246.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 0, ptr %.sroa.246.sroa.3.0..sroa.246.0..sroa_idx.sroa_idx, align 8
-  %.sink103.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink103.sroa.gep104 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sink103.sroa.gep105 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink103.sroa.gep106 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink103.sroa.gep108 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %.sink103.sroa.gep109 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %.sink103.sroa.gep110 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %.sink103.sroa.gep111 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %.sink106.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sink106.sroa.gep107 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink106.sroa.gep108 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sink106.sroa.gep109 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink106.sroa.gep111 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %.sink106.sroa.gep112 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %.sink106.sroa.gep113 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %.sink106.sroa.gep114 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %23 = invoke zeroext i1 @_ZN3syn9lookahead9peek_impl17h64635cb35ce91692E(ptr nonnull align 8 %14, ptr nonnull @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$4peek17hc8a261b2137d0b7fE", ptr nonnull @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$7display17h2dc927bb4a5e42b7E")
           to label %24 unwind label %81
 
@@ -3829,16 +3829,16 @@ define void @"_ZN95_$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribut
   br label %79
 
 65:                                               ; preds = %52, %48, %73, %67
-  %.sink103.sroa.phi = phi ptr [ %.sink103.sroa.gep, %67 ], [ %.sink103.sroa.gep104, %73 ], [ %.sink103.sroa.gep105, %48 ], [ %.sink103.sroa.gep106, %52 ]
-  %.sink103.sroa.phi107 = phi ptr [ %.sink103.sroa.gep108, %67 ], [ %.sink103.sroa.gep109, %73 ], [ %.sink103.sroa.gep110, %48 ], [ %.sink103.sroa.gep111, %52 ]
+  %.sink106.sroa.phi = phi ptr [ %.sink106.sroa.gep, %67 ], [ %.sink106.sroa.gep107, %73 ], [ %.sink106.sroa.gep108, %48 ], [ %.sink106.sroa.gep109, %52 ]
+  %.sink106.sroa.phi110 = phi ptr [ %.sink106.sroa.gep111, %67 ], [ %.sink106.sroa.gep112, %73 ], [ %.sink106.sroa.gep113, %48 ], [ %.sink106.sroa.gep114, %52 ]
   %.sink = phi i64 [ %68, %67 ], [ %74, %73 ], [ %49, %48 ], [ %53, %52 ]
-  %.sroa.257.0.copyload = load i32, ptr %.sink103.sroa.phi, align 8
+  %.sroa.257.0.copyload = load i32, ptr %.sink106.sroa.phi, align 8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %66, align 8
   %.sroa.260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.257.0.copyload, ptr %.sroa.260.0..sroa_idx, align 8
   %.sroa.361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.361.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sink103.sroa.phi107, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.361.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sink106.sroa.phi110, i64 12, i1 false)
   store i64 -9223372036854775805, ptr %0, align 8
   call void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17h94cedc206c549084E"(ptr nonnull align 8 %14)
   br label %40
@@ -4085,9 +4085,9 @@ default.unreachable:                              ; preds = %47
           to label %.sink.split unwind label %.loopexit.split-lp
 
 .sink.split:                                      ; preds = %66, %73
-  %.sink74 = phi ptr [ %11, %73 ], [ %13, %66 ]
+  %.sink76 = phi ptr [ %11, %73 ], [ %13, %66 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %.sink74, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %.sink76, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
   br label %68
 
@@ -4547,9 +4547,9 @@ define void @"_ZN91_$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$u2
           to label %.thread128 unwind label %91
 
 130:                                              ; preds = %124, %145
-  %.sink140 = phi ptr [ %14, %145 ], [ %16, %124 ]
+  %.sink146 = phi ptr [ %14, %145 ], [ %16, %124 ]
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, ptr noundef nonnull align 8 dereferenceable(24) %.sink140, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, ptr noundef nonnull align 8 dereferenceable(24) %.sink146, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
   invoke void @"_ZN4core3ptr37drop_in_place$LT$syn..lit..LitStr$GT$17he8323cf3b8437fc6E"(ptr nonnull align 8 %18)
           to label %.thread139.invoke unwind label %.thread136
@@ -5127,7 +5127,7 @@ define void @_ZN19pyo3_macros_backend12frompyobject26build_derive_from_pyobject1
   invoke void @"_ZN4core3ptr49drop_in_place$LT$syn..generics..LifetimeParam$GT$17hd5b058ba1cedc72bE"(ptr nonnull align 8 %87) #10
           to label %.body unwind label %217
 
-129:                                              ; preds = %.invoke114, %134, %117
+129:                                              ; preds = %.invoke122, %134, %117
   %130 = landingpad { ptr, i32 }
           cleanup
   br label %128
@@ -5156,7 +5156,7 @@ define void @_ZN19pyo3_macros_backend12frompyobject26build_derive_from_pyobject1
   invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..generics..WhereClause$GT$17h19e1570c77a92547E"(ptr nonnull align 8 %81) #10
           to label %128 unwind label %217
 
-138:                                              ; preds = %.invoke115, %153, %151, %135
+138:                                              ; preds = %.invoke123, %153, %151, %135
   %139 = landingpad { ptr, i32 }
           cleanup
   br label %137
@@ -5223,7 +5223,7 @@ define void @_ZN19pyo3_macros_backend12frompyobject26build_derive_from_pyobject1
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %163, ptr noundef nonnull align 8 dereferenceable(24) %160, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
-  br label %.invoke114
+  br label %.invoke122
 
 164:                                              ; preds = %193, %166
   %.sroa.037.1 = phi i8 [ %.sroa.037.0, %166 ], [ %.sroa.037.3, %193 ]
@@ -6621,7 +6621,7 @@ define void @_ZN19pyo3_macros_backend12frompyobject26build_derive_from_pyobject1
 
 544:                                              ; preds = %543
   %545 = trunc nuw i8 %.sroa.037.5 to i1
-  br i1 %545, label %.invoke115, label %.invoke114
+  br i1 %545, label %.invoke123, label %.invoke122
 
 546:                                              ; preds = %.invoke, %113
   call void @"_ZN4core3ptr44drop_in_place$LT$syn..generics..Generics$GT$17h9db4dafb0cb0a919E"(ptr nonnull align 8 %88)
@@ -6655,21 +6655,21 @@ define void @_ZN19pyo3_macros_backend12frompyobject26build_derive_from_pyobject1
 
 557:                                              ; preds = %198
   %558 = trunc nuw i8 %.sroa.037.4 to i1
-  br i1 %558, label %.invoke115, label %.invoke114
+  br i1 %558, label %.invoke123, label %.invoke122
 
-.invoke114:                                       ; preds = %.invoke115, %162, %557, %544
+.invoke122:                                       ; preds = %.invoke123, %162, %557, %544
   invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..generics..WhereClause$GT$17h19e1570c77a92547E"(ptr nonnull align 8 %81)
           to label %.invoke unwind label %129
 
-.invoke115:                                       ; preds = %557, %544
+.invoke123:                                       ; preds = %557, %544
   invoke void @"_ZN4core3ptr72drop_in_place$LT$pyo3_macros_backend..frompyobject..ContainerOptions$GT$17h5586f41503e15c2eE"(ptr nonnull align 8 %74)
-          to label %.invoke114 unwind label %138
+          to label %.invoke122 unwind label %138
 
 559:                                              ; preds = %164
   invoke void @"_ZN4core3ptr72drop_in_place$LT$pyo3_macros_backend..frompyobject..ContainerOptions$GT$17h5586f41503e15c2eE"(ptr nonnull align 8 %74) #10
           to label %137 unwind label %217
 
-.invoke:                                          ; preds = %.invoke114
+.invoke:                                          ; preds = %.invoke122
   invoke void @"_ZN4core3ptr49drop_in_place$LT$syn..generics..LifetimeParam$GT$17hd5b058ba1cedc72bE"(ptr nonnull align 8 %87)
           to label %546 unwind label %108
 

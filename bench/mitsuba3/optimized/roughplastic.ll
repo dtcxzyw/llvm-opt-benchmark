@@ -482,7 +482,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 32:                                               ; preds = %31
   unreachable
 
-33:                                               ; preds = %.invoke64, %.invoke, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIjEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i.i47, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIjEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i.i, %71, %58, %_ZN7mitsuba3refINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit, %47, %23, %2, %88, %73, %29
+33:                                               ; preds = %.invoke88, %.invoke, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIjEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i.i47, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIjEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i.i, %71, %58, %_ZN7mitsuba3refINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit, %47, %23, %2, %88, %73, %29
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %169
@@ -716,7 +716,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %111 = ashr exact i64 %110, 2
   %112 = add nsw i64 %111, 1
   %113 = icmp ugt i64 %112, 4611686018427387903
-  br i1 %113, label %.invoke64, label %_ZNKSt3__16vectorIjNS_9allocatorIjEEE11__recommendB8ne190000Em.exit.i.i
+  br i1 %113, label %.invoke88, label %_ZNKSt3__16vectorIjNS_9allocatorIjEEE11__recommendB8ne190000Em.exit.i.i
 
 _ZNKSt3__16vectorIjNS_9allocatorIjEEE11__recommendB8ne190000Em.exit.i.i: ; preds = %106
   %114 = ptrtoint ptr %102 to i64
@@ -773,13 +773,13 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIjEEEENS_19__allocation_re
   %137 = ashr exact i64 %136, 2
   %138 = add nsw i64 %137, 1
   %139 = icmp ugt i64 %138, 4611686018427387903
-  br i1 %139, label %.invoke64, label %_ZNKSt3__16vectorIjNS_9allocatorIjEEE11__recommendB8ne190000Em.exit.i.i43
+  br i1 %139, label %.invoke88, label %_ZNKSt3__16vectorIjNS_9allocatorIjEEE11__recommendB8ne190000Em.exit.i.i43
 
-.invoke64:                                        ; preds = %132, %106
+.invoke88:                                        ; preds = %132, %106
   invoke void @_ZNKSt3__16vectorIjNS_9allocatorIjEEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %98) #31
-          to label %.cont65 unwind label %33
+          to label %.cont89 unwind label %33
 
-.cont65:                                          ; preds = %.invoke64
+.cont89:                                          ; preds = %.invoke88
   unreachable
 
 _ZNKSt3__16vectorIjNS_9allocatorIjEEE11__recommendB8ne190000Em.exit.i.i43: ; preds = %132
@@ -4131,7 +4131,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %.0 = phi float [ %66, %65 ], [ %94, %67 ]
   %96 = fcmp contract uge float %4, %.0
   store float 1.000000e+00, ptr %37, align 4
-  br i1 %96, label %.critedge301, label %97
+  br i1 %96, label %.critedge306, label %97
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -4163,7 +4163,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %117 = insertelement <4 x float> %116, float 0.000000e+00, i64 3
   br label %_ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImplIS4_Lm4ELb0ES5_iEEIS4_NS_6MatrixIS3_Lm4EEES5_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSB_5DepthsrSC_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESC_EE.exit.i
 
-.critedge301:                                     ; preds = %95
+.critedge306:                                     ; preds = %95
   %118 = load float, ptr %5, align 4
   %119 = tail call contract noundef float @llvm.fma.f32(float %118, float 2.000000e+00, float -1.000000e+00)
   %120 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -4237,12 +4237,12 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %179 = insertelement <4 x float> %178, float %176, i64 2
   br label %_ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImplIS4_Lm4ELb0ES5_iEEIS4_NS_6MatrixIS3_Lm4EEES5_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSB_5DepthsrSC_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESC_EE.exit.i
 
-_ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImplIS4_Lm4ELb0ES5_iEEIS4_NS_6MatrixIS3_Lm4EEES5_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSB_5DepthsrSC_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESC_EE.exit.i: ; preds = %97, %.critedge301
-  %.sink299 = phi <4 x float> [ %117, %97 ], [ %179, %.critedge301 ]
-  %.sink298 = phi i32 [ 0, %97 ], [ 1, %.critedge301 ]
-  %.sink = phi i32 [ 8, %97 ], [ 2, %.critedge301 ]
-  store <4 x float> %.sink299, ptr %15, align 16
-  store i32 %.sink298, ptr %39, align 4
+_ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImplIS4_Lm4ELb0ES5_iEEIS4_NS_6MatrixIS3_Lm4EEES5_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSB_5DepthsrSC_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESC_EE.exit.i: ; preds = %97, %.critedge306
+  %.sink304 = phi <4 x float> [ %117, %97 ], [ %179, %.critedge306 ]
+  %.sink303 = phi i32 [ 0, %97 ], [ 1, %.critedge306 ]
+  %.sink = phi i32 [ 8, %97 ], [ 2, %.critedge306 ]
+  store <4 x float> %.sink304, ptr %15, align 16
+  store i32 %.sink303, ptr %39, align 4
   store i32 %.sink, ptr %38, align 8
   %180 = call noundef float @_ZNK7mitsuba12RoughPlasticIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE3pdfERKNS_11BSDFContextERKNS_18SurfaceInteractionIfS5_EERKNS_6VectorIfLm3EEEb(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 16 dereferenceable(240) %3, ptr noundef nonnull align 16 dereferenceable(16) %15, i1 noundef zeroext true)
   store float %180, ptr %36, align 16
@@ -4660,9 +4660,9 @@ define linkonce_odr hidden void @_ZNK7mitsuba22MicrofacetDistributionIfN5drjit6M
   %209 = fmul contract <4 x float> %208, %208
   %shift = shufflevector <4 x float> %209, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd contract <4 x float> %209, %shift
-  %shift355 = shufflevector <4 x float> %209, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop356 = fadd contract <4 x float> %shift355, %foldExtExtBinop
-  %210 = extractelement <4 x float> %foldExtExtBinop356, i64 0
+  %shift358 = shufflevector <4 x float> %209, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop359 = fadd contract <4 x float> %shift358, %foldExtExtBinop
+  %210 = extractelement <4 x float> %foldExtExtBinop359, i64 0
   %211 = tail call contract noundef float @llvm.sqrt.f32(float %210)
   %212 = fdiv contract float 1.000000e+00, %211
   %213 = insertelement <4 x float> poison, float %212, i64 0
@@ -4692,11 +4692,11 @@ define linkonce_odr hidden void @_ZNK7mitsuba22MicrofacetDistributionIfN5drjit6M
   %231 = insertelement <4 x float> <float poison, float poison, float 1.000000e+00, float 0.000000e+00>, float %228, i64 0
   %232 = insertelement <4 x float> %231, float %230, i64 1
   %233 = fmul contract <4 x float> %232, %232
-  %shift358 = shufflevector <4 x float> %233, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop359 = fadd contract <4 x float> %233, %shift358
-  %shift361 = shufflevector <4 x float> %233, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop362 = fadd contract <4 x float> %shift361, %foldExtExtBinop359
-  %234 = extractelement <4 x float> %foldExtExtBinop362, i64 0
+  %shift361 = shufflevector <4 x float> %233, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop362 = fadd contract <4 x float> %233, %shift361
+  %shift364 = shufflevector <4 x float> %233, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop365 = fadd contract <4 x float> %shift364, %foldExtExtBinop362
+  %234 = extractelement <4 x float> %foldExtExtBinop365, i64 0
   %235 = call contract noundef float @llvm.sqrt.f32(float %234)
   %236 = fdiv contract float 1.000000e+00, %235
   %237 = insertelement <4 x float> poison, float %236, i64 0
@@ -4815,9 +4815,9 @@ _ZNK7mitsuba22MicrofacetDistributionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE
   br label %325
 
 325:                                              ; preds = %_ZNK7mitsuba22MicrofacetDistributionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE8smith_g1ERKNS_6VectorIfLm3EEESA_.exit, %188
-  %.sink353 = phi <4 x float> [ %239, %_ZNK7mitsuba22MicrofacetDistributionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE8smith_g1ERKNS_6VectorIfLm3EEESA_.exit ], [ %195, %188 ]
+  %.sink356 = phi <4 x float> [ %239, %_ZNK7mitsuba22MicrofacetDistributionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE8smith_g1ERKNS_6VectorIfLm3EEESA_.exit ], [ %195, %188 ]
   %.sink = phi float [ %324, %_ZNK7mitsuba22MicrofacetDistributionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE8smith_g1ERKNS_6VectorIfLm3EEESA_.exit ], [ %storemerge, %188 ]
-  store <4 x float> %.sink353, ptr %0, align 16
+  store <4 x float> %.sink356, ptr %0, align 16
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %.sink, ptr %326, align 16
   ret void
@@ -4914,9 +4914,9 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit:
   %64 = fmul contract <4 x float> %63, %63
   %shift = shufflevector <4 x float> %64, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd contract <4 x float> %64, %shift
-  %shift135 = shufflevector <4 x float> %64, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop136 = fadd contract <4 x float> %shift135, %foldExtExtBinop
-  %65 = extractelement <4 x float> %foldExtExtBinop136, i64 0
+  %shift137 = shufflevector <4 x float> %64, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop138 = fadd contract <4 x float> %shift137, %foldExtExtBinop
+  %65 = extractelement <4 x float> %foldExtExtBinop138, i64 0
   %66 = tail call contract noundef float @llvm.sqrt.f32(float %65)
   %67 = fdiv contract float 1.000000e+00, %66
   %68 = insertelement <4 x float> poison, float %67, i64 0
@@ -5190,9 +5190,9 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %67 = fmul contract <4 x float> %66, %66
   %shift = shufflevector <4 x float> %67, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd contract <4 x float> %67, %shift
-  %shift277 = shufflevector <4 x float> %67, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop278 = fadd contract <4 x float> %shift277, %foldExtExtBinop
-  %68 = extractelement <4 x float> %foldExtExtBinop278, i64 0
+  %shift282 = shufflevector <4 x float> %67, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop283 = fadd contract <4 x float> %shift282, %foldExtExtBinop
+  %68 = extractelement <4 x float> %foldExtExtBinop283, i64 0
   %69 = tail call contract noundef float @llvm.sqrt.f32(float %68)
   %70 = fdiv contract float 1.000000e+00, %69
   %71 = insertelement <4 x float> poison, float %70, i64 0
@@ -5873,9 +5873,9 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %90 = fmul contract <4 x float> %89, %89
   %shift = shufflevector <4 x float> %90, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd contract <4 x float> %90, %shift
-  %shift299 = shufflevector <4 x float> %90, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop300 = fadd contract <4 x float> %shift299, %foldExtExtBinop
-  %91 = extractelement <4 x float> %foldExtExtBinop300, i64 0
+  %shift306 = shufflevector <4 x float> %90, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop307 = fadd contract <4 x float> %shift306, %foldExtExtBinop
+  %91 = extractelement <4 x float> %foldExtExtBinop307, i64 0
   %92 = tail call contract noundef float @llvm.sqrt.f32(float %91)
   %93 = fdiv contract float 1.000000e+00, %92
   %94 = insertelement <4 x float> poison, float %93, i64 0
@@ -6987,7 +6987,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %13, align 16, !alias.scope !137
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.26, i64 noundef 0)
-          to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit14 unwind label %.thread30
+          to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit14 unwind label %.thread33
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit14: ; preds = %11
   invoke void @_ZN7mitsuba5ClassC1ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_S9_NS1_8functionIFPNS_6ObjectERKNS_10PropertiesEEEENSA_IFSC_PNS_6StreamEEEES9_(ptr noundef nonnull align 16 dereferenceable(208) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
@@ -7053,7 +7053,7 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit: ; preds = 
           cleanup
   br label %48
 
-.thread30:                                        ; preds = %11
+.thread33:                                        ; preds = %11
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit21
@@ -7078,8 +7078,8 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit: ; preds = 
   call void %41(ptr noundef nonnull align 8 dereferenceable(8) %.pre) #30
   br label %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit21
 
-_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit21: ; preds = %.thread30, %38, %.sink.split.i.i19
-  %.pn27 = phi { ptr, i32 } [ %36, %38 ], [ %36, %.sink.split.i.i19 ], [ %34, %.thread30 ]
+_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit21: ; preds = %.thread33, %38, %.sink.split.i.i19
+  %.pn30 = phi { ptr, i32 } [ %36, %38 ], [ %36, %.sink.split.i.i19 ], [ %34, %.thread33 ]
   %42 = load ptr, ptr %12, align 16
   %43 = icmp eq ptr %42, %4
   br i1 %43, label %.sink.split.i.i23, label %44
@@ -7101,7 +7101,7 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit25: ; preds 
   br label %48
 
 48:                                               ; preds = %_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit25, %32
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn27, %_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit25 ], [ %33, %32 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn30, %_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit25 ], [ %33, %32 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #30
   br label %49
 
@@ -8528,10 +8528,10 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, 
     i8 106, label %.critedge
     i8 122, label %.critedge
     i8 116, label %.critedge
-    i8 117, label %.loopexit226
-    i8 100, label %.loopexit226
-    i8 105, label %.loopexit226
-    i8 111, label %.loopexit257
+    i8 117, label %.loopexit232
+    i8 100, label %.loopexit232
+    i8 105, label %.loopexit232
+    i8 111, label %.loopexit263
     i8 88, label %242
     i8 120, label %.loopexit
     i8 112, label %.loopexit
@@ -8672,14 +8672,14 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, 
   store i32 %328, ptr %326, align 8
   br label %.thread117
 
-.loopexit226:                                     ; preds = %239, %239, %239
+.loopexit232:                                     ; preds = %239, %239, %239
   br label %.loopexit
 
-.loopexit257:                                     ; preds = %239
+.loopexit263:                                     ; preds = %239
   br label %.loopexit
 
-.loopexit:                                        ; preds = %242, %239, %239, %.loopexit257, %.loopexit226
-  %.sink219 = phi i32 [ 2, %.loopexit226 ], [ 64, %.loopexit257 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+.loopexit:                                        ; preds = %242, %239, %239, %.loopexit263, %.loopexit232
+  %.sink225 = phi i32 [ 2, %.loopexit232 ], [ 64, %.loopexit263 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -8687,7 +8687,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, 
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %334 = load i32, ptr %333, align 8
   %335 = and i32 %334, -75
-  %336 = or disjoint i32 %335, %.sink219
+  %336 = or disjoint i32 %335, %.sink225
   store i32 %336, ptr %333, align 8
   %or.cond3 = or i1 %.167, %196
   br i1 %or.cond3, label %.thread117, label %337
@@ -10254,7 +10254,7 @@ _ZNSt3__128__exception_guard_exceptionsINS_6vectorIfNS_9allocatorIfEEE16__destro
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %16, i8 0, i64 %14, i1 false)
   %19 = add nsw i32 %1, -1
   switch i32 %1, label %.lr.ph [
-    i32 1, label %.thread197
+    i32 1, label %.thread198
     i32 2, label %20
   ]
 
@@ -10272,7 +10272,7 @@ _ZNSt3__128__exception_guard_exceptionsINS_6vectorIfNS_9allocatorIfEEE16__destro
           cleanup
   br label %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit115
 
-.thread197:                                       ; preds = %18
+.thread198:                                       ; preds = %18
   store float 0.000000e+00, ptr %15, align 4
   store float 2.000000e+00, ptr %16, align 4
   br label %_ZN7mitsuba4math11legendre_pdIdEENSt3__14pairIT_S4_EEiS4_.exit104
@@ -10507,8 +10507,8 @@ _ZN7mitsuba4math11legendre_pdIdEENSt3__14pairIT_S4_EEiS4_.exit87: ; preds = %.pr
   %exitcond.not.i103 = icmp eq i32 %.040.i95, %1
   br i1 %exitcond.not.i103, label %_ZN7mitsuba4math11legendre_pdIdEENSt3__14pairIT_S4_EEiS4_.exit104, label %.preheader.i94, !llvm.loop !169
 
-_ZN7mitsuba4math11legendre_pdIdEENSt3__14pairIT_S4_EEiS4_.exit104: ; preds = %.preheader.i94, %.thread197
-  %.1.i91 = phi double [ 1.000000e+00, %.thread197 ], [ %138, %.preheader.i94 ]
+_ZN7mitsuba4math11legendre_pdIdEENSt3__14pairIT_S4_EEiS4_.exit104: ; preds = %.preheader.i94, %.thread198
+  %.1.i91 = phi double [ 1.000000e+00, %.thread198 ], [ %138, %.preheader.i94 ]
   %142 = fmul contract double %.1.i91, %.1.i91
   %143 = fdiv contract double 2.000000e+00, %142
   %144 = fptrunc double %143 to float
@@ -11614,8 +11614,8 @@ _ZN5drjit12DynamicArrayIbED2Ev.exit172:           ; preds = %486, %483, %479, %4
 
 _ZNSt3__14pairIN5drjit12DynamicArrayIjEES3_ED2Ev.exit: ; preds = %457, %454, %_ZN5drjit12DynamicArrayIjED2Ev.exit.i, %_ZN5drjit12DynamicArrayIfEC2ERKS1_.exit118
   %. = select i1 %3, ptr %18, ptr %19
-  %.198 = select i1 %3, ptr %19, ptr %18
-  invoke void @_ZNSt3__14pairIN5drjit12DynamicArrayIfEES3_EC2B8ne190000IRS3_S6_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOS8_OS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(17) %., ptr noundef nonnull align 8 dereferenceable(17) %.198)
+  %.244 = select i1 %3, ptr %19, ptr %18
+  invoke void @_ZNSt3__14pairIN5drjit12DynamicArrayIfEES3_EC2B8ne190000IRS3_S6_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOS8_OS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(17) %., ptr noundef nonnull align 8 dereferenceable(17) %.244)
           to label %487 unwind label %458
 
 487:                                              ; preds = %_ZNSt3__14pairIN5drjit12DynamicArrayIjEES3_ED2Ev.exit

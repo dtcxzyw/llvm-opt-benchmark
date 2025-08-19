@@ -2560,7 +2560,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i.i:           ; preds = %919, %_ZNK5clang4De
   %942 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i.i.i, i64 32
   %.val30.val.i.i.i.i.i.i.i.i.i = load i16, ptr %942, align 8
   %943 = icmp eq i16 %.val30.val.i.i.i.i.i.i.i.i.i, 361
-  br i1 %943, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1629, label %944
+  br i1 %943, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1978, label %944
 
 944:                                              ; preds = %940
   %945 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i, i64 24
@@ -2568,7 +2568,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i.i:           ; preds = %919, %_ZNK5clang4De
   %946 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i.i.i, i64 32
   %.val31.val.i.i.i.i.i.i.i.i.i = load i16, ptr %946, align 8
   %947 = icmp eq i16 %.val31.val.i.i.i.i.i.i.i.i.i, 361
-  br i1 %947, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1631, label %948
+  br i1 %947, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1980, label %948
 
 948:                                              ; preds = %944
   %949 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i, i64 32
@@ -2629,16 +2629,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL_
   %967 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1629: ; preds = %940
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1978: ; preds = %940
   %968 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1631: ; preds = %944
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1980: ; preds = %944
   %969 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1629, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1631, %966, %963, %958, %953
-  %.028.i.i.i.i.i.i.i.i.i = phi ptr [ %927, %966 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %953 ], [ %.1.i.i.i.i.i.i.i.i.i, %958 ], [ %.2.i.i.i.i.i.i.i.i.i, %963 ], [ %967, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit ], [ %968, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1629 ], [ %969, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1631 ], [ %.02943.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1978, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1980, %966, %963, %958, %953
+  %.028.i.i.i.i.i.i.i.i.i = phi ptr [ %927, %966 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %953 ], [ %.1.i.i.i.i.i.i.i.i.i, %958 ], [ %.2.i.i.i.i.i.i.i.i.i, %963 ], [ %967, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit ], [ %968, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1978 ], [ %969, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1980 ], [ %.02943.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %970 = load i32, ptr %129, align 4
   %971 = and i32 %970, 256
   %.not.i.i.i.i.i494 = icmp eq i32 %971, 0
@@ -2755,39 +2755,39 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i.i.i: ; preds = %998
   %1031 = getelementptr inbounds nuw i8, ptr %1020, i64 2200
   %1032 = load ptr, ptr %1031, align 8, !tbaa !721
   %1033 = ptrtoint ptr %1032 to i64
-  %.not.i.i.i.i.i.i.i121.i.i = icmp ule i64 %1030, %1033
+  %.not.i.i.i.i.i.i.i130.i.i = icmp ule i64 %1030, %1033
   %1034 = icmp ne ptr %1026, null
-  %1035 = and i1 %1034, %.not.i.i.i.i.i.i.i121.i.i
-  br i1 %1035, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i127.i.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i122.i.i, !prof !722
+  %1035 = and i1 %1034, %.not.i.i.i.i.i.i.i130.i.i
+  br i1 %1035, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i136.i.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i131.i.i, !prof !722
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i122.i.i: ; preds = %1021
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i131.i.i: ; preds = %1021
   %1036 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %1022, i64 noundef 40, i64 noundef 40, i8 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
-  %.pre3.i.i125.i.i = load ptr, ptr %749, align 8, !tbaa !58
+  %.pre3.i.i134.i.i = load ptr, ptr %749, align 8, !tbaa !58
   br label %1040
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i127.i.i: ; preds = %1021
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i136.i.i: ; preds = %1021
   %1037 = inttoptr i64 %1030 to ptr
   store ptr %1037, ptr %1022, align 8, !tbaa !720
   %1038 = inttoptr i64 %1029 to ptr
   %1039 = icmp eq i64 %1029, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
-  br i1 %1039, label %"_ZN4llvm12function_refIFPN5clang27SwiftImportAsNonGenericAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit128.thread.i.i", label %1040
+  br i1 %1039, label %"_ZN4llvm12function_refIFPN5clang27SwiftImportAsNonGenericAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit137.thread.i.i", label %1040
 
-"_ZN4llvm12function_refIFPN5clang27SwiftImportAsNonGenericAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit128.thread.i.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i127.i.i
+"_ZN4llvm12function_refIFPN5clang27SwiftImportAsNonGenericAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit137.thread.i.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i136.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i.i
 
-1040:                                             ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i127.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i122.i.i
-  %1041 = phi ptr [ %.pre3.i.i125.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i122.i.i ], [ %1020, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i127.i.i ]
-  %.0.i.i.i.i.i2.i.i126.i.i = phi ptr [ %1036, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i122.i.i ], [ %1038, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i127.i.i ]
+1040:                                             ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i136.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i131.i.i
+  %1041 = phi ptr [ %.pre3.i.i134.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i131.i.i ], [ %1020, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i136.i.i ]
+  %.0.i.i.i.i.i2.i.i135.i.i = phi ptr [ %1036, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i131.i.i ], [ %1038, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i136.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %47, i8 0, i64 28, i1 false), !alias.scope !726
   store i32 65950, ptr %751, align 4, !alias.scope !726
-  call void @_ZN5clang27SwiftImportAsNonGenericAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i126.i.i, ptr noundef nonnull align 8 dereferenceable(23216) %1041, ptr noundef nonnull align 8 dereferenceable(32) %47) #19
+  call void @_ZN5clang27SwiftImportAsNonGenericAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i135.i.i, ptr noundef nonnull align 8 dereferenceable(23216) %1041, ptr noundef nonnull align 8 dereferenceable(32) %47) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %1042 = load ptr, ptr %749, align 8, !tbaa !58
   %1043 = icmp ne i8 %906, 0
-  %1044 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %1042, i64 %.sroa.0.031.i, i64 %.sroa.7.035.i, ptr noundef nonnull %.0.i.i.i.i.i2.i.i126.i.i, i1 noundef zeroext %1043, i64 0) #19
+  %1044 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %1042, i64 %.sroa.0.031.i, i64 %.sroa.7.035.i, ptr noundef nonnull %.0.i.i.i.i.i2.i.i135.i.i, i1 noundef zeroext %1043, i64 0) #19
   br label %.sink.split.i.i.i.i
 
 1045:                                             ; preds = %1019
@@ -2800,7 +2800,7 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i127.i.i: ; preds = %1021
   call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %.sink.i.i.i.i) #19
   br label %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i.i
 
-_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i.i: ; preds = %.sink.split.i.i.i.i, %"_ZN4llvm12function_refIFPN5clang27SwiftImportAsNonGenericAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit128.thread.i.i", %"_ZN4llvm12function_refIFPN5clang27SwiftImportAsNonGenericAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit.thread.i.i", %997
+_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang27SwiftImportAsNonGenericAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i.i: ; preds = %.sink.split.i.i.i.i, %"_ZN4llvm12function_refIFPN5clang27SwiftImportAsNonGenericAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit137.thread.i.i", %"_ZN4llvm12function_refIFPN5clang27SwiftImportAsNonGenericAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit.thread.i.i", %997
   %.pre.i.i495 = load i8, ptr %746, align 8
   br label %1048
 
@@ -2877,7 +2877,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i23.i.i:         ; preds = %1060, %_ZNK5clang4D
   %1083 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i54.i.i, i64 32
   %.val30.val.i.i.i.i.i.i.i55.i.i = load i16, ptr %1083, align 8
   %1084 = icmp eq i16 %.val30.val.i.i.i.i.i.i.i55.i.i, 426
-  br i1 %1084, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1637, label %1085
+  br i1 %1084, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1986, label %1085
 
 1085:                                             ; preds = %1081
   %1086 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i49.i.i, i64 24
@@ -2885,7 +2885,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i23.i.i:         ; preds = %1060, %_ZNK5clang4D
   %1087 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i56.i.i, i64 32
   %.val31.val.i.i.i.i.i.i.i57.i.i = load i16, ptr %1087, align 8
   %1088 = icmp eq i16 %.val31.val.i.i.i.i.i.i.i57.i.i, 426
-  br i1 %1088, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1639, label %1089
+  br i1 %1088, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1988, label %1089
 
 1089:                                             ; preds = %1085
   %1090 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i49.i.i, i64 32
@@ -2946,16 +2946,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL_
   %1108 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i49.i.i, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1637: ; preds = %1081
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1986: ; preds = %1081
   %1109 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i49.i.i, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1639: ; preds = %1085
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1988: ; preds = %1085
   %1110 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i49.i.i, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i47.i.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1637, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1639, %1107, %1104, %1099, %1094
-  %.028.i.i.i.i.i.i.i30.i.i = phi ptr [ %1068, %1107 ], [ %.029.lcssa.i.i.i.i.i.i.i26.i.i, %1094 ], [ %.1.i.i.i.i.i.i.i40.i.i, %1099 ], [ %.2.i.i.i.i.i.i.i27.i.i, %1104 ], [ %1108, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit ], [ %1109, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1637 ], [ %1110, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1639 ], [ %.02943.i.i.i.i.i.i.i49.i.i, %.lr.ph.i.i.i.i.i.i.i47.i.i ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i47.i.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1986, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1988, %1107, %1104, %1099, %1094
+  %.028.i.i.i.i.i.i.i30.i.i = phi ptr [ %1068, %1107 ], [ %.029.lcssa.i.i.i.i.i.i.i26.i.i, %1094 ], [ %.1.i.i.i.i.i.i.i40.i.i, %1099 ], [ %.2.i.i.i.i.i.i.i27.i.i, %1104 ], [ %1108, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit ], [ %1109, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1986 ], [ %1110, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_20SwiftObjCMembersAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1988 ], [ %.02943.i.i.i.i.i.i.i49.i.i, %.lr.ph.i.i.i.i.i.i.i47.i.i ]
   %1111 = load i32, ptr %129, align 4
   %1112 = and i32 %1111, 256
   %.not.i.i.i31.i.i = icmp eq i32 %1112, 0
@@ -3022,18 +3022,18 @@ _ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit.i.i36.i.i: ; preds = 
   %1150 = getelementptr inbounds nuw i8, ptr %1140, i64 2200
   %1151 = load ptr, ptr %1150, align 8, !tbaa !721
   %1152 = ptrtoint ptr %1151 to i64
-  %.not.i.i.i.i.i.i.i129.i.i = icmp ule i64 %1149, %1152
+  %.not.i.i.i.i.i.i.i138.i.i = icmp ule i64 %1149, %1152
   %1153 = icmp ne ptr %1145, null
-  %1154 = and i1 %1153, %.not.i.i.i.i.i.i.i129.i.i
-  br i1 %1154, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i135.i.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i130.i.i, !prof !722
+  %1154 = and i1 %1153, %.not.i.i.i.i.i.i.i138.i.i
+  br i1 %1154, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i144.i.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i139.i.i, !prof !722
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i130.i.i: ; preds = %1139
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i139.i.i: ; preds = %1139
   %1155 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %1141, i64 noundef 40, i64 noundef 40, i8 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
-  %.pre3.i.i133.i.i = load ptr, ptr %749, align 8, !tbaa !58
+  %.pre3.i.i142.i.i = load ptr, ptr %749, align 8, !tbaa !58
   br label %"_ZN4llvm12function_refIFPN5clang20SwiftObjCMembersAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.i.i"
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i135.i.i: ; preds = %1139
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i144.i.i: ; preds = %1139
   %1156 = inttoptr i64 %1149 to ptr
   store ptr %1156, ptr %1141, align 8, !tbaa !720
   %1157 = inttoptr i64 %1148 to ptr
@@ -3041,16 +3041,16 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i135.i.i: ; preds = %1139
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   br i1 %1158, label %"_ZN4llvm12function_refIFPN5clang20SwiftObjCMembersAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.thread.i.i", label %"_ZN4llvm12function_refIFPN5clang20SwiftObjCMembersAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.i.i"
 
-"_ZN4llvm12function_refIFPN5clang20SwiftObjCMembersAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.thread.i.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i135.i.i
+"_ZN4llvm12function_refIFPN5clang20SwiftObjCMembersAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.thread.i.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i144.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %_ZL15ProcessAPINotesRN5clang4SemaEPNS_17ObjCInterfaceDeclERKNS_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit.i
 
-"_ZN4llvm12function_refIFPN5clang20SwiftObjCMembersAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.i.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i135.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i130.i.i
-  %1159 = phi ptr [ %.pre3.i.i133.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i130.i.i ], [ %1140, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i135.i.i ]
-  %.0.i.i.i.i.i2.i.i134.i.i = phi ptr [ %1155, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i130.i.i ], [ %1157, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i135.i.i ]
+"_ZN4llvm12function_refIFPN5clang20SwiftObjCMembersAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.i.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i144.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i139.i.i
+  %1159 = phi ptr [ %.pre3.i.i142.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i139.i.i ], [ %1140, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i144.i.i ]
+  %.0.i.i.i.i.i2.i.i143.i.i = phi ptr [ %1155, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i139.i.i ], [ %1157, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i144.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %46, i8 0, i64 28, i1 false), !alias.scope !730
   store i32 65950, ptr %752, align 4, !alias.scope !730
-  call void @_ZN5clang20SwiftObjCMembersAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i134.i.i, ptr noundef nonnull align 8 dereferenceable(23216) %1159, ptr noundef nonnull align 8 dereferenceable(32) %46) #19
+  call void @_ZN5clang20SwiftObjCMembersAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i143.i.i, ptr noundef nonnull align 8 dereferenceable(23216) %1159, ptr noundef nonnull align 8 dereferenceable(32) %46) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %.sink.split.i.i38.i.i
 
@@ -3072,39 +3072,39 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i135.i.i: ; preds = %1139
   %1172 = getelementptr inbounds nuw i8, ptr %1161, i64 2200
   %1173 = load ptr, ptr %1172, align 8, !tbaa !721
   %1174 = ptrtoint ptr %1173 to i64
-  %.not.i.i.i.i.i.i.i136.i.i = icmp ule i64 %1171, %1174
+  %.not.i.i.i.i.i.i.i145.i.i = icmp ule i64 %1171, %1174
   %1175 = icmp ne ptr %1167, null
-  %1176 = and i1 %1175, %.not.i.i.i.i.i.i.i136.i.i
-  br i1 %1176, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i142.i.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i137.i.i, !prof !722
+  %1176 = and i1 %1175, %.not.i.i.i.i.i.i.i145.i.i
+  br i1 %1176, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i151.i.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i146.i.i, !prof !722
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i137.i.i: ; preds = %1162
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i146.i.i: ; preds = %1162
   %1177 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %1163, i64 noundef 40, i64 noundef 40, i8 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  %.pre3.i.i140.i.i = load ptr, ptr %749, align 8, !tbaa !58
+  %.pre3.i.i149.i.i = load ptr, ptr %749, align 8, !tbaa !58
   br label %1181
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i142.i.i: ; preds = %1162
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i151.i.i: ; preds = %1162
   %1178 = inttoptr i64 %1171 to ptr
   store ptr %1178, ptr %1163, align 8, !tbaa !720
   %1179 = inttoptr i64 %1170 to ptr
   %1180 = icmp eq i64 %1170, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  br i1 %1180, label %"_ZN4llvm12function_refIFPN5clang20SwiftObjCMembersAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit143.thread.i.i", label %1181
+  br i1 %1180, label %"_ZN4llvm12function_refIFPN5clang20SwiftObjCMembersAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit152.thread.i.i", label %1181
 
-"_ZN4llvm12function_refIFPN5clang20SwiftObjCMembersAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit143.thread.i.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i142.i.i
+"_ZN4llvm12function_refIFPN5clang20SwiftObjCMembersAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit152.thread.i.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i151.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %_ZL15ProcessAPINotesRN5clang4SemaEPNS_17ObjCInterfaceDeclERKNS_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit.i
 
-1181:                                             ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i142.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i137.i.i
-  %1182 = phi ptr [ %.pre3.i.i140.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i137.i.i ], [ %1161, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i142.i.i ]
-  %.0.i.i.i.i.i2.i.i141.i.i = phi ptr [ %1177, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i137.i.i ], [ %1179, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i142.i.i ]
+1181:                                             ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i151.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i146.i.i
+  %1182 = phi ptr [ %.pre3.i.i149.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i146.i.i ], [ %1161, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i151.i.i ]
+  %.0.i.i.i.i.i2.i.i150.i.i = phi ptr [ %1177, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i146.i.i ], [ %1179, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i151.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %45, i8 0, i64 28, i1 false), !alias.scope !733
   store i32 65950, ptr %753, align 4, !alias.scope !733
-  call void @_ZN5clang20SwiftObjCMembersAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i141.i.i, ptr noundef nonnull align 8 dereferenceable(23216) %1182, ptr noundef nonnull align 8 dereferenceable(32) %45) #19
+  call void @_ZN5clang20SwiftObjCMembersAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i150.i.i, ptr noundef nonnull align 8 dereferenceable(23216) %1182, ptr noundef nonnull align 8 dereferenceable(32) %45) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %1183 = load ptr, ptr %749, align 8, !tbaa !58
   %1184 = icmp ne i8 %906, 0
-  %1185 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %1183, i64 %.sroa.0.031.i, i64 %.sroa.7.035.i, ptr noundef nonnull %.0.i.i.i.i.i2.i.i141.i.i, i1 noundef zeroext %1184, i64 0) #19
+  %1185 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %1183, i64 %.sroa.0.031.i, i64 %.sroa.7.035.i, ptr noundef nonnull %.0.i.i.i.i.i2.i.i150.i.i, i1 noundef zeroext %1184, i64 0) #19
   br label %.sink.split.i.i38.i.i
 
 1186:                                             ; preds = %1160
@@ -3113,11 +3113,11 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i142.i.i: ; preds = %1162
   br label %.sink.split.i.i38.i.i
 
 .sink.split.i.i38.i.i:                            ; preds = %1186, %1181, %"_ZN4llvm12function_refIFPN5clang20SwiftObjCMembersAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.i.i"
-  %.sink.i.i39.i.i = phi ptr [ %1185, %1181 ], [ %1188, %1186 ], [ %.0.i.i.i.i.i2.i.i134.i.i, %"_ZN4llvm12function_refIFPN5clang20SwiftObjCMembersAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.i.i" ]
+  %.sink.i.i39.i.i = phi ptr [ %1185, %1181 ], [ %1188, %1186 ], [ %.0.i.i.i.i.i2.i.i143.i.i, %"_ZN4llvm12function_refIFPN5clang20SwiftObjCMembersAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.i.i" ]
   call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %.sink.i.i39.i.i) #19
   br label %_ZL15ProcessAPINotesRN5clang4SemaEPNS_17ObjCInterfaceDeclERKNS_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit.i
 
-_ZL15ProcessAPINotesRN5clang4SemaEPNS_17ObjCInterfaceDeclERKNS_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit.i: ; preds = %.sink.split.i.i38.i.i, %"_ZN4llvm12function_refIFPN5clang20SwiftObjCMembersAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit143.thread.i.i", %"_ZN4llvm12function_refIFPN5clang20SwiftObjCMembersAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.thread.i.i", %1138, %1048
+_ZL15ProcessAPINotesRN5clang4SemaEPNS_17ObjCInterfaceDeclERKNS_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit.i: ; preds = %.sink.split.i.i38.i.i, %"_ZN4llvm12function_refIFPN5clang20SwiftObjCMembersAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit152.thread.i.i", %"_ZN4llvm12function_refIFPN5clang20SwiftObjCMembersAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_17ObjCInterfaceDeclERKNS1_9api_notes11ContextInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.thread.i.i", %1138, %1048
   call fastcc void @_ZL15ProcessAPINotesRN5clang4SemaEPNS_4DeclERKNS_9api_notes14CommonTypeInfoEN12_GLOBAL__N_121VersionedInfoMetadataE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(153) %51, ptr noundef nonnull byval(%"struct.(anonymous namespace)::VersionedInfoMetadata") align 8 %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %indvars.iv.next.i496 = add nuw nsw i64 %indvars.iv.i487, 1
@@ -3591,7 +3591,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %._crit_edge.i.i.i, 
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !741
   %1377 = load ptr, ptr %76, align 8, !tbaa !35
   %1378 = icmp eq ptr %1377, %1344
-  br i1 %1378, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %1378, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
   %1379 = load i64, ptr %1345, align 8, !tbaa !32
@@ -3602,14 +3602,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %1383 = icmp eq ptr %1381, %1382
   br i1 %1383, label %1387, label %.thread.i567
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
   %1384 = load ptr, ptr %77, align 8, !tbaa !35
   %1385 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %1386 = icmp eq ptr %1384, %1385
   br i1 %1386, label %1387, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-1387:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %1388 = phi ptr [ %1384, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %1381, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+1387:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %1388 = phi ptr [ %1384, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %1381, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %1389 = load i64, ptr %1374, align 8, !tbaa !32
   %1390 = icmp ult i64 %1389, 16
   call void @llvm.assume(i1 %1390)
@@ -3644,7 +3644,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %1398, ptr %1344, align 8, !tbaa !34
   br label %1403
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %1399 = load i64, ptr %1344, align 8, !tbaa !34
   store ptr %1384, ptr %76, align 8, !tbaa !35
   %1400 = load i64, ptr %1374, align 8, !tbaa !32
@@ -4606,8 +4606,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
   store i8 %1797, ptr %.sroa.3.0..sroa_idx.i661, align 8
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %1785 to i32
   %1798 = and i64 %1785, 4294967296
-  %.not23.i.i = icmp eq i64 %1798, 0
-  br i1 %.not23.i.i, label %_ZL15ProcessAPINotesRN5clang4SemaEPNS_15TypedefNameDeclERKNS_9api_notes11TypedefInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit.i, label %1799
+  %.not27.i.i = icmp eq i64 %1798, 0
+  br i1 %.not27.i.i, label %_ZL15ProcessAPINotesRN5clang4SemaEPNS_15TypedefNameDeclERKNS_9api_notes11TypedefInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit.i, label %1799
 
 1799:                                             ; preds = %1794
   %1800 = and i64 %1785, 4294967295
@@ -4677,7 +4677,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i.i673:        ; preds = %1808, %_ZNK5clang4D
   %1831 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i.i.i721, i64 32
   %.val30.val.i.i.i.i.i.i.i.i.i722 = load i16, ptr %1831, align 8
   %1832 = icmp eq i16 %.val30.val.i.i.i.i.i.i.i.i.i722, 364
-  br i1 %1832, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1605, label %1833
+  br i1 %1832, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1954, label %1833
 
 1833:                                             ; preds = %1829
   %1834 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i716, i64 24
@@ -4685,7 +4685,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i.i673:        ; preds = %1808, %_ZNK5clang4D
   %1835 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i.i.i723, i64 32
   %.val31.val.i.i.i.i.i.i.i.i.i724 = load i16, ptr %1835, align 8
   %1836 = icmp eq i16 %.val31.val.i.i.i.i.i.i.i.i.i724, 364
-  br i1 %1836, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1607, label %1837
+  br i1 %1836, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1956, label %1837
 
 1837:                                             ; preds = %1833
   %1838 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i716, i64 32
@@ -4746,16 +4746,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL_
   %1856 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i716, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1605: ; preds = %1829
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1954: ; preds = %1829
   %1857 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i716, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1607: ; preds = %1833
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1956: ; preds = %1833
   %1858 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i716, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i714, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1605, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1607, %1855, %1852, %1847, %1842
-  %.028.i.i.i.i.i.i.i.i.i680 = phi ptr [ %1816, %1855 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i676, %1842 ], [ %.1.i.i.i.i.i.i.i.i.i707, %1847 ], [ %.2.i.i.i.i.i.i.i.i.i677, %1852 ], [ %1856, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit ], [ %1857, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1605 ], [ %1858, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1607 ], [ %.02943.i.i.i.i.i.i.i.i.i716, %.lr.ph.i.i.i.i.i.i.i.i.i714 ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i714, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1954, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1956, %1855, %1852, %1847, %1842
+  %.028.i.i.i.i.i.i.i.i.i680 = phi ptr [ %1816, %1855 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i676, %1842 ], [ %.1.i.i.i.i.i.i.i.i.i707, %1847 ], [ %.2.i.i.i.i.i.i.i.i.i677, %1852 ], [ %1856, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit ], [ %1857, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1954 ], [ %1858, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftNewTypeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1956 ], [ %.02943.i.i.i.i.i.i.i.i.i716, %.lr.ph.i.i.i.i.i.i.i.i.i714 ]
   %1859 = load i32, ptr %129, align 4
   %1860 = and i32 %1859, 256
   %.not.i.i.i.i.i681 = icmp eq i32 %1860, 0
@@ -4859,8 +4859,8 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i.i.i706: ; preds = %1887
   br i1 %.not.i15.i, label %1934, label %1909
 
 1909:                                             ; preds = %1908
-  %switch.selectcmp2.i.i32.i.i = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, 2
-  %switch.select3.i.i33.i.i = zext i1 %switch.selectcmp2.i.i32.i.i to i32
+  %switch.selectcmp2.i.i36.i.i = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, 2
+  %switch.select3.i.i37.i.i = zext i1 %switch.selectcmp2.i.i36.i.i to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %33, i8 0, i64 28, i1 false)
   store i32 1114474, ptr %1623, align 4
@@ -4878,35 +4878,35 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i.i.i706: ; preds = %1887
   %1920 = getelementptr inbounds nuw i8, ptr %1910, i64 2200
   %1921 = load ptr, ptr %1920, align 8, !tbaa !721
   %1922 = ptrtoint ptr %1921 to i64
-  %.not.i.i.i.i.i.i.i34.i.i = icmp ule i64 %1919, %1922
+  %.not.i.i.i.i.i.i.i38.i.i = icmp ule i64 %1919, %1922
   %1923 = icmp ne ptr %1915, null
-  %1924 = and i1 %1923, %.not.i.i.i.i.i.i.i34.i.i
-  br i1 %1924, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i40.i.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i35.i.i, !prof !722
+  %1924 = and i1 %1923, %.not.i.i.i.i.i.i.i38.i.i
+  br i1 %1924, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i44.i.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i39.i.i, !prof !722
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i35.i.i: ; preds = %1909
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i39.i.i: ; preds = %1909
   %1925 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %1911, i64 noundef 40, i64 noundef 40, i8 3)
-  %.pre9.i.i38.i.i = load ptr, ptr %1621, align 8, !tbaa !58
+  %.pre9.i.i42.i.i = load ptr, ptr %1621, align 8, !tbaa !58
   br label %1929
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i40.i.i: ; preds = %1909
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i44.i.i: ; preds = %1909
   %1926 = inttoptr i64 %1919 to ptr
   store ptr %1926, ptr %1911, align 8, !tbaa !720
   %1927 = inttoptr i64 %1918 to ptr
   %1928 = icmp eq i64 %1918, 0
-  br i1 %1928, label %"_ZN4llvm12function_refIFPN5clang16SwiftNewTypeAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_15TypedefNameDeclERKNS1_9api_notes11TypedefInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit41.thread.i.i", label %1929
+  br i1 %1928, label %"_ZN4llvm12function_refIFPN5clang16SwiftNewTypeAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_15TypedefNameDeclERKNS1_9api_notes11TypedefInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit45.thread.i.i", label %1929
 
-"_ZN4llvm12function_refIFPN5clang16SwiftNewTypeAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_15TypedefNameDeclERKNS1_9api_notes11TypedefInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit41.thread.i.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i40.i.i
+"_ZN4llvm12function_refIFPN5clang16SwiftNewTypeAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_15TypedefNameDeclERKNS1_9api_notes11TypedefInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit45.thread.i.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i44.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %_ZL15ProcessAPINotesRN5clang4SemaEPNS_15TypedefNameDeclERKNS_9api_notes11TypedefInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit.i
 
-1929:                                             ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i40.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i35.i.i
-  %1930 = phi ptr [ %.pre9.i.i38.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i35.i.i ], [ %1910, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i40.i.i ]
-  %.0.i.i.i.i.i8.i.i39.i.i = phi ptr [ %1925, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i35.i.i ], [ %1927, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i40.i.i ]
-  call void @_ZN5clang16SwiftNewTypeAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_11NewtypeKindE(ptr noundef nonnull align 8 dereferenceable(40) %.0.i.i.i.i.i8.i.i39.i.i, ptr noundef nonnull align 8 dereferenceable(23216) %1930, ptr noundef nonnull align 8 dereferenceable(32) %33, i32 noundef %switch.select3.i.i33.i.i) #19
+1929:                                             ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i44.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i39.i.i
+  %1930 = phi ptr [ %.pre9.i.i42.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i39.i.i ], [ %1910, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i44.i.i ]
+  %.0.i.i.i.i.i8.i.i43.i.i = phi ptr [ %1925, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i39.i.i ], [ %1927, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i44.i.i ]
+  call void @_ZN5clang16SwiftNewTypeAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_11NewtypeKindE(ptr noundef nonnull align 8 dereferenceable(40) %.0.i.i.i.i.i8.i.i43.i.i, ptr noundef nonnull align 8 dereferenceable(23216) %1930, ptr noundef nonnull align 8 dereferenceable(32) %33, i32 noundef %switch.select3.i.i37.i.i) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %1931 = load ptr, ptr %1621, align 8, !tbaa !58
   %1932 = icmp ne i8 %1795, 0
-  %1933 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %1931, i64 %.sroa.0.034.i, i64 %.sroa.7.035.i669, ptr noundef nonnull %.0.i.i.i.i.i8.i.i39.i.i, i1 noundef zeroext %1932, i64 0) #19
+  %1933 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %1931, i64 %.sroa.0.034.i, i64 %.sroa.7.035.i669, ptr noundef nonnull %.0.i.i.i.i.i8.i.i43.i.i, i1 noundef zeroext %1932, i64 0) #19
   br label %.sink.split.i.i.i.i689
 
 1934:                                             ; preds = %1908
@@ -4920,7 +4920,7 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i40.i.i: ; preds = %1909
   call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %.sink.i.i.i.i690) #19
   br label %_ZL15ProcessAPINotesRN5clang4SemaEPNS_15TypedefNameDeclERKNS_9api_notes11TypedefInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit.i
 
-_ZL15ProcessAPINotesRN5clang4SemaEPNS_15TypedefNameDeclERKNS_9api_notes11TypedefInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit.i: ; preds = %.sink.split.i.i.i.i689, %"_ZN4llvm12function_refIFPN5clang16SwiftNewTypeAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_15TypedefNameDeclERKNS1_9api_notes11TypedefInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit41.thread.i.i", %"_ZN4llvm12function_refIFPN5clang16SwiftNewTypeAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_15TypedefNameDeclERKNS1_9api_notes11TypedefInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit.thread.i.i", %1886, %1794
+_ZL15ProcessAPINotesRN5clang4SemaEPNS_15TypedefNameDeclERKNS_9api_notes11TypedefInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit.i: ; preds = %.sink.split.i.i.i.i689, %"_ZN4llvm12function_refIFPN5clang16SwiftNewTypeAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_15TypedefNameDeclERKNS1_9api_notes11TypedefInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit45.thread.i.i", %"_ZN4llvm12function_refIFPN5clang16SwiftNewTypeAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_15TypedefNameDeclERKNS1_9api_notes11TypedefInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit.thread.i.i", %1886, %1794
   call fastcc void @_ZL15ProcessAPINotesRN5clang4SemaEPNS_4DeclERKNS_9api_notes14CommonTypeInfoEN12_GLOBAL__N_121VersionedInfoMetadataE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(160) %40, ptr noundef nonnull byval(%"struct.(anonymous namespace)::VersionedInfoMetadata") align 8 %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %indvars.iv.next.i691 = add nuw nsw i64 %indvars.iv.i662, 1
@@ -6205,7 +6205,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i.i910:        ; preds = %2431, %_ZNK5clang4D
   %2454 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i.i.i944, i64 32
   %.val30.val.i.i.i.i.i.i.i.i.i945 = load i16, ptr %2454, align 8
   %2455 = icmp eq i16 %.val30.val.i.i.i.i.i.i.i.i.i945, 417
-  br i1 %2455, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1613, label %2456
+  br i1 %2455, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1962, label %2456
 
 2456:                                             ; preds = %2452
   %2457 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i939, i64 24
@@ -6213,7 +6213,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i.i910:        ; preds = %2431, %_ZNK5clang4D
   %2458 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i.i.i946, i64 32
   %.val31.val.i.i.i.i.i.i.i.i.i947 = load i16, ptr %2458, align 8
   %2459 = icmp eq i16 %.val31.val.i.i.i.i.i.i.i.i.i947, 417
-  br i1 %2459, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1615, label %2460
+  br i1 %2459, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1964, label %2460
 
 2460:                                             ; preds = %2456
   %2461 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i939, i64 32
@@ -6274,16 +6274,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL_
   %2479 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i939, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1613: ; preds = %2452
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1962: ; preds = %2452
   %2480 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i939, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1615: ; preds = %2456
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1964: ; preds = %2456
   %2481 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i939, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i937, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1613, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1615, %2478, %2475, %2470, %2465
-  %.028.i.i.i.i.i.i.i.i.i917 = phi ptr [ %2439, %2478 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i913, %2465 ], [ %.1.i.i.i.i.i.i.i.i.i930, %2470 ], [ %.2.i.i.i.i.i.i.i.i.i914, %2475 ], [ %2479, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit ], [ %2480, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1613 ], [ %2481, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1615 ], [ %.02943.i.i.i.i.i.i.i.i.i939, %.lr.ph.i.i.i.i.i.i.i.i.i937 ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i937, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1962, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1964, %2478, %2475, %2470, %2465
+  %.028.i.i.i.i.i.i.i.i.i917 = phi ptr [ %2439, %2478 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i913, %2465 ], [ %.1.i.i.i.i.i.i.i.i.i930, %2470 ], [ %.2.i.i.i.i.i.i.i.i.i914, %2475 ], [ %2479, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit ], [ %2480, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1962 ], [ %2481, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_29ObjCDesignatedInitializerAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1964 ], [ %.02943.i.i.i.i.i.i.i.i.i939, %.lr.ph.i.i.i.i.i.i.i.i.i937 ]
   %2482 = load i32, ptr %2198, align 4
   %2483 = and i32 %2482, 256
   %.not.i.i.i.i.i918 = icmp eq i32 %2483, 0
@@ -7107,7 +7107,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i.i1042:       ; preds = %2788, %_ZNK5clang4D
   %2811 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i.i.i1089, i64 32
   %.val30.val.i.i.i.i.i.i.i.i.i1090 = load i16, ptr %2811, align 8
   %2812 = icmp eq i16 %.val30.val.i.i.i.i.i.i.i.i.i1090, 362
-  br i1 %2812, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1621, label %2813
+  br i1 %2812, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1970, label %2813
 
 2813:                                             ; preds = %2809
   %2814 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i1084, i64 24
@@ -7115,7 +7115,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i.i1042:       ; preds = %2788, %_ZNK5clang4D
   %2815 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i.i.i1091, i64 32
   %.val31.val.i.i.i.i.i.i.i.i.i1092 = load i16, ptr %2815, align 8
   %2816 = icmp eq i16 %.val31.val.i.i.i.i.i.i.i.i.i1092, 362
-  br i1 %2816, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1623, label %2817
+  br i1 %2816, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1972, label %2817
 
 2817:                                             ; preds = %2813
   %2818 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i1084, i64 32
@@ -7176,16 +7176,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL_
   %2836 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i1084, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1621: ; preds = %2809
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1970: ; preds = %2809
   %2837 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i1084, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1623: ; preds = %2813
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1972: ; preds = %2813
   %2838 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i.i1084, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i1082, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1621, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1623, %2835, %2832, %2827, %2822
-  %.028.i.i.i.i.i.i.i.i.i1049 = phi ptr [ %2796, %2835 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i1045, %2822 ], [ %.1.i.i.i.i.i.i.i.i.i1075, %2827 ], [ %.2.i.i.i.i.i.i.i.i.i1046, %2832 ], [ %2836, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit ], [ %2837, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1621 ], [ %2838, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1623 ], [ %.02943.i.i.i.i.i.i.i.i.i1084, %.lr.ph.i.i.i.i.i.i.i.i.i1082 ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i1082, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1970, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1972, %2835, %2832, %2827, %2822
+  %.028.i.i.i.i.i.i.i.i.i1049 = phi ptr [ %2796, %2835 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i1045, %2822 ], [ %.1.i.i.i.i.i.i.i.i.i1075, %2827 ], [ %.2.i.i.i.i.i.i.i.i.i1046, %2832 ], [ %2836, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit ], [ %2837, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1970 ], [ %2838, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_34SwiftImportPropertyAsAccessorsAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.i.loopexit.split.loop.exit1972 ], [ %.02943.i.i.i.i.i.i.i.i.i1084, %.lr.ph.i.i.i.i.i.i.i.i.i1082 ]
   %2839 = load i32, ptr %2198, align 4
   %2840 = and i32 %2839, 256
   %.not.i.i.i.i.i1050 = icmp eq i32 %2840, 0
@@ -7302,39 +7302,39 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i.i.i1074: ; preds = %2867
   %2900 = getelementptr inbounds nuw i8, ptr %2889, i64 2200
   %2901 = load ptr, ptr %2900, align 8, !tbaa !721
   %2902 = ptrtoint ptr %2901 to i64
-  %.not.i.i.i.i.i.i.i33.i.i = icmp ule i64 %2899, %2902
+  %.not.i.i.i.i.i.i.i37.i.i = icmp ule i64 %2899, %2902
   %2903 = icmp ne ptr %2895, null
-  %2904 = and i1 %2903, %.not.i.i.i.i.i.i.i33.i.i
-  br i1 %2904, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i39.i.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i34.i.i, !prof !722
+  %2904 = and i1 %2903, %.not.i.i.i.i.i.i.i37.i.i
+  br i1 %2904, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i43.i.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i38.i.i, !prof !722
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i34.i.i: ; preds = %2890
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i38.i.i: ; preds = %2890
   %2905 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %2891, i64 noundef 40, i64 noundef 40, i8 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %.pre3.i.i37.i.i = load ptr, ptr %2589, align 8, !tbaa !58
+  %.pre3.i.i41.i.i = load ptr, ptr %2589, align 8, !tbaa !58
   br label %2909
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i39.i.i: ; preds = %2890
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i43.i.i: ; preds = %2890
   %2906 = inttoptr i64 %2899 to ptr
   store ptr %2906, ptr %2891, align 8, !tbaa !720
   %2907 = inttoptr i64 %2898 to ptr
   %2908 = icmp eq i64 %2898, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  br i1 %2908, label %"_ZN4llvm12function_refIFPN5clang34SwiftImportPropertyAsAccessorsAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_16ObjCPropertyDeclERKNS1_9api_notes16ObjCPropertyInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit40.thread.i.i", label %2909
+  br i1 %2908, label %"_ZN4llvm12function_refIFPN5clang34SwiftImportPropertyAsAccessorsAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_16ObjCPropertyDeclERKNS1_9api_notes16ObjCPropertyInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit44.thread.i.i", label %2909
 
-"_ZN4llvm12function_refIFPN5clang34SwiftImportPropertyAsAccessorsAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_16ObjCPropertyDeclERKNS1_9api_notes16ObjCPropertyInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit40.thread.i.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i39.i.i
+"_ZN4llvm12function_refIFPN5clang34SwiftImportPropertyAsAccessorsAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_16ObjCPropertyDeclERKNS1_9api_notes16ObjCPropertyInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit44.thread.i.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i43.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZL15ProcessAPINotesRN5clang4SemaEPNS_16ObjCPropertyDeclERKNS_9api_notes16ObjCPropertyInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit.i
 
-2909:                                             ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i39.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i34.i.i
-  %2910 = phi ptr [ %.pre3.i.i37.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i34.i.i ], [ %2889, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i39.i.i ]
-  %.0.i.i.i.i.i2.i.i38.i.i = phi ptr [ %2905, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i34.i.i ], [ %2907, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i39.i.i ]
+2909:                                             ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i43.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i38.i.i
+  %2910 = phi ptr [ %.pre3.i.i41.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i38.i.i ], [ %2889, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i43.i.i ]
+  %.0.i.i.i.i.i2.i.i42.i.i = phi ptr [ %2905, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i38.i.i ], [ %2907, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i43.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %11, i8 0, i64 28, i1 false), !alias.scope !1102
   store i32 65950, ptr %2591, align 4, !alias.scope !1102
-  call void @_ZN5clang34SwiftImportPropertyAsAccessorsAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i38.i.i, ptr noundef nonnull align 8 dereferenceable(23216) %2910, ptr noundef nonnull align 8 dereferenceable(32) %11) #19
+  call void @_ZN5clang34SwiftImportPropertyAsAccessorsAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i42.i.i, ptr noundef nonnull align 8 dereferenceable(23216) %2910, ptr noundef nonnull align 8 dereferenceable(32) %11) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %2911 = load ptr, ptr %2589, align 8, !tbaa !58
   %2912 = icmp ne i8 %2774, 0
-  %2913 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %2911, i64 %.sroa.0.038.i, i64 %.sroa.7.039.i, ptr noundef nonnull %.0.i.i.i.i.i2.i.i38.i.i, i1 noundef zeroext %2912, i64 0) #19
+  %2913 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %2911, i64 %.sroa.0.038.i, i64 %.sroa.7.039.i, ptr noundef nonnull %.0.i.i.i.i.i2.i.i42.i.i, i1 noundef zeroext %2912, i64 0) #19
   br label %.sink.split.i.i.i.i1060
 
 2914:                                             ; preds = %2888
@@ -7347,7 +7347,7 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i39.i.i: ; preds = %2890
   call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %.sink.i.i.i.i1061) #19
   br label %_ZL15ProcessAPINotesRN5clang4SemaEPNS_16ObjCPropertyDeclERKNS_9api_notes16ObjCPropertyInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit.i
 
-_ZL15ProcessAPINotesRN5clang4SemaEPNS_16ObjCPropertyDeclERKNS_9api_notes16ObjCPropertyInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit.i: ; preds = %.sink.split.i.i.i.i1060, %"_ZN4llvm12function_refIFPN5clang34SwiftImportPropertyAsAccessorsAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_16ObjCPropertyDeclERKNS1_9api_notes16ObjCPropertyInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit40.thread.i.i", %"_ZN4llvm12function_refIFPN5clang34SwiftImportPropertyAsAccessorsAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_16ObjCPropertyDeclERKNS1_9api_notes16ObjCPropertyInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit.thread.i.i", %2866, %2773
+_ZL15ProcessAPINotesRN5clang4SemaEPNS_16ObjCPropertyDeclERKNS_9api_notes16ObjCPropertyInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit.i: ; preds = %.sink.split.i.i.i.i1060, %"_ZN4llvm12function_refIFPN5clang34SwiftImportPropertyAsAccessorsAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_16ObjCPropertyDeclERKNS1_9api_notes16ObjCPropertyInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit44.thread.i.i", %"_ZN4llvm12function_refIFPN5clang34SwiftImportPropertyAsAccessorsAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_16ObjCPropertyDeclERKNS1_9api_notes16ObjCPropertyInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit.thread.i.i", %2866, %2773
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %indvars.iv.next.i1062 = add nuw nsw i64 %indvars.iv.i1034, 1
   %.not.i1063 = icmp eq i64 %indvars.iv.next.i1062, %2735
@@ -10158,8 +10158,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %361 = load i64, ptr %149, align 8
   %.sroa.0.0.extract.trunc.i = trunc i64 %361 to i32
   %362 = and i64 %361, 4294967296
-  %.not195.i = icmp eq i64 %362, 0
-  br i1 %.not195.i, label %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang21EnumExtensibilityAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i, label %363
+  %.not220.i = icmp eq i64 %362, 0
+  br i1 %.not220.i, label %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang21EnumExtensibilityAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i, label %363
 
 363:                                              ; preds = %360
   %364 = and i64 %361, 4294967295
@@ -10229,7 +10229,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i:             ; preds = %372, %_ZNK5clang4De
   %395 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i.i, i64 32
   %.val30.val.i.i.i.i.i.i.i.i = load i16, ptr %395, align 8
   %396 = icmp eq i16 %.val30.val.i.i.i.i.i.i.i.i, 203
-  br i1 %396, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit75, label %397
+  br i1 %396, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit105, label %397
 
 397:                                              ; preds = %393
   %398 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i, i64 24
@@ -10237,7 +10237,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i:             ; preds = %372, %_ZNK5clang4De
   %399 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i.i, i64 32
   %.val31.val.i.i.i.i.i.i.i.i = load i16, ptr %399, align 8
   %400 = icmp eq i16 %.val31.val.i.i.i.i.i.i.i.i, 203
-  br i1 %400, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit77, label %401
+  br i1 %400, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit107, label %401
 
 401:                                              ; preds = %397
   %402 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i, i64 32
@@ -10298,16 +10298,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL_
   %420 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit75: ; preds = %393
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit105: ; preds = %393
   %421 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit77: ; preds = %397
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit107: ; preds = %397
   %422 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit75, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit77, %419, %416, %411, %406
-  %.028.i.i.i.i.i.i.i.i = phi ptr [ %380, %419 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %406 ], [ %.1.i.i.i.i.i.i.i.i, %411 ], [ %.2.i.i.i.i.i.i.i.i, %416 ], [ %420, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit ], [ %421, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit75 ], [ %422, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit77 ], [ %.02943.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit105, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit107, %419, %416, %411, %406
+  %.028.i.i.i.i.i.i.i.i = phi ptr [ %380, %419 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %406 ], [ %.1.i.i.i.i.i.i.i.i, %411 ], [ %.2.i.i.i.i.i.i.i.i, %416 ], [ %420, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit ], [ %421, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit105 ], [ %422, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_21EnumExtensibilityAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit107 ], [ %.02943.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
   %423 = load i32, ptr %36, align 4
   %424 = and i32 %423, 256
   %.not.i.i.i.i = icmp eq i32 %424, 0
@@ -10412,8 +10412,8 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i.i:  ; preds = %451
   br i1 %.not165.i, label %498, label %473
 
 473:                                              ; preds = %472
-  %switch.selectcmp2.i.i216.i = icmp ne i32 %.sroa.0.0.extract.trunc.i, 2
-  %switch.select3.i.i217.i = zext i1 %switch.selectcmp2.i.i216.i to i32
+  %switch.selectcmp2.i.i241.i = icmp ne i32 %.sroa.0.0.extract.trunc.i, 2
+  %switch.select3.i.i242.i = zext i1 %switch.selectcmp2.i.i241.i to i32
   %474 = load ptr, ptr %155, align 8, !tbaa !58
   %475 = getelementptr inbounds nuw i8, ptr %474, i64 2192
   %476 = getelementptr inbounds nuw i8, ptr %474, i64 2272
@@ -10428,39 +10428,39 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i.i:  ; preds = %451
   %484 = getelementptr inbounds nuw i8, ptr %474, i64 2200
   %485 = load ptr, ptr %484, align 8, !tbaa !721
   %486 = ptrtoint ptr %485 to i64
-  %.not.i.i.i.i.i.i.i218.i = icmp ule i64 %483, %486
+  %.not.i.i.i.i.i.i.i243.i = icmp ule i64 %483, %486
   %487 = icmp ne ptr %479, null
-  %488 = and i1 %487, %.not.i.i.i.i.i.i.i218.i
-  br i1 %488, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i224.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i219.i, !prof !722
+  %488 = and i1 %487, %.not.i.i.i.i.i.i.i243.i
+  br i1 %488, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i249.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i244.i, !prof !722
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i219.i: ; preds = %473
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i244.i: ; preds = %473
   %489 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %475, i64 noundef 40, i64 noundef 40, i8 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %.pre6.i.i222.i = load ptr, ptr %155, align 8, !tbaa !58
+  %.pre6.i.i247.i = load ptr, ptr %155, align 8, !tbaa !58
   br label %493
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i224.i: ; preds = %473
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i249.i: ; preds = %473
   %490 = inttoptr i64 %483 to ptr
   store ptr %490, ptr %475, align 8, !tbaa !720
   %491 = inttoptr i64 %482 to ptr
   %492 = icmp eq i64 %482, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br i1 %492, label %"_ZN4llvm12function_refIFPN5clang21EnumExtensibilityAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit225.thread.i", label %493
+  br i1 %492, label %"_ZN4llvm12function_refIFPN5clang21EnumExtensibilityAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit250.thread.i", label %493
 
-"_ZN4llvm12function_refIFPN5clang21EnumExtensibilityAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit225.thread.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i224.i
+"_ZN4llvm12function_refIFPN5clang21EnumExtensibilityAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit250.thread.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i249.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang21EnumExtensibilityAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i
 
-493:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i224.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i219.i
-  %494 = phi ptr [ %.pre6.i.i222.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i219.i ], [ %474, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i224.i ]
-  %.0.i.i.i.i.i5.i.i223.i = phi ptr [ %489, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i219.i ], [ %491, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i224.i ]
+493:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i249.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i244.i
+  %494 = phi ptr [ %.pre6.i.i247.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i244.i ], [ %474, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i249.i ]
+  %.0.i.i.i.i.i5.i.i248.i = phi ptr [ %489, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i244.i ], [ %491, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i249.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, i8 0, i64 28, i1 false), !alias.scope !1163
   store i32 65950, ptr %177, align 4, !alias.scope !1163
-  call void @_ZN5clang21EnumExtensibilityAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_4KindE(ptr noundef nonnull align 8 dereferenceable(40) %.0.i.i.i.i.i5.i.i223.i, ptr noundef nonnull align 8 dereferenceable(23216) %494, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %switch.select3.i.i217.i) #19
+  call void @_ZN5clang21EnumExtensibilityAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_4KindE(ptr noundef nonnull align 8 dereferenceable(40) %.0.i.i.i.i.i5.i.i248.i, ptr noundef nonnull align 8 dereferenceable(23216) %494, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %switch.select3.i.i242.i) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %495 = load ptr, ptr %155, align 8, !tbaa !58
   %496 = icmp ne i8 %207, 0
-  %497 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %495, i64 %.sroa.0.035, i64 %.sroa.7.038, ptr noundef nonnull %.0.i.i.i.i.i5.i.i223.i, i1 noundef zeroext %496, i64 0) #19
+  %497 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %495, i64 %.sroa.0.035, i64 %.sroa.7.038, ptr noundef nonnull %.0.i.i.i.i.i5.i.i248.i, i1 noundef zeroext %496, i64 0) #19
   br label %.sink.split.i.i.i
 
 498:                                              ; preds = %472
@@ -10474,7 +10474,7 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i224.i: ; preds = %473
   call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %.sink.i.i.i) #19
   br label %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang21EnumExtensibilityAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i
 
-_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang21EnumExtensibilityAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i: ; preds = %.sink.split.i.i.i, %"_ZN4llvm12function_refIFPN5clang21EnumExtensibilityAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit225.thread.i", %"_ZN4llvm12function_refIFPN5clang21EnumExtensibilityAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit.thread.i", %450, %360
+_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang21EnumExtensibilityAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i: ; preds = %.sink.split.i.i.i, %"_ZN4llvm12function_refIFPN5clang21EnumExtensibilityAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit250.thread.i", %"_ZN4llvm12function_refIFPN5clang21EnumExtensibilityAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit.thread.i", %450, %360
   %502 = load i8, ptr %134, align 8
   %503 = and i8 %502, 1
   %.not.i66.not.i = icmp eq i8 %503, 0
@@ -10548,7 +10548,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i82.i:           ; preds = %513, %_ZNK5clang4De
   %536 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i113.i, i64 32
   %.val30.val.i.i.i.i.i.i.i114.i = load i16, ptr %536, align 8
   %537 = icmp eq i16 %.val30.val.i.i.i.i.i.i.i114.i, 210
-  br i1 %537, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit83, label %538
+  br i1 %537, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit113, label %538
 
 538:                                              ; preds = %534
   %539 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i108.i, i64 24
@@ -10556,7 +10556,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i82.i:           ; preds = %513, %_ZNK5clang4De
   %540 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i115.i, i64 32
   %.val31.val.i.i.i.i.i.i.i116.i = load i16, ptr %540, align 8
   %541 = icmp eq i16 %.val31.val.i.i.i.i.i.i.i116.i, 210
-  br i1 %541, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit85, label %542
+  br i1 %541, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit115, label %542
 
 542:                                              ; preds = %538
   %543 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i108.i, i64 32
@@ -10617,16 +10617,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL_
   %561 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i108.i, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit83: ; preds = %534
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit113: ; preds = %534
   %562 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i108.i, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit85: ; preds = %538
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit115: ; preds = %538
   %563 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i108.i, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i106.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit83, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit85, %560, %557, %552, %547
-  %.028.i.i.i.i.i.i.i89.i = phi ptr [ %521, %560 ], [ %.029.lcssa.i.i.i.i.i.i.i85.i, %547 ], [ %.1.i.i.i.i.i.i.i99.i, %552 ], [ %.2.i.i.i.i.i.i.i86.i, %557 ], [ %561, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit ], [ %562, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit83 ], [ %563, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit85 ], [ %.02943.i.i.i.i.i.i.i108.i, %.lr.ph.i.i.i.i.i.i.i106.i ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i106.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit113, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit115, %560, %557, %552, %547
+  %.028.i.i.i.i.i.i.i89.i = phi ptr [ %521, %560 ], [ %.029.lcssa.i.i.i.i.i.i.i85.i, %547 ], [ %.1.i.i.i.i.i.i.i99.i, %552 ], [ %.2.i.i.i.i.i.i.i86.i, %557 ], [ %561, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit ], [ %562, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit113 ], [ %563, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12FlagEnumAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit115 ], [ %.02943.i.i.i.i.i.i.i108.i, %.lr.ph.i.i.i.i.i.i.i106.i ]
   %564 = load i32, ptr %36, align 4
   %565 = and i32 %564, 256
   %.not.i.i.i90.i = icmp eq i32 %565, 0
@@ -10693,18 +10693,18 @@ _ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit.i.i95.i: ; preds = %5
   %603 = getelementptr inbounds nuw i8, ptr %593, i64 2200
   %604 = load ptr, ptr %603, align 8, !tbaa !721
   %605 = ptrtoint ptr %604 to i64
-  %.not.i.i.i.i.i.i.i226.i = icmp ule i64 %602, %605
+  %.not.i.i.i.i.i.i.i251.i = icmp ule i64 %602, %605
   %606 = icmp ne ptr %598, null
-  %607 = and i1 %606, %.not.i.i.i.i.i.i.i226.i
-  br i1 %607, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i230.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i227.i, !prof !722
+  %607 = and i1 %606, %.not.i.i.i.i.i.i.i251.i
+  br i1 %607, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i255.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i252.i, !prof !722
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i227.i: ; preds = %592
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i252.i: ; preds = %592
   %608 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %594, i64 noundef 40, i64 noundef 40, i8 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.pre3.i.i.i = load ptr, ptr %155, align 8, !tbaa !58
   br label %"_ZN4llvm12function_refIFPN5clang12FlagEnumAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.i"
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i230.i: ; preds = %592
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i255.i: ; preds = %592
   %609 = inttoptr i64 %602 to ptr
   store ptr %609, ptr %594, align 8, !tbaa !720
   %610 = inttoptr i64 %601 to ptr
@@ -10712,13 +10712,13 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i230.i: ; preds = %592
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %611, label %"_ZN4llvm12function_refIFPN5clang12FlagEnumAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.thread.i", label %"_ZN4llvm12function_refIFPN5clang12FlagEnumAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.i"
 
-"_ZN4llvm12function_refIFPN5clang12FlagEnumAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.thread.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i230.i
+"_ZN4llvm12function_refIFPN5clang12FlagEnumAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.thread.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i255.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL15ProcessAPINotesRN5clang4SemaEPNS_7TagDeclERKNS_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit
 
-"_ZN4llvm12function_refIFPN5clang12FlagEnumAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i230.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i227.i
-  %612 = phi ptr [ %.pre3.i.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i227.i ], [ %593, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i230.i ]
-  %.0.i.i.i.i.i2.i.i.i = phi ptr [ %608, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i227.i ], [ %610, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i230.i ]
+"_ZN4llvm12function_refIFPN5clang12FlagEnumAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i255.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i252.i
+  %612 = phi ptr [ %.pre3.i.i.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i252.i ], [ %593, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i255.i ]
+  %.0.i.i.i.i.i2.i.i.i = phi ptr [ %608, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i252.i ], [ %610, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i255.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, i8 0, i64 28, i1 false), !alias.scope !1167
   store i32 65950, ptr %178, align 4, !alias.scope !1167
   call void @_ZN5clang12FlagEnumAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i.i, ptr noundef nonnull align 8 dereferenceable(23216) %612, ptr noundef nonnull align 8 dereferenceable(32) %5) #19
@@ -10743,39 +10743,39 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i230.i: ; preds = %592
   %625 = getelementptr inbounds nuw i8, ptr %614, i64 2200
   %626 = load ptr, ptr %625, align 8, !tbaa !721
   %627 = ptrtoint ptr %626 to i64
-  %.not.i.i.i.i.i.i.i231.i = icmp ule i64 %624, %627
+  %.not.i.i.i.i.i.i.i256.i = icmp ule i64 %624, %627
   %628 = icmp ne ptr %620, null
-  %629 = and i1 %628, %.not.i.i.i.i.i.i.i231.i
-  br i1 %629, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i237.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i232.i, !prof !722
+  %629 = and i1 %628, %.not.i.i.i.i.i.i.i256.i
+  br i1 %629, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i262.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i257.i, !prof !722
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i232.i: ; preds = %615
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i257.i: ; preds = %615
   %630 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %616, i64 noundef 40, i64 noundef 40, i8 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.pre3.i.i235.i = load ptr, ptr %155, align 8, !tbaa !58
+  %.pre3.i.i260.i = load ptr, ptr %155, align 8, !tbaa !58
   br label %634
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i237.i: ; preds = %615
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i262.i: ; preds = %615
   %631 = inttoptr i64 %624 to ptr
   store ptr %631, ptr %616, align 8, !tbaa !720
   %632 = inttoptr i64 %623 to ptr
   %633 = icmp eq i64 %623, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br i1 %633, label %"_ZN4llvm12function_refIFPN5clang12FlagEnumAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit238.thread.i", label %634
+  br i1 %633, label %"_ZN4llvm12function_refIFPN5clang12FlagEnumAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit263.thread.i", label %634
 
-"_ZN4llvm12function_refIFPN5clang12FlagEnumAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit238.thread.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i237.i
+"_ZN4llvm12function_refIFPN5clang12FlagEnumAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit263.thread.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i262.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL15ProcessAPINotesRN5clang4SemaEPNS_7TagDeclERKNS_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit
 
-634:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i237.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i232.i
-  %635 = phi ptr [ %.pre3.i.i235.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i232.i ], [ %614, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i237.i ]
-  %.0.i.i.i.i.i2.i.i236.i = phi ptr [ %630, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i232.i ], [ %632, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i237.i ]
+634:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i262.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i257.i
+  %635 = phi ptr [ %.pre3.i.i260.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i257.i ], [ %614, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i262.i ]
+  %.0.i.i.i.i.i2.i.i261.i = phi ptr [ %630, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i257.i ], [ %632, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i262.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false), !alias.scope !1170
   store i32 65950, ptr %179, align 4, !alias.scope !1170
-  call void @_ZN5clang12FlagEnumAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i236.i, ptr noundef nonnull align 8 dereferenceable(23216) %635, ptr noundef nonnull align 8 dereferenceable(32) %4) #19
+  call void @_ZN5clang12FlagEnumAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i261.i, ptr noundef nonnull align 8 dereferenceable(23216) %635, ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %636 = load ptr, ptr %155, align 8, !tbaa !58
   %637 = icmp ne i8 %207, 0
-  %638 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %636, i64 %.sroa.0.035, i64 %.sroa.7.038, ptr noundef nonnull %.0.i.i.i.i.i2.i.i236.i, i1 noundef zeroext %637, i64 0) #19
+  %638 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %636, i64 %.sroa.0.035, i64 %.sroa.7.038, ptr noundef nonnull %.0.i.i.i.i.i2.i.i261.i, i1 noundef zeroext %637, i64 0) #19
   br label %.sink.split.i.i97.i
 
 639:                                              ; preds = %613
@@ -10788,7 +10788,7 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i237.i: ; preds = %615
   call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %.sink.i.i98.i) #19
   br label %_ZL15ProcessAPINotesRN5clang4SemaEPNS_7TagDeclERKNS_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit
 
-_ZL15ProcessAPINotesRN5clang4SemaEPNS_7TagDeclERKNS_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit: ; preds = %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang21EnumExtensibilityAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i, %591, %"_ZN4llvm12function_refIFPN5clang12FlagEnumAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.thread.i", %"_ZN4llvm12function_refIFPN5clang12FlagEnumAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit238.thread.i", %.sink.split.i.i97.i
+_ZL15ProcessAPINotesRN5clang4SemaEPNS_7TagDeclERKNS_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit: ; preds = %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang21EnumExtensibilityAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i, %591, %"_ZN4llvm12function_refIFPN5clang12FlagEnumAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.thread.i", %"_ZN4llvm12function_refIFPN5clang12FlagEnumAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_7TagDeclERKNS1_9api_notes7TagInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit263.thread.i", %.sink.split.i.i97.i
   call fastcc void @_ZL15ProcessAPINotesRN5clang4SemaEPNS_4DeclERKNS_9api_notes14CommonTypeInfoEN12_GLOBAL__N_121VersionedInfoMetadataE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(328) %25, ptr noundef nonnull byval(%"struct.(anonymous namespace)::VersionedInfoMetadata") align 8 %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10901,8 +10901,8 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %7, %13
   %46 = phi i32 [ %.pre46, %44 ], [ %37, %36 ]
   %47 = phi ptr [ %43, %44 ], [ %38, %36 ]
   %48 = and i32 %46, 127
-  %.not48 = icmp eq i32 %48, 18
-  br i1 %.not48, label %49, label %.thread
+  %.not56 = icmp eq i32 %48, 18
+  br i1 %.not56, label %49, label %.thread
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 40
@@ -19163,7 +19163,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i:                 ; preds = %15, %_ZNK5clang4Dec
   %38 = getelementptr i8, ptr %.val30.i.i.i.i.i.i, i64 32
   %.val30.val.i.i.i.i.i.i = load i16, ptr %38, align 8
   %39 = icmp eq i16 %.val30.val.i.i.i.i.i.i, 363
-  br i1 %39, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit20, label %40
+  br i1 %39, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit28, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 24
@@ -19171,7 +19171,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i:                 ; preds = %15, %_ZNK5clang4Dec
   %42 = getelementptr i8, ptr %.val31.i.i.i.i.i.i, i64 32
   %.val31.val.i.i.i.i.i.i = load i16, ptr %42, align 8
   %43 = icmp eq i16 %.val31.val.i.i.i.i.i.i, 363
-  br i1 %43, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit22, label %44
+  br i1 %43, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit30, label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 32
@@ -19232,16 +19232,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL_
   %63 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit20: ; preds = %36
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit28: ; preds = %36
   %64 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit22: ; preds = %40
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit30: ; preds = %40
   %65 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit20, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit22, %49, %54, %59, %62
-  %.028.i.i.i.i.i.i = phi ptr [ %23, %62 ], [ %.029.lcssa.i.i.i.i.i.i, %49 ], [ %.1.i.i.i.i.i.i, %54 ], [ %.2.i.i.i.i.i.i, %59 ], [ %63, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit ], [ %64, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit20 ], [ %65, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit22 ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit28, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit30, %49, %54, %59, %62
+  %.028.i.i.i.i.i.i = phi ptr [ %23, %62 ], [ %.029.lcssa.i.i.i.i.i.i, %49 ], [ %.1.i.i.i.i.i.i, %54 ], [ %.2.i.i.i.i.i.i, %59 ], [ %63, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit ], [ %64, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit28 ], [ %65, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_13SwiftNameAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit30 ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %66 = load i32, ptr %9, align 4
   %67 = and i32 %66, 256
   %.not.i.i = icmp eq i32 %67, 0
@@ -19932,10 +19932,10 @@ _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %38, %45
   %47 = phi i8 [ %.pre25, %45 ], [ %43, %38 ]
   %.1.i = phi ptr [ %46, %45 ], [ %41, %38 ]
   %48 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
-  %.not26 = icmp eq i8 %47, 26
+  %.not27 = icmp eq i8 %47, 26
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %50 = load ptr, ptr %49, align 8, !tbaa !58
-  br i1 %.not26, label %51, label %56
+  br i1 %.not27, label %51, label %56
 
 51:                                               ; preds = %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
   %52 = getelementptr inbounds nuw i8, ptr %.1.i, i64 48
@@ -20195,7 +20195,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i:               ; preds = %25, %_ZNK5clang4Dec
   %48 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i, i64 32
   %.val30.val.i.i.i.i.i.i.i = load i16, ptr %48, align 8
   %49 = icmp eq i16 %.val30.val.i.i.i.i.i.i.i, 376
-  br i1 %49, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit188, label %50
+  br i1 %49, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit223, label %50
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i, i64 24
@@ -20203,7 +20203,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i:               ; preds = %25, %_ZNK5clang4Dec
   %52 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i, i64 32
   %.val31.val.i.i.i.i.i.i.i = load i16, ptr %52, align 8
   %53 = icmp eq i16 %.val31.val.i.i.i.i.i.i.i, 376
-  br i1 %53, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit190, label %54
+  br i1 %53, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit225, label %54
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i, i64 32
@@ -20264,16 +20264,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL_
   %73 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit188: ; preds = %46
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit223: ; preds = %46
   %74 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit190: ; preds = %50
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit225: ; preds = %50
   %75 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit188, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit190, %72, %69, %64, %59
-  %.028.i.i.i.i.i.i.i = phi ptr [ %33, %72 ], [ %.029.lcssa.i.i.i.i.i.i.i, %59 ], [ %.1.i.i.i.i.i.i.i, %64 ], [ %.2.i.i.i.i.i.i.i, %69 ], [ %73, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit ], [ %74, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit188 ], [ %75, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit190 ], [ %.02943.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit223, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit225, %72, %69, %64, %59
+  %.028.i.i.i.i.i.i.i = phi ptr [ %33, %72 ], [ %.029.lcssa.i.i.i.i.i.i.i, %59 ], [ %.1.i.i.i.i.i.i.i, %64 ], [ %.2.i.i.i.i.i.i.i, %69 ], [ %73, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit ], [ %74, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit223 ], [ %75, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15UnavailableAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit225 ], [ %.02943.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %76 = load i32, ptr %19, align 4
   %77 = and i32 %76, 256
   %.not.i.i.i = icmp eq i32 %77, 0
@@ -20383,8 +20383,8 @@ _ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang15UnavailableAttrEEEvRNS1_4Sem
 _ZNK5clang4Decl10attr_beginEv.exit.i.i.i:         ; preds = %122
   %126 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %118) #19
   %127 = load ptr, ptr %126, align 8, !tbaa !11
-  %.pre.i.i.i138 = load i32, ptr %123, align 4
-  %.pre2.i.i.i = and i32 %.pre.i.i.i138, 256
+  %.pre.i.i.i152 = load i32, ptr %123, align 4
+  %.pre2.i.i.i = and i32 %.pre.i.i.i152, 256
   %128 = icmp eq i32 %.pre2.i.i.i, 0
   br i1 %128, label %_ZNK5clang4Decl5attrsEv.exit.i.i, label %129
 
@@ -20420,8 +20420,8 @@ _ZNK5clang4Decl5attrsEv.exit.i.i:                 ; preds = %129, %_ZNK5clang4De
   %145 = load i16, ptr %144, align 8
   %146 = icmp ne i16 %145, 136
   %.not5.i.i.i.i.i.i.i.i = icmp eq ptr %.029.val.i.i.i.i.i.i, null
-  %.not.i.i.i.i.i.i.i.i139 = or i1 %.not5.i.i.i.i.i.i.i.i, %146
-  br i1 %.not.i.i.i.i.i.i.i.i139, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit.thread.i.i.i.i.i.i", label %147
+  %.not.i.i.i.i.i.i.i.i153 = or i1 %.not5.i.i.i.i.i.i.i.i, %146
+  br i1 %.not.i.i.i.i.i.i.i.i153, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit.thread.i.i.i.i.i.i", label %147
 
 147:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %148 = getelementptr inbounds nuw i8, ptr %.029.val.i.i.i.i.i.i, i64 40
@@ -20501,7 +20501,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i:                 ; preds = %129, %_ZNK5clang4De
   %186 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %bcmp.i.i.i41.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %186, ptr noundef nonnull dereferenceable(5) @.str.8, i64 5)
   %187 = icmp eq i32 %bcmp.i.i.i41.i.i.i.i.i.i, 0
-  br i1 %187, label %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit196", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit42.thread.i.i.i.i.i.i"
+  br i1 %187, label %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit231", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit42.thread.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit42.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit42.i.i.i.i.i.i", %180, %177, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit37.thread.i.i.i.i.i.i"
   %188 = getelementptr inbounds nuw i8, ptr %.02973.i.i.i.i.i.i, i64 24
@@ -20531,7 +20531,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i:                 ; preds = %129, %_ZNK5clang4De
   %201 = getelementptr inbounds nuw i8, ptr %197, i64 16
   %bcmp.i.i.i46.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %201, ptr noundef nonnull dereferenceable(5) @.str.8, i64 5)
   %202 = icmp eq i32 %bcmp.i.i.i46.i.i.i.i.i.i, 0
-  br i1 %202, label %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit198", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit47.thread.i.i.i.i.i.i"
+  br i1 %202, label %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit233", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit47.thread.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit47.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit47.i.i.i.i.i.i", %195, %192, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit42.thread.i.i.i.i.i.i"
   %203 = getelementptr inbounds nuw i8, ptr %.02973.i.i.i.i.i.i, i64 32
@@ -20658,16 +20658,16 @@ _ZNK5clang4Decl5attrsEv.exit.i.i:                 ; preds = %129, %_ZNK5clang4De
   %254 = getelementptr inbounds nuw i8, ptr %.02973.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit"
 
-"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit196": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit42.i.i.i.i.i.i"
+"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit231": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit42.i.i.i.i.i.i"
   %255 = getelementptr inbounds nuw i8, ptr %.02973.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit"
 
-"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit198": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit47.i.i.i.i.i.i"
+"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit233": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit47.i.i.i.i.i.i"
   %256 = getelementptr inbounds nuw i8, ptr %.02973.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit"
 
-"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit", %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit196", %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit198", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit52.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit57.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit62.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit62.thread.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %137, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit62.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit52.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit57.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit62.i.i.i.i.i.i" ], [ %254, %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit" ], [ %255, %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit196" ], [ %256, %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit198" ], [ %.02973.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit.i.i.i.i.i.i" ]
+"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit", %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit231", %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit233", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit52.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit57.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit62.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit62.thread.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i = phi ptr [ %137, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit62.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit52.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit57.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit62.i.i.i.i.i.i" ], [ %254, %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit" ], [ %255, %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit231" ], [ %256, %"_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPS6_RKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES5_lS8_.exit.loopexit.split.loop.exit233" ], [ %.02973.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit.i.i.i.i.i.i" ]
   %257 = load i32, ptr %123, align 4
   %258 = and i32 %257, 256
   %.not.i.i17 = icmp eq i32 %258, 0
@@ -20826,7 +20826,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i29:             ; preds = %309, %_ZNK5clang4De
   %332 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i60, i64 32
   %.val30.val.i.i.i.i.i.i.i61 = load i16, ptr %332, align 8
   %333 = icmp eq i16 %.val30.val.i.i.i.i.i.i.i61, 365
-  br i1 %333, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit204, label %334
+  br i1 %333, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit239, label %334
 
 334:                                              ; preds = %330
   %335 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i55, i64 24
@@ -20834,7 +20834,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i29:             ; preds = %309, %_ZNK5clang4De
   %336 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i62, i64 32
   %.val31.val.i.i.i.i.i.i.i63 = load i16, ptr %336, align 8
   %337 = icmp eq i16 %.val31.val.i.i.i.i.i.i.i63, 365
-  br i1 %337, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit206, label %338
+  br i1 %337, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit241, label %338
 
 338:                                              ; preds = %334
   %339 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i55, i64 32
@@ -20895,16 +20895,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL_
   %357 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i55, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit204: ; preds = %330
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit239: ; preds = %330
   %358 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i55, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit206: ; preds = %334
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit241: ; preds = %334
   %359 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i55, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i53, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit204, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit206, %356, %353, %348, %343
-  %.028.i.i.i.i.i.i.i36 = phi ptr [ %317, %356 ], [ %.029.lcssa.i.i.i.i.i.i.i32, %343 ], [ %.1.i.i.i.i.i.i.i46, %348 ], [ %.2.i.i.i.i.i.i.i33, %353 ], [ %357, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit ], [ %358, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit204 ], [ %359, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit206 ], [ %.02943.i.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i.i53 ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i53, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit239, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit241, %356, %353, %348, %343
+  %.028.i.i.i.i.i.i.i36 = phi ptr [ %317, %356 ], [ %.029.lcssa.i.i.i.i.i.i.i32, %343 ], [ %.1.i.i.i.i.i.i.i46, %348 ], [ %.2.i.i.i.i.i.i.i33, %353 ], [ %357, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit ], [ %358, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit239 ], [ %359, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit241 ], [ %.02943.i.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i.i53 ]
   %360 = load i32, ptr %303, align 4
   %361 = and i32 %360, 256
   %.not.i.i.i37 = icmp eq i32 %361, 0
@@ -20973,9 +20973,9 @@ _ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit.i.i42: ; preds = %382
   %401 = getelementptr inbounds nuw i8, ptr %391, i64 2200
   %402 = load ptr, ptr %401, align 8, !tbaa !721
   %403 = ptrtoint ptr %402 to i64
-  %.not.i.i.i.i.i.i.i140 = icmp ule i64 %400, %403
+  %.not.i.i.i.i.i.i.i154 = icmp ule i64 %400, %403
   %404 = icmp ne ptr %396, null
-  %405 = and i1 %404, %.not.i.i.i.i.i.i.i140
+  %405 = and i1 %404, %.not.i.i.i.i.i.i.i154
   br i1 %405, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i, !prof !722
 
 _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i: ; preds = %389
@@ -21025,41 +21025,41 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i:    ; preds = %389
   %425 = getelementptr inbounds nuw i8, ptr %414, i64 2200
   %426 = load ptr, ptr %425, align 8, !tbaa !721
   %427 = ptrtoint ptr %426 to i64
-  %.not.i.i.i.i.i.i.i142 = icmp ule i64 %424, %427
+  %.not.i.i.i.i.i.i.i156 = icmp ule i64 %424, %427
   %428 = icmp ne ptr %420, null
-  %429 = and i1 %428, %.not.i.i.i.i.i.i.i142
-  br i1 %429, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i148, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i143, !prof !722
+  %429 = and i1 %428, %.not.i.i.i.i.i.i.i156
+  br i1 %429, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i162, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i157, !prof !722
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i143: ; preds = %415
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i157: ; preds = %415
   %430 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %416, i64 noundef 40, i64 noundef 40, i8 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.pre3.i.i146 = load ptr, ptr %413, align 8, !tbaa !58
+  %.pre3.i.i160 = load ptr, ptr %413, align 8, !tbaa !58
   br label %434
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i148: ; preds = %415
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i162: ; preds = %415
   %431 = inttoptr i64 %424 to ptr
   store ptr %431, ptr %416, align 8, !tbaa !720
   %432 = inttoptr i64 %423 to ptr
   %433 = icmp eq i64 %423, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %433, label %"_ZN4llvm12function_refIFPN5clang16SwiftPrivateAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_3EES3_l.exit149.thread", label %434
+  br i1 %433, label %"_ZN4llvm12function_refIFPN5clang16SwiftPrivateAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_3EES3_l.exit163.thread", label %434
 
-"_ZN4llvm12function_refIFPN5clang16SwiftPrivateAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_3EES3_l.exit149.thread": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i148
+"_ZN4llvm12function_refIFPN5clang16SwiftPrivateAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_3EES3_l.exit163.thread": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i162
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang16SwiftPrivateAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit
 
-434:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i148, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i143
-  %435 = phi ptr [ %.pre3.i.i146, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i143 ], [ %414, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i148 ]
-  %.0.i.i.i.i.i2.i.i147 = phi ptr [ %430, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i143 ], [ %432, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i148 ]
+434:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i162, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i157
+  %435 = phi ptr [ %.pre3.i.i160, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i157 ], [ %414, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i162 ]
+  %.0.i.i.i.i.i2.i.i161 = phi ptr [ %430, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i157 ], [ %432, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i162 ]
   %436 = getelementptr inbounds nuw i8, ptr %5, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, i8 0, i64 28, i1 false), !alias.scope !1321
   store i32 65950, ptr %436, align 4, !alias.scope !1321
-  call void @_ZN5clang16SwiftPrivateAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i147, ptr noundef nonnull align 8 dereferenceable(23216) %435, ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZN5clang16SwiftPrivateAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i161, ptr noundef nonnull align 8 dereferenceable(23216) %435, ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %437 = load ptr, ptr %413, align 8, !tbaa !58
   %438 = and i8 %.sroa.394.0.copyload, 2
   %439 = icmp ne i8 %438, 0
-  %440 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %437, i64 %.sroa.092.0.copyload, i64 %.sroa.293.0.copyload, ptr noundef nonnull %.0.i.i.i.i.i2.i.i147, i1 noundef zeroext %439, i64 0) #19
+  %440 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %437, i64 %.sroa.092.0.copyload, i64 %.sroa.293.0.copyload, ptr noundef nonnull %.0.i.i.i.i.i2.i.i161, i1 noundef zeroext %439, i64 0) #19
   br label %.sink.split.i.i44
 
 441:                                              ; preds = %412
@@ -21073,7 +21073,7 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i148: ; preds = %415
   call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %299, ptr noundef %.sink.i.i45) #19
   br label %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang16SwiftPrivateAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit
 
-_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang16SwiftPrivateAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit: ; preds = %.sink.split.i.i44, %388, %"_ZN4llvm12function_refIFPN5clang16SwiftPrivateAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_3EES3_l.exit.thread", %"_ZN4llvm12function_refIFPN5clang16SwiftPrivateAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_3EES3_l.exit149.thread", %295
+_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang16SwiftPrivateAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit: ; preds = %.sink.split.i.i44, %388, %"_ZN4llvm12function_refIFPN5clang16SwiftPrivateAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_3EES3_l.exit.thread", %"_ZN4llvm12function_refIFPN5clang16SwiftPrivateAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_3EES3_l.exit163.thread", %295
   %445 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %446 = load i64, ptr %445, align 8, !tbaa !32
   %447 = icmp eq i64 %446, 0
@@ -23050,8 +23050,8 @@ define internal fastcc void @_ZL15ProcessAPINotesRN5clang4SemaEN4llvm12PointerUn
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %46 = zext i32 %37 to i64
-  %spec.select231.v = select i1 %21, i64 120, i64 96
-  %spec.select231 = getelementptr inbounds nuw i8, ptr %20, i64 %spec.select231.v
+  %spec.select248.v = select i1 %21, i64 120, i64 96
+  %spec.select248 = getelementptr inbounds nuw i8, ptr %20, i64 %spec.select248.v
   br label %50
 
 ._crit_edge:                                      ; preds = %._crit_edge213, %36
@@ -23064,7 +23064,7 @@ define internal fastcc void @_ZL15ProcessAPINotesRN5clang4SemaEN4llvm12PointerUn
 50:                                               ; preds = %.lr.ph, %._crit_edge213
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %.pre, %._crit_edge213 ]
   %.0101198 = phi i1 [ false, %.lr.ph ], [ %spec.select, %._crit_edge213 ]
-  %.pn = load ptr, ptr %spec.select231, align 8, !tbaa !1420
+  %.pn = load ptr, ptr %spec.select248, align 8, !tbaa !1420
   %.in = getelementptr inbounds nuw ptr, ptr %.pn, i64 %indvars.iv
   %51 = load ptr, ptr %.in, align 8, !tbaa !1421
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 48
@@ -23160,7 +23160,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i:             ; preds = %75, %_ZNK5clang4Dec
   %98 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i.i, i64 32
   %.val30.val.i.i.i.i.i.i.i.i = load i16, ptr %98, align 8
   %99 = icmp eq i16 %.val30.val.i.i.i.i.i.i.i.i, 411
-  br i1 %99, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit215, label %100
+  br i1 %99, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit232, label %100
 
 100:                                              ; preds = %96
   %101 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i, i64 24
@@ -23168,7 +23168,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i:             ; preds = %75, %_ZNK5clang4Dec
   %102 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i.i, i64 32
   %.val31.val.i.i.i.i.i.i.i.i = load i16, ptr %102, align 8
   %103 = icmp eq i16 %.val31.val.i.i.i.i.i.i.i.i, 411
-  br i1 %103, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit217, label %104
+  br i1 %103, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit234, label %104
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i, i64 32
@@ -23229,16 +23229,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL_
   %123 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit215: ; preds = %96
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit232: ; preds = %96
   %124 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit217: ; preds = %100
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit234: ; preds = %100
   %125 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i.i, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit215, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit217, %122, %119, %114, %109
-  %.028.i.i.i.i.i.i.i.i = phi ptr [ %83, %122 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %109 ], [ %.1.i.i.i.i.i.i.i.i, %114 ], [ %.2.i.i.i.i.i.i.i.i, %119 ], [ %123, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit ], [ %124, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit215 ], [ %125, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit217 ], [ %.02943.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit232, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit234, %122, %119, %114, %109
+  %.028.i.i.i.i.i.i.i.i = phi ptr [ %83, %122 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %109 ], [ %.1.i.i.i.i.i.i.i.i, %114 ], [ %.2.i.i.i.i.i.i.i.i, %119 ], [ %123, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit ], [ %124, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit232 ], [ %125, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_12NoEscapeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit234 ], [ %.02943.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
   %126 = load i32, ptr %69, align 4
   %127 = and i32 %126, 256
   %.not.i.i.i.i = icmp eq i32 %127, 0
@@ -23355,40 +23355,40 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i.i:  ; preds = %154
   %187 = getelementptr inbounds nuw i8, ptr %176, i64 2200
   %188 = load ptr, ptr %187, align 8, !tbaa !721
   %189 = ptrtoint ptr %188 to i64
-  %.not.i.i.i.i.i.i.i130.i = icmp ule i64 %186, %189
+  %.not.i.i.i.i.i.i.i139.i = icmp ule i64 %186, %189
   %190 = icmp ne ptr %182, null
-  %191 = and i1 %190, %.not.i.i.i.i.i.i.i130.i
-  br i1 %191, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i136.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i131.i, !prof !722
+  %191 = and i1 %190, %.not.i.i.i.i.i.i.i139.i
+  br i1 %191, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i145.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i140.i, !prof !722
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i131.i: ; preds = %177
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i140.i: ; preds = %177
   %192 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %178, i64 noundef 40, i64 noundef 40, i8 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %.pre3.i.i134.i = load ptr, ptr %40, align 8, !tbaa !58
+  %.pre3.i.i143.i = load ptr, ptr %40, align 8, !tbaa !58
   br label %196
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i136.i: ; preds = %177
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i145.i: ; preds = %177
   %193 = inttoptr i64 %186 to ptr
   store ptr %193, ptr %178, align 8, !tbaa !720
   %194 = inttoptr i64 %185 to ptr
   %195 = icmp eq i64 %185, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  br i1 %195, label %"_ZN4llvm12function_refIFPN5clang12NoEscapeAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit137.thread.i", label %196
+  br i1 %195, label %"_ZN4llvm12function_refIFPN5clang12NoEscapeAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit146.thread.i", label %196
 
-"_ZN4llvm12function_refIFPN5clang12NoEscapeAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit137.thread.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i136.i
+"_ZN4llvm12function_refIFPN5clang12NoEscapeAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit146.thread.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i145.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang12NoEscapeAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i
 
-196:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i136.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i131.i
-  %197 = phi ptr [ %.pre3.i.i134.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i131.i ], [ %176, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i136.i ]
-  %.0.i.i.i.i.i2.i.i135.i = phi ptr [ %192, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i131.i ], [ %194, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i136.i ]
+196:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i145.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i140.i
+  %197 = phi ptr [ %.pre3.i.i143.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i140.i ], [ %176, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i145.i ]
+  %.0.i.i.i.i.i2.i.i144.i = phi ptr [ %192, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i140.i ], [ %194, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i145.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %10, i8 0, i64 28, i1 false), !alias.scope !1427
   store i32 65950, ptr %42, align 4, !alias.scope !1427
-  call void @_ZN5clang12NoEscapeAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i135.i, ptr noundef nonnull align 8 dereferenceable(23216) %197, ptr noundef nonnull align 8 dereferenceable(32) %10) #19
+  call void @_ZN5clang12NoEscapeAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i144.i, ptr noundef nonnull align 8 dereferenceable(23216) %197, ptr noundef nonnull align 8 dereferenceable(32) %10) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %198 = load ptr, ptr %40, align 8, !tbaa !58
   %199 = and i8 %.sroa.3.0.copyload.i, 2
   %200 = icmp ne i8 %199, 0
-  %201 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %198, i64 %.sroa.077.0.copyload.i, i64 %.sroa.278.0.copyload.i, ptr noundef nonnull %.0.i.i.i.i.i2.i.i135.i, i1 noundef zeroext %200, i64 0) #19
+  %201 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %198, i64 %.sroa.077.0.copyload.i, i64 %.sroa.278.0.copyload.i, ptr noundef nonnull %.0.i.i.i.i.i2.i.i144.i, i1 noundef zeroext %200, i64 0) #19
   br label %.sink.split.i.i.i
 
 202:                                              ; preds = %175
@@ -23402,7 +23402,7 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i136.i: ; preds = %177
   call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %51, ptr noundef %.sink.i.i.i) #19
   br label %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang12NoEscapeAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i
 
-_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang12NoEscapeAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i: ; preds = %.sink.split.i.i.i, %"_ZN4llvm12function_refIFPN5clang12NoEscapeAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit137.thread.i", %"_ZN4llvm12function_refIFPN5clang12NoEscapeAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit.thread.i", %153
+_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang12NoEscapeAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i: ; preds = %.sink.split.i.i.i, %"_ZN4llvm12function_refIFPN5clang12NoEscapeAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit146.thread.i", %"_ZN4llvm12function_refIFPN5clang12NoEscapeAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_0EES3_l.exit.thread.i", %153
   %.pre.i = load i8, ptr %62, align 8
   br label %206
 
@@ -23484,7 +23484,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i30.i:           ; preds = %219, %_ZNK5clang4De
   %242 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i61.i, i64 32
   %.val30.val.i.i.i.i.i.i.i62.i = load i16, ptr %242, align 8
   %243 = icmp eq i16 %.val30.val.i.i.i.i.i.i.i62.i, 63
-  br i1 %243, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit223, label %244
+  br i1 %243, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit240, label %244
 
 244:                                              ; preds = %240
   %245 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i56.i, i64 24
@@ -23492,7 +23492,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i30.i:           ; preds = %219, %_ZNK5clang4De
   %246 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i63.i, i64 32
   %.val31.val.i.i.i.i.i.i.i64.i = load i16, ptr %246, align 8
   %247 = icmp eq i16 %.val31.val.i.i.i.i.i.i.i64.i, 63
-  br i1 %247, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit225, label %248
+  br i1 %247, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit242, label %248
 
 248:                                              ; preds = %244
   %249 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i56.i, i64 32
@@ -23553,16 +23553,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL_
   %267 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i56.i, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit223: ; preds = %240
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit240: ; preds = %240
   %268 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i56.i, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit225: ; preds = %244
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit242: ; preds = %244
   %269 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i56.i, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i54.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit223, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit225, %266, %263, %258, %253
-  %.028.i.i.i.i.i.i.i37.i = phi ptr [ %227, %266 ], [ %.029.lcssa.i.i.i.i.i.i.i33.i, %253 ], [ %.1.i.i.i.i.i.i.i47.i, %258 ], [ %.2.i.i.i.i.i.i.i34.i, %263 ], [ %267, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit ], [ %268, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit223 ], [ %269, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit225 ], [ %.02943.i.i.i.i.i.i.i56.i, %.lr.ph.i.i.i.i.i.i.i54.i ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i54.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit240, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit242, %266, %263, %258, %253
+  %.028.i.i.i.i.i.i.i37.i = phi ptr [ %227, %266 ], [ %.029.lcssa.i.i.i.i.i.i.i33.i, %253 ], [ %.1.i.i.i.i.i.i.i47.i, %258 ], [ %.2.i.i.i.i.i.i.i34.i, %263 ], [ %267, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit ], [ %268, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit240 ], [ %269, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17LifetimeBoundAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.i.loopexit.split.loop.exit242 ], [ %.02943.i.i.i.i.i.i.i56.i, %.lr.ph.i.i.i.i.i.i.i54.i ]
   %270 = load i32, ptr %213, align 4
   %271 = and i32 %270, 256
   %.not.i.i.i38.i = icmp eq i32 %271, 0
@@ -23629,18 +23629,18 @@ _ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit.i.i43.i: ; preds = %2
   %309 = getelementptr inbounds nuw i8, ptr %299, i64 2200
   %310 = load ptr, ptr %309, align 8, !tbaa !721
   %311 = ptrtoint ptr %310 to i64
-  %.not.i.i.i.i.i.i.i138.i = icmp ule i64 %308, %311
+  %.not.i.i.i.i.i.i.i147.i = icmp ule i64 %308, %311
   %312 = icmp ne ptr %304, null
-  %313 = and i1 %312, %.not.i.i.i.i.i.i.i138.i
-  br i1 %313, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i144.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i139.i, !prof !722
+  %313 = and i1 %312, %.not.i.i.i.i.i.i.i147.i
+  br i1 %313, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i153.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i148.i, !prof !722
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i139.i: ; preds = %298
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i148.i: ; preds = %298
   %314 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %300, i64 noundef 40, i64 noundef 40, i8 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %.pre3.i.i142.i = load ptr, ptr %40, align 8, !tbaa !58
+  %.pre3.i.i151.i = load ptr, ptr %40, align 8, !tbaa !58
   br label %"_ZN4llvm12function_refIFPN5clang17LifetimeBoundAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.i"
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i144.i: ; preds = %298
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i153.i: ; preds = %298
   %315 = inttoptr i64 %308 to ptr
   store ptr %315, ptr %300, align 8, !tbaa !720
   %316 = inttoptr i64 %307 to ptr
@@ -23648,16 +23648,16 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i144.i: ; preds = %298
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br i1 %317, label %"_ZN4llvm12function_refIFPN5clang17LifetimeBoundAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.thread.i", label %"_ZN4llvm12function_refIFPN5clang17LifetimeBoundAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.i"
 
-"_ZN4llvm12function_refIFPN5clang17LifetimeBoundAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.thread.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i144.i
+"_ZN4llvm12function_refIFPN5clang17LifetimeBoundAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.thread.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i153.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang17LifetimeBoundAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i
 
-"_ZN4llvm12function_refIFPN5clang17LifetimeBoundAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i144.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i139.i
-  %318 = phi ptr [ %.pre3.i.i142.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i139.i ], [ %299, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i144.i ]
-  %.0.i.i.i.i.i2.i.i143.i = phi ptr [ %314, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i139.i ], [ %316, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i144.i ]
+"_ZN4llvm12function_refIFPN5clang17LifetimeBoundAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i153.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i148.i
+  %318 = phi ptr [ %.pre3.i.i151.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i148.i ], [ %299, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i153.i ]
+  %.0.i.i.i.i.i2.i.i152.i = phi ptr [ %314, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i148.i ], [ %316, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i153.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %9, i8 0, i64 28, i1 false), !alias.scope !1431
   store i32 65950, ptr %43, align 4, !alias.scope !1431
-  call void @_ZN5clang17LifetimeBoundAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i143.i, ptr noundef nonnull align 8 dereferenceable(23216) %318, ptr noundef nonnull align 8 dereferenceable(32) %9) #19
+  call void @_ZN5clang17LifetimeBoundAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i152.i, ptr noundef nonnull align 8 dereferenceable(23216) %318, ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.sink.split.i.i45.i
 
@@ -23679,40 +23679,40 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i144.i: ; preds = %298
   %331 = getelementptr inbounds nuw i8, ptr %320, i64 2200
   %332 = load ptr, ptr %331, align 8, !tbaa !721
   %333 = ptrtoint ptr %332 to i64
-  %.not.i.i.i.i.i.i.i145.i = icmp ule i64 %330, %333
+  %.not.i.i.i.i.i.i.i154.i = icmp ule i64 %330, %333
   %334 = icmp ne ptr %326, null
-  %335 = and i1 %334, %.not.i.i.i.i.i.i.i145.i
-  br i1 %335, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i151.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i146.i, !prof !722
+  %335 = and i1 %334, %.not.i.i.i.i.i.i.i154.i
+  br i1 %335, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i160.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i155.i, !prof !722
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i146.i: ; preds = %321
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i155.i: ; preds = %321
   %336 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %322, i64 noundef 40, i64 noundef 40, i8 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %.pre3.i.i149.i = load ptr, ptr %40, align 8, !tbaa !58
+  %.pre3.i.i158.i = load ptr, ptr %40, align 8, !tbaa !58
   br label %340
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i151.i: ; preds = %321
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i160.i: ; preds = %321
   %337 = inttoptr i64 %330 to ptr
   store ptr %337, ptr %322, align 8, !tbaa !720
   %338 = inttoptr i64 %329 to ptr
   %339 = icmp eq i64 %329, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  br i1 %339, label %"_ZN4llvm12function_refIFPN5clang17LifetimeBoundAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit152.thread.i", label %340
+  br i1 %339, label %"_ZN4llvm12function_refIFPN5clang17LifetimeBoundAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit161.thread.i", label %340
 
-"_ZN4llvm12function_refIFPN5clang17LifetimeBoundAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit152.thread.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i151.i
+"_ZN4llvm12function_refIFPN5clang17LifetimeBoundAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit161.thread.i": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i160.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang17LifetimeBoundAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i
 
-340:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i151.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i146.i
-  %341 = phi ptr [ %.pre3.i.i149.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i146.i ], [ %320, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i151.i ]
-  %.0.i.i.i.i.i2.i.i150.i = phi ptr [ %336, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i146.i ], [ %338, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i151.i ]
+340:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i160.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i155.i
+  %341 = phi ptr [ %.pre3.i.i158.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i155.i ], [ %320, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i160.i ]
+  %.0.i.i.i.i.i2.i.i159.i = phi ptr [ %336, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i155.i ], [ %338, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i160.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %8, i8 0, i64 28, i1 false), !alias.scope !1434
   store i32 65950, ptr %44, align 4, !alias.scope !1434
-  call void @_ZN5clang17LifetimeBoundAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i150.i, ptr noundef nonnull align 8 dereferenceable(23216) %341, ptr noundef nonnull align 8 dereferenceable(32) %8) #19
+  call void @_ZN5clang17LifetimeBoundAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i159.i, ptr noundef nonnull align 8 dereferenceable(23216) %341, ptr noundef nonnull align 8 dereferenceable(32) %8) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %342 = load ptr, ptr %40, align 8, !tbaa !58
   %343 = and i8 %.sroa.386.0.copyload.i, 2
   %344 = icmp ne i8 %343, 0
-  %345 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %342, i64 %.sroa.084.0.copyload.i, i64 %.sroa.285.0.copyload.i, ptr noundef nonnull %.0.i.i.i.i.i2.i.i150.i, i1 noundef zeroext %344, i64 0) #19
+  %345 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %342, i64 %.sroa.084.0.copyload.i, i64 %.sroa.285.0.copyload.i, ptr noundef nonnull %.0.i.i.i.i.i2.i.i159.i, i1 noundef zeroext %344, i64 0) #19
   br label %.sink.split.i.i45.i
 
 346:                                              ; preds = %319
@@ -23722,11 +23722,11 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i151.i: ; preds = %321
   br label %.sink.split.i.i45.i
 
 .sink.split.i.i45.i:                              ; preds = %346, %340, %"_ZN4llvm12function_refIFPN5clang17LifetimeBoundAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.i"
-  %.sink.i.i46.i = phi ptr [ %345, %340 ], [ %349, %346 ], [ %.0.i.i.i.i.i2.i.i143.i, %"_ZN4llvm12function_refIFPN5clang17LifetimeBoundAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.i" ]
+  %.sink.i.i46.i = phi ptr [ %345, %340 ], [ %349, %346 ], [ %.0.i.i.i.i.i2.i.i152.i, %"_ZN4llvm12function_refIFPN5clang17LifetimeBoundAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.i" ]
   call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %51, ptr noundef %.sink.i.i46.i) #19
   br label %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang17LifetimeBoundAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i
 
-_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang17LifetimeBoundAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i: ; preds = %.sink.split.i.i45.i, %"_ZN4llvm12function_refIFPN5clang17LifetimeBoundAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit152.thread.i", %"_ZN4llvm12function_refIFPN5clang17LifetimeBoundAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.thread.i", %297
+_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang17LifetimeBoundAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit.i: ; preds = %.sink.split.i.i45.i, %"_ZN4llvm12function_refIFPN5clang17LifetimeBoundAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit161.thread.i", %"_ZN4llvm12function_refIFPN5clang17LifetimeBoundAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_11ParmVarDeclERKNS1_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.thread.i", %297
   %.pre113.i = load i8, ptr %62, align 8
   br label %_ZL15ProcessAPINotesRN5clang4SemaEPNS_11ParmVarDeclERKNS_9api_notes9ParamInfoEN12_GLOBAL__N_121VersionedInfoMetadataE.exit
 
@@ -23756,13 +23756,13 @@ _ZL15ProcessAPINotesRN5clang4SemaEPNS_11ParmVarDeclERKNS_9api_notes9ParamInfoEN1
   %361 = lshr i16 %358, 1
   %362 = and i16 %361, 255
   %363 = zext nneg i16 %362 to i64
-  %.not214 = icmp samesign ult i64 %indvars.iv, %363
+  %.not231 = icmp samesign ult i64 %indvars.iv, %363
   %364 = load i64, ptr %45, align 8
   %365 = shl nuw nsw i64 %.pre, 1
   %366 = lshr i64 %364, %365
   %367 = trunc i64 %366 to i8
   %368 = and i8 %367, 3
-  %.0.i.i119 = select i1 %.not214, i8 %368, i8 0
+  %.0.i.i119 = select i1 %.not231, i8 %368, i8 0
   %.sroa.1.0.copyload = load i8, ptr %.sroa.1.0..sroa_idx, align 8, !tbaa !34
   call fastcc void @_ZL16applyNullabilityRN5clang4SemaEPNS_4DeclENS_15NullabilityKindEN12_GLOBAL__N_121VersionedInfoMetadataE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %51, i8 noundef zeroext %.0.i.i119, i8 %.sroa.1.0.copyload)
   br label %._crit_edge213
@@ -24219,11 +24219,11 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   %47 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i, i64 32
   %.val30.val.i.i.i.i.i.i.i = load i16, ptr %47, align 8
   switch i16 %.val30.val.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i [
-    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit283
-    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit283
-    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit283
-    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit283
-    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit283
+    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit302
+    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit302
+    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit302
+    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit302
+    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit302
   ]
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i
@@ -24232,11 +24232,11 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   %49 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i, i64 32
   %.val31.val.i.i.i.i.i.i.i = load i16, ptr %49, align 8
   switch i16 %.val31.val.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit35.i.i.i.i.i.i.i [
-    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit285
-    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit285
-    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit285
-    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit285
-    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit285
+    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit304
+    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit304
+    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit304
+    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit304
+    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit304
   ]
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit35.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i
@@ -24313,16 +24313,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAP
   %62 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit283: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit302: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i
   %63 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit285: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit304: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit283, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit285, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i.i, %60, %57, %57, %57, %57, %57, %54, %54, %54, %54, %54, %._crit_edge.i.i.i.i.i.i.i
-  %.028.i.i.i.i.i.i.i = phi ptr [ %.2.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i.i ], [ %36, %60 ], [ %36, %._crit_edge.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i, %54 ], [ %.029.lcssa.i.i.i.i.i.i.i, %54 ], [ %.029.lcssa.i.i.i.i.i.i.i, %54 ], [ %.029.lcssa.i.i.i.i.i.i.i, %54 ], [ %.029.lcssa.i.i.i.i.i.i.i, %54 ], [ %.1.i.i.i.i.i.i.i, %57 ], [ %.1.i.i.i.i.i.i.i, %57 ], [ %.1.i.i.i.i.i.i.i, %57 ], [ %.1.i.i.i.i.i.i.i, %57 ], [ %.1.i.i.i.i.i.i.i, %57 ], [ %62, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit ], [ %63, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit283 ], [ %64, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit285 ], [ %.02949.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.02949.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.02949.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.02949.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.02949.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit302, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit304, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i.i, %60, %57, %57, %57, %57, %57, %54, %54, %54, %54, %54, %._crit_edge.i.i.i.i.i.i.i
+  %.028.i.i.i.i.i.i.i = phi ptr [ %.2.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i.i ], [ %36, %60 ], [ %36, %._crit_edge.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i, %54 ], [ %.029.lcssa.i.i.i.i.i.i.i, %54 ], [ %.029.lcssa.i.i.i.i.i.i.i, %54 ], [ %.029.lcssa.i.i.i.i.i.i.i, %54 ], [ %.029.lcssa.i.i.i.i.i.i.i, %54 ], [ %.1.i.i.i.i.i.i.i, %57 ], [ %.1.i.i.i.i.i.i.i, %57 ], [ %.1.i.i.i.i.i.i.i, %57 ], [ %.1.i.i.i.i.i.i.i, %57 ], [ %.1.i.i.i.i.i.i.i, %57 ], [ %62, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit ], [ %63, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit302 ], [ %64, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFUnknownTransferAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit304 ], [ %.02949.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.02949.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.02949.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.02949.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.02949.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %65 = load i32, ptr %16, align 4
   %66 = and i32 %65, 256
   %.not.i.i.i = icmp eq i32 %66, 0
@@ -24388,9 +24388,9 @@ _ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit.i.i: ; preds = %87, %
   %105 = getelementptr inbounds nuw i8, ptr %95, i64 2200
   %106 = load ptr, ptr %105, align 8, !tbaa !721
   %107 = ptrtoint ptr %106 to i64
-  %.not.i.i.i.i.i.i.i9.i = icmp ule i64 %104, %107
+  %.not.i.i.i.i.i.i.i13.i = icmp ule i64 %104, %107
   %108 = icmp ne ptr %100, null
-  %109 = and i1 %108, %.not.i.i.i.i.i.i.i9.i
+  %109 = and i1 %108, %.not.i.i.i.i.i.i.i13.i
   br i1 %109, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i.i, !prof !722
 
 _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i.i: ; preds = %93
@@ -24437,41 +24437,41 @@ _ZN4llvm12function_refIFPN5clang21CFUnknownTransferAttrEvEE11callback_fnIZL34han
   %128 = getelementptr inbounds nuw i8, ptr %118, i64 2200
   %129 = load ptr, ptr %128, align 8, !tbaa !721
   %130 = ptrtoint ptr %129 to i64
-  %.not.i.i.i.i.i.i.i11.i = icmp ule i64 %127, %130
+  %.not.i.i.i.i.i.i.i15.i = icmp ule i64 %127, %130
   %131 = icmp ne ptr %123, null
-  %132 = and i1 %131, %.not.i.i.i.i.i.i.i11.i
-  br i1 %132, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i, !prof !722
+  %132 = and i1 %131, %.not.i.i.i.i.i.i.i15.i
+  br i1 %132, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i, !prof !722
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i: ; preds = %116
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i: ; preds = %116
   %133 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %119, i64 noundef 40, i64 noundef 40, i8 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %.pre3.i.i15.i = load ptr, ptr %117, align 8, !tbaa !58
+  %.pre3.i.i19.i = load ptr, ptr %117, align 8, !tbaa !58
   br label %137
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i: ; preds = %116
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i: ; preds = %116
   %134 = inttoptr i64 %127 to ptr
   store ptr %134, ptr %119, align 8, !tbaa !720
   %135 = inttoptr i64 %126 to ptr
   %136 = icmp eq i64 %126, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  br i1 %136, label %_ZN4llvm12function_refIFPN5clang21CFUnknownTransferAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit18.thread.i, label %137
+  br i1 %136, label %_ZN4llvm12function_refIFPN5clang21CFUnknownTransferAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit22.thread.i, label %137
 
-_ZN4llvm12function_refIFPN5clang21CFUnknownTransferAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit18.thread.i: ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i
+_ZN4llvm12function_refIFPN5clang21CFUnknownTransferAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit22.thread.i: ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS0_4SemaEPNS0_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataE.exit
 
-137:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i
-  %138 = phi ptr [ %.pre3.i.i15.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i ], [ %118, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i ]
-  %.0.i.i.i.i.i2.i.i16.i = phi ptr [ %133, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i ], [ %135, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i ]
+137:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i
+  %138 = phi ptr [ %.pre3.i.i19.i, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i ], [ %118, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i ]
+  %.0.i.i.i.i.i2.i.i20.i = phi ptr [ %133, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i ], [ %135, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i ]
   %139 = getelementptr inbounds nuw i8, ptr %11, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %11, i8 0, i64 28, i1 false), !alias.scope !1468
   store i32 65950, ptr %139, align 4, !alias.scope !1468
-  call void @_ZN5clang21CFUnknownTransferAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i16.i, ptr noundef nonnull align 8 dereferenceable(23216) %138, ptr noundef nonnull align 8 dereferenceable(32) %11) #19
+  call void @_ZN5clang21CFUnknownTransferAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i20.i, ptr noundef nonnull align 8 dereferenceable(23216) %138, ptr noundef nonnull align 8 dereferenceable(32) %11) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %140 = load ptr, ptr %117, align 8, !tbaa !58
   %141 = and i8 %.sroa.3.0.copyload, 2
   %142 = icmp ne i8 %141, 0
-  %143 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %140, i64 %.sroa.0184.0.copyload, i64 %.sroa.2185.0.copyload, ptr noundef nonnull %.0.i.i.i.i.i2.i.i16.i, i1 noundef zeroext %142, i64 0) #19
+  %143 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %140, i64 %.sroa.0184.0.copyload, i64 %.sroa.2185.0.copyload, ptr noundef nonnull %.0.i.i.i.i.i2.i.i20.i, i1 noundef zeroext %142, i64 0) #19
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %137, %_ZN4llvm12function_refIFPN5clang21CFUnknownTransferAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit.i
@@ -24569,11 +24569,11 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   %174 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i51, i64 32
   %.val30.val.i.i.i.i.i.i.i52 = load i16, ptr %174, align 8
   switch i16 %.val30.val.i.i.i.i.i.i.i52, label %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i [
-    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit275
-    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit275
-    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit275
-    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit275
-    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit275
+    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit294
+    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit294
+    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit294
+    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit294
+    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit294
   ]
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i
@@ -24582,11 +24582,11 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   %176 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i53, i64 32
   %.val31.val.i.i.i.i.i.i.i54 = load i16, ptr %176, align 8
   switch i16 %.val31.val.i.i.i.i.i.i.i54, label %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit35.i.i.i.i.i.i.i [
-    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit277
-    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit277
-    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit277
-    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit277
-    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit277
+    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit296
+    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit296
+    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit296
+    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit296
+    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit296
   ]
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit35.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i
@@ -24663,16 +24663,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAP
   %189 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i46, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit275: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit294: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i
   %190 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i46, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit277: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit296: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i
   %191 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i46, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i44, %.lr.ph.i.i.i.i.i.i.i44, %.lr.ph.i.i.i.i.i.i.i44, %.lr.ph.i.i.i.i.i.i.i44, %.lr.ph.i.i.i.i.i.i.i44, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit275, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit277, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i.i, %187, %184, %184, %184, %184, %184, %181, %181, %181, %181, %181, %._crit_edge.i.i.i.i.i.i.i17
-  %.028.i.i.i.i.i.i.i23 = phi ptr [ %.2.i.i.i.i.i.i.i20, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i.i ], [ %163, %187 ], [ %163, %._crit_edge.i.i.i.i.i.i.i17 ], [ %.029.lcssa.i.i.i.i.i.i.i19, %181 ], [ %.029.lcssa.i.i.i.i.i.i.i19, %181 ], [ %.029.lcssa.i.i.i.i.i.i.i19, %181 ], [ %.029.lcssa.i.i.i.i.i.i.i19, %181 ], [ %.029.lcssa.i.i.i.i.i.i.i19, %181 ], [ %.1.i.i.i.i.i.i.i37, %184 ], [ %.1.i.i.i.i.i.i.i37, %184 ], [ %.1.i.i.i.i.i.i.i37, %184 ], [ %.1.i.i.i.i.i.i.i37, %184 ], [ %.1.i.i.i.i.i.i.i37, %184 ], [ %189, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit ], [ %190, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit275 ], [ %191, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit277 ], [ %.02949.i.i.i.i.i.i.i46, %.lr.ph.i.i.i.i.i.i.i44 ], [ %.02949.i.i.i.i.i.i.i46, %.lr.ph.i.i.i.i.i.i.i44 ], [ %.02949.i.i.i.i.i.i.i46, %.lr.ph.i.i.i.i.i.i.i44 ], [ %.02949.i.i.i.i.i.i.i46, %.lr.ph.i.i.i.i.i.i.i44 ], [ %.02949.i.i.i.i.i.i.i46, %.lr.ph.i.i.i.i.i.i.i44 ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i44, %.lr.ph.i.i.i.i.i.i.i44, %.lr.ph.i.i.i.i.i.i.i44, %.lr.ph.i.i.i.i.i.i.i44, %.lr.ph.i.i.i.i.i.i.i44, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit294, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit296, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i.i, %187, %184, %184, %184, %184, %184, %181, %181, %181, %181, %181, %._crit_edge.i.i.i.i.i.i.i17
+  %.028.i.i.i.i.i.i.i23 = phi ptr [ %.2.i.i.i.i.i.i.i20, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i.i ], [ %163, %187 ], [ %163, %._crit_edge.i.i.i.i.i.i.i17 ], [ %.029.lcssa.i.i.i.i.i.i.i19, %181 ], [ %.029.lcssa.i.i.i.i.i.i.i19, %181 ], [ %.029.lcssa.i.i.i.i.i.i.i19, %181 ], [ %.029.lcssa.i.i.i.i.i.i.i19, %181 ], [ %.029.lcssa.i.i.i.i.i.i.i19, %181 ], [ %.1.i.i.i.i.i.i.i37, %184 ], [ %.1.i.i.i.i.i.i.i37, %184 ], [ %.1.i.i.i.i.i.i.i37, %184 ], [ %.1.i.i.i.i.i.i.i37, %184 ], [ %.1.i.i.i.i.i.i.i37, %184 ], [ %189, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit ], [ %190, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit294 ], [ %191, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24CFReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit296 ], [ %.02949.i.i.i.i.i.i.i46, %.lr.ph.i.i.i.i.i.i.i44 ], [ %.02949.i.i.i.i.i.i.i46, %.lr.ph.i.i.i.i.i.i.i44 ], [ %.02949.i.i.i.i.i.i.i46, %.lr.ph.i.i.i.i.i.i.i44 ], [ %.02949.i.i.i.i.i.i.i46, %.lr.ph.i.i.i.i.i.i.i44 ], [ %.02949.i.i.i.i.i.i.i46, %.lr.ph.i.i.i.i.i.i.i44 ]
   %192 = load i32, ptr %149, align 4
   %193 = and i32 %192, 256
   %.not.i.i.i24 = icmp eq i32 %193, 0
@@ -24738,9 +24738,9 @@ _ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit.i.i29: ; preds = %214
   %232 = getelementptr inbounds nuw i8, ptr %222, i64 2200
   %233 = load ptr, ptr %232, align 8, !tbaa !721
   %234 = ptrtoint ptr %233 to i64
-  %.not.i.i.i.i.i.i.i9.i30 = icmp ule i64 %231, %234
+  %.not.i.i.i.i.i.i.i13.i30 = icmp ule i64 %231, %234
   %235 = icmp ne ptr %227, null
-  %236 = and i1 %235, %.not.i.i.i.i.i.i.i9.i30
+  %236 = and i1 %235, %.not.i.i.i.i.i.i.i13.i30
   br i1 %236, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i.i36, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i.i31, !prof !722
 
 _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i.i31: ; preds = %220
@@ -24787,41 +24787,41 @@ _ZN4llvm12function_refIFPN5clang24CFReturnsNotRetainedAttrEvEE11callback_fnIZL34
   %255 = getelementptr inbounds nuw i8, ptr %245, i64 2200
   %256 = load ptr, ptr %255, align 8, !tbaa !721
   %257 = ptrtoint ptr %256 to i64
-  %.not.i.i.i.i.i.i.i11.i58 = icmp ule i64 %254, %257
+  %.not.i.i.i.i.i.i.i15.i58 = icmp ule i64 %254, %257
   %258 = icmp ne ptr %250, null
-  %259 = and i1 %258, %.not.i.i.i.i.i.i.i11.i58
-  br i1 %259, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i62, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i59, !prof !722
+  %259 = and i1 %258, %.not.i.i.i.i.i.i.i15.i58
+  br i1 %259, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i62, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i59, !prof !722
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i59: ; preds = %243
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i59: ; preds = %243
   %260 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %246, i64 noundef 40, i64 noundef 40, i8 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %.pre3.i.i15.i60 = load ptr, ptr %244, align 8, !tbaa !58
+  %.pre3.i.i19.i60 = load ptr, ptr %244, align 8, !tbaa !58
   br label %264
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i62: ; preds = %243
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i62: ; preds = %243
   %261 = inttoptr i64 %254 to ptr
   store ptr %261, ptr %246, align 8, !tbaa !720
   %262 = inttoptr i64 %253 to ptr
   %263 = icmp eq i64 %253, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  br i1 %263, label %_ZN4llvm12function_refIFPN5clang24CFReturnsNotRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit18.thread.i, label %264
+  br i1 %263, label %_ZN4llvm12function_refIFPN5clang24CFReturnsNotRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit22.thread.i, label %264
 
-_ZN4llvm12function_refIFPN5clang24CFReturnsNotRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit18.thread.i: ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i62
+_ZN4llvm12function_refIFPN5clang24CFReturnsNotRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit22.thread.i: ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i62
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS0_4SemaEPNS0_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataE.exit
 
-264:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i62, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i59
-  %265 = phi ptr [ %.pre3.i.i15.i60, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i59 ], [ %245, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i62 ]
-  %.0.i.i.i.i.i2.i.i16.i61 = phi ptr [ %260, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i59 ], [ %262, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i62 ]
+264:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i62, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i59
+  %265 = phi ptr [ %.pre3.i.i19.i60, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i59 ], [ %245, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i62 ]
+  %.0.i.i.i.i.i2.i.i20.i61 = phi ptr [ %260, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i59 ], [ %262, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i62 ]
   %266 = getelementptr inbounds nuw i8, ptr %9, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %9, i8 0, i64 28, i1 false), !alias.scope !1475
   store i32 65950, ptr %266, align 4, !alias.scope !1475
-  call void @_ZN5clang24CFReturnsNotRetainedAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i16.i61, ptr noundef nonnull align 8 dereferenceable(23216) %265, ptr noundef nonnull align 8 dereferenceable(32) %9) #19
+  call void @_ZN5clang24CFReturnsNotRetainedAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i20.i61, ptr noundef nonnull align 8 dereferenceable(23216) %265, ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %267 = load ptr, ptr %244, align 8, !tbaa !58
   %268 = and i8 %.sroa.3193.0.copyload, 2
   %269 = icmp ne i8 %268, 0
-  %270 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %267, i64 %.sroa.0191.0.copyload, i64 %.sroa.2192.0.copyload, ptr noundef nonnull %.0.i.i.i.i.i2.i.i16.i61, i1 noundef zeroext %269, i64 0) #19
+  %270 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %267, i64 %.sroa.0191.0.copyload, i64 %.sroa.2192.0.copyload, ptr noundef nonnull %.0.i.i.i.i.i2.i.i20.i61, i1 noundef zeroext %269, i64 0) #19
   br label %.sink.split.i.i34
 
 .sink.split.i.i34:                                ; preds = %264, %_ZN4llvm12function_refIFPN5clang24CFReturnsNotRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit.i
@@ -24911,11 +24911,11 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   %299 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i108, i64 32
   %.val30.val.i.i.i.i.i.i.i109 = load i16, ptr %299, align 8
   switch i16 %.val30.val.i.i.i.i.i.i.i109, label %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i [
-    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit267
-    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit267
-    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit267
-    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit267
-    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit267
+    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit286
+    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit286
+    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit286
+    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit286
+    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit286
   ]
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i
@@ -24924,11 +24924,11 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   %301 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i110, i64 32
   %.val31.val.i.i.i.i.i.i.i111 = load i16, ptr %301, align 8
   switch i16 %.val31.val.i.i.i.i.i.i.i111, label %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit35.i.i.i.i.i.i.i [
-    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit269
-    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit269
-    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit269
-    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit269
-    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit269
+    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit288
+    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit288
+    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit288
+    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit288
+    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit288
   ]
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit35.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i
@@ -25005,16 +25005,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAP
   %314 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i103, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit267: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit286: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i
   %315 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i103, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit269: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit288: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i
   %316 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i103, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i101, %.lr.ph.i.i.i.i.i.i.i101, %.lr.ph.i.i.i.i.i.i.i101, %.lr.ph.i.i.i.i.i.i.i101, %.lr.ph.i.i.i.i.i.i.i101, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit267, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit269, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i.i, %312, %309, %309, %309, %309, %309, %306, %306, %306, %306, %306, %._crit_edge.i.i.i.i.i.i.i74
-  %.028.i.i.i.i.i.i.i80 = phi ptr [ %.2.i.i.i.i.i.i.i77, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i.i ], [ %288, %312 ], [ %288, %._crit_edge.i.i.i.i.i.i.i74 ], [ %.029.lcssa.i.i.i.i.i.i.i76, %306 ], [ %.029.lcssa.i.i.i.i.i.i.i76, %306 ], [ %.029.lcssa.i.i.i.i.i.i.i76, %306 ], [ %.029.lcssa.i.i.i.i.i.i.i76, %306 ], [ %.029.lcssa.i.i.i.i.i.i.i76, %306 ], [ %.1.i.i.i.i.i.i.i94, %309 ], [ %.1.i.i.i.i.i.i.i94, %309 ], [ %.1.i.i.i.i.i.i.i94, %309 ], [ %.1.i.i.i.i.i.i.i94, %309 ], [ %.1.i.i.i.i.i.i.i94, %309 ], [ %314, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit ], [ %315, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit267 ], [ %316, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit269 ], [ %.02949.i.i.i.i.i.i.i103, %.lr.ph.i.i.i.i.i.i.i101 ], [ %.02949.i.i.i.i.i.i.i103, %.lr.ph.i.i.i.i.i.i.i101 ], [ %.02949.i.i.i.i.i.i.i103, %.lr.ph.i.i.i.i.i.i.i101 ], [ %.02949.i.i.i.i.i.i.i103, %.lr.ph.i.i.i.i.i.i.i101 ], [ %.02949.i.i.i.i.i.i.i103, %.lr.ph.i.i.i.i.i.i.i101 ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i101, %.lr.ph.i.i.i.i.i.i.i101, %.lr.ph.i.i.i.i.i.i.i101, %.lr.ph.i.i.i.i.i.i.i101, %.lr.ph.i.i.i.i.i.i.i101, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit286, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit288, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i.i, %312, %309, %309, %309, %309, %309, %306, %306, %306, %306, %306, %._crit_edge.i.i.i.i.i.i.i74
+  %.028.i.i.i.i.i.i.i80 = phi ptr [ %.2.i.i.i.i.i.i.i77, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i.i ], [ %288, %312 ], [ %288, %._crit_edge.i.i.i.i.i.i.i74 ], [ %.029.lcssa.i.i.i.i.i.i.i76, %306 ], [ %.029.lcssa.i.i.i.i.i.i.i76, %306 ], [ %.029.lcssa.i.i.i.i.i.i.i76, %306 ], [ %.029.lcssa.i.i.i.i.i.i.i76, %306 ], [ %.029.lcssa.i.i.i.i.i.i.i76, %306 ], [ %.1.i.i.i.i.i.i.i94, %309 ], [ %.1.i.i.i.i.i.i.i94, %309 ], [ %.1.i.i.i.i.i.i.i94, %309 ], [ %.1.i.i.i.i.i.i.i94, %309 ], [ %.1.i.i.i.i.i.i.i94, %309 ], [ %314, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit ], [ %315, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit286 ], [ %316, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21NSReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit288 ], [ %.02949.i.i.i.i.i.i.i103, %.lr.ph.i.i.i.i.i.i.i101 ], [ %.02949.i.i.i.i.i.i.i103, %.lr.ph.i.i.i.i.i.i.i101 ], [ %.02949.i.i.i.i.i.i.i103, %.lr.ph.i.i.i.i.i.i.i101 ], [ %.02949.i.i.i.i.i.i.i103, %.lr.ph.i.i.i.i.i.i.i101 ], [ %.02949.i.i.i.i.i.i.i103, %.lr.ph.i.i.i.i.i.i.i101 ]
   %317 = load i32, ptr %274, align 4
   %318 = and i32 %317, 256
   %.not.i.i.i81 = icmp eq i32 %318, 0
@@ -25080,9 +25080,9 @@ _ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit.i.i86: ; preds = %339
   %357 = getelementptr inbounds nuw i8, ptr %347, i64 2200
   %358 = load ptr, ptr %357, align 8, !tbaa !721
   %359 = ptrtoint ptr %358 to i64
-  %.not.i.i.i.i.i.i.i9.i87 = icmp ule i64 %356, %359
+  %.not.i.i.i.i.i.i.i13.i87 = icmp ule i64 %356, %359
   %360 = icmp ne ptr %352, null
-  %361 = and i1 %360, %.not.i.i.i.i.i.i.i9.i87
+  %361 = and i1 %360, %.not.i.i.i.i.i.i.i13.i87
   br i1 %361, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i.i93, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i.i88, !prof !722
 
 _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i.i88: ; preds = %345
@@ -25129,41 +25129,41 @@ _ZN4llvm12function_refIFPN5clang21NSReturnsRetainedAttrEvEE11callback_fnIZL34han
   %380 = getelementptr inbounds nuw i8, ptr %370, i64 2200
   %381 = load ptr, ptr %380, align 8, !tbaa !721
   %382 = ptrtoint ptr %381 to i64
-  %.not.i.i.i.i.i.i.i11.i115 = icmp ule i64 %379, %382
+  %.not.i.i.i.i.i.i.i15.i115 = icmp ule i64 %379, %382
   %383 = icmp ne ptr %375, null
-  %384 = and i1 %383, %.not.i.i.i.i.i.i.i11.i115
-  br i1 %384, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i119, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i116, !prof !722
+  %384 = and i1 %383, %.not.i.i.i.i.i.i.i15.i115
+  br i1 %384, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i119, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i116, !prof !722
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i116: ; preds = %368
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i116: ; preds = %368
   %385 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %371, i64 noundef 40, i64 noundef 40, i8 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %.pre3.i.i15.i117 = load ptr, ptr %369, align 8, !tbaa !58
+  %.pre3.i.i19.i117 = load ptr, ptr %369, align 8, !tbaa !58
   br label %389
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i119: ; preds = %368
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i119: ; preds = %368
   %386 = inttoptr i64 %379 to ptr
   store ptr %386, ptr %371, align 8, !tbaa !720
   %387 = inttoptr i64 %378 to ptr
   %388 = icmp eq i64 %378, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  br i1 %388, label %_ZN4llvm12function_refIFPN5clang21NSReturnsRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit18.thread.i, label %389
+  br i1 %388, label %_ZN4llvm12function_refIFPN5clang21NSReturnsRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit22.thread.i, label %389
 
-_ZN4llvm12function_refIFPN5clang21NSReturnsRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit18.thread.i: ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i119
+_ZN4llvm12function_refIFPN5clang21NSReturnsRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit22.thread.i: ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i119
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS0_4SemaEPNS0_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataE.exit
 
-389:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i119, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i116
-  %390 = phi ptr [ %.pre3.i.i15.i117, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i116 ], [ %370, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i119 ]
-  %.0.i.i.i.i.i2.i.i16.i118 = phi ptr [ %385, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i116 ], [ %387, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i119 ]
+389:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i119, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i116
+  %390 = phi ptr [ %.pre3.i.i19.i117, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i116 ], [ %370, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i119 ]
+  %.0.i.i.i.i.i2.i.i20.i118 = phi ptr [ %385, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i116 ], [ %387, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i119 ]
   %391 = getelementptr inbounds nuw i8, ptr %7, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %7, i8 0, i64 28, i1 false), !alias.scope !1482
   store i32 65950, ptr %391, align 4, !alias.scope !1482
-  call void @_ZN5clang21NSReturnsRetainedAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i16.i118, ptr noundef nonnull align 8 dereferenceable(23216) %390, ptr noundef nonnull align 8 dereferenceable(32) %7) #19
+  call void @_ZN5clang21NSReturnsRetainedAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i20.i118, ptr noundef nonnull align 8 dereferenceable(23216) %390, ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %392 = load ptr, ptr %369, align 8, !tbaa !58
   %393 = and i8 %.sroa.3201.0.copyload, 2
   %394 = icmp ne i8 %393, 0
-  %395 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %392, i64 %.sroa.0199.0.copyload, i64 %.sroa.2200.0.copyload, ptr noundef nonnull %.0.i.i.i.i.i2.i.i16.i118, i1 noundef zeroext %394, i64 0) #19
+  %395 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %392, i64 %.sroa.0199.0.copyload, i64 %.sroa.2200.0.copyload, ptr noundef nonnull %.0.i.i.i.i.i2.i.i20.i118, i1 noundef zeroext %394, i64 0) #19
   br label %.sink.split.i.i91
 
 .sink.split.i.i91:                                ; preds = %389, %_ZN4llvm12function_refIFPN5clang21NSReturnsRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit.i
@@ -25253,11 +25253,11 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   %424 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i165, i64 32
   %.val30.val.i.i.i.i.i.i.i166 = load i16, ptr %424, align 8
   switch i16 %.val30.val.i.i.i.i.i.i.i166, label %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i [
-    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit259
-    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit259
-    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit259
-    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit259
-    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit259
+    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit278
+    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit278
+    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit278
+    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit278
+    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit278
   ]
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i
@@ -25266,11 +25266,11 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   %426 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i167, i64 32
   %.val31.val.i.i.i.i.i.i.i168 = load i16, ptr %426, align 8
   switch i16 %.val31.val.i.i.i.i.i.i.i168, label %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit35.i.i.i.i.i.i.i [
-    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit261
-    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit261
-    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit261
-    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit261
-    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit261
+    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit280
+    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit280
+    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit280
+    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit280
+    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit280
   ]
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit35.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i
@@ -25347,16 +25347,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAP
   %439 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i160, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit259: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit278: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i.i
   %440 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i160, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit261: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit280: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i.i
   %441 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i160, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i158, %.lr.ph.i.i.i.i.i.i.i158, %.lr.ph.i.i.i.i.i.i.i158, %.lr.ph.i.i.i.i.i.i.i158, %.lr.ph.i.i.i.i.i.i.i158, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit259, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit261, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i.i, %437, %434, %434, %434, %434, %434, %431, %431, %431, %431, %431, %._crit_edge.i.i.i.i.i.i.i131
-  %.028.i.i.i.i.i.i.i137 = phi ptr [ %.2.i.i.i.i.i.i.i134, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i.i ], [ %413, %437 ], [ %413, %._crit_edge.i.i.i.i.i.i.i131 ], [ %.029.lcssa.i.i.i.i.i.i.i133, %431 ], [ %.029.lcssa.i.i.i.i.i.i.i133, %431 ], [ %.029.lcssa.i.i.i.i.i.i.i133, %431 ], [ %.029.lcssa.i.i.i.i.i.i.i133, %431 ], [ %.029.lcssa.i.i.i.i.i.i.i133, %431 ], [ %.1.i.i.i.i.i.i.i151, %434 ], [ %.1.i.i.i.i.i.i.i151, %434 ], [ %.1.i.i.i.i.i.i.i151, %434 ], [ %.1.i.i.i.i.i.i.i151, %434 ], [ %.1.i.i.i.i.i.i.i151, %434 ], [ %439, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit ], [ %440, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit259 ], [ %441, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit261 ], [ %.02949.i.i.i.i.i.i.i160, %.lr.ph.i.i.i.i.i.i.i158 ], [ %.02949.i.i.i.i.i.i.i160, %.lr.ph.i.i.i.i.i.i.i158 ], [ %.02949.i.i.i.i.i.i.i160, %.lr.ph.i.i.i.i.i.i.i158 ], [ %.02949.i.i.i.i.i.i.i160, %.lr.ph.i.i.i.i.i.i.i158 ], [ %.02949.i.i.i.i.i.i.i160, %.lr.ph.i.i.i.i.i.i.i158 ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i158, %.lr.ph.i.i.i.i.i.i.i158, %.lr.ph.i.i.i.i.i.i.i158, %.lr.ph.i.i.i.i.i.i.i158, %.lr.ph.i.i.i.i.i.i.i158, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit278, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit280, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i.i, %437, %434, %434, %434, %434, %434, %431, %431, %431, %431, %431, %._crit_edge.i.i.i.i.i.i.i131
+  %.028.i.i.i.i.i.i.i137 = phi ptr [ %.2.i.i.i.i.i.i.i134, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i.i ], [ %413, %437 ], [ %413, %._crit_edge.i.i.i.i.i.i.i131 ], [ %.029.lcssa.i.i.i.i.i.i.i133, %431 ], [ %.029.lcssa.i.i.i.i.i.i.i133, %431 ], [ %.029.lcssa.i.i.i.i.i.i.i133, %431 ], [ %.029.lcssa.i.i.i.i.i.i.i133, %431 ], [ %.029.lcssa.i.i.i.i.i.i.i133, %431 ], [ %.1.i.i.i.i.i.i.i151, %434 ], [ %.1.i.i.i.i.i.i.i151, %434 ], [ %.1.i.i.i.i.i.i.i151, %434 ], [ %.1.i.i.i.i.i.i.i151, %434 ], [ %.1.i.i.i.i.i.i.i151, %434 ], [ %439, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit ], [ %440, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit278 ], [ %441, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_24NSReturnsNotRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit280 ], [ %.02949.i.i.i.i.i.i.i160, %.lr.ph.i.i.i.i.i.i.i158 ], [ %.02949.i.i.i.i.i.i.i160, %.lr.ph.i.i.i.i.i.i.i158 ], [ %.02949.i.i.i.i.i.i.i160, %.lr.ph.i.i.i.i.i.i.i158 ], [ %.02949.i.i.i.i.i.i.i160, %.lr.ph.i.i.i.i.i.i.i158 ], [ %.02949.i.i.i.i.i.i.i160, %.lr.ph.i.i.i.i.i.i.i158 ]
   %442 = load i32, ptr %399, align 4
   %443 = and i32 %442, 256
   %.not.i.i.i138 = icmp eq i32 %443, 0
@@ -25422,9 +25422,9 @@ _ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit.i.i143: ; preds = %46
   %482 = getelementptr inbounds nuw i8, ptr %472, i64 2200
   %483 = load ptr, ptr %482, align 8, !tbaa !721
   %484 = ptrtoint ptr %483 to i64
-  %.not.i.i.i.i.i.i.i9.i144 = icmp ule i64 %481, %484
+  %.not.i.i.i.i.i.i.i13.i144 = icmp ule i64 %481, %484
   %485 = icmp ne ptr %477, null
-  %486 = and i1 %485, %.not.i.i.i.i.i.i.i9.i144
+  %486 = and i1 %485, %.not.i.i.i.i.i.i.i13.i144
   br i1 %486, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i.i150, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i.i145, !prof !722
 
 _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i.i145: ; preds = %470
@@ -25471,41 +25471,41 @@ _ZN4llvm12function_refIFPN5clang24NSReturnsNotRetainedAttrEvEE11callback_fnIZL34
   %505 = getelementptr inbounds nuw i8, ptr %495, i64 2200
   %506 = load ptr, ptr %505, align 8, !tbaa !721
   %507 = ptrtoint ptr %506 to i64
-  %.not.i.i.i.i.i.i.i11.i172 = icmp ule i64 %504, %507
+  %.not.i.i.i.i.i.i.i15.i172 = icmp ule i64 %504, %507
   %508 = icmp ne ptr %500, null
-  %509 = and i1 %508, %.not.i.i.i.i.i.i.i11.i172
-  br i1 %509, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i176, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i173, !prof !722
+  %509 = and i1 %508, %.not.i.i.i.i.i.i.i15.i172
+  br i1 %509, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i176, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i173, !prof !722
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i173: ; preds = %493
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i173: ; preds = %493
   %510 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %496, i64 noundef 40, i64 noundef 40, i8 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.pre3.i.i15.i174 = load ptr, ptr %494, align 8, !tbaa !58
+  %.pre3.i.i19.i174 = load ptr, ptr %494, align 8, !tbaa !58
   br label %514
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i176: ; preds = %493
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i176: ; preds = %493
   %511 = inttoptr i64 %504 to ptr
   store ptr %511, ptr %496, align 8, !tbaa !720
   %512 = inttoptr i64 %503 to ptr
   %513 = icmp eq i64 %503, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %513, label %_ZN4llvm12function_refIFPN5clang24NSReturnsNotRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit18.thread.i, label %514
+  br i1 %513, label %_ZN4llvm12function_refIFPN5clang24NSReturnsNotRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit22.thread.i, label %514
 
-_ZN4llvm12function_refIFPN5clang24NSReturnsNotRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit18.thread.i: ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i176
+_ZN4llvm12function_refIFPN5clang24NSReturnsNotRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit22.thread.i: ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i176
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS0_4SemaEPNS0_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataE.exit
 
-514:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i176, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i173
-  %515 = phi ptr [ %.pre3.i.i15.i174, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i173 ], [ %495, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i176 ]
-  %.0.i.i.i.i.i2.i.i16.i175 = phi ptr [ %510, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12.i173 ], [ %512, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17.i176 ]
+514:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i176, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i173
+  %515 = phi ptr [ %.pre3.i.i19.i174, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i173 ], [ %495, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i176 ]
+  %.0.i.i.i.i.i2.i.i20.i175 = phi ptr [ %510, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16.i173 ], [ %512, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21.i176 ]
   %516 = getelementptr inbounds nuw i8, ptr %5, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, i8 0, i64 28, i1 false), !alias.scope !1489
   store i32 65950, ptr %516, align 4, !alias.scope !1489
-  call void @_ZN5clang24NSReturnsNotRetainedAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i16.i175, ptr noundef nonnull align 8 dereferenceable(23216) %515, ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZN5clang24NSReturnsNotRetainedAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i20.i175, ptr noundef nonnull align 8 dereferenceable(23216) %515, ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %517 = load ptr, ptr %494, align 8, !tbaa !58
   %518 = and i8 %.sroa.3209.0.copyload, 2
   %519 = icmp ne i8 %518, 0
-  %520 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %517, i64 %.sroa.0207.0.copyload, i64 %.sroa.2208.0.copyload, ptr noundef nonnull %.0.i.i.i.i.i2.i.i16.i175, i1 noundef zeroext %519, i64 0) #19
+  %520 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %517, i64 %.sroa.0207.0.copyload, i64 %.sroa.2208.0.copyload, ptr noundef nonnull %.0.i.i.i.i.i2.i.i20.i175, i1 noundef zeroext %519, i64 0) #19
   br label %.sink.split.i.i148
 
 .sink.split.i.i148:                               ; preds = %514, %_ZN4llvm12function_refIFPN5clang24NSReturnsNotRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit.i
@@ -25513,7 +25513,7 @@ _ZN4llvm12function_refIFPN5clang24NSReturnsNotRetainedAttrEvEE11callback_fnIZL34
   call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %.sink.i.i149) #19
   br label %_ZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS0_4SemaEPNS0_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataE.exit
 
-_ZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS0_4SemaEPNS0_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataE.exit: ; preds = %.sink.split.i.i148, %_ZN4llvm12function_refIFPN5clang24NSReturnsNotRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit18.thread.i, %_ZN4llvm12function_refIFPN5clang24NSReturnsNotRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit.thread.i, %.sink.split.i.i91, %_ZN4llvm12function_refIFPN5clang21NSReturnsRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit18.thread.i, %_ZN4llvm12function_refIFPN5clang21NSReturnsRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit.thread.i, %.sink.split.i.i34, %_ZN4llvm12function_refIFPN5clang24CFReturnsNotRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit18.thread.i, %_ZN4llvm12function_refIFPN5clang24CFReturnsNotRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit.thread.i, %.sink.split.i.i, %_ZN4llvm12function_refIFPN5clang21CFUnknownTransferAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit18.thread.i, %_ZN4llvm12function_refIFPN5clang21CFUnknownTransferAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit.thread.i, %144, %4, %145, %14
+_ZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS0_4SemaEPNS0_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataE.exit: ; preds = %.sink.split.i.i148, %_ZN4llvm12function_refIFPN5clang24NSReturnsNotRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit22.thread.i, %_ZN4llvm12function_refIFPN5clang24NSReturnsNotRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit.thread.i, %.sink.split.i.i91, %_ZN4llvm12function_refIFPN5clang21NSReturnsRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit22.thread.i, %_ZN4llvm12function_refIFPN5clang21NSReturnsRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit.thread.i, %.sink.split.i.i34, %_ZN4llvm12function_refIFPN5clang24CFReturnsNotRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit22.thread.i, %_ZN4llvm12function_refIFPN5clang24CFReturnsNotRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit.thread.i, %.sink.split.i.i, %_ZN4llvm12function_refIFPN5clang21CFUnknownTransferAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit22.thread.i, %_ZN4llvm12function_refIFPN5clang21CFUnknownTransferAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit.thread.i, %144, %4, %145, %14
   ret void
 }
 
@@ -25610,11 +25610,11 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   %34 = getelementptr i8, ptr %.val30.i.i.i.i.i.i, i64 32
   %.val30.val.i.i.i.i.i.i = load i16, ptr %34, align 8
   switch i16 %.val30.val.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i [
-    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit33
-    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit33
-    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit33
-    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit33
-    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit33
+    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit41
+    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit41
+    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit41
+    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit41
+    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit41
   ]
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i
@@ -25623,11 +25623,11 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   %36 = getelementptr i8, ptr %.val31.i.i.i.i.i.i, i64 32
   %.val31.val.i.i.i.i.i.i = load i16, ptr %36, align 8
   switch i16 %.val31.val.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit35.i.i.i.i.i.i [
-    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit35
-    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit35
-    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit35
-    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit35
-    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit35
+    i16 149, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit43
+    i16 148, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit43
+    i16 67, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit43
+    i16 258, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit43
+    i16 145, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit43
   ]
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit35.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i
@@ -25704,16 +25704,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAP
   %49 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit33: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit41: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit33.i.i.i.i.i.i
   %50 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit35: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit43: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit34.i.i.i.i.i.i
   %51 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit33, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit35, %._crit_edge.i.i.i.i.i.i, %41, %41, %41, %41, %41, %44, %44, %44, %44, %44, %47, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i
-  %.028.i.i.i.i.i.i = phi ptr [ %.2.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i ], [ %23, %47 ], [ %23, %._crit_edge.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.1.i.i.i.i.i.i, %44 ], [ %.1.i.i.i.i.i.i, %44 ], [ %.1.i.i.i.i.i.i, %44 ], [ %.1.i.i.i.i.i.i, %44 ], [ %.1.i.i.i.i.i.i, %44 ], [ %49, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit ], [ %50, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit33 ], [ %51, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit35 ], [ %.02949.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %.02949.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %.02949.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %.02949.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %.02949.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit41, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit43, %._crit_edge.i.i.i.i.i.i, %41, %41, %41, %41, %41, %44, %44, %44, %44, %44, %47, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i
+  %.028.i.i.i.i.i.i = phi ptr [ %.2.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit38.thread.i.i.i.i.i.i ], [ %23, %47 ], [ %23, %._crit_edge.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.1.i.i.i.i.i.i, %44 ], [ %.1.i.i.i.i.i.i, %44 ], [ %.1.i.i.i.i.i.i, %44 ], [ %.1.i.i.i.i.i.i, %44 ], [ %.1.i.i.i.i.i.i, %44 ], [ %49, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit ], [ %50, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit41 ], [ %51, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZL34handleAPINotedRetainCountAttributeINS1_21CFReturnsRetainedAttrEEvRNS1_4SemaEPS6_bN12_GLOBAL__N_121VersionedInfoMetadataEEUlS8_E_EES5_lS8_.exit.loopexit.split.loop.exit43 ], [ %.02949.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %.02949.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %.02949.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %.02949.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %.02949.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %52 = load i32, ptr %9, align 4
   %53 = and i32 %52, 256
   %.not.i.i = icmp eq i32 %53, 0
@@ -25782,9 +25782,9 @@ _ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit.i: ; preds = %74, %62
   %93 = getelementptr inbounds nuw i8, ptr %83, i64 2200
   %94 = load ptr, ptr %93, align 8, !tbaa !721
   %95 = ptrtoint ptr %94 to i64
-  %.not.i.i.i.i.i.i.i9 = icmp ule i64 %92, %95
+  %.not.i.i.i.i.i.i.i13 = icmp ule i64 %92, %95
   %96 = icmp ne ptr %88, null
-  %97 = and i1 %96, %.not.i.i.i.i.i.i.i9
+  %97 = and i1 %96, %.not.i.i.i.i.i.i.i13
   br i1 %97, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i, !prof !722
 
 _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i: ; preds = %81
@@ -25834,41 +25834,41 @@ _ZN4llvm12function_refIFPN5clang21CFReturnsRetainedAttrEvEE11callback_fnIZL34han
   %117 = getelementptr inbounds nuw i8, ptr %106, i64 2200
   %118 = load ptr, ptr %117, align 8, !tbaa !721
   %119 = ptrtoint ptr %118 to i64
-  %.not.i.i.i.i.i.i.i11 = icmp ule i64 %116, %119
+  %.not.i.i.i.i.i.i.i15 = icmp ule i64 %116, %119
   %120 = icmp ne ptr %112, null
-  %121 = and i1 %120, %.not.i.i.i.i.i.i.i11
-  br i1 %121, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12, !prof !722
+  %121 = and i1 %120, %.not.i.i.i.i.i.i.i15
+  br i1 %121, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16, !prof !722
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12: ; preds = %107
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16: ; preds = %107
   %122 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %108, i64 noundef 40, i64 noundef 40, i8 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.pre3.i.i15 = load ptr, ptr %105, align 8, !tbaa !58
+  %.pre3.i.i19 = load ptr, ptr %105, align 8, !tbaa !58
   br label %126
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17:  ; preds = %107
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21:  ; preds = %107
   %123 = inttoptr i64 %116 to ptr
   store ptr %123, ptr %108, align 8, !tbaa !720
   %124 = inttoptr i64 %115 to ptr
   %125 = icmp eq i64 %115, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %125, label %_ZN4llvm12function_refIFPN5clang21CFReturnsRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit18.thread, label %126
+  br i1 %125, label %_ZN4llvm12function_refIFPN5clang21CFReturnsRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit22.thread, label %126
 
-_ZN4llvm12function_refIFPN5clang21CFReturnsRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit18.thread: ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17
+_ZN4llvm12function_refIFPN5clang21CFReturnsRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit22.thread: ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang21CFReturnsRetainedAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEENS9_IFPKPNS1_4AttrEPKS5_EEE.exit
 
-126:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12
-  %127 = phi ptr [ %.pre3.i.i15, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12 ], [ %106, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17 ]
-  %.0.i.i.i.i.i2.i.i16 = phi ptr [ %122, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i12 ], [ %124, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i17 ]
+126:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16
+  %127 = phi ptr [ %.pre3.i.i19, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16 ], [ %106, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21 ]
+  %.0.i.i.i.i.i2.i.i20 = phi ptr [ %122, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i16 ], [ %124, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i21 ]
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, i8 0, i64 28, i1 false), !alias.scope !1496
   store i32 65950, ptr %128, align 4, !alias.scope !1496
-  call void @_ZN5clang21CFReturnsRetainedAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i16, ptr noundef nonnull align 8 dereferenceable(23216) %127, ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZN5clang21CFReturnsRetainedAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i2.i.i20, ptr noundef nonnull align 8 dereferenceable(23216) %127, ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %129 = load ptr, ptr %105, align 8, !tbaa !58
   %130 = and i8 %.sroa.3.0.copyload, 2
   %131 = icmp ne i8 %130, 0
-  %132 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %129, i64 %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload, ptr noundef nonnull %.0.i.i.i.i.i2.i.i16, i1 noundef zeroext %131, i64 0) #19
+  %132 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %129, i64 %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload, ptr noundef nonnull %.0.i.i.i.i.i2.i.i20, i1 noundef zeroext %131, i64 0) #19
   br label %.sink.split.i
 
 133:                                              ; preds = %104
@@ -25882,7 +25882,7 @@ _ZN4llvm12function_refIFPN5clang21CFReturnsRetainedAttrEvEE11callback_fnIZL34han
   call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %.sink.i) #19
   br label %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang21CFReturnsRetainedAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEENS9_IFPKPNS1_4AttrEPKS5_EEE.exit
 
-_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang21CFReturnsRetainedAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEENS9_IFPKPNS1_4AttrEPKS5_EEE.exit: ; preds = %_ZN4llvm12function_refIFPN5clang21CFReturnsRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit18.thread, %_ZN4llvm12function_refIFPN5clang21CFReturnsRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit.thread, %80, %.sink.split.i
+_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang21CFReturnsRetainedAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEENS9_IFPKPNS1_4AttrEPKS5_EEE.exit: ; preds = %_ZN4llvm12function_refIFPN5clang21CFReturnsRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit22.thread, %_ZN4llvm12function_refIFPN5clang21CFReturnsRetainedAttrEvEE11callback_fnIZL34handleAPINotedRetainCountAttributeIS2_EvRNS1_4SemaEPNS1_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEEUlvE_EES3_l.exit.thread, %80, %.sink.split.i
   ret void
 }
 
@@ -26282,7 +26282,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i:               ; preds = %46, %_ZNK5clang4Dec
   %69 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i, i64 32
   %.val30.val.i.i.i.i.i.i.i = load i16, ptr %69, align 8
   %70 = icmp eq i16 %.val30.val.i.i.i.i.i.i.i, 358
-  br i1 %70, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit159, label %71
+  br i1 %70, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit186, label %71
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i, i64 24
@@ -26290,7 +26290,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i:               ; preds = %46, %_ZNK5clang4Dec
   %73 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i, i64 32
   %.val31.val.i.i.i.i.i.i.i = load i16, ptr %73, align 8
   %74 = icmp eq i16 %.val31.val.i.i.i.i.i.i.i, 358
-  br i1 %74, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit161, label %75
+  br i1 %74, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit188, label %75
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i, i64 32
@@ -26351,16 +26351,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL_
   %94 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit159: ; preds = %67
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit186: ; preds = %67
   %95 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit161: ; preds = %71
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit188: ; preds = %71
   %96 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit159, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit161, %93, %90, %85, %80
-  %.028.i.i.i.i.i.i.i = phi ptr [ %54, %93 ], [ %.029.lcssa.i.i.i.i.i.i.i, %80 ], [ %.1.i.i.i.i.i.i.i, %85 ], [ %.2.i.i.i.i.i.i.i, %90 ], [ %94, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit ], [ %95, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit159 ], [ %96, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit161 ], [ %.02943.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit186, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit188, %93, %90, %85, %80
+  %.028.i.i.i.i.i.i.i = phi ptr [ %54, %93 ], [ %.029.lcssa.i.i.i.i.i.i.i, %80 ], [ %.1.i.i.i.i.i.i.i, %85 ], [ %.2.i.i.i.i.i.i.i, %90 ], [ %94, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit ], [ %95, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit186 ], [ %96, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_15SwiftBridgeAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit188 ], [ %.02943.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %97 = load i32, ptr %40, align 4
   %98 = and i32 %97, 256
   %.not.i.i.i = icmp eq i32 %98, 0
@@ -26598,7 +26598,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i24:             ; preds = %183, %_ZNK5clang4De
   %206 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i55, i64 32
   %.val30.val.i.i.i.i.i.i.i56 = load i16, ptr %206, align 8
   %207 = icmp eq i16 %.val30.val.i.i.i.i.i.i.i56, 256
-  br i1 %207, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit167, label %208
+  br i1 %207, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit194, label %208
 
 208:                                              ; preds = %204
   %209 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i50, i64 24
@@ -26606,7 +26606,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i24:             ; preds = %183, %_ZNK5clang4De
   %210 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i57, i64 32
   %.val31.val.i.i.i.i.i.i.i58 = load i16, ptr %210, align 8
   %211 = icmp eq i16 %.val31.val.i.i.i.i.i.i.i58, 256
-  br i1 %211, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit169, label %212
+  br i1 %211, label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit196, label %212
 
 212:                                              ; preds = %208
   %213 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i50, i64 32
@@ -26667,16 +26667,16 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL_
   %231 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i50, i64 8
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit167: ; preds = %204
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit194: ; preds = %204
   %232 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i50, i64 16
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit169: ; preds = %208
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit196: ; preds = %208
   %233 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i.i50, i64 24
   br label %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i
 
-_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i48, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit167, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit169, %230, %227, %222, %217
-  %.028.i.i.i.i.i.i.i31 = phi ptr [ %191, %230 ], [ %.029.lcssa.i.i.i.i.i.i.i27, %217 ], [ %.1.i.i.i.i.i.i.i41, %222 ], [ %.2.i.i.i.i.i.i.i28, %227 ], [ %231, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit ], [ %232, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit167 ], [ %233, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit169 ], [ %.02943.i.i.i.i.i.i.i50, %.lr.ph.i.i.i.i.i.i.i48 ]
+_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i48, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit194, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit196, %230, %227, %222, %217
+  %.028.i.i.i.i.i.i.i31 = phi ptr [ %191, %230 ], [ %.029.lcssa.i.i.i.i.i.i.i27, %217 ], [ %.1.i.i.i.i.i.i.i41, %222 ], [ %.2.i.i.i.i.i.i.i28, %227 ], [ %231, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit ], [ %232, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit194 ], [ %233, %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_17NSErrorDomainAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i.loopexit.split.loop.exit196 ], [ %.02943.i.i.i.i.i.i.i50, %.lr.ph.i.i.i.i.i.i.i48 ]
   %234 = load i32, ptr %177, align 4
   %235 = and i32 %234, 256
   %.not.i.i.i32 = icmp eq i32 %235, 0
@@ -26802,34 +26802,34 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i:    ; preds = %263
   %304 = getelementptr inbounds nuw i8, ptr %293, i64 2200
   %305 = load ptr, ptr %304, align 8, !tbaa !721
   %306 = ptrtoint ptr %305 to i64
-  %.not.i.i.i.i.i.i.i124 = icmp ule i64 %303, %306
+  %.not.i.i.i.i.i.i.i137 = icmp ule i64 %303, %306
   %307 = icmp ne ptr %299, null
-  %308 = and i1 %307, %.not.i.i.i.i.i.i.i124
-  br i1 %308, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i130, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i125, !prof !722
+  %308 = and i1 %307, %.not.i.i.i.i.i.i.i137
+  br i1 %308, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i143, label %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i138, !prof !722
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i125: ; preds = %294
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i138: ; preds = %294
   %309 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %295, i64 noundef 48, i64 noundef 48, i8 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.pre3.i.i128 = load ptr, ptr %292, align 8, !tbaa !58
-  %.pre158 = load i64, ptr %171, align 8, !tbaa !32
+  %.pre3.i.i141 = load ptr, ptr %292, align 8, !tbaa !58
+  %.pre171 = load i64, ptr %171, align 8, !tbaa !32
   br label %313
 
-_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i130: ; preds = %294
+_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i143: ; preds = %294
   %310 = inttoptr i64 %303 to ptr
   store ptr %310, ptr %295, align 8, !tbaa !720
   %311 = inttoptr i64 %302 to ptr
   %312 = icmp eq i64 %302, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %312, label %"_ZN4llvm12function_refIFPN5clang17NSErrorDomainAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes14CommonTypeInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit131.thread", label %313
+  br i1 %312, label %"_ZN4llvm12function_refIFPN5clang17NSErrorDomainAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes14CommonTypeInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit144.thread", label %313
 
-"_ZN4llvm12function_refIFPN5clang17NSErrorDomainAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes14CommonTypeInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit131.thread": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i130
+"_ZN4llvm12function_refIFPN5clang17NSErrorDomainAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes14CommonTypeInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit144.thread": ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i143
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit13
 
-313:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i130, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i125
-  %314 = phi i64 [ %.pre158, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i125 ], [ %174, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i130 ]
-  %315 = phi ptr [ %.pre3.i.i128, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i125 ], [ %293, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i130 ]
-  %.0.i.i.i.i.i2.i.i129 = phi ptr [ %309, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i125 ], [ %311, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i130 ]
+313:                                              ; preds = %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i143, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i138
+  %314 = phi i64 [ %.pre171, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i138 ], [ %174, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i143 ]
+  %315 = phi ptr [ %.pre3.i.i141, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i138 ], [ %293, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i143 ]
+  %.0.i.i.i.i.i2.i.i142 = phi ptr [ %309, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.thread.i.i138 ], [ %311, %_ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i143 ]
   %316 = getelementptr inbounds nuw i8, ptr %5, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, i8 0, i64 28, i1 false), !alias.scope !1506
   store i32 65950, ptr %316, align 4, !alias.scope !1506
@@ -26837,12 +26837,12 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i130: ; preds = %294
   %318 = load ptr, ptr %317, align 8, !tbaa !1376
   %319 = load ptr, ptr %11, align 8, !tbaa !35
   %320 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %318, ptr %319, i64 %314)
-  call void @_ZN5clang17NSErrorDomainAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i2.i.i129, ptr noundef nonnull align 8 dereferenceable(23216) %315, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %320) #19
+  call void @_ZN5clang17NSErrorDomainAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i2.i.i142, ptr noundef nonnull align 8 dereferenceable(23216) %315, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %320) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %321 = load ptr, ptr %292, align 8, !tbaa !58
   %322 = and i8 %.sroa.378.0.copyload, 2
   %323 = icmp ne i8 %322, 0
-  %324 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %321, i64 %.sroa.076.0.copyload, i64 %.sroa.277.0.copyload, ptr noundef nonnull %.0.i.i.i.i.i2.i.i129, i1 noundef zeroext %323, i64 0) #19
+  %324 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23216) %321, i64 %.sroa.076.0.copyload, i64 %.sroa.277.0.copyload, ptr noundef nonnull %.0.i.i.i.i.i2.i.i142, i1 noundef zeroext %323, i64 0) #19
   br label %.sink.split.i.i39
 
 325:                                              ; preds = %291
@@ -26856,7 +26856,7 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i130: ; preds = %294
   call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %.sink.i.i40) #19
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit13
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit13: ; preds = %"_ZN4llvm12function_refIFPN5clang17NSErrorDomainAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes14CommonTypeInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit131.thread", %"_ZN4llvm12function_refIFPN5clang17NSErrorDomainAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes14CommonTypeInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.thread", %.sink.split.i.i39, %262
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit13: ; preds = %"_ZN4llvm12function_refIFPN5clang17NSErrorDomainAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes14CommonTypeInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit144.thread", %"_ZN4llvm12function_refIFPN5clang17NSErrorDomainAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes14CommonTypeInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_1EES3_l.exit.thread", %.sink.split.i.i39, %262
   %.pre105 = load i8, ptr %152, align 8, !tbaa !52, !range !55
   %329 = trunc nuw i8 %.pre105 to i1
   br i1 %329, label %330, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit65

@@ -747,9 +747,9 @@ define hidden void @_ZN10PerfMemory20delete_memory_regionEv() local_unnamed_addr
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %24
-  %.sink19.i = phi i32 [ %26, %24 ], [ %14, %12 ]
+  %.sink20.i = phi i32 [ %26, %24 ], [ %14, %12 ]
   %.str.25.sink.i = phi ptr [ @.str.25, %24 ], [ @.str.23, %12 ]
-  %27 = tail call noundef ptr @_ZN2os8strerrorEi(i32 noundef %.sink19.i) #13
+  %27 = tail call noundef ptr @_ZN2os8strerrorEi(i32 noundef %.sink20.i) #13
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull %.str.25.sink.i, ptr noundef %8, ptr noundef %27) #13
   br label %_ZL19save_memory_to_filePcm.exit
 

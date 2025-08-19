@@ -301,12 +301,12 @@ define dso_local noundef ptr @_ZN5clang6interp7Context19getOrCreateFunctionEPKNS
   %25 = icmp ne i32 %24, 3
   %26 = or i8 %13, %22
   %27 = icmp eq i8 %26, 0
-  %spec.select25 = select i1 %27, i1 %25, i1 false
+  %spec.select27 = select i1 %27, i1 %25, i1 false
   br label %28
 
 28:                                               ; preds = %19, %2
   %.not23 = phi i1 [ true, %2 ], [ %20, %19 ]
-  %29 = phi i1 [ false, %2 ], [ %spec.select25, %19 ]
+  %29 = phi i1 [ false, %2 ], [ %spec.select27, %19 ]
   %or.cond = or i1 %.not, %29
   %or.cond24 = and i1 %or.cond, %.not23
   br i1 %or.cond24, label %30, label %84

@@ -35,14 +35,14 @@ define i32 @LAPACKE_dgesdd_work(i32 noundef %0, i8 noundef signext %1, i32 nound
 26:                                               ; preds = %14
   call void @dgesdd_(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef %4, ptr noundef nonnull %18, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %19, ptr noundef %9, ptr noundef nonnull %20, ptr noundef %11, ptr noundef nonnull %21, ptr noundef %13, ptr noundef nonnull %22, i64 noundef 1) #7
   %27 = load i32, ptr %22, align 4, !tbaa !6
-  %.lobit138 = ashr i32 %27, 31
-  %spec.select = add nsw i32 %27, %.lobit138
+  %.lobit149 = ashr i32 %27, 31
+  %spec.select = add nsw i32 %27, %.lobit149
   br label %157
 
 28:                                               ; preds = %14
   %29 = tail call i32 @LAPACKE_lsame(i8 noundef signext %1, i8 noundef signext 97) #8
   %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %30, label %.thread131
+  br i1 %.not, label %30, label %.thread142
 
 30:                                               ; preds = %28
   %31 = tail call i32 @LAPACKE_lsame(i8 noundef signext %1, i8 noundef signext 115) #8
@@ -54,43 +54,43 @@ define i32 @LAPACKE_dgesdd_work(i32 noundef %0, i8 noundef signext %1, i32 nound
   br i1 %.not58, label %.thread.thread, label %.thread
 
 .thread:                                          ; preds = %30
-  %spec.select136 = select i1 %or.cond, i32 %2, i32 1
+  %spec.select147 = select i1 %or.cond, i32 %2, i32 1
   %.not61 = icmp ne i32 %32, 0
   %34 = icmp slt i32 %2, %3
   %or.cond106 = and i1 %34, %.not61
-  br i1 %or.cond106, label %36, label %.thread125
+  br i1 %or.cond106, label %36, label %.thread136
 
 .thread.thread:                                   ; preds = %30
-  br i1 %or.cond, label %36, label %.thread122
+  br i1 %or.cond, label %36, label %.thread133
 
-.thread122:                                       ; preds = %.thread.thread
+.thread133:                                       ; preds = %.thread.thread
   %35 = tail call i32 @llvm.smin.i32(i32 %2, i32 %3)
   br label %36
 
-36:                                               ; preds = %.thread.thread, %.thread, %.thread122
-  %37 = phi i1 [ %33, %.thread122 ], [ %34, %.thread ], [ %33, %.thread.thread ]
-  %38 = phi i32 [ %2, %.thread122 ], [ %spec.select136, %.thread ], [ %2, %.thread.thread ]
-  %.ph = phi i32 [ %35, %.thread122 ], [ %2, %.thread ], [ %2, %.thread.thread ]
+36:                                               ; preds = %.thread.thread, %.thread, %.thread133
+  %37 = phi i1 [ %33, %.thread133 ], [ %34, %.thread ], [ %33, %.thread.thread ]
+  %38 = phi i32 [ %2, %.thread133 ], [ %spec.select147, %.thread ], [ %2, %.thread.thread ]
+  %.ph = phi i32 [ %35, %.thread133 ], [ %2, %.thread ], [ %2, %.thread.thread ]
   %.not64 = icmp eq i32 %32, 0
   %or.cond107 = or i1 %37, %.not64
   %brmerge.not = and i1 %.not58, %or.cond107
   %.mux = select i1 %or.cond107, i32 1, i32 %3
-  br i1 %brmerge.not, label %39, label %.thread131
+  br i1 %brmerge.not, label %39, label %.thread142
 
-.thread125:                                       ; preds = %.thread
-  %.not64128 = icmp eq i32 %32, 0
-  %or.cond107129 = or i1 %34, %.not64128
-  %spec.select137 = select i1 %or.cond107129, i32 1, i32 %3
-  br label %.thread131
+.thread136:                                       ; preds = %.thread
+  %.not64139 = icmp eq i32 %32, 0
+  %or.cond107140 = or i1 %34, %.not64139
+  %spec.select148 = select i1 %or.cond107140, i32 1, i32 %3
+  br label %.thread142
 
 39:                                               ; preds = %36
   %40 = tail call i32 @llvm.smin.i32(i32 %2, i32 %3)
-  br label %.thread131
+  br label %.thread142
 
-.thread131:                                       ; preds = %.thread125, %36, %28, %39
-  %41 = phi i32 [ %.ph, %39 ], [ %2, %28 ], [ %.ph, %36 ], [ 1, %.thread125 ]
-  %42 = phi i32 [ %38, %39 ], [ %2, %28 ], [ %38, %36 ], [ %spec.select136, %.thread125 ]
-  %43 = phi i32 [ %40, %39 ], [ %3, %28 ], [ %.mux, %36 ], [ %spec.select137, %.thread125 ]
+.thread142:                                       ; preds = %.thread136, %36, %28, %39
+  %41 = phi i32 [ %.ph, %39 ], [ %2, %28 ], [ %.ph, %36 ], [ 1, %.thread136 ]
+  %42 = phi i32 [ %38, %39 ], [ %2, %28 ], [ %38, %36 ], [ %spec.select147, %.thread136 ]
+  %43 = phi i32 [ %40, %39 ], [ %3, %28 ], [ %.mux, %36 ], [ %spec.select148, %.thread136 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %44 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
   store i32 %44, ptr %23, align 4, !tbaa !6
@@ -103,11 +103,11 @@ define i32 @LAPACKE_dgesdd_work(i32 noundef %0, i8 noundef signext %1, i32 nound
   %47 = icmp slt i32 %5, %3
   br i1 %47, label %48, label %49
 
-48:                                               ; preds = %.thread131
+48:                                               ; preds = %.thread142
   tail call void @LAPACKE_xerbla(ptr noundef nonnull @.str, i32 noundef -6) #7
   br label %.thread103
 
-49:                                               ; preds = %.thread131
+49:                                               ; preds = %.thread142
   %50 = icmp slt i32 %8, %41
   br i1 %50, label %51, label %52
 
@@ -187,7 +187,7 @@ define i32 @LAPACKE_dgesdd_work(i32 noundef %0, i8 noundef signext %1, i32 nound
   br i1 %83, label %.thread93.thread, label %85
 
 .thread93.thread:                                 ; preds = %71, %.thread93
-  %.04798135 = phi ptr [ %80, %.thread93 ], [ null, %71 ]
+  %.04798146 = phi ptr [ %80, %.thread93 ], [ null, %71 ]
   %84 = tail call i32 @LAPACKE_lsame(i8 noundef signext %1, i8 noundef signext 111) #8
   %.not72 = icmp eq i32 %84, 0
   %.not73 = icmp slt i32 %2, %3
@@ -195,7 +195,7 @@ define i32 @LAPACKE_dgesdd_work(i32 noundef %0, i8 noundef signext %1, i32 nound
   br i1 %or.cond109, label %92, label %85
 
 85:                                               ; preds = %.thread93.thread, %.thread93, %82
-  %.04797 = phi ptr [ %80, %.thread93 ], [ %80, %82 ], [ %.04798135, %.thread93.thread ]
+  %.04797 = phi ptr [ %80, %.thread93 ], [ %80, %82 ], [ %.04798146, %.thread93.thread ]
   %86 = zext nneg i32 %46 to i64
   %87 = shl nuw nsw i64 %64, 3
   %88 = mul i64 %87, %86
@@ -208,7 +208,7 @@ define i32 @LAPACKE_dgesdd_work(i32 noundef %0, i8 noundef signext %1, i32 nound
   br label %140
 
 92:                                               ; preds = %85, %.thread93.thread
-  %.04796 = phi ptr [ %.04797, %85 ], [ %.04798135, %.thread93.thread ]
+  %.04796 = phi ptr [ %.04797, %85 ], [ %.04798146, %.thread93.thread ]
   %.046 = phi ptr [ %89, %85 ], [ null, %.thread93.thread ]
   tail call void @LAPACKE_dge_trans(i32 noundef 101, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %66, i32 noundef %44) #7
   call void @dgesdd_(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %66, ptr noundef nonnull %23, ptr noundef %6, ptr noundef %.04796, ptr noundef nonnull %24, ptr noundef %.046, ptr noundef nonnull %25, ptr noundef %11, ptr noundef nonnull %21, ptr noundef %13, ptr noundef nonnull %22, i64 noundef 1) #7

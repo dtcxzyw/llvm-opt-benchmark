@@ -125,9 +125,9 @@ define internal noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17h3e9
   br label %"_ZN2db13ZED_STATELESS28_$u7b$$u7b$closure$u7d$$u7d$17h9d78f8224b253948E.exit"
 
 "_ZN2db13ZED_STATELESS28_$u7b$$u7b$closure$u7d$$u7d$17h9d78f8224b253948E.exit": ; preds = %18, %.thread.i.i, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h2e1ece38830f63daE.exit.i.i.i.i"
-  %.sroa.0.08.i.i = phi i1 [ false, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h2e1ece38830f63daE.exit.i.i.i.i" ], [ false, %.thread.i.i ], [ %19, %18 ]
+  %.sroa.0.011.i.i = phi i1 [ false, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h2e1ece38830f63daE.exit.i.i.i.i" ], [ false, %.thread.i.i ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %.sroa.0.08.i.i
+  ret i1 %.sroa.0.011.i.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

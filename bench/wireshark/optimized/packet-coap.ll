@@ -607,8 +607,8 @@ define hidden i32 @dissect_coap_options(ptr noundef %0, ptr noundef %1, ptr noun
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %124, i64 8
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   %128 = icmp sgt i32 %.0310.i, %.pre.i.i
-  %or.cond35.i.i = select i1 %127, i1 true, i1 %128
-  br i1 %or.cond35.i.i, label %.thread._crit_edge.i.i, label %coap_opt_check.exit.i
+  %or.cond37.i.i = select i1 %127, i1 true, i1 %128
+  br i1 %or.cond37.i.i, label %.thread._crit_edge.i.i, label %coap_opt_check.exit.i
 
 .thread._crit_edge.i.i:                           ; preds = %.thread.i.i
   %129 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %111, ptr noundef nonnull %16, ptr noundef nonnull @.str.255, i32 noundef %.0310.i, i32 noundef %126, i32 noundef %.pre.i.i)
@@ -1671,7 +1671,6 @@ define internal fastcc void @dissect_coap_opt_block(ptr noundef %0, ptr noundef 
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %9, align 8
   %.pre37 = add i32 %3, -1
-  %.pre38 = add nuw nsw i32 %.pre37, %4
   br label %27
 
 10:                                               ; preds = %7
@@ -1706,7 +1705,7 @@ coap_get_opt_uint.exit:                           ; preds = %7, %10, %13, %16, %
   br label %27
 
 27:                                               ; preds = %coap_get_opt_uint.exit, %8
-  %.pre-phi39 = phi i32 [ %23, %coap_get_opt_uint.exit ], [ %.pre38, %8 ]
+  %.pre-phi39 = phi i32 [ %23, %coap_get_opt_uint.exit ], [ %.pre37, %8 ]
   %28 = phi i32 [ %.pre, %coap_get_opt_uint.exit ], [ 0, %8 ]
   %.0 = phi i32 [ %26, %coap_get_opt_uint.exit ], [ 0, %8 ]
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -2081,13 +2080,13 @@ coap_frame_length.exit:                           ; preds = %39, %46, %53
 
 161:                                              ; preds = %157
   %..i = select i1 %158, i64 208, i64 232
-  %.40.i = select i1 %158, i64 232, i64 208
-  %.41.i = select i1 %158, i64 284, i64 288
-  %.42.i = select i1 %158, i64 288, i64 284
+  %.44.i = select i1 %158, i64 232, i64 208
+  %.45.i = select i1 %158, i64 284, i64 288
+  %.46.i = select i1 %158, i64 288, i64 284
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 %..i
-  %163 = getelementptr inbounds nuw i8, ptr %1, i64 %.40.i
-  %164 = getelementptr inbounds nuw i8, ptr %1, i64 %.41.i
-  %165 = getelementptr inbounds nuw i8, ptr %1, i64 %.42.i
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 %.44.i
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 %.45.i
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 %.46.i
   %.0.i372 = load i32, ptr %165, align 4
   %.028.i = load i32, ptr %164, align 4
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -2707,9 +2706,9 @@ proto_item_set_generated.exit388:                 ; preds = %proto_item_set_gene
   br i1 %.not5.i390, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %508, %468
-  %.sink476 = phi ptr [ %470, %468 ], [ %510, %508 ]
+  %.sink518 = phi ptr [ %470, %468 ], [ %510, %508 ]
   %.sink.ph = phi ptr [ %467, %468 ], [ %507, %508 ]
-  %511 = getelementptr inbounds nuw i8, ptr %.sink476, i64 28
+  %511 = getelementptr inbounds nuw i8, ptr %.sink518, i64 28
   %512 = load i32, ptr %511, align 4
   %513 = or i32 %512, 2
   store i32 %513, ptr %511, align 4
@@ -2800,10 +2799,10 @@ proto_item_set_generated.exit397:                 ; preds = %proto_item_set_gene
   br label %559
 
 559:                                              ; preds = %proto_item_set_generated.exit397, %556
-  %.sink471 = phi i8 [ %558, %556 ], [ %554, %proto_item_set_generated.exit397 ]
-  %.sink470 = phi i64 [ 48, %556 ], [ 32, %proto_item_set_generated.exit397 ]
-  %560 = zext i8 %.sink471 to i32
-  %561 = getelementptr inbounds nuw i8, ptr %552, i64 %.sink470
+  %.sink513 = phi i8 [ %558, %556 ], [ %554, %proto_item_set_generated.exit397 ]
+  %.sink512 = phi i64 [ 48, %556 ], [ 32, %proto_item_set_generated.exit397 ]
+  %560 = zext i8 %.sink513 to i32
+  %561 = getelementptr inbounds nuw i8, ptr %552, i64 %.sink512
   %562 = load ptr, ptr %561, align 8
   %563 = call ptr @proto_tree_add_bytes(ptr noundef %82, i32 noundef %555, ptr noundef %0, i32 noundef 0, i32 noundef %560, ptr noundef %562)
   %.not.i398 = icmp eq ptr %563, null

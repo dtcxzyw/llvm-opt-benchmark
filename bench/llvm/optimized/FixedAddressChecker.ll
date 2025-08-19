@@ -1105,12 +1105,12 @@ define linkonce_odr hidden noundef ptr @_ZN5clang4ento14CheckerContext25generate
   br label %18
 
 10:                                               ; preds = %3
-  %.not5 = icmp eq ptr %2, null
+  %.not6 = icmp eq ptr %2, null
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.0.copyload.i.i.i.i6 = load i64, ptr %11, align 8
-  %12 = and i64 %.0.copyload.i.i.i.i6, -8
+  %.0.copyload.i.i.i.i7 = load i64, ptr %11, align 8
+  %12 = and i64 %.0.copyload.i.i.i.i7, -8
   %13 = inttoptr i64 %12 to ptr
-  %14 = select i1 %.not5, ptr %13, ptr %2
+  %14 = select i1 %.not6, ptr %13, ptr %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !62

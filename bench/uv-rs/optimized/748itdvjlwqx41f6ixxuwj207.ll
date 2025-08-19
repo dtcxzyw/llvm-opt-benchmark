@@ -698,7 +698,7 @@ default.unreachable:                              ; preds = %90
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %.thread241
 
-127:                                              ; preds = %.invoke270, %226, %223, %263, %.thread264, %241, %186, %179, %.thread256, %162, %.thread259, %151, %.thread250, %134
+127:                                              ; preds = %.invoke282, %226, %223, %263, %.thread264, %241, %186, %179, %.thread256, %162, %.thread259, %151, %.thread250, %134
   %128 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -758,7 +758,7 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread: ; preds = %93, %94,
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %.not206 = icmp eq i64 %145, 0
-  br i1 %.not206, label %.invoke270, label %151
+  br i1 %.not206, label %.invoke282, label %151
 
 151:                                              ; preds = %141
   store ptr %146, ptr %32, align 8
@@ -853,7 +853,7 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread246: ; preds = %93, %
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %.not207 = icmp eq i64 %173, 0
-  br i1 %.not207, label %.invoke270, label %179
+  br i1 %.not207, label %.invoke282, label %179
 
 179:                                              ; preds = %169
   store ptr %174, ptr %28, align 8
@@ -1134,14 +1134,14 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread246: ; preds = %93, %
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %.not208 = icmp eq i64 %256, 0
-  br i1 %.not208, label %.invoke270, label %263
+  br i1 %.not208, label %.invoke282, label %263
 
-.invoke270:                                       ; preds = %252, %169, %141
+.invoke282:                                       ; preds = %252, %169, %141
   %262 = phi ptr [ @anon.9b2c08a89e26e3248eeb21c656d36152.32, %141 ], [ @anon.9b2c08a89e26e3248eeb21c656d36152.36, %169 ], [ @anon.9b2c08a89e26e3248eeb21c656d36152.39, %252 ]
   invoke void @_ZN4core6option13expect_failed17h653f5dbca1fa5fc0E(ptr noalias noundef nonnull readonly align 1 @anon.9b2c08a89e26e3248eeb21c656d36152.19, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %262) #16
-          to label %.cont271 unwind label %127
+          to label %.cont283 unwind label %127
 
-.cont271:                                         ; preds = %.invoke270
+.cont283:                                         ; preds = %.invoke282
   unreachable
 
 263:                                              ; preds = %252

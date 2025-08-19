@@ -216,7 +216,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIi
   %53 = add i64 %52, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %49, i8 0, i64 %53, i1 false), !tbaa !4
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 %48
-  %55 = getelementptr inbounds i8, ptr %41, i64 %46
+  %55 = getelementptr inbounds nuw i8, ptr %41, i64 %46
   invoke void @_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPiS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %55, ptr nonnull %49, ptr nonnull %54)
           to label %_ZNSt6vectorIiSaIiEED2Ev.exit41 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit43
 
@@ -276,14 +276,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit43:                  ; preds = %.noexc37
   br i1 %.not.i.i.i44, label %_ZNSt6vectorIiSaIiEED2Ev.exit45, label %._crit_edge81.thread
 
 ._crit_edge81.thread:                             ; preds = %.lr.ph80, %._crit_edge81
-  %.021.lcssa101 = phi i8 [ 0, %._crit_edge81 ], [ %78, %.lr.ph80 ]
+  %.021.lcssa110 = phi i8 [ 0, %._crit_edge81 ], [ %78, %.lr.ph80 ]
   call void @_ZdlPv(ptr noundef nonnull %.pre97) #19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit45
 
 _ZNSt6vectorIiSaIiEED2Ev.exit45:                  ; preds = %._crit_edge81, %._crit_edge81.thread
-  %.021.lcssa102 = phi i8 [ 0, %._crit_edge81 ], [ %.021.lcssa101, %._crit_edge81.thread ]
+  %.021.lcssa111 = phi i8 [ 0, %._crit_edge81 ], [ %.021.lcssa110, %._crit_edge81.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i8 %.021.lcssa102
+  ret i8 %.021.lcssa111
 
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
   %indvars.iv95 = phi i64 [ %68, %.lr.ph80.preheader ], [ %indvars.iv.next96, %.lr.ph80 ]

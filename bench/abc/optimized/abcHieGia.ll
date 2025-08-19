@@ -600,9 +600,9 @@ Vec_IntPush.exit128.sink.split:                   ; preds = %Vec_IntPush.exit
   %241 = shl nuw nsw i32 %237, 1
   %242 = zext nneg i32 %241 to i64
   %243 = shl nuw nsw i64 %242, 2
-  %.sink177 = select i1 %240, i64 64, i64 %243
+  %.sink189 = select i1 %240, i64 64, i64 %243
   %.sink = select i1 %240, i32 16, i32 %241
-  %244 = tail call ptr @realloc(ptr noundef nonnull %230, i64 noundef %.sink177) #16
+  %244 = tail call ptr @realloc(ptr noundef nonnull %230, i64 noundef %.sink189) #16
   store ptr %244, ptr %.phi.trans.insert.i, align 8, !tbaa !71
   store i32 %.sink, ptr %3, align 8, !tbaa !70
   br label %Vec_IntPush.exit128
@@ -631,11 +631,11 @@ Vec_IntPush.exit135.sink.split:                   ; preds = %Vec_IntPush.exit128
   %257 = shl nuw nsw i32 %253, 1
   %258 = zext nneg i32 %257 to i64
   %259 = shl nuw nsw i64 %258, 2
-  %.sink180 = select i1 %256, i64 64, i64 %259
-  %.sink178 = select i1 %256, i32 16, i32 %257
-  %260 = tail call ptr @realloc(ptr noundef nonnull %245, i64 noundef %.sink180) #16
+  %.sink192 = select i1 %256, i64 64, i64 %259
+  %.sink190 = select i1 %256, i32 16, i32 %257
+  %260 = tail call ptr @realloc(ptr noundef nonnull %245, i64 noundef %.sink192) #16
   store ptr %260, ptr %.phi.trans.insert.i, align 8, !tbaa !71
-  store i32 %.sink178, ptr %3, align 8, !tbaa !70
+  store i32 %.sink190, ptr %3, align 8, !tbaa !70
   br label %Vec_IntPush.exit135
 
 Vec_IntPush.exit135:                              ; preds = %Vec_IntPush.exit135.sink.split, %Vec_IntPush.exit128
@@ -659,11 +659,11 @@ Vec_IntPush.exit142.sink.split:                   ; preds = %Vec_IntPush.exit135
   %271 = shl nuw nsw i32 %267, 1
   %272 = zext nneg i32 %271 to i64
   %273 = shl nuw nsw i64 %272, 2
-  %.sink183 = select i1 %270, i64 64, i64 %273
-  %.sink181 = select i1 %270, i32 16, i32 %271
-  %274 = tail call ptr @realloc(ptr noundef nonnull %261, i64 noundef %.sink183) #16
+  %.sink195 = select i1 %270, i64 64, i64 %273
+  %.sink193 = select i1 %270, i32 16, i32 %271
+  %274 = tail call ptr @realloc(ptr noundef nonnull %261, i64 noundef %.sink195) #16
   store ptr %274, ptr %.phi.trans.insert.i, align 8, !tbaa !71
-  store i32 %.sink181, ptr %3, align 8, !tbaa !70
+  store i32 %.sink193, ptr %3, align 8, !tbaa !70
   br label %Vec_IntPush.exit142
 
 Vec_IntPush.exit142:                              ; preds = %Vec_IntPush.exit142.sink.split, %Vec_IntPush.exit135
@@ -1524,14 +1524,14 @@ Vec_IntStart.exit83:                              ; preds = %Vec_IntAlloc.exit.t
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %101, %103, %93, %95
-  %.sink148 = phi ptr [ %94, %93 ], [ %96, %95 ], [ %102, %101 ], [ %104, %103 ]
+  %.sink155 = phi ptr [ %94, %93 ], [ %96, %95 ], [ %102, %101 ], [ %104, %103 ]
   %.sink = phi i32 [ 16, %93 ], [ 16, %95 ], [ %98, %101 ], [ %98, %103 ]
-  store ptr %.sink148, ptr %28, align 8, !tbaa !71
+  store ptr %.sink155, ptr %28, align 8, !tbaa !71
   store i32 %.sink, ptr %25, align 8, !tbaa !70
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %.cont105
-  %.pre.i139 = phi ptr [ %33, %.cont105 ], [ %.sink148, %Vec_IntPush.exit.sink.split ]
+  %.pre.i139 = phi ptr [ %33, %.cont105 ], [ %.sink155, %Vec_IntPush.exit.sink.split ]
   %105 = add nsw i32 %87, 1
   store i32 %105, ptr %26, align 4, !tbaa !69
   %106 = sext i32 %87 to i64
@@ -1610,12 +1610,12 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %exitcond.not, label %.critedge2, label %120, !llvm.loop !95
 
 .critedge2:                                       ; preds = %.cont, %Vec_IntStart.exit83, %.lr.ph125, %.critedge
-  %.sroa.5103.0.lcssa147 = phi i32 [ %.sroa.5103.0.lcssa.ph, %.critedge ], [ %.sroa.5103.0.lcssa.ph, %.lr.ph125 ], [ 0, %Vec_IntStart.exit83 ], [ %.sroa.5103.0.lcssa.ph, %.cont ]
-  %.sroa.0102.0.lcssa146 = phi i32 [ %.sroa.0102.0.lcssa.ph, %.critedge ], [ %.sroa.0102.0.lcssa.ph, %.lr.ph125 ], [ 0, %Vec_IntStart.exit83 ], [ %.sroa.0102.0.lcssa.ph, %.cont ]
+  %.sroa.5103.0.lcssa154 = phi i32 [ %.sroa.5103.0.lcssa.ph, %.critedge ], [ %.sroa.5103.0.lcssa.ph, %.lr.ph125 ], [ 0, %Vec_IntStart.exit83 ], [ %.sroa.5103.0.lcssa.ph, %.cont ]
+  %.sroa.0102.0.lcssa153 = phi i32 [ %.sroa.0102.0.lcssa.ph, %.critedge ], [ %.sroa.0102.0.lcssa.ph, %.lr.ph125 ], [ 0, %Vec_IntStart.exit83 ], [ %.sroa.0102.0.lcssa.ph, %.cont ]
   %132 = phi ptr [ %.val59142, %.critedge ], [ %.val59142, %.lr.ph125 ], [ %27, %Vec_IntStart.exit83 ], [ %.val59142, %.cont ]
   %.sroa.0.0.lcssa = phi i32 [ 0, %.critedge ], [ 0, %.lr.ph125 ], [ 0, %Vec_IntStart.exit83 ], [ %.sroa.0.1, %.cont ]
   %.sroa.5.0.lcssa = phi i32 [ 0, %.critedge ], [ 0, %.lr.ph125 ], [ 0, %Vec_IntStart.exit83 ], [ %.sroa.5.1, %.cont ]
-  %133 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.sroa.0.0.lcssa, i32 noundef %.sroa.0102.0.lcssa146, i32 noundef %.sroa.5.0.lcssa, i32 noundef %.sroa.5103.0.lcssa147)
+  %133 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.sroa.0.0.lcssa, i32 noundef %.sroa.0102.0.lcssa153, i32 noundef %.sroa.5.0.lcssa, i32 noundef %.sroa.5103.0.lcssa154)
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !71
   %.not.i93 = icmp eq ptr %135, null

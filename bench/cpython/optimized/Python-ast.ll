@@ -10935,13 +10935,13 @@ Py_XDECREF.exit.thread185.i:                      ; preds = %140, %85, %34
   br label %Py_XDECREF.exit.thread.i
 
 Py_XDECREF.exit.sink.split.i:                     ; preds = %153, %98, %47
-  %.sink189.i = phi ptr [ %36, %47 ], [ %87, %98 ], [ %142, %153 ]
-  %.1.ph.ph188.i = phi ptr [ %29, %47 ], [ %80, %98 ], [ %135, %153 ]
-  call void @_Py_Dealloc(ptr noundef nonnull %.sink189.i) #8
+  %.sink226.i = phi ptr [ %36, %47 ], [ %87, %98 ], [ %142, %153 ]
+  %.1.ph.ph225.i = phi ptr [ %29, %47 ], [ %80, %98 ], [ %135, %153 ]
+  call void @_Py_Dealloc(ptr noundef nonnull %.sink226.i) #8
   br label %Py_XDECREF.exit.i
 
 Py_XDECREF.exit.i:                                ; preds = %Py_XDECREF.exit.sink.split.i, %153, %151, %98, %96, %47, %45
-  %.1.ph.i = phi ptr [ %29, %45 ], [ %29, %47 ], [ %80, %96 ], [ %80, %98 ], [ %135, %151 ], [ %135, %153 ], [ %.1.ph.ph188.i, %Py_XDECREF.exit.sink.split.i ]
+  %.1.ph.i = phi ptr [ %29, %45 ], [ %29, %47 ], [ %80, %96 ], [ %80, %98 ], [ %135, %151 ], [ %135, %153 ], [ %.1.ph.ph225.i, %Py_XDECREF.exit.sink.split.i ]
   %194 = load i32, ptr %2, align 4, !tbaa !111
   %195 = add i32 %194, -1
   store i32 %195, ptr %2, align 4, !tbaa !111
@@ -33225,8 +33225,8 @@ _PyOnceFlag_CallOnce.exit.i132:                   ; preds = %90
 
 180:                                              ; preds = %.thread148
   %181 = load i32, ptr %110, align 8, !tbaa !9
-  %.not.i.i196 = icmp sgt i32 %181, -1
-  br i1 %.not.i.i196, label %182, label %Py_XDECREF.exit
+  %.not.i.i226 = icmp sgt i32 %181, -1
+  br i1 %.not.i.i226, label %182, label %Py_XDECREF.exit
 
 182:                                              ; preds = %180
   %183 = add nsw i32 %181, -1
@@ -33443,8 +33443,8 @@ Py_DECREF.exit84:                                 ; preds = %256, %259, %262
   br label %Py_DECREF.exit108
 
 select.unfold150.sink.split:                      ; preds = %243, %231, %218, %204, %83
-  %.0.lcssa193.sink = phi ptr [ %78, %83 ], [ %78, %204 ], [ %.0, %218 ], [ %.0, %231 ], [ %.0, %243 ]
-  call void @_Py_Dealloc(ptr noundef nonnull %.0.lcssa193.sink) #8
+  %.0.lcssa223.sink = phi ptr [ %78, %83 ], [ %78, %204 ], [ %.0, %218 ], [ %.0, %231 ], [ %.0, %243 ]
+  call void @_Py_Dealloc(ptr noundef nonnull %.0.lcssa223.sink) #8
   br label %select.unfold150
 
 select.unfold150:                                 ; preds = %Py_DECREF.exit86, %76, %select.unfold150.sink.split, %243, %241, %231, %Py_DECREF.exit94, %218, %Py_DECREF.exit98, %204, %202, %83, %81, %._crit_edge, %68, %65, %60
@@ -37440,7 +37440,7 @@ Py_XDECREF.exit47:                                ; preds = %68, %65, %Py_XDECRE
 ; Function Attrs: nounwind uwtable
 define internal ptr @ast2obj_expr(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %Py_XDECREF.exit1071, label %4
+  br i1 %.not, label %Py_XDECREF.exit1069, label %4
 
 4:                                                ; preds = %3
   %5 = load i32, ptr %1, align 4, !tbaa !111
@@ -37454,7 +37454,7 @@ define internal ptr @ast2obj_expr(ptr noundef %0, ptr noundef %1, ptr noundef re
 10:                                               ; preds = %4
   %11 = load ptr, ptr @PyExc_RecursionError, align 8, !tbaa !4
   tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.409) #8
-  br label %Py_XDECREF.exit1071
+  br label %Py_XDECREF.exit1069
 
 12:                                               ; preds = %4
   %13 = load i32, ptr %2, align 8, !tbaa !26
@@ -37493,7 +37493,7 @@ define internal ptr @ast2obj_expr(ptr noundef %0, ptr noundef %1, ptr noundef re
   %16 = load ptr, ptr %15, align 8, !tbaa !185
   %17 = tail call ptr @PyType_GenericNew(ptr noundef %16, ptr noundef null, ptr noundef null) #8
   %.not864 = icmp eq ptr %17, null
-  br i1 %.not864, label %.thread1073, label %18
+  br i1 %.not864, label %.thread1071, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -37516,14 +37516,14 @@ define internal ptr @ast2obj_expr(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %30, label %ast2obj_boolop.exit, label %_Py_NewRef.exit.sink.split.i
 
 _Py_NewRef.exit.sink.split.i:                     ; preds = %26, %21
-  %.sink2.i = phi i32 [ %24, %21 ], [ %29, %26 ]
-  %.sink1.i = phi ptr [ %23, %21 ], [ %28, %26 ]
-  %31 = add nuw i32 %.sink2.i, 1
-  store i32 %31, ptr %.sink1.i, align 8, !tbaa !9
+  %.sink4.i = phi i32 [ %24, %21 ], [ %29, %26 ]
+  %.sink3.i = phi ptr [ %23, %21 ], [ %28, %26 ]
+  %31 = add nuw i32 %.sink4.i, 1
+  store i32 %31, ptr %.sink3.i, align 8, !tbaa !9
   br label %ast2obj_boolop.exit
 
 ast2obj_boolop.exit:                              ; preds = %_Py_NewRef.exit.sink.split.i, %26, %21
-  %.0.i = phi ptr [ %23, %21 ], [ %28, %26 ], [ %.sink1.i, %_Py_NewRef.exit.sink.split.i ]
+  %.0.i = phi ptr [ %23, %21 ], [ %28, %26 ], [ %.sink3.i, %_Py_NewRef.exit.sink.split.i ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   %33 = load ptr, ptr %32, align 8, !tbaa !329
   %34 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %17, ptr noundef %33, ptr noundef nonnull %.0.i) #8
@@ -37550,7 +37550,7 @@ Py_DECREF.exit992:                                ; preds = %36, %38, %41
   %43 = load ptr, ptr %42, align 8, !tbaa !9
   %44 = tail call fastcc ptr @ast2obj_list(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %43, ptr noundef nonnull @ast2obj_expr)
   %.not866 = icmp eq ptr %44, null
-  br i1 %.not866, label %.thread1073, label %45
+  br i1 %.not866, label %.thread1071, label %45
 
 45:                                               ; preds = %Py_DECREF.exit992
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1928
@@ -37575,14 +37575,14 @@ Py_DECREF.exit992:                                ; preds = %36, %38, %41
   %57 = load ptr, ptr %56, align 8, !tbaa !186
   %58 = tail call ptr @PyType_GenericNew(ptr noundef %57, ptr noundef null, ptr noundef null) #8
   %.not861 = icmp eq ptr %58, null
-  br i1 %.not861, label %.thread1073, label %59
+  br i1 %.not861, label %.thread1071, label %59
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !9
   %62 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %61)
   %.not862 = icmp eq ptr %62, null
-  br i1 %.not862, label %.thread1073, label %63
+  br i1 %.not862, label %.thread1071, label %63
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1832
@@ -37611,7 +37611,7 @@ Py_DECREF.exit988:                                ; preds = %68, %70, %73
   %75 = load ptr, ptr %74, align 8, !tbaa !9
   %76 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %75)
   %.not863 = icmp eq ptr %76, null
-  br i1 %.not863, label %.thread1073, label %77
+  br i1 %.not863, label %.thread1071, label %77
 
 77:                                               ; preds = %Py_DECREF.exit988
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 1920
@@ -37636,14 +37636,14 @@ Py_DECREF.exit988:                                ; preds = %68, %70, %73
   %89 = load ptr, ptr %88, align 8, !tbaa !187
   %90 = tail call ptr @PyType_GenericNew(ptr noundef %89, ptr noundef null, ptr noundef null) #8
   %.not857 = icmp eq ptr %90, null
-  br i1 %.not857, label %.thread1073, label %91
+  br i1 %.not857, label %.thread1071, label %91
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !9
   %94 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %93)
   %.not858 = icmp eq ptr %94, null
-  br i1 %.not858, label %.thread1073, label %95
+  br i1 %.not858, label %.thread1071, label %95
 
 95:                                               ; preds = %91
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 1600
@@ -37672,7 +37672,7 @@ Py_DECREF.exit984:                                ; preds = %100, %102, %105
   %107 = load i32, ptr %106, align 8, !tbaa !9
   %108 = tail call fastcc ptr @ast2obj_operator(ptr noundef nonnull %0, i32 noundef %107)
   %.not859 = icmp eq ptr %108, null
-  br i1 %.not859, label %.thread1073, label %109
+  br i1 %.not859, label %.thread1071, label %109
 
 109:                                              ; preds = %Py_DECREF.exit984
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 1680
@@ -37701,7 +37701,7 @@ Py_DECREF.exit982:                                ; preds = %114, %116, %119
   %121 = load ptr, ptr %120, align 8, !tbaa !9
   %122 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %121)
   %.not860 = icmp eq ptr %122, null
-  br i1 %.not860, label %.thread1073, label %123
+  br i1 %.not860, label %.thread1071, label %123
 
 123:                                              ; preds = %Py_DECREF.exit982
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 1776
@@ -37726,14 +37726,14 @@ Py_DECREF.exit982:                                ; preds = %114, %116, %119
   %135 = load ptr, ptr %134, align 8, !tbaa !188
   %136 = tail call ptr @PyType_GenericNew(ptr noundef %135, ptr noundef null, ptr noundef null) #8
   %.not854 = icmp eq ptr %136, null
-  br i1 %.not854, label %.thread1073, label %137
+  br i1 %.not854, label %.thread1071, label %137
 
 137:                                              ; preds = %133
   %138 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %139 = load i32, ptr %138, align 8, !tbaa !9
   %140 = tail call fastcc ptr @ast2obj_unaryop(ptr noundef nonnull %0, i32 noundef %139)
   %.not855 = icmp eq ptr %140, null
-  br i1 %.not855, label %.thread1073, label %141
+  br i1 %.not855, label %.thread1071, label %141
 
 141:                                              ; preds = %137
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 1680
@@ -37762,7 +37762,7 @@ Py_DECREF.exit978:                                ; preds = %146, %148, %151
   %153 = load ptr, ptr %152, align 8, !tbaa !9
   %154 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %153)
   %.not856 = icmp eq ptr %154, null
-  br i1 %.not856, label %.thread1073, label %155
+  br i1 %.not856, label %.thread1071, label %155
 
 155:                                              ; preds = %Py_DECREF.exit978
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 1688
@@ -37787,14 +37787,14 @@ Py_DECREF.exit978:                                ; preds = %146, %148, %151
   %167 = load ptr, ptr %166, align 8, !tbaa !189
   %168 = tail call ptr @PyType_GenericNew(ptr noundef %167, ptr noundef null, ptr noundef null) #8
   %.not851 = icmp eq ptr %168, null
-  br i1 %.not851, label %.thread1073, label %169
+  br i1 %.not851, label %.thread1071, label %169
 
 169:                                              ; preds = %165
   %170 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %171 = load ptr, ptr %170, align 8, !tbaa !9
   %172 = tail call fastcc ptr @ast2obj_arguments(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %171)
   %.not852 = icmp eq ptr %172, null
-  br i1 %.not852, label %.thread1073, label %173
+  br i1 %.not852, label %.thread1071, label %173
 
 173:                                              ; preds = %169
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 1184
@@ -37823,7 +37823,7 @@ Py_DECREF.exit974:                                ; preds = %178, %180, %183
   %185 = load ptr, ptr %184, align 8, !tbaa !9
   %186 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %185)
   %.not853 = icmp eq ptr %186, null
-  br i1 %.not853, label %.thread1073, label %187
+  br i1 %.not853, label %.thread1071, label %187
 
 187:                                              ; preds = %Py_DECREF.exit974
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 1240
@@ -37848,14 +37848,14 @@ Py_DECREF.exit974:                                ; preds = %178, %180, %183
   %199 = load ptr, ptr %198, align 8, !tbaa !190
   %200 = tail call ptr @PyType_GenericNew(ptr noundef %199, ptr noundef null, ptr noundef null) #8
   %.not847 = icmp eq ptr %200, null
-  br i1 %.not847, label %.thread1073, label %201
+  br i1 %.not847, label %.thread1071, label %201
 
 201:                                              ; preds = %197
   %202 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %203 = load ptr, ptr %202, align 8, !tbaa !9
   %204 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %203)
   %.not848 = icmp eq ptr %204, null
-  br i1 %.not848, label %.thread1073, label %205
+  br i1 %.not848, label %.thread1071, label %205
 
 205:                                              ; preds = %201
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 1848
@@ -37884,7 +37884,7 @@ Py_DECREF.exit970:                                ; preds = %210, %212, %215
   %217 = load ptr, ptr %216, align 8, !tbaa !9
   %218 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %217)
   %.not849 = icmp eq ptr %218, null
-  br i1 %.not849, label %.thread1073, label %219
+  br i1 %.not849, label %.thread1071, label %219
 
 219:                                              ; preds = %Py_DECREF.exit970
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 1240
@@ -37913,7 +37913,7 @@ Py_DECREF.exit968:                                ; preds = %224, %226, %229
   %231 = load ptr, ptr %230, align 8, !tbaa !9
   %232 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %231)
   %.not850 = icmp eq ptr %232, null
-  br i1 %.not850, label %.thread1073, label %233
+  br i1 %.not850, label %.thread1071, label %233
 
 233:                                              ; preds = %Py_DECREF.exit968
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 1720
@@ -37938,14 +37938,14 @@ Py_DECREF.exit968:                                ; preds = %224, %226, %229
   %245 = load ptr, ptr %244, align 8, !tbaa !191
   %246 = tail call ptr @PyType_GenericNew(ptr noundef %245, ptr noundef null, ptr noundef null) #8
   %.not844 = icmp eq ptr %246, null
-  br i1 %.not844, label %.thread1073, label %247
+  br i1 %.not844, label %.thread1071, label %247
 
 247:                                              ; preds = %243
   %248 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %249 = load ptr, ptr %248, align 8, !tbaa !9
   %250 = tail call fastcc ptr @ast2obj_list(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %249, ptr noundef nonnull @ast2obj_expr)
   %.not845 = icmp eq ptr %250, null
-  br i1 %.not845, label %.thread1073, label %251
+  br i1 %.not845, label %.thread1071, label %251
 
 251:                                              ; preds = %247
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 1528
@@ -37974,7 +37974,7 @@ Py_DECREF.exit964:                                ; preds = %256, %258, %261
   %263 = load ptr, ptr %262, align 8, !tbaa !9
   %264 = tail call fastcc ptr @ast2obj_list(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %263, ptr noundef nonnull @ast2obj_expr)
   %.not846 = icmp eq ptr %264, null
-  br i1 %.not846, label %.thread1073, label %265
+  br i1 %.not846, label %.thread1071, label %265
 
 265:                                              ; preds = %Py_DECREF.exit964
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 1928
@@ -37999,14 +37999,14 @@ Py_DECREF.exit964:                                ; preds = %256, %258, %261
   %277 = load ptr, ptr %276, align 8, !tbaa !192
   %278 = tail call ptr @PyType_GenericNew(ptr noundef %277, ptr noundef null, ptr noundef null) #8
   %.not842 = icmp eq ptr %278, null
-  br i1 %.not842, label %.thread1073, label %279
+  br i1 %.not842, label %.thread1071, label %279
 
 279:                                              ; preds = %275
   %280 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %281 = load ptr, ptr %280, align 8, !tbaa !9
   %282 = tail call fastcc ptr @ast2obj_list(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %281, ptr noundef nonnull @ast2obj_expr)
   %.not843 = icmp eq ptr %282, null
-  br i1 %.not843, label %.thread1073, label %283
+  br i1 %.not843, label %.thread1071, label %283
 
 283:                                              ; preds = %279
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 1376
@@ -38031,14 +38031,14 @@ Py_DECREF.exit964:                                ; preds = %256, %258, %261
   %295 = load ptr, ptr %294, align 8, !tbaa !193
   %296 = tail call ptr @PyType_GenericNew(ptr noundef %295, ptr noundef null, ptr noundef null) #8
   %.not839 = icmp eq ptr %296, null
-  br i1 %.not839, label %.thread1073, label %297
+  br i1 %.not839, label %.thread1071, label %297
 
 297:                                              ; preds = %293
   %298 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %299 = load ptr, ptr %298, align 8, !tbaa !9
   %300 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %299)
   %.not840 = icmp eq ptr %300, null
-  br i1 %.not840, label %.thread1073, label %301
+  br i1 %.not840, label %.thread1071, label %301
 
 301:                                              ; preds = %297
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 1368
@@ -38067,7 +38067,7 @@ Py_DECREF.exit958:                                ; preds = %306, %308, %311
   %313 = load ptr, ptr %312, align 8, !tbaa !9
   %314 = tail call fastcc ptr @ast2obj_list(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %313, ptr noundef nonnull @ast2obj_comprehension)
   %.not841 = icmp eq ptr %314, null
-  br i1 %.not841, label %.thread1073, label %315
+  br i1 %.not841, label %.thread1071, label %315
 
 315:                                              ; preds = %Py_DECREF.exit958
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 1456
@@ -38092,14 +38092,14 @@ Py_DECREF.exit958:                                ; preds = %306, %308, %311
   %327 = load ptr, ptr %326, align 8, !tbaa !194
   %328 = tail call ptr @PyType_GenericNew(ptr noundef %327, ptr noundef null, ptr noundef null) #8
   %.not836 = icmp eq ptr %328, null
-  br i1 %.not836, label %.thread1073, label %329
+  br i1 %.not836, label %.thread1071, label %329
 
 329:                                              ; preds = %325
   %330 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %331 = load ptr, ptr %330, align 8, !tbaa !9
   %332 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %331)
   %.not837 = icmp eq ptr %332, null
-  br i1 %.not837, label %.thread1073, label %333
+  br i1 %.not837, label %.thread1071, label %333
 
 333:                                              ; preds = %329
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 1368
@@ -38128,7 +38128,7 @@ Py_DECREF.exit954:                                ; preds = %338, %340, %343
   %345 = load ptr, ptr %344, align 8, !tbaa !9
   %346 = tail call fastcc ptr @ast2obj_list(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %345, ptr noundef nonnull @ast2obj_comprehension)
   %.not838 = icmp eq ptr %346, null
-  br i1 %.not838, label %.thread1073, label %347
+  br i1 %.not838, label %.thread1071, label %347
 
 347:                                              ; preds = %Py_DECREF.exit954
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 1456
@@ -38153,14 +38153,14 @@ Py_DECREF.exit954:                                ; preds = %338, %340, %343
   %359 = load ptr, ptr %358, align 8, !tbaa !195
   %360 = tail call ptr @PyType_GenericNew(ptr noundef %359, ptr noundef null, ptr noundef null) #8
   %.not832 = icmp eq ptr %360, null
-  br i1 %.not832, label %.thread1073, label %361
+  br i1 %.not832, label %.thread1071, label %361
 
 361:                                              ; preds = %357
   %362 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %363 = load ptr, ptr %362, align 8, !tbaa !9
   %364 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %363)
   %.not833 = icmp eq ptr %364, null
-  br i1 %.not833, label %.thread1073, label %365
+  br i1 %.not833, label %.thread1071, label %365
 
 365:                                              ; preds = %361
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 1520
@@ -38189,7 +38189,7 @@ Py_DECREF.exit950:                                ; preds = %370, %372, %375
   %377 = load ptr, ptr %376, align 8, !tbaa !9
   %378 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %377)
   %.not834 = icmp eq ptr %378, null
-  br i1 %.not834, label %.thread1073, label %379
+  br i1 %.not834, label %.thread1071, label %379
 
 379:                                              ; preds = %Py_DECREF.exit950
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 1920
@@ -38218,7 +38218,7 @@ Py_DECREF.exit948:                                ; preds = %384, %386, %389
   %391 = load ptr, ptr %390, align 8, !tbaa !9
   %392 = tail call fastcc ptr @ast2obj_list(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %391, ptr noundef nonnull @ast2obj_comprehension)
   %.not835 = icmp eq ptr %392, null
-  br i1 %.not835, label %.thread1073, label %393
+  br i1 %.not835, label %.thread1071, label %393
 
 393:                                              ; preds = %Py_DECREF.exit948
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 1456
@@ -38243,14 +38243,14 @@ Py_DECREF.exit948:                                ; preds = %384, %386, %389
   %405 = load ptr, ptr %404, align 8, !tbaa !196
   %406 = tail call ptr @PyType_GenericNew(ptr noundef %405, ptr noundef null, ptr noundef null) #8
   %.not829 = icmp eq ptr %406, null
-  br i1 %.not829, label %.thread1073, label %407
+  br i1 %.not829, label %.thread1071, label %407
 
 407:                                              ; preds = %403
   %408 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %409 = load ptr, ptr %408, align 8, !tbaa !9
   %410 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %409)
   %.not830 = icmp eq ptr %410, null
-  br i1 %.not830, label %.thread1073, label %411
+  br i1 %.not830, label %.thread1071, label %411
 
 411:                                              ; preds = %407
   %412 = getelementptr inbounds nuw i8, ptr %0, i64 1368
@@ -38279,7 +38279,7 @@ Py_DECREF.exit944:                                ; preds = %416, %418, %421
   %423 = load ptr, ptr %422, align 8, !tbaa !9
   %424 = tail call fastcc ptr @ast2obj_list(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %423, ptr noundef nonnull @ast2obj_comprehension)
   %.not831 = icmp eq ptr %424, null
-  br i1 %.not831, label %.thread1073, label %425
+  br i1 %.not831, label %.thread1071, label %425
 
 425:                                              ; preds = %Py_DECREF.exit944
   %426 = getelementptr inbounds nuw i8, ptr %0, i64 1456
@@ -38304,14 +38304,14 @@ Py_DECREF.exit944:                                ; preds = %416, %418, %421
   %437 = load ptr, ptr %436, align 8, !tbaa !197
   %438 = tail call ptr @PyType_GenericNew(ptr noundef %437, ptr noundef null, ptr noundef null) #8
   %.not827 = icmp eq ptr %438, null
-  br i1 %.not827, label %.thread1073, label %439
+  br i1 %.not827, label %.thread1071, label %439
 
 439:                                              ; preds = %435
   %440 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %441 = load ptr, ptr %440, align 8, !tbaa !9
   %442 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %441)
   %.not828 = icmp eq ptr %442, null
-  br i1 %.not828, label %.thread1073, label %443
+  br i1 %.not828, label %.thread1071, label %443
 
 443:                                              ; preds = %439
   %444 = getelementptr inbounds nuw i8, ptr %0, i64 1920
@@ -38336,14 +38336,14 @@ Py_DECREF.exit944:                                ; preds = %416, %418, %421
   %455 = load ptr, ptr %454, align 8, !tbaa !198
   %456 = tail call ptr @PyType_GenericNew(ptr noundef %455, ptr noundef null, ptr noundef null) #8
   %.not825 = icmp eq ptr %456, null
-  br i1 %.not825, label %.thread1073, label %457
+  br i1 %.not825, label %.thread1071, label %457
 
 457:                                              ; preds = %453
   %458 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %459 = load ptr, ptr %458, align 8, !tbaa !9
   %460 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %459)
   %.not826 = icmp eq ptr %460, null
-  br i1 %.not826, label %.thread1073, label %461
+  br i1 %.not826, label %.thread1071, label %461
 
 461:                                              ; preds = %457
   %462 = getelementptr inbounds nuw i8, ptr %0, i64 1920
@@ -38368,14 +38368,14 @@ Py_DECREF.exit944:                                ; preds = %416, %418, %421
   %473 = load ptr, ptr %472, align 8, !tbaa !199
   %474 = tail call ptr @PyType_GenericNew(ptr noundef %473, ptr noundef null, ptr noundef null) #8
   %.not823 = icmp eq ptr %474, null
-  br i1 %.not823, label %.thread1073, label %475
+  br i1 %.not823, label %.thread1071, label %475
 
 475:                                              ; preds = %471
   %476 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %477 = load ptr, ptr %476, align 8, !tbaa !9
   %478 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %477)
   %.not824 = icmp eq ptr %478, null
-  br i1 %.not824, label %.thread1073, label %479
+  br i1 %.not824, label %.thread1071, label %479
 
 479:                                              ; preds = %475
   %480 = getelementptr inbounds nuw i8, ptr %0, i64 1920
@@ -38400,14 +38400,14 @@ Py_DECREF.exit944:                                ; preds = %416, %418, %421
   %491 = load ptr, ptr %490, align 8, !tbaa !200
   %492 = tail call ptr @PyType_GenericNew(ptr noundef %491, ptr noundef null, ptr noundef null) #8
   %.not819 = icmp eq ptr %492, null
-  br i1 %.not819, label %.thread1073, label %493
+  br i1 %.not819, label %.thread1071, label %493
 
 493:                                              ; preds = %489
   %494 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %495 = load ptr, ptr %494, align 8, !tbaa !9
   %496 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %495)
   %.not820 = icmp eq ptr %496, null
-  br i1 %.not820, label %.thread1073, label %497
+  br i1 %.not820, label %.thread1071, label %497
 
 497:                                              ; preds = %493
   %498 = getelementptr inbounds nuw i8, ptr %0, i64 1600
@@ -38441,12 +38441,12 @@ Py_DECREF.exit934:                                ; preds = %502, %504, %507
   %512 = load i64, ptr %509, align 8, !tbaa !14
   %513 = tail call ptr @PyList_New(i64 noundef %512) #8
   %.not821 = icmp eq ptr %513, null
-  br i1 %.not821, label %.thread1073, label %.preheader
+  br i1 %.not821, label %.thread1071, label %.preheader
 
 .thread:                                          ; preds = %Py_DECREF.exit934
   %514 = tail call ptr @PyList_New(i64 noundef 0) #8
-  %.not8211079 = icmp eq ptr %514, null
-  br i1 %.not8211079, label %.thread1073, label %._crit_edge
+  %.not8211245 = icmp eq ptr %514, null
+  br i1 %.not8211245, label %.thread1071, label %._crit_edge
 
 .preheader:                                       ; preds = %511
   %515 = icmp sgt i64 %512, 0
@@ -38467,10 +38467,10 @@ Py_DECREF.exit934:                                ; preds = %502, %504, %507
   br label %527
 
 527:                                              ; preds = %.lr.ph, %ast2obj_cmpop.exit
-  %.05981078 = phi i64 [ 0, %.lr.ph ], [ %575, %ast2obj_cmpop.exit ]
+  %.05981076 = phi i64 [ 0, %.lr.ph ], [ %575, %ast2obj_cmpop.exit ]
   %528 = load ptr, ptr %508, align 8, !tbaa !9
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 16
-  %530 = getelementptr [1 x i32], ptr %529, i64 0, i64 %.05981078
+  %530 = getelementptr [1 x i32], ptr %529, i64 0, i64 %.05981076
   %531 = load i32, ptr %530, align 4, !tbaa !402
   switch i32 %531, label %572 [
     i32 1, label %532
@@ -38549,18 +38549,18 @@ Py_DECREF.exit934:                                ; preds = %502, %504, %507
   unreachable
 
 _Py_NewRef.exit.sink.split.i1054:                 ; preds = %568, %564, %560, %556, %552, %548, %544, %540, %536, %532
-  %.sink2.i1055 = phi i32 [ %534, %532 ], [ %538, %536 ], [ %542, %540 ], [ %546, %544 ], [ %550, %548 ], [ %554, %552 ], [ %558, %556 ], [ %562, %560 ], [ %566, %564 ], [ %570, %568 ]
-  %.sink1.i1056 = phi ptr [ %533, %532 ], [ %537, %536 ], [ %541, %540 ], [ %545, %544 ], [ %549, %548 ], [ %553, %552 ], [ %557, %556 ], [ %561, %560 ], [ %565, %564 ], [ %569, %568 ]
-  %573 = add nuw i32 %.sink2.i1055, 1
-  store i32 %573, ptr %.sink1.i1056, align 8, !tbaa !9
+  %.sink12.i = phi i32 [ %534, %532 ], [ %538, %536 ], [ %542, %540 ], [ %546, %544 ], [ %550, %548 ], [ %554, %552 ], [ %558, %556 ], [ %562, %560 ], [ %566, %564 ], [ %570, %568 ]
+  %.sink11.i = phi ptr [ %533, %532 ], [ %537, %536 ], [ %541, %540 ], [ %545, %544 ], [ %549, %548 ], [ %553, %552 ], [ %557, %556 ], [ %561, %560 ], [ %565, %564 ], [ %569, %568 ]
+  %573 = add nuw i32 %.sink12.i, 1
+  store i32 %573, ptr %.sink11.i, align 8, !tbaa !9
   br label %ast2obj_cmpop.exit
 
 ast2obj_cmpop.exit:                               ; preds = %532, %536, %540, %544, %548, %552, %556, %560, %564, %568, %_Py_NewRef.exit.sink.split.i1054
-  %.0.i1057 = phi ptr [ %533, %532 ], [ %537, %536 ], [ %541, %540 ], [ %545, %544 ], [ %549, %548 ], [ %553, %552 ], [ %557, %556 ], [ %561, %560 ], [ %565, %564 ], [ %569, %568 ], [ %.sink1.i1056, %_Py_NewRef.exit.sink.split.i1054 ]
+  %.0.i1055 = phi ptr [ %533, %532 ], [ %537, %536 ], [ %541, %540 ], [ %545, %544 ], [ %549, %548 ], [ %553, %552 ], [ %557, %556 ], [ %561, %560 ], [ %565, %564 ], [ %569, %568 ], [ %.sink11.i, %_Py_NewRef.exit.sink.split.i1054 ]
   %.val = load ptr, ptr %526, align 8, !tbaa !117
-  %574 = getelementptr ptr, ptr %.val, i64 %.05981078
-  store ptr %.0.i1057, ptr %574, align 8, !tbaa !4
-  %575 = add nuw nsw i64 %.05981078, 1
+  %574 = getelementptr ptr, ptr %.val, i64 %.05981076
+  store ptr %.0.i1055, ptr %574, align 8, !tbaa !4
+  %575 = add nuw nsw i64 %.05981076, 1
   %exitcond.not = icmp eq i64 %575, %512
   br i1 %exitcond.not, label %._crit_edge, label %527, !llvm.loop !403
 
@@ -38592,7 +38592,7 @@ Py_DECREF.exit932:                                ; preds = %581, %583, %586
   %588 = load ptr, ptr %587, align 8, !tbaa !9
   %589 = tail call fastcc ptr @ast2obj_list(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %588, ptr noundef nonnull @ast2obj_expr)
   %.not822 = icmp eq ptr %589, null
-  br i1 %.not822, label %.thread1073, label %590
+  br i1 %.not822, label %.thread1071, label %590
 
 590:                                              ; preds = %Py_DECREF.exit932
   %591 = getelementptr inbounds nuw i8, ptr %0, i64 1304
@@ -38617,14 +38617,14 @@ Py_DECREF.exit932:                                ; preds = %581, %583, %586
   %602 = load ptr, ptr %601, align 8, !tbaa !201
   %603 = tail call ptr @PyType_GenericNew(ptr noundef %602, ptr noundef null, ptr noundef null) #8
   %.not815 = icmp eq ptr %603, null
-  br i1 %.not815, label %.thread1073, label %604
+  br i1 %.not815, label %.thread1071, label %604
 
 604:                                              ; preds = %600
   %605 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %606 = load ptr, ptr %605, align 8, !tbaa !9
   %607 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %606)
   %.not816 = icmp eq ptr %607, null
-  br i1 %.not816, label %.thread1073, label %608
+  br i1 %.not816, label %.thread1071, label %608
 
 608:                                              ; preds = %604
   %609 = getelementptr inbounds nuw i8, ptr %0, i64 1448
@@ -38653,7 +38653,7 @@ Py_DECREF.exit928:                                ; preds = %613, %615, %618
   %620 = load ptr, ptr %619, align 8, !tbaa !9
   %621 = tail call fastcc ptr @ast2obj_list(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %620, ptr noundef nonnull @ast2obj_expr)
   %.not817 = icmp eq ptr %621, null
-  br i1 %.not817, label %.thread1073, label %622
+  br i1 %.not817, label %.thread1071, label %622
 
 622:                                              ; preds = %Py_DECREF.exit928
   %623 = getelementptr inbounds nuw i8, ptr %0, i64 1184
@@ -38682,7 +38682,7 @@ Py_DECREF.exit926:                                ; preds = %627, %629, %632
   %634 = load ptr, ptr %633, align 8, !tbaa !9
   %635 = tail call fastcc ptr @ast2obj_list(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %634, ptr noundef nonnull @ast2obj_keyword)
   %.not818 = icmp eq ptr %635, null
-  br i1 %.not818, label %.thread1073, label %636
+  br i1 %.not818, label %.thread1071, label %636
 
 636:                                              ; preds = %Py_DECREF.exit926
   %637 = getelementptr inbounds nuw i8, ptr %0, i64 1544
@@ -38707,14 +38707,14 @@ Py_DECREF.exit926:                                ; preds = %627, %629, %632
   %648 = load ptr, ptr %647, align 8, !tbaa !202
   %649 = tail call ptr @PyType_GenericNew(ptr noundef %648, ptr noundef null, ptr noundef null) #8
   %.not811 = icmp eq ptr %649, null
-  br i1 %.not811, label %.thread1073, label %650
+  br i1 %.not811, label %.thread1071, label %650
 
 650:                                              ; preds = %646
   %651 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %652 = load ptr, ptr %651, align 8, !tbaa !9
   %653 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %652)
   %.not812 = icmp eq ptr %653, null
-  br i1 %.not812, label %.thread1073, label %654
+  br i1 %.not812, label %.thread1071, label %654
 
 654:                                              ; preds = %650
   %655 = getelementptr inbounds nuw i8, ptr %0, i64 1920
@@ -38744,7 +38744,7 @@ Py_DECREF.exit922:                                ; preds = %659, %661, %664
   %667 = sext i32 %666 to i64
   %668 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %667) #8
   %.not813 = icmp eq ptr %668, null
-  br i1 %.not813, label %.thread1073, label %669
+  br i1 %.not813, label %.thread1071, label %669
 
 669:                                              ; preds = %Py_DECREF.exit922
   %670 = getelementptr inbounds nuw i8, ptr %0, i64 1328
@@ -38773,7 +38773,7 @@ Py_DECREF.exit920:                                ; preds = %674, %676, %679
   %681 = load ptr, ptr %680, align 8, !tbaa !9
   %682 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %681)
   %.not814 = icmp eq ptr %682, null
-  br i1 %.not814, label %.thread1073, label %683
+  br i1 %.not814, label %.thread1071, label %683
 
 683:                                              ; preds = %Py_DECREF.exit920
   %684 = getelementptr inbounds nuw i8, ptr %0, i64 1440
@@ -38798,14 +38798,14 @@ Py_DECREF.exit920:                                ; preds = %674, %676, %679
   %695 = load ptr, ptr %694, align 8, !tbaa !203
   %696 = tail call ptr @PyType_GenericNew(ptr noundef %695, ptr noundef null, ptr noundef null) #8
   %.not809 = icmp eq ptr %696, null
-  br i1 %.not809, label %.thread1073, label %697
+  br i1 %.not809, label %.thread1071, label %697
 
 697:                                              ; preds = %693
   %698 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %699 = load ptr, ptr %698, align 8, !tbaa !9
   %700 = tail call fastcc ptr @ast2obj_list(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %699, ptr noundef nonnull @ast2obj_expr)
   %.not810 = icmp eq ptr %700, null
-  br i1 %.not810, label %.thread1073, label %701
+  br i1 %.not810, label %.thread1071, label %701
 
 701:                                              ; preds = %697
   %702 = getelementptr inbounds nuw i8, ptr %0, i64 1928
@@ -38830,13 +38830,13 @@ Py_DECREF.exit920:                                ; preds = %674, %676, %679
   %713 = load ptr, ptr %712, align 8, !tbaa !204
   %714 = tail call ptr @PyType_GenericNew(ptr noundef %713, ptr noundef null, ptr noundef null) #8
   %.not806 = icmp eq ptr %714, null
-  br i1 %.not806, label %.thread1073, label %715
+  br i1 %.not806, label %.thread1071, label %715
 
 715:                                              ; preds = %711
   %716 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %717 = load ptr, ptr %716, align 8, !tbaa !9
-  %.not.i1058 = icmp eq ptr %717, null
-  %spec.store.select.i = select i1 %.not.i1058, ptr @_Py_NoneStruct, ptr %717
+  %.not.i1056 = icmp eq ptr %717, null
+  %spec.store.select.i = select i1 %.not.i1056, ptr @_Py_NoneStruct, ptr %717
   %718 = load i32, ptr %spec.store.select.i, align 8, !tbaa !9
   %719 = icmp slt i32 %718, 0
   br i1 %719, label %ast2obj_object.exit, label %720
@@ -38871,32 +38871,32 @@ ast2obj_object.exit:                              ; preds = %720, %715
 Py_DECREF.exit914:                                ; preds = %726, %728, %731
   %732 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %733 = load ptr, ptr %732, align 8, !tbaa !9
-  %.not.i1059 = icmp eq ptr %733, null
-  %spec.store.select.i1060 = select i1 %.not.i1059, ptr @_Py_NoneStruct, ptr %733
-  %734 = load i32, ptr %spec.store.select.i1060, align 8, !tbaa !9
+  %.not.i1057 = icmp eq ptr %733, null
+  %spec.store.select.i1058 = select i1 %.not.i1057, ptr @_Py_NoneStruct, ptr %733
+  %734 = load i32, ptr %spec.store.select.i1058, align 8, !tbaa !9
   %735 = icmp slt i32 %734, 0
-  br i1 %735, label %ast2obj_object.exit1061, label %736
+  br i1 %735, label %ast2obj_object.exit1059, label %736
 
 736:                                              ; preds = %Py_DECREF.exit914
   %737 = add nuw i32 %734, 1
-  store i32 %737, ptr %spec.store.select.i1060, align 8, !tbaa !9
-  br label %ast2obj_object.exit1061
+  store i32 %737, ptr %spec.store.select.i1058, align 8, !tbaa !9
+  br label %ast2obj_object.exit1059
 
-ast2obj_object.exit1061:                          ; preds = %736, %Py_DECREF.exit914
+ast2obj_object.exit1059:                          ; preds = %736, %Py_DECREF.exit914
   %738 = getelementptr inbounds nuw i8, ptr %0, i64 1552
   %739 = load ptr, ptr %738, align 8, !tbaa !316
-  %740 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %714, ptr noundef %739, ptr noundef nonnull %spec.store.select.i1060) #8
+  %740 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %714, ptr noundef %739, ptr noundef nonnull %spec.store.select.i1058) #8
   %741 = icmp eq i32 %740, -1
   br i1 %741, label %1081, label %742
 
-742:                                              ; preds = %ast2obj_object.exit1061
-  %743 = load i32, ptr %spec.store.select.i1060, align 8, !tbaa !9
+742:                                              ; preds = %ast2obj_object.exit1059
+  %743 = load i32, ptr %spec.store.select.i1058, align 8, !tbaa !9
   %.not.i911 = icmp sgt i32 %743, -1
   br i1 %.not.i911, label %744, label %Py_DECREF.exit990
 
 744:                                              ; preds = %742
   %745 = add nsw i32 %743, -1
-  store i32 %745, ptr %spec.store.select.i1060, align 8, !tbaa !9
+  store i32 %745, ptr %spec.store.select.i1058, align 8, !tbaa !9
   %746 = icmp eq i32 %745, 0
   br i1 %746, label %Py_DECREF.exit990.sink.split, label %Py_DECREF.exit990
 
@@ -38905,14 +38905,14 @@ ast2obj_object.exit1061:                          ; preds = %736, %Py_DECREF.exi
   %749 = load ptr, ptr %748, align 8, !tbaa !205
   %750 = tail call ptr @PyType_GenericNew(ptr noundef %749, ptr noundef null, ptr noundef null) #8
   %.not802 = icmp eq ptr %750, null
-  br i1 %.not802, label %.thread1073, label %751
+  br i1 %.not802, label %.thread1071, label %751
 
 751:                                              ; preds = %747
   %752 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %753 = load ptr, ptr %752, align 8, !tbaa !9
   %754 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %753)
   %.not803 = icmp eq ptr %754, null
-  br i1 %.not803, label %.thread1073, label %755
+  br i1 %.not803, label %.thread1071, label %755
 
 755:                                              ; preds = %751
   %756 = getelementptr inbounds nuw i8, ptr %0, i64 1920
@@ -38939,37 +38939,37 @@ ast2obj_object.exit1061:                          ; preds = %736, %Py_DECREF.exi
 Py_DECREF.exit910:                                ; preds = %760, %762, %765
   %766 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %767 = load ptr, ptr %766, align 8, !tbaa !9
-  %.not.i1062 = icmp eq ptr %767, null
-  %spec.store.select.i1063 = select i1 %.not.i1062, ptr @_Py_NoneStruct, ptr %767
-  %768 = load i32, ptr %spec.store.select.i1063, align 8, !tbaa !9
+  %.not.i1060 = icmp eq ptr %767, null
+  %spec.store.select.i1061 = select i1 %.not.i1060, ptr @_Py_NoneStruct, ptr %767
+  %768 = load i32, ptr %spec.store.select.i1061, align 8, !tbaa !9
   %769 = icmp slt i32 %768, 0
-  br i1 %769, label %ast2obj_object.exit1064, label %770
+  br i1 %769, label %ast2obj_object.exit1062, label %770
 
 770:                                              ; preds = %Py_DECREF.exit910
   %771 = add nuw i32 %768, 1
-  store i32 %771, ptr %spec.store.select.i1063, align 8, !tbaa !9
-  br label %ast2obj_object.exit1064
+  store i32 %771, ptr %spec.store.select.i1061, align 8, !tbaa !9
+  br label %ast2obj_object.exit1062
 
-ast2obj_object.exit1064:                          ; preds = %770, %Py_DECREF.exit910
+ast2obj_object.exit1062:                          ; preds = %770, %Py_DECREF.exit910
   %772 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %773 = load ptr, ptr %772, align 8, !tbaa !283
-  %774 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %750, ptr noundef %773, ptr noundef nonnull %spec.store.select.i1063) #8
+  %774 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %750, ptr noundef %773, ptr noundef nonnull %spec.store.select.i1061) #8
   %775 = icmp eq i32 %774, -1
   br i1 %775, label %1081, label %776
 
-776:                                              ; preds = %ast2obj_object.exit1064
-  %777 = load i32, ptr %spec.store.select.i1063, align 8, !tbaa !9
+776:                                              ; preds = %ast2obj_object.exit1062
+  %777 = load i32, ptr %spec.store.select.i1061, align 8, !tbaa !9
   %.not.i907 = icmp sgt i32 %777, -1
   br i1 %.not.i907, label %778, label %Py_DECREF.exit908
 
 778:                                              ; preds = %776
   %779 = add nsw i32 %777, -1
-  store i32 %779, ptr %spec.store.select.i1063, align 8, !tbaa !9
+  store i32 %779, ptr %spec.store.select.i1061, align 8, !tbaa !9
   %780 = icmp eq i32 %779, 0
   br i1 %780, label %781, label %Py_DECREF.exit908
 
 781:                                              ; preds = %778
-  tail call void @_Py_Dealloc(ptr noundef nonnull %spec.store.select.i1063) #8
+  tail call void @_Py_Dealloc(ptr noundef nonnull %spec.store.select.i1061) #8
   br label %Py_DECREF.exit908
 
 Py_DECREF.exit908:                                ; preds = %776, %778, %781
@@ -38977,7 +38977,7 @@ Py_DECREF.exit908:                                ; preds = %776, %778, %781
   %783 = load i32, ptr %782, align 8, !tbaa !9
   %784 = tail call fastcc ptr @ast2obj_expr_context(ptr noundef nonnull %0, i32 noundef %783)
   %.not805 = icmp eq ptr %784, null
-  br i1 %.not805, label %.thread1073, label %785
+  br i1 %.not805, label %.thread1071, label %785
 
 785:                                              ; preds = %Py_DECREF.exit908
   %786 = getelementptr inbounds nuw i8, ptr %0, i64 1336
@@ -39002,14 +39002,14 @@ Py_DECREF.exit908:                                ; preds = %776, %778, %781
   %797 = load ptr, ptr %796, align 8, !tbaa !206
   %798 = tail call ptr @PyType_GenericNew(ptr noundef %797, ptr noundef null, ptr noundef null) #8
   %.not798 = icmp eq ptr %798, null
-  br i1 %.not798, label %.thread1073, label %799
+  br i1 %.not798, label %.thread1071, label %799
 
 799:                                              ; preds = %795
   %800 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %801 = load ptr, ptr %800, align 8, !tbaa !9
   %802 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %801)
   %.not799 = icmp eq ptr %802, null
-  br i1 %.not799, label %.thread1073, label %803
+  br i1 %.not799, label %.thread1071, label %803
 
 803:                                              ; preds = %799
   %804 = getelementptr inbounds nuw i8, ptr %0, i64 1920
@@ -39038,7 +39038,7 @@ Py_DECREF.exit904:                                ; preds = %808, %810, %813
   %815 = load ptr, ptr %814, align 8, !tbaa !9
   %816 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %815)
   %.not800 = icmp eq ptr %816, null
-  br i1 %.not800, label %.thread1073, label %817
+  br i1 %.not800, label %.thread1071, label %817
 
 817:                                              ; preds = %Py_DECREF.exit904
   %818 = getelementptr inbounds nuw i8, ptr %0, i64 1792
@@ -39067,7 +39067,7 @@ Py_DECREF.exit902:                                ; preds = %822, %824, %827
   %829 = load i32, ptr %828, align 8, !tbaa !9
   %830 = tail call fastcc ptr @ast2obj_expr_context(ptr noundef nonnull %0, i32 noundef %829)
   %.not801 = icmp eq ptr %830, null
-  br i1 %.not801, label %.thread1073, label %831
+  br i1 %.not801, label %.thread1071, label %831
 
 831:                                              ; preds = %Py_DECREF.exit902
   %832 = getelementptr inbounds nuw i8, ptr %0, i64 1336
@@ -39092,14 +39092,14 @@ Py_DECREF.exit902:                                ; preds = %822, %824, %827
   %843 = load ptr, ptr %842, align 8, !tbaa !207
   %844 = tail call ptr @PyType_GenericNew(ptr noundef %843, ptr noundef null, ptr noundef null) #8
   %.not795 = icmp eq ptr %844, null
-  br i1 %.not795, label %.thread1073, label %845
+  br i1 %.not795, label %.thread1071, label %845
 
 845:                                              ; preds = %841
   %846 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %847 = load ptr, ptr %846, align 8, !tbaa !9
   %848 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %847)
   %.not796 = icmp eq ptr %848, null
-  br i1 %.not796, label %.thread1073, label %849
+  br i1 %.not796, label %.thread1071, label %849
 
 849:                                              ; preds = %845
   %850 = getelementptr inbounds nuw i8, ptr %0, i64 1920
@@ -39128,7 +39128,7 @@ Py_DECREF.exit898:                                ; preds = %854, %856, %859
   %861 = load i32, ptr %860, align 8, !tbaa !9
   %862 = tail call fastcc ptr @ast2obj_expr_context(ptr noundef nonnull %0, i32 noundef %861)
   %.not797 = icmp eq ptr %862, null
-  br i1 %.not797, label %.thread1073, label %863
+  br i1 %.not797, label %.thread1071, label %863
 
 863:                                              ; preds = %Py_DECREF.exit898
   %864 = getelementptr inbounds nuw i8, ptr %0, i64 1336
@@ -39153,42 +39153,42 @@ Py_DECREF.exit898:                                ; preds = %854, %856, %859
   %875 = load ptr, ptr %874, align 8, !tbaa !208
   %876 = tail call ptr @PyType_GenericNew(ptr noundef %875, ptr noundef null, ptr noundef null) #8
   %.not792 = icmp eq ptr %876, null
-  br i1 %.not792, label %.thread1073, label %877
+  br i1 %.not792, label %.thread1071, label %877
 
 877:                                              ; preds = %873
   %878 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %879 = load ptr, ptr %878, align 8, !tbaa !9
-  %.not.i1065 = icmp eq ptr %879, null
-  %spec.store.select.i1066 = select i1 %.not.i1065, ptr @_Py_NoneStruct, ptr %879
-  %880 = load i32, ptr %spec.store.select.i1066, align 8, !tbaa !9
+  %.not.i1063 = icmp eq ptr %879, null
+  %spec.store.select.i1064 = select i1 %.not.i1063, ptr @_Py_NoneStruct, ptr %879
+  %880 = load i32, ptr %spec.store.select.i1064, align 8, !tbaa !9
   %881 = icmp slt i32 %880, 0
-  br i1 %881, label %ast2obj_object.exit1067, label %882
+  br i1 %881, label %ast2obj_object.exit1065, label %882
 
 882:                                              ; preds = %877
   %883 = add nuw i32 %880, 1
-  store i32 %883, ptr %spec.store.select.i1066, align 8, !tbaa !9
-  br label %ast2obj_object.exit1067
+  store i32 %883, ptr %spec.store.select.i1064, align 8, !tbaa !9
+  br label %ast2obj_object.exit1065
 
-ast2obj_object.exit1067:                          ; preds = %882, %877
+ast2obj_object.exit1065:                          ; preds = %882, %877
   %884 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %885 = load ptr, ptr %884, align 8, !tbaa !308
-  %886 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %876, ptr noundef %885, ptr noundef nonnull %spec.store.select.i1066) #8
+  %886 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %876, ptr noundef %885, ptr noundef nonnull %spec.store.select.i1064) #8
   %887 = icmp eq i32 %886, -1
   br i1 %887, label %1081, label %888
 
-888:                                              ; preds = %ast2obj_object.exit1067
-  %889 = load i32, ptr %spec.store.select.i1066, align 8, !tbaa !9
+888:                                              ; preds = %ast2obj_object.exit1065
+  %889 = load i32, ptr %spec.store.select.i1064, align 8, !tbaa !9
   %.not.i893 = icmp sgt i32 %889, -1
   br i1 %.not.i893, label %890, label %Py_DECREF.exit894
 
 890:                                              ; preds = %888
   %891 = add nsw i32 %889, -1
-  store i32 %891, ptr %spec.store.select.i1066, align 8, !tbaa !9
+  store i32 %891, ptr %spec.store.select.i1064, align 8, !tbaa !9
   %892 = icmp eq i32 %891, 0
   br i1 %892, label %893, label %Py_DECREF.exit894
 
 893:                                              ; preds = %890
-  tail call void @_Py_Dealloc(ptr noundef nonnull %spec.store.select.i1066) #8
+  tail call void @_Py_Dealloc(ptr noundef nonnull %spec.store.select.i1064) #8
   br label %Py_DECREF.exit894
 
 Py_DECREF.exit894:                                ; preds = %888, %890, %893
@@ -39196,7 +39196,7 @@ Py_DECREF.exit894:                                ; preds = %888, %890, %893
   %895 = load i32, ptr %894, align 8, !tbaa !9
   %896 = tail call fastcc ptr @ast2obj_expr_context(ptr noundef nonnull %0, i32 noundef %895)
   %.not794 = icmp eq ptr %896, null
-  br i1 %.not794, label %.thread1073, label %897
+  br i1 %.not794, label %.thread1071, label %897
 
 897:                                              ; preds = %Py_DECREF.exit894
   %898 = getelementptr inbounds nuw i8, ptr %0, i64 1336
@@ -39221,14 +39221,14 @@ Py_DECREF.exit894:                                ; preds = %888, %890, %893
   %909 = load ptr, ptr %908, align 8, !tbaa !209
   %910 = tail call ptr @PyType_GenericNew(ptr noundef %909, ptr noundef null, ptr noundef null) #8
   %.not789 = icmp eq ptr %910, null
-  br i1 %.not789, label %.thread1073, label %911
+  br i1 %.not789, label %.thread1071, label %911
 
 911:                                              ; preds = %907
   %912 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %913 = load ptr, ptr %912, align 8, !tbaa !9
   %914 = tail call fastcc ptr @ast2obj_list(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %913, ptr noundef nonnull @ast2obj_expr)
   %.not790 = icmp eq ptr %914, null
-  br i1 %.not790, label %.thread1073, label %915
+  br i1 %.not790, label %.thread1071, label %915
 
 915:                                              ; preds = %911
   %916 = getelementptr inbounds nuw i8, ptr %0, i64 1376
@@ -39257,7 +39257,7 @@ Py_DECREF.exit890:                                ; preds = %920, %922, %925
   %927 = load i32, ptr %926, align 8, !tbaa !9
   %928 = tail call fastcc ptr @ast2obj_expr_context(ptr noundef nonnull %0, i32 noundef %927)
   %.not791 = icmp eq ptr %928, null
-  br i1 %.not791, label %.thread1073, label %929
+  br i1 %.not791, label %.thread1071, label %929
 
 929:                                              ; preds = %Py_DECREF.exit890
   %930 = getelementptr inbounds nuw i8, ptr %0, i64 1336
@@ -39282,14 +39282,14 @@ Py_DECREF.exit890:                                ; preds = %920, %922, %925
   %941 = load ptr, ptr %940, align 8, !tbaa !210
   %942 = tail call ptr @PyType_GenericNew(ptr noundef %941, ptr noundef null, ptr noundef null) #8
   %.not786 = icmp eq ptr %942, null
-  br i1 %.not786, label %.thread1073, label %943
+  br i1 %.not786, label %.thread1071, label %943
 
 943:                                              ; preds = %939
   %944 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %945 = load ptr, ptr %944, align 8, !tbaa !9
   %946 = tail call fastcc ptr @ast2obj_list(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %945, ptr noundef nonnull @ast2obj_expr)
   %.not787 = icmp eq ptr %946, null
-  br i1 %.not787, label %.thread1073, label %947
+  br i1 %.not787, label %.thread1071, label %947
 
 947:                                              ; preds = %943
   %948 = getelementptr inbounds nuw i8, ptr %0, i64 1376
@@ -39318,7 +39318,7 @@ Py_DECREF.exit886:                                ; preds = %952, %954, %957
   %959 = load i32, ptr %958, align 8, !tbaa !9
   %960 = tail call fastcc ptr @ast2obj_expr_context(ptr noundef nonnull %0, i32 noundef %959)
   %.not788 = icmp eq ptr %960, null
-  br i1 %.not788, label %.thread1073, label %961
+  br i1 %.not788, label %.thread1071, label %961
 
 961:                                              ; preds = %Py_DECREF.exit886
   %962 = getelementptr inbounds nuw i8, ptr %0, i64 1336
@@ -39343,14 +39343,14 @@ Py_DECREF.exit886:                                ; preds = %952, %954, %957
   %973 = load ptr, ptr %972, align 8, !tbaa !211
   %974 = tail call ptr @PyType_GenericNew(ptr noundef %973, ptr noundef null, ptr noundef null) #8
   %.not782 = icmp eq ptr %974, null
-  br i1 %.not782, label %.thread1073, label %975
+  br i1 %.not782, label %.thread1071, label %975
 
 975:                                              ; preds = %971
   %976 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %977 = load ptr, ptr %976, align 8, !tbaa !9
   %978 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %977)
   %.not783 = icmp eq ptr %978, null
-  br i1 %.not783, label %.thread1073, label %979
+  br i1 %.not783, label %.thread1071, label %979
 
 979:                                              ; preds = %975
   %980 = getelementptr inbounds nuw i8, ptr %0, i64 1624
@@ -39379,7 +39379,7 @@ Py_DECREF.exit882:                                ; preds = %984, %986, %989
   %991 = load ptr, ptr %990, align 8, !tbaa !9
   %992 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %991)
   %.not784 = icmp eq ptr %992, null
-  br i1 %.not784, label %.thread1073, label %993
+  br i1 %.not784, label %.thread1071, label %993
 
 993:                                              ; preds = %Py_DECREF.exit882
   %994 = getelementptr inbounds nuw i8, ptr %0, i64 1912
@@ -39408,7 +39408,7 @@ Py_DECREF.exit880:                                ; preds = %998, %1000, %1003
   %1005 = load ptr, ptr %1004, align 8, !tbaa !9
   %1006 = tail call ptr @ast2obj_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %1005)
   %.not785 = icmp eq ptr %1006, null
-  br i1 %.not785, label %.thread1073, label %1007
+  br i1 %.not785, label %.thread1071, label %1007
 
 1007:                                             ; preds = %Py_DECREF.exit880
   %1008 = getelementptr inbounds nuw i8, ptr %0, i64 1800
@@ -39429,7 +39429,7 @@ Py_DECREF.exit880:                                ; preds = %998, %1000, %1003
   br i1 %1016, label %Py_DECREF.exit990.sink.split, label %Py_DECREF.exit990
 
 Py_DECREF.exit990.sink.split:                     ; preds = %1014, %968, %936, %904, %870, %838, %792, %744, %708, %690, %643, %597, %486, %468, %450, %432, %400, %354, %322, %290, %272, %240, %194, %162, %130, %84, %52
-  %.sink = phi ptr [ %44, %52 ], [ %76, %84 ], [ %122, %130 ], [ %154, %162 ], [ %186, %194 ], [ %232, %240 ], [ %264, %272 ], [ %282, %290 ], [ %314, %322 ], [ %346, %354 ], [ %392, %400 ], [ %424, %432 ], [ %442, %450 ], [ %460, %468 ], [ %478, %486 ], [ %589, %597 ], [ %635, %643 ], [ %682, %690 ], [ %700, %708 ], [ %spec.store.select.i1060, %744 ], [ %784, %792 ], [ %830, %838 ], [ %862, %870 ], [ %896, %904 ], [ %928, %936 ], [ %960, %968 ], [ %1006, %1014 ]
+  %.sink = phi ptr [ %44, %52 ], [ %76, %84 ], [ %122, %130 ], [ %154, %162 ], [ %186, %194 ], [ %232, %240 ], [ %264, %272 ], [ %282, %290 ], [ %314, %322 ], [ %346, %354 ], [ %392, %400 ], [ %424, %432 ], [ %442, %450 ], [ %460, %468 ], [ %478, %486 ], [ %589, %597 ], [ %635, %643 ], [ %682, %690 ], [ %700, %708 ], [ %spec.store.select.i1058, %744 ], [ %784, %792 ], [ %830, %838 ], [ %862, %870 ], [ %896, %904 ], [ %928, %936 ], [ %960, %968 ], [ %1006, %1014 ]
   %.0601.ph = phi ptr [ %17, %52 ], [ %58, %84 ], [ %90, %130 ], [ %136, %162 ], [ %168, %194 ], [ %200, %240 ], [ %246, %272 ], [ %278, %290 ], [ %296, %322 ], [ %328, %354 ], [ %360, %400 ], [ %406, %432 ], [ %438, %450 ], [ %456, %468 ], [ %474, %486 ], [ %492, %597 ], [ %603, %643 ], [ %649, %690 ], [ %696, %708 ], [ %714, %744 ], [ %750, %792 ], [ %798, %838 ], [ %844, %870 ], [ %876, %904 ], [ %910, %936 ], [ %942, %968 ], [ %974, %1014 ]
   tail call void @_Py_Dealloc(ptr noundef nonnull %.sink) #8
   br label %Py_DECREF.exit990
@@ -39441,7 +39441,7 @@ Py_DECREF.exit990:                                ; preds = %Py_DECREF.exit990.s
   %1019 = sext i32 %1018 to i64
   %1020 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %1019) #8
   %.not867 = icmp eq ptr %1020, null
-  br i1 %.not867, label %.thread1073, label %1021
+  br i1 %.not867, label %.thread1071, label %1021
 
 1021:                                             ; preds = %Py_DECREF.exit990
   %1022 = getelementptr inbounds nuw i8, ptr %0, i64 1616
@@ -39471,7 +39471,7 @@ Py_DECREF.exit876:                                ; preds = %1026, %1028, %1031
   %1034 = sext i32 %1033 to i64
   %1035 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %1034) #8
   %.not868 = icmp eq ptr %1035, null
-  br i1 %.not868, label %.thread1073, label %1036
+  br i1 %.not868, label %.thread1071, label %1036
 
 1036:                                             ; preds = %Py_DECREF.exit876
   %1037 = getelementptr inbounds nuw i8, ptr %0, i64 1296
@@ -39501,7 +39501,7 @@ Py_DECREF.exit874:                                ; preds = %1041, %1043, %1046
   %1049 = sext i32 %1048 to i64
   %1050 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %1049) #8
   %.not869 = icmp eq ptr %1050, null
-  br i1 %.not869, label %.thread1073, label %1051
+  br i1 %.not869, label %.thread1071, label %1051
 
 1051:                                             ; preds = %Py_DECREF.exit874
   %1052 = getelementptr inbounds nuw i8, ptr %0, i64 1392
@@ -39531,7 +39531,7 @@ Py_DECREF.exit872:                                ; preds = %1056, %1058, %1061
   %1064 = sext i32 %1063 to i64
   %1065 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %1064) #8
   %.not870 = icmp eq ptr %1065, null
-  br i1 %.not870, label %.thread1073, label %1066
+  br i1 %.not870, label %.thread1071, label %1066
 
 1066:                                             ; preds = %Py_DECREF.exit872
   %1067 = getelementptr inbounds nuw i8, ptr %0, i64 1384
@@ -39559,18 +39559,18 @@ Py_DECREF.exit:                                   ; preds = %1071, %1073, %1076
   %1077 = load i32, ptr %1, align 4, !tbaa !111
   %1078 = add i32 %1077, -1
   store i32 %1078, ptr %1, align 4, !tbaa !111
-  br label %Py_XDECREF.exit1071
+  br label %Py_XDECREF.exit1069
 
-.thread1073:                                      ; preds = %.thread, %Py_DECREF.exit872, %Py_DECREF.exit874, %Py_DECREF.exit876, %Py_DECREF.exit990, %Py_DECREF.exit992, %14, %Py_DECREF.exit988, %59, %55, %Py_DECREF.exit982, %Py_DECREF.exit984, %91, %87, %Py_DECREF.exit978, %137, %133, %Py_DECREF.exit974, %169, %165, %Py_DECREF.exit968, %Py_DECREF.exit970, %201, %197, %Py_DECREF.exit964, %247, %243, %279, %275, %Py_DECREF.exit958, %297, %293, %Py_DECREF.exit954, %329, %325, %Py_DECREF.exit948, %Py_DECREF.exit950, %361, %357, %Py_DECREF.exit944, %407, %403, %439, %435, %457, %453, %475, %471, %Py_DECREF.exit932, %493, %489, %Py_DECREF.exit926, %Py_DECREF.exit928, %604, %600, %Py_DECREF.exit920, %Py_DECREF.exit922, %650, %646, %697, %693, %711, %Py_DECREF.exit908, %751, %747, %Py_DECREF.exit902, %Py_DECREF.exit904, %799, %795, %Py_DECREF.exit898, %845, %841, %Py_DECREF.exit894, %873, %Py_DECREF.exit890, %911, %907, %Py_DECREF.exit886, %943, %939, %Py_DECREF.exit880, %Py_DECREF.exit882, %975, %971, %511
+.thread1071:                                      ; preds = %.thread, %Py_DECREF.exit872, %Py_DECREF.exit874, %Py_DECREF.exit876, %Py_DECREF.exit990, %Py_DECREF.exit992, %14, %Py_DECREF.exit988, %59, %55, %Py_DECREF.exit982, %Py_DECREF.exit984, %91, %87, %Py_DECREF.exit978, %137, %133, %Py_DECREF.exit974, %169, %165, %Py_DECREF.exit968, %Py_DECREF.exit970, %201, %197, %Py_DECREF.exit964, %247, %243, %279, %275, %Py_DECREF.exit958, %297, %293, %Py_DECREF.exit954, %329, %325, %Py_DECREF.exit948, %Py_DECREF.exit950, %361, %357, %Py_DECREF.exit944, %407, %403, %439, %435, %457, %453, %475, %471, %Py_DECREF.exit932, %493, %489, %Py_DECREF.exit926, %Py_DECREF.exit928, %604, %600, %Py_DECREF.exit920, %Py_DECREF.exit922, %650, %646, %697, %693, %711, %Py_DECREF.exit908, %751, %747, %Py_DECREF.exit902, %Py_DECREF.exit904, %799, %795, %Py_DECREF.exit898, %845, %841, %Py_DECREF.exit894, %873, %Py_DECREF.exit890, %911, %907, %Py_DECREF.exit886, %943, %939, %Py_DECREF.exit880, %Py_DECREF.exit882, %975, %971, %511
   %.1.ph = phi ptr [ %492, %511 ], [ null, %971 ], [ %974, %975 ], [ %974, %Py_DECREF.exit882 ], [ %974, %Py_DECREF.exit880 ], [ null, %939 ], [ %942, %943 ], [ %942, %Py_DECREF.exit886 ], [ null, %907 ], [ %910, %911 ], [ %910, %Py_DECREF.exit890 ], [ null, %873 ], [ %876, %Py_DECREF.exit894 ], [ null, %841 ], [ %844, %845 ], [ %844, %Py_DECREF.exit898 ], [ null, %795 ], [ %798, %799 ], [ %798, %Py_DECREF.exit904 ], [ %798, %Py_DECREF.exit902 ], [ null, %747 ], [ %750, %751 ], [ %750, %Py_DECREF.exit908 ], [ null, %711 ], [ null, %693 ], [ %696, %697 ], [ null, %646 ], [ %649, %650 ], [ %649, %Py_DECREF.exit922 ], [ %649, %Py_DECREF.exit920 ], [ null, %600 ], [ %603, %604 ], [ %603, %Py_DECREF.exit928 ], [ %603, %Py_DECREF.exit926 ], [ null, %489 ], [ %492, %493 ], [ %492, %Py_DECREF.exit932 ], [ null, %471 ], [ %474, %475 ], [ null, %453 ], [ %456, %457 ], [ null, %435 ], [ %438, %439 ], [ null, %403 ], [ %406, %407 ], [ %406, %Py_DECREF.exit944 ], [ null, %357 ], [ %360, %361 ], [ %360, %Py_DECREF.exit950 ], [ %360, %Py_DECREF.exit948 ], [ null, %325 ], [ %328, %329 ], [ %328, %Py_DECREF.exit954 ], [ null, %293 ], [ %296, %297 ], [ %296, %Py_DECREF.exit958 ], [ null, %275 ], [ %278, %279 ], [ null, %243 ], [ %246, %247 ], [ %246, %Py_DECREF.exit964 ], [ null, %197 ], [ %200, %201 ], [ %200, %Py_DECREF.exit970 ], [ %200, %Py_DECREF.exit968 ], [ null, %165 ], [ %168, %169 ], [ %168, %Py_DECREF.exit974 ], [ null, %133 ], [ %136, %137 ], [ %136, %Py_DECREF.exit978 ], [ null, %87 ], [ %90, %91 ], [ %90, %Py_DECREF.exit984 ], [ %90, %Py_DECREF.exit982 ], [ null, %55 ], [ %58, %59 ], [ %58, %Py_DECREF.exit988 ], [ null, %14 ], [ %17, %Py_DECREF.exit992 ], [ %.0601, %Py_DECREF.exit990 ], [ %.0601, %Py_DECREF.exit876 ], [ %.0601, %Py_DECREF.exit874 ], [ %.0601, %Py_DECREF.exit872 ], [ %492, %.thread ]
   %1079 = load i32, ptr %1, align 4, !tbaa !111
   %1080 = add i32 %1079, -1
   store i32 %1080, ptr %1, align 4, !tbaa !111
   br label %Py_XDECREF.exit
 
-1081:                                             ; preds = %ast2obj_boolop.exit, %45, %63, %77, %95, %109, %123, %141, %155, %173, %187, %205, %219, %233, %251, %265, %283, %301, %315, %333, %347, %365, %379, %393, %411, %425, %443, %461, %479, %497, %._crit_edge, %590, %608, %622, %636, %654, %669, %683, %701, %ast2obj_object.exit, %ast2obj_object.exit1061, %755, %ast2obj_object.exit1064, %785, %803, %817, %831, %849, %863, %ast2obj_object.exit1067, %897, %915, %929, %947, %961, %979, %993, %1007, %1021, %1036, %1051, %1066
-  %.1 = phi ptr [ %.0601, %1021 ], [ %.0601, %1036 ], [ %.0601, %1051 ], [ %.0601, %1066 ], [ %17, %ast2obj_boolop.exit ], [ %17, %45 ], [ %58, %63 ], [ %58, %77 ], [ %90, %95 ], [ %90, %109 ], [ %90, %123 ], [ %136, %141 ], [ %136, %155 ], [ %168, %173 ], [ %168, %187 ], [ %200, %205 ], [ %200, %219 ], [ %200, %233 ], [ %246, %251 ], [ %246, %265 ], [ %278, %283 ], [ %296, %301 ], [ %296, %315 ], [ %328, %333 ], [ %328, %347 ], [ %360, %365 ], [ %360, %379 ], [ %360, %393 ], [ %406, %411 ], [ %406, %425 ], [ %438, %443 ], [ %456, %461 ], [ %474, %479 ], [ %492, %497 ], [ %492, %._crit_edge ], [ %492, %590 ], [ %603, %608 ], [ %603, %622 ], [ %603, %636 ], [ %649, %654 ], [ %649, %669 ], [ %649, %683 ], [ %696, %701 ], [ %714, %ast2obj_object.exit ], [ %714, %ast2obj_object.exit1061 ], [ %750, %755 ], [ %750, %ast2obj_object.exit1064 ], [ %750, %785 ], [ %798, %803 ], [ %798, %817 ], [ %798, %831 ], [ %844, %849 ], [ %844, %863 ], [ %876, %ast2obj_object.exit1067 ], [ %876, %897 ], [ %910, %915 ], [ %910, %929 ], [ %942, %947 ], [ %942, %961 ], [ %974, %979 ], [ %974, %993 ], [ %974, %1007 ]
-  %.0600 = phi ptr [ %1020, %1021 ], [ %1035, %1036 ], [ %1050, %1051 ], [ %1065, %1066 ], [ %.0.i, %ast2obj_boolop.exit ], [ %44, %45 ], [ %62, %63 ], [ %76, %77 ], [ %94, %95 ], [ %108, %109 ], [ %122, %123 ], [ %140, %141 ], [ %154, %155 ], [ %172, %173 ], [ %186, %187 ], [ %204, %205 ], [ %218, %219 ], [ %232, %233 ], [ %250, %251 ], [ %264, %265 ], [ %282, %283 ], [ %300, %301 ], [ %314, %315 ], [ %332, %333 ], [ %346, %347 ], [ %364, %365 ], [ %378, %379 ], [ %392, %393 ], [ %410, %411 ], [ %424, %425 ], [ %442, %443 ], [ %460, %461 ], [ %478, %479 ], [ %496, %497 ], [ %576, %._crit_edge ], [ %589, %590 ], [ %607, %608 ], [ %621, %622 ], [ %635, %636 ], [ %653, %654 ], [ %668, %669 ], [ %682, %683 ], [ %700, %701 ], [ %spec.store.select.i, %ast2obj_object.exit ], [ %spec.store.select.i1060, %ast2obj_object.exit1061 ], [ %754, %755 ], [ %spec.store.select.i1063, %ast2obj_object.exit1064 ], [ %784, %785 ], [ %802, %803 ], [ %816, %817 ], [ %830, %831 ], [ %848, %849 ], [ %862, %863 ], [ %spec.store.select.i1066, %ast2obj_object.exit1067 ], [ %896, %897 ], [ %914, %915 ], [ %928, %929 ], [ %946, %947 ], [ %960, %961 ], [ %978, %979 ], [ %992, %993 ], [ %1006, %1007 ]
+1081:                                             ; preds = %ast2obj_boolop.exit, %45, %63, %77, %95, %109, %123, %141, %155, %173, %187, %205, %219, %233, %251, %265, %283, %301, %315, %333, %347, %365, %379, %393, %411, %425, %443, %461, %479, %497, %._crit_edge, %590, %608, %622, %636, %654, %669, %683, %701, %ast2obj_object.exit, %ast2obj_object.exit1059, %755, %ast2obj_object.exit1062, %785, %803, %817, %831, %849, %863, %ast2obj_object.exit1065, %897, %915, %929, %947, %961, %979, %993, %1007, %1021, %1036, %1051, %1066
+  %.1 = phi ptr [ %.0601, %1021 ], [ %.0601, %1036 ], [ %.0601, %1051 ], [ %.0601, %1066 ], [ %17, %ast2obj_boolop.exit ], [ %17, %45 ], [ %58, %63 ], [ %58, %77 ], [ %90, %95 ], [ %90, %109 ], [ %90, %123 ], [ %136, %141 ], [ %136, %155 ], [ %168, %173 ], [ %168, %187 ], [ %200, %205 ], [ %200, %219 ], [ %200, %233 ], [ %246, %251 ], [ %246, %265 ], [ %278, %283 ], [ %296, %301 ], [ %296, %315 ], [ %328, %333 ], [ %328, %347 ], [ %360, %365 ], [ %360, %379 ], [ %360, %393 ], [ %406, %411 ], [ %406, %425 ], [ %438, %443 ], [ %456, %461 ], [ %474, %479 ], [ %492, %497 ], [ %492, %._crit_edge ], [ %492, %590 ], [ %603, %608 ], [ %603, %622 ], [ %603, %636 ], [ %649, %654 ], [ %649, %669 ], [ %649, %683 ], [ %696, %701 ], [ %714, %ast2obj_object.exit ], [ %714, %ast2obj_object.exit1059 ], [ %750, %755 ], [ %750, %ast2obj_object.exit1062 ], [ %750, %785 ], [ %798, %803 ], [ %798, %817 ], [ %798, %831 ], [ %844, %849 ], [ %844, %863 ], [ %876, %ast2obj_object.exit1065 ], [ %876, %897 ], [ %910, %915 ], [ %910, %929 ], [ %942, %947 ], [ %942, %961 ], [ %974, %979 ], [ %974, %993 ], [ %974, %1007 ]
+  %.0600 = phi ptr [ %1020, %1021 ], [ %1035, %1036 ], [ %1050, %1051 ], [ %1065, %1066 ], [ %.0.i, %ast2obj_boolop.exit ], [ %44, %45 ], [ %62, %63 ], [ %76, %77 ], [ %94, %95 ], [ %108, %109 ], [ %122, %123 ], [ %140, %141 ], [ %154, %155 ], [ %172, %173 ], [ %186, %187 ], [ %204, %205 ], [ %218, %219 ], [ %232, %233 ], [ %250, %251 ], [ %264, %265 ], [ %282, %283 ], [ %300, %301 ], [ %314, %315 ], [ %332, %333 ], [ %346, %347 ], [ %364, %365 ], [ %378, %379 ], [ %392, %393 ], [ %410, %411 ], [ %424, %425 ], [ %442, %443 ], [ %460, %461 ], [ %478, %479 ], [ %496, %497 ], [ %576, %._crit_edge ], [ %589, %590 ], [ %607, %608 ], [ %621, %622 ], [ %635, %636 ], [ %653, %654 ], [ %668, %669 ], [ %682, %683 ], [ %700, %701 ], [ %spec.store.select.i, %ast2obj_object.exit ], [ %spec.store.select.i1058, %ast2obj_object.exit1059 ], [ %754, %755 ], [ %spec.store.select.i1061, %ast2obj_object.exit1062 ], [ %784, %785 ], [ %802, %803 ], [ %816, %817 ], [ %830, %831 ], [ %848, %849 ], [ %862, %863 ], [ %spec.store.select.i1064, %ast2obj_object.exit1065 ], [ %896, %897 ], [ %914, %915 ], [ %928, %929 ], [ %946, %947 ], [ %960, %961 ], [ %978, %979 ], [ %992, %993 ], [ %1006, %1007 ]
   %1082 = load i32, ptr %1, align 4, !tbaa !111
   %1083 = add i32 %1082, -1
   store i32 %1083, ptr %1, align 4, !tbaa !111
@@ -39588,27 +39588,27 @@ Py_DECREF.exit:                                   ; preds = %1071, %1073, %1076
   tail call void @_Py_Dealloc(ptr noundef nonnull %.0600) #8
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %.thread1073, %1081, %1085, %1088
-  %.11077 = phi ptr [ %.1.ph, %.thread1073 ], [ %.1, %1081 ], [ %.1, %1085 ], [ %.1, %1088 ]
-  %.not.i1069 = icmp eq ptr %.11077, null
-  br i1 %.not.i1069, label %Py_XDECREF.exit1071, label %1089
+Py_XDECREF.exit:                                  ; preds = %.thread1071, %1081, %1085, %1088
+  %.11075 = phi ptr [ %.1.ph, %.thread1071 ], [ %.1, %1081 ], [ %.1, %1085 ], [ %.1, %1088 ]
+  %.not.i1067 = icmp eq ptr %.11075, null
+  br i1 %.not.i1067, label %Py_XDECREF.exit1069, label %1089
 
 1089:                                             ; preds = %Py_XDECREF.exit
-  %1090 = load i32, ptr %.11077, align 8, !tbaa !9
-  %.not.i.i1070 = icmp sgt i32 %1090, -1
-  br i1 %.not.i.i1070, label %1091, label %Py_XDECREF.exit1071
+  %1090 = load i32, ptr %.11075, align 8, !tbaa !9
+  %.not.i.i1068 = icmp sgt i32 %1090, -1
+  br i1 %.not.i.i1068, label %1091, label %Py_XDECREF.exit1069
 
 1091:                                             ; preds = %1089
   %1092 = add nsw i32 %1090, -1
-  store i32 %1092, ptr %.11077, align 8, !tbaa !9
+  store i32 %1092, ptr %.11075, align 8, !tbaa !9
   %1093 = icmp eq i32 %1092, 0
-  br i1 %1093, label %1094, label %Py_XDECREF.exit1071
+  br i1 %1093, label %1094, label %Py_XDECREF.exit1069
 
 1094:                                             ; preds = %1091
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.11077) #8
-  br label %Py_XDECREF.exit1071
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.11075) #8
+  br label %Py_XDECREF.exit1069
 
-Py_XDECREF.exit1071:                              ; preds = %1094, %1091, %1089, %Py_XDECREF.exit, %3, %Py_DECREF.exit, %10
+Py_XDECREF.exit1069:                              ; preds = %1094, %1091, %1089, %Py_XDECREF.exit, %3, %Py_DECREF.exit, %10
   %.0 = phi ptr [ null, %10 ], [ %.0601, %Py_DECREF.exit ], [ @_Py_NoneStruct, %3 ], [ null, %Py_XDECREF.exit ], [ null, %1089 ], [ null, %1091 ], [ null, %1094 ]
   ret ptr %.0
 }
@@ -40829,14 +40829,14 @@ define internal fastcc noundef ptr @ast2obj_operator(ptr noundef readonly captur
   unreachable
 
 _Py_NewRef.exit.sink.split:                       ; preds = %63, %58, %53, %48, %43, %38, %33, %28, %23, %18, %13, %8, %3
-  %.sink2 = phi i32 [ %6, %3 ], [ %11, %8 ], [ %16, %13 ], [ %21, %18 ], [ %26, %23 ], [ %31, %28 ], [ %36, %33 ], [ %41, %38 ], [ %46, %43 ], [ %51, %48 ], [ %56, %53 ], [ %61, %58 ], [ %66, %63 ]
-  %.sink1 = phi ptr [ %5, %3 ], [ %10, %8 ], [ %15, %13 ], [ %20, %18 ], [ %25, %23 ], [ %30, %28 ], [ %35, %33 ], [ %40, %38 ], [ %45, %43 ], [ %50, %48 ], [ %55, %53 ], [ %60, %58 ], [ %65, %63 ]
-  %69 = add nuw i32 %.sink2, 1
-  store i32 %69, ptr %.sink1, align 8, !tbaa !9
+  %.sink15 = phi i32 [ %6, %3 ], [ %11, %8 ], [ %16, %13 ], [ %21, %18 ], [ %26, %23 ], [ %31, %28 ], [ %36, %33 ], [ %41, %38 ], [ %46, %43 ], [ %51, %48 ], [ %56, %53 ], [ %61, %58 ], [ %66, %63 ]
+  %.sink14 = phi ptr [ %5, %3 ], [ %10, %8 ], [ %15, %13 ], [ %20, %18 ], [ %25, %23 ], [ %30, %28 ], [ %35, %33 ], [ %40, %38 ], [ %45, %43 ], [ %50, %48 ], [ %55, %53 ], [ %60, %58 ], [ %65, %63 ]
+  %69 = add nuw i32 %.sink15, 1
+  store i32 %69, ptr %.sink14, align 8, !tbaa !9
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit.sink.split, %63, %58, %53, %48, %43, %38, %33, %28, %23, %18, %13, %8, %3
-  %.0 = phi ptr [ %5, %3 ], [ %10, %8 ], [ %15, %13 ], [ %20, %18 ], [ %25, %23 ], [ %30, %28 ], [ %35, %33 ], [ %40, %38 ], [ %45, %43 ], [ %50, %48 ], [ %55, %53 ], [ %60, %58 ], [ %65, %63 ], [ %.sink1, %_Py_NewRef.exit.sink.split ]
+  %.0 = phi ptr [ %5, %3 ], [ %10, %8 ], [ %15, %13 ], [ %20, %18 ], [ %25, %23 ], [ %30, %28 ], [ %35, %33 ], [ %40, %38 ], [ %45, %43 ], [ %50, %48 ], [ %55, %53 ], [ %60, %58 ], [ %65, %63 ], [ %.sink14, %_Py_NewRef.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -42926,14 +42926,14 @@ define internal fastcc noundef ptr @ast2obj_unaryop(ptr noundef readonly capture
   unreachable
 
 _Py_NewRef.exit.sink.split:                       ; preds = %18, %13, %8, %3
-  %.sink2 = phi i32 [ %6, %3 ], [ %11, %8 ], [ %16, %13 ], [ %21, %18 ]
-  %.sink1 = phi ptr [ %5, %3 ], [ %10, %8 ], [ %15, %13 ], [ %20, %18 ]
-  %24 = add nuw i32 %.sink2, 1
-  store i32 %24, ptr %.sink1, align 8, !tbaa !9
+  %.sink6 = phi i32 [ %6, %3 ], [ %11, %8 ], [ %16, %13 ], [ %21, %18 ]
+  %.sink5 = phi ptr [ %5, %3 ], [ %10, %8 ], [ %15, %13 ], [ %20, %18 ]
+  %24 = add nuw i32 %.sink6, 1
+  store i32 %24, ptr %.sink5, align 8, !tbaa !9
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit.sink.split, %18, %13, %8, %3
-  %.0 = phi ptr [ %5, %3 ], [ %10, %8 ], [ %15, %13 ], [ %20, %18 ], [ %.sink1, %_Py_NewRef.exit.sink.split ]
+  %.0 = phi ptr [ %5, %3 ], [ %10, %8 ], [ %15, %13 ], [ %20, %18 ], [ %.sink5, %_Py_NewRef.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -43215,14 +43215,14 @@ define internal fastcc noundef ptr @ast2obj_expr_context(ptr noundef readonly ca
   unreachable
 
 _Py_NewRef.exit.sink.split:                       ; preds = %13, %8, %3
-  %.sink2 = phi i32 [ %6, %3 ], [ %11, %8 ], [ %16, %13 ]
-  %.sink1 = phi ptr [ %5, %3 ], [ %10, %8 ], [ %15, %13 ]
-  %19 = add nuw i32 %.sink2, 1
-  store i32 %19, ptr %.sink1, align 8, !tbaa !9
+  %.sink5 = phi i32 [ %6, %3 ], [ %11, %8 ], [ %16, %13 ]
+  %.sink4 = phi ptr [ %5, %3 ], [ %10, %8 ], [ %15, %13 ]
+  %19 = add nuw i32 %.sink5, 1
+  store i32 %19, ptr %.sink4, align 8, !tbaa !9
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit.sink.split, %13, %8, %3
-  %.0 = phi ptr [ %5, %3 ], [ %10, %8 ], [ %15, %13 ], [ %.sink1, %_Py_NewRef.exit.sink.split ]
+  %.0 = phi ptr [ %5, %3 ], [ %10, %8 ], [ %15, %13 ], [ %.sink4, %_Py_NewRef.exit.sink.split ]
   ret ptr %.0
 }
 

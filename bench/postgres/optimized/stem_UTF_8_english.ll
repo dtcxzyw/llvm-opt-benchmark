@@ -309,7 +309,7 @@ define hidden range(i32 -2147483648, 2) i32 @english_UTF_8_stem(ptr noundef init
   %73 = getelementptr inbounds i8, ptr %71, i64 %72
   %74 = load i8, ptr %73, align 1
   %.not.i188 = icmp eq i8 %74, 39
-  br i1 %.not.i188, label %75, label %.thread134.i
+  br i1 %.not.i188, label %75, label %.thread142.i
 
 75:                                               ; preds = %70
   %76 = add i32 %67, 1
@@ -325,20 +325,20 @@ define hidden range(i32 -2147483648, 2) i32 @english_UTF_8_stem(ptr noundef init
   %81 = icmp eq i32 %67, %.pre.i
   store i32 %67, ptr %2, align 8
   store i32 %67, ptr %4, align 4
-  br i1 %81, label %.thread.i, label %..thread134.i_crit_edge
+  br i1 %81, label %.thread.i, label %..thread142.i_crit_edge
 
-..thread134.i_crit_edge:                          ; preds = %80
+..thread142.i_crit_edge:                          ; preds = %80
   %.pre260 = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre260, i64 %72
   %.pre261 = load i8, ptr %.phi.trans.insert, align 1
-  br label %.thread134.i
+  br label %.thread142.i
 
-.thread134.i:                                     ; preds = %..thread134.i_crit_edge, %70
-  %82 = phi i8 [ %.pre261, %..thread134.i_crit_edge ], [ %74, %70 ]
+.thread142.i:                                     ; preds = %..thread142.i_crit_edge, %70
+  %82 = phi i8 [ %.pre261, %..thread142.i_crit_edge ], [ %74, %70 ]
   %.not90.i = icmp eq i8 %82, 121
   br i1 %.not90.i, label %83, label %.thread.i
 
-83:                                               ; preds = %.thread134.i
+83:                                               ; preds = %.thread142.i
   %84 = add i32 %67, 1
   store i32 %84, ptr %2, align 8
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -353,7 +353,7 @@ define hidden range(i32 -2147483648, 2) i32 @english_UTF_8_stem(ptr noundef init
   store i32 1, ptr %90, align 4
   br label %.thread.i
 
-.thread.i:                                        ; preds = %88, %.thread134.i, %80, %.thread226
+.thread.i:                                        ; preds = %88, %.thread142.i, %80, %.thread226
   store i32 %67, ptr %2, align 8
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %92

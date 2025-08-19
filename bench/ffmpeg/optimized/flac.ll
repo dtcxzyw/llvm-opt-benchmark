@@ -356,9 +356,9 @@ get_utf8.exit:                                    ; preds = %.preheader.i
   br label %238
 
 227:                                              ; preds = %190, %213, %202, %185
-  %.sink82 = phi i32 [ %201, %190 ], [ %224, %213 ], [ %210, %202 ], [ %188, %185 ]
+  %.sink85 = phi i32 [ %201, %190 ], [ %224, %213 ], [ %210, %202 ], [ %188, %185 ]
   %228 = phi i32 [ %200, %190 ], [ %223, %213 ], [ %212, %202 ], [ %182, %185 ]
-  store i32 %.sink82, ptr %2, align 8, !tbaa !25
+  store i32 %.sink85, ptr %2, align 8, !tbaa !25
   %229 = add i32 %228, 8
   %230 = tail call i32 @llvm.umin.i32(i32 %8, i32 %229)
   store i32 %230, ptr %5, align 8, !tbaa !4

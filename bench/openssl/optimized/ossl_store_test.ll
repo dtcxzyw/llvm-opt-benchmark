@@ -299,9 +299,9 @@ switch.lookup:                                    ; preds = %1
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %25, %.critedge.i, %.preheader.i
-  %.014.lcssa25.i = phi ptr [ %.014.lcssa.i, %25 ], [ null, %.critedge.i ], [ null, %.preheader.i ]
+  %.014.lcssa26.i = phi ptr [ %.014.lcssa.i, %25 ], [ null, %.critedge.i ], [ null, %.preheader.i ]
   %.1.i = phi i32 [ %28, %25 ], [ 0, %.critedge.i ], [ 0, %.preheader.i ]
-  call void @EVP_PKEY_free(ptr noundef %.014.lcssa25.i) #4
+  call void @EVP_PKEY_free(ptr noundef %.014.lcssa26.i) #4
   br label %get_params.exit
 
 get_params.exit:                                  ; preds = %11, %.critedge.thread.i

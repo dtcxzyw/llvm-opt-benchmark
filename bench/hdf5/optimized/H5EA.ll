@@ -984,7 +984,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr noundef reado
   br label %.thread381.sink.split
 
 .thread381.sink.split:                            ; preds = %.thread354, %44, %116, %260, %289
-  %.sink424 = phi ptr [ %291, %289 ], [ %262, %260 ], [ %118, %116 ], [ %46, %44 ], [ null, %.thread354 ]
+  %.sink439 = phi ptr [ %291, %289 ], [ %262, %260 ], [ %118, %116 ], [ %46, %44 ], [ null, %.thread354 ]
   %.sink = phi i64 [ %190, %289 ], [ %199, %260 ], [ %103, %116 ], [ %1, %44 ], [ 0, %.thread354 ]
   %H5EA__dblock_unprotect.sink = phi ptr [ @H5EA__dblock_unprotect, %289 ], [ @H5EA__dblk_page_unprotect, %260 ], [ @H5EA__dblock_unprotect, %116 ], [ @H5EA__iblock_unprotect, %44 ], [ null, %.thread354 ]
   %.0243377.ph = phi ptr [ %32, %289 ], [ %32, %260 ], [ %32, %116 ], [ %32, %44 ], [ %.0243378, %.thread354 ]
@@ -995,7 +995,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr noundef reado
   %.0260367.ph = phi i32 [ %.4264, %289 ], [ %.6266, %260 ], [ 0, %116 ], [ 0, %44 ], [ %.0260368, %.thread354 ]
   %.1275365.ph = phi i8 [ %.0274, %289 ], [ %.0274, %260 ], [ %.0274, %116 ], [ %.0274, %44 ], [ %.1275366, %.thread354 ]
   %.1278363.ph = phi i32 [ 0, %289 ], [ 0, %260 ], [ 0, %116 ], [ 0, %44 ], [ -1, %.thread354 ]
-  store ptr %.sink424, ptr %5, align 8, !tbaa !42
+  store ptr %.sink439, ptr %5, align 8, !tbaa !42
   store i64 %.sink, ptr %6, align 8, !tbaa !11
   store ptr %H5EA__dblock_unprotect.sink, ptr %7, align 8, !tbaa !41
   br label %.thread381
@@ -1140,7 +1140,7 @@ define range(i32 -1, 1) i32 @H5EA_get(ptr noundef readonly captures(none) %0, i6
 14:                                               ; preds = %3
   %15 = xor i1 %12, true
   %16 = select i1 %10, i1 true, i1 %15
-  br i1 %16, label %17, label %.thread26, !prof !10
+  br i1 %16, label %17, label %.thread28, !prof !10
 
 17:                                               ; preds = %.thread, %14
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 328
@@ -1155,13 +1155,13 @@ define range(i32 -1, 1) i32 @H5EA_get(ptr noundef readonly captures(none) %0, i6
   %24 = load ptr, ptr %23, align 8, !tbaa !80
   %25 = tail call i32 %24(ptr noundef %2, i64 noundef 1) #5
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %.thread26
+  br i1 %26, label %27, label %.thread28
 
 27:                                               ; preds = %20
   %28 = load i64, ptr @H5E_EARRAY_g, align 8, !tbaa !11
   %29 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !11
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5EA_get, i32 noundef 730, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.7) #5
-  br label %.thread26
+  br label %.thread28
 
 31:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1177,7 +1177,7 @@ define range(i32 -1, 1) i32 @H5EA_get(ptr noundef readonly captures(none) %0, i6
 37:                                               ; preds = %31
   %38 = load ptr, ptr %4, align 8, !tbaa !41
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %.thread34
+  br i1 %39, label %40, label %.thread36
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 248
@@ -1186,15 +1186,15 @@ define range(i32 -1, 1) i32 @H5EA_get(ptr noundef readonly captures(none) %0, i6
   %44 = load ptr, ptr %43, align 8, !tbaa !80
   %45 = tail call i32 %44(ptr noundef %2, i64 noundef 1) #5
   %46 = icmp slt i32 %45, 0
-  br i1 %46, label %47, label %.thread30
+  br i1 %46, label %47, label %.thread32
 
 47:                                               ; preds = %40
   %48 = load i64, ptr @H5E_EARRAY_g, align 8, !tbaa !11
   %49 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !11
   %50 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5EA_get, i32 noundef 748, i64 noundef %48, i64 noundef %49, ptr noundef nonnull @.str.7) #5
-  br label %.thread30
+  br label %.thread32
 
-.thread34:                                        ; preds = %37
+.thread36:                                        ; preds = %37
   %51 = load ptr, ptr %6, align 8, !tbaa !42
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 248
   %53 = load ptr, ptr %52, align 8, !tbaa !44
@@ -1208,11 +1208,11 @@ define range(i32 -1, 1) i32 @H5EA_get(ptr noundef readonly captures(none) %0, i6
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %63
 
-.thread30:                                        ; preds = %47, %40
+.thread32:                                        ; preds = %47, %40
   %.2.ph = phi i32 [ 0, %40 ], [ -1, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread26
+  br label %.thread28
 
 59:                                               ; preds = %31
   %60 = load i64, ptr @H5E_EARRAY_g, align 8, !tbaa !11
@@ -1222,24 +1222,24 @@ define range(i32 -1, 1) i32 @H5EA_get(ptr noundef readonly captures(none) %0, i6
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not24 = icmp eq ptr %.pre.pre, null
-  br i1 %.not24, label %.thread26, label %63
+  br i1 %.not24, label %.thread28, label %63
 
-63:                                               ; preds = %.thread34, %59
-  %.239 = phi i32 [ 0, %.thread34 ], [ -1, %59 ]
-  %.pre38 = phi ptr [ %38, %.thread34 ], [ %.pre.pre, %59 ]
+63:                                               ; preds = %.thread36, %59
+  %.241 = phi i32 [ 0, %.thread36 ], [ -1, %59 ]
+  %.pre40 = phi ptr [ %38, %.thread36 ], [ %.pre.pre, %59 ]
   %64 = load ptr, ptr %5, align 8, !tbaa !41
-  %65 = tail call i32 %64(ptr noundef nonnull %.pre38, i32 noundef 0) #5
+  %65 = tail call i32 %64(ptr noundef nonnull %.pre40, i32 noundef 0) #5
   %66 = icmp slt i32 %65, 0
-  br i1 %66, label %67, label %.thread26
+  br i1 %66, label %67, label %.thread28
 
 67:                                               ; preds = %63
   %68 = load i64, ptr @H5E_EARRAY_g, align 8, !tbaa !11
   %69 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !11
   %70 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5EA_get, i32 noundef 759, i64 noundef %68, i64 noundef %69, ptr noundef nonnull @.str.6) #5
-  br label %.thread26
+  br label %.thread28
 
-.thread26:                                        ; preds = %20, %27, %.thread30, %14, %67, %63, %59
-  %.021 = phi i32 [ -1, %67 ], [ %.239, %63 ], [ -1, %59 ], [ 0, %14 ], [ %.2.ph, %.thread30 ], [ 0, %20 ], [ -1, %27 ]
+.thread28:                                        ; preds = %20, %27, %.thread32, %14, %67, %63, %59
+  %.021 = phi i32 [ -1, %67 ], [ %.241, %63 ], [ -1, %59 ], [ 0, %14 ], [ %.2.ph, %.thread32 ], [ 0, %20 ], [ -1, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.021

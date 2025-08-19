@@ -552,8 +552,8 @@ sendln.exit:                                      ; preds = %sendln.exit.prehead
   %.pre.i42 = tail call ptr @__errno_location() #17
   %.pre = load i32, ptr %.pre.i42, align 4, !tbaa !3
   %45 = icmp eq i32 %.pre, 4
-  %or.cond70 = select i1 %.not18.i41, i1 %45, i1 false
-  br i1 %or.cond70, label %50, label %51
+  %or.cond81 = select i1 %.not18.i41, i1 %45, i1 false
+  br i1 %or.cond81, label %50, label %51
 
 46:                                               ; preds = %.lr.ph.i34
   %47 = and i64 %41, 2147483647
@@ -611,8 +611,8 @@ sendln.exit:                                      ; preds = %sendln.exit.prehead
   %.pre.i53 = tail call ptr @__errno_location() #17
   %.pre66 = load i32, ptr %.pre.i53, align 4, !tbaa !3
   %69 = icmp eq i32 %.pre66, 4
-  %or.cond71 = select i1 %.not18.i52, i1 %69, i1 false
-  br i1 %or.cond71, label %76, label %.thread.i54
+  %or.cond82 = select i1 %.not18.i52, i1 %69, i1 false
+  br i1 %or.cond82, label %76, label %.thread.i54
 
 .thread.i54:                                      ; preds = %68
   %70 = call ptr @strerror(i32 noundef %.pre66) #16
@@ -919,8 +919,8 @@ chkpath.exit.thread:                              ; preds = %21, %11, %6
   %.pre.i = tail call ptr @__errno_location() #17
   %.pre = load i32, ptr %.pre.i, align 4, !tbaa !3
   %55 = icmp eq i32 %.pre, 4
-  %or.cond155 = select i1 %.not18.i, i1 %55, i1 false
-  br i1 %or.cond155, label %60, label %61
+  %or.cond174 = select i1 %.not18.i, i1 %55, i1 false
+  br i1 %or.cond174, label %60, label %61
 
 56:                                               ; preds = %.lr.ph.i
   %57 = and i64 %51, 2147483647

@@ -800,7 +800,7 @@ define internal noundef i32 @resS(i32 %0, double %1, ptr noundef readonly captur
   %60 = fadd double %40, %42
   %61 = fadd double %60, %44
   %62 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %62, label %default.unreachable [
+  switch i32 %62, label %default.unreachable69 [
     i32 0, label %63
     i32 1, label %66
     i32 2, label %69
@@ -820,7 +820,7 @@ define internal noundef i32 @resS(i32 %0, double %1, ptr noundef readonly captur
   %70 = tail call double @llvm.fmuladd.f64(double %23, double %23, double %59)
   br label %71
 
-default.unreachable:                              ; preds = %34
+default.unreachable69:                            ; preds = %34
   unreachable
 
 71:                                               ; preds = %69, %66, %63

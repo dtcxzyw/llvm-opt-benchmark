@@ -6499,18 +6499,18 @@ _ZN26hb_shaper_object_dataset_tI9hb_font_tE4finiEv.exit: ; preds = %_ZN16hb_lazy
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_destroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not.i.i = icmp eq ptr %0, null
-  br i1 %.not.i.i, label %common.ret12, label %2
+  br i1 %.not.i.i, label %common.ret16, label %2
 
 2:                                                ; preds = %1
   %3 = load atomic i32, ptr %0 monotonic, align 4
   %4 = load atomic i32, ptr %0 monotonic, align 4
   %.not.i8.i = icmp eq i32 %4, 0
-  br i1 %.not.i8.i, label %common.ret12, label %5
+  br i1 %.not.i8.i, label %common.ret16, label %5
 
 5:                                                ; preds = %2
   %6 = atomicrmw add ptr %0, i32 -1 acq_rel, align 4
   %.not7.i = icmp eq i32 %6, 1
-  br i1 %.not7.i, label %7, label %common.ret12
+  br i1 %.not7.i, label %7, label %common.ret16
 
 7:                                                ; preds = %5
   store atomic i32 -57005, ptr %0 monotonic, align 4
@@ -6564,7 +6564,7 @@ _ZN26hb_shaper_object_dataset_tI9hb_font_tE4finiEv.exit: ; preds = %_ZN16hb_lazy
   tail call void %23(ptr noundef %26)
   br label %27
 
-common.ret12:                                     ; preds = %1, %5, %2, %27
+common.ret16:                                     ; preds = %1, %5, %2, %27
   ret void
 
 27:                                               ; preds = %24, %_ZN26hb_shaper_object_dataset_tI9hb_font_tE4finiEv.exit
@@ -6584,7 +6584,7 @@ common.ret12:                                     ; preds = %1, %5, %2, %27
   %37 = load ptr, ptr %36, align 8
   tail call void @free(ptr noundef %37) #25
   tail call void @free(ptr noundef nonnull %0) #25
-  br label %common.ret12
+  br label %common.ret16
 }
 
 declare void @hb_face_destroy(ptr noundef) local_unnamed_addr #10
@@ -7663,9 +7663,9 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
 .thread59.thread:                                 ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %49 = load ptr, ptr %48, align 8
-  %.not5282 = icmp eq ptr %49, null
+  %.not5285 = icmp eq ptr %49, null
   %wide.trip.count75 = zext nneg i32 %.sroa.2.8.insert.ext.i.i to i64
-  br i1 %.not5282, label %.lr.ph63, label %.lr.ph
+  br i1 %.not5285, label %.lr.ph63, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread59.thread, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.thread59.thread ]
@@ -8842,19 +8842,19 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %72 = or disjoint i16 %68, %71
   %73 = sext i16 %72 to i32
   %74 = icmp sgt i32 %1, %73
-  br i1 %74, label %75, label %.critedge.loopexit.split.loop.exit54
+  br i1 %74, label %75, label %.critedge.loopexit.split.loop.exit61
 
 75:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !41
 
-.critedge.loopexit.split.loop.exit54:             ; preds = %.lr.ph
+.critedge.loopexit.split.loop.exit61:             ; preds = %.lr.ph
   %76 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %75, %.critedge.loopexit.split.loop.exit54, %63
-  %.044.lcssa = phi i32 [ 1, %63 ], [ %76, %.critedge.loopexit.split.loop.exit54 ], [ %64, %75 ]
+.critedge:                                        ; preds = %75, %.critedge.loopexit.split.loop.exit61, %63
+  %.044.lcssa = phi i32 [ 1, %63 ], [ %76, %.critedge.loopexit.split.loop.exit61 ], [ %64, %75 ]
   %77 = zext i32 %.044.lcssa to i64
   %78 = getelementptr inbounds nuw [1 x %"struct.OT::AxisValueMap"], ptr %39, i64 0, i64 %77
   %79 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed.153"], ptr %78, i64 0, i64 %40
@@ -10175,10 +10175,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT10avarV2Tail8sanitizeEP21h
   br i1 %.not16.i.i7.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %46, %95
-  %.sink14.i.i.i = phi i32 [ %60, %46 ], [ %96, %95 ]
+  %.sink17.i.i.i = phi i32 [ %60, %46 ], [ %96, %95 ]
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %102 = load i32, ptr %101, align 4
-  %103 = sub i32 %102, %.sink14.i.i.i
+  %103 = sub i32 %102, %.sink17.i.i.i
   store i32 %103, ptr %101, align 4
   %104 = icmp sgt i32 %103, 0
   br i1 %104, label %.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread

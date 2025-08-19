@@ -2133,9 +2133,9 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %60
   br label %125
 
 125:                                              ; preds = %96, %98, %124
-  %.sink49 = phi ptr [ %4, %124 ], [ %5, %98 ], [ %5, %96 ]
+  %.sink51 = phi ptr [ %4, %124 ], [ %5, %98 ], [ %5, %96 ]
   %.pn44.pn.pn.pn = phi { ptr, i32 } [ %.pn44.pn.pn, %124 ], [ %99, %98 ], [ %97, %96 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink49) #20
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink51) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn44.pn.pn.pn
 }

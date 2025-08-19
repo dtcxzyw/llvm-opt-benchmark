@@ -197,15 +197,15 @@ define void @_ZN7uu_head5parse14parse_obsolete17h8068d6f114ceb656E(ptr noalias n
   br label %313
 
 "_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit29.thread.thread": ; preds = %71, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit29.thread"
-  %.01978 = phi i32 [ %.019, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit29.thread" ], [ 0, %71 ]
-  %.sroa.0.44677 = phi ptr [ %.sroa.0.446, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit29.thread" ], [ %26, %71 ]
-  %.020.lcssa76 = phi i64 [ %.02057, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit29.thread" ], [ %.sroa.22.054, %71 ]
+  %.019105 = phi i32 [ %.019, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit29.thread" ], [ 0, %71 ]
+  %.sroa.0.446104 = phi ptr [ %.sroa.0.446, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit29.thread" ], [ %26, %71 ]
+  %.020.lcssa103 = phi i64 [ %.02057, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit29.thread" ], [ %.sroa.22.054, %71 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  %114 = icmp eq i64 %.020.lcssa76, -1
+  %114 = icmp eq i64 %.020.lcssa103, -1
   br i1 %114, label %124, label %115
 
 115:                                              ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit29.thread.thread"
-  %116 = add nuw i64 %.020.lcssa76, 1
+  %116 = add nuw i64 %.020.lcssa103, 1
   %.not.i.i.i.not = icmp eq i64 %2, 1
   br i1 %.not.i.i.i.not, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i", label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i"
 
@@ -241,7 +241,7 @@ define void @_ZN7uu_head5parse14parse_obsolete17h8068d6f114ceb656E(ptr noalias n
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !32
-  call void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h4e3a47f24bad5bddE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %25, ptr noalias noundef nonnull readonly align 1 %30, i64 noundef %.020.lcssa76), !noalias !35
+  call void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h4e3a47f24bad5bddE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %25, ptr noalias noundef nonnull readonly align 1 %30, i64 noundef %.020.lcssa103), !noalias !35
   %126 = load i8, ptr %25, align 8, !range !36, !noalias !32, !noundef !9
   %trunc.i = trunc nuw i8 %126 to i1
   br i1 %trunc.i, label %130, label %127
@@ -262,13 +262,13 @@ define void @_ZN7uu_head5parse14parse_obsolete17h8068d6f114ceb656E(ptr noalias n
   br label %_ZN7uu_head5parse17process_num_block17h9d3d9ee77ad0e9c8E.exit
 
 132:                                              ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.i", %127
-  %133 = phi ptr [ %.sroa.0.44677, %127 ], [ %183, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.i" ]
+  %133 = phi ptr [ %.sroa.0.446104, %127 ], [ %183, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.i" ]
   %.030.i = phi i1 [ false, %127 ], [ %.131.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.i" ]
   %.028.i = phi i1 [ false, %127 ], [ %.129.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.i" ]
   %.027.i = phi i1 [ false, %127 ], [ %.1.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.i" ]
   %.sroa.9.0.i = phi i64 [ undef, %127 ], [ %.sroa.9.1.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.i" ]
   %.sroa.0.0.i30 = phi i64 [ 0, %127 ], [ %.sroa.0.1.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.i" ]
-  %.0.i31 = phi i32 [ %.01978, %127 ], [ %.sroa.4.0.i.ph10.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.i" ]
+  %.0.i31 = phi i32 [ %.019105, %127 ], [ %.sroa.4.0.i.ph10.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.i" ]
   switch i32 %.0.i31, label %134 [
     i32 113, label %136
     i32 118, label %137

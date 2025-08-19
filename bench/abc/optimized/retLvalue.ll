@@ -177,9 +177,9 @@ Vec_IntAlloc.exit.i.i:                            ; preds = %Vec_PtrFree.exit70.
   store ptr %69, ptr %70, align 8, !tbaa !31
   store i32 %63, ptr %65, align 4, !tbaa !32
   %.not.i74.i = icmp eq ptr %69, null
-  br i1 %.not.i74.i, label %Vec_IntFree.exit, label %Abc_NtkRetimeGetLags.exit.thread13
+  br i1 %.not.i74.i, label %Vec_IntFree.exit, label %Abc_NtkRetimeGetLags.exit.thread23
 
-Abc_NtkRetimeGetLags.exit.thread13:               ; preds = %Vec_IntAlloc.exit.i.i
+Abc_NtkRetimeGetLags.exit.thread23:               ; preds = %Vec_IntAlloc.exit.i.i
   %71 = sext i32 %63 to i64
   %72 = shl nsw i64 %71, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %69, i8 0, i64 %72, i1 false)
@@ -375,15 +375,15 @@ Abc_NtkRetimeGetLags.exit:                        ; preds = %Vec_PtrFree.exit86.
   %.not.i8 = icmp eq ptr %.pre, null
   br i1 %.not.i8, label %Vec_IntFree.exit, label %151
 
-151:                                              ; preds = %Abc_NtkRetimeGetLags.exit.thread13, %Abc_NtkRetimeGetLags.exit
-  %.0.i16 = phi ptr [ %64, %Abc_NtkRetimeGetLags.exit.thread13 ], [ %108, %Abc_NtkRetimeGetLags.exit ]
-  %152 = phi ptr [ %69, %Abc_NtkRetimeGetLags.exit.thread13 ], [ %.pre, %Abc_NtkRetimeGetLags.exit ]
+151:                                              ; preds = %Abc_NtkRetimeGetLags.exit.thread23, %Abc_NtkRetimeGetLags.exit
+  %.0.i26 = phi ptr [ %64, %Abc_NtkRetimeGetLags.exit.thread23 ], [ %108, %Abc_NtkRetimeGetLags.exit ]
+  %152 = phi ptr [ %69, %Abc_NtkRetimeGetLags.exit.thread23 ], [ %.pre, %Abc_NtkRetimeGetLags.exit ]
   call void @free(ptr noundef nonnull %152) #12
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %Vec_IntAlloc.exit.i.i, %Vec_IntAlloc.exit.thread.i.i, %Abc_NtkRetimeGetLags.exit, %151
-  %.0.i12 = phi ptr [ %108, %Abc_NtkRetimeGetLags.exit ], [ %.0.i16, %151 ], [ %64, %Vec_IntAlloc.exit.thread.i.i ], [ %64, %Vec_IntAlloc.exit.i.i ]
-  call void @free(ptr noundef nonnull %.0.i12) #12
+  %.0.i22 = phi ptr [ %108, %Abc_NtkRetimeGetLags.exit ], [ %.0.i26, %151 ], [ %64, %Vec_IntAlloc.exit.thread.i.i ], [ %64, %Vec_IntAlloc.exit.i.i ]
+  call void @free(ptr noundef nonnull %.0.i22) #12
   %153 = call i32 @Abc_NtkCheck(ptr noundef %0) #12
   %.not = icmp eq i32 %153, 0
   br i1 %.not, label %154, label %157

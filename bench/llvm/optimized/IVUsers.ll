@@ -207,9 +207,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm7IVUsers21AddUsersIfInterestingEPNS
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !tbaa !49, !noalias !41
   %22 = icmp ult i32 %15, %21
-  br i1 %22, label %.critedge169, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+  br i1 %22, label %.critedge186, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
-.critedge169:                                     ; preds = %._crit_edge.i.i
+.critedge186:                                     ; preds = %._crit_edge.i.i
   %23 = add nuw i32 %15, 1
   store i32 %23, ptr %14, align 4, !tbaa !46, !noalias !41
   store ptr %1, ptr %17, align 8, !tbaa !21, !noalias !41
@@ -221,7 +221,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.thread
 
-27:                                               ; preds = %.critedge169, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+27:                                               ; preds = %.critedge186, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !50
   %30 = load ptr, ptr %3, align 8, !tbaa !35
@@ -282,14 +282,14 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %65 = load i8, ptr %64, align 1, !tbaa !74
   %66 = zext i8 %65 to i64
   %67 = icmp eq i64 %42, %66
-  br i1 %67, label %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit157, label %68
+  br i1 %67, label %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit174, label %68
 
 68:                                               ; preds = %63
   %69 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 3
   %70 = load i8, ptr %69, align 1, !tbaa !74
   %71 = zext i8 %70 to i64
   %72 = icmp eq i64 %42, %71
-  br i1 %72, label %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit159, label %73
+  br i1 %72, label %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit176, label %73
 
 73:                                               ; preds = %68
   %74 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
@@ -339,16 +339,16 @@ _ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit: ; preds =
   %92 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 1
   br label %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit
 
-_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit157: ; preds = %63
+_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit174: ; preds = %63
   %93 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
   br label %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit
 
-_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit159: ; preds = %68
+_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit176: ; preds = %68
   %94 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 3
   br label %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit
 
-_ZNK4llvm10DataLayout14isLegalIntegerEm.exit:     ; preds = %54, %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit, %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit157, %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit159, %78, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %78 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %92, %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit ], [ %93, %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit157 ], [ %94, %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit159 ], [ %.02946.i.i.i.i.i, %54 ]
+_ZNK4llvm10DataLayout14isLegalIntegerEm.exit:     ; preds = %54, %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit, %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit174, %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit176, %78, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %78 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %92, %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit ], [ %93, %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit174 ], [ %94, %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.loopexit.split.loop.exit176 ], [ %.02946.i.i.i.i.i, %54 ]
   %.not126 = icmp eq ptr %.028.i.i.i.i.i, %49
   br i1 %.not126, label %_ZNK4llvm10DataLayout14isLegalIntegerEm.exit.thread, label %95
 
@@ -455,9 +455,9 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_5ValueEE5countES3_.exit.thread: ; preds = %106, 
 ._crit_edge.i.i77:                                ; preds = %.critedge.i.i75, %136
   %143 = load i32, ptr %120, align 8, !tbaa !49, !noalias !86
   %144 = icmp ult i32 %138, %143
-  br i1 %144, label %.critedge170, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i53
+  br i1 %144, label %.critedge187, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i53
 
-.critedge170:                                     ; preds = %._crit_edge.i.i77
+.critedge187:                                     ; preds = %._crit_edge.i.i77
   %145 = add nuw i32 %138, 1
   store i32 %145, ptr %121, align 4, !tbaa !46, !noalias !86
   store ptr %133, ptr %140, align 8, !tbaa !21, !noalias !86
@@ -469,7 +469,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i53: ; preds = %._crit_edge.i
   %148 = trunc nuw i8 %147 to i1
   br i1 %148, label %149, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit.thread114
 
-149:                                              ; preds = %.critedge170, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i53
+149:                                              ; preds = %.critedge187, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i53
   %150 = load ptr, ptr %5, align 8, !tbaa !35
   %151 = load i8, ptr %150, align 8, !tbaa !70
   %152 = icmp eq i8 %151, 84

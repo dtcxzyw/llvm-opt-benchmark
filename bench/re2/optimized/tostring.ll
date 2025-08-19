@@ -1917,8 +1917,8 @@ _ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit.thread: ; preds 
   %add.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 480
   store ptr %add.ptr8.i.i.i, ptr %_M_finish.i.i.i, align 8
   %47 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i6984 = icmp eq ptr %add.ptr8.i.i.i, %47
-  br i1 %cmp.i.i.i6984, label %return, label %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit78
+  %cmp.i.i.i6993 = icmp eq ptr %add.ptr8.i.i.i, %47
+  br i1 %cmp.i.i.i6993, label %return, label %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit78
 
 if.end93:                                         ; preds = %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit
   %48 = icmp eq ptr %incdec.ptr.i.i, %43

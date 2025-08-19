@@ -1714,8 +1714,8 @@ _ZN7ElfFile13DwarfFilePath6appendEPKc.exit:       ; preds = %14
   %24 = load i8, ptr %10, align 8
   %25 = icmp ne i8 %24, 0
   %26 = icmp ugt i16 %23, 4095
-  %or.cond16 = select i1 %25, i1 true, i1 %26
-  br i1 %or.cond16, label %_ZN7ElfFile13DwarfFilePath3setEPKc.exit.thread, label %27
+  %or.cond18 = select i1 %25, i1 true, i1 %26
+  br i1 %or.cond18, label %_ZN7ElfFile13DwarfFilePath3setEPKc.exit.thread, label %27
 
 27:                                               ; preds = %_ZN7ElfFile13DwarfFilePath6appendEPKc.exit
   %28 = load ptr, ptr %1, align 8
@@ -3460,9 +3460,9 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_str
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.split.outer
 
-.split.outer:                                     ; preds = %.thread25, %.split.preheader
-  %.013.ph = phi i64 [ %46, %.thread25 ], [ 1, %.split.preheader ]
-  %.0.ph = phi i1 [ true, %.thread25 ], [ false, %.split.preheader ]
+.split.outer:                                     ; preds = %.thread29, %.split.preheader
+  %.013.ph = phi i64 [ %46, %.thread29 ], [ 1, %.split.preheader ]
+  %.0.ph = phi i1 [ true, %.thread29 ], [ false, %.split.preheader ]
   br label %.split
 
 .split.us.preheader:                              ; preds = %15
@@ -3510,7 +3510,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_str
 41:                                               ; preds = %36
   %.not18 = icmp ult i64 %.013, %2
   %.pre = load i8, ptr %5, align 1
-  br i1 %.not18, label %42, label %.thread25
+  br i1 %.not18, label %42, label %.thread29
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds i8, ptr %1, i64 %.013
@@ -3519,7 +3519,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_str
   %45 = icmp eq i8 %.pre, 0
   br i1 %45, label %.split23.us, label %.split, !llvm.loop !18
 
-.thread25:                                        ; preds = %41
+.thread29:                                        ; preds = %41
   %46 = add i64 %.013, 1
   %47 = icmp eq i8 %.pre, 0
   br i1 %47, label %.split23.us.thread, label %.split.outer, !llvm.loop !18
@@ -3527,7 +3527,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_str
 .split23.us:                                      ; preds = %42
   br i1 %.0.ph, label %.split23.us.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader18read_non_null_charEPc.exit.thread
 
-.split23.us.thread:                               ; preds = %.thread25, %.split23.us
+.split23.us.thread:                               ; preds = %.thread29, %.split23.us
   %48 = getelementptr i8, ptr %1, i64 %2
   %49 = getelementptr i8, ptr %48, i64 -1
   store i8 0, ptr %49, align 1
@@ -3908,8 +3908,8 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram23run_line_num
   br i1 %88, label %.loopexit20.sink.split, label %_ZN9DwarfFile17LineNumberProgram23does_offset_match_entryEmjj.exit
 
 .loopexit20.sink.split:                           ; preds = %86, %.loopexit19
-  %.sink73 = phi ptr [ %80, %.loopexit19 ], [ %63, %86 ]
-  %89 = getelementptr inbounds nuw i8, ptr %.sink73, i64 12
+  %.sink76 = phi ptr [ %80, %.loopexit19 ], [ %63, %86 ]
+  %89 = getelementptr inbounds nuw i8, ptr %.sink76, i64 12
   store i32 %.01238, ptr %89, align 4
   %90 = load ptr, ptr %33, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16

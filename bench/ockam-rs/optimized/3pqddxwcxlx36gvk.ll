@@ -1590,8 +1590,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !231, !noalias !228
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !231, !noalias !228
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i
 
 15:                                               ; preds = %6
@@ -1603,13 +1603,13 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !231, !noalias !228
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !231, !noalias !228
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !231, !noalias !228
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !231, !noalias !228
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i
 
 26:                                               ; preds = %6
@@ -2451,9 +2451,9 @@ switch.lookup:                                    ; preds = %13
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN60_$LT$ockam_core..api..Method$u20$as$u20$core..fmt..Debug$GT$3fmt17hc8faa6555abff8bdE", i64 0, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   %17 = zext nneg i8 %10 to i64
-  %switch.gep9 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN62_$LT$ockam_core..api..Method$u20$as$u20$core..fmt..Display$GT$3fmt17h6b8d695d8af56609E.29", i64 0, i64 %17
-  %switch.load10 = load ptr, ptr %switch.gep9, align 8
-  %18 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf5c6803265aa79e0E(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 1 %switch.load10, i64 noundef %switch.load)
+  %switch.gep11 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN62_$LT$ockam_core..api..Method$u20$as$u20$core..fmt..Display$GT$3fmt17h6b8d695d8af56609E.29", i64 0, i64 %17
+  %switch.load12 = load ptr, ptr %switch.gep11, align 8
+  %18 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf5c6803265aa79e0E(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 1 %switch.load12, i64 noundef %switch.load)
           to label %"_ZN62_$LT$ockam_core..api..Method$u20$as$u20$core..fmt..Display$GT$3fmt17h6b8d695d8af56609E.exit.i" unwind label %14, !noalias !340
 
 "_ZN62_$LT$ockam_core..api..Method$u20$as$u20$core..fmt..Display$GT$3fmt17h6b8d695d8af56609E.exit.i": ; preds = %switch.lookup

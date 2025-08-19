@@ -1317,10 +1317,10 @@ define dso_local i32 @update_active_features_node(ptr noundef %0, ptr noundef %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %46, %51, %53
-  %.sink48 = phi ptr [ %55, %53 ], [ %52, %51 ], [ %47, %46 ]
+  %.sink52 = phi ptr [ %55, %53 ], [ %52, %51 ], [ %47, %46 ]
   %.0.ph = phi i32 [ %49, %53 ], [ 0, %51 ], [ 0, %46 ]
-  call void @display_edit_note(ptr noundef %.sink48) #11
-  call void @g_free(ptr noundef %.sink48) #11
+  call void @display_edit_note(ptr noundef %.sink52) #11
+  call void @g_free(ptr noundef %.sink52) #11
   br label %56
 
 56:                                               ; preds = %.sink.split, %33, %14
@@ -1489,10 +1489,10 @@ define dso_local i32 @update_avail_features_node(ptr noundef %0, ptr noundef %1,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %46, %51, %53
-  %.sink48 = phi ptr [ %55, %53 ], [ %52, %51 ], [ %47, %46 ]
+  %.sink52 = phi ptr [ %55, %53 ], [ %52, %51 ], [ %47, %46 ]
   %.0.ph = phi i32 [ %49, %53 ], [ 0, %51 ], [ 0, %46 ]
-  call void @display_edit_note(ptr noundef %.sink48) #11
-  call void @g_free(ptr noundef %.sink48) #11
+  call void @display_edit_note(ptr noundef %.sink52) #11
+  call void @g_free(ptr noundef %.sink52) #11
   br label %56
 
 56:                                               ; preds = %.sink.split, %33, %14
@@ -1603,10 +1603,10 @@ define dso_local i32 @update_gres_node(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.sink.split
 
 .sink.split:                                      ; preds = %46, %51, %53
-  %.sink48 = phi ptr [ %55, %53 ], [ %52, %51 ], [ %47, %46 ]
+  %.sink52 = phi ptr [ %55, %53 ], [ %52, %51 ], [ %47, %46 ]
   %.0.ph = phi i32 [ %49, %53 ], [ 0, %51 ], [ 0, %46 ]
-  call void @display_edit_note(ptr noundef %.sink48) #11
-  call void @g_free(ptr noundef %.sink48) #11
+  call void @display_edit_note(ptr noundef %.sink52) #11
+  call void @g_free(ptr noundef %.sink52) #11
   br label %56
 
 56:                                               ; preds = %.sink.split, %33, %14
@@ -1808,10 +1808,10 @@ define dso_local i32 @update_state_node(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.sink.split
 
 .sink.split:                                      ; preds = %77, %89, %91
-  %.sink76 = phi ptr [ %93, %91 ], [ %90, %89 ], [ %78, %77 ]
+  %.sink79 = phi ptr [ %93, %91 ], [ %90, %89 ], [ %78, %77 ]
   %.054.ph = phi i32 [ %87, %91 ], [ 0, %89 ], [ 0, %77 ]
-  store ptr %.sink76, ptr %4, align 8
-  call void @display_edit_note(ptr noundef %.sink76) #11
+  store ptr %.sink79, ptr %4, align 8
+  call void @display_edit_note(ptr noundef %.sink79) #11
   %94 = load ptr, ptr %4, align 8
   call void @g_free(ptr noundef %94) #11
   br label %95
@@ -2089,7 +2089,7 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
 49:                                               ; preds = %46
   %50 = load ptr, ptr @get_info_node.display_widget, align 8
   %.not59 = icmp eq ptr %50, null
-  br i1 %.not59, label %.thread74, label %51
+  br i1 %.not59, label %.thread84, label %51
 
 51:                                               ; preds = %49
   %52 = tail call i64 @gtk_tree_view_get_type() #12
@@ -2105,14 +2105,14 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
 57:                                               ; preds = %54, %51
   %58 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %50, i64 noundef %52) #13
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %.thread74, label %.critedge
+  br i1 %59, label %.thread84, label %.critedge
 
 .critedge:                                        ; preds = %54, %57
   %60 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %50, i64 noundef %52) #11
   %61 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %60) #11
   %62 = tail call i32 @gtk_tree_selection_count_selected_rows(ptr noundef %61) #11
   %.not62 = icmp eq i32 %62, 0
-  br i1 %.not62, label %.thread74, label %63
+  br i1 %.not62, label %.thread84, label %63
 
 63:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2123,9 +2123,9 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load ptr, ptr %4, align 8
   %66 = icmp eq ptr %.pre, null
-  br i1 %66, label %.thread74, label %81
+  br i1 %66, label %.thread84, label %81
 
-.thread74:                                        ; preds = %49, %57, %.critedge, %63
+.thread84:                                        ; preds = %49, %57, %.critedge, %63
   %67 = load ptr, ptr @get_info_node.node_info_ptr, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i32, ptr %68, align 8
@@ -2142,8 +2142,8 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
   %.not6470 = icmp eq ptr %75, null
   br i1 %.not6470, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread74, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.thread74 ]
+.lr.ph:                                           ; preds = %.thread84, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.thread84 ]
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 %indvars.iv
   store i8 1, ptr %76, align 1
   %77 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv
@@ -2154,7 +2154,7 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
   %.not64 = icmp eq ptr %79, null
   br i1 %.not64, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %.lr.ph, %.thread74
+._crit_edge:                                      ; preds = %.lr.ph, %.thread84
   call void @list_iterator_destroy(ptr noundef %74) #11
   %80 = load ptr, ptr @grid_button_list, align 8
   call void @change_grid_color_array(ptr noundef %80, i32 noundef %69, ptr noundef %72, ptr noundef %73, i1 noundef zeroext true, i32 noundef 0) #11
@@ -2305,13 +2305,13 @@ define internal fastcc void @_update_info_node(ptr noundef %0, ptr noundef %1) u
 .thread:                                          ; preds = %.lr.ph
   store i8 0, ptr %.phi.trans.insert, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  br label %.thread24
+  br label %.thread25
 
 10:                                               ; preds = %.lr.ph
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !11
   %11 = trunc nuw i8 %.pre to i1
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  br i1 %11, label %13, label %.thread24
+  br i1 %11, label %13, label %.thread25
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -2332,7 +2332,7 @@ define internal fastcc void @_update_info_node(ptr noundef %0, ptr noundef %1) u
   call void @g_free(ptr noundef %21) #11
   %.pre23 = load i8, ptr %12, align 8, !range !11
   %22 = trunc nuw i8 %.pre23 to i1
-  br i1 %22, label %23, label %.thread24
+  br i1 %22, label %23, label %.thread25
 
 23:                                               ; preds = %20
   %24 = tail call i64 @gtk_tree_store_get_type() #12
@@ -2340,7 +2340,7 @@ define internal fastcc void @_update_info_node(ptr noundef %0, ptr noundef %1) u
   call fastcc void @_update_node_record(ptr noundef %7, ptr noundef %25)
   br label %32
 
-.thread24:                                        ; preds = %.thread, %10, %20
+.thread25:                                        ; preds = %.thread, %10, %20
   %26 = phi ptr [ %12, %20 ], [ %9, %.thread ], [ %12, %10 ]
   %27 = tail call i64 @gtk_tree_store_get_type() #12
   %28 = call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %27) #11
@@ -2353,7 +2353,7 @@ define internal fastcc void @_update_info_node(ptr noundef %0, ptr noundef %1) u
   store i8 1, ptr %26, align 8
   br label %32
 
-32:                                               ; preds = %.thread24, %23
+32:                                               ; preds = %.thread25, %23
   %33 = call ptr @list_next(ptr noundef %5) #11
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20

@@ -839,8 +839,8 @@ define internal void @_ZNK4ncnn11Spectrogram7forwardERKNS_3MatERS1_RKNS_6OptionE
   br i1 %23, label %.critedge.us.thread, label %.critedge.us
 
 .critedge.us.thread:                              ; preds = %.lr.ph.split.us.split
-  %.reass140.us.pn186 = mul i64 %factor.op.mul141, %indvars.iv
-  %101 = getelementptr inbounds nuw i8, ptr %24, i64 %.reass140.us.pn186
+  %.reass140.us.pn191 = mul i64 %factor.op.mul141, %indvars.iv
+  %101 = getelementptr inbounds nuw i8, ptr %24, i64 %.reass140.us.pn191
   call void @llvm.memset.p0.i64(ptr align 4 %101, i8 0, i64 %49, i1 false), !tbaa !42
   br label %._crit_edge103.split.us149
 

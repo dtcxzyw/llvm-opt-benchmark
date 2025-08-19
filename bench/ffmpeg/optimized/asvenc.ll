@@ -1006,9 +1006,9 @@ put_bits.exit.i:                                  ; preds = %53, %45, %35
   br label %put_bits.exit74.i
 
 put_bits.exit74.i:                                ; preds = %127, %119, %109
-  %.sink90.i = phi i32 [ -2, %109 ], [ 30, %127 ], [ 30, %119 ]
+  %.sink100.i = phi i32 [ -2, %109 ], [ 30, %127 ], [ 30, %119 ]
   %.026.i.i72.i = phi i32 [ %111, %109 ], [ 2, %127 ], [ 2, %119 ]
-  %128 = add nsw i32 %.sink90.i, %106
+  %128 = add nsw i32 %.sink100.i, %106
   store i32 %.026.i.i72.i, ptr %3, align 8, !tbaa !69
   store i32 %128, ptr %10, align 4, !tbaa !68
   %129 = add nsw i32 %.16084.i, -1
@@ -1347,13 +1347,13 @@ put_sbits.exit.i39:                               ; preds = %313, %305, %295
 
 asv1_put_level.exit46.sink.split:                 ; preds = %253, %273, %put_sbits.exit.i39
   %.026.i.i.i.i41.sink = phi i32 [ %.026.i.i.i.i41, %put_sbits.exit.i39 ], [ %255, %253 ], [ %251, %273 ]
-  %.sink149 = phi i32 [ %314, %put_sbits.exit.i39 ], [ %256, %253 ], [ %274, %273 ]
+  %.sink213 = phi i32 [ %314, %put_sbits.exit.i39 ], [ %256, %253 ], [ %274, %273 ]
   store i32 %.026.i.i.i.i41.sink, ptr %3, align 8, !tbaa !69
-  store i32 %.sink149, ptr %10, align 4, !tbaa !68
+  store i32 %.sink213, ptr %10, align 4, !tbaa !68
   br label %asv1_put_level.exit46
 
 asv1_put_level.exit46:                            ; preds = %asv1_put_level.exit46.sink.split, %asv1_put_level.exit57
-  %315 = phi i32 [ %236, %asv1_put_level.exit57 ], [ %.sink149, %asv1_put_level.exit46.sink.split ]
+  %315 = phi i32 [ %236, %asv1_put_level.exit57 ], [ %.sink213, %asv1_put_level.exit46.sink.split ]
   %316 = phi i32 [ %237, %asv1_put_level.exit57 ], [ %.026.i.i.i.i41.sink, %asv1_put_level.exit46.sink.split ]
   %317 = and i32 %.2.i, 2
   %.not69.i = icmp eq i32 %317, 0
@@ -1491,13 +1491,13 @@ put_sbits.exit.i28:                               ; preds = %392, %384, %374
 
 asv1_put_level.exit35.sink.split:                 ; preds = %332, %352, %put_sbits.exit.i28
   %.026.i.i.i.i30.sink = phi i32 [ %.026.i.i.i.i30, %put_sbits.exit.i28 ], [ %334, %332 ], [ %330, %352 ]
-  %.sink152 = phi i32 [ %393, %put_sbits.exit.i28 ], [ %335, %332 ], [ %353, %352 ]
+  %.sink216 = phi i32 [ %393, %put_sbits.exit.i28 ], [ %335, %332 ], [ %353, %352 ]
   store i32 %.026.i.i.i.i30.sink, ptr %3, align 8, !tbaa !69
-  store i32 %.sink152, ptr %10, align 4, !tbaa !68
+  store i32 %.sink216, ptr %10, align 4, !tbaa !68
   br label %asv1_put_level.exit35
 
 asv1_put_level.exit35:                            ; preds = %asv1_put_level.exit35.sink.split, %asv1_put_level.exit46
-  %394 = phi i32 [ %315, %asv1_put_level.exit46 ], [ %.sink152, %asv1_put_level.exit35.sink.split ]
+  %394 = phi i32 [ %315, %asv1_put_level.exit46 ], [ %.sink216, %asv1_put_level.exit35.sink.split ]
   %395 = phi i32 [ %316, %asv1_put_level.exit46 ], [ %.026.i.i.i.i30.sink, %asv1_put_level.exit35.sink.split ]
   %396 = and i32 %.3.i, 1
   %.not70.i = icmp eq i32 %396, 0
@@ -1689,9 +1689,9 @@ asv1_put_level.exit:                              ; preds = %put_sbits.exit.i, %
   br label %asv1_encode_block.exit
 
 asv1_encode_block.exit:                           ; preds = %479, %489, %497
-  %.sink91.i = phi i32 [ -5, %479 ], [ 27, %497 ], [ 27, %489 ]
+  %.sink101.i = phi i32 [ -5, %479 ], [ 27, %497 ], [ 27, %489 ]
   %.026.i.i80.i = phi i32 [ %481, %479 ], [ 15, %497 ], [ 15, %489 ]
-  %498 = add nsw i32 %.sink91.i, %475
+  %498 = add nsw i32 %.sink101.i, %475
   store i32 %.026.i.i80.i, ptr %3, align 8, !tbaa !69
   store i32 %498, ptr %10, align 4, !tbaa !68
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
@@ -2128,14 +2128,14 @@ put_bits_le.exit24.i102:                          ; preds = %735, %717
 
 asv2_put_level.exit111.sink.split:                ; preds = %put_bits_le.exit.i108, %put_bits_le.exit24.i102
   %.020.i22.i103.sink = phi i32 [ %.020.i22.i103, %put_bits_le.exit24.i102 ], [ %.020.i.i109, %put_bits_le.exit.i108 ]
-  %.sink155 = phi i32 [ %738, %put_bits_le.exit24.i102 ], [ %696, %put_bits_le.exit.i108 ]
+  %.sink219 = phi i32 [ %738, %put_bits_le.exit24.i102 ], [ %696, %put_bits_le.exit.i108 ]
   store i32 %.020.i22.i103.sink, ptr %3, align 8, !tbaa !69
-  store i32 %.sink155, ptr %10, align 4, !tbaa !68
+  store i32 %.sink219, ptr %10, align 4, !tbaa !68
   br label %asv2_put_level.exit111
 
 asv2_put_level.exit111:                           ; preds = %asv2_put_level.exit111.sink.split, %665
   %739 = phi i32 [ %storemerge99.i, %665 ], [ %.020.i22.i103.sink, %asv2_put_level.exit111.sink.split ]
-  %740 = phi i32 [ %664, %665 ], [ %.sink155, %asv2_put_level.exit111.sink.split ]
+  %740 = phi i32 [ %664, %665 ], [ %.sink219, %asv2_put_level.exit111.sink.split ]
   %741 = and i32 %.2.i16, 4
   %.not84.i = icmp eq i32 %741, 0
   br i1 %.not84.i, label %asv2_put_level.exit94, label %742
@@ -2283,14 +2283,14 @@ put_bits_le.exit24.i85:                           ; preds = %811, %793
 
 asv2_put_level.exit94.sink.split:                 ; preds = %put_bits_le.exit.i91, %put_bits_le.exit24.i85
   %.020.i22.i86.sink = phi i32 [ %.020.i22.i86, %put_bits_le.exit24.i85 ], [ %.020.i.i92, %put_bits_le.exit.i91 ]
-  %.sink158 = phi i32 [ %814, %put_bits_le.exit24.i85 ], [ %772, %put_bits_le.exit.i91 ]
+  %.sink222 = phi i32 [ %814, %put_bits_le.exit24.i85 ], [ %772, %put_bits_le.exit.i91 ]
   store i32 %.020.i22.i86.sink, ptr %3, align 8, !tbaa !69
-  store i32 %.sink158, ptr %10, align 4, !tbaa !68
+  store i32 %.sink222, ptr %10, align 4, !tbaa !68
   br label %asv2_put_level.exit94
 
 asv2_put_level.exit94:                            ; preds = %asv2_put_level.exit94.sink.split, %asv2_put_level.exit111
   %815 = phi i32 [ %739, %asv2_put_level.exit111 ], [ %.020.i22.i86.sink, %asv2_put_level.exit94.sink.split ]
-  %816 = phi i32 [ %740, %asv2_put_level.exit111 ], [ %.sink158, %asv2_put_level.exit94.sink.split ]
+  %816 = phi i32 [ %740, %asv2_put_level.exit111 ], [ %.sink222, %asv2_put_level.exit94.sink.split ]
   %817 = and i32 %.2.i16, 2
   %.not85.i = icmp eq i32 %817, 0
   br i1 %.not85.i, label %asv2_put_level.exit77, label %818
@@ -2438,14 +2438,14 @@ put_bits_le.exit24.i68:                           ; preds = %887, %869
 
 asv2_put_level.exit77.sink.split:                 ; preds = %put_bits_le.exit.i74, %put_bits_le.exit24.i68
   %.020.i22.i69.sink = phi i32 [ %.020.i22.i69, %put_bits_le.exit24.i68 ], [ %.020.i.i75, %put_bits_le.exit.i74 ]
-  %.sink161 = phi i32 [ %890, %put_bits_le.exit24.i68 ], [ %848, %put_bits_le.exit.i74 ]
+  %.sink225 = phi i32 [ %890, %put_bits_le.exit24.i68 ], [ %848, %put_bits_le.exit.i74 ]
   store i32 %.020.i22.i69.sink, ptr %3, align 8, !tbaa !69
-  store i32 %.sink161, ptr %10, align 4, !tbaa !68
+  store i32 %.sink225, ptr %10, align 4, !tbaa !68
   br label %asv2_put_level.exit77
 
 asv2_put_level.exit77:                            ; preds = %asv2_put_level.exit77.sink.split, %asv2_put_level.exit94
   %891 = phi i32 [ %815, %asv2_put_level.exit94 ], [ %.020.i22.i69.sink, %asv2_put_level.exit77.sink.split ]
-  %892 = phi i32 [ %816, %asv2_put_level.exit94 ], [ %.sink161, %asv2_put_level.exit77.sink.split ]
+  %892 = phi i32 [ %816, %asv2_put_level.exit94 ], [ %.sink225, %asv2_put_level.exit77.sink.split ]
   %893 = and i32 %.3.i17, 1
   %.not86.i = icmp eq i32 %893, 0
   br i1 %.not86.i, label %asv2_put_level.exit, label %894
@@ -2593,14 +2593,14 @@ put_bits_le.exit24.i:                             ; preds = %963, %945
 
 asv2_put_level.exit.sink.split:                   ; preds = %put_bits_le.exit.i59, %put_bits_le.exit24.i
   %.020.i22.i.sink = phi i32 [ %.020.i22.i, %put_bits_le.exit24.i ], [ %.020.i.i60, %put_bits_le.exit.i59 ]
-  %.sink164 = phi i32 [ %966, %put_bits_le.exit24.i ], [ %924, %put_bits_le.exit.i59 ]
+  %.sink228 = phi i32 [ %966, %put_bits_le.exit24.i ], [ %924, %put_bits_le.exit.i59 ]
   store i32 %.020.i22.i.sink, ptr %3, align 8, !tbaa !69
-  store i32 %.sink164, ptr %10, align 4, !tbaa !68
+  store i32 %.sink228, ptr %10, align 4, !tbaa !68
   br label %asv2_put_level.exit
 
 asv2_put_level.exit:                              ; preds = %asv2_put_level.exit.sink.split, %asv2_put_level.exit77, %663
   %967 = phi i32 [ %891, %asv2_put_level.exit77 ], [ %storemerge99.i, %663 ], [ %.020.i22.i.sink, %asv2_put_level.exit.sink.split ]
-  %968 = phi i32 [ %892, %asv2_put_level.exit77 ], [ %664, %663 ], [ %.sink164, %asv2_put_level.exit.sink.split ]
+  %968 = phi i32 [ %892, %asv2_put_level.exit77 ], [ %664, %663 ], [ %.sink228, %asv2_put_level.exit.sink.split ]
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %wide.trip.count.i
   br i1 %exitcond.not.i19, label %asv2_encode_block.exit, label %560, !llvm.loop !89

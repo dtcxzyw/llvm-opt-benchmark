@@ -441,7 +441,7 @@ define dso_local range(i32 0, 2) i32 @can_all_from_reach(ptr noundef readonly ca
   br label %.lr.ph
 
 .preheader55:                                     ; preds = %18, %8
-  %.not485678 = phi i1 [ true, %8 ], [ false, %18 ]
+  %.not485683 = phi i1 [ true, %8 ], [ false, %18 ]
   %.036.lcssa = phi i64 [ 0, %8 ], [ %.137, %18 ]
   %.035.lcssa = phi i64 [ 9223372036854775807, %8 ], [ %.1, %18 ]
   %.not4961 = icmp eq ptr %1, null
@@ -511,7 +511,7 @@ define dso_local range(i32 0, 2) i32 @can_all_from_reach(ptr noundef readonly ca
   %.339.lcssa = phi i64 [ %.036.lcssa, %.preheader55 ], [ %.440, %29 ]
   %.3.lcssa = phi i64 [ %.035.lcssa, %.preheader55 ], [ %.4, %29 ]
   %35 = call i32 @can_all_from_reach_with_flag(ptr noundef nonnull %4, i32 noundef 131072, i32 noundef 65536, i64 noundef %.339.lcssa, i64 noundef %.3.lcssa)
-  br i1 %.not485678, label %.preheader, label %.lr.ph71
+  br i1 %.not485683, label %.preheader, label %.lr.ph71
 
 .preheader:                                       ; preds = %.lr.ph71, %._crit_edge
   br i1 %.not4961, label %._crit_edge75, label %.lr.ph74
@@ -889,9 +889,9 @@ define dso_local ptr @reduce_heads(ptr noundef readonly captures(address_is_null
   %7 = getelementptr inbounds nuw i8, ptr %.02839, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !11
   %.not33 = icmp eq ptr %8, null
-  br i1 %.not33, label %.preheader46, label %.preheader38, !llvm.loop !49
+  br i1 %.not33, label %.preheader50, label %.preheader38, !llvm.loop !49
 
-.preheader46:                                     ; preds = %.preheader38, %16
+.preheader50:                                     ; preds = %.preheader38, %16
   %.12940 = phi ptr [ %19, %16 ], [ %0, %.preheader38 ]
   %9 = phi i64 [ %17, %16 ], [ 0, %.preheader38 ]
   %10 = load ptr, ptr %.12940, align 8, !tbaa !4
@@ -900,18 +900,18 @@ define dso_local ptr @reduce_heads(ptr noundef readonly captures(address_is_null
   %.not37 = icmp eq i32 %12, 0
   br i1 %.not37, label %13, label %16
 
-13:                                               ; preds = %.preheader46
+13:                                               ; preds = %.preheader50
   %14 = or disjoint i32 %11, 4194304
   store i32 %14, ptr %10, align 8
   %15 = add i64 %9, 1
   br label %16
 
-16:                                               ; preds = %.preheader46, %13
-  %17 = phi i64 [ %9, %.preheader46 ], [ %15, %13 ]
+16:                                               ; preds = %.preheader50, %13
+  %17 = phi i64 [ %9, %.preheader50 ], [ %15, %13 ]
   %18 = getelementptr inbounds nuw i8, ptr %.12940, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %.not34 = icmp eq ptr %19, null
-  br i1 %.not34, label %20, label %.preheader46, !llvm.loop !50
+  br i1 %.not34, label %20, label %.preheader50, !llvm.loop !50
 
 20:                                               ; preds = %16
   store i64 %17, ptr %3, align 8
@@ -999,13 +999,13 @@ define internal fastcc range(i32 -1, 1) i32 @remove_redundant(ptr noundef %0, pt
   br i1 %or.cond, label %.lr.ph, label %.thread
 
 9:                                                ; preds = %.lr.ph
-  %10 = add nuw i64 %.01538, 1
+  %10 = add nuw i64 %.01537, 1
   %exitcond.not = icmp eq i64 %10, %2
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !53
 
 .lr.ph:                                           ; preds = %4, %9
-  %.01538 = phi i64 [ %10, %9 ], [ 0, %4 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %.01538
+  %.01537 = phi i64 [ %10, %9 ], [ 0, %4 ]
+  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %.01537
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = tail call i64 @commit_graph_generation(ptr noundef %12) #13
   %14 = icmp ult i64 %13, 9223372036854775807
@@ -1075,8 +1075,8 @@ st_mult.exit146.i:                                ; preds = %19, %copy_array.exi
   br i1 %39, label %40, label %47
 
 40:                                               ; preds = %36
-  %41 = mul i64 %.1107172.i, 3
-  %42 = add i64 %41, 48
+  %41 = mul nuw nsw i64 %.1107172.i, 3
+  %42 = add nuw nsw i64 %41, 48
   %43 = lshr i64 %42, 1
   %..i = tail call i64 @llvm.umax.i64(i64 %43, i64 %38)
   %mul.ov.i148.i = icmp ugt i64 %..i, 2305843009213693951
@@ -1118,13 +1118,13 @@ st_mult.exit149.i:                                ; preds = %40
 
 ._crit_edge181.i:                                 ; preds = %._crit_edge.i
   %53 = icmp ugt i64 %.1112.lcssa.i, 1
-  br i1 %53, label %sane_qsort.exit150.thread247.i, label %sane_qsort.exit150.i
+  br i1 %53, label %sane_qsort.exit150.thread257.i, label %sane_qsort.exit150.i
 
-sane_qsort.exit150.thread247.i:                   ; preds = %._crit_edge181.i
+sane_qsort.exit150.thread257.i:                   ; preds = %._crit_edge181.i
   tail call void @qsort(ptr noundef %.1120.lcssa.i, i64 noundef %.1112.lcssa.i, i64 noundef 8, ptr noundef nonnull @compare_commits_by_gen) #13
   br label %.lr.ph185.i.preheader
 
-.lr.ph185.i.preheader:                            ; preds = %sane_qsort.exit150.i, %sane_qsort.exit150.thread247.i
+.lr.ph185.i.preheader:                            ; preds = %sane_qsort.exit150.i, %sane_qsort.exit150.thread257.i
   br label %.lr.ph185.i
 
 sane_qsort.exit150.i:                             ; preds = %._crit_edge181.i
@@ -1184,7 +1184,7 @@ sane_qsort.exit150.i:                             ; preds = %._crit_edge181.i
 74:                                               ; preds = %.lr.ph201.i
   %75 = and i32 %72, -8388609
   store i32 %75, ptr %70, align 8
-  %76 = add i64 %.1115198.i, -1
+  %76 = add nsw i64 %.1115198.i, -1
   %77 = icmp ult i64 %76, 2
   br i1 %77, label %..thread.loopexit_crit_edge.i, label %78
 
@@ -1281,7 +1281,7 @@ sane_qsort.exit150.i:                             ; preds = %._crit_edge181.i
   %111 = phi ptr [ null, %60 ], [ %.pre235.pre.i, %..thread.loopexit_crit_edge.i ], [ null, %109 ]
   %.1124.lcssa.i = phi i64 [ %.0123209.i, %60 ], [ %.1124197.i, %..thread.loopexit_crit_edge.i ], [ %.3126.i, %109 ]
   %.1102.lcssa.i = phi i64 [ %.0101211.i, %60 ], [ %.1102199.i, %..thread.loopexit_crit_edge.i ], [ %.3104.i, %109 ]
-  %.2116.i = phi i64 [ %.0114210.i, %60 ], [ %76, %..thread.loopexit_crit_edge.i ], [ %.3117.i, %109 ]
+  %.2116.i = phi i64 [ %.0114210.i, %60 ], [ 1, %..thread.loopexit_crit_edge.i ], [ %.3117.i, %109 ]
   call void @free_commit_list(ptr noundef %111) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %112 = add i64 %.2212.i, -1
@@ -1657,7 +1657,7 @@ define dso_local range(i32 -1, 2) i32 @commit_contains(ptr noundef readonly capt
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, 1
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %126, label %10
+  br i1 %.not, label %125, label %10
 
 10:                                               ; preds = %4
   %.not81.i = icmp eq ptr %2, null
@@ -1694,10 +1694,10 @@ push_to_contains_stack.exit.i:                    ; preds = %._crit_edge.i
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %24
 
-24:                                               ; preds = %121, %push_to_contains_stack.exit.i
-  %.sroa.18.086.i = phi ptr [ %17, %push_to_contains_stack.exit.i ], [ %.sroa.18.1.i, %121 ]
-  %.sroa.14.085.i = phi i32 [ 24, %push_to_contains_stack.exit.i ], [ %.sroa.14.1.i, %121 ]
-  %.sroa.0.084.i = phi i32 [ 1, %push_to_contains_stack.exit.i ], [ %.sroa.0.1.i, %121 ]
+24:                                               ; preds = %120, %push_to_contains_stack.exit.i
+  %.sroa.18.086.i = phi ptr [ %17, %push_to_contains_stack.exit.i ], [ %.sroa.18.1.i, %120 ]
+  %.sroa.14.085.i = phi i32 [ 24, %push_to_contains_stack.exit.i ], [ %.sroa.14.1.i, %120 ]
+  %.sroa.0.084.i = phi i32 [ 1, %push_to_contains_stack.exit.i ], [ %.sroa.0.1.i, %120 ]
   %25 = sext i32 %.sroa.0.084.i to i64
   %26 = getelementptr %struct.contains_stack_entry, ptr %.sroa.18.086.i, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -16
@@ -1778,12 +1778,12 @@ contains_cache_at.exit.i:                         ; preds = %51, %46
   %64 = getelementptr inbounds nuw i32, ptr %60, i64 %63
   store i32 1, ptr %64, align 4, !tbaa !21
   %65 = add nsw i32 %.sroa.0.084.i, -1
-  br label %121
+  br label %120
 
 66:                                               ; preds = %24
   %67 = load ptr, ptr %30, align 8, !tbaa !4
   %68 = tail call fastcc i32 @contains_test(ptr noundef %67, ptr noundef readonly %2, ptr noundef %3, i64 noundef %.034.lcssa.i)
-  switch i32 %68, label %121 [
+  switch i32 %68, label %120 [
     i32 2, label %69
     i32 1, label %104
     i32 0, label %107
@@ -1860,110 +1860,107 @@ contains_cache_at.exit55.i:                       ; preds = %89, %84
   %102 = getelementptr inbounds nuw i32, ptr %98, i64 %101
   store i32 2, ptr %102, align 4, !tbaa !21
   %103 = add nsw i32 %.sroa.0.084.i, -1
-  br label %121
+  br label %120
 
 104:                                              ; preds = %66
   %105 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %106 = load ptr, ptr %105, align 8, !tbaa !11
   store ptr %106, ptr %29, align 8, !tbaa !72
-  br label %121
+  br label %120
 
 107:                                              ; preds = %66
   %108 = load ptr, ptr %30, align 8, !tbaa !4
   %.not.i56.i = icmp slt i32 %.sroa.0.084.i, %.sroa.14.085.i
+  br i1 %.not.i56.i, label %.push_to_contains_stack.exit64_crit_edge.i, label %st_mult.exit.i59.i
+
+.push_to_contains_stack.exit64_crit_edge.i:       ; preds = %107
   %.pre92.i = add nsw i32 %.sroa.0.084.i, 1
-  br i1 %.not.i56.i, label %push_to_contains_stack.exit64.i, label %109
-
-109:                                              ; preds = %107
-  %110 = mul i32 %.sroa.14.085.i, 3
-  %111 = add i32 %110, 48
-  %112 = sdiv i32 %111, 2
-  %..i57.i = tail call i32 @llvm.smax.i32(i32 %112, i32 %.pre92.i)
-  %113 = sext i32 %..i57.i to i64
-  %mul.ov.i.i58.i = icmp slt i32 %..i57.i, 0
-  br i1 %mul.ov.i.i58.i, label %114, label %st_mult.exit.i59.i
-
-114:                                              ; preds = %109
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5, i64 noundef 16, i64 noundef %113) #14
-  unreachable
-
-st_mult.exit.i59.i:                               ; preds = %109
-  %115 = shl nuw nsw i64 %113, 4
-  %116 = tail call ptr @xrealloc(ptr noundef nonnull %.sroa.18.086.i, i64 noundef %115) #13
   br label %push_to_contains_stack.exit64.i
 
-push_to_contains_stack.exit64.i:                  ; preds = %st_mult.exit.i59.i, %107
-  %.sroa.14.3.i = phi i32 [ %..i57.i, %st_mult.exit.i59.i ], [ %.sroa.14.085.i, %107 ]
-  %.sroa.18.3.i = phi ptr [ %116, %st_mult.exit.i59.i ], [ %.sroa.18.086.i, %107 ]
-  %117 = getelementptr inbounds %struct.contains_stack_entry, ptr %.sroa.18.3.i, i64 %25
-  store ptr %108, ptr %117, align 8, !tbaa !70
-  %118 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %119 = load ptr, ptr %118, align 8, !tbaa !47
-  %120 = getelementptr inbounds %struct.contains_stack_entry, ptr %.sroa.18.3.i, i64 %25, i32 1
-  store ptr %119, ptr %120, align 8, !tbaa !72
-  br label %121
+st_mult.exit.i59.i:                               ; preds = %107
+  %109 = mul i32 %.sroa.14.085.i, 3
+  %110 = add i32 %109, 48
+  %111 = sdiv i32 %110, 2
+  %112 = add nuw nsw i32 %.sroa.0.084.i, 1
+  %..i57.i = tail call i32 @llvm.smax.i32(i32 %111, i32 %112)
+  %113 = zext nneg i32 %..i57.i to i64
+  %114 = shl nuw nsw i64 %113, 4
+  %115 = tail call ptr @xrealloc(ptr noundef nonnull %.sroa.18.086.i, i64 noundef %114) #13
+  br label %push_to_contains_stack.exit64.i
 
-121:                                              ; preds = %push_to_contains_stack.exit64.i, %104, %contains_cache_at.exit55.i, %66, %contains_cache_at.exit.i
-  %.sroa.0.1.i = phi i32 [ %65, %contains_cache_at.exit.i ], [ %.sroa.0.084.i, %66 ], [ %103, %contains_cache_at.exit55.i ], [ %.sroa.0.084.i, %104 ], [ %.pre92.i, %push_to_contains_stack.exit64.i ]
+push_to_contains_stack.exit64.i:                  ; preds = %st_mult.exit.i59.i, %.push_to_contains_stack.exit64_crit_edge.i
+  %.pre-phi.i = phi i32 [ %.pre92.i, %.push_to_contains_stack.exit64_crit_edge.i ], [ %112, %st_mult.exit.i59.i ]
+  %.sroa.14.3.i = phi i32 [ %.sroa.14.085.i, %.push_to_contains_stack.exit64_crit_edge.i ], [ %..i57.i, %st_mult.exit.i59.i ]
+  %.sroa.18.3.i = phi ptr [ %.sroa.18.086.i, %.push_to_contains_stack.exit64_crit_edge.i ], [ %115, %st_mult.exit.i59.i ]
+  %116 = getelementptr inbounds %struct.contains_stack_entry, ptr %.sroa.18.3.i, i64 %25
+  store ptr %108, ptr %116, align 8, !tbaa !70
+  %117 = getelementptr inbounds nuw i8, ptr %108, i64 48
+  %118 = load ptr, ptr %117, align 8, !tbaa !47
+  %119 = getelementptr inbounds %struct.contains_stack_entry, ptr %.sroa.18.3.i, i64 %25, i32 1
+  store ptr %118, ptr %119, align 8, !tbaa !72
+  br label %120
+
+120:                                              ; preds = %push_to_contains_stack.exit64.i, %104, %contains_cache_at.exit55.i, %66, %contains_cache_at.exit.i
+  %.sroa.0.1.i = phi i32 [ %65, %contains_cache_at.exit.i ], [ %.sroa.0.084.i, %66 ], [ %103, %contains_cache_at.exit55.i ], [ %.sroa.0.084.i, %104 ], [ %.pre-phi.i, %push_to_contains_stack.exit64.i ]
   %.sroa.14.1.i = phi i32 [ %.sroa.14.085.i, %contains_cache_at.exit.i ], [ %.sroa.14.085.i, %66 ], [ %.sroa.14.085.i, %contains_cache_at.exit55.i ], [ %.sroa.14.085.i, %104 ], [ %.sroa.14.3.i, %push_to_contains_stack.exit64.i ]
   %.sroa.18.1.i = phi ptr [ %.sroa.18.086.i, %contains_cache_at.exit.i ], [ %.sroa.18.086.i, %66 ], [ %.sroa.18.086.i, %contains_cache_at.exit55.i ], [ %.sroa.18.086.i, %104 ], [ %.sroa.18.3.i, %push_to_contains_stack.exit64.i ]
   %.not41.i = icmp eq i32 %.sroa.0.1.i, 0
-  br i1 %.not41.i, label %122, label %24, !llvm.loop !81
+  br i1 %.not41.i, label %121, label %24, !llvm.loop !81
 
-122:                                              ; preds = %121
+121:                                              ; preds = %120
   tail call void @free(ptr noundef nonnull %.sroa.18.1.i) #13
-  %123 = tail call fastcc i32 @contains_test(ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i64 noundef %.034.lcssa.i)
+  %122 = tail call fastcc i32 @contains_test(ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i64 noundef %.034.lcssa.i)
   br label %contains_tag_algo.exit
 
-contains_tag_algo.exit:                           ; preds = %._crit_edge.i, %122
-  %.0.i = phi i32 [ %123, %122 ], [ %16, %._crit_edge.i ]
-  %124 = icmp eq i32 %.0.i, 2
-  %125 = zext i1 %124 to i32
-  br label %140
+contains_tag_algo.exit:                           ; preds = %._crit_edge.i, %121
+  %.0.i = phi i32 [ %122, %121 ], [ %16, %._crit_edge.i ]
+  %123 = icmp eq i32 %.0.i, 2
+  %124 = zext i1 %123 to i32
+  br label %139
 
-126:                                              ; preds = %4
-  %127 = load ptr, ptr @the_repository, align 8, !tbaa !13
+125:                                              ; preds = %4
+  %126 = load ptr, ptr @the_repository, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !15
   %.not.i6 = icmp eq ptr %2, null
-  br i1 %.not.i6, label %repo_is_descendant_of.exit, label %128
+  br i1 %.not.i6, label %repo_is_descendant_of.exit, label %127
 
-128:                                              ; preds = %126
-  %129 = tail call i32 @generation_numbers_enabled(ptr noundef %127) #13
-  %.not16.i = icmp eq i32 %129, 0
-  br i1 %.not16.i, label %.preheader.i, label %130
+127:                                              ; preds = %125
+  %128 = tail call i32 @generation_numbers_enabled(ptr noundef %126) #13
+  %.not16.i = icmp eq i32 %128, 0
+  br i1 %.not16.i, label %.preheader.i, label %129
 
-130:                                              ; preds = %128
+129:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !12
-  %131 = call ptr @commit_list_insert(ptr noundef %1, ptr noundef nonnull %6) #13
-  %132 = load ptr, ptr %6, align 8, !tbaa !12
-  %133 = call i32 @can_all_from_reach(ptr noundef %132, ptr noundef nonnull readonly %2, i32 noundef 0)
-  %134 = load ptr, ptr %6, align 8, !tbaa !12
-  call void @free_commit_list(ptr noundef %134) #13
+  %130 = call ptr @commit_list_insert(ptr noundef %1, ptr noundef nonnull %6) #13
+  %131 = load ptr, ptr %6, align 8, !tbaa !12
+  %132 = call i32 @can_all_from_reach(ptr noundef %131, ptr noundef nonnull readonly %2, i32 noundef 0)
+  %133 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @free_commit_list(ptr noundef %133) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %repo_is_descendant_of.exit
 
-.preheader.i:                                     ; preds = %128, %135
-  %.013.i = phi ptr [ %138, %135 ], [ %2, %128 ]
+.preheader.i:                                     ; preds = %127, %134
+  %.013.i = phi ptr [ %137, %134 ], [ %2, %127 ]
   %.not17.i = icmp eq ptr %.013.i, null
-  br i1 %.not17.i, label %repo_is_descendant_of.exit, label %135
+  br i1 %.not17.i, label %repo_is_descendant_of.exit, label %134
 
-135:                                              ; preds = %.preheader.i
-  %136 = load ptr, ptr %.013.i, align 8, !tbaa !4
-  %137 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
-  %138 = load ptr, ptr %137, align 8, !tbaa !11
-  %139 = call i32 @repo_in_merge_bases_many(ptr noundef %127, ptr noundef %136, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 0)
-  %.not18.not.i = icmp eq i32 %139, 0
+134:                                              ; preds = %.preheader.i
+  %135 = load ptr, ptr %.013.i, align 8, !tbaa !4
+  %136 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
+  %137 = load ptr, ptr %136, align 8, !tbaa !11
+  %138 = call i32 @repo_in_merge_bases_many(ptr noundef %126, ptr noundef %135, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 0)
+  %.not18.not.i = icmp eq i32 %138, 0
   br i1 %.not18.not.i, label %.preheader.i, label %repo_is_descendant_of.exit
 
-repo_is_descendant_of.exit:                       ; preds = %.preheader.i, %135, %126, %130
-  %.012.i = phi i32 [ %133, %130 ], [ 1, %126 ], [ %139, %135 ], [ 0, %.preheader.i ]
+repo_is_descendant_of.exit:                       ; preds = %.preheader.i, %134, %125, %129
+  %.012.i = phi i32 [ %132, %129 ], [ 1, %125 ], [ %138, %134 ], [ 0, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %140
+  br label %139
 
-140:                                              ; preds = %repo_is_descendant_of.exit, %contains_tag_algo.exit
-  %.0 = phi i32 [ %125, %contains_tag_algo.exit ], [ %.012.i, %repo_is_descendant_of.exit ]
+139:                                              ; preds = %repo_is_descendant_of.exit, %contains_tag_algo.exit
+  %.0 = phi i32 [ %124, %contains_tag_algo.exit ], [ %.012.i, %repo_is_descendant_of.exit ]
   ret i32 %.0
 }
 
@@ -2049,9 +2046,9 @@ st_mult.exit:
 
 ._crit_edge:                                      ; preds = %43
   %48 = icmp ugt i64 %.173.ph, 1
-  br i1 %48, label %sane_qsort.exit.thread141, label %sane_qsort.exit
+  br i1 %48, label %sane_qsort.exit.thread150, label %sane_qsort.exit
 
-sane_qsort.exit.thread141:                        ; preds = %._crit_edge
+sane_qsort.exit.thread150:                        ; preds = %._crit_edge
   tail call void @qsort(ptr noundef %9, i64 noundef %.173.ph, i64 noundef 8, ptr noundef nonnull @compare_commits_by_gen) #13
   br label %.lr.ph120
 
@@ -2059,8 +2056,8 @@ sane_qsort.exit:                                  ; preds = %._crit_edge
   %.not129 = icmp eq i64 %.173.ph, 0
   br i1 %.not129, label %.loopexit, label %.lr.ph120
 
-.lr.ph120:                                        ; preds = %sane_qsort.exit.thread141, %sane_qsort.exit
-  %.072.lcssa138144 = phi i64 [ %.173.ph, %sane_qsort.exit.thread141 ], [ 1, %sane_qsort.exit ]
+.lr.ph120:                                        ; preds = %sane_qsort.exit.thread150, %sane_qsort.exit
+  %.072.lcssa147153 = phi i64 [ %.173.ph, %sane_qsort.exit.thread150 ], [ 1, %sane_qsort.exit ]
   %49 = shl i32 %2, 4
   %50 = or i32 %1, 524288
   %.masked = and i32 %2, 268435455
@@ -2068,7 +2065,7 @@ sane_qsort.exit:                                  ; preds = %._crit_edge
 
 51:                                               ; preds = %._crit_edge118
   %52 = add nuw i64 %.176119, 1
-  %exitcond.not = icmp eq i64 %52, %.072.lcssa138144
+  %exitcond.not = icmp eq i64 %52, %.072.lcssa147153
   br i1 %exitcond.not, label %.loopexit, label %53, !llvm.loop !91
 
 53:                                               ; preds = %.lr.ph120, %51
@@ -2196,7 +2193,7 @@ sane_qsort.exit:                                  ; preds = %._crit_edge
   br i1 %.not83, label %.loopexit, label %51
 
 .loopexit:                                        ; preds = %37, %33, %51, %._crit_edge118, %st_mult.exit, %sane_qsort.exit
-  %.072107 = phi i64 [ 0, %sane_qsort.exit ], [ 0, %st_mult.exit ], [ %.072.lcssa138144, %._crit_edge118 ], [ %.072.lcssa138144, %51 ], [ %.072109, %33 ], [ %.072109, %37 ]
+  %.072107 = phi i64 [ 0, %sane_qsort.exit ], [ 0, %st_mult.exit ], [ %.072.lcssa147153, %._crit_edge118 ], [ %.072.lcssa147153, %51 ], [ %.072109, %33 ], [ %.072109, %37 ]
   %.2 = phi i32 [ 1, %sane_qsort.exit ], [ 1, %st_mult.exit ], [ 1, %51 ], [ 0, %._crit_edge118 ], [ 0, %33 ], [ 0, %37 ]
   %115 = or i32 %2, 524288
   call void @clear_commit_marks_many(i64 noundef %.072107, ptr noundef %9, i32 noundef %115) #13

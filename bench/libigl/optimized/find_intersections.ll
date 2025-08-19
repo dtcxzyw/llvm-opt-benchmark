@@ -1766,7 +1766,7 @@ _ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1
   br i1 %266, label %350, label %_ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS3_IiLin1ELin1ELi0ELin1ELin1EEES4_S5_S5_NS2_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEEEbRKNS_4AABBIT_Li3EEERKNS2_10MatrixBaseIS9_EERKNSD_IT0_EERKNSD_IT1_EERKNSD_IT2_EEbRNS2_15PlainObjectBaseIT3_EERNST_IT4_EEENKUliiRiS10_E_clEiiS10_S10_.exit.thread
 
 _ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS3_IiLin1ELin1ELi0ELin1ELin1EEES4_S5_S5_NS2_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEEEbRKNS_4AABBIT_Li3EEERKNS2_10MatrixBaseIS9_EERKNSD_IT0_EERKNSD_IT1_EERKNSD_IT2_EEbRNS2_15PlainObjectBaseIT3_EERNST_IT4_EEENKUliiRiS10_E_clEiiS10_S10_.exit.thread: ; preds = %237, %.backedge, %_ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS3_IiLin1ELin1ELi0ELin1ELin1EEES4_S5_S5_NS2_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEEEbRKNS_4AABBIT_Li3EEERKNS2_10MatrixBaseIS9_EERKNSD_IT0_EERKNSD_IT1_EERKNSD_IT2_EEbRNS2_15PlainObjectBaseIT3_EERNST_IT4_EEENKUliiRiS10_E_clEiiS10_S10_.exit
-  %.076308 = phi i1 [ %.076, %_ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS3_IiLin1ELin1ELi0ELin1ELin1EEES4_S5_S5_NS2_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEEEbRKNS_4AABBIT_Li3EEERKNS2_10MatrixBaseIS9_EERKNSD_IT0_EERKNSD_IT1_EERKNSD_IT2_EEbRNS2_15PlainObjectBaseIT3_EERNST_IT4_EEENKUliiRiS10_E_clEiiS10_S10_.exit ], [ true, %.backedge ], [ true, %237 ]
+  %.076316 = phi i1 [ %.076, %_ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS3_IiLin1ELin1ELi0ELin1ELin1EEES4_S5_S5_NS2_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEEEbRKNS_4AABBIT_Li3EEERKNS2_10MatrixBaseIS9_EERKNSD_IT0_EERKNSD_IT1_EERKNSD_IT2_EEbRNS2_15PlainObjectBaseIT3_EERNST_IT4_EEENKUliiRiS10_E_clEiiS10_S10_.exit ], [ true, %.backedge ], [ true, %237 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1884,7 +1884,7 @@ _ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %340 = xor i1 %.076308, true
+  %340 = xor i1 %.076316, true
   %brmerge = or i1 %338, %340
   br i1 %brmerge, label %.invoke, label %348
 

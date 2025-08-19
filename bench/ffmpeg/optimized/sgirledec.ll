@@ -95,7 +95,7 @@ define internal i32 @sgirle_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
 52:                                               ; preds = %50, %40
   %.3105.i = phi i32 [ %49, %40 ], [ 0, %50 ]
   %.397.i = phi i32 [ %.195.i, %40 ], [ %51, %50 ]
-  %53 = trunc i32 %38 to i8
+  %53 = trunc nuw i32 %38 to i8
   %54 = sub i8 %.090.i, %53
   %.not130.i = icmp eq i8 %54, 0
   br i1 %.not130.i, label %55, label %.preheader.i, !llvm.loop !35

@@ -319,12 +319,12 @@ define internal fastcc void @dissect_asf_payloads(ptr noundef %0, ptr noundef %1
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %27
   %hf_asf_reserved.sink = phi ptr [ @hf_asf_payload_data, %27 ], [ @hf_asf_reserved, %.sink.split.sink.split ]
-  %.sink52 = phi i32 [ 4, %27 ], [ 5, %.sink.split.sink.split ]
-  %.sink51 = phi i32 [ -4, %27 ], [ -5, %.sink.split.sink.split ]
+  %.sink55 = phi i32 [ 4, %27 ], [ 5, %.sink.split.sink.split ]
+  %.sink54 = phi i32 [ -4, %27 ], [ -5, %.sink.split.sink.split ]
   %.sink = phi ptr [ %16, %27 ], [ %37, %.sink.split.sink.split ]
   %40 = load i32, ptr %hf_asf_reserved.sink, align 4
-  %41 = add i32 %.045, %.sink52
-  %42 = add nsw i32 %.sink51, %11
+  %41 = add i32 %.045, %.sink55
+  %42 = add nsw i32 %.sink54, %11
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %.sink, i32 noundef %40, ptr noundef %0, i32 noundef %41, i32 noundef %42, i32 noundef 0)
   br label %44
 

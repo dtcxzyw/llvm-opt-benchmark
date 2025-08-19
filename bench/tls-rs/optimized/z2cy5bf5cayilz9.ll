@@ -2880,12 +2880,12 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h47758503050b25a1E.e
   br label %83
 
 thread-pre-split.thread:                          ; preds = %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit", %thread-pre-split
-  %.val107133 = phi i64 [ %.val107, %thread-pre-split ], [ %30, %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit" ]
+  %.val107147 = phi i64 [ %.val107, %thread-pre-split ], [ %30, %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit" ]
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %70 = load i64, ptr %69, align 8, !noundef !4
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val106 = load i64, ptr %71, align 8, !alias.scope !556, !noalias !559, !noundef !4
-  %spec.select.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %.val107133, i64 %.val106)
+  %spec.select.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %.val107147, i64 %.val106)
   %.not104 = icmp ugt i64 %70, %spec.select.i.i
   br i1 %.not104, label %72, label %80
 
@@ -3145,7 +3145,7 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.e
   br label %109
 
 thread-pre-split.thread:                          ; preds = %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit", %thread-pre-split
-  %.val105138 = phi i64 [ %.val105, %thread-pre-split ], [ %61, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit" ]
+  %.val105158 = phi i64 [ %.val105, %thread-pre-split ], [ %61, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit" ]
   %91 = phi i64 [ %74, %thread-pre-split ], [ %38, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit" ]
   %92 = phi i64 [ %73, %thread-pre-split ], [ %39, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit" ]
   %93 = phi i64 [ %72, %thread-pre-split ], [ %40, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit" ]
@@ -3153,7 +3153,7 @@ thread-pre-split.thread:                          ; preds = %"_ZN149_$LT$rustls.
   %95 = load i64, ptr %94, align 8, !noundef !4
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val = load i64, ptr %96, align 8, !alias.scope !556, !noalias !559, !noundef !4
-  %spec.select.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %.val105138, i64 %.val)
+  %spec.select.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %.val105158, i64 %.val)
   %.not104 = icmp ugt i64 %95, %spec.select.i.i
   br i1 %.not104, label %97, label %106
 
@@ -12279,8 +12279,8 @@ define hidden void @_ZN6rustls6client5tls1212server_hello27CompleteServerHelloHa
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %107 = add i64 %104, -33
-  %.not18.i = icmp ult i64 %107, -32
-  br i1 %.not18.i, label %115, label %.lr.ph.i, !prof !2170
+  %.not19.i = icmp ult i64 %107, -32
+  br i1 %.not19.i, label %115, label %.lr.ph.i, !prof !2170
 
 .lr.ph.i:                                         ; preds = %.lr.ph.preheader.i, %.lr.ph.i
   %.0715.i = phi i8 [ %114, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
@@ -12685,10 +12685,10 @@ define hidden void @_ZN6rustls6client5tls1212server_hello27CompleteServerHelloHa
   br i1 %or.cond10, label %287, label %"_ZN4core3ptr67drop_in_place$LT$rustls..msgs..persist..Tls12ClientSessionValue$GT$17h2f6ee9f602cfcde7E.exit199"
 
 261:                                              ; preds = %237, %236
-  %.sink315 = phi ptr [ %231, %237 ], [ %216, %236 ]
+  %.sink324 = phi ptr [ %231, %237 ], [ %216, %236 ]
   %anon.916360c5c3539c9dc3d13699584f1a67.64.sink = phi ptr [ @anon.916360c5c3539c9dc3d13699584f1a67.64, %237 ], [ @anon.916360c5c3539c9dc3d13699584f1a67.63, %236 ]
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink315, ptr %262, align 8
+  store ptr %.sink324, ptr %262, align 8
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %anon.916360c5c3539c9dc3d13699584f1a67.64.sink, ptr %263, align 8
   store i8 20, ptr %0, align 8
@@ -19630,7 +19630,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %or.cond58.i = select i1 %153, i1 true, i1 %.not.i75
   br i1 %or.cond58.i, label %167, label %157
 
-155:                                              ; preds = %.thread21.i, %195, %190, %174
+155:                                              ; preds = %.thread23.i, %195, %190, %174
   %156 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$rustls_pki_types..UnixTime$C$rustls..error..Error$GT$$GT$17hd3e9c868ed1e49d3E.exit85.i"
@@ -19718,9 +19718,9 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   store i64 %.fca.1.extract.i.i, ptr %191, align 8, !alias.scope !3297, !noalias !3304
   store i8 20, ptr %22, align 8, !alias.scope !3297, !noalias !3304
   invoke void @"_ZN4core3ptr41drop_in_place$LT$rustls..error..Error$GT$17hbd061fea92af4a96E.llvm.3875224068774112026"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13)
-          to label %.thread20.i unwind label %155, !noalias !3278
+          to label %.thread22.i unwind label %155, !noalias !3278
 
-.thread20.i:                                      ; preds = %190
+.thread22.i:                                      ; preds = %190
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !3303
   br label %210
 
@@ -19778,7 +19778,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !3303
   br i1 %209, label %210, label %289
 
-210:                                              ; preds = %208, %.thread20.i
+210:                                              ; preds = %208, %.thread22.i
   %211 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %212 = load i64, ptr %211, align 8, !noalias !3278, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !3278
@@ -20011,9 +20011,9 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !3278
   %.pre19.i = load i8, ptr %22, align 8, !range !45, !alias.scope !3359, !noalias !3278
   %288 = icmp eq i8 %.pre19.i, 20
-  br i1 %288, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$rustls_pki_types..UnixTime$C$rustls..error..Error$GT$$GT$17hd3e9c868ed1e49d3E.exit87.i", label %.thread21.i
+  br i1 %288, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$rustls_pki_types..UnixTime$C$rustls..error..Error$GT$$GT$17hd3e9c868ed1e49d3E.exit87.i", label %.thread23.i
 
-.thread21.i:                                      ; preds = %289, %287
+.thread23.i:                                      ; preds = %289, %287
   invoke void @"_ZN4core3ptr41drop_in_place$LT$rustls..error..Error$GT$17hbd061fea92af4a96E.llvm.13848472603100435571"(ptr noalias noundef nonnull align 8 dereferenceable(32) %22)
           to label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$rustls_pki_types..UnixTime$C$rustls..error..Error$GT$$GT$17hd3e9c868ed1e49d3E.exit87.i" unwind label %155, !noalias !3278
 
@@ -20022,7 +20022,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %291 = icmp ult i64 %290, 6
   call void @llvm.assume(i1 %291)
   %switch.selectcmp64.i = icmp samesign ugt i64 %290, 3
-  br i1 %switch.selectcmp64.i, label %292, label %.thread21.i
+  br i1 %switch.selectcmp64.i, label %292, label %.thread23.i
 
 292:                                              ; preds = %289
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !3278
@@ -20038,7 +20038,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   invoke void @_ZN3log13__private_api3log17h66329984f18a960bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.916360c5c3539c9dc3d13699584f1a67.75, i32 noundef 1166, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %287 unwind label %282, !noalias !3278
 
-"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$rustls_pki_types..UnixTime$C$rustls..error..Error$GT$$GT$17hd3e9c868ed1e49d3E.exit87.i": ; preds = %.thread21.i, %287
+"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$rustls_pki_types..UnixTime$C$rustls..error..Error$GT$$GT$17hd3e9c868ed1e49d3E.exit87.i": ; preds = %.thread23.i, %287
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !3278
   br label %201
 

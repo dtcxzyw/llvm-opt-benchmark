@@ -2410,7 +2410,7 @@ define dso_local void @dmaengine_unmap_put(ptr noundef %0) #1 align 16 {
   %34 = zext i8 %33 to i32
   %35 = add nuw nsw i32 %34, %15
   %36 = icmp samesign ult i32 %31, %35
-  br i1 %36, label %37, label %.loopexit14
+  br i1 %36, label %37, label %.loopexit24
 
 37:                                               ; preds = %30
   %38 = getelementptr i8, ptr %0, i64 32
@@ -2427,9 +2427,9 @@ define dso_local void @dmaengine_unmap_put(ptr noundef %0) #1 align 16 {
   tail call void @dma_unmap_page_attrs(ptr noundef %12, i64 noundef %45, i64 noundef %46, i32 noundef 2, i64 noundef 0) #12
   %47 = add nuw nsw i64 %43, 1
   %48 = icmp eq i64 %47, %41
-  br i1 %48, label %.loopexit14, label %42, !llvm.loop !66
+  br i1 %48, label %.loopexit24, label %42, !llvm.loop !66
 
-.loopexit14:                                      ; preds = %42, %30
+.loopexit24:                                      ; preds = %42, %30
   %49 = phi i32 [ %31, %30 ], [ %35, %42 ]
   %50 = getelementptr i8, ptr %0, i64 3
   %51 = load i8, ptr %50, align 1
@@ -2438,7 +2438,7 @@ define dso_local void @dmaengine_unmap_put(ptr noundef %0) #1 align 16 {
   %54 = icmp samesign ult i32 %49, %53
   br i1 %54, label %55, label %.loopexit
 
-55:                                               ; preds = %.loopexit14
+55:                                               ; preds = %.loopexit24
   %56 = getelementptr i8, ptr %0, i64 32
   %57 = getelementptr i8, ptr %0, i64 24
   %58 = zext nneg i32 %49 to i64
@@ -2462,7 +2462,7 @@ define dso_local void @dmaengine_unmap_put(ptr noundef %0) #1 align 16 {
   %69 = icmp samesign ult i64 %68, %59
   br i1 %69, label %60, label %.loopexit, !llvm.loop !67
 
-.loopexit:                                        ; preds = %67, %.loopexit14
+.loopexit:                                        ; preds = %67, %.loopexit24
   %70 = load i8, ptr %0, align 8
   %71 = icmp eq i8 %70, 0
   br i1 %71, label %78, label %72

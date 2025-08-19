@@ -2137,12 +2137,12 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %3
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #21
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.06, label %.sink.split47, label %60
+  br i1 %.06, label %.sink.split51, label %60
 
 .sink.split:                                      ; preds = %.thread, %.thread36
   %.pn20.pn35.ph = phi { ptr, i32 } [ %36, %.thread36 ], [ %35, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.sink.split47
+  br label %.sink.split51
 
 39:                                               ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit
   %40 = load ptr, ptr %19, align 8, !tbaa !192
@@ -2187,13 +2187,13 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %3
 .thread39:                                        ; preds = %49
   %55 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split46
+  br label %.sink.split50
 
 .thread43:                                        ; preds = %51
   %56 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #21
-  br label %.sink.split46
+  br label %.sink.split50
 
 57:                                               ; preds = %52, %54
   %.0 = phi i1 [ false, %54 ], [ true, %52 ]
@@ -2204,24 +2204,24 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %3
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #21
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.0, label %.sink.split47, label %60
+  br i1 %.0, label %.sink.split51, label %60
 
-.sink.split46:                                    ; preds = %.thread39, %.thread43
+.sink.split50:                                    ; preds = %.thread39, %.thread43
   %.pn.pn42.ph = phi { ptr, i32 } [ %56, %.thread43 ], [ %55, %.thread39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.sink.split47
+  br label %.sink.split51
 
 59:                                               ; preds = %39
   ret void
 
-.sink.split47:                                    ; preds = %57, %.sink.split46, %37, %.sink.split
-  %.sink = phi ptr [ %30, %.sink.split ], [ %30, %37 ], [ %50, %.sink.split46 ], [ %50, %57 ]
-  %.pn20.pn.pn.ph = phi { ptr, i32 } [ %.pn20.pn35.ph, %.sink.split ], [ %38, %37 ], [ %.pn.pn42.ph, %.sink.split46 ], [ %58, %57 ]
+.sink.split51:                                    ; preds = %57, %.sink.split50, %37, %.sink.split
+  %.sink = phi ptr [ %30, %.sink.split ], [ %30, %37 ], [ %50, %.sink.split50 ], [ %50, %57 ]
+  %.pn20.pn.pn.ph = phi { ptr, i32 } [ %.pn20.pn35.ph, %.sink.split ], [ %38, %37 ], [ %.pn.pn42.ph, %.sink.split50 ], [ %58, %57 ]
   call void @__cxa_free_exception(ptr %.sink) #21
   br label %60
 
-60:                                               ; preds = %.sink.split47, %57, %37
-  %.pn20.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %58, %57 ], [ %.pn20.pn.pn.ph, %.sink.split47 ]
+60:                                               ; preds = %.sink.split51, %57, %37
+  %.pn20.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %58, %57 ], [ %.pn20.pn.pn.ph, %.sink.split51 ]
   %61 = load ptr, ptr %17, align 8, !tbaa !190
   %.not.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %62

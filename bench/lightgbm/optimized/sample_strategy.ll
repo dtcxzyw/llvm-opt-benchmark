@@ -1354,13 +1354,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !145
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !145
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -1631,7 +1631,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i: ; preds = %_ZN8LightGBM9Th
 
 .ph:                                              ; preds = %.lver.check
   %load_initial = load i32, ptr %36, align 4
-  %load_initial21 = load i32, ptr %38, align 4
+  %load_initial23 = load i32, ptr %38, align 4
   br label %78
 
 ._crit_edge:                                      ; preds = %78, %.ph.lver.orig, %34
@@ -1696,7 +1696,7 @@ _ZN21ThreadExceptionHelperD2Ev.exit:              ; preds = %._crit_edge
   resume { ptr, i32 } %31
 
 78:                                               ; preds = %.ph, %78
-  %store_forwarded22 = phi i32 [ %load_initial21, %.ph ], [ %86, %78 ]
+  %store_forwarded24 = phi i32 [ %load_initial23, %.ph ], [ %86, %78 ]
   %store_forwarded = phi i32 [ %load_initial, %.ph ], [ %82, %78 ]
   %indvars.iv = phi i64 [ 1, %.ph ], [ %indvars.iv.next, %78 ]
   %79 = add nsw i64 %indvars.iv, -1
@@ -1707,7 +1707,7 @@ _ZN21ThreadExceptionHelperD2Ev.exit:              ; preds = %._crit_edge
   store i32 %82, ptr %83, align 4, !tbaa !145
   %84 = getelementptr inbounds nuw i32, ptr %44, i64 %79
   %85 = load i32, ptr %84, align 4, !tbaa !145
-  %86 = add nsw i32 %85, %store_forwarded22
+  %86 = add nsw i32 %85, %store_forwarded24
   %87 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
   store i32 %86, ptr %87, align 4, !tbaa !145
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1841,7 +1841,7 @@ define internal void @_ZN8LightGBM23ParallelPartitionRunnerIiLb0EE3RunILb1EEEiiR
   br i1 %or.cond.i.i, label %.lr.ph.i.i.preheader, label %_ZSt7reverseIPiEvT_S1_.exit
 
 .lr.ph.i.i.preheader:                             ; preds = %55
-  %.012.i.i = getelementptr inbounds i8, ptr %49, i64 %59
+  %.012.i.i = getelementptr inbounds nuw i8, ptr %49, i64 %59
   %61 = getelementptr inbounds i8, ptr %49, i64 %.idx
   br label %.lr.ph.i.i
 
@@ -1873,7 +1873,7 @@ _ZSt7reverseIPiEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %55
   %73 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #16
   %74 = icmp eq i32 %72, %73
   %75 = call ptr @__cxa_begin_catch(ptr %71) #16
-  br i1 %74, label %76, label %.invoke60
+  br i1 %74, label %76, label %.invoke65
 
 76:                                               ; preds = %69
   %77 = load ptr, ptr %75, align 8, !tbaa !15
@@ -1881,7 +1881,7 @@ _ZSt7reverseIPiEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %55
   %79 = load ptr, ptr %78, align 8
   %80 = call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(8) %75) #16
   invoke void (ptr, ...) @_ZN8LightGBM3Log7WarningEPKcz(ptr noundef %80)
-          to label %.invoke60 unwind label %92
+          to label %.invoke65 unwind label %92
 
 .sink.split:                                      ; preds = %_ZSt7reverseIPiEvT_S1_.exit, %43
   %.sink = phi i32 [ 0, %43 ], [ %68, %_ZSt7reverseIPiEvT_S1_.exit ]
@@ -1897,11 +1897,11 @@ _ZSt7reverseIPiEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %55
   %.not45.not = icmp slt i64 %indvars.iv, %85
   br i1 %.not45.not, label %.lr.ph, label %._crit_edge.loopexit
 
-.invoke60:                                        ; preds = %69, %76
+.invoke65:                                        ; preds = %69, %76
   invoke void @_ZN21ThreadExceptionHelper16CaptureExceptionEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %.invoke unwind label %92
 
-.invoke:                                          ; preds = %.invoke60
+.invoke:                                          ; preds = %.invoke65
   invoke void @__cxa_end_catch()
           to label %83 unwind label %92
 
@@ -1932,7 +1932,7 @@ _ZSt7reverseIPiEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %55
 91:                                               ; preds = %._crit_edge54, %8
   ret void
 
-92:                                               ; preds = %.invoke60, %.invoke, %76
+92:                                               ; preds = %.invoke65, %.invoke, %76
   %93 = landingpad { ptr, i32 }
           catch ptr null
   %94 = extractvalue { ptr, i32 } %93, 0
@@ -2954,7 +2954,7 @@ define linkonce_odr void @_ZNSt6vectorIiN8LightGBM6Common18AlignmentAllocatorIiL
   br i1 %.not37, label %21, label %_ZSt27__uninitialized_default_n_aIPimN8LightGBM6Common18AlignmentAllocatorIiLm32EEEET_S5_T0_RT1_.exit
 
 _ZSt27__uninitialized_default_n_aIPimN8LightGBM6Common18AlignmentAllocatorIiLm32EEEET_S5_T0_RT1_.exit: ; preds = %4
-  %20 = shl nuw i64 %1, 2
+  %20 = shl nuw nsw i64 %1, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %6, i8 0, i64 %20, i1 false), !tbaa !145
   %scevgep.i = getelementptr i8, ptr %6, i64 %20
   store ptr %scevgep.i, ptr %5, align 8, !tbaa !133
@@ -4704,7 +4704,7 @@ _ZNKSt8functionIFviiiEEclEiii.exit:               ; preds = %38
   %44 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #16
   %45 = icmp eq i32 %43, %44
   %46 = call ptr @__cxa_begin_catch(ptr %42) #16
-  br i1 %45, label %47, label %.invoke42
+  br i1 %45, label %47, label %.invoke49
 
 47:                                               ; preds = %40
   %48 = load ptr, ptr %46, align 8, !tbaa !15
@@ -4712,7 +4712,7 @@ _ZNKSt8functionIFviiiEEclEiii.exit:               ; preds = %38
   %50 = load ptr, ptr %49, align 8
   %51 = call noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(8) %46) #16
   invoke void (ptr, ...) @_ZN8LightGBM3Log7WarningEPKcz(ptr noundef %51)
-          to label %.invoke42 unwind label %61
+          to label %.invoke49 unwind label %61
 
 52:                                               ; preds = %.invoke, %_ZNKSt8functionIFviiiEEclEiii.exit, %.lr.ph
   %53 = add nsw i32 %.037, 1
@@ -4720,11 +4720,11 @@ _ZNKSt8functionIFviiiEEclEiii.exit:               ; preds = %38
   %.not31.not = icmp slt i32 %.037, %54
   br i1 %.not31.not, label %.lr.ph, label %._crit_edge.loopexit
 
-.invoke42:                                        ; preds = %40, %47
+.invoke49:                                        ; preds = %40, %47
   invoke void @_ZN21ThreadExceptionHelper16CaptureExceptionEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %.invoke unwind label %61
 
-.invoke:                                          ; preds = %.invoke42
+.invoke:                                          ; preds = %.invoke49
   invoke void @__cxa_end_catch()
           to label %52 unwind label %61
 
@@ -4755,7 +4755,7 @@ _ZNKSt8functionIFviiiEEclEiii.exit:               ; preds = %38
 60:                                               ; preds = %._crit_edge39, %8
   ret void
 
-61:                                               ; preds = %.invoke42, %.invoke, %47
+61:                                               ; preds = %.invoke49, %.invoke, %47
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0

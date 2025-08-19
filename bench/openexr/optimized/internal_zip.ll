@@ -123,8 +123,8 @@ define hidden void @internal_zip_deconstruct_bytes(ptr noundef captures(address)
 
 ._crit_edge:                                      ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %2
-  %.not43 = icmp eq i64 %2, 1
-  br i1 %.not43, label %._crit_edge42, label %.lr.ph41.preheader
+  %.not44 = icmp eq i64 %2, 1
+  br i1 %.not44, label %._crit_edge42, label %.lr.ph41.preheader
 
 .lr.ph41.preheader:                               ; preds = %._crit_edge
   %.137 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -359,8 +359,8 @@ define hidden i32 @internal_exr_apply_zip(ptr noundef %0) local_unnamed_addr #5 
 
 ._crit_edge.i.i:                                  ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %24, i64 %27
-  %.not43.i.i = icmp eq i64 %27, 1
-  br i1 %.not43.i.i, label %internal_zip_deconstruct_bytes.exit.i, label %.lr.ph41.preheader.i.i
+  %.not44.i.i = icmp eq i64 %27, 1
+  br i1 %.not44.i.i, label %internal_zip_deconstruct_bytes.exit.i, label %.lr.ph41.preheader.i.i
 
 .lr.ph41.preheader.i.i:                           ; preds = %._crit_edge.i.i
   %.137.i.i = getelementptr inbounds nuw i8, ptr %24, i64 1

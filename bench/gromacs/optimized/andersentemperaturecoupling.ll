@@ -663,7 +663,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit: ; pre
   br i1 %240, label %242, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %239
-  %241 = add i32 %.sroa.9.041, -14
+  %241 = add nsw i32 %.sroa.9.041, -14
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit
 
 242:                                              ; preds = %239

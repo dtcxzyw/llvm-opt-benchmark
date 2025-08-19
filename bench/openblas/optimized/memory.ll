@@ -122,9 +122,9 @@ define i32 @get_num_procs() local_unnamed_addr #0 {
   br label %40
 
 40:                                               ; preds = %34, %39, %9, %32, %28, %20
-  %.sink25 = phi i32 [ %33, %32 ], [ %29, %28 ], [ %21, %20 ], [ %13, %9 ], [ %35, %39 ], [ %37, %34 ]
-  %41 = icmp sgt i32 %.sink25, 0
-  %42 = select i1 %41, i32 %.sink25, i32 2
+  %.sink30 = phi i32 [ %33, %32 ], [ %29, %28 ], [ %21, %20 ], [ %13, %9 ], [ %35, %39 ], [ %37, %34 ]
+  %41 = icmp sgt i32 %.sink30, 0
+  %42 = select i1 %41, i32 %.sink30, i32 2
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %42
 }
@@ -379,7 +379,7 @@ blas_get_cpu_number.exit:                         ; preds = %12, %8
 
 .preheader:                                       ; preds = %37, %.preheader
   %42 = phi ptr [ %.mux, %.preheader ], [ @alloc_mmap, %37 ]
-  %.070 = phi ptr [ %.mux106, %.preheader ], [ @__const.blas_memory_alloc.memoryalloc, %37 ]
+  %.070 = phi ptr [ %.mux108, %.preheader ], [ @__const.blas_memory_alloc.memoryalloc, %37 ]
   %43 = tail call ptr %42(ptr noundef null) #15
   %44 = getelementptr inbounds nuw i8, ptr %.070, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !20
@@ -387,7 +387,7 @@ blas_get_cpu_number.exit:                         ; preds = %12, %8
   %47 = icmp eq ptr %43, inttoptr (i64 -1 to ptr)
   %48 = and i1 %46, %47
   %.mux = select i1 %48, ptr %45, ptr @alloc_mmap
-  %.mux106 = select i1 %48, ptr %44, ptr @__const.blas_memory_alloc.memoryalloc
+  %.mux108 = select i1 %48, ptr %44, ptr @__const.blas_memory_alloc.memoryalloc
   br i1 %47, label %.preheader, label %49, !llvm.loop !21
 
 49:                                               ; preds = %.preheader
@@ -438,16 +438,16 @@ blas_get_cpu_number.exit:                         ; preds = %12, %8
   br label %72
 
 72:                                               ; preds = %72, %.loopexit
-  %73 = phi ptr [ %.mux108, %72 ], [ @alloc_mmap, %.loopexit ]
-  %.169 = phi ptr [ %.mux109, %72 ], [ @__const.blas_memory_alloc.memoryalloc, %.loopexit ]
+  %73 = phi ptr [ %.mux110, %72 ], [ @alloc_mmap, %.loopexit ]
+  %.169 = phi ptr [ %.mux111, %72 ], [ @__const.blas_memory_alloc.memoryalloc, %.loopexit ]
   %74 = tail call ptr %73(ptr noundef null) #15
   %75 = getelementptr inbounds nuw i8, ptr %.169, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !20
   %77 = icmp ne ptr %76, null
   %78 = icmp eq ptr %74, inttoptr (i64 -1 to ptr)
   %79 = and i1 %77, %78
-  %.mux108 = select i1 %79, ptr %76, ptr @alloc_mmap
-  %.mux109 = select i1 %79, ptr %75, ptr @__const.blas_memory_alloc.memoryalloc
+  %.mux110 = select i1 %79, ptr %76, ptr @alloc_mmap
+  %.mux111 = select i1 %79, ptr %75, ptr @__const.blas_memory_alloc.memoryalloc
   br i1 %78, label %72, label %80, !llvm.loop !30
 
 80:                                               ; preds = %72

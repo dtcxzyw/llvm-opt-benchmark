@@ -1329,18 +1329,18 @@ define hidden noundef i32 @_ZN18cranelift_frontend3ssa10SSABuilder26finish_prede
   %36 = tail call { i64, i64 } @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$6len_of17hed5b6e4f5b562ee8E.llvm.7615600370855926762"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %34, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %33)
   %37 = extractvalue { i64, i64 } %36, 0
   %switch.i.i = icmp eq i64 %37, 0
-  %.sink218.sroa.gep = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %.sink218.sroa.gep251 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink218.sroa.gep252 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %.sink218.sroa.gep254 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %.sink218.sroa.gep255 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink218.sroa.gep256 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %.sink218.sroa.gep258 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %.sink218.sroa.gep259 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink218.sroa.gep260 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %.sink218.sroa.gep262 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %.sink218.sroa.gep263 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink218.sroa.gep264 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %.sink240.sroa.gep = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %.sink240.sroa.gep273 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink240.sroa.gep274 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sink240.sroa.gep276 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %.sink240.sroa.gep277 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink240.sroa.gep278 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %.sink240.sroa.gep280 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %.sink240.sroa.gep281 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink240.sroa.gep282 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %.sink240.sroa.gep284 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %.sink240.sroa.gep285 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink240.sroa.gep286 = getelementptr inbounds nuw i8, ptr %18, i64 24
   br i1 %switch.i.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0578e519831135ebE.llvm.7615600370855926762.exit.i.i", label %38
 
 38:                                               ; preds = %4
@@ -1876,19 +1876,19 @@ define hidden noundef i32 @_ZN18cranelift_frontend3ssa10SSABuilder26finish_prede
   br label %.invoke
 
 .invoke:                                          ; preds = %258, %165, %204
-  %.sink218.sroa.phi = phi ptr [ %.sink218.sroa.gep, %258 ], [ %.sink218.sroa.gep251, %165 ], [ %.sink218.sroa.gep252, %204 ]
-  %.sink218.sroa.phi253 = phi ptr [ %.sink218.sroa.gep254, %258 ], [ %.sink218.sroa.gep255, %165 ], [ %.sink218.sroa.gep256, %204 ]
-  %.sink218.sroa.phi257 = phi ptr [ %.sink218.sroa.gep258, %258 ], [ %.sink218.sroa.gep259, %165 ], [ %.sink218.sroa.gep260, %204 ]
-  %.sink218.sroa.phi261 = phi ptr [ %.sink218.sroa.gep262, %258 ], [ %.sink218.sroa.gep263, %165 ], [ %.sink218.sroa.gep264, %204 ]
-  %.sink218 = phi ptr [ %21, %258 ], [ %16, %165 ], [ %18, %204 ]
+  %.sink240.sroa.phi = phi ptr [ %.sink240.sroa.gep, %258 ], [ %.sink240.sroa.gep273, %165 ], [ %.sink240.sroa.gep274, %204 ]
+  %.sink240.sroa.phi275 = phi ptr [ %.sink240.sroa.gep276, %258 ], [ %.sink240.sroa.gep277, %165 ], [ %.sink240.sroa.gep278, %204 ]
+  %.sink240.sroa.phi279 = phi ptr [ %.sink240.sroa.gep280, %258 ], [ %.sink240.sroa.gep281, %165 ], [ %.sink240.sroa.gep282, %204 ]
+  %.sink240.sroa.phi283 = phi ptr [ %.sink240.sroa.gep284, %258 ], [ %.sink240.sroa.gep285, %165 ], [ %.sink240.sroa.gep286, %204 ]
+  %.sink240 = phi ptr [ %21, %258 ], [ %16, %165 ], [ %18, %204 ]
   %anon.f378413b6247863a529c4dab6769c8f0.3.sink = phi ptr [ @anon.f378413b6247863a529c4dab6769c8f0.3, %258 ], [ %15, %165 ], [ %17, %204 ]
   %.sink = phi i64 [ 0, %258 ], [ 1, %165 ], [ 1, %204 ]
   %206 = phi ptr [ @anon.f378413b6247863a529c4dab6769c8f0.55, %258 ], [ @anon.f378413b6247863a529c4dab6769c8f0.18, %165 ], [ @anon.f378413b6247863a529c4dab6769c8f0.21, %204 ]
-  store i64 1, ptr %.sink218.sroa.phi, align 8
-  store ptr null, ptr %.sink218.sroa.phi253, align 8
-  store ptr %anon.f378413b6247863a529c4dab6769c8f0.3.sink, ptr %.sink218.sroa.phi257, align 8
-  store i64 %.sink, ptr %.sink218.sroa.phi261, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink218, ptr noalias noundef readonly align 8 dereferenceable(24) %206) #21
+  store i64 1, ptr %.sink240.sroa.phi, align 8
+  store ptr null, ptr %.sink240.sroa.phi275, align 8
+  store ptr %anon.f378413b6247863a529c4dab6769c8f0.3.sink, ptr %.sink240.sroa.phi279, align 8
+  store i64 %.sink, ptr %.sink240.sroa.phi283, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink240, ptr noalias noundef readonly align 8 dereferenceable(24) %206) #21
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -1969,13 +1969,13 @@ define hidden noundef i32 @_ZN18cranelift_frontend3ssa10SSABuilder26finish_prede
           to label %.noexc116 unwind label %.loopexit.split-lp.loopexit
 
 .noexc116:                                        ; preds = %228
-  %.fr5.i = freeze { i64, i64 } %233
-  %234 = extractvalue { i64, i64 } %.fr5.i, 0
+  %.fr9.i = freeze { i64, i64 } %233
+  %234 = extractvalue { i64, i64 } %.fr9.i, 0
   %switch.i.i115 = icmp eq i64 %234, 0
   br i1 %switch.i.i115, label %247, label %235
 
 235:                                              ; preds = %.noexc116
-  %236 = extractvalue { i64, i64 } %.fr5.i, 1
+  %236 = extractvalue { i64, i64 } %.fr9.i, 1
   %237 = zext i32 %232 to i64
   %238 = add i64 %236, %237
   %239 = load ptr, ptr %222, align 8, !alias.scope !298, !noalias !297, !nonnull !4, !noundef !4

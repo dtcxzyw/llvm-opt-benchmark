@@ -9892,7 +9892,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6.
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i.i.i
 
 common.resume:                                    ; preds = %_ZN2cv4util8optionalINS_21use_threaded_executorEED2Ev.exit53, %106, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i.i.i32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i.i.i ], [ %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i.i.i32 ], [ %107, %106 ], [ %.pn2958, %_ZN2cv4util8optionalINS_21use_threaded_executorEED2Ev.exit53 ]
+  %common.resume.op = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i.i.i ], [ %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i.i.i32 ], [ %107, %106 ], [ %.pn2973, %_ZN2cv4util8optionalINS_21use_threaded_executorEED2Ev.exit53 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i.i.i
@@ -10419,7 +10419,7 @@ _ZNKSt14default_deleteIN2cv5gimpl17GAbstractExecutorEEclEPS2_.exit.i51: ; preds 
   br label %_ZNSt10unique_ptrIN2cv5gimpl17GAbstractExecutorESt14default_deleteIS2_EED2Ev.exit52
 
 _ZNSt10unique_ptrIN2cv5gimpl17GAbstractExecutorESt14default_deleteIS2_EED2Ev.exit52: ; preds = %115, %194, %.body, %198, %205, %226, %_ZNKSt14default_deleteIN2cv5gimpl17GAbstractExecutorEEclEPS2_.exit.i51
-  %.pn2958 = phi { ptr, i32 } [ %.pn29, %226 ], [ %.pn29, %_ZNKSt14default_deleteIN2cv5gimpl17GAbstractExecutorEEclEPS2_.exit.i51 ], [ %116, %115 ], [ %.pn.pn.pn, %194 ], [ %114, %.body ], [ %199, %198 ], [ %206, %205 ]
+  %.pn2973 = phi { ptr, i32 } [ %.pn29, %226 ], [ %.pn29, %_ZNKSt14default_deleteIN2cv5gimpl17GAbstractExecutorEEclEPS2_.exit.i51 ], [ %116, %115 ], [ %.pn.pn.pn, %194 ], [ %114, %.body ], [ %199, %198 ], [ %206, %205 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @_ZN2cv4util7variantIJNS0_8optionalINS_21use_threaded_executorEE7nothingES3_EE6dtor_hIS5_E4helpEPNSt15aligned_storageILm4ELm4EE4typeE, ptr %4, align 8
@@ -15688,7 +15688,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt10unique_ptrIN3ade5GraphESt14def
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN3ade5GraphESt14default_deleteIS2_EEmS5_ET_S7_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN3ade5GraphESt14default_deleteIS2_EEmS5_ET_S7_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = shl nuw i64 %12, 3
+  %21 = shl nuw nsw i64 %12, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %21, i1 false), !tbaa !501
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !112

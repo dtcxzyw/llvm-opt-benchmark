@@ -501,7 +501,7 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
   switch i64 %73, label %.unreachabledefault [
     i64 0, label %.critedge
     i64 8192, label %.loopexit19.loopexit
-    i64 4194304, label %.loopexit19.loopexit24
+    i64 4194304, label %.loopexit19.loopexit39
     i64 4202496, label %.loopexit19
   ]
 
@@ -511,11 +511,11 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
 .loopexit19.loopexit:                             ; preds = %69
   br label %.loopexit19
 
-.loopexit19.loopexit24:                           ; preds = %69
+.loopexit19.loopexit39:                           ; preds = %69
   br label %.loopexit19
 
-.loopexit19:                                      ; preds = %69, %.loopexit19.loopexit24, %.loopexit19.loopexit
-  %74 = phi i32 [ 1, %.loopexit19.loopexit ], [ 2, %.loopexit19.loopexit24 ], [ 4, %69 ]
+.loopexit19:                                      ; preds = %69, %.loopexit19.loopexit39, %.loopexit19.loopexit
+  %74 = phi i32 [ 1, %.loopexit19.loopexit ], [ 2, %.loopexit19.loopexit39 ], [ 4, %69 ]
   %75 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.27, i64 noundef %7, i64 noundef %9, i32 noundef %74, i32 noundef %61) #15
   br i1 %40, label %.loopexit18, label %76
 

@@ -288,32 +288,32 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 
 .outer:                                           ; preds = %9, %2
   %.not46 = phi i1 [ true, %2 ], [ false, %9 ]
-  %.037.ph = phi ptr [ null, %2 ], [ %.037.ph121, %9 ]
-  %.035.ph = phi i32 [ 0, %2 ], [ %.035.ph125, %9 ]
-  %.0.ph = phi ptr [ @cli_sapi_module, %2 ], [ %.0.ph128, %9 ]
-  br label %.outer120
+  %.037.ph = phi ptr [ null, %2 ], [ %.037.ph122, %9 ]
+  %.035.ph = phi i32 [ 0, %2 ], [ %.035.ph126, %9 ]
+  %.0.ph = phi ptr [ @cli_sapi_module, %2 ], [ %.0.ph129, %9 ]
+  br label %.outer121
 
-.outer120:                                        ; preds = %.outer, %13
-  %.037.ph121 = phi ptr [ %.037.ph, %.outer ], [ %15, %13 ]
-  %.035.ph122 = phi i32 [ %.035.ph, %.outer ], [ %.035.ph125, %13 ]
-  %.0.ph123 = phi ptr [ %.0.ph, %.outer ], [ %.0.ph128, %13 ]
-  br label %.outer124
+.outer121:                                        ; preds = %.outer, %13
+  %.037.ph122 = phi ptr [ %.037.ph, %.outer ], [ %15, %13 ]
+  %.035.ph123 = phi i32 [ %.035.ph, %.outer ], [ %.035.ph126, %13 ]
+  %.0.ph124 = phi ptr [ %.0.ph, %.outer ], [ %.0.ph129, %13 ]
+  br label %.outer125
 
-.outer124:                                        ; preds = %9, %.outer120
-  %.035.ph125 = phi i32 [ %.035.ph122, %.outer120 ], [ 1, %9 ]
-  %.0.ph126 = phi ptr [ %.0.ph123, %.outer120 ], [ %.0.ph128, %9 ]
-  br label %.outer127
+.outer125:                                        ; preds = %9, %.outer121
+  %.035.ph126 = phi i32 [ %.035.ph123, %.outer121 ], [ 1, %9 ]
+  %.0.ph127 = phi ptr [ %.0.ph124, %.outer121 ], [ %.0.ph129, %9 ]
+  br label %.outer128
 
-.outer127:                                        ; preds = %.outer124, %18
-  %.0.ph128 = phi ptr [ %.0.ph126, %.outer124 ], [ @cli_server_sapi_module, %18 ]
+.outer128:                                        ; preds = %.outer125, %18
+  %.0.ph129 = phi ptr [ %.0.ph127, %.outer125 ], [ @cli_server_sapi_module, %18 ]
   br label %9
 
-9:                                                ; preds = %.backedge, %.outer127
+9:                                                ; preds = %.backedge, %.outer128
   %10 = call i32 @php_getopt(i32 noundef %0, ptr noundef %7, ptr noundef nonnull @OPTIONS, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 2) #25
   switch i32 %10, label %.backedge [
     i32 -1, label %.loopexit.loopexit
     i32 99, label %11
-    i32 110, label %.outer124
+    i32 110, label %.outer125
     i32 100, label %16
     i32 83, label %18
     i32 104, label %19
@@ -329,17 +329,17 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   br label %9
 
 11:                                               ; preds = %9
-  %.not50 = icmp eq ptr %.037.ph121, null
+  %.not50 = icmp eq ptr %.037.ph122, null
   br i1 %.not50, label %13, label %12
 
 12:                                               ; preds = %11
-  call void @free(ptr noundef nonnull %.037.ph121) #25
+  call void @free(ptr noundef nonnull %.037.ph122) #25
   br label %13
 
 13:                                               ; preds = %12, %11
   %14 = load ptr, ptr %3, align 8, !tbaa !24
   %15 = call noalias ptr @strdup(ptr noundef %14) #25
-  br label %.outer120
+  br label %.outer121
 
 16:                                               ; preds = %9
   %17 = load ptr, ptr %3, align 8, !tbaa !24
@@ -348,7 +348,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 
 18:                                               ; preds = %9
   store ptr @server_additional_functions, ptr getelementptr inbounds nuw (i8, ptr @cli_server_sapi_module, i64 264), align 8, !tbaa !25
-  br label %.outer127
+  br label %.outer128
 
 19:                                               ; preds = %9, %9
   %20 = load ptr, ptr %7, align 8, !tbaa !24
@@ -372,18 +372,18 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %9, %9, %.loopexit.loopexit
-  %.2 = phi ptr [ %.0.ph128, %.loopexit.loopexit ], [ @cli_sapi_module, %9 ], [ @cli_sapi_module, %9 ], [ @cli_sapi_module, %9 ]
+  %.2 = phi ptr [ %.0.ph129, %.loopexit.loopexit ], [ @cli_sapi_module, %9 ], [ @cli_sapi_module, %9 ], [ @cli_sapi_module, %9 ]
   %29 = getelementptr inbounds nuw i8, ptr %.2, i64 240
   store ptr @sapi_cli_ini_defaults, ptr %29, align 8, !tbaa !28
   %30 = getelementptr inbounds nuw i8, ptr %.2, i64 160
-  store ptr %.037.ph121, ptr %30, align 8, !tbaa !29
+  store ptr %.037.ph122, ptr %30, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %.2, i64 248
   store i32 1, ptr %31, align 8, !tbaa !30
   %32 = getelementptr inbounds nuw i8, ptr %.2, i64 196
   store i32 1, ptr %32, align 4, !tbaa !31
   call void @sapi_startup(ptr noundef nonnull %.2) #25
   %33 = getelementptr inbounds nuw i8, ptr %.2, i64 192
-  store i32 %.035.ph125, ptr %33, align 8, !tbaa !32
+  store i32 %.035.ph126, ptr %33, align 8, !tbaa !32
   %34 = load ptr, ptr %7, align 8, !tbaa !24
   %35 = getelementptr inbounds nuw i8, ptr %.2, i64 184
   store ptr %34, ptr %35, align 8, !tbaa !33
@@ -454,11 +454,11 @@ php_ini_builder_finish.exit:                      ; preds = %38, %40
   %.043 = phi i32 [ 0, %19 ], [ 1, %24 ], [ %.144, %62 ], [ 1, %php_ini_builder_finish.exit ]
   %.not48 = phi i1 [ true, %19 ], [ true, %24 ], [ false, %62 ], [ true, %php_ini_builder_finish.exit ]
   %.not49 = phi i1 [ true, %19 ], [ true, %24 ], [ false, %62 ], [ false, %php_ini_builder_finish.exit ]
-  %.not47 = icmp eq ptr %.037.ph121, null
+  %.not47 = icmp eq ptr %.037.ph122, null
   br i1 %.not47, label %65, label %64
 
 64:                                               ; preds = %63
-  call void @free(ptr noundef nonnull %.037.ph121) #25
+  call void @free(ptr noundef nonnull %.037.ph122) #25
   br label %65
 
 65:                                               ; preds = %64, %63

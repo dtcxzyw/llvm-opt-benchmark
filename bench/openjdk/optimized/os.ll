@@ -786,7 +786,7 @@ _ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62: ; preds = %59
   br i1 %exitcond.not, label %.lr.ph.i.preheader, label %.lr.ph, !llvm.loop !9
 
 .lr.ph.i.preheader:                               ; preds = %.thread67, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62
-  %.lcssa80 = phi i1 [ true, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62 ], [ false, %.thread67 ]
+  %.lcssa89 = phi i1 [ true, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62 ], [ false, %.thread67 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %69
@@ -806,7 +806,7 @@ _ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62: ; preds = %59
   br i1 %.not.i63, label %_ZL25free_array_of_char_arraysPPcm.exit, label %.lr.ph.i, !llvm.loop !10
 
 _ZL25free_array_of_char_arraysPPcm.exit:          ; preds = %69, %.preheader
-  %.lcssa77 = phi i1 [ false, %.preheader ], [ %.lcssa80, %69 ]
+  %.lcssa86 = phi i1 [ false, %.preheader ], [ %.lcssa89, %69 ]
   call void @_Z8FreeHeapPv(ptr noundef nonnull %42) #28
   br label %85
 
@@ -841,7 +841,7 @@ _ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66: ; preds = %79, %82
   br label %85
 
 85:                                               ; preds = %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit, %.thread, %41, %_ZL25free_array_of_char_arraysPPcm.exit, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66, %4
-  %.0 = phi i1 [ %.0.i, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit ], [ false, %.thread ], [ %.lcssa77, %_ZL25free_array_of_char_arraysPPcm.exit ], [ false, %41 ], [ %.0.i65, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66 ], [ false, %4 ]
+  %.0 = phi i1 [ %.0.i, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit ], [ false, %.thread ], [ %.lcssa86, %_ZL25free_array_of_char_arraysPPcm.exit ], [ false, %41 ], [ %.0.i65, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66 ], [ false, %4 ]
   call void @_Z8FreeHeapPv(ptr noundef %12) #28
   ret i1 %.0
 }
@@ -904,7 +904,7 @@ define hidden noundef ptr @_ZN2os10split_pathEPKcPmm(ptr noundef readonly captur
 
 .lr.ph52.preheader:                               ; preds = %._crit_edge.thread, %._crit_edge
   %23 = phi ptr [ %17, %._crit_edge.thread ], [ %22, %._crit_edge ]
-  %.040.lcssa57 = phi i64 [ 1, %._crit_edge.thread ], [ %18, %._crit_edge ]
+  %.040.lcssa63 = phi i64 [ 1, %._crit_edge.thread ], [ %18, %._crit_edge ]
   br label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %.lr.ph52.preheader, %35
@@ -953,14 +953,14 @@ _ZL25free_array_of_char_arraysPPcm.exit:          ; preds = %34, %28
   store ptr %37, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %.14349, i64 %36
   %42 = add i64 %.1, 1
-  %43 = icmp ult i64 %42, %.040.lcssa57
+  %43 = icmp ult i64 %42, %.040.lcssa63
   br i1 %43, label %.lr.ph52, label %._crit_edge53, !llvm.loop !12
 
 ._crit_edge53:                                    ; preds = %35, %._crit_edge
   %44 = phi ptr [ %22, %._crit_edge ], [ %23, %35 ]
-  %.040.lcssa58 = phi i64 [ 0, %._crit_edge ], [ %.040.lcssa57, %35 ]
+  %.040.lcssa64 = phi i64 [ 0, %._crit_edge ], [ %.040.lcssa63, %35 ]
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %13) #28
-  store i64 %.040.lcssa58, ptr %1, align 8
+  store i64 %.040.lcssa64, ptr %1, align 8
   br label %45
 
 45:                                               ; preds = %3, %5, %._crit_edge53
@@ -3357,15 +3357,15 @@ _ZN2os16format_boot_pathEPKcS1_icc.exit28:        ; preds = %50
   br i1 %66, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %64, %35
-  %.sink31 = phi ptr [ %19, %35 ], [ %49, %64 ]
-  %.sink29 = phi i8 [ 1, %35 ], [ 0, %64 ]
+  %.sink33 = phi ptr [ %19, %35 ], [ %49, %64 ]
+  %.sink31 = phi i8 [ 1, %35 ], [ 0, %64 ]
   %67 = load ptr, ptr @_ZN9Arguments16_boot_class_pathE, align 8
-  %68 = call noundef zeroext i1 @_ZN10PathString9set_valueEPKcN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull %.sink31, i32 noundef 0) #28
-  store i8 %.sink29, ptr @_ZN9Arguments11_has_jimageE, align 1
+  %68 = call noundef zeroext i1 @_ZN10PathString9set_valueEPKcN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull %.sink33, i32 noundef 0) #28
+  store i8 %.sink31, ptr @_ZN9Arguments11_has_jimageE, align 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %64
-  %.sink = phi ptr [ %49, %64 ], [ %.sink31, %.sink.split.sink.split ]
+  %.sink = phi ptr [ %49, %64 ], [ %.sink33, %.sink.split.sink.split ]
   %.0.ph = phi i1 [ false, %64 ], [ true, %.sink.split.sink.split ]
   call void @_Z8FreeHeapPv(ptr noundef nonnull %.sink) #28
   br label %69
@@ -3407,15 +3407,15 @@ define hidden noundef zeroext i1 @_ZN2os5writeEiPKvm(i32 noundef %0, ptr noundef
   %.0914 = phi i64 [ %6, %.lr.ph ], [ %2, %3 ]
   %.01013 = phi ptr [ %5, %.lr.ph ], [ %1, %3 ]
   %4 = tail call noundef i64 @_ZN2os8pd_writeEiPKvm(i32 noundef %0, ptr noundef %.01013, i64 noundef %.0914) #28
-  %.not18 = icmp ne i64 %4, -1
+  %.not20 = icmp ne i64 %4, -1
   %5 = getelementptr inbounds i8, ptr %.01013, i64 %4
   %6 = sub i64 %.0914, %4
   %.not = icmp ne i64 %6, 0
-  %or.cond.not = and i1 %.not, %.not18
+  %or.cond.not = and i1 %.not, %.not20
   br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.not.lcssa = phi i1 [ true, %3 ], [ %.not18, %.lr.ph ]
+  %.not.lcssa = phi i1 [ true, %3 ], [ %.not20, %.lr.ph ]
   ret i1 %.not.lcssa
 }
 
@@ -3808,9 +3808,9 @@ _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread, %_Z23byte_
   %31 = and i64 %2, 1048575
   %32 = icmp eq i64 %31, 0
   %or.cond14.i13 = and i1 %30, %32
-  br i1 %or.cond14.i13, label %.thread61, label %35
+  br i1 %or.cond14.i13, label %.thread67, label %35
 
-.thread61:                                        ; preds = %29
+.thread67:                                        ; preds = %29
   %33 = lshr exact i64 %2, 20
   br label %_Z24exact_unit_for_byte_sizem.exit23
 
@@ -3832,9 +3832,9 @@ _Z23byte_size_in_exact_unitm.exit17:              ; preds = %_Z24exact_unit_for_
   %spec.select.i21 = select i1 %or.cond11.i20, ptr @.str.271, ptr @.str.272
   br label %_Z24exact_unit_for_byte_sizem.exit23
 
-_Z24exact_unit_for_byte_sizem.exit23:             ; preds = %.thread61, %_Z23byte_size_in_exact_unitm.exit17, %35
-  %.0.i1653 = phi i64 [ %34, %_Z23byte_size_in_exact_unitm.exit17 ], [ %spec.select.i15, %35 ], [ %33, %.thread61 ]
-  %.0.i22 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit17 ], [ %spec.select.i21, %35 ], [ @.str.270, %.thread61 ]
+_Z24exact_unit_for_byte_sizem.exit23:             ; preds = %.thread67, %_Z23byte_size_in_exact_unitm.exit17, %35
+  %.0.i1653 = phi i64 [ %34, %_Z23byte_size_in_exact_unitm.exit17 ], [ %spec.select.i15, %35 ], [ %33, %.thread67 ]
+  %.0.i22 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit17 ], [ %spec.select.i21, %35 ], [ @.str.270, %.thread67 ]
   %43 = ptrtoint ptr %3 to i64
   %44 = icmp ugt i64 %4, 1073741823
   %45 = and i64 %4, 1073741823
@@ -3847,9 +3847,9 @@ _Z24exact_unit_for_byte_sizem.exit23:             ; preds = %.thread61, %_Z23byt
   %49 = and i64 %4, 1048575
   %50 = icmp eq i64 %49, 0
   %or.cond14.i25 = and i1 %48, %50
-  br i1 %or.cond14.i25, label %.thread63, label %53
+  br i1 %or.cond14.i25, label %.thread69, label %53
 
-.thread63:                                        ; preds = %47
+.thread69:                                        ; preds = %47
   %51 = lshr exact i64 %4, 20
   br label %_Z24exact_unit_for_byte_sizem.exit35
 
@@ -3871,9 +3871,9 @@ _Z23byte_size_in_exact_unitm.exit29:              ; preds = %_Z24exact_unit_for_
   %spec.select.i33 = select i1 %or.cond11.i32, ptr @.str.271, ptr @.str.272
   br label %_Z24exact_unit_for_byte_sizem.exit35
 
-_Z24exact_unit_for_byte_sizem.exit35:             ; preds = %.thread63, %_Z23byte_size_in_exact_unitm.exit29, %53
-  %.0.i2856 = phi i64 [ %52, %_Z23byte_size_in_exact_unitm.exit29 ], [ %spec.select.i27, %53 ], [ %51, %.thread63 ]
-  %.0.i34 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit29 ], [ %spec.select.i33, %53 ], [ @.str.270, %.thread63 ]
+_Z24exact_unit_for_byte_sizem.exit35:             ; preds = %.thread69, %_Z23byte_size_in_exact_unitm.exit29, %53
+  %.0.i2856 = phi i64 [ %52, %_Z23byte_size_in_exact_unitm.exit29 ], [ %spec.select.i27, %53 ], [ %51, %.thread69 ]
+  %.0.i34 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit29 ], [ %spec.select.i33, %53 ], [ @.str.270, %.thread69 ]
   %61 = icmp ugt i64 %5, 1073741823
   %62 = and i64 %5, 1073741823
   %63 = icmp eq i64 %62, 0
@@ -3885,9 +3885,9 @@ _Z24exact_unit_for_byte_sizem.exit35:             ; preds = %.thread63, %_Z23byt
   %66 = and i64 %5, 1048575
   %67 = icmp eq i64 %66, 0
   %or.cond14.i37 = and i1 %65, %67
-  br i1 %or.cond14.i37, label %.thread65, label %70
+  br i1 %or.cond14.i37, label %.thread71, label %70
 
-.thread65:                                        ; preds = %64
+.thread71:                                        ; preds = %64
   %68 = lshr exact i64 %5, 20
   br label %_Z24exact_unit_for_byte_sizem.exit47
 
@@ -3909,9 +3909,9 @@ _Z23byte_size_in_exact_unitm.exit41:              ; preds = %_Z24exact_unit_for_
   %spec.select.i45 = select i1 %or.cond11.i44, ptr @.str.271, ptr @.str.272
   br label %_Z24exact_unit_for_byte_sizem.exit47
 
-_Z24exact_unit_for_byte_sizem.exit47:             ; preds = %.thread65, %_Z23byte_size_in_exact_unitm.exit41, %70
-  %.0.i4059 = phi i64 [ %69, %_Z23byte_size_in_exact_unitm.exit41 ], [ %spec.select.i39, %70 ], [ %68, %.thread65 ]
-  %.0.i46 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit41 ], [ %spec.select.i45, %70 ], [ @.str.270, %.thread65 ]
+_Z24exact_unit_for_byte_sizem.exit47:             ; preds = %.thread71, %_Z23byte_size_in_exact_unitm.exit41, %70
+  %.0.i4059 = phi i64 [ %69, %_Z23byte_size_in_exact_unitm.exit41 ], [ %spec.select.i39, %70 ], [ %68, %.thread71 ]
+  %.0.i46 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit41 ], [ %spec.select.i45, %70 ], [ @.str.270, %.thread71 ]
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.60, ptr noundef %0, i64 noundef %.0.i50, ptr noundef nonnull %.0.i11, i64 noundef %.0.i1653, ptr noundef nonnull %.0.i22, i64 noundef %43, i64 noundef %.0.i2856, ptr noundef nonnull %.0.i34, i64 noundef %.0.i4059, ptr noundef nonnull %.0.i46)
   br label %78
 
@@ -3984,9 +3984,9 @@ _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread, %_Z23byte_
   %31 = and i64 %2, 1048575
   %32 = icmp eq i64 %31, 0
   %or.cond14.i13 = and i1 %30, %32
-  br i1 %or.cond14.i13, label %.thread61, label %35
+  br i1 %or.cond14.i13, label %.thread67, label %35
 
-.thread61:                                        ; preds = %29
+.thread67:                                        ; preds = %29
   %33 = lshr exact i64 %2, 20
   br label %_Z24exact_unit_for_byte_sizem.exit23
 
@@ -4008,9 +4008,9 @@ _Z23byte_size_in_exact_unitm.exit17:              ; preds = %_Z24exact_unit_for_
   %spec.select.i21 = select i1 %or.cond11.i20, ptr @.str.271, ptr @.str.272
   br label %_Z24exact_unit_for_byte_sizem.exit23
 
-_Z24exact_unit_for_byte_sizem.exit23:             ; preds = %.thread61, %_Z23byte_size_in_exact_unitm.exit17, %35
-  %.0.i1653 = phi i64 [ %34, %_Z23byte_size_in_exact_unitm.exit17 ], [ %spec.select.i15, %35 ], [ %33, %.thread61 ]
-  %.0.i22 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit17 ], [ %spec.select.i21, %35 ], [ @.str.270, %.thread61 ]
+_Z24exact_unit_for_byte_sizem.exit23:             ; preds = %.thread67, %_Z23byte_size_in_exact_unitm.exit17, %35
+  %.0.i1653 = phi i64 [ %34, %_Z23byte_size_in_exact_unitm.exit17 ], [ %spec.select.i15, %35 ], [ %33, %.thread67 ]
+  %.0.i22 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit17 ], [ %spec.select.i21, %35 ], [ @.str.270, %.thread67 ]
   %43 = ptrtoint ptr %3 to i64
   %44 = icmp ugt i64 %4, 1073741823
   %45 = and i64 %4, 1073741823
@@ -4023,9 +4023,9 @@ _Z24exact_unit_for_byte_sizem.exit23:             ; preds = %.thread61, %_Z23byt
   %49 = and i64 %4, 1048575
   %50 = icmp eq i64 %49, 0
   %or.cond14.i25 = and i1 %48, %50
-  br i1 %or.cond14.i25, label %.thread63, label %53
+  br i1 %or.cond14.i25, label %.thread69, label %53
 
-.thread63:                                        ; preds = %47
+.thread69:                                        ; preds = %47
   %51 = lshr exact i64 %4, 20
   br label %_Z24exact_unit_for_byte_sizem.exit35
 
@@ -4047,9 +4047,9 @@ _Z23byte_size_in_exact_unitm.exit29:              ; preds = %_Z24exact_unit_for_
   %spec.select.i33 = select i1 %or.cond11.i32, ptr @.str.271, ptr @.str.272
   br label %_Z24exact_unit_for_byte_sizem.exit35
 
-_Z24exact_unit_for_byte_sizem.exit35:             ; preds = %.thread63, %_Z23byte_size_in_exact_unitm.exit29, %53
-  %.0.i2856 = phi i64 [ %52, %_Z23byte_size_in_exact_unitm.exit29 ], [ %spec.select.i27, %53 ], [ %51, %.thread63 ]
-  %.0.i34 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit29 ], [ %spec.select.i33, %53 ], [ @.str.270, %.thread63 ]
+_Z24exact_unit_for_byte_sizem.exit35:             ; preds = %.thread69, %_Z23byte_size_in_exact_unitm.exit29, %53
+  %.0.i2856 = phi i64 [ %52, %_Z23byte_size_in_exact_unitm.exit29 ], [ %spec.select.i27, %53 ], [ %51, %.thread69 ]
+  %.0.i34 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit29 ], [ %spec.select.i33, %53 ], [ @.str.270, %.thread69 ]
   %61 = icmp ugt i64 %5, 1073741823
   %62 = and i64 %5, 1073741823
   %63 = icmp eq i64 %62, 0
@@ -4061,9 +4061,9 @@ _Z24exact_unit_for_byte_sizem.exit35:             ; preds = %.thread63, %_Z23byt
   %66 = and i64 %5, 1048575
   %67 = icmp eq i64 %66, 0
   %or.cond14.i37 = and i1 %65, %67
-  br i1 %or.cond14.i37, label %.thread65, label %70
+  br i1 %or.cond14.i37, label %.thread71, label %70
 
-.thread65:                                        ; preds = %64
+.thread71:                                        ; preds = %64
   %68 = lshr exact i64 %5, 20
   br label %_Z24exact_unit_for_byte_sizem.exit47
 
@@ -4085,9 +4085,9 @@ _Z23byte_size_in_exact_unitm.exit41:              ; preds = %_Z24exact_unit_for_
   %spec.select.i45 = select i1 %or.cond11.i44, ptr @.str.271, ptr @.str.272
   br label %_Z24exact_unit_for_byte_sizem.exit47
 
-_Z24exact_unit_for_byte_sizem.exit47:             ; preds = %.thread65, %_Z23byte_size_in_exact_unitm.exit41, %70
-  %.0.i4059 = phi i64 [ %69, %_Z23byte_size_in_exact_unitm.exit41 ], [ %spec.select.i39, %70 ], [ %68, %.thread65 ]
-  %.0.i46 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit41 ], [ %spec.select.i45, %70 ], [ @.str.270, %.thread65 ]
+_Z24exact_unit_for_byte_sizem.exit47:             ; preds = %.thread71, %_Z23byte_size_in_exact_unitm.exit41, %70
+  %.0.i4059 = phi i64 [ %69, %_Z23byte_size_in_exact_unitm.exit41 ], [ %spec.select.i39, %70 ], [ %68, %.thread71 ]
+  %.0.i46 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit41 ], [ %spec.select.i45, %70 ], [ @.str.270, %.thread71 ]
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.61, ptr noundef %0, i64 noundef %.0.i50, ptr noundef nonnull %.0.i11, i64 noundef %.0.i1653, ptr noundef nonnull %.0.i22, i64 noundef %43, i64 noundef %.0.i2856, ptr noundef nonnull %.0.i34, i64 noundef %.0.i4059, ptr noundef nonnull %.0.i46)
   br label %78
 
@@ -5402,9 +5402,9 @@ define hidden void @_ZNK2os9PageSizes8print_onEP12outputStream(ptr noundef nonnu
   br i1 %13, label %._crit_edge, label %.thread
 
 .thread.sink.split:                               ; preds = %9, %7
-  %.sink20 = phi i64 [ 10, %7 ], [ 20, %9 ]
+  %.sink21 = phi i64 [ 10, %7 ], [ 20, %9 ]
   %.str.81.sink = phi ptr [ @.str.80, %7 ], [ @.str.81, %9 ]
-  %14 = lshr i64 %.017, %.sink20
+  %14 = lshr i64 %.017, %.sink21
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %.str.81.sink, i64 noundef %14) #28
   br label %.thread
 
@@ -5493,10 +5493,10 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2os23set_minimum_stack_sizesEv() 
   br i1 %or.cond17, label %.sink.split, label %42
 
 .sink.split:                                      ; preds = %32, %.split, %19
-  %.sink19 = phi i64 [ %16, %19 ], [ %28, %.split ], [ %36, %32 ]
+  %.sink23 = phi i64 [ %16, %19 ], [ %28, %.split ], [ %36, %32 ]
   %.str.86.sink = phi ptr [ @.str.84, %19 ], [ @.str.85, %.split ], [ @.str.86, %32 ]
   %40 = load ptr, ptr @tty, align 8
-  %41 = lshr i64 %.sink19, 10
+  %41 = lshr i64 %.sink23, 10
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %40, ptr noundef nonnull %.str.86.sink, i64 noundef %41) #28
   br label %42
 

@@ -333,9 +333,9 @@ bytestream2_init.exit:                            ; preds = %15
   %28 = load i32, ptr %27, align 4, !tbaa !51
   %29 = and i32 %28, -3
   %masksel = zext nneg i8 %26 to i32
-  %.sink592 = or disjoint i32 %29, %masksel
+  %.sink638 = or disjoint i32 %29, %masksel
   %.sink = select i1 %.not, i32 2, i32 1
-  store i32 %.sink592, ptr %27, align 4, !tbaa !51
+  store i32 %.sink638, ptr %27, align 4, !tbaa !51
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 120
   store i32 %.sink, ptr %30, align 8, !tbaa !56
   br label %31
@@ -740,9 +740,9 @@ smk_get_code.exit230:                             ; preds = %.lr.ph489, %._crit_
   store i8 %storemerge, ptr %.0185495, align 1, !tbaa !35
   %270 = and i32 %.0198493, 2
   %.not214 = icmp eq i32 %270, 0
-  %spec.select593 = select i1 %.not214, i8 %266, i8 %265
+  %spec.select639 = select i1 %.not214, i8 %266, i8 %265
   %271 = getelementptr inbounds nuw i8, ptr %.0185495, i64 1
-  store i8 %spec.select593, ptr %271, align 1, !tbaa !35
+  store i8 %spec.select639, ptr %271, align 1, !tbaa !35
   %272 = and i32 %.0198493, 4
   %.not215 = icmp eq i32 %272, 0
   %.sink564 = select i1 %.not215, i8 %266, i8 %265
@@ -1449,7 +1449,7 @@ define internal range(i32 -1094995529, 1) i32 @smka_decode_init(ptr noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @smka_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
+define internal range(i32 5, 2) i32 @smka_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca %struct.GetBitContext, align 8
   %6 = alloca [4 x %struct.VLC], align 16
   %7 = alloca [4 x i8], align 2
@@ -1621,8 +1621,8 @@ define internal i32 @smka_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %.not158 = icmp eq i32 %42, 0
   %92 = load ptr, ptr %5, align 8, !tbaa !36
   %93 = and i32 %77, 7
-  %.mask280 = and i32 %39, 1
-  %94 = zext nneg i32 %.mask280 to i64
+  %.mask300 = and i32 %39, 1
+  %94 = zext nneg i32 %.mask300 to i64
   br i1 %.not158, label %.preheader196, label %.preheader202
 
 .preheader201:                                    ; preds = %.preheader202
@@ -1645,8 +1645,8 @@ define internal i32 @smka_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %106 = getelementptr inbounds nuw [2 x i32], ptr %8, i64 0, i64 %indvars.iv262
   store i32 %105, ptr %106, align 4, !tbaa !43
   %indvars.iv.next263 = add nsw i64 %indvars.iv262, -1
-  %.not290 = icmp eq i64 %indvars.iv262, 0
-  br i1 %.not290, label %.preheader201, label %.preheader202, !llvm.loop !80
+  %.not310 = icmp eq i64 %indvars.iv262, 0
+  br i1 %.not310, label %.preheader201, label %.preheader202, !llvm.loop !80
 
 107:                                              ; preds = %.preheader201, %107
   %indvars.iv265 = phi i64 [ 0, %.preheader201 ], [ %indvars.iv.next266, %107 ]
@@ -1960,8 +1960,8 @@ get_vlc2.exit170:                                 ; preds = %207, %223, %243
   %316 = getelementptr inbounds nuw [2 x i32], ptr %8, i64 0, i64 %indvars.iv268
   store i32 %314, ptr %316, align 4, !tbaa !43
   %indvars.iv.next269 = add nsw i64 %indvars.iv268, -1
-  %.not291 = icmp eq i64 %indvars.iv268, 0
-  br i1 %.not291, label %.preheader195, label %.preheader196, !llvm.loop !90
+  %.not311 = icmp eq i64 %indvars.iv268, 0
+  br i1 %.not311, label %.preheader195, label %.preheader196, !llvm.loop !90
 
 .preheader:                                       ; preds = %318
   %317 = icmp slt i32 %307, %17
@@ -2127,7 +2127,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @smacker_decode_header_tree
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = icmp ugt i32 %4, 268435454
-  %indvars.iv.sroa.gep74 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %indvars.iv.sroa.gep79 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %9, label %14, label %.preheader
 
 .preheader:                                       ; preds = %5
@@ -2145,7 +2145,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @smacker_decode_header_tree
 16:                                               ; preds = %.preheader, %50
   %.not49 = phi ptr [ @.str.12, %.preheader ], [ @.str.11, %50 ]
   %17 = phi i1 [ true, %.preheader ], [ false, %50 ]
-  %indvars.iv.sroa.phi = phi ptr [ %6, %.preheader ], [ %indvars.iv.sroa.gep74, %50 ]
+  %indvars.iv.sroa.phi = phi ptr [ %6, %.preheader ], [ %indvars.iv.sroa.gep79, %50 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %50 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !75

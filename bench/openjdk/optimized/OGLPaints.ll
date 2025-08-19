@@ -698,9 +698,9 @@ sub_2:                                            ; preds = %sub_1
   %spec.select33 = select i1 %.not32, ptr @.str.7, ptr @.str.12
   %switch.selectcmp = icmp eq i32 %7, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.18, ptr @.str.19
-  %switch.selectcmp39 = icmp eq i32 %7, 0
-  %switch.select40 = select i1 %switch.selectcmp39, ptr @.str.16, ptr %switch.select
-  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1500, ptr noundef nonnull %switch.select40, ptr noundef nonnull @.str.17) #6
+  %switch.selectcmp40 = icmp eq i32 %7, 0
+  %switch.select41 = select i1 %switch.selectcmp40, ptr @.str.16, ptr %switch.select
+  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1500, ptr noundef nonnull %switch.select41, ptr noundef nonnull @.str.17) #6
   %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 3000, ptr noundef nonnull @.str.20, i32 noundef 16, i32 noundef %9, ptr noundef nonnull %.024, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %spec.select33, ptr noundef nonnull %.026) #6
   %23 = call i32 @OGLContext_CreateFragmentProgram(ptr noundef nonnull %6) #6
   %24 = icmp eq i32 %23, 0
@@ -724,11 +724,11 @@ sub_2:                                            ; preds = %sub_1
   br label %33
 
 33:                                               ; preds = %26, %29
-  %.sink38 = phi ptr [ %32, %29 ], [ %28, %26 ]
-  %.sink36 = phi i32 [ 1, %29 ], [ 0, %26 ]
-  %34 = call i32 %.sink38(i32 noundef %23, ptr noundef nonnull @.str.15) #6
+  %.sink39 = phi ptr [ %32, %29 ], [ %28, %26 ]
+  %.sink37 = phi i32 [ 1, %29 ], [ 0, %26 ]
+  %34 = call i32 %.sink39(i32 noundef %23, ptr noundef nonnull @.str.15) #6
   %35 = load ptr, ptr @j2d_glUniform1iARB, align 8
-  call void %35(i32 noundef %34, i32 noundef %.sink36) #6
+  call void %35(i32 noundef %34, i32 noundef %.sink37) #6
   %36 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
   call void %36(i32 noundef 0) #6
   %37 = load i32, ptr @multiGradientTexID, align 4

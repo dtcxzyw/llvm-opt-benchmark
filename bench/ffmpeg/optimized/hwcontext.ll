@@ -91,21 +91,21 @@ define i32 @av_hwdevice_iterate_types(i32 noundef %0) local_unnamed_addr #3 {
   br i1 %.not17, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %1, %.split.us
-  %indvars.iv28 = phi i64 [ %indvars.iv.next29, %.split.us ], [ 0, %1 ]
+  %.not.us = phi i1 [ true, %.split.us ], [ false, %1 ]
+  %indvars.iv28 = phi i64 [ 2, %.split.us ], [ 1, %1 ]
   %2 = phi ptr [ %5, %.split.us ], [ @ff_hwcontext_type_drm, %1 ]
   %.not19.us = phi i1 [ false, %.split.us ], [ true, %1 ]
   %.01220.us = phi i32 [ %.113.us, %.split.us ], [ undef, %1 ]
   %.pre = load i32, ptr %2, align 8, !tbaa !11
   %3 = tail call i32 @llvm.umin.i32(i32 %.pre, i32 %.01220.us)
   %.113.us = select i1 %.not19.us, i32 %.pre, i32 %3
-  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
-  %4 = getelementptr inbounds nuw [3 x ptr], ptr @hw_table, i64 0, i64 %indvars.iv.next29
+  %4 = getelementptr inbounds nuw [3 x ptr], ptr @hw_table, i64 0, i64 %indvars.iv28
   %5 = load ptr, ptr %4, align 8, !tbaa !15
-  %.not.us = icmp eq i64 %indvars.iv.next29, 2
   br i1 %.not.us, label %.split24.us, label %.split.us, !llvm.loop !17
 
 .split:                                           ; preds = %1, %.split
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %1 ]
+  %.not = phi i1 [ true, %.split ], [ false, %1 ]
+  %indvars.iv = phi i64 [ 2, %.split ], [ 1, %1 ]
   %6 = phi ptr [ %10, %.split ], [ @ff_hwcontext_type_drm, %1 ]
   %.022 = phi i32 [ %.1, %.split ], [ 0, %1 ]
   %.01220 = phi i32 [ %.113, %.split ], [ undef, %1 ]
@@ -116,10 +116,8 @@ define i32 @av_hwdevice_iterate_types(i32 noundef %0) local_unnamed_addr #3 {
   %spec.select = select i1 %.not19, i32 %7, i32 %8
   %.113 = select i1 %.not18, i32 %spec.select, i32 %.01220
   %.1 = select i1 %.not18, i32 1, i32 %.022
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = getelementptr inbounds nuw [3 x ptr], ptr @hw_table, i64 0, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw [3 x ptr], ptr @hw_table, i64 0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !15
-  %.not = icmp eq i64 %indvars.iv.next, 2
   br i1 %.not, label %.split24.us.loopexit26, label %.split, !llvm.loop !17
 
 .split24.us.loopexit26:                           ; preds = %.split
@@ -139,14 +137,13 @@ define ptr @av_hwdevice_ctx_alloc(i32 noundef %0) local_unnamed_addr #4 {
   br label %6
 
 3:                                                ; preds = %6
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %4 = getelementptr inbounds nuw [3 x ptr], ptr @hw_table, i64 0, i64 %indvars.iv.next
+  %4 = getelementptr inbounds nuw [3 x ptr], ptr @hw_table, i64 0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !15
-  %.not = icmp eq i64 %indvars.iv.next, 2
   br i1 %.not, label %.thread, label %6, !llvm.loop !18
 
 6:                                                ; preds = %1, %3
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
+  %.not = phi i1 [ false, %1 ], [ true, %3 ]
+  %indvars.iv = phi i64 [ 1, %1 ], [ 2, %3 ]
   %7 = phi ptr [ @ff_hwcontext_type_drm, %1 ], [ %5, %3 ]
   %8 = load i32, ptr %7, align 8, !tbaa !11
   %9 = icmp eq i32 %8, %0

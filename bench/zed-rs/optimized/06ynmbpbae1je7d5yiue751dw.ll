@@ -1930,13 +1930,13 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(argmem: readwrite) uwtable
 define hidden noundef i64 @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3len17hf5d7c455c019a57cE"(ptr noundef nonnull readonly align 128 captures(none) %0) unnamed_addr #6 {
   %2 = load i64, ptr %0, align 128, !range !659, !noundef !16
-  switch i64 %2, label %default.unreachable11 [
+  switch i64 %2, label %default.unreachable15 [
     i64 0, label %3
     i64 1, label %7
     i64 2, label %38
   ]
 
-default.unreachable11:                            ; preds = %1
+default.unreachable15:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -2034,13 +2034,13 @@ default.unreachable11:                            ; preds = %1
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i8 0, 3) i8 @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17h1b9feccdcd4f51d0E"(ptr noundef nonnull align 128 %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 128, !range !659, !noundef !16
-  switch i64 %2, label %default.unreachable3 [
+  switch i64 %2, label %default.unreachable4 [
     i64 0, label %3
     i64 1, label %26
     i64 2, label %29
   ]
 
-default.unreachable3:                             ; preds = %1
+default.unreachable4:                             ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -2103,13 +2103,13 @@ default.unreachable3:                             ; preds = %1
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17h57bdadc78ed9d343E"(ptr dead_on_unwind noalias noundef writable sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 128 %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 128, !range !659, !noundef !16
-  switch i64 %3, label %default.unreachable3 [
+  switch i64 %3, label %default.unreachable4 [
     i64 0, label %4
     i64 1, label %33
     i64 2, label %35
   ]
 
-default.unreachable3:                             ; preds = %2
+default.unreachable4:                             ; preds = %2
   unreachable
 
 4:                                                ; preds = %2
@@ -4057,7 +4057,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   br i1 %25, label %26, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h32e829663b4131e2E.exit.thread.i.i"
 
 26:                                               ; preds = %24
-  switch i8 %8, label %default.unreachable63.i.i.i.i.i.i [
+  switch i8 %8, label %default.unreachable [
     i8 0, label %27
     i8 1, label %32
     i8 2, label %36
@@ -4066,7 +4066,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
     i8 5, label %47
   ]
 
-default.unreachable63.i.i.i.i.i.i:                ; preds = %26
+default.unreachable:                              ; preds = %26
   unreachable
 
 27:                                               ; preds = %26
@@ -12873,13 +12873,13 @@ define hidden void @"_ZN74_$LT$zvariant..value..ValueSeed$LT$T$GT$$u20$as$u20$se
   %242 = load i64, ptr %224, align 8, !noalias !3192, !noundef !16
   %switch = icmp samesign ult i64 %240, 2
   %spec.select = select i1 %switch, i64 %240, i64 0
-  %spec.select135.idx = select i1 %switch, i64 0, i64 16
-  %spec.select135 = getelementptr inbounds nuw i8, ptr %241, i64 %spec.select135.idx
+  %spec.select143.idx = select i1 %switch, i64 0, i64 16
+  %spec.select143 = getelementptr inbounds nuw i8, ptr %241, i64 %spec.select143.idx
   %243 = load i64, ptr %225, align 8, !noalias !3192, !noundef !16
   %244 = load i64, ptr %226, align 8, !noalias !3192, !noundef !16
   %245 = sub i64 %244, %243
   store i64 %spec.select, ptr %19, align 8, !noalias !3192
-  store ptr %spec.select135, ptr %.sroa.04.sroa.4.0..sroa_idx.i, align 8, !noalias !3192
+  store ptr %spec.select143, ptr %.sroa.04.sroa.4.0..sroa_idx.i, align 8, !noalias !3192
   store i64 %242, ptr %.sroa.04.sroa.5.0..sroa_idx.i, align 8, !noalias !3192
   store i64 %243, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3192
   store i64 %244, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !3192
@@ -14401,13 +14401,13 @@ define hidden void @"_ZN74_$LT$zvariant..value..ValueSeed$LT$T$GT$$u20$as$u20$se
   %217 = load i64, ptr %201, align 8, !noalias !3743, !noundef !16
   %switch = icmp samesign ult i64 %215, 2
   %spec.select = select i1 %switch, i64 %215, i64 0
-  %spec.select132.idx = select i1 %switch, i64 0, i64 16
-  %spec.select132 = getelementptr inbounds nuw i8, ptr %216, i64 %spec.select132.idx
+  %spec.select140.idx = select i1 %switch, i64 0, i64 16
+  %spec.select140 = getelementptr inbounds nuw i8, ptr %216, i64 %spec.select140.idx
   %218 = load i64, ptr %202, align 8, !noalias !3743, !noundef !16
   %219 = load i64, ptr %203, align 8, !noalias !3743, !noundef !16
   %220 = sub i64 %219, %218
   store i64 %spec.select, ptr %18, align 8, !noalias !3743
-  store ptr %spec.select132, ptr %.sroa.04.sroa.4.0..sroa_idx.i26, align 8, !noalias !3743
+  store ptr %spec.select140, ptr %.sroa.04.sroa.4.0..sroa_idx.i26, align 8, !noalias !3743
   store i64 %217, ptr %.sroa.04.sroa.5.0..sroa_idx.i27, align 8, !noalias !3743
   store i64 %218, ptr %.sroa.4.0..sroa_idx.i28, align 8, !noalias !3743
   store i64 %219, ptr %.sroa.5.0..sroa_idx.i29, align 8, !noalias !3743
@@ -15889,13 +15889,13 @@ define hidden void @"_ZN74_$LT$zvariant..value..ValueSeed$LT$T$GT$$u20$as$u20$se
   %218 = load i64, ptr %202, align 8, !noalias !4286, !noundef !16
   %switch = icmp samesign ult i64 %216, 2
   %spec.select = select i1 %switch, i64 %216, i64 0
-  %spec.select132.idx = select i1 %switch, i64 0, i64 16
-  %spec.select132 = getelementptr inbounds nuw i8, ptr %217, i64 %spec.select132.idx
+  %spec.select140.idx = select i1 %switch, i64 0, i64 16
+  %spec.select140 = getelementptr inbounds nuw i8, ptr %217, i64 %spec.select140.idx
   %219 = load i64, ptr %203, align 8, !noalias !4286, !noundef !16
   %220 = load i64, ptr %204, align 8, !noalias !4286, !noundef !16
   %221 = sub i64 %220, %219
   store i64 %spec.select, ptr %18, align 8, !noalias !4286
-  store ptr %spec.select132, ptr %.sroa.04.sroa.4.0..sroa_idx.i26, align 8, !noalias !4286
+  store ptr %spec.select140, ptr %.sroa.04.sroa.4.0..sroa_idx.i26, align 8, !noalias !4286
   store i64 %218, ptr %.sroa.04.sroa.5.0..sroa_idx.i27, align 8, !noalias !4286
   store i64 %219, ptr %.sroa.4.0..sroa_idx.i28, align 8, !noalias !4286
   store i64 %220, ptr %.sroa.5.0..sroa_idx.i29, align 8, !noalias !4286
@@ -17380,13 +17380,13 @@ define hidden void @"_ZN74_$LT$zvariant..value..ValueSeed$LT$T$GT$$u20$as$u20$se
   %218 = load i64, ptr %202, align 8, !noalias !4825, !noundef !16
   %switch = icmp samesign ult i64 %216, 2
   %spec.select = select i1 %switch, i64 %216, i64 0
-  %spec.select132.idx = select i1 %switch, i64 0, i64 16
-  %spec.select132 = getelementptr inbounds nuw i8, ptr %217, i64 %spec.select132.idx
+  %spec.select140.idx = select i1 %switch, i64 0, i64 16
+  %spec.select140 = getelementptr inbounds nuw i8, ptr %217, i64 %spec.select140.idx
   %219 = load i64, ptr %203, align 8, !noalias !4825, !noundef !16
   %220 = load i64, ptr %204, align 8, !noalias !4825, !noundef !16
   %221 = sub i64 %220, %219
   store i64 %spec.select, ptr %18, align 8, !noalias !4825
-  store ptr %spec.select132, ptr %.sroa.04.sroa.4.0..sroa_idx.i26, align 8, !noalias !4825
+  store ptr %spec.select140, ptr %.sroa.04.sroa.4.0..sroa_idx.i26, align 8, !noalias !4825
   store i64 %218, ptr %.sroa.04.sroa.5.0..sroa_idx.i27, align 8, !noalias !4825
   store i64 %219, ptr %.sroa.4.0..sroa_idx.i28, align 8, !noalias !4825
   store i64 %220, ptr %.sroa.5.0..sroa_idx.i29, align 8, !noalias !4825
@@ -18871,13 +18871,13 @@ define hidden void @"_ZN74_$LT$zvariant..value..ValueSeed$LT$T$GT$$u20$as$u20$se
   %218 = load i64, ptr %202, align 8, !noalias !5364, !noundef !16
   %switch = icmp samesign ult i64 %216, 2
   %spec.select = select i1 %switch, i64 %216, i64 0
-  %spec.select132.idx = select i1 %switch, i64 0, i64 16
-  %spec.select132 = getelementptr inbounds nuw i8, ptr %217, i64 %spec.select132.idx
+  %spec.select140.idx = select i1 %switch, i64 0, i64 16
+  %spec.select140 = getelementptr inbounds nuw i8, ptr %217, i64 %spec.select140.idx
   %219 = load i64, ptr %203, align 8, !noalias !5364, !noundef !16
   %220 = load i64, ptr %204, align 8, !noalias !5364, !noundef !16
   %221 = sub i64 %220, %219
   store i64 %spec.select, ptr %18, align 8, !noalias !5364
-  store ptr %spec.select132, ptr %.sroa.04.sroa.4.0..sroa_idx.i26, align 8, !noalias !5364
+  store ptr %spec.select140, ptr %.sroa.04.sroa.4.0..sroa_idx.i26, align 8, !noalias !5364
   store i64 %218, ptr %.sroa.04.sroa.5.0..sroa_idx.i27, align 8, !noalias !5364
   store i64 %219, ptr %.sroa.4.0..sroa_idx.i28, align 8, !noalias !5364
   store i64 %220, ptr %.sroa.5.0..sroa_idx.i29, align 8, !noalias !5364
@@ -20494,13 +20494,13 @@ define hidden void @"_ZN74_$LT$zvariant..value..ValueSeed$LT$T$GT$$u20$as$u20$se
   %255 = load i64, ptr %230, align 8, !noalias !5920, !noundef !16
   %switch = icmp samesign ult i64 %253, 2
   %spec.select = select i1 %switch, i64 %253, i64 0
-  %spec.select149.idx = select i1 %switch, i64 0, i64 16
-  %spec.select149 = getelementptr inbounds nuw i8, ptr %254, i64 %spec.select149.idx
+  %spec.select157.idx = select i1 %switch, i64 0, i64 16
+  %spec.select157 = getelementptr inbounds nuw i8, ptr %254, i64 %spec.select157.idx
   %256 = load i64, ptr %231, align 8, !noalias !5920, !noundef !16
   %257 = load i64, ptr %232, align 8, !noalias !5920, !noundef !16
   %258 = sub i64 %257, %256
   store i64 %spec.select, ptr %18, align 8, !noalias !5920
-  store ptr %spec.select149, ptr %.sroa.04.sroa.4.0..sroa_idx.i32, align 8, !noalias !5920
+  store ptr %spec.select157, ptr %.sroa.04.sroa.4.0..sroa_idx.i32, align 8, !noalias !5920
   store i64 %255, ptr %.sroa.04.sroa.5.0..sroa_idx.i33, align 8, !noalias !5920
   store i64 %256, ptr %.sroa.4.0..sroa_idx.i34, align 8, !noalias !5920
   store i64 %257, ptr %.sroa.5.0..sroa_idx.i35, align 8, !noalias !5920

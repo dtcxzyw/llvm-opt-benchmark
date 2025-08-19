@@ -1175,7 +1175,7 @@ define hidden noundef ptr @_ZN17PackageEntryTable25allocate_archived_entriesEv(p
   br i1 %41, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25allocate_archived_entriesEvE3$_1EEvSC_.exit.thread.thread", %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25allocate_archived_entriesEvE3$_1EEvSC_.exit.thread"
-  %.93743 = phi i64 [ %40, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25allocate_archived_entriesEvE3$_1EEvSC_.exit.thread.thread" ], [ 1, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25allocate_archived_entriesEvE3$_1EEvSC_.exit.thread" ]
+  %.93744 = phi i64 [ %40, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25allocate_archived_entriesEvE3$_1EEvSC_.exit.thread.thread" ], [ 1, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25allocate_archived_entriesEvE3$_1EEvSC_.exit.thread" ]
   %42 = getelementptr inbounds nuw i8, ptr %20, i64 8
   br label %43
 
@@ -1187,7 +1187,7 @@ define hidden noundef ptr @_ZN17PackageEntryTable25allocate_archived_entriesEv(p
   store ptr %46, ptr %44, align 8
   tail call void @_ZN16ArchivePtrMarker12mark_pointerEPPh(ptr noundef nonnull %44) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %.93743
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %.93744
   br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %43, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25allocate_archived_entriesEvE3$_0EEvSC_.exit", %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25allocate_archived_entriesEvE3$_1EEvSC_.exit.thread"
@@ -3018,7 +3018,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP11ModuleEntry1
   br i1 %.not, label %_ZN13GrowableArrayIP11ModuleEntryE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -3030,8 +3030,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP11ModuleEntry1
   br label %_ZN13GrowableArrayIP11ModuleEntryE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP11ModuleEntryE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP11ModuleEntryE10deallocateEPS1_.exit

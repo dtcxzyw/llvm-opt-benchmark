@@ -457,18 +457,18 @@ define hidden void @av1_build_compound_diffwtd_mask_d16_c(ptr noundef writeonly 
   %23 = mul nsw i64 %indvars.iv20.i, %20
   %24 = mul nsw i64 %indvars.iv20.i, %21
   %25 = mul nuw nsw i64 %indvars.iv20.i, %22
-  %invariant.gep30.i = getelementptr i16, ptr %2, i64 %23
-  %invariant.gep32.i = getelementptr i16, ptr %4, i64 %24
-  %invariant.gep34.i = getelementptr inbounds nuw i8, ptr %0, i64 %25
+  %invariant.gep31.i = getelementptr i16, ptr %2, i64 %23
+  %invariant.gep33.i = getelementptr i16, ptr %4, i64 %24
+  %invariant.gep35.i = getelementptr inbounds nuw i8, ptr %0, i64 %25
   br label %26
 
 26:                                               ; preds = %26, %.preheader.us.us.i
   %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %26 ], [ 0, %.preheader.us.us.i ]
-  %gep31.i = getelementptr i16, ptr %invariant.gep30.i, i64 %indvars.iv15.i
-  %27 = load i16, ptr %gep31.i, align 2
+  %gep32.i = getelementptr i16, ptr %invariant.gep31.i, i64 %indvars.iv15.i
+  %27 = load i16, ptr %gep32.i, align 2
   %28 = zext i16 %27 to i32
-  %gep33.i = getelementptr i16, ptr %invariant.gep32.i, i64 %indvars.iv15.i
-  %29 = load i16, ptr %gep33.i, align 2
+  %gep34.i = getelementptr i16, ptr %invariant.gep33.i, i64 %indvars.iv15.i
+  %29 = load i16, ptr %gep34.i, align 2
   %30 = zext i16 %29 to i32
   %31 = sub nsw i32 %28, %30
   %32 = tail call i32 @llvm.abs.i32(i32 %31, i1 true)
@@ -480,8 +480,8 @@ define hidden void @av1_build_compound_diffwtd_mask_d16_c(ptr noundef writeonly 
   %38 = tail call i32 @llvm.umin.i32(i32 range(i32 -67108826, -2147483648) %36, i32 64)
   %39 = trunc nuw nsw i32 %38 to i8
   %40 = select i1 %37, i8 0, i8 %39
-  %gep35.i = getelementptr inbounds nuw i8, ptr %invariant.gep34.i, i64 %indvars.iv15.i
-  store i8 %40, ptr %gep35.i, align 1
+  %gep36.i = getelementptr inbounds nuw i8, ptr %invariant.gep35.i, i64 %indvars.iv15.i
+  store i8 %40, ptr %gep36.i, align 1
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, %22
   br i1 %exitcond19.not.i, label %._crit_edge.split.us.us.us.i, label %26, !llvm.loop !4
@@ -521,8 +521,8 @@ define hidden void @av1_build_compound_diffwtd_mask_d16_c(ptr noundef writeonly 
   %54 = mul nsw i64 %indvars.iv10.i, %51
   %55 = mul nuw nsw i64 %indvars.iv10.i, %52
   %invariant.gep.i = getelementptr i16, ptr %2, i64 %53
-  %invariant.gep26.i = getelementptr i16, ptr %4, i64 %54
-  %invariant.gep28.i = getelementptr inbounds nuw i8, ptr %0, i64 %55
+  %invariant.gep27.i = getelementptr i16, ptr %4, i64 %54
+  %invariant.gep29.i = getelementptr inbounds nuw i8, ptr %0, i64 %55
   br label %56
 
 56:                                               ; preds = %56, %.preheader.us.i
@@ -530,8 +530,8 @@ define hidden void @av1_build_compound_diffwtd_mask_d16_c(ptr noundef writeonly 
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
   %57 = load i16, ptr %gep.i, align 2
   %58 = zext i16 %57 to i32
-  %gep27.i = getelementptr i16, ptr %invariant.gep26.i, i64 %indvars.iv.i
-  %59 = load i16, ptr %gep27.i, align 2
+  %gep28.i = getelementptr i16, ptr %invariant.gep27.i, i64 %indvars.iv.i
+  %59 = load i16, ptr %gep28.i, align 2
   %60 = zext i16 %59 to i32
   %61 = sub nsw i32 %58, %60
   %62 = tail call i32 @llvm.abs.i32(i32 %61, i1 true)
@@ -543,8 +543,8 @@ define hidden void @av1_build_compound_diffwtd_mask_d16_c(ptr noundef writeonly 
   %68 = tail call i32 @llvm.usub.sat.i32(i32 64, i32 %66)
   %69 = trunc nuw nsw i32 %68 to i8
   %70 = select i1 %67, i8 64, i8 %69
-  %gep29.i = getelementptr inbounds nuw i8, ptr %invariant.gep28.i, i64 %indvars.iv.i
-  store i8 %70, ptr %gep29.i, align 1
+  %gep30.i = getelementptr inbounds nuw i8, ptr %invariant.gep29.i, i64 %indvars.iv.i
+  store i8 %70, ptr %gep30.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %52
   br i1 %exitcond.not.i, label %._crit_edge.split.us5.i, label %56, !llvm.loop !4
@@ -583,26 +583,26 @@ define hidden void @av1_build_compound_diffwtd_mask_c(ptr noundef writeonly capt
   %15 = mul nsw i64 %indvars.iv43.i, %12
   %16 = mul nsw i64 %indvars.iv43.i, %13
   %17 = mul nuw nsw i64 %indvars.iv43.i, %14
-  %invariant.gep53.i = getelementptr i8, ptr %2, i64 %15
-  %invariant.gep55.i = getelementptr i8, ptr %4, i64 %16
-  %invariant.gep57.i = getelementptr inbounds nuw i8, ptr %0, i64 %17
+  %invariant.gep54.i = getelementptr i8, ptr %2, i64 %15
+  %invariant.gep56.i = getelementptr i8, ptr %4, i64 %16
+  %invariant.gep58.i = getelementptr inbounds nuw i8, ptr %0, i64 %17
   br label %18
 
 18:                                               ; preds = %18, %.preheader.us.us.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %18 ], [ 0, %.preheader.us.us.i ]
-  %gep54.i = getelementptr i8, ptr %invariant.gep53.i, i64 %indvars.iv38.i
-  %19 = load i8, ptr %gep54.i, align 1
+  %gep55.i = getelementptr i8, ptr %invariant.gep54.i, i64 %indvars.iv38.i
+  %19 = load i8, ptr %gep55.i, align 1
   %20 = zext i8 %19 to i32
-  %gep56.i = getelementptr i8, ptr %invariant.gep55.i, i64 %indvars.iv38.i
-  %21 = load i8, ptr %gep56.i, align 1
+  %gep57.i = getelementptr i8, ptr %invariant.gep56.i, i64 %indvars.iv38.i
+  %21 = load i8, ptr %gep57.i, align 1
   %22 = zext i8 %21 to i32
   %23 = sub nsw i32 %20, %22
   %24 = tail call i32 @llvm.abs.i32(i32 %23, i1 true)
   %25 = lshr i32 %24, 4
   %26 = trunc nuw nsw i32 %25 to i8
   %27 = add nuw nsw i8 %26, 38
-  %gep58.i = getelementptr inbounds nuw i8, ptr %invariant.gep57.i, i64 %indvars.iv38.i
-  store i8 %27, ptr %gep58.i, align 1
+  %gep59.i = getelementptr inbounds nuw i8, ptr %invariant.gep58.i, i64 %indvars.iv38.i
+  store i8 %27, ptr %gep59.i, align 1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, %14
   br i1 %exitcond42.not.i, label %._crit_edge.split.us.us.us.i, label %18, !llvm.loop !7
@@ -631,8 +631,8 @@ define hidden void @av1_build_compound_diffwtd_mask_c(ptr noundef writeonly capt
   %35 = mul nsw i64 %indvars.iv33.i, %32
   %36 = mul nuw nsw i64 %indvars.iv33.i, %33
   %invariant.gep.i = getelementptr i8, ptr %2, i64 %34
-  %invariant.gep49.i = getelementptr i8, ptr %4, i64 %35
-  %invariant.gep51.i = getelementptr inbounds nuw i8, ptr %0, i64 %36
+  %invariant.gep50.i = getelementptr i8, ptr %4, i64 %35
+  %invariant.gep52.i = getelementptr inbounds nuw i8, ptr %0, i64 %36
   br label %37
 
 37:                                               ; preds = %37, %.preheader.us.i
@@ -640,16 +640,16 @@ define hidden void @av1_build_compound_diffwtd_mask_c(ptr noundef writeonly capt
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
   %38 = load i8, ptr %gep.i, align 1
   %39 = zext i8 %38 to i32
-  %gep50.i = getelementptr i8, ptr %invariant.gep49.i, i64 %indvars.iv.i
-  %40 = load i8, ptr %gep50.i, align 1
+  %gep51.i = getelementptr i8, ptr %invariant.gep50.i, i64 %indvars.iv.i
+  %40 = load i8, ptr %gep51.i, align 1
   %41 = zext i8 %40 to i32
   %42 = sub nsw i32 %39, %41
   %43 = tail call i32 @llvm.abs.i32(i32 %42, i1 true)
   %44 = lshr i32 %43, 4
   %45 = trunc nuw nsw i32 %44 to i8
   %46 = sub nuw nsw i8 26, %45
-  %gep52.i = getelementptr inbounds nuw i8, ptr %invariant.gep51.i, i64 %indvars.iv.i
-  store i8 %46, ptr %gep52.i, align 1
+  %gep53.i = getelementptr inbounds nuw i8, ptr %invariant.gep52.i, i64 %indvars.iv.i
+  store i8 %46, ptr %gep53.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %33
   br i1 %exitcond.not.i, label %._crit_edge.split.us28.i, label %37, !llvm.loop !7
@@ -1634,7 +1634,7 @@ define hidden void @av1_build_inter_predictors(ptr noundef %0, ptr noundef %1, i
 
 ..loopexit_crit_edge:                             ; preds = %11
   %.pre = sext i32 %2 to i64
-  %.pre32 = zext i8 %17 to i64
+  %.pre31 = zext i8 %17 to i64
   br label %.loopexit
 
 23:                                               ; preds = %11
@@ -1670,13 +1670,13 @@ define hidden void @av1_build_inter_predictors(ptr noundef %0, ptr noundef %1, i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %60, %41
-  %indvars.iv38.i = phi i64 [ %47, %41 ], [ %indvars.iv.next39.i, %60 ]
+  %indvars.iv38.i = phi i64 [ %47, %41 ], [ 0, %60 ]
   %49 = mul nsw i64 %indvars.iv38.i, %48
   %50 = getelementptr ptr, ptr %43, i64 %49
   br label %51
 
 51:                                               ; preds = %59, %.preheader.i
-  %indvars.iv.i = phi i64 [ %46, %.preheader.i ], [ %indvars.iv.next.i, %59 ]
+  %indvars.iv.i = phi i64 [ %46, %.preheader.i ], [ 0, %59 ]
   %52 = getelementptr ptr, ptr %50, i64 %indvars.iv.i
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr i8, ptr %53, i64 175
@@ -1692,12 +1692,10 @@ is_inter_block.exit.i:                            ; preds = %51
   br i1 %58, label %59, label %.loopexit
 
 59:                                               ; preds = %is_inter_block.exit.i
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %exitcond.not.i, label %60, label %51, !llvm.loop !30
 
 60:                                               ; preds = %59
-  %indvars.iv.next39.i = add nsw i64 %indvars.iv38.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv38.i, 0
   br i1 %exitcond.not, label %is_sub8x8_inter.exit, label %.preheader.i, !llvm.loop !31
 
@@ -1791,7 +1789,7 @@ is_sub8x8_inter.exit:                             ; preds = %60
   br label %get_ref_frame_map_idx.exit.i.us.i
 
 get_ref_frame_map_idx.exit.i.us.i:                ; preds = %av1_init_inter_params.exit.us.i, %.preheader.us.i
-  %indvars.iv.i23 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i24, %av1_init_inter_params.exit.us.i ]
+  %indvars.iv.i23 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %av1_init_inter_params.exit.us.i ]
   %.088105.us.i = phi i32 [ %90, %.preheader.us.i ], [ %189, %av1_init_inter_params.exit.us.i ]
   %127 = load ptr, ptr %42, align 8
   %128 = load i32, ptr %44, align 8
@@ -1851,7 +1849,7 @@ get_ref_frame_map_idx.exit.i.us.i:                ; preds = %av1_init_inter_para
   store i32 %66, ptr %105, align 8
   store i32 %71, ptr %106, align 4
   store i32 %125, ptr %107, align 8
-  %172 = trunc i64 %indvars.iv.i23 to i32
+  %172 = trunc nuw nsw i64 %indvars.iv.i23 to i32
   %173 = add i32 %93, %172
   store i32 %173, ptr %108, align 4
   store i32 %161, ptr %109, align 8
@@ -1911,8 +1909,8 @@ av1_init_inter_params.exit.us.i:                  ; preds = %174, %get_ref_frame
   %188 = add i32 %7, %172
   call void @av1_build_one_inter_predictor(ptr noundef %139, i32 noundef %135, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %1, i32 noundef %188, i32 noundef %126, i32 noundef 0, ptr noundef %9, ptr noundef readonly %10)
   %189 = add nsw i32 %.088105.us.i, 1
-  %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i23, %123
-  %190 = icmp samesign ult i64 %indvars.iv.next.i24, %124
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i23, %123
+  %190 = icmp samesign ult i64 %indvars.iv.next.i, %124
   br i1 %190, label %get_ref_frame_map_idx.exit.i.us.i, label %._crit_edge.us.i, !llvm.loop !32
 
 ._crit_edge.us.i:                                 ; preds = %av1_init_inter_params.exit.us.i
@@ -1927,7 +1925,7 @@ build_inter_predictors_sub8x8.exit:               ; preds = %._crit_edge.us.i
   br label %356
 
 .loopexit:                                        ; preds = %51, %is_inter_block.exit.i, %..loopexit_crit_edge, %23
-  %.pre-phi33 = phi i64 [ %.pre32, %..loopexit_crit_edge ], [ %31, %23 ], [ %31, %is_inter_block.exit.i ], [ %31, %51 ]
+  %.pre-phi32 = phi i64 [ %.pre31, %..loopexit_crit_edge ], [ %31, %23 ], [ %31, %is_inter_block.exit.i ], [ %31, %51 ]
   %.pre-phi = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %25, %23 ], [ %25, %is_inter_block.exit.i ], [ %25, %51 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -1945,9 +1943,9 @@ build_inter_predictors_sub8x8.exit:               ; preds = %._crit_edge.us.i
   %202 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %203 = getelementptr i8, ptr %3, i64 2
   %.val98.i = load i8, ptr %203, align 2
-  %204 = getelementptr inbounds nuw [22 x i8], ptr @block_size_wide, i64 0, i64 %.pre-phi33
+  %204 = getelementptr inbounds nuw [22 x i8], ptr @block_size_wide, i64 0, i64 %.pre-phi32
   %205 = load i8, ptr %204, align 1
-  %206 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %.pre-phi33
+  %206 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %.pre-phi32
   %207 = load i8, ptr %206, align 1
   %..i.i = tail call i8 @llvm.umin.i8(i8 %205, i8 %207)
   %208 = icmp eq i8 %.val98.i, 15
@@ -1958,8 +1956,8 @@ build_inter_predictors_sub8x8.exit:               ; preds = %._crit_edge.us.i
   br label %211
 
 211:                                              ; preds = %211, %.loopexit
-  %indvars.iv.i26 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next.i27, %211 ]
-  %212 = getelementptr inbounds nuw [2 x i8], ptr %202, i64 0, i64 %indvars.iv.i26
+  %indvars.iv.i25 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next.i26, %211 ]
+  %212 = getelementptr inbounds nuw [2 x i8], ptr %202, i64 0, i64 %indvars.iv.i25
   %213 = load i8, ptr %212, align 1
   %214 = sext i8 %213 to i64
   %215 = getelementptr inbounds %struct.WarpedMotionParams, ptr %201, i64 %214, i32 5
@@ -1968,18 +1966,18 @@ build_inter_predictors_sub8x8.exit:               ; preds = %._crit_edge.us.i
   %or.cond5.i.i = and i1 %or.cond.i.i, %217
   %narrow.i.i = select i1 %or.cond5.i.i, i1 %210, i1 false
   %218 = zext i1 %narrow.i.i to i32
-  %219 = getelementptr inbounds nuw [2 x i32], ptr %12, i64 0, i64 %indvars.iv.i26
+  %219 = getelementptr inbounds nuw [2 x i32], ptr %12, i64 0, i64 %indvars.iv.i25
   store i32 %218, ptr %219, align 4
-  %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
-  %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, %wide.trip.count.i
-  br i1 %exitcond.not.i28, label %220, label %211, !llvm.loop !34
+  %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
+  %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, %wide.trip.count.i
+  br i1 %exitcond.not.i27, label %220, label %211, !llvm.loop !34
 
 220:                                              ; preds = %211
   %221 = getelementptr inbounds nuw i8, ptr %197, i64 4
   %222 = load i32, ptr %221, align 4
   %223 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %224 = load i32, ptr %223, align 8
-  %225 = shl nuw i64 1, %.pre-phi33
+  %225 = shl nuw i64 1, %.pre-phi32
   %226 = and i64 %225, 131077
   %227 = icmp ne i64 %226, 0
   %228 = icmp ne i32 %224, 0
@@ -1990,8 +1988,8 @@ build_inter_predictors_sub8x8.exit:               ; preds = %._crit_edge.us.i
   %231 = and i64 %225, 65539
   %232 = icmp ne i64 %231, 0
   %233 = icmp ne i32 %222, 0
-  %or.cond3.i29 = select i1 %232, i1 %233, i1 false
-  %234 = and i1 %.not90.i, %or.cond3.i29
+  %or.cond3.i28 = select i1 %232, i1 %233, i1 false
+  %234 = and i1 %.not90.i, %or.cond3.i28
   %235 = sext i1 %234 to i32
   %236 = shl nsw i32 %235, 2
   %237 = add nsw i32 %236, %7
@@ -2095,8 +2093,8 @@ build_inter_predictors_sub8x8.exit:               ; preds = %._crit_edge.us.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %259, ptr noundef nonnull readonly align 8 dereferenceable(32) %288, i64 32, i1 false)
   store i32 0, ptr %14, align 8
   store i32 0, ptr %260, align 4
-  %.not.i.i30 = icmp eq i16 %301, 0
-  br i1 %.not.i.i30, label %304, label %av1_init_inter_params.exit.i
+  %.not.i.i29 = icmp eq i16 %301, 0
+  br i1 %.not.i.i29, label %304, label %av1_init_inter_params.exit.i
 
 304:                                              ; preds = %285
   %.sroa.2.0.extract.shift.i.i = lshr i32 %303, 16

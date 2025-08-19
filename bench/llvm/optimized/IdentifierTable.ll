@@ -2963,7 +2963,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %1320 = load i64, ptr %1319, align 8
   %1321 = and i64 %1320, 34359738368
   %.not = icmp eq i64 %1321, 0
-  br i1 %.not, label %.thread4913, label %1322
+  br i1 %.not, label %.thread5191, label %1322
 
 1322:                                             ; preds = %_ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_15IdentifierTableE.exit1105
   %1323 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.78, i64 3)
@@ -2974,7 +2974,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre = load i64, ptr %1319, align 8
   %.pre4817 = and i64 %.pre, 34359738368
   %1327 = icmp eq i64 %.pre4817, 0
-  br i1 %1327, label %.thread4913, label %1328
+  br i1 %1327, label %.thread5191, label %1328
 
 1328:                                             ; preds = %1322
   %1329 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.79, i64 6)
@@ -2985,7 +2985,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4781 = load i64, ptr %1319, align 8
   %.pre4818 = and i64 %.pre4781, 34359738368
   %1333 = icmp eq i64 %.pre4818, 0
-  br i1 %1333, label %.thread4913, label %1334
+  br i1 %1333, label %.thread5191, label %1334
 
 1334:                                             ; preds = %1328
   %1335 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.80, i64 6)
@@ -2996,7 +2996,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4782 = load i64, ptr %1319, align 8
   %.pre4820 = and i64 %.pre4782, 34359738368
   %1339 = icmp eq i64 %.pre4820, 0
-  br i1 %1339, label %.thread4913, label %1340
+  br i1 %1339, label %.thread5191, label %1340
 
 1340:                                             ; preds = %1334
   %1341 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.81, i64 5)
@@ -3007,7 +3007,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4783 = load i64, ptr %1319, align 8
   %.pre4822 = and i64 %.pre4783, 34359738368
   %1345 = icmp eq i64 %.pre4822, 0
-  br i1 %1345, label %.thread4913, label %1346
+  br i1 %1345, label %.thread5191, label %1346
 
 1346:                                             ; preds = %1340
   %1347 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.82, i64 5)
@@ -3018,7 +3018,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4784 = load i64, ptr %1319, align 8
   %.pre4824 = and i64 %.pre4784, 34359738368
   %1351 = icmp eq i64 %.pre4824, 0
-  br i1 %1351, label %.thread4913, label %1352
+  br i1 %1351, label %.thread5191, label %1352
 
 1352:                                             ; preds = %1346
   %1353 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.83, i64 3)
@@ -3029,7 +3029,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4785 = load i64, ptr %1319, align 8
   %.pre4826 = and i64 %.pre4785, 34359738368
   %1357 = icmp eq i64 %.pre4826, 0
-  br i1 %1357, label %.thread4913, label %1358
+  br i1 %1357, label %.thread5191, label %1358
 
 1358:                                             ; preds = %1352
   %1359 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.84, i64 6)
@@ -3040,7 +3040,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4786 = load i64, ptr %1319, align 8
   %.pre4828 = and i64 %.pre4786, 34359738368
   %1363 = icmp eq i64 %.pre4828, 0
-  br i1 %1363, label %.thread4913, label %1364
+  br i1 %1363, label %.thread5191, label %1364
 
 1364:                                             ; preds = %1358
   %1365 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.85, i64 2)
@@ -3051,7 +3051,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4787 = load i64, ptr %1319, align 8
   %.pre4830 = and i64 %.pre4787, 34359738368
   %1369 = icmp eq i64 %.pre4830, 0
-  br i1 %1369, label %.thread4913, label %1370
+  br i1 %1369, label %.thread5191, label %1370
 
 1370:                                             ; preds = %1364
   %1371 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.86, i64 5)
@@ -3062,7 +3062,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4788 = load i64, ptr %1319, align 8
   %.pre4832 = and i64 %.pre4788, 34359738368
   %1375 = icmp eq i64 %.pre4832, 0
-  br i1 %1375, label %.thread4913, label %1376
+  br i1 %1375, label %.thread5191, label %1376
 
 1376:                                             ; preds = %1370
   %1377 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.87, i64 3)
@@ -3073,7 +3073,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4789 = load i64, ptr %1319, align 8
   %.pre4834 = and i64 %.pre4789, 34359738368
   %1381 = icmp eq i64 %.pre4834, 0
-  br i1 %1381, label %.thread4913, label %1382
+  br i1 %1381, label %.thread5191, label %1382
 
 1382:                                             ; preds = %1376
   %1383 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.88, i64 6)
@@ -3081,14 +3081,14 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %1385 = and i64 %1384, -1073742336
   %1386 = or disjoint i64 %1385, 1073741881
   store i64 %1386, ptr %1383, align 8
-  br label %.thread4913
+  br label %.thread5191
 
-.thread4913:                                      ; preds = %_ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_15IdentifierTableE.exit1105, %1322, %1328, %1334, %1340, %1346, %1352, %1358, %1364, %1370, %1382, %1376
+.thread5191:                                      ; preds = %_ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_15IdentifierTableE.exit1105, %1322, %1328, %1334, %1340, %1346, %1352, %1358, %1364, %1370, %1382, %1376
   %1387 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(849) %1, i32 noundef 1)
   %1388 = icmp eq i32 %1387, 1
   br i1 %1388, label %_ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_15IdentifierTableE.exit1113, label %1389
 
-1389:                                             ; preds = %.thread4913
+1389:                                             ; preds = %.thread5191
   %1390 = icmp eq i32 %1387, 2
   %1391 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.89, i64 8)
   %1392 = load i64, ptr %1391, align 8
@@ -3135,7 +3135,7 @@ _ZN5clang14IdentifierInfo24setIsFutureCompatKeywordEb.exit.i1110: ; preds = %140
   store i64 %storemerge.i12.i1111, ptr %1391, align 8
   br label %_ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_15IdentifierTableE.exit1113
 
-_ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_15IdentifierTableE.exit1113: ; preds = %.thread4913, %_ZN5clang14IdentifierInfo24setIsFutureCompatKeywordEb.exit.i1110
+_ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_15IdentifierTableE.exit1113: ; preds = %.thread5191, %_ZN5clang14IdentifierInfo24setIsFutureCompatKeywordEb.exit.i1110
   %1416 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(849) %1, i32 noundef 11)
   %1417 = icmp eq i32 %1416, 1
   br i1 %1417, label %_ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_15IdentifierTableE.exit1121, label %1418
@@ -16677,7 +16677,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %9119 = load i64, ptr %1, align 8
   %9120 = and i64 %9119, 262144
   %.not460 = icmp eq i64 %9120, 0
-  br i1 %.not460, label %.thread4990, label %9121
+  br i1 %.not460, label %.thread5268, label %9121
 
 9121:                                             ; preds = %_ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_15IdentifierTableE.exit3721
   %9122 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.415, i64 11)
@@ -16687,7 +16687,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4790 = load i64, ptr %1, align 8
   %.pre4836 = and i64 %.pre4790, 262144
   %9125 = icmp eq i64 %.pre4836, 0
-  br i1 %9125, label %.thread4990, label %9126
+  br i1 %9125, label %.thread5268, label %9126
 
 9126:                                             ; preds = %9121
   %9127 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.51, i64 5)
@@ -16698,7 +16698,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4791 = load i64, ptr %1, align 8
   %.pre4838 = and i64 %.pre4791, 262144
   %9131 = icmp eq i64 %.pre4838, 0
-  br i1 %9131, label %.thread4990, label %9132
+  br i1 %9131, label %.thread5268, label %9132
 
 9132:                                             ; preds = %9126
   %9133 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.416, i64 19)
@@ -16709,7 +16709,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4792 = load i64, ptr %1, align 8
   %.pre4840 = and i64 %.pre4792, 262144
   %9137 = icmp eq i64 %.pre4840, 0
-  br i1 %9137, label %.thread4990, label %9138
+  br i1 %9137, label %.thread5268, label %9138
 
 9138:                                             ; preds = %9132
   %9139 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.417, i64 4)
@@ -16720,7 +16720,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4793 = load i64, ptr %1, align 8
   %.pre4842 = and i64 %.pre4793, 262144
   %9143 = icmp eq i64 %.pre4842, 0
-  br i1 %9143, label %.thread4990, label %9144
+  br i1 %9143, label %.thread5268, label %9144
 
 9144:                                             ; preds = %9138
   %9145 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.418, i64 6)
@@ -16731,7 +16731,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4794 = load i64, ptr %1, align 8
   %.pre4844 = and i64 %.pre4794, 262144
   %9149 = icmp eq i64 %.pre4844, 0
-  br i1 %9149, label %.thread4990, label %9150
+  br i1 %9149, label %.thread5268, label %9150
 
 9150:                                             ; preds = %9144
   %9151 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.419, i64 3)
@@ -16742,7 +16742,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4795 = load i64, ptr %1, align 8
   %.pre4846 = and i64 %.pre4795, 262144
   %9155 = icmp eq i64 %.pre4846, 0
-  br i1 %9155, label %.thread4990, label %9156
+  br i1 %9155, label %.thread5268, label %9156
 
 9156:                                             ; preds = %9150
   %9157 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.420, i64 14)
@@ -16753,7 +16753,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4796 = load i64, ptr %1, align 8
   %.pre4848 = and i64 %.pre4796, 262144
   %9161 = icmp eq i64 %.pre4848, 0
-  br i1 %9161, label %.thread4990, label %9162
+  br i1 %9161, label %.thread5268, label %9162
 
 9162:                                             ; preds = %9156
   %9163 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.421, i64 9)
@@ -16764,7 +16764,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4797 = load i64, ptr %1, align 8
   %.pre4850 = and i64 %.pre4797, 262144
   %9167 = icmp eq i64 %.pre4850, 0
-  br i1 %9167, label %.thread4990, label %9168
+  br i1 %9167, label %.thread5268, label %9168
 
 9168:                                             ; preds = %9162
   %9169 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.63, i64 7)
@@ -16775,7 +16775,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4798 = load i64, ptr %1, align 8
   %.pre4852 = and i64 %.pre4798, 262144
   %9173 = icmp eq i64 %.pre4852, 0
-  br i1 %9173, label %.thread4990, label %9174
+  br i1 %9173, label %.thread5268, label %9174
 
 9174:                                             ; preds = %9168
   %9175 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.64, i64 9)
@@ -16786,7 +16786,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4799 = load i64, ptr %1, align 8
   %.pre4854 = and i64 %.pre4799, 262144
   %9179 = icmp eq i64 %.pre4854, 0
-  br i1 %9179, label %.thread4990, label %9180
+  br i1 %9179, label %.thread5268, label %9180
 
 9180:                                             ; preds = %9174
   %9181 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.422, i64 8)
@@ -16797,7 +16797,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4800 = load i64, ptr %1, align 8
   %.pre4856 = and i64 %.pre4800, 262144
   %9185 = icmp eq i64 %.pre4856, 0
-  br i1 %9185, label %.thread4990, label %9186
+  br i1 %9185, label %.thread5268, label %9186
 
 9186:                                             ; preds = %9180
   %9187 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.65, i64 6)
@@ -16808,7 +16808,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4801 = load i64, ptr %1, align 8
   %.pre4858 = and i64 %.pre4801, 262144
   %9191 = icmp eq i64 %.pre4858, 0
-  br i1 %9191, label %.thread4990, label %9192
+  br i1 %9191, label %.thread5268, label %9192
 
 9192:                                             ; preds = %9186
   %9193 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.423, i64 8)
@@ -16819,7 +16819,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4802 = load i64, ptr %1, align 8
   %.pre4860 = and i64 %.pre4802, 262144
   %9197 = icmp eq i64 %.pre4860, 0
-  br i1 %9197, label %.thread4990, label %9198
+  br i1 %9197, label %.thread5268, label %9198
 
 9198:                                             ; preds = %9192
   %9199 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.70, i64 5)
@@ -16830,7 +16830,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4803 = load i64, ptr %1, align 8
   %.pre4862 = and i64 %.pre4803, 262144
   %9203 = icmp eq i64 %.pre4862, 0
-  br i1 %9203, label %.thread4990, label %9204
+  br i1 %9203, label %.thread5268, label %9204
 
 9204:                                             ; preds = %9198
   %9205 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.72, i64 3)
@@ -16841,7 +16841,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4804 = load i64, ptr %1, align 8
   %.pre4864 = and i64 %.pre4804, 262144
   %9209 = icmp eq i64 %.pre4864, 0
-  br i1 %9209, label %.thread4990, label %9210
+  br i1 %9209, label %.thread5268, label %9210
 
 9210:                                             ; preds = %9204
   %9211 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.50, i64 5)
@@ -16852,7 +16852,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4805 = load i64, ptr %1, align 8
   %.pre4866 = and i64 %.pre4805, 262144
   %9215 = icmp eq i64 %.pre4866, 0
-  br i1 %9215, label %.thread4990, label %9216
+  br i1 %9215, label %.thread5268, label %9216
 
 9216:                                             ; preds = %9210
   %9217 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.424, i64 7)
@@ -16863,7 +16863,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4806 = load i64, ptr %1, align 8
   %.pre4868 = and i64 %.pre4806, 262144
   %9221 = icmp eq i64 %.pre4868, 0
-  br i1 %9221, label %.thread4990, label %9222
+  br i1 %9221, label %.thread5268, label %9222
 
 9222:                                             ; preds = %9216
   %9223 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.425, i64 12)
@@ -16874,7 +16874,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4807 = load i64, ptr %1, align 8
   %.pre4870 = and i64 %.pre4807, 262144
   %9227 = icmp eq i64 %.pre4870, 0
-  br i1 %9227, label %.thread4990, label %9228
+  br i1 %9227, label %.thread5268, label %9228
 
 9228:                                             ; preds = %9222
   %9229 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.426, i64 15)
@@ -16885,7 +16885,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4808 = load i64, ptr %1, align 8
   %.pre4872 = and i64 %.pre4808, 262144
   %9233 = icmp eq i64 %.pre4872, 0
-  br i1 %9233, label %.thread4990, label %9234
+  br i1 %9233, label %.thread5268, label %9234
 
 9234:                                             ; preds = %9228
   %9235 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.427, i64 8)
@@ -16896,7 +16896,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4809 = load i64, ptr %1, align 8
   %.pre4874 = and i64 %.pre4809, 262144
   %9239 = icmp eq i64 %.pre4874, 0
-  br i1 %9239, label %.thread4990, label %9240
+  br i1 %9239, label %.thread5268, label %9240
 
 9240:                                             ; preds = %9234
   %9241 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.428, i64 7)
@@ -16907,7 +16907,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4810 = load i64, ptr %1, align 8
   %.pre4876 = and i64 %.pre4810, 262144
   %9245 = icmp eq i64 %.pre4876, 0
-  br i1 %9245, label %.thread4990, label %9246
+  br i1 %9245, label %.thread5268, label %9246
 
 9246:                                             ; preds = %9240
   %9247 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.429, i64 8)
@@ -16918,7 +16918,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4811 = load i64, ptr %1, align 8
   %.pre4878 = and i64 %.pre4811, 262144
   %9251 = icmp eq i64 %.pre4878, 0
-  br i1 %9251, label %.thread4990, label %9252
+  br i1 %9251, label %.thread5268, label %9252
 
 9252:                                             ; preds = %9246
   %9253 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.430, i64 8)
@@ -16929,7 +16929,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4812 = load i64, ptr %1, align 8
   %.pre4880 = and i64 %.pre4812, 262144
   %9257 = icmp eq i64 %.pre4880, 0
-  br i1 %9257, label %.thread4990, label %9258
+  br i1 %9257, label %.thread5268, label %9258
 
 9258:                                             ; preds = %9252
   %9259 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.431, i64 10)
@@ -16940,7 +16940,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4813 = load i64, ptr %1, align 8
   %.pre4882 = and i64 %.pre4813, 262144
   %9263 = icmp eq i64 %.pre4882, 0
-  br i1 %9263, label %.thread4990, label %9264
+  br i1 %9263, label %.thread5268, label %9264
 
 9264:                                             ; preds = %9258
   %9265 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.432, i64 7)
@@ -16951,7 +16951,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4814 = load i64, ptr %1, align 8
   %.pre4884 = and i64 %.pre4814, 262144
   %9269 = icmp eq i64 %.pre4884, 0
-  br i1 %9269, label %.thread4990, label %9270
+  br i1 %9269, label %.thread5268, label %9270
 
 9270:                                             ; preds = %9264
   %9271 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.105, i64 6)
@@ -16962,7 +16962,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.pre4815 = load i64, ptr %1, align 8
   %.pre4886 = and i64 %.pre4815, 262144
   %9275 = icmp eq i64 %.pre4886, 0
-  br i1 %9275, label %.thread4990, label %9276
+  br i1 %9275, label %.thread5268, label %9276
 
 9276:                                             ; preds = %9270
   %9277 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.433, i64 9)
@@ -16970,9 +16970,9 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %9279 = and i64 %9278, -33553921
   %9280 = or disjoint i64 %9279, 13312
   store i64 %9280, ptr %9277, align 8
-  br label %.thread4990
+  br label %.thread5268
 
-.thread4990:                                      ; preds = %_ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_15IdentifierTableE.exit3721, %9121, %9126, %9132, %9138, %9144, %9150, %9156, %9162, %9168, %9174, %9180, %9186, %9192, %9198, %9204, %9210, %9216, %9222, %9228, %9234, %9240, %9246, %9252, %9258, %9264, %9276, %9270
+.thread5268:                                      ; preds = %_ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_15IdentifierTableE.exit3721, %9121, %9126, %9132, %9138, %9144, %9150, %9156, %9162, %9168, %9174, %9180, %9186, %9192, %9198, %9204, %9210, %9216, %9222, %9228, %9234, %9240, %9246, %9252, %9258, %9264, %9276, %9270
   %9281 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.435, i64 4)
   %9282 = load i64, ptr %9281, align 8
   %9283 = and i64 %9282, -33554432
@@ -17009,7 +17009,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   %.not487 = icmp eq i64 %9307, 0
   br i1 %.not487, label %9316, label %_ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_15IdentifierTableE.exit3729
 
-_ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_15IdentifierTableE.exit3729: ; preds = %.thread4990
+_ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_15IdentifierTableE.exit3729: ; preds = %.thread5268
   %9308 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nonnull @.str.441, i64 17)
   %9309 = load i64, ptr %9308, align 8
   %9310 = and i64 %9309, -2550137344
@@ -17023,7 +17023,7 @@ _ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_
   store i64 %9315, ptr %9308, align 8
   br label %9316
 
-9316:                                             ; preds = %_ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_15IdentifierTableE.exit3729, %.thread4990
+9316:                                             ; preds = %_ZL10AddKeywordN4llvm9StringRefEN5clang3tok9TokenKindEjRKNS1_11LangOptionsERNS1_15IdentifierTableE.exit3729, %.thread5268
   %9317 = load i64, ptr %1, align 8
   %9318 = and i64 %9317, 2147483648
   %.not488 = icmp eq i64 %9318, 0
@@ -20164,8 +20164,8 @@ _ZNK5clang8Selector24getIdentifierInfoForSlotEj.exit.i.us.us28: ; preds = %.lr.p
   %.not.i.i12.us.us33 = icmp eq i64 %.sroa.2.0.copyload.us.us32, 0
   %29 = add i32 %.0920.us.us29, 1
   %.not11.us.us35 = icmp ne i32 %29, %17
-  %or.cond71.not = select i1 %.not.i.i12.us.us33, i1 %.not11.us.us35, i1 false
-  br i1 %or.cond71.not, label %_ZNK5clang8Selector24getIdentifierInfoForSlotEj.exit.i.us.us28, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, !llvm.loop !131
+  %or.cond78.not = select i1 %.not.i.i12.us.us33, i1 %.not11.us.us35, i1 false
+  br i1 %or.cond78.not, label %_ZNK5clang8Selector24getIdentifierInfoForSlotEj.exit.i.us.us28, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, !llvm.loop !131
 
 _ZNK5clang8Selector24getIdentifierInfoForSlotEj.exit.i.us: ; preds = %.lr.ph.split.us.split, %_ZN4llvmneENS_9StringRefES0_.exit.thread16.us
   %.0920.us = phi i32 [ %32, %_ZN4llvmneENS_9StringRefES0_.exit.thread16.us ], [ 0, %.lr.ph.split.us.split ]
@@ -20209,10 +20209,10 @@ _ZNK5clang8Selector14getNameForSlotEj.exit:       ; preds = %_ZNK5clang8Selector
   br i1 %.not.i.i12, label %42, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZNK5clang8Selector14getNameForSlotEj.exit.thread: ; preds = %_ZNK5clang8Selector24getIdentifierInfoForSlotEj.exit.i
-  %.sroa.2.0..sroa_idx50 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1, i64 %33, i32 1
-  %.sroa.2.0.copyload51 = load i64, ptr %.sroa.2.0..sroa_idx50, align 8, !tbaa !53
-  %.not.i.i1252 = icmp eq i64 %.sroa.2.0.copyload51, 0
-  br i1 %.not.i.i1252, label %_ZN4llvmneENS_9StringRefES0_.exit.thread16, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
+  %.sroa.2.0..sroa_idx57 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1, i64 %33, i32 1
+  %.sroa.2.0.copyload58 = load i64, ptr %.sroa.2.0..sroa_idx57, align 8, !tbaa !53
+  %.not.i.i1259 = icmp eq i64 %.sroa.2.0.copyload58, 0
+  br i1 %.not.i.i1259, label %_ZN4llvmneENS_9StringRefES0_.exit.thread16, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 42:                                               ; preds = %_ZNK5clang8Selector14getNameForSlotEj.exit
   %43 = icmp eq i64 %40, 0
@@ -21321,9 +21321,9 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i:  ; preds = %_ZN4llvm15SmallVect
   br i1 %.not.i.i.i, label %_ZN4llvm11SmallStringILj64EEpLENS_9StringRefE.exit, label %8
 
 8:                                                ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
-  %.pre8.i.i9 = phi i64 [ %.pre8.pre.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread ], [ 3, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ]
-  %.pre38 = phi ptr [ %.pre3.pre, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread ], [ %3, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ]
-  %9 = getelementptr inbounds nuw i8, ptr %.pre38, i64 %.pre8.i.i9
+  %.pre8.i.i10 = phi i64 [ %.pre8.pre.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread ], [ 3, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ]
+  %.pre39 = phi ptr [ %.pre3.pre, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread ], [ %3, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ]
+  %9 = getelementptr inbounds nuw i8, ptr %.pre39, i64 %.pre8.i.i10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %1, i64 %2, i1 false)
   %.pre.i.i = load i64, ptr %4, align 8, !tbaa !135
   %.pre = load ptr, ptr %0, align 8, !tbaa !133
@@ -21379,9 +21379,9 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i: ; preds = %3
   br i1 %.not.i.i.i.i, label %_ZN5clang13SelectorTable19constructSetterNameEN4llvm9StringRefE.exit, label %15
 
 15:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread.i
-  %.pre8.i.i9.i = phi i64 [ %.pre8.pre.i.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread.i ], [ 3, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i ]
-  %.pre38.i = phi ptr [ %.pre3.pre.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread.i ], [ %10, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i ]
-  %16 = getelementptr inbounds nuw i8, ptr %.pre38.i, i64 %.pre8.i.i9.i
+  %.pre8.i.i10.i = phi i64 [ %.pre8.pre.i.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread.i ], [ 3, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i ]
+  %.pre39.i = phi ptr [ %.pre3.pre.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread.i ], [ %10, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i ]
+  %16 = getelementptr inbounds nuw i8, ptr %.pre39.i, i64 %.pre8.i.i10.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr nonnull readonly align 1 %7, i64 %9, i1 false)
   %.pre.i.i.i = load i64, ptr %11, align 8, !tbaa !135, !alias.scope !159
   %.pre.i = load ptr, ptr %4, align 8, !tbaa !133, !alias.scope !159

@@ -218,8 +218,8 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   br label %210
 
 .lr.ph163:                                        ; preds = %._crit_edge, %91, %.lr.ph.split.us.split.us
-  %.0105191 = phi ptr [ null, %.lr.ph.split.us.split.us ], [ null, %._crit_edge ], [ %94, %91 ]
-  %.0101.lcssa186189 = phi i32 [ 0, %.lr.ph.split.us.split.us ], [ %.0101.lcssa, %._crit_edge ], [ %.0101.lcssa, %91 ]
+  %.0105214 = phi ptr [ null, %.lr.ph.split.us.split.us ], [ null, %._crit_edge ], [ %94, %91 ]
+  %.0101.lcssa209212 = phi i32 [ 0, %.lr.ph.split.us.split.us ], [ %.0101.lcssa, %._crit_edge ], [ %.0101.lcssa, %91 ]
   %98 = phi i1 [ false, %.lr.ph.split.us.split.us ], [ false, %._crit_edge ], [ true, %91 ]
   %.not129 = icmp eq ptr %1, null
   %.not131 = icmp eq ptr %2, null
@@ -245,7 +245,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
 
 108:                                              ; preds = %100
   %109 = sext i32 %.098161 to i64
-  %110 = getelementptr inbounds %struct.pollfd, ptr %.0105191, i64 %109
+  %110 = getelementptr inbounds %struct.pollfd, ptr %.0105214, i64 %109
   store i32 %.1104160, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %112 = load i32, ptr %111, align 4
@@ -270,7 +270,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
 
 123:                                              ; preds = %115
   %124 = sext i32 %.098161 to i64
-  %125 = getelementptr inbounds %struct.pollfd, ptr %.0105191, i64 %124
+  %125 = getelementptr inbounds %struct.pollfd, ptr %.0105214, i64 %124
   store i32 %.1104160, ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %127 = load i32, ptr %126, align 4
@@ -295,7 +295,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
 
 138:                                              ; preds = %130
   %139 = sext i32 %.098161 to i64
-  %140 = getelementptr inbounds %struct.pollfd, ptr %.0105191, i64 %139
+  %140 = getelementptr inbounds %struct.pollfd, ptr %.0105214, i64 %139
   store i32 %.1104160, ptr %140, align 8
   br label %141
 
@@ -307,8 +307,8 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   br i1 %exitcond182.not, label %._crit_edge164, label %99, !llvm.loop !8
 
 ._crit_edge164:                                   ; preds = %141, %.preheader141
-  %.0105192 = phi ptr [ null, %.preheader141 ], [ %.0105191, %141 ]
-  %.0101.lcssa186190 = phi i32 [ 0, %.preheader141 ], [ %.0101.lcssa186189, %141 ]
+  %.0105215 = phi ptr [ null, %.preheader141 ], [ %.0105214, %141 ]
+  %.0101.lcssa209213 = phi i32 [ 0, %.preheader141 ], [ %.0101.lcssa209212, %141 ]
   %144 = phi i1 [ false, %.preheader141 ], [ %98, %141 ]
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %153, label %145
@@ -325,7 +325,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
 
 153:                                              ; preds = %._crit_edge164, %145
   %.0100 = phi i32 [ %152, %145 ], [ -1, %._crit_edge164 ]
-  %154 = tail call i32 @poll(ptr noundef %.0105192, i32 noundef %.0101.lcssa186190, i32 noundef %.0100) #6
+  %154 = tail call i32 @poll(ptr noundef %.0105215, i32 noundef %.0101.lcssa209213, i32 noundef %.0100) #6
   %.not123 = icmp eq ptr %1, null
   br i1 %.not123, label %156, label %155
 
@@ -356,7 +356,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   br i1 %brmerge.not, label %.lr.ph167.preheader, label %.loopexit
 
 .lr.ph167.preheader:                              ; preds = %160
-  %wide.trip.count = zext nneg i32 %.0101.lcssa186190 to i64
+  %wide.trip.count = zext nneg i32 %.0101.lcssa209213 to i64
   br label %.lr.ph167
 
 .lr.ph167:                                        ; preds = %.lr.ph167.preheader, %209
@@ -365,7 +365,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   br i1 %.not123, label %177, label %162
 
 162:                                              ; preds = %.lr.ph167
-  %163 = getelementptr inbounds nuw %struct.pollfd, ptr %.0105192, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw %struct.pollfd, ptr %.0105215, i64 %indvars.iv
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %165 = load i32, ptr %164, align 8
   %166 = and i32 %165, 17
@@ -390,7 +390,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   br i1 %.not124, label %193, label %178
 
 178:                                              ; preds = %177
-  %179 = getelementptr inbounds nuw %struct.pollfd, ptr %.0105192, i64 %indvars.iv
+  %179 = getelementptr inbounds nuw %struct.pollfd, ptr %.0105215, i64 %indvars.iv
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load i32, ptr %180, align 8
   %182 = and i32 %181, 20
@@ -415,7 +415,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   br i1 %.not125, label %209, label %194
 
 194:                                              ; preds = %193
-  %195 = getelementptr inbounds nuw %struct.pollfd, ptr %.0105192, i64 %indvars.iv
+  %195 = getelementptr inbounds nuw %struct.pollfd, ptr %.0105215, i64 %indvars.iv
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %197 = load i32, ptr %196, align 8
   %198 = and i32 %197, 8
@@ -443,7 +443,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
 
 .loopexit:                                        ; preds = %209, %160
   %.095 = phi i32 [ %.mux, %160 ], [ %.4, %209 ]
-  tail call void @free(ptr noundef %.0105192)
+  tail call void @free(ptr noundef %.0105215)
   br label %210
 
 210:                                              ; preds = %.loopexit, %96, %69

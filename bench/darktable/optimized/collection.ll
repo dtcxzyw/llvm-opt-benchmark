@@ -929,9 +929,9 @@ and_operator.exit59:                              ; preds = %and_operator.exit57
 41:                                               ; preds = %37
   %42 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.25) #19
   %43 = icmp slt i32 %42, 0
-  br i1 %43, label %.thread68, label %44
+  br i1 %43, label %.thread70, label %44
 
-.thread68:                                        ; preds = %41
+.thread70:                                        ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %12, i8 0, i64 200, i1 false)
   br label %._crit_edge
@@ -947,7 +947,7 @@ and_operator.exit59:                              ; preds = %and_operator.exit57
   %47 = phi i32 [ 10, %.thread ], [ %45, %44 ]
   br label %105
 
-._crit_edge:                                      ; preds = %105, %.thread68, %44
+._crit_edge:                                      ; preds = %105, %.thread70, %44
   %48 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.27) #19
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds [16 x i32], ptr %38, i64 0, i64 %49
@@ -1408,15 +1408,15 @@ define noalias ptr @dt_collection_get_extended_where(ptr noundef readonly captur
 38:                                               ; preds = %2
   %39 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.39) #19
   %40 = icmp sgt i32 %39, 10
-  br i1 %40, label %.thread78, label %41
+  br i1 %40, label %.thread86, label %41
 
 41:                                               ; preds = %38
   %42 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.39) #19
   %43 = icmp slt i32 %42, 1
-  br i1 %43, label %.thread78, label %46
+  br i1 %43, label %.thread86, label %46
 
-.thread78:                                        ; preds = %38, %41
-  %.ph77 = phi i32 [ 1, %41 ], [ 10, %38 ]
+.thread86:                                        ; preds = %38, %41
+  %.ph85 = phi i32 [ 1, %41 ], [ 10, %38 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %44 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.34) #19
   store ptr %44, ptr %5, align 8, !tbaa !69
@@ -1432,9 +1432,9 @@ define noalias ptr @dt_collection_get_extended_where(ptr noundef readonly captur
   %50 = icmp sgt i32 %47, 0
   br i1 %50, label %.lr.ph.preheader, label %.critedge3
 
-.lr.ph.preheader:                                 ; preds = %.thread78, %46
-  %51 = phi ptr [ %45, %.thread78 ], [ %49, %46 ]
-  %52 = phi i32 [ %.ph77, %.thread78 ], [ %47, %46 ]
+.lr.ph.preheader:                                 ; preds = %.thread86, %46
+  %51 = phi ptr [ %45, %.thread86 ], [ %49, %46 ]
+  %52 = phi i32 [ %.ph85, %.thread86 ], [ %47, %46 ]
   %wide.trip.count = zext nneg i32 %52 to i64
   br label %.lr.ph
 
@@ -2280,8 +2280,8 @@ define ptr @dt_collection_name_untranslated(i32 noundef %0) local_unnamed_addr #
   %switch.maskindex = zext nneg i32 %0 to i64
   %switch.shifted = lshr i64 8795556675583, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  %or.cond17 = select i1 %2, i1 %switch.lobit, i1 false
-  br i1 %or.cond17, label %switch.lookup, label %3
+  %or.cond18 = select i1 %2, i1 %switch.lobit, i1 false
+  br i1 %or.cond18, label %switch.lookup, label %3
 
 3:                                                ; preds = %1
   %4 = add i32 %0, -19
@@ -4663,7 +4663,7 @@ sub_1520.i:                                       ; preds = %sub_0519.i
 
 389:                                              ; preds = %384
   %390 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.277, ptr noundef nonnull %385, ptr noundef nonnull %387) #19
-  br label %.sink.split670.i
+  br label %.sink.split719.i
 
 .tail518.thread.i:                                ; preds = %.tail518.i, %sub_1520.i, %sub_0519.i
   %391 = load ptr, ptr %12, align 8
@@ -4672,26 +4672,26 @@ sub_1520.i:                                       ; preds = %sub_0519.i
 
 392:                                              ; preds = %.tail518.thread.i
   %393 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.278, ptr noundef nonnull %376, ptr noundef nonnull %391) #19
-  br label %.sink.split670.i
+  br label %.sink.split719.i
 
 394:                                              ; preds = %.thread477.i
   %395 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.279, ptr noundef nonnull %377) #19
-  br label %.sink.split670.i
+  br label %.sink.split719.i
 
 396:                                              ; preds = %.tail518.thread.i, %.thread477.i
   %397 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.280, ptr noundef nonnull %49) #19
-  br label %.sink.split670.i
+  br label %.sink.split719.i
 
-.sink.split670.i:                                 ; preds = %396, %394, %392, %389
-  %.sink672.i = phi ptr [ %393, %392 ], [ %397, %396 ], [ %395, %394 ], [ %390, %389 ]
-  %.ph671.i = phi ptr [ %391, %392 ], [ null, %396 ], [ %377, %394 ], [ %385, %389 ]
-  store ptr %.sink672.i, ptr %7, align 8, !tbaa !69
+.sink.split719.i:                                 ; preds = %396, %394, %392, %389
+  %.sink721.i = phi ptr [ %393, %392 ], [ %397, %396 ], [ %395, %394 ], [ %390, %389 ]
+  %.ph720.i = phi ptr [ %391, %392 ], [ null, %396 ], [ %377, %394 ], [ %385, %389 ]
+  store ptr %.sink721.i, ptr %7, align 8, !tbaa !69
   %.pre32 = load ptr, ptr %13, align 8, !tbaa !69
   br label %398
 
-398:                                              ; preds = %.sink.split670.i, %384
-  %399 = phi ptr [ %387, %384 ], [ %.pre32, %.sink.split670.i ]
-  %400 = phi ptr [ %385, %384 ], [ %.ph671.i, %.sink.split670.i ]
+398:                                              ; preds = %.sink.split719.i, %384
+  %399 = phi ptr [ %387, %384 ], [ %.pre32, %.sink.split719.i ]
+  %400 = phi ptr [ %385, %384 ], [ %.ph720.i, %.sink.split719.i ]
   tail call void @g_free(ptr noundef %376) #19
   tail call void @g_free(ptr noundef %400) #19
   tail call void @g_free(ptr noundef %399) #19
@@ -4741,7 +4741,7 @@ sub_1525.i:                                       ; preds = %sub_0524.i
 
 415:                                              ; preds = %410
   %416 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.281, ptr noundef nonnull %411, ptr noundef nonnull %413) #19
-  br label %.sink.split673.i
+  br label %.sink.split722.i
 
 .tail523.thread.i:                                ; preds = %.tail523.i, %sub_1525.i, %sub_0524.i
   %417 = load ptr, ptr %15, align 8
@@ -4750,26 +4750,26 @@ sub_1525.i:                                       ; preds = %sub_0524.i
 
 418:                                              ; preds = %.tail523.thread.i
   %419 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.282, ptr noundef nonnull %402, ptr noundef nonnull %417) #19
-  br label %.sink.split673.i
+  br label %.sink.split722.i
 
 420:                                              ; preds = %.thread479.i
   %421 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.283, ptr noundef nonnull %403) #19
-  br label %.sink.split673.i
+  br label %.sink.split722.i
 
 422:                                              ; preds = %.tail523.thread.i, %.thread479.i
   %423 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.284, ptr noundef nonnull %49) #19
-  br label %.sink.split673.i
+  br label %.sink.split722.i
 
-.sink.split673.i:                                 ; preds = %422, %420, %418, %415
-  %.sink675.i = phi ptr [ %419, %418 ], [ %423, %422 ], [ %421, %420 ], [ %416, %415 ]
-  %.ph674.i = phi ptr [ %417, %418 ], [ null, %422 ], [ %403, %420 ], [ %411, %415 ]
-  store ptr %.sink675.i, ptr %7, align 8, !tbaa !69
+.sink.split722.i:                                 ; preds = %422, %420, %418, %415
+  %.sink724.i = phi ptr [ %419, %418 ], [ %423, %422 ], [ %421, %420 ], [ %416, %415 ]
+  %.ph723.i = phi ptr [ %417, %418 ], [ null, %422 ], [ %403, %420 ], [ %411, %415 ]
+  store ptr %.sink724.i, ptr %7, align 8, !tbaa !69
   %.pre31 = load ptr, ptr %16, align 8, !tbaa !69
   br label %424
 
-424:                                              ; preds = %.sink.split673.i, %410
-  %425 = phi ptr [ %413, %410 ], [ %.pre31, %.sink.split673.i ]
-  %426 = phi ptr [ %411, %410 ], [ %.ph674.i, %.sink.split673.i ]
+424:                                              ; preds = %.sink.split722.i, %410
+  %425 = phi ptr [ %413, %410 ], [ %.pre31, %.sink.split722.i ]
+  %426 = phi ptr [ %411, %410 ], [ %.ph723.i, %.sink.split722.i ]
   tail call void @g_free(ptr noundef %402) #19
   tail call void @g_free(ptr noundef %426) #19
   tail call void @g_free(ptr noundef %425) #19
@@ -4819,7 +4819,7 @@ sub_1530.i:                                       ; preds = %sub_0529.i
 
 441:                                              ; preds = %436
   %442 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.285, ptr noundef nonnull %437, ptr noundef nonnull %439) #19
-  br label %.sink.split676.i
+  br label %.sink.split725.i
 
 .tail528.thread.i:                                ; preds = %.tail528.i, %sub_1530.i, %sub_0529.i
   %443 = load ptr, ptr %18, align 8
@@ -4828,26 +4828,26 @@ sub_1530.i:                                       ; preds = %sub_0529.i
 
 444:                                              ; preds = %.tail528.thread.i
   %445 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.286, ptr noundef nonnull %428, ptr noundef nonnull %443) #19
-  br label %.sink.split676.i
+  br label %.sink.split725.i
 
 446:                                              ; preds = %.thread481.i
   %447 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.287, ptr noundef nonnull %429) #19
-  br label %.sink.split676.i
+  br label %.sink.split725.i
 
 448:                                              ; preds = %.tail528.thread.i, %.thread481.i
   %449 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.288, ptr noundef nonnull %49) #19
-  br label %.sink.split676.i
+  br label %.sink.split725.i
 
-.sink.split676.i:                                 ; preds = %448, %446, %444, %441
-  %.sink678.i = phi ptr [ %445, %444 ], [ %449, %448 ], [ %447, %446 ], [ %442, %441 ]
-  %.ph677.i = phi ptr [ %443, %444 ], [ null, %448 ], [ %429, %446 ], [ %437, %441 ]
-  store ptr %.sink678.i, ptr %7, align 8, !tbaa !69
+.sink.split725.i:                                 ; preds = %448, %446, %444, %441
+  %.sink727.i = phi ptr [ %445, %444 ], [ %449, %448 ], [ %447, %446 ], [ %442, %441 ]
+  %.ph726.i = phi ptr [ %443, %444 ], [ null, %448 ], [ %429, %446 ], [ %437, %441 ]
+  store ptr %.sink727.i, ptr %7, align 8, !tbaa !69
   %.pre30 = load ptr, ptr %19, align 8, !tbaa !69
   br label %450
 
-450:                                              ; preds = %.sink.split676.i, %436
-  %451 = phi ptr [ %439, %436 ], [ %.pre30, %.sink.split676.i ]
-  %452 = phi ptr [ %437, %436 ], [ %.ph677.i, %.sink.split676.i ]
+450:                                              ; preds = %.sink.split725.i, %436
+  %451 = phi ptr [ %439, %436 ], [ %.pre30, %.sink.split725.i ]
+  %452 = phi ptr [ %437, %436 ], [ %.ph726.i, %.sink.split725.i ]
   tail call void @g_free(ptr noundef %428) #19
   tail call void @g_free(ptr noundef %452) #19
   tail call void @g_free(ptr noundef %451) #19
@@ -4897,7 +4897,7 @@ sub_1535.i:                                       ; preds = %sub_0534.i
 
 467:                                              ; preds = %462
   %468 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.289, ptr noundef nonnull %463, ptr noundef nonnull %465) #19
-  br label %.sink.split679.i
+  br label %.sink.split728.i
 
 .tail533.thread.i:                                ; preds = %.tail533.i, %sub_1535.i, %sub_0534.i
   %469 = load ptr, ptr %21, align 8
@@ -4906,26 +4906,26 @@ sub_1535.i:                                       ; preds = %sub_0534.i
 
 470:                                              ; preds = %.tail533.thread.i
   %471 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.290, ptr noundef nonnull %454, ptr noundef nonnull %469) #19
-  br label %.sink.split679.i
+  br label %.sink.split728.i
 
 472:                                              ; preds = %.thread483.i
   %473 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.291, ptr noundef nonnull %455, ptr noundef nonnull %455, ptr noundef nonnull %455, ptr noundef nonnull %455) #19
-  br label %.sink.split679.i
+  br label %.sink.split728.i
 
 474:                                              ; preds = %.tail533.thread.i, %.thread483.i
   %475 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.292, ptr noundef nonnull %49) #19
-  br label %.sink.split679.i
+  br label %.sink.split728.i
 
-.sink.split679.i:                                 ; preds = %474, %472, %470, %467
-  %.sink681.i = phi ptr [ %471, %470 ], [ %475, %474 ], [ %473, %472 ], [ %468, %467 ]
-  %.ph680.i = phi ptr [ %469, %470 ], [ null, %474 ], [ %455, %472 ], [ %463, %467 ]
-  store ptr %.sink681.i, ptr %7, align 8, !tbaa !69
+.sink.split728.i:                                 ; preds = %474, %472, %470, %467
+  %.sink730.i = phi ptr [ %471, %470 ], [ %475, %474 ], [ %473, %472 ], [ %468, %467 ]
+  %.ph729.i = phi ptr [ %469, %470 ], [ null, %474 ], [ %455, %472 ], [ %463, %467 ]
+  store ptr %.sink730.i, ptr %7, align 8, !tbaa !69
   %.pre29 = load ptr, ptr %22, align 8, !tbaa !69
   br label %476
 
-476:                                              ; preds = %.sink.split679.i, %462
-  %477 = phi ptr [ %465, %462 ], [ %.pre29, %.sink.split679.i ]
-  %478 = phi ptr [ %463, %462 ], [ %.ph680.i, %.sink.split679.i ]
+476:                                              ; preds = %.sink.split728.i, %462
+  %477 = phi ptr [ %465, %462 ], [ %.pre29, %.sink.split728.i ]
+  %478 = phi ptr [ %463, %462 ], [ %.ph729.i, %.sink.split728.i ]
   tail call void @g_free(ptr noundef %454) #19
   tail call void @g_free(ptr noundef %478) #19
   tail call void @g_free(ptr noundef %477) #19
@@ -4975,7 +4975,7 @@ sub_1540.i:                                       ; preds = %sub_0539.i
 
 493:                                              ; preds = %488
   %494 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.293, ptr noundef nonnull %489, ptr noundef nonnull %491) #19
-  br label %.sink.split682.i
+  br label %.sink.split731.i
 
 .tail538.thread.i:                                ; preds = %.tail538.i, %sub_1540.i, %sub_0539.i
   %495 = load ptr, ptr %24, align 8
@@ -4984,26 +4984,26 @@ sub_1540.i:                                       ; preds = %sub_0539.i
 
 496:                                              ; preds = %.tail538.thread.i
   %497 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.294, ptr noundef nonnull %480, ptr noundef nonnull %495) #19
-  br label %.sink.split682.i
+  br label %.sink.split731.i
 
 498:                                              ; preds = %.thread485.i
   %499 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.295, ptr noundef nonnull %481) #19
-  br label %.sink.split682.i
+  br label %.sink.split731.i
 
 500:                                              ; preds = %.tail538.thread.i, %.thread485.i
   %501 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.296, ptr noundef nonnull %49) #19
-  br label %.sink.split682.i
+  br label %.sink.split731.i
 
-.sink.split682.i:                                 ; preds = %500, %498, %496, %493
-  %.sink684.i = phi ptr [ %497, %496 ], [ %501, %500 ], [ %499, %498 ], [ %494, %493 ]
-  %.ph683.i = phi ptr [ %495, %496 ], [ null, %500 ], [ %481, %498 ], [ %489, %493 ]
-  store ptr %.sink684.i, ptr %7, align 8, !tbaa !69
+.sink.split731.i:                                 ; preds = %500, %498, %496, %493
+  %.sink733.i = phi ptr [ %497, %496 ], [ %501, %500 ], [ %499, %498 ], [ %494, %493 ]
+  %.ph732.i = phi ptr [ %495, %496 ], [ null, %500 ], [ %481, %498 ], [ %489, %493 ]
+  store ptr %.sink733.i, ptr %7, align 8, !tbaa !69
   %.pre28 = load ptr, ptr %25, align 8, !tbaa !69
   br label %502
 
-502:                                              ; preds = %.sink.split682.i, %488
-  %503 = phi ptr [ %491, %488 ], [ %.pre28, %.sink.split682.i ]
-  %504 = phi ptr [ %489, %488 ], [ %.ph683.i, %.sink.split682.i ]
+502:                                              ; preds = %.sink.split731.i, %488
+  %503 = phi ptr [ %491, %488 ], [ %.pre28, %.sink.split731.i ]
+  %504 = phi ptr [ %489, %488 ], [ %.ph732.i, %.sink.split731.i ]
   tail call void @g_free(ptr noundef %480) #19
   tail call void @g_free(ptr noundef %504) #19
   tail call void @g_free(ptr noundef %503) #19
@@ -5103,8 +5103,8 @@ sub_1540.i:                                       ; preds = %sub_0539.i
   br label %544
 
 544:                                              ; preds = %540, %538, %534, %530, %526
-  %.sink685.i = phi ptr [ %531, %530 ], [ %539, %538 ], [ %543, %540 ], [ %535, %534 ], [ %527, %526 ]
-  store ptr %.sink685.i, ptr %.0338567.i, align 8, !tbaa !85
+  %.sink734.i = phi ptr [ %531, %530 ], [ %539, %538 ], [ %543, %540 ], [ %535, %534 ], [ %527, %526 ]
+  store ptr %.sink734.i, ptr %.0338567.i, align 8, !tbaa !85
   tail call void @g_free(ptr noundef %524) #19
   %545 = getelementptr inbounds nuw i8, ptr %.0338567.i, i64 8
   %546 = load ptr, ptr %545, align 8, !tbaa !87
@@ -5174,21 +5174,21 @@ sub_1540.i:                                       ; preds = %sub_0539.i
   %566 = getelementptr i8, ptr %565, i64 -1
   %567 = load i8, ptr %566, align 1, !tbaa !88
   %568 = icmp eq i8 %567, 37
-  br i1 %568, label %569, label %.thread652.i
+  br i1 %568, label %569, label %.thread701.i
 
 569:                                              ; preds = %563
   store i8 0, ptr %566, align 1, !tbaa !88
   %.pr.pre.i = load ptr, ptr %27, align 8, !tbaa !69
   %.not407.i = icmp eq ptr %.pr.pre.i, null
-  br i1 %.not407.i, label %.thread487.i, label %.thread652.i
+  br i1 %.not407.i, label %.thread487.i, label %.thread701.i
 
-.thread652.i:                                     ; preds = %569, %563
-  %.pr655.i = phi ptr [ %.pr.pre.i, %569 ], [ %562, %563 ]
-  %570 = call i64 @dt_datetime_exif_to_gtimespan(ptr noundef nonnull %.pr655.i) #19
+.thread701.i:                                     ; preds = %569, %563
+  %.pr704.i = phi ptr [ %.pr.pre.i, %569 ], [ %562, %563 ]
+  %570 = call i64 @dt_datetime_exif_to_gtimespan(ptr noundef nonnull %.pr704.i) #19
   br label %.thread487.i
 
-.thread487.i:                                     ; preds = %.thread652.i, %569, %561
-  %571 = phi i64 [ %570, %.thread652.i ], [ 0, %569 ], [ 0, %561 ]
+.thread487.i:                                     ; preds = %.thread701.i, %569, %561
+  %571 = phi i64 [ %570, %.thread701.i ], [ 0, %569 ], [ 0, %561 ]
   %572 = load ptr, ptr %28, align 8, !tbaa !69
   %.not408.i = icmp eq ptr %572, null
   br i1 %.not408.i, label %sub_0544.i, label %573
@@ -5210,9 +5210,9 @@ sub_1545.i:                                       ; preds = %sub_0544.i
   %578 = getelementptr inbounds nuw i8, ptr %576, i64 1
   %579 = load i8, ptr %578, align 1
   %.not602.i = icmp eq i8 %579, 93
-  br i1 %.not602.i, label %.tail543.i, label %sub_1545.i..thread661.i_crit_edge
+  br i1 %.not602.i, label %.tail543.i, label %sub_1545.i..thread710.i_crit_edge
 
-sub_1545.i..thread661.i_crit_edge:                ; preds = %sub_1545.i
+sub_1545.i..thread710.i_crit_edge:                ; preds = %sub_1545.i
   %.pre = load ptr, ptr %27, align 8
   br label %.tail552.thread.i
 
@@ -5232,7 +5232,7 @@ sub_1545.i..thread661.i_crit_edge:                ; preds = %sub_1545.i
 
 587:                                              ; preds = %583
   %588 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.308, ptr noundef nonnull %.0334.i, i64 noundef %571, ptr noundef nonnull %.0334.i, i64 noundef %575) #19
-  br label %.sink.split686.i
+  br label %.sink.split735.i
 
 .tail548.i:                                       ; preds = %sub_0544.i
   %589 = getelementptr inbounds nuw i8, ptr %576, i64 1
@@ -5260,7 +5260,7 @@ sub_1545.i..thread661.i_crit_edge:                ; preds = %sub_1545.i
 
 599:                                              ; preds = %597
   %600 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.308, ptr noundef nonnull %.0334.i, i64 noundef %571, ptr noundef nonnull %.0334.i, i64 noundef %575) #19
-  br label %.sink.split686.i
+  br label %.sink.split735.i
 
 sub_0553.i:                                       ; preds = %597, %592
   %601 = phi ptr [ %594, %592 ], [ %.pr490.i, %597 ]
@@ -5273,10 +5273,10 @@ sub_1554.i:                                       ; preds = %sub_0553.i
   %.not605.i = icmp eq i8 %603, 62
   br i1 %.not605.i, label %.tail552.i, label %.tail552.thread.i
 
-.tail552.thread.i:                                ; preds = %.tail543.i, %sub_1545.i..thread661.i_crit_edge, %sub_1554.i, %sub_0553.i, %.tail548.i
-  %.ph664.i = phi ptr [ %601, %sub_1554.i ], [ %601, %sub_0553.i ], [ %.old.i, %.tail548.i ], [ %.pre, %sub_1545.i..thread661.i_crit_edge ], [ %.pre27, %.tail543.i ]
-  %.not691.i = icmp eq ptr %.ph664.i, null
-  br i1 %.not691.i, label %.tail552.thread.thread.i, label %613
+.tail552.thread.i:                                ; preds = %.tail543.i, %sub_1545.i..thread710.i_crit_edge, %sub_1554.i, %sub_0553.i, %.tail548.i
+  %.ph713.i = phi ptr [ %601, %sub_1554.i ], [ %601, %sub_0553.i ], [ %.old.i, %.tail548.i ], [ %.pre, %sub_1545.i..thread710.i_crit_edge ], [ %.pre27, %.tail543.i ]
+  %.not740.i = icmp eq ptr %.ph713.i, null
+  br i1 %.not740.i, label %.tail552.thread.thread.i, label %613
 
 .tail552.i:                                       ; preds = %sub_1554.i
   %604 = getelementptr inbounds nuw i8, ptr %576, i64 2
@@ -5291,25 +5291,25 @@ sub_1554.i:                                       ; preds = %sub_0553.i
 
 610:                                              ; preds = %.tail552.i
   %611 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.309, ptr noundef nonnull %.0334.i, i64 noundef %571, ptr noundef nonnull %.0334.i, i64 noundef %575) #19
-  br label %.sink.split686.i
+  br label %.sink.split735.i
 
 612:                                              ; preds = %.tail552.i
   br i1 %607, label %613, label %.tail552.thread.thread.i
 
 613:                                              ; preds = %612, %.tail552.thread.i
   %614 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.310, ptr noundef nonnull %.0334.i, ptr noundef nonnull %576, i64 noundef %571) #19
-  br label %.sink.split686.i
+  br label %.sink.split735.i
 
 .tail552.thread.thread.i:                         ; preds = %612, %.tail552.thread.i, %596
   %615 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.233) #19
-  br label %.sink.split686.i
+  br label %.sink.split735.i
 
-.sink.split686.i:                                 ; preds = %.tail552.thread.thread.i, %613, %610, %599, %587
-  %.sink687.i = phi ptr [ %600, %599 ], [ %614, %613 ], [ %615, %.tail552.thread.thread.i ], [ %611, %610 ], [ %588, %587 ]
-  store ptr %.sink687.i, ptr %7, align 8, !tbaa !69
+.sink.split735.i:                                 ; preds = %.tail552.thread.thread.i, %613, %610, %599, %587
+  %.sink736.i = phi ptr [ %600, %599 ], [ %614, %613 ], [ %615, %.tail552.thread.thread.i ], [ %611, %610 ], [ %588, %587 ]
+  store ptr %.sink736.i, ptr %7, align 8, !tbaa !69
   br label %616
 
-616:                                              ; preds = %.sink.split686.i, %583
+616:                                              ; preds = %.sink.split735.i, %583
   call void @g_free(ptr noundef nonnull %576) #19
   %617 = load ptr, ptr %27, align 8, !tbaa !69
   call void @g_free(ptr noundef %617) #19
@@ -5427,11 +5427,11 @@ sub_1559.i:                                       ; preds = %sub_0558.i
 
 660:                                              ; preds = %656
   %661 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.317, ptr noundef nonnull %652, ptr noundef nonnull %654) #19
-  br label %.sink.split688.i
+  br label %.sink.split737.i
 
 662:                                              ; preds = %656
   %663 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.318, ptr noundef nonnull %652, ptr noundef nonnull %654) #19
-  br label %.sink.split688.i
+  br label %.sink.split737.i
 
 .tail557.thread.i:                                ; preds = %.tail557.i, %sub_1559.i, %sub_0558.i
   %664 = tail call i32 @g_strcmp0(ptr noundef nonnull %644, ptr noundef nonnull @.str.101) #19
@@ -5453,7 +5453,7 @@ sub_1559.i:                                       ; preds = %sub_0558.i
 
 674:                                              ; preds = %671, %668
   %675 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.320, ptr noundef nonnull %644, ptr noundef nonnull %666) #19
-  br label %.sink.split688.i
+  br label %.sink.split737.i
 
 676:                                              ; preds = %671
   %677 = tail call i32 @g_strcmp0(ptr noundef nonnull %644, ptr noundef nonnull @.str.97) #19
@@ -5473,7 +5473,7 @@ sub_1559.i:                                       ; preds = %sub_0558.i
 
 686:                                              ; preds = %682
   %687 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.321, ptr noundef nonnull %644, ptr noundef nonnull %666) #19
-  br label %.sink.split688.i
+  br label %.sink.split737.i
 
 688:                                              ; preds = %679
   %689 = tail call i64 @strtol(ptr noundef nonnull captures(none) %666, ptr noundef null, i32 noundef 10) #19
@@ -5483,11 +5483,11 @@ sub_1559.i:                                       ; preds = %sub_0558.i
 
 692:                                              ; preds = %688
   %693 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.322) #19
-  br label %.sink.split688.i
+  br label %.sink.split737.i
 
 694:                                              ; preds = %688
   %695 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.320, ptr noundef nonnull %644, ptr noundef nonnull %666) #19
-  br label %.sink.split688.i
+  br label %.sink.split737.i
 
 696:                                              ; preds = %.tail557.thread.i, %.thread494.i
   %697 = phi ptr [ %.pr495.i, %.thread494.i ], [ %666, %.tail557.thread.i ]
@@ -5502,20 +5502,20 @@ sub_1559.i:                                       ; preds = %sub_0558.i
 
 702:                                              ; preds = %698
   %703 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.323) #19
-  br label %.sink.split688.i
+  br label %.sink.split737.i
 
 704:                                              ; preds = %698
   %705 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.324, ptr noundef nonnull %697) #19
-  br label %.sink.split688.i
+  br label %.sink.split737.i
 
-.sink.split688.i:                                 ; preds = %704, %702, %694, %692, %686, %674, %662, %660
-  %.sink690.i = phi ptr [ %687, %686 ], [ %695, %694 ], [ %693, %692 ], [ %675, %674 ], [ %703, %702 ], [ %705, %704 ], [ %663, %662 ], [ %661, %660 ]
-  %.ph689.i = phi ptr [ %666, %686 ], [ %666, %694 ], [ %666, %692 ], [ %666, %674 ], [ %697, %702 ], [ %697, %704 ], [ %652, %662 ], [ %652, %660 ]
-  store ptr %.sink690.i, ptr %7, align 8, !tbaa !69
+.sink.split737.i:                                 ; preds = %704, %702, %694, %692, %686, %674, %662, %660
+  %.sink739.i = phi ptr [ %687, %686 ], [ %695, %694 ], [ %693, %692 ], [ %675, %674 ], [ %703, %702 ], [ %705, %704 ], [ %663, %662 ], [ %661, %660 ]
+  %.ph738.i = phi ptr [ %666, %686 ], [ %666, %694 ], [ %666, %692 ], [ %666, %674 ], [ %697, %702 ], [ %697, %704 ], [ %652, %662 ], [ %652, %660 ]
+  store ptr %.sink739.i, ptr %7, align 8, !tbaa !69
   br label %706
 
-706:                                              ; preds = %.sink.split688.i, %696, %682, %651
-  %707 = phi ptr [ %666, %682 ], [ null, %696 ], [ %652, %651 ], [ %.ph689.i, %.sink.split688.i ]
+706:                                              ; preds = %.sink.split737.i, %696, %682, %651
+  %707 = phi ptr [ %666, %682 ], [ null, %696 ], [ %652, %651 ], [ %.ph738.i, %.sink.split737.i ]
   tail call void @g_free(ptr noundef %644) #19
   tail call void @g_free(ptr noundef %707) #19
   %708 = load ptr, ptr %31, align 8, !tbaa !69
@@ -6358,8 +6358,8 @@ define void @dt_collection_history_save() local_unnamed_addr #0 {
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 200, ptr noundef nonnull @.str.159, i32 noundef %32) #19
   call void @dt_conf_set_int(ptr noundef nonnull %1, i32 noundef %31) #19
   %35 = add nsw i32 %.02733, -1
-  %.not37 = icmp eq i32 %.02733, 0
-  br i1 %.not37, label %._crit_edge36, label %.lr.ph35
+  %.not38 = icmp eq i32 %.02733, 0
+  br i1 %.not38, label %._crit_edge36, label %.lr.ph35
 
 36:                                               ; preds = %0, %._crit_edge36
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

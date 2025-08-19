@@ -1661,10 +1661,10 @@ _ZN9VectorSet8test_setEj.exit.i21:                ; preds = %88, %83
 
 _ZN16Unique_Node_List4pushEP4Node.exit19.sink.split: ; preds = %97, %101, %75, %79
   %.sink = phi i32 [ %76, %79 ], [ %76, %75 ], [ %98, %101 ], [ %98, %97 ]
-  %.sink34.in = phi ptr [ %40, %79 ], [ %40, %75 ], [ %33, %101 ], [ %33, %97 ]
-  %.sink34 = load ptr, ptr %.sink34.in, align 8
+  %.sink40.in = phi ptr [ %40, %79 ], [ %40, %75 ], [ %33, %101 ], [ %33, %97 ]
+  %.sink40 = load ptr, ptr %.sink40.in, align 8
   %102 = zext i32 %.sink to i64
-  %103 = getelementptr inbounds nuw ptr, ptr %.sink34, i64 %102
+  %103 = getelementptr inbounds nuw ptr, ptr %.sink40, i64 %102
   store ptr %58, ptr %103, align 8
   br label %_ZN16Unique_Node_List4pushEP4Node.exit19
 

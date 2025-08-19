@@ -132,8 +132,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %10, %12
   %switch.gep = getelementptr inbounds nuw [17 x i64], ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE, i64 0, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep18 = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE.3, i64 0, i64 %16
-  %switch.load19 = load ptr, ptr %switch.gep18, align 8
+  %switch.gep20 = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE.3, i64 0, i64 %16
+  %switch.load21 = load ptr, ptr %switch.gep20, align 8
   %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !42
   %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
@@ -145,13 +145,13 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %10, %12
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
-  %26 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i, ptr noundef nonnull %switch.load19, i64 noundef %switch.load) #13
+  %26 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i, ptr noundef nonnull %switch.load21, i64 noundef %switch.load) #13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %26, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !37
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 27:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 1 dereferenceable(1) %switch.load19, i64 %switch.load, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 1 dereferenceable(1) %switch.load21, i64 %switch.load, i1 false)
   %28 = load ptr, ptr %19, align 8, !tbaa !37
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %switch.load
   store ptr %29, ptr %19, align 8, !tbaa !37

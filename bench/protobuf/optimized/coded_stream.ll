@@ -2758,8 +2758,8 @@ if.end:                                           ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buffer_30.i.i to i64
   %add.ptr.i7.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %buffer_end_.i, align 8
-  %tobool.not.i37 = icmp eq ptr %1, null
-  br i1 %tobool.not.i37, label %if.else.i, label %land.rhs.i
+  %tobool.not.i39 = icmp eq ptr %1, null
+  br i1 %tobool.not.i39, label %if.else.i, label %land.rhs.i
 
 while.cond.i:                                     ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i
   %sext.i = shl i64 %sub.ptr.sub.i, 32
@@ -2771,10 +2771,10 @@ while.cond.i:                                     ; preds = %_ZN6google8protobuf
 
 land.rhs.i:                                       ; preds = %if.end, %while.cond.i
   %3 = phi ptr [ %2, %while.cond.i ], [ %1, %if.end ]
-  %ptr.addr.0.i38 = phi ptr [ %add.ptr.i, %while.cond.i ], [ %ptr, %if.end ]
+  %ptr.addr.0.i40 = phi ptr [ %add.ptr.i, %while.cond.i ], [ %ptr, %if.end ]
   %4 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ugt ptr %ptr.addr.0.i38, %4
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %ptr.addr.0.i38 to i64
+  %cmp.i = icmp ugt ptr %ptr.addr.0.i40, %4
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %ptr.addr.0.i40 to i64
   br i1 %cmp.i, label %while.body.i, label %if.then6.i
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -2928,8 +2928,8 @@ if.end3:                                          ; preds = %if.end
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buffer_30.i.i to i64
   %add.ptr.i7.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr %buffer_end_.i, align 8
-  %tobool.not.i59 = icmp eq ptr %2, null
-  br i1 %tobool.not.i59, label %if.else.i, label %land.rhs.i
+  %tobool.not.i62 = icmp eq ptr %2, null
+  br i1 %tobool.not.i62, label %if.else.i, label %land.rhs.i
 
 while.cond.i:                                     ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i
   %sext.i = shl i64 %sub.ptr.sub.i, 32
@@ -2941,10 +2941,10 @@ while.cond.i:                                     ; preds = %_ZN6google8protobuf
 
 land.rhs.i:                                       ; preds = %if.end3, %while.cond.i
   %4 = phi ptr [ %3, %while.cond.i ], [ %2, %if.end3 ]
-  %ptr.addr.0.i60 = phi ptr [ %add.ptr.i, %while.cond.i ], [ %1, %if.end3 ]
+  %ptr.addr.0.i63 = phi ptr [ %add.ptr.i, %while.cond.i ], [ %1, %if.end3 ]
   %5 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ugt ptr %ptr.addr.0.i60, %5
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %ptr.addr.0.i60 to i64
+  %cmp.i = icmp ugt ptr %ptr.addr.0.i63, %5
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %ptr.addr.0.i63 to i64
   br i1 %cmp.i, label %while.body.i, label %if.then6.i
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -3308,8 +3308,8 @@ if.end:                                           ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buffer_30.i.i to i64
   %add.ptr.i7.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr %buffer_end_.i, align 8
-  %tobool.not.i55 = icmp eq ptr %2, null
-  br i1 %tobool.not.i55, label %if.else.i, label %land.rhs.i
+  %tobool.not.i57 = icmp eq ptr %2, null
+  br i1 %tobool.not.i57, label %if.else.i, label %land.rhs.i
 
 while.cond.i:                                     ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i
   %sext.i = shl i64 %sub.ptr.sub.i, 32
@@ -3321,10 +3321,10 @@ while.cond.i:                                     ; preds = %_ZN6google8protobuf
 
 land.rhs.i:                                       ; preds = %if.end, %while.cond.i
   %4 = phi ptr [ %3, %while.cond.i ], [ %2, %if.end ]
-  %ptr.addr.0.i56 = phi ptr [ %add.ptr.i, %while.cond.i ], [ %1, %if.end ]
+  %ptr.addr.0.i58 = phi ptr [ %add.ptr.i, %while.cond.i ], [ %1, %if.end ]
   %5 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ugt ptr %ptr.addr.0.i56, %5
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %ptr.addr.0.i56 to i64
+  %cmp.i = icmp ugt ptr %ptr.addr.0.i58, %5
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %ptr.addr.0.i58 to i64
   br i1 %cmp.i, label %while.body.i, label %if.then6.i
 
 while.body.i:                                     ; preds = %land.rhs.i

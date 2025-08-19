@@ -1333,7 +1333,7 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
 147:                                              ; preds = %135
   %148 = add nsw i32 %.0143222, 2
   %.not210 = icmp eq i32 %148, %104
-  br i1 %.not210, label %.thread244, label %149
+  br i1 %.not210, label %.thread265, label %149
 
 149:                                              ; preds = %147
   %150 = shl nuw nsw i32 %133, 6
@@ -1355,7 +1355,7 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
   %161 = or disjoint i32 %159, %160
   %162 = add nsw i32 %.2145, 1
   %.not212 = icmp eq i32 %162, %104
-  br i1 %.not212, label %.thread244, label %167
+  br i1 %.not212, label %.thread265, label %167
 
 163:                                              ; preds = %113
   %164 = icmp samesign ugt i8 %110, -63
@@ -1380,7 +1380,7 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
   %175 = select i1 %174, i32 1, i32 2
   br label %177
 
-.thread244:                                       ; preds = %158, %147
+.thread265:                                       ; preds = %158, %147
   %176 = add nuw nsw i32 %.0142223, 1
   br label %._crit_edge
 
@@ -1391,9 +1391,9 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
   %179 = icmp slt i32 %.5, %104
   br i1 %179, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
-._crit_edge:                                      ; preds = %177, %.thread244, %105
-  %.0143.lcssa = phi i32 [ 0, %105 ], [ %104, %.thread244 ], [ %.5, %177 ]
-  %.0142.lcssa = phi i32 [ 0, %105 ], [ %176, %.thread244 ], [ %178, %177 ]
+._crit_edge:                                      ; preds = %177, %.thread265, %105
+  %.0143.lcssa = phi i32 [ 0, %105 ], [ %104, %.thread265 ], [ %.5, %177 ]
+  %.0142.lcssa = phi i32 [ 0, %105 ], [ %176, %.thread265 ], [ %178, %177 ]
   store i32 %.0143.lcssa, ptr %103, align 4, !tbaa !27
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %181 = load i32, ptr %180, align 8, !tbaa !39
@@ -1483,7 +1483,7 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
 232:                                              ; preds = %220
   %233 = add nsw i32 %.7225, 2
   %.not205 = icmp eq i32 %233, %190
-  br i1 %.not205, label %.thread249, label %234
+  br i1 %.not205, label %.thread270, label %234
 
 234:                                              ; preds = %232
   %235 = shl nuw nsw i32 %218, 6
@@ -1505,7 +1505,7 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
   %246 = or disjoint i32 %244, %245
   %247 = add nsw i32 %.9, 1
   %.not207 = icmp eq i32 %247, %190
-  br i1 %.not207, label %.thread249, label %252
+  br i1 %.not207, label %.thread270, label %252
 
 248:                                              ; preds = %198
   %249 = icmp samesign ugt i8 %195, -63
@@ -1530,7 +1530,7 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
   %260 = select i1 %259, i32 1, i32 2
   br label %262
 
-.thread249:                                       ; preds = %243, %232
+.thread270:                                       ; preds = %243, %232
   %261 = add nsw i32 %.2226, 1
   br label %._crit_edge229
 
@@ -1541,8 +1541,8 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
   %264 = icmp slt i32 %.12, %190
   br i1 %264, label %.lr.ph228, label %._crit_edge229, !llvm.loop !41
 
-._crit_edge229:                                   ; preds = %262, %.thread249, %188
-  %.2.lcssa = phi i32 [ %.1, %188 ], [ %261, %.thread249 ], [ %263, %262 ]
+._crit_edge229:                                   ; preds = %262, %.thread270, %188
+  %.2.lcssa = phi i32 [ %.1, %188 ], [ %261, %.thread270 ], [ %263, %262 ]
   store i32 %.2.lcssa, ptr %95, align 8, !tbaa !12
   br label %266
 
@@ -1877,10 +1877,10 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
   br label %.loopexit
 
 .thread:                                          ; preds = %170, %167, %.lr.ph205, %160, %156, %150, %141, %139, %127, %124, %109
-  %.sink218 = phi i32 [ 1, %109 ], [ 1, %124 ], [ 1, %127 ], [ 1, %139 ], [ 1, %141 ], [ 1, %150 ], [ 1, %156 ], [ 1, %160 ], [ 1, %.lr.ph205 ], [ 1, %167 ], [ 2, %170 ]
+  %.sink242 = phi i32 [ 1, %109 ], [ 1, %124 ], [ 1, %127 ], [ 1, %139 ], [ 1, %141 ], [ 1, %150 ], [ 1, %156 ], [ 1, %160 ], [ 1, %.lr.ph205 ], [ 1, %167 ], [ 2, %170 ]
   %.sink = phi i32 [ -1, %109 ], [ -1, %124 ], [ -1, %127 ], [ -1, %139 ], [ -1, %141 ], [ -1, %150 ], [ -1, %156 ], [ -1, %160 ], [ -1, %.lr.ph205 ], [ -1, %167 ], [ -2, %170 ]
   %177 = phi i32 [ %99, %109 ], [ %99, %124 ], [ %99, %127 ], [ %88, %139 ], [ %140, %141 ], [ %88, %150 ], [ %99, %156 ], [ %161, %160 ], [ %99, %.lr.ph205 ], [ %168, %167 ], [ %168, %170 ]
-  %178 = add nsw i32 %.2204, %.sink218
+  %178 = add nsw i32 %.2204, %.sink242
   %179 = add nsw i32 %.2152203, %.sink
   %180 = icmp sgt i32 %179, 0
   %181 = icmp slt i32 %177, %88
@@ -1971,10 +1971,10 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
   br label %thread-pre-split
 
 .thread193:                                       ; preds = %221, %217, %.lr.ph
-  %.sink220 = phi i32 [ -1, %.lr.ph ], [ -1, %217 ], [ -2, %221 ]
-  %.sink219 = phi i32 [ 1, %.lr.ph ], [ 1, %217 ], [ 2, %221 ]
-  %227 = add nsw i32 %.7200, %.sink220
-  %228 = add nsw i32 %.5155199, %.sink219
+  %.sink244 = phi i32 [ -1, %.lr.ph ], [ -1, %217 ], [ -2, %221 ]
+  %.sink243 = phi i32 [ 1, %.lr.ph ], [ 1, %217 ], [ 2, %221 ]
+  %227 = add nsw i32 %.7200, %.sink244
+  %228 = add nsw i32 %.5155199, %.sink243
   %229 = icmp slt i32 %228, 0
   %230 = load i32, ptr %4, align 4
   %231 = icmp sgt i32 %230, 0

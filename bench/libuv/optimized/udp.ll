@@ -397,7 +397,7 @@ define hidden i32 @uv__udp_connect(ptr noundef captures(none) %0, ptr noundef %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %7 = load i32, ptr %6, align 8
   %.not.i = icmp eq i32 %7, -1
-  br i1 %.not.i, label %8, label %uv__udp_maybe_deferred_bind.exit.thread16
+  br i1 %.not.i, label %8, label %uv__udp_maybe_deferred_bind.exit.thread18
 
 8:                                                ; preds = %3
   switch i16 %5, label %10 [
@@ -449,14 +449,14 @@ define hidden i32 @uv__udp_connect(ptr noundef captures(none) %0, ptr noundef %1
   %25 = select i1 %21, i32 %24, i32 %23
   %26 = or i32 %25, 8192
   store i32 %26, ptr %22, align 8
-  br label %uv__udp_maybe_deferred_bind.exit.thread16
+  br label %uv__udp_maybe_deferred_bind.exit.thread18
 
 uv__udp_maybe_deferred_bind.exit.thread:          ; preds = %.sink.split.i, %16
   %.0.i.ph = phi i32 [ %12, %.sink.split.i ], [ -22, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
-uv__udp_maybe_deferred_bind.exit.thread16:        ; preds = %3, %._crit_edge.i
+uv__udp_maybe_deferred_bind.exit.thread18:        ; preds = %3, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader
 
@@ -466,7 +466,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %16
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %.preheader, label %41
 
-.preheader:                                       ; preds = %uv__udp_maybe_deferred_bind.exit.thread16, %uv__udp_maybe_deferred_bind.exit
+.preheader:                                       ; preds = %uv__udp_maybe_deferred_bind.exit.thread18, %uv__udp_maybe_deferred_bind.exit
   %28 = tail call ptr @__errno_location() #11
   br label %29
 
@@ -1348,12 +1348,12 @@ define internal void @uv__udp_io(ptr readnone captures(none) %0, ptr noundef %1,
   br i1 %exitcond68.not.i.i, label %.critedge2.i.i, label %.lr.ph64.i.i
 
 .critedge2.i.i:                                   ; preds = %72
-  %.pr69.i.i = load ptr, ptr %17, align 8
-  %.not55.i.i = icmp eq ptr %.pr69.i.i, null
+  %.pr72.i.i = load ptr, ptr %17, align 8
+  %.not55.i.i = icmp eq ptr %.pr72.i.i, null
   br i1 %.not55.i.i, label %uv__udp_recvmmsg.exit.i, label %91
 
 91:                                               ; preds = %.critedge2.i.i
-  call void %.pr69.i.i(ptr noundef nonnull %11, i64 noundef 0, ptr noundef nonnull %10, ptr noundef null, i32 noundef 16) #10
+  call void %.pr72.i.i(ptr noundef nonnull %11, i64 noundef 0, ptr noundef nonnull %10, ptr noundef null, i32 noundef 16) #10
   br label %uv__udp_recvmmsg.exit.i
 
 uv__udp_recvmmsg.exit.i:                          ; preds = %.lr.ph64.i.i, %91, %.critedge2.i.i, %67, %65
@@ -1363,7 +1363,7 @@ uv__udp_recvmmsg.exit.i:                          ; preds = %.lr.ph64.i.i, %91, 
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %92 = sext i32 %53 to i64
   %93 = call i32 @llvm.smax.i32(i32 %53, i32 0)
-  %spec.select.i = sub i32 %.032.i, %93
+  %spec.select.i = sub nsw i32 %.032.i, %93
   br label %113
 
 94:                                               ; preds = %33
@@ -2397,8 +2397,8 @@ uv__udp_prep_pkt.exit:                            ; preds = %.critedge
   br i1 %51, label %.thread71, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph.split, %.loopexit
-  %.2116 = phi i32 [ %.2, %.loopexit ], [ %50, %.lr.ph.split ]
-  %52 = icmp slt i32 %.2116, 0
+  %.2120 = phi i32 [ %.2, %.loopexit ], [ %50, %.lr.ph.split ]
+  %52 = icmp slt i32 %.2120, 0
   br i1 %52, label %53, label %.thread71
 
 53:                                               ; preds = %.loopexit.thread
@@ -2414,7 +2414,7 @@ uv__udp_prep_pkt.exit:                            ; preds = %.critedge
   br label %.thread71
 
 .thread71:                                        ; preds = %.lr.ph.split, %.preheader77, %.loopexit.thread, %57, %53, %.loopexit
-  %.049 = phi i32 [ %.243, %.loopexit ], [ -11, %57 ], [ %.2116, %.loopexit.thread ], [ %56, %53 ], [ 0, %.preheader77 ], [ 1, %.lr.ph.split ]
+  %.049 = phi i32 [ %.243, %.loopexit ], [ -11, %57 ], [ %.2120, %.loopexit.thread ], [ %56, %53 ], [ 0, %.preheader77 ], [ 1, %.lr.ph.split ]
   ret i32 %.049
 }
 

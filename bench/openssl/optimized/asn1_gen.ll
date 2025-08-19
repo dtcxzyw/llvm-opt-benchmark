@@ -537,10 +537,10 @@ asn1_multi.exit:                                  ; preds = %49, %44, %30, %35, 
   br label %asn1_str2type.exit
 
 149:                                              ; preds = %77, %142, %137, %126, %115, %107, %105, %101, %95, %89, %83
-  %.sink91 = phi i32 [ 611, %83 ], [ 624, %89 ], [ 635, %95 ], [ 647, %101 ], [ 651, %105 ], [ 656, %107 ], [ 682, %115 ], [ 697, %126 ], [ 705, %137 ], [ 712, %142 ], [ 728, %77 ]
+  %.sink107 = phi i32 [ 611, %83 ], [ 624, %89 ], [ 635, %95 ], [ 647, %101 ], [ 651, %105 ], [ 656, %107 ], [ 682, %115 ], [ 697, %126 ], [ 705, %137 ], [ 712, %142 ], [ 728, %77 ]
   %.sink = phi i32 [ 176, %83 ], [ 180, %89 ], [ 183, %95 ], [ 524301, %101 ], [ 524301, %105 ], [ 184, %107 ], [ 524301, %115 ], [ 178, %126 ], [ 524301, %137 ], [ 188, %142 ], [ 196, %77 ]
   call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink91, ptr noundef nonnull @__func__.asn1_str2type) #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink107, ptr noundef nonnull @__func__.asn1_str2type) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #7
   call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.56, ptr noundef nonnull %spec.store.select.i) #7
   br label %150
@@ -848,9 +848,9 @@ asn1_str2tag.exit:                                ; preds = %31, %15
   br i1 %.not18, label %asn1_str2tag.exit.thread, label %asn1_str2tag.exit.thread.sink.split
 
 asn1_str2tag.exit.thread.sink.split:              ; preds = %39, %.tail
-  %.sink44 = phi i64 [ 10502, %.tail ], [ %40, %39 ]
+  %.sink48 = phi i64 [ 10502, %.tail ], [ %40, %39 ]
   %41 = load i64, ptr %2, align 8, !tbaa !10
-  %42 = or i64 %41, %.sink44
+  %42 = or i64 %41, %.sink48
   store i64 %42, ptr %2, align 8, !tbaa !10
   br label %asn1_str2tag.exit.thread
 
@@ -1200,20 +1200,20 @@ sub_1:                                            ; preds = %sub_0
   br label %141
 
 .sink.split.sink.split:                           ; preds = %append_exp.exit78, %append_exp.exit74, %append_exp.exit70, %append_exp.exit
-  %.sink104 = phi ptr [ %74, %append_exp.exit ], [ %88, %append_exp.exit70 ], [ %102, %append_exp.exit74 ], [ %116, %append_exp.exit78 ]
+  %.sink117 = phi ptr [ %74, %append_exp.exit ], [ %88, %append_exp.exit70 ], [ %102, %append_exp.exit74 ], [ %116, %append_exp.exit78 ]
   %.sink.i.sink = phi i32 [ %.sink.i, %append_exp.exit ], [ %.sink.i69, %append_exp.exit70 ], [ %.sink.i73, %append_exp.exit74 ], [ %.sink.i77, %append_exp.exit78 ]
-  %.sink100 = phi i32 [ 1, %append_exp.exit ], [ 1, %append_exp.exit70 ], [ 0, %append_exp.exit74 ], [ 0, %append_exp.exit78 ]
+  %.sink113 = phi i32 [ 1, %append_exp.exit ], [ 1, %append_exp.exit70 ], [ 0, %append_exp.exit74 ], [ 0, %append_exp.exit78 ]
   %.sink.ph = phi i32 [ 0, %append_exp.exit ], [ 0, %append_exp.exit70 ], [ 1, %append_exp.exit74 ], [ 0, %append_exp.exit78 ]
-  %137 = getelementptr inbounds nuw i8, ptr %.sink104, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %.sink117, i64 4
   store i32 %.sink.i.sink, ptr %137, align 4, !tbaa !36
-  %138 = getelementptr inbounds nuw i8, ptr %.sink104, i64 8
-  store i32 %.sink100, ptr %138, align 8, !tbaa !35
+  %138 = getelementptr inbounds nuw i8, ptr %.sink117, i64 8
+  store i32 %.sink113, ptr %138, align 8, !tbaa !35
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %.tail.thread, %.tail, %125, %122
-  %.sink99 = phi ptr [ %2, %122 ], [ %2, %125 ], [ %2, %.tail ], [ %2, %.tail.thread ], [ %.sink104, %.sink.split.sink.split ]
+  %.sink112 = phi ptr [ %2, %122 ], [ %2, %125 ], [ %2, %.tail ], [ %2, %.tail.thread ], [ %.sink117, %.sink.split.sink.split ]
   %.sink = phi i32 [ 1, %122 ], [ 2, %125 ], [ 3, %.tail ], [ 4, %.tail.thread ], [ %.sink.ph, %.sink.split.sink.split ]
-  %139 = getelementptr inbounds nuw i8, ptr %.sink99, i64 12
+  %139 = getelementptr inbounds nuw i8, ptr %.sink112, i64 12
   store i32 %.sink, ptr %139, align 4, !tbaa !3
   br label %140
 
@@ -1474,10 +1474,10 @@ define internal range(i32 0, 2) i32 @bitstr_cb(ptr noundef %0, i32 noundef %1, p
   br i1 %.not13, label %.sink.split, label %17
 
 .sink.split:                                      ; preds = %14, %12
-  %.sink15 = phi i32 [ 754, %12 ], [ 758, %14 ]
+  %.sink18 = phi i32 [ 754, %12 ], [ 758, %14 ]
   %.sink = phi i32 [ 187, %12 ], [ 524301, %14 ]
   tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink15, ptr noundef nonnull @__func__.bitstr_cb) #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink18, ptr noundef nonnull @__func__.bitstr_cb) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #7
   br label %17
 

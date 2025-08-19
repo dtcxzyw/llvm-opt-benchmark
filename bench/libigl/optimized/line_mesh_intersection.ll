@@ -213,14 +213,14 @@ _ZN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEC2INS0_IiLin1ELin1ELi0ELin1ELin1EEEEERK
   %79 = fmul double %78, 1.000000e-05
   %80 = load double, ptr %74, align 8, !tbaa !31
   %81 = fadd double %80, %79
-  %82 = getelementptr inbounds double, ptr %74, i64 %71
+  %82 = getelementptr inbounds nuw double, ptr %74, i64 %71
   %83 = getelementptr inbounds double, ptr %76, i64 %77
   %84 = load double, ptr %83, align 8, !tbaa !31
   %85 = fmul double %84, 1.000000e-05
   %86 = load double, ptr %82, align 8, !tbaa !31
   %87 = fadd double %86, %85
   %.idx.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %71, 4
-  %88 = getelementptr inbounds i8, ptr %74, i64 %.idx.i.i.i.i.i.i.i.i.i.i
+  %88 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %.idx2.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %77, 4
   %89 = getelementptr inbounds i8, ptr %76, i64 %.idx2.i.i.i.i.i.i.i.i.i.i
   %90 = load double, ptr %89, align 8, !tbaa !31

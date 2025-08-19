@@ -1611,8 +1611,8 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %555
 .noexc456.i:                                      ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   %567 = getelementptr inbounds i8, ptr %566, i64 %552
   %568 = shl nuw nsw i64 %547, 2
-  %reass.sub1117.i = sub i64 %568, %552
-  %569 = and i64 %reass.sub1117.i, -4
+  %reass.sub1275.i = sub i64 %568, %552
+  %569 = and i64 %reass.sub1275.i, -4
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %567, i8 -1, i64 %569, i1 false), !tbaa !48
   %.not.i.i.i.i.i.i.i.i.i81.i.i = icmp eq ptr %548, %549
   br i1 %.not.i.i.i.i.i.i.i.i.i81.i.i, label %571, label %570
@@ -3207,7 +3207,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i: ; pre
           cleanup
   br label %1385
 
-.loopexit.split-lp552.i:                          ; preds = %.invoke1240.i
+.loopexit.split-lp552.i:                          ; preds = %.invoke1398.i
   %lpad.loopexit.split-lp554.i = landingpad { ptr, i32 }
           cleanup
   br label %1385
@@ -3221,13 +3221,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i: ; preds = %_
   %1192 = load i64, ptr %154, align 8, !tbaa !30
   %1193 = add i64 %1192, -4611686018427387898
   %1194 = icmp ult i64 %1193, 6
-  br i1 %1194, label %.invoke1240.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i355.i
+  br i1 %1194, label %.invoke1398.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i355.i
 
-.invoke1240.i:                                    ; preds = %1197, %1191
+.invoke1398.i:                                    ; preds = %1197, %1191
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.39) #25
-          to label %.cont1241.i unwind label %.loopexit.split-lp552.i
+          to label %.cont1399.i unwind label %.loopexit.split-lp552.i
 
-.cont1241.i:                                      ; preds = %.invoke1240.i
+.cont1399.i:                                      ; preds = %.invoke1398.i
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i355.i: ; preds = %1191
@@ -3243,7 +3243,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit358.i: ; preds =
   %1198 = load i64, ptr %154, align 8, !tbaa !30
   %1199 = add i64 %1198, -4611686018427387897
   %1200 = icmp ult i64 %1199, 7
-  br i1 %1200, label %.invoke1240.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i359.i
+  br i1 %1200, label %.invoke1398.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i359.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i359.i: ; preds = %1197
   %1201 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull @.str.21, i64 noundef 7)
@@ -3281,9 +3281,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit362.i: ; preds =
 
 _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i.i: ; preds = %1216, %1209, %1204
   %.not.i.i365.i = icmp eq i32 %1203, 0
-  br i1 %.not.i.i365.i, label %.thread1124.i, label %1217
+  br i1 %.not.i.i365.i, label %.thread1282.i, label %1217
 
-.thread1124.i:                                    ; preds = %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i.i
+.thread1282.i:                                    ; preds = %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i.i
   store i32 0, ptr %257, align 4, !tbaa !59
   br label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit369.i
 
@@ -3317,7 +3317,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i.i: ; preds = %1216, %1209, %120
   call void @__clang_call_terminate(ptr %1232) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit369.i:           ; preds = %1229, %1225, %1217, %.thread1124.i
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit369.i:           ; preds = %1229, %1225, %1217, %.thread1282.i
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)

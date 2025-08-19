@@ -902,8 +902,8 @@ _ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i: ; preds
   br i1 %.not6.i, label %_ZN6icu_776number4impl6DecNum6_setToEPKciR10UErrorCode.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %32, %.noexc6
-  %.sink8.i = phi i32 [ 65808, %.noexc6 ], [ 16, %32 ]
-  store i32 %.sink8.i, ptr %3, align 4, !tbaa !13
+  %.sink9.i = phi i32 [ 65808, %.noexc6 ], [ 16, %32 ]
+  store i32 %.sink9.i, ptr %3, align 4, !tbaa !13
   br label %_ZN6icu_776number4impl6DecNum6_setToEPKciR10UErrorCode.exit
 
 _ZN6icu_776number4impl6DecNum6_setToEPKciR10UErrorCode.exit: ; preds = %.sink.split.i, %32, %_ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit
@@ -961,8 +961,8 @@ _ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit: ; preds =
   br i1 %.not6, label %23, label %.sink.split
 
 .sink.split:                                      ; preds = %22, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit
-  %.sink8 = phi i32 [ 65808, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit ], [ 16, %22 ]
-  store i32 %.sink8, ptr %3, align 4, !tbaa !13
+  %.sink9 = phi i32 [ 65808, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit ], [ 16, %22 ]
+  store i32 %.sink9, ptr %3, align 4, !tbaa !13
   br label %23
 
 23:                                               ; preds = %.sink.split, %22
@@ -1023,8 +1023,8 @@ _ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i: ; preds
   br i1 %.not6.i, label %_ZN6icu_776number4impl6DecNum6_setToEPKciR10UErrorCode.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %21, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i
-  %.sink8.i = phi i32 [ 65808, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i ], [ 16, %21 ]
-  store i32 %.sink8.i, ptr %2, align 4, !tbaa !13
+  %.sink9.i = phi i32 [ 65808, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i ], [ 16, %21 ]
+  store i32 %.sink9.i, ptr %2, align 4, !tbaa !13
   br label %_ZN6icu_776number4impl6DecNum6_setToEPKciR10UErrorCode.exit
 
 _ZN6icu_776number4impl6DecNum6_setToEPKciR10UErrorCode.exit: ; preds = %21, %.sink.split.i
@@ -1105,8 +1105,8 @@ _ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i: ; preds
   br i1 %.not6.i, label %_ZN6icu_776number4impl6DecNum6_setToEPKciR10UErrorCode.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %28, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i
-  %.sink8.i = phi i32 [ 65808, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i ], [ 16, %28 ]
-  store i32 %.sink8.i, ptr %2, align 4, !tbaa !13
+  %.sink9.i = phi i32 [ 65808, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i ], [ 16, %28 ]
+  store i32 %.sink9.i, ptr %2, align 4, !tbaa !13
   br label %_ZN6icu_776number4impl6DecNum6_setToEPKciR10UErrorCode.exit
 
 _ZN6icu_776number4impl6DecNum6_setToEPKciR10UErrorCode.exit: ; preds = %28, %.sink.split.i
@@ -1201,8 +1201,8 @@ _ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit: ; preds =
   br i1 %.not, label %32, label %.sink.split
 
 .sink.split:                                      ; preds = %24, %19, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit
-  %.sink22 = phi i32 [ 16, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit ], [ 16, %19 ], [ 5, %24 ]
-  store i32 %.sink22, ptr %5, align 4, !tbaa !13
+  %.sink24 = phi i32 [ 16, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit ], [ 16, %19 ], [ 5, %24 ]
+  store i32 %.sink24, ptr %5, align 4, !tbaa !13
   br label %32
 
 32:                                               ; preds = %.sink.split, %24

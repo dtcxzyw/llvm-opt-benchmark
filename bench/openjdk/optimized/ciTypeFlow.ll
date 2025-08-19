@@ -413,7 +413,7 @@ define hidden void @_ZN10ciTypeFlow6JsrSet17remove_jsr_recordEi(ptr noundef nonn
   br i1 %15, label %.lr.ph19, label %._crit_edge
 
 .lr.ph19:                                         ; preds = %.preheader
-  %wide.trip.count33 = zext i32 %16 to i64
+  %wide.trip.count33 = zext nneg i32 %16 to i64
   br label %17
 
 17:                                               ; preds = %.lr.ph19, %17
@@ -818,7 +818,7 @@ _ZNK16ciBytecodeStream9get_indexEv.exit:          ; preds = %_ZNK16ciBytecodeStr
   br i1 %195, label %.lr.ph19.i, label %._crit_edge.i47
 
 .lr.ph19.i:                                       ; preds = %.preheader.i
-  %wide.trip.count33.i = zext i32 %196 to i64
+  %wide.trip.count33.i = zext nneg i32 %196 to i64
   br label %197
 
 197:                                              ; preds = %197, %.lr.ph19.i
@@ -2007,14 +2007,14 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i:       ; preds = %_ZNK10ciMetadata9is
   %150 = getelementptr inbounds nuw i8, ptr %153, i64 84
   %151 = load i32, ptr %150, align 4
   %or.cond.i.i = icmp slt i32 %151, %.fr.i.i
-  br i1 %or.cond.i.i, label %._crit_edge.thread25.i.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %or.cond.i.i, label %._crit_edge.thread26.i.i, label %.lr.ph.i, !llvm.loop !19
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader.i, %.lr.ph.i.i55
   %.01517.i19.i = phi ptr [ %153, %.lr.ph.i.i55 ], [ %147, %.lr.ph.i.preheader.i ]
   %152 = getelementptr inbounds nuw i8, ptr %.01517.i19.i, i64 96
   %153 = load ptr, ptr %152, align 8
   %.not.i15.i = icmp eq ptr %153, null
-  br i1 %.not.i15.i, label %._crit_edge.thread25.i.i, label %.lr.ph.i.i55, !llvm.loop !19
+  br i1 %.not.i15.i, label %._crit_edge.thread26.i.i, label %.lr.ph.i.i55, !llvm.loop !19
 
 ._crit_edge.thread.i.i:                           ; preds = %.lr.ph.i.preheader.i, %146
   %154 = getelementptr inbounds nuw i8, ptr %125, i64 96
@@ -2022,14 +2022,14 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i:       ; preds = %_ZNK10ciMetadata9is
   store ptr %125, ptr %79, align 8
   br label %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit.i
 
-._crit_edge.thread25.i.i:                         ; preds = %.lr.ph.i, %.lr.ph.i.i55
+._crit_edge.thread26.i.i:                         ; preds = %.lr.ph.i, %.lr.ph.i.i55
   %155 = getelementptr inbounds nuw i8, ptr %.01517.i19.i, i64 96
   %156 = getelementptr inbounds nuw i8, ptr %125, i64 96
   store ptr %153, ptr %156, align 8
   store ptr %125, ptr %155, align 8
   br label %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit.i
 
-_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit.i: ; preds = %._crit_edge.thread25.i.i, %._crit_edge.thread.i.i, %142, %138, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i, %_ZNK10ciMetadata9is_loadedEv.exit.i
+_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit.i: ; preds = %._crit_edge.thread26.i.i, %._crit_edge.thread.i.i, %142, %138, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i, %_ZNK10ciMetadata9is_loadedEv.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN10ciTypeFlow15flow_exceptionsEP13GrowableArrayIPNS_5BlockEEPS0_IP15ciInstanceKlassEPNS_11StateVectorE.exit, label %122, !llvm.loop !20
@@ -2177,14 +2177,14 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i64:     ; preds = %_ZNK10ciMetadata9is
   %224 = getelementptr inbounds nuw i8, ptr %227, i64 84
   %225 = load i32, ptr %224, align 4
   %or.cond.i.i76 = icmp slt i32 %225, %.fr.i.i68
-  br i1 %or.cond.i.i76, label %._crit_edge.thread25.i.i77, label %.lr.ph.i72, !llvm.loop !19
+  br i1 %or.cond.i.i76, label %._crit_edge.thread26.i.i77, label %.lr.ph.i72, !llvm.loop !19
 
 .lr.ph.i72:                                       ; preds = %.lr.ph.i.preheader.i70, %.lr.ph.i.i75
   %.01517.i19.i73 = phi ptr [ %227, %.lr.ph.i.i75 ], [ %221, %.lr.ph.i.preheader.i70 ]
   %226 = getelementptr inbounds nuw i8, ptr %.01517.i19.i73, i64 96
   %227 = load ptr, ptr %226, align 8
   %.not.i15.i74 = icmp eq ptr %227, null
-  br i1 %.not.i15.i74, label %._crit_edge.thread25.i.i77, label %.lr.ph.i.i75, !llvm.loop !19
+  br i1 %.not.i15.i74, label %._crit_edge.thread26.i.i77, label %.lr.ph.i.i75, !llvm.loop !19
 
 ._crit_edge.thread.i.i78:                         ; preds = %.lr.ph.i.preheader.i70, %220
   %228 = getelementptr inbounds nuw i8, ptr %199, i64 96
@@ -2192,14 +2192,14 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i64:     ; preds = %_ZNK10ciMetadata9is
   store ptr %199, ptr %79, align 8
   br label %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit.i65
 
-._crit_edge.thread25.i.i77:                       ; preds = %.lr.ph.i72, %.lr.ph.i.i75
+._crit_edge.thread26.i.i77:                       ; preds = %.lr.ph.i72, %.lr.ph.i.i75
   %229 = getelementptr inbounds nuw i8, ptr %.01517.i19.i73, i64 96
   %230 = getelementptr inbounds nuw i8, ptr %199, i64 96
   store ptr %227, ptr %230, align 8
   store ptr %199, ptr %229, align 8
   br label %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit.i65
 
-_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit.i65: ; preds = %._crit_edge.thread25.i.i77, %._crit_edge.thread.i.i78, %216, %212, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i64, %_ZNK10ciMetadata9is_loadedEv.exit.i79
+_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit.i65: ; preds = %._crit_edge.thread26.i.i77, %._crit_edge.thread.i.i78, %216, %212, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i64, %_ZNK10ciMetadata9is_loadedEv.exit.i79
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, %wide.trip.count.i61
   br i1 %exitcond.not.i67, label %_ZN10ciTypeFlow15flow_exceptionsEP13GrowableArrayIPNS_5BlockEEPS0_IP15ciInstanceKlassEPNS_11StateVectorE.exit80, label %196, !llvm.loop !20
@@ -2281,13 +2281,13 @@ _ZNK10ciTypeFlow5Block14copy_jsrs_intoEPNS_6JsrSetE.exit: ; preds = %_ZN26Growab
   br i1 %.049, label %275, label %274
 
 274:                                              ; preds = %_ZNK10ciTypeFlow5Block14copy_jsrs_intoEPNS_6JsrSetE.exit, %267
-  %.0106 = phi ptr [ %260, %_ZNK10ciTypeFlow5Block14copy_jsrs_intoEPNS_6JsrSetE.exit ], [ %268, %267 ]
+  %.0123 = phi ptr [ %260, %_ZNK10ciTypeFlow5Block14copy_jsrs_intoEPNS_6JsrSetE.exit ], [ %268, %267 ]
   store i32 0, ptr %40, align 4
   br label %275
 
 275:                                              ; preds = %_ZNK10ciTypeFlow5Block14copy_jsrs_intoEPNS_6JsrSetE.exit, %274, %267
-  %.0107 = phi ptr [ %260, %_ZNK10ciTypeFlow5Block14copy_jsrs_intoEPNS_6JsrSetE.exit ], [ %.0106, %274 ], [ %268, %267 ]
-  call void @_ZN10ciTypeFlow15flow_successorsEP13GrowableArrayIPNS_5BlockEEPNS_11StateVectorE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %.0107, ptr noundef nonnull %2)
+  %.0124 = phi ptr [ %260, %_ZNK10ciTypeFlow5Block14copy_jsrs_intoEPNS_6JsrSetE.exit ], [ %.0123, %274 ], [ %268, %267 ]
+  call void @_ZN10ciTypeFlow15flow_successorsEP13GrowableArrayIPNS_5BlockEEPNS_11StateVectorE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %.0124, ptr noundef nonnull %2)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN10ciTypeFlow15flow_exceptionsEP13GrowableArrayIPNS_5BlockEEPS0_IP15ciInstanceKlassEPNS_11StateVectorE.exit, %275, %170
@@ -6302,9 +6302,9 @@ define hidden void @_ZN10ciTypeFlow8SuccIter8set_succEPNS_5BlockE(ptr noundef no
   br label %_ZN10ciTypeFlow5Block10exceptionsEv.exit
 
 _ZN10ciTypeFlow5Block10exceptionsEv.exit:         ; preds = %15, %10, %2
-  %.sink8 = phi ptr [ %5, %2 ], [ %.pre.i, %15 ], [ %13, %10 ]
+  %.sink10 = phi ptr [ %5, %2 ], [ %.pre.i, %15 ], [ %13, %10 ]
   %.sink = phi i32 [ %8, %2 ], [ %11, %15 ], [ %11, %10 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sink8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.sink10, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %.sink to i64
   %19 = getelementptr inbounds ptr, ptr %17, i64 %18
@@ -7585,8 +7585,8 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %33, %_ZNK10ciMetada
   br i1 %.not7, label %11, label %.loopexit, !llvm.loop !31
 
 .loopexit.sink.split:                             ; preds = %26, %44
-  %.sink20 = phi i32 [ %45, %44 ], [ %12, %26 ]
-  %57 = add nsw i32 %.sink20, 1
+  %.sink21 = phi i32 [ %45, %44 ], [ %12, %26 ]
+  %57 = add nsw i32 %.sink21, 1
   store i32 %57, ptr %7, align 4
   br label %.loopexit
 
@@ -8006,27 +8006,27 @@ define hidden void @_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE(ptr noundef no
 .lr.ph.preheader:                                 ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
   %9 = load i32, ptr %8, align 4
-  %or.cond34 = icmp slt i32 %9, %invariant.smax
-  br i1 %or.cond34, label %._crit_edge, label %.lr.ph36
+  %or.cond35 = icmp slt i32 %9, %invariant.smax
+  br i1 %or.cond35, label %._crit_edge, label %.lr.ph37
 
-.lr.ph:                                           ; preds = %.lr.ph36
+.lr.ph:                                           ; preds = %.lr.ph37
   %10 = getelementptr inbounds nuw i8, ptr %13, i64 84
   %11 = load i32, ptr %10, align 4
   %or.cond = icmp slt i32 %11, %invariant.smax
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph36, !llvm.loop !19
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph37, !llvm.loop !19
 
-.lr.ph36:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0151735 = phi ptr [ %13, %.lr.ph ], [ %5, %.lr.ph.preheader ]
-  %12 = getelementptr inbounds nuw i8, ptr %.0151735, i64 96
+.lr.ph37:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0151736 = phi ptr [ %13, %.lr.ph ], [ %5, %.lr.ph.preheader ]
+  %12 = getelementptr inbounds nuw i8, ptr %.0151736, i64 96
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge.thread25, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge.thread26, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader
-  %.018.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0151735, %.lr.ph ]
+  %.018.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0151736, %.lr.ph ]
   %.01517.lcssa = phi ptr [ %5, %.lr.ph.preheader ], [ %13, %.lr.ph ]
   %14 = icmp eq ptr %.018.lcssa, null
-  br i1 %14, label %._crit_edge.thread, label %._crit_edge.thread25
+  br i1 %14, label %._crit_edge.thread, label %._crit_edge.thread26
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -8034,16 +8034,16 @@ define hidden void @_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE(ptr noundef no
   store ptr %1, ptr %4, align 8
   br label %18
 
-._crit_edge.thread25:                             ; preds = %.lr.ph36, %._crit_edge
-  %.0.lcssa29 = phi ptr [ %.018.lcssa, %._crit_edge ], [ %.0151735, %.lr.ph36 ]
-  %.015.lcssa28 = phi ptr [ %.01517.lcssa, %._crit_edge ], [ null, %.lr.ph36 ]
+._crit_edge.thread26:                             ; preds = %.lr.ph37, %._crit_edge
+  %.0.lcssa30 = phi ptr [ %.018.lcssa, %._crit_edge ], [ %.0151736, %.lr.ph37 ]
+  %.015.lcssa29 = phi ptr [ %.01517.lcssa, %._crit_edge ], [ null, %.lr.ph37 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store ptr %.015.lcssa28, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.lcssa29, i64 96
+  store ptr %.015.lcssa29, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.lcssa30, i64 96
   store ptr %1, ptr %17, align 8
   br label %18
 
-18:                                               ; preds = %._crit_edge.thread25, %._crit_edge.thread
+18:                                               ; preds = %._crit_edge.thread26, %._crit_edge.thread
   ret void
 }
 
@@ -8300,14 +8300,14 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %10, %_ZNK10ciMetada
   %38 = getelementptr inbounds nuw i8, ptr %41, i64 84
   %39 = load i32, ptr %38, align 4
   %or.cond.i = icmp slt i32 %39, %.fr.i
-  br i1 %or.cond.i, label %._crit_edge.thread25.i, label %.lr.ph, !llvm.loop !19
+  br i1 %or.cond.i, label %._crit_edge.thread26.i, label %.lr.ph, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.01517.i19 = phi ptr [ %41, %.lr.ph.i ], [ %35, %.lr.ph.i.preheader ]
   %40 = getelementptr inbounds nuw i8, ptr %.01517.i19, i64 96
   %41 = load ptr, ptr %40, align 8
   %.not.i15 = icmp eq ptr %41, null
-  br i1 %.not.i15, label %._crit_edge.thread25.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i15, label %._crit_edge.thread26.i, label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge.thread.i:                             ; preds = %.lr.ph.i.preheader, %34
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 96
@@ -8315,14 +8315,14 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %10, %_ZNK10ciMetada
   store ptr %13, ptr %9, align 8
   br label %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit
 
-._crit_edge.thread25.i:                           ; preds = %.lr.ph, %.lr.ph.i
+._crit_edge.thread26.i:                           ; preds = %.lr.ph, %.lr.ph.i
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store ptr %41, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.01517.i19, i64 96
   store ptr %13, ptr %44, align 8
   br label %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit
 
-_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit: ; preds = %._crit_edge.thread25.i, %._crit_edge.thread.i, %_ZNK10ciMetadata9is_loadedEv.exit.thread, %30, %26, %_ZNK10ciMetadata9is_loadedEv.exit
+_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit: ; preds = %._crit_edge.thread26.i, %._crit_edge.thread.i, %_ZNK10ciMetadata9is_loadedEv.exit.thread, %30, %26, %_ZNK10ciMetadata9is_loadedEv.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !20
@@ -8413,7 +8413,7 @@ define hidden void @_ZN10ciTypeFlow15flow_successorsEP13GrowableArrayIPNS_5Block
   br label %.lr.ph.i.i.outer
 
 .lr.ph.i.i.outer:                                 ; preds = %.thread, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i.ph = phi i64 [ %indvars.iv.next.i.i25, %.thread ], [ 0, %.lr.ph.preheader.i.i ]
+  %indvars.iv.i.i.ph = phi i64 [ %indvars.iv.next.i.i33, %.thread ], [ 0, %.lr.ph.preheader.i.i ]
   %.02529.i.i.ph = phi i1 [ true, %.thread ], [ false, %.lr.ph.preheader.i.i ]
   br label %.lr.ph.i.i
 
@@ -8443,9 +8443,9 @@ define hidden void @_ZN10ciTypeFlow15flow_successorsEP13GrowableArrayIPNS_5Block
   %61 = load ptr, ptr %15, align 8
   %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i.i
   store ptr %58, ptr %62, align 8
-  %indvars.iv.next.i.i25 = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i26 = icmp eq i64 %indvars.iv.next.i.i25, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i26, label %_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit.thread, label %.lr.ph.i.i.outer, !llvm.loop !23
+  %indvars.iv.next.i.i33 = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i34 = icmp eq i64 %indvars.iv.next.i.i33, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i34, label %_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit.thread, label %.lr.ph.i.i.outer, !llvm.loop !23
 
 _ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit: ; preds = %60
   br i1 %.02529.i.i.ph, label %_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit.thread, label %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit
@@ -8479,14 +8479,14 @@ _ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit.thread: ; preds = %.thread, 
   %74 = getelementptr inbounds nuw i8, ptr %77, i64 84
   %75 = load i32, ptr %74, align 4
   %or.cond.i = icmp slt i32 %75, %.fr.i
-  br i1 %or.cond.i, label %._crit_edge.thread25.i, label %.lr.ph, !llvm.loop !19
+  br i1 %or.cond.i, label %._crit_edge.thread26.i, label %.lr.ph, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.01517.i17 = phi ptr [ %77, %.lr.ph.i ], [ %71, %.lr.ph.i.preheader ]
   %76 = getelementptr inbounds nuw i8, ptr %.01517.i17, i64 96
   %77 = load ptr, ptr %76, align 8
   %.not.i = icmp eq ptr %77, null
-  br i1 %.not.i, label %._crit_edge.thread25.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i, label %._crit_edge.thread26.i, label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge.thread.i:                             ; preds = %.lr.ph.i.preheader, %70
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 96
@@ -8494,14 +8494,14 @@ _ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit.thread: ; preds = %.thread, 
   store ptr %13, ptr %9, align 8
   br label %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit
 
-._crit_edge.thread25.i:                           ; preds = %.lr.ph, %.lr.ph.i
+._crit_edge.thread26.i:                           ; preds = %.lr.ph, %.lr.ph.i
   %79 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store ptr %77, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %.01517.i17, i64 96
   store ptr %13, ptr %80, align 8
   br label %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit
 
-_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit: ; preds = %40, %._crit_edge.thread25.i, %._crit_edge.thread.i, %_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit, %66, %_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit.thread
+_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit: ; preds = %40, %._crit_edge.thread26.i, %._crit_edge.thread.i, %_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit, %66, %_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !38
@@ -9079,9 +9079,9 @@ _ZN10ciTypeFlow5Block10exceptionsEv.exit18.i128:  ; preds = %113, %_ZNK10ciMetad
   br label %_ZN10ciTypeFlow8SuccIter8set_succEPNS_5BlockE.exit
 
 _ZN10ciTypeFlow8SuccIter8set_succEPNS_5BlockE.exit: ; preds = %124, %127, %131
-  %.sink8.i = phi ptr [ %.pre267, %124 ], [ %.pre.i.i, %131 ], [ %129, %127 ]
+  %.sink10.i = phi ptr [ %.pre267, %124 ], [ %.pre.i.i, %131 ], [ %129, %127 ]
   %.sink.i = phi i32 [ %.sroa.10169.0236, %124 ], [ %128, %131 ], [ %128, %127 ]
-  %132 = getelementptr inbounds nuw i8, ptr %.sink8.i, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %.sink10.i, i64 8
   %133 = load ptr, ptr %132, align 8
   %134 = sext i32 %.sink.i to i64
   %135 = getelementptr inbounds ptr, ptr %133, i64 %134
@@ -9482,9 +9482,9 @@ _ZN10ciTypeFlow5Block10exceptionsEv.exit18.i148:  ; preds = %297, %_ZNK10ciMetad
   br label %_ZN10ciTypeFlow8SuccIter8set_succEPNS_5BlockE.exit83
 
 _ZN10ciTypeFlow8SuccIter8set_succEPNS_5BlockE.exit83: ; preds = %308, %310, %314
-  %.sink8.i80 = phi ptr [ %306, %308 ], [ %.pre.i.i82, %314 ], [ %312, %310 ]
+  %.sink10.i80 = phi ptr [ %306, %308 ], [ %.pre.i.i82, %314 ], [ %312, %310 ]
   %.sink.i81 = phi i32 [ %.sroa.10.0239, %308 ], [ %311, %314 ], [ %311, %310 ]
-  %315 = getelementptr inbounds nuw i8, ptr %.sink8.i80, i64 8
+  %315 = getelementptr inbounds nuw i8, ptr %.sink10.i80, i64 8
   %316 = load ptr, ptr %315, align 8
   %317 = sext i32 %.sink.i81 to i64
   %318 = getelementptr inbounds ptr, ptr %316, i64 %317
@@ -9865,22 +9865,22 @@ define hidden noundef i32 @_ZN10ciTypeFlow4Loop14profiled_countEv(ptr noundef no
   br i1 %75, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %73, %64, %56
-  %.sink40 = phi ptr [ %62, %56 ], [ %71, %64 ], [ %71, %73 ]
-  %.sink34 = phi i64 [ 24, %56 ], [ 24, %64 ], [ 56, %73 ]
-  %.sink29 = phi i64 [ 8, %56 ], [ 8, %64 ], [ 24, %73 ]
-  %76 = getelementptr inbounds nuw i8, ptr %.sink40, i64 56
+  %.sink45 = phi ptr [ %62, %56 ], [ %71, %64 ], [ %71, %73 ]
+  %.sink39 = phi i64 [ 24, %56 ], [ 24, %64 ], [ 56, %73 ]
+  %.sink34 = phi i64 [ 8, %56 ], [ 8, %64 ], [ 24, %73 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.sink45, i64 56
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr %30, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %.sink34
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %.sink39
   %84 = load ptr, ptr %83, align 8
   %85 = call noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(16) %30) #14
   %86 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %.sink29
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %.sink34
   %89 = load i64, ptr %88, align 8
   %90 = trunc i64 %89 to i32
   %91 = call noundef i32 @_ZN8ciMethod11scale_countEif(ptr noundef nonnull align 8 dereferenceable(160) %81, i32 noundef %90, float noundef 1.000000e+00) #14
@@ -10060,7 +10060,7 @@ define hidden noundef nonnull ptr @_ZN10ciTypeFlow4Loop12sorted_mergeEPS0_(ptr n
 
 .lr.ph62:                                         ; preds = %2, %39
   %.02361 = phi ptr [ %40, %39 ], [ %1, %2 ]
-  %.02460 = phi ptr [ %.1.lcssa71, %39 ], [ %0, %2 ]
+  %.02460 = phi ptr [ %.1.lcssa77, %39 ], [ %0, %2 ]
   %.02559 = phi ptr [ %.02361, %39 ], [ null, %2 ]
   %.02758 = phi ptr [ %.128, %39 ], [ %0, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.02361, i64 24
@@ -10137,14 +10137,14 @@ _ZN10ciTypeFlow4Loop18at_insertion_pointEPS0_S1_.exit.thread34: ; preds = %24, %
 
 37:                                               ; preds = %.split.thread, %.split
   %38 = phi ptr [ %35, %.split.thread ], [ %36, %.split ]
-  %.1.lcssa70 = phi ptr [ null, %.split.thread ], [ %.1.lcssa, %.split ]
-  %.126.lcssa69 = phi ptr [ %.143, %.split.thread ], [ %.126.lcssa, %.split ]
-  store ptr %.02361, ptr %.126.lcssa69, align 8
+  %.1.lcssa76 = phi ptr [ null, %.split.thread ], [ %.1.lcssa, %.split ]
+  %.126.lcssa75 = phi ptr [ %.143, %.split.thread ], [ %.126.lcssa, %.split ]
+  store ptr %.02361, ptr %.126.lcssa75, align 8
   br label %39
 
 39:                                               ; preds = %.split, %37
   %40 = phi ptr [ %38, %37 ], [ %36, %.split ]
-  %.1.lcssa71 = phi ptr [ %.1.lcssa70, %37 ], [ %.1.lcssa, %.split ]
+  %.1.lcssa77 = phi ptr [ %.1.lcssa76, %37 ], [ %.1.lcssa, %.split ]
   %.128 = phi ptr [ %.02758, %37 ], [ %.02361, %.split ]
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %.loopexit, label %.lr.ph62, !llvm.loop !54
@@ -10282,27 +10282,27 @@ define hidden void @_ZN10ciTypeFlow15build_loop_treeEPNS_5BlockE(ptr noundef non
   %62 = getelementptr inbounds nuw i8, ptr %65, i64 84
   %63 = load i32, ptr %62, align 4
   %or.cond.i = icmp slt i32 %63, %invariant.smax.i
-  br i1 %or.cond.i, label %._crit_edge.thread25.i, label %.lr.ph, !llvm.loop !19
+  br i1 %or.cond.i, label %._crit_edge.thread26.i, label %.lr.ph, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.01517.i81 = phi ptr [ %65, %.lr.ph.i ], [ %58, %.lr.ph.i.preheader ]
   %64 = getelementptr inbounds nuw i8, ptr %.01517.i81, i64 96
   %65 = load ptr, ptr %64, align 8
   %.not.i = icmp eq ptr %65, null
-  br i1 %.not.i, label %._crit_edge.thread25.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i, label %._crit_edge.thread26.i, label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge.thread.i:                             ; preds = %.lr.ph.i.preheader, %57
   store ptr %58, ptr %43, align 8
   store ptr %12, ptr %10, align 8
   br label %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit
 
-._crit_edge.thread25.i:                           ; preds = %.lr.ph, %.lr.ph.i
+._crit_edge.thread26.i:                           ; preds = %.lr.ph, %.lr.ph.i
   store ptr %65, ptr %43, align 8
   %66 = getelementptr inbounds nuw i8, ptr %.01517.i81, i64 96
   store ptr %12, ptr %66, align 8
   br label %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit
 
-_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit: ; preds = %._crit_edge.thread25.i, %._crit_edge.thread.i, %51
+_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit: ; preds = %._crit_edge.thread26.i, %._crit_edge.thread.i, %51
   %67 = load ptr, ptr %.2, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %.critedge2, label %44, !llvm.loop !56
@@ -10313,7 +10313,7 @@ _ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit: ; preds = %._crit_edge.threa
 
 .lr.ph62.i:                                       ; preds = %.critedge2, %106
   %.02361.i = phi ptr [ %107, %106 ], [ %.2, %.critedge2 ]
-  %.02460.i = phi ptr [ %.1.lcssa71.i, %106 ], [ %.05983, %.critedge2 ]
+  %.02460.i = phi ptr [ %.1.lcssa77.i, %106 ], [ %.05983, %.critedge2 ]
   %.02559.i = phi ptr [ %.02361.i, %106 ], [ null, %.critedge2 ]
   %.02758.i = phi ptr [ %.128.i, %106 ], [ %.05983, %.critedge2 ]
   %70 = getelementptr inbounds nuw i8, ptr %.02361.i, i64 24
@@ -10390,14 +10390,14 @@ _ZN10ciTypeFlow4Loop18at_insertion_pointEPS0_S1_.exit.thread34.i: ; preds = %_ZN
 
 104:                                              ; preds = %.split.i, %.split.thread.i
   %105 = phi ptr [ %102, %.split.thread.i ], [ %103, %.split.i ]
-  %.1.lcssa70.i = phi ptr [ null, %.split.thread.i ], [ %.1.lcssa.i, %.split.i ]
-  %.126.lcssa69.i = phi ptr [ %.143.i, %.split.thread.i ], [ %.126.lcssa.i, %.split.i ]
-  store ptr %.02361.i, ptr %.126.lcssa69.i, align 8
+  %.1.lcssa76.i = phi ptr [ null, %.split.thread.i ], [ %.1.lcssa.i, %.split.i ]
+  %.126.lcssa75.i = phi ptr [ %.143.i, %.split.thread.i ], [ %.126.lcssa.i, %.split.i ]
+  store ptr %.02361.i, ptr %.126.lcssa75.i, align 8
   br label %106
 
 106:                                              ; preds = %104, %.split.i
   %107 = phi ptr [ %105, %104 ], [ %103, %.split.i ]
-  %.1.lcssa71.i = phi ptr [ %.1.lcssa70.i, %104 ], [ %.1.lcssa.i, %.split.i ]
+  %.1.lcssa77.i = phi ptr [ %.1.lcssa76.i, %104 ], [ %.1.lcssa.i, %.split.i ]
   %.128.i = phi ptr [ %.02758.i, %104 ], [ %.02361.i, %.split.i ]
   %.not.i69 = icmp eq ptr %107, null
   br i1 %.not.i69, label %_ZN10ciTypeFlow4Loop12sorted_mergeEPS0_.exit, label %.lr.ph62.i, !llvm.loop !54
@@ -10864,8 +10864,8 @@ _ZN10ciTypeFlow8SuccIter4nextEv.exit:             ; preds = %141, %_ZN10ciTypeFl
   br i1 %185, label %._crit_edge.thread, label %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit
 
 ._crit_edge.thread:                               ; preds = %100, %._crit_edge
-  %.sroa.31.2.lcssa132 = phi ptr [ %.sroa.31.3, %._crit_edge ], [ %.sroa.31.0119, %100 ]
-  %.sroa.20.2.lcssa131 = phi i32 [ %.sroa.20.3, %._crit_edge ], [ %.sroa.20.0117, %100 ]
+  %.sroa.31.2.lcssa147 = phi ptr [ %.sroa.31.3, %._crit_edge ], [ %.sroa.31.0119, %100 ]
+  %.sroa.20.2.lcssa146 = phi i32 [ %.sroa.20.3, %._crit_edge ], [ %.sroa.20.0117, %100 ]
   %186 = add nsw i32 %.sroa.0.0118, -1
   tail call void @_ZN10ciTypeFlow15build_loop_treeEPNS_5BlockE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %56)
   %187 = add nsw i32 %.0120, 1
@@ -10910,14 +10910,14 @@ _ZNK10ciTypeFlow5Block12is_loop_headEv.exit:      ; preds = %._crit_edge.thread
   %204 = getelementptr inbounds nuw i8, ptr %207, i64 84
   %205 = load i32, ptr %204, align 4
   %or.cond.i = icmp slt i32 %205, %invariant.smax.i
-  br i1 %or.cond.i, label %._crit_edge.thread25.i, label %.lr.ph114, !llvm.loop !19
+  br i1 %or.cond.i, label %._crit_edge.thread26.i, label %.lr.ph114, !llvm.loop !19
 
 .lr.ph114:                                        ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.01517.i113 = phi ptr [ %207, %.lr.ph.i ], [ %200, %.lr.ph.i.preheader ]
   %206 = getelementptr inbounds nuw i8, ptr %.01517.i113, i64 96
   %207 = load ptr, ptr %206, align 8
   %.not.i37 = icmp eq ptr %207, null
-  br i1 %.not.i37, label %._crit_edge.thread25.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i37, label %._crit_edge.thread26.i, label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge.thread.i:                             ; preds = %.lr.ph.i.preheader, %199
   %208 = getelementptr inbounds nuw i8, ptr %56, i64 96
@@ -10925,7 +10925,7 @@ _ZNK10ciTypeFlow5Block12is_loop_headEv.exit:      ; preds = %._crit_edge.thread
   store ptr %56, ptr %51, align 8
   br label %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit
 
-._crit_edge.thread25.i:                           ; preds = %.lr.ph114, %.lr.ph.i
+._crit_edge.thread26.i:                           ; preds = %.lr.ph114, %.lr.ph.i
   %209 = getelementptr inbounds nuw i8, ptr %56, i64 96
   store ptr %207, ptr %209, align 8
   %210 = getelementptr inbounds nuw i8, ptr %.01517.i113, i64 96
@@ -10936,11 +10936,11 @@ _ZNK10ciTypeFlow5Block12is_loop_headEv.exit:      ; preds = %._crit_edge.thread
   %212 = add nsw i32 %.sroa.0.0118, -1
   br label %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit
 
-_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit: ; preds = %._crit_edge.thread, %._crit_edge.thread25.i, %._crit_edge.thread.i, %211, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit, %195, %._crit_edge, %87, %88
-  %.sroa.20.1 = phi i32 [ %.sroa.20.0117, %211 ], [ %.sroa.20.2.lcssa131, %195 ], [ %.sroa.20.2.lcssa131, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit ], [ %.sroa.20.3, %._crit_edge ], [ %.sroa.20.0117, %88 ], [ %.sroa.20.0117, %87 ], [ %.sroa.20.2.lcssa131, %._crit_edge.thread.i ], [ %.sroa.20.2.lcssa131, %._crit_edge.thread25.i ], [ %.sroa.20.2.lcssa131, %._crit_edge.thread ]
-  %.sroa.0.1 = phi i32 [ %212, %211 ], [ %186, %195 ], [ %186, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit ], [ %.sroa.0.3, %._crit_edge ], [ %.sroa.0.0118, %88 ], [ %.sroa.0.0118, %87 ], [ %186, %._crit_edge.thread.i ], [ %186, %._crit_edge.thread25.i ], [ %186, %._crit_edge.thread ]
-  %.sroa.31.1 = phi ptr [ %.sroa.31.0119, %211 ], [ %.sroa.31.2.lcssa132, %195 ], [ %.sroa.31.2.lcssa132, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit ], [ %.sroa.31.3, %._crit_edge ], [ %.sroa.31.0119, %88 ], [ %.sroa.31.0119, %87 ], [ %.sroa.31.2.lcssa132, %._crit_edge.thread.i ], [ %.sroa.31.2.lcssa132, %._crit_edge.thread25.i ], [ %.sroa.31.2.lcssa132, %._crit_edge.thread ]
-  %.1 = phi i32 [ %.0120, %211 ], [ %187, %195 ], [ %187, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit ], [ %.0120, %._crit_edge ], [ %.0120, %88 ], [ %.0120, %87 ], [ %187, %._crit_edge.thread.i ], [ %187, %._crit_edge.thread25.i ], [ %187, %._crit_edge.thread ]
+_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit: ; preds = %._crit_edge.thread, %._crit_edge.thread26.i, %._crit_edge.thread.i, %211, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit, %195, %._crit_edge, %87, %88
+  %.sroa.20.1 = phi i32 [ %.sroa.20.0117, %211 ], [ %.sroa.20.2.lcssa146, %195 ], [ %.sroa.20.2.lcssa146, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit ], [ %.sroa.20.3, %._crit_edge ], [ %.sroa.20.0117, %88 ], [ %.sroa.20.0117, %87 ], [ %.sroa.20.2.lcssa146, %._crit_edge.thread.i ], [ %.sroa.20.2.lcssa146, %._crit_edge.thread26.i ], [ %.sroa.20.2.lcssa146, %._crit_edge.thread ]
+  %.sroa.0.1 = phi i32 [ %212, %211 ], [ %186, %195 ], [ %186, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit ], [ %.sroa.0.3, %._crit_edge ], [ %.sroa.0.0118, %88 ], [ %.sroa.0.0118, %87 ], [ %186, %._crit_edge.thread.i ], [ %186, %._crit_edge.thread26.i ], [ %186, %._crit_edge.thread ]
+  %.sroa.31.1 = phi ptr [ %.sroa.31.0119, %211 ], [ %.sroa.31.2.lcssa147, %195 ], [ %.sroa.31.2.lcssa147, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit ], [ %.sroa.31.3, %._crit_edge ], [ %.sroa.31.0119, %88 ], [ %.sroa.31.0119, %87 ], [ %.sroa.31.2.lcssa147, %._crit_edge.thread.i ], [ %.sroa.31.2.lcssa147, %._crit_edge.thread26.i ], [ %.sroa.31.2.lcssa147, %._crit_edge.thread ]
+  %.1 = phi i32 [ %.0120, %211 ], [ %187, %195 ], [ %187, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit ], [ %.0120, %._crit_edge ], [ %.0120, %88 ], [ %.0120, %87 ], [ %187, %._crit_edge.thread.i ], [ %187, %._crit_edge.thread26.i ], [ %187, %._crit_edge.thread ]
   %213 = icmp sgt i32 %.sroa.0.1, 0
   br i1 %213, label %52, label %_ZN13GrowableArrayIPN10ciTypeFlow5BlockEED2Ev.exit, !llvm.loop !60
 
@@ -11924,17 +11924,17 @@ _ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61: ; preds =
   br i1 %.not, label %.loopexit, label %.lr.ph81, !llvm.loop !68
 
 .thread:                                          ; preds = %.thr_comm, %209
-  %.lcssa105.sink = phi i64 [ %210, %209 ], [ %205, %.thr_comm ]
+  %.lcssa117.sink = phi i64 [ %210, %209 ], [ %205, %.thr_comm ]
   %.03965 = phi i8 [ 0, %209 ], [ 1, %.thr_comm ]
-  %216 = getelementptr inbounds i8, ptr %139, i64 %.lcssa105.sink
+  %216 = getelementptr inbounds i8, ptr %139, i64 %.lcssa117.sink
   store i8 %.03965, ptr %216, align 1
   %217 = getelementptr inbounds nuw i8, ptr %.04076, i64 104
-  %.04091 = load ptr, ptr %217, align 8
-  %.not92 = icmp eq ptr %.04091, null
-  br i1 %.not92, label %.splitthread-pre-split, label %.lr.ph81.outer.backedge
+  %.040103 = load ptr, ptr %217, align 8
+  %.not104 = icmp eq ptr %.040103, null
+  br i1 %.not104, label %.splitthread-pre-split, label %.lr.ph81.outer.backedge
 
 .lr.ph81.outer.backedge:                          ; preds = %.thread, %.loopexit, %.splitthread-pre-split
-  %.04076.ph.be = phi ptr [ %.04091, %.thread ], [ %.04073.pr.old, %.splitthread-pre-split ], [ %.04073.pr, %.loopexit ]
+  %.04076.ph.be = phi ptr [ %.040103, %.thread ], [ %.04073.pr.old, %.splitthread-pre-split ], [ %.04073.pr, %.loopexit ]
   %.175.ph.not.be = phi i1 [ false, %.thread ], [ true, %.splitthread-pre-split ], [ true, %.loopexit ]
   br label %.lr.ph81.outer, !llvm.loop !69
 

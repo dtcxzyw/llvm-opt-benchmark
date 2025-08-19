@@ -30,29 +30,29 @@ define dso_local range(i32 -128, 128) i32 @tgetopt(i32 noundef %0, ptr noundef c
   br i1 %tgetopt.done.promoted.pre, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %6
-  %tgetopt.nextchar.promoted78 = phi ptr [ null, %.thread ], [ %tgetopt.nextchar.promoted.pre, %6 ]
+  %tgetopt.nextchar.promoted81 = phi ptr [ null, %.thread ], [ %tgetopt.nextchar.promoted.pre, %6 ]
   %7 = sext i32 %0 to i64
-  %8 = icmp ne ptr %tgetopt.nextchar.promoted78, null
+  %8 = icmp ne ptr %tgetopt.nextchar.promoted81, null
   %9 = icmp slt i32 %4, %0
   %10 = or i1 %8, %9
-  br i1 %10, label %.lr.ph97, label %.critedge
+  br i1 %10, label %.lr.ph100, label %.critedge
 
-.lr.ph97:                                         ; preds = %.lr.ph.preheader
+.lr.ph100:                                        ; preds = %.lr.ph.preheader
   %11 = sext i32 %4 to i64
   br label %12
 
-12:                                               ; preds = %.lr.ph97, %.lr.ph
-  %13 = phi i1 [ %9, %.lr.ph97 ], [ %33, %.lr.ph ]
-  %14 = phi ptr [ %tgetopt.nextchar.promoted78, %.lr.ph97 ], [ %31, %.lr.ph ]
-  %indvars.iv96 = phi i64 [ %11, %.lr.ph97 ], [ %indvars.iv.next, %.lr.ph ]
+12:                                               ; preds = %.lr.ph100, %.lr.ph
+  %13 = phi i1 [ %9, %.lr.ph100 ], [ %33, %.lr.ph ]
+  %14 = phi ptr [ %tgetopt.nextchar.promoted81, %.lr.ph100 ], [ %31, %.lr.ph ]
+  %indvars.iv99 = phi i64 [ %11, %.lr.ph100 ], [ %indvars.iv.next, %.lr.ph ]
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %35
 
 16:                                               ; preds = %12
-  %indvars.iv.next = add nsw i64 %indvars.iv96, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv99, 1
   %17 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %17, ptr @toptind, align 4, !tbaa !5
-  %18 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv96
+  %18 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv99
   %19 = load ptr, ptr %18, align 8, !tbaa !9
   %20 = load i8, ptr %19, align 1, !tbaa !12
   %21 = icmp eq i8 %20, 45
@@ -73,7 +73,7 @@ define dso_local range(i32 -128, 128) i32 @tgetopt(i32 noundef %0, ptr noundef c
   br i1 %28, label %..critedge_crit_edge.critedge, label %30
 
 ..critedge_crit_edge.critedge:                    ; preds = %25
-  %29 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv96
+  %29 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv99
   store ptr null, ptr %29, align 8, !tbaa !9
   br label %.critedge
 
@@ -89,7 +89,7 @@ define dso_local range(i32 -128, 128) i32 @tgetopt(i32 noundef %0, ptr noundef c
   br i1 %34, label %12, label %.critedge
 
 35:                                               ; preds = %12
-  %36 = trunc nsw i64 %indvars.iv96 to i32
+  %36 = trunc nsw i64 %indvars.iv99 to i32
   %37 = load i8, ptr %14, align 1, !tbaa !12
   %38 = sext i8 %37 to i32
   %39 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %38) #3
@@ -116,7 +116,7 @@ define dso_local range(i32 -128, 128) i32 @tgetopt(i32 noundef %0, ptr noundef c
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %48 = load i8, ptr %47, align 1, !tbaa !12
   %49 = icmp eq i8 %48, 58
-  br i1 %49, label %50, label %.thread79
+  br i1 %49, label %50, label %.thread82
 
 50:                                               ; preds = %45
   %51 = load i8, ptr %46, align 1, !tbaa !12
@@ -126,7 +126,7 @@ define dso_local range(i32 -128, 128) i32 @tgetopt(i32 noundef %0, ptr noundef c
 52:                                               ; preds = %50
   store ptr %46, ptr @toptarg, align 8, !tbaa !9
   store ptr @tgetopt.empty, ptr @tgetopt.nextchar, align 8, !tbaa !9
-  br label %.thread79
+  br label %.thread82
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %39, i64 2
@@ -135,10 +135,10 @@ define dso_local range(i32 -128, 128) i32 @tgetopt(i32 noundef %0, ptr noundef c
   br i1 %13, label %56, label %63
 
 56:                                               ; preds = %53
-  br i1 %.not41, label %.thread79, label %57
+  br i1 %.not41, label %.thread82, label %57
 
 57:                                               ; preds = %56
-  %sext = shl i64 %indvars.iv96, 32
+  %sext = shl i64 %indvars.iv99, 32
   %58 = ashr exact i64 %sext, 29
   %59 = getelementptr i8, ptr %1, i64 %58
   %60 = getelementptr i8, ptr %59, i64 -8
@@ -147,10 +147,10 @@ define dso_local range(i32 -128, 128) i32 @tgetopt(i32 noundef %0, ptr noundef c
   store i32 %61, ptr @toptind, align 4, !tbaa !5
   %62 = load ptr, ptr %59, align 8, !tbaa !9
   store ptr %62, ptr @toptarg, align 8, !tbaa !9
-  br label %.thread79
+  br label %.thread82
 
 63:                                               ; preds = %53
-  br i1 %.not41, label %.thread79, label %64
+  br i1 %.not41, label %.thread82, label %64
 
 64:                                               ; preds = %63
   %65 = load i32, ptr @topterr, align 4, !tbaa !5
@@ -173,16 +173,16 @@ define dso_local range(i32 -128, 128) i32 @tgetopt(i32 noundef %0, ptr noundef c
   %70 = load i8, ptr %2, align 1, !tbaa !12
   %71 = icmp eq i8 %70, 58
   %72 = select i1 %71, i8 58, i8 63
-  br label %.thread79
+  br label %.thread82
 
-.thread79:                                        ; preds = %56, %52, %63, %69, %57, %45
+.thread82:                                        ; preds = %56, %52, %63, %69, %57, %45
   %73 = phi ptr [ @tgetopt.empty, %52 ], [ %46, %57 ], [ %.pre74, %69 ], [ %46, %63 ], [ %46, %45 ], [ %46, %56 ]
   %.032 = phi i8 [ %37, %52 ], [ %37, %57 ], [ %72, %69 ], [ %37, %63 ], [ %37, %45 ], [ %37, %56 ]
   %74 = load i8, ptr %73, align 1, !tbaa !12
   %75 = icmp eq i8 %74, 0
   br i1 %75, label %76, label %81
 
-76:                                               ; preds = %.thread79
+76:                                               ; preds = %.thread82
   %77 = load i32, ptr @toptind, align 4, !tbaa !5
   %78 = sext i32 %77 to i64
   %79 = getelementptr ptr, ptr %1, i64 %78
@@ -191,7 +191,7 @@ define dso_local range(i32 -128, 128) i32 @tgetopt(i32 noundef %0, ptr noundef c
   store ptr null, ptr @tgetopt.nextchar, align 8, !tbaa !9
   br label %81
 
-81:                                               ; preds = %76, %.thread79
+81:                                               ; preds = %76, %.thread82
   %82 = sext i8 %.032 to i32
   br label %95
 

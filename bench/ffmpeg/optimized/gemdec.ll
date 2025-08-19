@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @gem_gray = internal unnamed_addr constant [256 x i8] c"\FF\7F\BF?\DF_\9F\1F\EFo\AF/\CFO\8F\0F\F7w\B77\D7W\97\17\E7g\A7'\C7G\87\07\FB{\BB;\DB[\9B\1B\EBk\AB+\CBK\8B\0B\F3s\B33\D3S\93\13\E3c\A3#\C3C\83\03\FD}\BD=\DD]\9D\1D\EDm\AD-\CDM\8D\0D\F5u\B55\D5U\95\15\E5e\A5%\C5E\85\05\F9y\B99\D9Y\99\19\E9i\A9)\C9I\89\09\F1q\B11\D1Q\91\11\E1a\A1!\C1A\81\01\FE~\BE>\DE^\9E\1E\EEn\AE.\CEN\8E\0E\F6v\B66\D6V\96\16\E6f\A6&\C6F\86\06\FAz\BA:\DAZ\9A\1A\EAj\AA*\CAJ\8A\0A\F2r\B22\D2R\92\12\E2b\A2\22\C2B\82\02\FC|\BC<\DC\\\9C\1C\ECl\AC,\CCL\8C\0C\F4t\B44\D4T\94\14\E4d\A4$\C4D\84\04\F8x\B88\D8X\98\18\E8h\A8(\C8H\88\08\F0p\B00\D0P\90\10\E0`\A0 \C0@\80\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gem_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
+define internal range(i32 17, 0) i32 @gem_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca %struct.State, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -482,8 +482,8 @@ bytestream2_get_be16.exit414:                     ; preds = %202, %206
   br label %.loopexit
 
 222:                                              ; preds = %191
-  %trunc660 = trunc nuw i32 %.0309484490 to i16
-  switch i16 %trunc660, label %235 [
+  %trunc682 = trunc nuw i32 %.0309484490 to i16
+  switch i16 %trunc682, label %235 [
     i16 8, label %.preheader551
     i16 16, label %229
     i16 24, label %232
@@ -873,8 +873,8 @@ define internal void @put_lines_bits(ptr noundef readonly captures(none) %0, i32
   %49 = or i8 %47, %48
   store i8 %49, ptr %46, align 1, !tbaa !16
   %50 = add nsw i32 %.041.us, -1
-  %.not56 = icmp eq i32 %.041.us, 0
-  br i1 %.not56, label %.critedge2.us, label %27, !llvm.loop !61
+  %.not61 = icmp eq i32 %.041.us, 0
+  br i1 %.not61, label %.critedge2.us, label %27, !llvm.loop !61
 
 .preheader.us:                                    ; preds = %.preheader39.us, %.critedge2.us
   %indvars.iv = phi i64 [ 0, %.preheader39.us ], [ %indvars.iv.next, %.critedge2.us ]
@@ -941,16 +941,16 @@ define internal void @put_lines_bytes(ptr noundef readonly captures(none) %0, i3
   %14 = load i32, ptr %4, align 4, !tbaa !52
   %15 = load i32, ptr %11, align 4, !tbaa !48
   %16 = icmp slt i32 %14, %15
-  br i1 %16, label %.lr.ph21, label %.critedge
+  br i1 %16, label %.lr.ph25, label %.critedge
 
-17:                                               ; preds = %.lr.ph21
+17:                                               ; preds = %.lr.ph25
   %18 = load i32, ptr %4, align 4, !tbaa !52
   %19 = add nsw i32 %18, %33
   %20 = load i32, ptr %11, align 4, !tbaa !48
   %21 = icmp slt i32 %19, %20
-  br i1 %21, label %.lr.ph21, label %.critedge, !llvm.loop !62
+  br i1 %21, label %.lr.ph25, label %.critedge, !llvm.loop !62
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph21
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph25
   br label %.critedge, !llvm.loop !62
 
 .critedge:                                        ; preds = %17, %.lr.ph, %..critedge.loopexit_crit_edge, %7
@@ -961,9 +961,9 @@ define internal void @put_lines_bytes(ptr noundef readonly captures(none) %0, i3
   store i32 1, ptr %8, align 4, !tbaa !58
   ret void
 
-.lr.ph21:                                         ; preds = %.lr.ph, %17
+.lr.ph25:                                         ; preds = %.lr.ph, %17
   %24 = phi i32 [ %19, %17 ], [ %14, %.lr.ph ]
-  %.01720 = phi i32 [ %33, %17 ], [ 0, %.lr.ph ]
+  %.01724 = phi i32 [ %33, %17 ], [ 0, %.lr.ph ]
   %25 = load ptr, ptr %6, align 8, !tbaa !40
   %26 = load i32, ptr %12, align 8, !tbaa !41
   %27 = mul nsw i32 %26, %24
@@ -973,7 +973,7 @@ define internal void @put_lines_bytes(ptr noundef readonly captures(none) %0, i3
   %31 = mul nsw i32 %30, %3
   %32 = sext i32 %31 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %5, i64 %32, i1 false)
-  %33 = add nuw nsw i32 %.01720, 1
+  %33 = add nuw nsw i32 %.01724, 1
   %34 = load i32, ptr %8, align 4, !tbaa !58
   %35 = icmp slt i32 %33, %34
   br i1 %35, label %17, label %..critedge.loopexit_crit_edge, !llvm.loop !62

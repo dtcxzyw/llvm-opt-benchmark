@@ -192,18 +192,18 @@ define range(i32 0, 2) i32 @ssl3_cbc_digest_record(ptr noundef %0, ptr noundef %
   br label %98
 
 98:                                               ; preds = %96, %94
-  %.sink267 = phi i64 [ %97, %96 ], [ %95, %94 ]
-  %.sink264 = phi i64 [ -6, %96 ], [ -3, %94 ]
-  %.sink261 = phi i64 [ -7, %96 ], [ -2, %94 ]
+  %.sink278 = phi i64 [ %97, %96 ], [ %95, %94 ]
+  %.sink275 = phi i64 [ -6, %96 ], [ -3, %94 ]
+  %.sink272 = phi i64 [ -7, %96 ], [ -2, %94 ]
   %.sink = phi i64 [ -8, %96 ], [ -1, %94 ]
-  %.sink265.in = lshr i64 %.0209, 24
-  %.sink265 = trunc i64 %.sink265.in to i8
-  %99 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 0, i64 %.sink267
-  store i8 %.sink265, ptr %99, align 1, !tbaa !8
-  %100 = add nsw i64 %.0204, %.sink264
+  %.sink276.in = lshr i64 %.0209, 24
+  %.sink276 = trunc i64 %.sink276.in to i8
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 0, i64 %.sink278
+  store i8 %.sink276, ptr %99, align 1, !tbaa !8
+  %100 = add nsw i64 %.0204, %.sink275
   %101 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 0, i64 %100
   store i8 %90, ptr %101, align 1, !tbaa !8
-  %102 = add nsw i64 %.0204, %.sink261
+  %102 = add nsw i64 %.0204, %.sink272
   %103 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 0, i64 %102
   store i8 %92, ptr %103, align 1, !tbaa !8
   %104 = add nsw i64 %.0204, %.sink

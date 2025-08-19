@@ -679,20 +679,20 @@ _ZN6vectorI4mpbqLb0EjE3endEv.exit:                ; preds = %2
   %8 = mul nuw nsw i64 %7, 24
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
   %.not10 = icmp eq i32 %6, 0
-  br i1 %.not10, label %._crit_edge.thread15, label %.lr.ph
+  br i1 %.not10, label %._crit_edge.thread16, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre = load ptr, ptr %1, align 8, !tbaa !28
   %.not.i = icmp eq ptr %.pre, null
-  br i1 %.not.i, label %_ZN6vectorI4mpbqLb0EjE5resetEv.exit, label %._crit_edge.thread15
+  br i1 %.not.i, label %_ZN6vectorI4mpbqLb0EjE5resetEv.exit, label %._crit_edge.thread16
 
-._crit_edge.thread15:                             ; preds = %_ZN6vectorI4mpbqLb0EjE3endEv.exit, %._crit_edge
+._crit_edge.thread16:                             ; preds = %_ZN6vectorI4mpbqLb0EjE3endEv.exit, %._crit_edge
   %10 = phi ptr [ %.pre, %._crit_edge ], [ %3, %_ZN6vectorI4mpbqLb0EjE3endEv.exit ]
   %11 = getelementptr inbounds i8, ptr %10, i64 -4
   store i32 0, ptr %11, align 4, !tbaa !22
   br label %_ZN6vectorI4mpbqLb0EjE5resetEv.exit
 
-_ZN6vectorI4mpbqLb0EjE5resetEv.exit:              ; preds = %2, %._crit_edge, %._crit_edge.thread15
+_ZN6vectorI4mpbqLb0EjE5resetEv.exit:              ; preds = %2, %._crit_edge, %._crit_edge.thread16
   ret void
 
 .lr.ph:                                           ; preds = %_ZN6vectorI4mpbqLb0EjE3endEv.exit, %.lr.ph

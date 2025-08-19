@@ -3910,13 +3910,13 @@ define void @_ZN21uv_distribution_types4hash10HashPolicy10algorithms17he68b8a9aa
   %3 = alloca [0 x i8], align 1
   %4 = alloca [24 x i8], align 8
   %5 = load i8, ptr %1, align 8, !range !152, !noundef !3
-  switch i8 %5, label %default.unreachable4 [
+  switch i8 %5, label %default.unreachable6 [
     i8 0, label %6
     i8 1, label %9
     i8 2, label %13
   ]
 
-default.unreachable4:                             ; preds = %2
+default.unreachable6:                             ; preds = %2
   unreachable
 
 6:                                                ; preds = %2
@@ -4292,8 +4292,8 @@ define void @_ZN21uv_distribution_types9installed13InstalledDist13try_from_path1
   %117 = icmp ne ptr %116, null
   %118 = extractvalue { ptr, i64 } %115, 1
   %.not.i = icmp eq i64 %118, 9
-  %or.cond969 = select i1 %117, i1 %.not.i, i1 false
-  br i1 %or.cond969, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd917e375b74e7eafE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd917e375b74e7eafE.exit.thread"
+  %or.cond992 = select i1 %117, i1 %.not.i, i1 false
+  br i1 %or.cond992, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd917e375b74e7eafE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd917e375b74e7eafE.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd917e375b74e7eafE.exit": ; preds = %3
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(9) %116, ptr noundef nonnull dereferenceable(9) @anon.fc61178d0e8daa862f9491f2c71ba98d.93, i64 9), !alias.scope !715
@@ -4306,8 +4306,8 @@ define void @_ZN21uv_distribution_types9installed13InstalledDist13try_from_path1
   %122 = icmp ne ptr %121, null
   %123 = extractvalue { ptr, i64 } %120, 1
   %.not.i610 = icmp eq i64 %123, 8
-  %or.cond970 = select i1 %122, i1 %.not.i610, i1 false
-  br i1 %or.cond970, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd917e375b74e7eafE.exit613", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd917e375b74e7eafE.exit613.thread"
+  %or.cond993 = select i1 %122, i1 %.not.i610, i1 false
+  br i1 %or.cond993, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd917e375b74e7eafE.exit613", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd917e375b74e7eafE.exit613.thread"
 
 124:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd917e375b74e7eafE.exit"
   %125 = tail call { ptr, i64 } @_ZN3std4path4Path9file_stem17hb486c69bd3f59defE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
@@ -4335,8 +4335,8 @@ define void @_ZN21uv_distribution_types9installed13InstalledDist13try_from_path1
   %136 = icmp ne ptr %135, null
   %137 = extractvalue { ptr, i64 } %134, 1
   %.not.i658 = icmp eq i64 %137, 8
-  %or.cond971 = select i1 %136, i1 %.not.i658, i1 false
-  br i1 %or.cond971, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd917e375b74e7eafE.exit661", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd917e375b74e7eafE.exit661.thread"
+  %or.cond994 = select i1 %136, i1 %.not.i658, i1 false
+  br i1 %or.cond994, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd917e375b74e7eafE.exit661", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd917e375b74e7eafE.exit661.thread"
 
 138:                                              ; preds = %129
   %.sroa.8719.16..sroa.8.0..sroa_idx8.i.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 56
@@ -4478,16 +4478,16 @@ define void @_ZN21uv_distribution_types9installed13InstalledDist13try_from_path1
   br label %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h85ec35e9197588daE.exit645.thread"
 
 "_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h85ec35e9197588daE.exit645.thread": ; preds = %177, %204
-  %.sink974 = phi i64 [ 6, %177 ], [ 5, %204 ]
-  %.sink973 = phi ptr [ %165, %177 ], [ %184, %204 ]
-  %.sink972 = phi ptr [ %178, %177 ], [ %205, %204 ]
-  %.pn975 = phi { ptr, i64 } [ %176, %177 ], [ %203, %204 ]
-  %.sink = extractvalue { ptr, i64 } %.pn975, 1
-  store i64 %.sink974, ptr %0, align 8
+  %.sink997 = phi i64 [ 6, %177 ], [ 5, %204 ]
+  %.sink996 = phi ptr [ %165, %177 ], [ %184, %204 ]
+  %.sink995 = phi ptr [ %178, %177 ], [ %205, %204 ]
+  %.pn998 = phi { ptr, i64 } [ %176, %177 ], [ %203, %204 ]
+  %.sink = extractvalue { ptr, i64 } %.pn998, 1
+  store i64 %.sink997, ptr %0, align 8
   %.sroa.4164.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink973, ptr %.sroa.4164.0..sroa_idx, align 8
+  store ptr %.sink996, ptr %.sroa.4164.0..sroa_idx, align 8
   %.sroa.4164.sroa.4.0..sroa.4164.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink972, ptr %.sroa.4164.sroa.4.0..sroa.4164.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sink995, ptr %.sroa.4164.sroa.4.0..sroa.4164.0..sroa_idx.sroa_idx, align 8
   %.sroa.4164.sroa.5.0..sroa.4164.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sink, ptr %.sroa.4164.sroa.5.0..sroa.4164.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %79)

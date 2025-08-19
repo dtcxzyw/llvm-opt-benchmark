@@ -1507,9 +1507,9 @@ define internal i64 @store_energy_performance_preference(ptr noundef %0, ptr nou
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %63, 2
-  br i1 %64, label %.thread9, label %65
+  br i1 %64, label %.thread13, label %65
 
-.thread9:                                         ; preds = %61
+.thread13:                                        ; preds = %61
   call void @mutex_unlock(ptr noundef nonnull @intel_pstate_limits_lock) #26
   br label %137
 
@@ -1524,9 +1524,9 @@ define internal i64 @store_energy_performance_preference(ptr noundef %0, ptr nou
   %72 = load i32, ptr %12, align 8
   %73 = call i32 @wrmsrl_on_cpu(i32 noundef %72, i32 noundef 1908, i64 noundef %71) #26
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.thread6, label %133
+  br i1 %74, label %.thread10, label %133
 
-.thread6:                                         ; preds = %65
+.thread10:                                        ; preds = %65
   %75 = trunc i32 %59 to i16
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 310
   store i16 %75, ptr %76, align 2
@@ -1634,15 +1634,15 @@ define internal i64 @store_energy_performance_preference(ptr noundef %0, ptr nou
   %135 = icmp eq i32 %.in.fr, 0
   br i1 %135, label %136, label %137
 
-.sink.split:                                      ; preds = %111, %.thread6
+.sink.split:                                      ; preds = %111, %.thread10
   call void @mutex_unlock(ptr noundef nonnull @intel_pstate_limits_lock) #26
   br label %136
 
 136:                                              ; preds = %.sink.split, %133
   br label %137
 
-137:                                              ; preds = %.thread9, %136, %133, %31, %28, %26, %19, %3
-  %138 = phi i64 [ %27, %26 ], [ -22, %3 ], [ %17, %19 ], [ -22, %28 ], [ -11, %31 ], [ %2, %136 ], [ %134, %133 ], [ -16, %.thread9 ]
+137:                                              ; preds = %.thread13, %136, %133, %31, %28, %26, %19, %3
+  %138 = phi i64 [ %27, %26 ], [ -22, %3 ], [ %17, %19 ], [ -22, %28 ], [ -11, %31 ], [ %2, %136 ], [ %134, %133 ], [ -16, %.thread13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %138

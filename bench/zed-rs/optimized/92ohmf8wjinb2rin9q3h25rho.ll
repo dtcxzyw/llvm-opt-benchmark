@@ -745,8 +745,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc72087fa9
   %17 = load i64, ptr %16, align 8, !noundef !9
   %18 = load i64, ptr %0, align 8, !noundef !9
   %19 = sub i64 %18, %17
-  %.not13 = icmp ult i64 %13, %19
-  br i1 %.not13, label %25, label %38
+  %.not14 = icmp ult i64 %13, %19
+  br i1 %.not14, label %25, label %38
 
 20:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd15523f5639be73eE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

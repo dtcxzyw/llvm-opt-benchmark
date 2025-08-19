@@ -543,7 +543,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeBuildCutLevelOne_int(ptr nou
   %5 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %5, align 4, !tbaa !11
   %6 = icmp sgt i32 %.val, 0
-  br i1 %6, label %.lr.ph, label %.critedge.thread94
+  br i1 %6, label %.lr.ph, label %.critedge.thread107
 
 .lr.ph:                                           ; preds = %4
   %7 = getelementptr i8, ptr %1, i64 8
@@ -633,7 +633,7 @@ Abc_NodeGetLeafCostOne.exit:                      ; preds = %8, %8, %13, %34
 
 .critedge:                                        ; preds = %.thread
   %48 = icmp eq ptr %.24070, null
-  br i1 %48, label %.critedge.thread94, label %.critedge.thread
+  br i1 %48, label %.critedge.thread107, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %46, %.critedge
   %.175 = phi i32 [ %.271, %.critedge ], [ 0, %46 ]
@@ -641,7 +641,7 @@ Abc_NodeGetLeafCostOne.exit:                      ; preds = %8, %8, %13, %34
   %49 = add nsw i32 %.val, -1
   %50 = add nsw i32 %.175, %49
   %51 = icmp sgt i32 %50, %2
-  br i1 %51, label %.critedge.thread94, label %52
+  br i1 %51, label %.critedge.thread107, label %52
 
 52:                                               ; preds = %.critedge.thread
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -853,7 +853,7 @@ Vec_PtrPush.exit53:                               ; preds = %.Vec_PtrGrow.exit11
   %148 = load i32, ptr %147, align 4
   %149 = and i32 %148, 32
   %.not42 = icmp eq i32 %149, 0
-  br i1 %.not42, label %150, label %.critedge.thread94
+  br i1 %.not42, label %150, label %.critedge.thread107
 
 150:                                              ; preds = %142
   %151 = or disjoint i32 %148, 32
@@ -986,9 +986,9 @@ Vec_PtrPush.exit67:                               ; preds = %.Vec_PtrGrow.exit11
   %209 = sext i32 %207 to i64
   %210 = getelementptr inbounds ptr, ptr %206, i64 %209
   store ptr %146, ptr %210, align 8, !tbaa !15
-  br label %.critedge.thread94
+  br label %.critedge.thread107
 
-.critedge.thread94:                               ; preds = %4, %142, %Vec_PtrPush.exit67, %.critedge.thread, %.critedge
+.critedge.thread107:                              ; preds = %4, %142, %Vec_PtrPush.exit67, %.critedge.thread, %.critedge
   %.036 = phi i32 [ 0, %.critedge ], [ 0, %.critedge.thread ], [ 1, %Vec_PtrPush.exit67 ], [ 1, %142 ], [ 0, %4 ]
   ret i32 %.036
 }
@@ -2210,7 +2210,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %36, %._crit_edge.i.
   %109 = getelementptr i8, ptr %.lcssa, i64 8
   %.val96 = load ptr, ptr %109, align 8, !tbaa !83
   %110 = sext i32 %.0.lcssa to i64
-  %111 = sext i32 %.val91.lcssa to i64
+  %111 = zext nneg i32 %.val91.lcssa to i64
   %112 = sext i32 %3 to i64
   br label %531
 
@@ -3099,9 +3099,9 @@ Vec_PtrPush.exit.i.i:                             ; preds = %511, %Vec_PtrGrow.e
 
 Vec_VecPushUnique.exit.sink.split:                ; preds = %Vec_VecPush.exit, %Vec_PtrPush.exit.i.i
   %.sink = phi i32 [ %514, %Vec_PtrPush.exit.i.i ], [ %472, %Vec_VecPush.exit ]
-  %.sink246 = phi ptr [ %513, %Vec_PtrPush.exit.i.i ], [ %471, %Vec_VecPush.exit ]
+  %.sink292 = phi ptr [ %513, %Vec_PtrPush.exit.i.i ], [ %471, %Vec_VecPush.exit ]
   %516 = sext i32 %.sink to i64
-  %517 = getelementptr inbounds ptr, ptr %.sink246, i64 %516
+  %517 = getelementptr inbounds ptr, ptr %.sink292, i64 %516
   store ptr %361, ptr %517, align 8, !tbaa !15
   br label %Vec_VecPushUnique.exit
 

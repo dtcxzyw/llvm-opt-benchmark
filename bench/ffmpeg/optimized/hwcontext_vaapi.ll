@@ -665,8 +665,8 @@ vaapi_pix_fmt_from_fourcc.exit.thread:            ; preds = %27, %vaapi_pix_fmt_
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %55 = load i32, ptr %54, align 8, !tbaa !50
   %56 = and i32 %55, 1
-  %.not6781 = icmp eq i32 %56, 0
-  br i1 %.not6781, label %.preheader.preheader, label %57
+  %.not6786 = icmp eq i32 %56, 0
+  br i1 %.not6786, label %.preheader.preheader, label %57
 
 57:                                               ; preds = %.thread, %50
   %58 = phi i32 [ %55, %.thread ], [ %52, %50 ]

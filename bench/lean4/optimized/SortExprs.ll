@@ -145,7 +145,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
   br label %lean_dec.exit35
 
 56:                                               ; preds = %49
-  %57 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %50) #3
+  %57 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_dec.exit35
 
 58:                                               ; preds = %lean_alloc_ctor.exit
@@ -1263,7 +1263,7 @@ lean_dec.exit29.backedge:                         ; preds = %62, %66, %72, %74, 
   br label %lean_dec.exit29
 
 66:                                               ; preds = %59
-  %67 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %60) #3
+  %67 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_dec.exit29.backedge
 
 68:                                               ; preds = %lean_array_fset.exit
@@ -1375,7 +1375,7 @@ lean_dec.exit59:                                  ; preds = %22, %21, %19, %13
   %23 = ptrtoint ptr %0 to i64
   %24 = and i64 %23, 1
   %.not99 = icmp eq i64 %24, 0
-  br i1 %.not99, label %25, label %common.ret100
+  br i1 %.not99, label %25, label %common.ret114
 
 25:                                               ; preds = %lean_dec.exit59
   %26 = load i32, ptr %0, align 4, !tbaa !5
@@ -1385,15 +1385,15 @@ lean_dec.exit59:                                  ; preds = %22, %21, %19, %13
 28:                                               ; preds = %25
   %29 = add nsw i32 %26, -1
   store i32 %29, ptr %0, align 4, !tbaa !5
-  br label %common.ret100
+  br label %common.ret114
 
 30:                                               ; preds = %25
   %.not.i62 = icmp eq i32 %26, 0
-  br i1 %.not.i62, label %common.ret100, label %31
+  br i1 %.not.i62, label %common.ret114, label %31
 
 31:                                               ; preds = %30
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
-  br label %common.ret100
+  br label %common.ret114
 
 32:                                               ; preds = %lean_obj_tag.exit
   %.val = load i32, ptr %2, align 4, !tbaa !5
@@ -1423,14 +1423,14 @@ lean_nat_eq.exit:                                 ; preds = %40
   %47 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %35, ptr noundef %0) #3
   br i1 %47, label %50, label %48
 
-common.ret100:                                    ; preds = %lean_dec.exit59, %28, %30, %31, %lean_dec.exit56, %lean_alloc_ctor.exit87, %lean_alloc_ctor.exit, %48
-  %common.ret100.op = phi ptr [ %2, %48 ], [ %2, %lean_dec.exit56 ], [ %107, %lean_alloc_ctor.exit ], [ %129, %lean_alloc_ctor.exit87 ], [ inttoptr (i64 1 to ptr), %31 ], [ inttoptr (i64 1 to ptr), %30 ], [ inttoptr (i64 1 to ptr), %28 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit59 ]
-  ret ptr %common.ret100.op
+common.ret114:                                    ; preds = %lean_dec.exit59, %28, %30, %31, %lean_dec.exit56, %lean_alloc_ctor.exit87, %lean_alloc_ctor.exit, %48
+  %common.ret114.op = phi ptr [ %2, %48 ], [ %2, %lean_dec.exit56 ], [ %107, %lean_alloc_ctor.exit ], [ %129, %lean_alloc_ctor.exit87 ], [ inttoptr (i64 1 to ptr), %31 ], [ inttoptr (i64 1 to ptr), %30 ], [ inttoptr (i64 1 to ptr), %28 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit59 ]
+  ret ptr %common.ret114.op
 
 48:                                               ; preds = %45, %lean_nat_eq.exit
   %49 = tail call ptr @l_Std_DHashMap_Internal_AssocList_replace___at_Lean_sortExprs___spec__7(ptr noundef %0, ptr noundef %1, ptr noundef %39)
   store ptr %49, ptr %38, align 8, !tbaa !11
-  br label %common.ret100
+  br label %common.ret114
 
 50:                                               ; preds = %45, %lean_nat_eq.exit
   %51 = ptrtoint ptr %37 to i64
@@ -1480,7 +1480,7 @@ lean_dec.exit57:                                  ; preds = %59, %58, %56, %50
 lean_dec.exit56:                                  ; preds = %66, %65, %63, %lean_dec.exit57
   store ptr %1, ptr %36, align 8, !tbaa !11
   store ptr %0, ptr %34, align 8, !tbaa !11
-  br label %common.ret100
+  br label %common.ret114
 
 67:                                               ; preds = %32
   %68 = ptrtoint ptr %39 to i64
@@ -1611,7 +1611,7 @@ lean_alloc_ctor.exit:                             ; preds = %105
   store ptr %37, ptr %112, align 8, !tbaa !11
   %113 = getelementptr inbounds nuw i8, ptr %107, i64 24
   store ptr %106, ptr %113, align 8, !tbaa !11
-  br label %common.ret100
+  br label %common.ret114
 
 114:                                              ; preds = %102, %lean_nat_eq.exit76
   br i1 %.not93, label %115, label %lean_dec.exit54
@@ -1675,7 +1675,7 @@ lean_alloc_ctor.exit87:                           ; preds = %lean_dec.exit
   store ptr %1, ptr %134, align 8, !tbaa !11
   %135 = getelementptr inbounds nuw i8, ptr %129, i64 24
   store ptr %39, ptr %135, align 8, !tbaa !11
-  br label %common.ret100
+  br label %common.ret114
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2008,7 +2008,7 @@ lean_dec.exit369:                                 ; preds = %61, %60, %58, %48
   br label %lean_nat_add.exit352
 
 70:                                               ; preds = %62
-  %71 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %64) #3
+  %71 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_nat_add.exit352
 
 .critedge.i350:                                   ; preds = %lean_dec.exit369
@@ -2142,7 +2142,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at_Lean_sortExprs___spec__2.exit: ;
   br label %lean_dec.exit367
 
 134:                                              ; preds = %126
-  %135 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %128) #3
+  %135 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_dec.exit367
 
 136:                                              ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_sortExprs___spec__2.exit
@@ -2300,8 +2300,8 @@ lean_dec.exit366:                                 ; preds = %194, %193, %191, %l
   br i1 %.not634, label %201, label %lean_dec.exit365.thread, !prof !4
 
 lean_dec.exit365.thread:                          ; preds = %lean_dec.exit366
-  %.not655 = icmp ugt ptr %.1.i451593, %198
-  br i1 %.not655, label %209, label %225
+  %.not729 = icmp ugt ptr %.1.i451593, %198
+  br i1 %.not729, label %209, label %225
 
 201:                                              ; preds = %lean_dec.exit366
   %202 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i451593, ptr noundef nonnull %198) #3
@@ -2632,7 +2632,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at_Lean_sortExprs___spec__2.exit488
   br label %lean_dec.exit361
 
 335:                                              ; preds = %327
-  %336 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %329) #3
+  %336 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_dec.exit361
 
 337:                                              ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_sortExprs___spec__2.exit488
@@ -2790,8 +2790,8 @@ lean_dec.exit360:                                 ; preds = %395, %394, %392, %l
   br i1 %.not630, label %402, label %lean_dec.exit359.thread, !prof !4
 
 lean_dec.exit359.thread:                          ; preds = %lean_dec.exit360
-  %.not654 = icmp ugt ptr %.1.i499599, %399
-  br i1 %.not654, label %410, label %432
+  %.not728 = icmp ugt ptr %.1.i499599, %399
+  br i1 %.not728, label %410, label %432
 
 402:                                              ; preds = %lean_dec.exit360
   %403 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i499599, ptr noundef nonnull %399) #3
@@ -3048,7 +3048,7 @@ lean_dec.exit357:                                 ; preds = %494, %493, %491, %l
   br label %lean_nat_add.exit343
 
 503:                                              ; preds = %495
-  %504 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %497) #3
+  %504 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_nat_add.exit343
 
 .critedge.i341:                                   ; preds = %lean_dec.exit357
@@ -3297,7 +3297,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at_Lean_sortExprs___spec__2.exit553
   br label %lean_dec.exit355
 
 605:                                              ; preds = %597
-  %606 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %599) #3
+  %606 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_dec.exit355
 
 607:                                              ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_sortExprs___spec__2.exit553
@@ -3455,8 +3455,8 @@ lean_dec.exit354:                                 ; preds = %665, %664, %662, %l
   br i1 %.not623, label %672, label %lean_dec.exit353.thread, !prof !4
 
 lean_dec.exit353.thread:                          ; preds = %lean_dec.exit354
-  %.not653 = icmp ugt ptr %.1.i564605, %669
-  br i1 %.not653, label %680, label %712
+  %.not727 = icmp ugt ptr %.1.i564605, %669
+  br i1 %.not727, label %680, label %712
 
 672:                                              ; preds = %lean_dec.exit354
   %673 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i564605, ptr noundef nonnull %669) #3
@@ -3949,7 +3949,7 @@ lean_dec.exit43.backedge:                         ; preds = %74, %78, %85, %87, 
   br label %lean_dec.exit43
 
 78:                                               ; preds = %69
-  %79 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %72) #3
+  %79 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_dec.exit43.backedge
 
 80:                                               ; preds = %.thread85, %67
@@ -4233,7 +4233,7 @@ lean_dec.exit43.backedge:                         ; preds = %74, %78, %85, %87, 
   br label %lean_dec.exit43
 
 78:                                               ; preds = %69
-  %79 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %72) #3
+  %79 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_dec.exit43.backedge
 
 80:                                               ; preds = %.thread85, %67
@@ -5232,18 +5232,18 @@ _init_l_Lean_sortExprs___closed__4.exit:          ; preds = %_init_l_Lean_sortEx
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_sortExprs___closed__4.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %49, %_init_l_Lean_sortExprs___closed__4.exit ]
-  %52 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !5
+  %.sink16 = phi ptr [ %4, %3 ], [ %49, %_init_l_Lean_sortExprs___closed__4.exit ]
+  %52 = getelementptr inbounds nuw i8, ptr %.sink16, i64 4
+  store i32 1, ptr %.sink16, align 4, !tbaa !5
   store i32 131096, ptr %52, align 4
-  %53 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %53, align 8, !tbaa !11
-  %54 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.sink16, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %54, align 8, !tbaa !11
   br label %55
 
 55:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink16, %.sink.split ]
   ret ptr %.0
 }
 

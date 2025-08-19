@@ -407,8 +407,8 @@ define internal void @_gradient_get_distance(float noundef %0, float noundef %1,
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %39
   %indvars.iv80 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next81, %39 ]
-  %.idx89 = shl nuw nsw i64 %indvars.iv80, 3
-  %43 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx89
+  %.idx93 = shl nuw nsw i64 %indvars.iv80, 3
+  %43 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx93
   %44 = load float, ptr %43, align 4, !tbaa !27
   %45 = fsub reassoc nsz arcp contract afn float %0, %44
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
@@ -427,8 +427,8 @@ define internal void @_gradient_get_distance(float noundef %0, float noundef %1,
 
 .critedge73:                                      ; preds = %.critedge73.lr.ph, %.critedge71
   %indvars.iv84 = phi i64 [ 3, %.critedge73.lr.ph ], [ %indvars.iv.next85, %.critedge71 ]
-  %.idx90 = shl nuw nsw i64 %indvars.iv84, 3
-  %53 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx90
+  %.idx94 = shl nuw nsw i64 %indvars.iv84, 3
+  %53 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx94
   %54 = load float, ptr %53, align 4, !tbaa !27
   %55 = fsub reassoc nsz arcp contract afn float %0, %54
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 4
@@ -889,8 +889,8 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
 .preheader:                                       ; preds = %._crit_edge269
   %235 = icmp sgt i32 %80, 0
   %236 = icmp sgt i32 %83, 0
-  %or.cond334 = and i1 %235, %236
-  br i1 %or.cond334, label %.lr.ph272.us.preheader, label %._crit_edge279
+  %or.cond342 = and i1 %235, %236
+  br i1 %or.cond342, label %.lr.ph272.us.preheader, label %._crit_edge279
 
 .lr.ph272.us.preheader:                           ; preds = %.preheader
   %237 = zext nneg i32 %83 to i64
@@ -961,8 +961,8 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
 270:                                              ; preds = %.preheader234, %300
   %indvars.iv306 = phi i64 [ 0, %.preheader234 ], [ %indvars.iv.next307, %300 ]
   %271 = add nsw i64 %indvars.iv306, %228
-  %.idx329 = shl nsw i64 %271, 3
-  %272 = getelementptr inbounds i8, ptr %96, i64 %.idx329
+  %.idx337 = shl nsw i64 %271, 3
+  %272 = getelementptr inbounds i8, ptr %96, i64 %.idx337
   %273 = load float, ptr %272, align 8, !tbaa !27
   %274 = getelementptr i8, ptr %272, i64 4
   %275 = load float, ptr %274, align 4, !tbaa !27
@@ -1116,8 +1116,8 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
 .preheader231:                                    ; preds = %41
   %.not234 = icmp slt i32 %49, 0
   %57 = or i32 %49, %45
-  %or.cond.not314 = icmp sgt i32 %57, -1
-  br i1 %or.cond.not314, label %.preheader230.preheader, label %._crit_edge236
+  %or.cond.not322 = icmp sgt i32 %57, -1
+  br i1 %or.cond.not322, label %.preheader230.preheader, label %._crit_edge236
 
 .preheader230.preheader:                          ; preds = %.preheader231
   %wide.trip.count280 = zext i32 %50 to i64
@@ -1609,7 +1609,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_moved(ptr noundef %0
   br i1 %.not, label %20, label %18
 
 18:                                               ; preds = %10
-  br i1 %17, label %.thread124, label %19
+  br i1 %17, label %.thread130, label %19
 
 19:                                               ; preds = %18
   tail call void (...) @dt_control_queue_redraw_center() #14
@@ -1667,13 +1667,13 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_moved(ptr noundef %0
   %.not102 = icmp eq i32 %56, 0
   br i1 %.not102, label %132, label %59
 
-.thread124:                                       ; preds = %18
+.thread130:                                       ; preds = %18
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 116
   %58 = load i32, ptr %57, align 4, !tbaa !144
-  %.not102125 = icmp eq i32 %58, 0
-  br i1 %.not102125, label %250, label %59
+  %.not102131 = icmp eq i32 %58, 0
+  br i1 %.not102131, label %250, label %59
 
-59:                                               ; preds = %.thread124, %54
+59:                                               ; preds = %.thread130, %54
   %60 = load ptr, ptr %6, align 8, !tbaa !19
   %61 = load ptr, ptr %60, align 8, !tbaa !22
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
@@ -1759,9 +1759,9 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_moved(ptr noundef %0
   %128 = load float, ptr %127, align 4, !tbaa !29
   %129 = fpext reassoc nsz arcp contract afn float %128 to double
   %130 = fneg reassoc nsz arcp contract afn double %126
-  %.sink128.p = select i1 %124, double %126, double %130
-  %.sink128 = fadd reassoc nsz arcp contract afn double %.sink128.p, %129
-  %131 = fptrunc reassoc nsz arcp contract afn double %.sink128 to float
+  %.sink134.p = select i1 %124, double %126, double %130
+  %.sink134 = fadd reassoc nsz arcp contract afn double %.sink134.p, %129
+  %131 = fptrunc reassoc nsz arcp contract afn double %.sink134 to float
   store float %131, ptr %127, align 4, !tbaa !29
   call void @dt_masks_gui_form_create(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %9, ptr noundef %0) #14
   call void (...) @dt_control_queue_redraw_center() #14
@@ -1854,8 +1854,8 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_moved(ptr noundef %0
 
 .critedge.i:                                      ; preds = %175, %.critedge.lr.ph.i
   %indvars.iv80.i = phi i64 [ 0, %.critedge.lr.ph.i ], [ %indvars.iv.next81.i, %175 ]
-  %.idx89.i = shl nuw nsw i64 %indvars.iv80.i, 3
-  %179 = getelementptr inbounds nuw i8, ptr %160, i64 %.idx89.i
+  %.idx93.i = shl nuw nsw i64 %indvars.iv80.i, 3
+  %179 = getelementptr inbounds nuw i8, ptr %160, i64 %.idx93.i
   %180 = load float, ptr %179, align 4, !tbaa !27
   %181 = fsub reassoc nsz arcp contract afn float %150, %180
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 4
@@ -1874,8 +1874,8 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_moved(ptr noundef %0
 
 .critedge73.i:                                    ; preds = %.critedge71.i, %.critedge73.lr.ph.i
   %indvars.iv84.i = phi i64 [ 3, %.critedge73.lr.ph.i ], [ %indvars.iv.next85.i, %.critedge71.i ]
-  %.idx90.i = shl nuw nsw i64 %indvars.iv84.i, 3
-  %189 = getelementptr inbounds nuw i8, ptr %155, i64 %.idx90.i
+  %.idx94.i = shl nuw nsw i64 %indvars.iv84.i, 3
+  %189 = getelementptr inbounds nuw i8, ptr %155, i64 %.idx94.i
   %190 = load float, ptr %189, align 4, !tbaa !27
   %191 = fsub reassoc nsz arcp contract afn float %150, %190
   %192 = getelementptr inbounds nuw i8, ptr %189, i64 4
@@ -1996,7 +1996,7 @@ _gradient_get_distance.exit:                      ; preds = %.critedge71.i, %132
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %251
 
-250:                                              ; preds = %.thread124
+250:                                              ; preds = %.thread130
   tail call void (...) @dt_control_queue_redraw_center() #14
   br label %251
 
@@ -2594,9 +2594,9 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
   %151 = load float, ptr %150, align 4, !tbaa !29
   %152 = fpext reassoc nsz arcp contract afn float %151 to double
   %153 = fneg reassoc nsz arcp contract afn double %149
-  %.sink168.p = select i1 %147, double %149, double %153
-  %.sink168 = fadd reassoc nsz arcp contract afn double %.sink168.p, %152
-  %154 = fptrunc reassoc nsz arcp contract afn double %.sink168 to float
+  %.sink173.p = select i1 %147, double %149, double %153
+  %.sink173 = fadd reassoc nsz arcp contract afn double %.sink173.p, %152
+  %154 = fptrunc reassoc nsz arcp contract afn double %.sink173 to float
   store float %154, ptr %150, align 4, !tbaa !29
   %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
   call void @dt_dev_add_masks_history_item(ptr noundef %155, ptr noundef %0, i32 noundef 1) #14
@@ -3021,7 +3021,7 @@ define internal fastcc range(i32 0, 2) i32 @_gradient_get_points(ptr noundef %0,
   %78 = fneg reassoc nsz arcp contract afn float %16
   %79 = fmul reassoc nsz arcp contract afn float %16, 2.000000e+00
   %invariant.op = fmul reassoc nsz arcp contract afn float %4, %factor.op.fmul133
-  %factor.op.fmul152 = fmul reassoc nsz arcp contract afn float %4, %25
+  %factor.op.fmul157 = fmul reassoc nsz arcp contract afn float %4, %25
   %80 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %74
   br label %82
 
@@ -3040,12 +3040,12 @@ define internal fastcc range(i32 0, 2) i32 @_gradient_get_points(ptr noundef %0,
   %86 = fmul reassoc nsz arcp contract afn float %85, %80
   %87 = fsub reassoc nsz arcp contract afn float %71, %86
   %88 = fmul reassoc nsz arcp contract afn float %87, %87
-  %.reass153 = fmul reassoc nsz arcp contract afn float %88, %factor.op.fmul152
+  %.reass158 = fmul reassoc nsz arcp contract afn float %88, %factor.op.fmul157
   %.reass = fmul reassoc nsz arcp contract afn float %87, %factor.op.fmul
   %.reass134.reass = fmul reassoc nsz arcp contract afn float %88, %invariant.op
   %89 = fadd reassoc nsz arcp contract afn float %.reass134.reass, %.reass
   %90 = fmul reassoc nsz arcp contract afn float %87, %26
-  %91 = fsub reassoc nsz arcp contract afn float %90, %.reass153
+  %91 = fsub reassoc nsz arcp contract afn float %90, %.reass158
   %92 = fmul reassoc nsz arcp contract afn float %91, %20
   %93 = fadd reassoc nsz arcp contract afn float %89, %36
   %94 = fadd reassoc nsz arcp contract afn float %92, %37
@@ -3104,8 +3104,8 @@ define internal fastcc range(i32 0, 2) i32 @_gradient_get_points(ptr noundef %0,
   %.idx = shl nuw nsw i64 %indvars.iv145, 3
   %118 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx
   %119 = load float, ptr %118, align 8, !tbaa !27
-  %.idx151 = shl nsw i64 %indvars.iv, 3
-  %120 = getelementptr inbounds nuw i8, ptr %116, i64 %.idx151
+  %.idx156 = shl nsw i64 %indvars.iv, 3
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 %.idx156
   store float %119, ptr %120, align 4, !tbaa !27
   %121 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %122 = load float, ptr %121, align 4, !tbaa !27
@@ -3227,11 +3227,11 @@ define internal fastcc range(i32 0, 2) i32 @_gradient_get_pts_border(ptr noundef
 77:                                               ; preds = %.lr.ph126, %77
   %indvars.iv149 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next150, %77 ]
   %indvars.iv147 = phi i64 [ 3, %.lr.ph126 ], [ %indvars.iv.next148, %77 ]
-  %.idx168 = shl nuw nsw i64 %indvars.iv147, 3
-  %78 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx168
+  %.idx173 = shl nuw nsw i64 %indvars.iv147, 3
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx173
   %79 = load float, ptr %78, align 4, !tbaa !27
-  %.idx169 = shl nuw nsw i64 %indvars.iv149, 3
-  %80 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx169
+  %.idx174 = shl nuw nsw i64 %indvars.iv149, 3
+  %80 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx174
   store float %79, ptr %80, align 8, !tbaa !27
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %82 = load float, ptr %81, align 4, !tbaa !27
@@ -3246,11 +3246,11 @@ define internal fastcc range(i32 0, 2) i32 @_gradient_get_pts_border(ptr noundef
   %indvars.iv158 = phi i64 [ %76, %.lr.ph130 ], [ %indvars.iv.next159, %84 ]
   %indvars.iv156 = phi i64 [ 3, %.lr.ph130 ], [ %indvars.iv.next157, %84 ]
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
-  %.idx170 = shl nuw nsw i64 %indvars.iv156, 3
-  %85 = getelementptr inbounds nuw i8, ptr %75, i64 %.idx170
+  %.idx175 = shl nuw nsw i64 %indvars.iv156, 3
+  %85 = getelementptr inbounds nuw i8, ptr %75, i64 %.idx175
   %86 = load float, ptr %85, align 4, !tbaa !27
-  %.idx171 = shl nuw nsw i64 %indvars.iv.next159, 3
-  %87 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx171
+  %.idx176 = shl nuw nsw i64 %indvars.iv.next159, 3
+  %87 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx176
   store float %86, ptr %87, align 8, !tbaa !27
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %89 = load float, ptr %88, align 4, !tbaa !27
@@ -3282,11 +3282,11 @@ define internal fastcc range(i32 0, 2) i32 @_gradient_get_pts_border(ptr noundef
 99:                                               ; preds = %.lr.ph123, %99
   %indvars.iv140 = phi i64 [ 0, %.lr.ph123 ], [ %indvars.iv.next141, %99 ]
   %indvars.iv138 = phi i64 [ 3, %.lr.ph123 ], [ %indvars.iv.next139, %99 ]
-  %.idx166 = shl nuw nsw i64 %indvars.iv138, 3
-  %100 = getelementptr inbounds nuw i8, ptr %98, i64 %.idx166
+  %.idx171 = shl nuw nsw i64 %indvars.iv138, 3
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 %.idx171
   %101 = load float, ptr %100, align 4, !tbaa !27
-  %.idx167 = shl nuw nsw i64 %indvars.iv140, 3
-  %102 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx167
+  %.idx172 = shl nuw nsw i64 %indvars.iv140, 3
+  %102 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx172
   store float %101, ptr %102, align 8, !tbaa !27
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %104 = load float, ptr %103, align 4, !tbaa !27
@@ -3322,8 +3322,8 @@ define internal fastcc range(i32 0, 2) i32 @_gradient_get_pts_border(ptr noundef
   %.idx = shl nuw nsw i64 %indvars.iv, 3
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 %.idx
   %116 = load float, ptr %115, align 4, !tbaa !27
-  %.idx165 = shl nuw nsw i64 %indvars.iv133, 3
-  %117 = getelementptr inbounds nuw i8, ptr %111, i64 %.idx165
+  %.idx170 = shl nuw nsw i64 %indvars.iv133, 3
+  %117 = getelementptr inbounds nuw i8, ptr %111, i64 %.idx170
   store float %116, ptr %117, align 8, !tbaa !27
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %119 = load float, ptr %118, align 4, !tbaa !27
@@ -3659,11 +3659,11 @@ _gradient_is_canonical.exit.thread:               ; preds = %35
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %60
   %indvars.iv = phi i64 [ %48, %.lr.ph.preheader ], [ %indvars.iv.next, %60 ]
-  %.idx68 = shl nsw i64 %indvars.iv, 3
-  %49 = getelementptr inbounds i8, ptr %13, i64 %.idx68
+  %.idx74 = shl nsw i64 %indvars.iv, 3
+  %49 = getelementptr inbounds i8, ptr %13, i64 %.idx74
   %50 = load float, ptr %49, align 4, !tbaa !27
   %51 = tail call i1 @llvm.is.fpclass.f32(float %50, i32 759)
-  br i1 %51, label %.critedge.loopexit.split.loop.exit71, label %52
+  br i1 %51, label %.critedge.loopexit.split.loop.exit77, label %52
 
 52:                                               ; preds = %.lr.ph
   %53 = getelementptr i8, ptr %49, i64 4
@@ -3691,12 +3691,12 @@ _gradient_is_canonical.exit.thread:               ; preds = %35
   %63 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge.loopexit.split.loop.exit71:             ; preds = %.lr.ph
+.critedge.loopexit.split.loop.exit77:             ; preds = %.lr.ph
   %64 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %60, %.critedge.loopexit.split.loop.exit, %.critedge.loopexit.split.loop.exit71, %44
-  %.1.lcssa = phi i32 [ %.159, %44 ], [ %63, %.critedge.loopexit.split.loop.exit ], [ %64, %.critedge.loopexit.split.loop.exit71 ], [ %15, %60 ]
+.critedge:                                        ; preds = %60, %.critedge.loopexit.split.loop.exit, %.critedge.loopexit.split.loop.exit77, %44
+  %.1.lcssa = phi i32 [ %.159, %44 ], [ %63, %.critedge.loopexit.split.loop.exit ], [ %64, %.critedge.loopexit.split.loop.exit77 ], [ %15, %60 ]
   tail call void @dt_masks_line_stroke(ptr noundef %1, i32 noundef %0, i32 noundef 0, i32 noundef %2, float noundef %3) #14
   br label %.backedge
 

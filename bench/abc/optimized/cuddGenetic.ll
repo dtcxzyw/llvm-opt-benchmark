@@ -169,13 +169,13 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
   %invariant.op = or disjoint i32 %factor, 1
   %72 = sext i32 %1 to i64
   %wide.trip.count247 = zext nneg i32 %67 to i64
-  %invariant.gep300 = getelementptr i32, ptr %70, i64 %72
+  %invariant.gep352 = getelementptr i32, ptr %70, i64 %72
   br label %73
 
 73:                                               ; preds = %.lr.ph191, %73
   %indvars.iv244 = phi i64 [ 0, %.lr.ph191 ], [ %indvars.iv.next245, %73 ]
-  %gep301 = getelementptr i32, ptr %invariant.gep300, i64 %indvars.iv244
-  %74 = load i32, ptr %gep301, align 4, !tbaa !3
+  %gep353 = getelementptr i32, ptr %invariant.gep352, i64 %indvars.iv244
+  %74 = load i32, ptr %gep353, align 4, !tbaa !3
   %75 = trunc i64 %indvars.iv244 to i32
   %76 = xor i32 %75, -1
   %.reass = add i32 %invariant.op, %76
@@ -395,7 +395,7 @@ make_random.exit:                                 ; preds = %._crit_edge.i, %.pr
   br i1 %181, label %.lr.ph196, label %find_best.exit, !llvm.loop !38
 
 find_best.exit:                                   ; preds = %178, %make_random.exit
-  %.lcssa179272 = phi i32 [ %120, %make_random.exit ], [ %179, %178 ]
+  %.lcssa179324 = phi i32 [ %120, %make_random.exit ], [ %179, %178 ]
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 556
   %183 = load i32, ptr %182, align 4, !tbaa !39
   %184 = icmp eq i32 %183, 0
@@ -418,7 +418,7 @@ find_best.exit:                                   ; preds = %178, %make_random.e
   br label %191
 
 191:                                              ; preds = %.lr.ph215, %._crit_edge212
-  %192 = phi i32 [ %.lcssa179272, %.lr.ph215 ], [ %470, %._crit_edge212 ]
+  %192 = phi i32 [ %.lcssa179324, %.lr.ph215 ], [ %470, %._crit_edge212 ]
   %.064213 = phi i32 [ 0, %.lr.ph215 ], [ %471, %._crit_edge212 ]
   %193 = load i32, ptr %190, align 8, !tbaa !40
   %194 = sext i32 %193 to i64
@@ -532,19 +532,19 @@ find_best.exit:                                   ; preds = %178, %make_random.e
   %250 = getelementptr inbounds nuw double, ptr %204, i64 %indvars.iv51.i.i
   %251 = load double, ptr %250, align 8, !tbaa !41
   %252 = fcmp ugt double %247, %251
-  br i1 %252, label %253, label %._crit_edge41.loopexit.split.loop.exit58.i.i
+  br i1 %252, label %253, label %._crit_edge41.loopexit.split.loop.exit61.i.i
 
 253:                                              ; preds = %.lr.ph40.i.i
   %indvars.iv.next52.i.i = add nuw nsw i64 %indvars.iv51.i.i, 1
   %exitcond55.not.i.i = icmp eq i64 %indvars.iv.next52.i.i, %wide.trip.count54.i.i
   br i1 %exitcond55.not.i.i, label %._crit_edge41.i.i, label %.lr.ph40.i.i, !llvm.loop !44
 
-._crit_edge41.loopexit.split.loop.exit58.i.i:     ; preds = %.lr.ph40.i.i
+._crit_edge41.loopexit.split.loop.exit61.i.i:     ; preds = %.lr.ph40.i.i
   %254 = trunc nuw nsw i64 %indvars.iv51.i.i to i32
   br label %._crit_edge41.i.i
 
-._crit_edge41.i.i:                                ; preds = %253, %._crit_edge41.loopexit.split.loop.exit58.i.i, %238
-  %.2.lcssa.i.i = phi i32 [ 0, %238 ], [ %254, %._crit_edge41.loopexit.split.loop.exit58.i.i ], [ %248, %253 ]
+._crit_edge41.i.i:                                ; preds = %253, %._crit_edge41.loopexit.split.loop.exit61.i.i, %238
+  %.2.lcssa.i.i = phi i32 [ 0, %238 ], [ %254, %._crit_edge41.loopexit.split.loop.exit61.i.i ], [ %248, %253 ]
   %255 = icmp eq i32 %.2.lcssa.i.i, %.1.lcssa.i.i
   br i1 %255, label %238, label %256, !llvm.loop !45
 
@@ -680,8 +680,8 @@ PMX.exit.thread.critedge:                         ; preds = %201
   br label %PMX.exit.thread.sink.split
 
 PMX.exit.thread.sink.split:                       ; preds = %198, %PMX.exit.thread.critedge
-  %.lcssa289.sink = phi ptr [ %199, %PMX.exit.thread.critedge ], [ %196, %198 ]
-  call void @free(ptr noundef nonnull %.lcssa289.sink) #9
+  %.lcssa341.sink = phi ptr [ %199, %PMX.exit.thread.critedge ], [ %196, %198 ]
+  call void @free(ptr noundef nonnull %.lcssa341.sink) #9
   br label %PMX.exit.thread
 
 PMX.exit.thread:                                  ; preds = %191, %PMX.exit.thread.sink.split
@@ -929,16 +929,16 @@ largest.exit:                                     ; preds = %376, %.preheader.i1
   %434 = sext i32 %432 to i64
   %435 = sext i32 %433 to i64
   %wide.trip.count257 = zext nneg i32 %.pre265 to i64
-  %invariant.gep305 = getelementptr i32, ptr %.pre261, i64 %434
-  %invariant.gep307 = getelementptr i32, ptr %.pre261, i64 %435
+  %invariant.gep357 = getelementptr i32, ptr %.pre261, i64 %434
+  %invariant.gep359 = getelementptr i32, ptr %.pre261, i64 %435
   br label %436
 
 436:                                              ; preds = %.lr.ph204, %436
   %indvars.iv254 = phi i64 [ 0, %.lr.ph204 ], [ %indvars.iv.next255, %436 ]
-  %gep306 = getelementptr i32, ptr %invariant.gep305, i64 %indvars.iv254
-  %437 = load i32, ptr %gep306, align 4, !tbaa !3
-  %gep308 = getelementptr i32, ptr %invariant.gep307, i64 %indvars.iv254
-  store i32 %437, ptr %gep308, align 4, !tbaa !3
+  %gep358 = getelementptr i32, ptr %invariant.gep357, i64 %indvars.iv254
+  %437 = load i32, ptr %gep358, align 4, !tbaa !3
+  %gep360 = getelementptr i32, ptr %invariant.gep359, i64 %indvars.iv254
+  store i32 %437, ptr %gep360, align 4, !tbaa !3
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %exitcond258.not = icmp eq i64 %indvars.iv.next255, %wide.trip.count257
   br i1 %exitcond258.not, label %._crit_edge205, label %436, !llvm.loop !53
@@ -1237,15 +1237,15 @@ define internal fastcc range(i32 0, 2) i32 @build_dd(ptr noundef %0, i32 noundef
   %73 = sext i32 %71 to i64
   %wide.trip.count = zext nneg i32 %66 to i64
   %invariant.gep = getelementptr i32, ptr %69, i64 %72
-  %invariant.gep49 = getelementptr i32, ptr %.pre, i64 %73
+  %invariant.gep57 = getelementptr i32, ptr %.pre, i64 %73
   br label %74
 
 74:                                               ; preds = %.lr.ph42, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next, %74 ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
   %75 = load i32, ptr %gep, align 4, !tbaa !3
-  %gep50 = getelementptr i32, ptr %invariant.gep49, i64 %indvars.iv
-  store i32 %75, ptr %gep50, align 4, !tbaa !3
+  %gep58 = getelementptr i32, ptr %invariant.gep57, i64 %indvars.iv
+  store i32 %75, ptr %gep58, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge43, label %74, !llvm.loop !61
@@ -1261,10 +1261,10 @@ define internal fastcc range(i32 0, 2) i32 @build_dd(ptr noundef %0, i32 noundef
   br label %sift_up.exit.sink.split
 
 sift_up.exit.sink.split:                          ; preds = %15, %._crit_edge43
-  %.sink53 = phi i32 [ %81, %._crit_edge43 ], [ %26, %15 ]
+  %.sink61 = phi i32 [ %81, %._crit_edge43 ], [ %26, %15 ]
   %.pre.sink = phi ptr [ %.pre, %._crit_edge43 ], [ %16, %15 ]
   %.sink = phi i32 [ %80, %._crit_edge43 ], [ %24, %15 ]
-  %82 = sext i32 %.sink53 to i64
+  %82 = sext i32 %.sink61 to i64
   %83 = getelementptr inbounds i32, ptr %.pre.sink, i64 %82
   store i32 %.sink, ptr %83, align 4, !tbaa !3
   br label %sift_up.exit

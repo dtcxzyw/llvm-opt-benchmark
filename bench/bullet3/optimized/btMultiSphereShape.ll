@@ -153,13 +153,13 @@ _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i: ; preds = %_ZN20btAlignedObjec
   %.not.i5.i.i29 = icmp ne ptr %37, null
   %42 = load i8, ptr %9, align 8, !range !31
   %43 = trunc nuw i8 %42 to i1
-  %or.cond27.i = select i1 %.not.i5.i.i29, i1 %43, i1 false
-  br i1 %or.cond27.i, label %44, label %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i
+  %or.cond29.i = select i1 %.not.i5.i.i29, i1 %43, i1 false
+  br i1 %or.cond29.i, label %44, label %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.thread.i.i: ; preds = %38
-  %.old25.i = load i8, ptr %9, align 8, !tbaa !18, !range !31, !noundef !35
-  %.old26.i = trunc nuw i8 %.old25.i to i1
-  br i1 %.old26.i, label %44, label %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i
+  %.old27.i = load i8, ptr %9, align 8, !tbaa !18, !range !31, !noundef !35
+  %.old28.i = trunc nuw i8 %.old27.i to i1
+  br i1 %.old28.i, label %44, label %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i
 
 44:                                               ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %37)

@@ -61,9 +61,9 @@ ossl_time_from_timeval.exit:                      ; preds = %21, %24
   br label %.loopexit
 
 31:                                               ; preds = %6
-  br i1 %19, label %ossl_time_from_timeval.exit35.thread191, label %35
+  br i1 %19, label %ossl_time_from_timeval.exit35.thread211, label %35
 
-ossl_time_from_timeval.exit35.thread191:          ; preds = %31
+ossl_time_from_timeval.exit35.thread211:          ; preds = %31
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -104,11 +104,11 @@ ossl_time_from_timeval.exit35:                    ; preds = %46, %42
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br i1 %.not, label %ossl_time_from_timeval.exit35.split.us, label %ossl_time_from_timeval.exit35.split.preheader
 
-ossl_time_from_timeval.exit35.split.preheader:    ; preds = %ossl_time_from_timeval.exit35.thread191, %ossl_time_from_timeval.exit35
-  %56 = phi ptr [ %34, %ossl_time_from_timeval.exit35.thread191 ], [ %55, %ossl_time_from_timeval.exit35 ]
-  %57 = phi ptr [ %33, %ossl_time_from_timeval.exit35.thread191 ], [ %54, %ossl_time_from_timeval.exit35 ]
-  %58 = phi ptr [ %32, %ossl_time_from_timeval.exit35.thread191 ], [ %53, %ossl_time_from_timeval.exit35 ]
-  %.sroa.07.0.fr195 = phi i64 [ -1, %ossl_time_from_timeval.exit35.thread191 ], [ %.sroa.07.0.fr, %ossl_time_from_timeval.exit35 ]
+ossl_time_from_timeval.exit35.split.preheader:    ; preds = %ossl_time_from_timeval.exit35.thread211, %ossl_time_from_timeval.exit35
+  %56 = phi ptr [ %34, %ossl_time_from_timeval.exit35.thread211 ], [ %55, %ossl_time_from_timeval.exit35 ]
+  %57 = phi ptr [ %33, %ossl_time_from_timeval.exit35.thread211 ], [ %54, %ossl_time_from_timeval.exit35 ]
+  %58 = phi ptr [ %32, %ossl_time_from_timeval.exit35.thread211 ], [ %53, %ossl_time_from_timeval.exit35 ]
+  %.sroa.07.0.fr215 = phi i64 [ -1, %ossl_time_from_timeval.exit35.thread211 ], [ %.sroa.07.0.fr, %ossl_time_from_timeval.exit35 ]
   br label %ossl_time_from_timeval.exit35.split
 
 ossl_time_from_timeval.exit35.split.us:           ; preds = %38, %ossl_time_from_timeval.exit35
@@ -324,7 +324,7 @@ poll_readout.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph10
 
 129:                                              ; preds = %128
   %130 = call i64 @ossl_time_now() #4
-  %.not44 = icmp ult i64 %130, %.sroa.07.0.fr195
+  %.not44 = icmp ult i64 %130, %.sroa.07.0.fr215
   br i1 %.not44, label %131, label %.loopexit
 
 131:                                              ; preds = %129
@@ -620,7 +620,7 @@ ossl_time_from_timeval.exit.i.i:                  ; preds = %201, %197
   br i1 %.not.i118.i.i, label %postpoll_translation_cleanup.exit.sink.split.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %.lr.ph207.i.i, %.loopexit.i.i, %187
-  %.1106284.i.i = phi i64 [ %.0105199.i.i, %.loopexit.i.i ], [ %188, %187 ], [ %188, %.lr.ph207.i.i ]
+  %.1106293.i.i = phi i64 [ %.0105199.i.i, %.loopexit.i.i ], [ %188, %187 ], [ %188, %.lr.ph207.i.i ]
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %postpoll_translation_cleanup_ssl_quic.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -654,13 +654,13 @@ ossl_time_from_timeval.exit.i.i:                  ; preds = %201, %197
 
 postpoll_translation_cleanup_ssl_quic.exit.i.i.i: ; preds = %239, %237, %235, %231, %.lr.ph.i.i.i
   %240 = add nuw i64 %.012.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %240, %.1106284.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %240, %.1106293.i.i
   br i1 %exitcond.not.i.i.i, label %postpoll_translation_cleanup.exit.sink.split.i, label %.lr.ph.i.i.i, !llvm.loop !40
 
 poll_translate.exit.i:                            ; preds = %226
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %..i.i = call i64 @llvm.umin.i64(i64 %.sroa.042.1.i.i, i64 %.sroa.07.0.fr195)
+  %..i.i = call i64 @llvm.umin.i64(i64 %.sroa.042.1.i.i, i64 %.sroa.07.0.fr215)
   %241 = call i32 @ossl_rio_poll_builder_poll(ptr noundef nonnull %12, i64 %..i.i) #4
   br label %.lr.ph.i9.i
 

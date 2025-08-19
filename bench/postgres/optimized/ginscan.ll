@@ -682,13 +682,13 @@ define internal fastcc void @ginFillScanKey(ptr noundef %0, i16 noundef zeroext 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %94
-  %.sink103 = phi i8 [ -1, %94 ], [ 2, %._crit_edge ]
+  %.sink105 = phi i8 [ -1, %94 ], [ 2, %._crit_edge ]
   %95 = load i32, ptr %17, align 8
   %96 = add i32 %95, 1
   store i32 %96, ptr %17, align 8
   %97 = load i16, ptr %33, align 8
   %98 = load i32, ptr %32, align 4
-  %99 = tail call fastcc ptr @ginFillScanEntry(ptr noundef nonnull %0, i16 noundef zeroext %97, i16 noundef zeroext 0, i32 noundef %98, i64 noundef 0, i8 noundef signext %.sink103, i1 noundef zeroext false, ptr noundef null)
+  %99 = tail call fastcc ptr @ginFillScanEntry(ptr noundef nonnull %0, i16 noundef zeroext %97, i16 noundef zeroext 0, i32 noundef %98, i64 noundef 0, i8 noundef signext %.sink105, i1 noundef zeroext false, ptr noundef null)
   %100 = load ptr, ptr %24, align 8
   %101 = sext i32 %95 to i64
   %102 = getelementptr inbounds ptr, ptr %100, i64 %101

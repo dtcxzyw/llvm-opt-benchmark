@@ -2337,7 +2337,7 @@ neato_enqueue.exit:                               ; preds = %.lr.ph.i.i, %37, %.
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 168
   store i32 0, ptr %53, align 8, !tbaa !64
   %54 = icmp sgt i32 %44, 2
-  br i1 %54, label %.lr.ph.i.i45, label %.loopexit64
+  br i1 %54, label %.lr.ph.i.i45, label %.loopexit79
 
 .lr.ph.i.i45:                                     ; preds = %.lr.ph60
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 184
@@ -2390,7 +2390,7 @@ neato_enqueue.exit:                               ; preds = %.lr.ph.i.i, %37, %.
   %.pre-phi.i.i = phi i64 [ %63, %62 ], [ %.pre.phi.trans.insert.i.i, %._crit_edge30.i.i ], [ %70, %78 ]
   %.019.i.i = phi i32 [ %60, %62 ], [ %58, %._crit_edge30.i.i ], [ %58, %78 ]
   %83 = fcmp ugt double %56, %80
-  br i1 %83, label %84, label %.loopexit64
+  br i1 %83, label %84, label %.loopexit79
 
 84:                                               ; preds = %79
   %85 = getelementptr inbounds ptr, ptr %45, i64 %.pre-phi.i.i
@@ -2404,9 +2404,9 @@ neato_enqueue.exit:                               ; preds = %.lr.ph.i.i, %37, %.
   %89 = shl nsw i32 %.019.i.i, 1
   %90 = or disjoint i32 %89, 1
   %91 = icmp slt i32 %90, %47
-  br i1 %91, label %57, label %.loopexit64, !llvm.loop !119
+  br i1 %91, label %57, label %.loopexit79, !llvm.loop !119
 
-.loopexit64:                                      ; preds = %84, %79, %.lr.ph60
+.loopexit79:                                      ; preds = %84, %79, %.lr.ph60
   %92 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %93 = load ptr, ptr %92, align 8, !tbaa !40
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 168
@@ -2415,7 +2415,7 @@ neato_enqueue.exit:                               ; preds = %.lr.ph.i.i, %37, %.
   %.not40 = icmp eq ptr %46, %95
   br i1 %.not40, label %111, label %96
 
-96:                                               ; preds = %.loopexit64
+96:                                               ; preds = %.loopexit79
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 184
   %98 = load double, ptr %97, align 8, !tbaa !117
   %.val = load ptr, ptr %3, align 8, !tbaa !40
@@ -2439,7 +2439,7 @@ neato_enqueue.exit:                               ; preds = %.lr.ph.i.i, %37, %.
   store double %98, ptr %110, align 8, !tbaa !10
   br label %111
 
-111:                                              ; preds = %96, %.loopexit64
+111:                                              ; preds = %96, %.loopexit79
   %112 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef nonnull %46) #21
   %.not4156 = icmp eq ptr %112, null
   br i1 %.not4156, label %.loopexit, label %.lr.ph59

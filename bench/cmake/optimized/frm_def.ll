@@ -109,9 +109,9 @@ Disconnect_Fields.exit.thread.i:                  ; preds = %Disconnect_Fields.e
   br label %free_form.exit
 
 free_form.exit:                                   ; preds = %Associate_Fields.exit, %Disconnect_Fields.exit.thread.i
-  %.sink11.i = phi i32 [ 0, %Disconnect_Fields.exit.thread.i ], [ -3, %Associate_Fields.exit ]
+  %.sink17.i = phi i32 [ 0, %Disconnect_Fields.exit.thread.i ], [ -3, %Associate_Fields.exit ]
   %36 = tail call ptr @__errno_location() #10
-  store i32 %.sink11.i, ptr %36, align 4, !tbaa !12
+  store i32 %.sink17.i, ptr %36, align 4, !tbaa !12
   br label %37
 
 37:                                               ; preds = %._crit_edge, %free_form.exit
@@ -202,10 +202,10 @@ Disconnect_Fields.exit.thread:                    ; preds = %Disconnect_Fields.e
   br label %23
 
 23:                                               ; preds = %2, %1, %Disconnect_Fields.exit.thread
-  %.sink11 = phi i32 [ 0, %Disconnect_Fields.exit.thread ], [ -2, %1 ], [ -3, %2 ]
+  %.sink17 = phi i32 [ 0, %Disconnect_Fields.exit.thread ], [ -2, %1 ], [ -3, %2 ]
   %24 = tail call ptr @__errno_location() #10
-  store i32 %.sink11, ptr %24, align 4, !tbaa !12
-  ret i32 %.sink11
+  store i32 %.sink17, ptr %24, align 4, !tbaa !12
+  ret i32 %.sink17
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)

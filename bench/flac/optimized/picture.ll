@@ -34,7 +34,7 @@ define dso_local ptr @grabbag__picture_parse_specification(ptr noundef %0, ptr n
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %.thread136.thread179, label %5
+  br i1 %or.cond, label %.thread136.thread191, label %5
 
 5:                                                ; preds = %2
   store ptr null, ptr %1, align 8, !tbaa !4
@@ -44,7 +44,7 @@ define dso_local ptr @grabbag__picture_parse_specification(ptr noundef %0, ptr n
 
 8:                                                ; preds = %5
   store ptr @.str.3, ptr %1, align 8, !tbaa !4
-  br label %.thread136.thread179
+  br label %.thread136.thread191
 
 9:                                                ; preds = %5
   %10 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 124) #13
@@ -228,10 +228,10 @@ safe_malloc_add_2op_.exit.i106:                   ; preds = %46
 .thread.i:                                        ; preds = %68
   store i32 %.051.i, ptr %14, align 8, !tbaa !18
   %78 = add nuw i64 %.04050.i, 1
-  %exitcond.not57.i = icmp eq i64 %78, %59
-  br i1 %exitcond.not57.i, label %local__parse_resolution_.exit.thread175, label %.preheader.outer.i, !llvm.loop !17
+  %exitcond.not60.i = icmp eq i64 %78, %59
+  br i1 %exitcond.not60.i, label %local__parse_resolution_.exit.thread187, label %.preheader.outer.i, !llvm.loop !17
 
-local__parse_resolution_.exit.thread175:          ; preds = %.thread.i
+local__parse_resolution_.exit.thread187:          ; preds = %.thread.i
   store i32 0, ptr %13, align 4, !tbaa !19
   br label %local__parse_type_.exit.thread
 
@@ -254,10 +254,10 @@ local__parse_resolution_.exit:                    ; preds = %81
   %82 = icmp ult i32 %.pr52.ph.i, 32
   %83 = shl nuw i32 1, %.pr52.ph.i
   %84 = icmp ult i32 %83, %.1.i
-  %or.cond86.not.i.not = select i1 %82, i1 %84, i1 false
-  br i1 %or.cond86.not.i.not, label %.thread136.thread.sink.split, label %local__parse_type_.exit.thread
+  %or.cond89.not.i.not = select i1 %82, i1 %84, i1 false
+  br i1 %or.cond89.not.i.not, label %.thread136.thread.sink.split, label %local__parse_type_.exit.thread
 
-local__parse_type_.exit.thread:                   ; preds = %local__parse_resolution_.exit.thread175, %56, %21, %34, %local__parse_resolution_.exit.thread124, %local__parse_resolution_.exit, %53, %35, %43
+local__parse_type_.exit.thread:                   ; preds = %local__parse_resolution_.exit.thread187, %56, %21, %34, %local__parse_resolution_.exit.thread124, %local__parse_resolution_.exit, %53, %35, %43
   %.pre.pr = load ptr, ptr %1, align 8, !tbaa !4
   %85 = getelementptr inbounds nuw i8, ptr %.0161, i64 1
   %86 = add nuw nsw i32 %.075160.ph, 1
@@ -336,7 +336,7 @@ thread-pre-split:                                 ; preds = %114
   %123 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %124 = load i32, ptr %123, align 8, !tbaa !9
   %125 = icmp eq i32 %124, 1
-  br i1 %125, label %126, label %.thread136.thread179
+  br i1 %125, label %126, label %.thread136.thread191
 
 126:                                              ; preds = %122
   %127 = load ptr, ptr %96, align 8, !tbaa !9
@@ -359,7 +359,7 @@ thread-pre-split:                                 ; preds = %114
   %135 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %136 = load i32, ptr %135, align 4, !tbaa !9
   %.not99 = icmp eq i32 %136, 32
-  br i1 %.not99, label %.thread136.thread179, label %.thread136.thread.sink.split
+  br i1 %.not99, label %.thread136.thread191, label %.thread136.thread.sink.split
 
 .thread136.thread.sink.split:                     ; preds = %20, %local__parse_resolution_.exit, %79, %81, %53, %46, %safe_malloc_add_2op_.exit.i106, %43, %36, %safe_malloc_add_2op_.exit.i, %68, %.preheader.i, %63, %70, %134, %131, %129, %106, %110, %114, %103, %100, %94
   %.str.4.sink = phi ptr [ @.str.4, %94 ], [ @.str.4, %100 ], [ @.str.3, %103 ], [ @.str.6, %114 ], [ @.str.6, %110 ], [ @.str.6, %106 ], [ @.str.12, %129 ], [ @.str.12, %131 ], [ @.str.12, %134 ], [ @.str.5, %70 ], [ @.str.5, %63 ], [ @.str.10, %.preheader.i ], [ @.str.5, %68 ], [ @.str.3, %safe_malloc_add_2op_.exit.i ], [ @.str.3, %36 ], [ @.str.3, %43 ], [ @.str.3, %safe_malloc_add_2op_.exit.i106 ], [ @.str.3, %46 ], [ @.str.3, %53 ], [ @.str.5, %81 ], [ @.str.5, %79 ], [ @.str.5, %local__parse_resolution_.exit ], [ @.str.4, %20 ]
@@ -368,9 +368,9 @@ thread-pre-split:                                 ; preds = %114
 
 .thread136.thread:                                ; preds = %local__parse_type_.exit.thread, %.thread136.thread.sink.split, %120, %.preheader, %.thread
   tail call void @FLAC__metadata_object_delete(ptr noundef nonnull %6) #12
-  br label %.thread136.thread179
+  br label %.thread136.thread191
 
-.thread136.thread179:                             ; preds = %134, %122, %.thread136.thread, %2, %8
+.thread136.thread191:                             ; preds = %134, %122, %.thread136.thread, %2, %8
   %.078 = phi ptr [ null, %8 ], [ null, %2 ], [ null, %.thread136.thread ], [ %6, %122 ], [ %6, %134 ]
   ret ptr %.078
 }
@@ -495,7 +495,7 @@ define dso_local ptr @grabbag__picture_from_specification(i32 noundef %0, ptr no
   %7 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %5, null
-  br i1 %8, label %.thread.thread74, label %9
+  br i1 %8, label %.thread.thread77, label %9
 
 9:                                                ; preds = %6
   %strncpy = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1, i64 63)
@@ -508,7 +508,7 @@ define dso_local ptr @grabbag__picture_from_specification(i32 noundef %0, ptr no
 
 13:                                               ; preds = %9
   store ptr @.str.3, ptr %5, align 8, !tbaa !4
-  br label %.thread.thread74
+  br label %.thread.thread77
 
 14:                                               ; preds = %9
   %15 = icmp sgt i32 %0, -1
@@ -521,7 +521,7 @@ define dso_local ptr @grabbag__picture_from_specification(i32 noundef %0, ptr no
 
 19:                                               ; preds = %14
   store ptr @.str.3, ptr %5, align 8, !tbaa !4
-  br label %.thread.thread74
+  br label %.thread.thread77
 
 20:                                               ; preds = %14
   %.not60 = icmp eq ptr %2, null
@@ -534,7 +534,7 @@ define dso_local ptr @grabbag__picture_from_specification(i32 noundef %0, ptr no
 
 23:                                               ; preds = %21
   store ptr @.str.3, ptr %5, align 8, !tbaa !4
-  br label %.thread.thread74
+  br label %.thread.thread77
 
 24:                                               ; preds = %21, %20
   %25 = icmp eq ptr %3, null
@@ -617,7 +617,7 @@ thread-pre-split:                                 ; preds = %59
 67:                                               ; preds = %65
   %68 = load i32, ptr %17, align 8, !tbaa !9
   %69 = icmp eq i32 %68, 1
-  br i1 %69, label %70, label %.thread.thread74
+  br i1 %69, label %70, label %.thread.thread77
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr %43, align 8, !tbaa !9
@@ -640,7 +640,7 @@ thread-pre-split:                                 ; preds = %59
   %79 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %80 = load i32, ptr %79, align 4, !tbaa !9
   %.not66 = icmp eq i32 %80, 32
-  br i1 %.not66, label %.thread.thread74, label %.thread.thread.sink.split
+  br i1 %.not66, label %.thread.thread77, label %.thread.thread.sink.split
 
 .thread.thread.sink.split:                        ; preds = %78, %75, %73, %51, %55, %59, %47
   %.str.3.sink = phi ptr [ @.str.3, %47 ], [ @.str.6, %59 ], [ @.str.6, %55 ], [ @.str.6, %51 ], [ @.str.12, %73 ], [ @.str.12, %75 ], [ @.str.12, %78 ]
@@ -649,9 +649,9 @@ thread-pre-split:                                 ; preds = %59
 
 .thread.thread:                                   ; preds = %.thread.thread.sink.split, %65
   call void @FLAC__metadata_object_delete(ptr noundef nonnull %11) #12
-  br label %.thread.thread74
+  br label %.thread.thread77
 
-.thread.thread74:                                 ; preds = %78, %67, %.thread.thread, %6, %23, %19, %13
+.thread.thread77:                                 ; preds = %78, %67, %.thread.thread, %6, %23, %19, %13
   %.054 = phi ptr [ null, %13 ], [ %11, %23 ], [ %11, %19 ], [ null, %6 ], [ null, %.thread.thread ], [ %11, %67 ], [ %11, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.054
@@ -900,7 +900,7 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   br label %.critedge.sink.split
 
 108:                                              ; preds = %103, %104, %83
-  %.1142 = phi i32 [ 1, %83 ], [ %.0141217, %104 ], [ 0, %103 ]
+  %.1142 = phi i32 [ 1, %83 ], [ 1, %104 ], [ 0, %103 ]
   %.pn = zext i32 %38 to i64
   %.1126 = getelementptr inbounds nuw i8, ptr %.0125219, i64 %.pn
   %.1134 = sub i32 %.0133218, %38
@@ -947,15 +947,15 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   br label %.lr.ph, !llvm.loop !32
 
 .preheaderthread-pre-split:                       ; preds = %.preheader.preheader
-  %123 = getelementptr inbounds nuw i8, ptr %.6131213295, i64 1
+  %123 = getelementptr inbounds nuw i8, ptr %.6131213303, i64 1
   %.pr = load i8, ptr %123, align 1, !tbaa !9
   %.not165 = icmp eq i8 %.pr, -1
   br i1 %.not165, label %.preheader.preheader, label %125
 
 .preheader.preheader:                             ; preds = %.lr.ph, %.preheaderthread-pre-split
-  %.6139212296 = phi i32 [ %124, %.preheaderthread-pre-split ], [ %.5138209, %.lr.ph ]
-  %.6131213295 = phi ptr [ %123, %.preheaderthread-pre-split ], [ %.5130210, %.lr.ph ]
-  %124 = add i32 %.6139212296, -1
+  %.6139212304 = phi i32 [ %124, %.preheaderthread-pre-split ], [ %.5138209, %.lr.ph ]
+  %.6131213303 = phi ptr [ %123, %.preheaderthread-pre-split ], [ %.5130210, %.lr.ph ]
+  %124 = add i32 %.6139212304, -1
   %cond174 = icmp eq i32 %124, 0
   br i1 %cond174, label %.critedge, label %.preheaderthread-pre-split, !llvm.loop !33
 
@@ -975,12 +975,12 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   br i1 %129, label %.critedge, label %131
 
 131:                                              ; preds = %130
-  %132 = add i32 %.6139212296, -2
-  %133 = getelementptr inbounds nuw i8, ptr %.6131213295, i64 2
+  %132 = add i32 %.6139212304, -2
+  %133 = getelementptr inbounds nuw i8, ptr %.6131213303, i64 2
   %134 = load i8, ptr %133, align 1, !tbaa !9
   %135 = zext i8 %134 to i32
   %136 = shl nuw nsw i32 %135, 8
-  %137 = getelementptr inbounds nuw i8, ptr %.6131213295, i64 3
+  %137 = getelementptr inbounds nuw i8, ptr %.6131213303, i64 3
   %138 = load i8, ptr %137, align 1, !tbaa !9
   %139 = zext i8 %138 to i32
   %140 = or disjoint i32 %136, %139
@@ -990,30 +990,30 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   br i1 %or.cond172, label %.critedge, label %143
 
 143:                                              ; preds = %131
-  %144 = getelementptr inbounds nuw i8, ptr %.6131213295, i64 7
+  %144 = getelementptr inbounds nuw i8, ptr %.6131213303, i64 7
   %145 = load i8, ptr %144, align 1, !tbaa !9
   %146 = zext i8 %145 to i32
   %147 = shl nuw nsw i32 %146, 8
-  %148 = getelementptr inbounds nuw i8, ptr %.6131213295, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %.6131213303, i64 8
   %149 = load i8, ptr %148, align 1, !tbaa !9
   %150 = zext i8 %149 to i32
   %151 = or disjoint i32 %147, %150
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %151, ptr %152, align 8, !tbaa !15
-  %153 = getelementptr inbounds nuw i8, ptr %.6131213295, i64 5
+  %153 = getelementptr inbounds nuw i8, ptr %.6131213303, i64 5
   %154 = load i8, ptr %153, align 1, !tbaa !9
   %155 = zext i8 %154 to i32
   %156 = shl nuw nsw i32 %155, 8
-  %157 = getelementptr inbounds nuw i8, ptr %.6131213295, i64 6
+  %157 = getelementptr inbounds nuw i8, ptr %.6131213303, i64 6
   %158 = load i8, ptr %157, align 1, !tbaa !9
   %159 = zext i8 %158 to i32
   %160 = or disjoint i32 %156, %159
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %160, ptr %161, align 4, !tbaa !16
-  %162 = getelementptr inbounds nuw i8, ptr %.6131213295, i64 4
+  %162 = getelementptr inbounds nuw i8, ptr %.6131213303, i64 4
   %163 = load i8, ptr %162, align 1, !tbaa !9
   %164 = zext i8 %163 to i32
-  %165 = getelementptr inbounds nuw i8, ptr %.6131213295, i64 9
+  %165 = getelementptr inbounds nuw i8, ptr %.6131213303, i64 9
   %166 = load i8, ptr %165, align 1, !tbaa !9
   %167 = zext i8 %166 to i32
   %168 = mul nuw nsw i32 %167, %164
@@ -1025,12 +1025,12 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   br i1 %129, label %.critedge, label %171
 
 171:                                              ; preds = %170
-  %172 = add i32 %.6139212296, -2
-  %173 = getelementptr inbounds nuw i8, ptr %.6131213295, i64 2
+  %172 = add i32 %.6139212304, -2
+  %173 = getelementptr inbounds nuw i8, ptr %.6131213303, i64 2
   %174 = load i8, ptr %173, align 1, !tbaa !9
   %175 = zext i8 %174 to i32
   %176 = shl nuw nsw i32 %175, 8
-  %177 = getelementptr inbounds nuw i8, ptr %.6131213295, i64 3
+  %177 = getelementptr inbounds nuw i8, ptr %.6131213303, i64 3
   %178 = load i8, ptr %177, align 1, !tbaa !9
   %179 = zext i8 %178 to i32
   %180 = or disjoint i32 %176, %179
@@ -1083,9 +1083,9 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %44, %.loopexit.sink.split, %192, %143, %106
-  %.sink271 = phi i32 [ %107, %106 ], [ 0, %143 ], [ %206, %192 ], [ 0, %.loopexit.sink.split ], [ 0, %44 ]
+  %.sink279 = phi i32 [ %107, %106 ], [ 0, %143 ], [ %206, %192 ], [ 0, %.loopexit.sink.split ], [ 0, %44 ]
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %.sink271, ptr %207, align 4, !tbaa !19
+  store i32 %.sink279, ptr %207, align 4, !tbaa !19
   br label %.critedge
 
 .critedge:                                        ; preds = %125, %171, %170, %120, %.preheader.preheader, %108, %20, %.critedge.sink.split, %13, %10, %12, %186, %191, %131, %130, %113, %115

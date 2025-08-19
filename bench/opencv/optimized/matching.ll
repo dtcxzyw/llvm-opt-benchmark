@@ -997,8 +997,8 @@ _ZNSt6vectorIN2cv15line_descriptor7KeyLineESaIS2_EE9push_backERKS2_.exit215: ; p
   %368 = ptrtoint ptr %365 to i64
   %369 = sub i64 %367, %368
   %370 = sdiv exact i64 %369, 68
-  %sext500 = shl i64 %370, 32
-  %371 = ashr exact i64 %sext500, 32
+  %sext578 = shl i64 %370, 32
+  %371 = ashr exact i64 %sext578, 32
   %372 = icmp slt i64 %indvars.iv.next471.pre-phi, %371
   br i1 %372, label %322, label %._crit_edge, !llvm.loop !111
 
@@ -1191,8 +1191,8 @@ _ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorI
   %440 = ptrtoint ptr %438 to i64
   %441 = ptrtoint ptr %439 to i64
   %442 = sub i64 %440, %441
-  %sext501 = shl i64 %442, 28
-  %443 = ashr i64 %sext501, 32
+  %sext579 = shl i64 %442, 28
+  %443 = ashr i64 %sext579, 32
   %444 = icmp slt i64 %indvars.iv.next474, %443
   br i1 %444, label %405, label %._crit_edge454, !llvm.loop !132
 
@@ -1631,8 +1631,8 @@ _ZNSt6vectorIN2cv15line_descriptor7KeyLineESaIS2_EE9push_backERKS2_.exit271: ; p
   %586 = ptrtoint ptr %583 to i64
   %587 = sub i64 %585, %586
   %588 = sdiv exact i64 %587, 68
-  %sext502 = shl i64 %588, 32
-  %589 = ashr exact i64 %sext502, 32
+  %sext580 = shl i64 %588, 32
+  %589 = ashr exact i64 %sext580, 32
   %590 = icmp slt i64 %indvars.iv.next477.pre-phi, %589
   br i1 %590, label %540, label %.preheader, !llvm.loop !152
 
@@ -1791,8 +1791,8 @@ _ZNSt6vectorIN2cv15line_descriptor7KeyLineESaIS2_EE9push_backERKS2_.exit289: ; p
   %638 = ptrtoint ptr %635 to i64
   %639 = sub i64 %637, %638
   %640 = sdiv exact i64 %639, 68
-  %sext503 = shl i64 %640, 32
-  %641 = ashr exact i64 %sext503, 32
+  %sext581 = shl i64 %640, 32
+  %641 = ashr exact i64 %sext581, 32
   %642 = icmp slt i64 %indvars.iv.next480.pre-phi, %641
   br i1 %642, label %592, label %._crit_edge460, !llvm.loop !160
 
@@ -1933,8 +1933,8 @@ _ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit307: ; preds = %_ZNSt6vect
   %696 = ptrtoint ptr %694 to i64
   %697 = ptrtoint ptr %695 to i64
   %698 = sub i64 %696, %697
-  %sext504 = shl i64 %698, 28
-  %699 = ashr i64 %sext504, 32
+  %sext582 = shl i64 %698, 28
+  %699 = ashr i64 %sext582, 32
   %700 = icmp slt i64 %indvars.iv.next483, %699
   br i1 %700, label %661, label %._crit_edge463, !llvm.loop !165
 

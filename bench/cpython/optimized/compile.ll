@@ -2258,14 +2258,14 @@ Py_DECREF.exit:                                   ; preds = %67, %70, %64
   br i1 %80, label %_Py_NewRef.exit57.sink.split, label %_Py_NewRef.exit57.sink.split.sink.split
 
 _Py_NewRef.exit57.sink.split.sink.split:          ; preds = %.thread, %21
-  %.sink71 = phi i32 [ %24, %21 ], [ %79, %.thread ]
-  %.sink70 = phi ptr [ %23, %21 ], [ %78, %.thread ]
-  %81 = add nuw i32 %.sink71, 1
-  store i32 %81, ptr %.sink70, align 8, !tbaa !4
+  %.sink78 = phi i32 [ %24, %21 ], [ %79, %.thread ]
+  %.sink77 = phi ptr [ %23, %21 ], [ %78, %.thread ]
+  %81 = add nuw i32 %.sink78, 1
+  store i32 %81, ptr %.sink77, align 8, !tbaa !4
   br label %_Py_NewRef.exit57.sink.split
 
 _Py_NewRef.exit57.sink.split:                     ; preds = %_Py_NewRef.exit57.sink.split.sink.split, %72, %.thread, %21
-  %.sink = phi ptr [ %23, %21 ], [ %75, %72 ], [ %78, %.thread ], [ %.sink70, %_Py_NewRef.exit57.sink.split.sink.split ]
+  %.sink = phi ptr [ %23, %21 ], [ %75, %72 ], [ %78, %.thread ], [ %.sink77, %_Py_NewRef.exit57.sink.split.sink.split ]
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 904
   store ptr %.sink, ptr %82, align 8, !tbaa !69
   br label %_Py_NewRef.exit57
@@ -2829,8 +2829,8 @@ Py_XDECREF.exit:                                  ; preds = %23, %24, %26, %29
   br i1 %.not25, label %38, label %.thread27
 
 .thread27.sink.split.sink.split:                  ; preds = %5, %11
-  %.sink35 = phi i64 [ 936, %11 ], [ 944, %5 ]
-  %34 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink35
+  %.sink36 = phi i64 [ 936, %11 ], [ 944, %5 ]
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink36
   %35 = load ptr, ptr %34, align 8, !tbaa !28
   br label %.thread27.sink.split
 

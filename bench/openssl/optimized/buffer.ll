@@ -118,8 +118,8 @@ define noundef i64 @BUF_MEM_grow(ptr noundef captures(none) %0, i64 noundef %1) 
   %19 = trunc nuw nsw i64 %1 to i32
   %.lhs.trunc = add nuw nsw i32 %19, 3
   %20 = udiv i32 %.lhs.trunc, 3
-  %21 = shl nuw i32 %20, 2
-  %22 = zext i32 %21 to i64
+  %21 = shl nuw nsw i32 %20, 2
+  %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = and i64 %24, 1
@@ -231,8 +231,8 @@ define noundef i64 @BUF_MEM_grow_clean(ptr noundef captures(none) %0, i64 nounde
   %23 = trunc nuw nsw i64 %1 to i32
   %.lhs.trunc = add nuw nsw i32 %23, 3
   %24 = udiv i32 %.lhs.trunc, 3
-  %25 = shl nuw i32 %24, 2
-  %26 = zext i32 %25 to i64
+  %25 = shl nuw nsw i32 %24, 2
+  %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load i64, ptr %27, align 8, !tbaa !3
   %29 = and i64 %28, 1

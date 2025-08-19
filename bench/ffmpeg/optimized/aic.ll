@@ -451,7 +451,7 @@ bytestream2_get_le16.exit.thread:                 ; preds = %97, %bytestream2_ge
   %203 = load i8, ptr %202, align 1, !tbaa !33
   %204 = icmp slt i32 %spec.select.i.i.i, %173
   %205 = zext i1 %204 to i32
-  %spec.select.i87.i.i = add i32 %spec.select.i.i.i, %205
+  %spec.select.i87.i.i = add nsw i32 %spec.select.i.i.i, %205
   %206 = zext i8 %203 to i32
   %207 = and i32 %spec.select.i.i.i, 7
   %208 = shl nuw nsw i32 %206, %207
@@ -465,7 +465,7 @@ bytestream2_get_le16.exit.thread:                 ; preds = %97, %bytestream2_ge
   %216 = and i32 %spec.select.i87.i.i, 7
   %217 = shl i32 %215, %216
   %218 = lshr i32 %217, 29
-  %219 = add i32 %spec.select.i87.i.i, 3
+  %219 = add nsw i32 %spec.select.i87.i.i, 3
   %220 = tail call i32 @llvm.umin.i32(i32 %173, i32 %219)
   %221 = lshr exact i32 128, %199
   %222 = and i32 %221, %198
@@ -854,8 +854,8 @@ get_ue_golomb.exit.i.i:                           ; preds = %406, %.preheader181
   br i1 %420, label %.loopexit, label %421
 
 421:                                              ; preds = %419
-  %422 = add i32 %.065.i.i, 1
-  %423 = add i32 %422, %.1.i.i
+  %422 = add nsw i32 %.065.i.i, 1
+  %423 = add nuw nsw i32 %422, %.1.i.i
   %.not83.i.i = icmp slt i32 %423, %188
   br i1 %.not83.i.i, label %424, label %493
 

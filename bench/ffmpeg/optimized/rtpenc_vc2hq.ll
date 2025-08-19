@@ -169,7 +169,7 @@ get_interleaved_ue_golomb.exit.i:                 ; preds = %77, %.preheader.i.i
   %104 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_golomb_vlc_len, i64 0, i64 %103
   %105 = load i8, ptr %104, align 1, !tbaa !4
   %106 = zext i8 %105 to i32
-  %107 = add i32 %.sroa.14.1.i, %106
+  %107 = add nuw i32 %.sroa.14.1.i, %106
   %..i58.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %107)
   %108 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_ue_golomb_vlc_code, i64 0, i64 %103
   %109 = load i8, ptr %108, align 1, !tbaa !4
@@ -186,7 +186,7 @@ get_interleaved_ue_golomb.exit.i:                 ; preds = %77, %.preheader.i.i
   %114 = load i8, ptr %113, align 1, !tbaa !4
   %spec.select57.i64.i = tail call i8 @llvm.umin.i8(i8 %114, i8 8)
   %spec.select.i65.i = zext nneg i8 %spec.select57.i64.i to i32
-  %115 = add i32 %.044.i62.i, %spec.select.i65.i
+  %115 = add nuw i32 %.044.i62.i, %spec.select.i65.i
   %spec.select56.i66.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %115)
   %.not54.i67.i = icmp eq i8 %114, 9
   br i1 %.not54.i67.i, label %125, label %116
@@ -245,7 +245,7 @@ get_interleaved_ue_golomb.exit70.i:               ; preds = %.loopexit.i68.i, %1
   %153 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_golomb_vlc_len, i64 0, i64 %152
   %154 = load i8, ptr %153, align 1, !tbaa !4
   %155 = zext i8 %154 to i32
-  %156 = add i32 %.sroa.14.2.i, %155
+  %156 = add nuw i32 %.sroa.14.2.i, %155
   %..i72.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %156)
   br label %get_interleaved_ue_golomb.exit84.i
 
@@ -259,7 +259,7 @@ get_interleaved_ue_golomb.exit70.i:               ; preds = %.loopexit.i68.i, %1
   %160 = load i8, ptr %159, align 1, !tbaa !4
   %spec.select57.i78.i = tail call i8 @llvm.umin.i8(i8 %160, i8 8)
   %spec.select.i79.i = zext nneg i8 %spec.select57.i78.i to i32
-  %161 = add i32 %.044.i76.i, %spec.select.i79.i
+  %161 = add nuw i32 %.044.i76.i, %spec.select.i79.i
   %spec.select56.i80.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %161)
   %.not54.i81.i = icmp eq i8 %160, 9
   br i1 %.not54.i81.i, label %162, label %get_interleaved_ue_golomb.exit84.i
@@ -301,7 +301,7 @@ get_interleaved_ue_golomb.exit84.i:               ; preds = %162, %.preheader.i7
   %189 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_golomb_vlc_len, i64 0, i64 %188
   %190 = load i8, ptr %189, align 1, !tbaa !4
   %191 = zext i8 %190 to i32
-  %192 = add i32 %.sroa.14.3.i, %191
+  %192 = add nuw i32 %.sroa.14.3.i, %191
   %..i86.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %192)
   br label %get_interleaved_ue_golomb.exit98.i
 
@@ -315,7 +315,7 @@ get_interleaved_ue_golomb.exit84.i:               ; preds = %162, %.preheader.i7
   %196 = load i8, ptr %195, align 1, !tbaa !4
   %spec.select57.i92.i = tail call i8 @llvm.umin.i8(i8 %196, i8 8)
   %spec.select.i93.i = zext nneg i8 %spec.select57.i92.i to i32
-  %197 = add i32 %.044.i90.i, %spec.select.i93.i
+  %197 = add nuw i32 %.044.i90.i, %spec.select.i93.i
   %spec.select56.i94.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %197)
   %.not54.i95.i = icmp eq i8 %196, 9
   br i1 %.not54.i95.i, label %198, label %get_interleaved_ue_golomb.exit98.i
@@ -357,7 +357,7 @@ get_interleaved_ue_golomb.exit98.i:               ; preds = %198, %.preheader.i8
   %225 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_golomb_vlc_len, i64 0, i64 %224
   %226 = load i8, ptr %225, align 1, !tbaa !4
   %227 = zext i8 %226 to i32
-  %228 = add i32 %.sroa.14.4.i, %227
+  %228 = add nuw i32 %.sroa.14.4.i, %227
   %..i100.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %228)
   %229 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_ue_golomb_vlc_code, i64 0, i64 %224
   %230 = load i8, ptr %229, align 1, !tbaa !4
@@ -374,7 +374,7 @@ get_interleaved_ue_golomb.exit98.i:               ; preds = %198, %.preheader.i8
   %235 = load i8, ptr %234, align 1, !tbaa !4
   %spec.select57.i106.i = tail call i8 @llvm.umin.i8(i8 %235, i8 8)
   %spec.select.i107.i = zext nneg i8 %spec.select57.i106.i to i32
-  %236 = add i32 %.044.i104.i, %spec.select.i107.i
+  %236 = add nuw i32 %.044.i104.i, %spec.select.i107.i
   %spec.select56.i108.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %236)
   %.not54.i109.i = icmp eq i8 %235, 9
   br i1 %.not54.i109.i, label %246, label %237
@@ -433,7 +433,7 @@ get_interleaved_ue_golomb.exit112.i:              ; preds = %.loopexit.i110.i, %
   %274 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_golomb_vlc_len, i64 0, i64 %273
   %275 = load i8, ptr %274, align 1, !tbaa !4
   %276 = zext i8 %275 to i32
-  %277 = add i32 %.sroa.14.5.i, %276
+  %277 = add nuw i32 %.sroa.14.5.i, %276
   %..i114.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %277)
   %278 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_ue_golomb_vlc_code, i64 0, i64 %273
   %279 = load i8, ptr %278, align 1, !tbaa !4
@@ -450,7 +450,7 @@ get_interleaved_ue_golomb.exit112.i:              ; preds = %.loopexit.i110.i, %
   %284 = load i8, ptr %283, align 1, !tbaa !4
   %spec.select57.i120.i = tail call i8 @llvm.umin.i8(i8 %284, i8 8)
   %spec.select.i121.i = zext nneg i8 %spec.select57.i120.i to i32
-  %285 = add i32 %.044.i118.i, %spec.select.i121.i
+  %285 = add nuw i32 %.044.i118.i, %spec.select.i121.i
   %spec.select56.i122.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %285)
   %.not54.i123.i = icmp eq i8 %284, 9
   br i1 %.not54.i123.i, label %295, label %286
@@ -509,7 +509,7 @@ get_interleaved_ue_golomb.exit126.i:              ; preds = %.loopexit.i124.i, %
   %323 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_golomb_vlc_len, i64 0, i64 %322
   %324 = load i8, ptr %323, align 1, !tbaa !4
   %325 = zext i8 %324 to i32
-  %326 = add i32 %.sroa.14.6.i, %325
+  %326 = add nuw i32 %.sroa.14.6.i, %325
   %..i128.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %326)
   br label %get_interleaved_ue_golomb.exit140.i
 
@@ -523,7 +523,7 @@ get_interleaved_ue_golomb.exit126.i:              ; preds = %.loopexit.i124.i, %
   %330 = load i8, ptr %329, align 1, !tbaa !4
   %spec.select57.i134.i = tail call i8 @llvm.umin.i8(i8 %330, i8 8)
   %spec.select.i135.i = zext nneg i8 %spec.select57.i134.i to i32
-  %331 = add i32 %.044.i132.i, %spec.select.i135.i
+  %331 = add nuw i32 %.044.i132.i, %spec.select.i135.i
   %spec.select56.i136.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %331)
   %.not54.i137.i = icmp eq i8 %330, 9
   br i1 %.not54.i137.i, label %332, label %get_interleaved_ue_golomb.exit140.i
@@ -571,7 +571,7 @@ get_interleaved_ue_golomb.exit140.i:              ; preds = %332, %.preheader.i1
   %359 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_golomb_vlc_len, i64 0, i64 %358
   %360 = load i8, ptr %359, align 1, !tbaa !4
   %361 = zext i8 %360 to i32
-  %362 = add i32 %.sroa.14.0241.i, %361
+  %362 = add nuw i32 %.sroa.14.0241.i, %361
   %..i142.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %362)
   br label %get_interleaved_ue_golomb.exit154.i
 
@@ -627,7 +627,7 @@ get_interleaved_ue_golomb.exit154.i:              ; preds = %368, %.preheader.i1
   %395 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_golomb_vlc_len, i64 0, i64 %394
   %396 = load i8, ptr %395, align 1, !tbaa !4
   %397 = zext i8 %396 to i32
-  %398 = add i32 %.sroa.14.8.i, %397
+  %398 = add nuw i32 %.sroa.14.8.i, %397
   %..i156.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %398)
   br label %get_interleaved_ue_golomb.exit168.i
 
@@ -641,7 +641,7 @@ get_interleaved_ue_golomb.exit154.i:              ; preds = %368, %.preheader.i1
   %402 = load i8, ptr %401, align 1, !tbaa !4
   %spec.select57.i162.i = tail call i8 @llvm.umin.i8(i8 %402, i8 8)
   %spec.select.i163.i = zext nneg i8 %spec.select57.i162.i to i32
-  %403 = add i32 %.044.i160.i, %spec.select.i163.i
+  %403 = add nuw i32 %.044.i160.i, %spec.select.i163.i
   %spec.select56.i164.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %403)
   %.not54.i165.i = icmp eq i8 %402, 9
   br i1 %.not54.i165.i, label %404, label %get_interleaved_ue_golomb.exit168.i
@@ -683,7 +683,7 @@ get_interleaved_ue_golomb.exit168.i:              ; preds = %404, %.preheader.i1
   %431 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_golomb_vlc_len, i64 0, i64 %430
   %432 = load i8, ptr %431, align 1, !tbaa !4
   %433 = zext i8 %432 to i32
-  %434 = add i32 %.sroa.14.9.i, %433
+  %434 = add nuw i32 %.sroa.14.9.i, %433
   %..i170.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %434)
   br label %get_interleaved_ue_golomb.exit182.i
 
@@ -697,7 +697,7 @@ get_interleaved_ue_golomb.exit168.i:              ; preds = %404, %.preheader.i1
   %438 = load i8, ptr %437, align 1, !tbaa !4
   %spec.select57.i176.i = tail call i8 @llvm.umin.i8(i8 %438, i8 8)
   %spec.select.i177.i = zext nneg i8 %spec.select57.i176.i to i32
-  %439 = add i32 %.044.i174.i, %spec.select.i177.i
+  %439 = add nuw i32 %.044.i174.i, %spec.select.i177.i
   %spec.select56.i178.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %439)
   %.not54.i179.i = icmp eq i8 %438, 9
   br i1 %.not54.i179.i, label %440, label %get_interleaved_ue_golomb.exit182.i
@@ -728,8 +728,8 @@ get_interleaved_ue_golomb.exit182.i:              ; preds = %440, %.preheader.i1
 
 ._crit_edge.i:                                    ; preds = %get_interleaved_ue_golomb.exit182.i, %get_interleaved_ue_golomb.exit140.i
   %.sroa.14.0.lcssa.i = phi i32 [ %.sroa.14.7.i, %get_interleaved_ue_golomb.exit140.i ], [ %.sroa.14.10.i, %get_interleaved_ue_golomb.exit182.i ]
-  %457 = add nsw i32 %.sroa.14.0.lcssa.i, 7
-  %458 = sdiv i32 %457, 8
+  %457 = add nuw nsw i32 %.sroa.14.0.lcssa.i, 7
+  %458 = lshr i32 %457, 3
   %459 = trunc i32 %458 to i16
   store i32 %54, ptr %50, align 1, !tbaa !4
   %460 = trunc i32 %.043.i101.i to i16

@@ -429,8 +429,8 @@ _ZN2cv3PtrINS_4face4MACEEEC2ERKS3_.exit:          ; preds = %76
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN2cv4face4MACEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZN2cv3PtrINS_4face4MACEEEC2ERKS3_.exit.thread
 
 _ZN2cv3PtrINS_4face4MACEEEC2ERKS3_.exit.thread:   ; preds = %82, %79, %_ZN2cv3PtrINS_4face4MACEEEC2ERKS3_.exit
-  %.pr25 = phi ptr [ %.pr.pre, %_ZN2cv3PtrINS_4face4MACEEEC2ERKS3_.exit ], [ %53, %79 ], [ %53, %82 ]
-  %84 = getelementptr inbounds nuw i8, ptr %.pr25, i64 8
+  %.pr27 = phi ptr [ %.pr.pre, %_ZN2cv3PtrINS_4face4MACEEEC2ERKS3_.exit ], [ %53, %79 ], [ %53, %82 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.pr27, i64 8
   %85 = load atomic i64, ptr %84 acquire, align 8
   %86 = icmp eq i64 %85, 4294967297
   %87 = trunc i64 %85 to i32
@@ -438,16 +438,16 @@ _ZN2cv3PtrINS_4face4MACEEEC2ERKS3_.exit.thread:   ; preds = %82, %79, %_ZN2cv3Pt
 
 88:                                               ; preds = %_ZN2cv3PtrINS_4face4MACEEEC2ERKS3_.exit.thread
   store i32 0, ptr %84, align 8, !tbaa !8
-  %89 = getelementptr inbounds nuw i8, ptr %.pr25, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %.pr27, i64 12
   store i32 0, ptr %89, align 4, !tbaa !13
-  %90 = load ptr, ptr %.pr25, align 8, !tbaa !14
+  %90 = load ptr, ptr %.pr27, align 8, !tbaa !14
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
-  call void %92(ptr noundef nonnull align 8 dereferenceable(16) %.pr25) #25
-  %93 = load ptr, ptr %.pr25, align 8, !tbaa !14
+  call void %92(ptr noundef nonnull align 8 dereferenceable(16) %.pr27) #25
+  %93 = load ptr, ptr %.pr27, align 8, !tbaa !14
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %95 = load ptr, ptr %94, align 8
-  call void %95(ptr noundef nonnull align 8 dereferenceable(16) %.pr25) #25
+  call void %95(ptr noundef nonnull align 8 dereferenceable(16) %.pr27) #25
   br label %_ZNSt12__shared_ptrIN2cv4face4MACEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 96:                                               ; preds = %_ZN2cv3PtrINS_4face4MACEEEC2ERKS3_.exit.thread
@@ -470,7 +470,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %100, %98
   br i1 %102, label %103, label %_ZNSt12__shared_ptrIN2cv4face4MACEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !55
 
 103:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr25) #25
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr27) #25
   br label %_ZNSt12__shared_ptrIN2cv4face4MACEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv4face4MACEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN2cv3PtrINS_4face4MACEEEC2ERKS3_.exit, %88, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %103

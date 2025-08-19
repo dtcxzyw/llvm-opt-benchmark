@@ -1244,7 +1244,7 @@ _ZNKSt14default_deleteIN7rocksdb13IOTraceReaderEEclEPS1_.exit.i: ; preds = %_ZNK
   br label %_ZNSt10unique_ptrIN7rocksdb13IOTraceReaderESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN7rocksdb13IOTraceReaderESt14default_deleteIS1_EED2Ev.exit: ; preds = %.thread, %_ZNKSt14default_deleteIN7rocksdb13IOTraceReaderEEclEPS1_.exit.i
-  %.01051 = phi i32 [ 1, %.thread ], [ %.111, %_ZNKSt14default_deleteIN7rocksdb13IOTraceReaderEEclEPS1_.exit.i ]
+  %.01072 = phi i32 [ 1, %.thread ], [ %.111, %_ZNKSt14default_deleteIN7rocksdb13IOTraceReaderEEclEPS1_.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %174 = load ptr, ptr %3, align 8, !tbaa !102
   %.not.i33 = icmp eq ptr %174, null
@@ -1269,7 +1269,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 _ZN7rocksdb6StatusD2Ev.exit36:                    ; preds = %_ZNSt10unique_ptrIN7rocksdb11TraceReaderESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i35
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.01051
+  ret i32 %.01072
 
 179:                                              ; preds = %169, %92, %56, %54, %52
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %169 ], [ %93, %92 ], [ %55, %54 ], [ %57, %56 ], [ %53, %52 ]

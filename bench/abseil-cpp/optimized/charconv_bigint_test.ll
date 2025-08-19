@@ -2238,7 +2238,7 @@ _ZN7testing15AssertionResultD2Ev.exit373:         ; preds = %610, %_ZNKSt14defau
   br label %._crit_edge.i376
 
 .lr.ph.i381:                                      ; preds = %633
-  %smin.i382 = sext i32 %.sroa.speculated.i375 to i64
+  %smin.i382 = zext nneg i32 %.sroa.speculated.i375 to i64
   %635 = zext nneg i32 %528 to i64
   br label %640
 
@@ -4623,14 +4623,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   %269 = load i8, ptr %268, align 1, !tbaa !50
   %270 = add i8 %269, -48
   %271 = icmp ult i8 %270, 10
-  br i1 %271, label %272, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit517
+  br i1 %271, label %272, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit602
 
 272:                                              ; preds = %267
   %273 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 3
   %274 = load i8, ptr %273, align 1, !tbaa !50
   %275 = add i8 %274, -48
   %276 = icmp ult i8 %275, 10
-  br i1 %276, label %277, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit519
+  br i1 %276, label %277, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit604
 
 277:                                              ; preds = %272
   %278 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 4
@@ -4680,16 +4680,16 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit: ; preds 
   %298 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 1
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i
 
-_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit517: ; preds = %267
+_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit602: ; preds = %267
   %299 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 2
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i
 
-_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit519: ; preds = %272
+_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit604: ; preds = %272
   %300 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 3
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i
 
-_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i:    ; preds = %.lr.ph.i.i.i.i, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit517, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit519, %294, %288, %282
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %282 ], [ %.1.i.i.i.i, %288 ], [ %.2.i.i.i.i, %294 ], [ %298, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit ], [ %299, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit517 ], [ %300, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit519 ], [ %.02946.i.i.i.i, %.lr.ph.i.i.i.i ]
+_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i:    ; preds = %.lr.ph.i.i.i.i, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit602, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit604, %294, %288, %282
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %282 ], [ %.1.i.i.i.i, %288 ], [ %.2.i.i.i.i, %294 ], [ %298, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit ], [ %299, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit602 ], [ %300, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.loopexit.split.loop.exit604 ], [ %.02946.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.not.i85 = icmp ne ptr %.028.i.i.i.i, %254
   %301 = icmp eq i64 %253, 0
   %or.cond.i86 = or i1 %301, %.not.i85
@@ -5159,14 +5159,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i97
   %486 = load i8, ptr %485, align 1, !tbaa !50
   %487 = add i8 %486, -48
   %488 = icmp ult i8 %487, 10
-  br i1 %488, label %489, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit525
+  br i1 %488, label %489, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit610
 
 489:                                              ; preds = %484
   %490 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i119, i64 3
   %491 = load i8, ptr %490, align 1, !tbaa !50
   %492 = add i8 %491, -48
   %493 = icmp ult i8 %492, 10
-  br i1 %493, label %494, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit527
+  br i1 %493, label %494, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit612
 
 494:                                              ; preds = %489
   %495 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i119, i64 4
@@ -5216,16 +5216,16 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit: ; pre
   %515 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i119, i64 1
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108
 
-_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit525: ; preds = %484
+_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit610: ; preds = %484
   %516 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i119, i64 2
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108
 
-_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit527: ; preds = %489
+_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit612: ; preds = %489
   %517 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i119, i64 3
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108
 
-_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108: ; preds = %.lr.ph.i.i.i.i117, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit525, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit527, %511, %505, %499
-  %.028.i.i.i.i109 = phi ptr [ %.029.lcssa.i.i.i.i105, %499 ], [ %.1.i.i.i.i114, %505 ], [ %.2.i.i.i.i107, %511 ], [ %515, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit ], [ %516, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit525 ], [ %517, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit527 ], [ %.02946.i.i.i.i119, %.lr.ph.i.i.i.i117 ]
+_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108: ; preds = %.lr.ph.i.i.i.i117, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit610, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit612, %511, %505, %499
+  %.028.i.i.i.i109 = phi ptr [ %.029.lcssa.i.i.i.i105, %499 ], [ %.1.i.i.i.i114, %505 ], [ %.2.i.i.i.i107, %511 ], [ %515, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit ], [ %516, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit610 ], [ %517, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i108.loopexit.split.loop.exit612 ], [ %.02946.i.i.i.i119, %.lr.ph.i.i.i.i117 ]
   %.not.i110 = icmp ne ptr %.028.i.i.i.i109, %471
   %518 = icmp eq i64 %470, 0
   %or.cond.i111 = or i1 %518, %.not.i110

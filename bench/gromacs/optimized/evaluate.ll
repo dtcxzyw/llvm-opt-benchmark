@@ -633,12 +633,12 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
   br label %138
 
 138:                                              ; preds = %126, %134
-  %.sink195 = phi ptr [ %133, %126 ], [ %135, %134 ]
+  %.sink203 = phi ptr [ %133, %126 ], [ %135, %134 ]
   %.sink.in = phi ptr [ %132, %126 ], [ %137, %134 ]
   %.186 = phi i32 [ %.085172, %126 ], [ %136, %134 ]
   %.183 = phi i32 [ %130, %126 ], [ %.082173, %134 ]
   %.sink = load i32, ptr %.sink.in, align 4, !tbaa !48
-  %139 = getelementptr inbounds nuw i32, ptr %.sink195, i64 %indvars.iv.next183
+  %139 = getelementptr inbounds nuw i32, ptr %.sink203, i64 %indvars.iv.next183
   store i32 %.sink, ptr %139, align 4, !tbaa !48
   %140 = icmp samesign ugt i64 %indvars.iv182, 1
   br i1 %140, label %113, label %.loopexit, !llvm.loop !51
@@ -702,13 +702,13 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
   br label %175
 
 175:                                              ; preds = %163, %171
-  %.sink198 = phi ptr [ %170, %163 ], [ %172, %171 ]
-  %.sink196.in = phi ptr [ %169, %163 ], [ %174, %171 ]
+  %.sink206 = phi ptr [ %170, %163 ], [ %172, %171 ]
+  %.sink204.in = phi ptr [ %169, %163 ], [ %174, %171 ]
   %.388 = phi i32 [ %.287167, %163 ], [ %173, %171 ]
   %.3 = phi i32 [ %167, %163 ], [ %.284168, %171 ]
-  %.sink196 = load float, ptr %.sink196.in, align 4, !tbaa !53
-  %176 = getelementptr inbounds nuw float, ptr %.sink198, i64 %indvars.iv.next180
-  store float %.sink196, ptr %176, align 4, !tbaa !53
+  %.sink204 = load float, ptr %.sink204.in, align 4, !tbaa !53
+  %176 = getelementptr inbounds nuw float, ptr %.sink206, i64 %indvars.iv.next180
+  store float %.sink204, ptr %176, align 4, !tbaa !53
   %177 = icmp samesign ugt i64 %indvars.iv179, 1
   br i1 %177, label %150, label %.loopexit, !llvm.loop !55
 
@@ -771,13 +771,13 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
   br label %212
 
 212:                                              ; preds = %200, %208
-  %.sink201 = phi ptr [ %207, %200 ], [ %209, %208 ]
-  %.sink199.in = phi ptr [ %206, %200 ], [ %211, %208 ]
+  %.sink209 = phi ptr [ %207, %200 ], [ %209, %208 ]
+  %.sink207.in = phi ptr [ %206, %200 ], [ %211, %208 ]
   %.590 = phi i32 [ %.489163, %200 ], [ %210, %208 ]
   %.5 = phi i32 [ %204, %200 ], [ %.4164, %208 ]
-  %.sink199 = load ptr, ptr %.sink199.in, align 8, !tbaa !56
-  %213 = getelementptr inbounds nuw ptr, ptr %.sink201, i64 %indvars.iv.next
-  store ptr %.sink199, ptr %213, align 8, !tbaa !56
+  %.sink207 = load ptr, ptr %.sink207.in, align 8, !tbaa !56
+  %213 = getelementptr inbounds nuw ptr, ptr %.sink209, i64 %indvars.iv.next
+  store ptr %.sink207, ptr %213, align 8, !tbaa !56
   %214 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %214, label %187, label %.loopexit, !llvm.loop !57
 
@@ -870,13 +870,13 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
 .thread149:                                       ; preds = %226
   %232 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split202
+  br label %.sink.split210
 
 .thread153:                                       ; preds = %228
   %233 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #24
-  br label %.sink.split202
+  br label %.sink.split210
 
 234:                                              ; preds = %229, %231
   %.0 = phi i1 [ false, %231 ], [ true, %229 ]
@@ -889,13 +889,13 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.0, label %236, label %269
 
-.sink.split202:                                   ; preds = %.thread149, %.thread153
+.sink.split210:                                   ; preds = %.thread149, %.thread153
   %.pn107.pn152.ph = phi { ptr, i32 } [ %233, %.thread153 ], [ %232, %.thread149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %236
 
-236:                                              ; preds = %.sink.split202, %234
-  %.pn107.pn152 = phi { ptr, i32 } [ %235, %234 ], [ %.pn107.pn152.ph, %.sink.split202 ]
+236:                                              ; preds = %.sink.split210, %234
+  %.pn107.pn152 = phi { ptr, i32 } [ %235, %234 ], [ %.pn107.pn152.ph, %.sink.split210 ]
   call void @__cxa_free_exception(ptr %227) #24
   br label %269
 
@@ -1150,8 +1150,8 @@ define void @_Z28_gmx_sel_evaluate_subexprrefP18gmx_sel_evaluate_tRKSt10shared_p
   %40 = load ptr, ptr %35, align 8, !tbaa !12
   %41 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv151
   %42 = load i32, ptr %41, align 4, !tbaa !48
-  %sext156 = shl i64 %.094130, 32
-  %43 = ashr exact i64 %sext156, 32
+  %sext162 = shl i64 %.094130, 32
+  %43 = ashr exact i64 %sext162, 32
   br label %44
 
 44:                                               ; preds = %44, %.preheader
@@ -1217,8 +1217,8 @@ define void @_Z28_gmx_sel_evaluate_subexprrefP18gmx_sel_evaluate_tRKSt10shared_p
   %80 = load ptr, ptr %75, align 8, !tbaa !12
   %81 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv143
   %82 = load i32, ptr %81, align 4, !tbaa !48
-  %sext155 = shl i64 %.296128, 32
-  %83 = ashr exact i64 %sext155, 32
+  %sext161 = shl i64 %.296128, 32
+  %83 = ashr exact i64 %sext161, 32
   br label %84
 
 84:                                               ; preds = %84, %.preheader114

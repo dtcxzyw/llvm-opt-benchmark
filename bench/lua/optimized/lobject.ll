@@ -812,11 +812,11 @@ define hidden range(i32 -2147483647, -2147483648) i32 @luaO_utf8esc(ptr noundef 
   br label %21
 
 21:                                               ; preds = %2, %13
-  %.sink26 = phi i64 [ %20, %13 ], [ 7, %2 ]
+  %.sink28 = phi i64 [ %20, %13 ], [ 7, %2 ]
   %.sink.in = phi i64 [ %18, %13 ], [ %1, %2 ]
   %.014 = phi i32 [ %14, %13 ], [ 1, %2 ]
   %.sink = trunc i64 %.sink.in to i8
-  %22 = getelementptr inbounds i8, ptr %0, i64 %.sink26
+  %22 = getelementptr inbounds i8, ptr %0, i64 %.sink28
   store i8 %.sink, ptr %22, align 1, !tbaa !4
   ret i32 %.014
 }
@@ -1741,11 +1741,11 @@ addstr2buff.exit76:                               ; preds = %340, %354, %.thread
   br label %luaO_utf8esc.exit
 
 luaO_utf8esc.exit:                                ; preds = %392, %405
-  %.sink26.i = phi i64 [ %412, %405 ], [ 7, %392 ]
+  %.sink28.i = phi i64 [ %412, %405 ], [ 7, %392 ]
   %.sink.in.i = phi i64 [ %410, %405 ], [ %394, %392 ]
   %.014.i = phi i32 [ %406, %405 ], [ 1, %392 ]
   %.sink.i = trunc i64 %.sink.in.i to i8
-  %413 = getelementptr inbounds i8, ptr %13, i64 %.sink26.i
+  %413 = getelementptr inbounds i8, ptr %13, i64 %.sink28.i
   store i8 %.sink.i, ptr %413, align 1, !tbaa !4
   %narrow = sub nsw i32 0, %.014.i
   %414 = sext i32 %narrow to i64
@@ -2011,7 +2011,7 @@ addstr2buff.exit44:                               ; preds = %519, %.thread.i99, 
 531:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %532 = phi i64 [ 219, %._crit_edge.thread ], [ %530, %._crit_edge ]
   %533 = phi i64 [ %20, %._crit_edge.thread ], [ %529, %._crit_edge ]
-  %.0.lcssa120 = phi ptr [ %1, %._crit_edge.thread ], [ %526, %._crit_edge ]
+  %.0.lcssa185 = phi ptr [ %1, %._crit_edge.thread ], [ %526, %._crit_edge ]
   %534 = phi i64 [ 219, %._crit_edge.thread ], [ %.pre, %._crit_edge ]
   %535 = phi i64 [ 0, %._crit_edge.thread ], [ %.pre116, %._crit_edge ]
   %536 = icmp ugt i64 %533, %532
@@ -2029,7 +2029,7 @@ addstr2buff.exit44:                               ; preds = %519, %.thread.i99, 
 540:                                              ; preds = %537
   %541 = load ptr, ptr %15, align 8, !tbaa !26
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 %535
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %542, ptr nonnull readonly align 1 %.0.lcssa120, i64 %532, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %542, ptr nonnull readonly align 1 %.0.lcssa185, i64 %532, i1 false)
   %543 = load i64, ptr %16, align 8, !tbaa !27
   store i64 %543, ptr %17, align 8, !tbaa !28
   store i32 2, ptr %18, align 8, !tbaa !29
@@ -2079,7 +2079,7 @@ addstr2buff.exit44:                               ; preds = %519, %.thread.i99, 
   %562 = phi i64 [ %535, %._crit_edge.i102 ], [ %.pre47.i106, %560 ]
   %563 = phi ptr [ %.pre.i104, %._crit_edge.i102 ], [ %554, %560 ]
   %564 = getelementptr inbounds nuw i8, ptr %563, i64 %562
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %564, ptr nonnull readonly align 1 %.0.lcssa120, i64 %533, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %564, ptr nonnull readonly align 1 %.0.lcssa185, i64 %533, i1 false)
   %565 = load i64, ptr %17, align 8, !tbaa !28
   %566 = add i64 %565, %533
   store i64 %566, ptr %17, align 8, !tbaa !28

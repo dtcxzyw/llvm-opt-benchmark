@@ -6436,18 +6436,18 @@ _init_l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVExpr_mkBVConst___closed__7.e
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVExpr_mkBVConst___closed__7.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %104, %_init_l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVExpr_mkBVConst___closed__7.exit ]
-  %107 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !4
+  %.sink25 = phi ptr [ %4, %3 ], [ %104, %_init_l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVExpr_mkBVConst___closed__7.exit ]
+  %107 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
+  store i32 1, ptr %.sink25, align 4, !tbaa !4
   store i32 131096, ptr %107, align 4
-  %108 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %108, align 8, !tbaa !9
-  %109 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %109, align 8, !tbaa !9
   br label %110
 
 110:                                              ; preds = %.sink.split, %lean_dec_ref.exit10, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink25, %.sink.split ]
   ret ptr %.0
 }
 

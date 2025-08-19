@@ -122,8 +122,8 @@ define internal range(i32 -2147483648, 2) i32 @qt_rtp_parse_packet(ptr noundef %
 65:                                               ; preds = %60
   %66 = lshr i32 %61, 1
   %67 = and i32 %66, 1
-  %.not250 = icmp eq i32 %55, 0
-  %68 = select i1 %.not250, i32 31, i32 32
+  %.not266 = icmp eq i32 %55, 0
+  %68 = select i1 %.not266, i32 31, i32 32
   %69 = call i32 @llvm.umin.i32(i32 %57, i32 %68)
   %70 = and i32 %61, 1
   %.not192 = icmp eq i32 %70, 0

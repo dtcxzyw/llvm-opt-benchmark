@@ -1986,9 +1986,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i70: ; preds = %397, 
   br i1 %.not1.i.i.i.i.i.i72, label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit66.sink.split, label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit66
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit66.sink.split: ; preds = %402, %372
-  %.sink99 = phi ptr [ %371, %372 ], [ %401, %402 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimDataD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink99) #20
-  call void @_ZdlPvm(ptr noundef nonnull %.sink99, i64 noundef 64) #21
+  %.sink125 = phi ptr [ %371, %372 ], [ %401, %402 ]
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimDataD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink125) #20
+  call void @_ZdlPvm(ptr noundef nonnull %.sink125, i64 noundef 64) #21
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit66
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit66: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit66.sink.split, %402, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i70, %372, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i63, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit
@@ -4422,9 +4422,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i250: ; preds = %955, %
   br label %975
 
 _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit212.sink.split: ; preds = %960, %833
-  %.sink284 = phi ptr [ %832, %833 ], [ %959, %960 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimDataD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink284) #20
-  call void @_ZdlPvm(ptr noundef nonnull %.sink284, i64 noundef 64) #21
+  %.sink324 = phi ptr [ %832, %833 ], [ %959, %960 ]
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimDataD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink324) #20
+  call void @_ZdlPvm(ptr noundef nonnull %.sink324, i64 noundef 64) #21
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit212
 
 _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit212: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit212.sink.split, %960, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i250, %833, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i209, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit232, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit
@@ -7993,11 +7993,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %105, %_ZN
   %115 = atomicrmw add ptr %114, i32 2 monotonic, align 4
   %116 = and i32 %115, 1
   %.not1.i.i.i = icmp eq i32 %116, 0
-  %spec.select197 = select i1 %.not1.i.i.i, ptr %114, ptr %.sroa.0193.0
+  %spec.select206 = select i1 %.not1.i.i.i, ptr %114, ptr %.sroa.0193.0
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i: ; preds = %112, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
-  %.sroa.0193.1 = phi ptr [ %.sroa.0193.0, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit ], [ %spec.select197, %112 ]
+  %.sroa.0193.1 = phi ptr [ %.sroa.0193.0, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit ], [ %spec.select206, %112 ]
   %117 = load ptr, ptr %0, align 8
   %118 = ptrtoint ptr %117 to i64
   %119 = and i64 %118, 7
@@ -8170,11 +8170,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit78: ; preds = %_ZNK32p
   %193 = atomicrmw add ptr %192, i32 2 monotonic, align 4
   %194 = and i32 %193, 1
   %.not1.i.i80 = icmp eq i32 %194, 0
-  %spec.select198 = select i1 %.not1.i.i80, ptr %192, ptr %188
+  %spec.select207 = select i1 %.not1.i.i80, ptr %192, ptr %188
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit82
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit82: ; preds = %190, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit78
-  %.sroa.0191.0 = phi ptr [ %188, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit78 ], [ %spec.select198, %190 ]
+  %.sroa.0191.0 = phi ptr [ %188, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit78 ], [ %spec.select207, %190 ]
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %196 = ptrtoint ptr %.sroa.0191.0 to i64
   %197 = and i64 %196, 7
@@ -8187,11 +8187,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit82: ; preds = %190, %_
   %201 = atomicrmw add ptr %200, i32 2 monotonic, align 4
   %202 = and i32 %201, 1
   %.not1.i.i.i85 = icmp eq i32 %202, 0
-  %spec.select199 = select i1 %.not1.i.i.i85, ptr %200, ptr %.sroa.0191.0
+  %spec.select208 = select i1 %.not1.i.i.i85, ptr %200, ptr %.sroa.0191.0
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i86
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i86: ; preds = %198, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit82
-  %.sroa.0191.1 = phi ptr [ %.sroa.0191.0, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit82 ], [ %spec.select199, %198 ]
+  %.sroa.0191.1 = phi ptr [ %.sroa.0191.0, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit82 ], [ %spec.select208, %198 ]
   %203 = load ptr, ptr %195, align 8
   %204 = ptrtoint ptr %203 to i64
   %205 = and i64 %204, 7
@@ -8364,11 +8364,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit110: ; preds = %_ZNK32
   %279 = atomicrmw add ptr %278, i32 2 monotonic, align 4
   %280 = and i32 %279, 1
   %.not1.i.i112 = icmp eq i32 %280, 0
-  %spec.select200 = select i1 %.not1.i.i112, ptr %278, ptr %274
+  %spec.select209 = select i1 %.not1.i.i112, ptr %278, ptr %274
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit114
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit114: ; preds = %276, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit110
-  %.sroa.0.0 = phi ptr [ %274, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit110 ], [ %spec.select200, %276 ]
+  %.sroa.0.0 = phi ptr [ %274, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit110 ], [ %spec.select209, %276 ]
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %282 = ptrtoint ptr %.sroa.0.0 to i64
   %283 = and i64 %282, 7
@@ -8381,11 +8381,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit114: ; preds = %276, %
   %287 = atomicrmw add ptr %286, i32 2 monotonic, align 4
   %288 = and i32 %287, 1
   %.not1.i.i.i117 = icmp eq i32 %288, 0
-  %spec.select201 = select i1 %.not1.i.i.i117, ptr %286, ptr %.sroa.0.0
+  %spec.select210 = select i1 %.not1.i.i.i117, ptr %286, ptr %.sroa.0.0
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i118
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i118: ; preds = %284, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit114
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit114 ], [ %spec.select201, %284 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit114 ], [ %spec.select210, %284 ]
   %289 = load ptr, ptr %281, align 8
   %290 = ptrtoint ptr %289 to i64
   %291 = and i64 %290, 7
@@ -11298,12 +11298,12 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__26UsdImagingPrimvarDescCache3KeyESt6vectorINS4_19HdPrimvarDescriptorESaIS8_EENS6_4HashESt8equal_toIS6_ENS1_13tbb_allocatorISt4pairIKS6_SA_EEELb0EEEE17adjust_table_sizeEmm.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__26UsdImagingPrimvarDescCache3KeyESt6vectorINS4_19HdPrimvarDescriptorESaIS8_EENS6_4HashESt8equal_toIS6_ENS1_13tbb_allocatorISt4pairIKS6_SA_EEELb0EEEE17adjust_table_sizeEmm.exit: ; preds = %52, %77, %101, %._crit_edge
-  %.sink76 = phi ptr [ null, %._crit_edge ], [ null, %101 ], [ %67, %77 ], [ null, %52 ]
-  %.sink74 = phi ptr [ %67, %._crit_edge ], [ %67, %101 ], [ %.025.i36, %77 ], [ %.025.i, %52 ]
+  %.sink79 = phi ptr [ null, %._crit_edge ], [ null, %101 ], [ %67, %77 ], [ null, %52 ]
+  %.sink77 = phi ptr [ %67, %._crit_edge ], [ %67, %101 ], [ %.025.i36, %77 ], [ %.025.i, %52 ]
   %.sink = phi i8 [ 1, %._crit_edge ], [ 1, %101 ], [ 0, %77 ], [ 0, %52 ]
-  store ptr %.sink76, ptr %0, align 8
+  store ptr %.sink79, ptr %0, align 8
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink74, ptr %104, align 8
+  store ptr %.sink77, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %105, align 8
   ret void

@@ -2076,9 +2076,9 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
 
 111:                                              ; preds = %108, %109
   %hf_thread_mc_tlv_pan_id.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %109 ], [ @hf_thread_mc_tlv_pan_id, %108 ]
-  %.sink890 = phi i32 [ %77, %109 ], [ 2, %108 ]
+  %.sink900 = phi i32 [ %77, %109 ], [ 2, %108 ]
   %112 = load i32, ptr %hf_thread_mc_tlv_pan_id.sink, align 4
-  %113 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %112, ptr noundef %0, i32 noundef %94, i32 noundef %.sink890, i32 noundef 0)
+  %113 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %112, ptr noundef %0, i32 noundef %94, i32 noundef %.sink900, i32 noundef 0)
   %114 = add i32 %94, %77
   br label %.loopexit
 
@@ -2092,9 +2092,9 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
 
 118:                                              ; preds = %115, %116
   %hf_thread_mc_tlv_xpan_id.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %116 ], [ @hf_thread_mc_tlv_xpan_id, %115 ]
-  %.sink891 = phi i32 [ %77, %116 ], [ 8, %115 ]
+  %.sink901 = phi i32 [ %77, %116 ], [ 8, %115 ]
   %119 = load i32, ptr %hf_thread_mc_tlv_xpan_id.sink, align 4
-  %120 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %119, ptr noundef %0, i32 noundef %94, i32 noundef %.sink891, i32 noundef 0)
+  %120 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %119, ptr noundef %0, i32 noundef %94, i32 noundef %.sink901, i32 noundef 0)
   %121 = add i32 %94, %77
   br label %.loopexit
 
@@ -2122,9 +2122,9 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
 
 133:                                              ; preds = %130, %131
   %hf_thread_mc_tlv_pskc.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %131 ], [ @hf_thread_mc_tlv_pskc, %130 ]
-  %.sink892 = phi i32 [ %77, %131 ], [ 16, %130 ]
+  %.sink902 = phi i32 [ %77, %131 ], [ 16, %130 ]
   %134 = load i32, ptr %hf_thread_mc_tlv_pskc.sink, align 4
-  %135 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %134, ptr noundef %0, i32 noundef %94, i32 noundef %.sink892, i32 noundef 0)
+  %135 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %134, ptr noundef %0, i32 noundef %94, i32 noundef %.sink902, i32 noundef 0)
   %136 = add i32 %94, %77
   br label %.loopexit
 
@@ -2138,9 +2138,9 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
 
 140:                                              ; preds = %137, %138
   %hf_thread_mc_tlv_master_key.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %138 ], [ @hf_thread_mc_tlv_master_key, %137 ]
-  %.sink893 = phi i32 [ %77, %138 ], [ 16, %137 ]
+  %.sink903 = phi i32 [ %77, %138 ], [ 16, %137 ]
   %141 = load i32, ptr %hf_thread_mc_tlv_master_key.sink, align 4
-  %142 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %141, ptr noundef %0, i32 noundef %94, i32 noundef %.sink893, i32 noundef 0)
+  %142 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %141, ptr noundef %0, i32 noundef %94, i32 noundef %.sink903, i32 noundef 0)
   %143 = add i32 %94, %77
   br label %.loopexit
 
@@ -2154,9 +2154,9 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
 
 147:                                              ; preds = %144, %145
   %hf_thread_mc_tlv_net_key_seq_ctr.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %145 ], [ @hf_thread_mc_tlv_net_key_seq_ctr, %144 ]
-  %.sink894 = phi i32 [ %77, %145 ], [ 4, %144 ]
+  %.sink904 = phi i32 [ %77, %145 ], [ 4, %144 ]
   %148 = load i32, ptr %hf_thread_mc_tlv_net_key_seq_ctr.sink, align 4
-  %149 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %148, ptr noundef %0, i32 noundef %94, i32 noundef %.sink894, i32 noundef 0)
+  %149 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %148, ptr noundef %0, i32 noundef %94, i32 noundef %.sink904, i32 noundef 0)
   %150 = add i32 %94, %77
   br label %.loopexit
 
@@ -2209,9 +2209,9 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
 
 173:                                              ; preds = %170, %171
   %hf_thread_mc_tlv_ba_locator.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %171 ], [ @hf_thread_mc_tlv_ba_locator, %170 ]
-  %.sink895 = phi i32 [ %77, %171 ], [ 2, %170 ]
+  %.sink905 = phi i32 [ %77, %171 ], [ 2, %170 ]
   %174 = load i32, ptr %hf_thread_mc_tlv_ba_locator.sink, align 4
-  %175 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %174, ptr noundef %0, i32 noundef %94, i32 noundef %.sink895, i32 noundef 0)
+  %175 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %174, ptr noundef %0, i32 noundef %94, i32 noundef %.sink905, i32 noundef 0)
   %176 = add i32 %94, %77
   br label %.loopexit
 
@@ -2225,9 +2225,9 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
 
 181:                                              ; preds = %177, %179
   %hf_thread_mc_tlv_commissioner_id.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %179 ], [ @hf_thread_mc_tlv_commissioner_id, %177 ]
-  %.sink896 = phi i32 [ 0, %179 ], [ 2, %177 ]
+  %.sink906 = phi i32 [ 0, %179 ], [ 2, %177 ]
   %182 = load i32, ptr %hf_thread_mc_tlv_commissioner_id.sink, align 4
-  %183 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %182, ptr noundef %0, i32 noundef %94, i32 noundef %77, i32 noundef %.sink896)
+  %183 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %182, ptr noundef %0, i32 noundef %94, i32 noundef %77, i32 noundef %.sink906)
   %184 = add i32 %94, %77
   br label %.loopexit
 
@@ -2241,9 +2241,9 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
 
 188:                                              ; preds = %185, %186
   %hf_thread_mc_tlv_commissioner_sess_id.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %186 ], [ @hf_thread_mc_tlv_commissioner_sess_id, %185 ]
-  %.sink897 = phi i32 [ %77, %186 ], [ 2, %185 ]
+  %.sink907 = phi i32 [ %77, %186 ], [ 2, %185 ]
   %189 = load i32, ptr %hf_thread_mc_tlv_commissioner_sess_id.sink, align 4
-  %190 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %189, ptr noundef %0, i32 noundef %94, i32 noundef %.sink897, i32 noundef 0)
+  %190 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %189, ptr noundef %0, i32 noundef %94, i32 noundef %.sink907, i32 noundef 0)
   %191 = add i32 %94, %77
   br label %.loopexit
 
@@ -2370,9 +2370,9 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
   br label %275
 
 275:                                              ; preds = %272, %273
-  %.sink898 = phi i32 [ %77, %273 ], [ 1, %272 ]
+  %.sink908 = phi i32 [ %77, %273 ], [ 1, %272 ]
   %276 = load i32, ptr @hf_thread_mc_tlv_state, align 4
-  %277 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %276, ptr noundef %0, i32 noundef %94, i32 noundef %.sink898, i32 noundef 0)
+  %277 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %276, ptr noundef %0, i32 noundef %94, i32 noundef %.sink908, i32 noundef 0)
   %278 = add i32 %94, %77
   br label %.loopexit
 
@@ -2399,9 +2399,9 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
   br label %289
 
 289:                                              ; preds = %286, %287
-  %.sink899 = phi i32 [ %77, %287 ], [ 2, %286 ]
+  %.sink909 = phi i32 [ %77, %287 ], [ 2, %286 ]
   %290 = load i32, ptr @hf_thread_mc_tlv_udp_port, align 4
-  %291 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %290, ptr noundef %0, i32 noundef %94, i32 noundef %.sink899, i32 noundef 0)
+  %291 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %290, ptr noundef %0, i32 noundef %94, i32 noundef %.sink909, i32 noundef 0)
   %292 = add i32 %94, %77
   br label %.loopexit
 
@@ -2415,9 +2415,9 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
 
 296:                                              ; preds = %293, %294
   %hf_thread_mc_tlv_iid.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %294 ], [ @hf_thread_mc_tlv_iid, %293 ]
-  %.sink900 = phi i32 [ %77, %294 ], [ 8, %293 ]
+  %.sink910 = phi i32 [ %77, %294 ], [ 8, %293 ]
   %297 = load i32, ptr %hf_thread_mc_tlv_iid.sink, align 4
-  %298 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %297, ptr noundef %0, i32 noundef %94, i32 noundef %.sink900, i32 noundef 0)
+  %298 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %297, ptr noundef %0, i32 noundef %94, i32 noundef %.sink910, i32 noundef 0)
   %299 = add i32 %94, %77
   br label %.loopexit
 
@@ -2431,9 +2431,9 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
 
 303:                                              ; preds = %300, %301
   %hf_thread_mc_tlv_jr_locator.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %301 ], [ @hf_thread_mc_tlv_jr_locator, %300 ]
-  %.sink901 = phi i32 [ %77, %301 ], [ 2, %300 ]
+  %.sink911 = phi i32 [ %77, %301 ], [ 2, %300 ]
   %304 = load i32, ptr %hf_thread_mc_tlv_jr_locator.sink, align 4
-  %305 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %304, ptr noundef %0, i32 noundef %94, i32 noundef %.sink901, i32 noundef 0)
+  %305 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %304, ptr noundef %0, i32 noundef %94, i32 noundef %.sink911, i32 noundef 0)
   %306 = add i32 %94, %77
   br label %.loopexit
 
@@ -2447,9 +2447,9 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
 
 310:                                              ; preds = %307, %308
   %hf_thread_mc_tlv_kek.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %308 ], [ @hf_thread_mc_tlv_kek, %307 ]
-  %.sink902 = phi i32 [ %77, %308 ], [ 16, %307 ]
+  %.sink912 = phi i32 [ %77, %308 ], [ 16, %307 ]
   %311 = load i32, ptr %hf_thread_mc_tlv_kek.sink, align 4
-  %312 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %311, ptr noundef %0, i32 noundef %94, i32 noundef %.sink902, i32 noundef 0)
+  %312 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %311, ptr noundef %0, i32 noundef %94, i32 noundef %.sink912, i32 noundef 0)
   %313 = add i32 %94, %77
   br label %.loopexit
 
@@ -2463,9 +2463,9 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
 
 318:                                              ; preds = %314, %316
   %hf_thread_mc_tlv_provisioning_url.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %316 ], [ @hf_thread_mc_tlv_provisioning_url, %314 ]
-  %.sink903 = phi i32 [ 0, %316 ], [ 2, %314 ]
+  %.sink913 = phi i32 [ 0, %316 ], [ 2, %314 ]
   %319 = load i32, ptr %hf_thread_mc_tlv_provisioning_url.sink, align 4
-  %320 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %319, ptr noundef %0, i32 noundef %94, i32 noundef %77, i32 noundef %.sink903)
+  %320 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %319, ptr noundef %0, i32 noundef %94, i32 noundef %77, i32 noundef %.sink913)
   %321 = add i32 %94, %77
   br label %.loopexit
 
@@ -2479,9 +2479,9 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
 
 326:                                              ; preds = %322, %324
   %hf_thread_mc_tlv_vendor_name.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %324 ], [ @hf_thread_mc_tlv_vendor_name, %322 ]
-  %.sink904 = phi i32 [ 0, %324 ], [ 2, %322 ]
+  %.sink914 = phi i32 [ 0, %324 ], [ 2, %322 ]
   %327 = load i32, ptr %hf_thread_mc_tlv_vendor_name.sink, align 4
-  %328 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %327, ptr noundef %0, i32 noundef %94, i32 noundef %77, i32 noundef %.sink904)
+  %328 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %327, ptr noundef %0, i32 noundef %94, i32 noundef %77, i32 noundef %.sink914)
   %329 = add i32 %94, %77
   br label %.loopexit
 
@@ -2495,9 +2495,9 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
 
 334:                                              ; preds = %330, %332
   %hf_thread_mc_tlv_vendor_model.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %332 ], [ @hf_thread_mc_tlv_vendor_model, %330 ]
-  %.sink905 = phi i32 [ 0, %332 ], [ 2, %330 ]
+  %.sink915 = phi i32 [ 0, %332 ], [ 2, %330 ]
   %335 = load i32, ptr %hf_thread_mc_tlv_vendor_model.sink, align 4
-  %336 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %335, ptr noundef %0, i32 noundef %94, i32 noundef %77, i32 noundef %.sink905)
+  %336 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %335, ptr noundef %0, i32 noundef %94, i32 noundef %77, i32 noundef %.sink915)
   %337 = add i32 %94, %77
   br label %.loopexit
 
@@ -2511,9 +2511,9 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
 
 342:                                              ; preds = %338, %340
   %hf_thread_mc_tlv_vendor_sw_ver.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %340 ], [ @hf_thread_mc_tlv_vendor_sw_ver, %338 ]
-  %.sink906 = phi i32 [ 0, %340 ], [ 2, %338 ]
+  %.sink916 = phi i32 [ 0, %340 ], [ 2, %338 ]
   %343 = load i32, ptr %hf_thread_mc_tlv_vendor_sw_ver.sink, align 4
-  %344 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %343, ptr noundef %0, i32 noundef %94, i32 noundef %77, i32 noundef %.sink906)
+  %344 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %343, ptr noundef %0, i32 noundef %94, i32 noundef %77, i32 noundef %.sink916)
   %345 = add i32 %94, %77
   br label %.loopexit
 
@@ -2637,9 +2637,9 @@ proto_item_set_generated.exit:                    ; preds = %360, %374, %377
 
 421:                                              ; preds = %418, %419
   %hf_thread_mc_tlv_ipv6_addr.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %419 ], [ @hf_thread_mc_tlv_ipv6_addr, %418 ]
-  %.sink907 = phi i32 [ %77, %419 ], [ 16, %418 ]
+  %.sink917 = phi i32 [ %77, %419 ], [ 16, %418 ]
   %422 = load i32, ptr %hf_thread_mc_tlv_ipv6_addr.sink, align 4
-  %423 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %422, ptr noundef %0, i32 noundef %94, i32 noundef %.sink907, i32 noundef 0)
+  %423 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %422, ptr noundef %0, i32 noundef %94, i32 noundef %.sink917, i32 noundef 0)
   %424 = add i32 %94, %77
   br label %.loopexit
 
@@ -2653,9 +2653,9 @@ proto_item_set_generated.exit:                    ; preds = %360, %374, %377
 
 428:                                              ; preds = %425, %426
   %hf_thread_mc_tlv_delay_timer.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %426 ], [ @hf_thread_mc_tlv_delay_timer, %425 ]
-  %.sink908 = phi i32 [ %77, %426 ], [ 4, %425 ]
+  %.sink918 = phi i32 [ %77, %426 ], [ 4, %425 ]
   %429 = load i32, ptr %hf_thread_mc_tlv_delay_timer.sink, align 4
-  %430 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %429, ptr noundef %0, i32 noundef %94, i32 noundef %.sink908, i32 noundef 0)
+  %430 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %429, ptr noundef %0, i32 noundef %94, i32 noundef %.sink918, i32 noundef 0)
   %431 = add i32 %94, %77
   br label %.loopexit
 
@@ -2732,9 +2732,9 @@ proto_item_set_generated.exit:                    ; preds = %360, %374, %377
 
 467:                                              ; preds = %464, %465
   %hf_thread_mc_tlv_count.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %465 ], [ @hf_thread_mc_tlv_count, %464 ]
-  %.sink909 = phi i32 [ %77, %465 ], [ 1, %464 ]
+  %.sink919 = phi i32 [ %77, %465 ], [ 1, %464 ]
   %468 = load i32, ptr %hf_thread_mc_tlv_count.sink, align 4
-  %469 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %468, ptr noundef %0, i32 noundef %94, i32 noundef %.sink909, i32 noundef 0)
+  %469 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %468, ptr noundef %0, i32 noundef %94, i32 noundef %.sink919, i32 noundef 0)
   %470 = add i32 %94, %77
   br label %.loopexit
 
@@ -2748,9 +2748,9 @@ proto_item_set_generated.exit:                    ; preds = %360, %374, %377
 
 474:                                              ; preds = %471, %472
   %hf_thread_mc_tlv_period.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %472 ], [ @hf_thread_mc_tlv_period, %471 ]
-  %.sink910 = phi i32 [ %77, %472 ], [ 2, %471 ]
+  %.sink920 = phi i32 [ %77, %472 ], [ 2, %471 ]
   %475 = load i32, ptr %hf_thread_mc_tlv_period.sink, align 4
-  %476 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %475, ptr noundef %0, i32 noundef %94, i32 noundef %.sink910, i32 noundef 0)
+  %476 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %475, ptr noundef %0, i32 noundef %94, i32 noundef %.sink920, i32 noundef 0)
   %477 = add i32 %94, %77
   br label %.loopexit
 
@@ -2764,9 +2764,9 @@ proto_item_set_generated.exit:                    ; preds = %360, %374, %377
 
 481:                                              ; preds = %478, %479
   %hf_thread_mc_tlv_scan_duration.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %479 ], [ @hf_thread_mc_tlv_scan_duration, %478 ]
-  %.sink911 = phi i32 [ %77, %479 ], [ 2, %478 ]
+  %.sink921 = phi i32 [ %77, %479 ], [ 2, %478 ]
   %482 = load i32, ptr %hf_thread_mc_tlv_scan_duration.sink, align 4
-  %483 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %482, ptr noundef %0, i32 noundef %94, i32 noundef %.sink911, i32 noundef 0)
+  %483 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %482, ptr noundef %0, i32 noundef %94, i32 noundef %.sink921, i32 noundef 0)
   %484 = add i32 %94, %77
   br label %.loopexit
 
@@ -2872,9 +2872,9 @@ proto_item_set_generated.exit:                    ; preds = %360, %374, %377
 
 534:                                              ; preds = %531, %532
   %hf_thread_mc_tlv_ae_udp_port.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %532 ], [ @hf_thread_mc_tlv_ae_udp_port, %531 ]
-  %.sink912 = phi i32 [ %77, %532 ], [ 2, %531 ]
+  %.sink922 = phi i32 [ %77, %532 ], [ 2, %531 ]
   %535 = load i32, ptr %hf_thread_mc_tlv_ae_udp_port.sink, align 4
-  %536 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %535, ptr noundef %0, i32 noundef %94, i32 noundef %.sink912, i32 noundef 0)
+  %536 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %535, ptr noundef %0, i32 noundef %94, i32 noundef %.sink922, i32 noundef 0)
   %537 = add i32 %94, %77
   br label %.loopexit
 
@@ -2888,9 +2888,9 @@ proto_item_set_generated.exit:                    ; preds = %360, %374, %377
 
 541:                                              ; preds = %538, %539
   %hf_thread_mc_tlv_nmkp_udp_port.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %539 ], [ @hf_thread_mc_tlv_nmkp_udp_port, %538 ]
-  %.sink913 = phi i32 [ %77, %539 ], [ 2, %538 ]
+  %.sink923 = phi i32 [ %77, %539 ], [ 2, %538 ]
   %542 = load i32, ptr %hf_thread_mc_tlv_nmkp_udp_port.sink, align 4
-  %543 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %542, ptr noundef %0, i32 noundef %94, i32 noundef %.sink913, i32 noundef 0)
+  %543 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %542, ptr noundef %0, i32 noundef %94, i32 noundef %.sink923, i32 noundef 0)
   %544 = add i32 %94, %77
   br label %.loopexit
 
@@ -2904,9 +2904,9 @@ proto_item_set_generated.exit:                    ; preds = %360, %374, %377
 
 548:                                              ; preds = %545, %546
   %hf_thread_mc_tlv_registrar_ipv6_addr.sink = phi ptr [ @hf_thread_mc_tlv_unknown, %546 ], [ @hf_thread_mc_tlv_registrar_ipv6_addr, %545 ]
-  %.sink914 = phi i32 [ %77, %546 ], [ 16, %545 ]
+  %.sink924 = phi i32 [ %77, %546 ], [ 16, %545 ]
   %549 = load i32, ptr %hf_thread_mc_tlv_registrar_ipv6_addr.sink, align 4
-  %550 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %549, ptr noundef %0, i32 noundef %94, i32 noundef %.sink914, i32 noundef 0)
+  %550 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %549, ptr noundef %0, i32 noundef %94, i32 noundef %.sink924, i32 noundef 0)
   %551 = add i32 %94, %77
   br label %.loopexit
 
@@ -2931,9 +2931,9 @@ proto_item_set_generated.exit:                    ; preds = %360, %374, %377
 
 562:                                              ; preds = %559, %557
   %hf_thread_mc_tlv_discovery_req_j.sink = phi ptr [ @hf_thread_mc_tlv_discovery_req_j, %559 ], [ @hf_thread_mc_tlv_unknown, %557 ]
-  %.sink915 = phi i32 [ 1, %559 ], [ %77, %557 ]
+  %.sink925 = phi i32 [ 1, %559 ], [ %77, %557 ]
   %563 = load i32, ptr %hf_thread_mc_tlv_discovery_req_j.sink, align 4
-  %564 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %563, ptr noundef %0, i32 noundef %94, i32 noundef %.sink915, i32 noundef 0)
+  %564 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %563, ptr noundef %0, i32 noundef %94, i32 noundef %.sink925, i32 noundef 0)
   %565 = add i32 %94, %77
   br label %.loopexit
 
@@ -2954,9 +2954,9 @@ proto_item_set_generated.exit:                    ; preds = %360, %374, %377
 
 574:                                              ; preds = %569, %567
   %hf_thread_mc_tlv_discovery_rsp_c.sink = phi ptr [ @hf_thread_mc_tlv_discovery_rsp_c, %569 ], [ @hf_thread_mc_tlv_unknown, %567 ]
-  %.sink916 = phi i32 [ 1, %569 ], [ %77, %567 ]
+  %.sink926 = phi i32 [ 1, %569 ], [ %77, %567 ]
   %575 = load i32, ptr %hf_thread_mc_tlv_discovery_rsp_c.sink, align 4
-  %576 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %575, ptr noundef %0, i32 noundef %94, i32 noundef %.sink916, i32 noundef 0)
+  %576 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %575, ptr noundef %0, i32 noundef %94, i32 noundef %.sink926, i32 noundef 0)
   %577 = add i32 %94, %77
   br label %.loopexit
 
@@ -3047,14 +3047,14 @@ define internal i32 @dissect_thread_bcn(ptr noundef %0, ptr noundef readonly cap
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %30, i32 noundef 25, ptr noundef nonnull @.str.485, ptr noundef %31)
   %32 = call i32 @tvb_captured_length(ptr noundef %0)
   %33 = icmp ult i32 %32, 19
-  br i1 %33, label %.sink.split71, label %34
+  br i1 %33, label %.sink.split72, label %34
 
 34:                                               ; preds = %6
   %35 = load i32, ptr @hf_thread_bcn_epid, align 4
   %36 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %35, ptr noundef %0, i32 noundef 18, i32 noundef 8, i32 noundef 0)
   %37 = call i32 @tvb_captured_length(ptr noundef %0)
   %38 = icmp ult i32 %37, 27
-  br i1 %38, label %.sink.split71, label %39
+  br i1 %38, label %.sink.split72, label %39
 
 39:                                               ; preds = %34
   %40 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 27)
@@ -3073,7 +3073,7 @@ define internal i32 @dissect_thread_bcn(ptr noundef %0, ptr noundef readonly cap
   %52 = load i32, ptr @hf_thread_bcn_tlv_length, align 4
   %53 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %52, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0)
   %.not70 = icmp eq i8 %40, 0
-  br i1 %.not70, label %.sink.split71, label %.sink.split
+  br i1 %.not70, label %.sink.split72, label %.sink.split
 
 .sink.split:                                      ; preds = %39
   %cond = icmp eq i8 %49, 8
@@ -3081,14 +3081,14 @@ define internal i32 @dissect_thread_bcn(ptr noundef %0, ptr noundef readonly cap
   %hf_thread_bcn_tlv_unknown.val = load i32, ptr @hf_thread_bcn_tlv_unknown, align 4
   %54 = select i1 %cond, i32 %hf_thread_bcn_tlv_steering_data.val, i32 %hf_thread_bcn_tlv_unknown.val
   %55 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %54, ptr noundef %0, i32 noundef 28, i32 noundef %42, i32 noundef 0)
-  br label %.sink.split71
+  br label %.sink.split72
 
-.sink.split71:                                    ; preds = %39, %.sink.split, %34, %6
+.sink.split72:                                    ; preds = %39, %.sink.split, %34, %6
   %56 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %57
 
-57:                                               ; preds = %.sink.split71, %4
-  %.0 = phi i32 [ 0, %4 ], [ %56, %.sink.split71 ]
+57:                                               ; preds = %.sink.split72, %4
+  %.0 = phi i32 [ 0, %4 ], [ %56, %.sink.split72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

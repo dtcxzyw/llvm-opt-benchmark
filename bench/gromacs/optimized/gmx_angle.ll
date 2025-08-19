@@ -1312,14 +1312,14 @@ _ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit:           ; preds = %421
   %475 = getelementptr inbounds nuw i32, ptr %171, i64 %indvars.iv.next477
   %476 = load i32, ptr %475, align 4, !tbaa !4
   %477 = icmp eq i32 %476, 0
-  br i1 %477, label %473, label %.critedge.split.loop.exit514, !llvm.loop !53
+  br i1 %477, label %473, label %.critedge.split.loop.exit564, !llvm.loop !53
 
-.critedge.split.loop.exit514:                     ; preds = %474
+.critedge.split.loop.exit564:                     ; preds = %474
   %478 = trunc nuw nsw i64 %indvars.iv476 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %473, %.critedge.split.loop.exit514
-  %.0242.lcssa = phi i32 [ %478, %.critedge.split.loop.exit514 ], [ %smax, %473 ]
+.critedge:                                        ; preds = %473, %.critedge.split.loop.exit564
+  %.0242.lcssa = phi i32 [ %478, %.critedge.split.loop.exit564 ], [ %smax, %473 ]
   %479 = icmp sgt i32 %113, 1
   br i1 %479, label %.lr.ph404.preheader, label %.critedge20
 
@@ -1333,19 +1333,19 @@ _ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit:           ; preds = %421
   %482 = getelementptr i8, ptr %481, i64 -4
   %483 = load i32, ptr %482, align 4, !tbaa !4
   %484 = icmp eq i32 %483, 0
-  br i1 %484, label %485, label %.critedge20.loopexit.split.loop.exit516
+  br i1 %484, label %485, label %.critedge20.loopexit.split.loop.exit566
 
 485:                                              ; preds = %.lr.ph404
   %indvars.iv.next482 = add nsw i64 %indvars.iv481, -1
   %486 = icmp sgt i64 %indvars.iv481, 1
   br i1 %486, label %.lr.ph404, label %.critedge20, !llvm.loop !54
 
-.critedge20.loopexit.split.loop.exit516:          ; preds = %.lr.ph404
+.critedge20.loopexit.split.loop.exit566:          ; preds = %.lr.ph404
   %487 = trunc nuw nsw i64 %indvars.iv481 to i32
   br label %.critedge20
 
-.critedge20:                                      ; preds = %485, %.critedge20.loopexit.split.loop.exit516, %.critedge
-  %.0243.lcssa = phi i32 [ %472, %.critedge ], [ %487, %.critedge20.loopexit.split.loop.exit516 ], [ 0, %485 ]
+.critedge20:                                      ; preds = %485, %.critedge20.loopexit.split.loop.exit566, %.critedge
+  %.0243.lcssa = phi i32 [ %472, %.critedge ], [ %487, %.critedge20.loopexit.split.loop.exit566 ], [ 0, %485 ]
   %488 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.75, i32 noundef %.0242.lcssa, i32 noundef %.0243.lcssa, i32 noundef %113)
   %489 = load i8, ptr @_ZZ11gmx_g_angleiPPcE4bALL, align 1, !range !29
   %490 = trunc nuw i8 %489 to i1

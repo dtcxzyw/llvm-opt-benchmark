@@ -134,9 +134,9 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   %.not = icmp ne i32 %19, 27
   %20 = zext i1 %.not to i64
   %spec.select = add i64 %.1115, %20
-  %.not252.not.not.not = icmp ne i32 %18, 0
+  %.not265.not.not.not = icmp ne i32 %18, 0
   %21 = icmp eq i32 %19, 1
-  br i1 %.not252.not.not.not, label %22, label %50
+  br i1 %.not265.not.not.not, label %22, label %50
 
 22:                                               ; preds = %15
   br i1 %21, label %.preheader, label %23
@@ -311,11 +311,11 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   %.not145 = icmp eq i32 %106, 0
   br i1 %.not145, label %.thread187, label %.preheader
 
-.preheader:                                       ; preds = %26, %50, %41, %42, %22, %105, %94, %101, %76
-  %.0109181258 = phi i1 [ %.not252.not.not.not, %76 ], [ %.not252.not.not.not, %101 ], [ %.not252.not.not.not, %94 ], [ %.not252.not.not.not, %105 ], [ false, %22 ], [ false, %42 ], [ false, %41 ], [ false, %50 ], [ false, %26 ]
-  %.0103182257 = phi i32 [ 26, %76 ], [ 21, %101 ], [ 26, %94 ], [ %106, %105 ], [ 1, %50 ], [ 21, %26 ], [ 26, %41 ], [ 1, %22 ], [ 20, %42 ]
+.preheader:                                       ; preds = %22, %42, %105, %26, %50, %41, %94, %101, %76
+  %.0103182 = phi i32 [ %106, %105 ], [ 1, %50 ], [ 21, %26 ], [ 26, %41 ], [ 26, %76 ], [ 21, %101 ], [ 26, %94 ], [ 1, %22 ], [ 20, %42 ]
+  %.0109181 = phi i1 [ %.not265.not.not.not, %105 ], [ false, %50 ], [ false, %26 ], [ false, %41 ], [ %.not265.not.not.not, %76 ], [ %.not265.not.not.not, %101 ], [ %.not265.not.not.not, %94 ], [ false, %42 ], [ false, %22 ]
   %.not227 = icmp eq i64 %spec.select, 0
-  br i1 %.not227, label %.thread173.thread, label %.lr.ph
+  br i1 %.not227, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %110
   %.0226 = phi i64 [ %111, %110 ], [ 0, %.preheader ]
@@ -332,15 +332,15 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
 110:                                              ; preds = %.lr.ph, %109
   %111 = add nuw i64 %.0226, 1
   %exitcond251.not = icmp eq i64 %111, %spec.select
-  br i1 %exitcond251.not, label %.thread173.thread, label %.lr.ph
+  br i1 %exitcond251.not, label %._crit_edge, label %.lr.ph
 
-.thread173.thread:                                ; preds = %110, %.preheader
-  tail call void @free(ptr noundef nonnull %.1118.ph) #13
-  %spec.select286 = select i1 %.0109181258, i32 25, i32 %.0103182257
+._crit_edge:                                      ; preds = %110, %.preheader
+  tail call void @free(ptr noundef %.1118.ph) #13
+  %112 = select i1 %.0109181, i32 25, i32 %.0103182
   br label %.thread187
 
-.thread187:                                       ; preds = %.thread173.thread, %11, %.loopexit, %10, %105
-  %.7 = phi i32 [ 0, %105 ], [ 0, %10 ], [ 0, %.loopexit ], [ 20, %11 ], [ %spec.select286, %.thread173.thread ]
+.thread187:                                       ; preds = %._crit_edge, %11, %.loopexit, %10, %105
+  %.7 = phi i32 [ 0, %105 ], [ 0, %10 ], [ 0, %.loopexit ], [ %112, %._crit_edge ], [ 20, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.7
 }
@@ -500,7 +500,7 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
   %96 = load i16, ptr %50, align 1, !tbaa !58
   %97 = zext i16 %96 to i32
   %.not28 = icmp ult i32 %95, %97
-  br i1 %.not28, label %98, label %.thread34
+  br i1 %.not28, label %98, label %.thread39
 
 98:                                               ; preds = %93
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.36) #13
@@ -514,16 +514,16 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
   %.not114 = icmp eq ptr %6, null
   br i1 %.not114, label %107, label %.thread19
 
-.thread34:                                        ; preds = %93
+.thread39:                                        ; preds = %93
   %104 = load i16, ptr %50, align 1, !tbaa !58
   %105 = zext i16 %104 to i32
   %106 = add i32 %94, %105
-  %.not11437 = icmp eq ptr %6, null
-  br i1 %.not11437, label %107, label %.preheader
+  %.not11442 = icmp eq ptr %6, null
+  br i1 %.not11442, label %107, label %.preheader
 
-107:                                              ; preds = %.thread34, %99
-  %108 = phi i32 [ %106, %.thread34 ], [ %103, %99 ]
-  %.240 = phi i32 [ 0, %.thread34 ], [ 1, %99 ]
+107:                                              ; preds = %.thread39, %99
+  %108 = phi i32 [ %106, %.thread39 ], [ %103, %99 ]
+  %.245 = phi i32 [ 0, %.thread39 ], [ 1, %99 ]
   %109 = load i32, ptr %56, align 1, !tbaa !58
   %110 = add i32 %2, -30
   %111 = icmp ult i32 %109, %110
@@ -538,7 +538,7 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.37) #13
   br label %.thread3
 
-.preheader:                                       ; preds = %.thread34
+.preheader:                                       ; preds = %.thread39
   %116 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %117 = load i32, ptr %116, align 8, !tbaa !62
   %118 = icmp sgt i32 %117, 0
@@ -589,7 +589,7 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
 
 .thread3:                                         ; preds = %._crit_edge, %115, %112, %85, %61, %.thread19
   %.011 = phi i32 [ %106, %._crit_edge ], [ %103, %.thread19 ], [ %108, %115 ], [ %108, %112 ], [ %72, %85 ], [ %33, %61 ]
-  %.0979 = phi i32 [ 0, %._crit_edge ], [ 1, %.thread19 ], [ %.240, %115 ], [ %.240, %112 ], [ 1, %85 ], [ 1, %61 ]
+  %.0979 = phi i32 [ 0, %._crit_edge ], [ 1, %.thread19 ], [ %.245, %115 ], [ %.245, %112 ], [ 1, %85 ], [ 1, %61 ]
   %137 = getelementptr i8, ptr %0, i64 16
   %.val.i119 = load ptr, ptr %137, align 8, !tbaa !59
   %138 = getelementptr i8, ptr %0, i64 72
@@ -602,11 +602,11 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
   %144 = load ptr, ptr %143, align 8, !tbaa !61
   call void %144(ptr noundef %0, i64 noundef %142, i64 noundef 46) #13
   %145 = icmp eq i32 %.0979, 0
-  %spec.select45 = select i1 %145, i32 %.011, i32 0
+  %spec.select50 = select i1 %145, i32 %.011, i32 0
   br label %.thread21
 
 .thread21:                                        ; preds = %.thread3, %11, %.critedge
-  %146 = phi i32 [ 0, %.critedge ], [ 0, %11 ], [ %spec.select45, %.thread3 ]
+  %146 = phi i32 [ 0, %.critedge ], [ 0, %11 ], [ %spec.select50, %.thread3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %146
 }
@@ -946,9 +946,9 @@ select.unfold:                                    ; preds = %121, %63
 147:                                              ; preds = %146, %138
   %148 = call i32 @cli_json_timeout_cycle_check(ptr noundef nonnull %0, ptr noundef nonnull %4) #13
   %.not139 = icmp eq i32 %148, 0
-  br i1 %.not139, label %149, label %.thread223
+  br i1 %.not139, label %149, label %.thread235
 
-.thread223:                                       ; preds = %147
+.thread235:                                       ; preds = %147
   store i32 21, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
@@ -959,7 +959,7 @@ select.unfold:                                    ; preds = %121, %63
   %or.cond144 = and i1 %150, %151
   br i1 %or.cond144, label %134, label %.critedge
 
-.critedge:                                        ; preds = %134, %149, %.thread153, %.thread163, %.thread223, %122, %.thread160, %36, %16, %13
+.critedge:                                        ; preds = %134, %149, %.thread153, %.thread163, %.thread235, %122, %.thread160, %36, %16, %13
   %152 = load ptr, ptr %5, align 8, !tbaa !7
   %.not140 = icmp eq ptr %152, null
   br i1 %.not140, label %159, label %.preheader
@@ -1526,18 +1526,18 @@ define internal fastcc i32 @unz(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %inflate64Init2.wrap_inflateinit2 = select i1 %60, ptr @inflate64Init2, ptr @wrap_inflateinit2
   %inflate64.inflate = select i1 %60, ptr @inflate64, ptr @inflate
   %inflate64End.inflateEnd = select i1 %60, ptr @inflate64End, ptr @inflateEnd
-  %.86 = select i1 %60, i32 -16, i32 -15
+  %.106 = select i1 %60, i32 -16, i32 -15
   %..sroa.sel.v = select i1 %60, i64 16, i64 8
   %..sroa.sel = getelementptr inbounds nuw i8, ptr %13, i64 %..sroa.sel.v
-  %.85.sroa.sel.v = select i1 %60, i64 20, i64 32
-  %.85.sroa.sel = getelementptr inbounds nuw i8, ptr %13, i64 %.85.sroa.sel.v
+  %.105.sroa.sel.v = select i1 %60, i64 20, i64 32
+  %.105.sroa.sel = getelementptr inbounds nuw i8, ptr %13, i64 %.105.sroa.sel.v
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %62, i8 0, i64 104, i1 false)
   store ptr %0, ptr %13, align 8, !tbaa !89
   store ptr %11, ptr %61, align 8, !tbaa !89
   store i32 %1, ptr %..sroa.sel, align 8, !tbaa !3
-  store i32 8192, ptr %.85.sroa.sel, align 4, !tbaa !3
-  %63 = call i32 %inflate64Init2.wrap_inflateinit2(ptr noundef nonnull %13, i32 noundef %.86) #13, !callees !90
+  store i32 8192, ptr %.105.sroa.sel, align 4, !tbaa !3
+  %63 = call i32 %inflate64Init2.wrap_inflateinit2(ptr noundef nonnull %13, i32 noundef %.106) #13, !callees !90
   %.not175 = icmp eq i32 %63, 0
   br i1 %.not175, label %.preheader, label %64
 
@@ -1555,7 +1555,7 @@ define internal fastcc i32 @unz(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %67, label %65, label %68
 
 68:                                               ; preds = %65
-  %69 = load i32, ptr %.85.sroa.sel, align 4, !tbaa !3
+  %69 = load i32, ptr %.105.sroa.sel, align 4, !tbaa !3
   %.not176 = icmp eq i32 %69, 8192
   br i1 %.not176, label %.loopexit, label %70
 
@@ -1578,7 +1578,7 @@ define internal fastcc i32 @unz(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 78:                                               ; preds = %70
   %79 = sub nsw i64 8192, %71
   %80 = call i64 @cli_writen(i32 noundef %29, ptr noundef nonnull %11, i64 noundef %79) #13
-  %81 = load i32, ptr %.85.sroa.sel, align 4, !tbaa !3
+  %81 = load i32, ptr %.105.sroa.sel, align 4, !tbaa !3
   %82 = zext i32 %81 to i64
   %83 = sub nsw i64 8192, %82
   %.not179 = icmp eq i64 %80, %83
@@ -1590,7 +1590,7 @@ define internal fastcc i32 @unz(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 85:                                               ; preds = %78
   store ptr %11, ptr %61, align 8, !tbaa !89
-  store i32 8192, ptr %.85.sroa.sel, align 4, !tbaa !3
+  store i32 8192, ptr %.105.sroa.sel, align 4, !tbaa !3
   br label %.preheader
 
 .loopexit:                                        ; preds = %68, %84, %77

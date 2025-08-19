@@ -304,7 +304,7 @@ err_clear.exit91:                                 ; preds = %65, %72
   br i1 %109, label %.lr.ph107, label %.loopexit
 
 .lr.ph107:                                        ; preds = %.thread, %104
-  %.1.lcssa120125 = phi i64 [ 0, %.thread ], [ %.085.lcssa, %104 ]
+  %.1.lcssa127132 = phi i64 [ 0, %.thread ], [ %.085.lcssa, %104 ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -316,7 +316,7 @@ err_clear.exit91:                                 ; preds = %65, %72
   br label %118
 
 118:                                              ; preds = %.lr.ph107, %err_clear.exit93
-  %.2105 = phi i64 [ %.1.lcssa120125, %.lr.ph107 ], [ %134, %err_clear.exit93 ]
+  %.2105 = phi i64 [ %.1.lcssa127132, %.lr.ph107 ], [ %134, %err_clear.exit93 ]
   %119 = getelementptr inbounds nuw [16 x i32], ptr %110, i64 0, i64 %.2105
   %120 = load i32, ptr %119, align 4, !tbaa !3
   %121 = and i32 %120, 1

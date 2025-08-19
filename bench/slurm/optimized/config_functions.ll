@@ -266,9 +266,9 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   %56 = trunc nuw nsw i64 %indvars.iv to i32
   %switch.selectcmp = icmp eq i64 %indvars.iv, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.5, ptr @.str.6
-  %switch.selectcmp85 = icmp eq i64 %indvars.iv, 0
-  %switch.select86 = select i1 %switch.selectcmp85, ptr @.str.4, ptr %switch.select
-  %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.select86)
+  %switch.selectcmp91 = icmp eq i64 %indvars.iv, 0
+  %switch.select92 = select i1 %switch.selectcmp91, ptr @.str.4, ptr %switch.select
+  %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.select92)
   call fastcc void @_print_rollup_stats(ptr noundef nonnull %39, i32 noundef %56)
   br label %58
 
@@ -359,15 +359,15 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   br label %.critedge70
 
 .critedge70:                                      ; preds = %88, %87, %91
-  %_sort_rpc_obj_by_time.sink83 = phi ptr [ %spec.select, %91 ], [ @_sort_rpc_obj_by_cnt, %87 ], [ @_sort_rpc_obj_by_ave_time, %88 ]
+  %_sort_rpc_obj_by_time.sink89 = phi ptr [ %spec.select, %91 ], [ @_sort_rpc_obj_by_cnt, %87 ], [ @_sort_rpc_obj_by_ave_time, %88 ]
   %.pre81.sink = load ptr, ptr %3, align 8
   %94 = getelementptr inbounds nuw i8, ptr %.pre81.sink, i64 16
   %95 = load ptr, ptr %94, align 8
-  call void @list_sort(ptr noundef %95, ptr noundef nonnull %_sort_rpc_obj_by_time.sink83) #8
+  call void @list_sort(ptr noundef %95, ptr noundef nonnull %_sort_rpc_obj_by_time.sink89) #8
   %96 = load ptr, ptr %3, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %98 = load ptr, ptr %97, align 8
-  call void @list_sort(ptr noundef %98, ptr noundef nonnull %_sort_rpc_obj_by_time.sink83) #8
+  call void @list_sort(ptr noundef %98, ptr noundef nonnull %_sort_rpc_obj_by_time.sink89) #8
   %puts62 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   store i32 0, ptr %5, align 4
   %99 = load ptr, ptr %3, align 8

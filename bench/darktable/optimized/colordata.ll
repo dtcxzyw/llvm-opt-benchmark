@@ -899,8 +899,8 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %50, %58
-  %.sink94 = phi i32 [ %59, %58 ], [ %52, %50 ]
-  %60 = and i32 %.sink94, 65535
+  %.sink98 = phi i32 [ %59, %58 ], [ %52, %50 ]
+  %60 = and i32 %.sink98, 65535
   store i32 %60, ptr %34, align 8, !tbaa !74
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %10, i8 0, i64 16416, i1 false)
   br label %61

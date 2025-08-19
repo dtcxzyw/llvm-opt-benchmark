@@ -202,14 +202,14 @@ mbc_enc_len.exit:                                 ; preds = %37, %24, %11
   %52 = icmp sgt i32 %50, 1
   br i1 %52, label %.lr.ph.preheader, label %62
 
-.lr.ph.preheader:                                 ; preds = %mbc_enc_len.exit.thread25, %mbc_enc_len.exit
+.lr.ph.preheader:                                 ; preds = %mbc_enc_len.exit, %mbc_enc_len.exit.thread25
   %53 = phi i32 [ %47, %mbc_enc_len.exit.thread25 ], [ %51, %mbc_enc_len.exit ]
   %.0.i27 = phi i32 [ %.0.i.ph, %mbc_enc_len.exit.thread25 ], [ %50, %mbc_enc_len.exit ]
+  %.01628 = add nsw i32 %.0.i27, -1
   %54 = sub nsw i32 7, %.0.i27
   %notmask = shl nsw i32 -1, %54
   %55 = xor i32 %notmask, -1
   %56 = and i32 %53, %55
-  %.01628 = add nsw i32 %.0.i27, -1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

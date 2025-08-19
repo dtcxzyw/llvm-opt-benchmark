@@ -4823,12 +4823,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %39
   br label %57
 
 57:                                               ; preds = %.thread, %.critedge23
-  %.sink74 = phi ptr [ %51, %.thread ], [ %56, %.critedge23 ]
-  %.sink73 = phi ptr [ %52, %.thread ], [ %34, %.critedge23 ]
+  %.sink76 = phi ptr [ %51, %.thread ], [ %56, %.critedge23 ]
+  %.sink75 = phi ptr [ %52, %.thread ], [ %34, %.critedge23 ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.critedge23 ]
-  store ptr %.sink74, ptr %0, align 8
+  store ptr %.sink76, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink73, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %.sink75, ptr %.sroa.4.0..sroa_idx, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %58, align 8, !tbaa !59
   ret void
@@ -7075,12 +7075,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %44
   br label %62
 
 62:                                               ; preds = %.thread, %.critedge23
-  %.sink76 = phi ptr [ %56, %.thread ], [ %61, %.critedge23 ]
-  %.sink75 = phi ptr [ %57, %.thread ], [ %39, %.critedge23 ]
+  %.sink79 = phi ptr [ %56, %.thread ], [ %61, %.critedge23 ]
+  %.sink78 = phi ptr [ %57, %.thread ], [ %39, %.critedge23 ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.critedge23 ]
-  store ptr %.sink76, ptr %0, align 8
+  store ptr %.sink79, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink75, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %.sink78, ptr %.sroa.4.0..sroa_idx, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %63, align 8, !tbaa !59
   ret void

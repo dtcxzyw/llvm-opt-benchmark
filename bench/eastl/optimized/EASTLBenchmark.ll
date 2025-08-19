@@ -1525,7 +1525,7 @@ if.then6:                                         ; preds = %if.else
 _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread: ; preds = %if.then6
   store i64 %n, ptr %mnSize.i.i, align 8
   %2 = load ptr, ptr %this, align 8
-  %add.ptr.i.i77 = getelementptr inbounds i8, ptr %2, i64 %n
+  %add.ptr.i.i79 = getelementptr inbounds i8, ptr %2, i64 %n
   br label %6
 
 _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit: ; preds = %if.then6
@@ -1542,7 +1542,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit: ; preds = %if.th
   br label %6
 
 6:                                                ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread
-  %7 = phi ptr [ %add.ptr.i.i77, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit ]
+  %7 = phi ptr [ %add.ptr.i.i79, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit ]
   store i8 0, ptr %7, align 1
   %.pre = load i8, ptr %mRemainingSizeField.i.i, align 1
   br label %if.end10
@@ -2186,18 +2186,18 @@ while.end:                                        ; preds = %_ZN5eastl19rb_base_
   br i1 %cmp.i.i.i.i, label %if.then7, label %if.end16
 
 if.then7:                                         ; preds = %entry, %while.end
-  %pLowerBound.0.lcssa53 = phi ptr [ %pCurrent.049, %while.end ], [ %this, %entry ]
+  %pLowerBound.0.lcssa54 = phi ptr [ %pCurrent.049, %while.end ], [ %this, %entry ]
   %mpNodeLeft9 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %10 = load ptr, ptr %mpNodeLeft9, align 8
-  %cmp.not = icmp eq ptr %pLowerBound.0.lcssa53, %10
+  %cmp.not = icmp eq ptr %pLowerBound.0.lcssa54, %10
   br i1 %cmp.not, label %return, label %if.then12
 
 if.then12:                                        ; preds = %if.then7
-  %call13 = tail call noundef ptr @_ZN5eastl15RBTreeDecrementEPKNS_16rbtree_node_baseE(ptr noundef nonnull %pLowerBound.0.lcssa53)
+  %call13 = tail call noundef ptr @_ZN5eastl15RBTreeDecrementEPKNS_16rbtree_node_baseE(ptr noundef nonnull %pLowerBound.0.lcssa54)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then12, %while.end
-  %pLowerBound.0.lcssa54 = phi ptr [ %pLowerBound.0.lcssa53, %if.then12 ], [ %pCurrent.049, %while.end ]
+  %pLowerBound.0.lcssa53 = phi ptr [ %pLowerBound.0.lcssa54, %if.then12 ], [ %pCurrent.049, %while.end ]
   %pLowerBound.1 = phi ptr [ %call13, %if.then12 ], [ %pCurrent.049, %while.end ]
   %mValue17 = getelementptr inbounds nuw i8, ptr %pLowerBound.1, i64 32
   %mRemainingSizeField.i.i.i.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %pLowerBound.1, i64 55
@@ -2252,7 +2252,7 @@ if.end21:                                         ; preds = %_ZN5eastl7CompareEP
 
 return:                                           ; preds = %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit46, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i45, %if.then7, %if.end21
   %.sink = phi i8 [ 0, %if.end21 ], [ 1, %if.then7 ], [ 1, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i45 ], [ 1, %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit46 ]
-  %retval.0 = phi ptr [ %pLowerBound.1, %if.end21 ], [ %pLowerBound.0.lcssa53, %if.then7 ], [ %pLowerBound.0.lcssa54, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i45 ], [ %pLowerBound.0.lcssa54, %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit46 ]
+  %retval.0 = phi ptr [ %pLowerBound.1, %if.end21 ], [ %pLowerBound.0.lcssa54, %if.then7 ], [ %pLowerBound.0.lcssa53, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i45 ], [ %pLowerBound.0.lcssa53, %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit46 ]
   store i8 %.sink, ptr %canInsert, align 1
   ret ptr %retval.0
 }

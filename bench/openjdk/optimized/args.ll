@@ -864,18 +864,18 @@ define internal fastcc ptr @nextToken(ptr noundef nonnull captures(none) %0) unn
   %.0115138 = phi ptr [ %3, %.lr.ph ], [ %106, %98 ]
   %17 = load i8, ptr %.0115138, align 1
   switch i32 %16, label %42 [
-    i32 0, label %.preheader157
-    i32 4, label %.preheader157
+    i32 0, label %.preheader165
+    i32 4, label %.preheader165
     i32 3, label %25
     i32 1, label %.preheader
   ]
 
-.preheader157:                                    ; preds = %9, %9
+.preheader165:                                    ; preds = %9, %9
   br label %18
 
-18:                                               ; preds = %.preheader157, %20
-  %.1116 = phi ptr [ %19, %20 ], [ %.0115138, %.preheader157 ]
-  %.0110 = phi i8 [ %21, %20 ], [ %17, %.preheader157 ]
+18:                                               ; preds = %.preheader165, %20
+  %.1116 = phi ptr [ %19, %20 ], [ %.0115138, %.preheader165 ]
+  %.0110 = phi i8 [ %21, %20 ], [ %17, %.preheader165 ]
   switch i8 %.0110, label %22 [
     i8 32, label %.critedge
     i8 13, label %.critedge

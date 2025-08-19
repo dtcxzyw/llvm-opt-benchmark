@@ -629,9 +629,9 @@ define nonnull ptr @l_Std_Time_HourMarker_ofOrdinal___boxed(ptr noundef %0) loca
   br i1 %.not.i.i.i, label %l_Std_Time_HourMarker_ofOrdinal.exit, label %6, !prof !15
 
 6:                                                ; preds = %1
-  br i1 %5, label %l_Std_Time_HourMarker_ofOrdinal.exit.thread9, label %l_Std_Time_HourMarker_ofOrdinal.exit.thread, !prof !15
+  br i1 %5, label %l_Std_Time_HourMarker_ofOrdinal.exit.thread11, label %l_Std_Time_HourMarker_ofOrdinal.exit.thread, !prof !15
 
-l_Std_Time_HourMarker_ofOrdinal.exit.thread9:     ; preds = %6
+l_Std_Time_HourMarker_ofOrdinal.exit.thread11:    ; preds = %6
   %7 = tail call zeroext i1 @lean_int_big_le(ptr noundef %2, ptr noundef %0) #7
   br label %14
 
@@ -647,8 +647,8 @@ l_Std_Time_HourMarker_ofOrdinal.exit:             ; preds = %1
   %13 = tail call zeroext i1 @lean_int_big_le(ptr noundef %2, ptr noundef %0) #7
   br i1 %5, label %14, label %lean_dec.exit
 
-14:                                               ; preds = %l_Std_Time_HourMarker_ofOrdinal.exit.thread9, %l_Std_Time_HourMarker_ofOrdinal.exit
-  %15 = phi i1 [ %7, %l_Std_Time_HourMarker_ofOrdinal.exit.thread9 ], [ %13, %l_Std_Time_HourMarker_ofOrdinal.exit ]
+14:                                               ; preds = %l_Std_Time_HourMarker_ofOrdinal.exit.thread11, %l_Std_Time_HourMarker_ofOrdinal.exit
+  %15 = phi i1 [ %7, %l_Std_Time_HourMarker_ofOrdinal.exit.thread11 ], [ %13, %l_Std_Time_HourMarker_ofOrdinal.exit ]
   %16 = load i32, ptr %0, align 4, !tbaa !4
   %17 = icmp sgt i32 %16, 1
   br i1 %17, label %18, label %20, !prof !9
@@ -667,8 +667,8 @@ l_Std_Time_HourMarker_ofOrdinal.exit:             ; preds = %1
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %l_Std_Time_HourMarker_ofOrdinal.exit.thread, %21, %20, %18, %l_Std_Time_HourMarker_ofOrdinal.exit
-  %.0.i.i.i8 = phi i1 [ %12, %l_Std_Time_HourMarker_ofOrdinal.exit.thread ], [ %15, %21 ], [ %15, %20 ], [ %15, %18 ], [ %13, %l_Std_Time_HourMarker_ofOrdinal.exit ]
-  %22 = select i1 %.0.i.i.i8, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  %.0.i.i.i10 = phi i1 [ %12, %l_Std_Time_HourMarker_ofOrdinal.exit.thread ], [ %15, %21 ], [ %15, %20 ], [ %15, %18 ], [ %13, %l_Std_Time_HourMarker_ofOrdinal.exit ]
+  %22 = select i1 %.0.i.i.i10, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %22
 }
 
@@ -1027,17 +1027,17 @@ lean_int_dec_eq.exit:                             ; preds = %1
   %13 = ptrtoint ptr %11 to i64
   %14 = and i64 %13, 1
   %.not7.i.i = icmp eq i64 %14, 0
-  br i1 %.not7.i.i, label %lean_int_dec_le.exit.thread54, label %lean_int_dec_le.exit.thread, !prof !15
+  br i1 %.not7.i.i, label %lean_int_dec_le.exit.thread62, label %lean_int_dec_le.exit.thread, !prof !15
 
 lean_int_dec_le.exit:                             ; preds = %10
   %15 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %11) #7
   br i1 %15, label %lean_int_dec_le.exit._crit_edge, label %40
 
-lean_int_dec_le.exit.thread54:                    ; preds = %12
+lean_int_dec_le.exit.thread62:                    ; preds = %12
   %16 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %11) #7
-  br i1 %16, label %lean_int_dec_le.exit._crit_edge, label %.thread55
+  br i1 %16, label %lean_int_dec_le.exit._crit_edge, label %.thread63
 
-lean_int_dec_le.exit._crit_edge:                  ; preds = %lean_int_dec_le.exit.thread54, %lean_int_dec_le.exit
+lean_int_dec_le.exit._crit_edge:                  ; preds = %lean_int_dec_le.exit.thread62, %lean_int_dec_le.exit
   %.pre = ptrtoint ptr %11 to i64
   br label %55
 
@@ -1047,20 +1047,20 @@ lean_int_dec_le.exit.thread:                      ; preds = %12
   %19 = lshr i64 %13, 1
   %20 = trunc i64 %19 to i32
   %.not51 = icmp sgt i32 %18, %20
-  br i1 %.not51, label %.thread55, label %55
+  br i1 %.not51, label %.thread63, label %55
 
-.thread55:                                        ; preds = %lean_int_dec_le.exit.thread, %lean_int_dec_le.exit.thread54
+.thread63:                                        ; preds = %lean_int_dec_le.exit.thread, %lean_int_dec_le.exit.thread62
   %21 = load ptr, ptr @l_Std_Time_HourMarker_toRelative___closed__1, align 8, !tbaa !10
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1
   %.not7.i = icmp eq i64 %23, 0
   br i1 %.not7.i, label %lean_int_add.exit.thread50, label %25, !prof !15
 
-lean_int_add.exit.thread50:                       ; preds = %.thread55
+lean_int_add.exit.thread50:                       ; preds = %.thread63
   %24 = tail call ptr @lean_int_big_add(ptr noundef %0, ptr noundef %21) #7
   br label %lean_dec.exit32
 
-25:                                               ; preds = %.thread55
+25:                                               ; preds = %.thread63
   %26 = shl i64 %3, 31
   %27 = ashr i64 %26, 32
   %28 = shl i64 %22, 31
@@ -2036,18 +2036,18 @@ _init_l_Std_Time_HourMarker_toRelative___closed__4.exit: ; preds = %_init_l_Std_
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Time_HourMarker_toRelative___closed__4.exit, %3
-  %.sink63 = phi ptr [ %4, %3 ], [ %313, %_init_l_Std_Time_HourMarker_toRelative___closed__4.exit ]
-  %316 = getelementptr inbounds nuw i8, ptr %.sink63, i64 4
-  store i32 1, ptr %.sink63, align 4, !tbaa !4
+  %.sink85 = phi ptr [ %4, %3 ], [ %313, %_init_l_Std_Time_HourMarker_toRelative___closed__4.exit ]
+  %316 = getelementptr inbounds nuw i8, ptr %.sink85, i64 4
+  store i32 1, ptr %.sink85, align 4, !tbaa !4
   store i32 131096, ptr %316, align 4
-  %317 = getelementptr inbounds nuw i8, ptr %.sink63, i64 8
+  %317 = getelementptr inbounds nuw i8, ptr %.sink85, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %317, align 8, !tbaa !10
-  %318 = getelementptr inbounds nuw i8, ptr %.sink63, i64 16
+  %318 = getelementptr inbounds nuw i8, ptr %.sink85, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %318, align 8, !tbaa !10
   br label %319
 
 319:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink63, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink85, %.sink.split ]
   ret ptr %.0
 }
 

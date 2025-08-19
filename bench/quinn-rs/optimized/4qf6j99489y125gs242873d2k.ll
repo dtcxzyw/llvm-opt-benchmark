@@ -2505,8 +2505,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %.sroa.01.0.vec.insert.i.i.i.i = insertelement <16 x i8> poison, i8 %8, i64 0
   %.sroa.01.15.vec.insert.i.i.i.i = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %9 = load i16, ptr %1, align 4, !range !82, !alias.scope !259, !noalias !263
-  %.fr21.i = freeze i16 %9
-  %10 = trunc i16 %.fr21.i to i1
+  %.fr22.i = freeze i16 %9
+  %10 = trunc i16 %.fr22.i to i1
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %12 = load i32, ptr %11, align 2, !alias.scope !259, !noalias !263
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 6
@@ -2554,7 +2554,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %33 = icmp eq <16 x i8> %.sroa.0.0.copyload.i12.i.us.i, splat (i8 -1)
   %34 = bitcast <16 x i1> %33 to i16
   %35 = icmp eq i16 %34, 0
-  br i1 %35, label %36, label %.split18.us.i, !prof !89
+  br i1 %35, label %36, label %.split19.us.i, !prof !89
 
 36:                                               ; preds = %.thread.i.us.i, %26
   %.sroa.01.110.i.us.i = phi i64 [ 1, %.thread.i.us.i ], [ 0, %26 ]
@@ -2573,7 +2573,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %44 = getelementptr inbounds { { i16, [15 x i16] }, i64 }, ptr %.val.i, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -40
   %46 = load i16, ptr %45, align 4, !range !82, !alias.scope !264, !noalias !271, !noundef !7
-  %47 = icmp eq i16 %.fr21.i, %46
+  %47 = icmp eq i16 %.fr22.i, %46
   br i1 %47, label %48, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hf170959bce187ce1E.exit.thread.us.us.i", !prof !142
 
 48:                                               ; preds = %.lr.ph.i.us.us.i
@@ -2629,7 +2629,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %74 = getelementptr inbounds { { i16, [15 x i16] }, i64 }, ptr %.val.i, i64 %73
   %75 = getelementptr inbounds i8, ptr %74, i64 -40
   %76 = load i16, ptr %75, align 4, !range !82, !alias.scope !264, !noalias !271, !noundef !7
-  %77 = icmp eq i16 %.fr21.i, %76
+  %77 = icmp eq i16 %.fr22.i, %76
   br i1 %77, label %78, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hf170959bce187ce1E.exit.thread.i", !prof !142
 
 78:                                               ; preds = %.lr.ph.i.i
@@ -2670,7 +2670,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %94 = icmp eq <16 x i8> %.sroa.0.0.copyload.i12.i.i, splat (i8 -1)
   %95 = bitcast <16 x i1> %94 to i16
   %96 = icmp eq i16 %95, 0
-  br i1 %96, label %97, label %.split18.us.i, !prof !89
+  br i1 %96, label %97, label %.split19.us.i, !prof !89
 
 97:                                               ; preds = %.thread.i.i, %87
   %.sroa.01.110.i.i = phi i64 [ 1, %.thread.i.i ], [ 0, %87 ]
@@ -2679,14 +2679,14 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %99 = add i64 %.sroa.0.05.i.i, %98
   br label %.split.i
 
-.split18.us.i:                                    ; preds = %.thread.i.i, %.thread.i.us.i
-  %.us-phi19.i = phi i64 [ %.sroa.6.19.i.us.i, %.thread.i.us.i ], [ %.sroa.6.19.i.i, %.thread.i.i ]
-  %100 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.us-phi19.i
+.split19.us.i:                                    ; preds = %.thread.i.i, %.thread.i.us.i
+  %.us-phi20.i = phi i64 [ %.sroa.6.19.i.us.i, %.thread.i.us.i ], [ %.sroa.6.19.i.i, %.thread.i.i ]
+  %100 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.us-phi20.i
   %101 = load i8, ptr %100, align 1, !noalias !259, !noundef !7
   %102 = icmp sgt i8 %101, -1
   br i1 %102, label %103, label %110, !prof !89
 
-103:                                              ; preds = %.split18.us.i
+103:                                              ; preds = %.split19.us.i
   %104 = load <16 x i8>, ptr %.val.i, align 16, !noalias !259
   %105 = icmp slt <16 x i8> %104, zeroinitializer
   %106 = bitcast <16 x i1> %105 to i16
@@ -2698,9 +2698,9 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !noalias !276
   br label %110
 
-110:                                              ; preds = %103, %.split18.us.i
-  %111 = phi i8 [ %101, %.split18.us.i ], [ %.pre, %103 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.us-phi19.i, %.split18.us.i ], [ %109, %103 ]
+110:                                              ; preds = %103, %.split19.us.i
+  %111 = phi i8 [ %101, %.split19.us.i ], [ %.pre, %103 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %.us-phi20.i, %.split19.us.i ], [ %109, %103 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(32) %1, i64 32, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !280)

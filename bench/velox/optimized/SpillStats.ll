@@ -11000,12 +11000,12 @@ if.else.i.i39:                                    ; preds = %invoke.cont6
           to label %invoke.cont9 unwind label %terminate.lpad
 
 invoke.cont9:                                     ; preds = %if.else.i.i39
-  %.pre43 = load ptr, ptr %exec_.i, align 8
-  %tobool.not.i.i = icmp eq ptr %.pre43, null
+  %.pre51 = load ptr, ptr %exec_.i, align 8
+  %tobool.not.i.i = icmp eq ptr %.pre51, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %invoke.cont9
-  %call.i.i = call noundef i64 %.pre43(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp7, ptr noundef null) #29
+  %call.i.i = call noundef i64 %.pre51(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp7, ptr noundef null) #29
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit
 
 _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %invoke.cont9.thread, %invoke.cont9, %if.end.i.i

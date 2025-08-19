@@ -107,14 +107,14 @@ Vec_IntAlloc.exit:                                ; preds = %8, %13
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %50, %52, %42, %44
-  %.sink37 = phi ptr [ %43, %42 ], [ %45, %44 ], [ %51, %50 ], [ %53, %52 ]
+  %.sink41 = phi ptr [ %43, %42 ], [ %45, %44 ], [ %51, %50 ], [ %53, %52 ]
   %.sink = phi i32 [ 16, %42 ], [ 16, %44 ], [ %47, %50 ], [ %47, %52 ]
-  store ptr %.sink37, ptr %18, align 8, !tbaa !12
+  store ptr %.sink41, ptr %18, align 8, !tbaa !12
   store i32 %.sink, ptr %10, align 8, !tbaa !11
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %24
-  %.pre.i36 = phi ptr [ %25, %24 ], [ %.sink37, %Vec_IntPush.exit.sink.split ]
+  %.pre.i36 = phi ptr [ %25, %24 ], [ %.sink41, %Vec_IntPush.exit.sink.split ]
   %54 = add nsw i32 %36, 1
   store i32 %54, ptr %12, align 4, !tbaa !7
   %55 = sext i32 %36 to i64
@@ -703,21 +703,21 @@ Vec_PtrPush.exit73:                               ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not, label %.critedge4.thread, label %.critedge2, !llvm.loop !53
 
 .critedge4:                                       ; preds = %.critedge, %.critedge2.preheader
-  %.val5395 = phi i32 [ %119, %.critedge2.preheader ], [ 0, %.critedge ]
-  %.pre94 = phi ptr [ %.pre.pre, %.critedge2.preheader ], [ %13, %.critedge ]
-  %.not.i = icmp eq ptr %.pre94, null
+  %.val53102 = phi i32 [ %119, %.critedge2.preheader ], [ 0, %.critedge ]
+  %.pre101 = phi ptr [ %.pre.pre, %.critedge2.preheader ], [ %13, %.critedge ]
+  %.not.i = icmp eq ptr %.pre101, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %.critedge4.thread
 
 .critedge4.thread:                                ; preds = %.critedge2, %.critedge4
-  %.pre94101 = phi ptr [ %.pre94, %.critedge4 ], [ %.pre.pre, %.critedge2 ]
-  %.val539599 = phi i32 [ %.val5395, %.critedge4 ], [ %119, %.critedge2 ]
-  tail call void @free(ptr noundef nonnull %.pre94101) #13
+  %.pre101108 = phi ptr [ %.pre101, %.critedge4 ], [ %.pre.pre, %.critedge2 ]
+  %.val53102106 = phi i32 [ %.val53102, %.critedge4 ], [ %119, %.critedge2 ]
+  tail call void @free(ptr noundef nonnull %.pre101108) #13
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge4, %.critedge4.thread
-  %.val5395100 = phi i32 [ %.val5395, %.critedge4 ], [ %.val539599, %.critedge4.thread ]
+  %.val53102107 = phi i32 [ %.val53102, %.critedge4 ], [ %.val53102106, %.critedge4.thread ]
   tail call void @free(ptr noundef nonnull %11) #13
-  ret i32 %.val5395100
+  ret i32 %.val53102107
 }
 
 declare void @Aig_ManIncrementTravId(ptr noundef) local_unnamed_addr #1
@@ -1674,7 +1674,7 @@ define noalias noundef ptr @Saig_ManGetRegistersToExclude(ptr noundef readonly c
 
 .critedge2:                                       ; preds = %1, %.critedge2.loopexit, %.critedge.preheader
   %.not = phi i1 [ true, %.critedge.preheader ], [ false, %.critedge2.loopexit ], [ true, %1 ]
-  %.val657486 = phi i32 [ %.val67, %.critedge.preheader ], [ %.val67, %.critedge2.loopexit ], [ %.val6768, %1 ]
+  %.val657490 = phi i32 [ %.val67, %.critedge.preheader ], [ %.val67, %.critedge2.loopexit ], [ %.val6768, %1 ]
   %.0.lcssa = phi i1 [ true, %.critedge.preheader ], [ %42, %.critedge2.loopexit ], [ true, %1 ]
   %43 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
@@ -1692,7 +1692,7 @@ define noalias noundef ptr @Saig_ManGetRegistersToExclude(ptr noundef readonly c
   br label %49
 
 49:                                               ; preds = %.lr.ph76, %92
-  %.val6582 = phi i32 [ %.val657486, %.lr.ph76 ], [ %.val65, %92 ]
+  %.val6582 = phi i32 [ %.val657490, %.lr.ph76 ], [ %.val65, %92 ]
   %50 = phi i32 [ 100, %.lr.ph76 ], [ %93, %92 ]
   %51 = phi i32 [ 0, %.lr.ph76 ], [ %94, %92 ]
   %.275 = phi i32 [ 0, %.lr.ph76 ], [ %95, %92 ]
@@ -1788,7 +1788,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %96, label %49, label %.critedge4, !llvm.loop !81
 
 .critedge4:                                       ; preds = %92, %.critedge2
-  %.val6477 = phi i32 [ %.val657486, %.critedge2 ], [ %.val65, %92 ]
+  %.val6477 = phi i32 [ %.val657490, %.critedge2 ], [ %.val65, %92 ]
   %97 = icmp sgt i32 %.val6477, 0
   br i1 %97, label %.lr.ph79, label %.critedge6
 
@@ -2427,8 +2427,8 @@ Vec_PtrFree.exit103:                              ; preds = %52, %56
 60:                                               ; preds = %.loopexit111
   %61 = icmp ne i32 %4, 0
   %62 = icmp eq i32 %2, 0
-  %or.cond7.not202.not205 = and i1 %62, %61
-  %brmerge.not = and i1 %or.cond7.not202.not205, %8
+  %or.cond7.not214.not217 = and i1 %62, %61
+  %brmerge.not = and i1 %or.cond7.not214.not217, %8
   br i1 %brmerge.not, label %.lr.ph133, label %.thread
 
 .lr.ph133:                                        ; preds = %60

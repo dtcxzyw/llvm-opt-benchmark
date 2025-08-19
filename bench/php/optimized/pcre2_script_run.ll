@@ -210,7 +210,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_script_run_8(ptr noundef readonly capt
   br label %139
 
 139:                                              ; preds = %128, %128, %131
-  switch i32 %.0148216, label %default.unreachable240 [
+  switch i32 %.0148216, label %default.unreachable244 [
     i32 0, label %140
     i32 2, label %143
     i32 3, label %152
@@ -288,11 +288,11 @@ define hidden range(i32 0, 2) i32 @_pcre2_script_run_8(ptr noundef readonly capt
   br i1 %.not176, label %164, label %170
 
 170:                                              ; preds = %.preheader204
-  %switch.tableidx244 = add i8 %121, -22
-  %171 = icmp ult i8 %switch.tableidx244, 9
-  br i1 %171, label %switch.hole_check245, label %.preheader.preheader
+  %switch.tableidx248 = add i8 %121, -22
+  %171 = icmp ult i8 %switch.tableidx248, 9
+  br i1 %171, label %switch.hole_check249, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %switch.hole_check245, %170
+.preheader.preheader:                             ; preds = %switch.hole_check249, %170
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -307,7 +307,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_script_run_8(ptr noundef readonly capt
   %exitcond239.not = icmp eq i64 %indvars.iv.next237, 6
   br i1 %exitcond239.not, label %.critedge, label %.preheader
 
-default.unreachable240:                           ; preds = %139
+default.unreachable244:                           ; preds = %139
   unreachable
 
 switch.hole_check:                                ; preds = %140
@@ -322,20 +322,20 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge
 
-switch.hole_check245:                             ; preds = %170
-  %switch.maskindex247 = zext nneg i8 %switch.tableidx244 to i16
-  %switch.shifted248 = lshr i16 481, %switch.maskindex247
-  %switch.lobit249 = trunc i16 %switch.shifted248 to i1
-  br i1 %switch.lobit249, label %switch.lookup246, label %.preheader.preheader
+switch.hole_check249:                             ; preds = %170
+  %switch.maskindex251 = zext nneg i8 %switch.tableidx248 to i16
+  %switch.shifted252 = lshr i16 481, %switch.maskindex251
+  %switch.lobit253 = trunc i16 %switch.shifted252 to i1
+  br i1 %switch.lobit253, label %switch.lookup250, label %.preheader.preheader
 
-switch.lookup246:                                 ; preds = %switch.hole_check245
-  %178 = zext nneg i8 %switch.tableidx244 to i64
-  %switch.gep250 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._pcre2_script_run_8.1, i64 0, i64 %178
-  %switch.load251 = load i32, ptr %switch.gep250, align 4
+switch.lookup250:                                 ; preds = %switch.hole_check249
+  %178 = zext nneg i8 %switch.tableidx248 to i64
+  %switch.gep254 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._pcre2_script_run_8.1, i64 0, i64 %178
+  %switch.load255 = load i32, ptr %switch.gep254, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %.preheader, %switch.lookup246, %switch.lookup, %144, %.fold.split, %151, %160, %156, %152, %143, %142, %127, %127
-  %.2150 = phi i32 [ %.0148216, %127 ], [ %.0148216, %127 ], [ 1, %142 ], [ 2, %143 ], [ 3, %152 ], [ 4, %156 ], [ 5, %160 ], [ 2, %.fold.split ], [ 3, %151 ], [ 4, %144 ], [ %switch.load, %switch.lookup ], [ %switch.load251, %switch.lookup246 ], [ 1, %.preheader ]
+.critedge:                                        ; preds = %.preheader, %switch.lookup250, %switch.lookup, %144, %.fold.split, %151, %160, %156, %152, %143, %142, %127, %127
+  %.2150 = phi i32 [ %.0148216, %127 ], [ %.0148216, %127 ], [ 1, %142 ], [ 2, %143 ], [ 3, %152 ], [ 4, %156 ], [ 5, %160 ], [ 2, %.fold.split ], [ 3, %151 ], [ 4, %144 ], [ %switch.load, %switch.lookup ], [ %switch.load255, %switch.lookup250 ], [ 1, %.preheader ]
   %179 = getelementptr inbounds nuw i8, ptr %122, i64 1
   %180 = load i8, ptr %179, align 1, !tbaa !14
   %181 = icmp eq i8 %180, 13

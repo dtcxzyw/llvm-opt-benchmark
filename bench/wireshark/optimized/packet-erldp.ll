@@ -1474,8 +1474,8 @@ define internal fastcc noundef i32 @dissect_etf_big_ext(ptr noundef %0, ptr noun
   %44 = zext nneg i32 %43 to i64
   %45 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %42, i64 noundef %44)
   tail call void @wmem_strbuf_append(ptr noundef %45, ptr noundef nonnull @.str.252)
-  %.not66 = icmp eq i32 %3, 0
-  br i1 %.not66, label %._crit_edge, label %.lr.ph
+  %.not69 = icmp eq i32 %3, 0
+  br i1 %.not69, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %.lr.ph
   %.0.in65 = phi i32 [ %.0, %.lr.ph ], [ %3, %.thread ]
@@ -1653,7 +1653,7 @@ define internal fastcc i32 @dissect_etf_dist_header(ptr noundef readonly capture
 .lr.ph96:                                         ; preds = %._crit_edge
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %. = select i1 %.not, i32 1, i32 2
-  %.105 = select i1 %.not, i32 2, i32 3
+  %.108 = select i1 %.not, i32 2, i32 3
   br label %70
 
 70:                                               ; preds = %.lr.ph96, %101
@@ -1684,7 +1684,7 @@ define internal fastcc i32 @dissect_etf_dist_header(ptr noundef readonly capture
   %hf_erldp_atom_length2.val = load i32, ptr @hf_erldp_atom_length2, align 4
   %88 = select i1 %.not, i32 %hf_erldp_atom_length.val, i32 %hf_erldp_atom_length2.val
   %89 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %88, ptr noundef %1, i32 noundef %86, i32 noundef %., i32 noundef 0, ptr noundef nonnull %7)
-  %90 = add i32 %.08394, %.105
+  %90 = add i32 %.08394, %.108
   %91 = load i32, ptr @hf_erldp_atom_text, align 4
   %92 = load i32, ptr %7, align 4
   %93 = load ptr, ptr %69, align 8

@@ -642,8 +642,8 @@ if.then17:                                        ; preds = %if.end15
   %37 = shufflevector <4 x i32> %35, <4 x i32> %36, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   store <4 x i32> %37, ptr %clippingRect, align 16, !tbaa !45
   %AbsoluteRect = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %bc12 = bitcast <4 x i32> %17 to <16 x i8>
-  %38 = extractelement <16 x i8> %bc12, i64 4
+  %bc23 = bitcast <4 x i32> %17 to <16 x i8>
+  %38 = extractelement <16 x i8> %bc23, i64 4
   %tobool24 = icmp ne i8 %38, 0
   %vtable25 = load ptr, ptr %call5, align 8, !tbaa !3
   %vfn26 = getelementptr inbounds nuw i8, ptr %vtable25, i64 400
@@ -807,8 +807,8 @@ if.then43:                                        ; preds = %if.else41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %clippingRect44, ptr noundef nonnull align 8 dereferenceable(16) %AbsoluteClippingRect45, i64 16, i1 false), !tbaa.struct !50
   %DrawBounds.i112 = getelementptr inbounds nuw i8, ptr %this, i64 344
   %63 = load <4 x float>, ptr %DrawBounds.i112, align 8
-  %bc13 = bitcast <4 x float> %63 to <2 x i64>
-  %64 = extractelement <2 x i64> %bc13, i64 1
+  %bc24 = bitcast <4 x float> %63 to <2 x i64>
+  %64 = extractelement <2 x i64> %bc24, i64 1
   %65 = bitcast i64 %64 to <2 x float>
   %66 = fsub <2 x float> splat (float 1.000000e+00), %65
   %67 = load <4 x i32>, ptr %clippingRect44, align 16, !tbaa !45

@@ -2740,8 +2740,8 @@ define dso_local i32 @kernel_waitid_prepare(ptr noundef writeonly captures(none)
 
 .thread:                                          ; preds = %22, %24, %16, %13
   %.ph = phi ptr [ null, %13 ], [ %17, %16 ], [ %27, %24 ], [ %23, %22 ]
-  %.ph3 = phi i32 [ 4, %13 ], [ 0, %16 ], [ 2, %24 ], [ 2, %22 ]
-  store i32 %.ph3, ptr %0, align 8
+  %.ph5 = phi i32 [ 4, %13 ], [ 0, %16 ], [ 2, %24 ], [ 2, %22 ]
+  store i32 %.ph5, ptr %0, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.ph, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3693,13 +3693,13 @@ define internal fastcc i32 @wait_consider_task(ptr noundef captures(none) %0, i3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 1216
   %7 = load volatile i32, ptr %6, align 64
   %8 = icmp eq i32 %7, 16
-  br i1 %8, label %.thread40, label %9, !prof !22
+  br i1 %8, label %.thread53, label %9, !prof !22
 
 9:                                                ; preds = %3
   %10 = icmp ne i32 %1, 0
   %11 = load i32, ptr %0, align 8
   switch i32 %11, label %14 [
-    i32 4, label %.thread37
+    i32 4, label %.thread50
     i32 0, label %12
   ]
 
@@ -3724,10 +3724,10 @@ define internal fastcc i32 @wait_consider_task(ptr noundef captures(none) %0, i3
   %26 = or i1 %10, %25
   br i1 %26, label %38, label %27
 
-.thread37:                                        ; preds = %9
-  br i1 %10, label %.thread39, label %27
+.thread50:                                        ; preds = %9
+  br i1 %10, label %.thread52, label %27
 
-27:                                               ; preds = %.thread37, %20
+27:                                               ; preds = %.thread50, %20
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 1073741824
@@ -3740,28 +3740,28 @@ define internal fastcc i32 @wait_consider_task(ptr noundef captures(none) %0, i3
   %35 = icmp slt i32 %29, 0
   %36 = icmp eq i32 %34, 17
   %37 = xor i1 %35, %36
-  br i1 %37, label %39, label %.thread40
+  br i1 %37, label %39, label %.thread53
 
 38:                                               ; preds = %20
-  br i1 %25, label %.thread40, label %39
+  br i1 %25, label %.thread53, label %39
 
 39:                                               ; preds = %32, %38, %27
   %40 = icmp eq i32 %7, 48
   br i1 %40, label %41, label %44, !prof !22
 
-.thread39:                                        ; preds = %.thread37
+.thread52:                                        ; preds = %.thread50
   switch i32 %7, label %.thread19.sink.split [
-    i32 48, label %.thread40
+    i32 48, label %.thread53
     i32 32, label %62
   ], !prof !104
 
 41:                                               ; preds = %39
-  br i1 %10, label %.thread40, label %42, !prof !105
+  br i1 %10, label %.thread53, label %42, !prof !105
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %43, align 8
-  br label %.thread40
+  br label %.thread53
 
 44:                                               ; preds = %39
   br i1 %10, label %.thread22, label %45, !prof !105
@@ -3770,7 +3770,7 @@ define internal fastcc i32 @wait_consider_task(ptr noundef captures(none) %0, i3
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %47 = load i32, ptr %46, align 16
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %.thread42, label %49, !prof !7
+  br i1 %48, label %.thread55, label %49, !prof !7
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 1328
@@ -3785,7 +3785,7 @@ define internal fastcc i32 @wait_consider_task(ptr noundef captures(none) %0, i3
   %59 = icmp eq i32 %7, 32
   br i1 %59, label %62, label %355
 
-.thread42:                                        ; preds = %45
+.thread55:                                        ; preds = %45
   %60 = icmp eq i32 %7, 32
   br i1 %60, label %62, label %.sink.split
 
@@ -3793,8 +3793,8 @@ define internal fastcc i32 @wait_consider_task(ptr noundef captures(none) %0, i3
   %61 = icmp eq i32 %7, 32
   br i1 %61, label %62, label %.thread19.sink.split
 
-62:                                               ; preds = %.thread39, %.thread42, %.thread22, %49
-  %63 = phi i1 [ false, %.thread22 ], [ %58, %49 ], [ true, %.thread42 ], [ false, %.thread39 ]
+62:                                               ; preds = %.thread52, %.thread55, %.thread22, %49
+  %63 = phi i1 [ false, %.thread22 ], [ %58, %49 ], [ true, %.thread55 ], [ false, %.thread52 ]
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 1224
   %65 = load i32, ptr %64, align 8
   %66 = icmp sgt i32 %65, -1
@@ -3833,7 +3833,7 @@ define internal fastcc i32 @wait_consider_task(ptr noundef captures(none) %0, i3
   %89 = load i32, ptr %88, align 4
   %90 = and i32 %89, 4
   %91 = icmp eq i32 %90, 0
-  br i1 %91, label %.thread40, label %92, !prof !22
+  br i1 %91, label %.thread53, label %92, !prof !22
 
 92:                                               ; preds = %79
   %93 = and i32 %89, 16777216
@@ -3890,7 +3890,7 @@ define internal fastcc i32 @wait_consider_task(ptr noundef captures(none) %0, i3
   %126 = phi i32 [ 16, %112 ], [ %spec.select, %122 ]
   %127 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, i32 %126, i32 32, ptr nonnull elementtype(i32) %6) #15, !srcloc !106
   %128 = icmp eq i32 %127, 32
-  br i1 %128, label %129, label %.thread40
+  br i1 %128, label %129, label %.thread53
 
 129:                                              ; preds = %.thread
   tail call void @_raw_read_unlock(ptr noundef nonnull @tasklist_lock) #15
@@ -4172,7 +4172,7 @@ define internal fastcc i32 @wait_consider_task(ptr noundef captures(none) %0, i3
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %336 = load ptr, ptr %335, align 8
   %337 = icmp eq ptr %336, null
-  br i1 %337, label %.thread40, label %338
+  br i1 %337, label %.thread53, label %338
 
 338:                                              ; preds = %333
   %339 = and i32 %334, 127
@@ -4190,7 +4190,7 @@ define internal fastcc i32 @wait_consider_task(ptr noundef captures(none) %0, i3
   store i32 %80, ptr %336, align 4
   %348 = getelementptr inbounds nuw i8, ptr %336, i64 4
   store i32 %87, ptr %348, align 4
-  br label %.thread40
+  br label %.thread53
 
 349:                                              ; preds = %67
   br i1 %63, label %.sink.split, label %350, !prof !107
@@ -4207,7 +4207,7 @@ define internal fastcc i32 @wait_consider_task(ptr noundef captures(none) %0, i3
   store i32 0, ptr %356, align 8
   br i1 %58, label %358, label %.thread19
 
-.sink.split:                                      ; preds = %75, %349, %.thread42
+.sink.split:                                      ; preds = %75, %349, %.thread55
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %357, align 8
   br label %358
@@ -4219,7 +4219,7 @@ define internal fastcc i32 @wait_consider_task(ptr noundef captures(none) %0, i3
   %362 = icmp eq i32 %361, 0
   br i1 %362, label %.thread36, label %367
 
-.thread19.sink.split:                             ; preds = %350, %.thread22, %.thread39
+.thread19.sink.split:                             ; preds = %350, %.thread22, %.thread52
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %363, align 8
   br label %.thread19
@@ -4376,14 +4376,14 @@ select.unfold:                                    ; preds = %374, %381
 
 448:                                              ; preds = %444, %440
   %449 = icmp eq i32 %421, 0
-  br i1 %449, label %.thread36, label %.thread40
+  br i1 %449, label %.thread36, label %.thread53
 
 .thread36:                                        ; preds = %.thread32, %.thread19, %367, %358, %448
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %451 = load i32, ptr %450, align 4
   %452 = and i32 %451, 8
   %453 = icmp eq i32 %452, 0
-  br i1 %453, label %.thread40, label %454, !prof !7
+  br i1 %453, label %.thread53, label %454, !prof !7
 
 454:                                              ; preds = %.thread36
   %455 = getelementptr inbounds nuw i8, ptr %2, i64 1880
@@ -4392,7 +4392,7 @@ select.unfold:                                    ; preds = %374, %381
   %458 = load i32, ptr %457, align 4
   %459 = and i32 %458, 2
   %460 = icmp eq i32 %459, 0
-  br i1 %460, label %.thread40, label %461
+  br i1 %460, label %.thread53, label %461
 
 461:                                              ; preds = %454
   %462 = getelementptr inbounds nuw i8, ptr %2, i64 1888
@@ -4408,7 +4408,7 @@ select.unfold:                                    ; preds = %374, %381
 469:                                              ; preds = %461
   %470 = load ptr, ptr %462, align 32
   tail call void @_raw_spin_unlock_irq(ptr noundef %470) #15
-  br label %.thread40
+  br label %.thread53
 
 471:                                              ; preds = %461
   %472 = load i32, ptr %450, align 4
@@ -4455,7 +4455,7 @@ select.unfold:                                    ; preds = %374, %381
 496:                                              ; preds = %492
   %497 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 65535, ptr %497, align 8
-  br label %.thread40
+  br label %.thread53
 
 498:                                              ; preds = %492
   %499 = getelementptr inbounds nuw i8, ptr %494, i64 12
@@ -4465,10 +4465,10 @@ select.unfold:                                    ; preds = %374, %381
   store i32 %484, ptr %500, align 4
   %501 = getelementptr inbounds nuw i8, ptr %494, i64 8
   store i32 18, ptr %501, align 4
-  br label %.thread40
+  br label %.thread53
 
-.thread40:                                        ; preds = %.thread39, %32, %498, %496, %469, %454, %.thread36, %448, %338, %333, %.thread, %79, %42, %41, %38, %3
-  %502 = phi i32 [ 0, %3 ], [ 0, %38 ], [ 0, %42 ], [ 0, %41 ], [ %421, %448 ], [ 0, %79 ], [ 0, %.thread ], [ %80, %338 ], [ %80, %333 ], [ 0, %469 ], [ 0, %.thread36 ], [ 0, %454 ], [ %486, %498 ], [ %486, %496 ], [ 0, %32 ], [ 0, %.thread39 ]
+.thread53:                                        ; preds = %.thread52, %32, %498, %496, %469, %454, %.thread36, %448, %338, %333, %.thread, %79, %42, %41, %38, %3
+  %502 = phi i32 [ 0, %3 ], [ 0, %38 ], [ 0, %42 ], [ 0, %41 ], [ %421, %448 ], [ 0, %79 ], [ 0, %.thread ], [ %80, %338 ], [ %80, %333 ], [ 0, %469 ], [ 0, %.thread36 ], [ 0, %454 ], [ %486, %498 ], [ %486, %496 ], [ 0, %32 ], [ 0, %.thread52 ]
   ret i32 %502
 }
 

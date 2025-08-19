@@ -135,7 +135,7 @@ define dso_local void @gres_filter_sock_core(ptr noundef readonly captures(none)
   br i1 %12, label %75, label %79
 
 75:                                               ; preds = %71
-  br i1 %.not721, label %76, label %.thread1099
+  br i1 %.not721, label %76, label %.thread1166
 
 76:                                               ; preds = %75
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 64
@@ -144,14 +144,14 @@ define dso_local void @gres_filter_sock_core(ptr noundef readonly captures(none)
   br label %81
 
 79:                                               ; preds = %71
-  br i1 %.not721, label %81, label %.thread1099
+  br i1 %.not721, label %81, label %.thread1166
 
-.thread1099:                                      ; preds = %75, %79
+.thread1166:                                      ; preds = %75, %79
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 64
   store i64 %74, ptr %80, align 8
   br label %81
 
-81:                                               ; preds = %79, %.thread1099, %76
+81:                                               ; preds = %79, %.thread1166, %76
   %82 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %83 = load ptr, ptr %82, align 8
   %.not723 = icmp eq ptr %83, null
@@ -239,9 +239,9 @@ define dso_local void @gres_filter_sock_core(ptr noundef readonly captures(none)
   %121 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %122 = load i64, ptr %121, align 8
   %.not.i = icmp eq i64 %122, 0
-  br i1 %.not.i, label %.thread41.i, label %125
+  br i1 %.not.i, label %.thread44.i, label %125
 
-.thread41.i:                                      ; preds = %.thread
+.thread44.i:                                      ; preds = %.thread
   %123 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %124 = load i64, ptr %123, align 8
   br label %_set_max_gres.exit
@@ -287,14 +287,14 @@ define dso_local void @gres_filter_sock_core(ptr noundef readonly captures(none)
   %.not33.not.i = icmp eq i64 %122, %147
   %151 = call i64 @llvm.umin.i64(i64 %148, i64 %150)
   %cond.fr.i = freeze i1 %.not33.not.i
-  %spec.select47.i = select i1 %cond.fr.i, i64 %150, i64 %151
+  %spec.select50.i = select i1 %cond.fr.i, i64 %150, i64 %151
   br label %_set_max_gres.exit
 
-_set_max_gres.exit:                               ; preds = %.thread41.i, %.thread.i, %144
-  %.not3240.in.i = phi i64 [ %142, %.thread.i ], [ %124, %.thread41.i ], [ %150, %144 ]
-  %152 = phi i64 [ %143, %.thread.i ], [ %124, %.thread41.i ], [ %spec.select47.i, %144 ]
-  %.not3240.i = icmp eq i64 %.not3240.in.i, 0
-  %.0.i = select i1 %.not3240.i, i64 0, i64 %152
+_set_max_gres.exit:                               ; preds = %.thread44.i, %.thread.i, %144
+  %.not3243.in.i = phi i64 [ %142, %.thread.i ], [ %124, %.thread44.i ], [ %150, %144 ]
+  %152 = phi i64 [ %143, %.thread.i ], [ %124, %.thread44.i ], [ %spec.select50.i, %144 ]
+  %.not3243.i = icmp eq i64 %.not3243.in.i, 0
+  %.0.i = select i1 %.not3243.i, i64 0, i64 %152
   %.not728 = icmp eq i64 %.0.i, 0
   %.phi.trans.insert1083 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %.pre1084 = load i64, ptr %.phi.trans.insert1083, align 8
@@ -1710,8 +1710,8 @@ _shared_gres_task_limit.exit:                     ; preds = %533, %568, %462, %5
   %or.cond23.reass.reass.reass = or i1 %840, %invariant.op
   %brmerge = or i1 %.not744, %or.cond23.reass.reass.reass
   %.promoted996.pre = load i16, ptr %24, align 2
-  %brmerge1139 = or i1 %brmerge, %.not1012
-  br i1 %brmerge1139, label %.loopexit860, label %.lr.ph980
+  %brmerge1206 = or i1 %brmerge, %.not1012
+  br i1 %brmerge1206, label %.loopexit860, label %.lr.ph980
 
 .lr.ph980:                                        ; preds = %839, %879
   %indvars.iv1073 = phi i64 [ %indvars.iv.next1074, %879 ], [ 0, %839 ]

@@ -92,15 +92,15 @@ i128_neg.exit:                                    ; preds = %13, %12, %4
   br label %i128_shl64.exit.i.i.preheader
 
 i128_shl64.exit.i.i.preheader:                    ; preds = %41, %38, %34, %32, %29
-  %.ph62 = phi i64 [ %2, %29 ], [ 0, %32 ], [ 0, %34 ], [ 0, %38 ], [ %44, %41 ]
-  %.ph63 = phi i64 [ 0, %29 ], [ 0, %32 ], [ %2, %34 ], [ %40, %38 ], [ %43, %41 ]
+  %.ph72 = phi i64 [ %2, %29 ], [ 0, %32 ], [ 0, %34 ], [ 0, %38 ], [ %44, %41 ]
+  %.ph73 = phi i64 [ 0, %29 ], [ 0, %32 ], [ %2, %34 ], [ %40, %38 ], [ %43, %41 ]
   br label %i128_shl64.exit.i.i
 
 i128_shl64.exit.i.i:                              ; preds = %i128_shl64.exit.i.i.preheader, %i128_ucomp.exit.i.i
   %45 = phi i64 [ %56, %i128_ucomp.exit.i.i ], [ %.sroa.8.1, %i128_shl64.exit.i.i.preheader ]
   %46 = phi i64 [ %57, %i128_ucomp.exit.i.i ], [ %.sroa.018.1, %i128_shl64.exit.i.i.preheader ]
-  %47 = phi i64 [ %58, %i128_ucomp.exit.i.i ], [ %.ph62, %i128_shl64.exit.i.i.preheader ]
-  %48 = phi i64 [ %59, %i128_ucomp.exit.i.i ], [ %.ph63, %i128_shl64.exit.i.i.preheader ]
+  %47 = phi i64 [ %58, %i128_ucomp.exit.i.i ], [ %.ph72, %i128_shl64.exit.i.i.preheader ]
+  %48 = phi i64 [ %59, %i128_ucomp.exit.i.i ], [ %.ph73, %i128_shl64.exit.i.i.preheader ]
   %.0.i.i = phi i32 [ %60, %i128_ucomp.exit.i.i ], [ %27, %i128_shl64.exit.i.i.preheader ]
   %49 = icmp ugt i64 %46, %48
   br i1 %49, label %select.unfold.i.i, label %50
@@ -178,7 +178,7 @@ i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i
 
 i128_shl64.exit.i.i28.preheader:                  ; preds = %80, %77, %73, %71, %68
   %.ph = phi i64 [ %2, %68 ], [ 0, %71 ], [ 0, %73 ], [ 0, %77 ], [ %83, %80 ]
-  %.ph61 = phi i64 [ 0, %68 ], [ 0, %71 ], [ %2, %73 ], [ %79, %77 ], [ %82, %80 ]
+  %.ph71 = phi i64 [ 0, %68 ], [ 0, %71 ], [ %2, %73 ], [ %79, %77 ], [ %82, %80 ]
   br label %i128_shl64.exit.i.i28
 
 i128_shl64.exit.i.i28:                            ; preds = %i128_shl64.exit.i.i28.preheader, %i128_ucomp.exit.i.i36
@@ -187,7 +187,7 @@ i128_shl64.exit.i.i28:                            ; preds = %i128_shl64.exit.i.i
   %86 = phi i64 [ %102, %i128_ucomp.exit.i.i36 ], [ 0, %i128_shl64.exit.i.i28.preheader ]
   %87 = phi i64 [ %90, %i128_ucomp.exit.i.i36 ], [ 0, %i128_shl64.exit.i.i28.preheader ]
   %88 = phi i64 [ %103, %i128_ucomp.exit.i.i36 ], [ %.ph, %i128_shl64.exit.i.i28.preheader ]
-  %89 = phi i64 [ %104, %i128_ucomp.exit.i.i36 ], [ %.ph61, %i128_shl64.exit.i.i28.preheader ]
+  %89 = phi i64 [ %104, %i128_ucomp.exit.i.i36 ], [ %.ph71, %i128_shl64.exit.i.i28.preheader ]
   %.0.i.i31 = phi i32 [ %105, %i128_ucomp.exit.i.i36 ], [ %66, %i128_shl64.exit.i.i28.preheader ]
   %90 = tail call i64 @llvm.fshl.i64(i64 %87, i64 %86, i64 1)
   %91 = shl i64 %86, 1
@@ -338,14 +338,14 @@ define dso_local { i64, i64 } @i128_urem(i64 %0, i64 %1, i64 %2, i64 %3) local_u
 
 i128_shl64.exit.i.preheader:                      ; preds = %25, %22, %18, %16, %13
   %.ph = phi i64 [ %3, %13 ], [ 0, %16 ], [ 0, %18 ], [ 0, %22 ], [ %30, %25 ]
-  %.ph8 = phi i64 [ %2, %13 ], [ 0, %16 ], [ %3, %18 ], [ %24, %22 ], [ %29, %25 ]
+  %.ph10 = phi i64 [ %2, %13 ], [ 0, %16 ], [ %3, %18 ], [ %24, %22 ], [ %29, %25 ]
   br label %i128_shl64.exit.i
 
 i128_shl64.exit.i:                                ; preds = %i128_shl64.exit.i.preheader, %i128_ucomp.exit.i
   %31 = phi i64 [ %42, %i128_ucomp.exit.i ], [ %1, %i128_shl64.exit.i.preheader ]
   %32 = phi i64 [ %43, %i128_ucomp.exit.i ], [ %0, %i128_shl64.exit.i.preheader ]
   %33 = phi i64 [ %44, %i128_ucomp.exit.i ], [ %.ph, %i128_shl64.exit.i.preheader ]
-  %34 = phi i64 [ %45, %i128_ucomp.exit.i ], [ %.ph8, %i128_shl64.exit.i.preheader ]
+  %34 = phi i64 [ %45, %i128_ucomp.exit.i ], [ %.ph10, %i128_shl64.exit.i.preheader ]
   %.0.i = phi i32 [ %46, %i128_ucomp.exit.i ], [ %11, %i128_shl64.exit.i.preheader ]
   %35 = icmp ugt i64 %32, %34
   br i1 %35, label %select.unfold.i, label %36
@@ -433,7 +433,7 @@ define dso_local { i64, i64 } @i128_udiv(i64 %0, i64 %1, i64 %2, i64 %3) local_u
 
 i128_shl64.exit.i.preheader:                      ; preds = %25, %22, %18, %16, %13
   %.ph = phi i64 [ %3, %13 ], [ 0, %16 ], [ 0, %18 ], [ 0, %22 ], [ %30, %25 ]
-  %.ph8 = phi i64 [ %2, %13 ], [ 0, %16 ], [ %3, %18 ], [ %24, %22 ], [ %29, %25 ]
+  %.ph10 = phi i64 [ %2, %13 ], [ 0, %16 ], [ %3, %18 ], [ %24, %22 ], [ %29, %25 ]
   br label %i128_shl64.exit.i
 
 i128_shl64.exit.i:                                ; preds = %i128_shl64.exit.i.preheader, %i128_ucomp.exit.i
@@ -442,7 +442,7 @@ i128_shl64.exit.i:                                ; preds = %i128_shl64.exit.i.p
   %33 = phi i64 [ %49, %i128_ucomp.exit.i ], [ 0, %i128_shl64.exit.i.preheader ]
   %34 = phi i64 [ %37, %i128_ucomp.exit.i ], [ 0, %i128_shl64.exit.i.preheader ]
   %35 = phi i64 [ %50, %i128_ucomp.exit.i ], [ %.ph, %i128_shl64.exit.i.preheader ]
-  %36 = phi i64 [ %51, %i128_ucomp.exit.i ], [ %.ph8, %i128_shl64.exit.i.preheader ]
+  %36 = phi i64 [ %51, %i128_ucomp.exit.i ], [ %.ph10, %i128_shl64.exit.i.preheader ]
   %.0.i = phi i32 [ %52, %i128_ucomp.exit.i ], [ %11, %i128_shl64.exit.i.preheader ]
   %37 = tail call i64 @llvm.fshl.i64(i64 %34, i64 %33, i64 1)
   %38 = shl i64 %33, 1
@@ -788,7 +788,7 @@ define dso_local { i64, i64 } @i128_extend(i64 %0, i64 %1, i32 noundef %2) local
 
 10:                                               ; preds = %6
   %11 = icmp eq i32 %4, 64
-  br i1 %11, label %i128_shl64.exit.thread55, label %12
+  br i1 %11, label %i128_shl64.exit.thread56, label %12
 
 12:                                               ; preds = %10
   %13 = icmp samesign ugt i64 %8, 64
@@ -814,7 +814,7 @@ i128_shl64.exit:                                  ; preds = %14, %17
   %24 = icmp ult i32 %23, 5
   br i1 %24, label %27, label %49
 
-i128_shl64.exit.thread55:                         ; preds = %10
+i128_shl64.exit.thread56:                         ; preds = %10
   %25 = add i32 %2, -3
   %26 = icmp ult i32 %25, 5
   %.lobit = ashr i64 %1, 63
@@ -875,9 +875,9 @@ i128_shl64.exit.thread55:                         ; preds = %10
   %59 = lshr i64 %.sroa.011.0.i, %8
   br label %i128_ashr64.exit
 
-i128_ashr64.exit:                                 ; preds = %i128_shl64.exit.thread55, %6, %54, %51, %43, %40, %33, %30, %3
-  %.pn37 = phi i64 [ %0, %3 ], [ -1, %40 ], [ %44, %43 ], [ 0, %30 ], [ %38, %33 ], [ 0, %51 ], [ %59, %54 ], [ 0, %6 ], [ %spec.select, %i128_shl64.exit.thread55 ]
-  %.pn35 = phi i64 [ %1, %3 ], [ %42, %40 ], [ %48, %43 ], [ %32, %30 ], [ %37, %33 ], [ %53, %51 ], [ %58, %54 ], [ 0, %6 ], [ %1, %i128_shl64.exit.thread55 ]
+i128_ashr64.exit:                                 ; preds = %i128_shl64.exit.thread56, %6, %54, %51, %43, %40, %33, %30, %3
+  %.pn37 = phi i64 [ %0, %3 ], [ -1, %40 ], [ %44, %43 ], [ 0, %30 ], [ %38, %33 ], [ 0, %51 ], [ %59, %54 ], [ 0, %6 ], [ %spec.select, %i128_shl64.exit.thread56 ]
+  %.pn35 = phi i64 [ %1, %3 ], [ %42, %40 ], [ %48, %43 ], [ %32, %30 ], [ %37, %33 ], [ %53, %51 ], [ %58, %54 ], [ 0, %6 ], [ %1, %i128_shl64.exit.thread56 ]
   %.pn = insertvalue { i64, i64 } poison, i64 %.pn37, 0
   %.fca.1.insert.merged = insertvalue { i64, i64 } %.pn, i64 %.pn35, 1
   ret { i64, i64 } %.fca.1.insert.merged
@@ -1196,11 +1196,11 @@ define dso_local zeroext i1 @i128_get_bit(ptr noundef readonly captures(none) %0
   %3 = icmp sgt i32 %1, 63
   %4 = sub nsw i32 64, %1
   %5 = add nsw i32 %1, -64
-  %.sink8 = select i1 %3, i32 %5, i32 %4
+  %.sink9 = select i1 %3, i32 %5, i32 %4
   %.sink.in.idx = select i1 %3, i64 0, i64 8
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.in.idx
   %.sink = load i64, ptr %.sink.in, align 8
-  %6 = zext nneg i32 %.sink8 to i64
+  %6 = zext nneg i32 %.sink9 to i64
   %7 = shl nuw i64 1, %6
   %8 = and i64 %.sink, %7
   %.0 = icmp ne i64 %8, 0
@@ -1765,23 +1765,23 @@ i128_neg.exit19:                                  ; preds = %12
   %16 = select i1 %15, i64 -9223372036854775808, i64 9223372036854775807
   br label %i128_neg.exit
 
-common.ret20:                                     ; preds = %i128_neg.exit, %common.ret
-  %common.ret20.op = phi double [ %22, %common.ret ], [ %18, %i128_neg.exit ]
-  ret double %common.ret20.op
+common.ret21:                                     ; preds = %i128_neg.exit, %common.ret
+  %common.ret21.op = phi double [ %22, %common.ret ], [ %18, %i128_neg.exit ]
+  ret double %common.ret21.op
 
 i128_neg.exit:                                    ; preds = %5, %.split, %i128_neg.exit19
   %.pn11.i.pn = phi i64 [ %16, %i128_neg.exit19 ], [ %11, %5 ], [ %0, %.split ]
   %.pn.i.pn = phi i64 [ %14, %i128_neg.exit19 ], [ %8, %5 ], [ 0, %.split ]
   %17 = tail call double @i128_to_float_signed(i64 %.pn11.i.pn, i64 %.pn.i.pn)
   %18 = fneg double %17
-  br label %common.ret20
+  br label %common.ret21
 
 common.ret:                                       ; preds = %12, %2
   %19 = uitofp i64 %1 to double
   %20 = uitofp i64 %0 to double
   %21 = tail call double @ldexp(double noundef %20, i32 noundef 64) #20
   %22 = fadd double %21, %19
-  br label %common.ret20
+  br label %common.ret21
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -1838,7 +1838,7 @@ define dso_local void @i128_udivrem(i64 %0, i64 %1, i64 %2, i64 %3, ptr noundef 
 
 i128_shl64.exit.preheader:                        ; preds = %16, %19, %21, %25, %28
   %.ph = phi i64 [ %33, %28 ], [ 0, %25 ], [ 0, %21 ], [ 0, %19 ], [ %3, %16 ]
-  %.ph48 = phi i64 [ %32, %28 ], [ %27, %25 ], [ %3, %21 ], [ 0, %19 ], [ %2, %16 ]
+  %.ph51 = phi i64 [ %32, %28 ], [ %27, %25 ], [ %3, %21 ], [ 0, %19 ], [ %2, %16 ]
   br label %i128_shl64.exit
 
 i128_shl64.exit:                                  ; preds = %i128_shl64.exit.preheader, %i128_ucomp.exit
@@ -1847,7 +1847,7 @@ i128_shl64.exit:                                  ; preds = %i128_shl64.exit.pre
   %36 = phi i64 [ %52, %i128_ucomp.exit ], [ 0, %i128_shl64.exit.preheader ]
   %37 = phi i64 [ %40, %i128_ucomp.exit ], [ 0, %i128_shl64.exit.preheader ]
   %38 = phi i64 [ %53, %i128_ucomp.exit ], [ %.ph, %i128_shl64.exit.preheader ]
-  %39 = phi i64 [ %54, %i128_ucomp.exit ], [ %.ph48, %i128_shl64.exit.preheader ]
+  %39 = phi i64 [ %54, %i128_ucomp.exit ], [ %.ph51, %i128_shl64.exit.preheader ]
   %.0 = phi i32 [ %55, %i128_ucomp.exit ], [ %13, %i128_shl64.exit.preheader ]
   %40 = tail call i64 @llvm.fshl.i64(i64 %37, i64 %36, i64 1)
   %41 = shl i64 %36, 1
@@ -1981,14 +1981,14 @@ i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.
 
 i128_shl64.exit.i.i.preheader:                    ; preds = %43, %40, %36, %34, %31
   %.ph = phi i64 [ %.sroa.5.0, %31 ], [ 0, %34 ], [ 0, %36 ], [ 0, %40 ], [ %48, %43 ]
-  %.ph36 = phi i64 [ %.sroa.07.0, %31 ], [ 0, %34 ], [ %.sroa.5.0, %36 ], [ %42, %40 ], [ %47, %43 ]
+  %.ph40 = phi i64 [ %.sroa.07.0, %31 ], [ 0, %34 ], [ %.sroa.5.0, %36 ], [ %42, %40 ], [ %47, %43 ]
   br label %i128_shl64.exit.i.i
 
 i128_shl64.exit.i.i:                              ; preds = %i128_shl64.exit.i.i.preheader, %i128_ucomp.exit.i.i
   %49 = phi i64 [ %60, %i128_ucomp.exit.i.i ], [ %.sroa.514.0, %i128_shl64.exit.i.i.preheader ]
   %50 = phi i64 [ %61, %i128_ucomp.exit.i.i ], [ %.sroa.011.0, %i128_shl64.exit.i.i.preheader ]
   %51 = phi i64 [ %62, %i128_ucomp.exit.i.i ], [ %.ph, %i128_shl64.exit.i.i.preheader ]
-  %52 = phi i64 [ %63, %i128_ucomp.exit.i.i ], [ %.ph36, %i128_shl64.exit.i.i.preheader ]
+  %52 = phi i64 [ %63, %i128_ucomp.exit.i.i ], [ %.ph40, %i128_shl64.exit.i.i.preheader ]
   %.0.i.i = phi i32 [ %64, %i128_ucomp.exit.i.i ], [ %29, %i128_shl64.exit.i.i.preheader ]
   %53 = icmp ugt i64 %50, %52
   br i1 %53, label %select.unfold.i.i, label %54
@@ -2149,7 +2149,7 @@ i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.
 
 i128_shl64.exit.i.i.preheader:                    ; preds = %43, %40, %36, %34, %31
   %.ph = phi i64 [ %.sroa.5.0, %31 ], [ 0, %34 ], [ 0, %36 ], [ 0, %40 ], [ %48, %43 ]
-  %.ph46 = phi i64 [ %.sroa.07.0, %31 ], [ 0, %34 ], [ %.sroa.5.0, %36 ], [ %42, %40 ], [ %47, %43 ]
+  %.ph51 = phi i64 [ %.sroa.07.0, %31 ], [ 0, %34 ], [ %.sroa.5.0, %36 ], [ %42, %40 ], [ %47, %43 ]
   br label %i128_shl64.exit.i.i
 
 i128_shl64.exit.i.i:                              ; preds = %i128_shl64.exit.i.i.preheader, %i128_ucomp.exit.i.i
@@ -2158,7 +2158,7 @@ i128_shl64.exit.i.i:                              ; preds = %i128_shl64.exit.i.i
   %51 = phi i64 [ %67, %i128_ucomp.exit.i.i ], [ 0, %i128_shl64.exit.i.i.preheader ]
   %52 = phi i64 [ %55, %i128_ucomp.exit.i.i ], [ 0, %i128_shl64.exit.i.i.preheader ]
   %53 = phi i64 [ %68, %i128_ucomp.exit.i.i ], [ %.ph, %i128_shl64.exit.i.i.preheader ]
-  %54 = phi i64 [ %69, %i128_ucomp.exit.i.i ], [ %.ph46, %i128_shl64.exit.i.i.preheader ]
+  %54 = phi i64 [ %69, %i128_ucomp.exit.i.i ], [ %.ph51, %i128_shl64.exit.i.i.preheader ]
   %.0.i.i = phi i32 [ %70, %i128_ucomp.exit.i.i ], [ %29, %i128_shl64.exit.i.i.preheader ]
   %55 = tail call i64 @llvm.fshl.i64(i64 %52, i64 %51, i64 1)
   %56 = shl i64 %51, 1
@@ -3067,7 +3067,7 @@ i128_lshr64.exit45.thread:                        ; preds = %44
 
 71:                                               ; preds = %69
   %72 = icmp samesign ugt i32 %45, 64
-  br i1 %72, label %73, label %.thread151
+  br i1 %72, label %73, label %.thread153
 
 73:                                               ; preds = %71
   %74 = add nsw i64 %46, -64
@@ -3076,14 +3076,14 @@ i128_lshr64.exit45.thread:                        ; preds = %44
   %76 = add nsw i64 %46, -64
   br i1 %.not.i, label %82, label %89
 
-.thread151:                                       ; preds = %71
+.thread153:                                       ; preds = %71
   %77 = shl i64 %.sroa.015.0.i41, %46
   %78 = sub nuw nsw i64 64, %46
   %79 = lshr i64 %.sroa.6.0.i42, %78
   %80 = or disjoint i64 %79, %77
   %81 = shl i64 %.sroa.6.0.i42, %46
-  %.not.i154 = icmp sgt i64 %80, -1
-  br i1 %.not.i154, label %.thread159, label %.thread164
+  %.not.i156 = icmp sgt i64 %80, -1
+  br i1 %.not.i156, label %.thread161, label %.thread166
 
 .thread126:                                       ; preds = %69
   %.sroa.6.0.i42.lobit = ashr i64 %.sroa.6.0.i42, 63
@@ -3093,7 +3093,7 @@ i128_lshr64.exit45.thread:                        ; preds = %44
   %83 = lshr i64 %75, %76
   br label %i128_ashr64.exit
 
-.thread159:                                       ; preds = %.thread151
+.thread161:                                       ; preds = %.thread153
   %84 = lshr exact i64 %81, %46
   %85 = sub nuw nsw i64 64, %46
   %86 = shl i64 %80, %85
@@ -3105,7 +3105,7 @@ i128_lshr64.exit45.thread:                        ; preds = %44
   %90 = ashr i64 %75, %76
   br label %i128_ashr64.exit
 
-.thread164:                                       ; preds = %.thread151
+.thread166:                                       ; preds = %.thread153
   %91 = ashr i64 %80, %46
   %92 = lshr exact i64 %81, %46
   %93 = sub nuw nsw i64 64, %46
@@ -3113,20 +3113,20 @@ i128_lshr64.exit45.thread:                        ; preds = %44
   %95 = or disjoint i64 %92, %94
   br label %i128_ashr64.exit
 
-i128_ashr64.exit:                                 ; preds = %i128_lshr64.exit45.thread, %.thread126, %82, %.thread159, %89, %.thread164
-  %.sroa.015.0.i51 = phi i64 [ -1, %89 ], [ %91, %.thread164 ], [ 0, %82 ], [ %88, %.thread159 ], [ %.sroa.6.0.i42.lobit, %.thread126 ], [ 0, %i128_lshr64.exit45.thread ]
-  %.sroa.7.0.i = phi i64 [ %90, %89 ], [ %95, %.thread164 ], [ %83, %82 ], [ %87, %.thread159 ], [ %.sroa.6.0.i42, %.thread126 ], [ 0, %i128_lshr64.exit45.thread ]
+i128_ashr64.exit:                                 ; preds = %i128_lshr64.exit45.thread, %.thread126, %82, %.thread161, %89, %.thread166
+  %.sroa.015.0.i51 = phi i64 [ -1, %89 ], [ %91, %.thread166 ], [ 0, %82 ], [ %88, %.thread161 ], [ %.sroa.6.0.i42.lobit, %.thread126 ], [ 0, %i128_lshr64.exit45.thread ]
+  %.sroa.7.0.i = phi i64 [ %90, %89 ], [ %95, %.thread166 ], [ %83, %82 ], [ %87, %.thread161 ], [ %.sroa.6.0.i42, %.thread126 ], [ 0, %i128_lshr64.exit45.thread ]
   store i64 %.sroa.015.0.i51, ptr %0, align 8
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.7.0.i, ptr %96, align 8
   br label %98
 
 97:                                               ; preds = %i128_lshr64.exit45.thread, %i128_lshr64.exit45
-  %.sroa.6.0.i42148 = phi i64 [ 0, %i128_lshr64.exit45.thread ], [ %.sroa.6.0.i42, %i128_lshr64.exit45 ]
-  %.sroa.015.0.i41146 = phi i64 [ 0, %i128_lshr64.exit45.thread ], [ %.sroa.015.0.i41, %i128_lshr64.exit45 ]
-  store i64 %.sroa.015.0.i41146, ptr %0, align 8
+  %.sroa.6.0.i42150 = phi i64 [ 0, %i128_lshr64.exit45.thread ], [ %.sroa.6.0.i42, %i128_lshr64.exit45 ]
+  %.sroa.015.0.i41148 = phi i64 [ 0, %i128_lshr64.exit45.thread ], [ %.sroa.015.0.i41, %i128_lshr64.exit45 ]
+  store i64 %.sroa.015.0.i41148, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.6.0.i42148, ptr %.sroa.3.0..sroa_idx, align 8
+  store i64 %.sroa.6.0.i42150, ptr %.sroa.3.0..sroa_idx, align 8
   br label %98
 
 98:                                               ; preds = %97, %i128_ashr64.exit, %i128_lshr64.exit, %17, %9
@@ -3202,7 +3202,7 @@ define dso_local void @int_div(ptr dead_on_unwind noalias writable writeonly sre
 
 i128_shl64.exit.i.i.preheader:                    ; preds = %37, %34, %30, %28, %25
   %.ph = phi i64 [ %15, %25 ], [ 0, %28 ], [ 0, %30 ], [ 0, %34 ], [ %42, %37 ]
-  %.ph10 = phi i64 [ %13, %25 ], [ 0, %28 ], [ %15, %30 ], [ %36, %34 ], [ %41, %37 ]
+  %.ph12 = phi i64 [ %13, %25 ], [ 0, %28 ], [ %15, %30 ], [ %36, %34 ], [ %41, %37 ]
   br label %i128_shl64.exit.i.i
 
 i128_shl64.exit.i.i:                              ; preds = %i128_shl64.exit.i.i.preheader, %i128_ucomp.exit.i.i
@@ -3211,7 +3211,7 @@ i128_shl64.exit.i.i:                              ; preds = %i128_shl64.exit.i.i
   %45 = phi i64 [ %61, %i128_ucomp.exit.i.i ], [ 0, %i128_shl64.exit.i.i.preheader ]
   %46 = phi i64 [ %49, %i128_ucomp.exit.i.i ], [ 0, %i128_shl64.exit.i.i.preheader ]
   %47 = phi i64 [ %62, %i128_ucomp.exit.i.i ], [ %.ph, %i128_shl64.exit.i.i.preheader ]
-  %48 = phi i64 [ %63, %i128_ucomp.exit.i.i ], [ %.ph10, %i128_shl64.exit.i.i.preheader ]
+  %48 = phi i64 [ %63, %i128_ucomp.exit.i.i ], [ %.ph12, %i128_shl64.exit.i.i.preheader ]
   %.0.i.i = phi i32 [ %64, %i128_ucomp.exit.i.i ], [ %23, %i128_shl64.exit.i.i.preheader ]
   %49 = tail call i64 @llvm.fshl.i64(i64 %46, i64 %45, i64 1)
   %50 = shl i64 %45, 1
@@ -3331,14 +3331,14 @@ define dso_local void @int_rem(ptr dead_on_unwind noalias writable writeonly sre
 
 i128_shl64.exit.i.i.preheader:                    ; preds = %37, %34, %30, %28, %25
   %.ph = phi i64 [ %15, %25 ], [ 0, %28 ], [ 0, %30 ], [ 0, %34 ], [ %42, %37 ]
-  %.ph10 = phi i64 [ %13, %25 ], [ 0, %28 ], [ %15, %30 ], [ %36, %34 ], [ %41, %37 ]
+  %.ph12 = phi i64 [ %13, %25 ], [ 0, %28 ], [ %15, %30 ], [ %36, %34 ], [ %41, %37 ]
   br label %i128_shl64.exit.i.i
 
 i128_shl64.exit.i.i:                              ; preds = %i128_shl64.exit.i.i.preheader, %i128_ucomp.exit.i.i
   %43 = phi i64 [ %54, %i128_ucomp.exit.i.i ], [ %12, %i128_shl64.exit.i.i.preheader ]
   %44 = phi i64 [ %55, %i128_ucomp.exit.i.i ], [ %10, %i128_shl64.exit.i.i.preheader ]
   %45 = phi i64 [ %56, %i128_ucomp.exit.i.i ], [ %.ph, %i128_shl64.exit.i.i.preheader ]
-  %46 = phi i64 [ %57, %i128_ucomp.exit.i.i ], [ %.ph10, %i128_shl64.exit.i.i.preheader ]
+  %46 = phi i64 [ %57, %i128_ucomp.exit.i.i ], [ %.ph12, %i128_shl64.exit.i.i.preheader ]
   %.0.i.i = phi i32 [ %58, %i128_ucomp.exit.i.i ], [ %23, %i128_shl64.exit.i.i.preheader ]
   %47 = icmp ugt i64 %44, %46
   br i1 %47, label %select.unfold.i.i, label %48
@@ -3599,11 +3599,11 @@ i128_ashr64.exit:                                 ; preds = %29, %32, %33, %37, 
   br label %61
 
 61:                                               ; preds = %i128_ashr64.exit, %i128_lshr64.exit
-  %.sink11 = phi { i64, i64 } [ %60, %i128_ashr64.exit ], [ %28, %i128_lshr64.exit ]
-  %62 = extractvalue { i64, i64 } %.sink11, 0
+  %.sink12 = phi { i64, i64 } [ %60, %i128_ashr64.exit ], [ %28, %i128_lshr64.exit ]
+  %62 = extractvalue { i64, i64 } %.sink12, 0
   store i64 %62, ptr %0, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %64 = extractvalue { i64, i64 } %.sink11, 1
+  %64 = extractvalue { i64, i64 } %.sink12, 1
   store i64 %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %5, ptr %65, align 8

@@ -742,15 +742,15 @@ decode_bytes.exit:                                ; preds = %45, %._crit_edge.i,
 
 .preheader87.i.i:                                 ; preds = %.loopexit90.i.i
   %230 = add nuw nsw i64 %indvars.iv.i.i, 256
-  %sext139.i.i = shl i64 %.083.in.i.i, 32
-  %231 = ashr exact i64 %sext139.i.i, 32
+  %sext148.i.i = shl i64 %.083.in.i.i, 32
+  %231 = ashr exact i64 %sext148.i.i, 32
   %232 = icmp samesign ult i64 %231, %230
   br i1 %232, label %.lr.ph95.i.i, label %.loopexit.i.i
 
 .preheader.i.i:                                   ; preds = %.loopexit90.i.i
   %233 = add nuw nsw i64 %indvars.iv.i.i, 256
-  %sext140.i.i = shl i64 %.083.in.i.i, 32
-  %234 = ashr exact i64 %sext140.i.i, 32
+  %sext149.i.i = shl i64 %.083.in.i.i, 32
+  %234 = ashr exact i64 %sext149.i.i, 32
   %235 = icmp samesign ult i64 %234, %233
   br i1 %235, label %.lr.ph97.i.i, label %.loopexit.i.i
 
@@ -1616,7 +1616,7 @@ decode_tonal_components.exit.thread103:           ; preds = %.loopexit
 
 216:                                              ; preds = %._crit_edge104.i, %.lr.ph108.i
   %indvars.iv152.i = phi i64 [ %214, %.lr.ph108.i ], [ %indvars.iv.next153.i, %._crit_edge104.i ]
-  %.promoted101111.i = phi i32 [ %212, %.lr.ph108.i ], [ %.promoted109134161.i, %._crit_edge104.i ]
+  %.promoted101111.i = phi i32 [ %212, %.lr.ph108.i ], [ %.promoted109134166.i, %._crit_edge104.i ]
   %.063106.i = phi i32 [ 0, %.lr.ph108.i ], [ %330, %._crit_edge104.i ]
   %217 = getelementptr inbounds %struct.TonalComponent, ptr %106, i64 %indvars.iv152.i
   %218 = lshr i32 %.promoted101111.i, 3
@@ -1660,7 +1660,7 @@ decode_tonal_components.exit.thread103:           ; preds = %.loopexit
   %247 = load i8, ptr %191, align 1, !tbaa !38
   %248 = zext i8 %247 to i32
   %249 = icmp slt i32 %238, 1024
-  br i1 %249, label %.lr.ph62.i.i, label %read_quant_spectral_coeffs.exit.thread164.i
+  br i1 %249, label %.lr.ph62.i.i, label %read_quant_spectral_coeffs.exit.thread169.i
 
 .lr.ph62.i.i:                                     ; preds = %.preheader56.i.i
   %250 = sub nsw i32 32, %248
@@ -1692,7 +1692,7 @@ decode_tonal_components.exit.thread103:           ; preds = %.loopexit
 
 .preheader54.i.i:                                 ; preds = %264
   %265 = icmp slt i32 %238, 1024
-  br i1 %265, label %.lr.ph64.i.i, label %read_quant_spectral_coeffs.exit.thread164.i
+  br i1 %265, label %.lr.ph64.i.i, label %read_quant_spectral_coeffs.exit.thread169.i
 
 .lr.ph64.i.i:                                     ; preds = %.preheader54.i.i
   %266 = load ptr, ptr %195, align 8, !tbaa !87
@@ -1760,8 +1760,8 @@ decode_tonal_components.exit.thread103:           ; preds = %.loopexit
   %309 = getelementptr inbounds [18 x i8], ptr @mantissa_vlc_tab, i64 0, i64 %308
   %310 = load i8, ptr %309, align 2, !tbaa !38
   %311 = sext i8 %310 to i32
-  %.idx86.i.i = shl nuw nsw i64 %indvars.iv81.i.i, 3
-  %312 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx86.i.i
+  %.idx87.i.i = shl nuw nsw i64 %indvars.iv81.i.i, 3
+  %312 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx87.i.i
   store i32 %311, ptr %312, align 8, !tbaa !43
   %313 = or disjoint i32 %307, 1
   %314 = sext i32 %313 to i64
@@ -1780,7 +1780,7 @@ read_quant_spectral_coeffs.exit.thread.i:         ; preds = %251, %268
   store i32 %240, ptr %319, align 4, !tbaa !108
   br label %.lr.ph103.i
 
-read_quant_spectral_coeffs.exit.thread164.i:      ; preds = %.preheader54.i.i, %.preheader56.i.i
+read_quant_spectral_coeffs.exit.thread169.i:      ; preds = %.preheader54.i.i, %.preheader56.i.i
   %320 = getelementptr inbounds nuw i8, ptr %217, i64 4
   store i32 %240, ptr %320, align 4, !tbaa !108
   br label %._crit_edge104.i
@@ -1793,7 +1793,7 @@ read_quant_spectral_coeffs.exit.i:                ; preds = %288, %.preheader.i.
   br i1 %322, label %.lr.ph103.i, label %._crit_edge104.i
 
 .lr.ph103.i:                                      ; preds = %read_quant_spectral_coeffs.exit.i, %read_quant_spectral_coeffs.exit.thread.i
-  %.promoted109134162.i = phi i32 [ %.promoted109134.ph.i, %read_quant_spectral_coeffs.exit.thread.i ], [ %.promoted109134.i, %read_quant_spectral_coeffs.exit.i ]
+  %.promoted109134167.i = phi i32 [ %.promoted109134.ph.i, %read_quant_spectral_coeffs.exit.thread.i ], [ %.promoted109134.i, %read_quant_spectral_coeffs.exit.i ]
   %323 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %smax.i = tail call i32 @llvm.smax.i32(i32 %240, i32 1)
   %wide.trip.count150.i = zext nneg i32 %smax.i to i64
@@ -1811,8 +1811,8 @@ read_quant_spectral_coeffs.exit.i:                ; preds = %288, %.preheader.i.
   %exitcond151.not.i = icmp eq i64 %indvars.iv.next148.i, %wide.trip.count150.i
   br i1 %exitcond151.not.i, label %._crit_edge104.i, label %324, !llvm.loop !109
 
-._crit_edge104.i:                                 ; preds = %324, %read_quant_spectral_coeffs.exit.i, %read_quant_spectral_coeffs.exit.thread164.i
-  %.promoted109134161.i = phi i32 [ %.promoted109134.i, %read_quant_spectral_coeffs.exit.i ], [ %237, %read_quant_spectral_coeffs.exit.thread164.i ], [ %.promoted109134162.i, %324 ]
+._crit_edge104.i:                                 ; preds = %324, %read_quant_spectral_coeffs.exit.i, %read_quant_spectral_coeffs.exit.thread169.i
+  %.promoted109134166.i = phi i32 [ %.promoted109134.i, %read_quant_spectral_coeffs.exit.i ], [ %237, %read_quant_spectral_coeffs.exit.thread169.i ], [ %.promoted109134167.i, %324 ]
   %indvars.iv.next153.i = add nsw i64 %indvars.iv152.i, 1
   %330 = add nuw nsw i32 %.063106.i, 1
   %exitcond157.not.i = icmp eq i32 %330, %210
@@ -1823,7 +1823,7 @@ read_quant_spectral_coeffs.exit.i:                ; preds = %288, %.preheader.i.
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %202, %196
-  %.promoted109130.i = phi i32 [ %.promoted109131.i, %196 ], [ %212, %202 ], [ %.promoted109134161.i, %.loopexit.loopexit.i ]
+  %.promoted109130.i = phi i32 [ %.promoted109131.i, %196 ], [ %212, %202 ], [ %.promoted109134166.i, %.loopexit.loopexit.i ]
   %.371.i = phi i32 [ %.270114.i, %196 ], [ %.270114.i, %202 ], [ %331, %.loopexit.loopexit.i ]
   %332 = add nuw nsw i32 %.162115.i, 1
   %exitcond158.not.i = icmp eq i32 %332, %137
@@ -2009,8 +2009,8 @@ decode_tonal_components.exit:                     ; preds = %._crit_edge119.i
   %437 = getelementptr inbounds [18 x i8], ptr @mantissa_vlc_tab, i64 0, i64 %436
   %438 = load i8, ptr %437, align 2, !tbaa !38
   %439 = sext i8 %438 to i32
-  %.idx86.i.us.i = shl nuw nsw i64 %indvars.iv81.i.us.i, 3
-  %440 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx86.i.us.i
+  %.idx87.i.us.i = shl nuw nsw i64 %indvars.iv81.i.us.i, 3
+  %440 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx87.i.us.i
   store i32 %439, ptr %440, align 8, !tbaa !43
   %441 = or disjoint i32 %435, 1
   %442 = sext i32 %441 to i64

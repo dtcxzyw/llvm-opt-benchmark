@@ -430,8 +430,8 @@ define range(i32 -1, 1) i32 @redisAsyncSetConnectCallback(ptr noundef captures(n
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %33 = load i64, ptr %32, align 8
   %.not19.i.i = icmp eq i64 %33, 0
-  %or.cond27.i.i = select i1 %.not18.i.i, i1 %.not19.i.i, i1 false
-  br i1 %or.cond27.i.i, label %refreshTimeout.exit.i, label %._crit_edge24.i.i
+  %or.cond32.i.i = select i1 %.not18.i.i, i1 %.not19.i.i, i1 false
+  br i1 %or.cond32.i.i, label %refreshTimeout.exit.i, label %._crit_edge24.i.i
 
 ._crit_edge24.i.i:                                ; preds = %30
   %34 = load ptr, ptr %14, align 8, !tbaa !69
@@ -524,8 +524,8 @@ define range(i32 -1, 1) i32 @redisAsyncSetConnectCallbackNC(ptr noundef captures
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %33 = load i64, ptr %32, align 8
   %.not19.i.i = icmp eq i64 %33, 0
-  %or.cond27.i.i = select i1 %.not18.i.i, i1 %.not19.i.i, i1 false
-  br i1 %or.cond27.i.i, label %refreshTimeout.exit.i, label %._crit_edge24.i.i
+  %or.cond32.i.i = select i1 %.not18.i.i, i1 %.not19.i.i, i1 false
+  br i1 %or.cond32.i.i, label %refreshTimeout.exit.i, label %._crit_edge24.i.i
 
 ._crit_edge24.i.i:                                ; preds = %30
   %34 = load ptr, ptr %14, align 8, !tbaa !69
@@ -1706,7 +1706,7 @@ dictFind.exit.thread.i:                           ; preds = %220, %208, %dictFin
 268:                                              ; preds = %.lr.ph50.i.i
   %269 = load ptr, ptr %.032.us.i.i, align 8, !tbaa !35
   %270 = icmp eq ptr %.044.i, %269
-  br i1 %270, label %.split.us.thread63.i.i, label %.lr.ph50.i.i
+  br i1 %270, label %.split.us.thread66.i.i, label %.lr.ph50.i.i
 
 .lr.ph50.i.i:                                     ; preds = %.lr.ph.split.us.i52.i, %268
   %.03247.us49.i.i = phi ptr [ %.032.us.i.i, %268 ], [ %.03244.i.i, %.lr.ph.split.us.i52.i ]
@@ -1738,32 +1738,32 @@ dictFind.exit.thread.i:                           ; preds = %220, %208, %dictFin
 
 .split.us.i.i:                                    ; preds = %279, %275
   %.not39.i.i = icmp eq ptr %.046.i.i, null
-  br i1 %.not39.i.i, label %.split.us.i..split.us.thread.i_crit_edge.i, label %.split.us.thread63.i.i
+  br i1 %.not39.i.i, label %.split.us.i..split.us.thread.i_crit_edge.i, label %.split.us.thread66.i.i
 
 .split.us.i..split.us.thread.i_crit_edge.i:       ; preds = %.split.us.i.i
   %.pre.i51 = load ptr, ptr %.043.i, align 8, !tbaa !19
   br label %.split.us.thread.i.i
 
-.split.us.thread63.i.i:                           ; preds = %268, %.split.us.i.i
-  %.us-phi4868.i.i = phi ptr [ %.03247.i.i, %.split.us.i.i ], [ %.032.us.i.i, %268 ]
-  %.us-phi67.i.i = phi ptr [ %.046.i.i, %.split.us.i.i ], [ %.03247.us49.i.i, %268 ]
-  %282 = getelementptr inbounds nuw i8, ptr %.us-phi4868.i.i, i64 16
+.split.us.thread66.i.i:                           ; preds = %268, %.split.us.i.i
+  %.us-phi4871.i.i = phi ptr [ %.03247.i.i, %.split.us.i.i ], [ %.032.us.i.i, %268 ]
+  %.us-phi70.i.i = phi ptr [ %.046.i.i, %.split.us.i.i ], [ %.03247.us49.i.i, %268 ]
+  %282 = getelementptr inbounds nuw i8, ptr %.us-phi4871.i.i, i64 16
   %283 = load ptr, ptr %282, align 8, !tbaa !31
-  %284 = getelementptr inbounds nuw i8, ptr %.us-phi67.i.i, i64 16
+  %284 = getelementptr inbounds nuw i8, ptr %.us-phi70.i.i, i64 16
   store ptr %283, ptr %284, align 8, !tbaa !31
   br label %289
 
 .split.us.thread.i.i:                             ; preds = %.split.us.i..split.us.thread.i_crit_edge.i, %.lr.ph.split.us.i52.i
   %285 = phi ptr [ %.pre.i51, %.split.us.i..split.us.thread.i_crit_edge.i ], [ %258, %.lr.ph.split.us.i52.i ]
-  %.us-phi4862.i.i = phi ptr [ %.03247.i.i, %.split.us.i..split.us.thread.i_crit_edge.i ], [ %.03244.i.i, %.lr.ph.split.us.i52.i ]
-  %286 = getelementptr inbounds nuw i8, ptr %.us-phi4862.i.i, i64 16
+  %.us-phi4865.i.i = phi ptr [ %.03247.i.i, %.split.us.i..split.us.thread.i_crit_edge.i ], [ %.03244.i.i, %.lr.ph.split.us.i52.i ]
+  %286 = getelementptr inbounds nuw i8, ptr %.us-phi4865.i.i, i64 16
   %287 = load ptr, ptr %286, align 8, !tbaa !31
   %288 = getelementptr inbounds nuw ptr, ptr %285, i64 %259
   store ptr %287, ptr %288, align 8, !tbaa !29
   br label %289
 
-289:                                              ; preds = %.split.us.thread.i.i, %.split.us.thread63.i.i
-  %.us-phi4861.i.i = phi ptr [ %.us-phi4862.i.i, %.split.us.thread.i.i ], [ %.us-phi4868.i.i, %.split.us.thread63.i.i ]
+289:                                              ; preds = %.split.us.thread.i.i, %.split.us.thread66.i.i
+  %.us-phi4864.i.i = phi ptr [ %.us-phi4865.i.i, %.split.us.thread.i.i ], [ %.us-phi4871.i.i, %.split.us.thread66.i.i ]
   %290 = load ptr, ptr %250, align 8, !tbaa !24
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 32
   %292 = load ptr, ptr %291, align 8, !tbaa !33
@@ -1772,7 +1772,7 @@ dictFind.exit.thread.i:                           ; preds = %220, %208, %dictFin
 
 293:                                              ; preds = %289
   %294 = load ptr, ptr %261, align 8, !tbaa !25
-  %295 = load ptr, ptr %.us-phi4861.i.i, align 8, !tbaa !35
+  %295 = load ptr, ptr %.us-phi4864.i.i, align 8, !tbaa !35
   call void %292(ptr noundef %294, ptr noundef %295) #16
   %.pre.i.i = load ptr, ptr %250, align 8, !tbaa !24
   br label %296
@@ -1786,14 +1786,14 @@ dictFind.exit.thread.i:                           ; preds = %220, %208, %dictFin
 
 300:                                              ; preds = %296
   %301 = load ptr, ptr %261, align 8, !tbaa !25
-  %302 = getelementptr inbounds nuw i8, ptr %.us-phi4861.i.i, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %.us-phi4864.i.i, i64 8
   %303 = load ptr, ptr %302, align 8, !tbaa !37
   call void %299(ptr noundef %301, ptr noundef %303) #16
   br label %304
 
 304:                                              ; preds = %300, %296
   %305 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !38
-  call void %305(ptr noundef nonnull %.us-phi4861.i.i) #16
+  call void %305(ptr noundef nonnull %.us-phi4864.i.i) #16
   %306 = getelementptr inbounds nuw i8, ptr %.043.i, i64 32
   %307 = load i64, ptr %306, align 8, !tbaa !28
   %308 = add i64 %307, -1
@@ -2249,8 +2249,8 @@ __redisShiftCallback.exit.i:                      ; preds = %24, %22, %13
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %61 = load i64, ptr %60, align 8
   %.not19.i = icmp eq i64 %61, 0
-  %or.cond27.i = select i1 %.not18.i, i1 %.not19.i, i1 false
-  br i1 %or.cond27.i, label %refreshTimeout.exit, label %._crit_edge24.i
+  %or.cond32.i = select i1 %.not18.i, i1 %.not19.i, i1 false
+  br i1 %or.cond32.i, label %refreshTimeout.exit, label %._crit_edge24.i
 
 ._crit_edge24.i:                                  ; preds = %58
   %62 = load ptr, ptr %42, align 8, !tbaa !69
@@ -2608,8 +2608,8 @@ __redisShiftCallback.exit.i:                      ; preds = %25, %23, %14
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %64 = load i64, ptr %63, align 8
   %.not19.i = icmp eq i64 %64, 0
-  %or.cond27.i = select i1 %.not18.i, i1 %.not19.i, i1 false
-  br i1 %or.cond27.i, label %refreshTimeout.exit, label %._crit_edge24.i
+  %or.cond32.i = select i1 %.not18.i, i1 %.not19.i, i1 false
+  br i1 %or.cond32.i, label %refreshTimeout.exit, label %._crit_edge24.i
 
 ._crit_edge24.i:                                  ; preds = %61
   %65 = load ptr, ptr %45, align 8, !tbaa !69
@@ -2688,8 +2688,8 @@ refreshTimeout.exit:                              ; preds = %48, %49, %52, %._cr
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %99 = load i64, ptr %98, align 8
   %.not19.i29 = icmp eq i64 %99, 0
-  %or.cond27.i30 = select i1 %.not18.i28, i1 %.not19.i29, i1 false
-  br i1 %or.cond27.i30, label %refreshTimeout.exit32, label %._crit_edge24.i31
+  %or.cond32.i30 = select i1 %.not18.i28, i1 %.not19.i29, i1 false
+  br i1 %or.cond32.i30, label %refreshTimeout.exit32, label %._crit_edge24.i31
 
 ._crit_edge24.i31:                                ; preds = %96
   %100 = load ptr, ptr %80, align 8, !tbaa !69
@@ -3911,8 +3911,8 @@ nextArgument.exit91.thread:                       ; preds = %308, %45, %__redisP
   %455 = getelementptr inbounds nuw i8, ptr %452, i64 8
   %456 = load i64, ptr %455, align 8
   %.not19.i133 = icmp eq i64 %456, 0
-  %or.cond27.i = select i1 %.not18.i132, i1 %.not19.i133, i1 false
-  br i1 %or.cond27.i, label %refreshTimeout.exit, label %._crit_edge24.i
+  %or.cond32.i = select i1 %.not18.i132, i1 %.not19.i133, i1 false
+  br i1 %or.cond32.i, label %refreshTimeout.exit, label %._crit_edge24.i
 
 ._crit_edge24.i:                                  ; preds = %453
   %457 = load ptr, ptr %437, align 8, !tbaa !69

@@ -186,8 +186,8 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
   %102 = shl nsw i32 %74, 1
   %103 = icmp eq i32 %102, %76
   %104 = select i1 %81, i1 %103, i1 false
-  %or.cond144 = select i1 %104, i1 %46, i1 false
-  br i1 %or.cond144, label %105, label %._crit_edge140
+  %or.cond145 = select i1 %104, i1 %46, i1 false
+  br i1 %or.cond145, label %105, label %._crit_edge140
 
 105:                                              ; preds = %101
   %106 = getelementptr inbounds nuw [10 x ptr], ptr %56, i64 0, i64 %indvars.iv
@@ -285,9 +285,9 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %80, %63, %143
-  %.sink145 = phi ptr [ %62, %143 ], [ %56, %63 ], [ %56, %80 ]
+  %.sink146 = phi ptr [ %62, %143 ], [ %56, %63 ], [ %56, %80 ]
   %fullsize_upsample.sink = phi ptr [ %154, %143 ], [ @noop_upsample, %63 ], [ @fullsize_upsample, %80 ]
-  %155 = getelementptr inbounds nuw [10 x ptr], ptr %.sink145, i64 0, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [10 x ptr], ptr %.sink146, i64 0, i64 %indvars.iv
   store ptr %fullsize_upsample.sink, ptr %155, align 8, !tbaa !63
   br label %.critedge
 

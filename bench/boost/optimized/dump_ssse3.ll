@@ -163,9 +163,9 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux20dump_data_char_ssse3EPKvmRSo
   br i1 %.not44, label %._crit_edge42, label %.lr.ph41.preheader
 
 .lr.ph41.preheader:                               ; preds = %.preheader23, %.preheader
-  %.3.i.lcssa56 = phi ptr [ %107, %.preheader ], [ %.179.i.lcssa, %.preheader23 ]
-  %.080.i.lcssa55 = phi i64 [ %108, %.preheader ], [ %51, %.preheader23 ]
-  %.081.i.lcssa54 = phi ptr [ %106, %.preheader ], [ %7, %.preheader23 ]
+  %.3.i.lcssa60 = phi ptr [ %107, %.preheader ], [ %.179.i.lcssa, %.preheader23 ]
+  %.080.i.lcssa59 = phi i64 [ %108, %.preheader ], [ %51, %.preheader23 ]
+  %.081.i.lcssa58 = phi ptr [ %106, %.preheader ], [ %7, %.preheader23 ]
   br label %.lr.ph41
 
 85:                                               ; preds = %.lr.ph, %85
@@ -211,8 +211,8 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux20dump_data_char_ssse3EPKvmRSo
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41
   %.076.i40 = phi i32 [ %126, %.lr.ph41 ], [ 0, %.lr.ph41.preheader ]
-  %.4.i39 = phi ptr [ %127, %.lr.ph41 ], [ %.3.i.lcssa56, %.lr.ph41.preheader ]
-  %.182.i38 = phi ptr [ %128, %.lr.ph41 ], [ %.081.i.lcssa54, %.lr.ph41.preheader ]
+  %.4.i39 = phi ptr [ %127, %.lr.ph41 ], [ %.3.i.lcssa60, %.lr.ph41.preheader ]
+  %.182.i38 = phi ptr [ %128, %.lr.ph41 ], [ %.081.i.lcssa58, %.lr.ph41.preheader ]
   %114 = load i8, ptr %.4.i39, align 1, !tbaa !16
   %115 = zext i8 %114 to i32
   store i8 32, ptr %.182.i38, align 1, !tbaa !16
@@ -232,7 +232,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux20dump_data_char_ssse3EPKvmRSo
   %127 = getelementptr inbounds nuw i8, ptr %.4.i39, i64 1
   %128 = getelementptr inbounds nuw i8, ptr %.182.i38, i64 3
   %129 = zext i32 %126 to i64
-  %130 = icmp samesign ugt i64 %.080.i.lcssa55, %129
+  %130 = icmp samesign ugt i64 %.080.i.lcssa59, %129
   br i1 %130, label %.lr.ph41, label %._crit_edge42, !llvm.loop !22
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous15dump_data_ssse3IcEEvPKvmRSt13basic_ostreamIT_St11char_traitsIS8_EE.exit: ; preds = %._crit_edge, %._crit_edge42
@@ -473,9 +473,9 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux21dump_data_wchar_ssse3EPKvmRS
   br i1 %.not44, label %._crit_edge42, label %.lr.ph41.preheader
 
 .lr.ph41.preheader:                               ; preds = %.preheader23, %.preheader
-  %.3.i.lcssa56 = phi ptr [ %207, %.preheader ], [ %.179.i.lcssa, %.preheader23 ]
-  %.080.i.lcssa55 = phi i64 [ %208, %.preheader ], [ %84, %.preheader23 ]
-  %.081.i.lcssa54 = phi ptr [ %206, %.preheader ], [ %7, %.preheader23 ]
+  %.3.i.lcssa60 = phi ptr [ %207, %.preheader ], [ %.179.i.lcssa, %.preheader23 ]
+  %.080.i.lcssa59 = phi i64 [ %208, %.preheader ], [ %84, %.preheader23 ]
+  %.081.i.lcssa58 = phi ptr [ %206, %.preheader ], [ %7, %.preheader23 ]
   br label %.lr.ph41
 
 152:                                              ; preds = %.lr.ph, %152
@@ -564,8 +564,8 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux21dump_data_wchar_ssse3EPKvmRS
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41
   %.076.i40 = phi i32 [ %229, %.lr.ph41 ], [ 0, %.lr.ph41.preheader ]
-  %.4.i39 = phi ptr [ %230, %.lr.ph41 ], [ %.3.i.lcssa56, %.lr.ph41.preheader ]
-  %.182.i38 = phi ptr [ %231, %.lr.ph41 ], [ %.081.i.lcssa54, %.lr.ph41.preheader ]
+  %.4.i39 = phi ptr [ %230, %.lr.ph41 ], [ %.3.i.lcssa60, %.lr.ph41.preheader ]
+  %.182.i38 = phi ptr [ %231, %.lr.ph41 ], [ %.081.i.lcssa58, %.lr.ph41.preheader ]
   %215 = load i8, ptr %.4.i39, align 1, !tbaa !16
   %216 = zext i8 %215 to i32
   store i32 32, ptr %.182.i38, align 4, !tbaa !26
@@ -587,7 +587,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux21dump_data_wchar_ssse3EPKvmRS
   %230 = getelementptr inbounds nuw i8, ptr %.4.i39, i64 1
   %231 = getelementptr inbounds nuw i8, ptr %.182.i38, i64 12
   %232 = zext i32 %229 to i64
-  %233 = icmp samesign ugt i64 %.080.i.lcssa55, %232
+  %233 = icmp samesign ugt i64 %.080.i.lcssa59, %232
   br i1 %233, label %.lr.ph41, label %._crit_edge42, !llvm.loop !28
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous15dump_data_ssse3IwEEvPKvmRSt13basic_ostreamIT_St11char_traitsIS8_EE.exit: ; preds = %._crit_edge, %._crit_edge42
@@ -768,9 +768,9 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char16_ssse3EPKvmR
   br i1 %.not44, label %._crit_edge42, label %.lr.ph41.preheader
 
 .lr.ph41.preheader:                               ; preds = %.preheader23, %.preheader
-  %.3.i.lcssa56 = phi ptr [ %135, %.preheader ], [ %.179.i.lcssa, %.preheader23 ]
-  %.080.i.lcssa55 = phi i64 [ %136, %.preheader ], [ %60, %.preheader23 ]
-  %.081.i.lcssa54 = phi ptr [ %134, %.preheader ], [ %7, %.preheader23 ]
+  %.3.i.lcssa60 = phi ptr [ %135, %.preheader ], [ %.179.i.lcssa, %.preheader23 ]
+  %.080.i.lcssa59 = phi i64 [ %136, %.preheader ], [ %60, %.preheader23 ]
+  %.081.i.lcssa58 = phi ptr [ %134, %.preheader ], [ %7, %.preheader23 ]
   br label %.lr.ph41
 
 104:                                              ; preds = %.lr.ph, %104
@@ -829,8 +829,8 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char16_ssse3EPKvmR
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41
   %.076.i40 = phi i32 [ %157, %.lr.ph41 ], [ 0, %.lr.ph41.preheader ]
-  %.4.i39 = phi ptr [ %158, %.lr.ph41 ], [ %.3.i.lcssa56, %.lr.ph41.preheader ]
-  %.182.i38 = phi ptr [ %159, %.lr.ph41 ], [ %.081.i.lcssa54, %.lr.ph41.preheader ]
+  %.4.i39 = phi ptr [ %158, %.lr.ph41 ], [ %.3.i.lcssa60, %.lr.ph41.preheader ]
+  %.182.i38 = phi ptr [ %159, %.lr.ph41 ], [ %.081.i.lcssa58, %.lr.ph41.preheader ]
   %143 = load i8, ptr %.4.i39, align 1, !tbaa !16
   %144 = zext i8 %143 to i32
   store i16 32, ptr %.182.i38, align 2, !tbaa !32
@@ -852,7 +852,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char16_ssse3EPKvmR
   %158 = getelementptr inbounds nuw i8, ptr %.4.i39, i64 1
   %159 = getelementptr inbounds nuw i8, ptr %.182.i38, i64 6
   %160 = zext i32 %157 to i64
-  %161 = icmp samesign ugt i64 %.080.i.lcssa55, %160
+  %161 = icmp samesign ugt i64 %.080.i.lcssa59, %160
   br i1 %161, label %.lr.ph41, label %._crit_edge42, !llvm.loop !34
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous15dump_data_ssse3IDsEEvPKvmRSt13basic_ostreamIT_St11char_traitsIS8_EE.exit: ; preds = %._crit_edge, %._crit_edge42
@@ -1093,9 +1093,9 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char32_ssse3EPKvmR
   br i1 %.not44, label %._crit_edge42, label %.lr.ph41.preheader
 
 .lr.ph41.preheader:                               ; preds = %.preheader23, %.preheader
-  %.3.i.lcssa56 = phi ptr [ %207, %.preheader ], [ %.179.i.lcssa, %.preheader23 ]
-  %.080.i.lcssa55 = phi i64 [ %208, %.preheader ], [ %84, %.preheader23 ]
-  %.081.i.lcssa54 = phi ptr [ %206, %.preheader ], [ %7, %.preheader23 ]
+  %.3.i.lcssa60 = phi ptr [ %207, %.preheader ], [ %.179.i.lcssa, %.preheader23 ]
+  %.080.i.lcssa59 = phi i64 [ %208, %.preheader ], [ %84, %.preheader23 ]
+  %.081.i.lcssa58 = phi ptr [ %206, %.preheader ], [ %7, %.preheader23 ]
   br label %.lr.ph41
 
 152:                                              ; preds = %.lr.ph, %152
@@ -1184,8 +1184,8 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char32_ssse3EPKvmR
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41
   %.076.i40 = phi i32 [ %229, %.lr.ph41 ], [ 0, %.lr.ph41.preheader ]
-  %.4.i39 = phi ptr [ %230, %.lr.ph41 ], [ %.3.i.lcssa56, %.lr.ph41.preheader ]
-  %.182.i38 = phi ptr [ %231, %.lr.ph41 ], [ %.081.i.lcssa54, %.lr.ph41.preheader ]
+  %.4.i39 = phi ptr [ %230, %.lr.ph41 ], [ %.3.i.lcssa60, %.lr.ph41.preheader ]
+  %.182.i38 = phi ptr [ %231, %.lr.ph41 ], [ %.081.i.lcssa58, %.lr.ph41.preheader ]
   %215 = load i8, ptr %.4.i39, align 1, !tbaa !16
   %216 = zext i8 %215 to i32
   store i32 32, ptr %.182.i38, align 4, !tbaa !38
@@ -1207,7 +1207,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char32_ssse3EPKvmR
   %230 = getelementptr inbounds nuw i8, ptr %.4.i39, i64 1
   %231 = getelementptr inbounds nuw i8, ptr %.182.i38, i64 12
   %232 = zext i32 %229 to i64
-  %233 = icmp samesign ugt i64 %.080.i.lcssa55, %232
+  %233 = icmp samesign ugt i64 %.080.i.lcssa59, %232
   br i1 %233, label %.lr.ph41, label %._crit_edge42, !llvm.loop !40
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous15dump_data_ssse3IDiEEvPKvmRSt13basic_ostreamIT_St11char_traitsIS8_EE.exit: ; preds = %._crit_edge, %._crit_edge42

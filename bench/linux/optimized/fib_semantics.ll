@@ -646,7 +646,7 @@ define dso_local range(i64 -9223372036854775604, -9223372036854775808) i64 @fib_
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 10
   %13 = load i8, ptr %12, align 2, !range !16, !noundef !17
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %.thread.split, label %.thread16
+  br i1 %14, label %.thread.split, label %.thread20
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -654,7 +654,7 @@ define dso_local range(i64 -9223372036854775604, -9223372036854775808) i64 @fib_
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %91, label %.thread.split.us
 
-.thread16:                                        ; preds = %9
+.thread20:                                        ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %20 = load i16, ptr %19, align 8
   %21 = zext i16 %20 to i32
@@ -685,8 +685,8 @@ define dso_local range(i64 -9223372036854775604, -9223372036854775808) i64 @fib_
   %exitcond.not = icmp eq i32 %34, %24
   br i1 %exitcond.not, label %.split.us, label %.thread4.us, !llvm.loop !21
 
-.thread.split:                                    ; preds = %5, %9, %.thread16
-  %35 = phi i32 [ %21, %.thread16 ], [ 1, %9 ], [ 1, %5 ]
+.thread.split:                                    ; preds = %5, %9, %.thread20
+  %35 = phi i32 [ %21, %.thread20 ], [ 1, %9 ], [ 1, %5 ]
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 102
   %38 = load i8, ptr %37, align 2, !range !16, !noundef !17
@@ -773,8 +773,8 @@ define dso_local range(i64 -9223372036854775604, -9223372036854775808) i64 @fib_
   %90 = add nsw i64 %89, %81
   br label %91
 
-91:                                               ; preds = %.thread16, %.split.us, %15
-  %92 = phi i64 [ %90, %.split.us ], [ 204, %15 ], [ 212, %.thread16 ]
+91:                                               ; preds = %.thread20, %.split.us, %15
+  %92 = phi i64 [ %90, %.split.us ], [ 204, %15 ], [ 212, %.thread20 ]
   ret i64 %92
 }
 
@@ -2523,7 +2523,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %126 = load i32, ptr %125, align 4
   %127 = icmp sgt i32 %126, 7
-  br i1 %127, label %.lr.ph, label %.critedge.thread75
+  br i1 %127, label %.lr.ph, label %.critedge.thread115
 
 .lr.ph:                                           ; preds = %124, %134
   %128 = phi i32 [ %135, %134 ], [ 0, %124 ]
@@ -2550,11 +2550,11 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   %142 = icmp sgt i32 %138, 0
   br i1 %142, label %.critedge.thread, label %146
 
-.critedge.thread75:                               ; preds = %124
+.critedge.thread115:                              ; preds = %124
   %143 = icmp sgt i32 %126, 0
   br i1 %143, label %.critedge.thread, label %.thread55
 
-.critedge.thread:                                 ; preds = %.lr.ph, %.critedge.thread75, %.critedge
+.critedge.thread:                                 ; preds = %.lr.ph, %.critedge.thread115, %.critedge
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @fib_count_nexthops.__msg) #16
   %144 = icmp eq ptr %1, null
   br i1 %144, label %.thread55, label %145
@@ -3182,8 +3182,8 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   %513 = sext i32 %510 to i64
   br label %.thread55
 
-.thread55:                                        ; preds = %.critedge.thread75, %.critedge.thread, %145, %115, %117, %23, %25, %15, %17, %146, %2, %169, %166, %.thread56
-  %514 = phi i64 [ %513, %.thread56 ], [ -22, %115 ], [ -22, %117 ], [ -22, %23 ], [ -22, %25 ], [ -22, %15 ], [ -22, %17 ], [ -22, %146 ], [ -22, %2 ], [ -105, %169 ], [ -105, %166 ], [ -22, %145 ], [ -22, %.critedge.thread ], [ -22, %.critedge.thread75 ]
+.thread55:                                        ; preds = %.critedge.thread115, %.critedge.thread, %145, %115, %117, %23, %25, %15, %17, %146, %2, %169, %166, %.thread56
+  %514 = phi i64 [ %513, %.thread56 ], [ -22, %115 ], [ -22, %117 ], [ -22, %23 ], [ -22, %25 ], [ -22, %15 ], [ -22, %17 ], [ -22, %146 ], [ -22, %2 ], [ -105, %169 ], [ -105, %166 ], [ -22, %145 ], [ -22, %.critedge.thread ], [ -22, %.critedge.thread115 ]
   %515 = inttoptr i64 %514 to ptr
   br label %516
 
@@ -3468,7 +3468,7 @@ define internal fastcc i32 @fib_get_nhs(ptr noundef nonnull captures(none) %0, p
   %23 = phi ptr [ %7, %5 ], [ %139, %127 ]
   %24 = load ptr, ptr %8, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.thread36, label %26, !prof !14
+  br i1 %25, label %.thread49, label %26, !prof !14
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 102
@@ -3495,12 +3495,12 @@ define internal fastcc i32 @fib_get_nhs(ptr noundef nonnull captures(none) %0, p
   %42 = icmp ult i32 %22, %41
   br i1 %42, label %45, label %141
 
-.thread36:                                        ; preds = %19
+.thread49:                                        ; preds = %19
   %43 = load i32, ptr %9, align 8
   %44 = icmp ult i32 %22, %43
-  br i1 %44, label %45, label %.thread37
+  br i1 %44, label %45, label %.thread50
 
-45:                                               ; preds = %.thread36, %40
+45:                                               ; preds = %.thread49, %40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   %46 = icmp sgt i32 %20, 7
   br i1 %46, label %47, label %.critedge
@@ -3682,15 +3682,15 @@ define internal fastcc i32 @fib_get_nhs(ptr noundef nonnull captures(none) %0, p
   call void asm sideeffect "951: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 951b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 951) #16, !srcloc !51
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.11, i32 468, i32 2305, i64 12) #16, !srcloc !52
   call void asm sideeffect "952: nop\0A\09.pushsection .discard.instr_end\0A\09.long 952b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 952) #16, !srcloc !53
-  br label %.thread37
+  br label %.thread50
 
-.thread37:                                        ; preds = %.thread36, %141
+.thread50:                                        ; preds = %.thread49, %141
   %142 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %143 = load i32, ptr %142, align 8
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %150, label %145
 
-145:                                              ; preds = %.thread37
+145:                                              ; preds = %.thread50
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %147 = load i32, ptr %146, align 8
   %148 = icmp eq i32 %147, %143
@@ -3700,7 +3700,7 @@ define internal fastcc i32 @fib_get_nhs(ptr noundef nonnull captures(none) %0, p
   call void @do_trace_netlink_extack(ptr noundef nonnull @fib_get_nhs.__msg.23) #16
   br i1 %10, label %.thread, label %.thread.sink.split
 
-150:                                              ; preds = %145, %.thread37
+150:                                              ; preds = %145, %.thread50
   %151 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %152 = load i8, ptr %151, align 1
   %153 = icmp eq i8 %152, 0
@@ -3817,7 +3817,7 @@ define internal fastcc void @fib_rebalance(ptr noundef %0) unnamed_addr #3 align
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 10
   %13 = load i8, ptr %12, align 2, !range !16, !noundef !17
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %.thread, label %.thread14
+  br i1 %14, label %.thread, label %.thread23
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -3825,7 +3825,7 @@ define internal fastcc void @fib_rebalance(ptr noundef %0) unnamed_addr #3 align
   %18 = icmp ult i32 %17, 2
   br i1 %18, label %.thread, label %.split.us
 
-.thread14:                                        ; preds = %9
+.thread23:                                        ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %20 = load i16, ptr %19, align 8
   %21 = icmp ult i16 %20, 2
@@ -3893,7 +3893,7 @@ define internal fastcc void @fib_rebalance(ptr noundef %0) unnamed_addr #3 align
   %exitcond.not = icmp eq i32 %63, %24
   br i1 %exitcond.not, label %.split7.us, label %.lr.ph, !llvm.loop !54
 
-.split:                                           ; preds = %.thread14
+.split:                                           ; preds = %.thread23
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -4125,7 +4125,7 @@ define internal fastcc void @fib_rebalance(ptr noundef %0) unnamed_addr #3 align
   %.pre = load ptr, ptr %2, align 8
   br label %157, !llvm.loop !55
 
-.thread:                                          ; preds = %179, %.thread14, %9, %5, %15
+.thread:                                          ; preds = %179, %.thread23, %9, %5, %15
   ret void
 }
 
@@ -5750,7 +5750,7 @@ define dso_local void @fib_select_multipath(ptr noundef captures(none) %0, i32 n
   br label %108
 
 108:                                              ; preds = %106, %104, %46
-  %109 = phi i8 [ %23, %104 ], [ 1, %106 ], [ %23, %46 ]
+  %109 = phi i8 [ 1, %104 ], [ 1, %106 ], [ %23, %46 ]
   %110 = getelementptr inbounds nuw i8, ptr %25, i64 44
   %111 = load volatile i32, ptr %110, align 4
   %112 = icmp slt i32 %111, %1

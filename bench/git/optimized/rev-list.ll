@@ -606,8 +606,8 @@ skip_prefix.exit166.thread:                       ; preds = %.preheader259, %.pr
   %.pre362 = load i64, ptr %72, align 8
   %184 = and i64 %.pre362, 24576
   %or.cond152 = icmp eq i64 %184, 0
-  %or.cond373 = select i1 %.not101, i1 %or.cond152, i1 false
-  br i1 %or.cond373, label %185, label %197
+  %or.cond391 = select i1 %.not101, i1 %or.cond152, i1 false
+  br i1 %or.cond391, label %185, label %197
 
 185:                                              ; preds = %180
   %186 = and i64 %.pre362, 32768
@@ -1509,21 +1509,21 @@ get_object_disk_usage.exit:                       ; preds = %21
   %129 = getelementptr inbounds nuw i8, ptr %7, i64 332
   %130 = load i32, ptr %129, align 4, !tbaa !60
   %131 = icmp eq i32 %130, 5
-  br i1 %131, label %.sink.split96, label %132
+  br i1 %131, label %.sink.split99, label %132
 
 132:                                              ; preds = %.loopexit
   %133 = load i32, ptr %85, align 4
   %134 = and i32 %133, 65536
   %.not79 = icmp eq i32 %134, 0
-  br i1 %.not79, label %137, label %.sink.split96
+  br i1 %.not79, label %137, label %.sink.split99
 
-.sink.split96:                                    ; preds = %132, %.loopexit
-  %.sink97 = phi i32 [ 32, %.loopexit ], [ 10, %132 ]
+.sink.split99:                                    ; preds = %132, %.loopexit
+  %.sink100 = phi i32 [ 32, %.loopexit ], [ 10, %132 ]
   %135 = load ptr, ptr @stdout, align 8, !tbaa !133
-  %136 = call i32 @putc(i32 noundef %.sink97, ptr noundef %135)
+  %136 = call i32 @putc(i32 noundef %.sink100, ptr noundef %135)
   br label %137
 
-137:                                              ; preds = %.sink.split96, %132
+137:                                              ; preds = %.sink.split99, %132
   %138 = load i64, ptr %12, align 8
   %139 = and i64 %138, 562949953421312
   %.not80 = icmp eq i64 %139, 0
@@ -1600,7 +1600,7 @@ get_object_disk_usage.exit:                       ; preds = %21
 178:                                              ; preds = %176, %169, %165
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %180 = load i32, ptr %179, align 8, !tbaa !74
-  br label %.sink.split99
+  br label %.sink.split102
 
 181:                                              ; preds = %140
   %182 = load ptr, ptr %44, align 8, !tbaa !131
@@ -1616,15 +1616,15 @@ get_object_disk_usage.exit:                       ; preds = %21
 187:                                              ; preds = %184, %181
   %188 = load i32, ptr %129, align 4, !tbaa !60
   %189 = icmp eq i32 %188, 5
-  br i1 %189, label %.sink.split99, label %192
+  br i1 %189, label %.sink.split102, label %192
 
-.sink.split99:                                    ; preds = %187, %178
-  %.sink100 = phi i32 [ %180, %178 ], [ 10, %187 ]
+.sink.split102:                                   ; preds = %187, %178
+  %.sink103 = phi i32 [ %180, %178 ], [ 10, %187 ]
   %190 = load ptr, ptr @stdout, align 8, !tbaa !133
-  %191 = call i32 @putc(i32 noundef %.sink100, ptr noundef %190)
+  %191 = call i32 @putc(i32 noundef %.sink103, ptr noundef %190)
   br label %192
 
-192:                                              ; preds = %.sink.split99, %187
+192:                                              ; preds = %.sink.split102, %187
   call void @strbuf_release(ptr noundef nonnull %5) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

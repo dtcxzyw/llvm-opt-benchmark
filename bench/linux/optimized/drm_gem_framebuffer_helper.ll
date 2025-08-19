@@ -623,8 +623,8 @@ define dso_local i32 @drm_gem_fb_vmap(ptr noundef readonly captures(none) %0, pt
   br i1 %48, label %.loopexit, label %.split
 
 .split:                                           ; preds = %46, %.split1
-  %.sink16 = phi i64 [ %49, %.split1 ], [ %9, %46 ]
-  %49 = add nsw i64 %.sink16, -1
+  %.sink22 = phi i64 [ %49, %.split1 ], [ %9, %46 ]
+  %49 = add nsw i64 %.sink22, -1
   %indvars = trunc i64 %49 to i32
   %50 = tail call ptr @drm_gem_fb_get_obj(ptr noundef %0, i32 noundef %indvars)
   %51 = icmp eq ptr %50, null
@@ -738,8 +738,8 @@ define dso_local i32 @drm_gem_fb_begin_cpu_access(ptr noundef readonly captures(
   br i1 %28, label %.loopexit, label %.split
 
 .split:                                           ; preds = %26, %.split1
-  %.sink16 = phi i32 [ %29, %.split1 ], [ %8, %26 ]
-  %29 = add nsw i32 %.sink16, -1
+  %.sink24 = phi i32 [ %29, %.split1 ], [ %8, %26 ]
+  %29 = add nsw i32 %.sink24, -1
   %30 = tail call ptr @drm_gem_fb_get_obj(ptr noundef %0, i32 noundef %29)
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.split1, label %32
@@ -797,8 +797,8 @@ define dso_local void @drm_gem_fb_end_cpu_access(ptr noundef readonly captures(n
   br label %9
 
 9:                                                ; preds = %.split1, %.split
-  %.sink6 = phi i32 [ %10, %.split1 ], [ %8, %.split ]
-  %10 = add nsw i32 %.sink6, -1
+  %.sink10 = phi i32 [ %10, %.split1 ], [ %8, %.split ]
+  %10 = add nsw i32 %.sink10, -1
   %11 = tail call ptr @drm_gem_fb_get_obj(ptr noundef %0, i32 noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.split1, label %13

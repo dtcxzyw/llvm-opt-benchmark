@@ -2998,9 +2998,9 @@ _ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt
   br label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EED2Ev.exit: ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i, %130
-  %spec.select3841 = phi i1 [ %spec.select, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i ], [ %spec.select, %130 ], [ false, %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit ]
+  %spec.select5154 = phi i1 [ %spec.select, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i ], [ %spec.select, %130 ], [ false, %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i1 %spec.select3841
+  ret i1 %spec.select5154
 }
 
 ; Function Attrs: noreturn
@@ -3263,8 +3263,8 @@ _ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i:
   br label %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i
-  %.11541 = phi i1 [ %.115, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ undef, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit ]
-  %.not192440 = phi i1 [ %.not, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ false, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit ]
+  %.11552 = phi i1 [ %.115, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ undef, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit ]
+  %.not192451 = phi i1 [ %.not, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ false, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit ]
   %100 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit ]
   %.not.i.i.i = icmp eq ptr %100, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EED2Ev.exit, label %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i.thread
@@ -3274,9 +3274,9 @@ _ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i.thread: ; preds 
   br label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EED2Ev.exit: ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i.thread
-  %.not19244048 = phi i1 [ %.not192440, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i ], [ %.not192440, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i.thread ], [ false, %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit ]
-  %.1154146 = phi i1 [ %.11541, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i ], [ %.11541, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i.thread ], [ undef, %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit ]
-  %spec.select = and i1 %.not19244048, %.1154146
+  %.not19245159 = phi i1 [ %.not192451, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i ], [ %.not192451, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i.thread ], [ false, %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit ]
+  %.1155257 = phi i1 [ %.11552, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i ], [ %.11552, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i.thread ], [ undef, %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit ]
+  %spec.select = and i1 %.not19245159, %.1155257
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %spec.select
 }
@@ -5640,8 +5640,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26.i.i: ; preds = 
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !146
   call void @llvm.experimental.noalias.scope.decl(metadata !161)
   %291 = load i64, ptr %147, align 8, !tbaa !57, !noalias !163
-  %.not74.i.i = icmp ult i64 %246, %291
-  br i1 %.not74.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i27.i.i, label %292
+  %.not92.i.i = icmp ult i64 %246, %291
+  br i1 %.not92.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i27.i.i, label %292
 
 292:                                              ; preds = %._crit_edge.i.i
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.35, i64 noundef %283, i64 noundef %291) #25
@@ -5652,12 +5652,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26.i.i: ; preds = 
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i27.i.i: ; preds = %._crit_edge.i.i, %._crit_edge.thread.i.i
   %293 = phi i64 [ %240, %._crit_edge.thread.i.i ], [ %291, %._crit_edge.i.i ]
-  %.015.lcssa66.i.i = phi i64 [ 0, %._crit_edge.thread.i.i ], [ %283, %._crit_edge.i.i ]
+  %.015.lcssa84.i.i = phi i64 [ 0, %._crit_edge.thread.i.i ], [ %283, %._crit_edge.i.i ]
   %294 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %294, ptr %4, align 8, !tbaa !55, !alias.scope !161, !noalias !146
   %295 = load ptr, ptr %5, align 8, !tbaa !64, !noalias !163
-  %296 = getelementptr inbounds nuw i8, ptr %295, i64 %.015.lcssa66.i.i
-  %297 = sub nuw i64 %293, %.015.lcssa66.i.i
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 %.015.lcssa84.i.i
+  %297 = sub nuw i64 %293, %.015.lcssa84.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !163
   store i64 %297, ptr %1, align 8, !tbaa !63, !noalias !163
   %298 = icmp ugt i64 %297, 15
@@ -8980,7 +8980,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE17_
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPN2cv16VideoBackendInfoEmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN2cv16VideoBackendInfoEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 40
+  %19 = mul nuw nsw i64 %1, 40
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !22

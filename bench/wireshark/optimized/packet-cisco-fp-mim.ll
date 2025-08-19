@@ -375,10 +375,10 @@ define internal fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, pt
   unreachable
 
 95:                                               ; preds = %75, %85
-  %.sink142 = phi i32 [ 16, %85 ], [ 12, %75 ]
+  %.sink144 = phi i32 [ 16, %85 ], [ 12, %75 ]
   %.0119 = phi i32 [ 18, %85 ], [ 14, %75 ]
   %96 = load i32, ptr @hf_fp_etype, align 4
-  %97 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %96, ptr noundef %0, i32 noundef %.sink142, i32 noundef 2, i32 noundef 0)
+  %97 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %96, ptr noundef %0, i32 noundef %.sink144, i32 noundef 2, i32 noundef 0)
   %98 = load i32, ptr @hf_ftag, align 4
   %99 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %98, ptr noundef %0, i32 noundef %.0119, i32 noundef 2, i32 noundef 0)
   %100 = load i32, ptr @hf_ttl, align 4

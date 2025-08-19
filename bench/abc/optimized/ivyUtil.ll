@@ -728,14 +728,14 @@ Vec_IntAlloc.exit:                                ; preds = %1, %6
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %41, %43, %33, %35
-  %.sink20 = phi ptr [ %34, %33 ], [ %36, %35 ], [ %42, %41 ], [ %44, %43 ]
+  %.sink22 = phi ptr [ %34, %33 ], [ %36, %35 ], [ %42, %41 ], [ %44, %43 ]
   %.sink = phi i32 [ 16, %33 ], [ 16, %35 ], [ %38, %41 ], [ %38, %43 ]
-  store ptr %.sink20, ptr %11, align 8, !tbaa !30
+  store ptr %.sink22, ptr %11, align 8, !tbaa !30
   store i32 %.sink, ptr %3, align 8, !tbaa !29
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %25
-  %.pre.i19 = phi ptr [ %17, %25 ], [ %.sink20, %Vec_IntPush.exit.sink.split ]
+  %.pre.i19 = phi ptr [ %17, %25 ], [ %.sink22, %Vec_IntPush.exit.sink.split ]
   %45 = add nsw i32 %27, 1
   store i32 %45, ptr %5, align 4, !tbaa !27
   %46 = sext i32 %27 to i64
@@ -964,40 +964,40 @@ define void @Ivy_ManResetLevels(ptr noundef readonly captures(none) %0) local_un
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @Ivy_ObjRefDeref(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
-  br label %tailrecurse113
+  br label %tailrecurse120
 
-tailrecurse113:                                   ; preds = %94, %4
+tailrecurse120:                                   ; preds = %94, %4
   %accumulator.tr = phi i32 [ 0, %4 ], [ %accumulator.ret.tr, %94 ]
-  %.tr114 = phi ptr [ %1, %4 ], [ %18, %94 ]
-  %.tr115 = phi i32 [ %2, %4 ], [ 0, %94 ]
+  %.tr121 = phi ptr [ %1, %4 ], [ %18, %94 ]
+  %.tr122 = phi i32 [ %2, %4 ], [ 0, %94 ]
   %.not = icmp eq i32 %3, 0
   %5 = getelementptr i8, ptr %0, i64 176
-  %.not41 = icmp eq i32 %.tr115, 0
+  %.not41 = icmp eq i32 %.tr122, 0
   br i1 %.not41, label %tailrecurse.us, label %.split
 
-tailrecurse.us:                                   ; preds = %tailrecurse113
+tailrecurse.us:                                   ; preds = %tailrecurse120
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %tailrecurse.us
   %.val45.us = load i32, ptr %5, align 8, !tbaa !3
-  %7 = getelementptr inbounds nuw i8, ptr %.tr114, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.tr121, i64 4
   store i32 %.val45.us, ptr %7, align 4, !tbaa !21
   br label %8
 
 8:                                                ; preds = %6, %tailrecurse.us
-  %9 = getelementptr i8, ptr %.tr114, i64 8
+  %9 = getelementptr i8, ptr %.tr121, i64 8
   %.val46.us = load i32, ptr %9, align 8
   %10 = and i32 %.val46.us, 15
   %.not48.us = icmp eq i32 %10, 1
   br i1 %.not48.us, label %.loopexit, label %.split60.us
 
 .split60.us:                                      ; preds = %8
-  %11 = getelementptr i8, ptr %.tr114, i64 16
+  %11 = getelementptr i8, ptr %.tr121, i64 16
   %.val.us = load ptr, ptr %11, align 8, !tbaa !24
   %12 = ptrtoint ptr %.val.us to i64
   %13 = and i64 %12, -2
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr i8, ptr %.tr114, i64 24
+  %15 = getelementptr i8, ptr %.tr121, i64 24
   %.val44.us = load ptr, ptr %15, align 8, !tbaa !25
   %16 = ptrtoint ptr %.val44.us to i64
   %17 = and i64 %16, -2
@@ -1012,11 +1012,11 @@ tailrecurse.us:                                   ; preds = %tailrecurse113
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %85, label %88
 
-.split:                                           ; preds = %tailrecurse113
+.split:                                           ; preds = %tailrecurse120
   br i1 %.not, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split
-  %25 = getelementptr i8, ptr %.tr114, i64 8
+  %25 = getelementptr i8, ptr %.tr121, i64 8
   %.val46.us6989 = load i32, ptr %25, align 8
   %26 = and i32 %.val46.us6989, 15
   %.not48.us7090 = icmp eq i32 %26, 1
@@ -1024,7 +1024,7 @@ tailrecurse.us:                                   ; preds = %tailrecurse113
 
 .lr.ph93:                                         ; preds = %.split.split.us, %tailrecurse.us66
   %27 = phi i32 [ %53, %tailrecurse.us66 ], [ %26, %.split.split.us ]
-  %.tr49.us6892 = phi ptr [ %35, %tailrecurse.us66 ], [ %.tr114, %.split.split.us ]
+  %.tr49.us6892 = phi ptr [ %35, %tailrecurse.us66 ], [ %.tr121, %.split.split.us ]
   %accumulator.tr.us6791 = phi i32 [ %51, %tailrecurse.us66 ], [ 0, %.split.split.us ]
   %28 = getelementptr i8, ptr %.tr49.us6892, i64 16
   %.val.us71 = load ptr, ptr %28, align 8, !tbaa !24
@@ -1047,7 +1047,7 @@ tailrecurse.us:                                   ; preds = %tailrecurse113
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %.lr.ph93
-  %43 = tail call i32 @Ivy_ObjRefDeref(ptr noundef %0, ptr noundef nonnull %31, i32 noundef %.tr115, i32 noundef 0)
+  %43 = tail call i32 @Ivy_ObjRefDeref(ptr noundef %0, ptr noundef nonnull %31, i32 noundef %.tr122, i32 noundef 0)
   %44 = add nsw i32 %43, %37
   br label %45
 
@@ -1074,9 +1074,9 @@ tailrecurse.us66:                                 ; preds = %46
 
 .split.split:                                     ; preds = %.split
   %.val4578 = load i32, ptr %5, align 8, !tbaa !3
-  %54 = getelementptr inbounds nuw i8, ptr %.tr114, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.tr121, i64 4
   store i32 %.val4578, ptr %54, align 4, !tbaa !21
-  %55 = getelementptr i8, ptr %.tr114, i64 8
+  %55 = getelementptr i8, ptr %.tr121, i64 8
   %.val4679 = load i32, ptr %55, align 8
   %56 = and i32 %.val4679, 15
   %.not4880 = icmp eq i32 %56, 1
@@ -1084,7 +1084,7 @@ tailrecurse.us66:                                 ; preds = %46
 
 .lr.ph:                                           ; preds = %.split.split, %tailrecurse
   %57 = phi i32 [ %84, %tailrecurse ], [ %56, %.split.split ]
-  %.tr4982 = phi ptr [ %65, %tailrecurse ], [ %.tr114, %.split.split ]
+  %.tr4982 = phi ptr [ %65, %tailrecurse ], [ %.tr121, %.split.split ]
   %accumulator.tr81 = phi i32 [ %81, %tailrecurse ], [ 0, %.split.split ]
   %58 = getelementptr i8, ptr %.tr4982, i64 16
   %.val = load ptr, ptr %58, align 8, !tbaa !24
@@ -1107,7 +1107,7 @@ tailrecurse.us66:                                 ; preds = %46
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %.lr.ph
-  %73 = tail call i32 @Ivy_ObjRefDeref(ptr noundef nonnull %0, ptr noundef nonnull %61, i32 noundef %.tr115, i32 noundef %3)
+  %73 = tail call i32 @Ivy_ObjRefDeref(ptr noundef nonnull %0, ptr noundef nonnull %61, i32 noundef %.tr122, i32 noundef %3)
   %74 = add nsw i32 %73, %67
   br label %75
 
@@ -1155,14 +1155,14 @@ tailrecurse:                                      ; preds = %76
 
 94:                                               ; preds = %89
   %accumulator.ret.tr = add i32 %.2, %accumulator.tr
-  br label %tailrecurse113
+  br label %tailrecurse120
 
 .loopexit:                                        ; preds = %tailrecurse, %75, %76, %46, %45, %tailrecurse.us66, %8, %.split.split, %.split.split.us, %89, %88
   %accumulator.tr57 = phi i32 [ 0, %89 ], [ 0, %88 ], [ 0, %8 ], [ 0, %.split.split.us ], [ 0, %.split.split ], [ %accumulator.tr.us6791, %46 ], [ %accumulator.tr.us6791, %45 ], [ %51, %tailrecurse.us66 ], [ %81, %tailrecurse ], [ %accumulator.tr81, %75 ], [ %accumulator.tr81, %76 ]
   %.035 = phi i32 [ %.2, %89 ], [ %.2, %88 ], [ 0, %8 ], [ 0, %.split.split.us ], [ 0, %.split.split ], [ %.0.us, %46 ], [ %.0.us, %45 ], [ 0, %tailrecurse.us66 ], [ 0, %tailrecurse ], [ %.0, %75 ], [ %.0, %76 ]
   %accumulator.ret.tr52 = add nsw i32 %.035, %accumulator.tr57
-  %accumulator.ret.tr117 = add i32 %accumulator.ret.tr52, %accumulator.tr
-  ret i32 %accumulator.ret.tr117
+  %accumulator.ret.tr124 = add i32 %accumulator.ret.tr52, %accumulator.tr
+  ret i32 %accumulator.ret.tr124
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

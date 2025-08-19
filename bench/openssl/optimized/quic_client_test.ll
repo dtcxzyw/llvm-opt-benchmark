@@ -302,7 +302,7 @@ define internal fastcc range(i32 0, 2) i32 @test_quic_client_ex(i32 noundef %0) 
 
 .thread104:                                       ; preds = %.thread, %70, %66
   %.172107 = phi i32 [ 1, %66 ], [ 1, %70 ], [ 0, %.thread ]
-  %.170 = phi i32 [ %.069123, %66 ], [ 1, %70 ], [ %.069123, %.thread ]
+  %.170 = phi i32 [ 1, %66 ], [ 1, %70 ], [ %.069123, %.thread ]
   %75 = icmp ne i32 %.170, 0
   %76 = icmp eq i32 %.067124, 0
   %or.cond3.not97 = and i1 %76, %75
@@ -346,14 +346,13 @@ define internal fastcc range(i32 0, 2) i32 @test_quic_client_ex(i32 noundef %0) 
   br i1 %76, label %.thread108, label %96
 
 96:                                               ; preds = %.thread114, %95
-  %.168118 = phi i32 [ 1, %.thread114 ], [ %.067124, %95 ]
   %97 = call i32 @SSL_shutdown(ptr noundef %34) #7
   %98 = icmp eq i32 %97, 1
   br i1 %98, label %.loopexit, label %.thread108
 
 .thread108:                                       ; preds = %91, %85, %96, %95
   %.166113 = phi i64 [ %.065125, %96 ], [ %.065125, %95 ], [ %93, %91 ], [ %.065125, %85 ]
-  %.168112 = phi i32 [ %.168118, %96 ], [ 0, %95 ], [ 0, %91 ], [ 0, %85 ]
+  %.168112 = phi i32 [ 1, %96 ], [ 0, %95 ], [ 0, %91 ], [ 0, %85 ]
   call void @OSSL_sleep(i64 noundef 0) #7
   %99 = call i32 @SSL_handle_events(ptr noundef %34) #7
   %100 = call i64 @ossl_time_now() #7

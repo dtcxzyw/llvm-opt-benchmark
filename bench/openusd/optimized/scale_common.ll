@@ -1107,7 +1107,7 @@ define hidden void @ScaleSlope(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
   %25 = trunc i64 %24 to i32
   store i32 %25, ptr %8, align 4
   store i32 0, ptr %5, align 4
-  br label %.sink.split115
+  br label %.sink.split124
 
 26:                                               ; preds = %9
   %.not111 = icmp sgt i32 %spec.select, %14
@@ -1174,12 +1174,12 @@ define hidden void @ScaleSlope(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
   %61 = sub nsw i32 0, %58
   %62 = lshr i32 %61, 1
   %63 = sub nsw i32 32768, %62
-  br label %.sink.split115
+  br label %.sink.split124
 
 64:                                               ; preds = %53
   %65 = lshr i32 %58, 1
   %66 = add nsw i32 %65, -32768
-  br label %.sink.split115
+  br label %.sink.split124
 
 67:                                               ; preds = %52
   %68 = icmp sgt i32 %1, 1
@@ -1194,7 +1194,7 @@ define hidden void @ScaleSlope(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
   %75 = udiv i64 %72, %74
   %76 = trunc i64 %75 to i32
   store i32 %76, ptr %8, align 4
-  br label %.sink.split115
+  br label %.sink.split124
 
 77:                                               ; preds = %9
   %.not = icmp sgt i32 %spec.select, %14
@@ -1214,12 +1214,12 @@ define hidden void @ScaleSlope(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
   %86 = sub nsw i32 0, %83
   %87 = lshr i32 %86, 1
   %88 = sub nsw i32 32768, %87
-  br label %.sink.split113
+  br label %.sink.split122
 
 89:                                               ; preds = %78
   %90 = lshr i32 %83, 1
   %91 = add nsw i32 %90, -32768
-  br label %.sink.split113
+  br label %.sink.split122
 
 92:                                               ; preds = %77
   %93 = icmp sgt i32 %0, 1
@@ -1236,14 +1236,14 @@ define hidden void @ScaleSlope(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
   %101 = sdiv i64 %98, %100
   %102 = trunc i64 %101 to i32
   store i32 %102, ptr %7, align 4
-  br label %.sink.split113
+  br label %.sink.split122
 
-.sink.split113:                                   ; preds = %85, %89, %95
-  %.sink114 = phi i32 [ 0, %95 ], [ %88, %85 ], [ %91, %89 ]
-  store i32 %.sink114, ptr %5, align 4
+.sink.split122:                                   ; preds = %85, %89, %95
+  %.sink123 = phi i32 [ 0, %95 ], [ %88, %85 ], [ %91, %89 ]
+  store i32 %.sink123, ptr %5, align 4
   br label %103
 
-103:                                              ; preds = %.sink.split113, %92
+103:                                              ; preds = %.sink.split122, %92
   %104 = sext i32 %1 to i64
   %105 = shl nsw i64 %104, 16
   %106 = sext i32 %.095 to i64
@@ -1251,7 +1251,7 @@ define hidden void @ScaleSlope(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
   %108 = trunc i64 %107 to i32
   store i32 %108, ptr %8, align 4
   %109 = ashr i32 %108, 1
-  br label %.sink.split115
+  br label %.sink.split124
 
 110:                                              ; preds = %9
   %111 = zext nneg i32 %14 to i64
@@ -1281,14 +1281,14 @@ define hidden void @ScaleSlope(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
   %132 = sub nsw i32 0, %131
   %133 = lshr i32 %128, 1
   %134 = select i1 %129, i32 %132, i32 %133
-  br label %.sink.split115
+  br label %.sink.split124
 
-.sink.split115:                                   ; preds = %60, %64, %15, %103, %110, %69
-  %.sink116 = phi i32 [ 0, %69 ], [ %134, %110 ], [ %109, %103 ], [ 0, %15 ], [ %63, %60 ], [ %66, %64 ]
-  store i32 %.sink116, ptr %6, align 4
+.sink.split124:                                   ; preds = %60, %64, %15, %103, %110, %69
+  %.sink125 = phi i32 [ 0, %69 ], [ %134, %110 ], [ %109, %103 ], [ 0, %15 ], [ %63, %60 ], [ %66, %64 ]
+  store i32 %.sink125, ptr %6, align 4
   br label %135
 
-135:                                              ; preds = %.sink.split115, %67
+135:                                              ; preds = %.sink.split124, %67
   %136 = icmp slt i32 %0, 0
   br i1 %136, label %137, label %145
 

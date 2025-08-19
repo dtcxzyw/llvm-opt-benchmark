@@ -466,13 +466,13 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %12, %2
   %45 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i, i64 4
   %.val31.i.i.i.i = load i32, ptr %45, align 4
   %.not49.i.i.i.i = icmp ult i32 %.val31.i.i.i.i, %33
-  br i1 %.not49.i.i.i.i, label %46, label %.loopexit.loopexit.split.loop.exit234
+  br i1 %.not49.i.i.i.i, label %46, label %.loopexit.loopexit.split.loop.exit242
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i, i64 8
   %.val33.i.i.i.i = load i32, ptr %47, align 4
   %.not50.i.i.i.i = icmp ult i32 %.val33.i.i.i.i, %33
-  br i1 %.not50.i.i.i.i, label %48, label %.loopexit.loopexit.split.loop.exit232
+  br i1 %.not50.i.i.i.i, label %48, label %.loopexit.loopexit.split.loop.exit240
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i, i64 12
@@ -529,16 +529,16 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %12, %2
   %62 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i, i64 12
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit232:            ; preds = %46
+.loopexit.loopexit.split.loop.exit240:            ; preds = %46
   %63 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i, i64 8
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit234:            ; preds = %44
+.loopexit.loopexit.split.loop.exit242:            ; preds = %44
   %64 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i, i64 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit232, %.loopexit.loopexit.split.loop.exit234, %61, %58, %55
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %55 ], [ %.1.i.i.i.i, %58 ], [ %.2.i.i.i.i, %61 ], [ %62, %.loopexit.loopexit.split.loop.exit ], [ %63, %.loopexit.loopexit.split.loop.exit232 ], [ %64, %.loopexit.loopexit.split.loop.exit234 ], [ %.02962.i.i.i.i, %.lr.ph.i.i.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit240, %.loopexit.loopexit.split.loop.exit242, %61, %58, %55
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %55 ], [ %.1.i.i.i.i, %58 ], [ %.2.i.i.i.i, %61 ], [ %62, %.loopexit.loopexit.split.loop.exit ], [ %63, %.loopexit.loopexit.split.loop.exit240 ], [ %64, %.loopexit.loopexit.split.loop.exit242 ], [ %.02962.i.i.i.i, %.lr.ph.i.i.i.i ]
   %65 = icmp eq ptr %41, %.028.i.i.i.i
   br i1 %65, label %.thread, label %.loopexit..thread148_crit_edge
 
@@ -680,8 +680,8 @@ _ZNK10aiVector3tIfEeqERKS0_.exit.thread:          ; preds = %72, %88, %_ZNK10aiV
   %129 = load i8, ptr %23, align 1, !range !7, !noundef !8
   %130 = trunc nuw i8 %129 to i1
   %131 = icmp eq i32 %.pre210, 3
-  %or.cond240 = select i1 %130, i1 %131, i1 false
-  br i1 %or.cond240, label %132, label %.thread148
+  %or.cond248 = select i1 %130, i1 %131, i1 false
+  br i1 %or.cond248, label %132, label %.thread148
 
 132:                                              ; preds = %.thread144
   %133 = invoke noundef float @_ZN6Assimp13GeometryUtils23calculateAreaOfTriangleERK6aiFaceP6aiMesh(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull %1)

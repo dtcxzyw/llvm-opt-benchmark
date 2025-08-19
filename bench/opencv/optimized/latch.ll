@@ -371,9 +371,9 @@ define hidden void @_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_
   %86 = sext i32 %74 to i64
   %87 = sext i32 %72 to i64
   %88 = sext i32 %66 to i64
-  %invariant.gep139 = getelementptr i8, ptr %77, i64 %82
+  %invariant.gep141 = getelementptr i8, ptr %77, i64 %82
   %invariant.gep = getelementptr i8, ptr %77, i64 %83
-  %invariant.gep142 = getelementptr i8, ptr %77, i64 %84
+  %invariant.gep144 = getelementptr i8, ptr %77, i64 %84
   br label %.lr.ph
 
 ._crit_edge128:                                   ; preds = %._crit_edge, %59
@@ -387,9 +387,9 @@ define hidden void @_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_
   %92 = mul i64 %80, %91
   %93 = add nsw i64 %indvars.iv130, %88
   %94 = mul i64 %80, %93
-  %gep140 = getelementptr i8, ptr %invariant.gep139, i64 %90
-  %gep141 = getelementptr i8, ptr %invariant.gep, i64 %92
-  %gep143 = getelementptr i8, ptr %invariant.gep142, i64 %94
+  %gep142 = getelementptr i8, ptr %invariant.gep141, i64 %90
+  %gep143 = getelementptr i8, ptr %invariant.gep, i64 %92
+  %gep145 = getelementptr i8, ptr %invariant.gep144, i64 %94
   br label %95
 
 ._crit_edge:                                      ; preds = %95
@@ -400,11 +400,11 @@ define hidden void @_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_
 
 95:                                               ; preds = %.lr.ph, %95
   %indvars.iv = phi i64 [ %81, %.lr.ph ], [ %indvars.iv.next, %95 ]
-  %gep = getelementptr i8, ptr %gep140, i64 %indvars.iv
+  %gep = getelementptr i8, ptr %gep142, i64 %indvars.iv
   %96 = load i8, ptr %gep, align 1, !tbaa !38
   %97 = zext i8 %96 to i32
-  %gep136 = getelementptr i8, ptr %gep141, i64 %indvars.iv
-  %98 = load i8, ptr %gep136, align 1, !tbaa !38
+  %gep138 = getelementptr i8, ptr %gep143, i64 %indvars.iv
+  %98 = load i8, ptr %gep138, align 1, !tbaa !38
   %99 = zext i8 %98 to i32
   %100 = sub nsw i32 %97, %99
   %101 = sitofp i32 %100 to double
@@ -413,10 +413,10 @@ define hidden void @_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_
   %104 = load i32, ptr %5, align 4, !tbaa !3
   %105 = add nsw i32 %104, %103
   store i32 %105, ptr %5, align 4, !tbaa !3
-  %gep138 = getelementptr i8, ptr %gep143, i64 %indvars.iv
-  %106 = load i8, ptr %gep138, align 1, !tbaa !38
+  %gep140 = getelementptr i8, ptr %gep145, i64 %indvars.iv
+  %106 = load i8, ptr %gep140, align 1, !tbaa !38
   %107 = zext i8 %106 to i32
-  %108 = load i8, ptr %gep136, align 1, !tbaa !38
+  %108 = load i8, ptr %gep138, align 1, !tbaa !38
   %109 = zext i8 %108 to i32
   %110 = sub nsw i32 %107, %109
   %111 = sitofp i32 %110 to double
@@ -750,9 +750,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %125 = sext i32 %117 to i64
   %126 = sext i32 %115 to i64
   %127 = sext i32 %109 to i64
-  %invariant.gep139.i = getelementptr i8, ptr %119, i64 %122
+  %invariant.gep141.i = getelementptr i8, ptr %119, i64 %122
   %invariant.gep.i = getelementptr i8, ptr %119, i64 %123
-  %invariant.gep142.i = getelementptr i8, ptr %119, i64 %124
+  %invariant.gep144.i = getelementptr i8, ptr %119, i64 %124
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph127.i
@@ -765,9 +765,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %131 = mul i64 %130, %121
   %132 = add nsw i64 %indvars.iv130.i, %127
   %133 = mul i64 %132, %121
-  %gep140.i = getelementptr i8, ptr %invariant.gep139.i, i64 %129
-  %gep141.i = getelementptr i8, ptr %invariant.gep.i, i64 %131
-  %gep143.i = getelementptr i8, ptr %invariant.gep142.i, i64 %133
+  %gep142.i = getelementptr i8, ptr %invariant.gep141.i, i64 %129
+  %gep143.i = getelementptr i8, ptr %invariant.gep.i, i64 %131
+  %gep145.i = getelementptr i8, ptr %invariant.gep144.i, i64 %133
   br label %134
 
 ._crit_edge.i:                                    ; preds = %134
@@ -780,19 +780,19 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %.139 = phi i32 [ %.038, %.lr.ph.i ], [ %143, %134 ]
   %.137 = phi i32 [ %.036, %.lr.ph.i ], [ %150, %134 ]
   %indvars.iv.i = phi i64 [ %28, %.lr.ph.i ], [ %indvars.iv.next.i, %134 ]
-  %gep.i = getelementptr i8, ptr %gep140.i, i64 %indvars.iv.i
+  %gep.i = getelementptr i8, ptr %gep142.i, i64 %indvars.iv.i
   %135 = load i8, ptr %gep.i, align 1, !tbaa !38
   %136 = zext i8 %135 to i32
-  %gep136.i = getelementptr i8, ptr %gep141.i, i64 %indvars.iv.i
-  %137 = load i8, ptr %gep136.i, align 1, !tbaa !38
+  %gep138.i = getelementptr i8, ptr %gep143.i, i64 %indvars.iv.i
+  %137 = load i8, ptr %gep138.i, align 1, !tbaa !38
   %138 = zext i8 %137 to i32
   %139 = sub nsw i32 %136, %138
   %140 = sitofp i32 %139 to double
   %141 = fmul double %140, %140
   %142 = fptosi double %141 to i32
   %143 = add nsw i32 %.139, %142
-  %gep138.i = getelementptr i8, ptr %gep143.i, i64 %indvars.iv.i
-  %144 = load i8, ptr %gep138.i, align 1, !tbaa !38
+  %gep140.i = getelementptr i8, ptr %gep145.i, i64 %indvars.iv.i
+  %144 = load i8, ptr %gep140.i, align 1, !tbaa !38
   %145 = zext i8 %144 to i32
   %146 = sub nsw i32 %145, %138
   %147 = sitofp i32 %146 to double
@@ -1007,9 +1007,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %131 = sext i32 %123 to i64
   %132 = sext i32 %121 to i64
   %133 = sext i32 %115 to i64
-  %invariant.gep139.i = getelementptr i8, ptr %125, i64 %128
+  %invariant.gep141.i = getelementptr i8, ptr %125, i64 %128
   %invariant.gep.i = getelementptr i8, ptr %125, i64 %129
-  %invariant.gep142.i = getelementptr i8, ptr %125, i64 %130
+  %invariant.gep144.i = getelementptr i8, ptr %125, i64 %130
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph127.i
@@ -1022,9 +1022,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %137 = mul i64 %136, %127
   %138 = add nsw i64 %indvars.iv130.i, %133
   %139 = mul i64 %138, %127
-  %gep140.i = getelementptr i8, ptr %invariant.gep139.i, i64 %135
-  %gep141.i = getelementptr i8, ptr %invariant.gep.i, i64 %137
-  %gep143.i = getelementptr i8, ptr %invariant.gep142.i, i64 %139
+  %gep142.i = getelementptr i8, ptr %invariant.gep141.i, i64 %135
+  %gep143.i = getelementptr i8, ptr %invariant.gep.i, i64 %137
+  %gep145.i = getelementptr i8, ptr %invariant.gep144.i, i64 %139
   br label %140
 
 ._crit_edge.i:                                    ; preds = %140
@@ -1037,19 +1037,19 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %.139 = phi i32 [ %.038, %.lr.ph.i ], [ %149, %140 ]
   %.137 = phi i32 [ %.036, %.lr.ph.i ], [ %156, %140 ]
   %indvars.iv.i = phi i64 [ %28, %.lr.ph.i ], [ %indvars.iv.next.i, %140 ]
-  %gep.i = getelementptr i8, ptr %gep140.i, i64 %indvars.iv.i
+  %gep.i = getelementptr i8, ptr %gep142.i, i64 %indvars.iv.i
   %141 = load i8, ptr %gep.i, align 1, !tbaa !38
   %142 = zext i8 %141 to i32
-  %gep136.i = getelementptr i8, ptr %gep141.i, i64 %indvars.iv.i
-  %143 = load i8, ptr %gep136.i, align 1, !tbaa !38
+  %gep138.i = getelementptr i8, ptr %gep143.i, i64 %indvars.iv.i
+  %143 = load i8, ptr %gep138.i, align 1, !tbaa !38
   %144 = zext i8 %143 to i32
   %145 = sub nsw i32 %142, %144
   %146 = sitofp i32 %145 to double
   %147 = fmul double %146, %146
   %148 = fptosi double %147 to i32
   %149 = add nsw i32 %.139, %148
-  %gep138.i = getelementptr i8, ptr %gep143.i, i64 %indvars.iv.i
-  %150 = load i8, ptr %gep138.i, align 1, !tbaa !38
+  %gep140.i = getelementptr i8, ptr %gep145.i, i64 %indvars.iv.i
+  %150 = load i8, ptr %gep140.i, align 1, !tbaa !38
   %151 = zext i8 %150 to i32
   %152 = sub nsw i32 %151, %144
   %153 = sitofp i32 %152 to double
@@ -1265,9 +1265,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %130 = sext i32 %122 to i64
   %131 = sext i32 %120 to i64
   %132 = sext i32 %114 to i64
-  %invariant.gep139.i = getelementptr i8, ptr %124, i64 %127
+  %invariant.gep141.i = getelementptr i8, ptr %124, i64 %127
   %invariant.gep.i = getelementptr i8, ptr %124, i64 %128
-  %invariant.gep142.i = getelementptr i8, ptr %124, i64 %129
+  %invariant.gep144.i = getelementptr i8, ptr %124, i64 %129
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph127.i
@@ -1280,9 +1280,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %136 = mul i64 %135, %126
   %137 = add nsw i64 %indvars.iv130.i, %132
   %138 = mul i64 %137, %126
-  %gep140.i = getelementptr i8, ptr %invariant.gep139.i, i64 %134
-  %gep141.i = getelementptr i8, ptr %invariant.gep.i, i64 %136
-  %gep143.i = getelementptr i8, ptr %invariant.gep142.i, i64 %138
+  %gep142.i = getelementptr i8, ptr %invariant.gep141.i, i64 %134
+  %gep143.i = getelementptr i8, ptr %invariant.gep.i, i64 %136
+  %gep145.i = getelementptr i8, ptr %invariant.gep144.i, i64 %138
   br label %139
 
 ._crit_edge.i:                                    ; preds = %139
@@ -1295,19 +1295,19 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %.139 = phi i32 [ %.038, %.lr.ph.i ], [ %148, %139 ]
   %.137 = phi i32 [ %.036, %.lr.ph.i ], [ %155, %139 ]
   %indvars.iv.i = phi i64 [ %28, %.lr.ph.i ], [ %indvars.iv.next.i, %139 ]
-  %gep.i = getelementptr i8, ptr %gep140.i, i64 %indvars.iv.i
+  %gep.i = getelementptr i8, ptr %gep142.i, i64 %indvars.iv.i
   %140 = load i8, ptr %gep.i, align 1, !tbaa !38
   %141 = zext i8 %140 to i32
-  %gep136.i = getelementptr i8, ptr %gep141.i, i64 %indvars.iv.i
-  %142 = load i8, ptr %gep136.i, align 1, !tbaa !38
+  %gep138.i = getelementptr i8, ptr %gep143.i, i64 %indvars.iv.i
+  %142 = load i8, ptr %gep138.i, align 1, !tbaa !38
   %143 = zext i8 %142 to i32
   %144 = sub nsw i32 %141, %143
   %145 = sitofp i32 %144 to double
   %146 = fmul double %145, %145
   %147 = fptosi double %146 to i32
   %148 = add nsw i32 %.139, %147
-  %gep138.i = getelementptr i8, ptr %gep143.i, i64 %indvars.iv.i
-  %149 = load i8, ptr %gep138.i, align 1, !tbaa !38
+  %gep140.i = getelementptr i8, ptr %gep145.i, i64 %indvars.iv.i
+  %149 = load i8, ptr %gep140.i, align 1, !tbaa !38
   %150 = zext i8 %149 to i32
   %151 = sub nsw i32 %150, %143
   %152 = sitofp i32 %151 to double
@@ -1523,9 +1523,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %130 = sext i32 %122 to i64
   %131 = sext i32 %120 to i64
   %132 = sext i32 %114 to i64
-  %invariant.gep139.i = getelementptr i8, ptr %124, i64 %127
+  %invariant.gep141.i = getelementptr i8, ptr %124, i64 %127
   %invariant.gep.i = getelementptr i8, ptr %124, i64 %128
-  %invariant.gep142.i = getelementptr i8, ptr %124, i64 %129
+  %invariant.gep144.i = getelementptr i8, ptr %124, i64 %129
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph127.i
@@ -1538,9 +1538,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %136 = mul i64 %135, %126
   %137 = add nsw i64 %indvars.iv130.i, %132
   %138 = mul i64 %137, %126
-  %gep140.i = getelementptr i8, ptr %invariant.gep139.i, i64 %134
-  %gep141.i = getelementptr i8, ptr %invariant.gep.i, i64 %136
-  %gep143.i = getelementptr i8, ptr %invariant.gep142.i, i64 %138
+  %gep142.i = getelementptr i8, ptr %invariant.gep141.i, i64 %134
+  %gep143.i = getelementptr i8, ptr %invariant.gep.i, i64 %136
+  %gep145.i = getelementptr i8, ptr %invariant.gep144.i, i64 %138
   br label %139
 
 ._crit_edge.i:                                    ; preds = %139
@@ -1553,19 +1553,19 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %.139 = phi i32 [ %.038, %.lr.ph.i ], [ %148, %139 ]
   %.137 = phi i32 [ %.036, %.lr.ph.i ], [ %155, %139 ]
   %indvars.iv.i = phi i64 [ %28, %.lr.ph.i ], [ %indvars.iv.next.i, %139 ]
-  %gep.i = getelementptr i8, ptr %gep140.i, i64 %indvars.iv.i
+  %gep.i = getelementptr i8, ptr %gep142.i, i64 %indvars.iv.i
   %140 = load i8, ptr %gep.i, align 1, !tbaa !38
   %141 = zext i8 %140 to i32
-  %gep136.i = getelementptr i8, ptr %gep141.i, i64 %indvars.iv.i
-  %142 = load i8, ptr %gep136.i, align 1, !tbaa !38
+  %gep138.i = getelementptr i8, ptr %gep143.i, i64 %indvars.iv.i
+  %142 = load i8, ptr %gep138.i, align 1, !tbaa !38
   %143 = zext i8 %142 to i32
   %144 = sub nsw i32 %141, %143
   %145 = sitofp i32 %144 to double
   %146 = fmul double %145, %145
   %147 = fptosi double %146 to i32
   %148 = add nsw i32 %.139, %147
-  %gep138.i = getelementptr i8, ptr %gep143.i, i64 %indvars.iv.i
-  %149 = load i8, ptr %gep138.i, align 1, !tbaa !38
+  %gep140.i = getelementptr i8, ptr %gep145.i, i64 %indvars.iv.i
+  %149 = load i8, ptr %gep140.i, align 1, !tbaa !38
   %150 = zext i8 %149 to i32
   %151 = sub nsw i32 %150, %143
   %152 = sitofp i32 %151 to double
@@ -1781,9 +1781,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %130 = sext i32 %122 to i64
   %131 = sext i32 %120 to i64
   %132 = sext i32 %114 to i64
-  %invariant.gep139.i = getelementptr i8, ptr %124, i64 %127
+  %invariant.gep141.i = getelementptr i8, ptr %124, i64 %127
   %invariant.gep.i = getelementptr i8, ptr %124, i64 %128
-  %invariant.gep142.i = getelementptr i8, ptr %124, i64 %129
+  %invariant.gep144.i = getelementptr i8, ptr %124, i64 %129
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph127.i
@@ -1796,9 +1796,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %136 = mul i64 %135, %126
   %137 = add nsw i64 %indvars.iv130.i, %132
   %138 = mul i64 %137, %126
-  %gep140.i = getelementptr i8, ptr %invariant.gep139.i, i64 %134
-  %gep141.i = getelementptr i8, ptr %invariant.gep.i, i64 %136
-  %gep143.i = getelementptr i8, ptr %invariant.gep142.i, i64 %138
+  %gep142.i = getelementptr i8, ptr %invariant.gep141.i, i64 %134
+  %gep143.i = getelementptr i8, ptr %invariant.gep.i, i64 %136
+  %gep145.i = getelementptr i8, ptr %invariant.gep144.i, i64 %138
   br label %139
 
 ._crit_edge.i:                                    ; preds = %139
@@ -1811,19 +1811,19 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %.139 = phi i32 [ %.038, %.lr.ph.i ], [ %148, %139 ]
   %.137 = phi i32 [ %.036, %.lr.ph.i ], [ %155, %139 ]
   %indvars.iv.i = phi i64 [ %28, %.lr.ph.i ], [ %indvars.iv.next.i, %139 ]
-  %gep.i = getelementptr i8, ptr %gep140.i, i64 %indvars.iv.i
+  %gep.i = getelementptr i8, ptr %gep142.i, i64 %indvars.iv.i
   %140 = load i8, ptr %gep.i, align 1, !tbaa !38
   %141 = zext i8 %140 to i32
-  %gep136.i = getelementptr i8, ptr %gep141.i, i64 %indvars.iv.i
-  %142 = load i8, ptr %gep136.i, align 1, !tbaa !38
+  %gep138.i = getelementptr i8, ptr %gep143.i, i64 %indvars.iv.i
+  %142 = load i8, ptr %gep138.i, align 1, !tbaa !38
   %143 = zext i8 %142 to i32
   %144 = sub nsw i32 %141, %143
   %145 = sitofp i32 %144 to double
   %146 = fmul double %145, %145
   %147 = fptosi double %146 to i32
   %148 = add nsw i32 %.139, %147
-  %gep138.i = getelementptr i8, ptr %gep143.i, i64 %indvars.iv.i
-  %149 = load i8, ptr %gep138.i, align 1, !tbaa !38
+  %gep140.i = getelementptr i8, ptr %gep145.i, i64 %indvars.iv.i
+  %149 = load i8, ptr %gep140.i, align 1, !tbaa !38
   %150 = zext i8 %149 to i32
   %151 = sub nsw i32 %150, %143
   %152 = sitofp i32 %151 to double
@@ -2039,9 +2039,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %130 = sext i32 %122 to i64
   %131 = sext i32 %120 to i64
   %132 = sext i32 %114 to i64
-  %invariant.gep139.i = getelementptr i8, ptr %124, i64 %127
+  %invariant.gep141.i = getelementptr i8, ptr %124, i64 %127
   %invariant.gep.i = getelementptr i8, ptr %124, i64 %128
-  %invariant.gep142.i = getelementptr i8, ptr %124, i64 %129
+  %invariant.gep144.i = getelementptr i8, ptr %124, i64 %129
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph127.i
@@ -2054,9 +2054,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %136 = mul i64 %135, %126
   %137 = add nsw i64 %indvars.iv130.i, %132
   %138 = mul i64 %137, %126
-  %gep140.i = getelementptr i8, ptr %invariant.gep139.i, i64 %134
-  %gep141.i = getelementptr i8, ptr %invariant.gep.i, i64 %136
-  %gep143.i = getelementptr i8, ptr %invariant.gep142.i, i64 %138
+  %gep142.i = getelementptr i8, ptr %invariant.gep141.i, i64 %134
+  %gep143.i = getelementptr i8, ptr %invariant.gep.i, i64 %136
+  %gep145.i = getelementptr i8, ptr %invariant.gep144.i, i64 %138
   br label %139
 
 ._crit_edge.i:                                    ; preds = %139
@@ -2069,19 +2069,19 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %.139 = phi i32 [ %.038, %.lr.ph.i ], [ %148, %139 ]
   %.137 = phi i32 [ %.036, %.lr.ph.i ], [ %155, %139 ]
   %indvars.iv.i = phi i64 [ %28, %.lr.ph.i ], [ %indvars.iv.next.i, %139 ]
-  %gep.i = getelementptr i8, ptr %gep140.i, i64 %indvars.iv.i
+  %gep.i = getelementptr i8, ptr %gep142.i, i64 %indvars.iv.i
   %140 = load i8, ptr %gep.i, align 1, !tbaa !38
   %141 = zext i8 %140 to i32
-  %gep136.i = getelementptr i8, ptr %gep141.i, i64 %indvars.iv.i
-  %142 = load i8, ptr %gep136.i, align 1, !tbaa !38
+  %gep138.i = getelementptr i8, ptr %gep143.i, i64 %indvars.iv.i
+  %142 = load i8, ptr %gep138.i, align 1, !tbaa !38
   %143 = zext i8 %142 to i32
   %144 = sub nsw i32 %141, %143
   %145 = sitofp i32 %144 to double
   %146 = fmul double %145, %145
   %147 = fptosi double %146 to i32
   %148 = add nsw i32 %.139, %147
-  %gep138.i = getelementptr i8, ptr %gep143.i, i64 %indvars.iv.i
-  %149 = load i8, ptr %gep138.i, align 1, !tbaa !38
+  %gep140.i = getelementptr i8, ptr %gep145.i, i64 %indvars.iv.i
+  %149 = load i8, ptr %gep140.i, align 1, !tbaa !38
   %150 = zext i8 %149 to i32
   %151 = sub nsw i32 %150, %143
   %152 = sitofp i32 %151 to double
@@ -2297,9 +2297,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %130 = sext i32 %122 to i64
   %131 = sext i32 %120 to i64
   %132 = sext i32 %114 to i64
-  %invariant.gep139.i = getelementptr i8, ptr %124, i64 %127
+  %invariant.gep141.i = getelementptr i8, ptr %124, i64 %127
   %invariant.gep.i = getelementptr i8, ptr %124, i64 %128
-  %invariant.gep142.i = getelementptr i8, ptr %124, i64 %129
+  %invariant.gep144.i = getelementptr i8, ptr %124, i64 %129
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph127.i
@@ -2312,9 +2312,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %136 = mul i64 %135, %126
   %137 = add nsw i64 %indvars.iv130.i, %132
   %138 = mul i64 %137, %126
-  %gep140.i = getelementptr i8, ptr %invariant.gep139.i, i64 %134
-  %gep141.i = getelementptr i8, ptr %invariant.gep.i, i64 %136
-  %gep143.i = getelementptr i8, ptr %invariant.gep142.i, i64 %138
+  %gep142.i = getelementptr i8, ptr %invariant.gep141.i, i64 %134
+  %gep143.i = getelementptr i8, ptr %invariant.gep.i, i64 %136
+  %gep145.i = getelementptr i8, ptr %invariant.gep144.i, i64 %138
   br label %139
 
 ._crit_edge.i:                                    ; preds = %139
@@ -2327,19 +2327,19 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %.139 = phi i32 [ %.038, %.lr.ph.i ], [ %148, %139 ]
   %.137 = phi i32 [ %.036, %.lr.ph.i ], [ %155, %139 ]
   %indvars.iv.i = phi i64 [ %28, %.lr.ph.i ], [ %indvars.iv.next.i, %139 ]
-  %gep.i = getelementptr i8, ptr %gep140.i, i64 %indvars.iv.i
+  %gep.i = getelementptr i8, ptr %gep142.i, i64 %indvars.iv.i
   %140 = load i8, ptr %gep.i, align 1, !tbaa !38
   %141 = zext i8 %140 to i32
-  %gep136.i = getelementptr i8, ptr %gep141.i, i64 %indvars.iv.i
-  %142 = load i8, ptr %gep136.i, align 1, !tbaa !38
+  %gep138.i = getelementptr i8, ptr %gep143.i, i64 %indvars.iv.i
+  %142 = load i8, ptr %gep138.i, align 1, !tbaa !38
   %143 = zext i8 %142 to i32
   %144 = sub nsw i32 %141, %143
   %145 = sitofp i32 %144 to double
   %146 = fmul double %145, %145
   %147 = fptosi double %146 to i32
   %148 = add nsw i32 %.139, %147
-  %gep138.i = getelementptr i8, ptr %gep143.i, i64 %indvars.iv.i
-  %149 = load i8, ptr %gep138.i, align 1, !tbaa !38
+  %gep140.i = getelementptr i8, ptr %gep145.i, i64 %indvars.iv.i
+  %149 = load i8, ptr %gep140.i, align 1, !tbaa !38
   %150 = zext i8 %149 to i32
   %151 = sub nsw i32 %150, %143
   %152 = sitofp i32 %151 to double
@@ -2433,10 +2433,10 @@ _ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i:             ; preds = %_ZSt7advanceIPimEvR
   br label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.thread
 
 _ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.thread:      ; preds = %_ZSt7advanceIPimEvRT_T0_.exit.i, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i
-  %.sink.i.i25.i.idx4 = phi i64 [ %19, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i ], [ 0, %_ZSt7advanceIPimEvRT_T0_.exit.i ]
+  %.sink.i.i25.i.idx7 = phi i64 [ %19, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i ], [ 0, %_ZSt7advanceIPimEvRT_T0_.exit.i ]
   %23 = phi ptr [ %.pre26.i, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i ], [ %17, %_ZSt7advanceIPimEvRT_T0_.exit.i ]
   %24 = sub nsw i64 12288, %19
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.sampling_points_arr, i64 %.sink.i.i25.i.idx4
+  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.sampling_points_arr, i64 %.sink.i.i25.i.idx7
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %23, ptr nonnull align 4 %.sink.i.i25.i.ptr, i64 %24, i1 false)
   %25 = getelementptr inbounds i8, ptr %23, i64 %24
   store ptr %25, ptr %16, align 8, !tbaa !70

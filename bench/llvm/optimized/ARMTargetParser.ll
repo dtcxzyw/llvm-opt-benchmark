@@ -4102,8 +4102,8 @@ _ZN4llvm3ARM13getDefaultCPUENS_9StringRefE.exit:  ; preds = %46
   ]
 
 _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %50, %_ZN4llvm3ARM13getDefaultCPUENS_9StringRefE.exit
-  %.sroa.0.0.i6878 = phi ptr [ %.sroa.0.0.copyload.i, %_ZN4llvm3ARM13getDefaultCPUENS_9StringRefE.exit ], [ @.str.69, %50 ]
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.sroa.0.0.i6878, ptr noundef nonnull dereferenceable(7) @.str.46, i64 7)
+  %.sroa.0.0.i6881 = phi ptr [ %.sroa.0.0.copyload.i, %_ZN4llvm3ARM13getDefaultCPUENS_9StringRefE.exit ], [ @.str.69, %50 ]
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.sroa.0.0.i6881, ptr noundef nonnull dereferenceable(7) @.str.46, i64 7)
   %.not = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not, label %_ZN4llvm3ARM13getDefaultCPUENS_9StringRefE.exit.thread, label %.thread58
 
@@ -4147,7 +4147,7 @@ _ZN4llvm3ARM13getDefaultCPUENS_9StringRefE.exit.thread: ; preds = %_ZNK4llvm9Str
 
 .thread58:                                        ; preds = %_ZN4llvm3ARM13getDefaultCPUENS_9StringRefE.exit, %57, %57, %57, %57, %52, %52, %52, %52, %_ZN4llvm3ARM13getDefaultCPUENS_9StringRefE.exit.thread, %21, %_ZN4llvmeqENS_9StringRefES0_.exit27, %18, %_ZN4llvmeqENS_9StringRefES0_.exit23, %15, %_ZN4llvmeqENS_9StringRefES0_.exit, %55, %56, %60, %_ZN4llvmneENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit27.thread54
   %.sroa.14.0 = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit27.thread54 ], [ 8, %60 ], [ 9, %55 ], [ 9, %56 ], [ 7, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %12, %15 ], [ 12, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit23 ], [ 9, %18 ], [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit27 ], [ %12, %21 ], [ 12, %_ZN4llvm3ARM13getDefaultCPUENS_9StringRefE.exit.thread ], [ 10, %52 ], [ 10, %52 ], [ 10, %52 ], [ 10, %52 ], [ 12, %57 ], [ 12, %57 ], [ 12, %57 ], [ 12, %57 ], [ %.sroa.5.0.copyload.i, %_ZN4llvm3ARM13getDefaultCPUENS_9StringRefE.exit ]
-  %.sroa.048.0 = phi ptr [ null, %_ZN4llvmeqENS_9StringRefES0_.exit27.thread54 ], [ @.str.76, %60 ], [ @.str.72, %55 ], [ @.str.111, %56 ], [ %.sroa.0.0.i6878, %_ZN4llvmneENS_9StringRefES0_.exit ], [ null, %15 ], [ @.str.102, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ @.str.111, %_ZN4llvmeqENS_9StringRefES0_.exit23 ], [ @.str.112, %18 ], [ @.str.110, %_ZN4llvmeqENS_9StringRefES0_.exit27 ], [ null, %21 ], [ @.str.102, %_ZN4llvm3ARM13getDefaultCPUENS_9StringRefE.exit.thread ], [ @.str.96, %52 ], [ @.str.96, %52 ], [ @.str.96, %52 ], [ @.str.96, %52 ], [ @.str.102, %57 ], [ @.str.102, %57 ], [ @.str.102, %57 ], [ @.str.102, %57 ], [ %.sroa.0.0.copyload.i, %_ZN4llvm3ARM13getDefaultCPUENS_9StringRefE.exit ]
+  %.sroa.048.0 = phi ptr [ null, %_ZN4llvmeqENS_9StringRefES0_.exit27.thread54 ], [ @.str.76, %60 ], [ @.str.72, %55 ], [ @.str.111, %56 ], [ %.sroa.0.0.i6881, %_ZN4llvmneENS_9StringRefES0_.exit ], [ null, %15 ], [ @.str.102, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ @.str.111, %_ZN4llvmeqENS_9StringRefES0_.exit23 ], [ @.str.112, %18 ], [ @.str.110, %_ZN4llvmeqENS_9StringRefES0_.exit27 ], [ null, %21 ], [ @.str.102, %_ZN4llvm3ARM13getDefaultCPUENS_9StringRefE.exit.thread ], [ @.str.96, %52 ], [ @.str.96, %52 ], [ @.str.96, %52 ], [ @.str.96, %52 ], [ @.str.102, %57 ], [ @.str.102, %57 ], [ @.str.102, %57 ], [ @.str.102, %57 ], [ %.sroa.0.0.copyload.i, %_ZN4llvm3ARM13getDefaultCPUENS_9StringRefE.exit ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.048.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.14.0, 1
   ret { ptr, i64 } %.fca.1.insert

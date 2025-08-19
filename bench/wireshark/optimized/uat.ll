@@ -964,8 +964,8 @@ define noundef zeroext i1 @uat_save(ptr noundef captures(none) %0, ptr noundef w
   %cond1 = icmp eq i32 %140, 2
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %142 = load ptr, ptr %141, align 8
-  %.str.10..str.11180 = select i1 %cond1, ptr @.str.10, ptr @.str.11
-  %143 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %.0101122, i32 noundef 2, ptr noundef nonnull %.str.10..str.11180, ptr noundef %142)
+  %.str.10..str.11186 = select i1 %cond1, ptr @.str.10, ptr @.str.11
+  %143 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %.0101122, i32 noundef 2, ptr noundef nonnull %.str.10..str.11186, ptr noundef %142)
   %144 = load i32, ptr %107, align 8
   %145 = add i32 %144, -1
   %146 = zext i32 %145 to i64
@@ -1262,11 +1262,11 @@ define void @uat_clear(ptr noundef readonly captures(none) %0) local_unnamed_add
   br i1 %30, label %.lr.ph.splitthread-pre-split, label %.preheader, !llvm.loop !25
 
 .lr.ph30.splitthread-pre-split:                   ; preds = %38
-  %.pr41 = load ptr, ptr %14, align 8
+  %.pr43 = load ptr, ptr %14, align 8
   br label %.lr.ph30.split
 
 .lr.ph30.split:                                   ; preds = %.lr.ph30, %.lr.ph30.splitthread-pre-split
-  %31 = phi ptr [ %.pr41, %.lr.ph30.splitthread-pre-split ], [ %16, %.lr.ph30 ]
+  %31 = phi ptr [ %.pr43, %.lr.ph30.splitthread-pre-split ], [ %16, %.lr.ph30 ]
   %32 = phi ptr [ %39, %.lr.ph30.splitthread-pre-split ], [ %11, %.lr.ph30 ]
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.lr.ph30.splitthread-pre-split ], [ 0, %.lr.ph30 ]
   %.not25 = icmp eq ptr %31, null

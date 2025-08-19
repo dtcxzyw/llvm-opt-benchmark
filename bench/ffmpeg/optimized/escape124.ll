@@ -275,15 +275,15 @@ define internal range(i32 -2147483648, 1) i32 @escape124_decode_frame(ptr nounde
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count.i
-  br i1 %exitcond27.not.i, label %.thread314.loopexit, label %105, !llvm.loop !42
+  br i1 %exitcond27.not.i, label %._crit_edge.loopexit.i, label %105, !llvm.loop !42
 
-.thread314.loopexit:                              ; preds = %142
+._crit_edge.loopexit.i:                           ; preds = %142
   %145 = shl nuw nsw i64 %wide.trip.count.i, 32
   br label %.thread314
 
-.thread314:                                       ; preds = %.thread314.loopexit, %.preheader.i
-  %.sroa.20.15 = phi i32 [ %.sroa.20.2, %.preheader.i ], [ %144, %.thread314.loopexit ]
-  %.pre-phi.i = phi i64 [ 0, %.preheader.i ], [ %145, %.thread314.loopexit ]
+.thread314:                                       ; preds = %.preheader.i, %._crit_edge.loopexit.i
+  %.sroa.20.15 = phi i32 [ %.sroa.20.2, %.preheader.i ], [ %144, %._crit_edge.loopexit.i ]
+  %.pre-phi.i = phi i64 [ 0, %.preheader.i ], [ %145, %._crit_edge.loopexit.i ]
   %146 = zext nneg i32 %.0137 to i64
   %147 = or disjoint i64 %.pre-phi.i, %146
   store i64 %147, ptr %94, align 8
@@ -359,8 +359,8 @@ define internal range(i32 -2147483648, 1) i32 @escape124_decode_frame(ptr nounde
   %spec.select.i.i = add nsw i32 %.sroa.20.4377, 1
   %181 = zext i8 %180 to i32
   %182 = and i32 %.sroa.20.4377, 7
-  %183 = lshr i32 %181, %182
-  %184 = and i32 %183, 1
+  %183 = shl nuw nsw i32 1, %182
+  %184 = and i32 %183, %181
   %.not.i172 = icmp eq i32 %184, 0
   br i1 %.not.i172, label %decode_skip_count.exit.thread327, label %185
 
@@ -374,7 +374,7 @@ define internal range(i32 -2147483648, 1) i32 @escape124_decode_frame(ptr nounde
   %192 = and i32 %191, 7
   %193 = add nsw i32 %.sroa.20.4377, 4
   %194 = tail call i32 @llvm.umin.i32(i32 %19, i32 %193)
-  %195 = add nuw nsw i32 %192, %184
+  %195 = add nuw nsw i32 %192, 1
   %.not19.i173 = icmp eq i32 %195, 8
   br i1 %.not19.i173, label %196, label %decode_skip_count.exit.thread
 

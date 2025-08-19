@@ -588,7 +588,7 @@ av_image_fill_plane_sizes.exit:                   ; preds = %36, %51, %27
 
 69:                                               ; preds = %65
   %70 = add nsw i64 %indvars.iv48, -1
-  %71 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %70
   %72 = load i64, ptr %71, align 8, !tbaa !20
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 %72
   %74 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv48
@@ -1739,7 +1739,7 @@ av_image_fill_plane_sizes.exit:                   ; preds = %47, %62, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @av_image_copy_to_buffer(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #2 {
+define range(i32 -22, -2147483648) i32 @av_image_copy_to_buffer(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #2 {
   %9 = alloca [4 x i32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = tail call i32 @av_image_get_buffer_size(i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)

@@ -544,7 +544,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   ]
 
 217:                                              ; preds = %56
-  %218 = add i32 %54, %37
+  %218 = add nuw nsw i32 %54, %37
   %219 = icmp sgt i32 %218, 7
   br i1 %219, label %.thread24, label %220
 
@@ -580,21 +580,21 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   br label %246
 
 240:                                              ; preds = %.split.us
-  %241 = add i32 %37, 1
-  %242 = icmp sgt i32 %241, 7
-  br i1 %242, label %.thread24, label %243
+  %241 = icmp sgt i32 %37, 6
+  br i1 %241, label %.thread24, label %242
 
-243:                                              ; preds = %240
+242:                                              ; preds = %240
+  %243 = add nuw nsw i32 %37, 1
   %244 = add i32 %39, 1
   %245 = add nsw i32 %41, -1
   br label %246, !llvm.loop !9
 
-246:                                              ; preds = %243, %.loopexit.us
-  %247 = phi i32 [ %245, %243 ], [ %239, %.loopexit.us ]
-  %248 = phi ptr [ %40, %243 ], [ %235, %.loopexit.us ]
-  %249 = phi i32 [ %244, %243 ], [ %238, %.loopexit.us ]
-  %250 = phi i32 [ %38, %243 ], [ %236, %.loopexit.us ]
-  %251 = phi i32 [ %241, %243 ], [ %237, %.loopexit.us ]
+246:                                              ; preds = %242, %.loopexit.us
+  %247 = phi i32 [ %245, %242 ], [ %239, %.loopexit.us ]
+  %248 = phi ptr [ %40, %242 ], [ %235, %.loopexit.us ]
+  %249 = phi i32 [ %244, %242 ], [ %238, %.loopexit.us ]
+  %250 = phi i32 [ %38, %242 ], [ %236, %.loopexit.us ]
+  %251 = phi i32 [ %243, %242 ], [ %237, %.loopexit.us ]
   %252 = icmp sgt i32 %247, 0
   br i1 %252, label %.split.us, label %.split70.us, !llvm.loop !9
 
@@ -637,7 +637,7 @@ default.unreachable:                              ; preds = %352
   br i1 %273, label %.thread24, label %.loopexit26
 
 274:                                              ; preds = %270
-  %275 = add i32 %268, %253
+  %275 = add nuw nsw i32 %268, %253
   %276 = icmp sgt i32 %275, 7
   br i1 %276, label %.thread24, label %277
 
@@ -670,19 +670,19 @@ default.unreachable:                              ; preds = %352
   br label %300
 
 294:                                              ; preds = %.split.split.us
-  %295 = add i32 %253, 1
-  %296 = icmp sgt i32 %295, 7
-  br i1 %296, label %.thread24, label %297
+  %295 = icmp sgt i32 %253, 6
+  br i1 %295, label %.thread24, label %296
 
-297:                                              ; preds = %294
+296:                                              ; preds = %294
+  %297 = add nuw nsw i32 %253, 1
   %298 = add i32 %254, 1
   %299 = add nsw i32 %255, -1
   br label %300, !llvm.loop !9
 
-300:                                              ; preds = %297, %.loopexit.us72
-  %301 = phi i32 [ %299, %297 ], [ %293, %.loopexit.us72 ]
-  %302 = phi i32 [ %298, %297 ], [ %292, %.loopexit.us72 ]
-  %303 = phi i32 [ %295, %297 ], [ %275, %.loopexit.us72 ]
+300:                                              ; preds = %296, %.loopexit.us72
+  %301 = phi i32 [ %299, %296 ], [ %293, %.loopexit.us72 ]
+  %302 = phi i32 [ %298, %296 ], [ %292, %.loopexit.us72 ]
+  %303 = phi i32 [ %297, %296 ], [ %275, %.loopexit.us72 ]
   %304 = icmp sgt i32 %301, 0
   br i1 %304, label %.split.split.us, label %.split70.us, !llvm.loop !9
 
@@ -698,11 +698,11 @@ default.unreachable:                              ; preds = %352
   br i1 %312, label %313, label %319
 
 313:                                              ; preds = %.split.split
-  %314 = add i32 %305, 1
-  %315 = icmp sgt i32 %314, 7
-  br i1 %315, label %.thread24, label %316
+  %314 = icmp sgt i32 %305, 6
+  br i1 %314, label %.thread24, label %315
 
-316:                                              ; preds = %313
+315:                                              ; preds = %313
+  %316 = add nuw nsw i32 %305, 1
   %317 = add i32 %307, 1
   %318 = add nsw i32 %308, -1
   br label %369, !llvm.loop !9
@@ -726,7 +726,7 @@ default.unreachable:                              ; preds = %352
   br i1 %330, label %331, label %349
 
 331:                                              ; preds = %329
-  %332 = add i32 %327, %305
+  %332 = add nuw nsw i32 %327, %305
   %333 = icmp sgt i32 %332, 7
   br i1 %333, label %.thread24, label %334
 
@@ -830,11 +830,11 @@ default.unreachable:                              ; preds = %352
   %368 = sub nsw i32 %308, %327
   br label %369
 
-369:                                              ; preds = %316, %.loopexit
-  %370 = phi i32 [ %318, %316 ], [ %368, %.loopexit ]
-  %371 = phi i32 [ %317, %316 ], [ %367, %.loopexit ]
-  %372 = phi i32 [ %306, %316 ], [ %365, %.loopexit ]
-  %373 = phi i32 [ %314, %316 ], [ %366, %.loopexit ]
+369:                                              ; preds = %315, %.loopexit
+  %370 = phi i32 [ %318, %315 ], [ %368, %.loopexit ]
+  %371 = phi i32 [ %317, %315 ], [ %367, %.loopexit ]
+  %372 = phi i32 [ %306, %315 ], [ %365, %.loopexit ]
+  %373 = phi i32 [ %316, %315 ], [ %366, %.loopexit ]
   %374 = icmp sgt i32 %370, 0
   br i1 %374, label %.split.split, label %.split70.us, !llvm.loop !9
 
@@ -1113,7 +1113,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @ipv6_renew_options(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address) %3) local_unnamed_addr #2 align 16 {
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %.thread19, label %6
+  br i1 %5, label %.thread35, label %6
 
 6:                                                ; preds = %4
   %7 = icmp eq i32 %2, 54
@@ -1205,12 +1205,12 @@ define dso_local ptr @ipv6_renew_options(ptr noundef %0, ptr noundef readonly ca
   %66 = icmp eq ptr %3, null
   br i1 %66, label %76, label %.thread18
 
-.thread19:                                        ; preds = %4
+.thread35:                                        ; preds = %4
   %67 = icmp eq ptr %3, null
-  br i1 %67, label %.thread20, label %.thread18
+  br i1 %67, label %.thread36, label %.thread18
 
-.thread18:                                        ; preds = %.thread19, %64
-  %68 = phi i32 [ 0, %.thread19 ], [ %65, %64 ]
+.thread18:                                        ; preds = %.thread35, %64
+  %68 = phi i32 [ 0, %.thread35 ], [ %65, %64 ]
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
@@ -1222,14 +1222,14 @@ define dso_local ptr @ipv6_renew_options(ptr noundef %0, ptr noundef readonly ca
 
 76:                                               ; preds = %64
   %77 = icmp eq i32 %65, 0
-  br i1 %77, label %.thread20, label %78
+  br i1 %77, label %.thread36, label %78
 
 78:                                               ; preds = %.thread18, %76
   %79 = phi i32 [ %75, %.thread18 ], [ %65, %76 ]
   %80 = add nuw nsw i32 %79, 64
   %81 = tail call ptr @sock_kmalloc(ptr noundef %0, i32 noundef %80, i32 noundef 2080) #10
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %.thread20, label %83
+  br i1 %82, label %.thread36, label %83
 
 83:                                               ; preds = %78
   %84 = zext nneg i32 %80 to i64
@@ -1428,10 +1428,10 @@ define dso_local ptr @ipv6_renew_options(ptr noundef %0, ptr noundef readonly ca
   %217 = phi i16 [ %215, %210 ], [ 0, %204 ]
   %218 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i16 %217, ptr %218, align 8
-  br label %.thread20
+  br label %.thread36
 
-.thread20:                                        ; preds = %.thread19, %216, %78, %76
-  %219 = phi ptr [ %81, %216 ], [ null, %76 ], [ inttoptr (i64 -105 to ptr), %78 ], [ null, %.thread19 ]
+.thread36:                                        ; preds = %.thread35, %216, %78, %76
+  %219 = phi ptr [ %81, %216 ], [ null, %76 ], [ inttoptr (i64 -105 to ptr), %78 ], [ null, %.thread35 ]
   ret ptr %219
 }
 

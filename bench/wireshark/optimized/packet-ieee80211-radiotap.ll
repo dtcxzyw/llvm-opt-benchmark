@@ -2104,7 +2104,7 @@ define internal i32 @dissect_radiotap(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not795, label %52, label %51
 
 51:                                               ; preds = %45
-  br i1 %28, label %.sink.split974, label %1805
+  br i1 %28, label %.sink.split998, label %1805
 
 52:                                               ; preds = %45
   %53 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -2217,7 +2217,7 @@ define internal i32 @dissect_radiotap(ptr noundef %0, ptr noundef %1, ptr nounde
   %.2764 = select i1 %.not849, i1 %spec.select858, i1 false
   %139 = and i32 %129, 1610612736
   %140 = icmp eq i32 %139, 1610612736
-  br i1 %140, label %.thread955, label %141
+  br i1 %140, label %.thread979, label %141
 
 141:                                              ; preds = %.lr.ph
   %142 = icmp eq i32 %.0765933, 0
@@ -2302,10 +2302,10 @@ define internal i32 @dissect_radiotap(ptr noundef %0, ptr noundef %1, ptr nounde
   %210 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %209, ptr noundef %0, i32 noundef %133, i32 noundef 4, i32 noundef -2147483648)
   br label %213
 
-.thread955:                                       ; preds = %.lr.ph
+.thread979:                                       ; preds = %.lr.ph
   %211 = trunc nuw nsw i64 %indvars.iv to i32
   %212 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %134, ptr noundef nonnull @ei_radiotap_present, ptr noundef nonnull @.str.1276, i32 noundef %211)
-  br label %.sink.split974
+  br label %.sink.split998
 
 213:                                              ; preds = %204, %203
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2357,14 +2357,14 @@ dissect_radiotap_rate.exit:                       ; preds = %dissect_radiotap_ra
   %.not799 = icmp eq i32 %239, 0
   %240 = add i32 %219, 4
   %. = select i1 %.not799, i32 6, i32 8
-  %.975 = select i1 %.not799, i32 -6, i32 -8
+  %.999 = select i1 %.not799, i32 -6, i32 -8
   %hf_radiotap_ven_skip.val = load i32, ptr @hf_radiotap_ven_skip, align 4
   %hf_radiotap_ven_item.val = load i32, ptr @hf_radiotap_ven_item, align 4
   %241 = select i1 %.not799, i32 %hf_radiotap_ven_skip.val, i32 %hf_radiotap_ven_item.val
   %242 = call ptr @proto_tree_add_item(ptr noundef %233, i32 noundef %241, ptr noundef %0, i32 noundef %240, i32 noundef 2, i32 noundef -2147483648)
   %243 = add i32 %., %219
   %244 = load i32, ptr %71, align 8
-  %245 = add i32 %244, %.975
+  %245 = add i32 %244, %.999
   %246 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %243, i32 noundef %245)
   %247 = load ptr, ptr @vendor_dissector_table, align 8
   %248 = call i32 @dissector_try_uint_with_data(ptr noundef %247, i32 noundef %238, ptr noundef %246, ptr noundef %1, ptr noundef %233, i1 noundef zeroext true, ptr noundef null)
@@ -5293,17 +5293,17 @@ dissect_eht_user_info.exit.i:                     ; preds = %1771, %1769
   %1804 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %1874
 
-.sink.split974:                                   ; preds = %51, %.thread955
-  %.str.1283.sink = phi ptr [ @.str.1283, %.thread955 ], [ @.str.1275, %51 ]
+.sink.split998:                                   ; preds = %51, %.thread979
+  %.str.1283.sink = phi ptr [ @.str.1283, %.thread979 ], [ @.str.1275, %51 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0752, ptr noundef nonnull %.str.1283.sink)
   br label %1805
 
-1805:                                             ; preds = %.sink.split974, %1801, %.loopexit, %51
-  %.0909 = phi i8 [ %.2911, %.loopexit ], [ 0, %51 ], [ %.2911, %1801 ], [ 0, %.sink.split974 ]
-  %.0903 = phi ptr [ %.2905, %.loopexit ], [ null, %51 ], [ %.2905, %1801 ], [ null, %.sink.split974 ]
-  %.0897 = phi i32 [ %.2899, %.loopexit ], [ 0, %51 ], [ %.2899, %1801 ], [ 0, %.sink.split974 ]
-  %.0892 = phi i32 [ %.2894, %.loopexit ], [ 0, %51 ], [ %.2894, %1801 ], [ 0, %.sink.split974 ]
-  %.0757 = phi i8 [ %.2759, %.loopexit ], [ 0, %51 ], [ %.2759, %1801 ], [ 0, %.sink.split974 ]
+1805:                                             ; preds = %.sink.split998, %1801, %.loopexit, %51
+  %.0909 = phi i8 [ %.2911, %.loopexit ], [ 0, %51 ], [ %.2911, %1801 ], [ 0, %.sink.split998 ]
+  %.0903 = phi ptr [ %.2905, %.loopexit ], [ null, %51 ], [ %.2905, %1801 ], [ null, %.sink.split998 ]
+  %.0897 = phi i32 [ %.2899, %.loopexit ], [ 0, %51 ], [ %.2899, %1801 ], [ 0, %.sink.split998 ]
+  %.0892 = phi i32 [ %.2894, %.loopexit ], [ 0, %51 ], [ %.2894, %1801 ], [ 0, %.sink.split998 ]
+  %.0757 = phi i8 [ %.2759, %.loopexit ], [ 0, %51 ], [ %.2759, %1801 ], [ 0, %.sink.split998 ]
   %1806 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %1807 = load i16, ptr %1806, align 8
   %1808 = and i16 %1807, 4
@@ -5622,7 +5622,7 @@ define internal zeroext i1 @capture_radiotap(ptr noundef %0, i32 noundef %1, i32
   br i1 %or.cond89, label %49, label %.loopexit
 
 49:                                               ; preds = %47
-  %50 = sext i32 %.1 to i64
+  %50 = zext nneg i32 %.1 to i64
   %51 = getelementptr i8, ptr %0, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = and i8 %52, 32

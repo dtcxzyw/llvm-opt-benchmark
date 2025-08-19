@@ -302,7 +302,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_122getInclusionsForSourceE15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   switch i32 %0, label %.thread.sink.split.i [
     i32 1, label %32
-    i32 2, label %.invoke69.i
+    i32 2, label %.invoke70.i
     i32 6, label %33
     i32 7, label %34
     i32 8, label %43
@@ -321,7 +321,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_122getInclusionsForSourceE15
     i32 18, label %89
   ]
 
-30:                                               ; preds = %98, %96, %89, %.invoke.i, %_ZN12_GLOBAL__N_18_set_addEP4USeti.exit.i, %85, %76, %75, %.invoke69.i, %33, %32
+30:                                               ; preds = %98, %96, %89, %.invoke.i, %_ZN12_GLOBAL__N_18_set_addEP4USeti.exit.i, %85, %76, %75, %.invoke70.i, %33, %32
   %31 = landingpad { ptr, i32 }
           cleanup
   br label %100
@@ -332,9 +332,9 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_122getInclusionsForSourceE15
 
 33:                                               ; preds = %25
   invoke void @uchar_addPropertyStarts_77(ptr noundef nonnull %4, ptr noundef nonnull align 4 dereferenceable(4) %1)
-          to label %.invoke69.i unwind label %30
+          to label %.invoke70.i unwind label %30
 
-.invoke69.i:                                      ; preds = %33, %25
+.invoke70.i:                                      ; preds = %33, %25
   invoke void @upropsvec_addPropertyStarts_77(ptr noundef nonnull %4, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %90 unwind label %30
 
@@ -476,9 +476,9 @@ _ZN12_GLOBAL__N_18_set_addEP4USeti.exit.i:        ; preds = %85
   invoke void @ublock_addPropertyStarts_77(ptr noundef nonnull %4, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %90 unwind label %30
 
-90:                                               ; preds = %89, %.invoke.i, %_ZN12_GLOBAL__N_18_set_addEP4USeti.exit.i, %82, %76, %75, %72, %64, %56, %48, %42, %.invoke69.i, %32
-  %.pr64.i = load i32, ptr %1, align 4, !tbaa !3
-  %91 = icmp slt i32 %.pr64.i, 1
+90:                                               ; preds = %89, %.invoke.i, %_ZN12_GLOBAL__N_18_set_addEP4USeti.exit.i, %82, %76, %75, %72, %64, %56, %48, %42, %.invoke70.i, %32
+  %.pr65.i = load i32, ptr %1, align 4, !tbaa !3
+  %91 = icmp slt i32 %.pr65.i, 1
   br i1 %91, label %92, label %.thread.i
 
 92:                                               ; preds = %90
@@ -792,14 +792,14 @@ define noundef ptr @_ZN6icu_7719CharacterProperties20getBinaryPropertySetE9UProp
   br i1 %85, label %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit.i, label %.thread79.thread.i
 
 .thread79.thread.i:                               ; preds = %.thread79.i, %28
-  %.1.ph106.i = phi ptr [ %.1.ph.i, %.thread79.i ], [ null, %28 ]
-  %.pr105.i = phi ptr [ %.pr.i, %.thread79.i ], [ %18, %28 ]
-  call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %.pr105.i) #8
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.pr105.i) #8
+  %.1.ph111.i = phi ptr [ %.1.ph.i, %.thread79.i ], [ null, %28 ]
+  %.pr110.i = phi ptr [ %.pr.i, %.thread79.i ], [ %18, %28 ]
+  call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %.pr110.i) #8
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.pr110.i) #8
   br label %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit.i
 
 _ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit.i: ; preds = %.thread79.thread.i, %.thread79.i, %83, %21
-  %.185.i = phi ptr [ %.1.ph.i, %.thread79.i ], [ %.1.ph106.i, %.thread79.thread.i ], [ %84, %83 ], [ null, %21 ]
+  %.185.i = phi ptr [ %.1.ph.i, %.thread79.i ], [ %.1.ph111.i, %.thread79.thread.i ], [ %84, %83 ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_17makeSetE9UPropertyR10UErrorCode.exit
 

@@ -1616,8 +1616,8 @@ Map_CutTableHash.exit.thread.i:                   ; preds = %4
   %22 = load i32, ptr %21, align 8, !tbaa !53
   %23 = load ptr, ptr %1, align 8, !tbaa !56
   %24 = load ptr, ptr %23, align 8, !tbaa !24
-  %.not3143.i = icmp eq ptr %24, null
-  br i1 %.not3143.i, label %._crit_edge.sink.split, label %.lr.ph33.split.split.i
+  %.not3145.i = icmp eq ptr %24, null
+  br i1 %.not3145.i, label %._crit_edge.sink.split, label %.lr.ph33.split.split.i
 
 .lr.ph33.split.us.i:                              ; preds = %Map_CutTableHash.exit.i, %36
   %25 = phi ptr [ %41, %36 ], [ %20, %Map_CutTableHash.exit.i ]
@@ -1668,18 +1668,18 @@ Map_CutTableHash.exit.thread.i:                   ; preds = %4
   %47 = getelementptr inbounds ptr, ptr %23, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !24
   %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %Map_CutTableLookup.exit.thread45, label %.lr.ph33.split.split.i, !llvm.loop !115
+  br i1 %.not.i, label %Map_CutTableLookup.exit.thread47, label %.lr.ph33.split.split.i, !llvm.loop !115
 
 Map_CutTableLookup.exit:                          ; preds = %36
   %49 = icmp eq i32 %38, -1
   br i1 %49, label %Map_CutTableLookup.exit.thread, label %.lr.ph
 
-Map_CutTableLookup.exit.thread45:                 ; preds = %.lr.ph33.split.split.i
+Map_CutTableLookup.exit.thread47:                 ; preds = %.lr.ph33.split.split.i
   %50 = icmp eq i32 %45, -1
   br i1 %50, label %Map_CutTableLookup.exit.thread, label %._crit_edge.sink.split
 
 .lr.ph:                                           ; preds = %Map_CutTableLookup.exit, %Map_CutTableHash.exit.i
-  %.023.i2742 = phi i32 [ %16, %Map_CutTableHash.exit.i ], [ %38, %Map_CutTableLookup.exit ]
+  %.023.i2744 = phi i32 [ %16, %Map_CutTableHash.exit.i ], [ %38, %Map_CutTableLookup.exit ]
   %51 = tail call ptr @Map_CutAlloc(ptr noundef %0) #18
   %52 = trunc i32 %3 to i8
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 76
@@ -1698,8 +1698,8 @@ Map_CutTableLookup.exit.thread45:                 ; preds = %.lr.ph33.split.spli
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !117
 
-._crit_edge.sink.split:                           ; preds = %Map_CutTableLookup.exit.thread45, %Map_CutTableHash.exit.thread.i
-  %.023.i2741.ph = phi i32 [ 0, %Map_CutTableHash.exit.thread.i ], [ %45, %Map_CutTableLookup.exit.thread45 ]
+._crit_edge.sink.split:                           ; preds = %Map_CutTableLookup.exit.thread47, %Map_CutTableHash.exit.thread.i
+  %.023.i2743.ph = phi i32 [ 0, %Map_CutTableHash.exit.thread.i ], [ %45, %Map_CutTableLookup.exit.thread47 ]
   %59 = tail call ptr @Map_CutAlloc(ptr noundef %0) #18
   %60 = trunc i32 %3 to i8
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 76
@@ -1708,9 +1708,9 @@ Map_CutTableLookup.exit.thread45:                 ; preds = %.lr.ph33.split.spli
 
 ._crit_edge:                                      ; preds = %55, %._crit_edge.sink.split
   %62 = phi ptr [ %59, %._crit_edge.sink.split ], [ %51, %55 ]
-  %.023.i2741 = phi i32 [ %.023.i2741.ph, %._crit_edge.sink.split ], [ %.023.i2742, %55 ]
+  %.023.i2743 = phi i32 [ %.023.i2743.ph, %._crit_edge.sink.split ], [ %.023.i2744, %55 ]
   %63 = load ptr, ptr %1, align 8, !tbaa !56
-  %64 = sext i32 %.023.i2741 to i64
+  %64 = sext i32 %.023.i2743 to i64
   %65 = getelementptr inbounds ptr, ptr %63, i64 %64
   store ptr %62, ptr %65, align 8, !tbaa !24
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1721,11 +1721,11 @@ Map_CutTableLookup.exit.thread45:                 ; preds = %.lr.ph33.split.spli
   store i32 %70, ptr %68, align 8, !tbaa !66
   %71 = sext i32 %69 to i64
   %72 = getelementptr inbounds i32, ptr %67, i64 %71
-  store i32 %.023.i2741, ptr %72, align 4, !tbaa !67
+  store i32 %.023.i2743, ptr %72, align 4, !tbaa !67
   br label %Map_CutTableLookup.exit.thread
 
-Map_CutTableLookup.exit.thread:                   ; preds = %._crit_edge.us.i, %42, %Map_CutTableLookup.exit.thread45, %Map_CutTableLookup.exit, %._crit_edge
-  %.021 = phi ptr [ %62, %._crit_edge ], [ null, %Map_CutTableLookup.exit ], [ null, %Map_CutTableLookup.exit.thread45 ], [ null, %42 ], [ null, %._crit_edge.us.i ]
+Map_CutTableLookup.exit.thread:                   ; preds = %._crit_edge.us.i, %42, %Map_CutTableLookup.exit.thread47, %Map_CutTableLookup.exit, %._crit_edge
+  %.021 = phi ptr [ %62, %._crit_edge ], [ null, %Map_CutTableLookup.exit ], [ null, %Map_CutTableLookup.exit.thread47 ], [ null, %42 ], [ null, %._crit_edge.us.i ]
   ret ptr %.021
 }
 

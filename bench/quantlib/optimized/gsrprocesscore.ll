@@ -1925,8 +1925,8 @@ _ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.i:      ; preds = %_ZSt11upper_boundIP
   %sub.ptr.lhs.cast.pre-phi.i = phi i64 [ %.pre.i, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.loopexit.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %if.end.i ]
   %sub.ptr.sub.i85 = sub i64 %sub.ptr.lhs.cast.pre-phi.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %add.i = shl i64 %sub.ptr.sub.i85, 29
-  %sext1082 = add i64 %add.i, 4294967296
-  %21 = ashr i64 %sext1082, 32
+  %sext1094 = add i64 %add.i, 4294967296
+  %21 = ashr i64 %sext1094, 32
   br label %_ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit
 
 _ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit: ; preds = %for.cond, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.i
@@ -2153,8 +2153,8 @@ cond.end:                                         ; preds = %_ZNK8QuantLib6detai
   br i1 %cmp.i81, label %for.cond.cleanup57, label %if.end.i202
 
 if.end.i202:                                      ; preds = %cond.end, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit250
-  %res2.01098 = phi double [ %mul69, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit250 ], [ %cond, %cond.end ]
-  %indvars.iv10581097 = phi i64 [ %indvars.iv.next1059, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit250 ], [ %18, %cond.end ]
+  %res2.01110 = phi double [ %mul69, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit250 ], [ %cond, %cond.end ]
+  %indvars.iv10581109 = phi i64 [ %indvars.iv.next1059, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit250 ], [ %18, %cond.end ]
   br i1 %cmp11.i.i.i, label %while.body.i.i.i214, label %_ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit231
 
 while.body.i.i.i214:                              ; preds = %if.end.i202, %while.body.i.i.i214
@@ -2181,12 +2181,12 @@ _ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit231: ; preds = %if.end.i2
   %sub.ptr.sub.i209 = sub i64 %sub.ptr.lhs.cast.pre-phi.i208, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i210 = lshr exact i64 %sub.ptr.sub.i209, 3
   %conv.i211 = trunc i64 %sub.ptr.div.i210 to i32
-  %56 = trunc nuw i64 %indvars.iv10581097 to i32
+  %56 = trunc nuw i64 %indvars.iv10581109 to i32
   %.not = icmp sgt i32 %56, %conv.i211
   br i1 %.not, label %for.cond.cleanup57, label %for.body58
 
 for.cond.cleanup57:                               ; preds = %_ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit231, %cond.end
-  %res2.0.lcssa = phi double [ %cond, %cond.end ], [ %res2.01098, %_ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit231 ]
+  %res2.0.lcssa = phi double [ %cond, %cond.end ], [ %res2.01110, %_ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit231 ]
   %indvars.iv.next1067 = add nuw nsw i64 %indvars.iv1066, 1
   %cmp73.not.not1037 = icmp slt i64 %indvars.iv.next1067, %indvars.iv1076
   br i1 %cmp73.not.not1037, label %for.body75.lr.ph, label %for.cond.cleanup74
@@ -2200,16 +2200,16 @@ for.body75.lr.ph:                                 ; preds = %for.cond.cleanup57
 
 for.body58:                                       ; preds = %_ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit231
   %60 = load i64, ptr %n_.i.i233, align 8, !tbaa !36
-  %cmp.not.i234 = icmp ugt i64 %60, %indvars.iv10581097
+  %cmp.not.i234 = icmp ugt i64 %60, %indvars.iv10581109
   %61 = load ptr, ptr %52, align 8, !tbaa !3
   %62 = getelementptr double, ptr %61, i64 %60
   %arrayidx.i.i235 = getelementptr i8, ptr %62, i64 -8
-  %arrayidx.i3.i236 = getelementptr inbounds nuw double, ptr %61, i64 %indvars.iv10581097
+  %arrayidx.i3.i236 = getelementptr inbounds nuw double, ptr %61, i64 %indvars.iv10581109
   %retval.0.in.i237 = select i1 %cmp.not.i234, ptr %arrayidx.i3.i236, ptr %arrayidx.i.i235
   %retval.0.i238 = load double, ptr %retval.0.in.i237, align 8, !tbaa !53
   %fneg = fneg double %retval.0.i238
-  %indvars.iv.next1059 = add nuw nsw i64 %indvars.iv10581097, 1
-  %cmp2.i.i.not = icmp ugt i64 %8, %indvars.iv10581097
+  %indvars.iv.next1059 = add nuw nsw i64 %indvars.iv10581109, 1
+  %cmp2.i.i.not = icmp ugt i64 %8, %indvars.iv10581109
   br i1 %cmp.i239, label %if.end.i.i, label %if.end.i4.i
 
 if.end.i.i:                                       ; preds = %for.body58
@@ -2238,11 +2238,11 @@ if.end4.i7.i:                                     ; preds = %if.end.i4.i
 
 if.end.i242:                                      ; preds = %if.end4.i7.i, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i, %if.end.i4.i
   %cond.i = phi double [ %.sroa.speculated.i, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i ], [ %66, %if.end4.i7.i ], [ %53, %if.end.i4.i ]
-  %cmp2.i244 = icmp ult i64 %8, %indvars.iv10581097
+  %cmp2.i244 = icmp ult i64 %8, %indvars.iv10581109
   br i1 %cmp2.i244, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit250, label %if.end4.i245
 
 if.end4.i245:                                     ; preds = %if.end.i242
-  %67 = getelementptr double, ptr %7, i64 %indvars.iv10581097
+  %67 = getelementptr double, ptr %7, i64 %indvars.iv10581109
   %arrayidx.i.i246 = getelementptr i8, ptr %67, i64 -8
   %68 = load double, ptr %arrayidx.i.i246, align 8, !tbaa !53
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit250
@@ -2252,7 +2252,7 @@ _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit250: ; preds = %if.end.i242, %i
   %sub66 = fsub double %cond.i, %retval.0.i247
   %mul67 = fmul double %sub66, %fneg
   %call68 = tail call double @exp(double noundef %mul67) #22, !tbaa !76
-  %mul69 = fmul double %res2.01098, %call68
+  %mul69 = fmul double %res2.01110, %call68
   br label %if.end.i202, !llvm.loop !81
 
 for.cond.cleanup74:                               ; preds = %for.body75, %for.cond.cleanup57
@@ -2265,7 +2265,7 @@ for.cond.cleanup74:                               ; preds = %for.body75, %for.co
   %index.sink13.i262 = select i1 %cmp.not.i260, i64 %indvars.iv1076, i64 %add.i.i.i.i.i.i261
   %.sink.i263 = select i1 %cmp.not.i260, ptr %12, ptr %11
   %div.i.i.i.i.i3.i264 = sdiv i64 %index.sink13.i262, 64
-  %add.ptr.i.i.i.i.i4.i265 = getelementptr inbounds i64, ptr %.sink.i263, i64 %div.i.i.i.i.i3.i264
+  %add.ptr.i.i.i.i.i4.i265 = getelementptr inbounds nuw i64, ptr %.sink.i263, i64 %div.i.i.i.i.i3.i264
   %70 = and i64 %index.sink13.i262, -9223372036854775745
   %cmp.i.i.i.i.i5.i266 = icmp ugt i64 %70, -9223372036854775808
   %storemerge.idx.i.i.i.i.i6.i267 = select i1 %cmp.i.i.i.i.i5.i266, i64 -8, i64 0
@@ -2547,13 +2547,13 @@ _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit541: ; preds = %if.end.i
   br i1 %99, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit551.thread, label %if.end.i543
 
 if.end.i543:                                      ; preds = %cond.false.i520, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit541
-  %cond.i5261086 = phi double [ %cond.i526, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit541 ], [ 0.000000e+00, %cond.false.i520 ]
+  %cond.i5261098 = phi double [ %cond.i526, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit541 ], [ 0.000000e+00, %cond.false.i520 ]
   %cmp2.i545 = icmp ult i64 %8, %indvars.iv1076
   %100 = getelementptr double, ptr %7, i64 %indvars.iv1076
   %arrayidx.i.i547 = getelementptr i8, ptr %100, i64 -8
   %retval.0.i548.in = select i1 %cmp2.i545, ptr %T_.i, ptr %arrayidx.i.i547
   %retval.0.i548 = load double, ptr %retval.0.i548.in, align 8, !tbaa !53
-  %sub162 = fsub double %cond.i5261086, %retval.0.i548
+  %sub162 = fsub double %cond.i5261098, %retval.0.i548
   %square = fmul double %sub162, %sub162
   br i1 %cmp.i310, label %if.end.i577, label %if.end.i4.i555
 
@@ -2562,9 +2562,9 @@ _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit551.thread: ; preds = %_ZNK8Qua
   br i1 %cmp.i310, label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit575.thread994, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit585
 
 if.end.i4.i555:                                   ; preds = %if.end.i543
-  br i1 %cmp2.i545, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit585, label %if.end.i577.thread1088
+  br i1 %cmp2.i545, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit585, label %if.end.i577.thread1100
 
-if.end.i577.thread1088:                           ; preds = %if.end.i4.i555
+if.end.i577.thread1100:                           ; preds = %if.end.i4.i555
   %101 = load double, ptr %arrayidx.i.i547, align 8, !tbaa !53
   br label %if.end4.i580
 
@@ -2576,14 +2576,14 @@ if.end.i577:                                      ; preds = %if.end.i543
   %.sroa.speculated.i572 = select i1 %cmp.i2.i571, double %retval.0.i548, double %w
   br i1 %cmp2.i545, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit585, label %if.end4.i580
 
-if.end4.i580:                                     ; preds = %if.end.i577.thread1088, %if.end.i577
-  %cond.i5609921090 = phi double [ %101, %if.end.i577.thread1088 ], [ %.sroa.speculated.i572, %if.end.i577 ]
+if.end4.i580:                                     ; preds = %if.end.i577.thread1100, %if.end.i577
+  %cond.i5609921102 = phi double [ %101, %if.end.i577.thread1100 ], [ %.sroa.speculated.i572, %if.end.i577 ]
   %102 = load double, ptr %arrayidx.i.i547, align 8, !tbaa !53
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit585
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit585: ; preds = %if.end.i4.i555, %if.end.i577, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit551.thread, %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit575.thread994, %if.end4.i580
   %103 = phi i1 [ false, %if.end4.i580 ], [ true, %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit575.thread994 ], [ true, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit551.thread ], [ false, %if.end.i577 ], [ false, %if.end.i4.i555 ]
-  %cond.i560984 = phi double [ %cond.i5609921090, %if.end4.i580 ], [ %.sroa.speculated.i572999, %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit575.thread994 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit551.thread ], [ %.sroa.speculated.i572, %if.end.i577 ], [ %14, %if.end.i4.i555 ]
+  %cond.i560984 = phi double [ %cond.i5609921102, %if.end4.i580 ], [ %.sroa.speculated.i572999, %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit575.thread994 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit551.thread ], [ %.sroa.speculated.i572, %if.end.i577 ], [ %14, %if.end.i4.i555 ]
   %square967983 = phi double [ %square, %if.end4.i580 ], [ %square965, %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit575.thread994 ], [ %square965, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit551.thread ], [ %square, %if.end.i577 ], [ %square, %if.end.i4.i555 ]
   %cmp.i552970982 = phi i1 [ %cmp.i310, %if.end4.i580 ], [ true, %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit575.thread994 ], [ false, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit551.thread ], [ true, %if.end.i577 ], [ false, %if.end.i4.i555 ]
   %retval.0.i582 = phi double [ %102, %if.end4.i580 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit575.thread994 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit551.thread ], [ %14, %if.end.i577 ], [ %14, %if.end.i4.i555 ]
@@ -2745,7 +2745,7 @@ _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit716: ; preds = %if.end.i
   br i1 %122, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit726, label %if.end.i718
 
 if.end.i718:                                      ; preds = %cond.false.i695, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit716
-  %cond.i7011092 = phi double [ %cond.i701, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit716 ], [ 0.000000e+00, %cond.false.i695 ]
+  %cond.i7011104 = phi double [ %cond.i701, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit716 ], [ 0.000000e+00, %cond.false.i695 ]
   %cmp2.i720 = icmp ult i64 %8, %indvars.iv1076
   br i1 %cmp2.i720, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit726, label %if.end4.i721
 
@@ -2757,9 +2757,9 @@ if.end4.i721:                                     ; preds = %if.end.i718
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit726: ; preds = %if.end.i718, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit716, %if.end4.i721
   %125 = phi i1 [ false, %if.end4.i721 ], [ true, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit716 ], [ false, %if.end.i718 ]
-  %cond.i7011093 = phi double [ %cond.i7011092, %if.end4.i721 ], [ %cond.i701, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit716 ], [ %cond.i7011092, %if.end.i718 ]
+  %cond.i7011105 = phi double [ %cond.i7011104, %if.end4.i721 ], [ %cond.i701, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit716 ], [ %cond.i7011104, %if.end.i718 ]
   %retval.0.i723 = phi double [ %124, %if.end4.i721 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit716 ], [ %14, %if.end.i718 ]
-  %sub206 = fsub double %cond.i7011093, %retval.0.i723
+  %sub206 = fsub double %cond.i7011105, %retval.0.i723
   %mul207 = fmul double %mul200, %sub206
   %call208 = tail call double @exp(double noundef %mul207) #22, !tbaa !76
   %add209 = fadd double %call208, 1.000000e+00
@@ -2956,8 +2956,8 @@ _ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.i853:   ; preds = %_ZSt11upper_boundIP
   %sub.ptr.lhs.cast.pre-phi.i854 = phi i64 [ %.pre.i876, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.loopexit.i875 ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %if.end.i848 ]
   %sub.ptr.sub.i855 = sub i64 %sub.ptr.lhs.cast.pre-phi.i854, %sub.ptr.rhs.cast.i.i.i.i.i
   %add.i858 = shl i64 %sub.ptr.sub.i855, 29
-  %sext1083 = add i64 %add.i858, 4294967296
-  %146 = ashr i64 %sext1083, 32
+  %sext1095 = add i64 %add.i858, 4294967296
+  %146 = ashr i64 %sext1095, 32
   br label %_ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit877
 
 _ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit877: ; preds = %for.cond243, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.i853
@@ -3022,7 +3022,7 @@ _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit908: ; preds = %if.end.i
   br i1 %154, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit918, label %if.end.i910
 
 if.end.i910:                                      ; preds = %cond.false.i887, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit908
-  %cond.i8931095 = phi double [ %cond.i893, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit908 ], [ 0.000000e+00, %cond.false.i887 ]
+  %cond.i8931107 = phi double [ %cond.i893, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit908 ], [ 0.000000e+00, %cond.false.i887 ]
   %cmp2.i912 = icmp ult i64 %8, %indvars.iv1073
   br i1 %cmp2.i912, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit918, label %if.end4.i913
 
@@ -3033,9 +3033,9 @@ if.end4.i913:                                     ; preds = %if.end.i910
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit918
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit918: ; preds = %if.end.i910, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit908, %if.end4.i913
-  %cond.i8931096 = phi double [ %cond.i8931095, %if.end4.i913 ], [ %cond.i893, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit908 ], [ %cond.i8931095, %if.end.i910 ]
+  %cond.i8931108 = phi double [ %cond.i8931107, %if.end4.i913 ], [ %cond.i893, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit908 ], [ %cond.i8931107, %if.end.i910 ]
   %retval.0.i915 = phi double [ %156, %if.end4.i913 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit908 ], [ %143, %if.end.i910 ]
-  %sub257 = fsub double %cond.i8931096, %retval.0.i915
+  %sub257 = fsub double %cond.i8931108, %retval.0.i915
   %mul258 = fmul double %sub257, %fneg251
   %call259 = tail call double @exp(double noundef %mul258) #22, !tbaa !76
   %mul260 = fmul double %res2147.0, %call259
@@ -3257,12 +3257,12 @@ _ZNK8QuantLib6detail14GsrProcessCore10lowerIndexEd.exit: ; preds = %while.body.i
   %n_.i.i933 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %sext = shl i64 %sub.ptr.div.i, 32
   %16 = ashr exact i64 %sext, 32
-  %cmp.i2.i34610221179 = fcmp olt double %11, %add
-  %.sroa.speculated.i34710231180 = select i1 %cmp.i2.i34610221179, double %11, double %add
-  %cmp.i2.i44410431187 = fcmp olt double %11, %add
-  %.sroa.speculated.i44510441188 = select i1 %cmp.i2.i44410431187, double %11, double %add
-  %cmp.i2.i62210971190 = fcmp olt double %w, %11
-  %.sroa.speculated.i62310981191 = select i1 %cmp.i2.i62210971190, double %11, double %w
+  %cmp.i2.i34610221193 = fcmp olt double %11, %add
+  %.sroa.speculated.i34710231194 = select i1 %cmp.i2.i34610221193, double %11, double %add
+  %cmp.i2.i44410431201 = fcmp olt double %11, %add
+  %.sroa.speculated.i44510441202 = select i1 %cmp.i2.i44410431201, double %11, double %add
+  %cmp.i2.i62210971204 = fcmp olt double %w, %11
+  %.sroa.speculated.i62310981205 = select i1 %cmp.i2.i62210971204, double %11, double %w
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.cleanup240, %_ZNK8QuantLib6detail14GsrProcessCore10lowerIndexEd.exit
@@ -3299,8 +3299,8 @@ _ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.i:      ; preds = %_ZSt11upper_boundIP
   %sub.ptr.lhs.cast.pre-phi.i = phi i64 [ %.pre.i, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.loopexit.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %if.end.i ]
   %sub.ptr.sub.i80 = sub i64 %sub.ptr.lhs.cast.pre-phi.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %add.i = shl i64 %sub.ptr.sub.i80, 29
-  %sext1160 = add i64 %add.i, 4294967296
-  %20 = ashr i64 %sext1160, 32
+  %sext1174 = add i64 %add.i, 4294967296
+  %20 = ashr i64 %sext1174, 32
   br label %_ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit
 
 _ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit: ; preds = %for.cond, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.i
@@ -3401,14 +3401,14 @@ for.body:                                         ; preds = %_ZNK8QuantLib6detai
   %.mux1142 = select i1 %29, double 0.000000e+00, double %11
   %brmerge1139 = or i1 %29, %cmp2.i6.i366
   %.mux1140 = select i1 %29, double 0.000000e+00, double %11
-  %brmerge1244 = or i1 %cmp.i.i328, %cmp2.i6.i332
-  %.mux1245 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
-  %.mux1205 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
-  %.sroa.speculated.i347.mux = select i1 %cmp.i.i328, double %.sroa.speculated.i347, double %.sroa.speculated.i34710231180
-  %brmerge1246 = or i1 %cmp.i.i328, %cmp2.i6.i332
-  %.mux1248 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
-  %.mux1208 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
-  %.sroa.speculated.i347.mux1247 = select i1 %cmp.i.i328, double %.sroa.speculated.i347, double %.sroa.speculated.i44510441188
+  %brmerge1258 = or i1 %cmp.i.i328, %cmp2.i6.i332
+  %.mux1259 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
+  %.mux1219 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
+  %.sroa.speculated.i347.mux = select i1 %cmp.i.i328, double %.sroa.speculated.i347, double %.sroa.speculated.i34710231194
+  %brmerge1260 = or i1 %cmp.i.i328, %cmp2.i6.i332
+  %.mux1262 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
+  %.mux1222 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
+  %.sroa.speculated.i347.mux1261 = select i1 %cmp.i.i328, double %.sroa.speculated.i347, double %.sroa.speculated.i44510441202
   br label %for.cond14
 
 for.cond14:                                       ; preds = %cond.end136, %for.body
@@ -3442,8 +3442,8 @@ _ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.i107:   ; preds = %_ZSt11upper_boundIP
   %sub.ptr.lhs.cast.pre-phi.i108 = phi i64 [ %.pre.i130, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.loopexit.i129 ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %if.end.i102 ]
   %sub.ptr.sub.i109 = sub i64 %sub.ptr.lhs.cast.pre-phi.i108, %sub.ptr.rhs.cast.i.i.i.i.i
   %add.i112 = shl i64 %sub.ptr.sub.i109, 29
-  %sext1161 = add i64 %add.i112, 4294967296
-  %33 = ashr i64 %sext1161, 32
+  %sext1175 = add i64 %add.i112, 4294967296
+  %33 = ashr i64 %sext1175, 32
   br label %_ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit131
 
 _ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit131: ; preds = %for.cond14, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.i107
@@ -3533,7 +3533,7 @@ _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit: ; preds = %if.end.i4.i
   br i1 %44, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit, label %if.end.i158
 
 if.end.i158:                                      ; preds = %cond.false.i, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit
-  %cond.i1165 = phi double [ %cond.i, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit ], [ 0.000000e+00, %cond.false.i ]
+  %cond.i1179 = phi double [ %cond.i, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit ], [ 0.000000e+00, %cond.false.i ]
   %cmp2.i = icmp ult i64 %8, %indvars.iv1149
   br i1 %cmp2.i, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit, label %if.end4.i
 
@@ -3544,9 +3544,9 @@ if.end4.i:                                        ; preds = %if.end.i158
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit: ; preds = %if.end.i158, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit, %if.end4.i
-  %cond.i1166 = phi double [ %cond.i1165, %if.end4.i ], [ %cond.i, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit ], [ %cond.i1165, %if.end.i158 ]
+  %cond.i1180 = phi double [ %cond.i1179, %if.end4.i ], [ %cond.i, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit ], [ %cond.i1179, %if.end.i158 ]
   %retval.0.i160 = phi double [ %46, %if.end4.i ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit ], [ %11, %if.end.i158 ]
-  %sub27 = fsub double %cond.i1166, %retval.0.i160
+  %sub27 = fsub double %cond.i1180, %retval.0.i160
   br label %cond.end
 
 cond.false:                                       ; preds = %for.body19
@@ -3601,7 +3601,7 @@ _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit188: ; preds = %if.end.i
   br i1 %55, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit198, label %if.end.i190
 
 if.end.i190:                                      ; preds = %cond.false.i167, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit188
-  %cond.i1731168 = phi double [ %cond.i173, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit188 ], [ 0.000000e+00, %cond.false.i167 ]
+  %cond.i1731182 = phi double [ %cond.i173, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit188 ], [ 0.000000e+00, %cond.false.i167 ]
   %cmp2.i192 = icmp ult i64 %8, %indvars.iv1149
   br i1 %cmp2.i192, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit198, label %if.end4.i193
 
@@ -3612,9 +3612,9 @@ if.end4.i193:                                     ; preds = %if.end.i190
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit198
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit198: ; preds = %if.end.i190, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit188, %if.end4.i193
-  %cond.i1731169 = phi double [ %cond.i1731168, %if.end4.i193 ], [ %cond.i173, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit188 ], [ %cond.i1731168, %if.end.i190 ]
+  %cond.i1731183 = phi double [ %cond.i1731182, %if.end4.i193 ], [ %cond.i173, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit188 ], [ %cond.i1731182, %if.end.i190 ]
   %retval.0.i195 = phi double [ %57, %if.end4.i193 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit188 ], [ %11, %if.end.i190 ]
-  %sub36 = fsub double %cond.i1731169, %retval.0.i195
+  %sub36 = fsub double %cond.i1731183, %retval.0.i195
   %mul = fmul double %sub36, %fneg
   %call37 = tail call double @exp(double noundef %mul) #22, !tbaa !76
   %sub38 = fsub double 1.000000e+00, %call37
@@ -3658,8 +3658,8 @@ _ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.i212:   ; preds = %_ZSt11upper_boundIP
   %sub.ptr.lhs.cast.pre-phi.i213 = phi i64 [ %.pre.i235, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.loopexit.i234 ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %if.end.i207 ]
   %sub.ptr.sub.i214 = sub i64 %sub.ptr.lhs.cast.pre-phi.i213, %sub.ptr.rhs.cast.i.i.i.i.i
   %add.i217 = shl i64 %sub.ptr.sub.i214, 29
-  %sext1163 = add i64 %add.i217, 4294967296
-  %61 = ashr i64 %sext1163, 32
+  %sext1177 = add i64 %add.i217, 4294967296
+  %61 = ashr i64 %sext1177, 32
   br label %_ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit236
 
 _ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit236: ; preds = %for.cond43, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.i212
@@ -3731,7 +3731,7 @@ _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit267: ; preds = %if.end.i
   br i1 %73, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit277, label %if.end.i269
 
 if.end.i269:                                      ; preds = %cond.false.i246, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit267
-  %cond.i2521171 = phi double [ %cond.i252, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit267 ], [ 0.000000e+00, %cond.false.i246 ]
+  %cond.i2521185 = phi double [ %cond.i252, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit267 ], [ 0.000000e+00, %cond.false.i246 ]
   %cmp2.i271 = icmp ult i64 %8, %indvars.iv1143
   br i1 %cmp2.i271, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit277, label %if.end4.i272
 
@@ -3742,9 +3742,9 @@ if.end4.i272:                                     ; preds = %if.end.i269
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit277
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit277: ; preds = %if.end.i269, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit267, %if.end4.i272
-  %cond.i2521172 = phi double [ %cond.i2521171, %if.end4.i272 ], [ %cond.i252, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit267 ], [ %cond.i2521171, %if.end.i269 ]
+  %cond.i2521186 = phi double [ %cond.i2521185, %if.end4.i272 ], [ %cond.i252, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit267 ], [ %cond.i2521185, %if.end.i269 ]
   %retval.0.i274 = phi double [ %75, %if.end4.i272 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit267 ], [ %11, %if.end.i269 ]
-  %sub57 = fsub double %cond.i2521172, %retval.0.i274
+  %sub57 = fsub double %cond.i2521186, %retval.0.i274
   %mul58 = fmul double %sub57, %fneg51
   %call59 = tail call double @exp(double noundef %mul58) #22, !tbaa !76
   %mul60 = fmul double %res3.0, %call59
@@ -3823,12 +3823,12 @@ cond.true84:                                      ; preds = %for.cond.cleanup65
   br i1 %cmp.i244, label %cond.true.i338, label %cond.false.i329
 
 cond.true.i338:                                   ; preds = %cond.true84
-  br i1 %brmerge1244, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit360, label %if.end.i352
+  br i1 %brmerge1258, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit360, label %if.end.i352
 
 cond.false.i329:                                  ; preds = %cond.true84
-  br i1 %brmerge1244, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit360, label %if.end.i352.thread1174
+  br i1 %brmerge1258, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit360, label %if.end.i352.thread1188
 
-if.end.i352.thread1174:                           ; preds = %cond.false.i329
+if.end.i352.thread1188:                           ; preds = %cond.false.i329
   %85 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
   br label %if.end4.i355
 
@@ -3838,14 +3838,14 @@ if.end.i352:                                      ; preds = %cond.true.i338
   %.sroa.speculated.i3471023 = select i1 %cmp.i2.i3461022, double %86, double %add
   br label %if.end4.i355
 
-if.end4.i355:                                     ; preds = %if.end.i352, %if.end.i352.thread1174
-  %cond.i33510151176 = phi double [ %85, %if.end.i352.thread1174 ], [ %.sroa.speculated.i3471023, %if.end.i352 ]
+if.end4.i355:                                     ; preds = %if.end.i352, %if.end.i352.thread1188
+  %cond.i33510151190 = phi double [ %85, %if.end.i352.thread1188 ], [ %.sroa.speculated.i3471023, %if.end.i352 ]
   %87 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit360
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit360: ; preds = %cond.true.i338, %cond.false.i329, %if.end4.i355
-  %cond.i3351016 = phi double [ %cond.i33510151176, %if.end4.i355 ], [ %.mux1205, %cond.false.i329 ], [ %.sroa.speculated.i347.mux, %cond.true.i338 ]
-  %retval.0.i357 = phi double [ %87, %if.end4.i355 ], [ %.mux1245, %cond.false.i329 ], [ %.mux1245, %cond.true.i338 ]
+  %cond.i3351016 = phi double [ %cond.i33510151190, %if.end4.i355 ], [ %.mux1219, %cond.false.i329 ], [ %.sroa.speculated.i347.mux, %cond.true.i338 ]
+  %retval.0.i357 = phi double [ %87, %if.end4.i355 ], [ %.mux1259, %cond.false.i329 ], [ %.mux1259, %cond.true.i338 ]
   %sub91 = fsub double %cond.i3351016, %retval.0.i357
   br i1 %cmp.i361, label %cond.true.i372, label %cond.false.i363
 
@@ -3937,12 +3937,12 @@ cond.false104:                                    ; preds = %for.cond.cleanup65
   br i1 %cmp.i244, label %cond.true.i436, label %cond.false.i427
 
 cond.true.i436:                                   ; preds = %cond.false104
-  br i1 %brmerge1246, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit458, label %if.end.i450
+  br i1 %brmerge1260, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit458, label %if.end.i450
 
 cond.false.i427:                                  ; preds = %cond.false104
-  br i1 %brmerge1246, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit458, label %if.end.i450.thread1182
+  br i1 %brmerge1260, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit458, label %if.end.i450.thread1196
 
-if.end.i450.thread1182:                           ; preds = %cond.false.i427
+if.end.i450.thread1196:                           ; preds = %cond.false.i427
   %100 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
   br label %if.end4.i453
 
@@ -3952,14 +3952,14 @@ if.end.i450:                                      ; preds = %cond.true.i436
   %.sroa.speculated.i4451044 = select i1 %cmp.i2.i4441043, double %101, double %add
   br label %if.end4.i453
 
-if.end4.i453:                                     ; preds = %if.end.i450, %if.end.i450.thread1182
-  %cond.i43310361184 = phi double [ %100, %if.end.i450.thread1182 ], [ %.sroa.speculated.i4451044, %if.end.i450 ]
+if.end4.i453:                                     ; preds = %if.end.i450, %if.end.i450.thread1196
+  %cond.i43310361198 = phi double [ %100, %if.end.i450.thread1196 ], [ %.sroa.speculated.i4451044, %if.end.i450 ]
   %102 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit458
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit458: ; preds = %cond.true.i436, %cond.false.i427, %if.end4.i453
-  %cond.i4331037 = phi double [ %cond.i43310361184, %if.end4.i453 ], [ %.mux1208, %cond.false.i427 ], [ %.sroa.speculated.i347.mux1247, %cond.true.i436 ]
-  %retval.0.i455 = phi double [ %102, %if.end4.i453 ], [ %.mux1248, %cond.false.i427 ], [ %.mux1248, %cond.true.i436 ]
+  %cond.i4331037 = phi double [ %cond.i43310361198, %if.end4.i453 ], [ %.mux1222, %cond.false.i427 ], [ %.sroa.speculated.i347.mux1261, %cond.true.i436 ]
+  %retval.0.i455 = phi double [ %102, %if.end4.i453 ], [ %.mux1262, %cond.false.i427 ], [ %.mux1262, %cond.true.i436 ]
   %sub113 = fsub double %cond.i4331037, %retval.0.i455
   %mul114 = fmul double %retval.0.i424, %sub113
   %call115 = tail call double @exp(double noundef %mul114) #22, !tbaa !76
@@ -4055,16 +4055,16 @@ cond.true146:                                     ; preds = %for.cond.cleanup18
   br i1 %cmp.i244, label %cond.true.i542, label %cond.false.i533
 
 cond.true.i542:                                   ; preds = %cond.true146
-  %brmerge1210 = or i1 %cmp.i.i328, %cmp2.i6.i332
-  %.mux1211 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
-  br i1 %brmerge1210, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i548, label %if.end4.i.i546
+  %brmerge1224 = or i1 %cmp.i.i328, %cmp2.i6.i332
+  %.mux1225 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
+  br i1 %brmerge1224, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i548, label %if.end4.i.i546
 
 if.end4.i.i546:                                   ; preds = %cond.true.i542
   %112 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i548
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i548: ; preds = %cond.true.i542, %if.end4.i.i546
-  %retval.0.i.i549 = phi double [ %112, %if.end4.i.i546 ], [ %.mux1211, %cond.true.i542 ]
+  %retval.0.i.i549 = phi double [ %112, %if.end4.i.i546 ], [ %.mux1225, %cond.true.i542 ]
   %cmp.i2.i550 = fcmp olt double %retval.0.i.i549, %add
   %.sroa.speculated.i551 = select i1 %cmp.i2.i550, double %retval.0.i.i549, double %add
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit554
@@ -4087,9 +4087,9 @@ _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit554.thread: ; preds = %c
   br i1 %cmp.i155, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i572, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit602
 
 cond.true.i566:                                   ; preds = %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit554
-  %brmerge1212 = or i1 %cmp.i.i328, %cmp2.i6.i332
-  %.mux1213 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
-  br i1 %brmerge1212, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i572, label %if.end4.i.i570
+  %brmerge1226 = or i1 %cmp.i.i328, %cmp2.i6.i332
+  %.mux1227 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
+  br i1 %brmerge1226, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i572, label %if.end4.i.i570
 
 if.end4.i.i570:                                   ; preds = %cond.true.i566
   %114 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
@@ -4097,7 +4097,7 @@ if.end4.i.i570:                                   ; preds = %cond.true.i566
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i572: ; preds = %cond.true.i566, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit554.thread, %if.end4.i.i570
   %cond.i53910601067 = phi double [ %cond.i539, %if.end4.i.i570 ], [ %cond.i539, %cond.true.i566 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit554.thread ]
-  %retval.0.i.i573 = phi double [ %114, %if.end4.i.i570 ], [ %.mux1213, %cond.true.i566 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit554.thread ]
+  %retval.0.i.i573 = phi double [ %114, %if.end4.i.i570 ], [ %.mux1227, %cond.true.i566 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit554.thread ]
   %cmp.i2.i574 = fcmp olt double %retval.0.i.i573, %11
   %.sroa.speculated.i575 = select i1 %cmp.i2.i574, double %retval.0.i.i573, double %11
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit578
@@ -4119,8 +4119,8 @@ _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit578: ; preds = %if.end.i
   %sub154 = fsub double %cond.i5391058, %cond.i563
   %116 = fneg double %sub154
   %fneg156 = fmul double %sub154, %116
-  %brmerge1214 = or i1 %cmp.i.i328, %cmp2.i6.i332
-  %.mux1215 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
+  %brmerge1228 = or i1 %cmp.i.i328, %cmp2.i6.i332
+  %.mux1229 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
   br i1 %cmp.i244, label %cond.true.i590, label %cond.false.i581
 
 _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit578.thread1079: ; preds = %cond.false.i557
@@ -4129,7 +4129,7 @@ _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit578.thread1079: ; preds 
   br i1 %cmp.i244, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i596, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit602
 
 cond.true.i590:                                   ; preds = %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit578
-  br i1 %brmerge1214, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i596, label %if.end4.i.i594
+  br i1 %brmerge1228, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i596, label %if.end4.i.i594
 
 if.end4.i.i594:                                   ; preds = %cond.true.i590
   %118 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
@@ -4138,13 +4138,13 @@ if.end4.i.i594:                                   ; preds = %cond.true.i590
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i596: ; preds = %cond.true.i590, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit578.thread1079, %if.end4.i.i594
   %cmp.i555106110851090 = phi i1 [ %cmp.i5551061, %if.end4.i.i594 ], [ %cmp.i5551061, %cond.true.i590 ], [ false, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit578.thread1079 ]
   %fneg15610861089 = phi double [ %fneg156, %if.end4.i.i594 ], [ %fneg156, %cond.true.i590 ], [ %fneg1561084, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit578.thread1079 ]
-  %retval.0.i.i597 = phi double [ %118, %if.end4.i.i594 ], [ %.mux1215, %cond.true.i590 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit578.thread1079 ]
+  %retval.0.i.i597 = phi double [ %118, %if.end4.i.i594 ], [ %.mux1229, %cond.true.i590 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit578.thread1079 ]
   %cmp.i2.i598 = fcmp olt double %retval.0.i.i597, %add
   %.sroa.speculated.i599 = select i1 %cmp.i2.i598, double %retval.0.i.i597, double %add
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit602
 
 cond.false.i581:                                  ; preds = %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit578
-  br i1 %brmerge1214, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit602, label %if.end4.i7.i585
+  br i1 %brmerge1228, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit602, label %if.end4.i7.i585
 
 if.end4.i7.i585:                                  ; preds = %cond.false.i581
   %119 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
@@ -4153,14 +4153,14 @@ if.end4.i7.i585:                                  ; preds = %cond.false.i581
 _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit602: ; preds = %cond.false.i581, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit554.thread, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit578.thread1079, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i596, %if.end4.i7.i585
   %fneg1561077 = phi double [ %fneg15610861089, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i596 ], [ %fneg156, %if.end4.i7.i585 ], [ %fneg156, %cond.false.i581 ], [ %fneg1561084, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit578.thread1079 ], [ -0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit554.thread ]
   %cmp.i55510611075 = phi i1 [ %cmp.i555106110851090, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i596 ], [ %cmp.i5551061, %if.end4.i7.i585 ], [ %cmp.i5551061, %cond.false.i581 ], [ false, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit578.thread1079 ], [ false, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit554.thread ]
-  %cond.i587 = phi double [ %.sroa.speculated.i599, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i596 ], [ %119, %if.end4.i7.i585 ], [ %.mux1215, %cond.false.i581 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit578.thread1079 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit554.thread ]
+  %cond.i587 = phi double [ %.sroa.speculated.i599, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i596 ], [ %119, %if.end4.i7.i585 ], [ %.mux1229, %cond.false.i581 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit578.thread1079 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit554.thread ]
   br i1 %cmp.i361, label %cond.true.i614, label %cond.false.i605
 
 cond.true.i614:                                   ; preds = %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit602
-  %brmerge1250 = or i1 %29, %cmp2.i6.i366
-  %.sroa.speculated.i623.mux = select i1 %29, double %.sroa.speculated.i623, double %.sroa.speculated.i62310981191
-  %.mux1251 = select i1 %29, double 0.000000e+00, double %11
-  br i1 %brmerge1250, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i644, label %if.end4.i.i642
+  %brmerge1264 = or i1 %29, %cmp2.i6.i366
+  %.sroa.speculated.i623.mux = select i1 %29, double %.sroa.speculated.i623, double %.sroa.speculated.i62310981205
+  %.mux1265 = select i1 %29, double 0.000000e+00, double %11
+  br i1 %brmerge1264, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i644, label %if.end4.i.i642
 
 cond.false.i605:                                  ; preds = %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit602
   br i1 %29, label %cond.false.i629, label %if.end.i4.i606
@@ -4169,9 +4169,9 @@ if.end.i4.i606:                                   ; preds = %cond.false.i605
   br i1 %cmp2.i6.i366, label %if.end.i4.i630.thread, label %if.end4.i7.i633
 
 if.end.i4.i630.thread:                            ; preds = %if.end.i4.i606
-  %sub162109411021195 = fsub double %cond.i587, %11
-  %square109511031196 = fmul double %sub162109411021195, %sub162109411021195
-  %120 = tail call double @llvm.fmuladd.f64(double %square109511031196, double -2.000000e+00, double %fneg1561077)
+  %sub162109411021209 = fsub double %cond.i587, %11
+  %square109511031210 = fmul double %sub162109411021209, %sub162109411021209
+  %120 = tail call double @llvm.fmuladd.f64(double %square109511031210, double -2.000000e+00, double %fneg1561077)
   br label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit650
 
 if.end4.i.i642:                                   ; preds = %cond.true.i614
@@ -4181,11 +4181,11 @@ if.end4.i.i642:                                   ; preds = %cond.true.i614
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i644
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i644: ; preds = %cond.true.i614, %if.end4.i.i642
-  %.sroa.speculated.i62310981191.sink = phi double [ %.sroa.speculated.i6231098, %if.end4.i.i642 ], [ %.sroa.speculated.i623.mux, %cond.true.i614 ]
-  %retval.0.i.i645 = phi double [ %121, %if.end4.i.i642 ], [ %.mux1251, %cond.true.i614 ]
-  %sub16210991192 = fsub double %cond.i587, %.sroa.speculated.i62310981191.sink
-  %square11001193 = fmul double %sub16210991192, %sub16210991192
-  %122 = tail call double @llvm.fmuladd.f64(double %square11001193, double -2.000000e+00, double %fneg1561077)
+  %.sroa.speculated.i62310981205.sink = phi double [ %.sroa.speculated.i6231098, %if.end4.i.i642 ], [ %.sroa.speculated.i623.mux, %cond.true.i614 ]
+  %retval.0.i.i645 = phi double [ %121, %if.end4.i.i642 ], [ %.mux1265, %cond.true.i614 ]
+  %sub16210991206 = fsub double %cond.i587, %.sroa.speculated.i62310981205.sink
+  %square11001207 = fmul double %sub16210991206, %sub16210991206
+  %122 = tail call double @llvm.fmuladd.f64(double %square11001207, double -2.000000e+00, double %fneg1561077)
   %cmp.i2.i646 = fcmp olt double %w, %retval.0.i.i645
   %.sroa.speculated.i647 = select i1 %cmp.i2.i646, double %retval.0.i.i645, double %w
   br label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit650
@@ -4208,16 +4208,16 @@ _ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit650: ; preds = %if.end.
   br i1 %cmp.i55510611075, label %cond.true.i662, label %cond.false.i653
 
 cond.true.i662:                                   ; preds = %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit650
-  %brmerge1218 = or i1 %cmp.i.i328, %cmp2.i6.i332
-  %.mux1219 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
-  br i1 %brmerge1218, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i668, label %if.end4.i.i666
+  %brmerge1232 = or i1 %cmp.i.i328, %cmp2.i6.i332
+  %.mux1233 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
+  br i1 %brmerge1232, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i668, label %if.end4.i.i666
 
 if.end4.i.i666:                                   ; preds = %cond.true.i662
   %127 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i668
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i668: ; preds = %cond.true.i662, %if.end4.i.i666
-  %retval.0.i.i669 = phi double [ %127, %if.end4.i.i666 ], [ %.mux1219, %cond.true.i662 ]
+  %retval.0.i.i669 = phi double [ %127, %if.end4.i.i666 ], [ %.mux1233, %cond.true.i662 ]
   %cmp.i2.i670 = fcmp olt double %retval.0.i.i669, %11
   %.sroa.speculated.i671 = select i1 %cmp.i2.i670, double %retval.0.i.i669, double %11
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit674
@@ -4236,8 +4236,8 @@ _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit674: ; preds = %if.end.i
   %cond.i659 = phi double [ %.sroa.speculated.i671, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i668 ], [ %128, %if.end4.i7.i657 ], [ %11, %if.end.i4.i654 ]
   %neg172 = fneg double %cond.i659
   %129 = tail call double @llvm.fmuladd.f64(double %cond.i635, double 2.000000e+00, double %neg172)
-  %brmerge1220 = or i1 %cmp.i.i328, %cmp2.i6.i332
-  %.mux1221 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
+  %brmerge1234 = or i1 %cmp.i.i328, %cmp2.i6.i332
+  %.mux1235 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
   br i1 %cmp.i244, label %cond.true.i686, label %cond.false.i677
 
 _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit674.thread: ; preds = %cond.false.i653
@@ -4245,7 +4245,7 @@ _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit674.thread: ; preds = %c
   br i1 %cmp.i244, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i692, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit698
 
 cond.true.i686:                                   ; preds = %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit674
-  br i1 %brmerge1220, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i692, label %if.end4.i.i690
+  br i1 %brmerge1234, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i692, label %if.end4.i.i690
 
 if.end4.i.i690:                                   ; preds = %cond.true.i686
   %131 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
@@ -4253,13 +4253,13 @@ if.end4.i.i690:                                   ; preds = %cond.true.i686
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i692: ; preds = %cond.true.i686, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit674.thread, %if.end4.i.i690
   %132 = phi double [ %129, %if.end4.i.i690 ], [ %129, %cond.true.i686 ], [ %130, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit674.thread ]
-  %retval.0.i.i693 = phi double [ %131, %if.end4.i.i690 ], [ %.mux1221, %cond.true.i686 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit674.thread ]
+  %retval.0.i.i693 = phi double [ %131, %if.end4.i.i690 ], [ %.mux1235, %cond.true.i686 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit674.thread ]
   %cmp.i2.i694 = fcmp olt double %retval.0.i.i693, %add
   %.sroa.speculated.i695 = select i1 %cmp.i2.i694, double %retval.0.i.i693, double %add
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit698
 
 cond.false.i677:                                  ; preds = %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit674
-  br i1 %brmerge1220, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit698, label %if.end4.i7.i681
+  br i1 %brmerge1234, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit698, label %if.end4.i7.i681
 
 if.end4.i7.i681:                                  ; preds = %cond.false.i677
   %133 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
@@ -4267,7 +4267,7 @@ if.end4.i7.i681:                                  ; preds = %cond.false.i677
 
 _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit698: ; preds = %cond.false.i677, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit674.thread, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i692, %if.end4.i7.i681
   %134 = phi double [ %132, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i692 ], [ %129, %if.end4.i7.i681 ], [ %129, %cond.false.i677 ], [ %130, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit674.thread ]
-  %cond.i683 = phi double [ %.sroa.speculated.i695, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i692 ], [ %133, %if.end4.i7.i681 ], [ %.mux1221, %cond.false.i677 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit674.thread ]
+  %cond.i683 = phi double [ %.sroa.speculated.i695, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i692 ], [ %133, %if.end4.i7.i681 ], [ %.mux1235, %cond.false.i677 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit674.thread ]
   %sub176 = fsub double %134, %cond.i683
   %square71 = fmul double %sub176, %sub176
   %add178 = fadd double %126, %square71
@@ -4286,16 +4286,16 @@ cond.false180:                                    ; preds = %for.cond.cleanup18
   br i1 %cmp.i244, label %cond.true.i717, label %cond.false.i708
 
 cond.true.i717:                                   ; preds = %cond.false180
-  %brmerge1224 = or i1 %cmp.i.i328, %cmp2.i6.i332
-  %.mux1225 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
-  br i1 %brmerge1224, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i723, label %if.end4.i.i721
+  %brmerge1238 = or i1 %cmp.i.i328, %cmp2.i6.i332
+  %.mux1239 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
+  br i1 %brmerge1238, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i723, label %if.end4.i.i721
 
 if.end4.i.i721:                                   ; preds = %cond.true.i717
   %138 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i723
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i723: ; preds = %cond.true.i717, %if.end4.i.i721
-  %retval.0.i.i724 = phi double [ %138, %if.end4.i.i721 ], [ %.mux1225, %cond.true.i717 ]
+  %retval.0.i.i724 = phi double [ %138, %if.end4.i.i721 ], [ %.mux1239, %cond.true.i717 ]
   %cmp.i2.i725 = fcmp olt double %retval.0.i.i724, %add
   %.sroa.speculated.i726 = select i1 %cmp.i2.i725, double %retval.0.i.i724, double %add
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit729
@@ -4312,15 +4312,15 @@ if.end4.i7.i712:                                  ; preds = %if.end.i4.i709
 
 _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit729: ; preds = %if.end.i4.i709, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i723, %if.end4.i7.i712
   %cond.i714 = phi double [ %.sroa.speculated.i726, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i723 ], [ %139, %if.end4.i7.i712 ], [ %11, %if.end.i4.i709 ]
-  %brmerge1226 = or i1 %cmp.i.i328, %cmp2.i6.i332
+  %brmerge1240 = or i1 %cmp.i.i328, %cmp2.i6.i332
   br i1 %cmp.i155, label %cond.true.i741, label %cond.false.i732
 
 _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit729.thread: ; preds = %cond.false.i708
   br i1 %cmp.i155, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i747, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit753
 
 cond.true.i741:                                   ; preds = %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit729
-  %.mux1227 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
-  br i1 %brmerge1226, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i747, label %if.end4.i.i745
+  %.mux1241 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
+  br i1 %brmerge1240, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i747, label %if.end4.i.i745
 
 if.end4.i.i745:                                   ; preds = %cond.true.i741
   %140 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
@@ -4328,14 +4328,14 @@ if.end4.i.i745:                                   ; preds = %cond.true.i741
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i747: ; preds = %cond.true.i741, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit729.thread, %if.end4.i.i745
   %cond.i71411101117 = phi double [ %cond.i714, %if.end4.i.i745 ], [ %cond.i714, %cond.true.i741 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit729.thread ]
-  %retval.0.i.i748 = phi double [ %140, %if.end4.i.i745 ], [ %.mux1227, %cond.true.i741 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit729.thread ]
+  %retval.0.i.i748 = phi double [ %140, %if.end4.i.i745 ], [ %.mux1241, %cond.true.i741 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit729.thread ]
   %cmp.i2.i749 = fcmp olt double %retval.0.i.i748, %11
   %.sroa.speculated.i750 = select i1 %cmp.i2.i749, double %retval.0.i.i748, double %11
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit753
 
 cond.false.i732:                                  ; preds = %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit729
-  %.mux1229 = select i1 %cmp.i.i328, double 0.000000e+00, double 0x47EFFFFFE0000000
-  br i1 %brmerge1226, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit753, label %if.end4.i7.i736
+  %.mux1243 = select i1 %cmp.i.i328, double 0.000000e+00, double 0x47EFFFFFE0000000
+  br i1 %brmerge1240, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit753, label %if.end4.i7.i736
 
 if.end4.i7.i736:                                  ; preds = %cond.false.i732
   %141 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
@@ -4344,44 +4344,44 @@ if.end4.i7.i736:                                  ; preds = %cond.false.i732
 _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit753: ; preds = %cond.false.i732, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit729.thread, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i747, %if.end4.i7.i736
   %cmp.i7301111 = phi i1 [ true, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i747 ], [ false, %if.end4.i7.i736 ], [ false, %cond.false.i732 ], [ false, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit729.thread ]
   %cond.i7141108 = phi double [ %cond.i71411101117, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i747 ], [ %cond.i714, %if.end4.i7.i736 ], [ %cond.i714, %cond.false.i732 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit729.thread ]
-  %cond.i738 = phi double [ %.sroa.speculated.i750, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i747 ], [ %141, %if.end4.i7.i736 ], [ %.mux1229, %cond.false.i732 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit729.thread ]
+  %cond.i738 = phi double [ %.sroa.speculated.i750, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i747 ], [ %141, %if.end4.i7.i736 ], [ %.mux1243, %cond.false.i732 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit729.thread ]
   %sub190 = fsub double %cond.i7141108, %cond.i738
   %mul191 = fmul double %retval.0.i705, %sub190
   %call192 = tail call double @exp(double noundef %mul191) #22, !tbaa !76
   %sub193 = fsub double 2.000000e+00, %call192
   %fneg196 = fneg double %retval.0.i705
-  %brmerge1230 = or i1 %cmp.i.i328, %cmp2.i6.i332
-  %.mux1231 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
+  %brmerge1244 = or i1 %cmp.i.i328, %cmp2.i6.i332
+  %.mux1245 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
   br i1 %cmp.i244, label %cond.true.i772, label %cond.false.i763
 
 cond.true.i772:                                   ; preds = %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit753
-  br i1 %brmerge1230, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i778, label %if.end4.i.i776
+  br i1 %brmerge1244, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i778, label %if.end4.i.i776
 
 if.end4.i.i776:                                   ; preds = %cond.true.i772
   %142 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i778
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i778: ; preds = %cond.true.i772, %if.end4.i.i776
-  %retval.0.i.i779 = phi double [ %142, %if.end4.i.i776 ], [ %.mux1231, %cond.true.i772 ]
+  %retval.0.i.i779 = phi double [ %142, %if.end4.i.i776 ], [ %.mux1245, %cond.true.i772 ]
   %cmp.i2.i780 = fcmp olt double %retval.0.i.i779, %add
   %.sroa.speculated.i781 = select i1 %cmp.i2.i780, double %retval.0.i.i779, double %add
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit784
 
 cond.false.i763:                                  ; preds = %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit753
-  br i1 %brmerge1230, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit784, label %if.end4.i7.i767
+  br i1 %brmerge1244, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit784, label %if.end4.i7.i767
 
 if.end4.i7.i767:                                  ; preds = %cond.false.i763
   %143 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit784
 
 _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit784: ; preds = %cond.false.i763, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i778, %if.end4.i7.i767
-  %cond.i769 = phi double [ %.sroa.speculated.i781, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i778 ], [ %143, %if.end4.i7.i767 ], [ %.mux1231, %cond.false.i763 ]
+  %cond.i769 = phi double [ %.sroa.speculated.i781, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i778 ], [ %143, %if.end4.i7.i767 ], [ %.mux1245, %cond.false.i763 ]
   br i1 %cmp.i361, label %cond.true.i796, label %cond.false.i787
 
 cond.true.i796:                                   ; preds = %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit784
-  %brmerge1234 = or i1 %29, %cmp2.i6.i366
-  %.mux1235 = select i1 %29, double 0.000000e+00, double %11
-  br i1 %brmerge1234, label %cond.true.i827, label %if.end4.i.i800
+  %brmerge1248 = or i1 %29, %cmp2.i6.i366
+  %.mux1249 = select i1 %29, double 0.000000e+00, double %11
+  br i1 %brmerge1248, label %cond.true.i827, label %if.end4.i.i800
 
 if.end4.i.i800:                                   ; preds = %cond.true.i796
   %144 = load double, ptr %arrayidx.i.i8.i368, align 8, !tbaa !53
@@ -4394,28 +4394,28 @@ if.end.i4.i788:                                   ; preds = %cond.false.i787
   br i1 %cmp2.i6.i366, label %if.end.i4.i819.thread, label %if.end4.i7.i822
 
 if.end.i4.i819.thread:                            ; preds = %if.end.i4.i788
-  %sub202112111271198 = fsub double %cond.i769, %11
-  %mul203112211281199 = fmul double %sub202112111271198, %fneg196
-  %call204112311291200 = tail call double @exp(double noundef %mul203112211281199) #22, !tbaa !76
+  %sub202112111271212 = fsub double %cond.i769, %11
+  %mul203112211281213 = fmul double %sub202112111271212, %fneg196
+  %call204112311291214 = tail call double @exp(double noundef %mul203112211281213) #22, !tbaa !76
   br label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit839
 
 cond.true.i827:                                   ; preds = %cond.true.i796, %if.end4.i.i800
-  %retval.0.i.i803 = phi double [ %144, %if.end4.i.i800 ], [ %.mux1235, %cond.true.i796 ]
+  %retval.0.i.i803 = phi double [ %144, %if.end4.i.i800 ], [ %.mux1249, %cond.true.i796 ]
   %cmp.i2.i804 = fcmp olt double %w, %retval.0.i.i803
   %.sroa.speculated.i805 = select i1 %cmp.i2.i804, double %retval.0.i.i803, double %w
   %sub202 = fsub double %cond.i769, %.sroa.speculated.i805
   %mul203 = fmul double %sub202, %fneg196
   %call204 = tail call double @exp(double noundef %mul203) #22, !tbaa !76
-  %brmerge1236 = or i1 %29, %cmp2.i6.i366
-  %.mux1237 = select i1 %29, double 0.000000e+00, double %11
-  br i1 %brmerge1236, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i833, label %if.end4.i.i831
+  %brmerge1250 = or i1 %29, %cmp2.i6.i366
+  %.mux1251 = select i1 %29, double 0.000000e+00, double %11
+  br i1 %brmerge1250, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i833, label %if.end4.i.i831
 
 if.end4.i.i831:                                   ; preds = %cond.true.i827
   %145 = load double, ptr %arrayidx.i.i8.i368, align 8, !tbaa !53
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i833
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i833: ; preds = %cond.true.i827, %if.end4.i.i831
-  %retval.0.i.i834 = phi double [ %145, %if.end4.i.i831 ], [ %.mux1237, %cond.true.i827 ]
+  %retval.0.i.i834 = phi double [ %145, %if.end4.i.i831 ], [ %.mux1251, %cond.true.i827 ]
   %cmp.i2.i835 = fcmp olt double %w, %retval.0.i.i834
   %.sroa.speculated.i836 = select i1 %cmp.i2.i835, double %retval.0.i.i834, double %w
   br label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit839
@@ -4433,21 +4433,21 @@ if.end4.i7.i822:                                  ; preds = %if.end.i4.i788
   br label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit839
 
 _ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit839: ; preds = %if.end.i4.i819.thread, %cond.false.i818, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i833, %if.end4.i7.i822
-  %call2041124 = phi double [ %call204, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i833 ], [ %call20411231129, %if.end4.i7.i822 ], [ %call2041123, %cond.false.i818 ], [ %call204112311291200, %if.end.i4.i819.thread ]
+  %call2041124 = phi double [ %call204, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i833 ], [ %call20411231129, %if.end4.i7.i822 ], [ %call2041123, %cond.false.i818 ], [ %call204112311291214, %if.end.i4.i819.thread ]
   %cond.i824 = phi double [ %.sroa.speculated.i836, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i833 ], [ %146, %if.end4.i7.i822 ], [ 0.000000e+00, %cond.false.i818 ], [ %11, %if.end.i4.i819.thread ]
   br i1 %cmp.i7301111, label %cond.true.i851, label %cond.false.i842
 
 cond.true.i851:                                   ; preds = %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit839
-  %brmerge1238 = or i1 %cmp.i.i328, %cmp2.i6.i332
-  %.mux1239 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
-  br i1 %brmerge1238, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i857, label %if.end4.i.i855
+  %brmerge1252 = or i1 %cmp.i.i328, %cmp2.i6.i332
+  %.mux1253 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
+  br i1 %brmerge1252, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i857, label %if.end4.i.i855
 
 if.end4.i.i855:                                   ; preds = %cond.true.i851
   %147 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i857
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i857: ; preds = %cond.true.i851, %if.end4.i.i855
-  %retval.0.i.i858 = phi double [ %147, %if.end4.i.i855 ], [ %.mux1239, %cond.true.i851 ]
+  %retval.0.i.i858 = phi double [ %147, %if.end4.i.i855 ], [ %.mux1253, %cond.true.i851 ]
   %cmp.i2.i859 = fcmp olt double %retval.0.i.i858, %11
   %.sroa.speculated.i860 = select i1 %cmp.i2.i859, double %retval.0.i.i858, double %11
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit863
@@ -4466,8 +4466,8 @@ _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit863: ; preds = %if.end.i
   %cond.i848 = phi double [ %.sroa.speculated.i860, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i857 ], [ %148, %if.end4.i7.i846 ], [ %11, %if.end.i4.i843 ]
   %neg215 = fneg double %cond.i848
   %149 = tail call double @llvm.fmuladd.f64(double %cond.i824, double 2.000000e+00, double %neg215)
-  %brmerge1240 = or i1 %cmp.i.i328, %cmp2.i6.i332
-  %.mux1241 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
+  %brmerge1254 = or i1 %cmp.i.i328, %cmp2.i6.i332
+  %.mux1255 = select i1 %cmp.i.i328, double 0.000000e+00, double %11
   br i1 %cmp.i244, label %cond.true.i875, label %cond.false.i866
 
 _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit863.thread: ; preds = %cond.false.i842
@@ -4475,7 +4475,7 @@ _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit863.thread: ; preds = %c
   br i1 %cmp.i244, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i881, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit887
 
 cond.true.i875:                                   ; preds = %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit863
-  br i1 %brmerge1240, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i881, label %if.end4.i.i879
+  br i1 %brmerge1254, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i881, label %if.end4.i.i879
 
 if.end4.i.i879:                                   ; preds = %cond.true.i875
   %151 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
@@ -4483,13 +4483,13 @@ if.end4.i.i879:                                   ; preds = %cond.true.i875
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i881: ; preds = %cond.true.i875, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit863.thread, %if.end4.i.i879
   %152 = phi double [ %149, %if.end4.i.i879 ], [ %149, %cond.true.i875 ], [ %150, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit863.thread ]
-  %retval.0.i.i882 = phi double [ %151, %if.end4.i.i879 ], [ %.mux1241, %cond.true.i875 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit863.thread ]
+  %retval.0.i.i882 = phi double [ %151, %if.end4.i.i879 ], [ %.mux1255, %cond.true.i875 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit863.thread ]
   %cmp.i2.i883 = fcmp olt double %retval.0.i.i882, %add
   %.sroa.speculated.i884 = select i1 %cmp.i2.i883, double %retval.0.i.i882, double %add
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit887
 
 cond.false.i866:                                  ; preds = %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit863
-  br i1 %brmerge1240, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit887, label %if.end4.i7.i870
+  br i1 %brmerge1254, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit887, label %if.end4.i7.i870
 
 if.end4.i7.i870:                                  ; preds = %cond.false.i866
   %153 = load double, ptr %arrayidx.i.i8.i334, align 8, !tbaa !53
@@ -4497,7 +4497,7 @@ if.end4.i7.i870:                                  ; preds = %cond.false.i866
 
 _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit887: ; preds = %cond.false.i866, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit863.thread, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i881, %if.end4.i7.i870
   %154 = phi double [ %152, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i881 ], [ %149, %if.end4.i7.i870 ], [ %149, %cond.false.i866 ], [ %150, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit863.thread ]
-  %cond.i872 = phi double [ %.sroa.speculated.i884, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i881 ], [ %153, %if.end4.i7.i870 ], [ %.mux1241, %cond.false.i866 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit863.thread ]
+  %cond.i872 = phi double [ %.sroa.speculated.i884, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i881 ], [ %153, %if.end4.i7.i870 ], [ %.mux1255, %cond.false.i866 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit863.thread ]
   %sub219 = fsub double %154, %cond.i872
   %mul220 = fmul double %retval.0.i705, %sub219
   %call221 = tail call double @exp(double noundef %mul220) #22, !tbaa !76
@@ -4546,8 +4546,8 @@ _ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.i908:   ; preds = %_ZSt11upper_boundIP
   %sub.ptr.lhs.cast.pre-phi.i909 = phi i64 [ %.pre.i931, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.loopexit.i930 ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %if.end.i903 ]
   %sub.ptr.sub.i910 = sub i64 %sub.ptr.lhs.cast.pre-phi.i909, %sub.ptr.rhs.cast.i.i.i.i.i
   %add.i913 = shl i64 %sub.ptr.sub.i910, 29
-  %sext1162 = add i64 %add.i913, 4294967296
-  %159 = ashr i64 %sext1162, 32
+  %sext1176 = add i64 %add.i913, 4294967296
+  %159 = ashr i64 %sext1176, 32
   br label %_ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit932
 
 _ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit932: ; preds = %for.cond236, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.i908
@@ -4622,7 +4622,7 @@ _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit976: ; preds = %if.end.i
   br i1 %171, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit986, label %if.end.i978
 
 if.end.i978:                                      ; preds = %cond.false.i955, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit976
-  %cond.i9611202 = phi double [ %cond.i961, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit976 ], [ 0.000000e+00, %cond.false.i955 ]
+  %cond.i9611216 = phi double [ %cond.i961, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit976 ], [ 0.000000e+00, %cond.false.i955 ]
   %cmp2.i980 = icmp ult i64 %8, %indvars.iv1154
   br i1 %cmp2.i980, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit986, label %if.end4.i981
 
@@ -4633,9 +4633,9 @@ if.end4.i981:                                     ; preds = %if.end.i978
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit986
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit986: ; preds = %if.end.i978, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit976, %if.end4.i981
-  %cond.i9611203 = phi double [ %cond.i9611202, %if.end4.i981 ], [ %cond.i961, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit976 ], [ %cond.i9611202, %if.end.i978 ]
+  %cond.i9611217 = phi double [ %cond.i9611216, %if.end4.i981 ], [ %cond.i961, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit976 ], [ %cond.i9611216, %if.end.i978 ]
   %retval.0.i983 = phi double [ %173, %if.end4.i981 ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit976 ], [ %11, %if.end.i978 ]
-  %sub250 = fsub double %cond.i9611203, %retval.0.i983
+  %sub250 = fsub double %cond.i9611217, %retval.0.i983
   %mul251 = fmul double %sub250, %fneg244
   %call252 = tail call double @exp(double noundef %mul251) #22, !tbaa !76
   %mul253 = fmul double %res3143.0, %call252
@@ -4801,8 +4801,8 @@ _ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.i:      ; preds = %_ZSt11upper_boundIP
   %sub.ptr.lhs.cast.pre-phi.i = phi i64 [ %.pre.i, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.loopexit.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %if.end.i ]
   %sub.ptr.sub.i26 = sub i64 %sub.ptr.lhs.cast.pre-phi.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %add.i = shl i64 %sub.ptr.sub.i26, 29
-  %sext232 = add i64 %add.i, 4294967296
-  %20 = ashr i64 %sext232, 32
+  %sext242 = add i64 %add.i, 4294967296
+  %20 = ashr i64 %sext242, 32
   br label %_ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit
 
 _ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit: ; preds = %for.cond, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.i
@@ -5118,8 +5118,8 @@ _ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.i150:   ; preds = %_ZSt11upper_boundIP
   %sub.ptr.lhs.cast.pre-phi.i151 = phi i64 [ %.pre.i173, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.loopexit.i172 ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %if.end.i145 ]
   %sub.ptr.sub.i152 = sub i64 %sub.ptr.lhs.cast.pre-phi.i151, %sub.ptr.rhs.cast.i.i.i.i.i
   %add.i155 = shl i64 %sub.ptr.sub.i152, 29
-  %sext233 = add i64 %add.i155, 4294967296
-  %58 = ashr i64 %sext233, 32
+  %sext243 = add i64 %add.i155, 4294967296
+  %58 = ashr i64 %sext243, 32
   br label %_ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit174
 
 _ZNK8QuantLib6detail14GsrProcessCore10upperIndexEd.exit174: ; preds = %for.cond41, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit.i150
@@ -5184,7 +5184,7 @@ _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit205: ; preds = %if.end.i
   br i1 %66, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit, label %if.end.i207
 
 if.end.i207:                                      ; preds = %cond.false.i184, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit205
-  %cond.i190235 = phi double [ %cond.i190, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit205 ], [ 0.000000e+00, %cond.false.i184 ]
+  %cond.i190245 = phi double [ %cond.i190, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit205 ], [ 0.000000e+00, %cond.false.i184 ]
   %cmp2.i = icmp ult i64 %8, %indvars.iv224
   br i1 %cmp2.i, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit, label %if.end4.i
 
@@ -5195,9 +5195,9 @@ if.end4.i:                                        ; preds = %if.end.i207
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit
 
 _ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit: ; preds = %if.end.i207, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit205, %if.end4.i
-  %cond.i190236 = phi double [ %cond.i190235, %if.end4.i ], [ %cond.i190, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit205 ], [ %cond.i190235, %if.end.i207 ]
+  %cond.i190246 = phi double [ %cond.i190245, %if.end4.i ], [ %cond.i190, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit205 ], [ %cond.i190245, %if.end.i207 ]
   %retval.0.i210 = phi double [ %68, %if.end4.i ], [ 0.000000e+00, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit205 ], [ %55, %if.end.i207 ]
-  %sub55 = fsub double %cond.i190236, %retval.0.i210
+  %sub55 = fsub double %cond.i190246, %retval.0.i210
   %mul56 = fmul double %mul49, %sub55
   %call57 = tail call double @exp(double noundef %mul56) #22, !tbaa !76
   %mul58 = fmul double %res2.0, %call57
@@ -5880,8 +5880,8 @@ _ZNK8QuantLib6detail14GsrProcessCore10lowerIndexEd.exit69.loopexit: ; preds = %w
 _ZNK8QuantLib6detail14GsrProcessCore10lowerIndexEd.exit69: ; preds = %_ZNK8QuantLib6detail14GsrProcessCore10lowerIndexEd.exit69.loopexit, %for.body
   %sub.ptr.lhs.cast.i50.pre-phi = phi i64 [ %.pre, %_ZNK8QuantLib6detail14GsrProcessCore10lowerIndexEd.exit69.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %for.body ]
   %sub.ptr.sub.i51 = sub i64 %sub.ptr.lhs.cast.i50.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i
-  %sext212 = shl i64 %sub.ptr.sub.i51, 29
-  %26 = ashr i64 %sext212, 32
+  %sext223 = shl i64 %sub.ptr.sub.i51, 29
+  %26 = ashr i64 %sext223, 32
   %cmp15.not.not203 = icmp sgt i64 %indvars.iv207, %26
   br i1 %cmp15.not.not203, label %for.body17.lr.ph, label %for.cond.cleanup16
 
@@ -6398,14 +6398,14 @@ cond.end.i.thread:                                ; preds = %lor.rhs.i.i.i, %_ZN
   br i1 %cmp.not.i169, label %if.end12.i, label %while.body.i.backedge
 
 if.then.i:                                        ; preds = %cond.end.i, %if.else
-  %__y.0.lcssa33.i = phi ptr [ %add.ptr.i, %if.else ], [ %__x.028.i, %cond.end.i ]
+  %__y.0.lcssa36.i = phi ptr [ %add.ptr.i, %if.else ], [ %__x.028.i, %cond.end.i ]
   %_M_left.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %10 = load ptr, ptr %_M_left.i3.i, align 8, !tbaa !13
-  %cmp.i.i11 = icmp eq ptr %__y.0.lcssa33.i, %10
+  %cmp.i.i11 = icmp eq ptr %__y.0.lcssa36.i, %10
   br i1 %cmp.i.i11, label %cleanup76, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa33.i) #26
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa36.i) #26
   %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %.pre191 = load double, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8, !tbaa !64
   %.pre192 = load double, ptr %__k, align 8, !tbaa !64
@@ -6414,7 +6414,7 @@ if.else.i:                                        ; preds = %if.then.i
 if.end12.i:                                       ; preds = %cond.end.i.thread, %if.else.i
   %11 = phi double [ %.pre192, %if.else.i ], [ %6, %cond.end.i.thread ]
   %12 = phi double [ %.pre191, %if.else.i ], [ %8, %cond.end.i.thread ]
-  %__y.0.lcssa32.i = phi ptr [ %__y.0.lcssa33.i, %if.else.i ], [ %__x.028.i, %cond.end.i.thread ]
+  %__y.0.lcssa35.i = phi ptr [ %__y.0.lcssa36.i, %if.else.i ], [ %__x.028.i, %cond.end.i.thread ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.028.i, %cond.end.i.thread ]
   %cmp.i.i4.i = fcmp olt double %12, %11
   br i1 %cmp.i.i4.i, label %cleanup76, label %lor.rhs.i.i5.i
@@ -6531,19 +6531,19 @@ cond.end.i52.thread:                              ; preds = %lor.rhs.i.i.i46, %_
   br i1 %cmp.not.i56175, label %if.end12.i58, label %while.body.i42.backedge
 
 if.then.i74:                                      ; preds = %cond.end.i52, %if.else40
-  %__y.0.lcssa33.i75 = phi ptr [ %add.ptr.i, %if.else40 ], [ %__x.028.i43, %cond.end.i52 ]
-  %cmp.i.i77 = icmp eq ptr %__y.0.lcssa33.i75, %19
+  %__y.0.lcssa36.i75 = phi ptr [ %add.ptr.i, %if.else40 ], [ %__x.028.i43, %cond.end.i52 ]
+  %cmp.i.i77 = icmp eq ptr %__y.0.lcssa36.i75, %19
   br i1 %cmp.i.i77, label %cleanup76, label %if.else.i78
 
 if.else.i78:                                      ; preds = %if.then.i74
-  %call.i.i79 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa33.i75) #26
+  %call.i.i79 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa36.i75) #26
   %_M_storage.i.i.i.i61.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i79, i64 32
   %.pre190 = load double, ptr %_M_storage.i.i.i.i61.phi.trans.insert, align 8, !tbaa !64
   br label %if.end12.i58
 
 if.end12.i58:                                     ; preds = %cond.end.i52.thread, %if.else.i78
   %27 = phi double [ %.pre190, %if.else.i78 ], [ %25, %cond.end.i52.thread ]
-  %__y.0.lcssa32.i59 = phi ptr [ %__y.0.lcssa33.i75, %if.else.i78 ], [ %__x.028.i43, %cond.end.i52.thread ]
+  %__y.0.lcssa35.i59 = phi ptr [ %__y.0.lcssa36.i75, %if.else.i78 ], [ %__x.028.i43, %cond.end.i52.thread ]
   %__j.sroa.0.0.i60 = phi ptr [ %call.i.i79, %if.else.i78 ], [ %__x.028.i43, %cond.end.i52.thread ]
   %cmp.i.i4.i62 = fcmp olt double %27, %15
   br i1 %cmp.i.i4.i62, label %cleanup76, label %lor.rhs.i.i5.i63
@@ -6649,21 +6649,21 @@ cond.end.i122.thread:                             ; preds = %lor.rhs.i.i.i116, %
   br i1 %cmp.not.i126180, label %if.end12.i128, label %while.body.i112.backedge
 
 if.then.i144:                                     ; preds = %cond.end.i122, %if.else70
-  %__y.0.lcssa33.i145 = phi ptr [ %add.ptr.i, %if.else70 ], [ %__x.028.i113, %cond.end.i122 ]
+  %__y.0.lcssa36.i145 = phi ptr [ %add.ptr.i, %if.else70 ], [ %__x.028.i113, %cond.end.i122 ]
   %_M_left.i3.i146 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %40 = load ptr, ptr %_M_left.i3.i146, align 8, !tbaa !13
-  %cmp.i.i147 = icmp eq ptr %__y.0.lcssa33.i145, %40
+  %cmp.i.i147 = icmp eq ptr %__y.0.lcssa36.i145, %40
   br i1 %cmp.i.i147, label %cleanup76, label %if.else.i148
 
 if.else.i148:                                     ; preds = %if.then.i144
-  %call.i.i149 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa33.i145) #26
+  %call.i.i149 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa36.i145) #26
   %_M_storage.i.i.i.i131.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i149, i64 32
   %.pre = load double, ptr %_M_storage.i.i.i.i131.phi.trans.insert, align 8, !tbaa !64
   br label %if.end12.i128
 
 if.end12.i128:                                    ; preds = %cond.end.i122.thread, %if.else.i148
   %41 = phi double [ %.pre, %if.else.i148 ], [ %38, %cond.end.i122.thread ]
-  %__y.0.lcssa32.i129 = phi ptr [ %__y.0.lcssa33.i145, %if.else.i148 ], [ %__x.028.i113, %cond.end.i122.thread ]
+  %__y.0.lcssa35.i129 = phi ptr [ %__y.0.lcssa36.i145, %if.else.i148 ], [ %__x.028.i113, %cond.end.i122.thread ]
   %__j.sroa.0.0.i130 = phi ptr [ %call.i.i149, %if.else.i148 ], [ %__x.028.i113, %cond.end.i122.thread ]
   %cmp.i.i4.i132 = fcmp olt double %41, %15
   br i1 %cmp.i.i4.i132, label %cleanup76, label %lor.rhs.i.i5.i133
@@ -6685,7 +6685,7 @@ if.end17.i139:                                    ; preds = %_ZNKSt4lessISt4pair
 
 cleanup76:                                        ; preds = %if.end17.i139, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit11.i135, %if.end12.i128, %if.then.i144, %if.end17.i69, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit11.i65, %if.end12.i58, %if.then.i74, %if.end17.i, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit11.i, %if.end12.i, %if.then.i, %if.then60, %if.then30, %land.lhs.true, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit89, %if.then47, %if.then17, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit
   %retval.sroa.0.0 = phi ptr [ null, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit ], [ %19, %if.then17 ], [ null, %if.then47 ], [ %__position.coerce, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit89 ], [ null, %land.lhs.true ], [ %spec.select, %if.then30 ], [ %spec.select182, %if.then60 ], [ %__j.sroa.0.0.i, %if.end17.i ], [ null, %if.then.i ], [ null, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit11.i ], [ null, %if.end12.i ], [ %__j.sroa.0.0.i60, %if.end17.i69 ], [ null, %if.then.i74 ], [ null, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit11.i65 ], [ null, %if.end12.i58 ], [ %__j.sroa.0.0.i130, %if.end17.i139 ], [ null, %if.then.i144 ], [ null, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit11.i135 ], [ null, %if.end12.i128 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit ], [ %19, %if.then17 ], [ %32, %if.then47 ], [ null, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit89 ], [ %1, %land.lhs.true ], [ %spec.select181, %if.then30 ], [ %spec.select183, %if.then60 ], [ null, %if.end17.i ], [ %__y.0.lcssa33.i, %if.then.i ], [ %__y.0.lcssa32.i, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit11.i ], [ %__y.0.lcssa32.i, %if.end12.i ], [ null, %if.end17.i69 ], [ %__y.0.lcssa33.i75, %if.then.i74 ], [ %__y.0.lcssa32.i59, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit11.i65 ], [ %__y.0.lcssa32.i59, %if.end12.i58 ], [ null, %if.end17.i139 ], [ %__y.0.lcssa33.i145, %if.then.i144 ], [ %__y.0.lcssa32.i129, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit11.i135 ], [ %__y.0.lcssa32.i129, %if.end12.i128 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit ], [ %19, %if.then17 ], [ %32, %if.then47 ], [ null, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit89 ], [ %1, %land.lhs.true ], [ %spec.select181, %if.then30 ], [ %spec.select183, %if.then60 ], [ null, %if.end17.i ], [ %__y.0.lcssa36.i, %if.then.i ], [ %__y.0.lcssa35.i, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit11.i ], [ %__y.0.lcssa35.i, %if.end12.i ], [ null, %if.end17.i69 ], [ %__y.0.lcssa36.i75, %if.then.i74 ], [ %__y.0.lcssa35.i59, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit11.i65 ], [ %__y.0.lcssa35.i59, %if.end12.i58 ], [ null, %if.end17.i139 ], [ %__y.0.lcssa36.i145, %if.then.i144 ], [ %__y.0.lcssa35.i129, %_ZNKSt4lessISt4pairIddEEclERKS1_S4_.exit11.i135 ], [ %__y.0.lcssa35.i129, %if.end12.i128 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

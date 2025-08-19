@@ -179,8 +179,8 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
   br label %.invoke
 
 .invoke:                                          ; preds = %40, %51
-  %.sink376 = phi { ptr, i32 } [ %41, %40 ], [ %52, %51 ]
-  %53 = extractvalue { ptr, i32 } %.sink376, 0
+  %.sink407 = phi { ptr, i32 } [ %41, %40 ], [ %52, %51 ]
+  %53 = extractvalue { ptr, i32 } %.sink407, 0
   %54 = call ptr @__cxa_begin_catch(ptr %53) #11
   invoke void @__cxa_end_catch()
           to label %.thread306 unwind label %42
@@ -533,14 +533,14 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
 .lr.ph335:                                        ; preds = %.preheader
   %228 = shl nuw nsw i32 %199, 1
   %229 = zext nneg i32 %228 to i64
-  %invariant.gep372 = getelementptr inbounds nuw i8, ptr %211, i64 %207
-  %invariant.gep374 = getelementptr inbounds nuw i8, ptr %211, i64 %229
+  %invariant.gep403 = getelementptr inbounds nuw i8, ptr %211, i64 %207
+  %invariant.gep405 = getelementptr inbounds nuw i8, ptr %211, i64 %229
   br label %230
 
 230:                                              ; preds = %.lr.ph335, %230
   %indvars.iv359 = phi i64 [ 0, %.lr.ph335 ], [ %indvars.iv.next360, %230 ]
-  %gep373 = getelementptr inbounds nuw i8, ptr %invariant.gep372, i64 %indvars.iv359
-  %231 = load i8, ptr %gep373, align 1, !tbaa !92
+  %gep404 = getelementptr inbounds nuw i8, ptr %invariant.gep403, i64 %indvars.iv359
+  %231 = load i8, ptr %gep404, align 1, !tbaa !92
   %232 = load ptr, ptr %200, align 8, !tbaa !91
   %233 = mul nuw nsw i64 %indvars.iv359, 3
   %234 = getelementptr inbounds nuw i8, ptr %232, i64 %233
@@ -551,8 +551,8 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 %233
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 1
   store i8 %236, ptr %239, align 1, !tbaa !92
-  %gep375 = getelementptr inbounds nuw i8, ptr %invariant.gep374, i64 %indvars.iv359
-  %240 = load i8, ptr %gep375, align 1, !tbaa !92
+  %gep406 = getelementptr inbounds nuw i8, ptr %invariant.gep405, i64 %indvars.iv359
+  %240 = load i8, ptr %gep406, align 1, !tbaa !92
   %241 = load ptr, ptr %200, align 8, !tbaa !91
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 %233
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 2
@@ -572,7 +572,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
   %245 = shl nuw nsw i32 %199, 1
   %246 = zext nneg i32 %245 to i64
   %invariant.gep = getelementptr inbounds nuw i8, ptr %211, i64 %207
-  %invariant.gep370 = getelementptr inbounds nuw i8, ptr %211, i64 %246
+  %invariant.gep401 = getelementptr inbounds nuw i8, ptr %211, i64 %246
   br label %247
 
 247:                                              ; preds = %.lr.ph333, %247
@@ -589,8 +589,8 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 %251
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 1
   store i8 %253, ptr %256, align 1, !tbaa !92
-  %gep371 = getelementptr inbounds nuw i8, ptr %invariant.gep370, i64 %indvars.iv354
-  %257 = load i8, ptr %gep371, align 1, !tbaa !92
+  %gep402 = getelementptr inbounds nuw i8, ptr %invariant.gep401, i64 %indvars.iv354
+  %257 = load i8, ptr %gep402, align 1, !tbaa !92
   %258 = load ptr, ptr %200, align 8, !tbaa !91
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 %251
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 2
@@ -1266,9 +1266,9 @@ thread-pre-split:                                 ; preds = %362, %364, %370
     i32 11, label %582
     i32 1, label %585
     i32 10, label %586
-    i32 2, label %.invoke378
-    i32 3, label %.invoke378
-    i32 9, label %.invoke378
+    i32 2, label %.invoke409
+    i32 3, label %.invoke409
+    i32 9, label %.invoke409
     i32 4, label %587
     i32 5, label %587
     i32 6, label %588
@@ -1280,7 +1280,7 @@ thread-pre-split:                                 ; preds = %362, %364, %370
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %591 unwind label %583
 
-583:                                              ; preds = %.invoke378, %590, %589, %588, %587, %586, %585, %582
+583:                                              ; preds = %.invoke409, %590, %589, %588, %587, %586, %585, %582
   %584 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_end_catch() #11
@@ -1294,7 +1294,7 @@ thread-pre-split:                                 ; preds = %362, %364, %370
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %591 unwind label %583
 
-.invoke378:                                       ; preds = %579, %579, %579
+.invoke409:                                       ; preds = %579, %579, %579
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %591 unwind label %583
 
@@ -1314,8 +1314,8 @@ thread-pre-split:                                 ; preds = %362, %364, %370
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %591 unwind label %583
 
-591:                                              ; preds = %.invoke378, %579, %590, %589, %588, %587, %586, %585, %582
-  %.15 = phi i32 [ -100013, %582 ], [ -100007, %585 ], [ -100012, %586 ], [ -100009, %587 ], [ -100010, %588 ], [ -100011, %589 ], [ -2, %590 ], [ -1, %579 ], [ -100008, %.invoke378 ]
+591:                                              ; preds = %.invoke409, %579, %590, %589, %588, %587, %586, %585, %582
+  %.15 = phi i32 [ -100013, %582 ], [ -100007, %585 ], [ -100012, %586 ], [ -100009, %587 ], [ -100010, %588 ], [ -100011, %589 ], [ -2, %590 ], [ -1, %579 ], [ -100008, %.invoke409 ]
   call void @__cxa_end_catch() #11
   br label %.thread306
 

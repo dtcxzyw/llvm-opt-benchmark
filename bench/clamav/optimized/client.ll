@@ -74,9 +74,9 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
 8:                                                ; preds = %1
   %9 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #15
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.thread108, label %11
+  br i1 %.not, label %.thread116, label %11
 
-.thread108:                                       ; preds = %8
+.thread116:                                       ; preds = %8
   %10 = tail call fastcc i32 @isremote()
   br label %.split.split.preheader
 
@@ -84,9 +84,9 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %.not55 = icmp eq ptr %13, null
-  br i1 %.not55, label %.thread98, label %15
+  br i1 %.not55, label %.thread106, label %15
 
-.thread98:                                        ; preds = %11
+.thread106:                                       ; preds = %11
   %14 = tail call fastcc i32 @isremote()
   br label %.split.us.split.us.preheader
 
@@ -137,10 +137,10 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   %42 = trunc i64 %.045.fr to i32
   br i1 %41, label %.split.us.split.us.preheader, label %.split.split.preheader
 
-.split.us.split.us.preheader:                     ; preds = %39, %.thread98
-  %.144107 = phi ptr [ null, %.thread98 ], [ %16, %39 ]
-  %.047103 = phi i64 [ 31, %.thread98 ], [ %34, %39 ]
-  %43 = call i64 @llvm.usub.sat.i64(i64 %.047103, i64 1)
+.split.us.split.us.preheader:                     ; preds = %39, %.thread106
+  %.144115 = phi ptr [ null, %.thread106 ], [ %16, %39 ]
+  %.047111 = phi i64 [ 31, %.thread106 ], [ %34, %39 ]
+  %43 = call i64 @llvm.usub.sat.i64(i64 %.047111, i64 1)
   br label %.split.us.split.us
 
 .split.us.split.us:                               ; preds = %.split.us.split.us.preheader, %62
@@ -188,12 +188,12 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   %63 = call i32 @sleep(i32 noundef 1) #15
   br label %.split.us.split.us
 
-.split.split.preheader:                           ; preds = %39, %.thread108
-  %64 = phi i32 [ 0, %.thread108 ], [ %42, %39 ]
-  %.045.fr115 = phi i64 [ 0, %.thread108 ], [ %.045.fr, %39 ]
-  %.144114 = phi ptr [ null, %.thread108 ], [ %16, %39 ]
-  %.047113 = phi i64 [ 0, %.thread108 ], [ %34, %39 ]
-  %65 = call i64 @llvm.usub.sat.i64(i64 %.047113, i64 1)
+.split.split.preheader:                           ; preds = %39, %.thread116
+  %64 = phi i32 [ 0, %.thread116 ], [ %42, %39 ]
+  %.045.fr123 = phi i64 [ 0, %.thread116 ], [ %.045.fr, %39 ]
+  %.144122 = phi ptr [ null, %.thread116 ], [ %16, %39 ]
+  %.047121 = phi i64 [ 0, %.thread116 ], [ %34, %39 ]
+  %65 = call i64 @llvm.usub.sat.i64(i64 %.047121, i64 1)
   br label %.split.split
 
 .split.split:                                     ; preds = %.split.split.preheader, %89
@@ -212,7 +212,7 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   br i1 %.not58, label %.split80.us, label %76
 
 .split80.us:                                      ; preds = %47, %69
-  %.144106 = phi ptr [ %.144114, %69 ], [ %.144107, %47 ]
+  %.144114 = phi ptr [ %.144122, %69 ], [ %.144115, %47 ]
   %71 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load i32, ptr %72, align 8, !tbaa !17
@@ -246,11 +246,11 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   br i1 %.not60, label %87, label %85
 
 85:                                               ; preds = %81
-  %86 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.9, i64 noundef %.045.fr115) #15
+  %86 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.9, i64 noundef %.045.fr123) #15
   br label %89
 
 87:                                               ; preds = %81
-  %88 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.11, i64 noundef %.045.fr115) #15
+  %88 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.11, i64 noundef %.045.fr123) #15
   br label %89
 
 89:                                               ; preds = %87, %85
@@ -258,7 +258,7 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   br label %.split.split
 
 .critedge:                                        ; preds = %52, %79
-  %.144105 = phi ptr [ %.144114, %79 ], [ %.144107, %52 ]
+  %.144113 = phi ptr [ %.144122, %79 ], [ %.144115, %52 ]
   %91 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %93 = load i32, ptr %92, align 8, !tbaa !17
@@ -274,9 +274,9 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   br label %98
 
 98:                                               ; preds = %.thread, %94, %96
-  %.144104 = phi ptr [ %.144105, %94 ], [ %.144105, %96 ], [ %.144106, %.thread ]
+  %.144112 = phi ptr [ %.144113, %94 ], [ %.144113, %96 ], [ %.144114, %.thread ]
   %.040 = phi i16 [ 1, %94 ], [ 1, %96 ], [ 0, %.thread ]
-  %.not62 = icmp eq ptr %.144104, null
+  %.not62 = icmp eq ptr %.144112, null
   br i1 %.not62, label %.thread67, label %.thread73
 
 .thread73.sink.split:                             ; preds = %32, %24
@@ -286,7 +286,7 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
 
 .thread73:                                        ; preds = %.thread73.sink.split, %98
   %.04078 = phi i16 [ %.040, %98 ], [ -1, %.thread73.sink.split ]
-  %.04377 = phi ptr [ %.144104, %98 ], [ %16, %.thread73.sink.split ]
+  %.04377 = phi ptr [ %.144112, %98 ], [ %16, %.thread73.sink.split ]
   call void @free(ptr noundef nonnull %.04377) #15
   br label %.thread67
 
@@ -858,9 +858,9 @@ sub_0109:                                         ; preds = %sub_0109.lr.ph, %12
 
 .loopexit.thread:                                 ; preds = %117, %.loopexit
   %133 = phi i32 [ %spec.select, %.loopexit ], [ 0, %117 ]
-  %.not93130.in = load i32, ptr %1, align 4, !tbaa !31
-  %.not93130 = icmp eq i32 %.not93130.in, 0
-  %134 = select i1 %.not93130, i32 %133, i32 1
+  %.not93136.in = load i32, ptr %1, align 4, !tbaa !31
+  %.not93136 = icmp eq i32 %.not93136.in, 0
+  %134 = select i1 %.not93136, i32 %133, i32 1
   br label %.thread
 
 .thread:                                          ; preds = %9, %11, %98, %.loopexit.thread

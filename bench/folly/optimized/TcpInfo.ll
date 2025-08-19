@@ -479,15 +479,15 @@ _ZN5folly8OptionalImEC2EOS1_.exit.i.i.i.i:        ; preds = %_ZNR5folly8Optional
   store i8 0, ptr %148, align 8, !tbaa !60
   %149 = load i8, ptr %25, align 8, !tbaa !48, !range !44, !noundef !45
   %150 = trunc nuw i8 %149 to i1
-  br i1 %150, label %_ZNR5folly8OptionalImE5valueEv.exit.i8.i.i.i.i, label %.thread55
+  br i1 %150, label %_ZNR5folly8OptionalImE5valueEv.exit.i8.i.i.i.i, label %.thread66
 
 _ZNR5folly8OptionalImE5valueEv.exit.i8.i.i.i.i:   ; preds = %_ZN5folly8OptionalImEC2EOS1_.exit.i.i.i.i
   %151 = load i64, ptr %24, align 8, !tbaa !47
   store i64 %151, ptr %147, align 8, !tbaa !47
   store i8 1, ptr %148, align 8, !tbaa !48
-  br label %.thread55
+  br label %.thread66
 
-.thread55:                                        ; preds = %_ZNR5folly8OptionalImE5valueEv.exit.i8.i.i.i.i, %_ZN5folly8OptionalImEC2EOS1_.exit.i.i.i.i
+.thread66:                                        ; preds = %_ZNR5folly8OptionalImE5valueEv.exit.i8.i.i.i.i, %_ZN5folly8OptionalImEC2EOS1_.exit.i.i.i.i
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i8 1, ptr %152, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -523,7 +523,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @_ZdlPvm(ptr noundef %158, i64 noundef %165) #20
   br label %_ZN5folly7TcpInfoD2Ev.exit
 
-_ZN5folly7TcpInfoD2Ev.exit:                       ; preds = %.thread55, %153, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
+_ZN5folly7TcpInfoD2Ev.exit:                       ; preds = %.thread66, %153, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %179
 

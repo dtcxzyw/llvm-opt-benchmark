@@ -332,8 +332,8 @@ _ZNSt6vectorImSaImEED2Ev.exit82:                  ; preds = %90, %_ZNSt6vectorIm
 
 171:                                              ; preds = %147
   %172 = icmp sgt i32 %136, 0
-  %or.cond149 = and i1 %172, %140
-  br i1 %or.cond149, label %.lr.ph122, label %.critedge2
+  %or.cond155 = and i1 %172, %140
+  br i1 %or.cond155, label %.lr.ph122, label %.critedge2
 
 .lr.ph122:                                        ; preds = %171
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -1218,11 +1218,11 @@ _ZL12expandFloatsPhii.exit:                       ; preds = %_Z17__DNG_FP24ToFlo
   br label %.sink.split
 
 .sink.split:                                      ; preds = %389, %401, %395
-  %.sink215 = phi i32 [ %400, %395 ], [ %406, %401 ], [ %394, %389 ]
+  %.sink237 = phi i32 [ %400, %395 ], [ %406, %401 ], [ %394, %389 ]
   %407 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.sink215, ptr %407, align 8, !tbaa !145
+  store i32 %.sink237, ptr %407, align 8, !tbaa !145
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 194168
-  store i32 %.sink215, ptr %408, align 8, !tbaa !146
+  store i32 %.sink237, ptr %408, align 8, !tbaa !146
   br label %409
 
 409:                                              ; preds = %.sink.split, %._crit_edge192
@@ -1535,11 +1535,11 @@ define void @_ZN6LibRaw17convertFloatToIntEfff(ptr noundef nonnull align 8 deref
   br label %.sink.split
 
 .sink.split:                                      ; preds = %92, %100, %96
-  %.sink63 = phi i32 [ %98, %96 ], [ %102, %100 ], [ %94, %92 ]
+  %.sink66 = phi i32 [ %98, %96 ], [ %102, %100 ], [ %94, %92 ]
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.sink63, ptr %103, align 8, !tbaa !145
+  store i32 %.sink66, ptr %103, align 8, !tbaa !145
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 194168
-  store i32 %.sink63, ptr %104, align 8, !tbaa !146
+  store i32 %.sink66, ptr %104, align 8, !tbaa !146
   br label %105
 
 105:                                              ; preds = %.sink.split, %99
@@ -2297,11 +2297,11 @@ _ZL12expandFloatsPhii.exit:                       ; preds = %.lr.ph.i133, %_Z17_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %328, %340, %334
-  %.sink199 = phi i32 [ %339, %334 ], [ %345, %340 ], [ %333, %328 ]
+  %.sink215 = phi i32 [ %339, %334 ], [ %345, %340 ], [ %333, %328 ]
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.sink199, ptr %346, align 8, !tbaa !145
+  store i32 %.sink215, ptr %346, align 8, !tbaa !145
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 194168
-  store i32 %.sink199, ptr %347, align 8, !tbaa !146
+  store i32 %.sink215, ptr %347, align 8, !tbaa !146
   br label %348
 
 348:                                              ; preds = %.sink.split, %._crit_edge177

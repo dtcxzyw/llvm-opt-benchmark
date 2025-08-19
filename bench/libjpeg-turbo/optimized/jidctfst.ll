@@ -192,9 +192,9 @@ define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef
   br label %150
 
 150:                                              ; preds = %._crit_edge, %40
-  %.sink279 = phi i64 [ 96, %._crit_edge ], [ 224, %40 ]
+  %.sink280 = phi i64 [ 96, %._crit_edge ], [ 224, %40 ]
   %.sink = phi i32 [ %149, %._crit_edge ], [ %45, %40 ]
-  %151 = getelementptr inbounds nuw i8, ptr %.0221269, i64 %.sink279
+  %151 = getelementptr inbounds nuw i8, ptr %.0221269, i64 %.sink280
   store i32 %.sink, ptr %151, align 4, !tbaa !33
   %.1222 = getelementptr inbounds nuw i8, ptr %.0221269, i64 4
   %.1224 = getelementptr inbounds nuw i8, ptr %.0223268, i64 2
@@ -215,8 +215,8 @@ define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef
   %161 = getelementptr inbounds nuw i8, ptr %.2271, i64 8
   %162 = load i32, ptr %161, align 4, !tbaa !33
   %163 = icmp eq i32 %162, 0
-  %or.cond280 = select i1 %160, i1 %163, i1 false
-  br i1 %or.cond280, label %164, label %._crit_edge275
+  %or.cond281 = select i1 %160, i1 %163, i1 false
+  br i1 %or.cond281, label %164, label %._crit_edge275
 
 164:                                              ; preds = %154
   %165 = getelementptr inbounds nuw i8, ptr %.2271, i64 12
@@ -402,10 +402,10 @@ define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef
   br label %310
 
 310:                                              ; preds = %._crit_edge275, %184
-  %.sink283 = phi i64 [ 3, %._crit_edge275 ], [ 7, %184 ]
-  %.sink281 = phi i8 [ %309, %._crit_edge275 ], [ %190, %184 ]
-  %311 = getelementptr inbounds nuw i8, ptr %157, i64 %.sink283
-  store i8 %.sink281, ptr %311, align 1, !tbaa !37
+  %.sink284 = phi i64 [ 3, %._crit_edge275 ], [ 7, %184 ]
+  %.sink282 = phi i8 [ %309, %._crit_edge275 ], [ %190, %184 ]
+  %311 = getelementptr inbounds nuw i8, ptr %157, i64 %.sink284
+  store i8 %.sink282, ptr %311, align 1, !tbaa !37
   %.3 = getelementptr inbounds nuw i8, ptr %.2271, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

@@ -110,8 +110,8 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %42 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %43 = load ptr, ptr %42, align 8, !tbaa !38
   %.not31 = icmp eq ptr %43, null
-  %or.cond36 = select i1 %or.cond, i1 %.not31, i1 false
-  br i1 %or.cond36, label %49, label %Abc_ObjIsBarBuf.exit.thread
+  %or.cond38 = select i1 %or.cond, i1 %.not31, i1 false
+  br i1 %or.cond38, label %49, label %Abc_ObjIsBarBuf.exit.thread
 
 Abc_ObjIsBarBuf.exit.thread:                      ; preds = %38
   %44 = tail call ptr @Mio_GateReadName(ptr noundef %43) #16
@@ -1068,14 +1068,14 @@ Abc_ObjIsBarBuf.exit:                             ; preds = %28
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %48, %50, %40, %42
-  %.sink25 = phi ptr [ %41, %40 ], [ %43, %42 ], [ %49, %48 ], [ %51, %50 ]
+  %.sink28 = phi ptr [ %41, %40 ], [ %43, %42 ], [ %49, %48 ], [ %51, %50 ]
   %.sink = phi i32 [ 16, %40 ], [ 16, %42 ], [ %45, %48 ], [ %45, %50 ]
-  store ptr %.sink25, ptr %11, align 8, !tbaa !28
+  store ptr %.sink28, ptr %11, align 8, !tbaa !28
   store i32 %.sink, ptr %8, align 8, !tbaa !27
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %33
-  %.pre.i24 = phi ptr [ %17, %33 ], [ %.sink25, %Vec_IntPush.exit.sink.split ]
+  %.pre.i24 = phi ptr [ %17, %33 ], [ %.sink28, %Vec_IntPush.exit.sink.split ]
   %52 = add nsw i32 %34, 1
   store i32 %52, ptr %9, align 4, !tbaa !29
   %53 = sext i32 %34 to i64

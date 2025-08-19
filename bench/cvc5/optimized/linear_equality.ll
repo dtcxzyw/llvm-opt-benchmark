@@ -4391,9 +4391,9 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule1
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4cvc58internal12TraceChannelE, i64 8), align 8, !tbaa !192
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4cvc58internal12TraceChannelE, i64 16), align 8, !tbaa !192
   %33 = icmp eq ptr %31, %32
-  br i1 %33, label %.critedge52.thread429, label %36
+  br i1 %33, label %.critedge52.thread437, label %36
 
-.critedge52.thread429:                            ; preds = %._crit_edge.i.i
+.critedge52.thread437:                            ; preds = %._crit_edge.i.i
   %34 = load i64, ptr %11, align 8, !tbaa !102
   %35 = icmp ult i64 %34, 16
   call void @llvm.assume(i1 %35)
@@ -4406,7 +4406,7 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule1
 
 .critedge:                                        ; preds = %36
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4cvc58internal12TraceChannelE, i64 16), align 8, !tbaa !192
-  %.not431 = icmp eq ptr %37, %38
+  %.not439 = icmp eq ptr %37, %38
   %.pre = load ptr, ptr %2, align 8, !tbaa !99
   %39 = icmp eq ptr %.pre, %10
   br i1 %39, label %.critedge52, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -4416,14 +4416,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %41 = add i64 %40, 1
   call void @_ZdlPvm(ptr noundef %.pre, i64 noundef %41) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not431, label %.critedge52.thread.loopexit, label %52
+  br i1 %.not439, label %.critedge52.thread.loopexit, label %52
 
 .critedge52:                                      ; preds = %.critedge
   %42 = load i64, ptr %11, align 8, !tbaa !102
   %43 = icmp ult i64 %42, 16
   call void @llvm.assume(i1 %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not431, label %.critedge52.thread.loopexit, label %52
+  br i1 %.not439, label %.critedge52.thread.loopexit, label %52
 
 44:                                               ; preds = %36
   %45 = landingpad { ptr, i32 }
@@ -4552,7 +4552,7 @@ _ZN4cvc58internal13DeltaRationalD2Ev.exit:        ; preds = %_ZN4cvc58internal8R
   %84 = icmp eq i32 %.sroa.0371.0, -1
   br i1 %84, label %._crit_edge.i.i, label %.critedge52.thread.loopexit, !llvm.loop !194
 
-.critedge52.thread.loopexit:                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZN4cvc58internal13DeltaRationalD2Ev.exit, %.critedge52, %.critedge52.thread429
+.critedge52.thread.loopexit:                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZN4cvc58internal13DeltaRationalD2Ev.exit, %.critedge52, %.critedge52.thread437
   %.pre421 = load ptr, ptr %4, align 8, !tbaa !106
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre421, i64 400
   %.pre422 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !129
@@ -7531,10 +7531,10 @@ _ZNK4cvc58internal6theory5arith6linear11BoundCounts13multiplyBySgnEi.exit: ; pre
   %.sroa.0.0 = add i32 %64, %.sroa.0.0.extract.trunc
   %65 = icmp slt i32 %12, 0
   %66 = icmp eq i32 %12, 0
-  %spec.select65 = select i1 %66, i32 0, i32 %.sroa.0.0
-  %spec.select66 = select i1 %66, i32 0, i32 %.sroa.9.0
-  %.sroa.4.0.i29 = select i1 %65, i32 %.sroa.9.0, i32 %spec.select65
-  %.sroa.0.0.i30 = select i1 %65, i32 %.sroa.0.0, i32 %spec.select66
+  %spec.select67 = select i1 %66, i32 0, i32 %.sroa.0.0
+  %spec.select68 = select i1 %66, i32 0, i32 %.sroa.9.0
+  %.sroa.4.0.i29 = select i1 %65, i32 %.sroa.9.0, i32 %spec.select67
+  %.sroa.0.0.i30 = select i1 %65, i32 %.sroa.0.0, i32 %spec.select68
   %67 = load ptr, ptr %29, align 8, !tbaa !106
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 400
   %69 = load ptr, ptr %68, align 8, !tbaa !129
@@ -7717,25 +7717,25 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule2
 
 31:                                               ; preds = %.sink.split.i.i, %25
   %32 = icmp slt i32 %4, 0
-  br i1 %32, label %.sink.split15.i.i, label %33
+  br i1 %32, label %.sink.split16.i.i, label %33
 
 33:                                               ; preds = %31
   %.not11.i.i = icmp eq i32 %4, 0
-  br i1 %.not11.i.i, label %_ZN4cvc58internal6theory5arith6linear11BoundCounts8addInSgnES4_ii.exit.i, label %.sink.split15.i.i
+  br i1 %.not11.i.i, label %_ZN4cvc58internal6theory5arith6linear11BoundCounts8addInSgnES4_ii.exit.i, label %.sink.split16.i.i
 
-.sink.split15.i.i:                                ; preds = %33, %31
-  %.sroa.5.0.extract.trunc.sink20.i.i = phi i32 [ %.sroa.0.0.extract.trunc, %31 ], [ %.sroa.0.4.extract.trunc, %33 ]
-  %.sroa.0.0.extract.trunc.sink17.i.i = phi i32 [ %.sroa.0.4.extract.trunc, %31 ], [ %.sroa.0.0.extract.trunc, %33 ]
+.sink.split16.i.i:                                ; preds = %33, %31
+  %.sroa.5.0.extract.trunc.sink21.i.i = phi i32 [ %.sroa.0.0.extract.trunc, %31 ], [ %.sroa.0.4.extract.trunc, %33 ]
+  %.sroa.0.0.extract.trunc.sink18.i.i = phi i32 [ %.sroa.0.4.extract.trunc, %31 ], [ %.sroa.0.0.extract.trunc, %33 ]
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !121
-  %36 = add i32 %35, %.sroa.5.0.extract.trunc.sink20.i.i
+  %36 = add i32 %35, %.sroa.5.0.extract.trunc.sink21.i.i
   store i32 %36, ptr %34, align 4, !tbaa !121
   %37 = load i32, ptr %19, align 4, !tbaa !123
-  %38 = add i32 %37, %.sroa.0.0.extract.trunc.sink17.i.i
+  %38 = add i32 %37, %.sroa.0.0.extract.trunc.sink18.i.i
   store i32 %38, ptr %19, align 4, !tbaa !123
   br label %_ZN4cvc58internal6theory5arith6linear11BoundCounts8addInSgnES4_ii.exit.i
 
-_ZN4cvc58internal6theory5arith6linear11BoundCounts8addInSgnES4_ii.exit.i: ; preds = %.sink.split15.i.i, %33, %5
+_ZN4cvc58internal6theory5arith6linear11BoundCounts8addInSgnES4_ii.exit.i: ; preds = %.sink.split16.i.i, %33, %5
   %.sroa.6.8.extract.trunc = trunc i64 %13 to i32
   %39 = icmp eq i32 %.sroa.6.8.extract.trunc, 0
   %.sroa.6.12.extract.shift = lshr i64 %13, 32
@@ -7767,25 +7767,25 @@ _ZN4cvc58internal6theory5arith6linear11BoundCounts8addInSgnES4_ii.exit.i: ; pred
 
 51:                                               ; preds = %.sink.split.i13.i, %45
   %52 = icmp slt i32 %4, 0
-  br i1 %52, label %.sink.split15.i17.i, label %53
+  br i1 %52, label %.sink.split16.i17.i, label %53
 
 53:                                               ; preds = %51
   %.not11.i16.i = icmp eq i32 %4, 0
-  br i1 %.not11.i16.i, label %_ZN4cvc58internal6theory5arith6linear10BoundsInfo8addInSgnERKS4_ii.exit, label %.sink.split15.i17.i
+  br i1 %.not11.i16.i, label %_ZN4cvc58internal6theory5arith6linear10BoundsInfo8addInSgnERKS4_ii.exit, label %.sink.split16.i17.i
 
-.sink.split15.i17.i:                              ; preds = %53, %51
-  %.sroa.5.0.extract.trunc.sink20.i18.i = phi i32 [ %.sroa.6.8.extract.trunc, %51 ], [ %.sroa.6.12.extract.trunc, %53 ]
-  %.sroa.0.0.extract.trunc.sink17.i19.i = phi i32 [ %.sroa.6.12.extract.trunc, %51 ], [ %.sroa.6.8.extract.trunc, %53 ]
+.sink.split16.i17.i:                              ; preds = %53, %51
+  %.sroa.5.0.extract.trunc.sink21.i18.i = phi i32 [ %.sroa.6.8.extract.trunc, %51 ], [ %.sroa.6.12.extract.trunc, %53 ]
+  %.sroa.0.0.extract.trunc.sink18.i19.i = phi i32 [ %.sroa.6.12.extract.trunc, %51 ], [ %.sroa.6.8.extract.trunc, %53 ]
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %55 = load i32, ptr %54, align 4, !tbaa !121
-  %56 = add i32 %55, %.sroa.5.0.extract.trunc.sink20.i18.i
+  %56 = add i32 %55, %.sroa.5.0.extract.trunc.sink21.i18.i
   store i32 %56, ptr %54, align 4, !tbaa !121
   %57 = load i32, ptr %43, align 4, !tbaa !123
-  %58 = add i32 %57, %.sroa.0.0.extract.trunc.sink17.i19.i
+  %58 = add i32 %57, %.sroa.0.0.extract.trunc.sink18.i19.i
   store i32 %58, ptr %43, align 4, !tbaa !123
   br label %_ZN4cvc58internal6theory5arith6linear10BoundsInfo8addInSgnERKS4_ii.exit
 
-_ZN4cvc58internal6theory5arith6linear10BoundsInfo8addInSgnERKS4_ii.exit: ; preds = %_ZN4cvc58internal6theory5arith6linear11BoundCounts8addInSgnES4_ii.exit.i, %53, %.sink.split15.i17.i
+_ZN4cvc58internal6theory5arith6linear10BoundsInfo8addInSgnERKS4_ii.exit: ; preds = %_ZN4cvc58internal6theory5arith6linear11BoundCounts8addInSgnES4_ii.exit.i, %53, %.sink.split16.i17.i
   ret void
 }
 
@@ -8060,8 +8060,8 @@ _ZNK4cvc58internal13DeltaRational3sgnEv.exit.i102: ; preds = %106, %_ZNSt6vector
   br i1 %.0.i.in.i103, label %_ZN4cvc58internal6theory5arith6linear10BorderHeap9push_backERKNS3_6BorderE.exit.sink.split, label %_ZN4cvc58internal6theory5arith6linear10BorderHeap9push_backERKNS3_6BorderE.exit
 
 _ZN4cvc58internal6theory5arith6linear10BorderHeap9push_backERKNS3_6BorderE.exit.sink.split: ; preds = %_ZNK4cvc58internal13DeltaRational3sgnEv.exit.i102, %_ZNK4cvc58internal13DeltaRational3sgnEv.exit.i
-  %.sink146 = phi i64 [ 84, %_ZNK4cvc58internal13DeltaRational3sgnEv.exit.i ], [ 140, %_ZNK4cvc58internal13DeltaRational3sgnEv.exit.i102 ]
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink146
+  %.sink151 = phi i64 [ 84, %_ZNK4cvc58internal13DeltaRational3sgnEv.exit.i ], [ 140, %_ZNK4cvc58internal13DeltaRational3sgnEv.exit.i102 ]
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink151
   %117 = load i32, ptr %116, align 4, !tbaa !232
   %118 = add nsw i32 %117, 1
   store i32 %118, ptr %116, align 4, !tbaa !232
@@ -8280,8 +8280,8 @@ _ZNK4cvc58internal6theory5arith6linear11BoundCounts13multiplyBySgnEi.exit: ; pre
   %narrow = or i1 %3, %67
   %.sroa.443.0.insert.ext = zext i1 %narrow to i64
   %not. = xor i1 %3, true
-  %narrow58 = or i1 %67, %not.
-  %.sroa.042.0.insert.ext = zext i1 %narrow58 to i32
+  %narrow61 = or i1 %67, %not.
+  %.sroa.042.0.insert.ext = zext i1 %narrow61 to i32
   %68 = load ptr, ptr %0, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %70 = zext i32 %46 to i64
@@ -10172,10 +10172,10 @@ _ZNK4cvc58internal13DeltaRationaleqERKS1_.exit:   ; preds = %33
   br label %47
 
 47:                                               ; preds = %40, %44
-  %.sink31 = phi ptr [ %4, %44 ], [ %2, %40 ]
-  %48 = load i32, ptr %.sink31, align 4, !tbaa !28
+  %.sink34 = phi ptr [ %4, %44 ], [ %2, %40 ]
+  %48 = load i32, ptr %.sink34, align 4, !tbaa !28
   %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %.sink31, align 4, !tbaa !28
+  store i32 %49, ptr %.sink34, align 4, !tbaa !28
   %50 = ptrtoint ptr %35 to i64
   %51 = ptrtoint ptr %34 to i64
   %52 = sub i64 %50, %51
@@ -10335,15 +10335,15 @@ _ZN4cvc58internal8RationalD2Ev.exit21:            ; preds = %33, %31
   %41 = load i8, ptr %40, align 8, !tbaa !76, !range !26, !noundef !27
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.031, i64 88
   %43 = load i8, ptr %42, align 8, !tbaa !77, !range !26, !noundef !27
-  %.not33 = icmp eq i8 %41, %43
-  br i1 %.not33, label %.invoke, label %.invoke32
+  %.not36 = icmp eq i8 %41, %43
+  br i1 %.not36, label %.invoke, label %.invoke35
 
-44:                                               ; preds = %.invoke32, %.invoke
+44:                                               ; preds = %.invoke35, %.invoke
   %45 = landingpad { ptr, i32 }
           cleanup
   br label %47
 
-.invoke32:                                        ; preds = %38
+.invoke35:                                        ; preds = %38
   invoke void @__gmpq_sub(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %39)
           to label %_ZN4cvc58internal8RationalpLERKS1_.exit22 unwind label %44
 
@@ -10351,7 +10351,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21:            ; preds = %33, %31
   invoke void @__gmpq_add(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %39)
           to label %_ZN4cvc58internal8RationalpLERKS1_.exit22 unwind label %44
 
-_ZN4cvc58internal8RationalpLERKS1_.exit22:        ; preds = %.invoke32, %.invoke, %_ZN4cvc58internal8RationalD2Ev.exit, %_ZN4cvc58internal8RationalD2Ev.exit20
+_ZN4cvc58internal8RationalpLERKS1_.exit22:        ; preds = %.invoke35, %.invoke, %_ZN4cvc58internal8RationalD2Ev.exit, %_ZN4cvc58internal8RationalD2Ev.exit20
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.031, i64 96
   %.not = icmp eq ptr %46, %3
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !240
@@ -13137,9 +13137,9 @@ define linkonce_odr hidden void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iterato
   br i1 %21, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.exit, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.exit.thread
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.exit: ; preds = %15, %20
-  %.sink9.i.i = phi ptr [ %8, %15 ], [ %3, %20 ]
+  %.sink11.i.i = phi ptr [ %8, %15 ], [ %3, %20 ]
   %.sink.i.i = phi ptr [ %3, %15 ], [ %8, %20 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.sink9.i.i, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %.sink11.i.i, i64 40
   %23 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 40
   %24 = tail call i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %22) #31
   %25 = icmp slt i32 %24, 0
@@ -14940,7 +14940,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal6theory5arith6linea
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPN4cvc58internal6theory5arith6linear10BoundsInfoEmS5_ET_S7_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN4cvc58internal6theory5arith6linear10BoundsInfoEmS5_ET_S7_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 4
+  %19 = shl nuw nsw i64 %1, 4
   tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !223

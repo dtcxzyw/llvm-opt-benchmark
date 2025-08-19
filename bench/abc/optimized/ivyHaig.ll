@@ -103,14 +103,14 @@ define void @Ivy_ManHaigStart(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %45, %47, %37, %39
-  %.sink29 = phi ptr [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %48, %47 ]
+  %.sink31 = phi ptr [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %48, %47 ]
   %.sink = phi i32 [ 16, %37 ], [ 16, %39 ], [ %42, %45 ], [ %42, %47 ]
-  store ptr %.sink29, ptr %13, align 8, !tbaa !19
+  store ptr %.sink31, ptr %13, align 8, !tbaa !19
   store i32 %.sink, ptr %10, align 8, !tbaa !18
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %28
-  %.pre.i26 = phi ptr [ %19, %28 ], [ %.sink29, %Vec_IntPush.exit.sink.split ]
+  %.pre.i26 = phi ptr [ %19, %28 ], [ %.sink31, %Vec_IntPush.exit.sink.split ]
   %49 = load i32, ptr %11, align 4, !tbaa !16
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %11, align 4, !tbaa !16
@@ -945,16 +945,16 @@ define void @Ivy_ManHaigSimulate(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph181:                                        ; preds = %.critedge4.preheader
   %17 = getelementptr i8, ptr %14, i64 8
   %18 = getelementptr i8, ptr %4, i64 24
-  %.val148248 = load ptr, ptr %17, align 8, !tbaa !19
-  %19 = load i32, ptr %.val148248, align 4, !tbaa !26
-  %.val154249 = load ptr, ptr %18, align 8, !tbaa !20
-  %20 = getelementptr i8, ptr %.val154249, i64 8
-  %.val154.val250 = load ptr, ptr %20, align 8, !tbaa !23
+  %.val148258 = load ptr, ptr %17, align 8, !tbaa !19
+  %19 = load i32, ptr %.val148258, align 4, !tbaa !26
+  %.val154259 = load ptr, ptr %18, align 8, !tbaa !20
+  %20 = getelementptr i8, ptr %.val154259, i64 8
+  %.val154.val260 = load ptr, ptr %20, align 8, !tbaa !23
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds ptr, ptr %.val154.val250, i64 %21
+  %22 = getelementptr inbounds ptr, ptr %.val154.val260, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !24
-  %.not251 = icmp eq ptr %23, null
-  br i1 %.not251, label %.critedge6, label %.critedge4
+  %.not261 = icmp eq ptr %23, null
+  br i1 %.not261, label %.critedge6, label %.critedge4
 
 .lr.ph:                                           ; preds = %.critedge, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.critedge ]
@@ -991,12 +991,12 @@ define void @Ivy_ManHaigSimulate(ptr noundef %0) local_unnamed_addr #0 {
 
 .critedge4:                                       ; preds = %.lr.ph181, %36
   %43 = phi ptr [ %42, %36 ], [ %23, %.lr.ph181 ]
-  %indvars.iv215252 = phi i64 [ %indvars.iv.next216, %36 ], [ 0, %.lr.ph181 ]
+  %indvars.iv215262 = phi i64 [ %indvars.iv.next216, %36 ], [ 0, %.lr.ph181 ]
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = or i32 %45, 1536
   store i32 %46, ptr %44, align 8
-  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215252, 1
+  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215262, 1
   %.val142 = load i32, ptr %15, align 4, !tbaa !16
   %47 = sext i32 %.val142 to i64
   %48 = icmp slt i64 %indvars.iv.next216, %47
@@ -1256,18 +1256,18 @@ Ivy_ManHaigSimulateChoice.exit:                   ; preds = %147, %148
 
 .lr.ph203:                                        ; preds = %.critedge12
   %162 = getelementptr i8, ptr %159, i64 8
-  %.val152254 = load ptr, ptr %162, align 8, !tbaa !19
-  %163 = load i32, ptr %.val152254, align 4, !tbaa !26
-  %.val158255 = load ptr, ptr %69, align 8, !tbaa !20
-  %164 = getelementptr i8, ptr %.val158255, i64 8
-  %.val158.val256 = load ptr, ptr %164, align 8, !tbaa !23
+  %.val152264 = load ptr, ptr %162, align 8, !tbaa !19
+  %163 = load i32, ptr %.val152264, align 4, !tbaa !26
+  %.val158265 = load ptr, ptr %69, align 8, !tbaa !20
+  %164 = getelementptr i8, ptr %.val158265, i64 8
+  %.val158.val266 = load ptr, ptr %164, align 8, !tbaa !23
   %165 = sext i32 %163 to i64
-  %166 = getelementptr inbounds ptr, ptr %.val158.val256, i64 %165
+  %166 = getelementptr inbounds ptr, ptr %.val158.val266, i64 %165
   %167 = load ptr, ptr %166, align 8, !tbaa !24
-  %.not130257 = icmp eq ptr %167, null
-  br i1 %.not130257, label %.critedge14, label %.lr.ph259
+  %.not130267 = icmp eq ptr %167, null
+  br i1 %.not130267, label %.critedge14, label %.lr.ph269
 
-168:                                              ; preds = %.lr.ph259
+168:                                              ; preds = %.lr.ph269
   %.val152 = load ptr, ptr %162, align 8, !tbaa !19
   %169 = getelementptr inbounds nuw i32, ptr %.val152, i64 %indvars.iv.next228
   %170 = load i32, ptr %169, align 4, !tbaa !26
@@ -1278,11 +1278,11 @@ Ivy_ManHaigSimulateChoice.exit:                   ; preds = %147, %148
   %173 = getelementptr inbounds ptr, ptr %.val158.val, i64 %172
   %174 = load ptr, ptr %173, align 8, !tbaa !24
   %.not130 = icmp eq ptr %174, null
-  br i1 %.not130, label %.critedge14, label %.lr.ph259, !llvm.loop !49
+  br i1 %.not130, label %.critedge14, label %.lr.ph269, !llvm.loop !49
 
-.lr.ph259:                                        ; preds = %.lr.ph203, %168
+.lr.ph269:                                        ; preds = %.lr.ph203, %168
   %175 = phi ptr [ %174, %168 ], [ %167, %.lr.ph203 ]
-  %indvars.iv227258 = phi i64 [ %indvars.iv.next228, %168 ], [ 0, %.lr.ph203 ]
+  %indvars.iv227268 = phi i64 [ %indvars.iv.next228, %168 ], [ 0, %.lr.ph203 ]
   %176 = getelementptr i8, ptr %175, i64 16
   %.val136 = load ptr, ptr %176, align 8, !tbaa !35
   %177 = ptrtoint ptr %.val136 to i64
@@ -1297,34 +1297,34 @@ Ivy_ManHaigSimulateChoice.exit:                   ; preds = %147, %148
   %186 = and i32 %183, 2047
   %187 = or disjoint i32 %186, %185
   store i32 %187, ptr %182, align 8
-  %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227258, 1
+  %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227268, 1
   %.val146 = load i32, ptr %160, align 4, !tbaa !16
   %188 = sext i32 %.val146 to i64
   %189 = icmp slt i64 %indvars.iv.next228, %188
-  br i1 %189, label %168, label %..critedge14_crit_edge261, !llvm.loop !49
+  br i1 %189, label %168, label %..critedge14_crit_edge271, !llvm.loop !49
 
-..critedge14_crit_edge261:                        ; preds = %.lr.ph259
+..critedge14_crit_edge271:                        ; preds = %.lr.ph269
   br label %.critedge14, !llvm.loop !49
 
-.critedge14:                                      ; preds = %168, %..critedge14_crit_edge261, %.lr.ph203
-  %.val147209 = phi i32 [ %.val146, %..critedge14_crit_edge261 ], [ %.val146201, %.lr.ph203 ], [ %.val146, %168 ]
+.critedge14:                                      ; preds = %168, %..critedge14_crit_edge271, %.lr.ph203
+  %.val147209 = phi i32 [ %.val146, %..critedge14_crit_edge271 ], [ %.val146201, %.lr.ph203 ], [ %.val146, %168 ]
   %190 = getelementptr i8, ptr %159, i64 8
   %191 = icmp sgt i32 %.val147209, 0
   br i1 %191, label %.lr.ph211.preheader, label %.critedge16
 
 .lr.ph211.preheader:                              ; preds = %.critedge14
-  %.val153263 = load ptr, ptr %190, align 8, !tbaa !19
-  %192 = load i32, ptr %.val153263, align 4, !tbaa !26
-  %.val159264 = load ptr, ptr %69, align 8, !tbaa !20
-  %193 = getelementptr i8, ptr %.val159264, i64 8
-  %.val159.val265 = load ptr, ptr %193, align 8, !tbaa !23
+  %.val153273 = load ptr, ptr %190, align 8, !tbaa !19
+  %192 = load i32, ptr %.val153273, align 4, !tbaa !26
+  %.val159274 = load ptr, ptr %69, align 8, !tbaa !20
+  %193 = getelementptr i8, ptr %.val159274, i64 8
+  %.val159.val275 = load ptr, ptr %193, align 8, !tbaa !23
   %194 = sext i32 %192 to i64
-  %195 = getelementptr inbounds ptr, ptr %.val159.val265, i64 %194
+  %195 = getelementptr inbounds ptr, ptr %.val159.val275, i64 %194
   %196 = load ptr, ptr %195, align 8, !tbaa !24
-  %.not131266 = icmp eq ptr %196, null
-  br i1 %.not131266, label %.critedge16, label %.lr.ph268
+  %.not131276 = icmp eq ptr %196, null
+  br i1 %.not131276, label %.critedge16, label %.lr.ph278
 
-.lr.ph211:                                        ; preds = %.lr.ph268
+.lr.ph211:                                        ; preds = %.lr.ph278
   %.val153 = load ptr, ptr %190, align 8, !tbaa !19
   %197 = getelementptr inbounds nuw i32, ptr %.val153, i64 %indvars.iv.next231
   %198 = load i32, ptr %197, align 4, !tbaa !26
@@ -1335,11 +1335,11 @@ Ivy_ManHaigSimulateChoice.exit:                   ; preds = %147, %148
   %201 = getelementptr inbounds ptr, ptr %.val159.val, i64 %200
   %202 = load ptr, ptr %201, align 8, !tbaa !24
   %.not131 = icmp eq ptr %202, null
-  br i1 %.not131, label %.critedge16, label %.lr.ph268, !llvm.loop !50
+  br i1 %.not131, label %.critedge16, label %.lr.ph278, !llvm.loop !50
 
-.lr.ph268:                                        ; preds = %.lr.ph211.preheader, %.lr.ph211
+.lr.ph278:                                        ; preds = %.lr.ph211.preheader, %.lr.ph211
   %203 = phi ptr [ %202, %.lr.ph211 ], [ %196, %.lr.ph211.preheader ]
-  %indvars.iv230267 = phi i64 [ %indvars.iv.next231, %.lr.ph211 ], [ 0, %.lr.ph211.preheader ]
+  %indvars.iv230277 = phi i64 [ %indvars.iv.next231, %.lr.ph211 ], [ 0, %.lr.ph211.preheader ]
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %205 = load i32, ptr %204, align 8
   %206 = lshr i32 %205, 2
@@ -1347,13 +1347,13 @@ Ivy_ManHaigSimulateChoice.exit:                   ; preds = %147, %148
   %208 = and i32 %205, 511
   %209 = or disjoint i32 %207, %208
   store i32 %209, ptr %204, align 8
-  %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230267, 1
+  %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230277, 1
   %.val147 = load i32, ptr %160, align 4, !tbaa !16
   %210 = sext i32 %.val147 to i64
   %211 = icmp slt i64 %indvars.iv.next231, %210
   br i1 %211, label %.lr.ph211, label %..critedge16.loopexit_crit_edge, !llvm.loop !50
 
-..critedge16.loopexit_crit_edge:                  ; preds = %.lr.ph268
+..critedge16.loopexit_crit_edge:                  ; preds = %.lr.ph278
   br label %.critedge16, !llvm.loop !50
 
 .critedge16:                                      ; preds = %.lr.ph211, %.lr.ph211.preheader, %..critedge16.loopexit_crit_edge, %.critedge12, %.critedge14

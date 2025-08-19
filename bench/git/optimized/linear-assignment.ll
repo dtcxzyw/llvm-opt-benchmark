@@ -46,7 +46,7 @@ define dso_local void @compute_assignment(i32 noundef %0, i32 noundef %1, ptr no
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0255397 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %19 = mul nuw nsw i32 %.0255397, %0
-  %20 = sext i32 %19 to i64
+  %20 = zext nneg i32 %19 to i64
   %21 = getelementptr i32, ptr %18, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !4
   %23 = mul nuw nsw i64 %indvars.iv, %17
@@ -62,7 +62,7 @@ define dso_local void @compute_assignment(i32 noundef %0, i32 noundef %1, ptr no
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader386
   %.0255.lcssa = phi i32 [ 0, %.preheader386 ], [ %spec.select, %.lr.ph ]
   %27 = mul nuw nsw i32 %.0255.lcssa, %0
-  %28 = sext i32 %27 to i64
+  %28 = zext nneg i32 %27 to i64
   %29 = getelementptr i32, ptr %2, i64 %indvars.iv.next474
   %30 = getelementptr i32, ptr %29, i64 %28
   %31 = load i32, ptr %30, align 4, !tbaa !4
@@ -87,9 +87,9 @@ define dso_local void @compute_assignment(i32 noundef %0, i32 noundef %1, ptr no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %37, %41
-  %.sink542 = phi i32 [ %42, %41 ], [ %38, %37 ]
+  %.sink553 = phi i32 [ %42, %41 ], [ %38, %37 ]
   %.sink.ph = phi i32 [ -1, %41 ], [ %.0255.lcssa, %37 ]
-  store i32 %.sink542, ptr %34, align 4, !tbaa !4
+  store i32 %.sink553, ptr %34, align 4, !tbaa !4
   br label %43
 
 43:                                               ; preds = %.sink.split, %39
@@ -153,7 +153,7 @@ st_mult.exit:                                     ; preds = %46
   %70 = load i32, ptr %69, align 4, !tbaa !4
   %71 = sub nsw i32 %67, %70
   %72 = zext nneg i32 %52 to i64
-  %invariant.gep535 = getelementptr inbounds nuw i32, ptr %2, i64 %63
+  %invariant.gep546 = getelementptr inbounds nuw i32, ptr %2, i64 %63
   br label %.lr.ph404
 
 .lr.ph404:                                        ; preds = %.lr.ph404.preheader, %78
@@ -163,8 +163,8 @@ st_mult.exit:                                     ; preds = %46
   br i1 %.not354, label %78, label %73
 
 73:                                               ; preds = %.lr.ph404
-  %gep536 = getelementptr inbounds nuw i32, ptr %invariant.gep535, i64 %indvars.iv476
-  %74 = load i32, ptr %gep536, align 4, !tbaa !4
+  %gep547 = getelementptr inbounds nuw i32, ptr %invariant.gep546, i64 %indvars.iv476
+  %74 = load i32, ptr %gep547, align 4, !tbaa !4
   %75 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv476
   %76 = load i32, ptr %75, align 4, !tbaa !4
   %77 = sub nsw i32 %74, %76
@@ -226,7 +226,7 @@ st_mult.exit:                                     ; preds = %46
   %94 = load i32, ptr %93, align 4, !tbaa !4
   %95 = load i32, ptr %15, align 4, !tbaa !4
   %96 = sub nsw i32 %94, %95
-  %invariant.gep537 = getelementptr i32, ptr %2, i64 %92
+  %invariant.gep548 = getelementptr i32, ptr %2, i64 %92
   br label %116
 
 97:                                               ; preds = %._crit_edge419.us.us
@@ -279,8 +279,8 @@ st_mult.exit:                                     ; preds = %46
   %.0279415.us.us = phi i32 [ %.1280.us.us, %125 ], [ -1, %.lr.ph418.us.us ]
   %.0282414.us.us = phi i32 [ %.1283.us.us, %125 ], [ 0, %.lr.ph418.us.us ]
   %.0285413.us.us = phi i32 [ %.1286.us.us, %125 ], [ 2147483647, %.lr.ph418.us.us ]
-  %gep538 = getelementptr i32, ptr %invariant.gep537, i64 %indvars.iv486
-  %117 = load i32, ptr %gep538, align 4, !tbaa !4
+  %gep549 = getelementptr i32, ptr %invariant.gep548, i64 %indvars.iv486
+  %117 = load i32, ptr %gep549, align 4, !tbaa !4
   %118 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv486
   %119 = load i32, ptr %118, align 4, !tbaa !4
   %120 = sub nsw i32 %117, %119
@@ -340,13 +340,13 @@ st_mult.exit:                                     ; preds = %46
   %138 = load i32, ptr %137, align 4, !tbaa !4
   %139 = mul nsw i32 %138, %0
   %140 = sext i32 %139 to i64
-  %invariant.gep539 = getelementptr i32, ptr %2, i64 %140
+  %invariant.gep550 = getelementptr i32, ptr %2, i64 %140
   br label %141
 
 141:                                              ; preds = %.lr.ph434, %141
   %indvars.iv491 = phi i64 [ 0, %.lr.ph434 ], [ %indvars.iv.next492, %141 ]
-  %gep540 = getelementptr i32, ptr %invariant.gep539, i64 %indvars.iv491
-  %142 = load i32, ptr %gep540, align 4, !tbaa !4
+  %gep551 = getelementptr i32, ptr %invariant.gep550, i64 %indvars.iv491
+  %142 = load i32, ptr %gep551, align 4, !tbaa !4
   %143 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv491
   %144 = load i32, ptr %143, align 4, !tbaa !4
   %145 = sub nsw i32 %142, %144

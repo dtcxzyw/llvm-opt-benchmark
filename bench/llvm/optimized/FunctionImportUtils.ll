@@ -277,8 +277,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm30FunctionImportGlobalProcessing20d
   %21 = phi ptr [ %27, %22 ], [ %19, %10 ]
   %.01830.i.i.i.i.i.i = phi i32 [ %.018.i.i.i.i.i.i, %22 ], [ %.01828.i.i.i.i.i.i, %10 ]
   %.01629.i.i.i.i.i.i = phi i32 [ %23, %22 ], [ 1, %10 ]
-  %.not5.not = icmp ne ptr %21, inttoptr (i64 -4096 to ptr)
-  br i1 %.not5.not, label %22, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit, !prof !66
+  %.not10.not = icmp ne ptr %21, inttoptr (i64 -4096 to ptr)
+  br i1 %.not10.not, label %22, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit, !prof !66
 
 22:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %23 = add i32 %.01629.i.i.i.i.i.i, 1
@@ -291,7 +291,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm30FunctionImportGlobalProcessing20d
   br i1 %28, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit, label %.lr.ph.i.i.i.i.i.i, !prof !67, !llvm.loop !68
 
 _ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit: ; preds = %22, %.lr.ph.i.i.i.i.i.i, %10, %5, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %10 ], [ false, %5 ], [ %.not5.not, %.lr.ph.i.i.i.i.i.i ], [ %.not5.not, %22 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %10 ], [ false, %5 ], [ %.not10.not, %.lr.ph.i.i.i.i.i.i ], [ %.not10.not, %22 ]
   ret i1 %.0
 }
 
@@ -802,8 +802,8 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN4llvm30FunctionImportGlobalPro
   %35 = phi ptr [ %41, %36 ], [ %33, %24 ]
   %.01830.i.i.i.i.i.i.i = phi i32 [ %.018.i.i.i.i.i.i.i, %36 ], [ %.01828.i.i.i.i.i.i.i, %24 ]
   %.01629.i.i.i.i.i.i.i = phi i32 [ %37, %36 ], [ 1, %24 ]
-  %.not5.i = icmp eq ptr %35, inttoptr (i64 -4096 to ptr)
-  br i1 %.not5.i, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit, label %36, !prof !33
+  %.not10.i = icmp eq ptr %35, inttoptr (i64 -4096 to ptr)
+  br i1 %.not10.i, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit, label %36, !prof !33
 
 36:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %37 = add i32 %.01629.i.i.i.i.i.i.i, 1
@@ -848,8 +848,8 @@ _ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValu
   %61 = phi ptr [ %67, %62 ], [ %59, %50 ]
   %.01830.i.i.i.i.i.i.i7 = phi i32 [ %.018.i.i.i.i.i.i.i10, %62 ], [ %.01828.i.i.i.i.i.i.i5, %50 ]
   %.01629.i.i.i.i.i.i.i8 = phi i32 [ %63, %62 ], [ 1, %50 ]
-  %.not5.i9 = icmp eq ptr %61, inttoptr (i64 -4096 to ptr)
-  br i1 %.not5.i9, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit12, label %62, !prof !33
+  %.not10.i9 = icmp eq ptr %61, inttoptr (i64 -4096 to ptr)
+  br i1 %.not10.i9, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit12, label %62, !prof !33
 
 62:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i6
   %63 = add i32 %.01629.i.i.i.i.i.i.i8, 1
@@ -886,8 +886,8 @@ _ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValu
   %85 = phi ptr [ %91, %86 ], [ %83, %74 ]
   %.01830.i.i.i.i.i.i.i16 = phi i32 [ %.018.i.i.i.i.i.i.i19, %86 ], [ %.01828.i.i.i.i.i.i.i14, %74 ]
   %.01629.i.i.i.i.i.i.i17 = phi i32 [ %87, %86 ], [ 1, %74 ]
-  %.not5.i18 = icmp eq ptr %85, inttoptr (i64 -4096 to ptr)
-  br i1 %.not5.i18, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit21, label %86, !prof !33
+  %.not10.i18 = icmp eq ptr %85, inttoptr (i64 -4096 to ptr)
+  br i1 %.not10.i18, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit21, label %86, !prof !33
 
 86:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i15
   %87 = add i32 %.01629.i.i.i.i.i.i.i17, 1
@@ -935,8 +935,8 @@ _ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValu
   %112 = phi ptr [ %118, %113 ], [ %110, %101 ]
   %.01830.i.i.i.i.i.i.i25 = phi i32 [ %.018.i.i.i.i.i.i.i28, %113 ], [ %.01828.i.i.i.i.i.i.i23, %101 ]
   %.01629.i.i.i.i.i.i.i26 = phi i32 [ %114, %113 ], [ 1, %101 ]
-  %.not5.i27 = icmp eq ptr %112, inttoptr (i64 -4096 to ptr)
-  br i1 %.not5.i27, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit30, label %113, !prof !33
+  %.not10.i27 = icmp eq ptr %112, inttoptr (i64 -4096 to ptr)
+  br i1 %.not10.i27, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit30, label %113, !prof !33
 
 113:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i24
   %114 = add i32 %.01629.i.i.i.i.i.i.i26, 1
@@ -1071,8 +1071,8 @@ _ZNKSt3mapImN4llvm22GlobalValueSummaryInfoESt4lessImESaISt4pairIKmS1_EEE4findERS
   %58 = trunc nuw i8 %57 to i1
   %59 = load i8, ptr %1, align 8
   %.not = icmp eq i8 %59, 3
-  %or.cond115 = select i1 %58, i1 %.not, i1 false
-  br i1 %or.cond115, label %60, label %_ZN4llvm16dyn_cast_or_nullINS_16GlobalVarSummaryENS_18GlobalValueSummaryEEEDaPT0_.exit.thread
+  %or.cond132 = select i1 %58, i1 %.not, i1 false
+  br i1 %or.cond132, label %60, label %_ZN4llvm16dyn_cast_or_nullINS_16GlobalVarSummaryENS_18GlobalValueSummaryEEEDaPT0_.exit.thread
 
 60:                                               ; preds = %53
   %61 = load ptr, ptr %0, align 8, !tbaa !163
@@ -1125,8 +1125,8 @@ _ZNK4llvm18ModuleSummaryIndex10isReadOnlyEPKNS_16GlobalVarSummaryE.exit: ; preds
   %88 = getelementptr inbounds nuw i8, ptr %79, i64 64
   %89 = load i8, ptr %88, align 8
   %90 = and i8 %89, 3
-  %or.cond116 = icmp eq i8 %90, 0
-  br i1 %or.cond116, label %_ZN4llvm16dyn_cast_or_nullINS_16GlobalVarSummaryENS_18GlobalValueSummaryEEEDaPT0_.exit.thread, label %91
+  %or.cond133 = icmp eq i8 %90, 0
+  br i1 %or.cond133, label %_ZN4llvm16dyn_cast_or_nullINS_16GlobalVarSummaryENS_18GlobalValueSummaryEEEDaPT0_.exit.thread, label %91
 
 91:                                               ; preds = %_ZNK4llvm18ModuleSummaryIndex10isReadOnlyEPKNS_16GlobalVarSummaryE.exit
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -1310,8 +1310,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %175 = add nsw i32 %174, -7
   %spec.select.i.i54 = icmp ult i32 %175, 2
   %176 = load i32, ptr %105, align 8
-  %.v118 = select i1 %spec.select.i.i54, i32 -832, i32 -16
-  %177 = and i32 %176, %.v118
+  %.v135 = select i1 %spec.select.i.i54, i32 -832, i32 -16
+  %177 = and i32 %176, %.v135
   %178 = or disjoint i32 %177, %174
   br i1 %spec.select.i.i54, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i
 
@@ -1468,8 +1468,8 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit: ; preds = %223
   %247 = phi ptr [ %253, %248 ], [ %245, %236 ]
   %.01830.i.i.i.i.i.i.i = phi i32 [ %.018.i.i.i.i.i.i.i, %248 ], [ %.01828.i.i.i.i.i.i.i, %236 ]
   %.01629.i.i.i.i.i.i.i = phi i32 [ %249, %248 ], [ 1, %236 ]
-  %.not5.i = icmp eq ptr %247, inttoptr (i64 -4096 to ptr)
-  br i1 %.not5.i, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit, label %248, !prof !33
+  %.not10.i = icmp eq ptr %247, inttoptr (i64 -4096 to ptr)
+  br i1 %.not10.i, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit, label %248, !prof !33
 
 248:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
   %249 = add i32 %.01629.i.i.i.i.i.i.i, 1
@@ -1690,13 +1690,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6ComdatEPS2_NS_12DenseMapInfoIS4_vEENS_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %65 = zext i32 %.sink28 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink26, i64 %65
-  store ptr %.sink25, ptr %0, align 8
+  %65 = zext i32 %.sink32 to i64
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %65
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16

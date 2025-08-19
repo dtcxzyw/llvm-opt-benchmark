@@ -2742,8 +2742,8 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_stream_properties(ptr no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %78, %93, %95
-  %.sink107 = phi i32 [ %96, %95 ], [ %94, %93 ], [ %22, %78 ]
-  %97 = zext i32 %.sink107 to i64
+  %.sink116 = phi i32 [ %96, %95 ], [ %94, %93 ], [ %22, %78 ]
+  %97 = zext i32 %.sink116 to i64
   %98 = call i64 @avio_skip(ptr noundef %7, i64 noundef %97) #12
   br label %99
 

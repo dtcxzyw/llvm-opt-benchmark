@@ -4426,12 +4426,12 @@ uhci_free_td.exit25:                              ; preds = %625, %638
   %754 = load volatile i32, ptr %681, align 4
   %755 = icmp eq i32 %754, 1
   %756 = zext nneg i8 %753 to i32
-  %spec.select87 = select i1 %755, i32 %756, i32 2
+  %spec.select139 = select i1 %755, i32 %756, i32 2
   br label %.preheader4.i26
 
 .preheader4.i26:                                  ; preds = %.preheader4.i26.preheader, %.loopexit.i28
   %757 = phi ptr [ %787, %.loopexit.i28 ], [ %748, %.preheader4.i26.preheader ]
-  %758 = phi i32 [ %786, %.loopexit.i28 ], [ %spec.select87, %.preheader4.i26.preheader ]
+  %758 = phi i32 [ %786, %.loopexit.i28 ], [ %spec.select139, %.preheader4.i26.preheader ]
   %759 = getelementptr inbounds nuw i8, ptr %757, i64 32
   %760 = icmp ugt i32 %758, 1
   br i1 %760, label %770, label %761
@@ -6041,25 +6041,25 @@ define internal fastcc range(i32 -22, 1) i32 @uhci_submit_common(ptr noundef rea
 
 .outer:                                           ; preds = %127, %58
   %.ph = phi i32 [ %132, %127 ], [ %59, %58 ]
-  %.ph43.in = phi ptr [ %129, %127 ], [ %60, %58 ]
-  %.ph44 = phi ptr [ %101, %127 ], [ null, %58 ]
-  %.ph45 = phi i32 [ %116, %127 ], [ %37, %58 ]
-  %.ph46 = phi ptr [ %128, %127 ], [ %61, %58 ]
-  %.ph47 = phi i32 [ %123, %127 ], [ %45, %58 ]
-  %.ph48 = phi i32 [ %120, %127 ], [ %14, %58 ]
-  %.ph49 = phi i64 [ %115, %127 ], [ %43, %58 ]
-  %.ph50 = phi ptr [ %101, %127 ], [ %63, %58 ]
-  %.ph43 = load i64, ptr %.ph43.in, align 8
+  %.ph52.in = phi ptr [ %129, %127 ], [ %60, %58 ]
+  %.ph53 = phi ptr [ %101, %127 ], [ null, %58 ]
+  %.ph54 = phi i32 [ %116, %127 ], [ %37, %58 ]
+  %.ph55 = phi ptr [ %128, %127 ], [ %61, %58 ]
+  %.ph56 = phi i32 [ %123, %127 ], [ %45, %58 ]
+  %.ph57 = phi i32 [ %120, %127 ], [ %14, %58 ]
+  %.ph58 = phi i64 [ %115, %127 ], [ %43, %58 ]
+  %.ph59 = phi ptr [ %101, %127 ], [ %63, %58 ]
+  %.ph52 = load i64, ptr %.ph52.in, align 8
   br label %68
 
 68:                                               ; preds = %.outer, %100
   %69 = phi i32 [ %119, %100 ], [ %.ph, %.outer ]
-  %70 = phi i64 [ %118, %100 ], [ %.ph43, %.outer ]
-  %71 = phi ptr [ %101, %100 ], [ %.ph44, %.outer ]
-  %72 = phi i32 [ %116, %100 ], [ %.ph45, %.outer ]
-  %73 = phi i32 [ %120, %100 ], [ %.ph48, %.outer ]
-  %74 = phi i64 [ %115, %100 ], [ %.ph49, %.outer ]
-  %75 = phi ptr [ %101, %100 ], [ %.ph50, %.outer ]
+  %70 = phi i64 [ %118, %100 ], [ %.ph52, %.outer ]
+  %71 = phi ptr [ %101, %100 ], [ %.ph53, %.outer ]
+  %72 = phi i32 [ %116, %100 ], [ %.ph54, %.outer ]
+  %73 = phi i32 [ %120, %100 ], [ %.ph57, %.outer ]
+  %74 = phi i64 [ %115, %100 ], [ %.ph58, %.outer ]
+  %75 = phi ptr [ %101, %100 ], [ %.ph59, %.outer ]
   %76 = icmp sgt i32 %73, %12
   br i1 %76, label %83, label %77
 
@@ -6140,14 +6140,14 @@ define internal fastcc range(i32 -22, 1) i32 @uhci_submit_common(ptr noundef rea
   br i1 %121, label %122, label %68
 
 122:                                              ; preds = %100
-  %123 = add i32 %.ph47, -1
+  %123 = add i32 %.ph56, -1
   %124 = icmp slt i32 %123, 1
   %125 = icmp slt i32 %120, 1
   %126 = select i1 %124, i1 true, i1 %125
   br i1 %126, label %133, label %127
 
 127:                                              ; preds = %122
-  %128 = call ptr @sg_next(ptr noundef %.ph46) #12
+  %128 = call ptr @sg_next(ptr noundef %.ph55) #12
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %131 = load i32, ptr %130, align 8

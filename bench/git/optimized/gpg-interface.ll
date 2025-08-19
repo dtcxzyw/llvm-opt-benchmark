@@ -1315,28 +1315,28 @@ define internal range(i32 -1, 1) i32 @sign_buffer_gpg(ptr noundef readonly captu
 
 .lr.ph.preheader:                                 ; preds = %3
   %20 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) @.str.44) #18
-  %.not1830 = icmp eq ptr %20, null
-  br i1 %.not1830, label %.critedge, label %.lr.ph31
+  %.not1838 = icmp eq ptr %20, null
+  br i1 %.not1838, label %.critedge, label %.lr.ph39
 
 .lr.ph:                                           ; preds = %25
   %21 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %22 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) @.str.44) #18
   %.not18 = icmp eq ptr %22, null
-  br i1 %.not18, label %.critedge, label %.lr.ph31
+  br i1 %.not18, label %.critedge, label %.lr.ph39
 
-.lr.ph31:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph39:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %23 = phi ptr [ %22, %.lr.ph ], [ %20, %.lr.ph.preheader ]
   %24 = icmp eq ptr %23, %19
   br i1 %24, label %.critedge, label %25
 
-25:                                               ; preds = %.lr.ph31
+25:                                               ; preds = %.lr.ph39
   %26 = getelementptr inbounds i8, ptr %23, i64 -1
   %27 = load i8, ptr %26, align 1, !tbaa !33
   %28 = icmp eq i8 %27, 10
   br i1 %28, label %.critedge, label %.lr.ph
 
-.critedge:                                        ; preds = %.lr.ph31, %25, %.lr.ph, %.lr.ph.preheader, %3
-  %.1 = phi i32 [ 1, %3 ], [ 1, %.lr.ph.preheader ], [ 1, %.lr.ph ], [ 0, %25 ], [ 0, %.lr.ph31 ]
+.critedge:                                        ; preds = %.lr.ph39, %25, %.lr.ph, %.lr.ph.preheader, %3
+  %.1 = phi i32 [ 1, %3 ], [ 1, %.lr.ph.preheader ], [ 1, %.lr.ph ], [ 0, %25 ], [ 0, %.lr.ph39 ]
   %29 = or i32 %.1, %16
   %.not20 = icmp eq i32 %29, 0
   br i1 %.not20, label %39, label %30

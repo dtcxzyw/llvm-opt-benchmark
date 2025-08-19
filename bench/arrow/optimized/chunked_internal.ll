@@ -567,8 +567,8 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %14, %16, %20
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %37, %38
   %40 = lshr exact i64 %12, 3
-  %.not48 = icmp eq ptr %8, %9
-  br i1 %.not48, label %._crit_edge46, label %.lr.ph45
+  %.not56 = icmp eq ptr %8, %9
+  br i1 %.not56, label %._crit_edge46, label %.lr.ph45
 
 ._crit_edge46:                                    ; preds = %._crit_edge41, %._crit_edge
   %41 = getelementptr inbounds i8, ptr %36, i64 %39
@@ -881,8 +881,8 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc16
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.019.037 = phi ptr [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i ], [ %11, %._crit_edge.loopexit ]
-  %.sroa.10.035 = phi i64 [ 0, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i ], [ %16, %._crit_edge.loopexit ]
+  %.sroa.019.040 = phi ptr [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i ], [ %11, %._crit_edge.loopexit ]
+  %.sroa.10.038 = phi i64 [ 0, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i ], [ %16, %._crit_edge.loopexit ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !111
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -908,13 +908,13 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc16
 
 ._crit_edge30:                                    ; preds = %._crit_edge
   store ptr null, ptr %0, align 8, !tbaa !95, !alias.scope !129
-  %.not.i.i.i = icmp eq ptr %.sroa.019.037, null
+  %.not.i.i.i = icmp eq ptr %.sroa.019.040, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %31
 
 31:                                               ; preds = %._crit_edge30.thread, %._crit_edge30
-  %32 = ptrtoint ptr %.sroa.019.037 to i64
-  %33 = sub i64 %.sroa.10.035, %32
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.019.037, i64 noundef %33) #19
+  %32 = ptrtoint ptr %.sroa.019.040 to i64
+  %33 = sub i64 %.sroa.10.038, %32
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.019.040, i64 noundef %33) #19
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge30, %31
@@ -925,7 +925,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge30, %31
   %34 = getelementptr inbounds nuw %"struct.arrow::compute::internal::CompressedChunkLocation", ptr %20, i64 %.027
   %35 = load i64, ptr %34, align 8, !tbaa !54
   %36 = and i64 %35, 16777215
-  %37 = getelementptr inbounds nuw i64, ptr %.sroa.019.037, i64 %36
+  %37 = getelementptr inbounds nuw i64, ptr %.sroa.019.040, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !54
   %39 = lshr i64 %35, 24
   %40 = add nsw i64 %38, %39

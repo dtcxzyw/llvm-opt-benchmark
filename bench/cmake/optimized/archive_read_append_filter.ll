@@ -118,7 +118,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_append_filter(ptr n
 33:                                               ; preds = %30
   %34 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %3) #8
   %.not54 = icmp eq i32 %34, 0
-  br i1 %.not54, label %split.thread66, label %35
+  br i1 %.not54, label %split.thread70, label %35
 
 35:                                               ; preds = %33
   %36 = add nuw nsw i32 %.04762, 1
@@ -130,20 +130,20 @@ split:                                            ; preds = %35
   %.phi.trans.insert = getelementptr i8, ptr %0, i64 616
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !4
   %.not55 = icmp eq ptr %.pre, null
-  br i1 %.not55, label %split.thread, label %split.thread66
+  br i1 %.not55, label %split.thread, label %split.thread70
 
-split.thread66:                                   ; preds = %33, %split
-  %.046.lcssa69 = phi ptr [ %scevgep, %split ], [ %.04663, %33 ]
+split.thread70:                                   ; preds = %33, %split
+  %.046.lcssa73 = phi ptr [ %scevgep, %split ], [ %.04663, %33 ]
   %38 = phi ptr [ %.pre, %split ], [ %32, %33 ]
   %39 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %3) #8
   %.not56 = icmp eq i32 %39, 0
   br i1 %.not56, label %40, label %split.thread
 
-split.thread:                                     ; preds = %30, %split.thread66, %split
+split.thread:                                     ; preds = %30, %split.thread70, %split
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.13) #7
   br label %59
 
-40:                                               ; preds = %split.thread66
+40:                                               ; preds = %split.thread70
   %41 = tail call noalias dereferenceable_or_null(144) ptr @calloc(i64 noundef 1, i64 noundef 144) #9
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %44
@@ -154,7 +154,7 @@ split.thread:                                     ; preds = %30, %split.thread66
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %.046.lcssa69, ptr %45, align 8, !tbaa !13
+  store ptr %.046.lcssa73, ptr %45, align 8, !tbaa !13
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr %0, ptr %46, align 8, !tbaa !21
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 632
@@ -162,7 +162,7 @@ split.thread:                                     ; preds = %30, %split.thread66
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %48, ptr %49, align 8, !tbaa !36
   store ptr %41, ptr %47, align 8, !tbaa !22
-  %50 = getelementptr inbounds nuw i8, ptr %.046.lcssa69, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %.046.lcssa73, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !37
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !38
@@ -265,7 +265,7 @@ split:                                            ; preds = %13
   br label %38
 
 split.thread:                                     ; preds = %10, %split
-  %.033.lcssa44 = phi ptr [ %scevgep, %split ], [ %.03340, %10 ]
+  %.033.lcssa47 = phi ptr [ %scevgep, %split ], [ %.03340, %10 ]
   %18 = tail call noalias dereferenceable_or_null(144) ptr @calloc(i64 noundef 1, i64 noundef 144) #9
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21
@@ -276,14 +276,14 @@ split.thread:                                     ; preds = %10, %split
 
 21:                                               ; preds = %split.thread
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %.033.lcssa44, ptr %22, align 8, !tbaa !13
+  store ptr %.033.lcssa47, ptr %22, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %0, ptr %23, align 8, !tbaa !21
   %24 = load ptr, ptr %scevgep, align 8, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %24, ptr %25, align 8, !tbaa !36
   store ptr %18, ptr %scevgep, align 8, !tbaa !22
-  %26 = getelementptr inbounds nuw i8, ptr %.033.lcssa44, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.033.lcssa47, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !37
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !38
@@ -299,7 +299,7 @@ split.thread:                                     ; preds = %10, %split
   %33 = load ptr, ptr %scevgep, align 8, !tbaa !22
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %35 = load ptr, ptr %34, align 8, !tbaa !43
-  %36 = getelementptr inbounds nuw i8, ptr %.033.lcssa44, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.033.lcssa47, i64 8
   store ptr %35, ptr %36, align 8, !tbaa !4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store i32 1, ptr %37, align 8, !tbaa !40

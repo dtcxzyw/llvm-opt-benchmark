@@ -312,21 +312,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit181:        ; preds = %123, %127, %158
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit172
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit172:  ; preds = %108, %.split.loop.exit389
-  %.sink550 = phi i32 [ %112, %108 ], [ %170, %.split.loop.exit389 ]
+  %.sink688 = phi i32 [ %112, %108 ], [ %170, %.split.loop.exit389 ]
   %.sink = phi i64 [ %110, %108 ], [ %.2.i171, %.split.loop.exit389 ]
   %173 = phi i32 [ %107, %108 ], [ %167, %.split.loop.exit389 ]
   %spec.select.i169 = phi i32 [ %114, %108 ], [ %172, %.split.loop.exit389 ]
-  %174 = sub nuw nsw i32 32, %.sink550
+  %174 = sub nuw nsw i32 32, %.sink688
   %175 = zext nneg i32 %174 to i64
   %176 = shl nuw i64 %.sink, %175
   %storemerge50.i167 = trunc i64 %176 to i32
   store i32 %storemerge50.i167, ptr %17, align 8, !tbaa !21
-  store i32 %.sink550, ptr %18, align 4, !tbaa !22
+  store i32 %.sink688, ptr %18, align 4, !tbaa !22
   %177 = icmp ugt i32 %spec.select.i169, 40
   br i1 %177, label %178, label %281
 
 178:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit172
-  %179 = icmp samesign ult i32 %.sink550, 21
+  %179 = icmp samesign ult i32 %.sink688, 21
   br i1 %179, label %180, label %.loopexit311
 
 180:                                              ; preds = %178
@@ -397,10 +397,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit172:  ; preds = %108, %.split.loop.e
   br label %_ZL13crxFillBufferP12CrxBitstream.exit185
 
 _ZL13crxFillBufferP12CrxBitstream.exit185:        ; preds = %183, %188, %219
-  %223 = sub nuw nsw i32 21, %.sink550
-  %224 = add nuw nsw i32 %.sink550, 11
+  %223 = sub nuw nsw i32 21, %.sink688
+  %224 = add nuw nsw i32 %.sink688, 11
   store i32 %224, ptr %18, align 4, !tbaa !22
-  %225 = lshr i32 %187, %.sink550
+  %225 = lshr i32 %187, %.sink688
   %226 = or i32 %225, %storemerge50.i167
   %227 = lshr i32 %226, 11
   %228 = shl i32 %187, %223
@@ -410,7 +410,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit185:        ; preds = %183, %188, %219
 .preheader310:                                    ; preds = %180, %_ZL13crxFillBufferP12CrxBitstream.exit189
   %229 = phi i32 [ %272, %_ZL13crxFillBufferP12CrxBitstream.exit189 ], [ %173, %180 ]
   %.144.i103 = phi i32 [ %276, %_ZL13crxFillBufferP12CrxBitstream.exit189 ], [ %storemerge50.i167, %180 ]
-  %.1.i104 = phi i32 [ %232, %_ZL13crxFillBufferP12CrxBitstream.exit189 ], [ %.sink550, %180 ]
+  %.1.i104 = phi i32 [ %232, %_ZL13crxFillBufferP12CrxBitstream.exit189 ], [ %.sink688, %180 ]
   %230 = load i32, ptr %19, align 8, !tbaa !24
   %.not52.i105 = icmp ult i32 %230, %229
   br i1 %.not52.i105, label %231, label %.loopexit311
@@ -488,7 +488,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit189:        ; preds = %231, %237, %268
 
 .loopexit311:                                     ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit189, %.preheader310, %178
   %.043.i99 = phi i32 [ %storemerge50.i167, %178 ], [ %276, %_ZL13crxFillBufferP12CrxBitstream.exit189 ], [ %.144.i103, %.preheader310 ]
-  %.042.i100 = phi i32 [ %.sink550, %178 ], [ %232, %_ZL13crxFillBufferP12CrxBitstream.exit189 ], [ %.1.i104, %.preheader310 ]
+  %.042.i100 = phi i32 [ %.sink688, %178 ], [ %232, %_ZL13crxFillBufferP12CrxBitstream.exit189 ], [ %.1.i104, %.preheader310 ]
   %278 = lshr i32 %.043.i99, 11
   %279 = shl i32 %.043.i99, 21
   store i32 %279, ptr %17, align 8, !tbaa !21
@@ -498,7 +498,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit189:        ; preds = %231, %237, %268
 
 281:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit172.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit172
   %282 = phi i32 [ %55, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit172.thread ], [ %storemerge50.i167, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit172 ]
-  %283 = phi i32 [ %57, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit172.thread ], [ %.sink550, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit172 ]
+  %283 = phi i32 [ %57, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit172.thread ], [ %.sink688, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit172 ]
   %.139.i159284 = phi i32 [ %52, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit172.thread ], [ %spec.select.i169, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit172 ]
   %284 = load i32, ptr %24, align 4, !tbaa !37
   %.not39.i = icmp eq i32 %284, 0
@@ -1341,9 +1341,9 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit138:  ; preds = %_ZL13crxFillBufferP
 .loopexit304:                                     ; preds = %.thread, %..loopexit304_crit_edge, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit122
   %.149 = phi i32 [ %.048411, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit122 ], [ %769, %..loopexit304_crit_edge ], [ %769, %.thread ]
   %779 = icmp sgt i32 %.149, 0
-  br i1 %779, label %781, label %.thread479
+  br i1 %779, label %781, label %.thread617
 
-.thread479:                                       ; preds = %.loopexit304
+.thread617:                                       ; preds = %.loopexit304
   %780 = add nsw i32 %.149, -1
   br label %._crit_edge414.loopexit
 
@@ -1565,21 +1565,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit229:        ; preds = %859, %863, %894
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit156
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit156:  ; preds = %844, %.split.loop.exit407
-  %.sink554 = phi i32 [ %848, %844 ], [ %906, %.split.loop.exit407 ]
-  %.sink551 = phi i64 [ %846, %844 ], [ %.2.i155, %.split.loop.exit407 ]
+  %.sink692 = phi i32 [ %848, %844 ], [ %906, %.split.loop.exit407 ]
+  %.sink689 = phi i64 [ %846, %844 ], [ %.2.i155, %.split.loop.exit407 ]
   %909 = phi i32 [ %843, %844 ], [ %903, %.split.loop.exit407 ]
   %spec.select.i153 = phi i32 [ %850, %844 ], [ %908, %.split.loop.exit407 ]
-  %910 = sub nuw nsw i32 32, %.sink554
+  %910 = sub nuw nsw i32 32, %.sink692
   %911 = zext nneg i32 %910 to i64
-  %912 = shl nuw i64 %.sink551, %911
+  %912 = shl nuw i64 %.sink689, %911
   %storemerge50.i151 = trunc i64 %912 to i32
   store i32 %storemerge50.i151, ptr %17, align 8, !tbaa !21
-  store i32 %.sink554, ptr %18, align 4, !tbaa !22
+  store i32 %.sink692, ptr %18, align 4, !tbaa !22
   %913 = icmp ugt i32 %spec.select.i153, 40
   br i1 %913, label %914, label %1017
 
 914:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit156
-  %915 = icmp samesign ult i32 %.sink554, 21
+  %915 = icmp samesign ult i32 %.sink692, 21
   br i1 %915, label %916, label %.loopexit301
 
 916:                                              ; preds = %914
@@ -1650,10 +1650,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit156:  ; preds = %844, %.split.loop.e
   br label %_ZL13crxFillBufferP12CrxBitstream.exit233
 
 _ZL13crxFillBufferP12CrxBitstream.exit233:        ; preds = %919, %924, %955
-  %959 = sub nuw nsw i32 21, %.sink554
-  %960 = add nuw nsw i32 %.sink554, 11
+  %959 = sub nuw nsw i32 21, %.sink692
+  %960 = add nuw nsw i32 %.sink692, 11
   store i32 %960, ptr %18, align 4, !tbaa !22
-  %961 = lshr i32 %923, %.sink554
+  %961 = lshr i32 %923, %.sink692
   %962 = or i32 %961, %storemerge50.i151
   %963 = lshr i32 %962, 11
   %964 = shl i32 %923, %959
@@ -1663,7 +1663,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit233:        ; preds = %919, %924, %955
 .preheader300:                                    ; preds = %916, %_ZL13crxFillBufferP12CrxBitstream.exit237
   %965 = phi i32 [ %1008, %_ZL13crxFillBufferP12CrxBitstream.exit237 ], [ %909, %916 ]
   %.144.i87 = phi i32 [ %1012, %_ZL13crxFillBufferP12CrxBitstream.exit237 ], [ %storemerge50.i151, %916 ]
-  %.1.i88 = phi i32 [ %968, %_ZL13crxFillBufferP12CrxBitstream.exit237 ], [ %.sink554, %916 ]
+  %.1.i88 = phi i32 [ %968, %_ZL13crxFillBufferP12CrxBitstream.exit237 ], [ %.sink692, %916 ]
   %966 = load i32, ptr %19, align 8, !tbaa !24
   %.not52.i89 = icmp ult i32 %966, %965
   br i1 %.not52.i89, label %967, label %.loopexit301
@@ -1741,7 +1741,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit237:        ; preds = %967, %973, %1004
 
 .loopexit301:                                     ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit237, %.preheader300, %914
   %.043.i83 = phi i32 [ %storemerge50.i151, %914 ], [ %1012, %_ZL13crxFillBufferP12CrxBitstream.exit237 ], [ %.144.i87, %.preheader300 ]
-  %.042.i84 = phi i32 [ %.sink554, %914 ], [ %968, %_ZL13crxFillBufferP12CrxBitstream.exit237 ], [ %.1.i88, %.preheader300 ]
+  %.042.i84 = phi i32 [ %.sink692, %914 ], [ %968, %_ZL13crxFillBufferP12CrxBitstream.exit237 ], [ %.1.i88, %.preheader300 ]
   %1014 = lshr i32 %.043.i83, 11
   %1015 = shl i32 %.043.i83, 21
   store i32 %1015, ptr %17, align 8, !tbaa !21
@@ -1751,7 +1751,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit237:        ; preds = %967, %973, %1004
 
 1017:                                             ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit156.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit156
   %1018 = phi i32 [ %791, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit156.thread ], [ %storemerge50.i151, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit156 ]
-  %1019 = phi i32 [ %793, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit156.thread ], [ %.sink554, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit156 ]
+  %1019 = phi i32 [ %793, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit156.thread ], [ %.sink692, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit156 ]
   %.139.i143287 = phi i32 [ %788, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit156.thread ], [ %spec.select.i153, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit156 ]
   %1020 = load i32, ptr %24, align 4, !tbaa !37
   %.not39.i65 = icmp eq i32 %1020, 0
@@ -1983,18 +1983,18 @@ _Z17crxDecodeSymbolL1P12CrxBandParamii.exit67:    ; preds = %_Z19crxBitstreamGet
   br label %1161
 
 1161:                                             ; preds = %_Z17crxDecodeSymbolL1P12CrxBandParamii.exit67, %_Z17crxDecodeSymbolL1P12CrxBandParamii.exit
-  %.sink557 = phi i32 [ %1160, %_Z17crxDecodeSymbolL1P12CrxBandParamii.exit67 ], [ %423, %_Z17crxDecodeSymbolL1P12CrxBandParamii.exit ]
-  %.sink555 = phi ptr [ %1135, %_Z17crxDecodeSymbolL1P12CrxBandParamii.exit67 ], [ %399, %_Z17crxDecodeSymbolL1P12CrxBandParamii.exit ]
+  %.sink695 = phi i32 [ %1160, %_Z17crxDecodeSymbolL1P12CrxBandParamii.exit67 ], [ %423, %_Z17crxDecodeSymbolL1P12CrxBandParamii.exit ]
+  %.sink693 = phi ptr [ %1135, %_Z17crxDecodeSymbolL1P12CrxBandParamii.exit67 ], [ %399, %_Z17crxDecodeSymbolL1P12CrxBandParamii.exit ]
   %.351 = phi i32 [ %.149, %_Z17crxDecodeSymbolL1P12CrxBandParamii.exit67 ], [ %.048411, %_Z17crxDecodeSymbolL1P12CrxBandParamii.exit ]
-  %1162 = tail call i32 @llvm.smin.i32(i32 %.sink557, i32 15)
+  %1162 = tail call i32 @llvm.smin.i32(i32 %.sink695, i32 15)
   store i32 %1162, ptr %24, align 4, !tbaa !37
-  store ptr %.sink555, ptr %11, align 8, !tbaa !20
+  store ptr %.sink693, ptr %11, align 8, !tbaa !20
   %1163 = add nsw i32 %.351, -1
   %1164 = icmp sgt i32 %.351, 2
   br i1 %1164, label %26, label %._crit_edge414.loopexit, !llvm.loop !41
 
-._crit_edge414.loopexit:                          ; preds = %1161, %.thread479
-  %1165 = phi i32 [ %780, %.thread479 ], [ %1163, %1161 ]
+._crit_edge414.loopexit:                          ; preds = %1161, %.thread617
+  %1165 = phi i32 [ %780, %.thread617 ], [ %1163, %1161 ]
   %.pre475.pre = load ptr, ptr %11, align 8, !tbaa !20
   br label %._crit_edge414
 
@@ -2253,21 +2253,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit253:        ; preds = %1270, %1274, %1305
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %1255, %.split.loop.exit427
-  %.sink561 = phi i32 [ %1259, %1255 ], [ %1317, %.split.loop.exit427 ]
-  %.sink558 = phi i64 [ %1257, %1255 ], [ %.2.i, %.split.loop.exit427 ]
+  %.sink699 = phi i32 [ %1259, %1255 ], [ %1317, %.split.loop.exit427 ]
+  %.sink696 = phi i64 [ %1257, %1255 ], [ %.2.i, %.split.loop.exit427 ]
   %1320 = phi i32 [ %1254, %1255 ], [ %1314, %.split.loop.exit427 ]
   %spec.select.i = phi i32 [ %1261, %1255 ], [ %1319, %.split.loop.exit427 ]
-  %1321 = sub nuw nsw i32 32, %.sink561
+  %1321 = sub nuw nsw i32 32, %.sink699
   %1322 = zext nneg i32 %1321 to i64
-  %1323 = shl nuw i64 %.sink558, %1322
+  %1323 = shl nuw i64 %.sink696, %1322
   %storemerge50.i = trunc i64 %1323 to i32
   store i32 %storemerge50.i, ptr %1190, align 8, !tbaa !21
-  store i32 %.sink561, ptr %1200, align 4, !tbaa !22
+  store i32 %.sink699, ptr %1200, align 4, !tbaa !22
   %1324 = icmp ugt i32 %spec.select.i, 40
   br i1 %1324, label %1325, label %1428
 
 1325:                                             ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
-  %1326 = icmp samesign ult i32 %.sink561, 21
+  %1326 = icmp samesign ult i32 %.sink699, 21
   br i1 %1326, label %1327, label %.loopexit
 
 1327:                                             ; preds = %1325
@@ -2338,10 +2338,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %1255, %.split.loop.
   br label %_ZL13crxFillBufferP12CrxBitstream.exit257
 
 _ZL13crxFillBufferP12CrxBitstream.exit257:        ; preds = %1330, %1335, %1366
-  %1370 = sub nuw nsw i32 21, %.sink561
-  %1371 = add nuw nsw i32 %.sink561, 11
+  %1370 = sub nuw nsw i32 21, %.sink699
+  %1371 = add nuw nsw i32 %.sink699, 11
   store i32 %1371, ptr %1200, align 4, !tbaa !22
-  %1372 = lshr i32 %1334, %.sink561
+  %1372 = lshr i32 %1334, %.sink699
   %1373 = or i32 %1372, %storemerge50.i
   %1374 = lshr i32 %1373, 11
   %1375 = shl i32 %1334, %1370
@@ -2351,7 +2351,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit257:        ; preds = %1330, %1335, %1366
 .preheader:                                       ; preds = %1327, %_ZL13crxFillBufferP12CrxBitstream.exit261
   %1376 = phi i32 [ %1419, %_ZL13crxFillBufferP12CrxBitstream.exit261 ], [ %1320, %1327 ]
   %.144.i = phi i32 [ %1423, %_ZL13crxFillBufferP12CrxBitstream.exit261 ], [ %storemerge50.i, %1327 ]
-  %.1.i74 = phi i32 [ %1379, %_ZL13crxFillBufferP12CrxBitstream.exit261 ], [ %.sink561, %1327 ]
+  %.1.i74 = phi i32 [ %1379, %_ZL13crxFillBufferP12CrxBitstream.exit261 ], [ %.sink699, %1327 ]
   %1377 = load i32, ptr %1202, align 8, !tbaa !24
   %.not52.i = icmp ult i32 %1377, %1376
   br i1 %.not52.i, label %1378, label %.loopexit
@@ -2429,7 +2429,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit261:        ; preds = %1378, %1384, %1415
 
 .loopexit:                                        ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit261, %.preheader, %1325
   %.043.i = phi i32 [ %storemerge50.i, %1325 ], [ %1423, %_ZL13crxFillBufferP12CrxBitstream.exit261 ], [ %.144.i, %.preheader ]
-  %.042.i = phi i32 [ %.sink561, %1325 ], [ %1379, %_ZL13crxFillBufferP12CrxBitstream.exit261 ], [ %.1.i74, %.preheader ]
+  %.042.i = phi i32 [ %.sink699, %1325 ], [ %1379, %_ZL13crxFillBufferP12CrxBitstream.exit261 ], [ %.1.i74, %.preheader ]
   %1425 = lshr i32 %.043.i, 11
   %1426 = shl i32 %.043.i, 21
   store i32 %1426, ptr %1190, align 8, !tbaa !21
@@ -2439,7 +2439,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit261:        ; preds = %1378, %1384, %1415
 
 1428:                                             ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
   %1429 = phi i32 [ %1195, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %storemerge50.i, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
-  %1430 = phi i32 [ %1198, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %.sink561, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
+  %1430 = phi i32 [ %1198, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %.sink699, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
   %.139.i289 = phi i32 [ %1192, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %spec.select.i, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
   %1431 = getelementptr inbounds nuw i8, ptr %0, i64 65620
   %1432 = load i32, ptr %1431, align 4, !tbaa !37
@@ -2969,21 +2969,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit266:        ; preds = %131, %135, %166
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit255
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit255:  ; preds = %116, %.split.loop.exit650
-  %.sink875 = phi i32 [ %120, %116 ], [ %178, %.split.loop.exit650 ]
+  %.sink1097 = phi i32 [ %120, %116 ], [ %178, %.split.loop.exit650 ]
   %.sink = phi i64 [ %118, %116 ], [ %.2.i254, %.split.loop.exit650 ]
   %181 = phi i32 [ %115, %116 ], [ %175, %.split.loop.exit650 ]
   %spec.select.i252 = phi i32 [ %122, %116 ], [ %180, %.split.loop.exit650 ]
-  %182 = sub nuw nsw i32 32, %.sink875
+  %182 = sub nuw nsw i32 32, %.sink1097
   %183 = zext nneg i32 %182 to i64
   %184 = shl nuw i64 %.sink, %183
   %storemerge50.i250 = trunc i64 %184 to i32
   store i32 %storemerge50.i250, ptr %17, align 8, !tbaa !21
-  store i32 %.sink875, ptr %16, align 4, !tbaa !22
+  store i32 %.sink1097, ptr %16, align 4, !tbaa !22
   %185 = icmp ugt i32 %spec.select.i252, 40
   br i1 %185, label %186, label %289
 
 186:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit255
-  %187 = icmp samesign ult i32 %.sink875, 21
+  %187 = icmp samesign ult i32 %.sink1097, 21
   br i1 %187, label %188, label %.loopexit459
 
 188:                                              ; preds = %186
@@ -3054,10 +3054,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit255:  ; preds = %116, %.split.loop.e
   br label %_ZL13crxFillBufferP12CrxBitstream.exit270
 
 _ZL13crxFillBufferP12CrxBitstream.exit270:        ; preds = %191, %196, %227
-  %231 = sub nuw nsw i32 21, %.sink875
-  %232 = add nuw nsw i32 %.sink875, 11
+  %231 = sub nuw nsw i32 21, %.sink1097
+  %232 = add nuw nsw i32 %.sink1097, 11
   store i32 %232, ptr %16, align 4, !tbaa !22
-  %233 = lshr i32 %195, %.sink875
+  %233 = lshr i32 %195, %.sink1097
   %234 = or i32 %233, %storemerge50.i250
   %235 = lshr i32 %234, 11
   %236 = shl i32 %195, %231
@@ -3067,7 +3067,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit270:        ; preds = %191, %196, %227
 .preheader458:                                    ; preds = %188, %_ZL13crxFillBufferP12CrxBitstream.exit274
   %237 = phi i32 [ %280, %_ZL13crxFillBufferP12CrxBitstream.exit274 ], [ %181, %188 ]
   %.144.i61.i = phi i32 [ %284, %_ZL13crxFillBufferP12CrxBitstream.exit274 ], [ %storemerge50.i250, %188 ]
-  %.1.i62.i = phi i32 [ %240, %_ZL13crxFillBufferP12CrxBitstream.exit274 ], [ %.sink875, %188 ]
+  %.1.i62.i = phi i32 [ %240, %_ZL13crxFillBufferP12CrxBitstream.exit274 ], [ %.sink1097, %188 ]
   %238 = load i32, ptr %18, align 8, !tbaa !24
   %.not52.i63.i = icmp ult i32 %238, %237
   br i1 %.not52.i63.i, label %239, label %.loopexit459
@@ -3145,7 +3145,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit274:        ; preds = %239, %245, %276
 
 .loopexit459:                                     ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit274, %.preheader458, %186
   %.043.i57.i = phi i32 [ %storemerge50.i250, %186 ], [ %284, %_ZL13crxFillBufferP12CrxBitstream.exit274 ], [ %.144.i61.i, %.preheader458 ]
-  %.042.i58.i = phi i32 [ %.sink875, %186 ], [ %240, %_ZL13crxFillBufferP12CrxBitstream.exit274 ], [ %.1.i62.i, %.preheader458 ]
+  %.042.i58.i = phi i32 [ %.sink1097, %186 ], [ %240, %_ZL13crxFillBufferP12CrxBitstream.exit274 ], [ %.1.i62.i, %.preheader458 ]
   %286 = lshr i32 %.043.i57.i, 11
   %287 = shl i32 %.043.i57.i, 21
   store i32 %287, ptr %17, align 8, !tbaa !21
@@ -3155,7 +3155,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit274:        ; preds = %239, %245, %276
 
 289:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit255.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit255
   %290 = phi i32 [ %63, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit255.thread ], [ %storemerge50.i250, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit255 ]
-  %291 = phi i32 [ %65, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit255.thread ], [ %.sink875, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit255 ]
+  %291 = phi i32 [ %65, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit255.thread ], [ %.sink1097, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit255 ]
   %.139.i242427 = phi i32 [ %60, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit255.thread ], [ %spec.select.i252, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit255 ]
   %292 = load i32, ptr %24, align 4, !tbaa !37
   %.not55.i = icmp eq i32 %292, 0
@@ -3655,21 +3655,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit290:        ; preds = %540, %544, %575
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit239
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit239:  ; preds = %525, %.split.loop.exit635
-  %.sink879 = phi i32 [ %529, %525 ], [ %587, %.split.loop.exit635 ]
-  %.sink876 = phi i64 [ %527, %525 ], [ %.2.i238, %.split.loop.exit635 ]
+  %.sink1101 = phi i32 [ %529, %525 ], [ %587, %.split.loop.exit635 ]
+  %.sink1098 = phi i64 [ %527, %525 ], [ %.2.i238, %.split.loop.exit635 ]
   %590 = phi i32 [ %524, %525 ], [ %584, %.split.loop.exit635 ]
   %spec.select.i236 = phi i32 [ %531, %525 ], [ %589, %.split.loop.exit635 ]
-  %591 = sub nuw nsw i32 32, %.sink879
+  %591 = sub nuw nsw i32 32, %.sink1101
   %592 = zext nneg i32 %591 to i64
-  %593 = shl nuw i64 %.sink876, %592
+  %593 = shl nuw i64 %.sink1098, %592
   %storemerge50.i234 = trunc i64 %593 to i32
   store i32 %storemerge50.i234, ptr %17, align 8, !tbaa !21
-  store i32 %.sink879, ptr %16, align 4, !tbaa !22
+  store i32 %.sink1101, ptr %16, align 4, !tbaa !22
   %594 = icmp ugt i32 %spec.select.i236, 40
   br i1 %594, label %595, label %698
 
 595:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit239
-  %596 = icmp samesign ult i32 %.sink879, 21
+  %596 = icmp samesign ult i32 %.sink1101, 21
   br i1 %596, label %597, label %.loopexit463
 
 597:                                              ; preds = %595
@@ -3740,10 +3740,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit239:  ; preds = %525, %.split.loop.e
   br label %_ZL13crxFillBufferP12CrxBitstream.exit294
 
 _ZL13crxFillBufferP12CrxBitstream.exit294:        ; preds = %600, %605, %636
-  %640 = sub nuw nsw i32 21, %.sink879
-  %641 = add nuw nsw i32 %.sink879, 11
+  %640 = sub nuw nsw i32 21, %.sink1101
+  %641 = add nuw nsw i32 %.sink1101, 11
   store i32 %641, ptr %16, align 4, !tbaa !22
-  %642 = lshr i32 %604, %.sink879
+  %642 = lshr i32 %604, %.sink1101
   %643 = or i32 %642, %storemerge50.i234
   %644 = lshr i32 %643, 11
   %645 = shl i32 %604, %640
@@ -3753,7 +3753,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit294:        ; preds = %600, %605, %636
 .preheader462:                                    ; preds = %597, %_ZL13crxFillBufferP12CrxBitstream.exit298
   %646 = phi i32 [ %689, %_ZL13crxFillBufferP12CrxBitstream.exit298 ], [ %590, %597 ]
   %.144.i61.i127 = phi i32 [ %693, %_ZL13crxFillBufferP12CrxBitstream.exit298 ], [ %storemerge50.i234, %597 ]
-  %.1.i62.i128 = phi i32 [ %649, %_ZL13crxFillBufferP12CrxBitstream.exit298 ], [ %.sink879, %597 ]
+  %.1.i62.i128 = phi i32 [ %649, %_ZL13crxFillBufferP12CrxBitstream.exit298 ], [ %.sink1101, %597 ]
   %647 = load i32, ptr %18, align 8, !tbaa !24
   %.not52.i63.i129 = icmp ult i32 %647, %646
   br i1 %.not52.i63.i129, label %648, label %.loopexit463
@@ -3831,7 +3831,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit298:        ; preds = %648, %654, %685
 
 .loopexit463:                                     ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit298, %.preheader462, %595
   %.043.i57.i122 = phi i32 [ %storemerge50.i234, %595 ], [ %693, %_ZL13crxFillBufferP12CrxBitstream.exit298 ], [ %.144.i61.i127, %.preheader462 ]
-  %.042.i58.i123 = phi i32 [ %.sink879, %595 ], [ %649, %_ZL13crxFillBufferP12CrxBitstream.exit298 ], [ %.1.i62.i128, %.preheader462 ]
+  %.042.i58.i123 = phi i32 [ %.sink1101, %595 ], [ %649, %_ZL13crxFillBufferP12CrxBitstream.exit298 ], [ %.1.i62.i128, %.preheader462 ]
   %695 = lshr i32 %.043.i57.i122, 11
   %696 = shl i32 %.043.i57.i122, 21
   store i32 %696, ptr %17, align 8, !tbaa !21
@@ -3841,7 +3841,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit298:        ; preds = %648, %654, %685
 
 698:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit239.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit239
   %699 = phi i32 [ %472, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit239.thread ], [ %storemerge50.i234, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit239 ]
-  %700 = phi i32 [ %474, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit239.thread ], [ %.sink879, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit239 ]
+  %700 = phi i32 [ %474, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit239.thread ], [ %.sink1101, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit239 ]
   %.139.i226429 = phi i32 [ %469, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit239.thread ], [ %spec.select.i236, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit239 ]
   %701 = load i32, ptr %24, align 4, !tbaa !37
   %.not55.i111 = icmp eq i32 %701, 0
@@ -4931,21 +4931,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit338:        ; preds = %1292, %1296, %1327
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit223
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit223:  ; preds = %1277, %.split.loop.exit620
-  %.sink883 = phi i32 [ %1281, %1277 ], [ %1339, %.split.loop.exit620 ]
-  %.sink880 = phi i64 [ %1279, %1277 ], [ %.2.i222, %.split.loop.exit620 ]
+  %.sink1105 = phi i32 [ %1281, %1277 ], [ %1339, %.split.loop.exit620 ]
+  %.sink1102 = phi i64 [ %1279, %1277 ], [ %.2.i222, %.split.loop.exit620 ]
   %1342 = phi i32 [ %1276, %1277 ], [ %1336, %.split.loop.exit620 ]
   %spec.select.i220 = phi i32 [ %1283, %1277 ], [ %1341, %.split.loop.exit620 ]
-  %1343 = sub nuw nsw i32 32, %.sink883
+  %1343 = sub nuw nsw i32 32, %.sink1105
   %1344 = zext nneg i32 %1343 to i64
-  %1345 = shl nuw i64 %.sink880, %1344
+  %1345 = shl nuw i64 %.sink1102, %1344
   %storemerge50.i218 = trunc i64 %1345 to i32
   store i32 %storemerge50.i218, ptr %17, align 8, !tbaa !21
-  store i32 %.sink883, ptr %16, align 4, !tbaa !22
+  store i32 %.sink1105, ptr %16, align 4, !tbaa !22
   %1346 = icmp ugt i32 %spec.select.i220, 40
   br i1 %1346, label %1347, label %1450
 
 1347:                                             ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit223
-  %1348 = icmp samesign ult i32 %.sink883, 21
+  %1348 = icmp samesign ult i32 %.sink1105, 21
   br i1 %1348, label %1349, label %.loopexit467
 
 1349:                                             ; preds = %1347
@@ -5016,10 +5016,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit223:  ; preds = %1277, %.split.loop.
   br label %_ZL13crxFillBufferP12CrxBitstream.exit342
 
 _ZL13crxFillBufferP12CrxBitstream.exit342:        ; preds = %1352, %1357, %1388
-  %1392 = sub nuw nsw i32 21, %.sink883
-  %1393 = add nuw nsw i32 %.sink883, 11
+  %1392 = sub nuw nsw i32 21, %.sink1105
+  %1393 = add nuw nsw i32 %.sink1105, 11
   store i32 %1393, ptr %16, align 4, !tbaa !22
-  %1394 = lshr i32 %1356, %.sink883
+  %1394 = lshr i32 %1356, %.sink1105
   %1395 = or i32 %1394, %storemerge50.i218
   %1396 = lshr i32 %1395, 11
   %1397 = shl i32 %1356, %1392
@@ -5029,7 +5029,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit342:        ; preds = %1352, %1357, %1388
 .preheader466:                                    ; preds = %1349, %_ZL13crxFillBufferP12CrxBitstream.exit346
   %1398 = phi i32 [ %1441, %_ZL13crxFillBufferP12CrxBitstream.exit346 ], [ %1342, %1349 ]
   %.144.i61.i147 = phi i32 [ %1445, %_ZL13crxFillBufferP12CrxBitstream.exit346 ], [ %storemerge50.i218, %1349 ]
-  %.1.i62.i148 = phi i32 [ %1401, %_ZL13crxFillBufferP12CrxBitstream.exit346 ], [ %.sink883, %1349 ]
+  %.1.i62.i148 = phi i32 [ %1401, %_ZL13crxFillBufferP12CrxBitstream.exit346 ], [ %.sink1105, %1349 ]
   %1399 = load i32, ptr %18, align 8, !tbaa !24
   %.not52.i63.i149 = icmp ult i32 %1399, %1398
   br i1 %.not52.i63.i149, label %1400, label %.loopexit467
@@ -5107,7 +5107,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit346:        ; preds = %1400, %1406, %1437
 
 .loopexit467:                                     ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit346, %.preheader466, %1347
   %.043.i57.i142 = phi i32 [ %storemerge50.i218, %1347 ], [ %1445, %_ZL13crxFillBufferP12CrxBitstream.exit346 ], [ %.144.i61.i147, %.preheader466 ]
-  %.042.i58.i143 = phi i32 [ %.sink883, %1347 ], [ %1401, %_ZL13crxFillBufferP12CrxBitstream.exit346 ], [ %.1.i62.i148, %.preheader466 ]
+  %.042.i58.i143 = phi i32 [ %.sink1105, %1347 ], [ %1401, %_ZL13crxFillBufferP12CrxBitstream.exit346 ], [ %.1.i62.i148, %.preheader466 ]
   %1447 = lshr i32 %.043.i57.i142, 11
   %1448 = shl i32 %.043.i57.i142, 21
   store i32 %1448, ptr %17, align 8, !tbaa !21
@@ -5117,7 +5117,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit346:        ; preds = %1400, %1406, %1437
 
 1450:                                             ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit223.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit223
   %1451 = phi i32 [ %1224, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit223.thread ], [ %storemerge50.i218, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit223 ]
-  %1452 = phi i32 [ %1226, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit223.thread ], [ %.sink883, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit223 ]
+  %1452 = phi i32 [ %1226, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit223.thread ], [ %.sink1105, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit223 ]
   %.139.i210434 = phi i32 [ %1221, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit223.thread ], [ %spec.select.i220, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit223 ]
   %1453 = load i32, ptr %24, align 4, !tbaa !37
   %.not55.i131 = icmp eq i32 %1453, 0
@@ -5377,7 +5377,7 @@ _Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit150: ; preds = %1580, %1587
 
 1617:                                             ; preds = %1213
   %1618 = icmp eq i32 %1215, 1
-  br i1 %1618, label %1619, label %.thread759
+  br i1 %1618, label %1619, label %.thread981
 
 1619:                                             ; preds = %1617
   %1620 = getelementptr inbounds nuw i8, ptr %1214, i64 4
@@ -5592,21 +5592,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit362:        ; preds = %1694, %1698, %1729
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit207
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit207:  ; preds = %1679, %.split.loop.exit605
-  %.sink887 = phi i32 [ %1683, %1679 ], [ %1741, %.split.loop.exit605 ]
-  %.sink884 = phi i64 [ %1681, %1679 ], [ %.2.i206, %.split.loop.exit605 ]
+  %.sink1109 = phi i32 [ %1683, %1679 ], [ %1741, %.split.loop.exit605 ]
+  %.sink1106 = phi i64 [ %1681, %1679 ], [ %.2.i206, %.split.loop.exit605 ]
   %1744 = phi i32 [ %1678, %1679 ], [ %1738, %.split.loop.exit605 ]
   %spec.select.i204 = phi i32 [ %1685, %1679 ], [ %1743, %.split.loop.exit605 ]
-  %1745 = sub nuw nsw i32 32, %.sink887
+  %1745 = sub nuw nsw i32 32, %.sink1109
   %1746 = zext nneg i32 %1745 to i64
-  %1747 = shl nuw i64 %.sink884, %1746
+  %1747 = shl nuw i64 %.sink1106, %1746
   %storemerge50.i202 = trunc i64 %1747 to i32
   store i32 %storemerge50.i202, ptr %17, align 8, !tbaa !21
-  store i32 %.sink887, ptr %16, align 4, !tbaa !22
+  store i32 %.sink1109, ptr %16, align 4, !tbaa !22
   %1748 = icmp ugt i32 %spec.select.i204, 40
   br i1 %1748, label %1749, label %1852
 
 1749:                                             ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit207
-  %1750 = icmp samesign ult i32 %.sink887, 21
+  %1750 = icmp samesign ult i32 %.sink1109, 21
   br i1 %1750, label %1751, label %.loopexit471
 
 1751:                                             ; preds = %1749
@@ -5677,10 +5677,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit207:  ; preds = %1679, %.split.loop.
   br label %_ZL13crxFillBufferP12CrxBitstream.exit366
 
 _ZL13crxFillBufferP12CrxBitstream.exit366:        ; preds = %1754, %1759, %1790
-  %1794 = sub nuw nsw i32 21, %.sink887
-  %1795 = add nuw nsw i32 %.sink887, 11
+  %1794 = sub nuw nsw i32 21, %.sink1109
+  %1795 = add nuw nsw i32 %.sink1109, 11
   store i32 %1795, ptr %16, align 4, !tbaa !22
-  %1796 = lshr i32 %1758, %.sink887
+  %1796 = lshr i32 %1758, %.sink1109
   %1797 = or i32 %1796, %storemerge50.i202
   %1798 = lshr i32 %1797, 11
   %1799 = shl i32 %1758, %1794
@@ -5690,7 +5690,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit366:        ; preds = %1754, %1759, %1790
 .preheader470:                                    ; preds = %1751, %_ZL13crxFillBufferP12CrxBitstream.exit370
   %1800 = phi i32 [ %1843, %_ZL13crxFillBufferP12CrxBitstream.exit370 ], [ %1744, %1751 ]
   %.144.i61.i166 = phi i32 [ %1847, %_ZL13crxFillBufferP12CrxBitstream.exit370 ], [ %storemerge50.i202, %1751 ]
-  %.1.i62.i167 = phi i32 [ %1803, %_ZL13crxFillBufferP12CrxBitstream.exit370 ], [ %.sink887, %1751 ]
+  %.1.i62.i167 = phi i32 [ %1803, %_ZL13crxFillBufferP12CrxBitstream.exit370 ], [ %.sink1109, %1751 ]
   %1801 = load i32, ptr %18, align 8, !tbaa !24
   %.not52.i63.i168 = icmp ult i32 %1801, %1800
   br i1 %.not52.i63.i168, label %1802, label %.loopexit471
@@ -5768,7 +5768,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit370:        ; preds = %1802, %1808, %1839
 
 .loopexit471:                                     ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit370, %.preheader470, %1749
   %.043.i57.i161 = phi i32 [ %storemerge50.i202, %1749 ], [ %1847, %_ZL13crxFillBufferP12CrxBitstream.exit370 ], [ %.144.i61.i166, %.preheader470 ]
-  %.042.i58.i162 = phi i32 [ %.sink887, %1749 ], [ %1803, %_ZL13crxFillBufferP12CrxBitstream.exit370 ], [ %.1.i62.i167, %.preheader470 ]
+  %.042.i58.i162 = phi i32 [ %.sink1109, %1749 ], [ %1803, %_ZL13crxFillBufferP12CrxBitstream.exit370 ], [ %.1.i62.i167, %.preheader470 ]
   %1849 = lshr i32 %.043.i57.i161, 11
   %1850 = shl i32 %.043.i57.i161, 21
   store i32 %1850, ptr %17, align 8, !tbaa !21
@@ -5778,7 +5778,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit370:        ; preds = %1802, %1808, %1839
 
 1852:                                             ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit207.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit207
   %1853 = phi i32 [ %1626, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit207.thread ], [ %storemerge50.i202, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit207 ]
-  %1854 = phi i32 [ %1628, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit207.thread ], [ %.sink887, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit207 ]
+  %1854 = phi i32 [ %1628, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit207.thread ], [ %.sink1109, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit207 ]
   %.139.i194436 = phi i32 [ %1623, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit207.thread ], [ %spec.select.i204, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit207 ]
   %1855 = load i32, ptr %24, align 4, !tbaa !37
   %.not55.i151 = icmp eq i32 %1855, 0
@@ -5995,9 +5995,9 @@ _Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit169: ; preds = %_ZL13crxFillBu
   %1988 = tail call i32 @llvm.smin.i32(i32 %1987, i32 15)
   store i32 %1988, ptr %24, align 4, !tbaa !37
   store ptr %1975, ptr %9, align 8, !tbaa !20
-  br label %.thread759
+  br label %.thread981
 
-.thread759:                                       ; preds = %_Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit169, %1617
+.thread981:                                       ; preds = %_Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit169, %1617
   %.275.ph = phi i32 [ %1215, %1617 ], [ 1, %_Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit169 ]
   %1989 = add nsw i32 %.275.ph, -1
   br label %._crit_edge658.loopexit
@@ -6009,8 +6009,8 @@ _Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit169: ; preds = %_ZL13crxFillBu
   %1992 = icmp sgt i32 %.275, 2
   br i1 %1992, label %32, label %._crit_edge658.loopexit, !llvm.loop !46
 
-._crit_edge658.loopexit:                          ; preds = %1990, %.thread759
-  %1993 = phi i32 [ %1989, %.thread759 ], [ %1991, %1990 ]
+._crit_edge658.loopexit:                          ; preds = %1990, %.thread981
+  %1993 = phi i32 [ %1989, %.thread981 ], [ %1991, %1990 ]
   %.pre753.pre = load ptr, ptr %9, align 8, !tbaa !20
   br label %._crit_edge658
 
@@ -6267,21 +6267,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit386:        ; preds = %2097, %2101, %2132
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %2082, %.split.loop.exit671
-  %.sink891 = phi i32 [ %2086, %2082 ], [ %2144, %.split.loop.exit671 ]
-  %.sink888 = phi i64 [ %2084, %2082 ], [ %.2.i, %.split.loop.exit671 ]
+  %.sink1113 = phi i32 [ %2086, %2082 ], [ %2144, %.split.loop.exit671 ]
+  %.sink1110 = phi i64 [ %2084, %2082 ], [ %.2.i, %.split.loop.exit671 ]
   %2147 = phi i32 [ %2081, %2082 ], [ %2141, %.split.loop.exit671 ]
   %spec.select.i = phi i32 [ %2088, %2082 ], [ %2146, %.split.loop.exit671 ]
-  %2148 = sub nuw nsw i32 32, %.sink891
+  %2148 = sub nuw nsw i32 32, %.sink1113
   %2149 = zext nneg i32 %2148 to i64
-  %2150 = shl nuw i64 %.sink888, %2149
+  %2150 = shl nuw i64 %.sink1110, %2149
   %storemerge50.i = trunc i64 %2150 to i32
   store i32 %storemerge50.i, ptr %2017, align 8, !tbaa !21
-  store i32 %.sink891, ptr %2027, align 4, !tbaa !22
+  store i32 %.sink1113, ptr %2027, align 4, !tbaa !22
   %2151 = icmp ugt i32 %spec.select.i, 40
   br i1 %2151, label %2152, label %2255
 
 2152:                                             ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
-  %2153 = icmp samesign ult i32 %.sink891, 21
+  %2153 = icmp samesign ult i32 %.sink1113, 21
   br i1 %2153, label %2154, label %.loopexit
 
 2154:                                             ; preds = %2152
@@ -6352,10 +6352,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %2082, %.split.loop.
   br label %_ZL13crxFillBufferP12CrxBitstream.exit390
 
 _ZL13crxFillBufferP12CrxBitstream.exit390:        ; preds = %2157, %2162, %2193
-  %2197 = sub nuw nsw i32 21, %.sink891
-  %2198 = add nuw nsw i32 %.sink891, 11
+  %2197 = sub nuw nsw i32 21, %.sink1113
+  %2198 = add nuw nsw i32 %.sink1113, 11
   store i32 %2198, ptr %2027, align 4, !tbaa !22
-  %2199 = lshr i32 %2161, %.sink891
+  %2199 = lshr i32 %2161, %.sink1113
   %2200 = or i32 %2199, %storemerge50.i
   %2201 = lshr i32 %2200, 11
   %2202 = shl i32 %2161, %2197
@@ -6365,7 +6365,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit390:        ; preds = %2157, %2162, %2193
 .preheader:                                       ; preds = %2154, %_ZL13crxFillBufferP12CrxBitstream.exit394
   %2203 = phi i32 [ %2246, %_ZL13crxFillBufferP12CrxBitstream.exit394 ], [ %2147, %2154 ]
   %.144.i61.i186 = phi i32 [ %2250, %_ZL13crxFillBufferP12CrxBitstream.exit394 ], [ %storemerge50.i, %2154 ]
-  %.1.i62.i187 = phi i32 [ %2206, %_ZL13crxFillBufferP12CrxBitstream.exit394 ], [ %.sink891, %2154 ]
+  %.1.i62.i187 = phi i32 [ %2206, %_ZL13crxFillBufferP12CrxBitstream.exit394 ], [ %.sink1113, %2154 ]
   %2204 = load i32, ptr %2029, align 8, !tbaa !24
   %.not52.i63.i188 = icmp ult i32 %2204, %2203
   br i1 %.not52.i63.i188, label %2205, label %.loopexit
@@ -6443,7 +6443,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit394:        ; preds = %2205, %2211, %2242
 
 .loopexit:                                        ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit394, %.preheader, %2152
   %.043.i57.i181 = phi i32 [ %storemerge50.i, %2152 ], [ %2250, %_ZL13crxFillBufferP12CrxBitstream.exit394 ], [ %.144.i61.i186, %.preheader ]
-  %.042.i58.i182 = phi i32 [ %.sink891, %2152 ], [ %2206, %_ZL13crxFillBufferP12CrxBitstream.exit394 ], [ %.1.i62.i187, %.preheader ]
+  %.042.i58.i182 = phi i32 [ %.sink1113, %2152 ], [ %2206, %_ZL13crxFillBufferP12CrxBitstream.exit394 ], [ %.1.i62.i187, %.preheader ]
   %2252 = lshr i32 %.043.i57.i181, 11
   %2253 = shl i32 %.043.i57.i181, 21
   store i32 %2253, ptr %2017, align 8, !tbaa !21
@@ -6453,7 +6453,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit394:        ; preds = %2205, %2211, %2242
 
 2255:                                             ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
   %2256 = phi i32 [ %2022, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %storemerge50.i, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
-  %2257 = phi i32 [ %2025, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %.sink891, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
+  %2257 = phi i32 [ %2025, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %.sink1113, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
   %.139.i438 = phi i32 [ %2019, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %spec.select.i, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
   %2258 = getelementptr inbounds nuw i8, ptr %0, i64 65620
   %2259 = load i32, ptr %2258, align 4, !tbaa !37
@@ -6954,21 +6954,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit314:        ; preds = %107, %111, %142
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %92, %.split.loop.exit619
-  %.sink829 = phi i32 [ %96, %92 ], [ %154, %.split.loop.exit619 ]
+  %.sink1013 = phi i32 [ %96, %92 ], [ %154, %.split.loop.exit619 ]
   %.sink = phi i64 [ %94, %92 ], [ %.2.i, %.split.loop.exit619 ]
   %157 = phi i32 [ %91, %92 ], [ %151, %.split.loop.exit619 ]
   %spec.select.i = phi i32 [ %98, %92 ], [ %156, %.split.loop.exit619 ]
-  %158 = sub nuw nsw i32 32, %.sink829
+  %158 = sub nuw nsw i32 32, %.sink1013
   %159 = zext nneg i32 %158 to i64
   %160 = shl nuw i64 %.sink, %159
   %storemerge50.i = trunc i64 %160 to i32
   store i32 %storemerge50.i, ptr %9, align 8, !tbaa !21
-  store i32 %.sink829, ptr %10, align 4, !tbaa !22
+  store i32 %.sink1013, ptr %10, align 4, !tbaa !22
   %161 = icmp ugt i32 %spec.select.i, 40
   br i1 %161, label %162, label %265
 
 162:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
-  %163 = icmp samesign ult i32 %.sink829, 21
+  %163 = icmp samesign ult i32 %.sink1013, 21
   br i1 %163, label %164, label %.loopexit491
 
 164:                                              ; preds = %162
@@ -7039,10 +7039,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %92, %.split.loop.ex
   br label %_ZL13crxFillBufferP12CrxBitstream.exit318
 
 _ZL13crxFillBufferP12CrxBitstream.exit318:        ; preds = %167, %172, %203
-  %207 = sub nuw nsw i32 21, %.sink829
-  %208 = add nuw nsw i32 %.sink829, 11
+  %207 = sub nuw nsw i32 21, %.sink1013
+  %208 = add nuw nsw i32 %.sink1013, 11
   store i32 %208, ptr %10, align 4, !tbaa !22
-  %209 = lshr i32 %171, %.sink829
+  %209 = lshr i32 %171, %.sink1013
   %210 = or i32 %209, %storemerge50.i
   %211 = lshr i32 %210, 11
   %212 = shl i32 %171, %207
@@ -7052,7 +7052,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit318:        ; preds = %167, %172, %203
 .preheader490:                                    ; preds = %164, %_ZL13crxFillBufferP12CrxBitstream.exit322
   %213 = phi i32 [ %256, %_ZL13crxFillBufferP12CrxBitstream.exit322 ], [ %157, %164 ]
   %.144.i251 = phi i32 [ %260, %_ZL13crxFillBufferP12CrxBitstream.exit322 ], [ %storemerge50.i, %164 ]
-  %.1.i252 = phi i32 [ %216, %_ZL13crxFillBufferP12CrxBitstream.exit322 ], [ %.sink829, %164 ]
+  %.1.i252 = phi i32 [ %216, %_ZL13crxFillBufferP12CrxBitstream.exit322 ], [ %.sink1013, %164 ]
   %214 = load i32, ptr %11, align 8, !tbaa !24
   %.not52.i253 = icmp ult i32 %214, %213
   br i1 %.not52.i253, label %215, label %.loopexit491
@@ -7130,7 +7130,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit322:        ; preds = %215, %221, %252
 
 .loopexit491:                                     ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit322, %.preheader490, %162
   %.043.i247 = phi i32 [ %storemerge50.i, %162 ], [ %260, %_ZL13crxFillBufferP12CrxBitstream.exit322 ], [ %.144.i251, %.preheader490 ]
-  %.042.i248 = phi i32 [ %.sink829, %162 ], [ %216, %_ZL13crxFillBufferP12CrxBitstream.exit322 ], [ %.1.i252, %.preheader490 ]
+  %.042.i248 = phi i32 [ %.sink1013, %162 ], [ %216, %_ZL13crxFillBufferP12CrxBitstream.exit322 ], [ %.1.i252, %.preheader490 ]
   %262 = lshr i32 %.043.i247, 11
   %263 = shl i32 %.043.i247, 21
   store i32 %263, ptr %9, align 8, !tbaa !21
@@ -7140,7 +7140,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit322:        ; preds = %215, %221, %252
 
 265:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
   %266 = phi i32 [ %39, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %storemerge50.i, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
-  %267 = phi i32 [ %41, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %.sink829, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
+  %267 = phi i32 [ %41, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %.sink1013, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
   %.139.i447 = phi i32 [ %36, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %spec.select.i, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
   %268 = load i32, ptr %16, align 4, !tbaa !37
   %.not174 = icmp eq i32 %268, 0
@@ -8224,21 +8224,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit362:        ; preds = %848, %852, %883
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit272
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit272:  ; preds = %833, %.split.loop.exit634
-  %.sink833 = phi i32 [ %837, %833 ], [ %895, %.split.loop.exit634 ]
-  %.sink830 = phi i64 [ %835, %833 ], [ %.2.i271, %.split.loop.exit634 ]
+  %.sink1017 = phi i32 [ %837, %833 ], [ %895, %.split.loop.exit634 ]
+  %.sink1014 = phi i64 [ %835, %833 ], [ %.2.i271, %.split.loop.exit634 ]
   %898 = phi i32 [ %832, %833 ], [ %892, %.split.loop.exit634 ]
   %spec.select.i269 = phi i32 [ %839, %833 ], [ %897, %.split.loop.exit634 ]
-  %899 = sub nuw nsw i32 32, %.sink833
+  %899 = sub nuw nsw i32 32, %.sink1017
   %900 = zext nneg i32 %899 to i64
-  %901 = shl nuw i64 %.sink830, %900
+  %901 = shl nuw i64 %.sink1014, %900
   %storemerge50.i267 = trunc i64 %901 to i32
   store i32 %storemerge50.i267, ptr %9, align 8, !tbaa !21
-  store i32 %.sink833, ptr %10, align 4, !tbaa !22
+  store i32 %.sink1017, ptr %10, align 4, !tbaa !22
   %902 = icmp ugt i32 %spec.select.i269, 40
   br i1 %902, label %903, label %1006
 
 903:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit272
-  %904 = icmp samesign ult i32 %.sink833, 21
+  %904 = icmp samesign ult i32 %.sink1017, 21
   br i1 %904, label %905, label %.loopexit481
 
 905:                                              ; preds = %903
@@ -8309,10 +8309,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit272:  ; preds = %833, %.split.loop.e
   br label %_ZL13crxFillBufferP12CrxBitstream.exit366
 
 _ZL13crxFillBufferP12CrxBitstream.exit366:        ; preds = %908, %913, %944
-  %948 = sub nuw nsw i32 21, %.sink833
-  %949 = add nuw nsw i32 %.sink833, 11
+  %948 = sub nuw nsw i32 21, %.sink1017
+  %949 = add nuw nsw i32 %.sink1017, 11
   store i32 %949, ptr %10, align 4, !tbaa !22
-  %950 = lshr i32 %912, %.sink833
+  %950 = lshr i32 %912, %.sink1017
   %951 = or i32 %950, %storemerge50.i267
   %952 = lshr i32 %951, 11
   %953 = shl i32 %912, %948
@@ -8322,7 +8322,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit366:        ; preds = %908, %913, %944
 .preheader480:                                    ; preds = %905, %_ZL13crxFillBufferP12CrxBitstream.exit370
   %954 = phi i32 [ %997, %_ZL13crxFillBufferP12CrxBitstream.exit370 ], [ %898, %905 ]
   %.144.i211 = phi i32 [ %1001, %_ZL13crxFillBufferP12CrxBitstream.exit370 ], [ %storemerge50.i267, %905 ]
-  %.1.i212 = phi i32 [ %957, %_ZL13crxFillBufferP12CrxBitstream.exit370 ], [ %.sink833, %905 ]
+  %.1.i212 = phi i32 [ %957, %_ZL13crxFillBufferP12CrxBitstream.exit370 ], [ %.sink1017, %905 ]
   %955 = load i32, ptr %11, align 8, !tbaa !24
   %.not52.i213 = icmp ult i32 %955, %954
   br i1 %.not52.i213, label %956, label %.loopexit481
@@ -8400,7 +8400,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit370:        ; preds = %956, %962, %993
 
 .loopexit481:                                     ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit370, %.preheader480, %903
   %.043.i207 = phi i32 [ %storemerge50.i267, %903 ], [ %1001, %_ZL13crxFillBufferP12CrxBitstream.exit370 ], [ %.144.i211, %.preheader480 ]
-  %.042.i208 = phi i32 [ %.sink833, %903 ], [ %957, %_ZL13crxFillBufferP12CrxBitstream.exit370 ], [ %.1.i212, %.preheader480 ]
+  %.042.i208 = phi i32 [ %.sink1017, %903 ], [ %957, %_ZL13crxFillBufferP12CrxBitstream.exit370 ], [ %.1.i212, %.preheader480 ]
   %1003 = lshr i32 %.043.i207, 11
   %1004 = shl i32 %.043.i207, 21
   store i32 %1004, ptr %9, align 8, !tbaa !21
@@ -8410,7 +8410,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit370:        ; preds = %956, %962, %993
 
 1006:                                             ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit272.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit272
   %1007 = phi i32 [ %780, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit272.thread ], [ %storemerge50.i267, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit272 ]
-  %1008 = phi i32 [ %782, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit272.thread ], [ %.sink833, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit272 ]
+  %1008 = phi i32 [ %782, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit272.thread ], [ %.sink1017, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit272 ]
   %.139.i259453 = phi i32 [ %777, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit272.thread ], [ %spec.select.i269, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit272 ]
   %1009 = load i32, ptr %16, align 4, !tbaa !37
   %.not173 = icmp eq i32 %1009, 0
@@ -8840,21 +8840,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit386:        ; preds = %1216, %1220, %1251
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit288
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit288:  ; preds = %1201, %.split.loop.exit649
-  %.sink837 = phi i32 [ %1205, %1201 ], [ %1263, %.split.loop.exit649 ]
-  %.sink834 = phi i64 [ %1203, %1201 ], [ %.2.i287, %.split.loop.exit649 ]
+  %.sink1021 = phi i32 [ %1205, %1201 ], [ %1263, %.split.loop.exit649 ]
+  %.sink1018 = phi i64 [ %1203, %1201 ], [ %.2.i287, %.split.loop.exit649 ]
   %1266 = phi i32 [ %1200, %1201 ], [ %1260, %.split.loop.exit649 ]
   %spec.select.i285 = phi i32 [ %1207, %1201 ], [ %1265, %.split.loop.exit649 ]
-  %1267 = sub nuw nsw i32 32, %.sink837
+  %1267 = sub nuw nsw i32 32, %.sink1021
   %1268 = zext nneg i32 %1267 to i64
-  %1269 = shl nuw i64 %.sink834, %1268
+  %1269 = shl nuw i64 %.sink1018, %1268
   %storemerge50.i283 = trunc i64 %1269 to i32
   store i32 %storemerge50.i283, ptr %9, align 8, !tbaa !21
-  store i32 %.sink837, ptr %10, align 4, !tbaa !22
+  store i32 %.sink1021, ptr %10, align 4, !tbaa !22
   %1270 = icmp ugt i32 %spec.select.i285, 40
   br i1 %1270, label %1271, label %1374
 
 1271:                                             ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit288
-  %1272 = icmp samesign ult i32 %.sink837, 21
+  %1272 = icmp samesign ult i32 %.sink1021, 21
   br i1 %1272, label %1273, label %.loopexit477
 
 1273:                                             ; preds = %1271
@@ -8925,10 +8925,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit288:  ; preds = %1201, %.split.loop.
   br label %_ZL13crxFillBufferP12CrxBitstream.exit390
 
 _ZL13crxFillBufferP12CrxBitstream.exit390:        ; preds = %1276, %1281, %1312
-  %1316 = sub nuw nsw i32 21, %.sink837
-  %1317 = add nuw nsw i32 %.sink837, 11
+  %1316 = sub nuw nsw i32 21, %.sink1021
+  %1317 = add nuw nsw i32 %.sink1021, 11
   store i32 %1317, ptr %10, align 4, !tbaa !22
-  %1318 = lshr i32 %1280, %.sink837
+  %1318 = lshr i32 %1280, %.sink1021
   %1319 = or i32 %1318, %storemerge50.i283
   %1320 = lshr i32 %1319, 11
   %1321 = shl i32 %1280, %1316
@@ -8938,7 +8938,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit390:        ; preds = %1276, %1281, %1312
 .preheader476:                                    ; preds = %1273, %_ZL13crxFillBufferP12CrxBitstream.exit394
   %1322 = phi i32 [ %1365, %_ZL13crxFillBufferP12CrxBitstream.exit394 ], [ %1266, %1273 ]
   %.144.i195 = phi i32 [ %1369, %_ZL13crxFillBufferP12CrxBitstream.exit394 ], [ %storemerge50.i283, %1273 ]
-  %.1.i196 = phi i32 [ %1325, %_ZL13crxFillBufferP12CrxBitstream.exit394 ], [ %.sink837, %1273 ]
+  %.1.i196 = phi i32 [ %1325, %_ZL13crxFillBufferP12CrxBitstream.exit394 ], [ %.sink1021, %1273 ]
   %1323 = load i32, ptr %11, align 8, !tbaa !24
   %.not52.i197 = icmp ult i32 %1323, %1322
   br i1 %.not52.i197, label %1324, label %.loopexit477
@@ -9016,7 +9016,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit394:        ; preds = %1324, %1330, %1361
 
 .loopexit477:                                     ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit394, %.preheader476, %1271
   %.043.i191 = phi i32 [ %storemerge50.i283, %1271 ], [ %1369, %_ZL13crxFillBufferP12CrxBitstream.exit394 ], [ %.144.i195, %.preheader476 ]
-  %.042.i192 = phi i32 [ %.sink837, %1271 ], [ %1325, %_ZL13crxFillBufferP12CrxBitstream.exit394 ], [ %.1.i196, %.preheader476 ]
+  %.042.i192 = phi i32 [ %.sink1021, %1271 ], [ %1325, %_ZL13crxFillBufferP12CrxBitstream.exit394 ], [ %.1.i196, %.preheader476 ]
   %1371 = lshr i32 %.043.i191, 11
   %1372 = shl i32 %.043.i191, 21
   store i32 %1372, ptr %9, align 8, !tbaa !21
@@ -9026,7 +9026,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit394:        ; preds = %1324, %1330, %1361
 
 1374:                                             ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit288.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit288
   %1375 = phi i32 [ %1148, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit288.thread ], [ %storemerge50.i283, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit288 ]
-  %1376 = phi i32 [ %1150, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit288.thread ], [ %.sink837, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit288 ]
+  %1376 = phi i32 [ %1150, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit288.thread ], [ %.sink1021, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit288 ]
   %.139.i275455 = phi i32 [ %1145, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit288.thread ], [ %spec.select.i285, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit288 ]
   %1377 = load i32, ptr %16, align 4, !tbaa !37
   %.not172 = icmp eq i32 %1377, 0
@@ -9255,15 +9255,15 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit198:  ; preds = %.loopexit477, %_ZL1
   br label %.thread456.sink.split
 
 .thread456.sink.split:                            ; preds = %1513, %401, %403, %1515
-  %.sink839 = phi i32 [ %1516, %1515 ], [ %404, %403 ], [ 15, %401 ], [ 15, %1513 ]
+  %.sink1023 = phi i32 [ %1516, %1515 ], [ %404, %403 ], [ 15, %401 ], [ 15, %1513 ]
   %.ph = phi ptr [ %1508, %1515 ], [ %396, %403 ], [ %396, %401 ], [ %1508, %1513 ]
   %.1142.ph = phi i32 [ %.3144, %1515 ], [ %.0141653, %403 ], [ %.0141653, %401 ], [ %.3144, %1513 ]
-  store i32 %.sink839, ptr %16, align 4, !tbaa !37
+  store i32 %.sink1023, ptr %16, align 4, !tbaa !37
   br label %.thread456
 
 .thread456:                                       ; preds = %.thread456.sink.split, %1513, %401
   %1517 = phi ptr [ %396, %401 ], [ %1508, %1513 ], [ %.ph, %.thread456.sink.split ]
-  %1518 = phi i32 [ %395, %401 ], [ %1507, %1513 ], [ %.sink839, %.thread456.sink.split ]
+  %1518 = phi i32 [ %395, %401 ], [ %1507, %1513 ], [ %.sink1023, %.thread456.sink.split ]
   %.1142 = phi i32 [ %.0141653, %401 ], [ %.3144, %1513 ], [ %.1142.ph, %.thread456.sink.split ]
   %1519 = sext i32 %.1142 to i64
   %1520 = getelementptr inbounds i32, ptr %1517, i64 %1519
@@ -9504,21 +9504,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit410:        ; preds = %1609, %1613, %1644
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit304
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit304:  ; preds = %1594, %.split.loop.exit670
-  %.sink843 = phi i32 [ %1598, %1594 ], [ %1656, %.split.loop.exit670 ]
-  %.sink840 = phi i64 [ %1596, %1594 ], [ %.2.i303, %.split.loop.exit670 ]
+  %.sink1027 = phi i32 [ %1598, %1594 ], [ %1656, %.split.loop.exit670 ]
+  %.sink1024 = phi i64 [ %1596, %1594 ], [ %.2.i303, %.split.loop.exit670 ]
   %1659 = phi i32 [ %1593, %1594 ], [ %1653, %.split.loop.exit670 ]
   %spec.select.i301 = phi i32 [ %1600, %1594 ], [ %1658, %.split.loop.exit670 ]
-  %1660 = sub nuw nsw i32 32, %.sink843
+  %1660 = sub nuw nsw i32 32, %.sink1027
   %1661 = zext nneg i32 %1660 to i64
-  %1662 = shl nuw i64 %.sink840, %1661
+  %1662 = shl nuw i64 %.sink1024, %1661
   %storemerge50.i299 = trunc i64 %1662 to i32
   store i32 %storemerge50.i299, ptr %1529, align 8, !tbaa !21
-  store i32 %.sink843, ptr %1539, align 4, !tbaa !22
+  store i32 %.sink1027, ptr %1539, align 4, !tbaa !22
   %1663 = icmp sgt i32 %spec.select.i301, 40
   br i1 %1663, label %1664, label %1767
 
 1664:                                             ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit304
-  %1665 = icmp samesign ult i32 %.sink843, 21
+  %1665 = icmp samesign ult i32 %.sink1027, 21
   br i1 %1665, label %1666, label %.loopexit
 
 1666:                                             ; preds = %1664
@@ -9589,10 +9589,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit304:  ; preds = %1594, %.split.loop.
   br label %_ZL13crxFillBufferP12CrxBitstream.exit414
 
 _ZL13crxFillBufferP12CrxBitstream.exit414:        ; preds = %1669, %1674, %1705
-  %1709 = sub nuw nsw i32 21, %.sink843
-  %1710 = add nuw nsw i32 %.sink843, 11
+  %1709 = sub nuw nsw i32 21, %.sink1027
+  %1710 = add nuw nsw i32 %.sink1027, 11
   store i32 %1710, ptr %1539, align 4, !tbaa !22
-  %1711 = lshr i32 %1673, %.sink843
+  %1711 = lshr i32 %1673, %.sink1027
   %1712 = or i32 %1711, %storemerge50.i299
   %1713 = lshr i32 %1712, 11
   %1714 = shl i32 %1673, %1709
@@ -9602,7 +9602,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit414:        ; preds = %1669, %1674, %1705
 .preheader:                                       ; preds = %1666, %_ZL13crxFillBufferP12CrxBitstream.exit418
   %1715 = phi i32 [ %1758, %_ZL13crxFillBufferP12CrxBitstream.exit418 ], [ %1659, %1666 ]
   %.144.i179 = phi i32 [ %1762, %_ZL13crxFillBufferP12CrxBitstream.exit418 ], [ %storemerge50.i299, %1666 ]
-  %.1.i180 = phi i32 [ %1718, %_ZL13crxFillBufferP12CrxBitstream.exit418 ], [ %.sink843, %1666 ]
+  %.1.i180 = phi i32 [ %1718, %_ZL13crxFillBufferP12CrxBitstream.exit418 ], [ %.sink1027, %1666 ]
   %1716 = load i32, ptr %1541, align 8, !tbaa !24
   %.not52.i181 = icmp ult i32 %1716, %1715
   br i1 %.not52.i181, label %1717, label %.loopexit
@@ -9680,7 +9680,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit418:        ; preds = %1717, %1723, %1754
 
 .loopexit:                                        ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit418, %.preheader, %1664
   %.043.i175 = phi i32 [ %storemerge50.i299, %1664 ], [ %1762, %_ZL13crxFillBufferP12CrxBitstream.exit418 ], [ %.144.i179, %.preheader ]
-  %.042.i176 = phi i32 [ %.sink843, %1664 ], [ %1718, %_ZL13crxFillBufferP12CrxBitstream.exit418 ], [ %.1.i180, %.preheader ]
+  %.042.i176 = phi i32 [ %.sink1027, %1664 ], [ %1718, %_ZL13crxFillBufferP12CrxBitstream.exit418 ], [ %.1.i180, %.preheader ]
   %1764 = lshr i32 %.043.i175, 11
   %1765 = shl i32 %.043.i175, 21
   store i32 %1765, ptr %1529, align 8, !tbaa !21
@@ -9690,7 +9690,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit418:        ; preds = %1717, %1723, %1754
 
 1767:                                             ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit304.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit304
   %1768 = phi i32 [ %1534, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit304.thread ], [ %storemerge50.i299, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit304 ]
-  %1769 = phi i32 [ %1537, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit304.thread ], [ %.sink843, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit304 ]
+  %1769 = phi i32 [ %1537, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit304.thread ], [ %.sink1027, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit304 ]
   %.139.i291464 = phi i32 [ %1531, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit304.thread ], [ %spec.select.i301, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit304 ]
   %1770 = getelementptr inbounds nuw i8, ptr %0, i64 65620
   %1771 = load i32, ptr %1770, align 4, !tbaa !37
@@ -10584,10 +10584,10 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit131:  ; preds = %_ZL13crxFillBufferP
   br i1 %373, label %.thread256, label %.thread251
 
 .thread251:                                       ; preds = %372, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit147..thread251_crit_edge, %17
-  %.sink439 = phi ptr [ %18, %17 ], [ %.pre390, %372 ], [ %.pre389, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit147..thread251_crit_edge ]
+  %.sink544 = phi ptr [ %18, %17 ], [ %.pre390, %372 ], [ %.pre389, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit147..thread251_crit_edge ]
   %.sink = phi i32 [ %19, %17 ], [ 0, %372 ], [ 0, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit147..thread251_crit_edge ]
   %.277 = phi i32 [ %.075338, %17 ], [ %365, %372 ], [ %.075338, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit147..thread251_crit_edge ]
-  %374 = getelementptr inbounds nuw i8, ptr %.sink439, i64 4
+  %374 = getelementptr inbounds nuw i8, ptr %.sink544, i64 4
   store i32 %.sink, ptr %374, align 4, !tbaa !19
   %375 = load i32, ptr %9, align 8, !tbaa !21
   %.not.i150 = icmp eq i32 %375, 0
@@ -10799,21 +10799,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit197:        ; preds = %447, %451, %482
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit165
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit165:  ; preds = %432, %.split.loop.exit334
-  %.sink443 = phi i32 [ %436, %432 ], [ %494, %.split.loop.exit334 ]
-  %.sink440 = phi i64 [ %434, %432 ], [ %.2.i164, %.split.loop.exit334 ]
+  %.sink548 = phi i32 [ %436, %432 ], [ %494, %.split.loop.exit334 ]
+  %.sink545 = phi i64 [ %434, %432 ], [ %.2.i164, %.split.loop.exit334 ]
   %497 = phi i32 [ %431, %432 ], [ %491, %.split.loop.exit334 ]
   %spec.select.i162 = phi i32 [ %438, %432 ], [ %496, %.split.loop.exit334 ]
-  %498 = sub nuw nsw i32 32, %.sink443
+  %498 = sub nuw nsw i32 32, %.sink548
   %499 = zext nneg i32 %498 to i64
-  %500 = shl nuw i64 %.sink440, %499
+  %500 = shl nuw i64 %.sink545, %499
   %storemerge50.i160 = trunc i64 %500 to i32
   store i32 %storemerge50.i160, ptr %9, align 8, !tbaa !21
-  store i32 %.sink443, ptr %8, align 4, !tbaa !22
+  store i32 %.sink548, ptr %8, align 4, !tbaa !22
   %501 = icmp ugt i32 %spec.select.i162, 40
   br i1 %501, label %502, label %605
 
 502:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit165
-  %503 = icmp samesign ult i32 %.sink443, 21
+  %503 = icmp samesign ult i32 %.sink548, 21
   br i1 %503, label %504, label %.loopexit268
 
 504:                                              ; preds = %502
@@ -10884,10 +10884,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit165:  ; preds = %432, %.split.loop.e
   br label %_ZL13crxFillBufferP12CrxBitstream.exit201
 
 _ZL13crxFillBufferP12CrxBitstream.exit201:        ; preds = %507, %512, %543
-  %547 = sub nuw nsw i32 21, %.sink443
-  %548 = add nuw nsw i32 %.sink443, 11
+  %547 = sub nuw nsw i32 21, %.sink548
+  %548 = add nuw nsw i32 %.sink548, 11
   store i32 %548, ptr %8, align 4, !tbaa !22
-  %549 = lshr i32 %511, %.sink443
+  %549 = lshr i32 %511, %.sink548
   %550 = or i32 %549, %storemerge50.i160
   %551 = lshr i32 %550, 11
   %552 = shl i32 %511, %547
@@ -10897,7 +10897,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit201:        ; preds = %507, %512, %543
 .preheader267:                                    ; preds = %504, %_ZL13crxFillBufferP12CrxBitstream.exit205
   %553 = phi i32 [ %596, %_ZL13crxFillBufferP12CrxBitstream.exit205 ], [ %497, %504 ]
   %.144.i120 = phi i32 [ %600, %_ZL13crxFillBufferP12CrxBitstream.exit205 ], [ %storemerge50.i160, %504 ]
-  %.1.i121 = phi i32 [ %556, %_ZL13crxFillBufferP12CrxBitstream.exit205 ], [ %.sink443, %504 ]
+  %.1.i121 = phi i32 [ %556, %_ZL13crxFillBufferP12CrxBitstream.exit205 ], [ %.sink548, %504 ]
   %554 = load i32, ptr %10, align 8, !tbaa !24
   %.not52.i122 = icmp ult i32 %554, %553
   br i1 %.not52.i122, label %555, label %.loopexit268
@@ -10975,7 +10975,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit205:        ; preds = %555, %561, %592
 
 .loopexit268:                                     ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit205, %.preheader267, %502
   %.043.i116 = phi i32 [ %storemerge50.i160, %502 ], [ %600, %_ZL13crxFillBufferP12CrxBitstream.exit205 ], [ %.144.i120, %.preheader267 ]
-  %.042.i117 = phi i32 [ %.sink443, %502 ], [ %556, %_ZL13crxFillBufferP12CrxBitstream.exit205 ], [ %.1.i121, %.preheader267 ]
+  %.042.i117 = phi i32 [ %.sink548, %502 ], [ %556, %_ZL13crxFillBufferP12CrxBitstream.exit205 ], [ %.1.i121, %.preheader267 ]
   %602 = lshr i32 %.043.i116, 11
   %603 = shl i32 %.043.i116, 21
   store i32 %603, ptr %9, align 8, !tbaa !21
@@ -10985,7 +10985,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit205:        ; preds = %555, %561, %592
 
 605:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit165.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit165
   %606 = phi i32 [ %379, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit165.thread ], [ %storemerge50.i160, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit165 ]
-  %607 = phi i32 [ %381, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit165.thread ], [ %.sink443, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit165 ]
+  %607 = phi i32 [ %381, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit165.thread ], [ %.sink548, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit165 ]
   %.139.i152255 = phi i32 [ %376, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit165.thread ], [ %spec.select.i162, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit165 ]
   %608 = load i32, ptr %16, align 4, !tbaa !37
   %.not99 = icmp eq i32 %608, 0
@@ -11431,21 +11431,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit221:        ; preds = %826, %830, %861
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %811, %.split.loop.exit354
-  %.sink447 = phi i32 [ %815, %811 ], [ %873, %.split.loop.exit354 ]
-  %.sink444 = phi i64 [ %813, %811 ], [ %.2.i, %.split.loop.exit354 ]
+  %.sink552 = phi i32 [ %815, %811 ], [ %873, %.split.loop.exit354 ]
+  %.sink549 = phi i64 [ %813, %811 ], [ %.2.i, %.split.loop.exit354 ]
   %876 = phi i32 [ %810, %811 ], [ %870, %.split.loop.exit354 ]
   %spec.select.i = phi i32 [ %817, %811 ], [ %875, %.split.loop.exit354 ]
-  %877 = sub nuw nsw i32 32, %.sink447
+  %877 = sub nuw nsw i32 32, %.sink552
   %878 = zext nneg i32 %877 to i64
-  %879 = shl nuw i64 %.sink444, %878
+  %879 = shl nuw i64 %.sink549, %878
   %storemerge50.i = trunc i64 %879 to i32
   store i32 %storemerge50.i, ptr %746, align 8, !tbaa !21
-  store i32 %.sink447, ptr %756, align 4, !tbaa !22
+  store i32 %.sink552, ptr %756, align 4, !tbaa !22
   %880 = icmp ugt i32 %spec.select.i, 40
   br i1 %880, label %881, label %984
 
 881:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
-  %882 = icmp samesign ult i32 %.sink447, 21
+  %882 = icmp samesign ult i32 %.sink552, 21
   br i1 %882, label %883, label %.loopexit
 
 883:                                              ; preds = %881
@@ -11516,10 +11516,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %811, %.split.loop.e
   br label %_ZL13crxFillBufferP12CrxBitstream.exit225
 
 _ZL13crxFillBufferP12CrxBitstream.exit225:        ; preds = %886, %891, %922
-  %926 = sub nuw nsw i32 21, %.sink447
-  %927 = add nuw nsw i32 %.sink447, 11
+  %926 = sub nuw nsw i32 21, %.sink552
+  %927 = add nuw nsw i32 %.sink552, 11
   store i32 %927, ptr %756, align 4, !tbaa !22
-  %928 = lshr i32 %890, %.sink447
+  %928 = lshr i32 %890, %.sink552
   %929 = or i32 %928, %storemerge50.i
   %930 = lshr i32 %929, 11
   %931 = shl i32 %890, %926
@@ -11529,7 +11529,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit225:        ; preds = %886, %891, %922
 .preheader:                                       ; preds = %883, %_ZL13crxFillBufferP12CrxBitstream.exit229
   %932 = phi i32 [ %975, %_ZL13crxFillBufferP12CrxBitstream.exit229 ], [ %876, %883 ]
   %.144.i104 = phi i32 [ %979, %_ZL13crxFillBufferP12CrxBitstream.exit229 ], [ %storemerge50.i, %883 ]
-  %.1.i105 = phi i32 [ %935, %_ZL13crxFillBufferP12CrxBitstream.exit229 ], [ %.sink447, %883 ]
+  %.1.i105 = phi i32 [ %935, %_ZL13crxFillBufferP12CrxBitstream.exit229 ], [ %.sink552, %883 ]
   %933 = load i32, ptr %758, align 8, !tbaa !24
   %.not52.i106 = icmp ult i32 %933, %932
   br i1 %.not52.i106, label %934, label %.loopexit
@@ -11607,7 +11607,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit229:        ; preds = %934, %940, %971
 
 .loopexit:                                        ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit229, %.preheader, %881
   %.043.i100 = phi i32 [ %storemerge50.i, %881 ], [ %979, %_ZL13crxFillBufferP12CrxBitstream.exit229 ], [ %.144.i104, %.preheader ]
-  %.042.i101 = phi i32 [ %.sink447, %881 ], [ %935, %_ZL13crxFillBufferP12CrxBitstream.exit229 ], [ %.1.i105, %.preheader ]
+  %.042.i101 = phi i32 [ %.sink552, %881 ], [ %935, %_ZL13crxFillBufferP12CrxBitstream.exit229 ], [ %.1.i105, %.preheader ]
   %981 = lshr i32 %.043.i100, 11
   %982 = shl i32 %.043.i100, 21
   store i32 %982, ptr %746, align 8, !tbaa !21
@@ -11617,7 +11617,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit229:        ; preds = %934, %940, %971
 
 984:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
   %985 = phi i32 [ %751, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %storemerge50.i, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
-  %986 = phi i32 [ %754, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %.sink447, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
+  %986 = phi i32 [ %754, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %.sink552, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
   %.139.i259 = phi i32 [ %748, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %spec.select.i, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
   %987 = getelementptr inbounds nuw i8, ptr %0, i64 65620
   %988 = load i32, ptr %987, align 4, !tbaa !37
@@ -12727,21 +12727,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit201:        ; preds = %451, %455, %486
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit169
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit169:  ; preds = %436, %.split.loop.exit337
-  %.sink443 = phi i32 [ %440, %436 ], [ %498, %.split.loop.exit337 ]
-  %.sink440 = phi i64 [ %438, %436 ], [ %.2.i168, %.split.loop.exit337 ]
+  %.sink544 = phi i32 [ %440, %436 ], [ %498, %.split.loop.exit337 ]
+  %.sink541 = phi i64 [ %438, %436 ], [ %.2.i168, %.split.loop.exit337 ]
   %501 = phi i32 [ %435, %436 ], [ %495, %.split.loop.exit337 ]
   %spec.select.i166 = phi i32 [ %442, %436 ], [ %500, %.split.loop.exit337 ]
-  %502 = sub nuw nsw i32 32, %.sink443
+  %502 = sub nuw nsw i32 32, %.sink544
   %503 = zext nneg i32 %502 to i64
-  %504 = shl nuw i64 %.sink440, %503
+  %504 = shl nuw i64 %.sink541, %503
   %storemerge50.i164 = trunc i64 %504 to i32
   store i32 %storemerge50.i164, ptr %10, align 8, !tbaa !21
-  store i32 %.sink443, ptr %9, align 4, !tbaa !22
+  store i32 %.sink544, ptr %9, align 4, !tbaa !22
   %505 = icmp ugt i32 %spec.select.i166, 40
   br i1 %505, label %506, label %609
 
 506:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit169
-  %507 = icmp samesign ult i32 %.sink443, 21
+  %507 = icmp samesign ult i32 %.sink544, 21
   br i1 %507, label %508, label %.loopexit271
 
 508:                                              ; preds = %506
@@ -12812,10 +12812,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit169:  ; preds = %436, %.split.loop.e
   br label %_ZL13crxFillBufferP12CrxBitstream.exit205
 
 _ZL13crxFillBufferP12CrxBitstream.exit205:        ; preds = %511, %516, %547
-  %551 = sub nuw nsw i32 21, %.sink443
-  %552 = add nuw nsw i32 %.sink443, 11
+  %551 = sub nuw nsw i32 21, %.sink544
+  %552 = add nuw nsw i32 %.sink544, 11
   store i32 %552, ptr %9, align 4, !tbaa !22
-  %553 = lshr i32 %515, %.sink443
+  %553 = lshr i32 %515, %.sink544
   %554 = or i32 %553, %storemerge50.i164
   %555 = lshr i32 %554, 11
   %556 = shl i32 %515, %551
@@ -12825,7 +12825,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit205:        ; preds = %511, %516, %547
 .preheader270:                                    ; preds = %508, %_ZL13crxFillBufferP12CrxBitstream.exit209
   %557 = phi i32 [ %600, %_ZL13crxFillBufferP12CrxBitstream.exit209 ], [ %501, %508 ]
   %.144.i124 = phi i32 [ %604, %_ZL13crxFillBufferP12CrxBitstream.exit209 ], [ %storemerge50.i164, %508 ]
-  %.1.i125 = phi i32 [ %560, %_ZL13crxFillBufferP12CrxBitstream.exit209 ], [ %.sink443, %508 ]
+  %.1.i125 = phi i32 [ %560, %_ZL13crxFillBufferP12CrxBitstream.exit209 ], [ %.sink544, %508 ]
   %558 = load i32, ptr %11, align 8, !tbaa !24
   %.not52.i126 = icmp ult i32 %558, %557
   br i1 %.not52.i126, label %559, label %.loopexit271
@@ -12903,7 +12903,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit209:        ; preds = %559, %565, %596
 
 .loopexit271:                                     ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit209, %.preheader270, %506
   %.043.i120 = phi i32 [ %storemerge50.i164, %506 ], [ %604, %_ZL13crxFillBufferP12CrxBitstream.exit209 ], [ %.144.i124, %.preheader270 ]
-  %.042.i121 = phi i32 [ %.sink443, %506 ], [ %560, %_ZL13crxFillBufferP12CrxBitstream.exit209 ], [ %.1.i125, %.preheader270 ]
+  %.042.i121 = phi i32 [ %.sink544, %506 ], [ %560, %_ZL13crxFillBufferP12CrxBitstream.exit209 ], [ %.1.i125, %.preheader270 ]
   %606 = lshr i32 %.043.i120, 11
   %607 = shl i32 %.043.i120, 21
   store i32 %607, ptr %10, align 8, !tbaa !21
@@ -12913,7 +12913,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit209:        ; preds = %559, %565, %596
 
 609:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit169.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit169
   %610 = phi i32 [ %383, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit169.thread ], [ %storemerge50.i164, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit169 ]
-  %611 = phi i32 [ %385, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit169.thread ], [ %.sink443, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit169 ]
+  %611 = phi i32 [ %385, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit169.thread ], [ %.sink544, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit169 ]
   %.139.i156258 = phi i32 [ %380, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit169.thread ], [ %spec.select.i166, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit169 ]
   %612 = load i32, ptr %17, align 4, !tbaa !37
   %.not103 = icmp eq i32 %612, 0
@@ -13360,21 +13360,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit225:        ; preds = %832, %836, %867
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %817, %.split.loop.exit357
-  %.sink447 = phi i32 [ %821, %817 ], [ %879, %.split.loop.exit357 ]
-  %.sink444 = phi i64 [ %819, %817 ], [ %.2.i, %.split.loop.exit357 ]
+  %.sink548 = phi i32 [ %821, %817 ], [ %879, %.split.loop.exit357 ]
+  %.sink545 = phi i64 [ %819, %817 ], [ %.2.i, %.split.loop.exit357 ]
   %882 = phi i32 [ %816, %817 ], [ %876, %.split.loop.exit357 ]
   %spec.select.i = phi i32 [ %823, %817 ], [ %881, %.split.loop.exit357 ]
-  %883 = sub nuw nsw i32 32, %.sink447
+  %883 = sub nuw nsw i32 32, %.sink548
   %884 = zext nneg i32 %883 to i64
-  %885 = shl nuw i64 %.sink444, %884
+  %885 = shl nuw i64 %.sink545, %884
   %storemerge50.i = trunc i64 %885 to i32
   store i32 %storemerge50.i, ptr %752, align 8, !tbaa !21
-  store i32 %.sink447, ptr %762, align 4, !tbaa !22
+  store i32 %.sink548, ptr %762, align 4, !tbaa !22
   %886 = icmp ugt i32 %spec.select.i, 40
   br i1 %886, label %887, label %990
 
 887:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
-  %888 = icmp samesign ult i32 %.sink447, 21
+  %888 = icmp samesign ult i32 %.sink548, 21
   br i1 %888, label %889, label %.loopexit
 
 889:                                              ; preds = %887
@@ -13445,10 +13445,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %817, %.split.loop.e
   br label %_ZL13crxFillBufferP12CrxBitstream.exit229
 
 _ZL13crxFillBufferP12CrxBitstream.exit229:        ; preds = %892, %897, %928
-  %932 = sub nuw nsw i32 21, %.sink447
-  %933 = add nuw nsw i32 %.sink447, 11
+  %932 = sub nuw nsw i32 21, %.sink548
+  %933 = add nuw nsw i32 %.sink548, 11
   store i32 %933, ptr %762, align 4, !tbaa !22
-  %934 = lshr i32 %896, %.sink447
+  %934 = lshr i32 %896, %.sink548
   %935 = or i32 %934, %storemerge50.i
   %936 = lshr i32 %935, 11
   %937 = shl i32 %896, %932
@@ -13458,7 +13458,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit229:        ; preds = %892, %897, %928
 .preheader:                                       ; preds = %889, %_ZL13crxFillBufferP12CrxBitstream.exit233
   %938 = phi i32 [ %981, %_ZL13crxFillBufferP12CrxBitstream.exit233 ], [ %882, %889 ]
   %.144.i108 = phi i32 [ %985, %_ZL13crxFillBufferP12CrxBitstream.exit233 ], [ %storemerge50.i, %889 ]
-  %.1.i109 = phi i32 [ %941, %_ZL13crxFillBufferP12CrxBitstream.exit233 ], [ %.sink447, %889 ]
+  %.1.i109 = phi i32 [ %941, %_ZL13crxFillBufferP12CrxBitstream.exit233 ], [ %.sink548, %889 ]
   %939 = load i32, ptr %764, align 8, !tbaa !24
   %.not52.i110 = icmp ult i32 %939, %938
   br i1 %.not52.i110, label %940, label %.loopexit
@@ -13536,7 +13536,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit233:        ; preds = %940, %946, %977
 
 .loopexit:                                        ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit233, %.preheader, %887
   %.043.i104 = phi i32 [ %storemerge50.i, %887 ], [ %985, %_ZL13crxFillBufferP12CrxBitstream.exit233 ], [ %.144.i108, %.preheader ]
-  %.042.i105 = phi i32 [ %.sink447, %887 ], [ %941, %_ZL13crxFillBufferP12CrxBitstream.exit233 ], [ %.1.i109, %.preheader ]
+  %.042.i105 = phi i32 [ %.sink548, %887 ], [ %941, %_ZL13crxFillBufferP12CrxBitstream.exit233 ], [ %.1.i109, %.preheader ]
   %987 = lshr i32 %.043.i104, 11
   %988 = shl i32 %.043.i104, 21
   store i32 %988, ptr %752, align 8, !tbaa !21
@@ -13546,7 +13546,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit233:        ; preds = %940, %946, %977
 
 990:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
   %991 = phi i32 [ %757, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %storemerge50.i, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
-  %992 = phi i32 [ %760, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %.sink447, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
+  %992 = phi i32 [ %760, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %.sink548, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
   %.139.i262 = phi i32 [ %754, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %spec.select.i, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
   %993 = getelementptr inbounds nuw i8, ptr %0, i64 65620
   %994 = load i32, ptr %993, align 4, !tbaa !37
@@ -14039,21 +14039,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit223:        ; preds = %96, %100, %131
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit214
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit214:  ; preds = %81, %.split.loop.exit439
-  %.sink597 = phi i32 [ %85, %81 ], [ %143, %.split.loop.exit439 ]
+  %.sink736 = phi i32 [ %85, %81 ], [ %143, %.split.loop.exit439 ]
   %.sink = phi i64 [ %83, %81 ], [ %.2.i213, %.split.loop.exit439 ]
   %146 = phi i32 [ %80, %81 ], [ %140, %.split.loop.exit439 ]
   %spec.select.i211 = phi i32 [ %87, %81 ], [ %145, %.split.loop.exit439 ]
-  %147 = sub nuw nsw i32 32, %.sink597
+  %147 = sub nuw nsw i32 32, %.sink736
   %148 = zext nneg i32 %147 to i64
   %149 = shl nuw i64 %.sink, %148
   %storemerge50.i209 = trunc i64 %149 to i32
   store i32 %storemerge50.i209, ptr %10, align 8, !tbaa !21
-  store i32 %.sink597, ptr %11, align 4, !tbaa !22
+  store i32 %.sink736, ptr %11, align 4, !tbaa !22
   %150 = icmp ugt i32 %spec.select.i211, 40
   br i1 %150, label %151, label %254
 
 151:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit214
-  %152 = icmp samesign ult i32 %.sink597, 21
+  %152 = icmp samesign ult i32 %.sink736, 21
   br i1 %152, label %153, label %.loopexit360
 
 153:                                              ; preds = %151
@@ -14124,10 +14124,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit214:  ; preds = %81, %.split.loop.ex
   br label %_ZL13crxFillBufferP12CrxBitstream.exit227
 
 _ZL13crxFillBufferP12CrxBitstream.exit227:        ; preds = %156, %161, %192
-  %196 = sub nuw nsw i32 21, %.sink597
-  %197 = add nuw nsw i32 %.sink597, 11
+  %196 = sub nuw nsw i32 21, %.sink736
+  %197 = add nuw nsw i32 %.sink736, 11
   store i32 %197, ptr %11, align 4, !tbaa !22
-  %198 = lshr i32 %160, %.sink597
+  %198 = lshr i32 %160, %.sink736
   %199 = or i32 %198, %storemerge50.i209
   %200 = lshr i32 %199, 11
   %201 = shl i32 %160, %196
@@ -14137,7 +14137,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit227:        ; preds = %156, %161, %192
 .preheader359:                                    ; preds = %153, %_ZL13crxFillBufferP12CrxBitstream.exit231
   %202 = phi i32 [ %245, %_ZL13crxFillBufferP12CrxBitstream.exit231 ], [ %146, %153 ]
   %.144.i177 = phi i32 [ %249, %_ZL13crxFillBufferP12CrxBitstream.exit231 ], [ %storemerge50.i209, %153 ]
-  %.1.i178 = phi i32 [ %205, %_ZL13crxFillBufferP12CrxBitstream.exit231 ], [ %.sink597, %153 ]
+  %.1.i178 = phi i32 [ %205, %_ZL13crxFillBufferP12CrxBitstream.exit231 ], [ %.sink736, %153 ]
   %203 = load i32, ptr %12, align 8, !tbaa !24
   %.not52.i179 = icmp ult i32 %203, %202
   br i1 %.not52.i179, label %204, label %.loopexit360
@@ -14215,7 +14215,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit231:        ; preds = %204, %210, %241
 
 .loopexit360:                                     ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit231, %.preheader359, %151
   %.043.i173 = phi i32 [ %storemerge50.i209, %151 ], [ %249, %_ZL13crxFillBufferP12CrxBitstream.exit231 ], [ %.144.i177, %.preheader359 ]
-  %.042.i174 = phi i32 [ %.sink597, %151 ], [ %205, %_ZL13crxFillBufferP12CrxBitstream.exit231 ], [ %.1.i178, %.preheader359 ]
+  %.042.i174 = phi i32 [ %.sink736, %151 ], [ %205, %_ZL13crxFillBufferP12CrxBitstream.exit231 ], [ %.1.i178, %.preheader359 ]
   %251 = lshr i32 %.043.i173, 11
   %252 = shl i32 %.043.i173, 21
   store i32 %252, ptr %10, align 8, !tbaa !21
@@ -14225,7 +14225,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit231:        ; preds = %204, %210, %241
 
 254:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit214.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit214
   %255 = phi i32 [ %28, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit214.thread ], [ %storemerge50.i209, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit214 ]
-  %256 = phi i32 [ %30, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit214.thread ], [ %.sink597, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit214 ]
+  %256 = phi i32 [ %30, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit214.thread ], [ %.sink736, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit214 ]
   %.139.i201327 = phi i32 [ %25, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit214.thread ], [ %spec.select.i211, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit214 ]
   %257 = load i32, ptr %17, align 4, !tbaa !37
   %.not116 = icmp eq i32 %257, 0
@@ -15244,21 +15244,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit271:        ; preds = %796, %800, %831
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit198
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit198:  ; preds = %781, %.split.loop.exit460
-  %.sink601 = phi i32 [ %785, %781 ], [ %843, %.split.loop.exit460 ]
-  %.sink598 = phi i64 [ %783, %781 ], [ %.2.i197, %.split.loop.exit460 ]
+  %.sink740 = phi i32 [ %785, %781 ], [ %843, %.split.loop.exit460 ]
+  %.sink737 = phi i64 [ %783, %781 ], [ %.2.i197, %.split.loop.exit460 ]
   %846 = phi i32 [ %780, %781 ], [ %840, %.split.loop.exit460 ]
   %spec.select.i195 = phi i32 [ %787, %781 ], [ %845, %.split.loop.exit460 ]
-  %847 = sub nuw nsw i32 32, %.sink601
+  %847 = sub nuw nsw i32 32, %.sink740
   %848 = zext nneg i32 %847 to i64
-  %849 = shl nuw i64 %.sink598, %848
+  %849 = shl nuw i64 %.sink737, %848
   %storemerge50.i193 = trunc i64 %849 to i32
   store i32 %storemerge50.i193, ptr %10, align 8, !tbaa !21
-  store i32 %.sink601, ptr %11, align 4, !tbaa !22
+  store i32 %.sink740, ptr %11, align 4, !tbaa !22
   %850 = icmp ugt i32 %spec.select.i195, 40
   br i1 %850, label %851, label %954
 
 851:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit198
-  %852 = icmp samesign ult i32 %.sink601, 21
+  %852 = icmp samesign ult i32 %.sink740, 21
   br i1 %852, label %853, label %.loopexit351
 
 853:                                              ; preds = %851
@@ -15329,10 +15329,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit198:  ; preds = %781, %.split.loop.e
   br label %_ZL13crxFillBufferP12CrxBitstream.exit275
 
 _ZL13crxFillBufferP12CrxBitstream.exit275:        ; preds = %856, %861, %892
-  %896 = sub nuw nsw i32 21, %.sink601
-  %897 = add nuw nsw i32 %.sink601, 11
+  %896 = sub nuw nsw i32 21, %.sink740
+  %897 = add nuw nsw i32 %.sink740, 11
   store i32 %897, ptr %11, align 4, !tbaa !22
-  %898 = lshr i32 %860, %.sink601
+  %898 = lshr i32 %860, %.sink740
   %899 = or i32 %898, %storemerge50.i193
   %900 = lshr i32 %899, 11
   %901 = shl i32 %860, %896
@@ -15342,7 +15342,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit275:        ; preds = %856, %861, %892
 .preheader350:                                    ; preds = %853, %_ZL13crxFillBufferP12CrxBitstream.exit279
   %902 = phi i32 [ %945, %_ZL13crxFillBufferP12CrxBitstream.exit279 ], [ %846, %853 ]
   %.144.i137 = phi i32 [ %949, %_ZL13crxFillBufferP12CrxBitstream.exit279 ], [ %storemerge50.i193, %853 ]
-  %.1.i138 = phi i32 [ %905, %_ZL13crxFillBufferP12CrxBitstream.exit279 ], [ %.sink601, %853 ]
+  %.1.i138 = phi i32 [ %905, %_ZL13crxFillBufferP12CrxBitstream.exit279 ], [ %.sink740, %853 ]
   %903 = load i32, ptr %12, align 8, !tbaa !24
   %.not52.i139 = icmp ult i32 %903, %902
   br i1 %.not52.i139, label %904, label %.loopexit351
@@ -15420,7 +15420,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit279:        ; preds = %904, %910, %941
 
 .loopexit351:                                     ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit279, %.preheader350, %851
   %.043.i133 = phi i32 [ %storemerge50.i193, %851 ], [ %949, %_ZL13crxFillBufferP12CrxBitstream.exit279 ], [ %.144.i137, %.preheader350 ]
-  %.042.i134 = phi i32 [ %.sink601, %851 ], [ %905, %_ZL13crxFillBufferP12CrxBitstream.exit279 ], [ %.1.i138, %.preheader350 ]
+  %.042.i134 = phi i32 [ %.sink740, %851 ], [ %905, %_ZL13crxFillBufferP12CrxBitstream.exit279 ], [ %.1.i138, %.preheader350 ]
   %951 = lshr i32 %.043.i133, 11
   %952 = shl i32 %.043.i133, 21
   store i32 %952, ptr %10, align 8, !tbaa !21
@@ -15430,7 +15430,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit279:        ; preds = %904, %910, %941
 
 954:                                              ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit198.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit198
   %955 = phi i32 [ %728, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit198.thread ], [ %storemerge50.i193, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit198 ]
-  %956 = phi i32 [ %730, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit198.thread ], [ %.sink601, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit198 ]
+  %956 = phi i32 [ %730, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit198.thread ], [ %.sink740, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit198 ]
   %.139.i185330 = phi i32 [ %725, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit198.thread ], [ %spec.select.i195, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit198 ]
   %957 = load i32, ptr %17, align 4, !tbaa !37
   %.not114 = icmp eq i32 %957, 0
@@ -15623,12 +15623,12 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit132:  ; preds = %_ZL13crxFillBufferP
   br label %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit180
 
 _Z19crxBitstreamGetBitsP12CrxBitstreami.exit180:  ; preds = %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit172, %254, %_ZL13crxFillBufferP12CrxBitstream.exit227, %.loopexit360, %.thread334
-  %.sink625 = phi i32 [ %1067, %.thread334 ], [ %366, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit172 ], [ %.139.i201327, %254 ], [ %200, %_ZL13crxFillBufferP12CrxBitstream.exit227 ], [ %251, %.loopexit360 ]
-  %.087.sink614 = phi i32 [ %.087, %.thread334 ], [ %366, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit172 ], [ %.139.i201327, %254 ], [ %200, %_ZL13crxFillBufferP12CrxBitstream.exit227 ], [ %251, %.loopexit360 ]
+  %.sink764 = phi i32 [ %1067, %.thread334 ], [ %366, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit172 ], [ %.139.i201327, %254 ], [ %200, %_ZL13crxFillBufferP12CrxBitstream.exit227 ], [ %251, %.loopexit360 ]
+  %.087.sink753 = phi i32 [ %.087, %.thread334 ], [ %366, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit172 ], [ %.139.i201327, %254 ], [ %200, %_ZL13crxFillBufferP12CrxBitstream.exit227 ], [ %251, %.loopexit360 ]
   %.293 = phi i32 [ %721, %.thread334 ], [ %.091464, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit172 ], [ %.091464, %254 ], [ %.091464, %_ZL13crxFillBufferP12CrxBitstream.exit227 ], [ %.091464, %.loopexit360 ]
-  %1068 = and i32 %.sink625, 1
+  %1068 = and i32 %.sink764, 1
   %1069 = sub nsw i32 0, %1068
-  %1070 = lshr i32 %.sink625, 1
+  %1070 = lshr i32 %.sink764, 1
   %1071 = xor i32 %1070, %1069
   %1072 = load ptr, ptr %4, align 8, !tbaa !20
   %1073 = getelementptr inbounds nuw i8, ptr %1072, i64 4
@@ -15636,9 +15636,9 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit180:  ; preds = %_Z19crxBitstreamGet
   %1074 = load i32, ptr %17, align 4, !tbaa !37
   %1075 = shl nuw i32 1, %1074
   %1076 = ashr i32 %1075, 1
-  %1077 = icmp slt i32 %.087.sink614, %1076
+  %1077 = icmp slt i32 %.087.sink753, %1076
   %.neg.i216 = sext i1 %1077 to i32
-  %1078 = ashr i32 %.087.sink614, %1074
+  %1078 = ashr i32 %.087.sink753, %1074
   %1079 = icmp sgt i32 %1078, 2
   %1080 = zext i1 %1079 to i32
   %1081 = icmp sgt i32 %1078, 5
@@ -15883,21 +15883,21 @@ _ZL13crxFillBufferP12CrxBitstream.exit295:        ; preds = %1175, %1179, %1210
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %1160, %.split.loop.exit480
-  %.sink629 = phi i32 [ %1164, %1160 ], [ %1222, %.split.loop.exit480 ]
-  %.sink626 = phi i64 [ %1162, %1160 ], [ %.2.i, %.split.loop.exit480 ]
+  %.sink768 = phi i32 [ %1164, %1160 ], [ %1222, %.split.loop.exit480 ]
+  %.sink765 = phi i64 [ %1162, %1160 ], [ %.2.i, %.split.loop.exit480 ]
   %1225 = phi i32 [ %1159, %1160 ], [ %1219, %.split.loop.exit480 ]
   %spec.select.i = phi i32 [ %1166, %1160 ], [ %1224, %.split.loop.exit480 ]
-  %1226 = sub nuw nsw i32 32, %.sink629
+  %1226 = sub nuw nsw i32 32, %.sink768
   %1227 = zext nneg i32 %1226 to i64
-  %1228 = shl nuw i64 %.sink626, %1227
+  %1228 = shl nuw i64 %.sink765, %1227
   %storemerge50.i = trunc i64 %1228 to i32
   store i32 %storemerge50.i, ptr %1095, align 8, !tbaa !21
-  store i32 %.sink629, ptr %1105, align 4, !tbaa !22
+  store i32 %.sink768, ptr %1105, align 4, !tbaa !22
   %1229 = icmp ugt i32 %spec.select.i, 40
   br i1 %1229, label %1230, label %1333
 
 1230:                                             ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
-  %1231 = icmp samesign ult i32 %.sink629, 21
+  %1231 = icmp samesign ult i32 %.sink768, 21
   br i1 %1231, label %1232, label %.loopexit
 
 1232:                                             ; preds = %1230
@@ -15968,10 +15968,10 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %1160, %.split.loop.
   br label %_ZL13crxFillBufferP12CrxBitstream.exit299
 
 _ZL13crxFillBufferP12CrxBitstream.exit299:        ; preds = %1235, %1240, %1271
-  %1275 = sub nuw nsw i32 21, %.sink629
-  %1276 = add nuw nsw i32 %.sink629, 11
+  %1275 = sub nuw nsw i32 21, %.sink768
+  %1276 = add nuw nsw i32 %.sink768, 11
   store i32 %1276, ptr %1105, align 4, !tbaa !22
-  %1277 = lshr i32 %1239, %.sink629
+  %1277 = lshr i32 %1239, %.sink768
   %1278 = or i32 %1277, %storemerge50.i
   %1279 = lshr i32 %1278, 11
   %1280 = shl i32 %1239, %1275
@@ -15981,7 +15981,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit299:        ; preds = %1235, %1240, %1271
 .preheader:                                       ; preds = %1232, %_ZL13crxFillBufferP12CrxBitstream.exit303
   %1281 = phi i32 [ %1324, %_ZL13crxFillBufferP12CrxBitstream.exit303 ], [ %1225, %1232 ]
   %.144.i121 = phi i32 [ %1328, %_ZL13crxFillBufferP12CrxBitstream.exit303 ], [ %storemerge50.i, %1232 ]
-  %.1.i122 = phi i32 [ %1284, %_ZL13crxFillBufferP12CrxBitstream.exit303 ], [ %.sink629, %1232 ]
+  %.1.i122 = phi i32 [ %1284, %_ZL13crxFillBufferP12CrxBitstream.exit303 ], [ %.sink768, %1232 ]
   %1282 = load i32, ptr %1107, align 8, !tbaa !24
   %.not52.i123 = icmp ult i32 %1282, %1281
   br i1 %.not52.i123, label %1283, label %.loopexit
@@ -16059,7 +16059,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit303:        ; preds = %1283, %1289, %1320
 
 .loopexit:                                        ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit303, %.preheader, %1230
   %.043.i117 = phi i32 [ %storemerge50.i, %1230 ], [ %1328, %_ZL13crxFillBufferP12CrxBitstream.exit303 ], [ %.144.i121, %.preheader ]
-  %.042.i118 = phi i32 [ %.sink629, %1230 ], [ %1284, %_ZL13crxFillBufferP12CrxBitstream.exit303 ], [ %.1.i122, %.preheader ]
+  %.042.i118 = phi i32 [ %.sink768, %1230 ], [ %1284, %_ZL13crxFillBufferP12CrxBitstream.exit303 ], [ %.1.i122, %.preheader ]
   %1330 = lshr i32 %.043.i117, 11
   %1331 = shl i32 %.043.i117, 21
   store i32 %1331, ptr %1095, align 8, !tbaa !21
@@ -16069,7 +16069,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit303:        ; preds = %1283, %1289, %1320
 
 1333:                                             ; preds = %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
   %1334 = phi i32 [ %1100, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %storemerge50.i, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
-  %1335 = phi i32 [ %1103, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %.sink629, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
+  %1335 = phi i32 [ %1103, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %.sink768, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
   %.139.i340 = phi i32 [ %1097, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread ], [ %spec.select.i, %_Z20crxBitstreamGetZerosP12CrxBitstream.exit ]
   %1336 = getelementptr inbounds nuw i8, ptr %0, i64 65620
   %1337 = load i32, ptr %1336, align 4, !tbaa !37
@@ -16424,11 +16424,11 @@ define noundef range(i32 -1, 1) i32 @_Z13crxDecodeLineP12CrxBandParamPh(ptr noun
   %68 = getelementptr i32, ptr %67, i64 %61
   %69 = getelementptr i8, ptr %68, i64 8
   %. = select i1 %.not128, ptr %67, ptr %69
-  %.161 = select i1 %.not128, ptr %69, ptr %67
+  %.165 = select i1 %.not128, ptr %69, ptr %67
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 65592
   store ptr %., ptr %70, align 8, !tbaa !18
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 65600
-  store ptr %.161, ptr %71, align 8, !tbaa !20
+  store ptr %.165, ptr %71, align 8, !tbaa !20
   %72 = tail call noundef i32 @_Z26crxDecodeLineNoRefPrevLineP12CrxBandParam(ptr noundef nonnull %0)
   %.not129.not = icmp eq i32 %72, 0
   br i1 %.not129.not, label %.critedge.sink.split, label %.critedge
@@ -16446,12 +16446,12 @@ define noundef range(i32 -1, 1) i32 @_Z13crxDecodeLineP12CrxBandParamPh(ptr noun
   %82 = load ptr, ptr %81, align 8, !tbaa !64
   %83 = getelementptr i32, ptr %82, i64 %79
   %84 = getelementptr i8, ptr %83, i64 8
-  %.162 = select i1 %.not132, ptr %82, ptr %84
-  %.163 = select i1 %.not132, ptr %84, ptr %82
+  %.166 = select i1 %.not132, ptr %82, ptr %84
+  %.167 = select i1 %.not132, ptr %84, ptr %82
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 65592
-  store ptr %.162, ptr %85, align 8, !tbaa !18
+  store ptr %.166, ptr %85, align 8, !tbaa !18
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 65600
-  store ptr %.163, ptr %86, align 8, !tbaa !20
+  store ptr %.167, ptr %86, align 8, !tbaa !20
   br i1 %76, label %87, label %89
 
 87:                                               ; preds = %73
@@ -16465,11 +16465,11 @@ define noundef range(i32 -1, 1) i32 @_Z13crxDecodeLineP12CrxBandParamPh(ptr noun
   br i1 %.not131.not, label %.critedge.sink.split, label %.critedge
 
 .critedge.sink.split:                             ; preds = %89, %87, %58, %43, %.loopexit, %26
-  %.163.sink = phi ptr [ %31, %26 ], [ %40, %.loopexit ], [ %51, %43 ], [ %.161, %58 ], [ %.163, %87 ], [ %.163, %89 ]
-  %.sink169.in = phi ptr [ %13, %26 ], [ %13, %.loopexit ], [ %13, %43 ], [ %59, %58 ], [ %77, %87 ], [ %77, %89 ]
-  %91 = getelementptr inbounds nuw i8, ptr %.163.sink, i64 4
-  %.sink169 = load i16, ptr %.sink169.in, align 8, !tbaa !6
-  %92 = sext i16 %.sink169 to i64
+  %.167.sink = phi ptr [ %31, %26 ], [ %40, %.loopexit ], [ %51, %43 ], [ %.165, %58 ], [ %.167, %87 ], [ %.167, %89 ]
+  %.sink173.in = phi ptr [ %13, %26 ], [ %13, %.loopexit ], [ %13, %43 ], [ %59, %58 ], [ %77, %87 ], [ %77, %89 ]
+  %91 = getelementptr inbounds nuw i8, ptr %.167.sink, i64 4
+  %.sink173 = load i16, ptr %.sink173.in, align 8, !tbaa !6
+  %92 = sext i16 %.sink173 to i64
   %93 = shl nsw i64 %92, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 4 %91, i64 %93, i1 false)
   %94 = load i16, ptr %6, align 4, !tbaa !59
@@ -17871,9 +17871,9 @@ define noundef i32 @_Z24crxIdwt53FilterTransformP12CrxPlaneCompj(ptr noundef %0,
   br label %91
 
 91:                                               ; preds = %88, %82
-  %.sink409 = phi i32 [ %90, %88 ], [ %87, %82 ]
+  %.sink411 = phi i32 [ %90, %88 ], [ %87, %82 ]
   %.0277 = phi ptr [ %51, %88 ], [ %83, %82 ]
-  %92 = sub nsw i32 %80, %.sink409
+  %92 = sub nsw i32 %80, %.sink411
   store i32 %92, ptr %69, align 4, !tbaa !19
   %93 = zext nneg i16 %75 to i32
   %94 = add nsw i32 %93, -3
@@ -17964,10 +17964,10 @@ define noundef i32 @_Z24crxIdwt53FilterTransformP12CrxPlaneCompj(ptr noundef %0,
   br i1 %145, label %.lr.ph337.preheader, label %._crit_edge338
 
 .lr.ph337.preheader.sink.split:                   ; preds = %114, %140, %130
-  %.sink412 = phi i64 [ 8, %130 ], [ 4, %140 ], [ 8, %114 ]
-  %.sink410 = phi i32 [ %135, %130 ], [ %142, %140 ], [ %122, %114 ]
-  %146 = getelementptr inbounds nuw i8, ptr %.0278.lcssa, i64 %.sink412
-  store i32 %.sink410, ptr %146, align 4, !tbaa !19
+  %.sink414 = phi i64 [ 8, %130 ], [ 4, %140 ], [ 8, %114 ]
+  %.sink412 = phi i32 [ %135, %130 ], [ %142, %140 ], [ %122, %114 ]
+  %146 = getelementptr inbounds nuw i8, ptr %.0278.lcssa, i64 %.sink414
+  store i32 %.sink412, ptr %146, align 4, !tbaa !19
   br label %.lr.ph337.preheader
 
 .lr.ph337.preheader:                              ; preds = %.lr.ph337.preheader.sink.split, %114, %143
@@ -17981,8 +17981,8 @@ define noundef i32 @_Z24crxIdwt53FilterTransformP12CrxPlaneCompj(ptr noundef %0,
   %149 = load i16, ptr %10, align 8, !tbaa !108
   %150 = add i16 %149, 3
   store i16 %150, ptr %10, align 8, !tbaa !108
-  %.lhs.trunc398 = trunc nsw i32 %56 to i16
-  %151 = srem i16 %.lhs.trunc398, 5
+  %.lhs.trunc400 = trunc nsw i32 %56 to i16
+  %151 = srem i16 %.lhs.trunc400, 5
   %152 = trunc nsw i16 %151 to i8
   store i8 %152, ptr %53, align 4, !tbaa !103
   br label %412
@@ -18042,8 +18042,8 @@ define noundef i32 @_Z24crxIdwt53FilterTransformP12CrxPlaneCompj(ptr noundef %0,
   %186 = add i16 %11, 2
   store i16 %186, ptr %10, align 8, !tbaa !108
   %187 = sext i8 %172 to i16
-  %.lhs.trunc397 = add nsw i16 %187, 2
-  %188 = srem i16 %.lhs.trunc397, 5
+  %.lhs.trunc399 = add nsw i16 %187, 2
+  %188 = srem i16 %.lhs.trunc399, 5
   %189 = trunc nsw i16 %188 to i8
   store i8 %189, ptr %171, align 4, !tbaa !103
   br label %412
@@ -18343,10 +18343,10 @@ define noundef i32 @_Z24crxIdwt53FilterTransformP12CrxPlaneCompj(ptr noundef %0,
   br i1 %384, label %.lr.ph363.preheader, label %._crit_edge364
 
 .lr.ph363.preheader.sink.split:                   ; preds = %348, %374, %353
-  %.sink415 = phi i64 [ 8, %353 ], [ 4, %374 ], [ 8, %348 ]
-  %.sink413 = phi i32 [ %368, %353 ], [ %380, %374 ], [ %341, %348 ]
-  %385 = getelementptr inbounds nuw i8, ptr %.0282.lcssa, i64 %.sink415
-  store i32 %.sink413, ptr %385, align 4, !tbaa !19
+  %.sink417 = phi i64 [ 8, %353 ], [ 4, %374 ], [ 8, %348 ]
+  %.sink415 = phi i32 [ %368, %353 ], [ %380, %374 ], [ %341, %348 ]
+  %385 = getelementptr inbounds nuw i8, ptr %.0282.lcssa, i64 %.sink417
+  store i32 %.sink415, ptr %385, align 4, !tbaa !19
   br label %.lr.ph363.preheader
 
 .lr.ph363.preheader:                              ; preds = %.lr.ph363.preheader.sink.split, %320, %381
@@ -18365,14 +18365,14 @@ define noundef i32 @_Z24crxIdwt53FilterTransformP12CrxPlaneCompj(ptr noundef %0,
   %or.cond = or i1 %.not302, %.not301
   %392 = load i16, ptr %7, align 2, !tbaa !104
   %. = select i1 %or.cond, i16 2, i16 3
-  %.418 = select i1 %or.cond, i32 %246, i32 %237
+  %.420 = select i1 %or.cond, i32 %246, i32 %237
   %393 = add i16 %392, %.
   %394 = add i16 %386, %.
   store i16 %393, ptr %7, align 2, !tbaa !104
   store i16 %394, ptr %10, align 8, !tbaa !108
-  %storemerge303.in.lhs.trunc = trunc nsw i32 %.418 to i16
-  %storemerge303.in396 = srem i16 %storemerge303.in.lhs.trunc, 5
-  %storemerge303 = trunc nsw i16 %storemerge303.in396 to i8
+  %storemerge303.in.lhs.trunc = trunc nsw i32 %.420 to i16
+  %storemerge303.in398 = srem i16 %storemerge303.in.lhs.trunc, 5
+  %storemerge303 = trunc nsw i16 %storemerge303.in398 to i8
   store i8 %storemerge303, ptr %234, align 4, !tbaa !103
   br label %412
 
@@ -18650,14 +18650,14 @@ define noundef range(i32 -1, 1) i32 @_Z25crxIdwt53FilterInitializeP12CrxPlaneCom
   br i1 %154, label %.lr.ph251.preheader, label %.loopexit
 
 .lr.ph251.preheader.sink.split:                   ; preds = %123, %149, %139
-  %.sink310 = phi i64 [ 8, %139 ], [ 4, %149 ], [ 8, %123 ]
-  %.sink308 = phi i32 [ %144, %139 ], [ %151, %149 ], [ %131, %123 ]
-  %155 = getelementptr inbounds nuw i8, ptr %.1202.lcssa, i64 %.sink310
-  store i32 %.sink308, ptr %155, align 4, !tbaa !19
+  %.sink313 = phi i64 [ 8, %139 ], [ 4, %149 ], [ 8, %123 ]
+  %.sink311 = phi i32 [ %144, %139 ], [ %151, %149 ], [ %131, %123 ]
+  %155 = getelementptr inbounds nuw i8, ptr %.1202.lcssa, i64 %.sink313
+  store i32 %.sink311, ptr %155, align 4, !tbaa !19
   br label %.lr.ph251.preheader
 
 .lr.ph251.preheader:                              ; preds = %.lr.ph251.preheader.sink.split, %123, %152
-  %.0201299 = phi ptr [ %64, %152 ], [ %.1202.lcssa, %123 ], [ %.1202.lcssa, %.lr.ph251.preheader.sink.split ]
+  %.0201302 = phi ptr [ %64, %152 ], [ %.1202.lcssa, %123 ], [ %.1202.lcssa, %.lr.ph251.preheader.sink.split ]
   %wide.trip.count = zext nneg i16 %84 to i64
   br label %.lr.ph251
 
@@ -18667,7 +18667,7 @@ define noundef range(i32 -1, 1) i32 @_Z25crxIdwt53FilterInitializeP12CrxPlaneCom
   %157 = load i32, ptr %156, align 4, !tbaa !19
   %158 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
   %159 = load i32, ptr %158, align 4, !tbaa !19
-  %160 = getelementptr inbounds nuw i32, ptr %.0201299, i64 %indvars.iv
+  %160 = getelementptr inbounds nuw i32, ptr %.0201302, i64 %indvars.iv
   %161 = load i32, ptr %160, align 4, !tbaa !19
   %162 = add i32 %159, 2
   %163 = add i32 %162, %161
@@ -18754,9 +18754,9 @@ define noundef range(i32 -1, 1) i32 @_Z25crxIdwt53FilterInitializeP12CrxPlaneCom
   br label %206
 
 206:                                              ; preds = %203, %197
-  %.sink311 = phi i32 [ %205, %203 ], [ %202, %197 ]
+  %.sink314 = phi i32 [ %205, %203 ], [ %202, %197 ]
   %.0191 = phi ptr [ %186, %203 ], [ %198, %197 ]
-  %207 = sub nsw i32 %195, %.sink311
+  %207 = sub nsw i32 %195, %.sink314
   store i32 %207, ptr %40, align 4, !tbaa !19
   %208 = zext nneg i16 %188 to i32
   %209 = add nsw i32 %208, -3
@@ -19053,8 +19053,8 @@ define void @_Z19crxConvertPlaneLineP8CrxImageiiiPii(ptr noundef readonly captur
   %.191 = tail call i32 @llvm.smin.i32(i32 %73, i32 %63)
   %75 = trunc i32 %.191 to i16
   %76 = select i1 %74, i16 0, i16 %75
-  %.idx231 = shl i64 %indvars.iv223, 2
-  %77 = getelementptr i8, ptr %69, i64 %.idx231
+  %.idx236 = shl i64 %indvars.iv223, 2
+  %77 = getelementptr i8, ptr %69, i64 %.idx236
   store i16 %76, ptr %77, align 2, !tbaa !131
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %exitcond227.not = icmp eq i64 %indvars.iv.next224, %wide.trip.count226
@@ -19456,7 +19456,7 @@ define noundef range(i32 -1, 1) i32 @_Z19crxSetupSubbandDataP8CrxImageP12CrxPlan
 
 _ZN13libraw_memmgr6mallocEm.exit.thread:          ; preds = %.loopexit193
   store ptr null, ptr %1, align 8, !tbaa !120
-  br label %.loopexit227
+  br label %.loopexit230
 
 .preheader.i.i:                                   ; preds = %.loopexit193
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -19640,14 +19640,14 @@ _ZN13libraw_memmgr6mallocEm.exit:                 ; preds = %44
   %139 = zext i16 %138 to i32
   %140 = tail call noundef i32 @_Z12crxParamInitP8CrxImagePP12CrxBandParammmjjbj(ptr noundef %0, ptr noundef nonnull %122, i64 noundef %133, i64 noundef %124, i32 noundef %136, i32 noundef %139, i1 noundef zeroext %or.cond, i32 noundef %.0)
   %.not191 = icmp eq i32 %140, 0
-  br i1 %.not191, label %141, label %.loopexit227
+  br i1 %.not191, label %141, label %.loopexit230
 
 141:                                              ; preds = %121, %131
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %exitcond226.not = icmp eq i64 %indvars.iv.next223, %wide.trip.count
-  br i1 %exitcond226.not, label %.loopexit227, label %121, !llvm.loop !160
+  br i1 %exitcond226.not, label %.loopexit230, label %121, !llvm.loop !160
 
-.loopexit227:                                     ; preds = %131, %141, %_ZN13libraw_memmgr6mallocEm.exit.thread
+.loopexit230:                                     ; preds = %131, %141, %_ZN13libraw_memmgr6mallocEm.exit.thread
   %.0164 = phi i32 [ -1, %_ZN13libraw_memmgr6mallocEm.exit.thread ], [ -1, %131 ], [ 0, %141 ]
   ret i32 %.0164
 }
@@ -20995,8 +20995,8 @@ _ZN13libraw_memmgr6mallocEm.exit:                 ; preds = %42
   store i32 %19, ptr %142, align 4, !tbaa !181
   %.not215 = icmp eq i32 %19, 0
   %.not216 = icmp eq i16 %10, 0
-  %or.cond271 = or i1 %.not215, %.not216
-  br i1 %or.cond271, label %.loopexit, label %.preheader.us
+  %or.cond281 = or i1 %.not215, %.not216
+  br i1 %or.cond281, label %.loopexit, label %.preheader.us
 
 .preheader.us:                                    ; preds = %140, %._crit_edge.us209
   %.0134207.us = phi i32 [ %166, %._crit_edge.us209 ], [ 0, %140 ]
@@ -21702,9 +21702,9 @@ _ZN6LibRaw5sgetnEiPh.exit107:                     ; preds = %.lr.ph.i103
   br i1 %132, label %.lr.ph.i108, label %_ZN6LibRaw5sgetnEiPh.exit112, !llvm.loop !195
 
 _ZN6LibRaw5sgetnEiPh.exit112:                     ; preds = %.lr.ph.i108, %_ZN6LibRaw5sgetnEiPh.exit87
-  %.lcssa145.sink = phi i32 [ 0, %_ZN6LibRaw5sgetnEiPh.exit87 ], [ %131, %.lr.ph.i108 ]
+  %.lcssa149.sink = phi i32 [ 0, %_ZN6LibRaw5sgetnEiPh.exit87 ], [ %131, %.lr.ph.i108 ]
   %133 = getelementptr inbounds nuw i8, ptr %.063126, i64 40
-  store i32 %.lcssa145.sink, ptr %133, align 8, !tbaa !87
+  store i32 %.lcssa149.sink, ptr %133, align 8, !tbaa !87
   %134 = add nsw i32 %48, %.060127
   %135 = zext nneg i32 %33 to i64
   %136 = getelementptr inbounds nuw i8, ptr %64, i64 %135
@@ -21893,7 +21893,7 @@ _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %38
   %98 = or disjoint i8 %91, 4
   store i8 %98, ptr %68, align 8, !tbaa !188
   %.not267 = icmp samesign ult i64 %indvars.iv, %63
-  br i1 %.not267, label %107, label %.sink.split527
+  br i1 %.not267, label %107, label %.sink.split542
 
 99:                                               ; preds = %90
   %100 = load i16, ptr %58, align 4, !tbaa !133
@@ -21903,16 +21903,16 @@ _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %38
   %104 = sub i16 %100, %103
   %105 = getelementptr inbounds nuw i8, ptr %.0236404, i64 30
   store i16 %104, ptr %105, align 2, !tbaa !173
-  br i1 %61, label %.sink.split527, label %107
+  br i1 %61, label %.sink.split542, label %107
 
-.sink.split527:                                   ; preds = %99, %97
-  %.sink529 = phi i8 [ 12, %97 ], [ 8, %99 ]
-  %106 = or disjoint i8 %91, %.sink529
+.sink.split542:                                   ; preds = %99, %97
+  %.sink544 = phi i8 [ 12, %97 ], [ 8, %99 ]
+  %106 = or disjoint i8 %91, %.sink544
   store i8 %106, ptr %68, align 8, !tbaa !188
   br label %107
 
-107:                                              ; preds = %.sink.split527, %99, %93, %97
-  %108 = phi i8 [ %91, %99 ], [ %91, %93 ], [ %98, %97 ], [ %106, %.sink.split527 ]
+107:                                              ; preds = %.sink.split542, %99, %93, %97
+  %108 = phi i8 [ %91, %99 ], [ %91, %93 ], [ %98, %97 ], [ %106, %.sink.split542 ]
   br i1 %.not268, label %.loopexit364, label %109
 
 109:                                              ; preds = %107

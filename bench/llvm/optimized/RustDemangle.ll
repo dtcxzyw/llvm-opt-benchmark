@@ -422,9 +422,9 @@ _ZN12_GLOBAL__N_19Demangler7consumeEv.exit:       ; preds = %14
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 %30
   %33 = load i8, ptr %32, align 1, !tbaa !29
   %.not2.i.i.i = icmp eq i8 %33, 95
-  br i1 %.not2.i.i.i, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread13.i, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i.i
+  br i1 %.not2.i.i.i, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread19.i, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i.i
 
-_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread13.i: ; preds = %31
+_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread19.i: ; preds = %31
   %34 = add nuw i64 %17, 3
   store i64 %34, ptr %16, align 8, !tbaa !17
   br label %_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit
@@ -498,7 +498,7 @@ _ZN12_GLOBAL__N_19Demangler9addAssignERmm.exit.i.i: ; preds = %53
   store i8 1, ptr %6, align 1, !tbaa !18
   br label %_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit
 
-_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit: ; preds = %.split.i.i, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread13.i, %25, %26, %.loopexit.i.i, %_ZN12_GLOBAL__N_19Demangler9mulAssignERmm.exit.i.i, %_ZN12_GLOBAL__N_19Demangler9addAssignERmm.exit.i.i, %56, %57
+_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit: ; preds = %.split.i.i, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread19.i, %25, %26, %.loopexit.i.i, %_ZN12_GLOBAL__N_19Demangler9mulAssignERmm.exit.i.i, %_ZN12_GLOBAL__N_19Demangler9addAssignERmm.exit.i.i, %56, %57
   call fastcc void @_ZN12_GLOBAL__N_19Demangler15parseIdentifierEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(96) %0)
   tail call fastcc void @_ZN12_GLOBAL__N_19Demangler15printIdentifierENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull byval(%"struct.(anonymous namespace)::Identifier") align 8 %4)
   br label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit26
@@ -526,9 +526,9 @@ _ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit: ; preds = %.split
   %67 = getelementptr inbounds nuw i8, ptr %22, i64 %65
   %68 = load i8, ptr %67, align 1, !tbaa !29
   %.not2.i.i.i132 = icmp eq i8 %68, 95
-  br i1 %.not2.i.i.i132, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread13.i147, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i.i133
+  br i1 %.not2.i.i.i132, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread19.i147, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i.i133
 
-_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread13.i147: ; preds = %66
+_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread19.i147: ; preds = %66
   %69 = add nuw i64 %17, 3
   store i64 %69, ptr %16, align 8, !tbaa !17
   br label %_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit148
@@ -602,7 +602,7 @@ _ZN12_GLOBAL__N_19Demangler9addAssignERmm.exit.i.i140: ; preds = %88
   store i8 1, ptr %6, align 1, !tbaa !18
   br label %_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit148
 
-_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit148: ; preds = %.split.i.i142, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread13.i147, %58, %61, %.loopexit.i.i131, %_ZN12_GLOBAL__N_19Demangler9mulAssignERmm.exit.i.i141, %_ZN12_GLOBAL__N_19Demangler9addAssignERmm.exit.i.i140, %91, %92
+_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit148: ; preds = %.split.i.i142, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread19.i147, %58, %61, %.loopexit.i.i131, %_ZN12_GLOBAL__N_19Demangler9mulAssignERmm.exit.i.i141, %_ZN12_GLOBAL__N_19Demangler9addAssignERmm.exit.i.i140, %91, %92
   %93 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19Demangler12demanglePathENS_8IsInTypeENS_17LeaveGenericsOpenE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef 0)
   store i8 %60, ptr %59, align 8, !tbaa !23
   %94 = load i8, ptr %6, align 1, !tbaa !18, !range !24, !noundef !25
@@ -723,9 +723,9 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i22: ; preds = %._ZN4llvm
   %148 = getelementptr inbounds nuw i8, ptr %22, i64 %146
   %149 = load i8, ptr %148, align 1, !tbaa !29
   %.not2.i.i.i154 = icmp eq i8 %149, 95
-  br i1 %.not2.i.i.i154, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread13.i169, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i.i155
+  br i1 %.not2.i.i.i154, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread19.i169, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i.i155
 
-_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread13.i169: ; preds = %147
+_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread19.i169: ; preds = %147
   %150 = add nuw i64 %17, 3
   store i64 %150, ptr %16, align 8, !tbaa !17
   br label %_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit170
@@ -799,7 +799,7 @@ _ZN12_GLOBAL__N_19Demangler9addAssignERmm.exit.i.i162: ; preds = %169
   store i8 1, ptr %6, align 1, !tbaa !18
   br label %_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit170
 
-_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit170: ; preds = %.split.i.i164, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread13.i169, %139, %142, %.loopexit.i.i153, %_ZN12_GLOBAL__N_19Demangler9mulAssignERmm.exit.i.i163, %_ZN12_GLOBAL__N_19Demangler9addAssignERmm.exit.i.i162, %172, %173
+_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit170: ; preds = %.split.i.i164, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread19.i169, %139, %142, %.loopexit.i.i153, %_ZN12_GLOBAL__N_19Demangler9mulAssignERmm.exit.i.i163, %_ZN12_GLOBAL__N_19Demangler9addAssignERmm.exit.i.i162, %172, %173
   %174 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19Demangler12demanglePathENS_8IsInTypeENS_17LeaveGenericsOpenE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef 0)
   store i8 %141, ptr %140, align 8, !tbaa !23
   %175 = load i8, ptr %6, align 1, !tbaa !18, !range !24, !noundef !25
@@ -1136,9 +1136,9 @@ _ZN12_GLOBAL__N_19Demangler7consumeEv.exit83:     ; preds = %314
   %334 = getelementptr inbounds nuw i8, ptr %328, i64 %332
   %335 = load i8, ptr %334, align 1, !tbaa !29
   %.not2.i.i.i89 = icmp eq i8 %335, 95
-  br i1 %.not2.i.i.i89, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread13.i104, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i.i90
+  br i1 %.not2.i.i.i89, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread19.i104, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i.i90
 
-_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread13.i104: ; preds = %333
+_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread19.i104: ; preds = %333
   %336 = add nuw i64 %325, 2
   store i64 %336, ptr %16, align 8, !tbaa !17
   br label %361
@@ -1215,9 +1215,9 @@ _ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.i101: ; preds = %.split.i.
   store i8 1, ptr %6, align 1, !tbaa !18
   br label %_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit105
 
-361:                                              ; preds = %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.i101, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread13.i104
-  %.010.i16.i103 = phi i64 [ 0, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread13.i104 ], [ %359, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.i101 ]
-  %362 = add nuw i64 %.010.i16.i103, 1
+361:                                              ; preds = %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.i101, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread19.i104
+  %.010.i22.i103 = phi i64 [ 0, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread19.i104 ], [ %359, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.i101 ]
+  %362 = add nuw i64 %.010.i22.i103, 1
   br label %_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit105
 
 _ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit105: ; preds = %320, %324, %327, %.loopexit.i.i88, %_ZN12_GLOBAL__N_19Demangler9mulAssignERmm.exit.i.i98, %_ZN12_GLOBAL__N_19Demangler9addAssignERmm.exit.i.i97, %358, %360, %361
@@ -1547,9 +1547,9 @@ _ZN12_GLOBAL__N_19Demangler18demangleGenericArgEv.exit: ; preds = %_ZN12_GLOBAL_
   %488 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   %489 = load i8, ptr %488, align 1, !tbaa !29
   %.not2.i.i199 = icmp eq i8 %489, 95
-  br i1 %.not2.i.i199, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit201.thread314, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i188
+  br i1 %.not2.i.i199, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit201.thread369, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i188
 
-_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit201.thread314: ; preds = %487
+_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit201.thread369: ; preds = %487
   %490 = add nuw i64 %17, 2
   store i64 %490, ptr %16, align 8, !tbaa !17
   br label %512
@@ -1592,30 +1592,30 @@ _ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i188:  ; preds = %487, %507
   %.not.i193 = icmp ugt i64 %508, %509
   %510 = add i64 %.011.i192, %508
   %exitcond.not.i194 = icmp eq i64 %492, %19
-  %or.cond343 = or i1 %.not.i193, %exitcond.not.i194
-  br i1 %or.cond343, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit201.thread, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i188
+  %or.cond398 = or i1 %.not.i193, %exitcond.not.i194
+  br i1 %or.cond398, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit201.thread, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i188
 
 .split.i197:                                      ; preds = %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i188
   %.not43.i198 = icmp ne i64 %.0194851.i189, -1
   %511 = add nuw i64 %.0194851.i189, 1
   %.not.i126 = icmp ult i64 %511, %492
-  %or.cond342 = select i1 %.not43.i198, i1 %.not.i126, i1 false
-  br i1 %or.cond342, label %512, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit201.thread
+  %or.cond397 = select i1 %.not43.i198, i1 %.not.i126, i1 false
+  br i1 %or.cond397, label %512, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit201.thread
 
 _ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit201.thread: ; preds = %507, %506, %503, %.split.i197, %486
   store i8 1, ptr %6, align 1, !tbaa !18
   br label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit26
 
-512:                                              ; preds = %.split.i197, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit201.thread314
-  %.010.i187317 = phi i64 [ 0, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit201.thread314 ], [ %511, %.split.i197 ]
-  %513 = phi i64 [ %490, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit201.thread314 ], [ %492, %.split.i197 ]
+512:                                              ; preds = %.split.i197, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit201.thread369
+  %.010.i187372 = phi i64 [ 0, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit201.thread369 ], [ %511, %.split.i197 ]
+  %513 = phi i64 [ %490, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit201.thread369 ], [ %492, %.split.i197 ]
   %514 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %515 = load i8, ptr %514, align 8, !tbaa !19, !range !24, !noundef !25
   %516 = trunc nuw i8 %515 to i1
   br i1 %516, label %517, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit26
 
 517:                                              ; preds = %512
-  store i64 %.010.i187317, ptr %16, align 8, !tbaa !17
+  store i64 %.010.i187372, ptr %16, align 8, !tbaa !17
   %518 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19Demangler12demanglePathENS_8IsInTypeENS_17LeaveGenericsOpenE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2)
   store i64 %513, ptr %16, align 8, !tbaa !20
   br label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit26
@@ -1806,7 +1806,7 @@ _ZL7isValidc.exit.thread.i:                       ; preds = %_ZL7isValidc.exit.i
   br i1 %.not102.i, label %._crit_edge191.loopexit.i, label %22, !llvm.loop !37
 
 ._crit_edge191.loopexit.i:                        ; preds = %42
-  %49 = add i64 %spec.select.i, 1
+  %49 = add nuw i64 %spec.select.i, 1
   br label %._crit_edge191.i
 
 ._crit_edge191.fold.split.i:                      ; preds = %._crit_edge.i
@@ -2067,13 +2067,13 @@ _ZL19decodePunycodeDigitcRm.exit.i:               ; preds = %74
   %183 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 2
   %184 = load i8, ptr %183, align 1, !tbaa !29
   %185 = icmp eq i8 %184, 0
-  br i1 %185, label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit47, label %186
+  br i1 %185, label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit64, label %186
 
 186:                                              ; preds = %182
   %187 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 3
   %188 = load i8, ptr %187, align 1, !tbaa !29
   %189 = icmp eq i8 %188, 0
-  br i1 %189, label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit49, label %190
+  br i1 %189, label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit66, label %190
 
 190:                                              ; preds = %186
   %191 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 4
@@ -2120,16 +2120,16 @@ _ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i
   %206 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 1
   br label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit47: ; preds = %182
+_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit64: ; preds = %182
   %207 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 2
   br label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit49: ; preds = %186
+_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit66: ; preds = %186
   %208 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 3
   br label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i: ; preds = %175, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit47, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit49, %._crit_edge._crit_edge52.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %195
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %195 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %206, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %207, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit47 ], [ %208, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit49 ], [ %.02946.i.i.i.i.i.i, %175 ]
+_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i: ; preds = %175, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit64, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit66, %._crit_edge._crit_edge52.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %195
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %195 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %206, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %207, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit64 ], [ %208, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit66 ], [ %.02946.i.i.i.i.i.i, %175 ]
   %209 = icmp eq ptr %.028.i.i.i.i.i.i, %170
   %.01730.i.i.i.i = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i.i.i, i64 1
   %.not31.i.i.i.i = icmp eq ptr %.01730.i.i.i.i, %170
@@ -2402,7 +2402,7 @@ _ZL7isValidc.exit21:                              ; preds = %_ZL7isValidc.exit24
   %95 = icmp ult i8 %94, 26
   %96 = icmp eq i8 %89, 95
   %spec.select.i20 = or i1 %96, %95
-  br i1 %spec.select.i20, label %_ZL7isValidc.exit21.thread, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit49
+  br i1 %spec.select.i20, label %_ZL7isValidc.exit21.thread, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit59
 
 _ZL7isValidc.exit21.thread:                       ; preds = %_ZL7isValidc.exit24.thread, %_ZL7isValidc.exit21
   %97 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 3
@@ -2419,7 +2419,7 @@ _ZL7isValidc.exit18:                              ; preds = %_ZL7isValidc.exit21
   %104 = icmp ult i8 %103, 26
   %105 = icmp eq i8 %98, 95
   %spec.select.i17 = or i1 %105, %104
-  br i1 %spec.select.i17, label %_ZL7isValidc.exit18.thread, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit51
+  br i1 %spec.select.i17, label %_ZL7isValidc.exit18.thread, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit61
 
 _ZL7isValidc.exit18.thread:                       ; preds = %_ZL7isValidc.exit21.thread, %_ZL7isValidc.exit18
   %106 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 4
@@ -2499,16 +2499,16 @@ _ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit: ; preds = %_ZL7isV
   %139 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 1
   br label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
 
-_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit49: ; preds = %_ZL7isValidc.exit21
+_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit59: ; preds = %_ZL7isValidc.exit21
   %140 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 2
   br label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
 
-_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit51: ; preds = %_ZL7isValidc.exit18
+_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit61: ; preds = %_ZL7isValidc.exit18
   %141 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 3
   br label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
 
-_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit:              ; preds = %_ZL7isValidc.exit27, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit49, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit51, %_ZL7isValidc.exit15, %_ZL7isValidc.exit12, %_ZL7isValidc.exit
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %_ZL7isValidc.exit15 ], [ %.1.i.i.i.i, %_ZL7isValidc.exit12 ], [ %.2.i.i.i.i, %_ZL7isValidc.exit ], [ %139, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit ], [ %140, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit49 ], [ %141, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit51 ], [ %.02946.i.i.i.i, %_ZL7isValidc.exit27 ]
+_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit:              ; preds = %_ZL7isValidc.exit27, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit59, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit61, %_ZL7isValidc.exit15, %_ZL7isValidc.exit12, %_ZL7isValidc.exit
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %_ZL7isValidc.exit15 ], [ %.1.i.i.i.i, %_ZL7isValidc.exit12 ], [ %.2.i.i.i.i, %_ZL7isValidc.exit ], [ %139, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit ], [ %140, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit59 ], [ %141, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit61 ], [ %.02946.i.i.i.i, %_ZL7isValidc.exit27 ]
   %142 = icmp eq ptr %65, %.028.i.i.i.i
   br i1 %142, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.thread, label %143
 
@@ -4385,9 +4385,9 @@ _ZN12_GLOBAL__N_19Demangler16demangleConstIntEv.exit: ; preds = %56, %_ZN4llvm16
   %132 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   %133 = load i8, ptr %132, align 1, !tbaa !29
   %.not2.i.i7 = icmp eq i8 %133, 95
-  br i1 %.not2.i.i7, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread36, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i
+  br i1 %.not2.i.i7, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread55, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i
 
-_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread36: ; preds = %131
+_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread55: ; preds = %131
   %134 = add nuw i64 %15, 2
   store i64 %134, ptr %14, align 8, !tbaa !17
   br label %156
@@ -4430,8 +4430,8 @@ _ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i:     ; preds = %131, %151
   %.not.i6 = icmp ugt i64 %152, %153
   %154 = add i64 %.011.i, %152
   %exitcond.not.i = icmp eq i64 %136, %17
-  %or.cond47 = or i1 %.not.i6, %exitcond.not.i
-  br i1 %or.cond47, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i
+  %or.cond66 = or i1 %.not.i6, %exitcond.not.i
+  br i1 %or.cond66, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i
 
 .split.i:                                         ; preds = %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i
   %.not43.i = icmp ne i64 %.0194851.i, -1
@@ -4444,16 +4444,16 @@ _ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread: ; preds = %151, %1
   store i8 1, ptr %4, align 1, !tbaa !18
   br label %"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_13demangleConstEvE3$_0EEvT_.exit"
 
-156:                                              ; preds = %.split.i, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread36
-  %.010.i39 = phi i64 [ 0, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread36 ], [ %155, %.split.i ]
-  %157 = phi i64 [ %134, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread36 ], [ %136, %.split.i ]
+156:                                              ; preds = %.split.i, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread55
+  %.010.i58 = phi i64 [ 0, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread55 ], [ %155, %.split.i ]
+  %157 = phi i64 [ %134, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread55 ], [ %136, %.split.i ]
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %159 = load i8, ptr %158, align 8, !tbaa !19, !range !24, !noundef !25
   %160 = trunc nuw i8 %159 to i1
   br i1 %160, label %161, label %"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_13demangleConstEvE3$_0EEvT_.exit"
 
 161:                                              ; preds = %156
-  store i64 %.010.i39, ptr %14, align 8, !tbaa !17
+  store i64 %.010.i58, ptr %14, align 8, !tbaa !17
   tail call fastcc void @_ZN12_GLOBAL__N_19Demangler13demangleConstEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
   store i64 %157, ptr %14, align 8, !tbaa !20
   br label %"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_13demangleConstEvE3$_0EEvT_.exit"
@@ -5189,7 +5189,7 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
   store i64 %203, ptr %190, align 8, !tbaa !17
   %204 = load i8, ptr %166, align 8, !range !24
   %205 = trunc nuw i8 %204 to i1
-  br i1 %205, label %206, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit74.thread139
+  br i1 %205, label %206, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit74.thread163
 
 206:                                              ; preds = %.critedge
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -5230,9 +5230,9 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
   store i64 %224, ptr %208, align 8, !tbaa !26
   %.pre133 = load i8, ptr %5, align 1, !tbaa !18, !range !24
   %225 = trunc nuw i8 %.pre133 to i1
-  br i1 %225, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit96, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit74.thread139
+  br i1 %225, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit96, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit74.thread163
 
-_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit74.thread139: ; preds = %.critedge, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit74
+_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit74.thread163: ; preds = %.critedge, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit74
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %227 = load i64, ptr %226, align 8, !tbaa !17
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5240,7 +5240,7 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
   %.not.i75 = icmp ult i64 %227, %229
   br i1 %.not.i75, label %230, label %258
 
-230:                                              ; preds = %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit74.thread139
+230:                                              ; preds = %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit74.thread163
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %232 = load ptr, ptr %231, align 8, !tbaa !31
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 %227
@@ -5303,7 +5303,7 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
   %257 = trunc nuw i8 %256 to i1
   br i1 %257, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit96, label %196, !llvm.loop !47
 
-258:                                              ; preds = %230, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit74.thread139
+258:                                              ; preds = %230, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit74.thread163
   %259 = load i8, ptr %166, align 8, !range !24
   %260 = trunc nuw i8 %259 to i1
   br i1 %260, label %261, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit96
@@ -5709,8 +5709,8 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
   %153 = load i8, ptr %8, align 8, !range !24
   %154 = trunc nuw i8 %153 to i1
   %155 = and i1 %.0.i12.lcssa, %.not.i13
-  %or.cond133 = select i1 %155, i1 %154, i1 false
-  br i1 %or.cond133, label %156, label %_ZN12_GLOBAL__N_19Demangler16demangleDynTraitEv.exit
+  %or.cond150 = select i1 %155, i1 %154, i1 false
+  br i1 %or.cond150, label %156, label %_ZN12_GLOBAL__N_19Demangler16demangleDynTraitEv.exit
 
 156:                                              ; preds = %.critedge.i
   %157 = load i64, ptr %36, align 8, !tbaa !26
@@ -5928,8 +5928,8 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   br label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3:  ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %lhsc22 = load i8, ptr %.sroa.22.0.copyload, align 1
-  %30 = icmp eq i8 %lhsc22, 49
+  %lhsc25 = load i8, ptr %.sroa.22.0.copyload, align 1
+  %30 = icmp eq i8 %lhsc25, 49
   br i1 %30, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit6, label %56
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit6: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3
@@ -6474,8 +6474,8 @@ _ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit:     ; preds = %19
 .lr.ph:                                           ; preds = %21, %_ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8
-  %.not.i2566 = icmp ult i64 %4, %9
-  br i1 %.not.i2566, label %.lr.ph68, label %.critedge.thread.sink.split
+  %.not.i2575 = icmp ult i64 %4, %9
+  br i1 %.not.i2575, label %.lr.ph77, label %.critedge.thread.sink.split
 
 28:                                               ; preds = %21
   %29 = add nuw i64 %4, 1
@@ -6487,26 +6487,26 @@ _ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit:     ; preds = %19
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 %29
   %32 = load i8, ptr %31, align 1, !tbaa !29
   %.not2.i23 = icmp eq i8 %32, 95
-  br i1 %.not2.i23, label %.critedge.thread57, label %.critedge.thread.sink.split
+  br i1 %.not2.i23, label %.critedge.thread66, label %.critedge.thread.sink.split
 
-.critedge.thread57:                               ; preds = %30
+.critedge.thread66:                               ; preds = %30
   %33 = add nuw i64 %4, 2
   br label %.critedge
 
-.lr.ph68:                                         ; preds = %.lr.ph, %53
+.lr.ph77:                                         ; preds = %.lr.ph, %53
   %34 = phi i64 [ %37, %53 ], [ %4, %.lr.ph ]
-  %.14567 = phi i64 [ %.2, %53 ], [ 0, %.lr.ph ]
+  %.14576 = phi i64 [ %.2, %53 ], [ 0, %.lr.ph ]
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !29
   %.not2.i27 = icmp eq i8 %36, 95
   %37 = add nuw i64 %34, 1
   br i1 %.not2.i27, label %.critedge, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit
 
-_ZN12_GLOBAL__N_19Demangler7consumeEv.exit:       ; preds = %.lr.ph68
+_ZN12_GLOBAL__N_19Demangler7consumeEv.exit:       ; preds = %.lr.ph77
   store i64 %37, ptr %3, align 8, !tbaa !17
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %39 = load i8, ptr %38, align 1, !tbaa !29
-  %40 = shl i64 %.14567, 4
+  %40 = shl i64 %.14576, 4
   %41 = add i8 %39, -48
   %42 = icmp ult i8 %41, 10
   br i1 %42, label %43, label %47
@@ -6532,7 +6532,7 @@ _ZN12_GLOBAL__N_19Demangler7consumeEv.exit:       ; preds = %.lr.ph68
 53:                                               ; preds = %49, %43
   %.2 = phi i64 [ %46, %43 ], [ %52, %49 ]
   %.not.i25 = icmp ult i64 %37, %9
-  br i1 %.not.i25, label %.lr.ph68, label %.critedge.thread.sink.split, !llvm.loop !50
+  br i1 %.not.i25, label %.lr.ph77, label %.critedge.thread.sink.split, !llvm.loop !50
 
 .critedge.thread.sink.split:                      ; preds = %47, %53, %.lr.ph, %28, %30, %_ZNK12_GLOBAL__N_19Demangler4lookEv.exit
   store i8 1, ptr %5, align 1, !tbaa !18
@@ -6542,9 +6542,9 @@ _ZN12_GLOBAL__N_19Demangler7consumeEv.exit:       ; preds = %.lr.ph68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   br label %63
 
-.critedge:                                        ; preds = %.lr.ph68, %.critedge.thread57
-  %.01759 = phi i64 [ 0, %.critedge.thread57 ], [ %.14567, %.lr.ph68 ]
-  %54 = phi i64 [ %33, %.critedge.thread57 ], [ %37, %.lr.ph68 ]
+.critedge:                                        ; preds = %.lr.ph77, %.critedge.thread66
+  %.01768 = phi i64 [ 0, %.critedge.thread66 ], [ %.14576, %.lr.ph77 ]
+  %54 = phi i64 [ %33, %.critedge.thread66 ], [ %37, %.lr.ph77 ]
   store i64 %54, ptr %3, align 8, !tbaa !17
   %55 = icmp ugt i64 %4, %9
   br i1 %55, label %56, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
@@ -6567,7 +6567,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %.crite
   br label %63
 
 63:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %.critedge.thread
-  %.0 = phi i64 [ 0, %.critedge.thread ], [ %.01759, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
+  %.0 = phi i64 [ 0, %.critedge.thread ], [ %.01768, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
   ret i64 %.0
 }
 
@@ -6604,9 +6604,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler22demangleOptionalBinder
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 %16
   %19 = load i8, ptr %18, align 1, !tbaa !29
   %.not2.i.i.i = icmp eq i8 %19, 95
-  br i1 %.not2.i.i.i, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread13.i, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i.i
+  br i1 %.not2.i.i.i, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread19.i, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i.i
 
-_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread13.i: ; preds = %17
+_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread19.i: ; preds = %17
   %20 = add nuw i64 %7, 2
   store i64 %20, ptr %6, align 8, !tbaa !17
   br label %_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit
@@ -6683,9 +6683,9 @@ _ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.i: ; preds = %.split.i.i
   store i8 1, ptr %2, align 1, !tbaa !18
   br label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit20
 
-_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit: ; preds = %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.i, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread13.i
-  %.010.i16.i = phi i64 [ 0, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread13.i ], [ %43, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.i ]
-  %45 = add nuw i64 %.010.i16.i, 1
+_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit: ; preds = %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.i, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread19.i
+  %.010.i22.i = phi i64 [ 0, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread19.i ], [ %43, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.i ]
+  %45 = add nuw i64 %.010.i22.i, 1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load i64, ptr %46, align 8, !tbaa !46
   %48 = sub i64 %9, %47
@@ -6848,7 +6848,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i25: ; preds = %._ZN4llvm
 _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit29: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i25, %100, %97
   tail call fastcc void @_ZN12_GLOBAL__N_19Demangler13printLifetimeEm(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef 1)
   %121 = add i64 %.039, 1
-  %.not8 = icmp eq i64 %.039, %.010.i16.i
+  %.not8 = icmp eq i64 %.039, %.010.i22.i
   br i1 %.not8, label %76, label %97, !llvm.loop !51
 
 _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit20: ; preds = %42, %_ZN12_GLOBAL__N_19Demangler9addAssignERmm.exit.i.i, %_ZN12_GLOBAL__N_19Demangler9mulAssignERmm.exit.i.i, %.loopexit.i.i, %44, %1, %5, %10, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i16, %76, %49

@@ -320,8 +320,8 @@ define internal i64 @ReadTTFontFileFunc(ptr noundef readonly captures(none) %0, 
   %42 = load i8, ptr @debugFonts, align 1
   %.not121 = icmp eq i8 %42, 0
   %43 = load ptr, ptr %7, align 8
-  %.134 = select i1 %.not121, i64 136, i64 128
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %.134
+  %.141 = select i1 %.not121, i64 136, i64 128
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %.141
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef nonnull %7) #19
   br label %46
@@ -341,19 +341,19 @@ define internal i64 @ReadTTFontFileFunc(ptr noundef readonly captures(none) %0, 
   %54 = load ptr, ptr %53, align 8
   %55 = tail call zeroext i8 %54(ptr noundef nonnull %7) #19
   %.not118 = icmp eq i8 %55, 0
-  br i1 %.not118, label %60, label %.sink.split126
+  br i1 %.not118, label %60, label %.sink.split133
 
-.sink.split126:                                   ; preds = %47
+.sink.split133:                                   ; preds = %47
   %56 = load i8, ptr @debugFonts, align 1
   %.not119 = icmp eq i8 %56, 0
   %57 = load ptr, ptr %7, align 8
-  %.135 = select i1 %.not119, i64 136, i64 128
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %.135
+  %.142 = select i1 %.not119, i64 136, i64 128
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %.142
   %59 = load ptr, ptr %58, align 8
   tail call void %59(ptr noundef nonnull %7) #19
   br label %60
 
-60:                                               ; preds = %.sink.split126, %47
+60:                                               ; preds = %.sink.split133, %47
   %61 = icmp eq ptr %51, null
   br i1 %61, label %119, label %62
 
@@ -420,19 +420,19 @@ define internal i64 @ReadTTFontFileFunc(ptr noundef readonly captures(none) %0, 
   %107 = load ptr, ptr %106, align 8
   %108 = tail call zeroext i8 %107(ptr noundef nonnull %7) #19
   %.not115 = icmp eq i8 %108, 0
-  br i1 %.not115, label %113, label %.sink.split130
+  br i1 %.not115, label %113, label %.sink.split137
 
-.sink.split130:                                   ; preds = %89
+.sink.split137:                                   ; preds = %89
   %109 = load i8, ptr @debugFonts, align 1
   %.not116 = icmp eq i8 %109, 0
   %110 = load ptr, ptr %7, align 8
-  %.136 = select i1 %.not116, i64 136, i64 128
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %.136
+  %.143 = select i1 %.not116, i64 136, i64 128
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %.143
   %112 = load ptr, ptr %111, align 8
   tail call void %112(ptr noundef nonnull %7) #19
   br label %113
 
-113:                                              ; preds = %.sink.split130, %89
+113:                                              ; preds = %.sink.split137, %89
   %114 = icmp slt i32 %104, 1
   br i1 %114, label %119, label %115
 

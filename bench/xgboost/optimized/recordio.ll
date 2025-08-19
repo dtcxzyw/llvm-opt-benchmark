@@ -199,9 +199,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit54: ; preds = %_ZStl
   br label %28
 
 28:                                               ; preds = %._crit_edge, %._crit_edge.thread
-  %.047.lcssa62 = phi i32 [ 0, %._crit_edge.thread ], [ %.1, %._crit_edge ]
+  %.047.lcssa65 = phi i32 [ 0, %._crit_edge.thread ], [ %.1, %._crit_edge ]
   %29 = phi i32 [ 0, %._crit_edge.thread ], [ %spec.select, %._crit_edge ]
-  %30 = sub i32 %20, %.047.lcssa62
+  %30 = sub i32 %20, %.047.lcssa65
   %31 = or i32 %29, %30
   store i32 %31, ptr %7, align 4, !tbaa !3
   %32 = load ptr, ptr %0, align 8, !tbaa !7
@@ -214,7 +214,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit54: ; preds = %_ZStl
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull %7, i64 noundef 4)
-  %.not50 = icmp eq i32 %.047.lcssa62, %20
+  %.not50 = icmp eq i32 %.047.lcssa65, %20
   br i1 %.not50, label %106, label %97
 
 42:                                               ; preds = %.lr.ph, %95
@@ -299,7 +299,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit54: ; preds = %_ZStl
 
 97:                                               ; preds = %28
   %98 = load ptr, ptr %0, align 8, !tbaa !7
-  %99 = zext i32 %.047.lcssa62 to i64
+  %99 = zext i32 %.047.lcssa65 to i64
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 %99
   %101 = zext i32 %30 to i64
   %102 = load ptr, ptr %98, align 8, !tbaa !13

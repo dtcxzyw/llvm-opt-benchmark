@@ -155,8 +155,8 @@ invoke.cont.i:                                    ; preds = %_ZNSt16allocator_tr
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %do.body.thread, label %do.body
 
 do.body.thread:                                   ; preds = %invoke.cont.i
-  %add.ptr.i.i.i.i.i.i.i.i.i190 = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i190, ptr %_M_finish.i.i.i, align 8, !tbaa !3
+  %add.ptr.i.i.i.i.i.i.i.i.i217 = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i217, ptr %_M_finish.i.i.i, align 8, !tbaa !3
   br label %if.then
 
 do.body:                                          ; preds = %invoke.cont.i

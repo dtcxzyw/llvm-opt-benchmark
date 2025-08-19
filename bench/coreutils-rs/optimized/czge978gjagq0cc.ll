@@ -1268,14 +1268,14 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
   %.sroa.0.i.1.i.1.i.1..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
   %.sroa.0.i.2.i.2.i.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
   %.sroa.0.i.3.i.3.i.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 3
-  %.sroa.0.i.1.i.1.i.1..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  %.sroa.0.i.2.i.2.i.2..sroa_idx18 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  %.sroa.0.i.1.i.1.i.1..sroa_idx17 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  %.sroa.0.i.1.i.1.i.1..sroa_idx18 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  %.sroa.0.i.2.i.2.i.2..sroa_idx20 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  %.sroa.0.i.1.i.1.i.1..sroa_idx19 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit.outer
 
 _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit.outer: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2c1d642b199a88c4E.exit.i", %1
   %.ph = phi i8 [ %76, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2c1d642b199a88c4E.exit.i" ], [ %.promoted7.i, %1 ]
-  %.ph10 = phi i32 [ %75, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2c1d642b199a88c4E.exit.i" ], [ %.promoted.i, %1 ]
+  %.ph12 = phi i32 [ %75, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2c1d642b199a88c4E.exit.i" ], [ %.promoted.i, %1 ]
   %.05.i.i = load i32, ptr %0, align 8, !range !457
   %6 = icmp samesign ult i32 %.05.i.i, 128
   %7 = icmp samesign ult i32 %.05.i.i, 2048
@@ -1313,7 +1313,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit.
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit
 
 _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit: ; preds = %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit.outer, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h90a9276f4887b7f5E.exit.i"
-  %39 = phi i32 [ 1114112, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h90a9276f4887b7f5E.exit.i" ], [ %.ph10, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit.outer ]
+  %39 = phi i32 [ 1114112, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h90a9276f4887b7f5E.exit.i" ], [ %.ph12, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit.outer ]
   %40 = add nsw i32 %39, -1114112
   %narrow.i.i = tail call i32 @llvm.umin.i32(i32 %40, i32 4)
   switch i32 %narrow.i.i, label %default.unreachable [
@@ -1384,13 +1384,13 @@ default.unreachable.i.i:                          ; preds = %42
 
 61:                                               ; preds = %59
   store i8 %35, ptr %.sroa.0.i, align 4, !alias.scope !465, !noalias !464
-  store i8 %38, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx17, align 1, !alias.scope !465, !noalias !464
+  store i8 %38, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx19, align 1, !alias.scope !465, !noalias !464
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 62:                                               ; preds = %60
   store i8 %25, ptr %.sroa.0.i, align 4, !alias.scope !465, !noalias !464
-  store i8 %29, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx16, align 1, !alias.scope !465, !noalias !464
-  store i8 %32, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx18, align 2, !alias.scope !465, !noalias !464
+  store i8 %29, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx18, align 1, !alias.scope !465, !noalias !464
+  store i8 %32, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx20, align 2, !alias.scope !465, !noalias !464
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 63:                                               ; preds = %60
@@ -1466,14 +1466,14 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
   %.sroa.0.i.1.i.1.i.1..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
   %.sroa.0.i.2.i.2.i.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
   %.sroa.0.i.3.i.3.i.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 3
-  %.sroa.0.i.1.i.1.i.1..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  %.sroa.0.i.2.i.2.i.2..sroa_idx18 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  %.sroa.0.i.1.i.1.i.1..sroa_idx17 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  %.sroa.0.i.1.i.1.i.1..sroa_idx18 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  %.sroa.0.i.2.i.2.i.2..sroa_idx20 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  %.sroa.0.i.1.i.1.i.1..sroa_idx19 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit.outer
 
 _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit.outer: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2c1d642b199a88c4E.exit.i", %1
   %.ph = phi i8 [ %76, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2c1d642b199a88c4E.exit.i" ], [ %.promoted7.i, %1 ]
-  %.ph10 = phi i32 [ %75, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2c1d642b199a88c4E.exit.i" ], [ %.promoted.i, %1 ]
+  %.ph12 = phi i32 [ %75, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2c1d642b199a88c4E.exit.i" ], [ %.promoted.i, %1 ]
   %.05.i.i = load i32, ptr %0, align 8, !range !457
   %6 = icmp samesign ult i32 %.05.i.i, 128
   %7 = icmp samesign ult i32 %.05.i.i, 2048
@@ -1511,7 +1511,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit.
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit
 
 _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit: ; preds = %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit.outer, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h90a9276f4887b7f5E.exit.i"
-  %39 = phi i32 [ 1114112, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h90a9276f4887b7f5E.exit.i" ], [ %.ph10, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit.outer ]
+  %39 = phi i32 [ 1114112, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h90a9276f4887b7f5E.exit.i" ], [ %.ph12, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit.outer ]
   %40 = add nsw i32 %39, -1114112
   %narrow.i.i = tail call i32 @llvm.umin.i32(i32 %40, i32 4)
   switch i32 %narrow.i.i, label %default.unreachable [
@@ -1582,13 +1582,13 @@ default.unreachable.i.i:                          ; preds = %42
 
 61:                                               ; preds = %59
   store i8 %35, ptr %.sroa.0.i, align 4, !alias.scope !497, !noalias !496
-  store i8 %38, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx17, align 1, !alias.scope !497, !noalias !496
+  store i8 %38, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx19, align 1, !alias.scope !497, !noalias !496
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 62:                                               ; preds = %60
   store i8 %25, ptr %.sroa.0.i, align 4, !alias.scope !497, !noalias !496
-  store i8 %29, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx16, align 1, !alias.scope !497, !noalias !496
-  store i8 %32, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx18, align 2, !alias.scope !497, !noalias !496
+  store i8 %29, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx18, align 1, !alias.scope !497, !noalias !496
+  store i8 %32, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx20, align 2, !alias.scope !497, !noalias !496
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 63:                                               ; preds = %60
@@ -3347,8 +3347,8 @@ define hidden void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.169541
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.1..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %14, ptr %.sroa.0.1..sroa_idx12, align 1, !alias.scope !966
+  %.sroa.0.1..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %14, ptr %.sroa.0.1..sroa_idx15, align 1, !alias.scope !966
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
 
 15:                                               ; preds = %6
@@ -3360,13 +3360,13 @@ define hidden void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.169541
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %22, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !966
+  %.sroa.0.1..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %22, ptr %.sroa.0.1..sroa_idx14, align 1, !alias.scope !966
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.2..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  store i8 %25, ptr %.sroa.0.2..sroa_idx13, align 2, !alias.scope !966
+  %.sroa.0.2..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  store i8 %25, ptr %.sroa.0.2..sroa_idx16, align 2, !alias.scope !966
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
 
 26:                                               ; preds = %6
@@ -5613,15 +5613,15 @@ _ZN6uucore8features6format4spec5Flags5parse17h50c788586d8df07dE.exit: ; preds = 
   br i1 %.not.i.i, label %.sink.split, label %45
 
 .sink.split:                                      ; preds = %40, %38
-  %.sink161 = phi i64 [ %39, %38 ], [ %41, %40 ]
-  %42 = getelementptr inbounds i8, ptr %4, i64 %.sink161
+  %.sink172 = phi i64 [ %39, %38 ], [ %41, %40 ]
+  %42 = getelementptr inbounds i8, ptr %4, i64 %.sink172
   %43 = load i8, ptr %42, align 1, !noalias !1570, !noundef !9
   %44 = icmp eq i8 %43, %.06.val.i
-  %spec.select12.i = select i1 %44, i64 %.sink161, i64 %36
+  %spec.select14.i = select i1 %44, i64 %.sink172, i64 %36
   br label %45
 
 45:                                               ; preds = %.sink.split, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %40, %38, %.lr.ph.i
-  %46 = phi i64 [ %36, %40 ], [ %36, %38 ], [ %36, %.lr.ph.i ], [ %36, %.lr.ph.i ], [ %36, %.lr.ph.i ], [ %36, %.lr.ph.i ], [ %spec.select12.i, %.sink.split ]
+  %46 = phi i64 [ %36, %40 ], [ %36, %38 ], [ %36, %.lr.ph.i ], [ %36, %.lr.ph.i ], [ %36, %.lr.ph.i ], [ %36, %.lr.ph.i ], [ %spec.select14.i, %.sink.split ]
   %47 = add nuw i64 %46, 1
   %.not.i = icmp ult i64 %47, %6
   br i1 %.not.i, label %.lr.ph.i, label %_ZN6uucore8features6format4spec4Spec12parse_length17h3f6475c6816b9477E.exit
@@ -5804,10 +5804,10 @@ _ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit121: ; preds =
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27fa04aa7da8c66bE.exit"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27fa04aa7da8c66bE.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27fa04aa7da8c66bE.exit.sink.split", %74, %72, %49, %55
-  %.sink163 = phi ptr [ %4, %55 ], [ %4, %49 ], [ %4, %72 ], [ %4, %74 ], [ %91, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27fa04aa7da8c66bE.exit.sink.split" ]
+  %.sink174 = phi ptr [ %4, %55 ], [ %4, %49 ], [ %4, %72 ], [ %4, %74 ], [ %91, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27fa04aa7da8c66bE.exit.sink.split" ]
   %.sink = phi i64 [ %48, %55 ], [ %51, %49 ], [ %51, %72 ], [ %51, %74 ], [ %92, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27fa04aa7da8c66bE.exit.sink.split" ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink163, ptr %93, align 8
+  store ptr %.sink174, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %94, align 8
   store i8 7, ptr %0, align 8

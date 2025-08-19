@@ -1126,22 +1126,22 @@ hladdword.exit:                                   ; preds = %14, %21
 
 .lr.ph.preheader:                                 ; preds = %60
   %61 = load ptr, ptr %10, align 8
-  %.not3755 = icmp eq ptr %61, null
-  br i1 %.not3755, label %.critedge, label %.lr.ph58
+  %.not3767 = icmp eq ptr %61, null
+  br i1 %.not3767, label %.critedge, label %.lr.ph70
 
-.lr.ph58:                                         ; preds = %.lr.ph.preheader
+.lr.ph70:                                         ; preds = %.lr.ph.preheader
   %62 = load i32, ptr %7, align 8
   br label %63
 
-63:                                               ; preds = %.lr.ph58, %hlfinditem.exit
-  %64 = phi ptr [ %61, %.lr.ph58 ], [ %141, %hlfinditem.exit ]
-  %.0284257 = phi ptr [ %3, %.lr.ph58 ], [ %139, %hlfinditem.exit ]
-  %.04356 = phi i32 [ %62, %.lr.ph58 ], [ %spec.select, %hlfinditem.exit ]
-  %65 = getelementptr inbounds nuw i8, ptr %.0284257, i64 2
+63:                                               ; preds = %.lr.ph70, %hlfinditem.exit
+  %64 = phi ptr [ %61, %.lr.ph70 ], [ %141, %hlfinditem.exit ]
+  %.0284269 = phi ptr [ %3, %.lr.ph70 ], [ %139, %hlfinditem.exit ]
+  %.04368 = phi i32 [ %62, %.lr.ph70 ], [ %spec.select, %hlfinditem.exit ]
+  %65 = getelementptr inbounds nuw i8, ptr %.0284269, i64 2
   %66 = load i16, ptr %65, align 2
   %67 = and i16 %66, 1
   %68 = zext nneg i16 %67 to i32
-  %spec.select = add i32 %.04356, %68
+  %spec.select = add i32 %.04368, %68
   %69 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #8
   %70 = trunc i64 %69 to i32
   %71 = load i32, ptr %5, align 4
@@ -1251,8 +1251,8 @@ hladdword.exit:                                   ; preds = %14, %21
   br i1 %138, label %95, label %hlfinditem.exit, !llvm.loop !21
 
 hlfinditem.exit:                                  ; preds = %134, %._crit_edge.i
-  %139 = getelementptr inbounds nuw i8, ptr %.0284257, i64 16
-  %140 = getelementptr inbounds nuw i8, ptr %.0284257, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %.0284269, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %.0284269, i64 24
   %141 = load ptr, ptr %140, align 8
   %.not37 = icmp eq ptr %141, null
   br i1 %.not37, label %.critedge, label %63, !llvm.loop !22

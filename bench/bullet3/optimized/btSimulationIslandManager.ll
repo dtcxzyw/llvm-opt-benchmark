@@ -471,8 +471,8 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; pred
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load i8, ptr %14, align 8, !range !31
   %16 = trunc nuw i8 %15 to i1
-  %or.cond27.i = select i1 %.not.i5.i.i, i1 %16, i1 false
-  br i1 %or.cond27.i, label %17, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+  %or.cond29.i = select i1 %.not.i5.i.i, i1 %16, i1 false
+  br i1 %or.cond29.i, label %17, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
 17:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %13)
@@ -514,25 +514,25 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
 30:                                               ; preds = %.lr.ph152, %.loopexit
   %.087151 = phi i32 [ 0, %.lr.ph152 ], [ %.085.lcssa, %.loopexit ]
   %31 = load ptr, ptr %27, align 8, !tbaa !70
-  %32 = sext i32 %.087151 to i64
-  %33 = getelementptr inbounds %struct.btElement, ptr %31, i64 %32
+  %32 = zext nneg i32 %.087151 to i64
+  %33 = getelementptr inbounds nuw %struct.btElement, ptr %31, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !55
-  %35 = add nsw i32 %.087151, 1
+  %35 = add nuw nsw i32 %.087151, 1
   %smax = call i32 @llvm.smax.i32(i32 %25, i32 %35)
   %36 = add nsw i32 %smax, -1
   br label %37
 
 37:                                               ; preds = %39, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ %32, %30 ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %38 = icmp slt i64 %indvars.iv.next, %29
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %38 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %38, label %39, label %.critedge
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds %struct.btElement, ptr %31, i64 %indvars.iv.next
+  %40 = getelementptr inbounds nuw %struct.btElement, ptr %31, i64 %indvars.iv.next
   %41 = load i32, ptr %40, align 4, !tbaa !55
   %42 = icmp eq i32 %41, %34
-  br i1 %42, label %37, label %.critedge.split.loop.exit173, !llvm.loop !71
+  br i1 %42, label %37, label %.critedge.split.loop.exit184, !llvm.loop !71
 
 43:                                               ; preds = %.loopexit142
   %44 = landingpad { ptr, i32 }
@@ -544,25 +544,25 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
           cleanup
   br label %195
 
-.critedge.split.loop.exit173:                     ; preds = %39
-  %47 = trunc nsw i64 %indvars.iv to i32
-  %48 = trunc nsw i64 %indvars.iv.next to i32
+.critedge.split.loop.exit184:                     ; preds = %39
+  %47 = trunc nuw nsw i64 %indvars.iv to i32
+  %48 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %37, %.critedge.split.loop.exit173
-  %.085.in.lcssa = phi i32 [ %47, %.critedge.split.loop.exit173 ], [ %36, %37 ]
-  %.085.lcssa = phi i32 [ %48, %.critedge.split.loop.exit173 ], [ %smax, %37 ]
+.critedge:                                        ; preds = %37, %.critedge.split.loop.exit184
+  %.085.in.lcssa = phi i32 [ %47, %.critedge.split.loop.exit184 ], [ %36, %37 ]
+  %.085.lcssa = phi i32 [ %48, %.critedge.split.loop.exit184 ], [ %smax, %37 ]
   %.not105143 = icmp sgt i32 %.087151, %.085.in.lcssa
   br i1 %.not105143, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge
   %49 = load ptr, ptr %28, align 8, !tbaa !22
-  %50 = add i32 %.085.in.lcssa, 1
+  %50 = add nuw nsw i32 %.085.in.lcssa, 1
   br label %51
 
 51:                                               ; preds = %.lr.ph, %62
   %indvars.iv158 = phi i64 [ %32, %.lr.ph ], [ %indvars.iv.next159, %62 ]
-  %52 = getelementptr inbounds %struct.btElement, ptr %31, i64 %indvars.iv158, i32 1
+  %52 = getelementptr inbounds nuw %struct.btElement, ptr %31, i64 %indvars.iv158, i32 1
   %53 = load i32, ptr %52, align 4, !tbaa !59
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds ptr, ptr %49, i64 %54
@@ -584,19 +584,19 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   br label %.lr.ph147
 
 62:                                               ; preds = %59, %51
-  %indvars.iv.next159 = add nsw i64 %indvars.iv158, 1
+  %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next159 to i32
   %exitcond.not = icmp eq i32 %50, %lftr.wideiv
   br i1 %exitcond.not, label %.lr.ph150.preheader, label %51, !llvm.loop !73
 
 .lr.ph150.preheader:                              ; preds = %62
-  %63 = add i32 %.085.in.lcssa, 1
+  %63 = add nuw nsw i32 %.085.in.lcssa, 1
   br label %.lr.ph150
 
 .lr.ph150:                                        ; preds = %.lr.ph150.preheader, %.critedge139
   %indvars.iv166 = phi i64 [ %32, %.lr.ph150.preheader ], [ %indvars.iv.next167, %.critedge139 ]
   %64 = load ptr, ptr %27, align 8, !tbaa !70
-  %65 = getelementptr inbounds %struct.btElement, ptr %64, i64 %indvars.iv166, i32 1
+  %65 = getelementptr inbounds nuw %struct.btElement, ptr %64, i64 %indvars.iv166, i32 1
   %66 = load i32, ptr %65, align 4, !tbaa !59
   %67 = load ptr, ptr %28, align 8, !tbaa !22
   %68 = sext i32 %66 to i64
@@ -617,7 +617,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
           to label %.critedge139 unwind label %73
 
 .critedge139:                                     ; preds = %75, %.lr.ph150
-  %indvars.iv.next167 = add nsw i64 %indvars.iv166, 1
+  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %lftr.wideiv169 = trunc i64 %indvars.iv.next167 to i32
   %exitcond170.not = icmp eq i32 %63, %lftr.wideiv169
   br i1 %exitcond170.not, label %.loopexit, label %.lr.ph150, !llvm.loop !74
@@ -625,7 +625,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
 .lr.ph147:                                        ; preds = %.lr.ph147.preheader, %94
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %94 ], [ %32, %.lr.ph147.preheader ]
   %76 = load ptr, ptr %27, align 8, !tbaa !70
-  %77 = getelementptr inbounds %struct.btElement, ptr %76, i64 %indvars.iv161, i32 1
+  %77 = getelementptr inbounds nuw %struct.btElement, ptr %76, i64 %indvars.iv161, i32 1
   %78 = load i32, ptr %77, align 4, !tbaa !59
   %79 = load ptr, ptr %28, align 8, !tbaa !22
   %80 = sext i32 %78 to i64
@@ -657,7 +657,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   br label %94
 
 94:                                               ; preds = %87, %92, %.lr.ph147
-  %indvars.iv.next162 = add nsw i64 %indvars.iv161, 1
+  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %lftr.wideiv164 = trunc i64 %indvars.iv.next162 to i32
   %exitcond165.not = icmp eq i32 %50, %lftr.wideiv164
   br i1 %exitcond165.not, label %.loopexit, label %.lr.ph147, !llvm.loop !76
@@ -854,9 +854,9 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i116: ; p
   br i1 %or.cond.i, label %187, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i118
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i124: ; preds = %181
-  %.old5.i = load i8, ptr %105, align 8, !tbaa !7, !range !31, !noundef !79
-  %.old6.i = trunc nuw i8 %.old5.i to i1
-  br i1 %.old6.i, label %187, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i118
+  %.old8.i = load i8, ptr %105, align 8, !tbaa !7, !range !31, !noundef !79
+  %.old9.i = trunc nuw i8 %.old8.i to i1
+  br i1 %.old9.i, label %187, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i118
 
 187:                                              ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i124, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i116
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %180)
@@ -1050,7 +1050,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9quickSortI33btPersistentManif
   %72 = getelementptr inbounds %struct.btElement, ptr %71, i64 %indvars.iv
   %73 = load i32, ptr %72, align 4, !tbaa !55
   %74 = icmp eq i32 %73, %68
-  br i1 %74, label %75, label %.critedge.split.loop.exit109
+  br i1 %74, label %75, label %.critedge.split.loop.exit119
 
 75:                                               ; preds = %70
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 4
@@ -1114,9 +1114,9 @@ _ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i.i: ; preds =
   br i1 %or.cond.i, label %103, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i
 
 _ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i.i: ; preds = %97
-  %.old5.i = load i8, ptr %60, align 8, !tbaa !18, !range !31, !noundef !79
-  %.old6.i = trunc nuw i8 %.old5.i to i1
-  br i1 %.old6.i, label %103, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i
+  %.old8.i = load i8, ptr %60, align 8, !tbaa !18, !range !31, !noundef !79
+  %.old9.i = trunc nuw i8 %.old8.i to i1
+  br i1 %.old9.i, label %103, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i
 
 103:                                              ; preds = %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %96)
@@ -1163,13 +1163,13 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %104, %104, %104, %1
           cleanup
   br label %179
 
-.critedge.split.loop.exit109:                     ; preds = %70
+.critedge.split.loop.exit119:                     ; preds = %70
   %117 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK17btCollisionObject8isActiveEv.exit, %.critedge.split.loop.exit109
-  %.051.lcssa = phi i1 [ %.05198, %.critedge.split.loop.exit109 ], [ %113, %_ZNK17btCollisionObject8isActiveEv.exit ]
-  %.0.lcssa = phi i32 [ %117, %.critedge.split.loop.exit109 ], [ %smax, %_ZNK17btCollisionObject8isActiveEv.exit ]
+.critedge:                                        ; preds = %_ZNK17btCollisionObject8isActiveEv.exit, %.critedge.split.loop.exit119
+  %.051.lcssa = phi i1 [ %.05198, %.critedge.split.loop.exit119 ], [ %113, %_ZNK17btCollisionObject8isActiveEv.exit ]
+  %.0.lcssa = phi i32 [ %117, %.critedge.split.loop.exit119 ], [ %smax, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %118 = icmp slt i32 %.059100, %38
   br i1 %118, label %119, label %155
 
@@ -1228,14 +1228,14 @@ _Z11getIslandIdPK20btPersistentManifold.exit:     ; preds = %119, %129
 _Z11getIslandIdPK20btPersistentManifold.exit80:   ; preds = %138, %146
   %151 = phi i32 [ %150, %146 ], [ %144, %138 ]
   %152 = icmp eq i32 %68, %151
-  br i1 %152, label %.preheader, label %.critedge2.split.loop.exit112, !llvm.loop !89
+  br i1 %152, label %.preheader, label %.critedge2.split.loop.exit122, !llvm.loop !89
 
-.critedge2.split.loop.exit112:                    ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit80
+.critedge2.split.loop.exit122:                    ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit80
   %153 = trunc nsw i64 %indvars.iv.next104 to i32
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.preheader, %.critedge2.split.loop.exit112
-  %.358.lcssa = phi i32 [ %153, %.critedge2.split.loop.exit112 ], [ %smax105, %.preheader ]
+.critedge2:                                       ; preds = %.preheader, %.critedge2.split.loop.exit122
+  %.358.lcssa = phi i32 [ %153, %.critedge2.split.loop.exit122 ], [ %smax105, %.preheader ]
   %154 = sub nsw i32 %.358.lcssa, %.059100
   br label %155
 
@@ -1280,8 +1280,8 @@ _ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i.i83: ; preds
   %.not.i5.i.i84 = icmp ne ptr %.pre108, null
   %169 = load i8, ptr %60, align 8, !range !31
   %170 = trunc nuw i8 %169 to i1
-  %or.cond27.i = select i1 %.not.i5.i.i84, i1 %170, i1 false
-  br i1 %or.cond27.i, label %171, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i85
+  %or.cond29.i = select i1 %.not.i5.i.i84, i1 %170, i1 false
+  br i1 %or.cond29.i, label %171, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i85
 
 171:                                              ; preds = %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i.i83
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %.pre108)

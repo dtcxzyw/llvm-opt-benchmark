@@ -90,7 +90,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_dump_hwdata_knl_smbios(ptr noundef %0,
 .preheader52:                                     ; preds = %2
   %13 = tail call ptr @readdir(ptr noundef nonnull %12) #10
   %.not3255 = icmp eq ptr %13, null
-  br i1 %.not3255, label %.thread143, label %sub_0.lr.ph
+  br i1 %.not3255, label %.thread156, label %sub_0.lr.ph
 
 sub_0.lr.ph:                                      ; preds = %.preheader52
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 511
@@ -254,13 +254,13 @@ process_smbios_group.exit:                        ; preds = %71, %._crit_edge.lo
 
 87:                                               ; preds = %85
   %.not33 = icmp eq i32 %.020.lcssa.i56, 0
-  br i1 %.not33, label %.thread143, label %.preheader
+  br i1 %.not33, label %.thread156, label %.preheader
 
 .preheader:                                       ; preds = %87
   %88 = icmp sgt i32 %.020.lcssa.i56, 0
-  br i1 %88, label %.lr.ph90, label %.thread145
+  br i1 %88, label %.lr.ph90, label %.thread158
 
-.thread145:                                       ; preds = %.preheader
+.thread158:                                       ; preds = %.preheader
   %89 = call i32 @closedir(ptr noundef nonnull %12)
   br label %218
 
@@ -278,7 +278,7 @@ process_smbios_group.exit:                        ; preds = %71, %._crit_edge.lo
   %wide.trip.count = zext nneg i32 %.020.lcssa.i56 to i64
   br label %103
 
-.thread143:                                       ; preds = %.preheader52, %87
+.thread156:                                       ; preds = %.preheader52, %87
   %100 = load ptr, ptr @stderr, align 8, !tbaa !7
   %101 = call i64 @fwrite(ptr nonnull @.str.4, i64 42, i64 1, ptr %100) #12
   %102 = call i32 @closedir(ptr noundef nonnull %12)
@@ -528,8 +528,8 @@ process_knl_entry.exit.thread:                    ; preds = %199, %147, %198, %.
 217:                                              ; preds = %214
   br label %222
 
-218:                                              ; preds = %.thread145, %214
-  %219 = phi i32 [ 0, %.thread145 ], [ %.lcssa7293, %214 ]
+218:                                              ; preds = %.thread158, %214
+  %219 = phi i32 [ 0, %.thread158 ], [ %.lcssa7293, %214 ]
   %220 = load ptr, ptr @stderr, align 8, !tbaa !7
   %221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %220, ptr noundef nonnull @.str.36, i32 noundef %219) #11
   br label %print_result.exit
@@ -728,8 +728,8 @@ get_memory_mode_str.exit64.i:                     ; preds = %290, %289, %288, %g
   %294 = call i32 @close(i32 noundef %259) #10
   br label %print_result.exit
 
-print_result.exit:                                ; preds = %210, %get_memory_mode_str.exit64.i, %269, %261, %240, %234, %218, %.thread50, %.thread143, %83, %18
-  %.0 = phi i32 [ -1, %83 ], [ -1, %210 ], [ -1, %.thread143 ], [ -1, %18 ], [ -1, %.thread50 ], [ -1, %218 ], [ -1, %240 ], [ -1, %261 ], [ 0, %get_memory_mode_str.exit64.i ], [ -1, %269 ], [ -1, %234 ]
+print_result.exit:                                ; preds = %210, %get_memory_mode_str.exit64.i, %269, %261, %240, %234, %218, %.thread50, %.thread156, %83, %18
+  %.0 = phi i32 [ -1, %83 ], [ -1, %210 ], [ -1, %.thread156 ], [ -1, %18 ], [ -1, %.thread50 ], [ -1, %218 ], [ -1, %240 ], [ -1, %261 ], [ 0, %get_memory_mode_str.exit64.i ], [ -1, %269 ], [ -1, %234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0

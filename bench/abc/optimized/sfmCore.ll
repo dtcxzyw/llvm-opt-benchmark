@@ -632,19 +632,19 @@ Abc_Clock.exit170:                                ; preds = %Abc_Clock.exit, %13
   %179 = getelementptr inbounds nuw i32, ptr %.val146, i64 %indvars.iv223
   %180 = load i32, ptr %179, align 4, !tbaa !54
   %.not133 = icmp eq i32 %180, %.0121
-  br i1 %.not133, label %181, label %.critedge4.loopexit.split.loop.exit232
+  br i1 %.not133, label %181, label %.critedge4.loopexit.split.loop.exit240
 
 181:                                              ; preds = %172, %176
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next224, %wide.trip.count
   br i1 %exitcond.not, label %.critedge4, label %172, !llvm.loop !86
 
-.critedge4.loopexit.split.loop.exit232:           ; preds = %176
+.critedge4.loopexit.split.loop.exit240:           ; preds = %176
   %182 = trunc nuw nsw i64 %indvars.iv223 to i32
   br label %.critedge4
 
-.critedge4:                                       ; preds = %181, %.critedge4.loopexit.split.loop.exit232, %163
-  %.2126.lcssa = phi i32 [ 0, %163 ], [ %182, %.critedge4.loopexit.split.loop.exit232 ], [ %.val160, %181 ]
+.critedge4:                                       ; preds = %181, %.critedge4.loopexit.split.loop.exit240, %163
+  %.2126.lcssa = phi i32 [ 0, %163 ], [ %182, %.critedge4.loopexit.split.loop.exit240 ], [ %.val160, %181 ]
   %183 = load ptr, ptr %39, align 8, !tbaa !64
   %184 = getelementptr i8, ptr %183, i64 4
   %.val140 = load i32, ptr %184, align 4, !tbaa !63

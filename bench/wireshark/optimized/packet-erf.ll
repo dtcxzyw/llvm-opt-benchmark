@@ -2537,8 +2537,8 @@ find_host_id.exit.i:                              ; preds = %181
   %315 = getelementptr [4 x i8], ptr %192, i64 0, i64 %indvars.iv.i.i.i
   store i8 %.0.i.i.i, ptr %315, align 1
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
-  %.not32.i.i.i = icmp eq i64 %indvars.iv.i.i.i, 0
-  br i1 %.not32.i.i.i, label %channelised_fill_sdh_g707_format.exit.loopexit.i.i, label %309, !llvm.loop !14
+  %.not33.i.i.i = icmp eq i64 %indvars.iv.i.i.i, 0
+  br i1 %.not33.i.i.i, label %channelised_fill_sdh_g707_format.exit.loopexit.i.i, label %309, !llvm.loop !14
 
 channelised_fill_sdh_g707_format.exit.loopexit.i.i: ; preds = %309
   %.pre.i.i = load i8, ptr %191, align 1
@@ -2587,8 +2587,8 @@ channelised_fill_sdh_g707_format.exit.i.i:        ; preds = %channelised_fill_sd
 332:                                              ; preds = %329, %.preheader36.i.i.i
   %.1.i.i.i = phi i8 [ 1, %329 ], [ 0, %.preheader36.i.i.i ]
   %indvars.iv.next49.i.i.i = add nsw i64 %indvars.iv48.i.i.i, -1
-  %.not50.i.i.i = icmp eq i64 %indvars.iv48.i.i.i, 0
-  br i1 %.not50.i.i.i, label %.loopexit37.i.i.i, label %.preheader36.i.i.i, !llvm.loop !15
+  %.not51.i.i.i = icmp eq i64 %indvars.iv48.i.i.i, 0
+  br i1 %.not51.i.i.i, label %.loopexit37.i.i.i, label %.preheader36.i.i.i, !llvm.loop !15
 
 .lr.ph.i36.i.i:                                   ; preds = %321
   %333 = zext nneg i8 %317 to i64

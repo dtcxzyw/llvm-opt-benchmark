@@ -5206,18 +5206,18 @@ add_string_field.exit158:                         ; preds = %113, %119, %121
 
 .sink.split.sink.split:                           ; preds = %127, %124, %160
   %hf_c15ch_nitnxlate_gateway.sink = phi ptr [ @hf_c15ch_nitnxlate_port_vt15, %160 ], [ @hf_c15ch_nitnxlate_gateway, %124 ], [ @hf_c15ch_nitnxlate_idt_rdt, %127 ]
-  %.sink170 = phi i32 [ 39, %160 ], [ 31, %124 ], [ 31, %127 ]
+  %.sink179 = phi i32 [ 39, %160 ], [ 31, %124 ], [ 31, %127 ]
   %hf_c15ch_nitnxlate_line.sink.ph = phi ptr [ @hf_c15ch_nitnxlate_channel, %160 ], [ @hf_c15ch_nitnxlate_line, %124 ], [ @hf_c15ch_nitnxlate_line, %127 ]
-  %.sink169.ph = phi i32 [ 43, %160 ], [ 35, %124 ], [ 35, %127 ]
+  %.sink178.ph = phi i32 [ 43, %160 ], [ 35, %124 ], [ 35, %127 ]
   %174 = load i32, ptr %hf_c15ch_nitnxlate_gateway.sink, align 4
-  %175 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %174, ptr noundef %0, i32 noundef %.sink170, i32 noundef 4, i32 noundef 0)
+  %175 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %174, ptr noundef %0, i32 noundef %.sink179, i32 noundef 4, i32 noundef 0)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %165, %148, %133, %130
   %hf_c15ch_nitnxlate_line.sink = phi ptr [ @hf_c15ch_nitnxlate_line, %130 ], [ @hf_c15ch_nitnxlate_ptrk, %133 ], [ @hf_c15ch_nitnxlate_key, %148 ], [ @hf_c15ch_nitnxlate_key, %165 ], [ %hf_c15ch_nitnxlate_line.sink.ph, %.sink.split.sink.split ]
-  %.sink169 = phi i32 [ 31, %130 ], [ 31, %133 ], [ 47, %148 ], [ 47, %165 ], [ %.sink169.ph, %.sink.split.sink.split ]
+  %.sink178 = phi i32 [ 31, %130 ], [ 31, %133 ], [ 47, %148 ], [ 47, %165 ], [ %.sink178.ph, %.sink.split.sink.split ]
   %176 = load i32, ptr %hf_c15ch_nitnxlate_line.sink, align 4
-  %177 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %176, ptr noundef %0, i32 noundef %.sink169, i32 noundef 4, i32 noundef 0)
+  %177 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %176, ptr noundef %0, i32 noundef %.sink178, i32 noundef 4, i32 noundef 0)
   br label %178
 
 178:                                              ; preds = %.sink.split, %165, %148
@@ -6530,28 +6530,28 @@ switch.lookup:                                    ; preds = %4
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_c15ch_echo_cancel.2, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = zext nneg i8 %5 to i64
-  %switch.gep63 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_c15ch_echo_cancel.3, i64 0, i64 %9
-  %switch.load64 = load i32, ptr %switch.gep63, align 4
+  %switch.gep64 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_c15ch_echo_cancel.3, i64 0, i64 %9
+  %switch.load65 = load i32, ptr %switch.gep64, align 4
   br label %10
 
 10:                                               ; preds = %4, %switch.lookup
   %.060 = phi i32 [ %switch.load, %switch.lookup ], [ 2, %4 ]
-  %.058 = phi i32 [ %switch.load64, %switch.lookup ], [ 2, %4 ]
+  %.058 = phi i32 [ %switch.load65, %switch.lookup ], [ 2, %4 ]
   %11 = icmp ult i8 %6, 3
-  br i1 %11, label %switch.lookup65, label %14
+  br i1 %11, label %switch.lookup66, label %14
 
-switch.lookup65:                                  ; preds = %10
+switch.lookup66:                                  ; preds = %10
   %12 = zext nneg i8 %6 to i64
-  %switch.gep66 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_c15ch_echo_cancel.2, i64 0, i64 %12
-  %switch.load67 = load i32, ptr %switch.gep66, align 4
+  %switch.gep67 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_c15ch_echo_cancel.2, i64 0, i64 %12
+  %switch.load68 = load i32, ptr %switch.gep67, align 4
   %13 = zext nneg i8 %6 to i64
-  %switch.gep68 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_c15ch_echo_cancel.3, i64 0, i64 %13
-  %switch.load69 = load i32, ptr %switch.gep68, align 4
+  %switch.gep69 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_c15ch_echo_cancel.3, i64 0, i64 %13
+  %switch.load70 = load i32, ptr %switch.gep69, align 4
   br label %14
 
-14:                                               ; preds = %10, %switch.lookup65
-  %.059 = phi i32 [ %switch.load67, %switch.lookup65 ], [ 2, %10 ]
-  %.0 = phi i32 [ %switch.load69, %switch.lookup65 ], [ 2, %10 ]
+14:                                               ; preds = %10, %switch.lookup66
+  %.059 = phi i32 [ %switch.load68, %switch.lookup66 ], [ 2, %10 ]
+  %.0 = phi i32 [ %switch.load70, %switch.lookup66 ], [ 2, %10 ]
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %68, label %15
 

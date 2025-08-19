@@ -105,9 +105,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL4testPKcPKhmS2_mS2_(ptr n
   %22 = call ptr @CMAC_CTX_new()
   store ptr %22, ptr %6, align 8, !tbaa !11
   %.not5 = icmp eq ptr %22, null
-  br i1 %.not5, label %.critedge.thread68, label %25
+  br i1 %.not5, label %.critedge.thread74, label %25
 
-.critedge.thread68:                               ; preds = %21
+.critedge.thread74:                               ; preds = %21
   %23 = load ptr, ptr @stderr, align 8, !tbaa !6
   %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.7, ptr noundef %0) #9
   br label %_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev.exit
@@ -143,8 +143,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL4testPKcPKhmS2_mS2_(ptr n
   br i1 %.not62.us, label %.split32.us, label %.preheader.us
 
 34:                                               ; preds = %49
-  %35 = add i64 %.sroa.speculated.us, %.04326.us
-  %36 = icmp ult i64 %35, %2
+  %35 = add nuw nsw i64 %.sroa.speculated.us, %.04326.us
+  %36 = icmp samesign ult i64 %35, %2
   br i1 %36, label %.preheader.us, label %._crit_edge.us, !llvm.loop !13
 
 37:                                               ; preds = %._crit_edge.us
@@ -255,7 +255,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL4testPKcPKhmS2_mS2_(ptr n
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %43, %.preheader6, %.thread, %.critedge.critedge, %.split32.us, %.critedge
-  %.166 = phi i32 [ 0, %.critedge ], [ 1, %.preheader6 ], [ 0, %.split32.us ], [ 0, %.critedge.critedge ], [ 0, %.thread ], [ 1, %43 ]
+  %.172 = phi i32 [ 0, %.critedge ], [ 1, %.preheader6 ], [ 0, %.split32.us ], [ 0, %.critedge.critedge ], [ 0, %.thread ], [ 1, %43 ]
   invoke void @CMAC_CTX_free(ptr noundef nonnull %22)
           to label %_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev.exit unwind label %68
 
@@ -266,8 +266,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL4testPKcPKhmS2_mS2_(ptr n
   call void @__clang_call_terminate(ptr %70) #10
   unreachable
 
-_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev.exit: ; preds = %.critedge.thread68, %.critedge.thread
-  %.167 = phi i32 [ %.166, %.critedge.thread ], [ 0, %.critedge.thread68 ]
+_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev.exit: ; preds = %.critedge.thread74, %.critedge.thread
+  %.173 = phi i32 [ %.172, %.critedge.thread ], [ 0, %.critedge.thread74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %72
 
@@ -279,7 +279,7 @@ _ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev
   resume { ptr, i32 } %.pn.pn.pn
 
 72:                                               ; preds = %_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev.exit, %14, %9
-  %.0 = phi i32 [ 0, %14 ], [ %.167, %_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev.exit ], [ 0, %9 ]
+  %.0 = phi i32 [ 0, %14 ], [ %.173, %_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev.exit ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

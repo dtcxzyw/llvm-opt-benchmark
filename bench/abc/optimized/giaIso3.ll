@@ -395,14 +395,14 @@ Vec_IntAlloc.exit.i:                              ; preds = %36, %32
   br label %Vec_IntPush.exit.sink.split.i
 
 Vec_IntPush.exit.sink.split.i:                    ; preds = %62, %60, %54, %52
-  %.sink15.i = phi ptr [ %53, %52 ], [ %55, %54 ], [ %61, %60 ], [ %63, %62 ]
+  %.sink16.i = phi ptr [ %53, %52 ], [ %55, %54 ], [ %61, %60 ], [ %63, %62 ]
   %.sink.i = phi i32 [ 16, %52 ], [ 16, %54 ], [ %57, %60 ], [ %57, %62 ]
-  store ptr %.sink15.i, ptr %41, align 8, !tbaa !34
+  store ptr %.sink16.i, ptr %41, align 8, !tbaa !34
   store i32 %.sink.i, ptr %33, align 8, !tbaa !41
   br label %Vec_IntPush.exit.i
 
 Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.sink.split.i, %44
-  %.pre.i14.i = phi ptr [ %43, %44 ], [ %.sink15.i, %Vec_IntPush.exit.sink.split.i ]
+  %.pre.i14.i = phi ptr [ %43, %44 ], [ %.sink16.i, %Vec_IntPush.exit.sink.split.i ]
   %64 = add nsw i32 %.val.i18.pre.pre53, 1
   store i32 %64, ptr %35, align 4, !tbaa !36
   %65 = sext i32 %.val.i18.pre.pre53 to i64
@@ -430,7 +430,7 @@ Gia_Iso3Save.exit:                                ; preds = %.lr.ph.i13, %Vec_In
   br label %Gia_Iso3Save.exit.thread
 
 Gia_Iso3Save.exit.thread:                         ; preds = %Gia_Iso3Save.exit, %Vec_IntAlloc.exit.i
-  %.val.i1857 = phi i32 [ 0, %Vec_IntAlloc.exit.i ], [ %.val.i18.fr, %Gia_Iso3Save.exit ]
+  %.val.i1863 = phi i32 [ 0, %Vec_IntAlloc.exit.i ], [ %.val.i18.fr, %Gia_Iso3Save.exit ]
   %75 = phi ptr [ %40, %Vec_IntAlloc.exit.i ], [ %70, %Gia_Iso3Save.exit ]
   %76 = phi i32 [ 0, %Vec_IntAlloc.exit.i ], [ %spec.select, %Gia_Iso3Save.exit ]
   %77 = shl nuw i32 1, %76
@@ -441,11 +441,11 @@ Gia_Iso3Save.exit.thread:                         ; preds = %Gia_Iso3Save.exit, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %81, i8 -1, i64 %80, i1 false)
   %82 = call noalias ptr @malloc(i64 noundef %80) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %82, i8 -1, i64 %80, i1 false)
-  %83 = icmp sgt i32 %.val.i1857, 0
+  %83 = icmp sgt i32 %.val.i1863, 0
   br i1 %83, label %.lr.ph9.i, label %Vec_IntUniqueCount.exit
 
 .lr.ph9.i:                                        ; preds = %Gia_Iso3Save.exit.thread
-  %wide.trip.count.i19 = zext nneg i32 %.val.i1857 to i64
+  %wide.trip.count.i19 = zext nneg i32 %.val.i1863 to i64
   br label %84
 
 84:                                               ; preds = %Vec_IntUniqueLookup.exit.i, %.lr.ph9.i
@@ -532,7 +532,7 @@ Vec_IntUniqueCount.exit:                          ; preds = %Vec_IntUniqueLookup
   %.0.lcssa.i = phi i32 [ 0, %Gia_Iso3Save.exit.thread ], [ %.1.i, %Vec_IntUniqueLookup.exit.i ]
   call void @free(ptr noundef %81) #19
   call void @free(ptr noundef %82) #19
-  %122 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.045, i32 noundef %.0.lcssa.i, i32 noundef %.val.i1857)
+  %122 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.045, i32 noundef %.0.lcssa.i, i32 noundef %.val.i1863)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %123 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #19
   %124 = icmp slt i32 %123, 0
@@ -924,14 +924,14 @@ Vec_IntAlloc.exit:                                ; preds = %2, %7
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %38, %40, %30, %32
-  %.sink19 = phi ptr [ %31, %30 ], [ %33, %32 ], [ %39, %38 ], [ %41, %40 ]
+  %.sink20 = phi ptr [ %31, %30 ], [ %33, %32 ], [ %39, %38 ], [ %41, %40 ]
   %.sink = phi i32 [ 16, %30 ], [ 16, %32 ], [ %35, %38 ], [ %35, %40 ]
-  store ptr %.sink19, ptr %12, align 8, !tbaa !34
+  store ptr %.sink20, ptr %12, align 8, !tbaa !34
   store i32 %.sink, ptr %4, align 8, !tbaa !41
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %18
-  %.pre.i18 = phi ptr [ %17, %18 ], [ %.sink19, %Vec_IntPush.exit.sink.split ]
+  %.pre.i18 = phi ptr [ %17, %18 ], [ %.sink20, %Vec_IntPush.exit.sink.split ]
   %42 = add nsw i32 %24, 1
   store i32 %42, ptr %6, align 4, !tbaa !36
   %43 = sext i32 %24 to i64

@@ -2584,10 +2584,10 @@ _ZNK7oopDesc5klassEv.exit11:                      ; preds = %61, %71
   br label %_ZN15CallbackWrapperD2Ev.exit
 
 .split:                                           ; preds = %_ZNK5Klass11java_mirrorEv.exit, %34
-  %.sink17 = phi ptr [ null, %34 ], [ %1, %_ZNK5Klass11java_mirrorEv.exit ]
+  %.sink19 = phi ptr [ null, %34 ], [ %1, %_ZNK5Klass11java_mirrorEv.exit ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = load ptr, ptr %74, align 8
-  call void @_ZN15CallbackWrapperC2EP11JvmtiTagMapP7oopDesc(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %75, ptr noundef %.sink17)
+  call void @_ZN15CallbackWrapperC2EP11JvmtiTagMapP7oopDesc(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %75, ptr noundef %.sink19)
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %77 = load i64, ptr %76, align 8
   %.not9 = icmp eq i64 %77, 0
@@ -2909,10 +2909,10 @@ _ZNK7oopDesc5klassEv.exit36:                      ; preds = %52, %62
   br label %_ZN15CallbackWrapperD2Ev.exit
 
 .split:                                           ; preds = %_ZNK5Klass11java_mirrorEv.exit, %_ZL27is_filtered_by_klass_filterP7oopDescP5Klass.exit
-  %.sink63 = phi ptr [ null, %_ZL27is_filtered_by_klass_filterP7oopDescP5Klass.exit ], [ %1, %_ZNK5Klass11java_mirrorEv.exit ]
+  %.sink70 = phi ptr [ null, %_ZL27is_filtered_by_klass_filterP7oopDescP5Klass.exit ], [ %1, %_ZNK5Klass11java_mirrorEv.exit ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8
-  call void @_ZN15CallbackWrapperC2EP11JvmtiTagMapP7oopDesc(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %66, ptr noundef %.sink63)
+  call void @_ZN15CallbackWrapperC2EP11JvmtiTagMapP7oopDesc(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %66, ptr noundef %.sink70)
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %68 = load i64, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -3430,14 +3430,14 @@ _ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge: ; preds = %_Z
   br i1 %.not.i.i32, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %._crit_edge.i30, %._crit_edge.i
-  %.lcssa.i31.sink93 = phi ptr [ %.lcssa.i, %._crit_edge.i ], [ %.lcssa.i31, %._crit_edge.i30 ]
+  %.lcssa.i31.sink98 = phi ptr [ %.lcssa.i, %._crit_edge.i ], [ %.lcssa.i31, %._crit_edge.i30 ]
   %.0.ph.ph = phi i32 [ %68, %._crit_edge.i ], [ 0, %._crit_edge.i30 ]
-  store i32 0, ptr %.lcssa.i31.sink93, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP20ClassFieldDescriptor13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %.lcssa.i31.sink93)
+  store i32 0, ptr %.lcssa.i31.sink98, align 4
+  tail call void @_ZN26GrowableArrayWithAllocatorIP20ClassFieldDescriptor13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %.lcssa.i31.sink98)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %._crit_edge.i30, %._crit_edge.i
-  %.lcssa.i31.sink = phi ptr [ %.lcssa.i, %._crit_edge.i ], [ %.lcssa.i31, %._crit_edge.i30 ], [ %.lcssa.i31.sink93, %.sink.split.sink.split ]
+  %.lcssa.i31.sink = phi ptr [ %.lcssa.i, %._crit_edge.i ], [ %.lcssa.i31, %._crit_edge.i30 ], [ %.lcssa.i31.sink98, %.sink.split.sink.split ]
   %.0.ph = phi i32 [ %68, %._crit_edge.i ], [ 0, %._crit_edge.i30 ], [ %.0.ph.ph, %.sink.split.sink.split ]
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.lcssa.i31.sink) #14
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %19) #14
@@ -7609,14 +7609,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #14, !srcloc !42
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #14, !srcloc !42
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -7750,14 +7750,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i18.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i19.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i18 = or i64 %.0.i.i18.in, 48
+  %.0.i.i19 = or i64 %.0.i.i19.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i17.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #14, !srcloc !42
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i19, i64 %.0.i17.i, ptr nonnull %0) #14, !srcloc !42
   %71 = icmp eq i64 %70, %.0.i17.i
   br i1 %71, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %72
 
@@ -10651,7 +10651,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP8_jobject13Gro
   br i1 %.not, label %_ZN13GrowableArrayIP8_jobjectE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -10663,8 +10663,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP8_jobject13Gro
   br label %_ZN13GrowableArrayIP8_jobjectE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP8_jobjectE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP8_jobjectE10deallocateEPS1_.exit
@@ -10732,7 +10732,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIm13GrowableArra
   br i1 %.not, label %_ZN13GrowableArrayImE10deallocateEPm.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -10744,8 +10744,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIm13GrowableArra
   br label %_ZN13GrowableArrayImE10deallocateEPm.exit
 
 _ZN13GrowableArrayImE10deallocateEPm.exit:        ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayImE10deallocateEPm.exit
@@ -11163,10 +11163,10 @@ _ZNK7oopDesc8is_arrayEv.exit:                     ; preds = %135, %145
   br i1 %183, label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit33.sink.split.sink.split, label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit33.sink.split
 
 _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit33.sink.split.sink.split: ; preds = %178, %126
-  %.sink62 = phi i32 [ %128, %126 ], [ %180, %178 ]
-  %.sink51 = phi ptr [ %127, %126 ], [ %179, %178 ]
-  %184 = add nsw i32 %.sink62, 1
-  %185 = icmp sgt i32 %.sink62, -1
+  %.sink73 = phi i32 [ %128, %126 ], [ %180, %178 ]
+  %.sink62 = phi ptr [ %127, %126 ], [ %179, %178 ]
+  %184 = add nsw i32 %.sink73, 1
+  %185 = icmp sgt i32 %.sink73, -1
   %186 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %184)
   %187 = icmp samesign ult i32 %186, 2
   %or.cond.i.i.i.i.i.i38 = select i1 %185, i1 %187, i1 false
@@ -11174,18 +11174,18 @@ _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit33.sink.split.sink.split: ; 
   %189 = sub nuw nsw i32 32, %188
   %190 = shl nuw i32 1, %189
   %.0.i.i.i.i.i.i39 = select i1 %or.cond.i.i.i.i.i.i38, i32 %184, i32 %190
-  call void @_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.sink51, i32 noundef %.0.i.i.i.i.i.i39)
-  %.pre.i.i.i40 = load i32, ptr %.sink51, align 8
+  call void @_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.sink62, i32 noundef %.0.i.i.i.i.i.i39)
+  %.pre.i.i.i40 = load i32, ptr %.sink62, align 8
   br label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit33.sink.split
 
 _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit33.sink.split: ; preds = %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit33.sink.split.sink.split, %178, %126
-  %.sink50 = phi i32 [ %128, %126 ], [ %180, %178 ], [ %.pre.i.i.i40, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit33.sink.split.sink.split ]
-  %.sink49 = phi ptr [ %127, %126 ], [ %179, %178 ], [ %.sink51, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit33.sink.split.sink.split ]
-  %191 = add nsw i32 %.sink50, 1
-  store i32 %191, ptr %.sink49, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %.sink49, i64 8
+  %.sink61 = phi i32 [ %128, %126 ], [ %180, %178 ], [ %.pre.i.i.i40, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit33.sink.split.sink.split ]
+  %.sink60 = phi ptr [ %127, %126 ], [ %179, %178 ], [ %.sink62, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit33.sink.split.sink.split ]
+  %191 = add nsw i32 %.sink61, 1
+  store i32 %191, ptr %.sink60, align 8
+  %192 = getelementptr inbounds nuw i8, ptr %.sink60, i64 8
   %193 = load ptr, ptr %192, align 8
-  %194 = sext i32 %.sink50 to i64
+  %194 = sext i32 %.sink61 to i64
   %195 = getelementptr inbounds ptr, ptr %193, i64 %194
   store ptr %1, ptr %195, align 8
   br label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit33
@@ -11636,10 +11636,10 @@ _ZNK7oopDesc8is_arrayEv.exit:                     ; preds = %147, %157
   br i1 %195, label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split.sink.split, label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split
 
 _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split.sink.split: ; preds = %190, %133
-  %.sink68 = phi i32 [ %135, %133 ], [ %192, %190 ]
-  %.sink57 = phi ptr [ %134, %133 ], [ %191, %190 ]
-  %196 = add nsw i32 %.sink68, 1
-  %197 = icmp sgt i32 %.sink68, -1
+  %.sink79 = phi i32 [ %135, %133 ], [ %192, %190 ]
+  %.sink68 = phi ptr [ %134, %133 ], [ %191, %190 ]
+  %196 = add nsw i32 %.sink79, 1
+  %197 = icmp sgt i32 %.sink79, -1
   %198 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %196)
   %199 = icmp samesign ult i32 %198, 2
   %or.cond.i.i.i.i.i.i44 = select i1 %197, i1 %199, i1 false
@@ -11647,18 +11647,18 @@ _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split.sink.split: ; 
   %201 = sub nuw nsw i32 32, %200
   %202 = shl nuw i32 1, %201
   %.0.i.i.i.i.i.i45 = select i1 %or.cond.i.i.i.i.i.i44, i32 %196, i32 %202
-  call void @_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.sink57, i32 noundef %.0.i.i.i.i.i.i45)
-  %.pre.i.i.i46 = load i32, ptr %.sink57, align 8
+  call void @_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.sink68, i32 noundef %.0.i.i.i.i.i.i45)
+  %.pre.i.i.i46 = load i32, ptr %.sink68, align 8
   br label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split
 
 _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split: ; preds = %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split.sink.split, %190, %133
-  %.sink56 = phi i32 [ %135, %133 ], [ %192, %190 ], [ %.pre.i.i.i46, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split.sink.split ]
-  %.sink55 = phi ptr [ %134, %133 ], [ %191, %190 ], [ %.sink57, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split.sink.split ]
-  %203 = add nsw i32 %.sink56, 1
-  store i32 %203, ptr %.sink55, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %.sink55, i64 8
+  %.sink67 = phi i32 [ %135, %133 ], [ %192, %190 ], [ %.pre.i.i.i46, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split.sink.split ]
+  %.sink66 = phi ptr [ %134, %133 ], [ %191, %190 ], [ %.sink68, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split.sink.split ]
+  %203 = add nsw i32 %.sink67, 1
+  store i32 %203, ptr %.sink66, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %.sink66, i64 8
   %205 = load ptr, ptr %204, align 8
-  %206 = sext i32 %.sink56 to i64
+  %206 = sext i32 %.sink67 to i64
   %207 = getelementptr inbounds ptr, ptr %205, i64 %206
   store ptr %7, ptr %207, align 8
   br label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39
@@ -13984,10 +13984,10 @@ _ZNK7oopDesc8is_arrayEv.exit:                     ; preds = %179, %189
   br i1 %232, label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split.sink.split, label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split
 
 _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split.sink.split: ; preds = %227, %170
-  %.sink68 = phi i32 [ %172, %170 ], [ %229, %227 ]
-  %.sink57 = phi ptr [ %171, %170 ], [ %228, %227 ]
-  %233 = add nsw i32 %.sink68, 1
-  %234 = icmp sgt i32 %.sink68, -1
+  %.sink82 = phi i32 [ %172, %170 ], [ %229, %227 ]
+  %.sink71 = phi ptr [ %171, %170 ], [ %228, %227 ]
+  %233 = add nsw i32 %.sink82, 1
+  %234 = icmp sgt i32 %.sink82, -1
   %235 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %233)
   %236 = icmp samesign ult i32 %235, 2
   %or.cond.i.i.i.i.i.i44 = select i1 %234, i1 %236, i1 false
@@ -13995,18 +13995,18 @@ _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split.sink.split: ; 
   %238 = sub nuw nsw i32 32, %237
   %239 = shl nuw i32 1, %238
   %.0.i.i.i.i.i.i45 = select i1 %or.cond.i.i.i.i.i.i44, i32 %233, i32 %239
-  call void @_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.sink57, i32 noundef %.0.i.i.i.i.i.i45)
-  %.pre.i.i.i46 = load i32, ptr %.sink57, align 8
+  call void @_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.sink71, i32 noundef %.0.i.i.i.i.i.i45)
+  %.pre.i.i.i46 = load i32, ptr %.sink71, align 8
   br label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split
 
 _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split: ; preds = %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split.sink.split, %227, %170
-  %.sink56 = phi i32 [ %172, %170 ], [ %229, %227 ], [ %.pre.i.i.i46, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split.sink.split ]
-  %.sink55 = phi ptr [ %171, %170 ], [ %228, %227 ], [ %.sink57, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split.sink.split ]
-  %240 = add nsw i32 %.sink56, 1
-  store i32 %240, ptr %.sink55, align 8
-  %241 = getelementptr inbounds nuw i8, ptr %.sink55, i64 8
+  %.sink70 = phi i32 [ %172, %170 ], [ %229, %227 ], [ %.pre.i.i.i46, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split.sink.split ]
+  %.sink69 = phi ptr [ %171, %170 ], [ %228, %227 ], [ %.sink71, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split.sink.split ]
+  %240 = add nsw i32 %.sink70, 1
+  store i32 %240, ptr %.sink69, align 8
+  %241 = getelementptr inbounds nuw i8, ptr %.sink69, i64 8
   %242 = load ptr, ptr %241, align 8
-  %243 = sext i32 %.sink56 to i64
+  %243 = sext i32 %.sink70 to i64
   %244 = getelementptr inbounds ptr, ptr %242, i64 %243
   store ptr %2, ptr %244, align 8
   br label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39
@@ -14112,9 +14112,9 @@ _ZL27is_filtered_by_klass_filterP7oopDescP5Klass.exit: ; preds = %_ZNK7oopDesc5k
 30:                                               ; preds = %_ZL27is_filtered_by_klass_filterP7oopDescP5Klass.exit
   %31 = and i32 %29, 4
   %.not7.i = icmp eq i32 %31, 0
-  br i1 %.not7.i, label %42, label %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread48
+  br i1 %.not7.i, label %42, label %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread51
 
-_ZL26is_filtered_by_heap_filterlli.exit.thread.thread48: ; preds = %30
+_ZL26is_filtered_by_heap_filterlli.exit.thread.thread51: ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -14261,20 +14261,20 @@ _ZL26is_filtered_by_heap_filterlli.exit.thread:   ; preds = %45, %43, %_ZL14copy
 81:                                               ; preds = %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread, %_ZL26is_filtered_by_heap_filterlli.exit.thread
   %82 = phi ptr [ %41, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %79, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   %83 = phi ptr [ %39, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %77, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
-  %.147 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %.1, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+  %.150 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %.1, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   call void @_ZN16JvmtiTagMapTable6removeEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef %83) #14
   br label %_ZN15CallbackWrapperD2Ev.exit
 
-84:                                               ; preds = %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread48, %_ZL26is_filtered_by_heap_filterlli.exit.thread
-  %85 = phi ptr [ %35, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread48 ], [ %79, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
-  %86 = phi ptr [ %33, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread48 ], [ %77, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
-  %.150 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread48 ], [ %.1, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
-  %87 = phi i64 [ %26, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread48 ], [ %75, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+84:                                               ; preds = %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread51, %_ZL26is_filtered_by_heap_filterlli.exit.thread
+  %85 = phi ptr [ %35, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread51 ], [ %79, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+  %86 = phi ptr [ %33, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread51 ], [ %77, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+  %.153 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread51 ], [ %.1, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+  %87 = phi i64 [ %26, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread51 ], [ %75, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   call void @_ZN16JvmtiTagMapTable3addEP7oopDescl(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef %86, i64 noundef %87) #14
   br label %_ZN15CallbackWrapperD2Ev.exit
 
 _ZN15CallbackWrapperD2Ev.exit:                    ; preds = %_ZNK7oopDesc5klassEv.exit.i, %84, %81
-  %.0 = phi i1 [ %.147, %81 ], [ %.150, %84 ], [ true, %_ZNK7oopDesc5klassEv.exit.i ]
+  %.0 = phi i1 [ %.150, %81 ], [ %.153, %84 ], [ true, %_ZNK7oopDesc5klassEv.exit.i ]
   ret i1 %.0
 }
 
@@ -14334,9 +14334,9 @@ _ZL27is_filtered_by_klass_filterP7oopDescP5Klass.exit: ; preds = %_ZNK7oopDesc5k
 26:                                               ; preds = %_ZL27is_filtered_by_klass_filterP7oopDescP5Klass.exit
   %27 = and i32 %25, 4
   %.not7.i = icmp eq i32 %27, 0
-  br i1 %.not7.i, label %38, label %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread13
+  br i1 %.not7.i, label %38, label %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread16
 
-_ZL26is_filtered_by_heap_filterlli.exit.thread.thread13: ; preds = %26
+_ZL26is_filtered_by_heap_filterlli.exit.thread.thread16: ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14393,20 +14393,20 @@ _ZL26is_filtered_by_heap_filterlli.exit.thread:   ; preds = %41, %39, %_ZL26is_f
 55:                                               ; preds = %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread, %_ZL26is_filtered_by_heap_filterlli.exit.thread
   %56 = phi ptr [ %37, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %53, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   %57 = phi ptr [ %35, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %51, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
-  %.112 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %.1, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+  %.115 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %.1, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   call void @_ZN16JvmtiTagMapTable6removeEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef %57) #14
   br label %_ZN15CallbackWrapperD2Ev.exit
 
-58:                                               ; preds = %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread13, %_ZL26is_filtered_by_heap_filterlli.exit.thread
-  %59 = phi ptr [ %31, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread13 ], [ %53, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
-  %60 = phi ptr [ %29, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread13 ], [ %51, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
-  %.115 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread13 ], [ %.1, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
-  %61 = phi i64 [ %22, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread13 ], [ %49, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+58:                                               ; preds = %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread16, %_ZL26is_filtered_by_heap_filterlli.exit.thread
+  %59 = phi ptr [ %31, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread16 ], [ %53, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+  %60 = phi ptr [ %29, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread16 ], [ %51, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+  %.118 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread16 ], [ %.1, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+  %61 = phi i64 [ %22, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread16 ], [ %49, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   call void @_ZN16JvmtiTagMapTable3addEP7oopDescl(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef %60, i64 noundef %61) #14
   br label %_ZN15CallbackWrapperD2Ev.exit
 
 _ZN15CallbackWrapperD2Ev.exit:                    ; preds = %_ZNK7oopDesc5klassEv.exit.i, %58, %55
-  %.0 = phi i1 [ %.112, %55 ], [ %.115, %58 ], [ true, %_ZNK7oopDesc5klassEv.exit.i ]
+  %.0 = phi i1 [ %.115, %55 ], [ %.118, %58 ], [ true, %_ZNK7oopDesc5klassEv.exit.i ]
   ret i1 %.0
 }
 
@@ -15011,14 +15011,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #14, !srcloc !42
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #14, !srcloc !42
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -15154,14 +15154,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #14, !srcloc !42
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #14, !srcloc !42
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -15817,9 +15817,9 @@ _ZL27is_filtered_by_klass_filterP7oopDescP5Klass.exit: ; preds = %_ZNK7oopDesc5k
 26:                                               ; preds = %_ZL27is_filtered_by_klass_filterP7oopDescP5Klass.exit
   %27 = and i32 %25, 4
   %.not7.i = icmp eq i32 %27, 0
-  br i1 %.not7.i, label %38, label %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread15
+  br i1 %.not7.i, label %38, label %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread18
 
-_ZL26is_filtered_by_heap_filterlli.exit.thread.thread15: ; preds = %26
+_ZL26is_filtered_by_heap_filterlli.exit.thread.thread18: ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -15957,20 +15957,20 @@ _ZL26is_filtered_by_heap_filterlli.exit.thread:   ; preds = %41, %39, %_ZL37invo
 103:                                              ; preds = %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread, %_ZL26is_filtered_by_heap_filterlli.exit.thread
   %104 = phi ptr [ %37, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %101, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   %105 = phi ptr [ %35, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %99, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
-  %.114 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %.1, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+  %.117 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %.1, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   call void @_ZN16JvmtiTagMapTable6removeEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(24) %104, ptr noundef %105) #14
   br label %_ZN15CallbackWrapperD2Ev.exit
 
-106:                                              ; preds = %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread15, %_ZL26is_filtered_by_heap_filterlli.exit.thread
-  %107 = phi ptr [ %31, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread15 ], [ %101, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
-  %108 = phi ptr [ %29, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread15 ], [ %99, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
-  %.117 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread15 ], [ %.1, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
-  %109 = phi i64 [ %22, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread15 ], [ %97, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+106:                                              ; preds = %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread18, %_ZL26is_filtered_by_heap_filterlli.exit.thread
+  %107 = phi ptr [ %31, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread18 ], [ %101, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+  %108 = phi ptr [ %29, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread18 ], [ %99, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+  %.120 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread18 ], [ %.1, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+  %109 = phi i64 [ %22, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread18 ], [ %97, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   call void @_ZN16JvmtiTagMapTable3addEP7oopDescl(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef %108, i64 noundef %109) #14
   br label %_ZN15CallbackWrapperD2Ev.exit
 
 _ZN15CallbackWrapperD2Ev.exit:                    ; preds = %_ZNK7oopDesc5klassEv.exit.i, %106, %103
-  %.0 = phi i1 [ %.114, %103 ], [ %.117, %106 ], [ true, %_ZNK7oopDesc5klassEv.exit.i ]
+  %.0 = phi i1 [ %.117, %103 ], [ %.120, %106 ], [ true, %_ZNK7oopDesc5klassEv.exit.i ]
   ret i1 %.0
 }
 
@@ -16050,7 +16050,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP20ClassFieldDe
   br i1 %.not, label %_ZN13GrowableArrayIP20ClassFieldDescriptorE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -16062,8 +16062,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP20ClassFieldDe
   br label %_ZN13GrowableArrayIP20ClassFieldDescriptorE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP20ClassFieldDescriptorE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP20ClassFieldDescriptorE10deallocateEPS1_.exit
@@ -16325,7 +16325,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP13InstanceKlas
   br i1 %.not, label %_ZN13GrowableArrayIP13InstanceKlassE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -16337,8 +16337,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP13InstanceKlas
   br label %_ZN13GrowableArrayIP13InstanceKlassE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP13InstanceKlassE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP13InstanceKlassE10deallocateEPS1_.exit
@@ -16514,7 +16514,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP7oopDesc13Grow
   br i1 %.not, label %_ZN13GrowableArrayIP7oopDescE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -16526,8 +16526,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP7oopDesc13Grow
   br label %_ZN13GrowableArrayIP7oopDescE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP7oopDescE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP7oopDescE10deallocateEPS1_.exit

@@ -861,9 +861,9 @@ define dso_local range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr noundef wr
 51:                                               ; preds = %49
   %52 = load i32, ptr %9, align 8
   %.not73 = icmp eq i32 %52, 0
-  br i1 %.not73, label %.thread116, label %54
+  br i1 %.not73, label %.thread119, label %54
 
-.thread116:                                       ; preds = %51
+.thread119:                                       ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %53, align 8
   br label %.loopexit
@@ -973,8 +973,8 @@ topology_p_topology_free.exit:                    ; preds = %81, %93
   store ptr null, ptr %0, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %75, %23, %.thread116, %.thread, %58, %20, %topology_p_topology_free.exit
-  %.0 = phi i32 [ -1, %topology_p_topology_free.exit ], [ 0, %20 ], [ 0, %58 ], [ 0, %.thread ], [ 0, %.thread116 ], [ 0, %23 ], [ 0, %75 ]
+.loopexit:                                        ; preds = %75, %23, %.thread119, %.thread, %58, %20, %topology_p_topology_free.exit
+  %.0 = phi i32 [ -1, %topology_p_topology_free.exit ], [ 0, %20 ], [ 0, %58 ], [ 0, %.thread ], [ 0, %.thread119 ], [ 0, %23 ], [ 0, %75 ]
   ret i32 %.0
 }
 

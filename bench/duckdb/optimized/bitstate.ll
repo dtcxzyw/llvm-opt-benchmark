@@ -241,8 +241,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %51 = phi i32 [ %20, %_ZN10duckdb_re28BitState9GrowStackEv.exit ], [ %6, %3 ]
   %52 = icmp sgt i32 %1, -1
   %53 = icmp sgt i32 %51, 0
-  %or.cond24 = and i1 %52, %53
-  br i1 %or.cond24, label %54, label %.thread
+  %or.cond31 = and i1 %52, %53
+  br i1 %or.cond31, label %54, label %.thread
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 104

@@ -503,20 +503,20 @@ define internal fastcc i32 @x86_get_mtrr_mem_range(i32 noundef %0) unnamed_addr 
 .loopexit10:                                      ; preds = %78, %.loopexit11
   %82 = load i8, ptr @mtrr_debug, align 1, !range !20, !noundef !21
   %83 = icmp eq i8 %82, 0
-  br i1 %83, label %.preheader21, label %84
+  br i1 %83, label %.preheader32, label %84
 
 84:                                               ; preds = %.loopexit10
   %85 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7) #9
   %.pre17.pre = load i8, ptr @mtrr_debug, align 1, !range !20
-  br label %.preheader21
+  br label %.preheader32
 
-.preheader21:                                     ; preds = %84, %.loopexit10
+.preheader32:                                     ; preds = %84, %.loopexit10
   %.ph = phi i8 [ 0, %.loopexit10 ], [ %.pre17.pre, %84 ]
   br label %86
 
-86:                                               ; preds = %.preheader21, %98
-  %87 = phi i8 [ %99, %98 ], [ %.ph, %.preheader21 ]
-  %88 = phi i64 [ %100, %98 ], [ 0, %.preheader21 ]
+86:                                               ; preds = %.preheader32, %98
+  %87 = phi i8 [ %99, %98 ], [ %.ph, %.preheader32 ]
+  %88 = phi i64 [ %100, %98 ], [ 0, %.preheader32 ]
   %89 = getelementptr %struct.range, ptr @range, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i64, ptr %90, align 8

@@ -1082,10 +1082,10 @@ define dso_local range(i32 -12, 2) i32 @__posix_acl_create(ptr noundef captures(
   br i1 %56, label %posix_acl_create_masq.exit.thread, label %posix_acl_create_masq.exit
 
 posix_acl_create_masq.exit:                       ; preds = %53, %55
-  %.lcssa13.sink.i = phi ptr [ %48, %53 ], [ %47, %55 ]
+  %.lcssa17.sink.i = phi ptr [ %48, %53 ], [ %47, %55 ]
   %57 = lshr i16 %49, 3
   %58 = or i16 %57, -8
-  %59 = getelementptr inbounds nuw i8, ptr %.lcssa13.sink.i, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %.lcssa17.sink.i, i64 2
   %60 = load i16, ptr %59, align 2
   %61 = and i16 %60, %58
   store i16 %61, ptr %59, align 2
@@ -1494,10 +1494,10 @@ define dso_local noundef i32 @posix_acl_create(ptr noundef %0, ptr noundef captu
   br i1 %78, label %posix_acl_create_masq.exit.thread, label %posix_acl_create_masq.exit
 
 posix_acl_create_masq.exit:                       ; preds = %75, %77
-  %.lcssa13.sink.i = phi ptr [ %70, %75 ], [ %69, %77 ]
+  %.lcssa17.sink.i = phi ptr [ %70, %75 ], [ %69, %77 ]
   %79 = lshr i16 %71, 3
   %80 = or i16 %79, -8
-  %81 = getelementptr inbounds nuw i8, ptr %.lcssa13.sink.i, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %.lcssa17.sink.i, i64 2
   %82 = load i16, ptr %81, align 2
   %83 = and i16 %82, %80
   store i16 %83, ptr %81, align 2
@@ -2481,12 +2481,12 @@ select.unfold:                                    ; preds = %9, %4
   br i1 %123, label %.split, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %78, %64, %.split, %.thread16, %105, %103, %84, %81, %.split.us, %46, %60, %.loopexit.split.us
-  %.ph27 = phi i32 [ -11, %.loopexit.split.us ], [ 0, %105 ], [ 0, %103 ], [ 0, %84 ], [ %82, %81 ], [ -5, %.thread16 ], [ %61, %60 ], [ %47, %46 ], [ %44, %.split.us ], [ %79, %78 ], [ %65, %64 ], [ %62, %.split ]
+  %.ph41 = phi i32 [ -11, %.loopexit.split.us ], [ 0, %105 ], [ 0, %103 ], [ 0, %84 ], [ %82, %81 ], [ -5, %.thread16 ], [ %61, %60 ], [ %47, %46 ], [ %44, %.split.us ], [ %79, %78 ], [ %65, %64 ], [ %62, %.split ]
   tail call void @up_write(ptr noundef nonnull %40) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %121, %.loopexit.sink.split, %9
-  %124 = phi i32 [ -22, %9 ], [ %.ph27, %.loopexit.sink.split ], [ %122, %121 ]
+  %124 = phi i32 [ -22, %9 ], [ %.ph41, %.loopexit.sink.split ], [ %122, %121 ]
   ret i32 %124
 }
 
@@ -2768,12 +2768,12 @@ select.unfold.split:                              ; preds = %select.unfold, %113
   br i1 %115, label %select.unfold.split, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %48, %34, %select.unfold.split, %70, %59, %51, %.thread14, %97, %95, %.thread19, %72, %select.unfold.split.us, %16, %30, %.loopexit.split.us
-  %.ph28 = phi i32 [ -11, %.loopexit.split.us ], [ 0, %97 ], [ 0, %95 ], [ 0, %.thread19 ], [ %76, %72 ], [ -1, %70 ], [ -95, %59 ], [ -95, %51 ], [ -5, %.thread14 ], [ %31, %30 ], [ %17, %16 ], [ %14, %select.unfold.split.us ], [ %49, %48 ], [ %35, %34 ], [ %32, %select.unfold.split ]
+  %.ph40 = phi i32 [ -11, %.loopexit.split.us ], [ 0, %97 ], [ 0, %95 ], [ 0, %.thread19 ], [ %76, %72 ], [ -1, %70 ], [ -95, %59 ], [ -95, %51 ], [ -5, %.thread14 ], [ %31, %30 ], [ %17, %16 ], [ %14, %select.unfold.split.us ], [ %49, %48 ], [ %35, %34 ], [ %32, %select.unfold.split ]
   tail call void @up_write(ptr noundef nonnull %10) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %113, %.loopexit.sink.split, %7
-  %116 = phi i32 [ -22, %7 ], [ %.ph28, %.loopexit.sink.split ], [ %114, %113 ]
+  %116 = phi i32 [ -22, %7 ], [ %.ph40, %.loopexit.sink.split ], [ %114, %113 ]
   ret i32 %116
 }
 

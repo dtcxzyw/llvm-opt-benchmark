@@ -244,8 +244,8 @@ define internal i32 @wc3_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %16 = tail call i32 @avio_rl32(ptr noundef %8) #5
   %17 = tail call i32 @avio_rb32(ptr noundef %8) #5
   %18 = tail call i32 @avio_feof(ptr noundef %8) #5
-  %.not78158 = icmp eq i32 %18, 0
-  br i1 %.not78158, label %.lr.ph, label %av_strnlen.exit.thread
+  %.not78163 = icmp eq i32 %18, 0
+  br i1 %.not78163, label %.lr.ph, label %av_strnlen.exit.thread
 
 .lr.ph:                                           ; preds = %2, %87
   %.in.in = phi i32 [ %89, %87 ], [ %17, %2 ]

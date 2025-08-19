@@ -69,18 +69,18 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr noundef writ
   %22 = trunc nsw i64 %8 to i32
   %.pre = load i8, ptr %11, align 1
   %.not83 = icmp eq i8 %.pre, 0
-  br i1 %.not83, label %.thread126, label %.lr.ph
+  br i1 %.not83, label %.thread137, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %21
-  %.04697 = phi ptr [ %11, %21 ], [ %0, %2 ]
-  %.07195 = phi i32 [ %22, %21 ], [ 0, %2 ]
+  %.046108 = phi ptr [ %11, %21 ], [ %0, %2 ]
+  %.071106 = phi i32 [ %22, %21 ], [ 0, %2 ]
   %23 = phi i8 [ %.pre, %21 ], [ 58, %2 ]
   %24 = load ptr, ptr @g_ascii_table, align 8
   br label %25
 
 25:                                               ; preds = %.lr.ph, %31
   %26 = phi i8 [ %23, %.lr.ph ], [ %33, %31 ]
-  %.184 = phi ptr [ %.04697, %.lr.ph ], [ %32, %31 ]
+  %.184 = phi ptr [ %.046108, %.lr.ph ], [ %32, %31 ]
   %27 = zext i8 %26 to i64
   %28 = getelementptr i16, ptr %24, i64 %27
   %29 = load i16, ptr %28, align 2
@@ -92,7 +92,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr noundef writ
   %32 = getelementptr i8, ptr %.184, i64 1
   %33 = load i8, ptr %32, align 1
   %.not = icmp eq i8 %33, 0
-  br i1 %.not, label %.thread126, label %25, !llvm.loop !6
+  br i1 %.not, label %.thread137, label %25, !llvm.loop !6
 
 .critedge:                                        ; preds = %25
   switch i8 %26, label %.critedge.thread [
@@ -137,13 +137,13 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr noundef writ
   %53 = getelementptr i8, ptr %.184, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = icmp eq i8 %54, 0
-  br i1 %55, label %.critedge2.thread.thread122, label %58
+  br i1 %55, label %.critedge2.thread.thread133, label %58
 
-.critedge2.thread.thread122:                      ; preds = %52
+.critedge2.thread.thread133:                      ; preds = %52
   %56 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #11
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %57, i8 0, i64 12, i1 false)
-  store i32 %.07195, ptr %56, align 4
+  store i32 %.071106, ptr %56, align 4
   br label %112
 
 58:                                               ; preds = %52
@@ -215,19 +215,19 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr noundef writ
   store ptr %85, ptr %1, align 8
   br label %drange_str_to_int32.exit.thread
 
-.thread126:                                       ; preds = %31, %21
-  %.07196107117.ph = phi i32 [ %22, %21 ], [ %.07195, %31 ]
+.thread137:                                       ; preds = %31, %21
+  %.071107118128.ph = phi i32 [ %22, %21 ], [ %.071106, %31 ]
   %86 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #11
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %87, i8 0, i64 12, i1 false)
-  store i32 %.07196107117.ph, ptr %86, align 4
+  store i32 %.071107118128.ph, ptr %86, align 4
   br label %94
 
 .critedge2.thread:                                ; preds = %.critedge2
   %88 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #11
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %89, i8 0, i64 12, i1 false)
-  store i32 %.07195, ptr %88, align 4
+  store i32 %.071106, ptr %88, align 4
   switch i32 %.045.ph, label %default.unreachable [
     i32 1, label %90
     i32 2, label %98
@@ -245,39 +245,39 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr noundef writ
   tail call void @g_free(ptr noundef %88)
   br label %drange_str_to_int32.exit.thread
 
-94:                                               ; preds = %.thread126, %90
-  %.0108116121128 = phi i32 [ 1, %.thread126 ], [ %.0.ph, %90 ]
-  %95 = phi ptr [ %86, %.thread126 ], [ %88, %90 ]
+94:                                               ; preds = %.thread137, %90
+  %.0119127132139 = phi i32 [ 1, %.thread137 ], [ %.0.ph, %90 ]
+  %95 = phi ptr [ %86, %.thread137 ], [ %88, %90 ]
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
-  store i32 %.0108116121128, ptr %96, align 4
+  store i32 %.0119127132139, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 12
   store i32 1, ptr %97, align 4
   br label %drange_str_to_int32.exit.thread
 
 98:                                               ; preds = %.critedge2.thread
-  %99 = icmp slt i32 %.07195, 0
+  %99 = icmp slt i32 %.071106, 0
   %100 = icmp sgt i32 %.0.ph, 0
   %or.cond = select i1 %99, i1 %100, i1 false
   br i1 %or.cond, label %104, label %101
 
 101:                                              ; preds = %98
-  %102 = icmp sgt i32 %.07195, 0
+  %102 = icmp sgt i32 %.071106, 0
   %103 = icmp slt i32 %.0.ph, 0
   %or.cond5 = select i1 %102, i1 %103, i1 false
   br i1 %or.cond5, label %104, label %106
 
 104:                                              ; preds = %101, %98
-  %105 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef %0, i32 noundef %.07195, i32 noundef %.0.ph)
+  %105 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef %0, i32 noundef %.071106, i32 noundef %.0.ph)
   store ptr %105, ptr %1, align 8
   tail call void @g_free(ptr noundef %88)
   br label %drange_str_to_int32.exit.thread
 
 106:                                              ; preds = %101
-  %.not57 = icmp sgt i32 %.0.ph, %.07195
+  %.not57 = icmp sgt i32 %.0.ph, %.071106
   br i1 %.not57, label %109, label %107
 
 107:                                              ; preds = %106
-  %108 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef %0, i32 noundef %.07195, i32 noundef %.0.ph)
+  %108 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef %0, i32 noundef %.071106, i32 noundef %.0.ph)
   store ptr %108, ptr %1, align 8
   tail call void @g_free(ptr noundef %88)
   br label %drange_str_to_int32.exit.thread
@@ -289,8 +289,8 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr noundef writ
   store i32 2, ptr %111, align 4
   br label %drange_str_to_int32.exit.thread
 
-112:                                              ; preds = %.critedge2.thread.thread122, %.critedge2.thread
-  %113 = phi ptr [ %56, %.critedge2.thread.thread122 ], [ %88, %.critedge2.thread ]
+112:                                              ; preds = %.critedge2.thread.thread133, %.critedge2.thread
+  %113 = phi ptr [ %56, %.critedge2.thread.thread133 ], [ %88, %.critedge2.thread ]
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 12
   store i32 3, ptr %114, align 4
   br label %drange_str_to_int32.exit.thread
@@ -646,8 +646,8 @@ drange_node_dup.exit:                             ; preds = %.lr.ph
 33:                                               ; preds = %29, %26, %25
   %34 = load i32, ptr %10, align 4
   %35 = load i32, ptr %6, align 8
-  %spec.store.select18 = tail call i32 @llvm.smin.i32(i32 %34, i32 %35)
-  store i32 %spec.store.select18, ptr %6, align 8
+  %spec.store.select22 = tail call i32 @llvm.smin.i32(i32 %34, i32 %35)
+  store i32 %spec.store.select22, ptr %6, align 8
   %36 = load i32, ptr %7, align 4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %34, i32 %36)
   store i32 %spec.store.select, ptr %7, align 4

@@ -661,21 +661,21 @@ lean_dec.exit31:                                  ; preds = %lean_dec.exit32, %2
   br label %lean_dec.exit30
 
 lean_dec.exit30:                                  ; preds = %lean_dec.exit31, %42, %41, %39
-  %.0.i52 = phi ptr [ %36, %42 ], [ %36, %41 ], [ %36, %39 ], [ %23, %lean_dec.exit31 ]
-  %43 = tail call ptr @lean_string_utf8_extract(ptr noundef nonnull %3, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %.0.i52) #5
-  %44 = ptrtoint ptr %.0.i52 to i64
+  %.0.i59 = phi ptr [ %36, %42 ], [ %36, %41 ], [ %36, %39 ], [ %23, %lean_dec.exit31 ]
+  %43 = tail call ptr @lean_string_utf8_extract(ptr noundef nonnull %3, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %.0.i59) #5
+  %44 = ptrtoint ptr %.0.i59 to i64
   %45 = and i64 %44, 1
   %.not50 = icmp eq i64 %45, 0
   br i1 %.not50, label %46, label %lean_dec.exit29
 
 46:                                               ; preds = %lean_dec.exit30
-  %47 = load i32, ptr %.0.i52, align 4, !tbaa !4
+  %47 = load i32, ptr %.0.i59, align 4, !tbaa !4
   %48 = icmp sgt i32 %47, 1
   br i1 %48, label %49, label %51, !prof !9
 
 49:                                               ; preds = %46
   %50 = add nsw i32 %47, -1
-  store i32 %50, ptr %.0.i52, align 4, !tbaa !4
+  store i32 %50, ptr %.0.i59, align 4, !tbaa !4
   br label %lean_dec.exit29
 
 51:                                               ; preds = %46
@@ -683,7 +683,7 @@ lean_dec.exit30:                                  ; preds = %lean_dec.exit31, %4
   br i1 %.not.i38, label %lean_dec.exit29, label %52
 
 52:                                               ; preds = %51
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0.i52) #5
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0.i59) #5
   br label %lean_dec.exit29
 
 lean_dec.exit29:                                  ; preds = %52, %51, %49, %lean_dec.exit30
@@ -1137,21 +1137,21 @@ lean_dec.exit48:                                  ; preds = %lean_dec.exit49, %4
   br label %lean_dec.exit47
 
 lean_dec.exit47:                                  ; preds = %lean_dec.exit48, %53, %52, %50
-  %.0.i92 = phi ptr [ %47, %53 ], [ %47, %52 ], [ %47, %50 ], [ %34, %lean_dec.exit48 ]
-  %54 = tail call ptr @lean_string_utf8_extract(ptr noundef nonnull %14, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %.0.i92) #5
-  %55 = ptrtoint ptr %.0.i92 to i64
+  %.0.i102 = phi ptr [ %47, %53 ], [ %47, %52 ], [ %47, %50 ], [ %34, %lean_dec.exit48 ]
+  %54 = tail call ptr @lean_string_utf8_extract(ptr noundef nonnull %14, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %.0.i102) #5
+  %55 = ptrtoint ptr %.0.i102 to i64
   %56 = and i64 %55, 1
   %.not89 = icmp eq i64 %56, 0
   br i1 %.not89, label %57, label %lean_dec.exit46
 
 57:                                               ; preds = %lean_dec.exit47
-  %58 = load i32, ptr %.0.i92, align 4, !tbaa !4
+  %58 = load i32, ptr %.0.i102, align 4, !tbaa !4
   %59 = icmp sgt i32 %58, 1
   br i1 %59, label %60, label %62, !prof !9
 
 60:                                               ; preds = %57
   %61 = add nsw i32 %58, -1
-  store i32 %61, ptr %.0.i92, align 4, !tbaa !4
+  store i32 %61, ptr %.0.i102, align 4, !tbaa !4
   br label %lean_dec.exit46
 
 62:                                               ; preds = %57
@@ -1159,7 +1159,7 @@ lean_dec.exit47:                                  ; preds = %lean_dec.exit48, %5
   br i1 %.not.i70, label %lean_dec.exit46, label %63
 
 63:                                               ; preds = %62
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0.i92) #5
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0.i102) #5
   br label %lean_dec.exit46
 
 lean_dec.exit46:                                  ; preds = %63, %62, %60, %lean_dec.exit47
@@ -1776,18 +1776,18 @@ _init_l_Lake_instFormatQuery___closed__1.exit:    ; preds = %_init_l_Lake_instTo
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_instFormatQuery___closed__1.exit, %3
-  %.sink12 = phi ptr [ %4, %3 ], [ %72, %_init_l_Lake_instFormatQuery___closed__1.exit ]
-  %75 = getelementptr inbounds nuw i8, ptr %.sink12, i64 4
-  store i32 1, ptr %.sink12, align 4, !tbaa !4
+  %.sink19 = phi ptr [ %4, %3 ], [ %72, %_init_l_Lake_instFormatQuery___closed__1.exit ]
+  %75 = getelementptr inbounds nuw i8, ptr %.sink19, i64 4
+  store i32 1, ptr %.sink19, align 4, !tbaa !4
   store i32 131096, ptr %75, align 4
-  %76 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %76, align 8, !tbaa !10
-  %77 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.sink19, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %77, align 8, !tbaa !10
   br label %78
 
 78:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink12, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink19, %.sink.split ]
   ret ptr %.0
 }
 

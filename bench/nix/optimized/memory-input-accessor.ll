@@ -505,9 +505,9 @@ _ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEv
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEvEERKS_IT_E.exit, label %_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEvEERKS_IT_E.exit.thread9
+  br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEvEERKS_IT_E.exit, label %_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEvEERKS_IT_E.exit.thread10
 
-_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEvEERKS_IT_E.exit.thread9: ; preds = %9
+_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEvEERKS_IT_E.exit.thread10: ; preds = %9
   %13 = load i32, ptr %10, align 4
   %14 = add nsw i32 %13, 1
   store i32 %14, ptr %10, align 4
@@ -524,10 +524,10 @@ _ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEv
   %.not.i.i.i.i2 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i.i.i2, label %_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2ERKS2_.exit.i, label %16
 
-16:                                               ; preds = %_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEvEERKS_IT_E.exit.thread9, %_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEvEERKS_IT_E.exit
-  %.pr12 = phi ptr [ %7, %_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEvEERKS_IT_E.exit.thread9 ], [ %.pr.pre, %_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEvEERKS_IT_E.exit ]
-  %17 = phi ptr [ %4, %_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEvEERKS_IT_E.exit.thread9 ], [ %.pre, %_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEvEERKS_IT_E.exit ]
-  %18 = getelementptr inbounds nuw i8, ptr %.pr12, i64 8
+16:                                               ; preds = %_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEvEERKS_IT_E.exit.thread10, %_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEvEERKS_IT_E.exit
+  %.pr13 = phi ptr [ %7, %_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEvEERKS_IT_E.exit.thread10 ], [ %.pr.pre, %_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEvEERKS_IT_E.exit ]
+  %17 = phi ptr [ %4, %_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEvEERKS_IT_E.exit.thread10 ], [ %.pre, %_ZNSt10shared_ptrIN3nix19MemoryInputAccessorEEC2INS0_23MemoryInputAccessorImplEvEERKS_IT_E.exit ]
+  %18 = getelementptr inbounds nuw i8, ptr %.pr13, i64 8
   %19 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %.not.i.i.i.i.i, label %23, label %20
@@ -827,9 +827,9 @@ define linkonce_odr void @_ZNK3nix3refINS_19MemoryInputAccessorEE4castINS_13Inpu
   %.not.i.i.i.i.i = icmp eq i8 %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br i1 %.not.i.i.i.i.i, label %_ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10shared_ptrIT_ERKS3_IT0_E.exit, label %_ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread9
+  br i1 %.not.i.i.i.i.i, label %_ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10shared_ptrIT_ERKS3_IT0_E.exit, label %_ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread12
 
-_ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread9: ; preds = %9
+_ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread12: ; preds = %9
   %14 = load i32, ptr %10, align 4, !noalias !5
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %10, align 4, !noalias !5
@@ -857,9 +857,9 @@ _ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10s
   %.not.i.i.i.i2 = icmp eq ptr %.pre6, null
   br i1 %.not.i.i.i.i2, label %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2ERKS2_.exit.i, label %20
 
-20:                                               ; preds = %_ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread9, %_ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10shared_ptrIT_ERKS3_IT0_E.exit
-  %21 = phi ptr [ %4, %_ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread9 ], [ %.pre, %_ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10shared_ptrIT_ERKS3_IT0_E.exit ]
-  %22 = phi ptr [ %8, %_ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread9 ], [ %.pre6, %_ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10shared_ptrIT_ERKS3_IT0_E.exit ]
+20:                                               ; preds = %_ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread12, %_ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10shared_ptrIT_ERKS3_IT0_E.exit
+  %21 = phi ptr [ %4, %_ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread12 ], [ %.pre, %_ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10shared_ptrIT_ERKS3_IT0_E.exit ]
+  %22 = phi ptr [ %8, %_ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread12 ], [ %.pre6, %_ZSt20dynamic_pointer_castIN3nix13InputAccessorENS0_19MemoryInputAccessorEESt10shared_ptrIT_ERKS3_IT0_E.exit ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i3 = icmp eq i8 %24, 0

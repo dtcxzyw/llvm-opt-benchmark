@@ -559,21 +559,21 @@ _ZN2cv18Bayer2Gray_InvokerIhNS_26SIMDBayerStubInterpolator_IhEEEC2ERKNS_3MatERS4
   %177 = sext i32 %173 to i64
   %178 = sext i32 %175 to i64
   %wide.trip.count65.i = zext nneg i32 %160 to i64
-  %invariant.gep68.i = getelementptr i8, ptr %163, i64 %176
-  %invariant.gep70.i = getelementptr i8, ptr %163, i64 %177
-  %invariant.gep72.i = getelementptr i8, ptr %163, i64 %178
+  %invariant.gep70.i = getelementptr i8, ptr %163, i64 %176
+  %invariant.gep72.i = getelementptr i8, ptr %163, i64 %177
+  %invariant.gep74.i = getelementptr i8, ptr %163, i64 %178
   br label %179
 
 179:                                              ; preds = %179, %.lr.ph59.i
   %indvars.iv62.i = phi i64 [ 0, %.lr.ph59.i ], [ %indvars.iv.next63.i, %179 ]
-  %gep69.i = getelementptr i8, ptr %invariant.gep68.i, i64 %indvars.iv62.i
-  %180 = load i8, ptr %gep69.i, align 1, !tbaa !44
+  %gep71.i = getelementptr i8, ptr %invariant.gep70.i, i64 %indvars.iv62.i
+  %180 = load i8, ptr %gep71.i, align 1, !tbaa !44
   %181 = getelementptr inbounds nuw i8, ptr %163, i64 %indvars.iv62.i
   store i8 %180, ptr %181, align 1, !tbaa !44
-  %gep71.i = getelementptr i8, ptr %invariant.gep70.i, i64 %indvars.iv62.i
-  %182 = load i8, ptr %gep71.i, align 1, !tbaa !44
   %gep73.i = getelementptr i8, ptr %invariant.gep72.i, i64 %indvars.iv62.i
-  store i8 %182, ptr %gep73.i, align 1, !tbaa !44
+  %182 = load i8, ptr %gep73.i, align 1, !tbaa !44
+  %gep75.i = getelementptr i8, ptr %invariant.gep74.i, i64 %indvars.iv62.i
+  store i8 %182, ptr %gep75.i, align 1, !tbaa !44
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %exitcond66.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count65.i
   br i1 %exitcond66.not.i, label %_ZN2cvL11Bayer2Gray_IhNS_26SIMDBayerStubInterpolator_IhEEEEvRKNS_3MatERS3_i.exit, label %179, !llvm.loop !45
@@ -736,21 +736,21 @@ _ZN2cv18Bayer2Gray_InvokerItNS_26SIMDBayerStubInterpolator_ItEEEC2ERKNS_3MatERS4
   %247 = sext i32 %245 to i64
   %wide.trip.count65.i155 = zext nneg i32 %229 to i64
   %248 = ashr exact i64 %sext.i154, 31
-  %invariant.gep68.i156 = getelementptr i8, ptr %232, i64 %248
-  %invariant.gep70.i157 = getelementptr i16, ptr %232, i64 %246
-  %invariant.gep72.i158 = getelementptr i16, ptr %232, i64 %247
+  %invariant.gep70.i156 = getelementptr i8, ptr %232, i64 %248
+  %invariant.gep72.i157 = getelementptr i16, ptr %232, i64 %246
+  %invariant.gep74.i158 = getelementptr i16, ptr %232, i64 %247
   br label %249
 
 249:                                              ; preds = %249, %.lr.ph59.i153
   %indvars.iv62.i159 = phi i64 [ 0, %.lr.ph59.i153 ], [ %indvars.iv.next63.i163, %249 ]
-  %gep69.i160 = getelementptr i16, ptr %invariant.gep68.i156, i64 %indvars.iv62.i159
-  %250 = load i16, ptr %gep69.i160, align 2, !tbaa !52
+  %gep71.i160 = getelementptr i16, ptr %invariant.gep70.i156, i64 %indvars.iv62.i159
+  %250 = load i16, ptr %gep71.i160, align 2, !tbaa !52
   %251 = getelementptr inbounds nuw i16, ptr %232, i64 %indvars.iv62.i159
   store i16 %250, ptr %251, align 2, !tbaa !52
-  %gep71.i161 = getelementptr i16, ptr %invariant.gep70.i157, i64 %indvars.iv62.i159
-  %252 = load i16, ptr %gep71.i161, align 2, !tbaa !52
-  %gep73.i162 = getelementptr i16, ptr %invariant.gep72.i158, i64 %indvars.iv62.i159
-  store i16 %252, ptr %gep73.i162, align 2, !tbaa !52
+  %gep73.i161 = getelementptr i16, ptr %invariant.gep72.i157, i64 %indvars.iv62.i159
+  %252 = load i16, ptr %gep73.i161, align 2, !tbaa !52
+  %gep75.i162 = getelementptr i16, ptr %invariant.gep74.i158, i64 %indvars.iv62.i159
+  store i16 %252, ptr %gep75.i162, align 2, !tbaa !52
   %indvars.iv.next63.i163 = add nuw nsw i64 %indvars.iv62.i159, 1
   %exitcond66.not.i164 = icmp eq i64 %indvars.iv.next63.i163, %wide.trip.count65.i155
   br i1 %exitcond66.not.i164, label %_ZN2cvL11Bayer2Gray_IhNS_26SIMDBayerStubInterpolator_IhEEEEvRKNS_3MatERS3_i.exit, label %249, !llvm.loop !54
@@ -1070,21 +1070,21 @@ _ZN2cv17Bayer2RGB_InvokerItNS_26SIMDBayerStubInterpolator_ItEEEC2ERKNS_3MatERS4_
   %369 = sext i32 %367 to i64
   %wide.trip.count74.i = zext nneg i32 %359 to i64
   %370 = ashr exact i64 %sext.i193, 31
-  %invariant.gep77.i = getelementptr i8, ptr %357, i64 %370
-  %invariant.gep79.i = getelementptr i16, ptr %357, i64 %368
-  %invariant.gep81.i = getelementptr i16, ptr %357, i64 %369
+  %invariant.gep79.i = getelementptr i8, ptr %357, i64 %370
+  %invariant.gep81.i = getelementptr i16, ptr %357, i64 %368
+  %invariant.gep83.i = getelementptr i16, ptr %357, i64 %369
   br label %371
 
 371:                                              ; preds = %371, %.lr.ph68.i
   %indvars.iv71.i = phi i64 [ 0, %.lr.ph68.i ], [ %indvars.iv.next72.i, %371 ]
-  %gep78.i = getelementptr i16, ptr %invariant.gep77.i, i64 %indvars.iv71.i
-  %372 = load i16, ptr %gep78.i, align 2, !tbaa !52
+  %gep80.i = getelementptr i16, ptr %invariant.gep79.i, i64 %indvars.iv71.i
+  %372 = load i16, ptr %gep80.i, align 2, !tbaa !52
   %373 = getelementptr inbounds nuw i16, ptr %357, i64 %indvars.iv71.i
   store i16 %372, ptr %373, align 2, !tbaa !52
-  %gep80.i = getelementptr i16, ptr %invariant.gep79.i, i64 %indvars.iv71.i
-  %374 = load i16, ptr %gep80.i, align 2, !tbaa !52
   %gep82.i = getelementptr i16, ptr %invariant.gep81.i, i64 %indvars.iv71.i
-  store i16 %374, ptr %gep82.i, align 2, !tbaa !52
+  %374 = load i16, ptr %gep82.i, align 2, !tbaa !52
+  %gep84.i = getelementptr i16, ptr %invariant.gep83.i, i64 %indvars.iv71.i
+  store i16 %374, ptr %gep84.i, align 2, !tbaa !52
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %wide.trip.count74.i
   br i1 %exitcond75.not.i, label %_ZN2cvL10Bayer2RGB_ItNS_26SIMDBayerStubInterpolator_ItEEEEvRKNS_3MatERS3_i.exit, label %371, !llvm.loop !62
@@ -1306,13 +1306,13 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc220, %421
   %481 = mul nsw i32 %446, 3
   %482 = sext i32 %417 to i64
   %483 = sext i32 %446 to i64
-  %sext903.i = shl i64 %413, 32
-  %484 = ashr exact i64 %sext903.i, 32
+  %sext908.i = shl i64 %413, 32
+  %484 = ashr exact i64 %sext908.i, 32
   %485 = sext i32 %480 to i64
   %486 = sext i32 %481 to i64
   %wide.trip.count.i212 = zext nneg i32 %445 to i64
-  %invariant.gep907.i = getelementptr i8, ptr %411, i64 %485
-  %invariant.gep909.i = getelementptr i8, ptr %411, i64 %486
+  %invariant.gep912.i = getelementptr i8, ptr %411, i64 %485
+  %invariant.gep914.i = getelementptr i8, ptr %411, i64 %486
   br label %504
 
 .preheader.i210:                                  ; preds = %1209
@@ -1337,13 +1337,13 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc220, %421
   %502 = sext i32 %496 to i64
   %503 = sext i32 %497 to i64
   %wide.trip.count899.i = zext nneg i32 %429 to i64
-  %invariant.gep911.i = getelementptr i8, ptr %411, i64 %498
-  %invariant.gep913.i = getelementptr i8, ptr %411, i64 %484
-  %invariant.gep915.i = getelementptr i8, ptr %411, i64 %499
-  %invariant.gep917.i = getelementptr i8, ptr %411, i64 %500
-  %invariant.gep919.i = getelementptr i8, ptr %411, i64 %501
-  %invariant.gep921.i = getelementptr i8, ptr %411, i64 %502
-  %invariant.gep923.i = getelementptr i8, ptr %411, i64 %503
+  %invariant.gep916.i = getelementptr i8, ptr %411, i64 %498
+  %invariant.gep918.i = getelementptr i8, ptr %411, i64 %484
+  %invariant.gep920.i = getelementptr i8, ptr %411, i64 %499
+  %invariant.gep922.i = getelementptr i8, ptr %411, i64 %500
+  %invariant.gep924.i = getelementptr i8, ptr %411, i64 %501
+  %invariant.gep926.i = getelementptr i8, ptr %411, i64 %502
+  %invariant.gep928.i = getelementptr i8, ptr %411, i64 %503
   br label %1211
 
 504:                                              ; preds = %1209, %_ZN2cv10AutoBufferItLm520EEC2Em.exit.i
@@ -1559,8 +1559,8 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc220, %421
 .preheader852.i.loopexit:                         ; preds = %1184
   %668 = add i64 %507, 8
   %669 = add i64 %507, 5
-  %gep908.i = getelementptr i8, ptr %invariant.gep907.i, i64 %507
-  %gep910.i = getelementptr i8, ptr %invariant.gep909.i, i64 %507
+  %gep913.i = getelementptr i8, ptr %invariant.gep912.i, i64 %507
+  %gep915.i = getelementptr i8, ptr %invariant.gep914.i, i64 %507
   br label %1198
 
 670:                                              ; preds = %1184, %.lr.ph866.i
@@ -2273,18 +2273,18 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc220, %421
   %indvars.iv885.i = phi i64 [ 0, %.preheader852.i.loopexit ], [ %indvars.iv.next886.i, %1198 ]
   %indvars.iv883.i = phi i64 [ 0, %.preheader852.i.loopexit ], [ %indvars.iv.next884.i, %1198 ]
   %1199 = add i64 %668, %indvars.iv883.i
-  %sext904.i = shl i64 %1199, 32
-  %1200 = ashr exact i64 %sext904.i, 32
+  %sext909.i = shl i64 %1199, 32
+  %1200 = ashr exact i64 %sext909.i, 32
   %1201 = getelementptr inbounds i8, ptr %411, i64 %1200
   %1202 = load i8, ptr %1201, align 1, !tbaa !44
   %1203 = add i64 %669, %indvars.iv883.i
-  %sext905.i = shl i64 %1203, 32
-  %1204 = ashr exact i64 %sext905.i, 32
+  %sext910.i = shl i64 %1203, 32
+  %1204 = ashr exact i64 %sext910.i, 32
   %1205 = getelementptr inbounds i8, ptr %411, i64 %1204
   store i8 %1202, ptr %1205, align 1, !tbaa !44
-  %1206 = getelementptr i8, ptr %gep908.i, i64 %indvars.iv885.i
+  %1206 = getelementptr i8, ptr %gep913.i, i64 %indvars.iv885.i
   %1207 = load i8, ptr %1206, align 1, !tbaa !44
-  %1208 = getelementptr i8, ptr %gep910.i, i64 %indvars.iv885.i
+  %1208 = getelementptr i8, ptr %gep915.i, i64 %indvars.iv885.i
   store i8 %1207, ptr %1208, align 1, !tbaa !44
   %indvars.iv.next886.i = add nuw nsw i64 %indvars.iv885.i, 1
   %indvars.iv.next884.i = add nsw i64 %indvars.iv883.i, -1
@@ -2299,22 +2299,22 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc220, %421
 
 1211:                                             ; preds = %1211, %.lr.ph874.i
   %indvars.iv896.i = phi i64 [ 0, %.lr.ph874.i ], [ %indvars.iv.next897.i, %1211 ]
-  %gep912.i = getelementptr i8, ptr %invariant.gep911.i, i64 %indvars.iv896.i
-  %1212 = load i8, ptr %gep912.i, align 1, !tbaa !44
-  %gep914.i = getelementptr i8, ptr %invariant.gep913.i, i64 %indvars.iv896.i
-  store i8 %1212, ptr %gep914.i, align 1, !tbaa !44
+  %gep917.i = getelementptr i8, ptr %invariant.gep916.i, i64 %indvars.iv896.i
+  %1212 = load i8, ptr %gep917.i, align 1, !tbaa !44
+  %gep919.i = getelementptr i8, ptr %invariant.gep918.i, i64 %indvars.iv896.i
+  store i8 %1212, ptr %gep919.i, align 1, !tbaa !44
   %1213 = getelementptr inbounds nuw i8, ptr %411, i64 %indvars.iv896.i
   store i8 %1212, ptr %1213, align 1, !tbaa !44
-  %gep916.i = getelementptr i8, ptr %invariant.gep915.i, i64 %indvars.iv896.i
-  %1214 = load i8, ptr %gep916.i, align 1, !tbaa !44
-  %gep918.i = getelementptr i8, ptr %invariant.gep917.i, i64 %indvars.iv896.i
-  store i8 %1214, ptr %gep918.i, align 1, !tbaa !44
-  %gep920.i = getelementptr i8, ptr %invariant.gep919.i, i64 %indvars.iv896.i
-  store i8 %1214, ptr %gep920.i, align 1, !tbaa !44
-  %gep922.i = getelementptr i8, ptr %invariant.gep921.i, i64 %indvars.iv896.i
-  store i8 %1214, ptr %gep922.i, align 1, !tbaa !44
-  %gep924.i = getelementptr i8, ptr %invariant.gep923.i, i64 %indvars.iv896.i
-  store i8 %1214, ptr %gep924.i, align 1, !tbaa !44
+  %gep921.i = getelementptr i8, ptr %invariant.gep920.i, i64 %indvars.iv896.i
+  %1214 = load i8, ptr %gep921.i, align 1, !tbaa !44
+  %gep923.i = getelementptr i8, ptr %invariant.gep922.i, i64 %indvars.iv896.i
+  store i8 %1214, ptr %gep923.i, align 1, !tbaa !44
+  %gep925.i = getelementptr i8, ptr %invariant.gep924.i, i64 %indvars.iv896.i
+  store i8 %1214, ptr %gep925.i, align 1, !tbaa !44
+  %gep927.i = getelementptr i8, ptr %invariant.gep926.i, i64 %indvars.iv896.i
+  store i8 %1214, ptr %gep927.i, align 1, !tbaa !44
+  %gep929.i = getelementptr i8, ptr %invariant.gep928.i, i64 %indvars.iv896.i
+  store i8 %1214, ptr %gep929.i, align 1, !tbaa !44
   %indvars.iv.next897.i = add nuw nsw i64 %indvars.iv896.i, 1
   %exitcond900.not.i = icmp eq i64 %indvars.iv.next897.i, %wide.trip.count899.i
   br i1 %exitcond900.not.i, label %._crit_edge875.i, label %1211, !llvm.loop !76
@@ -3085,21 +3085,21 @@ _ZN2cv17Bayer2RGB_InvokerIhNS_26SIMDBayerStubInterpolator_IhEEEC2ERKNS_3MatERS4_
   %70 = sext i32 %66 to i64
   %71 = sext i32 %68 to i64
   %wide.trip.count74 = zext nneg i32 %60 to i64
-  %invariant.gep77 = getelementptr i8, ptr %58, i64 %69
-  %invariant.gep79 = getelementptr i8, ptr %58, i64 %70
-  %invariant.gep81 = getelementptr i8, ptr %58, i64 %71
+  %invariant.gep79 = getelementptr i8, ptr %58, i64 %69
+  %invariant.gep81 = getelementptr i8, ptr %58, i64 %70
+  %invariant.gep83 = getelementptr i8, ptr %58, i64 %71
   br label %72
 
 72:                                               ; preds = %.lr.ph68, %72
   %indvars.iv71 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next72, %72 ]
-  %gep78 = getelementptr i8, ptr %invariant.gep77, i64 %indvars.iv71
-  %73 = load i8, ptr %gep78, align 1, !tbaa !44
+  %gep80 = getelementptr i8, ptr %invariant.gep79, i64 %indvars.iv71
+  %73 = load i8, ptr %gep80, align 1, !tbaa !44
   %74 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv71
   store i8 %73, ptr %74, align 1, !tbaa !44
-  %gep80 = getelementptr i8, ptr %invariant.gep79, i64 %indvars.iv71
-  %75 = load i8, ptr %gep80, align 1, !tbaa !44
   %gep82 = getelementptr i8, ptr %invariant.gep81, i64 %indvars.iv71
-  store i8 %75, ptr %gep82, align 1, !tbaa !44
+  %75 = load i8, ptr %gep82, align 1, !tbaa !44
+  %gep84 = getelementptr i8, ptr %invariant.gep83, i64 %indvars.iv71
+  store i8 %75, ptr %gep84, align 1, !tbaa !44
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
   br i1 %exitcond75.not, label %.loopexit, label %72, !llvm.loop !96
@@ -3852,15 +3852,15 @@ define linkonce_odr hidden void @_ZNK2cv17Bayer2RGB_InvokerIhNS_26SIMDBayerStubI
   br label %482
 
 482:                                              ; preds = %450, %428
-  %.sink434 = phi i32 [ %7, %450 ], [ 3, %428 ]
-  %.sink430 = phi i64 [ 2, %450 ], [ 1, %428 ]
+  %.sink445 = phi i32 [ %7, %450 ], [ 3, %428 ]
+  %.sink441 = phi i64 [ 2, %450 ], [ 1, %428 ]
   %483 = load i32, ptr %40, align 8, !tbaa !99
-  %484 = mul nsw i32 %483, %.sink434
+  %484 = mul nsw i32 %483, %.sink445
   %485 = sext i32 %484 to i64
   %486 = getelementptr i8, ptr %.0323403, i64 %485
   %487 = getelementptr i8, ptr %486, i64 -2
   %488 = load i8, ptr %487, align 1, !tbaa !44
-  %489 = getelementptr i8, ptr %486, i64 %.sink430
+  %489 = getelementptr i8, ptr %486, i64 %.sink441
   store i8 %488, ptr %489, align 1, !tbaa !44
   %490 = sub nsw i32 0, %.1336400
   %491 = zext i1 %.not344 to i32
@@ -5521,7 +5521,7 @@ define linkonce_odr hidden void @_ZNK2cv29Bayer2RGB_EdgeAware_T_InvokerIhNS_26SI
   %.5183 = phi ptr [ %263, %238 ], [ %.3181, %.loopexit ]
   %.5 = phi ptr [ %287, %238 ], [ %.3177, %.loopexit ]
   %invariant.gep = getelementptr i8, ptr %.5, i64 %65
-  %invariant.gep248 = getelementptr i8, ptr %.5, i64 %66
+  %invariant.gep255 = getelementptr i8, ptr %.5, i64 %66
   br label %297
 
 289:                                              ; preds = %297
@@ -5543,8 +5543,8 @@ define linkonce_odr hidden void @_ZNK2cv29Bayer2RGB_EdgeAware_T_InvokerIhNS_26SI
   store i8 %300, ptr %301, align 1, !tbaa !44
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   %302 = load i8, ptr %gep, align 1, !tbaa !44
-  %gep249 = getelementptr i8, ptr %invariant.gep248, i64 %indvars.iv
-  store i8 %302, ptr %gep249, align 1, !tbaa !44
+  %gep256 = getelementptr i8, ptr %invariant.gep255, i64 %indvars.iv
+  store i8 %302, ptr %gep256, align 1, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
   br i1 %exitcond.not, label %289, label %297, !llvm.loop !126
@@ -5942,7 +5942,7 @@ define linkonce_odr hidden void @_ZNK2cv29Bayer2RGB_EdgeAware_T_InvokerItNS_26SI
   %.5183 = phi ptr [ %261, %236 ], [ %.3181, %.loopexit ]
   %.5 = phi ptr [ %285, %236 ], [ %.3177, %.loopexit ]
   %invariant.gep = getelementptr i16, ptr %.5, i64 %67
-  %invariant.gep247 = getelementptr i16, ptr %.5, i64 %68
+  %invariant.gep252 = getelementptr i16, ptr %.5, i64 %68
   br label %293
 
 287:                                              ; preds = %293
@@ -5963,8 +5963,8 @@ define linkonce_odr hidden void @_ZNK2cv29Bayer2RGB_EdgeAware_T_InvokerItNS_26SI
   store i16 %296, ptr %297, align 2, !tbaa !52
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
   %298 = load i16, ptr %gep, align 2, !tbaa !52
-  %gep248 = getelementptr i16, ptr %invariant.gep247, i64 %indvars.iv
-  store i16 %298, ptr %gep248, align 2, !tbaa !52
+  %gep253 = getelementptr i16, ptr %invariant.gep252, i64 %indvars.iv
+  store i16 %298, ptr %gep253, align 2, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
   br i1 %exitcond.not, label %287, label %293, !llvm.loop !131

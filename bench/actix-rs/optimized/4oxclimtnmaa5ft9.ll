@@ -446,14 +446,14 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
   br i1 %.not156, label %._crit_edge143.thread, label %.noexc6.lr.ph
 
 ._crit_edge143.thread:                            ; preds = %129, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf58459cf27d51ee3E.exit", %.noexc57, %._crit_edge143
-  %.sroa.9.0.lcssa179 = phi i64 [ %.sroa.9.0152, %._crit_edge143 ], [ %.sroa.9.0152, %.noexc57 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf58459cf27d51ee3E.exit" ], [ 0, %129 ]
-  %.sroa.0.083.lcssa178 = phi ptr [ %.sroa.0.083151, %._crit_edge143 ], [ %.sroa.0.083151, %.noexc57 ], [ %.sroa.0.083148, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf58459cf27d51ee3E.exit" ], [ %.sroa.0.083, %129 ]
+  %.sroa.9.0.lcssa194 = phi i64 [ %.sroa.9.0152, %._crit_edge143 ], [ %.sroa.9.0152, %.noexc57 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf58459cf27d51ee3E.exit" ], [ 0, %129 ]
+  %.sroa.0.083.lcssa193 = phi ptr [ %.sroa.0.083151, %._crit_edge143 ], [ %.sroa.0.083151, %.noexc57 ], [ %.sroa.0.083148, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf58459cf27d51ee3E.exit" ], [ %.sroa.0.083, %129 ]
   %134 = phi i64 [ %66, %._crit_edge143 ], [ %.pre.i.i55, %.noexc57 ], [ %storemerge150, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf58459cf27d51ee3E.exit" ], [ %storemerge, %129 ]
   %135 = load ptr, ptr %45, align 8, !alias.scope !54, !noalias !52, !nonnull !5, !noundef !5
   %136 = getelementptr inbounds i8, ptr %135, i64 %134
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %136, ptr nonnull readonly align 1 %.sroa.0.083.lcssa178, i64 %.sroa.9.0.lcssa179, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %136, ptr nonnull readonly align 1 %.sroa.0.083.lcssa193, i64 %.sroa.9.0.lcssa194, i1 false)
   %137 = load i64, ptr %46, align 8, !alias.scope !54, !noalias !52, !noundef !5
-  %138 = add i64 %137, %.sroa.9.0.lcssa179
+  %138 = add i64 %137, %.sroa.9.0.lcssa194
   store i64 %138, ptr %46, align 8, !alias.scope !54, !noalias !52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

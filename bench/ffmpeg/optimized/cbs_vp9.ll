@@ -1832,7 +1832,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_vp9_assemble_fragment(ptr nou
 
 ._crit_edge110:                                   ; preds = %.preheader, %._crit_edge110.loopexit
   %61 = phi i32 [ %60, %._crit_edge110.loopexit ], [ 0, %.preheader ]
-  %.095135 = phi i32 [ %.095.ph, %._crit_edge110.loopexit ], [ 1, %.preheader ]
+  %.095148 = phi i32 [ %.095.ph, %._crit_edge110.loopexit ], [ 1, %.preheader ]
   %.078.lcssa = phi i64 [ %57, %._crit_edge110.loopexit ], [ 2, %.preheader ]
   %.in = trunc i32 %8 to i8
   %62 = add i8 %.in, -1
@@ -1891,7 +1891,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_vp9_assemble_fragment(ptr nou
   %.075.lcssa = phi i64 [ 0, %65 ], [ %87, %80 ]
   %.lcssa102 = phi i32 [ %69, %65 ], [ %88, %80 ]
   %91 = sub i64 %.078.lcssa, %.075.lcssa
-  %92 = mul nsw i32 %.lcssa102, %.095135
+  %92 = mul nsw i32 %.lcssa102, %.095148
   %93 = add nsw i32 %92, 2
   %94 = sext i32 %93 to i64
   %95 = icmp eq i64 %91, %94
@@ -2681,12 +2681,12 @@ cbs_vp9_read_frame_size.exit:                     ; preds = %29
   br label %95
 
 95:                                               ; preds = %cbs_vp9_read_frame_size.exit, %58
-  %.sink73 = phi i32 [ %51, %cbs_vp9_read_frame_size.exit ], [ %94, %58 ]
-  %.sink71 = phi ptr [ %26, %cbs_vp9_read_frame_size.exit ], [ %12, %58 ]
-  %96 = add nuw nsw i32 %.sink73, 7
+  %.sink78 = phi i32 [ %51, %cbs_vp9_read_frame_size.exit ], [ %94, %58 ]
+  %.sink76 = phi ptr [ %26, %cbs_vp9_read_frame_size.exit ], [ %12, %58 ]
+  %96 = add nuw nsw i32 %.sink78, 7
   %97 = lshr i32 %96, 3
   %98 = trunc nuw nsw i32 %97 to i16
-  %99 = getelementptr inbounds nuw i8, ptr %.sink71, i64 10
+  %99 = getelementptr inbounds nuw i8, ptr %.sink76, i64 10
   store i16 %98, ptr %99, align 2, !tbaa !110
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %100 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull @.str.46, ptr noundef nonnull %4) #8
@@ -4070,12 +4070,12 @@ cbs_vp9_write_frame_size.exit:                    ; preds = %26
   br label %89
 
 89:                                               ; preds = %cbs_vp9_write_frame_size.exit, %52
-  %.sink70 = phi i32 [ %45, %cbs_vp9_write_frame_size.exit ], [ %88, %52 ]
-  %.sink68 = phi ptr [ %20, %cbs_vp9_write_frame_size.exit ], [ %6, %52 ]
-  %90 = add nuw nsw i32 %.sink70, 7
+  %.sink75 = phi i32 [ %45, %cbs_vp9_write_frame_size.exit ], [ %88, %52 ]
+  %.sink73 = phi ptr [ %20, %cbs_vp9_write_frame_size.exit ], [ %6, %52 ]
+  %90 = add nuw nsw i32 %.sink75, 7
   %91 = lshr i32 %90, 3
   %92 = trunc nuw nsw i32 %91 to i16
-  %93 = getelementptr inbounds nuw i8, ptr %.sink68, i64 10
+  %93 = getelementptr inbounds nuw i8, ptr %.sink73, i64 10
   store i16 %92, ptr %93, align 2, !tbaa !110
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 34
   %95 = load i8, ptr %94, align 2, !tbaa !111
@@ -4604,9 +4604,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_vp9_write_segmentation
   br i1 %.not149, label %143, label %.sink.split
 
 .sink.split:                                      ; preds = %138, %130
-  %.sink193 = phi i8 [ %131, %130 ], [ %140, %138 ]
+  %.sink210 = phi i8 [ %131, %130 ], [ %140, %138 ]
   %141 = load ptr, ptr %0, align 8, !tbaa !29
-  %142 = zext i8 %.sink193 to i64
+  %142 = zext i8 %.sink210 to i64
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %141, i32 noundef 24, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.79, i64 noundef %142, i64 noundef 0) #8
   br label %143
 
@@ -4903,8 +4903,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @cbs_vp9_write_increment(pt
   br i1 %46, label %91, label %47
 
 47:                                               ; preds = %31
-  %.not60 = icmp eq i32 %.041, 0
-  br i1 %.not60, label %71, label %48
+  %.not66 = icmp eq i32 %.041, 0
+  br i1 %.not66, label %71, label %48
 
 48:                                               ; preds = %47
   %notmask = shl nsw i32 -1, %.041

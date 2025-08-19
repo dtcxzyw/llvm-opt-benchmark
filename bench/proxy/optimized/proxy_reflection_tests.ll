@@ -804,16 +804,16 @@ _ZN3pro5proxyIN12_GLOBAL__N_114TestRttiFacadeEED2EvQaantL_ZNS_5proxy20HasTrivial
   br i1 %.not.i18, label %_ZN3pro5proxyIN12_GLOBAL__N_114TestRttiFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit19, label %51
 
 51:                                               ; preds = %.thread, %50
-  %.pn.pn.pn25 = phi { ptr, i32 } [ %10, %.thread ], [ %.pn.pn, %50 ]
-  %.val1.i1724 = phi ptr [ @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEEN12_GLOBAL__N_114RttiReflectionEEEEE7storageISt10unique_ptrIdSt14default_deleteIdEEEE, %.thread ], [ %.val1.i17.pre, %50 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.val1.i1724, i64 8
+  %.pn.pn.pn30 = phi { ptr, i32 } [ %10, %.thread ], [ %.pn.pn, %50 ]
+  %.val1.i1729 = phi ptr [ @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEEN12_GLOBAL__N_114RttiReflectionEEEEE7storageISt10unique_ptrIdSt14default_deleteIdEEEE, %.thread ], [ %.val1.i17.pre, %50 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.val1.i1729, i64 8
   %53 = load ptr, ptr %52, align 8
   call void %53(ptr noundef nonnull %6) #13
   br label %_ZN3pro5proxyIN12_GLOBAL__N_114TestRttiFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit19
 
 _ZN3pro5proxyIN12_GLOBAL__N_114TestRttiFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit19: ; preds = %50, %51
-  %.pn.pn.pn26 = phi { ptr, i32 } [ %.pn.pn, %50 ], [ %.pn.pn.pn25, %51 ]
-  resume { ptr, i32 } %.pn.pn.pn26
+  %.pn.pn.pn31 = phi { ptr, i32 } [ %.pn.pn, %50 ], [ %.pn.pn.pn30, %51 ]
+  resume { ptr, i32 } %.pn.pn.pn31
 }
 
 ; Function Attrs: mustprogress uwtable

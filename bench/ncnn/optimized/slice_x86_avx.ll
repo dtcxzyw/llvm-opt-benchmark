@@ -683,7 +683,7 @@ _ZN4ncnn3MatD2Ev.exit881:                         ; preds = %246, %243, %252, %2
   br i1 %271, label %334, label %.loopexit1424..thread1395_crit_edge
 
 .loopexit1424..thread1395_crit_edge:              ; preds = %.preheader1423, %.lr.ph1450.split.preheader, %.loopexit1424
-  %.17111692 = phi ptr [ %.1711, %.loopexit1424 ], [ %scevgep, %.lr.ph1450.split.preheader ], [ %.07101489, %.preheader1423 ]
+  %.17111779 = phi ptr [ %.1711, %.loopexit1424 ], [ %scevgep, %.lr.ph1450.split.preheader ], [ %.07101489, %.preheader1423 ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %286, i64 24
   %.pre1666 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !24
   br label %.thread1395
@@ -869,7 +869,7 @@ _ZN4ncnn3MatD2Ev.exit881:                         ; preds = %246, %243, %252, %2
 
 .thread1395:                                      ; preds = %._crit_edge1480.us, %.preheader1422, %.lr.ph1467.split.preheader, %.loopexit1424..thread1395_crit_edge, %.lr.ph1483.split.preheader, %.preheader, %287, %.thread1397
   %421 = phi i32 [ %336, %.thread1397 ], [ %289, %287 ], [ %.pre1666, %.loopexit1424..thread1395_crit_edge ], [ 4, %.preheader ], [ 4, %.lr.ph1483.split.preheader ], [ 8, %.lr.ph1467.split.preheader ], [ 8, %.preheader1422 ], [ 4, %._crit_edge1480.us ]
-  %.5715 = phi ptr [ %.37131399, %.thread1397 ], [ %.07101489, %287 ], [ %.17111692, %.loopexit1424..thread1395_crit_edge ], [ %.37131399, %.preheader ], [ %scevgep1627, %.lr.ph1483.split.preheader ], [ %scevgep1620, %.lr.ph1467.split.preheader ], [ %.1711, %.preheader1422 ], [ %420, %._crit_edge1480.us ]
+  %.5715 = phi ptr [ %.37131399, %.thread1397 ], [ %.07101489, %287 ], [ %.17111779, %.loopexit1424..thread1395_crit_edge ], [ %.37131399, %.preheader ], [ %scevgep1627, %.lr.ph1483.split.preheader ], [ %scevgep1620, %.lr.ph1467.split.preheader ], [ %.1711, %.preheader1422 ], [ %420, %._crit_edge1480.us ]
   %422 = icmp eq i32 %.01392.lcssa, %421
   br i1 %422, label %423, label %437
 
@@ -1411,7 +1411,7 @@ _ZNK4ncnn3Mat5emptyEv.exit875:                    ; preds = %655
   br i1 %670, label %734, label %.loopexit..thread1407_crit_edge
 
 .loopexit..thread1407_crit_edge:                  ; preds = %679, %.noexc.preheader, %.loopexit
-  %.17511697 = phi i32 [ %.1751, %.loopexit ], [ %701, %.noexc.preheader ], [ %.07501578, %679 ]
+  %.17511784 = phi i32 [ %.1751, %.loopexit ], [ %701, %.noexc.preheader ], [ %.07501578, %679 ]
   %.phi.trans.insert1669 = getelementptr inbounds nuw i8, ptr %674, i64 24
   %.pre1670 = load i32, ptr %.phi.trans.insert1669, align 8, !tbaa !24
   br label %.thread1407
@@ -1637,7 +1637,7 @@ _ZNK4ncnn3Mat5emptyEv.exit875:                    ; preds = %655
 
 .thread1407:                                      ; preds = %738, %.loopexit..thread1407_crit_edge, %.thread1407.loopexit, %803, %675, %.thread1409
   %847 = phi i32 [ %736, %.thread1409 ], [ %677, %675 ], [ %.pre1670, %.loopexit..thread1407_crit_edge ], [ 4, %803 ], [ 4, %.thread1407.loopexit ], [ 8, %738 ]
-  %.5755 = phi i32 [ %.37531411, %.thread1409 ], [ %.07501578, %675 ], [ %.17511697, %.loopexit..thread1407_crit_edge ], [ %.37531411, %803 ], [ %846, %.thread1407.loopexit ], [ %.1751, %738 ]
+  %.5755 = phi i32 [ %.37531411, %.thread1409 ], [ %.07501578, %675 ], [ %.17511784, %.loopexit..thread1407_crit_edge ], [ %.37531411, %803 ], [ %846, %.thread1407.loopexit ], [ %.1751, %738 ]
   %848 = icmp eq i32 %.01394.lcssa, %847
   br i1 %848, label %.noexc934, label %869
 

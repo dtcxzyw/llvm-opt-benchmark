@@ -535,16 +535,16 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   br label %18
 
 18:                                               ; preds = %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread
-  %.sink59 = phi ptr [ %8, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread ], [ %6, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit ]
-  %.sink58 = phi i64 [ 400, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread ], [ 176, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit ]
-  %.sink54 = phi i64 [ 416, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread ], [ 192, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit ]
-  %.sink30 = phi ptr [ %6, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread ], [ %8, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit ]
-  %19 = getelementptr inbounds nuw i8, ptr %.sink59, i64 176
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink58
+  %.sink60 = phi ptr [ %8, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread ], [ %6, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit ]
+  %.sink59 = phi i64 [ 400, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread ], [ 176, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit ]
+  %.sink55 = phi i64 [ 416, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread ], [ 192, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit ]
+  %.sink31 = phi ptr [ %6, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread ], [ %8, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit ]
+  %19 = getelementptr inbounds nuw i8, ptr %.sink60, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink59
   %21 = load double, ptr %19, align 16, !noalias !97
-  %22 = getelementptr inbounds nuw i8, ptr %.sink59, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %.sink60, i64 192
   %.sroa.413.16.copyload = load <2 x double>, ptr %22, align 16, !tbaa !81
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink54
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink55
   %24 = tail call double @sin(double noundef %21) #23, !tbaa !68, !noalias !97
   %25 = tail call double @cos(double noundef %21) #23, !tbaa !68, !noalias !97
   %26 = fneg double %24
@@ -566,14 +566,14 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   %38 = fcmp ugt double %37, 0.000000e+00
   %.0.v.i.i.i11 = select i1 %38, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i.i12 = fadd double %37, %.0.v.i.i.i11
-  %39 = getelementptr inbounds nuw i8, ptr %.sink30, i64 176
+  %39 = getelementptr inbounds nuw i8, ptr %.sink31, i64 176
   store double %.0.i.i.i12, ptr %39, align 16
-  %40 = getelementptr inbounds nuw i8, ptr %.sink30, i64 192
+  %40 = getelementptr inbounds nuw i8, ptr %.sink31, i64 192
   store <2 x double> %33, ptr %40, align 16, !tbaa !81
-  %41 = load ptr, ptr %.sink30, align 16, !tbaa !38
+  %41 = load ptr, ptr %.sink31, align 16, !tbaa !38
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 216
   %43 = load ptr, ptr %42, align 8
-  tail call void %43(ptr noundef nonnull align 16 dereferenceable(232) %.sink30)
+  tail call void %43(ptr noundef nonnull align 16 dereferenceable(232) %.sink31)
   ret void
 }
 

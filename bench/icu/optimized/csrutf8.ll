@@ -64,10 +64,10 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717CharsetRecog_UTF85matchEP
 
 20:                                               ; preds = %3
   %21 = icmp sgt i32 %7, 0
-  br i1 %21, label %.lr.ph.preheader, label %.thread94
+  br i1 %21, label %.lr.ph.preheader, label %.thread97
 
 .lr.ph.preheader:                                 ; preds = %9, %12, %16, %20
-  %.05176 = phi i1 [ false, %20 ], [ %19, %16 ], [ false, %9 ], [ false, %12 ]
+  %.05179 = phi i1 [ false, %20 ], [ %19, %16 ], [ false, %9 ], [ false, %12 ]
   %22 = zext nneg i32 %7 to i64
   br label %.lr.ph
 
@@ -134,7 +134,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717CharsetRecog_UTF85matchEP
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %41
-  %53 = trunc nsw i64 %indvars.iv.next to i32
+  %53 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %45, %51, %.lr.ph, %37
@@ -147,13 +147,13 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717CharsetRecog_UTF85matchEP
 
 ._crit_edge:                                      ; preds = %.loopexit
   %56 = icmp eq i32 %.153, 0
-  %or.cond = select i1 %.05176, i1 %56, i1 false
+  %or.cond = select i1 %.05179, i1 %56, i1 false
   br i1 %or.cond, label %68, label %57
 
 57:                                               ; preds = %._crit_edge
   %58 = mul nsw i32 %.153, 10
   %59 = icmp sgt i32 %.156, %58
-  %or.cond62 = select i1 %.05176, i1 %59, i1 false
+  %or.cond62 = select i1 %.05179, i1 %59, i1 false
   br i1 %or.cond62, label %68, label %60
 
 60:                                               ; preds = %57
@@ -164,24 +164,24 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717CharsetRecog_UTF85matchEP
 62:                                               ; preds = %60
   %63 = icmp sgt i32 %.156, 0
   %or.cond5 = select i1 %63, i1 %56, i1 false
-  br i1 %or.cond5, label %68, label %.thread94
+  br i1 %or.cond5, label %68, label %.thread97
 
-.thread94:                                        ; preds = %20, %62
+.thread97:                                        ; preds = %20, %62
   %64 = phi i1 [ %59, %62 ], [ false, %20 ]
-  %.055.lcssa82899397 = phi i32 [ %.156, %62 ], [ 0, %20 ]
+  %.055.lcssa859296100 = phi i32 [ %.156, %62 ], [ 0, %20 ]
   %65 = phi i1 [ %56, %62 ], [ true, %20 ]
-  %66 = icmp eq i32 %.055.lcssa82899397, 0
+  %66 = icmp eq i32 %.055.lcssa859296100, 0
   %or.cond7 = select i1 %66, i1 %65, i1 false
   br i1 %or.cond7, label %68, label %67
 
-67:                                               ; preds = %.thread94
+67:                                               ; preds = %.thread97
   %spec.select63 = zext i1 %64 to i8
   %spec.select64 = select i1 %64, i32 25, i32 0
   br label %68
 
-68:                                               ; preds = %67, %.thread94, %62, %60, %57, %._crit_edge
-  %69 = phi i8 [ 1, %._crit_edge ], [ 1, %57 ], [ 1, %60 ], [ 1, %62 ], [ 1, %.thread94 ], [ %spec.select63, %67 ]
-  %.0 = phi i32 [ 100, %._crit_edge ], [ 80, %57 ], [ 100, %60 ], [ 80, %62 ], [ 15, %.thread94 ], [ %spec.select64, %67 ]
+68:                                               ; preds = %67, %.thread97, %62, %60, %57, %._crit_edge
+  %69 = phi i8 [ 1, %._crit_edge ], [ 1, %57 ], [ 1, %60 ], [ 1, %62 ], [ 1, %.thread97 ], [ %spec.select63, %67 ]
+  %.0 = phi i32 [ 100, %._crit_edge ], [ 80, %57 ], [ 100, %60 ], [ 80, %62 ], [ 15, %.thread97 ], [ %spec.select64, %67 ]
   tail call void @_ZN6icu_7712CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %1, ptr noundef nonnull %0, i32 noundef %.0, ptr noundef null, ptr noundef null)
   ret i8 %69
 }

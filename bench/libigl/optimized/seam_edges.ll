@@ -584,15 +584,15 @@ _ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal
   br i1 %.not19.i.i.i.i.i, label %212, label %.thread, !llvm.loop !53
 
 .loopexit358:                                     ; preds = %_ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal_toIS2_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESC_NSB_IiLin1ELin1ELi0ELin1ELin1EEESD_SD_SD_SD_EEvRKNSA_10MatrixBaseIT_EERKNSE_IT0_EERKNSE_IT1_EERKNSE_IT2_EERNSA_15PlainObjectBaseIT3_EERNSV_IT4_EERNSV_IT5_EEEUlRS3_E_NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsES15_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.i.i.i.i.i, %191
-  br i1 %.not.not.i.i.i, label %.preheader430, label %236
+  br i1 %.not.not.i.i.i, label %.preheader457, label %236
 
-.preheader430:                                    ; preds = %.loopexit358, %228
+.preheader457:                                    ; preds = %.loopexit358, %228
   %.sroa.06.0.in.i.i.i197 = phi ptr [ %.sroa.06.0.i.i.i198, %228 ], [ %68, %.loopexit358 ]
   %.sroa.06.0.i.i.i198 = load ptr, ptr %.sroa.06.0.in.i.i.i197, align 8, !tbaa !48
   %.not.i.i.i199 = icmp eq ptr %.sroa.06.0.i.i.i198, null
   br i1 %.not.i.i.i199, label %.thread, label %228
 
-228:                                              ; preds = %.preheader430
+228:                                              ; preds = %.preheader457
   %229 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i198, i64 8
   %230 = load i32, ptr %229, align 4, !tbaa !51
   %231 = icmp eq i32 %188, %230
@@ -600,7 +600,7 @@ _ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal
   %233 = load i32, ptr %232, align 4
   %234 = icmp eq i32 %189, %233
   %235 = select i1 %231, i1 %234, i1 false
-  br i1 %235, label %.loopexit353, label %.preheader430, !llvm.loop !61
+  br i1 %235, label %.loopexit353, label %.preheader457, !llvm.loop !61
 
 236:                                              ; preds = %.loopexit358
   %237 = load ptr, ptr %10, align 8, !tbaa !46
@@ -812,7 +812,7 @@ _ZNSt13unordered_mapISt4pairIiiES1_RKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin
   %368 = add nsw i32 %.0386, 1
   br label %.thread333
 
-.thread:                                          ; preds = %_ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal_toIS2_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESC_NSB_IiLin1ELin1ELi0ELin1ELin1EEESD_SD_SD_SD_EEvRKNSA_10MatrixBaseIT_EERKNSE_IT0_EERKNSE_IT1_EERKNSE_IT2_EERNSA_15PlainObjectBaseIT3_EERNSV_IT4_EERNSV_IT5_EEEUlRS3_E_NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsES15_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i.i.i.i, %224, %.preheader356, %_ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal_toIS2_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESC_NSB_IiLin1ELin1ELi0ELin1ELin1EEESD_SD_SD_SD_EEvRKNSA_10MatrixBaseIT_EERKNSE_IT0_EERKNSE_IT1_EERKNSE_IT2_EERNSA_15PlainObjectBaseIT3_EERNSV_IT4_EERNSV_IT5_EEEUlRS3_E_NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsES15_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i.i.i.i190, %261, %.preheader430
+.thread:                                          ; preds = %_ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal_toIS2_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESC_NSB_IiLin1ELin1ELi0ELin1ELin1EEESD_SD_SD_SD_EEvRKNSA_10MatrixBaseIT_EERKNSE_IT0_EERKNSE_IT1_EERKNSE_IT2_EERNSA_15PlainObjectBaseIT3_EERNSV_IT4_EERNSV_IT5_EEEUlRS3_E_NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsES15_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i.i.i.i, %224, %.preheader356, %_ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal_toIS2_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESC_NSB_IiLin1ELin1ELi0ELin1ELin1EEESD_SD_SD_SD_EEvRKNSA_10MatrixBaseIT_EERKNSE_IT0_EERKNSE_IT1_EERKNSE_IT2_EERNSA_15PlainObjectBaseIT3_EERNSV_IT4_EERNSV_IT5_EEEUlRS3_E_NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsES15_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i.i.i.i190, %261, %.preheader457
   br i1 %.not.not.i.i.i, label %.preheader, label %.thread..thread.thread_crit_edge
 
 .thread..thread.thread_crit_edge:                 ; preds = %.thread
@@ -909,7 +909,7 @@ _ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal
   br label %460
 
 .loopexit349:                                     ; preds = %400, %_ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal_toIS2_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESC_NSB_IiLin1ELin1ELi0ELin1ELin1EEESD_SD_SD_SD_EEvRKNSA_10MatrixBaseIT_EERKNSE_IT0_EERKNSE_IT1_EERKNSE_IT2_EERNSA_15PlainObjectBaseIT3_EERNSV_IT4_EERNSV_IT5_EEEUlRS3_E_NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsES15_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i.i.i.i218, %.preheader
-  br i1 %.not.not.i.i.i, label %.preheader425, label %.loopexit349._crit_edge
+  br i1 %.not.not.i.i.i, label %.preheader452, label %.loopexit349._crit_edge
 
 .loopexit349._crit_edge:                          ; preds = %.loopexit349
   %.pre410 = load ptr, ptr %10, align 8, !tbaa !46
@@ -918,13 +918,13 @@ _ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal
   %.pre413 = load ptr, ptr %65, align 8, !tbaa !23
   br label %.thread331
 
-.preheader425:                                    ; preds = %.loopexit349, %414
+.preheader452:                                    ; preds = %.loopexit349, %414
   %.sroa.06.0.in.i.i.i241 = phi ptr [ %.sroa.06.0.i.i.i242, %414 ], [ %68, %.loopexit349 ]
   %.sroa.06.0.i.i.i242 = load ptr, ptr %.sroa.06.0.in.i.i.i241, align 8, !tbaa !48
   %.not.i.i.i243 = icmp eq ptr %.sroa.06.0.i.i.i242, null
   br i1 %.not.i.i.i243, label %.thread333, label %414
 
-414:                                              ; preds = %.preheader425
+414:                                              ; preds = %.preheader452
   %415 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i242, i64 8
   %416 = load i32, ptr %415, align 4, !tbaa !51
   %417 = icmp eq i32 %188, %416
@@ -932,7 +932,7 @@ _ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal
   %419 = load i32, ptr %418, align 4
   %420 = icmp eq i32 %189, %419
   %421 = select i1 %417, i1 %420, i1 false
-  br i1 %421, label %.loopexit, label %.preheader425, !llvm.loop !61
+  br i1 %421, label %.loopexit, label %.preheader452, !llvm.loop !61
 
 .thread331:                                       ; preds = %.thread.thread, %.loopexit349._crit_edge
   %422 = phi ptr [ %.pre413, %.loopexit349._crit_edge ], [ %377, %.thread.thread ]
@@ -1004,10 +1004,10 @@ _ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal
           cleanup
   br label %460
 
-.thread333:                                       ; preds = %_ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal_toIS2_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESC_NSB_IiLin1ELin1ELi0ELin1ELin1EEESD_SD_SD_SD_EEvRKNSA_10MatrixBaseIT_EERKNSE_IT0_EERKNSE_IT1_EERKNSE_IT2_EERNSA_15PlainObjectBaseIT3_EERNSV_IT4_EERNSV_IT5_EEEUlRS3_E_NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsES15_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i.i.i.i234, %445, %.preheader425, %.thread331, %344, %347, %360, %405, %450
-  %.3 = phi i32 [ %.0116384, %405 ], [ %.0116384, %450 ], [ %.0116384, %360 ], [ %355, %347 ], [ %.0116384, %344 ], [ %.0116384, %.thread331 ], [ %.0116384, %.preheader425 ], [ %.0116384, %445 ], [ %.0116384, %_ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal_toIS2_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESC_NSB_IiLin1ELin1ELi0ELin1ELin1EEESD_SD_SD_SD_EEvRKNSA_10MatrixBaseIT_EERKNSE_IT0_EERKNSE_IT1_EERKNSE_IT2_EERNSA_15PlainObjectBaseIT3_EERNSV_IT4_EERNSV_IT5_EEEUlRS3_E_NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsES15_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i.i.i.i234 ]
-  %.1115 = phi i32 [ %411, %405 ], [ %456, %450 ], [ %.0114385, %360 ], [ %.0114385, %347 ], [ %.0114385, %344 ], [ %.0114385, %.thread331 ], [ %.0114385, %.preheader425 ], [ %.0114385, %445 ], [ %.0114385, %_ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal_toIS2_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESC_NSB_IiLin1ELin1ELi0ELin1ELin1EEESD_SD_SD_SD_EEvRKNSA_10MatrixBaseIT_EERKNSE_IT0_EERKNSE_IT1_EERKNSE_IT2_EERNSA_15PlainObjectBaseIT3_EERNSV_IT4_EERNSV_IT5_EEEUlRS3_E_NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsES15_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i.i.i.i234 ]
-  %.2 = phi i32 [ %.0386, %405 ], [ %.0386, %450 ], [ %368, %360 ], [ %.0386, %347 ], [ %.0386, %344 ], [ %.0386, %.thread331 ], [ %.0386, %.preheader425 ], [ %.0386, %445 ], [ %.0386, %_ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal_toIS2_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESC_NSB_IiLin1ELin1ELi0ELin1ELin1EEESD_SD_SD_SD_EEvRKNSA_10MatrixBaseIT_EERKNSE_IT0_EERKNSE_IT1_EERKNSE_IT2_EERNSA_15PlainObjectBaseIT3_EERNSV_IT4_EERNSV_IT5_EEEUlRS3_E_NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsES15_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i.i.i.i234 ]
+.thread333:                                       ; preds = %_ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal_toIS2_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESC_NSB_IiLin1ELin1ELi0ELin1ELin1EEESD_SD_SD_SD_EEvRKNSA_10MatrixBaseIT_EERKNSE_IT0_EERKNSE_IT1_EERKNSE_IT2_EERNSA_15PlainObjectBaseIT3_EERNSV_IT4_EERNSV_IT5_EEEUlRS3_E_NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsES15_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i.i.i.i234, %445, %.preheader452, %.thread331, %344, %347, %360, %405, %450
+  %.3 = phi i32 [ %.0116384, %405 ], [ %.0116384, %450 ], [ %.0116384, %360 ], [ %355, %347 ], [ %.0116384, %344 ], [ %.0116384, %.thread331 ], [ %.0116384, %.preheader452 ], [ %.0116384, %445 ], [ %.0116384, %_ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal_toIS2_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESC_NSB_IiLin1ELin1ELi0ELin1ELin1EEESD_SD_SD_SD_EEvRKNSA_10MatrixBaseIT_EERKNSE_IT0_EERKNSE_IT1_EERKNSE_IT2_EERNSA_15PlainObjectBaseIT3_EERNSV_IT4_EERNSV_IT5_EEEUlRS3_E_NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsES15_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i.i.i.i234 ]
+  %.1115 = phi i32 [ %411, %405 ], [ %456, %450 ], [ %.0114385, %360 ], [ %.0114385, %347 ], [ %.0114385, %344 ], [ %.0114385, %.thread331 ], [ %.0114385, %.preheader452 ], [ %.0114385, %445 ], [ %.0114385, %_ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal_toIS2_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESC_NSB_IiLin1ELin1ELi0ELin1ELin1EEESD_SD_SD_SD_EEvRKNSA_10MatrixBaseIT_EERKNSE_IT0_EERKNSE_IT1_EERKNSE_IT2_EERNSA_15PlainObjectBaseIT3_EERNSV_IT4_EERNSV_IT5_EEEUlRS3_E_NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsES15_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i.i.i.i234 ]
+  %.2 = phi i32 [ %.0386, %405 ], [ %.0386, %450 ], [ %368, %360 ], [ %.0386, %347 ], [ %.0386, %344 ], [ %.0386, %.thread331 ], [ %.0386, %.preheader452 ], [ %.0386, %445 ], [ %.0386, %_ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal_toIS2_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESC_NSB_IiLin1ELin1ELi0ELin1ELin1EEESD_SD_SD_SD_EEvRKNSA_10MatrixBaseIT_EERKNSE_IT0_EERKNSE_IT1_EERKNSE_IT2_EERNSA_15PlainObjectBaseIT3_EERNSV_IT4_EERNSV_IT5_EEEUlRS3_E_NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsES15_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i.i.i.i234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %459 = load ptr, ptr %.sroa.0292.0383, align 8, !tbaa !48
   %.not341 = icmp eq ptr %459, null

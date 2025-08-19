@@ -301,8 +301,8 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %.critedge.i
 
 65:                                               ; preds = %61, %60, %59, %57
-  %.sink1017.i = phi i32 [ 1, %59 ], [ 0, %60 ], [ 3, %61 ], [ 2, %57 ]
-  store i32 %.sink1017.i, ptr %24, align 8
+  %.sink1038.i = phi i32 [ 1, %59 ], [ 0, %60 ], [ 3, %61 ], [ 2, %57 ]
+  store i32 %.sink1038.i, ptr %24, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.backedge
 
@@ -1044,7 +1044,7 @@ list_output_compression_types.exit.i:             ; preds = %.lr.ph.i.i, %336
   %or.cond10.not.i = xor i1 %or.cond10.i, true
   %or.cond12.i = select i1 %or.cond10.not.i, i1 true, i1 %.b214234.i
   %or.cond14.i = select i1 %or.cond12.i, i1 true, i1 %.b207227.i
-  br i1 %or.cond14.i, label %384, label %.thread777.i
+  br i1 %or.cond14.i, label %384, label %.thread798.i
 
 384:                                              ; preds = %383
   %.b192236.i = load i1, ptr @hdr_export_pdu, align 1
@@ -1052,28 +1052,28 @@ list_output_compression_types.exit.i:             ; preds = %.lr.ph.i.i, %336
   %or.cond16.i = select i1 %.b192236.i, i1 %385, i1 false
   br i1 %or.cond16.i, label %387, label %388
 
-.thread777.i:                                     ; preds = %383
+.thread798.i:                                     ; preds = %383
   store i1 true, ptr @hdr_ip, align 1
-  %.b192236779.i = load i1, ptr @hdr_export_pdu, align 1
+  %.b192236800.i = load i1, ptr @hdr_export_pdu, align 1
   %386 = icmp ne i32 %.0153.i, 155
-  %or.cond16780.i = select i1 %.b192236779.i, i1 %386, i1 false
-  br i1 %or.cond16780.i, label %387, label %.thread782.i
+  %or.cond16801.i = select i1 %.b192236800.i, i1 %386, i1 false
+  br i1 %or.cond16801.i, label %387, label %.thread803.i
 
-387:                                              ; preds = %.thread777.i, %384
+387:                                              ; preds = %.thread798.i, %384
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.50)
   br label %parse_options.exit.thread
 
 388:                                              ; preds = %384
-  br i1 %.b214234.i, label %.thread782.i, label %392
+  br i1 %.b214234.i, label %.thread803.i, label %392
 
-.thread782.i:                                     ; preds = %388, %.thread777.i
+.thread803.i:                                     ; preds = %388, %.thread798.i
   switch i32 %.0153.i, label %389 [
     i32 1, label %.sink.split.i
     i32 7, label %397
     i32 129, label %397
   ]
 
-389:                                              ; preds = %.thread782.i
+389:                                              ; preds = %.thread803.i
   %390 = call ptr @wtap_encap_description(i32 noundef %.0153.i)
   %391 = call ptr @wtap_encap_name(i32 noundef %.0153.i)
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.51, ptr noundef %390, ptr noundef %391)
@@ -1095,13 +1095,13 @@ list_output_compression_types.exit.i:             ; preds = %.lr.ph.i.i, %336
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.52, ptr noundef %395, ptr noundef %396)
   br label %parse_options.exit.thread
 
-.sink.split.i:                                    ; preds = %393, %.thread782.i
-  %.sink1018.i = phi i32 [ 2048, %.thread782.i ], [ 34525, %393 ]
+.sink.split.i:                                    ; preds = %393, %.thread803.i
+  %.sink1039.i = phi i32 [ 2048, %.thread803.i ], [ 34525, %393 ]
   store i1 true, ptr @hdr_ethernet, align 1
-  store i32 %.sink1018.i, ptr @hdr_ethernet_proto, align 4
+  store i32 %.sink1039.i, ptr @hdr_ethernet_proto, align 4
   br label %397
 
-397:                                              ; preds = %.sink.split.i, %393, %393, %392, %.thread782.i, %.thread782.i
+397:                                              ; preds = %.sink.split.i, %393, %393, %392, %.thread803.i, %.thread803.i
   %398 = icmp eq i32 %.0149.i, 4
   br i1 %398, label %399, label %.thread300.i
 

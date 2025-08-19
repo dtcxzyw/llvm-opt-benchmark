@@ -312,30 +312,30 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %162 = fcmp nsz ogt float %161, 0.000000e+00
   %163 = icmp sgt i32 %149, 1
   %164 = icmp sgt i32 %146, 0
-  %or.cond83.i.i = and i1 %164, %163
+  %or.cond87.i.i = and i1 %164, %163
   br i1 %162, label %.preheader.i.i, label %.preheader2.i.i
 
 .preheader2.i.i:                                  ; preds = %.loopexit185
-  br i1 %or.cond83.i.i, label %.lr.ph.us.preheader.i.i, label %diriir2d.exit
+  br i1 %or.cond87.i.i, label %.lr.ph.us.preheader.i.i, label %diriir2d.exit
 
 .lr.ph.us.preheader.i.i:                          ; preds = %.preheader2.i.i
   %165 = zext nneg i32 %146 to i64
   %wide.trip.count.i.i = zext nneg i32 %149 to i64
-  %invariant.gep67.i.i = getelementptr float, ptr %159, i64 %165
+  %invariant.gep71.i.i = getelementptr float, ptr %159, i64 %165
   br label %.lr.ph.us.i.i
 
 .lr.ph.us.i.i:                                    ; preds = %._crit_edge.us.i.i, %.lr.ph.us.preheader.i.i
   %indvars.iv35.i.i = phi i64 [ 1, %.lr.ph.us.preheader.i.i ], [ %indvars.iv.next36.i.i, %._crit_edge.us.i.i ]
   %166 = mul nuw nsw i64 %indvars.iv35.i.i, %165
-  %gep68.i.i = getelementptr float, ptr %invariant.gep67.i.i, i64 %166
-  %167 = getelementptr i8, ptr %gep68.i.i, i64 -4
+  %gep72.i.i = getelementptr float, ptr %invariant.gep71.i.i, i64 %166
+  %167 = getelementptr i8, ptr %gep72.i.i, i64 -4
   %168 = load float, ptr %167, align 4, !tbaa !53
   %169 = fmul nsz float %157, %168
   %170 = tail call nsz float @llvm.fmuladd.f32(float %155, float %168, float %169)
   %171 = add nsw i64 %indvars.iv35.i.i, -1
   %172 = mul nuw nsw i64 %171, %165
   %invariant.gep.i.i = getelementptr float, ptr %159, i64 %166
-  %invariant.gep65.i.i = getelementptr float, ptr %159, i64 %172
+  %invariant.gep69.i.i = getelementptr float, ptr %159, i64 %172
   br label %173
 
 173:                                              ; preds = %173, %.lr.ph.us.i.i
@@ -344,13 +344,13 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv.i.i = add nsw i64 %indvars.iv.in.i.i, -1
   %gep.i.i = getelementptr float, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
   %174 = load float, ptr %gep.i.i, align 4, !tbaa !53
-  %gep66.i.i = getelementptr float, ptr %invariant.gep65.i.i, i64 %indvars.iv.i.i
-  %175 = load float, ptr %gep66.i.i, align 4, !tbaa !53
+  %gep70.i.i = getelementptr float, ptr %invariant.gep69.i.i, i64 %indvars.iv.i.i
+  %175 = load float, ptr %gep70.i.i, align 4, !tbaa !53
   %176 = fmul nsz float %153, %175
   %177 = tail call nsz float @llvm.fmuladd.f32(float %151, float %174, float %176)
   %178 = fadd nsz float %.23.us.i.i, %177
   store float %178, ptr %gep.i.i, align 4, !tbaa !53
-  %179 = load float, ptr %gep66.i.i, align 4, !tbaa !53
+  %179 = load float, ptr %gep70.i.i, align 4, !tbaa !53
   %180 = fmul nsz float %157, %179
   %181 = tail call nsz float @llvm.fmuladd.f32(float %155, float %178, float %180)
   %182 = icmp sgt i64 %indvars.iv.in.i.i, 1
@@ -362,7 +362,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %exitcond.not.i.i, label %.lr.ph.us13.preheader.i.i, label %.lr.ph.us.i.i, !llvm.loop !64
 
 .preheader.i.i:                                   ; preds = %.loopexit185
-  br i1 %or.cond83.i.i, label %.lr.ph.us20.preheader.i.i, label %diriir2d.exit
+  br i1 %or.cond87.i.i, label %.lr.ph.us20.preheader.i.i, label %diriir2d.exit
 
 .lr.ph.us20.preheader.i.i:                        ; preds = %.preheader.i.i
   %183 = zext nneg i32 %146 to i64
@@ -378,21 +378,21 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %188 = tail call nsz float @llvm.fmuladd.f32(float %155, float %186, float %187)
   %189 = add nsw i64 %indvars.iv51.i.i, -1
   %190 = mul nuw nsw i64 %189, %183
-  %invariant.gep75.i.i = getelementptr float, ptr %159, i64 %190
+  %invariant.gep79.i.i = getelementptr float, ptr %159, i64 %190
   br label %191
 
 191:                                              ; preds = %191, %.lr.ph.us20.i.i
   %indvars.iv46.i.i = phi i64 [ 0, %.lr.ph.us20.i.i ], [ %indvars.iv.next47.i.i, %191 ]
   %.017315.us.i.i = phi float [ %188, %.lr.ph.us20.i.i ], [ %199, %191 ]
-  %gep74.i.i = getelementptr inbounds nuw float, ptr %185, i64 %indvars.iv46.i.i
-  %192 = load float, ptr %gep74.i.i, align 4, !tbaa !53
-  %gep76.i.i = getelementptr float, ptr %invariant.gep75.i.i, i64 %indvars.iv46.i.i
-  %193 = load float, ptr %gep76.i.i, align 4, !tbaa !53
+  %gep78.i.i = getelementptr inbounds nuw float, ptr %185, i64 %indvars.iv46.i.i
+  %192 = load float, ptr %gep78.i.i, align 4, !tbaa !53
+  %gep80.i.i = getelementptr float, ptr %invariant.gep79.i.i, i64 %indvars.iv46.i.i
+  %193 = load float, ptr %gep80.i.i, align 4, !tbaa !53
   %194 = fmul nsz float %153, %193
   %195 = tail call nsz float @llvm.fmuladd.f32(float %151, float %192, float %194)
   %196 = fadd nsz float %.017315.us.i.i, %195
-  store float %196, ptr %gep74.i.i, align 4, !tbaa !53
-  %197 = load float, ptr %gep76.i.i, align 4, !tbaa !53
+  store float %196, ptr %gep78.i.i, align 4, !tbaa !53
+  %197 = load float, ptr %gep80.i.i, align 4, !tbaa !53
   %198 = fmul nsz float %157, %197
   %199 = tail call nsz float @llvm.fmuladd.f32(float %155, float %196, float %198)
   %indvars.iv.next47.i.i = add nuw nsw i64 %indvars.iv46.i.i, 1
@@ -407,36 +407,36 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph.us27.preheader.i.i:                        ; preds = %._crit_edge.us21.i.i
   %200 = add nsw i32 %149, -2
   %201 = zext nneg i32 %200 to i64
-  %invariant.gep81.i.i = getelementptr float, ptr %159, i64 %183
+  %invariant.gep85.i.i = getelementptr float, ptr %159, i64 %183
   br label %.lr.ph.us27.i.i
 
 .lr.ph.us27.i.i:                                  ; preds = %._crit_edge.us28.i.i, %.lr.ph.us27.preheader.i.i
   %indvars.iv59.i.i = phi i64 [ %201, %.lr.ph.us27.preheader.i.i ], [ %indvars.iv.next60.i.i, %._crit_edge.us28.i.i ]
   %202 = mul nsw i64 %indvars.iv59.i.i, %183
-  %gep82.i.i = getelementptr float, ptr %invariant.gep81.i.i, i64 %202
-  %203 = getelementptr i8, ptr %gep82.i.i, i64 -4
+  %gep86.i.i = getelementptr float, ptr %invariant.gep85.i.i, i64 %202
+  %203 = getelementptr i8, ptr %gep86.i.i, i64 -4
   %204 = load float, ptr %203, align 4, !tbaa !53
   %205 = fmul nsz float %157, %204
   %206 = tail call nsz float @llvm.fmuladd.f32(float %155, float %204, float %205)
   %207 = add nuw nsw i64 %indvars.iv59.i.i, 1
   %208 = mul nsw i64 %207, %183
-  %invariant.gep77.i.i = getelementptr float, ptr %159, i64 %202
-  %invariant.gep79.i.i = getelementptr float, ptr %159, i64 %208
+  %invariant.gep81.i.i = getelementptr float, ptr %159, i64 %202
+  %invariant.gep83.i.i = getelementptr float, ptr %159, i64 %208
   br label %209
 
 209:                                              ; preds = %209, %.lr.ph.us27.i.i
   %indvars.iv56.in.i.i = phi i64 [ %183, %.lr.ph.us27.i.i ], [ %indvars.iv56.i.i, %209 ]
   %.122.us.i.i = phi float [ %206, %.lr.ph.us27.i.i ], [ %217, %209 ]
   %indvars.iv56.i.i = add nsw i64 %indvars.iv56.in.i.i, -1
-  %gep78.i.i = getelementptr float, ptr %invariant.gep77.i.i, i64 %indvars.iv56.i.i
-  %210 = load float, ptr %gep78.i.i, align 4, !tbaa !53
-  %gep80.i.i = getelementptr float, ptr %invariant.gep79.i.i, i64 %indvars.iv56.i.i
-  %211 = load float, ptr %gep80.i.i, align 4, !tbaa !53
+  %gep82.i.i = getelementptr float, ptr %invariant.gep81.i.i, i64 %indvars.iv56.i.i
+  %210 = load float, ptr %gep82.i.i, align 4, !tbaa !53
+  %gep84.i.i = getelementptr float, ptr %invariant.gep83.i.i, i64 %indvars.iv56.i.i
+  %211 = load float, ptr %gep84.i.i, align 4, !tbaa !53
   %212 = fmul nsz float %153, %211
   %213 = tail call nsz float @llvm.fmuladd.f32(float %151, float %210, float %212)
   %214 = fadd nsz float %.122.us.i.i, %213
-  store float %214, ptr %gep78.i.i, align 4, !tbaa !53
-  %215 = load float, ptr %gep80.i.i, align 4, !tbaa !53
+  store float %214, ptr %gep82.i.i, align 4, !tbaa !53
+  %215 = load float, ptr %gep84.i.i, align 4, !tbaa !53
   %216 = fmul nsz float %157, %215
   %217 = tail call nsz float @llvm.fmuladd.f32(float %155, float %214, float %216)
   %218 = icmp sgt i64 %indvars.iv56.in.i.i, 1
@@ -461,21 +461,21 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %226 = tail call nsz float @llvm.fmuladd.f32(float %155, float %224, float %225)
   %227 = add nuw nsw i64 %indvars.iv43.i.i, 1
   %228 = mul nsw i64 %227, %165
-  %invariant.gep71.i.i = getelementptr float, ptr %159, i64 %228
+  %invariant.gep75.i.i = getelementptr float, ptr %159, i64 %228
   br label %229
 
 229:                                              ; preds = %229, %.lr.ph.us13.i.i
   %indvars.iv38.i.i = phi i64 [ 0, %.lr.ph.us13.i.i ], [ %indvars.iv.next39.i.i, %229 ]
   %.38.us.i.i = phi float [ %226, %.lr.ph.us13.i.i ], [ %237, %229 ]
-  %gep70.i.i = getelementptr float, ptr %223, i64 %indvars.iv38.i.i
-  %230 = load float, ptr %gep70.i.i, align 4, !tbaa !53
-  %gep72.i.i = getelementptr float, ptr %invariant.gep71.i.i, i64 %indvars.iv38.i.i
-  %231 = load float, ptr %gep72.i.i, align 4, !tbaa !53
+  %gep74.i.i = getelementptr float, ptr %223, i64 %indvars.iv38.i.i
+  %230 = load float, ptr %gep74.i.i, align 4, !tbaa !53
+  %gep76.i.i = getelementptr float, ptr %invariant.gep75.i.i, i64 %indvars.iv38.i.i
+  %231 = load float, ptr %gep76.i.i, align 4, !tbaa !53
   %232 = fmul nsz float %153, %231
   %233 = tail call nsz float @llvm.fmuladd.f32(float %151, float %230, float %232)
   %234 = fadd nsz float %.38.us.i.i, %233
-  store float %234, ptr %gep70.i.i, align 4, !tbaa !53
-  %235 = load float, ptr %gep72.i.i, align 4, !tbaa !53
+  store float %234, ptr %gep74.i.i, align 4, !tbaa !53
+  %235 = load float, ptr %gep76.i.i, align 4, !tbaa !53
   %236 = fmul nsz float %157, %235
   %237 = tail call nsz float @llvm.fmuladd.f32(float %155, float %234, float %236)
   %indvars.iv.next39.i.i = add nuw nsw i64 %indvars.iv38.i.i, 1

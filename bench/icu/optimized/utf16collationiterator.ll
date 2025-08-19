@@ -831,8 +831,8 @@ define void @_ZN6icu_7722UTF16CollationIterator20forwardNumCodePointsEiR10UError
   store ptr %30, ptr %5, align 8, !tbaa !28
   %31 = add nsw i32 %.0515, -1
   %32 = and i16 %27, -1024
-  %.not20 = icmp eq i16 %32, -10240
-  br i1 %.not20, label %33, label %39
+  %.not24 = icmp eq i16 %32, -10240
+  br i1 %.not24, label %33, label %39
 
 33:                                               ; preds = %29
   %34 = load i16, ptr %30, align 2, !tbaa !30
@@ -1206,10 +1206,10 @@ define noundef i32 @_ZNK6icu_7725FCDUTF16CollationIterator9getOffsetEv(ptr nound
   br label %20
 
 20:                                               ; preds = %13, %17, %10
-  %.sink5 = phi ptr [ %19, %17 ], [ %12, %10 ], [ %8, %13 ]
+  %.sink7 = phi ptr [ %19, %17 ], [ %12, %10 ], [ %8, %13 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %22 = load ptr, ptr %21, align 8, !tbaa !43
-  %23 = ptrtoint ptr %.sink5 to i64
+  %23 = ptrtoint ptr %.sink7 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
   %.0.in = lshr exact i64 %25, 1
@@ -1246,7 +1246,7 @@ define noundef i32 @_ZN6icu_7725FCDUTF16CollationIterator14handleNextCE32ERiR10U
   %.promoted30 = load ptr, ptr %11, align 8
   %14 = icmp eq ptr %.promoted29, %.promoted28
   %15 = icmp eq i8 %.promoted, 0
-  br i1 %15, label %61, label %.lr.ph38
+  br i1 %15, label %61, label %.lr.ph46
 
 ._crit_edge:                                      ; preds = %_ZN6icu_7725FCDUTF16CollationIterator15switchToForwardEv.exit.thread, %.._crit_edge_crit_edge
   %16 = phi ptr [ %.pre33, %.._crit_edge_crit_edge ], [ %13, %_ZN6icu_7725FCDUTF16CollationIterator15switchToForwardEv.exit.thread ]
@@ -1345,7 +1345,7 @@ _ZN6icu_7712CollationFCD7hasLcccEi.exit:          ; preds = %44
   store ptr %63, ptr %7, align 8, !tbaa !28
   br label %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread.sink.split
 
-.lr.ph38:                                         ; preds = %.lr.ph
+.lr.ph46:                                         ; preds = %.lr.ph
   %64 = icmp eq ptr %.promoted27, %10
   store ptr %.promoted27, ptr %6, align 8, !tbaa !48
   store ptr %.promoted27, ptr %8, align 8, !tbaa !17
@@ -1360,13 +1360,13 @@ _ZN6icu_7712CollationFCD7hasLcccEi.exit:          ; preds = %44
   store ptr %10, ptr %7, align 8, !tbaa !28
   br label %_ZN6icu_7725FCDUTF16CollationIterator15switchToForwardEv.exit.thread
 
-_ZN6icu_7725FCDUTF16CollationIterator15switchToForwardEv.exit.thread: ; preds = %.lr.ph38, %65, %66
-  %67 = phi ptr [ %10, %66 ], [ %.promoted27, %65 ], [ %.promoted27, %.lr.ph38 ]
+_ZN6icu_7725FCDUTF16CollationIterator15switchToForwardEv.exit.thread: ; preds = %.lr.ph46, %65, %66
+  %67 = phi ptr [ %10, %66 ], [ %.promoted27, %65 ], [ %.promoted27, %.lr.ph46 ]
   store ptr %13, ptr %11, align 8, !tbaa !29
   store i8 1, ptr %4, align 8, !tbaa !53
   br label %._crit_edge
 
-_ZN6icu_7725FCDUTF16CollationIterator15switchToForwardEv.exit: ; preds = %.lr.ph38
+_ZN6icu_7725FCDUTF16CollationIterator15switchToForwardEv.exit: ; preds = %.lr.ph46
   store i8 0, ptr %4, align 8, !tbaa !53
   br label %61
 
@@ -1755,7 +1755,7 @@ define noundef range(i32 -1, 10559488) i32 @_ZN6icu_7725FCDUTF16CollationIterato
   %.promoted35 = load ptr, ptr %10, align 8
   %13 = icmp eq ptr %.promoted34, %.promoted33
   %14 = icmp eq i8 %.promoted, 0
-  br i1 %14, label %64, label %.lr.ph43
+  br i1 %14, label %64, label %.lr.ph53
 
 ._crit_edge:                                      ; preds = %_ZN6icu_7725FCDUTF16CollationIterator15switchToForwardEv.exit.thread, %.._crit_edge_crit_edge
   %15 = phi ptr [ %.pre38, %.._crit_edge_crit_edge ], [ %12, %_ZN6icu_7725FCDUTF16CollationIterator15switchToForwardEv.exit.thread ]
@@ -1861,7 +1861,7 @@ _ZN6icu_7712CollationFCD7hasTcccEi.exit.thread:   ; preds = %20
   store ptr %66, ptr %6, align 8, !tbaa !28
   br label %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread.sink.split
 
-.lr.ph43:                                         ; preds = %.lr.ph
+.lr.ph53:                                         ; preds = %.lr.ph
   %67 = icmp eq ptr %.promoted32, %9
   store ptr %.promoted32, ptr %5, align 8, !tbaa !48
   store ptr %.promoted32, ptr %7, align 8, !tbaa !17
@@ -1876,20 +1876,20 @@ _ZN6icu_7712CollationFCD7hasTcccEi.exit.thread:   ; preds = %20
   store ptr %9, ptr %6, align 8, !tbaa !28
   br label %_ZN6icu_7725FCDUTF16CollationIterator15switchToForwardEv.exit.thread
 
-_ZN6icu_7725FCDUTF16CollationIterator15switchToForwardEv.exit.thread: ; preds = %.lr.ph43, %68, %69
-  %70 = phi ptr [ %9, %69 ], [ %.promoted32, %68 ], [ %.promoted32, %.lr.ph43 ]
+_ZN6icu_7725FCDUTF16CollationIterator15switchToForwardEv.exit.thread: ; preds = %.lr.ph53, %68, %69
+  %70 = phi ptr [ %9, %69 ], [ %.promoted32, %68 ], [ %.promoted32, %.lr.ph53 ]
   store ptr %12, ptr %10, align 8, !tbaa !29
   store i8 1, ptr %3, align 8, !tbaa !53
   br label %._crit_edge
 
-_ZN6icu_7725FCDUTF16CollationIterator15switchToForwardEv.exit: ; preds = %.lr.ph43
+_ZN6icu_7725FCDUTF16CollationIterator15switchToForwardEv.exit: ; preds = %.lr.ph53
   store i8 0, ptr %3, align 8, !tbaa !53
   br label %64
 
 _ZN6icu_7712CollationFCD7hasLcccEi.exit.thread.sink.split: ; preds = %65, %56
-  %.sink41 = phi ptr [ %57, %56 ], [ %.promoted32, %65 ]
+  %.sink51 = phi ptr [ %57, %56 ], [ %.promoted32, %65 ]
   %.ph = phi ptr [ %58, %56 ], [ %66, %65 ]
-  %71 = load i16, ptr %.sink41, align 2, !tbaa !30
+  %71 = load i16, ptr %.sink51, align 2, !tbaa !30
   %72 = zext i16 %71 to i32
   br label %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread
 
@@ -1952,7 +1952,7 @@ define noundef range(i32 -1, 10559488) i32 @_ZN6icu_7725FCDUTF16CollationIterato
   %.promoted27 = load ptr, ptr %.phi.trans.insert, align 8
   %.promoted28 = load ptr, ptr %11, align 8
   %12 = icmp eq i8 %.promoted, 0
-  br i1 %12, label %59, label %.lr.ph33
+  br i1 %12, label %59, label %.lr.ph43
 
 ._crit_edge:                                      ; preds = %_ZN6icu_7725FCDUTF16CollationIterator16switchToBackwardEv.exit.thread, %.._crit_edge_crit_edge
   %13 = phi ptr [ %.pre31, %.._crit_edge_crit_edge ], [ %10, %_ZN6icu_7725FCDUTF16CollationIterator16switchToBackwardEv.exit.thread ]
@@ -2046,7 +2046,7 @@ _ZN6icu_7712CollationFCD7hasTcccEi.exit:          ; preds = %41
   %63 = zext i16 %62 to i32
   br label %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread
 
-.lr.ph33:                                         ; preds = %.lr.ph
+.lr.ph43:                                         ; preds = %.lr.ph
   %64 = icmp eq ptr %.promoted27, %8
   store ptr %.promoted27, ptr %5, align 8, !tbaa !49
   store ptr %.promoted27, ptr %6, align 8, !tbaa !29
@@ -2062,13 +2062,13 @@ _ZN6icu_7712CollationFCD7hasTcccEi.exit:          ; preds = %41
   store ptr %8, ptr %.phi.trans.insert, align 8, !tbaa !28
   br label %_ZN6icu_7725FCDUTF16CollationIterator16switchToBackwardEv.exit.thread
 
-_ZN6icu_7725FCDUTF16CollationIterator16switchToBackwardEv.exit.thread: ; preds = %.lr.ph33, %65, %67
-  %.ph = phi ptr [ %8, %67 ], [ %.promoted27, %65 ], [ %.promoted27, %.lr.ph33 ]
+_ZN6icu_7725FCDUTF16CollationIterator16switchToBackwardEv.exit.thread: ; preds = %.lr.ph43, %65, %67
+  %.ph = phi ptr [ %8, %67 ], [ %.promoted27, %65 ], [ %.promoted27, %.lr.ph43 ]
   store ptr %10, ptr %11, align 8, !tbaa !17
   store i8 -1, ptr %3, align 8, !tbaa !53
   br label %._crit_edge
 
-_ZN6icu_7725FCDUTF16CollationIterator16switchToBackwardEv.exit: ; preds = %.lr.ph33
+_ZN6icu_7725FCDUTF16CollationIterator16switchToBackwardEv.exit: ; preds = %.lr.ph43
   store i8 0, ptr %3, align 8, !tbaa !53
   br label %59
 

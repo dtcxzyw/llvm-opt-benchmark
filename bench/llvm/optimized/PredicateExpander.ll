@@ -2849,14 +2849,14 @@ define dso_local void @_ZN4llvm17PredicateExpander15expandPredicateERNS_11raw_os
 
 24:                                               ; preds = %22
   %25 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.1, i64 noundef 5) #11
-  br label %common.ret251
+  br label %common.ret254
 
 26:                                               ; preds = %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %18, ptr noundef nonnull align 1 dereferenceable(5) @.str.1, i64 5, i1 false)
   %27 = load ptr, ptr %17, align 8, !tbaa !12
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 5
   store ptr %28, ptr %17, align 8, !tbaa !12
-  br label %common.ret251
+  br label %common.ret254
 
 29:                                               ; preds = %11
   %30 = icmp ult i64 %21, 4
@@ -2864,14 +2864,14 @@ define dso_local void @_ZN4llvm17PredicateExpander15expandPredicateERNS_11raw_os
 
 31:                                               ; preds = %29
   %32 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str, i64 noundef 4) #11
-  br label %common.ret251
+  br label %common.ret254
 
 33:                                               ; preds = %29
   store i32 1702195828, ptr %18, align 1
   %34 = load ptr, ptr %17, align 8, !tbaa !12
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store ptr %35, ptr %17, align 8, !tbaa !12
-  br label %common.ret251
+  br label %common.ret254
 
 36:                                               ; preds = %3
   %37 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.61, i64 7)
@@ -2896,14 +2896,14 @@ define dso_local void @_ZN4llvm17PredicateExpander15expandPredicateERNS_11raw_os
 
 51:                                               ; preds = %49
   %52 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str, i64 noundef 4) #11
-  br label %common.ret251
+  br label %common.ret254
 
 53:                                               ; preds = %49
   store i32 1702195828, ptr %45, align 1
   %54 = load ptr, ptr %44, align 8, !tbaa !12
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store ptr %55, ptr %44, align 8, !tbaa !12
-  br label %common.ret251
+  br label %common.ret254
 
 56:                                               ; preds = %38
   %57 = icmp ult i64 %48, 5
@@ -2911,20 +2911,20 @@ define dso_local void @_ZN4llvm17PredicateExpander15expandPredicateERNS_11raw_os
 
 58:                                               ; preds = %56
   %59 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.1, i64 noundef 5) #11
-  br label %common.ret251
+  br label %common.ret254
 
 60:                                               ; preds = %56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %45, ptr noundef nonnull align 1 dereferenceable(5) @.str.1, i64 5, i1 false)
   %61 = load ptr, ptr %44, align 8, !tbaa !12
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 5
   store ptr %62, ptr %44, align 8, !tbaa !12
-  br label %common.ret251
+  br label %common.ret254
 
 63:                                               ; preds = %36
   %64 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.62, i64 8)
   br i1 %64, label %65, label %72
 
-common.ret251:                                    ; preds = %60, %58, %53, %51, %33, %31, %26, %24, %267, %263, %250, %241, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit120, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit118, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit116, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit, %168, %161, %153, %143, %133, %121, %111, %106, %98, %89, %84, %79, %74, %65
+common.ret254:                                    ; preds = %60, %58, %53, %51, %33, %31, %26, %24, %267, %263, %250, %241, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit120, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit118, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit116, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit, %168, %161, %153, %143, %133, %121, %111, %106, %98, %89, %84, %79, %74, %65
   ret void
 
 65:                                               ; preds = %63
@@ -2937,7 +2937,7 @@ common.ret251:                                    ; preds = %60, %58, %53, %51, 
   %70 = load i8, ptr %66, align 1, !tbaa !21, !range !19, !noundef !20
   %71 = xor i8 %70, 1
   store i8 %71, ptr %66, align 1, !tbaa !21
-  br label %common.ret251
+  br label %common.ret254
 
 72:                                               ; preds = %63
   %73 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.63, i64 17)
@@ -2947,7 +2947,7 @@ common.ret251:                                    ; preds = %60, %58, %53, %51, 
   %75 = tail call noundef i64 @_ZNK4llvm6Record13getValueAsIntENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.64, i64 7) #11
   %76 = trunc i64 %75 to i32
   tail call void @_ZN4llvm17PredicateExpander23expandCheckIsRegOperandERNS_11raw_ostreamEi(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %76)
-  br label %common.ret251
+  br label %common.ret254
 
 77:                                               ; preds = %72
   %78 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.65, i64 18)
@@ -2957,7 +2957,7 @@ common.ret251:                                    ; preds = %60, %58, %53, %51, 
   %80 = tail call noundef i64 @_ZNK4llvm6Record13getValueAsIntENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.64, i64 7) #11
   %81 = trunc i64 %80 to i32
   tail call void @_ZN4llvm17PredicateExpander24expandCheckIsVRegOperandERNS_11raw_ostreamEi(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %81)
-  br label %common.ret251
+  br label %common.ret254
 
 82:                                               ; preds = %77
   %83 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.66, i64 17)
@@ -2967,7 +2967,7 @@ common.ret251:                                    ; preds = %60, %58, %53, %51, 
   %85 = tail call noundef i64 @_ZNK4llvm6Record13getValueAsIntENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.64, i64 7) #11
   %86 = trunc i64 %85 to i32
   tail call void @_ZN4llvm17PredicateExpander23expandCheckIsImmOperandERNS_11raw_ostreamEi(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %86)
-  br label %common.ret251
+  br label %common.ret254
 
 87:                                               ; preds = %82
   %88 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.67, i64 15)
@@ -2981,7 +2981,7 @@ common.ret251:                                    ; preds = %60, %58, %53, %51, 
   %94 = extractvalue { ptr, i64 } %93, 0
   %95 = extractvalue { ptr, i64 } %93, 1
   tail call void @_ZN4llvm17PredicateExpander21expandCheckRegOperandERNS_11raw_ostreamEiPKNS_6RecordENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %91, ptr noundef %92, ptr %94, i64 %95)
-  br label %common.ret251
+  br label %common.ret254
 
 96:                                               ; preds = %87
   %97 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.70, i64 21)
@@ -2994,7 +2994,7 @@ common.ret251:                                    ; preds = %60, %58, %53, %51, 
   %102 = extractvalue { ptr, i64 } %101, 0
   %103 = extractvalue { ptr, i64 } %101, 1
   tail call void @_ZN4llvm17PredicateExpander27expandCheckRegOperandSimpleERNS_11raw_ostreamEiNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %100, ptr %102, i64 %103)
-  br label %common.ret251
+  br label %common.ret254
 
 104:                                              ; preds = %96
   %105 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.71, i64 22)
@@ -3004,7 +3004,7 @@ common.ret251:                                    ; preds = %60, %58, %53, %51, 
   %107 = tail call noundef i64 @_ZNK4llvm6Record13getValueAsIntENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.64, i64 7) #11
   %108 = trunc i64 %107 to i32
   tail call void @_ZN4llvm17PredicateExpander28expandCheckInvalidRegOperandERNS_11raw_ostreamEi(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %108)
-  br label %common.ret251
+  br label %common.ret254
 
 109:                                              ; preds = %104
   %110 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.72, i64 15)
@@ -3019,7 +3019,7 @@ common.ret251:                                    ; preds = %60, %58, %53, %51, 
   %117 = extractvalue { ptr, i64 } %116, 0
   %118 = extractvalue { ptr, i64 } %116, 1
   tail call void @_ZN4llvm17PredicateExpander21expandCheckImmOperandERNS_11raw_ostreamEiiNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %113, i32 noundef %115, ptr %117, i64 %118)
-  br label %common.ret251
+  br label %common.ret254
 
 119:                                              ; preds = %109
   %120 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.74, i64 17)
@@ -3038,7 +3038,7 @@ common.ret251:                                    ; preds = %60, %58, %53, %51, 
   %130 = extractvalue { ptr, i64 } %127, 1
   store i64 %130, ptr %129, align 8
   tail call void @_ZN4llvm17PredicateExpander21expandCheckImmOperandERNS_11raw_ostreamEiNS_9StringRefES3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %123, ptr %125, i64 %126, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4)
-  br label %common.ret251
+  br label %common.ret254
 
 131:                                              ; preds = %119
   %132 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.75, i64 17)
@@ -3053,7 +3053,7 @@ common.ret251:                                    ; preds = %60, %58, %53, %51, 
   %139 = extractvalue { ptr, i64 } %138, 0
   %140 = extractvalue { ptr, i64 } %138, 1
   tail call void @_ZN4llvm17PredicateExpander23expandCheckImmOperandLTERNS_11raw_ostreamEiiNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %135, i32 noundef %137, ptr %139, i64 %140)
-  br label %common.ret251
+  br label %common.ret254
 
 141:                                              ; preds = %131
   %142 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.76, i64 17)
@@ -3068,7 +3068,7 @@ common.ret251:                                    ; preds = %60, %58, %53, %51, 
   %149 = extractvalue { ptr, i64 } %148, 0
   %150 = extractvalue { ptr, i64 } %148, 1
   tail call void @_ZN4llvm17PredicateExpander23expandCheckImmOperandGTERNS_11raw_ostreamEiiNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %145, i32 noundef %147, ptr %149, i64 %150)
-  br label %common.ret251
+  br label %common.ret254
 
 151:                                              ; preds = %141
   %152 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.77, i64 21)
@@ -3081,7 +3081,7 @@ common.ret251:                                    ; preds = %60, %58, %53, %51, 
   %157 = extractvalue { ptr, i64 } %156, 0
   %158 = extractvalue { ptr, i64 } %156, 1
   tail call void @_ZN4llvm17PredicateExpander27expandCheckImmOperandSimpleERNS_11raw_ostreamEiNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %155, ptr %157, i64 %158)
-  br label %common.ret251
+  br label %common.ret254
 
 159:                                              ; preds = %151
   %160 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.78, i64 19)
@@ -3093,7 +3093,7 @@ common.ret251:                                    ; preds = %60, %58, %53, %51, 
   %164 = tail call noundef i64 @_ZNK4llvm6Record13getValueAsIntENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.80, i64 11) #11
   %165 = trunc i64 %164 to i32
   tail call void @_ZN4llvm17PredicateExpander25expandCheckSameRegOperandERNS_11raw_ostreamEii(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %163, i32 noundef %165)
-  br label %common.ret251
+  br label %common.ret254
 
 166:                                              ; preds = %159
   %167 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.81, i64 16)
@@ -3103,7 +3103,7 @@ common.ret251:                                    ; preds = %60, %58, %53, %51, 
   %169 = tail call noundef i64 @_ZNK4llvm6Record13getValueAsIntENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.82, i64 6) #11
   %170 = trunc i64 %169 to i32
   tail call void @_ZN4llvm17PredicateExpander22expandCheckNumOperandsERNS_11raw_ostreamEi(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %170)
-  br label %common.ret251
+  br label %common.ret254
 
 171:                                              ; preds = %166
   %172 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.83, i64 11)
@@ -3135,7 +3135,7 @@ common.ret251:                                    ; preds = %60, %58, %53, %51, 
 
 _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit:   ; preds = %173, %182
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %common.ret251
+  br label %common.ret254
 
 188:                                              ; preds = %171
   %189 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.85, i64 11)
@@ -3167,7 +3167,7 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit:   ; preds = %173, %182
 
 _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit116: ; preds = %190, %199
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %common.ret251
+  br label %common.ret254
 
 205:                                              ; preds = %188
   %206 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.86, i64 8)
@@ -3199,7 +3199,7 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit116: ; preds = %190, %199
 
 _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit118: ; preds = %207, %216
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %common.ret251
+  br label %common.ret254
 
 222:                                              ; preds = %205
   %223 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.88, i64 8)
@@ -3231,7 +3231,7 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit118: ; preds = %207, %216
 
 _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit120: ; preds = %224, %233
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %common.ret251
+  br label %common.ret254
 
 239:                                              ; preds = %222
   %240 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.89, i64 22)
@@ -3245,7 +3245,7 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit120: ; preds = %224, %233
   %246 = extractvalue { ptr, i64 } %245, 0
   %247 = extractvalue { ptr, i64 } %245, 1
   tail call void @_ZN4llvm17PredicateExpander28expandCheckFunctionPredicateERNS_11raw_ostreamENS_9StringRefES3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %243, i64 %244, ptr %246, i64 %247)
-  br label %common.ret251
+  br label %common.ret254
 
 248:                                              ; preds = %239
   %249 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.92, i64 29)
@@ -3265,7 +3265,7 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit120: ; preds = %224, %233
   %260 = extractvalue { ptr, i64 } %257, 1
   store i64 %260, ptr %259, align 8
   tail call void @_ZN4llvm17PredicateExpander35expandCheckFunctionPredicateWithTIIERNS_11raw_ostreamENS_9StringRefES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %252, i64 %253, ptr %255, i64 %256, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %9)
-  br label %common.ret251
+  br label %common.ret254
 
 261:                                              ; preds = %248
   %262 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.94, i64 16)
@@ -3276,7 +3276,7 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit120: ; preds = %224, %233
   %265 = extractvalue { ptr, i64 } %264, 0
   %266 = extractvalue { ptr, i64 } %264, 1
   tail call void @_ZN4llvm17PredicateExpander22expandCheckNonPortableERNS_11raw_ostreamENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %265, i64 %266)
-  br label %common.ret251
+  br label %common.ret254
 
 267:                                              ; preds = %261
   %268 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.96, i64 12)
@@ -3285,7 +3285,7 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit120: ; preds = %224, %233
   %270 = extractvalue { ptr, i64 } %269, 0
   %271 = extractvalue { ptr, i64 } %269, 1
   tail call void @_ZN4llvm17PredicateExpander21expandTIIFunctionCallERNS_11raw_ostreamENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %270, i64 %271)
-  br label %common.ret251
+  br label %common.ret254
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

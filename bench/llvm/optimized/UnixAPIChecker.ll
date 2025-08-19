@@ -1509,7 +1509,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %_ZN4llvm15isa_and_n
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
   switch i64 %49, label %_ZN4llvmeqENS_9StringRefES0_.exit31.thread.i [
-    i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit27.thread42.i
+    i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit27.thread43.i
     i64 12, label %_ZN4llvmeqENS_9StringRefES0_.exit31.i
   ]
 
@@ -1518,19 +1518,19 @@ _ZN4llvmeqENS_9StringRefES0_.exit27.i:            ; preds = %_ZN4llvm15isa_and_n
   %53 = icmp eq i32 %bcmp.i26.i, 0
   br i1 %53, label %56, label %_ZN4llvmeqENS_9StringRefES0_.exit27.thread.i
 
-_ZN4llvmeqENS_9StringRefES0_.exit27.thread42.i:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
-  %bcmp.i2643.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %48, ptr noundef nonnull dereferenceable(6) @.str.7, i64 6)
-  %54 = icmp eq i32 %bcmp.i2643.i, 0
+_ZN4llvmeqENS_9StringRefES0_.exit27.thread43.i:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
+  %bcmp.i2644.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %48, ptr noundef nonnull dereferenceable(6) @.str.7, i64 6)
+  %54 = icmp eq i32 %bcmp.i2644.i, 0
   br i1 %54, label %56, label %_ZN4llvmeqENS_9StringRefES0_.exit31.thread.i.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit31.thread.i.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit27.thread42.i
+_ZN4llvmeqENS_9StringRefES0_.exit31.thread.i.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit27.thread43.i
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr @.str.9, ptr %28, align 8, !tbaa !9
   %55 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr @.str.10, ptr %55, align 8, !tbaa !9
   br label %.lr.ph.split.i.preheader
 
-56:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit27.thread42.i, %_ZN4llvmeqENS_9StringRefES0_.exit27.i
+56:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit27.thread43.i, %_ZN4llvmeqENS_9StringRefES0_.exit27.i
   tail call fastcc void @_ZNK12_GLOBAL__N_120UnixAPIMisuseChecker16CheckOpenVariantERN5clang4ento14CheckerContextERKNS2_9CallEventE11OpenVariant(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 1)
   br label %_ZNK12_GLOBAL__N_120UnixAPIMisuseChecker12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
@@ -1605,8 +1605,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i10: ; p
 86:                                               ; preds = %81
   %87 = load ptr, ptr %65, align 8, !tbaa !60
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i6.i.i = load i64, ptr %88, align 8
-  %89 = and i64 %.0.copyload.i.i.i.i6.i.i, -8
+  %.0.copyload.i.i.i.i7.i.i = load i64, ptr %88, align 8
+  %89 = and i64 %.0.copyload.i.i.i.i7.i.i, -8
   %90 = inttoptr i64 %89 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 56
@@ -2372,9 +2372,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit55.i: ; preds
   br i1 %.not.i.i56.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit57.i, label %365
 
 365:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit55.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit55.thread.i
-  %.sroa.071.1102.i = phi ptr [ %287, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit55.thread.i ], [ %.sroa.071.0.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit55.i ]
+  %.sroa.071.1120.i = phi ptr [ %287, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit55.thread.i ], [ %.sroa.071.0.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit55.i ]
   %366 = phi ptr [ null, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit55.thread.i ], [ %.pre.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit55.i ]
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.071.1102.i) #19
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.071.1120.i) #19
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit57.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit57.i: ; preds = %365, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit55.i
@@ -3215,8 +3215,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_120UnixAPIMisuseChecker13ReportOpe
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !60
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.0.copyload.i.i.i.i6.i = load i64, ptr %16, align 8
-  %17 = and i64 %.0.copyload.i.i.i.i6.i, -8
+  %.0.copyload.i.i.i.i7.i = load i64, ptr %16, align 8
+  %17 = and i64 %.0.copyload.i.i.i.i7.i, -8
   %18 = inttoptr i64 %17 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 56
@@ -3742,8 +3742,8 @@ define internal fastcc void @"_ZZNK12_GLOBAL__N_120UnixAPIMisuseChecker34EnsureG
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !60
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %.0.copyload.i.i.i.i6.i = load i64, ptr %18, align 8
-  %19 = and i64 %.0.copyload.i.i.i.i6.i, -8
+  %.0.copyload.i.i.i.i7.i = load i64, ptr %18, align 8
+  %19 = and i64 %.0.copyload.i.i.i.i7.i, -8
   %20 = inttoptr i64 %19 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 56
@@ -4555,8 +4555,8 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125UnixAPIPortabilit
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !60
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.0.copyload.i.i.i.i6.i = load i64, ptr %18, align 8
-  %19 = and i64 %.0.copyload.i.i.i.i6.i, -8
+  %.0.copyload.i.i.i.i7.i = load i64, ptr %18, align 8
+  %19 = and i64 %.0.copyload.i.i.i.i7.i, -8
   %20 = inttoptr i64 %19 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 56

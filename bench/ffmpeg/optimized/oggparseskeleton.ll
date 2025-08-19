@@ -41,8 +41,8 @@ define internal range(i32 -1, 2) i32 @skeleton_header(ptr noundef %0, i32 nounde
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !46
   %24 = icmp eq i32 %.pre, 0
-  %or.cond60 = select i1 %.not, i1 %24, i1 false
-  br i1 %or.cond60, label %76, label %._crit_edge
+  %or.cond66 = select i1 %.not, i1 %24, i1 false
+  br i1 %or.cond66, label %76, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
   %25 = icmp ult i32 %.pre, 8

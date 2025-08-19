@@ -143,8 +143,8 @@ define hidden void @_ZN1q19quantifier_stat_gen5resetEv(ptr noundef nonnull align
   %23 = icmp ugt i32 %12, 16
   %24 = mul i32 %12, 3
   %25 = icmp ugt i32 %22, %24
-  %or.cond16.i.i = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond16.i.i, label %26, label %._crit_edge.thread.i.i
+  %or.cond18.i.i = select i1 %23, i1 %25, i1 false
+  br i1 %or.cond18.i.i, label %26, label %._crit_edge.thread.i.i
 
 26:                                               ; preds = %._crit_edge.i.i
   %27 = icmp eq ptr %10, null
@@ -444,11 +444,11 @@ _ZNK11ast_manager6is_iffEPK4expr.exit:            ; preds = %_ZNK3app13get_decl_
 
 118:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit
   %119 = icmp eq i32 %47, 0
-  %.82 = select i1 %119, i32 4, i32 9
+  %.99 = select i1 %119, i32 4, i32 9
   br label %_ZNK3app13get_family_idEv.exit.thread.sink.split
 
 _ZNK3app13get_family_idEv.exit.thread.sink.split: ; preds = %106, %118, %116, %110
-  %.sink = phi i32 [ %111, %110 ], [ %., %116 ], [ %.82, %118 ], [ %spec.select, %106 ]
+  %.sink = phi i32 [ %111, %110 ], [ %., %116 ], [ %.99, %118 ], [ %spec.select, %106 ]
   %120 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10approx_natmLEj(ptr noundef nonnull align 4 dereferenceable(4) %37, i32 noundef %.sink)
   br label %_ZNK3app13get_family_idEv.exit.thread
 

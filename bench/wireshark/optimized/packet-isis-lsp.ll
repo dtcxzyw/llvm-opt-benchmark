@@ -1977,8 +1977,8 @@ define internal void @dissect_lsp_ip_reachability_clv(ptr noundef %0, ptr nounde
 10:                                               ; preds = %.lr.ph.split.us
   %11 = add i32 %.07690.us, 12
   %12 = add nsw i32 %.07789.us, -12
-  %.not110 = icmp eq i32 %.07789.us, 12
-  br i1 %.not110, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !8
+  %.not111 = icmp eq i32 %.07789.us, 12
+  br i1 %.not111, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %37
   %.093 = phi i1 [ %.281, %37 ], [ false, %.lr.ph ]
@@ -2009,8 +2009,8 @@ define internal void @dissect_lsp_ip_reachability_clv(ptr noundef %0, ptr nounde
 22:                                               ; preds = %20
   %23 = shl i32 %.07587, 1
   %24 = add nsw i32 %.07488, -1
-  %.not102 = icmp eq i32 %.07488, 0
-  br i1 %.not102, label %25, label %20, !llvm.loop !9
+  %.not103 = icmp eq i32 %.07488, 0
+  br i1 %.not103, label %25, label %20, !llvm.loop !9
 
 25:                                               ; preds = %22
   br i1 %.093, label %.thread, label %30
@@ -2559,7 +2559,7 @@ define internal void @dissect_lsp_appspec_srlg_clv(ptr noundef %0, ptr noundef %
 
 ._crit_edge:                                      ; preds = %87, %65
   %91 = xor i32 %61, -1
-  %92 = add i32 %.1134, %91
+  %92 = add nsw i32 %.1134, %91
   %93 = icmp sgt i32 %92, 3
   br i1 %93, label %.lr.ph154.preheader, label %.loopexit
 

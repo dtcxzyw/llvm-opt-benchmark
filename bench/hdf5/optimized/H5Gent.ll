@@ -596,9 +596,9 @@ define range(i32 -1, 1) i32 @H5G_ent_encode(ptr noundef %0, ptr noundef %1, ptr 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %54, %30, %59
-  %.sink151 = phi i64 [ 1, %59 ], [ 1, %30 ], [ 8, %54 ]
+  %.sink153 = phi i64 [ 1, %59 ], [ 1, %30 ], [ 8, %54 ]
   %69 = load ptr, ptr %1, align 8, !tbaa !12
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %.sink151
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %.sink153
   store ptr %70, ptr %1, align 8, !tbaa !12
   br label %71
 
@@ -725,12 +725,12 @@ define range(i32 -1, 1) i32 @H5G_ent_encode(ptr noundef %0, ptr noundef %1, ptr 
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 1
   store ptr %141, ptr %1, align 8, !tbaa !12
   store i8 0, ptr %141, align 1, !tbaa !21
-  br label %.sink.split152
+  br label %.sink.split154
 
 142:                                              ; preds = %133
   %143 = load ptr, ptr %1, align 8, !tbaa !12
   store i64 0, ptr %143, align 1
-  br label %.sink.split152
+  br label %.sink.split154
 
 144:                                              ; preds = %133
   %145 = load ptr, ptr %1, align 8, !tbaa !12
@@ -739,16 +739,16 @@ define range(i32 -1, 1) i32 @H5G_ent_encode(ptr noundef %0, ptr noundef %1, ptr 
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 1
   store ptr %147, ptr %1, align 8, !tbaa !12
   store i8 0, ptr %147, align 1, !tbaa !21
-  br label %.sink.split152
+  br label %.sink.split154
 
-.sink.split152:                                   ; preds = %134, %142, %144
-  %.sink154 = phi i64 [ 1, %144 ], [ 8, %142 ], [ 1, %134 ]
+.sink.split154:                                   ; preds = %134, %142, %144
+  %.sink156 = phi i64 [ 1, %144 ], [ 8, %142 ], [ 1, %134 ]
   %148 = load ptr, ptr %1, align 8, !tbaa !12
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 %.sink154
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 %.sink156
   store ptr %149, ptr %1, align 8, !tbaa !12
   br label %150
 
-150:                                              ; preds = %.sink.split152, %133
+150:                                              ; preds = %.sink.split154, %133
   tail call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %1, i64 noundef -1) #9
   %151 = load ptr, ptr %1, align 8, !tbaa !12
   store i8 0, ptr %151, align 1, !tbaa !21

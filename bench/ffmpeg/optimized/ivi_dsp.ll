@@ -491,28 +491,28 @@ define void @ff_ivi_inverse_haar_8x8(ptr noundef readonly captures(none) %0, ptr
   br label %60
 
 60:                                               ; preds = %6, %9
-  %.sink179 = phi i64 [ 96, %9 ], [ 224, %6 ]
-  %.sink177 = phi i32 [ %45, %9 ], [ 0, %6 ]
-  %.sink176 = phi i64 [ 128, %9 ], [ 192, %6 ]
-  %.sink174 = phi i32 [ %53, %9 ], [ 0, %6 ]
-  %.sink172 = phi i32 [ %51, %9 ], [ 0, %6 ]
-  %.sink171 = phi i64 [ 192, %9 ], [ 128, %6 ]
-  %.sink169 = phi i32 [ %59, %9 ], [ 0, %6 ]
-  %.sink168 = phi i64 [ 224, %9 ], [ 96, %6 ]
-  %.sink166 = phi i32 [ %57, %9 ], [ 0, %6 ]
+  %.sink180 = phi i64 [ 96, %9 ], [ 224, %6 ]
+  %.sink178 = phi i32 [ %45, %9 ], [ 0, %6 ]
+  %.sink177 = phi i64 [ 128, %9 ], [ 192, %6 ]
+  %.sink175 = phi i32 [ %53, %9 ], [ 0, %6 ]
+  %.sink173 = phi i32 [ %51, %9 ], [ 0, %6 ]
+  %.sink172 = phi i64 [ 192, %9 ], [ 128, %6 ]
+  %.sink170 = phi i32 [ %59, %9 ], [ 0, %6 ]
+  %.sink169 = phi i64 [ 224, %9 ], [ 96, %6 ]
+  %.sink167 = phi i32 [ %57, %9 ], [ 0, %6 ]
   %.sink165 = phi i32 [ %47, %9 ], [ 0, %6 ]
   %.sink164 = phi i32 [ %39, %9 ], [ 0, %6 ]
   %.sink = phi i32 [ %41, %9 ], [ 0, %6 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.0158, i64 %.sink179
-  store i32 %.sink177, ptr %61, align 4, !tbaa !34
-  %62 = getelementptr inbounds nuw i8, ptr %.0158, i64 %.sink176
-  store i32 %.sink174, ptr %62, align 4, !tbaa !34
+  %61 = getelementptr inbounds nuw i8, ptr %.0158, i64 %.sink180
+  store i32 %.sink178, ptr %61, align 4, !tbaa !34
+  %62 = getelementptr inbounds nuw i8, ptr %.0158, i64 %.sink177
+  store i32 %.sink175, ptr %62, align 4, !tbaa !34
   %63 = getelementptr inbounds nuw i8, ptr %.0158, i64 160
-  store i32 %.sink172, ptr %63, align 4, !tbaa !34
-  %64 = getelementptr inbounds nuw i8, ptr %.0158, i64 %.sink171
-  store i32 %.sink169, ptr %64, align 4, !tbaa !34
-  %65 = getelementptr inbounds nuw i8, ptr %.0158, i64 %.sink168
-  store i32 %.sink166, ptr %65, align 4, !tbaa !34
+  store i32 %.sink173, ptr %63, align 4, !tbaa !34
+  %64 = getelementptr inbounds nuw i8, ptr %.0158, i64 %.sink172
+  store i32 %.sink170, ptr %64, align 4, !tbaa !34
+  %65 = getelementptr inbounds nuw i8, ptr %.0158, i64 %.sink169
+  store i32 %.sink167, ptr %65, align 4, !tbaa !34
   %66 = getelementptr inbounds nuw i8, ptr %.0158, i64 64
   store i32 %.sink165, ptr %66, align 4, !tbaa !34
   %67 = getelementptr inbounds nuw i8, ptr %.0158, i64 32
@@ -1307,28 +1307,28 @@ define void @ff_ivi_inverse_slant_8x8(ptr noundef readonly captures(none) %0, pt
   br label %70
 
 70:                                               ; preds = %6, %9
-  %.sink259 = phi i64 [ 96, %9 ], [ 224, %6 ]
-  %.sink257 = phi i32 [ %62, %9 ], [ 0, %6 ]
-  %.sink256 = phi i64 [ 128, %9 ], [ 192, %6 ]
-  %.sink254 = phi i32 [ %67, %9 ], [ 0, %6 ]
-  %.sink252 = phi i32 [ %69, %9 ], [ 0, %6 ]
-  %.sink251 = phi i64 [ 192, %9 ], [ 128, %6 ]
-  %.sink249 = phi i32 [ %68, %9 ], [ 0, %6 ]
-  %.sink248 = phi i64 [ 224, %9 ], [ 96, %6 ]
-  %.sink246 = phi i32 [ %66, %9 ], [ 0, %6 ]
+  %.sink260 = phi i64 [ 96, %9 ], [ 224, %6 ]
+  %.sink258 = phi i32 [ %62, %9 ], [ 0, %6 ]
+  %.sink257 = phi i64 [ 128, %9 ], [ 192, %6 ]
+  %.sink255 = phi i32 [ %67, %9 ], [ 0, %6 ]
+  %.sink253 = phi i32 [ %69, %9 ], [ 0, %6 ]
+  %.sink252 = phi i64 [ 192, %9 ], [ 128, %6 ]
+  %.sink250 = phi i32 [ %68, %9 ], [ 0, %6 ]
+  %.sink249 = phi i64 [ 224, %9 ], [ 96, %6 ]
+  %.sink247 = phi i32 [ %66, %9 ], [ 0, %6 ]
   %.sink245 = phi i32 [ %64, %9 ], [ 0, %6 ]
   %.sink244 = phi i32 [ %65, %9 ], [ 0, %6 ]
   %.sink = phi i32 [ %63, %9 ], [ 0, %6 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.0231, i64 %.sink259
-  store i32 %.sink257, ptr %71, align 4, !tbaa !34
-  %72 = getelementptr inbounds nuw i8, ptr %.0231, i64 %.sink256
-  store i32 %.sink254, ptr %72, align 4, !tbaa !34
+  %71 = getelementptr inbounds nuw i8, ptr %.0231, i64 %.sink260
+  store i32 %.sink258, ptr %71, align 4, !tbaa !34
+  %72 = getelementptr inbounds nuw i8, ptr %.0231, i64 %.sink257
+  store i32 %.sink255, ptr %72, align 4, !tbaa !34
   %73 = getelementptr inbounds nuw i8, ptr %.0231, i64 160
-  store i32 %.sink252, ptr %73, align 4, !tbaa !34
-  %74 = getelementptr inbounds nuw i8, ptr %.0231, i64 %.sink251
-  store i32 %.sink249, ptr %74, align 4, !tbaa !34
-  %75 = getelementptr inbounds nuw i8, ptr %.0231, i64 %.sink248
-  store i32 %.sink246, ptr %75, align 4, !tbaa !34
+  store i32 %.sink253, ptr %73, align 4, !tbaa !34
+  %74 = getelementptr inbounds nuw i8, ptr %.0231, i64 %.sink252
+  store i32 %.sink250, ptr %74, align 4, !tbaa !34
+  %75 = getelementptr inbounds nuw i8, ptr %.0231, i64 %.sink249
+  store i32 %.sink247, ptr %75, align 4, !tbaa !34
   %76 = getelementptr inbounds nuw i8, ptr %.0231, i64 64
   store i32 %.sink245, ptr %76, align 4, !tbaa !34
   %77 = getelementptr inbounds nuw i8, ptr %.0231, i64 32

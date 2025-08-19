@@ -115,11 +115,11 @@ fmap_readn.exit85.thread:                         ; preds = %22, %19, %fmap_read
 
 .preheader:                                       ; preds = %27
   %.2..2..2..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %.2..2..2..sroa_idx202 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %.2..2..2..sroa_idx221 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %.4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.4..4..4..sroa_idx203 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.4..4..4..sroa_idx222 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.8..8..8..sroa_idx204 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.8..8..8..sroa_idx223 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %32
 
 30:                                               ; preds = %27
@@ -199,15 +199,15 @@ fmap_readn.exit95.thread:                         ; preds = %46, %.lr.ph, %fmap_
   %.2..2..2.103 = load i16, ptr %.2..2..2..sroa_idx, align 2
   %rev73 = tail call i16 @llvm.bswap.i16(i16 %.2..2..2.103)
   %.in74 = select i1 %.not56.not, i16 %rev73, i16 %.2..2..2.103
-  store i16 %.in74, ptr %.2..2..2..sroa_idx202, align 2, !tbaa !31
+  store i16 %.in74, ptr %.2..2..2..sroa_idx221, align 2, !tbaa !31
   %.4..4..4.108 = load i32, ptr %.4..4..4..sroa_idx, align 4
   %53 = tail call i32 @llvm.bswap.i32(i32 %.4..4..4.108)
   %54 = select i1 %.not56.not, i32 %53, i32 %.4..4..4.108
-  store i32 %54, ptr %.4..4..4..sroa_idx203, align 4, !tbaa !32
+  store i32 %54, ptr %.4..4..4..sroa_idx222, align 4, !tbaa !32
   %.8..8..8.113 = load i32, ptr %.8..8..8..sroa_idx, align 4
   %55 = tail call i32 @llvm.bswap.i32(i32 %.8..8..8.113)
   %56 = select i1 %.not56.not, i32 %55, i32 %.8..8..8.113
-  store i32 %56, ptr %.8..8..8..sroa_idx204, align 4, !tbaa !33
+  store i32 %56, ptr %.8..8..8..sroa_idx223, align 4, !tbaa !33
   %57 = zext i32 %54 to i64
   switch i16 %.in74, label %.thread [
     i16 1, label %74

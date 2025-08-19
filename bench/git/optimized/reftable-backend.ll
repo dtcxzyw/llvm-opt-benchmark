@@ -1244,13 +1244,13 @@ define internal range(i32 -1, 1) i32 @reftable_be_transaction_finish(ptr readnon
   br i1 %37, label %.lr.ph.i, label %free_transaction_data.exit, !llvm.loop !102
 
 free_transaction_data.exit:                       ; preds = %.lr.ph.i, %3, %.preheader.i
-  %.139 = phi i32 [ %.1, %.preheader.i ], [ 0, %3 ], [ %.1, %.lr.ph.i ]
+  %.143 = phi i32 [ %.1, %.preheader.i ], [ 0, %3 ], [ %.1, %.lr.ph.i ]
   %38 = load ptr, ptr %5, align 8, !tbaa !80
   tail call void @free(ptr noundef %38) #20
   tail call void @free(ptr noundef nonnull %5) #20
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 2, ptr %39, align 8, !tbaa !100
-  %.not = icmp eq i32 %.139, 0
+  %.not = icmp eq i32 %.143, 0
   br i1 %.not, label %45, label %40
 
 40:                                               ; preds = %free_transaction_data.exit
@@ -1264,7 +1264,7 @@ free_transaction_data.exit:                       ; preds = %.lr.ph.i, %3, %.pre
 
 _.exit:                                           ; preds = %40, %42
   %.0.i = phi ptr [ %43, %42 ], [ @.str.54, %40 ]
-  %44 = tail call ptr @reftable_error_str(i32 noundef %.139) #20
+  %44 = tail call ptr @reftable_error_str(i32 noundef %.143) #20
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef %.0.i, ptr noundef %44) #20
   br label %45
 
@@ -1966,13 +1966,13 @@ st_mult.exit.us:                                  ; preds = %40
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph120, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %.lr.ph120, %.loopexit.thread, %.loopexit
-  %.035142 = phi i32 [ %.035.ph, %.loopexit.thread ], [ %.035, %.loopexit ], [ %.035, %.lr.ph120 ]
-  %.046141 = phi ptr [ %.046.ph, %.loopexit.thread ], [ %.046, %.loopexit ], [ %.046, %.lr.ph120 ]
-  call void @free(ptr noundef %.046141) #20
+  %.035152 = phi i32 [ %.035.ph, %.loopexit.thread ], [ %.035, %.loopexit ], [ %.035, %.lr.ph120 ]
+  %.046151 = phi ptr [ %.046.ph, %.loopexit.thread ], [ %.046, %.loopexit ], [ %.046, %.lr.ph120 ]
+  call void @free(ptr noundef %.046151) #20
   br label %59
 
 59:                                               ; preds = %reftable_be_downcast.exit, %._crit_edge
-  %.051 = phi i32 [ %.035142, %._crit_edge ], [ %18, %reftable_be_downcast.exit ]
+  %.051 = phi i32 [ %.035152, %._crit_edge ], [ %18, %reftable_be_downcast.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.051
@@ -2403,19 +2403,19 @@ reftable_be_downcast.exit:                        ; preds = %24
   %72 = load i64, ptr %71, align 8, !tbaa !137
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %17, ptr nonnull readonly align 8 %57, i64 %72, i1 false)
   %73 = icmp ult i64 %72, 32
-  br i1 %73, label %74, label %.preheader217
+  br i1 %73, label %74, label %.preheader239
 
 74:                                               ; preds = %67
   %75 = getelementptr inbounds nuw i8, ptr %17, i64 %72
   %76 = sub nuw nsw i64 32, %72
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %75, i8 0, i64 %76, i1 false)
-  br label %.preheader217
+  br label %.preheader239
 
-.preheader217:                                    ; preds = %74, %67
+.preheader239:                                    ; preds = %74, %67
   br label %77
 
-77:                                               ; preds = %.preheader217, %79
-  %.0811.i.i = phi i64 [ %80, %79 ], [ 0, %.preheader217 ]
+77:                                               ; preds = %.preheader239, %79
+  %.0811.i.i = phi i64 [ %80, %79 ], [ 0, %.preheader239 ]
   %78 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %70, %78
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %79
@@ -2433,19 +2433,19 @@ oidread.exit:                                     ; preds = %79, %.split.loop.ex
   %.2.i.i = phi i32 [ %81, %.split.loop.exit9.i.i ], [ 0, %79 ]
   store i32 %.2.i.i, ptr %59, align 4, !tbaa !139
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr nonnull readonly align 8 %56, i64 %72, i1 false)
-  br i1 %73, label %82, label %.preheader216
+  br i1 %73, label %82, label %.preheader238
 
 82:                                               ; preds = %oidread.exit
   %83 = getelementptr inbounds nuw i8, ptr %18, i64 %72
   %84 = sub nuw nsw i64 32, %72
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %83, i8 0, i64 %84, i1 false)
-  br label %.preheader216
+  br label %.preheader238
 
-.preheader216:                                    ; preds = %82, %oidread.exit
+.preheader238:                                    ; preds = %82, %oidread.exit
   br label %85
 
-85:                                               ; preds = %.preheader216, %87
-  %.0811.i.i114 = phi i64 [ %88, %87 ], [ 0, %.preheader216 ]
+85:                                               ; preds = %.preheader238, %87
+  %.0811.i.i114 = phi i64 [ %88, %87 ], [ 0, %.preheader238 ]
   %86 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i114
   %.not.i.i115 = icmp eq ptr %70, %86
   br i1 %.not.i.i115, label %.split.loop.exit9.i.i118, label %87
@@ -2554,19 +2554,19 @@ st_mult.exit:                                     ; preds = %95
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %19, ptr nonnull readonly align 1 %118, i64 %123, i1 false)
   %124 = load i64, ptr %122, align 8, !tbaa !137
   %125 = icmp ult i64 %124, 32
-  br i1 %125, label %126, label %.preheader213
+  br i1 %125, label %126, label %.preheader235
 
 126:                                              ; preds = %113
   %127 = getelementptr inbounds nuw i8, ptr %19, i64 %124
   %128 = sub nuw nsw i64 32, %124
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %127, i8 0, i64 %128, i1 false)
-  br label %.preheader213
+  br label %.preheader235
 
-.preheader213:                                    ; preds = %126, %113
+.preheader235:                                    ; preds = %126, %113
   br label %129
 
-129:                                              ; preds = %.preheader213, %131
-  %.0811.i.i123 = phi i64 [ %132, %131 ], [ 0, %.preheader213 ]
+129:                                              ; preds = %.preheader235, %131
+  %.0811.i.i123 = phi i64 [ %132, %131 ], [ 0, %.preheader235 ]
   %130 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i123
   %.not.i.i124 = icmp eq ptr %121, %130
   br i1 %.not.i.i124, label %.split.loop.exit9.i.i127, label %131
@@ -2589,19 +2589,19 @@ oidread.exit128:                                  ; preds = %131, %.split.loop.e
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %20, ptr nonnull readonly align 1 %117, i64 %136, i1 false)
   %137 = load i64, ptr %135, align 8, !tbaa !137
   %138 = icmp ult i64 %137, 32
-  br i1 %138, label %139, label %.preheader212
+  br i1 %138, label %139, label %.preheader234
 
 139:                                              ; preds = %oidread.exit128
   %140 = getelementptr inbounds nuw i8, ptr %20, i64 %137
   %141 = sub nuw nsw i64 32, %137
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %140, i8 0, i64 %141, i1 false)
-  br label %.preheader212
+  br label %.preheader234
 
-.preheader212:                                    ; preds = %139, %oidread.exit128
+.preheader234:                                    ; preds = %139, %oidread.exit128
   br label %142
 
-142:                                              ; preds = %.preheader212, %144
-  %.0811.i.i129 = phi i64 [ %145, %144 ], [ 0, %.preheader212 ]
+142:                                              ; preds = %.preheader234, %144
+  %.0811.i.i129 = phi i64 [ %145, %144 ], [ 0, %.preheader234 ]
   %143 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i129
   %.not.i.i130 = icmp eq ptr %134, %143
   br i1 %.not.i.i130, label %.split.loop.exit9.i.i133, label %144
@@ -3017,8 +3017,8 @@ select.unfold:                                    ; preds = %13
   %17 = load ptr, ptr %16, align 8, !tbaa !158
   %18 = icmp ne ptr %17, %12
   %19 = add i64 %.04666, 1
-  %.not5769 = icmp eq ptr %14, null
-  %.not57 = or i1 %18, %.not5769
+  %.not5773 = icmp eq ptr %14, null
+  %.not57 = or i1 %18, %.not5773
   br i1 %.not57, label %13, label %.critedge61
 
 .critedge:                                        ; preds = %13
@@ -4007,11 +4007,11 @@ st_mult.exit201:                                  ; preds = %121
   br i1 %exitcond.not, label %._crit_edge309, label %.lr.ph308, !llvm.loop !182
 
 ._crit_edge309:                                   ; preds = %.lr.ph308, %sane_qsort.exit, %.loopexit
-  %.10340 = phi ptr [ %.10, %.loopexit ], [ null, %sane_qsort.exit ], [ %.10, %.lr.ph308 ]
-  %.8160339 = phi i32 [ %.8160, %.loopexit ], [ 0, %sane_qsort.exit ], [ %.8160, %.lr.ph308 ]
-  call void @free(ptr noundef %.10340) #20
+  %.10358 = phi ptr [ %.10, %.loopexit ], [ null, %sane_qsort.exit ], [ %.10, %.lr.ph308 ]
+  %.8160357 = phi i32 [ %.8160, %.loopexit ], [ 0, %sane_qsort.exit ], [ %.8160, %.lr.ph308 ]
+  call void @free(ptr noundef %.10358) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.8160339
+  ret i32 %.8160357
 }
 
 declare i32 @reftable_addition_commit(ptr noundef) local_unnamed_addr #2
@@ -4498,8 +4498,8 @@ st_mult.exit:                                     ; preds = %81
   br i1 %227, label %228, label %235
 
 228:                                              ; preds = %225
-  %229 = mul i64 %.9253, 3
-  %230 = add i64 %229, 48
+  %229 = mul nuw nsw i64 %.9253, 3
+  %230 = add nuw nsw i64 %229, 48
   %231 = lshr i64 %230, 1
   %. = call i64 @llvm.umax.i64(i64 %231, i64 %226)
   %mul.ov.i227 = icmp ugt i64 %., 128102389400760775
@@ -4532,8 +4532,8 @@ st_mult.exit228:                                  ; preds = %228
   br i1 %242, label %243, label %250
 
 243:                                              ; preds = %240
-  %244 = mul i64 %.11, 3
-  %245 = add i64 %244, 48
+  %244 = mul nuw nsw i64 %.11, 3
+  %245 = add nuw nsw i64 %244, 48
   %246 = lshr i64 %245, 1
   %.216 = call i64 @llvm.umax.i64(i64 %246, i64 %241)
   %mul.ov.i230 = icmp ugt i64 %.216, 128102389400760775
@@ -4973,19 +4973,19 @@ should_exclude_current_ref.exit.thread:           ; preds = %56, %40, %54, %38
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %16, ptr nonnull readonly align 1 %19, i64 %92, i1 false)
   %93 = load i64, ptr %91, align 8, !tbaa !137
   %94 = icmp ult i64 %93, 32
-  br i1 %94, label %95, label %.preheader202
+  br i1 %94, label %95, label %.preheader218
 
 95:                                               ; preds = %87
   %96 = getelementptr inbounds nuw i8, ptr %16, i64 %93
   %97 = sub nuw nsw i64 32, %93
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %96, i8 0, i64 %97, i1 false)
-  br label %.preheader202
+  br label %.preheader218
 
-.preheader202:                                    ; preds = %95, %87
+.preheader218:                                    ; preds = %95, %87
   br label %98
 
-98:                                               ; preds = %.preheader202, %100
-  %.0811.i.i82 = phi i64 [ %101, %100 ], [ 0, %.preheader202 ]
+98:                                               ; preds = %.preheader218, %100
+  %.0811.i.i82 = phi i64 [ %101, %100 ], [ 0, %.preheader218 ]
   %99 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i82
   %.not.i.i83 = icmp eq ptr %90, %99
   br i1 %.not.i.i83, label %.split.loop.exit9.i.i86, label %100
@@ -5417,19 +5417,19 @@ define internal fastcc i32 @yield_log_record(ptr readonly captures(address) %.8.
   %9 = load i64, ptr %8, align 8, !tbaa !137
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %4, ptr nonnull readonly align 1 %7, i64 %9, i1 false)
   %10 = icmp ult i64 %9, 32
-  br i1 %10, label %11, label %.preheader10
+  br i1 %10, label %11, label %.preheader13
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 %9
   %13 = sub nuw nsw i64 32, %9
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %12, i8 0, i64 %13, i1 false)
-  br label %.preheader10
+  br label %.preheader13
 
-.preheader10:                                     ; preds = %11, %3
+.preheader13:                                     ; preds = %11, %3
   br label %14
 
-14:                                               ; preds = %.preheader10, %16
-  %.0811.i.i = phi i64 [ %17, %16 ], [ 0, %.preheader10 ]
+14:                                               ; preds = %.preheader13, %16
+  %.0811.i.i = phi i64 [ %17, %16 ], [ 0, %.preheader13 ]
   %15 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %.8.val.400.val, %15
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %16

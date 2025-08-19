@@ -296,8 +296,8 @@ _asm_x86_inslen.exit.i:                           ; preds = %131, %128, %125, %1
   br label %ir_patch_code.exit
 
 ir_patch_code.exit:                               ; preds = %.loopexit, %._crit_edge.i, %140
-  %.0.lcssa91.i = phi i32 [ %.1.i, %140 ], [ 0, %._crit_edge.i ], [ 0, %.loopexit ]
-  %142 = add nsw i32 %.0.lcssa91.i, %.015
+  %.0.lcssa92.i = phi i32 [ %.1.i, %140 ], [ 0, %._crit_edge.i ], [ 0, %.loopexit ]
+  %142 = add nsw i32 %.0.lcssa92.i, %.015
   ret i32 %142
 }
 

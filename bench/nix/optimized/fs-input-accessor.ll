@@ -595,9 +595,9 @@ _ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exi
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit, label %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit.thread9
+  br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit, label %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit.thread10
 
-_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit.thread9: ; preds = %9
+_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit.thread10: ; preds = %9
   %13 = load i32, ptr %10, align 4
   %14 = add nsw i32 %13, 1
   store i32 %14, ptr %10, align 4
@@ -614,10 +614,10 @@ _ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exi
   %.not.i.i.i.i2 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i.i.i2, label %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2ERKS2_.exit.i, label %16
 
-16:                                               ; preds = %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit.thread9, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit
-  %.pr12 = phi ptr [ %7, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit.thread9 ], [ %.pr.pre, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit ]
-  %17 = phi ptr [ %4, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit.thread9 ], [ %.pre, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit ]
-  %18 = getelementptr inbounds nuw i8, ptr %.pr12, i64 8
+16:                                               ; preds = %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit.thread10, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit
+  %.pr13 = phi ptr [ %7, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit.thread10 ], [ %.pr.pre, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit ]
+  %17 = phi ptr [ %4, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit.thread10 ], [ %.pre, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit ]
+  %18 = getelementptr inbounds nuw i8, ptr %.pr13, i64 8
   %19 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %.not.i.i.i.i.i, label %23, label %20

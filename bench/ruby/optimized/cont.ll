@@ -1959,8 +1959,8 @@ fiber_current.exit:                               ; preds = %4, %12
   %28 = load i8, ptr %27, align 8
   %29 = and i8 %28, 3
   %30 = icmp eq i8 %29, 0
-  %or.cond20 = select i1 %26, i1 %30, i1 false
-  br i1 %or.cond20, label %31, label %fiber_current.exit._crit_edge
+  %or.cond21 = select i1 %26, i1 %30, i1 false
+  br i1 %or.cond21, label %31, label %fiber_current.exit._crit_edge
 
 31:                                               ; preds = %fiber_current.exit
   %32 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
@@ -3181,9 +3181,9 @@ fiber_ptr.exit:                                   ; preds = %1
   %switch.table.fiber_to_s.25.switch.table.fiber_to_s = select i1 %.not, ptr @switch.table.fiber_to_s.25, ptr @switch.table.fiber_to_s.25
   %.str.61..str.60 = select i1 %.not, ptr @.str.61, ptr @.str.60
   %11 = zext nneg i8 %10 to i64
-  %switch.gep18 = getelementptr inbounds nuw [4 x ptr], ptr %switch.table.fiber_to_s.25.switch.table.fiber_to_s, i64 0, i64 %11
-  %switch.load19 = load ptr, ptr %switch.gep18, align 8
-  %12 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull %.str.61..str.60, ptr noundef nonnull %switch.load19) #9
+  %switch.gep19 = getelementptr inbounds nuw [4 x ptr], ptr %switch.table.fiber_to_s.25.switch.table.fiber_to_s, i64 0, i64 %11
+  %switch.load20 = load ptr, ptr %switch.gep19, align 8
+  %12 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull %.str.61..str.60, ptr noundef nonnull %switch.load20) #9
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   %14 = load i64, ptr %13, align 8, !tbaa !106
   %15 = call i64 @rb_obj_is_proc(i64 noundef %14) #9
@@ -4766,15 +4766,15 @@ ruby_nonempty_memcpy.exit39:                      ; preds = %rbimpl_size_mul_or_
   %108 = load ptr, ptr %107, align 8, !tbaa !97
   %109 = icmp ugt ptr %106, %108
   %..i = select i1 %109, ptr %106, ptr %108
-  %.32.i = select i1 %109, ptr %108, ptr %106
+  %.35.i = select i1 %109, ptr %108, ptr %106
   %110 = ptrtoint ptr %..i to i64
-  %111 = ptrtoint ptr %.32.i to i64
+  %111 = ptrtoint ptr %.35.i to i64
   %112 = sub i64 %110, %111
   %.sink27.i = ashr exact i64 %112, 3
   %113 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.25, i64 72
   store i64 %.sink27.i, ptr %113, align 8, !tbaa !218
   %114 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.25, i64 64
-  store ptr %.32.i, ptr %114, align 8, !tbaa !238
+  store ptr %.35.i, ptr %114, align 8, !tbaa !238
   %115 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.25, i64 56
   %116 = load ptr, ptr %115, align 8, !tbaa !217
   %.not.i40 = icmp eq ptr %116, null

@@ -424,14 +424,14 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %.sroa.0.sroa.7.1 = phi ptr [ %.sroa.9.sroa.5.0, %6 ], [ %.sroa.0.sroa.7.0, %4 ]
   %.sroa.9.sroa.5.1 = phi ptr [ %.sroa.0.sroa.7.0, %6 ], [ %.sroa.9.sroa.5.0, %4 ]
   %.sroa.9.sroa.0.1 = phi ptr [ %.sroa.0.sroa.0.0, %6 ], [ %.sroa.9.sroa.0.0, %4 ]
-  %.sink7.i = phi ptr [ %.sroa.9.sroa.0.0, %6 ], [ %.sroa.0.sroa.0.0, %4 ]
-  %.not = icmp eq ptr %.sink7.i, null
+  %.sink9.i = phi ptr [ %.sroa.9.sroa.0.0, %6 ], [ %.sroa.0.sroa.0.0, %4 ]
+  %.not = icmp eq ptr %.sink9.i, null
   br i1 %.not, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc311e07eeae74085E.exit.thread", label %8
 
 8:                                                ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc311e07eeae74085E.exit"
-  %9 = getelementptr inbounds nuw i8, ptr %.sink7.i, i64 376
+  %9 = getelementptr inbounds nuw i8, ptr %.sink9.i, i64 376
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %.sink7.i, ptr %3, align 8
+  store ptr %.sink9.i, ptr %3, align 8
   %10 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h70bbfb3afd8c1d1cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d16563b45468e483725d44465c1d4f32.9)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %4

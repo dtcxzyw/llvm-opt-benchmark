@@ -1054,9 +1054,9 @@ define internal noundef ptr @getpath_hassuffix(ptr readnone captures(none) %0, p
   br i1 %27, label %_Py_NewRef.exit, label %_Py_NewRef.exit.sink.split
 
 _Py_NewRef.exit.sink.split:                       ; preds = %25, %22
-  %.sink18 = phi i32 [ %23, %22 ], [ %26, %25 ]
+  %.sink24 = phi i32 [ %23, %22 ], [ %26, %25 ]
   %_Py_TrueStruct.sink = phi ptr [ @_Py_FalseStruct, %22 ], [ @_Py_TrueStruct, %25 ]
-  %28 = add nuw i32 %.sink18, 1
+  %28 = add nuw i32 %.sink24, 1
   store i32 %28, ptr %_Py_TrueStruct.sink, align 8, !tbaa !16
   br label %_Py_NewRef.exit
 
@@ -1369,12 +1369,12 @@ define internal ptr @getpath_joinpath(ptr readnone captures(none) %0, ptr nounde
   br i1 %.not83, label %.preheader, label %54
 
 .preheader:                                       ; preds = %.thread95, %._crit_edge, %44
-  %.17297127 = phi i64 [ -1, %44 ], [ -1, %.thread95 ], [ %41, %._crit_edge ]
+  %.17297134 = phi i64 [ -1, %44 ], [ -1, %.thread95 ], [ %41, %._crit_edge ]
   br label %.lr.ph115
 
 ._crit_edge116:                                   ; preds = %.lr.ph115
   call void @PyMem_Free(ptr noundef nonnull %16) #13
-  %.not84 = icmp eq i64 %.17297127, 0
+  %.not84 = icmp eq i64 %.17297134, 0
   br i1 %.not84, label %52, label %50
 
 .lr.ph115:                                        ; preds = %.preheader, %.lr.ph115
@@ -1677,13 +1677,13 @@ Py_DECREF.exit105:                                ; preds = %80, %77, %76
   br i1 %.not137, label %Py_XDECREF.exit120, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.059.lcssa143 = phi ptr [ %81, %._crit_edge ], [ %41, %.preheader ]
-  %83 = load i32, ptr %.059.lcssa143, align 4, !tbaa !12
+  %.059.lcssa162 = phi ptr [ %81, %._crit_edge ], [ %41, %.preheader ]
+  %83 = load i32, ptr %.059.lcssa162, align 4, !tbaa !12
   %.not100 = icmp eq i32 %83, 0
   br i1 %.not100, label %Py_XDECREF.exit120, label %84
 
 84:                                               ; preds = %._crit_edge.thread
-  %85 = call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %.059.lcssa143, i64 noundef -1) #13
+  %85 = call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %.059.lcssa162, i64 noundef -1) #13
   %.not101 = icmp eq ptr %85, null
   br i1 %.not101, label %.split80, label %86
 

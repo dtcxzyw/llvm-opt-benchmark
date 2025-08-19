@@ -1321,7 +1321,7 @@ _ZNK6icu_775Norms12combinesBackEi.exit:           ; preds = %25
   %53 = load i32, ptr %52, align 4, !tbaa !13
   %54 = and i32 %53, 255
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %.critedge.loopexit.split.loop.exit146
+  br i1 %55, label %56, label %.critedge.loopexit.split.loop.exit155
 
 56:                                               ; preds = %.lr.ph
   %57 = ashr exact i32 %53, 8
@@ -1345,13 +1345,13 @@ _ZN6icu_776Hangul6isJamoEi.exit.thread:           ; preds = %59, %56
   %64 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge.loopexit.split.loop.exit146:            ; preds = %.lr.ph
+.critedge.loopexit.split.loop.exit155:            ; preds = %.lr.ph
   %65 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN6icu_776Hangul6isJamoEi.exit.thread, %.critedge.loopexit.split.loop.exit, %.critedge.loopexit.split.loop.exit146, %50
-  %.083.lcssa = phi i32 [ 0, %50 ], [ %64, %.critedge.loopexit.split.loop.exit ], [ %65, %.critedge.loopexit.split.loop.exit146 ], [ 0, %_ZN6icu_776Hangul6isJamoEi.exit.thread ]
-  %.082.lcssa = phi i32 [ %23, %50 ], [ %.082123, %.critedge.loopexit.split.loop.exit ], [ %.082123, %.critedge.loopexit.split.loop.exit146 ], [ %57, %_ZN6icu_776Hangul6isJamoEi.exit.thread ]
+.critedge:                                        ; preds = %_ZN6icu_776Hangul6isJamoEi.exit.thread, %.critedge.loopexit.split.loop.exit, %.critedge.loopexit.split.loop.exit155, %50
+  %.083.lcssa = phi i32 [ 0, %50 ], [ %64, %.critedge.loopexit.split.loop.exit ], [ %65, %.critedge.loopexit.split.loop.exit155 ], [ 0, %_ZN6icu_776Hangul6isJamoEi.exit.thread ]
+  %.082.lcssa = phi i32 [ %23, %50 ], [ %.082123, %.critedge.loopexit.split.loop.exit ], [ %.082123, %.critedge.loopexit.split.loop.exit155 ], [ %57, %_ZN6icu_776Hangul6isJamoEi.exit.thread ]
   %66 = tail call noundef ptr @_ZNK6icu_775Norms7getNormEi(ptr noundef nonnull align 8 dereferenceable(424) %0, i32 noundef %.082.lcssa)
   %67 = icmp eq i32 %.083.lcssa, %8
   br i1 %67, label %68, label %73
@@ -1685,9 +1685,9 @@ _ZNK6icu_775Norms12combinesBackEi.exit:           ; preds = %49, %43, %.thread, 
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !62
   %.not78 = icmp eq ptr %61, null
-  br i1 %.not78, label %63, label %.thread88
+  br i1 %.not78, label %63, label %.thread89
 
-.thread88:                                        ; preds = %59
+.thread89:                                        ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 45
   store i8 0, ptr %62, align 1, !tbaa !71
   br label %85
@@ -1738,7 +1738,7 @@ _ZNK6icu_775Norms12combinesBackEi.exit:           ; preds = %49, %43, %.thread, 
   store ptr @.str.8, ptr %84, align 8, !tbaa !65
   br label %109
 
-85:                                               ; preds = %.thread88, %63
+85:                                               ; preds = %.thread89, %63
   %86 = load i32, ptr %4, align 8, !tbaa !45
   %87 = icmp eq i32 %86, 2
   %88 = load ptr, ptr %60, align 8, !tbaa !62
@@ -3018,8 +3018,8 @@ _ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %246
 438:                                              ; preds = %393, %389
   %439 = getelementptr inbounds nuw i8, ptr %1, i64 864
   %rhsv = load i32, ptr %439, align 8
-  %.not145 = icmp eq i32 %rhsv, 0
-  br i1 %.not145, label %440, label %443
+  %.not153 = icmp eq i32 %rhsv, 0
+  br i1 %.not153, label %440, label %443
 
 440:                                              ; preds = %438
   invoke void @u_versionFromString_77(ptr noundef nonnull %439, ptr noundef nonnull @.str.35)

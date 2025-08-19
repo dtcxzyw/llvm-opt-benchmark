@@ -220,8 +220,8 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
   br i1 %.not71.i, label %.preheader.i, label %.preheader76.i
 
 ._crit_edge.thread.i:                             ; preds = %15
-  %.not7199.i = icmp eq i32 %2, 0
-  br i1 %.not7199.i, label %._crit_edge.thread.i..preheader.i_crit_edge, label %.loopexit.i
+  %.not71103.i = icmp eq i32 %2, 0
+  br i1 %.not71103.i, label %._crit_edge.thread.i..preheader.i_crit_edge, label %.loopexit.i
 
 ._crit_edge.thread.i..preheader.i_crit_edge:      ; preds = %._crit_edge.thread.i
   %.pre47 = zext i32 %17 to i64
@@ -237,7 +237,7 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
   %27 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %20, i64 %indvars.iv90.i
   %28 = load i32, ptr %27, align 8, !tbaa !38
   %29 = icmp ult i32 %28, %.065.i
-  br i1 %29, label %.loopexit.loopexit100.split.loop.exit103.i, label %30
+  br i1 %29, label %.loopexit.loopexit104.split.loop.exit107.i, label %30
 
 30:                                               ; preds = %.preheader76.i
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
@@ -258,12 +258,12 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
   %39 = icmp ult i32 %38, %.065.i
   br i1 %39, label %.loopexit.i, label %31, !llvm.loop !41
 
-.loopexit.loopexit100.split.loop.exit103.i:       ; preds = %.preheader76.i
+.loopexit.loopexit104.split.loop.exit107.i:       ; preds = %.preheader76.i
   %40 = trunc nuw nsw i64 %indvars.iv90.i to i32
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %30, %34, %31, %.loopexit.loopexit100.split.loop.exit103.i, %._crit_edge.thread.i
-  %.063.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %40, %.loopexit.loopexit100.split.loop.exit103.i ], [ %32, %34 ], [ %17, %31 ], [ %17, %30 ]
+.loopexit.i:                                      ; preds = %30, %34, %31, %.loopexit.loopexit104.split.loop.exit107.i, %._crit_edge.thread.i
+  %.063.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %40, %.loopexit.loopexit104.split.loop.exit107.i ], [ %32, %34 ], [ %17, %31 ], [ %17, %30 ]
   %41 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %1, i32 noundef %.063.i, i32 noundef %.062.i, ptr noundef null, ptr noundef null) #6
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %cbs_sei_get_unit.exit.thread, label %43

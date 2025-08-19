@@ -286,11 +286,11 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit: ; preds = %.lr.ph
   %24 = fcmp ogt float %23, 0.000000e+00
   %25 = fcmp olt float %23, 1.000000e+01
   %26 = and i1 %24, %25
-  %.fr96 = freeze i1 %26
+  %.fr101 = freeze i1 %26
   %27 = fadd float %.04864, %23
-  %28 = zext i1 %.fr96 to i32
+  %28 = zext i1 %.fr101 to i32
   %.150 = add i32 %.04963, %28
-  %.1 = select i1 %.fr96, float %27, float %.04864
+  %.1 = select i1 %.fr101, float %27, float %.04864
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11

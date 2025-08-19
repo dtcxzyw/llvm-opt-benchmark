@@ -367,11 +367,11 @@ wc_SignatureGetSize.exit:                         ; preds = %20, %21, %23, %25, 
 33:                                               ; preds = %30
   switch i32 %1, label %.thread [
     i32 1, label %.preheader
-    i32 3, label %.preheader67
-    i32 2, label %.preheader67
+    i32 3, label %.preheader75
+    i32 2, label %.preheader75
   ]
 
-.preheader67:                                     ; preds = %33, %33
+.preheader75:                                     ; preds = %33, %33
   br label %39
 
 .preheader:                                       ; preds = %33, %37
@@ -388,9 +388,9 @@ wc_SignatureGetSize.exit:                         ; preds = %20, %21, %23, %25, 
   %38 = icmp eq i32 %.1, -108
   br i1 %38, label %.preheader, label %.loopexit, !llvm.loop !13
 
-39:                                               ; preds = %.preheader67, %44
-  %40 = phi i1 [ false, %44 ], [ true, %.preheader67 ]
-  %.3 = phi i32 [ -108, %44 ], [ 0, %.preheader67 ]
+39:                                               ; preds = %.preheader75, %44
+  %40 = phi i1 [ false, %44 ], [ true, %.preheader75 ]
+  %.3 = phi i32 [ -108, %44 ], [ 0, %.preheader75 ]
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %39

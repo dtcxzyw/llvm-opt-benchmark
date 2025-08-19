@@ -1234,7 +1234,7 @@ mszh_decomp.exit:                                 ; preds = %.._crit_edge_crit_e
   %.1539716 = phi ptr [ %393, %.preheader604.lr.ph ], [ %482, %._crit_edge710.thread ]
   %.1544715 = phi ptr [ %386, %.preheader604.lr.ph ], [ %478, %._crit_edge710.thread ]
   %.1549714 = phi ptr [ %379, %.preheader604.lr.ph ], [ %474, %._crit_edge710.thread ]
-  %.3556713 = phi ptr [ %.0553, %.preheader604.lr.ph ], [ %.4557.lcssa805, %._crit_edge710.thread ]
+  %.3556713 = phi ptr [ %.0553, %.preheader604.lr.ph ], [ %.4557.lcssa834, %._crit_edge710.thread ]
   br i1 %405, label %.lr.ph709, label %._crit_edge710.thread
 
 .lr.ph709:                                        ; preds = %.preheader604, %.lr.ph709
@@ -1291,7 +1291,7 @@ mszh_decomp.exit:                                 ; preds = %.._crit_edge_crit_e
   br label %._crit_edge710.thread
 
 ._crit_edge710.thread:                            ; preds = %.preheader604, %460, %._crit_edge710
-  %.4557.lcssa805 = phi ptr [ %453, %460 ], [ %453, %._crit_edge710 ], [ %.3556713, %.preheader604 ]
+  %.4557.lcssa834 = phi ptr [ %453, %460 ], [ %453, %._crit_edge710 ], [ %.3556713, %.preheader604 ]
   %471 = load i32, ptr %375, align 8, !tbaa !40
   %472 = sext i32 %471 to i64
   %473 = sub nsw i64 0, %472
@@ -1333,15 +1333,15 @@ mszh_decomp.exit:                                 ; preds = %.._crit_edge_crit_e
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %497, ptr align 1 %.5558703, i64 %491, i1 false)
   %498 = getelementptr inbounds i8, ptr %.5558703, i64 %492
   %499 = add nsw i32 %.7704, -1
-  %.not830 = icmp eq i32 %.7704, 0
-  br i1 %.not830, label %.loopexit, label %493, !llvm.loop !65
+  %.not859 = icmp eq i32 %.7704, 0
+  br i1 %.not859, label %.loopexit, label %493, !llvm.loop !65
 
 .preheader608:                                    ; preds = %.preheader608.lr.ph, %._crit_edge695.thread
   %.8702 = phi i32 [ 0, %.preheader608.lr.ph ], [ %538, %._crit_edge695.thread ]
   %.2540701 = phi ptr [ %393, %.preheader608.lr.ph ], [ %537, %._crit_edge695.thread ]
   %.2545700 = phi ptr [ %386, %.preheader608.lr.ph ], [ %533, %._crit_edge695.thread ]
   %.2550699 = phi ptr [ %379, %.preheader608.lr.ph ], [ %529, %._crit_edge695.thread ]
-  %.6559698 = phi ptr [ %.0553, %.preheader608.lr.ph ], [ %.7560.lcssa810, %._crit_edge695.thread ]
+  %.6559698 = phi ptr [ %.0553, %.preheader608.lr.ph ], [ %.7560.lcssa839, %._crit_edge695.thread ]
   br i1 %401, label %.lr.ph694, label %._crit_edge695.thread
 
 .lr.ph694:                                        ; preds = %.preheader608, %.lr.ph694
@@ -1387,7 +1387,7 @@ mszh_decomp.exit:                                 ; preds = %.._crit_edge_crit_e
   br label %._crit_edge695.thread
 
 ._crit_edge695.thread:                            ; preds = %.preheader608, %515, %._crit_edge695
-  %.7560.lcssa810 = phi ptr [ %508, %515 ], [ %508, %._crit_edge695 ], [ %.6559698, %.preheader608 ]
+  %.7560.lcssa839 = phi ptr [ %508, %515 ], [ %508, %._crit_edge695 ], [ %.6559698, %.preheader608 ]
   %526 = load i32, ptr %375, align 8, !tbaa !40
   %527 = sext i32 %526 to i64
   %528 = sub nsw i64 0, %527

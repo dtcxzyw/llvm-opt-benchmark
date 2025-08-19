@@ -211,10 +211,10 @@ define internal range(i32 -1163346256, 1) i32 @decode_init(ptr noundef %0) #0 {
   br label %197
 
 69:                                               ; preds = %65, %62, %58, %54, %50, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %14, %12
-  %.sink136 = phi i64 [ 136, %65 ], [ 136, %62 ], [ 152, %58 ], [ 152, %54 ], [ 152, %50 ], [ 152, %46 ], [ 152, %43 ], [ 152, %40 ], [ 152, %37 ], [ 136, %34 ], [ 136, %31 ], [ 136, %28 ], [ 136, %25 ], [ 152, %22 ], [ 152, %19 ], [ 152, %16 ], [ 136, %14 ], [ 136, %12 ]
+  %.sink138 = phi i64 [ 136, %65 ], [ 136, %62 ], [ 152, %58 ], [ 152, %54 ], [ 152, %50 ], [ 152, %46 ], [ 152, %43 ], [ 152, %40 ], [ 152, %37 ], [ 136, %34 ], [ 136, %31 ], [ 136, %28 ], [ 136, %25 ], [ 152, %22 ], [ 152, %19 ], [ 152, %16 ], [ 136, %14 ], [ 136, %12 ]
   %.sink = phi i32 [ 111, %65 ], [ 71, %62 ], [ 1, %58 ], [ 5, %54 ], [ 1, %50 ], [ 5, %46 ], [ 1, %43 ], [ 1, %40 ], [ 1, %37 ], [ 163, %34 ], [ 75, %31 ], [ 64, %28 ], [ 62, %25 ], [ 5, %22 ], [ 5, %19 ], [ 5, %16 ], [ 111, %14 ], [ 71, %12 ]
   %70 = phi i32 [ 111, %65 ], [ 71, %62 ], [ 5, %58 ], [ 5, %54 ], [ 4, %50 ], [ 4, %46 ], [ 5, %43 ], [ 4, %40 ], [ 0, %37 ], [ 163, %34 ], [ 75, %31 ], [ 64, %28 ], [ 62, %25 ], [ 5, %22 ], [ 4, %19 ], [ 0, %16 ], [ 111, %14 ], [ 71, %12 ]
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink136
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink138
   store i32 %.sink, ptr %71, align 8, !tbaa !39
   %72 = call i32 @av_pix_fmt_get_chroma_sub_sample(i32 noundef %70, ptr noundef nonnull %2, ptr noundef nonnull %3) #7
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -578,7 +578,7 @@ bytestream2_get_le32.exit514.us:                  ; preds = %66, %61
   br i1 %exitcond734.not, label %.preheader587.lr.ph, label %.preheader590.us, !llvm.loop !60
 
 .preheader587.lr.ph:                              ; preds = %._crit_edge.us, %.preheader590.lr.ph
-  %.sroa.0.0.lcssa784 = phi ptr [ %.sroa.0.4561, %.preheader590.lr.ph ], [ %.sroa.0.5.us, %._crit_edge.us ]
+  %.sroa.0.0.lcssa806 = phi ptr [ %.sroa.0.4561, %.preheader590.lr.ph ], [ %.sroa.0.5.us, %._crit_edge.us ]
   %76 = getelementptr inbounds nuw i8, ptr %11, i64 100
   %77 = load i32, ptr %76, align 4, !tbaa !46
   %78 = icmp sgt i32 %77, 0
@@ -596,7 +596,7 @@ bytestream2_get_le32.exit514.us:                  ; preds = %66, %61
   %indvars.iv740 = phi i64 [ 0, %.preheader587.us.preheader ], [ %indvars.iv.next741, %._crit_edge.us651 ]
   %.2650.us = phi i32 [ %gepdiff, %.preheader587.us.preheader ], [ %96, %._crit_edge.us651 ]
   %.0442649.us = phi ptr [ %50, %.preheader587.us.preheader ], [ %97, %._crit_edge.us651 ]
-  %.sroa.0.2647.us = phi ptr [ %.sroa.0.0.lcssa784, %.preheader587.us.preheader ], [ %.sroa.0.6.us, %._crit_edge.us651 ]
+  %.sroa.0.2647.us = phi ptr [ %.sroa.0.0.lcssa806, %.preheader587.us.preheader ], [ %.sroa.0.6.us, %._crit_edge.us651 ]
   %81 = getelementptr inbounds nuw [4 x [256 x ptr]], ptr %79, i64 0, i64 %indvars.iv740
   %82 = getelementptr inbounds nuw [4 x [256 x i64]], ptr %80, i64 0, i64 %indvars.iv740
   br label %83
@@ -1596,7 +1596,7 @@ bits_read_le.exit:                                ; preds = %75, %77
   %108 = load i32, ptr %.sroa.10.4327, align 1, !tbaa !44
   %109 = zext i32 %108 to i64
   %110 = zext nneg i32 %.sroa.16.4326 to i64
-  %111 = shl i64 %109, %110
+  %111 = shl nuw nsw i64 %109, %110
   %112 = or i64 %111, %.sroa.0.4328
   %113 = getelementptr inbounds nuw i8, ptr %.sroa.10.4327, i64 4
   %114 = add nuw nsw i32 %.sroa.16.4326, 32
@@ -2671,23 +2671,23 @@ define internal fastcc void @restore_gradient_planar(ptr noundef readonly captur
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.preheader.us
-  %indvar102 = phi i64 [ %indvar.next103, %._crit_edge.us.us ], [ 0, %.preheader.us ]
+  %indvar116 = phi i64 [ %indvar.next117, %._crit_edge.us.us ], [ 0, %.preheader.us ]
   %70 = phi i8 [ %.narrow.us.us, %._crit_edge.us.us ], [ %.pre97, %.preheader.us ]
   %.05868.us.us = phi i32 [ %83, %._crit_edge.us.us ], [ 1, %.preheader.us ]
   %.pn67.us.us = phi ptr [ %.06069.us.us, %._crit_edge.us.us ], [ %63, %.preheader.us ]
-  %71 = add i64 %69, %indvar102
+  %71 = add i64 %69, %indvar116
   %72 = mul i64 %2, %71
-  %scevgep104 = getelementptr i8, ptr %1, i64 %72
+  %scevgep118 = getelementptr i8, ptr %1, i64 %72
   %.06069.us.us = getelementptr inbounds i8, ptr %.pn67.us.us, i64 %2
   %73 = load i8, ptr %.06069.us.us, align 1, !tbaa !44
   %.narrow.us.us = add i8 %70, %73
   store i8 %.narrow.us.us, ptr %.06069.us.us, align 1, !tbaa !44
   %74 = getelementptr i8, ptr %.pn67.us.us, i64 -1
-  %load_initial105 = load i8, ptr %scevgep104, align 1
+  %load_initial119 = load i8, ptr %scevgep118, align 1
   br label %75
 
 75:                                               ; preds = %75, %.lr.ph.us.us
-  %store_forwarded106 = phi i8 [ %load_initial105, %.lr.ph.us.us ], [ %.narrow64.us.us, %75 ]
+  %store_forwarded120 = phi i8 [ %load_initial119, %.lr.ph.us.us ], [ %.narrow64.us.us, %75 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.us.us ], [ %indvars.iv.next, %75 ]
   %76 = getelementptr inbounds nuw i8, ptr %.pn67.us.us, i64 %indvars.iv
   %77 = load i8, ptr %76, align 1, !tbaa !44
@@ -2695,7 +2695,7 @@ define internal fastcc void @restore_gradient_planar(ptr noundef readonly captur
   %79 = load i8, ptr %78, align 1, !tbaa !44
   %80 = getelementptr i8, ptr %.06069.us.us, i64 %indvars.iv
   %81 = sub i8 %77, %79
-  %.tr.us.us = add i8 %81, %store_forwarded106
+  %.tr.us.us = add i8 %81, %store_forwarded120
   %82 = load i8, ptr %80, align 1, !tbaa !44
   %.narrow64.us.us = add i8 %.tr.us.us, %82
   store i8 %.narrow64.us.us, ptr %80, align 1, !tbaa !44
@@ -2706,7 +2706,7 @@ define internal fastcc void @restore_gradient_planar(ptr noundef readonly captur
 ._crit_edge.us.us:                                ; preds = %75
   %83 = add nuw nsw i32 %.05868.us.us, 1
   %exitcond88.not = icmp eq i32 %83, %59
-  %indvar.next103 = add i64 %indvar102, 1
+  %indvar.next117 = add i64 %indvar116, 1
   br i1 %exitcond88.not, label %.loopexit.split.us.us.split, label %.lr.ph.us.us, !llvm.loop !113
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %.loopexit.split.split
@@ -2836,7 +2836,7 @@ define internal fastcc void @restore_gradient_planar_il(ptr noundef readonly cap
   %.0103128.us.us.us.us.us.us = phi i32 [ 1, %.lr.ph.us.us.us.us.us.us.preheader ], [ %85, %._crit_edge125.us.us.us.us.us.us ]
   %.pn127.us.us.us.us.us.us = phi ptr [ %35, %.lr.ph.us.us.us.us.us.us.preheader ], [ %.0105129.us.us.us.us.us.us, %._crit_edge125.us.us.us.us.us.us ]
   %50 = mul i64 %22, %indvar
-  %scevgep175 = getelementptr i8, ptr %48, i64 %50
+  %scevgep192 = getelementptr i8, ptr %48, i64 %50
   %51 = mul i64 %21, %indvar
   %scevgep = getelementptr i8, ptr %49, i64 %51
   %.0105129.us.us.us.us.us.us = getelementptr inbounds i8, ptr %.pn127.us.us.us.us.us.us, i64 %10
@@ -2849,7 +2849,7 @@ define internal fastcc void @restore_gradient_planar_il(ptr noundef readonly cap
   br label %65
 
 55:                                               ; preds = %._crit_edge.us.us.us.us.us.us, %55
-  %store_forwarded177 = phi i8 [ %load_initial176, %._crit_edge.us.us.us.us.us.us ], [ %.narrow112.us.us.us.us.us.us, %55 ]
+  %store_forwarded194 = phi i8 [ %load_initial193, %._crit_edge.us.us.us.us.us.us ], [ %.narrow112.us.us.us.us.us.us, %55 ]
   %indvars.iv164 = phi i64 [ 1, %._crit_edge.us.us.us.us.us.us ], [ %indvars.iv.next165, %55 ]
   %56 = sub nsw i64 %indvars.iv164, %2
   %57 = getelementptr inbounds i8, ptr %.0105129.us.us.us.us.us.us, i64 %56
@@ -2859,7 +2859,7 @@ define internal fastcc void @restore_gradient_planar_il(ptr noundef readonly cap
   %61 = load i8, ptr %60, align 1, !tbaa !44
   %62 = getelementptr i8, ptr %83, i64 %indvars.iv164
   %63 = sub i8 %58, %61
-  %.tr111.us.us.us.us.us.us = add i8 %63, %store_forwarded177
+  %.tr111.us.us.us.us.us.us = add i8 %63, %store_forwarded194
   %64 = load i8, ptr %62, align 1, !tbaa !44
   %.narrow112.us.us.us.us.us.us = add i8 %.tr111.us.us.us.us.us.us, %64
   store i8 %.narrow112.us.us.us.us.us.us, ptr %62, align 1, !tbaa !44
@@ -2901,7 +2901,7 @@ define internal fastcc void @restore_gradient_planar_il(ptr noundef readonly cap
   %84 = load i8, ptr %83, align 1, !tbaa !44
   %.narrow110.us.us.us.us.us.us = add i8 %.tr.us.us.us.us.us.us, %84
   store i8 %.narrow110.us.us.us.us.us.us, ptr %83, align 1, !tbaa !44
-  %load_initial176 = load i8, ptr %scevgep175, align 1
+  %load_initial193 = load i8, ptr %scevgep192, align 1
   br label %55
 
 ._crit_edge125.us.us.us.us.us.us:                 ; preds = %55
@@ -2953,24 +2953,24 @@ define internal fastcc void @restore_gradient_planar_il(ptr noundef readonly cap
   br i1 %exitcond158.not, label %._crit_edge133, label %.lr.ph132.split.us.split.us.split, !llvm.loop !114
 
 .lr.ph.us.us.us.us:                               ; preds = %.lr.ph.us.us.us.us.preheader, %._crit_edge125.us.us.us.us
-  %indvar178 = phi i64 [ 0, %.lr.ph.us.us.us.us.preheader ], [ %indvar.next179, %._crit_edge125.us.us.us.us ]
+  %indvar195 = phi i64 [ 0, %.lr.ph.us.us.us.us.preheader ], [ %indvar.next196, %._crit_edge125.us.us.us.us ]
   %.0103128.us.us.us.us = phi i32 [ 1, %.lr.ph.us.us.us.us.preheader ], [ %146, %._crit_edge125.us.us.us.us ]
   %.pn127.us.us.us.us = phi ptr [ %98, %.lr.ph.us.us.us.us.preheader ], [ %.0105129.us.us.us.us, %._crit_edge125.us.us.us.us ]
-  %113 = mul i64 %22, %indvar178
-  %scevgep183 = getelementptr i8, ptr %111, i64 %113
-  %114 = mul i64 %21, %indvar178
-  %scevgep180 = getelementptr i8, ptr %112, i64 %114
+  %113 = mul i64 %22, %indvar195
+  %scevgep200 = getelementptr i8, ptr %111, i64 %113
+  %114 = mul i64 %21, %indvar195
+  %scevgep197 = getelementptr i8, ptr %112, i64 %114
   %.0105129.us.us.us.us = getelementptr inbounds i8, ptr %.pn127.us.us.us.us, i64 %10
   %115 = load i8, ptr %.0105129.us.us.us.us, align 1, !tbaa !44
   %116 = load i8, ptr %.pn127.us.us.us.us, align 1, !tbaa !44
   %.narrow.us.us.us.us = add i8 %116, %115
   store i8 %.narrow.us.us.us.us, ptr %.0105129.us.us.us.us, align 1, !tbaa !44
   %117 = getelementptr i8, ptr %.pn127.us.us.us.us, i64 -1
-  %load_initial181 = load i8, ptr %scevgep180, align 1
+  %load_initial198 = load i8, ptr %scevgep197, align 1
   br label %128
 
 118:                                              ; preds = %118, %._crit_edge.us.us.us.us
-  %store_forwarded185 = phi i8 [ %load_initial184, %._crit_edge.us.us.us.us ], [ %.narrow112.us.us.us.us, %118 ]
+  %store_forwarded202 = phi i8 [ %load_initial201, %._crit_edge.us.us.us.us ], [ %.narrow112.us.us.us.us, %118 ]
   %indvars.iv152 = phi i64 [ 1, %._crit_edge.us.us.us.us ], [ %indvars.iv.next153, %118 ]
   %119 = sub nsw i64 %indvars.iv152, %2
   %120 = getelementptr inbounds i8, ptr %.0105129.us.us.us.us, i64 %119
@@ -2980,7 +2980,7 @@ define internal fastcc void @restore_gradient_planar_il(ptr noundef readonly cap
   %124 = load i8, ptr %123, align 1, !tbaa !44
   %125 = getelementptr i8, ptr %144, i64 %indvars.iv152
   %126 = sub i8 %121, %124
-  %.tr111.us.us.us.us = add i8 %126, %store_forwarded185
+  %.tr111.us.us.us.us = add i8 %126, %store_forwarded202
   %127 = load i8, ptr %125, align 1, !tbaa !44
   %.narrow112.us.us.us.us = add i8 %.tr111.us.us.us.us, %127
   store i8 %.narrow112.us.us.us.us, ptr %125, align 1, !tbaa !44
@@ -2989,7 +2989,7 @@ define internal fastcc void @restore_gradient_planar_il(ptr noundef readonly cap
   br i1 %exitcond156.not, label %._crit_edge125.us.us.us.us, label %118, !llvm.loop !115
 
 128:                                              ; preds = %128, %.lr.ph.us.us.us.us
-  %store_forwarded182 = phi i8 [ %load_initial181, %.lr.ph.us.us.us.us ], [ %.narrow115.us.us.us.us, %128 ]
+  %store_forwarded199 = phi i8 [ %load_initial198, %.lr.ph.us.us.us.us ], [ %.narrow115.us.us.us.us, %128 ]
   %indvars.iv147 = phi i64 [ 1, %.lr.ph.us.us.us.us ], [ %indvars.iv.next148, %128 ]
   %129 = getelementptr inbounds nuw i8, ptr %.pn127.us.us.us.us, i64 %indvars.iv147
   %130 = load i8, ptr %129, align 1, !tbaa !44
@@ -2997,7 +2997,7 @@ define internal fastcc void @restore_gradient_planar_il(ptr noundef readonly cap
   %132 = load i8, ptr %131, align 1, !tbaa !44
   %133 = getelementptr i8, ptr %.0105129.us.us.us.us, i64 %indvars.iv147
   %134 = sub i8 %130, %132
-  %.tr114.us.us.us.us = add i8 %134, %store_forwarded182
+  %.tr114.us.us.us.us = add i8 %134, %store_forwarded199
   %135 = load i8, ptr %133, align 1, !tbaa !44
   %.narrow115.us.us.us.us = add i8 %.tr114.us.us.us.us, %135
   store i8 %.narrow115.us.us.us.us, ptr %133, align 1, !tbaa !44
@@ -3019,13 +3019,13 @@ define internal fastcc void @restore_gradient_planar_il(ptr noundef readonly cap
   %145 = load i8, ptr %144, align 1, !tbaa !44
   %.narrow110.us.us.us.us = add i8 %.tr.us.us.us.us, %145
   store i8 %.narrow110.us.us.us.us, ptr %144, align 1, !tbaa !44
-  %load_initial184 = load i8, ptr %scevgep183, align 1
+  %load_initial201 = load i8, ptr %scevgep200, align 1
   br label %118
 
 ._crit_edge125.us.us.us.us:                       ; preds = %118
   %146 = add nuw nsw i32 %.0103128.us.us.us.us, 1
   %exitcond157.not = icmp eq i32 %146, %94
-  %indvar.next179 = add i64 %indvar178, 1
+  %indvar.next196 = add i64 %indvar195, 1
   br i1 %exitcond157.not, label %.loopexit.split.us.us.split.us.us.split, label %.lr.ph.us.us.us.us, !llvm.loop !117
 
 .lr.ph132.split:                                  ; preds = %.lr.ph132, %.loopexit.split

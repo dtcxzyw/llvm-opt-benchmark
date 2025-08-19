@@ -11773,20 +11773,20 @@ define hidden void @"_ZN12polars_arrow6bitmap7aligned27AlignedBitmapSlice$LT$T$G
 
 12:                                               ; preds = %5, %_ZN12polars_arrow6bitmap7aligned13load_chunk_le17hc7a148fdc51710f1E.exit, %76
   %.sroa.0.0.sink = phi i64 [ %.sroa.0.0, %_ZN12polars_arrow6bitmap7aligned13load_chunk_le17hc7a148fdc51710f1E.exit ], [ %81, %76 ], [ 0, %5 ]
-  %.sink75 = phi i32 [ %37, %_ZN12polars_arrow6bitmap7aligned13load_chunk_le17hc7a148fdc51710f1E.exit ], [ %83, %76 ], [ 0, %5 ]
-  %.sink74 = phi ptr [ inttoptr (i64 8 to ptr), %_ZN12polars_arrow6bitmap7aligned13load_chunk_le17hc7a148fdc51710f1E.exit ], [ %53, %76 ], [ inttoptr (i64 8 to ptr), %5 ]
-  %.sink72 = phi i64 [ 0, %_ZN12polars_arrow6bitmap7aligned13load_chunk_le17hc7a148fdc51710f1E.exit ], [ %82, %76 ], [ 0, %5 ]
-  %.sink70 = phi i64 [ 0, %_ZN12polars_arrow6bitmap7aligned13load_chunk_le17hc7a148fdc51710f1E.exit ], [ %78, %76 ], [ 0, %5 ]
+  %.sink83 = phi i32 [ %37, %_ZN12polars_arrow6bitmap7aligned13load_chunk_le17hc7a148fdc51710f1E.exit ], [ %83, %76 ], [ 0, %5 ]
+  %.sink82 = phi ptr [ inttoptr (i64 8 to ptr), %_ZN12polars_arrow6bitmap7aligned13load_chunk_le17hc7a148fdc51710f1E.exit ], [ %53, %76 ], [ inttoptr (i64 8 to ptr), %5 ]
+  %.sink80 = phi i64 [ 0, %_ZN12polars_arrow6bitmap7aligned13load_chunk_le17hc7a148fdc51710f1E.exit ], [ %82, %76 ], [ 0, %5 ]
+  %.sink78 = phi i64 [ 0, %_ZN12polars_arrow6bitmap7aligned13load_chunk_le17hc7a148fdc51710f1E.exit ], [ %78, %76 ], [ 0, %5 ]
   %.sink = phi i32 [ 0, %_ZN12polars_arrow6bitmap7aligned13load_chunk_le17hc7a148fdc51710f1E.exit ], [ %84, %76 ], [ 0, %5 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.0.0.sink, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.sink75, ptr %14, align 8
-  store ptr %.sink74, ptr %0, align 8
+  store i32 %.sink83, ptr %14, align 8
+  store ptr %.sink82, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink72, ptr %15, align 8
+  store i64 %.sink80, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sink70, ptr %16, align 8
+  store i64 %.sink78, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sink, ptr %17, align 4
   ret void
@@ -15998,7 +15998,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !600, !noundef !4
-  switch i8 %23, label %default.unreachable61 [
+  switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -16040,7 +16040,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable61:                            ; preds = %2
+default.unreachable66:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2
@@ -18357,8 +18357,8 @@ define hidden void @_ZN14polars_compute4cast10decimal_to23decimal_to_utf8view_dy
   %53 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.4.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 4
   %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 8
-  %.sroa.4.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 4
-  %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 8
+  %.sroa.4.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 4
+  %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 8
   br label %59
 
 54:                                               ; preds = %29
@@ -18574,8 +18574,8 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
   store i32 0, ptr %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 4, !noalias !1348
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.4.i.i, ptr nonnull readonly align 1 %66, i64 %67, i1 false), !noalias !1364
   %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.3.4.copyload.i.i = load i32, ptr %.sroa.4.i.i, align 4, !noalias !1348
-  %.sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.6.4.copyload.i.i = load i32, ptr %.sroa.4.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx10, align 4, !noalias !1348
-  %.sroa.4.i.i.8..sroa.4.i.i.8..sroa.4.i.i.8..sroa.4.i.8..sroa.4.i.8..sroa.4.8..sroa.4.8..sroa.7.4.copyload.i.i = load i32, ptr %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx11, align 4, !noalias !1348
+  %.sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.6.4.copyload.i.i = load i32, ptr %.sroa.4.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx13, align 4, !noalias !1348
+  %.sroa.4.i.i.8..sroa.4.i.i.8..sroa.4.i.i.8..sroa.4.i.8..sroa.4.i.8..sroa.4.8..sroa.4.8..sroa.7.4.copyload.i.i = load i32, ptr %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx14, align 4, !noalias !1348
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i)
   br label %_ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.exit.i.i
 
@@ -21779,7 +21779,7 @@ _ZN14polars_compute6gather15fixed_size_list10get_leaves17hd4bdc161d6eb2565E.exit
   unreachable
 
 _ZN14polars_compute6gather15fixed_size_list19get_buffer_and_size17hfb3806fe5c6731beE.exit: ; preds = %272, %280, %288, %296, %304, %312, %320, %328, %336, %344, %352
-  %.sink63.i = phi ptr [ %282, %280 ], [ %290, %288 ], [ %298, %296 ], [ %306, %304 ], [ %314, %312 ], [ %322, %320 ], [ %330, %328 ], [ %338, %336 ], [ %346, %344 ], [ %354, %352 ], [ %274, %272 ]
+  %.sink73.i = phi ptr [ %282, %280 ], [ %290, %288 ], [ %298, %296 ], [ %306, %304 ], [ %314, %312 ], [ %322, %320 ], [ %330, %328 ], [ %338, %336 ], [ %346, %344 ], [ %354, %352 ], [ %274, %272 ]
   %.sink.i = phi i64 [ 2, %280 ], [ 4, %288 ], [ 8, %296 ], [ 16, %304 ], [ 1, %312 ], [ 2, %320 ], [ 4, %328 ], [ 8, %336 ], [ 4, %344 ], [ 8, %352 ], [ 1, %272 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !1721
   %360 = mul i64 %.sink.i, %.tr1.lcssa.i
@@ -22195,7 +22195,7 @@ _ZN12polars_arrow5array5Array10null_count17h325ed47397b09285E.exit.thread: ; pre
   %546 = load i32, ptr %.sroa.027.0276, align 4, !noundef !4
   %547 = zext i32 %546 to i64
   %548 = mul i64 %360, %547
-  %549 = getelementptr inbounds nuw i8, ptr %.sink63.i, i64 %548
+  %549 = getelementptr inbounds nuw i8, ptr %.sink73.i, i64 %548
   %550 = mul i64 %.sroa.06.0277, %360
   %551 = getelementptr inbounds nuw i8, ptr %.sink.i72, i64 %550
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %551, ptr nonnull align 1 %549, i64 %360, i1 false)
@@ -23452,7 +23452,7 @@ _ZN12polars_arrow5array5Array10null_count17h325ed47397b09285E.exit.thread.i: ; p
   %909 = load i32, ptr %.sroa.7.0209228, align 4, !noundef !4
   %910 = zext i32 %909 to i64
   %911 = mul i64 %360, %910
-  %912 = getelementptr inbounds nuw i8, ptr %.sink63.i, i64 %911
+  %912 = getelementptr inbounds nuw i8, ptr %.sink73.i, i64 %911
   %913 = mul i64 %.sroa.06.2, %360
   %914 = getelementptr inbounds nuw i8, ptr %.sink.i72, i64 %913
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %914, ptr nonnull align 1 %912, i64 %360, i1 false)

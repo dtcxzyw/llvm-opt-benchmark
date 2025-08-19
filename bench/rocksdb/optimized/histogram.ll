@@ -1607,9 +1607,9 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit:   ; preds = %90
   br label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %_ZNK7rocksdb13HistogramStat10PercentileEd.exit, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit.thread
-  %.sink81 = phi double [ %95, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit ], [ %.137.i, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit.thread ]
+  %.sink88 = phi double [ %95, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit ], [ %.137.i, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit.thread ]
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double %.sink81, ptr %96, align 8, !tbaa !45
+  store double %.sink88, ptr %96, align 8, !tbaa !45
   %97 = load atomic i64, ptr %3 monotonic, align 8
   %.in29 = uitofp i64 %97 to double
   %98 = fmul double %.in29, 0x3FEFAE147AE147AE

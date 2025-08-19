@@ -1653,7 +1653,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   %228 = getelementptr i8, ptr %225, i64 7
   store ptr %228, ptr %3, align 8
   %229 = icmp eq i32 %227, %70
-  br i1 %229, label %.loopexit57.loopexit, label %88, !llvm.loop !16
+  br i1 %229, label %.loopexit61.loopexit, label %88, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.thread17
   %230 = load ptr, ptr %0, align 64
@@ -1686,7 +1686,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   %252 = icmp eq i32 %90, 0
   br label %.thread30
 
-.loopexit57.loopexit:                             ; preds = %223
+.loopexit61.loopexit:                             ; preds = %223
   %253 = icmp eq i32 %224, 0
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %255 = load ptr, ptr %254, align 8
@@ -1698,7 +1698,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   store i64 %257, ptr %10, align 16
   br i1 %253, label %307, label %258
 
-258:                                              ; preds = %.loopexit57.loopexit
+258:                                              ; preds = %.loopexit61.loopexit
   %259 = call i32 @ata_dev_reread_id(ptr noundef %0, i32 noundef 0) #8
   %260 = icmp slt i32 %259, 0
   br i1 %260, label %261, label %307
@@ -1777,8 +1777,8 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   store i64 %306, ptr %10, align 16
   br label %307
 
-307:                                              ; preds = %.critedge, %302, %297, %283, %273, %261, %258, %.loopexit57.loopexit, %32, %31, %21, %14, %1
-  %308 = phi i32 [ %278, %302 ], [ %278, %283 ], [ %259, %261 ], [ 0, %21 ], [ 0, %32 ], [ 0, %31 ], [ 0, %258 ], [ 0, %.loopexit57.loopexit ], [ 0, %273 ], [ 0, %297 ], [ 0, %14 ], [ 0, %1 ], [ 0, %.critedge ]
+307:                                              ; preds = %.critedge, %302, %297, %283, %273, %261, %258, %.loopexit61.loopexit, %32, %31, %21, %14, %1
+  %308 = phi i32 [ %278, %302 ], [ %278, %283 ], [ %259, %261 ], [ 0, %21 ], [ 0, %32 ], [ 0, %31 ], [ 0, %258 ], [ 0, %.loopexit61.loopexit ], [ 0, %273 ], [ 0, %297 ], [ 0, %14 ], [ 0, %1 ], [ 0, %.critedge ]
   ret i32 %308
 }
 

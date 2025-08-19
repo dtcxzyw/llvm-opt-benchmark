@@ -230,14 +230,14 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 3
   %99 = load i8, ptr %98, align 1, !tbaa !26
   %100 = icmp eq i8 %99, -1
-  br i1 %100, label %.thread56.i, label %.loopexit
+  br i1 %100, label %.thread60.i, label %.loopexit
 
 101:                                              ; preds = %85
   store i64 0, ptr %spec.store.select1, align 8, !tbaa !16
   %102 = icmp ugt i64 %spec.select, 7
   br i1 %102, label %.lr.ph.split.us.i, label %looks_ucs32.exit
 
-.thread56.i:                                      ; preds = %97
+.thread60.i:                                      ; preds = %97
   store i64 0, ptr %spec.store.select1, align 8, !tbaa !16
   %103 = icmp ugt i64 %spec.select, 7
   br i1 %103, label %.lr.ph.split.i, label %.loopexit191
@@ -286,10 +286,10 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
   %134 = icmp ult i64 %133, %spec.select
   br i1 %134, label %.lr.ph.split.us.i, label %looks_ucs32.exit
 
-.lr.ph.split.i:                                   ; preds = %.thread56.i, %167
-  %135 = phi i64 [ %157, %167 ], [ 0, %.thread56.i ]
-  %136 = phi i64 [ %169, %167 ], [ 7, %.thread56.i ]
-  %.047.i = phi i64 [ %168, %167 ], [ 4, %.thread56.i ]
+.lr.ph.split.i:                                   ; preds = %.thread60.i, %167
+  %135 = phi i64 [ %157, %167 ], [ 0, %.thread60.i ]
+  %136 = phi i64 [ %169, %167 ], [ 7, %.thread60.i ]
+  %.047.i = phi i64 [ %168, %167 ], [ 4, %.thread60.i ]
   %137 = getelementptr inbounds nuw i8, ptr %11, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !26
   %139 = zext i8 %138 to i64
@@ -340,7 +340,7 @@ looks_ucs32.exit:                                 ; preds = %131, %101
   store ptr @.str.11, ptr %5, align 8, !tbaa !14
   br label %239
 
-.loopexit191:                                     ; preds = %167, %.thread56.i
+.loopexit191:                                     ; preds = %167, %.thread60.i
   store ptr @.str.12, ptr %4, align 8, !tbaa !14
   store ptr @.str.13, ptr %5, align 8, !tbaa !14
   br label %239
@@ -694,11 +694,11 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr noundef readonly capture
   %.076115.fr = freeze i32 %.076115
   %.not92 = icmp eq i32 %.076115.fr, 0
   %. = select i1 %.not92, i32 1, i32 2
-  %spec.select159 = select i1 %.not91, i32 %., i32 0
+  %spec.select167 = select i1 %.not91, i32 %., i32 0
   br label %.thread
 
 .thread:                                          ; preds = %38, %18, %15, %._crit_edge, %54, %57, %.loopexit, %6
-  %.1 = phi i32 [ 1, %6 ], [ %spec.select159, %.loopexit ], [ -1, %57 ], [ -1, %54 ], [ -1, %._crit_edge ], [ -1, %15 ], [ -1, %18 ], [ -1, %38 ]
+  %.1 = phi i32 [ 1, %6 ], [ %spec.select167, %.loopexit ], [ -1, %57 ], [ -1, %54 ], [ -1, %._crit_edge ], [ -1, %15 ], [ -1, %18 ], [ -1, %38 ]
   ret i32 %.1
 }
 

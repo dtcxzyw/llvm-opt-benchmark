@@ -399,7 +399,7 @@ define void @sch_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sch_stop(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @sch_stop(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -754,8 +754,8 @@ err_merge.exit107:                                ; preds = %task_stop.exit103, 
   br i1 %.not75, label %201, label %186
 
 ._crit_edge151.thread:                            ; preds = %.preheader
-  %.not75185 = icmp eq ptr %1, null
-  br i1 %.not75185, label %201, label %trailing_dts.exit
+  %.not75188 = icmp eq ptr %1, null
+  br i1 %.not75188, label %201, label %trailing_dts.exit
 
 158:                                              ; preds = %.lr.ph150, %err_merge.exit117
   %indvars.iv180 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next181, %err_merge.exit117 ]
@@ -863,7 +863,7 @@ err_merge.exit117:                                ; preds = %task_stop.exit113, 
   br i1 %exitcond.not.i, label %._crit_edge.split.us.us.i, label %194, !llvm.loop !81
 
 trailing_dts.exit:                                ; preds = %._crit_edge.split.us.us.i, %194, %._crit_edge151.thread, %186
-  %.4.lcssa186192 = phi i32 [ %.0.i116, %186 ], [ %.3.lcssa, %._crit_edge151.thread ], [ %.0.i116, %194 ], [ %.0.i116, %._crit_edge.split.us.us.i ]
+  %.4.lcssa189195 = phi i32 [ %.0.i116, %186 ], [ %.3.lcssa, %._crit_edge151.thread ], [ %.0.i116, %194 ], [ %.0.i116, %._crit_edge.split.us.us.i ]
   %.not47.i = phi i1 [ false, %186 ], [ false, %._crit_edge151.thread ], [ true, %194 ], [ false, %._crit_edge.split.us.us.i ]
   %.128.i = phi i64 [ 9223372036854775807, %186 ], [ 9223372036854775807, %._crit_edge151.thread ], [ %.22949.us.us.i, %194 ], [ %.229.lcssa.us.i, %._crit_edge.split.us.us.i ]
   %199 = icmp eq i64 %.128.i, 9223372036854775807
@@ -873,12 +873,12 @@ trailing_dts.exit:                                ; preds = %._crit_edge.split.u
   br label %201
 
 201:                                              ; preds = %._crit_edge151.thread, %trailing_dts.exit, %._crit_edge151
-  %.4.lcssa187 = phi i32 [ %.3.lcssa, %._crit_edge151.thread ], [ %.4.lcssa186192, %trailing_dts.exit ], [ %.0.i116, %._crit_edge151 ]
+  %.4.lcssa190 = phi i32 [ %.3.lcssa, %._crit_edge151.thread ], [ %.4.lcssa189195, %trailing_dts.exit ], [ %.0.i116, %._crit_edge151 ]
   store i32 2, ptr %8, align 4, !tbaa !67
   br label %202
 
 202:                                              ; preds = %2, %201
-  %.0 = phi i32 [ %.4.lcssa187, %201 ], [ 0, %2 ]
+  %.0 = phi i32 [ %.4.lcssa190, %201 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -4676,7 +4676,7 @@ define range(i32 -541478725, 1) i32 @sch_filter_receive(ptr noundef %0, i32 noun
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %36 = icmp sgt i32 %33, -1
-  br i1 %36, label %.lr.ph._crit_edge, label %.lr.ph39
+  br i1 %36, label %.lr.ph._crit_edge, label %.lr.ph44
 
 37:                                               ; preds = %27
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 112
@@ -4717,21 +4717,21 @@ waiter_wait.exit:                                 ; preds = %46, %48, %41
 waiter_wait.exit.thread:                          ; preds = %37, %waiter_wait.exit
   br label %58
 
-.lr.ph:                                           ; preds = %.lr.ph39
+.lr.ph:                                           ; preds = %.lr.ph44
   %53 = icmp sgt i32 %55, -1
-  br i1 %53, label %.lr.ph._crit_edge, label %.lr.ph39
+  br i1 %53, label %.lr.ph._crit_edge, label %.lr.ph44
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi i32 [ %34, %.lr.ph.preheader ], [ %56, %.lr.ph ]
   store i32 %.lcssa, ptr %2, align 4, !tbaa !68
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph39, %.preheader, %.lr.ph._crit_edge
-  %.2.ph = phi i32 [ 0, %.lr.ph._crit_edge ], [ -541478725, %.preheader ], [ -541478725, %.lr.ph39 ]
+.thread:                                          ; preds = %.lr.ph44, %.preheader, %.lr.ph._crit_edge
+  %.2.ph = phi i32 [ 0, %.lr.ph._crit_edge ], [ -541478725, %.preheader ], [ -541478725, %.lr.ph44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %58
 
-.lr.ph39:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph44:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %54 = load ptr, ptr %31, align 8, !tbaa !214
@@ -5243,8 +5243,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mux_task_start(ptr noundef
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load i32, ptr %6, align 8, !tbaa !36
-  %.not7378 = icmp eq i32 %9, 0
-  br i1 %.not7378, label %._crit_edge.thread, label %.lr.ph
+  %.not7383 = icmp eq i32 %9, 0
+  br i1 %.not7383, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph.backedge
   %indvars.iv = phi i64 [ %indvars.iv.be, %.lr.ph.backedge ], [ 0, %.preheader ]
@@ -5431,46 +5431,45 @@ err_merge.exit:                                   ; preds = %11, %1
   %or.cond.i = or i1 %16, %17
   %18 = icmp slt i32 %15, 0
   %or.cond3.i = and i1 %or.cond.i, %18
-  %19 = call i32 @llvm.smin.i32(i32 %15, i32 0)
-  %20 = select i1 %10, i32 %9, i32 %19
-  %.0.i = select i1 %or.cond3.i, i32 %15, i32 %20
-  %21 = icmp eq i32 %.0.i, -541478725
-  %spec.store.select = select i1 %21, i32 0, i32 %.0.i
-  %22 = icmp slt i32 %spec.store.select, 0
-  br i1 %22, label %25, label %23
+  %19 = select i1 %10, i32 %9, i32 %15
+  %spec.select = select i1 %or.cond3.i, i32 %15, i32 %19
+  %20 = icmp eq i32 %spec.select, -541478725
+  %spec.store.select = select i1 %20, i32 0, i32 %spec.select
+  %21 = icmp slt i32 %spec.store.select, 0
+  br i1 %21, label %24, label %22
 
-23:                                               ; preds = %err_merge.exit
-  %24 = load ptr, ptr %7, align 8, !tbaa !93
-  br label %34
+22:                                               ; preds = %err_merge.exit
+  %23 = load ptr, ptr %7, align 8, !tbaa !93
+  br label %33
 
-25:                                               ; preds = %err_merge.exit
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %27 = call i32 @pthread_mutex_lock(ptr noundef nonnull %26) #9
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 84
-  store i32 1, ptr %28, align 4, !tbaa !190
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %30 = call i32 @pthread_cond_signal(ptr noundef nonnull %29) #9
-  %31 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #9
-  %32 = load ptr, ptr %7, align 8, !tbaa !93
+24:                                               ; preds = %err_merge.exit
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %26 = call i32 @pthread_mutex_lock(ptr noundef nonnull %25) #9
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 84
+  store i32 1, ptr %27, align 4, !tbaa !190
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  %29 = call i32 @pthread_cond_signal(ptr noundef nonnull %28) #9
+  %30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %25) #9
+  %31 = load ptr, ptr %7, align 8, !tbaa !93
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %3, i8 0, i64 64, i1 false)
-  %33 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %spec.store.select, ptr noundef nonnull %3, i64 noundef 64) #9
-  br label %34
+  %32 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %spec.store.select, ptr noundef nonnull %3, i64 noundef 64) #9
+  br label %33
 
-34:                                               ; preds = %23, %25
-  %35 = phi ptr [ %24, %23 ], [ %32, %25 ]
-  %36 = phi i32 [ 40, %23 ], [ 16, %25 ]
-  %37 = phi ptr [ @.str.66, %23 ], [ %3, %25 ]
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %35, i32 noundef %36, ptr noundef nonnull @.str.65, i32 noundef %spec.store.select, ptr noundef nonnull %37) #9
-  %38 = sext i32 %spec.store.select to i64
-  %39 = inttoptr i64 %38 to ptr
-  ret ptr %39
+33:                                               ; preds = %22, %24
+  %34 = phi ptr [ %23, %22 ], [ %31, %24 ]
+  %35 = phi i32 [ 40, %22 ], [ 16, %24 ]
+  %36 = phi ptr [ @.str.66, %22 ], [ %3, %24 ]
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %34, i32 noundef %35, ptr noundef nonnull @.str.65, i32 noundef %spec.store.select, ptr noundef nonnull %36) #9
+  %37 = sext i32 %spec.store.select to i64
+  %38 = inttoptr i64 %37 to ptr
+  ret ptr %38
 }
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @task_cleanup(ptr noundef %0, i64 %1) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @task_cleanup(ptr noundef %0, i64 %1) unnamed_addr #0 {
   %.sroa.05.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.26.0.extract.shift = lshr i64 %1, 32
   switch i32 %.sroa.05.0.extract.trunc, label %223 [
@@ -5981,7 +5980,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @send_to_mux(ptr noundef %0
   %27 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %26) #9
   %28 = load atomic i32, ptr %23 seq_cst, align 8
   %.not49 = icmp eq i32 %28, 0
-  br i1 %.not49, label %29, label %.thread76
+  br i1 %.not49, label %29, label %.thread83
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -6029,14 +6028,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @send_to_mux(ptr noundef %0
 
 .thread.i:                                        ; preds = %52
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1, i32 noundef 16, ptr noundef nonnull @.str.70) #9
-  br label %.thread73
+  br label %.thread80
 
 56:                                               ; preds = %52
   %57 = load ptr, ptr %30, align 8, !tbaa !241
   %58 = sub nuw i64 %55, %35
   %59 = tail call i32 @av_fifo_grow2(ptr noundef %57, i64 noundef %58) #9
   %60 = icmp sgt i32 %59, -1
-  br i1 %60, label %61, label %.thread73
+  br i1 %60, label %61, label %.thread80
 
 61:                                               ; preds = %56, %29
   %.not36.i = icmp eq ptr %3, null
@@ -6046,7 +6045,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @send_to_mux(ptr noundef %0
   %63 = tail call ptr @av_packet_alloc() #9
   store ptr %63, ptr %5, align 8, !tbaa !227
   %.not37.i = icmp eq ptr %63, null
-  br i1 %.not37.i, label %.thread73, label %64
+  br i1 %.not37.i, label %.thread80, label %64
 
 64:                                               ; preds = %62
   tail call void @av_packet_move_ref(ptr noundef nonnull %63, ptr noundef nonnull %3) #9
@@ -6059,16 +6058,16 @@ define internal fastcc range(i32 -2147483648, 1) i32 @send_to_mux(ptr noundef %0
   store i64 %70, ptr %68, align 8, !tbaa !243
   br label %85
 
-.thread73:                                        ; preds = %56, %62, %.thread.i
+.thread80:                                        ; preds = %56, %62, %.thread.i
   %.1.i.ph = phi i32 [ -1397118274, %.thread.i ], [ -12, %62 ], [ %59, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread60.sink.split
 
-.thread76:                                        ; preds = %25
+.thread83:                                        ; preds = %25
   %71 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #9
   br label %72
 
-72:                                               ; preds = %.thread76, %21
+72:                                               ; preds = %.thread83, %21
   br i1 %10, label %73, label %.thread65
 
 73:                                               ; preds = %72
@@ -6132,9 +6131,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @send_to_mux(ptr noundef %0
   call fastcc void @schedule_update_locked(ptr noundef nonnull %0)
   br label %.thread60.sink.split
 
-.thread60.sink.split:                             ; preds = %102, %.thread73
-  %.sink = phi ptr [ %26, %.thread73 ], [ %103, %102 ]
-  %.2.ph = phi i32 [ %.1.i.ph, %.thread73 ], [ 0, %102 ]
+.thread60.sink.split:                             ; preds = %102, %.thread80
+  %.sink = phi ptr [ %26, %.thread80 ], [ %103, %102 ]
+  %.2.ph = phi i32 [ %.1.i.ph, %.thread80 ], [ 0, %102 ]
   %104 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %.sink) #9
   br label %.thread60
 

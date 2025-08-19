@@ -1319,7 +1319,7 @@ define internal noalias noundef ptr @_power_save_thread(ptr readnone captures(no
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %80 = load ptr, ptr @partial_node_list, align 8
   %.not.i = icmp eq ptr %80, null
-  br i1 %.not.i, label %.thread279.i, label %81
+  br i1 %.not.i, label %.thread308.i, label %81
 
 81:                                               ; preds = %79
   %82 = call i32 @list_for_each(ptr noundef nonnull %80, ptr noundef nonnull @_pick_exc_nodes, ptr noundef nonnull %7) #12
@@ -1328,38 +1328,38 @@ define internal noalias noundef ptr @_power_save_thread(ptr readnone captures(no
   %.not160.i = icmp eq ptr %83, null
   br i1 %.not160.i, label %89, label %85
 
-.thread279.i:                                     ; preds = %79
+.thread308.i:                                     ; preds = %79
   %84 = load ptr, ptr @exc_node_bitmap, align 8
-  %.not160281.i = icmp eq ptr %84, null
-  br i1 %.not160281.i, label %.thread286.i, label %.thread283.i
+  %.not160310.i = icmp eq ptr %84, null
+  br i1 %.not160310.i, label %.thread315.i, label %.thread312.i
 
 85:                                               ; preds = %81
   %.not161.i = icmp eq ptr %.pre274.pre.i, null
-  br i1 %.not161.i, label %.thread283.i, label %86
+  br i1 %.not161.i, label %.thread312.i, label %86
 
 86:                                               ; preds = %85
   call void @bit_or(ptr noundef nonnull %.pre274.pre.i, ptr noundef nonnull %83) #12
   %.pre.i = load ptr, ptr %7, align 8
   br label %89
 
-.thread283.i:                                     ; preds = %85, %.thread279.i
-  %87 = phi ptr [ %83, %85 ], [ %84, %.thread279.i ]
+.thread312.i:                                     ; preds = %85, %.thread308.i
+  %87 = phi ptr [ %83, %85 ], [ %84, %.thread308.i ]
   %88 = call ptr @bit_copy(ptr noundef nonnull %87) #12
   store ptr %88, ptr %7, align 8
   br label %89
 
-89:                                               ; preds = %.thread283.i, %86, %81
-  %90 = phi ptr [ %.pre.i, %86 ], [ %88, %.thread283.i ], [ %.pre274.pre.i, %81 ]
+89:                                               ; preds = %.thread312.i, %86, %81
+  %90 = phi ptr [ %.pre.i, %86 ], [ %88, %.thread312.i ], [ %.pre274.pre.i, %81 ]
   %91 = icmp ne ptr %90, null
   %92 = load i8, ptr @power_save_debug, align 1, !range !13
   %93 = trunc nuw i8 %92 to i1
   %or.cond.i = select i1 %91, i1 %93, i1 false
-  br i1 %or.cond.i, label %94, label %.thread286.i
+  br i1 %or.cond.i, label %94, label %.thread315.i
 
 94:                                               ; preds = %89
   %95 = call i32 @get_log_level() #12
   %96 = icmp sgt i32 %95, 4
-  br i1 %96, label %97, label %.thread286.i
+  br i1 %96, label %97, label %.thread315.i
 
 97:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -1378,9 +1378,9 @@ define internal noalias noundef ptr @_power_save_thread(ptr readnone captures(no
 104:                                              ; preds = %102, %97
   call void @slurm_xfree(ptr noundef nonnull %12) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.thread286.i
+  br label %.thread315.i
 
-.thread286.i:                                     ; preds = %104, %94, %89, %.thread279.i
+.thread315.i:                                     ; preds = %104, %94, %89, %.thread308.i
   %105 = call ptr @data_new() #12
   %106 = call ptr @data_set_dict(ptr noundef %105) #12
   %107 = call ptr @data_key_set(ptr noundef %106, ptr noundef nonnull @.str.46) #12
@@ -1395,8 +1395,8 @@ define internal noalias noundef ptr @_power_save_thread(ptr readnone captures(no
   %.not162264.i = icmp eq ptr %114, null
   br i1 %.not162264.i, label %.loopexit.i, label %.lr.ph266.i
 
-.lr.ph266.i:                                      ; preds = %.thread286.i, %301
-  %115 = phi ptr [ %302, %301 ], [ %114, %.thread286.i ]
+.lr.ph266.i:                                      ; preds = %.thread315.i, %301
+  %115 = phi ptr [ %302, %301 ], [ %114, %.thread315.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -1428,10 +1428,10 @@ define internal noalias noundef ptr @_power_save_thread(ptr readnone captures(no
 
 127:                                              ; preds = %118
   %128 = sub i64 %125, %126
-  %.b58 = load i1, ptr @resume_rl_config.3, align 4
+  %.b94 = load i1, ptr @resume_rl_config.3, align 4
   %129 = load i32, ptr @resume_rl_config.5, align 4
   %130 = trunc i64 %128 to i32
-  %131 = select i1 %.b58, i32 %130, i32 0
+  %131 = select i1 %.b94, i32 %130, i32 0
   %132 = add i32 %131, %129
   %133 = load i32, ptr @resume_rl_config.2, align 8
   %..i.i = call i32 @llvm.umin.i32(i32 %132, i32 %133)
@@ -1607,10 +1607,10 @@ _rl_get_tokens.exit.i:                            ; preds = %127, %._crit_edge.i
 
 220:                                              ; preds = %211
   %221 = sub i64 %218, %219
-  %.b60 = load i1, ptr @resume_rl_config.3, align 4
+  %.b96 = load i1, ptr @resume_rl_config.3, align 4
   %222 = load i32, ptr @resume_rl_config.5, align 4
   %223 = trunc i64 %221 to i32
-  %224 = select i1 %.b60, i32 %223, i32 0
+  %224 = select i1 %.b96, i32 %223, i32 0
   %225 = add i32 %224, %222
   %226 = load i32, ptr @resume_rl_config.2, align 8
   %..i225.i = call i32 @llvm.umin.i32(i32 %225, i32 %226)
@@ -1624,8 +1624,8 @@ _rl_get_tokens.exit228.i:                         ; preds = %220, %._crit_edge.i
   br i1 %.not215.i, label %243, label %228
 
 228:                                              ; preds = %_rl_get_tokens.exit228.i, %.lr.ph.i
-  %.b5770 = load i1, ptr @resume_rl_config.0, align 8
-  br i1 %.b5770, label %229, label %_rl_spend_token.exit.i
+  %.b93106 = load i1, ptr @resume_rl_config.0, align 8
+  br i1 %.b93106, label %229, label %_rl_spend_token.exit.i
 
 229:                                              ; preds = %228
   %230 = load i32, ptr @resume_rl_config.5, align 4
@@ -1778,7 +1778,7 @@ _rl_spend_token.exit.i:                           ; preds = %233, %231, %228
   %.not162.i = icmp eq ptr %302, null
   br i1 %.not162.i, label %.loopexit.i, label %.lr.ph266.i
 
-.loopexit.i:                                      ; preds = %301, %.thread.i, %.thread286.i
+.loopexit.i:                                      ; preds = %301, %.thread.i, %.thread315.i
   store i32 0, ptr %6, align 4
   %303 = call ptr @next_node(ptr noundef nonnull %6) #12
   %.not179267.i = icmp eq ptr %303, null
@@ -1833,10 +1833,10 @@ _rl_spend_token.exit.i:                           ; preds = %233, %231, %228
 
 327:                                              ; preds = %318
   %328 = sub i64 %325, %326
-  %.b59 = load i1, ptr @resume_rl_config.3, align 4
+  %.b95 = load i1, ptr @resume_rl_config.3, align 4
   %329 = load i32, ptr @resume_rl_config.5, align 4
   %330 = trunc i64 %328 to i32
-  %331 = select i1 %.b59, i32 %330, i32 0
+  %331 = select i1 %.b95, i32 %330, i32 0
   %332 = add i32 %331, %329
   %333 = load i32, ptr @resume_rl_config.2, align 8
   %..i233.i = call i32 @llvm.umin.i32(i32 %332, i32 %333)
@@ -1872,8 +1872,8 @@ _rl_get_tokens.exit236.i:                         ; preds = %327, %._crit_edge.i
   %347 = zext i32 %346 to i64
   %348 = call i32 @slurm_bit_test(ptr noundef %304, i64 noundef %347) #12
   %.not199.i = icmp eq i32 %348, 0
-  %.b71 = load i1, ptr @resume_rl_config.0, align 8
-  %or.cond261.i = select i1 %.not199.i, i1 %.b71, i1 false
+  %.b107 = load i1, ptr @resume_rl_config.0, align 8
+  %or.cond261.i = select i1 %.not199.i, i1 %.b107, i1 false
   br i1 %or.cond261.i, label %349, label %_rl_spend_token.exit238.i
 
 349:                                              ; preds = %345
@@ -1978,10 +1978,10 @@ _rl_spend_token.exit238.i:                        ; preds = %353, %351, %345
 
 403:                                              ; preds = %394
   %404 = sub i64 %401, %402
-  %.b62 = load i1, ptr @suspend_rl_config.3, align 4
+  %.b98 = load i1, ptr @suspend_rl_config.3, align 4
   %405 = load i32, ptr @suspend_rl_config.5, align 4
   %406 = trunc i64 %404 to i32
-  %407 = select i1 %.b62, i32 %406, i32 0
+  %407 = select i1 %.b98, i32 %406, i32 0
   %408 = add i32 %407, %405
   %409 = load i32, ptr @suspend_rl_config.2, align 8
   %..i242.i = call i32 @llvm.umin.i32(i32 %408, i32 %409)
@@ -2071,8 +2071,8 @@ _node_state_should_suspend.exit.i:                ; preds = %427
 
 453:                                              ; preds = %451, %447
   %454 = phi i32 [ %452, %451 ], [ %449, %447 ]
-  %.b6172 = load i1, ptr @suspend_rl_config.0, align 8
-  br i1 %.b6172, label %455, label %_rl_spend_token.exit250.i
+  %.b97108 = load i1, ptr @suspend_rl_config.0, align 8
+  br i1 %.b97108, label %455, label %_rl_spend_token.exit250.i
 
 455:                                              ; preds = %453
   %456 = load i32, ptr @suspend_rl_config.5, align 4
@@ -2405,27 +2405,27 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %483, %_rl_spend_tok
   %618 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %619 = and i64 %618, 4398046511104
   %.not.i252.i = icmp eq i64 %619, 0
-  br i1 %.not.i252.i, label %.thread288.i, label %620
+  br i1 %.not.i252.i, label %.thread317.i, label %620
 
 620:                                              ; preds = %614
   %621 = call i32 @get_log_level() #12
   %622 = icmp sgt i32 %621, 3
-  br i1 %622, label %623, label %.thread288.i
+  br i1 %622, label %623, label %.thread317.i
 
 623:                                              ; preds = %620
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.75, ptr noundef nonnull %607) #12
-  br label %.thread288.i
+  br label %.thread317.i
 
 624:                                              ; preds = %613
   %625 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.65) #12
-  br label %.thread288.i
+  br label %.thread317.i
 
 626:                                              ; preds = %604
   %627 = load ptr, ptr %8, align 8
   %.not189.i = icmp eq ptr %627, null
   br i1 %.not189.i, label %643, label %629
 
-.thread288.i:                                     ; preds = %624, %623, %620, %614
+.thread317.i:                                     ; preds = %624, %623, %620, %614
   call void @slurm_xfree(ptr noundef nonnull %20) #12
   call void @slurm_xfree(ptr noundef nonnull %21) #12
   call void @slurm_bit_free(ptr noundef nonnull %9) #12
@@ -2433,11 +2433,11 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %483, %_rl_spend_tok
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %628 = load ptr, ptr %8, align 8
-  %.not189290.i = icmp eq ptr %628, null
-  br i1 %.not189290.i, label %.thread292.i, label %629
+  %.not189319.i = icmp eq ptr %628, null
+  br i1 %.not189319.i, label %.thread321.i, label %629
 
-629:                                              ; preds = %.thread288.i, %626
-  %630 = phi ptr [ %628, %.thread288.i ], [ %627, %626 ]
+629:                                              ; preds = %.thread317.i, %626
+  %630 = phi ptr [ %628, %.thread317.i ], [ %627, %626 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %631 = call ptr @bitmap2node_name(ptr noundef nonnull %630) #12
   store ptr %631, ptr %22, align 8
@@ -2471,17 +2471,17 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %483, %_rl_spend_tok
   call void @slurm_bit_free(ptr noundef nonnull %8) #12
   store ptr null, ptr %8, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.thread292.i
+  br label %.thread321.i
 
 643:                                              ; preds = %626
-  br i1 %.5.i, label %.thread292.i, label %645
+  br i1 %.5.i, label %.thread321.i, label %645
 
-.thread292.i:                                     ; preds = %643, %.thread258.i, %.thread288.i
+.thread321.i:                                     ; preds = %643, %.thread258.i, %.thread317.i
   %644 = call i64 @time(ptr noundef null) #12
   store i64 %644, ptr @last_node_update, align 8
   br label %645
 
-645:                                              ; preds = %.thread292.i, %643
+645:                                              ; preds = %.thread321.i, %643
   %.not192.i = icmp eq ptr %106, null
   br i1 %.not192.i, label %647, label %646
 
@@ -2836,7 +2836,7 @@ define internal noundef i32 @_set_partition_options(ptr noundef readonly capture
   %34 = load i16, ptr %33, align 8
   %35 = icmp eq i16 %34, -2
   %36 = load i16, ptr %9, align 8
-  br i1 %35, label %.sink.split66, label %37
+  br i1 %35, label %.sink.split74, label %37
 
 37:                                               ; preds = %32
   %.not58 = icmp eq i16 %36, -2
@@ -2844,19 +2844,19 @@ define internal noundef i32 @_set_partition_options(ptr noundef readonly capture
 
 38:                                               ; preds = %37
   %.63 = call i16 @llvm.umax.i16(i16 %34, i16 %36)
-  br label %.sink.split66
+  br label %.sink.split74
 
-.sink.split66:                                    ; preds = %32, %38
+.sink.split74:                                    ; preds = %32, %38
   %.63.sink = phi i16 [ %.63, %38 ], [ %36, %32 ]
   store i16 %.63.sink, ptr %33, align 8
   br label %39
 
-39:                                               ; preds = %.sink.split66, %37
+39:                                               ; preds = %.sink.split74, %37
   %40 = getelementptr inbounds nuw i8, ptr %25, i64 472
   %41 = load i16, ptr %40, align 8
   %42 = icmp eq i16 %41, -2
   %43 = load i16, ptr %15, align 8
-  br i1 %42, label %.sink.split67, label %44
+  br i1 %42, label %.sink.split75, label %44
 
 44:                                               ; preds = %39
   %.not59 = icmp eq i16 %43, -2
@@ -2864,14 +2864,14 @@ define internal noundef i32 @_set_partition_options(ptr noundef readonly capture
 
 45:                                               ; preds = %44
   %.64 = call i16 @llvm.umax.i16(i16 %41, i16 %43)
-  br label %.sink.split67
+  br label %.sink.split75
 
-.sink.split67:                                    ; preds = %39, %45
+.sink.split75:                                    ; preds = %39, %45
   %.sink = phi i16 [ %.64, %45 ], [ %43, %39 ]
   store i16 %.sink, ptr %40, align 8
   br label %46
 
-46:                                               ; preds = %.sink.split67, %44
+46:                                               ; preds = %.sink.split75, %44
   %47 = load i32, ptr %3, align 4
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %3, align 4

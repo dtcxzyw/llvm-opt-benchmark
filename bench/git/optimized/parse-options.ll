@@ -923,7 +923,7 @@ parse_subcommand.exit.thread:                     ; preds = %61
   br i1 %.not, label %79, label %83
 
 79:                                               ; preds = %77
-  br i1 %78, label %sub_0, label %.thread333
+  br i1 %78, label %sub_0, label %.thread350
 
 sub_0:                                            ; preds = %79
   %.not246 = icmp eq i8 %27, 104
@@ -936,7 +936,7 @@ sub_0:                                            ; preds = %79
   br i1 %82, label %.loopexit145, label %.thread
 
 83:                                               ; preds = %77
-  br i1 %78, label %.thread, label %.thread333
+  br i1 %78, label %.thread, label %.thread350
 
 .thread:                                          ; preds = %sub_0, %.tail, %83
   %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(24) @.str.4) #20
@@ -950,17 +950,17 @@ sub_0:                                            ; preds = %79
 86:                                               ; preds = %.thread
   %87 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(28) @.str.5) #20
   %.not95 = icmp eq i32 %87, 0
-  br i1 %.not95, label %88, label %.thread333
+  br i1 %.not95, label %88, label %.thread350
 
 88:                                               ; preds = %86
   tail call fastcc void @show_gitcomp(ptr noundef %1, i32 noundef 1)
   br label %.thread125
 
-.thread333:                                       ; preds = %79, %83, %86
+.thread350:                                       ; preds = %79, %83, %86
   %.not96 = icmp eq i8 %27, 45
   br i1 %.not96, label %116, label %89
 
-89:                                               ; preds = %.thread333
+89:                                               ; preds = %.thread350
   store ptr %26, ptr %7, align 8, !tbaa !47
   %90 = tail call fastcc i32 @parse_short_opt(ptr noundef nonnull %0, ptr noundef %1)
   switch i32 %90, label %100 [
@@ -997,16 +997,16 @@ sub_0:                                            ; preds = %79
 100:                                              ; preds = %89
   %101 = load ptr, ptr %7, align 8, !tbaa !47
   %.not104 = icmp eq ptr %101, null
-  br i1 %.not104, label %.preheader506, label %102
+  br i1 %.not104, label %.preheader523, label %102
 
 102:                                              ; preds = %100
   tail call fastcc void @check_typos(ptr noundef nonnull %26, ptr noundef %1)
-  br label %.preheader506
+  br label %.preheader523
 
-.preheader506:                                    ; preds = %102, %100
+.preheader523:                                    ; preds = %102, %100
   br label %103
 
-103:                                              ; preds = %.preheader506, %105
+103:                                              ; preds = %.preheader523, %105
   %104 = load ptr, ptr %7, align 8, !tbaa !47
   %.not105 = icmp eq ptr %104, null
   br i1 %.not105, label %.loopexit, label %105
@@ -1043,7 +1043,7 @@ sub_0:                                            ; preds = %79
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.1, i32 noundef 939, ptr noundef nonnull @.str.6) #18
   unreachable
 
-116:                                              ; preds = %.thread333
+116:                                              ; preds = %.thread350
   %117 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %118 = load i8, ptr %117, align 1, !tbaa !28
   %.not97 = icmp eq i8 %118, 0
@@ -1398,14 +1398,14 @@ register_abbrev.exit97.i:                         ; preds = %175, %177
 
 ._crit_edge.thread.i:                             ; preds = %skip_prefix.exit.i
   %233 = load i32, ptr @disallow_abbreviated_options, align 4, !tbaa !36
-  %.not47203.i = icmp eq i32 %233, 0
-  br i1 %.not47203.i, label %parse_long_opt.exit.thread, label %234
+  %.not47217.i = icmp eq i32 %233, 0
+  br i1 %.not47217.i, label %parse_long_opt.exit.thread, label %234
 
 234:                                              ; preds = %._crit_edge.thread.i, %._crit_edge.i
-  %.sroa.0.0.lcssa207.i = phi ptr [ null, %._crit_edge.thread.i ], [ %.sroa.0.1.ph.i, %._crit_edge.i ]
-  %.sroa.0102.0.lcssa205.i = phi ptr [ null, %._crit_edge.thread.i ], [ %.sroa.0102.1.ph.i, %._crit_edge.i ]
-  %235 = icmp ne ptr %.sroa.0.0.lcssa207.i, null
-  %236 = icmp ne ptr %.sroa.0102.0.lcssa205.i, null
+  %.sroa.0.0.lcssa221.i = phi ptr [ null, %._crit_edge.thread.i ], [ %.sroa.0.1.ph.i, %._crit_edge.i ]
+  %.sroa.0102.0.lcssa219.i = phi ptr [ null, %._crit_edge.thread.i ], [ %.sroa.0102.1.ph.i, %._crit_edge.i ]
+  %235 = icmp ne ptr %.sroa.0.0.lcssa221.i, null
+  %236 = icmp ne ptr %.sroa.0102.0.lcssa219.i, null
   %or.cond4.i = select i1 %235, i1 true, i1 %236
   br i1 %or.cond4.i, label %237, label %parse_long_opt.exit.thread
 
@@ -1927,7 +1927,7 @@ _.exit165:                                        ; preds = %5, %_.exit, %_.exit
 31:                                               ; preds = %.lr.ph229, %._crit_edge
   %32 = phi ptr [ %26, %.lr.ph229 ], [ %75, %._crit_edge ]
   %.0112227 = phi ptr [ %1, %.lr.ph229 ], [ %33, %._crit_edge ]
-  %.0115226 = phi i32 [ 0, %.lr.ph229 ], [ %.1116244, %._crit_edge ]
+  %.0115226 = phi i32 [ 0, %.lr.ph229 ], [ %.1116257, %._crit_edge ]
   %.0117225 = phi ptr [ %.0.i203209, %.lr.ph229 ], [ %.0.i161210, %._crit_edge ]
   %33 = getelementptr inbounds nuw i8, ptr %.0112227, i64 8
   %34 = load i8, ptr %32, align 1, !tbaa !28
@@ -1949,7 +1949,7 @@ _.exit168:                                        ; preds = %31, %35, %37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   store i8 1, ptr %27, align 8
   %.not152 = icmp eq i32 %.0115226, 0
-  br i1 %.not152, label %39, label %.thread238
+  br i1 %.not152, label %39, label %.thread251
 
 39:                                               ; preds = %_.exit168
   %40 = load i8, ptr %.0.i167, align 1, !tbaa !28
@@ -1960,17 +1960,17 @@ _.exit168:                                        ; preds = %31, %35, %37
   %.not235 = icmp eq i64 %42, 0
   br i1 %.not235, label %._crit_edge, label %.lr.ph
 
-.thread238:                                       ; preds = %_.exit168
+.thread251:                                       ; preds = %_.exit168
   %43 = call i32 @string_list_split(ptr noundef nonnull %6, ptr noundef %.0.i167, i32 noundef 10, i32 noundef -1) #19
   %44 = load i64, ptr %28, align 8, !tbaa !65
-  %.not235241 = icmp eq i64 %44, 0
-  br i1 %.not235241, label %._crit_edge, label %.lr.ph.split.preheader
+  %.not235254 = icmp eq i64 %44, 0
+  br i1 %.not235254, label %._crit_edge, label %.lr.ph.split.preheader
 
 .lr.ph:                                           ; preds = %39
   br i1 %.not153.not, label %.lr.ph.split.preheader, label %.critedge.us
 
-.lr.ph.split.preheader:                           ; preds = %.thread238, %.lr.ph
-  %.1116243247 = phi i32 [ %spec.select157, %.lr.ph ], [ 1, %.thread238 ]
+.lr.ph.split.preheader:                           ; preds = %.thread251, %.lr.ph
+  %.1116256260 = phi i32 [ %spec.select157, %.lr.ph ], [ 1, %.thread251 ]
   br label %.lr.ph.split
 
 .critedge.us:                                     ; preds = %.lr.ph, %53
@@ -2032,8 +2032,8 @@ _.exit171:                                        ; preds = %63, %65
   %74 = icmp ugt i64 %73, %72
   br i1 %74, label %.lr.ph.split, label %._crit_edge, !llvm.loop !71
 
-._crit_edge:                                      ; preds = %53, %70, %.thread238, %39
-  %.1116244 = phi i32 [ 1, %.thread238 ], [ %spec.select157, %39 ], [ %.1116243247, %70 ], [ %spec.select157, %53 ]
+._crit_edge:                                      ; preds = %53, %70, %.thread251, %39
+  %.1116257 = phi i32 [ 1, %.thread251 ], [ %spec.select157, %39 ], [ %.1116256260, %70 ], [ %spec.select157, %53 ]
   call void @string_list_clear(ptr noundef nonnull %6, i32 noundef 0) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %75 = load ptr, ptr %33, align 8, !tbaa !48
@@ -2344,8 +2344,8 @@ _.exit184:                                        ; preds = %usage_padding.exit,
 
 _.exit188:                                        ; preds = %199, %195, %192
   %.ph = phi ptr [ @.str.60, %195 ], [ %200, %199 ], [ @.str.60, %192 ]
-  %.pr248 = load i8, ptr %.ph, align 1, !tbaa !28
-  %.not147230 = icmp eq i8 %.pr248, 0
+  %.pr261 = load i8, ptr %.ph, align 1, !tbaa !28
+  %.not147230 = icmp eq i8 %.pr261, 0
   br i1 %.not147230, label %._crit_edge234, label %.lr.ph233.preheader
 
 .lr.ph233.preheader:                              ; preds = %197, %_.exit188
@@ -4013,8 +4013,8 @@ define internal fastcc void @show_negated_gitcomp(ptr noundef readonly captures(
   %9 = getelementptr inbounds nuw i8, ptr %.01930.us, i64 40
   %10 = load i32, ptr %9, align 8, !tbaa !25
   %11 = and i32 %10, 524
-  %or.cond40 = icmp eq i32 %11, 0
-  br i1 %or.cond40, label %12, label %.critedge.us
+  %or.cond44 = icmp eq i32 %11, 0
+  br i1 %or.cond44, label %12, label %.critedge.us
 
 12:                                               ; preds = %8
   switch i32 %5, label %.critedge.us [

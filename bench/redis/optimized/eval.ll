@@ -349,8 +349,8 @@ define dso_local noundef i32 @luaRedisDebugCommand(ptr noundef %0) #0 {
   %8 = add nsw i32 %4, -1
   %9 = sub nsw i32 0, %4
   %10 = tail call ptr @ldbCatStackValueRec(ptr noundef %7, ptr noundef %0, i32 noundef %9, i32 noundef 0)
-  %.not1117 = icmp eq i32 %8, 0
-  br i1 %.not1117, label %._crit_edge, label %.lr.ph
+  %.not1118 = icmp eq i32 %8, 0
+  br i1 %.not1118, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %11 = phi ptr [ %16, %.lr.ph ], [ %10, %.lr.ph.preheader ]
@@ -684,8 +684,8 @@ sub_0:
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !92
   %36 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(7) @.str.16, i64 noundef 6) #18
-  %.not93204 = icmp eq i32 %36, 0
-  br i1 %.not93204, label %.lr.ph207, label %.lr.ph._crit_edge
+  %.not93211 = icmp eq i32 %36, 0
+  br i1 %.not93211, label %.lr.ph214, label %.lr.ph._crit_edge
 
 37:                                               ; preds = %30
   %.not100 = icmp eq ptr %3, null
@@ -709,13 +709,13 @@ sub_0:
   %45 = load ptr, ptr %44, align 8, !tbaa !92
   %46 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(7) @.str.16, i64 noundef 6) #18
   %.not93 = icmp eq i32 %46, 0
-  br i1 %.not93, label %.lr.ph207, label %.lr.ph._crit_edge, !llvm.loop !93
+  br i1 %.not93, label %.lr.ph214, label %.lr.ph._crit_edge, !llvm.loop !93
 
-.lr.ph207:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph214:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %47 = phi ptr [ %45, %.lr.ph ], [ %35, %.lr.ph.preheader ]
   %48 = phi ptr [ %44, %.lr.ph ], [ %34, %.lr.ph.preheader ]
-  %.372138206 = phi i64 [ %.473.lcssa, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %indvars.iv155205 = phi i64 [ %indvars.iv.next156, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.372138213 = phi i64 [ %.473.lcssa, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %indvars.iv155212 = phi i64 [ %indvars.iv.next156, %.lr.ph ], [ 1, %.lr.ph.preheader ]
   call void @sdsrange(ptr noundef nonnull %47, i64 noundef 6, i64 noundef -1) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %49 = load ptr, ptr %48, align 8, !tbaa !92
@@ -731,36 +731,36 @@ sub_0:
     i32 4, label %69
   ]
 
-54:                                               ; preds = %.lr.ph207
+54:                                               ; preds = %.lr.ph214
   %55 = lshr i32 %52, 3
   %56 = zext nneg i32 %55 to i64
   br label %sdslen.exit
 
-57:                                               ; preds = %.lr.ph207
+57:                                               ; preds = %.lr.ph214
   %58 = getelementptr inbounds i8, ptr %49, i64 -3
   %59 = load i8, ptr %58, align 1, !tbaa !13
   %60 = zext i8 %59 to i64
   br label %sdslen.exit
 
-61:                                               ; preds = %.lr.ph207
+61:                                               ; preds = %.lr.ph214
   %62 = getelementptr inbounds i8, ptr %49, i64 -5
   %63 = load i16, ptr %62, align 1, !tbaa !94
   %64 = zext i16 %63 to i64
   br label %sdslen.exit
 
-65:                                               ; preds = %.lr.ph207
+65:                                               ; preds = %.lr.ph214
   %66 = getelementptr inbounds i8, ptr %49, i64 -9
   %67 = load i32, ptr %66, align 1, !tbaa !91
   %68 = zext i32 %67 to i64
   br label %sdslen.exit
 
-69:                                               ; preds = %.lr.ph207
+69:                                               ; preds = %.lr.ph214
   %70 = getelementptr inbounds i8, ptr %49, i64 -17
   %71 = load i64, ptr %70, align 1, !tbaa !95
   br label %sdslen.exit
 
-sdslen.exit:                                      ; preds = %.lr.ph207, %54, %57, %61, %65, %69
-  %.0.i = phi i64 [ %56, %54 ], [ %60, %57 ], [ %64, %61 ], [ %68, %65 ], [ %71, %69 ], [ 0, %.lr.ph207 ]
+sdslen.exit:                                      ; preds = %.lr.ph214, %54, %57, %61, %65, %69
+  %.0.i = phi i64 [ %56, %54 ], [ %60, %57 ], [ %64, %61 ], [ %68, %65 ], [ %71, %69 ], [ 0, %.lr.ph214 ]
   %72 = call ptr @sdssplitlen(ptr noundef nonnull %49, i64 noundef %.0.i, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef nonnull %5) #19
   %73 = load i32, ptr %5, align 4, !tbaa !91
   %.not98125 = icmp sgt i32 %73, 0
@@ -778,28 +778,28 @@ sdslen.exit:                                      ; preds = %.lr.ph207, %54, %57
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %.473126 = phi i64 [ %.372138206, %.preheader.preheader ], [ %91, %._crit_edge ]
+  %.473126 = phi i64 [ %.372138213, %.preheader.preheader ], [ %91, %._crit_edge ]
   %76 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
   %77 = load ptr, ptr %76, align 8, !tbaa !92
   %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(1) %75) #18
-  %.not95200 = icmp eq i32 %78, 0
-  br i1 %.not95200, label %._crit_edge, label %.lr.ph203
+  %.not95207 = icmp eq i32 %78, 0
+  br i1 %.not95207, label %._crit_edge, label %.lr.ph210
 
-.lr.ph203:                                        ; preds = %.preheader, %81
-  %.0121201 = phi ptr [ %79, %81 ], [ @scripts_flags_def, %.preheader ]
-  %79 = getelementptr inbounds nuw i8, ptr %.0121201, i64 16
+.lr.ph210:                                        ; preds = %.preheader, %81
+  %.0121208 = phi ptr [ %79, %81 ], [ @scripts_flags_def, %.preheader ]
+  %79 = getelementptr inbounds nuw i8, ptr %.0121208, i64 16
   %80 = load i64, ptr %79, align 8, !tbaa !96
   %.not94 = icmp eq i64 %80, 0
   br i1 %.not94, label %.preheader._crit_edge.loopexit, label %81, !llvm.loop !99
 
-81:                                               ; preds = %.lr.ph203
-  %82 = getelementptr inbounds nuw i8, ptr %.0121201, i64 24
+81:                                               ; preds = %.lr.ph210
+  %82 = getelementptr inbounds nuw i8, ptr %.0121208, i64 24
   %83 = load ptr, ptr %82, align 8, !tbaa !98
   %84 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(1) %83) #18
   %.not95 = icmp eq i32 %84, 0
-  br i1 %.not95, label %._crit_edge, label %.lr.ph203, !llvm.loop !99
+  br i1 %.not95, label %._crit_edge, label %.lr.ph210, !llvm.loop !99
 
-.preheader._crit_edge.loopexit:                   ; preds = %.lr.ph203
+.preheader._crit_edge.loopexit:                   ; preds = %.lr.ph210
   %85 = and i64 %indvars.iv, 4294967295
   br label %.preheader._crit_edge
 
@@ -825,10 +825,10 @@ sdslen.exit:                                      ; preds = %.lr.ph207, %54, %57
   br i1 %exitcond.not, label %.thread106, label %.preheader, !llvm.loop !100
 
 .thread106:                                       ; preds = %._crit_edge, %sdslen.exit
-  %.473.lcssa = phi i64 [ %.372138206, %sdslen.exit ], [ %91, %._crit_edge ]
+  %.473.lcssa = phi i64 [ %.372138213, %sdslen.exit ], [ %91, %._crit_edge ]
   call void @sdsfreesplitres(ptr noundef %72, i32 noundef %73) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155205, 1
+  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155212, 1
   %92 = load i32, ptr %4, align 4, !tbaa !91
   %93 = sext i32 %92 to i64
   %94 = icmp slt i64 %indvars.iv.next156, %93
@@ -843,21 +843,21 @@ sdslen.exit:                                      ; preds = %.lr.ph207, %54, %57
   br label %.critedge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
-  %.lcssa189 = phi i32 [ %23, %.lr.ph.preheader ], [ %92, %.lr.ph ]
-  %.lcssa185 = phi ptr [ %34, %.lr.ph.preheader ], [ %44, %.lr.ph ]
+  %.lcssa196 = phi i32 [ %23, %.lr.ph.preheader ], [ %92, %.lr.ph ]
+  %.lcssa192 = phi ptr [ %34, %.lr.ph.preheader ], [ %44, %.lr.ph ]
   %.not99 = icmp eq ptr %3, null
   br i1 %.not99, label %102, label %98
 
 98:                                               ; preds = %.lr.ph._crit_edge
   %99 = call ptr @sdsempty() #19
-  %100 = load ptr, ptr %.lcssa185, align 8, !tbaa !92
+  %100 = load ptr, ptr %.lcssa192, align 8, !tbaa !92
   %101 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %99, ptr noundef nonnull @.str.19, ptr noundef %100) #19
   store ptr %101, ptr %3, align 8, !tbaa !92
   %.pre158 = load i32, ptr %4, align 4, !tbaa !91
   br label %102
 
 102:                                              ; preds = %98, %.lr.ph._crit_edge
-  %103 = phi i32 [ %.pre158, %98 ], [ %.lcssa189, %.lr.ph._crit_edge ]
+  %103 = phi i32 [ %.pre158, %98 ], [ %.lcssa196, %.lr.ph._crit_edge ]
   call void @sdsfreesplitres(ptr noundef nonnull %21, i32 noundef %103) #19
   br label %.critedge
 
@@ -2002,8 +2002,8 @@ define dso_local void @scriptCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 .thread.thread:                                   ; preds = %6
   %19 = tail call i32 @strcasecmp(ptr noundef %12, ptr noundef nonnull @.str.47) #18
-  %.not5381 = icmp eq i32 %19, 0
-  br i1 %.not5381, label %30, label %.thread84
+  %.not5383 = icmp eq i32 %19, 0
+  br i1 %.not5383, label %30, label %.thread86
 
 20:                                               ; preds = %.thread
   %21 = icmp eq i32 %4, 3
@@ -2046,14 +2046,14 @@ define dso_local void @scriptCommand(ptr noundef %0) local_unnamed_addr #0 {
   %.not57 = icmp eq i32 %36, 0
   br i1 %.not57, label %39, label %57
 
-.thread84:                                        ; preds = %.thread.thread
+.thread86:                                        ; preds = %.thread.thread
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %38 = tail call i32 @strcasecmp(ptr noundef %12, ptr noundef nonnull @.str.51) #18
-  %.not5785 = icmp eq i32 %38, 0
-  br i1 %.not5785, label %39, label %67
+  %.not5787 = icmp eq i32 %38, 0
+  br i1 %.not5787, label %39, label %67
 
-39:                                               ; preds = %.thread84, %35
-  %40 = phi ptr [ %37, %.thread84 ], [ %17, %35 ]
+39:                                               ; preds = %.thread86, %35
+  %40 = phi ptr [ %37, %.thread86 ], [ %17, %35 ]
   %41 = add nsw i32 %4, -2
   %42 = zext nneg i32 %41 to i64
   tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %42) #19
@@ -2101,7 +2101,7 @@ define dso_local void @scriptCommand(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %64, i64 noundef 40) #19
   br label %.loopexit
 
-67:                                               ; preds = %.thread84
+67:                                               ; preds = %.thread86
   %68 = tail call i32 @strcasecmp(ptr noundef %12, ptr noundef nonnull @.str.53) #18
   %.not60 = icmp eq i32 %68, 0
   br i1 %.not60, label %69, label %.thread72
@@ -2963,7 +2963,7 @@ define dso_local range(i32 0, 2) i32 @ldbAddBreakpoint(i32 noundef %0) local_unn
 5:                                                ; preds = %1
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 296), align 8, !tbaa !140
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph.preheader.i, label %ldbIsBreakpoint.exit.thread12
+  br i1 %7, label %.lr.ph.preheader.i, label %ldbIsBreakpoint.exit.thread14
 
 .lr.ph.preheader.i:                               ; preds = %5
   %wide.trip.count.i = zext nneg i32 %6 to i64
@@ -2983,9 +2983,9 @@ define dso_local range(i32 0, 2) i32 @ldbAddBreakpoint(i32 noundef %0) local_unn
 
 ldbIsBreakpoint.exit:                             ; preds = %8
   %.not = icmp eq i32 %6, 64
-  br i1 %.not, label %ldbIsBreakpoint.exit.thread, label %ldbIsBreakpoint.exit.thread12
+  br i1 %.not, label %ldbIsBreakpoint.exit.thread, label %ldbIsBreakpoint.exit.thread14
 
-ldbIsBreakpoint.exit.thread12:                    ; preds = %5, %ldbIsBreakpoint.exit
+ldbIsBreakpoint.exit.thread14:                    ; preds = %5, %ldbIsBreakpoint.exit
   %12 = add nsw i32 %6, 1
   store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 296), align 8, !tbaa !140
   %13 = sext i32 %6 to i64
@@ -2993,8 +2993,8 @@ ldbIsBreakpoint.exit.thread12:                    ; preds = %5, %ldbIsBreakpoint
   store i32 %0, ptr %14, align 4, !tbaa !91
   br label %ldbIsBreakpoint.exit.thread
 
-ldbIsBreakpoint.exit.thread:                      ; preds = %.lr.ph.i, %ldbIsBreakpoint.exit, %1, %ldbIsBreakpoint.exit.thread12
-  %.0 = phi i32 [ 1, %ldbIsBreakpoint.exit.thread12 ], [ 0, %1 ], [ 0, %ldbIsBreakpoint.exit ], [ 0, %.lr.ph.i ]
+ldbIsBreakpoint.exit.thread:                      ; preds = %.lr.ph.i, %ldbIsBreakpoint.exit, %1, %ldbIsBreakpoint.exit.thread14
+  %.0 = phi i32 [ 1, %ldbIsBreakpoint.exit.thread14 ], [ 0, %1 ], [ 0, %ldbIsBreakpoint.exit ], [ 0, %.lr.ph.i ]
   ret i32 %.0
 }
 

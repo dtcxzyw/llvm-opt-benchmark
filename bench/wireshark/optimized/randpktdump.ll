@@ -532,22 +532,22 @@ define internal fastcc range(i32 0, 2) i32 @list_config(ptr noundef %0) unnamed_
 .lr.ph.preheader:                                 ; preds = %9
   %18 = load ptr, ptr %4, align 8
   %19 = load ptr, ptr %18, align 8
-  %.not1318 = icmp eq ptr %19, null
-  br i1 %.not1318, label %.critedge, label %.lr.ph20
+  %.not1321 = icmp eq ptr %19, null
+  br i1 %.not1321, label %.critedge, label %.lr.ph23
 
-.lr.ph:                                           ; preds = %.lr.ph20
+.lr.ph:                                           ; preds = %.lr.ph23
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr ptr, ptr %20, i64 %28
   %22 = load ptr, ptr %21, align 8
   %.not13 = icmp eq ptr %22, null
-  br i1 %.not13, label %.critedge, label %.lr.ph20, !llvm.loop !11
+  br i1 %.not13, label %.critedge, label %.lr.ph23, !llvm.loop !11
 
-.lr.ph20:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %23 = phi ptr [ %22, %.lr.ph ], [ %19, %.lr.ph.preheader ]
-  %.01519 = phi i32 [ %26, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01522 = phi i32 [ %26, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %24 = phi ptr [ %30, %.lr.ph ], [ %17, %.lr.ph.preheader ]
   %25 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.66, i32 noundef 5, ptr noundef nonnull %24, ptr noundef nonnull %23)
-  %26 = add i32 %.01519, 1
+  %26 = add i32 %.01522, 1
   %27 = load ptr, ptr %3, align 8
   %28 = zext i32 %26 to i64
   %29 = getelementptr ptr, ptr %27, i64 %28
@@ -555,7 +555,7 @@ define internal fastcc range(i32 0, 2) i32 @list_config(ptr noundef %0) unnamed_
   %.not12 = icmp eq ptr %30, null
   br i1 %.not12, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !11
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph20
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph23
   br label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %9

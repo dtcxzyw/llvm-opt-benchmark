@@ -892,13 +892,13 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit297:
   br label %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299
 
 _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299: ; preds = %._crit_edge351, %378
-  %.pr394 = load ptr, ptr %28, align 8
-  %.not317 = icmp eq ptr %.pr394, null
+  %.pr407 = load ptr, ptr %28, align 8
+  %.not317 = icmp eq ptr %.pr407, null
   br i1 %.not317, label %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299.thread, label %_ZN14StackMapStream6get_u2EP10JavaThread.exit.thread
 
 _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299.thread: ; preds = %355, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299
-  %.4265380384399 = phi ptr [ %359, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299 ], [ null, %355 ]
-  %.0269.lcssa385398 = phi i32 [ %375, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299 ], [ 0, %355 ]
+  %.4265393397412 = phi ptr [ %359, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299 ], [ null, %355 ]
+  %.0269.lcssa398411 = phi i32 [ %375, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299 ], [ 0, %355 ]
   %381 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %382 = load ptr, ptr %381, align 8
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 24
@@ -968,13 +968,13 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299.
   br label %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit301
 
 _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit301: ; preds = %._crit_edge357, %412
-  %.pr400 = load ptr, ptr %28, align 8
-  %.not320 = icmp eq ptr %.pr400, null
+  %.pr413 = load ptr, ptr %28, align 8
+  %.not320 = icmp eq ptr %.pr413, null
   br i1 %.not320, label %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit301.thread, label %_ZN14StackMapStream6get_u2EP10JavaThread.exit.thread
 
 _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit301.thread: ; preds = %389, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit301
-  %.0257388392405 = phi ptr [ %393, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit301 ], [ null, %389 ]
-  %.0258.lcssa393404 = phi i32 [ %409, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit301 ], [ 0, %389 ]
+  %.0257401405418 = phi ptr [ %393, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit301 ], [ null, %389 ]
+  %.0258.lcssa406417 = phi i32 [ %409, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit301 ], [ 0, %389 ]
   %414 = load ptr, ptr %381, align 8
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 24
   %416 = load ptr, ptr %415, align 8
@@ -1002,9 +1002,9 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit301.
   %428 = load ptr, ptr %381, align 8
   store i32 %.5, ptr %426, align 8
   %429 = getelementptr inbounds nuw i8, ptr %426, i64 4
-  store i32 %.0269.lcssa385398, ptr %429, align 4
+  store i32 %.0269.lcssa398411, ptr %429, align 4
   %430 = getelementptr inbounds nuw i8, ptr %426, i64 8
-  store i32 %.0258.lcssa393404, ptr %430, align 8
+  store i32 %.0258.lcssa406417, ptr %430, align 8
   %431 = getelementptr inbounds nuw i8, ptr %426, i64 12
   store i32 -1, ptr %431, align 4
   %432 = getelementptr inbounds nuw i8, ptr %426, i64 16
@@ -1014,9 +1014,9 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit301.
   %434 = getelementptr inbounds nuw i8, ptr %426, i64 20
   store i8 %427, ptr %434, align 4
   %435 = getelementptr inbounds nuw i8, ptr %426, i64 24
-  store ptr %.4265380384399, ptr %435, align 8
+  store ptr %.4265393397412, ptr %435, align 8
   %436 = getelementptr inbounds nuw i8, ptr %426, i64 32
-  store ptr %.0257388392405, ptr %436, align 8
+  store ptr %.0257401405418, ptr %436, align 8
   %437 = getelementptr inbounds nuw i8, ptr %426, i64 40
   store ptr %428, ptr %437, align 8
   br label %_ZN14StackMapStream6get_u2EP10JavaThread.exit.thread

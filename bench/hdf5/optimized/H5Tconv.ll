@@ -621,8 +621,8 @@ define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly captures(addre
 .preheader207:                                    ; preds = %185
   %.not226 = icmp eq i64 %4, 0
   %.not227 = icmp ult i64 %189, 2
-  %or.cond238 = select i1 %.not226, i1 true, i1 %.not227
-  br i1 %or.cond238, label %.loopexit, label %.preheader206.us
+  %or.cond248 = select i1 %.not226, i1 true, i1 %.not227
+  br i1 %or.cond248, label %.loopexit, label %.preheader206.us
 
 .preheader206.us:                                 ; preds = %.preheader207, %._crit_edge.us
   %.1211.us = phi ptr [ %203, %._crit_edge.us ], [ %7, %.preheader207 ]
@@ -652,8 +652,8 @@ define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly captures(addre
   %205 = lshr i64 %189, 2
   %.not228 = icmp eq i64 %4, 0
   %.not229 = icmp ult i64 %189, 4
-  %or.cond239 = select i1 %.not228, i1 true, i1 %.not229
-  br i1 %or.cond239, label %.loopexit, label %.preheader.us.us
+  %or.cond249 = select i1 %.not228, i1 true, i1 %.not229
+  br i1 %or.cond249, label %.loopexit, label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %204, %._crit_edge216.us.us
   %.0161218.us.us = phi ptr [ %222, %._crit_edge216.us.us ], [ %7, %204 ]
@@ -1203,8 +1203,8 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   br i1 %.not1315, label %.loopexit, label %.lr.ph1304.lver.check
 
 .lr.ph1304.lver.check:                            ; preds = %.preheader1274
-  %ident.check1351.not = icmp eq i64 %., 1
-  br i1 %ident.check1351.not, label %.lr.ph1304.ph, label %.lr.ph1304.lver.orig
+  %ident.check1363.not = icmp eq i64 %., 1
+  br i1 %ident.check1363.not, label %.lr.ph1304.ph, label %.lr.ph1304.lver.orig
 
 .lr.ph1304.lver.orig:                             ; preds = %.lr.ph1304.lver.check, %.lr.ph1304.lver.orig
   %.312331303.lver.orig = phi ptr [ %275, %.lr.ph1304.lver.orig ], [ %.21232.lcssa, %.lr.ph1304.lver.check ]
@@ -1227,7 +1227,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
 
 .lr.ph1304.ph:                                    ; preds = %.lr.ph1304.lver.check
   %scevgep = getelementptr i8, ptr %.21232.lcssa, i64 2
-  %load_initial1353 = load i8, ptr %scevgep, align 1
+  %load_initial1365 = load i8, ptr %scevgep, align 1
   br label %.lr.ph1304
 
 .lr.ph1299:                                       ; preds = %.preheader1276, %.lr.ph1299
@@ -1478,7 +1478,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   br i1 %437, label %.lr.ph1299, label %.preheader1274, !llvm.loop !50
 
 .lr.ph1304:                                       ; preds = %.lr.ph1304.ph, %.lr.ph1304
-  %store_forwarded1354 = phi i8 [ %load_initial1353, %.lr.ph1304.ph ], [ %438, %.lr.ph1304 ]
+  %store_forwarded1366 = phi i8 [ %load_initial1365, %.lr.ph1304.ph ], [ %438, %.lr.ph1304 ]
   %.312331303 = phi ptr [ %.21232.lcssa, %.lr.ph1304.ph ], [ %445, %.lr.ph1304 ]
   %.112371302 = phi i64 [ 0, %.lr.ph1304.ph ], [ %444, %.lr.ph1304 ]
   %438 = load i8, ptr %.312331303, align 1, !tbaa !15
@@ -1489,7 +1489,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   %441 = getelementptr inbounds nuw i8, ptr %.312331303, i64 1
   %442 = load i8, ptr %441, align 1, !tbaa !15
   %443 = getelementptr inbounds nuw i8, ptr %.312331303, i64 2
-  store i8 %store_forwarded1354, ptr %441, align 1, !tbaa !15
+  store i8 %store_forwarded1366, ptr %441, align 1, !tbaa !15
   store i8 %442, ptr %443, align 1, !tbaa !15
   %444 = add nuw nsw i64 %.112371302, 1
   %445 = getelementptr inbounds nuw i8, ptr %.312331303, i64 %.
@@ -1503,8 +1503,8 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   br i1 %.not1314, label %.loopexit, label %.lr.ph1296.lver.check
 
 .lr.ph1296.lver.check:                            ; preds = %.preheader1277
-  %ident.check1355.not = icmp eq i64 %., 1
-  br i1 %ident.check1355.not, label %.lr.ph1296.ph, label %.lr.ph1296.lver.orig
+  %ident.check1367.not = icmp eq i64 %., 1
+  br i1 %ident.check1367.not, label %.lr.ph1296.ph, label %.lr.ph1296.lver.orig
 
 .lr.ph1296.lver.orig:                             ; preds = %.lr.ph1296.lver.check, %.lr.ph1296.lver.orig
   %.51295.lver.orig = phi ptr [ %462, %.lr.ph1296.lver.orig ], [ %.4.lcssa, %.lr.ph1296.lver.check ]
@@ -1538,8 +1538,8 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   br i1 %exitcond1327.not.lver.orig, label %.loopexit, label %.lr.ph1296.lver.orig, !llvm.loop !51
 
 .lr.ph1296.ph:                                    ; preds = %.lr.ph1296.lver.check
-  %scevgep1357 = getelementptr i8, ptr %.4.lcssa, i64 6
-  %load_initial1358 = load i8, ptr %scevgep1357, align 1
+  %scevgep1369 = getelementptr i8, ptr %.4.lcssa, i64 6
+  %load_initial1370 = load i8, ptr %scevgep1369, align 1
   br label %.lr.ph1296
 
 .lr.ph1291:                                       ; preds = %.preheader1279, %.lr.ph1291
@@ -1790,7 +1790,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   br i1 %624, label %.lr.ph1291, label %.preheader1277, !llvm.loop !52
 
 .lr.ph1296:                                       ; preds = %.lr.ph1296.ph, %.lr.ph1296
-  %store_forwarded1359 = phi i8 [ %load_initial1358, %.lr.ph1296.ph ], [ %625, %.lr.ph1296 ]
+  %store_forwarded1371 = phi i8 [ %load_initial1370, %.lr.ph1296.ph ], [ %625, %.lr.ph1296 ]
   %.51295 = phi ptr [ %.4.lcssa, %.lr.ph1296.ph ], [ %640, %.lr.ph1296 ]
   %.212381294 = phi i64 [ 0, %.lr.ph1296.ph ], [ %639, %.lr.ph1296 ]
   %625 = load i8, ptr %.51295, align 1, !tbaa !15
@@ -1801,7 +1801,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   %628 = getelementptr inbounds nuw i8, ptr %.51295, i64 1
   %629 = load i8, ptr %628, align 1, !tbaa !15
   %630 = getelementptr inbounds nuw i8, ptr %.51295, i64 6
-  store i8 %store_forwarded1359, ptr %628, align 1, !tbaa !15
+  store i8 %store_forwarded1371, ptr %628, align 1, !tbaa !15
   store i8 %629, ptr %630, align 1, !tbaa !15
   %631 = getelementptr inbounds nuw i8, ptr %.51295, i64 2
   %632 = load i8, ptr %631, align 1, !tbaa !15

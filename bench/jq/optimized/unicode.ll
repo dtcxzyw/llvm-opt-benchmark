@@ -653,8 +653,8 @@ define dso_local i32 @onigenc_unicode_mbc_case_fold(ptr noundef readonly capture
   %.phi.trans.insert65 = getelementptr inbounds i32, ptr @OnigUnicodeFolds1, i64 %.phi.trans.insert64
   %.pre66 = load i32, ptr %.phi.trans.insert65, align 4, !tbaa !17
   %24 = icmp ult i32 %.pre66, 128
-  %or.cond68 = select i1 %16, i1 true, i1 %24
-  br i1 %or.cond68, label %._crit_edge, label %45
+  %or.cond71 = select i1 %16, i1 true, i1 %24
+  br i1 %or.cond71, label %._crit_edge, label %45
 
 ._crit_edge:                                      ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1138,7 +1138,7 @@ define internal fastcc i32 @apply_case_fold3(ptr noundef readonly captures(none)
   store i32 %15, ptr %3, align 4, !tbaa !17
   %16 = call i32 %0(i32 noundef %15, ptr noundef nonnull %7, i32 noundef 3, ptr noundef %1) #10
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %.preheader, label %.thread87
+  br i1 %.not, label %.preheader, label %.thread90
 
 .preheader:                                       ; preds = %13
   %.not71 = icmp eq i64 %indvars.iv82, 0
@@ -1162,16 +1162,16 @@ define internal fastcc i32 @apply_case_fold3(ptr noundef readonly captures(none)
 
 .thread:                                          ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread87
+  br label %.thread90
 
 22:                                               ; preds = %.lr.ph
   %23 = load i32, ptr %4, align 4, !tbaa !17
   %24 = call i32 %0(i32 noundef %23, ptr noundef nonnull %3, i32 noundef 1, ptr noundef %1) #10
   %.not46 = icmp eq i32 %24, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not46, label %17, label %.thread87
+  br i1 %.not46, label %17, label %.thread90
 
-.thread87:                                        ; preds = %13, %22, %.thread
+.thread90:                                        ; preds = %13, %22, %.thread
   %.237.ph = phi i32 [ %21, %.thread ], [ %24, %22 ], [ %16, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
@@ -1193,8 +1193,8 @@ define internal fastcc i32 @apply_case_fold3(ptr noundef readonly captures(none)
   %29 = icmp slt i32 %28, 72
   br i1 %29, label %5, label %.loopexit, !llvm.loop !30
 
-.loopexit:                                        ; preds = %25, %.thread87
-  %.6 = phi i32 [ %.237.ph, %.thread87 ], [ 0, %25 ]
+.loopexit:                                        ; preds = %25, %.thread90
+  %.6 = phi i32 [ %.237.ph, %.thread90 ], [ 0, %25 ]
   ret i32 %.6
 }
 
@@ -1215,10 +1215,10 @@ define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef rea
   %14 = icmp eq i32 %13, 0
   %15 = icmp ult i32 %12, 128
   %or.cond5 = select i1 %14, i1 true, i1 %15
-  %indvar599.sroa.gep715 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %indvar561.sroa.gep716 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %indvar599.sroa.gep719 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %indvar561.sroa.gep722 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %indvar599.sroa.gep760 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %indvar561.sroa.gep761 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %indvar599.sroa.gep764 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %indvar561.sroa.gep767 = getelementptr inbounds nuw i8, ptr %6, i64 4
   br i1 %or.cond5, label %16, label %.thread
 
 16:                                               ; preds = %5
@@ -1316,9 +1316,9 @@ define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef rea
   br label %76
 
 76:                                               ; preds = %58, %66, %70
-  %.sink695 = phi i32 [ %75, %70 ], [ %60, %66 ], [ %60, %58 ]
+  %.sink740 = phi i32 [ %75, %70 ], [ %60, %66 ], [ %60, %58 ]
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %.sink695, ptr %77, align 4, !tbaa !17
+  store i32 %.sink740, ptr %77, align 4, !tbaa !17
   %78 = call i32 @onigenc_unicode_fold3_key(ptr noundef nonnull %8) #10
   %79 = icmp sgt i32 %78, -1
   br i1 %79, label %80, label %168
@@ -1371,8 +1371,8 @@ define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef rea
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %105 = icmp sgt i32 %102, 0
-  %or.cond697 = select i1 %100, i1 %105, i1 false
-  br i1 %or.cond697, label %.preheader369.us.us.preheader, label %.thread
+  %or.cond742 = select i1 %100, i1 %105, i1 false
+  br i1 %or.cond742, label %.preheader369.us.us.preheader, label %.thread
 
 .preheader369.us.us.preheader:                    ; preds = %.preheader369.lr.ph
   %wide.trip.count676 = zext nneg i32 %96 to i64
@@ -1670,8 +1670,8 @@ define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef rea
 
 215:                                              ; preds = %.preheader375, %235
   %216 = phi i1 [ true, %.preheader375 ], [ false, %235 ]
-  %indvar599.sroa.phi = phi ptr [ %7, %.preheader375 ], [ %indvar599.sroa.gep715, %235 ]
-  %indvar599.sroa.phi717 = phi ptr [ %6, %.preheader375 ], [ %indvar599.sroa.gep719, %235 ]
+  %indvar599.sroa.phi = phi ptr [ %7, %.preheader375 ], [ %indvar599.sroa.gep760, %235 ]
+  %indvar599.sroa.phi762 = phi ptr [ %6, %.preheader375 ], [ %indvar599.sroa.gep764, %235 ]
   %indvar599 = phi i64 [ 0, %.preheader375 ], [ 1, %235 ]
   %217 = shl nuw nsw i64 %indvar599, 4
   %218 = getelementptr nuw i8, ptr %7, i64 %217
@@ -1679,7 +1679,7 @@ define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef rea
   %219 = getelementptr inbounds nuw i32, ptr %180, i64 %indvar599
   %220 = load i32, ptr %219, align 4, !tbaa !17
   store i32 %220, ptr %indvar599.sroa.phi, align 16, !tbaa !17
-  store i32 1, ptr %indvar599.sroa.phi717, align 4, !tbaa !17
+  store i32 1, ptr %indvar599.sroa.phi762, align 4, !tbaa !17
   %221 = call i32 @onigenc_unicode_fold1_key(ptr noundef nonnull %indvar599.sroa.phi) #10
   %222 = icmp sgt i32 %221, -1
   br i1 %222, label %223, label %235
@@ -1703,7 +1703,7 @@ define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef rea
 
 ._crit_edge446:                                   ; preds = %.lr.ph445, %223
   %234 = add nsw i32 %227, 1
-  store i32 %234, ptr %indvar599.sroa.phi717, align 4, !tbaa !17
+  store i32 %234, ptr %indvar599.sroa.phi762, align 4, !tbaa !17
   br label %235
 
 235:                                              ; preds = %._crit_edge446, %215
@@ -1886,8 +1886,8 @@ define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef rea
 
 309:                                              ; preds = %.preheader381, %332
   %310 = phi i1 [ true, %.preheader381 ], [ false, %332 ]
-  %indvar561.sroa.phi = phi ptr [ %7, %.preheader381 ], [ %indvar561.sroa.gep716, %332 ]
-  %indvar561.sroa.phi720 = phi ptr [ %6, %.preheader381 ], [ %indvar561.sroa.gep722, %332 ]
+  %indvar561.sroa.phi = phi ptr [ %7, %.preheader381 ], [ %indvar561.sroa.gep761, %332 ]
+  %indvar561.sroa.phi765 = phi ptr [ %6, %.preheader381 ], [ %indvar561.sroa.gep767, %332 ]
   %indvar561 = phi i64 [ 0, %.preheader381 ], [ 1, %332 ]
   %311 = shl nuw nsw i64 %indvar561, 4
   %312 = getelementptr nuw i8, ptr %7, i64 %311
@@ -1898,7 +1898,7 @@ define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef rea
   %316 = getelementptr inbounds nuw i32, ptr %315, i64 %indvar561
   %317 = load i32, ptr %316, align 4, !tbaa !17
   store i32 %317, ptr %indvar561.sroa.phi, align 16, !tbaa !17
-  store i32 1, ptr %indvar561.sroa.phi720, align 4, !tbaa !17
+  store i32 1, ptr %indvar561.sroa.phi765, align 4, !tbaa !17
   %318 = call i32 @onigenc_unicode_fold1_key(ptr noundef nonnull %indvar561.sroa.phi) #10
   %319 = icmp sgt i32 %318, -1
   br i1 %319, label %320, label %332
@@ -1922,7 +1922,7 @@ define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef rea
 
 ._crit_edge417:                                   ; preds = %.lr.ph416, %320
   %331 = add nsw i32 %324, 1
-  store i32 %331, ptr %indvar561.sroa.phi720, align 4, !tbaa !17
+  store i32 %331, ptr %indvar561.sroa.phi765, align 4, !tbaa !17
   br label %332
 
 332:                                              ; preds = %._crit_edge417, %309
@@ -1984,8 +1984,8 @@ define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef rea
   %358 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %359 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %360 = icmp sgt i32 %357, 0
-  %or.cond698 = select i1 %355, i1 %360, i1 false
-  br i1 %or.cond698, label %.preheader383.us.us.preheader, label %.thread
+  %or.cond743 = select i1 %355, i1 %360, i1 false
+  br i1 %or.cond743, label %.preheader383.us.us.preheader, label %.thread
 
 .preheader383.us.us.preheader:                    ; preds = %.preheader383.lr.ph
   %wide.trip.count554 = zext nneg i32 %351 to i64
@@ -2322,7 +2322,7 @@ wb_get_type.exit288:                              ; preds = %49, %51, %55
   %.0250 = phi i32 [ %39, %73 ], [ %39, %.preheader324 ], [ %78, %.lr.ph ], [ %78, %.backedge325 ]
   %80 = icmp eq i32 %.0250, 1
   %81 = icmp eq i32 %.0250, 7
-  switch i32 %.0250, label %.loopexit414 [
+  switch i32 %.0250, label %.loopexit429 [
     i32 7, label %82
     i32 1, label %82
     i32 16, label %87
@@ -2331,7 +2331,7 @@ wb_get_type.exit288:                              ; preds = %49, %51, %55
   ]
 
 82:                                               ; preds = %.loopexit, %.loopexit
-  switch i32 %58, label %.loopexit414 [
+  switch i32 %58, label %.loopexit429 [
     i32 7, label %._crit_edge358.thread
     i32 1, label %._crit_edge358.thread
     i32 16, label %83
@@ -2342,11 +2342,11 @@ wb_get_type.exit288:                              ; preds = %49, %51, %55
 83:                                               ; preds = %82, %82, %82
   %84 = call fastcc i32 @wb_get_next_main_code(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %4, ptr noundef %6, ptr noundef %7)
   %.not275 = icmp eq i32 %84, 0
-  br i1 %.not275, label %.loopexit414, label %85
+  br i1 %.not275, label %.loopexit429, label %85
 
 85:                                               ; preds = %83
   %86 = load i32, ptr %7, align 4, !tbaa !17
-  switch i32 %86, label %.loopexit414 [
+  switch i32 %86, label %.loopexit429 [
     i32 7, label %._crit_edge358.thread
     i32 1, label %._crit_edge358.thread
   ]
@@ -2367,7 +2367,7 @@ wb_get_type.exit288:                              ; preds = %49, %51, %55
   %91 = load ptr, ptr %16, align 8, !tbaa !9
   %92 = tail call i32 %91(ptr noundef nonnull %90, ptr noundef %4) #10
   %93 = tail call fastcc i32 @wb_get_type(i32 noundef %92)
-  switch i32 %93, label %.loopexit414 [
+  switch i32 %93, label %.loopexit429 [
     i32 18, label %.backedge323
     i32 6, label %.backedge323
     i32 4, label %.backedge323
@@ -2381,16 +2381,16 @@ wb_get_type.exit288:                              ; preds = %49, %51, %55
   br i1 %.not276, label %._crit_edge, label %.lr.ph332
 
 ._crit_edge:                                      ; preds = %.backedge323
-  switch i32 %93, label %.loopexit414 [
+  switch i32 %93, label %.loopexit429 [
     i32 7, label %._crit_edge358.thread
     i32 1, label %._crit_edge358.thread
   ]
 
-.loopexit414:                                     ; preds = %.lr.ph332, %83, %85, %82, %.loopexit, %._crit_edge
+.loopexit429:                                     ; preds = %.lr.ph332, %83, %85, %82, %.loopexit, %._crit_edge
   %.3255 = phi ptr [ %90, %._crit_edge ], [ %.1253, %.loopexit ], [ %.1253, %82 ], [ %.1253, %85 ], [ %.1253, %83 ], [ %90, %.lr.ph332 ]
   br i1 %81, label %95, label %101
 
-95:                                               ; preds = %.loopexit414
+95:                                               ; preds = %.loopexit429
   switch i32 %58, label %.thread293 [
     i32 16, label %._crit_edge358.thread
     i32 3, label %96
@@ -2404,7 +2404,7 @@ wb_get_type.exit288:                              ; preds = %49, %51, %55
   %or.cond87 = select i1 %98, i1 %100, i1 false
   br i1 %or.cond87, label %._crit_edge358.thread, label %.thread299
 
-101:                                              ; preds = %.loopexit414
+101:                                              ; preds = %.loopexit429
   %102 = icmp eq i32 %.0250, 3
   %103 = icmp eq i32 %58, 7
   %or.cond89 = select i1 %102, i1 %103, i1 false
@@ -2509,7 +2509,7 @@ wb_get_type.exit288:                              ; preds = %49, %51, %55
 
 .thread297:                                       ; preds = %.preheader321, %125, %124, %130
   %133 = phi i1 [ false, %130 ], [ true, %124 ], [ true, %125 ], [ false, %.preheader321 ]
-  %.9384 = phi ptr [ %.9, %130 ], [ %.9, %124 ], [ %.9, %125 ], [ %.3255, %.preheader321 ]
+  %.9399 = phi ptr [ %.9, %130 ], [ %.9, %124 ], [ %.9, %125 ], [ %.3255, %.preheader321 ]
   %134 = phi i1 [ %131, %130 ], [ false, %124 ], [ false, %125 ], [ false, %.preheader321 ]
   %135 = or i1 %80, %134
   %136 = or i1 %135, %133
@@ -2538,7 +2538,7 @@ wb_get_type.exit288:                              ; preds = %49, %51, %55
   br i1 %or.cond85, label %.preheader, label %.thread299
 
 .preheader:                                       ; preds = %141
-  %144 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %.9384) #10
+  %144 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %.9399) #10
   %.not279355 = icmp eq ptr %144, null
   br i1 %.not279355, label %._crit_edge358.thread, label %.lr.ph357
 

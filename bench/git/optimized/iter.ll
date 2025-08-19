@@ -427,9 +427,9 @@ define internal range(i32 -2147483648, 2) i32 @indexed_table_ref_iter_next(ptr n
   %19 = load i32, ptr %10, align 8, !tbaa !31
   %20 = load i32, ptr %11, align 4, !tbaa !30
   %21 = icmp eq i32 %19, %20
-  br i1 %21, label %indexed_table_ref_iter_next_block.exit.thread41, label %22
+  br i1 %21, label %indexed_table_ref_iter_next_block.exit.thread45, label %22
 
-indexed_table_ref_iter_next_block.exit.thread41:  ; preds = %18
+indexed_table_ref_iter_next_block.exit.thread45:  ; preds = %18
   store i32 1, ptr %13, align 8, !tbaa !32
   br label %indexed_table_ref_iter_next_block.exit.thread
 
@@ -474,8 +474,8 @@ select.unfold:                                    ; preds = %indexed_table_ref_i
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %indexed_table_ref_iter_next_block.exit.thread, label %16
 
-indexed_table_ref_iter_next_block.exit.thread:    ; preds = %34, %indexed_table_ref_iter_next_block.exit, %select.unfold, %22, %32, %37, %indexed_table_ref_iter_next_block.exit.thread41, %2
-  %.1.ph = phi i32 [ %8, %2 ], [ 1, %indexed_table_ref_iter_next_block.exit.thread41 ], [ 0, %37 ], [ -3, %32 ], [ %30, %22 ], [ %38, %select.unfold ], [ 1, %indexed_table_ref_iter_next_block.exit ], [ 0, %34 ]
+indexed_table_ref_iter_next_block.exit.thread:    ; preds = %34, %indexed_table_ref_iter_next_block.exit, %select.unfold, %22, %32, %37, %indexed_table_ref_iter_next_block.exit.thread45, %2
+  %.1.ph = phi i32 [ %8, %2 ], [ 1, %indexed_table_ref_iter_next_block.exit.thread45 ], [ 0, %37 ], [ -3, %32 ], [ %30, %22 ], [ %38, %select.unfold ], [ 1, %indexed_table_ref_iter_next_block.exit ], [ 0, %34 ]
   ret i32 %.1.ph
 }
 

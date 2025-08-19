@@ -146,12 +146,12 @@ bytestream2_peek_be64.exit._crit_edge:            ; preds = %bytestream2_peek_be
   %55 = load i32, ptr %49, align 16, !tbaa !33
   %56 = icmp eq i32 %55, 2
   %spec.select = select i1 %56, i32 2, i32 1
-  %spec.select124 = select i1 %56, i64 3, i64 4
+  %spec.select133 = select i1 %56, i64 3, i64 4
   store i32 1, ptr %54, align 8, !tbaa !38
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 356
   store i32 %spec.select, ptr %57, align 4, !tbaa !38
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store i64 %spec.select124, ptr %58, align 8, !tbaa !30
+  store i64 %spec.select133, ptr %58, align 8, !tbaa !30
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr null, ptr %59, align 8, !tbaa !39
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.ph, i64 28

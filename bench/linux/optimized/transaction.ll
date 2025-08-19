@@ -2986,12 +2986,12 @@ define dso_local noundef range(i32 -117, 1) i32 @jbd2_journal_dirty_metadata(ptr
   tail call void @_raw_spin_lock(ptr noundef nonnull %38) #11
   %39 = load ptr, ptr %10, align 8
   %40 = icmp eq ptr %39, %3
-  br i1 %40, label %41, label %.thread8
+  br i1 %40, label %41, label %.thread15
 
 41:                                               ; preds = %37
   %42 = load i32, ptr %34, align 8
   %43 = icmp eq i32 %42, 1
-  br i1 %43, label %.thread8, label %44
+  br i1 %43, label %.thread15, label %44
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -3005,12 +3005,12 @@ define dso_local noundef range(i32 -117, 1) i32 @jbd2_journal_dirty_metadata(ptr
   %53 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %48, i32 noundef %50, i64 noundef %52, i32 noundef %42) #12
   %.pre7 = load ptr, ptr %10, align 8
   %54 = icmp eq ptr %.pre7, %3
-  br i1 %54, label %55, label %.thread8
+  br i1 %54, label %55, label %.thread15
 
 55:                                               ; preds = %44
   %.pr = load i32, ptr %34, align 8
   %56 = icmp eq i32 %.pr, 1
-  br i1 %56, label %.thread8, label %57, !prof !123
+  br i1 %56, label %.thread15, label %57, !prof !123
 
 57:                                               ; preds = %55
   tail call void asm sideeffect "754: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 754b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 754) #11, !srcloc !124
@@ -3025,19 +3025,19 @@ define dso_local noundef range(i32 -117, 1) i32 @jbd2_journal_dirty_metadata(ptr
   %62 = load i32, ptr %61, align 4
   %63 = and i32 %62, 8
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %.thread8
+  br i1 %64, label %65, label %.thread15
 
 65:                                               ; preds = %58
   %66 = load ptr, ptr %0, align 8
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %.thread8, label %68
+  br i1 %67, label %.thread15, label %68
 
 68:                                               ; preds = %65
   %69 = load ptr, ptr %66, align 8
   %70 = load i64, ptr %69, align 8
   %71 = and i64 %70, 2
   %72 = icmp eq i64 %71, 0
-  br i1 %72, label %73, label %.thread8
+  br i1 %72, label %73, label %.thread15
 
 73:                                               ; preds = %68
   %74 = load i32, ptr %27, align 4
@@ -3065,7 +3065,7 @@ define dso_local noundef range(i32 -117, 1) i32 @jbd2_journal_dirty_metadata(ptr
   tail call void asm sideeffect "755: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 755b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 755) #11, !srcloc !126
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1571, i32 2307, i64 12) #11, !srcloc !127
   tail call void asm sideeffect "756: nop\0A\09.pushsection .discard.instr_end\0A\09.long 756b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 756) #11, !srcloc !128
-  br label %.thread8
+  br label %.thread15
 
 92:                                               ; preds = %76
   store i32 1, ptr %27, align 4
@@ -3089,7 +3089,7 @@ define dso_local noundef range(i32 -117, 1) i32 @jbd2_journal_dirty_metadata(ptr
   %103 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %3, %104
-  br i1 %105, label %.thread8, label %106, !prof !6
+  br i1 %105, label %.thread15, label %106, !prof !6
 
 106:                                              ; preds = %102
   %107 = getelementptr inbounds nuw i8, ptr %59, i64 968
@@ -3116,7 +3116,7 @@ define dso_local noundef range(i32 -117, 1) i32 @jbd2_journal_dirty_metadata(ptr
 120:                                              ; preds = %117, %114
   %121 = phi i32 [ %119, %117 ], [ 0, %114 ]
   %122 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, ptr noundef nonnull %107, i64 noundef %109, ptr noundef %96, i32 noundef %115, ptr noundef %104, i32 noundef %121) #12
-  br label %.thread8
+  br label %.thread15
 
 123:                                              ; preds = %98, %95
   %124 = load volatile i64, ptr %1, align 8
@@ -3145,7 +3145,7 @@ define dso_local noundef range(i32 -117, 1) i32 @jbd2_journal_dirty_metadata(ptr
   %137 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %138 = load ptr, ptr %137, align 8
   %139 = icmp eq ptr %138, %3
-  br i1 %139, label %.thread8, label %140, !prof !6
+  br i1 %139, label %.thread15, label %140, !prof !6
 
 140:                                              ; preds = %136, %132
   %141 = getelementptr inbounds nuw i8, ptr %59, i64 968
@@ -3181,7 +3181,7 @@ define dso_local noundef range(i32 -117, 1) i32 @jbd2_journal_dirty_metadata(ptr
   tail call void asm sideeffect "757: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 757b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 757) #11, !srcloc !129
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1633, i32 2305, i64 12) #11, !srcloc !130
   tail call void asm sideeffect "758: nop\0A\09.pushsection .discard.instr_end\0A\09.long 758b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 758) #11, !srcloc !131
-  br label %.thread8
+  br label %.thread15
 
 163:                                              ; preds = %129
   %164 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -3199,16 +3199,16 @@ define dso_local noundef range(i32 -117, 1) i32 @jbd2_journal_dirty_metadata(ptr
   tail call void @_raw_spin_lock(ptr noundef nonnull %169) #11
   tail call void @__jbd2_journal_file_buffer(ptr noundef %9, ptr noundef %3, i32 noundef 1)
   tail call void @_raw_spin_unlock(ptr noundef nonnull %169) #11
-  br label %.thread8
+  br label %.thread15
 
-.thread8:                                         ; preds = %41, %37, %168, %158, %136, %120, %102, %91, %68, %65, %58, %55, %44
+.thread15:                                        ; preds = %41, %37, %168, %158, %136, %120, %102, %91, %68, %65, %58, %55, %44
   %170 = phi ptr [ %38, %44 ], [ %38, %55 ], [ %60, %65 ], [ %60, %58 ], [ %60, %91 ], [ %60, %68 ], [ %60, %136 ], [ %60, %158 ], [ %60, %102 ], [ %60, %120 ], [ %60, %168 ], [ %38, %37 ], [ %38, %41 ]
   %171 = phi i32 [ 0, %44 ], [ 0, %55 ], [ -30, %65 ], [ -30, %58 ], [ -28, %91 ], [ -30, %68 ], [ 0, %136 ], [ -22, %158 ], [ 0, %102 ], [ -22, %120 ], [ 0, %168 ], [ 0, %37 ], [ 0, %41 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %170) #11
   br label %172
 
-172:                                              ; preds = %.thread8, %33, %30, %2
-  %173 = phi i32 [ -117, %2 ], [ 0, %33 ], [ 0, %30 ], [ %171, %.thread8 ]
+172:                                              ; preds = %.thread15, %33, %30, %2
+  %173 = phi i32 [ -117, %2 ], [ 0, %33 ], [ 0, %30 ], [ %171, %.thread15 ]
   ret i32 %173
 }
 
@@ -3464,7 +3464,7 @@ define internal fastcc void @__jbd2_journal_temp_unlink_buffer(ptr noundef captu
   unreachable
 
 21:                                               ; preds = %17
-  switch i32 %14, label %default.unreachable [
+  switch i32 %14, label %default.unreachable5 [
     i32 0, label %59
     i32 1, label %22
     i32 2, label %30
@@ -3491,7 +3491,7 @@ define internal fastcc void @__jbd2_journal_temp_unlink_buffer(ptr noundef captu
 29:                                               ; preds = %21
   br label %30
 
-default.unreachable:                              ; preds = %21
+default.unreachable5:                             ; preds = %21
   unreachable
 
 30:                                               ; preds = %21, %22, %29, %28

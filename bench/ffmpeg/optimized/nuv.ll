@@ -108,7 +108,7 @@ get_quant.exit:                                   ; preds = %29, %23, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
+define internal range(i32 12, 0) i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -427,16 +427,16 @@ get_quant.exit:                                   ; preds = %33
   br i1 %or.cond3200, label %.thread190, label %153
 
 153:                                              ; preds = %.thread184, %.loopexit
-  %.3136281 = phi ptr [ %145, %.thread184 ], [ %.3136, %.loopexit ]
-  %.3141280 = phi i32 [ %146, %.thread184 ], [ %.3141, %.loopexit ]
+  %.3136291 = phi ptr [ %145, %.thread184 ], [ %.3136, %.loopexit ]
+  %.3141290 = phi i32 [ %146, %.thread184 ], [ %.3141, %.loopexit ]
   %154 = load ptr, ptr %12, align 16, !tbaa !27
   %155 = call i32 @ff_reget_buffer(ptr noundef %0, ptr noundef %154, i32 noundef %.0150172) #6
   %156 = icmp slt i32 %155, 0
   br i1 %156, label %.thread178, label %161
 
 .thread190:                                       ; preds = %147, %.thread184, %.loopexit
-  %.3136279 = phi ptr [ %.3136, %.loopexit ], [ %145, %.thread184 ], [ %150, %147 ]
-  %.3141276 = phi i32 [ %.3141, %.loopexit ], [ %146, %.thread184 ], [ %151, %147 ]
+  %.3136289 = phi ptr [ %.3136, %.loopexit ], [ %145, %.thread184 ], [ %150, %147 ]
+  %.3141286 = phi i32 [ %.3141, %.loopexit ], [ %146, %.thread184 ], [ %151, %147 ]
   %157 = load ptr, ptr %12, align 16, !tbaa !27
   call void @av_frame_unref(ptr noundef %157) #6
   %158 = load ptr, ptr %12, align 16, !tbaa !27
@@ -448,8 +448,8 @@ get_quant.exit:                                   ; preds = %33
   br i1 %.not.not, label %.thread193, label %188
 
 .thread193:                                       ; preds = %.thread190, %161
-  %.3136278 = phi ptr [ %.3136279, %.thread190 ], [ %.3136281, %161 ]
-  %.3141275 = phi i32 [ %.3141276, %.thread190 ], [ %.3141280, %161 ]
+  %.3136288 = phi ptr [ %.3136289, %.thread190 ], [ %.3136291, %161 ]
+  %.3141285 = phi i32 [ %.3141286, %.thread190 ], [ %.3141290, %161 ]
   %162 = load ptr, ptr %12, align 16, !tbaa !27
   %163 = load ptr, ptr %162, align 8, !tbaa !53
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -482,8 +482,8 @@ get_quant.exit:                                   ; preds = %33
   br label %188
 
 188:                                              ; preds = %.thread193, %161
-  %.3136277 = phi ptr [ %.3136278, %.thread193 ], [ %.3136281, %161 ]
-  %.3141274 = phi i32 [ %.3141275, %.thread193 ], [ %.3141280, %161 ]
+  %.3136287 = phi ptr [ %.3136288, %.thread193 ], [ %.3136291, %161 ]
+  %.3141284 = phi i32 [ %.3141285, %.thread193 ], [ %.3141290, %161 ]
   %189 = select i1 %.0143173, i32 1, i32 2
   %190 = load ptr, ptr %12, align 16, !tbaa !27
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 120
@@ -510,13 +510,13 @@ get_quant.exit:                                   ; preds = %33
   %200 = mul i32 %197, 3
   %201 = mul i32 %200, %199
   %202 = sdiv i32 %201, 2
-  %203 = icmp slt i32 %.3141274, %202
+  %203 = icmp slt i32 %.3141284, %202
   br i1 %203, label %204, label %209
 
 204:                                              ; preds = %195
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.10) #6
   %205 = load i32, ptr %198, align 16, !tbaa !35
-  %206 = sdiv i32 %.3141274, %205
+  %206 = sdiv i32 %.3141284, %205
   %207 = sdiv i32 %206, 3
   %208 = shl nsw i32 %207, 1
   br label %209
@@ -529,12 +529,12 @@ get_quant.exit:                                   ; preds = %33
 
 212:                                              ; preds = %209
   %213 = load ptr, ptr %12, align 16, !tbaa !27
-  call fastcc void @copy_frame(ptr noundef %213, ptr noundef nonnull %.3136277, i32 noundef %210, i32 noundef %.0)
+  call fastcc void @copy_frame(ptr noundef %213, ptr noundef nonnull %.3136287, i32 noundef %210, i32 noundef %.0)
   br label %242
 
 214:                                              ; preds = %188, %188
   %215 = getelementptr inbounds nuw i8, ptr %12, i64 560
-  %216 = call i32 @ff_rtjpeg_decode_frame_yuv420(ptr noundef nonnull %215, ptr noundef nonnull %190, ptr noundef nonnull %.3136277, i32 noundef %.3141274) #6
+  %216 = call i32 @ff_rtjpeg_decode_frame_yuv420(ptr noundef nonnull %215, ptr noundef nonnull %190, ptr noundef nonnull %.3136287, i32 noundef %.3141284) #6
   %217 = icmp slt i32 %216, 0
   br i1 %217, label %.thread178, label %242
 

@@ -1312,10 +1312,10 @@ read_bits2.exit:                                  ; preds = %56, %57
   %64 = phi i8 [ %.sroa.0.012, %read_bits2.exit.thread ], [ %61, %read_bits2.exit ]
   %65 = phi i8 [ %53, %read_bits2.exit.thread ], [ 6, %read_bits2.exit ]
   %66 = phi ptr [ %45, %read_bits2.exit.thread ], [ %60, %read_bits2.exit ]
-  %.pre-phi2331 = phi i64 [ %48, %read_bits2.exit.thread ], [ %.pre22, %read_bits2.exit ]
+  %.pre-phi2332 = phi i64 [ %48, %read_bits2.exit.thread ], [ %.pre22, %read_bits2.exit ]
   %67 = shl i8 %64, 2
   %68 = lshr i8 %64, 6
-  %69 = icmp slt i64 %.pre-phi2331, 1
+  %69 = icmp slt i64 %.pre-phi2332, 1
   switch i8 %68, label %default.unreachable [
     i8 0, label %70
     i8 1, label %83
@@ -1710,8 +1710,8 @@ bytestream2_get_byte.exit169:                     ; preds = %107, %108
   %112 = ptrtoint ptr %54 to i64
   %113 = sub i64 %112, %55
   %114 = icmp sgt i64 %113, 0
-  %or.cond84 = and i1 %.not.i173, %114
-  br i1 %or.cond84, label %115, label %118
+  %or.cond102 = and i1 %.not.i173, %114
+  br i1 %or.cond102, label %115, label %118
 
 115:                                              ; preds = %bytestream2_get_byte.exit169
   store i8 %.0.i168, ptr %56, align 1, !tbaa !36

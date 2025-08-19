@@ -610,18 +610,18 @@ _init_l_Lake_instMonadTask__lake___closed__10.exit: ; preds = %_init_l_Lake_inst
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_instMonadTask__lake___closed__10.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %100, %_init_l_Lake_instMonadTask__lake___closed__10.exit ]
-  %103 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !8
+  %.sink22 = phi ptr [ %4, %3 ], [ %100, %_init_l_Lake_instMonadTask__lake___closed__10.exit ]
+  %103 = getelementptr inbounds nuw i8, ptr %.sink22, i64 4
+  store i32 1, ptr %.sink22, align 4, !tbaa !8
   store i32 131096, ptr %103, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %.sink22, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %104, align 8, !tbaa !4
-  %105 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %.sink22, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %105, align 8, !tbaa !4
   br label %106
 
 106:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink22, %.sink.split ]
   ret ptr %.0
 }
 

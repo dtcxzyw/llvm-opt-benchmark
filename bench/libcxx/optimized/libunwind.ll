@@ -2333,7 +2333,7 @@ define linkonce_odr hidden noundef i32 @_ZN9libunwind17DwarfInstructionsINS_17Lo
 31:                                               ; preds = %30
   %32 = call noundef i64 @_ZN9libunwind17DwarfInstructionsINS_17LocalAddressSpaceENS_16Registers_x86_64EE16getSavedRegisterERS1_RKS2_mRKNS_10CFI_ParserIS1_E16RegisterLocationE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(168) %3, i64 noundef %15, ptr noundef nonnull align 8 dereferenceable(16) %22)
   %33 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %33, label %default.unreachable [
+  switch i32 %33, label %default.unreachable156 [
     i32 15, label %49
     i32 16, label %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit
     i32 14, label %48
@@ -2401,7 +2401,7 @@ define linkonce_odr hidden noundef i32 @_ZN9libunwind17DwarfInstructionsINS_17Lo
 49:                                               ; preds = %31
   br label %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit
 
-default.unreachable:                              ; preds = %31
+default.unreachable156:                           ; preds = %31
   unreachable
 
 50:                                               ; preds = %21
@@ -5648,9 +5648,9 @@ _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit: ; preds = %55
   unreachable
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %34, %73, %70, %67, %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit, %44, %41, %38, %10
-  %.sink71 = phi ptr [ %74, %73 ], [ %72, %70 ], [ %69, %67 ], [ %56, %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit ], [ %45, %44 ], [ %43, %41 ], [ %40, %38 ], [ %11, %10 ], [ %36, %34 ]
+  %.sink73 = phi ptr [ %74, %73 ], [ %72, %70 ], [ %69, %67 ], [ %56, %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit ], [ %45, %44 ], [ %43, %41 ], [ %40, %38 ], [ %11, %10 ], [ %36, %34 ]
   %.0 = phi i64 [ %.0.copyload.i54, %73 ], [ %71, %70 ], [ %68, %67 ], [ %.1.i, %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit ], [ %.0.copyload.i46, %44 ], [ %42, %41 ], [ %39, %38 ], [ %.0.copyload.i.i, %10 ], [ %35, %34 ]
-  %80 = ptrtoint ptr %.sink71 to i64
+  %80 = ptrtoint ptr %.sink73 to i64
   store i64 %80, ptr %1, align 8, !tbaa !18
   %81 = lshr i32 %8, 4
   %82 = and i32 %81, 7

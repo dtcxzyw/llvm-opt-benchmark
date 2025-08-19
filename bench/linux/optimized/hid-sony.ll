@@ -1348,11 +1348,11 @@ define internal range(i32 -2147483648, 1) i32 @sony_input_configured(ptr noundef
   br i1 %113, label %123, label %114
 
 114:                                              ; preds = %111, %.thread35
-  %.sink96 = phi i64 [ 36, %.thread35 ], [ 49, %111 ]
+  %.sink126 = phi i64 [ 36, %.thread35 ], [ 49, %111 ]
   %115 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 6352
-  %118 = tail call noalias dereferenceable_or_null(36) ptr @devm_kmalloc(ptr noundef nonnull %117, i64 noundef %.sink96, i32 noundef 3264) #15
+  %118 = tail call noalias dereferenceable_or_null(36) ptr @devm_kmalloc(ptr noundef nonnull %117, i64 noundef %.sink126, i32 noundef 3264) #15
   %119 = getelementptr inbounds nuw i8, ptr %7, i64 240
   store ptr %118, ptr %119, align 8
   %120 = icmp eq ptr %118, null
@@ -2814,41 +2814,41 @@ define internal noundef range(i32 -22, 1) i32 @sony_led_blink_set(ptr noundef re
 12:                                               ; preds = %3
   %13 = load i64, ptr %1, align 8
   %14 = icmp ugt i64 %13, 2550
-  br i1 %14, label %.thread9, label %15
+  br i1 %14, label %.thread17, label %15
 
 15:                                               ; preds = %12
   %16 = load i64, ptr %2, align 8
   %17 = icmp ugt i64 %16, 2550
-  br i1 %17, label %.thread7, label %20
+  br i1 %17, label %.thread15, label %20
 
-.thread9:                                         ; preds = %12
+.thread17:                                        ; preds = %12
   store i64 2550, ptr %1, align 8
   %18 = load i64, ptr %2, align 8
   %19 = icmp ugt i64 %18, 2550
-  br i1 %19, label %.thread7, label %.thread10
+  br i1 %19, label %.thread15, label %.thread18
 
 20:                                               ; preds = %15
   %21 = icmp eq i64 %13, 0
-  br i1 %21, label %22, label %.thread10
+  br i1 %21, label %22, label %.thread18
 
-.thread7:                                         ; preds = %15, %.thread9
+.thread15:                                        ; preds = %15, %.thread17
   store i64 2550, ptr %2, align 8
   %.pre = load i64, ptr %1, align 8
-  br label %.thread10
+  br label %.thread18
 
 22:                                               ; preds = %20
   %23 = icmp eq i64 %16, 0
-  br i1 %23, label %24, label %.thread10
+  br i1 %23, label %24, label %.thread18
 
 24:                                               ; preds = %22
   store i64 500, ptr %2, align 8
   store i64 500, ptr %1, align 8
   %.pre6 = load i64, ptr %2, align 8
-  br label %.thread10
+  br label %.thread18
 
-.thread10:                                        ; preds = %.thread7, %.thread9, %24, %22, %20
-  %25 = phi i64 [ %.pre6, %24 ], [ %16, %22 ], [ %16, %20 ], [ %18, %.thread9 ], [ 2550, %.thread7 ]
-  %26 = phi i64 [ 500, %24 ], [ 0, %22 ], [ %13, %20 ], [ 2550, %.thread9 ], [ %.pre, %.thread7 ]
+.thread18:                                        ; preds = %.thread15, %.thread17, %24, %22, %20
+  %25 = phi i64 [ %.pre6, %24 ], [ %16, %22 ], [ %16, %20 ], [ %18, %.thread17 ], [ 2550, %.thread15 ]
+  %26 = phi i64 [ 500, %24 ], [ 0, %22 ], [ %13, %20 ], [ 2550, %.thread17 ], [ %.pre, %.thread15 ]
   %27 = udiv i64 %26, 10
   %28 = trunc i64 %27 to i8
   %29 = udiv i64 %25, 10
@@ -2858,7 +2858,7 @@ define internal noundef range(i32 -22, 1) i32 @sony_led_blink_set(ptr noundef re
   %.not = icmp eq i8 %32, 0
   br i1 %.not, label %.loopexit, label %33
 
-33:                                               ; preds = %.thread10
+33:                                               ; preds = %.thread18
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %35 = zext i8 %32 to i64
   %36 = load ptr, ptr %34, align 8
@@ -2924,8 +2924,8 @@ define internal noundef range(i32 -22, 1) i32 @sony_led_blink_set(ptr noundef re
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %9, i64 noundef %61) #14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %73, %53, %45, %.thread10, %11
-  %74 = phi i32 [ -22, %11 ], [ -22, %45 ], [ 0, %73 ], [ 0, %53 ], [ -22, %.thread10 ], [ -22, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %73, %53, %45, %.thread18, %11
+  %74 = phi i32 [ -22, %11 ], [ -22, %45 ], [ 0, %73 ], [ 0, %53 ], [ -22, %.thread18 ], [ -22, %.preheader ]
   ret i32 %74
 }
 

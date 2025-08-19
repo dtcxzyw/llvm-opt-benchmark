@@ -1029,9 +1029,9 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
   br label %675
 
 675:                                              ; preds = %671, %668
-  %.sink145.i.i.i.i = phi i64 [ %662, %668 ], [ %indvars.iv58.i.i.i.i, %671 ]
+  %.sink149.i.i.i.i = phi i64 [ %662, %668 ], [ %indvars.iv58.i.i.i.i, %671 ]
   %.sink.i.i.i.i = phi double [ %670, %668 ], [ %674, %671 ]
-  %676 = getelementptr inbounds nuw double, ptr %665, i64 %.sink145.i.i.i.i
+  %676 = getelementptr inbounds nuw double, ptr %665, i64 %.sink149.i.i.i.i
   store double %.sink.i.i.i.i, ptr %676, align 8, !tbaa !109
   %indvars.iv.next59.i.i.i.i = add nuw nsw i64 %indvars.iv58.i.i.i.i, 1
   %exitcond61.not.i.i.i.i = icmp eq i64 %indvars.iv.next59.i.i.i.i, 4
@@ -1382,9 +1382,9 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %886 = fcmp reassoc nsz arcp contract afn olt double %885, %825
   %..i.i.i.i = select i1 %886, ptr %655, ptr %654
-  %.148.i.i.i.i = select i1 %886, double %885, double %825
+  %.152.i.i.i.i = select i1 %886, double %885, double %825
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %766, ptr noundef nonnull align 8 dereferenceable(32) %..i.i.i.i, i64 32, i1 false), !tbaa !109
-  store double %.148.i.i.i.i, ptr %744, align 8, !tbaa !109
+  store double %.152.i.i.i.i, ptr %744, align 8, !tbaa !109
   br label %887
 
 887:                                              ; preds = %.sink.split.i.i.i.i, %._crit_edge.i.i.i.i

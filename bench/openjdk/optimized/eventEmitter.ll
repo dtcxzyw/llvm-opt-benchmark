@@ -296,8 +296,8 @@ _ZNK12ObjectSample23is_alive_and_older_thanEl.exit27.thread: ; preds = %.lr.ph34
   br i1 %.not26, label %.loopexit, label %.lr.ph34, !llvm.loop !8
 
 .loopexit:                                        ; preds = %_ZNK12ObjectSample23is_alive_and_older_thanEl.exit27.thread, %7, %33, %._crit_edge
-  %.0.lcssa37 = phi i64 [ %.1, %33 ], [ 0, %._crit_edge ], [ 0, %7 ], [ %.1, %_ZNK12ObjectSample23is_alive_and_older_thanEl.exit27.thread ]
-  ret i64 %.0.lcssa37
+  %.0.lcssa40 = phi i64 [ %.1, %33 ], [ 0, %._crit_edge ], [ 0, %7 ], [ %.1, %_ZNK12ObjectSample23is_alive_and_older_thanEl.exit27.thread ]
+  ret i64 %.0.lcssa40
 }
 
 declare void @_ZN22PathToGcRootsOperationC1EP13ObjectSamplerP9EdgeStorelbb(ptr noundef nonnull align 8 dereferenceable(42), ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #2

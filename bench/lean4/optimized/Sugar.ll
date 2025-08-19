@@ -209,17 +209,17 @@ lean_alloc_ctor.exit41:                           ; preds = %lean_inc.exit33
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exit41, %lean_dec.exit
-  %.sink50 = phi ptr [ %24, %lean_dec.exit ], [ %56, %lean_alloc_ctor.exit41 ]
-  %.sink47 = phi i32 [ 16908312, %lean_dec.exit ], [ 131096, %lean_alloc_ctor.exit41 ]
+  %.sink56 = phi ptr [ %24, %lean_dec.exit ], [ %56, %lean_alloc_ctor.exit41 ]
+  %.sink53 = phi i32 [ 16908312, %lean_dec.exit ], [ 131096, %lean_alloc_ctor.exit41 ]
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %lean_dec.exit ], [ %55, %lean_alloc_ctor.exit41 ]
-  %59 = getelementptr inbounds nuw i8, ptr %.sink50, i64 4
-  store i32 1, ptr %.sink50, align 4, !tbaa !8
-  store i32 %.sink47, ptr %59, align 4
-  %60 = getelementptr inbounds nuw i8, ptr %.sink50, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.sink56, i64 4
+  store i32 1, ptr %.sink56, align 4, !tbaa !8
+  store i32 %.sink53, ptr %59, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %.sink56, i64 8
   store ptr %.sink, ptr %60, align 8, !tbaa !4
-  %61 = getelementptr inbounds nuw i8, ptr %.sink50, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.sink56, i64 16
   store ptr %2, ptr %61, align 8, !tbaa !4
-  ret ptr %.sink50
+  ret ptr %.sink56
 }
 
 declare zeroext i8 @l_Lean_Syntax_isOfKind(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -689,17 +689,17 @@ lean_inc.exit:                                    ; preds = %152, %151, %149, %l
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit, %lean_dec.exit89
-  %.sink144 = phi ptr [ %24, %lean_dec.exit89 ], [ %158, %lean_inc.exit ]
-  %.sink141 = phi i32 [ 16908312, %lean_dec.exit89 ], [ 131096, %lean_inc.exit ]
+  %.sink153 = phi ptr [ %24, %lean_dec.exit89 ], [ %158, %lean_inc.exit ]
+  %.sink150 = phi i32 [ 16908312, %lean_dec.exit89 ], [ 131096, %lean_inc.exit ]
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %lean_dec.exit89 ], [ %157, %lean_inc.exit ]
-  %161 = getelementptr inbounds nuw i8, ptr %.sink144, i64 4
-  store i32 1, ptr %.sink144, align 4, !tbaa !8
-  store i32 %.sink141, ptr %161, align 4
-  %162 = getelementptr inbounds nuw i8, ptr %.sink144, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %.sink153, i64 4
+  store i32 1, ptr %.sink153, align 4, !tbaa !8
+  store i32 %.sink150, ptr %161, align 4
+  %162 = getelementptr inbounds nuw i8, ptr %.sink153, i64 8
   store ptr %.sink, ptr %162, align 8, !tbaa !4
-  %163 = getelementptr inbounds nuw i8, ptr %.sink144, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %.sink153, i64 16
   store ptr %2, ptr %163, align 8, !tbaa !4
-  ret ptr %.sink144
+  ret ptr %.sink153
 }
 
 declare ptr @l_Lean_Syntax_node2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1160,18 +1160,18 @@ _init_l_Lake_doElemTry__Else_____closed__9.exit:  ; preds = %_init_l_Lake_doElem
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_doElemTry__Else_____closed__9.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %170, %_init_l_Lake_doElemTry__Else_____closed__9.exit ]
-  %173 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !8
+  %.sink24 = phi ptr [ %4, %3 ], [ %170, %_init_l_Lake_doElemTry__Else_____closed__9.exit ]
+  %173 = getelementptr inbounds nuw i8, ptr %.sink24, i64 4
+  store i32 1, ptr %.sink24, align 4, !tbaa !8
   store i32 131096, ptr %173, align 4
-  %174 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %.sink24, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %174, align 8, !tbaa !4
-  %175 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %.sink24, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %175, align 8, !tbaa !4
   br label %176
 
 176:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink24, %.sink.split ]
   ret ptr %.0
 }
 

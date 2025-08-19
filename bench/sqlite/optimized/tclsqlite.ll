@@ -1130,8 +1130,8 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !15
   %65 = call ptr %62(ptr noundef %64) #14
-  %.not11221566 = icmp eq ptr %65, null
-  br i1 %.not11221566, label %.critedge, label %.lr.ph1570
+  %.not11221635 = icmp eq ptr %65, null
+  br i1 %.not11221635, label %.critedge, label %.lr.ph1639
 
 66:                                               ; preds = %57
   %67 = icmp samesign ugt i32 %2, 3
@@ -1247,10 +1247,10 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.thread1222
 
 127:                                              ; preds = %115, %117
-  %.sink1523 = phi ptr [ %123, %117 ], [ %116, %115 ]
+  %.sink1592 = phi ptr [ %123, %117 ], [ %116, %115 ]
   %.sink = phi i64 [ 24, %117 ], [ 16, %115 ]
   %.0962 = phi ptr [ %122, %117 ], [ @.str.66, %115 ]
-  %128 = getelementptr inbounds nuw i8, ptr %.sink1523, i64 2736
+  %128 = getelementptr inbounds nuw i8, ptr %.sink1592, i64 2736
   %129 = load ptr, ptr %128, align 8, !tbaa !19
   %130 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink
   %131 = load ptr, ptr %130, align 8, !tbaa !15
@@ -1577,11 +1577,11 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %314
 
 313:                                              ; preds = %309
-  %spec.select1524 = call i32 @llvm.umin.i32(i32 %310, i32 100)
+  %spec.select1593 = call i32 @llvm.umin.i32(i32 %310, i32 100)
   br label %314
 
 314:                                              ; preds = %313, %312
-  %315 = phi i32 [ 0, %312 ], [ %spec.select1524, %313 ]
+  %315 = phi i32 [ 0, %312 ], [ %spec.select1593, %313 ]
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 %315, ptr %316, align 8, !tbaa !37
   br label %324
@@ -2477,9 +2477,9 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %811 = load ptr, ptr %810, align 8, !tbaa !15
   %812 = call i32 %807(ptr noundef %1, ptr noundef %811, ptr noundef nonnull %23) #14
   %.not1132 = icmp eq i32 %812, 0
-  br i1 %.not1132, label %.thread1486, label %814
+  br i1 %.not1132, label %.thread1555, label %814
 
-.thread1486:                                      ; preds = %804
+.thread1555:                                      ; preds = %804
   %813 = load i64, ptr %23, align 8, !tbaa !84
   store i64 %813, ptr %21, align 8, !tbaa !84
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -2525,9 +2525,9 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %.not1131 = icmp eq i32 %834, 0
   br i1 %.not1131, label %.thread1249, label %.loopexit1323
 
-.thread1249:                                      ; preds = %.thread1486, %821, %826
-  %.19931257 = phi ptr [ %.09921406, %826 ], [ %800, %821 ], [ %.09921406, %.thread1486 ]
-  %.19951256 = phi i32 [ %830, %826 ], [ %788, %821 ], [ %808, %.thread1486 ]
+.thread1249:                                      ; preds = %.thread1555, %821, %826
+  %.19931257 = phi ptr [ %.09921406, %826 ], [ %800, %821 ], [ %.09921406, %.thread1555 ]
+  %.19951256 = phi i32 [ %830, %826 ], [ %788, %821 ], [ %808, %.thread1555 ]
   %835 = add nsw i32 %.19951256, 1
   %836 = icmp slt i32 %835, %786
   br i1 %836, label %793, label %._crit_edge1409, !llvm.loop !87
@@ -2751,34 +2751,34 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.critedge1174
 
 .lr.ph1385:                                       ; preds = %964
-  %951 = add nsw i32 %.089113841567, -1
+  %951 = add nsw i32 %.089113841636, -1
   %952 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %953 = getelementptr inbounds nuw i8, ptr %952, i64 2736
   %954 = load ptr, ptr %953, align 8, !tbaa !19
-  %955 = getelementptr inbounds nuw i8, ptr %.089813831568, i64 24
+  %955 = getelementptr inbounds nuw i8, ptr %.089813831637, i64 24
   %956 = load ptr, ptr %955, align 8, !tbaa !15
   %957 = call ptr %954(ptr noundef %956) #14
   %.not1122 = icmp eq ptr %957, null
-  br i1 %.not1122, label %.critedge, label %.lr.ph1570, !llvm.loop !97
+  br i1 %.not1122, label %.critedge, label %.lr.ph1639, !llvm.loop !97
 
-.lr.ph1570:                                       ; preds = %.lr.ph1385.preheader, %.lr.ph1385
+.lr.ph1639:                                       ; preds = %.lr.ph1385.preheader, %.lr.ph1385
   %958 = phi ptr [ %957, %.lr.ph1385 ], [ %65, %.lr.ph1385.preheader ]
-  %.0100213821569 = phi i32 [ 1, %.lr.ph1385 ], [ 0, %.lr.ph1385.preheader ]
-  %.089813831568 = phi ptr [ %965, %.lr.ph1385 ], [ %3, %.lr.ph1385.preheader ]
-  %.089113841567 = phi i32 [ %951, %.lr.ph1385 ], [ %2, %.lr.ph1385.preheader ]
+  %.0100213821638 = phi i32 [ 1, %.lr.ph1385 ], [ 0, %.lr.ph1385.preheader ]
+  %.089813831637 = phi ptr [ %965, %.lr.ph1385 ], [ %3, %.lr.ph1385.preheader ]
+  %.089113841636 = phi i32 [ %951, %.lr.ph1385 ], [ %2, %.lr.ph1385.preheader ]
   %959 = load i8, ptr %958, align 1, !tbaa !18
   %960 = icmp eq i8 %959, 45
   br i1 %960, label %961, label %.critedge
 
-961:                                              ; preds = %.lr.ph1570
+961:                                              ; preds = %.lr.ph1639
   %962 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %958, ptr noundef nonnull dereferenceable(14) @.str.129) #15
   %963 = icmp eq i32 %962, 0
   br i1 %963, label %964, label %967
 
 964:                                              ; preds = %961
-  %965 = getelementptr inbounds nuw i8, ptr %.089813831568, i64 8
-  %966 = icmp sgt i32 %.089113841567, 4
-  br i1 %966, label %.lr.ph1385, label %.thread1481, !llvm.loop !97
+  %965 = getelementptr inbounds nuw i8, ptr %.089813831637, i64 8
+  %966 = icmp sgt i32 %.089113841636, 4
+  br i1 %966, label %.lr.ph1385, label %.thread1550, !llvm.loop !97
 
 967:                                              ; preds = %961
   %968 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
@@ -2787,10 +2787,10 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   call void (ptr, ...) %970(ptr noundef %1, ptr noundef nonnull @.str.130, ptr noundef nonnull %958, ptr noundef nonnull @.str.100, ptr noundef null) #14
   br label %.critedge1174
 
-.critedge:                                        ; preds = %.lr.ph1385, %.lr.ph1570, %.lr.ph1385.preheader, %.preheader1324
-  %.01002.lcssa = phi i32 [ 0, %.preheader1324 ], [ 0, %.lr.ph1385.preheader ], [ %.0100213821569, %.lr.ph1570 ], [ 1, %.lr.ph1385 ]
-  %.0898.lcssa = phi ptr [ %3, %.preheader1324 ], [ %3, %.lr.ph1385.preheader ], [ %.089813831568, %.lr.ph1570 ], [ %965, %.lr.ph1385 ]
-  %.0891.lcssa = phi i32 [ %2, %.preheader1324 ], [ %2, %.lr.ph1385.preheader ], [ %.089113841567, %.lr.ph1570 ], [ %951, %.lr.ph1385 ]
+.critedge:                                        ; preds = %.lr.ph1385, %.lr.ph1639, %.lr.ph1385.preheader, %.preheader1324
+  %.01002.lcssa = phi i32 [ 0, %.preheader1324 ], [ 0, %.lr.ph1385.preheader ], [ %.0100213821638, %.lr.ph1639 ], [ 1, %.lr.ph1385 ]
+  %.0898.lcssa = phi ptr [ %3, %.preheader1324 ], [ %3, %.lr.ph1385.preheader ], [ %.089813831637, %.lr.ph1639 ], [ %965, %.lr.ph1385 ]
+  %.0891.lcssa = phi i32 [ %2, %.preheader1324 ], [ %2, %.lr.ph1385.preheader ], [ %.089113841636, %.lr.ph1639 ], [ %951, %.lr.ph1385 ]
   %971 = add nsw i32 %.0891.lcssa, -6
   %or.cond43 = icmp ult i32 %971, -3
   br i1 %or.cond43, label %972, label %976
@@ -2804,10 +2804,10 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 
 976:                                              ; preds = %.critedge
   %977 = icmp eq i32 %.0891.lcssa, 3
-  br i1 %977, label %.thread1481, label %1025
+  br i1 %977, label %.thread1550, label %1025
 
-.thread1481:                                      ; preds = %964, %976
-  %.0898.lcssa14791485 = phi ptr [ %.0898.lcssa, %976 ], [ %965, %964 ]
+.thread1550:                                      ; preds = %964, %976
+  %.0898.lcssa15481554 = phi ptr [ %.0898.lcssa, %976 ], [ %965, %964 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %978 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %979 = getelementptr inbounds nuw i8, ptr %978, i64 456
@@ -2816,7 +2816,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %982 = load i32, ptr %981, align 8, !tbaa !61
   %983 = add nsw i32 %982, 1
   store i32 %983, ptr %981, align 8, !tbaa !61
-  %984 = getelementptr inbounds nuw i8, ptr %.0898.lcssa14791485, i64 16
+  %984 = getelementptr inbounds nuw i8, ptr %.0898.lcssa15481554, i64 16
   %985 = load ptr, ptr %984, align 8, !tbaa !15
   %986 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %987 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -2842,7 +2842,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %1000 = icmp eq i32 %999, 0
   br i1 %1000, label %.lr.ph1402, label %._crit_edge1403
 
-.lr.ph1402:                                       ; preds = %.thread1481, %._crit_edge1400
+.lr.ph1402:                                       ; preds = %.thread1550, %._crit_edge1400
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call fastcc void @dbEvalRowInfo(ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef null)
   %1001 = load i32, ptr %27, align 4, !tbaa !12
@@ -2866,8 +2866,8 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %1010 = icmp eq i32 %1009, 0
   br i1 %1010, label %.lr.ph1402, label %._crit_edge1403, !llvm.loop !100
 
-._crit_edge1403:                                  ; preds = %._crit_edge1400, %.thread1481
-  %.lcssa1346 = phi i32 [ %999, %.thread1481 ], [ %1009, %._crit_edge1400 ]
+._crit_edge1403:                                  ; preds = %._crit_edge1400, %.thread1550
+  %.lcssa1346 = phi i32 [ %999, %.thread1550 ], [ %1009, %._crit_edge1400 ]
   call fastcc void @dbEvalFinalize(ptr noundef nonnull %26)
   %1011 = icmp eq i32 %.lcssa1346, 3
   br i1 %1011, label %1012, label %1016
@@ -2951,8 +2951,8 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 
 .preheader1325:                                   ; preds = %1052
   %1054 = add nsw i32 %2, -1
-  %.not1532 = icmp eq i32 %2, 4
-  br i1 %.not1532, label %._crit_edge, label %.lr.ph1379
+  %.not1601 = icmp eq i32 %2, 4
+  br i1 %.not1601, label %._crit_edge, label %.lr.ph1379
 
 .lr.ph1379:                                       ; preds = %.preheader1325
   %1055 = add nsw i32 %2, -2
@@ -3624,12 +3624,12 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %.thread1293
 
 1418:                                             ; preds = %1406, %1408
-  %.sink1530 = phi ptr [ %1414, %1408 ], [ %1407, %1406 ]
-  %.sink1528 = phi i64 [ 24, %1408 ], [ 16, %1406 ]
+  %.sink1599 = phi ptr [ %1414, %1408 ], [ %1407, %1406 ]
+  %.sink1597 = phi i64 [ 24, %1408 ], [ 16, %1406 ]
   %.0978 = phi ptr [ %1413, %1408 ], [ @.str.66, %1406 ]
-  %1419 = getelementptr inbounds nuw i8, ptr %.sink1530, i64 2736
+  %1419 = getelementptr inbounds nuw i8, ptr %.sink1599, i64 2736
   %1420 = load ptr, ptr %1419, align 8, !tbaa !19
-  %1421 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink1528
+  %1421 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink1597
   %1422 = load ptr, ptr %1421, align 8, !tbaa !15
   %1423 = call ptr %1420(ptr noundef %1422) #14
   %1424 = getelementptr inbounds nuw i8, ptr %0, i64 220
@@ -3841,8 +3841,8 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %.critedge1174
 
 1537:                                             ; preds = %1530, %1527, %1524, %1516
-  %.sink1531 = phi i64 [ 200, %1516 ], [ 204, %1524 ], [ 208, %1527 ], [ 212, %1530 ]
-  %1538 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink1531
+  %.sink1600 = phi i64 [ 200, %1516 ], [ 204, %1524 ], [ 208, %1527 ], [ 212, %1530 ]
+  %1538 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink1600
   %.0968 = load i32, ptr %1538, align 4, !tbaa !12
   %1539 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %1540 = getelementptr inbounds nuw i8, ptr %1539, i64 1896
@@ -4941,7 +4941,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   br i1 %.not, label %15, label %.critedge
 
 15:                                               ; preds = %12
-  br i1 %.not48, label %.thread66, label %.critedge.thread
+  br i1 %.not48, label %.thread73, label %.critedge.thread
 
 .critedge:                                        ; preds = %12
   br i1 %.not48, label %16, label %.critedge.thread
@@ -5383,52 +5383,57 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %.3176235.i = phi i32 [ %.3176241.i, %248 ], [ %.3176236.i, %.thread231.i ]
   %.5.i = phi i32 [ %.4166.i, %248 ], [ %.0162281.i, %.thread231.i ]
   %.not208.i = icmp eq i32 %.3176235.i, 0
-  br i1 %.not208.i, label %.thread247.thread.i, label %252
-
-252:                                              ; preds = %251
-  %253 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 1752
-  %255 = load ptr, ptr %254, align 8, !tbaa !96
-  %256 = load ptr, ptr %18, align 8, !tbaa !39
-  call void %255(ptr noundef %256) #14
-  br label %.thread247.i
+  br i1 %.not208.i, label %.thread247.i.thread, label %.thread247.thread.i
 
 .thread264.i:                                     ; preds = %157
-  %257 = getelementptr inbounds nuw i8, ptr %.1155.i, i64 40
-  store i32 %.0162281.i, ptr %257, align 8, !tbaa !146
+  %252 = getelementptr inbounds nuw i8, ptr %.1155.i, i64 40
+  store i32 %.0162281.i, ptr %252, align 8, !tbaa !146
   store ptr %.1155.i, ptr %8, align 8, !tbaa !139
   br label %dbPrepareAndBind.exit
 
-.thread247.i:                                     ; preds = %252, %116, %113
-  %.6255.i = phi i32 [ %.0162281.i, %116 ], [ %.0162281.i, %113 ], [ %.5.i, %252 ]
-  %.5178254.i = phi i32 [ %.0173277.i, %116 ], [ %.0173277.i, %113 ], [ %.3176235.i, %252 ]
+.thread247.i:                                     ; preds = %116, %113
   %exitcond.not.i = icmp eq i32 %.0172278.i, %.3.i
   br i1 %exitcond.not.i, label %._crit_edge284.i, label %.backedge.i
 
-.backedge.i:                                      ; preds = %.thread247.thread.i, %.thread247.i
-  %.0162281.be.i = phi i32 [ %.6255.i, %.thread247.i ], [ %.5.i, %.thread247.thread.i ]
-  %.0173277.be.i = phi i32 [ %.5178254.i, %.thread247.i ], [ 0, %.thread247.thread.i ]
+.thread247.i.thread:                              ; preds = %251
+  %exitcond.not.i63 = icmp eq i32 %.0172278.i, %.3.i
+  br i1 %exitcond.not.i63, label %._crit_edge284.i.thread, label %.backedge.i
+
+._crit_edge284.i.thread:                          ; preds = %.thread247.i.thread
+  %253 = getelementptr inbounds nuw i8, ptr %.1155.i, i64 40
+  store i32 %.5.i, ptr %253, align 8, !tbaa !146
+  store ptr %.1155.i, ptr %8, align 8, !tbaa !139
+  br label %dbPrepareAndBind.exit.thread
+
+.backedge.i:                                      ; preds = %.thread247.i.thread, %.thread247.thread.i, %.thread247.i
+  %.0162281.be.i = phi i32 [ %.0162281.i, %.thread247.i ], [ %.5.i, %.thread247.thread.i ], [ %.5.i, %.thread247.i.thread ]
+  %.0173277.be.i = phi i32 [ %.0173277.i, %.thread247.i ], [ 1, %.thread247.thread.i ], [ 0, %.thread247.i.thread ]
   %.0172278.be.i = add nuw i32 %.0172278.i, 1
   br label %113, !llvm.loop !155
 
 .thread247.thread.i:                              ; preds = %251
-  %exitcond.not293.i = icmp eq i32 %.0172278.i, %.3.i
-  br i1 %exitcond.not293.i, label %._crit_edge284.thread296.i, label %.backedge.i
+  %254 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 1752
+  %256 = load ptr, ptr %255, align 8, !tbaa !96
+  %257 = load ptr, ptr %18, align 8, !tbaa !39
+  call void %256(ptr noundef %257) #14
+  %exitcond.not303.i = icmp eq i32 %.0172278.i, %.3.i
+  br i1 %exitcond.not303.i, label %._crit_edge284.thread306.i, label %.backedge.i
 
-._crit_edge284.thread296.i:                       ; preds = %.thread247.thread.i
+._crit_edge284.thread306.i:                       ; preds = %.thread247.thread.i
   %258 = getelementptr inbounds nuw i8, ptr %.1155.i, i64 40
   store i32 %.5.i, ptr %258, align 8, !tbaa !146
   store ptr %.1155.i, ptr %8, align 8, !tbaa !139
-  br label %dbPrepareAndBind.exit.thread
+  br label %261
 
 ._crit_edge284.i:                                 ; preds = %.thread247.i
-  %259 = icmp eq i32 %.5178254.i, 0
+  %259 = icmp eq i32 %.0173277.i, 0
   %260 = getelementptr inbounds nuw i8, ptr %.1155.i, i64 40
-  store i32 %.6255.i, ptr %260, align 8, !tbaa !146
+  store i32 %.0162281.i, ptr %260, align 8, !tbaa !146
   store ptr %.1155.i, ptr %8, align 8, !tbaa !139
   br i1 %259, label %dbPrepareAndBind.exit.thread, label %261
 
-261:                                              ; preds = %._crit_edge284.i
+261:                                              ; preds = %._crit_edge284.i, %._crit_edge284.thread306.i
   %262 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 1752
   %264 = load ptr, ptr %263, align 8, !tbaa !96
@@ -5436,7 +5441,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   call void %264(ptr noundef %265) #14
   br label %dbPrepareAndBind.exit.thread
 
-dbPrepareAndBind.exit.thread:                     ; preds = %261, %._crit_edge284.i, %76, %._crit_edge284.thread.i, %._crit_edge284.thread296.i
+dbPrepareAndBind.exit.thread:                     ; preds = %261, %._crit_edge284.i, %76, %._crit_edge284.thread.i, %._crit_edge284.i.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.backedge
 
@@ -5445,7 +5450,7 @@ dbPrepareAndBind.exit.thread:                     ; preds = %261, %._crit_edge28
 
 dbPrepareAndBind.exit:                            ; preds = %64, %79, %.thread264.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %.thread66
+  br label %.thread73
 
 .critedge.thread:                                 ; preds = %15, %.critedge
   %266 = load ptr, ptr %0, align 8, !tbaa !89
@@ -5453,7 +5458,7 @@ dbPrepareAndBind.exit:                            ; preds = %64, %79, %.thread26
   %268 = load ptr, ptr %267, align 8, !tbaa !132
   %269 = call i32 @sqlite3_step(ptr noundef %268) #14
   %270 = icmp eq i32 %269, 100
-  br i1 %270, label %.thread66, label %271
+  br i1 %270, label %.thread73, label %271
 
 271:                                              ; preds = %.critedge.thread
   %272 = load ptr, ptr %9, align 8, !tbaa !136
@@ -5590,13 +5595,13 @@ dbReleaseStmt.exit:                               ; preds = %324, %306
   %341 = call ptr @sqlite3_errmsg(ptr noundef %340) #14
   %342 = call ptr %339(ptr noundef %341, i32 noundef -1) #14
   call void %335(ptr noundef %337, ptr noundef %342) #14
-  br label %.thread66
+  br label %.thread73
 
 343:                                              ; preds = %dbReleaseColumnNames.exit
   call fastcc void @dbReleaseStmt(ptr noundef %266, ptr noundef nonnull %.pre, i32 noundef 0)
   br label %.backedge
 
-.thread66:                                        ; preds = %.critedge.thread, %15, %dbReleaseStmt.exit, %dbPrepareAndBind.exit
+.thread73:                                        ; preds = %.critedge.thread, %15, %dbReleaseStmt.exit, %dbPrepareAndBind.exit
   %.4 = phi i32 [ 1, %dbPrepareAndBind.exit ], [ 1, %dbReleaseStmt.exit ], [ 0, %.critedge.thread ], [ 3, %15 ]
   ret i32 %.4
 }
@@ -6725,8 +6730,8 @@ define internal void @tclSqlFunc(ptr noundef %0, i32 noundef %1, ptr noundef rea
   br label %204
 
 .critedge107:                                     ; preds = %28, %106
-  %.sink132 = phi ptr [ %107, %106 ], [ %36, %28 ]
-  %200 = getelementptr inbounds nuw i8, ptr %.sink132, i64 1408
+  %.sink134 = phi ptr [ %107, %106 ], [ %36, %28 ]
+  %200 = getelementptr inbounds nuw i8, ptr %.sink134, i64 1408
   %201 = load ptr, ptr %200, align 8, !tbaa !127
   %202 = load ptr, ptr %9, align 8, !tbaa !178
   %203 = call ptr %201(ptr noundef %202) #14

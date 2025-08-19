@@ -711,8 +711,8 @@ define internal fastcc range(i32 -1, 1) i32 @x8_setup_spatial_predictor(ptr noun
   br label %.sink.split
 
 .sink.split:                                      ; preds = %46, %51, %53
-  %.sink35 = phi i32 [ 10, %53 ], [ 11, %51 ], [ 0, %46 ]
-  store i32 %.sink35, ptr %50, align 8, !tbaa !58
+  %.sink36 = phi i32 [ 10, %53 ], [ 11, %51 ], [ 0, %46 ]
+  store i32 %.sink36, ptr %50, align 8, !tbaa !58
   br label %54
 
 54:                                               ; preds = %.sink.split, %51
@@ -1247,8 +1247,8 @@ x8_get_ac_rlf.exit:                               ; preds = %231, %229, %243, %2
   %.1163 = phi i32 [ %271, %243 ], [ %283, %281 ], [ %321, %294 ], [ %233, %231 ], [ 64, %229 ]
   %.1161 = phi i32 [ %265, %243 ], [ %291, %281 ], [ %308, %294 ], [ %240, %231 ], [ 64, %229 ]
   %.1159 = phi i32 [ %269, %243 ], [ %293, %281 ], [ %298, %294 ], [ %237, %231 ], [ 64, %229 ]
-  %323 = add i32 %.0106, 1
-  %324 = add i32 %323, %.1161
+  %323 = add nuw nsw i32 %.0106, 1
+  %324 = add nuw nsw i32 %323, %.1161
   %325 = icmp sgt i32 %324, 63
   br i1 %325, label %.loopexit, label %326
 
@@ -1274,11 +1274,11 @@ x8_get_ac_rlf.exit:                               ; preds = %231, %229, %243, %2
   %343 = sub nsw i32 0, %342
   %344 = xor i32 %331, %343
   %345 = add nsw i32 %344, %342
-  %.pre176 = sext i32 %324 to i64
+  %.pre176 = zext nneg i32 %324 to i64
   br i1 %.not119, label %._crit_edge, label %346
 
 346:                                              ; preds = %326
-  %347 = getelementptr inbounds [64 x i16], ptr @quant_table, i64 0, i64 %.pre176
+  %347 = getelementptr inbounds nuw [64 x i16], ptr @quant_table, i64 0, i64 %.pre176
   %348 = load i16, ptr %347, align 2, !tbaa !69
   %349 = sext i16 %348 to i32
   %350 = mul nsw i32 %345, %349
@@ -1289,7 +1289,7 @@ x8_get_ac_rlf.exit:                               ; preds = %231, %229, %243, %2
   %.0158 = phi i32 [ %351, %346 ], [ %345, %326 ]
   %352 = trunc i32 %.0158 to i16
   %353 = load ptr, ptr %5, align 8, !tbaa !21
-  %354 = getelementptr inbounds i8, ptr %158, i64 %.pre176
+  %354 = getelementptr inbounds nuw i8, ptr %158, i64 %.pre176
   %355 = load i8, ptr %354, align 1, !tbaa !45
   %356 = zext i8 %355 to i64
   %357 = getelementptr inbounds nuw [64 x i16], ptr %353, i64 0, i64 %356
@@ -1357,8 +1357,8 @@ x8_get_ac_rlf.exit:                               ; preds = %231, %229, %243, %2
   %.0112 = phi i1 [ %392, %391 ], [ true, %._crit_edge ]
   %.1108 = phi i32 [ 0, %391 ], [ %165, %._crit_edge ]
   %393 = load ptr, ptr %5, align 8, !tbaa !21
-  %.180 = select i1 %7, i64 624, i64 592
-  %394 = getelementptr inbounds nuw i8, ptr %0, i64 %.180
+  %.185 = select i1 %7, i64 624, i64 592
+  %394 = getelementptr inbounds nuw i8, ptr %0, i64 %.185
   %395 = load i32, ptr %394, align 8, !tbaa !48
   %396 = mul nsw i32 %395, %.sink.i167
   %397 = trunc i32 %396 to i16
@@ -1386,7 +1386,7 @@ x8_get_ac_rlf.exit:                               ; preds = %231, %229, %243, %2
 410:                                              ; preds = %404
   %sext = shl i32 %396, 16
   %411 = ashr exact i32 %sext, 16
-  switch i32 %409, label %default.unreachable104.i [
+  switch i32 %409, label %default.unreachable [
     i32 0, label %412
     i32 1, label %589
     i32 2, label %630
@@ -1689,7 +1689,7 @@ x8_get_ac_rlf.exit:                               ; preds = %231, %229, %243, %2
   store i16 %670, ptr %667, align 2, !tbaa !69
   br label %x8_ac_compensation.exit
 
-default.unreachable104.i:                         ; preds = %410
+default.unreachable:                              ; preds = %410
   unreachable
 
 x8_ac_compensation.exit:                          ; preds = %630, %589, %412, %404, %400, %.loopexit171

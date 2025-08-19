@@ -5085,10 +5085,10 @@ _ZN8MinLNodeC2EP7CompileP4NodeS3_.exit:           ; preds = %54, %66
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN8MaxLNodeC2EP7CompileP4NodeS3_.exit, %_ZN8MinLNodeC2EP7CompileP4NodeS3_.exit
-  %.sink18 = phi ptr [ %56, %_ZN8MinLNodeC2EP7CompileP4NodeS3_.exit ], [ %28, %_ZN8MaxLNodeC2EP7CompileP4NodeS3_.exit ]
+  %.sink21 = phi ptr [ %56, %_ZN8MinLNodeC2EP7CompileP4NodeS3_.exit ], [ %28, %_ZN8MaxLNodeC2EP7CompileP4NodeS3_.exit ]
   %.sink = phi i32 [ %74, %_ZN8MinLNodeC2EP7CompileP4NodeS3_.exit ], [ %46, %_ZN8MaxLNodeC2EP7CompileP4NodeS3_.exit ]
   %.0.i.i.i10.sink = phi ptr [ %.0.i.i.i10, %_ZN8MinLNodeC2EP7CompileP4NodeS3_.exit ], [ %.0.i.i.i, %_ZN8MaxLNodeC2EP7CompileP4NodeS3_.exit ]
-  %76 = getelementptr inbounds nuw i8, ptr %.sink18, i64 424
+  %76 = getelementptr inbounds nuw i8, ptr %.sink21, i64 424
   %77 = load ptr, ptr %76, align 8
   %78 = sext i32 %.sink to i64
   %79 = getelementptr inbounds ptr, ptr %77, i64 %78
@@ -5303,10 +5303,10 @@ _ZN4NodenwEm.exit49:                              ; preds = %109, %111
   br label %122
 
 122:                                              ; preds = %117, %83
-  %.sink53 = phi ptr [ %121, %117 ], [ %84, %83 ]
+  %.sink59 = phi ptr [ %121, %117 ], [ %84, %83 ]
   %123 = load ptr, ptr %5, align 8
   %124 = load ptr, ptr %123, align 8
-  %125 = tail call noundef ptr %124(ptr noundef nonnull align 8 dereferenceable(2400) %5, ptr noundef %.sink53) #7
+  %125 = tail call noundef ptr %124(ptr noundef nonnull align 8 dereferenceable(2400) %5, ptr noundef %.sink59) #7
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %127, label %126
 
@@ -5668,63 +5668,65 @@ define hidden noundef ptr @_ZN7MaxNode6IdealIEP8PhaseGVNb(ptr noundef nonnull al
   br label %8
 
 8:                                                ; preds = %3, %.loopexit
-  %indvars.iv109 = phi i64 [ 1, %3 ], [ %indvars.iv.next110, %.loopexit ]
-  %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv109
-  %11 = load ptr, ptr %10, align 8
+  %9 = phi i64 [ 2, %3 ], [ 1, %.loopexit ]
+  %exitcond112.not = phi i1 [ false, %3 ], [ true, %.loopexit ]
+  %indvars.iv109 = phi i64 [ 1, %3 ], [ 2, %.loopexit ]
+  %10 = load ptr, ptr %7, align 8
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv109
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(52) %11) #7
-  %.not = icmp eq i32 %14, %6
-  br i1 %.not, label %15, label %.loopexit
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(52) %12) #7
+  %.not = icmp eq i32 %15, %6
+  br i1 %.not, label %16, label %.loopexit
 
-15:                                               ; preds = %8
-  %16 = icmp eq i64 %indvars.iv109, 1
-  %17 = select i1 %16, i64 2, i64 1
-  %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+16:                                               ; preds = %8
+  %17 = load ptr, ptr %7, align 8
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %9
+  %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(52) %20) #7
-  %.not.i = icmp eq i32 %23, 23
-  br i1 %.not.i, label %24, label %.preheader.preheader
+  %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(52) %19) #7
+  %.not.i = icmp eq i32 %22, 23
+  br i1 %.not.i, label %23, label %.preheader.preheader
 
-24:                                               ; preds = %15
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %32 = load i32, ptr %31, align 8
-  %33 = and i32 %32, 16
-  %.not10.i = icmp eq i32 %33, 0
-  br i1 %.not10.i, label %.preheader.preheader, label %34
+23:                                               ; preds = %16
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  %31 = load i32, ptr %30, align 8
+  %32 = and i32 %31, 16
+  %.not10.i = icmp eq i32 %32, 0
+  br i1 %.not10.i, label %.preheader.preheader, label %33
 
-34:                                               ; preds = %24
-  %35 = load ptr, ptr %30, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(52) %30) #7
-  %39 = load ptr, ptr @_ZN4Type3TOPE, align 8
-  %40 = icmp eq ptr %38, %39
-  br i1 %40, label %_ZL20as_add_with_constantP4Node.exit.thread, label %_ZL20as_add_with_constantP4Node.exit
+33:                                               ; preds = %23
+  %34 = load ptr, ptr %29, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(52) %29) #7
+  %38 = load ptr, ptr @_ZN4Type3TOPE, align 8
+  %39 = icmp eq ptr %37, %38
+  br i1 %39, label %_ZL20as_add_with_constantP4Node.exit.thread, label %_ZL20as_add_with_constantP4Node.exit
 
-_ZL20as_add_with_constantP4Node.exit:             ; preds = %34
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp eq ptr %28, null
-  br i1 %43, label %_ZL20as_add_with_constantP4Node.exit.thread, label %.preheader.preheader
+_ZL20as_add_with_constantP4Node.exit:             ; preds = %33
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %41 = load i32, ptr %40, align 8
+  %42 = icmp eq ptr %27, null
+  br i1 %42, label %_ZL20as_add_with_constantP4Node.exit.thread, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %24, %15, %_ZL20as_add_with_constantP4Node.exit
-  %.sroa.0.0.i117 = phi ptr [ %28, %_ZL20as_add_with_constantP4Node.exit ], [ %20, %15 ], [ %20, %24 ]
-  %.sroa.5.0.i116 = phi i32 [ %42, %_ZL20as_add_with_constantP4Node.exit ], [ 0, %15 ], [ 0, %24 ]
+.preheader.preheader:                             ; preds = %23, %16, %_ZL20as_add_with_constantP4Node.exit
+  %.sroa.0.0.i124 = phi ptr [ %27, %_ZL20as_add_with_constantP4Node.exit ], [ %19, %16 ], [ %19, %23 ]
+  %.sroa.5.0.i123 = phi i32 [ %41, %_ZL20as_add_with_constantP4Node.exit ], [ 0, %16 ], [ 0, %23 ]
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %88
-  %indvars.iv = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next, %88 ]
+.preheader:                                       ; preds = %.preheader.preheader, %86
+  %43 = phi i64 [ 2, %.preheader.preheader ], [ 1, %86 ]
+  %exitcond.not = phi i1 [ false, %.preheader.preheader ], [ true, %86 ]
+  %indvars.iv = phi i64 [ 1, %.preheader.preheader ], [ 2, %86 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv109
   %46 = load ptr, ptr %45, align 8
@@ -5769,124 +5771,118 @@ _ZL20as_add_with_constantP4Node.exit59:           ; preds = %64
 _ZL20as_add_with_constantP4Node.exit59.thread:    ; preds = %54, %.preheader, %_ZL20as_add_with_constantP4Node.exit59
   %.sroa.0.0.i5583 = phi ptr [ %58, %_ZL20as_add_with_constantP4Node.exit59 ], [ %50, %.preheader ], [ %50, %54 ]
   %.sroa.5.0.i5482 = phi i32 [ %72, %_ZL20as_add_with_constantP4Node.exit59 ], [ 0, %.preheader ], [ 0, %54 ]
-  %74 = tail call noundef ptr @_ZN7MaxNode11extract_addEP8PhaseGVN4PairIP4Nodei11ResourceObjES6_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, ptr nonnull %.sroa.0.0.i5583, i32 %.sroa.5.0.i5482, ptr nonnull %.sroa.0.0.i117, i32 %.sroa.5.0.i116)
+  %74 = tail call noundef ptr @_ZN7MaxNode11extract_addEP8PhaseGVN4PairIP4Nodei11ResourceObjES6_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, ptr nonnull %.sroa.0.0.i5583, i32 %.sroa.5.0.i5482, ptr nonnull %.sroa.0.0.i124, i32 %.sroa.5.0.i123)
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %88, label %76
+  br i1 %75, label %86, label %76
 
 76:                                               ; preds = %_ZL20as_add_with_constantP4Node.exit59.thread
   %77 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %78 = load ptr, ptr %1, align 8
   %79 = load ptr, ptr %78, align 8
   %80 = tail call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(2400) %1, ptr noundef nonnull %74) #7
-  %81 = icmp eq i64 %indvars.iv, 1
-  %82 = select i1 %81, i64 2, i64 1
-  %83 = load ptr, ptr %77, align 8
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %82
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq i32 %6, 209
-  %87 = tail call noundef ptr @_ZN7MaxNode17build_min_max_intEP4NodeS1_b(ptr noundef %80, ptr noundef %85, i1 noundef zeroext %86)
+  %81 = load ptr, ptr %77, align 8
+  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %43
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp eq i32 %6, 209
+  %85 = tail call noundef ptr @_ZN7MaxNode17build_min_max_intEP4NodeS1_b(ptr noundef %80, ptr noundef %83, i1 noundef zeroext %84)
   br label %_ZL20as_add_with_constantP4Node.exit.thread
 
-88:                                               ; preds = %_ZL20as_add_with_constantP4Node.exit59.thread
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 3
+86:                                               ; preds = %_ZL20as_add_with_constantP4Node.exit59.thread
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !10
 
-.loopexit:                                        ; preds = %88, %8
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %exitcond112.not = icmp eq i64 %indvars.iv.next110, 3
-  br i1 %exitcond112.not, label %89, label %8, !llvm.loop !11
+.loopexit:                                        ; preds = %86, %8
+  br i1 %exitcond112.not, label %87, label %8, !llvm.loop !11
 
-89:                                               ; preds = %.loopexit
-  %90 = load ptr, ptr %7, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+87:                                               ; preds = %.loopexit
+  %88 = load ptr, ptr %7, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %90 = load ptr, ptr %89, align 8
+  %91 = load ptr, ptr %90, align 8
   %92 = load ptr, ptr %91, align 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr %93, align 8
-  %95 = tail call noundef i32 %94(ptr noundef nonnull align 8 dereferenceable(52) %92) #7
-  %.not.i60 = icmp eq i32 %95, 23
-  br i1 %.not.i60, label %96, label %_ZL20as_add_with_constantP4Node.exit66
+  %93 = tail call noundef i32 %92(ptr noundef nonnull align 8 dereferenceable(52) %90) #7
+  %.not.i60 = icmp eq i32 %93, 23
+  br i1 %.not.i60, label %94, label %_ZL20as_add_with_constantP4Node.exit66
 
-96:                                               ; preds = %89
-  %97 = getelementptr inbounds nuw i8, ptr %92, i64 8
+94:                                               ; preds = %87
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 48
-  %104 = load i32, ptr %103, align 8
-  %105 = and i32 %104, 16
-  %.not10.i65 = icmp eq i32 %105, 0
-  br i1 %.not10.i65, label %_ZL20as_add_with_constantP4Node.exit66, label %106
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 48
+  %102 = load i32, ptr %101, align 8
+  %103 = and i32 %102, 16
+  %.not10.i65 = icmp eq i32 %103, 0
+  br i1 %.not10.i65, label %_ZL20as_add_with_constantP4Node.exit66, label %104
 
-106:                                              ; preds = %96
-  %107 = load ptr, ptr %102, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 40
-  %109 = load ptr, ptr %108, align 8
-  %110 = tail call noundef ptr %109(ptr noundef nonnull align 8 dereferenceable(52) %102) #7
-  %111 = load ptr, ptr @_ZN4Type3TOPE, align 8
-  %112 = icmp eq ptr %110, %111
-  br i1 %112, label %_ZL20as_add_with_constantP4Node.exit66, label %113
+104:                                              ; preds = %94
+  %105 = load ptr, ptr %100, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 40
+  %107 = load ptr, ptr %106, align 8
+  %108 = tail call noundef ptr %107(ptr noundef nonnull align 8 dereferenceable(52) %100) #7
+  %109 = load ptr, ptr @_ZN4Type3TOPE, align 8
+  %110 = icmp eq ptr %108, %109
+  br i1 %110, label %_ZL20as_add_with_constantP4Node.exit66, label %111
 
-113:                                              ; preds = %106
-  %114 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  %115 = load i32, ptr %114, align 8
+111:                                              ; preds = %104
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 24
+  %113 = load i32, ptr %112, align 8
   br label %_ZL20as_add_with_constantP4Node.exit66
 
-_ZL20as_add_with_constantP4Node.exit66:           ; preds = %89, %96, %106, %113
-  %.sroa.5.0.i61 = phi i32 [ %115, %113 ], [ 0, %89 ], [ 0, %96 ], [ 0, %106 ]
-  %.sroa.0.0.i62 = phi ptr [ %100, %113 ], [ %92, %89 ], [ %92, %96 ], [ null, %106 ]
-  %116 = load ptr, ptr %7, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
+_ZL20as_add_with_constantP4Node.exit66:           ; preds = %87, %94, %104, %111
+  %.sroa.5.0.i61 = phi i32 [ %113, %111 ], [ 0, %87 ], [ 0, %94 ], [ 0, %104 ]
+  %.sroa.0.0.i62 = phi ptr [ %98, %111 ], [ %90, %87 ], [ %90, %94 ], [ null, %104 ]
+  %114 = load ptr, ptr %7, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
+  %116 = load ptr, ptr %115, align 8
+  %117 = load ptr, ptr %116, align 8
   %118 = load ptr, ptr %117, align 8
-  %119 = load ptr, ptr %118, align 8
-  %120 = load ptr, ptr %119, align 8
-  %121 = tail call noundef i32 %120(ptr noundef nonnull align 8 dereferenceable(52) %118) #7
-  %.not.i67 = icmp eq i32 %121, 23
-  br i1 %.not.i67, label %122, label %_ZL20as_add_with_constantP4Node.exit73
+  %119 = tail call noundef i32 %118(ptr noundef nonnull align 8 dereferenceable(52) %116) #7
+  %.not.i67 = icmp eq i32 %119, 23
+  br i1 %.not.i67, label %120, label %_ZL20as_add_with_constantP4Node.exit73
 
-122:                                              ; preds = %_ZL20as_add_with_constantP4Node.exit66
-  %123 = getelementptr inbounds nuw i8, ptr %118, i64 8
+120:                                              ; preds = %_ZL20as_add_with_constantP4Node.exit66
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 48
-  %130 = load i32, ptr %129, align 8
-  %131 = and i32 %130, 16
-  %.not10.i72 = icmp eq i32 %131, 0
-  br i1 %.not10.i72, label %_ZL20as_add_with_constantP4Node.exit73, label %132
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 48
+  %128 = load i32, ptr %127, align 8
+  %129 = and i32 %128, 16
+  %.not10.i72 = icmp eq i32 %129, 0
+  br i1 %.not10.i72, label %_ZL20as_add_with_constantP4Node.exit73, label %130
 
-132:                                              ; preds = %122
-  %133 = load ptr, ptr %128, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 40
-  %135 = load ptr, ptr %134, align 8
-  %136 = tail call noundef ptr %135(ptr noundef nonnull align 8 dereferenceable(52) %128) #7
-  %137 = load ptr, ptr @_ZN4Type3TOPE, align 8
-  %138 = icmp eq ptr %136, %137
-  br i1 %138, label %_ZL20as_add_with_constantP4Node.exit.thread, label %139
+130:                                              ; preds = %120
+  %131 = load ptr, ptr %126, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 40
+  %133 = load ptr, ptr %132, align 8
+  %134 = tail call noundef ptr %133(ptr noundef nonnull align 8 dereferenceable(52) %126) #7
+  %135 = load ptr, ptr @_ZN4Type3TOPE, align 8
+  %136 = icmp eq ptr %134, %135
+  br i1 %136, label %_ZL20as_add_with_constantP4Node.exit.thread, label %137
 
-139:                                              ; preds = %132
-  %140 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  %141 = load i32, ptr %140, align 8
+137:                                              ; preds = %130
+  %138 = getelementptr inbounds nuw i8, ptr %134, i64 24
+  %139 = load i32, ptr %138, align 8
   br label %_ZL20as_add_with_constantP4Node.exit73
 
-_ZL20as_add_with_constantP4Node.exit73:           ; preds = %_ZL20as_add_with_constantP4Node.exit66, %122, %139
-  %.sroa.5.0.i68 = phi i32 [ %141, %139 ], [ 0, %_ZL20as_add_with_constantP4Node.exit66 ], [ 0, %122 ]
-  %.sroa.0.0.i69 = phi ptr [ %126, %139 ], [ %118, %_ZL20as_add_with_constantP4Node.exit66 ], [ %118, %122 ]
-  %142 = icmp eq ptr %.sroa.0.0.i62, null
-  %143 = icmp eq ptr %.sroa.0.0.i69, null
-  %or.cond = select i1 %142, i1 true, i1 %143
-  br i1 %or.cond, label %_ZL20as_add_with_constantP4Node.exit.thread, label %144
+_ZL20as_add_with_constantP4Node.exit73:           ; preds = %_ZL20as_add_with_constantP4Node.exit66, %120, %137
+  %.sroa.5.0.i68 = phi i32 [ %139, %137 ], [ 0, %_ZL20as_add_with_constantP4Node.exit66 ], [ 0, %120 ]
+  %.sroa.0.0.i69 = phi ptr [ %124, %137 ], [ %116, %_ZL20as_add_with_constantP4Node.exit66 ], [ %116, %120 ]
+  %140 = icmp eq ptr %.sroa.0.0.i62, null
+  %141 = icmp eq ptr %.sroa.0.0.i69, null
+  %or.cond = select i1 %140, i1 true, i1 %141
+  br i1 %or.cond, label %_ZL20as_add_with_constantP4Node.exit.thread, label %142
 
-144:                                              ; preds = %_ZL20as_add_with_constantP4Node.exit73
-  %145 = tail call noundef ptr @_ZN7MaxNode11extract_addEP8PhaseGVN4PairIP4Nodei11ResourceObjES6_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, ptr nonnull %.sroa.0.0.i62, i32 %.sroa.5.0.i61, ptr nonnull %.sroa.0.0.i69, i32 %.sroa.5.0.i68)
+142:                                              ; preds = %_ZL20as_add_with_constantP4Node.exit73
+  %143 = tail call noundef ptr @_ZN7MaxNode11extract_addEP8PhaseGVN4PairIP4Nodei11ResourceObjES6_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, ptr nonnull %.sroa.0.0.i62, i32 %.sroa.5.0.i61, ptr nonnull %.sroa.0.0.i69, i32 %.sroa.5.0.i68)
   br label %_ZL20as_add_with_constantP4Node.exit.thread
 
-_ZL20as_add_with_constantP4Node.exit.thread:      ; preds = %34, %_ZL20as_add_with_constantP4Node.exit, %64, %_ZL20as_add_with_constantP4Node.exit59, %132, %_ZL20as_add_with_constantP4Node.exit73, %144, %76
-  %.0 = phi ptr [ %87, %76 ], [ %145, %144 ], [ null, %_ZL20as_add_with_constantP4Node.exit73 ], [ null, %132 ], [ null, %_ZL20as_add_with_constantP4Node.exit59 ], [ null, %64 ], [ null, %_ZL20as_add_with_constantP4Node.exit ], [ null, %34 ]
+_ZL20as_add_with_constantP4Node.exit.thread:      ; preds = %33, %_ZL20as_add_with_constantP4Node.exit, %64, %_ZL20as_add_with_constantP4Node.exit59, %130, %_ZL20as_add_with_constantP4Node.exit73, %142, %76
+  %.0 = phi ptr [ %85, %76 ], [ %143, %142 ], [ null, %_ZL20as_add_with_constantP4Node.exit73 ], [ null, %130 ], [ null, %_ZL20as_add_with_constantP4Node.exit59 ], [ null, %64 ], [ null, %_ZL20as_add_with_constantP4Node.exit ], [ null, %33 ]
   ret ptr %.0
 }
 

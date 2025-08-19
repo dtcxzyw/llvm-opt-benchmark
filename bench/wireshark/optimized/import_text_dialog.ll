@@ -9833,10 +9833,10 @@ _ZN7QStringD2Ev.exit137:                          ; preds = %96, %_ZN17QArrayDat
   br i1 %118, label %.invoke, label %123
 
 .invoke:                                          ; preds = %114, %109, %104, %89
-  %.sink608 = phi i64 [ 96, %89 ], [ 104, %104 ], [ 80, %109 ], [ 120, %114 ]
+  %.sink701 = phi i64 [ 96, %89 ], [ 104, %104 ], [ 80, %109 ], [ 120, %114 ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %.sink608
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %.sink701
   %122 = load ptr, ptr %121, align 8
   invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef align 8 dereferenceable_or_null(40) %122, i1 noundef zeroext true)
           to label %123 unwind label %102
@@ -10102,7 +10102,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i169:   ; preds = %218
   %227 = load i64, ptr %226, align 8
   %228 = call noundef i32 @_ZN7QString14compare_helperEPK5QCharxPKcxN2Qt15CaseSensitivityE(ptr noundef nonnull %spec.select.i.i.i173, i64 noundef %227, ptr noundef nonnull @.str.24, i64 noundef -1, i32 noundef 1) #27
   %229 = icmp eq i32 %228, 0
-  br i1 %229, label %.invoke609, label %278
+  br i1 %229, label %.invoke702, label %278
 
 230:                                              ; preds = %123
   %231 = landingpad { ptr, i32 }
@@ -10261,7 +10261,7 @@ _ZN7QStringD2Ev.exit197:                          ; preds = %274, %_ZN17QArrayDa
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %_ZN7QStringD2Ev.exit599
 
-276:                                              ; preds = %.invoke609
+276:                                              ; preds = %.invoke702
   %277 = landingpad { ptr, i32 }
           cleanup
   br label %1083
@@ -10273,7 +10273,7 @@ _ZN7QStringD2Ev.exit197:                          ; preds = %274, %_ZN17QArrayDa
   %280 = load i64, ptr %226, align 8
   %281 = call noundef i32 @_ZN7QString14compare_helperEPK5QCharxPKcxN2Qt15CaseSensitivityE(ptr noundef nonnull %spec.select.i.i.i199, i64 noundef %280, ptr noundef nonnull @.str.25, i64 noundef -1, i32 noundef 1) #27
   %282 = icmp eq i32 %281, 0
-  br i1 %282, label %.invoke609, label %283
+  br i1 %282, label %.invoke702, label %283
 
 283:                                              ; preds = %278
   %284 = load ptr, ptr %224, align 8
@@ -10282,7 +10282,7 @@ _ZN7QStringD2Ev.exit197:                          ; preds = %274, %_ZN17QArrayDa
   %285 = load i64, ptr %226, align 8
   %286 = call noundef i32 @_ZN7QString14compare_helperEPK5QCharxPKcxN2Qt15CaseSensitivityE(ptr noundef nonnull %spec.select.i.i.i201, i64 noundef %285, ptr noundef nonnull @.str.26, i64 noundef -1, i32 noundef 1) #27
   %287 = icmp eq i32 %286, 0
-  br i1 %287, label %.invoke609, label %288
+  br i1 %287, label %.invoke702, label %288
 
 288:                                              ; preds = %283
   %289 = load ptr, ptr %224, align 8
@@ -10291,9 +10291,9 @@ _ZN7QStringD2Ev.exit197:                          ; preds = %274, %_ZN17QArrayDa
   %290 = load i64, ptr %226, align 8
   %291 = call noundef i32 @_ZN7QString14compare_helperEPK5QCharxPKcxN2Qt15CaseSensitivityE(ptr noundef nonnull %spec.select.i.i.i203, i64 noundef %290, ptr noundef nonnull @.str.27, i64 noundef -1, i32 noundef 1) #27
   %292 = icmp eq i32 %291, 0
-  br i1 %292, label %.invoke609, label %297
+  br i1 %292, label %.invoke702, label %297
 
-.invoke609:                                       ; preds = %288, %283, %278, %223
+.invoke702:                                       ; preds = %288, %283, %278, %223
   %293 = phi i32 [ 0, %223 ], [ 1, %278 ], [ 2, %283 ], [ 3, %288 ]
   %294 = load ptr, ptr %124, align 8
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 304
@@ -10301,7 +10301,7 @@ _ZN7QStringD2Ev.exit197:                          ; preds = %274, %_ZN17QArrayDa
   invoke void @_ZN9QComboBox15setCurrentIndexEi(ptr noundef align 8 dereferenceable_or_null(40) %296, i32 noundef %293)
           to label %297 unwind label %276
 
-297:                                              ; preds = %.invoke609, %288
+297:                                              ; preds = %.invoke702, %288
   %298 = load ptr, ptr %124, align 8
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 352
   %300 = load ptr, ptr %299, align 8
@@ -10641,7 +10641,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i247:   ; preds = %412
   %421 = load i64, ptr %420, align 8
   %422 = call noundef i32 @_ZN7QString14compare_helperEPK5QCharxPKcxN2Qt15CaseSensitivityE(ptr noundef nonnull %spec.select.i.i.i251, i64 noundef %421, ptr noundef nonnull @.str.33, i64 noundef -1, i32 noundef 1) #27
   %423 = icmp eq i32 %422, 0
-  br i1 %423, label %.invoke612, label %492
+  br i1 %423, label %.invoke705, label %492
 
 424:                                              ; preds = %297
   %425 = landingpad { ptr, i32 }
@@ -10871,7 +10871,7 @@ _ZN7QStringD2Ev.exit287:                          ; preds = %488, %_ZN17QArrayDa
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %_ZN7QStringD2Ev.exit595
 
-490:                                              ; preds = %.invoke612, %_ZN7QStringD2Ev.exit309
+490:                                              ; preds = %.invoke705, %_ZN7QStringD2Ev.exit309
   %491 = landingpad { ptr, i32 }
           cleanup
   br label %1078
@@ -10883,7 +10883,7 @@ _ZN7QStringD2Ev.exit287:                          ; preds = %488, %_ZN17QArrayDa
   %494 = load i64, ptr %420, align 8
   %495 = call noundef i32 @_ZN7QString14compare_helperEPK5QCharxPKcxN2Qt15CaseSensitivityE(ptr noundef nonnull %spec.select.i.i.i289, i64 noundef %494, ptr noundef nonnull @.str.34, i64 noundef -1, i32 noundef 1) #27
   %496 = icmp eq i32 %495, 0
-  br i1 %496, label %.invoke612, label %497
+  br i1 %496, label %.invoke705, label %497
 
 497:                                              ; preds = %492
   %498 = load ptr, ptr %418, align 8
@@ -10892,7 +10892,7 @@ _ZN7QStringD2Ev.exit287:                          ; preds = %488, %_ZN17QArrayDa
   %499 = load i64, ptr %420, align 8
   %500 = call noundef i32 @_ZN7QString14compare_helperEPK5QCharxPKcxN2Qt15CaseSensitivityE(ptr noundef nonnull %spec.select.i.i.i291, i64 noundef %499, ptr noundef nonnull @.str.35, i64 noundef -1, i32 noundef 1) #27
   %501 = icmp eq i32 %500, 0
-  br i1 %501, label %.invoke612, label %502
+  br i1 %501, label %.invoke705, label %502
 
 502:                                              ; preds = %497
   %503 = load ptr, ptr %418, align 8
@@ -10901,7 +10901,7 @@ _ZN7QStringD2Ev.exit287:                          ; preds = %488, %_ZN17QArrayDa
   %504 = load i64, ptr %420, align 8
   %505 = call noundef i32 @_ZN7QString14compare_helperEPK5QCharxPKcxN2Qt15CaseSensitivityE(ptr noundef nonnull %spec.select.i.i.i293, i64 noundef %504, ptr noundef nonnull @.str.36, i64 noundef -1, i32 noundef 1) #27
   %506 = icmp eq i32 %505, 0
-  br i1 %506, label %.invoke612, label %507
+  br i1 %506, label %.invoke705, label %507
 
 507:                                              ; preds = %502
   %508 = load ptr, ptr %418, align 8
@@ -10910,7 +10910,7 @@ _ZN7QStringD2Ev.exit287:                          ; preds = %488, %_ZN17QArrayDa
   %509 = load i64, ptr %420, align 8
   %510 = call noundef i32 @_ZN7QString14compare_helperEPK5QCharxPKcxN2Qt15CaseSensitivityE(ptr noundef nonnull %spec.select.i.i.i295, i64 noundef %509, ptr noundef nonnull @.str.37, i64 noundef -1, i32 noundef 1) #27
   %511 = icmp eq i32 %510, 0
-  br i1 %511, label %.invoke612, label %512
+  br i1 %511, label %.invoke705, label %512
 
 512:                                              ; preds = %507
   %513 = load ptr, ptr %418, align 8
@@ -10919,7 +10919,7 @@ _ZN7QStringD2Ev.exit287:                          ; preds = %488, %_ZN17QArrayDa
   %514 = load i64, ptr %420, align 8
   %515 = call noundef i32 @_ZN7QString14compare_helperEPK5QCharxPKcxN2Qt15CaseSensitivityE(ptr noundef nonnull %spec.select.i.i.i297, i64 noundef %514, ptr noundef nonnull @.str.38, i64 noundef -1, i32 noundef 1) #27
   %516 = icmp eq i32 %515, 0
-  br i1 %516, label %.invoke612, label %517
+  br i1 %516, label %.invoke705, label %517
 
 517:                                              ; preds = %512
   %518 = load ptr, ptr %418, align 8
@@ -10928,7 +10928,7 @@ _ZN7QStringD2Ev.exit287:                          ; preds = %488, %_ZN17QArrayDa
   %519 = load i64, ptr %420, align 8
   %520 = call noundef i32 @_ZN7QString14compare_helperEPK5QCharxPKcxN2Qt15CaseSensitivityE(ptr noundef nonnull %spec.select.i.i.i299, i64 noundef %519, ptr noundef nonnull @.str.39, i64 noundef -1, i32 noundef 1) #27
   %521 = icmp eq i32 %520, 0
-  br i1 %521, label %.invoke612, label %522
+  br i1 %521, label %.invoke705, label %522
 
 522:                                              ; preds = %517
   %523 = load ptr, ptr %418, align 8
@@ -10937,17 +10937,17 @@ _ZN7QStringD2Ev.exit287:                          ; preds = %488, %_ZN17QArrayDa
   %524 = load i64, ptr %420, align 8
   %525 = call noundef i32 @_ZN7QString14compare_helperEPK5QCharxPKcxN2Qt15CaseSensitivityE(ptr noundef nonnull %spec.select.i.i.i301, i64 noundef %524, ptr noundef nonnull @.str.18, i64 noundef -1, i32 noundef 1) #27
   %526 = icmp eq i32 %525, 0
-  br i1 %526, label %.invoke612, label %530
+  br i1 %526, label %.invoke705, label %530
 
-.invoke612:                                       ; preds = %522, %517, %512, %507, %502, %497, %492, %417
-  %.sink614 = phi i64 [ 488, %417 ], [ 496, %492 ], [ 504, %497 ], [ 512, %502 ], [ 520, %507 ], [ 528, %512 ], [ 536, %517 ], [ 472, %522 ]
+.invoke705:                                       ; preds = %522, %517, %512, %507, %502, %497, %492, %417
+  %.sink707 = phi i64 [ 488, %417 ], [ 496, %492 ], [ 504, %497 ], [ 512, %502 ], [ 520, %507 ], [ 528, %512 ], [ 536, %517 ], [ 472, %522 ]
   %527 = load ptr, ptr %124, align 8
-  %528 = getelementptr inbounds nuw i8, ptr %527, i64 %.sink614
+  %528 = getelementptr inbounds nuw i8, ptr %527, i64 %.sink707
   %529 = load ptr, ptr %528, align 8
   invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef align 8 dereferenceable_or_null(40) %529, i1 noundef zeroext true)
           to label %530 unwind label %490
 
-530:                                              ; preds = %.invoke612, %522
+530:                                              ; preds = %.invoke705, %522
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %16, i64 9, ptr nonnull @.str.40)
@@ -18844,16 +18844,16 @@ define void @_ZN16ImportTextDialog31on_modeTabWidget_currentChangedEi(ptr nounde
   br label %69
 
 69:                                               ; preds = %43, %9
-  %.sink10 = phi i1 [ %56, %43 ], [ true, %9 ]
+  %.sink11 = phi i1 [ %56, %43 ], [ true, %9 ]
   %.sink.in = phi ptr [ %46, %43 ], [ %12, %9 ]
-  %.sink12 = load ptr, ptr %.sink.in, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %.sink12, i64 392
+  %.sink13 = load ptr, ptr %.sink.in, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %.sink13, i64 392
   %71 = load ptr, ptr %70, align 8
-  tail call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %71, i1 noundef zeroext %.sink10)
+  tail call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %71, i1 noundef zeroext %.sink11)
   %.sink = load ptr, ptr %.sink.in, align 8
   %72 = getelementptr inbounds nuw i8, ptr %.sink, i64 400
   %73 = load ptr, ptr %72, align 8
-  tail call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %73, i1 noundef zeroext %.sink10)
+  tail call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %73, i1 noundef zeroext %.sink11)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %75 = load ptr, ptr %74, align 8
@@ -18989,7 +18989,7 @@ define noundef i32 @_ZN16ImportTextDialog4execEv(ptr noundef align 8 dereference
   %.not = icmp eq i32 %32, 1
   br i1 %.not, label %36, label %.invoke
 
-34:                                               ; preds = %.invoke142, %.invoke, %388, %212, %_ZN7QStringD2Ev.exit.i, %493, %491, %488, %485, %482, %479, %471, %469, %468, %465, %442, %441, %440, %437, %_ZN10QByteArrayD2Ev.exit113, %_ZN10QByteArrayD2Ev.exit, %304, %_ZN7QString5clearEv.exit, %273, %267, %261, %255, %249, %243, %235, %229, %219, %_ZN7QStringD2Ev.exit57, %164, %157, %_ZN7QStringD2Ev.exit53, %144, %142, %138, %132, %122, %116, %110, %106, %101, %62, %_ZN7QStringD2Ev.exit, %36, %31, %1
+34:                                               ; preds = %.invoke171, %.invoke, %388, %212, %_ZN7QStringD2Ev.exit.i, %493, %491, %488, %485, %482, %479, %471, %469, %468, %465, %442, %441, %440, %437, %_ZN10QByteArrayD2Ev.exit113, %_ZN10QByteArrayD2Ev.exit, %304, %_ZN7QString5clearEv.exit, %273, %267, %261, %255, %249, %243, %235, %229, %219, %_ZN7QStringD2Ev.exit57, %164, %157, %_ZN7QStringD2Ev.exit53, %144, %142, %138, %132, %122, %116, %110, %106, %101, %62, %_ZN7QStringD2Ev.exit, %36, %31, %1
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -19187,7 +19187,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i47:    ; preds = %95
   %108 = tail call ptr @__errno_location() #32
   %109 = load i32, ptr %108, align 4
   invoke void @open_failure_alert_box(ptr noundef %107, i32 noundef %109, i1 noundef zeroext false)
-          to label %.invoke142 unwind label %34
+          to label %.invoke171 unwind label %34
 
 110:                                              ; preds = %102
   %111 = load ptr, ptr %37, align 8
@@ -19248,9 +19248,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i47:    ; preds = %95
 142:                                              ; preds = %138
   %143 = load ptr, ptr %9, align 8
   invoke void @g_error_free(ptr noundef %143)
-          to label %.invoke142 unwind label %34
+          to label %.invoke171 unwind label %34
 
-.invoke142:                                       ; preds = %142, %106
+.invoke171:                                       ; preds = %142, %106
   invoke void @_ZN7QDialog9setResultEi(ptr noundef align 8 dereferenceable_or_null(40) %0, i32 noundef 0)
           to label %491 unwind label %34
 
@@ -20137,7 +20137,7 @@ _ZN10QByteArrayD2Ev.exit133:                      ; preds = %463, %_ZN17QArrayDa
   invoke void @g_free(ptr noundef %490)
           to label %491 unwind label %34
 
-491:                                              ; preds = %.invoke142, %473, %475, %488
+491:                                              ; preds = %.invoke171, %473, %475, %488
   %492 = load ptr, ptr %44, align 8
   invoke void @g_free(ptr noundef %492)
           to label %493 unwind label %34
@@ -23514,8 +23514,8 @@ define void @_ZN16ImportTextDialog15check_line_editEP14SyntaxLineEditRbRK7QStrin
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef i64 @_ZN7QString17toIntegral_helperE11QStringViewPbj(i64 %14, ptr %19, ptr noundef nonnull %9, i32 noundef %4)
   %.not.i.i = icmp ugt i64 %20, 65535
-  %or.cond23.not = and i1 %.not.i.i, %6
-  br i1 %or.cond23.not, label %21, label %_ZNK7QString8toUShortEPbi.exit
+  %or.cond27.not = and i1 %.not.i.i, %6
+  br i1 %or.cond27.not, label %21, label %_ZNK7QString8toUShortEPbi.exit
 
 21:                                               ; preds = %17
   store i8 0, ptr %9, align 1
@@ -28966,8 +28966,8 @@ _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30.thread: ; preds = %38, %
   %45 = getelementptr i8, ptr %44, i64 %.idx39
   %46 = icmp ne i64 %.idx39, 0
   %47 = icmp ult ptr %44, %45
-  %or.cond43 = select i1 %46, i1 %47, i1 false
-  br i1 %or.cond43, label %.lr.ph.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit
+  %or.cond57 = select i1 %46, i1 %47, i1 false
+  br i1 %or.cond57, label %.lr.ph.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit
 
 .lr.ph.i:                                         ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30.thread
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -29010,8 +29010,8 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %68 = getelementptr i8, ptr %67, i64 %.idx
   %69 = icmp ne i64 %.idx, 0
   %70 = icmp ult ptr %67, %68
-  %or.cond44 = select i1 %69, i1 %70, i1 false
-  br i1 %or.cond44, label %.lr.ph.i31, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit
+  %or.cond58 = select i1 %69, i1 %70, i1 false
+  br i1 %or.cond58, label %.lr.ph.i31, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit
 
 .lr.ph.i31:                                       ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -29232,8 +29232,8 @@ _ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33: ; preds = %36
 
 58:                                               ; preds = %_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33.thread, %_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33
   %59 = phi ptr [ %48, %_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33.thread ], [ %57, %_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33 ]
-  %.pr59 = phi ptr [ %39, %_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33.thread ], [ %.pr.pre, %_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.pr59, i64 4
+  %.pr62 = phi ptr [ %39, %_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33.thread ], [ %.pr.pre, %_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.pr62, i64 4
   %61 = load i32, ptr %60, align 4
   br label %_ZNK17QArrayDataPointerI7QStringE5flagsEv.exit
 
@@ -29769,10 +29769,10 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt
   br i1 %15, label %._crit_edge.thread.i, label %21
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %2
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %2 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %2 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %.019.lcssa28.i, %17
+  %18 = icmp eq ptr %.019.lcssa29.i, %17
   br i1 %18, label %._crit_edge.thread.i.select.unfold_crit_edge, label %19
 
 ._crit_edge.thread.i.select.unfold_crit_edge:     ; preds = %._crit_edge.thread.i
@@ -29783,7 +29783,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt
   br label %select.unfold
 
 19:                                               ; preds = %._crit_edge.thread.i
-  %20 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #30
+  %20 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #30
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %20, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert19 = getelementptr inbounds nuw i8, ptr %20, i64 48
@@ -29799,7 +29799,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt
   %23 = phi ptr [ %.pre22, %19 ], [ %6, %._crit_edge.i ]
   %24 = phi i64 [ %.pre20, %19 ], [ %13, %._crit_edge.i ]
   %25 = phi ptr [ %.pre, %19 ], [ %11, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %19 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %19 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %20, %19 ], [ %.02024.i, %._crit_edge.i ]
   %26 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %24, ptr %25, i64 %22, ptr %23, i32 noundef 1) #30
   %27 = icmp slt i32 %26, 0
@@ -29808,7 +29808,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt
 select.unfold:                                    ; preds = %._crit_edge.thread.i.select.unfold_crit_edge, %21
   %.pre13.i = phi i64 [ %.pre13.i.pre, %._crit_edge.thread.i.select.unfold_crit_edge ], [ %22, %21 ]
   %.pre.i = phi ptr [ %.pre.i.pre, %._crit_edge.thread.i.select.unfold_crit_edge ], [ %23, %21 ]
-  %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i.select.unfold_crit_edge ], [ %.019.lcssa29.i, %21 ]
+  %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa29.i, %._crit_edge.thread.i.select.unfold_crit_edge ], [ %.019.lcssa28.i, %21 ]
   %28 = icmp eq ptr %.sroa.4.0.i.ph, %4
   br i1 %28, label %._crit_edge.i6, label %29
 

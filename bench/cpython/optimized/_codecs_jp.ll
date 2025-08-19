@@ -589,7 +589,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
 
 31:                                               ; preds = %29
   %32 = icmp ugt i32 %.0.i, 65535
-  br i1 %32, label %.thread83, label %.thread99
+  br i1 %32, label %.thread83, label %.thread105
 
 33:                                               ; preds = %29
   %34 = trunc i32 %.0.i to i8
@@ -606,11 +606,11 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   store i8 %.05878, ptr %38, align 1, !tbaa !34
   br label %81, !llvm.loop !51
 
-.thread99:                                        ; preds = %31
+.thread105:                                       ; preds = %31
   %39 = icmp slt i64 %.05689, 2
   br i1 %39, label %.thread83, label %40
 
-40:                                               ; preds = %.thread99
+40:                                               ; preds = %.thread105
   %41 = lshr i32 %.0.i, 8
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr [256 x %struct.unim_index], ptr @jisxcommon_encmap, i64 0, i64 %42
@@ -679,20 +679,20 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   br label %81
 
 81:                                               ; preds = %.thread79, %37
-  %.sink105 = phi i64 [ 2, %.thread79 ], [ 1, %37 ]
+  %.sink111 = phi i64 [ 2, %.thread79 ], [ 1, %37 ]
   %.sink = phi i64 [ -2, %.thread79 ], [ -1, %37 ]
   %82 = load i64, ptr %4, align 8, !tbaa !48
   %83 = add i64 %82, 1
   store i64 %83, ptr %4, align 8, !tbaa !48
   %84 = load ptr, ptr %6, align 8, !tbaa !37
-  %85 = getelementptr i8, ptr %84, i64 %.sink105
+  %85 = getelementptr i8, ptr %84, i64 %.sink111
   store ptr %85, ptr %6, align 8, !tbaa !37
   %86 = add nsw i64 %.05689, %.sink
   %87 = icmp slt i64 %83, %5
   br i1 %87, label %.lr.ph, label %.thread83
 
-.thread83:                                        ; preds = %81, %31, %.thread, %.thread99, %59, %61, %9
-  %.2 = phi i64 [ 0, %9 ], [ 1, %61 ], [ 1, %59 ], [ -1, %.thread99 ], [ -1, %.thread ], [ 1, %31 ], [ 0, %81 ]
+.thread83:                                        ; preds = %81, %31, %.thread, %.thread105, %59, %61, %9
+  %.2 = phi i64 [ 0, %9 ], [ 1, %61 ], [ 1, %59 ], [ -1, %.thread105 ], [ -1, %.thread ], [ 1, %31 ], [ 0, %81 ]
   ret i64 %.2
 }
 
@@ -816,10 +816,10 @@ define internal range(i64 -4, 2) i64 @shift_jis_decode(ptr readnone captures(non
   br i1 %68, label %.thread, label %69, !llvm.loop !57
 
 69:                                               ; preds = %16, %11, %65, %46
-  %.sink122 = phi i64 [ 2, %46 ], [ 2, %65 ], [ 1, %11 ], [ 1, %16 ]
+  %.sink127 = phi i64 [ 2, %46 ], [ 2, %65 ], [ 1, %11 ], [ 1, %16 ]
   %.sink = phi i64 [ -2, %46 ], [ -2, %65 ], [ -1, %11 ], [ -1, %16 ]
   %70 = load ptr, ptr %2, align 8, !tbaa !37
-  %71 = getelementptr i8, ptr %70, i64 %.sink122
+  %71 = getelementptr i8, ptr %70, i64 %.sink127
   store ptr %71, ptr %2, align 8, !tbaa !37
   %72 = add nsw i64 %.06989, %.sink
   %73 = icmp sgt i64 %72, 0
@@ -1035,22 +1035,22 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   br label %121
 
 121:                                              ; preds = %93, %113, %70
-  %.sink133 = phi i8 [ %110, %93 ], [ %120, %113 ], [ %74, %70 ]
+  %.sink144 = phi i8 [ %110, %93 ], [ %120, %113 ], [ %74, %70 ]
   %122 = load ptr, ptr %6, align 8, !tbaa !37
   %123 = getelementptr i8, ptr %122, i64 1
-  store i8 %.sink133, ptr %123, align 1, !tbaa !34
+  store i8 %.sink144, ptr %123, align 1, !tbaa !34
   br label %124
 
 124:                                              ; preds = %121, %42, %34, %27
-  %.sink139 = phi i64 [ 2, %121 ], [ 1, %42 ], [ 1, %34 ], [ 1, %27 ]
-  %.sink136 = phi i64 [ -2, %121 ], [ -1, %42 ], [ -1, %34 ], [ -1, %27 ]
+  %.sink150 = phi i64 [ 2, %121 ], [ 1, %42 ], [ 1, %34 ], [ 1, %27 ]
+  %.sink147 = phi i64 [ -2, %121 ], [ -1, %42 ], [ -1, %34 ], [ -1, %27 ]
   %125 = load i64, ptr %4, align 8, !tbaa !48
   %126 = add i64 %125, 1
   store i64 %126, ptr %4, align 8, !tbaa !48
   %127 = load ptr, ptr %6, align 8, !tbaa !37
-  %128 = getelementptr i8, ptr %127, i64 %.sink139
+  %128 = getelementptr i8, ptr %127, i64 %.sink150
   store ptr %128, ptr %6, align 8, !tbaa !37
-  %129 = add nsw i64 %.086117, %.sink136
+  %129 = add nsw i64 %.086117, %.sink147
   %130 = icmp slt i64 %126, %5
   br i1 %130, label %.lr.ph, label %.thread
 
@@ -1243,10 +1243,10 @@ define internal range(i64 -4, 2) i64 @cp932_decode(ptr readnone captures(none) %
   br i1 %105, label %.thread, label %106
 
 106:                                              ; preds = %89, %97, %51, %27, %21, %18, %11
-  %.sink169 = phi i64 [ 1, %11 ], [ 1, %18 ], [ 1, %21 ], [ 1, %27 ], [ 2, %51 ], [ 2, %97 ], [ 2, %89 ]
+  %.sink176 = phi i64 [ 1, %11 ], [ 1, %18 ], [ 1, %21 ], [ 1, %27 ], [ 2, %51 ], [ 2, %97 ], [ 2, %89 ]
   %.sink = phi i64 [ -1, %11 ], [ -1, %18 ], [ -1, %21 ], [ -1, %27 ], [ -2, %51 ], [ -2, %97 ], [ -2, %89 ]
   %107 = load ptr, ptr %2, align 8, !tbaa !37
-  %108 = getelementptr i8, ptr %107, i64 %.sink169
+  %108 = getelementptr i8, ptr %107, i64 %.sink176
   store ptr %108, ptr %2, align 8, !tbaa !37
   %109 = add nsw i64 %.099128, %.sink
   %110 = icmp sgt i64 %109, 0
@@ -1425,13 +1425,13 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   br label %93
 
 93:                                               ; preds = %73, %84, %68, %64, %55, %27
-  %.sink106 = phi i64 [ 3, %73 ], [ 2, %84 ], [ 1, %68 ], [ 1, %64 ], [ 2, %55 ], [ 1, %27 ]
+  %.sink112 = phi i64 [ 3, %73 ], [ 2, %84 ], [ 1, %68 ], [ 1, %64 ], [ 2, %55 ], [ 1, %27 ]
   %.sink = phi i64 [ -3, %73 ], [ -2, %84 ], [ -1, %68 ], [ -1, %64 ], [ -2, %55 ], [ -1, %27 ]
   %94 = load i64, ptr %4, align 8, !tbaa !48
   %95 = add i64 %94, 1
   store i64 %95, ptr %4, align 8, !tbaa !48
   %96 = load ptr, ptr %6, align 8, !tbaa !37
-  %97 = getelementptr i8, ptr %96, i64 %.sink106
+  %97 = getelementptr i8, ptr %96, i64 %.sink112
   store ptr %97, ptr %6, align 8, !tbaa !37
   %98 = add nsw i64 %.06587, %.sink
   %99 = icmp slt i64 %95, %5
@@ -1586,10 +1586,10 @@ define internal range(i64 -4, 2) i64 @euc_jp_decode(ptr readnone captures(none) 
   br i1 %85, label %.thread102, label %86
 
 86:                                               ; preds = %61, %82, %50, %21, %11
-  %.sink145 = phi i64 [ 1, %11 ], [ 2, %21 ], [ 3, %50 ], [ 2, %82 ], [ 2, %61 ]
+  %.sink152 = phi i64 [ 1, %11 ], [ 2, %21 ], [ 3, %50 ], [ 2, %82 ], [ 2, %61 ]
   %.sink = phi i64 [ -1, %11 ], [ -2, %21 ], [ -3, %50 ], [ -2, %82 ], [ -2, %61 ]
   %87 = load ptr, ptr %2, align 8, !tbaa !37
-  %88 = getelementptr i8, ptr %87, i64 %.sink145
+  %88 = getelementptr i8, ptr %87, i64 %.sink152
   store ptr %88, ptr %2, align 8, !tbaa !37
   %89 = add nsw i64 %.060108, %.sink
   %90 = icmp sgt i64 %89, 0
@@ -1965,13 +1965,13 @@ PyUnicode_READ.exit191:                           ; preds = %83, %87, %91
 
 186:                                              ; preds = %169, %38
   %.0142211.sink = phi i64 [ %.0142211, %169 ], [ 1, %38 ]
-  %.sink296 = phi i64 [ 2, %169 ], [ 1, %38 ]
+  %.sink313 = phi i64 [ 2, %169 ], [ 1, %38 ]
   %.sink = phi i64 [ -2, %169 ], [ -1, %38 ]
   %187 = load i64, ptr %4, align 8, !tbaa !48
   %188 = add i64 %187, %.0142211.sink
   store i64 %188, ptr %4, align 8, !tbaa !48
   %189 = load ptr, ptr %6, align 8, !tbaa !37
-  %190 = getelementptr i8, ptr %189, i64 %.sink296
+  %190 = getelementptr i8, ptr %189, i64 %.sink313
   store ptr %190, ptr %6, align 8, !tbaa !37
   %191 = add nsw i64 %.0151237, %.sink
   %192 = icmp slt i64 %188, %5
@@ -2441,12 +2441,12 @@ PyUnicode_WRITE.exit:                             ; preds = %175, %178, %181
   br i1 %250, label %.thread287, label %251, !llvm.loop !68
 
 251:                                              ; preds = %23, %32, %40, %35, %28, %18, %195, %120, %139, %101, %208, %227, %246
-  %.sink370 = phi i64 [ 2, %246 ], [ 2, %227 ], [ 2, %208 ], [ 2, %101 ], [ 2, %139 ], [ 2, %120 ], [ 2, %195 ], [ 1, %18 ], [ 1, %28 ], [ 1, %35 ], [ 1, %40 ], [ 1, %32 ], [ 1, %23 ]
-  %.sink367 = phi i64 [ -2, %246 ], [ -2, %227 ], [ -2, %208 ], [ -2, %101 ], [ -2, %139 ], [ -2, %120 ], [ -2, %195 ], [ -1, %18 ], [ -1, %28 ], [ -1, %35 ], [ -1, %40 ], [ -1, %32 ], [ -1, %23 ]
+  %.sink387 = phi i64 [ 2, %246 ], [ 2, %227 ], [ 2, %208 ], [ 2, %101 ], [ 2, %139 ], [ 2, %120 ], [ 2, %195 ], [ 1, %18 ], [ 1, %28 ], [ 1, %35 ], [ 1, %40 ], [ 1, %32 ], [ 1, %23 ]
+  %.sink384 = phi i64 [ -2, %246 ], [ -2, %227 ], [ -2, %208 ], [ -2, %101 ], [ -2, %139 ], [ -2, %120 ], [ -2, %195 ], [ -1, %18 ], [ -1, %28 ], [ -1, %35 ], [ -1, %40 ], [ -1, %32 ], [ -1, %23 ]
   %252 = load ptr, ptr %2, align 8, !tbaa !37
-  %253 = getelementptr i8, ptr %252, i64 %.sink370
+  %253 = getelementptr i8, ptr %252, i64 %.sink387
   store ptr %253, ptr %2, align 8, !tbaa !37
-  %254 = add nsw i64 %.0216296, %.sink367
+  %254 = add nsw i64 %.0216296, %.sink384
   %255 = icmp sgt i64 %254, 0
   br i1 %255, label %13, label %.thread287
 
@@ -2811,13 +2811,13 @@ find_pairencmap.exit.thread:                      ; preds = %95, %find_pairencma
 
 180:                                              ; preds = %160, %171, %125, %30
   %.2129188.sink = phi i64 [ %.2129188, %160 ], [ %.2129180, %171 ], [ 1, %125 ], [ 1, %30 ]
-  %.sink249 = phi i64 [ 3, %160 ], [ 2, %171 ], [ 2, %125 ], [ 1, %30 ]
+  %.sink267 = phi i64 [ 3, %160 ], [ 2, %171 ], [ 2, %125 ], [ 1, %30 ]
   %.sink = phi i64 [ -3, %160 ], [ -2, %171 ], [ -2, %125 ], [ -1, %30 ]
   %181 = load i64, ptr %4, align 8, !tbaa !48
   %182 = add i64 %181, %.2129188.sink
   store i64 %182, ptr %4, align 8, !tbaa !48
   %183 = load ptr, ptr %6, align 8, !tbaa !37
-  %184 = getelementptr i8, ptr %183, i64 %.sink249
+  %184 = getelementptr i8, ptr %183, i64 %.sink267
   store ptr %184, ptr %6, align 8, !tbaa !37
   %185 = add nsw i64 %.0133199, %.sink
   %186 = icmp slt i64 %182, %5
@@ -3292,10 +3292,10 @@ PyUnicode_WRITE.exit:                             ; preds = %241, %244, %247
   br label %.thread287, !llvm.loop !85
 
 .thread287:                                       ; preds = %148, %186, %167, %142, %205, %46, %105, %66, %85, %28, %17, %261
-  %.sink378 = phi i64 [ 2, %261 ], [ 1, %17 ], [ 2, %28 ], [ 3, %85 ], [ 3, %66 ], [ 3, %105 ], [ 3, %46 ], [ 2, %205 ], [ 2, %142 ], [ 2, %167 ], [ 2, %186 ], [ 2, %148 ]
+  %.sink398 = phi i64 [ 2, %261 ], [ 1, %17 ], [ 2, %28 ], [ 3, %85 ], [ 3, %66 ], [ 3, %105 ], [ 3, %46 ], [ 2, %205 ], [ 2, %142 ], [ 2, %167 ], [ 2, %186 ], [ 2, %148 ]
   %.sink = phi i64 [ -2, %261 ], [ -1, %17 ], [ -2, %28 ], [ -3, %85 ], [ -3, %66 ], [ -3, %105 ], [ -3, %46 ], [ -2, %205 ], [ -2, %142 ], [ -2, %167 ], [ -2, %186 ], [ -2, %148 ]
   %264 = load ptr, ptr %2, align 8, !tbaa !37
-  %265 = getelementptr i8, ptr %264, i64 %.sink378
+  %265 = getelementptr i8, ptr %264, i64 %.sink398
   store ptr %265, ptr %2, align 8, !tbaa !37
   %266 = add nsw i64 %.0207313, %.sink
   %267 = icmp sgt i64 %266, 0

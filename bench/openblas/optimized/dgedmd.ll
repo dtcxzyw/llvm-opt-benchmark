@@ -1078,8 +1078,8 @@ default.unreachable:                              ; preds = %142
 
 ._crit_edge1100.thread:                           ; preds = %542
   store i32 %.pre1162, ptr %31, align 4, !tbaa !3
-  %.not96811061164 = icmp slt i32 %.pre1162, 1
-  br i1 %.not96811061164, label %.loopexit1052, label %.lr.ph1104.preheader
+  %.not96811061189 = icmp slt i32 %.pre1162, 1
+  br i1 %.not96811061189, label %.loopexit1052, label %.lr.ph1104.preheader
 
 .lr.ph1104.preheader:                             ; preds = %._crit_edge1100.thread
   %546 = zext nneg i32 %.pre1162 to i64
@@ -1088,23 +1088,23 @@ default.unreachable:                              ; preds = %142
   %549 = add nuw i32 %.pre1162, 1
   %wide.trip.count1155 = zext i32 %549 to i64
   %wide.trip.count1150 = zext i32 %547 to i64
-  %invariant.gep1167 = getelementptr inbounds nuw double, ptr %65, i64 %546
+  %invariant.gep1192 = getelementptr inbounds nuw double, ptr %65, i64 %546
   br label %.lr.ph1104
 
 .lr.ph1104:                                       ; preds = %.lr.ph1104.preheader, %._crit_edge1105
   %indvars.iv1152 = phi i64 [ 1, %.lr.ph1104.preheader ], [ %indvars.iv.next1153, %._crit_edge1105 ]
   %550 = mul nsw i64 %indvars.iv1152, %548
-  %invariant.gep1169 = getelementptr double, ptr %64, i64 %550
+  %invariant.gep1194 = getelementptr double, ptr %64, i64 %550
   br label %551
 
 551:                                              ; preds = %.lr.ph1104, %551
   %indvars.iv1147 = phi i64 [ 1, %.lr.ph1104 ], [ %indvars.iv.next1148, %551 ]
-  %gep1168 = getelementptr inbounds nuw double, ptr %invariant.gep1167, i64 %indvars.iv1147
-  %552 = load double, ptr %gep1168, align 8, !tbaa !7
-  %gep1170 = getelementptr double, ptr %invariant.gep1169, i64 %indvars.iv1147
-  %553 = load double, ptr %gep1170, align 8, !tbaa !7
+  %gep1193 = getelementptr inbounds nuw double, ptr %invariant.gep1192, i64 %indvars.iv1147
+  %552 = load double, ptr %gep1193, align 8, !tbaa !7
+  %gep1195 = getelementptr double, ptr %invariant.gep1194, i64 %indvars.iv1147
+  %553 = load double, ptr %gep1195, align 8, !tbaa !7
   %554 = fmul double %552, %553
-  store double %554, ptr %gep1170, align 8, !tbaa !7
+  store double %554, ptr %gep1195, align 8, !tbaa !7
   %indvars.iv.next1148 = add nuw nsw i64 %indvars.iv1147, 1
   %exitcond1151.not = icmp eq i64 %indvars.iv.next1148, %wide.trip.count1150
   br i1 %exitcond1151.not, label %._crit_edge1105, label %551, !llvm.loop !20
@@ -1276,8 +1276,8 @@ default.unreachable:                              ; preds = %142
   br label %644
 
 644:                                              ; preds = %624, %611
-  %.sink1171 = phi i32 [ 2, %624 ], [ 1, %611 ]
-  %645 = add nuw nsw i32 %.101111, %.sink1171
+  %.sink1196 = phi i32 [ 2, %624 ], [ 1, %611 ]
+  %645 = add nuw nsw i32 %.101111, %.sink1196
   %646 = load i32, ptr %13, align 4, !tbaa !3
   %.not977 = icmp sgt i32 %645, %646
   br i1 %.not977, label %.loopexit, label %603, !llvm.loop !22

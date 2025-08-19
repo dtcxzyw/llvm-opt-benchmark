@@ -212,16 +212,16 @@ Vec_PtrFill.exit:                                 ; preds = %106, %Vec_PtrGrow.e
   %114 = getelementptr inbounds [0 x i32], ptr %70, i64 0, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !25
   %116 = getelementptr i8, ptr %111, i64 32
-  %.val153284 = load ptr, ptr %116, align 8, !tbaa !45
-  %117 = getelementptr i8, ptr %.val153284, i64 8
-  %.val153.val285 = load ptr, ptr %117, align 8, !tbaa !35
+  %.val153293 = load ptr, ptr %116, align 8, !tbaa !45
+  %117 = getelementptr i8, ptr %.val153293, i64 8
+  %.val153.val294 = load ptr, ptr %117, align 8, !tbaa !35
   %118 = sext i32 %115 to i64
-  %119 = getelementptr inbounds ptr, ptr %.val153.val285, i64 %118
+  %119 = getelementptr inbounds ptr, ptr %.val153.val294, i64 %118
   %120 = load ptr, ptr %119, align 8, !tbaa !36
   %121 = icmp eq ptr %120, null
-  br i1 %121, label %._crit_edge, label %.lr.ph287
+  br i1 %121, label %._crit_edge, label %.lr.ph296
 
-.lr.ph:                                           ; preds = %.lr.ph287
+.lr.ph:                                           ; preds = %.lr.ph296
   %122 = load ptr, ptr %2, align 8, !tbaa !39
   %123 = getelementptr inbounds nuw i8, ptr %84, i64 %indvars.iv.next
   %124 = load i8, ptr %123, align 1, !tbaa !28
@@ -237,12 +237,12 @@ Vec_PtrFill.exit:                                 ; preds = %106, %Vec_PtrGrow.e
   %132 = load ptr, ptr %131, align 8, !tbaa !36
   %133 = icmp eq ptr %132, null
   %134 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br i1 %133, label %._crit_edge, label %.lr.ph287, !llvm.loop !56
+  br i1 %133, label %._crit_edge, label %.lr.ph296, !llvm.loop !56
 
-.lr.ph287:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph296:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %135 = phi i32 [ %134, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %136 = phi ptr [ %132, %.lr.ph ], [ %120, %.lr.ph.preheader ]
-  %indvars.iv286 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %indvars.iv295 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %137 = lshr i32 %88, %135
   %138 = and i32 %137, 1
   %139 = ptrtoint ptr %136 to i64
@@ -252,22 +252,22 @@ Vec_PtrFill.exit:                                 ; preds = %106, %Vec_PtrGrow.e
   %143 = load ptr, ptr %51, align 8, !tbaa !31
   %144 = getelementptr i8, ptr %143, i64 8
   %.val154 = load ptr, ptr %144, align 8, !tbaa !35
-  %145 = getelementptr inbounds nuw ptr, ptr %.val154, i64 %indvars.iv286
+  %145 = getelementptr inbounds nuw ptr, ptr %.val154, i64 %indvars.iv295
   store ptr %142, ptr %145, align 8, !tbaa !36
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv286, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv295, 1
   %146 = load i32, ptr %.0139235, align 8
   %147 = lshr i32 %146, 28
   %148 = zext nneg i32 %147 to i64
   %149 = icmp samesign ult i64 %indvars.iv.next, %148
-  br i1 %149, label %.lr.ph, label %._crit_edge.loopexit.split.loop.exit274, !llvm.loop !56
+  br i1 %149, label %.lr.ph, label %._crit_edge.loopexit.split.loop.exit283, !llvm.loop !56
 
-._crit_edge.loopexit.split.loop.exit274:          ; preds = %.lr.ph287
+._crit_edge.loopexit.split.loop.exit283:          ; preds = %.lr.ph296
   %indvars.le = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %._crit_edge.loopexit.split.loop.exit274, %Vec_PtrFill.exit
-  %.0134.lcssa = phi i32 [ 0, %Vec_PtrFill.exit ], [ %indvars.le, %._crit_edge.loopexit.split.loop.exit274 ], [ 0, %.lr.ph.preheader ], [ %134, %.lr.ph ]
-  %.lcssa = phi i32 [ %110, %Vec_PtrFill.exit ], [ %147, %._crit_edge.loopexit.split.loop.exit274 ], [ %110, %.lr.ph.preheader ], [ %147, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %._crit_edge.loopexit.split.loop.exit283, %Vec_PtrFill.exit
+  %.0134.lcssa = phi i32 [ 0, %Vec_PtrFill.exit ], [ %indvars.le, %._crit_edge.loopexit.split.loop.exit283 ], [ 0, %.lr.ph.preheader ], [ %134, %.lr.ph ]
+  %.lcssa = phi i32 [ %110, %Vec_PtrFill.exit ], [ %147, %._crit_edge.loopexit.split.loop.exit283 ], [ %110, %.lr.ph.preheader ], [ %147, %.lr.ph ]
   %.not147 = icmp eq i32 %.0134.lcssa, %.lcssa
   br i1 %.not147, label %153, label %150
 

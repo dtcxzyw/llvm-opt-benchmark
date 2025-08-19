@@ -330,22 +330,22 @@ define dso_local i32 @revert_num_unit(ptr noundef readonly captures(address_is_n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = getelementptr inbounds nuw i8, ptr @.str.73, i64 %indvars.iv.next
   %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %.split.loop.exit36, label %10, !llvm.loop !14
+  br i1 %exitcond, label %.split.loop.exit37, label %10, !llvm.loop !14
 
 .split.loop.exit:                                 ; preds = %10
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = shl nsw i32 %16, 10
-  br label %.split.loop.exit36
+  br label %.split.loop.exit37
 
-.split.loop.exit36:                               ; preds = %14, %.split.loop.exit
+.split.loop.exit37:                               ; preds = %14, %.split.loop.exit
   %18 = phi i32 [ %17, %.split.loop.exit ], [ 1, %14 ]
   %19 = tail call i64 @strtol(ptr noundef nonnull captures(none) %0, ptr noundef null, i32 noundef 10) #19
   %20 = trunc i64 %19 to i32
   %.028 = mul nsw i32 %18, %20
   br label %21
 
-21:                                               ; preds = %1, %.split.loop.exit36
-  %.0 = phi i32 [ %.028, %.split.loop.exit36 ], [ -1, %1 ]
+21:                                               ; preds = %1, %.split.loop.exit37
+  %.0 = phi i32 [ %.028, %.split.loop.exit37 ], [ -1, %1 ]
   ret i32 %.0
 }
 
@@ -3427,20 +3427,20 @@ _compute_hash.exit.thread:                        ; preds = %29, %_compute_hash.
 
 98:                                               ; preds = %92
   %99 = call fastcc ptr @_global_auth_key()
-  br label %.sink.split91
+  br label %.sink.split96
 
 100:                                              ; preds = %92
   %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 144), align 8
-  br label %.sink.split91
+  br label %.sink.split96
 
-.sink.split91:                                    ; preds = %100, %98
-  %.sink92 = phi ptr [ %99, %98 ], [ %101, %100 ]
+.sink.split96:                                    ; preds = %100, %98
+  %.sink97 = phi ptr [ %99, %98 ], [ %101, %100 ]
   %102 = load i32, ptr %97, align 8
-  %103 = call ptr @auth_g_create(i32 noundef %96, ptr noundef %.sink92, i32 noundef %102, ptr noundef nonnull %6, i32 noundef %.0) #19
+  %103 = call ptr @auth_g_create(i32 noundef %96, ptr noundef %.sink97, i32 noundef %102, ptr noundef nonnull %6, i32 noundef %.0) #19
   br label %104
 
-104:                                              ; preds = %.sink.split91, %88
-  %.1 = phi ptr [ %.066, %88 ], [ %103, %.sink.split91 ]
+104:                                              ; preds = %.sink.split96, %88
+  %.1 = phi ptr [ %.066, %88 ], [ %103, %.sink.split96 ]
   %105 = icmp eq ptr %.1, null
   br i1 %105, label %106, label %115
 
@@ -4611,11 +4611,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_open_controller(ptr noun
   %.not26 = icmp eq i32 %56, 0
   br i1 %.not26, label %._crit_edge.us, label %.lr.ph.us
 
-.split20.us.thread:                               ; preds = %.critedge51
+.split20.us.thread:                               ; preds = %.critedge58
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %_slurm_api_free_comm_config.exit
 
-57:                                               ; preds = %.critedge51
+57:                                               ; preds = %.critedge58
   %58 = tail call i32 @sleep(i32 noundef 1) #19
   br label %59
 
@@ -4639,16 +4639,16 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_open_controller(ptr noun
   %69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %70 = and i64 %69, 1024
   %.not60 = icmp eq i64 %70, 0
-  br i1 %.not60, label %.critedge51, label %71
+  br i1 %.not60, label %.critedge58, label %71
 
 71:                                               ; preds = %68
   %72 = tail call i32 @get_log_level() #19
   %73 = icmp sgt i32 %72, 3
-  br i1 %73, label %74, label %.critedge51
+  br i1 %73, label %74, label %.critedge58
 
 74:                                               ; preds = %71
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.97, ptr noundef nonnull @__func__._open_controller, ptr noundef nonnull %8) #19
-  br label %.critedge51
+  br label %.critedge58
 
 .split22.us:                                      ; preds = %28
   br i1 %.not58, label %79, label %75
@@ -4666,7 +4666,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_open_controller(ptr noun
   store i32 %23, ptr %0, align 4
   br label %.thread9
 
-.critedge51:                                      ; preds = %68, %74, %71
+.critedge58:                                      ; preds = %68, %74, %71
   %80 = tail call i64 @time(ptr noundef null) #19
   %81 = sub nsw i64 %80, %7
   %82 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 744), align 8
@@ -5722,12 +5722,12 @@ define dso_local i32 @slurm_forward_data(ptr noundef %0, ptr noundef %1, i32 nou
   br label %53
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %23, %._crit_edge, %49
-  %.028.lcssa59 = phi i32 [ %.129, %._crit_edge ], [ %.129, %49 ], [ 0, %23 ], [ %.028.mux.us, %.lr.ph.split.us ]
+  %.028.lcssa62 = phi i32 [ %.129, %._crit_edge ], [ %.129, %49 ], [ 0, %23 ], [ %.028.mux.us, %.lr.ph.split.us ]
   call void @list_destroy(ptr noundef nonnull %22) #19
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge.thread
-  %.2304448 = phi i32 [ %.028.lcssa59, %._crit_edge.thread ], [ -1, %51 ]
+  %.2304448 = phi i32 [ %.028.lcssa62, %._crit_edge.thread ], [ -1, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2304448

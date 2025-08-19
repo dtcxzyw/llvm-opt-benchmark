@@ -173,9 +173,9 @@ define internal ptr @add_dict_watcher(ptr readnone captures(none) %0, ptr nounde
   %8 = tail call i64 @PyLong_AsLong(ptr noundef nonnull %1) #6
   %switch.selectcmp = icmp eq i64 %8, 1
   %switch.select = select i1 %switch.selectcmp, ptr @dict_watch_callback_error, ptr @dict_watch_callback
-  %switch.selectcmp12 = icmp eq i64 %8, 2
-  %switch.select13 = select i1 %switch.selectcmp12, ptr @dict_watch_callback_second, ptr %switch.select
-  %9 = tail call i32 @PyDict_AddWatcher(ptr noundef nonnull %switch.select13) #6
+  %switch.selectcmp13 = icmp eq i64 %8, 2
+  %switch.select14 = select i1 %switch.selectcmp13, ptr @dict_watch_callback_second, ptr %switch.select
+  %9 = tail call i32 @PyDict_AddWatcher(ptr noundef nonnull %switch.select14) #6
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %23, label %11
 
@@ -283,10 +283,10 @@ define internal ptr @_testcapi_watch_dict(ptr readnone captures(none) %0, ptr no
   br i1 %.not12, label %.sink.split, label %15
 
 .sink.split:                                      ; preds = %10, %6
-  %.sink15 = phi i32 [ %8, %6 ], [ -1, %10 ]
+  %.sink17 = phi i32 [ %8, %6 ], [ -1, %10 ]
   %12 = getelementptr i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !21
-  %14 = tail call i32 @PyDict_Watch(i32 noundef %.sink15, ptr noundef %13) #6
+  %14 = tail call i32 @PyDict_Watch(i32 noundef %.sink17, ptr noundef %13) #6
   %.not.i = icmp eq i32 %14, 0
   %_Py_NoneStruct..i = select i1 %.not.i, ptr @_Py_NoneStruct, ptr null
   br label %15
@@ -318,10 +318,10 @@ define internal ptr @_testcapi_unwatch_dict(ptr readnone captures(none) %0, ptr 
   br i1 %.not12, label %.sink.split, label %15
 
 .sink.split:                                      ; preds = %10, %6
-  %.sink15 = phi i32 [ %8, %6 ], [ -1, %10 ]
+  %.sink17 = phi i32 [ %8, %6 ], [ -1, %10 ]
   %12 = getelementptr i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !21
-  %14 = tail call i32 @PyDict_Unwatch(i32 noundef %.sink15, ptr noundef %13) #6
+  %14 = tail call i32 @PyDict_Unwatch(i32 noundef %.sink17, ptr noundef %13) #6
   %.not.i = icmp eq i32 %14, 0
   %_Py_NoneStruct..i = select i1 %.not.i, ptr @_Py_NoneStruct, ptr null
   br label %15
@@ -374,9 +374,9 @@ define internal ptr @add_type_watcher(ptr readnone captures(none) %0, ptr nounde
   %8 = tail call i64 @PyLong_AsLong(ptr noundef nonnull %1) #6
   %switch.selectcmp = icmp eq i64 %8, 1
   %switch.select = select i1 %switch.selectcmp, ptr @type_modified_callback_error, ptr @type_modified_callback
-  %switch.selectcmp12 = icmp eq i64 %8, 2
-  %switch.select13 = select i1 %switch.selectcmp12, ptr @type_modified_callback_wrap, ptr %switch.select
-  %9 = tail call i32 @PyType_AddWatcher(ptr noundef nonnull %switch.select13) #6
+  %switch.selectcmp13 = icmp eq i64 %8, 2
+  %switch.select14 = select i1 %switch.selectcmp13, ptr @type_modified_callback_wrap, ptr %switch.select
+  %9 = tail call i32 @PyType_AddWatcher(ptr noundef nonnull %switch.select14) #6
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %23, label %11
 
@@ -484,10 +484,10 @@ define internal ptr @_testcapi_watch_type(ptr readnone captures(none) %0, ptr no
   br i1 %.not12, label %.sink.split, label %15
 
 .sink.split:                                      ; preds = %10, %6
-  %.sink15 = phi i32 [ %8, %6 ], [ -1, %10 ]
+  %.sink17 = phi i32 [ %8, %6 ], [ -1, %10 ]
   %12 = getelementptr i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !21
-  %14 = tail call i32 @PyType_Watch(i32 noundef %.sink15, ptr noundef %13) #6
+  %14 = tail call i32 @PyType_Watch(i32 noundef %.sink17, ptr noundef %13) #6
   %.not.i = icmp eq i32 %14, 0
   %_Py_NoneStruct..i = select i1 %.not.i, ptr @_Py_NoneStruct, ptr null
   br label %15
@@ -519,10 +519,10 @@ define internal ptr @_testcapi_unwatch_type(ptr readnone captures(none) %0, ptr 
   br i1 %.not12, label %.sink.split, label %15
 
 .sink.split:                                      ; preds = %10, %6
-  %.sink15 = phi i32 [ %8, %6 ], [ -1, %10 ]
+  %.sink17 = phi i32 [ %8, %6 ], [ -1, %10 ]
   %12 = getelementptr i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !21
-  %14 = tail call i32 @PyType_Unwatch(i32 noundef %.sink15, ptr noundef %13) #6
+  %14 = tail call i32 @PyType_Unwatch(i32 noundef %.sink17, ptr noundef %13) #6
   %.not.i = icmp eq i32 %14, 0
   %_Py_NoneStruct..i = select i1 %.not.i, ptr @_Py_NoneStruct, ptr null
   br label %15
@@ -760,8 +760,8 @@ define internal ptr @allocate_too_many_code_watchers(ptr readnone captures(none)
 
 .lr.ph.preheader:                                 ; preds = %.thread.thread, %.thread
   %12 = phi ptr [ %9, %.thread.thread ], [ %10, %.thread ]
-  %.014.lcssa29 = phi i64 [ 9, %.thread.thread ], [ %.01622, %.thread ]
-  %wide.trip.count = and i64 %.014.lcssa29, 4294967295
+  %.014.lcssa31 = phi i64 [ 9, %.thread.thread ], [ %.01622, %.thread ]
+  %wide.trip.count = and i64 %.014.lcssa31, 4294967295
   br label %.lr.ph
 
 13:                                               ; preds = %.lr.ph
@@ -1005,8 +1005,8 @@ define internal ptr @allocate_too_many_func_watchers(ptr readnone captures(none)
 
 .lr.ph.preheader:                                 ; preds = %.thread.thread, %.thread
   %12 = phi ptr [ %9, %.thread.thread ], [ %10, %.thread ]
-  %.014.lcssa29 = phi i64 [ 9, %.thread.thread ], [ %.01622, %.thread ]
-  %wide.trip.count = and i64 %.014.lcssa29, 4294967295
+  %.014.lcssa31 = phi i64 [ 9, %.thread.thread ], [ %.01622, %.thread ]
+  %wide.trip.count = and i64 %.014.lcssa31, 4294967295
   br label %.lr.ph
 
 13:                                               ; preds = %.lr.ph
@@ -1308,8 +1308,8 @@ define internal ptr @allocate_too_many_context_watchers(ptr readnone captures(no
 
 .lr.ph.preheader:                                 ; preds = %.thread.thread, %.thread
   %12 = phi ptr [ %9, %.thread.thread ], [ %10, %.thread ]
-  %.014.lcssa29 = phi i64 [ 9, %.thread.thread ], [ %.01622, %.thread ]
-  %wide.trip.count = and i64 %.014.lcssa29, 4294967295
+  %.014.lcssa31 = phi i64 [ 9, %.thread.thread ], [ %.01622, %.thread ]
+  %wide.trip.count = and i64 %.014.lcssa31, 4294967295
   br label %.lr.ph
 
 13:                                               ; preds = %.lr.ph

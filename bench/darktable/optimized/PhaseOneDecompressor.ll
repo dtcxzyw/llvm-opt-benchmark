@@ -163,8 +163,8 @@ _ZNSt6vectorIN8rawspeed13PhaseOneStripESaIS1_EED2Ev.exit: ; preds = %21, %24
   %47 = icmp samesign ugt i32 %39, 11976
   %or.cond = or i1 %47, %.not5
   %48 = icmp samesign ugt i32 %42, 8854
-  %or.cond6 = select i1 %or.cond, i1 true, i1 %48
-  br i1 %or.cond6, label %49, label %51
+  %or.cond8 = select i1 %or.cond, i1 true, i1 %48
+  br i1 %or.cond8, label %49, label %51
 
 49:                                               ; preds = %45, %37
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed20PhaseOneDecompressorC2ENS_8RawImageEOSt6vectorINS_13PhaseOneStripESaIS3_EE, i32 noundef %39, i32 noundef %42) #17
@@ -1114,10 +1114,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %10 = alloca %"struct.rawspeed::PhaseOneStrip", align 8
   %.sroa.4.i.i9.i = alloca { [4 x i8], %"class.rawspeed::ByteStream" }, align 8
   %.sroa.4.i.i.i = alloca { [4 x i8], %"class.rawspeed::ByteStream" }, align 8
-  %.fr30 = freeze ptr %1
+  %.fr33 = freeze ptr %1
   %.fr26 = freeze ptr %0
   %11 = ptrtoint ptr %.fr26 to i64
-  %12 = ptrtoint ptr %.fr30 to i64
+  %12 = ptrtoint ptr %.fr33 to i64
   %13 = sub i64 %12, %11
   %14 = ashr exact i64 %13, 5
   %15 = icmp sgt i64 %14, 16
@@ -1126,15 +1126,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 .lr.ph:                                           ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %.fr26, i64 32
   %17 = icmp eq i64 %2, 0
-  br i1 %17, label %._crit_edge, label %.lr.ph39
+  br i1 %17, label %._crit_edge, label %.lr.ph42
 
 18:                                               ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEET_SE_SE_T0_.exit"
   %19 = icmp eq i64 %88, 0
-  br i1 %19, label %._crit_edge, label %.lr.ph39, !llvm.loop !129
+  br i1 %19, label %._crit_edge, label %.lr.ph42, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %18, %.lr.ph
   %.fr.i25.lcssa = phi i64 [ %13, %.lr.ph ], [ %114, %18 ]
-  %storemerge23.lcssa = phi ptr [ %.fr30, %.lr.ph ], [ %.sroa.013.1.i.i, %18 ]
+  %storemerge23.lcssa = phi ptr [ %.fr33, %.lr.ph ], [ %.sroa.013.1.i.i, %18 ]
   %20 = lshr i64 %.fr.i25.lcssa, 5
   %21 = add nsw i64 %20, -2
   %22 = lshr i64 %21, 1
@@ -1143,7 +1143,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %25 = and i64 %.fr.i25.lcssa, 32
   %26 = icmp eq i64 %25, 0
   %27 = or disjoint i64 %21, 1
-  %28 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %27
+  %28 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %27
   %29 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %22
   br label %30
 
@@ -1193,20 +1193,20 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %48 ], [ %.1.i.i.i.i, %44 ]
   %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
   %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
-  %46 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %.0911.i.i.i.i.i
+  %46 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %.0911.i.i.i.i.i
   %.val.i.i.i.i.i.i = load i32, ptr %46, align 8, !tbaa !92
   %47 = icmp slt i32 %.val.i.i.i.i.i.i, %.sroa.08.0.copyload.i.i.i
   br i1 %47, label %48, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
 
 48:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %49 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %.010.i.i.i.i.i
+  %49 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %.010.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %46, i64 32, i1 false)
   %50 = icmp sgt i64 %.0911.i.i.i.i.i, %.08.i.i.i
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", !llvm.loop !131
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i": ; preds = %48, %.lr.ph.i.i.i.i.i, %44
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %44 ], [ %.010.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %48 ]
-  %51 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %.0.lcssa.i.i.i.i.i
+  %51 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %.0.lcssa.i.i.i.i.i
   store i32 %.sroa.08.0.copyload.i.i.i, ptr %51, align 8
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %.sroa.4.i.i.i, i64 28, i1 false)
@@ -1305,21 +1305,21 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %86 = icmp sgt i64 %56, 32
   br i1 %86, label %.lr.ph.i10.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !133
 
-.lr.ph39:                                         ; preds = %.lr.ph, %18
-  %storemerge2338 = phi ptr [ %.sroa.013.1.i.i, %18 ], [ %.fr30, %.lr.ph ]
-  %.02437 = phi i64 [ %88, %18 ], [ %2, %.lr.ph ]
+.lr.ph42:                                         ; preds = %.lr.ph, %18
+  %storemerge2341 = phi ptr [ %.sroa.013.1.i.i, %18 ], [ %.fr33, %.lr.ph ]
+  %.02440 = phi i64 [ %88, %18 ], [ %2, %.lr.ph ]
   %87 = phi i64 [ %115, %18 ], [ %14, %.lr.ph ]
-  %88 = add nsw i64 %.02437, -1
+  %88 = add nsw i64 %.02440, -1
   %89 = lshr i64 %87, 1
   %90 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %89
-  %91 = getelementptr inbounds i8, ptr %storemerge2338, i64 -32
+  %91 = getelementptr inbounds i8, ptr %storemerge2341, i64 -32
   %.val.i.i.i = load i32, ptr %16, align 8, !tbaa !92
   %.val1.i.i.i = load i32, ptr %90, align 8, !tbaa !92
   %92 = icmp slt i32 %.val.i.i.i, %.val1.i.i.i
   %.val1.i27.i.i = load i32, ptr %91, align 8, !tbaa !92
   br i1 %92, label %93, label %100
 
-93:                                               ; preds = %.lr.ph39
+93:                                               ; preds = %.lr.ph42
   %94 = icmp slt i32 %.val1.i.i.i, %.val1.i27.i.i
   br i1 %94, label %95, label %96
 
@@ -1351,7 +1351,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-100:                                              ; preds = %.lr.ph39
+100:                                              ; preds = %.lr.ph42
   %101 = icmp slt i32 %.val.i.i.i, %.val1.i27.i.i
   br i1 %101, label %102, label %103
 
@@ -1388,7 +1388,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 "_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader", %112
   %.sroa.013.0.i.i = phi ptr [ %109, %112 ], [ %16, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %112 ], [ %storemerge2338, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %112 ], [ %storemerge2341, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
   %.val1.i.i13.i = load i32, ptr %.fr26, align 8, !tbaa !92
   br label %107
 
@@ -1419,7 +1419,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i", !llvm.loop !136
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEET_SE_SE_T0_.exit": ; preds = %111
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_SE_T0_T1_"(ptr nonnull %.sroa.013.1.i.i, ptr %storemerge2338, i64 noundef %88)
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_SE_T0_T1_"(ptr nonnull %.sroa.013.1.i.i, ptr %storemerge2341, i64 noundef %88)
   %113 = ptrtoint ptr %.sroa.013.1.i.i to i64
   %114 = sub i64 %113, %11
   %115 = ashr exact i64 %114, 5

@@ -69,7 +69,7 @@ define dso_local range(i64 -70, 262149) i64 @ZSTD_decodeLiteralsBlock(ptr nounde
   %9 = load i8, ptr %1, align 1
   %10 = zext i8 %9 to i32
   %11 = and i32 %10, 3
-  switch i32 %11, label %default.unreachable11 [
+  switch i32 %11, label %default.unreachable20 [
     i32 3, label %12
     i32 2, label %16
     i32 0, label %147
@@ -536,7 +536,7 @@ define dso_local range(i64 -70, 262149) i64 @ZSTD_decodeLiteralsBlock(ptr nounde
   %297 = add nuw nsw i64 %251, 1
   br label %298
 
-default.unreachable11:                            ; preds = %8
+default.unreachable20:                            ; preds = %8
   unreachable
 
 298:                                              ; preds = %292, %257, %255, %249, %239, %223, %219, %208, %167, %144, %137, %135, %59, %56, %54, %45, %16, %12, %6
@@ -1154,7 +1154,7 @@ define internal fastcc range(i64 -20, -71) i64 @ZSTD_buildSeqTable(ptr noundef %
   %17 = alloca i32, align 4
   %18 = alloca [53 x i16], align 16
   store i32 %3, ptr %16, align 4
-  switch i32 %2, label %default.unreachable2 [
+  switch i32 %2, label %default.unreachable3 [
     i32 1, label %19
     i32 0, label %36
     i32 3, label %37
@@ -1246,7 +1246,7 @@ define internal fastcc range(i64 -20, -71) i64 @ZSTD_buildSeqTable(ptr noundef %
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
-default.unreachable2:                             ; preds = %15
+default.unreachable3:                             ; preds = %15
   unreachable
 
 .loopexit:                                        ; preds = %48, %61, %39, %37, %36, %25, %21, %19
@@ -1595,14 +1595,14 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
 
 .sink.split:                                      ; preds = %213, %221
   %storemerge = phi i32 [ %218, %213 ], [ %236, %221 ]
-  %.ph285 = phi ptr [ %217, %213 ], [ %234, %221 ]
+  %.ph386 = phi ptr [ %217, %213 ], [ %234, %221 ]
   store i32 %storemerge, ptr %199, align 8
-  %.sink = load i64, ptr %.ph285, align 1
+  %.sink = load i64, ptr %.ph386, align 1
   store i64 %.sink, ptr %10, align 8
   br label %237
 
 237:                                              ; preds = %.sink.split, %219, %191
-  %238 = phi ptr [ %25, %219 ], [ %192, %191 ], [ %.ph285, %.sink.split ]
+  %238 = phi ptr [ %25, %219 ], [ %192, %191 ], [ %.ph386, %.sink.split ]
   %239 = phi i32 [ %200, %219 ], [ %200, %191 ], [ %storemerge, %.sink.split ]
   %240 = phi i64 [ %194, %219 ], [ %194, %191 ], [ %.sink, %.sink.split ]
   %241 = getelementptr i8, ptr %196, i64 8
@@ -1639,7 +1639,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %265 = getelementptr i8, ptr %238, i64 %264
   store ptr %265, ptr %259, align 8
   %266 = and i32 %248, 7
-  br label %.sink.split288
+  br label %.sink.split389
 
 267:                                              ; preds = %258
   %268 = icmp eq ptr %238, %25
@@ -1662,20 +1662,20 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   store ptr %282, ptr %259, align 8
   %283 = shl i32 %279, 3
   %284 = sub i32 %248, %283
-  br label %.sink.split288
+  br label %.sink.split389
 
-.sink.split288:                                   ; preds = %261, %269
-  %storemerge333 = phi i32 [ %266, %261 ], [ %284, %269 ]
-  %.ph289 = phi ptr [ %265, %261 ], [ %282, %269 ]
-  store i32 %storemerge333, ptr %199, align 8
-  %.sink292 = load i64, ptr %.ph289, align 1
-  store i64 %.sink292, ptr %10, align 8
+.sink.split389:                                   ; preds = %261, %269
+  %storemerge434 = phi i32 [ %266, %261 ], [ %284, %269 ]
+  %.ph390 = phi ptr [ %265, %261 ], [ %282, %269 ]
+  store i32 %storemerge434, ptr %199, align 8
+  %.sink393 = load i64, ptr %.ph390, align 1
+  store i64 %.sink393, ptr %10, align 8
   br label %285
 
-285:                                              ; preds = %.sink.split288, %267, %237
-  %286 = phi ptr [ %25, %267 ], [ %238, %237 ], [ %.ph289, %.sink.split288 ]
-  %287 = phi i32 [ %248, %267 ], [ %248, %237 ], [ %storemerge333, %.sink.split288 ]
-  %288 = phi i64 [ %240, %267 ], [ %240, %237 ], [ %.sink292, %.sink.split288 ]
+285:                                              ; preds = %.sink.split389, %267, %237
+  %286 = phi ptr [ %25, %267 ], [ %238, %237 ], [ %.ph390, %.sink.split389 ]
+  %287 = phi i32 [ %248, %267 ], [ %248, %237 ], [ %storemerge434, %.sink.split389 ]
+  %288 = phi i64 [ %240, %267 ], [ %240, %237 ], [ %.sink393, %.sink.split389 ]
   %289 = getelementptr i8, ptr %245, i64 8
   %290 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store ptr %289, ptr %290, align 8
@@ -1696,9 +1696,9 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   store i32 %296, ptr %199, align 8
   store i64 %304, ptr %291, align 8
   %305 = icmp ugt i32 %296, 64
-  br i1 %305, label %.thread250, label %309
+  br i1 %305, label %.thread351, label %309
 
-.thread250:                                       ; preds = %285
+.thread351:                                       ; preds = %285
   %306 = getelementptr i8, ptr %293, i64 8
   %307 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store ptr %306, ptr %307, align 8
@@ -1720,15 +1720,15 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   store i32 %317, ptr %199, align 8
   %318 = load i64, ptr %316, align 1
   store i64 %318, ptr %10, align 8
-  br label %.thread249
+  br label %.thread350
 
 319:                                              ; preds = %309
   %320 = icmp eq ptr %286, %25
-  br i1 %320, label %.thread249, label %327
+  br i1 %320, label %.thread350, label %327
 
-.thread249:                                       ; preds = %319, %312
+.thread350:                                       ; preds = %319, %312
   %.ph = phi i64 [ %318, %312 ], [ %288, %319 ]
-  %.ph248 = phi i32 [ %317, %312 ], [ %296, %319 ]
+  %.ph349 = phi i32 [ %317, %312 ], [ %296, %319 ]
   %321 = getelementptr i8, ptr %293, i64 8
   %322 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store ptr %321, ptr %322, align 8
@@ -1768,20 +1768,20 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %350 = icmp ult i32 %342, 65
   br i1 %350, label %.lr.ph.preheader, label %.thread
 
-.lr.ph.preheader:                                 ; preds = %.thread249, %327
-  %351 = phi i64 [ %326, %.thread249 ], [ %349, %327 ]
-  %352 = phi ptr [ %325, %.thread249 ], [ %348, %327 ]
-  %353 = phi ptr [ %324, %.thread249 ], [ %347, %327 ]
-  %354 = phi ptr [ %323, %.thread249 ], [ %346, %327 ]
-  %355 = phi ptr [ %322, %.thread249 ], [ %345, %327 ]
-  %356 = phi i32 [ %.ph248, %.thread249 ], [ %342, %327 ]
-  %357 = phi i64 [ %.ph, %.thread249 ], [ %343, %327 ]
+.lr.ph.preheader:                                 ; preds = %.thread350, %327
+  %351 = phi i64 [ %326, %.thread350 ], [ %349, %327 ]
+  %352 = phi ptr [ %325, %.thread350 ], [ %348, %327 ]
+  %353 = phi ptr [ %324, %.thread350 ], [ %347, %327 ]
+  %354 = phi ptr [ %323, %.thread350 ], [ %346, %327 ]
+  %355 = phi ptr [ %322, %.thread350 ], [ %345, %327 ]
+  %356 = phi i32 [ %.ph349, %.thread350 ], [ %342, %327 ]
+  %357 = phi i64 [ %.ph, %.thread350 ], [ %343, %327 ]
   %smax = tail call i64 @llvm.smax.i64(i64 %351, i64 0)
   br label %.lr.ph
 
-.thread:                                          ; preds = %512, %.thread250, %327
-  %358 = phi i64 [ %349, %327 ], [ %308, %.thread250 ], [ %351, %512 ]
-  %.lcssa184 = phi i64 [ 0, %327 ], [ 0, %.thread250 ], [ %560, %512 ]
+.thread:                                          ; preds = %512, %.thread351, %327
+  %358 = phi i64 [ %349, %327 ], [ %308, %.thread351 ], [ %351, %512 ]
+  %.lcssa184 = phi i64 [ 0, %327 ], [ 0, %.thread351 ], [ %560, %512 ]
   %359 = icmp slt i64 %.lcssa184, %358
   br i1 %359, label %.critedge.thread, label %.loopexit171.thread
 
@@ -1815,7 +1815,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %380 = getelementptr i8, ptr %373, i64 %379
   store ptr %380, ptr %354, align 8
   %381 = and i32 %370, 7
-  br label %.sink.split293
+  br label %.sink.split394
 
 382:                                              ; preds = %.lr.ph
   %383 = load ptr, ptr %113, align 8
@@ -1839,19 +1839,19 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   store ptr %398, ptr %354, align 8
   %399 = shl i32 %395, 3
   %400 = sub i32 %370, %399
-  br label %.sink.split293
+  br label %.sink.split394
 
-.sink.split293:                                   ; preds = %376, %385
-  %storemerge334 = phi i32 [ %381, %376 ], [ %400, %385 ]
-  %.sink295.in = phi ptr [ %380, %376 ], [ %398, %385 ]
-  store i32 %storemerge334, ptr %199, align 8
-  %.sink295 = load i64, ptr %.sink295.in, align 1
-  store i64 %.sink295, ptr %10, align 8
+.sink.split394:                                   ; preds = %376, %385
+  %storemerge435 = phi i32 [ %381, %376 ], [ %400, %385 ]
+  %.sink396.in = phi ptr [ %380, %376 ], [ %398, %385 ]
+  store i32 %storemerge435, ptr %199, align 8
+  %.sink396 = load i64, ptr %.sink396.in, align 1
+  store i64 %.sink396, ptr %10, align 8
   br label %401
 
-401:                                              ; preds = %.sink.split293, %382
-  %.pre239 = phi i64 [ %.pre240, %382 ], [ %.sink295, %.sink.split293 ]
-  %402 = phi i32 [ %370, %382 ], [ %storemerge334, %.sink.split293 ]
+401:                                              ; preds = %.sink.split394, %382
+  %.pre239 = phi i64 [ %.pre240, %382 ], [ %.sink396, %.sink.split394 ]
+  %402 = phi i32 [ %370, %382 ], [ %storemerge435, %.sink.split394 ]
   %exitcond.not = icmp eq i64 %372, %smax
   br i1 %exitcond.not, label %.loopexit171, label %403
 
@@ -2116,7 +2116,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %589 = getelementptr i8, ptr %582, i64 %588
   store ptr %589, ptr %354, align 8
   %590 = and i32 %577, 7
-  br label %.sink.split296
+  br label %.sink.split397
 
 591:                                              ; preds = %.lr.ph188
   %592 = load ptr, ptr %113, align 8
@@ -2140,18 +2140,18 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   store ptr %607, ptr %354, align 8
   %608 = shl i32 %604, 3
   %609 = sub i32 %577, %608
-  br label %.sink.split296
+  br label %.sink.split397
 
-.sink.split296:                                   ; preds = %585, %594
-  %storemerge335 = phi i32 [ %590, %585 ], [ %609, %594 ]
-  %.sink298.in = phi ptr [ %589, %585 ], [ %607, %594 ]
-  store i32 %storemerge335, ptr %199, align 8
-  %.sink298 = load i64, ptr %.sink298.in, align 1
-  store i64 %.sink298, ptr %10, align 8
+.sink.split397:                                   ; preds = %585, %594
+  %storemerge436 = phi i32 [ %590, %585 ], [ %609, %594 ]
+  %.sink399.in = phi ptr [ %589, %585 ], [ %607, %594 ]
+  store i32 %storemerge436, ptr %199, align 8
+  %.sink399 = load i64, ptr %.sink399.in, align 1
+  store i64 %.sink399, ptr %10, align 8
   br label %610
 
-610:                                              ; preds = %.sink.split296, %591
-  %611 = phi i32 [ %577, %591 ], [ %storemerge335, %.sink.split296 ]
+610:                                              ; preds = %.sink.split397, %591
+  %611 = phi i32 [ %577, %591 ], [ %storemerge436, %.sink.split397 ]
   %exitcond232.not = icmp eq i32 %579, %smax231
   br i1 %exitcond232.not, label %.loopexit168, label %612
 
@@ -4247,7 +4247,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %197 = getelementptr i8, ptr %170, i64 %196
   store ptr %197, ptr %191, align 8
   %198 = and i32 %180, 7
-  br label %.sink.split251
+  br label %.sink.split330
 
 199:                                              ; preds = %190
   %200 = icmp eq ptr %170, %3
@@ -4270,20 +4270,20 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   store ptr %214, ptr %191, align 8
   %215 = shl i32 %211, 3
   %216 = sub i32 %180, %215
-  br label %.sink.split251
+  br label %.sink.split330
 
-.sink.split251:                                   ; preds = %193, %201
-  %storemerge295 = phi i32 [ %198, %193 ], [ %216, %201 ]
-  %.ph252 = phi ptr [ %197, %193 ], [ %214, %201 ]
-  store i32 %storemerge295, ptr %131, align 8
-  %.sink255 = load i64, ptr %.ph252, align 1
-  store i64 %.sink255, ptr %11, align 8
+.sink.split330:                                   ; preds = %193, %201
+  %storemerge374 = phi i32 [ %198, %193 ], [ %216, %201 ]
+  %.ph331 = phi ptr [ %197, %193 ], [ %214, %201 ]
+  store i32 %storemerge374, ptr %131, align 8
+  %.sink334 = load i64, ptr %.ph331, align 1
+  store i64 %.sink334, ptr %11, align 8
   br label %217
 
-217:                                              ; preds = %.sink.split251, %199, %169
-  %218 = phi ptr [ %3, %199 ], [ %170, %169 ], [ %.ph252, %.sink.split251 ]
-  %219 = phi i32 [ %180, %199 ], [ %180, %169 ], [ %storemerge295, %.sink.split251 ]
-  %220 = phi i64 [ %172, %199 ], [ %172, %169 ], [ %.sink255, %.sink.split251 ]
+217:                                              ; preds = %.sink.split330, %199, %169
+  %218 = phi ptr [ %3, %199 ], [ %170, %169 ], [ %.ph331, %.sink.split330 ]
+  %219 = phi i32 [ %180, %199 ], [ %180, %169 ], [ %storemerge374, %.sink.split330 ]
+  %220 = phi i64 [ %172, %199 ], [ %172, %169 ], [ %.sink334, %.sink.split330 ]
   %221 = getelementptr i8, ptr %177, i64 8
   %222 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store ptr %221, ptr %222, align 8
@@ -4318,7 +4318,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %245 = getelementptr i8, ptr %218, i64 %244
   store ptr %245, ptr %239, align 8
   %246 = and i32 %228, 7
-  br label %.sink.split256
+  br label %.sink.split335
 
 247:                                              ; preds = %238
   %248 = icmp eq ptr %218, %3
@@ -4341,19 +4341,19 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   store ptr %262, ptr %239, align 8
   %263 = shl i32 %259, 3
   %264 = sub i32 %228, %263
-  br label %.sink.split256
+  br label %.sink.split335
 
-.sink.split256:                                   ; preds = %241, %249
-  %storemerge296 = phi i32 [ %246, %241 ], [ %264, %249 ]
-  %.sink259.in = phi ptr [ %245, %241 ], [ %262, %249 ]
-  store i32 %storemerge296, ptr %131, align 8
-  %.sink259 = load i64, ptr %.sink259.in, align 1
-  store i64 %.sink259, ptr %11, align 8
+.sink.split335:                                   ; preds = %241, %249
+  %storemerge375 = phi i32 [ %246, %241 ], [ %264, %249 ]
+  %.sink338.in = phi ptr [ %245, %241 ], [ %262, %249 ]
+  store i32 %storemerge375, ptr %131, align 8
+  %.sink338 = load i64, ptr %.sink338.in, align 1
+  store i64 %.sink338, ptr %11, align 8
   br label %265
 
-265:                                              ; preds = %.sink.split256, %247, %217
-  %266 = phi i32 [ %228, %247 ], [ %228, %217 ], [ %storemerge296, %.sink.split256 ]
-  %267 = phi i64 [ %220, %247 ], [ %220, %217 ], [ %.sink259, %.sink.split256 ]
+265:                                              ; preds = %.sink.split335, %247, %217
+  %266 = phi i32 [ %228, %247 ], [ %228, %217 ], [ %storemerge375, %.sink.split335 ]
+  %267 = phi i64 [ %220, %247 ], [ %220, %217 ], [ %.sink338, %.sink.split335 ]
   %268 = getelementptr i8, ptr %225, i64 8
   %269 = getelementptr inbounds nuw i8, ptr %11, i64 80
   store ptr %268, ptr %269, align 8
@@ -4809,7 +4809,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %573 = getelementptr i8, ptr %566, i64 %572
   store ptr %573, ptr %424, align 8
   %574 = and i32 %563, 7
-  br label %.sink.split260
+  br label %.sink.split339
 
 575:                                              ; preds = %565
   %576 = load ptr, ptr %45, align 8
@@ -4833,18 +4833,18 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   store ptr %591, ptr %424, align 8
   %592 = shl i32 %588, 3
   %593 = sub i32 %563, %592
-  br label %.sink.split260
+  br label %.sink.split339
 
-.sink.split260:                                   ; preds = %569, %578
-  %storemerge297 = phi i32 [ %574, %569 ], [ %593, %578 ]
-  %.sink262.in = phi ptr [ %573, %569 ], [ %591, %578 ]
-  store i32 %storemerge297, ptr %131, align 8
-  %.sink262 = load i64, ptr %.sink262.in, align 1
-  store i64 %.sink262, ptr %11, align 8
+.sink.split339:                                   ; preds = %569, %578
+  %storemerge376 = phi i32 [ %574, %569 ], [ %593, %578 ]
+  %.sink341.in = phi ptr [ %573, %569 ], [ %591, %578 ]
+  store i32 %storemerge376, ptr %131, align 8
+  %.sink341 = load i64, ptr %.sink341.in, align 1
+  store i64 %.sink341, ptr %11, align 8
   br label %594
 
-594:                                              ; preds = %.sink.split260, %575, %562
-  %595 = phi i32 [ %563, %575 ], [ %563, %562 ], [ %storemerge297, %.sink.split260 ]
+594:                                              ; preds = %.sink.split339, %575, %562
+  %595 = phi i32 [ %563, %575 ], [ %563, %562 ], [ %storemerge376, %.sink.split339 ]
   %596 = load ptr, ptr %174, align 8, !noalias !44
   %597 = load i64, ptr %127, align 8, !noalias !44
   %598 = getelementptr %struct.ZSTD_seqSymbol, ptr %596, i64 %597
@@ -5389,7 +5389,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %953 = getelementptr i8, ptr %946, i64 %952
   store ptr %953, ptr %424, align 8
   %954 = and i32 %943, 7
-  br label %.sink.split263
+  br label %.sink.split342
 
 955:                                              ; preds = %945
   %956 = load ptr, ptr %45, align 8
@@ -5413,18 +5413,18 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   store ptr %971, ptr %424, align 8
   %972 = shl i32 %968, 3
   %973 = sub i32 %943, %972
-  br label %.sink.split263
+  br label %.sink.split342
 
-.sink.split263:                                   ; preds = %949, %958
-  %storemerge298 = phi i32 [ %954, %949 ], [ %973, %958 ]
-  %.sink265.in = phi ptr [ %953, %949 ], [ %971, %958 ]
-  store i32 %storemerge298, ptr %131, align 8
-  %.sink265 = load i64, ptr %.sink265.in, align 1
-  store i64 %.sink265, ptr %11, align 8
+.sink.split342:                                   ; preds = %949, %958
+  %storemerge377 = phi i32 [ %954, %949 ], [ %973, %958 ]
+  %.sink344.in = phi ptr [ %953, %949 ], [ %971, %958 ]
+  store i32 %storemerge377, ptr %131, align 8
+  %.sink344 = load i64, ptr %.sink344.in, align 1
+  store i64 %.sink344, ptr %11, align 8
   br label %974
 
-974:                                              ; preds = %.sink.split263, %955, %942
-  %975 = phi i32 [ %943, %955 ], [ %943, %942 ], [ %storemerge298, %.sink.split263 ]
+974:                                              ; preds = %.sink.split342, %955, %942
+  %975 = phi i32 [ %943, %955 ], [ %943, %942 ], [ %storemerge377, %.sink.split342 ]
   tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !47
   tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !48
   tail call void asm sideeffect ".p2align 4", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !49
@@ -5844,7 +5844,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 
 1255:                                             ; preds = %.loopexit
   %1256 = getelementptr i8, ptr %981, i64 %1253
-  %1257 = add i32 %980, -1
+  %1257 = add nsw i32 %980, -1
   %1258 = icmp eq i32 %1257, 0
   br i1 %1258, label %.thread129, label %1259, !prof !25
 
@@ -5866,7 +5866,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %1270 = getelementptr i8, ptr %1263, i64 %1269
   store ptr %1270, ptr %424, align 8
   %1271 = and i32 %1260, 7
-  br label %.sink.split266
+  br label %.sink.split345
 
 1272:                                             ; preds = %1262
   %1273 = load ptr, ptr %45, align 8
@@ -5890,18 +5890,18 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   store ptr %1288, ptr %424, align 8
   %1289 = shl i32 %1285, 3
   %1290 = sub i32 %1260, %1289
-  br label %.sink.split266
+  br label %.sink.split345
 
-.sink.split266:                                   ; preds = %1266, %1275
-  %storemerge299 = phi i32 [ %1271, %1266 ], [ %1290, %1275 ]
-  %.sink268.in = phi ptr [ %1270, %1266 ], [ %1288, %1275 ]
-  store i32 %storemerge299, ptr %131, align 8
-  %.sink268 = load i64, ptr %.sink268.in, align 1
-  store i64 %.sink268, ptr %11, align 8
+.sink.split345:                                   ; preds = %1266, %1275
+  %storemerge378 = phi i32 [ %1271, %1266 ], [ %1290, %1275 ]
+  %.sink347.in = phi ptr [ %1270, %1266 ], [ %1288, %1275 ]
+  store i32 %storemerge378, ptr %131, align 8
+  %.sink347 = load i64, ptr %.sink347.in, align 1
+  store i64 %.sink347, ptr %11, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.sink.split266, %1272, %1259
-  %.be = phi i32 [ %1260, %1272 ], [ %1260, %1259 ], [ %storemerge299, %.sink.split266 ]
+.backedge:                                        ; preds = %.sink.split345, %1272, %1259
+  %.be = phi i32 [ %1260, %1272 ], [ %1260, %1259 ], [ %storemerge378, %.sink.split345 ]
   br label %978
 
 .thread129:                                       ; preds = %558, %1255, %938
@@ -5909,7 +5909,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %.ph109119131 = phi ptr [ %812, %938 ], [ %812, %1255 ], [ %22, %558 ]
   %1292 = load i32, ptr %131, align 8
   %1293 = icmp ugt i32 %1292, 64
-  br i1 %1293, label %.preheader300, label %1294
+  br i1 %1293, label %.preheader379, label %1294
 
 1294:                                             ; preds = %.thread129
   %1295 = load ptr, ptr %424, align 8
@@ -5917,16 +5917,16 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %1297 = icmp ult ptr %1295, %1296
   %1298 = load ptr, ptr %45, align 8
   %1299 = icmp eq ptr %1295, %1298
-  %or.cond270 = select i1 %1297, i1 %1299, i1 false
+  %or.cond349 = select i1 %1297, i1 %1299, i1 false
   %1300 = icmp eq i32 %1292, 64
-  %or.cond271 = and i1 %or.cond270, %1300
-  br i1 %or.cond271, label %.preheader300, label %.critedge.thread
+  %or.cond350 = and i1 %or.cond349, %1300
+  br i1 %or.cond350, label %.preheader379, label %.critedge.thread
 
-.preheader300:                                    ; preds = %1294, %.thread129
+.preheader379:                                    ; preds = %1294, %.thread129
   br label %1301
 
-1301:                                             ; preds = %.preheader300, %1301
-  %1302 = phi i64 [ %1307, %1301 ], [ 0, %.preheader300 ]
+1301:                                             ; preds = %.preheader379, %1301
+  %1302 = phi i64 [ %1307, %1301 ], [ 0, %.preheader379 ]
   %1303 = getelementptr [3 x i64], ptr %33, i64 0, i64 %1302
   %1304 = load i64, ptr %1303, align 8
   %1305 = trunc i64 %1304 to i32
@@ -6319,7 +6319,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
   %205 = getelementptr i8, ptr %178, i64 %204
   store ptr %205, ptr %199, align 8
   %206 = and i32 %188, 7
-  br label %.sink.split72
+  br label %.sink.split108
 
 207:                                              ; preds = %198
   %208 = icmp eq ptr %178, %3
@@ -6342,20 +6342,20 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
   store ptr %222, ptr %199, align 8
   %223 = shl i32 %219, 3
   %224 = sub i32 %188, %223
-  br label %.sink.split72
+  br label %.sink.split108
 
-.sink.split72:                                    ; preds = %201, %209
-  %storemerge90 = phi i32 [ %206, %201 ], [ %224, %209 ]
-  %.ph73 = phi ptr [ %205, %201 ], [ %222, %209 ]
-  store i32 %storemerge90, ptr %139, align 8
-  %.sink76 = load i64, ptr %.ph73, align 1
-  store i64 %.sink76, ptr %9, align 8
+.sink.split108:                                   ; preds = %201, %209
+  %storemerge126 = phi i32 [ %206, %201 ], [ %224, %209 ]
+  %.ph109 = phi ptr [ %205, %201 ], [ %222, %209 ]
+  store i32 %storemerge126, ptr %139, align 8
+  %.sink112 = load i64, ptr %.ph109, align 1
+  store i64 %.sink112, ptr %9, align 8
   br label %225
 
-225:                                              ; preds = %.sink.split72, %207, %177
-  %226 = phi ptr [ %3, %207 ], [ %178, %177 ], [ %.ph73, %.sink.split72 ]
-  %227 = phi i32 [ %188, %207 ], [ %188, %177 ], [ %storemerge90, %.sink.split72 ]
-  %228 = phi i64 [ %180, %207 ], [ %180, %177 ], [ %.sink76, %.sink.split72 ]
+225:                                              ; preds = %.sink.split108, %207, %177
+  %226 = phi ptr [ %3, %207 ], [ %178, %177 ], [ %.ph109, %.sink.split108 ]
+  %227 = phi i32 [ %188, %207 ], [ %188, %177 ], [ %storemerge126, %.sink.split108 ]
+  %228 = phi i64 [ %180, %207 ], [ %180, %177 ], [ %.sink112, %.sink.split108 ]
   %229 = getelementptr i8, ptr %185, i64 8
   %230 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr %229, ptr %230, align 8
@@ -6390,7 +6390,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
   %253 = getelementptr i8, ptr %226, i64 %252
   store ptr %253, ptr %247, align 8
   %254 = and i32 %236, 7
-  br label %.sink.split77
+  br label %.sink.split113
 
 255:                                              ; preds = %246
   %256 = icmp eq ptr %226, %3
@@ -6413,18 +6413,18 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
   store ptr %270, ptr %247, align 8
   %271 = shl i32 %267, 3
   %272 = sub i32 %236, %271
-  br label %.sink.split77
+  br label %.sink.split113
 
-.sink.split77:                                    ; preds = %249, %257
-  %storemerge91 = phi i32 [ %254, %249 ], [ %272, %257 ]
-  %.sink79.in = phi ptr [ %253, %249 ], [ %270, %257 ]
-  store i32 %storemerge91, ptr %139, align 8
-  %.sink79 = load i64, ptr %.sink79.in, align 1
-  store i64 %.sink79, ptr %9, align 8
+.sink.split113:                                   ; preds = %249, %257
+  %storemerge127 = phi i32 [ %254, %249 ], [ %272, %257 ]
+  %.sink115.in = phi ptr [ %253, %249 ], [ %270, %257 ]
+  store i32 %storemerge127, ptr %139, align 8
+  %.sink115 = load i64, ptr %.sink115.in, align 1
+  store i64 %.sink115, ptr %9, align 8
   br label %273
 
-273:                                              ; preds = %.sink.split77, %255, %225
-  %274 = phi i32 [ %236, %255 ], [ %236, %225 ], [ %storemerge91, %.sink.split77 ]
+273:                                              ; preds = %.sink.split113, %255, %225
+  %274 = phi i32 [ %236, %255 ], [ %236, %225 ], [ %storemerge127, %.sink.split113 ]
   %275 = getelementptr i8, ptr %233, i64 8
   %276 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store ptr %275, ptr %276, align 8
@@ -6875,7 +6875,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
   %577 = getelementptr i8, ptr %570, i64 %576
   store ptr %577, ptr %284, align 8
   %578 = and i32 %566, 7
-  br label %.sink.split80
+  br label %.sink.split116
 
 579:                                              ; preds = %569
   %580 = load ptr, ptr %53, align 8
@@ -6899,18 +6899,18 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
   store ptr %595, ptr %284, align 8
   %596 = shl i32 %592, 3
   %597 = sub i32 %566, %596
-  br label %.sink.split80
+  br label %.sink.split116
 
-.sink.split80:                                    ; preds = %573, %582
-  %storemerge92 = phi i32 [ %578, %573 ], [ %597, %582 ]
-  %.sink82.in = phi ptr [ %577, %573 ], [ %595, %582 ]
-  store i32 %storemerge92, ptr %139, align 8
-  %.sink82 = load i64, ptr %.sink82.in, align 1
-  store i64 %.sink82, ptr %9, align 8
+.sink.split116:                                   ; preds = %573, %582
+  %storemerge128 = phi i32 [ %578, %573 ], [ %597, %582 ]
+  %.sink118.in = phi ptr [ %577, %573 ], [ %595, %582 ]
+  store i32 %storemerge128, ptr %139, align 8
+  %.sink118 = load i64, ptr %.sink118.in, align 1
+  store i64 %.sink118, ptr %9, align 8
   br label %598
 
-598:                                              ; preds = %.sink.split80, %579, %568
-  %599 = phi i32 [ %566, %579 ], [ %566, %568 ], [ %storemerge92, %.sink.split80 ]
+598:                                              ; preds = %.sink.split116, %579, %568
+  %599 = phi i32 [ %566, %579 ], [ %566, %568 ], [ %storemerge128, %.sink.split116 ]
   %.pre = load ptr, ptr %182, align 8, !noalias !62
   %.pre56 = load i64, ptr %135, align 8, !noalias !62
   %.pre57 = load ptr, ptr %276, align 8, !noalias !62
@@ -6920,7 +6920,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
   br label %285
 
 600:                                              ; preds = %562
-  br i1 %567, label %.preheader93, label %601
+  br i1 %567, label %.preheader129, label %601
 
 601:                                              ; preds = %600
   %602 = load ptr, ptr %284, align 8
@@ -6928,16 +6928,16 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
   %604 = icmp ult ptr %602, %603
   %605 = load ptr, ptr %53, align 8
   %606 = icmp eq ptr %602, %605
-  %or.cond84 = select i1 %604, i1 %606, i1 false
+  %or.cond120 = select i1 %604, i1 %606, i1 false
   %607 = icmp eq i32 %566, 64
-  %or.cond85 = and i1 %or.cond84, %607
-  br i1 %or.cond85, label %.preheader93, label %.critedge.thread
+  %or.cond121 = and i1 %or.cond120, %607
+  br i1 %or.cond121, label %.preheader129, label %.critedge.thread
 
-.preheader93:                                     ; preds = %601, %600
+.preheader129:                                    ; preds = %601, %600
   br label %608
 
-608:                                              ; preds = %.preheader93, %608
-  %609 = phi i64 [ %614, %608 ], [ 0, %.preheader93 ]
+608:                                              ; preds = %.preheader129, %608
+  %609 = phi i64 [ %614, %608 ], [ 0, %.preheader129 ]
   %610 = getelementptr [3 x i64], ptr %41, i64 0, i64 %609
   %611 = load i64, ptr %610, align 8
   %612 = trunc i64 %611 to i32
@@ -7306,14 +7306,14 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
 
 .sink.split:                                      ; preds = %150, %158
   %storemerge = phi i32 [ %155, %150 ], [ %173, %158 ]
-  %.ph282 = phi ptr [ %154, %150 ], [ %171, %158 ]
+  %.ph378 = phi ptr [ %154, %150 ], [ %171, %158 ]
   store i32 %storemerge, ptr %136, align 8
-  %.sink = load i64, ptr %.ph282, align 1
+  %.sink = load i64, ptr %.ph378, align 1
   store i64 %.sink, ptr %9, align 8
   br label %174
 
 174:                                              ; preds = %.sink.split, %156, %128
-  %175 = phi ptr [ %3, %156 ], [ %129, %128 ], [ %.ph282, %.sink.split ]
+  %175 = phi ptr [ %3, %156 ], [ %129, %128 ], [ %.ph378, %.sink.split ]
   %176 = phi i32 [ %137, %156 ], [ %137, %128 ], [ %storemerge, %.sink.split ]
   %177 = phi i64 [ %131, %156 ], [ %131, %128 ], [ %.sink, %.sink.split ]
   %178 = getelementptr i8, ptr %133, i64 8
@@ -7350,7 +7350,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %202 = getelementptr i8, ptr %175, i64 %201
   store ptr %202, ptr %196, align 8
   %203 = and i32 %185, 7
-  br label %.sink.split285
+  br label %.sink.split381
 
 204:                                              ; preds = %195
   %205 = icmp eq ptr %175, %3
@@ -7373,20 +7373,20 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   store ptr %219, ptr %196, align 8
   %220 = shl i32 %216, 3
   %221 = sub i32 %185, %220
-  br label %.sink.split285
+  br label %.sink.split381
 
-.sink.split285:                                   ; preds = %198, %206
-  %storemerge333 = phi i32 [ %203, %198 ], [ %221, %206 ]
-  %.ph286 = phi ptr [ %202, %198 ], [ %219, %206 ]
-  store i32 %storemerge333, ptr %136, align 8
-  %.sink289 = load i64, ptr %.ph286, align 1
-  store i64 %.sink289, ptr %9, align 8
+.sink.split381:                                   ; preds = %198, %206
+  %storemerge429 = phi i32 [ %203, %198 ], [ %221, %206 ]
+  %.ph382 = phi ptr [ %202, %198 ], [ %219, %206 ]
+  store i32 %storemerge429, ptr %136, align 8
+  %.sink385 = load i64, ptr %.ph382, align 1
+  store i64 %.sink385, ptr %9, align 8
   br label %222
 
-222:                                              ; preds = %.sink.split285, %204, %174
-  %223 = phi ptr [ %3, %204 ], [ %175, %174 ], [ %.ph286, %.sink.split285 ]
-  %224 = phi i32 [ %185, %204 ], [ %185, %174 ], [ %storemerge333, %.sink.split285 ]
-  %225 = phi i64 [ %177, %204 ], [ %177, %174 ], [ %.sink289, %.sink.split285 ]
+222:                                              ; preds = %.sink.split381, %204, %174
+  %223 = phi ptr [ %3, %204 ], [ %175, %174 ], [ %.ph382, %.sink.split381 ]
+  %224 = phi i32 [ %185, %204 ], [ %185, %174 ], [ %storemerge429, %.sink.split381 ]
+  %225 = phi i64 [ %177, %204 ], [ %177, %174 ], [ %.sink385, %.sink.split381 ]
   %226 = getelementptr i8, ptr %182, i64 8
   %227 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr %226, ptr %227, align 8
@@ -7407,9 +7407,9 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   store i32 %233, ptr %136, align 8
   store i64 %241, ptr %228, align 8
   %242 = icmp ugt i32 %233, 64
-  br i1 %242, label %.thread248, label %246
+  br i1 %242, label %.thread344, label %246
 
-.thread248:                                       ; preds = %222
+.thread344:                                       ; preds = %222
   %243 = getelementptr i8, ptr %230, i64 8
   %244 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store ptr %243, ptr %244, align 8
@@ -7431,15 +7431,15 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   store i32 %254, ptr %136, align 8
   %255 = load i64, ptr %253, align 1
   store i64 %255, ptr %9, align 8
-  br label %.thread247
+  br label %.thread343
 
 256:                                              ; preds = %246
   %257 = icmp eq ptr %223, %3
-  br i1 %257, label %.thread247, label %264
+  br i1 %257, label %.thread343, label %264
 
-.thread247:                                       ; preds = %256, %249
+.thread343:                                       ; preds = %256, %249
   %.ph = phi i64 [ %255, %249 ], [ %225, %256 ]
-  %.ph246 = phi i32 [ %254, %249 ], [ %233, %256 ]
+  %.ph342 = phi i32 [ %254, %249 ], [ %233, %256 ]
   %258 = getelementptr i8, ptr %230, i64 8
   %259 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store ptr %258, ptr %259, align 8
@@ -7479,20 +7479,20 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %287 = icmp ult i32 %279, 65
   br i1 %287, label %.lr.ph.preheader, label %.thread
 
-.lr.ph.preheader:                                 ; preds = %.thread247, %264
-  %288 = phi i64 [ %263, %.thread247 ], [ %286, %264 ]
-  %289 = phi ptr [ %262, %.thread247 ], [ %285, %264 ]
-  %290 = phi ptr [ %261, %.thread247 ], [ %284, %264 ]
-  %291 = phi ptr [ %260, %.thread247 ], [ %283, %264 ]
-  %292 = phi ptr [ %259, %.thread247 ], [ %282, %264 ]
-  %293 = phi i32 [ %.ph246, %.thread247 ], [ %279, %264 ]
-  %294 = phi i64 [ %.ph, %.thread247 ], [ %280, %264 ]
+.lr.ph.preheader:                                 ; preds = %.thread343, %264
+  %288 = phi i64 [ %263, %.thread343 ], [ %286, %264 ]
+  %289 = phi ptr [ %262, %.thread343 ], [ %285, %264 ]
+  %290 = phi ptr [ %261, %.thread343 ], [ %284, %264 ]
+  %291 = phi ptr [ %260, %.thread343 ], [ %283, %264 ]
+  %292 = phi ptr [ %259, %.thread343 ], [ %282, %264 ]
+  %293 = phi i32 [ %.ph342, %.thread343 ], [ %279, %264 ]
+  %294 = phi i64 [ %.ph, %.thread343 ], [ %280, %264 ]
   %smax = tail call i64 @llvm.smax.i64(i64 %288, i64 0)
   br label %.lr.ph
 
-.thread:                                          ; preds = %451, %.thread248, %264
-  %295 = phi i64 [ %286, %264 ], [ %245, %.thread248 ], [ %288, %451 ]
-  %.lcssa184 = phi i64 [ 0, %264 ], [ 0, %.thread248 ], [ %499, %451 ]
+.thread:                                          ; preds = %451, %.thread344, %264
+  %295 = phi i64 [ %286, %264 ], [ %245, %.thread344 ], [ %288, %451 ]
+  %.lcssa184 = phi i64 [ 0, %264 ], [ 0, %.thread344 ], [ %499, %451 ]
   %296 = icmp slt i64 %.lcssa184, %295
   br i1 %296, label %.critedge.thread, label %.loopexit171.thread
 
@@ -7526,7 +7526,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %317 = getelementptr i8, ptr %310, i64 %316
   store ptr %317, ptr %291, align 8
   %318 = and i32 %307, 7
-  br label %.sink.split290
+  br label %.sink.split386
 
 319:                                              ; preds = %.lr.ph
   %320 = load ptr, ptr %50, align 8
@@ -7550,19 +7550,19 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   store ptr %335, ptr %291, align 8
   %336 = shl i32 %332, 3
   %337 = sub i32 %307, %336
-  br label %.sink.split290
+  br label %.sink.split386
 
-.sink.split290:                                   ; preds = %313, %322
-  %storemerge334 = phi i32 [ %318, %313 ], [ %337, %322 ]
-  %.sink292.in = phi ptr [ %317, %313 ], [ %335, %322 ]
-  store i32 %storemerge334, ptr %136, align 8
-  %.sink292 = load i64, ptr %.sink292.in, align 1
-  store i64 %.sink292, ptr %9, align 8
+.sink.split386:                                   ; preds = %313, %322
+  %storemerge430 = phi i32 [ %318, %313 ], [ %337, %322 ]
+  %.sink388.in = phi ptr [ %317, %313 ], [ %335, %322 ]
+  store i32 %storemerge430, ptr %136, align 8
+  %.sink388 = load i64, ptr %.sink388.in, align 1
+  store i64 %.sink388, ptr %9, align 8
   br label %338
 
-338:                                              ; preds = %.sink.split290, %319
-  %.pre237 = phi i64 [ %.pre238, %319 ], [ %.sink292, %.sink.split290 ]
-  %339 = phi i32 [ %307, %319 ], [ %storemerge334, %.sink.split290 ]
+338:                                              ; preds = %.sink.split386, %319
+  %.pre237 = phi i64 [ %.pre238, %319 ], [ %.sink388, %.sink.split386 ]
+  %339 = phi i32 [ %307, %319 ], [ %storemerge430, %.sink.split386 ]
   %exitcond.not = icmp eq i64 %309, %smax
   br i1 %exitcond.not, label %.loopexit171, label %340
 
@@ -7674,11 +7674,11 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   br label %422
 
 422:                                              ; preds = %419, %394, %377
-  %.sink294 = phi i64 [ %421, %419 ], [ %396, %394 ], [ %390, %377 ]
-  %.sink293 = phi i64 [ %420, %419 ], [ %395, %394 ], [ %388, %377 ]
+  %.sink390 = phi i64 [ %421, %419 ], [ %396, %394 ], [ %390, %377 ]
+  %.sink389 = phi i64 [ %420, %419 ], [ %395, %394 ], [ %388, %377 ]
   %423 = phi i32 [ %405, %419 ], [ %339, %394 ], [ %386, %377 ]
-  store i64 %.sink294, ptr %290, align 8, !noalias !66
-  store i64 %.sink293, ptr %34, align 8, !noalias !66
+  store i64 %.sink390, ptr %290, align 8, !noalias !66
+  store i64 %.sink389, ptr %34, align 8, !noalias !66
   %424 = icmp eq i8 %358, 0
   br i1 %424, label %435, label %425, !prof !24
 
@@ -7767,10 +7767,10 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %487 = add nuw i64 %485, %486
   store i64 %487, ptr %180, align 8, !noalias !66
   %488 = add i64 %453, %308
-  %489 = icmp ugt i64 %.sink293, %488
+  %489 = icmp ugt i64 %.sink389, %488
   %490 = select i1 %489, ptr %29, ptr %25
   %491 = getelementptr i8, ptr %490, i64 %488
-  %492 = sub i64 0, %.sink293
+  %492 = sub i64 0, %.sink389
   %493 = getelementptr i8, ptr %491, i64 %492
   tail call void @llvm.prefetch.p0(ptr %493, i32 0, i32 3, i32 1)
   %494 = getelementptr i8, ptr %493, i64 64
@@ -7781,7 +7781,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 8
   store i64 %436, ptr %497, align 8
   %498 = getelementptr inbounds nuw i8, ptr %496, i64 16
-  store i64 %.sink293, ptr %498, align 8
+  store i64 %.sink389, ptr %498, align 8
   %499 = add nuw nsw i64 %309, 1
   %500 = icmp ult i32 %477, 65
   br i1 %500, label %.lr.ph, label %.thread, !llvm.loop !26
@@ -7832,7 +7832,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %528 = getelementptr i8, ptr %521, i64 %527
   store ptr %528, ptr %291, align 8
   %529 = and i32 %516, 7
-  br label %.sink.split295
+  br label %.sink.split391
 
 530:                                              ; preds = %.lr.ph187
   %531 = load ptr, ptr %50, align 8
@@ -7856,18 +7856,18 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   store ptr %546, ptr %291, align 8
   %547 = shl i32 %543, 3
   %548 = sub i32 %516, %547
-  br label %.sink.split295
+  br label %.sink.split391
 
-.sink.split295:                                   ; preds = %524, %533
-  %storemerge335 = phi i32 [ %529, %524 ], [ %548, %533 ]
-  %.sink297.in = phi ptr [ %528, %524 ], [ %546, %533 ]
-  store i32 %storemerge335, ptr %136, align 8
-  %.sink297 = load i64, ptr %.sink297.in, align 1
-  store i64 %.sink297, ptr %9, align 8
+.sink.split391:                                   ; preds = %524, %533
+  %storemerge431 = phi i32 [ %529, %524 ], [ %548, %533 ]
+  %.sink393.in = phi ptr [ %528, %524 ], [ %546, %533 ]
+  store i32 %storemerge431, ptr %136, align 8
+  %.sink393 = load i64, ptr %.sink393.in, align 1
+  store i64 %.sink393, ptr %9, align 8
   br label %549
 
-549:                                              ; preds = %.sink.split295, %530
-  %550 = phi i32 [ %516, %530 ], [ %storemerge335, %.sink.split295 ]
+549:                                              ; preds = %.sink.split391, %530
+  %550 = phi i32 [ %516, %530 ], [ %storemerge431, %.sink.split391 ]
   %exitcond230.not = icmp eq i32 %518, %smax229
   br i1 %exitcond230.not, label %.loopexit168, label %551
 
@@ -7984,11 +7984,11 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   br label %638
 
 638:                                              ; preds = %635, %609, %591
-  %.sink299 = phi i64 [ %637, %635 ], [ %611, %609 ], [ %605, %591 ]
-  %.sink298 = phi i64 [ %636, %635 ], [ %610, %609 ], [ %603, %591 ]
+  %.sink395 = phi i64 [ %637, %635 ], [ %611, %609 ], [ %605, %591 ]
+  %.sink394 = phi i64 [ %636, %635 ], [ %610, %609 ], [ %603, %591 ]
   %639 = phi i32 [ %621, %635 ], [ %550, %609 ], [ %601, %591 ]
-  store i64 %.sink299, ptr %290, align 8, !noalias !69
-  store i64 %.sink298, ptr %34, align 8, !noalias !69
+  store i64 %.sink395, ptr %290, align 8, !noalias !69
+  store i64 %.sink394, ptr %34, align 8, !noalias !69
   %640 = icmp eq i8 %572, 0
   br i1 %640, label %652, label %641, !prof !24
 
@@ -8385,17 +8385,17 @@ thread-pre-split:                                 ; preds = %716, %.loopexit154
 
 896:                                              ; preds = %.loopexit148
   %897 = add i64 %670, %517
-  %898 = icmp ugt i64 %.sink298, %897
+  %898 = icmp ugt i64 %.sink394, %897
   %899 = select i1 %898, ptr %29, ptr %25
   %900 = getelementptr i8, ptr %899, i64 %897
-  %901 = sub i64 0, %.sink298
+  %901 = sub i64 0, %.sink394
   %902 = getelementptr i8, ptr %900, i64 %901
   tail call void @llvm.prefetch.p0(ptr %902, i32 0, i32 3, i32 1)
   %903 = getelementptr i8, ptr %902, i64 64
   tail call void @llvm.prefetch.p0(ptr %903, i32 0, i32 3, i32 1)
   store i64 %670, ptr %711, align 8
   store i64 %653, ptr %772, align 8
-  store i64 %.sink298, ptr %774, align 8
+  store i64 %.sink394, ptr %774, align 8
   %904 = getelementptr i8, ptr %771, i64 %894
   br label %1174
 
@@ -8799,10 +8799,10 @@ thread-pre-split:                                 ; preds = %716, %.loopexit154
 
 1160:                                             ; preds = %.loopexit158
   %1161 = add i64 %670, %517
-  %1162 = icmp ugt i64 %.sink298, %1161
+  %1162 = icmp ugt i64 %.sink394, %1161
   %1163 = select i1 %1162, ptr %29, ptr %25
   %1164 = getelementptr i8, ptr %1163, i64 %1161
-  %1165 = sub i64 0, %.sink298
+  %1165 = sub i64 0, %.sink394
   %1166 = getelementptr i8, ptr %1164, i64 %1165
   tail call void @llvm.prefetch.p0(ptr %1166, i32 0, i32 3, i32 1)
   %1167 = getelementptr i8, ptr %1166, i64 64
@@ -8814,7 +8814,7 @@ thread-pre-split:                                 ; preds = %716, %.loopexit154
   %1171 = getelementptr inbounds nuw i8, ptr %1170, i64 8
   store i64 %653, ptr %1171, align 8
   %1172 = getelementptr inbounds nuw i8, ptr %1170, i64 16
-  store i64 %.sink298, ptr %1172, align 8
+  store i64 %.sink394, ptr %1172, align 8
   %1173 = getelementptr i8, ptr %520, i64 %1158
   br label %1174
 
@@ -10476,7 +10476,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %191 = getelementptr i8, ptr %164, i64 %190
   store ptr %191, ptr %185, align 8
   %192 = and i32 %174, 7
-  br label %.sink.split255
+  br label %.sink.split334
 
 193:                                              ; preds = %184
   %194 = icmp eq ptr %164, %3
@@ -10499,20 +10499,20 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   store ptr %208, ptr %185, align 8
   %209 = shl i32 %205, 3
   %210 = sub i32 %174, %209
-  br label %.sink.split255
+  br label %.sink.split334
 
-.sink.split255:                                   ; preds = %187, %195
-  %storemerge303 = phi i32 [ %192, %187 ], [ %210, %195 ]
-  %.ph256 = phi ptr [ %191, %187 ], [ %208, %195 ]
-  store i32 %storemerge303, ptr %125, align 8
-  %.sink259 = load i64, ptr %.ph256, align 1
-  store i64 %.sink259, ptr %11, align 8
+.sink.split334:                                   ; preds = %187, %195
+  %storemerge382 = phi i32 [ %192, %187 ], [ %210, %195 ]
+  %.ph335 = phi ptr [ %191, %187 ], [ %208, %195 ]
+  store i32 %storemerge382, ptr %125, align 8
+  %.sink338 = load i64, ptr %.ph335, align 1
+  store i64 %.sink338, ptr %11, align 8
   br label %211
 
-211:                                              ; preds = %.sink.split255, %193, %163
-  %212 = phi ptr [ %3, %193 ], [ %164, %163 ], [ %.ph256, %.sink.split255 ]
-  %213 = phi i32 [ %174, %193 ], [ %174, %163 ], [ %storemerge303, %.sink.split255 ]
-  %214 = phi i64 [ %166, %193 ], [ %166, %163 ], [ %.sink259, %.sink.split255 ]
+211:                                              ; preds = %.sink.split334, %193, %163
+  %212 = phi ptr [ %3, %193 ], [ %164, %163 ], [ %.ph335, %.sink.split334 ]
+  %213 = phi i32 [ %174, %193 ], [ %174, %163 ], [ %storemerge382, %.sink.split334 ]
+  %214 = phi i64 [ %166, %193 ], [ %166, %163 ], [ %.sink338, %.sink.split334 ]
   %215 = getelementptr i8, ptr %171, i64 8
   %216 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store ptr %215, ptr %216, align 8
@@ -10547,7 +10547,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %239 = getelementptr i8, ptr %212, i64 %238
   store ptr %239, ptr %233, align 8
   %240 = and i32 %222, 7
-  br label %.sink.split260
+  br label %.sink.split339
 
 241:                                              ; preds = %232
   %242 = icmp eq ptr %212, %3
@@ -10570,19 +10570,19 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   store ptr %256, ptr %233, align 8
   %257 = shl i32 %253, 3
   %258 = sub i32 %222, %257
-  br label %.sink.split260
+  br label %.sink.split339
 
-.sink.split260:                                   ; preds = %235, %243
-  %storemerge304 = phi i32 [ %240, %235 ], [ %258, %243 ]
-  %.sink263.in = phi ptr [ %239, %235 ], [ %256, %243 ]
-  store i32 %storemerge304, ptr %125, align 8
-  %.sink263 = load i64, ptr %.sink263.in, align 1
-  store i64 %.sink263, ptr %11, align 8
+.sink.split339:                                   ; preds = %235, %243
+  %storemerge383 = phi i32 [ %240, %235 ], [ %258, %243 ]
+  %.sink342.in = phi ptr [ %239, %235 ], [ %256, %243 ]
+  store i32 %storemerge383, ptr %125, align 8
+  %.sink342 = load i64, ptr %.sink342.in, align 1
+  store i64 %.sink342, ptr %11, align 8
   br label %259
 
-259:                                              ; preds = %.sink.split260, %241, %211
-  %260 = phi i32 [ %222, %241 ], [ %222, %211 ], [ %storemerge304, %.sink.split260 ]
-  %261 = phi i64 [ %214, %241 ], [ %214, %211 ], [ %.sink263, %.sink.split260 ]
+259:                                              ; preds = %.sink.split339, %241, %211
+  %260 = phi i32 [ %222, %241 ], [ %222, %211 ], [ %storemerge383, %.sink.split339 ]
+  %261 = phi i64 [ %214, %241 ], [ %214, %211 ], [ %.sink342, %.sink.split339 ]
   %262 = getelementptr i8, ptr %219, i64 8
   %263 = getelementptr inbounds nuw i8, ptr %11, i64 80
   store ptr %262, ptr %263, align 8
@@ -10699,9 +10699,9 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br label %347
 
 347:                                              ; preds = %343, %316, %297
-  %.sink264 = phi i64 [ %344, %343 ], [ %317, %316 ], [ %308, %297 ]
+  %.sink343 = phi i64 [ %344, %343 ], [ %317, %316 ], [ %308, %297 ]
   %348 = phi i32 [ %327, %343 ], [ %260, %316 ], [ %306, %297 ]
-  store i64 %.sink264, ptr %27, align 8, !noalias !74
+  store i64 %.sink343, ptr %27, align 8, !noalias !74
   %349 = icmp eq i8 %278, 0
   br i1 %349, label %360, label %350, !prof !24
 
@@ -10807,7 +10807,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %424 = phi ptr [ %742, %705 ], [ %14, %376 ]
   %425 = phi ptr [ %552, %705 ], [ %1, %376 ]
   %426 = phi i32 [ %553, %705 ], [ %5, %376 ]
-  %427 = phi i64 [ %.sink268, %705 ], [ %.sink264, %376 ]
+  %427 = phi i64 [ %.sink347, %705 ], [ %.sink343, %376 ]
   %428 = phi i64 [ %690, %705 ], [ %361, %376 ]
   %429 = phi i64 [ %707, %705 ], [ %378, %376 ]
   %430 = getelementptr i8, ptr %423, i64 -32
@@ -11038,7 +11038,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %566 = getelementptr i8, ptr %559, i64 %565
   store ptr %566, ptr %417, align 8
   %567 = and i32 %556, 7
-  br label %.sink.split265
+  br label %.sink.split344
 
 568:                                              ; preds = %558
   %569 = load ptr, ptr %39, align 8
@@ -11062,18 +11062,18 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   store ptr %584, ptr %417, align 8
   %585 = shl i32 %581, 3
   %586 = sub i32 %556, %585
-  br label %.sink.split265
+  br label %.sink.split344
 
-.sink.split265:                                   ; preds = %562, %571
-  %storemerge305 = phi i32 [ %567, %562 ], [ %586, %571 ]
-  %.sink267.in = phi ptr [ %566, %562 ], [ %584, %571 ]
-  store i32 %storemerge305, ptr %125, align 8
-  %.sink267 = load i64, ptr %.sink267.in, align 1
-  store i64 %.sink267, ptr %11, align 8
+.sink.split344:                                   ; preds = %562, %571
+  %storemerge384 = phi i32 [ %567, %562 ], [ %586, %571 ]
+  %.sink346.in = phi ptr [ %566, %562 ], [ %584, %571 ]
+  store i32 %storemerge384, ptr %125, align 8
+  %.sink346 = load i64, ptr %.sink346.in, align 1
+  store i64 %.sink346, ptr %11, align 8
   br label %587
 
-587:                                              ; preds = %.sink.split265, %568, %555
-  %588 = phi i32 [ %556, %568 ], [ %556, %555 ], [ %storemerge305, %.sink.split265 ]
+587:                                              ; preds = %.sink.split344, %568, %555
+  %588 = phi i32 [ %556, %568 ], [ %556, %555 ], [ %storemerge384, %.sink.split344 ]
   %589 = load ptr, ptr %168, align 8, !noalias !77
   %590 = load i64, ptr %121, align 8, !noalias !77
   %591 = getelementptr %struct.ZSTD_seqSymbol, ptr %589, i64 %590
@@ -11186,11 +11186,11 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br label %675
 
 675:                                              ; preds = %672, %646, %628
-  %.sink269 = phi i64 [ %674, %672 ], [ %648, %646 ], [ %642, %628 ]
-  %.sink268 = phi i64 [ %673, %672 ], [ %647, %646 ], [ %640, %628 ]
+  %.sink348 = phi i64 [ %674, %672 ], [ %648, %646 ], [ %642, %628 ]
+  %.sink347 = phi i64 [ %673, %672 ], [ %647, %646 ], [ %640, %628 ]
   %676 = phi i32 [ %658, %672 ], [ %588, %646 ], [ %638, %628 ]
-  store i64 %.sink269, ptr %418, align 8, !noalias !77
-  store i64 %.sink268, ptr %27, align 8, !noalias !77
+  store i64 %.sink348, ptr %418, align 8, !noalias !77
+  store i64 %.sink347, ptr %27, align 8, !noalias !77
   %677 = icmp eq i8 %609, 0
   br i1 %677, label %689, label %678, !prof !24
 
@@ -11289,7 +11289,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %747 = phi ptr [ %421, %376 ], [ %744, %705 ]
   %.lcssa181 = phi i64 [ %378, %376 ], [ %707, %705 ]
   %.lcssa177 = phi i64 [ %361, %376 ], [ %690, %705 ]
-  %.lcssa173 = phi i64 [ %.sink264, %376 ], [ %.sink268, %705 ]
+  %.lcssa173 = phi i64 [ %.sink343, %376 ], [ %.sink347, %705 ]
   %.lcssa169 = phi i32 [ %5, %376 ], [ %553, %705 ]
   %.lcssa165 = phi ptr [ %1, %376 ], [ %552, %705 ]
   %748 = icmp sgt i32 %.lcssa169, 0
@@ -11623,7 +11623,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %948 = getelementptr i8, ptr %941, i64 %947
   store ptr %948, ptr %417, align 8
   %949 = and i32 %938, 7
-  br label %.sink.split270
+  br label %.sink.split349
 
 950:                                              ; preds = %940
   %951 = load ptr, ptr %39, align 8
@@ -11647,18 +11647,18 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   store ptr %966, ptr %417, align 8
   %967 = shl i32 %963, 3
   %968 = sub i32 %938, %967
-  br label %.sink.split270
+  br label %.sink.split349
 
-.sink.split270:                                   ; preds = %944, %953
-  %storemerge306 = phi i32 [ %949, %944 ], [ %968, %953 ]
-  %.sink272.in = phi ptr [ %948, %944 ], [ %966, %953 ]
-  store i32 %storemerge306, ptr %125, align 8
-  %.sink272 = load i64, ptr %.sink272.in, align 1
-  store i64 %.sink272, ptr %11, align 8
+.sink.split349:                                   ; preds = %944, %953
+  %storemerge385 = phi i32 [ %949, %944 ], [ %968, %953 ]
+  %.sink351.in = phi ptr [ %948, %944 ], [ %966, %953 ]
+  store i32 %storemerge385, ptr %125, align 8
+  %.sink351 = load i64, ptr %.sink351.in, align 1
+  store i64 %.sink351, ptr %11, align 8
   br label %969
 
-969:                                              ; preds = %.sink.split270, %950, %937
-  %970 = phi i32 [ %938, %950 ], [ %938, %937 ], [ %storemerge306, %.sink.split270 ]
+969:                                              ; preds = %.sink.split349, %950, %937
+  %970 = phi i32 [ %938, %950 ], [ %938, %937 ], [ %storemerge385, %.sink.split349 ]
   tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !47
   tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !48
   tail call void asm sideeffect ".p2align 4", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !49
@@ -11784,11 +11784,11 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br label %1063
 
 1063:                                             ; preds = %1060, %1034, %1016
-  %.sink274 = phi i64 [ %1062, %1060 ], [ %1036, %1034 ], [ %1030, %1016 ]
-  %.sink273 = phi i64 [ %1061, %1060 ], [ %1035, %1034 ], [ %1028, %1016 ]
+  %.sink353 = phi i64 [ %1062, %1060 ], [ %1036, %1034 ], [ %1030, %1016 ]
+  %.sink352 = phi i64 [ %1061, %1060 ], [ %1035, %1034 ], [ %1028, %1016 ]
   %1064 = phi i32 [ %1046, %1060 ], [ %974, %1034 ], [ %1026, %1016 ]
-  store i64 %.sink274, ptr %418, align 8, !noalias !80
-  store i64 %.sink273, ptr %27, align 8, !noalias !80
+  store i64 %.sink353, ptr %418, align 8, !noalias !80
+  store i64 %.sink352, ptr %27, align 8, !noalias !80
   %1065 = icmp eq i8 %997, 0
   br i1 %1065, label %1077, label %1066, !prof !24
 
@@ -11879,12 +11879,12 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %1095, ptr %9, align 8
   store i64 %1078, ptr %971, align 8
-  store i64 %.sink273, ptr %972, align 8
+  store i64 %.sink352, ptr %972, align 8
   %1130 = getelementptr i8, ptr %976, i64 %1095
   %1131 = add i64 %1095, %1078
   %1132 = load ptr, ptr %10, align 8
   %1133 = getelementptr i8, ptr %1132, i64 %1095
-  %1134 = sub i64 0, %.sink273
+  %1134 = sub i64 0, %.sink352
   %1135 = getelementptr i8, ptr %1130, i64 %1134
   %1136 = icmp ugt ptr %1133, %807
   %1137 = getelementptr i8, ptr %976, i64 %1131
@@ -11929,12 +11929,12 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   store ptr %1133, ptr %10, align 8
   %1159 = ptrtoint ptr %1130 to i64
   %1160 = sub i64 %1159, %415
-  %1161 = icmp ugt i64 %.sink273, %1160
+  %1161 = icmp ugt i64 %.sink352, %1160
   br i1 %1161, label %1162, label %1176
 
 1162:                                             ; preds = %.loopexit145
   %1163 = sub i64 %1159, %416
-  %1164 = icmp ugt i64 %.sink273, %1163
+  %1164 = icmp ugt i64 %.sink352, %1163
   br i1 %1164, label %.thread125, label %1165, !prof !25
 
 .thread125:                                       ; preds = %1162
@@ -11965,7 +11965,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %1177 = phi i64 [ %1175, %1172 ], [ %1078, %.loopexit145 ]
   %1178 = phi ptr [ %1174, %1172 ], [ %1130, %.loopexit145 ]
   %1179 = phi ptr [ %18, %1172 ], [ %1135, %.loopexit145 ]
-  %1180 = icmp ugt i64 %.sink273, 15
+  %1180 = icmp ugt i64 %.sink352, 15
   br i1 %1180, label %1181, label %1194, !prof !24
 
 1181:                                             ; preds = %1176
@@ -11991,11 +11991,11 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br i1 %1193, label %1186, label %.loopexit, !llvm.loop !31
 
 1194:                                             ; preds = %1176
-  %1195 = icmp samesign ult i64 %.sink273, 8
+  %1195 = icmp samesign ult i64 %.sink352, 8
   br i1 %1195, label %1196, label %1218
 
 1196:                                             ; preds = %1194
-  %1197 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sink273
+  %1197 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sink352
   %1198 = load i32, ptr %1197, align 4
   %1199 = load i8, ptr %1179, align 1
   store i8 %1199, ptr %1178, align 1
@@ -12011,7 +12011,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %1207 = load i8, ptr %1206, align 1
   %1208 = getelementptr i8, ptr %1178, i64 3
   store i8 %1207, ptr %1208, align 1
-  %1209 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sink273
+  %1209 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sink352
   %1210 = load i32, ptr %1209, align 4
   %1211 = zext i32 %1210 to i64
   %1212 = getelementptr i8, ptr %1179, i64 %1211
@@ -12083,7 +12083,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
 
 1252:                                             ; preds = %.loopexit
   %1253 = getelementptr i8, ptr %976, i64 %1250
-  %1254 = add i32 %975, -1
+  %1254 = add nsw i32 %975, -1
   %1255 = icmp eq i32 %1254, 0
   br i1 %1255, label %.thread133, label %1256, !prof !25
 
@@ -12105,7 +12105,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %1267 = getelementptr i8, ptr %1260, i64 %1266
   store ptr %1267, ptr %417, align 8
   %1268 = and i32 %1257, 7
-  br label %.sink.split275
+  br label %.sink.split354
 
 1269:                                             ; preds = %1259
   %1270 = load ptr, ptr %39, align 8
@@ -12129,18 +12129,18 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   store ptr %1285, ptr %417, align 8
   %1286 = shl i32 %1282, 3
   %1287 = sub i32 %1257, %1286
-  br label %.sink.split275
+  br label %.sink.split354
 
-.sink.split275:                                   ; preds = %1263, %1272
-  %storemerge307 = phi i32 [ %1268, %1263 ], [ %1287, %1272 ]
-  %.sink277.in = phi ptr [ %1267, %1263 ], [ %1285, %1272 ]
-  store i32 %storemerge307, ptr %125, align 8
-  %.sink277 = load i64, ptr %.sink277.in, align 1
-  store i64 %.sink277, ptr %11, align 8
+.sink.split354:                                   ; preds = %1263, %1272
+  %storemerge386 = phi i32 [ %1268, %1263 ], [ %1287, %1272 ]
+  %.sink356.in = phi ptr [ %1267, %1263 ], [ %1285, %1272 ]
+  store i32 %storemerge386, ptr %125, align 8
+  %.sink356 = load i64, ptr %.sink356.in, align 1
+  store i64 %.sink356, ptr %11, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.sink.split275, %1269, %1256
-  %.be = phi i32 [ %1257, %1269 ], [ %1257, %1256 ], [ %storemerge307, %.sink.split275 ]
+.backedge:                                        ; preds = %.sink.split354, %1269, %1256
+  %.be = phi i32 [ %1257, %1269 ], [ %1257, %1256 ], [ %storemerge386, %.sink.split354 ]
   br label %973
 
 .thread133:                                       ; preds = %551, %1252, %933
@@ -12148,7 +12148,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %.ph113123135 = phi ptr [ %807, %933 ], [ %807, %1252 ], [ %16, %551 ]
   %1289 = load i32, ptr %125, align 8
   %1290 = icmp ugt i32 %1289, 64
-  br i1 %1290, label %.preheader308, label %1291
+  br i1 %1290, label %.preheader387, label %1291
 
 1291:                                             ; preds = %.thread133
   %1292 = load ptr, ptr %417, align 8
@@ -12156,16 +12156,16 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %1294 = icmp ult ptr %1292, %1293
   %1295 = load ptr, ptr %39, align 8
   %1296 = icmp eq ptr %1292, %1295
-  %or.cond279 = select i1 %1294, i1 %1296, i1 false
+  %or.cond358 = select i1 %1294, i1 %1296, i1 false
   %1297 = icmp eq i32 %1289, 64
-  %or.cond280 = and i1 %or.cond279, %1297
-  br i1 %or.cond280, label %.preheader308, label %.critedge.thread
+  %or.cond359 = and i1 %or.cond358, %1297
+  br i1 %or.cond359, label %.preheader387, label %.critedge.thread
 
-.preheader308:                                    ; preds = %1291, %.thread133
+.preheader387:                                    ; preds = %1291, %.thread133
   br label %1298
 
-1298:                                             ; preds = %.preheader308, %1298
-  %1299 = phi i64 [ %1304, %1298 ], [ 0, %.preheader308 ]
+1298:                                             ; preds = %.preheader387, %1298
+  %1299 = phi i64 [ %1304, %1298 ], [ 0, %.preheader387 ]
   %1300 = getelementptr [3 x i64], ptr %27, i64 0, i64 %1299
   %1301 = load i64, ptr %1300, align 8
   %1302 = trunc i64 %1301 to i32
@@ -12544,7 +12544,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   %199 = getelementptr i8, ptr %172, i64 %198
   store ptr %199, ptr %193, align 8
   %200 = and i32 %182, 7
-  br label %.sink.split74
+  br label %.sink.split110
 
 201:                                              ; preds = %192
   %202 = icmp eq ptr %172, %3
@@ -12567,20 +12567,20 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   store ptr %216, ptr %193, align 8
   %217 = shl i32 %213, 3
   %218 = sub i32 %182, %217
-  br label %.sink.split74
+  br label %.sink.split110
 
-.sink.split74:                                    ; preds = %195, %203
-  %storemerge94 = phi i32 [ %200, %195 ], [ %218, %203 ]
-  %.ph75 = phi ptr [ %199, %195 ], [ %216, %203 ]
-  store i32 %storemerge94, ptr %133, align 8
-  %.sink78 = load i64, ptr %.ph75, align 1
-  store i64 %.sink78, ptr %9, align 8
+.sink.split110:                                   ; preds = %195, %203
+  %storemerge130 = phi i32 [ %200, %195 ], [ %218, %203 ]
+  %.ph111 = phi ptr [ %199, %195 ], [ %216, %203 ]
+  store i32 %storemerge130, ptr %133, align 8
+  %.sink114 = load i64, ptr %.ph111, align 1
+  store i64 %.sink114, ptr %9, align 8
   br label %219
 
-219:                                              ; preds = %.sink.split74, %201, %171
-  %220 = phi ptr [ %3, %201 ], [ %172, %171 ], [ %.ph75, %.sink.split74 ]
-  %221 = phi i32 [ %182, %201 ], [ %182, %171 ], [ %storemerge94, %.sink.split74 ]
-  %222 = phi i64 [ %174, %201 ], [ %174, %171 ], [ %.sink78, %.sink.split74 ]
+219:                                              ; preds = %.sink.split110, %201, %171
+  %220 = phi ptr [ %3, %201 ], [ %172, %171 ], [ %.ph111, %.sink.split110 ]
+  %221 = phi i32 [ %182, %201 ], [ %182, %171 ], [ %storemerge130, %.sink.split110 ]
+  %222 = phi i64 [ %174, %201 ], [ %174, %171 ], [ %.sink114, %.sink.split110 ]
   %223 = getelementptr i8, ptr %179, i64 8
   %224 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr %223, ptr %224, align 8
@@ -12615,7 +12615,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   %247 = getelementptr i8, ptr %220, i64 %246
   store ptr %247, ptr %241, align 8
   %248 = and i32 %230, 7
-  br label %.sink.split79
+  br label %.sink.split115
 
 249:                                              ; preds = %240
   %250 = icmp eq ptr %220, %3
@@ -12638,18 +12638,18 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   store ptr %264, ptr %241, align 8
   %265 = shl i32 %261, 3
   %266 = sub i32 %230, %265
-  br label %.sink.split79
+  br label %.sink.split115
 
-.sink.split79:                                    ; preds = %243, %251
-  %storemerge95 = phi i32 [ %248, %243 ], [ %266, %251 ]
-  %.sink81.in = phi ptr [ %247, %243 ], [ %264, %251 ]
-  store i32 %storemerge95, ptr %133, align 8
-  %.sink81 = load i64, ptr %.sink81.in, align 1
-  store i64 %.sink81, ptr %9, align 8
+.sink.split115:                                   ; preds = %243, %251
+  %storemerge131 = phi i32 [ %248, %243 ], [ %266, %251 ]
+  %.sink117.in = phi ptr [ %247, %243 ], [ %264, %251 ]
+  store i32 %storemerge131, ptr %133, align 8
+  %.sink117 = load i64, ptr %.sink117.in, align 1
+  store i64 %.sink117, ptr %9, align 8
   br label %267
 
-267:                                              ; preds = %.sink.split79, %249, %219
-  %268 = phi i32 [ %230, %249 ], [ %230, %219 ], [ %storemerge95, %.sink.split79 ]
+267:                                              ; preds = %.sink.split115, %249, %219
+  %268 = phi i32 [ %230, %249 ], [ %230, %219 ], [ %storemerge131, %.sink.split115 ]
   %269 = getelementptr i8, ptr %227, i64 8
   %270 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store ptr %269, ptr %270, align 8
@@ -12784,11 +12784,11 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   br label %369
 
 369:                                              ; preds = %366, %340, %322
-  %.sink83 = phi i64 [ %368, %366 ], [ %342, %340 ], [ %336, %322 ]
-  %.sink82 = phi i64 [ %367, %366 ], [ %341, %340 ], [ %334, %322 ]
+  %.sink119 = phi i64 [ %368, %366 ], [ %342, %340 ], [ %336, %322 ]
+  %.sink118 = phi i64 [ %367, %366 ], [ %341, %340 ], [ %334, %322 ]
   %370 = phi i32 [ %352, %366 ], [ %280, %340 ], [ %332, %322 ]
-  store i64 %.sink83, ptr %274, align 8, !noalias !83
-  store i64 %.sink82, ptr %35, align 8, !noalias !83
+  store i64 %.sink119, ptr %274, align 8, !noalias !83
+  store i64 %.sink118, ptr %35, align 8, !noalias !83
   %371 = icmp eq i8 %303, 0
   br i1 %371, label %383, label %372, !prof !24
 
@@ -12879,12 +12879,12 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %401, ptr %7, align 8
   store i64 %384, ptr %271, align 8
-  store i64 %.sink82, ptr %272, align 8
+  store i64 %.sink118, ptr %272, align 8
   %436 = getelementptr i8, ptr %288, i64 %401
   %437 = add i64 %401, %384
   %438 = load ptr, ptr %8, align 8
   %439 = getelementptr i8, ptr %438, i64 %401
-  %440 = sub i64 0, %.sink82
+  %440 = sub i64 0, %.sink118
   %441 = getelementptr i8, ptr %436, i64 %440
   %442 = icmp ugt ptr %439, %24
   %443 = getelementptr i8, ptr %288, i64 %437
@@ -12929,12 +12929,12 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   store ptr %439, ptr %8, align 8
   %465 = ptrtoint ptr %436 to i64
   %466 = sub i64 %465, %276
-  %467 = icmp ugt i64 %.sink82, %466
+  %467 = icmp ugt i64 %.sink118, %466
   br i1 %467, label %468, label %482
 
 468:                                              ; preds = %.loopexit50
   %469 = sub i64 %465, %277
-  %470 = icmp ugt i64 %.sink82, %469
+  %470 = icmp ugt i64 %.sink118, %469
   br i1 %470, label %.thread40, label %471, !prof !25
 
 .thread40:                                        ; preds = %468
@@ -12965,7 +12965,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   %483 = phi i64 [ %481, %478 ], [ %384, %.loopexit50 ]
   %484 = phi ptr [ %480, %478 ], [ %436, %.loopexit50 ]
   %485 = phi ptr [ %26, %478 ], [ %441, %.loopexit50 ]
-  %486 = icmp ugt i64 %.sink82, 15
+  %486 = icmp ugt i64 %.sink118, 15
   br i1 %486, label %487, label %500, !prof !24
 
 487:                                              ; preds = %482
@@ -12991,11 +12991,11 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   br i1 %499, label %492, label %.loopexit, !llvm.loop !31
 
 500:                                              ; preds = %482
-  %501 = icmp samesign ult i64 %.sink82, 8
+  %501 = icmp samesign ult i64 %.sink118, 8
   br i1 %501, label %502, label %524
 
 502:                                              ; preds = %500
-  %503 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sink82
+  %503 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sink118
   %504 = load i32, ptr %503, align 4
   %505 = load i8, ptr %485, align 1
   store i8 %505, ptr %484, align 1
@@ -13011,7 +13011,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   %513 = load i8, ptr %512, align 1
   %514 = getelementptr i8, ptr %484, i64 3
   store i8 %513, ptr %514, align 1
-  %515 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sink82
+  %515 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sink118
   %516 = load i32, ptr %515, align 4
   %517 = zext i32 %516 to i64
   %518 = getelementptr i8, ptr %485, i64 %517
@@ -13105,7 +13105,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   %573 = getelementptr i8, ptr %566, i64 %572
   store ptr %573, ptr %278, align 8
   %574 = and i32 %562, 7
-  br label %.sink.split84
+  br label %.sink.split120
 
 575:                                              ; preds = %565
   %576 = load ptr, ptr %47, align 8
@@ -13129,18 +13129,18 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   store ptr %591, ptr %278, align 8
   %592 = shl i32 %588, 3
   %593 = sub i32 %562, %592
-  br label %.sink.split84
+  br label %.sink.split120
 
-.sink.split84:                                    ; preds = %569, %578
-  %storemerge96 = phi i32 [ %574, %569 ], [ %593, %578 ]
-  %.sink86.in = phi ptr [ %573, %569 ], [ %591, %578 ]
-  store i32 %storemerge96, ptr %133, align 8
-  %.sink86 = load i64, ptr %.sink86.in, align 1
-  store i64 %.sink86, ptr %9, align 8
+.sink.split120:                                   ; preds = %569, %578
+  %storemerge132 = phi i32 [ %574, %569 ], [ %593, %578 ]
+  %.sink122.in = phi ptr [ %573, %569 ], [ %591, %578 ]
+  store i32 %storemerge132, ptr %133, align 8
+  %.sink122 = load i64, ptr %.sink122.in, align 1
+  store i64 %.sink122, ptr %9, align 8
   br label %594
 
-594:                                              ; preds = %.sink.split84, %575, %564
-  %595 = phi i32 [ %562, %575 ], [ %562, %564 ], [ %storemerge96, %.sink.split84 ]
+594:                                              ; preds = %.sink.split120, %575, %564
+  %595 = phi i32 [ %562, %575 ], [ %562, %564 ], [ %storemerge132, %.sink.split120 ]
   %.pre = load ptr, ptr %176, align 8, !noalias !83
   %.pre58 = load i64, ptr %129, align 8, !noalias !83
   %.pre59 = load ptr, ptr %270, align 8, !noalias !83
@@ -13150,7 +13150,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   br label %279
 
 596:                                              ; preds = %558
-  br i1 %563, label %.preheader97, label %597
+  br i1 %563, label %.preheader133, label %597
 
 597:                                              ; preds = %596
   %598 = load ptr, ptr %278, align 8
@@ -13158,16 +13158,16 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   %600 = icmp ult ptr %598, %599
   %601 = load ptr, ptr %47, align 8
   %602 = icmp eq ptr %598, %601
-  %or.cond88 = select i1 %600, i1 %602, i1 false
+  %or.cond124 = select i1 %600, i1 %602, i1 false
   %603 = icmp eq i32 %562, 64
-  %or.cond89 = and i1 %or.cond88, %603
-  br i1 %or.cond89, label %.preheader97, label %.critedge.thread
+  %or.cond125 = and i1 %or.cond124, %603
+  br i1 %or.cond125, label %.preheader133, label %.critedge.thread
 
-.preheader97:                                     ; preds = %597, %596
+.preheader133:                                    ; preds = %597, %596
   br label %604
 
-604:                                              ; preds = %.preheader97, %604
-  %605 = phi i64 [ %610, %604 ], [ 0, %.preheader97 ]
+604:                                              ; preds = %.preheader133, %604
+  %605 = phi i64 [ %610, %604 ], [ 0, %.preheader133 ]
   %606 = getelementptr [3 x i64], ptr %35, i64 0, i64 %605
   %607 = load i64, ptr %606, align 8
   %608 = trunc i64 %607 to i32

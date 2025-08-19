@@ -482,9 +482,9 @@ pg_password_sendauth.exit:                        ; preds = %99, %116
   %179 = load ptr, ptr %144, align 8
   %180 = load ptr, ptr %178, align 8
   %181 = icmp eq ptr %179, %180
-  br i1 %181, label %.thread.i53, label %.critedge88, !llvm.loop !5
+  br i1 %181, label %.thread.i53, label %.critedge101, !llvm.loop !5
 
-.critedge88:                                      ; preds = %.preheader.i
+.critedge101:                                     ; preds = %.preheader.i
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.43, ptr noundef nonnull %177, ptr noundef nonnull %.071103.i) #10
   br label %257
 
@@ -643,7 +643,7 @@ pg_password_sendauth.exit:                        ; preds = %99, %116
   call void @free(ptr noundef %256) #10
   br label %pg_SASL_init.exit.thread
 
-257:                                              ; preds = %253, %250, %245, %242, %238, %236, %229, %209, %187, %.critedge88, %175, %166, %165, %._crit_edge.i, %140, %133
+257:                                              ; preds = %253, %250, %245, %242, %238, %236, %229, %209, %187, %.critedge101, %175, %166, %165, %._crit_edge.i, %140, %133
   call void @termPQExpBuffer(ptr noundef nonnull %9) #10
   %258 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %258) #10
@@ -732,15 +732,15 @@ pg_SASL_init.exit:                                ; preds = %257, %.loopexit.i
   %295 = call i32 %293(ptr noundef %294, i1 noundef zeroext %269, ptr noundef nonnull %272, i32 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
   call void @free(ptr noundef nonnull %272) #10
   %296 = icmp eq i32 %295, 3
-  br i1 %296, label %.thread41.i, label %299
+  br i1 %296, label %.thread44.i, label %299
 
-.thread41.i:                                      ; preds = %288
+.thread44.i:                                      ; preds = %288
   store i8 1, ptr %3, align 1
   %297 = load ptr, ptr %5, align 8
   %298 = icmp eq ptr %297, null
   br i1 %298, label %pg_SASL_continue.exit.thread68, label %311
 
-pg_SASL_continue.exit.thread68:                   ; preds = %.thread41.i
+pg_SASL_continue.exit.thread68:                   ; preds = %.thread44.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
@@ -777,8 +777,8 @@ pg_SASL_continue.exit.thread68:                   ; preds = %.thread41.i
 310:                                              ; preds = %306
   br i1 %308, label %pg_SASL_continue.exit, label %311
 
-311:                                              ; preds = %310, %.thread41.i
-  %312 = phi ptr [ %297, %.thread41.i ], [ %307, %310 ]
+311:                                              ; preds = %310, %.thread44.i
+  %312 = phi ptr [ %297, %.thread44.i ], [ %307, %310 ]
   %313 = getelementptr inbounds nuw i8, ptr %2, i64 841
   store i8 83, ptr %313, align 1
   %314 = load i32, ptr %6, align 4
@@ -1011,8 +1011,8 @@ sub_0:                                            ; preds = %8, %28
   br i1 %.not53, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %.038.sroa.phi59 = getelementptr inbounds nuw i8, ptr %.038, i64 1
-  %31 = load i8, ptr %.038.sroa.phi59, align 1
+  %.038.sroa.phi63 = getelementptr inbounds nuw i8, ptr %.038, i64 1
+  %31 = load i8, ptr %.038.sroa.phi63, align 1
   %.not54 = icmp eq i8 %31, 110
   br i1 %.not54, label %.tail, label %.tail.thread
 

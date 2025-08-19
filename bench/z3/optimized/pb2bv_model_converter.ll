@@ -415,7 +415,7 @@ _ZN6vectorISt4pairIP9func_declS2_ELb0EjE3endEv.exit: ; preds = %1
   %8 = shl nuw nsw i64 %7, 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
   %.not12 = icmp eq i32 %6, 0
-  br i1 %.not12, label %._crit_edge.thread18, label %.lr.ph
+  br i1 %.not12, label %._crit_edge.thread22, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorISt4pairIP9func_declS2_ELb0EjE3endEv.exit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -424,22 +424,22 @@ _ZN6vectorISt4pairIP9func_declS2_ELb0EjE3endEv.exit: ; preds = %1
 ._crit_edge:                                      ; preds = %_ZN11ast_manager7dec_refEP3ast.exit11
   %.pre14 = load ptr, ptr %2, align 8, !tbaa !18
   %.not.i.i = icmp eq ptr %.pre14, null
-  br i1 %.not.i.i, label %_ZN6vectorISt4pairIP9func_declS2_ELb0EjED2Ev.exit, label %._crit_edge.thread18
+  br i1 %.not.i.i, label %_ZN6vectorISt4pairIP9func_declS2_ELb0EjED2Ev.exit, label %._crit_edge.thread22
 
-._crit_edge.thread18:                             ; preds = %_ZN6vectorISt4pairIP9func_declS2_ELb0EjE3endEv.exit, %._crit_edge
+._crit_edge.thread22:                             ; preds = %_ZN6vectorISt4pairIP9func_declS2_ELb0EjE3endEv.exit, %._crit_edge
   %11 = phi ptr [ %.pre14, %._crit_edge ], [ %3, %_ZN6vectorISt4pairIP9func_declS2_ELb0EjE3endEv.exit ]
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %12)
           to label %_ZN6vectorISt4pairIP9func_declS2_ELb0EjED2Ev.exit unwind label %13
 
-13:                                               ; preds = %._crit_edge.thread18
+13:                                               ; preds = %._crit_edge.thread22
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
   tail call void @__clang_call_terminate(ptr %15) #19
   unreachable
 
-_ZN6vectorISt4pairIP9func_declS2_ELb0EjED2Ev.exit: ; preds = %1, %._crit_edge, %._crit_edge.thread18
+_ZN6vectorISt4pairIP9func_declS2_ELb0EjED2Ev.exit: ; preds = %1, %._crit_edge, %._crit_edge.thread22
   ret void
 
 16:                                               ; preds = %.lr.ph, %_ZN11ast_manager7dec_refEP3ast.exit11
@@ -578,8 +578,8 @@ _ZNK6vectorISt4pairIP9func_declS2_ELb0EjE5emptyEv.exit: ; preds = %2
   %30 = icmp ugt i32 %19, 16
   %31 = mul i32 %19, 3
   %32 = icmp ugt i32 %29, %31
-  %or.cond16.i.i = select i1 %30, i1 %32, i1 false
-  br i1 %or.cond16.i.i, label %33, label %._crit_edge.thread.i.i
+  %or.cond18.i.i = select i1 %30, i1 %32, i1 false
+  br i1 %or.cond18.i.i, label %33, label %._crit_edge.thread.i.i
 
 33:                                               ; preds = %._crit_edge.i.i
   %34 = icmp eq ptr %17, null
@@ -1158,7 +1158,7 @@ _ZN15ast_translationclI9func_declEEPT_PKS2_.exit: ; preds = %.lr.ph
   br label %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit19
 
 _ZN15ast_translationclI9func_declEEPT_PKS2_.exit19: ; preds = %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit.thread, %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit, %29
-  %.0.i.i1731 = phi ptr [ %25, %29 ], [ %25, %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit ], [ %19, %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit.thread ]
+  %.0.i.i1735 = phi ptr [ %25, %29 ], [ %25, %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit ], [ %19, %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit.thread ]
   %.0.i.i18 = phi ptr [ %30, %29 ], [ %28, %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit ], [ %24, %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit.thread ]
   %31 = load ptr, ptr %10, align 8, !tbaa !18
   %32 = icmp eq ptr %31, null
@@ -1184,7 +1184,7 @@ _ZN6vectorISt4pairIP9func_declS2_ELb0EjE9push_backEOS3_.exit: ; preds = %33, %39
   %41 = phi ptr [ %.pre.i, %39 ], [ %31, %33 ]
   %42 = zext i32 %40 to i64
   %43 = getelementptr inbounds nuw %"struct.std::pair", ptr %41, i64 %42
-  store ptr %.0.i.i1731, ptr %43, align 8
+  store ptr %.0.i.i1735, ptr %43, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %.0.i.i18, ptr %.sroa.4.0..sroa_idx, align 8
   %44 = load ptr, ptr %10, align 8, !tbaa !18
@@ -1192,11 +1192,11 @@ _ZN6vectorISt4pairIP9func_declS2_ELb0EjE9push_backEOS3_.exit: ; preds = %33, %39
   %46 = load i32, ptr %45, align 4, !tbaa !39
   %47 = add i32 %46, 1
   store i32 %47, ptr %45, align 4, !tbaa !39
-  %.not.i = icmp eq ptr %.0.i.i1731, null
+  %.not.i = icmp eq ptr %.0.i.i1735, null
   br i1 %.not.i, label %_ZN11ast_manager7inc_refEP3ast.exit, label %48
 
 48:                                               ; preds = %_ZN6vectorISt4pairIP9func_declS2_ELb0EjE9push_backEOS3_.exit
-  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i1731, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i1735, i64 8
   %50 = load i32, ptr %49, align 4, !tbaa !41
   %51 = add i32 %50, 1
   store i32 %51, ptr %49, align 4, !tbaa !41

@@ -444,9 +444,9 @@ phn_merge.exit.i:                                 ; preds = %phn_merge_ordered.e
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
   store ptr %44, ptr %66, align 8, !tbaa !10
   %.not.i2 = icmp eq ptr %44, null
-  br i1 %.not.i2, label %ph_try_aux_merge_pair.exit.thread10, label %ph_try_aux_merge_pair.exit
+  br i1 %.not.i2, label %ph_try_aux_merge_pair.exit.thread18, label %ph_try_aux_merge_pair.exit
 
-ph_try_aux_merge_pair.exit.thread10:              ; preds = %phn_merge.exit.i
+ph_try_aux_merge_pair.exit.thread18:              ; preds = %phn_merge.exit.i
   store ptr %.0.i.i, ptr %24, align 8, !tbaa !10
   store ptr %6, ptr %65, align 8, !tbaa !12
   br label %ph_insert.exit
@@ -460,7 +460,7 @@ ph_try_aux_merge_pair.exit:                       ; preds = %phn_merge.exit.i
   %.not = icmp samesign ult i32 %68, %34
   br i1 %.not, label %.lr.ph.split.preheader, label %ph_insert.exit, !llvm.loop !15
 
-ph_insert.exit:                                   ; preds = %.lr.ph.split.preheader, %ph_try_aux_merge_pair.exit, %ph_try_aux_merge_pair.exit.thread10, %28, %8, %20
+ph_insert.exit:                                   ; preds = %.lr.ph.split.preheader, %ph_try_aux_merge_pair.exit, %ph_try_aux_merge_pair.exit.thread18, %28, %8, %20
   ret void
 }
 
@@ -825,7 +825,7 @@ phn_merge.exit19.i:                               ; preds = %phn_merge_ordered.e
   %147 = getelementptr inbounds nuw i8, ptr %.077.i.i40, i64 48
   %148 = load ptr, ptr %147, align 8, !tbaa !10
   %.not90.i.i = icmp eq ptr %148, null
-  br i1 %.not90.i.i, label %.thread48, label %149
+  br i1 %.not90.i.i, label %.thread76, label %149
 
 149:                                              ; preds = %.lr.ph41
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 40
@@ -890,7 +890,7 @@ phn_merge_ordered.exit.i9.i:                      ; preds = %174, %171
   store ptr %.077.i.i40, ptr %172, align 8, !tbaa !14
   br label %177
 
-.thread48:                                        ; preds = %.lr.ph41
+.thread76:                                        ; preds = %.lr.ph41
   %176 = getelementptr inbounds nuw i8, ptr %.078.i.i39, i64 48
   store ptr %.077.i.i40, ptr %176, align 8, !tbaa !10
   br label %._crit_edge42
@@ -902,8 +902,8 @@ phn_merge_ordered.exit.i9.i:                      ; preds = %174, %171
   %.not88.i.i = icmp eq ptr %152, null
   br i1 %.not88.i.i, label %._crit_edge42, label %.lr.ph41
 
-._crit_edge42:                                    ; preds = %177, %.thread48, %phn_merge.exit19.i
-  %.078.i.i.lcssa = phi ptr [ %.0.i16.i, %phn_merge.exit19.i ], [ %.077.i.i40, %.thread48 ], [ %.0.i10.i, %177 ]
+._crit_edge42:                                    ; preds = %177, %.thread76, %phn_merge.exit19.i
+  %.078.i.i.lcssa = phi ptr [ %.0.i16.i, %phn_merge.exit19.i ], [ %.077.i.i40, %.thread76 ], [ %.0.i10.i, %177 ]
   %179 = getelementptr inbounds nuw i8, ptr %.0.i16.i, i64 48
   %180 = load ptr, ptr %179, align 8, !tbaa !10
   %.not89.i.i = icmp eq ptr %180, null
@@ -1349,7 +1349,7 @@ phn_merge.exit19.i:                               ; preds = %phn_merge_ordered.e
   %149 = getelementptr inbounds nuw i8, ptr %.077.i.i101, i64 48
   %150 = load ptr, ptr %149, align 8, !tbaa !10
   %.not90.i.i = icmp eq ptr %150, null
-  br i1 %.not90.i.i, label %.thread109, label %151
+  br i1 %.not90.i.i, label %.thread155, label %151
 
 151:                                              ; preds = %.lr.ph102
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 40
@@ -1414,7 +1414,7 @@ phn_merge_ordered.exit.i9.i:                      ; preds = %176, %173
   store ptr %.077.i.i101, ptr %174, align 8, !tbaa !14
   br label %179
 
-.thread109:                                       ; preds = %.lr.ph102
+.thread155:                                       ; preds = %.lr.ph102
   %178 = getelementptr inbounds nuw i8, ptr %.078.i.i100, i64 48
   store ptr %.077.i.i101, ptr %178, align 8, !tbaa !10
   br label %._crit_edge103
@@ -1426,8 +1426,8 @@ phn_merge_ordered.exit.i9.i:                      ; preds = %176, %173
   %.not88.i.i = icmp eq ptr %154, null
   br i1 %.not88.i.i, label %._crit_edge103, label %.lr.ph102
 
-._crit_edge103:                                   ; preds = %179, %.thread109, %phn_merge.exit19.i
-  %.078.i.i.lcssa = phi ptr [ %.0.i16.i, %phn_merge.exit19.i ], [ %.077.i.i101, %.thread109 ], [ %.0.i10.i, %179 ]
+._crit_edge103:                                   ; preds = %179, %.thread155, %phn_merge.exit19.i
+  %.078.i.i.lcssa = phi ptr [ %.0.i16.i, %phn_merge.exit19.i ], [ %.077.i.i101, %.thread155 ], [ %.0.i10.i, %179 ]
   %181 = getelementptr inbounds nuw i8, ptr %.0.i16.i, i64 48
   %182 = load ptr, ptr %181, align 8, !tbaa !10
   %.not89.i.i = icmp eq ptr %182, null
@@ -1600,7 +1600,7 @@ phn_merge.exit19.i24:                             ; preds = %phn_merge_ordered.e
   %254 = getelementptr inbounds nuw i8, ptr %.077.i.i2792, i64 48
   %255 = load ptr, ptr %254, align 8, !tbaa !10
   %.not90.i.i29 = icmp eq ptr %255, null
-  br i1 %.not90.i.i29, label %.thread114, label %256
+  br i1 %.not90.i.i29, label %.thread160, label %256
 
 256:                                              ; preds = %.lr.ph
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 40
@@ -1665,7 +1665,7 @@ phn_merge_ordered.exit.i9.i32:                    ; preds = %281, %278
   store ptr %.077.i.i2792, ptr %279, align 8, !tbaa !14
   br label %284
 
-.thread114:                                       ; preds = %.lr.ph
+.thread160:                                       ; preds = %.lr.ph
   %283 = getelementptr inbounds nuw i8, ptr %.078.i.i2691, i64 48
   store ptr %.077.i.i2792, ptr %283, align 8, !tbaa !10
   br label %._crit_edge
@@ -1677,8 +1677,8 @@ phn_merge_ordered.exit.i9.i32:                    ; preds = %281, %278
   %.not88.i.i28 = icmp eq ptr %259, null
   br i1 %.not88.i.i28, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %284, %.thread114, %phn_merge.exit19.i24
-  %.078.i.i26.lcssa = phi ptr [ %.0.i16.i25, %phn_merge.exit19.i24 ], [ %.077.i.i2792, %.thread114 ], [ %.0.i10.i34, %284 ]
+._crit_edge:                                      ; preds = %284, %.thread160, %phn_merge.exit19.i24
+  %.078.i.i26.lcssa = phi ptr [ %.0.i16.i25, %phn_merge.exit19.i24 ], [ %.077.i.i2792, %.thread160 ], [ %.0.i10.i34, %284 ]
   %286 = getelementptr inbounds nuw i8, ptr %.0.i16.i25, i64 48
   %287 = load ptr, ptr %286, align 8, !tbaa !10
   %.not89.i.i39 = icmp eq ptr %287, null
@@ -2272,9 +2272,9 @@ phn_merge.exit.i:                                 ; preds = %phn_merge_ordered.e
   %68 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
   store ptr %45, ptr %68, align 8, !tbaa !10
   %.not.i2 = icmp eq ptr %45, null
-  br i1 %.not.i2, label %ph_try_aux_merge_pair.exit.thread14, label %ph_try_aux_merge_pair.exit
+  br i1 %.not.i2, label %ph_try_aux_merge_pair.exit.thread22, label %ph_try_aux_merge_pair.exit
 
-ph_try_aux_merge_pair.exit.thread14:              ; preds = %phn_merge.exit.i
+ph_try_aux_merge_pair.exit.thread22:              ; preds = %phn_merge.exit.i
   store ptr %.0.i.i, ptr %25, align 8, !tbaa !10
   store ptr %6, ptr %67, align 8, !tbaa !12
   br label %ph_insert.exit
@@ -2288,7 +2288,7 @@ ph_try_aux_merge_pair.exit:                       ; preds = %phn_merge.exit.i
   %.not = icmp samesign ult i32 %70, %35
   br i1 %.not, label %.lr.ph.split.preheader, label %ph_insert.exit, !llvm.loop !21
 
-ph_insert.exit:                                   ; preds = %.lr.ph.split.preheader, %ph_try_aux_merge_pair.exit, %ph_try_aux_merge_pair.exit.thread14, %29, %8, %21
+ph_insert.exit:                                   ; preds = %.lr.ph.split.preheader, %ph_try_aux_merge_pair.exit, %ph_try_aux_merge_pair.exit.thread22, %29, %8, %21
   ret void
 }
 
@@ -2665,7 +2665,7 @@ phn_merge.exit19.i:                               ; preds = %phn_merge_ordered.e
   %151 = getelementptr inbounds nuw i8, ptr %.077.i.i42, i64 48
   %152 = load ptr, ptr %151, align 8, !tbaa !10
   %.not90.i.i = icmp eq ptr %152, null
-  br i1 %.not90.i.i, label %.thread50, label %153
+  br i1 %.not90.i.i, label %.thread78, label %153
 
 153:                                              ; preds = %.lr.ph43
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 40
@@ -2733,7 +2733,7 @@ phn_merge_ordered.exit.i9.i:                      ; preds = %179, %176
   store ptr %.077.i.i42, ptr %177, align 8, !tbaa !14
   br label %182
 
-.thread50:                                        ; preds = %.lr.ph43
+.thread78:                                        ; preds = %.lr.ph43
   %181 = getelementptr inbounds nuw i8, ptr %.078.i.i41, i64 48
   store ptr %.077.i.i42, ptr %181, align 8, !tbaa !10
   br label %._crit_edge44
@@ -2745,8 +2745,8 @@ phn_merge_ordered.exit.i9.i:                      ; preds = %179, %176
   %.not88.i.i = icmp eq ptr %156, null
   br i1 %.not88.i.i, label %._crit_edge44, label %.lr.ph43
 
-._crit_edge44:                                    ; preds = %182, %.thread50, %phn_merge.exit19.i
-  %.078.i.i.lcssa = phi ptr [ %.0.i16.i, %phn_merge.exit19.i ], [ %.077.i.i42, %.thread50 ], [ %.0.i10.i, %182 ]
+._crit_edge44:                                    ; preds = %182, %.thread78, %phn_merge.exit19.i
+  %.078.i.i.lcssa = phi ptr [ %.0.i16.i, %phn_merge.exit19.i ], [ %.077.i.i42, %.thread78 ], [ %.0.i10.i, %182 ]
   %184 = getelementptr inbounds nuw i8, ptr %.0.i16.i, i64 48
   %185 = load ptr, ptr %184, align 8, !tbaa !10
   %.not89.i.i = icmp eq ptr %185, null
@@ -3207,7 +3207,7 @@ phn_merge.exit19.i:                               ; preds = %phn_merge_ordered.e
   %153 = getelementptr inbounds nuw i8, ptr %.077.i.i103, i64 48
   %154 = load ptr, ptr %153, align 8, !tbaa !10
   %.not90.i.i = icmp eq ptr %154, null
-  br i1 %.not90.i.i, label %.thread111, label %155
+  br i1 %.not90.i.i, label %.thread157, label %155
 
 155:                                              ; preds = %.lr.ph104
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 40
@@ -3275,7 +3275,7 @@ phn_merge_ordered.exit.i9.i:                      ; preds = %181, %178
   store ptr %.077.i.i103, ptr %179, align 8, !tbaa !14
   br label %184
 
-.thread111:                                       ; preds = %.lr.ph104
+.thread157:                                       ; preds = %.lr.ph104
   %183 = getelementptr inbounds nuw i8, ptr %.078.i.i102, i64 48
   store ptr %.077.i.i103, ptr %183, align 8, !tbaa !10
   br label %._crit_edge105
@@ -3287,8 +3287,8 @@ phn_merge_ordered.exit.i9.i:                      ; preds = %181, %178
   %.not88.i.i = icmp eq ptr %158, null
   br i1 %.not88.i.i, label %._crit_edge105, label %.lr.ph104
 
-._crit_edge105:                                   ; preds = %184, %.thread111, %phn_merge.exit19.i
-  %.078.i.i.lcssa = phi ptr [ %.0.i16.i, %phn_merge.exit19.i ], [ %.077.i.i103, %.thread111 ], [ %.0.i10.i, %184 ]
+._crit_edge105:                                   ; preds = %184, %.thread157, %phn_merge.exit19.i
+  %.078.i.i.lcssa = phi ptr [ %.0.i16.i, %phn_merge.exit19.i ], [ %.077.i.i103, %.thread157 ], [ %.0.i10.i, %184 ]
   %186 = getelementptr inbounds nuw i8, ptr %.0.i16.i, i64 48
   %187 = load ptr, ptr %186, align 8, !tbaa !10
   %.not89.i.i = icmp eq ptr %187, null
@@ -3467,7 +3467,7 @@ phn_merge.exit19.i24:                             ; preds = %phn_merge_ordered.e
   %261 = getelementptr inbounds nuw i8, ptr %.077.i.i2794, i64 48
   %262 = load ptr, ptr %261, align 8, !tbaa !10
   %.not90.i.i29 = icmp eq ptr %262, null
-  br i1 %.not90.i.i29, label %.thread116, label %263
+  br i1 %.not90.i.i29, label %.thread162, label %263
 
 263:                                              ; preds = %.lr.ph
   %264 = getelementptr inbounds nuw i8, ptr %262, i64 40
@@ -3535,7 +3535,7 @@ phn_merge_ordered.exit.i9.i32:                    ; preds = %289, %286
   store ptr %.077.i.i2794, ptr %287, align 8, !tbaa !14
   br label %292
 
-.thread116:                                       ; preds = %.lr.ph
+.thread162:                                       ; preds = %.lr.ph
   %291 = getelementptr inbounds nuw i8, ptr %.078.i.i2693, i64 48
   store ptr %.077.i.i2794, ptr %291, align 8, !tbaa !10
   br label %._crit_edge
@@ -3547,8 +3547,8 @@ phn_merge_ordered.exit.i9.i32:                    ; preds = %289, %286
   %.not88.i.i28 = icmp eq ptr %266, null
   br i1 %.not88.i.i28, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %292, %.thread116, %phn_merge.exit19.i24
-  %.078.i.i26.lcssa = phi ptr [ %.0.i16.i25, %phn_merge.exit19.i24 ], [ %.077.i.i2794, %.thread116 ], [ %.0.i10.i34, %292 ]
+._crit_edge:                                      ; preds = %292, %.thread162, %phn_merge.exit19.i24
+  %.078.i.i26.lcssa = phi ptr [ %.0.i16.i25, %phn_merge.exit19.i24 ], [ %.077.i.i2794, %.thread162 ], [ %.0.i10.i34, %292 ]
   %294 = getelementptr inbounds nuw i8, ptr %.0.i16.i25, i64 48
   %295 = load ptr, ptr %294, align 8, !tbaa !10
   %.not89.i.i39 = icmp eq ptr %295, null

@@ -363,8 +363,8 @@ define hidden ptr @_Py_string_to_number_with_underscores(ptr noundef %0, i64 nou
   %.pre = load i8, ptr %.040, align 1, !tbaa !4
   %26 = add i8 %.pre, -48
   %or.cond45 = icmp ult i8 %26, 10
-  %or.cond56 = select i1 %25, i1 true, i1 %or.cond45
-  br i1 %or.cond56, label %27, label %.loopexit
+  %or.cond57 = select i1 %25, i1 true, i1 %or.cond45
+  br i1 %or.cond57, label %27, label %.loopexit
 
 27:                                               ; preds = %23, %21
   %28 = phi i8 [ 95, %21 ], [ %.pre, %23 ]
@@ -482,8 +482,8 @@ define dso_local ptr @PyOS_double_to_string(double noundef %0, i8 noundef signex
 29:                                               ; preds = %27, %.thread.i
   %30 = phi ptr [ %26, %.thread.i ], [ %28, %27 ]
   %31 = load i32, ptr %7, align 4, !tbaa !12
-  %.fr252.i = freeze i32 %31
-  %32 = sext i32 %.fr252.i to i64
+  %.fr263.i = freeze i32 %31
+  %32 = sext i32 %.fr263.i to i64
   %33 = icmp eq ptr %30, null
   br i1 %33, label %169, label %34
 
@@ -611,92 +611,92 @@ thread-pre-split.i:                               ; preds = %47, %42
 
 82:                                               ; preds = %81, %80
   switch i8 %.319, label %95 [
-    i8 101, label %.thread231.i
-    i8 102, label %.thread223.i
+    i8 101, label %.thread242.i
+    i8 102, label %.thread234.i
     i8 103, label %86
     i8 114, label %96
   ]
 
-.thread231.i:                                     ; preds = %82
+.thread242.i:                                     ; preds = %82
   %83 = sext i32 %.020 to i64
-  br label %.thread28
+  br label %.thread40
 
-.thread223.i:                                     ; preds = %82
+.thread234.i:                                     ; preds = %82
   %84 = sext i32 %.020 to i64
   %85 = add nsw i64 %32, %84
   br label %98
 
 86:                                               ; preds = %82
-  %87 = icmp slt i32 %.fr252.i, -3
+  %87 = icmp slt i32 %.fr263.i, -3
   br i1 %87, label %93, label %88
 
 88:                                               ; preds = %86
   %89 = shl nuw i32 %20, 30
   %sext = ashr exact i32 %89, 31
   %90 = add i32 %.020, %sext
-  %91 = icmp sgt i32 %.fr252.i, %90
-  br i1 %91, label %93, label %.thread242.i
+  %91 = icmp sgt i32 %.fr263.i, %90
+  br i1 %91, label %93, label %.thread253.i
 
-.thread242.i:                                     ; preds = %88
-  %.not189243.i = icmp eq i32 %21, 0
+.thread253.i:                                     ; preds = %88
+  %.not189254.i = icmp eq i32 %21, 0
   %92 = sext i32 %.020 to i64
-  %spec.select244.i = select i1 %.not189243.i, i64 %38, i64 %92
+  %spec.select255.i = select i1 %.not189254.i, i64 %38, i64 %92
   br label %98
 
 93:                                               ; preds = %88, %86
   %.not189.i = icmp eq i32 %21, 0
   %94 = sext i32 %.020 to i64
   %spec.select.i = select i1 %.not189.i, i64 %38, i64 %94
-  br label %.thread28
+  br label %.thread40
 
 95:                                               ; preds = %82
   call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.6, i32 noundef 1103) #13
   br label %171
 
 96:                                               ; preds = %82
-  %97 = add i32 %.fr252.i, 3
+  %97 = add i32 %.fr263.i, 3
   %or.cond3.i = icmp ult i32 %97, 20
-  %spec.select245.i = select i1 %or.cond3.i, i64 %32, i64 1
+  %spec.select256.i = select i1 %or.cond3.i, i64 %32, i64 1
   br label %98
 
-98:                                               ; preds = %96, %.thread242.i, %.thread223.i
-  %.0160229.i = phi i64 [ %85, %.thread223.i ], [ %spec.select244.i, %.thread242.i ], [ %38, %96 ]
-  %.0164227.i = phi i1 [ true, %.thread223.i ], [ true, %.thread242.i ], [ %or.cond3.i, %96 ]
-  %99 = phi i64 [ %32, %.thread223.i ], [ %32, %.thread242.i ], [ %spec.select245.i, %96 ]
+98:                                               ; preds = %96, %.thread253.i, %.thread234.i
+  %.0160240.i = phi i64 [ %85, %.thread234.i ], [ %spec.select255.i, %.thread253.i ], [ %38, %96 ]
+  %.0164238.i = phi i1 [ true, %.thread234.i ], [ true, %.thread253.i ], [ %or.cond3.i, %96 ]
+  %99 = phi i64 [ %32, %.thread234.i ], [ %32, %.thread253.i ], [ %spec.select256.i, %96 ]
   %100 = icmp slt i64 %99, 1
   %101 = call i64 @llvm.smin.i64(i64 %99, i64 1)
   %102 = add nsw i64 %101, -1
   %103 = icmp ne i32 %20, 0
-  %or.cond5.i = and i1 %103, %.0164227.i
+  %or.cond5.i = and i1 %103, %.0164238.i
   br i1 %or.cond5.i, label %.thread, label %107
 
 .thread:                                          ; preds = %98
   %104 = add nsw i64 %32, 1
-  %105 = call i64 @llvm.smax.i64(i64 %.0160229.i, i64 %104)
+  %105 = call i64 @llvm.smax.i64(i64 %.0160240.i, i64 %104)
   br label %109
 
-.thread28:                                        ; preds = %.thread231.i, %93
-  %.0160229239.i.ph = phi i64 [ %spec.select.i, %93 ], [ %83, %.thread231.i ]
-  %106 = call i64 @llvm.smax.i64(i64 %.0160229239.i.ph, i64 1)
+.thread40:                                        ; preds = %.thread242.i, %93
+  %.0160240250.i.ph = phi i64 [ %spec.select.i, %93 ], [ %83, %.thread242.i ]
+  %106 = call i64 @llvm.smax.i64(i64 %.0160240250.i.ph, i64 1)
   br label %109
 
 107:                                              ; preds = %98
-  %108 = call i64 @llvm.smax.i64(i64 %.0160229.i, i64 %99)
-  %spec.select31 = select i1 %.0164227.i, i64 3, i64 8
+  %108 = call i64 @llvm.smax.i64(i64 %.0160240.i, i64 %99)
+  %spec.select43 = select i1 %.0164238.i, i64 3, i64 8
   br label %109
 
-109:                                              ; preds = %107, %.thread, %.thread28
-  %.1161.i26 = phi i64 [ %106, %.thread28 ], [ %105, %.thread ], [ %108, %107 ]
-  %.0164227240.i24 = phi i1 [ false, %.thread28 ], [ true, %.thread ], [ %.0164227.i, %107 ]
-  %110 = phi i64 [ 1, %.thread28 ], [ %99, %.thread ], [ %99, %107 ]
-  %111 = phi i1 [ false, %.thread28 ], [ %100, %.thread ], [ %100, %107 ]
-  %112 = phi i64 [ 1, %.thread28 ], [ %101, %.thread ], [ %101, %107 ]
-  %113 = phi i64 [ 0, %.thread28 ], [ %102, %.thread ], [ %102, %107 ]
-  %114 = phi i64 [ 8, %.thread28 ], [ 3, %.thread ], [ %spec.select31, %107 ]
-  %115 = add i32 %.fr252.i, -1
+109:                                              ; preds = %107, %.thread, %.thread40
+  %.1161.i38 = phi i64 [ %106, %.thread40 ], [ %105, %.thread ], [ %108, %107 ]
+  %.0164238251.i36 = phi i1 [ false, %.thread40 ], [ true, %.thread ], [ %.0164238.i, %107 ]
+  %110 = phi i64 [ 1, %.thread40 ], [ %99, %.thread ], [ %99, %107 ]
+  %111 = phi i1 [ false, %.thread40 ], [ %100, %.thread ], [ %100, %107 ]
+  %112 = phi i64 [ 1, %.thread40 ], [ %101, %.thread ], [ %101, %107 ]
+  %113 = phi i64 [ 0, %.thread40 ], [ %102, %.thread ], [ %102, %107 ]
+  %114 = phi i64 [ 8, %.thread40 ], [ 3, %.thread ], [ %spec.select43, %107 ]
+  %115 = add i32 %.fr263.i, -1
   %reass.sub = sub nsw i64 %114, %112
   %116 = add nuw nsw i64 %reass.sub, 1
-  %117 = add i64 %116, %.1161.i26
+  %117 = add i64 %116, %.1161.i38
   %118 = call ptr @PyMem_Malloc(i64 noundef %117) #13
   %119 = icmp eq ptr %118, null
   br i1 %119, label %120, label %122
@@ -708,20 +708,20 @@ thread-pre-split.i:                               ; preds = %47, %42
 122:                                              ; preds = %109
   %123 = load i32, ptr %8, align 4, !tbaa !12
   %124 = icmp eq i32 %123, 1
-  br i1 %124, label %.sink.split246.i, label %125
+  br i1 %124, label %.sink.split257.i, label %125
 
 125:                                              ; preds = %122
   %.not191.i = icmp eq i32 %19, 0
-  br i1 %.not191.i, label %127, label %.sink.split246.i
+  br i1 %.not191.i, label %127, label %.sink.split257.i
 
-.sink.split246.i:                                 ; preds = %125, %122
-  %.sink247.i = phi i8 [ 45, %122 ], [ 43, %125 ]
+.sink.split257.i:                                 ; preds = %125, %122
+  %.sink258.i = phi i8 [ 45, %122 ], [ 43, %125 ]
   %126 = getelementptr i8, ptr %118, i64 1
-  store i8 %.sink247.i, ptr %118, align 1, !tbaa !4
+  store i8 %.sink258.i, ptr %118, align 1, !tbaa !4
   br label %127
 
-127:                                              ; preds = %.sink.split246.i, %125
-  %.2.i = phi ptr [ %118, %125 ], [ %126, %.sink.split246.i ]
+127:                                              ; preds = %.sink.split257.i, %125
+  %.2.i = phi ptr [ %118, %125 ], [ %126, %.sink.split257.i ]
   br i1 %111, label %.thread202.i, label %135
 
 .thread202.i:                                     ; preds = %127
@@ -771,18 +771,18 @@ thread-pre-split.i:                               ; preds = %47, %42
   br label %153
 
 153:                                              ; preds = %149, %138, %.thread202.i
-  %.sink251.i = phi i64 [ %110, %149 ], [ %38, %138 ], [ %38, %.thread202.i ]
-  %.4210.sink249.i = phi ptr [ %152, %149 ], [ %145, %138 ], [ %134, %.thread202.i ]
-  %154 = sub i64 %.1161.i26, %.sink251.i
-  call void @llvm.memset.p0.i64(ptr align 1 %.4210.sink249.i, i8 48, i64 %154, i1 false)
-  %155 = getelementptr i8, ptr %.4210.sink249.i, i64 %154
+  %.sink262.i = phi i64 [ %110, %149 ], [ %38, %138 ], [ %38, %.thread202.i ]
+  %.4210.sink260.i = phi ptr [ %152, %149 ], [ %145, %138 ], [ %134, %.thread202.i ]
+  %154 = sub i64 %.1161.i38, %.sink262.i
+  call void @llvm.memset.p0.i64(ptr align 1 %.4210.sink260.i, i8 48, i64 %154, i1 false)
+  %155 = getelementptr i8, ptr %.4210.sink260.i, i64 %154
   %156 = getelementptr i8, ptr %155, i64 -1
   %157 = load i8, ptr %156, align 1, !tbaa !4
   %158 = icmp ne i8 %157, 46
   %159 = icmp ne i32 %21, 0
   %or.cond7.i = or i1 %159, %158
   %spec.select199.i = select i1 %or.cond7.i, ptr %155, ptr %156
-  br i1 %.0164227240.i24, label %168, label %160
+  br i1 %.0164238251.i36, label %168, label %160
 
 160:                                              ; preds = %153
   %161 = getelementptr i8, ptr %.3, i64 16

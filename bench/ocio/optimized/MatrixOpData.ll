@@ -761,7 +761,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12MatrixOpData7Offsets5scaleEd(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev12MatrixOpData11MatrixArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-.noexc4:
+.noexc11:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -773,7 +773,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12MatrixOpData11MatrixArrayC2Ev(ptr 
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 16)
           to label %_ZN19OpenColorIO_v2_5dev6ArrayTIdE6resizeEmm.exit unwind label %25
 
-_ZN19OpenColorIO_v2_5dev6ArrayTIdE6resizeEmm.exit: ; preds = %.noexc4
+_ZN19OpenColorIO_v2_5dev6ArrayTIdE6resizeEmm.exit: ; preds = %.noexc11
   %5 = load ptr, ptr %0, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -820,7 +820,7 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdE6resizeEmm.exit: ; preds = %.noexc4
 _ZN19OpenColorIO_v2_5dev12MatrixOpData11MatrixArray4fillEv.exit: ; preds = %18, %.noexc3
   ret void
 
-25:                                               ; preds = %_ZN19OpenColorIO_v2_5dev6ArrayTIdE6resizeEmm.exit, %.noexc4
+25:                                               ; preds = %_ZN19OpenColorIO_v2_5dev6ArrayTIdE6resizeEmm.exit, %.noexc11
   %26 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev6ArrayTIdEE, i64 16), ptr %0, align 8, !tbaa !15
@@ -1402,7 +1402,7 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc
 .lr.ph.preheader:                                 ; preds = %.loopexit, %43
   %indvars.iv217 = phi i64 [ 0, %43 ], [ %indvars.iv.next218, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %43 ], [ %indvars.iv.next, %.loopexit ]
-  %53 = shl i64 %indvars.iv217, 2
+  %53 = shl nuw nsw i64 %indvars.iv217, 2
   %54 = getelementptr double, ptr %20, i64 %53
   %55 = getelementptr double, ptr %54, i64 %indvars.iv217
   %invariant.gep = getelementptr double, ptr %20, i64 %indvars.iv217
@@ -1467,7 +1467,7 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc
 
 76:                                               ; preds = %.preheader179, %76
   %indvars.iv205 = phi i64 [ 0, %.preheader179 ], [ %indvars.iv.next206, %76 ]
-  %77 = add i64 %indvars.iv205, %53
+  %77 = add nuw i64 %indvars.iv205, %53
   %78 = getelementptr inbounds nuw double, ptr %20, i64 %77
   %79 = load double, ptr %78, align 8, !tbaa !7
   %80 = add nuw i64 %indvars.iv205, %75
@@ -1505,7 +1505,7 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc
 
 93:                                               ; preds = %.lr.ph191, %93
   %indvars.iv209 = phi i64 [ 0, %.lr.ph191 ], [ %indvars.iv.next210, %93 ]
-  %94 = add i64 %indvars.iv209, %53
+  %94 = add nuw i64 %indvars.iv209, %53
   %95 = getelementptr inbounds nuw double, ptr %20, i64 %94
   %96 = load double, ptr %95, align 8, !tbaa !7
   %97 = add i64 %indvars.iv209, %87
@@ -1526,7 +1526,7 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc
 .preheader177.preheader:                          ; preds = %.preheader178.preheader, %._crit_edge199
   %106 = phi double [ %124, %._crit_edge199 ], [ %49, %.preheader178.preheader ]
   %107 = phi i64 [ %121, %._crit_edge199 ], [ 12, %.preheader178.preheader ]
-  %indvars.iv233243 = phi i64 [ %indvars.iv.next234, %._crit_edge199 ], [ 3, %.preheader178.preheader ]
+  %indvars.iv233249 = phi i64 [ %indvars.iv.next234, %._crit_edge199 ], [ 3, %.preheader178.preheader ]
   br label %.preheader177
 
 .preheader178._crit_edge:                         ; preds = %._crit_edge199, %.preheader178.preheader
@@ -1550,8 +1550,8 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc
   br label %.body.thread
 
 .preheader:                                       ; preds = %.preheader177
-  %invariant.gep195 = getelementptr double, ptr %20, i64 %indvars.iv233243
-  %.not201 = icmp eq i64 %indvars.iv233243, 0
+  %invariant.gep195 = getelementptr double, ptr %20, i64 %indvars.iv233249
+  %.not201 = icmp eq i64 %indvars.iv233249, 0
   br i1 %.not201, label %_ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit, label %.lr.ph198
 
 .preheader177:                                    ; preds = %.preheader177.preheader, %.preheader177
@@ -1570,7 +1570,7 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc
   br i1 %exitcond224.not, label %.preheader, label %.preheader177, !llvm.loop !59
 
 ._crit_edge199:                                   ; preds = %129
-  %indvars.iv.next234 = add nsw i64 %indvars.iv233243, -1
+  %indvars.iv.next234 = add nsw i64 %indvars.iv233249, -1
   %121 = shl i64 %indvars.iv.next234, 2
   %122 = getelementptr double, ptr %20, i64 %121
   %123 = getelementptr double, ptr %122, i64 %indvars.iv.next234
@@ -1588,7 +1588,7 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc
 
 129:                                              ; preds = %130
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
-  %exitcond232.not = icmp eq i64 %indvars.iv.next230, %indvars.iv233243
+  %exitcond232.not = icmp eq i64 %indvars.iv.next230, %indvars.iv233249
   br i1 %exitcond232.not, label %._crit_edge199, label %.lr.ph198, !llvm.loop !61
 
 130:                                              ; preds = %.lr.ph198, %130
@@ -1629,7 +1629,7 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit:      ; preds = %.preheader
   br i1 %.not.i.i.i.i158, label %_ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit159, label %146
 
 146:                                              ; preds = %.body.thread, %.body
-  %.pn154.pn.pn241 = phi { ptr, i32 } [ %.pn154.pn, %.body.thread ], [ %.pn154.pn.pn, %.body ]
+  %.pn154.pn.pn247 = phi { ptr, i32 } [ %.pn154.pn, %.body.thread ], [ %.pn154.pn.pn, %.body ]
   %147 = ptrtoint ptr %19 to i64
   %148 = ptrtoint ptr %20 to i64
   %149 = sub i64 %147, %148
@@ -1637,8 +1637,8 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit:      ; preds = %.preheader
   br label %_ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit159
 
 _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit159:   ; preds = %.body, %146
-  %.pn154.pn.pn242 = phi { ptr, i32 } [ %.pn154.pn.pn, %.body ], [ %.pn154.pn.pn241, %146 ]
-  resume { ptr, i32 } %.pn154.pn.pn242
+  %.pn154.pn.pn248 = phi { ptr, i32 } [ %.pn154.pn.pn, %.body ], [ %.pn154.pn.pn247, %146 ]
+  resume { ptr, i32 } %.pn154.pn.pn248
 
 150:                                              ; preds = %109, %70
   unreachable
@@ -3703,11 +3703,11 @@ _ZNK19OpenColorIO_v2_5dev12MatrixOpData11MatrixArray5innerERKNS0_7OffsetsE.exit:
   br i1 %exitcond.not, label %.lr.ph53, label %97, !llvm.loop !128
 
 _ZN19OpenColorIO_v2_5dev12MatrixOpData10setOffsetsERKNS0_7OffsetsE.exit: ; preds = %111, %_ZNK19OpenColorIO_v2_5dev12MatrixOpData11MatrixArray5innerERKNS0_7OffsetsE.exit
-  %.032.lcssa59 = phi double [ 0.000000e+00, %_ZNK19OpenColorIO_v2_5dev12MatrixOpData11MatrixArray5innerERKNS0_7OffsetsE.exit ], [ %107, %111 ]
+  %.032.lcssa62 = phi double [ 0.000000e+00, %_ZNK19OpenColorIO_v2_5dev12MatrixOpData11MatrixArray5innerERKNS0_7OffsetsE.exit ], [ %107, %111 ]
   %109 = load ptr, ptr %0, align 8, !tbaa !95
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull readonly align 8 dereferenceable(32) %7, i64 32, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_5dev12MatrixOpData7cleanUpEd(ptr noundef nonnull align 8 dereferenceable(260) %109, double noundef %.032.lcssa59)
+  invoke void @_ZN19OpenColorIO_v2_5dev12MatrixOpData7cleanUpEd(ptr noundef nonnull align 8 dereferenceable(260) %109, double noundef %.032.lcssa62)
           to label %118 unwind label %142
 
 111:                                              ; preds = %.lr.ph53, %111
@@ -4874,13 +4874,13 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store double 0.000000e+00, ptr %5, align 8, !tbaa !7
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !7
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

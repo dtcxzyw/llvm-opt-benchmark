@@ -1040,11 +1040,11 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef %
   br i1 %.not135, label %thread-pre-split, label %.thread
 
 .thread:                                          ; preds = %93, %119, %123
-  %.0114149 = phi i32 [ %.0114, %119 ], [ %.0114, %123 ], [ 0, %93 ]
-  %.0116147 = phi ptr [ %.0116, %119 ], [ %.0116, %123 ], [ null, %93 ]
+  %.0114156 = phi i32 [ %.0114, %119 ], [ %.0114, %123 ], [ 0, %93 ]
+  %.0116154 = phi ptr [ %.0116, %119 ], [ %.0116, %123 ], [ null, %93 ]
   store float 0x7FF8000000000000, ptr %28, align 64, !tbaa !46
   store i32 0, ptr %32, align 8, !tbaa !143
-  %125 = tail call ptr @cmsCreateProofingTransform(ptr noundef %12, i32 noundef 4849820, ptr noundef %.0118, i32 noundef %.0115, ptr noundef %.0116147, i32 noundef %.0119, i32 noundef 1, i32 noundef %.0114149) #17
+  %125 = tail call ptr @cmsCreateProofingTransform(ptr noundef %12, i32 noundef 4849820, ptr noundef %.0118, i32 noundef %.0115, ptr noundef %.0116154, i32 noundef %.0119, i32 noundef 1, i32 noundef %.0114156) #17
   store ptr %125, ptr %23, align 64, !tbaa !84
   br label %126
 
@@ -1053,8 +1053,8 @@ thread-pre-split:                                 ; preds = %123
   br label %126
 
 126:                                              ; preds = %thread-pre-split, %.thread
-  %.0114150 = phi i32 [ %.0114, %thread-pre-split ], [ %.0114149, %.thread ]
-  %.0116148 = phi ptr [ %.0116, %thread-pre-split ], [ %.0116147, %.thread ]
+  %.0114157 = phi i32 [ %.0114, %thread-pre-split ], [ %.0114156, %.thread ]
+  %.0116155 = phi ptr [ %.0116, %thread-pre-split ], [ %.0116154, %.thread ]
   %127 = phi ptr [ %.pr, %thread-pre-split ], [ %125, %.thread ]
   %.not136 = icmp eq ptr %127, null
   br i1 %.not136, label %128, label %143
@@ -1085,7 +1085,7 @@ thread-pre-split:                                 ; preds = %123
 141:                                              ; preds = %132, %139
   store float 0x7FF8000000000000, ptr %28, align 64, !tbaa !46
   store i32 0, ptr %32, align 8, !tbaa !143
-  %142 = tail call ptr @cmsCreateProofingTransform(ptr noundef %12, i32 noundef 4849820, ptr noundef %137, i32 noundef %.0115, ptr noundef %.0116148, i32 noundef %.0119, i32 noundef 1, i32 noundef %.0114150) #17
+  %142 = tail call ptr @cmsCreateProofingTransform(ptr noundef %12, i32 noundef 4849820, ptr noundef %137, i32 noundef %.0115, ptr noundef %.0116155, i32 noundef %.0119, i32 noundef 1, i32 noundef %.0114157) #17
   store ptr %142, ptr %23, align 64, !tbaa !84
   br label %143
 
@@ -1109,7 +1109,7 @@ thread-pre-split:                                 ; preds = %123
   br label %162
 
 153:                                              ; preds = %212
-  tail call void @dt_colorspaces_cleanup_profile(ptr noundef %.0116148) #17
+  tail call void @dt_colorspaces_cleanup_profile(ptr noundef %.0116155) #17
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %155 = load ptr, ptr %154, align 8, !tbaa !151
   %156 = getelementptr inbounds nuw i8, ptr %3, i64 8

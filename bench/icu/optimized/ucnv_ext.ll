@@ -194,12 +194,12 @@ define internal fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr no
   %35 = icmp ne i32 %.pre97, 1
   %36 = xor i1 %19, %35
   %spec.select = select i1 %36, i32 %32, i32 %.058
-  %spec.select111 = select i1 %36, i32 %.pre97, i32 %.052
+  %spec.select122 = select i1 %36, i32 %.pre97, i32 %.052
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %34, %33, %26
   %.159 = phi i32 [ %.058, %26 ], [ %32, %33 ], [ %spec.select, %34 ]
-  %.1 = phi i32 [ %.052, %26 ], [ %.pre97, %33 ], [ %spec.select111, %34 ]
+  %.1 = phi i32 [ %.052, %26 ], [ %.pre97, %33 ], [ %spec.select122, %34 ]
   %37 = icmp slt i32 %.056, %3
   br i1 %37, label %38, label %40
 
@@ -350,13 +350,13 @@ _ZL15ucnv_extFindToUPKjih.exit:                   ; preds = %105, %66
 115:                                              ; preds = %114
   %116 = icmp ne i32 %.pre, 1
   %117 = xor i1 %19, %116
-  %spec.select113 = select i1 %117, i32 %.049.i, i32 %.159
-  %spec.select114 = select i1 %117, i32 %.pre, i32 %.1
+  %spec.select124 = select i1 %117, i32 %.049.i, i32 %.159
+  %spec.select125 = select i1 %117, i32 %.pre, i32 %.1
   br label %_ZL15ucnv_extFindToUPKjih.exit.thread
 
 _ZL15ucnv_extFindToUPKjih.exit.thread:            ; preds = %105, %.loopexit.i, %50, %_ZL15ucnv_extFindToUPKjih.exit, %115, %114, %44, %45
-  %.260 = phi i32 [ %.159, %44 ], [ %.159, %45 ], [ %.049.i, %114 ], [ %spec.select113, %115 ], [ %.159, %_ZL15ucnv_extFindToUPKjih.exit ], [ %.159, %50 ], [ %.159, %.loopexit.i ], [ %.159, %105 ]
-  %.2 = phi i32 [ %.1, %44 ], [ %.1, %45 ], [ %.pre, %114 ], [ %spec.select114, %115 ], [ %.1, %_ZL15ucnv_extFindToUPKjih.exit ], [ %.1, %50 ], [ %.1, %.loopexit.i ], [ %.1, %105 ]
+  %.260 = phi i32 [ %.159, %44 ], [ %.159, %45 ], [ %.049.i, %114 ], [ %spec.select124, %115 ], [ %.159, %_ZL15ucnv_extFindToUPKjih.exit ], [ %.159, %50 ], [ %.159, %.loopexit.i ], [ %.159, %105 ]
+  %.2 = phi i32 [ %.1, %44 ], [ %.1, %45 ], [ %.pre, %114 ], [ %spec.select125, %115 ], [ %.1, %_ZL15ucnv_extFindToUPKjih.exit ], [ %.1, %50 ], [ %.1, %.loopexit.i ], [ %.1, %105 ]
   %118 = icmp eq i32 %.2, 0
   br i1 %118, label %121, label %119
 
@@ -808,7 +808,7 @@ define internal fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr
   %63 = add i32 %1, -1114112
   %64 = icmp ult i32 %63, -131072
   %invariant.op = and i1 %60, %62
-  %invariant.op203 = and i1 %invariant.op, %64
+  %invariant.op212 = and i1 %invariant.op, %64
   br label %65
 
 65:                                               ; preds = %135, %51
@@ -830,7 +830,7 @@ define internal fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr
 
 74:                                               ; preds = %65
   %75 = icmp ult i32 %73, 1073741824
-  %or.cond9.i.not114.reass.reass.reass = and i1 %75, %invariant.op203
+  %or.cond9.i.not114.reass.reass.reass = and i1 %75, %invariant.op212
   %76 = and i32 %73, 536870912
   %77 = icmp ne i32 %76, 0
   %narrow.i.not = or i1 %77, %or.cond9.i.not114.reass.reass.reass
@@ -1502,7 +1502,7 @@ define internal fastcc void @_ZL27ucnv_extGetUnicodeSetStringPK20UConverterShare
 25:                                               ; preds = %8
   %26 = and i32 %23, -1610612736
   %.not6.i = icmp eq i32 %26, -2147483648
-  br i1 %.not6.i, label %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit, label %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread16
+  br i1 %.not6.i, label %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit, label %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread19
 
 27:                                               ; preds = %8
   %28 = and i32 %23, 536870912
@@ -1538,11 +1538,11 @@ _ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread: ; preds = %36, %39, %
   %.not7 = icmp eq i16 %21, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
-_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread16: ; preds = %25
-  %.not717 = icmp eq i16 %21, 0
-  br i1 %.not717, label %._crit_edge, label %.lr.ph.thread18
+_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread19: ; preds = %25
+  %.not720 = icmp eq i16 %21, 0
+  br i1 %.not720, label %._crit_edge, label %.lr.ph.thread21
 
-.lr.ph.thread18:                                  ; preds = %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread16
+.lr.ph.thread21:                                  ; preds = %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread19
   %42 = sext i32 %6 to i64
   %43 = getelementptr inbounds i16, ptr %5, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1550,8 +1550,8 @@ _ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread16: ; preds = %2
   br label %.lr.ph.split.us.preheader
 
 _ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread: ; preds = %27
-  %.not715 = icmp eq i16 %21, 0
-  br i1 %.not715, label %._crit_edge, label %.lr.ph.thread
+  %.not718 = icmp eq i16 %21, 0
+  br i1 %.not718, label %._crit_edge, label %.lr.ph.thread
 
 .lr.ph.thread:                                    ; preds = %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread
   %46 = sext i32 %6 to i64
@@ -1574,10 +1574,10 @@ _ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread: ; preds = %27
   %wide.trip.count = zext i16 %21 to i64
   br label %.lr.ph.split
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph.thread18, %.lr.ph
-  %57 = phi i32 [ %45, %.lr.ph.thread18 ], [ %53, %.lr.ph ]
-  %58 = phi ptr [ %44, %.lr.ph.thread18 ], [ %52, %.lr.ph ]
-  %59 = phi ptr [ %43, %.lr.ph.thread18 ], [ %51, %.lr.ph ]
+.lr.ph.split.us.preheader:                        ; preds = %.lr.ph.thread21, %.lr.ph
+  %57 = phi i32 [ %45, %.lr.ph.thread21 ], [ %53, %.lr.ph ]
+  %58 = phi ptr [ %44, %.lr.ph.thread21 ], [ %52, %.lr.ph ]
+  %59 = phi ptr [ %43, %.lr.ph.thread21 ], [ %51, %.lr.ph ]
   %wide.trip.count13 = zext i16 %21 to i64
   br label %.lr.ph.split.us
 
@@ -1661,7 +1661,7 @@ _ZL16extSetUseMapping20UConverterUnicodeSetij.exit53.thread: ; preds = %83, %.lr
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !70
 
-._crit_edge:                                      ; preds = %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit53.thread, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit53.thread.us, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread16, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread
+._crit_edge:                                      ; preds = %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit53.thread, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit53.thread.us, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread19, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread
   ret void
 }
 

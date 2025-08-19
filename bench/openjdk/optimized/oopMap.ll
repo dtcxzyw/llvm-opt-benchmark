@@ -1270,7 +1270,7 @@ _ZN12OopMapStream7is_doneEv.exit27.thread:        ; preds = %_ZN20CompressedRead
   %251 = mul nsw i32 %250, %156
   %.0.i.i.i = select i1 %249, i32 0, i32 %251
   %252 = icmp sgt i32 %.0.i.i.i, %.0.i.i11.i
-  br i1 %252, label %._crit_edge.loopexit.split.loop.exit16.i, label %253
+  br i1 %252, label %._crit_edge.loopexit.split.loop.exit17.i, label %253
 
 253:                                              ; preds = %239
   %indvars.iv.next.i31 = add nsw i64 %indvars.iv.i30, 1
@@ -1278,12 +1278,12 @@ _ZN12OopMapStream7is_doneEv.exit27.thread:        ; preds = %_ZN20CompressedRead
   %exitcond.not.i = icmp eq i32 %158, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge12.i32, label %239, !llvm.loop !12
 
-._crit_edge.loopexit.split.loop.exit16.i:         ; preds = %239
+._crit_edge.loopexit.split.loop.exit17.i:         ; preds = %239
   %254 = trunc nsw i64 %indvars.iv.i30 to i32
   br label %_ZN10OopMapSort13find_positionE11OopMapValuei.exit
 
-_ZN10OopMapSort13find_positionE11OopMapValuei.exit: ; preds = %226, %._crit_edge.loopexit.split.loop.exit16.i
-  %.09.lcssa.i = phi i32 [ %149, %226 ], [ %254, %._crit_edge.loopexit.split.loop.exit16.i ]
+_ZN10OopMapSort13find_positionE11OopMapValuei.exit: ; preds = %226, %._crit_edge.loopexit.split.loop.exit17.i
+  %.09.lcssa.i = phi i32 [ %149, %226 ], [ %254, %._crit_edge.loopexit.split.loop.exit17.i ]
   %255 = icmp slt i32 %.09.lcssa.i, %158
   br i1 %255, label %.lr.ph.preheader.i35, label %..loopexit_crit_edge12.i32
 

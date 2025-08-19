@@ -763,12 +763,12 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %32, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i, !prof !28
 
 .lr.ph.preheader.i.i.i:                           ; preds = %29, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i
-  %spec.select.i.i10.i.i.i = phi i64 [ %31, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ 20, %29 ]
+  %spec.select.i.i11.i.i.i = phi i64 [ %31, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ 20, %29 ]
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %.0.i4.i.i.i = phi i64 [ %34, %.lr.ph.i.i.i ], [ %24, %.lr.ph.preheader.i.i.i ]
-  %.014.i3.i.i.i = phi i64 [ %33, %.lr.ph.i.i.i ], [ %spec.select.i.i10.i.i.i, %.lr.ph.preheader.i.i.i ]
+  %.014.i3.i.i.i = phi i64 [ %33, %.lr.ph.i.i.i ], [ %spec.select.i.i11.i.i.i, %.lr.ph.preheader.i.i.i ]
   %33 = add i64 %.014.i3.i.i.i, -2
   %34 = udiv i64 %.0.i4.i.i.i, 100
   %35 = urem i64 %.0.i4.i.i.i, 100
@@ -780,7 +780,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %39, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !prof !31, !llvm.loop !32
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i
-  %spec.select.i.i9.i.i.i = phi i64 [ %31, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ %spec.select.i.i10.i.i.i, %.lr.ph.i.i.i ]
+  %spec.select.i.i10.i.i.i = phi i64 [ %31, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ %spec.select.i.i11.i.i.i, %.lr.ph.i.i.i ]
   %.014.i.lcssa.i.i.i = phi i64 [ %31, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ %33, %.lr.ph.i.i.i ]
   %.0.i.lcssa.i.i.i = phi i64 [ %24, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ %34, %.lr.ph.i.i.i ]
   %40 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i
@@ -802,7 +802,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit: ; preds = %43, %44
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !17
   %49 = sub i64 4611686018427387903, %48
-  %50 = icmp ult i64 %49, %spec.select.i.i9.i.i.i
+  %50 = icmp ult i64 %49, %spec.select.i.i10.i.i.i
   br i1 %50, label %51, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
 
 51:                                               ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit
@@ -810,7 +810,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit: ; preds = %43, %44
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit
-  %52 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %3, i64 noundef %spec.select.i.i9.i.i.i)
+  %52 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %3, i64 noundef %spec.select.i.i10.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1111,12 +1111,12 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %25, label %.lr.ph.preheader.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !prof !28
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %22, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i
-  %spec.select.i.i10.i.i.i.i.i = phi i64 [ %24, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i ], [ 20, %22 ]
+  %spec.select.i.i11.i.i.i.i.i = phi i64 [ %24, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i ], [ 20, %22 ]
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i
   %.0.i4.i.i.i.i.i = phi i64 [ %27, %.lr.ph.i.i.i.i.i ], [ %17, %.lr.ph.preheader.i.i.i.i.i ]
-  %.014.i3.i.i.i.i.i = phi i64 [ %26, %.lr.ph.i.i.i.i.i ], [ %spec.select.i.i10.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i ]
+  %.014.i3.i.i.i.i.i = phi i64 [ %26, %.lr.ph.i.i.i.i.i ], [ %spec.select.i.i11.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i ]
   %26 = add i64 %.014.i3.i.i.i.i.i, -2
   %27 = udiv i64 %.0.i4.i.i.i.i.i, 100
   %28 = urem i64 %.0.i4.i.i.i.i.i, 100
@@ -1128,7 +1128,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %32, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !prof !31, !llvm.loop !32
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i
-  %spec.select.i.i9.i.i.i.i.i = phi i64 [ %24, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i ], [ %spec.select.i.i10.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %spec.select.i.i10.i.i.i.i.i = phi i64 [ %24, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i ], [ %spec.select.i.i11.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.014.i.lcssa.i.i.i.i.i = phi i64 [ %24, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i ], [ %26, %.lr.ph.i.i.i.i.i ]
   %.0.i.lcssa.i.i.i.i.i = phi i64 [ %17, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i ], [ %27, %.lr.ph.i.i.i.i.i ]
   %33 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i.i.i
@@ -1149,7 +1149,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
 _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i.i: ; preds = %37, %36
   %40 = load i64, ptr %10, align 8, !tbaa !17
   %41 = sub i64 4611686018427387903, %40
-  %42 = icmp ult i64 %41, %spec.select.i.i9.i.i.i.i.i
+  %42 = icmp ult i64 %41, %spec.select.i.i10.i.i.i.i.i
   br i1 %42, label %43, label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17ProcessReturnCode5StateEEENSt9enable_ifIXaasr3std7is_enumIT0_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit
 
 43:                                               ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i.i
@@ -1157,7 +1157,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i.i: ; preds = %37, %36
   unreachable
 
 _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17ProcessReturnCode5StateEEENSt9enable_ifIXaasr3std7is_enumIT0_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit: ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i.i
-  %44 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %7, i64 noundef %spec.select.i.i9.i.i.i.i.i)
+  %44 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %7, i64 noundef %spec.select.i.i10.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %45 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(11) %2) #46
   %46 = load i64, ptr %10, align 8, !tbaa !17
@@ -1194,12 +1194,12 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %60, label %.lr.ph.preheader.i.i.i.i.i18, label %._crit_edge.i.i.i.i.i23, !prof !28
 
 .lr.ph.preheader.i.i.i.i.i18:                     ; preds = %57, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i28
-  %spec.select.i.i10.i.i.i.i.i19 = phi i64 [ %59, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i28 ], [ 20, %57 ]
+  %spec.select.i.i11.i.i.i.i.i19 = phi i64 [ %59, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i28 ], [ 20, %57 ]
   br label %.lr.ph.i.i.i.i.i20
 
 .lr.ph.i.i.i.i.i20:                               ; preds = %.lr.ph.i.i.i.i.i20, %.lr.ph.preheader.i.i.i.i.i18
   %.0.i4.i.i.i.i.i21 = phi i64 [ %62, %.lr.ph.i.i.i.i.i20 ], [ %52, %.lr.ph.preheader.i.i.i.i.i18 ]
-  %.014.i3.i.i.i.i.i22 = phi i64 [ %61, %.lr.ph.i.i.i.i.i20 ], [ %spec.select.i.i10.i.i.i.i.i19, %.lr.ph.preheader.i.i.i.i.i18 ]
+  %.014.i3.i.i.i.i.i22 = phi i64 [ %61, %.lr.ph.i.i.i.i.i20 ], [ %spec.select.i.i11.i.i.i.i.i19, %.lr.ph.preheader.i.i.i.i.i18 ]
   %61 = add i64 %.014.i3.i.i.i.i.i22, -2
   %62 = udiv i64 %.0.i4.i.i.i.i.i21, 100
   %63 = urem i64 %.0.i4.i.i.i.i.i21, 100
@@ -1211,7 +1211,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %67, label %.lr.ph.i.i.i.i.i20, label %._crit_edge.i.i.i.i.i23, !prof !31, !llvm.loop !32
 
 ._crit_edge.i.i.i.i.i23:                          ; preds = %.lr.ph.i.i.i.i.i20, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i28
-  %spec.select.i.i9.i.i.i.i.i24 = phi i64 [ %59, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i28 ], [ %spec.select.i.i10.i.i.i.i.i19, %.lr.ph.i.i.i.i.i20 ]
+  %spec.select.i.i10.i.i.i.i.i24 = phi i64 [ %59, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i28 ], [ %spec.select.i.i11.i.i.i.i.i19, %.lr.ph.i.i.i.i.i20 ]
   %.014.i.lcssa.i.i.i.i.i25 = phi i64 [ %59, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i28 ], [ %61, %.lr.ph.i.i.i.i.i20 ]
   %.0.i.lcssa.i.i.i.i.i26 = phi i64 [ %52, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i28 ], [ %62, %.lr.ph.i.i.i.i.i20 ]
   %68 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i.i.i26
@@ -1232,7 +1232,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
 _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i.i27: ; preds = %72, %71
   %75 = load i64, ptr %10, align 8, !tbaa !17
   %76 = sub i64 4611686018427387903, %75
-  %77 = icmp ult i64 %76, %spec.select.i.i9.i.i.i.i.i24
+  %77 = icmp ult i64 %76, %spec.select.i.i10.i.i.i.i.i24
   br i1 %77, label %78, label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17ProcessReturnCode5StateEEENSt9enable_ifIXaasr3std7is_enumIT0_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit29
 
 78:                                               ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i.i27
@@ -1240,7 +1240,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i.i27: ; preds = %72, %71
   unreachable
 
 _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17ProcessReturnCode5StateEEENSt9enable_ifIXaasr3std7is_enumIT0_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit29: ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i.i27
-  %79 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %6, i64 noundef %spec.select.i.i9.i.i.i.i.i24)
+  %79 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %6, i64 noundef %spec.select.i.i10.i.i.i.i.i24)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -3192,9 +3192,9 @@ define void @_ZN5folly10SubprocessC2ERKNSt7__cxx1112basic_stringIcSt11char_trait
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %49 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #52
-          to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i unwind label %.thread56
+          to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i unwind label %.thread72
 
-.thread56:                                        ; preds = %43
+.thread72:                                        ; preds = %43
   %50 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -3321,8 +3321,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-.body:                                            ; preds = %.thread56, %54
-  %97 = phi { ptr, i32 } [ %50, %.thread56 ], [ %55, %54 ]
+.body:                                            ; preds = %.thread72, %54
+  %97 = phi { ptr, i32 } [ %50, %.thread72 ], [ %55, %54 ]
   br label %98
 
 98:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40, %.body
@@ -7273,12 +7273,12 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %20, label %.lr.ph.preheader.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !28
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %17, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
-  %spec.select.i.i10.i.i.i.i = phi i64 [ %19, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ 20, %17 ]
+  %spec.select.i.i11.i.i.i.i = phi i64 [ %19, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ 20, %17 ]
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
   %.0.i4.i.i.i.i = phi i64 [ %22, %.lr.ph.i.i.i.i ], [ %12, %.lr.ph.preheader.i.i.i.i ]
-  %.014.i3.i.i.i.i = phi i64 [ %21, %.lr.ph.i.i.i.i ], [ %spec.select.i.i10.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
+  %.014.i3.i.i.i.i = phi i64 [ %21, %.lr.ph.i.i.i.i ], [ %spec.select.i.i11.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
   %21 = add i64 %.014.i3.i.i.i.i, -2
   %22 = udiv i64 %.0.i4.i.i.i.i, 100
   %23 = urem i64 %.0.i4.i.i.i.i, 100
@@ -7290,7 +7290,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %27, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !31, !llvm.loop !32
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
-  %spec.select.i.i9.i.i.i.i = phi i64 [ %19, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %spec.select.i.i10.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %spec.select.i.i10.i.i.i.i = phi i64 [ %19, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %spec.select.i.i11.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.014.i.lcssa.i.i.i.i = phi i64 [ %19, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %21, %.lr.ph.i.i.i.i ]
   %.0.i.lcssa.i.i.i.i = phi i64 [ %12, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %22, %.lr.ph.i.i.i.i ]
   %28 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i.i
@@ -7309,7 +7309,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br label %_ZN5folly8toAppendINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEEiEENSt9enable_ifIXaaaaaa13is_integral_vIT0_E11is_signed_vIS9_Esr12IsSomeStringIT_EE5valuegestS9_Li4EEvE4typeES9_PSA_.exit
 
 _ZN5folly8toAppendINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEEiEENSt9enable_ifIXaaaaaa13is_integral_vIT0_E11is_signed_vIS9_Esr12IsSomeStringIT_EE5valuegestS9_Li4EEvE4typeES9_PSA_.exit: ; preds = %31, %32
-  %35 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %4, i64 noundef %spec.select.i.i9.i.i.i.i)
+  %35 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %4, i64 noundef %spec.select.i.i10.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = call noundef i64 @_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEE12traitsLengthEPKc(ptr noundef nonnull align 1 dereferenceable(15) %1)
   %37 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(15) %1, i64 noundef %36)
@@ -7391,8 +7391,8 @@ define linkonce_odr noundef ptr @_ZN5folly13fbstring_coreIcE12expandNoinitEmbb(p
 
 21:                                               ; preds = %11
   %22 = icmp ult i64 %14, 46
-  %.0..val23 = load i64, ptr %5, align 8
-  %.pre = select i1 %22, i64 46, i64 %.0..val23
+  %.0..val25 = load i64, ptr %5, align 8
+  %.pre = select i1 %22, i64 46, i64 %.0..val25
   %23 = select i1 %2, i64 %.pre, i64 %14
   tail call void @_ZN5folly13fbstring_coreIcE12reserveSmallEmb(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %23, i1 noundef zeroext %3)
   br label %60
@@ -8265,12 +8265,12 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %31, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i, !prof !28
 
 .lr.ph.preheader.i.i.i:                           ; preds = %28, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i
-  %spec.select.i.i10.i.i.i = phi i64 [ %30, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ 20, %28 ]
+  %spec.select.i.i11.i.i.i = phi i64 [ %30, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ 20, %28 ]
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %.0.i4.i.i.i = phi i64 [ %33, %.lr.ph.i.i.i ], [ %23, %.lr.ph.preheader.i.i.i ]
-  %.014.i3.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i ], [ %spec.select.i.i10.i.i.i, %.lr.ph.preheader.i.i.i ]
+  %.014.i3.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i ], [ %spec.select.i.i11.i.i.i, %.lr.ph.preheader.i.i.i ]
   %32 = add i64 %.014.i3.i.i.i, -2
   %33 = udiv i64 %.0.i4.i.i.i, 100
   %34 = urem i64 %.0.i4.i.i.i, 100
@@ -8282,7 +8282,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %38, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !prof !31, !llvm.loop !32
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i
-  %spec.select.i.i9.i.i.i = phi i64 [ %30, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ %spec.select.i.i10.i.i.i, %.lr.ph.i.i.i ]
+  %spec.select.i.i10.i.i.i = phi i64 [ %30, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ %spec.select.i.i11.i.i.i, %.lr.ph.i.i.i ]
   %.014.i.lcssa.i.i.i = phi i64 [ %30, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ %32, %.lr.ph.i.i.i ]
   %.0.i.lcssa.i.i.i = phi i64 [ %23, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ %33, %.lr.ph.i.i.i ]
   %39 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i
@@ -8304,7 +8304,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit: ; preds = %42, %43
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !17
   %48 = sub i64 4611686018427387903, %47
-  %49 = icmp ult i64 %48, %spec.select.i.i9.i.i.i
+  %49 = icmp ult i64 %48, %spec.select.i.i10.i.i.i
   br i1 %49, label %50, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
 
 50:                                               ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit
@@ -8312,7 +8312,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit: ; preds = %42, %43
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit
-  %51 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %3, i64 noundef %spec.select.i.i9.i.i.i)
+  %51 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %3, i64 noundef %spec.select.i.i10.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -9406,8 +9406,8 @@ _ZNSt6vectorI6pollfdSaIS0_EE5clearEv.exit.preheader.lr.ph: ; preds = %_ZNSt12_Ve
   br label %.loopexit190
 
 .loopexit190:                                     ; preds = %_ZN5folly14checkUnixErrorIJRA5_KcEEEvlDpOT_.exit.preheader, %.loopexit190.loopexit, %.preheader
-  %.sroa.0121.2.lcssa399 = phi ptr [ %.sroa.0121.6, %.loopexit190.loopexit ], [ %.sroa.0121.6, %.preheader ], [ %.sroa.0121.0317, %_ZN5folly14checkUnixErrorIJRA5_KcEEEvlDpOT_.exit.preheader ]
-  %.sroa.30.2.lcssa398 = phi ptr [ %.sroa.30.6, %.loopexit190.loopexit ], [ %.sroa.30.6, %.preheader ], [ %.sroa.30.0316, %_ZN5folly14checkUnixErrorIJRA5_KcEEEvlDpOT_.exit.preheader ]
+  %.sroa.0121.2.lcssa421 = phi ptr [ %.sroa.0121.6, %.loopexit190.loopexit ], [ %.sroa.0121.6, %.preheader ], [ %.sroa.0121.0317, %_ZN5folly14checkUnixErrorIJRA5_KcEEEvlDpOT_.exit.preheader ]
+  %.sroa.30.2.lcssa420 = phi ptr [ %.sroa.30.6, %.loopexit190.loopexit ], [ %.sroa.30.6, %.preheader ], [ %.sroa.30.0316, %_ZN5folly14checkUnixErrorIJRA5_KcEEEvlDpOT_.exit.preheader ]
   %35 = phi ptr [ %.pre385, %.loopexit190.loopexit ], [ %170, %.preheader ], [ %80, %_ZN5folly14checkUnixErrorIJRA5_KcEEEvlDpOT_.exit.preheader ]
   %36 = phi ptr [ %.pre384, %.loopexit190.loopexit ], [ %171, %.preheader ], [ %81, %_ZN5folly14checkUnixErrorIJRA5_KcEEEvlDpOT_.exit.preheader ]
   %37 = icmp eq ptr %36, %35
@@ -9418,8 +9418,8 @@ _ZNSt6vectorI6pollfdSaIS0_EE5clearEv.exit.preheader: ; preds = %_ZNSt6vectorI6po
   %39 = phi ptr [ %19, %_ZNSt6vectorI6pollfdSaIS0_EE5clearEv.exit.preheader.lr.ph ], [ %36, %.loopexit190 ]
   %.sroa.0139.0319 = phi ptr [ %28, %_ZNSt6vectorI6pollfdSaIS0_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.0139.5, %.loopexit190 ]
   %.sroa.23.0318 = phi ptr [ %29, %_ZNSt6vectorI6pollfdSaIS0_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.23.5, %.loopexit190 ]
-  %.sroa.0121.0317 = phi ptr [ %31, %_ZNSt6vectorI6pollfdSaIS0_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.0121.2.lcssa399, %.loopexit190 ]
-  %.sroa.30.0316 = phi ptr [ %32, %_ZNSt6vectorI6pollfdSaIS0_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.30.2.lcssa398, %.loopexit190 ]
+  %.sroa.0121.0317 = phi ptr [ %31, %_ZNSt6vectorI6pollfdSaIS0_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.0121.2.lcssa421, %.loopexit190 ]
+  %.sroa.30.0316 = phi ptr [ %32, %_ZNSt6vectorI6pollfdSaIS0_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.30.2.lcssa420, %.loopexit190 ]
   br label %45
 
 .preheader198:                                    ; preds = %_ZNSt6vectorI6pollfdSaIS0_EE9push_backERKS0_.exit
@@ -9894,14 +9894,14 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5folly10Subprocess4PipeESt6vectorIS4_
   br label %214
 
 ._crit_edge:                                      ; preds = %.loopexit190
-  %.not.i.i.i81 = icmp eq ptr %.sroa.0121.2.lcssa399, null
+  %.not.i.i.i81 = icmp eq ptr %.sroa.0121.2.lcssa421, null
   br i1 %.not.i.i.i81, label %_ZNSt6vectorImSaImEED2Ev.exit, label %206
 
 206:                                              ; preds = %._crit_edge
-  %207 = ptrtoint ptr %.sroa.30.2.lcssa398 to i64
-  %208 = ptrtoint ptr %.sroa.0121.2.lcssa399 to i64
+  %207 = ptrtoint ptr %.sroa.30.2.lcssa420 to i64
+  %208 = ptrtoint ptr %.sroa.0121.2.lcssa421 to i64
   %209 = sub i64 %207, %208
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0121.2.lcssa399, i64 noundef %209) #48
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0121.2.lcssa421, i64 noundef %209) #48
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %._crit_edge, %206
@@ -9939,18 +9939,18 @@ _ZNSt6vectorImSaImEED2Ev.exit84:                  ; preds = %.thread168, %214
   br i1 %.not.i.i.i85, label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit86, label %218
 
 218:                                              ; preds = %_ZNSt6vectorImSaImEED2Ev.exit84.thread, %_ZNSt6vectorImSaImEED2Ev.exit84
-  %.pn37.pn416 = phi { ptr, i32 } [ %44, %_ZNSt6vectorImSaImEED2Ev.exit84.thread ], [ %.pn37, %_ZNSt6vectorImSaImEED2Ev.exit84 ]
-  %.sroa.0139.2415 = phi ptr [ %28, %_ZNSt6vectorImSaImEED2Ev.exit84.thread ], [ %.sroa.0139.1211, %_ZNSt6vectorImSaImEED2Ev.exit84 ]
-  %.sroa.23.2414 = phi ptr [ %29, %_ZNSt6vectorImSaImEED2Ev.exit84.thread ], [ %.sroa.23.1228, %_ZNSt6vectorImSaImEED2Ev.exit84 ]
-  %219 = ptrtoint ptr %.sroa.23.2414 to i64
-  %220 = ptrtoint ptr %.sroa.0139.2415 to i64
+  %.pn37.pn438 = phi { ptr, i32 } [ %44, %_ZNSt6vectorImSaImEED2Ev.exit84.thread ], [ %.pn37, %_ZNSt6vectorImSaImEED2Ev.exit84 ]
+  %.sroa.0139.2437 = phi ptr [ %28, %_ZNSt6vectorImSaImEED2Ev.exit84.thread ], [ %.sroa.0139.1211, %_ZNSt6vectorImSaImEED2Ev.exit84 ]
+  %.sroa.23.2436 = phi ptr [ %29, %_ZNSt6vectorImSaImEED2Ev.exit84.thread ], [ %.sroa.23.1228, %_ZNSt6vectorImSaImEED2Ev.exit84 ]
+  %219 = ptrtoint ptr %.sroa.23.2436 to i64
+  %220 = ptrtoint ptr %.sroa.0139.2437 to i64
   %221 = sub i64 %219, %220
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0139.2415, i64 noundef %221) #48
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0139.2437, i64 noundef %221) #48
   br label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit86
 
 _ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit86:          ; preds = %_ZNSt6vectorImSaImEED2Ev.exit84, %218
-  %.pn37.pn417 = phi { ptr, i32 } [ %.pn37, %_ZNSt6vectorImSaImEED2Ev.exit84 ], [ %.pn37.pn416, %218 ]
-  resume { ptr, i32 } %.pn37.pn417
+  %.pn37.pn439 = phi { ptr, i32 } [ %.pn37, %_ZNSt6vectorImSaImEED2Ev.exit84 ], [ %.pn37.pn438, %218 ]
+  resume { ptr, i32 } %.pn37.pn439
 }
 
 ; Function Attrs: nounwind
@@ -10226,9 +10226,9 @@ _ZN5folly2io6CursorC2EPKNS_5IOBufE.exit.i.i.i:    ; preds = %_ZNK5folly10IOBufQu
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
   store ptr %33, ptr %15, align 8, !tbaa !403
   %.not.i.i.i.i = icmp eq i64 %32, 0
-  br i1 %.not.i.i.i.i, label %_ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.i.i, label %_ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.thread23.i.i, !prof !25
+  br i1 %.not.i.i.i.i, label %_ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.i.i, label %_ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.thread26.i.i, !prof !25
 
-_ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.thread23.i.i: ; preds = %_ZN5folly2io6CursorC2EPKNS_5IOBufE.exit.i.i.i
+_ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.thread26.i.i: ; preds = %_ZN5folly2io6CursorC2EPKNS_5IOBufE.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
@@ -10239,10 +10239,10 @@ _ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.i.i: ; preds = %_ZN5
   %35 = icmp samesign eq i64 %34, 0
   br i1 %35, label %"_ZZN5folly10Subprocess16communicateIOBufENS_10IOBufQueueEENK3$_1clEii.exit", label %36
 
-36:                                               ; preds = %_ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.i.i, %_ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.thread23.i.i
-  %.0.i.i25.i.i = phi i64 [ %32, %_ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.thread23.i.i ], [ %34, %_ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.i.i ]
-  %37 = phi ptr [ %31, %_ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.thread23.i.i ], [ %.pre.i4.i.i.i, %_ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.i.i ]
-  %38 = call noundef i64 @_ZN5folly10writeNoIntEiPKvm(i32 noundef %0, ptr noundef %37, i64 noundef %.0.i.i25.i.i)
+36:                                               ; preds = %_ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.i.i, %_ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.thread26.i.i
+  %.0.i.i28.i.i = phi i64 [ %32, %_ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.thread26.i.i ], [ %34, %_ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.i.i ]
+  %37 = phi ptr [ %31, %_ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.thread26.i.i ], [ %.pre.i4.i.i.i, %_ZN5folly12_GLOBAL__N_110queueFrontERKNS_10IOBufQueueE.exit.i.i ]
+  %38 = call noundef i64 @_ZN5folly10writeNoIntEiPKvm(i32 noundef %0, ptr noundef %37, i64 noundef %.0.i.i28.i.i)
   %39 = icmp eq i64 %38, -1
   br i1 %39, label %40, label %44
 

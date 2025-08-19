@@ -3234,16 +3234,16 @@ l_Lean_Expr_ctorWeight.exit:                      ; preds = %lean_obj_tag.exit.i
 lean_obj_tag.exit.i629:                           ; preds = %113, %110
   %.0.i.i630 = phi i32 [ %112, %110 ], [ %115, %113 ]
   %116 = icmp ult i32 %.0.i.i630, 11
-  br i1 %116, label %switch.lookup783, label %l_Lean_Expr_ctorWeight.exit633
+  br i1 %116, label %switch.lookup944, label %l_Lean_Expr_ctorWeight.exit633
 
-switch.lookup783:                                 ; preds = %lean_obj_tag.exit.i629
+switch.lookup944:                                 ; preds = %lean_obj_tag.exit.i629
   %117 = zext nneg i32 %.0.i.i630 to i64
-  %switch.gep784 = getelementptr inbounds nuw [11 x i8], ptr @switch.table.l_Lean_Meta_ACLt_main_lpo.10, i64 0, i64 %117
-  %switch.load785 = load i8, ptr %switch.gep784, align 1
+  %switch.gep945 = getelementptr inbounds nuw [11 x i8], ptr @switch.table.l_Lean_Meta_ACLt_main_lpo.10, i64 0, i64 %117
+  %switch.load946 = load i8, ptr %switch.gep945, align 1
   br label %l_Lean_Expr_ctorWeight.exit633
 
-l_Lean_Expr_ctorWeight.exit633:                   ; preds = %lean_obj_tag.exit.i629, %switch.lookup783
-  %.0.i631 = phi i8 [ %switch.load785, %switch.lookup783 ], [ 7, %lean_obj_tag.exit.i629 ]
+l_Lean_Expr_ctorWeight.exit633:                   ; preds = %lean_obj_tag.exit.i629, %switch.lookup944
+  %.0.i631 = phi i8 [ %switch.load946, %switch.lookup944 ], [ 7, %lean_obj_tag.exit.i629 ]
   %.not770 = icmp samesign ult i8 %.0.i627, %.0.i631
   br i1 %.not770, label %460, label %118
 
@@ -4424,16 +4424,16 @@ lean_dec.exit363:                                 ; preds = %518, %517, %515, %l
 lean_obj_tag.exit.i675:                           ; preds = %522, %519
   %.0.i.i676 = phi i32 [ %521, %519 ], [ %524, %522 ]
   %525 = icmp ult i32 %.0.i.i676, 11
-  br i1 %525, label %switch.lookup786, label %l_Lean_Expr_ctorWeight.exit679
+  br i1 %525, label %switch.lookup947, label %l_Lean_Expr_ctorWeight.exit679
 
-switch.lookup786:                                 ; preds = %lean_obj_tag.exit.i675
+switch.lookup947:                                 ; preds = %lean_obj_tag.exit.i675
   %526 = zext nneg i32 %.0.i.i676 to i64
-  %switch.gep787 = getelementptr inbounds nuw [11 x i8], ptr @switch.table.l_Lean_Meta_ACLt_main_lpo.10, i64 0, i64 %526
-  %switch.load788 = load i8, ptr %switch.gep787, align 1
+  %switch.gep948 = getelementptr inbounds nuw [11 x i8], ptr @switch.table.l_Lean_Meta_ACLt_main_lpo.10, i64 0, i64 %526
+  %switch.load949 = load i8, ptr %switch.gep948, align 1
   br label %l_Lean_Expr_ctorWeight.exit679
 
-l_Lean_Expr_ctorWeight.exit679:                   ; preds = %lean_obj_tag.exit.i675, %switch.lookup786
-  %.0.i677 = phi i8 [ %switch.load788, %switch.lookup786 ], [ 7, %lean_obj_tag.exit.i675 ]
+l_Lean_Expr_ctorWeight.exit679:                   ; preds = %lean_obj_tag.exit.i675, %switch.lookup947
+  %.0.i677 = phi i8 [ %switch.load949, %switch.lookup947 ], [ 7, %lean_obj_tag.exit.i675 ]
   br i1 %.not747, label %530, label %527
 
 527:                                              ; preds = %l_Lean_Expr_ctorWeight.exit679
@@ -4450,16 +4450,16 @@ l_Lean_Expr_ctorWeight.exit679:                   ; preds = %lean_obj_tag.exit.i
 lean_obj_tag.exit.i681:                           ; preds = %530, %527
   %.0.i.i682 = phi i32 [ %529, %527 ], [ %532, %530 ]
   %533 = icmp ult i32 %.0.i.i682, 11
-  br i1 %533, label %switch.lookup789, label %l_Lean_Expr_ctorWeight.exit685
+  br i1 %533, label %switch.lookup950, label %l_Lean_Expr_ctorWeight.exit685
 
-switch.lookup789:                                 ; preds = %lean_obj_tag.exit.i681
+switch.lookup950:                                 ; preds = %lean_obj_tag.exit.i681
   %534 = zext nneg i32 %.0.i.i682 to i64
-  %switch.gep790 = getelementptr inbounds nuw [11 x i8], ptr @switch.table.l_Lean_Meta_ACLt_main_lpo.10, i64 0, i64 %534
-  %switch.load791 = load i8, ptr %switch.gep790, align 1
+  %switch.gep951 = getelementptr inbounds nuw [11 x i8], ptr @switch.table.l_Lean_Meta_ACLt_main_lpo.10, i64 0, i64 %534
+  %switch.load952 = load i8, ptr %switch.gep951, align 1
   br label %l_Lean_Expr_ctorWeight.exit685
 
-l_Lean_Expr_ctorWeight.exit685:                   ; preds = %lean_obj_tag.exit.i681, %switch.lookup789
-  %.0.i683 = phi i8 [ %switch.load791, %switch.lookup789 ], [ 7, %lean_obj_tag.exit.i681 ]
+l_Lean_Expr_ctorWeight.exit685:                   ; preds = %lean_obj_tag.exit.i681, %switch.lookup950
+  %.0.i683 = phi i8 [ %switch.load952, %switch.lookup950 ], [ 7, %lean_obj_tag.exit.i681 ]
   %.not758 = icmp samesign ult i8 %.0.i677, %.0.i683
   br i1 %.not758, label %828, label %535
 
@@ -9129,7 +9129,7 @@ lean_dec.exit269:                                 ; preds = %93, %92, %90, %lean
   br label %lean_dec.exit268
 
 lean_dec.exit268:                                 ; preds = %lean_dec.exit269.thread, %100, %99, %97, %lean_dec.exit269
-  %.0.i418541543 = phi i1 [ %85, %lean_dec.exit269.thread ], [ %86, %100 ], [ %86, %99 ], [ %86, %97 ], [ %86, %lean_dec.exit269 ]
+  %.0.i418679681 = phi i1 [ %85, %lean_dec.exit269.thread ], [ %86, %100 ], [ %86, %99 ], [ %86, %97 ], [ %86, %lean_dec.exit269 ]
   tail call void @lean_inc_heartbeat() #8
   %101 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #8
   %102 = icmp eq ptr %101, null
@@ -9140,7 +9140,7 @@ lean_dec.exit268:                                 ; preds = %lean_dec.exit269.th
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit268
-  %104 = select i1 %.0.i418541543, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  %104 = select i1 %.0.i418679681, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 4
   store i32 1, ptr %101, align 4, !tbaa !4
   store i32 131096, ptr %105, align 4
@@ -10781,7 +10781,7 @@ lean_dec.exit216:                                 ; preds = %723, %722, %720, %l
   br label %lean_dec.exit215
 
 lean_dec.exit215:                                 ; preds = %lean_dec.exit216.thread, %730, %729, %727, %lean_dec.exit216
-  %.0.i420546548 = phi i1 [ %715, %lean_dec.exit216.thread ], [ %716, %730 ], [ %716, %729 ], [ %716, %727 ], [ %716, %lean_dec.exit216 ]
+  %.0.i420684686 = phi i1 [ %715, %lean_dec.exit216.thread ], [ %716, %730 ], [ %716, %729 ], [ %716, %727 ], [ %716, %lean_dec.exit216 ]
   tail call void @lean_inc_heartbeat() #8
   %731 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #8
   %732 = icmp eq ptr %731, null
@@ -10792,7 +10792,7 @@ lean_dec.exit215:                                 ; preds = %lean_dec.exit216.th
   unreachable
 
 lean_alloc_ctor.exit458:                          ; preds = %lean_dec.exit215
-  %734 = select i1 %.0.i420546548, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  %734 = select i1 %.0.i420684686, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   %735 = getelementptr inbounds nuw i8, ptr %731, i64 4
   store i32 1, ptr %731, align 4, !tbaa !4
   store i32 131096, ptr %735, align 4
@@ -19386,21 +19386,21 @@ lean_dec.exit.backedge:                           ; preds = %681, %685, %lean_na
   br label %lean_dec.exit.backedge
 
 .thread464.sink.split:                            ; preds = %lean_dec.exit197, %lean_dec.exit204, %lean_dec.exit216, %lean_dec.exit230
-  %.sink657 = phi ptr [ %88, %lean_dec.exit230 ], [ %443, %lean_dec.exit216 ], [ %565, %lean_dec.exit204 ], [ %650, %lean_dec.exit197 ]
-  %.sink654 = phi i32 [ 131096, %lean_dec.exit230 ], [ 16908312, %lean_dec.exit216 ], [ 16908312, %lean_dec.exit204 ], [ 131096, %lean_dec.exit197 ]
-  %.sink651 = phi ptr [ %.0163, %lean_dec.exit230 ], [ %417, %lean_dec.exit216 ], [ %539, %lean_dec.exit204 ], [ %634, %lean_dec.exit197 ]
+  %.sink754 = phi ptr [ %88, %lean_dec.exit230 ], [ %443, %lean_dec.exit216 ], [ %565, %lean_dec.exit204 ], [ %650, %lean_dec.exit197 ]
+  %.sink751 = phi i32 [ 131096, %lean_dec.exit230 ], [ 16908312, %lean_dec.exit216 ], [ 16908312, %lean_dec.exit204 ], [ 131096, %lean_dec.exit197 ]
+  %.sink748 = phi ptr [ %.0163, %lean_dec.exit230 ], [ %417, %lean_dec.exit216 ], [ %539, %lean_dec.exit204 ], [ %634, %lean_dec.exit197 ]
   %.sink = phi ptr [ %.0169, %lean_dec.exit230 ], [ %419, %lean_dec.exit216 ], [ %541, %lean_dec.exit204 ], [ %.7195, %lean_dec.exit197 ]
-  %695 = getelementptr inbounds nuw i8, ptr %.sink657, i64 4
-  store i32 1, ptr %.sink657, align 4, !tbaa !4
-  store i32 %.sink654, ptr %695, align 4
-  %696 = getelementptr inbounds nuw i8, ptr %.sink657, i64 8
-  store ptr %.sink651, ptr %696, align 8, !tbaa !10
-  %697 = getelementptr inbounds nuw i8, ptr %.sink657, i64 16
+  %695 = getelementptr inbounds nuw i8, ptr %.sink754, i64 4
+  store i32 1, ptr %.sink754, align 4, !tbaa !4
+  store i32 %.sink751, ptr %695, align 4
+  %696 = getelementptr inbounds nuw i8, ptr %.sink754, i64 8
+  store ptr %.sink748, ptr %696, align 8, !tbaa !10
+  %697 = getelementptr inbounds nuw i8, ptr %.sink754, i64 16
   store ptr %.sink, ptr %697, align 8, !tbaa !10
   br label %.thread464
 
 .thread464:                                       ; preds = %.thread464.sink.split, %lean_dec.exit205, %lean_dec.exit217
-  %.1.ph = phi ptr [ %225, %lean_dec.exit205 ], [ %297, %lean_dec.exit217 ], [ %.sink657, %.thread464.sink.split ]
+  %.1.ph = phi ptr [ %225, %lean_dec.exit205 ], [ %297, %lean_dec.exit217 ], [ %.sink754, %.thread464.sink.split ]
   ret ptr %.1.ph
 }
 
@@ -28656,18 +28656,18 @@ _init_l_Lean_Expr_withAppAux___at_Lean_Meta_ACLt_main_allChildrenLt___spec__3___
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Expr_withAppAux___at_Lean_Meta_ACLt_main_allChildrenLt___spec__3___lambda__2___closed__1.exit, %3
-  %.sink25 = phi ptr [ %4, %3 ], [ %139, %_init_l_Lean_Expr_withAppAux___at_Lean_Meta_ACLt_main_allChildrenLt___spec__3___lambda__2___closed__1.exit ]
-  %142 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
-  store i32 1, ptr %.sink25, align 4, !tbaa !4
+  %.sink44 = phi ptr [ %4, %3 ], [ %139, %_init_l_Lean_Expr_withAppAux___at_Lean_Meta_ACLt_main_allChildrenLt___spec__3___lambda__2___closed__1.exit ]
+  %142 = getelementptr inbounds nuw i8, ptr %.sink44, i64 4
+  store i32 1, ptr %.sink44, align 4, !tbaa !4
   store i32 131096, ptr %142, align 4
-  %143 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.sink44, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %143, align 8, !tbaa !10
-  %144 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %.sink44, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %144, align 8, !tbaa !10
   br label %145
 
 145:                                              ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit16, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink25, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink44, %.sink.split ]
   ret ptr %.0
 }
 

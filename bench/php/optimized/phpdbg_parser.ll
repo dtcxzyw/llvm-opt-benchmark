@@ -906,20 +906,20 @@ yyerror.exit:                                     ; preds = %.lr.ph.i, %263
   br i1 %.not553, label %270, label %.thread614.thread
 
 .thread614.thread:                                ; preds = %29, %.thread614
-  %.4575604672 = phi ptr [ %.4575604, %.thread614 ], [ %4, %29 ]
-  %.6517606671 = phi ptr [ %.6517606, %.thread614 ], [ %22, %29 ]
-  %.0487612669 = phi i32 [ %.0487612, %.thread614 ], [ 1, %29 ]
-  call void @free(ptr noundef %.6517606671) #13
+  %.4575604678 = phi ptr [ %.4575604, %.thread614 ], [ %4, %29 ]
+  %.6517606677 = phi ptr [ %.6517606, %.thread614 ], [ %22, %29 ]
+  %.0487612675 = phi i32 [ %.0487612, %.thread614 ], [ 1, %29 ]
+  call void @free(ptr noundef %.6517606677) #13
   br label %270
 
 270:                                              ; preds = %.thread614.thread, %.thread614
-  %.4575604673 = phi ptr [ %.4575604672, %.thread614.thread ], [ %.4575604, %.thread614 ]
-  %.0487612670 = phi i32 [ %.0487612669, %.thread614.thread ], [ %.0487612, %.thread614 ]
-  %.not554 = icmp eq ptr %.4575604673, %4
+  %.4575604679 = phi ptr [ %.4575604678, %.thread614.thread ], [ %.4575604, %.thread614 ]
+  %.0487612676 = phi i32 [ %.0487612675, %.thread614.thread ], [ %.0487612, %.thread614 ]
+  %.not554 = icmp eq ptr %.4575604679, %4
   br i1 %.not554, label %272, label %271
 
 271:                                              ; preds = %270
-  call void @free(ptr noundef %.4575604673) #13
+  call void @free(ptr noundef %.4575604679) #13
   br label %272
 
 272:                                              ; preds = %270, %271
@@ -928,7 +928,7 @@ yyerror.exit:                                     ; preds = %.lr.ph.i, %263
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i32 %.0487612670
+  ret i32 %.0487612676
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1194,10 +1194,10 @@ yytnamerr.exit:                                   ; preds = %.preheader.split.us
   br label %yytnamerr.exit68
 
 yytnamerr.exit68:                                 ; preds = %64, %.preheader, %.thread.thread.i, %.split.us.thread.i
-  %.sink26 = phi i64 [ %91, %.thread.thread.i ], [ %.020.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %64 ]
+  %.sink29 = phi i64 [ %91, %.thread.thread.i ], [ %.020.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %64 ]
   %.sink = phi i64 [ 2, %.thread.thread.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %64 ]
   %.1 = phi i32 [ %70, %.thread.thread.i ], [ %70, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %64 ]
-  %92 = getelementptr inbounds i8, ptr %.039, i64 %.sink26
+  %92 = getelementptr inbounds i8, ptr %.039, i64 %.sink29
   %93 = getelementptr inbounds nuw i8, ptr %.147, i64 %.sink
   br label %.preheader
 

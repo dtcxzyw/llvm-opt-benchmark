@@ -756,8 +756,8 @@ HashStmt.exit.i:                                  ; preds = %HashStmt.exit.i.pre
 .critedge:                                        ; preds = %.lr.ph.i, %.loopexit
   %52 = tail call ptr @ecpg_strdup(ptr noundef nonnull %43, i32 noundef %0) #12
   store ptr %52, ptr %3, align 8
-  %sext79 = shl i64 %indvars.iv.i, 32
-  %.pre = ashr exact i64 %sext79, 32
+  %sext87 = shl i64 %indvars.iv.i, 32
+  %.pre = ashr exact i64 %sext87, 32
   br label %130
 
 SearchStmtCache.exit.thread:                      ; preds = %35, %37, %5
@@ -848,11 +848,11 @@ HashStmt.exit.i43:                                ; preds = %._crit_edge.loopexi
 95:                                               ; preds = %82
   %96 = trunc nsw i64 %indvars.iv to i32
   %97 = icmp samesign ugt i32 %.03240.i, 7
-  %spec.select55.i = select i1 %97, i32 %.02941.i, i32 %96
+  %spec.select59.i = select i1 %97, i32 %.02941.i, i32 %96
   br label %.thread.i47
 
 .thread.i47:                                      ; preds = %86, %95
-  %98 = phi i32 [ %spec.select55.i, %95 ], [ %spec.select.i, %86 ]
+  %98 = phi i32 [ %spec.select59.i, %95 ], [ %spec.select.i, %86 ]
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds %struct.stmtCacheEntry, ptr %64, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 4

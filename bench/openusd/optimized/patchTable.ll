@@ -824,7 +824,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %168
 
 237:                                              ; preds = %235
   invoke void @_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(112) %236, ptr noundef nonnull align 8 dereferenceable(112) %231)
-          to label %.sink.split114 unwind label %238
+          to label %.sink.split140 unwind label %238
 
 238:                                              ; preds = %237
   %239 = landingpad { ptr, i32 }
@@ -838,7 +838,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %168
 
 242:                                              ; preds = %240
   invoke void @_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(112) %241, ptr noundef nonnull align 8 dereferenceable(112) %231)
-          to label %.sink.split114 unwind label %243
+          to label %.sink.split140 unwind label %243
 
 243:                                              ; preds = %242
   %244 = landingpad { ptr, i32 }
@@ -846,12 +846,12 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %168
   tail call void @_ZdlPvm(ptr noundef nonnull %241, i64 noundef 112) #27
   br label %293
 
-.sink.split114:                                   ; preds = %242, %237
-  %.sink115 = phi ptr [ %236, %237 ], [ %241, %242 ]
-  store ptr %.sink115, ptr %126, align 8
+.sink.split140:                                   ; preds = %242, %237
+  %.sink141 = phi ptr [ %236, %237 ], [ %241, %242 ]
+  store ptr %.sink141, ptr %126, align 8
   br label %245
 
-245:                                              ; preds = %.sink.split114, %230
+245:                                              ; preds = %.sink.split140, %230
   %246 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %247 = load ptr, ptr %246, align 8
   %248 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -902,7 +902,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %168
 275:                                              ; preds = %273
   %276 = load ptr, ptr %267, align 8
   invoke void @_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(112) %274, ptr noundef nonnull align 8 dereferenceable(112) %276)
-          to label %.sink.split116 unwind label %277
+          to label %.sink.split142 unwind label %277
 
 277:                                              ; preds = %275
   %278 = landingpad { ptr, i32 }
@@ -917,7 +917,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %168
 281:                                              ; preds = %279
   %282 = load ptr, ptr %267, align 8
   invoke void @_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(112) %280, ptr noundef nonnull align 8 dereferenceable(112) %282)
-          to label %.sink.split116 unwind label %283
+          to label %.sink.split142 unwind label %283
 
 283:                                              ; preds = %281
   %284 = landingpad { ptr, i32 }
@@ -925,12 +925,12 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %168
   tail call void @_ZdlPvm(ptr noundef nonnull %280, i64 noundef 112) #27
   br label %293
 
-.sink.split116:                                   ; preds = %281, %275
-  %.sink117 = phi ptr [ %274, %275 ], [ %280, %281 ]
-  store ptr %.sink117, ptr %272, align 8
+.sink.split142:                                   ; preds = %281, %275
+  %.sink143 = phi ptr [ %274, %275 ], [ %280, %281 ]
+  store ptr %.sink143, ptr %272, align 8
   br label %285
 
-285:                                              ; preds = %.sink.split116, %.lr.ph
+285:                                              ; preds = %.sink.split142, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %286 = load ptr, ptr %256, align 8
   %287 = load ptr, ptr %136, align 8
@@ -1739,7 +1739,7 @@ define linkonce_odr void @_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15Ste
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrEmS4_ET_S6_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrEmS4_ET_S6_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = shl nuw i64 %12, 3
+  %21 = shl nuw nsw i64 %12, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %21, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8
@@ -1788,7 +1788,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE11_S_
 
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE13_M_deallocateEPS4_m.exit36.i: ; preds = %34, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i
   store ptr %28, ptr %0, align 8
-  %36 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Far::PatchTable::StencilTablePtr", ptr %29, i64 %12
+  %36 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::PatchTable::StencilTablePtr", ptr %29, i64 %12
   store ptr %36, ptr %3, align 8
   %37 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::PatchTable::StencilTablePtr", ptr %28, i64 %26
   store ptr %37, ptr %13, align 8
@@ -2398,16 +2398,16 @@ define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTableD2Ev(ptr noundef nonnull read
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %15, label %.sink.split27
+  br i1 %11, label %15, label %.sink.split47
 
-.sink.split27:                                    ; preds = %8
+.sink.split47:                                    ; preds = %8
   %12 = load ptr, ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(112) %10) #23
   br label %15
 
-15:                                               ; preds = %8, %.sink.split27
+15:                                               ; preds = %8, %.sink.split47
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %18 = load ptr, ptr %17, align 8
@@ -2426,16 +2426,16 @@ define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTableD2Ev(ptr noundef nonnull read
   %27 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::PatchTable::StencilTablePtr", ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %33, label %.sink.split32
+  br i1 %29, label %33, label %.sink.split52
 
-.sink.split32:                                    ; preds = %.lr.ph
+.sink.split52:                                    ; preds = %.lr.ph
   %30 = load ptr, ptr %28, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(112) %28) #23
   br label %33
 
-33:                                               ; preds = %.lr.ph, %.sink.split32
+33:                                               ; preds = %.lr.ph, %.sink.split52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load ptr, ptr %17, align 8
   %35 = load ptr, ptr %16, align 8
@@ -2813,16 +2813,16 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false)
-  %.idx.i.i.i.i.i = shl nsw i64 %21, 2
-  %25 = getelementptr inbounds i8, ptr %20, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -2875,7 +2875,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %40
   store ptr %32, ptr %0, align 8
-  %42 = getelementptr inbounds i32, ptr %33, i64 %1
+  %42 = getelementptr inbounds nuw i32, ptr %33, i64 %1
   store ptr %42, ptr %4, align 8
   %43 = getelementptr inbounds nuw i32, ptr %32, i64 %30
   store ptr %43, ptr %11, align 8
@@ -2984,7 +2984,7 @@ define linkonce_odr void @_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable16FVa
   br i1 %.not37, label %20, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEmS4_ET_S6_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEmS4_ET_S6_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 6
+  %19 = shl nuw nsw i64 %1, 6
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8
@@ -3053,7 +3053,7 @@ _ZSt10_ConstructIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEJRKS4_EE
 .body:                                            ; preds = %36
   %42 = extractvalue { ptr, i32 } %37, 0
   %43 = tail call ptr @__cxa_begin_catch(ptr %42) #23
-  %44 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %27, i64 %1
+  %44 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %27, i64 %1
   invoke void @_ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_RSaIT0_E(ptr noundef nonnull %27, ptr noundef nonnull %44, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %.thread unwind label %45
 
@@ -3117,7 +3117,7 @@ _ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_
 
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelESaIS4_EE13_M_deallocateEPS4_m.exit46: ; preds = %_ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_RSaIT0_E.exit, %64
   store ptr %26, ptr %0, align 8
-  %68 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %27, i64 %1
+  %68 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %27, i64 %1
   store ptr %68, ptr %4, align 8
   %69 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %26, i64 %24
   store ptr %69, ptr %11, align 8
@@ -3168,18 +3168,18 @@ switch.lookup:                                    ; preds = %5
 
 _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; preds = %5, %switch.lookup
   %.0.i.i = phi i16 [ %switch.load, %switch.lookup ], [ -1, %5 ]
-  %switch.tableidx16 = add i32 %13, -1
-  %17 = icmp ult i32 %switch.tableidx16, 10
-  br i1 %17, label %switch.lookup15, label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit10
+  %switch.tableidx24 = add i32 %13, -1
+  %17 = icmp ult i32 %switch.tableidx24, 10
+  br i1 %17, label %switch.lookup23, label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit10
 
-switch.lookup15:                                  ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
-  %18 = zext nneg i32 %switch.tableidx16 to i64
-  %switch.gep17 = getelementptr inbounds nuw [10 x i16], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Far10PatchTable30allocateFVarPatchChannelValuesENS1_15PatchDescriptorES3_ii.1, i64 0, i64 %18
-  %switch.load18 = load i16, ptr %switch.gep17, align 2
+switch.lookup23:                                  ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
+  %18 = zext nneg i32 %switch.tableidx24 to i64
+  %switch.gep25 = getelementptr inbounds nuw [10 x i16], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Far10PatchTable30allocateFVarPatchChannelValuesENS1_15PatchDescriptorES3_ii.1, i64 0, i64 %18
+  %switch.load26 = load i16, ptr %switch.gep25, align 2
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit10
 
-_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit10: ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit, %switch.lookup15
-  %.0.i.i9 = phi i16 [ %switch.load18, %switch.lookup15 ], [ -1, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit ]
+_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit10: ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit, %switch.lookup23
+  %.0.i.i9 = phi i16 [ %switch.load26, %switch.lookup23 ], [ -1, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit ]
   %.sroa.speculated = tail call i16 @llvm.smax.i16(i16 %.0.i.i, i16 %.0.i.i9)
   %19 = sext i16 %.sroa.speculated to i32
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 12
@@ -3279,13 +3279,13 @@ define linkonce_odr void @_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchParamEmS3_ET_S5_T0_RSaIT1_E.exit, label %23
 
 23:                                               ; preds = %19
-  %.idx.i.i.i.i.i = shl nsw i64 %21, 3
-  %24 = getelementptr inbounds i8, ptr %20, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %23
@@ -3354,7 +3354,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EE11_S_relocateEPS3_S6_S
 
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EE13_M_deallocateEPS3_m.exit38: ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %44
   store ptr %33, ptr %0, align 8
-  %46 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %34, i64 %1
+  %46 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %34, i64 %1
   store ptr %46, ptr %4, align 8
   %47 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %33, i64 %31
   store ptr %47, ptr %11, align 8

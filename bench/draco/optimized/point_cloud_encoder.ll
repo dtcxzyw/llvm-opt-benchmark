@@ -1907,9 +1907,9 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit5.i:             ; preds = %282, %_ZNSt6vectorI
   br i1 %.not.i.i182, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit186, label %.critedge147.thread
 
 .critedge147.thread:                              ; preds = %._crit_edge355.us, %.critedge147
-  %.sroa.0228.5440 = phi ptr [ %.sroa.0228.5, %.critedge147 ], [ %.sroa.0228.6, %._crit_edge355.us ]
-  %.sroa.17.5438 = phi ptr [ %.sroa.17.5, %.critedge147 ], [ %.sroa.17.6, %._crit_edge355.us ]
-  %.not316436 = phi i1 [ true, %.critedge147 ], [ false, %._crit_edge355.us ]
+  %.sroa.0228.5467 = phi ptr [ %.sroa.0228.5, %.critedge147 ], [ %.sroa.0228.6, %._crit_edge355.us ]
+  %.sroa.17.5465 = phi ptr [ %.sroa.17.5, %.critedge147 ], [ %.sroa.17.6, %._crit_edge355.us ]
+  %.not316463 = phi i1 [ true, %.critedge147 ], [ false, %._crit_edge355.us ]
   %301 = ptrtoint ptr %.sroa.29225.0 to i64
   %302 = ptrtoint ptr %.sroa.0218.0 to i64
   %303 = sub i64 %301, %302
@@ -1920,17 +1920,17 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit5.i:             ; preds = %282, %_ZNSt6vectorI
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit186
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit186:          ; preds = %.critedge147, %.critedge147.thread
-  %.sroa.0228.5441 = phi ptr [ %.sroa.0228.5, %.critedge147 ], [ %.sroa.0228.5440, %.critedge147.thread ]
-  %.sroa.17.5439 = phi ptr [ %.sroa.17.5, %.critedge147 ], [ %.sroa.17.5438, %.critedge147.thread ]
-  %.not316437 = phi i1 [ true, %.critedge147 ], [ %.not316436, %.critedge147.thread ]
-  %.not.i.i.i187 = icmp eq ptr %.sroa.0228.5441, null
+  %.sroa.0228.5468 = phi ptr [ %.sroa.0228.5, %.critedge147 ], [ %.sroa.0228.5467, %.critedge147.thread ]
+  %.sroa.17.5466 = phi ptr [ %.sroa.17.5, %.critedge147 ], [ %.sroa.17.5465, %.critedge147.thread ]
+  %.not316464 = phi i1 [ true, %.critedge147 ], [ %.not316463, %.critedge147.thread ]
+  %.not.i.i.i187 = icmp eq ptr %.sroa.0228.5468, null
   br i1 %.not.i.i.i187, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %307
 
 307:                                              ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit186
-  %308 = ptrtoint ptr %.sroa.17.5439 to i64
-  %309 = ptrtoint ptr %.sroa.0228.5441 to i64
+  %308 = ptrtoint ptr %.sroa.17.5466 to i64
+  %309 = ptrtoint ptr %.sroa.0228.5468 to i64
   %310 = sub i64 %308, %309
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0228.5441, i64 noundef %310) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0228.5468, i64 noundef %310) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 .body163:                                         ; preds = %294, %293
@@ -1948,7 +1948,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit186:          ; preds = %.critedge147, %.cri
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit189
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.preheader306, %._crit_edge347, %307, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit186
-  %.2 = phi i1 [ %.not316437, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit186 ], [ %.not316437, %307 ], [ false, %._crit_edge347 ], [ false, %.preheader306 ]
+  %.2 = phi i1 [ %.not316464, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit186 ], [ %.not316464, %307 ], [ false, %._crit_edge347 ], [ false, %.preheader306 ]
   %.not.i.i190 = icmp eq ptr %.sroa.0245.0, null
   br i1 %.not.i.i190, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit194, label %315
 
@@ -2926,13 +2926,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !77
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !77
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

@@ -276,14 +276,14 @@ lean_dec.exit:                                    ; preds = %46, %45, %43, %lean
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit, %lean_dec.exit16
-  %.sink33 = phi ptr [ %30, %lean_dec.exit16 ], [ %47, %lean_dec.exit ]
+  %.sink38 = phi ptr [ %30, %lean_dec.exit16 ], [ %47, %lean_dec.exit ]
   %.sink = phi i32 [ 16842768, %lean_dec.exit16 ], [ 65552, %lean_dec.exit ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
-  store i32 1, ptr %.sink33, align 4, !tbaa !8
+  %50 = getelementptr inbounds nuw i8, ptr %.sink38, i64 4
+  store i32 1, ptr %.sink38, align 4, !tbaa !8
   store i32 %.sink, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.sink38, i64 8
   store ptr %13, ptr %51, align 8, !tbaa !4
-  ret ptr %.sink33
+  ret ptr %.sink38
 }
 
 declare ptr @lean_apply_2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -2480,18 +2480,18 @@ lean_dec_ref.exit16:                              ; preds = %34, %36, %37
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit16, %3
-  %.sink25 = phi ptr [ %4, %3 ], [ %42, %lean_dec_ref.exit16 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
-  store i32 1, ptr %.sink25, align 4, !tbaa !8
+  %.sink32 = phi ptr [ %4, %3 ], [ %42, %lean_dec_ref.exit16 ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sink32, i64 4
+  store i32 1, ptr %.sink32, align 4, !tbaa !8
   store i32 131096, ptr %45, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.sink32, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %46, align 8, !tbaa !4
-  %47 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.sink32, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %47, align 8, !tbaa !4
   br label %48
 
 48:                                               ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit14 ], [ %.sink25, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit14 ], [ %.sink32, %.sink.split ]
   ret ptr %.0
 }
 

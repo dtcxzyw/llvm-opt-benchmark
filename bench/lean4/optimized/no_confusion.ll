@@ -12999,13 +12999,13 @@ _ZN4lean10object_refD2Ev.exit563:                 ; preds = %1237, %1236, %1234,
   br label %.body541
 
 .body541:                                         ; preds = %1253, %1151, %1262
-  %.not.i.i.i5232720 = phi i1 [ %.not.i.i.i523, %1262 ], [ %.not.i.i.i523, %1253 ], [ true, %1151 ]
+  %.not.i.i.i5233070 = phi i1 [ %.not.i.i.i523, %1262 ], [ %.not.i.i.i523, %1253 ], [ true, %1151 ]
   %.pn210.pn.pn = phi { ptr, i32 } [ %.pn210.pn, %1262 ], [ %1254, %1253 ], [ %1152, %1151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %93)
   br label %1263
 
 1263:                                             ; preds = %.body541, %1251
-  %.not.i.i.i5232719 = phi i1 [ %.not.i.i.i5232720, %.body541 ], [ %.not.i.i.i523, %1251 ]
+  %.not.i.i.i5233069 = phi i1 [ %.not.i.i.i5233070, %.body541 ], [ %.not.i.i.i523, %1251 ]
   %.pn210.pn.pn.pn = phi { ptr, i32 } [ %.pn210.pn.pn, %.body541 ], [ %1252, %1251 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
@@ -13200,13 +13200,13 @@ _ZN4lean10object_refD2Ev.exit585:                 ; preds = %_ZN4lean10object_re
   br label %.body568
 
 .body568:                                         ; preds = %1316, %1274, %1325
-  %.not.i.i.i5232716 = phi i1 [ %.not.i.i.i523, %1325 ], [ %.not.i.i.i523, %1316 ], [ true, %1274 ]
+  %.not.i.i.i5233066 = phi i1 [ %.not.i.i.i523, %1325 ], [ %.not.i.i.i523, %1316 ], [ true, %1274 ]
   %.pn205.pn.pn = phi { ptr, i32 } [ %.pn205.pn, %1325 ], [ %1317, %1316 ], [ %1275, %1274 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %96)
   br label %1326
 
 1326:                                             ; preds = %.body568, %1314
-  %.not.i.i.i5232715 = phi i1 [ %.not.i.i.i5232716, %.body568 ], [ %.not.i.i.i523, %1314 ]
+  %.not.i.i.i5233065 = phi i1 [ %.not.i.i.i5233066, %.body568 ], [ %.not.i.i.i523, %1314 ]
   %.pn205.pn.pn.pn = phi { ptr, i32 } [ %.pn205.pn.pn, %.body568 ], [ %1315, %1314 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %95)
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
@@ -13762,7 +13762,7 @@ _ZN4lean10object_refD2Ev.exit626:                 ; preds = %_ZN4lean10object_re
   br label %1523
 
 1523:                                             ; preds = %1522, %1326, %1263, %1250
-  %.not.i.i.i5231180 = phi i1 [ %.not.i.i.i523, %1522 ], [ %.not.i.i.i5232719, %1263 ], [ %.not.i.i.i5232715, %1326 ], [ %.not.i.i.i523, %1250 ]
+  %.not.i.i.i5231180 = phi i1 [ %.not.i.i.i523, %1522 ], [ %.not.i.i.i5233069, %1263 ], [ %.not.i.i.i5233065, %1326 ], [ %.not.i.i.i523, %1250 ]
   %.pn217.pn.pn.pn = phi { ptr, i32 } [ %.pn217.pn.pn, %1522 ], [ %.pn210.pn.pn.pn, %1263 ], [ %.pn205.pn.pn.pn, %1326 ], [ %.pn202.pn, %1250 ]
   %1524 = load ptr, ptr %88, align 8, !tbaa !22
   %1525 = ptrtoint ptr %1524 to i64
@@ -13801,7 +13801,7 @@ _ZN4lean10object_refD2Ev.exit629:                 ; preds = %1533, %1532, %1523
   br i1 %.not.i.i.i5231180, label %1537, label %_ZN4lean10object_refD2Ev.exit632
 
 1537:                                             ; preds = %1530, %1241, %_ZN4lean10object_refD2Ev.exit629
-  %.pn217.pn.pn.pn.pn2674 = phi { ptr, i32 } [ %1242, %1241 ], [ %.pn217.pn.pn.pn, %_ZN4lean10object_refD2Ev.exit629 ], [ %.pn217.pn.pn.pn, %1530 ]
+  %.pn217.pn.pn.pn.pn3024 = phi { ptr, i32 } [ %1242, %1241 ], [ %.pn217.pn.pn.pn, %_ZN4lean10object_refD2Ev.exit629 ], [ %.pn217.pn.pn.pn, %1530 ]
   %1538 = load i32, ptr %1089, align 4, !tbaa !19
   %1539 = icmp sgt i32 %1538, 1
   br i1 %1539, label %1540, label %1542, !prof !24
@@ -13827,7 +13827,7 @@ _ZN4lean10object_refD2Ev.exit629:                 ; preds = %1533, %1532, %1523
   unreachable
 
 _ZN4lean10object_refD2Ev.exit632:                 ; preds = %1530, %1241, %1543, %1542, %1540, %_ZN4lean10object_refD2Ev.exit629, %_ZN4lean10object_refD2Ev.exit563
-  %.pn217.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn198.pn.pn, %_ZN4lean10object_refD2Ev.exit563 ], [ %.pn217.pn.pn.pn, %_ZN4lean10object_refD2Ev.exit629 ], [ %.pn217.pn.pn.pn.pn2674, %1540 ], [ %.pn217.pn.pn.pn.pn2674, %1542 ], [ %.pn217.pn.pn.pn.pn2674, %1543 ], [ %1242, %1241 ], [ %.pn217.pn.pn.pn, %1530 ]
+  %.pn217.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn198.pn.pn, %_ZN4lean10object_refD2Ev.exit563 ], [ %.pn217.pn.pn.pn, %_ZN4lean10object_refD2Ev.exit629 ], [ %.pn217.pn.pn.pn.pn3024, %1540 ], [ %.pn217.pn.pn.pn.pn3024, %1542 ], [ %.pn217.pn.pn.pn.pn3024, %1543 ], [ %1242, %1241 ], [ %.pn217.pn.pn.pn, %1530 ]
   %1547 = load ptr, ptr %84, align 8, !tbaa !22
   %1548 = ptrtoint ptr %1547 to i64
   %1549 = and i64 %1548, 1

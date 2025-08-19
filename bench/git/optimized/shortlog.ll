@@ -234,8 +234,8 @@ insert_records_from_trailers.exit:                ; preds = %25, %34, %._crit_ed
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %64 = load i64, ptr %60, align 8, !tbaa !45
-  %.not19 = icmp eq i64 %64, 0
-  br i1 %.not19, label %insert_records_from_format.exit, label %.lr.ph
+  %.not23 = icmp eq i64 %64, 0
+  br i1 %.not23, label %insert_records_from_format.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i15, %79
   %.018.i18 = phi ptr [ %80, %79 ], [ %59, %.lr.ph.i15 ]

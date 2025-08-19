@@ -2443,15 +2443,15 @@ _ZN16ciBytecodeStream15reset_to_methodEP8ciMethod.exit: ; preds = %47, %_ZN8ciMe
   br label %184
 
 184:                                              ; preds = %177, %170
-  %.sink106 = phi ptr [ %183, %177 ], [ %176, %170 ]
+  %.sink121 = phi ptr [ %183, %177 ], [ %176, %170 ]
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr %.sink106, ptr %185, align 8
+  store ptr %.sink121, ptr %185, align 8
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %187 = load ptr, ptr %.sink106, align 8
+  %187 = load ptr, ptr %.sink121, align 8
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 88
   %189 = load ptr, ptr %188, align 8
   %190 = icmp ne ptr %189, null
-  %191 = getelementptr inbounds nuw i8, ptr %.sink106, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %.sink121, i64 24
   %192 = load ptr, ptr %191, align 8
   %193 = icmp ne ptr %192, null
   %194 = select i1 %190, i1 true, i1 %193
@@ -4115,7 +4115,7 @@ _ZN8GraphKit12ensure_stackEj.exit:                ; preds = %223, %240
   br i1 %242, label %.lr.ph46.preheader, label %._crit_edge
 
 .lr.ph46.preheader:                               ; preds = %.preheader
-  %243 = zext i32 %229 to i64
+  %243 = zext nneg i32 %229 to i64
   br label %.lr.ph46
 
 244:                                              ; preds = %.lr.ph, %_ZN4Node8init_reqEjPS_.exit36
@@ -9496,9 +9496,9 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %102, %91, %47
   br i1 %109, label %.lr.ph.i.i.lr.ph, label %_ZN14MergeMemStream15next_non_empty2Ev.exit, !llvm.loop !44
 
 .loopexit.thread:                                 ; preds = %44, %.split.us.i.i, %.loopexit
-  %.sroa.22.1.ph129 = phi ptr [ %36, %.loopexit ], [ %46, %44 ], [ %36, %.split.us.i.i ]
+  %.sroa.22.1.ph149 = phi ptr [ %36, %.loopexit ], [ %46, %44 ], [ %36, %.split.us.i.i ]
   %110 = phi ptr [ %15, %.loopexit ], [ %32, %44 ], [ %32, %.split.us.i.i ]
-  %.not = icmp eq ptr %110, %.sroa.22.1.ph129
+  %.not = icmp eq ptr %110, %.sroa.22.1.ph149
   br i1 %.not, label %111, label %121
 
 111:                                              ; preds = %.loopexit.thread
@@ -9563,26 +9563,26 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %102, %91, %47
   br label %_ZN4Node7del_outEPS_.exit.i49
 
 _ZN4Node7del_outEPS_.exit.i49:                    ; preds = %138, %126, %.thread76
-  store ptr %.sroa.22.1.ph129, ptr %124, align 8
-  %.not8.i50 = icmp eq ptr %.sroa.22.1.ph129, null
+  store ptr %.sroa.22.1.ph149, ptr %124, align 8
+  %.not8.i50 = icmp eq ptr %.sroa.22.1.ph149, null
   br i1 %.not8.i50, label %_ZN4Node7set_reqEjPS_.exit53, label %143
 
 143:                                              ; preds = %_ZN4Node7del_outEPS_.exit.i49
-  %144 = getelementptr inbounds nuw i8, ptr %.sroa.22.1.ph129, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %.sroa.22.1.ph149, i64 16
   %145 = load ptr, ptr %144, align 8
   %146 = icmp eq ptr %145, null
   br i1 %146, label %_ZN4Node7set_reqEjPS_.exit53, label %147
 
 147:                                              ; preds = %143
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.22.1.ph129, i64 32
+  %148 = getelementptr inbounds nuw i8, ptr %.sroa.22.1.ph149, i64 32
   %149 = load i32, ptr %148, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %.sroa.22.1.ph129, i64 36
+  %150 = getelementptr inbounds nuw i8, ptr %.sroa.22.1.ph149, i64 36
   %151 = load i32, ptr %150, align 4
   %152 = icmp eq i32 %149, %151
   br i1 %152, label %153, label %154
 
 153:                                              ; preds = %147
-  tail call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(52) %.sroa.22.1.ph129, i32 noundef %149) #14
+  tail call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(52) %.sroa.22.1.ph149, i32 noundef %149) #14
   %.pre.i.i51 = load ptr, ptr %144, align 8
   %.pre2.i.i52 = load i32, ptr %148, align 8
   br label %154
@@ -10212,10 +10212,10 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit:       ; preds = %_ZN9Node_List4pushE
 
 _ZN4Node7set_reqEjPS_.exit.sink.split:            ; preds = %153, %197, %279
   %.sink = phi i32 [ %280, %279 ], [ %198, %197 ], [ %154, %153 ]
-  %.sink69 = phi ptr [ %281, %279 ], [ %199, %197 ], [ %155, %153 ]
+  %.sink92 = phi ptr [ %281, %279 ], [ %199, %197 ], [ %155, %153 ]
   %.0.ph = phi ptr [ %202, %279 ], [ null, %197 ], [ null, %153 ]
   %283 = zext i32 %.sink to i64
-  %284 = getelementptr inbounds nuw ptr, ptr %.sink69, i64 %283
+  %284 = getelementptr inbounds nuw ptr, ptr %.sink92, i64 %283
   store ptr %6, ptr %284, align 8
   br label %_ZN4Node7set_reqEjPS_.exit
 
@@ -11199,11 +11199,11 @@ _ZN4Node7del_outEPS_.exit.i.i.i82:                ; preds = %482, %470, %_ZN4Nod
   br label %_ZN4Node8init_reqEjPS_.exit66.sink.split
 
 _ZN4Node8init_reqEjPS_.exit66.sink.split:         ; preds = %367, %498
-  %.sink104 = phi i32 [ %499, %498 ], [ %368, %367 ]
-  %.sink102 = phi ptr [ %500, %498 ], [ %369, %367 ]
+  %.sink146 = phi i32 [ %499, %498 ], [ %368, %367 ]
+  %.sink144 = phi ptr [ %500, %498 ], [ %369, %367 ]
   %.sink = phi ptr [ %465, %498 ], [ %.0.i.i.i52, %367 ]
-  %502 = zext i32 %.sink104 to i64
-  %503 = getelementptr inbounds nuw ptr, ptr %.sink102, i64 %502
+  %502 = zext i32 %.sink146 to i64
+  %503 = getelementptr inbounds nuw ptr, ptr %.sink144, i64 %502
   store ptr %.sink, ptr %503, align 8
   br label %_ZN4Node8init_reqEjPS_.exit66
 
@@ -11489,9 +11489,9 @@ _ZN11PhaseValues15set_type_bottomEPK4Node.exit:   ; preds = %.loopexit, %111
   br label %_ZN14MergeMemStream10set_memoryEP4Node.exit
 
 _ZN14MergeMemStream10set_memoryEP4Node.exit:      ; preds = %88, %.split.us.i.i, %121, %120
-  %.sroa.21.1.ph48 = phi ptr [ %80, %120 ], [ %80, %121 ], [ %90, %88 ], [ %80, %.split.us.i.i ]
+  %.sroa.21.1.ph52 = phi ptr [ %80, %120 ], [ %80, %121 ], [ %90, %88 ], [ %80, %.split.us.i.i ]
   %.sroa.15.1 = phi ptr [ %99, %120 ], [ %99, %121 ], [ %76, %88 ], [ %76, %.split.us.i.i ]
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.sroa.15.1, ptr noundef %.sroa.21.1.ph48) #14
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.sroa.15.1, ptr noundef %.sroa.21.1.ph52) #14
   %122 = add nsw i32 %.sroa.7.1, 1
   %123 = icmp slt i32 %122, %65
   br i1 %123, label %.lr.ph.i.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit, !llvm.loop !45

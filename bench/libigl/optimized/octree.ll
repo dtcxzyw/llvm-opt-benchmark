@@ -197,8 +197,8 @@ _ZN5Eigen6MatrixIiLi8ELi1ELi0ELi8ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scal
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 88
   store ptr %7, ptr %.sroa.15.0..sroa_idx, align 8, !tbaa !19
   store ptr %23, ptr %16, align 8
-  %.sroa.4.0..sroa_idx405 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 0, ptr %.sroa.4.0..sroa_idx405, align 8
+  %.sroa.4.0..sroa_idx443 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i64 0, ptr %.sroa.4.0..sroa_idx443, align 8
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr @_ZNSt17_Function_handlerIFviiEZN3igl6octreeIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEiNS4_IiLin1ELin1ELi0ELin1ELin1EEES5_NS4_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERSt6vectorISD_IT0_SaISE_EESaISG_EERNS3_15PlainObjectBaseIT1_EERNSK_IT2_EERNSK_IT3_EEEUliiE_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation, ptr %25, align 8, !tbaa !18
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -237,9 +237,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %24
   %36 = getelementptr i8, ptr %33, i64 4
   %37 = add nsw i64 %.pre, -1
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %.thread362, label %40
+  br i1 %38, label %.thread400, label %40
 
-.thread362:                                       ; preds = %.noexc112
+.thread400:                                       ; preds = %.noexc112
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %36, ptr %39, align 8, !tbaa !40
   br label %.lr.ph.preheader
@@ -255,10 +255,10 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %24
   %45 = ashr exact i64 %44, 2
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %40, %.thread362
-  %46 = phi i64 [ 1, %.thread362 ], [ %45, %40 ]
-  %47 = phi i64 [ 4, %.thread362 ], [ %44, %40 ]
-  %48 = phi ptr [ %39, %.thread362 ], [ %43, %40 ]
+.lr.ph.preheader:                                 ; preds = %40, %.thread400
+  %46 = phi i64 [ 1, %.thread400 ], [ %45, %40 ]
+  %47 = phi i64 [ 4, %.thread400 ], [ %44, %40 ]
+  %48 = phi ptr [ %39, %.thread400 ], [ %43, %40 ]
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -275,10 +275,10 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %24
   %54 = load ptr, ptr %53, align 8, !tbaa !41
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !44
-  %.not.i367 = icmp eq ptr %54, %56
-  br i1 %.not.i367, label %83, label %.thread369
+  %.not.i405 = icmp eq ptr %54, %56
+  br i1 %.not.i405, label %83, label %.thread407
 
-.thread369:                                       ; preds = %._crit_edge.thread
+.thread407:                                       ; preds = %._crit_edge.thread
   %57 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   br label %.noexc115
@@ -299,12 +299,12 @@ _ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i: ; preds = %58
   %60 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #19
           to label %.noexc115 unwind label %351
 
-.noexc115:                                        ; preds = %.thread369, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i
-  %61 = phi i64 [ %47, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ 0, %.thread369 ]
-  %62 = phi ptr [ %48, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ %57, %.thread369 ]
-  %63 = phi ptr [ %49, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ %53, %.thread369 ]
-  %64 = phi ptr [ %50, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ %54, %.thread369 ]
-  %65 = phi ptr [ %60, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ null, %.thread369 ]
+.noexc115:                                        ; preds = %.thread407, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i
+  %61 = phi i64 [ %47, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ 0, %.thread407 ]
+  %62 = phi ptr [ %48, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ %57, %.thread407 ]
+  %63 = phi ptr [ %49, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ %53, %.thread407 ]
+  %64 = phi ptr [ %50, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ %54, %.thread407 ]
+  %65 = phi ptr [ %60, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ null, %.thread407 ]
   store ptr %65, ptr %64, align 8, !tbaa !37
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %65, ptr %66, align 8, !tbaa !40
@@ -1290,8 +1290,8 @@ _ZN5Eigen6MatrixIiLi8ELi1ELi0ELi8ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scal
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 88
   store ptr %7, ptr %.sroa.15.0..sroa_idx, align 8, !tbaa !19
   store ptr %23, ptr %16, align 8
-  %.sroa.4.0..sroa_idx389 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 0, ptr %.sroa.4.0..sroa_idx389, align 8
+  %.sroa.4.0..sroa_idx425 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i64 0, ptr %.sroa.4.0..sroa_idx425, align 8
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr @_ZNSt17_Function_handlerIFviiEZN3igl6octreeIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEiNS4_IiLin1ELi8ELi0ELin1ELi8EEENS4_IdLin1ELi3ELi0ELin1ELi3EEENS4_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERSt6vectorISE_IT0_SaISF_EESaISH_EERNS3_15PlainObjectBaseIT1_EERNSL_IT2_EERNSL_IT3_EEEUliiE_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation, ptr %25, align 8, !tbaa !18
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -1330,9 +1330,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %24
   %36 = getelementptr i8, ptr %33, i64 4
   %37 = add nsw i64 %.pre, -1
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %.thread346, label %40
+  br i1 %38, label %.thread382, label %40
 
-.thread346:                                       ; preds = %.noexc112
+.thread382:                                       ; preds = %.noexc112
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %36, ptr %39, align 8, !tbaa !40
   br label %.lr.ph.preheader
@@ -1348,10 +1348,10 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %24
   %45 = ashr exact i64 %44, 2
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %40, %.thread346
-  %46 = phi i64 [ 1, %.thread346 ], [ %45, %40 ]
-  %47 = phi i64 [ 4, %.thread346 ], [ %44, %40 ]
-  %48 = phi ptr [ %39, %.thread346 ], [ %43, %40 ]
+.lr.ph.preheader:                                 ; preds = %40, %.thread382
+  %46 = phi i64 [ 1, %.thread382 ], [ %45, %40 ]
+  %47 = phi i64 [ 4, %.thread382 ], [ %44, %40 ]
+  %48 = phi ptr [ %39, %.thread382 ], [ %43, %40 ]
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -1368,10 +1368,10 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %24
   %54 = load ptr, ptr %53, align 8, !tbaa !41
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !44
-  %.not.i351 = icmp eq ptr %54, %56
-  br i1 %.not.i351, label %83, label %.thread353
+  %.not.i387 = icmp eq ptr %54, %56
+  br i1 %.not.i387, label %83, label %.thread389
 
-.thread353:                                       ; preds = %._crit_edge.thread
+.thread389:                                       ; preds = %._crit_edge.thread
   %57 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   br label %.noexc115
@@ -1392,12 +1392,12 @@ _ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i: ; preds = %58
   %60 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #19
           to label %.noexc115 unwind label %332
 
-.noexc115:                                        ; preds = %.thread353, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i
-  %61 = phi i64 [ %47, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ 0, %.thread353 ]
-  %62 = phi ptr [ %48, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ %57, %.thread353 ]
-  %63 = phi ptr [ %49, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ %53, %.thread353 ]
-  %64 = phi ptr [ %50, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ %54, %.thread353 ]
-  %65 = phi ptr [ %60, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ null, %.thread353 ]
+.noexc115:                                        ; preds = %.thread389, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i
+  %61 = phi i64 [ %47, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ 0, %.thread389 ]
+  %62 = phi ptr [ %48, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ %57, %.thread389 ]
+  %63 = phi ptr [ %49, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ %53, %.thread389 ]
+  %64 = phi ptr [ %50, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ %54, %.thread389 ]
+  %65 = phi ptr [ %60, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ null, %.thread389 ]
   store ptr %65, ptr %64, align 8, !tbaa !37
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %65, ptr %66, align 8, !tbaa !40

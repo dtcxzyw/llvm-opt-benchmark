@@ -119,22 +119,22 @@ define noundef ptr @Saig_ManCexRemap(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %26, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %.val4360 = load i32, ptr %8, align 4, !tbaa !37
-  %27 = icmp eq i32 %.val4360, 0
-  br i1 %27, label %.critedge.loopexit, label %.lr.ph63
+  %.val4363 = load i32, ptr %8, align 4, !tbaa !37
+  %27 = icmp eq i32 %.val4363, 0
+  br i1 %27, label %.critedge.loopexit, label %.lr.ph66
 
 .lr.ph:                                           ; preds = %54
   %.val43 = load i32, ptr %8, align 4, !tbaa !37
   %28 = icmp eq i32 %55, %.val43
-  br i1 %28, label %.critedge.loopexit, label %.lr.ph63, !llvm.loop !41
+  br i1 %28, label %.critedge.loopexit, label %.lr.ph66, !llvm.loop !41
 
-.lr.ph63:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0354662 = phi i32 [ %55, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.val425861 = phi i32 [ %.val42, %.lr.ph ], [ %.val4255, %.lr.ph.preheader ]
+.lr.ph66:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0354665 = phi i32 [ %55, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.val425864 = phi i32 [ %.val42, %.lr.ph ], [ %.val4255, %.lr.ph.preheader ]
   %29 = load i32, ptr %18, align 4, !tbaa !43
   %30 = load i32, ptr %19, align 4, !tbaa !44
   %31 = mul nsw i32 %30, %.049
-  %32 = add i32 %29, %.0354662
+  %32 = add i32 %29, %.0354665
   %33 = add i32 %32, %31
   %34 = ashr i32 %33, 5
   %35 = sext i32 %34 to i64
@@ -146,11 +146,11 @@ define noundef ptr @Saig_ManCexRemap(ptr noundef %0, ptr noundef %1, ptr noundef
   %.not40 = icmp eq i32 %40, 0
   br i1 %.not40, label %54, label %41
 
-41:                                               ; preds = %.lr.ph63
+41:                                               ; preds = %.lr.ph66
   %42 = load i32, ptr %21, align 4, !tbaa !43
   %43 = load i32, ptr %22, align 4, !tbaa !44
   %44 = mul nsw i32 %43, %.049
-  %45 = add i32 %42, %.0354662
+  %45 = add i32 %42, %.0354665
   %46 = add i32 %45, %44
   %47 = and i32 %46, 31
   %48 = shl nuw i32 1, %47
@@ -163,9 +163,9 @@ define noundef ptr @Saig_ManCexRemap(ptr noundef %0, ptr noundef %1, ptr noundef
   %.val42.pre = load i32, ptr %16, align 4, !tbaa !37
   br label %54
 
-54:                                               ; preds = %.lr.ph63, %41
-  %.val42 = phi i32 [ %.val425861, %.lr.ph63 ], [ %.val42.pre, %41 ]
-  %55 = add nuw nsw i32 %.0354662, 1
+54:                                               ; preds = %.lr.ph66, %41
+  %.val42 = phi i32 [ %.val425864, %.lr.ph66 ], [ %.val42.pre, %41 ]
+  %55 = add nuw nsw i32 %.0354665, 1
   %56 = icmp slt i32 %55, %.val42
   br i1 %56, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !41
 
@@ -963,23 +963,23 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %144, label %106, label %.critedge4, !llvm.loop !82
 
 .critedge4:                                       ; preds = %Vec_IntPush.exit, %Vec_IntFree.exit112, %.critedge2
-  %.1139 = phi ptr [ %.1, %.critedge2 ], [ %85, %Vec_IntFree.exit112 ], [ %.1, %Vec_IntPush.exit ]
-  %145 = getelementptr inbounds nuw i8, ptr %.1139, i64 8
+  %.1146 = phi ptr [ %.1, %.critedge2 ], [ %85, %Vec_IntFree.exit112 ], [ %.1, %Vec_IntPush.exit ]
+  %145 = getelementptr inbounds nuw i8, ptr %.1146, i64 8
   %146 = load ptr, ptr %145, align 8, !tbaa !58
   %.not.i113 = icmp eq ptr %146, null
   br i1 %.not.i113, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %.critedge4, %49
   %.sink = phi ptr [ %56, %49 ], [ %146, %.critedge4 ]
-  %.1139.sink.ph = phi ptr [ %.073, %49 ], [ %.1139, %.critedge4 ]
+  %.1146.sink.ph = phi ptr [ %.073, %49 ], [ %.1146, %.critedge4 ]
   %.0.ph.ph = phi i32 [ 0, %49 ], [ 1, %.critedge4 ]
   call void @free(ptr noundef nonnull %.sink) #19
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %.critedge4, %49
-  %.1139.sink = phi ptr [ %.073, %49 ], [ %.1139, %.critedge4 ], [ %.1139.sink.ph, %.sink.split.sink.split ]
+  %.1146.sink = phi ptr [ %.073, %49 ], [ %.1146, %.critedge4 ], [ %.1146.sink.ph, %.sink.split.sink.split ]
   %.0.ph = phi i32 [ 0, %49 ], [ 1, %.critedge4 ], [ %.0.ph.ph, %.sink.split.sink.split ]
-  call void @free(ptr noundef nonnull %.1139.sink) #19
+  call void @free(ptr noundef nonnull %.1146.sink) #19
   br label %147
 
 147:                                              ; preds = %.sink.split, %44
@@ -1058,14 +1058,14 @@ define noalias noundef ptr @Gia_ManClasses2Flops(ptr noundef readonly captures(n
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %28, %30, %20, %22
-  %.sink17 = phi ptr [ %21, %20 ], [ %23, %22 ], [ %29, %28 ], [ %31, %30 ]
+  %.sink18 = phi ptr [ %21, %20 ], [ %23, %22 ], [ %29, %28 ], [ %31, %30 ]
   %.sink = phi i32 [ 16, %20 ], [ 16, %22 ], [ %25, %28 ], [ %25, %30 ]
-  store ptr %.sink17, ptr %5, align 8, !tbaa !58
+  store ptr %.sink18, ptr %5, align 8, !tbaa !58
   store i32 %.sink, ptr %2, align 8, !tbaa !75
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %13
-  %.pre.i14 = phi ptr [ %10, %13 ], [ %.sink17, %Vec_IntPush.exit.sink.split ]
+  %.pre.i14 = phi ptr [ %10, %13 ], [ %.sink18, %Vec_IntPush.exit.sink.split ]
   %32 = add nsw i32 %14, 1
   store i32 %32, ptr %3, align 4, !tbaa !74
   %33 = sext i32 %14 to i64

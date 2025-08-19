@@ -354,8 +354,8 @@ define dso_local noundef range(i64 -1, 9223372036855) i64 @_ZNK4absl24synchroniz
   br label %_ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv.exit
 
 _ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv.exit: ; preds = %7, %9
-  %.sink6 = phi i64 [ %8, %7 ], [ %10, %9 ]
-  %11 = sub nsw i64 %4, %.sink6
+  %.sink7 = phi i64 [ %8, %7 ], [ %10, %9 ]
+  %11 = sub nsw i64 %4, %.sink7
   %12 = icmp sgt i64 %11, 9223372036853775807
   br i1 %12, label %16, label %13
 

@@ -355,9 +355,9 @@ declare dso_local i32 @snd_ctl_unregister_ioctl(ptr noundef) local_unnamed_addr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -515, 1) i32 @snd_hwdep_control_ioctl(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca %struct.snd_hwdep_info, align 4
-  switch i32 %2, label %98 [
+  switch i32 %2, label %95 [
     i32 -1073457888, label %6
-    i32 -2133043935, label %55
+    i32 -2133043935, label %52
   ]
 
 6:                                                ; preds = %4
@@ -370,7 +370,7 @@ define internal range(i32 -515, 1) i32 @snd_hwdep_control_ioctl(ptr noundef read
   tail call void @llvm.write_register.i64(metadata !0, i64 %11)
   %13 = and i64 %12, 4294967295
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %98
+  br i1 %14, label %15, label %95
 
 15:                                               ; preds = %6
   %16 = extractvalue { ptr, i32, i64 } %9, 1
@@ -413,106 +413,99 @@ define internal range(i32 -515, 1) i32 @snd_hwdep_control_ioctl(ptr noundef read
 38:                                               ; preds = %31
   %39 = getelementptr i8, ptr %27, i64 -8
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %.critedge, label %43
+  br i1 %40, label %.critedge, label %.thread
 
 .critedge:                                        ; preds = %35, %38
-  %41 = add i32 %25, 1
+  %41 = add nsw i32 %25, 1
   %42 = icmp eq i32 %41, 4
   br i1 %42, label %.thread, label %.preheader, !llvm.loop !10
 
-43:                                               ; preds = %38
-  %44 = icmp sgt i32 %25, 3
-  br i1 %44, label %.thread, label %45
-
-.thread:                                          ; preds = %.critedge, %22, %15, %43
-  br label %45
-
-45:                                               ; preds = %43, %.thread
-  %46 = phi i32 [ -1, %.thread ], [ %25, %43 ]
+.thread:                                          ; preds = %.critedge, %38, %15, %22
+  %43 = phi i32 [ -1, %22 ], [ -1, %15 ], [ -1, %.critedge ], [ %25, %38 ]
   tail call void @mutex_unlock(ptr noundef nonnull @register_mutex) #11
-  %47 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %48 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %8, i32 %46, i64 4, i64 %47) #11, !srcloc !11
-  %49 = extractvalue { ptr, i64 } %48, 0
-  %50 = extractvalue { ptr, i64 } %48, 1
-  %51 = ptrtoint ptr %49 to i64
-  tail call void @llvm.write_register.i64(metadata !0, i64 %50)
-  %52 = and i64 %51, 4294967295
-  %53 = icmp eq i64 %52, 0
-  %54 = select i1 %53, i32 0, i32 -14
-  br label %98
+  %44 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %45 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %8, i32 %43, i64 4, i64 %44) #11, !srcloc !11
+  %46 = extractvalue { ptr, i64 } %45, 0
+  %47 = extractvalue { ptr, i64 } %45, 1
+  %48 = ptrtoint ptr %46 to i64
+  tail call void @llvm.write_register.i64(metadata !0, i64 %47)
+  %49 = and i64 %48, 4294967295
+  %50 = icmp eq i64 %49, 0
+  %51 = select i1 %50, i32 0, i32 -14
+  br label %95
 
-55:                                               ; preds = %4
-  %56 = inttoptr i64 %3 to ptr
-  %57 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %58 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %56, i64 4, i64 %57) #11, !srcloc !12
-  %59 = extractvalue { ptr, i32, i64 } %58, 0
-  %60 = extractvalue { ptr, i32, i64 } %58, 1
-  %61 = extractvalue { ptr, i32, i64 } %58, 2
-  %62 = ptrtoint ptr %59 to i64
-  tail call void @llvm.write_register.i64(metadata !0, i64 %61)
-  %63 = and i64 %62, 4294967295
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %65, label %98
+52:                                               ; preds = %4
+  %53 = inttoptr i64 %3 to ptr
+  %54 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %55 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %53, i64 4, i64 %54) #11, !srcloc !12
+  %56 = extractvalue { ptr, i32, i64 } %55, 0
+  %57 = extractvalue { ptr, i32, i64 } %55, 1
+  %58 = extractvalue { ptr, i32, i64 } %55, 2
+  %59 = ptrtoint ptr %56 to i64
+  tail call void @llvm.write_register.i64(metadata !0, i64 %58)
+  %60 = and i64 %59, 4294967295
+  %61 = icmp eq i64 %60, 0
+  br i1 %61, label %62, label %95
 
-65:                                               ; preds = %55
+62:                                               ; preds = %52
   tail call void @mutex_lock(ptr noundef nonnull @register_mutex) #11
-  %66 = load ptr, ptr @snd_hwdep_devices, align 8
-  %67 = icmp eq ptr %66, @snd_hwdep_devices
-  br i1 %67, label %.thread9, label %.preheader11
+  %63 = load ptr, ptr @snd_hwdep_devices, align 8
+  %64 = icmp eq ptr %63, @snd_hwdep_devices
+  br i1 %64, label %.thread9, label %.preheader11
 
-.preheader11:                                     ; preds = %65, %76
-  %68 = phi ptr [ %77, %76 ], [ %66, %65 ]
-  %69 = getelementptr i8, ptr %68, i64 -8
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %70, %0
-  br i1 %71, label %72, label %76
+.preheader11:                                     ; preds = %62, %73
+  %65 = phi ptr [ %74, %73 ], [ %63, %62 ]
+  %66 = getelementptr i8, ptr %65, i64 -8
+  %67 = load ptr, ptr %66, align 8
+  %68 = icmp eq ptr %67, %0
+  br i1 %68, label %69, label %73
 
-72:                                               ; preds = %.preheader11
-  %73 = getelementptr i8, ptr %68, i64 16
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp eq i32 %74, %60
-  br i1 %75, label %79, label %76
+69:                                               ; preds = %.preheader11
+  %70 = getelementptr i8, ptr %65, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, %57
+  br i1 %72, label %76, label %73
 
-76:                                               ; preds = %72, %.preheader11
-  %77 = load ptr, ptr %68, align 8
-  %78 = icmp eq ptr %77, @snd_hwdep_devices
-  br i1 %78, label %.thread9, label %.preheader11, !llvm.loop !6
+73:                                               ; preds = %69, %.preheader11
+  %74 = load ptr, ptr %65, align 8
+  %75 = icmp eq ptr %74, @snd_hwdep_devices
+  br i1 %75, label %.thread9, label %.preheader11, !llvm.loop !6
 
-79:                                               ; preds = %72
-  %80 = getelementptr i8, ptr %68, i64 -8
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %.thread9, label %82
+76:                                               ; preds = %69
+  %77 = getelementptr i8, ptr %65, i64 -8
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %.thread9, label %79
 
-82:                                               ; preds = %79
+79:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(220) %5, i8 0, i64 220, i1 false)
-  %83 = load i32, ptr %70, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %83, ptr %84, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %86 = getelementptr i8, ptr %68, i64 20
-  %87 = call i64 @strscpy(ptr noundef nonnull %85, ptr noundef nonnull %86, i64 noundef 64) #11
-  %88 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %89 = getelementptr i8, ptr %68, i64 52
-  %90 = call i64 @strscpy(ptr noundef nonnull %88, ptr noundef nonnull %89, i64 noundef 80) #11
-  %91 = getelementptr i8, ptr %68, i64 132
-  %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  store i32 %92, ptr %93, align 4
-  %94 = call i64 @_copy_to_user(ptr noundef %56, ptr noundef nonnull %5, i64 noundef 220) #11
-  %95 = icmp eq i64 %94, 0
-  %96 = select i1 %95, i32 0, i32 -14
+  %80 = load i32, ptr %67, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 %80, ptr %81, align 4
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %83 = getelementptr i8, ptr %65, i64 20
+  %84 = call i64 @strscpy(ptr noundef nonnull %82, ptr noundef nonnull %83, i64 noundef 64) #11
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %86 = getelementptr i8, ptr %65, i64 52
+  %87 = call i64 @strscpy(ptr noundef nonnull %85, ptr noundef nonnull %86, i64 noundef 80) #11
+  %88 = getelementptr i8, ptr %65, i64 132
+  %89 = load i32, ptr %88, align 4
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 152
+  store i32 %89, ptr %90, align 4
+  %91 = call i64 @_copy_to_user(ptr noundef %53, ptr noundef nonnull %5, i64 noundef 220) #11
+  %92 = icmp eq i64 %91, 0
+  %93 = select i1 %92, i32 0, i32 -14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread9
 
-.thread9:                                         ; preds = %76, %65, %82, %79
-  %97 = phi i32 [ %96, %82 ], [ -6, %79 ], [ -6, %65 ], [ -6, %76 ]
+.thread9:                                         ; preds = %73, %62, %79, %76
+  %94 = phi i32 [ %93, %79 ], [ -6, %76 ], [ -6, %62 ], [ -6, %73 ]
   call void @mutex_unlock(ptr noundef nonnull @register_mutex) #11
-  br label %98
+  br label %95
 
-98:                                               ; preds = %.thread9, %55, %45, %6, %4
-  %99 = phi i32 [ -14, %6 ], [ %54, %45 ], [ %97, %.thread9 ], [ -14, %55 ], [ -515, %4 ]
-  ret i32 %99
+95:                                               ; preds = %.thread9, %52, %.thread, %6, %4
+  %96 = phi i32 [ -14, %6 ], [ %51, %.thread ], [ %94, %.thread9 ], [ -14, %52 ], [ -515, %4 ]
+  ret i32 %96
 }
 
 ; Function Attrs: null_pointer_is_valid

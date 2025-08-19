@@ -331,12 +331,12 @@ define internal void @uat_devicenet_records_behavior_set_cb(ptr noundef writeonl
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -344,10 +344,10 @@ define internal void @uat_devicenet_records_behavior_set_cb(ptr noundef writeonl
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !6
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !6
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -355,7 +355,7 @@ define internal void @uat_devicenet_records_behavior_set_cb(ptr noundef writeonl
   store i32 %18, ptr %8, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -372,11 +372,11 @@ define internal void @uat_devicenet_records_behavior_tostr_cb(ptr noundef readon
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
-  br i1 %11, label %._crit_edge21, label %.lr.ph20
+  br i1 %11, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %17
-  %.01519 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
-  %12 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %17
+  %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
+  %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -384,12 +384,12 @@ define internal void @uat_devicenet_records_behavior_tostr_cb(ptr noundef readon
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !8
 
-17:                                               ; preds = %.lr.ph20
+17:                                               ; preds = %.lr.ph21
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !8
+  br i1 %19, label %._crit_edge22, label %.lr.ph21, !llvm.loop !8
 
-._crit_edge21:                                    ; preds = %17, %.lr.ph
+._crit_edge22:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
@@ -397,13 +397,13 @@ define internal void @uat_devicenet_records_behavior_tostr_cb(ptr noundef readon
   %22 = trunc i64 %21 to i32
   br label %24
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.142)
   store ptr %23, ptr %1, align 8
   br label %24
 
-24:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 6, %._crit_edge ], [ %22, %._crit_edge21 ]
+24:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 6, %._crit_edge ], [ %22, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -650,7 +650,7 @@ proto_item_set_generated.exit347:                 ; preds = %proto_item_set_gene
   store ptr null, ptr %95, align 8
   %96 = load i32, ptr @ett_devicenet_contents, align 4
   %97 = tail call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %96, ptr noundef null, ptr noundef nonnull @.str.150)
-  switch i32 %73, label %default.unreachable365 [
+  switch i32 %73, label %default.unreachable384 [
     i32 0, label %98
     i32 1, label %98
     i32 2, label %98
@@ -1092,8 +1092,8 @@ proto_item_set_generated.exit361:                 ; preds = %311, %314, %317
   %347 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %.not329 = icmp sgt i8 %347, -1
   %348 = load ptr, ptr %9, align 8
-  %.str.159..str.158368 = select i1 %.not329, ptr @.str.159, ptr @.str.158
-  tail call void @col_append_str(ptr noundef %348, i32 noundef 25, ptr noundef nonnull %.str.159..str.158368)
+  %.str.159..str.158387 = select i1 %.not329, ptr @.str.159, ptr @.str.158
+  tail call void @col_append_str(ptr noundef %348, i32 noundef 25, ptr noundef nonnull %.str.159..str.158387)
   %349 = load i32, ptr @hf_devicenet_vendor, align 4
   %350 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %349, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
   %351 = load i32, ptr @hf_devicenet_serial_number, align 4
@@ -1110,8 +1110,8 @@ proto_item_set_generated.exit361:                 ; preds = %311, %314, %317
   %360 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %.not328 = icmp sgt i8 %360, -1
   %361 = load ptr, ptr %9, align 8
-  %.str.159..str.158369 = select i1 %.not328, ptr @.str.159, ptr @.str.158
-  tail call void @col_append_str(ptr noundef %361, i32 noundef 25, ptr noundef nonnull %.str.159..str.158369)
+  %.str.159..str.158388 = select i1 %.not328, ptr @.str.159, ptr @.str.158
+  tail call void @col_append_str(ptr noundef %361, i32 noundef 25, ptr noundef nonnull %.str.159..str.158388)
   %362 = load i32, ptr @hf_devicenet_offline_ownership_allocate, align 4
   %363 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %362, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648)
   %364 = load i32, ptr @hf_devicenet_vendor, align 4
@@ -1126,7 +1126,7 @@ proto_item_set_generated.exit361:                 ; preds = %311, %314, %317
   %370 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_devicenet_invalid_can_id, ptr noundef nonnull @.str.165, i32 noundef %.sroa.0.0.copyload)
   br label %371
 
-default.unreachable365:                           ; preds = %proto_item_set_generated.exit347
+default.unreachable384:                           ; preds = %proto_item_set_generated.exit347
   unreachable
 
 371:                                              ; preds = %324, %162, %230, %._crit_edge, %226, %227, %210, %219, %104, %101, %98, %368, %339, %338, %340, %353, %proto_item_set_generated.exit361, %proto_item_set_generated.exit341

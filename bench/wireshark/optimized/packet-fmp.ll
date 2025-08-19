@@ -2104,20 +2104,20 @@ define internal fastcc noundef i32 @dissect_fmp_flushCmd(ptr noundef %0, i32 nou
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %16, %22
-  %.129 = phi i32 [ %.1, %22 ], [ 0, %16 ]
+  %.131 = phi i32 [ %.1, %22 ], [ 0, %16 ]
   %char0.pre = load i8, ptr %4, align 16
   %25 = icmp eq i8 %char0.pre, 0
   br i1 %25, label %._crit_edge.thread, label %27
 
 ._crit_edge.thread:                               ; preds = %5, %._crit_edge
-  %.018.lcssa33 = phi i32 [ %.129, %._crit_edge ], [ 0, %5 ]
+  %.018.lcssa35 = phi i32 [ %.131, %._crit_edge ], [ 0, %5 ]
   %26 = call i64 @g_strlcpy(ptr noundef nonnull %4, ptr noundef nonnull @.str.293, i64 noundef 256)
   br label %27
 
 27:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.018.lcssa32 = phi i32 [ %.018.lcssa33, %._crit_edge.thread ], [ %.129, %._crit_edge ]
+  %.018.lcssa34 = phi i32 [ %.018.lcssa35, %._crit_edge.thread ], [ %.131, %._crit_edge ]
   %28 = load i32, ptr @hf_fmp_cmd, align 4
-  %29 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %2, i32 noundef %28, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %.018.lcssa32, ptr noundef nonnull @.str.294, ptr noundef nonnull %4)
+  %29 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %2, i32 noundef %28, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %.018.lcssa34, ptr noundef nonnull @.str.294, ptr noundef nonnull %4)
   br label %30
 
 30:                                               ; preds = %27, %3

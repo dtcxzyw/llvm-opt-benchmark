@@ -995,8 +995,8 @@ getdatafield.exit:                                ; preds = %97
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %160, %161, %.lr.ph162.preheader
-  %.sink178 = phi i64 [ %169, %.lr.ph162.preheader ], [ %.pre175, %161 ], [ %.pre175, %160 ]
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %14, i8 0, i64 %.sink178, i1 false)
+  %.sink185 = phi i64 [ %169, %.lr.ph162.preheader ], [ %.pre175, %161 ], [ %.pre175, %160 ]
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %14, i8 0, i64 %.sink185, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %156, %165
@@ -1031,12 +1031,12 @@ getdatafield.exit:                                ; preds = %97
   br label %189
 
 189:                                              ; preds = %.loopexit, %.loopexit156
-  %.sink179 = phi ptr [ %187, %.loopexit ], [ %153, %.loopexit156 ]
+  %.sink186 = phi ptr [ %187, %.loopexit ], [ %153, %.loopexit156 ]
   %.2125 = phi i1 [ false, %.loopexit ], [ true, %.loopexit156 ]
   %.3 = phi ptr [ %.1121151, %.loopexit ], [ null, %.loopexit156 ]
   %.2 = phi ptr [ %.1119153, %.loopexit ], [ null, %.loopexit156 ]
   %.pn = phi i32 [ %172, %.loopexit ], [ %139, %.loopexit156 ]
-  call void @heap_freetuple(ptr noundef %.sink179) #9
+  call void @heap_freetuple(ptr noundef %.sink186) #9
   %.1 = add i32 %.pn, %.0115168
   %190 = add i32 %.0116167, 1
   %191 = icmp slt i32 %.1, %2
@@ -1340,8 +1340,8 @@ getdatafield.exit:                                ; preds = %75
   br i1 %.not, label %.loopexit, label %.preheader
 
 .loopexit103.sink.split:                          ; preds = %93, %100, %.lr.ph.preheader
-  %.sink114 = phi i64 [ %113, %.lr.ph.preheader ], [ %96, %100 ], [ %96, %93 ]
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %94, i8 0, i64 %.sink114, i1 false)
+  %.sink121 = phi i64 [ %113, %.lr.ph.preheader ], [ %96, %100 ], [ %96, %93 ]
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %94, i8 0, i64 %.sink121, i1 false)
   br label %.loopexit103
 
 .loopexit103:                                     ; preds = %.loopexit103.sink.split, %89

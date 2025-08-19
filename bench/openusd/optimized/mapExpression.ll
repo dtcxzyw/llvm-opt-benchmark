@@ -1742,8 +1742,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__16PcpMapExpression18IsConstantIdentityEv.e
   br label %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionC2ERKS0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__16PcpMapExpression18IsConstantIdentityEv.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__16PcpMapExpression18IsConstantIdentityEv.exit
-  %.pr21 = load i32, ptr %.pre, align 8
-  %16 = icmp eq i32 %.pr21, 0
+  %.pr24 = load i32, ptr %.pre, align 8
+  %16 = icmp eq i32 %.pr24, 0
   br i1 %16, label %17, label %_ZNK32pxrInternal_v0_24__pxrReserved__16PcpMapExpression18IsConstantIdentityEv.exit.thread.thread
 
 17:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__16PcpMapExpression18IsConstantIdentityEv.exit.thread
@@ -1885,8 +1885,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__16PcpMapExpression18IsConstantIdentityEv.e
   br label %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionC2ERKS0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__16PcpMapExpression18IsConstantIdentityEv.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__16PcpMapExpression18IsConstantIdentityEv.exit
-  %.pr23 = load i32, ptr %.pre, align 8
-  %16 = icmp eq i32 %.pr23, 0
+  %.pr26 = load i32, ptr %.pre, align 8
+  %16 = icmp eq i32 %.pr26, 0
   br i1 %16, label %17, label %_ZNK32pxrInternal_v0_24__pxrReserved__16PcpMapExpression18IsConstantIdentityEv.exit.thread.thread
 
 17:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__16PcpMapExpression18IsConstantIdentityEv.exit.thread
@@ -2664,26 +2664,26 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = 
   br i1 %77, label %._crit_edge.thread.i.i.i, label %83
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %74, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit ]
+  %.019.lcssa29.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %74, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit ]
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 168
   %79 = load ptr, ptr %78, align 8
-  %80 = icmp eq ptr %.019.lcssa28.i.i.i, %79
+  %80 = icmp eq ptr %.019.lcssa29.i.i.i, %79
   br i1 %80, label %select.unfold.i.i, label %81
 
 81:                                               ; preds = %._crit_edge.thread.i.i.i
-  %82 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #24
+  %82 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i) #24
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %82, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %83
 
 83:                                               ; preds = %81, %._crit_edge.i.i.i
   %84 = phi ptr [ %.pre.i.i, %81 ], [ %76, %._crit_edge.i.i.i ]
-  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %81 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %.019.lcssa28.i.i.i = phi ptr [ %.019.lcssa29.i.i.i, %81 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
   %85 = icmp ult ptr %84, %0
   br i1 %85, label %select.unfold.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
 
 select.unfold.i.i:                                ; preds = %83, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %83 ]
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa29.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa28.i.i.i, %83 ]
   %86 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %74
   br i1 %86, label %_ZNSt8_Rb_treeIPN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %87
 
@@ -2783,26 +2783,26 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit25: ; preds 
   br i1 %120, label %._crit_edge.thread.i.i.i45, label %126
 
 ._crit_edge.thread.i.i.i45:                       ; preds = %._crit_edge.i.i.i35, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit25
-  %.019.lcssa28.i.i.i46 = phi ptr [ %.02024.i.i.i30, %._crit_edge.i.i.i35 ], [ %117, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit25 ]
+  %.019.lcssa29.i.i.i46 = phi ptr [ %.02024.i.i.i30, %._crit_edge.i.i.i35 ], [ %117, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit25 ]
   %121 = getelementptr inbounds nuw i8, ptr %115, i64 168
   %122 = load ptr, ptr %121, align 8
-  %123 = icmp eq ptr %.019.lcssa28.i.i.i46, %122
+  %123 = icmp eq ptr %.019.lcssa29.i.i.i46, %122
   br i1 %123, label %select.unfold.i.i42, label %124
 
 124:                                              ; preds = %._crit_edge.thread.i.i.i45
-  %125 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i46) #24
+  %125 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i46) #24
   %.phi.trans.insert.i.i47 = getelementptr inbounds nuw i8, ptr %125, i64 32
   %.pre.i.i48 = load ptr, ptr %.phi.trans.insert.i.i47, align 8
   br label %126
 
 126:                                              ; preds = %124, %._crit_edge.i.i.i35
   %127 = phi ptr [ %.pre.i.i48, %124 ], [ %119, %._crit_edge.i.i.i35 ]
-  %.019.lcssa29.i.i.i36 = phi ptr [ %.019.lcssa28.i.i.i46, %124 ], [ %.02024.i.i.i30, %._crit_edge.i.i.i35 ]
+  %.019.lcssa28.i.i.i36 = phi ptr [ %.019.lcssa29.i.i.i46, %124 ], [ %.02024.i.i.i30, %._crit_edge.i.i.i35 ]
   %128 = icmp ult ptr %127, %0
   br i1 %128, label %select.unfold.i.i42, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit52
 
 select.unfold.i.i42:                              ; preds = %126, %._crit_edge.thread.i.i.i45
-  %.sroa.4.0.i.ph.i.i43 = phi ptr [ %.019.lcssa28.i.i.i46, %._crit_edge.thread.i.i.i45 ], [ %.019.lcssa29.i.i.i36, %126 ]
+  %.sroa.4.0.i.ph.i.i43 = phi ptr [ %.019.lcssa29.i.i.i46, %._crit_edge.thread.i.i.i45 ], [ %.019.lcssa28.i.i.i36, %126 ]
   %129 = icmp eq ptr %.sroa.4.0.i.ph.i.i43, %117
   br i1 %129, label %_ZNSt8_Rb_treeIPN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i44, label %130
 
@@ -4930,14 +4930,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserv
   br i1 %18, label %._crit_edge.thread.i, label %24
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %14
-  %.021.lcssa30.i = phi ptr [ %.02226.i, %._crit_edge.i ], [ %4, %14 ]
+  %.021.lcssa31.i = phi ptr [ %.02226.i, %._crit_edge.i ], [ %4, %14 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %.021.lcssa30.i, %20
+  %21 = icmp eq ptr %.021.lcssa31.i, %20
   br i1 %21, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE24_M_get_insert_unique_posERS3_.exit, label %22
 
 22:                                               ; preds = %._crit_edge.thread.i
-  %23 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa30.i) #24
+  %23 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa31.i) #24
   %.phi.trans.insert97 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %.0.copyload.i.i5.i.pre = load i64, ptr %.phi.trans.insert97, align 4
   %.0.copyload.i2.i6.i.pre = load i64, ptr %2, align 4
@@ -4946,11 +4946,11 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserv
 24:                                               ; preds = %22, %._crit_edge.i
   %.0.copyload.i2.i6.i = phi i64 [ %.0.copyload.i2.i6.i.pre, %22 ], [ %.0.copyload.i.i.i, %._crit_edge.i ]
   %.0.copyload.i.i5.i = phi i64 [ %.0.copyload.i.i5.i.pre, %22 ], [ %.0.copyload.i2.i.i, %._crit_edge.i ]
-  %.021.lcssa31.i = phi ptr [ %.021.lcssa30.i, %22 ], [ %.02226.i, %._crit_edge.i ]
+  %.021.lcssa30.i = phi ptr [ %.021.lcssa31.i, %22 ], [ %.02226.i, %._crit_edge.i ]
   %.sroa.07.0.i = phi ptr [ %23, %22 ], [ %.02226.i, %._crit_edge.i ]
   %25 = icmp ult i64 %.0.copyload.i.i5.i, %.0.copyload.i2.i6.i
   %spec.select.i = select i1 %25, ptr null, ptr %.sroa.07.0.i
-  %spec.select23.i = select i1 %25, ptr %.021.lcssa31.i, ptr null
+  %spec.select23.i = select i1 %25, ptr %.021.lcssa30.i, ptr null
   br label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE24_M_get_insert_unique_posERS3_.exit
 
 26:                                               ; preds = %3
@@ -5002,23 +5002,23 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserv
   br i1 %44, label %._crit_edge.thread.i35, label %48
 
 ._crit_edge.thread.i35:                           ; preds = %._crit_edge.i24, %41
-  %.021.lcssa30.i36 = phi ptr [ %.02226.i18, %._crit_edge.i24 ], [ %4, %41 ]
-  %45 = icmp eq ptr %.021.lcssa30.i36, %31
+  %.021.lcssa31.i36 = phi ptr [ %.02226.i18, %._crit_edge.i24 ], [ %4, %41 ]
+  %45 = icmp eq ptr %.021.lcssa31.i36, %31
   br i1 %45, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE24_M_get_insert_unique_posERS3_.exit, label %46
 
 46:                                               ; preds = %._crit_edge.thread.i35
-  %47 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa30.i36) #24
+  %47 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa31.i36) #24
   %.phi.trans.insert95 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %.0.copyload.i.i5.i27.pre = load i64, ptr %.phi.trans.insert95, align 4
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i24
   %.0.copyload.i.i5.i27 = phi i64 [ %.0.copyload.i.i5.i27.pre, %46 ], [ %.0.copyload.i2.i.i19, %._crit_edge.i24 ]
-  %.021.lcssa31.i25 = phi ptr [ %.021.lcssa30.i36, %46 ], [ %.02226.i18, %._crit_edge.i24 ]
+  %.021.lcssa30.i25 = phi ptr [ %.021.lcssa31.i36, %46 ], [ %.02226.i18, %._crit_edge.i24 ]
   %.sroa.07.0.i26 = phi ptr [ %47, %46 ], [ %.02226.i18, %._crit_edge.i24 ]
   %49 = icmp ult i64 %.0.copyload.i.i5.i27, %.0.copyload.i.i10
   %spec.select.i29 = select i1 %49, ptr null, ptr %.sroa.07.0.i26
-  %spec.select23.i30 = select i1 %49, ptr %.021.lcssa31.i25, ptr null
+  %spec.select23.i30 = select i1 %49, ptr %.021.lcssa30.i25, ptr null
   br label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE24_M_get_insert_unique_posERS3_.exit
 
 50:                                               ; preds = %26
@@ -5067,30 +5067,30 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserv
   br i1 %67, label %._crit_edge.thread.i63, label %73
 
 ._crit_edge.thread.i63:                           ; preds = %._crit_edge.i52, %64
-  %.021.lcssa30.i64 = phi ptr [ %.02226.i46, %._crit_edge.i52 ], [ %4, %64 ]
+  %.021.lcssa31.i64 = phi ptr [ %.02226.i46, %._crit_edge.i52 ], [ %4, %64 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %.021.lcssa30.i64, %69
+  %70 = icmp eq ptr %.021.lcssa31.i64, %69
   br i1 %70, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE24_M_get_insert_unique_posERS3_.exit, label %71
 
 71:                                               ; preds = %._crit_edge.thread.i63
-  %72 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa30.i64) #24
+  %72 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa31.i64) #24
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %72, i64 32
   %.0.copyload.i.i5.i55.pre = load i64, ptr %.phi.trans.insert, align 4
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge.i52
   %.0.copyload.i.i5.i55 = phi i64 [ %.0.copyload.i.i5.i55.pre, %71 ], [ %.0.copyload.i2.i.i47, %._crit_edge.i52 ]
-  %.021.lcssa31.i53 = phi ptr [ %.021.lcssa30.i64, %71 ], [ %.02226.i46, %._crit_edge.i52 ]
+  %.021.lcssa30.i53 = phi ptr [ %.021.lcssa31.i64, %71 ], [ %.02226.i46, %._crit_edge.i52 ]
   %.sroa.07.0.i54 = phi ptr [ %72, %71 ], [ %.02226.i46, %._crit_edge.i52 ]
   %74 = icmp ult i64 %.0.copyload.i.i5.i55, %.0.copyload.i.i10
   %spec.select.i57 = select i1 %74, ptr null, ptr %.sroa.07.0.i54
-  %spec.select23.i58 = select i1 %74, ptr %.021.lcssa31.i53, ptr null
+  %spec.select23.i58 = select i1 %74, ptr %.021.lcssa30.i53, ptr null
   br label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE24_M_get_insert_unique_posERS3_.exit
 
 _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE24_M_get_insert_unique_posERS3_.exit: ; preds = %73, %._crit_edge.thread.i63, %48, %._crit_edge.thread.i35, %24, %._crit_edge.thread.i, %60, %37, %50, %52, %29, %9
   %.sroa.086.0 = phi ptr [ null, %9 ], [ %31, %29 ], [ null, %52 ], [ %1, %50 ], [ %spec.select, %37 ], [ %spec.select88, %60 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %24 ], [ null, %._crit_edge.thread.i35 ], [ %spec.select.i29, %48 ], [ null, %._crit_edge.thread.i63 ], [ %spec.select.i57, %73 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %31, %29 ], [ %54, %52 ], [ null, %50 ], [ %spec.select87, %37 ], [ %spec.select89, %60 ], [ %.021.lcssa30.i, %._crit_edge.thread.i ], [ %spec.select23.i, %24 ], [ %.021.lcssa30.i36, %._crit_edge.thread.i35 ], [ %spec.select23.i30, %48 ], [ %.021.lcssa30.i64, %._crit_edge.thread.i63 ], [ %spec.select23.i58, %73 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %31, %29 ], [ %54, %52 ], [ null, %50 ], [ %spec.select87, %37 ], [ %spec.select89, %60 ], [ %.021.lcssa31.i, %._crit_edge.thread.i ], [ %spec.select23.i, %24 ], [ %.021.lcssa31.i36, %._crit_edge.thread.i35 ], [ %spec.select23.i30, %48 ], [ %.021.lcssa31.i64, %._crit_edge.thread.i63 ], [ %spec.select23.i58, %73 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.086.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -5419,7 +5419,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressio
 
 9:                                                ; preds = %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE14delete_segmentEm.exit.i.i, %1
   %.038.i.i = phi i64 [ %7, %1 ], [ %121, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE14delete_segmentEm.exit.i.i ]
-  %10 = getelementptr inbounds [64 x %"struct.std::atomic.13"], ptr %8, i64 0, i64 %.038.i.i
+  %10 = getelementptr inbounds nuw [64 x %"struct.std::atomic.13"], ptr %8, i64 0, i64 %.038.i.i
   %11 = load atomic i64, ptr %10 monotonic, align 8
   %.0.i.i.i = inttoptr i64 %11 to ptr
   %12 = tail call i64 @llvm.umax.i64(i64 %.038.i.i, i64 1)

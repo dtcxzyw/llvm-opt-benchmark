@@ -155,7 +155,7 @@ define hidden range(i32 0, 2) i32 @_glfwIsValidContextConfig(ptr noundef readonl
   br label %67
 
 22:                                               ; preds = %18, %8
-  switch i32 %6, label %.thread87 [
+  switch i32 %6, label %.thread93 [
     i32 196609, label %23
     i32 196610, label %49
   ]
@@ -167,8 +167,8 @@ define hidden range(i32 0, 2) i32 @_glfwIsValidContextConfig(ptr noundef readonl
   %.phi.trans.insert85 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.pre86 = load i32, ptr %.phi.trans.insert85, align 4, !tbaa !57
   %27 = icmp slt i32 %.pre86, 0
-  %or.cond90 = select i1 %26, i1 true, i1 %27
-  br i1 %or.cond90, label %._crit_edge84, label %28
+  %or.cond96 = select i1 %26, i1 true, i1 %27
+  br i1 %or.cond96, label %._crit_edge84, label %28
 
 28:                                               ; preds = %23
   %29 = icmp eq i32 %25, 1
@@ -213,7 +213,7 @@ define hidden range(i32 0, 2) i32 @_glfwIsValidContextConfig(ptr noundef readonl
   %42 = icmp samesign ult i32 %.pre86, 2
   %or.cond80 = select i1 %36, i1 %42, i1 false
   %or.cond83 = select i1 %41, i1 true, i1 %or.cond80
-  br i1 %or.cond83, label %43, label %.thread87
+  br i1 %or.cond83, label %43, label %.thread93
 
 43:                                               ; preds = %40
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65540, ptr noundef nonnull @.str.5) #7
@@ -225,7 +225,7 @@ define hidden range(i32 0, 2) i32 @_glfwIsValidContextConfig(ptr noundef readonl
   %.not72 = icmp ne i32 %46, 0
   %47 = icmp samesign ult i32 %25, 3
   %or.cond81 = select i1 %.not72, i1 %47, i1 false
-  br i1 %or.cond81, label %48, label %.thread87
+  br i1 %or.cond81, label %48, label %.thread93
 
 48:                                               ; preds = %44
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65540, ptr noundef nonnull @.str.6) #7
@@ -238,8 +238,8 @@ define hidden range(i32 0, 2) i32 @_glfwIsValidContextConfig(ptr noundef readonl
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !57
   %53 = icmp slt i32 %.pre, 0
-  %or.cond91 = select i1 %52, i1 true, i1 %53
-  br i1 %or.cond91, label %._crit_edge, label %54
+  %or.cond97 = select i1 %52, i1 true, i1 %53
+  br i1 %or.cond97, label %._crit_edge, label %54
 
 54:                                               ; preds = %49
   %55 = icmp eq i32 %51, 1
@@ -251,13 +251,13 @@ define hidden range(i32 0, 2) i32 @_glfwIsValidContextConfig(ptr noundef readonl
   %58 = icmp eq i32 %51, 2
   %59 = icmp ne i32 %.pre, 0
   %or.cond82 = and i1 %58, %59
-  br i1 %or.cond82, label %._crit_edge, label %.thread87
+  br i1 %or.cond82, label %._crit_edge, label %.thread93
 
 ._crit_edge:                                      ; preds = %49, %57, %54
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65540, ptr noundef nonnull @.str.7, i32 noundef %51, i32 noundef %.pre) #7
   br label %67
 
-.thread87:                                        ; preds = %40, %22, %57, %44
+.thread93:                                        ; preds = %40, %22, %57, %44
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = load i32, ptr %60, align 8, !tbaa !60
   switch i32 %61, label %62 [
@@ -266,11 +266,11 @@ define hidden range(i32 0, 2) i32 @_glfwIsValidContextConfig(ptr noundef readonl
     i32 200706, label %63
   ]
 
-62:                                               ; preds = %.thread87
+62:                                               ; preds = %.thread93
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65539, ptr noundef nonnull @.str.8, i32 noundef %61) #7
   br label %67
 
-63:                                               ; preds = %.thread87, %.thread87, %.thread87
+63:                                               ; preds = %.thread93, %.thread93, %.thread93
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %65 = load i32, ptr %64, align 4, !tbaa !61
   switch i32 %65, label %66 [
@@ -711,9 +711,9 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 49:                                               ; preds = %42
   %.not13.i120 = icmp eq ptr %43, null
-  br i1 %.not13.i120, label %glfwMakeContextCurrent.exit122, label %.thread19.i121
+  br i1 %.not13.i120, label %glfwMakeContextCurrent.exit122, label %.thread20.i121
 
-.thread19.i121:                                   ; preds = %49
+.thread20.i121:                                   ; preds = %49
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 600
   %51 = load ptr, ptr %50, align 8, !tbaa !152
   tail call void %51(ptr noundef null) #7
@@ -778,9 +778,9 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 76:                                               ; preds = %69
   %.not13.i129 = icmp eq ptr %70, null
-  br i1 %.not13.i129, label %glfwMakeContextCurrent.exit122, label %.thread19.i130
+  br i1 %.not13.i129, label %glfwMakeContextCurrent.exit122, label %.thread20.i130
 
-.thread19.i130:                                   ; preds = %76
+.thread20.i130:                                   ; preds = %76
   %77 = getelementptr inbounds nuw i8, ptr %70, i64 600
   %78 = load ptr, ptr %77, align 8, !tbaa !152
   tail call void %78(ptr noundef null) #7
@@ -868,9 +868,9 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 113:                                              ; preds = %106
   %.not13.i138 = icmp eq ptr %107, null
-  br i1 %.not13.i138, label %glfwMakeContextCurrent.exit122, label %.thread19.i139
+  br i1 %.not13.i138, label %glfwMakeContextCurrent.exit122, label %.thread20.i139
 
-.thread19.i139:                                   ; preds = %113
+.thread20.i139:                                   ; preds = %113
   %114 = getelementptr inbounds nuw i8, ptr %107, i64 600
   %115 = load ptr, ptr %114, align 8, !tbaa !152
   tail call void %115(ptr noundef null) #7
@@ -951,9 +951,9 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 153:                                              ; preds = %146
   %.not13.i147 = icmp eq ptr %147, null
-  br i1 %.not13.i147, label %glfwMakeContextCurrent.exit122, label %.thread19.i148
+  br i1 %.not13.i147, label %glfwMakeContextCurrent.exit122, label %.thread20.i148
 
-.thread19.i148:                                   ; preds = %153
+.thread20.i148:                                   ; preds = %153
   %154 = getelementptr inbounds nuw i8, ptr %147, i64 600
   %155 = load ptr, ptr %154, align 8, !tbaa !152
   tail call void %155(ptr noundef null) #7
@@ -1078,25 +1078,25 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   %207 = load i32, ptr %4, align 4, !tbaa !160
   %208 = and i32 %207, 2
   %.not108 = icmp eq i32 %208, 0
-  br i1 %.not108, label %209, label %.sink.split169
+  br i1 %.not108, label %209, label %.sink.split187
 
 209:                                              ; preds = %205
   %210 = and i32 %207, 1
   %.not109 = icmp eq i32 %210, 0
-  br i1 %.not109, label %211, label %.sink.split169
+  br i1 %.not109, label %211, label %.sink.split187
 
 211:                                              ; preds = %209
   %212 = call i32 @glfwExtensionSupported(ptr noundef nonnull @.str.25)
   %.not110 = icmp eq i32 %212, 0
-  br i1 %.not110, label %214, label %.sink.split169
+  br i1 %.not110, label %214, label %.sink.split187
 
-.sink.split169:                                   ; preds = %211, %209, %205
+.sink.split187:                                   ; preds = %211, %209, %205
   %.sink = phi i32 [ 204802, %205 ], [ 204801, %209 ], [ 204802, %211 ]
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 560
   store i32 %.sink, ptr %213, align 8, !tbaa !165
   br label %214
 
-214:                                              ; preds = %.sink.split169, %211
+214:                                              ; preds = %.sink.split187, %211
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread164
 
@@ -1111,20 +1111,20 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   call void %217(i32 noundef 33366, ptr noundef nonnull %5) #7
   %218 = load i32, ptr %5, align 4, !tbaa !160
   switch i32 %218, label %221 [
-    i32 33362, label %.sink.split171
+    i32 33362, label %.sink.split189
     i32 33377, label %219
   ]
 
 219:                                              ; preds = %216
-  br label %.sink.split171
+  br label %.sink.split189
 
-.sink.split171:                                   ; preds = %216, %219
-  %.sink172 = phi i32 [ 200705, %219 ], [ 200706, %216 ]
+.sink.split189:                                   ; preds = %216, %219
+  %.sink190 = phi i32 [ 200705, %219 ], [ 200706, %216 ]
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 564
-  store i32 %.sink172, ptr %220, align 4, !tbaa !166
+  store i32 %.sink190, ptr %220, align 4, !tbaa !166
   br label %221
 
-221:                                              ; preds = %.sink.split171, %216
+221:                                              ; preds = %.sink.split189, %216
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %230
 
@@ -1139,20 +1139,20 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   call void %225(i32 noundef 33366, ptr noundef nonnull %6) #7
   %226 = load i32, ptr %6, align 4, !tbaa !160
   switch i32 %226, label %229 [
-    i32 33362, label %.sink.split174
+    i32 33362, label %.sink.split192
     i32 33377, label %227
   ]
 
 227:                                              ; preds = %224
-  br label %.sink.split174
+  br label %.sink.split192
 
-.sink.split174:                                   ; preds = %224, %227
-  %.sink175 = phi i32 [ 200705, %227 ], [ 200706, %224 ]
+.sink.split192:                                   ; preds = %224, %227
+  %.sink193 = phi i32 [ 200705, %227 ], [ 200706, %224 ]
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 564
-  store i32 %.sink175, ptr %228, align 4, !tbaa !166
+  store i32 %.sink193, ptr %228, align 4, !tbaa !166
   br label %229
 
-229:                                              ; preds = %.sink.split174, %224
+229:                                              ; preds = %.sink.split192, %224
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %230
 
@@ -1167,20 +1167,20 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   call void %233(i32 noundef 33531, ptr noundef nonnull %7) #7
   %234 = load i32, ptr %7, align 4, !tbaa !160
   switch i32 %234, label %237 [
-    i32 0, label %.sink.split177
+    i32 0, label %.sink.split195
     i32 33532, label %235
   ]
 
 235:                                              ; preds = %232
-  br label %.sink.split177
+  br label %.sink.split195
 
-.sink.split177:                                   ; preds = %232, %235
-  %.sink178 = phi i32 [ 217089, %235 ], [ 217090, %232 ]
+.sink.split195:                                   ; preds = %232, %235
+  %.sink196 = phi i32 [ 217089, %235 ], [ 217090, %232 ]
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store i32 %.sink178, ptr %236, align 8, !tbaa !167
+  store i32 %.sink196, ptr %236, align 8, !tbaa !167
   br label %237
 
-237:                                              ; preds = %.sink.split177, %232
+237:                                              ; preds = %.sink.split195, %232
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %238
 
@@ -1225,9 +1225,9 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 256:                                              ; preds = %249
   %.not13.i156 = icmp eq ptr %250, null
-  br i1 %.not13.i156, label %glfwMakeContextCurrent.exit122, label %.thread19.i157
+  br i1 %.not13.i156, label %glfwMakeContextCurrent.exit122, label %.thread20.i157
 
-.thread19.i157:                                   ; preds = %256
+.thread20.i157:                                   ; preds = %256
   %257 = getelementptr inbounds nuw i8, ptr %250, i64 600
   %258 = load ptr, ptr %257, align 8, !tbaa !152
   call void %258(ptr noundef null) #7
@@ -1257,8 +1257,8 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   call void %268(ptr noundef nonnull %12) #7
   br label %glfwMakeContextCurrent.exit122
 
-glfwMakeContextCurrent.exit122:                   ; preds = %.thread17.i155, %.thread19.i157, %256, %255, %248, %.thread17.i146, %.thread19.i148, %153, %152, %145, %.thread17.i137, %.thread19.i139, %113, %112, %105, %.thread17.i128, %.thread19.i130, %76, %75, %68, %.thread17.i119, %.thread19.i121, %49, %48, %41, %glfwMakeContextCurrent.exit, %172
-  %.0 = phi i32 [ 0, %172 ], [ 0, %glfwMakeContextCurrent.exit ], [ 0, %41 ], [ 0, %48 ], [ 0, %49 ], [ 0, %.thread19.i121 ], [ 0, %.thread17.i119 ], [ 0, %68 ], [ 0, %75 ], [ 0, %76 ], [ 0, %.thread19.i130 ], [ 0, %.thread17.i128 ], [ 0, %105 ], [ 0, %112 ], [ 0, %113 ], [ 0, %.thread19.i139 ], [ 0, %.thread17.i137 ], [ 0, %145 ], [ 0, %152 ], [ 0, %153 ], [ 0, %.thread19.i148 ], [ 0, %.thread17.i146 ], [ 1, %248 ], [ 1, %255 ], [ 1, %256 ], [ 1, %.thread19.i157 ], [ 1, %.thread17.i155 ]
+glfwMakeContextCurrent.exit122:                   ; preds = %.thread17.i155, %.thread20.i157, %256, %255, %248, %.thread17.i146, %.thread20.i148, %153, %152, %145, %.thread17.i137, %.thread20.i139, %113, %112, %105, %.thread17.i128, %.thread20.i130, %76, %75, %68, %.thread17.i119, %.thread20.i121, %49, %48, %41, %glfwMakeContextCurrent.exit, %172
+  %.0 = phi i32 [ 0, %172 ], [ 0, %glfwMakeContextCurrent.exit ], [ 0, %41 ], [ 0, %48 ], [ 0, %49 ], [ 0, %.thread20.i121 ], [ 0, %.thread17.i119 ], [ 0, %68 ], [ 0, %75 ], [ 0, %76 ], [ 0, %.thread20.i130 ], [ 0, %.thread17.i128 ], [ 0, %105 ], [ 0, %112 ], [ 0, %113 ], [ 0, %.thread20.i139 ], [ 0, %.thread17.i137 ], [ 0, %145 ], [ 0, %152 ], [ 0, %153 ], [ 0, %.thread20.i148 ], [ 0, %.thread17.i146 ], [ 1, %248 ], [ 1, %255 ], [ 1, %256 ], [ 1, %.thread20.i157 ], [ 1, %.thread17.i155 ]
   ret i32 %.0
 }
 
@@ -1272,7 +1272,7 @@ define void @glfwMakeContextCurrent(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #7
-  br label %.thread18
+  br label %.thread19
 
 4:                                                ; preds = %1
   %5 = tail call ptr @_glfwPlatformGetTls(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_glfw, i64 133412)) #7
@@ -1287,17 +1287,17 @@ define void @glfwMakeContextCurrent(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %6
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65546, ptr noundef nonnull @.str.30) #7
-  br label %.thread18
+  br label %.thread19
 
 11:                                               ; preds = %4
   %.not13 = icmp eq ptr %5, null
-  br i1 %.not13, label %.thread18, label %.thread19
+  br i1 %.not13, label %.thread19, label %.thread20
 
-.thread19:                                        ; preds = %11
+.thread20:                                        ; preds = %11
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 600
   %13 = load ptr, ptr %12, align 8, !tbaa !152
   tail call void %13(ptr noundef null) #7
-  br label %.thread18
+  br label %.thread19
 
 .thread:                                          ; preds = %6
   %.not1315 = icmp eq ptr %5, null
@@ -1321,9 +1321,9 @@ define void @glfwMakeContextCurrent(ptr noundef %0) local_unnamed_addr #0 {
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %23 = load ptr, ptr %22, align 8, !tbaa !152
   tail call void %23(ptr noundef nonnull %0) #7
-  br label %.thread18
+  br label %.thread19
 
-.thread18:                                        ; preds = %11, %.thread19, %.thread17, %10, %3
+.thread19:                                        ; preds = %11, %.thread20, %.thread17, %10, %3
   ret void
 }
 

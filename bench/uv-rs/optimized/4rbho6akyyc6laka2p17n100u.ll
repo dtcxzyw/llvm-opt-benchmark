@@ -2560,7 +2560,7 @@ define void @_ZN8uv_cache5wheel10WheelCache4root17h893bb0dcfe58b1d5E(ptr dead_on
   %38 = alloca [24 x i8], align 8
   %39 = alloca [24 x i8], align 8
   %40 = load i64, ptr %1, align 8, !range !359, !noundef !6
-  switch i64 %40, label %default.unreachable75 [
+  switch i64 %40, label %default.unreachable90 [
     i64 0, label %41
     i64 1, label %46
     i64 2, label %53
@@ -2568,7 +2568,7 @@ define void @_ZN8uv_cache5wheel10WheelCache4root17h893bb0dcfe58b1d5E(ptr dead_on
     i64 4, label %67
   ]
 
-default.unreachable75:                            ; preds = %2
+default.unreachable90:                            ; preds = %2
   unreachable
 
 41:                                               ; preds = %2

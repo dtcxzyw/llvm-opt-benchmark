@@ -1390,39 +1390,39 @@ GetDrawCmdColor.exit157:                          ; preds = %127, %130
 
 .lr.ph.preheader:                                 ; preds = %148
   %151 = load i32, ptr %.0130172, align 8
-  %.not141217 = icmp eq i32 %151, 6
-  br i1 %.not141217, label %.lr.ph221, label %.thread
+  %.not141229 = icmp eq i32 %151, 6
+  br i1 %.not141229, label %.lr.ph233, label %.thread
 
 .lr.ph:                                           ; preds = %158
   %152 = load i32, ptr %.0130, align 8
   %.not141 = icmp eq i32 %152, 6
-  br i1 %.not141, label %.lr.ph221, label %.thread
+  br i1 %.not141, label %.lr.ph233, label %.thread
 
-.lr.ph221:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0127174220 = phi ptr [ %.0130176218, %.lr.ph ], [ %.0113215, %.lr.ph.preheader ]
-  %.0124175219 = phi i32 [ %159, %.lr.ph ], [ %143, %.lr.ph.preheader ]
-  %.0130176218 = phi ptr [ %.0130, %.lr.ph ], [ %.0130172, %.lr.ph.preheader ]
-  %153 = getelementptr inbounds nuw i8, ptr %.0130176218, i64 16
+.lr.ph233:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0127174232 = phi ptr [ %.0130176230, %.lr.ph ], [ %.0113215, %.lr.ph.preheader ]
+  %.0124175231 = phi i32 [ %159, %.lr.ph ], [ %143, %.lr.ph.preheader ]
+  %.0130176230 = phi ptr [ %.0130, %.lr.ph ], [ %.0130172, %.lr.ph.preheader ]
+  %153 = getelementptr inbounds nuw i8, ptr %.0130176230, i64 16
   %154 = load i64, ptr %153, align 8
   %.not142 = icmp eq i64 %154, 2
   br i1 %.not142, label %155, label %.thread
 
-155:                                              ; preds = %.lr.ph221
-  %156 = getelementptr inbounds nuw i8, ptr %.0130176218, i64 44
+155:                                              ; preds = %.lr.ph233
+  %156 = getelementptr inbounds nuw i8, ptr %.0130176230, i64 44
   %157 = load i32, ptr %156, align 4
   %.not143 = icmp eq i32 %157, %150
   br i1 %.not143, label %158, label %.thread
 
 158:                                              ; preds = %155
-  %159 = add i32 %.0124175219, 2
-  %.0130.in = getelementptr inbounds nuw i8, ptr %.0130176218, i64 80
+  %159 = add i32 %.0124175231, 2
+  %.0130.in = getelementptr inbounds nuw i8, ptr %.0130176230, i64 80
   %.0130 = load ptr, ptr %.0130.in, align 8
   %.not140 = icmp eq ptr %.0130, null
   br i1 %.not140, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %155, %.lr.ph221, %.lr.ph, %158, %.lr.ph.preheader, %148
-  %.0127.lcssa = phi ptr [ %.0113215, %148 ], [ %.0113215, %.lr.ph.preheader ], [ %.0130176218, %158 ], [ %.0130176218, %.lr.ph ], [ %.0127174220, %.lr.ph221 ], [ %.0127174220, %155 ]
-  %.0124.lcssa = phi i32 [ %143, %148 ], [ %143, %.lr.ph.preheader ], [ %159, %158 ], [ %159, %.lr.ph ], [ %.0124175219, %.lr.ph221 ], [ %.0124175219, %155 ]
+.thread:                                          ; preds = %155, %.lr.ph233, %.lr.ph, %158, %.lr.ph.preheader, %148
+  %.0127.lcssa = phi ptr [ %.0113215, %148 ], [ %.0113215, %.lr.ph.preheader ], [ %.0130176230, %158 ], [ %.0130176230, %.lr.ph ], [ %.0127174232, %.lr.ph233 ], [ %.0127174232, %155 ]
+  %.0124.lcssa = phi i32 [ %143, %148 ], [ %143, %.lr.ph.preheader ], [ %159, %158 ], [ %159, %.lr.ph ], [ %.0124175231, %.lr.ph233 ], [ %.0124175231, %155 ]
   call fastcc void @Draw(ptr noundef %12, ptr noundef %.0113215, i32 noundef %.0124.lcssa, i32 noundef %145, i32 noundef 2)
   br label %199
 
@@ -1450,60 +1450,60 @@ GetDrawCmdColor.exit157:                          ; preds = %127, %130
 
 .lr.ph193.preheader:                              ; preds = %160
   %177 = load i32, ptr %.0119188, align 8
-  %.not145231 = icmp eq i32 %177, %84
-  br i1 %.not145231, label %.lr.ph235, label %.thread165
+  %.not145243 = icmp eq i32 %177, %84
+  br i1 %.not145243, label %.lr.ph247, label %.thread165
 
 .lr.ph193:                                        ; preds = %193
   %178 = load i32, ptr %.0119, align 8
   %.not145 = icmp eq i32 %178, %84
-  br i1 %.not145, label %.lr.ph235, label %.thread165
+  br i1 %.not145, label %.lr.ph247, label %.thread165
 
-.lr.ph235:                                        ; preds = %.lr.ph193.preheader, %.lr.ph193
-  %.0121190234 = phi ptr [ %.0119192232, %.lr.ph193 ], [ %.0113215, %.lr.ph193.preheader ]
-  %.0116191233 = phi i32 [ %197, %.lr.ph193 ], [ %174, %.lr.ph193.preheader ]
-  %.0119192232 = phi ptr [ %.0119, %.lr.ph193 ], [ %.0119188, %.lr.ph193.preheader ]
-  %179 = getelementptr inbounds nuw i8, ptr %.0119192232, i64 48
+.lr.ph247:                                        ; preds = %.lr.ph193.preheader, %.lr.ph193
+  %.0121190246 = phi ptr [ %.0119192244, %.lr.ph193 ], [ %.0113215, %.lr.ph193.preheader ]
+  %.0116191245 = phi i32 [ %197, %.lr.ph193 ], [ %174, %.lr.ph193.preheader ]
+  %.0119192244 = phi ptr [ %.0119, %.lr.ph193 ], [ %.0119188, %.lr.ph193.preheader ]
+  %179 = getelementptr inbounds nuw i8, ptr %.0119192244, i64 48
   %180 = load ptr, ptr %179, align 8
   %.not146 = icmp eq ptr %180, %163
   br i1 %.not146, label %181, label %.thread165
 
-181:                                              ; preds = %.lr.ph235
-  %182 = getelementptr inbounds nuw i8, ptr %.0119192232, i64 56
+181:                                              ; preds = %.lr.ph247
+  %182 = getelementptr inbounds nuw i8, ptr %.0119192244, i64 56
   %183 = load i32, ptr %182, align 8
   %.not147 = icmp eq i32 %183, %167
   br i1 %.not147, label %184, label %.thread165
 
 184:                                              ; preds = %181
-  %185 = getelementptr inbounds nuw i8, ptr %.0119192232, i64 60
+  %185 = getelementptr inbounds nuw i8, ptr %.0119192244, i64 60
   %186 = load i32, ptr %185, align 4
   %.not148 = icmp eq i32 %186, %169
   br i1 %.not148, label %187, label %.thread165
 
 187:                                              ; preds = %184
-  %188 = getelementptr inbounds nuw i8, ptr %.0119192232, i64 64
+  %188 = getelementptr inbounds nuw i8, ptr %.0119192244, i64 64
   %189 = load i32, ptr %188, align 8
   %.not149 = icmp eq i32 %189, %171
   br i1 %.not149, label %190, label %.thread165
 
 190:                                              ; preds = %187
-  %191 = getelementptr inbounds nuw i8, ptr %.0119192232, i64 44
+  %191 = getelementptr inbounds nuw i8, ptr %.0119192244, i64 44
   %192 = load i32, ptr %191, align 4
   %.not150 = icmp eq i32 %192, %165
   br i1 %.not150, label %193, label %.thread165
 
 193:                                              ; preds = %190
-  %194 = getelementptr inbounds nuw i8, ptr %.0119192232, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %.0119192244, i64 16
   %195 = load i64, ptr %194, align 8
   %196 = trunc i64 %195 to i32
-  %197 = add i32 %.0116191233, %196
-  %.0119.in = getelementptr inbounds nuw i8, ptr %.0119192232, i64 80
+  %197 = add i32 %.0116191245, %196
+  %.0119.in = getelementptr inbounds nuw i8, ptr %.0119192244, i64 80
   %.0119 = load ptr, ptr %.0119.in, align 8
   %.not144 = icmp eq ptr %.0119, null
   br i1 %.not144, label %.thread165, label %.lr.ph193
 
-.thread165:                                       ; preds = %.lr.ph235, %181, %184, %187, %190, %.lr.ph193, %193, %.lr.ph193.preheader, %160
-  %.0121.lcssa = phi ptr [ %.0113215, %160 ], [ %.0113215, %.lr.ph193.preheader ], [ %.0119192232, %193 ], [ %.0119192232, %.lr.ph193 ], [ %.0121190234, %190 ], [ %.0121190234, %187 ], [ %.0121190234, %184 ], [ %.0121190234, %181 ], [ %.0121190234, %.lr.ph235 ]
-  %.0116.lcssa = phi i32 [ %174, %160 ], [ %174, %.lr.ph193.preheader ], [ %197, %193 ], [ %197, %.lr.ph193 ], [ %.0116191233, %190 ], [ %.0116191233, %187 ], [ %.0116191233, %184 ], [ %.0116191233, %181 ], [ %.0116191233, %.lr.ph235 ]
+.thread165:                                       ; preds = %.lr.ph247, %181, %184, %187, %190, %.lr.ph193, %193, %.lr.ph193.preheader, %160
+  %.0121.lcssa = phi ptr [ %.0113215, %160 ], [ %.0113215, %.lr.ph193.preheader ], [ %.0119192244, %193 ], [ %.0119192244, %.lr.ph193 ], [ %.0121190246, %190 ], [ %.0121190246, %187 ], [ %.0121190246, %184 ], [ %.0121190246, %181 ], [ %.0121190246, %.lr.ph247 ]
+  %.0116.lcssa = phi i32 [ %174, %160 ], [ %174, %.lr.ph193.preheader ], [ %197, %193 ], [ %197, %.lr.ph193 ], [ %.0116191245, %190 ], [ %.0116191245, %187 ], [ %.0116191245, %184 ], [ %.0116191245, %181 ], [ %.0116191245, %.lr.ph247 ]
   %198 = icmp eq i32 %84, 5
   %spec.store.select = select i1 %198, i32 4, i32 0
   call fastcc void @Draw(ptr noundef %12, ptr noundef %.0113215, i32 noundef %.0116.lcssa, i32 noundef %176, i32 noundef %spec.store.select)

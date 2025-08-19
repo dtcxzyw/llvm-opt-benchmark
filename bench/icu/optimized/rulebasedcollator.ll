@@ -634,13 +634,13 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7720CollationKeyByteSink6Resiz
   %14 = tail call noundef ptr @_ZN6icu_7712CollationKey10reallocateEii(ptr noundef nonnull align 8 dereferenceable(48) %13, i32 noundef %spec.store.select, i32 noundef %2)
   %15 = icmp ne ptr %14, null
   %.spec.store.select = select i1 %15, i32 %spec.store.select, i32 0
-  %.17 = zext i1 %15 to i8
+  %.18 = zext i1 %15 to i8
   store ptr %14, ptr %4, align 8, !tbaa !17
   store i32 %.spec.store.select, ptr %7, align 8, !tbaa !20
   br label %16
 
 16:                                               ; preds = %.sink.split, %3
-  %.0 = phi i8 [ 0, %3 ], [ %.17, %.sink.split ]
+  %.0 = phi i8 [ 0, %3 ], [ %.18, %.sink.split ]
   ret i8 %.0
 }
 
@@ -1289,13 +1289,13 @@ define noundef zeroext i1 @_ZNK6icu_7717RuleBasedCollatoreqERKNS_8CollatorE(ptr 
   br i1 %59, label %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit, label %.thread
 
 .thread:                                          ; preds = %56, %58
-  %.327 = phi i1 [ false, %58 ], [ %57, %56 ]
+  %.332 = phi i1 [ false, %58 ], [ %57, %56 ]
   call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %48) #20
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %48) #20
   br label %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit
 
 _ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit: ; preds = %58, %.thread
-  %.328 = phi i1 [ false, %58 ], [ %.327, %.thread ]
+  %.333 = phi i1 [ false, %58 ], [ %.332, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %60 = icmp eq ptr %47, null
   br i1 %60, label %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit25, label %61
@@ -1319,7 +1319,7 @@ _ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit25: ; preds = %_ZN6icu_7712Lo
   resume { ptr, i32 } %.pn
 
 63:                                               ; preds = %9, %15, %._crit_edge, %21, %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit25, %7, %2
-  %.017 = phi i1 [ true, %2 ], [ false, %7 ], [ false, %9 ], [ true, %15 ], [ %.328, %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit25 ], [ false, %21 ], [ true, %._crit_edge ]
+  %.017 = phi i1 [ true, %2 ], [ false, %7 ], [ false, %9 ], [ true, %15 ], [ %.333, %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit25 ], [ false, %21 ], [ true, %._crit_edge ]
   ret i1 %.017
 }
 
@@ -3472,7 +3472,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %33 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.next175
   %34 = load i16, ptr %33, align 2, !tbaa !140
   %.not137 = icmp eq i16 %32, %34
-  br i1 %.not137, label %.lr.ph168, label %.critedge158.thread185, !llvm.loop !142
+  br i1 %.not137, label %.lr.ph168, label %.critedge158.thread191, !llvm.loop !142
 
 35:                                               ; preds = %17
   %36 = zext nneg i32 %2 to i64
@@ -3501,14 +3501,14 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %47 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
   %48 = load i16, ptr %47, align 2, !tbaa !140
   %.not = icmp eq i16 %46, %48
-  br i1 %.not, label %49, label %.critedge158.loopexit.split.loop.exit193
+  br i1 %.not, label %49, label %.critedge158.loopexit.split.loop.exit199
 
 49:                                               ; preds = %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = icmp eq i64 %indvars.iv.next, %36
   br i1 %50, label %._crit_edge, label %.lr.ph, !llvm.loop !143
 
-.critedge158.thread185:                           ; preds = %30
+.critedge158.thread191:                           ; preds = %30
   %51 = trunc nuw i64 %indvars.iv.next175 to i32
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !33
@@ -3519,12 +3519,12 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %58 = and i8 %57, 1
   br label %67
 
-.critedge158.loopexit.split.loop.exit193:         ; preds = %44
+.critedge158.loopexit.split.loop.exit199:         ; preds = %44
   %59 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge158
 
-.critedge158:                                     ; preds = %.lr.ph, %.critedge158.loopexit.split.loop.exit193, %._crit_edge
-  %.1127 = phi i32 [ %2, %._crit_edge ], [ %59, %.critedge158.loopexit.split.loop.exit193 ], [ %4, %.lr.ph ]
+.critedge158:                                     ; preds = %.lr.ph, %.critedge158.loopexit.split.loop.exit199, %._crit_edge
+  %.1127 = phi i32 [ %2, %._crit_edge ], [ %59, %.critedge158.loopexit.split.loop.exit199 ], [ %4, %.lr.ph ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !33
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
@@ -3535,19 +3535,19 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %.not138 = icmp eq i32 %.1127, 0
   br i1 %.not138, label %.critedge, label %67
 
-67:                                               ; preds = %.critedge158.thread185, %.critedge158
-  %68 = phi i8 [ %58, %.critedge158.thread185 ], [ %66, %.critedge158 ]
-  %69 = phi ptr [ %52, %.critedge158.thread185 ], [ %60, %.critedge158 ]
-  %.0125192 = phi ptr [ null, %.critedge158.thread185 ], [ %37, %.critedge158 ]
-  %.1127191 = phi i32 [ %51, %.critedge158.thread185 ], [ %.1127, %.critedge158 ]
-  %.0131190 = phi ptr [ null, %.critedge158.thread185 ], [ %39, %.critedge158 ]
-  %.not139 = icmp eq i32 %.1127191, %2
+67:                                               ; preds = %.critedge158.thread191, %.critedge158
+  %68 = phi i8 [ %58, %.critedge158.thread191 ], [ %66, %.critedge158 ]
+  %69 = phi ptr [ %52, %.critedge158.thread191 ], [ %60, %.critedge158 ]
+  %.0125198 = phi ptr [ null, %.critedge158.thread191 ], [ %37, %.critedge158 ]
+  %.1127197 = phi i32 [ %51, %.critedge158.thread191 ], [ %.1127, %.critedge158 ]
+  %.0131196 = phi ptr [ null, %.critedge158.thread191 ], [ %39, %.critedge158 ]
+  %.not139 = icmp eq i32 %.1127197, %2
   br i1 %.not139, label %78, label %70
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !24
-  %73 = zext i32 %.1127191 to i64
+  %73 = zext i32 %.1127197 to i64
   %74 = getelementptr inbounds nuw i16, ptr %1, i64 %73
   %75 = load i16, ptr %74, align 2, !tbaa !140
   %76 = zext i16 %75 to i32
@@ -3556,13 +3556,13 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   br i1 %.not140, label %78, label %87
 
 78:                                               ; preds = %70, %67
-  %.not141 = icmp eq i32 %.1127191, %4
+  %.not141 = icmp eq i32 %.1127197, %4
   br i1 %.not141, label %.critedge, label %79
 
 79:                                               ; preds = %78
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %81 = load ptr, ptr %80, align 8, !tbaa !24
-  %82 = zext i32 %.1127191 to i64
+  %82 = zext i32 %.1127197 to i64
   %83 = getelementptr inbounds nuw i16, ptr %3, i64 %82
   %84 = load i16, ptr %83, align 2, !tbaa !140
   %85 = zext i16 %84 to i32
@@ -3599,9 +3599,9 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
 .critedge:                                        ; preds = %89, %.critedge.loopexit.split.loop.exit, %.critedge158.thread, %78, %79, %.critedge158
   %99 = phi i8 [ %68, %79 ], [ %68, %78 ], [ %66, %.critedge158 ], [ %27, %.critedge158.thread ], [ %68, %.critedge.loopexit.split.loop.exit ], [ %68, %89 ]
   %100 = phi ptr [ %69, %79 ], [ %69, %78 ], [ %60, %.critedge158 ], [ %21, %.critedge158.thread ], [ %69, %.critedge.loopexit.split.loop.exit ], [ %69, %89 ]
-  %.0125184 = phi ptr [ %.0125192, %79 ], [ %.0125192, %78 ], [ %37, %.critedge158 ], [ null, %.critedge158.thread ], [ %.0125192, %.critedge.loopexit.split.loop.exit ], [ %.0125192, %89 ]
-  %.0131183 = phi ptr [ %.0131190, %79 ], [ %.0131190, %78 ], [ %39, %.critedge158 ], [ null, %.critedge158.thread ], [ %.0131190, %.critedge.loopexit.split.loop.exit ], [ %.0131190, %89 ]
-  %.3129 = phi i32 [ %.1127191, %79 ], [ %4, %78 ], [ 0, %.critedge158 ], [ 0, %.critedge158.thread ], [ %indvars.le, %.critedge.loopexit.split.loop.exit ], [ 0, %89 ]
+  %.0125190 = phi ptr [ %.0125198, %79 ], [ %.0125198, %78 ], [ %37, %.critedge158 ], [ null, %.critedge158.thread ], [ %.0125198, %.critedge.loopexit.split.loop.exit ], [ %.0125198, %89 ]
+  %.0131189 = phi ptr [ %.0131196, %79 ], [ %.0131196, %78 ], [ %39, %.critedge158 ], [ null, %.critedge158.thread ], [ %.0131196, %.critedge.loopexit.split.loop.exit ], [ %.0131196, %89 ]
+  %.3129 = phi i32 [ %.1127197, %79 ], [ %4, %78 ], [ 0, %.critedge158 ], [ 0, %.critedge158.thread ], [ %indvars.le, %.critedge.loopexit.split.loop.exit ], [ 0, %89 ]
   %101 = load ptr, ptr %100, align 8, !tbaa !33
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 80
   %103 = load i32, ptr %102, align 8, !tbaa !107
@@ -3704,7 +3704,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %160 = getelementptr inbounds nuw i8, ptr %7, i64 400
   store ptr %144, ptr %160, align 8, !tbaa !125
   %161 = getelementptr inbounds nuw i8, ptr %7, i64 408
-  store ptr %.0125184, ptr %161, align 8, !tbaa !126
+  store ptr %.0125190, ptr %161, align 8, !tbaa !126
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %162 = getelementptr inbounds i16, ptr %3, i64 %143
   %163 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3734,7 +3734,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %175 = getelementptr inbounds nuw i8, ptr %8, i64 400
   store ptr %162, ptr %175, align 8, !tbaa !125
   %176 = getelementptr inbounds nuw i8, ptr %8, i64 408
-  store ptr %.0131183, ptr %176, align 8, !tbaa !126
+  store ptr %.0131189, ptr %176, align 8, !tbaa !126
   %177 = invoke noundef i32 @_ZN6icu_7716CollationCompare21compareUpToQuaternaryERNS_17CollationIteratorES2_RKNS_17CollationSettingsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %7, ptr noundef nonnull align 8 dereferenceable(389) %8, ptr noundef nonnull align 8 dereferenceable(852) %138, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %178 unwind label %179
 
@@ -3784,7 +3784,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %196 = getelementptr inbounds nuw i8, ptr %9, i64 400
   store ptr %144, ptr %196, align 8, !tbaa !125
   %197 = getelementptr inbounds nuw i8, ptr %9, i64 408
-  store ptr %.0125184, ptr %197, align 8, !tbaa !126
+  store ptr %.0125190, ptr %197, align 8, !tbaa !126
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7725FCDUTF16CollationIteratorE, i64 16), ptr %9, align 8, !tbaa !15
   %198 = getelementptr inbounds nuw i8, ptr %9, i64 416
   store ptr %1, ptr %198, align 8, !tbaa !127
@@ -3793,7 +3793,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %200 = getelementptr inbounds nuw i8, ptr %9, i64 432
   store ptr null, ptr %200, align 8, !tbaa !130
   %201 = getelementptr inbounds nuw i8, ptr %9, i64 440
-  store ptr %.0125184, ptr %201, align 8, !tbaa !131
+  store ptr %.0125190, ptr %201, align 8, !tbaa !131
   %202 = getelementptr inbounds nuw i8, ptr %9, i64 448
   %203 = getelementptr inbounds nuw i8, ptr %182, i64 48
   %204 = load ptr, ptr %203, align 8, !tbaa !132
@@ -3832,7 +3832,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %221 = getelementptr inbounds nuw i8, ptr %10, i64 400
   store ptr %208, ptr %221, align 8, !tbaa !125
   %222 = getelementptr inbounds nuw i8, ptr %10, i64 408
-  store ptr %.0131183, ptr %222, align 8, !tbaa !126
+  store ptr %.0131189, ptr %222, align 8, !tbaa !126
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7725FCDUTF16CollationIteratorE, i64 16), ptr %10, align 8, !tbaa !15
   %223 = getelementptr inbounds nuw i8, ptr %10, i64 416
   store ptr %3, ptr %223, align 8, !tbaa !127
@@ -3841,7 +3841,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %225 = getelementptr inbounds nuw i8, ptr %10, i64 432
   store ptr null, ptr %225, align 8, !tbaa !130
   %226 = getelementptr inbounds nuw i8, ptr %10, i64 440
-  store ptr %.0131183, ptr %226, align 8, !tbaa !131
+  store ptr %.0131189, ptr %226, align 8, !tbaa !131
   %227 = getelementptr inbounds nuw i8, ptr %10, i64 448
   store ptr %204, ptr %227, align 8, !tbaa !133
   %228 = getelementptr inbounds nuw i8, ptr %10, i64 456
@@ -3906,7 +3906,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %255 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %249, ptr %255, align 8, !tbaa !149
   %256 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store ptr %.0125184, ptr %256, align 8, !tbaa !151
+  store ptr %.0125190, ptr %256, align 8, !tbaa !151
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %257 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 -1, ptr %257, align 8, !tbaa !146
@@ -3916,7 +3916,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %259 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %250, ptr %259, align 8, !tbaa !149
   %260 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store ptr %.0131183, ptr %260, align 8, !tbaa !151
+  store ptr %.0131189, ptr %260, align 8, !tbaa !151
   %261 = invoke fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114compareNFDIterERKNS_15Normalizer2ImplERNS0_11NFDIteratorES5_(ptr noundef nonnull align 8 dereferenceable(80) %247, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %262 unwind label %263
 
@@ -3938,9 +3938,9 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
 
 265:                                              ; preds = %243
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  call fastcc void @_ZN6icu_7712_GLOBAL__N_119FCDUTF16NFDIteratorC2ERKNS_15Normalizer2ImplEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(112) %13, ptr noundef nonnull align 8 dereferenceable(80) %247, ptr noundef %249, ptr noundef %.0125184)
+  call fastcc void @_ZN6icu_7712_GLOBAL__N_119FCDUTF16NFDIteratorC2ERKNS_15Normalizer2ImplEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(112) %13, ptr noundef nonnull align 8 dereferenceable(80) %247, ptr noundef %249, ptr noundef %.0125190)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  invoke fastcc void @_ZN6icu_7712_GLOBAL__N_119FCDUTF16NFDIteratorC2ERKNS_15Normalizer2ImplEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(112) %14, ptr noundef nonnull align 8 dereferenceable(80) %247, ptr noundef %250, ptr noundef %.0131183)
+  invoke fastcc void @_ZN6icu_7712_GLOBAL__N_119FCDUTF16NFDIteratorC2ERKNS_15Normalizer2ImplEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(112) %14, ptr noundef nonnull align 8 dereferenceable(80) %247, ptr noundef %250, ptr noundef %.0131189)
           to label %266 unwind label %271
 
 266:                                              ; preds = %265
@@ -4201,7 +4201,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
 .lr.ph.preheader:                                 ; preds = %.preheader251
   %sext = sext i32 %4 to i64
   %21 = icmp eq i32 %4, 0
-  br i1 %21, label %.critedge241, label %.lr.ph286
+  br i1 %21, label %.critedge241, label %.lr.ph309
 
 .preheader:                                       ; preds = %18
   %22 = load i8, ptr %1, align 1, !tbaa !65
@@ -4242,28 +4242,28 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
 
 .lr.ph:                                           ; preds = %45
   %40 = icmp eq i64 %indvars.iv.next, %sext
-  br i1 %40, label %.critedge241, label %.lr.ph286, !llvm.loop !156
+  br i1 %40, label %.critedge241, label %.lr.ph309, !llvm.loop !156
 
-.lr.ph286:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv285 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.pr273284 = phi i32 [ %46, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv285
+.lr.ph309:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv308 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.pr273307 = phi i32 [ %46, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv308
   %42 = load i8, ptr %41, align 1, !tbaa !65
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv285
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv308
   %44 = load i8, ptr %43, align 1, !tbaa !65
   %.not = icmp eq i8 %42, %44
   br i1 %.not, label %45, label %.critedge241
 
-45:                                               ; preds = %.lr.ph286
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv285, 1
+45:                                               ; preds = %.lr.ph309
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv308, 1
   %46 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %46, ptr %7, align 4, !tbaa !12
   %47 = icmp eq i32 %2, %46
   br i1 %47, label %._crit_edge, label %.lr.ph, !llvm.loop !156
 
-.critedge241:                                     ; preds = %.lr.ph286, %.lr.ph, %33, %.lr.ph.preheader, %._crit_edge
-  %.promoted258 = phi i32 [ %2, %._crit_edge ], [ 0, %.lr.ph.preheader ], [ %34, %33 ], [ %46, %.lr.ph ], [ %.pr273284, %.lr.ph286 ]
-  %48 = phi i32 [ %2, %._crit_edge ], [ %4, %.lr.ph.preheader ], [ %34, %33 ], [ %4, %.lr.ph ], [ %.pr273284, %.lr.ph286 ]
+.critedge241:                                     ; preds = %.lr.ph309, %.lr.ph, %33, %.lr.ph.preheader, %._crit_edge
+  %.promoted258 = phi i32 [ %2, %._crit_edge ], [ 0, %.lr.ph.preheader ], [ %34, %33 ], [ %46, %.lr.ph ], [ %.pr273307, %.lr.ph309 ]
+  %48 = phi i32 [ %2, %._crit_edge ], [ %4, %.lr.ph.preheader ], [ %34, %33 ], [ %4, %.lr.ph ], [ %.pr273307, %.lr.ph309 ]
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %50, label %.critedge
 
@@ -4307,14 +4307,14 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 %69
   %71 = load i8, ptr %70, align 1, !tbaa !65
   %72 = icmp slt i8 %71, -64
-  br i1 %72, label %65, label %.critedge.loopexit.split.loop.exit280, !llvm.loop !157
+  br i1 %72, label %65, label %.critedge.loopexit.split.loop.exit303, !llvm.loop !157
 
-.critedge.loopexit.split.loop.exit280:            ; preds = %68
+.critedge.loopexit.split.loop.exit303:            ; preds = %68
   %indvars.le = trunc i64 %indvars.iv.next270 to i32
   br label %.critedge.loopexit
 
-.critedge.loopexit:                               ; preds = %65, %.critedge.loopexit.split.loop.exit280
-  %.lcssa261 = phi i32 [ %indvars.le, %.critedge.loopexit.split.loop.exit280 ], [ %64, %65 ]
+.critedge.loopexit:                               ; preds = %65, %.critedge.loopexit.split.loop.exit303
+  %.lcssa261 = phi i32 [ %indvars.le, %.critedge.loopexit.split.loop.exit303 ], [ %64, %65 ]
   store i32 %.lcssa261, ptr %7, align 4, !tbaa !12
   br label %.critedge
 

@@ -834,8 +834,8 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
 .preheader110:                                    ; preds = %.preheader110.lr.ph, %._crit_edge128
   %114 = phi float [ %58, %.preheader110.lr.ph ], [ %149, %._crit_edge128 ]
   %115 = phi ptr [ %60, %.preheader110.lr.ph ], [ %147, %._crit_edge128 ]
-  %indvars.iv162168 = phi i64 [ 3, %.preheader110.lr.ph ], [ %indvars.iv.next163, %._crit_edge128 ]
-  %116 = getelementptr inbounds nuw [4 x [4 x float]], ptr %3, i64 0, i64 %indvars.iv162168
+  %indvars.iv162169 = phi i64 [ 3, %.preheader110.lr.ph ], [ %indvars.iv.next163, %._crit_edge128 ]
+  %116 = getelementptr inbounds nuw [4 x [4 x float]], ptr %3, i64 0, i64 %indvars.iv162169
   br label %123
 
 .thread109:                                       ; preds = %._crit_edge128, %.preheader111.preheader
@@ -855,7 +855,7 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
   br label %192
 
 .preheader:                                       ; preds = %123
-  %.not130 = icmp eq i64 %indvars.iv162168, 0
+  %.not130 = icmp eq i64 %indvars.iv162169, 0
   br i1 %.not130, label %151, label %.lr.ph127
 
 123:                                              ; preds = %.preheader110, %123
@@ -875,7 +875,7 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
 .lr.ph127:                                        ; preds = %.preheader, %146
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %146 ], [ 0, %.preheader ]
   %130 = getelementptr inbounds nuw [4 x [4 x float]], ptr %4, i64 0, i64 %indvars.iv158
-  %131 = getelementptr inbounds nuw [4 x float], ptr %130, i64 0, i64 %indvars.iv162168
+  %131 = getelementptr inbounds nuw [4 x float], ptr %130, i64 0, i64 %indvars.iv162169
   %132 = load float, ptr %131, align 4, !tbaa !18
   %133 = fneg float %132
   %134 = getelementptr inbounds nuw [4 x [4 x float]], ptr %3, i64 0, i64 %indvars.iv158
@@ -901,11 +901,11 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
 
 146:                                              ; preds = %135
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
-  %exitcond161.not = icmp eq i64 %indvars.iv.next159, %indvars.iv162168
+  %exitcond161.not = icmp eq i64 %indvars.iv.next159, %indvars.iv162169
   br i1 %exitcond161.not, label %._crit_edge128, label %.lr.ph127, !llvm.loop !31
 
 ._crit_edge128:                                   ; preds = %146
-  %indvars.iv.next163 = add nsw i64 %indvars.iv162168, -1
+  %indvars.iv.next163 = add nsw i64 %indvars.iv162169, -1
   %147 = getelementptr inbounds nuw [4 x [4 x float]], ptr %4, i64 0, i64 %indvars.iv.next163
   %148 = getelementptr inbounds nuw [4 x float], ptr %147, i64 0, i64 %indvars.iv.next163
   %149 = load float, ptr %148, align 4, !tbaa !18

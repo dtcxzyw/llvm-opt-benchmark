@@ -810,8 +810,8 @@ decodePath.exit.thread:                           ; preds = %41, %37, %100, %dec
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %141, %._crit_edge, %153, %splitPathList.exit, %15, %2
-  %.123.i3843.sink = phi ptr [ %.123.i, %153 ], [ %.123.i, %._crit_edge ], [ %.123.i, %splitPathList.exit ], [ null, %15 ], [ null, %2 ], [ %.268, %141 ]
-  call void @free(ptr noundef %.123.i3843.sink) #15
+  %.123.i5560.sink = phi ptr [ %.123.i, %153 ], [ %.123.i, %._crit_edge ], [ %.123.i, %splitPathList.exit ], [ null, %15 ], [ null, %2 ], [ %.268, %141 ]
+  call void @free(ptr noundef %.123.i5560.sink) #15
   ret void
 }
 

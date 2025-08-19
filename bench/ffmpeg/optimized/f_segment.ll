@@ -235,9 +235,9 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds i64, ptr %99, i64 %102
   %104 = load i64, ptr %103, align 8, !tbaa !45
-  %.not147 = icmp slt i64 %97, %104
-  %.pre135136 = load i32, ptr %10, align 4, !tbaa !25
-  br i1 %.not147, label %current_segment_finished.exit.thread, label %132
+  %.not154 = icmp slt i64 %97, %104
+  %.pre135143 = load i32, ptr %10, align 4, !tbaa !25
+  br i1 %.not154, label %current_segment_finished.exit.thread, label %132
 
 105:                                              ; preds = %91
   %106 = getelementptr inbounds nuw i8, ptr %.val.val, i64 32
@@ -262,7 +262,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   %116 = getelementptr inbounds i64, ptr %112, i64 %115
   %117 = load i64, ptr %116, align 8, !tbaa !45
   %118 = icmp sgt i64 %110, %117
-  %.pre135139 = load i32, ptr %10, align 4, !tbaa !25
+  %.pre135146 = load i32, ptr %10, align 4, !tbaa !25
   br i1 %118, label %132, label %current_segment_finished.exit.thread
 
 current_segment_finished.exit:                    ; preds = %105
@@ -279,14 +279,14 @@ current_segment_finished.exit:                    ; preds = %105
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds i64, ptr %126, i64 %129
   %131 = load i64, ptr %130, align 8, !tbaa !45
-  %.not148 = icmp slt i64 %124, %131
+  %.not155 = icmp slt i64 %124, %131
   %.pre135 = load i32, ptr %10, align 4, !tbaa !25
-  br i1 %.not148, label %current_segment_finished.exit.thread, label %132
+  br i1 %.not155, label %current_segment_finished.exit.thread, label %132
 
 132:                                              ; preds = %108, %95, %current_segment_finished.exit
-  %.pre135137 = phi i32 [ %.pre135136, %95 ], [ %.pre135, %current_segment_finished.exit ], [ %.pre135139, %108 ]
+  %.pre135144 = phi i32 [ %.pre135143, %95 ], [ %.pre135, %current_segment_finished.exit ], [ %.pre135146, %108 ]
   %133 = load ptr, ptr %90, align 8, !tbaa !32
-  %134 = sext i32 %.pre135137 to i64
+  %134 = sext i32 %.pre135144 to i64
   %135 = getelementptr inbounds ptr, ptr %133, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !21
   %137 = getelementptr inbounds nuw i8, ptr %92, i64 136
@@ -299,7 +299,7 @@ current_segment_finished.exit:                    ; preds = %105
   br label %91, !llvm.loop !59
 
 current_segment_finished.exit.thread:             ; preds = %current_segment_finished.exit, %95, %108, %.current_segment_finished.exit.thread_crit_edge
-  %141 = phi i32 [ %.pre134, %.current_segment_finished.exit.thread_crit_edge ], [ %.pre135139, %108 ], [ %.pre135, %current_segment_finished.exit ], [ %.pre135136, %95 ]
+  %141 = phi i32 [ %.pre134, %.current_segment_finished.exit.thread_crit_edge ], [ %.pre135146, %108 ], [ %.pre135, %current_segment_finished.exit ], [ %.pre135143, %95 ]
   %142 = load i32, ptr %12, align 8, !tbaa !29
   %.not91 = icmp slt i32 %141, %142
   br i1 %.not91, label %144, label %143

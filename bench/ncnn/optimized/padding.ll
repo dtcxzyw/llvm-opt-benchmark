@@ -617,12 +617,12 @@ _ZNK4ncnn3Mat5emptyEv.exit79:                     ; preds = %145
 
 157:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit79
   switch i64 %93, label %_ZNK4ncnn3Mat5emptyEv.exit.thread [
-    i64 1, label %.thread84
+    i64 1, label %.thread91
     i64 2, label %165
     i64 4, label %186
   ]
 
-.thread84:                                        ; preds = %157
+.thread91:                                        ; preds = %157
   %158 = load i32, ptr %11, align 8, !tbaa !18
   %159 = load i32, ptr %17, align 8, !tbaa !36
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -742,8 +742,8 @@ _ZNK4ncnn3Mat5emptyEv.exit81.thread:              ; preds = %210, %_ZNK4ncnn3Mat
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
-_ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %157, %109, %184, %.thread84, %134, %.thread, %145, %97, %_ZNK4ncnn3Mat5emptyEv.exit80.thread, %_ZNK4ncnn3Mat5emptyEv.exit81.thread, %_ZNK4ncnn3Mat5emptyEv.exit79, %186, %142, %136, %_ZNK4ncnn3Mat5emptyEv.exit
-  %.1 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %136 ], [ %.3, %_ZNK4ncnn3Mat5emptyEv.exit80.thread ], [ %.4, %_ZNK4ncnn3Mat5emptyEv.exit81.thread ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit79 ], [ 0, %186 ], [ 0, %142 ], [ -100, %97 ], [ -100, %145 ], [ 0, %.thread ], [ 0, %134 ], [ 0, %.thread84 ], [ 0, %184 ], [ 0, %109 ], [ 0, %157 ]
+_ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %157, %109, %184, %.thread91, %134, %.thread, %145, %97, %_ZNK4ncnn3Mat5emptyEv.exit80.thread, %_ZNK4ncnn3Mat5emptyEv.exit81.thread, %_ZNK4ncnn3Mat5emptyEv.exit79, %186, %142, %136, %_ZNK4ncnn3Mat5emptyEv.exit
+  %.1 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %136 ], [ %.3, %_ZNK4ncnn3Mat5emptyEv.exit80.thread ], [ %.4, %_ZNK4ncnn3Mat5emptyEv.exit81.thread ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit79 ], [ 0, %186 ], [ 0, %142 ], [ -100, %97 ], [ -100, %145 ], [ 0, %.thread ], [ 0, %134 ], [ 0, %.thread91 ], [ 0, %184 ], [ 0, %109 ], [ 0, %157 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

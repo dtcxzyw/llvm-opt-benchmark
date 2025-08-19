@@ -2655,9 +2655,9 @@ _ZN6icu_776number12IntegerWidth8standardEv.exit:  ; preds = %350
 355:                                              ; preds = %_ZN6icu_776number12IntegerWidth8standardEv.exit, %348
   %356 = load i32, ptr %88, align 4, !tbaa !165
   %.not360 = icmp eq i32 %356, 9
-  %spec.select458 = select i1 %.not360, i32 0, i32 %356
+  %spec.select482 = select i1 %.not360, i32 0, i32 %356
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 %spec.select458, ptr %357, align 8, !tbaa !179
+  store i32 %spec.select482, ptr %357, align 8, !tbaa !179
   %358 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %359 = load i32, ptr %358, align 4, !tbaa !180
   %.not361 = icmp eq i32 %359, 2
@@ -3100,7 +3100,7 @@ _ZNK6icu_776number4impl17UsagePrefsHandler14getOutputUnitsEv.exit: ; preds = %46
   br i1 %552, label %553, label %.thread440
 
 553:                                              ; preds = %.thread430
-  br i1 %87, label %.thread453, label %554
+  br i1 %87, label %.thread477, label %554
 
 554:                                              ; preds = %553
   %555 = load i32, ptr %9, align 4
@@ -3147,11 +3147,11 @@ _ZNK6icu_776number4impl17UsagePrefsHandler14getOutputUnitsEv.exit: ; preds = %46
   %577 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %578 = load ptr, ptr %577, align 8, !tbaa !92
   %579 = icmp eq ptr %578, null
-  br i1 %579, label %.thread456, label %580
+  br i1 %579, label %.thread480, label %580
 
-.thread456:                                       ; preds = %576
+.thread480:                                       ; preds = %576
   store ptr %559, ptr %577, align 8, !tbaa !92
-  br label %.thread453
+  br label %.thread477
 
 580:                                              ; preds = %576
   %581 = load ptr, ptr %578, align 8, !tbaa !93
@@ -3161,24 +3161,24 @@ _ZNK6icu_776number4impl17UsagePrefsHandler14getOutputUnitsEv.exit: ; preds = %46
   %.pre450.pre = load i32, ptr %3, align 4, !tbaa !13
   %584 = icmp slt i32 %.pre450.pre, 1
   store ptr %559, ptr %577, align 8, !tbaa !92
-  br i1 %584, label %.thread453, label %.thread440
+  br i1 %584, label %.thread477, label %.thread440
 
-.thread453:                                       ; preds = %553, %.thread456, %580
-  %.8278455 = phi ptr [ %559, %580 ], [ %559, %.thread456 ], [ %.7277, %553 ]
+.thread477:                                       ; preds = %553, %.thread480, %580
+  %.8278479 = phi ptr [ %559, %580 ], [ %559, %.thread480 ], [ %.7277, %553 ]
   br i1 %2, label %585, label %590
 
-585:                                              ; preds = %.thread453
+585:                                              ; preds = %.thread477
   %586 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %587 = load ptr, ptr %586, align 8, !tbaa !98
-  invoke void @_ZN6icu_776number4impl24ImmutablePatternModifier10addToChainEPKNS1_19MicroPropsGeneratorE(ptr noundef nonnull align 8 dereferenceable(32) %587, ptr noundef %.8278455)
+  invoke void @_ZN6icu_776number4impl24ImmutablePatternModifier10addToChainEPKNS1_19MicroPropsGeneratorE(ptr noundef nonnull align 8 dereferenceable(32) %587, ptr noundef %.8278479)
           to label %588 unwind label %427
 
 588:                                              ; preds = %585
   %589 = load ptr, ptr %586, align 8, !tbaa !98
   br label %.thread440
 
-590:                                              ; preds = %.thread453
-  %591 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_776number4impl22MutablePatternModifier10addToChainEPKNS1_19MicroPropsGeneratorE(ptr noundef nonnull align 8 dereferenceable(392) %385, ptr noundef %.8278455)
+590:                                              ; preds = %.thread477
+  %591 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_776number4impl22MutablePatternModifier10addToChainEPKNS1_19MicroPropsGeneratorE(ptr noundef nonnull align 8 dereferenceable(392) %385, ptr noundef %.8278479)
           to label %.thread440 unwind label %427
 
 .thread440:                                       ; preds = %.thread436, %568, %575, %535, %.thread425, %388, %588, %590, %580, %.thread430, %435, %300

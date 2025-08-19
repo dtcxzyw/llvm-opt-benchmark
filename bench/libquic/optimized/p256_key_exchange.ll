@@ -168,9 +168,9 @@ define noundef ptr @_ZN3net15P256KeyExchange3NewEN4base16BasicStringPieceINSt7__
 25:                                               ; preds = %23
   store ptr null, ptr %4, align 8, !tbaa !6
   invoke void @_ZN3net15P256KeyExchangeC1EP9ec_key_stPKh(ptr noundef nonnull align 8 dereferenceable(81) %24, ptr noundef nonnull %8, ptr noundef nonnull %5)
-          to label %.thread21 unwind label %26
+          to label %.thread22 unwind label %26
 
-.thread21:                                        ; preds = %25
+.thread22:                                        ; preds = %25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNSt10unique_ptrI9ec_key_stN6crypto16OpenSSLDestroyerIS0_XadL_Z11EC_KEY_freeEEEEED2Ev.exit
 
@@ -200,8 +200,8 @@ define noundef ptr @_ZN3net15P256KeyExchange3NewEN4base16BasicStringPieceINSt7__
   call void @__clang_call_terminate(ptr %32) #12
   unreachable
 
-_ZNSt10unique_ptrI9ec_key_stN6crypto16OpenSSLDestroyerIS0_XadL_Z11EC_KEY_freeEEEEED2Ev.exit: ; preds = %.thread21, %7, %.thread
-  %.1513 = phi ptr [ null, %.thread ], [ null, %7 ], [ %24, %.thread21 ]
+_ZNSt10unique_ptrI9ec_key_stN6crypto16OpenSSLDestroyerIS0_XadL_Z11EC_KEY_freeEEEEED2Ev.exit: ; preds = %.thread22, %7, %.thread
+  %.1513 = phi ptr [ null, %.thread ], [ null, %7 ], [ %24, %.thread22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %34
@@ -242,9 +242,9 @@ define void @_ZN3net15P256KeyExchange13NewPrivateKeyB5cxx11Ev(ptr dead_on_unwind
   %5 = tail call ptr @EC_KEY_new_by_curve_name(i32 noundef 415)
   store ptr %5, ptr %3, align 8, !tbaa !6
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %.thread25, label %8
+  br i1 %.not, label %.thread26, label %8
 
-.thread25:                                        ; preds = %1
+.thread26:                                        ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %0, align 8, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -394,7 +394,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit18: ; preds = %48, %33
   call void @__clang_call_terminate(ptr %55) #12
   unreachable
 
-_ZNSt10unique_ptrI9ec_key_stN6crypto16OpenSSLDestroyerIS0_XadL_Z11EC_KEY_freeEEEEED2Ev.exit: ; preds = %.thread25, %.thread
+_ZNSt10unique_ptrI9ec_key_stN6crypto16OpenSSLDestroyerIS0_XadL_Z11EC_KEY_freeEEEEED2Ev.exit: ; preds = %.thread26, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 

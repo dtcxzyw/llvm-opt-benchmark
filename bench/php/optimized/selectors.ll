@@ -239,7 +239,7 @@ define hidden range(i32 20, 19) i32 @lxb_selectors_find(ptr noundef initializes(
   br label %.backedge
 
 lxb_selectors_state_run.exit.i:                   ; preds = %32
-  switch i32 %.pre.i.i, label %lxb_selectors_state_tree.exit.loopexit19 [
+  switch i32 %.pre.i.i, label %lxb_selectors_state_tree.exit.loopexit23 [
     i32 0, label %41
     i32 19, label %lxb_selectors_state_tree.exit
   ]
@@ -273,11 +273,11 @@ lxb_selectors_state_run.exit.i:                   ; preds = %32
   %.not25.i = icmp eq ptr %51, %1
   br i1 %.not25.i, label %lxb_selectors_state_tree.exit, label %.lr.ph.i
 
-lxb_selectors_state_tree.exit.loopexit19:         ; preds = %lxb_selectors_state_run.exit.i
+lxb_selectors_state_tree.exit.loopexit23:         ; preds = %lxb_selectors_state_run.exit.i
   br label %lxb_selectors_state_tree.exit
 
-lxb_selectors_state_tree.exit:                    ; preds = %49, %lxb_selectors_state_run.exit.i, %44, %lxb_selectors_state_tree.exit.loopexit19, %5
-  %.020.i = phi i32 [ 0, %5 ], [ %.pre.i.i, %lxb_selectors_state_tree.exit.loopexit19 ], [ 0, %44 ], [ 0, %lxb_selectors_state_run.exit.i ], [ 0, %49 ]
+lxb_selectors_state_tree.exit:                    ; preds = %49, %lxb_selectors_state_run.exit.i, %44, %lxb_selectors_state_tree.exit.loopexit23, %5
+  %.020.i = phi i32 [ 0, %5 ], [ %.pre.i.i, %lxb_selectors_state_tree.exit.loopexit23 ], [ 0, %44 ], [ 0, %lxb_selectors_state_run.exit.i ], [ 0, %49 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !4
   call void @lexbor_dobject_clean(ptr noundef %53) #8
@@ -3789,9 +3789,9 @@ lxb_selectors_is_lowercased_html_attrib_name.exit: ; preds = %lxb_selectors_attr
   br label %240
 
 240:                                              ; preds = %232, %.thread
-  %.sink21 = phi ptr [ %239, %.thread ], [ %237, %232 ]
+  %.sink61 = phi ptr [ %239, %.thread ], [ %237, %232 ]
   %.sink = phi i8 [ 0, %.thread ], [ 1, %232 ]
-  store ptr %.sink21, ptr %0, align 8, !tbaa !77
+  store ptr %.sink61, ptr %0, align 8, !tbaa !77
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sink, ptr %241, align 8, !tbaa !152
   ret void

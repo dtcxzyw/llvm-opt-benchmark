@@ -3594,7 +3594,7 @@ define hidden noundef align 8 ptr @"_ZN113_$LT$tracing_subscriber..fmt..format..
   store ptr %103, ptr %.sroa.5147.0..sroa_idx, align 8, !alias.scope !266, !noalias !267
   %.sroa.0.0.copyload1.i = load i64, ptr %102, align 8, !noalias !270
   %104 = icmp eq i64 %.sroa.0.0.copyload1.i, -9223372036854775808
-  br i1 %104, label %._crit_edge.loopexit.split.loop.exit182, label %113
+  br i1 %104, label %._crit_edge.loopexit.split.loop.exit208, label %113
 
 .body80:                                          ; preds = %.loopexit, %.loopexit.split-lp, %148, %134, %123
   %.pn = phi { ptr, i32 } [ %124, %123 ], [ %135, %134 ], [ %149, %148 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -3611,12 +3611,12 @@ define hidden noundef align 8 ptr @"_ZN113_$LT$tracing_subscriber..fmt..format..
           cleanup
   br label %.body80
 
-._crit_edge.loopexit.split.loop.exit182:          ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd46226d103d79187E.llvm.331090089658796353.exit.i"
+._crit_edge.loopexit.split.loop.exit208:          ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd46226d103d79187E.llvm.331090089658796353.exit.i"
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 104
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$serde_json..value..Value$RP$$GT$17hed90a541660f7339E.exit", %._crit_edge.loopexit.split.loop.exit182, %96
-  %106 = phi ptr [ %.sroa.0133.sroa.2.0.copyload, %96 ], [ %105, %._crit_edge.loopexit.split.loop.exit182 ], [ %154, %"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$serde_json..value..Value$RP$$GT$17hed90a541660f7339E.exit" ]
+._crit_edge:                                      ; preds = %"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$serde_json..value..Value$RP$$GT$17hed90a541660f7339E.exit", %._crit_edge.loopexit.split.loop.exit208, %96
+  %106 = phi ptr [ %.sroa.0133.sroa.2.0.copyload, %96 ], [ %105, %._crit_edge.loopexit.split.loop.exit208 ], [ %154, %"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$serde_json..value..Value$RP$$GT$17hed90a541660f7339E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8124)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !271
@@ -6785,17 +6785,17 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   %6 = alloca [8 x i8], align 8
   store ptr %0, ptr %6, align 8
   invoke void @_ZN12clap_builder7builder7command7Command11_build_self17hf490b66df658ebfdE(ptr noalias noundef nonnull align 8 dereferenceable(712) %1, i1 noundef zeroext false)
-          to label %7 unwind label %.thread23
+          to label %7 unwind label %.thread24
 
-.thread23:                                        ; preds = %7, %2
-  %lpad.thr_comm21 = landingpad { ptr, i32 }
+.thread24:                                        ; preds = %7, %2
+  %lpad.thr_comm22 = landingpad { ptr, i32 }
           cleanup
   br label %31
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN12clap_builder7builder7command7Command13render_usage_17ha779b83c9451c9e4E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(712) %1)
-          to label %8 unwind label %.thread23
+          to label %8 unwind label %.thread24
 
 8:                                                ; preds = %7
   %9 = load i64, ptr %0, align 8, !range !539, !noundef !4
@@ -6810,10 +6810,10 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   invoke void @_ZN12clap_builder5error7Message6format17hcd05ca45eb0df8ecE(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
-          to label %26 unwind label %.thread18
+          to label %26 unwind label %.thread19
 
-.thread18:                                        ; preds = %13
-  %lpad.thr_comm20 = landingpad { ptr, i32 }
+.thread19:                                        ; preds = %13
+  %lpad.thr_comm21 = landingpad { ptr, i32 }
           cleanup
   br label %31
 
@@ -6868,11 +6868,11 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   unreachable
 
 .thread13:                                        ; preds = %28, %31
-  %.pn16 = phi { ptr, i32 } [ %.pn17, %31 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %.pn16 = phi { ptr, i32 } [ %.pn18, %31 ], [ %lpad.thr_comm.split-lp, %28 ]
   resume { ptr, i32 } %.pn16
 
-31:                                               ; preds = %.thread23, %.thread18
-  %.pn17 = phi { ptr, i32 } [ %lpad.thr_comm20, %.thread18 ], [ %lpad.thr_comm21, %.thread23 ]
+31:                                               ; preds = %.thread24, %.thread19
+  %.pn18 = phi { ptr, i32 } [ %lpad.thr_comm21, %.thread19 ], [ %lpad.thr_comm22, %.thread24 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$clap_builder..error..Error$GT$17h6d5dc7539f3d67f9E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #44
           to label %.thread13 unwind label %29
 }
@@ -42249,12 +42249,12 @@ common.resume:                                    ; preds = %330, %566, %610, %1
   %322 = load i64, ptr %291, align 8, !alias.scope !7294, !noalias !7297, !noundef !4
   %323 = icmp ugt i64 %322, 16
   %324 = load ptr, ptr %54, align 8, !alias.scope !7294, !noalias !7297, !nonnull !4
-  %.sink14.i.i564 = select i1 %323, ptr %324, ptr %54
-  %325 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %.sink14.i.i564, i64 %321
-  %.sroa.0467.0.copyload468565 = load ptr, ptr %325, align 8
-  %.sroa.8469.0..sroa_idx470566 = getelementptr inbounds nuw i8, ptr %325, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8469, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8469.0..sroa_idx470566, i64 32, i1 false)
-  %.not = icmp eq ptr %.sroa.0467.0.copyload468565, null
+  %.sink14.i.i590 = select i1 %323, ptr %324, ptr %54
+  %325 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %.sink14.i.i590, i64 %321
+  %.sroa.0467.0.copyload468591 = load ptr, ptr %325, align 8
+  %.sroa.8469.0..sroa_idx470592 = getelementptr inbounds nuw i8, ptr %325, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8469, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8469.0..sroa_idx470592, i64 32, i1 false)
+  %.not = icmp eq ptr %.sroa.0467.0.copyload468591, null
   br i1 %.not, label %"_ZN101_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h75a8758bda5cfb29E.exit.thread", label %.lr.ph
 
 326:                                              ; preds = %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$11event_scope17hfcc5b17d63e4eb06E.exit", %341, %"_ZN4core3ptr119drop_in_place$LT$tracing_subscriber..registry..ScopeFromRoot$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h404ee6de736b4f09E.exit"
@@ -42340,9 +42340,9 @@ common.resume:                                    ; preds = %330, %566, %610, %1
   br label %"_ZN4core3ptr73drop_in_place$LT$tracing_subscriber..registry..extensions..Extensions$GT$17h1140ca92c8033dd1E.exit"
 
 .lr.ph:                                           ; preds = %"_ZN101_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h75a8758bda5cfb29E.exit.lr.ph", %"_ZN101_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h75a8758bda5cfb29E.exit"
-  %.sroa.0467.0.copyload468567 = phi ptr [ %.sroa.0467.0.copyload468, %"_ZN101_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h75a8758bda5cfb29E.exit" ], [ %.sroa.0467.0.copyload468565, %"_ZN101_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h75a8758bda5cfb29E.exit.lr.ph" ]
+  %.sroa.0467.0.copyload468593 = phi ptr [ %.sroa.0467.0.copyload468, %"_ZN101_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h75a8758bda5cfb29E.exit" ], [ %.sroa.0467.0.copyload468591, %"_ZN101_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h75a8758bda5cfb29E.exit.lr.ph" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
-  store ptr %.sroa.0467.0.copyload468567, ptr %53, align 8
+  store ptr %.sroa.0467.0.copyload468593, ptr %53, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8469.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8469, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
@@ -43177,10 +43177,10 @@ common.resume:                                    ; preds = %330, %566, %610, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %spec.select = select i1 %.sroa.078.0, ptr inttoptr (i64 1 to ptr), ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.61
   %not..sroa.078.0 = xor i1 %.sroa.078.0, true
-  %spec.select557 = zext i1 %not..sroa.078.0 to i64
+  %spec.select583 = zext i1 %not..sroa.078.0 to i64
   store ptr %spec.select, ptr %32, align 8
   %597 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i64 %spec.select557, ptr %597, align 8
+  store i64 %spec.select583, ptr %597, align 8
   store ptr %34, ptr %35, align 8
   %.sroa.4327.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr @"_ZN90_$LT$nu_ansi_term..display..AnsiGenericString$LT$str$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h446672834a82c8b8E", ptr %.sroa.4327.0..sroa_idx, align 8
@@ -45538,7 +45538,7 @@ define internal fastcc void @"_ZN18tracing_subscriber5layer7context16Context$LT$
 31:                                               ; preds = %24
   store ptr null, ptr %9, align 8, !alias.scope !7863, !noalias !7866
   %32 = call noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$7release17h012e3a412375a012E"(ptr noundef nonnull align 8 %20), !noalias !7871
-  br i1 %32, label %33, label %"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h83daa72d93bfeff7E.exit.thread24"
+  br i1 %32, label %33, label %"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h83daa72d93bfeff7E.exit.thread28"
 
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.3.sroa.2.0.copyload, null
@@ -45578,13 +45578,13 @@ define internal fastcc void @"_ZN18tracing_subscriber5layer7context16Context$LT$
 "_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h83daa72d93bfeff7E.exit": ; preds = %41, %43
   %.pr.pr = load ptr, ptr %9, align 8
   %45 = icmp eq ptr %.pr.pr, null
-  br i1 %45, label %"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h83daa72d93bfeff7E.exit.thread24", label %46
+  br i1 %45, label %"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h83daa72d93bfeff7E.exit.thread28", label %46
 
 46:                                               ; preds = %"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h83daa72d93bfeff7E.exit.thread", %"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h83daa72d93bfeff7E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
   br label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h569ffdb4c8dba720E.exit"
 
-"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h83daa72d93bfeff7E.exit.thread24": ; preds = %31, %"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h83daa72d93bfeff7E.exit"
+"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h83daa72d93bfeff7E.exit.thread28": ; preds = %31, %"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h83daa72d93bfeff7E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !7885)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -45593,7 +45593,7 @@ define internal fastcc void @"_ZN18tracing_subscriber5layer7context16Context$LT$
   %47 = invoke { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h28eb83c26c47f436E(ptr noundef nonnull align 8 %11, i64 noundef -6877726428810268074, i64 noundef 1400394617710667336)
           to label %.noexc unwind label %82
 
-.noexc:                                           ; preds = %"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h83daa72d93bfeff7E.exit.thread24"
+.noexc:                                           ; preds = %"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h83daa72d93bfeff7E.exit.thread28"
   %48 = extractvalue { i64, ptr } %47, 0
   %49 = extractvalue { i64, ptr } %47, 1
   %switch.i.i = icmp eq i64 %48, 0
@@ -45708,7 +45708,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hb1506faac6a1d771E.exit.i: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %17
 
-82:                                               ; preds = %53, %"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h83daa72d93bfeff7E.exit.thread24"
+82:                                               ; preds = %53, %"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h83daa72d93bfeff7E.exit.thread28"
   %83 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -81311,8 +81311,8 @@ define hidden void @_ZN5alloc6string6String4push17h73faea9791f3dabaE.llvm.181776
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.1..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %14, ptr %.sroa.0.1..sroa_idx12, align 1, !alias.scope !16252
+  %.sroa.0.1..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %14, ptr %.sroa.0.1..sroa_idx13, align 1, !alias.scope !16252
   br label %_ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.llvm.18177661807337663391.exit
 
 15:                                               ; preds = %6
@@ -81324,13 +81324,13 @@ define hidden void @_ZN5alloc6string6String4push17h73faea9791f3dabaE.llvm.181776
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %22, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !16252
+  %.sroa.0.1..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %22, ptr %.sroa.0.1..sroa_idx12, align 1, !alias.scope !16252
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.2..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  store i8 %25, ptr %.sroa.0.2..sroa_idx13, align 2, !alias.scope !16252
+  %.sroa.0.2..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  store i8 %25, ptr %.sroa.0.2..sroa_idx14, align 2, !alias.scope !16252
   br label %_ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.llvm.18177661807337663391.exit
 
 26:                                               ; preds = %6
@@ -82858,7 +82858,7 @@ define hidden void @"_ZN6deserr5impls109_$LT$impl$u20$deserr..Deserr$LT$E$GT$$u2
   store ptr %72, ptr %55, align 8, !alias.scope !16434, !noalias !16424
   %.sroa.0.0.copyload1.i.i = load i64, ptr %71, align 8, !noalias !16435
   %73 = icmp eq i64 %.sroa.0.0.copyload1.i.i, -9223372036854775808
-  br i1 %73, label %._crit_edge.loopexit.split.loop.exit222, label %83
+  br i1 %73, label %._crit_edge.loopexit.split.loop.exit239, label %83
 
 74:                                               ; preds = %.loopexit145, %.loopexit.split-lp146, %.thread
   %.pn11 = phi { ptr, i32 } [ %.pn115, %.thread ], [ %lpad.loopexit147, %.loopexit145 ], [ %lpad.loopexit.split-lp148, %.loopexit.split-lp146 ]
@@ -82876,12 +82876,12 @@ define hidden void @"_ZN6deserr5impls109_$LT$impl$u20$deserr..Deserr$LT$E$GT$$u2
           cleanup
   br label %74
 
-._crit_edge.loopexit.split.loop.exit222:          ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd46226d103d79187E.llvm.331090089658796353.exit.i.i"
+._crit_edge.loopexit.split.loop.exit239:          ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd46226d103d79187E.llvm.331090089658796353.exit.i.i"
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 104
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %231, %._crit_edge.loopexit.split.loop.exit222, %53
-  %76 = phi ptr [ %57, %53 ], [ %75, %._crit_edge.loopexit.split.loop.exit222 ], [ %233, %231 ]
+._crit_edge:                                      ; preds = %231, %._crit_edge.loopexit.split.loop.exit239, %53
+  %76 = phi ptr [ %57, %53 ], [ %75, %._crit_edge.loopexit.split.loop.exit239 ], [ %233, %231 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !16436
   store ptr %39, ptr %24, align 8, !noalias !16436
@@ -83020,7 +83020,7 @@ define hidden void @"_ZN6deserr5impls109_$LT$impl$u20$deserr..Deserr$LT$E$GT$$u2
   %116 = xor i64 %.sroa.053.0.copyload, -9223372036854775808
   %117 = call i64 @llvm.umin.i64(i64 %116, i64 5)
   switch i64 %117, label %default.unreachable [
-    i64 0, label %"_ZN6deserr10serde_json79_$LT$impl$u20$deserr..value..IntoValue$u20$for$u20$serde_json..value..Value$GT$10into_value17hbd07734994dbc5d2E.exit.thread206"
+    i64 0, label %"_ZN6deserr10serde_json79_$LT$impl$u20$deserr..value..IntoValue$u20$for$u20$serde_json..value..Value$GT$10into_value17hbd07734994dbc5d2E.exit.thread223"
     i64 1, label %118
     i64 2, label %119
     i64 3, label %120
@@ -83031,7 +83031,7 @@ define hidden void @"_ZN6deserr5impls109_$LT$impl$u20$deserr..Deserr$LT$E$GT$$u2
 default.unreachable:                              ; preds = %114
   unreachable
 
-"_ZN6deserr10serde_json79_$LT$impl$u20$deserr..value..IntoValue$u20$for$u20$serde_json..value..Value$GT$10into_value17hbd07734994dbc5d2E.exit.thread206": ; preds = %114
+"_ZN6deserr10serde_json79_$LT$impl$u20$deserr..value..IntoValue$u20$for$u20$serde_json..value..Value$GT$10into_value17hbd07734994dbc5d2E.exit.thread223": ; preds = %114
   store i64 -9223372036854775808, ptr %35, align 8, !alias.scope !16471, !noalias !16468
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   br label %127
@@ -83094,7 +83094,7 @@ default.unreachable:                              ; preds = %114
   store i64 1, ptr %34, align 8
   br i1 %124, label %127, label %128
 
-127:                                              ; preds = %"_ZN6deserr10serde_json79_$LT$impl$u20$deserr..value..IntoValue$u20$for$u20$serde_json..value..Value$GT$10into_value17hbd07734994dbc5d2E.exit.thread206", %"_ZN6deserr10serde_json79_$LT$impl$u20$deserr..value..IntoValue$u20$for$u20$serde_json..value..Value$GT$10into_value17hbd07734994dbc5d2E.exit"
+127:                                              ; preds = %"_ZN6deserr10serde_json79_$LT$impl$u20$deserr..value..IntoValue$u20$for$u20$serde_json..value..Value$GT$10into_value17hbd07734994dbc5d2E.exit.thread223", %"_ZN6deserr10serde_json79_$LT$impl$u20$deserr..value..IntoValue$u20$for$u20$serde_json..value..Value$GT$10into_value17hbd07734994dbc5d2E.exit"
   invoke void @"_ZN4core3ptr73drop_in_place$LT$deserr..value..Value$LT$serde_json..value..Value$GT$$GT$17h42e8fd0d158193feE.llvm.1929265744411185926"(ptr noalias noundef nonnull align 8 dereferenceable(72) %35)
           to label %132 unwind label %.loopexit135
 
@@ -83768,7 +83768,7 @@ define hidden void @"_ZN6deserr5impls109_$LT$impl$u20$deserr..Deserr$LT$E$GT$$u2
   store ptr %72, ptr %54, align 8, !alias.scope !16636, !noalias !16626
   %.sroa.0.0.copyload1.i.i = load i64, ptr %71, align 8, !noalias !16637
   %73 = icmp eq i64 %.sroa.0.0.copyload1.i.i, -9223372036854775808
-  br i1 %73, label %._crit_edge.loopexit.split.loop.exit196, label %83
+  br i1 %73, label %._crit_edge.loopexit.split.loop.exit212, label %83
 
 74:                                               ; preds = %.loopexit132, %.loopexit.split-lp133, %.thread
   %.pn11 = phi { ptr, i32 } [ %.pn107, %.thread ], [ %lpad.loopexit134, %.loopexit132 ], [ %lpad.loopexit.split-lp135, %.loopexit.split-lp133 ]
@@ -83786,12 +83786,12 @@ define hidden void @"_ZN6deserr5impls109_$LT$impl$u20$deserr..Deserr$LT$E$GT$$u2
           cleanup
   br label %74
 
-._crit_edge.loopexit.split.loop.exit196:          ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd46226d103d79187E.llvm.331090089658796353.exit.i.i"
+._crit_edge.loopexit.split.loop.exit212:          ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd46226d103d79187E.llvm.331090089658796353.exit.i.i"
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 104
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %225, %._crit_edge.loopexit.split.loop.exit196, %52
-  %76 = phi ptr [ %56, %52 ], [ %75, %._crit_edge.loopexit.split.loop.exit196 ], [ %227, %225 ]
+._crit_edge:                                      ; preds = %225, %._crit_edge.loopexit.split.loop.exit212, %52
+  %76 = phi ptr [ %56, %52 ], [ %75, %._crit_edge.loopexit.split.loop.exit212 ], [ %227, %225 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !16638
   store ptr %38, ptr %22, align 8, !noalias !16638
@@ -84627,7 +84627,7 @@ define hidden void @"_ZN6deserr5impls109_$LT$impl$u20$deserr..Deserr$LT$E$GT$$u2
   store ptr %67, ptr %49, align 8, !alias.scope !16825, !noalias !16815
   %.sroa.0.0.copyload1.i.i = load i64, ptr %66, align 8, !noalias !16826
   %68 = icmp eq i64 %.sroa.0.0.copyload1.i.i, -9223372036854775808
-  br i1 %68, label %._crit_edge.loopexit.split.loop.exit189, label %78
+  br i1 %68, label %._crit_edge.loopexit.split.loop.exit205, label %78
 
 69:                                               ; preds = %.loopexit131, %.loopexit.split-lp132, %.thread
   %.pn11 = phi { ptr, i32 } [ %.pn107, %.thread ], [ %lpad.loopexit133, %.loopexit131 ], [ %lpad.loopexit.split-lp134, %.loopexit.split-lp132 ]
@@ -84645,12 +84645,12 @@ define hidden void @"_ZN6deserr5impls109_$LT$impl$u20$deserr..Deserr$LT$E$GT$$u2
           cleanup
   br label %69
 
-._crit_edge.loopexit.split.loop.exit189:          ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd46226d103d79187E.llvm.331090089658796353.exit.i.i"
+._crit_edge.loopexit.split.loop.exit205:          ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd46226d103d79187E.llvm.331090089658796353.exit.i.i"
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 104
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %217, %._crit_edge.loopexit.split.loop.exit189, %47
-  %71 = phi ptr [ %51, %47 ], [ %70, %._crit_edge.loopexit.split.loop.exit189 ], [ %219, %217 ]
+._crit_edge:                                      ; preds = %217, %._crit_edge.loopexit.split.loop.exit205, %47
+  %71 = phi ptr [ %51, %47 ], [ %70, %._crit_edge.loopexit.split.loop.exit205 ], [ %219, %217 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !16827
   store ptr %33, ptr %19, align 8, !noalias !16827
@@ -93332,11 +93332,11 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37: ; preds = %83, %92, %_ZN4http3
   br label %106
 
 106:                                              ; preds = %104, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37
-  %.sink43 = phi ptr [ %76, %104 ], [ %.sroa.0.0.i34, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
-  %.sink41 = phi i64 [ %105, %104 ], [ %.sroa.3.0.i33, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
-  store ptr %.sink43, ptr %6, align 8
+  %.sink54 = phi ptr [ %76, %104 ], [ %.sroa.0.0.i34, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
+  %.sink52 = phi i64 [ %105, %104 ], [ %.sroa.3.0.i33, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
+  store ptr %.sink54, ptr %6, align 8
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sink41, ptr %107, align 8
+  store i64 %.sink52, ptr %107, align 8
   store ptr %7, ptr %8, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hd216a6df6bfff114E", ptr %.sroa.415.0..sroa_idx, align 8
@@ -93374,8 +93374,8 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37: ; preds = %83, %92, %_ZN4http3
   store i16 0, ptr %115, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 2
   store i16 500, ptr %.sroa.4.0..sroa_idx, align 2
-  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 120
-  store ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.395, ptr %.sroa.544.0..sroa_idx, align 8
+  %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 120
+  store ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.395, ptr %.sroa.555.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 128
   store i64 96, ptr %.sroa.6.0..sroa_idx, align 8
   br label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h69b4504803c476f7E.exit"
@@ -93607,11 +93607,11 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37: ; preds = %84, %93, %_ZN4http3
   br label %107
 
 107:                                              ; preds = %105, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37
-  %.sink43 = phi ptr [ %77, %105 ], [ %.sroa.0.0.i34, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
-  %.sink41 = phi i64 [ %106, %105 ], [ %.sroa.3.0.i33, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
-  store ptr %.sink43, ptr %6, align 8
+  %.sink54 = phi ptr [ %77, %105 ], [ %.sroa.0.0.i34, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
+  %.sink52 = phi i64 [ %106, %105 ], [ %.sroa.3.0.i33, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
+  store ptr %.sink54, ptr %6, align 8
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sink41, ptr %108, align 8
+  store i64 %.sink52, ptr %108, align 8
   store ptr %7, ptr %8, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hd216a6df6bfff114E", ptr %.sroa.415.0..sroa_idx, align 8
@@ -93649,8 +93649,8 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37: ; preds = %84, %93, %_ZN4http3
   store i16 0, ptr %116, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %116, i64 2
   store i16 500, ptr %.sroa.4.0..sroa_idx, align 2
-  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %116, i64 120
-  store ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.395, ptr %.sroa.544.0..sroa_idx, align 8
+  %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %116, i64 120
+  store ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.395, ptr %.sroa.555.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %116, i64 128
   store i64 96, ptr %.sroa.6.0..sroa_idx, align 8
   br label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he713ec8dc6365cbfE.llvm.18177661807337663391.exit"
@@ -93882,11 +93882,11 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37: ; preds = %84, %93, %_ZN4http3
   br label %107
 
 107:                                              ; preds = %105, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37
-  %.sink43 = phi ptr [ %77, %105 ], [ %.sroa.0.0.i34, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
-  %.sink41 = phi i64 [ %106, %105 ], [ %.sroa.3.0.i33, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
-  store ptr %.sink43, ptr %6, align 8
+  %.sink54 = phi ptr [ %77, %105 ], [ %.sroa.0.0.i34, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
+  %.sink52 = phi i64 [ %106, %105 ], [ %.sroa.3.0.i33, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
+  store ptr %.sink54, ptr %6, align 8
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sink41, ptr %108, align 8
+  store i64 %.sink52, ptr %108, align 8
   store ptr %7, ptr %8, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hd216a6df6bfff114E", ptr %.sroa.415.0..sroa_idx, align 8
@@ -93924,8 +93924,8 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37: ; preds = %84, %93, %_ZN4http3
   store i16 0, ptr %116, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %116, i64 2
   store i16 500, ptr %.sroa.4.0..sroa_idx, align 2
-  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %116, i64 120
-  store ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.395, ptr %.sroa.544.0..sroa_idx, align 8
+  %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %116, i64 120
+  store ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.395, ptr %.sroa.555.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %116, i64 128
   store i64 96, ptr %.sroa.6.0..sroa_idx, align 8
   br label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2fe7bd002a6642feE.llvm.18177661807337663391.exit"
@@ -108335,11 +108335,11 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit43.i: ; preds = %_ZN4http3uri4path
   br label %388
 
 388:                                              ; preds = %386, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit43.i
-  %.sink6.i = phi ptr [ %359, %386 ], [ %.sroa.0.0.i40.i, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit43.i ]
-  %.sink4.i = phi i64 [ %387, %386 ], [ %.sroa.3.0.i39.i, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit43.i ]
-  store ptr %.sink6.i, ptr %6, align 8, !noalias !20169
+  %.sink17.i = phi ptr [ %359, %386 ], [ %.sroa.0.0.i40.i, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit43.i ]
+  %.sink15.i = phi i64 [ %387, %386 ], [ %.sroa.3.0.i39.i, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit43.i ]
+  store ptr %.sink17.i, ptr %6, align 8, !noalias !20169
   %389 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sink4.i, ptr %389, align 8, !noalias !20169
+  store i64 %.sink15.i, ptr %389, align 8, !noalias !20169
   store ptr %7, ptr %8, align 8, !noalias !20169
   %.sroa.418.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hd216a6df6bfff114E", ptr %.sroa.418.0..sroa_idx.i, align 8, !noalias !20169
@@ -108405,7 +108405,7 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit43.i: ; preds = %_ZN4http3uri4path
           to label %290 unwind label %405
 
 "_ZN82_$LT$actix_web..data..Data$LT$T$GT$$u20$as$u20$actix_web..extract..FromRequest$GT$12from_request17h14bf670c5524860dE.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hda203f50ec6f7e61E.exit.i", %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1fcc4dc63e914582E.exit.i"
-  %.sink3.i = phi i64 [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hda203f50ec6f7e61E.exit.i" ], [ 0, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1fcc4dc63e914582E.exit.i" ]
+  %.sink14.i = phi i64 [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hda203f50ec6f7e61E.exit.i" ], [ 0, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1fcc4dc63e914582E.exit.i" ]
   %.sink.i = phi ptr [ %397, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hda203f50ec6f7e61E.exit.i" ], [ %.val.i, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1fcc4dc63e914582E.exit.i" ]
   %anon.3c3b56e5edcc756f701afb43044d2d8e.397.sink.i = phi ptr [ @anon.3c3b56e5edcc756f701afb43044d2d8e.397, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hda203f50ec6f7e61E.exit.i" ], [ %.val32.i, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1fcc4dc63e914582E.exit.i" ]
   %400 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -108418,7 +108418,7 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit43.i: ; preds = %_ZN4http3uri4path
   %403 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %403, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
   %404 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store i64 %.sink3.i, ptr %404, align 8
+  store i64 %.sink14.i, ptr %404, align 8
   %.sroa.446.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %.sink.i, ptr %.sroa.446.0..sroa_idx, align 8
   %.sroa.547.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -109953,14 +109953,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -110347,14 +110347,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -110741,14 +110741,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable51 [
+  switch i8 %12, label %default.unreachable54 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable51:                            ; preds = %3
+default.unreachable54:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -111135,14 +111135,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -111529,14 +111529,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -111923,14 +111923,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -112317,14 +112317,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable51 [
+  switch i8 %12, label %default.unreachable54 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable51:                            ; preds = %3
+default.unreachable54:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -112711,14 +112711,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -113105,14 +113105,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -113499,14 +113499,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable51 [
+  switch i8 %12, label %default.unreachable54 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable51:                            ; preds = %3
+default.unreachable54:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -113893,14 +113893,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -114287,14 +114287,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable51 [
+  switch i8 %12, label %default.unreachable54 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable51:                            ; preds = %3
+default.unreachable54:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -114681,14 +114681,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -115075,14 +115075,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable51 [
+  switch i8 %12, label %default.unreachable54 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable51:                            ; preds = %3
+default.unreachable54:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -115469,14 +115469,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -115863,14 +115863,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -116257,14 +116257,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -116651,14 +116651,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -117045,14 +117045,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable51 [
+  switch i8 %12, label %default.unreachable54 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable51:                            ; preds = %3
+default.unreachable54:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -117439,14 +117439,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -117833,14 +117833,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -118227,14 +118227,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -118621,14 +118621,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -119015,14 +119015,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -119409,14 +119409,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -119803,14 +119803,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -120197,14 +120197,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i8, ptr %11, align 8, !range !9646, !noundef !4
-  switch i8 %12, label %default.unreachable50 [
+  switch i8 %12, label %default.unreachable53 [
     i8 0, label %14
     i8 1, label %39
     i8 2, label %40
     i8 3, label %13
   ]
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -120587,14 +120587,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -120918,14 +120918,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -121249,14 +121249,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -121580,14 +121580,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -121911,14 +121911,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -122242,14 +122242,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -122573,14 +122573,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -122904,14 +122904,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable64 [
+  switch i8 %10, label %default.unreachable67 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable64:                            ; preds = %3
+default.unreachable67:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -123235,14 +123235,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable64 [
+  switch i8 %10, label %default.unreachable67 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable64:                            ; preds = %3
+default.unreachable67:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -123566,14 +123566,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -123897,14 +123897,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -124228,14 +124228,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -124559,14 +124559,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -124890,14 +124890,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -125221,14 +125221,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable64 [
+  switch i8 %10, label %default.unreachable67 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable64:                            ; preds = %3
+default.unreachable67:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -125552,14 +125552,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -125883,14 +125883,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -126214,14 +126214,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -126545,14 +126545,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -126876,14 +126876,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable64 [
+  switch i8 %10, label %default.unreachable67 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable64:                            ; preds = %3
+default.unreachable67:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -127207,14 +127207,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -127538,14 +127538,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable64 [
+  switch i8 %10, label %default.unreachable67 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable64:                            ; preds = %3
+default.unreachable67:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -127869,14 +127869,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -128200,14 +128200,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -128531,14 +128531,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable64 [
+  switch i8 %10, label %default.unreachable67 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable64:                            ; preds = %3
+default.unreachable67:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -128862,14 +128862,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -129193,14 +129193,14 @@ define internal void @"_ZN11meilisearch10extractors14authentication24GuardedData
   %8 = alloca [120 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %10 = load i8, ptr %9, align 1, !range !9646, !noundef !4
-  switch i8 %10, label %default.unreachable63 [
+  switch i8 %10, label %default.unreachable66 [
     i8 0, label %11
     i8 1, label %33
     i8 2, label %34
     i8 3, label %35
   ]
 
-default.unreachable63:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -129528,14 +129528,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -129779,14 +129779,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -130030,14 +130030,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -130281,14 +130281,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -130532,14 +130532,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -130783,14 +130783,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -131034,14 +131034,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -131285,14 +131285,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -131536,14 +131536,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -131787,14 +131787,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -132038,14 +132038,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -132289,14 +132289,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -132540,14 +132540,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -132791,14 +132791,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -133042,14 +133042,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -133293,14 +133293,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -133544,14 +133544,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -133795,14 +133795,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -134046,14 +134046,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -134297,14 +134297,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -134548,14 +134548,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -134799,14 +134799,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -135050,14 +135050,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -135301,14 +135301,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -135552,14 +135552,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -135803,14 +135803,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -136054,14 +136054,14 @@ define internal fastcc void @"_ZN11meilisearch10extractors14authentication24Guar
   %11 = alloca [56 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !range !9646, !noundef !4
-  switch i8 %13, label %default.unreachable11 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %25
     i8 2, label %26
     i8 3, label %27
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3
@@ -158299,8 +158299,8 @@ define hidden void @"_ZN187_$LT$meilisearch..routes..api_key.._..$LT$impl$u20$se
 
 16:                                               ; preds = %14
   %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(3) %12, ptr noundef nonnull dereferenceable(3) @anon.3fd1218b2f406ad1341fef897d5dd3d9.930.llvm.8666068179502612882, i64 3), !alias.scope !27607, !noalias !27611
-  %.not104 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
-  br i1 %.not104, label %20, label %.thread87
+  %.not110 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
+  br i1 %.not110, label %20, label %.thread87
 
 17:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !27602

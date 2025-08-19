@@ -2415,12 +2415,12 @@ define internal void @message_decode_match_criteria_set_cb(ptr noundef writeonly
 
 .lr.ph.preheader:                                 ; preds = %5
   %10 = tail call i32 @g_str_equal(ptr noundef nonnull %9, ptr noundef %7)
-  %.not1320 = icmp eq i32 %10, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %10, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %11 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %11 = add i32 %.01622, 1
   %12 = zext i32 %11 to i64
   %13 = getelementptr %struct._value_string, ptr %3, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -2428,10 +2428,10 @@ define internal void @message_decode_match_criteria_set_cb(ptr noundef writeonly
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %16 = tail call i32 @g_str_equal(ptr noundef nonnull %15, ptr noundef %7)
   %.not13 = icmp eq i32 %16, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !6
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !6
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %13, %.lr.ph ]
@@ -2439,7 +2439,7 @@ define internal void @message_decode_match_criteria_set_cb(ptr noundef writeonly
   store i32 %17, ptr %0, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -2455,11 +2455,11 @@ define internal void @message_decode_match_criteria_tostr_cb(ptr noundef readonl
   %8 = load i32, ptr %0, align 8
   %9 = load i32, ptr %3, align 8
   %10 = icmp eq i32 %9, %8
-  br i1 %10, label %._crit_edge21, label %.lr.ph20
+  br i1 %10, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %16
-  %.01519 = phi i32 [ %11, %16 ], [ 0, %.lr.ph ]
-  %11 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %16
+  %.01520 = phi i32 [ %11, %16 ], [ 0, %.lr.ph ]
+  %11 = add i32 %.01520, 1
   %12 = zext i32 %11 to i64
   %13 = getelementptr %struct._value_string, ptr %3, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -2467,12 +2467,12 @@ define internal void @message_decode_match_criteria_tostr_cb(ptr noundef readonl
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %16, !llvm.loop !8
 
-16:                                               ; preds = %.lr.ph20
+16:                                               ; preds = %.lr.ph21
   %17 = load i32, ptr %13, align 8
   %18 = icmp eq i32 %17, %8
-  br i1 %18, label %._crit_edge21, label %.lr.ph20, !llvm.loop !8
+  br i1 %18, label %._crit_edge22, label %.lr.ph21, !llvm.loop !8
 
-._crit_edge21:                                    ; preds = %16, %.lr.ph
+._crit_edge22:                                    ; preds = %16, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %15, %16 ]
   %19 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %19, ptr %1, align 8
@@ -2480,13 +2480,13 @@ define internal void @message_decode_match_criteria_tostr_cb(ptr noundef readonl
   %21 = trunc i64 %20 to i32
   br label %23
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %22 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1421)
   store ptr %22, ptr %1, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 8, %._crit_edge ], [ %21, %._crit_edge21 ]
+23:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 8, %._crit_edge ], [ %21, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -12605,8 +12605,8 @@ get_amqp_1_0_type_value_formatter.exit:           ; preds = %57, %59
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %get_amqp_1_0_type_value_formatter.exit, %73, %.critedge
-  %.077.lcssa98 = phi i32 [ %.077.lcssa, %73 ], [ %.077.lcssa, %.critedge ], [ %72, %get_amqp_1_0_type_value_formatter.exit ]
-  %76 = sub i32 %.077.lcssa98, %2
+  %.077.lcssa99 = phi i32 [ %.077.lcssa, %73 ], [ %.077.lcssa, %.critedge ], [ %72, %get_amqp_1_0_type_value_formatter.exit ]
+  %76 = sub i32 %.077.lcssa99, %2
   br label %77
 
 77:                                               ; preds = %.critedge.thread, %53, %27
@@ -12747,8 +12747,8 @@ define internal fastcc range(i32 0, 256) i32 @get_amqp_1_0_type_formatter(ptr no
   br i1 %44, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %42, %45
-  %indvars.iv56 = phi i64 [ %indvars.iv.next, %45 ], [ 0, %42 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv56, 1
+  %indvars.iv57 = phi i64 [ %indvars.iv.next, %45 ], [ 0, %42 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv57, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 26
   br i1 %exitcond, label %.loopexit, label %45, !llvm.loop !21
 
@@ -12800,7 +12800,7 @@ define internal fastcc void @get_amqp_1_0_value_formatter(ptr noundef %0, ptr no
   store ptr null, ptr %18, align 8
   tail call void @increment_dissection_depth(ptr noundef %1)
   %19 = icmp eq i8 %2, 64
-  br i1 %19, label %decode_fixed_type.exit.thread187, label %.lr.ph
+  br i1 %19, label %decode_fixed_type.exit.thread200, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %20
   %indvars.iv.i157 = phi i64 [ %indvars.iv.next.i, %20 ], [ 0, %10 ]
@@ -12816,23 +12816,23 @@ define internal fastcc void @get_amqp_1_0_value_formatter(ptr noundef %0, ptr no
 
 decode_fixed_type.exit:                           ; preds = %20
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %decode_fixed_type.exit.thread, label %decode_fixed_type.exit.thread187
+  br i1 %.not, label %decode_fixed_type.exit.thread, label %decode_fixed_type.exit.thread200
 
-decode_fixed_type.exit.thread187:                 ; preds = %10, %decode_fixed_type.exit
-  %.lcssa155190 = phi ptr [ %21, %decode_fixed_type.exit ], [ @amqp_1_0_fixed_types, %10 ]
+decode_fixed_type.exit.thread200:                 ; preds = %10, %decode_fixed_type.exit
+  %.lcssa155203 = phi ptr [ %21, %decode_fixed_type.exit ], [ @amqp_1_0_fixed_types, %10 ]
   %24 = tail call i32 @proto_registrar_get_ftype(i32 noundef %4)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %.preheader152, label %.thread
 
-.preheader152:                                    ; preds = %decode_fixed_type.exit.thread187, %46
-  %26 = phi ptr [ %48, %46 ], [ @hf_amqp_1_0_outgoingLocales, %decode_fixed_type.exit.thread187 ]
-  %.0113158 = phi ptr [ %47, %46 ], [ @amqp_synonym_types, %decode_fixed_type.exit.thread187 ]
+.preheader152:                                    ; preds = %decode_fixed_type.exit.thread200, %46
+  %26 = phi ptr [ %48, %46 ], [ @hf_amqp_1_0_outgoingLocales, %decode_fixed_type.exit.thread200 ]
+  %.0113158 = phi ptr [ %47, %46 ], [ @amqp_synonym_types, %decode_fixed_type.exit.thread200 ]
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, %4
   br i1 %28, label %29, label %46
 
 29:                                               ; preds = %.preheader152
-  %30 = getelementptr inbounds nuw i8, ptr %.lcssa155190, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.lcssa155203, i64 16
   %31 = load i32, ptr %30, align 8
   switch i32 %31, label %.thread [
     i32 3, label %32
@@ -12904,16 +12904,16 @@ decode_fixed_type.exit.thread187:                 ; preds = %10, %decode_fixed_t
   %49 = load i32, ptr %.sink, align 4
   br label %.thread
 
-.thread:                                          ; preds = %46, %.thread.sink.split, %29, %35, %39, %40, %43, %decode_fixed_type.exit.thread187
-  %.0114 = phi i32 [ %4, %43 ], [ %4, %decode_fixed_type.exit.thread187 ], [ %4, %40 ], [ %4, %39 ], [ %4, %35 ], [ %4, %29 ], [ %49, %.thread.sink.split ], [ %4, %46 ]
+.thread:                                          ; preds = %46, %.thread.sink.split, %29, %35, %39, %40, %43, %decode_fixed_type.exit.thread200
+  %.0114 = phi i32 [ %4, %43 ], [ %4, %decode_fixed_type.exit.thread200 ], [ %4, %40 ], [ %4, %39 ], [ %4, %35 ], [ %4, %29 ], [ %49, %.thread.sink.split ], [ %4, %46 ]
   %50 = tail call i32 @proto_registrar_get_ftype(i32 noundef %.0114)
   %.not133 = icmp eq i32 %50, 0
   br i1 %.not133, label %57, label %51
 
 51:                                               ; preds = %.thread
-  %52 = getelementptr inbounds nuw i8, ptr %.lcssa155190, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %.lcssa155203, i64 24
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %.lcssa155190, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %.lcssa155203, i64 20
   %55 = load i32, ptr %54, align 4
   %56 = tail call i32 %53(ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef %55, ptr noundef %9, i32 noundef %.0114)
   store i32 %56, ptr %8, align 4
@@ -12943,9 +12943,9 @@ decode_fixed_type.exit.thread187:                 ; preds = %10, %decode_fixed_t
   br label %253
 
 68:                                               ; preds = %57
-  %69 = getelementptr inbounds nuw i8, ptr %.lcssa155190, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.lcssa155203, i64 32
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %.lcssa155190, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %.lcssa155203, i64 20
   %72 = load i32, ptr %71, align 4
   %73 = call i32 %70(ptr noundef %0, i32 noundef %3, i32 noundef %72, ptr noundef nonnull %18)
   store i32 %73, ptr %8, align 4
@@ -12964,7 +12964,7 @@ decode_fixed_type.exit.thread187:                 ; preds = %10, %decode_fixed_t
 
 80:                                               ; preds = %68, %78
   %81 = phi ptr [ %79, %78 ], [ %5, %68 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.lcssa155190, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.lcssa155203, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %18, align 8
   %85 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %9, i32 noundef %.0114, ptr noundef %0, i32 noundef %76, i32 noundef %77, ptr noundef nonnull @.str.1492, ptr noundef %81, ptr noundef %83, ptr noundef %84)
@@ -13110,7 +13110,7 @@ decode_fixed_type.exit.thread:                    ; preds = %.lr.ph, %decode_fix
 149:                                              ; preds = %146
   %150 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.091.i175)
   %151 = icmp eq i8 %150, 64
-  br i1 %151, label %decode_fixed_type.exit143.thread191, label %.lr.ph171
+  br i1 %151, label %decode_fixed_type.exit143.thread204, label %.lr.ph171
 
 .lr.ph171:                                        ; preds = %149, %152
   %indvars.iv.i139170 = phi i64 [ %indvars.iv.next.i140, %152 ], [ 0, %149 ]
@@ -13126,14 +13126,14 @@ decode_fixed_type.exit.thread:                    ; preds = %.lr.ph, %decode_fix
 
 decode_fixed_type.exit143:                        ; preds = %152
   %.not104.i = icmp eq ptr %153, null
-  br i1 %.not104.i, label %decode_fixed_type.exit143.thread, label %decode_fixed_type.exit143.thread191
+  br i1 %.not104.i, label %decode_fixed_type.exit143.thread, label %decode_fixed_type.exit143.thread204
 
-decode_fixed_type.exit143.thread191:              ; preds = %149, %decode_fixed_type.exit143
-  %.lcssa194 = phi ptr [ %153, %decode_fixed_type.exit143 ], [ @amqp_1_0_fixed_types, %149 ]
-  %156 = getelementptr inbounds nuw i8, ptr %.lcssa194, i64 32
+decode_fixed_type.exit143.thread204:              ; preds = %149, %decode_fixed_type.exit143
+  %.lcssa207 = phi ptr [ %153, %decode_fixed_type.exit143 ], [ @amqp_1_0_fixed_types, %149 ]
+  %156 = getelementptr inbounds nuw i8, ptr %.lcssa207, i64 32
   %157 = load ptr, ptr %156, align 8
   %158 = add i32 %.091.i175, 1
-  %159 = getelementptr inbounds nuw i8, ptr %.lcssa194, i64 20
+  %159 = getelementptr inbounds nuw i8, ptr %.lcssa207, i64 20
   %160 = load i32, ptr %159, align 4
   %161 = call i32 %157(ptr noundef %0, i32 noundef %158, i32 noundef %160, ptr noundef nonnull %17)
   store i32 %161, ptr %16, align 4
@@ -13157,8 +13157,8 @@ decode_fixed_type.exit143.thread:                 ; preds = %.lr.ph171, %decode_
   %173 = load i32, ptr %16, align 4
   br label %174
 
-174:                                              ; preds = %170, %decode_fixed_type.exit143.thread, %decode_fixed_type.exit143.thread191
-  %.pn.i = phi i32 [ %162, %decode_fixed_type.exit143.thread191 ], [ 1, %decode_fixed_type.exit143.thread ], [ %173, %170 ]
+174:                                              ; preds = %170, %decode_fixed_type.exit143.thread, %decode_fixed_type.exit143.thread204
+  %.pn.i = phi i32 [ %162, %decode_fixed_type.exit143.thread204 ], [ 1, %decode_fixed_type.exit143.thread ], [ %173, %170 ]
   %.1.i = add i32 %.pn.i, %.091.i175
   %175 = add i32 %.194.i174, -1
   %.not103.i = icmp eq i32 %175, 0
@@ -13324,8 +13324,8 @@ dissect_amqp_1_0_map.exit:                        ; preds = %108, %133, %137, %.
   br label %.critedge.i137.thread
 
 .critedge.i137.thread:                            ; preds = %236, %241, %.critedge.i137
-  %.079.i.lcssa198 = phi i32 [ %.079.i.lcssa, %241 ], [ %.079.i.lcssa, %.critedge.i137 ], [ %240, %236 ]
-  %244 = sub i32 %.079.i.lcssa198, %179
+  %.079.i.lcssa211 = phi i32 [ %.079.i.lcssa, %241 ], [ %.079.i.lcssa, %.critedge.i137 ], [ %240, %236 ]
+  %244 = sub i32 %.079.i.lcssa211, %179
   br label %dissect_amqp_1_0_array.exit
 
 dissect_amqp_1_0_array.exit:                      ; preds = %191, %225, %.critedge.i137.thread
@@ -13814,8 +13814,8 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
   %78 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = call ptr @strstr(ptr noundef %65, ptr noundef %79) #12
-  %.not71.i = icmp eq ptr %80, null
-  br i1 %.not71.i, label %.thread.i, label %find_data_dissector.exit
+  %.not76.i = icmp eq ptr %80, null
+  br i1 %.not76.i, label %.thread.i, label %find_data_dissector.exit
 
 81:                                               ; preds = %.lr.ph.i
   %82 = call i64 @strlen(ptr noundef %65) #12
@@ -13851,11 +13851,11 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
   %99 = call i32 @g_regex_match(ptr noundef %98, ptr noundef %65, i32 noundef 0, ptr noundef nonnull %7)
   %100 = load ptr, ptr %7, align 8
   %101 = call i32 @g_match_info_matches(ptr noundef %100)
-  %.not70.i = icmp eq i32 %101, 0
+  %.not75.i = icmp eq i32 %101, 0
   %102 = load ptr, ptr %7, align 8
   call void @g_match_info_free(ptr noundef %102)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not70.i, label %..thread.i_crit_edge, label %find_data_dissector.exit
+  br i1 %.not75.i, label %..thread.i_crit_edge, label %find_data_dissector.exit
 
 ..thread.i_crit_edge:                             ; preds = %97
   %.pre = load ptr, ptr @amqp_message_decodes, align 8
@@ -13874,8 +13874,8 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
   %109 = phi ptr [ %69, %103 ], [ %.pre, %..thread.i_crit_edge ], [ %69, %94 ], [ %69, %89 ], [ %69, %86 ], [ %69, %81 ], [ %69, %77 ], [ %69, %72 ], [ %69, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %110 = zext i32 %108 to i64
-  %.not72.i = icmp samesign ult i64 %indvars.iv.next.i, %110
-  br i1 %.not72.i, label %.lr.ph.i, label %find_data_dissector.exit.thread32, !llvm.loop !26
+  %.not77.i = icmp samesign ult i64 %indvars.iv.next.i, %110
+  br i1 %.not77.i, label %.lr.ph.i, label %find_data_dissector.exit.thread32, !llvm.loop !26
 
 find_data_dissector.exit.thread32:                ; preds = %.thread.i, %63
   %111 = call ptr @g_ptr_array_free(ptr noundef nonnull %24, i32 noundef 1)

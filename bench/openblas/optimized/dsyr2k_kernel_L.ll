@@ -84,7 +84,7 @@ define noundef i32 @dsyr2k_kernel_L(i64 noundef %0, i64 noundef %1, i64 noundef 
   br i1 %52, label %.lr.ph, label %.loopexit151
 
 .lr.ph:                                           ; preds = %44, %51
-  %.1161 = phi i64 [ %.0127, %51 ], [ %.1132, %44 ]
+  %.1168 = phi i64 [ %.0127, %51 ], [ %.1132, %44 ]
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -97,7 +97,7 @@ define noundef i32 @dsyr2k_kernel_L(i64 noundef %0, i64 noundef %1, i64 noundef 
   %sext147.us = shl i64 %54, 32
   %56 = ashr exact i64 %sext147.us, 32
   %57 = add nsw i64 %55, %56
-  %58 = sub i64 %.1161, %57
+  %58 = sub i64 %.1168, %57
   %59 = add i64 %54, %.0128156.us
   %sext148.us = shl i64 %59, 32
   %60 = ashr exact i64 %sext148.us, 32
@@ -117,8 +117,8 @@ define noundef i32 @dsyr2k_kernel_L(i64 noundef %0, i64 noundef %1, i64 noundef 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ %.1132, %.lr.ph ]
   %.0128156 = phi i64 [ %110, %.loopexit ], [ 0, %.lr.ph ]
   %smin = call i64 @llvm.smin.i64(i64 %indvars.iv, i64 32)
-  %sext159 = shl i64 %smin, 32
-  %71 = ashr exact i64 %sext159, 32
+  %sext166 = shl i64 %smin, 32
+  %71 = ashr exact i64 %sext166, 32
   %72 = sub nsw i64 %.1132, %.0128156
   %73 = call i64 @llvm.smin.i64(i64 %72, i64 32)
   %sext = shl i64 %73, 32
@@ -170,7 +170,7 @@ define noundef i32 @dsyr2k_kernel_L(i64 noundef %0, i64 noundef %1, i64 noundef 
   %sext146 = shl i64 %.0128156, 32
   %99 = ashr exact i64 %sext146, 32
   %100 = add nsw i64 %99, %74
-  %101 = sub i64 %.1161, %100
+  %101 = sub i64 %.1168, %100
   %102 = add i64 %73, %.0128156
   %sext148 = shl i64 %102, 32
   %103 = ashr exact i64 %sext148, 32

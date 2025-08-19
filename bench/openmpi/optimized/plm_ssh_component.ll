@@ -464,14 +464,14 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   %39 = getelementptr inbounds i16, ptr %35, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !58
   %41 = and i16 %40, 8192
-  %.not4769 = icmp eq i16 %41, 0
-  br i1 %.not4769, label %.critedge3.loopexit, label %.lr.ph71
+  %.not4777 = icmp eq i16 %41, 0
+  br i1 %.not4777, label %.critedge3.loopexit, label %.lr.ph79
 
-.lr.ph71:                                         ; preds = %.lr.ph55, %.lr.ph71
-  %42 = phi ptr [ %44, %.lr.ph71 ], [ %36, %.lr.ph55 ]
-  %indvars.iv70 = phi i64 [ %indvars.iv.next, %.lr.ph71 ], [ %34, %.lr.ph55 ]
+.lr.ph79:                                         ; preds = %.lr.ph55, %.lr.ph79
+  %42 = phi ptr [ %44, %.lr.ph79 ], [ %36, %.lr.ph55 ]
+  %indvars.iv78 = phi i64 [ %indvars.iv.next, %.lr.ph79 ], [ %34, %.lr.ph55 ]
   store i8 0, ptr %42, align 1, !tbaa !19
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv70, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv78, 1
   %43 = load ptr, ptr %33, align 8, !tbaa !56
   %44 = getelementptr inbounds nuw i8, ptr %.038.lcssa, i64 %indvars.iv.next
   %45 = load i8, ptr %44, align 1, !tbaa !19
@@ -480,9 +480,9 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   %48 = load i16, ptr %47, align 2, !tbaa !58
   %49 = and i16 %48, 8192
   %.not47 = icmp eq i16 %49, 0
-  br i1 %.not47, label %.critedge3.loopexit, label %.lr.ph71
+  br i1 %.not47, label %.critedge3.loopexit, label %.lr.ph79
 
-.critedge3.loopexit:                              ; preds = %.lr.ph71, %.lr.ph55
+.critedge3.loopexit:                              ; preds = %.lr.ph79, %.lr.ph55
   %char0.pre = load i8, ptr %.038.lcssa, align 1
   br label %.critedge3
 

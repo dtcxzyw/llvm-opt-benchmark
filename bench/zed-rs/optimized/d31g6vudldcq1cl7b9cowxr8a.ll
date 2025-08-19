@@ -2277,7 +2277,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %95, ptr %88 monotonic, align 8, !noalias !561
   store ptr null, ptr %90, align 8, !noalias !561
   %96 = icmp eq ptr %89, null
-  br i1 %96, label %.thread2.i, label %97
+  br i1 %96, label %.thread4.i, label %97
 
 97:                                               ; preds = %81
   %98 = getelementptr inbounds nuw i8, ptr %89, i64 104
@@ -2285,15 +2285,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %99 = icmp eq ptr %91, null
   br i1 %99, label %102, label %.thread.i
 
-.thread2.i:                                       ; preds = %81
+.thread4.i:                                       ; preds = %81
   %100 = icmp eq ptr %91, null
-  br i1 %100, label %.thread3.i, label %.thread.i
+  br i1 %100, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %14, align 8, !alias.scope !561
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17habce9ebfdd027505E.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %97
+.thread.i:                                        ; preds = %.thread4.i, %97
   %101 = getelementptr inbounds nuw i8, ptr %91, i64 96
   store atomic ptr %89, ptr %101 monotonic, align 8, !noalias !561
   br label %103
@@ -2308,7 +2308,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %87, ptr %105, align 8, !noalias !561
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17habce9ebfdd027505E.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17habce9ebfdd027505E.exit": ; preds = %.thread3.i, %103
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17habce9ebfdd027505E.exit": ; preds = %.thread5.i, %103
   %106 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %106, ptr %12, align 8
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 128
@@ -3148,7 +3148,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %90, ptr %83 monotonic, align 8, !noalias !703
   store ptr null, ptr %85, align 8, !noalias !703
   %91 = icmp eq ptr %84, null
-  br i1 %91, label %.thread2.i, label %92
+  br i1 %91, label %.thread4.i, label %92
 
 92:                                               ; preds = %77
   %93 = getelementptr inbounds nuw i8, ptr %84, i64 40
@@ -3156,15 +3156,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %94 = icmp eq ptr %86, null
   br i1 %94, label %97, label %.thread.i
 
-.thread2.i:                                       ; preds = %77
+.thread4.i:                                       ; preds = %77
   %95 = icmp eq ptr %86, null
-  br i1 %95, label %.thread3.i, label %.thread.i
+  br i1 %95, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %9, align 8, !alias.scope !703
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h42fda60c8d927e78E.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %92
+.thread.i:                                        ; preds = %.thread4.i, %92
   %96 = getelementptr inbounds nuw i8, ptr %86, i64 32
   store atomic ptr %84, ptr %96 monotonic, align 8, !noalias !703
   br label %98
@@ -3179,7 +3179,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %82, ptr %100, align 8, !noalias !703
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h42fda60c8d927e78E.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h42fda60c8d927e78E.exit": ; preds = %.thread3.i, %98
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h42fda60c8d927e78E.exit": ; preds = %.thread5.i, %98
   %101 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %101, ptr %7, align 8
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 64
@@ -3563,7 +3563,7 @@ define hidden { i64, i8 } @"_ZN117_$LT$futures_util..stream..futures_unordered..
   store atomic ptr %89, ptr %82 monotonic, align 8, !noalias !730
   store ptr null, ptr %84, align 8, !noalias !730
   %90 = icmp eq ptr %83, null
-  br i1 %90, label %.thread2.i, label %91
+  br i1 %90, label %.thread4.i, label %91
 
 91:                                               ; preds = %76
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 976
@@ -3571,15 +3571,15 @@ define hidden { i64, i8 } @"_ZN117_$LT$futures_util..stream..futures_unordered..
   %93 = icmp eq ptr %85, null
   br i1 %93, label %96, label %.thread.i
 
-.thread2.i:                                       ; preds = %76
+.thread4.i:                                       ; preds = %76
   %94 = icmp eq ptr %85, null
-  br i1 %94, label %.thread3.i, label %.thread.i
+  br i1 %94, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %8, align 8, !alias.scope !730
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hc74052a14b54ae25E.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %91
+.thread.i:                                        ; preds = %.thread4.i, %91
   %95 = getelementptr inbounds nuw i8, ptr %85, i64 968
   store atomic ptr %83, ptr %95 monotonic, align 8, !noalias !730
   br label %97
@@ -3594,7 +3594,7 @@ define hidden { i64, i8 } @"_ZN117_$LT$futures_util..stream..futures_unordered..
   store i64 %81, ptr %99, align 8, !noalias !730
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hc74052a14b54ae25E.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hc74052a14b54ae25E.exit": ; preds = %.thread3.i, %97
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hc74052a14b54ae25E.exit": ; preds = %.thread5.i, %97
   %100 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %100, ptr %6, align 8
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 1000
@@ -3937,7 +3937,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %93, ptr %86 monotonic, align 8, !noalias !749
   store ptr null, ptr %88, align 8, !noalias !749
   %94 = icmp eq ptr %87, null
-  br i1 %94, label %.thread2.i, label %95
+  br i1 %94, label %.thread4.i, label %95
 
 95:                                               ; preds = %80
   %96 = getelementptr inbounds nuw i8, ptr %87, i64 168
@@ -3945,15 +3945,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %97 = icmp eq ptr %89, null
   br i1 %97, label %100, label %.thread.i
 
-.thread2.i:                                       ; preds = %80
+.thread4.i:                                       ; preds = %80
   %98 = icmp eq ptr %89, null
-  br i1 %98, label %.thread3.i, label %.thread.i
+  br i1 %98, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %10, align 8, !alias.scope !749
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h1714042bd0812841E.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %95
+.thread.i:                                        ; preds = %.thread4.i, %95
   %99 = getelementptr inbounds nuw i8, ptr %89, i64 160
   store atomic ptr %87, ptr %99 monotonic, align 8, !noalias !749
   br label %101
@@ -3968,7 +3968,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %85, ptr %103, align 8, !noalias !749
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h1714042bd0812841E.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h1714042bd0812841E.exit": ; preds = %.thread3.i, %101
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h1714042bd0812841E.exit": ; preds = %.thread5.i, %101
   %104 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %104, ptr %8, align 8
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 192
@@ -4330,7 +4330,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %94, ptr %87 monotonic, align 8, !noalias !770
   store ptr null, ptr %89, align 8, !noalias !770
   %95 = icmp eq ptr %88, null
-  br i1 %95, label %.thread2.i, label %96
+  br i1 %95, label %.thread4.i, label %96
 
 96:                                               ; preds = %80
   %97 = getelementptr inbounds nuw i8, ptr %88, i64 80
@@ -4338,15 +4338,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %98 = icmp eq ptr %90, null
   br i1 %98, label %101, label %.thread.i
 
-.thread2.i:                                       ; preds = %80
+.thread4.i:                                       ; preds = %80
   %99 = icmp eq ptr %90, null
-  br i1 %99, label %.thread3.i, label %.thread.i
+  br i1 %99, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %10, align 8, !alias.scope !770
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hf2dfea1d235f4752E.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %96
+.thread.i:                                        ; preds = %.thread4.i, %96
   %100 = getelementptr inbounds nuw i8, ptr %90, i64 72
   store atomic ptr %88, ptr %100 monotonic, align 8, !noalias !770
   br label %102
@@ -4361,7 +4361,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %86, ptr %104, align 8, !noalias !770
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hf2dfea1d235f4752E.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hf2dfea1d235f4752E.exit": ; preds = %.thread3.i, %102
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hf2dfea1d235f4752E.exit": ; preds = %.thread5.i, %102
   %105 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %105, ptr %8, align 8
   %106 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 104
@@ -4757,7 +4757,7 @@ define hidden { i64, i64 } @"_ZN117_$LT$futures_util..stream..futures_unordered.
   store atomic ptr %89, ptr %82 monotonic, align 8, !noalias !803
   store ptr null, ptr %84, align 8, !noalias !803
   %90 = icmp eq ptr %83, null
-  br i1 %90, label %.thread2.i, label %91
+  br i1 %90, label %.thread4.i, label %91
 
 91:                                               ; preds = %76
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 304
@@ -4765,15 +4765,15 @@ define hidden { i64, i64 } @"_ZN117_$LT$futures_util..stream..futures_unordered.
   %93 = icmp eq ptr %85, null
   br i1 %93, label %96, label %.thread.i
 
-.thread2.i:                                       ; preds = %76
+.thread4.i:                                       ; preds = %76
   %94 = icmp eq ptr %85, null
-  br i1 %94, label %.thread3.i, label %.thread.i
+  br i1 %94, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %8, align 8, !alias.scope !803
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h4bc22d42b91fd1d0E.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %91
+.thread.i:                                        ; preds = %.thread4.i, %91
   %95 = getelementptr inbounds nuw i8, ptr %85, i64 296
   store atomic ptr %83, ptr %95 monotonic, align 8, !noalias !803
   br label %97
@@ -4788,7 +4788,7 @@ define hidden { i64, i64 } @"_ZN117_$LT$futures_util..stream..futures_unordered.
   store i64 %81, ptr %99, align 8, !noalias !803
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h4bc22d42b91fd1d0E.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h4bc22d42b91fd1d0E.exit": ; preds = %.thread3.i, %97
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h4bc22d42b91fd1d0E.exit": ; preds = %.thread5.i, %97
   %100 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %100, ptr %6, align 8
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 328
@@ -5121,7 +5121,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %85, ptr %78 monotonic, align 8, !noalias !821
   store ptr null, ptr %80, align 8, !noalias !821
   %86 = icmp eq ptr %79, null
-  br i1 %86, label %.thread2.i, label %87
+  br i1 %86, label %.thread4.i, label %87
 
 87:                                               ; preds = %72
   %88 = getelementptr inbounds nuw i8, ptr %79, i64 88
@@ -5129,15 +5129,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %89 = icmp eq ptr %81, null
   br i1 %89, label %92, label %.thread.i
 
-.thread2.i:                                       ; preds = %72
+.thread4.i:                                       ; preds = %72
   %90 = icmp eq ptr %81, null
-  br i1 %90, label %.thread3.i, label %.thread.i
+  br i1 %90, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %7, align 8, !alias.scope !821
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hc03f04bec9028ea4E.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %87
+.thread.i:                                        ; preds = %.thread4.i, %87
   %91 = getelementptr inbounds nuw i8, ptr %81, i64 80
   store atomic ptr %79, ptr %91 monotonic, align 8, !noalias !821
   br label %93
@@ -5152,7 +5152,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %77, ptr %95, align 8, !noalias !821
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hc03f04bec9028ea4E.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hc03f04bec9028ea4E.exit": ; preds = %.thread3.i, %93
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hc03f04bec9028ea4E.exit": ; preds = %.thread5.i, %93
   %96 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %96, ptr %5, align 8
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 112
@@ -5586,7 +5586,7 @@ define hidden { i64, i64 } @"_ZN117_$LT$futures_util..stream..futures_unordered.
   store atomic ptr %93, ptr %86 monotonic, align 8, !noalias !898
   store ptr null, ptr %88, align 8, !noalias !898
   %94 = icmp eq ptr %87, null
-  br i1 %94, label %.thread2.i, label %95
+  br i1 %94, label %.thread4.i, label %95
 
 95:                                               ; preds = %80
   %96 = getelementptr inbounds nuw i8, ptr %87, i64 112
@@ -5594,15 +5594,15 @@ define hidden { i64, i64 } @"_ZN117_$LT$futures_util..stream..futures_unordered.
   %97 = icmp eq ptr %89, null
   br i1 %97, label %100, label %.thread.i
 
-.thread2.i:                                       ; preds = %80
+.thread4.i:                                       ; preds = %80
   %98 = icmp eq ptr %89, null
-  br i1 %98, label %.thread3.i, label %.thread.i
+  br i1 %98, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %11, align 8, !alias.scope !898
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hed8081e7c9ecb1f6E.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %95
+.thread.i:                                        ; preds = %.thread4.i, %95
   %99 = getelementptr inbounds nuw i8, ptr %89, i64 104
   store atomic ptr %87, ptr %99 monotonic, align 8, !noalias !898
   br label %101
@@ -5617,7 +5617,7 @@ define hidden { i64, i64 } @"_ZN117_$LT$futures_util..stream..futures_unordered.
   store i64 %85, ptr %103, align 8, !noalias !898
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hed8081e7c9ecb1f6E.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hed8081e7c9ecb1f6E.exit": ; preds = %.thread3.i, %101
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hed8081e7c9ecb1f6E.exit": ; preds = %.thread5.i, %101
   %104 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %104, ptr %9, align 8
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 136
@@ -6367,7 +6367,7 @@ define hidden { i64, i64 } @"_ZN117_$LT$futures_util..stream..futures_unordered.
   store atomic ptr %87, ptr %80 monotonic, align 8, !noalias !1010
   store ptr null, ptr %82, align 8, !noalias !1010
   %88 = icmp eq ptr %81, null
-  br i1 %88, label %.thread2.i, label %89
+  br i1 %88, label %.thread4.i, label %89
 
 89:                                               ; preds = %74
   %90 = getelementptr inbounds nuw i8, ptr %81, i64 40
@@ -6375,15 +6375,15 @@ define hidden { i64, i64 } @"_ZN117_$LT$futures_util..stream..futures_unordered.
   %91 = icmp eq ptr %83, null
   br i1 %91, label %94, label %.thread.i
 
-.thread2.i:                                       ; preds = %74
+.thread4.i:                                       ; preds = %74
   %92 = icmp eq ptr %83, null
-  br i1 %92, label %.thread3.i, label %.thread.i
+  br i1 %92, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %7, align 8, !alias.scope !1010
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hf53bc17573939ca2E.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %89
+.thread.i:                                        ; preds = %.thread4.i, %89
   %93 = getelementptr inbounds nuw i8, ptr %83, i64 32
   store atomic ptr %81, ptr %93 monotonic, align 8, !noalias !1010
   br label %95
@@ -6398,7 +6398,7 @@ define hidden { i64, i64 } @"_ZN117_$LT$futures_util..stream..futures_unordered.
   store i64 %79, ptr %97, align 8, !noalias !1010
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hf53bc17573939ca2E.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hf53bc17573939ca2E.exit": ; preds = %.thread3.i, %95
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hf53bc17573939ca2E.exit": ; preds = %.thread5.i, %95
   %98 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %98, ptr %5, align 8
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 64
@@ -6748,7 +6748,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %91, ptr %84 monotonic, align 8, !noalias !1036
   store ptr null, ptr %86, align 8, !noalias !1036
   %92 = icmp eq ptr %85, null
-  br i1 %92, label %.thread2.i, label %93
+  br i1 %92, label %.thread4.i, label %93
 
 93:                                               ; preds = %78
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 112
@@ -6756,15 +6756,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %95 = icmp eq ptr %87, null
   br i1 %95, label %98, label %.thread.i
 
-.thread2.i:                                       ; preds = %78
+.thread4.i:                                       ; preds = %78
   %96 = icmp eq ptr %87, null
-  br i1 %96, label %.thread3.i, label %.thread.i
+  br i1 %96, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %10, align 8, !alias.scope !1036
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h3d92d3d85bf9124eE.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %93
+.thread.i:                                        ; preds = %.thread4.i, %93
   %97 = getelementptr inbounds nuw i8, ptr %87, i64 104
   store atomic ptr %85, ptr %97 monotonic, align 8, !noalias !1036
   br label %99
@@ -6779,7 +6779,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %83, ptr %101, align 8, !noalias !1036
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h3d92d3d85bf9124eE.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h3d92d3d85bf9124eE.exit": ; preds = %.thread3.i, %99
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h3d92d3d85bf9124eE.exit": ; preds = %.thread5.i, %99
   %102 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %102, ptr %8, align 8
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 136
@@ -7166,7 +7166,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %91, ptr %84 monotonic, align 8, !noalias !1062
   store ptr null, ptr %86, align 8, !noalias !1062
   %92 = icmp eq ptr %85, null
-  br i1 %92, label %.thread2.i, label %93
+  br i1 %92, label %.thread4.i, label %93
 
 93:                                               ; preds = %78
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 64
@@ -7174,15 +7174,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %95 = icmp eq ptr %87, null
   br i1 %95, label %98, label %.thread.i
 
-.thread2.i:                                       ; preds = %78
+.thread4.i:                                       ; preds = %78
   %96 = icmp eq ptr %87, null
-  br i1 %96, label %.thread3.i, label %.thread.i
+  br i1 %96, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %10, align 8, !alias.scope !1062
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hc84119a56cfbdf4bE.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %93
+.thread.i:                                        ; preds = %.thread4.i, %93
   %97 = getelementptr inbounds nuw i8, ptr %87, i64 56
   store atomic ptr %85, ptr %97 monotonic, align 8, !noalias !1062
   br label %99
@@ -7197,7 +7197,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %83, ptr %101, align 8, !noalias !1062
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hc84119a56cfbdf4bE.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hc84119a56cfbdf4bE.exit": ; preds = %.thread3.i, %99
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hc84119a56cfbdf4bE.exit": ; preds = %.thread5.i, %99
   %102 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %102, ptr %8, align 8
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 88
@@ -7554,7 +7554,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %91, ptr %84 monotonic, align 8, !noalias !1083
   store ptr null, ptr %86, align 8, !noalias !1083
   %92 = icmp eq ptr %85, null
-  br i1 %92, label %.thread2.i, label %93
+  br i1 %92, label %.thread4.i, label %93
 
 93:                                               ; preds = %78
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 224
@@ -7562,15 +7562,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %95 = icmp eq ptr %87, null
   br i1 %95, label %98, label %.thread.i
 
-.thread2.i:                                       ; preds = %78
+.thread4.i:                                       ; preds = %78
   %96 = icmp eq ptr %87, null
-  br i1 %96, label %.thread3.i, label %.thread.i
+  br i1 %96, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %10, align 8, !alias.scope !1083
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hbb1c4ffb8a9db94bE.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %93
+.thread.i:                                        ; preds = %.thread4.i, %93
   %97 = getelementptr inbounds nuw i8, ptr %87, i64 216
   store atomic ptr %85, ptr %97 monotonic, align 8, !noalias !1083
   br label %99
@@ -7585,7 +7585,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %83, ptr %101, align 8, !noalias !1083
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hbb1c4ffb8a9db94bE.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hbb1c4ffb8a9db94bE.exit": ; preds = %.thread3.i, %99
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hbb1c4ffb8a9db94bE.exit": ; preds = %.thread5.i, %99
   %102 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %102, ptr %8, align 8
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 248
@@ -7975,7 +7975,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %89, ptr %82 monotonic, align 8, !noalias !1118
   store ptr null, ptr %84, align 8, !noalias !1118
   %90 = icmp eq ptr %83, null
-  br i1 %90, label %.thread2.i, label %91
+  br i1 %90, label %.thread4.i, label %91
 
 91:                                               ; preds = %76
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 272
@@ -7983,15 +7983,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %93 = icmp eq ptr %85, null
   br i1 %93, label %96, label %.thread.i
 
-.thread2.i:                                       ; preds = %76
+.thread4.i:                                       ; preds = %76
   %94 = icmp eq ptr %85, null
-  br i1 %94, label %.thread3.i, label %.thread.i
+  br i1 %94, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %9, align 8, !alias.scope !1118
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h016faca23f81b7c3E.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %91
+.thread.i:                                        ; preds = %.thread4.i, %91
   %95 = getelementptr inbounds nuw i8, ptr %85, i64 264
   store atomic ptr %83, ptr %95 monotonic, align 8, !noalias !1118
   br label %97
@@ -8006,7 +8006,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %81, ptr %99, align 8, !noalias !1118
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h016faca23f81b7c3E.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h016faca23f81b7c3E.exit": ; preds = %.thread3.i, %97
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h016faca23f81b7c3E.exit": ; preds = %.thread5.i, %97
   %100 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %100, ptr %7, align 8
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 296
@@ -8324,7 +8324,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %90, ptr %83 monotonic, align 8, !noalias !1137
   store ptr null, ptr %85, align 8, !noalias !1137
   %91 = icmp eq ptr %84, null
-  br i1 %91, label %.thread2.i, label %92
+  br i1 %91, label %.thread4.i, label %92
 
 92:                                               ; preds = %77
   %93 = getelementptr inbounds nuw i8, ptr %84, i64 40
@@ -8332,15 +8332,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %94 = icmp eq ptr %86, null
   br i1 %94, label %97, label %.thread.i
 
-.thread2.i:                                       ; preds = %77
+.thread4.i:                                       ; preds = %77
   %95 = icmp eq ptr %86, null
-  br i1 %95, label %.thread3.i, label %.thread.i
+  br i1 %95, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %9, align 8, !alias.scope !1137
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h29eb801d4ea38abbE.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %92
+.thread.i:                                        ; preds = %.thread4.i, %92
   %96 = getelementptr inbounds nuw i8, ptr %86, i64 32
   store atomic ptr %84, ptr %96 monotonic, align 8, !noalias !1137
   br label %98
@@ -8355,7 +8355,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %82, ptr %100, align 8, !noalias !1137
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h29eb801d4ea38abbE.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h29eb801d4ea38abbE.exit": ; preds = %.thread3.i, %98
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h29eb801d4ea38abbE.exit": ; preds = %.thread5.i, %98
   %101 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %101, ptr %7, align 8
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 64
@@ -8742,7 +8742,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %91, ptr %84 monotonic, align 8, !noalias !1169
   store ptr null, ptr %86, align 8, !noalias !1169
   %92 = icmp eq ptr %85, null
-  br i1 %92, label %.thread2.i, label %93
+  br i1 %92, label %.thread4.i, label %93
 
 93:                                               ; preds = %78
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 104
@@ -8750,15 +8750,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %95 = icmp eq ptr %87, null
   br i1 %95, label %98, label %.thread.i
 
-.thread2.i:                                       ; preds = %78
+.thread4.i:                                       ; preds = %78
   %96 = icmp eq ptr %87, null
-  br i1 %96, label %.thread3.i, label %.thread.i
+  br i1 %96, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %10, align 8, !alias.scope !1169
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h59cdf8a4c1548f2fE.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %93
+.thread.i:                                        ; preds = %.thread4.i, %93
   %97 = getelementptr inbounds nuw i8, ptr %87, i64 96
   store atomic ptr %85, ptr %97 monotonic, align 8, !noalias !1169
   br label %99
@@ -8773,7 +8773,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %83, ptr %101, align 8, !noalias !1169
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h59cdf8a4c1548f2fE.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h59cdf8a4c1548f2fE.exit": ; preds = %.thread3.i, %99
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h59cdf8a4c1548f2fE.exit": ; preds = %.thread5.i, %99
   %102 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %102, ptr %8, align 8
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 128
@@ -9158,7 +9158,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %89, ptr %82 monotonic, align 8, !noalias !1195
   store ptr null, ptr %84, align 8, !noalias !1195
   %90 = icmp eq ptr %83, null
-  br i1 %90, label %.thread2.i, label %91
+  br i1 %90, label %.thread4.i, label %91
 
 91:                                               ; preds = %76
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 40
@@ -9166,15 +9166,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %93 = icmp eq ptr %85, null
   br i1 %93, label %96, label %.thread.i
 
-.thread2.i:                                       ; preds = %76
+.thread4.i:                                       ; preds = %76
   %94 = icmp eq ptr %85, null
-  br i1 %94, label %.thread3.i, label %.thread.i
+  br i1 %94, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %9, align 8, !alias.scope !1195
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h570fdf7e3d6d0cefE.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %91
+.thread.i:                                        ; preds = %.thread4.i, %91
   %95 = getelementptr inbounds nuw i8, ptr %85, i64 32
   store atomic ptr %83, ptr %95 monotonic, align 8, !noalias !1195
   br label %97
@@ -9189,7 +9189,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %81, ptr %99, align 8, !noalias !1195
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h570fdf7e3d6d0cefE.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h570fdf7e3d6d0cefE.exit": ; preds = %.thread3.i, %97
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h570fdf7e3d6d0cefE.exit": ; preds = %.thread5.i, %97
   %100 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %100, ptr %7, align 8
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 64
@@ -9515,7 +9515,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %91, ptr %84 monotonic, align 8, !noalias !1228
   store ptr null, ptr %86, align 8, !noalias !1228
   %92 = icmp eq ptr %85, null
-  br i1 %92, label %.thread2.i, label %93
+  br i1 %92, label %.thread4.i, label %93
 
 93:                                               ; preds = %78
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 5320
@@ -9523,15 +9523,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %95 = icmp eq ptr %87, null
   br i1 %95, label %98, label %.thread.i
 
-.thread2.i:                                       ; preds = %78
+.thread4.i:                                       ; preds = %78
   %96 = icmp eq ptr %87, null
-  br i1 %96, label %.thread3.i, label %.thread.i
+  br i1 %96, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %10, align 8, !alias.scope !1228
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h788f4ce92ea0c3f3E.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %93
+.thread.i:                                        ; preds = %.thread4.i, %93
   %97 = getelementptr inbounds nuw i8, ptr %87, i64 5312
   store atomic ptr %85, ptr %97 monotonic, align 8, !noalias !1228
   br label %99
@@ -9546,7 +9546,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %83, ptr %101, align 8, !noalias !1228
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h788f4ce92ea0c3f3E.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h788f4ce92ea0c3f3E.exit": ; preds = %.thread3.i, %99
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h788f4ce92ea0c3f3E.exit": ; preds = %.thread5.i, %99
   %102 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %102, ptr %8, align 8
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 5344
@@ -9901,7 +9901,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %89, ptr %82 monotonic, align 8, !noalias !1247
   store ptr null, ptr %84, align 8, !noalias !1247
   %90 = icmp eq ptr %83, null
-  br i1 %90, label %.thread2.i, label %91
+  br i1 %90, label %.thread4.i, label %91
 
 91:                                               ; preds = %76
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 40
@@ -9909,15 +9909,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %93 = icmp eq ptr %85, null
   br i1 %93, label %96, label %.thread.i
 
-.thread2.i:                                       ; preds = %76
+.thread4.i:                                       ; preds = %76
   %94 = icmp eq ptr %85, null
-  br i1 %94, label %.thread3.i, label %.thread.i
+  br i1 %94, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %9, align 8, !alias.scope !1247
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h55cd38b4f1119c22E.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %91
+.thread.i:                                        ; preds = %.thread4.i, %91
   %95 = getelementptr inbounds nuw i8, ptr %85, i64 32
   store atomic ptr %83, ptr %95 monotonic, align 8, !noalias !1247
   br label %97
@@ -9932,7 +9932,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %81, ptr %99, align 8, !noalias !1247
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h55cd38b4f1119c22E.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h55cd38b4f1119c22E.exit": ; preds = %.thread3.i, %97
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h55cd38b4f1119c22E.exit": ; preds = %.thread5.i, %97
   %100 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %100, ptr %7, align 8
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 64
@@ -19501,7 +19501,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 272
@@ -19509,15 +19509,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 264
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -19532,7 +19532,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -19556,7 +19556,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 168
@@ -19564,15 +19564,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 160
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -19587,7 +19587,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -19611,7 +19611,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -19619,15 +19619,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -19642,7 +19642,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -19666,7 +19666,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 112
@@ -19674,15 +19674,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 104
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -19697,7 +19697,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -19721,7 +19721,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -19729,15 +19729,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -19752,7 +19752,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -19776,7 +19776,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 304
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 304
@@ -19784,15 +19784,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 296
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -19807,7 +19807,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -19831,7 +19831,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -19839,15 +19839,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -19862,7 +19862,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -19886,7 +19886,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -19894,15 +19894,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -19917,7 +19917,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -19941,7 +19941,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 104
@@ -19949,15 +19949,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 96
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -19972,7 +19972,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -19996,7 +19996,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 5320
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 5320
@@ -20004,15 +20004,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 5312
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -20027,7 +20027,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -20051,7 +20051,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 104
@@ -20059,15 +20059,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 96
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -20082,7 +20082,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -20106,7 +20106,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 224
@@ -20114,15 +20114,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 216
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -20137,7 +20137,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -20161,7 +20161,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 88
@@ -20169,15 +20169,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -20192,7 +20192,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -20216,7 +20216,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 976
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 976
@@ -20224,15 +20224,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 968
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -20247,7 +20247,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -20271,7 +20271,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 64
@@ -20279,15 +20279,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -20302,7 +20302,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -20326,7 +20326,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 112
@@ -20334,15 +20334,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 104
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -20357,7 +20357,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -20381,7 +20381,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 80
@@ -20389,15 +20389,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -20412,7 +20412,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -20436,7 +20436,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr null, ptr %16, align 8
   %17 = icmp eq ptr %9, null
-  br i1 %17, label %.thread2, label %18
+  br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -20444,15 +20444,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %20 = icmp eq ptr %11, null
   br i1 %20, label %23, label %.thread
 
-.thread2:                                         ; preds = %2
+.thread4:                                         ; preds = %2
   %21 = icmp eq ptr %11, null
-  br i1 %21, label %.thread3, label %.thread
+  br i1 %21, label %.thread5, label %.thread
 
-.thread3:                                         ; preds = %.thread2
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
   br label %27
 
-.thread:                                          ; preds = %18, %.thread2
+.thread:                                          ; preds = %18, %.thread4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store atomic ptr %9, ptr %22 monotonic, align 8
   br label %24
@@ -20467,7 +20467,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %.thread3, %24
+27:                                               ; preds = %.thread5, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %28
 }
@@ -20695,13 +20695,13 @@ define hidden void @"_ZN141_$LT$futures_util..stream..futures_unordered..Futures
 define hidden void @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17h1c8e63805409f2dcE"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 128 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i64, ptr %1, align 128, !range !712, !noundef !13
-  switch i64 %4, label %default.unreachable3 [
+  switch i64 %4, label %default.unreachable4 [
     i64 0, label %5
     i64 1, label %32
     i64 2, label %34
   ]
 
-default.unreachable3:                             ; preds = %2
+default.unreachable4:                             ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -20782,13 +20782,13 @@ default.unreachable3:                             ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17h3176d9b10addfde7E"(ptr dead_on_unwind noalias noundef writable sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 128 %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 128, !range !712, !noundef !13
-  switch i64 %3, label %default.unreachable3 [
+  switch i64 %3, label %default.unreachable4 [
     i64 0, label %4
     i64 1, label %33
     i64 2, label %35
   ]
 
-default.unreachable3:                             ; preds = %2
+default.unreachable4:                             ; preds = %2
   unreachable
 
 4:                                                ; preds = %2
@@ -20869,13 +20869,13 @@ default.unreachable3:                             ; preds = %2
 define hidden void @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17h8652a83dead19151E"(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 128 %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 8
   %4 = load i64, ptr %1, align 128, !range !712, !noundef !13
-  switch i64 %4, label %default.unreachable3 [
+  switch i64 %4, label %default.unreachable4 [
     i64 0, label %5
     i64 1, label %32
     i64 2, label %34
   ]
 
-default.unreachable3:                             ; preds = %2
+default.unreachable4:                             ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -20957,13 +20957,13 @@ default.unreachable3:                             ; preds = %2
 define hidden void @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17h867e570508c28d55E"(ptr dead_on_unwind noalias noundef writable sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 128 %1) unnamed_addr #0 {
   %3 = alloca [72 x i8], align 8
   %4 = load i64, ptr %1, align 128, !range !712, !noundef !13
-  switch i64 %4, label %default.unreachable3 [
+  switch i64 %4, label %default.unreachable4 [
     i64 0, label %5
     i64 1, label %32
     i64 2, label %34
   ]
 
-default.unreachable3:                             ; preds = %2
+default.unreachable4:                             ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -21045,13 +21045,13 @@ default.unreachable3:                             ; preds = %2
 define hidden void @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17hae0c8e080d57978cE"(ptr dead_on_unwind noalias noundef writable sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 128 %1) unnamed_addr #0 {
   %3 = alloca [48 x i8], align 8
   %4 = load i64, ptr %1, align 128, !range !712, !noundef !13
-  switch i64 %4, label %default.unreachable3 [
+  switch i64 %4, label %default.unreachable4 [
     i64 0, label %5
     i64 1, label %32
     i64 2, label %34
   ]
 
-default.unreachable3:                             ; preds = %2
+default.unreachable4:                             ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -21132,13 +21132,13 @@ default.unreachable3:                             ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h1eb44babe1bfafb4E"(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 128 %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = load i64, ptr %1, align 128, !range !712, !noundef !13
-  switch i64 %4, label %default.unreachable1 [
+  switch i64 %4, label %default.unreachable2 [
     i64 0, label %5
     i64 1, label %25
     i64 2, label %27
   ]
 
-default.unreachable1:                             ; preds = %3
+default.unreachable2:                             ; preds = %3
   unreachable
 
 5:                                                ; preds = %3
@@ -25728,10 +25728,10 @@ define internal fastcc void @"_ZN4core3ptr135drop_in_place$LT$alloc..vec..in_pla
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit.sink.split.i.i.i.i.i.i.i": ; preds = %21, %20
   %.sink.i.i.i.i.i.i.i = phi i64 [ 16, %21 ], [ 8, %20 ]
-  %.sink1.i.i.i.i.i.i.i = phi i64 [ %23, %21 ], [ %16, %20 ]
+  %.sink2.i.i.i.i.i.i.i = phi i64 [ %23, %21 ], [ %16, %20 ]
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 %.sink.i.i.i.i.i.i.i
   %26 = load ptr, ptr %25, align 8, !alias.scope !3157, !noalias !3104, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %26, i64 noundef %.sink1.i.i.i.i.i.i.i, i64 noundef 1) #39, !noalias !3158
+  tail call void @__rust_dealloc(ptr noundef nonnull %26, i64 noundef %.sink2.i.i.i.i.i.i.i, i64 noundef 1) #39, !noalias !3158
   br label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$proto..InlayHintLabelPartTooltip$GT$$GT$17hd0532391e5a6cb3eE.llvm.8318809290061399519.exit.i.i.i"
 
 "_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$proto..InlayHintLabelPartTooltip$GT$$GT$17hd0532391e5a6cb3eE.llvm.8318809290061399519.exit.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit.sink.split.i.i.i.i.i.i.i", %21, %20, %18, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit.i.i.i"
@@ -26613,10 +26613,10 @@ define internal fastcc void @"_ZN4core3ptr176drop_in_place$LT$futures_util..futu
   ]
 
 common.ret.sink.split.i.i:                        ; preds = %"_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$fs..Fs$GT$$GT$17hc83c896ca1ca9e87E.exit7.i.i", %"_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$fs..Fs$GT$$GT$17hc83c896ca1ca9e87E.exit.i.i"
-  %.sink14.i.i = phi i64 [ %52, %"_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$fs..Fs$GT$$GT$17hc83c896ca1ca9e87E.exit.i.i" ], [ %72, %"_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$fs..Fs$GT$$GT$17hc83c896ca1ca9e87E.exit7.i.i" ]
+  %.sink21.i.i = phi i64 [ %52, %"_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$fs..Fs$GT$$GT$17hc83c896ca1ca9e87E.exit.i.i" ], [ %72, %"_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$fs..Fs$GT$$GT$17hc83c896ca1ca9e87E.exit7.i.i" ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %20 = load ptr, ptr %19, align 8, !noalias !13, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %.sink14.i.i, i64 noundef 1) #39, !noalias !13
+  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %.sink21.i.i, i64 noundef 1) #39, !noalias !13
   br label %"_ZN4core3ptr154drop_in_place$LT$project..project_settings..SettingsObserver..update_local_worktree_settings..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd9645b494b5e40a3E.exit.i"
 
 21:                                               ; preds = %15
@@ -26692,11 +26692,11 @@ common.ret.sink.split.i.i:                        ; preds = %"_ZN4core3ptr59drop
   br i1 %53, label %"_ZN4core3ptr154drop_in_place$LT$project..project_settings..SettingsObserver..update_local_worktree_settings..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd9645b494b5e40a3E.exit.i", label %common.ret.sink.split.i.i
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd1f6fad126378231E.exit.sink.split.i.i": ; preds = %"_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$fs..Fs$GT$$GT$17hc83c896ca1ca9e87E.exit5.i.i", %68, %48
-  %.sink16.i.i = phi i64 [ %70, %68 ], [ %74, %"_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$fs..Fs$GT$$GT$17hc83c896ca1ca9e87E.exit5.i.i" ], [ %50, %48 ]
+  %.sink23.i.i = phi i64 [ %70, %68 ], [ %74, %"_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$fs..Fs$GT$$GT$17hc83c896ca1ca9e87E.exit5.i.i" ], [ %50, %48 ]
   %.pn.ph.i.i = phi { ptr, i32 } [ %69, %68 ], [ %41, %"_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$fs..Fs$GT$$GT$17hc83c896ca1ca9e87E.exit5.i.i" ], [ %49, %48 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %55 = load ptr, ptr %54, align 8, !noalias !13, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %55, i64 noundef %.sink16.i.i, i64 noundef 1) #39, !noalias !13
+  tail call void @__rust_dealloc(ptr noundef nonnull %55, i64 noundef %.sink23.i.i, i64 noundef 1) #39, !noalias !13
   br label %.body.i
 
 56:                                               ; preds = %62
@@ -35152,13 +35152,13 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$
   br label %.lr.ph.i.i.preheader.i.i
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %27, %.thread.i.i
-  %.lcssa13.sink.i = phi i64 [ %41, %27 ], [ %.sroa.09.0.lcssa.i.i9.i, %.thread.i.i ]
-  %29 = icmp ult i64 %.lcssa13.sink.i, %11
+  %.lcssa14.sink.i = phi i64 [ %41, %27 ], [ %.sroa.09.0.lcssa.i.i9.i, %.thread.i.i ]
+  %29 = icmp ult i64 %.lcssa14.sink.i, %11
   tail call void @llvm.assume(i1 %29)
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %34, %.lr.ph.i.i.preheader.i.i
-  %storemerge36.i.i.i.i = phi i64 [ %31, %34 ], [ %.lcssa13.sink.i, %.lr.ph.i.i.preheader.i.i ]
+  %storemerge36.i.i.i.i = phi i64 [ %31, %34 ], [ %.lcssa14.sink.i, %.lr.ph.i.i.preheader.i.i ]
   %30 = add i64 %storemerge36.i.i.i.i, -1
   %31 = lshr i64 %30, 1
   %32 = icmp ult i64 %31, %11
@@ -37121,8 +37121,8 @@ _ZN4core10intrinsics10typed_swap17h9655e60c3260f39fE.llvm.14379821547474135896.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %24, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0.i.i, i64 104, i1 false), !noalias !4981
   %26 = icmp ult i64 %.sroa.09.0.lcssa.i.i, %9
   tail call void @llvm.assume(i1 %26)
-  %.sroa.441.0..sroa_idx.i.i4.i = getelementptr inbounds nuw i8, ptr %24, i64 96
-  %.sroa.441.0.copyload.i.i5.i = load i64, ptr %.sroa.441.0..sroa_idx.i.i4.i, align 8, !noalias !4984
+  %.sroa.441.0..sroa_idx.i.i5.i = getelementptr inbounds nuw i8, ptr %24, i64 96
+  %.sroa.441.0.copyload.i.i6.i = load i64, ptr %.sroa.441.0..sroa_idx.i.i5.i, align 8, !noalias !4984
   br label %.lr.ph.i.i1.preheader.i
 
 27:                                               ; preds = %._crit_edge.i.i
@@ -37136,12 +37136,12 @@ _ZN4core10intrinsics10typed_swap17h9655e60c3260f39fE.llvm.14379821547474135896.e
   br i1 %.not.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17hf33029a895228cddE.llvm.14379821547474135896.exit.i", label %.lr.ph.i.i1.preheader.i
 
 .lr.ph.i.i1.preheader.i:                          ; preds = %27, %.thread.i
-  %.sroa.441.0.copyload.i.i8.i = phi i64 [ %.sroa.441.0.copyload.i.i5.i, %.thread.i ], [ %.sroa.441.0.copyload.i.i.i, %27 ]
-  %.sroa.12.1.i7.i = phi i64 [ %.sroa.09.0.lcssa.i.i, %.thread.i ], [ %.sroa.12.0.lcssa.i.i, %27 ]
+  %.sroa.441.0.copyload.i.i9.i = phi i64 [ %.sroa.441.0.copyload.i.i6.i, %.thread.i ], [ %.sroa.441.0.copyload.i.i.i, %27 ]
+  %.sroa.12.1.i8.i = phi i64 [ %.sroa.09.0.lcssa.i.i, %.thread.i ], [ %.sroa.12.0.lcssa.i.i, %27 ]
   br label %.lr.ph.i.i1.i
 
 .lr.ph.i.i1.i:                                    ; preds = %35, %.lr.ph.i.i1.preheader.i
-  %.sroa.13.042.i.i.i = phi i64 [ %31, %35 ], [ %.sroa.12.1.i7.i, %.lr.ph.i.i1.preheader.i ]
+  %.sroa.13.042.i.i.i = phi i64 [ %31, %35 ], [ %.sroa.12.1.i8.i, %.lr.ph.i.i1.preheader.i ]
   %30 = add i64 %.sroa.13.042.i.i.i, -1
   %31 = lshr i64 %30, 1
   %32 = icmp ult i64 %31, %9
@@ -37149,7 +37149,7 @@ _ZN4core10intrinsics10typed_swap17h9655e60c3260f39fE.llvm.14379821547474135896.e
   %33 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 }, ptr, { { { { ptr, i64 } }, {}, {} } }, { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { ptr, i64 } }, {}, {} } }, i64 }, ptr %13, i64 %31
   %34 = getelementptr i8, ptr %33, i64 96
   %.val27.i.i.i = load i64, ptr %34, align 8, !noalias !4984, !noundef !13
-  %switch.i.not.i.i.i = icmp sgt i64 %.val27.i.i.i, %.sroa.441.0.copyload.i.i8.i
+  %switch.i.not.i.i.i = icmp sgt i64 %.val27.i.i.i, %.sroa.441.0.copyload.i.i9.i
   br i1 %switch.i.not.i.i.i, label %35, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17hf33029a895228cddE.llvm.14379821547474135896.exit.i"
 
 35:                                               ; preds = %.lr.ph.i.i1.i
@@ -37181,12 +37181,12 @@ _ZN4core10intrinsics10typed_swap17h9655e60c3260f39fE.llvm.14379821547474135896.e
   br i1 %.not.not.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17hf33029a895228cddE.llvm.14379821547474135896.exit.i": ; preds = %35, %.lr.ph.i.i1.i, %27
-  %.sroa.441.0.copyload.i.i9.i = phi i64 [ %.sroa.441.0.copyload.i.i.i, %27 ], [ %.sroa.441.0.copyload.i.i8.i, %.lr.ph.i.i1.i ], [ %.sroa.441.0.copyload.i.i8.i, %35 ]
+  %.sroa.441.0.copyload.i.i10.i = phi i64 [ %.sroa.441.0.copyload.i.i.i, %27 ], [ %.sroa.441.0.copyload.i.i9.i, %.lr.ph.i.i1.i ], [ %.sroa.441.0.copyload.i.i9.i, %35 ]
   %.sroa.13.0.lcssa.i.i.i = phi i64 [ 0, %27 ], [ 0, %35 ], [ %.sroa.13.042.i.i.i, %.lr.ph.i.i1.i ]
   %45 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, ptr, { { { { ptr, i64 } }, {}, {} } }, { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { ptr, i64 } }, {}, {} } }, i64 }, ptr %13, i64 %.sroa.13.0.lcssa.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %45, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0.i.i, i64 96, i1 false), !noalias !4981
   %.sroa.5.0..sroa_idx28.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 96
-  store i64 %.sroa.441.0.copyload.i.i9.i, ptr %.sroa.5.0..sroa_idx28.i.i.i, align 8, !noalias !4984
+  store i64 %.sroa.441.0.copyload.i.i10.i, ptr %.sroa.5.0..sroa_idx28.i.i.i, align 8, !noalias !4984
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17ha8d4fc7a513abd74E.llvm.14379821547474135896.exit"
 
@@ -37262,8 +37262,8 @@ _ZN4core10intrinsics10typed_swap17h2a4568c1d71b0f60E.llvm.14379821547474135896.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false), !noalias !4992
   %26 = icmp ult i64 %.sroa.09.0.lcssa.i.i, %9
   tail call void @llvm.assume(i1 %26)
-  %.sroa.441.0..sroa_idx.i.i4.i = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %.sroa.441.0.copyload.i.i5.i = load i64, ptr %.sroa.441.0..sroa_idx.i.i4.i, align 8, !noalias !4995
+  %.sroa.441.0..sroa_idx.i.i5.i = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %.sroa.441.0.copyload.i.i6.i = load i64, ptr %.sroa.441.0..sroa_idx.i.i5.i, align 8, !noalias !4995
   br label %.lr.ph.i.i1.preheader.i
 
 27:                                               ; preds = %._crit_edge.i.i
@@ -37277,12 +37277,12 @@ _ZN4core10intrinsics10typed_swap17h2a4568c1d71b0f60E.llvm.14379821547474135896.e
   br i1 %.not.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h2b7d425079b35e79E.llvm.14379821547474135896.exit.i", label %.lr.ph.i.i1.preheader.i
 
 .lr.ph.i.i1.preheader.i:                          ; preds = %27, %.thread.i
-  %.sroa.441.0.copyload.i.i8.i = phi i64 [ %.sroa.441.0.copyload.i.i5.i, %.thread.i ], [ %.sroa.441.0.copyload.i.i.i, %27 ]
-  %.sroa.12.1.i7.i = phi i64 [ %.sroa.09.0.lcssa.i.i, %.thread.i ], [ %.sroa.12.0.lcssa.i.i, %27 ]
+  %.sroa.441.0.copyload.i.i9.i = phi i64 [ %.sroa.441.0.copyload.i.i6.i, %.thread.i ], [ %.sroa.441.0.copyload.i.i.i, %27 ]
+  %.sroa.12.1.i8.i = phi i64 [ %.sroa.09.0.lcssa.i.i, %.thread.i ], [ %.sroa.12.0.lcssa.i.i, %27 ]
   br label %.lr.ph.i.i1.i
 
 .lr.ph.i.i1.i:                                    ; preds = %35, %.lr.ph.i.i1.preheader.i
-  %.sroa.13.042.i.i.i = phi i64 [ %31, %35 ], [ %.sroa.12.1.i7.i, %.lr.ph.i.i1.preheader.i ]
+  %.sroa.13.042.i.i.i = phi i64 [ %31, %35 ], [ %.sroa.12.1.i8.i, %.lr.ph.i.i1.preheader.i ]
   %30 = add i64 %.sroa.13.042.i.i.i, -1
   %31 = lshr i64 %30, 1
   %32 = icmp ult i64 %31, %9
@@ -37290,7 +37290,7 @@ _ZN4core10intrinsics10typed_swap17h2a4568c1d71b0f60E.llvm.14379821547474135896.e
   %33 = getelementptr inbounds nuw { { i64, [2 x i64] }, i64 }, ptr %13, i64 %31
   %34 = getelementptr i8, ptr %33, i64 24
   %.val27.i.i.i = load i64, ptr %34, align 8, !noalias !4995, !noundef !13
-  %switch.i.not.i.i.i = icmp sgt i64 %.val27.i.i.i, %.sroa.441.0.copyload.i.i8.i
+  %switch.i.not.i.i.i = icmp sgt i64 %.val27.i.i.i, %.sroa.441.0.copyload.i.i9.i
   br i1 %switch.i.not.i.i.i, label %35, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h2b7d425079b35e79E.llvm.14379821547474135896.exit.i"
 
 35:                                               ; preds = %.lr.ph.i.i1.i
@@ -37322,12 +37322,12 @@ _ZN4core10intrinsics10typed_swap17h2a4568c1d71b0f60E.llvm.14379821547474135896.e
   br i1 %.not.not.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h2b7d425079b35e79E.llvm.14379821547474135896.exit.i": ; preds = %35, %.lr.ph.i.i1.i, %27
-  %.sroa.441.0.copyload.i.i9.i = phi i64 [ %.sroa.441.0.copyload.i.i.i, %27 ], [ %.sroa.441.0.copyload.i.i8.i, %.lr.ph.i.i1.i ], [ %.sroa.441.0.copyload.i.i8.i, %35 ]
+  %.sroa.441.0.copyload.i.i10.i = phi i64 [ %.sroa.441.0.copyload.i.i.i, %27 ], [ %.sroa.441.0.copyload.i.i9.i, %.lr.ph.i.i1.i ], [ %.sroa.441.0.copyload.i.i9.i, %35 ]
   %.sroa.13.0.lcssa.i.i.i = phi i64 [ 0, %27 ], [ 0, %35 ], [ %.sroa.13.042.i.i.i, %.lr.ph.i.i1.i ]
   %45 = getelementptr inbounds { { i64, [2 x i64] }, i64 }, ptr %13, i64 %.sroa.13.0.lcssa.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i, i64 24, i1 false), !noalias !4992
   %.sroa.5.0..sroa_idx28.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store i64 %.sroa.441.0.copyload.i.i9.i, ptr %.sroa.5.0..sroa_idx28.i.i.i, align 8, !noalias !4995
+  store i64 %.sroa.441.0.copyload.i.i10.i, ptr %.sroa.5.0..sroa_idx28.i.i.i, align 8, !noalias !4995
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h752112980c070c86E.llvm.14379821547474135896.exit"
 
@@ -37383,8 +37383,8 @@ define hidden { i64, i8 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   %21 = getelementptr inbounds { i64, i8, [7 x i8] }, ptr %10, i64 %.sroa.10.0.lcssa.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !noalias !4998
   store i64 %12, ptr %20, align 8, !noalias !4998
-  %.sroa.9.24..sroa_idx16.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i8 %14, ptr %.sroa.9.24..sroa_idx16.i.i, align 8, !noalias !4998
+  %.sroa.9.24..sroa_idx17.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store i8 %14, ptr %.sroa.9.24..sroa_idx17.i.i, align 8, !noalias !4998
   %22 = icmp ult i64 %.sroa.09.0.lcssa.i.i, %6
   tail call void @llvm.assume(i1 %22)
   br label %.lr.ph.i.i.i.preheader
@@ -37527,8 +37527,8 @@ _ZN4core10intrinsics10typed_swap17h70f52d7958ba351fE.llvm.14379821547474135896.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %24, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0.i.i, i64 104, i1 false), !noalias !5009
   %26 = icmp ult i64 %.sroa.09.0.lcssa.i.i, %9
   tail call void @llvm.assume(i1 %26)
-  %.sroa.441.0..sroa_idx.i.i4.i = getelementptr inbounds nuw i8, ptr %24, i64 96
-  %.sroa.441.0.copyload.i.i5.i = load i64, ptr %.sroa.441.0..sroa_idx.i.i4.i, align 8, !noalias !5012
+  %.sroa.441.0..sroa_idx.i.i5.i = getelementptr inbounds nuw i8, ptr %24, i64 96
+  %.sroa.441.0.copyload.i.i6.i = load i64, ptr %.sroa.441.0..sroa_idx.i.i5.i, align 8, !noalias !5012
   br label %.lr.ph.i.i1.preheader.i
 
 27:                                               ; preds = %._crit_edge.i.i
@@ -37542,12 +37542,12 @@ _ZN4core10intrinsics10typed_swap17h70f52d7958ba351fE.llvm.14379821547474135896.e
   br i1 %.not.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h0a7de2e7a68e8c1cE.llvm.14379821547474135896.exit.i", label %.lr.ph.i.i1.preheader.i
 
 .lr.ph.i.i1.preheader.i:                          ; preds = %27, %.thread.i
-  %.sroa.441.0.copyload.i.i8.i = phi i64 [ %.sroa.441.0.copyload.i.i5.i, %.thread.i ], [ %.sroa.441.0.copyload.i.i.i, %27 ]
-  %.sroa.12.1.i7.i = phi i64 [ %.sroa.09.0.lcssa.i.i, %.thread.i ], [ %.sroa.12.0.lcssa.i.i, %27 ]
+  %.sroa.441.0.copyload.i.i9.i = phi i64 [ %.sroa.441.0.copyload.i.i6.i, %.thread.i ], [ %.sroa.441.0.copyload.i.i.i, %27 ]
+  %.sroa.12.1.i8.i = phi i64 [ %.sroa.09.0.lcssa.i.i, %.thread.i ], [ %.sroa.12.0.lcssa.i.i, %27 ]
   br label %.lr.ph.i.i1.i
 
 .lr.ph.i.i1.i:                                    ; preds = %35, %.lr.ph.i.i1.preheader.i
-  %.sroa.13.042.i.i.i = phi i64 [ %31, %35 ], [ %.sroa.12.1.i7.i, %.lr.ph.i.i1.preheader.i ]
+  %.sroa.13.042.i.i.i = phi i64 [ %31, %35 ], [ %.sroa.12.1.i8.i, %.lr.ph.i.i1.preheader.i ]
   %30 = add i64 %.sroa.13.042.i.i.i, -1
   %31 = lshr i64 %30, 1
   %32 = icmp ult i64 %31, %9
@@ -37555,7 +37555,7 @@ _ZN4core10intrinsics10typed_swap17h70f52d7958ba351fE.llvm.14379821547474135896.e
   %33 = getelementptr inbounds nuw { { i64, [11 x i64] }, i64 }, ptr %13, i64 %31
   %34 = getelementptr i8, ptr %33, i64 96
   %.val27.i.i.i = load i64, ptr %34, align 8, !noalias !5012, !noundef !13
-  %switch.i.not.i.i.i = icmp sgt i64 %.val27.i.i.i, %.sroa.441.0.copyload.i.i8.i
+  %switch.i.not.i.i.i = icmp sgt i64 %.val27.i.i.i, %.sroa.441.0.copyload.i.i9.i
   br i1 %switch.i.not.i.i.i, label %35, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h0a7de2e7a68e8c1cE.llvm.14379821547474135896.exit.i"
 
 35:                                               ; preds = %.lr.ph.i.i1.i
@@ -37587,12 +37587,12 @@ _ZN4core10intrinsics10typed_swap17h70f52d7958ba351fE.llvm.14379821547474135896.e
   br i1 %.not.not.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h0a7de2e7a68e8c1cE.llvm.14379821547474135896.exit.i": ; preds = %35, %.lr.ph.i.i1.i, %27
-  %.sroa.441.0.copyload.i.i9.i = phi i64 [ %.sroa.441.0.copyload.i.i.i, %27 ], [ %.sroa.441.0.copyload.i.i8.i, %.lr.ph.i.i1.i ], [ %.sroa.441.0.copyload.i.i8.i, %35 ]
+  %.sroa.441.0.copyload.i.i10.i = phi i64 [ %.sroa.441.0.copyload.i.i.i, %27 ], [ %.sroa.441.0.copyload.i.i9.i, %.lr.ph.i.i1.i ], [ %.sroa.441.0.copyload.i.i9.i, %35 ]
   %.sroa.13.0.lcssa.i.i.i = phi i64 [ 0, %27 ], [ 0, %35 ], [ %.sroa.13.042.i.i.i, %.lr.ph.i.i1.i ]
   %45 = getelementptr inbounds { { i64, [11 x i64] }, i64 }, ptr %13, i64 %.sroa.13.0.lcssa.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %45, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0.i.i, i64 96, i1 false), !noalias !5009
   %.sroa.5.0..sroa_idx28.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 96
-  store i64 %.sroa.441.0.copyload.i.i9.i, ptr %.sroa.5.0..sroa_idx28.i.i.i, align 8, !noalias !5012
+  store i64 %.sroa.441.0.copyload.i.i10.i, ptr %.sroa.5.0..sroa_idx28.i.i.i, align 8, !noalias !5012
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17ha3b89b077efea0c1E.llvm.14379821547474135896.exit"
 
@@ -37648,8 +37648,8 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %22 = getelementptr inbounds { ptr, i64 }, ptr %11, i64 %.sroa.13.0.lcssa.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !noalias !5015
   store ptr %13, ptr %21, align 8, !noalias !5015
-  %.sroa.7.16..sroa_idx16.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %15, ptr %.sroa.7.16..sroa_idx16.i.i, align 8, !noalias !5015
+  %.sroa.7.16..sroa_idx17.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i64 %15, ptr %.sroa.7.16..sroa_idx17.i.i, align 8, !noalias !5015
   %23 = icmp ult i64 %.sroa.09.0.lcssa.i.i, %7
   tail call void @llvm.assume(i1 %23)
   br label %.lr.ph.i.i.i.preheader
@@ -37794,8 +37794,8 @@ _ZN4core10intrinsics10typed_swap17h6dd9a9f5752ef4ceE.llvm.14379821547474135896.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %24, ptr noundef nonnull align 8 dereferenceable(208) %.sroa.0.i.i, i64 208, i1 false), !noalias !5026
   %26 = icmp ult i64 %.sroa.09.0.lcssa.i.i, %9
   tail call void @llvm.assume(i1 %26)
-  %.sroa.441.0..sroa_idx.i.i4.i = getelementptr inbounds nuw i8, ptr %24, i64 200
-  %.sroa.441.0.copyload.i.i5.i = load i64, ptr %.sroa.441.0..sroa_idx.i.i4.i, align 8, !noalias !5029
+  %.sroa.441.0..sroa_idx.i.i5.i = getelementptr inbounds nuw i8, ptr %24, i64 200
+  %.sroa.441.0.copyload.i.i6.i = load i64, ptr %.sroa.441.0..sroa_idx.i.i5.i, align 8, !noalias !5029
   br label %.lr.ph.i.i1.preheader.i
 
 27:                                               ; preds = %._crit_edge.i.i
@@ -37809,12 +37809,12 @@ _ZN4core10intrinsics10typed_swap17h6dd9a9f5752ef4ceE.llvm.14379821547474135896.e
   br i1 %.not.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h88cfa08bc29e97ffE.llvm.14379821547474135896.exit.i", label %.lr.ph.i.i1.preheader.i
 
 .lr.ph.i.i1.preheader.i:                          ; preds = %27, %.thread.i
-  %.sroa.441.0.copyload.i.i8.i = phi i64 [ %.sroa.441.0.copyload.i.i5.i, %.thread.i ], [ %.sroa.441.0.copyload.i.i.i, %27 ]
-  %.sroa.12.1.i7.i = phi i64 [ %.sroa.09.0.lcssa.i.i, %.thread.i ], [ %.sroa.12.0.lcssa.i.i, %27 ]
+  %.sroa.441.0.copyload.i.i9.i = phi i64 [ %.sroa.441.0.copyload.i.i6.i, %.thread.i ], [ %.sroa.441.0.copyload.i.i.i, %27 ]
+  %.sroa.12.1.i8.i = phi i64 [ %.sroa.09.0.lcssa.i.i, %.thread.i ], [ %.sroa.12.0.lcssa.i.i, %27 ]
   br label %.lr.ph.i.i1.i
 
 .lr.ph.i.i1.i:                                    ; preds = %35, %.lr.ph.i.i1.preheader.i
-  %.sroa.13.042.i.i.i = phi i64 [ %31, %35 ], [ %.sroa.12.1.i7.i, %.lr.ph.i.i1.preheader.i ]
+  %.sroa.13.042.i.i.i = phi i64 [ %31, %35 ], [ %.sroa.12.1.i8.i, %.lr.ph.i.i1.preheader.i ]
   %30 = add i64 %.sroa.13.042.i.i.i, -1
   %31 = lshr i64 %30, 1
   %32 = icmp ult i64 %31, %9
@@ -37822,7 +37822,7 @@ _ZN4core10intrinsics10typed_swap17h6dd9a9f5752ef4ceE.llvm.14379821547474135896.e
   %33 = getelementptr inbounds nuw { { i64, [24 x i64] }, i64 }, ptr %13, i64 %31
   %34 = getelementptr i8, ptr %33, i64 200
   %.val27.i.i.i = load i64, ptr %34, align 8, !noalias !5029, !noundef !13
-  %switch.i.not.i.i.i = icmp sgt i64 %.val27.i.i.i, %.sroa.441.0.copyload.i.i8.i
+  %switch.i.not.i.i.i = icmp sgt i64 %.val27.i.i.i, %.sroa.441.0.copyload.i.i9.i
   br i1 %switch.i.not.i.i.i, label %35, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h88cfa08bc29e97ffE.llvm.14379821547474135896.exit.i"
 
 35:                                               ; preds = %.lr.ph.i.i1.i
@@ -37854,12 +37854,12 @@ _ZN4core10intrinsics10typed_swap17h6dd9a9f5752ef4ceE.llvm.14379821547474135896.e
   br i1 %.not.not.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h88cfa08bc29e97ffE.llvm.14379821547474135896.exit.i": ; preds = %35, %.lr.ph.i.i1.i, %27
-  %.sroa.441.0.copyload.i.i9.i = phi i64 [ %.sroa.441.0.copyload.i.i.i, %27 ], [ %.sroa.441.0.copyload.i.i8.i, %.lr.ph.i.i1.i ], [ %.sroa.441.0.copyload.i.i8.i, %35 ]
+  %.sroa.441.0.copyload.i.i10.i = phi i64 [ %.sroa.441.0.copyload.i.i.i, %27 ], [ %.sroa.441.0.copyload.i.i9.i, %.lr.ph.i.i1.i ], [ %.sroa.441.0.copyload.i.i9.i, %35 ]
   %.sroa.13.0.lcssa.i.i.i = phi i64 [ 0, %27 ], [ 0, %35 ], [ %.sroa.13.042.i.i.i, %.lr.ph.i.i1.i ]
   %45 = getelementptr inbounds { { i64, [24 x i64] }, i64 }, ptr %13, i64 %.sroa.13.0.lcssa.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %45, ptr noundef nonnull align 8 dereferenceable(200) %.sroa.0.i.i, i64 200, i1 false), !noalias !5026
   %.sroa.5.0..sroa_idx28.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 200
-  store i64 %.sroa.441.0.copyload.i.i9.i, ptr %.sroa.5.0..sroa_idx28.i.i.i, align 8, !noalias !5029
+  store i64 %.sroa.441.0.copyload.i.i10.i, ptr %.sroa.5.0..sroa_idx28.i.i.i, align 8, !noalias !5029
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h7540674a305a738bE.llvm.14379821547474135896.exit"
 
@@ -37939,7 +37939,7 @@ _ZN4core10intrinsics10typed_swap17h0dac7b60f37a54feE.llvm.14379821547474135896.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.17.i.i, i64 64, i1 false), !noalias !5037
   %27 = icmp ult i64 %.sroa.09.0.lcssa.i.i, %10
   tail call void @llvm.assume(i1 %27)
-  %.sroa.040.0.copyload.i.i4.i = load i64, ptr %25, align 8, !noalias !5040
+  %.sroa.040.0.copyload.i.i5.i = load i64, ptr %25, align 8, !noalias !5040
   br label %.lr.ph.i.i1.preheader.i
 
 28:                                               ; preds = %._crit_edge.i.i
@@ -37952,19 +37952,19 @@ _ZN4core10intrinsics10typed_swap17h0dac7b60f37a54feE.llvm.14379821547474135896.e
   br i1 %.not.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h9bf89e51c84cada2E.llvm.14379821547474135896.exit.i", label %.lr.ph.i.i1.preheader.i
 
 .lr.ph.i.i1.preheader.i:                          ; preds = %28, %.thread.i
-  %.sroa.040.0.copyload.i.i7.i = phi i64 [ %.sroa.040.0.copyload.i.i4.i, %.thread.i ], [ %.sroa.040.0.copyload.i.i.i, %28 ]
-  %.sroa.10.1.i6.i = phi i64 [ %.sroa.09.0.lcssa.i.i, %.thread.i ], [ %.sroa.10.0.lcssa.i.i, %28 ]
+  %.sroa.040.0.copyload.i.i8.i = phi i64 [ %.sroa.040.0.copyload.i.i5.i, %.thread.i ], [ %.sroa.040.0.copyload.i.i.i, %28 ]
+  %.sroa.10.1.i7.i = phi i64 [ %.sroa.09.0.lcssa.i.i, %.thread.i ], [ %.sroa.10.0.lcssa.i.i, %28 ]
   br label %.lr.ph.i.i1.i
 
 .lr.ph.i.i1.i:                                    ; preds = %35, %.lr.ph.i.i1.preheader.i
-  %.sroa.9.042.i.i.i = phi i64 [ %32, %35 ], [ %.sroa.10.1.i6.i, %.lr.ph.i.i1.preheader.i ]
+  %.sroa.9.042.i.i.i = phi i64 [ %32, %35 ], [ %.sroa.10.1.i7.i, %.lr.ph.i.i1.preheader.i ]
   %31 = add i64 %.sroa.9.042.i.i.i, -1
   %32 = lshr i64 %31, 1
   %33 = icmp ult i64 %32, %10
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds nuw { i64, { [4 x i64], i64, [2 x i64] } }, ptr %14, i64 %32
   %.val27.i.i.i = load i64, ptr %34, align 8, !noalias !5040, !noundef !13
-  %switch.i.not.i.i.i = icmp sgt i64 %.val27.i.i.i, %.sroa.040.0.copyload.i.i7.i
+  %switch.i.not.i.i.i = icmp sgt i64 %.val27.i.i.i, %.sroa.040.0.copyload.i.i8.i
   br i1 %switch.i.not.i.i.i, label %35, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h9bf89e51c84cada2E.llvm.14379821547474135896.exit.i"
 
 35:                                               ; preds = %.lr.ph.i.i1.i
@@ -37996,11 +37996,11 @@ _ZN4core10intrinsics10typed_swap17h0dac7b60f37a54feE.llvm.14379821547474135896.e
   br i1 %.not.not.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h9bf89e51c84cada2E.llvm.14379821547474135896.exit.i": ; preds = %35, %.lr.ph.i.i1.i, %28
-  %.sroa.040.0.copyload.i.i8.i = phi i64 [ %.sroa.040.0.copyload.i.i.i, %28 ], [ %.sroa.040.0.copyload.i.i7.i, %.lr.ph.i.i1.i ], [ %.sroa.040.0.copyload.i.i7.i, %35 ]
+  %.sroa.040.0.copyload.i.i9.i = phi i64 [ %.sroa.040.0.copyload.i.i.i, %28 ], [ %.sroa.040.0.copyload.i.i8.i, %.lr.ph.i.i1.i ], [ %.sroa.040.0.copyload.i.i8.i, %35 ]
   %.sroa.9.0.lcssa.i.i.i = phi i64 [ 0, %28 ], [ 0, %35 ], [ %.sroa.9.042.i.i.i, %.lr.ph.i.i1.i ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.17.i.i, i64 8
   %46 = getelementptr inbounds { i64, { [4 x i64], i64, [2 x i64] } }, ptr %14, i64 %.sroa.9.0.lcssa.i.i.i
-  store i64 %.sroa.040.0.copyload.i.i8.i, ptr %46, align 8, !noalias !5040
+  store i64 %.sroa.040.0.copyload.i.i9.i, ptr %46, align 8, !noalias !5040
   %.sroa.20.24..sroa_idx37.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.20.24..sroa_idx37.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %45, i64 56, i1 false), !noalias !5037
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.17.i.i)
@@ -38082,7 +38082,7 @@ _ZN4core10intrinsics10typed_swap17ha8a5ea4c47602cf5E.llvm.14379821547474135896.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.17.i.i, i64 56, i1 false), !noalias !5048
   %27 = icmp ult i64 %.sroa.09.0.lcssa.i.i, %10
   tail call void @llvm.assume(i1 %27)
-  %.sroa.040.0.copyload.i.i4.i = load i64, ptr %25, align 8, !noalias !5051
+  %.sroa.040.0.copyload.i.i5.i = load i64, ptr %25, align 8, !noalias !5051
   br label %.lr.ph.i.i1.preheader.i
 
 28:                                               ; preds = %._crit_edge.i.i
@@ -38095,19 +38095,19 @@ _ZN4core10intrinsics10typed_swap17ha8a5ea4c47602cf5E.llvm.14379821547474135896.e
   br i1 %.not.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h76fd674e51de1f46E.llvm.14379821547474135896.exit.i", label %.lr.ph.i.i1.preheader.i
 
 .lr.ph.i.i1.preheader.i:                          ; preds = %28, %.thread.i
-  %.sroa.040.0.copyload.i.i7.i = phi i64 [ %.sroa.040.0.copyload.i.i4.i, %.thread.i ], [ %.sroa.040.0.copyload.i.i.i, %28 ]
-  %.sroa.10.1.i6.i = phi i64 [ %.sroa.09.0.lcssa.i.i, %.thread.i ], [ %.sroa.10.0.lcssa.i.i, %28 ]
+  %.sroa.040.0.copyload.i.i8.i = phi i64 [ %.sroa.040.0.copyload.i.i5.i, %.thread.i ], [ %.sroa.040.0.copyload.i.i.i, %28 ]
+  %.sroa.10.1.i7.i = phi i64 [ %.sroa.09.0.lcssa.i.i, %.thread.i ], [ %.sroa.10.0.lcssa.i.i, %28 ]
   br label %.lr.ph.i.i1.i
 
 .lr.ph.i.i1.i:                                    ; preds = %35, %.lr.ph.i.i1.preheader.i
-  %.sroa.9.042.i.i.i = phi i64 [ %32, %35 ], [ %.sroa.10.1.i6.i, %.lr.ph.i.i1.preheader.i ]
+  %.sroa.9.042.i.i.i = phi i64 [ %32, %35 ], [ %.sroa.10.1.i7.i, %.lr.ph.i.i1.preheader.i ]
   %31 = add i64 %.sroa.9.042.i.i.i, -1
   %32 = lshr i64 %31, 1
   %33 = icmp ult i64 %32, %10
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds nuw { i64, { { { { ptr, i64 } }, {}, {} }, i8, [7 x i8], { i64, [2 x i64] } } }, ptr %14, i64 %32
   %.val27.i.i.i = load i64, ptr %34, align 8, !noalias !5051, !noundef !13
-  %switch.i.not.i.i.i = icmp sgt i64 %.val27.i.i.i, %.sroa.040.0.copyload.i.i7.i
+  %switch.i.not.i.i.i = icmp sgt i64 %.val27.i.i.i, %.sroa.040.0.copyload.i.i8.i
   br i1 %switch.i.not.i.i.i, label %35, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h76fd674e51de1f46E.llvm.14379821547474135896.exit.i"
 
 35:                                               ; preds = %.lr.ph.i.i1.i
@@ -38139,11 +38139,11 @@ _ZN4core10intrinsics10typed_swap17ha8a5ea4c47602cf5E.llvm.14379821547474135896.e
   br i1 %.not.not.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h76fd674e51de1f46E.llvm.14379821547474135896.exit.i": ; preds = %35, %.lr.ph.i.i1.i, %28
-  %.sroa.040.0.copyload.i.i8.i = phi i64 [ %.sroa.040.0.copyload.i.i.i, %28 ], [ %.sroa.040.0.copyload.i.i7.i, %.lr.ph.i.i1.i ], [ %.sroa.040.0.copyload.i.i7.i, %35 ]
+  %.sroa.040.0.copyload.i.i9.i = phi i64 [ %.sroa.040.0.copyload.i.i.i, %28 ], [ %.sroa.040.0.copyload.i.i8.i, %.lr.ph.i.i1.i ], [ %.sroa.040.0.copyload.i.i8.i, %35 ]
   %.sroa.9.0.lcssa.i.i.i = phi i64 [ 0, %28 ], [ 0, %35 ], [ %.sroa.9.042.i.i.i, %.lr.ph.i.i1.i ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.17.i.i, i64 8
   %46 = getelementptr inbounds { i64, { { { { ptr, i64 } }, {}, {} }, i8, [7 x i8], { i64, [2 x i64] } } }, ptr %14, i64 %.sroa.9.0.lcssa.i.i.i
-  store i64 %.sroa.040.0.copyload.i.i8.i, ptr %46, align 8, !noalias !5051
+  store i64 %.sroa.040.0.copyload.i.i9.i, ptr %46, align 8, !noalias !5051
   %.sroa.20.24..sroa_idx37.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.20.24..sroa_idx37.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %45, i64 48, i1 false), !noalias !5048
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.17.i.i)
@@ -38209,13 +38209,13 @@ define hidden { i64, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$
   br label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %22, %.thread.i
-  %.lcssa13.sink = phi i64 [ %36, %22 ], [ %.sroa.09.0.lcssa.i.i9, %.thread.i ]
-  %24 = icmp ult i64 %.lcssa13.sink, %6
+  %.lcssa14.sink = phi i64 [ %36, %22 ], [ %.sroa.09.0.lcssa.i.i9, %.thread.i ]
+  %24 = icmp ult i64 %.lcssa14.sink, %6
   tail call void @llvm.assume(i1 %24)
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %29, %.lr.ph.i.i.preheader.i
-  %storemerge36.i.i.i = phi i64 [ %26, %29 ], [ %.lcssa13.sink, %.lr.ph.i.i.preheader.i ]
+  %storemerge36.i.i.i = phi i64 [ %26, %29 ], [ %.lcssa14.sink, %.lr.ph.i.i.preheader.i ]
   %25 = add i64 %storemerge36.i.i.i, -1
   %26 = lshr i64 %25, 1
   %27 = icmp ult i64 %26, %6
@@ -38332,8 +38332,8 @@ _ZN4core10intrinsics10typed_swap17h89b4a154f451e414E.llvm.14379821547474135896.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i, i64 56, i1 false), !noalias !5078
   %26 = icmp ult i64 %.sroa.09.0.lcssa.i.i, %9
   tail call void @llvm.assume(i1 %26)
-  %.sroa.441.0..sroa_idx.i.i4.i = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %.sroa.441.0.copyload.i.i5.i = load i64, ptr %.sroa.441.0..sroa_idx.i.i4.i, align 8, !noalias !5081
+  %.sroa.441.0..sroa_idx.i.i5.i = getelementptr inbounds nuw i8, ptr %24, i64 48
+  %.sroa.441.0.copyload.i.i6.i = load i64, ptr %.sroa.441.0..sroa_idx.i.i5.i, align 8, !noalias !5081
   br label %.lr.ph.i.i1.preheader.i
 
 27:                                               ; preds = %._crit_edge.i.i
@@ -38347,12 +38347,12 @@ _ZN4core10intrinsics10typed_swap17h89b4a154f451e414E.llvm.14379821547474135896.e
   br i1 %.not.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h4fc106e4e43ff8d1E.llvm.14379821547474135896.exit.i", label %.lr.ph.i.i1.preheader.i
 
 .lr.ph.i.i1.preheader.i:                          ; preds = %27, %.thread.i
-  %.sroa.441.0.copyload.i.i8.i = phi i64 [ %.sroa.441.0.copyload.i.i5.i, %.thread.i ], [ %.sroa.441.0.copyload.i.i.i, %27 ]
-  %.sroa.12.1.i7.i = phi i64 [ %.sroa.09.0.lcssa.i.i, %.thread.i ], [ %.sroa.12.0.lcssa.i.i, %27 ]
+  %.sroa.441.0.copyload.i.i9.i = phi i64 [ %.sroa.441.0.copyload.i.i6.i, %.thread.i ], [ %.sroa.441.0.copyload.i.i.i, %27 ]
+  %.sroa.12.1.i8.i = phi i64 [ %.sroa.09.0.lcssa.i.i, %.thread.i ], [ %.sroa.12.0.lcssa.i.i, %27 ]
   br label %.lr.ph.i.i1.i
 
 .lr.ph.i.i1.i:                                    ; preds = %35, %.lr.ph.i.i1.preheader.i
-  %.sroa.13.042.i.i.i = phi i64 [ %31, %35 ], [ %.sroa.12.1.i7.i, %.lr.ph.i.i1.preheader.i ]
+  %.sroa.13.042.i.i.i = phi i64 [ %31, %35 ], [ %.sroa.12.1.i8.i, %.lr.ph.i.i1.preheader.i ]
   %30 = add i64 %.sroa.13.042.i.i.i, -1
   %31 = lshr i64 %30, 1
   %32 = icmp ult i64 %31, %9
@@ -38360,7 +38360,7 @@ _ZN4core10intrinsics10typed_swap17h89b4a154f451e414E.llvm.14379821547474135896.e
   %33 = getelementptr inbounds nuw { { i64, [5 x i64] }, i64 }, ptr %13, i64 %31
   %34 = getelementptr i8, ptr %33, i64 48
   %.val27.i.i.i = load i64, ptr %34, align 8, !noalias !5081, !noundef !13
-  %switch.i.not.i.i.i = icmp sgt i64 %.val27.i.i.i, %.sroa.441.0.copyload.i.i8.i
+  %switch.i.not.i.i.i = icmp sgt i64 %.val27.i.i.i, %.sroa.441.0.copyload.i.i9.i
   br i1 %switch.i.not.i.i.i, label %35, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h4fc106e4e43ff8d1E.llvm.14379821547474135896.exit.i"
 
 35:                                               ; preds = %.lr.ph.i.i1.i
@@ -38392,12 +38392,12 @@ _ZN4core10intrinsics10typed_swap17h89b4a154f451e414E.llvm.14379821547474135896.e
   br i1 %.not.not.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h4fc106e4e43ff8d1E.llvm.14379821547474135896.exit.i": ; preds = %35, %.lr.ph.i.i1.i, %27
-  %.sroa.441.0.copyload.i.i9.i = phi i64 [ %.sroa.441.0.copyload.i.i.i, %27 ], [ %.sroa.441.0.copyload.i.i8.i, %.lr.ph.i.i1.i ], [ %.sroa.441.0.copyload.i.i8.i, %35 ]
+  %.sroa.441.0.copyload.i.i10.i = phi i64 [ %.sroa.441.0.copyload.i.i.i, %27 ], [ %.sroa.441.0.copyload.i.i9.i, %.lr.ph.i.i1.i ], [ %.sroa.441.0.copyload.i.i9.i, %35 ]
   %.sroa.13.0.lcssa.i.i.i = phi i64 [ 0, %27 ], [ 0, %35 ], [ %.sroa.13.042.i.i.i, %.lr.ph.i.i1.i ]
   %45 = getelementptr inbounds { { i64, [5 x i64] }, i64 }, ptr %13, i64 %.sroa.13.0.lcssa.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i.i, i64 48, i1 false), !noalias !5078
   %.sroa.5.0..sroa_idx28.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 48
-  store i64 %.sroa.441.0.copyload.i.i9.i, ptr %.sroa.5.0..sroa_idx28.i.i.i, align 8, !noalias !5081
+  store i64 %.sroa.441.0.copyload.i.i10.i, ptr %.sroa.5.0..sroa_idx28.i.i.i, align 8, !noalias !5081
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h9c69c8d4b338475cE.llvm.14379821547474135896.exit"
 
@@ -38559,7 +38559,7 @@ _ZN4core10intrinsics10typed_swap17ha8a5ea4c47602cf5E.llvm.14379821547474135896.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.17.i, i64 56, i1 false), !noalias !5100
   %22 = icmp ult i64 %.sroa.09.0.lcssa.i, %5
   tail call void @llvm.assume(i1 %22)
-  %.sroa.040.0.copyload.i.i4 = load i64, ptr %21, align 8, !noalias !5103
+  %.sroa.040.0.copyload.i.i5 = load i64, ptr %21, align 8, !noalias !5103
   br label %.lr.ph.i.i1.preheader
 
 23:                                               ; preds = %._crit_edge.i
@@ -38572,19 +38572,19 @@ _ZN4core10intrinsics10typed_swap17ha8a5ea4c47602cf5E.llvm.14379821547474135896.e
   br i1 %.not, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h76fd674e51de1f46E.llvm.14379821547474135896.exit", label %.lr.ph.i.i1.preheader
 
 .lr.ph.i.i1.preheader:                            ; preds = %.thread, %23
-  %.sroa.040.0.copyload.i.i7 = phi i64 [ %.sroa.040.0.copyload.i.i4, %.thread ], [ %.sroa.040.0.copyload.i.i, %23 ]
-  %.sroa.10.1.i6 = phi i64 [ %.sroa.09.0.lcssa.i, %.thread ], [ %.sroa.10.0.lcssa.i, %23 ]
+  %.sroa.040.0.copyload.i.i8 = phi i64 [ %.sroa.040.0.copyload.i.i5, %.thread ], [ %.sroa.040.0.copyload.i.i, %23 ]
+  %.sroa.10.1.i7 = phi i64 [ %.sroa.09.0.lcssa.i, %.thread ], [ %.sroa.10.0.lcssa.i, %23 ]
   br label %.lr.ph.i.i1
 
 .lr.ph.i.i1:                                      ; preds = %.lr.ph.i.i1.preheader, %30
-  %.sroa.9.042.i.i = phi i64 [ %27, %30 ], [ %.sroa.10.1.i6, %.lr.ph.i.i1.preheader ]
+  %.sroa.9.042.i.i = phi i64 [ %27, %30 ], [ %.sroa.10.1.i7, %.lr.ph.i.i1.preheader ]
   %26 = add i64 %.sroa.9.042.i.i, -1
   %27 = lshr i64 %26, 1
   %28 = icmp ult i64 %27, %5
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds nuw { i64, { { { { ptr, i64 } }, {}, {} }, i8, [7 x i8], { i64, [2 x i64] } } }, ptr %10, i64 %27
   %.val27.i.i = load i64, ptr %29, align 8, !noalias !5103, !noundef !13
-  %switch.i.not.i.i = icmp sgt i64 %.val27.i.i, %.sroa.040.0.copyload.i.i7
+  %switch.i.not.i.i = icmp sgt i64 %.val27.i.i, %.sroa.040.0.copyload.i.i8
   br i1 %switch.i.not.i.i, label %30, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h76fd674e51de1f46E.llvm.14379821547474135896.exit"
 
 30:                                               ; preds = %.lr.ph.i.i1
@@ -38616,11 +38616,11 @@ _ZN4core10intrinsics10typed_swap17ha8a5ea4c47602cf5E.llvm.14379821547474135896.e
   br i1 %.not.not.not.i, label %.lr.ph.i, label %._crit_edge.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h76fd674e51de1f46E.llvm.14379821547474135896.exit": ; preds = %.lr.ph.i.i1, %30, %23
-  %.sroa.040.0.copyload.i.i8 = phi i64 [ %.sroa.040.0.copyload.i.i, %23 ], [ %.sroa.040.0.copyload.i.i7, %30 ], [ %.sroa.040.0.copyload.i.i7, %.lr.ph.i.i1 ]
+  %.sroa.040.0.copyload.i.i9 = phi i64 [ %.sroa.040.0.copyload.i.i, %23 ], [ %.sroa.040.0.copyload.i.i8, %30 ], [ %.sroa.040.0.copyload.i.i8, %.lr.ph.i.i1 ]
   %.sroa.9.0.lcssa.i.i = phi i64 [ 0, %23 ], [ %.sroa.9.042.i.i, %.lr.ph.i.i1 ], [ 0, %30 ]
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.17.i, i64 8
   %41 = getelementptr inbounds { i64, { { { { ptr, i64 } }, {}, {} }, i8, [7 x i8], { i64, [2 x i64] } } }, ptr %10, i64 %.sroa.9.0.lcssa.i.i
-  store i64 %.sroa.040.0.copyload.i.i8, ptr %41, align 8, !noalias !5103
+  store i64 %.sroa.040.0.copyload.i.i9, ptr %41, align 8, !noalias !5103
   %.sroa.20.24..sroa_idx37.i.i = getelementptr inbounds nuw i8, ptr %41, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.20.24..sroa_idx37.i.i, ptr noundef nonnull align 8 dereferenceable(48) %40, i64 48, i1 false), !noalias !5100
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.17.i)
@@ -38679,8 +38679,8 @@ _ZN4core10intrinsics10typed_swap17h2a4568c1d71b0f60E.llvm.14379821547474135896.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, i64 32, i1 false), !noalias !5106
   %22 = icmp ult i64 %.sroa.09.0.lcssa.i, %5
   tail call void @llvm.assume(i1 %22)
-  %.sroa.441.0..sroa_idx.i.i4 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %.sroa.441.0.copyload.i.i5 = load i64, ptr %.sroa.441.0..sroa_idx.i.i4, align 8, !noalias !5109
+  %.sroa.441.0..sroa_idx.i.i5 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %.sroa.441.0.copyload.i.i6 = load i64, ptr %.sroa.441.0..sroa_idx.i.i5, align 8, !noalias !5109
   br label %.lr.ph.i.i1.preheader
 
 23:                                               ; preds = %._crit_edge.i
@@ -38694,12 +38694,12 @@ _ZN4core10intrinsics10typed_swap17h2a4568c1d71b0f60E.llvm.14379821547474135896.e
   br i1 %.not, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h2b7d425079b35e79E.llvm.14379821547474135896.exit", label %.lr.ph.i.i1.preheader
 
 .lr.ph.i.i1.preheader:                            ; preds = %.thread, %23
-  %.sroa.441.0.copyload.i.i8 = phi i64 [ %.sroa.441.0.copyload.i.i5, %.thread ], [ %.sroa.441.0.copyload.i.i, %23 ]
-  %.sroa.12.1.i7 = phi i64 [ %.sroa.09.0.lcssa.i, %.thread ], [ %.sroa.12.0.lcssa.i, %23 ]
+  %.sroa.441.0.copyload.i.i9 = phi i64 [ %.sroa.441.0.copyload.i.i6, %.thread ], [ %.sroa.441.0.copyload.i.i, %23 ]
+  %.sroa.12.1.i8 = phi i64 [ %.sroa.09.0.lcssa.i, %.thread ], [ %.sroa.12.0.lcssa.i, %23 ]
   br label %.lr.ph.i.i1
 
 .lr.ph.i.i1:                                      ; preds = %.lr.ph.i.i1.preheader, %31
-  %.sroa.13.042.i.i = phi i64 [ %27, %31 ], [ %.sroa.12.1.i7, %.lr.ph.i.i1.preheader ]
+  %.sroa.13.042.i.i = phi i64 [ %27, %31 ], [ %.sroa.12.1.i8, %.lr.ph.i.i1.preheader ]
   %26 = add i64 %.sroa.13.042.i.i, -1
   %27 = lshr i64 %26, 1
   %28 = icmp ult i64 %27, %5
@@ -38707,7 +38707,7 @@ _ZN4core10intrinsics10typed_swap17h2a4568c1d71b0f60E.llvm.14379821547474135896.e
   %29 = getelementptr inbounds nuw { { i64, [2 x i64] }, i64 }, ptr %10, i64 %27
   %30 = getelementptr i8, ptr %29, i64 24
   %.val27.i.i = load i64, ptr %30, align 8, !noalias !5109, !noundef !13
-  %switch.i.not.i.i = icmp sgt i64 %.val27.i.i, %.sroa.441.0.copyload.i.i8
+  %switch.i.not.i.i = icmp sgt i64 %.val27.i.i, %.sroa.441.0.copyload.i.i9
   br i1 %switch.i.not.i.i, label %31, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h2b7d425079b35e79E.llvm.14379821547474135896.exit"
 
 31:                                               ; preds = %.lr.ph.i.i1
@@ -38739,12 +38739,12 @@ _ZN4core10intrinsics10typed_swap17h2a4568c1d71b0f60E.llvm.14379821547474135896.e
   br i1 %.not.not.not.i, label %.lr.ph.i, label %._crit_edge.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h2b7d425079b35e79E.llvm.14379821547474135896.exit": ; preds = %.lr.ph.i.i1, %31, %23
-  %.sroa.441.0.copyload.i.i9 = phi i64 [ %.sroa.441.0.copyload.i.i, %23 ], [ %.sroa.441.0.copyload.i.i8, %31 ], [ %.sroa.441.0.copyload.i.i8, %.lr.ph.i.i1 ]
+  %.sroa.441.0.copyload.i.i10 = phi i64 [ %.sroa.441.0.copyload.i.i, %23 ], [ %.sroa.441.0.copyload.i.i9, %31 ], [ %.sroa.441.0.copyload.i.i9, %.lr.ph.i.i1 ]
   %.sroa.13.0.lcssa.i.i = phi i64 [ 0, %23 ], [ %.sroa.13.042.i.i, %.lr.ph.i.i1 ], [ 0, %31 ]
   %41 = getelementptr inbounds { { i64, [2 x i64] }, i64 }, ptr %10, i64 %.sroa.13.0.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !5106
   %.sroa.5.0..sroa_idx28.i.i = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store i64 %.sroa.441.0.copyload.i.i9, ptr %.sroa.5.0..sroa_idx28.i.i, align 8, !noalias !5109
+  store i64 %.sroa.441.0.copyload.i.i10, ptr %.sroa.5.0..sroa_idx28.i.i, align 8, !noalias !5109
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %7
 }
@@ -38801,8 +38801,8 @@ _ZN4core10intrinsics10typed_swap17h6dd9a9f5752ef4ceE.llvm.14379821547474135896.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %21, ptr noundef nonnull align 8 dereferenceable(208) %.sroa.0.i, i64 208, i1 false), !noalias !5112
   %22 = icmp ult i64 %.sroa.09.0.lcssa.i, %5
   tail call void @llvm.assume(i1 %22)
-  %.sroa.441.0..sroa_idx.i.i4 = getelementptr inbounds nuw i8, ptr %21, i64 200
-  %.sroa.441.0.copyload.i.i5 = load i64, ptr %.sroa.441.0..sroa_idx.i.i4, align 8, !noalias !5115
+  %.sroa.441.0..sroa_idx.i.i5 = getelementptr inbounds nuw i8, ptr %21, i64 200
+  %.sroa.441.0.copyload.i.i6 = load i64, ptr %.sroa.441.0..sroa_idx.i.i5, align 8, !noalias !5115
   br label %.lr.ph.i.i1.preheader
 
 23:                                               ; preds = %._crit_edge.i
@@ -38816,12 +38816,12 @@ _ZN4core10intrinsics10typed_swap17h6dd9a9f5752ef4ceE.llvm.14379821547474135896.e
   br i1 %.not, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h88cfa08bc29e97ffE.llvm.14379821547474135896.exit", label %.lr.ph.i.i1.preheader
 
 .lr.ph.i.i1.preheader:                            ; preds = %.thread, %23
-  %.sroa.441.0.copyload.i.i8 = phi i64 [ %.sroa.441.0.copyload.i.i5, %.thread ], [ %.sroa.441.0.copyload.i.i, %23 ]
-  %.sroa.12.1.i7 = phi i64 [ %.sroa.09.0.lcssa.i, %.thread ], [ %.sroa.12.0.lcssa.i, %23 ]
+  %.sroa.441.0.copyload.i.i9 = phi i64 [ %.sroa.441.0.copyload.i.i6, %.thread ], [ %.sroa.441.0.copyload.i.i, %23 ]
+  %.sroa.12.1.i8 = phi i64 [ %.sroa.09.0.lcssa.i, %.thread ], [ %.sroa.12.0.lcssa.i, %23 ]
   br label %.lr.ph.i.i1
 
 .lr.ph.i.i1:                                      ; preds = %.lr.ph.i.i1.preheader, %31
-  %.sroa.13.042.i.i = phi i64 [ %27, %31 ], [ %.sroa.12.1.i7, %.lr.ph.i.i1.preheader ]
+  %.sroa.13.042.i.i = phi i64 [ %27, %31 ], [ %.sroa.12.1.i8, %.lr.ph.i.i1.preheader ]
   %26 = add i64 %.sroa.13.042.i.i, -1
   %27 = lshr i64 %26, 1
   %28 = icmp ult i64 %27, %5
@@ -38829,7 +38829,7 @@ _ZN4core10intrinsics10typed_swap17h6dd9a9f5752ef4ceE.llvm.14379821547474135896.e
   %29 = getelementptr inbounds nuw { { i64, [24 x i64] }, i64 }, ptr %10, i64 %27
   %30 = getelementptr i8, ptr %29, i64 200
   %.val27.i.i = load i64, ptr %30, align 8, !noalias !5115, !noundef !13
-  %switch.i.not.i.i = icmp sgt i64 %.val27.i.i, %.sroa.441.0.copyload.i.i8
+  %switch.i.not.i.i = icmp sgt i64 %.val27.i.i, %.sroa.441.0.copyload.i.i9
   br i1 %switch.i.not.i.i, label %31, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h88cfa08bc29e97ffE.llvm.14379821547474135896.exit"
 
 31:                                               ; preds = %.lr.ph.i.i1
@@ -38861,12 +38861,12 @@ _ZN4core10intrinsics10typed_swap17h6dd9a9f5752ef4ceE.llvm.14379821547474135896.e
   br i1 %.not.not.not.i, label %.lr.ph.i, label %._crit_edge.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h88cfa08bc29e97ffE.llvm.14379821547474135896.exit": ; preds = %.lr.ph.i.i1, %31, %23
-  %.sroa.441.0.copyload.i.i9 = phi i64 [ %.sroa.441.0.copyload.i.i, %23 ], [ %.sroa.441.0.copyload.i.i8, %31 ], [ %.sroa.441.0.copyload.i.i8, %.lr.ph.i.i1 ]
+  %.sroa.441.0.copyload.i.i10 = phi i64 [ %.sroa.441.0.copyload.i.i, %23 ], [ %.sroa.441.0.copyload.i.i9, %31 ], [ %.sroa.441.0.copyload.i.i9, %.lr.ph.i.i1 ]
   %.sroa.13.0.lcssa.i.i = phi i64 [ 0, %23 ], [ %.sroa.13.042.i.i, %.lr.ph.i.i1 ], [ 0, %31 ]
   %41 = getelementptr inbounds { { i64, [24 x i64] }, i64 }, ptr %10, i64 %.sroa.13.0.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %41, ptr noundef nonnull align 8 dereferenceable(200) %.sroa.0.i, i64 200, i1 false), !noalias !5112
   %.sroa.5.0..sroa_idx28.i.i = getelementptr inbounds nuw i8, ptr %41, i64 200
-  store i64 %.sroa.441.0.copyload.i.i9, ptr %.sroa.5.0..sroa_idx28.i.i, align 8, !noalias !5115
+  store i64 %.sroa.441.0.copyload.i.i10, ptr %.sroa.5.0..sroa_idx28.i.i, align 8, !noalias !5115
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %7
 }
@@ -38923,8 +38923,8 @@ _ZN4core10intrinsics10typed_swap17h89b4a154f451e414E.llvm.14379821547474135896.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i, i64 56, i1 false), !noalias !5118
   %22 = icmp ult i64 %.sroa.09.0.lcssa.i, %5
   tail call void @llvm.assume(i1 %22)
-  %.sroa.441.0..sroa_idx.i.i4 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  %.sroa.441.0.copyload.i.i5 = load i64, ptr %.sroa.441.0..sroa_idx.i.i4, align 8, !noalias !5121
+  %.sroa.441.0..sroa_idx.i.i5 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  %.sroa.441.0.copyload.i.i6 = load i64, ptr %.sroa.441.0..sroa_idx.i.i5, align 8, !noalias !5121
   br label %.lr.ph.i.i1.preheader
 
 23:                                               ; preds = %._crit_edge.i
@@ -38938,12 +38938,12 @@ _ZN4core10intrinsics10typed_swap17h89b4a154f451e414E.llvm.14379821547474135896.e
   br i1 %.not, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h4fc106e4e43ff8d1E.llvm.14379821547474135896.exit", label %.lr.ph.i.i1.preheader
 
 .lr.ph.i.i1.preheader:                            ; preds = %.thread, %23
-  %.sroa.441.0.copyload.i.i8 = phi i64 [ %.sroa.441.0.copyload.i.i5, %.thread ], [ %.sroa.441.0.copyload.i.i, %23 ]
-  %.sroa.12.1.i7 = phi i64 [ %.sroa.09.0.lcssa.i, %.thread ], [ %.sroa.12.0.lcssa.i, %23 ]
+  %.sroa.441.0.copyload.i.i9 = phi i64 [ %.sroa.441.0.copyload.i.i6, %.thread ], [ %.sroa.441.0.copyload.i.i, %23 ]
+  %.sroa.12.1.i8 = phi i64 [ %.sroa.09.0.lcssa.i, %.thread ], [ %.sroa.12.0.lcssa.i, %23 ]
   br label %.lr.ph.i.i1
 
 .lr.ph.i.i1:                                      ; preds = %.lr.ph.i.i1.preheader, %31
-  %.sroa.13.042.i.i = phi i64 [ %27, %31 ], [ %.sroa.12.1.i7, %.lr.ph.i.i1.preheader ]
+  %.sroa.13.042.i.i = phi i64 [ %27, %31 ], [ %.sroa.12.1.i8, %.lr.ph.i.i1.preheader ]
   %26 = add i64 %.sroa.13.042.i.i, -1
   %27 = lshr i64 %26, 1
   %28 = icmp ult i64 %27, %5
@@ -38951,7 +38951,7 @@ _ZN4core10intrinsics10typed_swap17h89b4a154f451e414E.llvm.14379821547474135896.e
   %29 = getelementptr inbounds nuw { { i64, [5 x i64] }, i64 }, ptr %10, i64 %27
   %30 = getelementptr i8, ptr %29, i64 48
   %.val27.i.i = load i64, ptr %30, align 8, !noalias !5121, !noundef !13
-  %switch.i.not.i.i = icmp sgt i64 %.val27.i.i, %.sroa.441.0.copyload.i.i8
+  %switch.i.not.i.i = icmp sgt i64 %.val27.i.i, %.sroa.441.0.copyload.i.i9
   br i1 %switch.i.not.i.i, label %31, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h4fc106e4e43ff8d1E.llvm.14379821547474135896.exit"
 
 31:                                               ; preds = %.lr.ph.i.i1
@@ -38983,12 +38983,12 @@ _ZN4core10intrinsics10typed_swap17h89b4a154f451e414E.llvm.14379821547474135896.e
   br i1 %.not.not.not.i, label %.lr.ph.i, label %._crit_edge.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h4fc106e4e43ff8d1E.llvm.14379821547474135896.exit": ; preds = %.lr.ph.i.i1, %31, %23
-  %.sroa.441.0.copyload.i.i9 = phi i64 [ %.sroa.441.0.copyload.i.i, %23 ], [ %.sroa.441.0.copyload.i.i8, %31 ], [ %.sroa.441.0.copyload.i.i8, %.lr.ph.i.i1 ]
+  %.sroa.441.0.copyload.i.i10 = phi i64 [ %.sroa.441.0.copyload.i.i, %23 ], [ %.sroa.441.0.copyload.i.i9, %31 ], [ %.sroa.441.0.copyload.i.i9, %.lr.ph.i.i1 ]
   %.sroa.13.0.lcssa.i.i = phi i64 [ 0, %23 ], [ %.sroa.13.042.i.i, %.lr.ph.i.i1 ], [ 0, %31 ]
   %41 = getelementptr inbounds { { i64, [5 x i64] }, i64 }, ptr %10, i64 %.sroa.13.0.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i, i64 48, i1 false), !noalias !5118
   %.sroa.5.0..sroa_idx28.i.i = getelementptr inbounds nuw i8, ptr %41, i64 48
-  store i64 %.sroa.441.0.copyload.i.i9, ptr %.sroa.5.0..sroa_idx28.i.i, align 8, !noalias !5121
+  store i64 %.sroa.441.0.copyload.i.i10, ptr %.sroa.5.0..sroa_idx28.i.i, align 8, !noalias !5121
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %7
 }
@@ -39045,8 +39045,8 @@ _ZN4core10intrinsics10typed_swap17h70f52d7958ba351fE.llvm.14379821547474135896.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %21, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0.i, i64 104, i1 false), !noalias !5124
   %22 = icmp ult i64 %.sroa.09.0.lcssa.i, %5
   tail call void @llvm.assume(i1 %22)
-  %.sroa.441.0..sroa_idx.i.i4 = getelementptr inbounds nuw i8, ptr %21, i64 96
-  %.sroa.441.0.copyload.i.i5 = load i64, ptr %.sroa.441.0..sroa_idx.i.i4, align 8, !noalias !5127
+  %.sroa.441.0..sroa_idx.i.i5 = getelementptr inbounds nuw i8, ptr %21, i64 96
+  %.sroa.441.0.copyload.i.i6 = load i64, ptr %.sroa.441.0..sroa_idx.i.i5, align 8, !noalias !5127
   br label %.lr.ph.i.i1.preheader
 
 23:                                               ; preds = %._crit_edge.i
@@ -39060,12 +39060,12 @@ _ZN4core10intrinsics10typed_swap17h70f52d7958ba351fE.llvm.14379821547474135896.e
   br i1 %.not, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h0a7de2e7a68e8c1cE.llvm.14379821547474135896.exit", label %.lr.ph.i.i1.preheader
 
 .lr.ph.i.i1.preheader:                            ; preds = %.thread, %23
-  %.sroa.441.0.copyload.i.i8 = phi i64 [ %.sroa.441.0.copyload.i.i5, %.thread ], [ %.sroa.441.0.copyload.i.i, %23 ]
-  %.sroa.12.1.i7 = phi i64 [ %.sroa.09.0.lcssa.i, %.thread ], [ %.sroa.12.0.lcssa.i, %23 ]
+  %.sroa.441.0.copyload.i.i9 = phi i64 [ %.sroa.441.0.copyload.i.i6, %.thread ], [ %.sroa.441.0.copyload.i.i, %23 ]
+  %.sroa.12.1.i8 = phi i64 [ %.sroa.09.0.lcssa.i, %.thread ], [ %.sroa.12.0.lcssa.i, %23 ]
   br label %.lr.ph.i.i1
 
 .lr.ph.i.i1:                                      ; preds = %.lr.ph.i.i1.preheader, %31
-  %.sroa.13.042.i.i = phi i64 [ %27, %31 ], [ %.sroa.12.1.i7, %.lr.ph.i.i1.preheader ]
+  %.sroa.13.042.i.i = phi i64 [ %27, %31 ], [ %.sroa.12.1.i8, %.lr.ph.i.i1.preheader ]
   %26 = add i64 %.sroa.13.042.i.i, -1
   %27 = lshr i64 %26, 1
   %28 = icmp ult i64 %27, %5
@@ -39073,7 +39073,7 @@ _ZN4core10intrinsics10typed_swap17h70f52d7958ba351fE.llvm.14379821547474135896.e
   %29 = getelementptr inbounds nuw { { i64, [11 x i64] }, i64 }, ptr %10, i64 %27
   %30 = getelementptr i8, ptr %29, i64 96
   %.val27.i.i = load i64, ptr %30, align 8, !noalias !5127, !noundef !13
-  %switch.i.not.i.i = icmp sgt i64 %.val27.i.i, %.sroa.441.0.copyload.i.i8
+  %switch.i.not.i.i = icmp sgt i64 %.val27.i.i, %.sroa.441.0.copyload.i.i9
   br i1 %switch.i.not.i.i, label %31, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h0a7de2e7a68e8c1cE.llvm.14379821547474135896.exit"
 
 31:                                               ; preds = %.lr.ph.i.i1
@@ -39105,12 +39105,12 @@ _ZN4core10intrinsics10typed_swap17h70f52d7958ba351fE.llvm.14379821547474135896.e
   br i1 %.not.not.not.i, label %.lr.ph.i, label %._crit_edge.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h0a7de2e7a68e8c1cE.llvm.14379821547474135896.exit": ; preds = %.lr.ph.i.i1, %31, %23
-  %.sroa.441.0.copyload.i.i9 = phi i64 [ %.sroa.441.0.copyload.i.i, %23 ], [ %.sroa.441.0.copyload.i.i8, %31 ], [ %.sroa.441.0.copyload.i.i8, %.lr.ph.i.i1 ]
+  %.sroa.441.0.copyload.i.i10 = phi i64 [ %.sroa.441.0.copyload.i.i, %23 ], [ %.sroa.441.0.copyload.i.i9, %31 ], [ %.sroa.441.0.copyload.i.i9, %.lr.ph.i.i1 ]
   %.sroa.13.0.lcssa.i.i = phi i64 [ 0, %23 ], [ %.sroa.13.042.i.i, %.lr.ph.i.i1 ], [ 0, %31 ]
   %41 = getelementptr inbounds { { i64, [11 x i64] }, i64 }, ptr %10, i64 %.sroa.13.0.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %41, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0.i, i64 96, i1 false), !noalias !5124
   %.sroa.5.0..sroa_idx28.i.i = getelementptr inbounds nuw i8, ptr %41, i64 96
-  store i64 %.sroa.441.0.copyload.i.i9, ptr %.sroa.5.0..sroa_idx28.i.i, align 8, !noalias !5127
+  store i64 %.sroa.441.0.copyload.i.i10, ptr %.sroa.5.0..sroa_idx28.i.i, align 8, !noalias !5127
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %7
 }
@@ -39154,8 +39154,8 @@ define hidden { i64, i1 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   %18 = getelementptr inbounds { i64, i8, [7 x i8] }, ptr %13, i64 %.sroa.10.0.lcssa.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
   store i64 %1, ptr %17, align 8
-  %.sroa.9.24..sroa_idx16.i = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i8 %4, ptr %.sroa.9.24..sroa_idx16.i, align 8
+  %.sroa.9.24..sroa_idx17.i = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i8 %4, ptr %.sroa.9.24..sroa_idx17.i, align 8
   %19 = icmp ult i64 %.sroa.09.0.lcssa.i, %6
   tail call void @llvm.assume(i1 %19)
   br label %.lr.ph.i.i.preheader
@@ -39274,8 +39274,8 @@ _ZN4core10intrinsics10typed_swap17h9655e60c3260f39fE.llvm.14379821547474135896.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %21, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0.i, i64 104, i1 false), !noalias !5133
   %22 = icmp ult i64 %.sroa.09.0.lcssa.i, %5
   tail call void @llvm.assume(i1 %22)
-  %.sroa.441.0..sroa_idx.i.i4 = getelementptr inbounds nuw i8, ptr %21, i64 96
-  %.sroa.441.0.copyload.i.i5 = load i64, ptr %.sroa.441.0..sroa_idx.i.i4, align 8, !noalias !5136
+  %.sroa.441.0..sroa_idx.i.i5 = getelementptr inbounds nuw i8, ptr %21, i64 96
+  %.sroa.441.0.copyload.i.i6 = load i64, ptr %.sroa.441.0..sroa_idx.i.i5, align 8, !noalias !5136
   br label %.lr.ph.i.i1.preheader
 
 23:                                               ; preds = %._crit_edge.i
@@ -39289,12 +39289,12 @@ _ZN4core10intrinsics10typed_swap17h9655e60c3260f39fE.llvm.14379821547474135896.e
   br i1 %.not, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17hf33029a895228cddE.llvm.14379821547474135896.exit", label %.lr.ph.i.i1.preheader
 
 .lr.ph.i.i1.preheader:                            ; preds = %.thread, %23
-  %.sroa.441.0.copyload.i.i8 = phi i64 [ %.sroa.441.0.copyload.i.i5, %.thread ], [ %.sroa.441.0.copyload.i.i, %23 ]
-  %.sroa.12.1.i7 = phi i64 [ %.sroa.09.0.lcssa.i, %.thread ], [ %.sroa.12.0.lcssa.i, %23 ]
+  %.sroa.441.0.copyload.i.i9 = phi i64 [ %.sroa.441.0.copyload.i.i6, %.thread ], [ %.sroa.441.0.copyload.i.i, %23 ]
+  %.sroa.12.1.i8 = phi i64 [ %.sroa.09.0.lcssa.i, %.thread ], [ %.sroa.12.0.lcssa.i, %23 ]
   br label %.lr.ph.i.i1
 
 .lr.ph.i.i1:                                      ; preds = %.lr.ph.i.i1.preheader, %31
-  %.sroa.13.042.i.i = phi i64 [ %27, %31 ], [ %.sroa.12.1.i7, %.lr.ph.i.i1.preheader ]
+  %.sroa.13.042.i.i = phi i64 [ %27, %31 ], [ %.sroa.12.1.i8, %.lr.ph.i.i1.preheader ]
   %26 = add i64 %.sroa.13.042.i.i, -1
   %27 = lshr i64 %26, 1
   %28 = icmp ult i64 %27, %5
@@ -39302,7 +39302,7 @@ _ZN4core10intrinsics10typed_swap17h9655e60c3260f39fE.llvm.14379821547474135896.e
   %29 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 }, ptr, { { { { ptr, i64 } }, {}, {} } }, { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { ptr, i64 } }, {}, {} } }, i64 }, ptr %10, i64 %27
   %30 = getelementptr i8, ptr %29, i64 96
   %.val27.i.i = load i64, ptr %30, align 8, !noalias !5136, !noundef !13
-  %switch.i.not.i.i = icmp sgt i64 %.val27.i.i, %.sroa.441.0.copyload.i.i8
+  %switch.i.not.i.i = icmp sgt i64 %.val27.i.i, %.sroa.441.0.copyload.i.i9
   br i1 %switch.i.not.i.i, label %31, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17hf33029a895228cddE.llvm.14379821547474135896.exit"
 
 31:                                               ; preds = %.lr.ph.i.i1
@@ -39334,12 +39334,12 @@ _ZN4core10intrinsics10typed_swap17h9655e60c3260f39fE.llvm.14379821547474135896.e
   br i1 %.not.not.not.i, label %.lr.ph.i, label %._crit_edge.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17hf33029a895228cddE.llvm.14379821547474135896.exit": ; preds = %.lr.ph.i.i1, %31, %23
-  %.sroa.441.0.copyload.i.i9 = phi i64 [ %.sroa.441.0.copyload.i.i, %23 ], [ %.sroa.441.0.copyload.i.i8, %31 ], [ %.sroa.441.0.copyload.i.i8, %.lr.ph.i.i1 ]
+  %.sroa.441.0.copyload.i.i10 = phi i64 [ %.sroa.441.0.copyload.i.i, %23 ], [ %.sroa.441.0.copyload.i.i9, %31 ], [ %.sroa.441.0.copyload.i.i9, %.lr.ph.i.i1 ]
   %.sroa.13.0.lcssa.i.i = phi i64 [ 0, %23 ], [ %.sroa.13.042.i.i, %.lr.ph.i.i1 ], [ 0, %31 ]
   %41 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, ptr, { { { { ptr, i64 } }, {}, {} } }, { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { ptr, i64 } }, {}, {} } }, i64 }, ptr %10, i64 %.sroa.13.0.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %41, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0.i, i64 96, i1 false), !noalias !5133
   %.sroa.5.0..sroa_idx28.i.i = getelementptr inbounds nuw i8, ptr %41, i64 96
-  store i64 %.sroa.441.0.copyload.i.i9, ptr %.sroa.5.0..sroa_idx28.i.i, align 8, !noalias !5136
+  store i64 %.sroa.441.0.copyload.i.i10, ptr %.sroa.5.0..sroa_idx28.i.i, align 8, !noalias !5136
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %7
 }
@@ -39396,7 +39396,7 @@ _ZN4core10intrinsics10typed_swap17h0dac7b60f37a54feE.llvm.14379821547474135896.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.17.i, i64 64, i1 false), !noalias !5139
   %22 = icmp ult i64 %.sroa.09.0.lcssa.i, %5
   tail call void @llvm.assume(i1 %22)
-  %.sroa.040.0.copyload.i.i4 = load i64, ptr %21, align 8, !noalias !5142
+  %.sroa.040.0.copyload.i.i5 = load i64, ptr %21, align 8, !noalias !5142
   br label %.lr.ph.i.i1.preheader
 
 23:                                               ; preds = %._crit_edge.i
@@ -39409,19 +39409,19 @@ _ZN4core10intrinsics10typed_swap17h0dac7b60f37a54feE.llvm.14379821547474135896.e
   br i1 %.not, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h9bf89e51c84cada2E.llvm.14379821547474135896.exit", label %.lr.ph.i.i1.preheader
 
 .lr.ph.i.i1.preheader:                            ; preds = %.thread, %23
-  %.sroa.040.0.copyload.i.i7 = phi i64 [ %.sroa.040.0.copyload.i.i4, %.thread ], [ %.sroa.040.0.copyload.i.i, %23 ]
-  %.sroa.10.1.i6 = phi i64 [ %.sroa.09.0.lcssa.i, %.thread ], [ %.sroa.10.0.lcssa.i, %23 ]
+  %.sroa.040.0.copyload.i.i8 = phi i64 [ %.sroa.040.0.copyload.i.i5, %.thread ], [ %.sroa.040.0.copyload.i.i, %23 ]
+  %.sroa.10.1.i7 = phi i64 [ %.sroa.09.0.lcssa.i, %.thread ], [ %.sroa.10.0.lcssa.i, %23 ]
   br label %.lr.ph.i.i1
 
 .lr.ph.i.i1:                                      ; preds = %.lr.ph.i.i1.preheader, %30
-  %.sroa.9.042.i.i = phi i64 [ %27, %30 ], [ %.sroa.10.1.i6, %.lr.ph.i.i1.preheader ]
+  %.sroa.9.042.i.i = phi i64 [ %27, %30 ], [ %.sroa.10.1.i7, %.lr.ph.i.i1.preheader ]
   %26 = add i64 %.sroa.9.042.i.i, -1
   %27 = lshr i64 %26, 1
   %28 = icmp ult i64 %27, %5
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds nuw { i64, { [4 x i64], i64, [2 x i64] } }, ptr %10, i64 %27
   %.val27.i.i = load i64, ptr %29, align 8, !noalias !5142, !noundef !13
-  %switch.i.not.i.i = icmp sgt i64 %.val27.i.i, %.sroa.040.0.copyload.i.i7
+  %switch.i.not.i.i = icmp sgt i64 %.val27.i.i, %.sroa.040.0.copyload.i.i8
   br i1 %switch.i.not.i.i, label %30, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h9bf89e51c84cada2E.llvm.14379821547474135896.exit"
 
 30:                                               ; preds = %.lr.ph.i.i1
@@ -39453,11 +39453,11 @@ _ZN4core10intrinsics10typed_swap17h0dac7b60f37a54feE.llvm.14379821547474135896.e
   br i1 %.not.not.not.i, label %.lr.ph.i, label %._crit_edge.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h9bf89e51c84cada2E.llvm.14379821547474135896.exit": ; preds = %.lr.ph.i.i1, %30, %23
-  %.sroa.040.0.copyload.i.i8 = phi i64 [ %.sroa.040.0.copyload.i.i, %23 ], [ %.sroa.040.0.copyload.i.i7, %30 ], [ %.sroa.040.0.copyload.i.i7, %.lr.ph.i.i1 ]
+  %.sroa.040.0.copyload.i.i9 = phi i64 [ %.sroa.040.0.copyload.i.i, %23 ], [ %.sroa.040.0.copyload.i.i8, %30 ], [ %.sroa.040.0.copyload.i.i8, %.lr.ph.i.i1 ]
   %.sroa.9.0.lcssa.i.i = phi i64 [ 0, %23 ], [ %.sroa.9.042.i.i, %.lr.ph.i.i1 ], [ 0, %30 ]
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.17.i, i64 8
   %41 = getelementptr inbounds { i64, { [4 x i64], i64, [2 x i64] } }, ptr %10, i64 %.sroa.9.0.lcssa.i.i
-  store i64 %.sroa.040.0.copyload.i.i8, ptr %41, align 8, !noalias !5142
+  store i64 %.sroa.040.0.copyload.i.i9, ptr %41, align 8, !noalias !5142
   %.sroa.20.24..sroa_idx37.i.i = getelementptr inbounds nuw i8, ptr %41, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.20.24..sroa_idx37.i.i, ptr noundef nonnull align 8 dereferenceable(56) %40, i64 56, i1 false), !noalias !5139
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.17.i)
@@ -39502,8 +39502,8 @@ define hidden { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$
   %17 = getelementptr inbounds { ptr, i64 }, ptr %12, i64 %.sroa.13.0.lcssa.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
   store ptr %1, ptr %16, align 8
-  %.sroa.7.16..sroa_idx16.i = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %2, ptr %.sroa.7.16..sroa_idx16.i, align 8
+  %.sroa.7.16..sroa_idx17.i = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i64 %2, ptr %.sroa.7.16..sroa_idx17.i, align 8
   %18 = icmp ult i64 %.sroa.09.0.lcssa.i, %5
   tail call void @llvm.assume(i1 %18)
   br label %.lr.ph.i.i.preheader
@@ -47343,10 +47343,10 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h70054a
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit.sink.split.i.i.i.i.i": ; preds = %38, %37
   %.sink.i.i.i.i.i = phi i64 [ 16, %38 ], [ 8, %37 ]
-  %.sink1.i.i.i.i.i = phi i64 [ %40, %38 ], [ %35, %37 ]
+  %.sink2.i.i.i.i.i = phi i64 [ %40, %38 ], [ %35, %37 ]
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 %.sink.i.i.i.i.i
   %43 = load ptr, ptr %42, align 8, !alias.scope !6432, !noalias !6374, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %.sink1.i.i.i.i.i, i64 noundef 1) #39, !noalias !6433
+  tail call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %.sink2.i.i.i.i.i, i64 noundef 1) #39, !noalias !6433
   br label %"_ZN4core3ptr68drop_in_place$LT$lsp_types..signature_help..ParameterInformation$GT$17h97a3711aad5058a8E.exit.i.i"
 
 "_ZN4core3ptr68drop_in_place$LT$lsp_types..signature_help..ParameterInformation$GT$17h97a3711aad5058a8E.exit.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit.sink.split.i.i.i.i.i", %38, %37, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..signature_help..ParameterLabel$GT$17h3d4f473feb0124e9E.llvm.8318809290061399519.exit.i.i.i"
@@ -48384,10 +48384,10 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h7c7897
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit.sink.split.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit.i.i.i.i", %31
   %.sink.i.i.i = phi i64 [ 16, %31 ], [ 32, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit.i.i.i.i" ]
-  %.sink1.i.i.i = phi i64 [ %33, %31 ], [ %40, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit.i.i.i.i" ]
+  %.sink3.i.i.i = phi i64 [ %33, %31 ], [ %40, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit.i.i.i.i" ]
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink.i.i.i
   %43 = load ptr, ptr %42, align 8, !alias.scope !6644, !noalias !6628, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %.sink1.i.i.i, i64 noundef 1) #39, !noalias !6692
+  tail call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %.sink3.i.i.i, i64 noundef 1) #39, !noalias !6692
   br label %"_ZN4core3ptr44drop_in_place$LT$lsp_types..MarkedString$GT$17h137d79ab629aaaa9E.llvm.16841824712304075995.exit.i.i"
 
 "_ZN4core3ptr44drop_in_place$LT$lsp_types..MarkedString$GT$17h137d79ab629aaaa9E.llvm.16841824712304075995.exit.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit.sink.split.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit.i.i.i.i", %31
@@ -50485,10 +50485,10 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17he1a4df
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit.sink.split.i.i.i.i.i.i.i": ; preds = %35, %34
   %.sink.i.i.i.i.i.i.i = phi i64 [ 16, %35 ], [ 8, %34 ]
-  %.sink1.i.i.i.i.i.i.i = phi i64 [ %37, %35 ], [ %30, %34 ]
+  %.sink2.i.i.i.i.i.i.i = phi i64 [ %37, %35 ], [ %30, %34 ]
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 %.sink.i.i.i.i.i.i.i
   %40 = load ptr, ptr %39, align 8, !alias.scope !7098, !noalias !7056, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef %.sink1.i.i.i.i.i.i.i, i64 noundef 1) #39, !noalias !7099
+  tail call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef %.sink2.i.i.i.i.i.i.i, i64 noundef 1) #39, !noalias !7099
   br label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$proto..Documentation$GT$$GT$17hdb7c84034a6b7dbcE.llvm.8318809290061399519.exit.i.i.i"
 
 "_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$proto..Documentation$GT$$GT$17hdb7c84034a6b7dbcE.llvm.8318809290061399519.exit.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit.sink.split.i.i.i.i.i.i.i", %35, %34, %32, %.lr.ph.i.i
@@ -52344,9 +52344,9 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact1
   br i1 %23, label %25, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.thread"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.thread": ; preds = %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i"
-  %.sroa.06.0.i.i.pn.i38 = phi ptr [ %.sroa.06.0.i.i.pn.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i" ], [ inttoptr (i64 8 to ptr), %18 ]
+  %.sroa.06.0.i.i.pn.i39 = phi ptr [ %.sroa.06.0.i.i.pn.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i" ], [ inttoptr (i64 8 to ptr), %18 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.06.0.i.i.pn.i38, ptr %24, align 8
+  store ptr %.sroa.06.0.i.i.pn.i39, ptr %24, align 8
   store i64 %7, ptr %0, align 8
   br label %25
 
@@ -52402,9 +52402,9 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact1
   br i1 %23, label %25, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.thread"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.thread": ; preds = %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i"
-  %.sroa.06.0.i.i.pn.i38 = phi ptr [ %.sroa.06.0.i.i.pn.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i" ], [ inttoptr (i64 8 to ptr), %18 ]
+  %.sroa.06.0.i.i.pn.i39 = phi ptr [ %.sroa.06.0.i.i.pn.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i" ], [ inttoptr (i64 8 to ptr), %18 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.06.0.i.i.pn.i38, ptr %24, align 8
+  store ptr %.sroa.06.0.i.i.pn.i39, ptr %24, align 8
   store i64 %7, ptr %0, align 8
   br label %25
 

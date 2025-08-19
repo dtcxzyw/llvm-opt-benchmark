@@ -91,15 +91,15 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1, !tbaa !15
   %.not = icmp eq i8 %13, -1
-  br i1 %.not, label %.critedge.split.loop.exit288, label %.preheader192, !llvm.loop !16
+  br i1 %.not, label %.critedge.split.loop.exit300, label %.preheader192, !llvm.loop !16
 
-.critedge.split.loop.exit288:                     ; preds = %10
+.critedge.split.loop.exit300:                     ; preds = %10
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.preheader192, %.critedge.split.loop.exit288
-  %.0147.lcssa = phi i32 [ %14, %.critedge.split.loop.exit288 ], [ %8, %.preheader192 ]
-  %.lcssa237 = phi i64 [ %indvars.iv.next, %.critedge.split.loop.exit288 ], [ %5, %.preheader192 ]
+.critedge:                                        ; preds = %.preheader192, %.critedge.split.loop.exit300
+  %.0147.lcssa = phi i32 [ %14, %.critedge.split.loop.exit300 ], [ %8, %.preheader192 ]
+  %.lcssa237 = phi i64 [ %indvars.iv.next, %.critedge.split.loop.exit300 ], [ %5, %.preheader192 ]
   %.not168 = icmp eq i32 %.0147.lcssa, 0
   br i1 %.not168, label %17, label %15
 
@@ -230,8 +230,8 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
 
 65:                                               ; preds = %61
   %66 = trunc nsw i64 %indvars.iv248 to i32
-  %sext263 = shl i64 %indvars.iv248, 32
-  %67 = ashr exact i64 %sext263, 32
+  %sext275 = shl i64 %indvars.iv248, 32
+  %67 = ashr exact i64 %sext275, 32
   %68 = getelementptr inbounds i8, ptr %.pre259.pre, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !15
   %70 = icmp eq i8 %69, 0
@@ -325,16 +325,16 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   br label %.critedge6.thread177
 
 .critedge6.thread:                                ; preds = %.preheader187, %.critedge6
-  %.0149272 = phi i32 [ %.0149, %.critedge6 ], [ -1, %.preheader187 ]
-  %.1151271 = phi i32 [ %.1151, %.critedge6 ], [ %.0150, %.preheader187 ]
-  %.2155270 = phi i32 [ %.2155, %.critedge6 ], [ %.0156, %.preheader187 ]
-  %.pre259269 = phi ptr [ %.pre259, %.critedge6 ], [ %.pre259.pre, %.preheader187 ]
+  %.0149284 = phi i32 [ %.0149, %.critedge6 ], [ -1, %.preheader187 ]
+  %.1151283 = phi i32 [ %.1151, %.critedge6 ], [ %.0150, %.preheader187 ]
+  %.2155282 = phi i32 [ %.2155, %.critedge6 ], [ %.0156, %.preheader187 ]
+  %.pre259281 = phi ptr [ %.pre259, %.critedge6 ], [ %.pre259.pre, %.preheader187 ]
   %117 = sext i32 %.0156 to i64
-  %118 = getelementptr inbounds i8, ptr %.pre259269, i64 %117
+  %118 = getelementptr inbounds i8, ptr %.pre259281, i64 %117
   %119 = load i16, ptr %118, align 1, !tbaa !15
   %120 = tail call i16 @llvm.bswap.i16(i16 %119)
   %121 = zext i16 %120 to i32
-  %122 = sub nsw i32 %.2155270, %.0156
+  %122 = sub nsw i32 %.2155282, %.0156
   %123 = icmp slt i32 %122, %121
   br i1 %123, label %.loopexit, label %124
 
@@ -351,7 +351,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   %131 = zext i16 %120 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %127, ptr align 1 %130, i64 %131, i1 false)
   %132 = add nsw i32 %.0156, %121
-  %133 = icmp slt i32 %132, %.2155270
+  %133 = icmp slt i32 %132, %.2155282
   br i1 %133, label %.lr.ph217, label %._crit_edge
 
 .lr.ph217:                                        ; preds = %128, %143
@@ -382,7 +382,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   store i8 %.sink, ptr %144, align 1, !tbaa !15
   %145 = add nsw i32 %.9, 1
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
-  %146 = icmp slt i32 %145, %.2155270
+  %146 = icmp slt i32 %145, %.2155282
   br i1 %146, label %.lr.ph217, label %._crit_edge.loopexit, !llvm.loop !28
 
 ._crit_edge.loopexit:                             ; preds = %143
@@ -409,8 +409,8 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   br label %155
 
 155:                                              ; preds = %.critedge6.thread177, %._crit_edge
-  %.0149184 = phi i32 [ %.0149272, %._crit_edge ], [ %.0149185, %.critedge6.thread177 ]
-  %.1151182 = phi i32 [ %.1151271, %._crit_edge ], [ %.1151183, %.critedge6.thread177 ]
+  %.0149184 = phi i32 [ %.0149284, %._crit_edge ], [ %.0149185, %.critedge6.thread177 ]
+  %.1151182 = phi i32 [ %.1151283, %._crit_edge ], [ %.1151183, %.critedge6.thread177 ]
   %.0159 = phi ptr [ null, %._crit_edge ], [ %154, %.critedge6.thread177 ]
   %.0158 = phi ptr [ %127, %._crit_edge ], [ %151, %.critedge6.thread177 ]
   %.0157 = phi i64 [ %148, %._crit_edge ], [ %153, %.critedge6.thread177 ]

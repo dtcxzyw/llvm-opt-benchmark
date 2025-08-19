@@ -315,8 +315,8 @@ try_key_ref.exit.i:                               ; preds = %136
   %switch.maskindex = trunc i32 %.val.i to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond104 = select i1 %150, i1 %switch.lobit, i1 false
-  br i1 %or.cond104, label %switch.lookup, label %try_key_value.exit.thread.i
+  %or.cond138 = select i1 %150, i1 %switch.lobit, i1 false
+  br i1 %or.cond138, label %switch.lookup, label %try_key_value.exit.thread.i
 
 switch.lookup:                                    ; preds = %145
   %151 = zext nneg i32 %.val.i to i64
@@ -366,9 +366,9 @@ try_key_value.exit.thread.i:                      ; preds = %145
   store ptr %.val43.i, ptr %10, align 8, !tbaa !45
   %166 = call ptr @d2i_PUBKEY_ex(ptr noundef null, ptr noundef nonnull %10, i64 noundef %.val44.i, ptr noundef %27, ptr noundef %29) #5
   %.not.i46.i = icmp eq ptr %166, null
-  br i1 %.not.i46.i, label %thread-pre-split.i.i, label %.thread114.i
+  br i1 %.not.i46.i, label %thread-pre-split.i.i, label %.thread125.i
 
-.thread114.i:                                     ; preds = %165
+.thread125.i:                                     ; preds = %165
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store i32 2, ptr %21, align 8, !tbaa !24
   br label %198
@@ -442,15 +442,15 @@ thread-pre-split.i.i:                             ; preds = %165
   %.030.i.i = phi ptr [ %.131.i.i, %186 ], [ %.val43.i, %169 ]
   %.0.i47.i = phi i64 [ %.1.i.i, %186 ], [ %.val44.i, %169 ]
   %.not42.i.i = icmp eq ptr %.030.i.i, null
-  br i1 %.not42.i.i, label %.thread102.i, label %188
+  br i1 %.not42.i.i, label %.thread113.i, label %188
 
 188:                                              ; preds = %187
   store ptr %.030.i.i, ptr %10, align 8, !tbaa !45
   %189 = call ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef null, ptr noundef nonnull %10, i64 noundef %.0.i47.i) #5
   %.not43.i.i = icmp eq ptr %189, null
-  br i1 %.not43.i.i, label %.thread102.i, label %191
+  br i1 %.not43.i.i, label %.thread113.i, label %191
 
-.thread102.i:                                     ; preds = %188, %187
+.thread113.i:                                     ; preds = %188, %187
   %190 = load ptr, ptr %11, align 8, !tbaa !45
   call void @CRYPTO_free(ptr noundef %190, ptr noundef nonnull @.str.6, i32 noundef 384) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -487,15 +487,15 @@ thread-pre-split.i.i:                             ; preds = %165
   %spec.select82.i = select i1 %.not42.i, ptr @OSSL_STORE_INFO_new_PARAMS, ptr @OSSL_STORE_INFO_new_PUBKEY
   br label %198
 
-198:                                              ; preds = %196, %.sink.split.i, %194, %.thread114.i
-  %.1517179.i = phi i32 [ 0, %194 ], [ %.1517180.ph.i, %.sink.split.i ], [ %.1517180.ph.i, %196 ], [ 0, %.thread114.i ]
-  %.0357277.i = phi ptr [ %192, %194 ], [ %.0357278.ph.i, %.sink.split.i ], [ %.0357278.ph.i, %196 ], [ %166, %.thread114.i ]
-  %.153.i = phi ptr [ @OSSL_STORE_INFO_new_PKEY, %194 ], [ @OSSL_STORE_INFO_new_PKEY, %.sink.split.i ], [ %spec.select82.i, %196 ], [ @OSSL_STORE_INFO_new_PUBKEY, %.thread114.i ]
+198:                                              ; preds = %196, %.sink.split.i, %194, %.thread125.i
+  %.1517179.i = phi i32 [ 0, %194 ], [ %.1517180.ph.i, %.sink.split.i ], [ %.1517180.ph.i, %196 ], [ 0, %.thread125.i ]
+  %.0357277.i = phi ptr [ %192, %194 ], [ %.0357278.ph.i, %.sink.split.i ], [ %.0357278.ph.i, %196 ], [ %166, %.thread125.i ]
+  %.153.i = phi ptr [ @OSSL_STORE_INFO_new_PKEY, %194 ], [ @OSSL_STORE_INFO_new_PKEY, %.sink.split.i ], [ %spec.select82.i, %196 ], [ @OSSL_STORE_INFO_new_PUBKEY, %.thread125.i ]
   %199 = call ptr %.153.i(ptr noundef nonnull %.0357277.i) #5
   store ptr %199, ptr %1, align 8, !tbaa !20
   br label %200
 
-thread-pre-split.sink.split.i:                    ; preds = %.thread102.i, %167
+thread-pre-split.sink.split.i:                    ; preds = %.thread113.i, %167
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %thread-pre-split.i
 

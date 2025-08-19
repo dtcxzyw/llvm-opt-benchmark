@@ -724,13 +724,13 @@ any_addrinfos.exit:                               ; preds = %any_addrinfos.exit.
   %.1488 = phi ptr [ %.0487, %205 ], [ %.4491, %any_addrinfos.exit.backedge ]
   %.0480 = phi ptr [ null, %205 ], [ %.5485, %any_addrinfos.exit.backedge ]
   %.0472 = phi ptr [ null, %205 ], [ %.6478, %any_addrinfos.exit.backedge ]
-  %.0467 = phi i32 [ 10, %205 ], [ %.14687951573, %any_addrinfos.exit.backedge ]
-  %.0462 = phi i32 [ 0, %205 ], [ %.14637961568, %any_addrinfos.exit.backedge ]
+  %.0467 = phi i32 [ 10, %205 ], [ %.14687951624, %any_addrinfos.exit.backedge ]
+  %.0462 = phi i32 [ 0, %205 ], [ %.14637961619, %any_addrinfos.exit.backedge ]
   %.0430 = phi ptr [ null, %205 ], [ %.12, %any_addrinfos.exit.backedge ]
   %.sroa.18.0 = phi i32 [ 0, %205 ], [ %.sroa.18.17, %any_addrinfos.exit.backedge ]
   %.sroa.0223.0 = phi i32 [ 0, %205 ], [ %.sroa.0223.17, %any_addrinfos.exit.backedge ]
-  %.0424 = phi i32 [ 0, %205 ], [ %.14258001548, %any_addrinfos.exit.backedge ]
-  %.0 = phi i64 [ %16, %205 ], [ %.18011543, %any_addrinfos.exit.backedge ]
+  %.0424 = phi i32 [ 0, %205 ], [ %.14258001599, %any_addrinfos.exit.backedge ]
+  %.0 = phi i64 [ %16, %205 ], [ %.18011594, %any_addrinfos.exit.backedge ]
   %.not.i609 = icmp eq ptr %.sroa.0.2, null
   %215 = icmp eq ptr %.sroa.37.2, null
   %narrow.not = select i1 %.not.i609, i1 %215, i1 false
@@ -1205,9 +1205,9 @@ any_addrinfos.exit630:                            ; preds = %400
   unreachable
 
 pick_addrinfo.exit.thread778.thread:              ; preds = %365
-  %.not.i.i1540 = icmp eq ptr %.sroa.0.13.ph, null
-  %.not2.i1541 = icmp eq ptr %.sroa.37.12.ph, null
-  %or.cond.i1542 = select i1 %.not.i.i1540, i1 %.not2.i1541, i1 false
+  %.not.i.i1591 = icmp eq ptr %.sroa.0.13.ph, null
+  %.not2.i1592 = icmp eq ptr %.sroa.37.12.ph, null
+  %or.cond.i1593 = select i1 %.not.i.i1591, i1 %.not2.i1592, i1 false
   br label %any_addrinfos.exit.thread.i
 
 pick_addrinfo.exit.thread778:                     ; preds = %.split1128.us, %230, %225, %247, %266, %289, %379, %add_ts_to_tv.exit628, %401, %any_addrinfos.exit
@@ -1228,22 +1228,22 @@ pick_addrinfo.exit.thread778:                     ; preds = %.split1128.us, %230
   br i1 %or.cond.i, label %407, label %any_addrinfos.exit.thread.i
 
 any_addrinfos.exit.thread.i:                      ; preds = %pick_addrinfo.exit.thread778.thread, %pick_addrinfo.exit.thread778
-  %or.cond.i1610 = phi i1 [ %or.cond.i1542, %pick_addrinfo.exit.thread778.thread ], [ false, %pick_addrinfo.exit.thread778 ]
-  %.not2.i1605 = phi i1 [ %.not2.i1541, %pick_addrinfo.exit.thread778.thread ], [ %.not2.i, %pick_addrinfo.exit.thread778 ]
-  %.not.i.i1602 = phi i1 [ %.not.i.i1540, %pick_addrinfo.exit.thread778.thread ], [ %.not.i.i, %pick_addrinfo.exit.thread778 ]
-  %.sroa.37.37911597 = phi ptr [ %.sroa.37.12.ph, %pick_addrinfo.exit.thread778.thread ], [ %.sroa.37.3791, %pick_addrinfo.exit.thread778 ]
-  %.sroa.0.37921592 = phi ptr [ %.sroa.0.13.ph, %pick_addrinfo.exit.thread778.thread ], [ %.sroa.0.3792, %pick_addrinfo.exit.thread778 ]
-  %.14947931587 = phi ptr [ %.4497, %pick_addrinfo.exit.thread778.thread ], [ %.1494793, %pick_addrinfo.exit.thread778 ]
-  %.14817941578 = phi ptr [ %9, %pick_addrinfo.exit.thread778.thread ], [ %.1481794, %pick_addrinfo.exit.thread778 ]
-  %.14687951577 = phi i32 [ %.4471, %pick_addrinfo.exit.thread778.thread ], [ %.1468795, %pick_addrinfo.exit.thread778 ]
-  %.14637961572 = phi i32 [ %.4466, %pick_addrinfo.exit.thread778.thread ], [ %.1463796, %pick_addrinfo.exit.thread778 ]
-  %.14317971567 = phi ptr [ @.str.24, %pick_addrinfo.exit.thread778.thread ], [ %.1431797, %pick_addrinfo.exit.thread778 ]
-  %.sroa.18.17981562 = phi i32 [ %.sroa.18.2, %pick_addrinfo.exit.thread778.thread ], [ %.sroa.18.1798, %pick_addrinfo.exit.thread778 ]
-  %.sroa.0223.17991557 = phi i32 [ %.sroa.0223.2, %pick_addrinfo.exit.thread778.thread ], [ %.sroa.0223.1799, %pick_addrinfo.exit.thread778 ]
-  %.14258001552 = phi i32 [ %.4428, %pick_addrinfo.exit.thread778.thread ], [ %.1425800, %pick_addrinfo.exit.thread778 ]
-  %.18011547 = phi i64 [ %.4, %pick_addrinfo.exit.thread778.thread ], [ %.1801, %pick_addrinfo.exit.thread778 ]
+  %or.cond.i1661 = phi i1 [ %or.cond.i1593, %pick_addrinfo.exit.thread778.thread ], [ false, %pick_addrinfo.exit.thread778 ]
+  %.not2.i1656 = phi i1 [ %.not2.i1592, %pick_addrinfo.exit.thread778.thread ], [ %.not2.i, %pick_addrinfo.exit.thread778 ]
+  %.not.i.i1653 = phi i1 [ %.not.i.i1591, %pick_addrinfo.exit.thread778.thread ], [ %.not.i.i, %pick_addrinfo.exit.thread778 ]
+  %.sroa.37.37911648 = phi ptr [ %.sroa.37.12.ph, %pick_addrinfo.exit.thread778.thread ], [ %.sroa.37.3791, %pick_addrinfo.exit.thread778 ]
+  %.sroa.0.37921643 = phi ptr [ %.sroa.0.13.ph, %pick_addrinfo.exit.thread778.thread ], [ %.sroa.0.3792, %pick_addrinfo.exit.thread778 ]
+  %.14947931638 = phi ptr [ %.4497, %pick_addrinfo.exit.thread778.thread ], [ %.1494793, %pick_addrinfo.exit.thread778 ]
+  %.14817941629 = phi ptr [ %9, %pick_addrinfo.exit.thread778.thread ], [ %.1481794, %pick_addrinfo.exit.thread778 ]
+  %.14687951628 = phi i32 [ %.4471, %pick_addrinfo.exit.thread778.thread ], [ %.1468795, %pick_addrinfo.exit.thread778 ]
+  %.14637961623 = phi i32 [ %.4466, %pick_addrinfo.exit.thread778.thread ], [ %.1463796, %pick_addrinfo.exit.thread778 ]
+  %.14317971618 = phi ptr [ @.str.24, %pick_addrinfo.exit.thread778.thread ], [ %.1431797, %pick_addrinfo.exit.thread778 ]
+  %.sroa.18.17981613 = phi i32 [ %.sroa.18.2, %pick_addrinfo.exit.thread778.thread ], [ %.sroa.18.1798, %pick_addrinfo.exit.thread778 ]
+  %.sroa.0223.17991608 = phi i32 [ %.sroa.0223.2, %pick_addrinfo.exit.thread778.thread ], [ %.sroa.0223.1799, %pick_addrinfo.exit.thread778 ]
+  %.14258001603 = phi i32 [ %.4428, %pick_addrinfo.exit.thread778.thread ], [ %.1425800, %pick_addrinfo.exit.thread778 ]
+  %.18011598 = phi i64 [ %.4, %pick_addrinfo.exit.thread778.thread ], [ %.1801, %pick_addrinfo.exit.thread778 ]
   %.not29.i = icmp eq ptr %.0472, null
-  %406 = select i1 %.not29.i, ptr %.14817941578, ptr %.0472
+  %406 = select i1 %.not29.i, ptr %.14817941629, ptr %.0472
   br label %select_expires_at.exit
 
 407:                                              ; preds = %pick_addrinfo.exit.thread778
@@ -1269,9 +1269,9 @@ any_addrinfos.exit.thread.i:                      ; preds = %pick_addrinfo.exit.
   %418 = load i64, ptr %417, align 8
   %419 = icmp eq i64 %416, -1
   %420 = icmp eq i64 %418, -1
-  %.not6.not8.i = select i1 %419, i1 true, i1 %420
-  %brmerge.i = or i1 %.not24.i, %.not6.not8.i
-  %.mux.i = select i1 %.not6.not8.i, ptr null, ptr %.1494793
+  %.not6.not12.i = select i1 %419, i1 true, i1 %420
+  %brmerge.i = or i1 %.not24.i, %.not6.not12.i
+  %.mux.i = select i1 %.not6.not12.i, ptr null, ptr %.1494793
   br i1 %brmerge.i, label %select_expires_at.exit, label %421
 
 421:                                              ; preds = %415
@@ -1293,39 +1293,39 @@ select_expires_at.exit.thread915:                 ; preds = %428, %424
   br label %select_expires_at.exit.thread
 
 select_expires_at.exit:                           ; preds = %414, %any_addrinfos.exit.thread.i, %415
-  %or.cond.i1609 = phi i1 [ %or.cond.i1610, %any_addrinfos.exit.thread.i ], [ true, %415 ], [ true, %414 ]
-  %.not2.i1604 = phi i1 [ %.not2.i1605, %any_addrinfos.exit.thread.i ], [ %.not2.i, %415 ], [ %.not2.i, %414 ]
-  %.not.i.i1601 = phi i1 [ %.not.i.i1602, %any_addrinfos.exit.thread.i ], [ %.not.i.i, %415 ], [ %.not.i.i, %414 ]
-  %.sroa.37.37911596 = phi ptr [ %.sroa.37.37911597, %any_addrinfos.exit.thread.i ], [ null, %415 ], [ null, %414 ]
-  %.sroa.0.37921591 = phi ptr [ %.sroa.0.37921592, %any_addrinfos.exit.thread.i ], [ null, %415 ], [ null, %414 ]
-  %.14947931586 = phi ptr [ %.14947931587, %any_addrinfos.exit.thread.i ], [ %.1494793, %415 ], [ null, %414 ]
-  %.14817941582 = phi ptr [ %.14817941578, %any_addrinfos.exit.thread.i ], [ %.1481794, %415 ], [ %.1481794, %414 ]
-  %.14687951576 = phi i32 [ %.14687951577, %any_addrinfos.exit.thread.i ], [ %.1468795, %415 ], [ %.1468795, %414 ]
-  %.14637961571 = phi i32 [ %.14637961572, %any_addrinfos.exit.thread.i ], [ %.1463796, %415 ], [ %.1463796, %414 ]
-  %.14317971566 = phi ptr [ %.14317971567, %any_addrinfos.exit.thread.i ], [ %.1431797, %415 ], [ %.1431797, %414 ]
-  %.sroa.18.17981561 = phi i32 [ %.sroa.18.17981562, %any_addrinfos.exit.thread.i ], [ %.sroa.18.1798, %415 ], [ %.sroa.18.1798, %414 ]
-  %.sroa.0223.17991556 = phi i32 [ %.sroa.0223.17991557, %any_addrinfos.exit.thread.i ], [ %.sroa.0223.1799, %415 ], [ %.sroa.0223.1799, %414 ]
-  %.14258001551 = phi i32 [ %.14258001552, %any_addrinfos.exit.thread.i ], [ %.1425800, %415 ], [ %.1425800, %414 ]
-  %.18011546 = phi i64 [ %.18011547, %any_addrinfos.exit.thread.i ], [ %.1801, %415 ], [ %.1801, %414 ]
+  %or.cond.i1660 = phi i1 [ %or.cond.i1661, %any_addrinfos.exit.thread.i ], [ true, %415 ], [ true, %414 ]
+  %.not2.i1655 = phi i1 [ %.not2.i1656, %any_addrinfos.exit.thread.i ], [ %.not2.i, %415 ], [ %.not2.i, %414 ]
+  %.not.i.i1652 = phi i1 [ %.not.i.i1653, %any_addrinfos.exit.thread.i ], [ %.not.i.i, %415 ], [ %.not.i.i, %414 ]
+  %.sroa.37.37911647 = phi ptr [ %.sroa.37.37911648, %any_addrinfos.exit.thread.i ], [ null, %415 ], [ null, %414 ]
+  %.sroa.0.37921642 = phi ptr [ %.sroa.0.37921643, %any_addrinfos.exit.thread.i ], [ null, %415 ], [ null, %414 ]
+  %.14947931637 = phi ptr [ %.14947931638, %any_addrinfos.exit.thread.i ], [ %.1494793, %415 ], [ null, %414 ]
+  %.14817941633 = phi ptr [ %.14817941629, %any_addrinfos.exit.thread.i ], [ %.1481794, %415 ], [ %.1481794, %414 ]
+  %.14687951627 = phi i32 [ %.14687951628, %any_addrinfos.exit.thread.i ], [ %.1468795, %415 ], [ %.1468795, %414 ]
+  %.14637961622 = phi i32 [ %.14637961623, %any_addrinfos.exit.thread.i ], [ %.1463796, %415 ], [ %.1463796, %414 ]
+  %.14317971617 = phi ptr [ %.14317971618, %any_addrinfos.exit.thread.i ], [ %.1431797, %415 ], [ %.1431797, %414 ]
+  %.sroa.18.17981612 = phi i32 [ %.sroa.18.17981613, %any_addrinfos.exit.thread.i ], [ %.sroa.18.1798, %415 ], [ %.sroa.18.1798, %414 ]
+  %.sroa.0223.17991607 = phi i32 [ %.sroa.0223.17991608, %any_addrinfos.exit.thread.i ], [ %.sroa.0223.1799, %415 ], [ %.sroa.0223.1799, %414 ]
+  %.14258001602 = phi i32 [ %.14258001603, %any_addrinfos.exit.thread.i ], [ %.1425800, %415 ], [ %.1425800, %414 ]
+  %.18011597 = phi i64 [ %.18011598, %any_addrinfos.exit.thread.i ], [ %.1801, %415 ], [ %.1801, %414 ]
   %.019.i = phi ptr [ %406, %any_addrinfos.exit.thread.i ], [ %.mux.i, %415 ], [ %.1488, %414 ]
   %.not550 = icmp eq ptr %.019.i, null
   br i1 %.not550, label %select_expires_at.exit.thread805, label %select_expires_at.exit.thread
 
 select_expires_at.exit.thread:                    ; preds = %select_expires_at.exit.thread915, %424, %428, %select_expires_at.exit
-  %or.cond.i1612 = phi i1 [ %or.cond.i1609, %select_expires_at.exit ], [ true, %428 ], [ true, %424 ], [ true, %select_expires_at.exit.thread915 ]
-  %.not2.i1607 = phi i1 [ %.not2.i1604, %select_expires_at.exit ], [ %.not2.i, %428 ], [ %.not2.i, %424 ], [ %.not2.i, %select_expires_at.exit.thread915 ]
-  %.not.i.i1599 = phi i1 [ %.not.i.i1601, %select_expires_at.exit ], [ %.not.i.i, %428 ], [ %.not.i.i, %424 ], [ %.not.i.i, %select_expires_at.exit.thread915 ]
-  %.sroa.37.37911594 = phi ptr [ %.sroa.37.37911596, %select_expires_at.exit ], [ null, %428 ], [ null, %424 ], [ null, %select_expires_at.exit.thread915 ]
-  %.sroa.0.37921589 = phi ptr [ %.sroa.0.37921591, %select_expires_at.exit ], [ null, %428 ], [ null, %424 ], [ null, %select_expires_at.exit.thread915 ]
-  %.14947931584 = phi ptr [ %.14947931586, %select_expires_at.exit ], [ %.1494793, %428 ], [ %.1494793, %424 ], [ %.1494793, %select_expires_at.exit.thread915 ]
-  %.14817941580 = phi ptr [ %.14817941582, %select_expires_at.exit ], [ %.1481794, %428 ], [ %.1481794, %424 ], [ %.1481794, %select_expires_at.exit.thread915 ]
-  %.14687951574 = phi i32 [ %.14687951576, %select_expires_at.exit ], [ %.1468795, %428 ], [ %.1468795, %424 ], [ %.1468795, %select_expires_at.exit.thread915 ]
-  %.14637961569 = phi i32 [ %.14637961571, %select_expires_at.exit ], [ %.1463796, %428 ], [ %.1463796, %424 ], [ %.1463796, %select_expires_at.exit.thread915 ]
-  %.14317971564 = phi ptr [ %.14317971566, %select_expires_at.exit ], [ %.1431797, %428 ], [ %.1431797, %424 ], [ %.1431797, %select_expires_at.exit.thread915 ]
-  %.sroa.18.17981559 = phi i32 [ %.sroa.18.17981561, %select_expires_at.exit ], [ %.sroa.18.1798, %428 ], [ %.sroa.18.1798, %424 ], [ %.sroa.18.1798, %select_expires_at.exit.thread915 ]
-  %.sroa.0223.17991554 = phi i32 [ %.sroa.0223.17991556, %select_expires_at.exit ], [ %.sroa.0223.1799, %428 ], [ %.sroa.0223.1799, %424 ], [ %.sroa.0223.1799, %select_expires_at.exit.thread915 ]
-  %.14258001549 = phi i32 [ %.14258001551, %select_expires_at.exit ], [ %.1425800, %428 ], [ %.1425800, %424 ], [ %.1425800, %select_expires_at.exit.thread915 ]
-  %.18011544 = phi i64 [ %.18011546, %select_expires_at.exit ], [ %.1801, %428 ], [ %.1801, %424 ], [ %.1801, %select_expires_at.exit.thread915 ]
+  %or.cond.i1663 = phi i1 [ %or.cond.i1660, %select_expires_at.exit ], [ true, %428 ], [ true, %424 ], [ true, %select_expires_at.exit.thread915 ]
+  %.not2.i1658 = phi i1 [ %.not2.i1655, %select_expires_at.exit ], [ %.not2.i, %428 ], [ %.not2.i, %424 ], [ %.not2.i, %select_expires_at.exit.thread915 ]
+  %.not.i.i1650 = phi i1 [ %.not.i.i1652, %select_expires_at.exit ], [ %.not.i.i, %428 ], [ %.not.i.i, %424 ], [ %.not.i.i, %select_expires_at.exit.thread915 ]
+  %.sroa.37.37911645 = phi ptr [ %.sroa.37.37911647, %select_expires_at.exit ], [ null, %428 ], [ null, %424 ], [ null, %select_expires_at.exit.thread915 ]
+  %.sroa.0.37921640 = phi ptr [ %.sroa.0.37921642, %select_expires_at.exit ], [ null, %428 ], [ null, %424 ], [ null, %select_expires_at.exit.thread915 ]
+  %.14947931635 = phi ptr [ %.14947931637, %select_expires_at.exit ], [ %.1494793, %428 ], [ %.1494793, %424 ], [ %.1494793, %select_expires_at.exit.thread915 ]
+  %.14817941631 = phi ptr [ %.14817941633, %select_expires_at.exit ], [ %.1481794, %428 ], [ %.1481794, %424 ], [ %.1481794, %select_expires_at.exit.thread915 ]
+  %.14687951625 = phi i32 [ %.14687951627, %select_expires_at.exit ], [ %.1468795, %428 ], [ %.1468795, %424 ], [ %.1468795, %select_expires_at.exit.thread915 ]
+  %.14637961620 = phi i32 [ %.14637961622, %select_expires_at.exit ], [ %.1463796, %428 ], [ %.1463796, %424 ], [ %.1463796, %select_expires_at.exit.thread915 ]
+  %.14317971615 = phi ptr [ %.14317971617, %select_expires_at.exit ], [ %.1431797, %428 ], [ %.1431797, %424 ], [ %.1431797, %select_expires_at.exit.thread915 ]
+  %.sroa.18.17981610 = phi i32 [ %.sroa.18.17981612, %select_expires_at.exit ], [ %.sroa.18.1798, %428 ], [ %.sroa.18.1798, %424 ], [ %.sroa.18.1798, %select_expires_at.exit.thread915 ]
+  %.sroa.0223.17991605 = phi i32 [ %.sroa.0223.17991607, %select_expires_at.exit ], [ %.sroa.0223.1799, %428 ], [ %.sroa.0223.1799, %424 ], [ %.sroa.0223.1799, %select_expires_at.exit.thread915 ]
+  %.14258001600 = phi i32 [ %.14258001602, %select_expires_at.exit ], [ %.1425800, %428 ], [ %.1425800, %424 ], [ %.1425800, %select_expires_at.exit.thread915 ]
+  %.18011595 = phi i64 [ %.18011597, %select_expires_at.exit ], [ %.1801, %428 ], [ %.1801, %424 ], [ %.1801, %select_expires_at.exit.thread915 ]
   %.019.i804 = phi ptr [ %.019.i, %select_expires_at.exit ], [ %.1494793, %428 ], [ %.1494793, %424 ], [ %.1488, %select_expires_at.exit.thread915 ]
   %.val596 = load i64, ptr %.019.i804, align 8, !tbaa !88
   %430 = getelementptr i8, ptr %.019.i804, i64 8
@@ -1344,20 +1344,20 @@ select_expires_at.exit.thread:                    ; preds = %select_expires_at.e
   br label %any_addrinfos.exit637.thread.sink.split
 
 select_expires_at.exit.thread805:                 ; preds = %408, %select_expires_at.exit
-  %or.cond.i1608 = phi i1 [ true, %408 ], [ %or.cond.i1609, %select_expires_at.exit ]
-  %.not2.i1603 = phi i1 [ %.not2.i, %408 ], [ %.not2.i1604, %select_expires_at.exit ]
-  %.not.i.i1600 = phi i1 [ %.not.i.i, %408 ], [ %.not.i.i1601, %select_expires_at.exit ]
-  %.sroa.37.37911595 = phi ptr [ null, %408 ], [ %.sroa.37.37911596, %select_expires_at.exit ]
-  %.sroa.0.37921590 = phi ptr [ null, %408 ], [ %.sroa.0.37921591, %select_expires_at.exit ]
-  %.14947931585 = phi ptr [ %.1494793, %408 ], [ %.14947931586, %select_expires_at.exit ]
-  %.14817941581 = phi ptr [ %.1481794, %408 ], [ %.14817941582, %select_expires_at.exit ]
-  %.14687951575 = phi i32 [ %.1468795, %408 ], [ %.14687951576, %select_expires_at.exit ]
-  %.14637961570 = phi i32 [ %.1463796, %408 ], [ %.14637961571, %select_expires_at.exit ]
-  %.14317971565 = phi ptr [ %.1431797, %408 ], [ %.14317971566, %select_expires_at.exit ]
-  %.sroa.18.17981560 = phi i32 [ %.sroa.18.1798, %408 ], [ %.sroa.18.17981561, %select_expires_at.exit ]
-  %.sroa.0223.17991555 = phi i32 [ %.sroa.0223.1799, %408 ], [ %.sroa.0223.17991556, %select_expires_at.exit ]
-  %.14258001550 = phi i32 [ %.1425800, %408 ], [ %.14258001551, %select_expires_at.exit ]
-  %.18011545 = phi i64 [ %.1801, %408 ], [ %.18011546, %select_expires_at.exit ]
+  %or.cond.i1659 = phi i1 [ true, %408 ], [ %or.cond.i1660, %select_expires_at.exit ]
+  %.not2.i1654 = phi i1 [ %.not2.i, %408 ], [ %.not2.i1655, %select_expires_at.exit ]
+  %.not.i.i1651 = phi i1 [ %.not.i.i, %408 ], [ %.not.i.i1652, %select_expires_at.exit ]
+  %.sroa.37.37911646 = phi ptr [ null, %408 ], [ %.sroa.37.37911647, %select_expires_at.exit ]
+  %.sroa.0.37921641 = phi ptr [ null, %408 ], [ %.sroa.0.37921642, %select_expires_at.exit ]
+  %.14947931636 = phi ptr [ %.1494793, %408 ], [ %.14947931637, %select_expires_at.exit ]
+  %.14817941632 = phi ptr [ %.1481794, %408 ], [ %.14817941633, %select_expires_at.exit ]
+  %.14687951626 = phi i32 [ %.1468795, %408 ], [ %.14687951627, %select_expires_at.exit ]
+  %.14637961621 = phi i32 [ %.1463796, %408 ], [ %.14637961622, %select_expires_at.exit ]
+  %.14317971616 = phi ptr [ %.1431797, %408 ], [ %.14317971617, %select_expires_at.exit ]
+  %.sroa.18.17981611 = phi i32 [ %.sroa.18.1798, %408 ], [ %.sroa.18.17981612, %select_expires_at.exit ]
+  %.sroa.0223.17991606 = phi i32 [ %.sroa.0223.1799, %408 ], [ %.sroa.0223.17991607, %select_expires_at.exit ]
+  %.14258001601 = phi i32 [ %.1425800, %408 ], [ %.14258001602, %select_expires_at.exit ]
+  %.18011596 = phi i64 [ %.1801, %408 ], [ %.18011597, %select_expires_at.exit ]
   %438 = icmp eq i32 %.sroa.20.2, 0
   %439 = icmp ne i32 %.sroa.55.2, 0
   %or.cond10 = select i1 %438, i1 true, i1 %439
@@ -1365,12 +1365,12 @@ select_expires_at.exit.thread805:                 ; preds = %408, %select_expire
 
 440:                                              ; preds = %select_expires_at.exit.thread805
   %or.cond14.not931 = and i1 %439, %438
-  %brmerge.not = and i1 %or.cond14.not931, %.not.i.i1600
-  %or.cond941 = select i1 %brmerge.not, i1 %.not2.i1603, i1 false
+  %brmerge.not = and i1 %or.cond14.not931, %.not.i.i1651
+  %or.cond941 = select i1 %brmerge.not, i1 %.not2.i1654, i1 false
   br i1 %or.cond941, label %442, label %any_addrinfos.exit637.thread
 
 441:                                              ; preds = %select_expires_at.exit.thread805
-  br i1 %or.cond.i1608, label %442, label %any_addrinfos.exit637.thread
+  br i1 %or.cond.i1659, label %442, label %any_addrinfos.exit637.thread
 
 442:                                              ; preds = %441, %440
   %443 = load i32, ptr %33, align 4, !tbaa !56
@@ -1378,41 +1378,41 @@ select_expires_at.exit.thread805:                 ; preds = %408, %select_expire
   br i1 %444, label %any_addrinfos.exit637.thread.sink.split, label %any_addrinfos.exit637.thread
 
 any_addrinfos.exit637.thread.sink.split:          ; preds = %442, %select_expires_at.exit.thread
-  %.sink1822 = phi i64 [ %.sroa.0.0.i, %select_expires_at.exit.thread ], [ 0, %442 ]
+  %.sink1873 = phi i64 [ %.sroa.0.0.i, %select_expires_at.exit.thread ], [ 0, %442 ]
   %.sink = phi i64 [ %437, %select_expires_at.exit.thread ], [ 50000, %442 ]
-  %or.cond.i1611.ph = phi i1 [ %or.cond.i1612, %select_expires_at.exit.thread ], [ %or.cond.i1608, %442 ]
-  %.not2.i1606.ph = phi i1 [ %.not2.i1607, %select_expires_at.exit.thread ], [ %.not2.i1603, %442 ]
-  %.not.i.i1598.ph = phi i1 [ %.not.i.i1599, %select_expires_at.exit.thread ], [ %.not.i.i1600, %442 ]
-  %.sroa.37.37911593.ph = phi ptr [ %.sroa.37.37911594, %select_expires_at.exit.thread ], [ %.sroa.37.37911595, %442 ]
-  %.sroa.0.37921588.ph = phi ptr [ %.sroa.0.37921589, %select_expires_at.exit.thread ], [ %.sroa.0.37921590, %442 ]
-  %.14947931583.ph = phi ptr [ %.14947931584, %select_expires_at.exit.thread ], [ %.14947931585, %442 ]
-  %.14817941579.ph = phi ptr [ %.14817941580, %select_expires_at.exit.thread ], [ %.14817941581, %442 ]
-  %.14687951573.ph = phi i32 [ %.14687951574, %select_expires_at.exit.thread ], [ %.14687951575, %442 ]
-  %.14637961568.ph = phi i32 [ %.14637961569, %select_expires_at.exit.thread ], [ %.14637961570, %442 ]
-  %.14317971563.ph = phi ptr [ %.14317971564, %select_expires_at.exit.thread ], [ %.14317971565, %442 ]
-  %.sroa.18.17981558.ph = phi i32 [ %.sroa.18.17981559, %select_expires_at.exit.thread ], [ %.sroa.18.17981560, %442 ]
-  %.sroa.0223.17991553.ph = phi i32 [ %.sroa.0223.17991554, %select_expires_at.exit.thread ], [ %.sroa.0223.17991555, %442 ]
-  %.14258001548.ph = phi i32 [ %.14258001549, %select_expires_at.exit.thread ], [ %.14258001550, %442 ]
-  %.18011543.ph = phi i64 [ %.18011544, %select_expires_at.exit.thread ], [ %.18011545, %442 ]
-  store i64 %.sink1822, ptr %7, align 8, !tbaa !79
+  %or.cond.i1662.ph = phi i1 [ %or.cond.i1663, %select_expires_at.exit.thread ], [ %or.cond.i1659, %442 ]
+  %.not2.i1657.ph = phi i1 [ %.not2.i1658, %select_expires_at.exit.thread ], [ %.not2.i1654, %442 ]
+  %.not.i.i1649.ph = phi i1 [ %.not.i.i1650, %select_expires_at.exit.thread ], [ %.not.i.i1651, %442 ]
+  %.sroa.37.37911644.ph = phi ptr [ %.sroa.37.37911645, %select_expires_at.exit.thread ], [ %.sroa.37.37911646, %442 ]
+  %.sroa.0.37921639.ph = phi ptr [ %.sroa.0.37921640, %select_expires_at.exit.thread ], [ %.sroa.0.37921641, %442 ]
+  %.14947931634.ph = phi ptr [ %.14947931635, %select_expires_at.exit.thread ], [ %.14947931636, %442 ]
+  %.14817941630.ph = phi ptr [ %.14817941631, %select_expires_at.exit.thread ], [ %.14817941632, %442 ]
+  %.14687951624.ph = phi i32 [ %.14687951625, %select_expires_at.exit.thread ], [ %.14687951626, %442 ]
+  %.14637961619.ph = phi i32 [ %.14637961620, %select_expires_at.exit.thread ], [ %.14637961621, %442 ]
+  %.14317971614.ph = phi ptr [ %.14317971615, %select_expires_at.exit.thread ], [ %.14317971616, %442 ]
+  %.sroa.18.17981609.ph = phi i32 [ %.sroa.18.17981610, %select_expires_at.exit.thread ], [ %.sroa.18.17981611, %442 ]
+  %.sroa.0223.17991604.ph = phi i32 [ %.sroa.0223.17991605, %select_expires_at.exit.thread ], [ %.sroa.0223.17991606, %442 ]
+  %.14258001599.ph = phi i32 [ %.14258001600, %select_expires_at.exit.thread ], [ %.14258001601, %442 ]
+  %.18011594.ph = phi i64 [ %.18011595, %select_expires_at.exit.thread ], [ %.18011596, %442 ]
+  store i64 %.sink1873, ptr %7, align 8, !tbaa !79
   store i64 %.sink, ptr %.sroa.474.0..sroa_idx, align 8, !tbaa !79
   br label %any_addrinfos.exit637.thread
 
 any_addrinfos.exit637.thread:                     ; preds = %any_addrinfos.exit637.thread.sink.split, %440, %441, %442
-  %or.cond.i1611 = phi i1 [ %or.cond.i1608, %442 ], [ %or.cond.i1608, %440 ], [ false, %441 ], [ %or.cond.i1611.ph, %any_addrinfos.exit637.thread.sink.split ]
-  %.not2.i1606 = phi i1 [ %.not2.i1603, %442 ], [ %.not2.i1603, %440 ], [ %.not2.i1603, %441 ], [ %.not2.i1606.ph, %any_addrinfos.exit637.thread.sink.split ]
-  %.not.i.i1598 = phi i1 [ %.not.i.i1600, %442 ], [ %.not.i.i1600, %440 ], [ %.not.i.i1600, %441 ], [ %.not.i.i1598.ph, %any_addrinfos.exit637.thread.sink.split ]
-  %.sroa.37.37911593 = phi ptr [ %.sroa.37.37911595, %442 ], [ %.sroa.37.37911595, %440 ], [ %.sroa.37.37911595, %441 ], [ %.sroa.37.37911593.ph, %any_addrinfos.exit637.thread.sink.split ]
-  %.sroa.0.37921588 = phi ptr [ %.sroa.0.37921590, %442 ], [ %.sroa.0.37921590, %440 ], [ %.sroa.0.37921590, %441 ], [ %.sroa.0.37921588.ph, %any_addrinfos.exit637.thread.sink.split ]
-  %.14947931583 = phi ptr [ %.14947931585, %442 ], [ %.14947931585, %440 ], [ %.14947931585, %441 ], [ %.14947931583.ph, %any_addrinfos.exit637.thread.sink.split ]
-  %.14817941579 = phi ptr [ %.14817941581, %442 ], [ %.14817941581, %440 ], [ %.14817941581, %441 ], [ %.14817941579.ph, %any_addrinfos.exit637.thread.sink.split ]
-  %.14687951573 = phi i32 [ %.14687951575, %442 ], [ %.14687951575, %440 ], [ %.14687951575, %441 ], [ %.14687951573.ph, %any_addrinfos.exit637.thread.sink.split ]
-  %.14637961568 = phi i32 [ %.14637961570, %442 ], [ %.14637961570, %440 ], [ %.14637961570, %441 ], [ %.14637961568.ph, %any_addrinfos.exit637.thread.sink.split ]
-  %.14317971563 = phi ptr [ %.14317971565, %442 ], [ %.14317971565, %440 ], [ %.14317971565, %441 ], [ %.14317971563.ph, %any_addrinfos.exit637.thread.sink.split ]
-  %.sroa.18.17981558 = phi i32 [ %.sroa.18.17981560, %442 ], [ %.sroa.18.17981560, %440 ], [ %.sroa.18.17981560, %441 ], [ %.sroa.18.17981558.ph, %any_addrinfos.exit637.thread.sink.split ]
-  %.sroa.0223.17991553 = phi i32 [ %.sroa.0223.17991555, %442 ], [ %.sroa.0223.17991555, %440 ], [ %.sroa.0223.17991555, %441 ], [ %.sroa.0223.17991553.ph, %any_addrinfos.exit637.thread.sink.split ]
-  %.14258001548 = phi i32 [ %.14258001550, %442 ], [ %.14258001550, %440 ], [ %.14258001550, %441 ], [ %.14258001548.ph, %any_addrinfos.exit637.thread.sink.split ]
-  %.18011543 = phi i64 [ %.18011545, %442 ], [ %.18011545, %440 ], [ %.18011545, %441 ], [ %.18011543.ph, %any_addrinfos.exit637.thread.sink.split ]
+  %or.cond.i1662 = phi i1 [ %or.cond.i1659, %442 ], [ %or.cond.i1659, %440 ], [ false, %441 ], [ %or.cond.i1662.ph, %any_addrinfos.exit637.thread.sink.split ]
+  %.not2.i1657 = phi i1 [ %.not2.i1654, %442 ], [ %.not2.i1654, %440 ], [ %.not2.i1654, %441 ], [ %.not2.i1657.ph, %any_addrinfos.exit637.thread.sink.split ]
+  %.not.i.i1649 = phi i1 [ %.not.i.i1651, %442 ], [ %.not.i.i1651, %440 ], [ %.not.i.i1651, %441 ], [ %.not.i.i1649.ph, %any_addrinfos.exit637.thread.sink.split ]
+  %.sroa.37.37911644 = phi ptr [ %.sroa.37.37911646, %442 ], [ %.sroa.37.37911646, %440 ], [ %.sroa.37.37911646, %441 ], [ %.sroa.37.37911644.ph, %any_addrinfos.exit637.thread.sink.split ]
+  %.sroa.0.37921639 = phi ptr [ %.sroa.0.37921641, %442 ], [ %.sroa.0.37921641, %440 ], [ %.sroa.0.37921641, %441 ], [ %.sroa.0.37921639.ph, %any_addrinfos.exit637.thread.sink.split ]
+  %.14947931634 = phi ptr [ %.14947931636, %442 ], [ %.14947931636, %440 ], [ %.14947931636, %441 ], [ %.14947931634.ph, %any_addrinfos.exit637.thread.sink.split ]
+  %.14817941630 = phi ptr [ %.14817941632, %442 ], [ %.14817941632, %440 ], [ %.14817941632, %441 ], [ %.14817941630.ph, %any_addrinfos.exit637.thread.sink.split ]
+  %.14687951624 = phi i32 [ %.14687951626, %442 ], [ %.14687951626, %440 ], [ %.14687951626, %441 ], [ %.14687951624.ph, %any_addrinfos.exit637.thread.sink.split ]
+  %.14637961619 = phi i32 [ %.14637961621, %442 ], [ %.14637961621, %440 ], [ %.14637961621, %441 ], [ %.14637961619.ph, %any_addrinfos.exit637.thread.sink.split ]
+  %.14317971614 = phi ptr [ %.14317971616, %442 ], [ %.14317971616, %440 ], [ %.14317971616, %441 ], [ %.14317971614.ph, %any_addrinfos.exit637.thread.sink.split ]
+  %.sroa.18.17981609 = phi i32 [ %.sroa.18.17981611, %442 ], [ %.sroa.18.17981611, %440 ], [ %.sroa.18.17981611, %441 ], [ %.sroa.18.17981609.ph, %any_addrinfos.exit637.thread.sink.split ]
+  %.sroa.0223.17991604 = phi i32 [ %.sroa.0223.17991606, %442 ], [ %.sroa.0223.17991606, %440 ], [ %.sroa.0223.17991606, %441 ], [ %.sroa.0223.17991604.ph, %any_addrinfos.exit637.thread.sink.split ]
+  %.14258001599 = phi i32 [ %.14258001601, %442 ], [ %.14258001601, %440 ], [ %.14258001601, %441 ], [ %.14258001599.ph, %any_addrinfos.exit637.thread.sink.split ]
+  %.18011594 = phi i64 [ %.18011596, %442 ], [ %.18011596, %440 ], [ %.18011596, %441 ], [ %.18011594.ph, %any_addrinfos.exit637.thread.sink.split ]
   %.0461 = phi ptr [ null, %442 ], [ null, %440 ], [ null, %441 ], [ %7, %any_addrinfos.exit637.thread.sink.split ]
   call void @rb_fd_zero(ptr noundef nonnull %209) #19
   %445 = load i32, ptr %33, align 4, !tbaa !56
@@ -1513,16 +1513,16 @@ is_timeout_tv.exit.thread:                        ; preds = %473, %current_clock
 
 is_timeout_tv.exit.thread812:                     ; preds = %477, %is_timeout_tv.exit, %is_timeout_tv.exit.thread
   %483 = phi ptr [ %.0472, %is_timeout_tv.exit.thread ], [ null, %is_timeout_tv.exit ], [ null, %477 ]
-  %.not.i646 = icmp eq ptr %.14817941579, null
+  %.not.i646 = icmp eq ptr %.14817941630, null
   br i1 %.not.i646, label %is_timeout_tv.exit651.thread, label %484
 
 484:                                              ; preds = %is_timeout_tv.exit.thread812
-  %485 = load i64, ptr %.14817941579, align 8, !tbaa !88
+  %485 = load i64, ptr %.14817941630, align 8, !tbaa !88
   %486 = icmp eq i64 %485, -1
   br i1 %486, label %487, label %491
 
 487:                                              ; preds = %484
-  %488 = getelementptr inbounds nuw i8, ptr %.14817941579, i64 8
+  %488 = getelementptr inbounds nuw i8, ptr %.14817941630, i64 8
   %489 = load i64, ptr %488, align 8, !tbaa !90
   %490 = icmp eq i64 %489, -1
   br i1 %490, label %is_timeout_tv.exit651.thread, label %491
@@ -1532,7 +1532,7 @@ is_timeout_tv.exit.thread812:                     ; preds = %477, %is_timeout_tv
   br i1 %492, label %is_timeout_tv.exit651.thread820, label %is_timeout_tv.exit651
 
 is_timeout_tv.exit651:                            ; preds = %491
-  %493 = getelementptr inbounds nuw i8, ptr %.14817941579, i64 8
+  %493 = getelementptr inbounds nuw i8, ptr %.14817941630, i64 8
   %494 = load i64, ptr %493, align 8, !tbaa !90
   %495 = mul nsw i64 %494, 1000
   %496 = icmp ne i64 %.fca.0.load.i638, %485
@@ -1545,7 +1545,7 @@ is_timeout_tv.exit651.thread:                     ; preds = %487, %is_timeout_tv
   br label %is_timeout_tv.exit651.thread820
 
 is_timeout_tv.exit651.thread820:                  ; preds = %491, %is_timeout_tv.exit651, %is_timeout_tv.exit651.thread
-  %497 = phi ptr [ %.14817941579, %is_timeout_tv.exit651.thread ], [ null, %is_timeout_tv.exit651 ], [ null, %491 ]
+  %497 = phi ptr [ %.14817941630, %is_timeout_tv.exit651.thread ], [ null, %is_timeout_tv.exit651 ], [ null, %491 ]
   %498 = load i32, ptr %4, align 4, !tbaa !6
   %499 = icmp slt i32 %498, 0
   br i1 %499, label %500, label %509
@@ -1585,8 +1585,8 @@ thread-pre-split:                                 ; preds = %500, %503
 .lr.ph1299:                                       ; preds = %512, %.thread826
   %515 = phi i32 [ %574, %.thread826 ], [ %513, %512 ]
   %indvars.iv1514 = phi i64 [ %indvars.iv.next1515, %.thread826 ], [ 0, %512 ]
-  %.sroa.0223.61297 = phi i32 [ %.sroa.0223.8832, %.thread826 ], [ %.sroa.0223.17991553, %512 ]
-  %.sroa.18.61296 = phi i32 [ %.sroa.18.8831, %.thread826 ], [ %.sroa.18.17981558, %512 ]
+  %.sroa.0223.61297 = phi i32 [ %.sroa.0223.8832, %.thread826 ], [ %.sroa.0223.17991604, %512 ]
+  %.sroa.18.61296 = phi i32 [ %.sroa.18.8831, %.thread826 ], [ %.sroa.18.17981609, %512 ]
   %516 = load ptr, ptr %32, align 8, !tbaa !55
   %517 = getelementptr inbounds nuw i32, ptr %516, i64 %indvars.iv1514
   %518 = load i32, ptr %517, align 4, !tbaa !6
@@ -1612,28 +1612,28 @@ thread-pre-split:                                 ; preds = %500, %503
   %527 = load i32, ptr %526, align 4, !tbaa !6
   %528 = call i32 @close(i32 noundef %518) #19
   %.pre1525.pre1526 = load i32, ptr %33, align 4, !tbaa !56
-  br i1 %or.cond.i1611, label %529, label %any_addrinfos.exit653.thread
+  br i1 %or.cond.i1662, label %529, label %any_addrinfos.exit653.thread
 
 529:                                              ; preds = %525
   %530 = icmp sgt i32 %.pre1525.pre1526, 0
   %.not563 = icmp eq i32 %.sroa.73.1, 0
   %or.cond594 = or i1 %.not563, %530
-  br i1 %or.cond594, label %.loopexit948.thread1623, label %531
+  br i1 %or.cond594, label %.loopexit948.thread1674, label %531
 
-.loopexit948.thread1623:                          ; preds = %529
+.loopexit948.thread1674:                          ; preds = %529
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit948.thread
 
 531:                                              ; preds = %529
-  %532 = icmp slt i32 %.14258001548, 0
+  %532 = icmp slt i32 %.14258001599, 0
   %.3455.in.v = select i1 %532, i64 48, i64 24
   %.3455.in = getelementptr inbounds nuw i8, ptr %14, i64 %.3455.in.v
   %.3449.in.v = select i1 %532, i64 40, i64 16
   %.3449.in = getelementptr inbounds nuw i8, ptr %14, i64 %.3449.in.v
   %.3449 = load i64, ptr %.3449.in, align 8, !tbaa !79
   %.3455 = load i64, ptr %.3455.in, align 8, !tbaa !79
-  call void @rsock_syserr_fail_host_port(i32 noundef %527, ptr noundef %.14317971563, i64 noundef %.3449, i64 noundef %.3455) #21
+  call void @rsock_syserr_fail_host_port(i32 noundef %527, ptr noundef %.14317971614, i64 noundef %.3449, i64 noundef %.3455) #21
   unreachable
 
 533:                                              ; preds = %522
@@ -1665,7 +1665,7 @@ thread-pre-split:                                 ; preds = %500, %503
   br i1 %544, label %.lr.ph20.i, label %.preheader.._crit_edge_crit_edge.i
 
 .preheader.._crit_edge_crit_edge.i:               ; preds = %.preheader.i
-  %.pre.i = sext i32 %543 to i64
+  %.pre.i = zext nneg i32 %543 to i64
   br label %._crit_edge.i
 
 .lr.ph20.i:                                       ; preds = %.preheader.i, %.lr.ph20.i
@@ -1719,7 +1719,7 @@ thread-pre-split:                                 ; preds = %500, %503
   br i1 %563, label %.lr.ph20.i671, label %.preheader.._crit_edge_crit_edge.i666
 
 .preheader.._crit_edge_crit_edge.i666:            ; preds = %.preheader.i665
-  %.pre.i667 = sext i32 %562 to i64
+  %.pre.i667 = zext nneg i32 %562 to i64
   br label %._crit_edge.i668
 
 .lr.ph20.i671:                                    ; preds = %.preheader.i665, %.lr.ph20.i671
@@ -1770,43 +1770,43 @@ any_addrinfos.exit653.thread:                     ; preds = %525, %remove_connec
   %576 = icmp slt i64 %indvars.iv.next1515, %575
   br i1 %576, label %.lr.ph1299, label %.loopexit948.thread, !llvm.loop !95
 
-.loopexit948.thread:                              ; preds = %.thread826, %.loopexit948.thread1623
-  %.sroa.0223.71617 = phi i32 [ 1, %.loopexit948.thread1623 ], [ %.sroa.0223.8832, %.thread826 ]
-  %.sroa.18.71616 = phi i32 [ %527, %.loopexit948.thread1623 ], [ %.sroa.18.8831, %.thread826 ]
+.loopexit948.thread:                              ; preds = %.thread826, %.loopexit948.thread1674
+  %.sroa.0223.71668 = phi i32 [ 1, %.loopexit948.thread1674 ], [ %.sroa.0223.8832, %.thread826 ]
+  %.sroa.18.71667 = phi i32 [ %527, %.loopexit948.thread1674 ], [ %.sroa.18.8831, %.thread826 ]
   %577 = load i32, ptr %33, align 4, !tbaa !56
   %578 = icmp slt i32 %577, 1
   br i1 %578, label %579, label %any_addrinfos.exit676.thread
 
 579:                                              ; preds = %.loopexit948.thread
   %580 = icmp ne i32 %.sroa.73.1, 0
-  %or.cond17 = and i1 %580, %.not2.i1606
-  %or.cond1823 = select i1 %.not.i.i1598, i1 %or.cond17, i1 false
-  br i1 %or.cond1823, label %581, label %any_addrinfos.exit676.thread
+  %or.cond17 = and i1 %580, %.not2.i1657
+  %or.cond1874 = select i1 %.not.i.i1649, i1 %or.cond17, i1 false
+  br i1 %or.cond1874, label %581, label %any_addrinfos.exit676.thread
 
 581:                                              ; preds = %579
-  %582 = icmp eq i32 %.sroa.0223.71617, 0
+  %582 = icmp eq i32 %.sroa.0223.71668, 0
   br i1 %582, label %583, label %584
 
 583:                                              ; preds = %581
-  call void @rsock_raise_resolution_error(ptr noundef %.14317971563, i32 noundef %.sroa.18.71616) #21
+  call void @rsock_raise_resolution_error(ptr noundef %.14317971614, i32 noundef %.sroa.18.71667) #21
   unreachable
 
 584:                                              ; preds = %581
-  %585 = icmp slt i32 %.14258001548, 0
+  %585 = icmp slt i32 %.14258001599, 0
   %.4450.in.v = select i1 %585, i64 40, i64 16
   %.4450.in = getelementptr inbounds nuw i8, ptr %14, i64 %.4450.in.v
   %.4456.in.v = select i1 %585, i64 48, i64 24
   %.4456.in = getelementptr inbounds nuw i8, ptr %14, i64 %.4456.in.v
   %.4450 = load i64, ptr %.4450.in, align 8, !tbaa !79
   %.4456 = load i64, ptr %.4456.in, align 8, !tbaa !79
-  call void @rsock_syserr_fail_host_port(i32 noundef %.sroa.18.71616, ptr noundef %.14317971563, i64 noundef %.4450, i64 noundef %.4456) #21
+  call void @rsock_syserr_fail_host_port(i32 noundef %.sroa.18.71667, ptr noundef %.14317971614, i64 noundef %.4450, i64 noundef %.4456) #21
   unreachable
 
 any_addrinfos.exit676.thread:                     ; preds = %579, %.loopexit948.thread, %512
-  %.8501 = phi ptr [ %.14947931583, %.loopexit948.thread ], [ %.14947931583, %512 ], [ null, %579 ]
+  %.8501 = phi ptr [ %.14947931634, %.loopexit948.thread ], [ %.14947931634, %512 ], [ null, %579 ]
   %.6486 = phi ptr [ %497, %.loopexit948.thread ], [ %497, %512 ], [ null, %579 ]
-  %.sroa.18.5 = phi i32 [ %.sroa.18.71616, %.loopexit948.thread ], [ %.sroa.18.17981558, %512 ], [ %.sroa.18.71616, %579 ]
-  %.sroa.0223.5 = phi i32 [ %.sroa.0223.71617, %.loopexit948.thread ], [ %.sroa.0223.17991553, %512 ], [ %.sroa.0223.71617, %579 ]
+  %.sroa.18.5 = phi i32 [ %.sroa.18.71667, %.loopexit948.thread ], [ %.sroa.18.17981609, %512 ], [ %.sroa.18.71667, %579 ]
+  %.sroa.0223.5 = phi i32 [ %.sroa.0223.71668, %.loopexit948.thread ], [ %.sroa.0223.17991604, %512 ], [ %.sroa.0223.71668, %579 ]
   %.not565 = icmp eq i32 %.sroa.73.1, 0
   br i1 %.not565, label %586, label %635
 
@@ -1825,42 +1825,42 @@ any_addrinfos.exit676.thread:                     ; preds = %579, %.loopexit948.
   %.sext.i678 = sext i32 %592 to i64
   br label %.thread841.outer
 
-.thread841.outer:                                 ; preds = %.loopexit2025, %.preheader945
-  %.sext.i6781306.ph = phi i64 [ %.sext.i6781306.lcssa13071316, %.preheader945 ], [ %.sext.i678, %.loopexit2025 ]
-  %.ph = phi i64 [ %.lcssa13031312, %.preheader945 ], [ %590, %.loopexit2025 ]
-  %.sroa.67.3.ph = phi i32 [ %.sroa.67.0, %.preheader945 ], [ 0, %.loopexit2025 ]
-  %.sroa.55.5.ph = phi i32 [ %.sroa.55.2, %.preheader945 ], [ %.sroa.55.6, %.loopexit2025 ]
-  %.sroa.37.7.ph = phi ptr [ %.sroa.37.37911593, %.preheader945 ], [ %.sroa.37.9, %.loopexit2025 ]
-  %.sroa.32.3.ph = phi i32 [ %.sroa.32.0, %.preheader945 ], [ %.sroa.32.3, %.loopexit2025 ]
-  %.sroa.20.5.ph = phi i32 [ %.sroa.20.2, %.preheader945 ], [ 0, %.loopexit2025 ]
-  %.sroa.0.7.ph = phi ptr [ %.sroa.0.37921588, %.preheader945 ], [ %.sroa.0.7, %.loopexit2025 ]
-  %.4476.ph = phi ptr [ %483, %.preheader945 ], [ %8, %.loopexit2025 ]
-  %.6436.ph = phi ptr [ %.14317971563, %.preheader945 ], [ %.11, %.loopexit2025 ]
-  %.sroa.18.11.ph = phi i32 [ %.sroa.18.5, %.preheader945 ], [ %.sroa.18.16, %.loopexit2025 ]
-  %.sroa.0223.11.ph = phi i32 [ %.sroa.0223.5, %.preheader945 ], [ %.sroa.0223.16, %.loopexit2025 ]
-  br label %.thread841.outer2014
+.thread841.outer:                                 ; preds = %.loopexit2076, %.preheader945
+  %.sext.i6781306.ph = phi i64 [ %.sext.i6781306.lcssa13071316, %.preheader945 ], [ %.sext.i678, %.loopexit2076 ]
+  %.ph = phi i64 [ %.lcssa13031312, %.preheader945 ], [ %590, %.loopexit2076 ]
+  %.sroa.67.3.ph = phi i32 [ %.sroa.67.0, %.preheader945 ], [ 0, %.loopexit2076 ]
+  %.sroa.55.5.ph = phi i32 [ %.sroa.55.2, %.preheader945 ], [ 1, %.loopexit2076 ]
+  %.sroa.37.7.ph = phi ptr [ %.sroa.37.37911644, %.preheader945 ], [ %.sroa.37.9, %.loopexit2076 ]
+  %.sroa.32.3.ph = phi i32 [ %.sroa.32.0, %.preheader945 ], [ %.sroa.32.3, %.loopexit2076 ]
+  %.sroa.20.5.ph = phi i32 [ %.sroa.20.2, %.preheader945 ], [ 0, %.loopexit2076 ]
+  %.sroa.0.7.ph = phi ptr [ %.sroa.0.37921639, %.preheader945 ], [ %.sroa.0.7, %.loopexit2076 ]
+  %.4476.ph = phi ptr [ %483, %.preheader945 ], [ %8, %.loopexit2076 ]
+  %.6436.ph = phi ptr [ %.14317971614, %.preheader945 ], [ %.11, %.loopexit2076 ]
+  %.sroa.18.11.ph = phi i32 [ %.sroa.18.5, %.preheader945 ], [ %.sroa.18.16, %.loopexit2076 ]
+  %.sroa.0223.11.ph = phi i32 [ %.sroa.0223.5, %.preheader945 ], [ %.sroa.0223.16, %.loopexit2076 ]
+  br label %.thread841.outer2065
 
-.thread841.outer2014:                             ; preds = %.thread841.outer, %.loopexit2025
-  %.sroa.67.3.ph2015 = phi i32 [ %.sroa.67.3.ph, %.thread841.outer ], [ %.sroa.67.5, %.loopexit2025 ]
-  %.sroa.55.5.ph2016 = phi i32 [ %.sroa.55.5.ph, %.thread841.outer ], [ %.sroa.55.6, %.loopexit2025 ]
-  %.sroa.37.7.ph2017 = phi ptr [ %.sroa.37.7.ph, %.thread841.outer ], [ %.sroa.37.9, %.loopexit2025 ]
-  %.sroa.32.3.ph2018 = phi i32 [ %.sroa.32.3.ph, %.thread841.outer ], [ %.sroa.32.3, %.loopexit2025 ]
-  %.sroa.20.5.ph2019 = phi i32 [ %.sroa.20.5.ph, %.thread841.outer ], [ %.sroa.20.6, %.loopexit2025 ]
-  %.sroa.0.7.ph2020 = phi ptr [ %.sroa.0.7.ph, %.thread841.outer ], [ %.sroa.0.7, %.loopexit2025 ]
-  %.6436.ph2022 = phi ptr [ %.6436.ph, %.thread841.outer ], [ %.11, %.loopexit2025 ]
-  %.sroa.18.11.ph2023 = phi i32 [ %.sroa.18.11.ph, %.thread841.outer ], [ %.sroa.18.16, %.loopexit2025 ]
-  %.sroa.0223.11.ph2024 = phi i32 [ %.sroa.0223.11.ph, %.thread841.outer ], [ %.sroa.0223.16, %.loopexit2025 ]
-  %593 = icmp ne i32 %.sroa.67.3.ph2015, 0
+.thread841.outer2065:                             ; preds = %.thread841.outer, %.loopexit2076
+  %.sroa.67.3.ph2066 = phi i32 [ %.sroa.67.3.ph, %.thread841.outer ], [ %.sroa.67.5, %.loopexit2076 ]
+  %.sroa.55.5.ph2067 = phi i32 [ %.sroa.55.5.ph, %.thread841.outer ], [ %.sroa.55.6, %.loopexit2076 ]
+  %.sroa.37.7.ph2068 = phi ptr [ %.sroa.37.7.ph, %.thread841.outer ], [ %.sroa.37.9, %.loopexit2076 ]
+  %.sroa.32.3.ph2069 = phi i32 [ %.sroa.32.3.ph, %.thread841.outer ], [ %.sroa.32.3, %.loopexit2076 ]
+  %.sroa.20.5.ph2070 = phi i32 [ %.sroa.20.5.ph, %.thread841.outer ], [ %.sroa.20.6, %.loopexit2076 ]
+  %.sroa.0.7.ph2071 = phi ptr [ %.sroa.0.7.ph, %.thread841.outer ], [ %.sroa.0.7, %.loopexit2076 ]
+  %.6436.ph2073 = phi ptr [ %.6436.ph, %.thread841.outer ], [ %.11, %.loopexit2076 ]
+  %.sroa.18.11.ph2074 = phi i32 [ %.sroa.18.11.ph, %.thread841.outer ], [ %.sroa.18.16, %.loopexit2076 ]
+  %.sroa.0223.11.ph2075 = phi i32 [ %.sroa.0223.11.ph, %.thread841.outer ], [ %.sroa.0223.16, %.loopexit2076 ]
+  %593 = icmp ne i32 %.sroa.67.3.ph2066, 0
   br label %.thread841
 
-.thread841:                                       ; preds = %.thread841.outer2014, %608
-  %.sroa.55.5 = phi i32 [ 0, %608 ], [ %.sroa.55.5.ph2016, %.thread841.outer2014 ]
-  %.sroa.32.3 = phi i32 [ %.sroa.32.4, %608 ], [ %.sroa.32.3.ph2018, %.thread841.outer2014 ]
-  %.sroa.20.5 = phi i32 [ 1, %608 ], [ %.sroa.20.5.ph2019, %.thread841.outer2014 ]
-  %.sroa.0.7 = phi ptr [ %.sroa.0.8, %608 ], [ %.sroa.0.7.ph2020, %.thread841.outer2014 ]
-  %.6436 = phi ptr [ %.8438, %608 ], [ %.6436.ph2022, %.thread841.outer2014 ]
-  %.sroa.18.11 = phi i32 [ %.sroa.18.13, %608 ], [ %.sroa.18.11.ph2023, %.thread841.outer2014 ]
-  %.sroa.0223.11 = phi i32 [ %.sroa.0223.13, %608 ], [ %.sroa.0223.11.ph2024, %.thread841.outer2014 ]
+.thread841:                                       ; preds = %.thread841.outer2065, %608
+  %.sroa.55.5 = phi i32 [ 0, %608 ], [ %.sroa.55.5.ph2067, %.thread841.outer2065 ]
+  %.sroa.32.3 = phi i32 [ %.sroa.32.4, %608 ], [ %.sroa.32.3.ph2069, %.thread841.outer2065 ]
+  %.sroa.20.5 = phi i32 [ 1, %608 ], [ %.sroa.20.5.ph2070, %.thread841.outer2065 ]
+  %.sroa.0.7 = phi ptr [ %.sroa.0.8, %608 ], [ %.sroa.0.7.ph2071, %.thread841.outer2065 ]
+  %.6436 = phi ptr [ %.8438, %608 ], [ %.6436.ph2073, %.thread841.outer2065 ]
+  %.sroa.18.11 = phi i32 [ %.sroa.18.13, %608 ], [ %.sroa.18.11.ph2074, %.thread841.outer2065 ]
+  %.sroa.0223.11 = phi i32 [ %.sroa.0223.13, %608 ], [ %.sroa.0223.11.ph2075, %.thread841.outer2065 ]
   %594 = call i64 @read(i32 noundef %.0458, ptr noundef nonnull %5, i64 noundef 1) #19
   %595 = icmp sgt i64 %594, 0
   br i1 %595, label %596, label %620
@@ -1869,7 +1869,7 @@ any_addrinfos.exit676.thread:                     ; preds = %579, %.loopexit948.
   %597 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 0, i64 %594
   store i8 0, ptr %597, align 1, !tbaa !96
   %598 = load i8, ptr %5, align 1, !tbaa !96
-  switch i8 %598, label %.loopexit2025 [
+  switch i8 %598, label %.loopexit2076 [
     i8 49, label %599
     i8 50, label %609
   ]
@@ -1927,17 +1927,17 @@ any_addrinfos.exit676.thread:                     ; preds = %579, %.loopexit948.
   br label %619
 
 619:                                              ; preds = %616, %613
-  %.sroa.67.4 = phi i32 [ %.sroa.67.3.ph2015, %616 ], [ 1, %613 ]
-  %.sroa.37.8 = phi ptr [ %618, %616 ], [ %.sroa.37.7.ph2017, %613 ]
+  %.sroa.67.4 = phi i32 [ %.sroa.67.3.ph2066, %616 ], [ 1, %613 ]
+  %.sroa.37.8 = phi ptr [ %618, %616 ], [ %.sroa.37.7.ph2068, %613 ]
   %.10440 = phi ptr [ %.6436, %616 ], [ %.9439, %613 ]
   %.sroa.18.15 = phi i32 [ %.sroa.18.11, %616 ], [ %.sroa.18.14, %613 ]
   %.sroa.0223.15 = phi i32 [ %.sroa.0223.11, %616 ], [ %.sroa.0223.14, %613 ]
   %.not568 = icmp eq i32 %.sroa.20.5, 0
-  br i1 %.not568, label %.loopexit2025, label %.loopexit946
+  br i1 %.not568, label %.loopexit2076, label %.loopexit946
 
 620:                                              ; preds = %.thread841
   %621 = icmp slt i64 %594, 0
-  br i1 %621, label %622, label %.loopexit2025
+  br i1 %621, label %622, label %.loopexit2076
 
 622:                                              ; preds = %620
   %623 = call ptr @rb_errno_ptr() #19
@@ -1949,7 +1949,7 @@ any_addrinfos.exit676.thread:                     ; preds = %579, %.loopexit948.
   %627 = call ptr @rb_errno_ptr() #19
   %628 = load i32, ptr %627, align 4, !tbaa !6
   %629 = icmp eq i32 %628, 11
-  br i1 %629, label %630, label %.loopexit2025
+  br i1 %629, label %630, label %.loopexit2076
 
 630:                                              ; preds = %626, %622
   store i64 %.sext.i6781306.ph, ptr %214, align 8
@@ -1958,10 +1958,10 @@ any_addrinfos.exit676.thread:                     ; preds = %579, %.loopexit948.
   store i32 0, ptr %631, align 4, !tbaa !6
   br label %635
 
-.loopexit2025:                                    ; preds = %596, %626, %620, %619
-  %.sroa.67.5 = phi i32 [ %.sroa.67.4, %619 ], [ %.sroa.67.3.ph2015, %626 ], [ %.sroa.67.3.ph2015, %620 ], [ %.sroa.67.3.ph2015, %596 ]
+.loopexit2076:                                    ; preds = %596, %626, %620, %619
+  %.sroa.67.5 = phi i32 [ %.sroa.67.4, %619 ], [ %.sroa.67.3.ph2066, %626 ], [ %.sroa.67.3.ph2066, %620 ], [ %.sroa.67.3.ph2066, %596 ]
   %.sroa.55.6 = phi i32 [ 1, %619 ], [ %.sroa.55.5, %626 ], [ %.sroa.55.5, %620 ], [ %.sroa.55.5, %596 ]
-  %.sroa.37.9 = phi ptr [ %.sroa.37.8, %619 ], [ %.sroa.37.7.ph2017, %626 ], [ %.sroa.37.7.ph2017, %620 ], [ %.sroa.37.7.ph2017, %596 ]
+  %.sroa.37.9 = phi ptr [ %.sroa.37.8, %619 ], [ %.sroa.37.7.ph2068, %626 ], [ %.sroa.37.7.ph2068, %620 ], [ %.sroa.37.7.ph2068, %596 ]
   %.sroa.20.6 = phi i32 [ 0, %619 ], [ %.sroa.20.5, %626 ], [ %.sroa.20.5, %620 ], [ %.sroa.20.5, %596 ]
   %.11 = phi ptr [ %.10440, %619 ], [ %.6436, %626 ], [ %.6436, %620 ], [ %.6436, %596 ]
   %.sroa.18.16 = phi i32 [ %.sroa.18.15, %619 ], [ %.sroa.18.11, %626 ], [ %.sroa.18.11, %620 ], [ %.sroa.18.11, %596 ]
@@ -1971,14 +1971,12 @@ any_addrinfos.exit676.thread:                     ; preds = %579, %.loopexit948.
   %or.cond29.not574 = select i1 %632, i1 true, i1 %633
   %634 = icmp ne i32 %.sroa.67.5, 0
   %or.cond33 = select i1 %or.cond29.not574, i1 true, i1 %634
-  br i1 %or.cond33, label %.thread841.outer2014, label %.thread841.outer
+  br i1 %or.cond33, label %.thread841.outer2065, label %.thread841.outer
 
 .loopexit946:                                     ; preds = %619, %608
-  %.sroa.67.2.ph = phi i32 [ %.sroa.67.3.ph2015, %608 ], [ %.sroa.67.4, %619 ]
-  %.sroa.55.4.ph = phi i32 [ %.sroa.55.5, %608 ], [ 1, %619 ]
-  %.sroa.37.6.ph = phi ptr [ %.sroa.37.7.ph2017, %608 ], [ %.sroa.37.8, %619 ]
+  %.sroa.67.2.ph = phi i32 [ %.sroa.67.3.ph2066, %608 ], [ %.sroa.67.4, %619 ]
+  %.sroa.37.6.ph = phi ptr [ %.sroa.37.7.ph2068, %608 ], [ %.sroa.37.8, %619 ]
   %.sroa.32.2.ph = phi i32 [ %.sroa.32.4, %608 ], [ %.sroa.32.3, %619 ]
-  %.sroa.20.4.ph = phi i32 [ 1, %608 ], [ %.sroa.20.5, %619 ]
   %.sroa.0.6.ph = phi ptr [ %.sroa.0.8, %608 ], [ %.sroa.0.7, %619 ]
   %.5435.ph = phi ptr [ %.8438, %608 ], [ %.10440, %619 ]
   %.sroa.18.10.ph = phi i32 [ %.sroa.18.13, %608 ], [ %.sroa.18.15, %619 ]
@@ -1990,16 +1988,16 @@ any_addrinfos.exit676.thread:                     ; preds = %579, %.loopexit948.
 635:                                              ; preds = %.loopexit946, %630, %586, %any_addrinfos.exit676.thread
   %.sext.i6781306.lcssa13071315 = phi i64 [ %.sext.i6781306.lcssa13071316, %586 ], [ %.sext.i6781306.ph, %630 ], [ %.sext.i6781306.lcssa13071316, %any_addrinfos.exit676.thread ], [ %.sext.i6781306.ph, %.loopexit946 ]
   %.lcssa13031311 = phi i64 [ %.lcssa13031312, %586 ], [ %.ph, %630 ], [ %.lcssa13031312, %any_addrinfos.exit676.thread ], [ %.ph, %.loopexit946 ]
-  %.sroa.73.3 = phi i32 [ 0, %586 ], [ 0, %630 ], [ %.sroa.73.1, %any_addrinfos.exit676.thread ], [ 1, %.loopexit946 ]
-  %.sroa.67.2 = phi i32 [ %.sroa.67.0, %586 ], [ %.sroa.67.3.ph2015, %630 ], [ %.sroa.67.0, %any_addrinfos.exit676.thread ], [ %.sroa.67.2.ph, %.loopexit946 ]
-  %.sroa.55.4 = phi i32 [ %.sroa.55.2, %586 ], [ %.sroa.55.5, %630 ], [ %.sroa.55.2, %any_addrinfos.exit676.thread ], [ %.sroa.55.4.ph, %.loopexit946 ]
-  %.sroa.37.6 = phi ptr [ %.sroa.37.37911593, %586 ], [ %.sroa.37.7.ph2017, %630 ], [ %.sroa.37.37911593, %any_addrinfos.exit676.thread ], [ %.sroa.37.6.ph, %.loopexit946 ]
+  %.sroa.73.3 = phi i32 [ 0, %586 ], [ 0, %630 ], [ 1, %any_addrinfos.exit676.thread ], [ 1, %.loopexit946 ]
+  %.sroa.67.2 = phi i32 [ %.sroa.67.0, %586 ], [ %.sroa.67.3.ph2066, %630 ], [ %.sroa.67.0, %any_addrinfos.exit676.thread ], [ %.sroa.67.2.ph, %.loopexit946 ]
+  %.sroa.55.4 = phi i32 [ %.sroa.55.2, %586 ], [ %.sroa.55.5, %630 ], [ %.sroa.55.2, %any_addrinfos.exit676.thread ], [ 1, %.loopexit946 ]
+  %.sroa.37.6 = phi ptr [ %.sroa.37.37911644, %586 ], [ %.sroa.37.7.ph2068, %630 ], [ %.sroa.37.37911644, %any_addrinfos.exit676.thread ], [ %.sroa.37.6.ph, %.loopexit946 ]
   %.sroa.32.2 = phi i32 [ %.sroa.32.0, %586 ], [ %.sroa.32.3, %630 ], [ %.sroa.32.0, %any_addrinfos.exit676.thread ], [ %.sroa.32.2.ph, %.loopexit946 ]
-  %.sroa.20.4 = phi i32 [ %.sroa.20.2, %586 ], [ %.sroa.20.5, %630 ], [ %.sroa.20.2, %any_addrinfos.exit676.thread ], [ %.sroa.20.4.ph, %.loopexit946 ]
-  %.sroa.0.6 = phi ptr [ %.sroa.0.37921588, %586 ], [ %.sroa.0.7, %630 ], [ %.sroa.0.37921588, %any_addrinfos.exit676.thread ], [ %.sroa.0.6.ph, %.loopexit946 ]
+  %.sroa.20.4 = phi i32 [ %.sroa.20.2, %586 ], [ %.sroa.20.5, %630 ], [ %.sroa.20.2, %any_addrinfos.exit676.thread ], [ 1, %.loopexit946 ]
+  %.sroa.0.6 = phi ptr [ %.sroa.0.37921639, %586 ], [ %.sroa.0.7, %630 ], [ %.sroa.0.37921639, %any_addrinfos.exit676.thread ], [ %.sroa.0.6.ph, %.loopexit946 ]
   %.3490 = phi ptr [ %.1488, %586 ], [ %.1488, %630 ], [ %.1488, %any_addrinfos.exit676.thread ], [ null, %.loopexit946 ]
   %.3475 = phi ptr [ %483, %586 ], [ %.4476.ph, %630 ], [ %483, %any_addrinfos.exit676.thread ], [ null, %.loopexit946 ]
-  %.5435 = phi ptr [ %.14317971563, %586 ], [ %.6436, %630 ], [ %.14317971563, %any_addrinfos.exit676.thread ], [ %.5435.ph, %.loopexit946 ]
+  %.5435 = phi ptr [ %.14317971614, %586 ], [ %.6436, %630 ], [ %.14317971614, %any_addrinfos.exit676.thread ], [ %.5435.ph, %.loopexit946 ]
   %.sroa.18.10 = phi i32 [ %.sroa.18.5, %586 ], [ %.sroa.18.11, %630 ], [ %.sroa.18.5, %any_addrinfos.exit676.thread ], [ %.sroa.18.10.ph, %.loopexit946 ]
   %.sroa.0223.10 = phi i32 [ %.sroa.0223.5, %586 ], [ %.sroa.0223.11, %630 ], [ %.sroa.0223.5, %any_addrinfos.exit676.thread ], [ %.sroa.0223.10.ph, %.loopexit946 ]
   store i32 0, ptr %4, align 4, !tbaa !6
@@ -2011,17 +2009,17 @@ any_addrinfos.exit676.thread:                     ; preds = %579, %.loopexit948.
   %.sroa.73.2 = phi i32 [ %.sroa.73.3, %635 ], [ %.sroa.73.1, %509 ]
   %.sroa.67.1 = phi i32 [ %.sroa.67.2, %635 ], [ %.sroa.67.0, %509 ]
   %.sroa.55.3 = phi i32 [ %.sroa.55.4, %635 ], [ %.sroa.55.2, %509 ]
-  %.sroa.37.5 = phi ptr [ %.sroa.37.6, %635 ], [ %.sroa.37.37911593, %509 ]
+  %.sroa.37.5 = phi ptr [ %.sroa.37.6, %635 ], [ %.sroa.37.37911644, %509 ]
   %.sroa.32.1 = phi i32 [ %.sroa.32.2, %635 ], [ %.sroa.32.0, %509 ]
   %.sroa.20.3 = phi i32 [ %.sroa.20.4, %635 ], [ %.sroa.20.2, %509 ]
-  %.sroa.0.5 = phi ptr [ %.sroa.0.6, %635 ], [ %.sroa.0.37921588, %509 ]
-  %.7500 = phi ptr [ %.8501, %635 ], [ %.14947931583, %509 ]
+  %.sroa.0.5 = phi ptr [ %.sroa.0.6, %635 ], [ %.sroa.0.37921639, %509 ]
+  %.7500 = phi ptr [ %.8501, %635 ], [ %.14947931634, %509 ]
   %.2489 = phi ptr [ %.3490, %635 ], [ %.1488, %509 ]
   %.5485 = phi ptr [ %.6486, %635 ], [ %497, %509 ]
   %.2474 = phi ptr [ %.3475, %635 ], [ %483, %509 ]
-  %.4434 = phi ptr [ %.5435, %635 ], [ %.14317971563, %509 ]
-  %.sroa.18.4 = phi i32 [ %.sroa.18.10, %635 ], [ %.sroa.18.17981558, %509 ]
-  %.sroa.0223.4 = phi i32 [ %.sroa.0223.10, %635 ], [ %.sroa.0223.17991553, %509 ]
+  %.4434 = phi ptr [ %.5435, %635 ], [ %.14317971614, %509 ]
+  %.sroa.18.4 = phi i32 [ %.sroa.18.10, %635 ], [ %.sroa.18.17981609, %509 ]
+  %.sroa.0223.4 = phi i32 [ %.sroa.0223.10, %635 ], [ %.sroa.0223.17991604, %509 ]
   %.not575 = icmp eq i32 %.sroa.73.2, 0
   br i1 %.not575, label %637, label %.thread882
 
@@ -2066,6 +2064,7 @@ any_addrinfos.exit676.thread:                     ; preds = %579, %.loopexit948.
   br i1 %.not579, label %.thread862, label %.thread882
 
 652:                                              ; preds = %638, %637
+  %.sroa.20.8 = phi i32 [ 0, %638 ], [ 1, %637 ]
   %.not580 = icmp eq i32 %.sroa.55.3, 0
   br i1 %.not580, label %.thread862, label %.thread882
 
@@ -2074,7 +2073,7 @@ any_addrinfos.exit676.thread:                     ; preds = %579, %.loopexit948.
   %.sroa.18.18880 = phi i32 [ %.sroa.18.4, %652 ], [ %.sroa.18.20, %651 ]
   %.13879 = phi ptr [ %.4434, %652 ], [ %.15, %651 ]
   %.sroa.0.11876 = phi ptr [ %.sroa.0.5, %652 ], [ %.sroa.0.12, %651 ]
-  %.sroa.20.8875 = phi i32 [ %.sroa.20.3, %652 ], [ 1, %651 ]
+  %.sroa.20.8875 = phi i32 [ %.sroa.20.8, %652 ], [ 1, %651 ]
   %.sroa.32.7874 = phi i32 [ %.sroa.32.1, %652 ], [ %.sroa.32.8, %651 ]
   %653 = load ptr, ptr %212, align 8, !tbaa !62
   %654 = getelementptr inbounds nuw i8, ptr %653, i64 80
@@ -2126,12 +2125,13 @@ any_addrinfos.exit676.thread:                     ; preds = %579, %.loopexit948.
 .thread882:                                       ; preds = %651, %665, %652, %.thread862, %666, %636
   %.sext.i6781306.lcssa13071313 = phi i64 [ %.sext.i6781306.lcssa13071314, %.thread862 ], [ %.sext.i680, %666 ], [ %.sext.i6781306.lcssa13071314, %652 ], [ %.sext.i6781306.lcssa13071314, %636 ], [ %.sext.i6781306.lcssa13071314, %665 ], [ %.sext.i6781306.lcssa13071314, %651 ]
   %.lcssa13031309 = phi i64 [ %.lcssa13031310, %.thread862 ], [ %669, %666 ], [ %.lcssa13031310, %652 ], [ %.lcssa13031310, %636 ], [ %.lcssa13031310, %665 ], [ %.lcssa13031310, %651 ]
-  %.sroa.73.4 = phi i32 [ 0, %.thread862 ], [ 0, %666 ], [ 0, %652 ], [ %.sroa.73.2, %636 ], [ 1, %665 ], [ 1, %651 ]
+  %672 = phi i1 [ false, %.thread862 ], [ false, %666 ], [ false, %652 ], [ true, %636 ], [ true, %665 ], [ true, %651 ]
+  %.sroa.73.4 = phi i32 [ 0, %.thread862 ], [ 0, %666 ], [ 0, %652 ], [ 1, %636 ], [ 1, %665 ], [ 1, %651 ]
   %.sroa.67.6 = phi i32 [ %.sroa.67.1, %.thread862 ], [ %.sroa.67.7, %666 ], [ %.sroa.67.1, %652 ], [ %.sroa.67.1, %636 ], [ %.sroa.67.7, %665 ], [ %.sroa.67.1, %651 ]
-  %.sroa.55.7 = phi i32 [ 0, %.thread862 ], [ 1, %666 ], [ %.sroa.55.3, %652 ], [ %.sroa.55.3, %636 ], [ 1, %665 ], [ %.sroa.55.3, %651 ]
+  %.sroa.55.7 = phi i32 [ 0, %.thread862 ], [ 1, %666 ], [ 1, %652 ], [ %.sroa.55.3, %636 ], [ 1, %665 ], [ 1, %651 ]
   %.sroa.37.10 = phi ptr [ %.sroa.37.5, %.thread862 ], [ %.sroa.37.11, %666 ], [ %.sroa.37.5, %652 ], [ %.sroa.37.5, %636 ], [ %.sroa.37.11, %665 ], [ %.sroa.37.5, %651 ]
   %.sroa.32.6 = phi i32 [ %.sroa.32.7874, %.thread862 ], [ %.sroa.32.7874, %666 ], [ %.sroa.32.1, %652 ], [ %.sroa.32.1, %636 ], [ %.sroa.32.7874, %665 ], [ %.sroa.32.8, %651 ]
-  %.sroa.20.7 = phi i32 [ %.sroa.20.8875, %.thread862 ], [ 0, %666 ], [ %.sroa.20.3, %652 ], [ %.sroa.20.3, %636 ], [ %.sroa.20.8875, %665 ], [ 1, %651 ]
+  %.sroa.20.7 = phi i32 [ %.sroa.20.8875, %.thread862 ], [ 0, %666 ], [ %.sroa.20.8, %652 ], [ %.sroa.20.3, %636 ], [ 1, %665 ], [ 1, %651 ]
   %.sroa.0.10 = phi ptr [ %.sroa.0.11876, %.thread862 ], [ %.sroa.0.11876, %666 ], [ %.sroa.0.5, %652 ], [ %.sroa.0.5, %636 ], [ %.sroa.0.11876, %665 ], [ %.sroa.0.12, %651 ]
   %.4491 = phi ptr [ %.2489, %.thread862 ], [ %.2489, %666 ], [ %.2489, %652 ], [ %.2489, %636 ], [ null, %665 ], [ null, %651 ]
   %.6478 = phi ptr [ %.2474, %.thread862 ], [ %8, %666 ], [ %.2474, %652 ], [ %.2474, %636 ], [ null, %665 ], [ null, %651 ]
@@ -2141,16 +2141,15 @@ any_addrinfos.exit676.thread:                     ; preds = %579, %.loopexit948.
   %.not.i681 = icmp eq ptr %.sroa.0.10, null
   %.not937 = icmp eq ptr %.sroa.37.10, null
   %or.cond944 = select i1 %.not.i681, i1 %.not937, i1 false
-  br i1 %or.cond944, label %672, label %any_addrinfos.exit.backedge
+  br i1 %or.cond944, label %673, label %any_addrinfos.exit.backedge
 
-672:                                              ; preds = %.thread882
-  %673 = load i32, ptr %33, align 4, !tbaa !56
-  %674 = icmp slt i32 %673, 1
-  %675 = icmp ne i32 %.sroa.73.4, 0
-  %or.cond44 = and i1 %675, %674
+673:                                              ; preds = %.thread882
+  %674 = load i32, ptr %33, align 4, !tbaa !56
+  %675 = icmp slt i32 %674, 1
+  %or.cond44 = and i1 %672, %675
   br i1 %or.cond44, label %676, label %681
 
-676:                                              ; preds = %672
+676:                                              ; preds = %673
   %677 = icmp eq i32 %.sroa.0223.17, 0
   br i1 %677, label %678, label %679
 
@@ -2159,7 +2158,7 @@ any_addrinfos.exit676.thread:                     ; preds = %579, %.loopexit948.
   unreachable
 
 679:                                              ; preds = %676
-  %680 = icmp slt i32 %.14258001548, 0
+  %680 = icmp slt i32 %.14258001599, 0
   %.5451.in.v = select i1 %680, i64 40, i64 16
   %.5451.in = getelementptr inbounds nuw i8, ptr %14, i64 %.5451.in.v
   %.5457.in.v = select i1 %680, i64 48, i64 24
@@ -2169,7 +2168,7 @@ any_addrinfos.exit676.thread:                     ; preds = %579, %.loopexit948.
   call void @rsock_syserr_fail_host_port(i32 noundef %.sroa.18.17, ptr noundef %.12, i64 noundef %.5451, i64 noundef %.5457) #21
   unreachable
 
-681:                                              ; preds = %672
+681:                                              ; preds = %673
   %.not.i683 = icmp eq ptr %.4491, null
   br i1 %.not.i683, label %is_timeout_tv.exit688, label %682
 
@@ -2199,7 +2198,7 @@ any_addrinfos.exit676.thread:                     ; preds = %579, %.loopexit948.
 
 is_timeout_tv.exit688:                            ; preds = %681, %685, %691
   %.0.i687 = phi i1 [ false, %681 ], [ false, %685 ], [ %or.cond.not.i685, %691 ]
-  %or.cond47 = or i1 %675, %.0.i687
+  %or.cond47 = or i1 %672, %.0.i687
   br i1 %or.cond47, label %is_timeout_tv.exit688.thread, label %any_addrinfos.exit.backedge
 
 is_timeout_tv.exit688.thread:                     ; preds = %689, %is_timeout_tv.exit688
@@ -2228,14 +2227,14 @@ is_timeout_tv.exit694:                            ; preds = %703
   %708 = icmp eq i64 %.fca.0.load.i638, %697
   %.not11.i690 = icmp sge i64 %.fca.1.load.i641, %707
   %or.cond.not.i691.not.not = select i1 %708, i1 %.not11.i690, i1 false
-  %brmerge918 = or i1 %674, %or.cond.not.i691.not.not
+  %brmerge918 = or i1 %675, %or.cond.not.i691.not.not
   br i1 %brmerge918, label %is_timeout_tv.exit694.thread898, label %any_addrinfos.exit.backedge
 
 any_addrinfos.exit.backedge:                      ; preds = %is_timeout_tv.exit694, %.thread882, %is_timeout_tv.exit694.thread, %is_timeout_tv.exit688
   br label %any_addrinfos.exit
 
 is_timeout_tv.exit694.thread:                     ; preds = %699, %is_timeout_tv.exit688.thread
-  br i1 %674, label %is_timeout_tv.exit694.thread898, label %any_addrinfos.exit.backedge
+  br i1 %675, label %is_timeout_tv.exit694.thread898, label %any_addrinfos.exit.backedge
 
 is_timeout_tv.exit694.thread898:                  ; preds = %is_timeout_tv.exit694, %703, %is_timeout_tv.exit694.thread
   %709 = load i64, ptr @rb_cObject, align 8, !tbaa !79
@@ -2541,8 +2540,8 @@ define internal i64 @init_inetsock_internal(i64 noundef %0) #0 {
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %21 = load i64, ptr %20, align 8, !tbaa !50
   %22 = icmp eq i64 %21, 4
-  %or.cond147 = select i1 %19, i1 %22, i1 false
-  br i1 %or.cond147, label %25, label %._crit_edge123
+  %or.cond151 = select i1 %19, i1 %22, i1 false
+  br i1 %or.cond151, label %25, label %._crit_edge123
 
 ._crit_edge123:                                   ; preds = %16
   %23 = tail call ptr @rsock_addrinfo(i64 noundef %18, i64 noundef %21, i32 noundef 0, i32 noundef 1, i32 noundef 0) #19
@@ -2555,7 +2554,7 @@ define internal i64 @init_inetsock_internal(i64 noundef %0) #0 {
   %26 = phi ptr [ %.pre124, %._crit_edge123 ], [ %14, %1 ], [ %14, %16 ]
   %.073107 = load ptr, ptr %26, align 8, !tbaa !10
   %.not92108 = icmp eq ptr %.073107, null
-  br i1 %.not92108, label %.thread142, label %.lr.ph113
+  br i1 %.not92108, label %.thread146, label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -2682,8 +2681,8 @@ thread-pre-split96:                               ; preds = %77, %60
   br i1 %83, label %.thread, label %95
 
 .thread:                                          ; preds = %75, %thread-pre-split96
-  %.383130 = phi i32 [ %.383, %thread-pre-split96 ], [ %.4, %75 ]
-  %.387129 = phi ptr [ %.387, %thread-pre-split96 ], [ %.488, %75 ]
+  %.383134 = phi i32 [ %.383, %thread-pre-split96 ], [ %.4, %75 ]
+  %.387133 = phi ptr [ %.387, %thread-pre-split96 ], [ %.488, %75 ]
   %84 = call ptr @rb_errno_ptr() #19
   %85 = load i32, ptr %84, align 4, !tbaa !6
   store i64 4, ptr %28, align 8, !tbaa !45
@@ -2691,8 +2690,8 @@ thread-pre-split96:                               ; preds = %77, %60
   br label %87
 
 87:                                               ; preds = %.thread, %.critedge, %54
-  %.286 = phi ptr [ @.str.21, %54 ], [ %.084109, %.critedge ], [ %.387129, %.thread ]
-  %.282 = phi i32 [ %.080110, %54 ], [ %.080110, %.critedge ], [ %.383130, %.thread ]
+  %.286 = phi ptr [ @.str.21, %54 ], [ %.084109, %.critedge ], [ %.387133, %.thread ]
+  %.282 = phi i32 [ %.080110, %54 ], [ %.080110, %.critedge ], [ %.383134, %.thread ]
   %.2 = phi i32 [ %56, %54 ], [ %.072111, %.critedge ], [ %85, %.thread ]
   %88 = getelementptr inbounds nuw i8, ptr %.073112, i64 40
   %.073 = load ptr, ptr %88, align 8, !tbaa !10
@@ -2702,7 +2701,7 @@ thread-pre-split96:                               ; preds = %77, %60
 ._crit_edge:                                      ; preds = %87
   %.pre125.pre = load i32, ptr %2, align 4, !tbaa !6
   %89 = icmp slt i32 %.pre125.pre, 0
-  br i1 %89, label %90, label %.thread142
+  br i1 %89, label %90, label %.thread146
 
 90:                                               ; preds = %._crit_edge
   %91 = icmp slt i32 %.282, 0
@@ -2715,7 +2714,7 @@ thread-pre-split96:                               ; preds = %77, %60
   call void @rsock_syserr_fail_host_port(i32 noundef %.2, ptr noundef %.286, i64 noundef %.070, i64 noundef %.0) #21
   unreachable
 
-.thread142:                                       ; preds = %._crit_edge, %25
+.thread146:                                       ; preds = %._crit_edge, %25
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 4, ptr %94, align 8, !tbaa !45
   br label %106
@@ -2741,10 +2740,10 @@ thread-pre-split96:                               ; preds = %77, %60
   call void @rb_syserr_fail(i32 noundef %104, ptr noundef nonnull @.str.34) #21
   unreachable
 
-106:                                              ; preds = %.thread142, %98, %95
-  %.177135145 = phi i64 [ 4, %.thread142 ], [ %59, %98 ], [ %59, %95 ]
+106:                                              ; preds = %.thread146, %98, %95
+  %.177139149 = phi i64 [ 4, %.thread146 ], [ %59, %98 ], [ %59, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %.177135145
+  ret i64 %.177139149
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

@@ -224,7 +224,7 @@ get_canonical_class.exit98:                       ; preds = %89
 103:                                              ; preds = %._crit_edge148
   %104 = tail call ptr @palloc(i64 noundef %21) #7
   %.not85 = icmp eq ptr %104, null
-  br i1 %.not85, label %.sink.split177, label %105
+  br i1 %.not85, label %.sink.split189, label %105
 
 105:                                              ; preds = %103
   %106 = load i32, ptr %22, align 4
@@ -436,15 +436,15 @@ recompose_code.exit.thread:                       ; preds = %201, %recompose_cod
   %.074.lcssa = phi i64 [ 1, %105 ], [ %206, %._crit_edge156.loopexit ]
   %207 = getelementptr inbounds i32, ptr %104, i64 %.074.lcssa
   store i32 0, ptr %207, align 4
-  br label %.sink.split177
+  br label %.sink.split189
 
-.sink.split177:                                   ; preds = %103, %._crit_edge156
+.sink.split189:                                   ; preds = %103, %._crit_edge156
   %.0.ph = phi ptr [ %104, %._crit_edge156 ], [ null, %103 ]
   tail call void @pfree(ptr noundef nonnull %22) #7
   br label %208
 
-208:                                              ; preds = %.sink.split177, %._crit_edge148, %._crit_edge145, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ %22, %._crit_edge145 ], [ %22, %._crit_edge148 ], [ %.0.ph, %.sink.split177 ]
+208:                                              ; preds = %.sink.split189, %._crit_edge148, %._crit_edge145, %._crit_edge
+  %.0 = phi ptr [ null, %._crit_edge ], [ %22, %._crit_edge145 ], [ %22, %._crit_edge148 ], [ %.0.ph, %.sink.split189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
@@ -708,11 +708,11 @@ get_code_decomposition.exit:                      ; preds = %68, %70
   br i1 %exitcond.not, label %.loopexit, label %74, !llvm.loop !12
 
 .loopexit.sink.split:                             ; preds = %61, %25
-  %.sink64 = phi i32 [ %24, %25 ], [ %63, %61 ]
-  %.sink62 = phi ptr [ %8, %25 ], [ %62, %61 ]
+  %.sink67 = phi i32 [ %24, %25 ], [ %63, %61 ]
+  %.sink65 = phi ptr [ %8, %25 ], [ %62, %61 ]
   %.sink = phi i32 [ %26, %25 ], [ %0, %61 ]
-  %77 = sext i32 %.sink64 to i64
-  %78 = getelementptr inbounds i32, ptr %.sink62, i64 %77
+  %77 = sext i32 %.sink67 to i64
+  %78 = getelementptr inbounds i32, ptr %.sink65, i64 %77
   store i32 %.sink, ptr %78, align 4
   %79 = load i32, ptr %3, align 4
   %80 = add i32 %79, 1

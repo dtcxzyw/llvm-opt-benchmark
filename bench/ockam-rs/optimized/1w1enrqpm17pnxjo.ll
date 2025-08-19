@@ -928,8 +928,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr107dro
   unreachable
 
 "_ZN4core3ptr157drop_in_place$LT$ockam_node..context..receive_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..receiver_next..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb70b62cd8233347fE.exit.sink.split.i.i": ; preds = %.noexc7.i.i, %"_ZN4core3ptr266drop_in_place$LT$opentelemetry..trace..context..WithContext$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h4aab326d8c834284E.exit.i.i", %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit3.i.i.i.i", %49
-  %.sink9.i.i = phi i64 [ 16, %"_ZN4core3ptr266drop_in_place$LT$opentelemetry..trace..context..WithContext$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h4aab326d8c834284E.exit.i.i" ], [ 16, %.noexc7.i.i ], [ 40, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit3.i.i.i.i" ], [ 40, %49 ]
-  %99 = getelementptr inbounds nuw i8, ptr %46, i64 %.sink9.i.i
+  %.sink10.i.i = phi i64 [ 16, %"_ZN4core3ptr266drop_in_place$LT$opentelemetry..trace..context..WithContext$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h4aab326d8c834284E.exit.i.i" ], [ 16, %.noexc7.i.i ], [ 40, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit3.i.i.i.i" ], [ 40, %49 ]
+  %99 = getelementptr inbounds nuw i8, ptr %46, i64 %.sink10.i.i
   store i8 0, ptr %99, align 8
   br label %"_ZN4core3ptr157drop_in_place$LT$ockam_node..context..receive_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..receiver_next..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb70b62cd8233347fE.exit.i.i"
 
@@ -939,9 +939,9 @@ common.ret:                                       ; preds = %"_ZN4core3ptr107dro
   br label %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf4077974149bcfeaE.exit"
 
 .body.i.i:                                        ; preds = %117, %.body5.i.i, %79, %.body.i.i.i
-  %.sink10.i.i = phi i64 [ 16, %117 ], [ 16, %.body5.i.i ], [ 40, %79 ], [ 40, %.body.i.i.i ]
+  %.sink11.i.i = phi i64 [ 16, %117 ], [ 16, %.body5.i.i ], [ 40, %79 ], [ 40, %.body.i.i.i ]
   %.pn.pn.i.i = phi { ptr, i32 } [ %118, %117 ], [ %eh.lpad-body6.i.i, %.body5.i.i ], [ %80, %79 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
-  %101 = getelementptr inbounds nuw i8, ptr %46, i64 %.sink10.i.i
+  %101 = getelementptr inbounds nuw i8, ptr %46, i64 %.sink11.i.i
   store i8 0, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 697
   store i8 0, ptr %102, align 1
@@ -3933,8 +3933,8 @@ _ZN5alloc7raw_vec11finish_grow17h35a6db4f4af123a3E.exit.i: ; preds = %20, %13
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he0f53d38dc836654E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he0f53d38dc836654E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he0f53d38dc836654E.exit.thread3": ; preds = %18, %_ZN5alloc7raw_vec11finish_grow17h35a6db4f4af123a3E.exit.i
-  %.sink1.i.i57.i = phi ptr [ %.sroa.0.0.i.i.pn.i.i, %_ZN5alloc7raw_vec11finish_grow17h35a6db4f4af123a3E.exit.i ], [ inttoptr (i64 8 to ptr), %18 ]
-  store ptr %.sink1.i.i57.i, ptr %0, align 8, !alias.scope !930
+  %.sink1.i.i58.i = phi ptr [ %.sroa.0.0.i.i.pn.i.i, %_ZN5alloc7raw_vec11finish_grow17h35a6db4f4af123a3E.exit.i ], [ inttoptr (i64 8 to ptr), %18 ]
+  store ptr %.sink1.i.i58.i, ptr %0, align 8, !alias.scope !930
   store i64 %.0.sroa.speculated.i26.i, ptr %7, align 8, !alias.scope !930
   ret void
 

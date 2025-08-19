@@ -2937,7 +2937,7 @@ dom_is_document_cache_modified_since_parsing.exit.thread: ; preds = %29, %dom_is
   %54 = getelementptr inbounds nuw i8, ptr %.060109, i64 88
   %.0105 = load ptr, ptr %54, align 8, !tbaa !123
   %.not74106 = icmp eq ptr %.0105, null
-  br i1 %.not74106, label %.critedge78.thread114, label %.lr.ph
+  br i1 %.not74106, label %.critedge78.thread123, label %.lr.ph
 
 .lr.ph:                                           ; preds = %53, %62
   %.0107 = phi ptr [ %.0, %62 ], [ %.0105, %53 ]
@@ -2963,19 +2963,19 @@ dom_is_document_cache_modified_since_parsing.exit.thread: ; preds = %29, %dom_is
 .critedge78:                                      ; preds = %62
   %.pr.pre = load i32, ptr %50, align 8, !tbaa !102
   %64 = icmp eq i32 %.pr.pre, 1
-  br i1 %64, label %.critedge78.thread114, label %.critedge78.thread
+  br i1 %64, label %.critedge78.thread123, label %.critedge78.thread
 
-.critedge78.thread114:                            ; preds = %53, %.critedge78
+.critedge78.thread123:                            ; preds = %53, %.critedge78
   %65 = getelementptr inbounds nuw i8, ptr %.060109, i64 24
   %66 = load ptr, ptr %65, align 8, !tbaa !122
   %.not.i81 = icmp eq ptr %66, null
   br i1 %.not.i81, label %.critedge78.thread, label %.lr.ph111.backedge
 
-.lr.ph111.backedge:                               ; preds = %75, %.critedge78.thread114, %.critedge78.thread
-  %.060109.be = phi ptr [ %66, %.critedge78.thread114 ], [ %68, %.critedge78.thread ], [ %77, %75 ]
+.lr.ph111.backedge:                               ; preds = %75, %.critedge78.thread123, %.critedge78.thread
+  %.060109.be = phi ptr [ %66, %.critedge78.thread123 ], [ %68, %.critedge78.thread ], [ %77, %75 ]
   br label %.lr.ph111
 
-.critedge78.thread:                               ; preds = %.lr.ph111, %.critedge78.thread114, %.critedge78
+.critedge78.thread:                               ; preds = %.lr.ph111, %.critedge78.thread123, %.critedge78
   %67 = getelementptr inbounds nuw i8, ptr %.060109, i64 48
   %68 = load ptr, ptr %67, align 8, !tbaa !125
   %.not17.i = icmp eq ptr %68, null
@@ -3169,7 +3169,7 @@ php_dom_transfer_document_ref_single_node.exit.i14.i: ; preds = %59, %php_dom_ne
   %70 = getelementptr inbounds nuw i8, ptr %.026.i, i64 88
   %.010.i15.i = load ptr, ptr %70, align 8, !tbaa !123
   %.not11.i16.i = icmp eq ptr %.010.i15.i, null
-  br i1 %.not11.i16.i, label %php_dom_transfer_document_ref_single_aux.exit24.thread28.i, label %.lr.ph.i17.i
+  br i1 %.not11.i16.i, label %php_dom_transfer_document_ref_single_aux.exit24.thread32.i, label %.lr.ph.i17.i
 
 .lr.ph.i17.i:                                     ; preds = %69, %php_dom_transfer_document_ref_single_node.exit9.i21.i
   %.012.i18.i = phi ptr [ %.0.i22.i, %php_dom_transfer_document_ref_single_node.exit9.i21.i ], [ %.010.i15.i, %69 ]
@@ -3197,22 +3197,22 @@ php_dom_transfer_document_ref_single_node.exit9.i21.i: ; preds = %71, %.lr.ph.i1
 php_dom_transfer_document_ref_single_aux.exit24.i: ; preds = %php_dom_transfer_document_ref_single_node.exit9.i21.i
   %.pr.pre.i = load i32, ptr %66, align 8, !tbaa !102
   %79 = icmp eq i32 %.pr.pre.i, 1
-  br i1 %79, label %php_dom_transfer_document_ref_single_aux.exit24.thread28.i, label %php_dom_transfer_document_ref_single_aux.exit24.thread.i
+  br i1 %79, label %php_dom_transfer_document_ref_single_aux.exit24.thread32.i, label %php_dom_transfer_document_ref_single_aux.exit24.thread.i
 
-php_dom_transfer_document_ref_single_aux.exit24.thread28.i: ; preds = %php_dom_transfer_document_ref_single_aux.exit24.i, %69
+php_dom_transfer_document_ref_single_aux.exit24.thread32.i: ; preds = %php_dom_transfer_document_ref_single_aux.exit24.i, %69
   %80 = getelementptr inbounds nuw i8, ptr %.026.i, i64 24
   %81 = load ptr, ptr %80, align 8, !tbaa !122
   %.not.i.i = icmp eq ptr %81, null
   br i1 %.not.i.i, label %php_dom_transfer_document_ref_single_aux.exit24.thread.i, label %php_dom_next_in_tree_order.exit.i.backedge
 
-php_dom_transfer_document_ref_single_aux.exit24.thread.i: ; preds = %php_dom_transfer_document_ref_single_aux.exit24.thread28.i, %php_dom_transfer_document_ref_single_aux.exit24.i, %php_dom_transfer_document_ref_single_node.exit.i14.i
+php_dom_transfer_document_ref_single_aux.exit24.thread.i: ; preds = %php_dom_transfer_document_ref_single_aux.exit24.thread32.i, %php_dom_transfer_document_ref_single_aux.exit24.i, %php_dom_transfer_document_ref_single_node.exit.i14.i
   %82 = getelementptr inbounds nuw i8, ptr %.026.i, i64 48
   %83 = load ptr, ptr %82, align 8, !tbaa !125
   %.not17.i.i = icmp eq ptr %83, null
   br i1 %.not17.i.i, label %.preheader.i, label %php_dom_next_in_tree_order.exit.i.backedge
 
-php_dom_next_in_tree_order.exit.i.backedge:       ; preds = %90, %php_dom_transfer_document_ref_single_aux.exit24.thread.i, %php_dom_transfer_document_ref_single_aux.exit24.thread28.i
-  %.026.i.be = phi ptr [ %81, %php_dom_transfer_document_ref_single_aux.exit24.thread28.i ], [ %83, %php_dom_transfer_document_ref_single_aux.exit24.thread.i ], [ %92, %90 ]
+php_dom_next_in_tree_order.exit.i.backedge:       ; preds = %90, %php_dom_transfer_document_ref_single_aux.exit24.thread.i, %php_dom_transfer_document_ref_single_aux.exit24.thread32.i
+  %.026.i.be = phi ptr [ %81, %php_dom_transfer_document_ref_single_aux.exit24.thread32.i ], [ %83, %php_dom_transfer_document_ref_single_aux.exit24.thread.i ], [ %92, %90 ]
   br label %php_dom_next_in_tree_order.exit.i
 
 .preheader.i:                                     ; preds = %php_dom_transfer_document_ref_single_aux.exit24.thread.i, %90

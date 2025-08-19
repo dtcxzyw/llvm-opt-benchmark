@@ -1256,8 +1256,8 @@ define { ptr, ptr } @_ZN7uu_fold4fold17hcfb00262b1e9f153E(ptr noalias noundef no
   br i1 %.not.i.us, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbea3ef475de81907E.exit.us", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbea3ef475de81907E.exit.thread.us"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbea3ef475de81907E.exit.us": ; preds = %.lr.ph.split.us
-  %lhsc140 = load i8, ptr %18, align 1
-  %21 = icmp eq i8 %lhsc140, 45
+  %lhsc143 = load i8, ptr %18, align 1
+  %21 = icmp eq i8 %lhsc143, 45
   br i1 %21, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbea3ef475de81907E.exit.thread.us"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbea3ef475de81907E.exit.thread.us": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbea3ef475de81907E.exit.us", %.lr.ph.split.us
@@ -1450,15 +1450,15 @@ define { ptr, ptr } @_ZN7uu_fold4fold17hcfb00262b1e9f153E(ptr noalias noundef no
   br label %74
 
 79:                                               ; preds = %.split105.us, %.thread78, %80, %61
-  %.sroa.0.183 = phi ptr [ %56, %.thread78 ], [ %.sroa.0.1144, %80 ], [ %69, %61 ], [ %34, %.split105.us ]
-  %.sroa.5.182 = phi ptr [ @anon.5f95ae5c3a1da310297d0616fff28abc.6, %.thread78 ], [ %.sroa.5.1143, %80 ], [ %62, %61 ], [ %72, %.split105.us ]
+  %.sroa.0.183 = phi ptr [ %56, %.thread78 ], [ %.sroa.0.1147, %80 ], [ %69, %61 ], [ %34, %.split105.us ]
+  %.sroa.5.182 = phi ptr [ @anon.5f95ae5c3a1da310297d0616fff28abc.6, %.thread78 ], [ %.sroa.5.1146, %80 ], [ %62, %61 ], [ %72, %.split105.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit
 
 80:                                               ; preds = %.split105.us, %61
-  %.sroa.0.1144 = phi ptr [ %34, %.split105.us ], [ %69, %61 ]
-  %.sroa.5.1143 = phi ptr [ %72, %.split105.us ], [ %62, %61 ]
+  %.sroa.0.1147 = phi ptr [ %34, %.split105.us ], [ %69, %61 ]
+  %.sroa.5.1146 = phi ptr [ %72, %.split105.us ], [ %62, %61 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !352)
   call void @llvm.experimental.noalias.scope.decl(metadata !355)
   call void @llvm.experimental.noalias.scope.decl(metadata !358)
@@ -1469,11 +1469,11 @@ define { ptr, ptr } @_ZN7uu_fold4fold17hcfb00262b1e9f153E(ptr noalias noundef no
   br label %79
 
 "_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h4dcade4817e1bf20E.exit": ; preds = %.split, %83, %49
-  %.us-phi103141 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.split ], [ %.us-phi103142, %83 ], [ %lpad.thr_comm.split-lp.us, %49 ]
-  resume { ptr, i32 } %.us-phi103141
+  %.us-phi103144 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.split ], [ %.us-phi103145, %83 ], [ %lpad.thr_comm.split-lp.us, %49 ]
+  resume { ptr, i32 } %.us-phi103144
 
 83:                                               ; preds = %.split, %49
-  %.us-phi103142 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.split ], [ %lpad.thr_comm.split-lp.us, %49 ]
+  %.us-phi103145 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.split ], [ %lpad.thr_comm.split-lp.us, %49 ]
   %84 = load i32, ptr %9, align 4, !alias.scope !368, !noundef !5
   %85 = invoke noundef i32 @close(i32 noundef %84)
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h4dcade4817e1bf20E.exit" unwind label %86

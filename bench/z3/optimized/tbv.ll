@@ -712,8 +712,8 @@ _ZNK8rational9is_uint64Ev.exit:                   ; preds = %2
   %28 = shl nuw i64 1, %27
   %29 = and i64 %28, %17
   %.not8.i = icmp eq i64 %29, 0
-  %30 = shl i32 %26, 1
-  %31 = lshr i32 %30, 5
+  %30 = shl nuw nsw i32 %26, 1
+  %31 = lshr i32 %26, 4
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds nuw [1 x i32], ptr %18, i64 0, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !17
@@ -734,11 +734,11 @@ _ZNK8rational9is_uint64Ev.exit:                   ; preds = %2
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %40, %35
-  %.sink29 = phi i32 [ %41, %40 ], [ %37, %35 ]
-  %.sink28 = phi i32 [ %44, %40 ], [ %34, %35 ]
+  %.sink32 = phi i32 [ %41, %40 ], [ %37, %35 ]
+  %.sink31 = phi i32 [ %44, %40 ], [ %34, %35 ]
   %.sink = phi i32 [ %43, %40 ], [ %39, %35 ]
-  %45 = shl nuw i32 2, %.sink29
-  %46 = and i32 %45, %.sink28
+  %45 = shl nuw i32 2, %.sink32
+  %46 = and i32 %45, %.sink31
   %47 = or disjoint i32 %.sink, %46
   %48 = xor i32 %47, %34
   store i32 %48, ptr %33, align 4, !tbaa !17
@@ -842,8 +842,8 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i18
 _ZN8rationalD2Ev.exit20:                          ; preds = %.noexc.i19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %84 = shl i32 %64, 1
-  %85 = lshr i32 %84, 5
+  %84 = shl nuw i32 %64, 1
+  %85 = lshr i32 %64, 4
   %86 = zext nneg i32 %85 to i64
   %87 = getelementptr inbounds nuw [1 x i32], ptr %49, i64 0, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !17
@@ -870,8 +870,8 @@ _ZN8rationalD2Ev.exit20:                          ; preds = %.noexc.i19
   br label %105
 
 105:                                              ; preds = %97, %89
-  %.sink31 = phi i32 [ %104, %97 ], [ %96, %89 ]
-  %106 = xor i32 %.sink31, %88
+  %.sink34 = phi i32 [ %104, %97 ], [ %96, %89 ]
+  %106 = xor i32 %.sink34, %88
   store i32 %106, ptr %87, align 4, !tbaa !17
   %.not = icmp eq i32 %64, 0
   br i1 %.not, label %_ZN11tbv_manager8allocateEm.exit, label %63, !llvm.loop !39
@@ -1119,14 +1119,14 @@ define hidden void @_ZN11tbv_manager10complementERK3tbvR10ptr_vectorIS0_E(ptr no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %51, %33
-  %.sink23 = phi ptr [ %31, %33 ], [ %49, %51 ], [ %.pre.i11, %.sink.split.sink.split ]
-  %.sink22 = phi i32 [ %35, %33 ], [ %53, %51 ], [ %.pre2.i13, %.sink.split.sink.split ]
+  %.sink27 = phi ptr [ %31, %33 ], [ %49, %51 ], [ %.pre.i11, %.sink.split.sink.split ]
+  %.sink26 = phi i32 [ %35, %33 ], [ %53, %51 ], [ %.pre2.i13, %.sink.split.sink.split ]
   %.sink = phi ptr [ %22, %33 ], [ %40, %51 ], [ %.sink.ph, %.sink.split.sink.split ]
-  %57 = getelementptr inbounds i8, ptr %.sink23, i64 -4
-  %58 = zext i32 %.sink22 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %.sink23, i64 %58
+  %57 = getelementptr inbounds i8, ptr %.sink27, i64 -4
+  %58 = zext i32 %.sink26 to i64
+  %59 = getelementptr inbounds nuw ptr, ptr %.sink27, i64 %58
   store ptr %.sink, ptr %59, align 8, !tbaa !43
-  %60 = add i32 %.sink22, 1
+  %60 = add i32 %.sink26, 1
   store i32 %60, ptr %57, align 4, !tbaa !17
   br label %61
 

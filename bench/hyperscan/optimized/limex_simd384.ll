@@ -993,11 +993,11 @@ moNfaReportCurrent384.exit:                       ; preds = %10, %31
   br label %.sink.split
 
 .sink.split:                                      ; preds = %124, %134
-  %.sink239 = phi <2 x i64> [ %146, %134 ], [ %131, %124 ]
-  %.sink238 = phi <2 x i64> [ %147, %134 ], [ %132, %124 ]
+  %.sink245 = phi <2 x i64> [ %146, %134 ], [ %131, %124 ]
+  %.sink244 = phi <2 x i64> [ %147, %134 ], [ %132, %124 ]
   %.sink = phi <2 x i64> [ %148, %134 ], [ %133, %124 ]
-  store <2 x i64> %.sink239, ptr %6, align 64
-  store <2 x i64> %.sink238, ptr %.sroa.4191.0..sroa_idx, align 16
+  store <2 x i64> %.sink245, ptr %6, align 64
+  store <2 x i64> %.sink244, ptr %.sroa.4191.0..sroa_idx, align 16
   store <2 x i64> %.sink, ptr %.sroa.5192.0..sroa_idx, align 32
   br label %149
 
@@ -4210,11 +4210,11 @@ moNfaReportCurrent384.exit:                       ; preds = %12, %33
   br label %.sink.split
 
 .sink.split:                                      ; preds = %159, %169
-  %.sink292 = phi <2 x i64> [ %181, %169 ], [ %166, %159 ]
-  %.sink291 = phi <2 x i64> [ %182, %169 ], [ %167, %159 ]
+  %.sink299 = phi <2 x i64> [ %181, %169 ], [ %166, %159 ]
+  %.sink298 = phi <2 x i64> [ %182, %169 ], [ %167, %159 ]
   %.sink = phi <2 x i64> [ %183, %169 ], [ %168, %159 ]
-  store <2 x i64> %.sink292, ptr %6, align 64
-  store <2 x i64> %.sink291, ptr %.sroa.4227.0..sroa_idx, align 16
+  store <2 x i64> %.sink299, ptr %6, align 64
+  store <2 x i64> %.sink298, ptr %.sroa.4227.0..sroa_idx, align 16
   store <2 x i64> %.sink, ptr %.sroa.5228.0..sroa_idx, align 32
   br label %184
 
@@ -6889,25 +6889,25 @@ runException384.exit237:                          ; preds = %1320, %1268, %1264,
   br i1 %.not2047, label %nfaExecLimEx384_Stream.exit, label %nfaExecLimEx384_Stream.exit.sink.split, !prof !80
 
 nfaExecLimEx384_Stream.exit.sink.split.sink.split: ; preds = %274, %705, %1166
-  %.sroa.0475.12107.lcssa2151.sink = phi <2 x i64> [ %.sroa.0475.12107, %1166 ], [ %.sroa.0865.02089, %705 ], [ %.sroa.01190.02080, %274 ]
-  %.sroa.15.02090.lcssa2160.sink.ph = phi <2 x i64> [ %.sroa.24.12108, %1166 ], [ %.sroa.15.02090, %705 ], [ %.sroa.14.02081, %274 ]
-  %.sroa.18.02091.lcssa2161.sink.ph = phi <2 x i64> [ %.sroa.26.12109, %1166 ], [ %.sroa.18.02091, %705 ], [ %.sroa.17.02082, %274 ]
-  %.045.i2092.lcssa2162.sink.ph.ph = phi i64 [ %.118972105, %1166 ], [ %.045.i2092, %705 ], [ %.045.i72083, %274 ]
-  store <2 x i64> %.sroa.0475.12107.lcssa2151.sink, ptr %3, align 64
+  %.sroa.0475.12107.lcssa2171.sink = phi <2 x i64> [ %.sroa.0475.12107, %1166 ], [ %.sroa.0865.02089, %705 ], [ %.sroa.01190.02080, %274 ]
+  %.sroa.15.02090.lcssa2180.sink.ph = phi <2 x i64> [ %.sroa.24.12108, %1166 ], [ %.sroa.15.02090, %705 ], [ %.sroa.14.02081, %274 ]
+  %.sroa.18.02091.lcssa2181.sink.ph = phi <2 x i64> [ %.sroa.26.12109, %1166 ], [ %.sroa.18.02091, %705 ], [ %.sroa.17.02082, %274 ]
+  %.045.i2092.lcssa2182.sink.ph.ph = phi i64 [ %.118972105, %1166 ], [ %.045.i2092, %705 ], [ %.045.i72083, %274 ]
+  store <2 x i64> %.sroa.0475.12107.lcssa2171.sink, ptr %3, align 64
   br label %nfaExecLimEx384_Stream.exit.sink.split
 
 nfaExecLimEx384_Stream.exit.sink.split:           ; preds = %nfaExecLimEx384_Stream.exit.sink.split.sink.split, %1360
-  %.sroa.15.02090.lcssa2160.sink = phi <2 x i64> [ %.sroa.24.4, %1360 ], [ %.sroa.15.02090.lcssa2160.sink.ph, %nfaExecLimEx384_Stream.exit.sink.split.sink.split ]
-  %.sroa.18.02091.lcssa2161.sink = phi <2 x i64> [ %.sroa.26.4, %1360 ], [ %.sroa.18.02091.lcssa2161.sink.ph, %nfaExecLimEx384_Stream.exit.sink.split.sink.split ]
-  %.045.i2092.lcssa2162.sink.ph = phi i64 [ %2, %1360 ], [ %.045.i2092.lcssa2162.sink.ph.ph, %nfaExecLimEx384_Stream.exit.sink.split.sink.split ]
-  store <2 x i64> %.sroa.15.02090.lcssa2160.sink, ptr %.sroa.24.0..sroa_idx, align 16
-  store <2 x i64> %.sroa.18.02091.lcssa2161.sink, ptr %.sroa.26.0..sroa_idx, align 32
+  %.sroa.15.02090.lcssa2180.sink = phi <2 x i64> [ %.sroa.24.4, %1360 ], [ %.sroa.15.02090.lcssa2180.sink.ph, %nfaExecLimEx384_Stream.exit.sink.split.sink.split ]
+  %.sroa.18.02091.lcssa2181.sink = phi <2 x i64> [ %.sroa.26.4, %1360 ], [ %.sroa.18.02091.lcssa2181.sink.ph, %nfaExecLimEx384_Stream.exit.sink.split.sink.split ]
+  %.045.i2092.lcssa2182.sink.ph = phi i64 [ %2, %1360 ], [ %.045.i2092.lcssa2182.sink.ph.ph, %nfaExecLimEx384_Stream.exit.sink.split.sink.split ]
+  store <2 x i64> %.sroa.15.02090.lcssa2180.sink, ptr %.sroa.24.0..sroa_idx, align 16
+  store <2 x i64> %.sroa.18.02091.lcssa2181.sink, ptr %.sroa.26.0..sroa_idx, align 32
   br label %nfaExecLimEx384_Stream.exit
 
 nfaExecLimEx384_Stream.exit:                      ; preds = %nfaExecLimEx384_Stream.exit.sink.split, %.loopexit, %1360
-  %.045.i2092.lcssa2162.sink = phi i64 [ %2, %1360 ], [ %2, %.loopexit ], [ %.045.i2092.lcssa2162.sink.ph, %nfaExecLimEx384_Stream.exit.sink.split ]
+  %.045.i2092.lcssa2182.sink = phi i64 [ %2, %1360 ], [ %2, %.loopexit ], [ %.045.i2092.lcssa2182.sink.ph, %nfaExecLimEx384_Stream.exit.sink.split ]
   %.3.i = phi i8 [ 1, %1360 ], [ 1, %.loopexit ], [ 0, %nfaExecLimEx384_Stream.exit.sink.split ]
-  store i64 %.045.i2092.lcssa2162.sink, ptr %5, align 8
+  store i64 %.045.i2092.lcssa2182.sink, ptr %5, align 8
   ret i8 %.3.i
 }
 
@@ -7094,11 +7094,11 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx384_QR(ptr noundef %0, ptr 
   br label %nfaExecLimEx384_HandleEvent.exit.sink.split
 
 nfaExecLimEx384_HandleEvent.exit.sink.split:      ; preds = %93, %83
-  %.sink291 = phi <2 x i64> [ %90, %83 ], [ %105, %93 ]
-  %.sink290 = phi <2 x i64> [ %91, %83 ], [ %106, %93 ]
+  %.sink301 = phi <2 x i64> [ %90, %83 ], [ %105, %93 ]
+  %.sink300 = phi <2 x i64> [ %91, %83 ], [ %106, %93 ]
   %.sink = phi <2 x i64> [ %92, %83 ], [ %107, %93 ]
-  store <2 x i64> %.sink291, ptr %6, align 64
-  store <2 x i64> %.sink290, ptr %.sroa.4.0..sroa_idx, align 16
+  store <2 x i64> %.sink301, ptr %6, align 64
+  store <2 x i64> %.sink300, ptr %.sroa.4.0..sroa_idx, align 16
   store <2 x i64> %.sink, ptr %.sroa.5.0..sroa_idx, align 32
   br label %nfaExecLimEx384_HandleEvent.exit
 
@@ -10960,7 +10960,7 @@ limexRunReports.exit.i114:                        ; preds = %313, %307
   br label %.thread
 
 .thread:                                          ; preds = %319, %limexRunReports.exit.i114, %291
-  %.3590 = phi i32 [ %.1589, %291 ], [ %.1589, %limexRunReports.exit.i114 ], [ %spec.select, %319 ]
+  %.3590 = phi i32 [ %.1589, %291 ], [ 0, %limexRunReports.exit.i114 ], [ %spec.select, %319 ]
   %.sroa.4529.6 = phi ptr [ %.sroa.4529.3, %291 ], [ %.sroa.4529.3, %limexRunReports.exit.i114 ], [ %spec.select656, %319 ]
   %321 = getelementptr inbounds nuw i8, ptr %304, i64 48
   call void @llvm.assume(i1 true) [ "align"(ptr %321, i64 16) ], !noalias !599

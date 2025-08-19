@@ -72,7 +72,7 @@ BufferGetPage.exit:                               ; preds = %6, %12
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %37 = zext i16 %22 to i64
   %38 = add nsw i64 %37, -1
-  %39 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %36, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %36, i64 0, i64 %38
   %.val = load i32, ptr %39, align 4
   %40 = and i32 %.val, 32767
   %41 = zext nneg i32 %40 to i64
@@ -733,9 +733,9 @@ BufferGetPage.exit.i:                             ; preds = %259, %253
   %300 = icmp ugt i32 %299, 1
   %301 = add i32 %247, 1
   %spec.select.i = select i1 %300, i32 %301, i32 -1
-  %spec.select99.i = select i1 %300, i32 %251, i32 -1
+  %spec.select103.i = select i1 %300, i32 %251, i32 -1
   store i32 %spec.select.i, ptr %67, align 4
-  store i32 %spec.select99.i, ptr %68, align 8
+  store i32 %spec.select103.i, ptr %68, align 8
   call void @IncrBufferRefCount(i32 noundef %248) #8
   store i32 %248, ptr %65, align 8
   %302 = load i32, ptr %10, align 4
@@ -791,7 +791,7 @@ BufferGetPage.exit209:                            ; preds = %306, %312
   br i1 %or.cond78.i, label %324, label %325
 
 324:                                              ; preds = %.thread222, %323
-  br i1 %.not178, label %.sink.split270, label %.sink.split270.sink.split
+  br i1 %.not178, label %.sink.split299, label %.sink.split299.sink.split
 
 325:                                              ; preds = %323
   br i1 %.not178, label %.thread, label %326
@@ -802,18 +802,18 @@ BufferGetPage.exit209:                            ; preds = %306, %312
 
 328:                                              ; preds = %326
   call void @LockBuffer(i32 noundef %248, i32 noundef 0) #8
-  br label %.sink.split270.sink.split
+  br label %.sink.split299.sink.split
 
-.sink.split270.sink.split:                        ; preds = %324, %328
+.sink.split299.sink.split:                        ; preds = %324, %328
   call void @LockBuffer(i32 noundef %2, i32 noundef 2) #8
-  br label %.sink.split270
+  br label %.sink.split299
 
-.sink.split270:                                   ; preds = %.sink.split270.sink.split, %324
+.sink.split299:                                   ; preds = %.sink.split299.sink.split, %324
   call void @LockBuffer(i32 noundef %248, i32 noundef 2) #8
   br label %329
 
-329:                                              ; preds = %.sink.split270, %326
-  %.2219 = phi i1 [ false, %326 ], [ true, %.sink.split270 ]
+329:                                              ; preds = %.sink.split299, %326
+  %.2219 = phi i1 [ false, %326 ], [ true, %.sink.split299 ]
   %330 = call fastcc zeroext i1 @GetVisibilityMapPins(ptr noundef %0, i32 noundef %2, i32 noundef %248, i32 noundef %.0155, i32 noundef %305, ptr noundef %6, ptr noundef %5)
   %331 = call i64 @PageGetHeapFreeSpace(ptr noundef %.0.i.i208) #8
   %332 = icmp ugt i64 %14, %331
@@ -822,11 +822,11 @@ BufferGetPage.exit209:                            ; preds = %306, %312
 .thread:                                          ; preds = %325
   %333 = call i64 @PageGetHeapFreeSpace(ptr noundef %.0.i.i208) #8
   %334 = icmp ugt i64 %14, %333
-  br i1 %334, label %.thread253, label %.loopexit
+  br i1 %334, label %.thread282, label %.loopexit
 
 335:                                              ; preds = %329
   %336 = or i1 %.2219, %330
-  br i1 %336, label %337, label %.thread253
+  br i1 %336, label %337, label %.thread282
 
 337:                                              ; preds = %335
   br i1 %.not178, label %339, label %338
@@ -839,7 +839,7 @@ BufferGetPage.exit209:                            ; preds = %306, %312
   call void @UnlockReleaseBuffer(i32 noundef %248) #8
   br label %74
 
-.thread253:                                       ; preds = %335, %.thread
+.thread282:                                       ; preds = %335, %.thread
   %340 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #9
   call void @llvm.assume(i1 %340)
   %341 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i64 noundef %14) #8
@@ -865,11 +865,11 @@ BufferGetPage.exit209:                            ; preds = %306, %312
   br label %RelationGetSmgr.exit
 
 RelationGetSmgr.exit:                             ; preds = %345, %.loopexit, %203, %199
-  %.sink273 = phi ptr [ %.pre.i, %203 ], [ %201, %199 ], [ %.pre.i213, %345 ], [ %343, %.loopexit ]
-  %.sink271 = phi i32 [ %.5239, %203 ], [ %.5239, %199 ], [ %305, %345 ], [ %305, %.loopexit ]
+  %.sink302 = phi ptr [ %.pre.i, %203 ], [ %201, %199 ], [ %.pre.i213, %345 ], [ %343, %.loopexit ]
+  %.sink300 = phi i32 [ %.5239, %203 ], [ %.5239, %199 ], [ %305, %345 ], [ %305, %.loopexit ]
   %.0 = phi i32 [ %.0158, %203 ], [ %.0158, %199 ], [ %248, %345 ], [ %248, %.loopexit ]
-  %349 = getelementptr inbounds nuw i8, ptr %.sink273, i64 16
-  store i32 %.sink271, ptr %349, align 8
+  %349 = getelementptr inbounds nuw i8, ptr %.sink302, i64 16
+  store i32 %.sink300, ptr %349, align 8
   ret i32 %.0
 }
 
